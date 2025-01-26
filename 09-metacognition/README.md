@@ -12,7 +12,7 @@ This lesson will cover
 After completing this lesson, you will have an understanding about: 
 * Understand the implications of reasoning loop in agent definition 
 * Use planning and evaluation techniques to help self correcting
-* Create your own agents that is able to manipulate code to accomplish tasks
+* Create your own agents that are able to manipulate code to accomplish tasks
 
 ## Introduction to Metacognition
 Metacognition refers to the higher-order cognitive processes that involve thinking about one’s own thinking. This will take our agent design to a deeper level as we now need a little bit more context.
@@ -30,6 +30,7 @@ We know that agents are defined as persona, tools and skills. That allows us to 
 ### RAG as prompting technique vs tool
 
 ### Evaluating relevancy
+
 
 ### Search with intent
 
