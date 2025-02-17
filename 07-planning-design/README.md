@@ -43,7 +43,7 @@ This modular approach also allows for incremental enhancements. For instance, yo
 
 ### Structured output
 
-Large Language Models (LLMs) can generate structured output (e.g. JSON) that is easier for downstream agents or services to parse and process. This is especially useful in a multi-agent context, where we can action these tasks after the planning output is received. Refer to this [blogpost](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html){target="_blank"} for a quick overview.
+Large Language Models (LLMs) can generate structured output (e.g. JSON) that is easier for downstream agents or services to parse and process. This is especially useful in a multi-agent context, where we can action these tasks after the planning output is received. Refer to this <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">blogpost</a> for a quick overview.
 
 Below is an example Python snippet that demonstrates a simple planning agent decomposing a goal into subtasks and generating a structured plan:
 
@@ -192,7 +192,7 @@ e.g sample code
     # .. re-plan and send the tasks to respective agents
     ```
 
-For a more comprehensive planning do checkout Magnetic One [Blogpost](https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks){target="_blank"} for solving complex tasks.
+For a more comprehensive planning do checkout Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> for solving complex tasks.
 
 ## Summary
 
@@ -200,4 +200,4 @@ In this article we have looked at an example of how we can create a planner that
 
 ## Additional Resources
 
-* AutoGen Magentic One - A Generalist multi agent system for solving complex task and has achieved impressive results on multiple challenging agentic benchmarks. Reference: [autogen-magentic-one](https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one){target="_blank"}. In this implementation the orchestrator create task specific plan and delegates these tasks to the available agents. In addition to planning the orchestrator also employs a tracking mechanism to monitor the progress of the task and re-plans as required.
+* AutoGen Magentic One - A Generalist multi agent system for solving complex task and has achieved impressive results on multiple challenging agentic benchmarks. Reference: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. In this implementation the orchestrator create task specific plan and delegates these tasks to the available agents. In addition to planning the orchestrator also employs a tracking mechanism to monitor the progress of the task and re-plans as required.

@@ -183,7 +183,7 @@ Building trustworthy AI agents requires careful design, robust security measures
 
 ## Additional Resources
 
-- [Responsible AI overview](https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview){target="_blank"}
--[Evaluation of generative AI models and AI applications](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai){target="_blank"}
-- [Safety system messages](https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques){target="_blank"}
-- [Risk Assessment Template](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us){target="_blank"}
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Responsible AI overview</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Evaluation of generative AI models and AI applications</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Safety system messages</a>
+- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Risk Assessment Template</a>

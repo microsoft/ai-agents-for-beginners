@@ -169,5 +169,5 @@ In this lesson, we've looked at the multi-agent design pattern, including the sc
 
 ## Additional resources
 
-- [AutoGen design patterns](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html){target="_blank"}
-- [Agentic design patterns](https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/){target="_blank"}
+- <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html" target="_blank">AutoGen design patterns</a>
+- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">Agentic design patterns</a>

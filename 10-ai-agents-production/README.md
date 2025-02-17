@@ -58,7 +58,7 @@ This is currently the last lesson of "AI Agents for Beginners".
 
 We plan to continue to add lessons based on feedback and changes in this ever growing industry so stop by again in the near future.
 
-If you want to continue your learning and building with AI Agents, join the [Azure AI Community Discord](https://discord.gg/kzRShWzttr){target="_blank"}.
+If you want to continue your learning and building with AI Agents, join the <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a>.
 
 We host workshops, community roundtables and "ask me anything" sessions there.
 
