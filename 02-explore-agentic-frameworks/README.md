@@ -63,15 +63,49 @@ Frameworks like LangChain and Microsoft Semantic Kernel offer pre-built componen
 **Example code**. Let's look at an example of how you can use a pre-built parser to extract information from user input:
 
 ```python
-from langchain import Parser
+import os
+from langchain.output_parsers import PydanticOutputParser
+from langchain.prompts import PromptTemplate
+from langchain_openai import AzureChatOpenAI
+from pydantic import BaseModel, Field
+from dotenv import load_dotenv
 
-parser = Parser()
-user_input = "Book a flight from New York to London on July 15th"
+# Load environment variables
+load_dotenv()
 
-parsed_data = parser.parse(user_input)
+# Define a Pydantic model for structured data
+class FlightBooking(BaseModel):
+    origin: str = Field(description="Departure city")
+    destination: str = Field(description="Arrival city")
+    date: str = Field(description="Flight date")
+
+# Initialize parser
+parser = PydanticOutputParser(pydantic_object=FlightBooking)
+
+# Define the prompt template
+prompt = PromptTemplate(
+    template="Extract structured flight details from the following text:\n{text}\n{format_instructions}",
+    input_variables=["text"],
+    partial_variables={"format_instructions": parser.get_format_instructions()},
+)
+
+# Initialize Azure OpenAI LLM
+llm = AzureChatOpenAI(
+    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+    openai_api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+    deployment_name=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
+    openai_api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+    temperature=0
+)
+
+# Chain together the prompt, model, and parser
+chain = prompt | llm | parser
+
+# Invoke the chain
+parsed_data = chain.invoke({"text": user_input})
 
 print(parsed_data)
-# Output: {'origin': 'New York', 'destination': 'London', 'date': 'July 15th'}
+# Output: origin='New York' destination='London' date='July 15th'
 ```
 
 What you can see from this example is how you can leverage a pre-built parser to extract key information from user input, such as the origin, destination, and date of a flight booking request. This modular approach allows you to focus on the high-level logic.
