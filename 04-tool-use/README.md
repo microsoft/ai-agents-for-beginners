@@ -26,7 +26,7 @@ The **Tool Use Design Pattern** focuses on giving LLMs the ability to interact w
 
 ## What are the use cases it can be applied to?
 
-AI Agents can leverage tools to complete complex tasks, retrieve information, or make decisions. The Tool Use Design Pattern is often used in scenarios requiring dynamic interaction with external systems, such as databases, web services, or code interpreters. This ability is useful for a number of different use cases including:
+AI Agents can leverage tools to complete complex tasks, retrieve information, or make decisions. The tool use design pattern is often used in scenarios requiring dynamic interaction with external systems, such as databases, web services, or code interpreters. This ability is useful for a number of different use cases including:
 
 - **Dynamic Information Retrieval:** Agents can query external APIs or databases to fetch up-to-date data (e.g., querying a SQLite database for data analysis, fetching stock prices or weather information).
 - **Code Execution and Interpretation:** Agents can execute code or scripts to solve mathematical problems, generate reports, or perform simulations.
@@ -34,24 +34,24 @@ AI Agents can leverage tools to complete complex tasks, retrieve information, or
 - **Customer Support:** Agents can interact with CRM systems, ticketing platforms, or knowledge bases to resolve user queries.
 - **Content Generation and Editing:** Agents can leverage tools like grammar checkers, text summarizers, or content safety evaluators to assist with content creation tasks.
 
-## What are the elements/building blocks needed to implement the Tool Use Design Pattern?
+## What are the elements/building blocks needed to implement the tool use design pattern?
 
 These building blocks allow the AI agent to perform a wide range of tasks. Let's look at the key elements needed to implement the Tool Use Design Pattern:
 
-- **Function/Tool Calling**: This is the primary way to enable LLMs to interact with tools. Functions or tools are blocks of reusable code that agents use to carry out tasks. These can range from simple functions like a calculator to API calls to third-party services such as stock price lookups or weather forecasts.
+- **Function/Tool Calling**: This is the primary way to enable LLMs to interact with tools. Functions or tools are blocks of reusable code that agents use to carry out tasks. These can range from simple functions like a calculator to API calls to third-party services such as stock price lookups or weather forecasts1.
 
-- **Dynamic Information Retrieval**: Agents can query external APIs or databases to fetch up-to-date data. This is useful for tasks like data analysis, fetching stock prices, or weather information.
+- **Dynamic Information Retrieval**: Agents can query external APIs or databases to fetch up-to-date data. This is useful for tasks like data analysis, fetching stock prices, or weather information1.
 
-- **Code Execution and Interpretation**: Agents can execute code or scripts to solve mathematical problems, generate reports, or perform simulations.
+- **Code Execution and Interpretation**: Agents can execute code or scripts to solve mathematical problems, generate reports, or perform simulations1.
 
-- **Workflow Automation**: This involves automating repetitive or multi-step workflows by integrating tools like task schedulers, email services, or data pipelines.
+- **Workflow Automation**: This involves automating repetitive or multi-step workflows by integrating tools like task schedulers, email services, or data pipelines1.
 
-- **Customer Support**: Agents can interact with CRM systems, ticketing platforms, or knowledge bases to resolve user queries.
+- **Customer Support**: Agents can interact with CRM systems, ticketing platforms, or knowledge bases to resolve user queries1.
 
 - **Content Generation and Editing: Agents can leverage tools like grammar checkers, text summarizers, or content safety evaluators to assist with content creation tasks**.
 
 Next, let's look at Function/Tool Calling in more detail.
-
+ 
 ### Function/Tool Calling
 
 Function calling is the primary way we enable Large Language Models (LLMs) to interact with tools. You will often see 'Function' and 'Tool' used interchangeably because 'functions' (blocks of reusable code) are the 'tools' agents use to carry out tasks. In order for a function's code to be invoked, an LLM must compare the users request against the functions description. To do this a schema containing the descriptions of all the available functions is sent to the LLM. The LLM then selects the most appropriate function for the task and returns its name and arguments. The selected function is invoked, it's response is sent back to the LLM, which uses the information to respond to the users request.
@@ -66,136 +66,136 @@ Let's use the example of getting the current time in a city to illustrate:
 
 1. **Initialize an LLM that supports function calling:**
 
-   Not all models support function calling, so it's important to check that the LLM you are using does. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> supports function calling. We can start by initiating the Azure OpenAI client.
+    Not all models support function calling, so it's important to check that the LLM you are using does.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> supports function calling. We can start by initiating the Azure OpenAI client. 
 
-   ```python
-   # Initialize the Azure OpenAI client
-   client = AzureOpenAI(
-       azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
-       api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-       api_version="2024-05-01-preview"
-   )
-   ```
+    ```python
+    # Initialize the Azure OpenAI client
+    client = AzureOpenAI(
+        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
+        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+        api_version="2024-05-01-preview"
+    )
+    ```
 
 1. **Create a Function Schema**:
 
-   Next we will define a JSON schema that contains the function name, description of what the function does, and the names and descriptions of the function parameters.
-   We will then take this schema and pass it to the client created previously, along with the users request to find the time in San Francisco. What's important to note is that a **tool call** is what is returned, **not** the final answer to the question. As mentioned earlier, the LLM returns the name of the function it selected for the task, and the arguments that will be passed to it.
+    Next we will define a JSON schema that contains the function name, description of what the function does, and the names and descriptions of the function parameters.
+    We will then take this schema and pass it to the client created previously, along with the users request to find the time in San Francisco. What's important to note is that a **tool call** is what is returned, **not** the final answer to the question. As mentioned earlier, the LLM returns the name of the function it selected for the task, and the arguments that will be passed to it.
 
-   ```python
-   # Function description for the model to read
-   tools = [
-       {
-           "type": "function",
-           "function": {
-               "name": "get_current_time",
-               "description": "Get the current time in a given location",
-               "parameters": {
-                   "type": "object",
-                   "properties": {
-                       "location": {
-                           "type": "string",
-                           "description": "The city name, e.g. San Francisco",
-                       },
-                   },
-                   "required": ["location"],
-               },
-           }
-       }
-   ]
-   ```
+    ```python
+    # Function description for the model to read
+    tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": "get_current_time",
+                "description": "Get the current time in a given location",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "location": {
+                            "type": "string",
+                            "description": "The city name, e.g. San Francisco",
+                        },
+                    },
+                    "required": ["location"],
+                },
+            }
+        }
+    ]
+    ```
+   
+    ```python
+  
+    # Initial user message
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
+  
+    # First API call: Ask the model to use the function
+      response = client.chat.completions.create(
+          model=deployment_name,
+          messages=messages,
+          tools=tools,
+          tool_choice="auto",
+      )
+  
+      # Process the model's response
+      response_message = response.choices[0].message
+      messages.append(response_message)
+  
+      print("Model's response:")  
 
-   ```python
+      print(response_message)
+  
+    ```
 
-   # Initial user message
-   messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
-
-   # First API call: Ask the model to use the function
-     response = client.chat.completions.create(
-         model=deployment_name,
-         messages=messages,
-         tools=tools,
-         tool_choice="auto",
-     )
-
-     # Process the model's response
-     response_message = response.choices[0].message
-     messages.append(response_message)
-
-     print("Model's response:")
-
-     print(response_message)
-
-   ```
-
-   ```bash
-   Model's response:
-   ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
-   ```
-
+    ```bash
+    Model's response:
+    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    ```
+  
 1. **The function code required to carry out the task:**
 
-   Now that the LLM has chosen which function needs to be run the code that carries out the task needs to be implemented and executed.
-   We can implement the code to get the current time in Python. We will also need to write the code to extract the name and arguments from the response_message to get the final result.
+    Now that the LLM has chosen which function needs to be run the code that carries out the task needs to be implemented and executed.
+    We can implement the code to get the current time in Python. We will also need to write the code to extract the name and arguments from the response_message to get the final result.
 
-   ```python
-     def get_current_time(location):
-       """Get the current time for a given location"""
-       print(f"get_current_time called with location: {location}")
-       location_lower = location.lower()
-
-       for key, timezone in TIMEZONE_DATA.items():
-           if key in location_lower:
-               print(f"Timezone found for {key}")
-               current_time = datetime.now(ZoneInfo(timezone)).strftime("%I:%M %p")
-               return json.dumps({
-                   "location": location,
-                   "current_time": current_time
-               })
-
-       print(f"No timezone data found for {location_lower}")
-       return json.dumps({"location": location, "current_time": "unknown"})
-   ```
-
-   ```python
-   # Handle function calls
-    if response_message.tool_calls:
-        for tool_call in response_message.tool_calls:
-            if tool_call.function.name == "get_current_time":
-
-                function_args = json.loads(tool_call.function.arguments)
-
-                time_response = get_current_time(
-                    location=function_args.get("location")
-                )
-
-                messages.append({
-                    "tool_call_id": tool_call.id,
-                    "role": "tool",
-                    "name": "get_current_time",
-                    "content": time_response,
+    ```python
+      def get_current_time(location):
+        """Get the current time for a given location"""
+        print(f"get_current_time called with location: {location}")  
+        location_lower = location.lower()
+        
+        for key, timezone in TIMEZONE_DATA.items():
+            if key in location_lower:
+                print(f"Timezone found for {key}")  
+                current_time = datetime.now(ZoneInfo(timezone)).strftime("%I:%M %p")
+                return json.dumps({
+                    "location": location,
+                    "current_time": current_time
                 })
-    else:
-        print("No tool calls were made by the model.")
+      
+        print(f"No timezone data found for {location_lower}")  
+        return json.dumps({"location": location, "current_time": "unknown"})
+    ```
 
-    # Second API call: Get the final response from the model
-    final_response = client.chat.completions.create(
-        model=deployment_name,
-        messages=messages,
-    )
+     ```python
+     # Handle function calls
+      if response_message.tool_calls:
+          for tool_call in response_message.tool_calls:
+              if tool_call.function.name == "get_current_time":
+     
+                  function_args = json.loads(tool_call.function.arguments)
+     
+                  time_response = get_current_time(
+                      location=function_args.get("location")
+                  )
+     
+                  messages.append({
+                      "tool_call_id": tool_call.id,
+                      "role": "tool",
+                      "name": "get_current_time",
+                      "content": time_response,
+                  })
+      else:
+          print("No tool calls were made by the model.")  
+  
+      # Second API call: Get the final response from the model
+      final_response = client.chat.completions.create(
+          model=deployment_name,
+          messages=messages,
+      )
+  
+      return final_response.choices[0].message.content
+     ```
 
-    return final_response.choices[0].message.content
-   ```
-
-   ```bash
-    get_current_time called with location: San Francisco
-    Timezone found for san francisco
-    The current time in San Francisco is 09:24 AM.
-   ```
+     ```bash
+      get_current_time called with location: San Francisco
+      Timezone found for san francisco
+      The current time in San Francisco is 09:24 AM.
+     ```
 
 Function Calling is at the heart of most, if not all agent tool use design, however implementing it from scratch can sometimes be challenging.
 As we learned in [Lesson 2](../02-explore-agentic-frameworks/) agentic frameworks provide us with pre-built building blocks to implement tool use.
-
+ 
 ## Tool Use Examples with Agentic Frameworks
 
 Here are some examples of how you can implement the Tool Use Design Pattern using different agentic frameworks:
@@ -225,7 +225,7 @@ class GetCurrentTimePlugin:
 
 ```
 
-```python
+```python 
 from semantic_kernel import Kernel
 
 # Create the kernel
@@ -237,7 +237,7 @@ get_current_time_plugin = GetCurrentTimePlugin(location)
 # Add the plugin to the kernel
 kernel.add_plugin(get_current_time_plugin)
 ```
-
+  
 ### Azure AI Agent Service
 
 <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> is a newer agentic framework that is designed to empower developers to securely build, deploy, and scale high-quality, and extensible AI agents without needing to manage the underlying compute and storage resources. It is particularly useful for enterprise applications since it is a fully managed service with enterprise grade security.
@@ -251,15 +251,15 @@ When compared to developing with the LLM API directly, Azure AI Agent Service pr
 The tools available in Azure AI Agent Service can be divided into two categories:
 
 1. Knowledge Tools:
-   - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding with Bing Search</a>
-   - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">File Search</a>
-   - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding with Bing Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">File Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
 2. Action Tools:
-   - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Function Calling</a>
-   - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Code Interpreter</a>
-   - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAI defined tools</a>
-   - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Function Calling</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Code Interpreter</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAI defined tools</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
 The Agent Service allows us to be able to use these tools together as a `toolset`. It also utilizes `threads` which keep track of the history of messages from a particular conversation.
 
@@ -271,7 +271,7 @@ The following image illustrates how you could use Azure AI Agent Service to anal
 
 To use any of these tools with the service we can create a client and define a tool or toolset. To implement this practically we can use the following Python code. The LLM will be able to look at the toolset and decide whether to use the user created function, `fetch_sales_data_using_sqlite_query`, or the pre-built Code Interpreter depending on the user request.
 
-```python
+```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
@@ -288,20 +288,20 @@ fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset = ToolSet()
 toolset.add(fetch_data_function)
 
-# Initialize Code Interpreter tool and adding it to the toolset.
+# Initialize Code Interpreter tool and adding it to the toolset. 
 code_interpreter = code_interpreter = CodeInterpreterTool()
 toolset = ToolSet()
 toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent",
+    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
 
 ## What are the special considerations for using the Tool Use Design Pattern to build trustworthy AI agents?
 
-A common concern with SQL dynamically generated by LLMs is security, particularly the risk of SQL injection or malicious actions, such as dropping or tampering with the database. While these concerns are valid, they can be effectively mitigated by properly configuring database access permissions. For most databases this involves configuring the database as read-only. For database services like PostgreSQL or Azure SQL, the app should be assigned a read-only (SELECT) role.
+A common concern with SQL dynamically generated by LLMs is security, particularly the risk of SQL injection or malicious actions, such as dropping or tampering with the database. While these concerns are valid, they can be effectively mitigated by properly configuring database access permissions. For most databases this involves configuring the database as read-only. For database services like PostgreSQL or Azure SQL, the app should be assigned a read-only (SELECT) role. R
 
 Running the app in a secure environment further enhances protection. In enterprise scenarios, data is typically extracted and transformed from operational systems into a read-only database or data warehouse with a user-friendly schema. This approach ensures that the data is secure, optimized for performance and accessibility, and that the app has restricted, read-only access.
 

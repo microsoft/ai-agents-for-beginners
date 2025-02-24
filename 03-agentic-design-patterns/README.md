@@ -22,7 +22,7 @@ In general, agents should:
 After completing this lesson, you will be able to:
 
 1. Explain what the Agentic Design Principles are
-2. Explain the guidelines to using the Agentic Design Principles
+2. Explain the guidelines for using the Agentic Design Principles
 3. Understand how to build an agent using the Agentic Design Principles
 
 ## The Agentic Design Principles
@@ -40,7 +40,7 @@ This is the environment in which the agent operates. These principles inform how
   - Agent is easily discoverable and accessible for authorized users on any device or platform.
   - Agent supports multimodal inputs and outputs (sound, voice, text, etc.).
   - Agent can seamlessly transition between foreground and background; between proactive and reactive, depending on its sensing of user needs.
-  - Agent may operate in invisible form, yet its background process path and collaboration with other Agents is transparent to and controllable by the user.
+  - Agent may operate in invisible form, yet its background process path and collaboration with other Agents are transparent to and controllable by the user.
 
 ### Agent (Time)
 
@@ -50,7 +50,7 @@ This is how the agent operates over time. These principles inform how we design 
   - Agent provides more relevant results based on analysis of richer historical data beyond only the event, people, or states.
   - Agent creates connections from past events and actively reflects on memory to engage with current situations.
 - **Now**: Nudging more than notifying.
-  - Agent embodies a comprehensive approach to interacting with people. When an event happens, Agent goes beyond static notification or other static formality. Agent can simplify flows or dynamically generate cues to direct the user’s attention at the right moment.
+  - Agent embodies a comprehensive approach to interacting with people. When an event happens, the Agent goes beyond static notification or other static formality. Agent can simplify flows or dynamically generate cues to direct the user’s attention at the right moment.
   - Agent delivers information based on contextual environment, social and cultural changes and tailored to user intent.
   - Agent interaction can be gradual, evolving/growing in complexity to empower users over the long term.
 - **Future**: Adapting and evolving.
@@ -67,7 +67,7 @@ These are the key elements in the core of an agent’s design.
   - Trust and transparency are foundational layers of Agent design.
   - Humans are in control of when the Agent is on/off and Agent status is clearly visible at all times.
 
-## The Guidelines To Implement These Principles
+## The Guidelines to Implement These Principles
 
 When you’re using the previous design principles, use the following guidelines:
 

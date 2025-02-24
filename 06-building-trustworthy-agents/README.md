@@ -18,11 +18,11 @@ After completing this lesson you will know how to:
 
 ## Safety
 
-Let's first look at building safe agentic applications. Safety means that the AI agent performs as designed.  As builders of agentic applications, we have methods and tools to maximize safety:
+Let's first look at building safe agentic applications. Safety means that the AI agent performs as designed. As builders of agentic applications, we have methods and tools to maximize safety:
 
 ### Building a Meta Prompting System
 
- If you have ever built an AI application using Large Language Models (LLMs), you know the importance of designing a robust system prompt or system message. These prompts establish the meta rules, instructions, and guidelines for how the LLM will interact with the user and data.
+If you have ever built an AI application using Large Language Models (LLMs), you know the importance of designing a robust system prompt or system message. These prompts establish the meta rules, instructions, and guidelines for how the LLM will interact with the user and data.
 
 For AI Agents, the system prompt is even more important as the AI Agents will need highly specific instructions to complete the tasks we have designed for them.
 
@@ -32,7 +32,7 @@ To create scalable system prompts, we can use a meta prompting system for buildi
 
 #### Step 1: Create a Meta or Template Prompt
 
- The meta prompt will be used by an LLM to generate the system prompts for the agents we create. We design it as a template so that we can efficiently create multiple agents if needed.
+The meta prompt will be used by an LLM to generate the system prompts for the agents we create. We design it as a template so that we can efficiently create multiple agents if needed.
 
 Here is an example of a meta prompt we would give to the LLM:
 
@@ -113,7 +113,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 The value of this meta prompting system is to be able to scale creating prompts from multiple agents easier as well as improving your prompts over time. It is rare you will have a prompt that works the first time for your complete use case. Being able to make small tweaks and improvements by changing the basic prompt and running it through the system will allow you to compare and evaluate results.
 
-## Understanding Threats  
+## Understanding Threats
 
 To build trustworthy AI agents, it is important to understand and mitigate the risks and threats to your AI agent. Let's look at only some of the different threats to AI agents and how you can better plan and prepare for them.
 

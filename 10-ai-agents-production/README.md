@@ -52,7 +52,7 @@ Here are some strategies to manage the costs of deploying AI Agents to productio
 
 - **Using a Router Model** - A similar strategy is to use a diversity of models and sizes. You can use an LLM/SLM or serverless function to route requests based on complexity to the best fit models. This will also help reduce costs while also ensuring performance on the right tasks.
 
-## Congratulations  
+## Congratulations
 
 This is currently the last lesson of "AI Agents for Beginners".
 

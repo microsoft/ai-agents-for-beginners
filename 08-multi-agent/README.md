@@ -21,7 +21,7 @@ After this lesson, you should be able to:
 
 What's the bigger picture?
 
-*Multi-agents are a design pattern that allows multiple agents to work together to achieve a common goal*.
+*Multi agents are a design pattern that allows multiple agents to work together to achieve a common goal*.
 
 This pattern is widely used in various fields, including robotics, autonomous systems, and distributed computing.
 

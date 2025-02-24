@@ -35,7 +35,7 @@ Then select `Generate new token`.
 
 Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
 
-## Add this to your Environment Variables 
+## Add this to your Environment Variables
 
 To create your `.env` file run the following command in your terminal:
 
@@ -45,7 +45,7 @@ cp .env.example .env
 
 This will copy the example file and create a `.env` in your directory.
 
-Open that file and paste the token you created into the `GITHUB_TOKEN=` field of the .env file. 
+Open that file and paste the token you created into the `GITHUB_TOKEN=` field of the .env file.
 
 ## Install Required Packages
 
@@ -57,7 +57,7 @@ We recommend creating a Python virtual environment to avoid any conflicts and is
 pip install -r requirements.txt
 ```
 
-This should install the required Python packages. 
+This should install the required Python packages.
 
 You are now ready to run the code of this code, happy learning more about the world of AI Agents!
 
