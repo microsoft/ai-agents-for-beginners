@@ -23,7 +23,7 @@ You should now have your own forked version of this course in the following link
 
 ## Retrieve Your GitHub Personal Access Token (PAT)
 
-Currently this course uses the Github Models Marketplace to offer free access to Large Language Models(LLMs) that will be used to create AI Agents.
+Currently this course uses the Github Models Marketplace to offer free access to Large Language Models (LLMs) that will be used to create AI Agents.
 
 To access this service, you will need to create a GitHub Personal Access Token.
 
@@ -35,7 +35,7 @@ Then select `Generate new token`.
 
 ![Generate Token](./images/generate-token.png)
 
-Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
+Copy your new token that you have just created. You will now add this to your `.env` file included in this course.
 
 ## Add this to your Environment Variables
 
@@ -77,7 +77,7 @@ Next, open a terminal and run `az login` to sign in to your Azure account.
 
 Login with your Azure AI account used to provision the Azure resources.
 
-Open a new terminal and enter the following command and follow the instruction in the terminal:
+Open a new terminal and enter the following command and follow the instructions in the terminal:
 
 `az login --use-device-code`
 
@@ -96,7 +96,7 @@ load_dotenv()
 
 ## Setup keyless authentication
 
-Rather than hardcode your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential` function to get the credential.
+Rather than hardcoding your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential` function to get the credential.
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
