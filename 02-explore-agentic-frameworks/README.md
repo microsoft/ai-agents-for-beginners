@@ -13,7 +13,7 @@ This lesson will cover:
 
 - What are the differences between the frameworks and tools created by Microsoft <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>, <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a>, and <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent 
 - Can I integrate my existing Azure ecosystem tools directly, or do I need standalone solutions?
-- What is Azure AI Agents service and how is this helping me?
+- What is the Azure AI Agents service and how is this helping me?
 
 ## Learning goals
 
@@ -35,7 +35,7 @@ Example: Customer service apps use AI-powered chatbots to handle common inquirie
 - **Enhanced User Experience**: AI can improve the overall user experience by providing intelligent features such as voice recognition, natural language processing, and predictive text.
 Example: Virtual assistants like Siri and Google Assistant use AI to understand and respond to voice commands, making it easier for users to interact with their devices.
 
-### That all sounds great right, so why do we need the AI Agent Framework?
+### That all sounds great, right? So why do we need the AI Agent Framework?
 
 AI Agent frameworks represent something more than just AI frameworks. They are designed to enable the creation of intelligent agents that can interact with users, other agents, and the environment to achieve specific goals. These agents can exhibit autonomous behavior, make decisions, and adapt to changing conditions. Let's look at some key capabilities enabled by AI Agent Frameworks:
 
@@ -291,7 +291,7 @@ Here are some important core concepts of AutoGen:
   - **Maintains its own state**, which can be modified by incoming messages.
   - **Performs actions** in response to received messages or changes in its state. These actions may modify the agent’s state and produce external effects, such as updating message logs, sending new messages, executing code, or making API calls.
     
-  Here you have a short code snippet in which you create your own agent with Chat capabilities:
+ Here you have a short code snippet in which you create your own agent with Chat capabilities:
 
     ```python
     from autogen_agentchat.agents import AssistantAgent
@@ -338,7 +338,7 @@ Here are some important core concepts of AutoGen:
     my_assistant responded: Hello! How can I assist you today?
     ```
 
-- **Multi agents**. AutoGen supports the creation of multiple agents that can work together to achieve complex tasks. Agents can communicate, share information, and coordinate their actions to solve problems more efficiently. To create a multi-agent system, you can define different types of agents with specialized functions and roles, such as data retrieval, analysis, decision-making, and user interaction. Let's see how such a creation looks like so we get a sense of it:
+- **Multi agents**. AutoGen supports the creation of multiple agents that can work together to achieve complex tasks. Agents can communicate, share information, and coordinate their actions to solve problems more efficiently. To create a multi-agent system, you can define different types of agents with specialized functions and roles, such as data retrieval, analysis, decision-making, and user interaction. Let's see what such a creation looks like so we get a sense of it:
 
     ```python
     editor_description = "Editor for planning and reviewing the content."
@@ -381,7 +381,7 @@ Here are some important core concepts of AutoGen:
 
     In the previous code we have a `GroupChatManager` that is registered with the runtime. This manager is responsible for coordinating the interactions between different types of agents, such as writers, illustrators, editors, and users.
 
-- **Agent Runtime**. The framework provides a runtime environment, enabling communication between agents, manages their identities and lifecycles, and enforce security and privacy boundaries. This means that you can run your agents in a secure and controlled environment, ensuring that they can interact safely and efficiently. There are two runtimes of interest:
+- **Agent Runtime**. The framework provides a runtime environment, enabling communication between agents, managing their identities and lifecycles, and enforcing security and privacy boundaries. This means that you can run your agents in a secure and controlled environment, ensuring that they can interact safely and efficiently. There are two runtimes of interest:
   - **Stand-alone runtime**. This is a good choice for single-process applications where all agents are implemented in the same programming language and run in the same process. Here's an illustration of how it works:
   
     <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">Stand-alone runtime</a>   
@@ -490,7 +490,7 @@ Let's first cover some core components:
 
     Here, you first have a template prompt `skPrompt` that leaves room for the user to input text, `$userInput`. Then you register the function `SummarizeText` with the plugin `SemanticFunctions`. Note the name of the function that helps Semantic Kernel understand what the function does and when it should be called.
 
-- **Native function**: There's also native functions that the framework can call directly to carry out the task. Here's an example of such a function retrieving the content from a file:
+- **Native function**: There're also native functions that the framework can call directly to carry out the task. Here's an example of such a function retrieving the content from a file:
 
     ```csharp
     public class NativeFunctions {
@@ -512,7 +512,7 @@ Let's first cover some core components:
     kernel.ImportFunctions(nativeFunctions, plugInName);
     ```
 
-- **Planner**: The planner orchestrates execution plans and strategies based on user input. The idea is to express how things should be carried out which then surveys as an instruction for Semantic Kernel to follow. It then invokes the necessary functions to carry out the task. Here's an example of such a plan:
+- **Planner**: The planner orchestrates execution plans and strategies based on user input. The idea is to express how things should be carried out which then serves as an instruction for Semantic Kernel to follow. It then invokes the necessary functions to carry out the task. Here's an example of such a plan:
 
     ```csharp
     string planDefinition = "Read content from a local file and summarize the content.";
