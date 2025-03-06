@@ -1,8 +1,8 @@
 # Introduction to AI Agents and Agent Use Cases
 
-Welcome to the "AI Agents for Beginners" course! This course gives you fundamental knowledge and applied samples for building with AI Agents.
+Welcome to the "AI Agents for Beginners" course! This course provides fundamental knowledge and applied samples for building AI Agents.
 
-Join the <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a> to meet other learners, and AI Agent Builders and ask any questions you have on this course.
+Join the <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a> to meet other learners and AI Agent Builders and ask any questions you have about this course.
 
 To start this course, we begin by getting a better understanding of what AI Agents are and how we can use them in the applications and workflows we build.
 

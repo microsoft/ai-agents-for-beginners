@@ -12,7 +12,7 @@ This lesson will cover
 
 ## Learning Goals
 
-After completing this lesson you will know how to/understand:
+After completing this lesson, you will know how to/understand:
 
 - **Understanding Agentic RAG:** Learn about the emerging paradigm in AI where large language models (LLMs) autonomously plan their next steps while pulling information from external data sources.
 - **Iterative Maker-Checker Style:** Grasp the concept of a loop of iterative calls to the LLM, interspersed with tool or function calls and structured outputs, designed to improve correctness and handle malformed queries.

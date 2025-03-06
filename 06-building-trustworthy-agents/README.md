@@ -10,7 +10,7 @@ This lesson will cover:
 
 ## Learning Goals
 
-After completing this lesson you will know how to:
+After completing this lesson, you will know how to:
 
 - Identify and mitigate risks when creating AI Agents.
 - Implement security measures to ensure that data and access are properly managed.
