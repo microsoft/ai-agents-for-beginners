@@ -260,24 +260,24 @@ Additionally, user feedback (e.g. a human deciding they prefer an earlier flight
 
 e.g sample code
 
-    ```python
-    from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-    #.. same as previous code and pass on the user history, current plan
-    messages = [
-        SystemMessage(content="""You are a planner agent to optimize the
-        Your job is to decide which agents to run based on the user's request.
-        Below are the available agents specialized in different tasks:
-        - FlightBooking: For booking flights and providing flight information
-        - HotelBooking: For booking hotels and providing hotel information
-        - CarRental: For booking cars and providing car rental information
-        - ActivitiesBooking: For booking activities and providing activity information
-        - DestinationInfo: For providing information about destinations
-        - DefaultAgent: For handling general requests""", source="system"),
-        UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-        AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-    ]
-    # .. re-plan and send the tasks to respective agents
-    ```
+```python
+from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
+#.. same as previous code and pass on the user history, current plan
+messages = [
+    SystemMessage(content="""You are a planner agent to optimize the
+    Your job is to decide which agents to run based on the user's request.
+    Below are the available agents specialized in different tasks:
+    - FlightBooking: For booking flights and providing flight information
+    - HotelBooking: For booking hotels and providing hotel information
+    - CarRental: For booking cars and providing car rental information
+    - ActivitiesBooking: For booking activities and providing activity information
+    - DestinationInfo: For providing information about destinations
+    - DefaultAgent: For handling general requests""", source="system"),
+    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
+    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
+]
+# .. re-plan and send the tasks to respective agents
+```
 
 For more comprehensive planning do checkout Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> for solving complex tasks.
 

@@ -93,5 +93,5 @@ This course is divided into some of the current popular Agentic patterns.
 
 Agentic Frameworks allow developers to implement agentic patterns through code. These frameworks offer templates, plugins, and tools for better AI Agent collaboration. These benefits provide abilities for better observability and troubleshooting of AI Agent systems.
 
-In this course, we will explore the research-driven AutoGen framework and the production ready Agent framework from Semantic Kernel.
+In this course, we will explore the research-driven AutoGen framework and the production-ready Agent framework from Semantic Kernel.
 
