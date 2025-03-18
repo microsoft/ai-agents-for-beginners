@@ -8,7 +8,7 @@ These frameworks help developers focus on the unique aspects of their applicatio
 
 This lesson will cover:
 
-- What are AI Agent Frameworks and what do they enable developers to do?
+- What are AI Agent Frameworks and what do they enable developers to achieve?
 - How can teams use these to quickly prototype, iterate, and improve their agent’s capabilities?
 - What are the differences between the frameworks and tools created by Microsoft <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>, <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a>, and <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a>?
 - Can I integrate my existing Azure ecosystem tools directly, or do I need standalone solutions?
@@ -150,41 +150,34 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-
 ```csharp
 // Semantic Kernel C# example
 
+using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.ChatCompletion;
+using System.ComponentModel;
+using Microsoft.SemanticKernel.Connectors.AzureOpenAI;
+
 ChatHistory chatHistory = [];
+chatHistory.AddUserMessage("I'd like to go to New York on January 1, 2025");
 
-chatHistory.AddUserMessage("I'd like to go to New York on January 1, 2025.");
-
-
-// Define a plugin that contains the function to book travel
-public class BookTravelPlugin(
-    IPizzaService pizzaService,
-    IUserContext userContext,
-    IPaymentService paymentService)
-{
-
-    [KernelFunction("book_flight")]
-    [Description("Book travel given location and date")]
-    public async Task<Booking> BookFlight(
-        DateTime date,
-        string location,
-    )
-    {
-        // book travel given date,location
-    }
-}
-
-IKernelBuilder kernelBuilder = new KernelBuilder();
+var kernelBuilder = Kernel.CreateBuilder();
 kernelBuilder.AddAzureOpenAIChatCompletion(
     deploymentName: "NAME_OF_YOUR_DEPLOYMENT",
     apiKey: "YOUR_API_KEY",
     endpoint: "YOUR_AZURE_ENDPOINT"
 );
-kernelBuilder.Plugins.AddFromType<BookTravelPlugin>("BookTravel");
-Kernel kernel = kernelBuilder.Build();
+kernelBuilder.Plugins.AddFromType<BookTravelPlugin>("BookTravel"); 
+var kernel = kernelBuilder.Build();
+
+var settings = new AzureOpenAIPromptExecutionSettings()
+{
+    FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
+};
+
+var chatCompletion = kernel.GetRequiredService<IChatCompletionService>();
+
+var response = await chatCompletion.GetChatMessageContentAsync(chatHistory, settings, kernel);
 
 /*
 Behind the scenes, the model recognizes the tool to call, what arguments it already has (location) and (date)
@@ -202,16 +195,21 @@ Behind the scenes, the model recognizes the tool to call, what arguments it alre
 ]
 */
 
-ChatResponse response = await chatCompletion.GetChatMessageContentAsync(
-    chatHistory,
-    executionSettings: openAIPromptExecutionSettings,
-    kernel: kernel)
-
-
-Console.WriteLine(response);
-chatHistory.AddAssistantMessage(response);
+Console.WriteLine(response.Content);
+chatHistory.AddMessage(response!.Role, response!.Content!);
 
 // Example AI Model Response: Your flight to New York on January 1, 2025, has been successfully booked. Safe travels! ✈️🗽
+
+// Define a plugin that contains the function to book travel
+public class BookTravelPlugin
+{
+    [KernelFunction("book_flight")]
+    [Description("Book travel given location and date")]
+    public async Task<string> BookFlight(DateTime date, string location)
+    {
+        return await Task.FromResult( $"Travel was booked to {location} on {date}");
+    }
+}
 ```
 
 What you can see from this example is how you can leverage a pre-built parser to extract key information from user input, such as the origin, destination, and date of a flight booking request. This modular approach allows you to focus on the high-level logic.
@@ -275,7 +273,7 @@ There are many ways to compare these frameworks, but let's look at some key diff
 
 ## AutoGen
 
-Open-source framework developed by Microsoft Research's AI Frontiers Lab. Focuses on event-driven, distributed *agentic* applications, enabling multiple LLMs and SLMs, tools, and advanced multi-agent design patterns.
+AutoGen is an open-source framework developed by Microsoft Research's AI Frontiers Lab. It focuses on event-driven, distributed *agentic* applications, enabling multiple LLMs and SLMs, tools, and advanced multi-agent design patterns.
 
 AutoGen is built around the core concept of agents, which are autonomous entities that can perceive their environment, make decisions, and take actions to achieve specific goals. Agents communicate through asynchronous messages, allowing them to work independently and in parallel, enhancing system scalability and responsiveness.
 
@@ -479,15 +477,18 @@ Let's first cover some core components:
     string skPrompt = @"Summarize the provided unstructured text in a sentence that is easy to understand.
                         Text to summarize: {{$userInput}}";
     
-    // Register the function
-    kernel.CreateSemanticFunction(
+    // create the function from the prompt
+    KernelFunction summarizeFunc = kernel.CreateFunctionFromPrompt(
         promptTemplate: skPrompt,
-        functionName: "SummarizeText",
-        pluginName: "SemanticFunctions"
+        functionName: "SummarizeText"
     );
+
+    //then import into the current kernel
+    kernel.ImportPluginFromFunctions("SemanticFunctions", [summarizeFunc]);
+
     ```
 
-    Here, you first have a template prompt `skPrompt` that leaves room for the user to input text, `$userInput`. Then you register the function `SummarizeText` with the plugin `SemanticFunctions`. Note the name of the function that helps Semantic Kernel understand what the function does and when it should be called.
+    Here, you first have a template prompt `skPrompt` that leaves room for the user to input text, `$userInput`. Then you create the kernel function `SummarizeText` and then import it into the kernel with the plugin name `SemanticFunctions`. Note the name of the function that helps Semantic Kernel understand what the function does and when it should be called.
 
 - **Native function**: There're also native functions that the framework can call directly to carry out the task. Here's an example of such a function retrieving the content from a file:
 
@@ -506,31 +507,12 @@ Let's first cover some core components:
     //Import native function
     string plugInName = "NativeFunction";
     string functionName = "RetrieveLocalFile";
-    
-    var nativeFunctions = new NativeFunctions();
-    kernel.ImportFunctions(nativeFunctions, plugInName);
+
+   //To add the functions to a kernel use the following function
+    kernel.ImportPluginFromType<NativeFunctions>();
+
     ```
 
-- **Planner**: The planner orchestrates execution plans and strategies based on user input. The idea is to express how things should be carried out which then serves as an instruction for Semantic Kernel to follow. It then invokes the necessary functions to carry out the task. Here's an example of such a plan:
-
-    ```csharp
-    string planDefinition = "Read content from a local file and summarize the content.";
-    SequentialPlanner sequentialPlanner = new SequentialPlanner(kernel);
-    
-    string assetsFolder = @"../../assets";
-    string fileName = Path.Combine(assetsFolder,"docs","06_SemanticKernel", "aci_documentation.txt");
-    
-    ContextVariables contextVariables = new ContextVariables();
-    contextVariables.Add("fileName", fileName);
-    
-    var customPlan = await sequentialPlanner.CreatePlanAsync(planDefinition);
-    
-    // Execute the plan
-    KernelResult kernelResult = await kernel.RunAsync(contextVariables, customPlan);
-    Console.WriteLine($"Summarization: {kernelResult.GetValue<string>()}");
-    ```
-
-    Note especially `planDefinition` which is a simple instruction for the planner to follow. The appropriate functions are then called based on this plan, in this case our semantic function `SummarizeText` and the native function `RetrieveLocalFile`.
 - **Memory**:  Abstracts and simplifies context management for AI apps. The idea with memory is that this is something the LLM should know about. You can store this information in a vector store which ends up being an in-memory database or a vector database or similar. Here's an example of a very simplified scenario where *facts* are added to the memory:
 
     ```csharp
