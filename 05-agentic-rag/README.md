@@ -130,3 +130,11 @@ Agentic RAG represents a natural evolution in how AI systems handle complex, dat
 - <a href="https://arxiv.org/abs/2303.11366" target="_blank">2303.11366 Reflexion: Language Agents with Verbal Reinforcement Learning</a>
 - <a href="https://arxiv.org/abs/2305.11738" target="_blank">2305.11738 CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing</a>
 - <a href="https://arxiv.org/abs/2501.09136" target="_blank">2501.09136 Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG</a>
+
+## Previous Lesson
+
+[Tool Use Design Pattern](../04-tool-use/README.md)
+
+## Next Lesson
+
+[Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)

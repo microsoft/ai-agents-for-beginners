@@ -745,3 +745,11 @@ For AutoGen and Semantic Kernel, you can also integrate with Azure services, but
 - <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-csharp" target="_blank">Semantic Kernel .Net Agent Framework</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent service</a>
 - <a href="https://techcommunity.microsoft.com/blog/educatordeveloperblog/using-azure-ai-agent-service-with-autogen--semantic-kernel-to-build-a-multi-agen/4363121" target="_blank">Using Azure AI Agent Service with AutoGen / Semantic Kernel to build a multi-agent's solution</a>
+
+## Previous Lesson
+
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
+
+## Next Lesson
+
+[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)

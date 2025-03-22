@@ -63,3 +63,7 @@ If you want to continue your learning and building with AI Agents, join the <a h
 We host workshops, community roundtables and "ask me anything" sessions there.
 
 We also have a Learn collection of additional materials that can help you start building AI Agents in production.
+
+## Previous Lesson
+
+[Metacognition Design Pattern](../09-metacognition/README.md)

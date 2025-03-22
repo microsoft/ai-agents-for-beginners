@@ -1417,3 +1417,11 @@ This is a simple form of metacognition where the system is capable of adjusting 
 ### Conclusion
 
 Metacognition is a powerful tool that can significantly enhance the capabilities of AI agents. By incorporating metacognitive processes, you can design agents that are more intelligent, adaptable, and efficient. Use the additional resources to further explore the fascinating world of metacognition in AI agents.
+
+## Previous Lesson
+
+[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+
+## Next Lesson
+
+[AI Agents in Production](../10-ai-agents-production/README.md)

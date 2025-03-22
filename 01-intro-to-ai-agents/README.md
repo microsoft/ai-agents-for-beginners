@@ -95,3 +95,10 @@ Agentic Frameworks allow developers to implement agentic patterns through code. 
 
 In this course, we will explore the research-driven AutoGen framework and the production ready Agent framework from Semantic Kernel.
 
+## Previous Lesson
+
+[Course Setup](../00-course-setup/README.md)
+
+## Next Lesson
+
+[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)

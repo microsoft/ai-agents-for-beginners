@@ -288,3 +288,11 @@ In this article we have looked at an example of how we can create a planner that
 ## Additional Resources
 
 * AutoGen Magentic One - A Generalist multi-agent system for solving complex tasks and has achieved impressive results on multiple challenging agentic benchmarks. Reference: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. In this implementation the orchestrator create task specific plan and delegates these tasks to the available agents. In addition to planning the orchestrator also employs a tracking mechanism to monitor the progress of the task and re-plans as required.
+
+## Previous Lesson
+
+[Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)
+
+## Next Lesson
+
+[Multi-Agent Design Pattern](../08-multi-agent/README.md)

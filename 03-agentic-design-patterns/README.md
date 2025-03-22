@@ -89,3 +89,10 @@ Imagine you are designing a Travel Agent, here is how you could think about usin
 - <a href="https://microsoft.com" target="_blank">The HAX Toolkit Project - Microsoft Research</a>
 - <a href="https://responsibleaitoolbox.ai" target="_blank">Responsible AI Toolbox</a>
 
+## Previous Lesson
+
+[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)
+
+## Next Lesson
+
+[Tool Use Design Pattern](../04-tool-use/README.md)

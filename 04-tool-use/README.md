@@ -312,3 +312,11 @@ Running the app in a secure environment further enhances protection. In enterpri
 - <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Semantic Kernel Function Calling Tutorial</a>
 - <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Semantic Kernel Code Interpreter</a>
 - <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Autogen Tools</a>
+
+## Previous Lesson
+
+[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
+
+## Next Lesson
+
+[Agentic RAG](../05-agentic-rag/README.md)
