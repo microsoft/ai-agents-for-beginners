@@ -1,3 +1,7 @@
+[![Trustworthy AI Agents](./images/lesson-6-thumbnail.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+
+> _(Click the image above to view video of this lesson)_
+
 # Building Trustworthy AI Agents
 
 ## Introduction
@@ -187,3 +191,11 @@ Building trustworthy AI agents requires careful design, robust security measures
 - <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Evaluation of generative AI models and AI applications</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Safety system messages</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Risk Assessment Template</a>
+
+## Previous Lesson
+
+[Agentic RAG](../05-agentic-rag/README.md)
+
+## Next Lesson
+
+[Planning Design Pattern](../07-planning-design/README.md)

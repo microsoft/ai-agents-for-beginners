@@ -1,4 +1,8 @@
-# Multi agent design patterns
+[![Multi-Agent Design](./images/lesson-8-thumbnail.png)](https://youtu.be/kPfJ2BrBCMY?si=A7K44uMCqgvLQVCa)
+
+> _(Click the image above to view video of this lesson)_
+
+# Multi-agent design patterns
 
 As soon as you start working on a project that involves multiple agents, you will need to consider the multi-agent design pattern. However, it might not be immediately clear when to switch to multi-agents and what the advantages are.
 
@@ -9,7 +13,7 @@ In this lesson, we're looking to answer the following questions:
 - What are the scenarios where multi-agents are applicable to?
 - What are the advantages of using multi-agents over just one singular agent doing multiple tasks?
 - What are the building blocks of implementing the multi-agent design pattern?
-- How do we have visibility to how the multiple agents are interacting with each other
+- How do we have visibility to how the multiple agents are interacting with each other?
 
 ## Learning Goals
 
@@ -43,7 +47,7 @@ A single agent system could work well for simple tasks, but for more complex tas
 
 Let's take an example, let's book a trip for a user. A single agent system would have to handle all aspects of the trip booking process, from finding flights to booking hotels and rental cars. To achieve this with a single agent, the agent would need to have tools for handling all these tasks. This could lead to a complex and monolithic system that is difficult to maintain and scale. A multi-agent system, on the other hand, could have different agents specialized in finding flights, booking hotels, and rental cars. This would make the system more modular, easier to maintain, and scalable.
 
-Compare this to a travel bureau run as a mom and pop store versus a travel bureau run as a franchise. The mom and pop store would have a single agent handling all aspects of the trip booking process, while the franchise would have different agents handling different aspects of the trip booking process.
+Compare this to a travel bureau run as a mom-and-pop store versus a travel bureau run as a franchise. The mom-and-pop store would have a single agent handling all aspects of the trip booking process, while the franchise would have different agents handling different aspects of the trip booking process.
 
 ## Building Blocks of Implementing the Multi-Agent Design Pattern
 
@@ -135,11 +139,11 @@ These agents can be used by other parts of your business.
 - **Analytics agent**: This agent represents the analytics process and is responsible for analyzing data related to the refund process.
 - **Audit agent**: This agent represents the audit process and is responsible for auditing the refund process to ensure that it is being carried out correctly.
 - **Reporting agent**: This agent represents the reporting process and is responsible for generating reports on the refund process.
-- **Knowledge agent**: This agent represents the knowledge process and is responsible for maintaining a knowledge base of information related to the refund process. RThis agent could be knowledgeable both on refunds and other parts of your business.
+- **Knowledge agent**: This agent represents the knowledge process and is responsible for maintaining a knowledge base of information related to the refund process. This agent could be knowledgeable both on refunds and other parts of your business.
 - **Security agent**: This agent represents the security process and is responsible for ensuring the security of the refund process.
 - **Quality agent**: This agent represents the quality process and is responsible for ensuring the quality of the refund process.
 
-There's quite a few agents listed previously both for the specific refund process but also for the general agents that can be used in other parts of your business. Hopefully this gives you an idea on how you can decide on which agents to use in your multi agent system.
+There's quite a few agents listed previously both for the specific refund process but also for the general agents that can be used in other parts of your business. Hopefully this gives you an idea on how you can decide on which agents to use in your multi-agent system.
 
 ## Assignment
 
@@ -157,9 +161,9 @@ Design a multi-agent system for a customer support process. Identify the agents 
 
 Question: When should you consider using multi-agents?
 
-- [] A1: When you have a small workload and a simple task.
-- [] A2: When you have a large workload
-- [] A3: When you have a simple task.
+- [ ] A1: When you have a small workload and a simple task.
+- [ ] A2: When you have a large workload
+- [ ] A3: When you have a simple task.
 
 [Solution quiz](./solution/solution-quiz.md)
 
@@ -171,3 +175,12 @@ In this lesson, we've looked at the multi-agent design pattern, including the sc
 
 - <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html" target="_blank">AutoGen design patterns</a>
 - <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">Agentic design patterns</a>
+
+
+## Previous Lesson
+
+[Planning Design](../07-planning-design/README.md)
+
+## Next Lesson
+
+[Metacognition in AI Agents](../09-metacognition/README.md)

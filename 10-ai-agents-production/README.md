@@ -1,3 +1,6 @@
+[![AI Agents In Production](./images/lesson-10-thumbnail.png)](https://youtu.be/l4TP6IyJxmQ?si=IvCW3cbw0NJ2mUMV)
+
+> _(Click the image above to view video of this lesson)_
 # AI Agents in Production
 
 ## Introduction
@@ -63,3 +66,7 @@ If you want to continue your learning and building with AI Agents, join the <a h
 We host workshops, community roundtables and "ask me anything" sessions there.
 
 We also have a Learn collection of additional materials that can help you start building AI Agents in production.
+
+## Previous Lesson
+
+[Metacognition Design Pattern](../09-metacognition/README.md)

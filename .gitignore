@@ -10,10 +10,10 @@
 *.userosscache
 *.sln.docstates
 .env
-/coop/ 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+.coop/
 
 # Mono auto generated files
 mono_crash.*

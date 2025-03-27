@@ -105,3 +105,7 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 You are now ready to run the code of this course, happy learning more about the world of AI Agents!
 
 If you have any issues running this setup, hop into our <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> or <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">create an issue</a>.
+
+## Next Lesson
+
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
