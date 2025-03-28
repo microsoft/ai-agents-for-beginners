@@ -35,7 +35,7 @@ Then select `Generate new token`.
 
 ![Generate Token](./images/generate-token.png)
 
-Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
+Copy your new token that you have just created. You will now add this to your `.env` file included in this course.
 
 ## Add this to your Environment Variables
 
@@ -96,7 +96,7 @@ load_dotenv()
 
 ## Setup keyless authentication
 
-Rather than hardcode your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential` function to get the credential.
+Rather than hardcoding your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential` function to get the credential.
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential

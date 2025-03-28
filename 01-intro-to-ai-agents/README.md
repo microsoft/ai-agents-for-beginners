@@ -31,7 +31,7 @@ After completing this lesson, you should be able to:
 
 ### What are AI Agents?
 
-AI Agents are **systems** that enable **Large Language Models(LLMs)** to **perform actions** by extending their capabilities by giving LLMs **access to tools** and **knowledge**.
+AI Agents are **systems** that enable **Large Language Models (LLMs)** to **perform actions** by extending their capabilities by giving LLMs **access to tools** and **knowledge**.
 
 Let's break this definition into smaller parts:
 
@@ -74,7 +74,7 @@ Let's look at the types of use cases that AI Agents are best used for:
 
 
 - **Open-Ended Problems** - allowing the LLM to determine needed steps to complete a task because it can't always be hardcoded into a workflow.
-- **Multi-Step Processes** - tasks that require a level of complexity in which the AI Agent needs to use tools or information over multiple turns instead of single shot retrieval.  
+- **Multi-Step Processes** - tasks that require a level of complexity in which the AI Agent needs to use tools or information over multiple turns instead of single-shot retrieval.  
 - **Improvement Over Time** - tasks where the agent can improve over time by receiving feedback from either its environment or users in order to provide better utility.
 
 We cover more considerations of using AI Agents in the Building Trustworthy AI Agents lesson.
