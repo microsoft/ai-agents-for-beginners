@@ -1,64 +1,164 @@
-# 設計規劃
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "8dd9a05d4dc18d3ff510e68e3798a080",
+  "translation_date": "2025-03-28T12:00:07+00:00",
+  "source_file": "07-planning-design\\README.md",
+  "language_code": "hk"
+}
+-->
+[![計劃設計模式](../../../translated_images/lesson-7-thumbnail.9769baaa68d1d81ee422d8aa15bd66461ac9f3e38cfaf0ee966cfe4ff20f75ee.hk.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+
+> _(點擊上方圖片觀看本課程影片)_
+
+# 計劃設計
 
 ## 簡介
 
-呢堂課會講解以下內容：
+本課程將涵蓋以下內容：
 
-* 點樣清晰咁定義一個整體目標，並將複雜嘅任務拆解成可管理嘅細項。
-* 善用結構化輸出，提供更可靠同機器可讀嘅回應。
-* 採用事件驅動嘅方法，應對動態任務同突發輸入。
+* 定義明確的整體目標，並將複雜任務分解為可管理的子任務。
+* 利用結構化輸出以獲得更可靠且易於機器讀取的回應。
+* 採用事件驅動的方式來處理動態任務和意外輸入。
 
 ## 學習目標
 
-完成呢堂課後，你將會了解：
+完成本課程後，您將了解：
 
-* 點樣為 AI agent 設定清晰嘅整體目標，確保佢知道需要達成咩。
-* 將複雜嘅任務分解成可管理嘅子任務，並用邏輯次序組織好。
-* 為 agents 配備合適嘅工具（例如搜尋工具或數據分析工具），決定幾時同點樣使用，並處理出現嘅突發情況。
-* 評估子任務嘅結果，衡量表現，並對行動進行迭代改進，以提升最終輸出。
+* 如何為 AI 智能體設定清晰的整體目標，確保它明確知道需要完成的任務。
+* 將複雜任務分解為可管理的子任務，並將它們組織成合理的順序。
+* 配備智能體所需的工具（例如搜尋工具或數據分析工具），決定何時以及如何使用這些工具，並處理可能出現的突發情況。
+* 評估子任務結果，衡量表現，並通過迭代行動來改善最終輸出。
 
-## 定義整體目標同拆解任務
+## 定義整體目標並分解任務
 
-![定義目標同任務](../../../translated_images/defining-goals-tasks.dcc1181bbdb194704ae0fb3363371562949e8b03fd2fadc256218aaadf84a9f4.hk.png)
+![定義目標與任務](../../../translated_images/defining-goals-tasks.dcc1181bbdb194704ae0fb3363371562949e8b03fd2fadc256218aaadf84a9f4.hk.png)
 
-大部分現實世界嘅任務都太過複雜，唔可以一步完成。AI agent 需要一個簡明嘅目標嚟指導佢嘅規劃同行動。例如，考慮以下目標：
+大多數現實世界的任務都過於複雜，無法在一步內完成。AI 智能體需要一個簡潔的目標來指導其計劃和行動。例如，考慮以下目標：
 
-    "生成一個 3 日嘅旅遊行程表。"
+    "生成一個三天的旅行行程。"
 
-雖然目標簡單易明，但仍然需要進一步細化。目標越清晰，agent（同人類協作者）越能專注於實現正確嘅結果，例如創建一個全面嘅行程表，包括航班選擇、酒店推薦同活動建議。
+雖然目標陳述簡單，但仍需進一步完善。目標越清晰，智能體（以及任何人類協作者）越能專注於達成正確的結果，例如生成包含航班選項、酒店推薦和活動建議的完整行程。
 
 ### 任務分解
 
-大或者複雜嘅任務可以拆分成細小、針對目標嘅子任務，咁樣會更加易處理。
-以旅遊行程表為例，你可以將目標分解成以下部分：
+將大型或複雜的任務分解為較小的、目標導向的子任務，能讓它更易於管理。
+以旅行行程為例，可以將目標分解為以下子任務：
 
-* 機票預訂
+* 航班預訂
 * 酒店預訂
-* 汽車租賃
-* 個人化設定
+* 租車安排
+* 個性化設置
 
-每個子任務可以交畀專門嘅 agents 或流程處理。例如，一個 agent 可以專注於搜尋最佳機票優惠，另一個則負責酒店預訂，等等。之後，一個協調或者“下游”agent 可以將呢啲結果整合成一個完整嘅行程表提供畀用戶。
+每個子任務都可以由專門的智能體或流程處理。例如，一個智能體可能專門負責搜尋最優惠的航班，另一個則專注於酒店預訂，依此類推。一個協調或“下游”智能體可以將這些結果整合成一個完整的行程供最終用戶使用。
 
-呢種模組化嘅方法仲方便逐步改進。例如，你可以加入專門處理美食推薦或者當地活動建議嘅 agents，隨時間優化行程表。
+這種模塊化方法還允許逐步改進。例如，您可以添加專門的智能體來提供餐飲推薦或當地活動建議，並隨時間推進改進行程。
 
 ### 結構化輸出
 
-大型語言模型（LLMs）可以生成結構化輸出（例如 JSON），更容易畀下游嘅 agents 或服務進一步解析同處理。呢個特別適合多 agent 嘅場景，當規劃結果生成後，可以即刻執行呢啲任務。參考呢篇 [blogpost](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html) 可以快速了解。
+大型語言模型（LLMs）能生成結構化輸出（例如 JSON），這對於下游智能體或服務解析和處理特別有用。在多智能體場景中，我們可以在接收到計劃輸出後，根據這些結構化數據執行後續任務。請參考以下簡介。
 
-以下係一段 Python 範例代碼，展示咗一個簡單嘅規劃 agent 點樣將目標分解成子任務並生成結構化嘅計劃：
+以下 Python 代碼片段展示了一個簡單的計劃智能體如何將目標分解為子任務並生成結構化計劃：
 
-### 多 Agent 協調嘅規劃 Agent
+```python
+from pydantic import BaseModel
+from enum import Enum
+from typing import List, Optional, Union
+import json
+import os
+from typing import Optional
+from pprint import pprint
+from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
+from autogen_ext.models.azure import AzureAIChatCompletionClient
+from azure.core.credentials import AzureKeyCredential
 
-呢個例子中，一個 Semantic Router Agent 接收用戶請求（例如，“我需要一個針對我旅行嘅酒店計劃。”）。
+class AgentEnum(str, Enum):
+    FlightBooking = "flight_booking"
+    HotelBooking = "hotel_booking"
+    CarRental = "car_rental"
+    ActivitiesBooking = "activities_booking"
+    DestinationInfo = "destination_info"
+    DefaultAgent = "default_agent"
+    GroupChatManager = "group_chat_manager"
 
-規劃器會：
+# Travel SubTask Model
+class TravelSubTask(BaseModel):
+    task_details: str
+    assigned_agent: AgentEnum  # we want to assign the task to the agent
 
-* 接收酒店計劃：規劃器根據用戶嘅信息，結合系統提示（包括可用 agent 嘅詳情），生成一個結構化嘅旅遊計劃。
-* 列出 Agents 同佢哋嘅工具：agent 註冊表會保存一個 agents 嘅列表（例如航班、酒店、汽車租賃同活動），以及佢哋提供嘅功能或工具。
-* 將計劃分配畀相關嘅 Agents：根據子任務數量，規劃器會直接將信息發送畀專屬 agent（單一任務情況），或者透過群組聊天管理器協調多 agent 嘅合作。
-* 總結結果：最後，規劃器會將生成嘅計劃進行總結，方便理解。
+class TravelPlan(BaseModel):
+    main_task: str
+    subtasks: List[TravelSubTask]
+    is_greeting: bool
 
-以下係示例代碼展示咗呢啲步驟：
+client = AzureAIChatCompletionClient(
+    model="gpt-4o-mini",
+    endpoint="https://models.inference.ai.azure.com",
+    # To authenticate with the model you will need to generate a personal access token (PAT) in your GitHub settings.
+    # Create your PAT token by following instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
+    model_info={
+        "json_output": False,
+        "function_calling": True,
+        "vision": True,
+        "family": "unknown",
+    },
+)
+
+# Define the user message
+messages = [
+    SystemMessage(content="""You are an planner agent.
+    Your job is to decide which agents to run based on the user's request.
+                      Provide your response in JSON format with the following structure:
+{'main_task': 'Plan a family trip from Singapore to Melbourne.',
+ 'subtasks': [{'assigned_agent': 'flight_booking',
+               'task_details': 'Book round-trip flights from Singapore to '
+                               'Melbourne.'}
+    Below are the available agents specialised in different tasks:
+    - FlightBooking: For booking flights and providing flight information
+    - HotelBooking: For booking hotels and providing hotel information
+    - CarRental: For booking cars and providing car rental information
+    - ActivitiesBooking: For booking activities and providing activity information
+    - DestinationInfo: For providing information about destinations
+    - DefaultAgent: For handling general requests""", source="system"),
+    UserMessage(
+        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
+]
+
+response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+
+response_content: Optional[str] = response.content if isinstance(
+    response.content, str) else None
+if response_content is None:
+    raise ValueError("Response content is not a valid JSON string" )
+
+pprint(json.loads(response_content))
+
+# # Ensure the response content is a valid JSON string before loading it
+# response_content: Optional[str] = response.content if isinstance(
+#     response.content, str) else None
+# if response_content is None:
+#     raise ValueError("Response content is not a valid JSON string")
+
+# # Print the response content after loading it as JSON
+# pprint(json.loads(response_content))
+
+# Validate the response content with the MathReasoning model
+# TravelPlan.model_validate(json.loads(response_content))
+```
+
+### 使用多智能體協作的計劃智能體
+
+在此示例中，一個語義路由智能體接收到用戶請求（例如，“我需要一個旅行酒店計劃。”）。
+
+計劃者接著進行以下步驟：
+
+* 接收酒店計劃：計劃者接收用戶的消息，並根據系統提示（包括可用智能體的詳細信息）生成結構化的旅行計劃。
+* 列出智能體及其工具：智能體註冊表保存了一份智能體列表（例如，航班、酒店、租車和活動），以及它們提供的功能或工具。
+* 將計劃分配給相關智能體：根據子任務的數量，計劃者要麼直接將消息發送給專門智能體（單任務場景），要麼通過群聊管理器協調多智能體合作。
+* 總結結果：最後，計劃者總結生成的計劃以供清晰呈現。
+
+以下 Python 代碼示例展示了這些步驟：
 
 ```python
 
@@ -110,7 +210,7 @@ from pprint import pprint
 messages = [
     SystemMessage(content="""You are an planner agent.
     Your job is to decide which agents to run based on the user's request.
-    Below are the available agents specialised in different tasks:
+    Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
     - HotelBooking: For booking hotels and providing hotel information
     - CarRental: For booking cars and providing car rental information
@@ -133,7 +233,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-以上代碼嘅輸出如下，之後你可以用呢個結構化輸出分配畀 `assigned_agent`，並將旅遊計劃總結畀用戶。
+上面代碼的輸出示例展示了如何使用結構化輸出將任務分配給 `assigned_agent`，並向最終用戶總結旅行計劃。
 
 ```json
 {
@@ -164,46 +264,54 @@ pprint(json.loads(response_content))
 }
 ```
 
-你可以喺呢度搵到包含上述代碼示例嘅 notebook：[07-autogen.ipynb](../../../07-planning-design/code_samples/07-autogen.ipynb)。
+包含上述代碼示例的 notebook 可在 [這裡](../../../07-planning-design/07-autogen.ipynb) 找到。
 
-### 迭代規劃
+### 迭代計劃
 
-有啲任務需要反覆修改或者重新規劃，因為某個子任務嘅結果可能會影響下一步。例如，當 agent 發現預訂航班時數據格式出乎意料，可能需要調整策略，然後再處理酒店預訂。
+某些任務需要來回反覆或重新計劃，其中一個子任務的結果可能影響下一步。例如，如果智能體在預訂航班時發現意外的數據格式，它可能需要在繼續酒店預訂之前調整策略。
 
-另外，用戶嘅反饋（例如用戶決定佢更想搭早啲嘅航班）亦可能觸發部分重新規劃。呢種動態、迭代嘅方法可以確保最終解決方案符合現實世界嘅限制同用戶不斷變化嘅需求。
+此外，用戶反饋（例如用戶選擇更早的航班）可能觸發部分重新計劃。這種動態、迭代的方法確保最終解決方案符合現實世界的限制和用戶不斷變化的偏好。
 
-例如以下代碼：
+例如，以下代碼展示了樣例：
 
-    ```python
-    from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-    #.. same as previous code and pass on the user history, current plan 
-    messages = [
-        SystemMessage(content="""You are a planner agent to optimize the 
-        Your job is to decide which agents to run based on the user's request.
-        Below are the available agents specialised in different tasks:
-        - FlightBooking: For booking flights and providing flight information
-        - HotelBooking: For booking hotels and providing hotel information
-        - CarRental: For booking cars and providing car rental information
-        - ActivitiesBooking: For booking activities and providing activity information
-        - DestinationInfo: For providing information about destinations
-        - DefaultAgent: For handling general requests""", source="system"),
-        UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-        AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-    ]
-    # .. re-plan and send the tasks to respective agents
-    ```
+```python
+from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
+#.. same as previous code and pass on the user history, current plan
+messages = [
+    SystemMessage(content="""You are a planner agent to optimize the
+    Your job is to decide which agents to run based on the user's request.
+    Below are the available agents specialized in different tasks:
+    - FlightBooking: For booking flights and providing flight information
+    - HotelBooking: For booking hotels and providing hotel information
+    - CarRental: For booking cars and providing car rental information
+    - ActivitiesBooking: For booking activities and providing activity information
+    - DestinationInfo: For providing information about destinations
+    - DefaultAgent: For handling general requests""", source="system"),
+    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
+    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
+]
+# .. re-plan and send the tasks to respective agents
+```
 
-如果想更全面了解規劃，可以參考 Magnetic One [Blogpost](https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks)，解釋點樣處理複雜任務。
+如需更全面的計劃，請查看 Magnetic One 解決方案。
 
 ## 總結
 
-喺呢篇文章中，我哋睇咗一個例子，點樣創建一個規劃器，動態選擇可用嘅 agents。規劃器嘅輸出會分解任務並分配畀 agents 執行。假設 agents 已經有執行任務所需嘅功能/工具。除此之外，你仲可以加入其他模式，例如反思、總結、輪流聊天，進一步自訂化。
+本文介紹了如何創建一個能動態選擇定義智能體的計劃者。計劃者的輸出會分解任務並分配給智能體執行。假設智能體能訪問完成任務所需的功能/工具。除了智能體外，您還可以加入其他模式，例如反思、總結器或輪詢聊天等，以進一步定制功能。
 
 ## 其他資源
 
-* 使用 o1 推理模型喺規劃複雜任務方面表現相當先進 - TODO: 分享示例？
+* AutoGen Magnetic One - 一個通用的多智能體系統，用於解決複雜任務，並在多個具有挑戰性的智能體基準測試中取得了令人印象深刻的成果。參考：
 
-* Autogen Magnetic One - 一個通用型多 agent 系統，用嚟解決複雜任務，喺多個挑戰性 agent 基準測試中取得咗令人印象深刻嘅結果。參考：[autogen-magentic-one](https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one)。喺呢個實現中，協調器會創建針對任務嘅計劃，並將呢啲任務分配畀可用嘅 agents。除咗規劃之外，協調器仲會用一個追蹤機制監控任務進度，並喺需要時重新規劃。
+. 在此實現中，協調器創建特定於任務的計劃，並將這些任務委派給可用的智能體。除了計劃外，協調器還採用了跟踪機制來監控任務進度並在需要時重新計劃。
+
+## 上一課程
+
+[構建可信賴的 AI 智能體](../06-building-trustworthy-agents/README.md)
+
+## 下一課程
+
+[多智能體設計模式](../08-multi-agent/README.md)
 
 **免責聲明**:  
-本文件是使用機器翻譯服務進行翻譯的。我們致力於提供準確的翻譯，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原始語言的文件作為權威來源。對於關鍵資訊，建議尋求專業的人工作翻譯。我們對因使用此翻譯而引起的任何誤解或誤讀概不負責。
+本文件使用AI翻譯服務[Co-op Translator](https://github.com/Azure/co-op-translator)進行翻譯。我們致力於提供準確的翻譯，但請注意，自動翻譯可能包含錯誤或不準確之處。原文檔的母語版本應被視為權威來源。對於關鍵信息，建議尋求專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或誤釋不承擔責任。
