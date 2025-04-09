@@ -23,7 +23,7 @@ You should now have your own forked version of this course in the following link
 
 ## Retrieve Your GitHub Personal Access Token (PAT)
 
-Currently, this course uses the Github Models Marketplace to offer free access to Large Language Models(LLMs) that will be used to create AI Agents.
+Currently, this course uses the GitHub Models Marketplace to offer free access to Large Language Models(LLMs) that will be used to create AI Agents.
 
 To access this service, you will need to create a GitHub Personal Access Token.
 
@@ -35,7 +35,17 @@ Then select `Generate new token`.
 
 ![Generate Token](./images/generate-token.png)
 
-Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
+Instead of a token with no expiration date, we  recommend creating one for limited days eg: 60 days [if done at the start of April 2025 conveniently coincides with the duration of [AI Skills fest](https://techcommunity.microsoft.com/blog/microsoftlearnblog/register-now-for-the-microsoft-ai-skills-fest/4292261?wt.mc_id=DT-MVP-5003041)]
+
+![Expiry date of token](./images/token_with_expiry_date.png)
+
+Also, as an additional security measure, we can restrict the token to only be used for the `ai-agents-for-beginners` repository [[Least Privilege Principle](https://en.wikipedia.org/wiki/Principle_of_least_privilege)].
+![Select GitHub repository](./images/token_select_repositories.png)
+
+Finally, select the **Models** scope under Permissions and the `Read-only` access.
+![Select Models Marketplace](./images/token_chose_permission.png)
+
+Please copy your new token that you have just created, and set it as your `GITHUB_TOKEN` in your `.env` file you have created from `.env-sample` in this course.
 
 ## Add this to your Environment Variables
 
@@ -47,7 +57,8 @@ cp .env.example .env
 
 This will copy the example file and create a `.env` in your directory, fill in the values for the environment variables. You can locate the values for each environment variable in the following locations of the [Azure AI Foundry](https://ai.azure.com?WT.mc_id=academic-105485-koreyst) portal:
 
-Open that file and paste the token you created into the `GITHUB_TOKEN=` field of the .env file. 
+Open that file and paste the token you created into the `GITHUB_TOKEN=` field of the .env file.
+
 - `AZURE_SUBSCRIPTION_ID` - On the **Overview** page of your project within **Project details**.
 - `AZURE_AI_PROJECT_NAME` - At the top of the **Overview** page for your project.
 - `AZURE_OPENAI_RESOURCE_GROUP` - On the **Overview** page of the **Management Center** within **Project properties**.
@@ -67,13 +78,14 @@ pip install -r requirements.txt
 
 This should install the required Python packages.
 
-# Sign in to Azure
+## Sign in to Azure and Keyless Authentication
 
-As a security best practice, we'll use [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) to authenticate to Azure OpenAI with Microsoft Entra ID. Before you can do so, you'll first need to install the **Azure CLI** per the [installation instructions](https://learn.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academic-105485-koreyst) for your operating system.
+As a security best practice, we'll use [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) to authenticate to Azure OpenAI with Microsoft Entra ID. 
 
-Next, open a terminal and run `az login` to sign in to your Azure account.
+### Step 1: Install Azure CLI
+Before proceeding, install the **Azure CLI** by following the [installation instructions](https://learn.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academic-105485-koreyst) for your operating system.
 
-## Sign in to Azure
+## Keyless Authentication
 
 Login with your Azure AI account used to provision the Azure resources.
 
@@ -83,7 +95,7 @@ Open a new terminal and enter the following command and follow the instructions 
 
 Once you've logged in, select your subscription in the terminal.
 
-## Access the environment variables.
+## Access the environment variables
 
 We'll import `os` and `load_dotenv` so that you can access the environment variables.
 
