@@ -1,19 +1,32 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "9320dd53c82869fd44935d1581eaf7bb",
-  "translation_date": "2025-05-21T08:13:02+00:00",
+  "original_hash": "bbce3572338711aeab758506379ab716",
+  "translation_date": "2025-05-21T09:36:30+00:00",
   "source_file": "11-mcp/README.md",
   "language_code": "de"
 }
 -->
 # Lesson 11: Model Context Protocol (MCP) Integration
 
+## Einführung in das Model Context Protocol (MCP)
+
+Das Model Context Protocol (MCP) ist ein fortschrittliches Framework, das entwickelt wurde, um die Interaktionen zwischen KI-Modellen und Client-Anwendungen zu standardisieren. MCP fungiert als Brücke zwischen KI-Modellen und den Anwendungen, die sie nutzen, und bietet eine einheitliche Schnittstelle, unabhängig von der zugrunde liegenden Modellimplementierung.
+
+Wichtige Aspekte von MCP:
+
+- **Standardisierte Kommunikation**: MCP schafft eine gemeinsame Sprache, damit Anwendungen mit KI-Modellen kommunizieren können
+- **Verbessertes Kontextmanagement**: Ermöglicht die effiziente Übermittlung von Kontextinformationen an KI-Modelle
+- **Plattformübergreifende Kompatibilität**: Funktioniert mit verschiedenen Programmiersprachen wie C#, Java, JavaScript, Python und TypeScript
+- **Nahtlose Integration**: Entwicklern wird es erleichtert, unterschiedliche KI-Modelle in ihre Anwendungen einzubinden
+
+MCP ist besonders wertvoll bei der Entwicklung von KI-Agenten, da es Agenten ermöglicht, über ein einheitliches Protokoll mit verschiedenen Systemen und Datenquellen zu interagieren, wodurch sie flexibler und leistungsfähiger werden.
+
 ## Lernziele
-- Verstehen, was MCP ist und welche Rolle es bei der Entwicklung von KI-Agenten spielt
+- Verstehen, was MCP ist und welche Rolle es in der Entwicklung von KI-Agenten spielt
 - Einrichten und Konfigurieren eines MCP-Servers für die GitHub-Integration
 - Aufbau eines Multi-Agenten-Systems mit MCP-Tools
-- Umsetzung von RAG (Retrieval Augmented Generation) mit Azure Cognitive Search
+- Implementierung von RAG (Retrieval Augmented Generation) mit Azure Cognitive Search
 
 ## Voraussetzungen
 - Python 3.8+
@@ -57,9 +70,9 @@ CO_OP_TRANSLATOR_METADATA:
 ## Kernkomponenten
 
 ### 1. Multi-Agenten-System
-- GitHub Agent: Analyse von Repositories
-- Hackathon Agent: Projektempfehlungen
-- Events Agent: Vorschläge für Tech-Events
+- GitHub Agent: Repository-Analyse
+- Hackathon Agent: Projektvorschläge
+- Events Agent: Empfehlungen für Tech-Events
 
 ### 2. Azure-Integration
 - Cognitive Search zur Indexierung von Events
@@ -75,17 +88,19 @@ CO_OP_TRANSLATOR_METADATA:
 
 Das Beispiel zeigt:
 1. Integration des MCP-Servers
-2. Orchestrierung mehrerer Agenten
-3. Integration von Azure Cognitive Search
-4. Umsetzung des RAG-Musters
+2. Orchestrierung von Multi-Agenten
+3. Einbindung von Azure Cognitive Search
+4. Implementierung des RAG-Musters
 
 Wichtige Funktionen:
 - Echtzeit-Analyse von GitHub-Repositories
-- Intelligente Projektempfehlungen
-- Event-Abgleich mittels Azure Search
+- Intelligente Projektvorschläge
+- Event-Matching mit Azure Search
 - Streaming-Antworten mit Chainlit
 
-## Ausführen des Beispiels
+## Ausführung des Beispiels
+
+Für detaillierte Einrichtungshinweise und weitere Informationen siehe die [Github MCP Server Example README](./code_samples/github-mcp/README.md).
 
 1. Starte den MCP-Server:
    ```bash
@@ -107,19 +122,19 @@ Wichtige Funktionen:
 Häufige Probleme und Lösungen:
 1. MCP-Verbindungsprobleme
    - Prüfe, ob der Server läuft
-   - Überprüfe die Portverfügbarkeit
+   - Überprüfe die Verfügbarkeit des Ports
    - Bestätige die GitHub-Tokens
 
-2. Azure Search-Probleme
-   - Verifiziere die Verbindungsstrings
-   - Prüfe, ob der Index vorhanden ist
-   - Bestätige den Dokumentenupload
+2. Azure Search Probleme
+   - Überprüfe die Verbindungszeichenfolgen
+   - Prüfe, ob der Index existiert
+   - Verifiziere den Upload der Dokumente
 
 ## Nächste Schritte
 - Weitere MCP-Tools erkunden
 - Eigene Agenten implementieren
 - RAG-Funktionalitäten erweitern
-- Weitere Event-Quellen hinzufügen
+- Zusätzliche Event-Quellen hinzufügen
 
 ## Ressourcen
 - [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
@@ -128,4 +143,4 @@ Häufige Probleme und Lösungen:
 - [Semantic Kernel Guides](https://learn.microsoft.com/semantic-kernel/)
 
 **Haftungsausschluss**:  
-Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir auf Genauigkeit achten, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Originalsprache gilt als maßgebliche Quelle. Für wichtige Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die durch die Nutzung dieser Übersetzung entstehen.
+Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ursprungssprache ist als maßgebliche Quelle zu betrachten. Für wichtige Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die durch die Nutzung dieser Übersetzung entstehen.

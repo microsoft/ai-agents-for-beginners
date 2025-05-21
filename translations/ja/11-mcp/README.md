@@ -1,47 +1,60 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "9320dd53c82869fd44935d1581eaf7bb",
-  "translation_date": "2025-05-21T08:11:34+00:00",
+  "original_hash": "bbce3572338711aeab758506379ab716",
+  "translation_date": "2025-05-21T09:32:15+00:00",
   "source_file": "11-mcp/README.md",
   "language_code": "ja"
 }
 -->
 # Lesson 11: Model Context Protocol (MCP) Integration
 
-## Learning Objectives
+## Model Context Protocol (MCP) の紹介
+
+Model Context Protocol (MCP) は、AIモデルとクライアントアプリケーション間のやり取りを標準化するために設計された最先端のフレームワークです。MCPはAIモデルとそれを利用するアプリケーションの橋渡し役を果たし、基盤となるモデルの実装に関わらず一貫したインターフェースを提供します。
+
+MCPの主な特徴:
+
+- **標準化された通信**: アプリケーションがAIモデルとやり取りするための共通言語を確立
+- **強化されたコンテキスト管理**: コンテキスト情報を効率的にAIモデルに渡すことが可能
+- **クロスプラットフォーム対応**: C#、Java、JavaScript、Python、TypeScriptなど多様な言語で動作
+- **シームレスな統合**: 開発者が異なるAIモデルを簡単にアプリケーションに組み込める
+
+MCPは、AIエージェント開発において特に有用で、エージェントが統一されたプロトコルを通じて様々なシステムやデータソースと連携できるため、より柔軟で強力なエージェントを実現します。
+
+## 学習目標
 - MCPとは何か、そしてAIエージェント開発における役割を理解する
-- GitHub連携のためのMCPサーバーをセットアップ・構成する
+- GitHub統合のためにMCPサーバーをセットアップ・構成する
 - MCPツールを使ったマルチエージェントシステムを構築する
 - Azure Cognitive Searchを用いたRAG（Retrieval Augmented Generation）を実装する
 
-## Prerequisites
+## 前提条件
 - Python 3.8以上
 - Node.js 14以上
 - Azureサブスクリプション
 - GitHubアカウント
 - Semantic Kernelの基本知識
 
-## Setup Instructions
+## セットアップ手順
 
-1. **環境設定**
+1. **環境構築**
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
-2. **Azureサービスの構成**
-   - Azure Cognitive Searchリソースを作成する
-   - Azure OpenAIサービスをセットアップする
-   - `.env`に環境変数を設定する
+2. **Azureサービスの設定**
+   - Azure Cognitive Searchリソースを作成
+   - Azure OpenAIサービスをセットアップ
+   - `.env`に環境変数を設定
 
 3. **MCPサーバーのセットアップ**
    ```bash
    npm install -g @modelcontextprotocol/server-github
    ```
 
-## Project Structure
+## プロジェクト構成
 
 ```
 11-mcp/
@@ -54,78 +67,80 @@ CO_OP_TRANSLATOR_METADATA:
 └── requirements.txt
 ```
 
-## Core Components
+## コアコンポーネント
 
 ### 1. マルチエージェントシステム
-- GitHub Agent：リポジトリ解析
-- Hackathon Agent：プロジェクト推薦
-- Events Agent：技術イベントの提案
+- GitHubエージェント: リポジトリ解析
+- Hackathonエージェント: プロジェクト推薦
+- Eventsエージェント: 技術イベントの提案
 
 ### 2. Azure連携
-- イベントのインデックス作成にCognitive Searchを利用
-- エージェントの知能化にAzure OpenAIを活用
+- イベントのインデックス作成にCognitive Searchを使用
+- エージェントの知能にAzure OpenAIを活用
 - RAGパターンの実装
 
 ### 3. MCPツール
-- GitHubリポジトリの解析
-- コードの検査
-- メタデータの抽出
+- GitHubリポジトリ解析
+- コード検査
+- メタデータ抽出
 
-## Code Walkthrough
+## コード解説
 
-このサンプルで示す内容：
-1. MCPサーバーとの連携
+サンプルで示す内容:
+1. MCPサーバーの統合
 2. マルチエージェントのオーケストレーション
-3. Azure Cognitive Searchの統合
+3. Azure Cognitive Searchの連携
 4. RAGパターンの実装
 
-主な特徴：
-- リアルタイムのGitHubリポジトリ解析
+主な特徴:
+- リアルタイムでのGitHubリポジトリ解析
 - インテリジェントなプロジェクト推薦
 - Azure Searchを用いたイベントマッチング
 - Chainlitによるストリーミングレスポンス
 
-## Running the Sample
+## サンプルの実行方法
 
-1. MCPサーバーを起動する：
+詳細なセットアップ手順や情報は、[Github MCP Server Example README](./code_samples/github-mcp/README.md)を参照してください。
+
+1. MCPサーバーを起動:
    ```bash
    npx @modelcontextprotocol/server-github
    ```
 
-2. アプリケーションを起動する：
+2. アプリケーションを起動:
    ```bash
    chainlit run app.py -w
    ```
 
-3. 統合テストを行う：
+3. 統合テストを実施:
    ```
    Example query: "Analyze repositories for username: <github_username>"
    ```
 
-## Troubleshooting
+## トラブルシューティング
 
-よくある問題と対処法：
+よくある問題と対処法:
 1. MCP接続の問題
    - サーバーが起動しているか確認
-   - ポートの使用状況をチェック
-   - GitHubトークンを確認
+   - ポートの使用状況を確認
+   - GitHubトークンの有効性を確認
 
 2. Azure Searchの問題
    - 接続文字列の検証
    - インデックスの存在確認
-   - ドキュメントのアップロード状況確認
+   - ドキュメントのアップロード確認
 
-## Next Steps
-- さらなるMCPツールの活用を探る
+## 次のステップ
+- 追加のMCPツールを探る
 - カスタムエージェントを実装する
 - RAG機能を強化する
-- イベントソースを追加する
+- さらに多くのイベントソースを追加する
 
-## Resources
+## リソース
 - [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
 - [MCP Documentation](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
 - [Azure Cognitive Search Docs](https://learn.microsoft.com/azure/search/)
 - [Semantic Kernel Guides](https://learn.microsoft.com/semantic-kernel/)
 
-**免責事項**：  
-本書類はAI翻訳サービス「[Co-op Translator](https://github.com/Azure/co-op-translator)」を使用して翻訳されています。正確性には努めておりますが、自動翻訳には誤りや不正確な箇所が含まれる可能性があることをご了承ください。原文の言語によるオリジナル文書が正式な情報源とみなされます。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や誤訳についても責任を負いかねます。
+**免責事項**:  
+本書類はAI翻訳サービス[Co-op Translator](https://github.com/Azure/co-op-translator)を使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確な部分が含まれる可能性があります。正式な情報源としては、原文（原言語）の文書を参照してください。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や誤訳についても、一切の責任を負いかねます。
