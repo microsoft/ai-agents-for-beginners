@@ -20,28 +20,28 @@ This course offers a series of Jupyter Notebooks that you can run with to get ha
 
 The code samples use either:
 
-**Requires GitHub Accont - Free**:
+**Requires GitHub Account - Free**:
 
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Labeled as (semantic-kernel.ipynb)
+1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Labelled as (semantic-kernel.ipynb)
 2) AutoGen Framework + GitHub Models Marketplace. Labeled as (autogen.ipynb)
 
 **Requires Azure Subscription**:
-3) Azure AI Foundry + Azure AI Agent Service. Labeled as (azureaiagent.ipynb)
+3) Azure AI Foundry + Azure AI Agent Service. Labelled as (azureaiagent.ipynb)
 
 We encourage you to try out all three types of examples to see which one works best for you.
 
-Whichever option you choose, will determine which setup steps you need to follow below:
+Whichever option you choose, it will determine which setup steps you need to follow below:
 
 ## Requirements
 
 - Python 3.12+
-- A GitHub Account - For Acces to the GitHub Models Marketplace
+- A GitHub Account - For Access to the GitHub Models Marketplace
 - Azure Subscription - For Access to Azure AI Foundry
 - Azure AI Foundry Account - For Access to the Azure AI Agent Service
 
 We have included a `requirements.txt` file in the root of this repository that contains all the required Python packages to run the code samples.
 
-You can install them by running the following command in your terminal at the roof of the repository:
+You can install them by running the following command in your terminal at the root of the repository:
 
 ```bash
 pip install -r requirements.txt
@@ -52,7 +52,7 @@ We recommend creating a Python virtual environment to avoid any conflicts and is
 
 ### Step 1: Retrieve Your GitHub Personal Access Token (PAT)
 
-Currently, this course uses the Github Models Marketplace to offer free access to Large Language Models (LLMs) that will be used to create AI Agents.
+Currently, this course uses the GitHub Models Marketplace to offer free access to Large Language Models (LLMs) that will be used to create AI Agents.
 
 To access this service, you will need to create a GitHub Personal Access Token.
 
@@ -87,7 +87,7 @@ You should now be able to run the code samples of this course.
 
 ### Step 1: Retrieve Your Azure Project Connection String
 
-Follow the steps to creating a project and agent in Azure AI Foundry found here: [Create a project in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal?WT.mc_id=academic-105485-koreyst)
+Follow the steps to create a project and agent in Azure AI Foundry found here: [Create a project in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal?WT.mc_id=academic-105485-koreyst)
 
 Once you have created your project, you will need to retrieve the connection string for your project.
 
@@ -116,7 +116,7 @@ Next, open a terminal and run `az login --use-device-code` to sign in to your Az
 Once you've logged in, select your subscription in the terminal.
 
 
-## Additional Envionment Variables - Azure Search and Azure OpenAI 
+## Additional Environment Variables - Azure Search and Azure OpenAI 
 
 For the Agentic RAG Lesson - Lesson 5 - there are samples that use Azure Search and Azure OpenAI.
 
@@ -170,6 +170,6 @@ If you have any issues running this setup, hop into our <a href="https://discord
 
 ## Next Lesson
 
-You are now ready to run the code of this course, happy learning more about the world of AI Agents! 
+You are now ready to run the code for this course. Happy learning more about the world of AI Agents! 
 
 [Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
