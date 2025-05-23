@@ -1,37 +1,48 @@
-# Course Setups
+# သင်တန်းအတွက် Setup ပြင်ဆင်ခြင်း
 
-## Introduction
+## မိတ်ဆက်
 
-This lesson will cover how to run the code samples of this course.
+ဒီသင်ခန်းစာမှာ သင်တန်းအတွင်းပါဝင်တဲ့ code sample တွေကို ဘယ်လိုအသုံးပြုရမယ်ဆိုတာကိုလေ့လာသွားမှာပါ။
 
-## Clone or Fork this Repo
+## Repository ကို Clone လုပ်ခြင်း သို့မဟုတ် Fork လုပ်ခြင်း
 
-To begin, please clone or fork the GitHub Repository. This will make your own version of the course material so that you can run, test, and tweak the code!
+စတင်ဖို့အတွက် GitHub မှာရှိတဲ့ Repository ကို **clone လုပ်ပါ** သို့မဟုတ် **fork လုပ်ပါ**။ ဒါကြောင့် သင်ပိုင်ဆိုင်တဲ့ ကိုယ်ပိုင် version ရလာပြီး၊ ကိုယ်တိုင် code ကို run လုပ်၊ စမ်းသပ်၊ ပြုပြင်နိုင်ပါလိမ့်မယ်။
 
-This can be done by clicking the link to <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork the repo</a>
+အောက်ပါ link ကိုနှိပ်၍ fork လုပ်နိုင်ပါတယ် -  
+👉 [Repo ကို fork လုပ်ရန်](https://github.com/microsoft/ai-agents-for-beginners/fork)
 
-You should now have your own forked version of this course in the following link:
+Fork လုပ်ပြီးပါက သင်ပိုင်တဲ့ ကိုယ်ပိုင် repository ကို အောက်ပါလင့်ခ်မှာတွေ့နိုင်ပါတယ် -
 
 ![Forked Repo](./images/forked-repo.png)
 
-## Running the Code
+## Code ကို Run လုပ်ခြင်း
 
-This course offers a series of Jupyter Notebooks that you can run with to get hands-on experience building AI Agents.
+ဒီသင်တန်းမှာတော့ AI Agent တွေကို တည်ဆောက်ဖို့အတွက် လက်တွေ့ကျကျ လေ့လာနိုင်အောင် Jupyter Notebook များဖြင့် လေ့လာပေးထားပါတယ်။
 
-The code samples use either:
+Code sample တွေမှာ အောက်ပါ Framework များမှ တစ်ခုခုပြုလုပ်ထားပါတယ် -
 
-**Requires GitHub Accont - Free**:
+---
 
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Labeled as (semantic-kernel.ipynb)
-2) AutoGen Framework + GitHub Models Marketplace. Labeled as (autogen.ipynb)
+### **GitHub Account ဖြင့်အသုံးပြုနိုင်သော (အခမဲ့)**
 
-**Requires Azure Subscription**:
-3) Azure AI Foundry + Azure AI Agent Service. Labeled as (azureaiagent.ipynb)
+1. **Semantic Kernel Agent Framework + GitHub Models Marketplace**  
+   **ဖိုင်အမည်** – `semantic-kernel.ipynb`
 
-We encourage you to try out all three types of examples to see which one works best for you.
+2. **AutoGen Framework + GitHub Models Marketplace**  
+   **ဖိုင်အမည်** – `autogen.ipynb`
 
-Whichever option you choose, will determine which setup steps you need to follow below:
+---
 
+### **Azure Subscription လိုအပ်သော**
+
+3. **Azure AI Foundry + Azure AI Agent Service**  
+   **ဖိုင်အမည်** – `azureaiagent.ipynb`
+
+---
+
+Framework သုံးမျိုးလုံးကိုလည်း စမ်းသပ်ကြည့်ဖို့ အကြံပြုပါတယ်၊ ဘယ်ဟာက သင့်နဲ့အကောင်းဆုံး လိုက်ဖက်တယ်ဆိုတာကို စမ်းသပ်ကြည့်ဖို့ပါ။
+
+သင်ရွေးချယ်မယ့် option ပေါ်မူတည်ပြီး အောက်မှာဖော်ပြထားတဲ့ setup လုပ်ငန်းစဉ်တွေက မတူညီနိုင်ပါတယ်။
 ## Requirements
 
 - Python 3.12+
