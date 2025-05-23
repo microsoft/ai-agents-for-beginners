@@ -1,4 +1,4 @@
-# Course Setup
+# Course Setups
 
 ## Introduction
 
