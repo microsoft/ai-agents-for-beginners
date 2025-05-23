@@ -43,43 +43,55 @@ Code sampleအတွက် အောက်ကFramework ထဲက တစ်ခု
 Framework သုံးမျိုးလုံးကိုလည်း စမ်းသပ်ကြည့်ဖို့ အကြံပြုပါတယ်၊ ဘယ်ဟာက သင့်နဲ့အကောင်းဆုံး လိုက်ဖက်တယ်ဆိုတာကို စမ်းသပ်ကြည့်ဖို့ပါ။
 
 သင်ရွေးချယ်မယ့် option ပေါ်မူတည်ပြီး အောက်မှာဖော်ပြထားတဲ့ setup လုပ်ငန်းစဉ်များ မတူညီနိုင်ပါဘူး
-## Requirements
+## လိုအပ်ချက်များ (Requirements)
 
-- Python 3.12+
-- A GitHub Account - For Acces to the GitHub Models Marketplace
-- Azure Subscription - For Access to Azure AI Foundry
-- Azure AI Foundry Account - For Access to the Azure AI Agent Service
+- Python 3.12 နှင့်အထက်
+- GitHub Account တစ်ခု – GitHub Models Marketplace ကို အသုံးပြုရန်
+- Azure Subscription – Azure AI Foundry ကို အသုံးပြုရန်
+- Azure AI Foundry Account – Azure AI Agent Service ကို အသုံးပြုရန်
 
-We have included a `requirements.txt` file in the root of this repository that contains all the required Python packages to run the code samples.
+ဒီ repository ရဲ့ root directory မှာ `requirements.txt` ဖိုင်တစ်ခု ပါဝင်ပါတယ်။  
+ဒီဖိုင်တွင် code sample များကို run ဖို့လိုအပ်တဲ့ Python package များကို စုစည်းဖော်ပြထားပါတယ်။
 
-You can install them by running the following command in your terminal at the roof of the repository:
+အောက်ပါ command ကို terminal တွင် run လုပ်ခြင်းဖြင့် install လုပ်နိုင်ပါသည် –
 
 ```bash
 pip install -r requirements.txt
 ```
-We recommend creating a Python virtual environment to avoid any conflicts and issues.
+💡 **အကြံပြုချက်** – Dependency များပဋိပက္ခမဖြစ်အောင် Python Virtual Environment တစ်ခုဖန်တီးပြီး အသုံးပြုခြင်းကို အကြံပြုလိုက်ပါသည်။
 
-## Set Up for Samples using GitHub Models 
+---
 
-### Step 1: Retrieve Your GitHub Personal Access Token (PAT)
+## GitHub Models အသုံးပြုသည့် Samples များအတွက် Setup လုပ်ခြင်း
 
-Currently, this course uses the Github Models Marketplace to offer free access to Large Language Models (LLMs) that will be used to create AI Agents.
+### အဆင့် ၁ – GitHub Personal Access Token (PAT) ရယူခြင်း
 
-To access this service, you will need to create a GitHub Personal Access Token.
+သင်တန်းအတွင်းမှာ GitHub Models Marketplace ကို အသုံးပြုပြီး Large Language Models (LLMs) များကို အခမဲ့အသုံးပြုခွင့်ပေးထားပါတယ်။  
+AI Agents များတည်ဆောက်ဖို့အတွက် GitHub Personal Access Token (PAT) တစ်ခုလိုအပ်ပါသည်။
 
-This can be done by going to your <a href="https://github.com/settings/personal-access-tokens" target="_blank">Personal Access Tokens settings</a> in your GitHub Account.
+PAT ကိုရယူရန် သင့် GitHub အကောင့်ထဲမှ  
+👉 **[Personal Access Tokens settings](https://github.com/settings/personal-access-tokens)** ကိုသွားပါ။
 
-Select the `Fine-grained tokens` option on the left side of your screen.
+ဘယ်ဘက် sidebar မှာ **Fine-grained tokens** ကိုရွေးချယ်ပြီး  
+**Generate new token** ကို နှိပ်ပါ။
 
-Then select `Generate new token`.
+Token အသစ်ဖန်တီးရာတွင် အောက်ပါအချက်အလက်များကို ဖြည့်သွင်းရပါမည် –
 
-![Generate Token](./images/generate-token.png)
+- **Token အမည်** – သင်သိရှိအောင် အထင်ရှားဆုံးနာမည်ပေးရန်  
+- **သက်တမ်း (Expiration)** – အကြံပြုချက်: **၃၀ ရက်**  
+- **အသုံးပြုခွင့် (Scopes)** – **Public Repositories** ကိုသာရွေးပါ  
 
-You will be prompted to enter a name for your token, select the expiration date (Recommended: 30 Days), and select the scopes for your token (Public Repositories).
+Token ဖန်တီးပြီးပါက  
+🔑 **သတိထား** – Token ကို **Copy လုပ်ထားပါ**။ GitHub မှာ Token ကို နောက်မှ ပြသမည်မဟုတ်ပါ။
 
-Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
+ထို Token ကို သင်တန်းတွင် ပါဝင်တဲ့ `.env` ဖိုင်ထဲတွင် ထည့်သွင်းရန် လိုအပ်ပါသည်။
 
+---
 
+🛡️ **သတိပေးချက်** –  
+Token များသည် လုံခြုံရေးအတွက် အချိန်ပိုင်းသက်တမ်းရှိသည့်အတွက် `.env` ဖိုင်တွင်သာ သိမ်းထားပြီး  
+Version Control (Git) ထဲသို့ မထည့်သင့်ပါ။  
+သင့် Code ကို GitHub တွင် push မလုပ်မီ `.gitignore` ထဲတွင် `.env` ဖိုင် ပါဝင်ကြောင်း သေချာစစ်ဆေးပါ။
 ### Step 2: Create Your `.env` File
 
 To create your `.env` file run the following command in your terminal.
