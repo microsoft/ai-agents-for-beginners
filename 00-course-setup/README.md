@@ -75,6 +75,8 @@ PAT ကိုရယူရန် သင့် GitHub အကောင့်ထဲ�
 ဘယ်ဘက် sidebar မှာ **Fine-grained tokens** ကိုရွေးချယ်ပြီး  
 **Generate new token** ကို နှိပ်ပါ။
 
+![Generate Token](./images/generate-token.png)
+
 Token အသစ်ဖန်တီးရာတွင် အောက်ပါအချက်အလက်များကို ဖြည့်သွင်းရပါမည် –
 
 - **Token အမည်** – သင်သိရှိအောင် အထင်ရှားဆုံးနာမည်ပေးရန်  
