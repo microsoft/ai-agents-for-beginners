@@ -9,7 +9,7 @@
 ပထမဆုံးအဆင့်အနေနဲ့ GitHub မှာရှိတဲ့ Repository ကို **clone လုပ်ပါ** သို့မဟုတ် **fork လုပ်ပါ**။ ဒါဆိုရ် သင့်ရဲ့ ကိုယ်ပိုင် version ရလာပြီး၊ ကိုယ်တိုင် code ကို run လုပ်၊ စမ်းသပ်၊ ပြုပြင်နိုင်ပါလိမ့်မယ်။
 
 အောက်ပါ link ကိုနှိပ်၍ fork လုပ်နိုင်ပါတယ် -  
-👉 [Repo ကို fork လုပ်ရန်](https://github.com/microsoft/ai-agents-for-beginners/fork)
+[Repo ကို fork လုပ်ရန်](https://github.com/microsoft/ai-agents-for-beginners/fork)
 
 Fork လုပ်ပြီးပါက သင့်ရဲ့ ကိုယ်ပိုင် repository ကို အောက်ပါလင့်ခ်မှာတွေ့နိုင်ပါတယ် -
 
@@ -21,7 +21,7 @@ Fork လုပ်ပြီးပါက သင့်ရဲ့ ကိုယ်ပ�
 
 Code sampleအတွက် အောက်ကFramework ထဲက တစ်ခုခုအသုံးပြုလို့ရပါတယ် -
 
----
+
 
 ### **GitHub Account ဖြင့် အသုံးပြုခြင်း (အခမဲ့)**
 
@@ -31,14 +31,13 @@ Code sampleအတွက် အောက်ကFramework ထဲက တစ်ခု
 2. **AutoGen Framework + GitHub Models Marketplace**  
    **ဖိုင်အမည်** – `autogen.ipynb`
 
----
+
 
 ### **Azure Subscription လိုအပ်သော**
 
 3. **Azure AI Foundry + Azure AI Agent Service**  
    **ဖိုင်အမည်** – `azureaiagent.ipynb`
 
----
 
 Framework သုံးမျိုးလုံးကိုလည်း စမ်းသပ်ကြည့်ဖို့ အကြံပြုပါတယ်၊ ဘယ်ဟာက သင့်နဲ့အကောင်းဆုံး လိုက်ဖက်တယ်ဆိုတာကို စမ်းသပ်ကြည့်ဖို့ပါ။
 
@@ -58,9 +57,9 @@ Framework သုံးမျိုးလုံးကိုလည်း စမ်
 ```bash
 pip install -r requirements.txt
 ```
-💡 **အကြံပြုချက်** – Dependencyများ မရှုပ်ထွေးအောင် Python Virtual Environment တစ်ခုဖန်တီးပြီး အသုံးပြုဖို့ အကြံပြုလိုပါသည်။
+**အကြံပြုချက်** – Dependencyများ မရှုပ်ထွေးအောင် Python Virtual Environment တစ်ခုဖန်တီးပြီး အသုံးပြုဖို့ အကြံပြုလိုပါသည်။
 
----
+
 
 ## GitHub Models အသုံးပြုသည့် Samples များအတွက် Setup လုပ်ခြင်း
 
@@ -70,131 +69,133 @@ pip install -r requirements.txt
 AI Agents များတည်ဆောက်ဖို့အတွက် GitHub Personal Access Token (PAT) တစ်ခုလိုအပ်ပါသည်။
 
 PAT ကိုရယူရန် သင့် GitHub အကောင့်ထဲမှ  
-👉 **[Personal Access Tokens settings](https://github.com/settings/personal-access-tokens)** ကိုသွားပါ။
+**[Personal Access Tokens settings](https://github.com/settings/personal-access-tokens)** ကိုသွားပါ။
 
 ဘယ်ဘက် sidebar မှာ **Fine-grained tokens** ကိုရွေးချယ်ပြီး  
 **Generate new token** ကို နှိပ်ပါ။
 
 ![Generate Token](./images/generate-token.png)
 
-Token အသစ်ဖန်တီးရာတွင် အောက်ပါအချက်အလက်များကို ဖြည့်သွင်းရပါမည် –
+သင်သည် Token အသစ်ဖန်တီးရာတွင် အောက်ပါအချက်များကို ဖြည့်သွင်းရန် လိုအပ်ပါမည်။
 
-- **Token အမည်** – သင်သိရှိအောင် အထင်ရှားဆုံးနာမည်ပေးရန်  
-- **သက်တမ်း (Expiration)** – အကြံပြုချက်: **၃၀ ရက်**  
-- **အသုံးပြုခွင့် (Scopes)** – **Public Repositories** ကိုသာရွေးပါ  
+- Token အတွက် **အမည်** တစ်ခု ထည့်သွင်းပါ  
+- **သက်တမ်း (Expiration Date)** ကိုရွေးချယ်ပါ *(အကြံပြုချက် – ၃၀ ရက်)*  
+- Token ၏ **အသုံးပြုခွင့်များ (Scopes)** မှာ **Public Repositories** ကိုသာ ရွေးချယ်ပါ
 
-Token ဖန်တီးပြီးပါက  
-🔑 **သတိထား** – Token ကို **Copy လုပ်ထားပါ**။ GitHub မှာ Token ကို နောက်မှ ပြသမည်မဟုတ်ပါ။
+Token ဖန်တီးပြီးသွားသောအခါတွင် သင်ဖန်တီးလိုက်သော **Token ကို copy လုပ်ထားပါ**။  
+GitHub သည် Token ကိုနောက်မှပြသမည်မဟုတ်ပါ။
 
-ထို Token ကို သင်တန်းတွင် ပါဝင်တဲ့ `.env` ဖိုင်ထဲတွင် ထည့်သွင်းရန် လိုအပ်ပါသည်။
+ဒီသင်တန်းတွင် ပါဝင်တဲ့ `.env` ဖိုင်အတွင်း `GITHUB_TOKEN` ဆိုသည့်နေရာတွင် သင့် Token ကို ထည့်သွင်းရန် လိုအပ်ပါသည်။
 
----
 
-🛡️ **သတိပေးချက်** –  
-Token များသည် လုံခြုံရေးအတွက် အချိန်ပိုင်းသက်တမ်းရှိသည့်အတွက် `.env` ဖိုင်တွင်သာ သိမ်းထားပြီး  
-Version Control (Git) ထဲသို့ မထည့်သင့်ပါ။  
-သင့် Code ကို GitHub တွင် push မလုပ်မီ `.gitignore` ထဲတွင် `.env` ဖိုင် ပါဝင်ကြောင်း သေချာစစ်ဆေးပါ။
-### Step 2: Create Your `.env` File
+### အဆင့် ၂ – `.env` ဖိုင် ဖန်တီးခြင်း
 
-To create your `.env` file run the following command in your terminal.
+Terminal ထဲတွင် အောက်ပါ command ကို run လုပ်ပါ –
 
 ```bash
 cp .env.example .env
 ```
 
-This will copy the example file and create a `.env` in your directory and where you fill in the values for the environment variables.
+ဒီ command သည် `.env.example` ကို copy လုပ်ပြီး သင့် directory ထဲတွင် `.env` ဖိုင်အသစ်တစ်ခုဖန်တီးပေးပါမည်။  
+ထို `.env` ဖိုင်တွင် သင်လိုအပ်သည့် environment variables များ၏ တန်ဖိုးများကို ဖြည့်သွင်းနိုင်ပါသည်။
 
-With your token copied, open the `.env` file in your favorite text editor and paste your token into the `GITHUB_TOKEN` field.
+သင်၏ Token ကို copy လုပ်ပြီးပါက၊ သင်အကြိုက်ဆုံး Text Editor ဖြင့် `.env` ဖိုင်ကိုဖွင့်ပါ။  
+ထို့နောက် `GITHUB_TOKEN=` နေရာတွင် သင့် Token ကို paste လုပ်ပါ။
 
-You should now be able to run the code samples of this course.
+ယခုအချိန်တွင် သင်သည် သင်တန်းတွင်ပါဝင်သော code sample များကို run လုပ်နိုင်ပြီဖြစ်ပါသည်။
 
-## Set Up for Samples using Azure AI Foundry and Azure AI Agent Service
+## Azure AI Foundry နှင့် Azure AI Agent Service ကို အသုံးပြုသော Samples များအတွက် Setup
 
-### Step 1: Retrieve Your Azure Project Connection String
+### အဆင့် ၁ – Azure Project Connection String ရယူခြင်း
 
-Follow the steps to creating a project and agent in Azure AI Foundry found here: [Create a project in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal?WT.mc_id=academic-105485-koreyst)
+Azure AI Foundry တွင် Project နှင့် Agent တစ်ခုဖန်တီးရန်အတွက် [အောက်ပါလင့်ခ်](https://learn.microsoft.com/en-us/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal?WT.mc_id=academic-105485-koreyst) ကိုလိုက်နာပါ။
 
-Once you have created your project, you will need to retrieve the connection string for your project.
-
-This can be done by going to the **Overview** page of your project in the Azure AI Foundry portal.
+Project တစ်ခုဖန်တီးပြီးပါက၊ သင့် Project ၏ **Connection String** ကိုရယူရန် လိုအပ်ပါသည်။  
+ဤအရာကို Azure AI Foundry portal ၏ **Overview** စာမျက်နှာတွင်ရယူနိုင်သည်။
 
 ![Project Connection String](./images/project-connection-string.png)
 
-### Step 2: Create Your `.env` File
 
-To create your `.env` file run the following command in your terminal.
+### အဆင့် ၂ – `.env` ဖိုင်ဖန်တီးခြင်း
+
+Terminal ထဲတွင် အောက်ပါ command ကို run လုပ်ပါ –
 
 ```bash
 cp .env.example .env
 ```
+ဤ command သည် `.env.example` ကို copy လုပ်ပြီး `.env` ဖိုင်အသစ်တစ်ခုဖန်တီးပေးပါမည်။  
+ဤဖိုင်အတွင်းတွင် environment variables များအတွက် တန်ဖိုးများကို ဖြည့်သွင်းရပါမည်။
 
-This will copy the example file and create a `.env` in your directory and where you fill in the values for the environment variables.
+Token ကို copy လုပ်ပြီးပါက `.env` ဖိုင်ကိုဖွင့်ပြီး `PROJECT_CONNECTION_STRING=` နေရာတွင် Paste လုပ်ပါ။
 
-With your token copied, open the `.env` file in your favorite text editor and paste your token into the `PROJECT_CONNECTION_STRING` field.
+---
 
-### Step 3: Sign in to Azure
+### အဆင့် ၃ – Azure သို့ Sign in လုပ်ခြင်း
 
-As a security best practice, we'll use [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) to authenticate to Azure OpenAI with Microsoft Entra ID. Before you can do so, you'll first need to install the **Azure CLI** per the [installation instructions](https://learn.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academic-105485-koreyst) for your operating system.
+လုံခြုံရေးအကောင်းဆုံးဖြစ်အောင် **Keyless Authentication** ကို အသုံးပြုမည်ဖြစ်ပြီး၊  
+**Microsoft Entra ID** ဖြင့် **Azure OpenAI** ကို Authenticate လုပ်ပါမည်။  
+ဤလုပ်ဆောင်မှုအတွက် သင်၏ OS အလိုက် **Azure CLI** ကို ဤအညွှန်းအတိုင်း ထည့်သွင်းရန်လိုအပ်ပါသည် –  
+➡️ [Azure CLI Installation Guide](https://learn.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academic-105485-koreyst)
 
-Next, open a terminal and run `az login --use-device-code` to sign in to your Azure account.
+ထို့နောက် Terminal ကိုဖွင့်ပြီး အောက်ပါ command ကို run လုပ်ပါ –
 
-Once you've logged in, select your subscription in the terminal.
+```bash
+az login --use-device-code
+```
+Azure မှာ login ၀င်ပြီးပါက Terminal ထဲတွင် သင့် subscription ကို ရွေးချယ်ပါ။
 
+## ထပ်ဆောင်း Environment Variables များ - Azure Search နှင့် Azure OpenAI
 
-## Additional Envionment Variables - Azure Search and Azure OpenAI 
-
-For the Agentic RAG Lesson - Lesson 5 - there are samples that use Azure Search and Azure OpenAI.
-
-If you want to run these samples, you will need to add the following environment variables to your `.env` file:
+**Lesson 5 - Agentic RAG** တွင် Azure Search နှင့် Azure OpenAI ကို အသုံးပြုသည့် sample များပါဝင်ပါသည်။  
+ဤ sample များကို run လုပ်ရန် `.env` ဖိုင်အတွင်း အောက်ဖော်ပြပါ environment variables များ ထည့်သွင်းရန် လိုအပ်ပါသည်။
 
 ### Overview Page (Project)
 
-- `AZURE_SUBSCRIPTION_ID` - Check **Project details** on the **Overview** page of your project.
-
-- `AZURE_AI_PROJECT_NAME` - Look at the top of the **Overview** page for your project.
-
-- `AZURE_OPENAI_SERVICE` - Find this in the **Included capabilities** tab for **Azure OpenAI Service** on the **Overview** page.
+- `AZURE_SUBSCRIPTION_ID` - သင့် project ၏ **Overview** စာမျက်နှာရှိ **Project details** တွင်ကြည့်ပါ
+- `AZURE_AI_PROJECT_NAME` - **Overview** စာမျက်နှာ၏ ထိပ်တွင်ဖော်ပြထားသည်
+- `AZURE_OPENAI_SERVICE` - **Overview** စာမျက်နှာအတွင်း **Included capabilities** tab မှာ **Azure OpenAI Service** ကို ရှာကြည့်ပါ
 
 ### Management Center
 
-- `AZURE_OPENAI_RESOURCE_GROUP` - Go to **Project properties** on the **Overview** page of the **Management Center**.
-
-- `GLOBAL_LLM_SERVICE` - Under **Connected resources**, find the **Azure AI Services** connection name. If not listed, check the **Azure portal** under your resource group for the AI Services resource name.
+- `AZURE_OPENAI_RESOURCE_GROUP` - **Management Center** > **Overview** စာမျက်နှာရှိ **Project properties** တွင်ကြည့်ပါ
+- `GLOBAL_LLM_SERVICE` - **Connected resources** အောက်တွင် **Azure AI Services** connection name ကိုကြည့်ပါ။ မတွေ့လျှင် Azure Portal တွင် သင့် resource group အောက်မှ AI Services resource name ကို ကြည့်ပါ
 
 ### Models + Endpoints Page
 
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Select your embedding model (e.g., `text-embedding-ada-002`) and note the **Deployment name** from the model details.
-
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Select your chat model (e.g., `gpt-4o-mini`) and note the **Deployment name** from the model details.
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - သင့် embedding model (ဥပမာ - `text-embedding-ada-002`) ကိုရွေးပြီး **Deployment name** ကို မှတ်သားပါ
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - သင့် chat model (ဥပမာ - `gpt-4o-mini`) ကိုရွေးပြီး **Deployment name** ကို မှတ်သားပါ
 
 ### Azure Portal
 
-- `AZURE_OPENAI_ENDPOINT` - Look for **Azure AI services**, click on it, then go to **Resource Management**, **Keys and Endpoint**, scroll down to the "Azure OpenAI endpoints", and copy the one that says "Language APIs".
-
-- `AZURE_OPENAI_API_KEY` - From the same screen, copy KEY 1 or KEY 2.
-
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - Find your **Azure AI Search** resource, click it, and see **Overview**.
-
-- `AZURE_SEARCH_API_KEY` - Then go to **Settings** and then **Keys** to copy the primary or secondary admin key.
+- `AZURE_OPENAI_ENDPOINT` - **Azure AI Services** ကို click လုပ်ပြီး **Resource Management** > **Keys and Endpoint** သို့သွားပါ၊ “Azure OpenAI endpoints” တွင် **Language APIs** ကို Copy လုပ်ပါ
+- `AZURE_OPENAI_API_KEY` - အထက်ဖော်ပြပါနေရာမှ **KEY 1** သို့မဟုတ် **KEY 2** ကို Copy လုပ်ပါ
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - သင့် **Azure AI Search** resource ကို click လုပ်ပြီး **Overview** တွင်ကြည့်ပါ
+- `AZURE_SEARCH_API_KEY` - **Settings** > **Keys** ထဲတွင် admin key (primary သို့မဟုတ် secondary) ကို Copy လုပ်ပါ
 
 ### External Webpage
 
-- `AZURE_OPENAI_API_VERSION` - Visit the [API version lifecycle](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) page under **Latest GA API release**.
+- `AZURE_OPENAI_API_VERSION` - [API Version Lifecycle](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) စာမျက်နှာတွင် **Latest GA API release** ကို ကြည့်ပါ
 
-### Setup keyless authentication
+## Keyless Authentication Setup
 
-Rather than hardcode your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential` function to get the credential.
+Credentials များကို hardcode မလုပ်ဘဲ Azure OpenAI နှင့် keyless connection ကို အသုံးပြုပါမည်။  
+အတွက်အနေနှင့် Python မှာ အောက်ပါအတိုင်း `DefaultAzureCredential` ကို import ပြုလုပ်ပါ။
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
-## Stuck Somewhere?
+## အဆင်မပြေတာရှိလား?
 
-If you have any issues running this setup, hop into our <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> or <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">create an issue</a>.
+ဤ setup ကို run လုပ်ရာတွင် ပြဿနာများရှိပါက  
+<a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> သို့ ဝင်ရောက်ဆွေးနွေးနိုင်ပြီး  
+သို့မဟုတ် <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">GitHub မှ issue တစ်ခုဖန်တီးပါ</a>။
 
-## Next Lesson
+## နောက်ထပ်သင်ခန်းစာ
 
-You are now ready to run the code of this course, happy learning more about the world of AI Agents! 
+ယခုအခါ သင်သည် ဤသင်တန်းအတွက် code များကို run လုပ်ရန် အသင့်ဖြစ်ပါပြီ။  
+AI Agents များ၏ ကမ္ဘာအကြောင်းကို ဆက်လက်လေ့လာနိုင်ပါပြီ။
 
-[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
+[AI Agent များနှင့် အသုံးပြုမှု Use Cases များအကြောင်း မိတ်ဆက်](../01-intro-to-ai-agents/README.md)
+
+
