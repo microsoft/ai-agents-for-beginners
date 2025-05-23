@@ -46,9 +46,9 @@ Framework သုံးမျိုးလုံးကိုလည်း စမ်
 ## လိုအပ်ချက်များ (Requirements)
 
 - Python 3.12 နှင့်အထက်
-- GitHub Account တစ်ခု – GitHub Models Marketplace ကို အသုံးပြုရန်
-- Azure Subscription – Azure AI Foundry ကို အသုံးပြုရန်
-- Azure AI Foundry Account – Azure AI Agent Service ကို အသုံးပြုရန်
+- GitHub Models Marketplace ကို အသုံးပြုရန်အတွက် - GitHub Account တစ်ခု -
+- Azure AI Foundry ကို အသုံးပြုရန်အတွက် - Azure Subscription 
+- Azure AI Agent Service ကို အသုံးပြုရန်အတွက် - Azure AI Foundry Account တသ်ခု -
 
 ဒီ repository ရဲ့ root directory မှာ `requirements.txt` ဖိုင်တစ်ခု ပါဝင်ပါတယ်။  
 ဒီဖိုင်တွင် code sample များကို run ဖို့လိုအပ်တဲ့ Python package များကို စုစည်းဖော်ပြထားပါတယ်။
@@ -58,7 +58,7 @@ Framework သုံးမျိုးလုံးကိုလည်း စမ်
 ```bash
 pip install -r requirements.txt
 ```
-💡 **အကြံပြုချက်** – Dependency များပဋိပက္ခမဖြစ်အောင် Python Virtual Environment တစ်ခုဖန်တီးပြီး အသုံးပြုခြင်းကို အကြံပြုလိုက်ပါသည်။
+💡 **အကြံပြုချက်** – Dependencyများ မရှုပ်ထွေးအောင် Python Virtual Environment တစ်ခုဖန်တီးပြီး အသုံးပြုဖို့ အကြံပြုလိုပါသည်။
 
 ---
 
@@ -66,7 +66,7 @@ pip install -r requirements.txt
 
 ### အဆင့် ၁ – GitHub Personal Access Token (PAT) ရယူခြင်း
 
-သင်တန်းအတွင်းမှာ GitHub Models Marketplace ကို အသုံးပြုပြီး Large Language Models (LLMs) များကို အခမဲ့အသုံးပြုခွင့်ပေးထားပါတယ်။  
+ဒီသင်တန်းအတွင်းမှာ GitHub Models Marketplace ကို အသုံးပြုပြီး Large Language Models (LLMs) များကို အခမဲ့အသုံးပြုခွင့်ပေးထားပါတယ်။  
 AI Agents များတည်ဆောက်ဖို့အတွက် GitHub Personal Access Token (PAT) တစ်ခုလိုအပ်ပါသည်။
 
 PAT ကိုရယူရန် သင့် GitHub အကောင့်ထဲမှ  
