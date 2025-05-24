@@ -4,41 +4,47 @@
 > _(Click the image above to view video of this lesson)_
 
 
-# Introduction to AI Agents and Agent Use Cases
+# AI အေးဂျင့်များနှင့် အေးဂျင့်အသုံးပြုမှုများ - မိတ်ဆက်
 
-Welcome to the "AI Agents for Beginners" course! This course provides fundamental knowledge and applied samples for building AI Agents.
+**"AI အေးဂျင့်များအတွက် အခြေခံသင်ခန်းစာ"** သင်တန်းသို့ ကြိုဆိုပါတယ်! ဤသင်တန်းသည် AI အေးဂျင့်များတည်ဆောက်ခြင်းအတွက် အခြေခံဗဟုသုတနှင့် လက်တွေ့အသုံးချနမူနာများကို ပေးပို့ထားပါတယ်။
 
-Join the <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a> to meet other learners and AI Agent Builders and ask any questions you have about this course.
+**Azure AI Discord Community** တွင်ပါဝင်ပြီး အခြားသင်ယူသူများနှင့် AI အေးဂျင့်တည်ဆောက်သူများနှင့် တွေ့ဆုံကာ ဤသင်တန်းနှင့်ပတ်သက်သော မေးခွန်းများကို မေးမြန်းနိုင်ပါတယ်။
 
-To start this course, we begin by getting a better understanding of what AI Agents are and how we can use them in the applications and workflows we build.
+ဤသင်တန်းကို စတင်ရန်အတွက် AI အေးဂျင့်များဆိုတာ ဘာတွေလဲ နှင့် ကျွန်ုပ်တို့တည်ဆောက်သော အပလီကေးရှင်းများနှင့် လုပ်ငန်းစဉ်များတွင် မည်သို့အသုံးပြုနိုင်မလဲဆိုတာကို ပိုမိုနားလည်ခြင်းဖြင့် စတင်ပါမယ်။
 
-## Introduction
+## မိတ်ဆက်
 
-This lesson covers:
+ဤသင်ခန်းစာတွင် အောက်ပါအချက်များပါဝင်ပါတယ်:
+* AI အေးဂျင့်များဆိုတာ ဘာတွေလဲ နှင့် အေးဂျင့်အမျိုးအစားများကွဲပြားခြားနားမှုများ
+* AI အေးဂျင့်များအတွက် အကောင်းဆုံးအသုံးပြုမှုများနှင့် ၎င်းတို့သည် ကျွန်ုပ်တို့ကို မည်သို့ကူညီနိုင်သည်
+* အေးဂျင့်ဖြေရှင်းချက်များဒီဇိုင်းရာတွင် အခြေခံတည်ဆောက်မှုအစိတ်အပိုင်းများ
 
-- What are AI Agents and what are the different types of agents?
-- What use cases are best for AI Agents and how can they help us?
-- What are some of the basic building blocks when designing Agentic Solutions?
+## သင်ယူမှုရည်မှန်းချက်များ
 
-## Learning Goals
-After completing this lesson, you should be able to:
+ဤသင်ခန်းစာပြီးစီးပြီးနောက် သင်သည် အောက်ပါအရာများကို တတ်မြောက်နိုင်မည်:
+* AI အေးဂျင့်အယူအဆများနှင့် အခြား AI ဖြေရှင်းချက်များနှင့် မည်သို့ကွဲပြားသည်ကို နားလည်ခြင်း
+* AI အေးဂျင့်များကို အထိရောက်ဆုံးအသုံးချခြင်း
+* အသုံးပြုသူများနှင့် ဖောက်သည်များအတွက် အေးဂျင့်ဖြေရှင်းချက်များကို ထိရောက်စွာဒီဇိုင်းရေးဆွဲခြင်း
 
-- Understand AI Agent concepts and how they differ from other AI solutions.
-- Apply AI Agents most efficiently.
-- Design Agentic solutions productively for both users and customers.
+## AI အေးဂျင့်များနှင့် အေးဂျင့်အမျိုးအစားများကို သတ်မှတ်ခြင်း
 
-## Defining AI Agents and Types of AI Agents
+### AI အေးဂျင့်များဆိုတာ ဘာတွေလဲ?
 
-### What are AI Agents?
+**AI အေးဂျင့်များ**သည် **ကြီးမားသော ဘာသာစကားမော်ဒယ်များ (LLMs)** ကို **အရေးယူဆောင်ရွက်မှုများပြုလုပ်ရန်** စွမးးခွန်အား ချဲ့ထွင်ပေးသော **စနစ်များ** ဖြစ်ပြီး LLMs များကို **ကိရိယာများသုံးသွားခွင့်** နှင့် **အသိပညာ** ရရှိခွင့်ပေးခြင်းဖြင့် ၎င်းတို့၏စွမ်းရည်များကို တိုးချဲ့ပေးပါတယ်။
 
-AI Agents are **systems** that enable **Large Language Models(LLMs)** to **perform actions** by extending their capabilities by giving LLMs **access to tools** and **knowledge**.
+ဤအဓိပ্पါယ်ဖွင့်ဆိုချက်ကို သေးငယ်သောအပိုင်းများအဖြစ် ခွဲခြမ်းကြည့်ကြပါစို့:
 
-Let's break this definition into smaller parts:
+### **စနစ်**
+အေးဂျင့်များကို တစ်ခုတည်းသောအစိတ်အပိုင်းမဟုတ်ဘဲ များစွာသောအစိတ်အပိုင်းများပေါင်းထားသော စနစ်တစ်ခုအဖြစ် စဉ်းစားရန် အရေးကြီးပါတယ်။ အခြေခံအဆင့်တွင် AI အေးဂျင့်တစ်ခု၏ အစိတ်အပိုင်းများမှာ:
 
-- **System** - It's important to think about agents not as just a single component but as a system of many components. At the basic level, the components of an AI Agent are:
-  - **Environment** - The defined space where the AI Agent is operating. For example, if we had a travel booking AI Agent, the environment could be the travel booking system that the AI Agent uses to complete tasks.
-  - **Sensors** - Environments have information and provide feedback. AI Agents use sensors to gather and interpret this information about the current state of the environment. In the Travel Booking Agent example, the travel booking system can provide information such as hotel availability or flight prices.
-  - **Actuators** - Once the AI Agent receives the current state of the environment, for the current task the agent determines what action to perform to change the environment. For the travel booking agent, it might be to book an available room for the user.
+#### **ပတ်ဝန်းကျင် (Environment)**
+AI အေးဂျင့်လုပ်ဆောင်နေသော သတ်မှတ်ထားသောနေရာ။ ဥပမာအားဖြင့်၊ ကျွန်ုပ်တို့တွင် ခရီးစဉ်ကြိုတင်မှာယူခြင်း AI အေးဂျင့်ရှိပါက၊ ပတ်ဝန်းကျင်သည် AI အေးဂျင့်မှ တာဝန်များပြီးစီးရန် အသုံးပြုသော ခရီးစဉ်ကြိုတင်မှာယူမှုစနစ်ဖြစ်နိုင်ပါတယ်။
+
+#### **အာရုံခံကိရိယာများ (Sensors)**
+ပတ်ဝန်းကျင်များတွင် အချက်အလက်များရှိပြီး တုံ့ပြန်မှုများပေးပါတယ်။ AI အေးဂျင့်များသည် ပတ်ဝန်းကျင်၏လက်ရှိအခြေအနေနှင့်ပတ်သက်သော ဤအချက်အလက်များကို စုဆောင်းရန်နှင့် အဓိပ္ပါယ်ဖွင့်ဆိုရန် အာရုံခံကိရိယာများကို အသုံးပြုပါတယ်။ ခရီးစဉ်ကြိုတင်မှာယူသော အေးဂျင့်ဥပမာတွင်၊ ခရီးစဉ်ကြိုတင်မှာယူမှုစနစ်သည် ဟိုတယ်ရရှိနိုင်မှု သို့မဟုတ် လေယာဉ်လက်မှတ်စျေးနှုန်းများကဲ့သို့သော အချက်အလက်များကို ပေးပို့နိုင်ပါတယ်။
+
+#### **လုပ်ဆောင်သူများ (Actuators)**
+AI အေးဂျင့်သည် ပတ်ဝန်းကျင်၏လက်ရှိအခြေအနေကို လက်ခံရရှိပြီးနောက်၊ လက်ရှိတာဝန်အတွက် အေးဂျင့်သည် ပတ်ဝန်းကျင်ကို ပြောင်းလဲရန် မည်သည့်လုပ်ဆောင်ချက်ကို ပြုလုပ်ရမည်ကို ဆုံးဖြတ်ပါတယ်။ ခရီးစဉ်ကြိုတင်မှာယူသော အေးဂျင့်အတွက်၊ ၎င်းသည် အသုံးပြုသူအတွက် ရရှိနိုင်သောအခန်းတစ်ခန်းကို ကြိုတင်မှာယူခြင်းဖြစ်နိုင်ပါတယ်။
 
 ![What Are AI Agents?](./images/what-are-ai-agents.png)
 
