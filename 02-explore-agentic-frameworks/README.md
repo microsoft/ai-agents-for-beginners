@@ -407,7 +407,7 @@ Azure AI Agent Service တွင် အောက်ပါ အဓိက အယူ
 - **Semantic Kernel**: Enterprise agentic applications များကို တည်ဆောက်ရန်အတွက် production-ready agent library တစ်ခုဖြစ်သည်။ Event-driven, distributed agentic applications များကို အဓိကထားပြီး၊ multiple LLMs နှင့် SLMs များ၊ tools များ၊ နှင့် single/multi-agent design patterns များကို အသုံးပြုနိုင်စေသည်။
 - **Azure AI Agent Service**: Agents များအတွက် Azure Foundry တွင် platform နှင့် deployment service တစ်ခုဖြစ်သည်။ ၎င်းသည် Azure OpenAI၊ Azure AI Search၊ Bing Search နှင့် code execution ကဲ့သို့သော Azure Found မှ ပံ့ပိုးထားသော services များနှင့် connectivity တည်ဆောက်မှုကို ပေးဆောင်သည်။
  
-မည်သည့်တစ်ခုကို ရွေးချယ်ရမည်ကို မသေချာသေးလား?
+မည်သည့်တစ်ခုကို ရွေးချယ်ရမည်ကို မသေချာသေးဘူးလား?
 
 ### အသုံးပြုမှုများ
  
