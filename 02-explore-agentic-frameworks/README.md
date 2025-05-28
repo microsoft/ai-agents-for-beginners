@@ -234,7 +234,8 @@ CrewAI၊ Microsoft AutoGen နှင့် Semantic Kernel ကဲ့သို�
 လက်တွေ့တွင် မည်သို့ လုပ်ဆောင်သနည်း - သင်သည် agent များ၏ အဖွဲ့တစ်ဖွဲ့ကို ဖန်တီးနိုင်ပြီး agent တစ်ခုစီတွင် ဒေတာရယူခြင်း၊ ခွဲခြမ်းစိတ်ဖြာခြင်း သို့မဟုတ် ဆုံးဖြတ်ချက်ချမှတ်ခြင်းကဲ့သို့သော အထူးပြု လုပ်ဆောင်ချက်များ ရှိသည်။ ဤ agent များသည် အသုံးပြုသူ၏ မေးခွန်းကို ဖြေဆိုခြင်း သို့မဟုတ် အလုပ်တစ်ခုကို ပြီးစီးအောင်လုပ်ခြင်းကဲ့သို့သော ရည်မှန်းချက်ကို အောင်မြင်ရရှိရန် ဆက်သွယ်ပြီး အချက်အလက်များကို မျှဝေနိုင်ကြသည်။
 
 ဥပမာ ကုဒ် (AutoGen):
-python# creating agents, then create a round robin schedule where they can work together, in this case in order
+python
+'''# creating agents, then create a round robin schedule where they can work together, in this case in order
 # Data Retrieval Agent
 # Data Analysis Agent
 # Decision Making Agent
@@ -256,7 +257,8 @@ user_proxy = UserProxyAgent("user_proxy", input_func=input)
 team = RoundRobinGroupChat([agent_retrieve, agent_analyze, user_proxy], termination_condition=termination)
 stream = team.run_stream(task="Analyze data", max_turns=10)
 # Use asyncio.run(...) when running in a script.
-await Console(stream)
+await Console(stream) '''
+
 ယခင် ကုဒ်တွင် သင်တွေ့ရှိနိုင်သည်မှာ ဒေတာကို ခွဲခြမ်းစိတ်ဖြာရန် မျိုးစုံ agent များ အတူတကွ လုပ်ဆောင်ရသော task တစ်ခုကို မည်သို့ ဖန်တီးနိုင်သည်ကို ဖြစ်သည်။ Agent တစ်ခုစီသည် သီးခြား လုပ်ဆောင်ချက်တစ်ခုကို ဆောင်ရွက်ပြီး လိုချင်သော ရလဒ်ကို အောင်မြင်ရရှိရန် agent များကို ညှိနှိုင်းခြင်းဖြင့် task ကို လုပ်ဆောင်သည်။ အထူးပြု အခန်းကဏ္ဍများရှိသော သီးခြား agent များ ဖန်တီးခြင်းဖြင့် သင်သည် task ထိရောက်မှုနှင့် စွမ်းဆောင်ရည်ကို မြှင့်တင်နိုင်သည်။
 အချိန်နှင့်တပြေးညီ သင်ယူခြင်း
 အဆင့်မြင့် framework များသည် အချိน်နှင့်တပြေးညီ အကြောင်းအရာ နားလည်မှုနှင့် လိုက်လျောညီထွေဖြစ်မှုအတွက် စွမ်းရည်များကို ပံ့ပိုးပေးပါသည်။
