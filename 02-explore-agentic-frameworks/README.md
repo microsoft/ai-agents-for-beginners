@@ -1,70 +1,78 @@
-[![Exploring AI Agent Frameworks](./images/lesson-2-thumbnail.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+# AI Agent Framework များကို စူးစမ်းလေ့လာခြင်း
 
-> _(Click the image above to view video of this lesson)_
+[![AI Agent Framework များကို စူးစမ်းလေ့လာခြင်း](./images/lesson-2-thumbnail.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
-# Explore AI Agent Frameworks
+> _(ဤသင်ခန်းစာ၏ ဗီဒီယိုကို ကြည့်ရှုရန် အထက်ပါပုံကို နှိပ်ပါ)_
 
-AI agent frameworks are software platforms designed to simplify the creation, deployment, and management of AI agents. These frameworks provide developers with pre-built components, abstractions, and tools that streamline the development of complex AI systems.
+# AI Agent Framework များကို စူးစမ်းလေ့လာခြင်း
 
-These frameworks help developers focus on the unique aspects of their applications by providing standardized approaches to common challenges in AI agent development. They enhance scalability, accessibility, and efficiency in building AI systems.
+AI Agent Framework များသည် AI အေးဂျင့်များ၏ ဖန်တီးမှု၊ အသုံးချမှု နှင့် စီမံခန့်ခွဲမှုတို့ကို ရိုးရှင်းစေရန် ရည်ရွယ်၍ တီထွင်ထားသော ဆော့ဖ်ဝဲလ် ပလပ်ဖောင်းများဖြစ်သည်။ ဤ Framework များသည် developer များအတွက် ရှုပ်ထွေးသော AI စနစ်များ ဖွံ့ဖြိုးတိုးတက်စေရာတွင် လမ်းကြောင်းပြပေးနိုင်သည့် ကြိုတင်တည်ဆောက်ထားသော အစိတ်အပိုင်းများ၊ abstract များနှင့် ကိရိယာများကို ပံ့ပိုးပေးပါသည်။
 
-## Introduction 
+ဤ Framework များသည် AI Agent ဖွံ့ဖြိုးမှုတွင် တွေ့ကြုံရသော ယေဘုယျ စိန်ခေါ်မှုများအတွက် စံသတ်မှတ်ထားသော ချဉ်းကပ်နည်းများကို ပံ့ပိုးပေးခြင်းဖြင့် developer များအား ၎င်းတို့၏ အပလီကေးရှင်းများ၏ ထူးခြားသော အင်္ဂါရပ်များအပေါ် အာရုံစိုက်နိုင်စေပါသည်။ ၎င်းတို့သည် AI စနစ်များ တည်ဆောက်ရာတွင် တိုးချဲ့နိုင်မှု၊ လက်လှမ်းမီနိုင်မှုနှင့် ထိရောက်မှုတို့ကို မြှင့်တင်ပေးပါသည်။
 
-This lesson will cover:
+## မိတ်ဆက်
 
-- What are AI Agent Frameworks and what do they enable developers to achieve?
-- How can teams use these to quickly prototype, iterate, and improve their agent’s capabilities?
-- What are the differences between the frameworks and tools created by Microsoft <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>, <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a>, and <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a>?
-- Can I integrate my existing Azure ecosystem tools directly, or do I need standalone solutions?
-- What is Azure AI Agents service and how is this helping me?
+ဤသင်ခန်းစာတွင် အောက်ပါအချက်များကို ခြုံငုံ၍ လေ့လာမည်ဖြစ်သည်-
 
-## Learning goals
+- AI Agent Framework များဆိုသည်မှာ အဘယ်နည်း နှင့် ၎င်းတို့သည် developer များအား မည်သည့်အရာများ အောင်မြင်စေနိုင်သနည်း?
+- အဖွဲ့များသည် ၎င်းတို့၏ agent များ၏ စွမ်းရည်များကို လျင်မြန်စွာ prototype တည်ဆောက်ခြင်း၊ ပြန်လည်ပြင်ဆင်ခြင်း နှင့် မြှင့်တင်ခြင်းအတွက် မည်သို့အသုံးပြုနိုင်မည်နည်း?
+- Microsoft <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>၊ <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a> နှင့် <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a> တို့မှ ဖန်တီးထားသော framework များနှင့် ကိရိယာများအကြား ကွာခြားချက်များမှာ မည်သည့်အရာများနည်း?
+- ကျွန်ုပ်၏ လက်ရှိ Azure ecosystem ကိရိယာများကို တိုက်ရိုက် ပေါင်းစပ်နိုင်သလား၊ သို့မဟုတ် သီးခြား ဖြေရှင်းနည်းများ လိုအပ်သလား?
+- Azure AI Agents service ဆိုသည်မှာ အဘယ်နည်း နှင့် ၎င်းသည် ကျွန်ုပ်အား မည်သို့ အကူအညီပေးနေသနည်း?
 
-The goals of this lesson are to help you understand:
+## သင်ယူမှု ရည်မှန်းချက်များ
 
-- The role of AI Agent Frameworks in AI development.
-- How to leverage AI Agent Frameworks to build intelligent agents.
-- Key capabilities enabled by AI Agent Frameworks.
-- The differences between AutoGen, Semantic Kernel, and Azure AI Agent Service.
+ဤသင်ခန်းစာ၏ ရည်မှန်းချက်များမှာ သင်အား အောက်ပါအရာများကို နားလည်စေရန်ဖြစ်သည်-
 
-## What are AI Agent Frameworks and what do they enable developers to do?
+- AI ဖွံ့ဖြိုးမှုတွင် AI Agent Framework များ၏ အခန်းကဏ္ဍ
+- ထိုးထွင်းသော agent များ တည်ဆောက်ရန် AI Agent Framework များကို မည်သို့ အသုံးချရမည်နည်း
+- AI Agent Framework များမှ လုပ်ဆောင်နိုင်စေသော အဓိက စွမ်းဆောင်ရည်များ
+- AutoGen၊ Semantic Kernel နှင့် Azure AI Agent Service တို့အကြား ကွာခြားချက်များ
 
-Traditional AI Frameworks can help you integrate AI into your apps and make these apps better in the following ways:
+## AI Agent Framework များသည် အဘယ်နည်း နှင့် developer များအား မည်သည့်အရာများ လုပ်ဆောင်နိုင်စေသနည်း?
 
-- **Personalization**: AI can analyze user behavior and preferences to provide personalized recommendations, content, and experiences.
-Example: Streaming services like Netflix use AI to suggest movies and shows based on viewing history, enhancing user engagement and satisfaction.
-- **Automation and Efficiency**: AI can automate repetitive tasks, streamline workflows, and improve operational efficiency.
-Example: Customer service apps use AI-powered chatbots to handle common inquiries, reducing response times and freeing up human agents for more complex issues.
-- **Enhanced User Experience**: AI can improve the overall user experience by providing intelligent features such as voice recognition, natural language processing, and predictive text.
-Example: Virtual assistants like Siri and Google Assistant use AI to understand and respond to voice commands, making it easier for users to interact with their devices.
+ရိုးရာ AI Framework များသည် သင်၏ အပလီကေးရှင်းများတွင် AI ကို ပေါင်းစပ်ရာတွင် အကူအညီပေးနိုင်ပြီး ဤအပလီကေးရှင်းများကို အောက်ပါနည်းလမ်းများဖြင့် ပိုမိုကောင်းမွန်စေနိုင်သည်-
 
-### That all sounds great right, so why do we need the AI Agent Framework?
+- **စိတ်ကြိုက်ပြင်ဆင်မှု (Personalization)**: AI သည် အသုံးပြုသူ၏ အပြုအမူများနှင့် နှစ်သက်မှုများကို ခွဲခြမ်းစိတ်ဖြာ၍ စိတ်ကြိုက်အကြံပြုချက်များ၊ အကြောင်းအရာများနှင့် အတွေ့အကြုံများကို ပံ့ပိုးပေးနိုင်သည်။
+ဥပမာ- Netflix ကဲ့သို့သော streaming service များသည် ကြည့်ရှုမှု သမိုင်းအပေါ် အခြေခံ၍ ရုပ်ရှင်များနှင့် ရှိုးများကို အကြံပြုရန် AI ကို အသုံးပြုကြပြီး အသုံးပြုသူ၏ စိတ်ဝင်စားမှုနှင့် ကျေနပ်မှုကို မြှင့်တင်ပေးသည်။
 
-AI Agent frameworks represent something more than just AI frameworks. They are designed to enable the creation of intelligent agents that can interact with users, other agents, and the environment to achieve specific goals. These agents can exhibit autonomous behavior, make decisions, and adapt to changing conditions. Let's look at some key capabilities enabled by AI Agent Frameworks:
+- **အလိုအလျောက်လုပ်ဆောင်မှုနှင့် ထိရောက်မှု**: AI သည် ထပ်ခါတလဲလဲ လုပ်ရသော အလုပ်များကို အလိုအလျောက်လုပ်ဆောင်ခြင်း၊ လုပ်ငန်းစဉ်များကို ချောမွေ့စေခြင်းနှင့် လုပ်ငန်းဆောင်ရွက်မှု ထိရောက်မှုကို မြှင့်တင်ခြင်းများ လုပ်ဆောင်နိုင်သည်။
+ဥပမာ- ဖောက်သည်ဝန်ဆောင်မှု အပလီကေးရှင်းများသည် သာမန် မေးမြန်းမှုများကို ကိုင်တွယ်ရန် AI-စွမ်းအား chatbot များကို အသုံးပြုကြပြီး တုံ့ပြန်ချိန်ကို လျှော့ချကာ ပိုမိုရှုပ်ထွေးသော ပြဿနာများအတွက် လူ့အေးဂျင့်များကို လွတ်မြောက်စေသည်။
 
-- **Agent Collaboration and Coordination**: Enable the creation of multiple AI agents that can work together, communicate, and coordinate to solve complex tasks.
-- **Task Automation and Management**: Provide mechanisms for automating multi-step workflows, task delegation, and dynamic task management among agents.
-- **Contextual Understanding and Adaptation**: Equip agents with the ability to understand context, adapt to changing environments, and make decisions based on real-time information.
+- **မြှင့်တင်ထားသော အသုံးပြုသူ အတွေ့အကြုံ**: AI သည် အသံမှတ်သားခြင်း၊ သဘာဝဘာသာစကား လုပ်ဆောင်ခြင်းနှင့် ကြိုတင်ခန့်မှန်းထားသော စာသားများကဲ့သို့သော ထိုးထွင်းသော အင်္ဂါရပ်များကို ပံ့ပိုးပေးခြင်းဖြင့် အသုံးပြုသူ၏ အတွေ့အကြုံကို ပိုမိုကောင်းမွန်စေနိုင်သည်။
+ဥပမာ- Siri နှင့် Google Assistant ကဲ့သို့သော virtual assistant များသည် အသံအမိန့်များကို နားလည်ပြီး တုံ့ပြန်ရန် AI ကို အသုံးပြုကြသည်၊ ၎င်းသည် အသုံးပြုသူများအတွက် ၎င်းတို့၏ စက်ပစ္စည်းများနှင့် ပိုမိုလွယ်ကူစွာ အပြန်အလှန်ဆက်သွယ်နိုင်စေသည်။
 
-So in summary, agents allow you to do more, to take automation to the next level, to create more intelligent systems that can adapt and learn from their environment.
+### ဤအရာများ အားလုံးသည် အလွန်ကောင်းမွန်ကြောင်း ထင်ရသည်၊ ထို့ကြောင့် AI Agent Framework လိုအပ်ရခြင်းမှာ အဘယ်ကြောင့်နည်း?
 
-## How to quickly prototype, iterate, and improve the agent’s capabilities?
+AI Agent Framework များသည် AI Framework များထက် ပိုမိုအရေးကြီးသော အရာတစ်ခုကို ကိုယ်စားပြုသည်။ ၎င်းတို့သည် သီးခြားရည်မှန်းချက်များ အောင်မြင်ရရှိရန် အသုံးပြုသူများ၊ အခြား agent များနှင့် ပတ်ဝန်းကျင်တို့နှင့် အပြန်အလှန်ဆက်သွယ်နိုင်သော ထိုးထွင်းသော agent များ ဖန်တီးခြင်းကို ဖြစ်နိုင်စေရန် ရည်ရွယ်တီထွင်ထားသည်။ ဤ agent များသည် အလိုအလျောက် အပြုအမူများကို ပြသနိုင်ကြပြီး ဆုံးဖြတ်ချက်များ ချမှတ်နိုင်သလို ပြောင်းလဲနေသော အခြေအနေများနှင့်လည်း လိုက်လျောညီထွေ ဖြစ်နိုင်ကြသည်။ AI Agent Framework များမှ လုပ်ဆောင်နိုင်စေသော အဓိက စွမ်းဆောင်ရည်အချို့ကို လေ့လာကြည့်ကြပါစို့-
 
-This is a fast-moving landscape, but there are some things that are common across most AI Agent Frameworks that can help you quickly prototype and iterate namely module components, collaborative tools, and real-time learning. Let's dive into these:
+- **Agent များ၏ ပူးပေါင်းဆောင်ရွက်မှုနှင့် ညှိနှိုင်းမှု**: ရှုပ်ထွေးသော အလုပ်များကို ဖြေရှင်းရန် ပူးပေါင်းလုပ်ဆောင်နိုင်သော၊ ဆက်သွယ်နိုင်သော နှင့် ညှိနှိုင်းနိုင်သော မျိုးစုံသော AI agent များ ဖန်တီးခြင်းကို ဖြစ်နိုင်စေသည်။
 
-- **Use Modular Components**: AI SDKs offer pre-built components such as AI and Memory connectors, function calling using natural language or code plugins, prompt templates, and more.
-- **Leverage Collaborative Tools**: Design agents with specific roles and tasks, enabling them to test and refine collaborative workflows.
-- **Learn in Real-Time**: Implement feedback loops where agents learn from interactions and adjust their behavior dynamically.
+- **အလုပ်လုပ်ငန်း အလိုအလျောက်လုပ်ဆောင်မှုနှင့် စီမံခန့်ခွဲမှု**: agent များအကြား အဆင့်ပေါင်းများစွာရှိသော လုပ်ငန်းစဉ်များကို အလိုအလျောက်လုပ်ဆောင်ခြင်း၊ အလုပ်ခွဲဝေပေးခြင်းနှင့် dynamic အလုပ်စီမံခန့်ခွဲမှုအတွက် ယန္တရားများကို ပံ့ပိုးပေးသည်။
 
-### Use Modular Components
+- **အကြောင်းအရာ နားလည်မှုနှင့် လိုက်လျောညီထွေဖြစ်မှု**: agent များအား အကြောင်းအရာကို နားလည်နိုင်စေခြင်း၊ ပြောင်းလဲနေသော ပတ်ဝန်းကျင်များနှင့် လိုက်လျောညီထွေဖြစ်နိုင်စေခြင်းနှင့် အချိန်နှင့်တပြေးညီ အချက်အလက်များအပေါ် အခြေခံ၍ ဆုံးဖြတ်ချက်များ ချမှတ်နိုင်စေခြင်းများဖြင့် တပ်ဆင်ပေးသည်။
 
-SDKs like Microsoft Semantic Kernel and LangChain offer pre-built components such as AI connectors, prompt templates, and memory management.
+ခြုံချုပ်ရလျှင်၊ agent များသည် သင်အား ပိုမိုများပြားသော အရာများ လုပ်ဆောင်နိုင်စေပြီး အလိုအလျောက်လုပ်ဆောင်မှုကို နောက်တစ်အဆင့်သို့ တက်လှမ်းစေကာ ၎င်းတို့၏ ပတ်ဝန်းကျင်မှ လိုက်လျောညီထွေဖြစ်နိုင်ပြီး သင်ယူနိုင်သော ပိုမိုထိုးထွင်းသော စနစ်များ ဖန်တီးနိုင်စေသည်။
 
-**How teams can use these**: Teams can quickly assemble these components to create a functional prototype without starting from scratch, allowing for rapid experimentation and iteration.
+## Agent ၏ စွမ်းရည်များကို လျင်မြန်စွာ prototype တည်ဆောက်ခြင်း၊ ပြန်လည်ပြင်ဆင်ခြင်းနှင့် မြှင့်တင်ခြင်းများကို မည်သို့ လုပ်ဆောင်နိုင်မည်နည်း?
 
-**How it works in practice**: You can use a pre-built parser to extract information from user input, a memory module to store and retrieve data, and a prompt generator to interact with users, all without having to build these components from scratch.
+ယင်းသည် လျင်မြန်စွာ ရွေ့လျားနေသော ကွင်းပြင်တစ်ခုဖြစ်သော်လည်း AI Agent Framework အများစုတွင် ဘုံရှိသော အရာများ အချို့ရှိပြီး ၎င်းတို့သည် modular components၊ collaborative tools နှင့် real-time learning တို့ဖြစ်သည်။ ဤအချက်များကို နက်ရှိုင်းစွာ လေ့လာကြည့်ကြပါစို့-
 
-**Example code**. Let's look at examples of how you can use a pre-built AI Connector with Semantic Kernel Python and .Net that uses auto-function calling to have the model respond to user input:
+- **Modular Components များကို အသုံးပြုခြင်း**: AI SDK များသည် AI နှင့် Memory connector များ၊ သဘာဝဘာသာစကား သို့မဟုတ် code plugin များကို အသုံးပြု၍ function calling၊ prompt template များနှင့် အခြားအရာများကဲ့သို့သော ကြိုတင်တည်ဆောက်ထားသော အစိတ်အပိုင်းများကို ပေးအပ်သည်။
+
+- **Collaborative Tools များကို အသုံးချခြင်း**: သီးခြား အခန်းကဏ္ဍများနှင့် အလုပ်များဖြင့် agent များကို ဒီဇိုင်းပြုလုပ်ခြင်းသည် ပူးပေါင်းဆောင်ရွက်သော လုပ်ငန်းစဉ်များကို စမ်းသပ်ပြီး သန့်စင်နိုင်စေသည်။
+
+- **အချိန်နှင့်တပြေးညီ သင်ယူခြင်း**: agent များသည် အပြန်အလှန်ဆက်သွယ်မှုများမှ သင်ယူပြီး ၎င်းတို့၏ အပြုအမူကို dynamic ပြောင်းလဲနိုင်သော feedback loop များကို အကောင်အထည်ဖော်ခြင်း။
+
+### Modular Components များကို အသုံးပြုခြင်း
+
+Microsoft Semantic Kernel နှင့် LangChain ကဲ့သို့သော SDK များသည် AI connector များ၊ prompt template များနှင့် memory management များကဲ့သို့သော ကြိုတင်တည်ဆောက်ထားသော အစိတ်အပိုင်းများကို ပေးအပ်သည်။
+
+**အဖွဲ့များ မည်သို့ အသုံးပြုနိုင်သနည်း**: အဖွဲ့များသည် ဤအစိတ်အပိုင်းများကို လျင်မြန်စွာ ပေါင်းစပ်၍ အစမှ စတင်ခြင်းမပြုဘဲ လုပ်ဆောင်နိုင်သော prototype တစ်ခု ဖန်တီးနိုင်ကြပြီး လျင်မြန်သော စမ်းသပ်မှုနှင့် ပြန်လည်ပြင်ဆင်မှုကို ခွင့်ပြုပေးသည်။
+
+**လက်တွေ့တွင် မည်သို့ လုပ်ဆောင်သနည်း**: သင်သည် အသုံးပြုသူ၏ input မှ အချက်အလက်ကို ထုတ်ယူရန် ကြိုတင်တည်ဆောက်ထားသော parser တစ်ခု၊ ဒေတာသိမ်းဆည်းခြင်းနှင့် ပြန်လည်ရယူခြင်းအတွက် memory module တစ်ခုနှင့် အသုံးပြုသူများနှင့် အပြန်အလှန်ဆက်သွယ်ရန် prompt generator တစ်ခုတို့ကို အသုံးပြုနိုင်သည်၊ ဤအစိတ်အပိုင်းများကို အစမှ တည်ဆောက်ရန် မလိုအပ်ဘဲပင်ဖြစ်သည်။
+
+**ဥပမာ ကုဒ်များ**။ Model သည် အသုံးပြုသူ၏ input ကို တုံ့ပြန်ရန် auto-function calling ကို အသုံးပြုသော Semantic Kernel Python နှင့် .Net နှင့်အတူ ကြိုတင်တည်ဆောက်ထားသော AI Connector ကို မည်သို့ အသုံးပြုနိုင်သည်ကို ဥပမာများကို လေ့လာကြည့်ကြပါစို့-
 
 ``` python
 # Semantic Kernel Python Example
