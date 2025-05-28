@@ -269,7 +269,293 @@ await Console(stream)
 ## AutoGen၊ Semantic Kernel နှင့် Azure AI Agent Service တို့အကြား ကွာခြားချက်များမှာ မည်သည့်အရာများနည်း?
 ဤ framework များကို နှိုင်းယှဉ်ရန် နည်းလမ်းများစွာ ရှိသော်လည်း ၎င်းတို့၏ ဒီဇိုင်း၊ စွမ်းရည်များနှင့် ပစ်မှတ် အသုံးပြုမှု ကိစ္စရပ်များအပေါ် အခြေခံ၍ အဓိက ကွာခြားချက်အချို့ကို လေ့လာကြည့်ကြပါစို့-
 
-Semantic Kernel Python ကို အသုံးပြု၍၊ အသုံးပြုသူမှ သတ်မှတ်ထားသော plugin နှင့် Azure AI Agent တစ်ခုကို ဖန်တီးနိုင်သည်။
+## AutoGen
+
+AutoGen သည် Microsoft Research ၏ AI Frontiers Lab မှ တီထွင်ထားသော open-source framework တစ်ခုဖြစ်သည်။ ၎င်းသည် event-driven၊ distributed *agentic* applications များကို အာရုံစိုက်ပြီး၊ LLM နှင့် SLM များစွာ၊ tools များ၊ နှင့် အဆင့်မြင့် multi-agent design patterns များကို အသုံးပြုနိုင်စေသည်။
+
+AutoGen သည် agents များဟူသော အဓိက အယူအဆကို အခြေခံထားပြီး၊ ၎င်းတို့သည် မိမိတို့၏ ပတ်ဝန်းကျင်ကို သိရှိနိုင်ကာ၊ ဆုံးဖြတ်ချက်များချမှတ်နိုင်ပြီး၊ သတ်မှတ်ထားသော ရည်မှန်းချက်များကို အောင်မြင်ရန် လုပ်ဆောင်ချက်များ ဆောင်ရွက်နိုင်သော အလိုအလျောက် လုပ်ဆောင်သော အရာများဖြစ်သည်။ Agents များသည် asynchronous messages များမှတစ်ဆင့် ဆက်သွယ်သောကြောင့်၊ သူတို့သည် လွတ်လပ်စွာ နှင့် တပြိုင်နက်ထဲ လုပ်ဆောင်နိုင်ပြီး၊ စနစ်၏ scalability နှင့် responsiveness ကို မြှင့်တင်ပေးသည်။
+
+<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Agents များသည် actor model ကို အခြေခံထားသည်</a>။ Wikipedia အရ၊ actor သည် _concurrent computation ၏ အခြေခံ တည်ဆောက်မှု block ဖြစ်သည်။ လက်ခံရရှိသော message တစ်ခုကို တုံ့ပြန်ရာတွင်၊ actor တစ်ခုသည်၊ ဒေသန္တရ ဆုံးဖြတ်ချက်များ ချမှတ်ခြင်း၊ actor အသစ်များ ဖန်တီးခြင်း၊ message အသစ်များ ပို့ပေးခြင်း၊ နှင့် နောက်ထပ် လက်ခံရရှိမည့် message ကို မည်သို့ တုံ့ပြန်မည်ကို ဆုံးဖြတ်ခြင်း တို့ကို ဆောင်ရွက်နိုင်သည်_။
+
+**အသုံးပြုမှု ဖြစ်စဉ်များ**၊ code generation ကို အလိုအလျောက်လုပ်ခြင်း၊ data analysis လုပ်ငန်းများ၊ နှင့် planning နှင့် research လုပ်ဆောင်ချက်များအတွက် စိတ်ကြိုက် agents များ တည်ဆောက်ခြင်း။
+
+AutoGen ၏ အရေးကြီးသော အဓိက အယူအဆများကို ဖော်ပြပါမည်-
+
+- **Agents**။ Agent တစ်ခုသည် software entity တစ်ခုဖြစ်ပြီး-
+  - **Messages များမှတစ်ဆင့် ဆက်သွယ်သည်**၊ ဤ messages များသည် synchronous သို့မဟုတ် asynchronous ဖြစ်နိုင်သည်။
+  - **မိမိ၏ အခြေအနေကို ထိန်းသိမ်းထားသည်**၊ ၎င်းကို လာရောက်သော messages များမှ ပြုပြင်နိုင်သည်။
+  - **လက်ခံရရှိသော messages များ သို့မဟုတ် မိမိ၏ အခြေအနေ ပြောင်းလဲမှုများကို တုံ့ပြန်၍ လုပ်ဆောင်ချက်များ ဆောင်ရွက်သည်**။ ဤ လုပ်ဆောင်ချက်များသည် agent ၏ အခြေအနေကို ပြုပြင်နိုင်ပြီး၊ message logs များ အပ်ဒိတ်လုပ်ခြင်း၊ message အသစ်များ ပို့ပေးခြင်း၊ code execute လုပ်ခြင်း၊ သို့မဟုတ် API calls များ လုပ်ခြင်းကဲ့သို့သော ပြင်ပ သက်ရောက်မှုများ ဖြစ်ပေါ်စေနိုင်သည်။
+    
+  Chat လုပ်ဆောင်နိုင်စွမး်ရှိသော သင်၏ကိုယ်ပိုင် agent ကို ဖန်တီးသည့် အတိုကောက် code snippet ကို ဖော်ပြပါမည်-
+
+    ```python
+    from autogen_agentchat.agents import AssistantAgent
+    from autogen_agentchat.messages import TextMessage
+    from autogen_ext.models.openai import OpenAIChatCompletionClient
+
+
+    class MyAssistant(RoutedAgent):
+        def __init__(self, name: str) -> None:
+            super().__init__(name)
+            model_client = OpenAIChatCompletionClient(model="gpt-4o")
+            self._delegate = AssistantAgent(name, model_client=model_client)
+    
+        @message_handler
+        async def handle_my_message_type(self, message: MyMessageType, ctx: MessageContext) -> None:
+            print(f"{self.id.type} received message: {message.content}")
+            response = await self._delegate.on_messages(
+                [TextMessage(content=message.content, source="user")], ctx.cancellation_token
+            )
+            print(f"{self.id.type} responded: {response.chat_message.content}")
+    ```
+    
+    ယခင် code တွင်၊ `MyAssistant` ကို ဖန်တီးပြီး `RoutedAgent` မှ inheritance လုပ်ထားသည်။ ၎င်းတွင် message ၏ အကြောင်းအရာကို ပုံနှိပ်ပြီး၊ `AssistantAgent` delegate ကို အသုံးပြု၍ တုံ့ပြန်မှု ပို့ပေးသော message handler တစ်ခုရှိသည်။ အထူးသဖြင့် chat completions များကို ကိုင်တွယ်နိုင်သော ကြိုတင်တည်ဆောက်ထားသော agent ဖြစ်သည့် `AssistantAgent` ၏ instance တစ်ခုကို `self._delegate` တွင် မည်သို့ သတ်မှတ်ထားသည်ကို သတိပြုကြည့်ပါ။
+
+
+    နောက်ထပ် AutoGen ကို ဤ agent အမျိုးအစားအကြောင်း အသိပေးပြီး program ကို စတင်လုပ်ဆောင်ကြပါမည်-
+
+    ```python
+    
+    # main.py
+    runtime = SingleThreadedAgentRuntime()
+    await MyAgent.register(runtime, "my_agent", lambda: MyAgent())
+
+    runtime.start()  # Start processing messages in the background.
+    await runtime.send_message(MyMessageType("Hello, World!"), AgentId("my_agent", "default"))
+    ```
+
+    ယခင် code တွင် agents များကို runtime နှင့် register လုပ်ပြီး၊ agent ထံ message တစ်ခု ပို့ပေးခြင်းဖြင့် အောက်ပါ output ကို ရရှိသည်-
+
+    ```text
+    # Output from the console:
+    my_agent received message: Hello, World!
+    my_assistant received message: Hello, World!
+    my_assistant responded: Hello! How can I assist you today?
+    ```
+
+- **Multi agents**။ AutoGen သည် ရှုပ်ထွေးသော လုပ်ငန်းများကို အောင်မြင်ရန် အတူတကွ လုပ်ဆောင်နိုင်သော agents များစွာကို ဖန်တီးခြင်းကို ပံ့ပိုးပေးသည်။ Agents များသည် ဆက်သွယ်နိုင်ပြီး၊ အချက်အလက်များကို မျှဝေနိုင်ကာ၊ ပြဿနာများကို ပိုမိုထိရောက်စွာ ဖြေရှင်းရန် မိမိတို့၏ လုပ်ဆောင်ချက်များကို ညှိနှိုင်းနိုင်သည်။ Multi-agent system တစ်ခု ဖန်တီးရန်၊ data retrieval၊ analysis၊ decision-making၊ နှင့် user interaction ကဲ့သို့သော အထူးပြု လုပ်ဆောင်ချက်များနှင့် အခန်းကဏ္ဍများရှိသော agents အမျိုးအစား အမျိုးမျိုးကို သတ်မှတ်နိုင်သည်။ ယင်း ဖန်တီးမှုကို နားလည်နိုင်ရန် မည်သို့ လုပ်ဆောင်သည်ကို ကြည့်ကြပါမည်-
+
+    ```python
+    editor_description = "Editor for planning and reviewing the content."
+
+    # Example of declaring an Agent
+    editor_agent_type = await EditorAgent.register(
+    runtime,
+    editor_topic_type,  # Using topic type as the agent type.
+    lambda: EditorAgent(
+        description=editor_description,
+        group_chat_topic_type=group_chat_topic_type,
+        model_client=OpenAIChatCompletionClient(
+            model="gpt-4o-2024-08-06",
+            # api_key="YOUR_API_KEY",
+        ),
+        ),
+    )
+
+    # remaining declarations shortened for brevity
+
+    # Group chat
+    group_chat_manager_type = await GroupChatManager.register(
+    runtime,
+    "group_chat_manager",
+    lambda: GroupChatManager(
+        participant_topic_types=[writer_topic_type, illustrator_topic_type, editor_topic_type, user_topic_type],
+        model_client=OpenAIChatCompletionClient(
+            model="gpt-4o-2024-08-06",
+            # api_key="YOUR_API_KEY",
+        ),
+        participant_descriptions=[
+            writer_description, 
+            illustrator_description, 
+            editor_description, 
+            user_description
+        ],
+        ),
+    )
+    ```
+
+    ယခင် code တွင် `GroupChatManager` တစ်ခုကို runtime နှင့် register လုပ်ထားသည်။ ဤ manager သည် writers၊ illustrators၊ editors၊ နှင့် users ကဲ့သို့သော agent အမျိုးအစား အမျိုးမျိုးကြား အပြန်အလှန် ဆက်သွယ်မှုများကို ညှိနှိုင်းရန် တာဝန်ယူသည်။
+
+- **Agent Runtime**။ Framework သည် runtime environment တစ်ခုကို ပံ့ပိုးပေးပြီး၊ agents များကြား ဆက်သွယ်မှုကို ဖြစ်ပေါ်စေကာ၊ သူတို့၏ လက်မှတ်များနှင့် lifecycle များကို စီမံခန့်ခွဲပြီး၊ လုံခြုံရေးနှင့် ကိုယ်ရေးကိုယ်တာ နယ်နိမိတ်များကို အကောင်အထည်ဖေါ်သည်။ ဆိုလိုသည်မှာ သင်သည် မိမိ၏ agents များကို လုံခြုံပြီး ထိန်းချုပ်ထားသော ပတ်ဝန်းကျင်တွင် လုပ်ဆောင်နိုင်ပြီး၊ သူတို့သည် လုံခြုံစွာ နှင့် ထိရောက်စွာ အပြန်အလှန် ဆက်သွယ်နိုင်ကြောင်း သေချာစေပါသည်။ စိတ်ဝင်စားဖွယ် runtime နှစ်မျိုးရှိသည်-
+  - **Stand-alone runtime**။ ဤ runtime သည် agents အားလုံးကို programming language တစ်ခုတည်းတွင် အကောင်အထည်ဖေါ်ပြီး process တစ်ခုတည်းတွင် လုပ်ဆောင်သော single-process applications များအတွက် ကောင်းမွန်သော ရွေးချယ်မှုတစ်ခုဖြစ်သည်။ ၎င်းမည်သို့ လုပ်ဆောင်သည်ကို ဖော်ပြပါမည်-
+  
+    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">Stand-alone runtime</a>   
+Application stack
+
+    *agents များသည် runtime မှတစ်ဆင့် messages များဖြင့် ဆက်သွယ်ပြီး၊ runtime က agents များ၏ lifecycle ကို စီမံခန့်ခွဲသည်*
+
+  - **Distributed agent runtime** သည် agents များကို programming language အမျိုးမျိုးတွင် အကောင်အထည်ဖေါ်ပြီး မတူညီသော machine များတွင် လုပ်ဆောင်သော multi-process applications များအတွက် သင့်လျော်သည်။ ၎င်းမည်သို့ လုပ်ဆောင်သည်ကို ဖော်ပြပါမည်-
+  
+    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-distributed.svg" target="_blank">Distributed runtime</a>
+
+## Semantic Kernel + Agent Framework
+
+Semantic Kernel သည် enterprise-ready AI Orchestration SDK တစ်ခုဖြစ်သည်။ ၎င်းတွင် AI နှင့် memory connectors များနှင့်အတူ Agent Framework တစ်ခုပါဝင်သည်။
+
+အဓိက components များကို ဦးစွာ လေ့လာကြပါမည်-
+
+- **AI Connectors**၊ ဤ connector သည် Python နှင့် C# နှစ်မျိုးလုံးတွင် အသုံးပြုရန် ပြင်ပ AI services များနှင့် data sources များနှင့် interface တစ်ခုဖြစ်သည်။
+
+  ```python
+  # Semantic Kernel Python
+  from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
+  from semantic_kernel.kernel import Kernel
+
+  kernel = Kernel()
+  kernel.add_service(
+    AzureChatCompletion(
+        deployment_name="your-deployment-name",
+        api_key="your-api-key",
+        endpoint="your-endpoint",
+    )
+  )
+  ```  
+
+    ```csharp
+    // Semantic Kernel C#
+    using Microsoft.SemanticKernel;
+
+    // Create kernel
+    var builder = Kernel.CreateBuilder();
+    
+    // Add a chat completion service:
+    builder.Services.AddAzureOpenAIChatCompletion(
+        "your-resource-name",
+        "your-endpoint",
+        "your-resource-key",
+        "deployment-model");
+    var kernel = builder.Build();
+    ```
+
+    Kernel တစ်ခု ဖန်တီးပြီး chat completion service တစ်ခု ထည့်သွင်းနိုင်သည့် ရိုးရှင်းသော ဥပမာကို ဖော်ပြထားပါသည်။ Semantic Kernel သည် Azure OpenAI Chat Completion တွင် ဤအခြေအနေတွင် ပြင်ပ AI service တစ်ခုနှင့် ချိတ်ဆက်မှု တစ်ခုကို ဖန်တီးပေးသည်။
+
+- **Plugins**၊ ၎င်းတို့သည် application တစ်ခု အသုံးပြုနိုင်သော functions များကို ပေါင်းစပ်ထားသည်။ ကြိုတင်ပြုလုပ်ထားသော plugins များနှင့် သင်ဖန်တီးနိုင်သော စိတ်ကြိုက် plugins များ နှစ်မျိုးလုံးရှိသည်။ ဆက်စပ်အယူအဆမှာ "prompt functions" ဖြစ်သည်။ Function invocation အတွက် သဘာဝဘာသာစကား သဲလွန်စများ ပံ့ပိုးပေးမည့်အစား၊ မတူညီသော functions များကို model သို့ ကြေညာပေးသည်။ လက်ရှိ chat context ကို အခြေခံ၍ model သည် request သို့မဟုတ် query တစ်ခုကို ပြီးမြောက်စေရန် ဤ functions များထဲမှ တစ်ခုကို ခေါ်ယူရွေးချယ်နိုင်သည်။ ဥပမာတစ်ခု ဖော်ပြပါမည်-
+
+  ```python
+  from semantic_kernel.connectors.ai.open_ai.services.azure_chat_completion import AzureChatCompletion
+
+
+  async def main():
+      from semantic_kernel.functions import KernelFunctionFromPrompt
+      from semantic_kernel.kernel import Kernel
+
+      kernel = Kernel()
+      kernel.add_service(AzureChatCompletion())
+
+      user_input = input("User Input:> ")
+
+      kernel_function = KernelFunctionFromPrompt(
+          function_name="SummarizeText",
+          prompt="""
+          Summarize the provided unstructured text in a sentence that is easy to understand.
+          Text to summarize: {{$user_input}}
+          """,
+      )
+
+      response = await kernel_function.invoke(kernel=kernel, user_input=user_input)
+      print(f"Model Response: {response}")
+
+      """
+      Sample Console Output:
+
+      User Input:> I like dogs
+      Model Response: The text expresses a preference for dogs.
+      """
+
+
+  if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
+  ```
+
+    ```csharp
+    var userInput = Console.ReadLine();
+
+    // Define semantic function inline.
+    string skPrompt = @"Summarize the provided unstructured text in a sentence that is easy to understand.
+                        Text to summarize: {{$userInput}}";
+    
+    // create the function from the prompt
+    KernelFunction summarizeFunc = kernel.CreateFunctionFromPrompt(
+        promptTemplate: skPrompt,
+        functionName: "SummarizeText"
+    );
+
+    //then import into the current kernel
+    kernel.ImportPluginFromFunctions("SemanticFunctions", [summarizeFunc]);
+
+    ```
+
+    ဒီနေရာတွင်၊ အရင်ဆုံး သင့်မှာ template prompt `skPrompt` တစ်ခုရှိပြီး user ကို text ထည့်သွင်းရန်နေရာ `$userInput` တစ်ခု ချန်ထားသည်။ ထို့နောက် kernel function `SummarizeText` ကို ဖန်တီးပြီး၊ plugin အမည် `SemanticFunctions` ဖြင့် kernel ထဲသို့ import လုပ်သည်။ Function ၏ အမည်သည် Semantic Kernel ကို function မည်သည့်အရာလုပ်သည်ကို နှင့် မည်သည့်အချိန်တွင် ခေါ်သင့်သည်ကို နားလည်စေရန် ကူညီပေးကြောင်း သတိပြုပါ။
+
+- **Native function**၊ Framework မှ တိုက်ရိုက် ခေါ်ယူ၍ လုပ်ငန်းကို ဆောင်ရွက်နိုင်သော native functions များလည်းရှိပါသည်။ File တစ်ခုမှ အကြောင်းအရာကို ရယူသော ဤသို့သော function ၏ ဥပမာတစ်ခု ဖော်ပြပါမည်-
+
+    ```csharp
+    public class NativeFunctions {
+
+        [SKFunction, Description("Retrieve content from local file")]
+        public async Task<string> RetrieveLocalFile(string fileName, int maxSize = 5000)
+        {
+            string content = await File.ReadAllTextAsync(fileName);
+            if (content.Length <= maxSize) return content;
+            return content.Substring(0, maxSize);
+        }
+    }
+    
+    //Import native function
+    string plugInName = "NativeFunction";
+    string functionName = "RetrieveLocalFile";
+
+   //To add the functions to a kernel use the following function
+    kernel.ImportPluginFromType<NativeFunctions>();
+
+    ```
+
+- **Memory**၊ AI apps များအတွက် context management ကို abstract လုပ်ပြီး ရိုးရှင်းစေသည်။ Memory နှင့်ပတ်သက်သော အယူအဆမှာ ဤသည်ကို LLM က သိထားသင့်သော အရာတစ်ခုဖြစ်သည်။ သင်သည် ဤအချက်အလက်ကို vector store တွင် သိမ်းဆည်းနိုင်ပြီး၊ ၎င်းသည် in-memory database သို့မဟုတ် vector database သို့မဟုတ် အလားတူ အရာများဖြစ်လာသည်။ *facts* များကို memory ထဲတွင် ထည့်သွင်းသော အလွန်ရိုးရှင်းသော အခြေအနေ၏ ဥပမာတစ်ခု ဖော်ပြပါမည်-
+
+    ```csharp
+    var facts = new Dictionary<string,string>();
+    facts.Add(
+        "Azure Machine Learning; https://learn.microsoft.com/azure/machine-learning/",
+        @"Azure Machine Learning is a cloud service for accelerating and
+        managing the machine learning project lifecycle. Machine learning professionals,
+        data scientists, and engineers can use it in their day-to-day workflows"
+    );
+    
+    facts.Add(
+        "Azure SQL Service; https://learn.microsoft.com/azure/azure-sql/",
+        @"Azure SQL is a family of managed, secure, and intelligent products
+        that use the SQL Server database engine in the Azure cloud."
+    );
+    
+    string memoryCollectionName = "SummarizedAzureDocs";
+    
+    foreach (var fact in facts) {
+        await memoryBuilder.SaveReferenceAsync(
+            collection: memoryCollectionName,
+            description: fact.Key.Split(";")[1].Trim(),
+            text: fact.Value,
+            externalId: fact.Key.Split(";")[2].Trim(),
+            externalSourceName: "Azure Documentation"
+        );
+    }
+    ```
+
+    ဤ facts များကို memory collection `SummarizedAzureDocs` တွင် သိမ်းဆည်းထားသည်။ ဤသည်မှာ အလွန်ရိုးရှင်းသော ဥပမာတစ်ခုဖြစ်သော်လည်း၊ LLM အသုံးပြုရန်အတွက် memory ထဲတွင် အချက်အလက်များကို မည်သို့ သိမ်းဆည်းနိုင်သည်ကို တွေ့မြင်နိုင်ပါသည်။
+
+ထိုသည်မှာ Semantic Kernel framework ၏ အခြေခံအချက်များဖြစ်သည်၊ Agent Framework အကြောင်းကော?
+
+## Azure AI Agent Service
+
+Azure AI Agent Service သည် Microsoft Ignite 2024 တွင် မိတ်ဆက်ခံရသော နောက်ပိုင်း ထပ်ဆင့်ဖြည့်စွက်မှုတစ်ခုဖြစ်သည်။ ၎င်းသည် Llama 3၊ Mistral၊ နှင့် Cohere ကဲ့သို့သော open-source LLM များကို တိုက်ရိုက်ခေါ်ယူခြင်းကဲ့သို့သော ပိုမိုပြောင်းလွဲနိုင်သော models များဖြင့် AI agents များကို တီထွင်ခြင်းနှင့် အသုံးချခြင်းကို ခွင့်ပြုပေးသည်။
+
+Azure AI Agent Service သည် ပိုမိုအားကောင်းသော enterprise လုံခြုံရေး ယန္တရားများနှင့် data သိမ်းဆည်းမှု နည်းလမ်းများကို ပံ့ပိုးပေးပြီး၊ enterprise applications များအတွက် သင့်လျော်စေသည်။
+
+၎င်းသည် AutoGen နှင့် Semantic Kernel ကဲ့သို့သော multi-agent orchestration frameworks များနှင့် ချက်ခြင်း အလုပ်လုပ်သည်။
+
+ဤ service သည် လက်ရှိတွင် Public Preview တွင်ရှိပြီး၊ agents များ တည်ဆောက်ရန်အတွက် Python နှင့် C# ကို ပံ့ပိုးပေးသည်။
+
+Semantic Kernel Python ကို အသုံးပြု၍၊ user-defined plugin နှင့်အတူ Azure AI Agent တစ်ခုကို ဖန်တီးနိုင်ပါသည်၊
 
 ```python
 import asyncio
