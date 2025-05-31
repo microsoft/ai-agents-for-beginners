@@ -1,72 +1,73 @@
-[![AI Agents In Production](./images/lesson-10-thumbnail.png)](https://youtu.be/l4TP6IyJxmQ?si=IvCW3cbw0NJ2mUMV)
+[![Production တွင် AI Agents များ](./images/lesson-10-thumbnail.png)](https://youtu.be/l4TP6IyJxmQ?si=IvCW3cbw0NJ2mUMV)
 
-> _(Click the image above to view video of this lesson)_
-# AI Agents in Production
+> _(ဤသင်ခန်းစာ၏ ဗီဒီယိုကို ကြည့်ရှုရန် အပေါ်ပါ ပုံကို နှိပ်ပါ)_
 
-## Introduction
+# Production တွင် AI Agents များ
 
-This lesson will cover:
+## နိဒါန်း
 
-- How to plan the deployment of your AI Agent to production effectively.
-- Common mistakes and issues that you may face when deploying your AI Agent to production.
-- How to manage costs while still maintaining the performance of your AI Agent.
+ဤသင်ခန်းစာတွင် အောက်ပါအကြောင်းအရာများကို လေ့လာရမည်-
 
-## Learning Goals
+- သင်၏ AI Agent ကို production သို့ ထိရောက်စွာ deploy လုပ်ရန် စီမံကိန်းရေးဆွဲနည်း
+- Production သို့ AI Agent ကို deploy လုပ်သောအခါ ကြုံတွေ့နိုင်သော အဖြစ်များသော အမှားများနှင့် ပြဿနာများ
+- AI Agent ၏ စွမ်းဆောင်ရည်ကို ထိန်းသိမ်းထားလျက် ကုန်ကျစရိတ်များကို စီမံခန့်ခွဲနည်း
 
-After completing this lesson, you will know how to/understand:
+## သင်ယူရမည့် ရည်မှန်းချက်များ
 
-- Techniques for improving the performance, costs, and effectiveness of a production AI Agent system.
-- What and how to evaluate your AI Agents.
-- How to control costs when deploying AI Agents to production.
+ဤသင်ခန်းစာ ပြီးစီးပြီးနောက်တွင် သင်သည် အောက်ပါတို့ကို သိရှိ/နားလည်နိုင်မည်-
 
-It is important to deploy AI Agents that are trustworthy. Check out the "Building Trustworthy AI Agents" lesson as well.
+- Production AI Agent စနစ်၏ စွမ်းဆောင်ရည်၊ ကုန်ကျစရိတ်နှင့် ထိရောက်မှုကို မြှင့်တင်ရန် နည်းလမ်းများ
+- AI Agents များကို အဘယ်သို့နှင့် မည်သို့ အကဲဖြတ်ရမည်ကို သိရှိခြင်း
+- AI Agents များကို production သို့ deploy လုပ်သောအခါ ကုန်ကျစရိတ်များကို ထိန်းချုပ်နည်း
 
-## Evaluating AI Agents
+ယုံကြည်စိတ်ချရသော AI Agents များကို deploy လုပ်ရန် အရေးကြီးပါသည်။ "ယုံကြည်စိတ်ချရသော AI Agents များ တည်ဆောက်ခြင်း" သင်ခန်းစာကိုလည်း ကြည့်ရှုပါ။
 
-Before, during, and after deploying AI Agents, having a proper system to evaluate your AI Agents is critical. This will ensure that your system is aligned with you and your users' goals.
+## AI Agents များကို အကဲဖြတ်ခြင်း
 
-To evaluate an AI Agent, it is important to have the ability to evaluate not only the agent's output but also the entire system that your AI Agent is operating in. This includes but is not limited to:
+AI Agents များကို deploy မလုပ်မီ၊ လုပ်နေစဉ်နှင့် deploy လုပ်ပြီးနောက်တွင် သင်၏ AI Agents များကို သင့်လျော်စွာ အကဲဖြတ်နိုင်သော စနစ်တစ်ခု ရှိရန် အလွန်အရေးကြီးပါသည်။ ၎င်းသည် သင်၏ စနစ်သည် သင်နှင့် သင်၏ အသုံးပြုသူများ၏ ရည်မှန်းချက်များနှင့် ညီညွတ်ကြောင်း သေချာစေမည်ဖြစ်သည်။
 
-- The initial model request.
-- The agent's ability to identify the intent of the user.
-- The agent's ability to identify the right tool to perform the task.
-- The tool's response to the agent's request.
-- The agent's ability to interpret the tool's response.
-- The user's feedback to the agent's response.
+AI Agent တစ်ခုကို အကဲဖြတ်ရန်အတွက်၊ agent ၏ output ကိုသာမက သင်၏ AI Agent လုပ်ဆောင်နေသော စနစ်တစ်ခုလုံးကိုပါ အကဲဖြတ်နိုင်စွမ်း ရှိရန် အရေးကြီးပါသည်။ ၎င်းတွင် အောက်ပါတို့ပါဝင်သည် (သို့သော် ၎င်းတို့တွင်ထက် ကန့်သတ်မထားပါ)-
 
-This allows you to identify areas for improvement in a more modular way. You can then monitor the effect of changes to models, prompts, tools, and other components with better efficiency.
+- ကနဦး model request
+- အသုံးပြုသူ၏ ရည်ရွယ်ချက်ကို သိရှိနိုင်သော agent ၏ စွမ်းရည်
+- တာဝန်ကို ထမ်းဆောင်ရန် မှန်ကန်သော tool ကို သိရှိနိုင်သော agent ၏ စွမ်းရည်
+- Agent ၏ တောင်းဆိုမှုအတွက် tool ၏ တုံ့ပြန်မှု
+- Tool ၏ တုံ့ပြန်မှုကို အဓိပ္ပါယ်ဖွင့်ဆိုနိုင်သော agent ၏ စွမ်းရည်
+- Agent ၏ တုံ့ပြန်မှုအတွက် အသုံးပြုသူ၏ တုံ့ပြန်ချက်
 
-## Common Issues and Potential Solutions with AI Agents
+၎င်းသည် ပိုမိုစနစ်တကျဖြင့် တိုးတက်မှုအတွক် နယ်ပယ်များကို ခွဲခြားသတ်မှတ်နိုင်စေပါသည်။ ထို့နောက် models၊ prompts၊ tools နှင့် အခြားအစိတ်အပိုင်းများ၏ ပြောင်းလဲမှုများ၏ အကျိုးသက်ရောက်မှုကို ပိုမိုထိရောက်စွာ စောင့်ကြည့်နိုင်ပါသည်။
 
-| **Issue**                                      | **Potential Solution**                                                                                                                                                                                                     |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AI Agent not performing tasks consistently     | - Refine the prompt given to the AI Agent; be clear on objectives.<br>- Identify where dividing the tasks into subtasks and handling them by multiple agents can help.                                                      |
-| AI Agent running into continuous loops         | - Ensure you have clear termination terms and conditions so the Agent knows when to stop the process.<br>- For complex tasks that require reasoning and planning, use a larger model that is specialized for reasoning tasks. |
-| AI Agent tool calls are not performing well    | - Test and validate the tool's output outside of the agent system.<br>- Refine the defined parameters, prompts, and naming of tools.                                                                                        |
-| Multi-Agent system not performing consistently | - Refine prompts given to each agent to ensure they are specific and distinct from one another.<br>- Build a hierarchical system using a "routing" or controller agent to determine which agent is the correct one.         |
+## AI Agents များနှင့် ဖြစ်နိုင်သော ပြဿနာများနှင့် ဖြေရှင်းချက်များ
 
-## Managing Costs
+| **ပြဿနာ**                                          | **ဖြစ်နိုင်သော ဖြေရှင်းချက်**                                                                                                                                                                                             |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AI Agent သည် တာဝန်များကို တသမတ်တည်း မလုပ်ဆောင်ခြင်း   | - AI Agent အား ပေးသော prompt ကို ပြုပြင်ပါ၊ ရည်မှန်းချက်များကို ရှင်းလင်းစေပါ။<br>- တာဝန်များကို ခွဲခြမ်းပြီး အများအပြား agents များဖြင့် ကိုင်တွယ်နိုင်သည့် နေရာများကို သတ်မှတ်ပါ။                                                      |
+| AI Agent သည် အဆက်မပြတ် အဝန်းများတွင် ရောက်နေခြင်း      | - Agent သည် လုပ်ငန်းစဉ်ကို မည်သောအချိန်တွင် ရပ်တန့်ရမည်ကို သိစေရန် ရှင်းလင်းသော အဆုံးသတ်မှု စည်းမျဉ်းများ ရှိရန် သေချာစေပါ။<br>- ဆင်ခြင်တုံတရားနှင့် စီမံကိန်းရေးဆွဲမှု လိုအပ်သော ရှုပ်ထွေးသော တာဝန်များအတွက် အထူးပြု model အကြီးကို အသုံးပြုပါ။ |
+| AI Agent tool calls များ ကောင်းစွာ လုပ်ဆောင်မနေခြင်း    | - Agent စနစ်ပြင်ပတွင် tool ၏ output ကို စမ်းသပ်ပြီး တရားဝင်အတည်ပြုပါ။<br>- သတ်မှတ်ထားသော ကန့်သတ်ချက်များ၊ prompts နှင့် tools များ၏ နာမကိန်းများကို ပြုပြင်ပါ။                                                                        |
+| Multi-Agent စနစ် တသမတ်တည်း လုပ်ဆောင်မနေခြင်း        | - Agent တစ်ခုစီအား ပေးသော prompts များကို ၎င်းတို့သည် တစ်ခုနှင့်တစ်ခု ခွဲခြားမှုရှိပြီး တိကျစေရန် ပြုပြင်ပါ။<br>- မှန်ကန်သော agent ကို ဆုံးဖြတ်ရန် "routing" သို့မဟုတ် controller agent ကို အသုံးပြု၍ အဆင့်ခွဲစနစ် တည်ဆောက်ပါ។         |
 
-Here are some strategies to manage the costs of deploying AI Agents to production:
+## ကုန်ကျစရိတ်များ စီမံခန့်ခွဲခြင်း
 
-- **Caching Responses** - Identifying common requests and tasks and providing the responses before they go through your agentic system is a good way to reduce the volume of similar requests. You can even implement a flow to identify how similar a request is to your cached requests using more basic AI models.
+Production သို့ AI Agents များကို deploy လုပ်ခြင်း၏ ကုန်ကျစရိတ်များကို စီမံရန် နည်းဗျူဟာများမှာ-
 
-- **Using Smaller Models** - Small Language Models (SLMs) can perform well on certain agentic use-cases and will reduce costs significantly. As mentioned earlier, building an evaluation system to determine and compare performance vs larger models is the best way to understand how well an SLM will perform on your use case.
+- **တုံ့ပြန်မှုများကို Cache လုပ်ခြင်း** - အဖြစ်များသော တောင်းဆိုမှုများနှင့် တာဝန်များကို သိရှိပြီး ၎င်းတို့သည် သင်၏ agentic စနစ်မှတဆင့် မသွားရောက်မီ တုံ့ပြန်မှုများကို ပေးဆောင်ခြင်းသည် ဆင်တူတွေ့ကြုံမှုများ၏ ပမာဏကို လျှော့ချရန် ကောင်းသော နည်းလမ်းတစ်ခုဖြစ်သည်။ ပိုမိုအခြေခံသော AI models များကို အသုံးပြု၍ တောင်းဆိုမှုတစ်ခုသည် သင်၏ cache လုပ်ထားသော တောင်းဆိုမှုများနှင့် မည်မျှဆင်သည်ကို သတ်မှတ်သည့် flow တစ်ခုကိုပါ အကောင်အထည်ဖော်နိုင်ပါသည်။
 
-- **Using a Router Model** - A similar strategy is to use a diversity of models and sizes. You can use an LLM/SLM or serverless function to route requests based on complexity to the best fit models. This will also help reduce costs while also ensuring performance on the right tasks.
+- **ပိုမိုသေးငယ်သော Models များအသုံးပြုခြင်း** - Small Language Models (SLMs) များသည် အချို့သော agentic use-cases များတွင် ကောင်းစွာ လုပ်ဆောင်နိုင်ပြီး ကုန်ကျစရိတ်များကို သိသိသာသာ လျှော့ချနိုင်ပါသည်။ အရင်က ဖော်ပြခဲ့သည့်အတိုင်း၊ စွမ်းဆောင်ရည်နှင့် အကြီးမားသော models များကို နှိုင်းယှဉ်ရန်နှင့် ဆုံးဖြတ်ရန် အကဲဖြတ်မှုစနစ် တည်ဆောက်ခြင်းသည် သင်၏ အသုံးပြုမှုတွင် SLM တစ်ခု မည်မျှကောင်းမွန်စွာ လုပ်ဆောင်မည်ကို နားလည်ရန် အကောင်းဆုံး နည်းလမ်းဖြစ်သည်။
 
-## Congratulations
+- **Router Model အသုံးပြုခြင်း** - ဆင်တူသော နည်းဗျူဟာမှာ models များနှင့် အရွယ်အစားများ၏ ကွဲပြားမှုကို အသုံးပြုခြင်းဖြစ်သည်။ သင်သည် LLM/SLM သို့မဟုတ် serverless function ကို အသုံးပြု၍ ရှုပ်ထွေးမှုအပေါ် အခြေခံပြီး တောင်းဆိုမှုများကို အသင့်လျော်ဆုံး models များသို့ လမ်းညွှန်နိုင်ပါသည်။ ၎င်းသည် ကုန်ကျစရိတ်များကို လျှော့ချရန်လည်း ကူညီမည်ဖြစ်ပြီး မှန်ကန်သော တာဝန်များတွင် စွမ်းဆောင်ရည်ကို သေချာစေမည်လည်းဖြစ်သည်။
 
-This is currently the last lesson of "AI Agents for Beginners".
+## ဂုဏ်ယူပါသည်
 
-We plan to continue to add lessons based on feedback and changes in this ever growing industry so stop by again in the near future.
+ဤသည်မှာ လက်ရှိတွင် "အစပြုသူများအတွက် AI Agents" ၏ နောက်ဆုံးသင်ခန်းစာဖြစ်သည်။
 
-If you want to continue your learning and building with AI Agents, join the <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a>.
+ကျွန်ုပ်တို့သည် တိုးတက်လျက်ရှိသော ဤလုပ်ငန်းတွင် တုံ့ပြန်ချက်များနှင့် ပြောင်းလဲမှုများအပေါ် အခြေခံပြီး သင်ခန်းစာများကို ဆက်လက်ထည့်သွင်းရန် စီစဉ်ထားပါသည်၊ ထို့ကြောင့် မကြာမီ အနာဂတ်တွင် ပြန်လည်လည်ပတ်ပါ။
 
-We host workshops, community roundtables and "ask me anything" sessions there.
+သင်သည် AI Agents များနှင့် သင်ယူခြင်းနှင့် တည်ဆောက်ခြင်းကို ဆက်လက်လုပ်ဆောင်လိုပါက <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> တွင် ပါဝင်ပါ။
 
-We also have a Learn collection of additional materials that can help you start building AI Agents in production.
+ကျွန်ုပ်တို့သည် ထိုနေရာတွင် workshops၊ community roundtables နှင့် "မေးလိုသမျှမေး" sessions များကို ကျင်းပပါသည်။
 
-## Previous Lesson
+ကျွန်ုပ်တို့တွင် Production တွင် AI Agents များကို တည်ဆောက်ရန် စတင်ကူညီနိုင်သော အပိုဆောင်း ပစ္စည်းများ၏ Learn collection တစ်ခုလည်း ရှိပါသည်။
 
-[Metacognition Design Pattern](../09-metacognition/README.md)
+## ယခင်သင်ခန်းစာ
+
+[Metacognition Design Pattern](../09-metacognition/README.md)[![AI Agents In Production](./images/lesson-10-thumbnail.png)](https://youtu.be/l4TP6IyJxmQ?si=IvCW3cbw0NJ2mUMV)
