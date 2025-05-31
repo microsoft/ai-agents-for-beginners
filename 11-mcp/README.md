@@ -33,19 +33,19 @@ MCP သည် AI agent development တွင် အထူးတန်ဖို�
 
 ## တပ်ဆင်မှု လမ်းညွှန်များ
 
-## ၁. **ပတ်ဝန်းကျင် တပ်ဆင်မှု**
+# ၁. **ပတ်ဝန်းကျင် တပ်ဆင်မှု**
  ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
-## ၂. **Azure ဝန်ဆောင်မှုများ ပြင်ဆင်ခြင်း**
+# ၂. **Azure ဝန်ဆောင်မှုများ ပြင်ဆင်ခြင်း**
   - Azure Cognitive Search resource တည်ဆောက်ခြင်း
   - Azure OpenAI service တပ်ဆင်ခြင်း
   - `.env` ဖိုင်တွင် environment variables များ configure လုပ်ခြင်း
 
-## ၃. **MCP Server တပ်ဆင်မှု**
+# ၃. **MCP Server တပ်ဆင်မှု**
  ```bash
    npm install -g @modelcontextprotocol/server-github
    ```
