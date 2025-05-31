@@ -70,4 +70,4 @@ Production သို့ AI Agents များကို deploy လုပ်ခ�
 
 ## ယခင်သင်ခန်းစာ
 
-[Metacognition Design Pattern](../09-metacognition/README.md)[![AI Agents In Production](./images/lesson-10-thumbnail.png)](https://youtu.be/l4TP6IyJxmQ?si=IvCW3cbw0NJ2mUMV)
+[Metacognition Design Pattern](../09-metacognition/README.md)
