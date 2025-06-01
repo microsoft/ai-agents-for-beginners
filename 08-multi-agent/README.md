@@ -1,186 +1,282 @@
 [![Multi-Agent Design](./images/lesson-8-thumbnail.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
-> _(Click the image above to view video of this lesson)_
+> _(ဤသင်ခန်းစာ၏ ဗီဒီယိုကြည့်ရှုရန် အထက်ပါ ပုံပေါ်တွင် နှိပ်ပါ)_
 
-# Multi-agent design patterns
+# Planning Design Pattern (စီမံကိန်းဒီဇိုင်းပုံစံ)
 
-As soon as you start working on a project that involves multiple agents, you will need to consider the multi-agent design pattern. However, it might not be immediately clear when to switch to multi-agents and what the advantages are.
+## နိဒါန်း
+
+ဤသင်ခန်းစာတွင် အောက်ပါအချက်များကို လေ့လာရမည်-
+
+* ရှင်းလင်းသော ခြုံငုံရည်ရွယ်ချက်တစ်ခုကို သတ်မှတ်ခြင်းနှင့် ရှုပ်ထွေးသော လုပ်ငန်းတစ်ခုကို စီမံနိုင်သော အပိုင်းငယ်များအဖြစ် ခွဲခြားခြင်း
+* ပိုမို ယုံကြည်စိတ်ချရပြီး စက်ဖတ်နိုင်သော တုံ့ပြန်မှုများအတွက် တည်ဆောက်ပုံအထွက်ကို အသုံးပြုခြင်း
+* ပြောင်းလဲနိုင်သော လုပ်ငန်းများနှင့် မမျှော်လင့်သော အခြေအနေများကို ကိုင်တွယ်ရန် event-driven approach အား အသုံးချခြင်း
+
+## သင်ယူမည့်ရည်မှန်းချက်များ
+
+ဤသင်ခန်းစာပြီးဆုံးပါက အောက်ပါအချက်များအတွက် နားလည်မှုရရှိမည်-
+
+* AI agent တစ်ခုအတွက် ခြုံငုံရည်ရွယ်ချက်ကို ခွဲခြားသတ်မှတ်ခြင်းနှင့် အောင်မြင်ရန်လိုအပ်သည့်အရာကို ရှင်းလင်းစွာ သိရှိအောင်ပြုလုပ်ခြင်း
+* ရှုပ်ထွေးသော အလုပ်တစ်ခုကို စီမံနိုင်သော အခွဲငယ်များအဖြစ် ခွဲခြားပြီး ယုက္တိဆီလျော်သော အစီအစဉ်အတိုင်း စုစည်းခြင်း
+* Agent များကို သင့်လျော်သော ကိရိယာများ (ဥပမာ- ရှာဖွေမှုကိရိယာများ သို့မဟုတ် ဒေတာခွဲခြမ်းစိတ်ဖြာရေးကိရိယာများ) ဖြင့် တပ်ဆင်ပေးခြင်း၊ ၎င်းတို့ကို မည်သည့်အချိန်နှင့် ဘယ်လိုအသုံးပြုရမည်ကို ဆုံးဖြတ်ခြင်းနှင့် မမျှော်လင့်သော အခြေအနေများကို ကိုင်တွယ်ခြင်း
+* အခွဲငယ်လုပ်ငန်းများ၏ ရလဒ်များကို အကဲဖြတ်ခြင်း၊ စွမ်းဆောင်ရည်ကို တိုင်းတာခြင်းနှင့် နောက်ဆုံးရလဒ်ကို တိုးတက်စေရန် လုပ်ဆောင်ချက်များကို ထပ်မံပြုလုပ်ခြင်း
+
+## ခြုံငုံရည်ရွယ်ချက်ကို သတ်မှတ်ခြင်းနှင့် လုပ်ငန်းကို ခွဲခြမ်းခြင်း
+
+လက်တွေ့ကမ္ဘာတွင်ရှိသော လုပ်ငန်းအများစုသည် အဆင့်တစ်ဆင့်တည်းဖြင့် ကိုင်တွယ်ရန် အလွန်ရှုပ်ထွေးပါသည်။ AI agent တစ်ခုသည် ၎င်း၏ စီမံကိန်းနှင့် လုပ်ဆောင်ချက်များကို လမ်းညွှန်ရန် တိကျသော ရည်မှန်းချက်တစ်ခု လိုအပ်ပါသည်။ ဥပမာအားဖြင့်-
+
+    "၃ ရက်ကြာ ခရီးစဉ်အစီအစဉ်တစ်ခု ပြုစုပါ"
+
+ဤအရာသည် ရိုးရှင်းစွာ ဖော်ပြထားသော်လည်း နောက်ထပ် သေသေချာချာ ပြင်ဆင်ရန် လိုအပ်သေးသည်။ ရည်ရွယ်ချက် ပိုမို ရှင်းလင်းလေ၊ agent (နှင့် လူသားအလုပ်ဖော်များ) သည် လေယာဉ်ဖျင့်ရွေးချယ်မှုများ၊ ဟိုတယ်အကြံပြုချက်များနှင့် လှုပ်ရှားမှုအကြံပြုချက်များပါဝင်သော ပြည့်စုံသော ခရီးစဉ်အစီအစဉ်တစ်ခု ဖန်တီးခြင်းကဲ့သို့ မှန်ကန်သော ရလဒ်ကို အောင်မြင်စေရန် ပိုမို အာရုံစိုက်နိုင်လေ ဖြစ်သည်။
 
-## Introduction
+### လုပ်ငန်းခွဲခြမ်းခြင်း
 
-In this lesson, we're looking to answer the following questions:
+ကြီးမားသော သို့မဟုတ် ရှုပ်ထွေးသော လုပ်ငန်းများသည် ပိုမိုသေးငယ်ပြီး ရည်မှန်းချက်ဗဟိုပြုသော အခွဲငယ်လုപ်ငန်းများအဖြစ် ခွဲခြားသောအခါ ပိုမို စီမံနိုင်လေ ဖြစ်ပါသည်။
 
-- What are the scenarios where multi-agents are applicable to?
-- What are the advantages of using multi-agents over just one singular agent doing multiple tasks?
-- What are the building blocks of implementing the multi-agent design pattern?
-- How do we have visibility to how the multiple agents are interacting with each other?
+ခရီးစဉ်အစီအစဉ်ဥပမာအတွက် ရည်ရွယ်ချက်ကို အောက်ပါအတိုင်း ခွဲခြားနိုင်သည်-
+
+* လေယာဉ်ဖျင့်ကြိုတင်မှာထားခြင်း
+* ဟိုတယ်ကြိုတင်မှာထားခြင်း
+* ကားငှားရမ်းခြင်း
+* ကိုယ်ရေးကိုယ်တာပြုစုခြင်း
 
-## Learning Goals
+အခွဲငယ်လုပ်ငန်းတစ်ခုစီကို အထူးပြု agent များ သို့မဟုတ် လုပ်ငန်းစဉ်များဖြင့် ကိုင်တွယ်နိုင်ပါသည်။ Agent တစ်ခုသည် အကောင်းဆုံး လေယာဉ်ဖျင့်အရောင်းအ၀ယ်များကို ရှာဖွေရာတွင် အထူးကျွမ်းကျင်နိုင်ပြီး၊ နောက်တစ်ခုသည် ဟိုတယ်ကြိုတင်မှာထားမှုများကို အဓိကထားနိုင်သည်၊ အခြားတစ်ခုသည် အစရှိသဖြင့်။ ပြီးတော့ ညှိနှိုင်းသော သို့မဟုတ် "downstream" agent တစ်ခုက ဤရလဒ်များကို စုစည်းပြီး အသုံးပြုသူကို ပေးရန် ညီညွတ်သော ခရီးစဉ်အစီအစဉ်တစ်ခုအဖြစ် ပြုလုပ်နိုင်သည်။
+
+ဤ modular ချဉ်းကပ်မှုသည် တစ်ဆင့်ချင်း တိုးတက်မှုများကိုလည်း ခွင့်ပြုပါသည်။ ဥပမာအားဖြင့်၊ သင်သည် အစားအစာအကြံပြုချက်များ သို့မဟုတ် ဒေသတွင်းလှုပ်ရှားမှုအကြံပြုချက်များအတွက် အထူးပြု agent များကို ထည့်သွင်းနိုင်ပြီး အချိန်ကြာလာသည်နှင့်အမျှ ခရီးစဉ်အစီအစဉ်ကို သိုးသိုးမွေးမွေး ပြုပြင်နိုင်သည်။
 
-After this lesson, you should be able to:
-
-- Identify scenarios where multi-agents are applicable
-- Recognize the advantages of using multi-agents over a singular agent.
-- Comprehend the building blocks of implementing the multi-agent design pattern.
-
-What's the bigger picture?
-
-*Multi agents are a design pattern that allows multiple agents to work together to achieve a common goal*.
-
-This pattern is widely used in various fields, including robotics, autonomous systems, and distributed computing.
-
-## Scenarios Where Multi-Agents Are Applicable
-
-So what scenarios are a good use case for using multi-agents? The answer is that there are many scenarios where employing multiple agents is beneficial especially in the following cases:
-
-- **Large workloads**: Large workloads can be divided into smaller tasks and assigned to different agents, allowing for parallel processing and faster completion. An example of this is in the case of a large data processing task.
-- **Complex tasks**: Complex tasks, like large workloads, can be broken down into smaller subtasks and assigned to different agents, each specializing in a specific aspect of the task. A good example of this is in the case of autonomous vehicles where different agents manage navigation, obstacle detection, and communication with other vehicles.
-- **Diverse expertise**: Different agents can have diverse expertise, allowing them to handle different aspects of a task more effectively than a single agent. For this case, a good example is in the case of healthcare where agents can manage diagnostics, treatment plans, and patient monitoring.
-
-## Advantages of Using Multi-Agents Over a Singular Agent
-
-A single agent system could work well for simple tasks, but for more complex tasks, using multiple agents can provide several advantages:
-
-- **Specialization**: Each agent can be specialized for a specific task. Lack of specialization in a single agent means you have an agent that can do everything but might get confused on what to do when faced with a complex task. It might for example end up doing a task that it is not best suited for.
-- **Scalability**: It is easier to scale systems by adding more agents rather than overloading a single agent.
-- **Fault Tolerance**: If one agent fails, others can continue functioning, ensuring system reliability.
-
-Let's take an example, let's book a trip for a user. A single agent system would have to handle all aspects of the trip booking process, from finding flights to booking hotels and rental cars. To achieve this with a single agent, the agent would need to have tools for handling all these tasks. This could lead to a complex and monolithic system that is difficult to maintain and scale. A multi-agent system, on the other hand, could have different agents specialized in finding flights, booking hotels, and rental cars. This would make the system more modular, easier to maintain, and scalable.
-
-Compare this to a travel bureau run as a mom-and-pop store versus a travel bureau run as a franchise. The mom-and-pop store would have a single agent handling all aspects of the trip booking process, while the franchise would have different agents handling different aspects of the trip booking process.
-
-## Building Blocks of Implementing the Multi-Agent Design Pattern
-
-Before you can implement the multi-agent design pattern, you need to understand the building blocks that make up the pattern.
-
-Let's make this more concrete by again looking at the example of booking a trip for a user. In this case, the building blocks would include:
-
-- **Agent Communication**: Agents for finding flights, booking hotels, and rental cars need to communicate and share information about the user's preferences and constraints. You need to decide on the protocols and methods for this communication. What this means concretely is that the agent for finding flights needs to communicate with the agent for booking hotels to ensure that the hotel is booked for the same dates as the flight. That means that the agents need to share information about the user's travel dates, meaning that you need to decide *which agents are sharing info and how they are sharing info*.
-- **Coordination Mechanisms**: Agents need to coordinate their actions to ensure that the user's preferences and constraints are met. A user preference could be that they want a hotel close to the airport whereas a constraint could be that rental cars are only available at the airport. This means that the agent for booking hotels needs to coordinate with the agent for booking rental cars to ensure that the user's preferences and constraints are met. This means that you need to decide *how the agents are coordinating their actions*.
-- **Agent Architecture**: Agents need to have the internal structure to make decisions and learn from their interactions with the user. This means that the agent for finding flights needs to have the internal structure to make decisions about which flights to recommend to the user. This means that you need to decide *how the agents are making decisions and learning from their interactions with the user*. Examples of how an agent learns and improves could be that the agent for finding flights could use a machine learning model to recommend flights to the user based on their past preferences.
-- **Visibility into Multi-Agent Interactions**: You need to have visibility into how the multiple agents are interacting with each other. This means that you need to have tools and techniques for tracking agent activities and interactions. This could be in the form of logging and monitoring tools, visualization tools, and performance metrics.
-- **Multi-Agent Patterns**: There are different patterns for implementing multi-agent systems, such as centralized, decentralized, and hybrid architectures. You need to decide on the pattern that best fits your use case.
-- **Human in the loop**: In most cases, you will have a human in the loop and you need to instruct the agents when to ask for human intervention. This could be in the form of a user asking for a specific hotel or flight that the agents have not recommended or asking for confirmation before booking a flight or hotel.
-
-## Visibility into Multi-Agent Interactions
-
-It's important that you have visibility into how the multiple agents are interacting with each other. This visibility is essential for debugging, optimizing, and ensuring the overall system's effectiveness. To achieve this, you need to have tools and techniques for tracking agent activities and interactions. This could be in the form of logging and monitoring tools, visualization tools, and performance metrics.
-
-For example, in the case of booking a trip for a user, you could have a dashboard that shows the status of each agent, the user's preferences and constraints, and the interactions between agents. This dashboard could show the user's travel dates, the flights recommended by the flight agent, the hotels recommended by the hotel agent, and the rental cars recommended by the rental car agent. This would give you a clear view of how the agents are interacting with each other and whether the user's preferences and constraints are being met.
-
-Let's look at each of these aspects more in detail.
-
-- **Logging and Monitoring Tools**: You want to have logging done for each action taken by an agent. A log entry could store information on the agent that took the action, the action taken, the time the action was taken, and the outcome of the action. This information can then be used for debugging, optimizing and more.
-
-- **Visualization Tools**: Visualization tools can help you see the interactions between agents in a more intuitive way. For example, you could have a graph that shows the flow of information between agents. This could help you identify bottlenecks, inefficiencies, and other issues in the system.
-
-- **Performance Metrics**: Performance metrics can help you track the effectiveness of the multi-agent system. For example, you could track the time taken to complete a task, the number of tasks completed per unit of time, and the accuracy of the recommendations made by the agents. This information can help you identify areas for improvement and optimize the system.
-
-## Multi-Agent Patterns
-
-Let's dive into some concrete patterns we can use to create multi-agent apps. Here are some interesting patterns worth considering:
-
-### Group chat
-
-This pattern is useful when you want to create a group chat application where multiple agents can communicate with each other. Typical use cases for this pattern include team collaboration, customer support, and social networking.
-
-In this pattern, each agent represents a user in the group chat, and messages are exchanged between agents using a messaging protocol. The agents can send messages to the group chat, receive messages from the group chat, and respond to messages from other agents.
-
-This pattern can be implemented using a centralized architecture where all messages are routed through a central server, or a decentralized architecture where messages are exchanged directly.
-
-![Group chat](./images/multi-agent-group-chat.png)
-
-### Hand-off
-
-This pattern is useful when you want to create an application where multiple agents can hand off tasks to each other.
-
-Typical use cases for this pattern include customer support, task management, and workflow automation.
-
-In this pattern, each agent represents a task or a step in a workflow, and agents can hand off tasks to other agents based on predefined rules.
-
-![Hand off](./images/multi-agent-hand-off.png)
-
-### Collaborative filtering
-
-This pattern is useful when you want to create an application where multiple agents can collaborate to make recommendations to users.
-
-Why you would want multiple agents to collaborate is because each agent can have different expertise and can contribute to the recommendation process in different ways.
-
-Let's take an example where a user wants a recommendation on the best stock to buy on the stock market.
-
-- **Industry expert**:. One agent could be an expert in a specific industry.
-- **Technical analysis**: Another agent could be an expert in technical analysis.
-- **Fundamental analysis**: and another agent could be an expert in fundamental analysis. By collaborating, these agents can provide a more comprehensive recommendation to the user.
-
-![Recommendation](./images/multi-agent-filtering.png)
-
-## Scenario: Refund process
-
-Consider a scenario where a customer is trying to get a refund for a product, there can be quite a few agents involved in this process but let's divide it up between agents specific for this process and general agents that can be used in other processes.
-
-**Agents specific for the refund process**:
-
-Following are some agents that could be involved in the refund process:
-
-- **Customer agent**: This agent represents the customer and is responsible for initiating the refund process.
-- **Seller agent**: This agent represents the seller and is responsible for processing the refund.
-- **Payment agent**: This agent represents the payment process and is responsible for refunding the customer's payment.
-- **Resolution agent**: This agent represents the resolution process and is responsible for resolving any issues that arise during the refund process.
-- **Compliance agent**: This agent represents the compliance process and is responsible for ensuring that the refund process complies with regulations and policies.
-
-**General agents**:
-
-These agents can be used by other parts of your business.
-
-- **Shipping agent**: This agent represents the shipping process and is responsible for shipping the product back to the seller. This agent can be used both for the refund process and for general shipping of a product via a purchase for example.
-- **Feedback agent**: This agent represents the feedback process and is responsible for collecting feedback from the customer. Feedback could be had at any time and not just during the refund process.
-- **Escalation agent**: This agent represents the escalation process and is responsible for escalating issues to a higher level of support. You can use this type of agent for any process where you need to escalate an issue.
-- **Notification agent**: This agent represents the notification process and is responsible for sending notifications to the customer at various stages of the refund process.
-- **Analytics agent**: This agent represents the analytics process and is responsible for analyzing data related to the refund process.
-- **Audit agent**: This agent represents the audit process and is responsible for auditing the refund process to ensure that it is being carried out correctly.
-- **Reporting agent**: This agent represents the reporting process and is responsible for generating reports on the refund process.
-- **Knowledge agent**: This agent represents the knowledge process and is responsible for maintaining a knowledge base of information related to the refund process. This agent could be knowledgeable both on refunds and other parts of your business.
-- **Security agent**: This agent represents the security process and is responsible for ensuring the security of the refund process.
-- **Quality agent**: This agent represents the quality process and is responsible for ensuring the quality of the refund process.
-
-There's quite a few agents listed previously both for the specific refund process but also for the general agents that can be used in other parts of your business. Hopefully this gives you an idea on how you can decide on which agents to use in your multi-agent system.
-
-## Assignment
-
-Design a multi-agent system for a customer support process. Identify the agents involved in the process, their roles and responsibilities, and how they interact with each other. Consider both agents specific to the customer support process and general agents that can be used in other parts of your business.
-
-> Have a think before you read the following solution, you may need more agents than you think.
-
-> TIP: Think about the different stages of the customer support process and also consider agents needed for any system.
-
-## Solution
-
-[Solution](./solution/solution.md)
-
-## Knowledge checks
-
-Question: When should you consider using multi-agents?
-
-- [ ] A1: When you have a small workload and a simple task.
-- [ ] A2: When you have a large workload
-- [ ] A3: When you have a simple task.
-
-[Solution quiz](./solution/solution-quiz.md)
-
-## Summary
-
-In this lesson, we've looked at the multi-agent design pattern, including the scenarios where multi-agents are applicable, the advantages of using multi-agents over a singular agent, the building blocks of implementing the multi-agent design pattern, and how to have visibility into how the multiple agents are interacting with each other.
-
-## Additional resources
-
-- <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html" target="_blank">AutoGen design patterns</a>
-- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">Agentic design patterns</a>
-
-
-## Previous Lesson
-
-[Planning Design](../07-planning-design/README.md)
-
-## Next Lesson
-
-[Metacognition in AI Agents](../09-metacognition/README.md)
+### တည်ဆောက်ပုံအထွက်
+
+Large Language Models (LLMs) များသည် downstream agent များ သို့မဟုတ် ဝန်ဆောင်မှုများအတွက် parse လုပ်ရန်နှင့် လုပ်ဆောင်ရန် ပိုမို လွယ်ကူသော တည်ဆောက်ပုံအထွက် (ဥပမာ- JSON) ကို ထုတ်လုပ်နိုင်ပါသည်။ ဤအချက်သည် multi-agent context တွင် အထူးအသုံးဝင်ပြီး၊ စီမံကိန်းအထွက်ရရှိပြီးနောက် ဤလုပ်ငန်းများကို လုပ်ဆောင်နိုင်ပါသည်။ လျင်မြန်သော အလုံးအရုံးအတွက် ဤ [blogpost](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html) ကို ကြည့်ရှုပါ။
+
+အောက်ပါ Python code snippet သည် ရည်ရွယ်ချက်တစ်ခုကို အခွဲငယ်လုပ်ငန်းများအဖြစ် ခွဲခြားပြီး တည်ဆောက်ပုံအစီအစဉ်တစ်ခု ထုတ်လုပ်သော ရိုးရှင်းသော စီမံကိန်း agent တစ်ခုကို သရုပ်ပြပါသည်-
+
+```python
+from pydantic import BaseModel
+from enum import Enum
+from typing import List, Optional, Union
+import json
+import os
+from typing import Optional
+from pprint import pprint
+from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
+from autogen_ext.models.azure import AzureAIChatCompletionClient
+from azure.core.credentials import AzureKeyCredential
+
+class AgentEnum(str, Enum):
+    FlightBooking = "flight_booking"
+    HotelBooking = "hotel_booking"
+    CarRental = "car_rental"
+    ActivitiesBooking = "activities_booking"
+    DestinationInfo = "destination_info"
+    DefaultAgent = "default_agent"
+    GroupChatManager = "group_chat_manager"
+
+# ခရီးစဉ်အခွဲငယ်လုပ်ငန်း Model
+class TravelSubTask(BaseModel):
+    task_details: str
+    assigned_agent: AgentEnum  # လုပ်ငန်းကို agent ကို တာဝန်ပေးလိုသည်
+
+class TravelPlan(BaseModel):
+    main_task: str
+    subtasks: List[TravelSubTask]
+    is_greeting: bool
+
+client = AzureAIChatCompletionClient(
+    model="gpt-4o-mini",
+    endpoint="https://models.inference.ai.azure.com",
+    # Model နှင့် authenticate လုပ်ရန် သင့် GitHub settings တွင် personal access token (PAT) ဖန်တီးရန် လိုအပ်ပါသည်။
+    # ဤနေရာတွင် လမ်းညွှန်ချက်များကို လိုက်နာ၍ PAT token ဖန်တီးပါ: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
+    model_info={
+        "json_output": False,
+        "function_calling": True,
+        "vision": True,
+        "family": "unknown",
+    },
+)
+
+# အသုံးပြုသူမက်ဆေ့ချ်ကို သတ်မှတ်ပါ
+messages = [
+    SystemMessage(content="""သင်သည် စီမံကိန်း agent တစ်ခုဖြစ်သည်။
+    သင့်အလုပ်မှာ အသုံးပြုသူ၏တောင်းဆိုချက်အပေါ်အခြေခံ၍ မည်သည့် agent များကို လုပ်ဆောင်ရမည်ကို ဆုံးဖြတ်ရန်ဖြစ်သည်။
+                      အောက်ပါ structure ဖြင့် JSON format ဖြင့် သင့်တုံ့ပြန်မှုကို ပေးပါ:
+{'main_task': 'စင်ကာပူမှ မဲလ်ဘုန်းသို့ မိသားစုခရီးစဉ်ကို စီမံပါ။',
+ 'subtasks': [{'assigned_agent': 'flight_booking',
+               'task_details': 'စင်ကာပူမှ မဲလ်ဘုန်းသို့ သွားလာလေယာဉ်ဖျင့်များကို ကြိုတင်မှာပါ။'}
+    အောက်တွင် မတူညီသော လုပ်ငန်းများတွင် အထူးပြုသော ရရှိနိုင်သော agent များဖြစ်သည်:
+    - FlightBooking: လေယာဉ်ဖျင့်ကြိုတင်မှာထားခြင်းနှင့် လေယာဉ်ဖျင့်အချက်အလက်များ ပေးခြင်းအတွက်
+    - HotelBooking: ဟိုတယ်ကြိုတင်မှာထားခြင်းနှင့် ဟိုတယ်အချက်အလက်များ ပေးခြင်းအတွက်
+    - CarRental: ကားငှားရမ်းခြင်းနှင့် ကားငှားရမ်းမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - ActivitiesBooking: လှုပ်ရှားမှုများကြိုတင်မှာထားခြင်းနှင့် လှုပ်ရှားမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - DestinationInfo: ခရီးစဉ်နေရာများအကြောင်း အချက်အလက်များ ပေးခြင်းအတွက်
+    - DefaultAgent: ယေဘုယျတောင်းဆိုချက်များကို ကိုင်တွယ်ခြင်းအတွက်""", source="system"),
+    UserMessage(
+        content="စင်ကာပူမှ မဲလ်ဘုန်းသို့ ကလေး ၂ ယောက်ပါသော မိသားစုအတွက် ခရီးစဉ်အစီအစဉ်တစ်ခု ဖန်တီးပါ", source="user"),
+]
+
+response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+
+response_content: Optional[str] = response.content if isinstance(
+    response.content, str) else None
+if response_content is None:
+    raise ValueError("တုံ့ပြန်မှုအကြောင်းအရာသည် မှန်ကန်သော JSON string မဟုတ်ပါ")
+
+pprint(json.loads(response_content))
+```
+
+### Multi-Agent ညှိနှိုင်းမှုနှင့်အတူ စီမံကိန်း Agent
+
+ဤဥပမာတွင် Semantic Router Agent တစ်ခုသည် အသုံးပြုသူ၏တောင်းဆိုချက် (ဥပမာ- "ကျွန်တော့်ခရီးစဉ်အတွက် ဟိုတယ်အစီအစဉ်တစ်ခု လိုအပ်ပါသည်။") ကို လက်ခံရရှိသည်။
+
+ထို့နောက် planner သည်-
+
+* ဟိုတယ်အစီအစဉ်ကို လက်ခံရရှိ: Planner သည် အသုံးပြုသူ၏မက်ဆေ့ချ်ကို လက်ခံပြီး system prompt (ရရှိနိုင်သော agent အသေးစိတ်များပါဝင်သော) အပေါ်အခြေခံ၍ တည်ဆောက်ပုံအပေါ် ခရီးစဉ်အစီအစဉ်တစ်ခုကို ထုတ်လုပ်သည်။
+* Agent များနှင့် ၎င်းတို့၏ကိရိယာများကို စာရင်း: Agent registry သည် agent များ (ဥပမာ- လေယာဉ်ဖျင့်၊ ဟိုတယ်၊ ကားငှားရမ်းခြင်းနှင့် လှုပ်ရှားမှုများအတွက်) နှင့် ၎င်းတို့ကမ်းလှမ်းသော function များ သို့မဟုတ် ကိရိယာများပါသော စာရင်းတစ်ခုကို ကိုင်ဆောင်သည်။
+* သက်ဆိုင်ရာ Agent များထံ အစီအစဉ်ကို လမ်းညွှန်: အခွဲငယ်လုပ်ငန်းများ အရေအတွက်အပေါ်မူတည်၍ planner သည် မက်ဆေ့ချ်ကို အထူးပြု agent တစ်ခုထံ တိုက်ရိုက်ပို့ (single-task scenarios အတွက်) သို့မဟုတ် multi-agent collaboration အတွက် group chat manager မှတစ်ဆင့် ညှိနှိုင်းသည်။
+* ရလဒ်ကို အတိုချုပ်: နောက်ဆုံးတွင် planner သည် ရှင်းလင်းမှုအတွက် ထုတ်လုပ်ထားသော အစီအစဉ်ကို အတိုချုပ်ပြသည်။
+
+အောက်ပါ Python code နမူနာသည် ဤအဆင့်များကို သရုပ်ပြပါသည်-
+
+```python
+from pydantic import BaseModel
+from enum import Enum
+from typing import List, Optional, Union
+
+class AgentEnum(str, Enum):
+    FlightBooking = "flight_booking"
+    HotelBooking = "hotel_booking"
+    CarRental = "car_rental"
+    ActivitiesBooking = "activities_booking"
+    DestinationInfo = "destination_info"
+    DefaultAgent = "default_agent"
+    GroupChatManager = "group_chat_manager"
+
+# ခရီးซဉ်အခွဲငယ်လုပ်ငန်း Model
+class TravelSubTask(BaseModel):
+    task_details: str
+    assigned_agent: AgentEnum # လုပ်ငန်းကို agent ကို တာဝန်ပေးလိုသည်
+
+class TravelPlan(BaseModel):
+    main_task: str
+    subtasks: List[TravelSubTask]
+    is_greeting: bool
+
+import json
+import os
+from typing import Optional
+from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
+from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+
+# Type-checked environment variables များဖြင့် client ကို ဖန်တီးပါ
+client = AzureOpenAIChatCompletionClient(
+    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
+    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
+    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+)
+
+from pprint import pprint
+
+# အသုံးပြုသူမက်ဆေ့ချ်ကို သတ်မှတ်ပါ
+messages = [
+    SystemMessage(content="""သင်သည် စီမံကိန်း agent တစ်ခုဖြစ်သည်။
+    သင့်အလုပ်မှာ အသုံးပြုသူ၏တောင်းဆိုချက်အပေါ်အခြေခံ၍ မည်သည့် agent များကို လုပ်ဆောင်ရမည်ကို ဆုံးဖြတ်ရန်ဖြစ်သည်။
+    အောက်တွင် မတူညီသော လုပ်ငန်းများတွင် အထူးပြုသော ရရှိနိုင်သော agent များဖြစ်သည်:
+    - FlightBooking: လေယာဉ်ဖျင့်ကြိုတင်မှာထားခြင်းနှင့် လေယာဉ်ဖျင့်အချက်အလက်များ ပေးခြင်းအတွက်
+    - HotelBooking: ဟိုတယ်ကြိုတင်မှာထားခြင်းနှင့် ဟိုတယ်အချက်အလက်များ ပေးခြင်းအတွက်
+    - CarRental: ကားငှားရမ်းခြင်းနှင့် ကားငှားရမ်းမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - ActivitiesBooking: လှုပ်ရှားမှုများကြိုတင်မှာထားခြင်းနှင့် လှုပ်ရှားမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - DestinationInfo: ခရီးစဉ်နေရာများအကြောင်း အချက်အလက်များ ပေးခြင်းအတွက်
+    - DefaultAgent: ယေဘုယျတောင်းဆိုချက်များကို ကိုင်တွယ်ခြင်းအတွက်""", source="system"),
+    UserMessage(content="စင်ကာပူမှ မဲလ်ဘုန်းသို့ ကလေး ၂ ယောက်ပါသော မိသားစုအတွက် ခရီးစဉ်အစီအစဉ်တစ်ခု ဖန်တီးပါ", source="user"),
+]
+
+response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+
+# JSON string အဖြစ် မှန်ကန်မှုကို သေချာစေပြီးမှ loading လုပ်ပါ
+response_content: Optional[str] = response.content if isinstance(response.content, str) else None
+if response_content is None:
+    raise ValueError("တုံ့ပြန်မှုအကြောင်းအရာသည် မှန်ကန်သော JSON string မဟုတ်ပါ")
+
+# JSON အဖြစ် loading လုပ်ပြီးနောက် တုံ့ပြန်မှုအကြောင်းအရာကို print လုပ်ပါ
+pprint(json.loads(response_content))
+```
+
+အရင်က code မှ ရလဒ်မှာ အောက်ပါအတိုင်းဖြစ်ပြီး ထို့နောက် ဤတည်ဆောက်ပုံအထွက်ကို `assigned_agent` သို့ route လုပ်ရန်နှင့် အသုံးပြုသူကို ခရီးစဉ်အစီအစဉ်ကို အတိုချုပ်ရန် အသုံးပြုနိုင်ပါသည်-
+
+```json
+{
+    "is_greeting": "False",
+    "main_task": "စင်ကာပူမှ မဲလ်ဘုန်းသို့ မိသားစုခရီးစဉ်ကို စီမံပါ။",
+    "subtasks": [
+        {
+            "assigned_agent": "flight_booking",
+            "task_details": "စင်ကာပူမှ မဲလ်ဘုန်းသို့ သွားလာလေယာဉ်ဖျင့်များကို ကြိုတင်မှာပါ။"
+        },
+        {
+            "assigned_agent": "hotel_booking",
+            "task_details": "မဲလ်ဘုန်းတွင် မိသားစုနှင့်လိုက်ဖက်သော ဟိုတယ်များကို ရှာဖွေပါ။"
+        },
+        {
+            "assigned_agent": "car_rental",
+            "task_details": "မဲလ်ဘုန်းတွင် လေးယောက်ပါသော မိသားစုအတွက် သင့်လျော်သော ကားငှားရမ်းမှုကို စီစဉ်ပါ။"
+        },
+        {
+            "assigned_agent": "activities_booking",
+            "task_details": "မဲလ်ဘုန်းတွင် မိသားစုနှင့်လိုက်ဖက်သော လှုပ်ရှားမှုများကို စာရင်းပြုစုပါ။"
+        },
+        {
+            "assigned_agent": "destination_info",
+            "task_details": "မဲလ်ဘုန်းအကြောင်း ခရီးစဉ်နေရာတစ်ခုအဖြစ် အချက်အလက်များ ပေးပါ။"
+        }
+    ]
+}
+```
+
+ရှေ့က code နမူနာပါသော နမူနာ notebook ကို [ဤနေရာ](07-autogen.ipynb) တွင် ရရှိနိုင်ပါသည်။
+
+### ထပ်မံလုပ်ဆောင်သော စီမံကိန်းပြုလုပ်ခြင်း
+
+အချို့သော လုပ်ငန်းများသည် နှစ်ဖက်ပြောဆိုမှု သို့မဟုတ် ပြန်လည်စီမံခြင်း လိုအပ်ပြီး အခွဲငယ်လုပ်ငန်းတစ်ခု၏ ရလဒ်သည် နောက်တစ်ခုကို လွှမ်းမိုးပါသည်။ ဥပမာအားဖြင့်၊ လေယာဉ်ဖျင့်ကြိုတင်မှာထားရာတွင် မမျှော်လင့်သော ဒေတာပုံစံကို agent က ရှာဖွေတွေ့ရှိပါက ဟိုတယ်ကြိုတင်မှာထားမှုများသို့ မသွားမီ ၎င်း၏ဗျူဟာကို လိုက်လျောညီထွေ လုပ်ရန် လိုအပ်နိုင်သည်။
+
+ထို့အပြင်၊ အသုံးပြုသူ feedback (ဥပမာ- လူသားတစ်ယောက်က ပိုမို စောသော လေယာဉ်ဖျင့်ကို နှစ်သက်ကြောင်း ဆုံးဖြတ်ခြင်း) သည် တစ်စိတ်တစ်ပိုင်း ပြန်လည်စီမံခြင်းကို ဖြစ်ပေါ်စေနိုင်သည်။ ဤ dynamic၊ iterative ချဉ်းကပ်မှုသည် နောက်ဆုံးအဖြေသည် လက်တွေ့ကန့်သတ်ချက်များနှင့် ပြောင်းလဲနေသော အသုံးပြုသူ နှစ်သက်မှုများနှင့် ကိုက်ညီကြောင်း သေချာစေပါသည်။
+
+ဥပမာ နမူနာ code
+
+```python
+from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
+#.. အရင်က code နှင့် အတူတူ၊ အသုံးပြုသူမှတ်တမ်း၊ လက်ရှိအစီအစဉ်ကို ပေးပို့ပါ
+messages = [
+    SystemMessage(content="""သင်သည် အကောင်းဆုံးဖြစ်အောင် စီမံကိန်း agent တစ်ခုဖြစ်သည်
+    သင့်အလုပ်မှာ အသုံးပြုသူ၏တောင်းဆိုချက်အပေါ်အခြေခံ၍ မည်သည့် agent များကို လုပ်ဆောင်ရမည်ကို ဆုံးဖြတ်ရန်ဖြစ်သည်။
+    အောက်တွင် မတူညီသော လုပ်ငန်းများတွင် အထူးပြုသော ရရှိနိုင်သော agent များဖြစ်သည်:
+    - FlightBooking: လေယာဉ်ဖျင့်ကြိုတင်မှာထားခြင်းနှင့် လေယာဉ်ဖျင့်အချက်အလက်များ ပေးခြင်းအတွက်
+    - HotelBooking: ဟိုတယ်ကြိုတင်မှာထားခြင်းနှင့် ဟိုတယ်အချက်အလက်များ ပေးခြင်းအတွက်
+    - CarRental: ကားငှားရမ်းခြင်းနှင့် ကားငှားရမ်းမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - ActivitiesBooking: လှုပ်ရှားမှုများကြိုတင်မှာထားခြင်းနှင့် လှုပ်ရှားမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - DestinationInfo: ခရီးစဉ်နေရာများအကြောင်း အချက်အလက်များ ပေးခြင်းအတွက်
+    - DefaultAgent: ယေဘုယျတောင်းဆိုချက်များကို ကိုင်တွယ်ခြင်းအတွက်""", source="system"),
+    UserMessage(content="စင်ကာပူမှ မဲလ်ဘုန်းသို့ ကလေး ၂ ယောက်ပါသော မိသားစုအတွက် ခရီးစဉ်အစီအစဉ်တစ်ခု ဖန်တီးပါ", source="user"),
+    AssistantMessage(content=f"ယခင်ခရီးစဉ်အစီအစဉ် - {TravelPlan}", source="assistant")
+]
+# .. ပြန်လည်စီမံပြီး သက်ဆိုင်ရာ agent များထံ လုပ်ငန်းများကို ပို့ပါ
+```
+
+ပိုမို ကျယ်ပြန့်သော စီမံကိန်းပြုလုပ်ခြင်းအတွက် ရှုပ်ထွေးသော လုပ်ငန်းများကို ဖြေရှင်းရန် Magnetic One [Blogpost](https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks) ကို ကြည့်ရှုပါ။
+
+## အတိုချုပ်
+
+ဤဆောင်းပါးတွင် ကျွန်ုပ်တို့သည် သတ်မှတ်ထားသော ရရှိနိုင်သော agent များကို dynamic ရွေးချယ်နိုင်သော planner တစ်ခုကို မည်သို့ဖန်တီးရမည်ကို ဥပမာတစ်ခုကြည့်ရှုခဲ့ပါသည်။ Planner ၏ အထွက်သည် လုပ်ငန်းများကို ခွဲခြားပြီး ၎င်းတို့ကို လုပ်ဆောင်နိုင်အောင် agent များကို တာဝန်ပေးအပ်သည်။ Agent များသည် လုပ်ငန်းကို လုပ်ဆောင်ရန် လိုအပ်သော function/tool များကို ရရှိနိုင်ကြောင်း ယူဆပါသည်။ Agent များအပြင် reflection၊ summarizer နှင့် round robin chat ကဲ့သို့သော အခြား pattern များကိုလည်း ပိုမို စိတ်ကြိုက်ပြုလုပ်ရန် ထည့်သွင်းနိုင်ပါသည်။
+
+## နောက်ထပ် အရင်းအမြစ်များ
+
+* AutoGen Magentic One - ရှုပ်ထွေးသော လုပ်ငန်းများကို ဖြေရှင်းရန်အတွက် Generalist multi-agent system တစ်ခုဖြစ်ပြီး စိန်ခေါ်မှုများစွာသော agentic benchmark များတွင် အံ့သြဖွယ်ရလဒ်များ အောင်မြင်ခဲ့သည်။ ကိုးကား: [autogen-magentic-one](https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one)။ ဤ implementation တွင် orchestrator သည် လုပ်ငန်းအထူးပြု အစီအစဉ်ကို ဖန်တီးပြီး ဤလုပ်ငန်းများကို ရရှိနိုင်သော agent များထံ delegate လုပ်သည်။ စီမံကိန်းပြုလုပ်ခြင်းအပြင် orchestrator သည် လုပ်ငန်း၏တိုးတက်မှုကို စောင့်ကြည့်ရန်နှင့် လိုအပ်သလို ပြန်လည်စီမံရန် ခြေရာခံစနစ်တစ်ခုကိုလည်း အသုံးပြုသည်။
+
+## ယခင်သင်ခန်းစာ
+
+[ယုံကြည်စိတ်ချရသော AI Agent များ တည်ဆောက်ခြင်း](../06-building-trustworthy-agents/README.md)
+
+## နောက်သင်ခန်းစာ
+
+[Multi-Agent ဒီဇိုင်းပုံစံ](../08-multi-agent/README.md)
