@@ -1,55 +1,54 @@
-[![Planning Design Pattern](./images/lesson-7-thumbnail.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Multi-Agent Design](./images/lesson-8-thumbnail.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
-> _(Click the image above to view video of this lesson)_
+> _(ဤသင်ခန်းစာ၏ ဗီဒီယိုကြည့်ရှုရန် အထက်ပါ ပုံပေါ်တွင် နှိပ်ပါ)_
 
-# Planning Design
+# Planning Design Pattern (စီမံကိန်းဒီဇိုင်းပုံစံ)
 
-## Introduction
+## နိဒါန်း
 
-This lesson will cover
+ဤသင်ခန်းစာတွင် အောက်ပါအချက်များကို လေ့လာရမည်-
 
-* Defining a clear overall goal and breaking a complex task into manageable tasks.
-* Leveraging structured output for more reliable and machine-readable responses.
-* Applying an event-driven approach to handle dynamic tasks and unexpected inputs.
+* ရှင်းလင်းသော ခြုံငုံရည်ရွယ်ချက်တစ်ခုကို သတ်မှတ်ခြင်းနှင့် ရှုပ်ထွေးသော လုပ်ငန်းတစ်ခုကို စီမံနိုင်သော အပိုင်းငယ်များအဖြစ် ခွဲခြားခြင်း
+* ပိုမို ယုံကြည်စိတ်ချရပြီး စက်ဖတ်နိုင်သော တုံ့ပြန်မှုများအတွက် တည်ဆောက်ပုံအထွက်ကို အသုံးပြုခြင်း
+* ပြောင်းလဲနိုင်သော လုပ်ငန်းများနှင့် မမျှော်လင့်သော အခြေအနေများကို ကိုင်တွယ်ရန် event-driven approach အား အသုံးချခြင်း
 
-## Learning Goals
+## သင်ယူမည့်ရည်မှန်းချက်များ
 
-After completing this lesson, you will have an understanding about:
+ဤသင်ခန်းစာပြီးဆုံးပါက အောက်ပါအချက်များအတွက် နားလည်မှုရရှိမည်-
 
-* Identify and set an overall goal for an AI agent, ensuring it clearly knows what needs to be achieved.
-* Decompose a complex task into manageable subtasks and organize them into a logical sequence.
-* Equip agents with the right tools (e.g., search tools or data analytics tools), decide when and how they are used, and handle unexpected situations that arise.
-* Evaluate subtask outcomes, measure performance, and iterate on actions to improve the final output.
+* AI agent တစ်ခုအတွက် ခြုံငုံရည်ရွယ်ချက်ကို ခွဲခြားသတ်မှတ်ခြင်းနှင့် အောင်မြင်ရန်လိုအပ်သည့်အရာကို ရှင်းလင်းစွာ သိရှိအောင်ပြုလုပ်ခြင်း
+* ရှုပ်ထွေးသော အလုပ်တစ်ခုကို စီမံနိုင်သော အခွဲငယ်များအဖြစ် ခွဲခြားပြီး ယုက္တိဆီလျော်သော အစီအစဉ်အတိုင်း စုစည်းခြင်း
+* Agent များကို သင့်လျော်သော ကိရိယာများ (ဥပမာ- ရှာဖွေမှုကိရိယာများ သို့မဟုတ် ဒေတာခွဲခြမ်းစိတ်ဖြာရေးကိရိယာများ) ဖြင့် တပ်ဆင်ပေးခြင်း၊ ၎င်းတို့ကို မည်သည့်အချိန်နှင့် ဘယ်လိုအသုံးပြုရမည်ကို ဆုံးဖြတ်ခြင်းနှင့် မမျှော်လင့်သော အခြေအနေများကို ကိုင်တွယ်ခြင်း
+* အခွဲငယ်လုပ်ငန်းများ၏ ရလဒ်များကို အကဲဖြတ်ခြင်း၊ စွမ်းဆောင်ရည်ကို တိုင်းတာခြင်းနှင့် နောက်ဆုံးရလဒ်ကို တိုးတက်စေရန် လုပ်ဆောင်ချက်များကို ထပ်မံပြုလုပ်ခြင်း
 
-## Defining the Overall Goal and Breaking Down a Task
+## ခြုံငုံရည်ရွယ်ချက်ကို သတ်မှတ်ခြင်းနှင့် လုပ်ငန်းကို ခွဲခြမ်းခြင်း
 
-![Defining Goals and Tasks](./images/defining-goals-tasks.png)
+လက်တွေ့ကမ္ဘာတွင်ရှိသော လုပ်ငန်းအများစုသည် အဆင့်တစ်ဆင့်တည်းဖြင့် ကိုင်တွယ်ရန် အလွန်ရှုပ်ထွေးပါသည်။ AI agent တစ်ခုသည် ၎င်း၏ စီမံကိန်းနှင့် လုပ်ဆောင်ချက်များကို လမ်းညွှန်ရန် တိကျသော ရည်မှန်းချက်တစ်ခု လိုအပ်ပါသည်။ ဥပမာအားဖြင့်-
 
-Most real-world tasks are too complex to tackle in a single step. An AI agent needs a concise objective to guide its planning and actions. For example, consider the goal:
+    "၃ ရက်ကြာ ခရီးစဉ်အစီအစဉ်တစ်ခု ပြုစုပါ"
 
-    "Generate a 3-day travel itinerary."
+ဤအရာသည် ရိုးရှင်းစွာ ဖော်ပြထားသော်လည်း နောက်ထပ် သေသေချာချာ ပြင်ဆင်ရန် လိုအပ်သေးသည်။ ရည်ရွယ်ချက် ပိုမို ရှင်းလင်းလေ၊ agent (နှင့် လူသားအလုပ်ဖော်များ) သည် လေယာဉ်ဖျင့်ရွေးချယ်မှုများ၊ ဟိုတယ်အကြံပြုချက်များနှင့် လှုပ်ရှားမှုအကြံပြုချက်များပါဝင်သော ပြည့်စုံသော ခရီးစဉ်အစီအစဉ်တစ်ခု ဖန်တီးခြင်းကဲ့သို့ မှန်ကန်သော ရလဒ်ကို အောင်မြင်စေရန် ပိုမို အာရုံစိုက်နိုင်လေ ဖြစ်သည်။
 
-While it is simple to state, it still needs refinement. The clearer the goal, the better the agent (and any human collaborators) can focus on achieving the right outcome, such as creating a comprehensive itinerary with flight options, hotel recommendations, and activity suggestions.
+### လုပ်ငန်းခွဲခြမ်းခြင်း
 
-### Task Decomposition
+ကြီးမားသော သို့မဟုတ် ရှုပ်ထွေးသော လုပ်ငန်းများသည် ပိုမိုသေးငယ်ပြီး ရည်မှန်းချက်ဗဟိုပြုသော အခွဲငယ်လုപ်ငန်းများအဖြစ် ခွဲခြားသောအခါ ပိုမို စီမံနိုင်လေ ဖြစ်ပါသည်။
 
-Large or intricate tasks become more manageable when split into smaller, goal-oriented subtasks.
-For the travel itinerary example, you could decompose the goal into:
+ခရီးစဉ်အစီအစဉ်ဥပမာအတွက် ရည်ရွယ်ချက်ကို အောက်ပါအတိုင်း ခွဲခြားနိုင်သည်-
 
-* Flight Booking
-* Hotel Booking
-* Car Rental
-* Personalization
+* လေယာဉ်ဖျင့်ကြိုတင်မှာထားခြင်း
+* ဟိုတယ်ကြိုတင်မှာထားခြင်း
+* ကားငှားရမ်းခြင်း
+* ကိုယ်ရေးကိုယ်တာပြုစုခြင်း
 
-Each subtask can then be tackled by dedicated agents or processes. One agent might specialize in searching for the best flight deals, another focuses on hotel bookings, and so on. A coordinating or “downstream” agent can then compile these results into one cohesive itinerary to the end user.
+အခွဲငယ်လုပ်ငန်းတစ်ခုစီကို အထူးပြု agent များ သို့မဟုတ် လုပ်ငန်းစဉ်များဖြင့် ကိုင်တွယ်နိုင်ပါသည်။ Agent တစ်ခုသည် အကောင်းဆုံး လေယာဉ်ဖျင့်အရောင်းအ၀ယ်များကို ရှာဖွေရာတွင် အထူးကျွမ်းကျင်နိုင်ပြီး၊ နောက်တစ်ခုသည် ဟိုတယ်ကြိုတင်မှာထားမှုများကို အဓိကထားနိုင်သည်၊ အခြားတစ်ခုသည် အစရှိသဖြင့်။ ပြီးတော့ ညှိနှိုင်းသော သို့မဟုတ် "downstream" agent တစ်ခုက ဤရလဒ်များကို စုစည်းပြီး အသုံးပြုသူကို ပေးရန် ညီညွတ်သော ခရီးစဉ်အစီအစဉ်တစ်ခုအဖြစ် ပြုလုပ်နိုင်သည်။
 
-This modular approach also allows for incremental enhancements. For instance, you could add specialized agents for Food Recommendations or Local Activity Suggestions and refine the itinerary over time.
+ဤ modular ချဉ်းကပ်မှုသည် တစ်ဆင့်ချင်း တိုးတက်မှုများကိုလည်း ခွင့်ပြုပါသည်။ ဥပမာအားဖြင့်၊ သင်သည် အစားအစာအကြံပြုချက်များ သို့မဟုတ် ဒေသတွင်းလှုပ်ရှားမှုအကြံပြုချက်များအတွက် အထူးပြု agent များကို ထည့်သွင်းနိုင်ပြီး အချိန်ကြာလာသည်နှင့်အမျှ ခရီးစဉ်အစီအစဉ်ကို သိုးသိုးမွေးမွေး ပြုပြင်နိုင်သည်။
 
-### Structured output
+### တည်ဆောက်ပုံအထွက်
 
-Large Language Models (LLMs) can generate structured output (e.g. JSON) that is easier for downstream agents or services to parse and process. This is especially useful in a multi-agent context, where we can action these tasks after the planning output is received. Refer to this <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">blogpost</a> for a quick overview.
+Large Language Models (LLMs) များသည် downstream agent များ သို့မဟုတ် ဝန်ဆောင်မှုများအတွက် parse လုပ်ရန်နှင့် လုပ်ဆောင်ရန် ပိုမို လွယ်ကူသော တည်ဆောက်ပုံအထွက် (ဥပမာ- JSON) ကို ထုတ်လုပ်နိုင်ပါသည်။ ဤအချက်သည် multi-agent context တွင် အထူးအသုံးဝင်ပြီး၊ စီမံကိန်းအထွက်ရရှိပြီးနောက် ဤလုပ်ငန်းများကို လုပ်ဆောင်နိုင်ပါသည်။ လျင်မြန်သော အလုံးအရုံးအတွက် ဤ [blogpost](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html) ကို ကြည့်ရှုပါ။
 
-The following Python snippet demonstrates a simple planning agent decomposing a goal into subtasks and generating a structured plan:
+အောက်ပါ Python code snippet သည် ရည်ရွယ်ချက်တစ်ခုကို အခွဲငယ်လုပ်ငန်းများအဖြစ် ခွဲခြားပြီး တည်ဆောက်ပုံအစီအစဉ်တစ်ခု ထုတ်လုပ်သော ရိုးရှင်းသော စီမံကိန်း agent တစ်ခုကို သရုပ်ပြပါသည်-
 
 ```python
 from pydantic import BaseModel
@@ -72,10 +71,10 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Travel SubTask Model
+# ခရီးစဉ်အခွဲငယ်လုပ်ငန်း Model
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # we want to assign the task to the agent
+    assigned_agent: AgentEnum  # လုပ်ငန်းကို agent ကို တာဝန်ပေးလိုသည်
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -85,8 +84,8 @@ class TravelPlan(BaseModel):
 client = AzureAIChatCompletionClient(
     model="gpt-4o-mini",
     endpoint="https://models.inference.ai.azure.com",
-    # To authenticate with the model you will need to generate a personal access token (PAT) in your GitHub settings.
-    # Create your PAT token by following instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+    # Model နှင့် authenticate လုပ်ရန် သင့် GitHub settings တွင် personal access token (PAT) ဖန်တီးရန် လိုအပ်ပါသည်။
+    # ဤနေရာတွင် လမ်းညွှန်ချက်များကို လိုက်နာ၍ PAT token ဖန်တီးပါ: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
     credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
     model_info={
         "json_output": False,
@@ -96,24 +95,23 @@ client = AzureAIChatCompletionClient(
     },
 )
 
-# Define the user message
+# အသုံးပြုသူမက်ဆေ့ချ်ကို သတ်မှတ်ပါ
 messages = [
-    SystemMessage(content="""You are an planner agent.
-    Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
-{'main_task': 'Plan a family trip from Singapore to Melbourne.',
+    SystemMessage(content="""သင်သည် စီမံကိန်း agent တစ်ခုဖြစ်သည်။
+    သင့်အလုပ်မှာ အသုံးပြုသူ၏တောင်းဆိုချက်အပေါ်အခြေခံ၍ မည်သည့် agent များကို လုပ်ဆောင်ရမည်ကို ဆုံးဖြတ်ရန်ဖြစ်သည်။
+                      အောက်ပါ structure ဖြင့် JSON format ဖြင့် သင့်တုံ့ပြန်မှုကို ပေးပါ:
+{'main_task': 'စင်ကာပူမှ မဲလ်ဘုန်းသို့ မိသားစုခရီးစဉ်ကို စီမံပါ။',
  'subtasks': [{'assigned_agent': 'flight_booking',
-               'task_details': 'Book round-trip flights from Singapore to '
-                               'Melbourne.'}
-    Below are the available agents specialised in different tasks:
-    - FlightBooking: For booking flights and providing flight information
-    - HotelBooking: For booking hotels and providing hotel information
-    - CarRental: For booking cars and providing car rental information
-    - ActivitiesBooking: For booking activities and providing activity information
-    - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
+               'task_details': 'စင်ကာပူမှ မဲလ်ဘုန်းသို့ သွားလာလေယာဉ်ဖျင့်များကို ကြိုတင်မှာပါ။'}
+    အောက်တွင် မတူညီသော လုပ်ငန်းများတွင် အထူးပြုသော ရရှိနိုင်သော agent များဖြစ်သည်:
+    - FlightBooking: လေယာဉ်ဖျင့်ကြိုတင်မှာထားခြင်းနှင့် လေယာဉ်ဖျင့်အချက်အလက်များ ပေးခြင်းအတွက်
+    - HotelBooking: ဟိုတယ်ကြိုတင်မှာထားခြင်းနှင့် ဟိုတယ်အချက်အလက်များ ပေးခြင်းအတွက်
+    - CarRental: ကားငှားရမ်းခြင်းနှင့် ကားငှားရမ်းမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - ActivitiesBooking: လှုပ်ရှားမှုများကြိုတင်မှာထားခြင်းနှင့် လှုပ်ရှားမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - DestinationInfo: ခရီးစဉ်နေရာများအကြောင်း အချက်အလက်များ ပေးခြင်းအတွက်
+    - DefaultAgent: ယေဘုယျတောင်းဆိုချက်များကို ကိုင်တွယ်ခြင်းအတွက်""", source="system"),
     UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
+        content="စင်ကာပူမှ မဲလ်ဘုန်းသို့ ကလေး ၂ ယောက်ပါသော မိသားစုအတွက် ခရီးစဉ်အစီအစဉ်တစ်ခု ဖန်တီးပါ", source="user"),
 ]
 
 response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
@@ -121,39 +119,26 @@ response = await client.create(messages=messages, extra_create_args={"response_f
 response_content: Optional[str] = response.content if isinstance(
     response.content, str) else None
 if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+    raise ValueError("တုံ့ပြန်မှုအကြောင်းအရာသည် မှန်ကန်သော JSON string မဟုတ်ပါ")
 
 pprint(json.loads(response_content))
-
-# # Ensure the response content is a valid JSON string before loading it
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# if response_content is None:
-#     raise ValueError("Response content is not a valid JSON string")
-
-# # Print the response content after loading it as JSON
-# pprint(json.loads(response_content))
-
-# Validate the response content with the MathReasoning model
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Planning Agent with Multi-Agent Orchestration
+### Multi-Agent ညှိနှိုင်းမှုနှင့်အတူ စီမံကိန်း Agent
 
-In this example, a Semantic Router Agent receives a user request (e.g., "I need a hotel plan for my trip.").
+ဤဥပမာတွင် Semantic Router Agent တစ်ခုသည် အသုံးပြုသူ၏တောင်းဆိုချက် (ဥပမာ- "ကျွန်တော့်ခရီးစဉ်အတွက် ဟိုတယ်အစီအစဉ်တစ်ခု လိုအပ်ပါသည်။") ကို လက်ခံရရှိသည်။
 
-The planner then:
+ထို့နောက် planner သည်-
 
-* Receives the Hotel Plan: The planner takes the user’s message and, based on a system prompt (including available agent details), generates a structured travel plan.
-* Lists Agents and Their Tools: The agent registry holds a list of agents (e.g., for flight, hotel, car rental, and activities) along with the functions or tools they offer.
-* Routes the Plan to the Respective Agents: Depending on the number of subtasks, the planner either sends the message directly to a dedicated agent (for single-task scenarios) or coordinates via a group chat manager for multi-agent collaboration.
-* Summarizes the Outcome: Finally, the planner summarizes the generated plan for clarity.
-The following Python code sample illustrates these steps:
+* ဟိုတယ်အစီအစဉ်ကို လက်ခံရရှိ: Planner သည် အသုံးပြုသူ၏မက်ဆေ့ချ်ကို လက်ခံပြီး system prompt (ရရှိနိုင်သော agent အသေးစိတ်များပါဝင်သော) အပေါ်အခြေခံ၍ တည်ဆောက်ပုံအပေါ် ခရီးစဉ်အစီအစဉ်တစ်ခုကို ထုတ်လုပ်သည်။
+* Agent များနှင့် ၎င်းတို့၏ကိရိယာများကို စာရင်း: Agent registry သည် agent များ (ဥပမာ- လေယာဉ်ဖျင့်၊ ဟိုတယ်၊ ကားငှားရမ်းခြင်းနှင့် လှုပ်ရှားမှုများအတွက်) နှင့် ၎င်းတို့ကမ်းလှမ်းသော function များ သို့မဟုတ် ကိရိယာများပါသော စာရင်းတစ်ခုကို ကိုင်ဆောင်သည်။
+* သက်ဆိုင်ရာ Agent များထံ အစီအစဉ်ကို လမ်းညွှန်: အခွဲငယ်လုပ်ငန်းများ အရေအတွက်အပေါ်မူတည်၍ planner သည် မက်ဆေ့ချ်ကို အထူးပြု agent တစ်ခုထံ တိုက်ရိုက်ပို့ (single-task scenarios အတွက်) သို့မဟုတ် multi-agent collaboration အတွက် group chat manager မှတစ်ဆင့် ညှိနှိုင်းသည်။
+* ရလဒ်ကို အတိုချုပ်: နောက်ဆုံးတွင် planner သည် ရှင်းလင်းမှုအတွက် ထုတ်လုပ်ထားသော အစီအစဉ်ကို အတိုချုပ်ပြသည်။
+
+အောက်ပါ Python code နမူနာသည် ဤအဆင့်များကို သရုပ်ပြပါသည်-
 
 ```python
-
 from pydantic import BaseModel
-
 from enum import Enum
 from typing import List, Optional, Union
 
@@ -166,25 +151,23 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Travel SubTask Model
-
+# ခရီးซဉ်အခွဲငယ်လုပ်ငန်း Model
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # we want to assign the task to the agent
+    assigned_agent: AgentEnum # လုပ်ငန်းကို agent ကို တာဝန်ပေးလိုသည်
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
+
 import json
 import os
 from typing import Optional
-
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
 from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
 
-# Create the client with type-checked environment variables
-
+# Type-checked environment variables များဖြင့် client ကို ဖန်တီးပါ
 client = AzureOpenAIChatCompletionClient(
     azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
     model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
@@ -195,108 +178,105 @@ client = AzureOpenAIChatCompletionClient(
 
 from pprint import pprint
 
-# Define the user message
-
+# အသုံးပြုသူမက်ဆေ့ချ်ကို သတ်မှတ်ပါ
 messages = [
-    SystemMessage(content="""You are an planner agent.
-    Your job is to decide which agents to run based on the user's request.
-    Below are the available agents specialized in different tasks:
-    - FlightBooking: For booking flights and providing flight information
-    - HotelBooking: For booking hotels and providing hotel information
-    - CarRental: For booking cars and providing car rental information
-    - ActivitiesBooking: For booking activities and providing activity information
-    - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
+    SystemMessage(content="""သင်သည် စီမံကိန်း agent တစ်ခုဖြစ်သည်။
+    သင့်အလုပ်မှာ အသုံးပြုသူ၏တောင်းဆိုချက်အပေါ်အခြေခံ၍ မည်သည့် agent များကို လုပ်ဆောင်ရမည်ကို ဆုံးဖြတ်ရန်ဖြစ်သည်။
+    အောက်တွင် မတူညီသော လုပ်ငန်းများတွင် အထူးပြုသော ရရှိနိုင်သော agent များဖြစ်သည်:
+    - FlightBooking: လေယာဉ်ဖျင့်ကြိုတင်မှာထားခြင်းနှင့် လေယာဉ်ဖျင့်အချက်အလက်များ ပေးခြင်းအတွက်
+    - HotelBooking: ဟိုတယ်ကြိုတင်မှာထားခြင်းနှင့် ဟိုတယ်အချက်အလက်များ ပေးခြင်းအတွက်
+    - CarRental: ကားငှားရမ်းခြင်းနှင့် ကားငှားရမ်းမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - ActivitiesBooking: လှုပ်ရှားမှုများကြိုတင်မှာထားခြင်းနှင့် လှုပ်ရှားမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - DestinationInfo: ခရီးစဉ်နေရာများအကြောင်း အချက်အလက်များ ပေးခြင်းအတွက်
+    - DefaultAgent: ယေဘုယျတောင်းဆိုချက်များကို ကိုင်တွယ်ခြင်းအတွက်""", source="system"),
+    UserMessage(content="စင်ကာပူမှ မဲလ်ဘုန်းသို့ ကလေး ၂ ယောက်ပါသော မိသားစုအတွက် ခရီးစဉ်အစီအစဉ်တစ်ခု ဖန်တီးပါ", source="user"),
 ]
 
 response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
 
-# Ensure the response content is a valid JSON string before loading it
-
+# JSON string အဖြစ် မှန်ကန်မှုကို သေချာစေပြီးမှ loading လုပ်ပါ
 response_content: Optional[str] = response.content if isinstance(response.content, str) else None
 if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+    raise ValueError("တုံ့ပြန်မှုအကြောင်းအရာသည် မှန်ကန်သော JSON string မဟုတ်ပါ")
 
-# Print the response content after loading it as JSON
-
+# JSON အဖြစ် loading လုပ်ပြီးနောက် တုံ့ပြန်မှုအကြောင်းအရာကို print လုပ်ပါ
 pprint(json.loads(response_content))
 ```
 
-What follows is the output from the previous code and you can then use this structured output to route to `assigned_agent` and summarize the travel plan to the end user.
+အရင်က code မှ ရလဒ်မှာ အောက်ပါအတိုင်းဖြစ်ပြီး ထို့နောက် ဤတည်ဆောက်ပုံအထွက်ကို `assigned_agent` သို့ route လုပ်ရန်နှင့် အသုံးပြုသူကို ခရီးစဉ်အစီအစဉ်ကို အတိုချုပ်ရန် အသုံးပြုနိုင်ပါသည်-
 
 ```json
 {
     "is_greeting": "False",
-    "main_task": "Plan a family trip from Singapore to Melbourne.",
+    "main_task": "စင်ကာပူမှ မဲလ်ဘုန်းသို့ မိသားစုခရီးစဉ်ကို စီမံပါ။",
     "subtasks": [
         {
             "assigned_agent": "flight_booking",
-            "task_details": "Book round-trip flights from Singapore to Melbourne."
+            "task_details": "စင်ကာပူမှ မဲလ်ဘုန်းသို့ သွားလာလေယာဉ်ဖျင့်များကို ကြိုတင်မှာပါ။"
         },
         {
             "assigned_agent": "hotel_booking",
-            "task_details": "Find family-friendly hotels in Melbourne."
+            "task_details": "မဲလ်ဘုန်းတွင် မိသားစုနှင့်လိုက်ဖက်သော ဟိုတယ်များကို ရှာဖွေပါ။"
         },
         {
             "assigned_agent": "car_rental",
-            "task_details": "Arrange a car rental suitable for a family of four in Melbourne."
+            "task_details": "မဲလ်ဘုန်းတွင် လေးယောက်ပါသော မိသားစုအတွက် သင့်လျော်သော ကားငှားရမ်းမှုကို စီစဉ်ပါ။"
         },
         {
             "assigned_agent": "activities_booking",
-            "task_details": "List family-friendly activities in Melbourne."
+            "task_details": "မဲလ်ဘုန်းတွင် မိသားစုနှင့်လိုက်ဖက်သော လှုပ်ရှားမှုများကို စာရင်းပြုစုပါ။"
         },
         {
             "assigned_agent": "destination_info",
-            "task_details": "Provide information about Melbourne as a travel destination."
+            "task_details": "မဲလ်ဘုန်းအကြောင်း ခရီးစဉ်နေရာတစ်ခုအဖြစ် အချက်အလက်များ ပေးပါ။"
         }
     ]
 }
 ```
 
-An example notebook with the previous code sample is available [here](07-autogen.ipynb).
+ရှေ့က code နမူနာပါသော နမူနာ notebook ကို [ဤနေရာ](07-autogen.ipynb) တွင် ရရှိနိုင်ပါသည်။
 
-### Iterative Planning
+### ထပ်မံလုပ်ဆောင်သော စီမံကိန်းပြုလုပ်ခြင်း
 
-Some tasks require a back-and-forth or re-planning, where the outcome of one subtask influences the next. For example, if the agent discovers an unexpected data format while booking flights, it might need to adapt its strategy before moving on to hotel bookings.
+အချို့သော လုပ်ငန်းများသည် နှစ်ဖက်ပြောဆိုမှု သို့မဟုတ် ပြန်လည်စီမံခြင်း လိုအပ်ပြီး အခွဲငယ်လုပ်ငန်းတစ်ခု၏ ရလဒ်သည် နောက်တစ်ခုကို လွှမ်းမိုးပါသည်။ ဥပမာအားဖြင့်၊ လေယာဉ်ဖျင့်ကြိုတင်မှာထားရာတွင် မမျှော်လင့်သော ဒေတာပုံစံကို agent က ရှာဖွေတွေ့ရှိပါက ဟိုတယ်ကြိုတင်မှာထားမှုများသို့ မသွားမီ ၎င်း၏ဗျူဟာကို လိုက်လျောညီထွေ လုပ်ရန် လိုအပ်နိုင်သည်။
 
-Additionally, user feedback (e.g. a human deciding they prefer an earlier flight) can trigger a partial re-plan. This dynamic, iterative approach ensures that the final solution aligns with real-world constraints and evolving user preferences.
+ထို့အပြင်၊ အသုံးပြုသူ feedback (ဥပမာ- လူသားတစ်ယောက်က ပိုမို စောသော လေယာဉ်ဖျင့်ကို နှစ်သက်ကြောင်း ဆုံးဖြတ်ခြင်း) သည် တစ်စိတ်တစ်ပိုင်း ပြန်လည်စီမံခြင်းကို ဖြစ်ပေါ်စေနိုင်သည်။ ဤ dynamic၊ iterative ချဉ်းကပ်မှုသည် နောက်ဆုံးအဖြေသည် လက်တွေ့ကန့်သတ်ချက်များနှင့် ပြောင်းလဲနေသော အသုံးပြုသူ နှစ်သက်မှုများနှင့် ကိုက်ညီကြောင်း သေချာစေပါသည်။
 
-e.g sample code
+ဥပမာ နမူနာ code
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. same as previous code and pass on the user history, current plan
+#.. အရင်က code နှင့် အတူတူ၊ အသုံးပြုသူမှတ်တမ်း၊ လက်ရှိအစီအစဉ်ကို ပေးပို့ပါ
 messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
-    Your job is to decide which agents to run based on the user's request.
-    Below are the available agents specialized in different tasks:
-    - FlightBooking: For booking flights and providing flight information
-    - HotelBooking: For booking hotels and providing hotel information
-    - CarRental: For booking cars and providing car rental information
-    - ActivitiesBooking: For booking activities and providing activity information
-    - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
+    SystemMessage(content="""သင်သည် အကောင်းဆုံးဖြစ်အောင် စီမံကိန်း agent တစ်ခုဖြစ်သည်
+    သင့်အလုပ်မှာ အသုံးပြုသူ၏တောင်းဆိုချက်အပေါ်အခြေခံ၍ မည်သည့် agent များကို လုပ်ဆောင်ရမည်ကို ဆုံးဖြတ်ရန်ဖြစ်သည်။
+    အောက်တွင် မတူညီသော လုပ်ငန်းများတွင် အထူးပြုသော ရရှိနိုင်သော agent များဖြစ်သည်:
+    - FlightBooking: လေယာဉ်ဖျင့်ကြိုတင်မှာထားခြင်းနှင့် လေယာဉ်ဖျင့်အချက်အလက်များ ပေးခြင်းအတွက်
+    - HotelBooking: ဟိုတယ်ကြိုတင်မှာထားခြင်းနှင့် ဟိုတယ်အချက်အလက်များ ပေးခြင်းအတွက်
+    - CarRental: ကားငှားရမ်းခြင်းနှင့် ကားငှားရမ်းမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - ActivitiesBooking: လှုပ်ရှားမှုများကြိုတင်မှာထားခြင်းနှင့် လှုပ်ရှားမှုအချက်အလက်များ ပေးခြင်းအတွက်
+    - DestinationInfo: ခရီးစဉ်နေရာများအကြောင်း အချက်အလက်များ ပေးခြင်းအတွက်
+    - DefaultAgent: ယေဘုယျတောင်းဆိုချက်များကို ကိုင်တွယ်ခြင်းအတွက်""", source="system"),
+    UserMessage(content="စင်ကာပူမှ မဲလ်ဘုန်းသို့ ကလေး ၂ ယောက်ပါသော မိသားစုအတွက် ခရီးစဉ်အစီအစဉ်တစ်ခု ဖန်တီးပါ", source="user"),
+    AssistantMessage(content=f"ယခင်ခရီးစဉ်အစီအစဉ် - {TravelPlan}", source="assistant")
 ]
-# .. re-plan and send the tasks to respective agents
+# .. ပြန်လည်စီမံပြီး သက်ဆိုင်ရာ agent များထံ လုပ်ငန်းများကို ပို့ပါ
 ```
 
-For more comprehensive planning do checkout Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> for solving complex tasks.
+ပိုမို ကျယ်ပြန့်သော စီမံကိန်းပြုလုပ်ခြင်းအတွက် ရှုပ်ထွေးသော လုပ်ငန်းများကို ဖြေရှင်းရန် Magnetic One [Blogpost](https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks) ကို ကြည့်ရှုပါ။
 
-## Summary
+## အတိုချုပ်
 
-In this article we have looked at an example of how we can create a planner that can dynamically select the available agents defined. The output of the Planner decomposes the tasks and assigns the agents so they can be executed. It is assumed the agents have access to the functions/tools that are required to perform the task. In addition to the agents you can include other patterns like reflection, summarizer, and round robin chat to further customize.
+ဤဆောင်းပါးတွင် ကျွန်ုပ်တို့သည် သတ်မှတ်ထားသော ရရှိနိုင်သော agent များကို dynamic ရွေးချယ်နိုင်သော planner တစ်ခုကို မည်သို့ဖန်တီးရမည်ကို ဥပမာတစ်ခုကြည့်ရှုခဲ့ပါသည်။ Planner ၏ အထွက်သည် လုပ်ငန်းများကို ခွဲခြားပြီး ၎င်းတို့ကို လုပ်ဆောင်နိုင်အောင် agent များကို တာဝန်ပေးအပ်သည်။ Agent များသည် လုပ်ငန်းကို လုပ်ဆောင်ရန် လိုအပ်သော function/tool များကို ရရှိနိုင်ကြောင်း ယူဆပါသည်။ Agent များအပြင် reflection၊ summarizer နှင့် round robin chat ကဲ့သို့သော အခြား pattern များကိုလည်း ပိုမို စိတ်ကြိုက်ပြုလုပ်ရန် ထည့်သွင်းနိုင်ပါသည်။
 
-## Additional Resources
+## နောက်ထပ် အရင်းအမြစ်များ
 
-* AutoGen Magentic One - A Generalist multi-agent system for solving complex tasks and has achieved impressive results on multiple challenging agentic benchmarks. Reference: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. In this implementation the orchestrator create task specific plan and delegates these tasks to the available agents. In addition to planning the orchestrator also employs a tracking mechanism to monitor the progress of the task and re-plans as required.
+* AutoGen Magentic One - ရှုပ်ထွေးသော လုပ်ငန်းများကို ဖြေရှင်းရန်အတွက် Generalist multi-agent system တစ်ခုဖြစ်ပြီး စိန်ခေါ်မှုများစွာသော agentic benchmark များတွင် အံ့သြဖွယ်ရလဒ်များ အောင်မြင်ခဲ့သည်။ ကိုးကား: [autogen-magentic-one](https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one)။ ဤ implementation တွင် orchestrator သည် လုပ်ငန်းအထူးပြု အစီအစဉ်ကို ဖန်တီးပြီး ဤလုပ်ငန်းများကို ရရှိနိုင်သော agent များထံ delegate လုပ်သည်။ စီမံကိန်းပြုလုပ်ခြင်းအပြင် orchestrator သည် လုပ်ငန်း၏တိုးတက်မှုကို စောင့်ကြည့်ရန်နှင့် လိုအပ်သလို ပြန်လည်စီမံရန် ခြေရာခံစနစ်တစ်ခုကိုလည်း အသုံးပြုသည်။
 
-## Previous Lesson
+## ယခင်သင်ခန်းစာ
 
-[Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)
+[ယုံကြည်စိတ်ချရသော AI Agent များ တည်ဆောက်ခြင်း](../06-building-trustworthy-agents/README.md)
 
-## Next Lesson
+## နောက်သင်ခန်းစာ
 
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+[Multi-Agent ဒီဇိုင်းပုံစံ](../08-multi-agent/README.md)
