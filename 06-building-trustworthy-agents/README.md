@@ -1,201 +1,203 @@
-[![Trustworthy AI Agents](./images/lesson-6-thumbnail.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![ယုံကြည်ရသော AI အေးဂျင့်များ](./images/lesson-6-thumbnail.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Click the image above to view video of this lesson)_
+> _(ဤသင်ခန်းစာ၏ ဗီဒီယိုကြည့်ရှုရန် အထက်ပါ ပုံပေါ်တွင် နှိပ်ပါ)_
 
-# Building Trustworthy AI Agents
+# ယုံကြည်ရသော AI အေးဂျင့်များ တည်ဆောက်ခြင်း
 
-## Introduction
+## နိဒါန်း
 
-This lesson will cover:
+ဤသင်ခန်းစာတွင် အောက်ပါအကြောင်းအရာများကို လေ့လာရပါမည်-
 
-- How to build and deploy safe and effective AI Agents
-- Important security considerations when developing AI Agents.
-- How to maintain data and user privacy when developing AI Agents.
+- ဘေးကင်းပြီး ထိရောက်သော AI အေးဂျင့်များကို မည်သို့တည်ဆောက်၍ အသုံးချရမည်နည်း
+- AI အေးဂျင့်များ တည်ဆောက်ရာတွင် အရေးကြီးသော လုံခြုံရေး ထည့်သွင်းစဉ်းစားရမည့်အချက်များ
+- AI အေးဂျင့်များ တည်ဆောက်ရာတွင် ဒေတာနှင့် အသုံးပြုသူများ၏ ကိုယ်ရေးကိုယ်တာ လုံခြုံမှုကို မည်သို့ထိန်းသိမ်းရမည်နည်း
 
-## Learning Goals
+## သင်ယူရမည့် ရည်မှန်းချက်များ
 
-After completing this lesson, you will know how to:
+ဤသင်ခန်းစာ ပြီးစီးပြီးနောက်တွင်၊ သင်သည် အောက်ပါတို့ကို သိရှိနိုင်မည်ဖြစ်သည်-
 
-- Identify and mitigate risks when creating AI Agents.
-- Implement security measures to ensure that data and access are properly managed.
-- Create AI Agents that maintain data privacy and provide a quality user experience.
+- AI အေးဂျင့်များ ဖန်တီးရာတွင် အန္တရာယ်များကို မည်သို့ခွဲခြားသတ်မှတ်၍ လျှော့ချရမည်နည်း
+- ဒေတာနှင့် အသုံးပြုခွင့်များကို သင့်လျော်စွာ စီမံခန့်ခွဲနိုင်စေရန် လုံခြုံရေး အစီအမံများကို မည်သို့အကောင်အထည်ဖော်ရမည်နည်း
+- ဒေတာ လုံခြုံမှုကို ထိန်းသိမ်းပြီး အရည်အသွေးမြင့် အသုံးပြုသူ အတွေ့အကြုံကို ပံ့ပိုးပေးနိုင်သော AI အေးဂျင့်များကို မည်သို့ဖန်တီးရမည်နည်း
 
-## Safety
+## လုံခြုံရေး
 
-Let's first look at building safe agentic applications. Safety means that the AI agent performs as designed. As builders of agentic applications, we have methods and tools to maximize safety:
+ဘေးကင်းသော အေးဂျင့်နစ် အပ္ပလီကေးရှင်းများ တည်ဆောက်ခြင်းအကြောင်းကို ဦးစွာ လေ့လာကြည့်ရအောင်။ လုံခြုံရေးဆိုသည်မှာ AI အေးဂျင့်သည် ဒီဇိုင်းထားသည့်အတိုင်း အလုပ်လုပ်ဆောင်ခြင်းကို ဆိုလိုပါသည်။ အေးဂျင့်နစ် အပ္ပလီကေးရှင်းများ တည်ဆောက်သူများအနေဖြင့်၊ လုံခြုံရေးကို အမြင့်ဆုံးအဆင့်သို့ ရောက်စေရန် နည်းလမ်းများနှင့် ကိရိယာများ ရှိပါသည်-
 
-### Building a System Message Framework
+### စနစ်မက်ဆေ့ဂျ် မူဘောင် တည်ဆောက်ခြင်း
 
-If you have ever built an AI application using Large Language Models (LLMs), you know the importance of designing a robust system prompt or system message. These prompts establish the meta rules, instructions, and guidelines for how the LLM will interact with the user and data.
+အကယ်၍ သင်သည် အကြီးစား ဘာသာစကား မော်ဒယ်များ (LLMs) ကို အသုံးပြု၍ AI အပ္ပလီကေးရှင်း တစ်ခုခု တည်ဆောက်ဖူးခဲ့သည်ဆိုပါက၊ ခိုင်မာသော စနစ် တောင်းဆိုမှု (system prompt) သို့မဟုတ် စနစ်မက်ဆေ့ဂျ် ဒီဇိုင်းပြုလုပ်ခြင်း၏ အရေးပါမှုကို သင်သိရှိပါသည်။ ဤတောင်းဆိုမှုများသည် LLM သည် အသုံးပြုသူနှင့် ဒေတာများနှင့် မည်သို့ အပြန်အလှန် ဆက်သွယ်ရမည်နည်းဆိုသည့် မူလိုက်မကျ စည်းမျဉ်းများ၊ ညွှန်ကြားချက်များနှင့် လမ်းညွှန်မှုများကို ချမှတ်ပေးပါသည်။
 
-For AI Agents, the system prompt is even more important as the AI Agents will need highly specific instructions to complete the tasks we have designed for them.
+AI အေးဂျင့်များအတွက်တော့၊ AI အေးဂျင့်များသည် ကျွန်ုပ်တို့ဒီဇိုင်းပြုလုပ်ထားသော တာဝန်များကို ဆောင်ရွက်ရန် အလွန်တိကျသော ညွှန်ကြားချက်များ လိုအပ်သောကြောင့် စနစ် တောင်းဆိုမှုသည် ပိုမိုအရေးကြီးပါသည်။
 
-To create scalable system prompts, we can use a system message framework for building one or more agents in our application:
+တိုးချဲ့နိုင်သော စနစ် တောင်းဆိုမှုများ ဖန်တီးရန်၊ ကျွန်ုပ်တို့၏ အပ္ပလီကေးရှင်းတွင် အေးဂျင့် တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော အေးဂျင့်များ တည်ဆောက်ရန် စနစ်မက်ဆေ့ဂျ် မူဘောင်ကို အသုံးပြုနိုင်ပါသည်-
 
-![Building a System Message Framework](./images/system-message-framework.png)
+![စနစ်မက်ဆေ့ဂျ် မူဘောင် တည်ဆောက်ခြင်း](./images/system-message-framework.png)
 
-#### Step 1: Create a Meta System Message 
+#### အဆင့် ၁- မက်တာ စနစ်မက်ဆေ့ဂျ် ဖန်တီးခြင်း
 
-The meta prompt will be used by an LLM to generate the system prompts for the agents we create. We design it as a template so that we can efficiently create multiple agents if needed.
+မက်တာ တောင်းဆိုမှုကို ကျွန်ုပ်တို့ဖန်တီးသော အေးဂျင့်များအတွက် စနစ် တောင်းဆိုမှုများ ထုတ်လုပ်ရန် LLM တစ်ခုအသုံးပြုပါမည်။ လိုအပ်ပါက အေးဂျင့် အများအပြားကို ထိရောက်စွာ ဖန်တီးနိုင်ရန် template တစ်ခုအဖြစ် ဒီဇိုင်းပြုလုပ်ပါသည်။
 
-Here is an example of a meta system message we would give to the LLM:
-
-```plaintext
-You are an expert at creating AI agent assistants. 
-You will be provided a company name, role, responsibilities and other
-information that you will use to provide a system prompt for.
-To create the system prompt, be descriptive as possible and provide a structure that a system using an LLM can better understand the role and responsibilities of the AI assistant. 
-```
-
-#### Step 2: Create a basic prompt
-
-The next step is to create a basic prompt to describe the AI Agent. You should include the role of the agent, the tasks the agent will complete, and any other responsibilities of the agent.
-
-Here is an example:
+ကျွန်ုပ်တို့ LLM ကို ပေးမည့် မက်တာ စနစ်မက်ဆေ့ဂျ် ဥပမာ တစ်ခုမှာ အောက်ပါအတိုင်းဖြစ်သည်-
 
 ```plaintext
-You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
+သင်သည် AI အေးဂျင့် လက်ထောက်များ ဖန်တီးရာတွင် ကျွမ်းကျင်သူ တစ်ဦးဖြစ်သည်။
+သင့်အား ကုမ္ပဏီအမည်၊ အခန်းကဏ္ဍ၊ တာဝန်များနှင့် အခြားအချက်အလက်များ
+ပေးအပ်မည်ဖြစ်ပြီး၊ ယင်းတို့ကို အသုံးပြု၍ စနစ် တောင်းဆိုမှု တစ်ခု ပံ့ပိုးပေးရပါမည်။
+စနစ် တောင်းဆိုမှု ဖန်တီးရန်၊ တတ်နိုင်သမျှ ဖော်ပြရမ်းရမ်းဖြင့် တည်ဆောက်ပြီး
+LLM အသုံးပြုသော စနစ်တစ်ခုက AI လက်ထောက်၏ အခန်းကဏ္ဍနှင့် တာဝန်များကို
+ပိုမိုကောင်းမွန်စွာ နားလည်နိုင်မည့် ဖွဲ့စည်းပုံကို ပံ့ပိုးပေးရပါမည်။
 ```
 
-#### Step 3: Provide Basic System Message to LLM
+#### အဆင့် ၂- အခြေခံ တောင်းဆိုမှု ဖန်တီးခြင်း
 
-Now we can optimize this system message by providing the meta system message as the system message and our basic system message.
+နောက်အဆင့်တွင် AI အေးဂျင့်ကို ဖော်ပြရန် အခြေခံ တောင်းဆိုမှု တစ်ခု ဖန်တီးရပါမည်။ အေးဂျင့်၏ အခန်းကဏ္ဍ၊ အေးဂျင့်က ဆောင်ရွက်မည့် တာဝန်များ၊ နှင့် အေးဂျင့်၏ အခြား တာဝန်ဝတ္တရားများကို ထည့်သွင်းရပါမည်။
 
-This will produce a system message that is better designed for guiding our AI agents:
+ဥပမာ တစ်ခုမှာ-
+
+```plaintext
+သင်သည် ဖောက်သည်များအတွက် လေယာဉ်လက်မှတ် ကြိုတင်မှာကြားခြင်းတွင် အလွန်ကျွမ်းကျင်သော Contoso Travel ကုမ္ပဏီ၏ ခရီးသွားအေးဂျင့် တစ်ဦးဖြစ်သည်။ ဖောက်သည်များကို ကူညီရန်အတွက် အောက်ပါတာဝန်များ ဆောင်ရွက်နိုင်ပါသည်- ရရှိနိုင်သော လေယာဉ်ခရီးစဉ်များ ရှာဖွေခြင်း၊ လေယာဉ်လက်မှတ် ကြိုတင်မှာကြားခြင်း၊ လေယာဉ်ခရီးစဉ်များအတွက် ထိုင်ခုံနှင့် အချိန်နှစ်သက်မှုများ မေးမြန်းခြင်း၊ ယခင်က ကြိုတင်မှာကြားခဲ့သော လေယာဉ်လက်မှတ်များ ပယ်ဖျက်ခြင်း နှင့် လေယာဉ်ခရီးစဉ်များ နှောင့်နှေးခြင်း သို့မဟုတ် ပယ်ဖျက်ခြင်းများအတွက် ဖောက်သည်များကို သတိပေးခြင်း။
+```
+
+#### အဆင့် ၃- LLM ကို အခြေခံ စနစ်မက်ဆေ့ဂျ် ပေးအပ်ခြင်း
+
+ယခုအခါ ကျွန်ုပ်တို့သည် မက်တာ စနစ်မက်ဆေ့ဂျ်ကို စနစ်မက်ဆေ့ဂျ်အဖြစ်နှင့် ကျွန်ုပ်တို့၏ အခြေခံ စနစ်မက်ဆေ့ဂျ်ကို ပေးအပ်ခြင်းဖြင့် ဤစနစ်မက်ဆေ့ဂျ်ကို ပိုမိုကောင်းမွန်စေနိုင်ပါသည်။
+
+ယင်းသည် ကျွန်ုပ်တို့၏ AI အေးဂျင့်များကို လမ်းညွှန်ရန် ပိုမိုကောင်းမွန်စွာ ဒီဇိုင်းပြုလုပ်ထားသော စနစ်မက်ဆေ့ဂျ် တစ်ခုကို ထုတ်လုပ်ပေးပါမည်-
 
 ```markdown
-**Company Name:** Contoso Travel  
-**Role:** Travel Agent Assistant
+**ကုမ္ပဏီအမည်:** Contoso Travel  
+**အခန်းကဏ္ဍ:** ခရီးသွားအေးဂျင့် လက်ထောက်
 
-**Objective:**  
-You are an AI-powered travel agent assistant for Contoso Travel, specializing in booking flights and providing exceptional customer service. Your main goal is to assist customers in finding, booking, and managing their flights, all while ensuring that their preferences and needs are met efficiently.
+**ရည်မှန်းချက်:**  
+သင်သည် လေယာဉ်လက်မှတ် ကြိုတင်မှာကြားခြင်းတွင် အထူးပြုပြီး ထူးခြားသော ဖောက်သည်ဝန်ဆောင်မှု ပေးအပ်သော Contoso Travel ကုမ္ပဏီ၏ AI စွမ်းအားဖြင့် လုပ်ဆောင်သော ခရီးသွားအေးဂျင့် လက်ထောက် တစ်ဦးဖြစ်သည်။ သင်၏ အဓိက ရည်မှန်းချక်မှာ ဖောက်သည်များ၏ နှစ်သက်မှုများနှင့် လိုအပ်ချက်များကို ထိရောက်စွာ ဖြည့်ဆည်းပေးနိုင်ရေးကို သေချာစေရင်း၊ ၎င်းတို့၏ လေယာဉ်ခရီးစဉ်များကို ရှာဖွေခြင်း၊ ကြိုတင်မှာကြားခြင်းနှင့် စီမံခန့်ခွဲခြင်းတွင် ကူညီဆောင်ရွက်ပေးခြင်းဖြစ်သည်။
 
-**Key Responsibilities:**
+**အဓိက တာဝန်ဝတ္တရားများ:**
 
-1. **Flight Lookup:**
+1. **လေယာဉ်ခရီးစဉ် ရှာဖွေခြင်း:**
     
-    - Assist customers in searching for available flights based on their specified destination, dates, and any other relevant preferences.
-    - Provide a list of options, including flight times, airlines, layovers, and pricing.
-2. **Flight Booking:**
+    - ဖောက်သည်များ၏ သတ်မှတ်ထားသော ခရီးစဉ်ရည်ရွယ်ရာ၊ ရက်စွဲများနှင့် အခြား သက်ဆိုင်သော နှစ်သက်မှုများအပေါ် အခြေခံ၍ ရရှိနိုင်သော လေယာဉ်ခရီးစဉ်များ ရှာဖွေခြင်းတွင် ကူညီခြင်း။
+    - လေယာဉ်အချိန်များ၊ လေကြောင်းလိုင်းများ၊ ဆက်သွယ်ခရီးစဉ်များနှင့် စျေးနှုန်းများ အပါအဝင် ရွေးချယ်စရာများ စာရင်းကို ပေးအပ်ခြင်း။
+2. **လေယာဉ်လက်မှတ် ကြိုတင်မှာကြားခြင်း:**
     
-    - Facilitate the booking of flights for customers, ensuring that all details are correctly entered into the system.
-    - Confirm bookings and provide customers with their itinerary, including confirmation numbers and any other pertinent information.
-3. **Customer Preference Inquiry:**
+    - ဖောက်သည်များအတွက် လေယာဉ်လက်မှတ် ကြိုတင်မှာကြားခြင်းကို လွယ်ကူစေရန် ဆောင်ရွက်ခြင်း၊ အသေးစိတ်အချက်အလက်များ အားလုံးကို စနစ်တွင် မှန်ကန်စွာ ထည့်သွင်းထားကြောင်း သေချာစေခြင်း။
+    - ကြိုတင်မှာကြားမှုများကို အတည်ပြုပြီး ဖောက်သည်များအား အတည်ပြုနံပါတ်များနှင့် အခြား သက်ဆိုင်သော အချက်အလက်များ အပါအဝင် ၎င်းတို့၏ ခရီးစဉ်အစီအစဉ်ကို ပေးအပ်ခြင်း။
+3. **ဖောက်သည် နှစ်သက်မှု မေးမြန်းခြင်း:**
     
-    - Actively ask customers for their preferences regarding seating (e.g., aisle, window, extra legroom) and preferred times for flights (e.g., morning, afternoon, evening).
-    - Record these preferences for future reference and tailor suggestions accordingly.
-4. **Flight Cancellation:**
+    - ထိုင်ခုံများ (ဥပမာ- လမ်းကြား၊ ပြတင်းပေါက်ဘေး၊ ခြေထောက်ဆန့်နိုင်သော နေရာ) နှင့် လေယာဉ်ခရီးစဉ်များအတွက် နှစ်သက်သော အချိန်များ (ဥပမာ- နံနက်၊ နေ့လည်၊ ညနေ) နှင့် ပတ်သက်၍ ဖောက်သည်များ၏ နှစ်သက်မှုများကို တက်ကြွစွာ မေးမြန်းခြင်း။
+    - အနာဂတ်တွင် ကိုးကားရန်အတွက် ဤနှစ်သက်မှုများကို မှတ်တမ်းတင်ပြီး အကြံပြုချက်များကို သင့်လျော်စွာ ပြင်ဆင်ခြင်း။
+4. **လေယာဉ်လက်မှတ် ပယ်ဖျက်ခြင်း:**
     
-    - Assist customers in canceling previously booked flights if needed, following company policies and procedures.
-    - Notify customers of any necessary refunds or additional steps that may be required for cancellations.
-5. **Flight Monitoring:**
+    - လိုအပ်ပါက ယခင်က ကြိုတင်မှာကြားခဲ့သော လေယာဉ်လက်မှတ်များကို ပယ်ဖျက်ရာတွင် ဖောက်သည်များကို ကူညီခြင်း၊ ကုမ္ပဏီ မူဝါဒများနှင့် လုပ်ထုံးလုပ်နည်းများကို လိုက်နာခြင်း။
+    - ပယ်ဖျက်မှုများအတွက် လိုအပ်သော ပြန်အမ်းငွေများ သို့မဟုတ် လိုအပ်နိုင်သော နောက်ထပ် လုပ်ဆောင်ရမည့် အဆင့်များအကြောင်း ဖောက်သည်များကို အသိပေးခြင်း။
+5. **လေယာဉ်ခရီးစဉ် စောင့်ကြည့်ခြင်း:**
     
-    - Monitor the status of booked flights and alert customers in real-time about any delays, cancellations, or changes to their flight schedule.
-    - Provide updates through preferred communication channels (e.g., email, SMS) as needed.
+    - ကြိုတင်မှာကြားထားသော လေယာဉ်ခရီးစဉ်များ၏ အခြေအနေကို စောင့်ကြည့်ပြီး နှောင့်နှေးမှုများ၊ ပယ်ဖျက်မှုများ သို့မဟုတ် ၎င်းတို့၏ လေယာဉ်ခရီးစဉ်အစီအစဉ်များတွင် ပြောင်းလဲမှုများအကြောင်း ဖောက်သည်များကို အချိန်နှင့်တပြေးညီ သတိပေးခြင်း။
+    - လိုအပ်သည့်အတိုင်း နှစ်သက်သော ဆက်သွယ်ရေး လမ်းကြောင်းများ (ဥပမာ- အီးမေးလ်၊ SMS) မှတဆင့် နောက်ဆုံးရ သတင်းအချက်အလက်များ ပေးအပ်ခြင်း။
 
-**Tone and Style:**
+**လေသံနှင့် ပုံစံ:**
 
-- Maintain a friendly, professional, and approachable demeanor in all interactions with customers.
-- Ensure that all communication is clear, informative, and tailored to the customer's specific needs and inquiries.
+- ဖောက်သည်များနှင့် အပြန်အလှန် ဆက်သွယ်မှုအားလုံးတွင် ဖော်ရွေ၊ ပညာရှင်ဆန်ပြီး ချဉ်းကပ်လွယ်သော သဘောထားကို ထိန်းသိမ်းခြင်း။
+- ဆက်သွယ်မှုအားလုံးသည် ရှင်းလင်းပြီး အချက်အလက်ပြည့်စုံစေရန်နှင့် ဖောက်သည်၏ သီးခြား လိုအပ်ချက်များနှင့် မေးမြန်းမှုများနှင့် သင့်လျော်စေရန် သေချာစေခြင်း။
 
-**User Interaction Instructions:**
+**အသုံးပြုသူ အပြန်အလှန်ဆက်သွယ်မှု ညွှန်ကြားချက်များ:**
 
-- Respond to customer queries promptly and accurately.
-- Use a conversational style while ensuring professionalism.
-- Prioritize customer satisfaction by being attentive, empathetic, and proactive in all assistance provided.
+- ဖောက်သည်များ၏ မေးမြန်းမှုများကို ချက်ချင်းနှင့် တိကျစွာ တုံ့ပြန်ခြင်း။
+- ပညာရှင်ဆန်မှုကို သေချာစေရင်းနှင့်အတူ စကားပြောဆိုမှု ပုံစံကို အသုံးပြုခြင်း။
+- သေချာပေါက်သော အာရုံစိုက်မှု၊ စာနာမှုနှင့် တက်ကြွသော ကူညီဆောင်ရွက်မှုများဖြင့် ဖောက်သည်များ၏ စိတ်ကျေနပ်မှုကို ဦးစားပေးခြင်း။
 
-**Additional Notes:**
+**နောက်ထပ် မှတ်ချက်များ:**
 
-- Stay updated on any changes to airline policies, travel restrictions, and other relevant information that could impact flight bookings and customer experience.
-- Use clear and concise language to explain options and processes, avoiding jargon where possible for better customer understanding.
+- လေကြောင်းလိုင်း မူဝါဒများ၊ ခရီးသွားကန့်သတ်ချက်များနှင့် လေယာဉ်လက်မှတ် ကြိုတင်မှာကြားမှုနှင့် ဖောက်သည် အတွေ့အကြုံကို အကျိုးသက်ရောက်နိုင်သော အခြား သက်ဆိုင်သော အချက်အလက်များတွင် ပြောင်းလဲမှုများကို နောက်ဆုံးရ အသိပေးနေခြင်း။
+- ဖောက်သည်များ၏ ပိုမိုကောင်းမွန်သော နားလည်မှုအတွက် တတ်နိုင်သလောက် စာရေးဘာသာစကားများကို ရှောင်ကြဉ်လျက် ရွေးချယ်စရာများနှင့် လုပ်ငန်းစဉ်များကို ဖော်ပြရန် ရှင်းလင်းပြီး တိုတောင်းသော ဘာသာစကားကို အသုံးပြုခြင်း။
 
-This AI assistant is designed to streamline the flight booking process for customers of Contoso Travel, ensuring that all their travel needs are met efficiently and effectively.
+ဤ AI လက်ထောက်သည် Contoso Travel ၏ ဖောက်သည်များအတွက် လေယာဉ်လက်မှတ် ကြိုတင်မှာကြားမှု လုပ်ငန်းစဉ်ကို ချောမွေ့စေရန် ဒီဇိုင်းပြုလုပ်ထားပြီး၊ ၎င်းတို့၏ ခရီးသွားလိုအပ်ချက်များ အားလုံးကို ထိရောက်စွာနှင့် ပြေပြစ်စွာ ဖြည့်ဆည်းပေးနိုင်ရေးကို သေချာစေသည်။
 
 ```
 
-#### Step 4: Iterate and Improve
+#### အဆင့် ၄- ပြန်လည်ပြင်ဆင်ခြင်းနှင့် တိုးတက်စေခြင်း
 
-The value of this system message framework is to be able to scale creating system messages from multiple agents easier as well as improving your system messages over time. It is rare you will have a system message that works the first time for your complete use case. Being able to make small tweaks and improvements by changing the basic system message and running it through the system will allow you to compare and evaluate results.
+ဤစနစ်မက်ဆေ့ဂျ် မူဘောင်၏ တန်ဖိုးမှာ အေးဂျင့် များစွာအတွက် စနစ်မက်ဆေ့ဂျ်များ ဖန်တီးခြင်းကို ပိုမိုလွယ်ကူစေရန် တိုးချဲ့နိုင်စေခြင်းအပြင် အချိန်ကြာလာသည်နှင့်အမျှ သင်၏ စနစ်မက်ဆေ့ဂျ်များကို တိုးတက်စေနိုင်ခြင်းလည်း ဖြစ်သည်။ သင်၏ အသုံးပြုမှုအတွက် ပြီးပြည့်စုံသော စနစ်မက်ဆေ့ဂျ် တစ်ခုကို ပထမအကြိမ်မှာပင် အလုပ်လုပ်စေရန် ရရှိခြင်းမှာ အလွန်ရှားပါးပါသည်။ အခြေခံ စနစ်မက်ဆေ့ဂျ်ကို သေးငယ်သော ပြင်ဆင်မှုများနှင့် တိုးတက်မှုများ ပြုလုပ်ပြီး စနစ်မှတဆင့် လုပ်ဆောင်ကြည့်ခြင်းဖြင့် ရလဒ်များကို နှိုင်းယှဉ်၍ အကဲဖြတ်နိုင်စေမည်ဖြစ်သည်။
 
-## Understanding Threats
+## ခြိမ်းခြောက်မှုများ နားလည်ခြင်း
 
-To build trustworthy AI agents, it is important to understand and mitigate the risks and threats to your AI agent. Let's look at only some of the different threats to AI agents and how you can better plan and prepare for them.
+ယုံကြည်ရသော AI အေးဂျင့်များ တည်ဆောက်ရန်အတွက်၊ သင်၏ AI အေးဂျင့်အတွက် အန္တရာယ်များနှင့် ခြိမ်းခြောက်မှုများကို နားလည်၍ လျှော့ချရန် အရေးကြီးပါသည်။ AI အေးဂျင့်များအတွက် မတူညီသော ခြိမ်းခြောက်မှုများအနက် အချို့ကိုသာ လေ့လာကြည့်ပြီး ၎င်းတို့ကို မည်သို့ ပိုမိုကောင်းမွန်စွာ အစီအစဉ်ရေးဆွဲ၍ ပြင်ဆင်နိုင်မည်နည်းကို လေ့လာကြည့်ရအောင်။
 
-![Understanding Threats](./images/understanding-threats.png)
+![ခြိမ်းခြောက်မှုများ နားလည်ခြင်း](./images/understanding-threats.png)
 
-### Task and Instruction
+### တာဝန်နှင့် ညွှန်ကြားချက်
 
-**Description:** Attackers attempt to change the instructions or goals of the AI agent through prompting or manipulating inputs.
+**ဖော်ပြချက်:** တိုက်ခိုက်သူများသည် တောင်းဆိုမှု သို့မဟုတ် ထည့်သွင်းမှုများကို ကြိုးကိုင်ခြင်းဖြင့် AI အေးဂျင့်၏ ညွှန်ကြားချက်များ သို့မဟုတ် ရည်မှန်းချက်များကို ပြောင်းလဲရန် ကြိုးစားကြသည်။
 
-**Mitigation**: Execute validation checks and input filters to detect potentially dangerous prompts before they are processed by the AI Agent. Since these attacks typically require frequent interaction with the Agent, limiting the number of turns in a conversation is another way to prevent these types of attacks.
+**လျှော့ချမှု**: AI အေးဂျင့်မှ လုပ်ဆောင်မည့်အရာများ မတိုင်မီ အန္တရာယ်ရှိနိုင်သော တောင်းဆိုမှုများကို ထောက်လှမ်းရန် တရားဝင်ခြင်း စစ်ဆေးမှုများနှင့် ထည့်သွင်းမှု စစ်ထုတ်ကိရိယာများကို အကောင်အထည်ဖော်ပါ။ ဤတိုက်ခိုက်မှုများသည် အများအားဖြင့် အေးဂျင့်နှင့် မကြာခဏ အပြန်အလှန် ဆက်သွယ်မှု လိုအပ်သောကြောင့်၊ စကားပြောဆိုမှုတွင် အလှည့်အရေအတွက်ကို ကန့်သတ်ခြင်းမှာ ဤအမျိုးအစား တိုက်ခိုက်မှုများကို တားဆီးရန် နောက်ထပ် နည်းလမ်းတစ်ခုဖြစ်သည်။
 
-### Access to Critical Systems
+### အရေးကြီးသော စနစ်များကို ဝင်ရောက်ခွင့်
 
-**Description**: If an AI agent has access to systems and services that store sensitive data, attackers can compromise the communication between the agent and these services. These can be direct attacks or indirect attempts to gain information about these systems through the agent.
+**ဖော်ပြချက်**: AI အေးဂျင့်သည် အဆိုးရွားဆုံး ဒေတာများ သိမ်းဆည်းထားသော စနစ်များနှင့် ဝန်ဆောင်မှုများကို ဝင်ရောက်ခွင့် ရှိပါက၊ တိုက်ခိုက်သူများသည် အေးဂျင့်နှင့် ဤဝန်ဆောင်မှုများအကြား ဆက်သွယ်မှုကို ထိခိုက်စေနိုင်သည်။ ယင်းတို့မှာ တိုက်ရိုက် တိုက်ခိုက်မှုများ သို့မဟုတ် အေးဂျင့်မှတဆင့် ဤစနစ်များအကြောင်း အချက်အလက် ရယူရန် သွယ်ဝိုက်သော ကြိုးပမ်းမှုများ ဖြစ်နိုင်သည်။
 
-**Mitigation**: AI agents should have access to systems on a need-only basis to prevent these types of attacks. Communication between the agent and system should also be secure. Implementing authentication and access control is another way to protect this information.
+**လျှော့ချမှု**: AI အေးဂျင့်များသည် ဤအမျိုးအစား တိုက်ခိုက်မှုများကို တားဆီးရန် လိုအပ်သောအရာများကိုသာ အခြေခံ၍ စနစ်များကို ဝင်ရောက်ခွင့် ရှိသင့်သည်။ အေးဂျင့်နှင့် စနစ်အကြား ဆက်သွယ်မှုသည်လည်း လုံခြုံရပါမည်။ စစ်မှန်ကြောင်း သက်သေပြခြင်းနှင့် ဝင်ရောက်ခွင့် ထိန်းချုပ်မှုကို အကောင်အထည်ဖော်ခြင်းသည် ဤအချက်အလက်များကို ကာကွယ်ရန် နောက်ထပ် နည်းလမ်းတစ်ခုဖြစ်သည်။
 
-### Resource and Service Overloading
+### အရင်းအမြစ်နှင့် ဝန်ဆောင်မှု အလွန်အကျွံ တင်းကျပ်မှု
 
-**Description:** AI agents can access different tools and services to complete tasks. Attackers can use this ability to attack these services by sending a high volume of requests through the AI Agent, which may result in system failures or high costs.
+**ဖော်ပြချက်:** AI အေးဂျင့်များသည် တာဝန်များ ဆောင်ရွက်ရန် မတူညီသော ကိရိယာများနှင့် ဝန်ဆောင်မှုများကို ဝင်ရောက်နိုင်သည်။ တိုက်ခိုက်သူများသည် AI အေးဂျင့်မှတဆင့် ဤဝန်ဆောင်မှုများကို အမြောက်အများ တောင်းဆိုမှုများ ပို့ခြင်းဖြင့် ဤစွမ်းရည်ကို အသုံးပြု၍ ဤဝန်ဆောင်မှုများကို တိုက်ခိုက်နိုင်ပြီး၊ စနစ် ပျက်စီးမှုများ သို့မဟုတ် မြင့်မားသော ကုန်ကျစရိတ်များ ဖြစ်စေနိုင်သည်။
 
-**Mitigation:** Implement policies to limit the number of requests an AI agent can make to a service. Limiting the number of conversation turns and requests to your AI agent is another way to prevent these types of attacks.
+**လျှော့ချမှု:** AI အေးဂျင့်သည် ဝန်ဆောင်မှု တစ်ခုအား ပြုလုပ်နိုင်သော တောင်းဆိုမှု အရေအတွက်ကို ကန့်သတ်ရန် မူဝါဒများ အကောင်အထည်ဖော်ပါ။ သင်၏ AI အေးဂျင့်အတွက် စကားပြောဆိုမှု အလှည့်များနှင့် တောင်းဆိုမှုများ အရေအတွက်ကို ကန့်သတ်ခြင်းသည် ဤအမျိုးအစား တိုက်ခိုက်မှုများကို တားဆီးရန် နောက်ထပ် နည်းလမ်းတစ်ခုဖြစ်သည်။
 
-### Knowledge Base Poisoning
+### အသိပညာ အခြေခံ အဆိပ်သင့်ခြင်း
 
-**Description:** This type of attack does not target the AI agent directly but targets the knowledge base and other services that the AI agent will use. This could involve corrupting the data or information that the AI agent will use to complete a task, leading to biased or unintended responses to the user.
+**ဖော်ပြချက်:** ဤအမျိုးအစား တိုက်ခိုက်မှုသည် AI အေးဂျင့်ကို တိုက်ရိုက် ပစ်မှတ်ထားခြင်း မဟုတ်ဘဲ AI အေးဂျင့်က အသုံးပြုမည့် အသိပညာ အခြေခံနှင့် အခြား ဝန်ဆောင်မှုများကို ပစ်မှတ်ထားခြင်းဖြစ်သည်။ ယင်းတွင် AI အေးဂျင့်က တာဝန် ဆောင်ရွက်ရန် အသုံးပြုမည့် ဒေတာ သို့မဟုတ် အချက်အလက်များကို ပျက်စီးစေခြင်း ပါဝင်နိုင်ပြီး၊ အသုံးပြုသူအား ဘက်လိုက်သော သို့မဟုတ် ရည်ရွယ်ချက် မရှိသော တုံ့ပြန်မှုများ ဖြစ်စေနိုင်သည်။
 
-**Mitigation:** Perform regular verification of the data that the AI agent will be using in its workflows. Ensure that access to this data is secure and only changed by trusted individuals to avoid this type of attack.
+**လျှော့ချမှု:** AI အေးဂျင့်က ၎င်း၏ လုပ်ငန်းစဉ်များတွင် အသုံးပြုမည့် ဒေတာကို ပုံမှန် စစ်ဆေးမှု ပြုလုပ်ပါ။ ဤဒေတာကို ဝင်ရောက်ခွင့်မှာ လုံခြုံပြီး ဤအမျိုးအစား တိုက်ခိုက်မှုကို ရှောင်ရှားရန် ယုံကြည်ရသူများကသာ ပြောင်းလဲနိုင်ကြောင်း သေချာစေပါ။
 
-### Cascading Errors
+### ဆက်တိုက် အမှားများ
 
-**Description:** AI agents access various tools and services to complete tasks. Errors caused by attackers can lead to failures of other systems that the AI agent is connected to, causing the attack to become more widespread and harder to troubleshoot.
+**ဖော်ပြချက်:** AI အေးဂျင့်များသည် တာဝန်များ ဆောင်ရွက်ရန် အမျိုးမျိုးသော ကိရိယာများနှင့် ဝန်ဆောင်မှုများကို ဝင်ရောက်အသုံးပြုကြသည်။ တိုက်ခိုက်သူများကြောင့် ဖြစ်ပေါ်လာသော အမှားများသည် AI အေးဂျင့်နှင့် ချိတ်ဆက်ထားသော အခြား စနစ်များ ပျက်စီးမှုကို ဖြစ်စေနိုင်ပြီး၊ တိုက်ခိုက်မှုကို ပိုမိုကျယ်ပြန့်စေ၍ ပြဿနာရှာဖွေခြင်းကို ပိုမိုခက်ခဲစေနိုင်သည်။
 
-**Mitigation**: One method to avoid this is to have the AI Agent operate in a limited environment, such as performing tasks in a Docker container, to prevent direct system attacks. Creating fallback mechanisms and retry logic when certain systems respond with an error is another way to prevent larger system failures.
+**လျှော့ချမှု**: ယင်းကို ရှောင်ရှားရန် နည်းလမ်းတစ်ခုမှာ AI အေးဂျင့်ကို Docker container တွင် တာဝန်များ ဆောင်ရွက်ခြင်းကဲ့သို့သော ကန့်သတ်ထားသော ပတ်ဝန်းကျင်တွင် လုပ်ဆောင်စေခြင်းဖြင့် တိုက်ရိုက် စနစ် တိုက်ခိုက်မှုများကို တားဆီးခြင်းဖြစ်သည်။ အချို့သော စနစ်များက အမှား တုံ့ပြန်မှုဖြင့် ပြန်လည်တုံ့ပြန်သောအခါ နောက်ကျခံ ယန္တရားများနှင့် ပြန်ကြိုးစားမှု ယုံကြည်ချက်ကို ဖန်တီးခြင်းသည် ပိုမိုကြီးမားသော စနစ် ပျက်စီးမှုများကို တားဆီးရန် နောက်ထပ် နည်းလမ်းတစ်ခုဖြစ်သည်။
 
-## Human-in-the-Loop
+## Human-in-the-loop
 
-Another effective way to build trustworthy AI Agent systems is using a Human-in-the-loop. This creates a flow where users are able to provide feedback to the Agents during the run. Users essentially act as agents in a multi-agent system and by providing approval or termination of the running process.
+ယုံကြည်ရသော AI အေးဂျင့် စနစ်များ တည်ဆောက်ရန် နောက်ထပ် ထိရောက်သော နည်းလမ်းတစ်ခုမှာ human-in-the-loop အသုံးပြုခြင်းဖြစ်သည်။ ယင်းသည် အသုံးပြုသူများသည် လုပ်ဆောင်နေစဉ်အတွင်း အေးဂျင့်များကို တုံ့ပြန်ချက် ပေးနိုင်သော စီးဆင်းမှုကို ဖန်တီးပေးသည်။ အသုံးပြုသူများသည် အမှန်တကယ်တွင် မဟာအေးဂျင့် စနစ်တွင် အေးဂျင့်များအဖြစ် လုပ်ဆောင်ပြီး လုပ်ဆောင်နေသော လုပ်ငန်းစဉ်၏ အတည်ပြုခြင်း သို့မဟုတ် ရပ်ဆိုင်းခြင်းကို ပေးအပ်ခြင်းဖြင့် လုပ်ဆောင်ကြသည်။
 
-![Human in The Loop](./images/human-in-the-loop.png)
+![human-in-the-loop](./images/human-in-the-loop.png)
 
-Here is a code snippet using AutoGen to show how this concept is implemented:
+ဤအယူအဆကို မည်သို့ အကောင်အထည်ဖော်သည်ကို ပြသရန် AutoGen ကို အသုံးပြုသော ကုဒ်အပိုင်းအစ တစ်ခု ဖြစ်သည်-
 
 ```python
 
-# Create the agents.
+# အေးဂျင့်များကို ဖန်တီးပါ။
 model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
 assistant = AssistantAgent("assistant", model_client=model_client)
-user_proxy = UserProxyAgent("user_proxy", input_func=input)  # Use input() to get user input from console.
+user_proxy = UserProxyAgent("user_proxy", input_func=input)  # console မှ အသုံးပြုသူ ထည့်သွင်းမှု ရယူရန် input() ကို အသုံးပြုပါ။
 
-# Create the termination condition which will end the conversation when the user says "APPROVE".
+# အသုံးပြုသူက "APPROVE" ဟု ပြောသောအခါ စကားပြောဆိုမှုကို အဆုံးသတ်မည့် အဆုံးသတ်မှု အခြေအနေကို ဖန်တီးပါ။
 termination = TextMentionTermination("APPROVE")
 
-# Create the team.
+# အဖွဲ့ကို ဖန်တီးပါ။
 team = RoundRobinGroupChat([assistant, user_proxy], termination_condition=termination)
 
-# Run the conversation and stream to the console.
-stream = team.run_stream(task="Write a 4-line poem about the ocean.")
-# Use asyncio.run(...) when running in a script.
+# စကားပြောဆိုမှုကို လုပ်ဆောင်ပြီး console သို့ stream လုပ်ပါ။
+stream = team.run_stream(task="သမုဒ္ဒရာအကြောင်း ၄ ကြောင်း ကဗျာ တစ်ပုဒ် ရေးပါ။")
+# script တွင် လုပ်ဆောင်သောအခါ asyncio.run(...) ကို အသုံးပြုပါ။
 await Console(stream)
 
 ```
 
-## Conclusion
+## နိဂုံး
 
-Building trustworthy AI agents requires careful design, robust security measures, and continuous iteration. By implementing structured meta prompting systems, understanding potential threats, and applying mitigation strategies, developers can create AI agents that are both safe and effective. Additionally, incorporating a human-in-the-loop approach ensures that AI agents remain aligned with user needs while minimizing risks. As AI continues to evolve, maintaining a proactive stance on security, privacy, and ethical considerations will be key to fostering trust and reliability in AI-driven systems.
+ယုံကြည်ရသော AI အေးဂျင့်များ တည်ဆောက်ရန်အတွက် ဂရုတစိုက် ဒီဇိုင်းပြုလုပ်ခြင်း၊ ခိုင်မာသော လုံခြုံရေး အစီအမံများနှင့် ရှေ့ဆက်သွားမည့် ပြန်လည်ပြင်ဆင်မှုများ လိုအပ်ပါသည်။ ဖွဲ့စည်းထားသော မက်တာ တောင်းဆိုမှု စနစ်များ အကောင်အထည်ဖော်ခြင်း၊ အလားအလာရှိသော ခြိမ်းခြောက်မှုများကို နားလည်ခြင်းနှင့် လျှော့ချမှု နည်းဗျူဟာများ အသုံးချခြင်းဖြင့် developer များသည် ဘေးကင်းပြီး ထိရောက်သော AI အေးဂျင့်များကို ဖန်တီးနိုင်ပါသည်။ ထို့အပြင်၊ လူသား-အလယ်-တွင်-အကွင်း ချဉ်းကပ်မှုကို ထည့်သွင်းခြင်းသည် AI အေးဂျင့်များသည် အန္တရာယ်များကို လျှော့ချရင်း အသုံးပြုသူများ၏ လိုအပ်ချက်များနှင့် ကိုက်ညီနေကြောင်း သေချာစေပါသည်။ AI သည် ဆက်လက် တိုးတက်နေသည်နှင့်အမျှ၊ လုံခြုံရေး၊ ကိုယ်ရေးကိုယ်တာ လုံခြုံမှုနှင့် ကျင့်ဝတ် ထည့်သွင်းစဉ်းစားမှုများအတွက် ကြိုတင်ပြင်ဆင်သော ရပ်တည်ချက်ကို ထိန်းသိမ်းခြင်းသည် AI-မောင်းနှင်သော စနစ်များတွင် ယုံကြည်မှုနှင့် ယုံကြည်စိတ်ချရမှုကို မွေးမြူရန် အဓိက ကျသောအရာ ဖြစ်မည်ဖြစ်သည်။
 
-## Additional Resources
+## ထပ်မံ အရင်းအမြစ်များ
 
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Responsible AI overview</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Evaluation of generative AI models and AI applications</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Safety system messages</a>
-- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Risk Assessment Template</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">တာဝန်ရှိသော AI ခြုံငုံသုံးမြင်ချက်</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">မျိုးဆက်သစ် AI မော်ဒယ်များနှင့် AI အပ္ပလီကေးရှင်းများ၏ အကဲဖြတ်မှု</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">လုံခြုံရေး စနစ်မက်ဆေ့ဂျ်များ</a>
+- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">အန္တရာယ် အကဲဖြတ်မှု နမူနာပုံစံ</a>
 
-## Previous Lesson
+## ယခင် သင်ခန်းစာ
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[အေးဂျင့်နစ် RAG](../05-agentic-rag/README.md)
 
-## Next Lesson
+## နောက် သင်ခန်းစာ
 
-[Planning Design Pattern](../07-planning-design/README.md)
+[အစီအစဉ် ဒီဇိုင်း ပုံစံ](../07-planning-design/README.md)
