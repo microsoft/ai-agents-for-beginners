@@ -87,7 +87,7 @@ You should now be able to run the code samples of this course.
 
 ### Step 1: Retrieve Your Azure Project Connection String
 
-Follow the steps to creating a hub and project in Azure AI Foundry found here: [Hub resources overview]([https://learn.microsoft.com/en-us/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal?WT.mc_id=academic-105485-koreyst](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+Follow the steps to creating a hub and project in Azure AI Foundry found here: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal?WT.mc_id=academic-105485-koreyst](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
 
 Once you have created your project, you will need to retrieve the connection string for your project.
 
