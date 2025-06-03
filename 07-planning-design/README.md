@@ -1,5 +1,4 @@
 [![Multi-Agent Design](./images/lesson-8-thumbnail.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
-
 > _(ဤသင်ခန်းစာ၏ ဗီဒီယိုကြည့်ရှုရန် အထက်ပါ ပုံပေါ်တွင် နှိပ်ပါ)_
 
 # Planning Design Pattern (စီမံကိန်းဒီဇိုင်းပုံစံ)
