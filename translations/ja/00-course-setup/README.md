@@ -7,9 +7,65 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ja"
 }
 -->
-GitHubアカウント内で、
+# コース設定
 
-`Fine-grained tokens` option on the left side of your screen.
+## 導入
+
+このレッスンでは、このコースのコード サンプルを実行する方法について説明します。
+
+## このリポジトリをクローンまたはフォークする
+
+まず、GitHubリポジトリをクローンまたはフォークしてください。これにより、コース教材の自分用バージョンが作成され、コードを実行、テスト、調整できるようになります。
+
+リンクをクリックすると、<a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork the repo</a>
+
+これで、次のリンクにこのコースの独自のフォーク バージョンが作成されます。
+
+![Forked Repo](../../../translated_images/forked-repo.eea246a73044cc984a1e462349e36e7336204f00785e3187b7399905feeada07.ja.png)
+
+## コードを実行する
+
+このコースでは、AI エージェントの構築を実際に体験するために実行できる一連の Jupyter Notebook を提供します。
+
+コード サンプルでは、​​次のいずれかを使用します。
+
+**GitHub アカウントが必要です - 無料**:
+
+1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Labelled as (semantic-kernel.ipynb)
+2) AutoGen Framework + GitHub Models Marketplace. Labeled as (autogen.ipynb)
+
+**Azure サブスクリプションが必要です**:
+3) Azure AI Foundry + Azure AI Agent Service. Labelled as (azureaiagent.ipynb)
+
+3 種類の例をすべて試してみて、どれが最適か確認することをお勧めします。
+
+## 要件
+
+- Python 3.12+
+- GitHub アカウント - GitHub Models Marketplace へのアクセス用
+- Azure サブスクリプション - Azure AI Foundry へのアクセス用
+- Azure AI Foundry アカウント - Azure AI Agent サービスへのアクセス用
+
+このリポジトリのルートには、コード サンプルを実行するために必要なすべての Python パッケージが含まれる `requirements.txt` ファイルが含まれています。
+
+リポジトリのルートでターミナルで次のコマンドを実行するとインストールできます。
+
+```bash
+pip install -r requirements.txt
+```
+We recommend creating a Python virtual environment to avoid any conflicts and issues.
+
+## Set Up for Samples using GitHub Models 
+
+### Step 1: Retrieve Your GitHub Personal Access Token (PAT)
+
+Currently, this course uses the GitHub Models Marketplace to offer free access to Large Language Models (LLMs) that will be used to create AI Agents.
+
+To access this service, you will need to create a GitHub Personal Access Token.
+
+This can be done by going to your <a href="https://github.com/settings/personal-access-tokens" target="_blank">Personal Access Tokens settings</a> in your GitHub Account.
+
+Select the `Fine-grained tokens` option on the left side of your screen.
 
 Then select `Generate new token`.
 
