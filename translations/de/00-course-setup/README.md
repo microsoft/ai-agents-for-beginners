@@ -1,28 +1,77 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "49fa13c21a816ffcc7740ab17ba024a9",
-  "translation_date": "2025-05-20T09:06:28+00:00",
+  "original_hash": "c729f7442eb5afd55b5522e3ad65c822",
+  "translation_date": "2025-06-05T14:52:35+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "de"
 }
 -->
-in deinem GitHub-Konto.
+Sie sollten nun Ihre eigene geforkte Version dieses Kurses unter folgendem Link haben:
 
-Wähle die Option `Fine-grained tokens` option on the left side of your screen.
+![Forked Repo](../../../00-course-setup/images/forked-repo.png)
+
+## Ausführen des Codes
+
+Dieser Kurs bietet eine Reihe von Jupyter Notebooks, die Sie ausführen können, um praktische Erfahrungen im Aufbau von KI-Agenten zu sammeln.
+
+Die Codebeispiele verwenden entweder:
+
+**Erfordert GitHub-Konto – Kostenlos**:
+
+1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Bezeichnet als (semantic-kernel.ipynb)
+2) AutoGen Framework + GitHub Models Marketplace. Bezeichnet als (autogen.ipynb)
+
+**Erfordert Azure-Abonnement**:
+3) Azure AI Foundry + Azure AI Agent Service. Bezeichnet als (azureaiagent.ipynb)
+
+Wir empfehlen, alle drei Beispieltypen auszuprobieren, um herauszufinden, welcher für Sie am besten funktioniert.
+
+Welche Option Sie auch wählen, sie bestimmt, welche Einrichtungsschritte Sie unten befolgen müssen:
+
+## Anforderungen
+
+- Python 3.12+
+- Ein GitHub-Konto – für den Zugriff auf den GitHub Models Marketplace
+- Azure-Abonnement – für den Zugriff auf Azure AI Foundry
+- Azure AI Foundry-Konto – für den Zugriff auf den Azure AI Agent Service
+
+Wir haben eine `requirements.txt` Datei im Stammverzeichnis dieses Repositories eingefügt, die alle erforderlichen Python-Pakete enthält, um die Codebeispiele auszuführen.
+
+Sie können diese installieren, indem Sie den folgenden Befehl in Ihrem Terminal im Stammverzeichnis des Repositories ausführen:
+
+```bash
+pip install -r requirements.txt
+```
+
+Wir empfehlen, eine Python-virtuelle Umgebung zu erstellen, um Konflikte und Probleme zu vermeiden.
+
+## Einrichtung für Beispiele mit GitHub Models
+
+### Schritt 1: Holen Sie sich Ihren GitHub Personal Access Token (PAT)
+
+Derzeit verwendet dieser Kurs den GitHub Models Marketplace, um kostenlosen Zugriff auf Large Language Models (LLMs) zu bieten, die zur Erstellung von KI-Agenten verwendet werden.
+
+Um auf diesen Dienst zuzugreifen, müssen Sie einen GitHub Personal Access Token erstellen.
+
+Dies können Sie tun, indem Sie sich in Ihrem GitHub-Konto anmelden.
+
+Wählen Sie die Option `Fine-grained tokens` option on the left side of your screen.
 
 Then select `Generate new token`.
 
-![Generate Token](../../../translated_images/generate-token.361ec40abe59b84ac68d63c23e2b6854d6fad82bd4e41feb98fc0e6f030e8ef7.de.png)
+![Generate Token](../../../00-course-setup/images/generate-token.png)
 
 You will be prompted to enter a name for your token, select the expiration date (Recommended: 30 Days), and select the scopes for your token (Public Repositories).
+
+It's also necessary to edit the permissions of this token: Permissions -> Models -> Allows access to GitHub Models
 
 Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
 
 
 ### Step 2: Create Your `.env` File
 
-To create your `.env` Datei und führe den folgenden Befehl in deinem Terminal aus.
+To create your `.env` Datei und führen Sie den folgenden Befehl in Ihrem Terminal aus.
 
 ```bash
 cp .env.example .env
@@ -38,17 +87,19 @@ You should now be able to run the code samples of this course.
 
 ### Step 1: Retrieve Your Azure Project Connection String
 
-Follow the steps to creating a project and agent in Azure AI Foundry found here: [Create a project in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal?WT.mc_id=academic-105485-koreyst)
+
+Follow the steps to creating a hub and project in Azure AI Foundry found here: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+
 
 Once you have created your project, you will need to retrieve the connection string for your project.
 
 This can be done by going to the **Overview** page of your project in the Azure AI Foundry portal.
 
-![Project Connection String](../../../translated_images/project-connection-string.8a2c7c804a33d53df14011e583d0c3fe0f79d9eb52b72e3c7d7d2f68f828c8aa.de.png)
+![Project Connection String](../../../00-course-setup/images/project-connection-string.png)
 
 ### Step 2: Create Your `.env` File
 
-To create your `.env` Datei. Führe den folgenden Befehl in deinem Terminal aus.
+To create your `.env` Datei. Führen Sie den folgenden Befehl in Ihrem Terminal aus.
 
 ```bash
 cp .env.example .env
@@ -67,7 +118,7 @@ Next, open a terminal and run `az login --use-device-code` to sign in to your Az
 Once you've logged in, select your subscription in the terminal.
 
 
-## Additional Envionment Variables - Azure Search and Azure OpenAI 
+## Additional Environment Variables - Azure Search and Azure OpenAI 
 
 For the Agentic RAG Lesson - Lesson 5 - there are samples that use Azure Search and Azure OpenAI.
 
@@ -115,19 +166,19 @@ Rather than hardcode your credentials, we'll use a keyless connection with Azure
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
-## Steckst du irgendwo fest?
+## Hängen geblieben?
 
-Wenn du Probleme bei der Einrichtung hast, tritt unserem
+Wenn Sie Probleme bei der Einrichtung haben, treten Sie gerne unserer
 
 oder
 
-bei.
+Gruppe bei.
 
 ## Nächste Lektion
 
-Du bist jetzt bereit, den Code dieses Kurses auszuführen. Viel Erfolg und viel Spaß beim weiteren Lernen über die Welt der KI-Agenten!
+Sie sind jetzt bereit, den Code für diesen Kurs auszuführen. Viel Spaß beim weiteren Lernen über die Welt der KI-Agenten!
 
-[Einführung in KI-Agenten und Anwendungsfälle für Agenten](../01-intro-to-ai-agents/README.md)
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
 
 **Haftungsausschluss**:  
-Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner ursprünglichen Sprache gilt als maßgebliche Quelle. Für wichtige Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die aus der Verwendung dieser Übersetzung entstehen.
+Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ursprungssprache ist als maßgebliche Quelle zu betrachten. Für wichtige Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die durch die Nutzung dieser Übersetzung entstehen.
