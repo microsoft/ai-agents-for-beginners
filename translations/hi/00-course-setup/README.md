@@ -1,21 +1,21 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "49fa13c21a816ffcc7740ab17ba024a9",
-  "translation_date": "2025-05-20T09:40:51+00:00",
+  "original_hash": "c729f7442eb5afd55b5522e3ad65c822",
+  "translation_date": "2025-06-05T14:53:32+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "hi"
 }
 -->
 आपके पास अब इस कोर्स का अपना फोर्क किया हुआ संस्करण निम्न लिंक में होना चाहिए:
 
-![Forked Repo](../../../translated_images/forked-repo.eea246a73044cc984a1e462349e36e7336204f00785e3187b7399905feeada07.hi.png)
+![Forked Repo](../../../00-course-setup/images/forked-repo.png)
 
 ## कोड चलाना
 
-यह कोर्स एक श्रृंखला प्रदान करता है Jupyter Notebooks की जिन्हें आप चलाकर AI एजेंट्स बनाने का व्यावहारिक अनुभव प्राप्त कर सकते हैं।
+यह कोर्स एक श्रृंखला प्रदान करता है Jupyter Notebooks की, जिन्हें आप चलाकर AI एजेंट बनाने का व्यावहारिक अनुभव प्राप्त कर सकते हैं।
 
-कोड के नमूने निम्न में से किसी एक का उपयोग करते हैं:
+कोड नमूने निम्न में से किसी एक का उपयोग करते हैं:
 
 **GitHub अकाउंट आवश्यक - मुफ्त**:
 
@@ -25,9 +25,9 @@ CO_OP_TRANSLATOR_METADATA:
 **Azure सब्सक्रिप्शन आवश्यक**:
 3) Azure AI Foundry + Azure AI Agent Service। इसे (azureaiagent.ipynb) के रूप में लेबल किया गया है।
 
-हम आपको प्रोत्साहित करते हैं कि आप तीनों प्रकार के उदाहरणों को आजमाएं ताकि आप देख सकें कौन सा आपके लिए सबसे अच्छा काम करता है।
+हम आपको तीनों प्रकार के उदाहरणों को आज़माने के लिए प्रोत्साहित करते हैं ताकि आप देख सकें कि कौन सा आपके लिए सबसे अच्छा काम करता है।
 
-आप जो भी विकल्प चुनते हैं, उससे यह तय होगा कि आपको नीचे दिए गए कौन से सेटअप स्टेप्स फॉलो करने हैं:
+जो भी विकल्प आप चुनें, वह निर्धारित करेगा कि आपको नीचे दिए गए कौन से सेटअप चरणों का पालन करना है:
 
 ## आवश्यकताएँ
 
@@ -36,80 +36,148 @@ CO_OP_TRANSLATOR_METADATA:
 - Azure सब्सक्रिप्शन - Azure AI Foundry तक पहुंच के लिए
 - Azure AI Foundry अकाउंट - Azure AI Agent Service तक पहुंच के लिए
 
-हमने इस रिपॉजिटरी की रूट में एक `requirements.txt` फाइल शामिल की है जिसमें कोड नमूनों को चलाने के लिए आवश्यक सभी Python पैकेज मौजूद हैं।
+हमने इस रिपॉजिटरी की रूट डायरेक्टरी में एक `requirements.txt` फ़ाइल शामिल की है जिसमें कोड नमूनों को चलाने के लिए आवश्यक सभी Python पैकेज हैं।
 
-आप इन्हें रिपॉजिटरी की रूट डायरेक्टरी में टर्मिनल पर निम्न कमांड चलाकर इंस्टॉल कर सकते हैं:
+आप इन्हें रिपॉजिटरी की रूट में अपने टर्मिनल में निम्न कमांड चलाकर इंस्टॉल कर सकते हैं:
 
 ```bash
 pip install -r requirements.txt
 ```
-हम सलाह देते हैं कि किसी भी टकराव और समस्याओं से बचने के लिए Python वर्चुअल एनवायरनमेंट बनाएं।
+किसी भी टकराव और समस्याओं से बचने के लिए हम Python वर्चुअल एन्वायरनमेंट बनाने की सलाह देते हैं।
 
 ## GitHub Models का उपयोग करने वाले नमूनों के लिए सेटअप
 
-### स्टेप 1: अपना GitHub Personal Access Token (PAT) प्राप्त करें
+### चरण 1: अपना GitHub Personal Access Token (PAT) प्राप्त करें
 
-इस समय, यह कोर्स GitHub Models Marketplace का उपयोग करता है जो Large Language Models (LLMs) तक मुफ्त पहुंच प्रदान करता है, जिनका उपयोग AI एजेंट्स बनाने के लिए किया जाएगा।
+वर्तमान में, यह कोर्स GitHub Models Marketplace का उपयोग करता है ताकि Large Language Models (LLMs) तक मुफ्त पहुंच प्रदान की जा सके, जिनका उपयोग AI एजेंट बनाने में किया जाएगा।
 
 इस सेवा तक पहुंचने के लिए, आपको GitHub Personal Access Token बनाना होगा।
 
 यह आपके GitHub अकाउंट में जाकर किया जा सकता है।
 
-`Fine-grained tokens` चुनें और फिर `Generate new token` पर क्लिक करें।
+`Fine-grained tokens` option on the left side of your screen.
 
-`.env` फाइल बनाने के लिए टर्मिनल में निम्न कमांड चलाएं:
+Then select `Generate new token`.
+
+![Generate Token](../../../00-course-setup/images/generate-token.png)
+
+You will be prompted to enter a name for your token, select the expiration date (Recommended: 30 Days), and select the scopes for your token (Public Repositories).
+
+It's also necessary to edit the permissions of this token: Permissions -> Models -> Allows access to GitHub Models
+
+Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
+
+
+### Step 2: Create Your `.env` File
+
+To create your `.env` फ़ाइल में अपने टर्मिनल में निम्न कमांड चलाएं।
 
 ```bash
 cp .env.example .env
 ```
 
-यह उदाहरण फाइल की कॉपी बनाएगा और `.env` फाइल बनाएगा।
+यह उदाहरण फ़ाइल की कॉपी बनाएगा और `.env` in your directory and where you fill in the values for the environment variables.
 
-`.env` फाइल में आपको `GITHUB_TOKEN` वैरिएबल में अपना Personal Access Token डालना होगा।
+With your token copied, open the `.env` file in your favorite text editor and paste your token into the `GITHUB_TOKEN` field.
 
-यदि आप Azure AI Foundry का उपयोग कर रहे हैं, तो टर्मिनल में निम्न कमांड चलाएं:
+You should now be able to run the code samples of this course.
+
+## Set Up for Samples using Azure AI Foundry and Azure AI Agent Service
+
+### Step 1: Retrieve Your Azure Project Connection String
+
+
+Follow the steps to creating a hub and project in Azure AI Foundry found here: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+
+
+Once you have created your project, you will need to retrieve the connection string for your project.
+
+This can be done by going to the **Overview** page of your project in the Azure AI Foundry portal.
+
+![Project Connection String](../../../00-course-setup/images/project-connection-string.png)
+
+### Step 2: Create Your `.env` File
+
+To create your `.env` फ़ाइल बनाएगा। अपने टर्मिनल में निम्न कमांड चलाएं।
 
 ```bash
 cp .env.example .env
 ```
 
-यह आपको Azure में लॉगिन करने में मदद करेगा।
+यह उदाहरण फ़ाइल की कॉपी बनाएगा और `.env` in your directory and where you fill in the values for the environment variables.
 
-इसके बाद, आपको अपनी `.env` फाइल में Azure से संबंधित निम्न वैरिएबल्स सेट करनी होंगी:
+With your token copied, open the `.env` file in your favorite text editor and paste your token into the `PROJECT_CONNECTION_STRING` field.
 
-- `PROJECT_CONNECTION_STRING`
-- `AZURE_SUBSCRIPTION_ID`
-- `AZURE_AI_PROJECT_NAME`
-- `AZURE_OPENAI_SERVICE`
-- `AZURE_OPENAI_RESOURCE_GROUP`
-- `GLOBAL_LLM_SERVICE`
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` (जैसे `text-embedding-ada-002`)
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` (जैसे `gpt-4o-mini`)
-- `AZURE_OPENAI_ENDPOINT`
-- `AZURE_OPENAI_API_KEY`
-- `AZURE_SEARCH_SERVICE_ENDPOINT`
-- `AZURE_SEARCH_API_KEY`
-- `AZURE_OPENAI_API_VERSION`
+### Step 3: Sign in to Azure
 
-आप क्रेडेंशियल प्राप्त करने के लिए `DefaultAzureCredential` फ़ंक्शन का उपयोग कर सकते हैं।
+As a security best practice, we'll use [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) to authenticate to Azure OpenAI with Microsoft Entra ID. Before you can do so, you'll first need to install the **Azure CLI** per the [installation instructions](https://learn.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academic-105485-koreyst) for your operating system.
+
+Next, open a terminal and run `az login --use-device-code` to sign in to your Azure account.
+
+Once you've logged in, select your subscription in the terminal.
+
+
+## Additional Environment Variables - Azure Search and Azure OpenAI 
+
+For the Agentic RAG Lesson - Lesson 5 - there are samples that use Azure Search and Azure OpenAI.
+
+If you want to run these samples, you will need to add the following environment variables to your `.env` file:
+
+### Overview Page (Project)
+
+- `AZURE_SUBSCRIPTION_ID` - Check **Project details** on the **Overview** page of your project.
+
+- `AZURE_AI_PROJECT_NAME` - Look at the top of the **Overview** page for your project.
+
+- `AZURE_OPENAI_SERVICE` - Find this in the **Included capabilities** tab for **Azure OpenAI Service** on the **Overview** page.
+
+### Management Center
+
+- `AZURE_OPENAI_RESOURCE_GROUP` - Go to **Project properties** on the **Overview** page of the **Management Center**.
+
+- `GLOBAL_LLM_SERVICE` - Under **Connected resources**, find the **Azure AI Services** connection name. If not listed, check the **Azure portal** under your resource group for the AI Services resource name.
+
+### Models + Endpoints Page
+
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Select your embedding model (e.g., `text-embedding-ada-002`) and note the **Deployment name** from the model details.
+
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Select your chat model (e.g., `gpt-4o-mini`) and note the **Deployment name** from the model details.
+
+### Azure Portal
+
+- `AZURE_OPENAI_ENDPOINT` - Look for **Azure AI services**, click on it, then go to **Resource Management**, **Keys and Endpoint**, scroll down to the "Azure OpenAI endpoints", and copy the one that says "Language APIs".
+
+- `AZURE_OPENAI_API_KEY` - From the same screen, copy KEY 1 or KEY 2.
+
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Find your **Azure AI Search** resource, click it, and see **Overview**.
+
+- `AZURE_SEARCH_API_KEY` - Then go to **Settings** and then **Keys** to copy the primary or secondary admin key.
+
+### External Webpage
+
+- `AZURE_OPENAI_API_VERSION` - Visit the [API version lifecycle](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) page under **Latest GA API release**.
+
+### Setup keyless authentication
+
+Rather than hardcode your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential` फ़ंक्शन का उपयोग करके क्रेडेंशियल प्राप्त करें।
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
-## कहीं फंस गए?
+## कहीं अटक गए?
 
-यदि इस सेटअप को चलाने में आपको कोई समस्या आती है, तो हमारे साथ जुड़ें
+यदि इस सेटअप को चलाने में आपको कोई समस्या हो, तो हमारे 
 
-या
+या 
 
-.
+में शामिल हों।
 
 ## अगला पाठ
 
-अब आप इस कोर्स का कोड चलाने के लिए तैयार हैं, AI एजेंट्स की दुनिया के बारे में और सीखने के लिए शुभकामनाएं!
+अब आप इस कोर्स के लिए कोड चलाने के लिए तैयार हैं। AI एजेंट्स की दुनिया के बारे में और जानने के लिए शुभकामनाएं!
 
-[AI एजेंट्स और उनके उपयोग के परिचय](../01-intro-to-ai-agents/README.md)
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
 
 **अस्वीकरण**:  
-यह दस्तावेज़ AI अनुवाद सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) का उपयोग करके अनुवादित किया गया है। जबकि हम सटीकता के लिए प्रयासरत हैं, कृपया ध्यान दें कि स्वचालित अनुवादों में त्रुटियाँ या गलतियाँ हो सकती हैं। मूल दस्तावेज़ को उसकी मूल भाषा में प्रामाणिक स्रोत माना जाना चाहिए। महत्वपूर्ण जानकारी के लिए, पेशेवर मानव अनुवाद की सलाह दी जाती है। इस अनुवाद के उपयोग से उत्पन्न किसी भी गलतफहमी या गलत व्याख्या के लिए हम जिम्मेदार नहीं हैं।
+इस दस्तावेज़ का अनुवाद AI अनुवाद सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) का उपयोग करके किया गया है। जबकि हम सटीकता के लिए प्रयासरत हैं, कृपया ध्यान दें कि स्वचालित अनुवादों में त्रुटियाँ या असंगतियाँ हो सकती हैं। मूल दस्तावेज़ अपनी मूल भाषा में ही अधिकारिक स्रोत माना जाना चाहिए। महत्वपूर्ण जानकारी के लिए, पेशेवर मानव अनुवाद की सलाह दी जाती है। इस अनुवाद के उपयोग से उत्पन्न किसी भी गलतफहमी या गलत व्याख्या के लिए हम जिम्मेदार नहीं हैं।

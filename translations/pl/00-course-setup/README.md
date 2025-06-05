@@ -1,34 +1,82 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "49fa13c21a816ffcc7740ab17ba024a9",
-  "translation_date": "2025-05-20T09:29:09+00:00",
+  "original_hash": "c729f7442eb5afd55b5522e3ad65c822",
+  "translation_date": "2025-06-05T14:53:07+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "pl"
 }
 -->
-w swoim koncie GitHub.
+Powinieneś teraz mieć swoją własną rozwidloną wersję tego kursu pod następującym linkiem:
+
+![Forked Repo](../../../00-course-setup/images/forked-repo.png)
+
+## Uruchamianie kodu
+
+Ten kurs oferuje serię notatników Jupyter, które możesz uruchomić, aby zdobyć praktyczne doświadczenie w tworzeniu agentów AI.
+
+Przykłady kodu korzystają z:
+
+**Wymaga konta GitHub - bezpłatne**:
+
+1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Oznaczone jako (semantic-kernel.ipynb)  
+2) AutoGen Framework + GitHub Models Marketplace. Oznaczone jako (autogen.ipynb)
+
+**Wymaga subskrypcji Azure**:  
+3) Azure AI Foundry + Azure AI Agent Service. Oznaczone jako (azureaiagent.ipynb)
+
+Zachęcamy do wypróbowania wszystkich trzech typów przykładów, aby zobaczyć, który najlepiej Ci odpowiada.
+
+Którąkolwiek opcję wybierzesz, to ona określi, które kroki konfiguracji musisz wykonać poniżej:
+
+## Wymagania
+
+- Python 3.12+  
+- Konto GitHub - do dostępu do GitHub Models Marketplace  
+- Subskrypcja Azure - do dostępu do Azure AI Foundry  
+- Konto Azure AI Foundry - do dostępu do Azure AI Agent Service
+
+W katalogu głównym tego repozytorium znajduje się plik `requirements.txt` zawierający wszystkie potrzebne pakiety Pythona do uruchomienia przykładów kodu.
+
+Możesz je zainstalować, uruchamiając poniższe polecenie w terminalu, będąc w katalogu głównym repozytorium:
+
+```bash
+pip install -r requirements.txt
+```  
+Zalecamy utworzenie wirtualnego środowiska Pythona, aby uniknąć konfliktów i problemów.
+
+## Konfiguracja dla przykładów korzystających z GitHub Models
+
+### Krok 1: Pobierz swój GitHub Personal Access Token (PAT)
+
+Obecnie kurs korzysta z GitHub Models Marketplace, aby zapewnić bezpłatny dostęp do dużych modeli językowych (LLM), które będą używane do tworzenia agentów AI.
+
+Aby uzyskać dostęp do tej usługi, musisz utworzyć swój Personal Access Token na GitHub.
+
+Można to zrobić, przechodząc do swojego konta GitHub.
 
 Wybierz `Fine-grained tokens` option on the left side of your screen.
 
 Then select `Generate new token`.
 
-![Generate Token](../../../translated_images/generate-token.361ec40abe59b84ac68d63c23e2b6854d6fad82bd4e41feb98fc0e6f030e8ef7.pl.png)
+![Generate Token](../../../00-course-setup/images/generate-token.png)
 
 You will be prompted to enter a name for your token, select the expiration date (Recommended: 30 Days), and select the scopes for your token (Public Repositories).
+
+It's also necessary to edit the permissions of this token: Permissions -> Models -> Allows access to GitHub Models
 
 Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
 
 
 ### Step 2: Create Your `.env` File
 
-To create your `.env` i uruchom następujące polecenie w terminalu.
+To create your `.env` i uruchom w terminalu następujące polecenie:
 
 ```bash
 cp .env.example .env
 ```
 
-To skopiuje plik przykładowy i utworzy plik `.env` in your directory and where you fill in the values for the environment variables.
+To skopiuje przykładowy plik i utworzy plik `.env` in your directory and where you fill in the values for the environment variables.
 
 With your token copied, open the `.env` file in your favorite text editor and paste your token into the `GITHUB_TOKEN` field.
 
@@ -38,23 +86,25 @@ You should now be able to run the code samples of this course.
 
 ### Step 1: Retrieve Your Azure Project Connection String
 
-Follow the steps to creating a project and agent in Azure AI Foundry found here: [Create a project in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal?WT.mc_id=academic-105485-koreyst)
+
+Follow the steps to creating a hub and project in Azure AI Foundry found here: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+
 
 Once you have created your project, you will need to retrieve the connection string for your project.
 
 This can be done by going to the **Overview** page of your project in the Azure AI Foundry portal.
 
-![Project Connection String](../../../translated_images/project-connection-string.8a2c7c804a33d53df14011e583d0c3fe0f79d9eb52b72e3c7d7d2f68f828c8aa.pl.png)
+![Project Connection String](../../../00-course-setup/images/project-connection-string.png)
 
 ### Step 2: Create Your `.env` File
 
-To create your `.env`. Uruchom następujące polecenie w terminalu.
+To create your `.env`, uruchom w terminalu następujące polecenie:
 
 ```bash
 cp .env.example .env
 ```
 
-To skopiuje plik przykładowy i utworzy plik `.env` in your directory and where you fill in the values for the environment variables.
+To skopiuje przykładowy plik i utworzy plik `.env` in your directory and where you fill in the values for the environment variables.
 
 With your token copied, open the `.env` file in your favorite text editor and paste your token into the `PROJECT_CONNECTION_STRING` field.
 
@@ -67,7 +117,7 @@ Next, open a terminal and run `az login --use-device-code` to sign in to your Az
 Once you've logged in, select your subscription in the terminal.
 
 
-## Additional Envionment Variables - Azure Search and Azure OpenAI 
+## Additional Environment Variables - Azure Search and Azure OpenAI 
 
 For the Agentic RAG Lesson - Lesson 5 - there are samples that use Azure Search and Azure OpenAI.
 
@@ -109,7 +159,7 @@ If you want to run these samples, you will need to add the following environment
 
 ### Setup keyless authentication
 
-Rather than hardcode your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential` funkcję, aby uzyskać poświadczenia.
+Rather than hardcode your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential`, aby uzyskać poświadczenia.
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
@@ -117,7 +167,7 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 
 ## Utknąłeś gdzieś?
 
-Jeśli masz jakiekolwiek problemy z uruchomieniem tego zestawu, dołącz do naszej
+Jeśli napotkasz jakiekolwiek problemy z konfiguracją, dołącz do naszej
 
 lub
 
@@ -125,9 +175,9 @@ lub
 
 ## Następna lekcja
 
-Jesteś teraz gotowy, aby uruchomić kod tego kursu, życzymy owocnej nauki w świecie AI Agentów!
+Jesteś teraz gotowy, aby uruchomić kod tego kursu. Powodzenia w dalszym zgłębianiu świata agentów AI!
 
-[Wprowadzenie do AI Agentów i przypadków użycia Agentów](../01-intro-to-ai-agents/README.md)
+[Wprowadzenie do agentów AI i ich zastosowań](../01-intro-to-ai-agents/README.md)
 
 **Zastrzeżenie**:  
-Niniejszy dokument został przetłumaczony przy użyciu automatycznej usługi tłumaczeniowej AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mimo że dokładamy starań, aby tłumaczenie było jak najdokładniejsze, prosimy mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub niedokładności. Oryginalny dokument w języku źródłowym należy traktować jako wiarygodne źródło informacji. W przypadku istotnych informacji zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.
+Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mimo że dążymy do dokładności, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w języku źródłowym powinien być uznawany za źródło autorytatywne. W przypadku informacji o krytycznym znaczeniu zaleca się skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.

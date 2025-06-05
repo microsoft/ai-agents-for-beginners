@@ -1,67 +1,23 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "49fa13c21a816ffcc7740ab17ba024a9",
-  "translation_date": "2025-05-20T09:17:35+00:00",
+  "original_hash": "c729f7442eb5afd55b5522e3ad65c822",
+  "translation_date": "2025-06-05T14:52:55+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "fa"
 }
 -->
-اکنون باید نسخه فورک‌شده خود از این دوره را در لینک زیر داشته باشید:
-
-![Forked Repo](../../../translated_images/forked-repo.eea246a73044cc984a1e462349e36e7336204f00785e3187b7399905feeada07.fa.png)
-
-## اجرای کد
-
-این دوره شامل مجموعه‌ای از نوت‌بوک‌های Jupyter است که می‌توانید آن‌ها را اجرا کنید تا تجربه عملی در ساخت عامل‌های هوش مصنوعی کسب کنید.
-
-نمونه‌های کد از یکی از موارد زیر استفاده می‌کنند:
-
-**نیازمند حساب GitHub - رایگان**:
-
-1) چارچوب Semantic Kernel Agent به همراه بازار مدل‌های GitHub. با عنوان (semantic-kernel.ipynb)
-2) چارچوب AutoGen به همراه بازار مدل‌های GitHub. با عنوان (autogen.ipynb)
-
-**نیازمند اشتراک Azure**:
-3) Azure AI Foundry به همراه سرویس Azure AI Agent. با عنوان (azureaiagent.ipynb)
-
-ما شما را تشویق می‌کنیم تا هر سه نوع مثال را امتحان کنید تا ببینید کدام یک برای شما بهتر کار می‌کند.
-
-هر گزینه‌ای که انتخاب کنید، مراحل راه‌اندازی مربوط به آن را باید در ادامه دنبال کنید:
-
-## پیش‌نیازها
-
-- Python 3.12 یا بالاتر
-- حساب GitHub - برای دسترسی به بازار مدل‌های GitHub
-- اشتراک Azure - برای دسترسی به Azure AI Foundry
-- حساب Azure AI Foundry - برای دسترسی به سرویس Azure AI Agent
-
-فایلی به نام `requirements.txt` در ریشه این مخزن قرار داده‌ایم که شامل تمام بسته‌های پایتون مورد نیاز برای اجرای نمونه‌های کد است.
-
-می‌توانید آن‌ها را با اجرای دستور زیر در ترمینال خود در ریشه مخزن نصب کنید:
-
-```bash
-pip install -r requirements.txt
-```
-توصیه می‌کنیم برای جلوگیری از هرگونه تداخل و مشکل، یک محیط مجازی پایتون ایجاد کنید.
-
-## راه‌اندازی برای نمونه‌هایی که از مدل‌های GitHub استفاده می‌کنند
-
-### مرحله ۱: دریافت توکن دسترسی شخصی GitHub (PAT)
-
-در حال حاضر، این دوره از بازار مدل‌های GitHub برای ارائه دسترسی رایگان به مدل‌های زبان بزرگ (LLM) استفاده می‌کند که برای ایجاد عامل‌های هوش مصنوعی به کار می‌روند.
-
-برای دسترسی به این سرویس، باید یک توکن دسترسی شخصی GitHub ایجاد کنید.
-
-این کار را می‌توانید با ورود به حساب GitHub خود انجام دهید.
+در حساب GitHub خود.
 
 گزینه `Fine-grained tokens` option on the left side of your screen.
 
 Then select `Generate new token`.
 
-![Generate Token](../../../translated_images/generate-token.361ec40abe59b84ac68d63c23e2b6854d6fad82bd4e41feb98fc0e6f030e8ef7.fa.png)
+![Generate Token](../../../00-course-setup/images/generate-token.png)
 
 You will be prompted to enter a name for your token, select the expiration date (Recommended: 30 Days), and select the scopes for your token (Public Repositories).
+
+It's also necessary to edit the permissions of this token: Permissions -> Models -> Allows access to GitHub Models
 
 Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
 
@@ -74,7 +30,7 @@ To create your `.env` را انتخاب کنید و دستور زیر را در 
 cp .env.example .env
 ```
 
-این کار فایل نمونه را کپی کرده و یک فایل `.env` in your directory and where you fill in the values for the environment variables.
+این دستور فایل نمونه را کپی کرده و یک فایل `.env` in your directory and where you fill in the values for the environment variables.
 
 With your token copied, open the `.env` file in your favorite text editor and paste your token into the `GITHUB_TOKEN` field.
 
@@ -84,13 +40,15 @@ You should now be able to run the code samples of this course.
 
 ### Step 1: Retrieve Your Azure Project Connection String
 
-Follow the steps to creating a project and agent in Azure AI Foundry found here: [Create a project in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal?WT.mc_id=academic-105485-koreyst)
+
+Follow the steps to creating a hub and project in Azure AI Foundry found here: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+
 
 Once you have created your project, you will need to retrieve the connection string for your project.
 
 This can be done by going to the **Overview** page of your project in the Azure AI Foundry portal.
 
-![Project Connection String](../../../translated_images/project-connection-string.8a2c7c804a33d53df14011e583d0c3fe0f79d9eb52b72e3c7d7d2f68f828c8aa.fa.png)
+![Project Connection String](../../../00-course-setup/images/project-connection-string.png)
 
 ### Step 2: Create Your `.env` File
 
@@ -100,7 +58,7 @@ To create your `.env` ایجاد می‌کند. دستور زیر را در تر
 cp .env.example .env
 ```
 
-این کار فایل نمونه را کپی کرده و یک فایل `.env` in your directory and where you fill in the values for the environment variables.
+این دستور فایل نمونه را کپی کرده و یک فایل `.env` in your directory and where you fill in the values for the environment variables.
 
 With your token copied, open the `.env` file in your favorite text editor and paste your token into the `PROJECT_CONNECTION_STRING` field.
 
@@ -113,7 +71,7 @@ Next, open a terminal and run `az login --use-device-code` to sign in to your Az
 Once you've logged in, select your subscription in the terminal.
 
 
-## Additional Envionment Variables - Azure Search and Azure OpenAI 
+## Additional Environment Variables - Azure Search and Azure OpenAI 
 
 For the Agentic RAG Lesson - Lesson 5 - there are samples that use Azure Search and Azure OpenAI.
 
@@ -161,9 +119,9 @@ Rather than hardcode your credentials, we'll use a keyless connection with Azure
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
-## گیر کرده‌اید؟
+## اگر در جایی گیر کردید؟
 
-اگر در اجرای این راه‌اندازی به مشکلی برخوردید، به کانال ما در
+اگر در اجرای این تنظیمات با مشکلی مواجه شدید، به کانال ما در
 
 یا
 
@@ -171,9 +129,9 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 
 ## درس بعدی
 
-اکنون آماده‌اید تا کد این دوره را اجرا کنید، از یادگیری بیشتر درباره دنیای عامل‌های هوش مصنوعی لذت ببرید!
+اکنون آماده‌اید تا کدهای این دوره را اجرا کنید. یادگیری خوش بگذرد و دنیای عامل‌های هوش مصنوعی را بیشتر بشناسید!
 
 [مقدمه‌ای بر عامل‌های هوش مصنوعی و موارد استفاده از عامل‌ها](../01-intro-to-ai-agents/README.md)
 
 **سلب مسئولیت**:  
-این سند با استفاده از سرویس ترجمه هوش مصنوعی [Co-op Translator](https://github.com/Azure/co-op-translator) ترجمه شده است. در حالی که ما در تلاش برای دقت هستیم، لطفاً توجه داشته باشید که ترجمه‌های خودکار ممکن است حاوی خطاها یا نواقصی باشند. سند اصلی به زبان بومی آن باید به عنوان منبع معتبر در نظر گرفته شود. برای اطلاعات حیاتی، ترجمه حرفه‌ای انسانی توصیه می‌شود. ما مسئول هیچ گونه سوءتفاهم یا برداشت نادرستی که ناشی از استفاده از این ترجمه باشد، نیستیم.
+این سند با استفاده از سرویس ترجمه هوش مصنوعی [Co-op Translator](https://github.com/Azure/co-op-translator) ترجمه شده است. در حالی که ما در تلاش برای دقت هستیم، لطفاً توجه داشته باشید که ترجمه‌های خودکار ممکن است حاوی خطا یا نادرستی باشند. سند اصلی به زبان مادری آن باید به عنوان منبع معتبر در نظر گرفته شود. برای اطلاعات حیاتی، ترجمه حرفه‌ای انسانی توصیه می‌شود. ما مسئول هیچ گونه سوء تفاهم یا تفسیر نادرستی که از استفاده این ترجمه ناشی شود، نیستیم.
