@@ -4,107 +4,151 @@
 > _(Click the image above to view video of this lesson)_
 
 
-# Introduction to AI Agents and Agent Use Cases
+# AI အေးဂျင့်များနှင့် အေးဂျင့်အသုံးပြုမှုများ - မိတ်ဆက်
 
-Welcome to the "AI Agents for Beginners" course! This course provides fundamental knowledge and applied samples for building AI Agents.
+**"AI အေးဂျင့်များ အခြေခံသင်ခန်းစာ"** သင်တန်းမှ ကြိုဆိုပါတယ်! ဤသင်တန်းသည် AI အေးဂျင့်များတည်ဆောက်ခြင်းအတွက် အခြေခံဗဟုသုတနှင့် လက်တွေ့အသုံးချနမူနာများကို သင်ကြားပို့ချထားပါတယ်။
 
-Join the <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a> to meet other learners and AI Agent Builders and ask any questions you have about this course.
+**Azure AI Discord Community** တွင်ပါဝင်ပြီး အခြားသင်ယူသူများ၊ AI အေးဂျင့်တည်ဆောက်သူများနှင့် တွေ့ဆုံကာ ဤသင်တန်းနှင့်ပတ်သက်သော မေးခွန်းများကို မေးမြန်းနိုင်ပါတယ်။
 
-To start this course, we begin by getting a better understanding of what AI Agents are and how we can use them in the applications and workflows we build.
+ဤသင်တန်းကို စတင်ရန်အတွက် AI အေးဂျင့်များဆိုတာ ဘာတွေလဲ နှင့် ကျွန်ုပ်တို့တည်ဆောက်သော အပလီကေးရှင်းများနှင့် လုပ်ငန်းစဉ်များတွင် မည်သို့အသုံးပြုနိုင်မလဲဆိုတာကို ပိုမိုနားလည်အောင် စတင်ရှင်းပြပါမယ်။
 
-## Introduction
+## မိတ်ဆက်
 
-This lesson covers:
+ဤသင်ခန်းစာတွင် အောက်ပါအချက်များပါဝင်ပါတယ်။
+* AI အေးဂျင့်များဆိုတာ ဘာတွေလဲ နှင့် အေးဂျင့်အမျိုးအစားများကွဲပြားခြားနားမှုများ
+* AI အေးဂျင့်များအတွက် အကောင်းဆုံးအသုံးပြုမှုများနှင့် ၎င်းတို့သည် ကျွန်ုပ်တို့ကို မည်သို့ကူညီနိုင်ပုံ
+* အေးဂျင့်ဖြေရှင်းချက်များဒီဇိုင်းတွင် အခြေခံတည်ဆောက်မှုအစိတ်အပိုင်းများ
 
-- What are AI Agents and what are the different types of agents?
-- What use cases are best for AI Agents and how can they help us?
-- What are some of the basic building blocks when designing Agentic Solutions?
+## သင်ခန်းစာ ရည်ရွယ်ချက်များ
 
-## Learning Goals
-After completing this lesson, you should be able to:
+ဤသင်ခန်းစာပြီးစီးပြီးနောက် သင်သည် အောက်ပါအရာများကို တတ်မြောက်နိုင်မည်။
+* AI အေးဂျင့်အယူအဆများနှင့် အခြား AI ဖြေရှင်းချက်များနှင့် မည်သို့ကွဲပြားပုံကို နားလည်ခြင်း
+* AI အေးဂျင့်များကို အထိရောက်ဆုံးအသုံးချတတ်ခြင်း
+* အသုံးပြုသူများနှင့် သုံးစွဲသူများအတွက် အေးဂျင့်ဖြေရှင်းချက်များကို ထိရောက်စွာဒီဇိုင်းရေးဆွဲနိုင်ခြင်း
 
-- Understand AI Agent concepts and how they differ from other AI solutions.
-- Apply AI Agents most efficiently.
-- Design Agentic solutions productively for both users and customers.
+## AI အေးဂျင့်များနှင့် အေးဂျင့်အမျိုးအစားများကို သတ်မှတ်ခြင်း
 
-## Defining AI Agents and Types of AI Agents
+### AI အေးဂျင့်များဆိုတာ ဘာတွေလဲ?
 
-### What are AI Agents?
+**AI အေးဂျင့်များ**သည် **ကြီးမားသော ဘာသာစကားမော်ဒယ်များ (LLMs)** ကို **ဆောင်ရွက်မှုများပြုလုပ်ရန်** လုပ်ဆောင်ချက်များကို ချဲ့ထွင်ပေးသော **စနစ်များ** ဖြစ်ပြီး LLMs များကို **ကိရိယာများသုံးခွင့်** နှင့် **အသိပညာ** ရရှိခွင့်ပေးခြင်းဖြင့် ၎င်းတို့၏စွမ်းရည်များကို တိုးချဲ့ပေးပါတယ်။
 
-AI Agents are **systems** that enable **Large Language Models(LLMs)** to **perform actions** by extending their capabilities by giving LLMs **access to tools** and **knowledge**.
+ဤအဓိပ္ပါယ်ဖွင့်ဆိုချက်ကို အပိုင်းများအဖြစ် ခွဲခြမ်းကြည့်ကြပါစို့။
 
-Let's break this definition into smaller parts:
+### **စနစ်**
+အေးဂျင့်များကို တစ်ခုတည်းသောအစိတ်အပိုင်းမဟုတ်ဘဲ များစွာသောအစိတ်အပိုင်းများပေါင်းထားသော စနစ်တစ်ခုအဖြစ် စဉ်းစားရန် အရေးကြီးပါတယ်။ အခြေခံအဆင့်တွင် AI အေးဂျင့်တစ်ခု၏ အစိတ်အပိုင်းများမှာ-
 
-- **System** - It's important to think about agents not as just a single component but as a system of many components. At the basic level, the components of an AI Agent are:
-  - **Environment** - The defined space where the AI Agent is operating. For example, if we had a travel booking AI Agent, the environment could be the travel booking system that the AI Agent uses to complete tasks.
-  - **Sensors** - Environments have information and provide feedback. AI Agents use sensors to gather and interpret this information about the current state of the environment. In the Travel Booking Agent example, the travel booking system can provide information such as hotel availability or flight prices.
-  - **Actuators** - Once the AI Agent receives the current state of the environment, for the current task the agent determines what action to perform to change the environment. For the travel booking agent, it might be to book an available room for the user.
+#### **ပတ်ဝန်းကျင် (Environment)**
+AI အေးဂျင့်လုပ်ဆောင်ရန် သတ်မှတ်ထားသောနေရာ။ ဥပမာအားဖြင့်၊ ကျွန်ုပ်တို့တွင် ခရီးစဉ်ကြိုတင်မှာယူခြင်း AI အေးဂျင့်ရှိပါက၊ ထိုပတ်ဝန်းကျင်(environment)သည် AI အေးဂျင့် အသုံးပြုပြီးလုပ်ဆောင်သော ခရီးစဉ်ကြိုတင်မှာယူမှုစနစ်ဖြစ်နိုင်ပါတယ်။
+
+#### **အာရုံခံကိရိယာများ (Sensors)**
+ပတ်ဝန်းကျင်များတွင် အချက်အလက်များရှိပြီး တုံ့ပြန်မှုများပေးပါတယ်။ AI အေးဂျင့်များသည် ပတ်ဝန်းကျင်၏လက်ရှိအခြေအနေနှင့်ပတ်သက်သော အချက်အလက်များကို စုဆောင်းရန်နှင့် အဓိပ္ပါယ်ဖွင့်ဆိုရန် အာရုံခံကိရိယာများကို အသုံးပြုပါတယ်။ ခရီးစဉ်ကြိုတင်မှာယူသော အေးဂျင့်ဥပမာတွင်၊ ခရီးစဉ်ကြိုတင်မှာယူမှုစနစ်သည် ဟိုတယ်ရရှိနိုင်မှု သို့မဟုတ် လေယာဉ်လက်မှတ်စျေးနှုန်းများကဲ့သို့သော အချက်အလက်များကို ပေးပို့နိုင်ပါတယ်။
+
+#### **လုပ်ဆောင်သူများ (Actuators)**
+AI အေးဂျင့်သည် ပတ်ဝန်းကျင်၏လက်ရှိအခြေအနေကို လက်ခံရရှိပြီးနောက်၊ လက်ရှိတာဝန်အတွက် အေးဂျင့်သည် ပတ်ဝန်းကျင်ကို ပြောင်းလဲရန် မည်သည့်လုပ်ဆောင်ချက်ကို ပြုလုပ်ရမည်ကို ဆုံးဖြတ်ပါတယ်။ ခရီးစဉ်ကြိုတင်မှာယူသော အေးဂျင့်အတွက်၊ ၎င်းသည် အသုံးပြုသူအတွက် ရရှိနိုင်သောအခန်းတစ်ခန်းကို ကြိုတင်မှာယူခြင်းဖြစ်နိုင်ပါတယ်။
 
 ![What Are AI Agents?](./images/what-are-ai-agents.png)
 
-**Large Language Models** - The concept of agents existed before the creation of LLMs. The advantage of building AI Agents with LLMs is their ability to interpret human language and data. This ability enables LLMs to interpret environmental information and define a plan to change the environment.
+# ကြီးမားသော ဘာသာစကားမော်ဒယ်များ (Large Language Models)
 
-**Perform Actions** - Outside of AI Agent systems, LLMs are limited to situations where the action is generating content or information based on a user's prompt. Inside AI Agent systems, LLMs can accomplish tasks by interpreting the user's request and using tools that are available in their environment.
+အေးဂျင့်များ၏ အယူအဆသည် LLMs များမဖန်တီးခင်ကတည်းက ရှိနေခဲ့ပါတယ်။  
+LLMs များဖြင့် AI အေးဂျင့်များတည်ဆောက်ခြင်း၏ အားသာချက်မှာ ၎င်းတို့သည် လူသားဘာသာစကားနှင့် ဒေတာများကို အဓိပ္ပါယ်ဖွင့်ဆိုနိုင်သော စွမ်းရည်ရှိခြင်းပင်ဖြစ်ပါတယ်။  
+ဤစွမ်းရည်သည် LLMs များကို ပတ်ဝန်းကျင်ဆိုင်ရာအချက်အလက်များကို အဓိပ္ပါယ်ဖွင့်ဆိုပြီး ပတ်ဝန်းကျင်ကို ပြောင်းလဲရန် အစီအစဉ်တစ်ခုကို သတ်မှတ်နိုင်စေပါတယ်။
 
-**Access To Tools** - What tools the LLM has access to is defined by 1) the environment it's operating in and 2) the developer of the AI Agent. For our travel agent example, the agent's tools are limited by the operations available in the booking system, and/or the developer can limit the agent's tool access to flights.
+## လုပ်ဆောင်မှုများပြုလုပ်ခြင်း (Perform Actions)
 
-**Memory+Knowledge** - Memory can be short-term in the context of the conversation between the user and the agent. Long-term, outside of the information provided by the environment, AI Agents can also retrieve knowledge from other systems, services, tools, and even other agents. In the travel agent example, this knowledge could be the information on the user's travel preferences located in a customer database.
-
-### The different types of agents
-
-Now that we have a general definition of AI Agents, let us look at some specific agent types and how they would be applied to a travel booking AI agent.
-
-| **Agent Type**                | **Description**                                                                                                                       | **Example**                                                                                                                                                                                                                   |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Simple Reflex Agents**      | Perform immediate actions based on predefined rules.                                                                                  | Travel agent interprets the context of the email and forwards travel complaints to customer service.                                                                                                                          |
-| **Model-Based Reflex Agents** | Perform actions based on a model of the world and changes to that model.                                                              | Travel agent prioritizes routes with significant price changes based on access to historical pricing data.                                                                                                             |
-| **Goal-Based Agents**         | Create plans to achieve specific goals by interpreting the goal and determining actions to reach it.                                  | Travel agent books a journey by determining necessary travel arrangements (car, public transit, flights) from the current location to the destination.                                                                                |
-| **Utility-Based Agents**      | Consider preferences and weigh tradeoffs numerically to determine how to achieve goals.                                               | Travel agent maximizes utility by weighing convenience vs. cost when booking travel.                                                                                                                                          |
-| **Learning Agents**           | Improve over time by responding to feedback and adjusting actions accordingly.                                                        | Travel agent improves by using customer feedback from post-trip surveys to make adjustments to future bookings.                                                                                                               |
-| **Hierarchical Agents**       | Feature multiple agents in a tiered system, with higher-level agents breaking tasks into subtasks for lower-level agents to complete. | Travel agent cancels a trip by dividing the task into subtasks (for example, canceling specific bookings) and having lower-level agents complete them, reporting back to the higher-level agent.                                     |
-| **Multi-Agent Systems (MAS)** | Agents complete tasks independently, either cooperatively or competitively.                                                           | Cooperative: Multiple agents book specific travel services such as hotels, flights, and entertainment. Competitive: Multiple agents manage and compete over a shared hotel booking calendar to book customers into the hotel. |
-
-## When to Use AI Agents
-
-In the earlier section, we used the Travel Agent use-case to explain how the different types of agents can be used in different scenarios of travel booking. We will continue to use this application throughout the course.
-
-Let's look at the types of use cases that AI Agents are best used for:
-
-![When to use AI Agents?](./images/when-to-use-ai-agents.png)
+AI အေးဂျင့်စနစ်များပြင်ပတွင် LLMs များသည် အသုံးပြုသူ၏ prompt အပေါ်အခြေခံ၍ အကြောင်းအရာ သို့မဟုတ် အချက်အလက်များထုတ်လုပ်သည့် အခြေအနေများတွင် ကန့်သတ်ခံရပါတယ်။  
+AI အေးဂျင့်စနစ်များအတွင်းတွင် LLMs များသည် အသုံးပြုသူ၏တောင်းဆိုချက်ကို အဓိပ္ပါယ်ဖွင့်ဆိုပြီး ၎င်းတို့၏ပတ်ဝန်းကျင်တွင် ရရှိနိုင်သော ကိရိယာများကို အသုံးပြုခြင်းဖြင့် တာဝန်များကို ပြီးမြောက်စေနိုင်ပါတယ်။
 
 
-- **Open-Ended Problems** - allowing the LLM to determine needed steps to complete a task because it can't always be hardcoded into a workflow.
-- **Multi-Step Processes** - tasks that require a level of complexity in which the AI Agent needs to use tools or information over multiple turns instead of single shot retrieval.  
-- **Improvement Over Time** - tasks where the agent can improve over time by receiving feedback from either its environment or users in order to provide better utility.
+## ကိရိယာများသုံးခွင့်ရခြင်း (Access To Tools)
 
-We cover more considerations of using AI Agents in the Building Trustworthy AI Agents lesson.
+LLM မှ အသုံးပြုနိုင်သော ကိရိယာများကို ၎င်းလုပ်ဆောင်နေသော ပတ်ဝန်းကျင် သို့မဟုတ် AI အေးဂျင့် developer များမှ ကန့်သတ်ထားခြင်းဖြစ်ပါတယ်။
+ကျွန်ုပ်တို့၏ ခရီးစဉ်အေးဂျင့်ဥပမာတွင်၊ အေးဂျင့်၏ကိရိယာများသည် booking စနစ်တွင် ရရှိနိုင်သော လုပ်ဆောင်မှုများအတိုင်း ကန့်သတ်ခံရနိုင်သလို developer သည် လေယာဉ်လက်မှတ်များအတွက် အေးဂျင့်၏ကိရိယာအသုံးပြုခွင့်ကို ကန့်သတ်နိုင်ပါတယ်။
 
-## Basics of Agentic Solutions
 
-### Agent Development
+## မှတ်ဉာဏ်နှင့်အသိပညာ (Memory+Knowledge)
 
-The first step in designing an AI Agent system is to define the tools, actions, and behaviors. In this course, we focus on using the **Azure AI Agent Service** to define our Agents. It offers features like:
+မှတ်ဉာဏ်ဟုဆိုရာတွင် 
+ရေတိုမှတ်ဉာဏ်ဆိုတာ အသုံးပြုသူနှင့် အေးဂျင့်အကြား စကားပြောဆိုမှုကို သိမ်းဆည်းထားသော မှတ်ဉာဏ်၊
+ရေရှည်မှတ်ဉာဏ်ဆိုတာ ပတ်ဝန်းကျင်မှ ပေးပို့သော အချက်အလက်များအပြင် AI အေးဂျင့်များသည် အခြားစနစ်များ၊ ဝန်ဆောင်မှုများ၊ ကိရိယာများ၊ နှင့် အခြားအေးဂျင့်များမှ အသိပညာကို ရယူနိုင်ခြင်းဖြစ်သည်။
+ခရီးစဉ်အေးဂျင့်ဥပမာတွင်၊ ဤအသိပညာသည် customer dataတွင် တည်ရှိသော အသုံးပြုသူ၏ ခရီးစဉ်နှစ်သက်မှုများဆိုင်ရာ အချက်အလက်များဖြစ်နိုင်ပါတယ်။
 
-- Selection of Open Models such as OpenAI, Mistral, and Llama
-- Use of Licensed Data through providers such as Tripadvisor
-- Use of standardized OpenAPI 3.0 tools
 
-### Agentic Patterns
+## အေးဂျင့်အမျိုးအစားများ
 
-Communication with LLMs is through prompts. Given the semi-autonomous nature of AI Agents, it isn't always possible or required to manually reprompt the LLM after a change in the environment. We use **Agentic Patterns** that allow us to prompt the LLM over multiple steps in a more scalable way.
+AI အေးဂျင့်များ၏ ယေဘုယျအဓိပ္ပါယ်ဖွင့်ဆိုချက်ကို ရရှိပြီးနောက်၊ အချို့သော တိကျသောအေးဂျင့်အမျိုးအစားများနှင့် ၎င်းတို့ကို ခရီးစဉ်ကြိုတင်မှာယူခြင်း AI အေးဂျင့်တွင် မည်သို့အသုံးပြုမည်ကို ကြည့်ကြပါစို့။
 
-This course is divided into some of the current popular Agentic patterns.
+| **အေးဂျင့်အမျိုးအစား**             | **ဖော်ပြချက်**                                                                                                      | **ဥပမာ**                                                                                                                                                       |
+|-----------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ရိုးရှင်းသောတုံ့ပြန်မှုအေးဂျင့်များ** | သတ်မှတ်ထားသော စည်းမျဉ်းများအပေါ် အခြေခံပြီး ချက်ချင်းတုံ့ပြန်မှုများ ပြုလုပ်သည်။                                               | ခရီးသွားအေးဂျင့်သည် မေးလ်၏ အကြောင်းအရာကို အနက်ဖွင့်ကာ သွားလာမှုဆိုင်ရာ တိုင်ကြားစာများကို ဝန်ဆောင်မှုဌာနထံသို့ မျှဝေသည်။                                |
+| **မော်ဒယ်အခြေပြုတုံ့ပြန်မှုအေးဂျင့်များ** | ပတ်ဝန်းကျင်၏ မော်ဒယ်တစ်ခုအပေါ် အခြေခံပြီး အပြောင်းအလဲအပေါ်မူတည်၍ လုပ်ဆောင်ချက်များ ပြုလုပ်သည်။                                   | သမိုင်းဝင်ဈေးနှုန်းဒေတာများအပေါ်မူတည်၍ ဈေးနှုန်းကြီးပြောင်းသောလမ်းကြောင်းများကို ဦးစားပေးရွေးချယ်သော ခရီးသွားအေးဂျင့်။                                |
+| **ရည်ရွယ်ချက်အခြေပြုအေးဂျင့်များ**   | ရည်မှန်းချက်တစ်ခုသို့ရောက်ရန်အတွက် လိုအပ်သောလုပ်ဆောင်ချက်များကို သတ်မှတ်၍ စီမံချက်ရေးဆွဲသည်။                                      | လက်ရှိတည်နေရာမှ ဦးတည်ရာသို့ ရောက်ရန် လေယာဉ်၊ ယာဉ်၊ ပုဂ္ဂိုလ်ရေးသယ်ယူမှုစသည်ဖြင့် ခရီးစဉ်အစိတ်အပိုင်းများကို စီစဉ်သည့် ခရီးသွားအေးဂျင့်။               |
+| **အသုံးတန်မှုအခြေပြုအေးဂျင့်များ**     | ရည်ရွယ်ချက်များအတွက် ရွေးချယ်မှုများကို ရှုထောင့်များနှင့် တန်ဖိုးများဖြင့် တိုင်းတာ၍ ရွေးချယ်သည်။                                      | သက်သောင့်သက်သာနှင့် စရိတ်တို့ကို တိုင်းတာပြီး အသုံးတန်ဆုံးဖြစ်အောင် ခရီးစဉ်ဘွတ်ကင် ပြုလုပ်သော ခရီးသွားအေးဂျင့်။                                      |
+| **သင်ယူနိုင်သောအေးဂျင့်များ**         | သုံးစွဲသူမှ တုံ့ပြန်ချက်များကိုအခြေခံ၍ အချိန်တစ်လျှောက်တိုးတက်လာသည်။                                                 | ခရီးပြီးသည့်အခါ သုံးစွဲသူအမြင်များကိုအသုံးပြုပြီး နောက်လာမည့် ခရီးစဉ်များအတွက် လုပ်ဆောင်မှုများတိုးတက်စေရန် ကြိုးစားသော ခရီးသွားအေးဂျင့်။               |
+| **အဆင့်လိုက်အေးဂျင့်များ**          | အဆင့်မြင့်အေးဂျင့်များမှ တာဝန်များကို အဆင့်နိမ့်အေးဂျင့်များထံ ပေးအပ်ပြီး လုပ်ဆောင်မှုကို ခွဲခြမ်းသတ်မှတ်တင်ပြသည်။                     | ခရီးစဉ်ဖျက်သိမ်းရာတွင်၊ သီးသန့်ဘွတ်ကင်များဖျက်သိမ်းခြင်းစသည်ဖြင့် တာဝန်ခွဲခြမ်းကာ အဆင့်နိမ့်အေးဂျင့်များအနေနှင့် ဆောင်ရွက်သည်။                          |
+| **တူညီ/ယှဉ်ပြိုင်အေးဂျင့်စနစ်များ (MAS)** | အေးဂျင့်များသည် လွတ်လပ်စွာ တာဝန်များကို ပြီးမြောက်အောင် ဆောင်ရွက်ကြသည်။ သာမန်အားဖြင့် ပူးပေါင်းမှု သို့မဟုတ် ယှဉ်ပြိုင်မှုဖြင့် အလုပ်လုပ်ကြသည်။ | ပူးပေါင်းမှု - လေယာဉ်၊ ဟိုတယ်၊ ဖျော်ဖြေရေးအစီအစဉ်များကို သီးသန့်အေးဂျင့်များက ပြုလုပ်ခြင်း။ ယှဉ်ပြိုင်မှု - ဟိုတယ်ဘွတ်ကင်များအတွက် အေးဂျင့်များကြား ယှဉ်ပြိုင် booking ဆောင်ရွက်ခြင်း။ |
 
-### Agentic Frameworks
+---
 
-Agentic Frameworks allow developers to implement agentic patterns through code. These frameworks offer templates, plugins, and tools for better AI Agent collaboration. These benefits provide abilities for better observability and troubleshooting of AI Agent systems.
+## 🧭 AI အေးဂျင့်များကို ဘယ်အချိန်မှာ အသုံးပြုသင့်သလဲ?
 
-In this course, we will explore the research-driven AutoGen framework and the production-ready Agent framework from Semantic Kernel.
+ခရီးသွားအေးဂျင့်ကို ဥပမာအဖြစ် အသုံးပြုကာ အေးဂျင့်အမျိုးအစားများကို သုံးသပ်ခဲ့သော်လည်း၊ ယခုအခန်းတွင်တော့ AI အေးဂျင့်များကို အသုံးပြုရန် သင့်တော်သည့်အခြေအနေများကို မျှဝေပေးပါမည်။
 
-## Previous Lesson
+### သင့်တော်သောသုံးစွဲမှုအခြေအနေများ
 
-[Course Setup](../00-course-setup/README.md)
+- **ဖွင့်လှစ်ထားသောပြဿနာများ (Open-Ended Problems)**  
+  - လုပ်ဆောင်ချက်အဆင့်များကို LLM မှ ကိုယ်တိုင် စီစဉ်နိုင်ရန်လိုအပ်သောအခါ။
 
-## Next Lesson
+- **အဆင့်များစွာပါဝင်သောလုပ်ငန်းစဉ်များ (Multi-Step Processes)**  
+  - တစ်ကြိမ်ပြုလုပ်ခြင်းဖြင့် ဖြေရှင်း၍မရသော ချောမွေ့မှုလိုအပ်သောလုပ်ငန်းစဉ်များ။
 
-[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)
+- **အချိန်နှင့်အမျှ တိုးတက်မှု (Improvement Over Time)**  
+  - သုံးစွဲသူသို့မဟုတ် ပတ်ဝန်းကျင်မှ တုံ့ပြန်ချက်များအပေါ်အခြေခံ၍ တိုးတက်မှုရရှိနိုင်သည်။
+
+![AI Agent Use Cases](./images/when-to-use-ai-agents.png)
+
+
+## အေးဂျင့်အခြေပြုဖြေရှင်းနည်းများ၏ အခြေခံအချက်များ (Basics of Agentic Solutions)
+
+###  အေးဂျင့်ဖန်တီးခြင်း (Agent Development)
+
+AI အေးဂျင့်တစ်ခုဖန်တီးရာတွင် ပထမဆုံးလုပ်ဆောင်ရမည့်အချက်မှာ -
+
+- **Tools (ကိရိယာများ)**
+- **Actions (လုပ်ဆောင်ချက်များ)**
+- **Behaviors (အပြုအမူများ)**
+
+ဤသင်တန်းတွင် Microsoft ၏ **Azure AI Agent Service** ကိုအသုံးပြုကာ အေးဂျင့်ဖန်တီးခြင်းကို လေ့လာသွားပါမည်။
+
+**Azure Agent Service Features:**
+
+- OpenAI, Mistral, Llama တို့ကဲ့သို့သော Open Models များကို အသုံးပြုနိုင်ခြင်း
+- Tripadvisor စသော Provider များမှ Licensed Data အသုံးပြုနိုင်ခြင်း
+- OpenAPI 3.0 tools များအတွက်ပံ့ပိုးမှု
+
+###  အေးဂျင့် Patterns (Agentic Patterns)
+
+LLMs နှင့် ဆက်သွယ်ရန် Prompt များကို အသုံးပြုသော်လည်း၊ ပတ်ဝန်းကျင်ပြောင်းလဲသည့်အခါတိုင်း Manual Prompt ပြန်ထည့်ရန်မလိုအပ်နိုင်ပါ။  
+ထို့ကြောင့် အဆင့်အဆင့် Prompt လုပ်နိုင်သော **Agentic Patterns** များကို အသုံးပြုသည်။
+
+###  အေးဂျင့် Framework များ (Agentic Frameworks)
+
+အေးဂျင့် Patterns များကို Practical Code ဖြင့် ဆောင်ရွက်ရန် Framework များဖြင့် အကောင်အထည်ဖော်နိုင်သည်။  
+၎င်းတို့သည် -
+
+- Template များ
+- Plugin များ
+- Troubleshooting Tools များ
+
+စသဖြင့် စနစ်တကျ သုံးနိုင်စွမ်းမြင့်မားအောင် ထောက်ပံ့ပေးသည်။
+
+**ဤသင်တန်းတွင် လေ့လာမည့် Framework များမှာ -**
+
+- **AutoGen** - သုတေသနအခြေပြု Framework
+- **Semantic Kernel** - စက်မှုသုံး အသုံးပြုနိုင်သော Production-Ready Framework
+
+## ယခင်သင်ခန်းစာ
+[သင်တန်းစနစ်ထည့်သွင်းခြင်း](../00-course-setup/README.md)
+
+## နောက်သင်ခန်းစာ
+[Agentic Frameworks များကိုလေ့လာခြင်း](../02-explore-agentic-frameworks/README.md)

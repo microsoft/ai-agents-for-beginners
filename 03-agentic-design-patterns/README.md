@@ -1,101 +1,100 @@
-[![How to Design Good AI Agents](./images/lesson-3-thumbnail.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+# AI agent ဒီဇိုင်း အခြေခံမူများ
 
-> _(Click the image above to view video of this lesson)_
-# AI Agentic Design Principles
+[![ကောင်းမွန်သော AI Agents များ ဒီဇိုင်းပြုလုပ်နည်း](./images/lesson-3-thumbnail.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
-## Introduction
+> _(ဤသင်ခန်းစာ၏ ရုပ်သံဖိုင်ကို ကြည့်ရှုရန် အထက်ရှိပုံကို နှိပ်ပါ)_
 
-There are many ways to think about building AI Agentic Systems. Given that ambiguity is a feature and not a bug in Generative AI design, it’s sometimes difficult for engineers to figure out where to even start. We have created a set of human-centric UX Design Principles to enable developers to build customer-centric agentic systems to solve their business needs. These design principles are not a prescriptive architecture but rather a starting point for teams who are defining and building out agent experiences.
+## နိဒါန်း
 
-In general, agents should:
+AI Agentic Systems များ တည်ဆောက်ခြင်းအတွက် ချဉ်းကပ်နည်းများစွာရှိပါသည်။ Generative AI ဒီဇိုင်းတွင် မရေရာမှုသည် ချို့ယွင်းချက်မဟုတ်ဘဲ အင်္ဂါရပ်တစ်ခုဖြစ်သောကြောင့်၊ အင်ဂျင်နီယာများအတွက် မည်သည့်နေရာမှ စတင်ရမည်ကို သိရှိနားလည်ရန် တစ်ခါတစ်ရံ ခက်ခဲလေ့ရှိပါသည်။ ကျွန်ုပ်တို့သည် ဖွံ့ဖြိုးတိုးတက်သူများအား ၎င်းတို့၏ လုပ်ငန်းလိုအပ်ချက်များကို ဖြေရှင်းရန် customer အဓိကထား agentic systems များ တည်ဆောက်နိုင်စေရန် လူသားဗဟိုပြု UX ဒီဇိုင်း အခြေခံမူတို့ကို ရေးဆွဲထားပါသည်။ ဤဒီဇိုင်းအခြေခံမူများသည် သတ်မှတ်ထားသည့် ဗိသုကာပညာမဟုတ်ဘဲ agent အတွေ့အကြုံများကို သတ်မှတ်ကြေးမုံ တည်ဆောက်နေသည့် အဖွဲ့များအတွက် အခြေခံအမြစ်တစ်ခုသာ ဖြစ်ပါသည်။
 
-- Broaden and scale human capacities (brainstorming, problem-solving, automation, etc.)
-- Fill in knowledge gaps (get me up-to-speed on knowledge domains, translation, etc.)
-- Facilitate and support collaboration in the ways we as individuals prefer to work with others
-- Make us better versions of ourselves (e.g., life coach/task master, helping us learn emotional regulation and mindfulness skills, building resilience, etc.)
+ယေဘုယျအားဖြင့်၊ agents များသည် -
 
-## This Lesson Will Cover
+- လူသားစွမ်းရည်များကို ချဲ့ကျယ်စေခြင်းနှင့် အရှိန်မြှင့်တင်ခြင်း (အကြံပေးခြင်း၊ ပြဿနာဖြေရှင်းခြင်း၊ အလိုအလျောက်လုပ်ဆောင်ခြင်း စသည်)
+- အသိပညာကွာဟချက်များကို ဖြည့်စွက်ခြင်း (အသိပညာနယ်ပယ်များအကြောင်း နားလည်မှုတိုးတက်စေခြင်း၊ ဘာသာပြန်ခြင်း စသည်)
+- ကျွန်ုပ်တို့သည် တစ်ဦးချင်းအနေဖြင့် အခြားသူများနှင့် ပူးပေါင်းလုပ်ဆောင်ရာတွင် နှစ်သက်သည့်နည်းလမ်းများဖြင့် ပူးပေါင်းဆောင်ရွက်မှုကို လွယ်ကူစေခြင်းနှင့် ပံ့ပိုးကူညီခြင်း
+- ကျွန်ုပ်တို့အား ပိုမိုကောင်းမွန်သည့် ကိုယ်ကျင့်တရားရှိသူများဖြစ်စေခြင်း (ဥပမာ - ဘဝနည်းပြ/လုပ်ငန်းတာဝန်ပေးခြင်း၊ စိတ်ခံစားမှုထိန်းချုပ်မှုနှင့် စိတ်ဓါတ်ထိန်းသိမ်းမှုစွမ်းရည်များ သင်ယူရာတွင် ကူညီခြင်း၊ ခံနိုင်ရည်တည်ဆောက်ခြင်း စသည်)
 
-- What are the Agentic Design Principles
-- What are some guidelines to follow while implementing these design principles
-- What are some examples of using the design principles
+## ဤသင်ခန်းစာတွင် ပါဝင်သည်များ
 
-## Learning Goals
+- Agentic ဒီဇိုင်း အခြေခံမူများသည် အဘယ်နည်း
+- ဤဒီဇိုင်း အခြေခံမူများကို အကောင်အထည်ဖော်ရာတွင် လိုက်နာရမည့် လမ်းညွှန်ချက်များ
+- ဒီဇိုင်း အခြေခံမူများကို အသုံးပြုခြင်း၏ ဥပမာများ
 
-After completing this lesson, you will be able to:
+## သင်ယူမည့် ရည်မှန်းချက်များ
 
-1. Explain what the Agentic Design Principles are
-2. Explain the guidelines for using the Agentic Design Principles
-3. Understand how to build an agent using the Agentic Design Principles
+ဤသင်ခန်းစာ ပြီးမြောက်သောအခါတွင်၊ သင်သည် -
 
-## The Agentic Design Principles
+1. Agentic ဒီဇိုင်း အခြေခံမူများ အဘယ်နည်းဖြစ်သည်ကို ရှင်းလင်းစွာ ဖော်ပြနိုင်မည်
+2. Agentic ဒီဇိုင်း အခြေခံမူများကို အသုံးပြုရန် လမ်းညွှန်ချက်များကို ရှင်းပြနိုင်မည်
+3. Agentic ဒီဇိုင်း အခြေခံမူများကို အသုံးပြု၍ agent တစ်ခုကို မည်သို့တည်ဆောက်ရမည်ကို နားလည်ရမည်
 
-![Agentic Design Principles](./images/agentic-design-principles.png)
+## Agentic ဒီဇိုင်း အခြေခံမူများ
 
-### Agent (Space)
+![Agentic ဒီဇိုင်း အခြေခံမူများ](./images/agentic-design-principles.png)
 
-This is the environment in which the agent operates. These principles inform how we design agents for engaging in physical and digital worlds.
+### Agent (နေရာလွတ်)
 
-- **Connecting, not collapsing** – help connect people to other people, events, and actionable knowledge to enable collaboration and connection.
-- Agents help connect events, knowledge, and people.
-- Agents bring people closer together. They are not designed to replace or belittle people.
-- **Easily accessible yet occasionally invisible** – agent largely operates in the background and only nudges us when it is relevant and appropriate.
-  - Agent is easily discoverable and accessible for authorized users on any device or platform.
-  - Agent supports multimodal inputs and outputs (sound, voice, text, etc.).
-  - Agent can seamlessly transition between foreground and background; between proactive and reactive, depending on its sensing of user needs.
-  - Agent may operate in invisible form, yet its background process path and collaboration with other Agents are transparent to and controllable by the user.
+ဤသည်မှာ agent လုပ်ဆောင်သည့် ပတ်ဝန်းကျင်ဖြစ်ပါသည်။ ဤအခြေခံမူများသည် ရုပ်ပိုင်းဆိုင်ရာနှင့် ဒစ်ဂျစ်တယ်ကမ္ဘာများတွင် ပါဝင်ပတ်သက်ရန် agents များကို မည်သို့ဒီဇိုင်းပြုလုပ်ရမည်ကို လမ်းညွှန်ပေးပါသည်။
 
-### Agent (Time)
+- **ချိတ်ဆက်ခြင်းသာ၊ ပြိုကွဲစေခြင်းမဟုတ်** – လူများအား အခြားလူများ၊ ဖြစ်ရပ်များနှင့် လုပ်ဆောင်နိုင်သည့်အသိပညာများနှင့် ချိတ်ဆက်ရာတွင် ကူညီ၍ ပူးပေါင်းဆောင်ရွက်မှုနှင့် ဆက်သွယ်မှုများကို ဖွင့်လှစ်ပေးခြင်း။
+- Agents များသည် ဖြစ်ရပ်များ၊ အသိပညာများနှင့် လူများအား ချိတ်ဆက်ရာတွင် ကူညီပါသည်။
+- Agents များသည် လူများအား ပိုမိုနီးကပ်စေပါသည်။ ၎င်းတို့သည် လူများကို အစားထိုးရန် သို့မဟုတ် နိမ့်ကျစေရန် ဒီဇိုင်းပြုလုပ်ထားခြင်းမရှိပါ။
+- **လွယ်ကူစွာ လက်လှမ်းမီနိုင်သော်လည်း တစ်ခါတစ်ရံ မမြင်နိုင်သော** – agent သည် အဓိကအားဖြင့် နောက်ခံတွင် လုပ်ဆောင်ပြီး သင့်လျော်ရာနှင့် ကိုက်ညီသောအခါတွင်သာ ကျွန်ုပ်တို့အား တွန်းအားပေးပါသည်။
+  - Agent သည် မည်သည့်ကိရိယာ သို့မဟုတ် ပလက်ဖောင်းမှ အခွင့်အာဏာရှိသည့် အသုံးပြုသူများအတွက် လွယ်ကူစွာ ရှာဖွေတွေ့ရှိနိုင်ပြီး လက်လှမ်းမီနိုင်ပါသည်။
+  - Agent သည် မျိုးစုံ input နှင့် output များကို (အသံ၊ စကားသံ၊ စာသား စသည်) ပံ့ပိုးပေးပါသည်။
+  - Agent သည် အသုံးပြုသူလိုအပ်ချက်များကို သိရှိမှုအပေါ် မူတည်၍ အရှေ့ခံနှင့် နောက်ခံကြား၊ တက်ကြွစွာလုပ်ဆောင်ခြင်းနှင့် တုံ့ပြန်ခြင်းကြား စုံလင်စွာ ကူးပြောင်းနိုင်ပါသည်။
+  - Agent သည် မမြင်နိုင်သည့်ပုံစံဖြင့် လုပ်ဆောင်နိုင်သော်လည်း ၎င်း၏ နောက်ခံလုပ်ဆောင်မှုလမ်းကြောင်းနှင့် အခြား Agents များနှင့် ပူးပေါင်းဆောင်ရွက်မှုများသည် အသုံးပြုသူအတွက် ပွင့်လင်းမြင်သာပြီး ထိန်းချုပ်နိုင်ပါသည်။
 
-This is how the agent operates over time. These principles inform how we design agents interacting across the past, present, and future.
+### Agent (အချိန်)
 
-- **Past**: Reflecting on history that includes both state and context.
-  - Agent provides more relevant results based on analysis of richer historical data beyond only the event, people, or states.
-  - Agent creates connections from past events and actively reflects on memory to engage with current situations.
-- **Now**: Nudging more than notifying.
-  - Agent embodies a comprehensive approach to interacting with people. When an event happens, the Agent goes beyond static notification or other static formality. Agent can simplify flows or dynamically generate cues to direct the user’s attention at the right moment.
-  - Agent delivers information based on contextual environment, social and cultural changes and tailored to user intent.
-  - Agent interaction can be gradual, evolving/growing in complexity to empower users over the long term.
-- **Future**: Adapting and evolving.
-  - Agent adapts to various devices, platforms, and modalities.
-  - Agent adapts to user behavior, accessibility needs, and is freely customizable.
-  - Agent is shaped by and evolves through continuous user interaction.
+ဤသည်မှာ agent သည် အချိန်ကာလတစ်လျှောက် မည်သို့လုပ်ဆောင်သည်ကို ဖော်ပြခြင်းဖြစ်ပါသည်။ ဤအခြေခံမူများသည် အတိတ်၊ ပစ္စုပ္ပန်နှင့် အနာဂတ်တစ်လျှောက် ပြန်လည်ဆက်သွယ်သည့် agents များကို မည်သို့ဒီဇိုင်းပြုလုပ်ရမည်ကို လမ်းညွှန်ပေးပါသည်။
 
-### Agent (Core)
+- **အတိတ်**: အခြေအနေနှင့် ပြည့်စုံသည့်အကြောင်းအရာ နှစ်ခုလုံးပါဝင်သည့် သမိုင်းကြောင်းကို ပြန်လည်စဉ်းစားခြင်း။
+  - Agent သည် ဖြစ်ရပ်များ၊ လူများ သို့မဟုတ် အခြေအနေများထက် ပိုမိုကြွယ်ဝသည့် သမိုင်းဆိုင်ရာ ဒေတာများကို ပိုမို စမ်းစစ်လေ့လာခြင်းအပေါ် အခြေခံ၍ ပိုမိုသက်ဆိုင်သည့် ရလဒ်များကို ပေးပါသည်။
+  - Agent သည် အတိတ်ဖြစ်ရပ်များမှ ဆက်နွယ်မှုများကို ဖန်တီးပြီး လက်ရှိအခြေအနေများနှင့် ပါဝင်ဆက်သွယ်ရန် မှတ်ဉာဏ်ကို တက်ကြွစွာ ပြန်လည်စဉ်းစားပါသည်။
+- **ပစ္စုပ္ပန်**: အသိပေးခြင်းထက် တွန်းအားပေးခြင်း။
+  - Agent သည် လူများနှင့် ဆက်သွယ်ခြင်းတွင် ပြည့်စုံသည့်ချဉ်းကပ်နည်းကို ကိုယ်စားပြုပါသည်။ ဖြစ်ရပ်တစ်ခုဖြစ်ပေါ်သောအခါ၊ Agent သည် သာမန်အသိပေးခြင်း သို့မဟုတ် အခြားသာမန်ပုံစံအခွင့်အရေးများထက် ကျော်လွန်ပါသည်။ Agent သည် သင့်လျော်သည့်အချိန်တွင် အသုံးပြုသူ၏ အာရုံစူးစိုက်မှုကို လမ်းညွှန်ရန် လုပ်ဆောင်မှုစီးဆင်းမှုများကို ရိုးရှင်းစေခြင်း သို့မဟုတ် တက်ကြွစွာ အညွှန်းများ ဖန်တီးနိုင်ပါသည်။
+  - Agent သည် ပါဝင်နေသည့်ပတ်ဝန်းကျင်၊ လူမှုရေးနှင့် ယဉ်ကျေးမှုပြောင်းလဲမှုများကို အခြေခံပြီး အသုံးပြုသူ၏ ရည်ရွယ်ချက်နှင့် သင့်လျော်စွာ သတင်းအချက်အလက်များကို ပေးပါသည်။
+  - Agent ၏ ဆက်သွယ်မှုသည် တစ်ဆင့်ချင်းစီ ဖြစ်နိုင်ပြီး၊ ရေရှည်အတွက် အသုံးပြုသူများကို အစွမ်းထက်စေရန် ရှုပ်ထွေးမှုတွင် တိုးတက်/ကြီးထွားနိုင်ပါသည်။
+- **အနာဂတ်**: လိုက်လျောညီထွေဖြစ်ခြင်းနှင့် တိုးတက်ပြောင်းလဲခြင်း။
+  - Agent သည် အမျိုးမျိုးသည့် ကိရိယာများ၊ ပလက်ဖောင်းများနှင့် နည်းလမ်းများနှင့် လိုက်လျောညီထွေ ဖြစ်ပါသည်။
+  - Agent သည် အသုံးပြုသူအပြုအမူ၊ လက်လှမ်းမီနိုင်မှုလိုအပ်ချက်များနှင့် လိုက်လျောညီထွေဖြစ်ပြီး လွတ်လပ်စွာ စိတ်ကြိုက်ပြင်ဆင်နိုင်ပါသည်။
+  - Agent သည် အသုံးပြုသူများနှင့် အဆက်မပြတ် ဆက်သွယ်မှုတစ်လျှောက် ပုံသွင်းထားပြီး တိုးတက်ပြောင်းလဲပါသည်။
 
-These are the key elements in the core of an agent’s design.
+### Agent (အဓိကစနစ်)
 
-- **Embrace uncertainty but establish trust**.
-  - A certain level of Agent uncertainty is expected. Uncertainty is a key element of agent design.
-  - Trust and transparency are foundational layers of Agent design.
-  - Humans are in control of when the Agent is on/off and Agent status is clearly visible at all times.
+ဤသည်တို့မှာ agent ၏ ဒီဇိုင်းအဓိကအစိတ်အပိုင်းတွင် ပါဝင်သည့် အဓိကအင်္ဂါရပ်များဖြစ်ပါသည်။
 
-## The Guidelines to Implement These Principles
+- **မရေရာမှုကို လက်ခံသော်လည်း ယုံကြည်မှုကို တည်ဆောက်ခြင်း**။
+  - Agent ၏ မရေရာမှုအဆင့်တစ်ခုကို မျှော်လင့်ထားပါသည်။ မရေရာမှုသည် agent ဒီဇိုင်း၏ အဓိကအင်္ဂါရပ်တစ်ခုဖြစ်ပါသည်။
+  - ယုံကြည်မှုနှင့် ပွင့်လင်းမြင်သာမှုတို့သည် Agent ဒီဇိုင်း၏ အခြေခံအမြစ်အသားများဖြစ်ပါသည်။
+  - လူသားများသည် Agent ကို ဖွင့်ရန်/ပိတ်ရန် ထိန်းချုပ်နိုင်ပြီး Agent ၏ အခြေအနေကို အချိန်မရွေး ရှင်းလင်းစွာ မြင်တွေ့နိုင်ပါသည်။
 
-When you’re using the previous design principles, use the following guidelines:
+## ဤအခြေခံမူများကို အကောင်အထည်ဖော်ရန် လမ်းညွှန်ချက်များ
 
-1. **Transparency**: Inform the user that AI is involved, how it functions (including past actions), and how to give feedback and modify the system.
-2. **Control**: Enable the user to customize, specify preferences and personalize, and have control over the system and its attributes (including the ability to forget).
-3. **Consistency**: Aim for consistent, multi-modal experiences across devices and endpoints. Use familiar UI/UX elements where possible (e.g., microphone icon for voice interaction) and reduce the customer’s cognitive load as much as possible (e.g., aim for concise responses, visual aids, and ‘Learn More’ content).
+ယခင်ဒီဇိုင်း အခြေခံမူများကို အသုံးပြုသောအခါတွင်၊ အောက်ပါ လမ်းညွှန်ချက်များကို လိုက်နာပါ -
 
-## How To Design a Travel Agent using These Principles and Guidelines
+1. **ပွင့်လင်းမြင်သာမှု**: AI ပါဝင်နေကြောင်း၊ ၎င်းမည်သို့လုပ်ဆောင်သည် (အတိတ်လုပ်ဆောင်မှုများအပါအဝင်)နှင့် စနစ်ကို မည်သို့ တုံ့ပြန်ချက်ပေးပြီး ပြုပြင်မွမ်းမံရမည်ကို အသုံးပြုသူအား အသိပေးပါ။
+2. **ထိန်းချုပ်မှု**: အသုံးပြုသူအား စိတ်ကြိုက်ပြင်ဆင်ခြင်း၊ နှစ်သက်မှုများ သတ်မှတ်ခြင်းနှင့် တစ်ဦးချင်းစီအလိုက် ပြင်ဆင်ခြင်း၊ စနစ်နှင့် ၎င်း၏အင်္ဂါရပ်များကို ထိန်းချုပ်ခြင်း (မေ့ပျောက်နိုင်မှု အပါအဝင်) တို့ကို ဖွင့်လှစ်ပေးပါ။
+3. **တစ်သမတ်တည်းဖြစ်မှု**: ကိရိယာများနှင့် အဆုံးမျက်နှာများတစ်လျှောက် တစ်သမတ်တည်းဖြစ်သော၊ မျိုးစုံပုံစံ အတွေ့အကြုံများကို ရည်မှန်းပါ။ ဖြစ်နိုင်သလောက် ရင်းနှီးသည့် UI/UX အင်္ဂါရပ်များကို အသုံးပြုပါ (ဥပမာ - စကားသံ ဆက်သွယ်မှုအတွက် မိုက်ခရိုဖုန်းပုံ) နှင့် ဖောက်သည်၏ သိမြင်နားလည်မှုဝန်ထုပ်ဝန်ပိုးကို တတ်နိုင်သလောက် လျှော့ချပါ (ဥပမာ - တိုတောင်းသည့် တုံ့ပြန်ချက်များ၊ မြင်သာရသည့် အကူအညီများနှင့် 'ပိုမိုလေ့လာရန်' အကြောင်းအရာများကို ရည်မှန်းပါ)။
 
-Imagine you are designing a Travel Agent, here is how you could think about using the Design Principles and Guidelines:
+## ဤအခြေခံမူများနှင့် လမ်းညွှန်ချက်များကို အသုံးပြု၍ ခရီးသွားအေးဂျင့်ကို ဒီဇိုင်းပြုလုပ်နည်း
 
-1. **Transparency** – Let the user know that the Travel Agent is an AI-enabled Agent. Provide some basic instructions on how to get started (e.g., a “Hello” message, sample prompts). Clearly document this on the product page. Show the list of prompts a user has asked in the past. Make it clear how to give feedback (thumbs up and down, Send Feedback button, etc.). Clearly articulate if the Agent has usage or topic restrictions.
-2. **Control** – Make sure it’s clear how the user can modify the Agent after it’s been created with things like the System Prompt. Enable the user to choose how verbose the Agent is, its writing style, and any caveats on what the Agent should not talk about. Allow the user to view and delete any associated files or data, prompts, and past conversations.
-3. **Consistency** – Make sure the icons for Share Prompt, add a file or photo and tag someone or something are standard and recognizable. Use the paperclip icon to indicate file upload/sharing with the Agent, and an image icon to indicate graphics upload.
+သင်သည် ခရီးသွားအေးဂျင့်တစ်ခုကို ဒီဇိုင်းပြုလုပ်နေသည်ဟု စိတ်ကူးကြည့်ပါ၊ ဒီဇိုင်း အခြေခံမူများနှင့် လမ်းညွှန်ချက်များကို မည်သို့အသုံးပြုနိုင်သည်ကို တွေးတောနိုင်ပါသည် -
 
-## Additional Resources
+1. **ပွင့်လင်းမြင်သာမှု** – ခရီးသွားအေးဂျင့်သည် AI-စွမ်းဆောင်ရည်ရှိသည့် အေးဂျင့်ဖြစ်ကြောင်း အသုံးပြုသူအား အသိပေးပါ။ စတင်နည်းအတွက် အခြေခံညွှန်ကြားချက်များကို ပေးပါ (ဥပမာ - "မင်္ဂလာပါ" စာတိုက်၊ နမူနာ အညွှန်းများ)။ ထုတ်ကုန်စာမျက်နှာတွင် ရှင်းလင်းစွာ မှတ်တမ်းတင်ပါ။ အသုံးပြုသူက အတိတ်က မေးခဲ့သည့် အညွှန်းများ စာရင်းကို ပြပါ။ မည်သို့ တုံ့ပြန်ချက်ပေးရမည်ကို ရှင်းလင်းစေပါ (လက်မောင်းထောင်ခြင်းနှင့် နှိမ့်ခြင်း၊ တုံ့ပြန်ချက်ပို့ခြင်း ခလုတ် စသည်)။ အေးဂျင့်တွင် အသုံးပြုမှု သို့မဟုတ် အကြောင်းအရာ ကန့်သတ်ချက်များရှိလျှင် ရှင်းလင်းစွာ ဖော်ပြပါ။
+2. **ထိန်းချုပ်မှု** – System Prompt ကဲ့သို့သော အရာများဖြင့် အေးဂျင့်ကို ဖန်တီးပြီးနောက် အသုံးပြုသူက မည်သို့ပြုပြင်နိုင်သည်ကို ရှင်းလင်းစေပါ။ အေးဂျင့်သည် မည်မျှ အသေးစိတ်ဖြစ်ရမည်၊ ၎င်း၏ရေးသားပုံစံနှင့် အေးဂျင့်က မပြောသင့်သည့် အကြောင်းအရာများအတွက် မည်သည့်သတိပေးချက်များရှိသည်ကို အသုံးပြုသူ ရွေးချယ်နိုင်စေပါ။ အသုံးပြုသူအား သက်ဆိုင်ရာ ဖိုင်များ သို့မဟုတ် ဒေတာများ၊ အညွှန်းများနှင့် အတိတ်စကားပြောချက်များကို ကြည့်ရှုခြင်းနှင့် ဖျက်ပစ်နိုင်ခြင်းကို ခွင့်ပြုပါ။
+3. **တစ်သမတ်တည်းဖြစ်မှု** – Share Prompt၊ ဖိုင်သို့မဟုတ် ဓာတ်ပုံထည့်ခြင်း၊ နှင့် တစ်စုံတစ်ခုကို tag လုပ်ခြင်းအတွက် အိုင်ကွန်များသည် စံနှုန်းနှင့်ကိုက်ညီပြီး အသိအမှတ်ပြုနိုင်ရမည်။ Agent နှင့် ဖိုင်အပ်လုဒ်/မျှဝေခြင်းအတွက် paperclip အိုင်ကွန်ကို အသုံးပြုပြီး၊ ဂရပ်ဖစ်အပ်လုဒ်အတွက် image အိုင်ကွန်ကို အသုံးပြုပါ။
 
-- <a href="https://openai.com" target="_blank">Practices for Governing Agentic AI Systems | OpenAI</a>
-- <a href="https://microsoft.com" target="_blank">The HAX Toolkit Project - Microsoft Research</a>
-- <a href="https://responsibleaitoolbox.ai" target="_blank">Responsible AI Toolbox</a>
+## အပိုဆောင်း အရင်းအမြစ်များ
+- <a href="https://openai.com" target="_blank">Agentic AI စနစ်များကို စီမံခန့်ခွဲရန် အလေ့အကျင့်များ | OpenAI</a>
+- <a href="https://microsoft.com" target="_blank">HAX Toolkit ပရောဂျက် - Microsoft Research</a>
+- <a href="https://responsibleaitoolbox.ai" target="_blank">တာဝန်ယူမှုရှိသော AI ကိရိယာသေတ္တာ</a>
 
-## Previous Lesson
+## ယခင်သင်ခန်းစာ
+[Agentic Framework များကို လေ့လာခြင်း](../02-explore-agentic-frameworks/README.md)
 
-[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)
-
-## Next Lesson
-
+## နောက်သင်ခန်းစာ
 [Tool Use Design Pattern](../04-tool-use/README.md)
+
