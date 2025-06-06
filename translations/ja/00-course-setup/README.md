@@ -11,7 +11,7 @@ GitHubアカウント内で、
 
 `Fine-grained tokens` option on the left side of your screen.
 
-Then select `Generate new token`.
+次に、`Generate new token` を選択します。
 
 ![Generate Token](../../../translated_images/generate-token.361ec40abe59b84ac68d63c23e2b6854d6fad82bd4e41feb98fc0e6f030e8ef7.ja.png)
 
