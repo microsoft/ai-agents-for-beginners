@@ -53,19 +53,19 @@ CO_OP_TRANSLATOR_METADATA:
 ```bash
 pip install -r requirements.txt
 ```
-We recommend creating a Python virtual environment to avoid any conflicts and issues.
+競合や問題を回避するために、Python 仮想環境を作成することをお勧めします。
 
-## Set Up for Samples using GitHub Models 
+## GitHub モデルを使用したサンプルのセットアップ
 
-### Step 1: Retrieve Your GitHub Personal Access Token (PAT)
+### ステップ1：GitHubパーソナルアクセストークン（PAT）を取得する
 
-Currently, this course uses the GitHub Models Marketplace to offer free access to Large Language Models (LLMs) that will be used to create AI Agents.
+現在、このコースでは、GitHub モデル マーケットプレイスを使用して、AI エージェントの作成に使用される大規模言語モデル (LLM) への無料アクセスを提供しています。
 
-To access this service, you will need to create a GitHub Personal Access Token.
+このサービスにアクセスするには、GitHub 個人アクセス トークンを作成する必要があります。
 
-This can be done by going to your <a href="https://github.com/settings/personal-access-tokens" target="_blank">Personal Access Tokens settings</a> in your GitHub Account.
+これは、GitHub アカウントの <a href="https://github.com/settings/personal-access-tokens" target="_blank">Personal Access Tokens settings</a> に移動することで実行できます。
 
-Select the `Fine-grained tokens` option on the left side of your screen.
+画面の左側にある `Fine-grained tokens` オプションを選択します。
 
 Then select `Generate new token`.
 
