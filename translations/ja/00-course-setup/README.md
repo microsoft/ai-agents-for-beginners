@@ -15,7 +15,7 @@ Then select `Generate new token`.
 
 ![Generate Token](../../../translated_images/generate-token.361ec40abe59b84ac68d63c23e2b6854d6fad82bd4e41feb98fc0e6f030e8ef7.ja.png)
 
-You will be prompted to enter a name for your token, select the expiration date (Recommended: 30 Days), and select the scopes for your token (Public Repositories).
+トークンの名前を入力し、有効期限 (推奨: 30 日) を選択し、トークンのスコープ (パブリック リポジトリ) を選択するように求められます。
 
 Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
 
