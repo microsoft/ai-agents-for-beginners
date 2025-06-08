@@ -20,7 +20,7 @@ You will be prompted to enter a name for your token, select the expiration date 
 Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
 
 
-### Step 2: Create Your `.env` File
+### ステップ2: `.env` ファイルを作成する
 
 To create your `.env`ファイルに対して、ターミナルで次のコマンドを実行してください。
 
