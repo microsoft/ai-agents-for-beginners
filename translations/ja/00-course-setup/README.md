@@ -17,7 +17,7 @@ Then select `Generate new token`.
 
 You will be prompted to enter a name for your token, select the expiration date (Recommended: 30 Days), and select the scopes for your token (Public Repositories).
 
-Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
+作成した新しいトークンをコピーしてください。このトークンを、このコースに含まれる `.env` ファイルに追加します。
 
 
 ### Step 2: Create Your `.env` File
