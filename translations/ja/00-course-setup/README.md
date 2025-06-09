@@ -22,7 +22,7 @@ Copy your new token that you have just created. You will now add this to your `.
 
 ### Step 2: Create Your `.env` File
 
-To create your `.env`ファイルに対して、ターミナルで次のコマンドを実行してください。
+`.env` ファイルを作成するには、ターミナルで次のコマンドを実行します。
 
 ```bash
 cp .env.example .env
