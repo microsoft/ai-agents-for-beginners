@@ -54,7 +54,7 @@ To create your `.env`ファイルが作成されます。ターミナルで次�
 cp .env.example .env
 ```
 
-これにより、サンプルファイルがコピーされ、`.env` in your directory and where you fill in the values for the environment variables.
+これにより、サンプル ファイルがコピーされ、ディレクトリに `.env` が作成され、そこに環境変数の値が入力されます。
 
 With your token copied, open the `.env` file in your favorite text editor and paste your token into the `PROJECT_CONNECTION_STRING` field.
 
