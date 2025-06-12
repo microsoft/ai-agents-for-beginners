@@ -35,46 +35,64 @@
 [![Azure AI Discord](https://dcbadge.limes.pink/api/server/kzRShWzttr)](https://discord.gg/kzRShWzttr)
 
 
-## 🌱 Getting Started
+🧠 AI Agents for Beginners – Get Started the Easy Way!
+Welcome to AI Agents for Beginners, a hands-on course made to help anyone get started building intelligent AI agents, even if you’re totally new to the field.
 
-This course has 11 lessons covering the fundamentals of building AI Agents. Each lesson covers its own topic so start wherever you like!
+This course has 11 bite-sized lessons, each designed to be self-contained — you can start anywhere you like!
 
-There is multi-language support for this course. Go to our [available languages here](#-multi-language-support). 
+🌱 What You'll Learn
+Each lesson walks you through core concepts behind AI agents – think of agents as smart programs that can plan, reason, and take actions based on your goals. You’ll also learn how to:
 
-If this is your first time building with Generative AI models, check out our [Generative AI For Beginners](https://aka.ms/genai-beginners) course, which includes 21 lessons on building with GenAI.
+✅ Use AI agent design patterns
+✅ Work with free and enterprise AI tools
+✅ Understand real-world agent applications
+✅ Build your own agent-powered apps
 
-Don't forget to [star (🌟) this repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) and [fork this repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to run the code.
+🧰 What You Need (Don’t Worry — We’ll Help!)
+You don’t need to be a coding expert. Here’s what’s used in this course:
 
-### What You Need 
+🗂 Code Samples
+Each lesson includes Python code found in the code_samples folder. You can fork this repo (make your own editable copy) by clicking the Fork button on GitHub.
 
-Each lesson in this course includes code examples, which can be found in the code_samples folder. You can [fork this repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to create your own copy.  
+💡 Tip: If you’ve never forked a repo or used GitHub before, this guide walks you through it!
 
-The code example in these exercises, utilize Azure AI Foundry and GitHub Model Catalogs for interacting with Language Models:
+🛠 Tools & Services Used
+Tool	What It Is	Access
+GitHub Models	Pre-trained models you can use for free (with some limitations)	✅ Free
+Azure AI Foundry	Microsoft’s platform for building and running AI agents	💳 Azure account needed (some free credits available)
 
-- [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Free / Limited
-- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure Account Required
+You’ll also use Microsoft frameworks for building smart agents:
 
-This course also uses the following AI Agent frameworks and services from Microsoft:
+Azure AI Agent Service – Run agent apps at scale
 
-- [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
-- [Semantic Kernel](https://aka.ms/ai-agents-beginners/semantic-kernel)
-- [AutoGen](https://aka.ms/ai-agents/autogen)
+Semantic Kernel – Add memory, reasoning, and planning to agents
 
-For more information on running the code for this course, go to the [Course Setup](./00-course-setup/README.md).
+AutoGen – Build multi-agent workflows (agents that talk to each other)
 
-## 🙏 Want to help?
+💡 Beginner Tip: Don’t worry if these tools sound advanced — the course walks you through step-by-step how to use them.
 
-Do you have suggestions or found spelling or code errors? [Raise an issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) or [Create a pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+🚀 First Time Using Generative AI?
+We highly recommend starting with our Generative AI For Beginners course. It has 21 lessons that will give you a solid foundation in tools like ChatGPT and GPT models.
 
-If you get stuck or have any questions about building AI Agents, join our [Azure AI Foundry Community Discord](https://discord.gg/kzRShWzttr) 
+🔧 Course Setup
+Setting things up can be tricky the first time — but we’ve got your back. Follow the full setup guide here: Course Setup
+It includes:
 
-If you have product feedback or errors whilst building visit our [Azure AI Foundry Developer Forum](https://aka.ms/azureaifoundry/forum)
+Installing Python
 
-## 📂 Each lesson includes
+Creating a virtual environment
 
-- A written lesson located in the README and a short video
-- Python code samples supporting Azure AI Foundry and Github Models (Free)
-- Links to extra resources to continue your learning
+Connecting to Azure (if needed)
+
+Running your first code sample
+
+🧑‍🏫 Lesson Format
+Every lesson includes:
+
+✅ A written guide (in the README)
+🎥 A short video walkthrough
+💻 Python code (easy to modify)
+📚 Links to learn more
 
 
 ## 🗃️ Lessons
