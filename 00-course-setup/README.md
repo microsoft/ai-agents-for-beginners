@@ -35,6 +35,7 @@ Whichever option you choose, it will determine which setup steps you need to fol
 ## Requirements
 
 - Python 3.12+
+  - **NOTE**: If you don't have Python3.12 installed, ensure you install it.  Then create your venv using python3.12 to ensure the correct versions are installed from the requirements.txt file.
 - A GitHub Account - For Access to the GitHub Models Marketplace
 - Azure Subscription - For Access to Azure AI Foundry
 - Azure AI Foundry Account - For Access to the Azure AI Agent Service
@@ -47,6 +48,11 @@ You can install them by running the following command in your terminal at the ro
 pip install -r requirements.txt
 ```
 We recommend creating a Python virtual environment to avoid any conflicts and issues.
+
+## Setup VSCode
+Make sure that you are using the right version of Python in VSCode.
+
+![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
 ## Set Up for Samples using GitHub Models 
 
