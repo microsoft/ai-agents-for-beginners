@@ -58,23 +58,35 @@ Make sure that you are using the right version of Python in VSCode.
 
 ### Step 1: Retrieve Your GitHub Personal Access Token (PAT)
 
-Currently, this course uses the GitHub Models Marketplace to offer free access to Large Language Models (LLMs) that will be used to create AI Agents.
+This course leverages the GitHub Models Marketplace, providing free access to Large Language Models (LLMs) that you will use to build AI Agents.
 
-To access this service, you will need to create a GitHub Personal Access Token.
+To use the GitHub Models, you will need to create a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 This can be done by going to your <a href="https://github.com/settings/personal-access-tokens" target="_blank">Personal Access Tokens settings</a> in your GitHub Account.
 
-Select the `Fine-grained tokens` option on the left side of your screen.
+Please follow the [Principle of Least Privilege](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) when creating your token. This means you should only give the token the permissions it needs to run the code samples in this course.
 
-Then select `Generate new token`.
+1. Select the `Fine-grained tokens` option on the left side of your screen.
 
-![Generate Token](./images/generate-token.png)
+    Then select `Generate new token`.
 
-You will be prompted to enter a name for your token, select the expiration date (Recommended: 30 Days), and select the scopes for your token (Public Repositories).
+    ![Generate Token](./images/generate-new-token.png)
 
-It's also necessary to edit the permissions of this token: Permissions -> Models -> Allows access to GitHub Models
+1. Enter a descriptive name for your token that reflects its purpose, making it easy to identify later. Set an expiration date (recommended: 30 days; you can choose a shorter period like 7 days if you prefer a more secure posture.)
 
-Copy your new token that you have just created. You will now add this to your `.env` file included in this course. 
+    ![Token Name and Expiration](./images/token-name-expiry-date.png)
+
+1. Limit the token's scope to your fork of this repository.
+
+    ![Limit scope to fork repository](./images/select-fork-repository.png)
+
+1. Restrict the token's permissions: Under **Permissions**, toggle **Account Permissions**, traverse to **Models** and enable only the read-access required for GitHub Models.
+
+    ![Account Permissions](./images/account-permissions.png)
+
+    ![Models Read Access](./images/models-read-access.png)
+
+Copy your new token that you have just created. You will now add this to your `.env` file included in this course.
 
 
 ### Step 2: Create Your `.env` File
@@ -119,7 +131,7 @@ With your token copied, open the `.env` file in your favorite text editor and pa
 
 ### Step 3: Sign in to Azure
 
-As a security best practice, we'll use [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) to authenticate to Azure OpenAI with Microsoft Entra ID. Before you can do so, you'll first need to install the **Azure CLI** per the [installation instructions](https://learn.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academic-105485-koreyst) for your operating system.
+As a security best practice, we'll use [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) to authenticate to Azure OpenAI with Microsoft Entra ID. 
 
 Next, open a terminal and run `az login --use-device-code` to sign in to your Azure account.
 
