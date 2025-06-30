@@ -83,19 +83,19 @@ If you have product feedback or errors whilst building visit our [Azure AI Found
 
 | Language | README Link |
 |----------|-------------|
-| English | [README](README.md) |
-| Chinese (Simplified) | [translations/zh/README.md](./translations/zh/README.md) |
-| Chinese (Traditional) | [translations/tw/README.md](./translations/tw/README.md) |
-| Chinese (Hong Kong) | [translations/hk/README.md](./translations/hk/README.md) |
-| French | [translations/fr/README.md](./translations/fr/README.md) |
-| Japanese | [translations/ja/README.md](./translations/ja/README.md) |
-| Korean | [translations/ko/README.md](./translations/ko/README.md) |
-| Portuguese (Brazil) | [translations/pt/README.md](./translations/pt/README.md) |
-| Spanish | [translations/es/README.md](./translations/es/README.md) |
-| German | [translations/de/README.md](./translations/de/README.md) |
-| Persian | [translations/fa/README.md](./translations/fa/README.md) |
-| Polish | [translations/pl/README.md](./translations/pl/README.md) |
-| Hindi | [translations/hi/README.md](./translations/hi/README.md) |
+| English | [Link](README.md) |
+| Chinese (Simplified) | [Link](./translations/zh/README.md) |
+| Chinese (Traditional) | [Link](./translations/tw/README.md) |
+| Chinese (Hong Kong) | [Link](./translations/hk/README.md) |
+| French | [Link](./translations/fr/README.md) |
+| Japanese | [Link](./translations/ja/README.md) |
+| Korean | [Link](./translations/ko/README.md) |
+| Portuguese (Brazil) | [Link](./translations/pt/README.md) |
+| Spanish | [Link](./translations/es/README.md) |
+| German | [Link](./translations/de/README.md) |
+| Persian | [Link](./translations/fa/README.md) |
+| Polish | [Link](./translations/pl/README.md) |
+| Hindi | [Link](./translations/hi/README.md) |
 
 </details>
 
