@@ -80,6 +80,7 @@ If you have product feedback or errors whilst building visit our [Azure AI Found
 
 <details>
 <summary>Click to see available translations</summary>
+
 | Language | README Link |
 |----------|-------------|
 | English | [README](README.md) |
