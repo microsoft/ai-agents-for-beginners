@@ -14,19 +14,7 @@
 
 #### Supported via GitHub Action (Automated & Always Up-to-Date)
 
-[![English](https://img.shields.io/badge/English-brightgreen.svg?style=flat-square)](README.md)
-[![Chinese Simplified](https://img.shields.io/badge/Chinese_Simplified-brightgreen.svg?style=flat-square)](./translations/zh/README.md)
-[![Chinese Traditional](https://img.shields.io/badge/Chinese_Traditional-brightgreen.svg?style=flat-square)](./translations/tw/README.md)     
-[![Chinese Hong Kong](https://img.shields.io/badge/Chinese_Hong_Kong-brightgreen.svg?style=flat-square)](./translations/hk/README.md) 
-[![French](https://img.shields.io/badge/French-brightgreen.svg?style=flat-square)](./translations/fr/README.md)
-[![Japanese](https://img.shields.io/badge/Japanese-brightgreen.svg?style=flat-square)](./translations/ja/README.md) 
-[![Korean](https://img.shields.io/badge/Korean-brightgreen.svg?style=flat-square)](./translations/ko/README.md)
-[![Portuguese Brazilian](https://img.shields.io/badge/Portuguese_Brazilian-brightgreen.svg?style=flat-square)](./translations/pt/README.md)
-[![Spanish](https://img.shields.io/badge/Spanish-brightgreen.svg?style=flat-square)](./translations/es/README.md)
-[![German](https://img.shields.io/badge/German-brightgreen.svg?style=flat-square)](./translations/de/README.md)  
-[![Persian](https://img.shields.io/badge/Persian-brightgreen.svg?style=flat-square)](./translations/fa/README.md) 
-[![Polish](https://img.shields.io/badge/Polish-brightgreen.svg?style=flat-square)](./translations/pl/README.md) 
-[![Hindi](https://img.shields.io/badge/Hindi-brightgreen.svg?style=flat-square)](./translations/hi/README.md)
+
 
 [![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
@@ -96,6 +84,24 @@ If you have product feedback or errors whilst building visit our [Azure AI Found
 ### 🌐 Multi-Language Support
 
 #### Supported via GitHub Action (Automated & Always Up-to-Date)
+
+<details>
+<summary>Click to see available translations</summary>
+[![English](https://img.shields.io/badge/English-brightgreen.svg?style=flat-square)](README.md)
+[![Chinese Simplified](https://img.shields.io/badge/Chinese_Simplified-brightgreen.svg?style=flat-square)](./translations/zh/README.md)
+[![Chinese Traditional](https://img.shields.io/badge/Chinese_Traditional-brightgreen.svg?style=flat-square)](./translations/tw/README.md)     
+[![Chinese Hong Kong](https://img.shields.io/badge/Chinese_Hong_Kong-brightgreen.svg?style=flat-square)](./translations/hk/README.md) 
+[![French](https://img.shields.io/badge/French-brightgreen.svg?style=flat-square)](./translations/fr/README.md)
+[![Japanese](https://img.shields.io/badge/Japanese-brightgreen.svg?style=flat-square)](./translations/ja/README.md) 
+[![Korean](https://img.shields.io/badge/Korean-brightgreen.svg?style=flat-square)](./translations/ko/README.md)
+[![Portuguese Brazilian](https://img.shields.io/badge/Portuguese_Brazilian-brightgreen.svg?style=flat-square)](./translations/pt/README.md)
+[![Spanish](https://img.shields.io/badge/Spanish-brightgreen.svg?style=flat-square)](./translations/es/README.md)
+[![German](https://img.shields.io/badge/German-brightgreen.svg?style=flat-square)](./translations/de/README.md)  
+[![Persian](https://img.shields.io/badge/Persian-brightgreen.svg?style=flat-square)](./translations/fa/README.md) 
+[![Polish](https://img.shields.io/badge/Polish-brightgreen.svg?style=flat-square)](./translations/pl/README.md) 
+[![Hindi](https://img.shields.io/badge/Hindi-brightgreen.svg?style=flat-square)](./translations/hi/README.md)
+
+</details>
 #### If you wish to have additional translations languages supported are listed [here](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)
 
 ## 🎒 Other Courses
