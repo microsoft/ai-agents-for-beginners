@@ -80,19 +80,21 @@ If you have product feedback or errors whilst building visit our [Azure AI Found
 
 <details>
 <summary>Click to see available translations</summary>
-[![English](https://img.shields.io/badge/English-brightgreen.svg?style=flat-square)](README.md)
-[![Chinese Simplified](https://img.shields.io/badge/Chinese_Simplified-brightgreen.svg?style=flat-square)](./translations/zh/README.md)
-[![Chinese Traditional](https://img.shields.io/badge/Chinese_Traditional-brightgreen.svg?style=flat-square)](./translations/tw/README.md)     
-[![Chinese Hong Kong](https://img.shields.io/badge/Chinese_Hong_Kong-brightgreen.svg?style=flat-square)](./translations/hk/README.md) 
-[![French](https://img.shields.io/badge/French-brightgreen.svg?style=flat-square)](./translations/fr/README.md)
-[![Japanese](https://img.shields.io/badge/Japanese-brightgreen.svg?style=flat-square)](./translations/ja/README.md) 
-[![Korean](https://img.shields.io/badge/Korean-brightgreen.svg?style=flat-square)](./translations/ko/README.md)
-[![Portuguese Brazilian](https://img.shields.io/badge/Portuguese_Brazilian-brightgreen.svg?style=flat-square)](./translations/pt/README.md)
-[![Spanish](https://img.shields.io/badge/Spanish-brightgreen.svg?style=flat-square)](./translations/es/README.md)
-[![German](https://img.shields.io/badge/German-brightgreen.svg?style=flat-square)](./translations/de/README.md)  
-[![Persian](https://img.shields.io/badge/Persian-brightgreen.svg?style=flat-square)](./translations/fa/README.md) 
-[![Polish](https://img.shields.io/badge/Polish-brightgreen.svg?style=flat-square)](./translations/pl/README.md) 
-[![Hindi](https://img.shields.io/badge/Hindi-brightgreen.svg?style=flat-square)](./translations/hi/README.md)
+| Language | README Link |
+|----------|-------------|
+| English | [README](README.md) |
+| Chinese (Simplified) | [translations/zh/README.md](./translations/zh/README.md) |
+| Chinese (Traditional) | [translations/tw/README.md](./translations/tw/README.md) |
+| Chinese (Hong Kong) | [translations/hk/README.md](./translations/hk/README.md) |
+| French | [translations/fr/README.md](./translations/fr/README.md) |
+| Japanese | [translations/ja/README.md](./translations/ja/README.md) |
+| Korean | [translations/ko/README.md](./translations/ko/README.md) |
+| Portuguese (Brazil) | [translations/pt/README.md](./translations/pt/README.md) |
+| Spanish | [translations/es/README.md](./translations/es/README.md) |
+| German | [translations/de/README.md](./translations/de/README.md) |
+| Persian | [translations/fa/README.md](./translations/fa/README.md) |
+| Polish | [translations/pl/README.md](./translations/pl/README.md) |
+| Hindi | [translations/hi/README.md](./translations/hi/README.md) |
 
 </details>
 
