@@ -82,7 +82,7 @@ pip install --upgrade azure-ai-projects azure-identity python-dotenv openai
 TypeError: AIProjectClient.__init__() missing 3 required positional arguments: 'subscription_id', 'resource_group_name', and 'project_name'
 ```
 
-#### � 解決方法
+#### 解決方法
 
 **Step 1: SDKバージョンを確認**
 ```python
