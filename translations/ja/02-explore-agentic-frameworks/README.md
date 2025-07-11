@@ -283,6 +283,14 @@ AutoGenやSemantic Kernelのようなマルチエージェントオーケスト�
 
 現在パブリックプレビュー中で、PythonとC#でのエージェント構築をサポートしています。
 
+**重要**: Azure AI Projects Python SDK（`azure-ai-projects`）は急速に進化しており、v1.0.0b12以降で重要な変更があります：
+
+- API構造の変更：エージェント、スレッド、メッセージ、実行が独立したサブオブジェクトに分離
+- 必須パラメータの変更：`AIProjectClient`には明示的な`subscription_id`、`resource_group_name`、`project_name`が必要
+- ItemPagedオブジェクトの変更：`.data`属性が廃止され、直接イテレーションが必要
+
+これらの変更により、より明示的で堅牢なリソース管理が可能になりました。
+
 Semantic Kernel Pythonを使ってユーザー定義プラグイン付きのAzure AI Agentを作成する例：
 
 ```python
@@ -389,25 +397,57 @@ Azure AI Agent Serviceには以下のコアコンセプトがあります：
 
     この例では、`gpt-4o-mini`, a name `my-agent`, and instructions `You are helpful agent`モデルを使ってエージェントを作成し、コード解釈タスクを実行するためのツールとリソースを装備しています。
 
-- **スレッドとメッセージ**。スレッドはエージェントとユーザー間の会話やインタラクションを表す重要な概念です。スレッドは会話の進行状況を追跡し、コンテキスト情報を保存し、インタラクションの状態を管理します。スレッドの例：
+- **スレッドとメッセージ**。スレッドはエージェントとユーザー間の会話やインタラクションを表す重要な概念です。スレッドは会話の進行状況を追跡し、コンテキスト情報を保存し、インタラクションの状態を管理します。スレッドの例（最新SDK v1.0.0b12+対応）：
 
     ```python
-    thread = project_client.agents.create_thread()
-    message = project_client.agents.create_message(
+    # 最新SDKでは新しいAPI構造を使用
+    thread = project_client.agents.threads.create()
+    message = project_client.agents.messages.create(
         thread_id=thread.id,
         role="user",
         content="Could you please create a bar chart for the operating profit using the following data and provide the file to me? Company A: $1.2 million, Company B: $2.5 million, Company C: $3.0 million, Company D: $1.8 million",
     )
     
     # Ask the agent to perform work on the thread
-    run = project_client.agents.create_and_process_run(thread_id=thread.id, agent_id=agent.id)
+    run = project_client.agents.runs.create_and_process(thread_id=thread.id, agent_id=agent.id)
     
     # Fetch and log all messages to see the agent's response
-    messages = project_client.agents.list_messages(thread_id=thread.id)
-    print(f"Messages: {messages}")
+    # 注意: ItemPagedオブジェクトは直接イテレーション可能
+    messages_paged = project_client.agents.messages.list(thread_id=thread.id)
+    
+    # 推奨: 直接イテレーション（最新SDK対応）
+    for message in messages_paged:
+        print(f"Message: {message.role}: {message.content}")
+    
+    # または: リスト変換
+    messages_list = list(messages_paged)
+    print(f"Messages: {messages_list}")
     ```
 
-    上記コードではスレッドを作成し、その後スレッドにメッセージを送信しています。`create_and_process_run`を呼び出すことでエージェントにスレッド上での作業を依頼し、最後にメッセージを取得してエージェントの応答をログに記録します。メッセージはテキスト、画像、ファイルなど様々なタイプがあり、例えば画像やテキスト応答など、エージェントの作業結果を示します。開発者はこれらの情報を利用して応答をさらに処理したりユーザーに提示できます。
+    上記コードではスレッドを作成し、その後スレッドにメッセージを送信しています。**重要**: 最新のAzure AI Projects SDK (v1.0.0b12+) では、API構造が大幅に変更されています：
+    
+    **✅ 新API（推奨）**:
+    - `project_client.agents.threads.create()`
+    - `project_client.agents.messages.create()`
+    - `project_client.agents.runs.create_and_process()`
+    - `project_client.agents.messages.list()`
+    
+    **❌ 旧API（廃止）**:
+    - `agents.create_thread()` 
+    - `agents.create_message()` 
+    - `agents.create_and_process_run()` 
+    - `agents.list_messages()`
+    
+    また、`messages.list()`の戻り値は`ItemPaged`オブジェクトで、**.data属性は廃止**されました。直接イテレーション（`for msg in messages:`）または`list()`変換を使用してください。
+    
+    メッセージはテキスト、画像、ファイルなど様々なタイプがあり、例えば画像やテキスト応答など、エージェントの作業結果を示します。開発者はこれらの情報を利用して応答をさらに処理したりユーザーに提示できます。
+
+    **⚠️ マイグレーション注意点**:
+    - SDKバージョンv1.0.0b12以降では、`endpoint`と`credential`のみで初期化可能
+    - 以前のバージョンで必須だった`subscription_id`, `resource_group_name`, `project_name`は不要
+    - `TypeError: missing required positional arguments`エラーが出る場合は、SDKバージョンが古い可能性があります
+    - 環境変数の設定が不完全だと明確なエラーメッセージが表示されるよう改善されました
+    - 詳細は [Microsoft Learn - Azure AI Projects SDK](https://learn.microsoft.com/en-us/python/api/overview/azure/ai-projects-readme?view=azure-python-preview#key-concepts) を参照
 
 - **他のAIフレームワークとの統合**。Azure AI Agent ServiceはAutoGenやSemantic Kernelなど他のフレームワークと連携可能で、アプリの一部をこれらのフレームワークで構築し、Agent Serviceをオーケストレーターとして使うことや、Agent Serviceのみで全体を構築することもできます。
 
@@ -631,6 +671,73 @@ Semantic Kernelはエンタープライズ対応のAIオーケストレーショ
     ```
 
     ここでは、テンプレートプロンプト `
+
+## Azure AI Foundry Agent Service を試してみよう
+
+このレッスンでは、Azure AI Foundry Agent Service を実際に使用してエージェントを作成・実行します。
+
+### 前提条件
+
+- Azure サブスクリプション
+- [Azure AI Foundry プロジェクト](https://ai.azure.com/?cid=learnDocs) (作成済み)
+- プロジェクトスコープで **Azure AI User** RBAC ロールが割り当てられている
+- Azure CLI がインストール済みで `az login` でサインイン済み
+
+### 環境設定
+
+プロジェクトルートの `.env` ファイルに以下を設定：
+
+```bash
+# Azure AI Foundry プロジェクトエンドポイント（必須）
+PROJECT_ENDPOINT=https://YOUR-RESOURCE.services.ai.azure.com/api/projects/YOUR-PROJECT
+
+# Azure AI Foundry プロジェクト名（必須）
+AZURE_AI_PROJECT_NAME=YOUR-PROJECT-NAME
+
+# Azure リソース情報（必須）
+AZURE_SUBSCRIPTION_ID=YOUR-SUBSCRIPTION-ID
+AZURE_OPENAI_RESOURCE_GROUP=YOUR-RESOURCE-GROUP-NAME
+
+# モデルデプロイメント名（オプション - デフォルト: gpt-4o-mini）
+AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME=gpt-4o-mini
+```
+
+### サンプルコード実行
+
+[**02-azureaiagent.ipynb**](./code_samples/02-azureaiagent.ipynb) ノートブックを開き、以下の手順で実行してください：
+
+1. 必要なパッケージをインストール/アップデート
+2. 環境変数を読み込み・確認
+3. Azure AI Foundry プロジェクトに接続
+4. エージェントを作成・実行・クリーンアップ
+
+### 🔧 重要な注意点
+
+⚠️ **Azure AI Projects SDK v1.0.0b12+ の変更点**
+
+- **新API構造**: `project_client.agents.threads.create()`, `messages.create()`, `runs.create_and_process()`
+- **ItemPaged対応**: `.data` 属性の廃止、直接イテレーション推奨
+- **必須パラメータ**: `subscription_id`, `resource_group_name`, `project_name` が必須
+- **統一された環境変数**: リポジトリ全体で一貫した変数名を使用
+
+詳細なトラブルシューティング情報は [azureaiagent_troubleshooting.md](./code_samples/azureaiagent_troubleshooting.md) を参照してください。
+
+## 📖 参考資料
+
+**Azure AI Projects SDK および Azure AI Foundry の最新情報**：
+
+- **[MS Learn: Azure AI Projects Python SDK リファレンス](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)** - 公式SDK仕様とAPI リファレンス
+- **[MS Learn: Azure AI Foundry 開発者ガイド](https://learn.microsoft.com/azure/ai-foundry/how-to/)** - 詳細な開発ガイドとベストプラクティス
+- **[MS Learn: Azure AI Foundry クイックスタート](https://learn.microsoft.com/azure/ai-foundry/quickstarts/get-started-code)** - 初心者向けのセットアップガイド
+- **[GitHub: Azure SDK for Python - AI Projects](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-projects)** - SDKのソースコードと最新アップデート
+- **[GitHub: サンプルコードとチュートリアル](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-projects/samples)** - 実用的なコード例とサンプル
+
+**エージェント開発フレームワーク**：
+
+- **[AutoGen 公式ドキュメント](https://microsoft.github.io/autogen/)** - マルチエージェント会話フレームワーク
+- **[LangChain 公式ドキュメント](https://python.langchain.com/)** - LLMアプリケーション構築フレームワーク
+- **[Semantic Kernel 公式ドキュメント](https://learn.microsoft.com/semantic-kernel/)** - Microsoftのエージェント開発SDK
+
 ## 前のレッスン
 
 [AIエージェントとエージェントのユースケース入門](../01-intro-to-ai-agents/README.md)
