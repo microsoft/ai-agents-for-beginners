@@ -27,6 +27,7 @@
 [![Persian](https://img.shields.io/badge/Persian-brightgreen.svg?style=flat-square)](./translations/fa/README.md) 
 [![Polish](https://img.shields.io/badge/Polish-brightgreen.svg?style=flat-square)](./translations/pl/README.md) 
 [![Hindi](https://img.shields.io/badge/Hindi-brightgreen.svg?style=flat-square)](./translations/hi/README.md)
+[![Russian](https://img.shields.io/badge/Russian-brightgreen.svg?style=flat-square)](./translations/ru/README.md)
 
 [![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
