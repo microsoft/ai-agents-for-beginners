@@ -1,18 +1,22 @@
 autogen-agentchat
-autogen-core~=0.4.5
-autogen-ext==0.4.5
+autogen-core
+autogen-ext
 autogen-ext[azure]
+datasets
 azure-ai-inference~=1.0.0b9
 azure-ai-projects==1.0.0b11
 azure-search-documents>=11.5.2
 chainlit
 chromadb ~= 0.6.3
 ipykernel~=6.29.5
+langfuse
 mcp[cli]
 mistralai~=0.4.2
 openai
+openlit
 pillow==11.0.0
 python-dotenv~=1.0.1
+pandas
 semantic-kernel>=1.29.0
 semantic-kernel[azure]
 semantic-kernel[mcp]
