@@ -17,6 +17,7 @@ openlit
 pillow==11.0.0
 python-dotenv~=1.0.1
 pandas
+numpy
 semantic-kernel>=1.29.0
 semantic-kernel[azure]
 semantic-kernel[mcp]
