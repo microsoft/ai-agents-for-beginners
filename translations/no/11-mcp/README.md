@@ -1,31 +1,31 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bbce3572338711aeab758506379ab716",
-  "translation_date": "2025-07-12T13:48:34+00:00",
+  "original_hash": "e255edb8423b34b4bba20263ef38f208",
+  "translation_date": "2025-07-24T08:34:34+00:00",
   "source_file": "11-mcp/README.md",
   "language_code": "no"
 }
 -->
-# Lesson 11: Model Context Protocol (MCP) Integrasjon
+# Leksjon 11: Integrering av Model Context Protocol (MCP)
 
 ## Introduksjon til Model Context Protocol (MCP)
 
-Model Context Protocol (MCP) er en banebrytende rammeverk designet for å standardisere samhandling mellom AI-modeller og klientapplikasjoner. MCP fungerer som en bro mellom AI-modeller og applikasjonene som bruker dem, og tilbyr et konsistent grensesnitt uavhengig av den underliggende modellimplementeringen.
+Model Context Protocol (MCP) er et banebrytende rammeverk designet for å standardisere interaksjoner mellom AI-modeller og klientapplikasjoner. MCP fungerer som en bro mellom AI-modeller og applikasjonene som bruker dem, og gir et konsistent grensesnitt uavhengig av den underliggende modellimplementasjonen.
 
-Viktige aspekter ved MCP:
+Hovedaspekter ved MCP:
 
-- **Standardisert kommunikasjon**: MCP etablerer et felles språk for applikasjoner å kommunisere med AI-modeller
-- **Forbedret kontekststyring**: Gjør det mulig å effektivt overføre kontekstuell informasjon til AI-modeller
-- **Tverrplattform-kompatibilitet**: Fungerer på tvers av flere programmeringsspråk, inkludert C#, Java, JavaScript, Python og TypeScript
-- **Sømløs integrasjon**: Gjør det enkelt for utviklere å integrere ulike AI-modeller i sine applikasjoner
+- **Standardisert kommunikasjon**: MCP etablerer et felles språk for applikasjoner som kommuniserer med AI-modeller
+- **Forbedret konteksthåndtering**: Muliggjør effektiv overføring av kontekstuell informasjon til AI-modeller
+- **Plattformuavhengig kompatibilitet**: Fungerer på tvers av ulike programmeringsspråk, inkludert C#, Java, JavaScript, Python og TypeScript
+- **Sømløs integrering**: Gjør det enkelt for utviklere å integrere ulike AI-modeller i applikasjonene sine
 
-MCP er spesielt verdifull i utvikling av AI-agenter, da det lar agenter samhandle med ulike systemer og datakilder gjennom en enhetlig protokoll, noe som gjør agentene mer fleksible og kraftfulle.
+MCP er spesielt verdifull i utviklingen av AI-agenter, da det lar agenter samhandle med ulike systemer og datakilder gjennom en enhetlig protokoll, noe som gjør agentene mer fleksible og kraftige.
 
 ## Læringsmål
-- Forstå hva MCP er og hvilken rolle det har i utvikling av AI-agenter
-- Sette opp og konfigurere en MCP-server for GitHub-integrasjon
-- Bygge et multi-agent system ved hjelp av MCP-verktøy
+- Forstå hva MCP er og dens rolle i utviklingen av AI-agenter
+- Sette opp og konfigurere en MCP-server for integrasjon med GitHub
+- Bygge et multi-agent-system ved hjelp av MCP-verktøy
 - Implementere RAG (Retrieval Augmented Generation) med Azure Cognitive Search
 
 ## Forutsetninger
@@ -35,7 +35,7 @@ MCP er spesielt verdifull i utvikling av AI-agenter, da det lar agenter samhandl
 - GitHub-konto
 - Grunnleggende forståelse av Semantic Kernel
 
-## Oppsettinstruksjoner
+## Oppsettsinstruksjoner
 
 1. **Miljøoppsett**
    ```bash
@@ -49,7 +49,7 @@ MCP er spesielt verdifull i utvikling av AI-agenter, da det lar agenter samhandl
    - Sett opp Azure OpenAI-tjenesten
    - Konfigurer miljøvariabler i `.env`
 
-3. **MCP Server-oppsett**
+3. **MCP-serveroppsett**
    ```bash
    npm install -g @modelcontextprotocol/server-github
    ```
@@ -59,25 +59,29 @@ MCP er spesielt verdifull i utvikling av AI-agenter, da det lar agenter samhandl
 ```
 11-mcp/
 ├── code_samples/
-│   └── github-mcp/
-│       ├── app.py              # Main application
-│       ├── event-descriptions.md  # Event data
-│       └── MCP_SETUP.md        # Setup guide
+│   ├── github-mcp/
+│   │   ├── app.py              # Main application
+│   │   ├── event-descriptions.md  # Event data
+│   │   └── MCP_SETUP.md        # Setup guide
+│   └── mcp-agents/             # Agent-to-agent communication
+│       ├── client/             # MCP client implementation
+│       ├── server/             # MCP server with agents
+│       └── README.md           # Advanced agent examples
 ├── README.md
 └── requirements.txt
 ```
 
 ## Kjernekomponenter
 
-### 1. Multi-Agent System
-- GitHub Agent: Repository-analyse
-- Hackathon Agent: Prosjektanbefalinger
-- Events Agent: Forslag til teknologiske arrangementer
+### 1. Multi-agent-system
+- GitHub-agent: Analyse av repositorier
+- Hackathon-agent: Prosjektanbefalinger
+- Event-agent: Forslag til teknologiske arrangementer
 
 ### 2. Azure-integrasjon
 - Cognitive Search for indeksering av arrangementer
 - Azure OpenAI for agentintelligens
-- Implementering av RAG-mønsteret
+- Implementering av RAG-mønster
 
 ### 3. MCP-verktøy
 - Analyse av GitHub-repositorier
@@ -86,21 +90,21 @@ MCP er spesielt verdifull i utvikling av AI-agenter, da det lar agenter samhandl
 
 ## Gjennomgang av kode
 
-Eksempelet viser:
-1. MCP-serverintegrasjon
-2. Orkestrering av multi-agent system
+Eksemplet demonstrerer:
+1. Integrering av MCP-server
+2. Orkestrering av multi-agenter
 3. Integrasjon med Azure Cognitive Search
-4. Implementering av RAG-mønsteret
+4. Implementering av RAG-mønster
 
 Nøkkelfunksjoner:
 - Sanntidsanalyse av GitHub-repositorier
 - Intelligente prosjektanbefalinger
-- Arrangementmatching ved bruk av Azure Search
+- Matching av arrangementer ved hjelp av Azure Search
 - Strømming av svar med Chainlit
 
-## Kjøre eksempelet
+## Kjøre eksemplet
 
-For detaljerte oppsettinstruksjoner og mer informasjon, se [Github MCP Server Example README](./code_samples/github-mcp/README.md).
+For detaljerte oppsettsinstruksjoner og mer informasjon, se [Github MCP Server Example README](./code_samples/github-mcp/README.md).
 
 1. Start MCP-serveren:
    ```bash
@@ -121,26 +125,27 @@ For detaljerte oppsettinstruksjoner og mer informasjon, se [Github MCP Server Ex
 
 Vanlige problemer og løsninger:
 1. MCP-tilkoblingsproblemer
-   - Sjekk at serveren kjører
-   - Kontroller at porten er tilgjengelig
+   - Bekreft at serveren kjører
+   - Sjekk porttilgjengelighet
    - Bekreft GitHub-tokens
 
-2. Azure Search-problemer
+2. Problemer med Azure Search
    - Valider tilkoblingsstrenger
-   - Sjekk at indeksen eksisterer
+   - Sjekk om indeksen eksisterer
    - Bekreft opplasting av dokumenter
 
 ## Neste steg
 - Utforsk flere MCP-verktøy
-- Implementer egendefinerte agenter
+- Implementer tilpassede agenter
 - Forbedre RAG-funksjonalitet
-- Legg til flere arrangementskilder
+- Legg til flere datakilder for arrangementer
+- **Avansert**: Sjekk ut [mcp-agents/](../../../11-mcp/code_samples/mcp-agents) for eksempler på kommunikasjon mellom agenter
 
 ## Ressurser
-- [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
-- [MCP Documentation](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
-- [Azure Cognitive Search Docs](https://learn.microsoft.com/azure/search/)
-- [Semantic Kernel Guides](https://learn.microsoft.com/semantic-kernel/)
+- [MCP for nybegynnere](https://aka.ms/mcp-for-beginners)  
+- [MCP-dokumentasjon](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
+- [Azure Cognitive Search-dokumentasjon](https://learn.microsoft.com/azure/search/)
+- [Semantic Kernel-guider](https://learn.microsoft.com/semantic-kernel/)
 
 **Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vennligst vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet på originalspråket skal anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi tilstreber nøyaktighet, vennligst vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på sitt opprinnelige språk bør anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.

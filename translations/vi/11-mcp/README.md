@@ -1,31 +1,31 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bbce3572338711aeab758506379ab716",
-  "translation_date": "2025-07-12T13:49:15+00:00",
+  "original_hash": "e255edb8423b34b4bba20263ef38f208",
+  "translation_date": "2025-07-24T08:44:53+00:00",
   "source_file": "11-mcp/README.md",
   "language_code": "vi"
 }
 -->
-# Bài học 11: Tích hợp Model Context Protocol (MCP)
+# Bài học 11: Tích hợp Giao thức Ngữ cảnh Mô hình (MCP)
 
-## Giới thiệu về Model Context Protocol (MCP)
+## Giới thiệu về Giao thức Ngữ cảnh Mô hình (MCP)
 
-Model Context Protocol (MCP) là một khung công tác tiên tiến được thiết kế để chuẩn hóa các tương tác giữa các mô hình AI và ứng dụng khách. MCP đóng vai trò như cầu nối giữa các mô hình AI và các ứng dụng sử dụng chúng, cung cấp một giao diện nhất quán bất kể cách triển khai mô hình bên dưới.
+Giao thức Ngữ cảnh Mô hình (MCP) là một khung làm việc tiên tiến được thiết kế để chuẩn hóa các tương tác giữa các mô hình AI và ứng dụng khách. MCP đóng vai trò như một cầu nối giữa các mô hình AI và các ứng dụng sử dụng chúng, cung cấp một giao diện nhất quán bất kể cách triển khai mô hình bên dưới.
 
-Các điểm chính của MCP:
+Các khía cạnh chính của MCP:
 
-- **Giao tiếp chuẩn hóa**: MCP thiết lập một ngôn ngữ chung để các ứng dụng giao tiếp với mô hình AI
-- **Quản lý ngữ cảnh nâng cao**: Cho phép truyền thông tin ngữ cảnh hiệu quả đến các mô hình AI
-- **Tương thích đa nền tảng**: Hoạt động trên nhiều ngôn ngữ lập trình như C#, Java, JavaScript, Python và TypeScript
-- **Tích hợp liền mạch**: Giúp các nhà phát triển dễ dàng tích hợp các mô hình AI khác nhau vào ứng dụng của họ
+- **Giao tiếp Chuẩn hóa**: MCP thiết lập một ngôn ngữ chung để các ứng dụng giao tiếp với các mô hình AI
+- **Quản lý Ngữ cảnh Nâng cao**: Cho phép truyền tải thông tin ngữ cảnh hiệu quả đến các mô hình AI
+- **Tương thích Đa nền tảng**: Hoạt động trên nhiều ngôn ngữ lập trình khác nhau bao gồm C#, Java, JavaScript, Python và TypeScript
+- **Tích hợp Mượt mà**: Giúp các nhà phát triển dễ dàng tích hợp các mô hình AI khác nhau vào ứng dụng của họ
 
-MCP đặc biệt hữu ích trong phát triển agent AI vì nó cho phép các agent tương tác với nhiều hệ thống và nguồn dữ liệu khác nhau thông qua một giao thức thống nhất, giúp các agent linh hoạt và mạnh mẽ hơn.
+MCP đặc biệt hữu ích trong phát triển các tác nhân AI vì nó cho phép các tác nhân tương tác với nhiều hệ thống và nguồn dữ liệu thông qua một giao thức thống nhất, làm cho các tác nhân trở nên linh hoạt và mạnh mẽ hơn.
 
 ## Mục tiêu học tập
-- Hiểu MCP là gì và vai trò của nó trong phát triển agent AI
-- Thiết lập và cấu hình server MCP cho tích hợp GitHub
-- Xây dựng hệ thống đa agent sử dụng công cụ MCP
+- Hiểu MCP là gì và vai trò của nó trong phát triển tác nhân AI
+- Thiết lập và cấu hình máy chủ MCP để tích hợp với GitHub
+- Xây dựng hệ thống đa tác nhân bằng các công cụ MCP
 - Triển khai RAG (Retrieval Augmented Generation) với Azure Cognitive Search
 
 ## Yêu cầu trước
@@ -47,9 +47,9 @@ MCP đặc biệt hữu ích trong phát triển agent AI vì nó cho phép các
 2. **Cấu hình dịch vụ Azure**
    - Tạo tài nguyên Azure Cognitive Search
    - Thiết lập dịch vụ Azure OpenAI
-   - Cấu hình biến môi trường trong `.env`
+   - Cấu hình các biến môi trường trong tệp `.env`
 
-3. **Thiết lập server MCP**
+3. **Thiết lập máy chủ MCP**
    ```bash
    npm install -g @modelcontextprotocol/server-github
    ```
@@ -59,55 +59,59 @@ MCP đặc biệt hữu ích trong phát triển agent AI vì nó cho phép các
 ```
 11-mcp/
 ├── code_samples/
-│   └── github-mcp/
-│       ├── app.py              # Main application
-│       ├── event-descriptions.md  # Event data
-│       └── MCP_SETUP.md        # Setup guide
+│   ├── github-mcp/
+│   │   ├── app.py              # Main application
+│   │   ├── event-descriptions.md  # Event data
+│   │   └── MCP_SETUP.md        # Setup guide
+│   └── mcp-agents/             # Agent-to-agent communication
+│       ├── client/             # MCP client implementation
+│       ├── server/             # MCP server with agents
+│       └── README.md           # Advanced agent examples
 ├── README.md
 └── requirements.txt
 ```
 
-## Các thành phần chính
+## Các thành phần cốt lõi
 
-### 1. Hệ thống đa agent
-- GitHub Agent: Phân tích kho lưu trữ
-- Hackathon Agent: Đề xuất dự án
-- Events Agent: Gợi ý sự kiện công nghệ
+### 1. Hệ thống Đa Tác nhân
+- Tác nhân GitHub: Phân tích kho lưu trữ
+- Tác nhân Hackathon: Đề xuất dự án
+- Tác nhân Sự kiện: Gợi ý sự kiện công nghệ
 
 ### 2. Tích hợp Azure
 - Cognitive Search để lập chỉ mục sự kiện
-- Azure OpenAI cho trí tuệ agent
+- Azure OpenAI để cung cấp trí thông minh cho tác nhân
 - Triển khai mô hình RAG
 
 ### 3. Công cụ MCP
 - Phân tích kho lưu trữ GitHub
 - Kiểm tra mã nguồn
-- Trích xuất metadata
+- Trích xuất siêu dữ liệu
 
-## Giải thích mã nguồn
+## Hướng dẫn mã
 
 Ví dụ minh họa:
-1. Tích hợp server MCP
-2. Điều phối đa agent
+1. Tích hợp máy chủ MCP
+2. Điều phối đa tác nhân
 3. Tích hợp Azure Cognitive Search
 4. Triển khai mô hình RAG
 
 Các tính năng chính:
 - Phân tích kho lưu trữ GitHub theo thời gian thực
 - Đề xuất dự án thông minh
-- Ghép sự kiện bằng Azure Search
-- Phản hồi streaming với Chainlit
+- Ghép nối sự kiện bằng Azure Search
+- Phản hồi theo luồng với Chainlit
 
 ## Chạy ví dụ
 
-Để biết hướng dẫn thiết lập chi tiết và thông tin thêm, tham khảo [Github MCP Server Example README](./code_samples/github-mcp/README.md).
+Để biết hướng dẫn thiết lập chi tiết và thêm thông tin, tham khảo [Github MCP Server Example README](./code_samples/github-mcp/README.md).
 
-1. Khởi động server MCP:
+1. Khởi động máy chủ MCP:
    ```bash
    npx @modelcontextprotocol/server-github
    ```
 
-2. Khởi chạy ứng dụng:
+2. Mở ứng dụng:
    ```bash
    chainlit run app.py -w
    ```
@@ -117,30 +121,31 @@ Các tính năng chính:
    Example query: "Analyze repositories for username: <github_username>"
    ```
 
-## Khắc phục sự cố
+## Xử lý sự cố
 
 Các vấn đề thường gặp và cách giải quyết:
-1. Sự cố kết nối MCP
-   - Kiểm tra server đã chạy chưa
-   - Kiểm tra cổng có sẵn
+1. Vấn đề kết nối MCP
+   - Kiểm tra xem máy chủ đã chạy chưa
+   - Kiểm tra cổng có sẵn không
    - Xác nhận token GitHub
 
-2. Sự cố Azure Search
-   - Xác thực chuỗi kết nối
+2. Vấn đề với Azure Search
+   - Xác minh chuỗi kết nối
    - Kiểm tra sự tồn tại của chỉ mục
-   - Xác nhận tải tài liệu thành công
+   - Xác nhận việc tải tài liệu lên
 
 ## Bước tiếp theo
-- Khám phá thêm công cụ MCP
-- Triển khai agent tùy chỉnh
+- Khám phá thêm các công cụ MCP
+- Triển khai các tác nhân tùy chỉnh
 - Nâng cao khả năng RAG
 - Thêm nhiều nguồn sự kiện hơn
+- **Nâng cao**: Xem [mcp-agents/](../../../11-mcp/code_samples/mcp-agents) để tìm hiểu ví dụ về giao tiếp giữa các tác nhân
 
 ## Tài nguyên
-- [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
-- [MCP Documentation](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
-- [Azure Cognitive Search Docs](https://learn.microsoft.com/azure/search/)
-- [Semantic Kernel Guides](https://learn.microsoft.com/semantic-kernel/)
+- [MCP cho người mới bắt đầu](https://aka.ms/mcp-for-beginners)  
+- [Tài liệu MCP](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
+- [Tài liệu Azure Cognitive Search](https://learn.microsoft.com/azure/search/)
+- [Hướng dẫn Semantic Kernel](https://learn.microsoft.com/semantic-kernel/)
 
-**Tuyên bố từ chối trách nhiệm**:  
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ gốc của nó nên được coi là nguồn chính xác và đáng tin cậy. Đối với các thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp do con người thực hiện. Chúng tôi không chịu trách nhiệm về bất kỳ sự hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
+**Tuyên bố miễn trừ trách nhiệm**:  
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ bản địa nên được coi là nguồn tham khảo chính thức. Đối với các thông tin quan trọng, chúng tôi khuyến nghị sử dụng dịch vụ dịch thuật chuyên nghiệp từ con người. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.

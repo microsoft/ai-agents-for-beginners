@@ -1,178 +1,195 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "76945069b52a49cd0432ae3e0b0ba22e",
-  "translation_date": "2025-07-12T07:59:05+00:00",
+  "original_hash": "c6a79c8f2b56a80370ff7e447765524f",
+  "translation_date": "2025-07-24T09:13:01+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "my"
 }
 -->
-သင်၏ GitHub အကောင့်တွင်ရှိသော သင်၏ ကိုယ်ပိုင် fork လုပ်ထားသော ဤသင်တန်း၏ ဗားရှင်းကို အောက်ပါလင့်ခ်တွင် ရရှိထားပြီဖြစ်သည်။
+# သင်ခန်းစာ စတင်ခြင်း
+
+## နိဒါန်း
+
+ဒီသင်ခန်းစာမှာ သင်ခန်းစာရဲ့ ကုဒ်နမူနာတွေကို ဘယ်လိုလုပ်ဆောင်ရမယ်ဆိုတာကို ဖော်ပြပေးမှာပါ။
+
+## ဒီ Repo ကို Clone လုပ်ပါ သို့မဟုတ် Fork လုပ်ပါ
+
+စတင်ရန်အတွက် GitHub Repository ကို Clone လုပ်ပါ သို့မဟုတ် Fork လုပ်ပါ။ ဒါက သင့်ကိုယ်ပိုင် သင်ခန်းစာအကြောင်းအရာကို ရရှိစေပြီး ကုဒ်ကို လုပ်ဆောင်၊ စမ်းသပ်၊ ပြင်ဆင်နိုင်စေမှာပါ။
+
+ဒါကို လင့်ခ်ကို နှိပ်ခြင်းဖြင့် ပြုလုပ်နိုင်ပါတယ်။
 
 ![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.my.png)
 
-## ကုဒ်များကို လည်ပတ်ခြင်း
+## ကုဒ်ကို လုပ်ဆောင်ခြင်း
 
-ဤသင်တန်းတွင် Jupyter Notebooks များစွာ ပါဝင်ပြီး၊ AI Agent များ တည်ဆောက်ရာတွင် လက်တွေ့ကျကျ လေ့လာနိုင်ရန် အတွက် အသုံးပြုနိုင်ပါသည်။
+ဒီသင်ခန်းစာမှာ AI Agents တည်ဆောက်ဖို့ လက်တွေ့အတွေ့အကြုံရရှိစေမယ့် Jupyter Notebooks များပါဝင်ပါတယ်။
 
-ကုဒ်နမူနာများသည် အောက်ပါအတိုင်း အသုံးပြုသည် -
+ကုဒ်နမူနာတွေမှာ အောက်ပါအတိုင်း အသုံးပြုထားပါတယ် -
 
-**GitHub အကောင့် လိုအပ်သည် - အခမဲ့**:
+**GitHub အကောင့်လိုအပ်သည် - အခမဲ့**:
 
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace။ (semantic-kernel.ipynb) ဟု အမည်ပေးထားသည်။
-2) AutoGen Framework + GitHub Models Marketplace။ (autogen.ipynb) ဟု အမည်ပေးထားသည်။
+1) Semantic Kernel Agent Framework + GitHub Models Marketplace (semantic-kernel.ipynb)  
+2) AutoGen Framework + GitHub Models Marketplace (autogen.ipynb)
 
 **Azure Subscription လိုအပ်သည်**:
-3) Azure AI Foundry + Azure AI Agent Service။ (azureaiagent.ipynb) ဟု အမည်ပေးထားသည်။
+3) Azure AI Foundry + Azure AI Agent Service (azureaiagent.ipynb)
 
-သင်အကြံပြုလိုသည်မှာ ဤနမူနာသုံးမျိုးအားလုံးကို စမ်းသပ်ကြည့်ပြီး သင့်အတွက် အကောင်းဆုံးဖြစ်သော နည်းလမ်းကို ရွေးချယ်ရန် ဖြစ်သည်။
+သုံးမျိုးလုံးကို စမ်းသပ်ကြည့်ဖို့ အကြံပြုပါတယ်၊ ဘယ်ဟာက သင့်အတွက် အကောင်းဆုံးဖြစ်မလဲဆိုတာ သိနိုင်ဖို့ပါ။
 
-သင်ရွေးချယ်သည့် နည်းလမ်းအပေါ် မူတည်၍ အောက်ပါ စတင်ဆောင်ရွက်ရန် အဆင့်များကို လိုက်နာရမည်ဖြစ်သည်။
+သင်ရွေးချယ်မည့် အခွင့်အလမ်းအပေါ်မူတည်ပြီး အောက်ပါအဆင့်များကို လိုက်နာရပါမည်။
 
 ## လိုအပ်ချက်များ
 
-- Python 3.12+
-  - **NOTE**: Python3.12 မရှိသေးပါက ထည့်သွင်းပါ။ ထို့နောက် python3.12 ဖြင့် venv ကို ဖန်တီး၍ requirements.txt ဖိုင်မှ လိုအပ်သော ဗားရှင်းများကို တိကျစွာ ထည့်သွင်းနိုင်ပါစေ။
-- GitHub အကောင့် - GitHub Models Marketplace သို့ ဝင်ရောက်ရန်
-- Azure Subscription - Azure AI Foundry သို့ ဝင်ရောက်ရန်
-- Azure AI Foundry အကောင့် - Azure AI Agent Service သို့ ဝင်ရောက်ရန်
+- Python 3.12+  
+  - **မှတ်ချက်**: Python3.12 မရှိပါက သင့်စက်တွင် Python3.12 ကို ထည့်သွင်းပါ။ ပြီးလျှင် requirements.txt ဖိုင်မှ သင့်အတွက်လိုအပ်သော ဗားရှင်းများကို ထည့်သွင်းရန် python3.12 ကို အသုံးပြု၍ venv ဖန်တီးပါ။
+- GitHub အကောင့် - GitHub Models Marketplace ကို အသုံးပြုရန်
+- Azure Subscription - Azure AI Foundry ကို အသုံးပြုရန်
+- Azure AI Foundry အကောင့် - Azure AI Agent Service ကို အသုံးပြုရန်
 
-ဤ repository ၏ root တွင် `requirements.txt` ဖိုင်ပါဝင်ပြီး ကုဒ်နမူနာများ လည်ပတ်ရန် လိုအပ်သော Python package များအားလုံး ပါဝင်သည်။
+ဒီ Repository ရဲ့ အခြေခံတွင် `requirements.txt` ဖိုင်ကို ထည့်သွင်းထားပြီး ကုဒ်နမူနာများကို လုပ်ဆောင်ရန် လိုအပ်သော Python packages များပါဝင်သည်။
 
-repository ၏ root တွင် terminal ဖြင့် အောက်ပါ command ကို အသုံးပြု၍ ထည့်သွင်းနိုင်ပါသည်။
+အောက်ပါ command ကို သင့် terminal တွင် Repository ရဲ့ အခြေခံတွင် ရိုက်ထည့်ခြင်းဖြင့် ထည့်သွင်းနိုင်သည် -
 
 ```bash
 pip install -r requirements.txt
-```
+```  
+Python virtual environment တစ်ခု ဖန်တီးခြင်းအား အကြံပြုပါသည်၊ ဒါက အချင်းချင်း မတူညီမှုများနှင့် ပြဿနာများကို ရှောင်ရှားနိုင်စေပါမည်။
 
-ပြဿနာများနှင့် မတည့်မှုများ ရှောင်ရှားရန် Python virtual environment တစ်ခု ဖန်တီးရန် အကြံပြုပါသည်။
-
-## VSCode ကို စတင်ပြင်ဆင်ခြင်း
-
-VSCode တွင် သင့်အသုံးပြုမည့် Python ဗားရှင်းမှန်ကန်ကြောင်း သေချာစေပါ။
+## VSCode ကို ပြင်ဆင်ပါ
+VSCode တွင် Python ရဲ့ မှန်ကန်သော ဗားရှင်းကို အသုံးပြုနေကြောင်း သေချာပါစေ။
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## GitHub Models အသုံးပြု၍ နမူနာများ ပြင်ဆင်ခြင်း
+## GitHub Models ကို အသုံးပြုသော နမူနာများအတွက် ပြင်ဆင်ခြင်း
 
-### အဆင့် ၁: GitHub Personal Access Token (PAT) ရယူခြင်း
+### အဆင့် ၁: GitHub Personal Access Token (PAT) ကို ရယူပါ
 
-ယခုသင်တန်းတွင် GitHub Models Marketplace ကို အသုံးပြု၍ AI Agent များ ဖန်တီးရာတွင် အသုံးပြုမည့် Large Language Models (LLMs) များ အခမဲ့ ဝင်ရောက်အသုံးပြုနိုင်ပါသည်။
+ဒီသင်ခန်းစာမှာ GitHub Models Marketplace ကို အသုံးပြုထားပြီး သင် AI Agents တည်ဆောက်ဖို့ အသုံးပြုမည့် Large Language Models (LLMs) များကို အခမဲ့ရရှိစေပါသည်။
 
-ဤဝန်ဆောင်မှုကို အသုံးပြုရန် GitHub Personal Access Token တစ်ခု ဖန်တီးရမည်ဖြစ်သည်။
+GitHub Models ကို အသုံးပြုရန် [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) တစ်ခု ဖန်တီးရန် လိုအပ်ပါမည်။
 
-GitHub အကောင့်တွင် သွား၍
+ဒါကို သင့် GitHub အကောင့်တွင် ပြုလုပ်နိုင်ပါသည်။
 
-`Fine-grained tokens` ကို မျက်နှာပြင် ဘယ်ဘက်တွင် ရွေးချယ်ပါ။
+[Principle of Least Privilege](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) ကို လိုက်နာပါ။ ဒါက သင့် token ကို ဒီသင်ခန်းစာရဲ့ ကုဒ်နမူနာများကို လုပ်ဆောင်ရန် လိုအပ်သော ခွင့်ပြုချက်များပဲ ပေးရန် ဆိုလိုသည်။
 
-ထို့နောက် `Generate new token` ကို ရွေးချယ်ပါ။
+1. မျက်နှာပြင်၏ ဘယ်ဘက်တွင် `Fine-grained tokens` ကို ရွေးပါ။  
+   ပြီးလျှင် `Generate new token` ကို ရွေးပါ။
 
-![Generate Token](../../../translated_images/generate-token.9748d7585dd004cb4119b5aac724baff49c3a85791701b5e8ba3274b037c5b66.my.png)
+   ![Generate Token](../../../translated_images/generate-new-token.8772e24e8e2e067f2e6742500eaf68bb5c5f8999537bd79a040d2ecc09c7fdcb.my.png)
 
-Token အမည်၊ သက်တမ်းကုန်ဆုံးရက် (အကြံပြုချက် - ၃၀ ရက်) နှင့် token ၏ scopes (Public Repositories) များကို ထည့်သွင်းရန် တောင်းဆိုပါမည်။
+2. သင့် token ရဲ့ ရည်ရွယ်ချက်ကို ဖော်ပြသည့် အမည်တစ်ခု ထည့်ပါ။ သက်တမ်းကုန်ရက်ကို သတ်မှတ်ပါ (အကြံပြုချက်: ၃၀ ရက်၊ သို့မဟုတ် ၇ ရက်လို အတိုချုံးထားလျှင် ပိုမိုလုံခြုံပါသည်)။
 
-ထို့အပြင် token ၏ ခွင့်ပြုချက်များကို ပြင်ဆင်ရန် လိုအပ်သည်။ Permissions -> Models -> GitHub Models သို့ ဝင်ရောက်ခွင့် ပေးပါ။
+   ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.my.png)
 
-သင်ဖန်တီးထားသော token ကို ကူးယူပါ။ ဤ token ကို သင်တန်းတွင် ပါဝင်သော `.env` ဖိုင်တွင် ထည့်သွင်းရမည်ဖြစ်သည်။
+3. Token ရဲ့ scope ကို သင် Fork လုပ်ထားသော Repository အတွက်သာ ကန့်သတ်ပါ။
 
-### အဆင့် ၂: `.env` ဖိုင် ဖန်တီးခြင်း
+   ![Limit scope to fork repository](../../../translated_images/select-fork-repository.4497f6bb05ccd6b474ed134493a815fc34f94f89db2b1630c494adff7b5b558a.my.png)
 
-Terminal တွင် အောက်ပါ command ကို အသုံးပြု၍ `.env` ဖိုင်ကို ဖန်တီးပါ။
+4. Token ရဲ့ ခွင့်ပြုချက်များကို ကန့်သတ်ပါ - **Permissions** အောက်တွင် **Account Permissions** ကို toggle လုပ်ပြီး **Models** ကို ရွေးပါ။ GitHub Models အတွက် လိုအပ်သော read-access ကိုသာ ဖွင့်ပါ။
+
+   ![Account Permissions](../../../translated_images/account-permissions.de1806fad33a72c6194d2688cf2c10f2adb9ff7a5c1041a2329cbef46bffbba0.my.png)
+
+   ![Models Read Access](../../../translated_images/models-read-access.c00bc44e28c40450a85542e19f8e8c68284c71861c076b7dbc078b4c7e51faa6.my.png)
+
+သင်ဖန်တီးထားသော token ကို ကူးယူပါ။ အခု သင့် `.env` ဖိုင်တွင် ထည့်သွင်းပါမည်။
+
+### အဆင့် ၂: `.env` ဖိုင်ကို ဖန်တီးပါ
+
+`.env` ဖိုင်ကို ဖန်တီးရန် သင့် terminal တွင် အောက်ပါ command ကို ရိုက်ထည့်ပါ။
 
 ```bash
 cp .env.example .env
 ```
 
-ဤ command သည် နမူနာဖိုင်ကို ကူးယူပြီး သင့် directory တွင် `.env` ဖိုင်ကို ဖန်တီးပေးမည်ဖြစ်ပြီး environment variable များအတွက် တန်ဖိုးများကို ဖြည့်စွက်နိုင်ပါသည်။
+ဒါက နမူနာဖိုင်ကို ကူးပြီး `.env` ဖိုင်ကို သင့် directory တွင် ဖန်တီးပေးပါမည်။ ထို့နောက် environment variables များအတွက် တန်ဖိုးများကို ဖြည့်ပါ။
 
-Token ကို ကူးယူပြီး `.env` ဖိုင်ကို သင်နှစ်သက်ရာ စာတည်းရေးဆော့ဖ်ဝဲဖြင့် ဖွင့်ကာ `GITHUB_TOKEN` အကွက်တွင် ထည့်သွင်းပါ။
+သင့် token ကို `.env` ဖိုင်တွင် `GITHUB_TOKEN` အကွက်တွင် ထည့်သွင်းပါ။
 
-ယခု သင်တန်း၏ ကုဒ်နမူနာများကို လည်ပတ်နိုင်ပါပြီ။
+အခု သင် ဒီသင်ခန်းစာရဲ့ ကုဒ်နမူနာများကို လုပ်ဆောင်နိုင်ပါပြီ။
 
-## Azure AI Foundry နှင့် Azure AI Agent Service အသုံးပြု၍ နမူနာများ ပြင်ဆင်ခြင်း
+## Azure AI Foundry နှင့် Azure AI Agent Service ကို အသုံးပြုသော နမူနာများအတွက် ပြင်ဆင်ခြင်း
 
-### အဆင့် ၁: Azure Project Endpoint ရယူခြင်း
+### အဆင့် ၁: Azure Project Endpoint ကို ရယူပါ
 
-Azure AI Foundry တွင် hub နှင့် project တည်ဆောက်ခြင်းဆိုင်ရာ လမ်းညွှန်ချက်များကို ဒီနေရာတွင် ကြည့်ရှုနိုင်ပါသည် - [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+Azure AI Foundry တွင် hub နှင့် project တစ်ခု ဖန်တီးရန် အဆင့်များကို [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources) တွင် ကြည့်ပါ။
 
-Project ဖန်တီးပြီးပါက project ၏ connection string ကို ရယူရမည်ဖြစ်သည်။
+Project တစ်ခု ဖန်တီးပြီးနောက် သင့် project အတွက် connection string ကို ရယူရန် လိုအပ်ပါမည်။
 
-Azure AI Foundry portal တွင် သင့် project ၏ **Overview** စာမျက်နှာသို့ သွားပါ။
+ဒါကို Azure AI Foundry portal တွင် သင့် project ရဲ့ **Overview** စာမျက်နှာတွင် ပြုလုပ်နိုင်ပါသည်။
 
 ![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.my.png)
 
-### အဆင့် ၂: `.env` ဖိုင် ဖန်တီးခြင်း
+### အဆင့် ၂: `.env` ဖိုင်ကို ဖန်တီးပါ
 
-Terminal တွင် အောက်ပါ command ကို အသုံးပြု၍ `.env` ဖိုင်ကို ဖန်တီးပါ။
+`.env` ဖိုင်ကို ဖန်တီးရန် သင့် terminal တွင် အောက်ပါ command ကို ရိုက်ထည့်ပါ။
 
 ```bash
 cp .env.example .env
 ```
 
-နမူနာဖိုင်ကို ကူးယူပြီး သင့် directory တွင် `.env` ဖိုင်ကို ဖန်တီးပေးမည်ဖြစ်ပြီး environment variable များအတွက် တန်ဖိုးများကို ဖြည့်စွက်နိုင်ပါသည်။
+ဒါက နမူနာဖိုင်ကို ကူးပြီး `.env` ဖိုင်ကို သင့် directory တွင် ဖန်တီးပေးပါမည်။ ထို့နောက် environment variables များအတွက် တန်ဖိုးများကို ဖြည့်ပါ။
 
-Token ကို ကူးယူပြီး `.env` ဖိုင်ကို သင်နှစ်သက်ရာ စာတည်းရေးဆော့ဖ်ဝဲဖြင့် ဖွင့်ကာ `PROJECT_ENDPOINT` အကွက်တွင် ထည့်သွင်းပါ။
+သင့် token ကို `.env` ဖိုင်တွင် `PROJECT_ENDPOINT` အကွက်တွင် ထည့်သွင်းပါ။
 
-### အဆင့် ၃: Azure သို့ လက်မှတ်ထိုးဝင်ရောက်ခြင်း
+### အဆင့် ၃: Azure တွင် လော့ဂ်အင် ဝင်ပါ
 
-လုံခြုံရေးအတွက် [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) ကို အသုံးပြုကာ Microsoft Entra ID ဖြင့် Azure OpenAI သို့ လက်မှတ်ထိုးဝင်မည်ဖြစ်သည်။ ၎င်းကို အသုံးပြုရန် မတိုင်မီ သင့် OS အတွက် **Azure CLI** ကို [installation instructions](https://learn.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academic-105485-koreyst) အတိုင်း ထည့်သွင်းရမည်ဖြစ်သည်။
+လုံခြုံရေးအတွက် [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) ကို အသုံးပြုပါ။
 
-ထို့နောက် terminal ကို ဖွင့်ကာ `az login --use-device-code` ကို ရိုက်ထည့်၍ Azure အကောင့်သို့ လက်မှတ်ထိုးဝင်ပါ။
+Terminal ကို ဖွင့်ပြီး `az login --use-device-code` ကို ရိုက်ထည့်၍ သင့် Azure အကောင့်တွင် လော့ဂ်အင် ဝင်ပါ။
 
-ဝင်ရောက်ပြီးပါက terminal တွင် သင့် subscription ကို ရွေးချယ်ပါ။
+လော့ဂ်အင်ပြီးပါက terminal တွင် သင့် subscription ကို ရွေးပါ။
 
-## Azure Search နှင့် Azure OpenAI အသုံးပြုသော အပိုဆောင်း Environment Variables
+## Azure Search နှင့် Azure OpenAI အတွက် အပိုဆောင်း Environment Variables
 
-Agentic RAG သင်ခန်းစာ - သင်ခန်းစာ ၅ တွင် Azure Search နှင့် Azure OpenAI ကို အသုံးပြုသည့် နမူနာများ ပါဝင်သည်။
+Agentic RAG သင်ခန်းစာ - သင်ခန်းစာ ၅ - တွင် Azure Search နှင့် Azure OpenAI ကို အသုံးပြုသော နမူနာများ ပါဝင်သည်။
 
-ဤနမူနာများကို လည်ပတ်လိုပါက `.env` ဖိုင်တွင် အောက်ပါ environment variables များ ထည့်သွင်းရမည်ဖြစ်သည်။
+ဒီနမူနာများကို လုပ်ဆောင်လိုပါက `.env` ဖိုင်တွင် အောက်ပါ environment variables များကို ထည့်သွင်းရန် လိုအပ်ပါမည် -
 
-### Overview စာမျက်နှာ (Project)
+### Project Overview Page
 
-- `AZURE_SUBSCRIPTION_ID` - Project ၏ **Overview** စာမျက်နှာတွင် **Project details** တွင် စစ်ဆေးပါ။
-- `AZURE_AI_PROJECT_NAME` - Project ၏ **Overview** စာမျက်နှာ အပေါ်ဆုံးတွင် ကြည့်ရှုနိုင်သည်။
-- `AZURE_OPENAI_SERVICE` - **Overview** စာမျက်နှာတွင် **Included capabilities** tab အောက်ရှိ **Azure OpenAI Service** တွင် ရှာဖွေပါ။
+- `AZURE_SUBSCRIPTION_ID` - **Overview** စာမျက်နှာတွင် **Project details** ကို ကြည့်ပါ။
+- `AZURE_AI_PROJECT_NAME` - **Overview** စာမျက်နှာ၏ ထိပ်ဆုံးတွင် ကြည့်ပါ။
+- `AZURE_OPENAI_SERVICE` - **Overview** စာမျက်နှာတွင် **Included capabilities** tab တွင် **Azure OpenAI Service** ကို ရှာပါ။
 
 ### Management Center
 
-- `AZURE_OPENAI_RESOURCE_GROUP` - **Management Center** ၏ **Overview** စာမျက်နှာတွင် **Project properties** တွင် ရှာဖွေပါ။
-- `GLOBAL_LLM_SERVICE` - **Connected resources** အောက်တွင် **Azure AI Services** ချိတ်ဆက်မှုအမည်ကို ရှာဖွေပါ။ မတွေ့ပါက Azure portal တွင် သင့် resource group အောက်ရှိ AI Services resource အမည်ကို စစ်ဆေးပါ။
+- `AZURE_OPENAI_RESOURCE_GROUP` - **Management Center** ရဲ့ **Overview** စာမျက်နှာတွင် **Project properties** ကို ကြည့်ပါ။
+- `GLOBAL_LLM_SERVICE` - **Connected resources** အောက်တွင် **Azure AI Services** connection name ကို ရှာပါ။
 
-### Models + Endpoints စာမျက်နှာ
+### Models + Endpoints Page
 
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - embedding model (ဥပမာ - `text-embedding-ada-002`) ကို ရွေးချယ်ပြီး model အသေးစိတ်မှ **Deployment name** ကို မှတ်သားပါ။
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - chat model (ဥပမာ - `gpt-4o-mini`) ကို ရွေးချယ်ပြီး model အသေးစိတ်မှ **Deployment name** ကို မှတ်သားပါ။
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - သင့် embedding model (ဥပမာ - `text-embedding-ada-002`) ကို ရွေးပြီး model details မှ **Deployment name** ကို မှတ်သားပါ။
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - သင့် chat model (ဥပမာ - `gpt-4o-mini`) ကို ရွေးပြီး model details မှ **Deployment name** ကို မှတ်သားပါ။
 
 ### Azure Portal
 
-- `AZURE_OPENAI_ENDPOINT` - **Azure AI services** ကို ရှာဖွေပြီး နှိပ်ပါ၊ ထို့နောက် **Resource Management**, **Keys and Endpoint** သို့ သွားပါ၊ "Azure OpenAI endpoints" အောက်မှ "Language APIs" ဟု ဆိုသော endpoint ကို ကူးယူပါ။
-- `AZURE_OPENAI_API_KEY` - အဆိုပါ စာမျက်နှာမှ KEY 1 သို့ KEY 2 ကို ကူးယူပါ။
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - သင့် **Azure AI Search** resource ကို ရှာဖွေပြီး နှိပ်ပါ၊ **Overview** ကို ကြည့်ပါ။
-- `AZURE_SEARCH_API_KEY` - ထို့နောက် **Settings** > **Keys** သို့ သွား၍ primary သို့ secondary admin key ကို ကူးယူပါ။
+- `AZURE_OPENAI_ENDPOINT` - **Azure AI services** ကို ရှာပြီး **Resource Management** > **Keys and Endpoint** > "Azure OpenAI endpoints" တွင် "Language APIs" ကို ကူးယူပါ။
+- `AZURE_OPENAI_API_KEY` - အတူတူသော စာမျက်နှာတွင် KEY 1 သို့မဟုတ် KEY 2 ကို ကူးယူပါ။
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - **Azure AI Search** resource ကို ရှာပြီး **Overview** ကို ကြည့်ပါ။
+- `AZURE_SEARCH_API_KEY` - **Settings** > **Keys** တွင် admin key ကို ကူးယူပါ။
 
-### အပြင်ဘက် ဝက်ဘ်စာမျက်နှာ
+### External Webpage
 
-- `AZURE_OPENAI_API_VERSION` - [API version lifecycle](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) စာမျက်နှာတွင် **Latest GA API release** အောက်မှ ကြည့်ရှုနိုင်ပါသည်။
+- `AZURE_OPENAI_API_VERSION` - [API version lifecycle](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) စာမျက်နှာတွင် **Latest GA API release** ကို ကြည့်ပါ။
 
-### keyless authentication ကို စတင်ပြင်ဆင်ခြင်း
+### Keyless Authentication ကို ပြင်ဆင်ပါ
 
-သင့်လက်မှတ်များကို hardcode မလုပ်ဘဲ Azure OpenAI နှင့် keyless connection ကို အသုံးပြုမည်ဖြစ်သည်။ ၎င်းအတွက် `DefaultAzureCredential` ကို import ပြုလုပ်ပြီး နောက်ပိုင်း `DefaultAzureCredential` function ကို ခေါ်ယူကာ လက်မှတ်ရယူပါမည်။
+သင့် credentials များကို hardcode မလုပ်ဘဲ Azure OpenAI နှင့် keyless connection ကို အသုံးပြုပါ။ ဒါကို `DefaultAzureCredential` ကို import လုပ်ပြီး `DefaultAzureCredential` function ကို later တွင် အသုံးပြုပါ။
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
-## ပြဿနာတက်နေပါသလား?
+## ပြဿနာတစ်ခုခု ရှိပါသလား?
 
-ဤ setup ကို လည်ပတ်ရာတွင် ပြဿနာများရှိပါက ကျွန်ုပ်တို့၏
+ဒီ setup ကို လုပ်ဆောင်ရာတွင် ပြဿနာတစ်ခုခု ရှိပါက, ကျွန်ုပ်တို့၏ ...
 
-or
+## နောက်သင်ခန်းစာ
 
-## နောက်တစ်ခန်း
+အခု သင် ဒီသင်ခန်းစာရဲ့ ကုဒ်ကို လုပ်ဆောင်ရန် ပြင်ဆင်ပြီးဖြစ်ပါပြီ။ AI Agents အကြောင်းပိုမိုလေ့လာရင်း ပျော်ရွှင်ပါစေ!
 
-ယခု သင်တန်း၏ ကုဒ်များကို လည်ပတ်ရန် အသင့်ဖြစ်ပြီ ဖြစ်သည်။ AI Agent များ၏ ကမ္ဘာကြီးအကြောင်း ပိုမိုလေ့လာရန် ပျော်ရွှင်စွာ သင်ယူပါ။
+[AI Agents နှင့် Agent အသုံးပြုမှုအတွက် နိဒါန်း](../01-intro-to-ai-agents/README.md)
 
-[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
-
-**အကြောင်းကြားချက်**  
-ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ဖြင့် ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးစားသော်လည်း၊ အလိုအလျောက် ဘာသာပြန်ခြင်းတွင် အမှားများ သို့မဟုတ် မှားယွင်းမှုများ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် မေတ္တာရပ်ခံအပ်ပါသည်။ မူရင်းစာတမ်းကို မူလဘာသာဖြင့်သာ တရားဝင်အချက်အလက်အဖြစ် ယူဆသင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူ့ဘာသာပြန်ပညာရှင်မှ ဘာသာပြန်ခြင်းကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုရာမှ ဖြစ်ပေါ်လာနိုင်သည့် နားလည်မှုမှားယွင်းမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မယူပါ။
+**ဝက်ဘ်ဆိုက်မှတ်ချက်**:  
+ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးစားနေပါသော်လည်း၊ အလိုအလျောက်ဘာသာပြန်ဆိုမှုများတွင် အမှားများ သို့မဟုတ် မတိကျမှုများ ပါဝင်နိုင်သည်ကို ကျေးဇူးပြု၍ သတိပြုပါ။ မူရင်းစာရွက်စာတမ်းကို ၎င်း၏ မူလဘာသာစကားဖြင့် အာဏာတည်သောရင်းမြစ်အဖြစ် သတ်မှတ်သင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူ့ဘာသာပြန်ပညာရှင်များမှ ပြန်ဆိုမှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်ဆိုမှုကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော နားလည်မှုမှားမှုများ သို့မဟုတ် အဓိပ္ပါယ်မှားမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။ 

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bbce3572338711aeab758506379ab716",
-  "translation_date": "2025-07-12T13:50:18+00:00",
+  "original_hash": "e255edb8423b34b4bba20263ef38f208",
+  "translation_date": "2025-07-24T08:59:29+00:00",
   "source_file": "11-mcp/README.md",
   "language_code": "cs"
 }
@@ -11,19 +11,19 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Úvod do Model Context Protocol (MCP)
 
-Model Context Protocol (MCP) je moderní rámec navržený pro standardizaci komunikace mezi AI modely a klientskými aplikacemi. MCP slouží jako most mezi AI modely a aplikacemi, které je využívají, a poskytuje jednotné rozhraní bez ohledu na konkrétní implementaci modelu.
+Model Context Protocol (MCP) je moderní rámec navržený pro standardizaci interakcí mezi AI modely a klientskými aplikacemi. MCP slouží jako most mezi AI modely a aplikacemi, které je využívají, a poskytuje konzistentní rozhraní bez ohledu na implementaci modelu.
 
-Klíčové vlastnosti MCP:
+Klíčové aspekty MCP:
 
 - **Standardizovaná komunikace**: MCP zavádí společný jazyk pro komunikaci aplikací s AI modely
-- **Vylepšená správa kontextu**: Umožňuje efektivní předávání kontextu AI modelům
-- **Kompatibilita napříč platformami**: Funguje v různých programovacích jazycích včetně C#, Java, JavaScript, Python a TypeScript
-- **Bezproblémová integrace**: Vývojářům usnadňuje integraci různých AI modelů do jejich aplikací
+- **Vylepšená správa kontextu**: Umožňuje efektivní předávání kontextových informací AI modelům
+- **Kompatibilita napříč platformami**: Funguje v různých programovacích jazycích, včetně C#, Java, JavaScript, Python a TypeScript
+- **Snadná integrace**: Vývojářům umožňuje jednoduše integrovat různé AI modely do jejich aplikací
 
-MCP je obzvlášť užitečný při vývoji AI agentů, protože umožňuje agentům komunikovat s různými systémy a zdroji dat prostřednictvím jednotného protokolu, což zvyšuje jejich flexibilitu a výkon.
+MCP je obzvláště užitečný při vývoji AI agentů, protože umožňuje agentům komunikovat s různými systémy a zdroji dat prostřednictvím jednotného protokolu, což činí agenty flexibilnějšími a výkonnějšími.
 
-## Cíle učení
-- Pochopit, co je MCP a jakou roli hraje ve vývoji AI agentů
+## Cíle lekce
+- Pochopit, co je MCP a jakou roli hraje při vývoji AI agentů
 - Nastavit a nakonfigurovat MCP server pro integraci s GitHubem
 - Vytvořit multi-agentní systém pomocí nástrojů MCP
 - Implementovat RAG (Retrieval Augmented Generation) s Azure Cognitive Search
@@ -35,7 +35,7 @@ MCP je obzvlášť užitečný při vývoji AI agentů, protože umožňuje agen
 - GitHub účet
 - Základní znalost Semantic Kernel
 
-## Instrukce pro nastavení
+## Pokyny k nastavení
 
 1. **Nastavení prostředí**
    ```bash
@@ -45,9 +45,9 @@ MCP je obzvlášť užitečný při vývoji AI agentů, protože umožňuje agen
    ```
 
 2. **Konfigurace Azure služeb**
-   - Vytvořte Azure Cognitive Search zdroj
-   - Nastavte Azure OpenAI službu
-   - Nakonfigurujte proměnné prostředí v `.env`
+   - Vytvořte prostředek Azure Cognitive Search
+   - Nastavte službu Azure OpenAI
+   - Nakonfigurujte proměnné prostředí v souboru `.env`
 
 3. **Nastavení MCP serveru**
    ```bash
@@ -59,10 +59,14 @@ MCP je obzvlášť užitečný při vývoji AI agentů, protože umožňuje agen
 ```
 11-mcp/
 ├── code_samples/
-│   └── github-mcp/
-│       ├── app.py              # Main application
-│       ├── event-descriptions.md  # Event data
-│       └── MCP_SETUP.md        # Setup guide
+│   ├── github-mcp/
+│   │   ├── app.py              # Main application
+│   │   ├── event-descriptions.md  # Event data
+│   │   └── MCP_SETUP.md        # Setup guide
+│   └── mcp-agents/             # Agent-to-agent communication
+│       ├── client/             # MCP client implementation
+│       ├── server/             # MCP server with agents
+│       └── README.md           # Advanced agent examples
 ├── README.md
 └── requirements.txt
 ```
@@ -72,35 +76,35 @@ MCP je obzvlášť užitečný při vývoji AI agentů, protože umožňuje agen
 ### 1. Multi-agentní systém
 - GitHub Agent: Analýza repozitářů
 - Hackathon Agent: Doporučení projektů
-- Events Agent: Návrhy technologických akcí
+- Events Agent: Návrhy technologických událostí
 
-### 2. Integrace Azure
-- Cognitive Search pro indexaci akcí
+### 2. Integrace s Azure
+- Cognitive Search pro indexování událostí
 - Azure OpenAI pro inteligenci agentů
-- Implementace RAG vzoru
+- Implementace vzoru RAG
 
-### 3. MCP nástroje
+### 3. Nástroje MCP
 - Analýza GitHub repozitářů
-- Kontrola kódu
+- Inspekce kódu
 - Extrakce metadat
 
-## Procházení kódu
+## Prohlídka kódu
 
 Ukázka demonstruje:
 1. Integraci MCP serveru
-2. Orchestrace multi-agentního systému
+2. Orchestrace multi-agentů
 3. Integraci Azure Cognitive Search
-4. Implementaci RAG vzoru
+4. Implementaci vzoru RAG
 
-Hlavní funkce:
+Klíčové funkce:
 - Analýza GitHub repozitářů v reálném čase
 - Inteligentní doporučení projektů
-- Párování akcí pomocí Azure Search
+- Přiřazování událostí pomocí Azure Search
 - Streamování odpovědí s Chainlit
 
 ## Spuštění ukázky
 
-Pro podrobné instrukce a další informace navštivte [Github MCP Server Example README](./code_samples/github-mcp/README.md).
+Podrobné pokyny k nastavení a další informace naleznete v [Github MCP Server Example README](./code_samples/github-mcp/README.md).
 
 1. Spusťte MCP server:
    ```bash
@@ -121,26 +125,27 @@ Pro podrobné instrukce a další informace navštivte [Github MCP Server Exampl
 
 Běžné problémy a jejich řešení:
 1. Problémy s připojením k MCP
-   - Ověřte, že server běží
+   - Ověřte, zda server běží
    - Zkontrolujte dostupnost portu
-   - Potvrďte platnost GitHub tokenů
+   - Ověřte GitHub tokeny
 
 2. Problémy s Azure Search
-   - Ověřte connection stringy
+   - Ověřte připojovací řetězce
    - Zkontrolujte existenci indexu
-   - Potvrďte nahrání dokumentů
+   - Ověřte nahrání dokumentů
 
 ## Další kroky
-- Prozkoumejte další MCP nástroje
+- Prozkoumejte další nástroje MCP
 - Implementujte vlastní agenty
 - Vylepšete schopnosti RAG
-- Přidejte více zdrojů akcí
+- Přidejte více zdrojů událostí
+- **Pokročilé**: Podívejte se na [mcp-agents/](../../../11-mcp/code_samples/mcp-agents) pro příklady komunikace mezi agenty
 
 ## Zdroje
 - [MCP pro začátečníky](https://aka.ms/mcp-for-beginners)  
-- [MCP dokumentace](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
+- [Dokumentace MCP](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
 - [Dokumentace Azure Cognitive Search](https://learn.microsoft.com/azure/search/)
 - [Průvodce Semantic Kernel](https://learn.microsoft.com/semantic-kernel/)
 
-**Prohlášení o vyloučení odpovědnosti**:  
-Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). I když usilujeme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho mateřském jazyce by měl být považován za závazný zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoliv nedorozumění nebo nesprávné výklady vyplývající z použití tohoto překladu.
+**Prohlášení**:  
+Tento dokument byl přeložen pomocí služby pro automatický překlad [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho původním jazyce by měl být považován za závazný zdroj. Pro důležité informace doporučujeme profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné výklady vyplývající z použití tohoto překladu.

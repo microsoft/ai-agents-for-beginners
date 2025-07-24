@@ -1,29 +1,29 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bbce3572338711aeab758506379ab716",
-  "translation_date": "2025-07-12T13:48:44+00:00",
+  "original_hash": "e255edb8423b34b4bba20263ef38f208",
+  "translation_date": "2025-07-24T08:36:53+00:00",
   "source_file": "11-mcp/README.md",
   "language_code": "fi"
 }
 -->
 # Oppitunti 11: Model Context Protocol (MCP) -integraatio
 
-## Johdanto Model Context Protocoliin (MCP)
+## Johdatus Model Context Protocoliin (MCP)
 
-Model Context Protocol (MCP) on huippuluokan kehys, joka on suunniteltu vakioimaan vuorovaikutus AI-mallien ja asiakasohjelmien välillä. MCP toimii siltana AI-mallien ja niitä käyttävien sovellusten välillä tarjoten yhtenäisen rajapinnan riippumatta mallin toteutuksesta.
+Model Context Protocol (MCP) on huippuluokan kehys, joka on suunniteltu standardoimaan vuorovaikutukset tekoälymallien ja asiakassovellusten välillä. MCP toimii sillan tavoin tekoälymallien ja niitä käyttävien sovellusten välillä, tarjoten yhtenäisen rajapinnan riippumatta mallin toteutuksesta.
 
 MCP:n keskeiset ominaisuudet:
 
-- **Vakiomuotoinen viestintä**: MCP luo yhteisen kielen sovelluksille kommunikoida AI-mallien kanssa
-- **Parannettu kontekstinhallinta**: Mahdollistaa tehokkaan kontekstuaalisen tiedon välittämisen AI-malleille
-- **Monialustainen yhteensopivuus**: Toimii useilla ohjelmointikielillä, kuten C#, Java, JavaScript, Python ja TypeScript
-- **Saumaton integraatio**: Mahdollistaa kehittäjille erilaisten AI-mallien helpon liittämisen sovelluksiin
+- **Standardoitu viestintä**: MCP luo yhteisen kielen sovellusten ja tekoälymallien väliseen viestintään
+- **Parannettu kontekstinhallinta**: Mahdollistaa tehokkaan kontekstuaalisen tiedon välittämisen tekoälymalleille
+- **Yhteensopivuus eri alustoilla**: Toimii useilla ohjelmointikielillä, kuten C#, Java, JavaScript, Python ja TypeScript
+- **Helppo integrointi**: Mahdollistaa erilaisten tekoälymallien vaivattoman integroinnin sovelluksiin
 
-MCP on erityisen hyödyllinen AI-agenttien kehityksessä, sillä se mahdollistaa agenttien vuorovaikutuksen eri järjestelmien ja tietolähteiden kanssa yhtenäisen protokollan kautta, tehden agenteista joustavampia ja tehokkaampia.
+MCP on erityisen hyödyllinen tekoälyagenttien kehityksessä, sillä se mahdollistaa agenttien vuorovaikutuksen eri järjestelmien ja tietolähteiden kanssa yhtenäisen protokollan kautta, tehden agenteista joustavampia ja tehokkaampia.
 
 ## Oppimistavoitteet
-- Ymmärtää, mitä MCP on ja sen rooli AI-agenttien kehityksessä
+- Ymmärtää, mitä MCP on ja sen rooli tekoälyagenttien kehityksessä
 - Asentaa ja konfiguroida MCP-palvelin GitHub-integraatiota varten
 - Rakentaa monen agentin järjestelmä MCP-työkaluilla
 - Toteuttaa RAG (Retrieval Augmented Generation) Azure Cognitive Searchin avulla
@@ -46,8 +46,8 @@ MCP on erityisen hyödyllinen AI-agenttien kehityksessä, sillä se mahdollistaa
 
 2. **Azure-palveluiden konfigurointi**
    - Luo Azure Cognitive Search -resurssi
-   - Ota käyttöön Azure OpenAI -palvelu
-   - Määritä ympäristömuuttujat `.env`-tiedostoon
+   - Määritä Azure OpenAI -palvelu
+   - Konfiguroi ympäristömuuttujat tiedostossa `.env`
 
 3. **MCP-palvelimen asennus**
    ```bash
@@ -59,10 +59,14 @@ MCP on erityisen hyödyllinen AI-agenttien kehityksessä, sillä se mahdollistaa
 ```
 11-mcp/
 ├── code_samples/
-│   └── github-mcp/
-│       ├── app.py              # Main application
-│       ├── event-descriptions.md  # Event data
-│       └── MCP_SETUP.md        # Setup guide
+│   ├── github-mcp/
+│   │   ├── app.py              # Main application
+│   │   ├── event-descriptions.md  # Event data
+│   │   └── MCP_SETUP.md        # Setup guide
+│   └── mcp-agents/             # Agent-to-agent communication
+│       ├── client/             # MCP client implementation
+│       ├── server/             # MCP server with agents
+│       └── README.md           # Advanced agent examples
 ├── README.md
 └── requirements.txt
 ```
@@ -70,9 +74,9 @@ MCP on erityisen hyödyllinen AI-agenttien kehityksessä, sillä se mahdollistaa
 ## Keskeiset komponentit
 
 ### 1. Monen agentin järjestelmä
-- GitHub Agentti: Repositorion analysointi
-- Hackathon Agentti: Projektisuositukset
-- Events Agentti: Teknologiatapahtumien ehdotukset
+- GitHub-agentti: Repositorion analyysi
+- Hackathon-agentti: Projektisuositukset
+- Tapahtuma-agentti: Teknologiatapahtumien ehdotukset
 
 ### 2. Azure-integraatio
 - Cognitive Search tapahtumien indeksointiin
@@ -82,25 +86,25 @@ MCP on erityisen hyödyllinen AI-agenttien kehityksessä, sillä se mahdollistaa
 ### 3. MCP-työkalut
 - GitHub-repositorion analyysi
 - Koodin tarkastus
-- Metatietojen poiminta
+- Metadataan poiminta
 
 ## Koodin läpikäynti
 
-Esimerkki havainnollistaa:
+Esimerkki näyttää:
 1. MCP-palvelimen integroinnin
 2. Monen agentin orkestroinnin
 3. Azure Cognitive Search -integraation
 4. RAG-mallin toteutuksen
 
-Tärkeimmät ominaisuudet:
+Keskeiset ominaisuudet:
 - Reaaliaikainen GitHub-repositorion analyysi
 - Älykkäät projektisuositukset
 - Tapahtumien yhdistäminen Azure Searchin avulla
-- Vastauksien suoratoisto Chainlitillä
+- Vastausten suoratoisto Chainlitin avulla
 
 ## Esimerkin suorittaminen
 
-Yksityiskohtaiset asennusohjeet ja lisätiedot löytyvät [Github MCP Server Example README](./code_samples/github-mcp/README.md) -tiedostosta.
+Yksityiskohtaiset asennusohjeet ja lisätiedot löytyvät [Github MCP Server Example README](./code_samples/github-mcp/README.md).
 
 1. Käynnistä MCP-palvelin:
    ```bash
@@ -117,30 +121,31 @@ Yksityiskohtaiset asennusohjeet ja lisätiedot löytyvät [Github MCP Server Exa
    Example query: "Analyze repositories for username: <github_username>"
    ```
 
-## Vianetsintä
+## Vianmääritys
 
 Yleisiä ongelmia ja ratkaisuja:
 1. MCP-yhteysongelmat
    - Varmista, että palvelin on käynnissä
    - Tarkista portin saatavuus
-   - Vahvista GitHub-tokenit
+   - Vahvista GitHub-tunnukset
 
 2. Azure Search -ongelmat
    - Tarkista yhteysmerkkijonot
    - Varmista indeksin olemassaolo
-   - Tarkista dokumenttien lataus
+   - Vahvista dokumenttien lataus
 
 ## Seuraavat askeleet
-- Tutustu lisä-MCP-työkaluihin
+- Tutustu lisätyökaluihin MCP:ssä
 - Toteuta omia agentteja
 - Paranna RAG-ominaisuuksia
-- Lisää lisää tapahtumalähteitä
+- Lisää uusia tapahtumalähteitä
+- **Edistynyt**: Katso [mcp-agents/](../../../11-mcp/code_samples/mcp-agents) esimerkkejä agenttien välisestä viestinnästä
 
 ## Resurssit
-- [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
-- [MCP Documentation](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
-- [Azure Cognitive Search Docs](https://learn.microsoft.com/azure/search/)
-- [Semantic Kernel Guides](https://learn.microsoft.com/semantic-kernel/)
+- [MCP aloittelijoille](https://aka.ms/mcp-for-beginners)  
+- [MCP-dokumentaatio](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
+- [Azure Cognitive Search -dokumentaatio](https://learn.microsoft.com/azure/search/)
+- [Semantic Kernel -oppaat](https://learn.microsoft.com/semantic-kernel/)
 
 **Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattikäännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäiskielellä tulee pitää virallisena lähteenä. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Pyrimme tarkkuuteen, mutta huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäisellä kielellä tulee pitää ensisijaisena lähteenä. Kriittisen tiedon osalta suositellaan ammattimaista ihmiskääntämistä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinkäsityksistä tai virhetulkinnoista.
