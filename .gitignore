@@ -408,3 +408,6 @@ FodyWeavers.xsd
 
 # Ignore PNG files in the specified directory
 02-explore-agentic-frameworks/code_samples/*.png
+
+# Ignore backup files
+*-backup.ipynb
