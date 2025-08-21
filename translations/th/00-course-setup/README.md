@@ -1,93 +1,21 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "c6a79c8f2b56a80370ff7e447765524f",
-  "translation_date": "2025-07-24T08:26:18+00:00",
+  "original_hash": "76945069b52a49cd0432ae3e0b0ba22e",
+  "translation_date": "2025-07-12T07:50:58+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "th"
 }
 -->
-# การตั้งค่าคอร์ส
+ในบัญชี GitHub ของคุณ
 
-## บทนำ
-
-บทเรียนนี้จะครอบคลุมวิธีการรันตัวอย่างโค้ดในคอร์สนี้
-
-## โคลนหรือ Fork Repo นี้
-
-เริ่มต้นโดยการโคลนหรือ Fork GitHub Repository เพื่อสร้างเวอร์ชันของคุณเองสำหรับเนื้อหาคอร์ส ซึ่งจะช่วยให้คุณสามารถรัน ทดสอบ และปรับแต่งโค้ดได้!
-
-สามารถทำได้โดยคลิกลิงก์ไปยัง
-
-คุณควรมีเวอร์ชัน Fork ของคอร์สนี้ในลิงก์ต่อไปนี้:
-
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.th.png)
-
-## การรันโค้ด
-
-คอร์สนี้มีชุด Jupyter Notebooks ที่คุณสามารถรันเพื่อสัมผัสประสบการณ์การสร้าง AI Agents ด้วยตัวเอง
-
-ตัวอย่างโค้ดใช้:
-
-**ต้องมีบัญชี GitHub - ฟรี**:
-
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace ระบุว่า (semantic-kernel.ipynb)
-2) AutoGen Framework + GitHub Models Marketplace ระบุว่า (autogen.ipynb)
-
-**ต้องมีการสมัครสมาชิก Azure**:
-3) Azure AI Foundry + Azure AI Agent Service ระบุว่า (azureaiagent.ipynb)
-
-เราขอแนะนำให้คุณลองใช้ตัวอย่างทั้งสามประเภทเพื่อดูว่าแบบใดเหมาะกับคุณที่สุด
-
-ตัวเลือกที่คุณเลือกจะกำหนดขั้นตอนการตั้งค่าที่คุณต้องทำตามด้านล่าง:
-
-## ความต้องการ
-
-- Python 3.12+
-  - **NOTE**: หากคุณยังไม่ได้ติดตั้ง Python 3.12 ให้ติดตั้งก่อน จากนั้นสร้าง venv โดยใช้ python3.12 เพื่อให้แน่ใจว่าเวอร์ชันที่ถูกต้องจะถูกติดตั้งจากไฟล์ requirements.txt
-- บัญชี GitHub - สำหรับการเข้าถึง GitHub Models Marketplace
-- การสมัครสมาชิก Azure - สำหรับการเข้าถึง Azure AI Foundry
-- บัญชี Azure AI Foundry - สำหรับการเข้าถึง Azure AI Agent Service
-
-เราได้รวมไฟล์ `requirements.txt` ไว้ใน root ของ repository นี้ ซึ่งมี Python packages ที่จำเป็นทั้งหมดสำหรับการรันตัวอย่างโค้ด
-
-คุณสามารถติดตั้งได้โดยรันคำสั่งต่อไปนี้ใน terminal ที่ root ของ repository:
-
-```bash
-pip install -r requirements.txt
-```
-เราขอแนะนำให้สร้าง Python virtual environment เพื่อหลีกเลี่ยงปัญหาและความขัดแย้งใดๆ
-
-## การตั้งค่า VSCode
-ตรวจสอบให้แน่ใจว่าคุณใช้เวอร์ชัน Python ที่ถูกต้องใน VSCode
-
-![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
-
-## การตั้งค่าสำหรับตัวอย่างที่ใช้ GitHub Models
-
-### ขั้นตอนที่ 1: ดึง GitHub Personal Access Token (PAT) ของคุณ
-
-คอร์สนี้ใช้ GitHub Models Marketplace ซึ่งให้การเข้าถึง Large Language Models (LLMs) ฟรีที่คุณจะใช้ในการสร้าง AI Agents
-
-ในการใช้ GitHub Models คุณจะต้องสร้าง [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
-
-สามารถทำได้โดยไปที่บัญชี GitHub ของคุณ
-
-โปรดปฏิบัติตาม [หลักการของการให้สิทธิ์น้อยที่สุด](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) เมื่อสร้าง token ของคุณ ซึ่งหมายความว่าคุณควรให้สิทธิ์ token เฉพาะที่จำเป็นสำหรับการรันตัวอย่างโค้ดในคอร์สนี้
-
-1. เลือกตัวเลือก `Fine-grained tokens` ที่ด้านซ้ายของหน้าจอ
+เลือกตัวเลือก `Fine-grained tokens` ที่ด้านซ้ายของหน้าจอ
 
     จากนั้นเลือก `Generate new token`
 
     ![Generate Token](../../../translated_images/generate-new-token.8772e24e8e2e067f2e6742500eaf68bb5c5f8999537bd79a040d2ecc09c7fdcb.th.png)
 
-1. ใส่ชื่อที่อธิบายถึง token ของคุณเพื่อสะท้อนถึงวัตถุประสงค์ ทำให้ง่ายต่อการระบุในภายหลัง ตั้งค่าวันหมดอายุ (แนะนำ: 30 วัน; คุณสามารถเลือกช่วงเวลาสั้นๆ เช่น 7 วัน หากต้องการความปลอดภัยมากขึ้น)
-
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.th.png)
-
-1. จำกัดขอบเขตของ token ให้เฉพาะ fork ของ repository นี้
-
-    ![Limit scope to fork repository](../../../translated_images/select-fork-repository.4497f6bb05ccd6b474ed134493a815fc34f94f89db2b1630c494adff7b5b558a.th.png)
+ระบบจะให้คุณกรอกชื่อสำหรับโทเค็นของคุณ เลือกวันหมดอายุ (แนะนำ: 30 วัน) และเลือกขอบเขตสำหรับโทเค็นของคุณ (Public Repositories)
 
 1. จำกัดสิทธิ์ของ token: ภายใต้ **Permissions** ให้เปิด **Account Permissions** ไปที่ **Models** และเปิดใช้งานเฉพาะการเข้าถึงแบบอ่านที่จำเป็นสำหรับ GitHub Models
 
@@ -107,7 +35,7 @@ cp .env.example .env
 
 คำสั่งนี้จะคัดลอกไฟล์ตัวอย่างและสร้าง `.env` ในไดเรกทอรีของคุณ ซึ่งคุณจะเติมค่าตัวแปรสภาพแวดล้อม
 
-เมื่อคัดลอก token ของคุณแล้ว ให้เปิดไฟล์ `.env` ใน text editor ที่คุณชื่นชอบและวาง token ลงในฟิลด์ `GITHUB_TOKEN`
+เมื่อคุณคัดลอกโทเค็นแล้ว ให้เปิดไฟล์ `.env` ในโปรแกรมแก้ไขข้อความที่คุณชื่นชอบ และวางโทเค็นของคุณลงในช่อง `GITHUB_TOKEN`
 
 คุณควรจะสามารถรันตัวอย่างโค้ดในคอร์สนี้ได้แล้ว
 
@@ -133,7 +61,7 @@ cp .env.example .env
 
 คำสั่งนี้จะคัดลอกไฟล์ตัวอย่างและสร้าง `.env` ในไดเรกทอรีของคุณ ซึ่งคุณจะเติมค่าตัวแปรสภาพแวดล้อม
 
-เมื่อคัดลอก token ของคุณแล้ว ให้เปิดไฟล์ `.env` ใน text editor ที่คุณชื่นชอบและวาง token ลงในฟิลด์ `PROJECT_ENDPOINT`
+เมื่อคุณคัดลอกสตริงการเชื่อมต่อแล้ว ให้เปิดไฟล์ `.env` ในโปรแกรมแก้ไขข้อความที่คุณชื่นชอบ และวางสตริงการเชื่อมต่อในช่อง `PROJECT_ENDPOINT`
 
 ### ขั้นตอนที่ 3: ลงชื่อเข้าใช้ Azure
 
@@ -143,7 +71,7 @@ cp .env.example .env
 
 เมื่อคุณเข้าสู่ระบบแล้ว ให้เลือก subscription ของคุณใน terminal
 
-## ตัวแปรสภาพแวดล้อมเพิ่มเติม - Azure Search และ Azure OpenAI
+## ตัวแปรสภาพแวดล้อมเพิ่มเติม - Azure Search และ Azure OpenAI 
 
 สำหรับบทเรียน Agentic RAG - บทเรียนที่ 5 - มีตัวอย่างที่ใช้ Azure Search และ Azure OpenAI
 
@@ -161,7 +89,7 @@ cp .env.example .env
 
 - `AZURE_OPENAI_RESOURCE_GROUP` - ไปที่ **Project properties** ในหน้า **Overview** ของ **Management Center**
 
-- `GLOBAL_LLM_SERVICE` - ภายใต้ **Connected resources** ค้นหาชื่อการเชื่อมต่อ **Azure AI Services** หากไม่พบ ให้ตรวจสอบ **Azure portal** ภายใต้ resource group ของคุณสำหรับชื่อ resource AI Services
+- `GLOBAL_LLM_SERVICE` - ภายใต้ **Connected resources** หา ชื่อการเชื่อมต่อ **Azure AI Services** หากไม่มี ให้ตรวจสอบใน **Azure portal** ภายใต้กลุ่มทรัพยากรของคุณสำหรับชื่อทรัพยากร AI Services
 
 ### หน้า Models + Endpoints
 
@@ -183,9 +111,9 @@ cp .env.example .env
 
 - `AZURE_OPENAI_API_VERSION` - เยี่ยมชมหน้า [API version lifecycle](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) ภายใต้ **Latest GA API release**
 
-### การตั้งค่า keyless authentication
+### ตั้งค่าการยืนยันตัวตนแบบไม่ใช้คีย์
 
-แทนที่จะ hardcode credentials ของคุณ เราจะใช้การเชื่อมต่อแบบ keyless กับ Azure OpenAI ในการทำเช่นนั้น เราจะ import `DefaultAzureCredential` และเรียกฟังก์ชัน `DefaultAzureCredential` เพื่อรับ credential
+แทนที่จะเขียนข้อมูลรับรองของคุณลงในโค้ด เราจะใช้การเชื่อมต่อแบบไม่ใช้คีย์กับ Azure OpenAI โดยนำเข้า `DefaultAzureCredential` และเรียกใช้ฟังก์ชัน `DefaultAzureCredential` เพื่อรับข้อมูลรับรอง
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
@@ -202,4 +130,4 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 [Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
 
 **ข้อจำกัดความรับผิดชอบ**:  
-เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้ว่าเราจะพยายามให้การแปลมีความถูกต้องมากที่สุด แต่โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาดั้งเดิมควรถือเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ ขอแนะนำให้ใช้บริการแปลภาษามืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดซึ่งเกิดจากการใช้การแปลนี้
+เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษาอัตโนมัติ [Co-op Translator](https://github.com/Azure/co-op-translator) แม้เราจะพยายามให้ความถูกต้องสูงสุด แต่โปรดทราบว่าการแปลอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาต้นทางถือเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ ขอแนะนำให้ใช้บริการแปลโดยผู้เชี่ยวชาญมนุษย์ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความผิดใด ๆ ที่เกิดจากการใช้การแปลนี้
