@@ -1,25 +1,13 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "c6a79c8f2b56a80370ff7e447765524f",
-  "translation_date": "2025-07-24T09:02:11+00:00",
+  "original_hash": "76945069b52a49cd0432ae3e0b0ba22e",
+  "translation_date": "2025-07-12T07:57:04+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "ro"
 }
 -->
-# Configurarea Cursului
-
-## Introducere
-
-Această lecție va acoperi modul în care să rulați exemplele de cod din acest curs.
-
-## Clonează sau Fork-uiește acest Repo
-
-Pentru început, te rugăm să clonezi sau să fork-uiești Repository-ul GitHub. Acest lucru va crea propria ta versiune a materialului cursului, astfel încât să poți rula, testa și ajusta codul!
-
-Acest lucru poate fi realizat făcând clic pe linkul către
-
-Ar trebui să ai acum propria versiune fork-uită a acestui curs la următorul link:
+ar trebui să ai acum propria ta versiune fork-uită a acestui curs la următorul link:
 
 ![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.ro.png)
 
@@ -63,13 +51,11 @@ Asigură-te că folosești versiunea corectă de Python în VSCode.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Configurare pentru Exemple folosind Modele GitHub 
+## Configurare pentru Exemplele care folosesc GitHub Models
 
-### Pasul 1: Obține Token-ul Personal de Acces (PAT) de la GitHub
+### Pasul 1: Obține Token-ul Personal de Acces GitHub (PAT)
 
-Acest curs utilizează GitHub Models Marketplace, oferind acces gratuit la Modele de Limbaj Extins (LLMs) pe care le vei folosi pentru a construi Agenți AI.
-
-Pentru a utiliza Modelele GitHub, va trebui să creezi un [Token Personal de Acces GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+În prezent, acest curs folosește GitHub Models Marketplace pentru a oferi acces gratuit la Modele de Limbaj Mari (LLMs) care vor fi folosite pentru a crea Agenți AI.
 
 Acest lucru poate fi realizat accesând contul tău GitHub.
 
@@ -197,9 +183,9 @@ Dacă întâmpini probleme în rularea acestei configurări, intră în
 
 ## Lecția Următoare
 
-Ești acum pregătit să rulezi codul pentru acest curs. Îți dorim succes în explorarea lumii Agenților AI!
+Acum ești gata să rulezi codul pentru acest curs. Spor la învățat mai multe despre lumea Agenților AI!
 
 [Introducere în Agenți AI și Cazuri de Utilizare](../01-intro-to-ai-agents/README.md)
 
-**Declinarea responsabilității**:  
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa natală ar trebui considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională realizată de un specialist uman. Nu ne asumăm răspunderea pentru eventualele neînțelegeri sau interpretări greșite care pot apărea din utilizarea acestei traduceri.
+**Declinare de responsabilitate**:  
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un specialist uman. Nu ne asumăm răspunderea pentru eventualele neînțelegeri sau interpretări greșite rezultate din utilizarea acestei traduceri.
