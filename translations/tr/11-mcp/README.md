@@ -1,31 +1,31 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bbce3572338711aeab758506379ab716",
-  "translation_date": "2025-07-12T13:47:40+00:00",
+  "original_hash": "e255edb8423b34b4bba20263ef38f208",
+  "translation_date": "2025-08-21T12:22:48+00:00",
   "source_file": "11-mcp/README.md",
   "language_code": "tr"
 }
 -->
-# Ders 11: Model Context Protocol (MCP) Entegrasyonu
+# Ders 11: Model Bağlam Protokolü (MCP) Entegrasyonu
 
-## Model Context Protocol (MCP) Tanıtımı
+## Model Bağlam Protokolü'ne (MCP) Giriş
 
-Model Context Protocol (MCP), yapay zeka modelleri ile istemci uygulamaları arasındaki etkileşimleri standartlaştırmak için tasarlanmış ileri düzey bir çerçevedir. MCP, yapay zeka modelleri ile bu modelleri kullanan uygulamalar arasında bir köprü görevi görür ve altta yatan model uygulamasından bağımsız olarak tutarlı bir arayüz sağlar.
+Model Bağlam Protokolü (MCP), yapay zeka modelleri ile istemci uygulamaları arasındaki etkileşimleri standartlaştırmak için tasarlanmış ileri düzey bir çerçevedir. MCP, yapay zeka modelleri ile bu modelleri kullanan uygulamalar arasında bir köprü görevi görerek, temel model uygulamasından bağımsız olarak tutarlı bir arayüz sağlar.
 
-MCP’nin temel özellikleri:
+MCP'nin temel özellikleri:
 
-- **Standartlaştırılmış İletişim**: Uygulamaların yapay zeka modelleriyle ortak bir dilde iletişim kurmasını sağlar
-- **Gelişmiş Bağlam Yönetimi**: Yapay zeka modellerine bağlamsal bilgilerin verimli şekilde iletilmesine olanak tanır
-- **Çapraz Platform Uyumluluğu**: C#, Java, JavaScript, Python ve TypeScript gibi çeşitli programlama dilleriyle çalışır
-- **Sorunsuz Entegrasyon**: Geliştiricilerin farklı yapay zeka modellerini uygulamalarına kolayca entegre etmelerini sağlar
+- **Standartlaştırılmış İletişim**: MCP, uygulamaların yapay zeka modelleriyle iletişim kurması için ortak bir dil oluşturur.
+- **Gelişmiş Bağlam Yönetimi**: Yapay zeka modellerine bağlamsal bilgilerin verimli bir şekilde aktarılmasını sağlar.
+- **Çapraz Platform Uyumluluğu**: C#, Java, JavaScript, Python ve TypeScript gibi çeşitli programlama dillerinde çalışır.
+- **Sorunsuz Entegrasyon**: Geliştiricilerin farklı yapay zeka modellerini uygulamalarına kolayca entegre etmesine olanak tanır.
 
-MCP, yapay zeka ajan geliştirmede özellikle değerlidir çünkü ajanların çeşitli sistemler ve veri kaynaklarıyla birleşik bir protokol üzerinden etkileşim kurmasını sağlayarak ajanları daha esnek ve güçlü hale getirir.
+MCP, özellikle yapay zeka ajanlarının geliştirilmesinde oldukça değerlidir çünkü ajanların çeşitli sistemler ve veri kaynaklarıyla birleşik bir protokol aracılığıyla etkileşim kurmasını sağlar, bu da onları daha esnek ve güçlü hale getirir.
 
 ## Öğrenme Hedefleri
-- MCP’nin ne olduğunu ve yapay zeka ajan geliştirmedeki rolünü anlamak
-- GitHub entegrasyonu için MCP sunucusunu kurup yapılandırmak
-- MCP araçları kullanarak çoklu ajan sistemi oluşturmak
+- MCP'nin ne olduğunu ve yapay zeka ajanlarının geliştirilmesindeki rolünü anlamak
+- GitHub entegrasyonu için bir MCP sunucusunu kurmak ve yapılandırmak
+- MCP araçlarını kullanarak çoklu ajan sistemi oluşturmak
 - Azure Cognitive Search ile RAG (Retrieval Augmented Generation) uygulamak
 
 ## Ön Koşullar
@@ -37,19 +37,19 @@ MCP, yapay zeka ajan geliştirmede özellikle değerlidir çünkü ajanların ç
 
 ## Kurulum Talimatları
 
-1. **Ortam Kurulumu**
+1. **Ortam Kurulumu**  
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
-2. **Azure Servislerini Yapılandırma**
-   - Azure Cognitive Search kaynağı oluşturun
-   - Azure OpenAI servisini kurun
-   - `.env` dosyasında ortam değişkenlerini yapılandırın
+2. **Azure Hizmetlerini Yapılandırma**  
+   - Azure Cognitive Search kaynağı oluşturun  
+   - Azure OpenAI hizmetini ayarlayın  
+   - `.env` dosyasında ortam değişkenlerini yapılandırın  
 
-3. **MCP Sunucu Kurulumu**
+3. **MCP Sunucusunu Kurma**  
    ```bash
    npm install -g @modelcontextprotocol/server-github
    ```
@@ -59,10 +59,14 @@ MCP, yapay zeka ajan geliştirmede özellikle değerlidir çünkü ajanların ç
 ```
 11-mcp/
 ├── code_samples/
-│   └── github-mcp/
-│       ├── app.py              # Main application
-│       ├── event-descriptions.md  # Event data
-│       └── MCP_SETUP.md        # Setup guide
+│   ├── github-mcp/
+│   │   ├── app.py              # Main application
+│   │   ├── event-descriptions.md  # Event data
+│   │   └── MCP_SETUP.md        # Setup guide
+│   └── mcp-agents/             # Agent-to-agent communication
+│       ├── client/             # MCP client implementation
+│       ├── server/             # MCP server with agents
+│       └── README.md           # Advanced agent examples
 ├── README.md
 └── requirements.txt
 ```
@@ -75,72 +79,73 @@ MCP, yapay zeka ajan geliştirmede özellikle değerlidir çünkü ajanların ç
 - Etkinlik Ajanı: Teknoloji etkinliği önerileri
 
 ### 2. Azure Entegrasyonu
-- Etkinlik indekslemesi için Cognitive Search
+- Etkinlik indeksleme için Cognitive Search
 - Ajan zekası için Azure OpenAI
 - RAG deseninin uygulanması
 
 ### 3. MCP Araçları
-- GitHub depo analizi
+- GitHub deposu analizi
 - Kod incelemesi
 - Meta veri çıkarımı
 
 ## Kod İncelemesi
 
-Örnek şunları gösterir:
-1. MCP sunucu entegrasyonu
-2. Çoklu ajan koordinasyonu
-3. Azure Cognitive Search entegrasyonu
-4. RAG deseninin uygulanması
+Örnek, aşağıdakileri göstermektedir:  
+1. MCP sunucusu entegrasyonu  
+2. Çoklu ajan düzenlemesi  
+3. Azure Cognitive Search entegrasyonu  
+4. RAG deseninin uygulanması  
 
-Öne çıkan özellikler:
-- Gerçek zamanlı GitHub depo analizi
-- Akıllı proje önerileri
-- Azure Search ile etkinlik eşleştirme
-- Chainlit ile akış halinde yanıtlar
+Öne çıkan özellikler:  
+- Gerçek zamanlı GitHub deposu analizi  
+- Akıllı proje önerileri  
+- Azure Search kullanarak etkinlik eşleştirme  
+- Chainlit ile akışkan yanıtlar  
 
 ## Örneği Çalıştırma
 
-Detaylı kurulum talimatları ve daha fazla bilgi için [Github MCP Server Example README](./code_samples/github-mcp/README.md) dosyasına bakınız.
+Ayrıntılı kurulum talimatları ve daha fazla bilgi için [Github MCP Sunucu Örneği README](./code_samples/github-mcp/README.md) dosyasına bakın.
 
-1. MCP sunucusunu başlatın:
+1. MCP sunucusunu başlatın:  
    ```bash
    npx @modelcontextprotocol/server-github
    ```
 
-2. Uygulamayı çalıştırın:
+2. Uygulamayı başlatın:  
    ```bash
    chainlit run app.py -w
    ```
 
-3. Entegrasyonu test edin:
+3. Entegrasyonu test edin:  
    ```
    Example query: "Analyze repositories for username: <github_username>"
    ```
 
 ## Sorun Giderme
 
-Yaygın sorunlar ve çözümleri:
-1. MCP Bağlantı Sorunları
-   - Sunucunun çalıştığını doğrulayın
-   - Port kullanılabilirliğini kontrol edin
-   - GitHub tokenlarını doğrulayın
+Yaygın sorunlar ve çözümler:  
+1. MCP Bağlantı Sorunları  
+   - Sunucunun çalıştığını doğrulayın  
+   - Portun kullanılabilirliğini kontrol edin  
+   - GitHub tokenlerini doğrulayın  
 
-2. Azure Search Sorunları
-   - Bağlantı dizelerini kontrol edin
-   - İndeksin varlığını doğrulayın
-   - Belge yüklemesini kontrol edin
+2. Azure Search Sorunları  
+   - Bağlantı dizelerini doğrulayın  
+   - İndeksin varlığını kontrol edin  
+   - Belge yüklemesini doğrulayın  
 
 ## Sonraki Adımlar
-- Ek MCP araçlarını keşfedin
-- Özel ajanlar geliştirin
-- RAG yeteneklerini geliştirin
-- Daha fazla etkinlik kaynağı ekleyin
+- Ek MCP araçlarını keşfedin  
+- Özel ajanlar uygulayın  
+- RAG yeteneklerini geliştirin  
+- Daha fazla etkinlik kaynağı ekleyin  
+- **İleri Düzey**: Ajanlar arası iletişim örnekleri için [mcp-agents/](../../../11-mcp/code_samples/mcp-agents) dizinine göz atın  
 
 ## Kaynaklar
-- [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
-- [MCP Documentation](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
-- [Azure Cognitive Search Docs](https://learn.microsoft.com/azure/search/)
-- [Semantic Kernel Guides](https://learn.microsoft.com/semantic-kernel/)
+- [MCP'ye Yeni Başlayanlar için](https://aka.ms/mcp-for-beginners)  
+- [MCP Belgeleri](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)  
+- [Azure Cognitive Search Belgeleri](https://learn.microsoft.com/azure/search/)  
+- [Semantic Kernel Kılavuzları](https://learn.microsoft.com/semantic-kernel/)  
 
 **Feragatname**:  
-Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalar veya yorum hatalarından sorumlu değiliz.
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belgenin kendi dilindeki hali yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan herhangi bir yanlış anlama veya yanlış yorumlama durumunda sorumluluk kabul edilmez.

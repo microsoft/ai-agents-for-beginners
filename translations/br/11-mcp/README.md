@@ -1,39 +1,39 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bbce3572338711aeab758506379ab716",
-  "translation_date": "2025-07-12T13:47:09+00:00",
+  "original_hash": "e255edb8423b34b4bba20263ef38f208",
+  "translation_date": "2025-08-21T12:18:59+00:00",
   "source_file": "11-mcp/README.md",
   "language_code": "br"
 }
 -->
-# Aula 11: Integração do Model Context Protocol (MCP)
+# Aula 11: Integração com o Protocolo de Contexto de Modelo (MCP)
 
-## Introdução ao Model Context Protocol (MCP)
+## Introdução ao Protocolo de Contexto de Modelo (MCP)
 
-O Model Context Protocol (MCP) é uma estrutura inovadora criada para padronizar as interações entre modelos de IA e aplicações clientes. O MCP funciona como uma ponte entre os modelos de IA e as aplicações que os utilizam, oferecendo uma interface consistente independentemente da implementação do modelo subjacente.
+O Protocolo de Contexto de Modelo (MCP) é um framework inovador projetado para padronizar as interações entre modelos de IA e aplicações cliente. O MCP atua como uma ponte entre os modelos de IA e as aplicações que os utilizam, fornecendo uma interface consistente, independentemente da implementação do modelo subjacente.
 
 Aspectos principais do MCP:
 
-- **Comunicação Padronizada**: MCP estabelece uma linguagem comum para que as aplicações se comuniquem com os modelos de IA
-- **Gerenciamento Avançado de Contexto**: Permite a passagem eficiente de informações contextuais para os modelos de IA
-- **Compatibilidade Multiplataforma**: Funciona em várias linguagens de programação, incluindo C#, Java, JavaScript, Python e TypeScript
-- **Integração Simplificada**: Facilita para os desenvolvedores a integração de diferentes modelos de IA em suas aplicações
+- **Comunicação Padronizada**: O MCP estabelece uma linguagem comum para que as aplicações se comuniquem com modelos de IA
+- **Gerenciamento de Contexto Aprimorado**: Permite a passagem eficiente de informações contextuais para os modelos de IA
+- **Compatibilidade Multiplataforma**: Funciona em diversas linguagens de programação, incluindo C#, Java, JavaScript, Python e TypeScript
+- **Integração Simplificada**: Facilita a integração de diferentes modelos de IA em aplicações
 
-O MCP é especialmente valioso no desenvolvimento de agentes de IA, pois permite que agentes interajam com diversos sistemas e fontes de dados por meio de um protocolo unificado, tornando-os mais flexíveis e poderosos.
+O MCP é especialmente valioso no desenvolvimento de agentes de IA, pois permite que os agentes interajam com diversos sistemas e fontes de dados por meio de um protocolo unificado, tornando-os mais flexíveis e poderosos.
 
-## Objetivos de Aprendizagem
+## Objetivos de Aprendizado
 - Compreender o que é o MCP e seu papel no desenvolvimento de agentes de IA
-- Configurar e preparar um servidor MCP para integração com GitHub
-- Construir um sistema multiagente usando as ferramentas MCP
-- Implementar RAG (Retrieval Augmented Generation) com Azure Cognitive Search
+- Configurar e preparar um servidor MCP para integração com o GitHub
+- Construir um sistema multiagente utilizando ferramentas MCP
+- Implementar RAG (Geração Aumentada por Recuperação) com Azure Cognitive Search
 
 ## Pré-requisitos
 - Python 3.8+
 - Node.js 14+
-- Assinatura Azure
-- Conta GitHub
-- Conhecimento básico de Semantic Kernel
+- Assinatura do Azure
+- Conta no GitHub
+- Conhecimento básico sobre Semantic Kernel
 
 ## Instruções de Configuração
 
@@ -44,10 +44,10 @@ O MCP é especialmente valioso no desenvolvimento de agentes de IA, pois permite
    pip install -r requirements.txt
    ```
 
-2. **Configurar Serviços Azure**
-   - Crie um recurso Azure Cognitive Search
-   - Configure o serviço Azure OpenAI
-   - Defina as variáveis de ambiente no arquivo `.env`
+2. **Configurar Serviços do Azure**
+   - Criar um recurso Azure Cognitive Search
+   - Configurar o serviço Azure OpenAI
+   - Definir variáveis de ambiente no arquivo `.env`
 
 3. **Configuração do Servidor MCP**
    ```bash
@@ -59,10 +59,14 @@ O MCP é especialmente valioso no desenvolvimento de agentes de IA, pois permite
 ```
 11-mcp/
 ├── code_samples/
-│   └── github-mcp/
-│       ├── app.py              # Main application
-│       ├── event-descriptions.md  # Event data
-│       └── MCP_SETUP.md        # Setup guide
+│   ├── github-mcp/
+│   │   ├── app.py              # Main application
+│   │   ├── event-descriptions.md  # Event data
+│   │   └── MCP_SETUP.md        # Setup guide
+│   └── mcp-agents/             # Agent-to-agent communication
+│       ├── client/             # MCP client implementation
+│       ├── server/             # MCP server with agents
+│       └── README.md           # Advanced agent examples
 ├── README.md
 └── requirements.txt
 ```
@@ -84,23 +88,23 @@ O MCP é especialmente valioso no desenvolvimento de agentes de IA, pois permite
 - Inspeção de código
 - Extração de metadados
 
-## Análise do Código
+## Explicação do Código
 
 O exemplo demonstra:
-1. Integração com servidor MCP
-2. Orquestração multiagente
+1. Integração com o servidor MCP
+2. Orquestração de múltiplos agentes
 3. Integração com Azure Cognitive Search
 4. Implementação do padrão RAG
 
-Principais funcionalidades:
-- Análise em tempo real de repositórios GitHub
+Funcionalidades principais:
+- Análise de repositórios GitHub em tempo real
 - Recomendações inteligentes de projetos
 - Correspondência de eventos usando Azure Search
 - Respostas em streaming com Chainlit
 
 ## Executando o Exemplo
 
-Para instruções detalhadas de configuração e mais informações, consulte o [Github MCP Server Example README](./code_samples/github-mcp/README.md).
+Para instruções detalhadas de configuração e mais informações, consulte o [README do Exemplo de Servidor MCP no GitHub](./code_samples/github-mcp/README.md).
 
 1. Inicie o servidor MCP:
    ```bash
@@ -120,27 +124,28 @@ Para instruções detalhadas de configuração e mais informações, consulte o 
 ## Solução de Problemas
 
 Problemas comuns e soluções:
-1. Problemas de Conexão MCP
-   - Verifique se o servidor está ativo
-   - Confira a disponibilidade da porta
-   - Confirme os tokens do GitHub
+1. Problemas de Conexão com MCP
+   - Verifique se o servidor está em execução
+   - Confirme a disponibilidade da porta
+   - Valide os tokens do GitHub
 
 2. Problemas com Azure Search
-   - Valide as strings de conexão
+   - Confirme as strings de conexão
    - Verifique a existência do índice
-   - Confirme o upload dos documentos
+   - Valide o upload de documentos
 
 ## Próximos Passos
-- Explore ferramentas MCP adicionais
-- Implemente agentes personalizados
-- Aprimore as capacidades do RAG
-- Adicione mais fontes de eventos
+- Explorar ferramentas adicionais do MCP
+- Implementar agentes personalizados
+- Aprimorar as capacidades do RAG
+- Adicionar mais fontes de eventos
+- **Avançado**: Confira [mcp-agents/](../../../11-mcp/code_samples/mcp-agents) para exemplos de comunicação entre agentes
 
 ## Recursos
 - [MCP para Iniciantes](https://aka.ms/mcp-for-beginners)  
-- [Documentação MCP](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
-- [Documentação Azure Cognitive Search](https://learn.microsoft.com/azure/search/)
-- [Guias Semantic Kernel](https://learn.microsoft.com/semantic-kernel/)
+- [Documentação do MCP](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
+- [Documentação do Azure Cognitive Search](https://learn.microsoft.com/azure/search/)
+- [Guias do Semantic Kernel](https://learn.microsoft.com/semantic-kernel/)
 
 **Aviso Legal**:  
-Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte autorizada. Para informações críticas, recomenda-se tradução profissional humana. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
+Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte oficial. Para informações críticas, recomenda-se a tradução profissional feita por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações equivocadas decorrentes do uso desta tradução.
