@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "c6a79c8f2b56a80370ff7e447765524f",
-  "translation_date": "2025-07-24T09:04:33+00:00",
+  "original_hash": "76945069b52a49cd0432ae3e0b0ba22e",
+  "translation_date": "2025-07-12T07:57:20+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "bg"
 }
@@ -27,7 +27,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Този курс предлага серия от Jupyter Notebooks, които можете да стартирате, за да получите практически опит в изграждането на AI агенти.
 
-Примерите с код използват:
+Примерите с код използват следното:
 
 **Изисква GitHub акаунт - Безплатно**:
 
@@ -44,10 +44,10 @@ CO_OP_TRANSLATOR_METADATA:
 ## Изисквания
 
 - Python 3.12+
-  - **ЗАБЕЛЕЖКА**: Ако нямате инсталиран Python 3.12, уверете се, че го инсталирате. След това създайте вашата виртуална среда (venv) с python3.12, за да гарантирате, че правилните версии се инсталират от файла requirements.txt.
-- GitHub акаунт - За достъп до GitHub Models Marketplace
-- Azure абонамент - За достъп до Azure AI Foundry
-- Azure AI Foundry акаунт - За достъп до Azure AI Agent Service
+  - **NOTE**: Ако нямате инсталиран Python 3.12, уверете се, че го инсталирате. След това създайте виртуална среда с python3.12, за да се гарантира, че правилните версии се инсталират от файла requirements.txt.
+- GitHub акаунт - за достъп до GitHub Models Marketplace
+- Azure абонамент - за достъп до Azure AI Foundry
+- Azure AI Foundry акаунт - за достъп до Azure AI Agent Service
 
 В кореновата директория на това хранилище сме включили файл `requirements.txt`, който съдържа всички необходими Python пакети за стартиране на примерите с код.
 
@@ -73,7 +73,7 @@ pip install -r requirements.txt
 
 Това може да се направи, като отидете на вашия GitHub акаунт.
 
-Моля, следвайте [Принципа на минималните привилегии](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely), когато създавате вашия токен. Това означава, че трябва да дадете на токена само разрешенията, които са необходими за стартиране на примерите с код в този курс.
+в GitHub акаунт.
 
 1. Изберете опцията `Fine-grained tokens` от лявата страна на екрана.
 
@@ -81,19 +81,9 @@ pip install -r requirements.txt
 
     ![Generate Token](../../../translated_images/generate-new-token.8772e24e8e2e067f2e6742500eaf68bb5c5f8999537bd79a040d2ecc09c7fdcb.bg.png)
 
-1. Въведете описателно име за вашия токен, което отразява неговата цел, за да бъде лесно разпознаваем по-късно. Задайте дата на изтичане (препоръчително: 30 дни; можете да изберете по-кратък период, например 7 дни, ако предпочитате по-сигурна настройка).
+Ще бъдете подканени да въведете име за вашия токен, да изберете дата на изтичане (Препоръчително: 30 дни) и да изберете обхватите на токена (Public Repositories).
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.bg.png)
-
-1. Ограничете обхвата на токена до вашия форк на това хранилище.
-
-    ![Limit scope to fork repository](../../../translated_images/select-fork-repository.4497f6bb05ccd6b474ed134493a815fc34f94f89db2b1630c494adff7b5b558a.bg.png)
-
-1. Ограничете разрешенията на токена: Под **Permissions**, активирайте **Account Permissions**, преминете към **Models** и активирайте само необходимия достъп за четене за GitHub модели.
-
-    ![Account Permissions](../../../translated_images/account-permissions.de1806fad33a72c6194d2688cf2c10f2adb9ff7a5c1041a2329cbef46bffbba0.bg.png)
-
-    ![Models Read Access](../../../translated_images/models-read-access.c00bc44e28c40450a85542e19f8e8c68284c71861c076b7dbc078b4c7e51faa6.bg.png)
+Също така е необходимо да редактирате разрешенията на този токен: Permissions -> Models -> Позволява достъп до GitHub Models
 
 Копирайте новия токен, който току-що създадохте. Сега ще го добавите към вашия `.env` файл, включен в този курс.
 
@@ -171,7 +161,7 @@ cp .env.example .env
 
 ### Azure портал
 
-- `AZURE_OPENAI_ENDPOINT` - Потърсете **Azure AI services**, кликнете върху него, след това отидете на **Resource Management**, **Keys and Endpoint**, превъртете надолу до "Azure OpenAI endpoints" и копирайте този, който казва "Language APIs".
+- `AZURE_OPENAI_ENDPOINT` - Потърсете **Azure AI services**, кликнете върху него, след това отидете на **Resource Management**, **Keys and Endpoint**, превъртете надолу до "Azure OpenAI endpoints" и копирайте този, който е за "Language APIs".
 
 - `AZURE_OPENAI_API_KEY` - От същия екран копирайте KEY 1 или KEY 2.
 
@@ -193,13 +183,17 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 
 ## Нуждаете се от помощ?
 
-Ако срещнете проблеми при изпълнението на тази настройка, присъединете се към нашия
+Ако имате проблеми със стартирането на тази настройка, присъединете се към нашия
+
+или
+
+.
 
 ## Следващ урок
 
 Вече сте готови да стартирате кода за този курс. Приятно учене за света на AI агентите!
 
-[Въведение в AI агенти и техните приложения](../01-intro-to-ai-agents/README.md)
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
 
 **Отказ от отговорност**:  
-Този документ е преведен с помощта на AI услуга за превод [Co-op Translator](https://github.com/Azure/co-op-translator). Въпреки че се стремим към точност, моля, имайте предвид, че автоматизираните преводи може да съдържат грешки или неточности. Оригиналният документ на неговия изходен език трябва да се счита за авторитетен източник. За критична информация се препоръчва професионален човешки превод. Не носим отговорност за каквито и да е недоразумения или погрешни интерпретации, произтичащи от използването на този превод.
+Този документ е преведен с помощта на AI преводаческа услуга [Co-op Translator](https://github.com/Azure/co-op-translator). Въпреки че се стремим към точност, моля, имайте предвид, че автоматизираните преводи могат да съдържат грешки или неточности. Оригиналният документ на неговия първичен език трябва да се счита за авторитетен източник. За критична информация се препоръчва професионален човешки превод. Ние не носим отговорност за каквито и да е недоразумения или неправилни тълкувания, произтичащи от използването на този превод.

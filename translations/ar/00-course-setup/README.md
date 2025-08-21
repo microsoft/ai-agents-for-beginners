@@ -1,79 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "c6a79c8f2b56a80370ff7e447765524f",
-  "translation_date": "2025-07-24T07:39:00+00:00",
+  "original_hash": "76945069b52a49cd0432ae3e0b0ba22e",
+  "translation_date": "2025-07-12T07:43:28+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "ar"
 }
 -->
-# إعداد الدورة
+في حساب GitHub الخاص بك.
 
-## المقدمة
-
-ستتناول هذه الدرس كيفية تشغيل نماذج الكود الخاصة بهذه الدورة.
-
-## نسخ أو استنساخ هذا المستودع
-
-للبدء، يرجى نسخ أو استنساخ مستودع GitHub. سيتيح لك ذلك إنشاء نسخة خاصة بك من مواد الدورة لتتمكن من تشغيل واختبار وتعديل الكود!
-
-يمكن القيام بذلك بالنقر على الرابط التالي:
-
-![مستودع مستنسخ](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.ar.png)
-
-## تشغيل الكود
-
-تقدم هذه الدورة سلسلة من دفاتر Jupyter التي يمكنك تشغيلها للحصول على تجربة عملية في بناء وكلاء الذكاء الاصطناعي.
-
-تستخدم نماذج الكود أحد الخيارات التالية:
-
-**يتطلب حساب GitHub - مجاني**:
-
-1) إطار عمل Semantic Kernel Agent + سوق النماذج في GitHub. مُشار إليه بـ (semantic-kernel.ipynb)
-2) إطار عمل AutoGen + سوق النماذج في GitHub. مُشار إليه بـ (autogen.ipynb)
-
-**يتطلب اشتراك Azure**:
-3) Azure AI Foundry + خدمة Azure AI Agent. مُشار إليه بـ (azureaiagent.ipynb)
-
-نوصي بتجربة جميع الأنواع الثلاثة من الأمثلة لمعرفة أيها يناسبك بشكل أفضل.
-
-الخيار الذي تختاره سيحدد خطوات الإعداد التي تحتاج إلى اتباعها أدناه:
-
-## المتطلبات
-
-- Python 3.12+
-  - **NOTE**: إذا لم يكن لديك Python3.12 مثبتًا، تأكد من تثبيته. ثم قم بإنشاء بيئة افتراضية باستخدام python3.12 لضمان تثبيت الإصدارات الصحيحة من ملف requirements.txt.
-- حساب GitHub - للوصول إلى سوق النماذج في GitHub
-- اشتراك Azure - للوصول إلى Azure AI Foundry
-- حساب Azure AI Foundry - للوصول إلى خدمة Azure AI Agent
-
-قمنا بتضمين ملف `requirements.txt` في جذر هذا المستودع يحتوي على جميع حزم Python المطلوبة لتشغيل نماذج الكود.
-
-يمكنك تثبيتها عن طريق تشغيل الأمر التالي في الطرفية في جذر المستودع:
-
-```bash
-pip install -r requirements.txt
-```
-نوصي بإنشاء بيئة Python افتراضية لتجنب أي تعارضات أو مشاكل.
-
-## إعداد VSCode
-تأكد من أنك تستخدم الإصدار الصحيح من Python في VSCode.
-
-![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
-
-## الإعداد للأمثلة باستخدام نماذج GitHub 
-
-### الخطوة 1: استرجاع رمز الوصول الشخصي (PAT) الخاص بك من GitHub
-
-تستخدم هذه الدورة سوق النماذج في GitHub، مما يوفر وصولًا مجانيًا إلى نماذج اللغة الكبيرة (LLMs) التي ستستخدمها لبناء وكلاء الذكاء الاصطناعي.
-
-للاستفادة من نماذج GitHub، ستحتاج إلى إنشاء [رمز الوصول الشخصي من GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
-
-يمكن القيام بذلك عن طريق الذهاب إلى حسابك في GitHub.
-
-يرجى اتباع [مبدأ أقل امتياز](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) عند إنشاء الرمز الخاص بك. هذا يعني أنه يجب عليك منح الرمز فقط الأذونات التي يحتاجها لتشغيل نماذج الكود في هذه الدورة.
-
-1. اختر خيار `Fine-grained tokens` على الجانب الأيسر من الشاشة.
+اختر خيار `Fine-grained tokens` على الجانب الأيسر من شاشتك.
 
     ثم اختر `Generate new token`.
 
@@ -103,13 +39,13 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-سيقوم هذا بنسخ ملف المثال وإنشاء `.env` في الدليل الخاص بك حيث تقوم بملء القيم لمتغيرات البيئة.
+سيقوم هذا بنسخ ملف المثال وإنشاء ملف `.env` في مجلدك حيث يمكنك ملء القيم لمتغيرات البيئة.
 
 بعد نسخ الرمز الخاص بك، افتح ملف `.env` في محرر النصوص المفضل لديك والصق الرمز في الحقل `GITHUB_TOKEN`.
 
 يجب أن تكون الآن قادرًا على تشغيل نماذج الكود لهذه الدورة.
 
-## الإعداد للأمثلة باستخدام Azure AI Foundry وخدمة Azure AI Agent
+## الإعداد لتشغيل العينات باستخدام Azure AI Foundry وخدمة Azure AI Agent
 
 ### الخطوة 1: استرجاع نقطة النهاية لمشروع Azure الخاص بك
 
@@ -117,7 +53,7 @@ cp .env.example .env
 
 بمجرد إنشاء مشروعك، ستحتاج إلى استرجاع سلسلة الاتصال الخاصة بمشروعك.
 
-يمكن القيام بذلك عن طريق الذهاب إلى صفحة **Overview** لمشروعك في بوابة Azure AI Foundry.
+يمكنك فعل ذلك بالذهاب إلى صفحة **نظرة عامة** لمشروعك في بوابة Azure AI Foundry.
 
 ![سلسلة اتصال المشروع](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.ar.png)
 
@@ -129,23 +65,23 @@ cp .env.example .env
 cp .env.example .env
 ```
 
-سيقوم هذا بنسخ ملف المثال وإنشاء `.env` في الدليل الخاص بك حيث تقوم بملء القيم لمتغيرات البيئة.
+سيقوم هذا بنسخ ملف المثال وإنشاء ملف `.env` في مجلدك حيث يمكنك ملء القيم لمتغيرات البيئة.
 
 بعد نسخ الرمز الخاص بك، افتح ملف `.env` في محرر النصوص المفضل لديك والصق الرمز في الحقل `PROJECT_ENDPOINT`.
 
 ### الخطوة 3: تسجيل الدخول إلى Azure
 
-كأفضل ممارسة أمان، سنستخدم [المصادقة بدون مفاتيح](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) للمصادقة على Azure OpenAI باستخدام Microsoft Entra ID.
+كأفضل ممارسة أمنية، سنستخدم [المصادقة بدون مفتاح](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) للمصادقة على Azure OpenAI باستخدام Microsoft Entra ID. قبل أن تتمكن من القيام بذلك، ستحتاج أولاً إلى تثبيت **Azure CLI** وفقًا لـ [تعليمات التثبيت](https://learn.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academic-105485-koreyst) لنظام التشغيل الخاص بك.
 
 بعد ذلك، افتح الطرفية وقم بتشغيل `az login --use-device-code` لتسجيل الدخول إلى حساب Azure الخاص بك.
 
 بمجرد تسجيل الدخول، اختر اشتراكك في الطرفية.
 
-## متغيرات البيئة الإضافية - Azure Search وAzure OpenAI 
+## متغيرات بيئة إضافية - Azure Search و Azure OpenAI
 
-بالنسبة لدرس Agentic RAG - الدرس الخامس - هناك أمثلة تستخدم Azure Search وAzure OpenAI.
+في درس Agentic RAG - الدرس 5 - هناك عينات تستخدم Azure Search و Azure OpenAI.
 
-إذا كنت ترغب في تشغيل هذه الأمثلة، ستحتاج إلى إضافة متغيرات البيئة التالية إلى ملف `.env` الخاص بك:
+إذا كنت ترغب في تشغيل هذه العينات، ستحتاج إلى إضافة متغيرات البيئة التالية إلى ملف `.env` الخاص بك:
 
 ### صفحة النظرة العامة (المشروع)
 
@@ -159,7 +95,7 @@ cp .env.example .env
 
 - `AZURE_OPENAI_RESOURCE_GROUP` - انتقل إلى **خصائص المشروع** في صفحة **Overview** لمركز الإدارة.
 
-- `GLOBAL_LLM_SERVICE` - ضمن **الموارد المتصلة**، ابحث عن اسم اتصال **Azure AI Services**. إذا لم يكن مدرجًا، تحقق من **بوابة Azure** ضمن مجموعة الموارد الخاصة بك للحصول على اسم موارد AI Services.
+- `GLOBAL_LLM_SERVICE` - تحت **الموارد المتصلة**، ابحث عن اسم اتصال **خدمات Azure AI**. إذا لم يكن مدرجًا، تحقق من **بوابة Azure** ضمن مجموعة الموارد الخاصة بك لاسم مورد خدمات AI.
 
 ### صفحة النماذج + نقاط النهاية
 
@@ -169,11 +105,11 @@ cp .env.example .env
 
 ### بوابة Azure
 
-- `AZURE_OPENAI_ENDPOINT` - ابحث عن **خدمات Azure AI**، انقر عليها، ثم انتقل إلى **إدارة الموارد**، **المفاتيح ونقطة النهاية**، وقم بالتمرير لأسفل إلى "نقاط النهاية لـ Azure OpenAI"، ونسخ النقطة التي تقول "APIs اللغة".
+- `AZURE_OPENAI_ENDPOINT` - ابحث عن **خدمات Azure AI**، انقر عليها، ثم اذهب إلى **إدارة الموارد**، **المفاتيح ونقطة النهاية**، ومرر للأسفل إلى "نقاط نهاية Azure OpenAI"، وانسخ النقطة التي تقول "واجهات برمجة التطبيقات اللغوية".
 
 - `AZURE_OPENAI_API_KEY` - من نفس الشاشة، انسخ المفتاح 1 أو المفتاح 2.
 
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - ابحث عن مورد **Azure AI Search** الخاص بك، انقر عليه، وشاهد **النظرة العامة**.
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - ابحث عن مورد **Azure AI Search** الخاص بك، انقر عليه، واطلع على **النظرة العامة**.
 
 - `AZURE_SEARCH_API_KEY` - ثم انتقل إلى **الإعدادات** ثم **المفاتيح** لنسخ المفتاح الإداري الأساسي أو الثانوي.
 
@@ -183,7 +119,7 @@ cp .env.example .env
 
 ### إعداد المصادقة بدون مفاتيح
 
-بدلاً من كتابة بيانات الاعتماد الخاصة بك، سنستخدم اتصالًا بدون مفاتيح مع Azure OpenAI. للقيام بذلك، سنقوم باستيراد `DefaultAzureCredential` ومن ثم استدعاء وظيفة `DefaultAzureCredential` للحصول على بيانات الاعتماد.
+بدلاً من ترميز بيانات الاعتماد الخاصة بك بشكل ثابت، سنستخدم اتصالًا بدون مفتاح مع Azure OpenAI. للقيام بذلك، سنستورد `DefaultAzureCredential` وسنستدعي لاحقًا دالة `DefaultAzureCredential` للحصول على بيانات الاعتماد.
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
@@ -191,7 +127,11 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 
 ## هل واجهت مشكلة؟
 
-إذا واجهت أي مشاكل أثناء تشغيل هذا الإعداد، انضم إلى
+إذا واجهت أي مشاكل في تشغيل هذا الإعداد، انضم إلى مجتمعنا
+
+أو
+
+.
 
 ## الدرس التالي
 
