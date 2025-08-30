@@ -1,15 +1,64 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e4e06d3b5d6207459a019c05fee5eb4b",
-  "translation_date": "2025-07-12T10:40:50+00:00",
+  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
+  "translation_date": "2025-08-30T08:45:57+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "pl"
 }
 -->
-for szybkiego przeglądu.
+[![Wzorzec Projektowania Planowania](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.pl.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-Poniższy fragment kodu w Pythonie demonstruje prostego agenta planującego, który rozkłada cel na podzadania i generuje ustrukturyzowany plan:
+> _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
+
+# Projektowanie Planowania
+
+## Wprowadzenie
+
+Ta lekcja obejmie:
+
+* Definiowanie jasnego, ogólnego celu i dzielenie złożonego zadania na mniejsze, łatwiejsze do zarządzania zadania.
+* Wykorzystywanie ustrukturyzowanego wyjścia dla bardziej niezawodnych i czytelnych dla maszyn odpowiedzi.
+* Stosowanie podejścia opartego na zdarzeniach do obsługi dynamicznych zadań i nieoczekiwanych danych wejściowych.
+
+## Cele Nauki
+
+Po ukończeniu tej lekcji zrozumiesz:
+
+* Jak zidentyfikować i ustalić ogólny cel dla agenta AI, zapewniając, że wie on dokładnie, co należy osiągnąć.
+* Jak rozbić złożone zadanie na mniejsze podzadania i zorganizować je w logiczną sekwencję.
+* Jak wyposażyć agentów w odpowiednie narzędzia (np. narzędzia wyszukiwania lub analizy danych), zdecydować, kiedy i jak ich używać, oraz radzić sobie z nieoczekiwanymi sytuacjami.
+* Jak oceniać wyniki podzadań, mierzyć wydajność i iterować działania w celu poprawy końcowego wyniku.
+
+## Definiowanie Ogólnego Celu i Rozbijanie Zadania
+
+![Definiowanie Celów i Zadań](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.pl.png)
+
+Większość zadań w rzeczywistym świecie jest zbyt złożona, aby można je było rozwiązać w jednym kroku. Agent AI potrzebuje zwięzłego celu, który poprowadzi jego planowanie i działania. Na przykład, rozważ cel:
+
+    "Stwórz 3-dniowy plan podróży."
+
+Choć jest to proste do sformułowania, wymaga doprecyzowania. Im jaśniejszy cel, tym lepiej agent (i wszyscy ludzie współpracujący) mogą skupić się na osiągnięciu właściwego wyniku, takiego jak stworzenie kompleksowego planu podróży z opcjami lotów, rekomendacjami hoteli i propozycjami aktywności.
+
+### Rozbijanie Zadań
+
+Duże lub skomplikowane zadania stają się łatwiejsze do zarządzania, gdy są podzielone na mniejsze, ukierunkowane podzadania. 
+Dla przykładu planu podróży, można podzielić cel na:
+
+* Rezerwacja Lotów
+* Rezerwacja Hoteli
+* Wynajem Samochodu
+* Personalizacja
+
+Każde podzadanie może być realizowane przez dedykowanych agentów lub procesy. Jeden agent może specjalizować się w wyszukiwaniu najlepszych ofert lotów, inny w rezerwacji hoteli, i tak dalej. Koordynujący lub „dalszy” agent może następnie skompilować te wyniki w jeden spójny plan podróży dla użytkownika końcowego.
+
+To modułowe podejście pozwala również na stopniowe ulepszenia. Na przykład, można dodać wyspecjalizowanych agentów do rekomendacji kulinarnych lub lokalnych atrakcji i z czasem udoskonalać plan podróży.
+
+### Ustrukturyzowane Wyjście
+
+Modele językowe (LLM) mogą generować ustrukturyzowane wyjście (np. JSON), które jest łatwiejsze do analizy i przetwarzania przez dalsze agenty lub usługi. Jest to szczególnie przydatne w kontekście wieloagentowym, gdzie można podjąć działania na podstawie wyników planowania. Zobacz poniżej dla szybkiego przeglądu.
+
+Poniższy fragment kodu w Pythonie pokazuje prostego agenta planującego, który rozbija cel na podzadania i generuje ustrukturyzowany plan:
 
 ```python
 from pydantic import BaseModel
@@ -98,16 +147,17 @@ pprint(json.loads(response_content))
 # TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Agent planujący z orkiestracją wieloagentową
+### Agent Planowania z Orkiestracją Wieloagentową
 
-W tym przykładzie agent Semantic Router otrzymuje prośbę użytkownika (np. „Potrzebuję planu hotelowego na moją podróż.”).
+W tym przykładzie, Semantic Router Agent odbiera żądanie użytkownika (np. "Potrzebuję planu hotelowego na moją podróż.").
 
 Planista następnie:
 
-* Otrzymuje plan hotelowy: Planista bierze wiadomość użytkownika i na podstawie systemowego promptu (w tym dostępnych szczegółów agentów) generuje ustrukturyzowany plan podróży.
-* Wypisuje agentów i ich narzędzia: Rejestr agentów zawiera listę agentów (np. do lotów, hoteli, wynajmu samochodów i aktywności) wraz z funkcjami lub narzędziami, które oferują.
-* Kieruje plan do odpowiednich agentów: W zależności od liczby podzadań planista albo wysyła wiadomość bezpośrednio do dedykowanego agenta (w scenariuszach z jednym zadaniem), albo koordynuje to przez menedżera czatu grupowego dla współpracy wieloagentowej.
-* Podsumowuje wynik: Na koniec planista podsumowuje wygenerowany plan dla jasności.
+* Otrzymuje Plan Hotelowy: Planista przyjmuje wiadomość użytkownika i na podstawie systemowego promptu (zawierającego szczegóły dostępnych agentów) generuje ustrukturyzowany plan podróży.
+* Wymienia Agentów i Ich Narzędzia: Rejestr agentów zawiera listę agentów (np. do lotów, hoteli, wynajmu samochodów i aktywności) wraz z funkcjami lub narzędziami, które oferują.
+* Przekazuje Plan Odpowiednim Agentom: W zależności od liczby podzadań, planista albo wysyła wiadomość bezpośrednio do dedykowanego agenta (w przypadku scenariuszy z jednym zadaniem), albo koordynuje za pomocą menedżera czatu grupowego w przypadku współpracy wieloagentowej.
+* Podsumowuje Wynik: Na koniec planista podsumowuje wygenerowany plan dla przejrzystości.
+
 Poniższy przykład kodu w Pythonie ilustruje te kroki:
 
 ```python
@@ -183,7 +233,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Poniżej znajduje się wynik z poprzedniego kodu, który można następnie wykorzystać do przekierowania do `assigned_agent` i podsumowania planu podróży dla użytkownika końcowego.
+Poniżej znajduje się wynik poprzedniego kodu, który można następnie wykorzystać do przekierowania do `assigned_agent` i podsumowania planu podróży dla użytkownika końcowego.
 
 ```json
 {
@@ -214,15 +264,15 @@ Poniżej znajduje się wynik z poprzedniego kodu, który można następnie wykor
 }
 ```
 
-Przykładowy notatnik z powyższym kodem jest dostępny [tutaj](../../../07-planning-design/07-autogen.ipynb).
+Przykładowy notebook z poprzednim kodem jest dostępny [tutaj](07-autogen.ipynb).
 
-### Planowanie iteracyjne
+### Planowanie Iteracyjne
 
-Niektóre zadania wymagają wymiany informacji lub ponownego planowania, gdzie wynik jednego podzadania wpływa na kolejne. Na przykład, jeśli agent napotka nieoczekiwany format danych podczas rezerwacji lotów, może potrzebować dostosować swoją strategię przed przejściem do rezerwacji hotelu.
+Niektóre zadania wymagają podejścia iteracyjnego, gdzie wynik jednego podzadania wpływa na kolejne. Na przykład, jeśli agent napotka nieoczekiwany format danych podczas rezerwacji lotów, może być konieczne dostosowanie strategii przed przejściem do rezerwacji hoteli.
 
-Dodatkowo, opinia użytkownika (np. gdy człowiek zdecyduje, że woli wcześniejszy lot) może wywołać częściowe ponowne planowanie. To dynamiczne, iteracyjne podejście zapewnia, że ostateczne rozwiązanie jest zgodne z rzeczywistymi ograniczeniami i zmieniającymi się preferencjami użytkownika.
+Dodatkowo, opinie użytkownika (np. decyzja o preferowaniu wcześniejszego lotu) mogą wywołać częściowe przeplanowanie. To dynamiczne, iteracyjne podejście zapewnia, że końcowe rozwiązanie jest zgodne z rzeczywistymi ograniczeniami i zmieniającymi się preferencjami użytkownika.
 
-np. przykładowy kod
+Przykładowy kod:
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
@@ -243,27 +293,29 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-Do bardziej zaawansowanego planowania warto sprawdzić Magnetic One
-
-for rozwiązywania złożonych zadań.
+Dla bardziej zaawansowanego planowania sprawdź Magnetic One do rozwiązywania złożonych zadań.
 
 ## Podsumowanie
 
-W tym artykule przyjrzeliśmy się przykładzie, jak stworzyć planistę, który może dynamicznie wybierać dostępnych zdefiniowanych agentów. Wynik planisty rozkłada zadania i przypisuje agentów, aby mogły one zostać wykonane. Zakłada się, że agenci mają dostęp do funkcji/narzędzi niezbędnych do realizacji zadania. Oprócz agentów można uwzględnić inne wzorce, takie jak refleksja, podsumowywacz czy czat round robin, aby jeszcze bardziej dostosować działanie.
+W tym artykule przyjrzeliśmy się przykładowi, jak stworzyć planistę, który może dynamicznie wybierać dostępnych agentów zdefiniowanych w systemie. Wyjście Planisty rozbija zadania i przypisuje je agentom, aby mogły zostać wykonane. Zakłada się, że agenci mają dostęp do funkcji/narzędzi wymaganych do wykonania zadania. Oprócz agentów można włączyć inne wzorce, takie jak refleksja, podsumowanie czy czat w systemie round robin, aby jeszcze bardziej dostosować system.
 
-## Dodatkowe zasoby
+## Dodatkowe Materiały
 
-* AutoGen Magnetic One – uniwersalny system wieloagentowy do rozwiązywania złożonych zadań, który osiągnął imponujące wyniki na wielu wymagających benchmarkach agentowych. Odniesienie:
+* AutoGen Magnetic One - Uniwersalny system wieloagentowy do rozwiązywania złożonych zadań, który osiągnął imponujące wyniki w wielu wymagających benchmarkach agentowych. Referencja: W tej implementacji orkiestrator tworzy plan specyficzny dla zadania i deleguje te zadania dostępnym agentom. Oprócz planowania orkiestrator stosuje również mechanizm śledzenia, aby monitorować postęp zadania i przeplanowywać w razie potrzeby.
 
-. W tej implementacji orkiestrator tworzy plan specyficzny dla zadania i deleguje te zadania dostępnym agentom. Oprócz planowania orkiestrator stosuje także mechanizm śledzenia postępów zadania i w razie potrzeby ponownie planuje.
+### Masz więcej pytań dotyczących wzorca projektowania planowania?
 
-## Poprzednia lekcja
+Dołącz do [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), aby spotkać się z innymi uczącymi się, uczestniczyć w godzinach konsultacji i uzyskać odpowiedzi na pytania dotyczące agentów AI.
 
-[Budowanie godnych zaufania agentów AI](../06-building-trustworthy-agents/README.md)
+## Poprzednia Lekcja
 
-## Następna lekcja
+[Budowanie Godnych Zaufania Agentów AI](../06-building-trustworthy-agents/README.md)
 
-[Wzorzec projektowy wieloagentowy](../08-multi-agent/README.md)
+## Następna Lekcja
+
+[Wzorzec Projektowania Wieloagentowego](../08-multi-agent/README.md)
+
+---
 
 **Zastrzeżenie**:  
-Niniejszy dokument został przetłumaczony przy użyciu usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy starań, aby tłumaczenie było jak najbardziej precyzyjne, prosimy mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w języku źródłowym należy traktować jako źródło autorytatywne. W przypadku informacji o kluczowym znaczeniu zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.
+Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy wszelkich starań, aby tłumaczenie było precyzyjne, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za wiarygodne źródło. W przypadku informacji o kluczowym znaczeniu zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.

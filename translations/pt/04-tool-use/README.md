@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "7d24f735b3c326b2e515f049a0330e54",
-  "translation_date": "2025-08-21T12:52:43+00:00",
+  "original_hash": "4a5ccc4ad1dba85fbc2087cf3b986544",
+  "translation_date": "2025-08-30T08:29:16+00:00",
   "source_file": "04-tool-use/README.md",
   "language_code": "pt"
 }
@@ -13,7 +13,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 # Padrão de Design para Uso de Ferramentas
 
-As ferramentas são interessantes porque permitem que agentes de IA tenham uma gama mais ampla de capacidades. Em vez de o agente ter um conjunto limitado de ações que pode executar, ao adicionar uma ferramenta, o agente pode realizar uma ampla variedade de ações. Neste capítulo, vamos explorar o Padrão de Design para Uso de Ferramentas, que descreve como agentes de IA podem usar ferramentas específicas para alcançar seus objetivos.
+As ferramentas são interessantes porque permitem que agentes de IA tenham uma gama mais ampla de capacidades. Em vez de o agente ter um conjunto limitado de ações que pode executar, ao adicionar uma ferramenta, o agente pode agora realizar uma ampla variedade de ações. Neste capítulo, vamos explorar o Padrão de Design para Uso de Ferramentas, que descreve como agentes de IA podem usar ferramentas específicas para alcançar seus objetivos.
 
 ## Introdução
 
@@ -22,7 +22,7 @@ Nesta lição, procuramos responder às seguintes perguntas:
 - O que é o padrão de design para uso de ferramentas?
 - Quais são os casos de uso aos quais ele pode ser aplicado?
 - Quais são os elementos/blocos de construção necessários para implementar o padrão de design?
-- Quais são as considerações especiais ao usar o Padrão de Design para Uso de Ferramentas para construir agentes de IA confiáveis?
+- Quais são as considerações especiais para usar o Padrão de Design para Uso de Ferramentas na construção de agentes de IA confiáveis?
 
 ## Objetivos de Aprendizagem
 
@@ -35,7 +35,7 @@ Após concluir esta lição, você será capaz de:
 
 ## O que é o Padrão de Design para Uso de Ferramentas?
 
-O **Padrão de Design para Uso de Ferramentas** foca em dar aos LLMs a capacidade de interagir com ferramentas externas para alcançar objetivos específicos. Ferramentas são códigos que podem ser executados por um agente para realizar ações. Uma ferramenta pode ser uma função simples, como uma calculadora, ou uma chamada de API para um serviço de terceiros, como consulta de preços de ações ou previsão do tempo. No contexto de agentes de IA, as ferramentas são projetadas para serem executadas pelos agentes em resposta a **chamadas de função geradas pelo modelo**.
+O **Padrão de Design para Uso de Ferramentas** foca em dar aos LLMs a capacidade de interagir com ferramentas externas para alcançar objetivos específicos. Ferramentas são códigos que podem ser executados por um agente para realizar ações. Uma ferramenta pode ser uma função simples, como uma calculadora, ou uma chamada de API para um serviço de terceiros, como consulta de preços de ações ou previsão do tempo. No contexto de agentes de IA, as ferramentas são projetadas para serem executadas por agentes em resposta a **chamadas de função geradas pelo modelo**.
 
 ## Quais são os casos de uso aos quais ele pode ser aplicado?
 
@@ -43,7 +43,7 @@ Agentes de IA podem aproveitar ferramentas para realizar tarefas complexas, recu
 
 - **Recuperação Dinâmica de Informações:** Agentes podem consultar APIs externas ou bases de dados para obter dados atualizados (por exemplo, consultar uma base de dados SQLite para análise de dados, buscar preços de ações ou informações meteorológicas).
 - **Execução e Interpretação de Código:** Agentes podem executar códigos ou scripts para resolver problemas matemáticos, gerar relatórios ou realizar simulações.
-- **Automação de Fluxos de Trabalho:** Automatizar fluxos de trabalho repetitivos ou com várias etapas, integrando ferramentas como agendadores de tarefas, serviços de e-mail ou pipelines de dados.
+- **Automação de Fluxos de Trabalho:** Automatizar fluxos de trabalho repetitivos ou com múltiplas etapas, integrando ferramentas como agendadores de tarefas, serviços de e-mail ou pipelines de dados.
 - **Suporte ao Cliente:** Agentes podem interagir com sistemas de CRM, plataformas de tickets ou bases de conhecimento para resolver dúvidas dos usuários.
 - **Geração e Edição de Conteúdo:** Agentes podem usar ferramentas como verificadores gramaticais, resumidores de texto ou avaliadores de segurança de conteúdo para auxiliar em tarefas de criação de conteúdo.
 
@@ -63,13 +63,13 @@ Esses blocos de construção permitem que o agente de IA realize uma ampla gama 
 
 - **Gestão de Estado**: Acompanha o contexto da conversa, interações anteriores com ferramentas e dados persistentes para garantir consistência em interações de múltiplas etapas.
 
-A seguir, vamos analisar a chamada de função/ferramenta em mais detalhes.
+A seguir, vamos analisar as Chamadas de Função/Ferramenta em mais detalhes.
 
-### Chamada de Função/Ferramenta
+### Chamadas de Função/Ferramenta
 
 A chamada de função é a principal forma de permitir que Modelos de Linguagem de Grande Escala (LLMs) interajam com ferramentas. Você frequentemente verá os termos 'Função' e 'Ferramenta' usados de forma intercambiável, pois 'funções' (blocos de código reutilizável) são as 'ferramentas' que os agentes utilizam para realizar tarefas. Para que o código de uma função seja invocado, um LLM deve comparar a solicitação do usuário com a descrição da função. Para isso, um esquema contendo as descrições de todas as funções disponíveis é enviado ao LLM. O LLM então seleciona a função mais apropriada para a tarefa e retorna seu nome e argumentos. A função selecionada é invocada, sua resposta é enviada de volta ao LLM, que utiliza as informações para responder à solicitação do usuário.
 
-Para os desenvolvedores implementarem chamadas de função para agentes, será necessário:
+Para que os desenvolvedores implementem chamadas de função para agentes, será necessário:
 
 1. Um modelo LLM que suporte chamadas de função
 2. Um esquema contendo descrições de funções
@@ -149,7 +149,7 @@ Vamos usar o exemplo de obter a hora atual em uma cidade para ilustrar:
 1. **O código da função necessário para realizar a tarefa:**
 
     Agora que o LLM escolheu qual função precisa ser executada, o código que realiza a tarefa precisa ser implementado e executado. 
-    Podemos implementar o código para obter a hora atual em Python. Também precisaremos escrever o código para extrair o nome e os argumentos da resposta_message para obter o resultado final.
+    Podemos implementar o código para obter a hora atual em Python. Também precisaremos escrever o código para extrair o nome e os argumentos da `response_message` para obter o resultado final.
 
     ```python
       def get_current_time(location):
@@ -206,7 +206,7 @@ Vamos usar o exemplo de obter a hora atual em uma cidade para ilustrar:
       The current time in San Francisco is 09:24 AM.
      ```
 
-A chamada de função está no centro da maioria, senão de todos os designs de uso de ferramentas por agentes, no entanto, implementá-la do zero pode ser desafiador. 
+A chamada de função está no centro da maioria, se não de todos os designs de uso de ferramentas por agentes, no entanto, implementá-la do zero pode ser desafiador. 
 Como aprendemos na [Lição 2](../../../02-explore-agentic-frameworks), frameworks agentivos nos fornecem blocos de construção pré-definidos para implementar o uso de ferramentas.
 
 ## Exemplos de Uso de Ferramentas com Frameworks Agentivos
@@ -253,12 +253,12 @@ kernel.add_plugin(get_current_time_plugin)
   
 ### Azure AI Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> é um framework agentivo mais recente projetado para capacitar desenvolvedores a construir, implantar e escalar agentes de IA de alta qualidade e extensíveis de forma segura, sem precisar gerenciar os recursos de computação e armazenamento subjacentes. Ele é particularmente útil para aplicações empresariais, pois é um serviço totalmente gerenciado com segurança de nível empresarial.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> é um framework agentivo mais recente projetado para capacitar desenvolvedores a construir, implantar e escalar agentes de IA de alta qualidade e extensíveis de forma segura, sem precisar gerenciar os recursos subjacentes de computação e armazenamento. Ele é particularmente útil para aplicações empresariais, pois é um serviço totalmente gerenciado com segurança de nível empresarial.
 
 Comparado ao desenvolvimento diretamente com a API do LLM, o Azure AI Agent Service oferece algumas vantagens, incluindo:
 
 - Chamadas de ferramentas automáticas – não é necessário analisar uma chamada de ferramenta, invocar a ferramenta e lidar com a resposta; tudo isso agora é feito no servidor
-- Dados gerenciados de forma segura – em vez de gerenciar seu próprio estado de conversa, você pode contar com threads para armazenar todas as informações necessárias
+- Dados gerenciados de forma segura – em vez de gerenciar seu próprio estado de conversa, você pode confiar em threads para armazenar todas as informações necessárias
 - Ferramentas prontas para uso – Ferramentas que você pode usar para interagir com suas fontes de dados, como Bing, Azure AI Search e Azure Functions.
 
 As ferramentas disponíveis no Azure AI Agent Service podem ser divididas em duas categorias:
@@ -280,7 +280,7 @@ Imagine que você é um agente de vendas em uma empresa chamada Contoso. Você d
 
 A imagem a seguir ilustra como você poderia usar o Azure AI Agent Service para analisar seus dados de vendas:
 
-![Serviço Agentic em Ação](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.pt.jpg)
+![Serviço Agentivo em Ação](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.pt.jpg)
 
 Para usar qualquer uma dessas ferramentas com o serviço, podemos criar um cliente e definir uma ferramenta ou conjunto de ferramentas. Para implementar isso na prática, podemos usar o seguinte código em Python. O LLM será capaz de analisar o conjunto de ferramentas e decidir se utiliza a função criada pelo usuário, `fetch_sales_data_using_sqlite_query`, ou o Interpretador de Código pré-definido, dependendo da solicitação do usuário.
 
@@ -312,21 +312,16 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-## Quais são as considerações especiais ao usar o Padrão de Design para Uso de Ferramentas para construir agentes de IA confiáveis?
+## Quais são as considerações especiais para usar o Padrão de Design para Uso de Ferramentas na construção de agentes de IA confiáveis?
 
 Uma preocupação comum com SQL gerado dinamicamente por LLMs é a segurança, particularmente o risco de injeção de SQL ou ações maliciosas, como excluir ou alterar a base de dados. Embora essas preocupações sejam válidas, elas podem ser mitigadas de forma eficaz configurando corretamente as permissões de acesso à base de dados. Para a maioria das bases de dados, isso envolve configurá-las como somente leitura. Para serviços de base de dados como PostgreSQL ou Azure SQL, o aplicativo deve ser atribuído a um papel de somente leitura (SELECT).
 
-Executar o aplicativo em um ambiente seguro aumenta ainda mais a proteção. Em cenários empresariais, os dados geralmente são extraídos e transformados de sistemas operacionais para uma base de dados ou data warehouse de somente leitura com um esquema amigável ao usuário. Essa abordagem garante que os dados sejam seguros, otimizados para desempenho e acessibilidade, e que o aplicativo tenha acesso restrito e somente leitura.
+Executar o aplicativo em um ambiente seguro aumenta ainda mais a proteção. Em cenários empresariais, os dados são tipicamente extraídos e transformados de sistemas operacionais para uma base de dados ou data warehouse de somente leitura com um esquema amigável ao usuário. Essa abordagem garante que os dados sejam seguros, otimizados para desempenho e acessibilidade, e que o aplicativo tenha acesso restrito e somente leitura.
+
+### Tem Mais Perguntas sobre o Padrão de Design para Uso de Ferramentas?
+Junta-te ao [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) para te conectares com outros aprendizes, participares em horários de atendimento e obteres respostas às tuas perguntas sobre AI Agents.
 
 ## Recursos Adicionais
-
--
-
-Azure AI Agents Service Workshop</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Workshop Multi-Agente do Contoso Creative Writer</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Tutorial de Chamadas de Funções do Semantic Kernel</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Interpretador de Código do Semantic Kernel</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Ferramentas Autogen</a>
 
 ## Aula Anterior
 
@@ -336,5 +331,7 @@ Azure AI Agents Service Workshop</a>
 
 [Agentic RAG](../05-agentic-rag/README.md)
 
+---
+
 **Aviso Legal**:  
-Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte autoritária. Para informações críticas, recomenda-se a tradução profissional realizada por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
+Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte oficial. Para informações críticas, recomenda-se uma tradução profissional realizada por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas resultantes do uso desta tradução.
