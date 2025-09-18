@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-30T13:07:00+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T14:00:36+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "en"
 }
@@ -42,13 +42,13 @@ While it is simple to state, it still needs refinement. The clearer the goal, th
 
 ### Task Decomposition
 
-Large or intricate tasks become more manageable when split into smaller, goal-oriented subtasks.  
+Large or intricate tasks become more manageable when split into smaller, goal-oriented subtasks.
 For the travel itinerary example, you could decompose the goal into:
 
-* Flight Booking  
-* Hotel Booking  
-* Car Rental  
-* Personalization  
+* Flight Booking
+* Hotel Booking
+* Car Rental
+* Personalization
 
 Each subtask can then be tackled by dedicated agents or processes. One agent might specialize in searching for the best flight deals, another focuses on hotel bookings, and so on. A coordinating or “downstream” agent can then compile these results into one cohesive itinerary for the end user.
 
@@ -153,10 +153,10 @@ In this example, a Semantic Router Agent receives a user request (e.g., "I need 
 
 The planner then:
 
-* **Receives the Hotel Plan**: The planner takes the user’s message and, based on a system prompt (including available agent details), generates a structured travel plan.  
-* **Lists Agents and Their Tools**: The agent registry holds a list of agents (e.g., for flight, hotel, car rental, and activities) along with the functions or tools they offer.  
-* **Routes the Plan to the Respective Agents**: Depending on the number of subtasks, the planner either sends the message directly to a dedicated agent (for single-task scenarios) or coordinates via a group chat manager for multi-agent collaboration.  
-* **Summarizes the Outcome**: Finally, the planner summarizes the generated plan for clarity.  
+* Receives the Hotel Plan: The planner takes the user’s message and, based on a system prompt (including available agent details), generates a structured travel plan.
+* Lists Agents and Their Tools: The agent registry holds a list of agents (e.g., for flight, hotel, car rental, and activities) along with the functions or tools they offer.
+* Routes the Plan to the Respective Agents: Depending on the number of subtasks, the planner either sends the message directly to a dedicated agent (for single-task scenarios) or coordinates via a group chat manager for multi-agent collaboration.
+* Summarizes the Outcome: Finally, the planner summarizes the generated plan for clarity.
 
 The following Python code sample illustrates these steps:
 
@@ -297,13 +297,13 @@ For more comprehensive planning, do check out Magnetic One for solving complex t
 
 ## Summary
 
-In this article, we explored an example of how to create a planner that can dynamically select the available agents defined. The output of the Planner decomposes the tasks and assigns the agents so they can be executed. It is assumed the agents have access to the functions/tools required to perform the task. In addition to the agents, you can include other patterns like reflection, summarizer, and round-robin chat to further customize.
+In this article, we have looked at an example of how we can create a planner that can dynamically select the available agents defined. The output of the Planner decomposes the tasks and assigns the agents so they can be executed. It is assumed the agents have access to the functions/tools that are required to perform the task. In addition to the agents, you can include other patterns like reflection, summarizer, and round-robin chat to further customize.
 
 ## Additional Resources
 
-* **AutoGen Magnetic One** - A generalist multi-agent system for solving complex tasks that has achieved impressive results on multiple challenging agentic benchmarks. Reference:  
+AutoGen Magnetic One - A generalist multi-agent system for solving complex tasks that has achieved impressive results on multiple challenging agentic benchmarks. Reference:
 
-In this implementation, the orchestrator creates a task-specific plan and delegates these tasks to the available agents. In addition to planning, the orchestrator also employs a tracking mechanism to monitor the progress of the task and re-plans as required.
+. In this implementation, the orchestrator creates task-specific plans and delegates these tasks to the available agents. In addition to planning, the orchestrator also employs a tracking mechanism to monitor the progress of the task and re-plans as required.
 
 ### Got More Questions about the Planning Design Pattern?
 

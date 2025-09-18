@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-30T14:15:44+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T14:45:21+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "pt"
 }
@@ -18,14 +18,14 @@ CO_OP_TRANSLATOR_METADATA:
 Esta lição irá abordar:
 
 * Definir um objetivo geral claro e dividir uma tarefa complexa em tarefas mais geríveis.
-* Utilizar saída estruturada para respostas mais fiáveis e legíveis por máquinas.
+* Utilizar saídas estruturadas para respostas mais fiáveis e legíveis por máquinas.
 * Aplicar uma abordagem orientada a eventos para lidar com tarefas dinâmicas e entradas inesperadas.
 
 ## Objetivos de Aprendizagem
 
 Após completar esta lição, terá uma compreensão sobre:
 
-* Identificar e definir um objetivo geral para um agente de IA, garantindo que este saiba claramente o que precisa ser alcançado.
+* Identificar e definir um objetivo geral para um agente de IA, garantindo que este saiba claramente o que precisa de ser alcançado.
 * Dividir uma tarefa complexa em subtarefas geríveis e organizá-las numa sequência lógica.
 * Equipar agentes com as ferramentas certas (por exemplo, ferramentas de pesquisa ou análise de dados), decidir quando e como usá-las e lidar com situações inesperadas que surjam.
 * Avaliar os resultados das subtarefas, medir o desempenho e iterar nas ações para melhorar o resultado final.
@@ -38,21 +38,21 @@ A maioria das tarefas do mundo real é demasiado complexa para ser resolvida num
 
     "Gerar um itinerário de viagem de 3 dias."
 
-Embora seja simples de enunciar, ainda precisa de refinamento. Quanto mais claro for o objetivo, melhor o agente (e quaisquer colaboradores humanos) poderá concentrar-se em alcançar o resultado certo, como criar um itinerário completo com opções de voo, recomendações de hotéis e sugestões de atividades.
+Embora seja simples de enunciar, ainda precisa de refinamento. Quanto mais claro for o objetivo, melhor o agente (e quaisquer colaboradores humanos) poderá concentrar-se em alcançar o resultado certo, como criar um itinerário abrangente com opções de voo, recomendações de hotéis e sugestões de atividades.
 
 ### Decomposição de Tarefas
 
-Tarefas grandes ou intrincadas tornam-se mais geríveis quando divididas em subtarefas menores e orientadas para objetivos.
-Para o exemplo do itinerário de viagem, pode-se decompor o objetivo em:
+Tarefas grandes ou intrincadas tornam-se mais geríveis quando divididas em subtarefas menores e orientadas para objetivos.  
+No exemplo do itinerário de viagem, pode-se decompor o objetivo em:
 
-* Reserva de Voos
-* Reserva de Hotéis
-* Aluguer de Carro
-* Personalização
+* Reserva de Voos  
+* Reserva de Hotéis  
+* Aluguer de Carros  
+* Personalização  
 
-Cada subtarefa pode então ser tratada por agentes ou processos dedicados. Um agente pode especializar-se em procurar as melhores ofertas de voos, outro focar-se em reservas de hotéis, e assim por diante. Um agente coordenador ou “downstream” pode então compilar estes resultados num itinerário coeso para o utilizador final.
+Cada subtarefa pode ser tratada por agentes ou processos dedicados. Um agente pode especializar-se em procurar as melhores ofertas de voos, outro focar-se nas reservas de hotéis, e assim por diante. Um agente coordenador ou "downstream" pode então compilar estes resultados num itinerário coeso para o utilizador final.
 
-Esta abordagem modular também permite melhorias incrementais. Por exemplo, pode adicionar agentes especializados em Recomendações de Restaurantes ou Sugestões de Atividades Locais e refinar o itinerário ao longo do tempo.
+Esta abordagem modular também permite melhorias incrementais. Por exemplo, pode adicionar agentes especializados para Recomendações de Restaurantes ou Sugestões de Atividades Locais e refinar o itinerário ao longo do tempo.
 
 ### Saída Estruturada
 
@@ -153,10 +153,10 @@ Neste exemplo, um Agente de Roteador Semântico recebe um pedido do utilizador (
 
 O planeador então:
 
-* Recebe o Plano de Hotel: O planeador pega na mensagem do utilizador e, com base num prompt de sistema (incluindo detalhes dos agentes disponíveis), gera um plano de viagem estruturado.
-* Lista os Agentes e as Suas Ferramentas: O registo de agentes mantém uma lista de agentes (por exemplo, para voos, hotéis, aluguer de carros e atividades) juntamente com as funções ou ferramentas que oferecem.
-* Encaminha o Plano para os Agentes Correspondentes: Dependendo do número de subtarefas, o planeador envia a mensagem diretamente para um agente dedicado (em cenários de tarefa única) ou coordena através de um gestor de chat em grupo para colaboração multi-agente.
-* Resume o Resultado: Finalmente, o planeador resume o plano gerado para maior clareza.
+* Recebe o Plano de Hotel: O planeador recebe a mensagem do utilizador e, com base num prompt do sistema (incluindo detalhes dos agentes disponíveis), gera um plano de viagem estruturado.  
+* Lista os Agentes e as Suas Ferramentas: O registo de agentes mantém uma lista de agentes (por exemplo, para voos, hotéis, aluguer de carros e atividades) juntamente com as funções ou ferramentas que oferecem.  
+* Encaminha o Plano para os Agentes Correspondentes: Dependendo do número de subtarefas, o planeador envia a mensagem diretamente para um agente dedicado (em cenários de tarefa única) ou coordena através de um gestor de chat em grupo para colaboração multi-agente.  
+* Resume o Resultado: Finalmente, o planeador resume o plano gerado para maior clareza.  
 
 O seguinte exemplo de código Python ilustra estes passos:
 
@@ -233,7 +233,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-O que se segue é a saída do código anterior e pode então usar esta saída estruturada para encaminhar para `assigned_agent` e resumir o plano de viagem para o utilizador final.
+Segue-se a saída do código anterior, e pode então usar esta saída estruturada para encaminhar para `assigned_agent` e resumir o plano de viagem para o utilizador final.
 
 ```json
 {
@@ -270,7 +270,7 @@ Um notebook de exemplo com o código anterior está disponível [aqui](07-autoge
 
 Algumas tarefas requerem um processo de ida e volta ou replaneamento, onde o resultado de uma subtarefa influencia a próxima. Por exemplo, se o agente descobrir um formato de dados inesperado ao reservar voos, pode precisar de adaptar a sua estratégia antes de avançar para as reservas de hotéis.
 
-Além disso, o feedback do utilizador (por exemplo, um humano decidir que prefere um voo mais cedo) pode desencadear um replaneamento parcial. Esta abordagem dinâmica e iterativa garante que a solução final esteja alinhada com as restrições do mundo real e as preferências em evolução do utilizador.
+Além disso, o feedback do utilizador (por exemplo, um humano decidir que prefere um voo mais cedo) pode desencadear um replaneamento parcial. Esta abordagem dinâmica e iterativa garante que a solução final se alinha com as restrições do mundo real e as preferências em evolução do utilizador.
 
 Exemplo de código:
 
@@ -297,15 +297,15 @@ Para um planeamento mais abrangente, consulte Magnetic One para resolver tarefas
 
 ## Resumo
 
-Neste artigo, vimos um exemplo de como podemos criar um planeador que pode selecionar dinamicamente os agentes disponíveis definidos. A saída do Planeador decompõe as tarefas e atribui os agentes para que possam ser executadas. Assume-se que os agentes têm acesso às funções/ferramentas necessárias para realizar a tarefa. Além dos agentes, pode incluir outros padrões como reflexão, resumidor e chat em round robin para personalizar ainda mais.
+Neste artigo, vimos um exemplo de como podemos criar um planeador que pode selecionar dinamicamente os agentes disponíveis definidos. A saída do Planeador decompõe as tarefas e atribui os agentes para que possam ser executadas. Assume-se que os agentes têm acesso às funções/ferramentas necessárias para realizar a tarefa. Além dos agentes, pode incluir outros padrões como reflexão, resumidor e chat round robin para personalizar ainda mais.
 
 ## Recursos Adicionais
 
-* AutoGen Magnetic One - Um sistema multi-agente generalista para resolver tarefas complexas e que alcançou resultados impressionantes em vários benchmarks desafiantes de agentes. Referência: . Nesta implementação, o orquestrador cria um plano específico para a tarefa e delega estas tarefas aos agentes disponíveis. Além do planeamento, o orquestrador também emprega um mecanismo de rastreamento para monitorizar o progresso da tarefa e replanejar conforme necessário.
+AutoGen Magnetic One - Um sistema multi-agente generalista para resolver tarefas complexas que alcançou resultados impressionantes em múltimos benchmarks desafiantes de agentes. Referência: . Nesta implementação, o orquestrador cria um plano específico para a tarefa e delega estas tarefas aos agentes disponíveis. Além do planeamento, o orquestrador também emprega um mecanismo de rastreamento para monitorizar o progresso da tarefa e replanejar conforme necessário.
 
 ### Tem Mais Perguntas sobre o Padrão de Design de Planeamento?
 
-Junte-se ao [Discord do Azure AI Foundry](https://aka.ms/ai-agents/discord) para encontrar outros aprendizes, participar em horas de atendimento e obter respostas às suas perguntas sobre Agentes de IA.
+Junte-se ao [Discord do Azure AI Foundry](https://aka.ms/ai-agents/discord) para interagir com outros aprendizes, participar em horas de atendimento e obter respostas às suas perguntas sobre Agentes de IA.
 
 ## Lição Anterior
 
@@ -318,4 +318,4 @@ Junte-se ao [Discord do Azure AI Foundry](https://aka.ms/ai-agents/discord) para
 ---
 
 **Aviso Legal**:  
-Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, é importante notar que traduções automáticas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte autoritária. Para informações críticas, recomenda-se a tradução profissional realizada por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes da utilização desta tradução.
+Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, é importante ter em conta que traduções automáticas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte autoritária. Para informações críticas, recomenda-se a tradução profissional realizada por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes da utilização desta tradução.

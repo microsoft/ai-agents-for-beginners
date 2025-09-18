@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-29T20:29:15+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:31:20+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "cs"
 }
@@ -26,24 +26,24 @@ Tato lekce pokryje:
 Po dokončení této lekce budete rozumět:
 
 * Jak identifikovat a nastavit celkový cíl pro AI agenta, aby jasně věděl, co je třeba dosáhnout.
-* Jak rozložit složitý úkol na zvládnutelné dílčí úkoly a uspořádat je do logické posloupnosti.
+* Jak rozdělit složitý úkol na zvládnutelné dílčí úkoly a uspořádat je do logické posloupnosti.
 * Jak vybavit agenty správnými nástroji (např. vyhledávacími nebo analytickými nástroji), rozhodnout, kdy a jak je použít, a zvládnout neočekávané situace.
-* Jak hodnotit výsledky dílčích úkolů, měřit výkon a iterovat akce pro zlepšení konečného výstupu.
+* Jak vyhodnotit výsledky dílčích úkolů, měřit výkon a iterovat akce pro zlepšení konečného výstupu.
 
 ## Definování celkového cíle a rozdělení úkolu
 
 ![Definování cílů a úkolů](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.cs.png)
 
-Většina úkolů v reálném světě je příliš složitá na to, aby je bylo možné zvládnout jedním krokem. AI agent potřebuje stručný cíl, který bude řídit jeho plánování a akce. Například zvažte cíl:
+Většina úkolů v reálném světě je příliš složitá na to, aby je bylo možné zvládnout jedním krokem. AI agent potřebuje stručný cíl, který bude řídit jeho plánování a akce. Například cíl:
 
-    "Vytvořte třídenní cestovní itinerář."
+    "Vytvoř 3denní cestovní itinerář."
 
-I když je jednoduché jej formulovat, stále vyžaduje upřesnění. Čím jasnější je cíl, tím lépe se agent (a případní lidskí spolupracovníci) mohou soustředit na dosažení správného výsledku, například vytvoření komplexního itineráře s možnostmi letů, doporučeními hotelů a návrhy aktivit.
+I když je jednoduché ho formulovat, stále vyžaduje upřesnění. Čím jasnější je cíl, tím lépe se agent (a případní lidskí spolupracovníci) mohou soustředit na dosažení správného výsledku, například vytvoření komplexního itineráře s možnostmi letů, doporučeními hotelů a návrhy aktivit.
 
-### Rozklad úkolu
+### Rozdělení úkolu
 
 Velké nebo složité úkoly se stávají zvládnutelnějšími, když jsou rozděleny na menší, cílené dílčí úkoly. 
-Pro příklad cestovního itineráře byste mohli rozdělit cíl na:
+Pro příklad cestovního itineráře můžete rozdělit cíl na:
 
 * Rezervace letu
 * Rezervace hotelu
@@ -52,13 +52,13 @@ Pro příklad cestovního itineráře byste mohli rozdělit cíl na:
 
 Každý dílčí úkol může být řešen specializovanými agenty nebo procesy. Jeden agent se může specializovat na hledání nejlepších nabídek letů, jiný na rezervace hotelů a tak dále. Koordinující nebo „downstream“ agent pak může tyto výsledky sestavit do jednoho uceleného itineráře pro koncového uživatele.
 
-Tento modulární přístup také umožňuje postupné vylepšování. Například můžete přidat specializované agenty pro doporučení jídel nebo návrhy místních aktivit a postupně itinerář zdokonalovat.
+Tento modulární přístup také umožňuje postupné vylepšování. Například můžete přidat specializované agenty pro doporučení jídel nebo návrhy místních aktivit a itinerář postupně zdokonalovat.
 
 ### Strukturovaný výstup
 
-Velké jazykové modely (LLMs) mohou generovat strukturovaný výstup (např. JSON), který je snáze zpracovatelný pro následné agenty nebo služby. To je obzvláště užitečné v kontextu více agentů, kde můžeme tyto úkoly provést po obdržení výstupu z plánování. Pro rychlý přehled.
+Velké jazykové modely (LLMs) mohou generovat strukturovaný výstup (např. JSON), který je snáze zpracovatelný pro následné agenty nebo služby. To je obzvláště užitečné v kontextu více agentů, kde můžeme tyto úkoly provést po obdržení výstupu z plánování. Pro rychlý přehled se podívejte na následující ukázku.
 
-Následující ukázka Pythonu demonstruje jednoduchého plánovacího agenta, který rozkládá cíl na dílčí úkoly a generuje strukturovaný plán:
+Následující Python snippet demonstruje jednoduchého plánovacího agenta, který rozděluje cíl na dílčí úkoly a generuje strukturovaný plán:
 
 ```python
 from pydantic import BaseModel
@@ -149,16 +149,16 @@ pprint(json.loads(response_content))
 
 ### Plánovací agent s orchestrací více agentů
 
-V tomto příkladu přijímá Semantic Router Agent požadavek uživatele (např. „Potřebuji plán hotelu pro svou cestu.“).
+V tomto příkladu přijímá Semantic Router Agent požadavek uživatele (např. "Potřebuji plán hotelu pro svou cestu.").
 
 Plánovač poté:
 
-* Přijímá plán hotelu: Plánovač vezme zprávu uživatele a na základě systémového promptu (včetně podrobností o dostupných agentech) vytvoří strukturovaný cestovní plán.
-* Uvádí seznam agentů a jejich nástrojů: Registr agentů obsahuje seznam agentů (např. pro lety, hotely, pronájem aut a aktivity) spolu s funkcemi nebo nástroji, které nabízejí.
-* Směřuje plán k příslušným agentům: V závislosti na počtu dílčích úkolů plánovač buď odešle zprávu přímo specializovanému agentovi (pro scénáře s jedním úkolem), nebo koordinuje prostřednictvím správce skupinového chatu pro spolupráci více agentů.
+* Přijímá plán hotelu: Plánovač vezme zprávu uživatele a na základě systémového promptu (včetně dostupných detailů agentů) vytvoří strukturovaný cestovní plán.
+* Vypisuje agenty a jejich nástroje: Registr agentů obsahuje seznam agentů (např. pro lety, hotely, pronájem aut a aktivity) spolu s funkcemi nebo nástroji, které nabízejí.
+* Směřuje plán k příslušným agentům: V závislosti na počtu dílčích úkolů plánovač buď odešle zprávu přímo dedikovanému agentovi (pro scénáře s jedním úkolem), nebo koordinuje prostřednictvím správce skupinového chatu pro spolupráci více agentů.
 * Shrnuje výsledek: Nakonec plánovač shrne vytvořený plán pro přehlednost.
 
-Následující ukázka Pythonu ilustruje tyto kroky:
+Následující ukázka Python kódu ilustruje tyto kroky:
 
 ```python
 
@@ -268,7 +268,7 @@ Příklad notebooku s předchozí ukázkou kódu je dostupný [zde](07-autogen.i
 
 ### Iterativní plánování
 
-Některé úkoly vyžadují zpětnou vazbu nebo přeplánování, kdy výsledek jednoho dílčího úkolu ovlivňuje další. Například pokud agent zjistí neočekávaný formát dat při rezervaci letů, může být nutné přizpůsobit strategii před pokračováním v rezervaci hotelů.
+Některé úkoly vyžadují zpětnou vazbu nebo přeplánování, kdy výsledek jednoho dílčího úkolu ovlivňuje další. Například pokud agent objeví neočekávaný formát dat při rezervaci letů, může být nutné přizpůsobit strategii před pokračováním k rezervaci hotelů.
 
 Navíc zpětná vazba od uživatele (např. rozhodnutí člověka, že preferuje dřívější let) může vyvolat částečné přeplánování. Tento dynamický, iterativní přístup zajišťuje, že konečné řešení odpovídá reálným omezením a měnícím se preferencím uživatele.
 
@@ -297,11 +297,13 @@ Pro komplexnější plánování se podívejte na Magnetic One pro řešení slo
 
 ## Shrnutí
 
-V tomto článku jsme se podívali na příklad, jak vytvořit plánovač, který může dynamicky vybírat dostupné definované agenty. Výstup plánovače rozkládá úkoly a přiřazuje agenty, aby mohly být provedeny. Předpokládá se, že agenti mají přístup k funkcím/nástrojům potřebným k provedení úkolu. Kromě agentů můžete zahrnout další vzory, jako je reflexe, sumarizace a round robin chat, pro další přizpůsobení.
+V tomto článku jsme se podívali na příklad, jak vytvořit plánovač, který může dynamicky vybírat dostupné definované agenty. Výstup plánovače rozděluje úkoly a přiřazuje agenty, aby je mohli vykonat. Předpokládá se, že agenti mají přístup k funkcím/nástrojům potřebným k provedení úkolu. Kromě agentů můžete zahrnout další vzory, jako je reflexe, shrnutí a round robin chat, pro další přizpůsobení.
 
 ## Další zdroje
 
-* AutoGen Magnetic One - Obecný systém více agentů pro řešení složitých úkolů, který dosáhl působivých výsledků na několika náročných benchmarkech agentů. Reference: . V této implementaci orchestrátor vytváří plán specifický pro úkol a deleguje tyto úkoly dostupným agentům. Kromě plánování orchestrátor také využívá sledovací mechanismus k monitorování pokroku úkolu a přeplánování podle potřeby.
+AutoGen Magnetic One - Generalistický systém více agentů pro řešení složitých úkolů, který dosáhl působivých výsledků na několika náročných benchmarkech agentů. Reference:
+
+. V této implementaci orchestrátor vytváří plán specifický pro úkol a deleguje tyto úkoly dostupným agentům. Kromě plánování orchestrátor také využívá sledovací mechanismus k monitorování pokroku úkolu a přeplánování podle potřeby.
 
 ### Máte další otázky ohledně vzoru plánování designu?
 
@@ -318,4 +320,4 @@ Připojte se k [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kde
 ---
 
 **Prohlášení**:  
-Tento dokument byl přeložen pomocí služby AI pro překlady [Co-op Translator](https://github.com/Azure/co-op-translator). Ačkoli se snažíme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho původním jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+Tento dokument byl přeložen pomocí služby pro automatický překlad [Co-op Translator](https://github.com/Azure/co-op-translator). Ačkoli se snažíme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho původním jazyce by měl být považován za autoritativní zdroj. Pro důležité informace doporučujeme profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.

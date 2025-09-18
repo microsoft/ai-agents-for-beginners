@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-30T14:30:15+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T14:51:54+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "pl"
 }
@@ -28,35 +28,35 @@ Po ukończeniu tej lekcji będziesz rozumieć:
 * Jak zidentyfikować i ustalić ogólny cel dla agenta AI, zapewniając, że jasno wie, co należy osiągnąć.
 * Jak rozłożyć złożone zadanie na mniejsze podzadania i zorganizować je w logiczną sekwencję.
 * Jak wyposażyć agentów w odpowiednie narzędzia (np. narzędzia wyszukiwania lub analizy danych), zdecydować, kiedy i jak ich używać, oraz radzić sobie z nieoczekiwanymi sytuacjami.
-* Jak oceniać wyniki podzadań, mierzyć wydajność i iterować działania w celu poprawy końcowego wyniku.
+* Jak oceniać wyniki podzadań, mierzyć wydajność i iterować działania, aby poprawić końcowy wynik.
 
-## Definiowanie ogólnego celu i dzielenie zadania
+## Definiowanie ogólnego celu i rozbijanie zadania
 
 ![Definiowanie celów i zadań](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.pl.png)
 
-Większość zadań w rzeczywistym świecie jest zbyt złożona, aby można je było rozwiązać w jednym kroku. Agent AI potrzebuje zwięzłego celu, który poprowadzi jego planowanie i działania. Na przykład, rozważ cel:
+Większość zadań w rzeczywistym świecie jest zbyt złożona, aby można je było rozwiązać w jednym kroku. Agent AI potrzebuje zwięzłego celu, który będzie kierował jego planowaniem i działaniami. Na przykład rozważ cel:
 
     "Stwórz 3-dniowy plan podróży."
 
-Choć jest to proste do sformułowania, wymaga dalszego doprecyzowania. Im bardziej klarowny cel, tym lepiej agent (oraz wszyscy ludzie współpracujący) mogą skupić się na osiągnięciu właściwego wyniku, takiego jak stworzenie kompleksowego planu podróży z opcjami lotów, rekomendacjami hoteli i propozycjami aktywności.
+Choć jest to proste do sformułowania, wymaga dalszego doprecyzowania. Im jaśniejszy cel, tym lepiej agent (i wszyscy ludzie współpracujący) mogą skupić się na osiągnięciu właściwego wyniku, takiego jak stworzenie kompleksowego planu podróży z opcjami lotów, rekomendacjami hoteli i sugestiami dotyczącymi aktywności.
 
 ### Rozkładanie zadania na części
 
 Duże lub skomplikowane zadania stają się bardziej przystępne, gdy są podzielone na mniejsze, ukierunkowane podzadania. 
-Dla przykładu planu podróży, można podzielić cel na:
+Dla przykładu planu podróży można rozbić cel na:
 
 * Rezerwacja lotów
 * Rezerwacja hoteli
 * Wynajem samochodu
 * Personalizacja
 
-Każde podzadanie może być realizowane przez dedykowanych agentów lub procesy. Jeden agent może specjalizować się w wyszukiwaniu najlepszych ofert lotów, inny w rezerwacji hoteli i tak dalej. Koordynujący lub „downstreamowy” agent może następnie skompilować te wyniki w jeden spójny plan podróży dla użytkownika końcowego.
+Każde podzadanie może być realizowane przez dedykowanych agentów lub procesy. Jeden agent może specjalizować się w wyszukiwaniu najlepszych ofert lotów, inny w rezerwacji hoteli i tak dalej. Koordynujący lub „downstream” agent może następnie skompilować te wyniki w jeden spójny plan podróży dla użytkownika końcowego.
 
-Takie modułowe podejście pozwala również na stopniowe ulepszenia. Na przykład, można dodać wyspecjalizowanych agentów do rekomendacji kulinarnych lub lokalnych atrakcji i z czasem udoskonalić plan podróży.
+Takie modułowe podejście pozwala również na stopniowe ulepszenia. Na przykład można dodać wyspecjalizowanych agentów do rekomendacji kulinarnych lub sugestii lokalnych aktywności i z czasem udoskonalać plan podróży.
 
 ### Strukturalne wyjście
 
-Duże modele językowe (LLM) mogą generować strukturalne wyjście (np. JSON), które jest łatwiejsze do analizy i przetwarzania przez agentów lub usługi downstreamowe. Jest to szczególnie przydatne w kontekście wieloagentowym, gdzie można podjąć działania na podstawie wyników planowania. Zobacz poniżej dla szybkiego przeglądu.
+Duże modele językowe (LLM) mogą generować strukturalne wyjście (np. JSON), które jest łatwiejsze do analizy i przetwarzania przez agentów lub usługi downstream. Jest to szczególnie przydatne w kontekście wieloagentowym, gdzie można podjąć działania na podstawie wyników planowania. Zobacz poniżej dla szybkiego przeglądu.
 
 Poniższy fragment kodu w Pythonie demonstruje prostego agenta planującego, który rozkłada cel na podzadania i generuje strukturalny plan:
 
@@ -149,16 +149,16 @@ pprint(json.loads(response_content))
 
 ### Agent planujący z wieloagentową orkiestracją
 
-W tym przykładzie agent Semantic Router otrzymuje zapytanie użytkownika (np. "Potrzebuję planu hotelowego na moją podróż.").
+W tym przykładzie agent Semantic Router otrzymuje żądanie użytkownika (np. "Potrzebuję planu hotelowego na moją podróż.").
 
 Planista następnie:
 
-* Otrzymuje plan hotelowy: Planista przyjmuje wiadomość użytkownika i, na podstawie systemowego promptu (zawierającego szczegóły dostępnych agentów), generuje strukturalny plan podróży.
+* Otrzymuje plan hotelowy: Planista przyjmuje wiadomość użytkownika i na podstawie systemowego promptu (zawierającego szczegóły dostępnych agentów) generuje strukturalny plan podróży.
 * Wymienia agentów i ich narzędzia: Rejestr agentów zawiera listę agentów (np. do lotów, hoteli, wynajmu samochodów i aktywności) wraz z funkcjami lub narzędziami, które oferują.
 * Przekazuje plan odpowiednim agentom: W zależności od liczby podzadań, planista albo wysyła wiadomość bezpośrednio do dedykowanego agenta (w przypadku scenariuszy jednozadaniowych), albo koordynuje za pomocą menedżera czatu grupowego dla współpracy wieloagentowej.
 * Podsumowuje wynik: Na koniec planista podsumowuje wygenerowany plan dla przejrzystości.
 
-Poniższy fragment kodu w Pythonie ilustruje te kroki:
+Poniższy przykład kodu w Pythonie ilustruje te kroki:
 
 ```python
 
@@ -270,7 +270,7 @@ Przykładowy notebook z poprzednim fragmentem kodu jest dostępny [tutaj](07-aut
 
 Niektóre zadania wymagają podejścia iteracyjnego, gdzie wynik jednego podzadania wpływa na kolejne. Na przykład, jeśli agent odkryje nieoczekiwany format danych podczas rezerwacji lotów, może być konieczne dostosowanie strategii przed przejściem do rezerwacji hoteli.
 
-Dodatkowo, opinie użytkownika (np. decyzja człowieka o preferowaniu wcześniejszego lotu) mogą wywołać częściowe przeplanowanie. Takie dynamiczne, iteracyjne podejście zapewnia, że końcowe rozwiązanie odpowiada rzeczywistym ograniczeniom i zmieniającym się preferencjom użytkownika.
+Dodatkowo, opinie użytkownika (np. decyzja człowieka, że woli wcześniejszy lot) mogą wywołać częściowe przeplanowanie. Takie dynamiczne, iteracyjne podejście zapewnia, że końcowe rozwiązanie odpowiada rzeczywistym ograniczeniom i zmieniającym się preferencjom użytkownika.
 
 Przykładowy kod:
 
@@ -301,7 +301,9 @@ W tym artykule przyjrzeliśmy się przykładowi, jak można stworzyć planistę,
 
 ## Dodatkowe zasoby
 
-* AutoGen Magnetic One - Uniwersalny system wieloagentowy do rozwiązywania złożonych zadań, który osiągnął imponujące wyniki w wielu wymagających benchmarkach agentowych. Referencja: . W tej implementacji orkiestrator tworzy plan specyficzny dla zadania i deleguje te zadania dostępnym agentom. Oprócz planowania orkiestrator stosuje również mechanizm śledzenia, aby monitorować postęp zadania i przeplanowywać w razie potrzeby.
+AutoGen Magnetic One - Uniwersalny system wieloagentowy do rozwiązywania złożonych zadań, który osiągnął imponujące wyniki w wielu wymagających benchmarkach agentowych. Referencja:
+
+. W tej implementacji orkiestrator tworzy plan specyficzny dla zadania i deleguje te zadania do dostępnych agentów. Oprócz planowania orkiestrator stosuje również mechanizm śledzenia, aby monitorować postęp zadania i przeplanowywać w razie potrzeby.
 
 ### Masz więcej pytań dotyczących wzorca projektowania planowania?
 
@@ -318,4 +320,4 @@ Dołącz do [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), aby sp
 ---
 
 **Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczeniowej AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy wszelkich starań, aby tłumaczenie było precyzyjne, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za wiarygodne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.
+Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy wszelkich starań, aby tłumaczenie było precyzyjne, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za źródło autorytatywne. W przypadku informacji o kluczowym znaczeniu zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.

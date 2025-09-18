@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-29T15:44:18+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:05:08+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "da"
 }
@@ -17,7 +17,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Denne lektion vil dække:
 
-* At definere et klart overordnet mål og bryde en kompleks opgave ned i håndterbare dele.
+* At definere et klart overordnet mål og bryde en kompleks opgave ned i håndterbare delopgaver.
 * Udnytte struktureret output for mere pålidelige og maskinlæsbare svar.
 * Anvende en begivenhedsdrevet tilgang til at håndtere dynamiske opgaver og uventede input.
 
@@ -34,11 +34,11 @@ Efter at have gennemført denne lektion vil du have forståelse for:
 
 ![Definere mål og opgaver](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.da.png)
 
-De fleste opgaver i den virkelige verden er for komplekse til at blive løst i ét enkelt trin. En AI-agent har brug for et præcist mål for at guide dens planlægning og handlinger. For eksempel, overvej målet:
+De fleste opgaver i den virkelige verden er for komplekse til at blive løst i ét enkelt trin. En AI-agent har brug for et klart mål for at guide dens planlægning og handlinger. For eksempel, overvej målet:
 
     "Lav en 3-dages rejseplan."
 
-Selvom det er enkelt at formulere, kræver det stadig en præcisering. Jo klarere målet er, desto bedre kan agenten (og eventuelle menneskelige samarbejdspartnere) fokusere på at opnå det rigtige resultat, såsom at skabe en omfattende rejseplan med flymuligheder, hotelanbefalinger og aktivitetsforslag.
+Selvom det er enkelt at formulere, kræver det stadig præcisering. Jo klarere målet er, desto bedre kan agenten (og eventuelle menneskelige samarbejdspartnere) fokusere på at opnå det rigtige resultat, såsom at skabe en omfattende rejseplan med flymuligheder, hotelanbefalinger og aktivitetsforslag.
 
 ### Opgavenedbrydning
 
@@ -50,13 +50,13 @@ For rejseplan-eksemplet kunne du nedbryde målet i:
 * Biludlejning
 * Personalisering
 
-Hver delopgave kan derefter håndteres af dedikerede agenter eller processer. Én agent kan specialisere sig i at finde de bedste flytilbud, en anden fokuserer på hotelbooking, og så videre. En koordinerende eller "downstream" agent kan derefter samle disse resultater til én sammenhængende rejseplan for slutbrugeren.
+Hver delopgave kan derefter håndteres af dedikerede agenter eller processer. Én agent kan specialisere sig i at finde de bedste flytilbud, en anden fokuserer på hotelbooking osv. En koordinerende eller "downstream" agent kan derefter samle disse resultater til én sammenhængende rejseplan for slutbrugeren.
 
 Denne modulære tilgang giver også mulighed for gradvise forbedringer. For eksempel kunne du tilføje specialiserede agenter til madanbefalinger eller lokale aktivitetsforslag og finjustere rejseplanen over tid.
 
 ### Struktureret output
 
-Store sprogmodeller (LLMs) kan generere struktureret output (f.eks. JSON), som er lettere for downstream-agenter eller tjenester at analysere og behandle. Dette er især nyttigt i en multi-agent kontekst, hvor vi kan handle på disse opgaver, efter planlægningsoutputtet er modtaget. Se dette for en hurtig oversigt.
+Store sprogmodeller (LLMs) kan generere struktureret output (f.eks. JSON), som er lettere for downstream-agenter eller tjenester at analysere og behandle. Dette er især nyttigt i en multi-agent-kontekst, hvor vi kan handle på disse opgaver, efter planlægningsoutputtet er modtaget. Se dette for en hurtig oversigt.
 
 Den følgende Python-kode viser en simpel planlægningsagent, der nedbryder et mål i delopgaver og genererer en struktureret plan:
 
@@ -301,9 +301,9 @@ I denne artikel har vi set et eksempel på, hvordan vi kan skabe en planlægger,
 
 ## Yderligere ressourcer
 
-* AutoGen Magnetic One - Et generalist multi-agent system til løsning af komplekse opgaver, som har opnået imponerende resultater på flere udfordrende benchmarks for agenter. Reference:
+AutoGen Magnetic One - Et generalist multi-agent system til løsning af komplekse opgaver, som har opnået imponerende resultater på flere udfordrende benchmarks for agenter. Reference:
 
-. I denne implementering skaber orkestratoren en opgavespecifik plan og delegerer disse opgaver til de tilgængelige agenter. Ud over planlægning anvender orkestratoren også en sporingsmekanisme til at overvåge opgavens fremskridt og genplanlægge efter behov.
+I denne implementering skaber orkestratoren en opgavespecifik plan og delegerer disse opgaver til de tilgængelige agenter. Ud over planlægning anvender orkestratoren også en sporingsmekanisme til at overvåge opgavens fremskridt og genplanlægge efter behov.
 
 ### Har du flere spørgsmål om planlægningsdesignmønsteret?
 
@@ -320,4 +320,4 @@ Deltag i [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) for at mø
 ---
 
 **Ansvarsfraskrivelse**:  
-Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi er ikke ansvarlige for eventuelle misforståelser eller fejltolkninger, der måtte opstå som følge af brugen af denne oversættelse.
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi er ikke ansvarlige for eventuelle misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.

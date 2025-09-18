@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "9cb9bf18040a36fb1d822b10e92e7c04",
-  "translation_date": "2025-09-07T07:38:56+00:00",
+  "original_hash": "407fa0ca9ca479613715f8219710080b",
+  "translation_date": "2025-09-18T13:59:03+00:00",
   "source_file": "README.md",
   "language_code": "en"
 }
@@ -27,24 +27,24 @@ This course includes lessons that cover the basics of building AI Agents. Each l
 
 The course supports multiple languages. Check out the [available languages here](../..). 
 
-If you're new to working with Generative AI models, take a look at our [Generative AI For Beginners](https://aka.ms/genai-beginners) course, which offers 21 lessons on building with GenAI.
+If you're new to working with Generative AI models, take a look at our [Generative AI For Beginners](https://aka.ms/genai-beginners) course, which offers 21 lessons on working with GenAI.
 
 Don't forget to [star (🌟) this repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) and [fork this repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to try out the code.
 
-### Meet Other Learners, Get Your Questions Answered
+### Connect with Other Learners and Get Help
 
-If you run into challenges or have questions about building AI Agents, join our dedicated Discord Channel in the [Azure AI Foundry Community Discord](https://aka.ms/ai-agents/discord).
+If you encounter challenges or have questions about building AI Agents, join our dedicated Discord Channel in the [Azure AI Foundry Community Discord](https://aka.ms/ai-agents/discord).
 
 ### What You Need 
 
-Each lesson in this course comes with code examples, which are located in the code_samples folder. You can [fork this repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to create your own copy.  
+Each lesson in this course includes code examples, which are located in the code_samples folder. You can [fork this repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to create your own copy.  
 
 The code examples in these exercises use Azure AI Foundry and GitHub Model Catalogs to interact with Language Models:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Free / Limited
-- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure Account Required
+- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Requires an Azure Account
 
-This course also incorporates the following AI Agent frameworks and services from Microsoft:
+This course also utilizes the following AI Agent frameworks and services from Microsoft:
 
 - [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
 - [Semantic Kernel](https://aka.ms/ai-agents-beginners/semantic-kernel)
@@ -78,7 +78,7 @@ Have suggestions or noticed any errors in spelling or code? [Raise an issue](htt
 | AI Agents in Production                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Using Agentic Protocols (MCP, A2A and NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                      | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Context Engineering for AI Agents            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Managing Agentic Memory                      | Coming - September 11th                            |                                                            |                                                                                        |
+| Managing Agentic Memory                      | [Link](./13-agent-memory/README.md)     |                                                            |                                                                                        |
 | Evaluating AI Agents                         | Coming - September 18th                            |                                                            |                                                                                        |
 | Building Computer Use Agents (CUA)           | Coming - September 25th                            |                                                            |                                                                                        |
 | Deploying Scalable Agents                    | Coming - September 25th                            |                                                            |                                                                                        |
@@ -106,11 +106,11 @@ Our team creates other courses! Check out:
 
 ## 🌟 Community Thanks
 
-Thanks to [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) for contributing key code samples showcasing Agentic RAG.
+Thanks to [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) for contributing valuable code samples showcasing Agentic RAG.
 
 ## Contributing
 
-This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) stating that you have the rights to, and actually do, grant us the rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.
+This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA), which confirms that you have the rights to, and actually do, grant us the rights to use your contribution. For more details, visit <https://cla.opensource.microsoft.com>.
 
 When you submit a pull request, a CLA bot will automatically check whether you need to provide a CLA and will update the PR accordingly (e.g., status check, comment). Simply follow the instructions provided by the bot. You only need to do this once across all repositories using our CLA.
 

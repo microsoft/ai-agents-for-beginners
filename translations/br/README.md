@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "9cb9bf18040a36fb1d822b10e92e7c04",
-  "translation_date": "2025-09-07T07:52:36+00:00",
+  "original_hash": "407fa0ca9ca479613715f8219710080b",
+  "translation_date": "2025-09-18T14:45:42+00:00",
   "source_file": "README.md",
   "language_code": "br"
 }
@@ -11,7 +11,13 @@ CO_OP_TRANSLATOR_METADATA:
 
 ![IA Generativa para Iniciantes](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.br.png)
 
-## Um curso que ensina tudo o que você precisa saber para começar a construir Agentes de IA
+## Um curso que ensina tudo o que você precisa saber para começar a criar Agentes de IA
+
+[![Licença do GitHub](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)  
+[![Contribuidores do GitHub](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)  
+[![Problemas no GitHub](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)  
+[![Pull Requests no GitHub](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)  
+[![PRs Bem-vindos](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
 ### 🌐 Suporte Multilíngue
 
@@ -19,21 +25,27 @@ CO_OP_TRANSLATOR_METADATA:
 
 [Francês](../fr/README.md) | [Espanhol](../es/README.md) | [Alemão](../de/README.md) | [Russo](../ru/README.md) | [Árabe](../ar/README.md) | [Persa (Farsi)](../fa/README.md) | [Urdu](../ur/README.md) | [Chinês (Simplificado)](../zh/README.md) | [Chinês (Tradicional, Macau)](../mo/README.md) | [Chinês (Tradicional, Hong Kong)](../hk/README.md) | [Chinês (Tradicional, Taiwan)](../tw/README.md) | [Japonês](../ja/README.md) | [Coreano](../ko/README.md) | [Hindi](../hi/README.md) | [Bengali](../bn/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Português (Portugal)](../pt/README.md) | [Português (Brasil)](./README.md) | [Italiano](../it/README.md) | [Polonês](../pl/README.md) | [Turco](../tr/README.md) | [Grego](../el/README.md) | [Tailandês](../th/README.md) | [Sueco](../sv/README.md) | [Dinamarquês](../da/README.md) | [Norueguês](../no/README.md) | [Finlandês](../fi/README.md) | [Holandês](../nl/README.md) | [Hebraico](../he/README.md) | [Vietnamita](../vi/README.md) | [Indonésio](../id/README.md) | [Malaio](../ms/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Suaíli](../sw/README.md) | [Húngaro](../hu/README.md) | [Tcheco](../cs/README.md) | [Eslovaco](../sk/README.md) | [Romeno](../ro/README.md) | [Búlgaro](../bg/README.md) | [Sérvio (Cirílico)](../sr/README.md) | [Croata](../hr/README.md) | [Esloveno](../sl/README.md) | [Ucraniano](../uk/README.md) | [Birmanês (Myanmar)](../my/README.md)
 
-**Se você deseja ter suporte para idiomas adicionais, os idiomas disponíveis estão listados [aqui](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**Se você deseja adicionar mais idiomas, os idiomas suportados estão listados [aqui](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+
+[![Observadores no GitHub](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)  
+[![Forks no GitHub](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)  
+[![Estrelas no GitHub](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+
+[![Azure AI Discord](https://dcbadge.limes.pink/api/server/kzRShWzttr)](https://discord.gg/kzRShWzttr)
 
 ## 🌱 Começando
 
-Este curso possui lições que cobrem os fundamentos para construir Agentes de IA. Cada lição aborda um tópico específico, então comece por onde preferir!
+Este curso possui lições que cobrem os fundamentos para criar Agentes de IA. Cada lição aborda um tópico específico, então você pode começar por onde preferir!
 
 Há suporte multilíngue para este curso. Confira os [idiomas disponíveis aqui](../..).
 
-Se esta é sua primeira vez construindo com modelos de IA Generativa, veja nosso curso [IA Generativa para Iniciantes](https://aka.ms/genai-beginners), que inclui 21 lições sobre como trabalhar com IA Generativa.
+Se esta é sua primeira vez trabalhando com modelos de IA Generativa, veja nosso curso [IA Generativa para Iniciantes](https://aka.ms/genai-beginners), que inclui 21 lições sobre como trabalhar com GenAI.
 
-Não se esqueça de [dar uma estrela (🌟) neste repositório](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) e [fazer um fork deste repositório](https://github.com/microsoft/ai-agents-for-beginners/fork) para executar o código.
+Não se esqueça de [dar uma estrela (🌟) para este repositório](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) e [fazer um fork deste repositório](https://github.com/microsoft/ai-agents-for-beginners/fork) para executar o código.
 
 ### Conheça Outros Estudantes, Tire Suas Dúvidas
 
-Se você ficar preso ou tiver dúvidas sobre como construir Agentes de IA, junte-se ao nosso canal dedicado no Discord na [Comunidade Azure AI Foundry no Discord](https://aka.ms/ai-agents/discord).
+Se você ficar preso ou tiver dúvidas sobre como criar Agentes de IA, junte-se ao nosso canal dedicado no Discord na [Comunidade Azure AI Foundry](https://aka.ms/ai-agents/discord).
 
 ### O Que Você Precisa
 
@@ -41,26 +53,26 @@ Cada lição deste curso inclui exemplos de código, que podem ser encontrados n
 
 Os exemplos de código nestes exercícios utilizam Azure AI Foundry e Catálogos de Modelos do GitHub para interagir com Modelos de Linguagem:
 
-- [Modelos do GitHub](https://aka.ms/ai-agents-beginners/github-models) - Gratuito / Limitado
-- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Requer Conta Azure
+- [Modelos do GitHub](https://aka.ms/ai-agents-beginners/github-models) - Gratuito / Limitado  
+- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Requer Conta Azure  
 
 Este curso também utiliza os seguintes frameworks e serviços de Agentes de IA da Microsoft:
 
-- [Serviço de Agentes de IA do Azure](https://aka.ms/ai-agents-beginners/ai-agent-service)
-- [Kernel Semântico](https://aka.ms/ai-agents-beginners/semantic-kernel)
-- [AutoGen](https://aka.ms/ai-agents/autogen)
+- [Serviço de Agentes de IA do Azure](https://aka.ms/ai-agents-beginners/ai-agent-service)  
+- [Kernel Semântico](https://aka.ms/ai-agents-beginners/semantic-kernel)  
+- [AutoGen](https://aka.ms/ai-agents/autogen)  
 
 Para mais informações sobre como executar o código deste curso, acesse o [Setup do Curso](./00-course-setup/README.md).
 
 ## 🙏 Quer ajudar?
 
-Você tem sugestões ou encontrou erros de ortografia ou código? [Abra uma issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) ou [Crie um pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst).
+Tem sugestões ou encontrou erros de ortografia ou código? [Abra um problema](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) ou [Crie um pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst).
 
 ## 📂 Cada lição inclui
 
-- Uma lição escrita localizada no README e um vídeo curto
-- Exemplos de código em Python compatíveis com Azure AI Foundry e Modelos do GitHub (Gratuito)
-- Links para recursos extras para continuar seu aprendizado
+- Uma lição escrita localizada no README e um vídeo curto  
+- Exemplos de código em Python compatíveis com Azure AI Foundry e Modelos do GitHub (Gratuito)  
+- Links para recursos extras para continuar aprendendo  
 
 ## 🗃️ Lições
 
@@ -70,20 +82,20 @@ Você tem sugestões ou encontrou erros de ortografia ou código? [Abra uma issu
 | Explorando Frameworks de Agentes de IA       | [Link](./02-explore-agentic-frameworks/README.md)  | [Vídeo](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Entendendo Padrões de Design de Agentes de IA| [Link](./03-agentic-design-patterns/README.md)     | [Vídeo](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Padrão de Design para Uso de Ferramentas     | [Link](./04-tool-use/README.md)                    | [Vídeo](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| RAG Agente de IA                             | [Link](./05-agentic-rag/README.md)                 | [Vídeo](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Construindo Agentes de IA Confiáveis         | [Link](./06-building-trustworthy-agents/README.md) | [Vídeo](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| RAG Agente                                   | [Link](./05-agentic-rag/README.md)                 | [Vídeo](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Construindo Agentes de IA Confiáveis         | [Link](./06-building-trustworthy-agents/README.md) | [Vídeo](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Padrão de Design para Planejamento           | [Link](./07-planning-design/README.md)             | [Vídeo](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Padrão de Design Multi-Agente                | [Link](./08-multi-agent/README.md)                 | [Vídeo](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Padrão de Design de Metacognição             | [Link](./09-metacognition/README.md)               | [Vídeo](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Padrão de Design Metacognitivo               | [Link](./09-metacognition/README.md)               | [Vídeo](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentes de IA em Produção                    | [Link](./10-ai-agents-production/README.md)        | [Vídeo](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Usando Protocolos de Agentes (MCP, A2A e NLWeb)| [Link](./11-agentic-protocols/README.md)           | [Vídeo](https://youtu.be/X-Dh9R3Opn8)                      | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Engenharia de Contexto para Agentes de IA    | [Link](./12-context-engineering/README.md)         | [Vídeo](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Gerenciando Memória Agente                   | Disponível - 11 de setembro                        |                                                            |                                                                                        |
-| Avaliando Agentes de IA                      | Disponível - 18 de setembro                        |                                                            |                                                                                        |
-| Construindo Agentes de Uso de Computador (CUA)| Disponível - 25 de setembro                        |                                                            |                                                                                        |
-| Implantando Agentes Escaláveis               | Disponível - 25 de setembro                        |                                                            |                                                                                        |
-| Criando Agentes de IA Locais                 | Disponível - 3 de outubro                          |                                                            |                                                                                        |
-| Protegendo Agentes de IA                     | Disponível - 10 de outubro                         |                                                            |                                                                                        |
+| Gerenciando Memória Agente                   | [Link](./13-agent-memory/README.md)     |                                                            |                                                                                        |
+| Avaliando Agentes de IA                      | Em breve - 18 de setembro                            |                                                            |                                                                                        |
+| Construindo Agentes de Uso de Computador (CUA)| Em breve - 25 de setembro                            |                                                            |                                                                                        |
+| Implantando Agentes Escaláveis               | Em breve - 25 de setembro                            |                                                            |                                                                                        |
+| Criando Agentes de IA Locais                 | Em breve - 3 de outubro                              |                                                            |                                                                                        |
+| Protegendo Agentes de IA                     | Em breve - 10 de outubro                             |                                                            |                                                                                        |
 
 ## 🎒 Outros Cursos
 
@@ -106,7 +118,7 @@ Nossa equipe produz outros cursos! Confira:
 
 ## 🌟 Agradecimentos à Comunidade
 
-Agradecimentos ao [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) por contribuir com amostras de código importantes demonstrando Agentic RAG.
+Agradecimentos a [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) por contribuir com amostras de código importantes demonstrando Agentic RAG. 
 
 ## Contribuindo
 

@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-29T23:20:10+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:50:00+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "sl"
 }
 -->
 [![Načrtovanje vzorca oblikovanja](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.sl.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(Kliknite zgornjo sliko za ogled videoposnetka te lekcije)_
+> _(Kliknite na zgornjo sliko za ogled videa te lekcije)_
 
 # Načrtovanje načrta
 
@@ -17,46 +17,48 @@ CO_OP_TRANSLATOR_METADATA:
 
 Ta lekcija bo obravnavala:
 
-* Določitev jasnega splošnega cilja in razdelitev kompleksne naloge na obvladljive naloge.
-* Uporaba strukturiranega izhoda za zanesljivejše in strojno berljive odgovore.
-* Uporaba dogodkovno usmerjenega pristopa za obravnavo dinamičnih nalog in nepričakovanih vnosov.
+* Določanje jasnega splošnega cilja in razdelitev kompleksne naloge na obvladljive naloge.
+* Uporaba strukturiranega izhoda za bolj zanesljive in strojno berljive odgovore.
+* Uporaba pristopa, ki temelji na dogodkih, za obravnavo dinamičnih nalog in nepričakovanih vnosov.
 
 ## Cilji učenja
 
 Po zaključku te lekcije boste razumeli:
 
 * Kako določiti in postaviti splošni cilj za AI agenta, da bo jasno vedel, kaj je treba doseči.
-* Kako razčleniti kompleksno nalogo na obvladljive podnaloge in jih organizirati v logično zaporedje.
-* Kako opremiti agente s pravimi orodji (npr. iskalna orodja ali orodja za analitiko podatkov), določiti, kdaj in kako jih uporabiti, ter obravnavati nepričakovane situacije.
+* Kako razdeliti kompleksno nalogo na obvladljive podnaloge in jih organizirati v logično zaporedje.
+* Kako opremiti agente s pravimi orodji (npr. iskalna orodja ali orodja za analizo podatkov), odločiti, kdaj in kako jih uporabiti, ter obravnavati nepričakovane situacije.
 * Kako oceniti rezultate podnalog, meriti uspešnost in iterirati dejanja za izboljšanje končnega izhoda.
 
-## Določitev splošnega cilja in razčlenitev naloge
+## Določanje splošnega cilja in razdelitev naloge
 
 ![Določanje ciljev in nalog](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.sl.png)
 
-Večina nalog v resničnem svetu je preveč zapletenih, da bi jih rešili v enem koraku. AI agent potrebuje jasen cilj, ki usmerja njegovo načrtovanje in dejanja. Na primer, razmislite o cilju:
+Večina nalog v resničnem svetu je preveč kompleksnih, da bi jih lahko obravnavali v enem koraku. AI agent potrebuje jedrnat cilj, ki usmerja njegovo načrtovanje in dejanja. Na primer, razmislite o cilju:
 
     "Ustvari tridnevni potovalni načrt."
 
-Čeprav je cilj preprost za zapisati, ga je treba še izpopolniti. Bolj kot je cilj jasen, bolje se lahko agent (in morebitni človeški sodelavci) osredotoči na dosego pravega rezultata, kot je ustvarjanje celovitega načrta z možnostmi letov, priporočili za hotele in predlogi za aktivnosti.
+Čeprav je preprosto izražen, ga je še vedno treba izpopolniti. Bolj jasen kot je cilj, boljši so agent (in morebitni človeški sodelavci) pri osredotočanju na dosego pravega rezultata, kot je ustvarjanje celovitega načrta z možnostmi letov, priporočili za hotele in predlogi aktivnosti.
 
-### Razčlenitev naloge
+### Razdelitev naloge
 
 Velike ali zapletene naloge postanejo bolj obvladljive, ko jih razdelimo na manjše, ciljno usmerjene podnaloge. 
-Za primer potovalnega načrta lahko cilj razčlenite na:
+Za primer potovalnega načrta lahko cilj razdelite na:
 
 * Rezervacija letov
 * Rezervacija hotelov
 * Najem avtomobila
-* Prilagoditev načrta
+* Personalizacija
 
 Vsako podnalogo lahko nato obravnavajo namenski agenti ali procesi. En agent se lahko specializira za iskanje najboljših ponudb za lete, drugi za rezervacije hotelov itd. Koordinacijski ali "nadaljnji" agent lahko nato združi te rezultate v enoten načrt za končnega uporabnika.
 
-Ta modularni pristop omogoča tudi postopne izboljšave. Na primer, lahko dodate specializirane agente za priporočila hrane ali predloge lokalnih aktivnosti in sčasoma izpopolnite načrt.
+Ta modularni pristop omogoča tudi postopne izboljšave. Na primer, lahko dodate specializirane agente za priporočila hrane ali predloge lokalnih aktivnosti ter sčasoma izpopolnite načrt.
 
 ### Strukturiran izhod
 
-Veliki jezikovni modeli (LLM) lahko ustvarijo strukturiran izhod (npr. JSON), ki ga je lažje obdelati za nadaljnje agente ali storitve. To je še posebej uporabno v kontekstu več agentov, kjer lahko te naloge izvedemo po prejemu načrta. Za hiter pregled si oglejte naslednji Pythonov odlomek, ki prikazuje preprost načrtovalni agent, ki razčleni cilj na podnaloge in ustvari strukturiran načrt:
+Veliki jezikovni modeli (LLM) lahko ustvarijo strukturiran izhod (npr. JSON), ki ga je lažje razčleniti in obdelati za nadaljnje agente ali storitve. To je še posebej uporabno v kontekstu več agentov, kjer lahko te naloge izvedemo po prejemu načrtovanega izhoda. Za hiter pregled si oglejte:
+
+Naslednji Pythonov delček prikazuje preprost načrtovalni agent, ki razdeli cilj na podnaloge in ustvari strukturiran načrt:
 
 ```python
 from pydantic import BaseModel
@@ -147,16 +149,15 @@ pprint(json.loads(response_content))
 
 ### Načrtovalni agent z orkestracijo več agentov
 
-V tem primeru Semantic Router Agent prejme uporabniško zahtevo (npr. "Potrebujem načrt za hotel za svoje potovanje.").
+V tem primeru Semantični usmerjevalni agent prejme zahtevo uporabnika (npr. "Potrebujem načrt za hotel za svoje potovanje.").
 
 Načrtovalec nato:
 
 * Prejme načrt za hotel: Načrtovalec vzame uporabnikovo sporočilo in na podlagi sistemskega poziva (vključno s podrobnostmi o razpoložljivih agentih) ustvari strukturiran potovalni načrt.
 * Navede agente in njihova orodja: Register agentov vsebuje seznam agentov (npr. za lete, hotele, najem avtomobilov in aktivnosti) skupaj s funkcijami ali orodji, ki jih ponujajo.
-* Usmeri načrt ustreznim agentom: Glede na število podnalog načrtovalec bodisi pošlje sporočilo neposredno namenskim agentom (za enostavne naloge) bodisi koordinira prek upravitelja skupinskega klepeta za sodelovanje več agentov.
+* Usmeri načrt k ustreznim agentom: Glede na število podnalog načrtovalec bodisi pošlje sporočilo neposredno namenskim agentom (za scenarije z eno nalogo) bodisi koordinira prek upravitelja skupinskega klepeta za sodelovanje več agentov.
 * Povzame rezultat: Na koncu načrtovalec povzame ustvarjeni načrt za jasnost.
-
-Naslednji Pythonov vzorec kode ponazarja te korake:
+Naslednji Pythonov vzorec kode prikazuje te korake:
 
 ```python
 
@@ -262,13 +263,13 @@ Sledi izhod iz prejšnje kode, ki ga lahko nato uporabite za usmerjanje k `assig
 }
 ```
 
-Primer beležnice s prejšnjim vzorcem kode je na voljo [tukaj](07-autogen.ipynb).
+Primer zvezka s prejšnjim vzorcem kode je na voljo [tukaj](07-autogen.ipynb).
 
 ### Iterativno načrtovanje
 
-Nekatere naloge zahtevajo večkratno prilagajanje ali ponovno načrtovanje, kjer rezultat ene podnaloge vpliva na naslednjo. Na primer, če agent odkrije nepričakovano obliko podatkov med rezervacijo letov, bo morda moral prilagoditi svojo strategijo, preden nadaljuje z rezervacijo hotelov.
+Nekatere naloge zahtevajo povratno komunikacijo ali ponovno načrtovanje, kjer rezultat ene podnaloge vpliva na naslednjo. Na primer, če agent odkrije nepričakovano obliko podatkov med rezervacijo letov, bo morda moral prilagoditi svojo strategijo, preden nadaljuje z rezervacijo hotelov.
 
-Poleg tega lahko povratne informacije uporabnika (npr. če se človek odloči za zgodnejši let) sprožijo delno ponovno načrtovanje. Ta dinamičen, iterativen pristop zagotavlja, da se končna rešitev ujema z resničnimi omejitvami in spreminjajočimi se uporabniškimi željami.
+Poleg tega lahko povratne informacije uporabnika (npr. odločitev človeka, da raje izbere zgodnejši let) sprožijo delno ponovno načrtovanje. Ta dinamičen, iterativen pristop zagotavlja, da se končna rešitev ujema z resničnimi omejitvami in spreminjajočimi se preferencami uporabnika.
 
 npr. vzorec kode
 
@@ -291,21 +292,21 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-Za bolj celovito načrtovanje si oglejte Magnetic One za reševanje zapletenih nalog.
+Za bolj celovito načrtovanje si oglejte Magnetic One za reševanje kompleksnih nalog.
 
 ## Povzetek
 
-V tem članku smo si ogledali primer, kako lahko ustvarimo načrtovalca, ki lahko dinamično izbere razpoložljive agente, ki so definirani. Izhod načrtovalca razčleni naloge in dodeli agente, da jih izvedejo. Predpostavlja se, da imajo agenti dostop do funkcij/orodij, ki so potrebna za izvedbo naloge. Poleg agentov lahko vključite tudi druge vzorce, kot so refleksija, povzemanje in krožni klepet, za nadaljnjo prilagoditev.
+V tem članku smo si ogledali primer, kako lahko ustvarimo načrtovalca, ki dinamično izbere razpoložljive agente, ki so opredeljeni. Izhod načrtovalca razdeli naloge in dodeli agente, da jih lahko izvedejo. Predpostavlja se, da imajo agenti dostop do funkcij/orodij, ki so potrebna za izvedbo naloge. Poleg agentov lahko vključite tudi druge vzorce, kot so refleksija, povzemanje in kroženje klepeta, da dodatno prilagodite.
 
 ## Dodatni viri
 
-* AutoGen Magnetic One - Generalistični sistem z več agenti za reševanje zapletenih nalog, ki je dosegel impresivne rezultate na več zahtevnih agentnih merilih. Referenca:
+AutoGen Magnetic One - Generalistični sistem več agentov za reševanje kompleksnih nalog, ki je dosegel impresivne rezultate na več zahtevnih merilih za agente. Referenca:
 
-. V tej implementaciji orkestrator ustvari načrt, specifičen za nalogo, in dodeli te naloge razpoložljivim agentom. Poleg načrtovanja orkestrator uporablja tudi mehanizem sledenja za spremljanje napredka naloge in ponovno načrtovanje po potrebi.
+. V tej implementaciji orkestrator ustvari načrt, specifičen za nalogo, in delegira te naloge razpoložljivim agentom. Poleg načrtovanja orkestrator uporablja tudi mehanizem sledenja za spremljanje napredka naloge in ponovno načrtovanje po potrebi.
 
 ### Imate več vprašanj o vzorcu načrtovanja?
 
-Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), da se povežete z drugimi učenci, se udeležite uradnih ur in dobite odgovore na svoja vprašanja o AI agentih.
+Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), da se povežete z drugimi učenci, udeležite uradnih ur in dobite odgovore na svoja vprašanja o AI agentih.
 
 ## Prejšnja lekcija
 
@@ -313,9 +314,9 @@ Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), da 
 
 ## Naslednja lekcija
 
-[Večagentni vzorec oblikovanja](../08-multi-agent/README.md)
+[Vzorec oblikovanja več agentov](../08-multi-agent/README.md)
 
 ---
 
 **Omejitev odgovornosti**:  
-Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni prevod s strani človeka. Ne prevzemamo odgovornosti za morebitna napačna razumevanja ali napačne interpretacije, ki bi nastale zaradi uporabe tega prevoda.
+Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem maternem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitna nesporazumevanja ali napačne razlage, ki bi nastale zaradi uporabe tega prevoda.

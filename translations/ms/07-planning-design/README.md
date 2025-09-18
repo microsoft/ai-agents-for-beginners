@@ -1,40 +1,40 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-29T18:22:15+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:20:35+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "ms"
 }
 -->
-[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.ms.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Perancangan Corak Reka Bentuk](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.ms.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(Klik pada imej di atas untuk menonton video pelajaran ini)_
+> _(Klik imej di atas untuk menonton video pelajaran ini)_
 
-# Reka Bentuk Perancangan
+# Perancangan Reka Bentuk
 
 ## Pengenalan
 
 Pelajaran ini akan merangkumi
 
-* Menentukan matlamat keseluruhan yang jelas dan memecahkan tugas kompleks kepada tugas yang boleh diurus.
-* Menggunakan output berstruktur untuk respons yang lebih boleh dipercayai dan boleh dibaca oleh mesin.
-* Menerapkan pendekatan berasaskan peristiwa untuk mengendalikan tugas dinamik dan input yang tidak dijangka.
+* Menentukan matlamat keseluruhan yang jelas dan memecahkan tugas yang kompleks kepada tugas yang boleh diurus.
+* Memanfaatkan output berstruktur untuk respons yang lebih boleh dipercayai dan boleh dibaca oleh mesin.
+* Menggunakan pendekatan berasaskan acara untuk menangani tugas dinamik dan input yang tidak dijangka.
 
 ## Matlamat Pembelajaran
 
 Selepas menyelesaikan pelajaran ini, anda akan memahami tentang:
 
 * Mengenal pasti dan menetapkan matlamat keseluruhan untuk ejen AI, memastikan ia tahu dengan jelas apa yang perlu dicapai.
-* Memecahkan tugas kompleks kepada subtugas yang boleh diurus dan menyusunnya dalam urutan yang logik.
-* Melengkapkan ejen dengan alat yang sesuai (contohnya, alat carian atau alat analitik data), memutuskan bila dan bagaimana ia digunakan, dan mengendalikan situasi yang tidak dijangka.
+* Memecahkan tugas yang kompleks kepada subtugas yang boleh diurus dan menyusunnya dalam urutan yang logik.
+* Melengkapkan ejen dengan alat yang sesuai (contohnya, alat carian atau alat analitik data), memutuskan bila dan bagaimana ia digunakan, dan menangani situasi yang tidak dijangka.
 * Menilai hasil subtugas, mengukur prestasi, dan mengulangi tindakan untuk meningkatkan output akhir.
 
 ## Menentukan Matlamat Keseluruhan dan Memecahkan Tugas
 
-![Defining Goals and Tasks](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.ms.png)
+![Menentukan Matlamat dan Tugas](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.ms.png)
 
-Kebanyakan tugas dunia nyata terlalu kompleks untuk ditangani dalam satu langkah. Ejen AI memerlukan objektif yang ringkas untuk membimbing perancangan dan tindakannya. Sebagai contoh, pertimbangkan matlamat:
+Kebanyakan tugas dunia sebenar terlalu kompleks untuk ditangani dalam satu langkah. Ejen AI memerlukan objektif yang ringkas untuk membimbing perancangan dan tindakannya. Sebagai contoh, pertimbangkan matlamat:
 
     "Hasilkan jadual perjalanan selama 3 hari."
 
@@ -42,7 +42,7 @@ Walaupun ia mudah dinyatakan, ia masih memerlukan penjelasan. Semakin jelas matl
 
 ### Pemecahan Tugas
 
-Tugas besar atau rumit menjadi lebih mudah diurus apabila dipecahkan kepada subtugas kecil yang berorientasikan matlamat. 
+Tugas yang besar atau rumit menjadi lebih mudah diurus apabila dipecahkan kepada subtugas kecil yang berorientasikan matlamat. 
 Untuk contoh jadual perjalanan, anda boleh memecahkan matlamat kepada:
 
 * Tempahan Penerbangan
@@ -56,9 +56,7 @@ Pendekatan modular ini juga membolehkan penambahbaikan secara beransur-ansur. Se
 
 ### Output Berstruktur
 
-Model Bahasa Besar (LLM) boleh menghasilkan output berstruktur (contohnya, JSON) yang lebih mudah untuk ejen atau perkhidmatan downstream untuk menganalisis dan memproses. Ini sangat berguna dalam konteks multi-ejen, di mana kita boleh melaksanakan tugas ini selepas output perancangan diterima. Rujuk kepada 
-
-untuk gambaran ringkas.
+Model Bahasa Besar (LLM) boleh menghasilkan output berstruktur (contohnya, JSON) yang lebih mudah untuk ejen atau perkhidmatan hiliran untuk menganalisis dan memproses. Ini sangat berguna dalam konteks multi-ejen, di mana kita boleh melaksanakan tugas ini selepas output perancangan diterima. Rujuk ini untuk gambaran ringkas.
 
 Kod Python berikut menunjukkan ejen perancangan mudah yang memecahkan matlamat kepada subtugas dan menghasilkan rancangan berstruktur:
 
@@ -155,7 +153,7 @@ Dalam contoh ini, Ejen Router Semantik menerima permintaan pengguna (contohnya, 
 
 Perancang kemudian:
 
-* Menerima Rancangan Hotel: Perancang mengambil mesej pengguna dan, berdasarkan prompt sistem (termasuk butiran ejen yang tersedia), menghasilkan rancangan perjalanan berstruktur.
+* Menerima Rancangan Hotel: Perancang mengambil mesej pengguna dan, berdasarkan arahan sistem (termasuk butiran ejen yang tersedia), menghasilkan rancangan perjalanan berstruktur.
 * Menyenaraikan Ejen dan Alat Mereka: Daftar ejen menyimpan senarai ejen (contohnya, untuk penerbangan, hotel, sewa kereta, dan aktiviti) bersama fungsi atau alat yang mereka tawarkan.
 * Mengarahkan Rancangan kepada Ejen Berkaitan: Bergantung pada bilangan subtugas, perancang sama ada menghantar mesej secara langsung kepada ejen khusus (untuk senario tugas tunggal) atau menyelaraskan melalui pengurus sembang kumpulan untuk kerjasama multi-ejen.
 * Merumuskan Hasil: Akhirnya, perancang merumuskan rancangan yang dihasilkan untuk kejelasan.
@@ -270,9 +268,9 @@ Notebook contoh dengan kod sebelumnya tersedia [di sini](07-autogen.ipynb).
 
 ### Perancangan Iteratif
 
-Sesetengah tugas memerlukan ulang-alik atau perancangan semula, di mana hasil satu subtugas mempengaruhi yang berikutnya. Sebagai contoh, jika ejen menemui format data yang tidak dijangka semasa menempah penerbangan, ia mungkin perlu menyesuaikan strateginya sebelum meneruskan tempahan hotel.
+Sesetengah tugas memerlukan ulang-alik atau perancangan semula, di mana hasil satu subtugas mempengaruhi yang seterusnya. Sebagai contoh, jika ejen menemui format data yang tidak dijangka semasa menempah penerbangan, ia mungkin perlu menyesuaikan strateginya sebelum meneruskan tempahan hotel.
 
-Selain itu, maklum balas pengguna (contohnya, manusia memutuskan mereka lebih suka penerbangan lebih awal) boleh mencetuskan perancangan semula separa. Pendekatan dinamik dan iteratif ini memastikan penyelesaian akhir selaras dengan kekangan dunia nyata dan keutamaan pengguna yang berkembang.
+Selain itu, maklum balas pengguna (contohnya, manusia memutuskan mereka lebih suka penerbangan lebih awal) boleh mencetuskan perancangan semula separa. Pendekatan dinamik dan iteratif ini memastikan penyelesaian akhir sejajar dengan kekangan dunia sebenar dan keutamaan pengguna yang berkembang.
 
 Contoh kod:
 
@@ -295,19 +293,15 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-Untuk perancangan yang lebih komprehensif, sila lihat Magnetic One 
+Untuk perancangan yang lebih komprehensif, lihat Magnetic One untuk menyelesaikan tugas yang kompleks.
 
-untuk menyelesaikan tugas kompleks.
+## Ringkasan
 
-## Rumusan
-
-Dalam artikel ini, kita telah melihat contoh bagaimana kita boleh mencipta perancang yang boleh memilih ejen yang tersedia secara dinamik. Output Perancang memecahkan tugas dan menetapkan ejen supaya ia boleh dilaksanakan. Diandaikan ejen mempunyai akses kepada fungsi/alat yang diperlukan untuk melaksanakan tugas. Selain ejen, anda boleh memasukkan corak lain seperti refleksi, perumus, dan sembang round robin untuk penyesuaian lanjut.
+Dalam artikel ini, kita telah melihat contoh bagaimana kita boleh mencipta perancang yang boleh memilih ejen yang tersedia secara dinamik. Output Perancang memecahkan tugas dan menetapkan ejen supaya ia boleh dilaksanakan. Diandaikan ejen mempunyai akses kepada fungsi/alat yang diperlukan untuk melaksanakan tugas. Selain ejen, anda boleh memasukkan corak lain seperti refleksi, perumus, dan sembang pusingan untuk penyesuaian lanjut.
 
 ## Sumber Tambahan
 
-* AutoGen Magnetic One - Sistem multi-ejen umum untuk menyelesaikan tugas kompleks dan telah mencapai hasil yang mengagumkan pada pelbagai penanda aras ejen yang mencabar. Rujukan: 
-
-Dalam pelaksanaan ini, pengaturcara mencipta rancangan khusus tugas dan mendelegasikan tugas ini kepada ejen yang tersedia. Selain perancangan, pengaturcara juga menggunakan mekanisme penjejakan untuk memantau kemajuan tugas dan merancang semula jika diperlukan.
+AutoGen Magnetic One - Sistem multi-ejen umum untuk menyelesaikan tugas yang kompleks dan telah mencapai hasil yang mengagumkan pada pelbagai penanda aras ejen yang mencabar. Rujukan: Dalam pelaksanaan ini, pengaturcara mencipta rancangan khusus tugas dan mendelegasikan tugas ini kepada ejen yang tersedia. Selain perancangan, pengaturcara juga menggunakan mekanisme penjejakan untuk memantau kemajuan tugas dan merancang semula jika diperlukan.
 
 ### Ada Lagi Soalan tentang Corak Reka Bentuk Perancangan?
 
@@ -315,11 +309,11 @@ Sertai [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) untuk berhub
 
 ## Pelajaran Sebelumnya
 
-[Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)
+[Memupuk Kepercayaan pada Ejen AI](../06-building-trustworthy-agents/README.md)
 
 ## Pelajaran Seterusnya
 
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+[Corak Reka Bentuk Multi-Ejen](../08-multi-agent/README.md)
 
 ---
 

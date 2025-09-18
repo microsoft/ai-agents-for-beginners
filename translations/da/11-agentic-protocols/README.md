@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "5c05bcdfb163dfa2493db39dfb45ad9a",
-  "translation_date": "2025-09-04T08:35:44+00:00",
+  "original_hash": "aff92c6f019b4627ca9399c6e3882e17",
+  "translation_date": "2025-09-18T15:04:06+00:00",
   "source_file": "11-agentic-protocols/README.md",
   "language_code": "da"
 }
@@ -11,7 +11,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 [![Agentiske Protokoller](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.da.png)](https://youtu.be/X-Dh9R3Opn8)
 
-Efterhånden som brugen af AI-agenter vokser, stiger behovet for protokoller, der sikrer standardisering, sikkerhed og understøtter åben innovation. I denne lektion vil vi dække tre protokoller, der søger at opfylde dette behov - Model Context Protocol (MCP), Agent to Agent (A2A) og Natural Language Web (NLWeb).
+> _(Klik på billedet ovenfor for at se videoen til denne lektion)_
+
+Efterhånden som brugen af AI-agenter vokser, øges behovet for protokoller, der sikrer standardisering, sikkerhed og understøtter åben innovation. I denne lektion vil vi dække tre protokoller, der søger at imødekomme dette behov - Model Context Protocol (MCP), Agent to Agent (A2A) og Natural Language Web (NLWeb).
 
 ## Introduktion
 
@@ -21,7 +23,7 @@ I denne lektion vil vi dække:
 
 • Hvordan **A2A** muliggør kommunikation og samarbejde mellem forskellige AI-agenter.
 
-• Hvordan **NLWeb** bringer naturlige sproggrænseflader til enhver hjemmeside, så AI-agenter kan opdage og interagere med indholdet.
+• Hvordan **NLWeb** bringer naturlige sproggrænseflader til enhver hjemmeside, hvilket gør det muligt for AI-agenter at opdage og interagere med indholdet.
 
 ## Læringsmål
 
@@ -41,15 +43,15 @@ Lad os se på MCP's komponenter, fordelene sammenlignet med direkte API-brug og 
 
 MCP opererer på en **klient-server arkitektur**, og kernekomponenterne er:
 
-• **Hosts** er LLM-applikationer (for eksempel en kodeeditor som VSCode), der starter forbindelser til en MCP-server.
+• **Hosts** er LLM-applikationer (for eksempel en kodeeditor som VSCode), der starter forbindelserne til en MCP-server.
 
 • **Klienter** er komponenter inden for host-applikationen, der opretholder en-til-en forbindelser med servere.
 
 • **Servere** er letvægtsprogrammer, der tilbyder specifikke funktioner.
 
-Protokollen inkluderer tre kerneelementer, som er MCP-serverens funktioner:
+Protokollen inkluderer tre kerneprimitiver, som er MCP-serverens kapaciteter:
 
-• **Værktøjer**: Dette er diskrete handlinger eller funktioner, som en AI-agent kan kalde for at udføre en opgave. For eksempel kan en vejrtjeneste tilbyde et "hent vejr"-værktøj, eller en e-handelsserver kan tilbyde et "køb produkt"-værktøj. MCP-servere annoncerer hvert værktøjs navn, beskrivelse og input/output-skema i deres kapabilitetsliste.
+• **Værktøjer**: Dette er diskrete handlinger eller funktioner, som en AI-agent kan kalde for at udføre en opgave. For eksempel kan en vejrtjeneste tilbyde et "hent vejr"-værktøj, eller en e-handelsserver kan tilbyde et "køb produkt"-værktøj. MCP-servere annoncerer hvert værktøjs navn, beskrivelse og input/output-skema i deres kapacitetsliste.
 
 • **Ressourcer**: Dette er skrivebeskyttede dataelementer eller dokumenter, som en MCP-server kan levere, og klienter kan hente dem efter behov. Eksempler inkluderer filindhold, databaseposter eller logfiler. Ressourcer kan være tekst (som kode eller JSON) eller binære (som billeder eller PDF'er).
 
@@ -59,7 +61,7 @@ Protokollen inkluderer tre kerneelementer, som er MCP-serverens funktioner:
 
 MCP tilbyder betydelige fordele for AI-agenter:
 
-• **Dynamisk Værktøjsopdagelse**: Agenter kan dynamisk modtage en liste over tilgængelige værktøjer fra en server sammen med beskrivelser af, hvad de gør. Dette adskiller sig fra traditionelle API'er, der ofte kræver statisk kodning for integrationer, hvilket betyder, at enhver API-ændring kræver kodeopdateringer. MCP tilbyder en "integrer én gang"-tilgang, hvilket fører til større tilpasningsevne.
+• **Dynamisk Værktøjsopdagelse**: Agenter kan dynamisk modtage en liste over tilgængelige værktøjer fra en server sammen med beskrivelser af, hvad de gør. Dette står i kontrast til traditionelle API'er, der ofte kræver statisk kodning for integrationer, hvilket betyder, at enhver API-ændring kræver kodeopdateringer. MCP tilbyder en "integrer én gang"-tilgang, hvilket fører til større tilpasningsevne.
 
 • **Interoperabilitet på tværs af LLM'er**: MCP fungerer på tværs af forskellige LLM'er, hvilket giver fleksibilitet til at skifte kerne-modeller for at evaluere bedre ydeevne.
 
@@ -81,9 +83,9 @@ Forestil dig, at en bruger ønsker at booke en flyrejse ved hjælp af en AI-assi
 
 5. **Yderligere interaktion**: AI-assistenten præsenterer flymulighederne. Når du vælger en flyrejse, kan assistenten kalde "book flyrejse"-værktøjet på den samme MCP-server og fuldføre bookingen.
 
-## Agent-til-Agent Protokol (A2A)
+## Agent-to-Agent Protocol (A2A)
 
-Mens MCP fokuserer på at forbinde LLM'er til værktøjer, går **Agent-til-Agent (A2A) protokollen** et skridt videre ved at muliggøre kommunikation og samarbejde mellem forskellige AI-agenter. A2A forbinder AI-agenter på tværs af forskellige organisationer, miljøer og teknologiske stakke for at fuldføre en fælles opgave.
+Mens MCP fokuserer på at forbinde LLM'er til værktøjer, går **Agent-to-Agent (A2A) protokollen** et skridt videre ved at muliggøre kommunikation og samarbejde mellem forskellige AI-agenter. A2A forbinder AI-agenter på tværs af forskellige organisationer, miljøer og teknologiske stakke for at fuldføre en fælles opgave.
 
 Vi vil undersøge komponenterne og fordelene ved A2A samt et eksempel på, hvordan det kunne anvendes i vores rejseapplikation.
 
@@ -97,12 +99,12 @@ Ligesom en MCP-server deler en liste over værktøjer, har et agentkort:
 - Agentens navn.
 - En **beskrivelse af de generelle opgaver**, den udfører.
 - En **liste over specifikke færdigheder** med beskrivelser for at hjælpe andre agenter (eller endda menneskelige brugere) med at forstå, hvornår og hvorfor de vil kalde den agent.
-- Agentens **aktuelle Endpoint URL**.
-- Agentens **version** og **kapabiliteter**, såsom streaming-svar og push-notifikationer.
+- Den **aktuelle Endpoint URL** for agenten.
+- Agentens **version** og **kapaciteter**, såsom streaming-svar og push-notifikationer.
 
 #### Agentudfører
 
-Agentudføreren er ansvarlig for **at sende konteksten af brugerchatten til den eksterne agent**, som har brug for dette for at forstå den opgave, der skal udføres. I en A2A-server bruger en agent sin egen Large Language Model (LLM) til at analysere indkommende anmodninger og udføre opgaver ved hjælp af sine egne interne værktøjer.
+Agentudføreren er ansvarlig for **at videregive konteksten af brugerens chat til den eksterne agent**, som har brug for dette for at forstå den opgave, der skal udføres. På en A2A-server bruger en agent sin egen Large Language Model (LLM) til at analysere indkommende anmodninger og udføre opgaver ved hjælp af sine egne interne værktøjer.
 
 #### Artefakt
 
@@ -110,11 +112,11 @@ Når en ekstern agent har fuldført den ønskede opgave, oprettes dens arbejdspr
 
 #### Eventkø
 
-Denne komponent bruges til **at håndtere opdateringer og sende beskeder**. Den er især vigtig i produktion for agentiske systemer for at forhindre, at forbindelsen mellem agenter lukkes, før en opgave er fuldført, især når opgavens afslutning kan tage længere tid.
+Denne komponent bruges til **at håndtere opdateringer og videregive beskeder**. Den er især vigtig i produktion for agentiske systemer for at forhindre, at forbindelsen mellem agenter lukkes, før en opgave er fuldført, især når opgavens afslutning kan tage længere tid.
 
 ### Fordele ved A2A
 
-• **Forbedret samarbejde**: Det muliggør, at agenter fra forskellige leverandører og platforme kan interagere, dele kontekst og arbejde sammen, hvilket letter sømløs automatisering på tværs af traditionelt adskilte systemer.
+• **Forbedret samarbejde**: Det muliggør, at agenter fra forskellige leverandører og platforme kan interagere, dele kontekst og arbejde sammen, hvilket letter problemfri automatisering på tværs af traditionelt adskilte systemer.
 
 • **Fleksibilitet i modelvalg**: Hver A2A-agent kan beslutte, hvilken LLM den bruger til at håndtere sine anmodninger, hvilket giver mulighed for optimerede eller finjusterede modeller pr. agent, i modsætning til en enkelt LLM-forbindelse i nogle MCP-scenarier.
 
@@ -126,7 +128,7 @@ Denne komponent bruges til **at håndtere opdateringer og sende beskeder**. Den 
 
 Lad os udvide vores rejsebookingscenario, men denne gang ved hjælp af A2A.
 
-1. **Brugeranmodning til multi-agent**: En bruger interagerer med en "Rejseagent" A2A-klient/agent, måske ved at sige, "Book venligst en hel rejse til Honolulu for næste uge, inklusive fly, hotel og lejebil."
+1. **Brugeranmodning til multi-agent**: En bruger interagerer med en "Rejseagent" A2A-klient/agent, måske ved at sige: "Book venligst en hel rejse til Honolulu i næste uge, inklusive fly, hotel og lejebil."
 
 2. **Orkestrering af rejseagent**: Rejseagenten modtager denne komplekse anmodning. Den bruger sin LLM til at ræsonnere om opgaven og afgøre, at den skal interagere med andre specialiserede agenter.
 
@@ -150,11 +152,11 @@ Lad os se på de forskellige komponenter i NLWeb, fordelene ved NLWeb og et ekse
 
 - **MCP-server (Model Context Protocol Endpoint)**: Hver NLWeb-opsætning fungerer også som en **MCP-server**. Dette betyder, at den kan **dele værktøjer (som en "spørg"-metode) og data** med andre AI-systemer. I praksis gør dette hjemmesidens indhold og funktioner brugbare for AI-agenter, hvilket gør siden til en del af det bredere "agent-økosystem."
 
-- **Embedding-modeller**: Disse modeller bruges til **at konvertere hjemmesideindhold til numeriske repræsentationer kaldet vektorer** (embeddings). Disse vektorer fanger betydning på en måde, som computere kan sammenligne og søge. De gemmes i en speciel database, og brugere kan vælge, hvilken embedding-model de vil bruge.
+- **Embedding-modeller**: Disse modeller bruges til at **konvertere hjemmesideindhold til numeriske repræsentationer kaldet vektorer** (embeddings). Disse vektorer fanger betydning på en måde, som computere kan sammenligne og søge. De gemmes i en speciel database, og brugere kan vælge, hvilken embedding-model de vil bruge.
 
-- **Vektordatabase (søgemekanisme)**: Denne database **gemmer embeddings af hjemmesideindhold**. Når nogen stiller et spørgsmål, tjekker NLWeb vektordatabasen for hurtigt at finde den mest relevante information. Den giver en hurtig liste over mulige svar, rangeret efter lighed. NLWeb fungerer med forskellige vektorlagringssystemer såsom Qdrant, Snowflake, Milvus, Azure AI Search og Elasticsearch.
+- **Vektordatabase (søgemekanisme)**: Denne database **gemmer embeddings af hjemmesideindholdet**. Når nogen stiller et spørgsmål, tjekker NLWeb vektordatabasen for hurtigt at finde den mest relevante information. Den giver en hurtig liste over mulige svar, rangeret efter lighed. NLWeb fungerer med forskellige vektorlagringssystemer såsom Qdrant, Snowflake, Milvus, Azure AI Search og Elasticsearch.
 
-### NLWeb Eksempel
+### NLWeb ved Eksempel
 
 ![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4b245b86690ac6c49c26e355da5ab124128c8675d58cc9b07.da.png)
 
@@ -166,13 +168,13 @@ Overvej vores rejsebookingside igen, men denne gang drevet af NLWeb.
 
 3. **NLWeb-behandling**: NLWeb-applikationen modtager dette spørgsmål. Den sender spørgsmålet til en LLM for forståelse og søger samtidig i sin vektordatabase efter relevante hotellister.
 
-4. **Præcise resultater**: LLM hjælper med at fortolke søgeresultaterne fra databasen, identificere de bedste match baseret på kriterierne "familievenligt," "pool" og "Honolulu," og formaterer derefter et naturligt sprog-svar. Vigtigt er det, at svaret refererer til faktiske hoteller fra hjemmesidens katalog og undgår opfundne oplysninger.
+4. **Præcise resultater**: LLM hjælper med at tolke søgeresultaterne fra databasen, identificere de bedste match baseret på "familievenligt," "pool" og "Honolulu"-kriterier og formaterer derefter et naturligt sprog-svar. Vigtigt er det, at svaret refererer til faktiske hoteller fra hjemmesidens katalog og undgår opfundne oplysninger.
 
 5. **AI-agent interaktion**: Fordi NLWeb fungerer som en MCP-server, kunne en ekstern AI-rejseagent også forbinde til denne hjemmesides NLWeb-instans. AI-agenten kunne derefter bruge `ask` MCP-metoden til direkte at spørge hjemmesiden: `ask("Er der nogen veganske restauranter i Honolulu-området anbefalet af hotellet?")`. NLWeb-instansen ville behandle dette, udnytte sin database med restaurantinformation (hvis indlæst) og returnere et struktureret JSON-svar.
 
 ### Har du flere spørgsmål om MCP/A2A/NLWeb?
 
-Deltag i [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) for at møde andre lærende, deltage i kontortid og få svar på dine spørgsmål om AI-agenter.
+Deltag i [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) for at møde andre lærende, deltage i kontortimer og få svar på dine spørgsmål om AI-agenter.
 
 ## Ressourcer
 
@@ -184,4 +186,4 @@ Deltag i [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) for at mø
 ---
 
 **Ansvarsfraskrivelse**:  
-Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på at sikre nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der måtte opstå som følge af brugen af denne oversættelse.
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på at opnå nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os ikke ansvar for misforståelser eller fejltolkninger, der måtte opstå som følge af brugen af denne oversættelse.

@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-29T20:56:39+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:36:34+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "ro"
 }
 -->
 [![Planificarea Modelului de Design](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.ro.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
+> _(Click pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
 # Planificarea Designului
 
@@ -18,45 +18,45 @@ CO_OP_TRANSLATOR_METADATA:
 Această lecție va acoperi:
 
 * Definirea unui obiectiv general clar și împărțirea unei sarcini complexe în sarcini gestionabile.
-* Utilizarea unui output structurat pentru răspunsuri mai fiabile și ușor de citit de mașini.
+* Utilizarea unui output structurat pentru răspunsuri mai fiabile și ușor de citit de către mașini.
 * Aplicarea unei abordări bazate pe evenimente pentru a gestiona sarcini dinamice și intrări neașteptate.
 
 ## Obiective de Învățare
 
-După finalizarea acestei lecții, veți înțelege:
+După finalizarea acestei lecții, vei înțelege:
 
-* Cum să identificați și să stabiliți un obiectiv general pentru un agent AI, asigurându-vă că știe clar ce trebuie realizat.
-* Cum să descompuneți o sarcină complexă în subtasks gestionabile și să le organizați într-o secvență logică.
-* Cum să echipați agenții cu instrumentele potrivite (de exemplu, instrumente de căutare sau analiză de date), să decideți când și cum să le utilizați și să gestionați situațiile neașteptate care apar.
-* Cum să evaluați rezultatele subtasks, să măsurați performanța și să iterați acțiunile pentru a îmbunătăți rezultatul final.
+* Cum să identifici și să stabilești un obiectiv general pentru un agent AI, asigurându-te că știe clar ce trebuie să realizeze.
+* Cum să descompui o sarcină complexă în subtasks gestionabile și să le organizezi într-o secvență logică.
+* Cum să echipezi agenții cu instrumentele potrivite (de exemplu, instrumente de căutare sau analiză de date), să decizi când și cum să le folosești și să gestionezi situațiile neașteptate care apar.
+* Cum să evaluezi rezultatele subtasks, să măsori performanța și să iterezi acțiunile pentru a îmbunătăți rezultatul final.
 
-## Definirea Obiectivului General și Descompunerea unei Sarcini
+## Definirea Obiectivului General și Descompunerea Sarcinii
 
 ![Definirea Obiectivelor și Sarcinilor](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.ro.png)
 
-Cele mai multe sarcini din lumea reală sunt prea complexe pentru a fi abordate într-un singur pas. Un agent AI are nevoie de un obiectiv concis pentru a-și ghida planificarea și acțiunile. De exemplu, luați în considerare obiectivul:
+Majoritatea sarcinilor din lumea reală sunt prea complexe pentru a fi abordate într-un singur pas. Un agent AI are nevoie de un obiectiv concis pentru a-și ghida planificarea și acțiunile. De exemplu, consideră obiectivul:
 
     "Generează un itinerar de călătorie pentru 3 zile."
 
-Deși este simplu de formulat, necesită totuși rafinare. Cu cât obiectivul este mai clar, cu atât agentul (și orice colaboratori umani) se pot concentra mai bine pe obținerea rezultatului dorit, cum ar fi crearea unui itinerar cu opțiuni de zbor, recomandări de hoteluri și sugestii de activități.
+Deși este simplu de formulat, necesită totuși rafinare. Cu cât obiectivul este mai clar, cu atât agentul (și orice colaboratori umani) se pot concentra mai bine pe obținerea rezultatului dorit, cum ar fi crearea unui itinerar complet cu opțiuni de zbor, recomandări de hoteluri și sugestii de activități.
 
-### Descompunerea Sarcinilor
+### Descompunerea Sarcinii
 
-Sarcinile mari sau complexe devin mai gestionabile atunci când sunt împărțite în subtasks mai mici, orientate spre obiective.
-Pentru exemplul itinerarului de călătorie, puteți descompune obiectivul în:
+Sarcinile mari sau complexe devin mai ușor de gestionat atunci când sunt împărțite în subtasks mai mici, orientate spre obiectiv.
+Pentru exemplul itinerarului de călătorie, ai putea descompune obiectivul în:
 
-* Rezervarea Zborurilor
-* Rezervarea Hotelurilor
-* Închirierea Mașinilor
+* Rezervarea Zborului
+* Rezervarea Hotelului
+* Închirierea Mașinii
 * Personalizare
 
-Fiecare subtask poate fi abordată de agenți sau procese dedicate. Un agent ar putea fi specializat în căutarea celor mai bune oferte de zboruri, altul în rezervarea hotelurilor și așa mai departe. Un agent coordonator sau „downstream” poate apoi să compileze aceste rezultate într-un itinerar coerent pentru utilizatorul final.
+Fiecare subtask poate fi abordat de agenți sau procese dedicate. Un agent ar putea fi specializat în căutarea celor mai bune oferte de zboruri, altul în rezervarea hotelurilor și așa mai departe. Un agent coordonator sau „downstream” poate apoi compila aceste rezultate într-un itinerar coerent pentru utilizatorul final.
 
-Această abordare modulară permite, de asemenea, îmbunătățiri incrementale. De exemplu, puteți adăuga agenți specializați pentru Recomandări de Restaurante sau Sugestii de Activități Locale și să rafinați itinerarul în timp.
+Această abordare modulară permite, de asemenea, îmbunătățiri incrementale. De exemplu, ai putea adăuga agenți specializați pentru Recomandări de Mâncare sau Sugestii de Activități Locale și să rafinezi itinerarul în timp.
 
 ### Output Structurat
 
-Modelele de Limbaj de Dimensiuni Mari (LLMs) pot genera output structurat (de exemplu, JSON) care este mai ușor de analizat și procesat de agenți sau servicii downstream. Acest lucru este deosebit de util într-un context multi-agent, unde putem acționa asupra acestor sarcini după ce output-ul de planificare este primit. Consultați acest lucru pentru o privire rapidă.
+Modelele de Limbaj Mare (LLMs) pot genera output structurat (de exemplu, JSON) care este mai ușor de analizat și procesat de agenți sau servicii „downstream”. Acest lucru este deosebit de util într-un context multi-agent, unde putem acționa aceste sarcini după ce output-ul de planificare este primit. Consultă aceasta pentru o privire rapidă.
 
 Următorul fragment de cod Python demonstrează un agent de planificare simplu care descompune un obiectiv în subtasks și generează un plan structurat:
 
@@ -149,14 +149,14 @@ pprint(json.loads(response_content))
 
 ### Agent de Planificare cu Orchestrare Multi-Agent
 
-În acest exemplu, un Semantic Router Agent primește o cerere de la utilizator (de exemplu, "Am nevoie de un plan de hotel pentru călătoria mea.").
+În acest exemplu, un Agent Router Semantic primește o cerere de la utilizator (de exemplu, "Am nevoie de un plan de hotel pentru călătoria mea.").
 
 Planificatorul apoi:
 
-* Primește Planul de Hotel: Planificatorul preia mesajul utilizatorului și, pe baza unui prompt de sistem (inclusiv detalii despre agenții disponibili), generează un plan de călătorie structurat.
-* Listează Agenții și Instrumentele Lor: Registrul de agenți conține o listă de agenți (de exemplu, pentru zboruri, hoteluri, închirieri de mașini și activități) împreună cu funcțiile sau instrumentele pe care le oferă.
-* Direcționează Planul către Agenții Relevanți: În funcție de numărul de subtasks, planificatorul trimite fie mesajul direct unui agent dedicat (pentru scenarii cu o singură sarcină), fie coordonează printr-un manager de chat de grup pentru colaborare multi-agent.
-* Rezumă Rezultatul: În cele din urmă, planificatorul rezumă planul generat pentru claritate.
+* Primește Planul Hotelului: Planificatorul preia mesajul utilizatorului și, pe baza unui prompt de sistem (inclusiv detalii despre agenții disponibili), generează un plan structurat de călătorie.
+* Listează Agenții și Instrumentele Lor: Registrul de agenți deține o listă de agenți (de exemplu, pentru zboruri, hoteluri, închirieri de mașini și activități) împreună cu funcțiile sau instrumentele pe care le oferă.
+* Direcționează Planul către Agenții Respectivi: În funcție de numărul de subtasks, planificatorul trimite fie mesajul direct unui agent dedicat (pentru scenarii cu o singură sarcină), fie coordonează printr-un manager de chat de grup pentru colaborare multi-agent.
+* Rezumă Rezultatul: În final, planificatorul rezumă planul generat pentru claritate.
 Următorul exemplu de cod Python ilustrează acești pași:
 
 ```python
@@ -232,7 +232,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Ce urmează este output-ul din codul anterior, iar apoi puteți utiliza acest output structurat pentru a direcționa către `assigned_agent` și a rezuma planul de călătorie pentru utilizatorul final.
+Ce urmează este output-ul din codul anterior și poți folosi acest output structurat pentru a direcționa către `assigned_agent` și a rezuma planul de călătorie pentru utilizatorul final.
 
 ```json
 {
@@ -263,11 +263,11 @@ Ce urmează este output-ul din codul anterior, iar apoi puteți utiliza acest ou
 }
 ```
 
-Un notebook de exemplu cu codul anterior este disponibil [aici](07-autogen.ipynb).
+Un notebook exemplu cu codul anterior este disponibil [aici](07-autogen.ipynb).
 
 ### Planificare Iterativă
 
-Unele sarcini necesită un proces iterativ sau de re-planificare, unde rezultatul unui subtask influențează următorul. De exemplu, dacă agentul descoperă un format de date neașteptat în timp ce rezervă zboruri, ar putea fi necesar să-și adapteze strategia înainte de a trece la rezervarea hotelurilor.
+Unele sarcini necesită un proces de încercare și eroare sau re-planificare, unde rezultatul unui subtask influențează următorul. De exemplu, dacă agentul descoperă un format de date neașteptat în timp ce rezervă zboruri, ar putea fi necesar să își adapteze strategia înainte de a trece la rezervarea hotelurilor.
 
 În plus, feedback-ul utilizatorului (de exemplu, un utilizator care decide că preferă un zbor mai devreme) poate declanșa o re-planificare parțială. Această abordare dinamică, iterativă, asigură că soluția finală se aliniază cu constrângerile din lumea reală și preferințele utilizatorului în evoluție.
 
@@ -292,21 +292,21 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-Pentru o planificare mai cuprinzătoare, consultați Magnetic One pentru rezolvarea sarcinilor complexe.
+Pentru o planificare mai cuprinzătoare, consultă Magnetic One pentru rezolvarea sarcinilor complexe.
 
 ## Rezumat
 
-În acest articol, am analizat un exemplu despre cum putem crea un planificator care poate selecta dinamic agenții disponibili definiți. Output-ul Planificatorului descompune sarcinile și atribuie agenții astfel încât acestea să poată fi executate. Se presupune că agenții au acces la funcțiile/instrumentele necesare pentru a îndeplini sarcina. În plus față de agenți, puteți include alte modele precum reflecția, sumarizatorul și chat-ul round robin pentru a personaliza și mai mult.
+În acest articol, am analizat un exemplu despre cum putem crea un planificator care poate selecta dinamic agenții disponibili definiți. Output-ul Planificatorului descompune sarcinile și atribuie agenții astfel încât acestea să poată fi executate. Se presupune că agenții au acces la funcțiile/instrumentele necesare pentru a îndeplini sarcina. În plus față de agenți, poți include alte modele precum reflecția, sumarizarea și chat-ul round robin pentru personalizare suplimentară.
 
 ## Resurse Suplimentare
 
-* AutoGen Magnetic One - Un sistem multi-agent generalist pentru rezolvarea sarcinilor complexe, care a obținut rezultate impresionante pe mai multe benchmark-uri agentice provocatoare. Referință:
+AutoGen Magnetic One - Un sistem multi-agent generalist pentru rezolvarea sarcinilor complexe care a obținut rezultate impresionante pe mai multe benchmark-uri agentice provocatoare. Referință:
 
-. În această implementare, orchestratorul creează un plan specific sarcinii și deleagă aceste sarcini agenților disponibili. În plus față de planificare, orchestratorul utilizează și un mecanism de urmărire pentru a monitoriza progresul sarcinii și a re-planifica, dacă este necesar.
+. În această implementare, orchestratorul creează un plan specific sarcinii și deleagă aceste sarcini agenților disponibili. Pe lângă planificare, orchestratorul utilizează și un mecanism de urmărire pentru a monitoriza progresul sarcinii și a re-planifica, dacă este necesar.
 
-### Aveți Mai Multe Întrebări despre Modelul de Design al Planificării?
+### Ai Mai Multe Întrebări despre Modelul de Design pentru Planificare?
 
-Alăturați-vă [Discordului Azure AI Foundry](https://aka.ms/ai-agents/discord) pentru a vă întâlni cu alți cursanți, a participa la ore de consultanță și a obține răspunsuri la întrebările dvs. despre Agenții AI.
+Alătură-te [Discordului Azure AI Foundry](https://aka.ms/ai-agents/discord) pentru a te întâlni cu alți cursanți, a participa la ore de consultanță și a obține răspunsuri la întrebările tale despre AI Agents.
 
 ## Lecția Anterioară
 
@@ -319,4 +319,4 @@ Alăturați-vă [Discordului Azure AI Foundry](https://aka.ms/ai-agents/discord)
 ---
 
 **Declinare de responsabilitate**:  
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să fiți conștienți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa natală ar trebui considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională realizată de un specialist uman. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care pot apărea din utilizarea acestei traduceri.
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa natală ar trebui considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională realizată de un specialist uman. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care pot apărea din utilizarea acestei traduceri.

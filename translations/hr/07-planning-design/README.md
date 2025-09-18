@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-29T23:07:04+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:47:03+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "hr"
 }
@@ -15,22 +15,22 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Uvod
 
-Ova lekcija pokriva:
+Ova lekcija obuhvaća:
 
-* Definiranje jasnog ukupnog cilja i razbijanje složenog zadatka na upravljive dijelove.
+* Definiranje jasnog cilja i razbijanje složenog zadatka na upravljive dijelove.
 * Korištenje strukturiranog izlaza za pouzdanije i strojno čitljive odgovore.
-* Primjena pristupa temeljenog na događajima za upravljanje dinamičnim zadacima i neočekivanim unosima.
+* Primjenu pristupa temeljenog na događajima za upravljanje dinamičnim zadacima i neočekivanim unosima.
 
 ## Ciljevi učenja
 
 Nakon završetka ove lekcije, razumjet ćete:
 
-* Kako identificirati i postaviti ukupni cilj za AI agenta, osiguravajući da jasno zna što treba postići.
+* Kako identificirati i postaviti opći cilj za AI agenta, osiguravajući da jasno zna što treba postići.
 * Kako razložiti složen zadatak na upravljive podzadatke i organizirati ih u logičan slijed.
-* Kako opremiti agente pravim alatima (npr. alatima za pretraživanje ili analizu podataka), odlučiti kada i kako ih koristiti te upravljati neočekivanim situacijama.
+* Kako opremiti agente odgovarajućim alatima (npr. alatima za pretraživanje ili analizu podataka), odlučiti kada i kako ih koristiti te upravljati neočekivanim situacijama.
 * Kako procijeniti rezultate podzadatka, mjeriti izvedbu i iterirati radnje za poboljšanje konačnog rezultata.
 
-## Definiranje ukupnog cilja i razbijanje zadatka
+## Definiranje općeg cilja i razbijanje zadatka
 
 ![Definiranje ciljeva i zadataka](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.hr.png)
 
@@ -50,13 +50,13 @@ Za primjer plana putovanja, cilj možete razložiti na:
 * Najam automobila
 * Personalizacija
 
-Svaki podzadatak može se obraditi od strane posvećenih agenata ili procesa. Jedan agent može se specijalizirati za traženje najboljih ponuda za letove, drugi za rezervaciju hotela i tako dalje. Koordinirajući ili "nizvodni" agent može zatim objediniti ove rezultate u jedan kohezivan plan za krajnjeg korisnika.
+Svaki podzadatak može se obraditi od strane posvećenih agenata ili procesa. Jedan agent može se specijalizirati za traženje najboljih ponuda za letove, drugi za rezervaciju hotela i tako dalje. Koordinirajući ili "downstream" agent može zatim objediniti te rezultate u jedan koherentan plan za krajnjeg korisnika.
 
 Ovaj modularni pristup također omogućuje postupna poboljšanja. Na primjer, možete dodati specijalizirane agente za preporuke hrane ili lokalne aktivnosti i s vremenom usavršavati plan.
 
 ### Strukturirani izlaz
 
-Veliki jezični modeli (LLM-ovi) mogu generirati strukturirani izlaz (npr. JSON) koji je lakše parsirati i obraditi od strane nizvodnih agenata ili usluga. Ovo je posebno korisno u kontekstu više agenata, gdje se zadaci mogu izvršiti nakon što se primi izlaz planiranja. Pogledajte ovo za brzi pregled.
+Veliki jezični modeli (LLM-ovi) mogu generirati strukturirani izlaz (npr. JSON) koji je lakše parsirati i obraditi od strane drugih agenata ili usluga. Ovo je posebno korisno u kontekstu više agenata, gdje se zadaci mogu izvršiti nakon što se primi izlaz planiranja. Pogledajte ovo za brzi pregled.
 
 Sljedeći Python isječak demonstrira jednostavan planerski agent koji razlaže cilj na podzadatke i generira strukturirani plan:
 
@@ -149,13 +149,13 @@ pprint(json.loads(response_content))
 
 ### Planerski agent s orkestracijom više agenata
 
-U ovom primjeru, Semantički Router Agent prima korisnički zahtjev (npr. "Treba mi plan hotela za moje putovanje.").
+U ovom primjeru, Semantički Router Agent prima korisnički zahtjev (npr. "Treba mi plan za hotel za moje putovanje.").
 
 Planer zatim:
 
 * Prima plan hotela: Planer uzima korisničku poruku i, na temelju sistemskog upita (uključujući detalje dostupnih agenata), generira strukturirani plan putovanja.
-* Navodi agente i njihove alate: Registar agenata drži popis agenata (npr. za letove, hotele, najam automobila i aktivnosti) zajedno s funkcijama ili alatima koje nude.
-* Usmjerava plan odgovarajućim agentima: Ovisno o broju podzadatka, planer ili šalje poruku izravno posvećenom agentu (za scenarije s jednim zadatkom) ili koordinira putem upravitelja grupnog razgovora za suradnju više agenata.
+* Navodi agente i njihove alate: Registar agenata sadrži popis agenata (npr. za letove, hotele, najam automobila i aktivnosti) zajedno s funkcijama ili alatima koje nude.
+* Usmjerava plan odgovarajućim agentima: Ovisno o broju podzadataka, planer ili šalje poruku izravno posvećenom agentu (za scenarije s jednim zadatkom) ili koordinira putem upravitelja grupnog razgovora za suradnju više agenata.
 * Sažima rezultat: Na kraju, planer sažima generirani plan radi jasnoće.
 
 Sljedeći Python uzorak koda ilustrira ove korake:
@@ -233,7 +233,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Slijedi izlaz iz prethodnog koda, a zatim možete koristiti ovaj strukturirani izlaz za usmjeravanje prema `assigned_agent` i sažimanje plana putovanja krajnjem korisniku.
+Rezultat prethodnog koda možete koristiti za usmjeravanje prema `assigned_agent` i sažimanje plana putovanja krajnjem korisniku.
 
 ```json
 {
@@ -268,11 +268,11 @@ Primjer bilježnice s prethodnim uzorkom koda dostupan je [ovdje](07-autogen.ipy
 
 ### Iterativno planiranje
 
-Neki zadaci zahtijevaju povratno djelovanje ili ponovno planiranje, gdje rezultat jednog podzadatka utječe na sljedeći. Na primjer, ako agent otkrije neočekivani format podataka prilikom rezervacije letova, možda će morati prilagoditi svoju strategiju prije nego što nastavi s rezervacijom hotela.
+Neki zadaci zahtijevaju povratnu informaciju ili ponovno planiranje, gdje rezultat jednog podzadatka utječe na sljedeći. Na primjer, ako agent otkrije neočekivani format podataka prilikom rezervacije letova, možda će morati prilagoditi svoju strategiju prije nego što nastavi s rezervacijom hotela.
 
 Osim toga, povratne informacije korisnika (npr. odluka korisnika da preferira raniji let) mogu pokrenuti djelomično ponovno planiranje. Ovaj dinamičan, iterativan pristup osigurava da konačno rješenje odgovara stvarnim ograničenjima i promjenjivim preferencijama korisnika.
 
-npr. uzorak koda
+Primjer koda:
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
@@ -297,15 +297,17 @@ Za sveobuhvatnije planiranje pogledajte Magnetic One za rješavanje složenih za
 
 ## Sažetak
 
-U ovom članku smo pogledali primjer kako možemo stvoriti planer koji može dinamično odabrati dostupne definirane agente. Izlaz planera razlaže zadatke i dodjeljuje agente kako bi se mogli izvršiti. Pretpostavlja se da agenti imaju pristup funkcijama/alatima potrebnim za obavljanje zadatka. Osim agenata, možete uključiti i druge obrasce poput refleksije, sažimanja i kružnog razgovora za dodatnu prilagodbu.
+U ovom članku smo pogledali primjer kako možemo stvoriti planer koji dinamično odabire dostupne definirane agente. Izlaz planera razlaže zadatke i dodjeljuje agente kako bi se mogli izvršiti. Pretpostavlja se da agenti imaju pristup funkcijama/alatima potrebnim za obavljanje zadatka. Osim agenata, možete uključiti i druge obrasce poput refleksije, sažimanja i kružnog razgovora za dodatnu prilagodbu.
 
 ## Dodatni resursi
 
-* AutoGen Magnetic One - Generalistički sustav više agenata za rješavanje složenih zadataka koji je postigao impresivne rezultate na više izazovnih agentnih mjerila. Referenca: . U ovoj implementaciji orkestrator stvara plan specifičan za zadatak i delegira te zadatke dostupnim agentima. Osim planiranja, orkestrator također koristi mehanizam praćenja za praćenje napretka zadatka i ponovno planiranje prema potrebi.
+AutoGen Magnetic One - Generalistički sustav više agenata za rješavanje složenih zadataka koji je postigao impresivne rezultate na više izazovnih agentnih mjerila. Referenca:
 
-### Imate li još pitanja o dizajnerskom obrascu planiranja?
+U ovoj implementaciji orkestrator stvara plan specifičan za zadatak i delegira te zadatke dostupnim agentima. Osim planiranja, orkestrator također koristi mehanizam za praćenje kako bi pratio napredak zadatka i ponovno planirao prema potrebi.
 
-Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) kako biste se povezali s drugim učenicima, prisustvovali uredskim satima i dobili odgovore na svoja pitanja o AI agentima.
+### Imate li još pitanja o obrascu dizajna planiranja?
+
+Pridružite se [Azure AI Foundry Discordu](https://aka.ms/ai-agents/discord) kako biste se povezali s drugim učenicima, sudjelovali u uredskim satima i dobili odgovore na svoja pitanja o AI agentima.
 
 ## Prethodna lekcija
 
@@ -318,4 +320,4 @@ Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) kako
 ---
 
 **Odricanje od odgovornosti**:  
-Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za ključne informacije preporučuje se profesionalni prijevod od strane ljudskog prevoditelja. Ne preuzimamo odgovornost za bilo kakva nesporazuma ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za ključne informacije preporučuje se profesionalni prijevod od strane ljudskog prevoditelja. Ne preuzimamo odgovornost za bilo kakve nesporazume ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.

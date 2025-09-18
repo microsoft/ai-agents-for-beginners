@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "9cb9bf18040a36fb1d822b10e92e7c04",
-  "translation_date": "2025-09-07T08:04:21+00:00",
+  "original_hash": "407fa0ca9ca479613715f8219710080b",
+  "translation_date": "2025-09-18T15:26:04+00:00",
   "source_file": "README.md",
   "language_code": "hu"
 }
@@ -23,7 +23,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 #### Támogatott GitHub Action által (Automatikus és mindig naprakész)
 
-[Francia](../fr/README.md) | [Spanyol](../es/README.md) | [Német](../de/README.md) | [Orosz](../ru/README.md) | [Arab](../ar/README.md) | [Perzsa (Farsi)](../fa/README.md) | [Urdu](../ur/README.md) | [Kínai (Egyszerűsített)](../zh/README.md) | [Kínai (Hagyományos, Makaó)](../mo/README.md) | [Kínai (Hagyományos, Hongkong)](../hk/README.md) | [Kínai (Hagyományos, Tajvan)](../tw/README.md) | [Japán](../ja/README.md) | [Koreai](../ko/README.md) | [Hindi](../hi/README.md) | [Bengáli](../bn/README.md) | [Marathi](../mr/README.md) | [Nepáli](../ne/README.md) | [Pandzsábi (Gurmukhi)](../pa/README.md) | [Portugál (Portugália)](../pt/README.md) | [Portugál (Brazília)](../br/README.md) | [Olasz](../it/README.md) | [Lengyel](../pl/README.md) | [Török](../tr/README.md) | [Görög](../el/README.md) | [Thai](../th/README.md) | [Svéd](../sv/README.md) | [Dán](../da/README.md) | [Norvég](../no/README.md) | [Finn](../fi/README.md) | [Holland](../nl/README.md) | [Héber](../he/README.md) | [Vietnámi](../vi/README.md) | [Indonéz](../id/README.md) | [Maláj](../ms/README.md) | [Tagalog (Filippínó)](../tl/README.md) | [Szuahéli](../sw/README.md) | [Magyar](./README.md) | [Cseh](../cs/README.md) | [Szlovák](../sk/README.md) | [Román](../ro/README.md) | [Bolgár](../bg/README.md) | [Szerb (Cirill)](../sr/README.md) | [Horvát](../hr/README.md) | [Szlovén](../sl/README.md) | [Ukrán](../uk/README.md) | [Burmai (Mianmar)](../my/README.md)
+[French](../fr/README.md) | [Spanish](../es/README.md) | [German](../de/README.md) | [Russian](../ru/README.md) | [Arabic](../ar/README.md) | [Persian (Farsi)](../fa/README.md) | [Urdu](../ur/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Hindi](../hi/README.md) | [Bengali](../bn/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Portuguese (Brazil)](../br/README.md) | [Italian](../it/README.md) | [Polish](../pl/README.md) | [Turkish](../tr/README.md) | [Greek](../el/README.md) | [Thai](../th/README.md) | [Swedish](../sv/README.md) | [Danish](../da/README.md) | [Norwegian](../no/README.md) | [Finnish](../fi/README.md) | [Dutch](../nl/README.md) | [Hebrew](../he/README.md) | [Vietnamese](../vi/README.md) | [Indonesian](../id/README.md) | [Malay](../ms/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Swahili](../sw/README.md) | [Hungarian](./README.md) | [Czech](../cs/README.md) | [Slovak](../sk/README.md) | [Romanian](../ro/README.md) | [Bulgarian](../bg/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Croatian](../hr/README.md) | [Slovenian](../sl/README.md) | [Ukrainian](../uk/README.md) | [Burmese (Myanmar)](../my/README.md)
 
 **Ha további fordításokat szeretnél, a támogatott nyelvek listája [itt található](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
@@ -35,9 +35,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 Első lépések
 
-Ez a tanfolyam az AI ügynökök építésének alapjait tárgyalja. Minden lecke egy-egy különálló témát fed le, így kezdhetsz bárhol!
+Ez a tanfolyam az AI ügynökök építésének alapjait tárgyalja. Minden lecke egy-egy különálló témát ölel fel, így bárhonnan elkezdheted!
 
-A tanfolyam többnyelvű támogatással rendelkezik. Nézd meg az [elérhető nyelveket itt](../..). 
+A tanfolyam többnyelvű támogatást kínál. Nézd meg az [elérhető nyelvek listáját itt](../..). 
 
 Ha először dolgozol Generatív AI modellekkel, nézd meg a [Generative AI For Beginners](https://aka.ms/genai-beginners) tanfolyamot, amely 21 leckét tartalmaz a GenAI használatáról.
 
@@ -45,11 +45,11 @@ Ne felejtsd el [csillagozni (🌟) ezt a repót](https://docs.github.com/en/get-
 
 ### Találkozz más tanulókkal, kapj választ kérdéseidre
 
-Ha elakadsz, vagy kérdésed van az AI ügynökök építésével kapcsolatban, csatlakozz a dedikált Discord csatornánkhoz az [Azure AI Foundry Community Discord](https://aka.ms/ai-agents/discord) oldalon.
+Ha elakadnál vagy kérdésed van az AI ügynökök építésével kapcsolatban, csatlakozz a dedikált Discord csatornánkhoz az [Azure AI Foundry Community Discord](https://aka.ms/ai-agents/discord) oldalon.
 
 ### Mire van szükséged
 
-Minden lecke tartalmaz kódpéldákat, amelyeket a code_samples mappában találhatsz. [Forkold ezt a repót](https://github.com/microsoft/ai-agents-for-beginners/fork), hogy létrehozd saját másolatodat.  
+A tanfolyam minden leckéje tartalmaz kódpéldákat, amelyeket a code_samples mappában találhatsz. [Forkold ezt a repót](https://github.com/microsoft/ai-agents-for-beginners/fork), hogy létrehozd a saját másolatodat.  
 
 A gyakorlatokban szereplő kódpéldák az Azure AI Foundry-t és a GitHub Model Catalogs-t használják a nyelvi modellekkel való interakcióhoz:
 
@@ -66,12 +66,12 @@ További információért a tanfolyam kódjának futtatásáról, látogass el a
 
 ## 🙏 Szeretnél segíteni?
 
-Van javaslatod, vagy találtál helyesírási vagy kódhibát? [Nyiss egy hibajegyet](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) vagy [Hozz létre egy pull requestet](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst).
+Van javaslatod vagy találtál helyesírási vagy kódhibát? [Nyiss egy hibajelentést](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) vagy [Hozz létre egy pull requestet](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst).
 
-## 📂 Minden lecke tartalmaz
+## 📂 Minden lecke tartalmazza
 
-- Írott leckét a README-ben és egy rövid videót
-- Python kódpéldákat, amelyek támogatják az Azure AI Foundry-t és a Github Modelleket (Ingyenes)
+- Egy írott leckét a README-ben és egy rövid videót
+- Python kódpéldákat, amelyek támogatják az Azure AI Foundry-t és a Github Model-eket (Ingyenes)
 - Linkeket további tanulási forrásokhoz
 
 ## 🗃️ Leckék
@@ -89,13 +89,13 @@ Van javaslatod, vagy találtál helyesírási vagy kódhibát? [Nyiss egy hibaje
 | Metakogníciós tervezési minta                | [Link](./09-metacognition/README.md)              | [Videó](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI ügynökök a gyakorlatban                   | [Link](./10-ai-agents-production/README.md)       | [Videó](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Ügynöki protokollok használata (MCP, A2A és NLWeb) | [Link](./11-agentic-protocols/README.md)          | [Videó](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Kontextusmérnökség AI ügynökök számára         | [Link](./12-context-engineering/README.md)         | [Videó](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Az ügynöki memória kezelése                   | Hamarosan - szeptember 11.                         |                                                            |                                                                                        |
-| AI ügynökök értékelése                        | Hamarosan - szeptember 18.                         |                                                            |                                                                                        |
-| Számítógép-használati ügynökök (CUA) építése   | Hamarosan - szeptember 25.                         |                                                            |                                                                                        |
-| Skálázható ügynökök telepítése                | Hamarosan - szeptember 25.                         |                                                            |                                                                                        |
-| Lokális AI ügynökök létrehozása               | Hamarosan - október 3.                             |                                                            |                                                                                        |
-| AI ügynökök biztonságossá tétele              | Hamarosan - október 10.                            |                                                            |                                                                                        |
+| Kontextus mérnökség AI ügynökök számára            | [Link](./12-context-engineering/README.md)         | [Videó](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Ügynöki memória kezelése                           | [Link](./13-agent-memory/README.md)     |                                                            |                                                                                        |
+| AI ügynökök értékelése                             | Hamarosan - szeptember 18.                            |                                                            |                                                                                        |
+| Számítógép-használati ügynökök (CUA) építése        | Hamarosan - szeptember 25.                            |                                                            |                                                                                        |
+| Skálázható ügynökök telepítése                     | Hamarosan - szeptember 25.                            |                                                            |                                                                                        |
+| Lokális AI ügynökök létrehozása                    | Hamarosan - október 3.                               |                                                            |                                                                                        |
+| AI ügynökök biztonságossá tétele                   | Hamarosan - október 10.                               |                                                            |                                                                                        |
 
 ## 🎒 Egyéb kurzusok
 
@@ -118,7 +118,7 @@ Csapatunk más kurzusokat is készít! Nézd meg:
 
 ## 🌟 Közösségi köszönet
 
-Köszönet [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) számára, hogy fontos kódmintákkal járult hozzá az ügynöki RAG bemutatásához. 
+Köszönet [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) számára, hogy fontos kódmintákkal járult hozzá az Agentic RAG bemutatásához. 
 
 ## Hozzájárulás
 
@@ -127,7 +127,7 @@ Hozzájárulói Licencszerződést (CLA), amely kijelenti, hogy jogod van, és t
 a jogokat a hozzájárulásod felhasználására. További részletekért látogass el ide: 
 <https://cla.opensource.microsoft.com>.
 
-Amikor benyújtasz egy pull requestet, egy CLA bot automatikusan meghatározza, hogy szükséges-e CLA-t biztosítanod, és megfelelően megjelöli a PR-t (pl. állapotellenőrzés, megjegyzés). Egyszerűen kövesd a bot által adott utasításokat. Ezt csak egyszer kell megtenned az összes CLA-t használó repó esetében.
+Amikor benyújtasz egy pull requestet, egy CLA bot automatikusan meghatározza, hogy szükséges-e CLA-t biztosítanod, és megfelelően megjelöli a PR-t (pl. státuszellenőrzés, megjegyzés). Egyszerűen kövesd a bot által adott utasításokat. Ezt csak egyszer kell megtenned az összes CLA-t használó repó esetében.
 
 Ez a projekt elfogadta a [Microsoft Nyílt Forráskódú Magatartási Kódexét](https://opensource.microsoft.com/codeofconduct/).
 További információért lásd a [Magatartási Kódex GYIK](https://opensource.microsoft.com/codeofconduct/faq/) oldalt, vagy
@@ -136,11 +136,11 @@ lépj kapcsolatba az [opencode@microsoft.com](mailto:opencode@microsoft.com) cí
 ## Védjegyek
 
 Ez a projekt tartalmazhat védjegyeket vagy logókat projektekhez, termékekhez vagy szolgáltatásokhoz. A Microsoft
-védjegyek vagy logók engedélyezett használata a [Microsoft Védjegy és Márka Irányelveinek](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) megfelelően történhet.
+védjegyek vagy logók engedélyezett használata a [Microsoft Védjegy és Márka Irányelveinek](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) betartásával történhet.
 A Microsoft védjegyek vagy logók módosított verzióinak használata nem okozhat zavart vagy nem utalhat a Microsoft támogatására.
-Harmadik fél védjegyek vagy logók használata az adott harmadik felek irányelveinek hatálya alá tartozik.
+Harmadik fél védjegyek vagy logók használata az adott harmadik fél irányelveinek hatálya alá tartozik.
 
 ---
 
-**Felelősségkizárás**:  
-Ezt a dokumentumot az [Co-op Translator](https://github.com/Azure/co-op-translator) AI fordítószolgáltatás segítségével fordítottuk le. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt professzionális, emberi fordítást igénybe venni. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
+**Felelősség kizárása**:  
+Ez a dokumentum az AI fordítási szolgáltatás [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével lett lefordítva. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely a fordítás használatából eredhet.

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-29T13:04:42+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T14:49:17+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "it"
 }
@@ -25,14 +25,14 @@ Questa lezione coprirà:
 
 Dopo aver completato questa lezione, avrai una comprensione di:
 
-* Identificare e impostare un obiettivo generale per un agente AI, assicurandosi che sappia chiaramente cosa deve essere raggiunto.
+* Identificare e impostare un obiettivo generale per un agente AI, assicurandoti che sappia chiaramente cosa deve essere raggiunto.
 * Scomporre un compito complesso in sotto-attività gestibili e organizzarle in una sequenza logica.
-* Dotare gli agenti degli strumenti giusti (ad esempio, strumenti di ricerca o di analisi dei dati), decidere quando e come utilizzarli e gestire situazioni impreviste.
+* Dotare gli agenti degli strumenti giusti (ad esempio, strumenti di ricerca o di analisi dei dati), decidere quando e come utilizzarli e gestire situazioni impreviste che si presentano.
 * Valutare i risultati delle sotto-attività, misurare le prestazioni e iterare sulle azioni per migliorare il risultato finale.
 
 ## Definire l'Obiettivo Generale e Suddividere un Compito
 
-![Definire Obiettivi e Attività](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.it.png)
+![Definire Obiettivi e Compiti](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.it.png)
 
 La maggior parte dei compiti del mondo reale è troppo complessa per essere affrontata in un unico passaggio. Un agente AI ha bisogno di un obiettivo conciso per guidare la sua pianificazione e le sue azioni. Ad esempio, considera l'obiettivo:
 
@@ -50,13 +50,13 @@ Per l'esempio dell'itinerario di viaggio, potresti scomporre l'obiettivo in:
 * Noleggio Auto
 * Personalizzazione
 
-Ogni sotto-attività può essere affrontata da agenti o processi dedicati. Un agente potrebbe specializzarsi nella ricerca delle migliori offerte sui voli, un altro concentrarsi sulle prenotazioni di hotel, e così via. Un agente coordinatore o "a valle" può quindi compilare questi risultati in un unico itinerario coeso per l'utente finale.
+Ogni sotto-attività può essere affrontata da agenti o processi dedicati. Un agente potrebbe specializzarsi nella ricerca delle migliori offerte sui voli, un altro nella prenotazione degli hotel, e così via. Un agente coordinatore o "a valle" può quindi compilare questi risultati in un unico itinerario coeso per l'utente finale.
 
-Questo approccio modulare consente anche miglioramenti incrementali. Ad esempio, potresti aggiungere agenti specializzati per raccomandazioni culinarie o suggerimenti per attività locali e affinare l'itinerario nel tempo.
+Questo approccio modulare consente anche miglioramenti incrementali. Ad esempio, potresti aggiungere agenti specializzati per raccomandazioni gastronomiche o suggerimenti per attività locali e affinare l'itinerario nel tempo.
 
 ### Output Strutturato
 
-I modelli di linguaggio di grandi dimensioni (LLM) possono generare output strutturati (ad esempio JSON) che sono più facili da analizzare e processare per agenti o servizi a valle. Questo è particolarmente utile in un contesto multi-agente, dove possiamo agire su questi compiti dopo che l'output della pianificazione è stato ricevuto. Per una panoramica rapida, consulta il seguente snippet di codice Python che dimostra un semplice agente di pianificazione che scompone un obiettivo in sotto-attività e genera un piano strutturato:
+I modelli di linguaggio di grandi dimensioni (LLM) possono generare output strutturati (ad esempio JSON) che sono più facili da analizzare e processare per agenti o servizi a valle. Questo è particolarmente utile in un contesto multi-agente, dove possiamo agire su questi compiti dopo che l'output della pianificazione è stato ricevuto. Per una panoramica rapida, consulta il seguente snippet Python che dimostra un semplice agente di pianificazione che scompone un obiettivo in sotto-attività e genera un piano strutturato:
 
 ```python
 from pydantic import BaseModel
@@ -266,9 +266,9 @@ Un notebook di esempio con il codice precedente è disponibile [qui](07-autogen.
 
 ### Pianificazione Iterativa
 
-Alcuni compiti richiedono un processo iterativo o di ripianificazione, dove il risultato di una sotto-attività influenza la successiva. Ad esempio, se l'agente scopre un formato di dati imprevisto durante la prenotazione dei voli, potrebbe dover adattare la sua strategia prima di passare alle prenotazioni degli hotel.
+Alcuni compiti richiedono un processo iterativo o di ripianificazione, dove il risultato di una sotto-attività influenza la successiva. Ad esempio, se l'agente scopre un formato di dati imprevisto durante la prenotazione dei voli, potrebbe dover adattare la sua strategia prima di passare alla prenotazione degli hotel.
 
-Inoltre, il feedback dell'utente (ad esempio, un umano che decide di preferire un volo anticipato) può innescare una ripianificazione parziale. Questo approccio dinamico e iterativo garantisce che la soluzione finale sia in linea con i vincoli del mondo reale e le preferenze in evoluzione dell'utente.
+Inoltre, il feedback dell'utente (ad esempio, un umano che decide di preferire un volo anticipato) può innescare una ripianificazione parziale. Questo approccio dinamico e iterativo garantisce che la soluzione finale sia in linea con i vincoli del mondo reale e le preferenze dell'utente in evoluzione.
 
 Ad esempio, codice di esempio:
 
@@ -295,15 +295,15 @@ Per una pianificazione più completa, consulta Magnetic One per risolvere compit
 
 ## Riepilogo
 
-In questo articolo abbiamo esaminato un esempio di come possiamo creare un pianificatore che selezioni dinamicamente gli agenti disponibili definiti. L'output del Pianificatore scompone i compiti e assegna gli agenti affinché possano essere eseguiti. Si presume che gli agenti abbiano accesso alle funzioni/strumenti necessari per svolgere il compito. Oltre agli agenti, puoi includere altri pattern come riflessione, riassunto e chat round robin per personalizzare ulteriormente.
+In questo articolo abbiamo esaminato un esempio di come possiamo creare un pianificatore che selezioni dinamicamente gli agenti disponibili definiti. L'output del pianificatore scompone i compiti e assegna gli agenti affinché possano essere eseguiti. Si presume che gli agenti abbiano accesso alle funzioni/strumenti necessari per svolgere il compito. Oltre agli agenti, puoi includere altri pattern come riflessione, riassunto e chat a rotazione per personalizzare ulteriormente.
 
 ## Risorse Aggiuntive
 
-* AutoGen Magnetic One - Un sistema multi-agente generalista per risolvere compiti complessi che ha ottenuto risultati impressionanti su molteplici benchmark agentici impegnativi. Riferimento: . In questa implementazione l'orchestratore crea un piano specifico per il compito e delega questi compiti agli agenti disponibili. Oltre alla pianificazione, l'orchestratore impiega anche un meccanismo di monitoraggio per controllare il progresso del compito e ripianificare se necessario.
+AutoGen Magnetic One - Un sistema multi-agente generalista per risolvere compiti complessi che ha ottenuto risultati impressionanti su molteplici benchmark agentici impegnativi. Riferimento: . In questa implementazione l'orchestratore crea un piano specifico per il compito e delega questi compiti agli agenti disponibili. Oltre alla pianificazione, l'orchestratore impiega anche un meccanismo di monitoraggio per controllare il progresso del compito e ripianificare se necessario.
 
 ### Hai altre domande sul Design Pattern di Pianificazione?
 
-Unisciti al [Discord di Azure AI Foundry](https://aka.ms/ai-agents/discord) per incontrare altri studenti, partecipare a ore di ufficio e ottenere risposte alle tue domande sugli AI Agents.
+Unisciti al [Discord di Azure AI Foundry](https://aka.ms/ai-agents/discord) per incontrare altri studenti, partecipare a sessioni di domande e risposte e ottenere risposte alle tue domande sugli agenti AI.
 
 ## Lezione Precedente
 
@@ -316,4 +316,4 @@ Unisciti al [Discord di Azure AI Foundry](https://aka.ms/ai-agents/discord) per 
 ---
 
 **Disclaimer**:  
-Questo documento è stato tradotto utilizzando il servizio di traduzione automatica [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire l'accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si consiglia una traduzione professionale eseguita da un traduttore umano. Non siamo responsabili per eventuali fraintendimenti o interpretazioni errate derivanti dall'uso di questa traduzione.
+Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire l'accuratezza, si prega di notare che le traduzioni automatizzate possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa dovrebbe essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale effettuata da un esperto umano. Non siamo responsabili per eventuali incomprensioni o interpretazioni errate derivanti dall'uso di questa traduzione.

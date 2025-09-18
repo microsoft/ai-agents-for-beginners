@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "9cb9bf18040a36fb1d822b10e92e7c04",
-  "translation_date": "2025-09-07T08:07:22+00:00",
+  "original_hash": "407fa0ca9ca479613715f8219710080b",
+  "translation_date": "2025-09-18T15:37:02+00:00",
   "source_file": "README.md",
   "language_code": "bg"
 }
@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 [French](../fr/README.md) | [Spanish](../es/README.md) | [German](../de/README.md) | [Russian](../ru/README.md) | [Arabic](../ar/README.md) | [Persian (Farsi)](../fa/README.md) | [Urdu](../ur/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Hindi](../hi/README.md) | [Bengali](../bn/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Portuguese (Brazil)](../br/README.md) | [Italian](../it/README.md) | [Polish](../pl/README.md) | [Turkish](../tr/README.md) | [Greek](../el/README.md) | [Thai](../th/README.md) | [Swedish](../sv/README.md) | [Danish](../da/README.md) | [Norwegian](../no/README.md) | [Finnish](../fi/README.md) | [Dutch](../nl/README.md) | [Hebrew](../he/README.md) | [Vietnamese](../vi/README.md) | [Indonesian](../id/README.md) | [Malay](../ms/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Swahili](../sw/README.md) | [Hungarian](../hu/README.md) | [Czech](../cs/README.md) | [Slovak](../sk/README.md) | [Romanian](../ro/README.md) | [Bulgarian](./README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Croatian](../hr/README.md) | [Slovenian](../sl/README.md) | [Ukrainian](../uk/README.md) | [Burmese (Myanmar)](../my/README.md)
 
-**Ако искате да добавите допълнителни езици, списъкът с поддържаните езици е [тук](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**Ако искате да добавите допълнителни езици, списъкът с поддържани езици е [тук](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
 [![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
@@ -33,11 +33,12 @@ CO_OP_TRANSLATOR_METADATA:
 
 [![Azure AI Discord](https://dcbadge.limes.pink/api/server/kzRShWzttr)](https://discord.gg/kzRShWzttr)
 
+
 ## 🌱 Започнете
 
 Този курс включва уроци, които обхващат основите на изграждането на AI агенти. Всеки урок разглежда отделна тема, така че можете да започнете от която и да е точка!
 
-Курсът поддържа много езици. Вижте [наличните езици тук](../..).
+Курсът поддържа много езици. Вижте [наличните езици тук](../..). 
 
 Ако за първи път работите с модели за Генеративен AI, разгледайте нашия курс [Generative AI For Beginners](https://aka.ms/genai-beginners), който включва 21 урока за работа с GenAI.
 
@@ -47,9 +48,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 Ако срещнете затруднения или имате въпроси относно изграждането на AI агенти, присъединете се към нашия специален Discord канал в [Azure AI Foundry Community Discord](https://aka.ms/ai-agents/discord).
 
-### Какво ви е необходимо
+### Какво ви е необходимо 
 
-Всеки урок в този курс включва примери за код, които можете да намерите в папката code_samples. Можете да [клонирате този репозиторий](https://github.com/microsoft/ai-agents-for-beginners/fork), за да създадете свое копие.
+Всеки урок в този курс включва примери за код, които можете да намерите в папката code_samples. Можете да [клонирате този репозиторий](https://github.com/microsoft/ai-agents-for-beginners/fork), за да създадете свое копие.  
 
 Примерите за код в тези упражнения използват Azure AI Foundry и GitHub Model Catalogs за взаимодействие с езикови модели:
 
@@ -66,7 +67,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🙏 Искате да помогнете?
 
-Имате предложения или сте открили правописни или кодови грешки? [Създайте проблем](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) или [Създайте pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst).
+Имате предложения или сте открили правописни или кодови грешки? [Създайте проблем](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) или [Създайте pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+
+
 
 ## 📂 Всеки урок включва
 
@@ -74,9 +77,10 @@ CO_OP_TRANSLATOR_METADATA:
 - Примери за Python код, поддържащи Azure AI Foundry и Github Models (Безплатно)
 - Връзки към допълнителни ресурси за продължаване на обучението
 
+
 ## 🗃️ Уроци
 
-| **Урок**                                     | **Текст и код**                                  | **Видео**                                                  | **Допълнително обучение**                                                              |
+| **Урок**                                     | **Текст и код**                                  | **Видео**                                                  | **Допълнително обучение**                                                             |
 |----------------------------------------------|--------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | Въведение в AI агенти и случаи на употреба   | [Link](./01-intro-to-ai-agents/README.md)        | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Изследване на рамки за AI агенти             | [Link](./02-explore-agentic-frameworks/README.md)| [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -88,14 +92,14 @@ CO_OP_TRANSLATOR_METADATA:
 | Дизайн модел за много агенти                 | [Link](./08-multi-agent/README.md)               | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Дизайн модел за метакогниция                 | [Link](./09-metacognition/README.md)             | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI агенти в продукция                        | [Link](./10-ai-agents-production/README.md)      | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Използване на агентни протоколи (MCP, A2A и NLWeb) | [Link](./11-agentic-protocols/README.md)         | [Video](https://youtu.be/X-Dh9R3Opn8)                      | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Използване на агентски протоколи (MCP, A2A и NLWeb) | [Link](./11-agentic-protocols/README.md)         | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Контекстно инженерство за AI агенти         | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Управление на агентска памет                | Очаквайте - 11 септември                           |                                                            |                                                                                        |
-| Оценяване на AI агенти                      | Очаквайте - 18 септември                           |                                                            |                                                                                        |
-| Създаване на агенти за компютърна употреба (CUA) | Очаквайте - 25 септември                           |                                                            |                                                                                        |
-| Разгръщане на мащабируеми агенти            | Очаквайте - 25 септември                           |                                                            |                                                                                        |
-| Създаване на локални AI агенти              | Очаквайте - 3 октомври                             |                                                            |                                                                                        |
-| Осигуряване на сигурност за AI агенти       | Очаквайте - 10 октомври                            |                                                            |                                                                                        |
+| Управление на агентска памет                | [Link](./13-agent-memory/README.md)     |                                                            |                                                                                        |
+| Оценяване на AI агенти                      | Очаквайте - 18 септември                             |                                                            |                                                                                        |
+| Създаване на агенти за компютърна употреба (CUA) | Очаквайте - 25 септември                             |                                                            |                                                                                        |
+| Разгръщане на мащабируеми агенти            | Очаквайте - 25 септември                             |                                                            |                                                                                        |
+| Създаване на локални AI агенти              | Очаквайте - 3 октомври                               |                                                            |                                                                                        |
+| Осигуряване на сигурност за AI агенти       | Очаквайте - 10 октомври                              |                                                            |                                                                                        |
 
 ## 🎒 Други курсове
 
@@ -112,7 +116,7 @@ CO_OP_TRANSLATOR_METADATA:
 - [Уеб разработка за начинаещи](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
 - [IoT за начинаещи](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
 - [XR разработка за начинаещи](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
-- [Овладяване на GitHub Copilot за AI програмиране в екип](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+- [Овладяване на GitHub Copilot за AI програмиране в двойка](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
 - [Овладяване на GitHub Copilot за C#/.NET разработчици](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
 - [Избери своето приключение с Copilot](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 

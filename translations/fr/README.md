@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "9cb9bf18040a36fb1d822b10e92e7c04",
-  "translation_date": "2025-09-07T07:39:31+00:00",
+  "original_hash": "407fa0ca9ca479613715f8219710080b",
+  "translation_date": "2025-09-18T14:00:52+00:00",
   "source_file": "README.md",
   "language_code": "fr"
 }
@@ -21,11 +21,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 **Si vous souhaitez ajouter des langues supplémentaires, les langues supportées sont listées [ici](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
-## 🌱 Commencer
+## 🌱 Pour Commencer
 
 Ce cours propose des leçons couvrant les bases de la création d'agents IA. Chaque leçon aborde un sujet spécifique, alors commencez où vous voulez !
 
-Ce cours est disponible en plusieurs langues. Consultez nos [langues disponibles ici](../..).
+Le cours est disponible en plusieurs langues. Consultez nos [langues disponibles ici](../..).
 
 Si c'est votre première expérience avec les modèles d'IA générative, découvrez notre cours [Generative AI For Beginners](https://aka.ms/genai-beginners), qui comprend 21 leçons sur la création avec GenAI.
 
@@ -65,20 +65,20 @@ Vous avez des suggestions ou avez trouvé des erreurs de code ou d'orthographe ?
 ## 🗃️ Leçons
 
 | **Leçon**                                    | **Texte & Code**                                  | **Vidéo**                                                  | **Apprentissage Supplémentaire**                                                        |
-|----------------------------------------------|--------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| Introduction aux Agents IA et Cas d'Utilisation | [Lien](./01-intro-to-ai-agents/README.md)        | [Vidéo](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Exploration des Frameworks Agentiques IA     | [Lien](./02-explore-agentic-frameworks/README.md)| [Vidéo](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Comprendre les Modèles de Conception Agentique | [Lien](./03-agentic-design-patterns/README.md)   | [Vidéo](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Modèle de Conception d'Utilisation d'Outils  | [Lien](./04-tool-use/README.md)                  | [Vidéo](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Agentic RAG                                   | [Lien](./05-agentic-rag/README.md)               | [Vidéo](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Construire des Agents IA de Confiance         | [Lien](./06-building-trustworthy-agents/README.md)| [Vidéo](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Modèle de Conception de Planification         | [Lien](./07-planning-design/README.md)           | [Vidéo](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Modèle de Conception Multi-Agent              | [Lien](./08-multi-agent/README.md)               | [Vidéo](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Modèle de Conception Métacognition            | [Lien](./09-metacognition/README.md)             | [Vidéo](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Agents IA en Production                       | [Lien](./10-ai-agents-production/README.md)      | [Vidéo](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Utilisation des Protocoles Agentiques (MCP, A2A et NLWeb) | [Lien](./11-agentic-protocols/README.md)         | [Vidéo](https://youtu.be/X-Dh9R3Opn8)                      | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+|----------------------------------------------|--------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| Introduction aux agents IA et cas d'utilisation | [Lien](./01-intro-to-ai-agents/README.md)        | [Vidéo](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Exploration des frameworks agentiques IA     | [Lien](./02-explore-agentic-frameworks/README.md)| [Vidéo](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Comprendre les modèles de conception agentique | [Lien](./03-agentic-design-patterns/README.md)   | [Vidéo](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Modèle de conception d'utilisation d'outils  | [Lien](./04-tool-use/README.md)                  | [Vidéo](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agentic RAG                                  | [Lien](./05-agentic-rag/README.md)               | [Vidéo](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Construire des agents IA fiables             | [Lien](./06-building-trustworthy-agents/README.md)| [Vidéo](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Modèle de conception de planification        | [Lien](./07-planning-design/README.md)           | [Vidéo](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Modèle de conception multi-agents            | [Lien](./08-multi-agent/README.md)               | [Vidéo](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Modèle de conception de métacognition        | [Lien](./09-metacognition/README.md)             | [Vidéo](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agents IA en production                      | [Lien](./10-ai-agents-production/README.md)      | [Vidéo](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Utilisation des protocoles agentiques (MCP, A2A et NLWeb) | [Lien](./11-agentic-protocols/README.md)         | [Vidéo](https://youtu.be/X-Dh9R3Opn8)                      | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Ingénierie du contexte pour les agents IA            | [Lien](./12-context-engineering/README.md)         | [Vidéo](https://youtu.be/F5zqRV7gEag)                                 | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Gestion de la mémoire agentique                      | À venir - 11 septembre                              |                                                            |                                                                                        |
+| Gestion de la mémoire agentique                      | [Lien](./13-agent-memory/README.md)     |                                                            |                                                                                        |
 | Évaluation des agents IA                             | À venir - 18 septembre                              |                                                            |                                                                                        |
 | Création d'agents d'utilisation informatique (CUA)   | À venir - 25 septembre                              |                                                            |                                                                                        |
 | Déploiement d'agents évolutifs                       | À venir - 25 septembre                              |                                                            |                                                                                        |
@@ -106,16 +106,17 @@ Notre équipe propose d'autres cours ! Découvrez :
 
 ## 🌟 Remerciements à la communauté
 
-Merci à [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) pour avoir contribué avec des exemples de code importants démontrant Agentic RAG. 
+Merci à [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) pour avoir contribué avec des exemples de code importants démontrant Agentic RAG.
 
 ## Contribution
 
 Ce projet accueille les contributions et suggestions. La plupart des contributions nécessitent que vous acceptiez un
-Contrat de Licence de Contributeur (CLA) déclarant que vous avez le droit de, et que vous accordez effectivement, les droits nécessaires pour utiliser votre contribution. Pour plus de détails, visitez 
+Contrat de Licence de Contributeur (CLA) déclarant que vous avez le droit, et que vous accordez effectivement, les droits nécessaires pour que nous utilisions votre contribution. Pour plus de détails, visitez 
 <https://cla.opensource.microsoft.com>.
 
-Lorsque vous soumettez une pull request, un bot CLA déterminera automatiquement si vous devez fournir un CLA et annotera la PR en conséquence (par exemple, vérification de statut, commentaire). Suivez simplement les instructions
-fournies par le bot. Vous n'aurez à le faire qu'une seule fois pour tous les dépôts utilisant notre CLA.
+Lorsque vous soumettez une pull request, un bot CLA déterminera automatiquement si vous devez fournir
+un CLA et annotera la PR en conséquence (par exemple, vérification de statut, commentaire). Suivez simplement les instructions
+fournies par le bot. Vous n'aurez besoin de le faire qu'une seule fois pour tous les dépôts utilisant notre CLA.
 
 Ce projet a adopté le [Code de conduite Open Source de Microsoft](https://opensource.microsoft.com/codeofconduct/).
 Pour plus d'informations, consultez la [FAQ sur le Code de conduite](https://opensource.microsoft.com/codeofconduct/faq/) ou
@@ -123,12 +124,12 @@ contactez [opencode@microsoft.com](mailto:opencode@microsoft.com) pour toute que
 
 ## Marques déposées
 
-Ce projet peut contenir des marques ou logos pour des projets, produits ou services. L'utilisation autorisée des marques ou logos Microsoft est soumise à et doit respecter les
-[Directives sur les marques et la marque de Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-L'utilisation des marques ou logos Microsoft dans des versions modifiées de ce projet ne doit pas provoquer de confusion ou impliquer un parrainage de Microsoft.
-Toute utilisation de marques ou logos de tiers est soumise aux politiques de ces tiers.
+Ce projet peut contenir des marques ou logos pour des projets, produits ou services. L'utilisation autorisée des marques ou logos Microsoft est soumise aux
+[Directives sur les marques et la marque Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+L'utilisation des marques ou logos Microsoft dans des versions modifiées de ce projet ne doit pas prêter à confusion ou impliquer un parrainage de Microsoft.
+Toute utilisation de marques ou logos tiers est soumise aux politiques de ces tiers.
 
 ---
 
 **Avertissement** :  
-Ce document a été traduit à l'aide du service de traduction automatique [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, il est recommandé de recourir à une traduction professionnelle réalisée par un humain. Nous déclinons toute responsabilité en cas de malentendus ou d'interprétations erronées résultant de l'utilisation de cette traduction.
+Ce document a été traduit à l'aide du service de traduction automatique [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, il est recommandé de faire appel à une traduction professionnelle humaine. Nous déclinons toute responsabilité en cas de malentendus ou d'interprétations erronées résultant de l'utilisation de cette traduction.

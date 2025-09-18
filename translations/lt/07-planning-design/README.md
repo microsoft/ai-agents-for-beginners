@@ -1,64 +1,63 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-30T15:08:44+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:57:38+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "lt"
 }
 -->
-[![Planavimo dizaino šablonas](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.lt.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planuojamo dizaino šablonas](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.lt.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Spustelėkite aukščiau esančią nuotrauką, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
-# Planavimo dizainas
+# Planuojamas dizainas
 
 ## Įvadas
 
 Šioje pamokoje aptarsime:
 
-* Kaip aiškiai apibrėžti bendrą tikslą ir suskaidyti sudėtingą užduotį į valdomas dalis.
-* Kaip naudoti struktūrizuotą išvestį, kad atsakymai būtų patikimesni ir lengviau apdorojami mašinomis.
-* Kaip taikyti įvykių valdomą metodą, kad būtų galima spręsti dinamiškas užduotis ir netikėtus įvesties duomenis.
+* Aiškaus bendro tikslo nustatymą ir sudėtingos užduoties suskaidymą į valdomas dalis.
+* Struktūrizuoto išvesties panaudojimą patikimesniems ir mašinai suprantamiems atsakymams.
+* Įvykių valdymo metodikos taikymą dinamiškoms užduotims ir netikėtiems įvesties duomenims spręsti.
 
 ## Mokymosi tikslai
 
-Baigę šią pamoką, suprasite, kaip:
+Baigę šią pamoką, suprasite:
 
-* Nustatyti ir apibrėžti bendrą AI agento tikslą, užtikrinant, kad jis aiškiai žinotų, ką reikia pasiekti.
-* Suskaidyti sudėtingą užduotį į valdomas dalis ir organizuoti jas logine seka.
-* Aprūpinti agentus tinkamais įrankiais (pvz., paieškos ar duomenų analizės įrankiais), nuspręsti, kada ir kaip juos naudoti, ir spręsti netikėtas situacijas.
-* Įvertinti subtikslo rezultatus, matuoti našumą ir tobulinti veiksmus, kad būtų pagerinta galutinė išvestis.
+* Kaip nustatyti ir apibrėžti bendrą AI agento tikslą, užtikrinant, kad jis aiškiai žinotų, ką reikia pasiekti.
+* Kaip suskaidyti sudėtingą užduotį į valdomas dalis ir organizuoti jas logine seka.
+* Kaip aprūpinti agentus tinkamais įrankiais (pvz., paieškos ar duomenų analizės įrankiais), nuspręsti, kada ir kaip juos naudoti, ir spręsti netikėtas situacijas.
+* Kaip įvertinti subtikslių rezultatus, matuoti našumą ir iteruoti veiksmus, kad pagerintumėte galutinį rezultatą.
 
-## Bendro tikslo apibrėžimas ir užduoties suskaidymas
+## Bendro tikslo nustatymas ir užduoties suskaidymas
 
-![Tikslų ir užduočių apibrėžimas](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.lt.png)
+![Tikslų ir užduočių nustatymas](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.lt.png)
 
-Dauguma realaus pasaulio užduočių yra per daug sudėtingos, kad jas būtų galima atlikti vienu žingsniu. AI agentui reikia aiškaus tikslo, kuris vadovautų jo planavimui ir veiksmams. Pavyzdžiui, apsvarstykite tikslą:
+Dauguma realaus pasaulio užduočių yra per sudėtingos, kad jas būtų galima atlikti vienu žingsniu. AI agentui reikia aiškaus tikslo, kuris vadovautų jo planavimui ir veiksmams. Pavyzdžiui, apsvarstykite tikslą:
 
     "Sukurti 3 dienų kelionės maršrutą."
 
-Nors tai paprasta išsakyti, tikslas vis tiek reikalauja patikslinimo. Kuo aiškesnis tikslas, tuo geriau agentas (ir bet kurie žmonės bendradarbiai) gali sutelkti dėmesį į tinkamo rezultato pasiekimą, pvz., sukurti išsamų maršrutą su skrydžių galimybėmis, viešbučių rekomendacijomis ir veiklų pasiūlymais.
+Nors tai paprasta išsakyti, tikslas vis tiek reikalauja patikslinimo. Kuo aiškesnis tikslas, tuo geriau agentas (ir bet kuris žmogus bendradarbis) gali sutelkti dėmesį į tinkamo rezultato pasiekimą, pvz., sukurti išsamų maršrutą su skrydžių galimybėmis, viešbučių rekomendacijomis ir veiklos pasiūlymais.
 
 ### Užduoties suskaidymas
 
-Didelės ar sudėtingos užduotys tampa lengviau valdomos, kai jos suskaidomos į mažesnes, tikslui orientuotas dalis. 
-Kelionės maršruto pavyzdžiui, tikslą galima suskaidyti į:
+Didelės ar sudėtingos užduotys tampa lengviau valdomos, kai jos suskaidomos į mažesnes, tikslui orientuotas dalis. Kelionės maršruto pavyzdžiui, tikslą galima suskaidyti į:
 
-* Skrydžių užsakymas
-* Viešbučių užsakymas
+* Skrydžių rezervavimas
+* Viešbučių rezervavimas
 * Automobilių nuoma
 * Personalizavimas
 
-Kiekvieną subtikslą gali vykdyti specializuoti agentai ar procesai. Vienas agentas gali specializuotis ieškant geriausių skrydžių pasiūlymų, kitas – viešbučių užsakymuose ir t. t. Koordinuojantis arba „žemyninis“ agentas gali sujungti šiuos rezultatus į vieną nuoseklų maršrutą galutiniam naudotojui.
+Kiekvieną subtikslį gali atlikti specializuoti agentai ar procesai. Vienas agentas gali specializuotis geriausių skrydžių pasiūlymų paieškoje, kitas – viešbučių rezervavime ir t. t. Koordinuojantis arba „žemyninis“ agentas gali sujungti šiuos rezultatus į vieną nuoseklų maršrutą galutiniam vartotojui.
 
-Šis modulinis požiūris taip pat leidžia palaipsniui tobulinti procesą. Pavyzdžiui, galite pridėti specializuotus agentus maisto rekomendacijoms ar vietinių veiklų pasiūlymams ir laikui bėgant tobulinti maršrutą.
+Šis modulinis požiūris taip pat leidžia palaipsniui tobulinti. Pavyzdžiui, galite pridėti specializuotus agentus maisto rekomendacijoms ar vietinių veiklų pasiūlymams ir laikui bėgant patobulinti maršrutą.
 
 ### Struktūrizuota išvestis
 
-Dideli kalbiniai modeliai (LLMs) gali generuoti struktūrizuotą išvestį (pvz., JSON), kurią lengviau analizuoti ir apdoroti kitoms agentų ar paslaugų dalims. Tai ypač naudinga daugiagentėje aplinkoje, kur užduotys gali būti vykdomos po planavimo išvesties gavimo. Peržiūrėkite šį trumpą pavyzdį.
+Dideli kalbos modeliai (LLM) gali generuoti struktūrizuotą išvestį (pvz., JSON), kurią lengviau analizuoti ir apdoroti žemyniniams agentams ar paslaugoms. Tai ypač naudinga daugiagentėje aplinkoje, kur užduotis galima vykdyti po to, kai gaunamas planavimo rezultatas. Žr. greitą apžvalgą.
 
-Toliau pateiktas Python kodo fragmentas demonstruoja paprastą planavimo agentą, kuris suskaido tikslą į subtikslus ir generuoja struktūrizuotą planą:
+Toliau pateiktas Python kodas demonstruoja paprastą planavimo agentą, kuris suskaido tikslą į subtikslus ir generuoja struktūrizuotą planą:
 
 ```python
 from pydantic import BaseModel
@@ -147,18 +146,18 @@ pprint(json.loads(response_content))
 # TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Planavimo agentas su daugiagentės orkestracijos funkcija
+### Planavimo agentas su daugiagentės koordinacija
 
-Šiame pavyzdyje Semantinis maršrutizavimo agentas gauna naudotojo užklausą (pvz., „Man reikia viešbučio plano mano kelionei.“).
+Šiame pavyzdyje Semantinis maršrutizavimo agentas gauna vartotojo užklausą (pvz., „Man reikia viešbučio plano mano kelionei.“).
 
-Planavimo procesas:
+Planuotojas tada:
 
-* Gauti viešbučio planą: planuotojas gauna naudotojo žinutę ir, remdamasis sistemos užklausa (įskaitant turimų agentų detales), generuoja struktūrizuotą kelionės planą.
-* Agentų ir jų įrankių sąrašas: agentų registras saugo agentų sąrašą (pvz., skrydžių, viešbučių, automobilių nuomos ir veiklų) kartu su jų siūlomomis funkcijomis ar įrankiais.
-* Plano nukreipimas atitinkamiems agentams: priklausomai nuo subtikslų skaičiaus, planuotojas arba siunčia žinutę tiesiogiai specializuotam agentui (vienos užduoties scenarijams), arba koordinuoja per grupės pokalbių valdytoją daugiagentės bendradarbiavimo atveju.
-* Rezultatų apibendrinimas: galiausiai planuotojas apibendrina sugeneruotą planą, kad jis būtų aiškesnis.
+* Gautas viešbučio planas: Planuotojas paima vartotojo žinutę ir, remdamasis sistemos užklausa (įskaitant turimus agentų duomenis), generuoja struktūrizuotą kelionės planą.
+* Agentų ir jų įrankių sąrašas: Agentų registras saugo agentų sąrašą (pvz., skrydžių, viešbučių, automobilių nuomos ir veiklų) kartu su funkcijomis ar įrankiais, kuriuos jie siūlo.
+* Plano nukreipimas atitinkamiems agentams: Priklausomai nuo subtikslių skaičiaus, planuotojas arba tiesiogiai siunčia žinutę dedikuotam agentui (vienos užduoties scenarijams), arba koordinuoja per grupės pokalbių valdytoją daugiagentės bendradarbiavimo atveju.
+* Rezultato apibendrinimas: Galiausiai planuotojas apibendrina sugeneruotą planą, kad jis būtų aiškus.
 
-Toliau pateiktas Python kodo pavyzdys iliustruoja šiuos veiksmus:
+Toliau pateiktas Python kodas iliustruoja šiuos veiksmus:
 
 ```python
 
@@ -233,7 +232,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Toliau pateikiama ankstesnio kodo išvestis, kurią galite naudoti norėdami nukreipti į `assigned_agent` ir apibendrinti kelionės planą galutiniam naudotojui.
+Toliau pateikiamas ankstesnio kodo rezultatas, kurį galite naudoti struktūrizuotai išvesčiai nukreipti į `assigned_agent` ir apibendrinti kelionės planą galutiniam vartotojui.
 
 ```json
 {
@@ -264,15 +263,15 @@ Toliau pateikiama ankstesnio kodo išvestis, kurią galite naudoti norėdami nuk
 }
 ```
 
-Ankstesnio kodo pavyzdžio užrašų knygelę galite rasti [čia](07-autogen.ipynb).
+Pavyzdinis užrašų knygelė su ankstesniu kodo pavyzdžiu yra pasiekiama [čia](07-autogen.ipynb).
 
 ### Iteratyvus planavimas
 
-Kai kurios užduotys reikalauja grįžtamojo ryšio arba perplanavimo, kai vieno subtikslo rezultatas daro įtaką kitam. Pavyzdžiui, jei agentas aptinka netikėtą duomenų formatą užsakydamas skrydžius, jis gali prireikti pritaikyti savo strategiją prieš pereinant prie viešbučių užsakymo.
+Kai kurios užduotys reikalauja grįžtamojo ryšio arba perplanavimo, kai vieno subtikslo rezultatas daro įtaką kitam. Pavyzdžiui, jei agentas aptinka netikėtą duomenų formatą rezervuodamas skrydžius, jis gali tekti pritaikyti savo strategiją prieš pereinant prie viešbučių rezervavimo.
 
-Be to, naudotojo atsiliepimai (pvz., žmogus nusprendžia, kad jam labiau patinka ankstesnis skrydis) gali sukelti dalinį perplanavimą. Šis dinamiškas, iteratyvus požiūris užtikrina, kad galutinis sprendimas atitiktų realaus pasaulio apribojimus ir besikeičiančius naudotojo pageidavimus.
+Be to, vartotojo atsiliepimai (pvz., žmogus nusprendžia, kad jam labiau patinka ankstesnis skrydis) gali sukelti dalinį perplanavimą. Šis dinamiškas, iteratyvus požiūris užtikrina, kad galutinis sprendimas atitiktų realaus pasaulio apribojimus ir besikeičiančius vartotojo pageidavimus.
 
-Pvz., kodo pavyzdys:
+Pvz., pavyzdinis kodas:
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
@@ -293,21 +292,21 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-Norėdami sužinoti daugiau apie išsamų planavimą, peržiūrėkite Magnetic One.
+Dėl išsamesnio planavimo peržiūrėkite Magnetic One sprendimą sudėtingoms užduotims.
 
 ## Santrauka
 
-Šiame straipsnyje aptarėme pavyzdį, kaip sukurti planuotoją, kuris gali dinamiškai pasirinkti apibrėžtus agentus. Planavimo išvestis suskaido užduotis ir priskiria agentus, kad jie galėtų jas vykdyti. Daroma prielaida, kad agentai turi prieigą prie funkcijų/įrankių, reikalingų užduočiai atlikti. Be agentų, galite įtraukti kitus šablonus, tokius kaip refleksija, apibendrintojas ir apvalus pokalbis, kad dar labiau pritaikytumėte procesą.
+Šiame straipsnyje aptarėme pavyzdį, kaip sukurti planuotoją, kuris dinamiškai pasirenka apibrėžtus agentus. Planavimo išvestis suskaido užduotis ir priskiria agentus, kad jie galėtų būti vykdomi. Daroma prielaida, kad agentai turi prieigą prie funkcijų/įrankių, reikalingų užduočiai atlikti. Be agentų, galite įtraukti kitus šablonus, tokius kaip refleksija, apibendrintojas ir apvalus pokalbis, kad dar labiau pritaikytumėte.
 
 ## Papildomi ištekliai
 
-* AutoGen Magnetic One – universalinė daugiagentė sistema, skirta sudėtingoms užduotims spręsti, pasiekusi įspūdingų rezultatų daugelyje sudėtingų agentinių testų. Nuoroda:
+AutoGen Magnetic One - Bendroji daugiagentė sistema sudėtingoms užduotims spręsti, pasiekusi įspūdingų rezultatų daugybėje sudėtingų agentinių testų. Nuoroda:
 
-. Šioje implementacijoje orkestratorius sukuria užduočių specifinį planą ir deleguoja šias užduotis turimiems agentams. Be planavimo, orkestratorius taip pat naudoja stebėjimo mechanizmą, kad stebėtų užduoties eigą ir, jei reikia, perplanuotų.
+. Šioje įgyvendinimo versijoje koordinuojantis agentas sukuria užduočiai specifinį planą ir deleguoja šias užduotis turimiems agentams. Be planavimo, koordinuojantis agentas taip pat naudoja stebėjimo mechanizmą užduoties pažangai stebėti ir perplanuoti, kai to reikia.
 
 ### Turite daugiau klausimų apie planavimo dizaino šabloną?
 
-Prisijunkite prie [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kad susitiktumėte su kitais besimokančiaisiais, dalyvautumėte konsultacijų valandomis ir gautumėte atsakymus į savo klausimus apie AI agentus.
+Prisijunkite prie [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kad susitiktumėte su kitais besimokančiais, dalyvautumėte konsultacijose ir gautumėte atsakymus į savo AI agentų klausimus.
 
 ## Ankstesnė pamoka
 

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "9cb9bf18040a36fb1d822b10e92e7c04",
-  "translation_date": "2025-09-07T08:03:07+00:00",
+  "original_hash": "407fa0ca9ca479613715f8219710080b",
+  "translation_date": "2025-09-18T15:20:57+00:00",
   "source_file": "README.md",
   "language_code": "tl"
 }
@@ -11,9 +11,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 ![Generative AI Para sa mga Baguhan](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.tl.png)
 
-## Isang kurso na nagtuturo ng lahat ng kailangan mong malaman upang magsimula sa paggawa ng AI Agents
+## Isang kurso na nagtuturo ng lahat ng kailangan mo upang magsimula sa paggawa ng AI Agents
 
-### 🌐 Suporta sa Multi-Language
+### 🌐 Suporta sa Maraming Wika
 
 #### Sinusuportahan sa pamamagitan ng GitHub Action (Automated at Laging Napapanahon)
 
@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Ang kursong ito ay may mga aralin na sumasaklaw sa mga pangunahing kaalaman sa paggawa ng AI Agents. Ang bawat aralin ay may sariling paksa kaya maaari kang magsimula kung saan mo gusto!
 
-May suporta sa multi-language para sa kursong ito. Pumunta sa aming [mga available na wika dito](../..). 
+May suporta sa maraming wika para sa kursong ito. Pumunta sa aming [mga available na wika dito](../..).
 
 Kung ito ang iyong unang pagkakataon sa paggawa gamit ang Generative AI models, tingnan ang aming [Generative AI Para sa mga Baguhan](https://aka.ms/genai-beginners) na kurso, na may kasamang 21 aralin tungkol sa paggawa gamit ang GenAI.
 
@@ -37,7 +37,7 @@ Kung ikaw ay nahihirapan o may mga tanong tungkol sa paggawa ng AI Agents, sumal
 
 ### Ano ang Kailangan Mo
 
-Ang bawat aralin sa kursong ito ay may kasamang mga halimbawa ng code, na matatagpuan sa folder na code_samples. Maaari mong [i-fork ang repo na ito](https://github.com/microsoft/ai-agents-for-beginners/fork) upang lumikha ng iyong sariling kopya.  
+Ang bawat aralin sa kursong ito ay may kasamang mga halimbawa ng code, na matatagpuan sa folder na code_samples. Maaari mong [i-fork ang repo na ito](https://github.com/microsoft/ai-agents-for-beginners/fork) upang lumikha ng iyong sariling kopya.
 
 Ang mga halimbawa ng code sa mga pagsasanay na ito ay gumagamit ng Azure AI Foundry at GitHub Model Catalogs para sa pakikipag-ugnayan sa Language Models:
 
@@ -54,9 +54,9 @@ Para sa karagdagang impormasyon sa pagpapatakbo ng code para sa kursong ito, pum
 
 ## 🙏 Nais mo bang tumulong?
 
-May mga mungkahi o nakakita ng mga maling spelling o code? [Mag-raise ng issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) o [Gumawa ng pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst).
+May mga mungkahi o nakakita ng mga maling baybay o error sa code? [Mag-raise ng isyu](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) o [Gumawa ng pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst).
 
-## 📂 Ang bawat aralin ay naglalaman ng
+## 📂 Ang bawat aralin ay may kasamang
 
 - Isang nakasulat na aralin na matatagpuan sa README at isang maikling video
 - Mga halimbawa ng Python code na sumusuporta sa Azure AI Foundry at Github Models (Libre)
@@ -65,7 +65,7 @@ May mga mungkahi o nakakita ng mga maling spelling o code? [Mag-raise ng issue](
 ## 🗃️ Mga Aralin
 
 | **Aralin**                                   | **Teksto at Code**                                | **Video**                                                  | **Karagdagang Pag-aaral**                                                             |
-|----------------------------------------------|--------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
+|----------------------------------------------|--------------------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | Intro sa AI Agents at Mga Gamit ng Agent     | [Link](./01-intro-to-ai-agents/README.md)        | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Paggalugad sa AI Agentic Frameworks          | [Link](./02-explore-agentic-frameworks/README.md)| [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Pag-unawa sa AI Agentic Design Patterns      | [Link](./03-agentic-design-patterns/README.md)   | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -76,14 +76,14 @@ May mga mungkahi o nakakita ng mga maling spelling o code? [Mag-raise ng issue](
 | Multi-Agent Design Pattern                   | [Link](./08-multi-agent/README.md)               | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Metacognition Design Pattern                 | [Link](./09-metacognition/README.md)             | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI Agents sa Produksyon                      | [Link](./10-ai-agents-production/README.md)      | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Paggamit ng Agentic Protocols (MCP, A2A at NLWeb) | [Link](./11-agentic-protocols/README.md)         | [Video](https://youtu.be/X-Dh9R3Opn8)                      | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Paggamit ng Agentic Protocols (MCP, A2A at NLWeb) | [Link](./11-agentic-protocols/README.md)       | [Video](https://youtu.be/X-Dh9R3Opn8)                      | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Context Engineering para sa AI Agents       | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Pamamahala ng Agentic Memory                | Paparating - Setyembre 11                          |                                                            |                                                                                        |
-| Pagsusuri ng AI Agents                      | Paparating - Setyembre 18                          |                                                            |                                                                                        |
-| Pagbuo ng Computer Use Agents (CUA)         | Paparating - Setyembre 25                          |                                                            |                                                                                        |
-| Pag-deploy ng Scalable Agents               | Paparating - Setyembre 25                          |                                                            |                                                                                        |
-| Paglikha ng Lokal na AI Agents              | Paparating - Oktubre 3                             |                                                            |                                                                                        |
-| Pag-secure ng AI Agents                     | Paparating - Oktubre 10                            |                                                            |                                                                                        |
+| Pamamahala ng Agentic Memory                | [Link](./13-agent-memory/README.md)     |                                                            |                                                                                        |
+| Pagsusuri ng AI Agents                      | Darating - Setyembre 18                              |                                                            |                                                                                        |
+| Pagbuo ng Computer Use Agents (CUA)         | Darating - Setyembre 25                              |                                                            |                                                                                        |
+| Pag-deploy ng Scalable Agents               | Darating - Setyembre 25                              |                                                            |                                                                                        |
+| Paglikha ng Lokal na AI Agents              | Darating - Oktubre 3                                 |                                                            |                                                                                        |
+| Pag-secure ng AI Agents                     | Darating - Oktubre 10                                |                                                            |                                                                                        |
 
 ## 🎒 Iba Pang Kurso
 
@@ -102,25 +102,33 @@ Ang aming team ay gumagawa ng iba pang mga kurso! Tingnan ang:
 - [XR Development para sa Mga Baguhan](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
 - [Mastering GitHub Copilot para sa AI Paired Programming](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
 - [Mastering GitHub Copilot para sa C#/.NET Developers](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
-- [Pumili ng Sariling Copilot Adventure](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
+- [Piliin ang Iyong Sariling Copilot Adventure](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 
 ## 🌟 Pasasalamat sa Komunidad
 
-Salamat kay [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) sa pag-aambag ng mahahalagang code samples na nagpapakita ng Agentic RAG.
+Salamat kay [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) sa pag-aambag ng mahahalagang code samples na nagpapakita ng Agentic RAG. 
 
 ## Pag-aambag
 
-Ang proyektong ito ay tumatanggap ng mga kontribusyon at mungkahi. Karamihan sa mga kontribusyon ay nangangailangan sa iyo na sumang-ayon sa isang Contributor License Agreement (CLA) na nagsasaad na mayroon kang karapatan, at aktwal na ginagawa, na bigyan kami ng mga karapatan upang gamitin ang iyong kontribusyon. Para sa mga detalye, bisitahin ang <https://cla.opensource.microsoft.com>.
+Ang proyektong ito ay tumatanggap ng mga kontribusyon at mungkahi. Karamihan sa mga kontribusyon ay nangangailangan sa iyo na sumang-ayon sa isang
+Contributor License Agreement (CLA) na nagsasaad na mayroon kang karapatan, at aktwal na ibinibigay mo, ang mga karapatan upang magamit ang iyong kontribusyon. Para sa mga detalye, bisitahin ang 
+<https://cla.opensource.microsoft.com>.
 
-Kapag nagsumite ka ng pull request, awtomatikong matutukoy ng CLA bot kung kailangan mong magbigay ng CLA at lalagyan ng tamang dekorasyon ang PR (hal., status check, komento). Sundin lamang ang mga tagubilin na ibinigay ng bot. Kailangan mo lamang gawin ito nang isang beses sa lahat ng mga repo na gumagamit ng aming CLA.
+Kapag nagsumite ka ng pull request, awtomatikong matutukoy ng CLA bot kung kailangan mong magbigay ng CLA at palamutihan ang PR nang naaangkop (hal., status check, komento). Sundin lamang ang mga tagubilin
+na ibinigay ng bot. Kailangan mo lamang gawin ito nang isang beses sa lahat ng mga repo na gumagamit ng aming CLA.
 
-Ang proyektong ito ay nagpatibay ng [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). Para sa karagdagang impormasyon, tingnan ang [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) o makipag-ugnayan sa [opencode@microsoft.com](mailto:opencode@microsoft.com) para sa anumang karagdagang tanong o komento.
+Ang proyektong ito ay nagpatibay ng [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+Para sa karagdagang impormasyon, tingnan ang [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) o
+makipag-ugnayan sa [opencode@microsoft.com](mailto:opencode@microsoft.com) para sa anumang karagdagang tanong o komento.
 
 ## Mga Trademark
 
-Ang proyektong ito ay maaaring naglalaman ng mga trademark o logo para sa mga proyekto, produkto, o serbisyo. Ang awtorisadong paggamit ng mga trademark o logo ng Microsoft ay dapat sumunod sa at sundin ang [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general). Ang paggamit ng mga trademark o logo ng Microsoft sa mga binagong bersyon ng proyektong ito ay hindi dapat magdulot ng kalituhan o magpahiwatig ng sponsorship ng Microsoft. Ang anumang paggamit ng mga trademark o logo ng third-party ay dapat sumunod sa mga patakaran ng mga third-party na iyon.
+Ang proyektong ito ay maaaring naglalaman ng mga trademark o logo para sa mga proyekto, produkto, o serbisyo. Ang awtorisadong paggamit ng mga trademark o logo ng Microsoft ay napapailalim sa at dapat sumunod sa
+[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+Ang paggamit ng mga trademark o logo ng Microsoft sa mga binagong bersyon ng proyektong ito ay hindi dapat magdulot ng kalituhan o magpahiwatig ng sponsorship ng Microsoft.
+Ang anumang paggamit ng mga trademark o logo ng third-party ay napapailalim sa mga patakaran ng mga third-party na iyon.
 
 ---
 
 **Paunawa**:  
-Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't sinisikap naming maging tumpak, pakitandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na opisyal na sanggunian. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring magmula sa paggamit ng pagsasaling ito.
+Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't sinisikap naming maging tumpak, tandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa kanyang katutubong wika ang dapat ituring na opisyal na sanggunian. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na dulot ng paggamit ng pagsasaling ito.

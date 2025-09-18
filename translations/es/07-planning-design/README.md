@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-30T13:16:53+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T14:04:32+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "es"
 }
@@ -17,24 +17,24 @@ CO_OP_TRANSLATOR_METADATA:
 
 Esta lección cubrirá:
 
-* Definir un objetivo general claro y descomponer una tarea compleja en tareas manejables.
-* Aprovechar salidas estructuradas para obtener respuestas más confiables y legibles por máquinas.
+* Definir un objetivo general claro y dividir una tarea compleja en tareas manejables.
+* Aprovechar la salida estructurada para obtener respuestas más confiables y legibles por máquinas.
 * Aplicar un enfoque basado en eventos para manejar tareas dinámicas y entradas inesperadas.
 
 ## Objetivos de Aprendizaje
 
 Después de completar esta lección, comprenderás:
 
-* Identificar y establecer un objetivo general para un agente de IA, asegurándote de que sepa claramente qué debe lograrse.
+* Identificar y establecer un objetivo general para un agente de IA, asegurando que sepa claramente qué debe lograr.
 * Descomponer una tarea compleja en subtareas manejables y organizarlas en una secuencia lógica.
-* Equipar a los agentes con las herramientas adecuadas (por ejemplo, herramientas de búsqueda o análisis de datos), decidir cuándo y cómo usarlas, y manejar situaciones inesperadas que surjan.
+* Equipar a los agentes con las herramientas adecuadas (por ejemplo, herramientas de búsqueda o análisis de datos), decidir cuándo y cómo se utilizan, y manejar situaciones inesperadas que surjan.
 * Evaluar los resultados de las subtareas, medir el rendimiento e iterar en las acciones para mejorar el resultado final.
 
-## Definiendo el Objetivo General y Desglosando una Tarea
+## Definir el Objetivo General y Dividir una Tarea
 
-![Definiendo Objetivos y Tareas](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.es.png)
+![Definir Objetivos y Tareas](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.es.png)
 
-La mayoría de las tareas del mundo real son demasiado complejas para abordarlas en un solo paso. Un agente de IA necesita un objetivo conciso que guíe su planificación y acciones. Por ejemplo, considera el objetivo:
+La mayoría de las tareas del mundo real son demasiado complejas para abordarlas en un solo paso. Un agente de IA necesita un objetivo conciso para guiar su planificación y acciones. Por ejemplo, considera el objetivo:
 
     "Generar un itinerario de viaje de 3 días."
 
@@ -42,23 +42,23 @@ Aunque es sencillo de expresar, aún necesita refinamiento. Cuanto más claro se
 
 ### Descomposición de Tareas
 
-Las tareas grandes o intrincadas se vuelven más manejables cuando se dividen en subtareas pequeñas y orientadas a objetivos.  
+Las tareas grandes o intrincadas se vuelven más manejables cuando se dividen en subtareas más pequeñas y orientadas a objetivos.  
 Para el ejemplo del itinerario de viaje, podrías descomponer el objetivo en:
 
-* Reserva de vuelos  
-* Reserva de hoteles  
-* Alquiler de coches  
-* Personalización  
+* Reservar vuelos
+* Reservar hoteles
+* Alquilar un coche
+* Personalización
 
 Cada subtarea puede ser abordada por agentes o procesos dedicados. Un agente podría especializarse en buscar las mejores ofertas de vuelos, otro en reservas de hoteles, y así sucesivamente. Un agente coordinador o "descendente" puede luego compilar estos resultados en un itinerario cohesivo para el usuario final.
 
 Este enfoque modular también permite mejoras incrementales. Por ejemplo, podrías agregar agentes especializados en recomendaciones de comida o sugerencias de actividades locales y refinar el itinerario con el tiempo.
 
-### Salida Estructurada
+### Salida estructurada
 
-Los Modelos de Lenguaje Extensos (LLMs) pueden generar salidas estructuradas (por ejemplo, JSON) que son más fáciles de analizar y procesar para agentes o servicios posteriores. Esto es especialmente útil en un contexto de múltiples agentes, donde podemos ejecutar estas tareas después de recibir la salida de planificación. Consulta esto para una visión general rápida.
+Los Modelos de Lenguaje Extenso (LLMs) pueden generar salidas estructuradas (por ejemplo, JSON) que son más fáciles de analizar y procesar para agentes o servicios posteriores. Esto es especialmente útil en un contexto de múltiples agentes, donde podemos ejecutar estas tareas después de recibir la salida de planificación. Consulta esto para una visión rápida.
 
-El siguiente fragmento de código en Python demuestra un agente de planificación simple que descompone un objetivo en subtareas y genera un plan estructurado:
+El siguiente fragmento de Python demuestra un agente de planificación simple que descompone un objetivo en subtareas y genera un plan estructurado:
 
 ```python
 from pydantic import BaseModel
@@ -153,11 +153,10 @@ En este ejemplo, un Agente de Enrutador Semántico recibe una solicitud del usua
 
 El planificador entonces:
 
-* Recibe el Plan de Hotel: El planificador toma el mensaje del usuario y, basado en un mensaje del sistema (incluyendo detalles de los agentes disponibles), genera un plan de viaje estructurado.  
-* Enumera Agentes y sus Herramientas: El registro de agentes contiene una lista de agentes (por ejemplo, para vuelos, hoteles, alquiler de coches y actividades) junto con las funciones o herramientas que ofrecen.  
-* Dirige el Plan a los Agentes Correspondientes: Dependiendo del número de subtareas, el planificador envía el mensaje directamente a un agente dedicado (para escenarios de una sola tarea) o coordina a través de un gestor de chat grupal para la colaboración multi-agente.  
+* Recibe el Plan de Hotel: El planificador toma el mensaje del usuario y, basado en un mensaje del sistema (incluyendo detalles de los agentes disponibles), genera un plan de viaje estructurado.
+* Enumera Agentes y Sus Herramientas: El registro de agentes contiene una lista de agentes (por ejemplo, para vuelos, hoteles, alquiler de coches y actividades) junto con las funciones o herramientas que ofrecen.
+* Dirige el Plan a los Agentes Correspondientes: Dependiendo del número de subtareas, el planificador envía el mensaje directamente a un agente dedicado (para escenarios de tarea única) o coordina a través de un gestor de chat grupal para colaboración multi-agente.
 * Resume el Resultado: Finalmente, el planificador resume el plan generado para mayor claridad.  
-
 El siguiente ejemplo de código en Python ilustra estos pasos:
 
 ```python
@@ -268,9 +267,9 @@ Un cuaderno de ejemplo con el código anterior está disponible [aquí](07-autog
 
 ### Planificación Iterativa
 
-Algunas tareas requieren un ida y vuelta o una re-planificación, donde el resultado de una subtarea influye en la siguiente. Por ejemplo, si el agente descubre un formato de datos inesperado al reservar vuelos, podría necesitar adaptar su estrategia antes de pasar a las reservas de hoteles.
+Algunas tareas requieren un ida y vuelta o una re-planificación, donde el resultado de una subtarea influye en la siguiente. Por ejemplo, si el agente descubre un formato de datos inesperado mientras reserva vuelos, podría necesitar adaptar su estrategia antes de pasar a las reservas de hoteles.
 
-Además, los comentarios del usuario (por ejemplo, si un humano decide que prefiere un vuelo más temprano) pueden desencadenar una re-planificación parcial. Este enfoque dinámico e iterativo asegura que la solución final se alinee con las restricciones del mundo real y las preferencias cambiantes del usuario.
+Además, los comentarios del usuario (por ejemplo, que prefieren un vuelo más temprano) pueden desencadenar una re-planificación parcial. Este enfoque dinámico e iterativo asegura que la solución final se alinee con las restricciones del mundo real y las preferencias cambiantes del usuario.
 
 Por ejemplo, código de muestra:
 
@@ -297,17 +296,15 @@ Para una planificación más completa, consulta Magnetic One para resolver tarea
 
 ## Resumen
 
-En este artículo hemos visto un ejemplo de cómo podemos crear un planificador que seleccione dinámicamente los agentes disponibles definidos. La salida del Planificador descompone las tareas y asigna los agentes para que puedan ejecutarse. Se asume que los agentes tienen acceso a las funciones/herramientas necesarias para realizar la tarea. Además de los agentes, puedes incluir otros patrones como reflexión, resumidores y chat en ronda para personalizar aún más.
+En este artículo hemos visto un ejemplo de cómo podemos crear un planificador que seleccione dinámicamente los agentes disponibles definidos. La salida del Planificador descompone las tareas y asigna los agentes para que puedan ejecutarse. Se asume que los agentes tienen acceso a las funciones/herramientas necesarias para realizar la tarea. Además de los agentes, puedes incluir otros patrones como reflexión, resumen y chat en ronda para personalizar aún más.
 
 ## Recursos Adicionales
 
-* AutoGen Magnetic One - Un sistema multi-agente generalista para resolver tareas complejas que ha logrado resultados impresionantes en múltiples puntos de referencia desafiantes. Referencia:  
-
-En esta implementación, el orquestador crea un plan específico para la tarea y delega estas tareas a los agentes disponibles. Además de planificar, el orquestador también emplea un mecanismo de seguimiento para monitorear el progreso de la tarea y re-planificar según sea necesario.
+AutoGen Magnetic One - Un sistema multi-agente generalista para resolver tareas complejas que ha logrado resultados impresionantes en múltiples puntos de referencia desafiantes de agentes. Referencia: . En esta implementación, el orquestador crea un plan específico para la tarea y delega estas tareas a los agentes disponibles. Además de planificar, el orquestador también emplea un mecanismo de seguimiento para monitorear el progreso de la tarea y re-planificar según sea necesario.
 
 ### ¿Tienes más preguntas sobre el Patrón de Diseño de Planificación?
 
-Únete al [Discord de Azure AI Foundry](https://aka.ms/ai-agents/discord) para conectarte con otros estudiantes, asistir a horas de oficina y resolver tus dudas sobre Agentes de IA.
+Únete al [Discord de Azure AI Foundry](https://aka.ms/ai-agents/discord) para conectarte con otros estudiantes, asistir a horas de oficina y resolver tus dudas sobre agentes de IA.
 
 ## Lección Anterior
 
@@ -320,4 +317,4 @@ En esta implementación, el orquestador crea un plan específico para la tarea y
 ---
 
 **Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por garantizar la precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que puedan surgir del uso de esta traducción.
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse como la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que puedan surgir del uso de esta traducción.

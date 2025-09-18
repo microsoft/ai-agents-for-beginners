@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-29T15:57:36+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:07:44+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "no"
 }
@@ -17,7 +17,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Denne leksjonen vil dekke
 
-* Definere et klart overordnet mål og dele opp en kompleks oppgave i håndterbare oppgaver.
+* Definere et klart overordnet mål og bryte ned en kompleks oppgave i håndterbare oppgaver.
 * Utnytte strukturert output for mer pålitelige og maskinlesbare svar.
 * Bruke en hendelsesdrevet tilnærming for å håndtere dynamiske oppgaver og uventede innspill.
 
@@ -28,9 +28,9 @@ Etter å ha fullført denne leksjonen, vil du ha forståelse for:
 * Identifisere og sette et overordnet mål for en AI-agent, slik at den tydelig vet hva som skal oppnås.
 * Dele opp en kompleks oppgave i håndterbare deloppgaver og organisere dem i en logisk rekkefølge.
 * Utstyre agenter med riktige verktøy (f.eks. søkeverktøy eller dataanalyseverktøy), bestemme når og hvordan de skal brukes, og håndtere uventede situasjoner som oppstår.
-* Evaluere resultatene av deloppgaver, måle ytelse og iterere på handlinger for å forbedre det endelige resultatet.
+* Evaluere resultatene av deloppgaver, måle ytelse og iterere handlinger for å forbedre sluttresultatet.
 
-## Definere det overordnede målet og dele opp en oppgave
+## Definere det overordnede målet og bryte ned en oppgave
 
 ![Definere mål og oppgaver](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.no.png)
 
@@ -40,7 +40,7 @@ De fleste oppgaver i den virkelige verden er for komplekse til å løses i ett e
 
 Selv om det er enkelt å formulere, trenger det fortsatt presisering. Jo klarere målet er, desto bedre kan agenten (og eventuelle menneskelige samarbeidspartnere) fokusere på å oppnå riktig resultat, som å lage en omfattende reiseplan med flyalternativer, hotellanbefalinger og aktivitetsforslag.
 
-### Oppgavedekomponering
+### Oppgaveoppdeling
 
 Store eller intrikate oppgaver blir mer håndterbare når de deles opp i mindre, målrettede deloppgaver.
 For reiseplaneksempelet kan du dele opp målet i:
@@ -50,7 +50,7 @@ For reiseplaneksempelet kan du dele opp målet i:
 * Bilutleie
 * Personalisering
 
-Hver deloppgave kan deretter håndteres av dedikerte agenter eller prosesser. Én agent kan spesialisere seg på å finne de beste flytilbudene, en annen kan fokusere på hotellbestillinger, og så videre. En koordinerende eller "nedstrøms" agent kan deretter samle disse resultatene til én sammenhengende reiseplan for sluttbrukeren.
+Hver deloppgave kan deretter håndteres av dedikerte agenter eller prosesser. En agent kan spesialisere seg på å finne de beste flytilbudene, en annen på hotellbestillinger, og så videre. En koordinerende eller "nedstrøms" agent kan deretter samle disse resultatene til en sammenhengende reiseplan for sluttbrukeren.
 
 Denne modulære tilnærmingen tillater også gradvise forbedringer. For eksempel kan du legge til spesialiserte agenter for matanbefalinger eller lokale aktivitetsforslag og finjustere reiseplanen over tid.
 
@@ -151,14 +151,13 @@ pprint(json.loads(response_content))
 
 I dette eksempelet mottar en Semantic Router Agent en brukerforespørsel (f.eks. "Jeg trenger en hotellplan for reisen min.").
 
-Planleggeren gjør deretter følgende:
+Planleggeren deretter:
 
 * Mottar hotellplanen: Planleggeren tar brukerens melding og, basert på et systemprompt (inkludert detaljer om tilgjengelige agenter), genererer en strukturert reiseplan.
-* Lister opp agenter og deres verktøy: Agentregisteret inneholder en liste over agenter (f.eks. for fly, hotell, bilutleie og aktiviteter) sammen med funksjonene eller verktøyene de tilbyr.
-* Ruter planen til de respektive agentene: Avhengig av antall deloppgaver, sender planleggeren enten meldingen direkte til en dedikert agent (for enkeloppgave-scenarier) eller koordinerer via en gruppechat-manager for multi-agent samarbeid.
+* Lister opp agenter og deres verktøy: Agentregisteret holder en liste over agenter (f.eks. for fly, hotell, bilutleie og aktiviteter) sammen med funksjonene eller verktøyene de tilbyr.
+* Ruter planen til de respektive agentene: Avhengig av antall deloppgaver, sender planleggeren enten meldingen direkte til en dedikert agent (for enkeltoppgave-scenarier) eller koordinerer via en gruppechat-manager for multi-agent samarbeid.
 * Oppsummerer resultatet: Til slutt oppsummerer planleggeren den genererte planen for klarhet.
-
-Den følgende Python-koden illustrerer disse trinnene:
+Den følgende Python-kodeeksempelet illustrerer disse trinnene:
 
 ```python
 
@@ -233,7 +232,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Det som følger er output fra den forrige koden, og du kan deretter bruke denne strukturerte outputen til å rute til `assigned_agent` og oppsummere reiseplanen for sluttbrukeren.
+Det som følger er outputen fra den forrige koden, og du kan deretter bruke denne strukturerte outputen til å rute til `assigned_agent` og oppsummere reiseplanen for sluttbrukeren.
 
 ```json
 {
@@ -268,9 +267,9 @@ En eksempelnotatbok med den forrige koden er tilgjengelig [her](07-autogen.ipynb
 
 ### Iterativ planlegging
 
-Noen oppgaver krever en frem-og-tilbake-prosess eller re-planlegging, hvor resultatet av én deloppgave påvirker den neste. For eksempel, hvis agenten oppdager et uventet dataformat mens den bestiller fly, kan den måtte tilpasse strategien før den går videre til hotellbestillinger.
+Noen oppgaver krever en frem-og-tilbake-prosess eller re-planlegging, hvor resultatet av en deloppgave påvirker den neste. For eksempel, hvis agenten oppdager et uventet dataformat mens den bestiller fly, kan den måtte tilpasse strategien sin før den går videre til hotellbestillinger.
 
-I tillegg kan brukerfeedback (f.eks. en menneskelig beslutning om at de foretrekker et tidligere fly) utløse en delvis re-planlegging. Denne dynamiske, iterative tilnærmingen sikrer at den endelige løsningen samsvarer med virkelige begrensninger og utviklende brukerpreferanser.
+I tillegg kan brukerfeedback (f.eks. en person som bestemmer seg for at de foretrekker et tidligere fly) utløse en delvis re-planlegging. Denne dynamiske, iterative tilnærmingen sikrer at den endelige løsningen samsvarer med virkelige begrensninger og utviklende brukerpreferanser.
 
 f.eks. eksempelkode
 
@@ -295,13 +294,15 @@ messages = [
 
 For mer omfattende planlegging, sjekk ut Magnetic One for å løse komplekse oppgaver.
 
-## Oppsummering
+## Sammendrag
 
 I denne artikkelen har vi sett på et eksempel på hvordan vi kan lage en planlegger som dynamisk kan velge de tilgjengelige agentene som er definert. Outputen fra planleggeren deler opp oppgavene og tildeler agentene slik at de kan utføres. Det antas at agentene har tilgang til funksjonene/verktøyene som kreves for å utføre oppgaven. I tillegg til agentene kan du inkludere andre mønstre som refleksjon, oppsummering og rundgang-chat for ytterligere tilpasning.
 
 ## Tilleggsressurser
 
-* AutoGen Magnetic One - Et generalist multi-agent system for å løse komplekse oppgaver og har oppnådd imponerende resultater på flere utfordrende agent-benchmarks. Referanse: . I denne implementeringen lager orkestratoren en oppgavespesifikk plan og delegerer disse oppgavene til de tilgjengelige agentene. I tillegg til planlegging bruker orkestratoren også en sporingsmekanisme for å overvåke fremdriften av oppgaven og re-planlegge etter behov.
+AutoGen Magnetic One - Et generalist multi-agent system for å løse komplekse oppgaver og har oppnådd imponerende resultater på flere utfordrende agent-benchmarks. Referanse:
+
+. I denne implementeringen oppretter orkestratoren en oppgavespesifikk plan og delegerer disse oppgavene til de tilgjengelige agentene. I tillegg til planlegging benytter orkestratoren også en sporingsmekanisme for å overvåke fremdriften av oppgaven og re-planlegge etter behov.
 
 ### Har du flere spørsmål om planleggingsdesignmønsteret?
 

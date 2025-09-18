@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "9cb9bf18040a36fb1d822b10e92e7c04",
-  "translation_date": "2025-09-07T08:03:47+00:00",
+  "original_hash": "407fa0ca9ca479613715f8219710080b",
+  "translation_date": "2025-09-18T15:23:44+00:00",
   "source_file": "README.md",
   "language_code": "sw"
 }
@@ -17,7 +17,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 #### Inasaidiwa kupitia GitHub Action (Imefanywa Kiotomatiki & Daima Imeboreshwa)
 
-**Ikiwa ungependa msaada wa lugha za ziada, lugha zinazosaidiwa zimeorodheshwa [hapa](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**Ikiwa unataka msaada wa tafsiri za ziada, lugha zinazosaidiwa zimeorodheshwa [hapa](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
 ## 🌱 Kuanza
 
@@ -25,7 +25,7 @@ Kozi hii ina masomo yanayofunika misingi ya kujenga Mawakala wa AI. Kila somo li
 
 Kuna msaada wa lugha nyingi kwa kozi hii. Nenda kwenye [lugha zinazopatikana hapa](../..). 
 
-Ikiwa ni mara yako ya kwanza kujenga kwa kutumia mifano ya Generative AI, angalia kozi yetu ya [Generative AI Kwa Kompyuta](https://aka.ms/genai-beginners), ambayo inajumuisha masomo 21 kuhusu kujenga kwa GenAI.
+Ikiwa ni mara yako ya kwanza kujenga na mifano ya Generative AI, angalia kozi yetu ya [Generative AI Kwa Kompyuta](https://aka.ms/genai-beginners), ambayo inajumuisha masomo 21 kuhusu kujenga na GenAI.
 
 Usisahau [kuweka nyota (🌟) kwenye repo hii](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) na [kuiga repo hii](https://github.com/microsoft/ai-agents-for-beginners/fork) ili kuendesha msimbo.
 
@@ -66,7 +66,7 @@ Je, una mapendekezo au umepata makosa ya tahajia au msimbo? [Fungua suala](https
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | Utangulizi wa Mawakala wa AI na Matumizi Yake | [Link](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Kuchunguza Mifumo ya Mawakala wa AI          | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Kuelewa Mifumo ya Ubunifu wa Mawakala wa AI  | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Kuelewa Mifumo ya Ubunifu wa Mawakala wa AI   | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Muundo wa Matumizi ya Zana                   | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Mawakala wa RAG                              | [Link](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Kujenga Mawakala wa AI Wenye Kuaminika       | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -75,60 +75,56 @@ Je, una mapendekezo au umepata makosa ya tahajia au msimbo? [Fungua suala](https
 | Muundo wa Metakujitambua                     | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Mawakala wa AI Katika Uzalishaji             | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Kutumia Itifaki za Mawakala (MCP, A2A na NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Uhandisi wa Muktadha kwa Mawakala wa AI            | [Kiungo](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Kiungo](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Kusimamia Kumbukumbu ya Wakala                      | Inakuja - Septemba 11                                |                                                            |                                                                                        |
-| Kutathmini Mawakala wa AI                           | Inakuja - Septemba 18                                |                                                            |                                                                                        |
-| Kujenga Mawakala wa Matumizi ya Kompyuta (CUA)      | Inakuja - Septemba 25                                |                                                            |                                                                                        |
-| Kusambaza Mawakala Wanaoweza Kupimika               | Inakuja - Septemba 25                                |                                                            |                                                                                        |
-| Kuunda Mawakala wa AI wa Ndani                      | Inakuja - Oktoba 3                                   |                                                            |                                                                                        |
-| Kulinda Mawakala wa AI                              | Inakuja - Oktoba 10                                  |                                                            |                                                                                        |
+| Uhandisi wa Muktadha kwa Mawakala wa AI            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Kusimamia Kumbukumbu ya Mawakala                   | [Link](./13-agent-memory/README.md)     |                                                            |                                                                                        |
+| Kutathmini Mawakala wa AI                          | Inakuja - Septemba 18                              |                                                            |                                                                                        |
+| Kujenga Mawakala wa Matumizi ya Kompyuta (CUA)     | Inakuja - Septemba 25                              |                                                            |                                                                                        |
+| Kuweka Mawakala Wanaoweza Kupimika                 | Inakuja - Septemba 25                              |                                                            |                                                                                        |
+| Kuunda Mawakala wa AI wa Kieneo                    | Inakuja - Oktoba 3                                 |                                                            |                                                                                        |
+| Kulinda Mawakala wa AI                             | Inakuja - Oktoba 10                                |                                                            |                                                                                        |
 
 ## 🎒 Kozi Nyingine
 
 Timu yetu inazalisha kozi nyingine! Angalia:
 
-- [**MPYA** Itifaki ya Muktadha wa Mfano (MCP) kwa Anayeanza](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
-- [AI Jenereta kwa Anayeanza kwa kutumia .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
-- [AI Jenereta kwa Anayeanza](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
-- [AI Jenereta kwa Anayeanza kwa kutumia Java](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
-- [ML kwa Anayeanza](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
-- [Sayansi ya Takwimu kwa Anayeanza](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
-- [AI kwa Anayeanza](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
-- [Usalama wa Mtandao kwa Anayeanza](https://github.com/microsoft/Security-101??WT.mc_id=academic-96948-sayoung)
-- [Uendelezaji wa Wavuti kwa Anayeanza](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
-- [IoT kwa Anayeanza](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
-- [Uendelezaji wa XR kwa Anayeanza](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
-- [Kumudu GitHub Copilot kwa Uandishi wa Programu wa AI](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
-- [Kumudu GitHub Copilot kwa Waendelezaji wa C#/.NET](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+- [**MPYA** Itifaki ya Muktadha wa Modeli (MCP) kwa Kompyuta](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [AI Jenereta kwa Kompyuta kwa kutumia .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+- [AI Jenereta kwa Kompyuta](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [AI Jenereta kwa Kompyuta kwa kutumia Java](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+- [ML kwa Kompyuta](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
+- [Sayansi ya Takwimu kwa Kompyuta](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
+- [AI kwa Kompyuta](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
+- [Usalama wa Mtandao kwa Kompyuta](https://github.com/microsoft/Security-101??WT.mc_id=academic-96948-sayoung)
+- [Maendeleo ya Wavuti kwa Kompyuta](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
+- [IoT kwa Kompyuta](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
+- [Maendeleo ya XR kwa Kompyuta](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [Kumiliki GitHub Copilot kwa Uprogramu wa Pamoja wa AI](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+- [Kumiliki GitHub Copilot kwa Waendelezaji wa C#/.NET](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
 - [Chagua Safari Yako ya Copilot](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 
-## 🌟 Shukrani kwa Jamii
+## 🌟 Shukrani za Jamii
 
 Shukrani kwa [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) kwa kuchangia sampuli muhimu za msimbo zinazoonyesha Agentic RAG. 
 
 ## Kuchangia
 
-Mradi huu unakaribisha michango na mapendekezo. Michango mingi inahitaji ukubaliane na
-Mkataba wa Leseni ya Mchangiaji (CLA) unaoeleza kuwa una haki ya, na kwa kweli unatoa, haki kwetu
-za kutumia mchango wako. Kwa maelezo zaidi, tembelea 
+Mradi huu unakaribisha michango na mapendekezo. Michango mingi inahitaji ukubali Mkataba wa Leseni ya Mchangiaji (CLA) unaoeleza kuwa una haki ya, na kwa kweli unatoa, ruhusa kwetu kutumia mchango wako. Kwa maelezo zaidi, tembelea 
 <https://cla.opensource.microsoft.com>.
 
-Unapowasilisha ombi la kuvuta (pull request), bot ya CLA itaamua kiotomatiki ikiwa unahitaji kutoa
-CLA na kupamba PR ipasavyo (mfano, ukaguzi wa hali, maoni). Fuata tu maagizo
-yanayotolewa na bot. Utahitaji kufanya hivi mara moja tu kwenye hifadhi zote zinazotumia CLA yetu.
+Unapowasilisha ombi la kuvuta (pull request), bot ya CLA itatambua kiotomatiki ikiwa unahitaji kutoa CLA na kupamba PR ipasavyo (mfano, ukaguzi wa hali, maoni). Fuata tu maagizo yaliyotolewa na bot. Utahitaji kufanya hivyo mara moja tu katika repos zote zinazotumia CLA yetu.
 
-Mradi huu umechukua [Kanuni za Maadili za Chanzo Huria za Microsoft](https://opensource.microsoft.com/codeofconduct/).
-Kwa maelezo zaidi angalia [Maswali Yanayoulizwa Mara kwa Mara kuhusu Kanuni za Maadili](https://opensource.microsoft.com/codeofconduct/faq/) au
+Mradi huu umechukua [Kanuni ya Maadili ya Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/).
+Kwa maelezo zaidi angalia [Maswali Yanayoulizwa Mara kwa Mara kuhusu Kanuni ya Maadili](https://opensource.microsoft.com/codeofconduct/faq/) au
 wasiliana na [opencode@microsoft.com](mailto:opencode@microsoft.com) kwa maswali au maoni ya ziada.
 
 ## Alama za Biashara
 
-Mradi huu unaweza kuwa na alama za biashara au nembo za miradi, bidhaa, au huduma. Matumizi yaliyoidhinishwa ya alama za biashara za Microsoft au nembo yanapaswa kufuata
-[Mwongozo wa Alama za Biashara na Nembo za Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+Mradi huu unaweza kuwa na alama za biashara au nembo za miradi, bidhaa, au huduma. Matumizi yaliyoidhinishwa ya alama za biashara au nembo za Microsoft yanategemea na lazima yafuate
+[Miongozo ya Alama za Biashara na Nembo za Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 Matumizi ya alama za biashara au nembo za Microsoft katika matoleo yaliyorekebishwa ya mradi huu hayapaswi kusababisha mkanganyiko au kuashiria udhamini wa Microsoft.
-Matumizi yoyote ya alama za biashara au nembo za wahusika wengine yanapaswa kufuata sera za wahusika hao.
+Matumizi yoyote ya alama za biashara au nembo za wahusika wa tatu yanategemea sera za wahusika hao wa tatu.
 
 ---
 
 **Kanusho**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati ya asili katika lugha yake ya awali inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, inashauriwa kutumia huduma ya tafsiri ya kitaalamu ya binadamu. Hatutawajibika kwa maelewano mabaya au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kuhakikisha usahihi, tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati ya asili katika lugha yake ya awali inapaswa kuchukuliwa kama chanzo rasmi. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatutawajibika kwa kutoelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.

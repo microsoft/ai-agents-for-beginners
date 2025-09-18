@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "a28d30590704ea13b6a08d4793cf9c2b",
-  "translation_date": "2025-08-29T17:29:49+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:12:15+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "nl"
 }
@@ -38,27 +38,27 @@ De meeste taken in de echte wereld zijn te complex om in één stap aan te pakke
 
     "Genereer een reisroute voor 3 dagen."
 
-Hoewel het eenvoudig te formuleren is, heeft het nog steeds verfijning nodig. Hoe duidelijker het doel, hoe beter de agent (en eventuele menselijke medewerkers) zich kunnen richten op het behalen van het juiste resultaat, zoals het creëren van een uitgebreide reisroute met vluchtopties, hotelaanbevelingen en activiteitenvoorstellen.
+Hoewel het eenvoudig te formuleren is, heeft het nog steeds verfijning nodig. Hoe duidelijker het doel, hoe beter de agent (en eventuele menselijke medewerkers) zich kunnen richten op het behalen van het juiste resultaat, zoals het creëren van een uitgebreide reisroute met vluchtopties, hotelaanbevelingen en activiteitensuggesties.
 
 ### Taakopdeling
 
 Grote of ingewikkelde taken worden beheersbaarder wanneer ze worden opgesplitst in kleinere, doelgerichte subtaken.
 Voor het voorbeeld van de reisroute kun je het doel opdelen in:
 
-* Vluchtreservering
-* Hotelreservering
-* Autoverhuur
+* Vlucht boeken
+* Hotel boeken
+* Auto huren
 * Personalisatie
 
-Elke subtaak kan vervolgens worden aangepakt door toegewijde agents of processen. Eén agent kan zich specialiseren in het zoeken naar de beste vluchtdeals, een andere richt zich op hotelreserveringen, enzovoort. Een coördinerende of “downstream” agent kan deze resultaten vervolgens samenvoegen tot één samenhangende reisroute voor de eindgebruiker.
+Elke subtaak kan vervolgens worden aangepakt door toegewijde agents of processen. Eén agent kan zich specialiseren in het zoeken naar de beste vluchtdeals, een andere richt zich op hotelboekingen, enzovoort. Een coördinerende of “downstream” agent kan deze resultaten vervolgens samenvoegen tot één samenhangende reisroute voor de eindgebruiker.
 
-Deze modulaire aanpak maakt ook stapsgewijze verbeteringen mogelijk. Bijvoorbeeld, je kunt gespecialiseerde agents toevoegen voor Voedingsaanbevelingen of Lokale Activiteitensuggesties en de reisroute in de loop van de tijd verfijnen.
+Deze modulaire aanpak maakt ook stapsgewijze verbeteringen mogelijk. Bijvoorbeeld, je kunt gespecialiseerde agents toevoegen voor voedselaanbevelingen of lokale activiteitensuggesties en de reisroute in de loop van de tijd verfijnen.
 
 ### Gestructureerde output
 
-Grote Taalmodellen (LLMs) kunnen gestructureerde output genereren (bijv. JSON) die gemakkelijker te verwerken is door downstream agents of services. Dit is vooral nuttig in een multi-agent context, waar we deze taken kunnen uitvoeren nadat de planningsoutput is ontvangen. Zie hiervoor een snelle samenvatting.
+Grote Taalmodellen (LLMs) kunnen gestructureerde output genereren (bijv. JSON) die gemakkelijker te verwerken is door downstream agents of services. Dit is vooral nuttig in een multi-agent context, waar we deze taken kunnen uitvoeren nadat de planning-output is ontvangen. Zie hiervoor een snelle samenvatting.
 
-De volgende Python-code laat zien hoe een eenvoudige planningsagent een doel opsplitst in subtaken en een gestructureerd plan genereert:
+De volgende Python-code laat zien hoe een eenvoudige planning-agent een doel opsplitst in subtaken en een gestructureerd plan genereert:
 
 ```python
 from pydantic import BaseModel
@@ -147,7 +147,7 @@ pprint(json.loads(response_content))
 # TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Planningsagent met Multi-Agent Orchestratie
+### Planning Agent met Multi-Agent Orchestratie
 
 In dit voorbeeld ontvangt een Semantic Router Agent een gebruikersverzoek (bijv. "Ik heb een hotelplan nodig voor mijn reis.").
 
@@ -155,9 +155,8 @@ De planner:
 
 * Ontvangt het Hotelplan: De planner neemt het bericht van de gebruiker en genereert, op basis van een systeemprompt (inclusief details over beschikbare agents), een gestructureerd reisplan.
 * Lijst Agents en Hun Tools: Het agentregister bevat een lijst van agents (bijv. voor vluchten, hotels, autoverhuur en activiteiten) samen met de functies of tools die ze aanbieden.
-* Routeert het Plan naar de Respectieve Agents: Afhankelijk van het aantal subtaken stuurt de planner het bericht rechtstreeks naar een toegewijde agent (voor enkelvoudige taken) of coördineert via een groepschatmanager voor multi-agent samenwerking.
+* Routeert het Plan naar de Respectieve Agents: Afhankelijk van het aantal subtaken stuurt de planner het bericht rechtstreeks naar een toegewijde agent (voor enkelvoudige taken) of coördineert via een groepschatmanager voor samenwerking tussen meerdere agents.
 * Vat het Resultaat Samen: Tot slot vat de planner het gegenereerde plan samen voor duidelijkheid.
-
 De volgende Python-code illustreert deze stappen:
 
 ```python
@@ -268,9 +267,9 @@ Een voorbeeldnotebook met de vorige code is beschikbaar [hier](07-autogen.ipynb)
 
 ### Iteratief Plannen
 
-Sommige taken vereisen een heen-en-weer of herplanning, waarbij het resultaat van een subtaak invloed heeft op de volgende. Bijvoorbeeld, als de agent een onverwacht dataformaat ontdekt tijdens het boeken van vluchten, moet deze mogelijk zijn strategie aanpassen voordat hij verder gaat met hotelreserveringen.
+Sommige taken vereisen een heen-en-weer of herplanning, waarbij het resultaat van een subtaak invloed heeft op de volgende. Bijvoorbeeld, als de agent een onverwacht dataformaat ontdekt tijdens het boeken van vluchten, moet deze mogelijk zijn strategie aanpassen voordat hij verder gaat met hotelboekingen.
 
-Daarnaast kan gebruikersfeedback (bijv. een mens die besluit dat ze een eerdere vlucht willen) een gedeeltelijke herplanning triggeren. Deze dynamische, iteratieve aanpak zorgt ervoor dat de uiteindelijke oplossing aansluit bij real-world beperkingen en veranderende gebruikersvoorkeuren.
+Daarnaast kan gebruikersfeedback (bijv. een mens die besluit dat ze een eerdere vlucht willen) een gedeeltelijke herplanning triggeren. Deze dynamische, iteratieve aanpak zorgt ervoor dat de uiteindelijke oplossing aansluit bij realistische beperkingen en veranderende gebruikersvoorkeuren.
 
 Bijvoorbeeld voorbeeldcode:
 
@@ -297,15 +296,15 @@ Voor meer uitgebreide planning, bekijk Magnetic One voor het oplossen van comple
 
 ## Samenvatting
 
-In dit artikel hebben we gekeken naar een voorbeeld van hoe we een planner kunnen maken die dynamisch de beschikbare agents selecteert. De output van de Planner splitst de taken op en wijst de agents toe zodat ze kunnen worden uitgevoerd. Er wordt aangenomen dat de agents toegang hebben tot de functies/tools die nodig zijn om de taak uit te voeren. Naast de agents kun je andere patronen zoals reflectie, samenvatting en round robin chat toevoegen om verder aan te passen.
+In dit artikel hebben we gekeken naar een voorbeeld van hoe we een planner kunnen maken die dynamisch de beschikbare agents selecteert die zijn gedefinieerd. De output van de Planner splitst de taken op en wijst de agents toe zodat ze kunnen worden uitgevoerd. Er wordt aangenomen dat de agents toegang hebben tot de functies/tools die nodig zijn om de taak uit te voeren. Naast de agents kun je andere patronen zoals reflectie, samenvatting en round robin chat toevoegen om verder aan te passen.
 
 ## Aanvullende Bronnen
 
-* AutoGen Magnetic One - Een generalistisch multi-agent systeem voor het oplossen van complexe taken en heeft indrukwekkende resultaten behaald op meerdere uitdagende agent benchmarks. Referentie:
+AutoGen Magnetic One - Een generalistisch multi-agent systeem voor het oplossen van complexe taken en heeft indrukwekkende resultaten behaald op meerdere uitdagende benchmarks voor agents. Referentie:
 
-. In deze implementatie creëert de orkestrator een taak-specifiek plan en delegeert deze taken aan de beschikbare agents. Naast planning gebruikt de orkestrator ook een trackingmechanisme om de voortgang van de taak te monitoren en indien nodig opnieuw te plannen.
+In deze implementatie creëert de orkestrator een taak-specifiek plan en delegeert deze taken aan de beschikbare agents. Naast planning gebruikt de orkestrator ook een trackingmechanisme om de voortgang van de taak te monitoren en indien nodig opnieuw te plannen.
 
-### Meer Vragen over het Planning Design Pattern?
+### Heb je Meer Vragen over het Planning Design Pattern?
 
 Word lid van de [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) om andere leerlingen te ontmoeten, spreekuren bij te wonen en je vragen over AI Agents beantwoord te krijgen.
 
