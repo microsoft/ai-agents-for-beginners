@@ -309,7 +309,7 @@ Voici quelques concepts fondamentaux d'AutoGen :
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -324,7 +324,7 @@ Voici quelques concepts fondamentaux d'AutoGen :
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
     
-    Dans le code précédent, `MyAssistant` a été créé et hérite de `RoutedAgent`. Il dispose d'un gestionnaire de messages qui imprime le contenu du message, puis envoie une réponse en utilisant le délégué `AssistantAgent`. Notez particulièrement comment nous assignons à `self._delegate` une instance de `AssistantAgent`, qui est un agent préconstruit capable de gérer les complétions de chat.
+    Dans le code précédent, `MyAgent` a été créé et hérite de `RoutedAgent`. Il dispose d'un gestionnaire de messages qui imprime le contenu du message, puis envoie une réponse en utilisant le délégué `AssistantAgent`. Notez particulièrement comment nous assignons à `self._delegate` une instance de `AssistantAgent`, qui est un agent préconstruit capable de gérer les complétions de chat.
 
     Passons maintenant à l'enregistrement de ce type d'agent dans AutoGen et lançons le programme :
 

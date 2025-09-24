@@ -311,7 +311,7 @@ Tässä ovat AutoGenin tärkeät ydinajatukset:
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -326,7 +326,7 @@ Tässä ovat AutoGenin tärkeät ydinajatukset:
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```  
 
-    Edellisessä koodissa on luotu `MyAssistant`, joka perii `RoutedAgent`-luokan. Sillä on viestinkäsittelijä, joka tulostaa viestin sisällön ja lähettää sitten vastauksen `AssistantAgent`-deleegaatin avulla. Huomaa erityisesti, kuinka `self._delegate`-muuttujalle annetaan `AssistantAgent`-instanssi, joka on valmiiksi rakennettu agentti, joka voi käsitellä chat-vastauksia.
+    Edellisessä koodissa on luotu `MyAgent`, joka perii `RoutedAgent`-luokan. Sillä on viestinkäsittelijä, joka tulostaa viestin sisällön ja lähettää sitten vastauksen `AssistantAgent`-deleegaatin avulla. Huomaa erityisesti, kuinka `self._delegate`-muuttujalle annetaan `AssistantAgent`-instanssi, joka on valmiiksi rakennettu agentti, joka voi käsitellä chat-vastauksia.
 
     Seuraavaksi ilmoitetaan AutoGenille tästä agenttityypistä ja käynnistetään ohjelma:
 

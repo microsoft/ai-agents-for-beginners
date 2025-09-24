@@ -309,7 +309,7 @@ AutoGen حول مفهوم اصلی عوامل ساخته شده است، که م
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -324,7 +324,7 @@ AutoGen حول مفهوم اصلی عوامل ساخته شده است، که م
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
 
-    در کد قبلی، `MyAssistant` ایجاد شده و از `RoutedAgent` ارث می‌برد. این عامل دارای یک مدیریت‌کننده پیام است که محتوای پیام را چاپ می‌کند و سپس با استفاده از نماینده `AssistantAgent` پاسخ ارسال می‌کند. به ویژه توجه کنید که چگونه به `self._delegate` یک نمونه از `AssistantAgent` اختصاص داده می‌شود که یک عامل از پیش ساخته شده است و می‌تواند تکمیل‌های چت را مدیریت کند.
+    در کد قبلی، `MyAgent` ایجاد شده و از `RoutedAgent` ارث می‌برد. این عامل دارای یک مدیریت‌کننده پیام است که محتوای پیام را چاپ می‌کند و سپس با استفاده از نماینده `AssistantAgent` پاسخ ارسال می‌کند. به ویژه توجه کنید که چگونه به `self._delegate` یک نمونه از `AssistantAgent` اختصاص داده می‌شود که یک عامل از پیش ساخته شده است و می‌تواند تکمیل‌های چت را مدیریت کند.
 
     بیایید AutoGen را از این نوع عامل مطلع کنیم و برنامه را شروع کنیم:
 

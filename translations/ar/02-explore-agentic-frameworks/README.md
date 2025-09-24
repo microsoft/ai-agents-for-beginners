@@ -309,7 +309,7 @@ AutoGen مبني حول مفهوم الوكلاء، وهم كيانات ذاتي
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -324,7 +324,7 @@ AutoGen مبني حول مفهوم الوكلاء، وهم كيانات ذاتي
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
 
-    في الكود السابق، تم إنشاء `MyAssistant` وهو يرث من `RoutedAgent`. يحتوي على معالج رسائل يطبع محتوى الرسالة ثم يرسل استجابة باستخدام الوكيل `AssistantAgent`. لاحظ بشكل خاص كيف قمنا بتعيين `self._delegate` إلى نسخة من `AssistantAgent`، وهو وكيل جاهز يمكنه التعامل مع إكمالات الدردشة.
+    في الكود السابق، تم إنشاء `MyAgent` وهو يرث من `RoutedAgent`. يحتوي على معالج رسائل يطبع محتوى الرسالة ثم يرسل استجابة باستخدام الوكيل `AssistantAgent`. لاحظ بشكل خاص كيف قمنا بتعيين `self._delegate` إلى نسخة من `AssistantAgent`، وهو وكيل جاهز يمكنه التعامل مع إكمالات الدردشة.
 
     لنخبر AutoGen عن هذا النوع من الوكلاء ونبدأ البرنامج:
 

@@ -307,7 +307,7 @@ Berikut adalah beberapa konsep teras penting AutoGen:
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -322,7 +322,7 @@ Berikut adalah beberapa konsep teras penting AutoGen:
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
     
-    Dalam kod sebelumnya, `MyAssistant` telah dicipta dan mewarisi daripada `RoutedAgent`. Ia mempunyai pengendali mesej yang mencetak kandungan mesej dan kemudian menghantar respons menggunakan delegasi `AssistantAgent`. Perhatikan bagaimana kita menetapkan kepada `self._delegate` satu instance `AssistantAgent` yang merupakan ejen pra-bina yang boleh mengendalikan penyelesaian chat.
+    Dalam kod sebelumnya, `MyAgent` telah dicipta dan mewarisi daripada `RoutedAgent`. Ia mempunyai pengendali mesej yang mencetak kandungan mesej dan kemudian menghantar respons menggunakan delegasi `AssistantAgent`. Perhatikan bagaimana kita menetapkan kepada `self._delegate` satu instance `AssistantAgent` yang merupakan ejen pra-bina yang boleh mengendalikan penyelesaian chat.
 
 
     Mari maklumkan AutoGen tentang jenis ejen ini dan mulakan program seterusnya:

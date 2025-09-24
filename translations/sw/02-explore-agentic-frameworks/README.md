@@ -309,7 +309,7 @@ Hapa kuna dhana muhimu za msingi za AutoGen:
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -324,7 +324,7 @@ Hapa kuna dhana muhimu za msingi za AutoGen:
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
     
-    Katika msimbo uliopita, `MyAssistant` imeundwa na kurithi kutoka kwa `RoutedAgent`. Ina mshughulikiaji wa ujumbe ambao huchapisha maudhui ya ujumbe na kisha kutuma jibu kwa kutumia wakala wa `AssistantAgent`. Kumbuka hasa jinsi tunavyoweka kwa `self._delegate` mfano wa `AssistantAgent` ambao ni wakala uliotengenezwa tayari unaoweza kushughulikia mazungumzo.
+    Katika msimbo uliopita, `MyAgent` imeundwa na kurithi kutoka kwa `RoutedAgent`. Ina mshughulikiaji wa ujumbe ambao huchapisha maudhui ya ujumbe na kisha kutuma jibu kwa kutumia wakala wa `AssistantAgent`. Kumbuka hasa jinsi tunavyoweka kwa `self._delegate` mfano wa `AssistantAgent` ambao ni wakala uliotengenezwa tayari unaoweza kushughulikia mazungumzo.
 
     Hebu tuufahamishe AutoGen kuhusu aina hii ya wakala na kuanzisha programu:
 

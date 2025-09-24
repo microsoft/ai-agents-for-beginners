@@ -309,7 +309,7 @@ Narito ang isang maikling code snippet kung saan maaari kang lumikha ng sarili m
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -324,7 +324,7 @@ Narito ang isang maikling code snippet kung saan maaari kang lumikha ng sarili m
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
 
-Sa nakaraang code, ang `MyAssistant` ay nilikha at nagmana mula sa `RoutedAgent`. Mayroon itong message handler na nagpi-print ng content ng mensahe at pagkatapos ay nagpapadala ng tugon gamit ang `AssistantAgent` delegate. Lalo na tandaan kung paano natin ina-assign sa `self._delegate` ang isang instance ng `AssistantAgent` na isang pre-built agent na maaaring mag-handle ng chat completions.
+Sa nakaraang code, ang `MyAgent` ay nilikha at nagmana mula sa `RoutedAgent`. Mayroon itong message handler na nagpi-print ng content ng mensahe at pagkatapos ay nagpapadala ng tugon gamit ang `AssistantAgent` delegate. Lalo na tandaan kung paano natin ina-assign sa `self._delegate` ang isang instance ng `AssistantAgent` na isang pre-built agent na maaaring mag-handle ng chat completions.
 
 Ipaalam natin sa AutoGen ang tungkol sa ganitong uri ng agent at simulan ang programa:
 

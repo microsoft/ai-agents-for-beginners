@@ -310,7 +310,7 @@ await Console(stream)
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -325,7 +325,7 @@ await Console(stream)
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
     
-    Στον προηγούμενο κώδικα, δημιουργήθηκε το `MyAssistant` και κληρονομεί από το `RoutedAgent`. Έχει έναν χειριστή μηνυμάτων που εκτυπώνει το περιεχόμενο του μηνύματος και στη συνέχεια στέλνει μια απάντηση χρησιμοποιώντας τον αντιπρόσωπο `AssistantAgent`. Σημειώστε ιδιαίτερα πώς αναθέτουμε στο `self._delegate` μια παρουσία του `AssistantAgent`, που είναι ένας προκατασκευασμένος πράκτορας που μπορεί να χειριστεί ολοκληρώσεις συνομιλιών.
+    Στον προηγούμενο κώδικα, δημιουργήθηκε το `MyAgent` και κληρονομεί από το `RoutedAgent`. Έχει έναν χειριστή μηνυμάτων που εκτυπώνει το περιεχόμενο του μηνύματος και στη συνέχεια στέλνει μια απάντηση χρησιμοποιώντας τον αντιπρόσωπο `AssistantAgent`. Σημειώστε ιδιαίτερα πώς αναθέτουμε στο `self._delegate` μια παρουσία του `AssistantAgent`, που είναι ένας προκατασκευασμένος πράκτορας που μπορεί να χειριστεί ολοκληρώσεις συνομιλιών.
 
     Ας ενημερώσουμε το AutoGen για αυτόν τον τύπο πράκτορα και ας ξεκινήσουμε το πρόγραμμα:
 

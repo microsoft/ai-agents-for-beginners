@@ -313,7 +313,7 @@ AutoGen בנויה סביב הרעיון המרכזי של סוכנים, שהם 
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -328,7 +328,7 @@ AutoGen בנויה סביב הרעיון המרכזי של סוכנים, שהם 
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
     
-    בקוד הקודם, `MyAssistant` נוצר ויורש מ-`RoutedAgent`. יש לו מטפל הודעות שמדפיס את תוכן ההודעה ואז שולח תגובה באמצעות הנציג `AssistantAgent`. שימו לב במיוחד כיצד אנו מקצים ל-`self._delegate` מופע של `AssistantAgent`, שהוא סוכן מוכן מראש שיכול לטפל בהשלמות צ'אט.
+    בקוד הקודם, `MyAgent` נוצר ויורש מ-`RoutedAgent`. יש לו מטפל הודעות שמדפיס את תוכן ההודעה ואז שולח תגובה באמצעות הנציג `AssistantAgent`. שימו לב במיוחד כיצד אנו מקצים ל-`self._delegate` מופע של `AssistantAgent`, שהוא סוכן מוכן מראש שיכול לטפל בהשלמות צ'אט.
 
     בואו ניידע את AutoGen על סוג הסוכן הזה ונפעיל את התוכנית:
 

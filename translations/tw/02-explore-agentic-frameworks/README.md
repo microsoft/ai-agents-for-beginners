@@ -309,7 +309,7 @@ AutoGen 的核心概念是 Agent，它是能夠感知環境、做出決策並採
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -324,7 +324,7 @@ AutoGen 的核心概念是 Agent，它是能夠感知環境、做出決策並採
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
 
-    在上述程式碼中，`MyAssistant` 被創建並繼承自 `RoutedAgent`。它有一個消息處理器，該處理器會打印消息內容，然後使用 `AssistantAgent` 委派發送回應。特別需要注意的是，我們將 `self._delegate` 指定為 `AssistantAgent` 的實例，這是一個預建的 Agent，能處理聊天完成。
+    在上述程式碼中，`MyAgent` 被創建並繼承自 `RoutedAgent`。它有一個消息處理器，該處理器會打印消息內容，然後使用 `AssistantAgent` 委派發送回應。特別需要注意的是，我們將 `self._delegate` 指定為 `AssistantAgent` 的實例，這是一個預建的 Agent，能處理聊天完成。
 
     接下來，讓 AutoGen 知道這種類型的 Agent 並啟動程式：
 
