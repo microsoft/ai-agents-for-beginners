@@ -119,8 +119,6 @@ Memiliki alat yang menyediakan catatan tindakan yang jelas sangat penting. Tanpa
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.id.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.id.png)
-
 ## Kesimpulan
 
 Agentic RAG mewakili evolusi alami dalam cara sistem AI menangani tugas yang kompleks dan intensif data. Dengan mengadopsi pola interaksi berulang, secara mandiri memilih alat, dan menyempurnakan kueri hingga mencapai hasil berkualitas tinggi, sistem ini bergerak melampaui pengikut prompt statis menjadi pengambil keputusan yang lebih adaptif dan sadar konteks. Meskipun masih dibatasi oleh infrastruktur yang ditentukan manusia dan pedoman etika, kemampuan agentic ini memungkinkan interaksi AI yang lebih kaya, lebih dinamis, dan pada akhirnya lebih berguna bagi perusahaan dan pengguna akhir.

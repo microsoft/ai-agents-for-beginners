@@ -119,8 +119,6 @@ Mít nástroje, které poskytují jasný záznam akcí, je zásadní. Bez nich m
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.cs.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.cs.png)
-
 ## Závěr
 
 Agentic RAG představuje přirozený vývoj v tom, jak AI systémy zvládají složité, datově náročné úkoly. Přijetím vzoru interakce ve smyčce, autonomním výběrem nástrojů a zpřesňováním dotazů, dokud nedosáhne vysoce kvalitního výsledku, systém překračuje statické sledování promptů a stává se adaptivnějším, kontextově uvědomělejším rozhodovacím nástrojem. Přestože je stále omezen lidsky definovanými

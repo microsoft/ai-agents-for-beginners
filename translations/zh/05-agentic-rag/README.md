@@ -119,8 +119,6 @@ Agentic RAG在需要迭代优化和精确性的场景中表现出色：
 
 ![Agent运行示例](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.zh.png)
 
-![Agent运行示例2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.zh.png)
-
 ## 结论
 
 Agentic RAG代表了人工智能系统处理复杂、数据密集型任务的自然演进。通过采用循环交互模式、自主选择工具并优化查询直到获得高质量结果，系统超越了静态的提示跟随，成为更具适应性和上下文感知的决策者。尽管仍受人类定义的基础设施和道德准则的约束，这些Agentic能力使企业和终端用户能够享受更丰富、更动态且更有价值的人工智能交互。

@@ -119,8 +119,6 @@ A avea instrumente care oferă un record clar al acțiunilor este esențial. Fă
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.ro.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.ro.png)
-
 ## Concluzie
 
 Agentic RAG reprezintă o evoluție naturală în modul în care sistemele AI gestionează sarcini complexe, intensive în date. Prin adoptarea unui model de interacțiune în buclă, selectarea autonomă a instrumentelor și rafinarea interogărilor până la obținerea unui rezultat de înaltă calitate, sistemul depășește urmărirea statică a prompturilor, devenind un decident mai adaptiv și conștient de context. Deși încă limitat de infrastructurile și liniile directoare etice definite de oameni, aceste capacități agentice permit interacțiuni AI mai bogate, mai dinamice și, în cele din urmă, mai utile pentru întreprinderi și utilizatori finali.

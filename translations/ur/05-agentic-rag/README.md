@@ -120,7 +120,6 @@ CO_OP_TRANSLATOR_METADATA:
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.ur.png)
 
-![AgentRunExample2](./
 <a href="https://learn.microsoft.com/training/modules/use-own-data-azure-openai" target="_blank">
 ایجور اوپن اے آئی سروس کے ساتھ ریٹریول آگمینٹڈ جنریشن (RAG) کو نافذ کریں: سیکھیں کہ ایجور اوپن اے آئی سروس کے ساتھ اپنے ڈیٹا کا استعمال کیسے کریں۔ یہ مائیکروسافٹ لرن ماڈیول RAG کو نافذ کرنے کے لیے ایک جامع رہنمائی فراہم کرتا ہے۔  
 - <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">ایجور اے آئی فاؤنڈری کے ساتھ جنریٹو اے آئی ایپلیکیشنز کا جائزہ: یہ مضمون عوامی طور پر دستیاب ڈیٹاسیٹس پر ماڈلز کے جائزے اور موازنہ کا احاطہ کرتا ہے، جس میں ایجنٹک اے آئی ایپلیکیشنز اور RAG آرکیٹیکچرز شامل ہیں</a>  

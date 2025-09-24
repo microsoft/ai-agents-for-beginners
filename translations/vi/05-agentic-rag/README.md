@@ -119,8 +119,6 @@ Có các công cụ cung cấp một bản ghi rõ ràng về các hành động
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.vi.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.vi.png)
-
 ## Kết luận
 
 Agentic RAG đại diện cho một sự phát triển tự nhiên trong cách các hệ thống AI xử lý các nhiệm vụ phức tạp, đòi hỏi nhiều dữ liệu. Bằng cách áp dụng mô hình tương tác lặp lại, tự động chọn công cụ, và tinh chỉnh truy vấn cho đến khi đạt được kết quả chất lượng cao, hệ thống vượt qua việc chỉ theo dõi nhắc nhở tĩnh để trở thành một người ra quyết định thích ứng, nhận thức ngữ cảnh hơn. Mặc dù vẫn bị giới hạn bởi các cơ sở hạ tầng và hướng dẫn đạo đức do con người xác định, các khả năng agentic này cho phép các tương tác AI phong phú hơn, năng động hơn, và cuối cùng hữu ích hơn cho cả doanh nghiệp và người dùng cuối.

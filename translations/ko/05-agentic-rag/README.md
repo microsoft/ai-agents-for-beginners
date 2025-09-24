@@ -121,8 +121,6 @@ Agentic RAG는 반복적 정제와 정확성이 요구되는 시나리오에서 
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.ko.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.ko.png)
-
 ## 결론
 
 Agentic RAG는 AI 시스템이 복잡하고 데이터 집약적인 작업을 처리하는 방식에서 자연스러운 진화를 나타냅니다. 반복 상호작용 패턴을 채택하고, 도구를 자율적으로 선택하며, 고품질 결과를 얻을 때까지 쿼리를 정제함으로써, 시스템은 정적인 프롬프트 추종을 넘어 더 적응적이고 컨텍스트를 인식하는 의사 결정자로 발전합니다. 여전히 인간이 정의한 인프라와 윤리적 지침에 의해 제한되지만, 이러한 에이전트적 능력은 기업과 최종 사용자 모두에게 더 풍부하고 역동적이며 궁극적으로 더 유용한 AI 상호작용을 가능하게 합니다.

@@ -119,8 +119,6 @@ Posiadanie narzędzi, które zapewniają jasny zapis działań, jest kluczowe. B
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.pl.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.pl.png)
-
 ## Podsumowanie
 
 Agentic RAG reprezentuje naturalną ewolucję w sposobie

@@ -121,8 +121,6 @@ Het hebben van tools die een duidelijk overzicht van acties bieden is essentieel
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.nl.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.nl.png)
-
 ## Conclusie
 
 Agentic RAG vertegenwoordigt een natuurlijke evolutie in hoe AI-systemen complexe, data-intensieve taken aanpakken. Door een interactiepatroon met loops te adopteren, autonoom tools te selecteren en zoekopdrachten te verfijnen totdat een hoogwaardig resultaat is bereikt, gaat het systeem verder dan statisch prompt-volgen naar een meer adaptieve, contextbewuste besluitvormer. Hoewel het nog steeds beperkt is door menselijk gedefinieerde infrastructuren en ethische richtlijnen, maken deze agentische capaciteiten rijkere, dynamischere en uiteindelijk nuttigere AI-interacties mogelijk voor zowel bedrijven als eindgebruikers.

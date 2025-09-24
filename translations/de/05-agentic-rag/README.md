@@ -120,8 +120,6 @@ Werkzeuge, die eine klare Aufzeichnung der Aktionen bereitstellen, sind essenzie
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.de.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.de.png)
-
 ## Fazit
 
 Agentic RAG stellt eine natürliche Weiterentwicklung dar, wie KI-Systeme komplexe, datenintensive Aufgaben bewältigen. Durch die Einführung eines iterativen Interaktionsmusters, die autonome Auswahl von Werkzeugen und die Verfeinerung von Abfragen bis zur Erzielung eines qualitativ hochwertigen Ergebnisses geht das System über statisches Prompt-Following hinaus und wird zu einem adaptiveren, kontextbewussten Entscheidungsträger. Obwohl es weiterhin durch menschlich definierte Infrastrukturen und ethische Richtlinien begrenzt ist, ermöglichen diese agentischen Fähigkeiten reichhaltigere, dynamischere und letztlich nützlichere KI-Interaktionen für Unternehmen und Endnutzer.

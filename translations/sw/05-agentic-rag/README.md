@@ -119,8 +119,6 @@ Kuwa na zana zinazotoa rekodi wazi ya hatua ni muhimu. Bila zana hizo, kurekebis
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.sw.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.sw.png)
-
 ## Hitimisho
 
 Agentic RAG inawakilisha mageuzi ya asili katika jinsi mifumo ya AI inavyoshughulikia kazi ngumu, zinazohitaji data nyingi. Kwa kupitisha muundo wa mwingiliano wa mzunguko, kuchagua zana kwa uhuru, na kurekebisha maswali hadi kufikia matokeo ya hali ya juu, mfumo unazidi mifumo ya kawaida ya kufuata maelekezo na kuwa mtoaji wa maamuzi unaojitegemea zaidi na unaojali muktadha. Ingawa bado umefungwa na miundombinu iliyofafanuliwa na binadamu na miongozo ya kimaadili, uwezo huu wa agentic unaruhusu mwingiliano tajiri zaidi, wa nguvu zaidi, na hatimaye wa manufaa zaidi wa AI kwa mashirika na watumiaji wa mwisho.

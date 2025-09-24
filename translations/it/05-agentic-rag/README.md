@@ -120,8 +120,6 @@ Avere strumenti che forniscono un chiaro registro delle azioni è essenziale. Se
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.it.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.it.png)
-
 ## Conclusione
 
 L'Agentic RAG rappresenta un'evoluzione naturale nel modo in cui i sistemi di IA gestiscono compiti complessi e intensivi di dati. Adottando un modello di interazione ciclico, selezionando autonomamente strumenti e affinando le query fino a ottenere un risultato di alta qualità, il sistema va oltre il semplice seguire i prompt statici, diventando un decisore più adattivo e consapevole del contesto. Sebbene ancora vincolato da infrastrutture e linee guida etiche definite dagli esseri umani, queste capacità agentiche consentono interazioni con l'IA più ricche, dinamiche e, in definitiva, più utili per le imprese e gli utenti finali.

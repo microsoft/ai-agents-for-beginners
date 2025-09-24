@@ -119,8 +119,6 @@ Etter hvert som disse systemene blir mer autonome i sin resonnering, er styring 
 
 ![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.no.png)
 
-![AgentRunExample2](../../../translated_images/AgentRunExample2.19c7410a03bbc216c446b8a4e35ac82f1e8bc0ed313484212f5f4d1137637245.no.png)
-
 ## Konklusjon
 
 Agentic RAG representerer en naturlig utvikling i hvordan AI-systemer håndterer komplekse, dataintensive oppgaver. Ved å adoptere et loopet interaksjonsmønster, autonomt velge verktøy og forbedre forespørsler til det oppnår et høykvalitetsresultat, beveger systemet seg utover statisk prompt-etterfølgelse til å bli en mer tilpasningsdyktig, kontekstbevisst beslutningstaker. Selv om det fortsatt er begrenset av menneskedefinerte infrastrukturer og etiske retningslinjer, muliggjør disse agentiske evnene rikere, mer dynamiske og til slutt mer nyttige AI-interaksjoner for både bedrifter og sluttbrukere.
