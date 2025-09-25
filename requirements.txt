@@ -24,4 +24,4 @@ semantic-kernel[azure]
 semantic-kernel[mcp]
 uvicorn
 nest-asyncio
-mem0
+mem0ai
