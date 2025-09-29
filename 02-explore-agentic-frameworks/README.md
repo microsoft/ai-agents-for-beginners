@@ -1,4 +1,4 @@
-[![Exploring AI Agent Frameworks](./images/lesson-2-thumbnail.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![Exploring AI Agent Frameworks](./images/lesson-2-thumbnail.png)](https://youtu.be/ODwF-EZo_O8)
 
 > _(Click the image above to view video of this lesson)_
 

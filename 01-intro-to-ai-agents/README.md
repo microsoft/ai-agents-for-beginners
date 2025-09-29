@@ -1,5 +1,5 @@
 
-[![Intro to AI Agents](./images/lesson-1-thumbnail.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](./images/lesson-1-thumbnail.png)](https://youtu.be/3zgm60bXmQk)
 
 > _(Click the image above to view video of this lesson)_
 

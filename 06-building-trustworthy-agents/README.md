@@ -1,4 +1,4 @@
-[![Trustworthy AI Agents](./images/lesson-6-thumbnail.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](./images/lesson-6-thumbnail.png)](https://youtu.be/iZKkMEGBCUQ)
 
 > _(Click the image above to view video of this lesson)_
 

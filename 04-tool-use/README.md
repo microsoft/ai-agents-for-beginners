@@ -1,4 +1,4 @@
-[![How to Design Good AI Agents](./images/lesson-4-thumbnail.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![How to Design Good AI Agents](./images/lesson-4-thumbnail.png)](https://youtu.be/vieRiPRx-gI)
 
 > _(Click the image above to view video of this lesson)_
 

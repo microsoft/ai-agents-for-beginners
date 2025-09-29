@@ -1,4 +1,4 @@
-[![Multi-Agent Design](./images/lesson-8-thumbnail.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](./images/lesson-8-thumbnail.png)](https://youtu.be/V6HpE9hZEx0)
 
 > _(Click the image above to view video of this lesson)_
 

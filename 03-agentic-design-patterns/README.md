@@ -1,4 +1,4 @@
-[![How to Design Good AI Agents](./images/lesson-3-thumbnail.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![How to Design Good AI Agents](./images/lesson-3-thumbnail.png)](https://youtu.be/m9lM8qqoOEA)
 
 > _(Click the image above to view video of this lesson)_
 # AI Agentic Design Principles

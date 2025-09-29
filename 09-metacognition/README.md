@@ -1,4 +1,4 @@
-[![Multi-Agent Design](./images/lesson-9-thumbnail.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](./images/lesson-9-thumbnail.png)](https://youtu.be/His9R6gw6Ec)
 
 > _(Click the image above to view video of this lesson)_
 # Metacognition in AI Agents

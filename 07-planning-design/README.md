@@ -1,4 +1,4 @@
-[![Planning Design Pattern](./images/lesson-7-thumbnail.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](./images/lesson-7-thumbnail.png)](https://youtu.be/kPfJ2BrBCMY)
 
 > _(Click the image above to view video of this lesson)_
 
