@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "9b03446058b4eed46928ae5e46325ea0",
-  "translation_date": "2025-10-02T19:19:04+00:00",
+  "original_hash": "96eb7f95375daa3e91778ca0295a55d9",
+  "translation_date": "2025-10-15T11:46:03+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "pl"
 }
@@ -11,25 +11,100 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Wprowadzenie
 
-W tej lekcji dowiesz się, jak uruchomić przykłady kodu z tego kursu.
+W tej lekcji omówimy, jak uruchomić przykłady kodu z tego kursu.
 
 ## Dołącz do innych uczestników i uzyskaj pomoc
 
-Zanim zaczniesz klonować repozytorium, dołącz do [kanału Discord AI Agents For Beginners](https://aka.ms/ai-agents/discord), aby uzyskać pomoc w konfiguracji, odpowiedzi na pytania dotyczące kursu lub nawiązać kontakt z innymi uczestnikami.
+Zanim zaczniesz klonować swoje repozytorium, dołącz do [kanału Discord AI Agents For Beginners](https://aka.ms/ai-agents/discord), aby uzyskać pomoc w konfiguracji, odpowiedzi na pytania dotyczące kursu lub nawiązać kontakt z innymi uczestnikami.
 
-## Sklonuj lub zrób fork repozytorium
+## Sklonuj lub zrób fork tego repozytorium
 
-Na początek sklonuj lub zrób fork repozytorium GitHub. Dzięki temu będziesz mieć własną wersję materiałów kursowych, aby móc uruchamiać, testować i modyfikować kod!
+Na początek prosimy o sklonowanie lub zrobienie forka repozytorium GitHub. Dzięki temu stworzysz własną wersję materiałów kursowych, aby móc uruchamiać, testować i modyfikować kod!
 
-Możesz to zrobić, klikając link do <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork repozytorium</a>.
+Możesz to zrobić, klikając link do <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">forkowania repozytorium</a>.
 
-Teraz powinieneś mieć własną wersję tego kursu pod następującym linkiem:
+Teraz powinieneś mieć swoją własną wersję tego kursu pod następującym linkiem:
 
-![Repozytorium z forkiem](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.pl.png)
+![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.pl.png)
+
+### Płytkie klonowanie (zalecane na warsztaty / Codespaces)
+
+  >Pełne repozytorium może być duże (~3 GB) przy pobieraniu całej historii i wszystkich plików. Jeśli uczestniczysz tylko w warsztatach lub potrzebujesz tylko kilku folderów z lekcjami, płytkie klonowanie (lub klonowanie częściowe) pozwala uniknąć większości tego pobierania, skracając historię i/lub pomijając pliki.
+
+#### Szybkie płytkie klonowanie — minimalna historia, wszystkie pliki
+
+Zastąp `<your-username>` w poniższych poleceniach URL swojego forka (lub URL upstream, jeśli wolisz).
+
+Aby sklonować tylko najnowszą historię commitów (mały rozmiar pobierania):
+
+```bash|powershell
+git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+Aby sklonować konkretną gałąź:
+
+```bash|powershell
+git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+#### Częściowe (sparse) klonowanie — minimalne pliki + tylko wybrane foldery
+
+To klonowanie wykorzystuje częściowe klonowanie i sparse-checkout (wymaga Git 2.25+ i zalecane nowoczesne Git z obsługą częściowego klonowania):
+
+```bash|powershell
+git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
+```
+
+Przejdź do folderu repozytorium:
+
+Dla bash:
+
+```bash
+cd ai-agents-for-beginners
+```
+
+Dla Powershell:
+
+```powershell
+Set-Location ai-agents-for-beginners
+```
+
+Następnie określ, które foldery chcesz (przykład poniżej pokazuje dwa foldery):
+
+```bash|powershell
+git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
+```
+
+Po sklonowaniu i zweryfikowaniu plików, jeśli potrzebujesz tylko plików i chcesz zwolnić miejsce (bez historii git), usuń metadane repozytorium (💀nieodwracalne — stracisz wszystkie funkcje Git: brak commitów, pulli, pushów ani dostępu do historii).
+
+Dla Linux/macOS:
+
+```bash
+rm -rf .git
+```
+
+Dla Windows:
+
+```powershell
+Remove-Item -Recurse -Force .git
+```
+
+#### Korzystanie z GitHub Codespaces (zalecane, aby uniknąć lokalnych dużych pobrań)
+
+- Utwórz nowy Codespace dla tego repozytorium za pomocą [interfejsu GitHub](https://github.com/codespaces).  
+
+- W terminalu nowo utworzonego Codespace uruchom jedno z poleceń płytkiego/częściowego klonowania, aby pobrać tylko foldery lekcji, które są Ci potrzebne, do przestrzeni roboczej Codespace.
+- Opcjonalnie: po klonowaniu w Codespaces usuń .git, aby odzyskać dodatkowe miejsce (zobacz powyższe polecenia usuwania).
+- Uwaga: Jeśli wolisz otworzyć repozytorium bezpośrednio w Codespaces (bez dodatkowego klonowania), pamiętaj, że Codespaces skonstruuje środowisko devcontainer i może nadal przygotować więcej niż potrzebujesz. Klonowanie płytkiej kopii w świeżym Codespace daje większą kontrolę nad wykorzystaniem dysku.
+
+#### Wskazówki
+
+- Zawsze zastępuj URL klonowania swoim forkiem, jeśli chcesz edytować/commitować.
+- Jeśli później potrzebujesz więcej historii lub plików, możesz je pobrać lub dostosować sparse-checkout, aby uwzględnić dodatkowe foldery.
 
 ## Uruchamianie kodu
 
-Ten kurs oferuje serię notatników Jupyter, które możesz uruchomić, aby zdobyć praktyczne doświadczenie w budowaniu agentów AI.
+Ten kurs oferuje serię Notatników Jupyter, które możesz uruchomić, aby zdobyć praktyczne doświadczenie w budowaniu agentów AI.
 
 Przykłady kodu wykorzystują:
 
@@ -43,16 +118,16 @@ Przykłady kodu wykorzystują:
 
 Zachęcamy do wypróbowania wszystkich trzech typów przykładów, aby zobaczyć, który z nich najlepiej Ci odpowiada.
 
-Opcja, którą wybierzesz, określi, jakie kroki konfiguracji musisz wykonać poniżej:
+Opcja, którą wybierzesz, określi, które kroki konfiguracji musisz wykonać poniżej:
 
 ## Wymagania
 
 - Python 3.12+
-  - **UWAGA**: Jeśli nie masz zainstalowanego Python3.12, upewnij się, że go zainstalujesz. Następnie utwórz wirtualne środowisko (venv) za pomocą python3.12, aby upewnić się, że odpowiednie wersje zostaną zainstalowane z pliku requirements.txt.
+  - **UWAGA**: Jeśli nie masz zainstalowanego Python3.12, upewnij się, że go zainstalujesz. Następnie utwórz swój venv za pomocą python3.12, aby upewnić się, że odpowiednie wersje zostaną zainstalowane z pliku requirements.txt.
   
     >Przykład
 
-    Utwórz katalog wirtualnego środowiska Python:
+    Utwórz katalog Python venv:
 
     ``` bash
     python3 -m venv venv
@@ -86,7 +161,7 @@ pip install -r requirements.txt
 Zalecamy utworzenie wirtualnego środowiska Python, aby uniknąć konfliktów i problemów.
 
 ## Konfiguracja VSCode
-Upewnij się, że używasz odpowiedniej wersji Python w VSCode.
+Upewnij się, że używasz odpowiedniej wersji Pythona w VSCode.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
@@ -94,47 +169,47 @@ Upewnij się, że używasz odpowiedniej wersji Python w VSCode.
 
 ### Krok 1: Pobierz swój GitHub Personal Access Token (PAT)
 
-Ten kurs wykorzystuje GitHub Models Marketplace, oferując bezpłatny dostęp do dużych modeli językowych (LLM), które będziesz używać do budowy agentów AI.
+Ten kurs wykorzystuje GitHub Models Marketplace, zapewniając bezpłatny dostęp do dużych modeli językowych (LLM), które będziesz używać do budowania agentów AI.
 
 Aby korzystać z GitHub Models, musisz utworzyć [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
-Możesz to zrobić, przechodząc do <a href="https://github.com/settings/personal-access-tokens" target="_blank">ustawień Personal Access Tokens</a> w swoim koncie GitHub.
+Możesz to zrobić, przechodząc do <a href="https://github.com/settings/personal-access-tokens" target="_blank">ustawień tokenów dostępu osobistego</a> w swoim koncie GitHub.
 
-Postępuj zgodnie z zasadą [Minimalnych Uprawnień](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) podczas tworzenia tokena. Oznacza to, że token powinien mieć tylko te uprawnienia, które są potrzebne do uruchomienia przykładów kodu w tym kursie.
+Proszę postępować zgodnie z [zasadą minimalnych uprawnień](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) podczas tworzenia tokena. Oznacza to, że powinieneś nadać tokenowi tylko te uprawnienia, które są potrzebne do uruchomienia przykładów kodu w tym kursie.
 
-1. Wybierz opcję `Fine-grained tokens` po lewej stronie ekranu, przechodząc do **Developer settings**.
+1. Wybierz opcję `Fine-grained tokens` po lewej stronie ekranu, przechodząc do **Developer settings**
    ![](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.pl.png)
 
     Następnie wybierz `Generate new token`.
 
-    ![Generowanie tokena](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.pl.png)
+    ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.pl.png)
 
 2. Wprowadź opisową nazwę dla swojego tokena, która odzwierciedla jego cel, aby łatwo go później zidentyfikować.
 
 
-    🔐 Rekomendacja dotycząca czasu trwania tokena
+    🔐 Zalecenie dotyczące czasu trwania tokena
 
     Zalecany czas trwania: 30 dni
-    Dla większego bezpieczeństwa możesz wybrać krótszy okres, na przykład 7 dni 🛡️
-    To świetny sposób na wyznaczenie sobie celu i ukończenie kursu, gdy Twoje tempo nauki jest wysokie 🚀.
+    Dla większego bezpieczeństwa możesz wybrać krótszy okres — na przykład 7 dni 🛡️
+    To świetny sposób na wyznaczenie osobistego celu i ukończenie kursu, gdy Twoje tempo nauki jest wysokie 🚀.
 
-    ![Nazwa tokena i data wygaśnięcia](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.pl.png)
+    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.pl.png)
 
 3. Ogranicz zakres tokena do swojego forka tego repozytorium.
 
-    ![Ograniczenie zakresu do repozytorium z forkiem](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.pl.png)
+    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.pl.png)
 
 4. Ogranicz uprawnienia tokena: W sekcji **Permissions**, kliknij zakładkę **Account**, a następnie przycisk "+ Add permissions". Pojawi się rozwijane menu. Wyszukaj **Models** i zaznacz odpowiednie pole.
-    ![Dodanie uprawnień Models](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.pl.png)
+    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.pl.png)
 
-5. Zweryfikuj wymagane uprawnienia przed wygenerowaniem tokena. ![Weryfikacja uprawnień](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.pl.png)
+5. Zweryfikuj wymagane uprawnienia przed wygenerowaniem tokena. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.pl.png)
 
-6. Przed wygenerowaniem tokena upewnij się, że jesteś gotowy do przechowywania tokena w bezpiecznym miejscu, takim jak menedżer haseł, ponieważ nie będzie on ponownie wyświetlany po jego utworzeniu. ![Bezpieczne przechowywanie tokena](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.pl.png)
+6. Przed wygenerowaniem tokena upewnij się, że jesteś gotowy do przechowywania tokena w bezpiecznym miejscu, takim jak sejf menedżera haseł, ponieważ nie będzie on ponownie wyświetlany po jego utworzeniu. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.pl.png)
 
-Skopiuj nowo utworzony token. Teraz dodasz go do pliku `.env` dołączonego do tego kursu.
+Skopiuj nowo utworzony token. Teraz dodasz go do swojego pliku `.env` dołączonego do tego kursu.
 
 
-### Krok 2: Utwórz plik `.env`
+### Krok 2: Utwórz swój plik `.env`
 
 Aby utworzyć plik `.env`, uruchom następujące polecenie w terminalu.
 
@@ -142,29 +217,29 @@ Aby utworzyć plik `.env`, uruchom następujące polecenie w terminalu.
 cp .env.example .env
 ```
 
-To polecenie skopiuje plik przykładowy i utworzy `.env` w Twoim katalogu, gdzie wypełnisz wartościami zmienne środowiskowe.
+To polecenie skopiuje plik przykładowy i utworzy `.env` w Twoim katalogu, gdzie wypełnisz wartości dla zmiennych środowiskowych.
 
 Po skopiowaniu tokena otwórz plik `.env` w swoim ulubionym edytorze tekstu i wklej token w polu `GITHUB_TOKEN`.
-![Pole GitHub Token](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.pl.png)
+![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.pl.png)
 
 
 Teraz powinieneś być w stanie uruchomić przykłady kodu z tego kursu.
 
 ## Konfiguracja dla przykładów z użyciem Azure AI Foundry i Azure AI Agent Service
 
-### Krok 1: Pobierz punkt końcowy projektu Azure
+### Krok 1: Pobierz punkt końcowy swojego projektu Azure
 
 
-Postępuj zgodnie z krokami tworzenia huba i projektu w Azure AI Foundry opisanymi tutaj: [Przegląd zasobów hub](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+Postępuj zgodnie z krokami tworzenia huba i projektu w Azure AI Foundry, opisanymi tutaj: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
 
 
-Po utworzeniu projektu musisz pobrać ciąg połączenia dla swojego projektu.
+Po utworzeniu projektu będziesz musiał pobrać ciąg połączenia dla swojego projektu.
 
-Możesz to zrobić, przechodząc do strony **Overview** swojego projektu w portalu Azure AI Foundry.
+Można to zrobić, przechodząc do strony **Overview** swojego projektu w portalu Azure AI Foundry.
 
-![Ciąg połączenia projektu](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.pl.png)
+![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.pl.png)
 
-### Krok 2: Utwórz plik `.env`
+### Krok 2: Utwórz swój plik `.env`
 
 Aby utworzyć plik `.env`, uruchom następujące polecenie w terminalu.
 
@@ -172,7 +247,7 @@ Aby utworzyć plik `.env`, uruchom następujące polecenie w terminalu.
 cp .env.example .env
 ```
 
-To polecenie skopiuje plik przykładowy i utworzy `.env` w Twoim katalogu, gdzie wypełnisz wartościami zmienne środowiskowe.
+To polecenie skopiuje plik przykładowy i utworzy `.env` w Twoim katalogu, gdzie wypełnisz wartości dla zmiennych środowiskowych.
 
 Po skopiowaniu tokena otwórz plik `.env` w swoim ulubionym edytorze tekstu i wklej token w polu `PROJECT_ENDPOINT`.
 
@@ -180,7 +255,7 @@ Po skopiowaniu tokena otwórz plik `.env` w swoim ulubionym edytorze tekstu i wk
 
 Jako najlepszą praktykę bezpieczeństwa użyjemy [uwierzytelniania bez klucza](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst), aby uwierzytelnić się w Azure OpenAI za pomocą Microsoft Entra ID. 
 
-Następnie otwórz terminal i uruchom `az login --use-device-code`, aby zalogować się do swojego konta Azure.
+Następnie otwórz terminal i uruchom `az login --use-device-code`, aby zalogować się na swoje konto Azure.
 
 Po zalogowaniu wybierz swoją subskrypcję w terminalu.
 
@@ -219,7 +294,7 @@ Jeśli chcesz uruchomić te przykłady, musisz dodać następujące zmienne śro
 
 - `AZURE_SEARCH_SERVICE_ENDPOINT` - Znajdź swój zasób **Azure AI Search**, kliknij na niego i zobacz **Overview**.
 
-- `AZURE_SEARCH_API_KEY` - Następnie przejdź do **Settings**, a potem **Keys**, aby skopiować klucz administracyjny główny lub pomocniczy.
+- `AZURE_SEARCH_API_KEY` - Następnie przejdź do **Settings**, a potem **Keys**, aby skopiować klucz administratora głównego lub pomocniczego.
 
 ### Zewnętrzna strona internetowa
 
@@ -227,23 +302,22 @@ Jeśli chcesz uruchomić te przykłady, musisz dodać następujące zmienne śro
 
 ### Konfiguracja uwierzytelniania bez klucza
 
-Zamiast twardo kodować swoje dane uwierzytelniające, użyjemy połączenia bez klucza z Azure OpenAI. Aby to zrobić, zaimportujemy `DefaultAzureCredential`, a później wywołamy funkcję `DefaultAzureCredential`, aby uzyskać dane uwierzytelniające.
+Zamiast twardo kodować swoje dane uwierzytelniające, użyjemy połączenia bez klucza z Azure OpenAI. Aby to zrobić, zaimportujemy `DefaultAzureCredential`, a następnie wywołamy funkcję `DefaultAzureCredential`, aby uzyskać dane uwierzytelniające.
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
-## Masz problem?
-
-Jeśli napotkasz jakiekolwiek problemy podczas tej konfiguracji, dołącz do naszego <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord Azure AI Community</a> lub <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">utwórz zgłoszenie</a>.
+## Utknąłeś gdzieś?
+Jeśli masz jakiekolwiek problemy z uruchomieniem tego zestawu, dołącz do naszego <a href="https://discord.gg/kzRShWzttr" target="_blank">Discorda społeczności Azure AI</a> lub <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">zgłoś problem</a>.
 
 ## Następna lekcja
 
-Teraz jesteś gotowy do uruchomienia kodu z tego kursu. Miłego odkrywania świata agentów AI! 
+Jesteś teraz gotowy, aby uruchomić kod dla tego kursu. Miłego zgłębiania świata agentów AI!
 
-[Wprowadzenie do agentów AI i przypadków użycia agentów](../01-intro-to-ai-agents/README.md)
+[Wprowadzenie do agentów AI i przypadków ich użycia](../01-intro-to-ai-agents/README.md)
 
 ---
 
 **Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy wszelkich starań, aby tłumaczenie było precyzyjne, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za źródło autorytatywne. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż staramy się zapewnić dokładność, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za autorytatywne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
