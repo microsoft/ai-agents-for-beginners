@@ -1,0 +1,4447 @@
+# Check Balance
+Source: https://docs.browser-use.com/api-reference/accounts/check-balance
+
+https://api.browser-use.com/api/v1/openapi.json get /balance
+Returns the user's current API credit balance, which includes both monthly subscription
+credits and any additional purchased credits. Required for monitoring usage and ensuring sufficient
+credits for task execution.
+
+
+
+# Me
+Source: https://docs.browser-use.com/api-reference/accounts/me
+
+https://api.browser-use.com/api/v1/openapi.json get /me
+Returns a boolean value indicating if the API key is valid and the user is authenticated.
+
+
+
+# Upload File Presigned Url
+Source: https://docs.browser-use.com/api-reference/files/upload-file-presigned-url
+
+https://api.browser-use.com/api/v1/openapi.json post /uploads/presigned-url
+Returns a presigned url for uploading a file to the user's files bucket.
+After uploading a file, the user can use the `included_file_names` field
+in the `RunTaskRequest` to include the files in the task.
+
+
+
+# Create Browser Profile
+Source: https://docs.browser-use.com/api-reference/profiles/create-browser-profile
+
+https://api.browser-use.com/api/v1/openapi.json post /browser-profiles
+Create a new browser profile with custom settings for ad blocking, proxy usage, and viewport dimensions.
+Pay as you go users can only have one profile. Subscription users can create multiple profiles.
+
+
+
+# Delete Browser Profile
+Source: https://docs.browser-use.com/api-reference/profiles/delete-browser-profile
+
+https://api.browser-use.com/api/v1/openapi.json delete /browser-profiles/{profile_id}
+Deletes a browser profile. This will remove the profile and all associated browser data.
+
+
+
+# Get Browser Profile
+Source: https://docs.browser-use.com/api-reference/profiles/get-browser-profile
+
+https://api.browser-use.com/api/v1/openapi.json get /browser-profiles/{profile_id}
+Returns information about a specific browser profile and its configuration settings.
+
+
+
+# List Browser Profiles
+Source: https://docs.browser-use.com/api-reference/profiles/list-browser-profiles
+
+https://api.browser-use.com/api/v1/openapi.json get /browser-profiles
+Returns a paginated list of all browser profiles belonging to the user, ordered by creation date.
+Each profile includes configuration like ad blocker settings, proxy settings, and viewport dimensions.
+
+
+
+# Update Browser Profile
+Source: https://docs.browser-use.com/api-reference/profiles/update-browser-profile
+
+https://api.browser-use.com/api/v1/openapi.json put /browser-profiles/{profile_id}
+Update a browser profile with partial updates. Only the fields you want to change need to be included.
+
+
+
+# Search Url
+Source: https://docs.browser-use.com/api-reference/search/search-url
+
+https://api.browser-use.com/api/v1/openapi.json post /search-url
+Search a single URL using browser use.
+
+
+
+# Simple Search
+Source: https://docs.browser-use.com/api-reference/search/simple-search
+
+https://api.browser-use.com/api/v1/openapi.json post /simple-search
+Search the internet using browser use.
+
+
+
+# Get Task
+Source: https://docs.browser-use.com/api-reference/tasks/get-task
+
+https://api.browser-use.com/api/v1/openapi.json get /task/{task_id}
+Returns comprehensive information about a task, including its current status, steps completed, output (if finished), and other metadata.
+
+
+
+# Get Task Media
+Source: https://docs.browser-use.com/api-reference/tasks/get-task-media
+
+https://api.browser-use.com/api/v1/openapi.json get /task/{task_id}/media
+Returns links to any recordings or media generated during task execution,
+such as browser session recordings. Only available for completed tasks.
+
+
+
+# Get Task Output File
+Source: https://docs.browser-use.com/api-reference/tasks/get-task-output-file
+
+https://api.browser-use.com/api/v1/openapi.json get /task/{task_id}/output-file/{file_name}
+Returns a presigned url for downloading a file from the task output files.
+
+
+
+# Get Task Screenshots
+Source: https://docs.browser-use.com/api-reference/tasks/get-task-screenshots
+
+https://api.browser-use.com/api/v1/openapi.json get /task/{task_id}/screenshots
+Returns any screenshot urls generated during task execution.
+
+
+
+# Get Task Status
+Source: https://docs.browser-use.com/api-reference/tasks/get-task-status
+
+https://api.browser-use.com/api/v1/openapi.json get /task/{task_id}/status
+Returns just the current status of a task (created, running, finished, stopped, or paused).
+More lightweight than the full task details endpoint.
+
+
+
+# List Tasks
+Source: https://docs.browser-use.com/api-reference/tasks/list-tasks
+
+https://api.browser-use.com/api/v1/openapi.json get /tasks
+Returns a paginated list of all tasks belonging to the user, ordered by creation date.
+Each task includes basic information like status and creation time. For detailed task info, use the
+get task endpoint.
+
+
+
+# Pause Task
+Source: https://docs.browser-use.com/api-reference/tasks/pause-task
+
+https://api.browser-use.com/api/v1/openapi.json put /pause-task
+Pauses execution of a running task. The task can be resumed later using the `/resume-task` endpoint. Useful for manual intervention or inspection.
+
+
+
+# Resume Task
+Source: https://docs.browser-use.com/api-reference/tasks/resume-task
+
+https://api.browser-use.com/api/v1/openapi.json put /resume-task
+Resumes execution of a previously paused task. The task will continue from where it was paused. You can't resume a stopped task.
+
+
+
+# Run Task
+Source: https://docs.browser-use.com/api-reference/tasks/run-task
+
+https://api.browser-use.com/api/v1/openapi.json post /run-task
+Requires an active subscription. Returns the task ID that can be used to track progress.
+
+
+
+# Stop Task
+Source: https://docs.browser-use.com/api-reference/tasks/stop-task
+
+https://api.browser-use.com/api/v1/openapi.json put /stop-task
+Stops a running browser automation task immediately. The task cannot be resumed after being stopped.
+Use `/pause-task` endpoint instead if you want to temporarily halt execution.
+
+
+
+# Get Browser Use Version
+Source: https://docs.browser-use.com/api-reference/utility/get-browser-use-version
+
+https://api.browser-use.com/api/v1/openapi.json get /browser-use-version
+Returns the browser-use Python library version used by the backend.
+
+
+
+# Ping
+Source: https://docs.browser-use.com/api-reference/utility/ping
+
+https://api.browser-use.com/api/v1/openapi.json get /ping
+Use this endpoint to check if the server is running and responding.
+
+
+
+# Authentication
+Source: https://docs.browser-use.com/cloud/v1/authentication
+
+Learn how to authenticate with the Browser Use Cloud API
+
+The Browser Use Cloud API uses API keys to authenticate requests. You can obtain an API key from your [Browser Use Cloud dashboard](https://cloud.browser-use.com/settings/api-keys).
+
+## API Keys
+
+All API requests must include your API key in the `Authorization` header:
+
+```bash
+Authorization: Bearer YOUR_API_KEY
+```
+
+Keep your API keys secure and do not share them in publicly accessible areas such as GitHub, client-side code, or in your browser's developer tools. API keys should be stored securely in environment variables or a secure key management system.
+
+## Example Request
+
+Here's an example of how to include your API key in a request using Python:
+
+```python
+import requests
+
+API_KEY = 'your_api_key_here'
+BASE_URL = 'https://api.browser-use.com/api/v1'
+HEADERS = {'Authorization': f'Bearer {API_KEY}'}
+
+response = requests.get(f'{BASE_URL}/me', headers=HEADERS)
+print(response.json())
+```
+
+## Verifying Authentication
+
+You can verify that your API key is valid by making a request to the `/api/v1/me` endpoint. See the [Me endpoint documentation](/api-reference/api-v1/me) for more details.
+
+## API Key Security
+
+To ensure the security of your API keys:
+
+1. **Never share your API key** in publicly accessible areas
+2. **Rotate your API keys** periodically
+3. **Use environment variables** to store API keys in your applications
+4. **Implement proper access controls** for your API keys
+5. **Monitor API key usage** for suspicious activity
+
+If you believe your API key has been compromised, you should immediately revoke it and generate a new one from your Browser Use Cloud dashboard.
+
+
+# Cloud SDK
+Source: https://docs.browser-use.com/cloud/v1/custom-sdk
+
+Learn how to set up your own Browser Use Cloud SDK
+
+This guide walks you through setting up your own Browser Use Cloud SDK.
+
+## Building your own client (OpenAPI)
+
+<Note>
+  This approach is recommended **only** if you need to run simple tasks and
+  **don’t require fine-grained control**.
+</Note>
+
+The best way to build your own client is to use our [OpenAPI specification](http://api.browser-use.com/openapi.json) to generate a type-safe client library.
+
+### Python
+
+Use [openapi-python-client](https://github.com/openapi-generators/openapi-python-client) to generate a modern Python client:
+
+```bash
+# Install the generator
+pipx install openapi-python-client --include-deps
+
+# Generate the client
+openapi-python-client generate --url http://api.browser-use.com/openapi.json
+```
+
+This will create a Python package with full type hints, modern dataclasses, and async support.
+
+### TypeScript/JavaScript
+
+Use [OpenAPI TS](https://openapi-ts.dev/) library to generate a type safe TypeScript client for the Browser Use API.
+
+The following guide shows how to create a simple type-safe `fetch` client, but you can also use other generators.
+
+* React Query - [https://openapi-ts.dev/openapi-react-query/](https://openapi-ts.dev/openapi-react-query/)
+* SWR - [https://openapi-ts.dev/swr-openapi/](https://openapi-ts.dev/swr-openapi/)
+
+<CodeGroup>
+  ```bash npm
+  npm install openapi-fetch 
+  npm install -D openapi-typescript typescript
+  ```
+
+  ```bash yarn
+  yarn add openapi-fetch
+  yarn add -D openapi-typescript typescript
+  ```
+
+  ```bash pnpm
+  pnpm add openapi-fetch
+  pnpm add -D openapi-typescript typescript
+  ```
+</CodeGroup>
+
+```json title="package.json"
+{
+  "scripts": {
+    "openapi:gen": "openapi-typescript https://api.browser-use.com/openapi.json -o ./src/lib/api/v1.d.ts"
+  }
+}
+```
+
+```bash
+pnpm openapi:gen
+```
+
+```ts
+// client.ts
+
+'use client'
+
+import createClient from 'openapi-fetch'
+import { paths } from '@/lib/api/v1'
+
+export type Client = ReturnType<typeof createClient<paths>>
+
+export const client = createClient<paths>({
+    baseUrl: 'https://api.browser-use.com/',
+
+    // NOTE: You can get your API key from https://cloud.browser-use.com/billing!
+    headers: { Authorization: `Bearer ${apiKey}` },
+})
+
+```
+
+<Note>
+  Need help? Contact our support team at [support@browser-use.com](mailto:support@browser-use.com) or join our
+  [Discord community](https://link.browser-use.com/discord)
+</Note>
+
+
+# V1 Implementation
+Source: https://docs.browser-use.com/cloud/v1/implementation
+
+Learn how to implement the Browser Use API in Python
+
+This guide shows how to implement common API patterns using Python. We'll create a complete example that creates and monitors a browser automation task.
+
+## Basic Implementation
+
+For all settings see [Run Task](/api-reference/api-v1/run-task).
+
+Here's a simple implementation using Python's `requests` library to stream the task steps:
+
+```python
+import json
+import time
+
+import requests
+
+API_KEY = 'your_api_key_here'
+BASE_URL = 'https://api.browser-use.com/api/v1'
+HEADERS = {'Authorization': f'Bearer {API_KEY}'}
+
+
+def create_task(instructions: str):
+	"""Create a new browser automation task"""
+	response = requests.post(f'{BASE_URL}/run-task', headers=HEADERS, json={'task': instructions})
+	return response.json()['id']
+
+
+def get_task_status(task_id: str):
+	"""Get current task status"""
+	response = requests.get(f'{BASE_URL}/task/{task_id}/status', headers=HEADERS)
+	return response.json()
+
+
+def get_task_details(task_id: str):
+	"""Get full task details including output"""
+	response = requests.get(f'{BASE_URL}/task/{task_id}', headers=HEADERS)
+	return response.json()
+
+
+def wait_for_completion(task_id: str, poll_interval: int = 2):
+	"""Poll task status until completion"""
+	count = 0
+	unique_steps = []
+	while True:
+		details = get_task_details(task_id)
+		new_steps = details['steps']
+		# use only the new steps that are not in unique_steps.
+		if new_steps != unique_steps:
+			for step in new_steps:
+				if step not in unique_steps:
+					print(json.dumps(step, indent=4))
+			unique_steps = new_steps
+		count += 1
+		status = details['status']
+
+		if status in ['finished', 'failed', 'stopped']:
+			return details
+		time.sleep(poll_interval)
+
+
+def main():
+	task_id = create_task('Open https://www.google.com and search for openai')
+	print(f'Task created with ID: {task_id}')
+	task_details = wait_for_completion(task_id)
+	print(f"Final output: {task_details['output']}")
+
+
+if __name__ == '__main__':
+	main()
+
+```
+
+## Task Control Example
+
+Here's how to implement task control with pause/resume functionality:
+
+```python
+def control_task():
+    # Create a new task
+    task_id = create_task("Go to google.com and search for Browser Use")
+
+    # Wait for 5 seconds
+    time.sleep(5)
+
+    # Pause the task
+    requests.put(f"{BASE_URL}/pause-task?task_id={task_id}", headers=HEADERS)
+    print("Task paused! Check the live preview.")
+
+    # Wait for user input
+    input("Press Enter to resume...")
+
+    # Resume the task
+    requests.put(f"{BASE_URL}/resume-task?task_id={task_id}", headers=HEADERS)
+
+    # Wait for completion
+    result = wait_for_completion(task_id)
+    print(f"Task completed with output: {result['output']}")
+```
+
+## Structured Output Example
+
+Here's how to implement a task with structured JSON output:
+
+```python
+import json
+import os
+import time
+import requests
+from pydantic import BaseModel
+from typing import List
+
+
+API_KEY = os.getenv("API_KEY")
+BASE_URL = 'https://api.browser-use.com/api/v1'
+HEADERS = {
+    "Authorization": f"Bearer {API_KEY}",
+    "Content-Type": "application/json"
+}
+
+
+# Define output schema using Pydantic
+class SocialMediaCompany(BaseModel):
+    name: str
+    market_cap: float
+    headquarters: str
+    founded_year: int
+
+
+class SocialMediaCompanies(BaseModel):
+    companies: List[SocialMediaCompany]
+
+
+def create_structured_task(instructions: str, schema: dict):
+    """Create a task that expects structured output"""
+    payload = {
+        "task": instructions,
+        "structured_output_json": json.dumps(schema)
+    }
+    response = requests.post(f"{BASE_URL}/run-task", headers=HEADERS, json=payload)
+    response.raise_for_status()
+    return response.json()["id"]
+
+
+def wait_for_task_completion(task_id: str, poll_interval: int = 5):
+    """Poll task status until it completes"""
+    while True:
+        response = requests.get(f"{BASE_URL}/task/{task_id}/status", headers=HEADERS)
+        response.raise_for_status()
+        status = response.json()
+        if status == "finished":
+            break
+        elif status in ["failed", "stopped"]:
+            raise RuntimeError(f"Task {task_id} ended with status: {status}")
+        print("Waiting for task to finish...")
+        time.sleep(poll_interval)
+
+
+def fetch_task_output(task_id: str):
+    """Retrieve the final task result"""
+    response = requests.get(f"{BASE_URL}/task/{task_id}", headers=HEADERS)
+    response.raise_for_status()
+    return response.json()["output"]
+
+
+def main():
+    schema = SocialMediaCompanies.model_json_schema()
+    task_id = create_structured_task(
+        "Get me the top social media companies by market cap",
+        schema
+    )
+    print(f"Task created with ID: {task_id}")
+
+    wait_for_task_completion(task_id)
+    print("Task completed!")
+
+    output = fetch_task_output(task_id)
+    print("Raw output:", output)
+
+    try:
+        parsed = SocialMediaCompanies.model_validate_json(output)
+        print("Parsed output:")
+        print(parsed)
+    except Exception as e:
+        print(f"Failed to parse structured output: {e}")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+<Note>
+  Remember to handle your API key securely and implement proper error handling
+  in production code.
+</Note>
+
+
+# N8N + Browser Use Cloud
+Source: https://docs.browser-use.com/cloud/v1/n8n-browser-use-integration
+
+Learn how to integrate Browser Use Cloud API with n8n using a practical workflow example (competitor research).
+
+> **TL;DR** – In **3 minutes** you can have an n8n workflow that:
+>
+> 1. Shows a form asking for a competitor’s name
+> 2. Starts a Browser Use task that crawls the web and extracts **pricing, jobs, new features & announcements**
+> 3. Waits for the task to finish via a **webhook**
+> 4. Formats the output and drops a rich message into Slack
+
+You can grab the workflow JSON below – copy it and import it into n8n, plug in your API keys and hit *Execute* 🚀.
+
+***
+
+## Why use Browser Use in n8n?
+
+• **Autonomous browsing** – Browser Use opens pages like a real user, follows links, clicks buttons and reads DOM content.
+
+• **Structured output** – You tell the agent *exactly* which fields you need. No brittle regex or XPaths.
+
+• **Scales effortlessly** – Kick off hundreds of tasks and monitor them through the Cloud API.
+
+n8n glues everything together so your team gets the data instantly—no Python scripts or CRON jobs needed.
+
+***
+
+## Prerequisites
+
+1. **Browser Use Cloud API key** – grab one from your [Billing page](https://cloud.browser-use.com/billing).
+2. **n8n instance** – self-hosted or n8n.cloud. (The screenshots below use n8n 1.45+.)
+3. **Slack Incoming Webhook URL** – create one in your Slack workspace.
+
+Add both secrets to n8n’s credential manager:
+
+```env title=".env example"
+BROWSER_USE_API_KEY="sk-…"
+SLACK_WEBHOOK_URL="https://hooks.slack.com/services/…"
+```
+
+***
+
+## Import the template
+
+1. Copy the [workflow JSON](#workflow-json) below to your clipboard.
+2. In n8n create a new workflow and paste the JSON.
+3. Replace the *Browser-Use API Key* credential and *Slack Incoming Webhook URL* with yours.
+
+***
+
+## How the workflow works
+
+### 1. `Form Trigger` – collect the competitor’s name
+
+A public n8n form with a single required field. When a user submits, the workflow fires instantly.
+
+### 2. `HTTP Request – Browser Use Run Task`
+
+We POST to `/api/v1/run-task` with the following body:
+
+```json title="run-task payload"
+{
+  "task": "Do exhaustive research on {{ $json[\"Competitor Name\"] }} and extract all pricing information, job postings, new features and announcements",
+  "save_browser_data": true,
+  "structured_output_json": {
+    "pricing": {
+      "plans": ["string"],
+      "prices": ["string"],
+      "features": ["string"]
+    },
+    "jobs": {
+      "titles": ["string"],
+      "departments": ["string"],
+      "locations": ["string"]
+    },
+    "new_features": { "titles": ["string"], "description": ["string"] },
+    "announcements": { "titles": ["string"], "description": ["string"] }
+  },
+  "metadata": { "source": "n8n-competitor-demo" }
+}
+```
+
+Important bits:
+
+• `structured_output_json` tells the agent which keys to return – no post-processing required.
+• We tag the task with `metadata.source` so the webhook can filter only *our* jobs.
+
+### 3. `Webhook` + `IF` – wait for task completion
+
+Browser Use sends a webhook when anything happens to a task (see our [Webhooks guide](/cloud/v1/webhooks) for setup details). We expose an n8n Webhook node at `/get-research-data` and let the agent call it.
+
+We only proceed when **both** conditions are true:
+
+* `payload.status == "finished"`
+* `payload.metadata.source == "n8n-competitor-demo"`
+
+### 4. `Get Task Details`
+
+The webhook body includes the `session_id`. We fetch the full task record so we get the `output` field containing the structured JSON from step 2.
+
+### 5. `Code – Generate Slack message`
+
+A short JS snippet turns the JSON into a nicely-formatted Slack block with emojis and bullet points. Feel free to tweak the formatting.
+
+### 6. `HTTP Request – Send to Slack`
+
+Finally we POST the message to your incoming webhook and celebrate 🎉.
+
+***
+
+## Customize as you want
+
+This workflow is just the starting point – Browser Use + n8n gives you endless possibilities. Here are some ideas:
+
+| Want to...                       | How to do it                                                                                                                              |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Extract different data**       | Edit `structured_output_json` to specify exactly what fields you need (pricing, reviews, contact info, etc.) and adjust the JS formatter. |
+| **Send to Teams/Email/Notion**   | Swap the last Slack node for Teams, Gmail, or any of n8n's 400+ connectors.                                                               |
+| **Run automatically**            | Replace the Form trigger with a Cron trigger for daily/weekly competitor monitoring.                                                      |
+| **Monitor multiple competitors** | Use a Google Sheets trigger with a list of companies and loop through them.                                                               |
+| **Add AI analysis**              | Pipe the extracted data through OpenAI/Claude to generate insights and summaries.                                                         |
+| **Create alerts**                | Set up conditional logic to only notify when competitors announce new features or price changes.                                          |
+| **Build a dashboard**            | Send data to Airtable, Notion, or Google Sheets to build a real-time competitor intelligence dashboard.                                   |
+
+The beauty of Browser Use is that it handles the complex web browsing while you focus on building the perfect workflow for your needs.
+
+***
+
+## Workflow JSON
+
+<Accordion title="n8n Workflow JSON (click to expand)">
+  ```json id="workflow-json"
+  {
+    "name": "Competitor Intelligence Workflow with webhooks",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "get-research-data",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2,
+        "position": [
+          -480,
+          176
+        ],
+        "id": "81166dab-eb91-4627-b773-1aa7f7bd86ee",
+        "name": "Webhook",
+        "webhookId": "025bc4bf-00c0-47d4-bd5f-79046674d017"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "8d9701b6-1dc2-4e55-9fe4-ef1735ff1ebc",
+                "leftValue": "={{ $json.body.payload.status }}",
+                "rightValue": "finished",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals",
+                  "name": "filter.operator.equals"
+                }
+              },
+              {
+                "id": "7cf18a23-f3d8-4a70-a77c-c286a231fc7f",
+                "leftValue": "={{ $json.body.payload.metadata.source }}",
+                "rightValue": "n8n-competitor-demo",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals",
+                  "name": "filter.operator.equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          -256,
+          176
+        ],
+        "id": "b38737cc-0b8a-4a76-930f-362eb5de9ef9",
+        "name": "If"
+      },
+      {
+        "parameters": {
+          "formTitle": "Run Competitor Analysis",
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "Competitor Name",
+                "placeholder": "(e.g. OpenAI)",
+                "requiredField": true
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.formTrigger",
+        "typeVersion": 2.2,
+        "position": [
+          -336,
+          -64
+        ],
+        "id": "fcfc33dd-7d8a-460b-838d-955c65416aea",
+        "name": "On form submission",
+        "webhookId": "b2712d5b-14ae-424b-8733-fe6e77cebd43"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.browser-use.com/api/v1/run-task",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBearerAuth",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {}
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"task\": \"Do exhaustive research on {{ $json['Competitor Name'] }} and extract all pricing information, job postings, new features and announcements\",\n  \"save_browser_data\": true,\n  \"structured_output_json\": \"{\\n  \\\"pricing\\\": {\\n    \\\"plans\\\": [\\\"string\\\"],\\n    \\\"prices\\\": [\\\"string\\\"],\\n    \\\"features\\\": [\\\"string\\\"]\\n  },\\n  \\\"jobs\\\": {\\n    \\\"titles\\\": [\\\"string\\\"],\\n    \\\"departments\\\": [\\\"string\\\"],\\n    \\\"locations\\\": [\\\"string\\\"]\\n  },\\n  \\\"new_features\\\": {\\n    \\\"titles\\\": [\\\"string\\\"],\\n    \\\"description\\\": [\\\"string\\\"]\\n  },\\n  \\\"announcements\\\": {\\n    \\\"titles\\\": [\\\"string\\\"],\\n    \\\"description\\\": [\\\"string\\\"]\\n  }\\n}\",\n\"metadata\": {\"source\": \"n8n-competitor-demo\"}\n} ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          -112,
+          -64
+        ],
+        "id": "d10bef40-e2a3-41ff-a507-4f365c13dc52",
+        "name": "BrowserUse Run Task",
+        "credentials": {
+          "httpBearerAuth": {
+            "id": "peg6MzgmJNRMCMnT",
+            "name": "Browser-Use API Key"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "url": "=https://api.browser-use.com/api/v1/task/{{ $('Webhook').item.json.body.payload.session_id }}",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBearerAuth",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          0,
+          144
+        ],
+        "id": "e49c28ff-11a2-4195-94ab-ca5796572c34",
+        "name": "Get Task details",
+        "credentials": {
+          "httpBearerAuth": {
+            "id": "peg6MzgmJNRMCMnT",
+            "name": "Browser-Use API Key"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsCode": "const output_data = $input.first().json.output;\nconst data = JSON.parse(output_data);\n\nconst pricing = data?.pricing;\nconst jobs = data?.jobs;\nconst newFeatures = data?.new_features;\nconst announcements = data?.announcements;\n\n// Helper function to format arrays as bullet points\nconst formatAsBullets = (arr, prefix = \"• \" => {\n  if (!arr || arr.length === 0) return \"• N/A\";\n  return arr.map(item => `${prefix}${item}`).join(\"\\n\");\n};\n\nreturn {\n  text: `🏷️ *Pricing*\\nPlans:\\n${formatAsBullets(pricing?.plans)}\\n\\nPrices:\\n${formatAsBullets(pricing?.prices)}\\n\\nFeatures:\\n${formatAsBullets(pricing?.features)}\\n\\n💼 *Jobs*\\nTitles:\\n${formatAsBullets(jobs?.titles)}\\n\\nDepartments:\\n${formatAsBullets(jobs?.departments)}\\n\\nLocations:\\n${formatAsBullets(jobs?.locations)}\\n\\n✨ *New Features*\\nTitles:\\n${formatAsBullets(newFeatures?.titles)}\\n\\nDescription:\\n${formatAsBullets(newFeatures?.description)}\\n\\n📢 *Announcements*\\n${formatAsBullets(announcements?.description)}`\n};"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          208,
+          144
+        ],
+        "id": "54bc087d-237d-438a-b688-bcbec25d9c45",
+        "name": "Generate Slack message"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "text",
+                "value": "={{ $json.text }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          432,
+          144
+        ],
+        "id": "969a16f0-677b-4e46-a8bb-57a80b5daf07",
+        "name": "Send to Slack"
+      }
+    ],
+    "pinData": {},
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "If",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If": {
+        "main": [
+          [
+            {
+              "node": "Get Task details",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "On form submission": {
+        "main": [
+          [
+            {
+              "node": "BrowserUse Run Task",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get Task details": {
+        "main": [
+          [
+            {
+              "node": "Generate Slack message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Generate Slack message": {
+        "main": [
+          [
+            {
+              "node": "Send to Slack",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "active": true,
+    "settings": {
+      "executionOrder": "v1"
+    },
+    "versionId": "f3b38678-4821-41ad-952c-df9bbba40fc8",
+    "meta": {
+      "templateCredsSetupCompleted": true,
+      "instanceId": "7a1d1fd830bae2a00010153cf810fd67e0c87b8ae64ceb62273c87183efda365"
+    },
+    "id": "qmhqkZH8DhISWMmc",
+    "tags": []
+  }
+  ```
+</Accordion>
+
+Copy everything between the braces, import into n8n and you're good to go.
+
+<Note>
+  Having trouble? Ping us in the #integrations channel on
+  [Discord](https://link.browser-use.com/discord) – we’re happy to help.
+</Note>
+
+
+# Pricing
+Source: https://docs.browser-use.com/cloud/v1/pricing
+
+Browser Use Cloud API pricing structure and cost breakdown
+
+The Browser Use Cloud API pricing consists of two components:
+
+1. **Task Initialization Cost**: \$0.01 per started task
+2. **Task Step Cost**: Additional cost based on the specific model used for each step
+
+## LLM Model Step Pricing
+
+> **Limited Time Offer**: O3 model pricing reduced from $0.03 to $0.01 per step!
+
+The following table shows the total cost per step for each available LLM model:
+
+| Model                          | Cost per Step |
+| ------------------------------ | ------------- |
+| GPT-4.1                        | \$0.025       |
+| GPT-4.1 mini                   | \$0.0075      |
+| O4 mini                        | \$0.02        |
+| O3                             | \$0.01        |
+| Gemini 2.5 Flash               | \$0.0075      |
+| Gemini 2.5 Pro                 | \$0.025       |
+| Claude 3.7 Sonnet (2025-02-19) | \$0.03        |
+| Claude Sonnet 4 (2025-05-14)   | \$0.03        |
+| Llama 4 Maverick 17B Instruct  | \$0.01        |
+
+## Example Cost Calculations
+
+**Using GPT-4.1 for a 10 step task:**
+
+* Task initialization: \$0.01
+* 10 steps × $0.025 per step = $0.25
+* **Total cost: \$0.26**
+
+**Using O3 for a 10 step task (Limited Time Offer):**
+
+* Task initialization: \$0.01
+* 10 steps × $0.01 per step = $0.10
+* **Total cost: \$0.11**
+
+
+# Quickstart
+Source: https://docs.browser-use.com/cloud/v1/quickstart
+
+Learn how to get started with the Browser Use Cloud API
+
+<img className="block dark:hidden rounded-2xl" src="https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner.png?fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=3fbcfce14402a94bfa478ca2f22a1417" alt="Browser Use Cloud Banner" data-og-width="1660" width="1660" data-og-height="548" height="548" data-path="images/cloud-banner.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner.png?w=280&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=590d0206ba6c1d388eb1437a7b346d90 280w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner.png?w=560&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=7284ffe4789bc41e99cc4e77dd9612d6 560w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner.png?w=840&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=72b3ef28f70368ced434acd05bce8168 840w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner.png?w=1100&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=c200b43bfa2bb61928e53f15a6aa7987 1100w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner.png?w=1650&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=d71892941a1bf4006718631701f3057e 1650w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner.png?w=2500&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=777b76f25395489942ce1cf238e9e69c 2500w" />
+
+<img className="hidden dark:block rounded-2xl" src="https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner-dark.png?fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=c7742288d17862744bbffd02d9ba023f" alt="Browser Use Cloud Banner" data-og-width="1660" width="1660" data-og-height="548" height="548" data-path="images/cloud-banner-dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner-dark.png?w=280&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=29eb60ee0db9a6eba8a034743322568a 280w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner-dark.png?w=560&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=fb48796d381e7d87a7d738ec0cee894d 560w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner-dark.png?w=840&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=321e6b86e56795032174f71ceedc541a 840w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner-dark.png?w=1100&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=a6137a47f705d120a1ea88dffd194513 1100w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner-dark.png?w=1650&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=aa0c42e7e47358eba7fb8e6bf3b4dbd4 1650w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/cloud-banner-dark.png?w=2500&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=6246e942bc17eb794ce70c32a31841ee 2500w" />
+
+<Note>
+  You need an active subscription and an API key from
+  [cloud.browser-use.com/billing](https://cloud.browser-use.com/billing). For
+  detailed pricing information, see our [pricing page](/cloud/v1/pricing).
+</Note>
+
+## Creating Your First Agent
+
+To understand how the API works visit the [Run Task](/api-reference/api-v1/run-task?playground=open) page.
+
+```bash
+curl -X POST https://api.browser-use.com/api/v1/run-task \
+  -H "Authorization: Bearer your_api_key_here" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "task": "Go to google.com and search for Browser Use"
+  }'
+```
+
+`run-task` API returns a task ID, which you can query to get the task status, live preview URL, and the result output.
+
+<Note>
+  To play around with the API, you can use the [Browser Use Cloud
+  Playground](https://cloud.browser-use.com/playground).
+</Note>
+
+For the full implementation guide see the [Implementation](/cloud/v1/implementation) page.
+
+
+# Search API
+Source: https://docs.browser-use.com/cloud/v1/search
+
+Get started with Browser Use's search endpoints to extract content from websites
+
+<Warning>
+  **🧪 BETA - This API is in beta - it may change and might not be available at
+  all times.**
+</Warning>
+
+## Why Browser Use Over Traditional Search?
+
+**Browser Use actually browses websites like a human** while other tools return cached data from landing pages. Browser Use navigates deep into sites in real-time:
+
+* 🔍 **Deep navigation**: Clicks through menus, forms, and multiple pages to find buried content
+* 🚀 **Always current**: Live prices, breaking news, real-time analytics - not cached results
+* 🎯 **No stale data**: See exactly what's on the page right now
+* 🌐 **Dynamic content**: Handles JavaScript, forms, and interactive elements
+* 🏠 **No surface limitations**: Gets data from pages that require navigation or interaction
+
+**Other tools see yesterday's front door. Browser Use explores today's whole house.**
+
+## Quick Start
+
+The Search API allows you to quickly extract relevant content from websites using AI. There are two main endpoints:
+
+💡 **Complete working examples** are available in the [examples/search](https://github.com/browser-use/browser-use/tree/main/examples/search) folder.
+
+### Simple Search
+
+Search Google and extract content from multiple top results:
+
+```python
+import aiohttp
+import asyncio
+
+async def simple_search():
+    payload = {
+        "query": "latest AI news",
+        "max_websites": 5,
+        "depth": 2
+    }
+
+    headers = {
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    }
+
+    async with aiohttp.ClientSession() as session:
+        async with session.post(
+            "https://api.browser-use.com/api/v1/simple-search",
+            json=payload,
+            headers=headers
+        ) as response:
+            result = await response.json()
+            return result
+
+asyncio.run(simple_search())
+```
+
+### Search URL
+
+Extract content from a specific URL:
+
+```python
+async def search_url():
+    payload = {
+        "url": "https://browser-use.com/#pricing",
+        "query": "Find pricing information for Browser Use",
+        "depth": 2
+    }
+
+    headers = {
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    }
+
+    async with aiohttp.ClientSession() as session:
+        async with session.post(
+            "https://api.browser-use.com/api/v1/search-url",
+            json=payload,
+            headers=headers
+        ) as response:
+            result = await response.json()
+            return result
+
+asyncio.run(search_url())
+```
+
+## Parameters
+
+* **query**: Search query or content to extract
+* **depth**: How deep to navigate within each website (2-5, default: 2)
+  * `depth=2`: Checks main page + 1 click deeper
+  * `depth=3`: Checks main page + 2 clicks deeper
+  * `depth=5`: Thoroughly explores multiple navigation levels
+* **max\_websites**: Number of websites to process (simple-search only, default: 5)
+* **url**: Target URL to extract from (search-url only)
+
+## Pricing
+
+### Simple Search
+
+**Cost per request**: `1 cent × depth × max_websites`
+
+Example: depth=2, max\_websites=3 = 6 cents per request
+
+### Search URL
+
+**Cost per request**: `1 cent × depth`
+
+Example: depth=2 = 2 cents per request
+
+
+# Webhooks
+Source: https://docs.browser-use.com/cloud/v1/webhooks
+
+Learn how to integrate webhooks with Browser Use Cloud API
+
+Webhooks allow you to receive real-time notifications about events in your Browser Use tasks. This guide will show you how to set up and verify webhook endpoints.
+
+## Prerequisites
+
+<Note>
+  You need an active subscription to create webhooks. See your billing page
+  [cloud.browser-use.com/billing](https://cloud.browser-use.com/billing)
+</Note>
+
+## Setting Up Webhooks
+
+To receive webhook notifications, you need to:
+
+1. Create an endpoint that can receive HTTPS POST requests
+2. Configure your webhook URL in the Browser Use dashboard
+3. Implement signature verification to ensure webhook authenticity
+
+<Note>
+  When adding a webhook URL in the dashboard, it must be a valid HTTPS URL that can receive POST requests.
+  On creation, we will send a test payload `{"type": "test", "timestamp": "2024-03-21T12:00:00Z", "payload": {"test": "ok"}}` to verify the endpoint is working correctly before creating the actual webhook!
+</Note>
+
+## Webhook Events
+
+Browser Use sends various types of events. Each event has a specific type and payload structure.
+
+### Event Types
+
+Currently supported events:
+
+| Event Type                 | Description                      |
+| -------------------------- | -------------------------------- |
+| `agent.task.status_update` | Status updates for running tasks |
+
+### Task Status Updates
+
+The `agent.task.status_update` event includes the following statuses:
+
+| Status         | Description                            |
+| -------------- | -------------------------------------- |
+| `initializing` | A task is initializing                 |
+| `started`      | A Task has started (browser available) |
+| `paused`       | A task has been paused mid execution   |
+| `stopped`      | A task has been stopped mid execution  |
+| `finished`     | A task has finished                    |
+
+## Webhook Payload Structure
+
+Each webhook call includes:
+
+* A JSON payload with event details
+* `X-Browser-Use-Timestamp` header with the current timestamp
+* `X-Browser-Use-Signature` header for verification
+
+The payload follows this structure:
+
+```json
+{
+  "type": "agent.task.status_update",
+  "timestamp": "2025-05-25T09:22:22.269116+00:00",
+  "payload": {
+    "session_id": "cd9cc7bf-e3af-4181-80a2-73f083bc94b4",
+    "task_id": "5b73fb3f-a3cb-4912-be40-17ce9e9e1a45",
+    "status": "finished",
+    "metadata": {
+      "campaign": "q4-automation",
+      "team": "marketing"
+    }
+  }
+}
+```
+
+The webhook payload now includes a `metadata` field containing any custom key-value pairs that were provided when the task was created. This allows you to correlate webhook events with your internal tracking systems.
+
+## Implementing Webhook Verification
+
+To ensure webhook authenticity, you must verify the signature. Here's an example implementation in Python using FastAPI:
+
+```python
+import uvicorn
+import hmac
+import hashlib
+import json
+import os
+
+from fastapi import FastAPI, Request, HTTPException
+
+app = FastAPI()
+
+SECRET_KEY = os.environ['SECRET_KEY']
+
+def verify_signature(payload: dict, timestamp: str, received_signature: str) -> bool:
+    message = f'{timestamp}.{json.dumps(payload, separators=(",", ":"), sort_keys=True)}'
+    expected_signature = hmac.new(SECRET_KEY.encode(), message.encode(), hashlib.sha256).hexdigest()
+    return hmac.compare_digest(expected_signature, received_signature)
+
+@app.post('/webhook')
+async def webhook(request: Request):
+    body = await request.json()
+
+    timestamp = request.headers.get('X-Browser-Use-Timestamp')
+    signature = request.headers.get('X-Browser-Use-Signature')
+    if not timestamp or not signature:
+        raise HTTPException(status_code=400, detail='Missing timestamp or signature')
+
+    if not verify_signature(body, timestamp, signature):
+        raise HTTPException(status_code=403, detail='Invalid signature')
+
+    # Handle different event types
+    event_type = body.get('type')
+    if event_type == 'agent.task.status_update':
+        # Handle task status update
+        print('Task status update received:', body['payload'])
+    elif event_type == 'test':
+        # Handle test webhook
+        print('Test webhook received:', body['payload'])
+    else:
+        print('Unknown event type:', event_type)
+
+    return {'status': 'success', 'message': 'Webhook received'}
+
+if __name__ == '__main__':
+    uvicorn.run(app, host='0.0.0.0', port=8080)
+```
+
+## Best Practices
+
+1. **Always verify signatures**: Never process webhook payloads without verifying the signature
+2. **Handle retries**: Browser Use will retry failed webhook deliveries up to 5 times
+3. **Respond quickly**: Return a 200 response as soon as you've verified the signature
+4. **Process asynchronously**: Handle the webhook payload processing in a background task
+5. **Monitor failures**: Set up monitoring for webhook delivery failures
+6. **Handle unknown events**: Implement graceful handling of new event types that may be added in the future
+
+<Note>
+  Need help? Contact our support team at [support@browser-use.com](mailto:support@browser-use.com) or join our
+  [Discord community](https://link.browser-use.com/discord)
+</Note>
+
+
+# All Parameters
+Source: https://docs.browser-use.com/customize/actor/all-parameters
+
+Complete API reference for Browser Actor classes, methods, and parameters including BrowserSession, Page, Element, and Mouse
+
+## Browser (BrowserSession)
+
+Main browser session manager.
+
+### Key Methods
+
+```python
+from browser_use import Browser
+
+browser = Browser()
+await browser.start()
+
+# Page management
+page = await browser.new_page("https://example.com")
+pages = await browser.get_pages()
+current = await browser.get_current_page()
+await browser.close_page(page)
+
+# To stop the browser session
+await browser.stop()
+```
+
+### Constructor Parameters
+
+See [Browser Parameters](../browser/all-parameters) for complete configuration options.
+
+## Page
+
+Browser tab/iframe for page-level operations.
+
+### Navigation
+
+* `goto(url: str)` - Navigate to URL
+* `go_back()`, `go_forward()`, `reload()` - History navigation
+
+### Element Finding
+
+* `get_elements_by_css_selector(selector: str) -> list[Element]` - CSS selector
+* `get_element(backend_node_id: int) -> Element` - By CDP node ID
+* `get_element_by_prompt(prompt: str, llm) -> Element | None` - AI-powered
+* `must_get_element_by_prompt(prompt: str, llm) -> Element` - AI (raises if not found)
+
+### JavaScript & Controls
+
+* `evaluate(page_function: str, *args) -> str` - Execute JS (arrow function format)
+* `press(key: str)` - Send keyboard input ("Enter", "Control+A")
+* `set_viewport_size(width: int, height: int)` - Set viewport
+* `screenshot(format='jpeg', quality=None) -> str` - Take screenshot
+
+### Information
+
+* `get_url() -> str`, `get_title() -> str` - Page info
+* `mouse -> Mouse` - Get mouse interface
+
+### AI Features
+
+* `extract_content(prompt: str, structured_output: type[T], llm) -> T` - Extract data
+
+## Element
+
+Individual DOM element interactions.
+
+### Interactions
+
+* `click(button='left', click_count=1, modifiers=None)` - Click element
+* `fill(text: str, clear_existing=True)` - Fill input
+* `hover()`, `focus()` - Mouse/focus actions
+* `check()` - Toggle checkbox/radio
+* `select_option(values: str | list[str])` - Select dropdown options
+* `drag_to(target: Element | Position)` - Drag and drop
+
+### Properties
+
+* `get_attribute(name: str) -> str | None` - Get attribute
+* `get_bounding_box() -> BoundingBox | None` - Position/size
+* `get_basic_info() -> ElementInfo` - Complete element info
+* `screenshot(format='jpeg') -> str` - Element screenshot
+
+## Mouse
+
+Coordinate-based mouse operations.
+
+### Operations
+
+* `click(x: int, y: int, button='left', click_count=1)` - Click at coordinates
+* `move(x: int, y: int, steps=1)` - Move mouse
+* `down(button='left')`, `up(button='left')` - Press/release buttons
+* `scroll(x=0, y=0, delta_x=None, delta_y=None)` - Scroll at coordinates
+
+
+# Basics
+Source: https://docs.browser-use.com/customize/actor/basics
+
+Low-level Playwright-like browser automation with direct and full CDP control and precise element interactions
+
+## Core Architecture
+
+```mermaid
+graph TD
+    A[Browser] --> B[Page]
+    B --> C[Element]
+    B --> D[Mouse]
+    B --> E[AI Features]
+    C --> F[DOM Interactions]
+    D --> G[Coordinate Operations]
+    E --> H[LLM Integration]
+```
+
+### Core Classes
+
+* **Browser** (alias: **BrowserSession**): Main session manager
+* **Page**: Represents a browser tab/iframe
+* **Element**: Individual DOM element operations
+* **Mouse**: Coordinate-based mouse operations
+
+## Basic Usage
+
+```python
+from browser_use import Browser, Agent
+from browser_use.llm.openai import ChatOpenAI
+
+async def main():
+    llm = ChatOpenAI(api_key="your-api-key")
+    browser = Browser()
+    await browser.start()
+
+    # 1. Actor: Precise navigation and element interactions
+    page = await browser.new_page("https://github.com/login")
+    email_input = await page.must_get_element_by_prompt("username field", llm=llm)
+    await email_input.fill("your-username")
+
+    # 2. Agent: AI-driven complex tasks
+    agent = Agent(browser=browser, llm=llm)
+    await agent.run("Complete login and navigate to my repositories")
+
+    await browser.stop()
+```
+
+## Important Notes
+
+* **Not Playwright**: Actor is built on CDP, not Playwright. The API resembles Playwright as much as possible for easy migration, but is sorta subset.
+* **Immediate Returns**: `get_elements_by_css_selector()` doesn't wait for visibility
+* **Manual Timing**: You handle navigation timing and waiting
+* **JavaScript Format**: `evaluate()` requires arrow function format: `() => {}`
+
+
+# Examples
+Source: https://docs.browser-use.com/customize/actor/examples
+
+Comprehensive examples for Browser Actor automation tasks including forms, JavaScript, mouse operations, and AI features
+
+## Page Management
+
+```python
+from browser_use import Browser
+
+browser = Browser()
+await browser.start()
+
+# Create pages
+page = await browser.new_page()  # Blank tab
+page = await browser.new_page("https://example.com")  # With URL
+
+# Get all pages
+pages = await browser.get_pages()
+current = await browser.get_current_page()
+
+# Close page
+await browser.close_page(page)
+await browser.stop()
+```
+
+## Element Finding & Interactions
+
+```python
+page = await browser.new_page('https://github.com')
+
+# CSS selectors (immediate return)
+elements = await page.get_elements_by_css_selector("input[type='text']")
+buttons = await page.get_elements_by_css_selector("button.submit")
+
+# Element actions
+await elements[0].click()
+await elements[0].fill("Hello World")
+await elements[0].hover()
+
+# Page actions
+await page.press("Enter")
+screenshot = await page.screenshot()
+```
+
+## LLM-Powered Features
+
+```python
+from browser_use.llm.openai import ChatOpenAI
+from pydantic import BaseModel
+
+llm = ChatOpenAI(api_key="your-api-key")
+
+# Find elements using natural language
+button = await page.get_element_by_prompt("login button", llm=llm)
+await button.click()
+
+# Extract structured data
+class ProductInfo(BaseModel):
+    name: str
+    price: float
+
+product = await page.extract_content(
+    "Extract product name and price",
+    ProductInfo,
+    llm=llm
+)
+```
+
+## JavaScript Execution
+
+```python
+# Simple JavaScript evaluation
+title = await page.evaluate('() => document.title')
+
+# JavaScript with arguments
+result = await page.evaluate('(x, y) => x + y', 10, 20)
+
+# Complex operations
+stats = await page.evaluate('''() => ({
+    url: location.href,
+    links: document.querySelectorAll('a').length
+})''')
+```
+
+## Mouse Operations
+
+```python
+mouse = await page.mouse
+
+# Click at coordinates
+await mouse.click(x=100, y=200)
+
+# Drag and drop
+await mouse.down()
+await mouse.move(x=500, y=600)
+await mouse.up()
+
+# Scroll
+await mouse.scroll(x=0, y=100, delta_y=-500)
+```
+
+## Best Practices
+
+* Use `asyncio.sleep()` after actions that trigger navigation
+* Check URL/title changes to verify state transitions
+* Always check if elements exist before interaction
+* Implement retry logic for flaky elements
+* Call `browser.stop()` to clean up resources
+
+
+# All Parameters
+Source: https://docs.browser-use.com/customize/agent/all-parameters
+
+Complete reference for all agent configuration options
+
+## Available Parameters
+
+### Core Settings
+
+* `tools`: Registry of [our tools](https://github.com/browser-use/browser-use/blob/main/browser_use/tools/service.py) the agent can call. [Example for custom tools](https://github.com/browser-use/browser-use/tree/main/examples/custom-functions)
+* `browser`: Browser object where you can specify the browser settings.
+* `output_model_schema`: Pydantic model class for structured output validation. [Example](https://github.com/browser-use/browser-use/blob/main/examples/features/custom_output.py)
+
+### Vision & Processing
+
+* `use_vision` (default: `True`): Enable/disable vision capabilities for processing screenshots
+* `vision_detail_level` (default: `'auto'`): Screenshot detail level - `'low'`, `'high'`, or `'auto'`
+* `page_extraction_llm`: Separate LLM model for page content extraction. You can choose a small & fast model because it only needs to extract text from the page (default: same as `llm`)
+
+### Actions & Behavior
+
+* `initial_actions`: List of actions to run before the main task without LLM. [Example](https://github.com/browser-use/browser-use/blob/main/examples/features/initial_actions.py)
+* `max_actions_per_step` (default: `10`): Maximum actions per step, e.g. for form filling the agent can output 10 fields at once. We execute the actions until the page changes.
+* `max_failures` (default: `3`): Maximum retries for steps with errors
+* `final_response_after_failure` (default: `True`): If True, attempt to force one final model call with intermediate output after max\_failures is reached
+* `use_thinking` (default: `True`): Controls whether the agent uses its internal "thinking" field for explicit reasoning steps.
+* `flash_mode` (default: `False`): Fast mode that skips evaluation, next goal and thinking and only uses memory. If `flash_mode` is enabled, it overrides `use_thinking` and disables the thinking process entirely. [Example](https://github.com/browser-use/browser-use/blob/main/examples/getting_started/05_fast_agent.py)
+
+### System Messages
+
+* `override_system_message`: Completely replace the default system prompt.
+* `extend_system_message`: Add additional instructions to the default system prompt. [Example](https://github.com/browser-use/browser-use/blob/main/examples/features/custom_system_prompt.py)
+
+### File & Data Management
+
+* `save_conversation_path`: Path to save complete conversation history
+* `save_conversation_path_encoding` (default: `'utf-8'`): Encoding for saved conversations
+* `available_file_paths`: List of file paths the agent can access
+* `sensitive_data`: Dictionary of sensitive data to handle carefully. [Example](https://github.com/browser-use/browser-use/blob/main/examples/features/sensitive_data.py)
+
+### Visual Output
+
+* `generate_gif` (default: `False`): Generate GIF of agent actions. Set to `True` or string path
+* `include_attributes`: List of HTML attributes to include in page analysis
+
+### Performance & Limits
+
+* `max_history_items`: Maximum number of last steps to keep in the LLM memory. If `None`, we keep all steps.
+* `llm_timeout` (default: `90`): Timeout in seconds for LLM calls
+* `step_timeout` (default: `120`): Timeout in seconds for each step
+* `directly_open_url` (default: `True`): If we detect a url in the task, we directly open it.
+
+### Advanced Options
+
+* `calculate_cost` (default: `False`): Calculate and track API costs
+* `display_files_in_done_text` (default: `True`): Show file information in completion messages
+
+### Backwards Compatibility
+
+* `controller`: Alias for `tools` for backwards compatibility.
+* `browser_session`: Alias for `browser` for backwards compatibility.
+
+
+# Basics
+Source: https://docs.browser-use.com/customize/agent/basics
+
+
+
+```python
+from browser_use import Agent, ChatOpenAI
+
+agent = Agent(
+    task="Search for latest news about AI",
+    llm=ChatOpenAI(model="gpt-4.1-mini"),
+)
+
+async def main():
+    history = await agent.run(max_steps=100)
+```
+
+* `task`: The task you want to automate.
+* `llm`: Your favorite LLM. See <a href="/customize/supported-models">Supported Models</a>.
+
+The agent is executed using the async `run()` method:
+
+* `max_steps` (default: `100`): Maximum number of steps an agent can take.
+
+
+# Output Format
+Source: https://docs.browser-use.com/customize/agent/output-format
+
+
+
+## Agent History
+
+The `run()` method returns an `AgentHistoryList` object with the complete execution history:
+
+```python
+history = await agent.run()
+
+# Access useful information
+history.urls()                    # List of visited URLs
+history.screenshot_paths()        # List of screenshot paths  
+history.screenshots()             # List of screenshots as base64 strings
+history.action_names()            # Names of executed actions
+history.extracted_content()       # List of extracted content from all actions
+history.errors()                  # List of errors (with None for steps without errors)
+history.model_actions()           # All actions with their parameters
+history.model_outputs()           # All model outputs from history
+history.last_action()             # Last action in history
+
+# Analysis methods
+history.final_result()            # Get the final extracted content (last step)
+history.is_done()                 # Check if agent completed successfully
+history.is_successful()           # Check if agent completed successfully (returns None if not done)
+history.has_errors()              # Check if any errors occurred
+history.model_thoughts()          # Get the agent's reasoning process (AgentBrain objects)
+history.action_results()          # Get all ActionResult objects from history
+history.action_history()          # Get truncated action history with essential fields
+history.number_of_steps()         # Get the number of steps in the history
+history.total_duration_seconds()  # Get total duration of all steps in seconds
+
+# Structured output (when using output_model_schema)
+history.structured_output         # Property that returns parsed structured output
+```
+
+See all helper methods in the [AgentHistoryList source code](https://github.com/browser-use/browser-use/blob/main/browser_use/agent/views.py#L301).
+
+## Structured Output
+
+For structured output, use the `output_model_schema` parameter with a Pydantic model. [Example](https://github.com/browser-use/browser-use/blob/main/examples/features/custom_output.py).
+
+
+# Prompting Guide
+Source: https://docs.browser-use.com/customize/agent/prompting-guide
+
+Tips and tricks 
+
+Prompting can trasticly improve performance and solve existing limitations of the library.
+
+### 1. Be Specific vs Open-Ended
+
+**✅ Specific (Recommended)**
+
+```python
+task = """
+1. Go to https://quotes.toscrape.com/
+2. Use extract_structured_data action with the query "first 3 quotes with their authors"
+3. Save results to quotes.csv using write_file action
+4. Do a google search for the first quote and find when it was written
+"""
+```
+
+**❌ Open-Ended**
+
+```python
+task = "Go to web and make money"
+```
+
+### 2. Name Actions Directly
+
+When you know exactly what the agent should do, reference actions by name:
+
+```python
+task = """
+1. Use search action to find "Python tutorials"
+2. Use click_element_by_index to open first result in a new tab   
+3. Use scroll action to scroll down 2 pages
+4. Use extract_structured_data to extract the names of the first 5 items 
+5. Wait for 2 seconds if the page is not loaded, refresh it and wait 10 sec
+6. Use send_keys action with "Tab Tab ArrowDown Enter" 
+"""
+```
+
+See [Available Tools](/customize/tools/available) for the complete list of actions.
+
+### 3. Handle interaction problems via keyboard navigation
+
+Sometimes buttons can't be clicked (you found a bug in the library - open an issue).
+Good news - often you can work around it with keyboard navigation!
+
+```python
+task = """
+If the submit button cannot be clicked:
+1. Use send_keys action with "Tab Tab Enter" to navigate and activate
+2. Or use send_keys with "ArrowDown ArrowDown Enter" for form submission
+"""
+```
+
+### 4. Custom Actions Integration
+
+```python
+# When you have custom actions
+@controller.action("Get 2FA code from authenticator app")
+async def get_2fa_code():
+    # Your implementation
+    pass
+
+task = """
+Login with 2FA:
+1. Enter username/password
+2. When prompted for 2FA, use get_2fa_code action
+3. NEVER try to extract 2FA codes from the page manually
+4. ALWAYS use the get_2fa_code action for authentication codes
+"""
+```
+
+### 5. Error Recovery
+
+```python
+task = """
+Robust data extraction:
+1. Go to openai.com to find their CEO
+2. If navigation fails due to anti-bot protection:
+   - Use google search to find the CEO
+3. If page times out, use go_back and try alternative approach
+"""
+```
+
+The key to effective prompting is being specific about actions.
+
+
+# Supported Models
+Source: https://docs.browser-use.com/customize/agent/supported-models
+
+Choose your favorite LLM
+
+### Recommendations
+
+* Best accuracy: `O3`
+* Fastest: `llama4` on groq
+* Balanced: fast + cheap + clever: `gemini-flash-latest` or `gpt-4.1-mini`
+
+### OpenAI [example](https://github.com/browser-use/browser-use/blob/main/examples/models/gpt-4.1.py)
+
+`O3` model is recommended for best performance.
+
+```python
+from browser_use import Agent, ChatOpenAI
+
+# Initialize the model
+llm = ChatOpenAI(
+    model="o3",
+)
+
+# Create agent with the model
+agent = Agent(
+    task="...", # Your task here
+    llm=llm
+)
+```
+
+Required environment variables:
+
+```bash .env
+OPENAI_API_KEY=
+```
+
+<Info>
+  You can use any OpenAI compatible model by passing the model name to the
+  `ChatOpenAI` class using a custom URL (or any other parameter that would go
+  into the normal OpenAI API call).
+</Info>
+
+### Anthropic [example](https://github.com/browser-use/browser-use/blob/main/examples/models/claude-4-sonnet.py)
+
+```python
+from browser_use import Agent, ChatAnthropic
+
+# Initialize the model
+llm = ChatAnthropic(
+    model="claude-sonnet-4-0",
+)
+
+# Create agent with the model
+agent = Agent(
+    task="...", # Your task here
+    llm=llm
+)
+```
+
+And add the variable:
+
+```bash .env
+ANTHROPIC_API_KEY=
+```
+
+### Azure OpenAI [example](https://github.com/browser-use/browser-use/blob/main/examples/models/azure_openai.py)
+
+```python
+from browser_use import Agent, ChatAzureOpenAI
+from pydantic import SecretStr
+import os
+
+# Initialize the model
+llm = ChatAzureOpenAI(
+    model="o4-mini",
+)
+
+# Create agent with the model
+agent = Agent(
+    task="...", # Your task here
+    llm=llm
+)
+```
+
+Required environment variables:
+
+```bash .env
+AZURE_OPENAI_ENDPOINT=https://your-endpoint.openai.azure.com/
+AZURE_OPENAI_API_KEY=
+```
+
+### Gemini [example](https://github.com/browser-use/browser-use/blob/main/examples/models/gemini.py)
+
+> \[!IMPORTANT] `GEMINI_API_KEY` was the old environment var name, it should be called `GOOGLE_API_KEY` as of 2025-05.
+
+```python
+from browser_use import Agent, ChatGoogle
+from dotenv import load_dotenv
+
+# Read GOOGLE_API_KEY into env
+load_dotenv()
+
+# Initialize the model
+llm = ChatGoogle(model='gemini-flash-latest')
+
+# Create agent with the model
+agent = Agent(
+    task="Your task here",
+    llm=llm
+)
+```
+
+Required environment variables:
+
+```bash .env
+GOOGLE_API_KEY=
+```
+
+### AWS Bedrock [example](https://github.com/browser-use/browser-use/blob/main/examples/models/aws.py)
+
+AWS Bedrock provides access to multiple model providers through a single API. We support both a general AWS Bedrock client and provider-specific convenience classes.
+
+#### General AWS Bedrock (supports all providers)
+
+```python
+from browser_use import Agent, ChatAWSBedrock
+
+# Works with any Bedrock model (Anthropic, Meta, AI21, etc.)
+llm = ChatAWSBedrock(
+    model="anthropic.claude-3-5-sonnet-20240620-v1:0",  # or any Bedrock model
+    aws_region="us-east-1",
+)
+
+# Create agent with the model
+agent = Agent(
+    task="Your task here",
+    llm=llm
+)
+```
+
+#### Anthropic Claude via AWS Bedrock (convenience class)
+
+```python
+from browser_use import Agent, ChatAnthropicBedrock
+
+# Anthropic-specific class with Claude defaults
+llm = ChatAnthropicBedrock(
+    model="anthropic.claude-3-5-sonnet-20240620-v1:0",
+    aws_region="us-east-1",
+)
+
+# Create agent with the model
+agent = Agent(
+    task="Your task here",
+    llm=llm
+)
+```
+
+#### AWS Authentication
+
+Required environment variables:
+
+```bash .env
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+```
+
+You can also use AWS profiles or IAM roles instead of environment variables. The implementation supports:
+
+* Environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION`)
+* AWS profiles and credential files
+* IAM roles (when running on EC2)
+* Session tokens for temporary credentials
+* AWS SSO authentication (`aws_sso_auth=True`)
+
+## Groq [example](https://github.com/browser-use/browser-use/blob/main/examples/models/llama4-groq.py)
+
+```python
+from browser_use import Agent, ChatGroq
+
+llm = ChatGroq(model="meta-llama/llama-4-maverick-17b-128e-instruct")
+
+agent = Agent(
+    task="Your task here",
+    llm=llm
+)
+```
+
+Required environment variables:
+
+```bash .env
+GROQ_API_KEY=
+```
+
+## Ollama
+
+1. Install Ollama: [https://github.com/ollama/ollama](https://github.com/ollama/ollama)
+2. Run `ollama serve` to start the server
+3. In a new terminal, install the model you want to use: `ollama pull llama3.1:8b` (this has 4.9GB)
+
+```python
+from browser_use import Agent, ChatOllama
+
+llm = ChatOllama(model="llama3.1:8b")
+```
+
+## Langchain
+
+[Example](https://github.com/browser-use/browser-use/blob/main/examples/models/langchain) on how to use Langchain with Browser Use.
+
+## Qwen [example](https://github.com/browser-use/browser-use/blob/main/examples/models/qwen.py)
+
+Currently, only `qwen-vl-max` is recommended for Browser Use. Other Qwen models, including `qwen-max`, have issues with the action schema format.
+Smaller Qwen models may return incorrect action schema formats (e.g., `actions: [{"go_to_url": "google.com"}]` instead of `[{"go_to_url": {"url": "google.com"}}]`). If you want to use other models, add concrete examples of the correct action format to your prompt.
+
+```python
+from browser_use import Agent, ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+# Get API key from https://modelstudio.console.alibabacloud.com/?tab=playground#/api-key
+api_key = os.getenv('ALIBABA_CLOUD')
+base_url = 'https://dashscope-intl.aliyuncs.com/compatible-mode/v1'
+
+llm = ChatOpenAI(model='qwen-vl-max', api_key=api_key, base_url=base_url)
+
+agent = Agent(
+    task="Your task here",
+    llm=llm,
+    use_vision=True
+)
+```
+
+Required environment variables:
+
+```bash .env
+ALIBABA_CLOUD=
+```
+
+## ModelScope [example](https://github.com/browser-use/browser-use/blob/main/examples/models/modelscope_example.py)
+
+```python
+from browser_use import Agent, ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+# Get API key from https://www.modelscope.cn/docs/model-service/API-Inference/intro
+api_key = os.getenv('MODELSCOPE_API_KEY')
+base_url = 'https://api-inference.modelscope.cn/v1/'
+
+llm = ChatOpenAI(model='Qwen/Qwen2.5-VL-72B-Instruct', api_key=api_key, base_url=base_url)
+
+agent = Agent(
+    task="Your task here",
+    llm=llm,
+    use_vision=True
+)
+```
+
+Required environment variables:
+
+```bash .env
+MODELSCOPE_API_KEY=
+```
+
+## Other models (DeepSeek, Novita, X...)
+
+We support all other models that can be called via OpenAI compatible API. We are open to PRs for more providers.
+
+**Examples available:**
+
+* [DeepSeek](https://github.com/browser-use/browser-use/blob/main/examples/models/deepseek-chat.py)
+* [Novita](https://github.com/browser-use/browser-use/blob/main/examples/models/novita.py)
+* [OpenRouter](https://github.com/browser-use/browser-use/blob/main/examples/models/openrouter.py)
+
+
+# All Parameters
+Source: https://docs.browser-use.com/customize/browser/all-parameters
+
+Complete reference for all browser configuration options
+
+<Note>
+  The `Browser` instance also provides all [Actor](/customize/actor/all-parameters) methods for direct browser control (page management, element interactions, etc.).
+</Note>
+
+## Core Settings
+
+* `cdp_url`: CDP URL for connecting to existing browser instance (e.g., `"http://localhost:9222"`)
+
+## Display & Appearance
+
+* `headless` (default: `None`): Run browser without UI. Auto-detects based on display availability (`True`/`False`/`None`)
+* `window_size`: Browser window size for headful mode. Use dict `{'width': 1920, 'height': 1080}` or `ViewportSize` object
+* `window_position` (default: `{'width': 0, 'height': 0}`): Window position from top-left corner in pixels
+* `viewport`: Content area size, same format as `window_size`. Use `{'width': 1280, 'height': 720}` or `ViewportSize` object
+* `no_viewport` (default: `None`): Disable viewport emulation, content fits to window size
+* `device_scale_factor`: Device scale factor (DPI). Set to `2.0` or `3.0` for high-resolution screenshots
+
+## Browser Behavior
+
+* `keep_alive` (default: `None`): Keep browser running after agent completes
+* `allowed_domains`: Restrict navigation to specific domains. Domain pattern formats:
+  * `'example.com'` - Matches only `https://example.com/*`
+  * `'*.example.com'` - Matches `https://example.com/*` and any subdomain `https://*.example.com/*`
+  * `'http*://example.com'` - Matches both `http://` and `https://` protocols
+  * `'chrome-extension://*'` - Matches any Chrome extension URL
+  * **Security**: Wildcards in TLD (e.g., `example.*`) are **not allowed** for security
+  * Use list like `['*.google.com', 'https://example.com', 'chrome-extension://*']`
+  * **Performance**: Lists with 100+ domains are automatically optimized to sets for O(1) lookup. Pattern matching is disabled for optimized lists. Both `www.example.com` and `example.com` variants are checked automatically.
+* `prohibited_domains`: Block navigation to specific domains. Uses same pattern formats as `allowed_domains`. When both `allowed_domains` and `prohibited_domains` are set, `allowed_domains` takes precedence. Examples:
+  * `['pornhub.com', '*.gambling-site.net']` - Block specific sites and all subdomains
+  * `['https://explicit-content.org']` - Block specific protocol/domain combination
+  * **Performance**: Lists with 100+ domains are automatically optimized to sets for O(1) lookup (same as `allowed_domains`)
+* `enable_default_extensions` (default: `True`): Load automation extensions (uBlock Origin, cookie handlers, ClearURLs)
+* `cross_origin_iframes` (default: `False`): Enable cross-origin iframe support (may cause complexity)
+* `is_local` (default: `True`): Whether this is a local browser instance. Set to `False` for remote browsers. If we have a `executable_path` set, it will be automatically set to `True`. This can effect your download behavior.
+
+## User Data & Profiles
+
+* `user_data_dir` (default: auto-generated temp): Directory for browser profile data. Use `None` for incognito mode
+* `profile_directory` (default: `'Default'`): Chrome profile subdirectory name (`'Profile 1'`, `'Work Profile'`, etc.)
+* `storage_state`: Browser storage state (cookies, localStorage). Can be file path string or dict object
+
+## Network & Security
+
+* `proxy`: Proxy configuration using `ProxySettings(server='http://host:8080', bypass='localhost,127.0.0.1', username='user', password='pass')`
+
+* `permissions` (default: `['clipboardReadWrite', 'notifications']`): Browser permissions to grant. Use list like `['camera', 'microphone', 'geolocation']`
+
+* `headers`: Additional HTTP headers for connect requests (remote browsers only)
+
+## Browser Launch
+
+* `executable_path`: Path to browser executable for custom installations. Platform examples:
+  * macOS: `'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'`
+  * Windows: `'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'`
+  * Linux: `'/usr/bin/google-chrome'`
+* `channel`: Browser channel (`'chromium'`, `'chrome'`, `'chrome-beta'`, `'msedge'`, etc.)
+* `args`: Additional command-line arguments for the browser. Use list format: `['--disable-gpu', '--custom-flag=value', '--another-flag']`
+* `env`: Environment variables for browser process. Use dict like `{'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'CUSTOM_VAR': 'test'}`
+* `chromium_sandbox` (default: `True` except in Docker): Enable Chromium sandboxing for security
+* `devtools` (default: `False`): Open DevTools panel automatically (requires `headless=False`)
+* `ignore_default_args`: List of default args to disable, or `True` to disable all. Use list like `['--enable-automation', '--disable-extensions']`
+
+## Timing & Performance
+
+* `minimum_wait_page_load_time` (default: `0.25`): Minimum time to wait before capturing page state in seconds
+* `wait_for_network_idle_page_load_time` (default: `0.5`): Time to wait for network activity to cease in seconds
+* `wait_between_actions` (default: `0.5`): Time to wait between agent actions in seconds
+
+## AI Integration
+
+* `highlight_elements` (default: `True`): Highlight interactive elements for AI vision
+* `paint_order_filtering` (default: `True`): Enable paint order filtering to optimize DOM tree by removing elements hidden behind others. Slightly experimental
+
+## Downloads & Files
+
+* `accept_downloads` (default: `True`): Automatically accept all downloads
+* `downloads_path`: Directory for downloaded files. Use string like `'./downloads'` or `Path` object
+* `auto_download_pdfs` (default: `True`): Automatically download PDFs instead of viewing in browser
+
+## Device Emulation
+
+* `user_agent`: Custom user agent string. Example: `'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X)'`
+* `screen`: Screen size information, same format as `window_size`
+
+## Recording & Debugging
+
+* `record_video_dir`: Directory to save video recordings as `.mp4` files
+* `record_video_size` (default: `ViewportSize`): The frame size (width, height) of the video recording.
+* `record_video_framerate` (default: `30`): The framerate to use for the video recording.
+* `record_har_path`: Path to save network trace files as `.har` format
+* `traces_dir`: Directory to save complete trace files for debugging
+* `record_har_content` (default: `'embed'`): HAR content mode (`'omit'`, `'embed'`, `'attach'`)
+* `record_har_mode` (default: `'full'`): HAR recording mode (`'full'`, `'minimal'`)
+
+## Advanced Options
+
+* `disable_security` (default: `False`): ⚠️ **NOT RECOMMENDED** - Disables all browser security features
+* `deterministic_rendering` (default: `False`): ⚠️ **NOT RECOMMENDED** - Forces consistent rendering but reduces performance
+
+***
+
+## Outdated BrowserProfile
+
+For backward compatibility, you can pass all the parameters from above to the `BrowserProfile` and then to the `Browser`.
+
+```python
+from browser_use import BrowserProfile
+profile = BrowserProfile(headless=False)
+browser = Browser(browser_profile=profile)
+```
+
+## Browser vs BrowserSession
+
+`Browser` is an alias for `BrowserSession` - they are exactly the same class:
+Use `Browser` for cleaner, more intuitive code.
+
+
+# Basics
+Source: https://docs.browser-use.com/customize/browser/basics
+
+
+
+***
+
+```python
+from browser_use import Agent, Browser, ChatOpenAI
+
+browser = Browser(
+	headless=False,  # Show browser window
+	window_size={'width': 1000, 'height': 700},  # Set window size
+)
+
+agent = Agent(
+	task='Search for Browser Use',
+	browser=browser,
+	llm=ChatOpenAI(model='gpt-4.1-mini'),
+)
+
+
+async def main():
+	await agent.run()
+```
+
+
+# Real Browser
+Source: https://docs.browser-use.com/customize/browser/real-browser
+
+
+
+Connect your existing Chrome browser to preserve authentication.
+
+## Basic Example
+
+```python
+from browser_use import Agent, Browser, ChatOpenAI
+
+# Connect to your existing Chrome browser
+browser = Browser(
+    executable_path='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    user_data_dir='~/Library/Application Support/Google/Chrome',
+    profile_directory='Default',
+)
+
+agent = Agent(
+    task='Visit https://duckduckgo.com and search for "browser-use founders"',
+    browser=browser,
+    llm=ChatOpenAI(model='gpt-4.1-mini'),
+)
+async def main():
+	await agent.run()
+```
+
+> **Note:** You need to fully close chrome before running this example. Also, Google blocks this approach currently so we use DuckDuckGo instead.
+
+## How it Works
+
+1. **`executable_path`** - Path to your Chrome installation
+2. **`user_data_dir`** - Your Chrome profile folder (keeps cookies, extensions, bookmarks)
+3. **`profile_directory`** - Specific profile name (Default, Profile 1, etc.)
+
+## Platform Paths
+
+```python
+# macOS
+executable_path='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+user_data_dir='~/Library/Application Support/Google/Chrome'
+
+# Windows
+executable_path='C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+user_data_dir='%LOCALAPPDATA%\\Google\\Chrome\\User Data'
+
+# Linux
+executable_path='/usr/bin/google-chrome'
+user_data_dir='~/.config/google-chrome'
+```
+
+
+# Remote Browser
+Source: https://docs.browser-use.com/customize/browser/remote
+
+
+
+### Browser-Use Cloud Browser or CDP URL
+
+The easiest way to use a cloud browser is with the built-in Browser-Use cloud service:
+
+```python
+from browser_use import Agent, Browser, ChatOpenAI
+
+# Use Browser-Use cloud browser service
+browser = Browser(
+    use_cloud=True,  # Automatically provisions a cloud browser
+    # cdp_url="http://remote-server:9222" # CDP URL from your favorite browser provider like AnchorBrowser, HyperBrowser, BrowserBase, Steel.dev, etc.
+)
+
+agent = Agent(
+    task="Your task here",
+    llm=ChatOpenAI(model='gpt-4.1-mini'),
+    browser=browser,
+)
+```
+
+**Prerequisites:**
+
+1. Get an API key from [cloud.browser-use.com](https://cloud.browser-use.com)
+2. Set BROWSER\_USE\_API\_KEY environment variable
+
+**Benefits:**
+
+* ✅ No local browser setup required
+* ✅ Scalable and fast cloud infrastructure
+* ✅ Automatic provisioning and teardown
+* ✅ Built-in authentication handling
+* ✅ Optimized for browser automation
+
+### Third-Party Cloud Browsers
+
+Get a CDP URL from your favorite browser provider like AnchorBrowser, HyperBrowser, BrowserBase, Steel.dev, etc.
+
+### Proxy Connection
+
+```python
+
+from browser_use import Agent, Browser, ChatOpenAI
+from browser_use.browser import ProxySettings
+
+browser = Browser(
+        headless=False,
+        proxy=ProxySettings(
+            server="http://proxy-server:8080",
+            username="proxy-user",
+            password="proxy-pass"
+        )
+        cdp_url="http://remote-server:9222"
+)
+
+
+agent = Agent(
+    task="Your task here",
+    llm=ChatOpenAI(model='gpt-4.1-mini'),
+    browser=browser,
+)
+```
+
+
+# Lifecycle Hooks
+Source: https://docs.browser-use.com/customize/hooks
+
+Customize agent behavior with lifecycle hooks
+
+Browser-Use provides lifecycle hooks that allow you to execute custom code at specific points during the agent's execution.
+Hook functions can be used to read and modify agent state while running, implement custom logic, change configuration, integrate the Agent with external applications.
+
+## Available Hooks
+
+Currently, Browser-Use provides the following hooks:
+
+| Hook            | Description                                  | When it's called                                                                                  |
+| --------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `on_step_start` | Executed at the beginning of each agent step | Before the agent processes the current state and decides on the next action                       |
+| `on_step_end`   | Executed at the end of each agent step       | After the agent has executed all the actions for the current step, before it starts the next step |
+
+```python
+await agent.run(on_step_start=..., on_step_end=...)
+```
+
+Each hook should be an `async` callable function that accepts the `agent` instance as its only parameter.
+
+### Basic Example
+
+```python
+import asyncio
+from pathlib import Path
+
+from browser_use import Agent, ChatOpenAI
+from browser_use.browser.events import ScreenshotEvent
+
+
+async def my_step_hook(agent: Agent):
+	# inside a hook you can access all the state and methods under the Agent object:
+	#   agent.settings, agent.state, agent.task
+	#   agent.tools, agent.llm, agent.browser_session
+	#   agent.pause(), agent.resume(), agent.add_new_task(...), etc.
+
+	# You also have direct access to the browser state
+	state = await agent.browser_session.get_browser_state_summary()
+
+	current_url = state.url
+	visit_log = agent.history.urls()
+	previous_url = visit_log[-2] if len(visit_log) >= 2 else None
+	print(f'Agent was last on URL: {previous_url} and is now on {current_url}')
+	cdp_session = await agent.browser_session.get_or_create_cdp_session()
+
+	# Example: Get page HTML content
+	doc = await cdp_session.cdp_client.send.DOM.getDocument(session_id=cdp_session.session_id)
+	html_result = await cdp_session.cdp_client.send.DOM.getOuterHTML(
+		params={'nodeId': doc['root']['nodeId']}, session_id=cdp_session.session_id
+	)
+	page_html = html_result['outerHTML']
+
+	# Example: Take a screenshot using the event system
+	screenshot_event = agent.browser_session.event_bus.dispatch(ScreenshotEvent(full_page=False))
+	await screenshot_event
+	result = await screenshot_event.event_result(raise_if_any=True, raise_if_none=True)
+
+	# Example: pause agent execution and resume it based on some custom code
+	if '/finished' in current_url:
+		agent.pause()
+		Path('result.txt').write_text(page_html)
+		input('Saved "finished" page content to result.txt, press [Enter] to resume...')
+		agent.resume()
+
+
+async def main():
+	agent = Agent(
+		task='Search for the latest news about AI',
+		llm=ChatOpenAI(model='gpt-5-mini'),
+	)
+
+	await agent.run(
+		on_step_start=my_step_hook,
+		# on_step_end=...
+		max_steps=10,
+	)
+
+
+if __name__ == '__main__':
+	asyncio.run(main())
+```
+
+## Data Available in Hooks
+
+When working with agent hooks, you have access to the entire `Agent` instance. Here are some useful data points you can access:
+
+* `agent.task` lets you see what the main task is, `agent.add_new_task(...)` lets you queue up a new one
+* `agent.tools` give access to the `Tools()` object and `Registry()` containing the available actions
+  * `agent.tools.registry.execute_action('click_element_by_index', {'index': 123}, browser_session=agent.browser_session)`
+* `agent.context` lets you access any user-provided context object passed in to `Agent(context=...)`
+* `agent.sensitive_data` contains the sensitive data dict, which can be updated in-place to add/remove/modify items
+* `agent.settings` contains all the configuration options passed to the `Agent(...)` at init time
+* `agent.llm` gives direct access to the main LLM object (e.g. `ChatOpenAI`)
+* `agent.state` gives access to lots of internal state, including agent thoughts, outputs, actions, etc.
+* `agent.history` gives access to historical data from the agent's execution:
+  * `agent.history.model_thoughts()`: Reasoning from Browser Use's model.
+  * `agent.history.model_outputs()`: Raw outputs from the Browser Use's model.
+  * `agent.history.model_actions()`: Actions taken by the agent
+  * `agent.history.extracted_content()`: Content extracted from web pages
+  * `agent.history.urls()`: URLs visited by the agent
+* `agent.browser_session` gives direct access to the `BrowserSession` and CDP interface
+  * `agent.browser_session.agent_focus`: Get the current CDP session the agent is focused on
+  * `agent.browser_session.get_or_create_cdp_session()`: Get the current CDP session for browser interaction
+  * `agent.browser_session.get_tabs()`: Get all tabs currently open
+  * `agent.browser_session.get_current_page_url()`: Get the URL of the current active tab
+  * `agent.browser_session.get_current_page_title()`: Get the title of the current active tab
+
+## Tips for Using Hooks
+
+* **Avoid blocking operations**: Since hooks run in the same execution thread as the agent, keep them efficient and avoid blocking operations.
+* **Use custom tools instead**: hooks are fairly advanced, most things can be implemented with [custom tools](/customize/tools/basics) instead
+* **Increase step\_timeout**: If your hook is doing something that takes a long time, you can increase the `step_timeout` parameter in the `Agent(...)` constructor.
+
+***
+
+
+# MCP Server
+Source: https://docs.browser-use.com/customize/mcp-server
+
+Expose browser-use capabilities via Model Context Protocol for AI assistants like Claude Desktop
+
+## Overview
+
+The MCP (Model Context Protocol) Server allows you to expose browser-use's browser automation capabilities to AI assistants like Claude Desktop, Cline, and other MCP-compatible clients. This enables AI assistants to perform web automation tasks directly through browser-use.
+
+## Quick Start
+
+### Start MCP Server
+
+```bash
+uvx browser-use --mcp
+```
+
+The server will start in stdio mode, ready to accept MCP connections.
+
+## Claude Desktop Integration
+
+The most common use case is integrating with Claude Desktop. Add this configuration to your Claude Desktop config file:
+
+### macOS
+
+Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "browser-use": {
+      "command": "uvx",
+      "args": ["browser-use", "--mcp"],
+      "env": {
+        "OPENAI_API_KEY": "your-openai-api-key-here"
+      }
+    }
+  }
+}
+```
+
+### Windows
+
+Edit `%APPDATA%\Claude\claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "browser-use": {
+      "command": "uvx",
+      "args": ["browser-use", "--mcp"],
+      "env": {
+        "OPENAI_API_KEY": "your-openai-api-key-here"
+      }
+    }
+  }
+}
+```
+
+### Environment Variables
+
+You can configure browser-use through environment variables:
+
+* `OPENAI_API_KEY` - Your OpenAI API key (required)
+* `ANTHROPIC_API_KEY` - Your Anthropic API key (alternative to OpenAI)
+* `BROWSER_USE_HEADLESS` - Set to `false` to show browser window
+* `BROWSER_USE_DISABLE_SECURITY` - Set to `true` to disable browser security features
+
+## Available Tools
+
+The MCP server exposes these browser automation tools:
+
+### Autonomous Agent Tools
+
+* **`retry_with_browser_use_agent`** - Run a complete browser automation task with an AI agent (use as last resort when direct control fails)
+
+### Direct Browser Control
+
+* **`browser_navigate`** - Navigate to a URL
+* **`browser_click`** - Click on an element by index
+* **`browser_type`** - Type text into an element
+* **`browser_get_state`** - Get current page state and interactive elements
+* **`browser_scroll`** - Scroll the page
+* **`browser_go_back`** - Go back in browser history
+
+### Tab Management
+
+* **`browser_list_tabs`** - List all open browser tabs
+* **`browser_switch_tab`** - Switch to a specific tab
+* **`browser_close_tab`** - Close a tab
+
+### Content Extraction
+
+* **`browser_extract_content`** - Extract structured content from the current page
+
+### Session Management
+
+* **`browser_list_sessions`** - List all active browser sessions with details
+* **`browser_close_session`** - Close a specific browser session by ID
+* **`browser_close_all`** - Close all active browser sessions
+
+## Example Usage
+
+Once configured with Claude Desktop, you can ask Claude to perform browser automation tasks:
+
+```
+"Please navigate to example.com and take a screenshot"
+
+"Search for 'browser automation' on Google and summarize the first 3 results"
+
+"Go to GitHub, find the browser-use repository, and tell me about the latest release"
+```
+
+Claude will use the MCP server to execute these tasks through browser-use.
+
+## Programmatic Usage
+
+You can also connect to the MCP server programmatically:
+
+```python
+import asyncio
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+async def use_browser_mcp():
+    # Connect to browser-use MCP server
+    server_params = StdioServerParameters(
+        command="uvx", 
+        args=["browser-use", "--mcp"]
+    )
+    
+    async with stdio_client(server_params) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            
+            # Navigate to a website
+            result = await session.call_tool(
+                "browser_navigate", 
+                arguments={"url": "https://example.com"}
+            )
+            print(result.content[0].text)
+            
+            # Get page state
+            result = await session.call_tool(
+                "browser_get_state", 
+                arguments={"include_screenshot": True}
+            )
+            print("Page state retrieved!")
+
+asyncio.run(use_browser_mcp())
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**"MCP SDK is required" Error**
+
+```bash
+uv pip install 'browser-use'
+```
+
+**Browser doesn't start**
+
+* Check that you have Chrome/Chromium installed
+* Try setting `BROWSER_USE_HEADLESS=false` to see browser window
+* Ensure no other browser instances are using the same profile
+
+**API Key Issues**
+
+* Verify your `OPENAI_API_KEY` is set correctly
+* Check API key permissions and billing status
+* Try using `ANTHROPIC_API_KEY` as an alternative
+
+**Connection Issues in Claude Desktop**
+
+* Restart Claude Desktop after config changes
+* Check the config file syntax is valid JSON
+* Verify the file path is correct for your OS
+
+### Debug Mode
+
+Enable debug logging by setting:
+
+```bash
+export BROWSER_USE_LOG_LEVEL=DEBUG
+uvx browser-use --mcp
+```
+
+## Security Considerations
+
+* The MCP server has access to your browser and file system
+* Only connect trusted MCP clients
+* Be cautious with sensitive websites and data
+* Consider running in a sandboxed environment for untrusted automation
+
+## Next Steps
+
+* Explore the [examples directory](https://github.com/browser-use/browser-use/tree/main/examples/mcp) for more usage patterns
+* Check out [MCP documentation](https://modelcontextprotocol.io/) to learn more about the protocol
+* Join our [Discord](https://link.browser-use.com/discord) for support and discussions
+
+
+# Add Tools
+Source: https://docs.browser-use.com/customize/tools/add
+
+
+
+Examples:
+
+* deterministic clicks
+* file handling
+* calling APIs
+* human-in-the-loop
+* browser interactions
+* calling LLMs
+* get 2fa codes
+* send emails
+* Playwright integration (see [GitHub example](https://github.com/browser-use/browser-use/blob/main/examples/browser/playwright_integration.py))
+* ...
+
+Simply add `@tools.action(...)` to your function.
+
+```python
+from browser_use import Tools, Agent
+
+tools = Tools()
+
+@tools.action(description='Ask human for help with a question')
+def ask_human(question: str) -> ActionResult:
+    answer = input(f'{question} > ')
+    return f'The human responded with: {answer}'
+```
+
+```python
+agent = Agent(task='...', llm=llm, tools=tools)
+```
+
+* **`description`** *(required)* - What the tool does, the LLM uses this to decide when to call it.
+* **`allowed_domains`** - List of domains where tool can run (e.g. `['*.example.com']`), defaults to all domains
+
+The Agent fills your function parameters based on their names, type hints, & defaults.
+
+## Available Objects
+
+Your function has access to these objects:
+
+* **`browser_session: BrowserSession`** - Current browser session for CDP access
+* **`cdp_client`** - Direct Chrome DevTools Protocol client
+* **`page_extraction_llm: BaseChatModel`** - The LLM you pass into agent. This can be used to do a custom llm call here.
+* **`file_system: FileSystem`** - File system access
+* **`available_file_paths: list[str]`** - Available files for upload/processing
+* **`has_sensitive_data: bool`** - Whether action contains sensitive data
+
+## Pydantic Input
+
+You can use Pydantic for the tool parameters:
+
+```python
+from pydantic import BaseModel
+
+class Cars(BaseModel):
+    name: str = Field(description='The name of the car, e.g. "Toyota Camry"')
+    price: int = Field(description='The price of the car as int in USD, e.g. 25000')
+
+@tools.action(description='Save cars to file')
+def save_cars(cars: list[Cars]) -> str:
+    with open('cars.json', 'w') as f:
+        json.dump(cars, f)
+    return f'Saved {len(cars)} cars to file'
+
+task = "find cars and save them to file"
+```
+
+## Domain Restrictions
+
+Limit tools to specific domains:
+
+```python
+@tools.action(
+    description='Fill out banking forms',
+    allowed_domains=['https://mybank.com']
+)
+def fill_bank_form(account_number: str) -> str:
+    # Only works on mybank.com
+    return f'Filled form for account {account_number}'
+```
+
+## Advanced Example
+
+For a comprehensive example of custom tools with Playwright integration, see:
+**[Playwright Integration Example](https://github.com/browser-use/browser-use/blob/main/examples/browser/playwright_integration.py)**
+
+This shows how to create custom actions that use Playwright's precise browser automation alongside Browser-Use.
+
+
+# Available Tools
+Source: https://docs.browser-use.com/customize/tools/available
+
+Here is the [source code](https://github.com/browser-use/browser-use/blob/main/browser_use/tools/service.py) for the default tools:
+
+### Navigation & Browser Control
+
+* **`search`** - Search queries in Google
+* **`go_to_url`** - Navigate to URLs
+* **`go_back`** - Go back in browser history
+* **`wait`** - Wait for specified seconds
+
+### Page Interaction
+
+* **`click_element_by_index`** - Click elements by their index
+* **`input_text`** - Input text into form fields
+* **`upload_file_to_element`** - Upload files to file inputs
+* **`scroll`** - Scroll the page up/down
+* **`scroll_to_text`** - Scroll to specific text on page
+* **`send_keys`** - Send special keys (Enter, Escape, etc.)
+
+### Tab Management
+
+* **`switch_tab`** - Switch between browser tabs
+* **`close_tab`** - Close browser tabs
+
+### Content Extraction
+
+* **`extract_structured_data`** - Extract data from webpages using LLM
+
+### Form Controls
+
+* **`get_dropdown_options`** - Get dropdown option values
+* **`select_dropdown_option`** - Select dropdown options
+
+### File Operations
+
+* **`write_file`** - Write content to files
+* **`read_file`** - Read file contents
+* **`replace_file_str`** - Replace text in files
+
+### Task Completion
+
+* **`done`** - Complete the task (always available)
+
+
+# Basics
+Source: https://docs.browser-use.com/customize/tools/basics
+
+Tools are the functions that the agent has to interact with the world.
+
+## Quick Example
+
+```python
+from browser_use import Tools, ActionResult, Browser
+
+tools = Tools()
+
+@tools.action('Ask human for help with a question')
+def ask_human(question: str, browser: Browser) -> ActionResult:
+    answer = input(f'{question} > ')
+    return f'The human responded with: {answer}'
+
+agent = Agent(
+    task='Ask human for help',
+    llm=llm,
+    tools=tools,
+)
+```
+
+<Note>
+  Use `browser` parameter in tools for deterministic [Actor](/customize/actor/basics) actions.
+</Note>
+
+
+# Remove Tools
+Source: https://docs.browser-use.com/customize/tools/remove
+
+You can exclude default tools:
+
+```python
+from browser_use import Tools
+
+tools = Tools(exclude_actions=['search', 'wait'])
+agent = Agent(task='...', llm=llm, tools=tools)
+```
+
+
+# Tool Response
+Source: https://docs.browser-use.com/customize/tools/response
+
+
+
+Tools return results using `ActionResult` or simple strings.
+
+## Return Types
+
+```python
+@tools.action('My tool')
+def my_tool() -> str:
+    return "Task completed successfully"
+
+@tools.action('Advanced tool')
+def advanced_tool() -> ActionResult:
+    return ActionResult(
+        extracted_content="Main result",
+        long_term_memory="Remember this info",
+        error="Something went wrong",
+        is_done=True,
+        success=True,
+        attachments=["file.pdf"],
+    )
+```
+
+## ActionResult Properties
+
+* `extracted_content` (default: `None`) - Main result passed to LLM, this is equivalent to returning a string.
+* `include_extracted_content_only_once` (default: `False`) - Set to `True` for large content to include it only once in the LLM input.
+* `long_term_memory` (default: `None`) - This is always included in the LLM input for all future steps.
+* `error` (default: `None`) - Error message, we catch exceptions and set this automatically. This is always included in the LLM input.
+* `is_done` (default: `False`) - Tool completes entire task
+* `success` (default: `None`) - Task success (only valid with `is_done=True`)
+* `attachments` (default: `None`) - Files to show user
+* `metadata` (default: `None`) - Debug/observability data
+
+## Why `extracted_content` and `long_term_memory`?
+
+With this you control the context for the LLM.
+
+### 1. Include short content always in context
+
+```python
+def simple_tool() -> str:
+    return "Hello, world!"  # Keep in context for all future steps 
+```
+
+### 2. Show long content once, remember subset in context
+
+```python
+return ActionResult(
+    extracted_content="[500 lines of product data...]",     # Shows to LLM once
+    include_extracted_content_only_once=True,               # Never show full output again
+    long_term_memory="Found 50 products"        # Only this in future steps
+)
+```
+
+We save the full `extracted_content` to files which the LLM can read in future steps.
+
+### 3. Dont show long content, remember subset in context
+
+```python
+return ActionResult(
+    extracted_content="[500 lines of product data...]",      # The LLM never sees this because `long_term_memory` overrides it and `include_extracted_content_only_once` is not used
+    long_term_memory="Saved user's favorite products",      # This is shown to the LLM in future steps
+)
+```
+
+## Terminating the Agent
+
+Set `is_done=True` to stop the agent completely. Use when your tool finishes the entire task:
+
+```python
+@tools.action(description='Complete the task')
+def finish_task() -> ActionResult:
+    return ActionResult(
+        extracted_content="Task completed!",
+        is_done=True,        # Stops the agent
+        success=True         # Task succeeded 
+    )
+```
+
+
+# Get Help
+Source: https://docs.browser-use.com/development/get-help
+
+More than 20k developers help each other
+
+1. Check our [GitHub Issues](https://github.com/browser-use/browser-use/issues)
+2. Ask in our [Discord community](https://link.browser-use.com/discord)
+3. Get support for your enterprise with [support@browser-use.com](mailto:support@browser-use.com)
+
+
+# Observability
+Source: https://docs.browser-use.com/development/monitoring/observability
+
+Trace Browser Use's agent execution steps and browser sessions
+
+## Overview
+
+Browser Use has a native integration with [Laminar](https://lmnr.ai) - open-source platform for tracing, evals and labeling of AI agents.
+Read more about Laminar in the [Laminar docs](https://docs.lmnr.ai).
+
+## Setup
+
+Register on [Laminar Cloud](https://lmnr.ai) and get the key from your project settings.
+Set the `LMNR_PROJECT_API_KEY` environment variable.
+
+```bash
+pip install 'lmnr[all]'
+export LMNR_PROJECT_API_KEY=<your-project-api-key>
+```
+
+## Usage
+
+Then, you simply initialize the Laminar at the top of your project and both Browser Use and session recordings will be automatically traced.
+
+```python {5-8}
+from browser_use import Agent, ChatOpenAI
+import asyncio
+
+from lmnr import Laminar, Instruments
+# this line auto-instruments Browser Use and any browser you use (local or remote)
+Laminar.initialize(project_api_key="...", disabled_instruments={Instruments.BROWSER_USE})
+
+async def main():
+    agent = Agent(
+        task="open google, search Laminar AI",
+        llm=ChatOpenAI(model="gpt-4.1-mini"),
+    )
+    await agent.run()
+
+asyncio.run(main())
+```
+
+## Viewing Traces
+
+You can view traces in the Laminar UI by going to the traces tab in your project.
+When you select a trace, you can see both the browser session recording and the agent execution steps.
+
+Timeline of the browser session is synced with the agent execution steps, timeline highlights indicate the agent's current step synced with the browser session.
+In the trace view, you can also see the agent's current step, the tool it's using, and the tool's input and output. Tools are highlighted in the timeline with a yellow color.
+
+<img className="block" src="https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/laminar.png?fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=fdfa8c17426f3f5c24ec6b11b2e23ad1" alt="Laminar" data-og-width="3022" width="3022" data-og-height="1708" height="1708" data-path="images/laminar.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/laminar.png?w=280&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=5ba5c1f98681322dc36600348549bfe3 280w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/laminar.png?w=560&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=46f506f6c20382e0197a9e101448082e 560w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/laminar.png?w=840&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=a98517517c2a9fa03890e648e4a597f3 840w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/laminar.png?w=1100&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=064caea6d4ba7588ea3c7c051a1a367a 1100w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/laminar.png?w=1650&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=9ba36bb9c630230009023e32f095a6be 1650w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/laminar.png?w=2500&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=78b9b594df91875eff6d93afb3dcf576 2500w" />
+
+## Laminar
+
+To learn more about tracing and evaluating your browser agents, check out the [Laminar docs](https://docs.lmnr.ai).
+
+## Browser Use Cloud Authentication
+
+Browser Use can sync your agent runs to the cloud for easy viewing and sharing. Authentication is required to protect your data.
+
+### Quick Setup
+
+```bash
+# Authenticate once to enable cloud sync for all future runs
+browser-use auth
+# Or if using module directly:
+python -m browser_use.cli auth
+```
+
+**Note**: Cloud sync is enabled by default. If you've disabled it, you can re-enable with `export BROWSER_USE_CLOUD_SYNC=true`.
+
+### Manual Authentication
+
+```python
+# Authenticate from code after task completion
+from browser_use import Agent
+
+agent = Agent(task="your task")
+await agent.run()
+
+# Later, authenticate for future runs
+await agent.authenticate_cloud_sync()
+```
+
+### Reset Authentication
+
+```bash
+# Force re-authentication with a different account
+rm ~/.config/browseruse/cloud_auth.json
+browser-use auth
+```
+
+**Note**: Authentication uses OAuth Device Flow - you must complete the auth process while the command is running. Links expire when the polling stops.
+
+
+# Telemetry
+Source: https://docs.browser-use.com/development/monitoring/telemetry
+
+Understanding Browser Use's telemetry
+
+## Overview
+
+Browser Use is free under the MIT license. To help us continue improving the library, we collect anonymous usage data with [PostHog](https://posthog.com) . This information helps us understand how the library is used, fix bugs more quickly, and prioritize new features.
+
+## Opting Out
+
+You can disable telemetry by setting the environment variable:
+
+```bash .env
+ANONYMIZED_TELEMETRY=false
+```
+
+Or in your Python code:
+
+```python
+import os
+os.environ["ANONYMIZED_TELEMETRY"] = "false"
+```
+
+<Note>
+  Even when enabled, telemetry has zero impact on the library's performance. Code is available in [Telemetry
+  Service](https://github.com/browser-use/browser-use/tree/main/browser_use/telemetry).
+</Note>
+
+
+# Contribution Guide
+Source: https://docs.browser-use.com/development/setup/contribution-guide
+
+
+
+## Mission
+
+* Make developers happy
+* Do more clicks than human
+* Tell your computer what to do, and it gets it done.
+* Make agents faster and more reliable.
+
+## What to work on?
+
+* This space is moving fast. We have 10 ideas daily. Let's exchange some.
+* Browse our [GitHub Issues](https://github.com/browser-use/browser-use/issues)
+* Check out our most active issues on [Discord](https://discord.gg/zXJJHtJf3k)
+* Get inspiration in [`#showcase-your-work`](https://discord.com/channels/1303749220842340412/1305549200678850642) channel
+
+## What makes a great PR?
+
+1. Why do we need this PR?
+2. Include a demo screenshot/gif
+3. Make sure the PR passes all CI tests
+4. Keep your PR focused on a single feature
+
+## How?
+
+1. Fork the repository
+2. Create a new branch for your feature
+3. Submit a PR
+
+We are overwhelmed with Issues. Feel free to bump your issues/PRs with comments periodically if you need faster feedback.
+
+
+# Local Setup
+Source: https://docs.browser-use.com/development/setup/local-setup
+
+We're excited to have you join our community of contributors. 
+
+## Welcome to Browser Use Development!
+
+```bash
+git clone https://github.com/browser-use/browser-use
+cd browser-use
+uv sync --all-extras --dev
+# or pip install -U git+https://github.com/browser-use/browser-use.git@main
+```
+
+## Configuration
+
+Set up your environment variables:
+
+```bash
+# Copy the example environment file
+cp .env.example .env
+
+# set logging level
+# BROWSER_USE_LOGGING_LEVEL=debug
+```
+
+## Helper Scripts
+
+For common development tasks
+
+```bash
+# Complete setup script - installs uv, creates a venv, and installs dependencies
+./bin/setup.sh
+
+# Run all pre-commit hooks (formatting, linting, type checking)
+./bin/lint.sh
+
+# Run the core test suite that's executed in CI
+./bin/test.sh
+```
+
+## Run examples
+
+```bash
+uv run examples/simple.py
+```
+
+
+# Ad-Use (Ad Generator)
+Source: https://docs.browser-use.com/examples/apps/ad-use
+
+Generate Instagram image ads and TikTok video ads from landing pages using browser agents, Google's Nano Banana 🍌, and Veo3.
+
+<Note>
+  This demo requires browser-use v0.7.6+.
+</Note>
+
+<video controls className="w-full aspect-video rounded-xl" src="https://github.com/user-attachments/assets/7fab54a9-b36b-4fba-ab98-a438f2b86b7e" />
+
+## Features
+
+1. Agent visits your target website
+2. Captures brand name, tagline, and key selling points
+3. Takes a clean screenshot for design reference
+4. Creates scroll-stopping Instagram image ads with 🍌
+5. Generates viral TikTok video ads with Veo3
+6. Supports parallel generation of multiple ads
+
+## Setup
+
+Make sure the newest version of browser-use is installed (with screenshot functionality):
+
+```bash
+pip install -U browser-use
+```
+
+Export your Gemini API key, get it from: [Google AI Studio](https://makersuite.google.com/app/apikey)
+
+```
+export GOOGLE_API_KEY='your-google-api-key-here'
+```
+
+Clone the repo and cd into the app folder
+
+```bash
+git clone https://github.com/browser-use/browser-use.git
+cd browser-use/examples/apps/ad-use
+```
+
+## Normal Usage
+
+```bash
+# Basic - Generate Instagram image ad (default)
+python ad_generator.py --url https://www.apple.com/iphone-16-pro/
+
+# Generate TikTok video ad with Veo3
+python ad_generator.py --tiktok --url https://www.apple.com/iphone-16-pro/
+
+# Generate multiple ads in parallel
+python ad_generator.py --instagram --count 3 --url https://www.apple.com/iphone-16-pro/
+python ad_generator.py --tiktok --count 2 --url https://www.apple.com/iphone-16-pro/
+
+# Debug Mode - See the browser in action
+python ad_generator.py --url https://www.apple.com/iphone-16-pro/ --debug
+```
+
+## Command Line Options
+
+* `--url`: Landing page URL to analyze
+* `--instagram`: Generate Instagram image ad (default if no flag specified)
+* `--tiktok`: Generate TikTok video ad using Veo3
+* `--count N`: Generate N ads in parallel (default: 1)
+* `--debug`: Show browser window and enable verbose logging
+
+## Programmatic Usage
+
+```python
+import asyncio
+from ad_generator import create_ad_from_landing_page
+
+async def main():
+    results = await create_ad_from_landing_page(
+        url="https://your-landing-page.com",
+        debug=False
+    )
+    print(f"Generated ads: {results}")
+
+asyncio.run(main())
+```
+
+## Output
+
+Generated ads are saved in the `output/` directory with:
+
+* **PNG image files** (ad\_timestamp.png) - Instagram ads generated with Gemini 2.5 Flash Image
+* **MP4 video files** (ad\_timestamp.mp4) - TikTok ads generated with Veo3
+* **Analysis files** (analysis\_timestamp.txt) - Browser agent analysis and prompts used
+* **Landing page screenshots** (landing\_page\_timestamp.png) - Reference screenshots
+
+## Source Code
+
+Full implementation: [https://github.com/browser-use/browser-use/tree/main/examples/apps/ad-use](https://github.com/browser-use/browser-use/tree/main/examples/apps/ad-use)
+
+
+# Msg-Use (WhatsApp Sender)
+Source: https://docs.browser-use.com/examples/apps/msg-use
+
+AI-powered WhatsApp message scheduler using browser agents and Gemini. Schedule personalized messages in natural language.
+
+<Note>
+  This demo requires browser-use v0.7.7+.
+</Note>
+
+<video controls className="w-full aspect-video rounded-xl" src="https://browser-use.github.io/media/demos/msg_use.mp4" />
+
+## Features
+
+1. Agent logs into WhatsApp Web automatically
+2. Parses natural language scheduling instructions
+3. Composes personalized messages using AI
+4. Schedules messages for future delivery or sends immediately
+5. Persistent session (no repeated QR scanning)
+
+## Setup
+
+Make sure the newest version of browser-use is installed:
+
+```bash
+pip install -U browser-use
+```
+
+Export your Gemini API key, get it from: [Google AI Studio](https://makersuite.google.com/app/apikey)
+
+```bash
+export GOOGLE_API_KEY='your-gemini-api-key-here'
+```
+
+Clone the repo and cd into the app folder
+
+```bash
+git clone https://github.com/browser-use/browser-use.git
+cd browser-use/examples/apps/msg-use
+```
+
+## Initial Login
+
+First-time setup requires QR code scanning:
+
+```bash
+python login.py
+```
+
+* Scan QR code when browser opens
+* Session will be saved for future use
+
+## Normal Usage
+
+1. **Edit your schedule** in `messages.txt`:
+
+```
+- Send "Hi" to Magnus on the 13.06 at 18:15
+- Tell hinge date (Camila) at 20:00 that I miss her
+- Send happy birthday message to sister on the 15.06
+- Remind mom to pick up the car next tuesday
+```
+
+2. **Test mode** - See what will be sent:
+
+```bash
+python scheduler.py --test
+```
+
+3. **Run scheduler**:
+
+```bash
+python scheduler.py
+
+# Debug Mode - See the browser in action
+python scheduler.py --debug
+
+# Auto Mode - Respond to unread messages every ~30 minutes
+python scheduler.py --auto
+```
+
+## Programmatic Usage
+
+```python
+import asyncio
+from scheduler import schedule_messages
+
+async def main():
+    messages = [
+        "Send hello to John at 15:30",
+        "Remind Sarah about meeting tomorrow at 9am"
+    ]
+    await schedule_messages(messages, debug=False)
+
+asyncio.run(main())
+```
+
+## Example Output
+
+The scheduler processes natural language and outputs structured results:
+
+```json
+[
+  {
+    "contact": "Magnus",
+    "original_message": "Hi",
+    "composed_message": "Hi",
+    "scheduled_time": "2025-06-13 18:15"
+  },
+  {
+    "contact": "Camila", 
+    "original_message": "I miss her",
+    "composed_message": "I miss you ❤️",
+    "scheduled_time": "2025-06-14 20:00"
+  },
+  {
+    "contact": "sister",
+    "original_message": "happy birthday message", 
+    "composed_message": "Happy birthday! 🎉 Wishing you an amazing day, sis! Hope you have the best birthday ever! ❤️🎂🎈",
+    "scheduled_time": "2025-06-15 09:00"
+  }
+]
+```
+
+## Source Code
+
+Full implementation: [https://github.com/browser-use/browser-use/tree/main/examples/apps/msg-use](https://github.com/browser-use/browser-use/tree/main/examples/apps/msg-use)
+
+
+# News-Use (News Monitor)
+Source: https://docs.browser-use.com/examples/apps/news-use
+
+Monitor news websites and extract articles with sentiment analysis using browser agents and Google Gemini.
+
+<Note>
+  This demo requires browser-use v0.7.7+.
+</Note>
+
+<video controls className="w-full aspect-video rounded-xl" src="https://browser-use.github.io/media/demos/news_use.mp4" />
+
+## Features
+
+1. Agent visits any news website automatically
+2. Finds and clicks the most recent headline article
+3. Extracts title, URL, posting time, and full content
+4. Generates short/long summaries with sentiment analysis
+5. Persistent deduplication across monitoring sessions
+
+## Setup
+
+Make sure the newest version of browser-use is installed:
+
+```bash
+pip install -U browser-use
+```
+
+Export your Gemini API key, get it from: [Google AI Studio](https://makersuite.google.com/app/apikey)
+
+```bash
+export GOOGLE_API_KEY='your-google-api-key-here'
+```
+
+Clone the repo, cd to the app
+
+```bash
+git clone https://github.com/browser-use/browser-use.git
+cd browser-use/examples/apps/news-use
+```
+
+## Usage Examples
+
+```bash
+# One-time extraction - Get the latest article and exit
+python news_monitor.py --once
+
+# Monitor Bloomberg continuously (default)
+python news_monitor.py
+
+# Monitor TechCrunch every 60 seconds
+python news_monitor.py --url https://techcrunch.com --interval 60
+
+# Debug mode - See browser in action
+python news_monitor.py --once --debug
+```
+
+## Output Format
+
+Articles are displayed with timestamp, sentiment emoji, and summary:
+
+```
+[2025-09-11 02:49:21] - 🟢 - Klarna's IPO raises $1.4B, benefiting existing investors
+[2025-09-11 02:54:15] - 🔴 - Tech layoffs continue as major firms cut workforce
+[2025-09-11 02:59:33] - 🟡 - Federal Reserve maintains interest rates unchanged
+```
+
+**Sentiment Indicators:**
+
+* 🟢 **Positive** - Good news, growth, success stories
+* 🟡 **Neutral** - Factual reporting, announcements, updates
+* 🔴 **Negative** - Challenges, losses, negative events
+
+## Data Persistence
+
+All extracted articles are saved to `news_data.json` with complete metadata:
+
+```json
+{
+  "hash": "a1b2c3d4...",
+  "pulled_at": "2025-09-11T02:49:21Z",
+  "data": {
+    "title": "Klarna's IPO pops, raising $1.4B",
+    "url": "https://techcrunch.com/2025/09/11/klarna-ipo/",
+    "posting_time": "12:11 PM PDT · September 10, 2025",
+    "short_summary": "Klarna's IPO raises $1.4B, benefiting existing investors like Sequoia.",
+    "long_summary": "Fintech Klarna successfully IPO'd on the NYSE...",
+    "sentiment": "positive"
+  }
+}
+```
+
+## Programmatic Usage
+
+```python
+import asyncio
+from news_monitor import extract_latest_article
+
+async def main():
+    # Extract latest article from any news site
+    result = await extract_latest_article(
+        site_url="https://techcrunch.com",
+        debug=False
+    )
+    
+    if result["status"] == "success":
+        article = result["data"]
+        print(f"📰 {article['title']}")
+        print(f"😊 Sentiment: {article['sentiment']}")
+        print(f"📝 Summary: {article['short_summary']}")
+
+asyncio.run(main())
+```
+
+## Advanced Configuration
+
+```python
+# Custom monitoring with filters
+async def monitor_with_filters():
+    while True:
+        result = await extract_latest_article("https://bloomberg.com")
+        if result["status"] == "success":
+            article = result["data"]
+            # Only alert on negative market news
+            if article["sentiment"] == "negative" and "market" in article["title"].lower():
+                send_alert(article)
+        await asyncio.sleep(300)  # Check every 5 minutes
+```
+
+## Source Code
+
+Full implementation: [https://github.com/browser-use/browser-use/tree/main/examples/apps/news-use](https://github.com/browser-use/browser-use/tree/main/examples/apps/news-use)
+
+
+# Vibetest-Use (Automated QA)
+Source: https://docs.browser-use.com/examples/apps/vibetest-use
+
+Run multi-agent Browser-Use tests to catch UI bugs, broken links, and accessibility issues before they ship.
+
+<Note>
+  Requires **browser-use  \< v0.5.0** and Playwright Chromium. Currently getting an update to v0.7.6+.
+</Note>
+
+<video controls className="w-full aspect-video rounded-xl" src="https://github.com/user-attachments/assets/6450b5b7-10e5-4019-82a4-6d726dbfbe1f" />
+
+## Features
+
+1. Launches multiple headless (or visible) Browser-Use agents in parallel
+2. Crawls your site and records screenshots, broken links & a11y issues
+3. Works on production URLs *and* `localhost` dev servers
+4. Simple natural-language prompts via MCP in Cursor / Claude Code
+
+## Quick Start
+
+```bash
+
+# 1. Clone repo 
+git clone https://github.com/browser-use/vibetest-use.git
+cd vibetest-use
+
+# 2.  Create & activate env
+uv venv --python 3.11
+source .venv/bin/activate
+
+# 3.  Install project
+uv pip install -e .
+
+# 4.  Install browser runtime once
+playwright install chromium --with-deps --no-shell
+```
+
+### 1) Claude Code
+
+```bash
+# Register the MCP server
+claude mcp add vibetest /full/path/to/vibetest-use/.venv/bin/vibetest-mcp \
+  -e GOOGLE_API_KEY="your_api_key"
+
+# Inside a Claude chat
+> /mcp
+# ⎿  MCP Server Status
+#    • vibetest: connected
+```
+
+### 2) Cursor (manual MCP entry)
+
+1. Open **Settings → MCP**
+2. Click **Add Server** and paste:
+
+```json
+{
+  "mcpServers": {
+    "vibetest": {
+      "command": "/full/path/to/vibetest-use/.venv/bin/vibetest-mcp",
+      "env": {
+        "GOOGLE_API_KEY": "your_api_key"
+      }
+    }
+  }
+}
+```
+
+## Basic Prompts
+
+```
+> Vibetest my website with 5 agents: browser-use.com
+> Run vibetest on localhost:3000
+> Run a headless vibetest on localhost:8080 with 10 agents
+```
+
+### Parameters
+
+* **URL** – any `https` or `http` host or `localhost:port`
+* **Agents** – `3` by default; more agents = deeper coverage
+* **Headless** – say *headless* to hide the browser, omit to watch it live
+
+## Requirements
+
+* Python 3.11+
+* Google API key (Gemini flash used for analysis)
+* Cursor / Claude with MCP support
+
+## Source Code
+
+Full implementation: [https://github.com/browser-use/vibetest-use](https://github.com/browser-use/vibetest-use)
+
+
+# Fast Agent
+Source: https://docs.browser-use.com/examples/templates/fast-agent
+
+Optimize agent performance for maximum speed and efficiency.
+
+```python
+import asyncio
+from dotenv import load_dotenv
+load_dotenv()
+
+from browser_use import Agent, BrowserProfile
+
+# Speed optimization instructions for the model
+SPEED_OPTIMIZATION_PROMPT = """
+Speed optimization instructions:
+- Be extremely concise and direct in your responses
+- Get to the goal as quickly as possible
+- Use multi-action sequences whenever possible to reduce steps
+"""
+
+
+async def main():
+	# 1. Use fast LLM - Llama 4 on Groq for ultra-fast inference
+	from browser_use import ChatGroq
+
+	llm = ChatGroq(
+		model='meta-llama/llama-4-maverick-17b-128e-instruct',
+		temperature=0.0,
+	)
+	# from browser_use import ChatGoogle
+
+	# llm = ChatGoogle(model='gemini-flash-lite-latest')
+
+	# 2. Create speed-optimized browser profile
+	browser_profile = BrowserProfile(
+		minimum_wait_page_load_time=0.1,
+		wait_between_actions=0.1,
+		headless=False,
+	)
+
+	# 3. Define a speed-focused task
+	task = """
+	1. Go to reddit https://www.reddit.com/search/?q=browser+agent&type=communities 
+	2. Click directly on the first 5 communities to open each in new tabs
+    3. Find out what the latest post is about, and switch directly to the next tab
+	4. Return the latest post summary for each page
+	"""
+
+	# 4. Create agent with all speed optimizations
+	agent = Agent(
+		task=task,
+		llm=llm,
+		flash_mode=True,  # Disables thinking in the LLM output for maximum speed
+		browser_profile=browser_profile,
+		extend_system_message=SPEED_OPTIMIZATION_PROMPT,
+	)
+
+	await agent.run()
+
+
+if __name__ == '__main__':
+	asyncio.run(main())
+```
+
+## Speed Optimization Techniques
+
+### 1. Fast LLM Models
+
+```python
+# Groq - Ultra-fast inference
+from browser_use import ChatGroq
+llm = ChatGroq(model='meta-llama/llama-4-maverick-17b-128e-instruct')
+
+# Google Gemini Flash - Optimized for speed
+from browser_use import ChatGoogle
+llm = ChatGoogle(model='gemini-flash-lite-latest')
+```
+
+### 2. Browser Optimizations
+
+```python
+browser_profile = BrowserProfile(
+    minimum_wait_page_load_time=0.1,    # Reduce wait time
+    wait_between_actions=0.1,           # Faster action execution
+    headless=True,                      # No GUI overhead
+)
+```
+
+### 3. Agent Optimizations
+
+```python
+agent = Agent(
+    task=task,
+    llm=llm,
+    flash_mode=True,                    # Skip LLM thinking process
+    extend_system_message=SPEED_PROMPT, # Optimize LLM behavior
+)
+```
+
+
+# Follow up tasks
+Source: https://docs.browser-use.com/examples/templates/follow-up-tasks
+
+Follow up tasks with the same browser session.
+
+## Chain Agent Tasks
+
+Keep your browser session alive and chain multiple tasks together. Perfect for conversational workflows or multi-step processes.
+
+```python
+from dotenv import load_dotenv
+
+from browser_use import Agent, Browser
+
+
+load_dotenv()
+
+import asyncio
+
+
+async def main():
+	browser = Browser(keep_alive=True)
+
+	await browser.start()
+
+	agent = Agent(task='search for browser-use.', browser_session=browser)
+	await agent.run(max_steps=2)
+	agent.add_new_task('return the title of first result')
+	await agent.run()
+
+	await browser.kill()
+
+asyncio.run(main())
+```
+
+## How It Works
+
+1. **Persistent Browser**: `BrowserProfile(keep_alive=True)` prevents browser from closing between tasks
+2. **Task Chaining**: Use `agent.add_new_task()` to add follow-up tasks
+3. **Context Preservation**: Agent maintains memory and browser state across tasks
+4. **Interactive Flow**: Perfect for conversational interfaces
+5. **Break down long flows**: If you have very long flows, you can keep the browser alive and send new agents to it.
+
+<Note>
+  The browser session remains active throughout the entire chain, preserving all cookies, local storage, and page state.
+</Note>
+
+
+# More Examples
+Source: https://docs.browser-use.com/examples/templates/more-examples
+
+Explore additional examples and use cases on GitHub.
+
+### 🔗 Browse All Examples
+
+**[View Complete Examples Directory →](https://github.com/browser-use/browser-use/tree/main/examples)**
+
+### 🤝 Contributing Examples
+
+Have a great use case? **[Submit a pull request](https://github.com/browser-use/browser-use/pulls)** with your example!
+
+
+# Parallel Agents
+Source: https://docs.browser-use.com/examples/templates/parallel-browser
+
+Run multiple agents in parallel with separate browser instances
+
+```python
+import asyncio
+from browser_use import Agent, Browser, ChatOpenAI
+
+async def main():
+	# Create 3 separate browser instances
+	browsers = [
+		Browser(
+			user_data_dir=f'./temp-profile-{i}',
+			headless=False,
+		)
+		for i in range(3)
+	]
+
+	# Create 3 agents with different tasks
+	agents = [
+		Agent(
+			task='Search for "browser automation" on Google',
+			browser=browsers[0],
+			llm=ChatOpenAI(model='gpt-4.1-mini'),
+		),
+		Agent(
+			task='Search for "AI agents" on DuckDuckGo',
+			browser=browsers[1],
+			llm=ChatOpenAI(model='gpt-4.1-mini'),
+		),
+		Agent(
+			task='Visit Wikipedia and search for "web scraping"',
+			browser=browsers[2],
+			llm=ChatOpenAI(model='gpt-4.1-mini'),
+		),
+	]
+
+	# Run all agents in parallel
+	tasks = [agent.run() for agent in agents]
+	results = await asyncio.gather(*tasks, return_exceptions=True)
+
+	print('🎉 All agents completed!')
+```
+
+> **Note:** This is experimental, and agents might conflict each other.
+
+
+# Playwright Integration
+Source: https://docs.browser-use.com/examples/templates/playwright-integration
+
+Advanced example showing Playwright and Browser-Use working together
+
+## Key Features
+
+1. Browser-Use and Playwright sharing the same Chrome instance via CDP
+2. Take actions with Playwright and continue with Browser-Use actions
+3. Let the agent call Playwright functions like screenshot or click on selectors for deterministic steps
+
+## Installation
+
+```bash
+uv pip install playwright aiohttp
+```
+
+## Full Example
+
+```python
+import asyncio
+import os
+import subprocess
+import sys
+import tempfile
+
+from pydantic import BaseModel, Field
+
+# Check for required dependencies first - before other imports
+try:
+	import aiohttp  # type: ignore
+	from playwright.async_api import Browser, Page, async_playwright  # type: ignore
+except ImportError as e:
+	print(f'❌ Missing dependencies for this example: {e}')
+	print('This example requires: playwright aiohttp')
+	print('Install with: uv add playwright aiohttp')
+	print('Also run: playwright install chromium')
+	sys.exit(1)
+
+from browser_use import Agent, BrowserSession, ChatOpenAI, Tools
+from browser_use.agent.views import ActionResult
+
+# Global Playwright browser instance - shared between custom actions
+playwright_browser: Browser | None = None
+playwright_page: Page | None = None
+
+
+# Custom action parameter models
+class PlaywrightFillFormAction(BaseModel):
+	"""Parameters for Playwright form filling action."""
+
+	customer_name: str = Field(..., description='Customer name to fill')
+	phone_number: str = Field(..., description='Phone number to fill')
+	email: str = Field(..., description='Email address to fill')
+	size_option: str = Field(..., description='Size option (small/medium/large)')
+
+
+class PlaywrightScreenshotAction(BaseModel):
+	"""Parameters for Playwright screenshot action."""
+
+	filename: str = Field(default='playwright_screenshot.png', description='Filename for screenshot')
+	quality: int | None = Field(default=None, description='JPEG quality (1-100), only for .jpg/.jpeg files')
+
+
+class PlaywrightGetTextAction(BaseModel):
+	"""Parameters for getting text using Playwright selectors."""
+
+	selector: str = Field(..., description='CSS selector to get text from. Use "title" for page title.')
+
+
+async def start_chrome_with_debug_port(port: int = 9222):
+	"""
+	Start Chrome with remote debugging enabled.
+	Returns the Chrome process.
+	"""
+	# Create temporary directory for Chrome user data
+	user_data_dir = tempfile.mkdtemp(prefix='chrome_cdp_')
+
+	# Chrome launch command
+	chrome_paths = [
+		'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',  # macOS
+		'/usr/bin/google-chrome',  # Linux
+		'/usr/bin/chromium-browser',  # Linux Chromium
+		'chrome',  # Windows/PATH
+		'chromium',  # Generic
+	]
+
+	chrome_exe = None
+	for path in chrome_paths:
+		if os.path.exists(path) or path in ['chrome', 'chromium']:
+			try:
+				# Test if executable works
+				test_proc = await asyncio.create_subprocess_exec(
+					path, '--version', stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+				)
+				await test_proc.wait()
+				chrome_exe = path
+				break
+			except Exception:
+				continue
+
+	if not chrome_exe:
+		raise RuntimeError('❌ Chrome not found. Please install Chrome or Chromium.')
+
+	# Chrome command arguments
+	cmd = [
+		chrome_exe,
+		f'--remote-debugging-port={port}',
+		f'--user-data-dir={user_data_dir}',
+		'--no-first-run',
+		'--no-default-browser-check',
+		'--disable-extensions',
+		'about:blank',  # Start with blank page
+	]
+
+	# Start Chrome process
+	process = await asyncio.create_subprocess_exec(*cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+	# Wait for Chrome to start and CDP to be ready
+	cdp_ready = False
+	for _ in range(20):  # 20 second timeout
+		try:
+			async with aiohttp.ClientSession() as session:
+				async with session.get(
+					f'http://localhost:{port}/json/version', timeout=aiohttp.ClientTimeout(total=1)
+				) as response:
+					if response.status == 200:
+						cdp_ready = True
+						break
+		except Exception:
+			pass
+		await asyncio.sleep(1)
+
+	if not cdp_ready:
+		process.terminate()
+		raise RuntimeError('❌ Chrome failed to start with CDP')
+
+	return process
+
+
+async def connect_playwright_to_cdp(cdp_url: str):
+	"""
+	Connect Playwright to the same Chrome instance Browser-Use is using.
+	This enables custom actions to use Playwright functions.
+	"""
+	global playwright_browser, playwright_page
+
+	playwright = await async_playwright().start()
+	playwright_browser = await playwright.chromium.connect_over_cdp(cdp_url)
+
+	# Get or create a page
+	if playwright_browser and playwright_browser.contexts and playwright_browser.contexts[0].pages:
+		playwright_page = playwright_browser.contexts[0].pages[0]
+	elif playwright_browser:
+		context = await playwright_browser.new_context()
+		playwright_page = await context.new_page()
+
+
+# Create custom tools that use Playwright functions
+tools = Tools()
+
+
+@tools.registry.action(
+	"Fill out a form using Playwright's precise form filling capabilities. This uses Playwright selectors for reliable form interaction.",
+	param_model=PlaywrightFillFormAction,
+)
+async def playwright_fill_form(params: PlaywrightFillFormAction, browser_session: BrowserSession):
+	"""
+	Custom action that uses Playwright to fill forms with high precision.
+	This demonstrates how to create Browser-Use actions that leverage Playwright's capabilities.
+	"""
+	try:
+		if not playwright_page:
+			return ActionResult(error='Playwright not connected. Run setup first.')
+
+		# Filling form with Playwright's precise selectors
+
+		# Wait for form to be ready and fill basic fields
+		await playwright_page.wait_for_selector('input[name="custname"]', timeout=10000)
+		await playwright_page.fill('input[name="custname"]', params.customer_name)
+		await playwright_page.fill('input[name="custtel"]', params.phone_number)
+		await playwright_page.fill('input[name="custemail"]', params.email)
+
+		# Handle size selection - check if it's a select dropdown or radio buttons
+		size_select = playwright_page.locator('select[name="size"]')
+		size_radio = playwright_page.locator(f'input[name="size"][value="{params.size_option}"]')
+
+		if await size_select.count() > 0:
+			# It's a select dropdown
+			await playwright_page.select_option('select[name="size"]', params.size_option)
+		elif await size_radio.count() > 0:
+			# It's radio buttons
+			await playwright_page.check(f'input[name="size"][value="{params.size_option}"]')
+		else:
+			raise ValueError(f'Could not find size input field for value: {params.size_option}')
+
+		# Get form data to verify it was filled
+		form_data = {}
+		form_data['name'] = await playwright_page.input_value('input[name="custname"]')
+		form_data['phone'] = await playwright_page.input_value('input[name="custtel"]')
+		form_data['email'] = await playwright_page.input_value('input[name="custemail"]')
+
+		# Get size value based on input type
+		if await size_select.count() > 0:
+			form_data['size'] = await playwright_page.input_value('select[name="size"]')
+		else:
+			# For radio buttons, find the checked one
+			checked_radio = playwright_page.locator('input[name="size"]:checked')
+			if await checked_radio.count() > 0:
+				form_data['size'] = await checked_radio.get_attribute('value')
+			else:
+				form_data['size'] = 'none selected'
+
+		success_msg = f'✅ Form filled successfully with Playwright: {form_data}'
+
+		return ActionResult(
+			extracted_content=success_msg, include_in_memory=True, long_term_memory=f'Filled form with: {form_data}'
+		)
+
+	except Exception as e:
+		error_msg = f'❌ Playwright form filling failed: {str(e)}'
+		return ActionResult(error=error_msg)
+
+
+@tools.registry.action(
+	"Take a screenshot using Playwright's screenshot capabilities with high quality and precision.",
+	param_model=PlaywrightScreenshotAction,
+)
+async def playwright_screenshot(params: PlaywrightScreenshotAction, browser_session: BrowserSession):
+	"""
+	Custom action that uses Playwright's advanced screenshot features.
+	"""
+	try:
+		if not playwright_page:
+			return ActionResult(error='Playwright not connected. Run setup first.')
+
+		# Taking screenshot with Playwright
+
+		# Use Playwright's screenshot with full page capture
+		screenshot_kwargs = {'path': params.filename, 'full_page': True}
+
+		# Add quality parameter only for JPEG files
+		if params.quality is not None and params.filename.lower().endswith(('.jpg', '.jpeg')):
+			screenshot_kwargs['quality'] = params.quality
+
+		await playwright_page.screenshot(**screenshot_kwargs)
+
+		success_msg = f'✅ Screenshot saved as {params.filename} using Playwright'
+
+		return ActionResult(
+			extracted_content=success_msg, include_in_memory=True, long_term_memory=f'Screenshot saved: {params.filename}'
+		)
+
+	except Exception as e:
+		error_msg = f'❌ Playwright screenshot failed: {str(e)}'
+		return ActionResult(error=error_msg)
+
+
+@tools.registry.action(
+	"Extract text from elements using Playwright's powerful CSS selectors and XPath support.", param_model=PlaywrightGetTextAction
+)
+async def playwright_get_text(params: PlaywrightGetTextAction, browser_session: BrowserSession):
+	"""
+	Custom action that uses Playwright's advanced text extraction with CSS selectors and XPath.
+	"""
+	try:
+		if not playwright_page:
+			return ActionResult(error='Playwright not connected. Run setup first.')
+
+		# Extracting text with Playwright selectors
+
+		# Handle special selectors
+		if params.selector.lower() == 'title':
+			# Use page.title() for title element
+			text_content = await playwright_page.title()
+			result_data = {
+				'selector': 'title',
+				'text_content': text_content,
+				'inner_text': text_content,
+				'tag_name': 'TITLE',
+				'is_visible': True,
+			}
+		else:
+			# Use Playwright's robust element selection and text extraction
+			element = playwright_page.locator(params.selector).first
+
+			if await element.count() == 0:
+				error_msg = f'❌ No element found with selector: {params.selector}'
+				return ActionResult(error=error_msg)
+
+			text_content = await element.text_content()
+			inner_text = await element.inner_text()
+
+			# Get additional element info
+			tag_name = await element.evaluate('el => el.tagName')
+			is_visible = await element.is_visible()
+
+			result_data = {
+				'selector': params.selector,
+				'text_content': text_content,
+				'inner_text': inner_text,
+				'tag_name': tag_name,
+				'is_visible': is_visible,
+			}
+
+		success_msg = f'✅ Extracted text using Playwright: {result_data}'
+
+		return ActionResult(
+			extracted_content=str(result_data),
+			include_in_memory=True,
+			long_term_memory=f'Extracted from {params.selector}: {result_data["text_content"]}',
+		)
+
+	except Exception as e:
+		error_msg = f'❌ Playwright text extraction failed: {str(e)}'
+		return ActionResult(error=error_msg)
+
+
+async def main():
+	"""
+	Main function demonstrating Browser-Use + Playwright integration with custom actions.
+	"""
+	print('🚀 Advanced Playwright + Browser-Use Integration with Custom Actions')
+
+	chrome_process = None
+	try:
+		# Step 1: Start Chrome with CDP debugging
+		chrome_process = await start_chrome_with_debug_port()
+		cdp_url = 'http://localhost:9222'
+
+		# Step 2: Connect Playwright to the same Chrome instance
+		await connect_playwright_to_cdp(cdp_url)
+
+		# Step 3: Create Browser-Use session connected to same Chrome
+		browser_session = BrowserSession(cdp_url=cdp_url)
+
+		# Step 4: Create AI agent with our custom Playwright-powered tools
+		agent = Agent(
+			task="""
+			Please help me demonstrate the integration between Browser-Use and Playwright:
+			
+			1. First, navigate to https://httpbin.org/forms/post
+			2. Use the 'playwright_fill_form' action to fill the form with these details:
+			   - Customer name: "Alice Johnson"
+			   - Phone: "555-9876"
+			   - Email: "alice@demo.com"
+			   - Size: "large"
+			3. Take a screenshot using the 'playwright_screenshot' action and save it as "form_demo.png"
+			4. Extract the title of the page using 'playwright_get_text' action with selector "title"
+			5. Finally, submit the form and tell me what happened
+			
+			This demonstrates how Browser-Use AI can orchestrate tasks while using Playwright's precise capabilities for specific operations.
+			""",
+			llm=ChatOpenAI(model='gpt-4.1-mini'),
+			tools=tools,  # Our custom tools with Playwright actions
+			browser_session=browser_session,
+		)
+
+		print('🎯 Starting AI agent with custom Playwright actions...')
+
+		# Step 5: Run the agent - it will use both Browser-Use actions and our custom Playwright actions
+		result = await agent.run()
+
+		# Keep browser open briefly to see results
+		print(f'✅ Integration demo completed! Result: {result}')
+		await asyncio.sleep(2)  # Brief pause to see results
+
+	except Exception as e:
+		print(f'❌ Error: {e}')
+		raise
+
+	finally:
+		# Clean up resources
+		if playwright_browser:
+			await playwright_browser.close()
+
+		if chrome_process:
+			chrome_process.terminate()
+			try:
+				await asyncio.wait_for(chrome_process.wait(), 5)
+			except TimeoutError:
+				chrome_process.kill()
+
+		print('✅ Cleanup complete')
+
+
+if __name__ == '__main__':
+	# Run the advanced integration demo
+	asyncio.run(main())
+```
+
+
+# Secure Setup
+Source: https://docs.browser-use.com/examples/templates/secure
+
+Azure OpenAI with data privacy and security configuration.
+
+## Secure Setup with Azure OpenAI
+
+Enterprise-grade security with Azure OpenAI, data privacy protection, and restricted browser access.
+
+```python
+import asyncio
+import os
+from dotenv import load_dotenv
+load_dotenv()
+os.environ['ANONYMIZED_TELEMETRY'] = 'false'
+from browser_use import Agent, BrowserProfile, ChatAzureOpenAI
+
+# Azure OpenAI configuration
+api_key = os.getenv('AZURE_OPENAI_KEY')
+azure_endpoint = os.getenv('AZURE_OPENAI_ENDPOINT')
+llm = ChatAzureOpenAI(model='gpt-4.1-mini', api_key=api_key, azure_endpoint=azure_endpoint)
+
+# Secure browser configuration
+browser_profile = BrowserProfile(
+    allowed_domains=['*google.com', 'browser-use.com'], 
+    enable_default_extensions=False
+)
+
+# Sensitive data filtering
+sensitive_data = {'company_name': 'browser-use'}
+
+# Create secure agent
+agent = Agent(
+    task='Find the founders of the sensitive company_name',
+    llm=llm,
+    browser_profile=browser_profile,
+    sensitive_data=sensitive_data
+)
+
+async def main():
+    await agent.run(max_steps=10)
+
+asyncio.run(main())
+```
+
+## Security Features
+
+**Azure OpenAI:**
+
+* NOT used to train OpenAI models
+* NOT shared with other customers
+* Hosted entirely within Azure
+* 30-day retention (or zero with Limited Access Program)
+
+**Browser Security:**
+
+* `allowed_domains`: Restrict navigation to trusted sites
+* `enable_default_extensions=False`: Disable potentially dangerous extensions
+* `sensitive_data`: Filter sensitive information from LLM input
+
+<Note>
+  For enterprise deployments contact [support@browser-use.com](mailto:support@browser-use.com).
+</Note>
+
+
+# Sensitive Data
+Source: https://docs.browser-use.com/examples/templates/sensitive-data
+
+Handle secret information securely and avoid sending PII & passwords to the LLM.
+
+```python
+import os
+from browser_use import Agent, Browser, ChatOpenAI
+os.environ['ANONYMIZED_TELEMETRY'] = "false"
+
+
+company_credentials = {'x_user': 'your-real-username@email.com', 'x_pass': 'your-real-password123'}
+
+# Option 1: Secrets available for all websites
+sensitive_data = company_credentials
+
+# Option 2: Secrets per domain with regex
+# sensitive_data = {
+#     'https://*.example-staging.com': company_credentials,
+#     'http*://test.example.com': company_credentials,
+#     'https://example.com': company_credentials,
+#     'https://google.com': {'g_email': 'user@gmail.com', 'g_pass': 'google_password'},
+# }
+
+
+agent = Agent(
+    task='Log into example.com with username x_user and password x_pass',
+    sensitive_data=sensitive_data,
+    use_vision=False,  #  Disable vision to prevent LLM seeing sensitive data in screenshots
+    llm=ChatOpenAI(model='gpt-4.1-mini'),
+)
+async def main():
+await agent.run()
+```
+
+## How it Works
+
+1. **Text Filtering**: The LLM only sees placeholders (`x_user`, `x_pass`), we filter your sensitive data from the input text.
+2. **DOM Actions**: Real values are injected directly into form fields after the LLM call
+
+## Best Practices
+
+* Use `Browser(allowed_domains=[...])` to restrict navigation
+* Set `use_vision=False` to prevent screenshot leaks
+* Use `storage_state='./auth.json'` for login cookies instead of passwords when possible
+
+
+# Introduction
+Source: https://docs.browser-use.com/introduction
+
+Automate browser tasks in plain text. 
+
+<img className="block dark:hidden rounded-2xl" src="https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner.png?fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=d0b7cdc299a65339e39ff98c41d50373" alt="Browser Use Logo" data-og-width="1245" width="1245" data-og-height="411" height="411" data-path="images/browser-use-banner.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner.png?w=280&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=04554fe1bdcab81cf50c33edc96c05b4 280w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner.png?w=560&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=eaff8630abdd2927438888317fbdc53d 560w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner.png?w=840&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=1275eabf21bee49f898801af3ea2890c 840w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner.png?w=1100&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=8940cfdf752fb3e9019ce3630a6e3117 1100w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner.png?w=1650&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=1c66a42dff1a4fa8f5d9d9faa36b230a 1650w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner.png?w=2500&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=94b3eeb66caba84eed9f206e8a6aa3ed 2500w" />
+
+<img className="hidden dark:block rounded-2xl" src="https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner-dark.png?fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=d57421f0de1484e2005c656a7e88417b" alt="Browser Use Logo" data-og-width="2490" width="2490" data-og-height="822" height="822" data-path="images/browser-use-banner-dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner-dark.png?w=280&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=99b2f212ce9a873920af3acf886c7643 280w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner-dark.png?w=560&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=165ad9652608aab1506ce23e454b1b29 560w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner-dark.png?w=840&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=3ec2c7fa9ce0f4d99353da6a031fae9e 840w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner-dark.png?w=1100&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=97855ffb202c66e3fa9c706bf75b4c31 1100w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner-dark.png?w=1650&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=a9ae9dd7e045e76f1f60624d8830fbd3 1650w, https://mintcdn.com/browseruse-0aece648/nwcSXrlUDvrerQ4Z/images/browser-use-banner-dark.png?w=2500&fit=max&auto=format&n=nwcSXrlUDvrerQ4Z&q=85&s=090eb978d6acc475594a75aff34ae8b7 2500w" />
+
+<CardGroup cols={2}>
+  <Card title="Local Setup" icon="terminal" href="/quickstart">
+    Open-source Python library.
+  </Card>
+
+  <Card title="Cloud Setup" icon="cloud" href="https://docs.cloud.browser-use.com" color="#FE750E">
+    Scale up with our cloud.
+  </Card>
+</CardGroup>
+
+
+# Human Quickstart
+Source: https://docs.browser-use.com/quickstart
+
+
+
+## 1. Fast setup
+
+<Tabs>
+  <Tab title="uv">
+    ```bash create environment 
+    uv venv --python 3.12
+    ```
+  </Tab>
+
+  <Tab title="pip">
+    ```bash create environment with python >= 3.11 
+    python3.12 -m venv .venv
+    ```
+  </Tab>
+</Tabs>
+
+<Tabs>
+  <Tab title="Mac/Linux">
+    ```bash activate environment
+    source .venv/bin/activate
+    ```
+  </Tab>
+
+  <Tab title="Windows">
+    ```bash activate environment
+    .venv\Scripts\activate
+    ```
+  </Tab>
+</Tabs>
+
+<Tabs>
+  <Tab title="uv">
+    ```bash install browser-use & chromium
+    uv pip install browser-use
+    uvx playwright install chromium --with-deps 
+    ```
+  </Tab>
+
+  <Tab title="pip">
+    ```bash install browser-use & chromium
+    pip install browser-use
+    pip install playwright && playwright install chromium --with-deps
+    ```
+  </Tab>
+</Tabs>
+
+## 2. Choose your favorite LLM
+
+Create a `.env` file and add your API key. Don't have one? Start with a [free Gemini key](https://aistudio.google.com/app/u/1/apikey?pli=1).
+
+<Tabs>
+  <Tab title="Mac/Linux">
+    ```bash create .env file
+    touch .env
+    ```
+  </Tab>
+
+  <Tab title="Windows">
+    ```cmd create .env file
+    echo. > .env
+    ```
+  </Tab>
+</Tabs>
+
+<Tabs>
+  <Tab title="Google">
+    ```bash add your key to .env file
+    GEMINI_API_KEY=
+    ```
+  </Tab>
+
+  <Tab title="OpenAI">
+    ```bash add your key to .env file
+    OPENAI_API_KEY=
+    ```
+  </Tab>
+
+  <Tab title="Anthropic">
+    ```bash add your key to .env file
+    ANTHROPIC_API_KEY=
+    ```
+  </Tab>
+</Tabs>
+
+See [Supported Models](/customize/supported-models) for more.
+
+## 3. Run your first agent
+
+<Tabs>
+  <Tab title="Google">
+    ```python agent.py
+    from browser_use import Agent, ChatGoogle
+    from dotenv import load_dotenv
+    import asyncio
+
+    load_dotenv()
+
+    async def main():
+        llm = ChatGoogle(model="gemini-flash-latest")
+        task = "Find the number 1 post on Show HN"
+        agent = Agent(task=task, llm=llm)
+        await agent.run()
+
+    if __name__ == "__main__":
+        asyncio.run(main())
+    ```
+  </Tab>
+
+  <Tab title="OpenAI">
+    ```python agent.py
+    from browser_use import Agent, ChatOpenAI
+    from dotenv import load_dotenv
+    import asyncio
+
+    load_dotenv()
+
+    async def main():
+        llm = ChatOpenAI(model="gpt-4.1-mini")
+        task = "Find the number 1 post on Show HN"
+        agent = Agent(task=task, llm=llm)
+        await agent.run()
+
+    if __name__ == "__main__":
+        asyncio.run(main())
+    ```
+  </Tab>
+
+  <Tab title="Anthropic">
+    ```python agent.py
+    from browser_use import Agent, ChatAnthropic
+    from dotenv import load_dotenv
+    import asyncio
+
+    load_dotenv()
+
+    async def main():
+        llm = ChatAnthropic(model='claude-sonnet-4-0', temperature=0.0)
+        task = "Find the number 1 post on Show HN"
+        agent = Agent(task=task, llm=llm)
+        await agent.run()
+
+    if __name__ == "__main__":
+        asyncio.run(main())
+    ```
+  </Tab>
+</Tabs>
+
+
+# LLM Quickstart
+Source: https://docs.browser-use.com/quickstart_llm
+
+
+
+1. Copy all content [🔗  from here](https://docs.browser-use.com/llms-full.txt)  (\~32k tokens)
+2. Paste it into your favorite coding agent (Cursor, Claude, ChatGPT ...).
+

@@ -1,21 +1,21 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e8b14f0e66db374a2ada46e25fac88ae",
-  "translation_date": "2025-03-28T09:04:27+00:00",
+  "original_hash": "c06b12caf3c901eb3156e3dd5b0aea56",
+  "translation_date": "2025-07-12T06:55:35+00:00",
   "source_file": "CODE_OF_CONDUCT.md",
   "language_code": "pl"
 }
 -->
-# Kodeks postępowania Microsoft Open Source
+# Microsoft Open Source Code of Conduct
 
-Ten projekt przyjął [Kodeks postępowania Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/).
+Ten projekt przyjął [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 
 Zasoby:
 
-- [Kodeks postępowania Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/)
-- [FAQ dotyczące Kodeksu postępowania Microsoft](https://opensource.microsoft.com/codeofconduct/faq/)
-- W razie pytań lub wątpliwości skontaktuj się pod adresem [opencode@microsoft.com](mailto:opencode@microsoft.com)
+- [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)
+- [Microsoft Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
+- Kontakt: [opencode@microsoft.com](mailto:opencode@microsoft.com) w razie pytań lub wątpliwości
 
 **Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy wszelkich starań, aby zapewnić dokładność, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za wiarygodne źródło. W przypadku kluczowych informacji zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.
+Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mimo że dążymy do dokładności, prosimy mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w języku źródłowym powinien być uznawany za źródło autorytatywne. W przypadku informacji o kluczowym znaczeniu zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.

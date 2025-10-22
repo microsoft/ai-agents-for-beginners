@@ -1,30 +1,30 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d38387460faaff27512a6b8c91ba9737",
-  "translation_date": "2025-03-28T09:48:05+00:00",
-  "source_file": "08-multi-agent\\solution\\solution.md",
+  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
+  "translation_date": "2025-07-12T11:38:24+00:00",
+  "source_file": "08-multi-agent/solution/solution.md",
   "language_code": "pl"
 }
 -->
 **Agenci specyficzni dla procesu obsługi klienta**:
 
-- **Agent klienta**: Ten agent reprezentuje klienta i odpowiada za rozpoczęcie procesu obsługi.
-- **Agent wsparcia**: Ten agent reprezentuje proces wsparcia i odpowiada za udzielanie pomocy klientowi.
-- **Agent eskalacji**: Ten agent reprezentuje proces eskalacji i odpowiada za przekazywanie problemów na wyższy poziom wsparcia.
-- **Agent rozwiązań**: Ten agent reprezentuje proces rozwiązywania i odpowiada za rozwiązywanie problemów pojawiających się podczas procesu obsługi.
-- **Agent opinii**: Ten agent reprezentuje proces zbierania opinii i odpowiada za zbieranie informacji zwrotnych od klienta.
-- **Agent powiadomień**: Ten agent reprezentuje proces powiadomień i odpowiada za wysyłanie powiadomień do klienta na różnych etapach procesu obsługi.
-- **Agent analityczny**: Ten agent reprezentuje proces analizy i odpowiada za analizowanie danych związanych z procesem obsługi.
-- **Agent audytu**: Ten agent reprezentuje proces audytu i odpowiada za kontrolowanie procesu obsługi, aby upewnić się, że jest przeprowadzany prawidłowo.
-- **Agent raportowania**: Ten agent reprezentuje proces raportowania i odpowiada za generowanie raportów dotyczących procesu obsługi.
-- **Agent wiedzy**: Ten agent reprezentuje proces zarządzania wiedzą i odpowiada za utrzymywanie bazy wiedzy związanej z procesem obsługi.
-- **Agent bezpieczeństwa**: Ten agent reprezentuje proces bezpieczeństwa i odpowiada za zapewnienie bezpieczeństwa procesu obsługi.
-- **Agent jakości**: Ten agent reprezentuje proces jakości i odpowiada za zapewnienie wysokiej jakości procesu obsługi.
-- **Agent zgodności**: Ten agent reprezentuje proces zgodności i odpowiada za zapewnienie, że proces obsługi jest zgodny z przepisami i politykami.
-- **Agent szkoleniowy**: Ten agent reprezentuje proces szkoleniowy i odpowiada za szkolenie agentów wsparcia w zakresie obsługi klientów.
+- **Customer agent**: Ten agent reprezentuje klienta i jest odpowiedzialny za inicjowanie procesu wsparcia.
+- **Support agent**: Ten agent reprezentuje proces wsparcia i jest odpowiedzialny za udzielanie pomocy klientowi.
+- **Escalation agent**: Ten agent reprezentuje proces eskalacji i jest odpowiedzialny za przekazywanie problemów na wyższy poziom wsparcia.
+- **Resolution agent**: Ten agent reprezentuje proces rozwiązywania i jest odpowiedzialny za rozwiązywanie wszelkich problemów pojawiających się podczas procesu wsparcia.
+- **Feedback agent**: Ten agent reprezentuje proces zbierania opinii i jest odpowiedzialny za gromadzenie informacji zwrotnych od klienta.
+- **Notification agent**: Ten agent reprezentuje proces powiadomień i jest odpowiedzialny za wysyłanie powiadomień do klienta na różnych etapach procesu wsparcia.
+- **Analytics agent**: Ten agent reprezentuje proces analityczny i jest odpowiedzialny za analizę danych związanych z procesem wsparcia.
+- **Audit agent**: Ten agent reprezentuje proces audytu i jest odpowiedzialny za kontrolę procesu wsparcia, aby upewnić się, że jest on prowadzony prawidłowo.
+- **Reporting agent**: Ten agent reprezentuje proces raportowania i jest odpowiedzialny za generowanie raportów dotyczących procesu wsparcia.
+- **Knowledge agent**: Ten agent reprezentuje proces zarządzania wiedzą i jest odpowiedzialny za utrzymanie bazy wiedzy związanej z procesem wsparcia.
+- **Security agent**: Ten agent reprezentuje proces bezpieczeństwa i jest odpowiedzialny za zapewnienie bezpieczeństwa procesu wsparcia.
+- **Quality agent**: Ten agent reprezentuje proces kontroli jakości i jest odpowiedzialny za zapewnienie jakości procesu wsparcia.
+- **Compliance agent**: Ten agent reprezentuje proces zgodności i jest odpowiedzialny za zapewnienie, że proces wsparcia jest zgodny z przepisami i politykami.
+- **Training agent**: Ten agent reprezentuje proces szkoleniowy i jest odpowiedzialny za szkolenie agentów wsparcia w zakresie pomocy klientom.
 
-To całkiem sporo agentów, czy spodziewałeś się mniej czy więcej?
+To kilka agentów, czy to było więcej czy mniej niż się spodziewałeś?
 
 **Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczeniowej AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy wszelkich starań, aby tłumaczenie było jak najbardziej precyzyjne, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego języku źródłowym powinien być uznawany za wiarygodne źródło. W przypadku informacji o kluczowym znaczeniu zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mimo że dążymy do dokładności, prosimy mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w języku źródłowym powinien być uznawany za źródło autorytatywne. W przypadku informacji o kluczowym znaczeniu zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.

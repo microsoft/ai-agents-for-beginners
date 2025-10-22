@@ -1,51 +1,51 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "664afc6dd1bf275b0eafd126b71da420",
-  "translation_date": "2025-03-28T14:08:20+00:00",
-  "source_file": "02-explore-agentic-frameworks\\azure-ai-foundry-agent-creation.md",
+  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
+  "translation_date": "2025-07-12T08:16:32+00:00",
+  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
   "language_code": "tw"
 }
 -->
 # Azure AI Agent 服務開發
 
-在這個練習中，你將使用 [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) 的 Azure AI Agent 服務工具，建立一個航班預訂的智能代理。該代理將能與用戶互動並提供航班相關資訊。
+在本練習中，您將使用 [Azure AI Foundry 入口網站](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) 中的 Azure AI Agent 服務工具，建立一個航班預訂代理。該代理能與使用者互動並提供航班相關資訊。
 
 ## 先決條件
 
-完成此練習，你需要具備以下條件：
-1. 一個具備有效訂閱的 Azure 帳戶。[免費建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst)。
-2. 你需要有權限建立 Azure AI Foundry hub，或已經有一個現成的 hub。
-    - 如果你的角色是 Contributor 或 Owner，則可以按照本教程的步驟操作。
+完成本練習，您需要具備以下條件：
+1. 擁有一個具有有效訂閱的 Azure 帳戶。[免費建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst)。
+2. 您需要有權限建立 Azure AI Foundry 中心，或由他人為您建立。
+    - 如果您的角色是 Contributor 或 Owner，您可以依照本教學的步驟操作。
 
-## 建立 Azure AI Foundry hub
+## 建立 Azure AI Foundry 中心
 
 > **Note:** Azure AI Foundry 之前稱為 Azure AI Studio。
 
-1. 參考 [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) 部落格文章中的指導步驟，建立一個 Azure AI Foundry hub。
-2. 當專案建立完成後，關閉任何顯示的提示，並檢視 Azure AI Foundry portal 中的專案頁面，應類似於以下圖片：
+1. 請參考 [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) 部落格文章中的指引，建立 Azure AI Foundry 中心。
+2. 專案建立完成後，關閉任何顯示的提示，並檢視 Azure AI Foundry 入口網站中的專案頁面，畫面應類似下圖：
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.8a2b56713298fd09de77022ab1ba07ebc681ea4cd4438a46c4a6fc6b6f077962.tw.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.tw.png)
 
 ## 部署模型
 
-1. 在專案左側面板的 **My assets** 區域中，選擇 **Models + endpoints** 頁面。
-2. 在 **Models + endpoints** 頁面的 **Model deployments** 標籤中，點擊 **+ Deploy model** 選單，然後選擇 **Deploy base model**。
-3. 在列表中搜尋 `gpt-4o-mini` 模型，然後選擇並確認它。
+1. 在專案左側窗格的 **My assets** 區段，選擇 **Models + endpoints** 頁面。
+2. 在 **Models + endpoints** 頁面中，切換到 **Model deployments** 標籤，點選 **+ Deploy model** 選單，選擇 **Deploy base model**。
+3. 在列表中搜尋 `gpt-4o-mini` 模型，選擇並確認部署。
 
-    > **Note**: 減少 TPM 可以避免過度使用你訂閱中的可用配額。
+    > **Note**: 降低 TPM 有助於避免超出您訂閱中可用的配額。
 
-    ![Model Deployed](../../../translated_images/model-deployment.4adf429ebdf42103d7a759087fe0da91aeb70d2204cc8bdca70cc6c53c627938.tw.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.tw.png)
 
 ## 建立代理
 
-現在你已經部署了一個模型，可以建立一個代理。代理是一個可以用於與用戶互動的對話式 AI 模型。
+模型部署完成後，即可建立代理。代理是一種對話式 AI 模型，可用來與使用者互動。
 
-1. 在專案左側面板的 **Build & Customize** 區域中，選擇 **Agents** 頁面。
-2. 點擊 **+ Create agent** 來建立一個新的代理。在 **Agent Setup** 對話框中：
-    - 輸入代理的名稱，例如 `FlightAgent`。
-    - 確保選擇了之前建立的 `gpt-4o-mini` 模型部署。
-    - 根據你希望代理遵循的提示設置 **Instructions**。以下是一個範例：
+1. 在專案左側窗格的 **Build & Customize** 區段，選擇 **Agents** 頁面。
+2. 點選 **+ Create agent** 建立新代理。在 **Agent Setup** 對話框中：
+    - 輸入代理名稱，例如 `FlightAgent`。
+    - 確認先前建立的 `gpt-4o-mini` 模型部署已被選取。
+    - 根據您希望代理遵循的提示設定 **Instructions**。以下為範例：
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -73,41 +73,41 @@ CO_OP_TRANSLATOR_METADATA:
     
     ```
 > [!NOTE]
-> 若需更詳細的提示，可以參考 [這個儲存庫](https://github.com/ShivamGoyal03/RoamMind) 了解更多資訊。
+> 若需更詳細的提示，您可以參考 [此儲存庫](https://github.com/ShivamGoyal03/RoamMind) 以獲取更多資訊。
     
-> 此外，你還可以新增 **Knowledge Base** 和 **Actions**，以增強代理的能力，提供更多資訊並根據用戶請求執行自動化任務。對於本練習，可以跳過這些步驟。
+> 此外，您也可以加入 **Knowledge Base** 和 **Actions**，以增強代理的能力，提供更多資訊並根據使用者需求執行自動化任務。本練習中可跳過這些步驟。
     
-![Agent Setup](../../../translated_images/agent-setup.68a0c72f47bd1383584c52f14d694b54ea96c56c49660222409f83451b8220a8.tw.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.tw.png)
 
-3. 若要建立新的多 AI 代理，只需點擊 **New Agent**。新建立的代理將顯示在 Agents 頁面上。
+3. 若要建立新的多 AI 代理，只需點選 **New Agent**。新建立的代理將顯示在 Agents 頁面中。
 
 ## 測試代理
 
-建立代理後，你可以測試它在 Azure AI Foundry portal playground 中如何回應用戶的查詢。
+建立代理後，您可以在 Azure AI Foundry 入口網站的 playground 中測試代理對使用者查詢的回應。
 
-1. 在代理的 **Setup** 面板頂部，選擇 **Try in playground**。
-2. 在 **Playground** 面板中，你可以透過在聊天窗口中輸入查詢與代理互動。例如，你可以要求代理搜尋從西雅圖到紐約的航班，日期為 28 日。
+1. 在代理的 **Setup** 窗格頂端，選擇 **Try in playground**。
+2. 在 **Playground** 窗格中，您可以透過聊天視窗輸入查詢與代理互動。例如，您可以請代理搜尋 28 日從西雅圖飛往紐約的航班。
 
-    > **Note**: 由於本練習中未使用實時資料，代理可能無法提供準確的回應。此目的是測試代理理解和回應用戶查詢的能力。
+    > **Note**: 由於本練習未使用即時資料，代理可能無法提供精確回應。此練習目的是測試代理根據指示理解並回應使用者查詢的能力。
 
-    ![Agent Playground](../../../translated_images/agent-playground.847acb21209744353080ead65ec9326b917a6b90121d4b63f6f412a4d65af2a0.tw.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.tw.png)
 
-3. 測試代理後，你可以進一步自訂它，新增更多意圖、訓練數據和動作，以增強其功能。
+3. 測試完成後，您可以進一步自訂代理，加入更多意圖、訓練資料和動作，以提升其功能。
 
 ## 清理資源
 
-完成代理測試後，可以刪除它以避免產生額外費用。
-1. 開啟 [Azure portal](https://portal.azure.com)，檢視用於本練習的資源群組內容。
+完成代理測試後，您可以刪除代理以避免產生額外費用。
+1. 開啟 [Azure 入口網站](https://portal.azure.com)，檢視您在本練習中部署中心資源的資源群組內容。
 2. 在工具列上，選擇 **Delete resource group**。
-3. 輸入資源群組名稱並確認刪除。
+3. 輸入資源群組名稱，並確認刪除。
 
 ## 資源
 
 - [Azure AI Foundry 文件](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
-- [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
+- [Azure AI Foundry 入口網站](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Studio 入門](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
-- [Azure 上 AI 代理的基本概念](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
+- [Azure 上 AI 代理基礎](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
 **免責聲明**：  
-本文件已使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。我們致力於提供準確的翻譯，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應被視為權威來源。對於關鍵資訊，建議尋求專業的人工翻譯。我們對於因使用本翻譯而引起的任何誤解或錯誤解釋概不負責。
+本文件係使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們致力於確保翻譯的準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應視為權威來源。對於重要資訊，建議採用專業人工翻譯。我們不對因使用本翻譯而產生的任何誤解或誤釋負責。

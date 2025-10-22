@@ -1,89 +1,89 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "932a1f463f0fcf97090b93b5d0255dff",
-  "translation_date": "2025-03-28T11:34:10+00:00",
-  "source_file": "00-course-setup\\AzureSearch.md",
+  "original_hash": "f0ce2d470f3efad6f8c7df376f416a4b",
+  "translation_date": "2025-07-12T07:34:43+00:00",
+  "source_file": "00-course-setup/AzureSearch.md",
   "language_code": "ja"
 }
 -->
 # Azure AI Search セットアップガイド
 
-このガイドでは、Azure ポータルを使用して Azure AI Search をセットアップする方法を説明します。以下の手順に従って、Azure AI Search サービスを作成および構成してください。
+このガイドでは、Azure ポータルを使って Azure AI Search をセットアップする方法を説明します。以下の手順に従って、Azure AI Search サービスを作成および構成してください。
 
-## 必要条件
+## 前提条件
 
-始める前に、以下の条件を満たしていることを確認してください：
+始める前に、以下のものが揃っていることを確認してください。
 
-- Azure サブスクリプション。Azure サブスクリプションを持っていない場合は、[Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) で無料アカウントを作成できます。
+- Azure サブスクリプション。まだお持ちでない場合は、[Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691) から無料アカウントを作成できます。
 
-## 手順 1: Azure AI Search サービスを作成する
+## ステップ 1: Azure AI Search サービスの作成
 
 1. [Azure ポータル](https://portal.azure.com/?wt.mc_id=studentamb_258691) にサインインします。
-2. 左側のナビゲーションペインで **リソースの作成** をクリックします。
-3. 検索ボックスに「Azure Cognitive Search」と入力し、結果リストから **Azure Cognitive Search** を選択します。
-4. **作成** ボタンをクリックします。
-5. **基本** タブで以下の情報を入力してください：
-   - **サブスクリプション**: 使用する Azure サブスクリプションを選択します。
-   - **リソースグループ**: 新しいリソースグループを作成するか、既存のグループを選択します。
-   - **リソース名**: 検索サービスの一意の名前を入力します。
-   - **リージョン**: ユーザーに最も近いリージョンを選択します。
-   - **価格帯**: 必要に応じた価格帯を選択します。テストには無料プランを選択できます。
-6. **レビュー + 作成** をクリックします。
-7. 設定を確認し、**作成** をクリックして検索サービスを作成します。
+2. 左側のナビゲーションペインで **Create a resource** をクリックします。
+3. 検索ボックスに「Azure AI Search」と入力し、結果一覧から **Azure AI Search** を選択します。
+4. **Create** ボタンをクリックします。
+5. **Basics** タブで以下の情報を入力します：
+   - **Subscription**: ご自身の Azure サブスクリプションを選択します。
+   - **Resource group**: 新しいリソースグループを作成するか、既存のものを選択します。
+   - **Resource name**: 検索サービスの一意の名前を入力します。
+   - **Region**: ユーザーに最も近いリージョンを選択します。
+   - **Pricing tier**: ご要望に合った料金プランを選択します。テスト用には Free プランから始めることができます。
+6. **Review + create** をクリックします。
+7. 設定内容を確認し、**Create** をクリックして検索サービスを作成します。
 
-## 手順 2: Azure AI Search の開始
+## ステップ 2: Azure AI Search の使い始め
 
-1. デプロイメントが完了したら、Azure ポータル内の検索サービスに移動します。
-2. 検索サービスの概要ページで **クイックスタート** ボタンをクリックします。
-3. クイックスタートガイドに従って、インデックスの作成、データのアップロード、検索クエリの実行を行います。
+1. デプロイが完了したら、Azure ポータルで検索サービスに移動します。
+2. 検索サービスの概要ページで **Quickstart** ボタンをクリックします。
+3. Quickstart ガイドの手順に従い、インデックスの作成、データのアップロード、検索クエリの実行を行います。
 
-### インデックスを作成する
+### インデックスの作成
 
-1. クイックスタートガイドで **インデックスを作成する** をクリックします。
-2. フィールドとその属性（例：データ型、検索可能、フィルタ可能）を指定してインデックススキーマを定義します。
-3. **作成** をクリックしてインデックスを作成します。
+1. Quickstart ガイドで **Create an index** をクリックします。
+2. フィールドとその属性（例：データ型、検索可能、フィルター可能）を指定してインデックススキーマを定義します。
+3. **Create** をクリックしてインデックスを作成します。
 
-### データをアップロードする
+### データのアップロード
 
-1. クイックスタートガイドで **データをアップロードする** をクリックします。
+1. Quickstart ガイドで **Upload data** をクリックします。
 2. データソース（例：Azure Blob Storage、Azure SQL Database）を選択し、必要な接続情報を入力します。
-3. データソースフィールドをインデックスフィールドにマッピングします。
-4. **送信** をクリックしてインデックスにデータをアップロードします。
+3. データソースのフィールドをインデックスのフィールドにマッピングします。
+4. **Submit** をクリックしてデータをインデックスにアップロードします。
 
-### 検索クエリを実行する
+### 検索クエリの実行
 
-1. クイックスタートガイドで **検索エクスプローラー** をクリックします。
-2. 検索ボックスに検索クエリを入力し、検索機能をテストします。
+1. Quickstart ガイドで **Search explorer** をクリックします。
+2. 検索ボックスにクエリを入力して検索機能をテストします。
 3. 検索結果を確認し、必要に応じてインデックススキーマやデータを調整します。
 
-## 手順 3: Azure AI Search ツールを利用する
+## ステップ 3: Azure AI Search ツールの利用
 
-Azure AI Search は、検索機能を強化するためにさまざまなツールと統合されています。Azure CLI、Python SDK などを使用して高度な設定や操作を行うことができます。
+Azure AI Search はさまざまなツールと連携して検索機能を強化できます。高度な設定や操作には Azure CLI、Python SDK などを利用できます。
 
-### Azure CLI を使用する
+### Azure CLI の使用
 
-1. [Azure CLI のインストール](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) の手順に従って Azure CLI をインストールします。
-2. 以下のコマンドを使用して Azure CLI にサインインします：
+1. [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691) の手順に従って Azure CLI をインストールします。
+2. 以下のコマンドで Azure CLI にサインインします：
    ```bash
    az login
    ```
-3. Azure CLI を使用して新しい検索サービスを作成します：
+3. Azure CLI を使って新しい検索サービスを作成します：
    ```bash
    az search service create --resource-group <resource-group> --name <service-name> --sku Free
    ```
-4. Azure CLI を使用してインデックスを作成します：
+4. Azure CLI でインデックスを作成します：
    ```bash
    az search index create --service-name <service-name> --name <index-name> --fields "field1:type, field2:type"
    ```
 
-### Python SDK を使用する
+### Python SDK の使用
 
-1. Azure Cognitive Search の Python クライアントライブラリをインストールします：
+1. Python 用の Azure Cognitive Search クライアントライブラリをインストールします：
    ```bash
    pip install azure-search-documents
    ```
-2. 以下の Python コードを使用してインデックスを作成し、ドキュメントをアップロードします：
+2. 以下の Python コードを使ってインデックスを作成し、ドキュメントをアップロードします：
    ```python
    from azure.core.credentials import AzureKeyCredential
    from azure.search.documents import SearchClient
@@ -114,17 +114,17 @@ Azure AI Search は、検索機能を強化するためにさまざまなツー�
    search_client.upload_documents(documents)
    ```
 
-詳細情報については、以下のドキュメントを参照してください：
+詳細については、以下のドキュメントを参照してください：
 
-- [Azure Cognitive Search サービスを作成する](https://learn.microsoft.com/en-us/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Azure Cognitive Search の概要](https://learn.microsoft.com/en-us/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Azure AI Search ツール](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Create an Azure Cognitive Search service](https://learn.microsoft.com/en-us/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Get started with Azure Cognitive Search](https://learn.microsoft.com/en-us/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Azure AI Search Tools](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
-## 結論
+## まとめ
 
-Azure ポータルと統合ツールを使用して Azure AI Search を正常にセットアップしました。これで、Azure AI Search の高度な機能や能力を探索し、検索ソリューションを強化することができます。
+Azure ポータルと連携ツールを使って Azure AI Search のセットアップが完了しました。これで、Azure AI Search のより高度な機能や可能性を活用して、検索ソリューションを強化できます。
 
-さらに支援が必要な場合は、[Azure Cognitive Search ドキュメント](https://learn.microsoft.com/en-us/azure/search/?wt.mc_id=studentamb_258691) を訪問してください。
+さらにサポートが必要な場合は、[Azure Cognitive Search documentation](https://learn.microsoft.com/en-us/azure/search/?wt.mc_id=studentamb_258691) をご覧ください。
 
-**免責事項**:  
-この文書はAI翻訳サービス[Co-op Translator](https://github.com/Azure/co-op-translator)を使用して翻訳されています。正確性を追求しておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があります。元の言語で作成された原文が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用によって生じた誤解や解釈の誤りに関して、当方は責任を負いません。
+**免責事項**：  
+本書類はAI翻訳サービス「[Co-op Translator](https://github.com/Azure/co-op-translator)」を使用して翻訳されました。正確性を期しておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があります。原文の言語によるオリジナル文書が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じた誤解や誤訳について、当方は一切の責任を負いかねます。

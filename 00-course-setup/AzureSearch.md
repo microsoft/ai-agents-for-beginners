@@ -12,7 +12,7 @@ Before you begin, ensure you have the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691).
 2. In the left-hand navigation pane, click on **Create a resource**.
-3. In the search box, type "Azure Cognitive Search" and select **Azure Cognitive Search** from the list of results.
+3. In the search box, type "Azure AI Search" and select **Azure AI Search** from the list of results.
 4. Click the **Create** button.
 5. In the **Basics** tab, provide the following information:
    - **Subscription**: Select your Azure subscription.

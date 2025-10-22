@@ -1,85 +1,80 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "b8ea2abd1a674f736d5fc08982e6ec06",
-  "translation_date": "2025-03-28T09:22:30+00:00",
-  "source_file": "04-tool-use\\README.md",
+  "original_hash": "e056335d729ba6e49571db7a6533825d",
+  "translation_date": "2025-09-30T07:01:26+00:00",
+  "source_file": "04-tool-use/README.md",
   "language_code": "pl"
 }
 -->
-[![Jak projektować dobre agentów AI](../../../translated_images/lesson-4-thumbnail.2c292cd87b951b3e914e9548b46cb4d14a0852f9c8d75e9566d46da839c983d9.pl.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Jak projektować dobre agentów AI](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.pl.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 
-# Wzorzec projektowy korzystania z narzędzi
+# Wzorzec projektowy użycia narzędzi
 
-Narzędzia są interesujące, ponieważ umożliwiają agentom AI poszerzenie zakresu ich możliwości. Zamiast ograniczonego zestawu działań, które agent może wykonać, dodanie narzędzia pozwala agentowi na realizację szerokiego zakresu zadań. W tym rozdziale przyjrzymy się wzorcowi projektowemu korzystania z narzędzi, który opisuje, jak agenci AI mogą używać określonych narzędzi do osiągania swoich celów.
+Narzędzia są interesujące, ponieważ pozwalają agentom AI na poszerzenie zakresu ich możliwości. Zamiast ograniczonego zestawu działań, które agent może wykonać, dodanie narzędzia umożliwia agentowi realizację szerokiego zakresu działań. W tym rozdziale przyjrzymy się wzorcowi projektowemu użycia narzędzi, który opisuje, jak agenci AI mogą korzystać z określonych narzędzi, aby osiągnąć swoje cele.
 
 ## Wprowadzenie
 
-W tej lekcji odpowiemy na następujące pytania:
+W tej lekcji chcemy odpowiedzieć na następujące pytania:
 
-- Czym jest wzorzec projektowy korzystania z narzędzi?
+- Czym jest wzorzec projektowy użycia narzędzi?
 - Jakie są przypadki użycia, do których można go zastosować?
-- Jakie są elementy/podstawowe składniki potrzebne do wdrożenia wzorca projektowego?
-- Jakie szczególne aspekty należy uwzględnić, aby budować wiarygodnych agentów AI z wykorzystaniem tego wzorca?
+- Jakie elementy/bloki konstrukcyjne są potrzebne do wdrożenia tego wzorca projektowego?
+- Jakie są szczególne kwestie związane z użyciem wzorca projektowego użycia narzędzi w celu budowy wiarygodnych agentów AI?
 
 ## Cele nauki
 
 Po ukończeniu tej lekcji będziesz w stanie:
 
-- Zdefiniować wzorzec projektowy korzystania z narzędzi i jego cel.
-- Rozpoznać przypadki użycia, w których wzorzec projektowy korzystania z narzędzi jest odpowiedni.
-- Zrozumieć kluczowe elementy potrzebne do wdrożenia wzorca projektowego.
-- Zidentyfikować aspekty zapewniające wiarygodność agentów AI korzystających z tego wzorca.
+- Zdefiniować wzorzec projektowy użycia narzędzi i jego cel.
+- Zidentyfikować przypadki użycia, w których wzorzec projektowy użycia narzędzi jest odpowiedni.
+- Zrozumieć kluczowe elementy potrzebne do wdrożenia tego wzorca projektowego.
+- Rozpoznać kwestie związane z zapewnieniem wiarygodności agentów AI korzystających z tego wzorca projektowego.
 
-## Czym jest wzorzec projektowy korzystania z narzędzi?
+## Czym jest wzorzec projektowy użycia narzędzi?
 
-**Wzorzec projektowy korzystania z narzędzi** skupia się na umożliwieniu LLM interakcji z zewnętrznymi narzędziami w celu realizacji określonych celów. Narzędzia to kod, który może być wykonywany przez agenta w celu realizacji działań. Narzędzie może być prostą funkcją, taką jak kalkulator, lub wywołaniem API do usługi zewnętrznej, na przykład sprawdzenie cen akcji czy prognozy pogody. W kontekście agentów AI narzędzia są projektowane tak, aby były wykonywane przez agentów w odpowiedzi na **wywołania funkcji generowane przez model**.
+**Wzorzec projektowy użycia narzędzi** koncentruje się na umożliwieniu LLM (Large Language Models) interakcji z zewnętrznymi narzędziami w celu osiągnięcia określonych celów. Narzędzia to kod, który może być wykonywany przez agenta w celu realizacji działań. Narzędzie może być prostą funkcją, taką jak kalkulator, lub wywołaniem API do usługi zewnętrznej, np. wyszukiwania cen akcji czy prognozy pogody. W kontekście agentów AI narzędzia są zaprojektowane tak, aby były wykonywane przez agentów w odpowiedzi na **wywołania funkcji generowane przez model**.
 
-## Jakie są przypadki użycia?
+## Jakie są przypadki użycia, do których można go zastosować?
 
-Agenci AI mogą wykorzystywać narzędzia do realizacji złożonych zadań, pozyskiwania informacji lub podejmowania decyzji. Wzorzec projektowy korzystania z narzędzi jest często stosowany w scenariuszach wymagających dynamicznej interakcji z systemami zewnętrznymi, takimi jak bazy danych, usługi internetowe czy interpretery kodu. Ta zdolność jest przydatna w wielu przypadkach użycia, w tym:
+Agenci AI mogą wykorzystywać narzędzia do realizacji złożonych zadań, pozyskiwania informacji lub podejmowania decyzji. Wzorzec projektowy użycia narzędzi jest często stosowany w scenariuszach wymagających dynamicznej interakcji z zewnętrznymi systemami, takimi jak bazy danych, usługi internetowe czy interpretery kodu. Ta zdolność jest przydatna w wielu różnych przypadkach użycia, w tym:
 
-- **Dynamiczne pozyskiwanie informacji:** Agenci mogą wyszukiwać dane w zewnętrznych API lub bazach danych, aby uzyskać aktualne informacje (np. zapytania do bazy SQLite w celu analizy danych, pozyskiwanie cen akcji lub informacji o pogodzie).
+- **Dynamiczne pozyskiwanie informacji:** Agenci mogą zapytania do zewnętrznych API lub baz danych w celu uzyskania aktualnych danych (np. zapytania do bazy SQLite w celu analizy danych, pobieranie cen akcji lub informacji o pogodzie).
 - **Wykonywanie i interpretacja kodu:** Agenci mogą wykonywać kod lub skrypty w celu rozwiązywania problemów matematycznych, generowania raportów lub przeprowadzania symulacji.
-- **Automatyzacja przepływu pracy:** Automatyzowanie powtarzalnych lub wieloetapowych przepływów pracy poprzez integrację narzędzi takich jak harmonogramy zadań, usługi e-mail czy potoki danych.
-- **Obsługa klienta:** Agenci mogą wchodzić w interakcje z systemami CRM, platformami zgłoszeniowymi lub bazami wiedzy, aby rozwiązywać problemy użytkowników.
-- **Tworzenie i edycja treści:** Agenci mogą korzystać z narzędzi takich jak korektory gramatyczne, narzędzia do podsumowywania tekstu czy oceny bezpieczeństwa treści, aby wspierać zadania związane z tworzeniem treści.
+- **Automatyzacja procesów:** Automatyzowanie powtarzalnych lub wieloetapowych procesów poprzez integrację narzędzi takich jak harmonogramy zadań, usługi e-mail czy przepływy danych.
+- **Obsługa klienta:** Agenci mogą interagować z systemami CRM, platformami zgłoszeń lub bazami wiedzy w celu rozwiązywania zapytań użytkowników.
+- **Tworzenie i edycja treści:** Agenci mogą korzystać z narzędzi takich jak sprawdzanie gramatyki, podsumowywanie tekstu czy ocena bezpieczeństwa treści, aby wspierać zadania związane z tworzeniem treści.
 
-## Jakie są elementy/podstawowe składniki potrzebne do wdrożenia wzorca projektowego korzystania z narzędzi?
+## Jakie są elementy/bloki konstrukcyjne potrzebne do wdrożenia wzorca projektowego użycia narzędzi?
 
-Te elementy pozwalają agentowi AI realizować szeroki zakres zadań. Przyjrzyjmy się kluczowym składnikom potrzebnym do wdrożenia wzorca projektowego korzystania z narzędzi:
+Te bloki konstrukcyjne pozwalają agentowi AI na realizację szerokiego zakresu zadań. Przyjrzyjmy się kluczowym elementom potrzebnym do wdrożenia wzorca projektowego użycia narzędzi:
 
-- **Wywoływanie funkcji/narzędzi:** To podstawowy sposób umożliwienia LLM interakcji z narzędziami. Funkcje lub narzędzia to bloki wielokrotnego użytku kodu, które agenci wykorzystują do realizacji zadań. Mogą to być proste funkcje, takie jak kalkulator, lub wywołania API do usług zewnętrznych, takich jak sprawdzenie cen akcji czy prognozy pogody.
+- **Schematy funkcji/narzędzi:** Szczegółowe definicje dostępnych narzędzi, w tym nazwa funkcji, cel, wymagane parametry i oczekiwane wyniki. Te schematy umożliwiają LLM zrozumienie, jakie narzędzia są dostępne i jak skonstruować poprawne zapytania.
+- **Logika wykonywania funkcji:** Określa, jak i kiedy narzędzia są wywoływane na podstawie intencji użytkownika i kontekstu rozmowy. Może to obejmować moduły planowania, mechanizmy routingu lub przepływy warunkowe, które dynamicznie określają użycie narzędzi.
+- **System obsługi wiadomości:** Komponenty zarządzające przepływem rozmowy między wejściami użytkownika, odpowiedziami LLM, wywołaniami narzędzi i wynikami narzędzi.
+- **Framework integracji narzędzi:** Infrastruktura łącząca agenta z różnymi narzędziami, niezależnie od tego, czy są to proste funkcje, czy złożone usługi zewnętrzne.
+- **Obsługa błędów i walidacja:** Mechanizmy radzenia sobie z niepowodzeniami w wykonywaniu narzędzi, walidacja parametrów i zarządzanie nieoczekiwanymi odpowiedziami.
+- **Zarządzanie stanem:** Śledzenie kontekstu rozmowy, wcześniejszych interakcji z narzędziami i danych trwałych w celu zapewnienia spójności w interakcjach wieloetapowych.
 
-- **Dynamiczne pozyskiwanie informacji:** Agenci mogą wyszukiwać dane w zewnętrznych API lub bazach danych, aby uzyskać aktualne informacje. Jest to przydatne w zadaniach takich jak analiza danych, pozyskiwanie cen akcji czy informacji o pogodzie.
-
-- **Wykonywanie i interpretacja kodu:** Agenci mogą wykonywać kod lub skrypty w celu rozwiązywania problemów matematycznych, generowania raportów lub przeprowadzania symulacji.
-
-- **Automatyzacja przepływu pracy:** Automatyzowanie powtarzalnych lub wieloetapowych przepływów pracy poprzez integrację narzędzi takich jak harmonogramy zadań, usługi e-mail czy potoki danych.
-
-- **Obsługa klienta:** Agenci mogą wchodzić w interakcje z systemami CRM, platformami zgłoszeniowymi lub bazami wiedzy, aby rozwiązywać problemy użytkowników.
-
-- **Tworzenie i edycja treści:** Agenci mogą korzystać z narzędzi takich jak korektory gramatyczne, narzędzia do podsumowywania tekstu czy oceny bezpieczeństwa treści, aby wspierać zadania związane z tworzeniem treści.
-
-Następnie przyjrzymy się szczegółowo wywoływaniu funkcji/narzędzi.
+Następnie przyjrzymy się bardziej szczegółowo wywoływaniu funkcji/narzędzi.
 
 ### Wywoływanie funkcji/narzędzi
 
-Wywoływanie funkcji to podstawowy sposób, w jaki umożliwiamy dużym modelom językowym (LLM) interakcję z narzędziami. Często terminy „funkcja” i „narzędzie” są używane zamiennie, ponieważ „funkcje” (bloki kodu wielokrotnego użytku) są „narzędziami”, które agenci wykorzystują do realizacji zadań. Aby kod funkcji mógł zostać wywołany, LLM musi porównać żądanie użytkownika z opisem funkcji. W tym celu do LLM przesyłany jest schemat zawierający opisy wszystkich dostępnych funkcji. Następnie LLM wybiera najbardziej odpowiednią funkcję dla danego zadania i zwraca jej nazwę oraz argumenty. Wybrana funkcja jest wywoływana, jej odpowiedź jest przesyłana z powrotem do LLM, który wykorzystuje informacje do odpowiedzi na żądanie użytkownika.
+Wywoływanie funkcji jest głównym sposobem umożliwienia LLM interakcji z narzędziami. Często spotkasz się z użyciem terminów „Funkcja” i „Narzędzie” zamiennie, ponieważ „funkcje” (bloki kodu wielokrotnego użytku) są „narzędziami”, które agenci wykorzystują do realizacji zadań. Aby kod funkcji został wywołany, LLM musi porównać zapytanie użytkownika z opisem funkcji. W tym celu do LLM przesyłany jest schemat zawierający opisy wszystkich dostępnych funkcji. LLM wybiera najbardziej odpowiednią funkcję dla zadania i zwraca jej nazwę oraz argumenty. Wybrana funkcja jest wywoływana, jej odpowiedź przesyłana z powrotem do LLM, który wykorzystuje informacje do odpowiedzi na zapytanie użytkownika.
 
 Aby deweloperzy mogli wdrożyć wywoływanie funkcji dla agentów, potrzebne są:
 
-1. Model LLM, który obsługuje wywoływanie funkcji
+1. Model LLM obsługujący wywoływanie funkcji
 2. Schemat zawierający opisy funkcji
 3. Kod dla każdej opisanej funkcji
 
-Przeanalizujmy przykład uzyskania aktualnego czasu w określonym mieście:
+Przyjrzyjmy się przykładowi uzyskania aktualnego czasu w mieście:
 
-1. **Zainicjowanie LLM obsługującego wywoływanie funkcji:**
+1. **Inicjalizacja LLM obsługującego wywoływanie funkcji:**
 
-    Nie wszystkie modele obsługują wywoływanie funkcji, dlatego ważne jest, aby sprawdzić, czy LLM, którego używasz, to robi. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> obsługuje wywoływanie funkcji. Możemy zacząć od inicjalizacji klienta Azure OpenAI.
+    Nie wszystkie modele obsługują wywoływanie funkcji, więc ważne jest, aby sprawdzić, czy używany model LLM to robi. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> obsługuje wywoływanie funkcji. Możemy zacząć od inicjalizacji klienta Azure OpenAI.
 
     ```python
     # Initialize the Azure OpenAI client
@@ -92,7 +87,7 @@ Przeanalizujmy przykład uzyskania aktualnego czasu w określonym mieście:
 
 1. **Tworzenie schematu funkcji:**
 
-    Następnie zdefiniujemy schemat JSON zawierający nazwę funkcji, opis jej działania oraz nazwy i opisy parametrów funkcji. Następnie przekażemy ten schemat do wcześniej utworzonego klienta wraz z żądaniem użytkownika dotyczącym znalezienia czasu w San Francisco. Ważne jest, aby zauważyć, że zwracane jest **wywołanie narzędzia**, a **nie** ostateczna odpowiedź na pytanie. Jak wspomniano wcześniej, LLM zwraca nazwę funkcji wybranej dla danego zadania oraz argumenty, które zostaną do niej przekazane.
+    Następnie zdefiniujemy schemat JSON zawierający nazwę funkcji, opis jej działania oraz nazwy i opisy parametrów funkcji. Następnie przekażemy ten schemat do wcześniej utworzonego klienta, wraz z zapytaniem użytkownika o czas w San Francisco. Ważne jest, aby zauważyć, że zwracane jest **wywołanie narzędzia**, a **nie** ostateczna odpowiedź na pytanie. Jak wspomniano wcześniej, LLM zwraca nazwę funkcji wybranej dla zadania oraz argumenty, które zostaną do niej przekazane.
 
     ```python
     # Function description for the model to read
@@ -145,9 +140,9 @@ Przeanalizujmy przykład uzyskania aktualnego czasu w określonym mieście:
     ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
     ```
   
-1. **Kod funkcji potrzebny do realizacji zadania:**
+1. **Kod funkcji wymagany do realizacji zadania:**
 
-    Teraz, gdy LLM wybrał funkcję, która musi zostać uruchomiona, kod realizujący zadanie musi zostać zaimplementowany i wykonany. Możemy zaimplementować kod uzyskania aktualnego czasu w Pythonie. Konieczne będzie również napisanie kodu do wyodrębnienia nazwy i argumentów z response_message, aby uzyskać ostateczny wynik.
+    Teraz, gdy LLM wybrał funkcję, która musi zostać uruchomiona, kod realizujący zadanie musi zostać zaimplementowany i wykonany. Możemy zaimplementować kod uzyskujący aktualny czas w Pythonie. Musimy również napisać kod do wyodrębnienia nazwy i argumentów z response_message, aby uzyskać ostateczny wynik.
 
     ```python
       def get_current_time(location):
@@ -204,21 +199,21 @@ Przeanalizujmy przykład uzyskania aktualnego czasu w określonym mieście:
       The current time in San Francisco is 09:24 AM.
      ```
 
-Wywoływanie funkcji jest kluczowym elementem większości, jeśli nie wszystkich projektów agentów korzystających z narzędzi, jednak jego wdrożenie od podstaw może być czasami trudne. Jak nauczyliśmy się w [Lekcji 2](../../../02-explore-agentic-frameworks) frameworki agentowe dostarczają nam gotowe elementy do implementacji korzystania z narzędzi.
+Wywoływanie funkcji jest sercem większości, jeśli nie wszystkich projektów użycia narzędzi przez agentów, jednak wdrożenie go od podstaw może być czasami trudne. Jak nauczyliśmy się w [Lekcji 2](../../../02-explore-agentic-frameworks), frameworki agentowe dostarczają nam gotowych bloków konstrukcyjnych do wdrożenia użycia narzędzi.
 
-## Przykłady korzystania z narzędzi z frameworkami agentowymi
+## Przykłady użycia narzędzi z frameworkami agentowymi
 
-Oto kilka przykładów, jak można wdrożyć wzorzec projektowy korzystania z narzędzi za pomocą różnych frameworków agentowych:
+Oto kilka przykładów, jak można wdrożyć wzorzec projektowy użycia narzędzi, korzystając z różnych frameworków agentowych:
 
 ### Semantic Kernel
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> to otwarty framework AI dla deweloperów .NET, Python i Java pracujących z dużymi modelami językowymi (LLM). Upraszcza proces korzystania z wywoływania funkcji, automatycznie opisując funkcje i ich parametry dla modelu poprzez proces zwany <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serializacją</a>. Obsługuje również komunikację między modelem a twoim kodem. Kolejną zaletą korzystania z frameworku agentowego, takiego jak Semantic Kernel, jest dostęp do gotowych narzędzi, takich jak <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">Wyszukiwanie plików</a> i <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Interpreter kodu</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> to otwarty framework AI dla deweloperów .NET, Python i Java pracujących z Large Language Models (LLMs). Upraszcza proces użycia wywoływania funkcji, automatycznie opisując funkcje i ich parametry dla modelu poprzez proces zwany <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serializacją</a>. Obsługuje również komunikację między modelem a Twoim kodem. Kolejną zaletą korzystania z frameworku agentowego, takiego jak Semantic Kernel, jest możliwość dostępu do gotowych narzędzi, takich jak <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">Wyszukiwanie plików</a> i <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Interpreter kodu</a>.
 
-Poniższy diagram ilustruje proces wywoływania funkcji w Semantic Kernel:
+Poniższy diagram ilustruje proces wywoływania funkcji z Semantic Kernel:
 
-![wywoływanie funkcji](../../../translated_images/functioncalling-diagram.b5493ea5154ad8e3e4940d2e36a49101eec1398948e5d1039942203b4f5a4209.pl.png)
+![wywoływanie funkcji](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.pl.png)
 
-W Semantic Kernel funkcje/narzędzia są nazywane <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Pluginami</a>. Możemy skonwertować `get_current_time` function we saw earlier into a plugin by turning it into a class with the function in it. We can also import the `kernel_function` za pomocą dekoratora, który przyjmuje opis funkcji. Kiedy następnie tworzysz kernel z GetCurrentTimePlugin, kernel automatycznie serializuje funkcję i jej parametry, tworząc schemat do przesłania do LLM w procesie.
+W Semantic Kernel funkcje/narzędzia nazywane są <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Pluginami</a>. Możemy przekształcić funkcję `get_current_time`, którą widzieliśmy wcześniej, w plugin, zamieniając ją na klasę z funkcją w środku. Możemy również zaimportować dekorator `kernel_function`, który przyjmuje opis funkcji. Gdy następnie utworzysz kernel z GetCurrentTimePlugin, kernel automatycznie zserializuje funkcję i jej parametry, tworząc schemat do przesłania do LLM w procesie.
 
 ```python
 from semantic_kernel.functions import kernel_function
@@ -250,13 +245,13 @@ kernel.add_plugin(get_current_time_plugin)
   
 ### Azure AI Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> to nowy framework agentowy zaprojektowany, aby umożliwić deweloperom bezpieczne budowanie, wdrażanie i skalowanie wysokiej jakości, rozszerzalnych agentów AI bez konieczności zarządzania zasobami obliczeniowymi i pamięci masowej. Jest szczególnie przydatny w aplikacjach korporacyjnych, ponieważ jest w pełni zarządzaną usługą z zabezpieczeniami na poziomie przedsiębiorstwa.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> to nowszy framework agentowy zaprojektowany, aby umożliwić deweloperom bezpieczne budowanie, wdrażanie i skalowanie wysokiej jakości, rozszerzalnych agentów AI bez konieczności zarządzania zasobami obliczeniowymi i magazynowymi. Jest szczególnie przydatny w aplikacjach korporacyjnych, ponieważ jest w pełni zarządzaną usługą z zabezpieczeniami klasy korporacyjnej.
 
-W porównaniu do pracy bezpośrednio z API LLM, Azure AI Agent Service oferuje kilka korzyści, w tym:
+W porównaniu do rozwijania bezpośrednio z API LLM, Azure AI Agent Service oferuje kilka zalet, w tym:
 
-- Automatyczne wywoływanie narzędzi – brak konieczności analizowania wywołania narzędzia, uruchamiania narzędzia i obsługi odpowiedzi; wszystko to jest teraz realizowane po stronie serwera
-- Bezpiecznie zarządzane dane – zamiast zarządzać stanem rozmowy, można polegać na wątkach do przechowywania wszystkich potrzebnych informacji
-- Gotowe narzędzia – Narzędzia umożliwiające interakcję z twoimi źródłami danych, takie jak Bing, Azure AI Search i Azure Functions.
+- Automatyczne wywoływanie narzędzi – brak potrzeby analizowania wywołania narzędzia, wywoływania narzędzia i obsługi odpowiedzi; wszystko to odbywa się teraz po stronie serwera
+- Bezpiecznie zarządzane dane – zamiast zarządzać własnym stanem rozmowy, możesz polegać na wątkach, które przechowują wszystkie potrzebne informacje
+- Gotowe narzędzia – Narzędzia, które możesz wykorzystać do interakcji z Twoimi źródłami danych, takie jak Bing, Azure AI Search i Azure Functions.
 
 Narzędzia dostępne w Azure AI Agent Service można podzielić na dwie kategorie:
 
@@ -265,27 +260,27 @@ Narzędzia dostępne w Azure AI Agent Service można podzielić na dwie kategori
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Wyszukiwanie plików</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
-2. Narzędzia działania:
+2. Narzędzia akcji:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Wywoływanie funkcji</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Interpreter kodu</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">Narzędzia zdefiniowane przez OpenAI</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">Narzędzia zdefiniowane przez OpenAPI</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agent Service pozwala nam korzystać z tych narzędzi razem jako `toolset`. It also utilizes `threads` which keep track of the history of messages from a particular conversation.
+Usługa Agent Service pozwala na użycie tych narzędzi razem jako `toolset`. Wykorzystuje również `threads`, które śledzą historię wiadomości z konkretnej rozmowy.
 
-Imagine you are a sales agent at a company called Contoso. You want to develop a conversational agent that can answer questions about your sales data.
+Wyobraź sobie, że jesteś agentem sprzedaży w firmie Contoso. Chcesz stworzyć agenta konwersacyjnego, który będzie odpowiadał na pytania dotyczące Twoich danych sprzedażowych.
 
-The following image illustrates how you could use Azure AI Agent Service to analyze your sales data:
+Poniższy obrazek ilustruje, jak można wykorzystać Azure AI Agent Service do analizy danych sprzedażowych:
 
-![Agentic Service In Action](../../../translated_images/agent-service-in-action.8c2d8aa8e9d91feeb29549b3fde529f8332b243875154d03907616a69198afbc.pl.jpg)
+![Agentic Service w akcji](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.pl.jpg)
 
-To use any of these tools with the service we can create a client and define a tool or toolset. To implement this practically we can use the following Python code. The LLM will be able to look at the toolset and decide whether to use the user created function, `fetch_sales_data_using_sqlite_query`, lub z gotowego interpretera kodu w zależności od żądania użytkownika.
+Aby użyć któregokolwiek z tych narzędzi z usługą, możemy utworzyć klienta i zdefiniować narzędzie lub zestaw narzędzi. Aby wdrożyć to praktycznie, możemy użyć poniższego kodu w Pythonie. LLM będzie w stanie spojrzeć na zestaw narzędzi i zdecydować, czy użyć funkcji stworzonej przez użytkownika, `fetch_sales_data_using_sqlite_query`, czy wbudowanego interpretera kodu, w zależności od zapytania użytkownika.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fecth_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -309,19 +304,32 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-## Jakie szczególne aspekty należy uwzględnić, aby budować wiarygodnych agentów AI z wykorzystaniem wzorca projektowego korzystania z narzędzi?
+## Jakie są szczególne kwestie związane z użyciem wzorca projektowego użycia narzędzi w celu budowy wiarygodnych agentów AI?
 
-Częstym problemem związanym z dynamicznie generowanym przez LLM kodem SQL jest bezpieczeństwo, w szczególności ryzyko wstrzyknięcia SQL lub złośliwych działań, takich jak usunięcie lub manipulacja bazą danych. Choć te obawy są uzasadnione, można je skutecznie złagodzić poprzez odpowiednie skonfigurowanie uprawnień dostępu do bazy danych. W przypadku większości baz danych wiąże się to z skonfigurowaniem bazy jako tylko do odczytu. W przypadku usług baz danych, takich jak PostgreSQL czy Azure SQL, aplikacji należy przypisać rolę tylko do odczytu (SELECT).
+Częstym problemem związanym z SQL generowanym dynamicznie przez LLM jest bezpieczeństwo, szczególnie ryzyko wstrzyknięcia SQL lub złośliwych działań, takich jak usuwanie lub manipulowanie bazą danych. Chociaż te obawy są uzasadnione, można je skutecznie złagodzić poprzez odpowiednią konfigurację uprawnień dostępu do bazy danych. W przypadku większości baz danych obejmuje to skonfigurowanie bazy danych jako tylko do odczytu. W przypadku usług baz danych, takich jak PostgreSQL czy Azure SQL, aplikacji należy przypisać rolę tylko do odczytu (SELECT).
+Uruchamianie aplikacji w bezpiecznym środowisku dodatkowo zwiększa ochronę. W scenariuszach korporacyjnych dane są zazwyczaj pobierane i przekształcane z systemów operacyjnych do bazy danych tylko do odczytu lub hurtowni danych z przyjaznym dla użytkownika schematem. Takie podejście zapewnia, że dane są bezpieczne, zoptymalizowane pod kątem wydajności i dostępności, a aplikacja ma ograniczony dostęp tylko do odczytu.
 
-Uruchamianie aplikacji w bezpiecznym środowisku dodatkowo zwiększa ochronę. W scenariuszach korporacyjnych dane są zazwyczaj wyodrębniane i przekształcane z systemów operacyjnych do bazy danych tylko do odczytu lub hurtowni danych z przyjaznym dla użytkownika schematem. Takie podejście zapewnia, że dane są bezpieczne, zoptymalizowane pod kątem wydajności i dostępności, a aplikacja ma ograniczony, tylko do odczytu dostęp.
+### Masz więcej pytań dotyczących wzorców projektowych narzędzi?
+
+Dołącz do [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), aby spotkać się z innymi uczącymi się, uczestniczyć w godzinach konsultacji i uzyskać odpowiedzi na pytania dotyczące AI Agents.
 
 ## Dodatkowe zasoby
 
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Warsztat Azure AI Agents Service</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Warsztat wieloagentowy Contoso Creative Writer</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Tutorial wywoływania funkcji w Semantic Kernel</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Interpreter kodu w Semantic Kernel</a>
-- <a href="
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Warsztat Contoso Creative Writer Multi-Agent</a>
+- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Samouczek wywoływania funkcji Semantic Kernel</a>
+- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Interpreter kodu Semantic Kernel</a>
+- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Narzędzia Autogen</a>
+
+## Poprzednia lekcja
+
+[Zrozumienie wzorców projektowych agentów](../03-agentic-design-patterns/README.md)
+
+## Następna lekcja
+
+[Agentic RAG](../05-agentic-rag/README.md)
+
+---
 
 **Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż staramy się zapewnić dokładność, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za wiarygodne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy wszelkich starań, aby tłumaczenie było precyzyjne, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego języku źródłowym powinien być uznawany za autorytatywne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.

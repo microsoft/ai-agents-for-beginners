@@ -1,19 +1,31 @@
-autogen-agentchat
-autogen-core~=0.4.5
-autogen-ext==0.4.5
-autogen-ext[azure]
-azure-ai-inference~=1.0.0b8
-azure-ai-projects
-azure-search-documents>=11.5.2
-chainlit
-chromadb ~= 0.6.3
-ipykernel~=6.29.5
-mcp[cli]
-mistralai~=0.4.2
+semantic-kernel
+semantic-kernel[azure]
+semantic-kernel[mcp]
 openai
-pillow==11.0.0
-pydantic
-python-dotenv~=1.0.1
-semantic-kernel>=1.27.2
-semantic-kernel[azure]>=1.27.2
-semantic-kernel[mcp]>=1.27.2
+
+# AutoGen framework
+autogen-agentchat
+autogen-core
+autogen-ext
+autogen-ext[azure]
+
+# Azure AI services
+azure-ai-inference
+azure-ai-projects
+azure-search-documents
+httpx
+ipykernel
+pillow
+python-dotenv
+pandas
+uvicorn
+nest-asyncio
+
+agent-framework
+
+
+mcp[cli]
+
+# Other dependencies
+a2a-sdk
+numpy

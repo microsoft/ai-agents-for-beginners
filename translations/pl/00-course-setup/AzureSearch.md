@@ -1,70 +1,70 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "932a1f463f0fcf97090b93b5d0255dff",
-  "translation_date": "2025-03-28T09:10:31+00:00",
-  "source_file": "00-course-setup\\AzureSearch.md",
+  "original_hash": "f0ce2d470f3efad6f8c7df376f416a4b",
+  "translation_date": "2025-07-12T07:36:35+00:00",
+  "source_file": "00-course-setup/AzureSearch.md",
   "language_code": "pl"
 }
 -->
-# Przewodnik konfiguracji Azure AI Search
+# Przewodnik po konfiguracji Azure AI Search
 
 Ten przewodnik pomoże Ci skonfigurować Azure AI Search za pomocą portalu Azure. Postępuj zgodnie z poniższymi krokami, aby utworzyć i skonfigurować usługę Azure AI Search.
 
 ## Wymagania wstępne
 
-Przed rozpoczęciem upewnij się, że masz:
+Zanim zaczniesz, upewnij się, że masz:
 
-- Subskrypcję Azure. Jeśli nie posiadasz subskrypcji Azure, możesz utworzyć darmowe konto na [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
+- Subskrypcję Azure. Jeśli nie masz subskrypcji Azure, możesz założyć darmowe konto na [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
 ## Krok 1: Utwórz usługę Azure AI Search
 
 1. Zaloguj się do [portalu Azure](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. W lewym panelu nawigacyjnym kliknij **Utwórz zasób**.
-3. W polu wyszukiwania wpisz „Azure Cognitive Search” i wybierz **Azure Cognitive Search** z listy wyników.
-4. Kliknij przycisk **Utwórz**.
-5. W zakładce **Podstawowe** podaj następujące informacje:
-   - **Subskrypcja**: Wybierz swoją subskrypcję Azure.
-   - **Grupa zasobów**: Utwórz nową grupę zasobów lub wybierz istniejącą.
-   - **Nazwa zasobu**: Wprowadź unikalną nazwę dla swojej usługi wyszukiwania.
+2. W lewym panelu nawigacyjnym kliknij **Create a resource**.
+3. W polu wyszukiwania wpisz „Azure AI Search” i wybierz **Azure AI Search** z listy wyników.
+4. Kliknij przycisk **Create**.
+5. Na karcie **Basics** podaj następujące informacje:
+   - **Subscription**: Wybierz swoją subskrypcję Azure.
+   - **Resource group**: Utwórz nową grupę zasobów lub wybierz istniejącą.
+   - **Resource name**: Wprowadź unikalną nazwę dla swojej usługi wyszukiwania.
    - **Region**: Wybierz region najbliższy Twoim użytkownikom.
-   - **Poziom cenowy**: Wybierz poziom cenowy odpowiadający Twoim wymaganiom. Możesz zacząć od darmowego poziomu do testów.
-6. Kliknij **Przejrzyj + utwórz**.
-7. Sprawdź ustawienia i kliknij **Utwórz**, aby utworzyć usługę wyszukiwania.
+   - **Pricing tier**: Wybierz plan cenowy odpowiadający Twoim potrzebom. Możesz zacząć od darmowego planu do testów.
+6. Kliknij **Review + create**.
+7. Sprawdź ustawienia i kliknij **Create**, aby utworzyć usługę wyszukiwania.
 
 ## Krok 2: Rozpocznij pracę z Azure AI Search
 
-1. Po zakończeniu wdrażania przejdź do swojej usługi wyszukiwania w portalu Azure.
-2. Na stronie przeglądu usługi wyszukiwania kliknij przycisk **Szybki start**.
-3. Postępuj zgodnie z instrukcjami w przewodniku szybkiego startu, aby utworzyć indeks, przesłać dane i wykonać zapytanie wyszukiwania.
+1. Po zakończeniu wdrożenia przejdź do swojej usługi wyszukiwania w portalu Azure.
+2. Na stronie przeglądu usługi wyszukiwania kliknij przycisk **Quickstart**.
+3. Postępuj zgodnie z instrukcjami w przewodniku Quickstart, aby utworzyć indeks, przesłać dane i wykonać zapytanie wyszukiwania.
 
 ### Utwórz indeks
 
-1. W przewodniku szybkiego startu kliknij **Utwórz indeks**.
+1. W przewodniku Quickstart kliknij **Create an index**.
 2. Zdefiniuj schemat indeksu, określając pola i ich atrybuty (np. typ danych, możliwość wyszukiwania, filtrowania).
-3. Kliknij **Utwórz**, aby utworzyć indeks.
+3. Kliknij **Create**, aby utworzyć indeks.
 
 ### Prześlij dane
 
-1. W przewodniku szybkiego startu kliknij **Prześlij dane**.
-2. Wybierz źródło danych (np. Azure Blob Storage, Azure SQL Database) i podaj wymagane szczegóły połączenia.
-3. Mapuj pola źródła danych na pola indeksu.
-4. Kliknij **Prześlij**, aby przesłać dane do indeksu.
+1. W przewodniku Quickstart kliknij **Upload data**.
+2. Wybierz źródło danych (np. Azure Blob Storage, Azure SQL Database) i podaj niezbędne dane połączenia.
+3. Przypisz pola źródła danych do pól indeksu.
+4. Kliknij **Submit**, aby przesłać dane do indeksu.
 
 ### Wykonaj zapytanie wyszukiwania
 
-1. W przewodniku szybkiego startu kliknij **Eksplorator wyszukiwania**.
+1. W przewodniku Quickstart kliknij **Search explorer**.
 2. Wpisz zapytanie wyszukiwania w polu wyszukiwania, aby przetestować funkcjonalność wyszukiwania.
 3. Przejrzyj wyniki wyszukiwania i w razie potrzeby dostosuj schemat indeksu lub dane.
 
 ## Krok 3: Korzystaj z narzędzi Azure AI Search
 
-Azure AI Search integruje się z różnymi narzędziami, aby ulepszyć możliwości wyszukiwania. Możesz używać Azure CLI, Python SDK i innych narzędzi do zaawansowanych konfiguracji i operacji.
+Azure AI Search integruje się z różnymi narzędziami, które rozszerzają możliwości wyszukiwania. Możesz używać Azure CLI, Python SDK i innych narzędzi do zaawansowanej konfiguracji i operacji.
 
 ### Korzystanie z Azure CLI
 
 1. Zainstaluj Azure CLI, postępując zgodnie z instrukcjami na stronie [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Zaloguj się do Azure CLI, używając polecenia:
+2. Zaloguj się do Azure CLI za pomocą polecenia:
    ```bash
    az login
    ```
@@ -114,7 +114,7 @@ Azure AI Search integruje się z różnymi narzędziami, aby ulepszyć możliwo�
    search_client.upload_documents(documents)
    ```
 
-Szczegółowe informacje znajdziesz w poniższej dokumentacji:
+Aby uzyskać bardziej szczegółowe informacje, zapoznaj się z następującą dokumentacją:
 
 - [Create an Azure Cognitive Search service](https://learn.microsoft.com/en-us/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
 - [Get started with Azure Cognitive Search](https://learn.microsoft.com/en-us/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
@@ -122,9 +122,9 @@ Szczegółowe informacje znajdziesz w poniższej dokumentacji:
 
 ## Podsumowanie
 
-Pomyślnie skonfigurowałeś Azure AI Search za pomocą portalu Azure i zintegrowanych narzędzi. Możesz teraz eksplorować bardziej zaawansowane funkcje i możliwości Azure AI Search, aby ulepszyć swoje rozwiązania wyszukiwania.
+Pomyślnie skonfigurowałeś Azure AI Search za pomocą portalu Azure i zintegrowanych narzędzi. Teraz możesz odkrywać bardziej zaawansowane funkcje i możliwości Azure AI Search, aby wzbogacić swoje rozwiązania wyszukiwania.
 
-Aby uzyskać dodatkową pomoc, odwiedź [dokumentację Azure Cognitive Search](https://learn.microsoft.com/en-us/azure/search/?wt.mc_id=studentamb_258691).
+W razie potrzeby odwiedź [Azure Cognitive Search documentation](https://learn.microsoft.com/en-us/azure/search/?wt.mc_id=studentamb_258691).
 
 **Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczeniowej AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż staramy się zapewnić dokładność, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za autorytatywne źródło. W przypadku informacji krytycznych zalecane jest skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mimo że dążymy do jak największej dokładności, prosimy mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w języku źródłowym powinien być uznawany za źródło autorytatywne. W przypadku informacji o kluczowym znaczeniu zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.

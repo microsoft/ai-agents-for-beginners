@@ -110,11 +110,13 @@ Having tools that provide a clear record of actions is essential. Without them, 
 
 ![AgentRunExample](./images/AgentRunExample.png)
 
-![AgentRunExample2](./images/AgentRunExample2.png)
-
 ## Conclusion
 
 Agentic RAG represents a natural evolution in how AI systems handle complex, data-intensive tasks. By adopting a looped interaction pattern, autonomously selecting tools, and refining queries until achieving a high-quality result, the system moves beyond static prompt-following into a more adaptive, context-aware decision-maker. While still bounded by human-defined infrastructures and ethical guidelines, these agentic capabilities enable richer, more dynamic, and ultimately more useful AI interactions for both enterprises and end-users.
+
+### Got More Questions about Agentic RAG?
+
+Join the [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Additional Resources
 

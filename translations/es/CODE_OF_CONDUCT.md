@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e8b14f0e66db374a2ada46e25fac88ae",
-  "translation_date": "2025-03-28T09:57:11+00:00",
+  "original_hash": "c06b12caf3c901eb3156e3dd5b0aea56",
+  "translation_date": "2025-07-12T06:54:06+00:00",
   "source_file": "CODE_OF_CONDUCT.md",
   "language_code": "es"
 }
@@ -17,5 +17,5 @@ Recursos:
 - [Preguntas frecuentes sobre el Código de Conducta de Microsoft](https://opensource.microsoft.com/codeofconduct/faq/)
 - Contacta a [opencode@microsoft.com](mailto:opencode@microsoft.com) para preguntas o inquietudes
 
-**Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por garantizar la precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que surjan del uso de esta traducción.
+**Aviso legal**:  
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por la precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional realizada por humanos. No nos hacemos responsables de ningún malentendido o interpretación errónea derivada del uso de esta traducción.

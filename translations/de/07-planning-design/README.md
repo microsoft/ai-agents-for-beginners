@@ -1,13 +1,13 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "8dd9a05d4dc18d3ff510e68e3798a080",
-  "translation_date": "2025-03-28T10:31:24+00:00",
-  "source_file": "07-planning-design\\README.md",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T14:06:34+00:00",
+  "source_file": "07-planning-design/README.md",
   "language_code": "de"
 }
 -->
-[![Planungs-Design-Muster](../../../translated_images/lesson-7-thumbnail.9769baaa68d1d81ee422d8aa15bd66461ac9f3e38cfaf0ee966cfe4ff20f75ee.de.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planungs-Design-Muster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.de.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klicken Sie auf das Bild oben, um das Video zu dieser Lektion anzusehen)_
 
@@ -17,48 +17,48 @@ CO_OP_TRANSLATOR_METADATA:
 
 Diese Lektion behandelt:
 
-* Das Definieren eines klaren Gesamtziels und das Zerlegen einer komplexen Aufgabe in handhabbare Teilaufgaben.
-* Die Nutzung von strukturiertem Output für zuverlässigere und maschinenlesbare Antworten.
+* Das Definieren eines klaren Gesamtziels und das Aufteilen einer komplexen Aufgabe in handhabbare Teilaufgaben.
+* Die Nutzung strukturierter Ausgaben für zuverlässigere und maschinenlesbare Antworten.
 * Die Anwendung eines ereignisgesteuerten Ansatzes zur Bearbeitung dynamischer Aufgaben und unerwarteter Eingaben.
 
 ## Lernziele
 
-Nach Abschluss dieser Lektion verstehen Sie:
+Nach Abschluss dieser Lektion werden Sie verstehen:
 
-* Wie man ein Gesamtziel für einen KI-Agenten identifiziert und festlegt, damit dieser klar weiß, was erreicht werden soll.
-* Wie man eine komplexe Aufgabe in handhabbare Teilaufgaben zerlegt und sie in eine logische Abfolge organisiert.
-* Wie man Agenten mit den richtigen Werkzeugen ausstattet (z. B. Such- oder Datenanalysetools), entscheidet, wann und wie sie verwendet werden, und unerwartete Situationen bewältigt.
-* Wie man Ergebnisse von Teilaufgaben bewertet, die Leistung misst und Maßnahmen ergreift, um den Endoutput zu verbessern.
+* Wie man ein Gesamtziel für einen KI-Agenten identifiziert und festlegt, damit er genau weiß, was erreicht werden soll.
+* Wie man eine komplexe Aufgabe in handhabbare Teilaufgaben zerlegt und diese in eine logische Reihenfolge bringt.
+* Wie man Agenten mit den richtigen Werkzeugen ausstattet (z. B. Suchwerkzeuge oder Datenanalysetools), entscheidet, wann und wie diese verwendet werden, und unerwartete Situationen bewältigt.
+* Wie man die Ergebnisse von Teilaufgaben bewertet, die Leistung misst und Maßnahmen iteriert, um die endgültige Ausgabe zu verbessern.
 
-## Das Gesamtziel definieren und eine Aufgabe zerlegen
+## Das Gesamtziel definieren und eine Aufgabe aufteilen
 
-![Ziele und Aufgaben definieren](../../../translated_images/defining-goals-tasks.dcc1181bbdb194704ae0fb3363371562949e8b03fd2fadc256218aaadf84a9f4.de.png)
+![Ziele und Aufgaben definieren](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.de.png)
 
-Die meisten Aufgaben in der realen Welt sind zu komplex, um sie in einem einzigen Schritt zu bewältigen. Ein KI-Agent benötigt ein präzises Ziel, das seine Planung und Handlungen leitet. Betrachten wir zum Beispiel das Ziel:
+Die meisten Aufgaben in der realen Welt sind zu komplex, um sie in einem einzigen Schritt zu bewältigen. Ein KI-Agent benötigt ein prägnantes Ziel, um seine Planung und Aktionen zu leiten. Betrachten Sie beispielsweise das Ziel:
 
-    "Erstelle eine 3-tägige Reiseplanung."
+    "Erstellen Sie eine 3-tägige Reiseplanung."
 
-Obwohl es einfach ausgedrückt ist, bedarf es dennoch einer Verfeinerung. Je klarer das Ziel ist, desto besser können der Agent (und mögliche menschliche Mitwirkende) sich darauf konzentrieren, das richtige Ergebnis zu erzielen, z. B. eine umfassende Reiseplanung mit Flugoptionen, Hotelvorschlägen und Aktivitätsempfehlungen.
+Obwohl es einfach zu formulieren ist, bedarf es dennoch einer Verfeinerung. Je klarer das Ziel ist, desto besser können der Agent (und eventuelle menschliche Mitarbeiter) sich darauf konzentrieren, das richtige Ergebnis zu erzielen, wie z. B. eine umfassende Reiseplanung mit Flugoptionen, Hotelvorschlägen und Aktivitätsempfehlungen.
 
 ### Aufgabenzerlegung
 
-Große oder komplexe Aufgaben werden leichter handhabbar, wenn sie in kleinere, zielorientierte Teilaufgaben zerlegt werden.
-Für das Beispiel der Reiseplanung könnte man das Ziel in folgende Unteraufgaben zerlegen:
+Große oder komplexe Aufgaben werden überschaubarer, wenn sie in kleinere, zielorientierte Teilaufgaben aufgeteilt werden.
+Für das Beispiel der Reiseplanung könnte man das Ziel in folgende Teilaufgaben zerlegen:
 
 * Flugbuchung
 * Hotelbuchung
 * Mietwagen
 * Personalisierung
 
-Jede Teilaufgabe kann dann von spezialisierten Agenten oder Prozessen bearbeitet werden. Ein Agent könnte sich auf die Suche nach den besten Flugangeboten konzentrieren, ein anderer auf Hotelbuchungen usw. Ein koordinierender oder „nachgeschalteter“ Agent kann diese Ergebnisse dann zu einer zusammenhängenden Reiseplanung für den Endnutzer zusammenführen.
+Jede Teilaufgabe kann dann von spezialisierten Agenten oder Prozessen bearbeitet werden. Ein Agent könnte sich darauf spezialisieren, die besten Flugangebote zu suchen, ein anderer konzentriert sich auf Hotelbuchungen usw. Ein koordinierender oder „nachgelagerter“ Agent kann diese Ergebnisse dann zu einer zusammenhängenden Reiseplanung für den Endnutzer zusammenstellen.
 
 Dieser modulare Ansatz ermöglicht auch schrittweise Verbesserungen. Beispielsweise könnten spezialisierte Agenten für Essensempfehlungen oder lokale Aktivitätsvorschläge hinzugefügt werden, um die Reiseplanung im Laufe der Zeit zu verfeinern.
 
-### Strukturierter Output
+### Strukturierte Ausgabe
 
-Große Sprachmodelle (LLMs) können strukturierten Output (z. B. JSON) generieren, der für nachgeschaltete Agenten oder Dienste leichter zu analysieren und zu verarbeiten ist. Dies ist besonders in einem Multi-Agenten-Kontext nützlich, in dem diese Aufgaben nach Erhalt des Planungsergebnisses umgesetzt werden können. Für eine schnelle Übersicht:
+Große Sprachmodelle (LLMs) können strukturierte Ausgaben (z. B. JSON) generieren, die für nachgelagerte Agenten oder Dienste leichter zu analysieren und zu verarbeiten sind. Dies ist besonders nützlich in einem Multi-Agenten-Kontext, in dem diese Aufgaben nach Erhalt der Planungsausgabe ausgeführt werden können. Für eine schnelle Übersicht:
 
-Das folgende Python-Snippet zeigt, wie ein einfacher Planungsagent ein Ziel in Teilaufgaben zerlegt und einen strukturierten Plan erstellt:
+Das folgende Python-Snippet zeigt einen einfachen Planungsagenten, der ein Ziel in Teilaufgaben zerlegt und einen strukturierten Plan erstellt:
 
 ```python
 from pydantic import BaseModel
@@ -149,16 +149,15 @@ pprint(json.loads(response_content))
 
 ### Planungsagent mit Multi-Agenten-Orchestrierung
 
-In diesem Beispiel erhält ein Semantic Router Agent eine Benutzeranfrage (z. B. „Ich brauche eine Hotelplanung für meine Reise.“).
+In diesem Beispiel erhält ein Semantic Router Agent eine Benutzeranfrage (z. B. "Ich brauche einen Hotelplan für meine Reise.").
 
 Der Planer:
 
-* Erhält den Hotelplan: Der Planer nimmt die Nachricht des Benutzers und erstellt basierend auf einem System-Prompt (einschließlich verfügbarer Agentendetails) eine strukturierte Reiseplanung.
-* Listet Agenten und deren Tools: Das Agentenregister enthält eine Liste von Agenten (z. B. für Flug-, Hotel-, Mietwagen- und Aktivitätenbuchung) zusammen mit den Funktionen oder Tools, die sie anbieten.
-* Leitet den Plan an die jeweiligen Agenten weiter: Je nach Anzahl der Teilaufgaben sendet der Planer die Nachricht entweder direkt an einen dedizierten Agenten (bei Einzelaufgaben) oder koordiniert über einen Gruppen-Chat-Manager für die Zusammenarbeit mehrerer Agenten.
-* Fasst das Ergebnis zusammen: Schließlich fasst der Planer die generierte Planung zur besseren Übersicht zusammen.
-
-Der folgende Python-Code zeigt diese Schritte:
+* Empfängt den Hotelplan: Der Planer nimmt die Nachricht des Benutzers und erstellt basierend auf einer Systemaufforderung (einschließlich verfügbarer Agentendetails) einen strukturierten Reiseplan.
+* Listet Agenten und deren Werkzeuge auf: Das Agentenregister enthält eine Liste von Agenten (z. B. für Flug, Hotel, Mietwagen und Aktivitäten) sowie die Funktionen oder Werkzeuge, die sie anbieten.
+* Leitet den Plan an die jeweiligen Agenten weiter: Je nach Anzahl der Teilaufgaben sendet der Planer die Nachricht entweder direkt an einen dedizierten Agenten (für Einzelaufgaben-Szenarien) oder koordiniert über einen Gruppenchat-Manager für die Zusammenarbeit mehrerer Agenten.
+* Fasst das Ergebnis zusammen: Schließlich fasst der Planer den erstellten Plan zur besseren Übersicht zusammen.
+Das folgende Python-Codebeispiel illustriert diese Schritte:
 
 ```python
 
@@ -233,7 +232,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Das Ergebnis des vorherigen Codes kann dann verwendet werden, um die Aufgaben an `assigned_agent` weiterzuleiten und die Reiseplanung für den Endnutzer zusammenzufassen.
+Das Ergebnis des vorherigen Codes kann dann verwendet werden, um an `assigned_agent` weiterzuleiten und die Reiseplanung für den Endnutzer zusammenzufassen.
 
 ```json
 {
@@ -264,13 +263,13 @@ Das Ergebnis des vorherigen Codes kann dann verwendet werden, um die Aufgaben an
 }
 ```
 
-Ein Beispiel-Notebook mit dem vorherigen Code-Snippet ist [hier](../../../07-planning-design/07-autogen.ipynb) verfügbar.
+Ein Beispiel-Notebook mit dem vorherigen Codebeispiel ist [hier](07-autogen.ipynb) verfügbar.
 
 ### Iterative Planung
 
-Einige Aufgaben erfordern eine iterative Vorgehensweise oder erneute Planung, bei der das Ergebnis einer Teilaufgabe die nächste beeinflusst. Wenn der Agent beispielsweise ein unerwartetes Datenformat bei der Flugbuchung entdeckt, muss er möglicherweise seine Strategie anpassen, bevor er mit der Hotelbuchung fortfährt.
+Einige Aufgaben erfordern ein Hin und Her oder eine erneute Planung, bei der das Ergebnis einer Teilaufgabe die nächste beeinflusst. Wenn der Agent beispielsweise ein unerwartetes Datenformat bei der Flugbuchung entdeckt, muss er möglicherweise seine Strategie anpassen, bevor er mit der Hotelbuchung fortfährt.
 
-Auch Benutzerfeedback (z. B. wenn ein Mensch entscheidet, dass er einen früheren Flug bevorzugt) kann eine teilweise Neuplanung auslösen. Dieser dynamische, iterative Ansatz stellt sicher, dass die endgültige Lösung den realen Einschränkungen und sich entwickelnden Benutzerpräferenzen entspricht.
+Darüber hinaus kann Benutzerfeedback (z. B. wenn ein Mensch entscheidet, dass er einen früheren Flug bevorzugt) eine teilweise Neuplanung auslösen. Dieser dynamische, iterative Ansatz stellt sicher, dass die endgültige Lösung den realen Einschränkungen und sich entwickelnden Benutzerpräferenzen entspricht.
 
 Beispielcode:
 
@@ -293,17 +292,21 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-Für eine umfassendere Planung sehen Sie sich Magnetic One an, um komplexe Aufgaben zu lösen.
+Für umfassendere Planungen schauen Sie sich Magnetic One an, um komplexe Aufgaben zu lösen.
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir ein Beispiel dafür betrachtet, wie ein Planer erstellt werden kann, der dynamisch die verfügbaren definierten Agenten auswählt. Der Output des Planers zerlegt die Aufgaben und weist die Agenten zu, sodass diese ausgeführt werden können. Es wird davon ausgegangen, dass die Agenten Zugriff auf die Funktionen/Tools haben, die für die Ausführung der Aufgabe erforderlich sind. Zusätzlich zu den Agenten können Sie andere Muster wie Reflexion, Zusammenfassung und Round-Robin-Chat einbeziehen, um weitere Anpassungen vorzunehmen.
+In diesem Artikel haben wir ein Beispiel dafür betrachtet, wie wir einen Planer erstellen können, der dynamisch die verfügbaren definierten Agenten auswählt. Die Ausgabe des Planers zerlegt die Aufgaben und weist die Agenten zu, damit sie ausgeführt werden können. Es wird davon ausgegangen, dass die Agenten Zugriff auf die Funktionen/Werkzeuge haben, die zur Durchführung der Aufgabe erforderlich sind. Zusätzlich zu den Agenten können Sie andere Muster wie Reflexion, Zusammenfassung und Round-Robin-Chat einfügen, um weitere Anpassungen vorzunehmen.
 
 ## Zusätzliche Ressourcen
 
-* AutoGen Magnetic One – Ein generalistisches Multi-Agenten-System zur Lösung komplexer Aufgaben, das beeindruckende Ergebnisse bei mehreren herausfordernden Benchmarks erzielt hat. Referenz:
+AutoGen Magnetic One - Ein generalistisches Multi-Agenten-System zur Lösung komplexer Aufgaben, das beeindruckende Ergebnisse bei mehreren herausfordernden agentischen Benchmarks erzielt hat. Referenz:
 
-In dieser Implementierung erstellt der Orchestrator einen aufgabenbezogenen Plan und delegiert diese Aufgaben an die verfügbaren Agenten. Neben der Planung setzt der Orchestrator auch einen Tracking-Mechanismus ein, um den Fortschritt der Aufgaben zu überwachen und bei Bedarf neu zu planen.
+In dieser Implementierung erstellt der Orchestrator einen aufgabenbezogenen Plan und delegiert diese Aufgaben an die verfügbaren Agenten. Zusätzlich zur Planung verwendet der Orchestrator auch einen Tracking-Mechanismus, um den Fortschritt der Aufgabe zu überwachen und bei Bedarf neu zu planen.
+
+### Haben Sie weitere Fragen zum Planungsdesign-Muster?
+
+Treten Sie dem [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) bei, um andere Lernende zu treffen, Sprechstunden zu besuchen und Ihre Fragen zu KI-Agenten beantwortet zu bekommen.
 
 ## Vorherige Lektion
 
@@ -313,5 +316,7 @@ In dieser Implementierung erstellt der Orchestrator einen aufgabenbezogenen Plan
 
 [Multi-Agenten-Design-Muster](../08-multi-agent/README.md)
 
+---
+
 **Haftungsausschluss**:  
-Dieses Dokument wurde mithilfe des KI-Übersetzungsdienstes [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner ursprünglichen Sprache sollte als maßgebliche Quelle betrachtet werden. Für kritische Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir haften nicht für Missverständnisse oder Fehlinterpretationen, die sich aus der Nutzung dieser Übersetzung ergeben.
+Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner ursprünglichen Sprache sollte als maßgebliche Quelle betrachtet werden. Für kritische Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die sich aus der Nutzung dieser Übersetzung ergeben.
