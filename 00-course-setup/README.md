@@ -48,16 +48,8 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-usernam
 
 Traverse into the repo folder:
 
-For bash:
-
-```bash
+```bash|powershell
 cd ai-agents-for-beginners
-```
-
-For Powershell:
-
-```powershell
-Set-Location ai-agents-for-beginners
 ```
 
 Then specify which folders you want (example below shows two folders):
@@ -68,15 +60,13 @@ git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 
 After cloning and verifying the files, if you only need files and want to free space (no git history), please delete the repository metadata (💀irreversible — you will lose all Git functionality: no commits, pulls, pushes, or history access).
 
-For Linux/macOS:
-
 ```bash
+# zsh/bash
 rm -rf .git
 ```
 
-For Windows:
-
 ```powershell
+# PowerShell
 Remove-Item -Recurse -Force .git
 ```
 
@@ -120,22 +110,26 @@ Whichever option you choose, it will determine which setup steps you need to fol
 
     Create Python venv directory:
 
-    ``` bash
-    python3 -m venv venv
+    ```bash|powershell
+    python -m venv venv
     ```
 
     Then activate venv environment for:
 
-    macOS and Linux
-
     ```bash
+    # zsh/bash
     source venv/bin/activate
     ```
   
-    Windows
-
-    ```bash
+    ```dos
+    # Command Prompt for Windows
     venv\Scripts\activate
+    ```
+
+- .NET 10+: For the sample codes using .NET, ensure you install [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later. Then, check your installed .NET SDK version:
+
+    ```bash|powershell
+    dotnet --list-sdks
     ```
 
 - A GitHub Account - For Access to the GitHub Models Marketplace
@@ -146,12 +140,14 @@ We have included a `requirements.txt` file in the root of this repository that c
 
 You can install them by running the following command in your terminal at the root of the repository:
 
-```bash
+```bash|powershell
 pip install -r requirements.txt
 ```
+
 We recommend creating a Python virtual environment to avoid any conflicts and issues.
 
 ## Setup VSCode
+
 Make sure that you are using the right version of Python in VSCode.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
@@ -169,14 +165,14 @@ This can be done by going to your <a href="https://github.com/settings/personal-
 Please follow the [Principle of Least Privilege](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) when creating your token. This means you should only give the token the permissions it needs to run the code samples in this course.
 
 1. Select the `Fine-grained tokens` option on the left side of your screen by traversing to the **Developer settings**
-   ![](./images/profile_developer_settings.png)
 
-    Then select `Generate new token`.
+   ![Developer settings](./images/profile_developer_settings.png)
 
-    ![Generate Token](./images/fga_new_token.png)
+   Then select `Generate new token`.
+
+   ![Generate Token](./images/fga_new_token.png)
 
 2. Enter a descriptive name for your token that reflects its purpose, making it easy to identify later.
-
 
     🔐 Token Duration Recommendation
 
@@ -191,6 +187,7 @@ Please follow the [Principle of Least Privilege](https://docs.github.com/en/get-
     ![Limit scope to fork repository](./images/token_repository_limit.png)
 
 4. Restrict the token's permissions: Under **Permissions**, click **Account** tab, and click the "+ Add permissions" button. A dropdown will appear. Please search for **Models** and check the box for it.
+
     ![Add Models Permission](./images/add_models_permissions.png)
 
 5. Verify the permissions required before generating the token. ![Verify Permissions](./images/verify_permissions.png)
@@ -199,20 +196,25 @@ Please follow the [Principle of Least Privilege](https://docs.github.com/en/get-
 
 Copy your new token that you have just created. You will now add this to your `.env` file included in this course.
 
-
 ### Step 2: Create Your `.env` File
 
 To create your `.env` file run the following command in your terminal.
 
 ```bash
+# zsh/bash
 cp .env.example .env
+```
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env
 ```
 
 This will copy the example file and create a `.env` in your directory and where you fill in the values for the environment variables.
 
 With your token copied, open the `.env` file in your favorite text editor and paste your token into the `GITHUB_TOKEN` field.
-![GitHub Token Field](./images/github_token_field.png)
 
+![GitHub Token Field](./images/github_token_field.png)
 
 You should now be able to run the code samples of this course.
 
@@ -220,9 +222,7 @@ You should now be able to run the code samples of this course.
 
 ### Step 1: Retrieve Your Azure Project Endpoint
 
-
-Follow the steps to creating a hub and project in Azure AI Foundry found here: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
-
+Follow the steps to creating a hub and project in Azure AI Foundry found here: [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
 
 Once you have created your project, you will need to retrieve the connection string for your project.
 
@@ -235,7 +235,13 @@ This can be done by going to the **Overview** page of your project in the Azure 
 To create your `.env` file run the following command in your terminal.
 
 ```bash
+# zsh/bash
 cp .env.example .env
+```
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env
 ```
 
 This will copy the example file and create a `.env` in your directory and where you fill in the values for the environment variables.
@@ -249,7 +255,6 @@ As a security best practice, we'll use [keyless authentication](https://learn.mi
 Next, open a terminal and run `az login --use-device-code` to sign in to your Azure account.
 
 Once you've logged in, select your subscription in the terminal.
-
 
 ## Additional Environment Variables - Azure Search and Azure OpenAI 
 
@@ -289,13 +294,14 @@ If you want to run these samples, you will need to add the following environment
 
 ### External Webpage
 
-- `AZURE_OPENAI_API_VERSION` - Visit the [API version lifecycle](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) page under **Latest GA API release**.
+- `AZURE_OPENAI_API_VERSION` - Visit the [API version lifecycle](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) page under **Latest GA API release**.
 
 ### Setup keyless authentication
 
 Rather than hardcode your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential` function to get the credential.
 
 ```python
+# Python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
