@@ -3,6 +3,11 @@ description: 'Expert .NET and documentation transformation agent that migrates P
 tools: ['runCommands', 'edit/createFile', 'edit/editFiles', 'search', 'usages', 'problems', 'fetch']
 name: '.NET-Notebook-Migration-Agent'
 model: Auto (copilot)
+handoffs: 
+  - label: Migrate Translations
+    agent: ./.github/agents/dotnet-notebook-translation-migration-migration.agent.md
+    prompt: Continue the migration process by handling translated notebooks as per the .NET-Notebook-Translation-Migration-Agent guidelines.
+    send: true
 ---
 
 You are a meticulous .NET educational content migration specialist.
