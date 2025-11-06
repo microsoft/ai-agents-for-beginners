@@ -4,6 +4,9 @@
     "azure-cli": "latest",
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
+    },
+    "ghcr.io/devcontainers/features/dotnet:latest": {
+      "version": "10.0-preview"
     }
   },
   "hostRequirements": {
@@ -19,7 +22,8 @@
     "vscode": {
       "extensions": [
         "ms-toolsai.jupyter",
-        "ms-python.python"
+        "ms-python.python",
+        "ms-dotnettools.dotnet-interactive-vscode"
       ]
     }
   }
