@@ -2,7 +2,7 @@
   "image": "mcr.microsoft.com/devcontainers/python:3",
   "features": {
     "azure-cli": "latest",
-    "ghcr.io/devcontainers/features/node:latest": {
+    "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
     },
     "ghcr.io/devcontainers/features/dotnet:latest": {
