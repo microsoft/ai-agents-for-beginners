@@ -1,6 +1,6 @@
 ---
 description: 'Expert .NET and documentation transformation agent that migrates the translated Polyglot notebooks to the structure matching the source translation.'
-tools: ['runCommands', 'edit/createFile', 'edit/editFiles', 'search', 'usages', 'problems', 'fetch']
+tools: ['runCommands', 'edit/createFile', 'edit/createDirectory', 'edit/editFiles', 'search', 'usages', 'problems', 'changes', 'fetch', 'githubRepo']
 name: '.NET-Notebook-Translation-Migration-Agent'
 model: Auto (copilot)
 ---
