@@ -1,13 +1,13 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "96eb7f95375daa3e91778ca0295a55d9",
-  "translation_date": "2025-10-15T08:28:28+00:00",
+  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
+  "translation_date": "2025-11-07T08:22:51+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "de"
 }
 -->
-# Kurssetup
+# Kursvorbereitung
 
 ## Einführung
 
@@ -17,23 +17,23 @@ In dieser Lektion erfahren Sie, wie Sie die Codebeispiele dieses Kurses ausführ
 
 Bevor Sie Ihr Repository klonen, treten Sie dem [AI Agents For Beginners Discord-Kanal](https://aka.ms/ai-agents/discord) bei, um Hilfe bei der Einrichtung zu erhalten, Fragen zum Kurs zu stellen oder sich mit anderen Lernenden zu vernetzen.
 
-## Klonen oder Forken dieses Repos
+## Klonen oder Forken dieses Repositories
 
-Um zu beginnen, klonen oder forken Sie bitte das GitHub-Repository. Dadurch erstellen Sie Ihre eigene Version des Kursmaterials, sodass Sie den Code ausführen, testen und anpassen können!
+Um zu beginnen, klonen oder forken Sie bitte das GitHub-Repository. Dadurch erhalten Sie Ihre eigene Version des Kursmaterials, sodass Sie den Code ausführen, testen und anpassen können!
 
 Dies können Sie tun, indem Sie auf den Link klicken, um <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">das Repository zu forken</a>.
 
 Sie sollten nun Ihre eigene geforkte Version dieses Kurses unter folgendem Link haben:
 
-![Geforktes Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.de.png)
+![Geforktes Repository](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.de.png)
 
 ### Shallow Clone (empfohlen für Workshops / Codespaces)
 
   >Das vollständige Repository kann groß sein (~3 GB), wenn Sie die gesamte Historie und alle Dateien herunterladen. Wenn Sie nur am Workshop teilnehmen oder nur einige Lektionenordner benötigen, vermeidet ein Shallow Clone (oder ein Sparse Clone) den Großteil dieses Downloads, indem die Historie gekürzt und/oder Blobs übersprungen werden.
 
-#### Schneller Shallow Clone — minimale Historie, alle Dateien
+#### Schnelles Shallow Clone — minimale Historie, alle Dateien
 
-Ersetzen Sie `<your-username>` in den unten stehenden Befehlen durch Ihre Fork-URL (oder die Upstream-URL, falls Sie dies bevorzugen).
+Ersetzen Sie `<your-username>` in den untenstehenden Befehlen durch Ihre Fork-URL (oder die Upstream-URL, falls Sie dies bevorzugen).
 
 Um nur die neueste Commit-Historie zu klonen (kleiner Download):
 
@@ -47,9 +47,9 @@ Um einen bestimmten Branch zu klonen:
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Partieller (sparsamer) Clone — minimale Blobs + nur ausgewählte Ordner
+#### Partielles (Sparse) Clone — minimale Blobs + nur ausgewählte Ordner
 
-Dies verwendet partielles Klonen und Sparse-Checkout (erfordert Git 2.25+ und wird mit moderner Git-Version mit Unterstützung für partielles Klonen empfohlen):
+Dies verwendet partielles Klonen und Sparse-Checkout (erfordert Git 2.25+ und wird mit modernem Git mit Unterstützung für partielles Klonen empfohlen):
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -57,35 +57,25 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-usernam
 
 Wechseln Sie in den Repository-Ordner:
 
-Für Bash:
-
-```bash
+```bash|powershell
 cd ai-agents-for-beginners
 ```
 
-Für Powershell:
-
-```powershell
-Set-Location ai-agents-for-beginners
-```
-
-Geben Sie dann an, welche Ordner Sie möchten (Beispiel unten zeigt zwei Ordner):
+Geben Sie dann an, welche Ordner Sie möchten (das Beispiel unten zeigt zwei Ordner):
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Nachdem Sie die Dateien geklont und überprüft haben, löschen Sie das Repository-Metadaten, wenn Sie nur Dateien benötigen und Speicherplatz freigeben möchten (💀irreversibel — Sie verlieren alle Git-Funktionen: keine Commits, Pulls, Pushes oder Zugriff auf die Historie).
-
-Für Linux/macOS:
+Nachdem Sie die Dateien geklont und überprüft haben, löschen Sie bitte die Repository-Metadaten, wenn Sie nur Dateien benötigen und Speicherplatz freigeben möchten (💀irreversibel — Sie verlieren alle Git-Funktionen: keine Commits, Pulls, Pushes oder Zugriff auf die Historie).
 
 ```bash
+# zsh/bash
 rm -rf .git
 ```
 
-Für Windows:
-
 ```powershell
+# PowerShell
 Remove-Item -Recurse -Force .git
 ```
 
@@ -94,12 +84,12 @@ Remove-Item -Recurse -Force .git
 - Erstellen Sie einen neuen Codespace für dieses Repository über die [GitHub-Benutzeroberfläche](https://github.com/codespaces).  
 
 - Führen Sie im Terminal des neu erstellten Codespaces einen der oben genannten Shallow/Sparse Clone-Befehle aus, um nur die benötigten Lektionenordner in den Codespace-Arbeitsbereich zu bringen.
-- Optional: Entfernen Sie nach dem Klonen innerhalb von Codespaces `.git`, um zusätzlichen Speicherplatz zurückzugewinnen (siehe oben stehende Löschbefehle).
-- Hinweis: Wenn Sie das Repository direkt in Codespaces öffnen möchten (ohne zusätzliches Klonen), beachten Sie, dass Codespaces die Devcontainer-Umgebung erstellt und möglicherweise mehr bereitstellt, als Sie benötigen. Das Klonen einer Shallow-Kopie in einem frischen Codespace gibt Ihnen mehr Kontrolle über die Festplattennutzung.
+- Optional: Entfernen Sie nach dem Klonen innerhalb von Codespaces `.git`, um zusätzlichen Speicherplatz zurückzugewinnen (siehe obenstehende Löschbefehle).
+- Hinweis: Wenn Sie das Repository direkt in Codespaces öffnen möchten (ohne zusätzliches Klonen), beachten Sie, dass Codespaces die Devcontainer-Umgebung erstellt und möglicherweise mehr bereitstellt, als Sie benötigen. Das Klonen einer Shallow-Kopie innerhalb eines neuen Codespaces gibt Ihnen mehr Kontrolle über die Festplattennutzung.
 
 #### Tipps
 
-- Ersetzen Sie immer die Klon-URL durch Ihre Fork, wenn Sie bearbeiten/commiten möchten.
+- Ersetzen Sie immer die Klon-URL durch Ihre Fork, wenn Sie bearbeiten/committen möchten.
 - Wenn Sie später mehr Historie oder Dateien benötigen, können Sie diese abrufen oder Sparse-Checkout anpassen, um zusätzliche Ordner einzuschließen.
 
 ## Ausführen des Codes
@@ -116,51 +106,57 @@ Die Codebeispiele verwenden entweder:
 **Erfordert Azure-Abonnement**:
 3) Azure AI Foundry + Azure AI Agent Service. Beschriftet als (azureaiagent.ipynb)
 
-Wir empfehlen Ihnen, alle drei Arten von Beispielen auszuprobieren, um herauszufinden, welche für Sie am besten geeignet ist.
+Wir empfehlen Ihnen, alle drei Arten von Beispielen auszuprobieren, um herauszufinden, welche am besten für Sie geeignet ist.
 
-Je nachdem, welche Option Sie wählen, bestimmen Sie, welche Einrichtungsschritte Sie unten befolgen müssen:
+Die von Ihnen gewählte Option bestimmt, welche Einrichtungsschritte Sie unten befolgen müssen:
 
 ## Anforderungen
 
 - Python 3.12+
-  - **HINWEIS**: Wenn Sie Python 3.12 nicht installiert haben, stellen Sie sicher, dass Sie es installieren. Erstellen Sie dann Ihr venv mit python3.12, um sicherzustellen, dass die richtigen Versionen aus der Datei requirements.txt installiert werden.
+  - **HINWEIS**: Wenn Sie Python3.12 nicht installiert haben, stellen Sie sicher, dass Sie es installieren. Erstellen Sie dann Ihr venv mit python3.12, um sicherzustellen, dass die richtigen Versionen aus der requirements.txt-Datei installiert werden.
   
     >Beispiel
 
     Erstellen Sie ein Python venv-Verzeichnis:
 
-    ``` bash
-    python3 -m venv venv
+    ```bash|powershell
+    python -m venv venv
     ```
 
     Aktivieren Sie dann die venv-Umgebung für:
 
-    macOS und Linux
-
     ```bash
+    # zsh/bash
     source venv/bin/activate
     ```
   
-    Windows
-
-    ```bash
+    ```dos
+    # Command Prompt for Windows
     venv\Scripts\activate
+    ```
+
+- .NET 10+: Für die Beispielcodes, die .NET verwenden, stellen Sie sicher, dass Sie das [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) oder später installieren. Überprüfen Sie dann Ihre installierte .NET SDK-Version:
+
+    ```bash|powershell
+    dotnet --list-sdks
     ```
 
 - Ein GitHub-Konto - Für den Zugriff auf den GitHub Models Marketplace
 - Azure-Abonnement - Für den Zugriff auf Azure AI Foundry
 - Azure AI Foundry-Konto - Für den Zugriff auf den Azure AI Agent Service
 
-Wir haben eine `requirements.txt`-Datei im Stammverzeichnis dieses Repositorys enthalten, die alle erforderlichen Python-Pakete enthält, um die Codebeispiele auszuführen.
+Wir haben eine `requirements.txt`-Datei im Stammverzeichnis dieses Repositories enthalten, die alle erforderlichen Python-Pakete enthält, um die Codebeispiele auszuführen.
 
-Sie können diese installieren, indem Sie den folgenden Befehl in Ihrem Terminal im Stammverzeichnis des Repositorys ausführen:
+Sie können diese installieren, indem Sie den folgenden Befehl in Ihrem Terminal im Stammverzeichnis des Repositories ausführen:
 
-```bash
+```bash|powershell
 pip install -r requirements.txt
 ```
+
 Wir empfehlen, eine Python-virtuelle Umgebung zu erstellen, um Konflikte und Probleme zu vermeiden.
 
-## VSCode einrichten
+## Einrichtung von VSCode
+
 Stellen Sie sicher, dass Sie die richtige Python-Version in VSCode verwenden.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
@@ -178,28 +174,29 @@ Dies können Sie tun, indem Sie zu Ihren <a href="https://github.com/settings/pe
 Bitte folgen Sie dem [Prinzip der minimalen Rechtevergabe](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) beim Erstellen Ihres Tokens. Das bedeutet, dass Sie dem Token nur die Berechtigungen geben sollten, die es benötigt, um die Codebeispiele in diesem Kurs auszuführen.
 
 1. Wählen Sie die Option `Fine-grained tokens` auf der linken Seite Ihres Bildschirms, indem Sie zu den **Entwicklereinstellungen** navigieren.
-   ![](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.de.png)
 
-    Wählen Sie dann `Generate new token`.
+   ![Entwicklereinstellungen](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.de.png)
 
-    ![Token generieren](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.de.png)
+   Wählen Sie dann `Generate new token`.
+
+   ![Token generieren](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.de.png)
 
 2. Geben Sie einen beschreibenden Namen für Ihr Token ein, der seinen Zweck widerspiegelt, damit es später leicht identifiziert werden kann.
-
 
     🔐 Empfehlung für Token-Dauer
 
     Empfohlene Dauer: 30 Tage
-    Für eine sicherere Haltung können Sie eine kürzere Dauer wählen – z. B. 7 Tage 🛡️
+    Für eine sicherere Haltung können Sie eine kürzere Dauer wählen – wie z. B. 7 Tage 🛡️
     Es ist eine großartige Möglichkeit, sich ein persönliches Ziel zu setzen und den Kurs abzuschließen, während Ihre Lernmotivation hoch ist 🚀.
 
     ![Token-Name und Ablaufdatum](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.de.png)
 
-3. Begrenzen Sie den Umfang des Tokens auf Ihre Fork dieses Repositorys.
+3. Begrenzen Sie den Umfang des Tokens auf Ihre Fork dieses Repositories.
 
     ![Umfang auf Fork-Repository begrenzen](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.de.png)
 
-4. Beschränken Sie die Berechtigungen des Tokens: Unter **Permissions** klicken Sie auf den Tab **Account** und dann auf die Schaltfläche "+ Add permissions". Es erscheint ein Dropdown-Menü. Suchen Sie nach **Models** und aktivieren Sie das Kontrollkästchen dafür.
+4. Beschränken Sie die Berechtigungen des Tokens: Unter **Permissions** klicken Sie auf den Tab **Account** und dann auf die Schaltfläche "+ Add permissions". Es erscheint ein Dropdown-Menü. Bitte suchen Sie nach **Models** und aktivieren Sie das Kästchen dafür.
+
     ![Models-Berechtigung hinzufügen](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.de.png)
 
 5. Überprüfen Sie die erforderlichen Berechtigungen, bevor Sie das Token generieren. ![Berechtigungen überprüfen](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.de.png)
@@ -208,20 +205,25 @@ Bitte folgen Sie dem [Prinzip der minimalen Rechtevergabe](https://docs.github.c
 
 Kopieren Sie Ihr neu erstelltes Token. Sie werden es nun Ihrer `.env`-Datei hinzufügen, die in diesem Kurs enthalten ist.
 
-
 ### Schritt 2: Erstellen Ihrer `.env`-Datei
 
 Um Ihre `.env`-Datei zu erstellen, führen Sie den folgenden Befehl in Ihrem Terminal aus.
 
 ```bash
+# zsh/bash
 cp .env.example .env
+```
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env
 ```
 
 Dies kopiert die Beispieldatei und erstellt eine `.env`-Datei in Ihrem Verzeichnis, in der Sie die Werte für die Umgebungsvariablen ausfüllen.
 
 Nachdem Sie Ihr Token kopiert haben, öffnen Sie die `.env`-Datei in Ihrem bevorzugten Texteditor und fügen Sie Ihr Token in das Feld `GITHUB_TOKEN` ein.
-![GitHub Token Feld](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.de.png)
 
+![GitHub Token Feld](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.de.png)
 
 Sie sollten nun in der Lage sein, die Codebeispiele dieses Kurses auszuführen.
 
@@ -229,9 +231,7 @@ Sie sollten nun in der Lage sein, die Codebeispiele dieses Kurses auszuführen.
 
 ### Schritt 1: Abrufen Ihres Azure-Projektendpunkts
 
-
-Befolgen Sie die Schritte zur Erstellung eines Hubs und Projekts in Azure AI Foundry, die hier zu finden sind: [Hub-Ressourcenübersicht](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
-
+Folgen Sie den Schritten zur Erstellung eines Hubs und Projekts in Azure AI Foundry, die hier zu finden sind: [Hub-Ressourcenübersicht](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
 
 Nachdem Sie Ihr Projekt erstellt haben, müssen Sie die Verbindungszeichenfolge für Ihr Projekt abrufen.
 
@@ -244,7 +244,13 @@ Dies können Sie tun, indem Sie zur **Übersicht**-Seite Ihres Projekts im Azure
 Um Ihre `.env`-Datei zu erstellen, führen Sie den folgenden Befehl in Ihrem Terminal aus.
 
 ```bash
+# zsh/bash
 cp .env.example .env
+```
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env
 ```
 
 Dies kopiert die Beispieldatei und erstellt eine `.env`-Datei in Ihrem Verzeichnis, in der Sie die Werte für die Umgebungsvariablen ausfüllen.
@@ -253,12 +259,11 @@ Nachdem Sie Ihr Token kopiert haben, öffnen Sie die `.env`-Datei in Ihrem bevor
 
 ### Schritt 3: Anmeldung bei Azure
 
-Als Sicherheitsbest-Practice verwenden wir [schlüssellose Authentifizierung](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst), um sich mit Microsoft Entra ID bei Azure OpenAI zu authentifizieren. 
+Als Sicherheitsbest Practice verwenden wir [schlüssellose Authentifizierung](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst), um sich mit Microsoft Entra ID bei Azure OpenAI zu authentifizieren. 
 
 Öffnen Sie als Nächstes ein Terminal und führen Sie `az login --use-device-code` aus, um sich bei Ihrem Azure-Konto anzumelden.
 
 Nachdem Sie sich angemeldet haben, wählen Sie Ihr Abonnement im Terminal aus.
-
 
 ## Zusätzliche Umgebungsvariablen - Azure Search und Azure OpenAI 
 
@@ -278,11 +283,11 @@ Wenn Sie diese Beispiele ausführen möchten, müssen Sie die folgenden Umgebung
 
 - `AZURE_OPENAI_RESOURCE_GROUP` - Gehen Sie zu **Projekteigenschaften** auf der **Übersicht**-Seite des **Management Centers**.
 
-- `GLOBAL_LLM_SERVICE` - Unter **Verbundene Ressourcen** finden Sie den **Azure AI Services**-Verbindungsnamen. Falls nicht aufgeführt, überprüfen Sie das **Azure-Portal** unter Ihrer Ressourcengruppe nach dem Namen der AI Services-Ressource.
+- `GLOBAL_LLM_SERVICE` - Unter **Verbundene Ressourcen** finden Sie den **Azure AI Services** Verbindungsnamen. Wenn nicht aufgeführt, überprüfen Sie das **Azure-Portal** unter Ihrer Ressourcengruppe nach dem Namen der AI Services-Ressource.
 
 ### Modelle + Endpunkte-Seite
 
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Wählen Sie Ihr Einbettungsmodell (z. B. `text-embedding-ada-002`) und notieren Sie den **Bereitstellungsnamen** aus den Modelldetails.
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Wählen Sie Ihr Embedding-Modell (z. B. `text-embedding-ada-002`) und notieren Sie den **Bereitstellungsnamen** aus den Modelldetails.
 
 - `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Wählen Sie Ihr Chat-Modell (z. B. `gpt-4o-mini`) und notieren Sie den **Bereitstellungsnamen** aus den Modelldetails.
 
@@ -298,13 +303,14 @@ Wenn Sie diese Beispiele ausführen möchten, müssen Sie die folgenden Umgebung
 
 ### Externe Webseite
 
-- `AZURE_OPENAI_API_VERSION` - Besuchen Sie die Seite [API-Version-Lebenszyklus](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) unter **Neueste GA-API-Version**.
+- `AZURE_OPENAI_API_VERSION` - Besuchen Sie die Seite [API-Version-Lebenszyklus](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) unter **Neueste GA API-Version**.
 
 ### Einrichtung schlüsselloser Authentifizierung
 
 Anstatt Ihre Anmeldeinformationen fest zu codieren, verwenden wir eine schlüssellose Verbindung mit Azure OpenAI. Dazu importieren wir `DefaultAzureCredential` und rufen später die Funktion `DefaultAzureCredential` auf, um die Anmeldeinformationen zu erhalten.
 
 ```python
+# Python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 

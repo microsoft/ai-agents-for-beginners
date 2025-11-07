@@ -1,130 +1,181 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f0ce2d470f3efad6f8c7df376f416a4b",
-  "translation_date": "2025-07-12T07:37:43+00:00",
+  "original_hash": "11e38db0898a788612b917e329dcdb5b",
+  "translation_date": "2025-11-07T08:40:05+00:00",
   "source_file": "00-course-setup/AzureSearch.md",
   "language_code": "no"
 }
 -->
-# Azure AI Search Oppsettveiledning
+# Veiledning for oppsett av Azure AI Search
 
-Denne veiledningen hjelper deg med å sette opp Azure AI Search ved bruk av Azure-portalen. Følg trinnene nedenfor for å opprette og konfigurere din Azure AI Search-tjeneste.
+Denne veiledningen hjelper deg med å sette opp Azure AI Search ved hjelp av Azure-portalen. Følg trinnene nedenfor for å opprette og konfigurere din Azure AI Search-tjeneste.
 
 ## Forutsetninger
 
-Før du begynner, sørg for at du har følgende:
+Før du begynner, må du ha følgende:
 
 - Et Azure-abonnement. Hvis du ikke har et Azure-abonnement, kan du opprette en gratis konto på [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
-## Trinn 1: Opprett en Azure AI Search-tjeneste
+## Trinn 1: Opprett en Azure Storage-konto
+
+1. Følg denne instruksjonen, [Opprett en Azure Storage-konto](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), for å opprette en ny Azure Storage-konto.
+   **NOTE**: Sørg for at typen Storage-konto er Standard General Purpose V2.
+
+## Trinn 2: Opprett en Azure AI Search-tjeneste
 
 1. Logg inn på [Azure-portalen](https://portal.azure.com/?wt.mc_id=studentamb_258691).
-2. I navigasjonsruten til venstre klikker du på **Create a resource**.
+2. Klikk på **Opprett en ressurs** i navigasjonsfeltet til venstre.
 3. Skriv "Azure AI Search" i søkeboksen og velg **Azure AI Search** fra resultatlisten.
-4. Klikk på **Create**-knappen.
-5. Under fanen **Basics**, fyll ut følgende informasjon:
-   - **Subscription**: Velg ditt Azure-abonnement.
-   - **Resource group**: Opprett en ny ressursgruppe eller velg en eksisterende.
-   - **Resource name**: Skriv inn et unikt navn for søketjenesten din.
-   - **Region**: Velg regionen som er nærmest brukerne dine.
-   - **Pricing tier**: Velg en prisplan som passer dine behov. Du kan starte med Free-tier for testing.
-6. Klikk på **Review + create**.
-7. Gå gjennom innstillingene og klikk **Create** for å opprette søketjenesten.
+4. Klikk på **Opprett**-knappen.
+5. I **Grunnleggende**-fanen, oppgi følgende informasjon:
+   - **Abonnement**: Velg ditt Azure-abonnement.
+   - **Ressursgruppe**: Opprett en ny ressursgruppe eller velg en eksisterende.
+   - **Ressursnavn**: Angi et unikt navn for søketjenesten din.
+   - **Region**: Velg regionen nærmest brukerne dine.
+   - **Prisnivå**: Velg et prisnivå som passer dine behov. Du kan starte med gratisnivået for testing.
+6. Klikk **Gjennomgå + opprett**.
+7. Gjennomgå innstillingene og klikk **Opprett** for å opprette søketjenesten.
 
-## Trinn 2: Kom i gang med Azure AI Search
+## Trinn 3: Kom i gang med Azure AI Search
 
 1. Når distribusjonen er fullført, naviger til søketjenesten din i Azure-portalen.
-2. På oversiktssiden for søketjenesten klikker du på **Quickstart**-knappen.
-3. Følg trinnene i Quickstart-veiledningen for å opprette et indeks, laste opp data og utføre et søk.
+2. I oversiktspanelet for søketjenesten, kopier URL-en. Den skal se slik ut: `https://<service-name>.search.windows.net`.
+3. I Innstillinger > Nøkler-panelet, kopier spørringsnøkkelen.
+4. Følg trinnene på [Hurtigstart-veiledningen](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) for å opprette en indeks, laste opp data og utføre en søkespørring.
 
-### Opprett et indeks
+## Trinn 4: Bruk Azure AI Search-verktøy
 
-1. I Quickstart-veiledningen klikker du på **Create an index**.
-2. Definer indeksens skjema ved å spesifisere feltene og deres egenskaper (f.eks. datatype, søkbar, filtrerbar).
-3. Klikk på **Create** for å opprette indeksen.
-
-### Last opp data
-
-1. I Quickstart-veiledningen klikker du på **Upload data**.
-2. Velg en datakilde (f.eks. Azure Blob Storage, Azure SQL Database) og oppgi nødvendige tilkoblingsdetaljer.
-3. Koble datakildens felter til indeksens felter.
-4. Klikk på **Submit** for å laste opp data til indeksen.
-
-### Utfør et søk
-
-1. I Quickstart-veiledningen klikker du på **Search explorer**.
-2. Skriv inn en søkespørring i søkeboksen for å teste søkefunksjonaliteten.
-3. Gå gjennom søkeresultatene og juster indeksens skjema eller data etter behov.
-
-## Trinn 3: Bruk Azure AI Search-verktøy
-
-Azure AI Search integreres med ulike verktøy for å forbedre søkefunksjonaliteten. Du kan bruke Azure CLI, Python SDK og andre verktøy for avanserte konfigurasjoner og operasjoner.
+Azure AI Search integreres med ulike verktøy for å forbedre søkefunksjonaliteten din. Du kan bruke Azure CLI, Python SDK, .NET SDK og andre verktøy for avanserte konfigurasjoner og operasjoner.
 
 ### Bruke Azure CLI
 
-1. Installer Azure CLI ved å følge instruksjonene på [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
-2. Logg inn i Azure CLI med kommandoen:
+1. Installer Azure CLI ved å følge instruksjonene på [Installer Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+2. Logg inn på Azure CLI ved å bruke kommandoen:
+
    ```bash
    az login
    ```
-3. Opprett en ny søketjeneste med Azure CLI:
-   ```bash
-   az search service create --resource-group <resource-group> --name <service-name> --sku Free
-   ```
-4. Opprett et indeks med Azure CLI:
-   ```bash
-   az search index create --service-name <service-name> --name <index-name> --fields "field1:type, field2:type"
-   ```
+
+3. Lagre både endepunkt og API-nøkkel for Azure AI Search-instansen til miljøvariabler.
+
+    ```bash
+    # zsh/bash
+    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
+    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    ```
+
+    ```powershell
+    # PowerShell
+    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
+    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    ```
 
 ### Bruke Python SDK
 
 1. Installer Azure Cognitive Search-klientbiblioteket for Python:
+
    ```bash
    pip install azure-search-documents
    ```
-2. Bruk følgende Python-kode for å opprette et indeks og laste opp dokumenter:
-   ```python
-   from azure.core.credentials import AzureKeyCredential
-   from azure.search.documents import SearchClient
-   from azure.search.documents.indexes import SearchIndexClient
-   from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
-   service_endpoint = "https://<service-name>.search.windows.net"
-   api_key = "<api-key>"
+2. Bruk følgende Python-kode for å opprette en indeks og laste opp dokumenter:
 
-   index_client = SearchIndexClient(service_endpoint, AzureKeyCredential(api_key))
+    ```python
+    import os
+    from azure.core.credentials import AzureKeyCredential
+    from azure.search.documents import SearchClient
+    from azure.search.documents.indexes import SearchIndexClient
+    from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
-   fields = [
-       SimpleField(name="id", type=edm.String, key=True),
-       SimpleField(name="content", type=edm.String, searchable=True),
-   ]
+    service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
+    api_key = os.getenv("AZURE_SEARCH_API_KEY")
+    index_name = "sample-index"
 
-   index = SearchIndex(name="sample-index", fields=fields)
+    credential = AzureKeyCredential(api_key)
+    index_client = SearchIndexClient(service_endpoint, credential)
 
-   index_client.create_index(index)
+    fields = [
+        SimpleField(name="id", type=edm.String, key=True),
+        SimpleField(name="content", type=edm.String, searchable=True),
+    ]
 
-   search_client = SearchClient(service_endpoint, "sample-index", AzureKeyCredential(api_key))
+    index = SearchIndex(name=index_name, fields=fields)
 
-   documents = [
-       {"id": "1", "content": "Hello world"},
-       {"id": "2", "content": "Azure Cognitive Search"}
-   ]
+    index_client.create_index(index)
 
-   search_client.upload_documents(documents)
-   ```
+    search_client = SearchClient(service_endpoint, index_name, credential)
+
+    documents = [
+        {"id": "1", "content": "Hello world"},
+        {"id": "2", "content": "Azure Cognitive Search"}
+    ]
+
+    search_client.upload_documents(documents)
+    ```
+
+### Bruke .NET SDK
+
+1. Kjør følgende kommando for å opprette en indeks og laste opp dokumenter:
+
+    ```bash
+    dotnet run ./AzureSearch.cs
+    ```
+
+2. Her er .NET-koden for `AzureSearch.cs`:
+
+    ```csharp
+    #:package Azure.Search.Documents@11.*
+    #:property PublishAot=false
+
+    using Azure;
+    using Azure.Search.Documents;
+    using Azure.Search.Documents.Indexes;
+    using Azure.Search.Documents.Indexes.Models;
+
+    var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
+    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
+    var indexName = "sample-index";
+
+    var credential = new AzureKeyCredential(apiKey);
+    var indexClient = new SearchIndexClient(serviceEndpoint, credential);
+
+    var fields = new List<SearchField>()
+    {
+        new SimpleField("id", SearchFieldDataType.String) { IsKey = true },
+        new SearchableField("content")
+    };
+
+    var index = new SearchIndex(name: indexName, fields: fields);
+
+    var response = await indexClient.CreateOrUpdateIndexAsync(index);
+    Console.WriteLine($"Index '{response.Value.Name}' ready.");
+
+    var searchClient = new SearchClient(serviceEndpoint, indexName, credential);
+
+    var documents = new[]
+    {
+        new { id = "1", content = "Hello world" },
+        new { id = "2", content = "Azure Cognitive Search" }
+    };
+
+    var result = await searchClient.UploadDocumentsAsync(documents);
+    Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
+    ```
 
 For mer detaljert informasjon, se følgende dokumentasjon:
 
-- [Create an Azure Cognitive Search service](https://learn.microsoft.com/en-us/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Get started with Azure Cognitive Search](https://learn.microsoft.com/en-us/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Azure AI Search Tools](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+- [Opprett en Azure Cognitive Search-tjeneste](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Kom i gang med Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Azure AI Search-verktøy](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
 
 ## Konklusjon
 
 Du har nå satt opp Azure AI Search ved hjelp av Azure-portalen og integrerte verktøy. Du kan nå utforske mer avanserte funksjoner og muligheter i Azure AI Search for å forbedre søkeløsningene dine.
 
-For ytterligere hjelp, besøk [Azure Cognitive Search documentation](https://learn.microsoft.com/en-us/azure/search/?wt.mc_id=studentamb_258691).
+For ytterligere hjelp, besøk [Azure Cognitive Search-dokumentasjonen](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+
+---
 
 **Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vennligst vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet på originalspråket skal anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiserte oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på sitt opprinnelige språk bør anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.

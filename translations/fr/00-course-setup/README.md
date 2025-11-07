@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "96eb7f95375daa3e91778ca0295a55d9",
-  "translation_date": "2025-10-15T08:27:42+00:00",
+  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
+  "translation_date": "2025-11-07T08:21:43+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "fr"
 }
@@ -15,11 +15,11 @@ Cette leçon couvrira comment exécuter les exemples de code de ce cours.
 
 ## Rejoignez d'autres apprenants et obtenez de l'aide
 
-Avant de commencer à cloner votre dépôt, rejoignez le [canal Discord AI Agents For Beginners](https://aka.ms/ai-agents/discord) pour obtenir de l'aide sur la configuration, poser des questions sur le cours ou entrer en contact avec d'autres apprenants.
+Avant de commencer à cloner votre dépôt, rejoignez le [canal Discord AI Agents For Beginners](https://aka.ms/ai-agents/discord) pour obtenir de l'aide sur la configuration, poser des questions sur le cours ou vous connecter avec d'autres apprenants.
 
 ## Cloner ou forker ce dépôt
 
-Pour commencer, veuillez cloner ou forker le dépôt GitHub. Cela vous permettra d'avoir votre propre version du matériel du cours afin de pouvoir exécuter, tester et modifier le code !
+Pour commencer, veuillez cloner ou forker le dépôt GitHub. Cela créera votre propre version du matériel du cours afin que vous puissiez exécuter, tester et modifier le code !
 
 Cela peut être fait en cliquant sur le lien pour <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">forker le dépôt</a>.
 
@@ -29,7 +29,7 @@ Vous devriez maintenant avoir votre propre version forkée de ce cours au lien s
 
 ### Clone superficiel (recommandé pour les ateliers / Codespaces)
 
-  >Le dépôt complet peut être volumineux (~3 Go) lorsque vous téléchargez tout l'historique et tous les fichiers. Si vous participez uniquement à l'atelier ou si vous avez besoin de quelques dossiers de leçons, un clone superficiel (ou un clone partiel) évite la plupart de ces téléchargements en tronquant l'historique et/ou en sautant les blobs.
+  >Le dépôt complet peut être volumineux (~3 Go) lorsque vous téléchargez tout l'historique et tous les fichiers. Si vous assistez uniquement à l'atelier ou avez besoin de quelques dossiers de leçons, un clone superficiel (ou un clone partiel) évite la plupart de ce téléchargement en tronquant l'historique et/ou en sautant les blobs.
 
 #### Clone superficiel rapide — historique minimal, tous les fichiers
 
@@ -49,7 +49,7 @@ git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai
 
 #### Clone partiel (sparse) — blobs minimaux + seulement les dossiers sélectionnés
 
-Cela utilise le clone partiel et le sparse-checkout (nécessite Git 2.25+ et Git moderne recommandé avec prise en charge du clone partiel) :
+Cela utilise un clone partiel et un sparse-checkout (nécessite Git 2.25+ et recommandé avec un Git moderne prenant en charge le clone partiel) :
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -57,16 +57,8 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-usernam
 
 Accédez au dossier du dépôt :
 
-Pour bash :
-
-```bash
+```bash|powershell
 cd ai-agents-for-beginners
-```
-
-Pour Powershell :
-
-```powershell
-Set-Location ai-agents-for-beginners
 ```
 
 Ensuite, spécifiez les dossiers que vous souhaitez (l'exemple ci-dessous montre deux dossiers) :
@@ -75,17 +67,15 @@ Ensuite, spécifiez les dossiers que vous souhaitez (l'exemple ci-dessous montre
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Après avoir cloné et vérifié les fichiers, si vous n'avez besoin que des fichiers et souhaitez libérer de l'espace (sans historique git), veuillez supprimer les métadonnées du dépôt (💀irréversible — vous perdrez toutes les fonctionnalités Git : pas de commits, de pulls, de pushes ou d'accès à l'historique).
-
-Pour Linux/macOS :
+Après avoir cloné et vérifié les fichiers, si vous n'avez besoin que des fichiers et souhaitez libérer de l'espace (sans historique Git), veuillez supprimer les métadonnées du dépôt (💀irréversible — vous perdrez toutes les fonctionnalités Git : pas de commits, pulls, pushes ou accès à l'historique).
 
 ```bash
+# zsh/bash
 rm -rf .git
 ```
 
-Pour Windows :
-
 ```powershell
+# PowerShell
 Remove-Item -Recurse -Force .git
 ```
 
@@ -95,7 +85,7 @@ Remove-Item -Recurse -Force .git
 
 - Dans le terminal du Codespace nouvellement créé, exécutez l'une des commandes de clone superficiel/partiel ci-dessus pour importer uniquement les dossiers de leçons dont vous avez besoin dans l'espace de travail Codespace.
 - Optionnel : après avoir cloné dans Codespaces, supprimez .git pour récupérer de l'espace supplémentaire (voir les commandes de suppression ci-dessus).
-- Remarque : Si vous préférez ouvrir directement le dépôt dans Codespaces (sans clone supplémentaire), sachez que Codespaces construira l'environnement devcontainer et pourra toujours provisionner plus que ce dont vous avez besoin. Cloner une copie superficielle dans un nouveau Codespace vous donne plus de contrôle sur l'utilisation du disque.
+- Remarque : Si vous préférez ouvrir directement le dépôt dans Codespaces (sans clone supplémentaire), sachez que Codespaces construira l'environnement devcontainer et pourrait encore provisionner plus que nécessaire. Cloner une copie superficielle dans un Codespace frais vous donne plus de contrôle sur l'utilisation du disque.
 
 #### Conseils
 
@@ -118,80 +108,85 @@ Les exemples de code utilisent soit :
 
 Nous vous encourageons à essayer les trois types d'exemples pour voir lequel fonctionne le mieux pour vous.
 
-Quel que soit l'option que vous choisissez, cela déterminera les étapes de configuration que vous devrez suivre ci-dessous :
+Quel que soit l'option choisie, cela déterminera les étapes de configuration que vous devrez suivre ci-dessous :
 
 ## Prérequis
 
 - Python 3.12+
-  - **NOTE** : Si vous n'avez pas Python3.12 installé, assurez-vous de l'installer. Ensuite, créez votre venv en utilisant python3.12 pour garantir que les bonnes versions sont installées à partir du fichier requirements.txt.
+  - **NOTE** : Si vous n'avez pas Python 3.12 installé, assurez-vous de l'installer. Ensuite, créez votre venv en utilisant python3.12 pour garantir que les bonnes versions sont installées à partir du fichier requirements.txt.
   
     >Exemple
 
     Créez un répertoire venv Python :
 
-    ``` bash
-    python3 -m venv venv
+    ```bash|powershell
+    python -m venv venv
     ```
 
     Ensuite, activez l'environnement venv pour :
 
-    macOS et Linux
-
     ```bash
+    # zsh/bash
     source venv/bin/activate
     ```
   
-    Windows
-
-    ```bash
+    ```dos
+    # Command Prompt for Windows
     venv\Scripts\activate
     ```
 
-- Un compte GitHub - Pour accéder au GitHub Models Marketplace
-- Abonnement Azure - Pour accéder à Azure AI Foundry
-- Compte Azure AI Foundry - Pour accéder au service Azure AI Agent
+- .NET 10+ : Pour les exemples de code utilisant .NET, assurez-vous d'installer le [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) ou une version ultérieure. Ensuite, vérifiez la version du SDK .NET installée :
 
-Nous avons inclus un fichier `requirements.txt` à la racine de ce dépôt qui contient tous les packages Python nécessaires pour exécuter les exemples de code.
+    ```bash|powershell
+    dotnet --list-sdks
+    ```
+
+- Un compte GitHub - Pour accéder au GitHub Models Marketplace
+- Un abonnement Azure - Pour accéder à Azure AI Foundry
+- Un compte Azure AI Foundry - Pour accéder au service Azure AI Agent
+
+Nous avons inclus un fichier `requirements.txt` à la racine de ce dépôt contenant tous les packages Python nécessaires pour exécuter les exemples de code.
 
 Vous pouvez les installer en exécutant la commande suivante dans votre terminal à la racine du dépôt :
 
-```bash
+```bash|powershell
 pip install -r requirements.txt
 ```
 
 Nous recommandons de créer un environnement virtuel Python pour éviter tout conflit ou problème.
 
 ## Configuration de VSCode
+
 Assurez-vous d'utiliser la bonne version de Python dans VSCode.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Configuration pour les exemples utilisant les modèles GitHub 
+## Configuration pour les exemples utilisant les modèles GitHub
 
 ### Étape 1 : Récupérez votre jeton d'accès personnel GitHub (PAT)
 
-Ce cours utilise le GitHub Models Marketplace, qui offre un accès gratuit à des modèles de langage avancés (LLMs) que vous utiliserez pour créer des agents IA.
+Ce cours utilise le GitHub Models Marketplace, offrant un accès gratuit à des modèles de langage étendus (LLMs) que vous utiliserez pour créer des agents IA.
 
 Pour utiliser les modèles GitHub, vous devrez créer un [jeton d'accès personnel GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 Cela peut être fait en accédant à vos <a href="https://github.com/settings/personal-access-tokens" target="_blank">paramètres de jetons d'accès personnel</a> dans votre compte GitHub.
 
-Veuillez suivre le [principe du moindre privilège](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) lors de la création de votre jeton. Cela signifie que vous ne devez donner au jeton que les autorisations nécessaires pour exécuter les exemples de code de ce cours.
+Veuillez suivre le [principe du moindre privilège](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) lors de la création de votre jeton. Cela signifie que vous ne devez donner au jeton que les permissions nécessaires pour exécuter les exemples de code de ce cours.
 
-1. Sélectionnez l'option `Jetons à granularité fine` sur le côté gauche de votre écran en accédant aux **Paramètres du développeur**.
-   ![](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.fr.png)
+1. Sélectionnez l'option `Fine-grained tokens` sur le côté gauche de votre écran en accédant aux **paramètres du développeur**.
 
-    Ensuite, sélectionnez `Générer un nouveau jeton`.
+   ![Paramètres du développeur](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.fr.png)
 
-    ![Générer un jeton](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.fr.png)
+   Ensuite, sélectionnez `Generate new token`.
 
-2. Entrez un nom descriptif pour votre jeton qui reflète son objectif, ce qui le rend facile à identifier plus tard.
+   ![Générer un jeton](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.fr.png)
 
+2. Entrez un nom descriptif pour votre jeton qui reflète son objectif, afin de le reconnaître facilement plus tard.
 
     🔐 Recommandation de durée du jeton
 
-    Durée recommandée : 30 jours
-    Pour une posture plus sécurisée, vous pouvez opter pour une période plus courte — comme 7 jours 🛡️
+    Durée recommandée : 30 jours  
+    Pour une posture plus sécurisée, vous pouvez opter pour une période plus courte — comme 7 jours 🛡️  
     C'est une excellente façon de se fixer un objectif personnel et de terminer le cours tout en maintenant votre élan d'apprentissage 🚀.
 
     ![Nom et expiration du jeton](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.fr.png)
@@ -200,39 +195,43 @@ Veuillez suivre le [principe du moindre privilège](https://docs.github.com/en/g
 
     ![Limiter la portée au dépôt forké](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.fr.png)
 
-4. Restreignez les permissions du jeton : Sous l'onglet **Permissions**, cliquez sur l'onglet **Compte**, puis sur le bouton "+ Ajouter des permissions". Un menu déroulant apparaîtra. Veuillez rechercher **Modèles** et cocher la case correspondante.
-    ![Ajouter la permission Modèles](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.fr.png)
+4. Restreignez les permissions du jeton : Sous **Permissions**, cliquez sur l'onglet **Account**, puis sur le bouton "+ Add permissions". Un menu déroulant apparaîtra. Veuillez rechercher **Models** et cocher la case correspondante.
+
+    ![Ajouter la permission Models](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.fr.png)
 
 5. Vérifiez les permissions requises avant de générer le jeton. ![Vérifier les permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.fr.png)
 
-6. Avant de générer le jeton, assurez-vous d'être prêt à le stocker dans un endroit sécurisé comme un coffre-fort de gestion des mots de passe, car il ne sera plus affiché après sa création. ![Stocker le jeton en toute sécurité](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.fr.png)
+6. Avant de générer le jeton, assurez-vous d'être prêt à le stocker dans un endroit sécurisé comme un coffre-fort de gestionnaire de mots de passe, car il ne sera plus affiché après sa création. ![Stocker le jeton en toute sécurité](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.fr.png)
 
 Copiez votre nouveau jeton que vous venez de créer. Vous allez maintenant l'ajouter à votre fichier `.env` inclus dans ce cours.
-
 
 ### Étape 2 : Créez votre fichier `.env`
 
 Pour créer votre fichier `.env`, exécutez la commande suivante dans votre terminal.
 
 ```bash
+# zsh/bash
 cp .env.example .env
+```
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env
 ```
 
 Cela copiera le fichier exemple et créera un fichier `.env` dans votre répertoire où vous remplirez les valeurs des variables d'environnement.
 
 Avec votre jeton copié, ouvrez le fichier `.env` dans votre éditeur de texte préféré et collez votre jeton dans le champ `GITHUB_TOKEN`.
-![Champ du jeton GitHub](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.fr.png)
 
+![Champ du jeton GitHub](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.fr.png)
 
 Vous devriez maintenant être en mesure d'exécuter les exemples de code de ce cours.
 
 ## Configuration pour les exemples utilisant Azure AI Foundry et Azure AI Agent Service
 
-### Étape 1 : Récupérez l'URL de votre projet Azure
+### Étape 1 : Récupérez votre point de terminaison de projet Azure
 
-
-Suivez les étapes pour créer un hub et un projet dans Azure AI Foundry ici : [Vue d'ensemble des ressources du hub](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
-
+Suivez les étapes pour créer un hub et un projet dans Azure AI Foundry ici : [Vue d'ensemble des ressources du hub](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
 
 Une fois que vous avez créé votre projet, vous devrez récupérer la chaîne de connexion pour votre projet.
 
@@ -245,7 +244,13 @@ Cela peut être fait en accédant à la page **Vue d'ensemble** de votre projet 
 Pour créer votre fichier `.env`, exécutez la commande suivante dans votre terminal.
 
 ```bash
+# zsh/bash
 cp .env.example .env
+```
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env
 ```
 
 Cela copiera le fichier exemple et créera un fichier `.env` dans votre répertoire où vous remplirez les valeurs des variables d'environnement.
@@ -254,63 +259,63 @@ Avec votre jeton copié, ouvrez le fichier `.env` dans votre éditeur de texte p
 
 ### Étape 3 : Connectez-vous à Azure
 
-En tant que bonne pratique de sécurité, nous utiliserons l'[authentification sans clé](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) pour nous authentifier à Azure OpenAI avec Microsoft Entra ID. 
+En tant que bonne pratique de sécurité, nous utiliserons [l'authentification sans clé](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) pour nous authentifier à Azure OpenAI avec Microsoft Entra ID.
 
 Ensuite, ouvrez un terminal et exécutez `az login --use-device-code` pour vous connecter à votre compte Azure.
 
 Une fois connecté, sélectionnez votre abonnement dans le terminal.
 
-
 ## Variables d'environnement supplémentaires - Azure Search et Azure OpenAI 
 
-Pour la leçon Agentic RAG - Leçon 5 - il existe des exemples qui utilisent Azure Search et Azure OpenAI.
+Pour la leçon Agentic RAG - Leçon 5 - il existe des exemples utilisant Azure Search et Azure OpenAI.
 
 Si vous souhaitez exécuter ces exemples, vous devrez ajouter les variables d'environnement suivantes à votre fichier `.env` :
 
 ### Page Vue d'ensemble (Projet)
 
-- `AZURE_SUBSCRIPTION_ID` - Consultez les **Détails du projet** sur la page **Vue d'ensemble** de votre projet.
+- `AZURE_SUBSCRIPTION_ID` - Consultez **Détails du projet** sur la page **Vue d'ensemble** de votre projet.
 
 - `AZURE_AI_PROJECT_NAME` - Regardez en haut de la page **Vue d'ensemble** de votre projet.
 
-- `AZURE_OPENAI_SERVICE` - Trouvez cela dans l'onglet **Fonctionnalités incluses** pour **Service Azure OpenAI** sur la page **Vue d'ensemble**.
+- `AZURE_OPENAI_SERVICE` - Trouvez cela dans l'onglet **Capacités incluses** pour **Azure OpenAI Service** sur la page **Vue d'ensemble**.
 
 ### Centre de gestion
 
-- `AZURE_OPENAI_RESOURCE_GROUP` - Accédez aux **Propriétés du projet** sur la page **Vue d'ensemble** du **Centre de gestion**.
+- `AZURE_OPENAI_RESOURCE_GROUP` - Accédez à **Propriétés du projet** sur la page **Vue d'ensemble** du **Centre de gestion**.
 
-- `GLOBAL_LLM_SERVICE` - Sous **Ressources connectées**, trouvez le nom de connexion des **Services Azure AI**. Si non listé, vérifiez le **portail Azure** sous votre groupe de ressources pour le nom de la ressource des services AI.
+- `GLOBAL_LLM_SERVICE` - Sous **Ressources connectées**, trouvez le nom de connexion **Azure AI Services**. Si non listé, vérifiez le **portail Azure** sous votre groupe de ressources pour le nom de la ressource AI Services.
 
 ### Page Modèles + Points de terminaison
 
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Sélectionnez votre modèle d'intégration (par exemple, `text-embedding-ada-002`) et notez le **Nom du déploiement** à partir des détails du modèle.
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Sélectionnez votre modèle d'intégration (par ex., `text-embedding-ada-002`) et notez le **Nom de déploiement** à partir des détails du modèle.
 
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Sélectionnez votre modèle de chat (par exemple, `gpt-4o-mini`) et notez le **Nom du déploiement** à partir des détails du modèle.
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Sélectionnez votre modèle de chat (par ex., `gpt-4o-mini`) et notez le **Nom de déploiement** à partir des détails du modèle.
 
 ### Portail Azure
 
-- `AZURE_OPENAI_ENDPOINT` - Recherchez **Services Azure AI**, cliquez dessus, puis accédez à **Gestion des ressources**, **Clés et point de terminaison**, faites défiler jusqu'aux "Points de terminaison Azure OpenAI" et copiez celui qui indique "APIs de langage".
+- `AZURE_OPENAI_ENDPOINT` - Recherchez **Azure AI services**, cliquez dessus, puis accédez à **Gestion des ressources**, **Clés et point de terminaison**, faites défiler jusqu'aux "Points de terminaison Azure OpenAI", et copiez celui qui indique "APIs de langage".
 
 - `AZURE_OPENAI_API_KEY` - À partir du même écran, copiez la CLÉ 1 ou la CLÉ 2.
 
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - Trouvez votre ressource **Azure AI Search**, cliquez dessus et consultez **Vue d'ensemble**.
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Trouvez votre ressource **Azure AI Search**, cliquez dessus, et consultez **Vue d'ensemble**.
 
 - `AZURE_SEARCH_API_KEY` - Ensuite, allez dans **Paramètres**, puis **Clés** pour copier la clé administrateur principale ou secondaire.
 
 ### Page externe
 
-- `AZURE_OPENAI_API_VERSION` - Visitez la page [Cycle de vie des versions API](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) sous **Dernière version GA de l'API**.
+- `AZURE_OPENAI_API_VERSION` - Visitez la page [Cycle de vie des versions API](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) sous **Dernière version GA de l'API**.
 
 ### Configuration de l'authentification sans clé
 
-Plutôt que de coder en dur vos identifiants, nous utiliserons une connexion sans clé avec Azure OpenAI. Pour ce faire, nous importerons `DefaultAzureCredential` et appellerons ensuite la fonction `DefaultAzureCredential` pour obtenir les identifiants.
+Plutôt que de coder en dur vos identifiants, nous utiliserons une connexion sans clé avec Azure OpenAI. Pour ce faire, nous importerons `DefaultAzureCredential` et appellerons ensuite la fonction `DefaultAzureCredential` pour obtenir l'identifiant.
 
 ```python
+# Python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
 ## Vous êtes bloqué quelque part ?
-Si vous rencontrez des problèmes avec cette configuration, rejoignez notre <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord de la communauté Azure AI</a> ou <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">créez une issue</a>.
+Si vous rencontrez des problèmes avec cette configuration, rejoignez notre <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord de la communauté Azure AI</a> ou <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">créez un problème</a>.
 
 ## Leçon suivante
 
