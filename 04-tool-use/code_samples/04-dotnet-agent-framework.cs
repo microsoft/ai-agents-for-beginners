@@ -50,7 +50,7 @@ var openAIOptions = new OpenAIClientOptions()
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
 
 AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions).GetChatClient(github_model_id).CreateAIAgent(
-    instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations", tools: [AIFunctionFactory.Create((Func<string>)GetRandomDestination)]);
+    instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations", tools: [AIFunctionFactory.Create(GetRandomDestination)]);
 
 AgentThread thread = agent.GetNewThread();
 
