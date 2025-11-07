@@ -6,8 +6,8 @@ using Azure.Search.Documents;
 using Azure.Search.Documents.Indexes;
 using Azure.Search.Documents.Indexes.Models;
 
-var serviceEndpoint = new Uri("https://<service-name>.search.windows.net");
-var apiKey = "<api-key>";
+var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
+var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
 var indexName = "sample-index";
 
 var credential = new AzureKeyCredential(apiKey);
@@ -21,7 +21,8 @@ var fields = new List<SearchField>()
 
 var index = new SearchIndex(name: indexName, fields: fields);
 
-await indexClient.CreateOrUpdateIndexAsync(index);
+var response = await indexClient.CreateOrUpdateIndexAsync(index);
+Console.WriteLine($"Index '{response.Value.Name}' ready.");
 
 var searchClient = new SearchClient(serviceEndpoint, indexName, credential);
 
@@ -31,4 +32,5 @@ var documents = new[]
     new { id = "2", content = "Azure Cognitive Search" }
 };
 
-await searchClient.UploadDocumentsAsync(documents);
+var result = await searchClient.UploadDocumentsAsync(documents);
+Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
