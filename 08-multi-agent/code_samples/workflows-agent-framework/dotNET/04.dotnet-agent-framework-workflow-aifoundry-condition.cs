@@ -51,7 +51,7 @@ You are a content reviewer and need to check whether the tutorial's draft conten
 3. return result as JSON with fields 'review_result' ('Yes' or  'No' ) and 'reason' (string) and 'draft_content' (string).";
 
 const string PublisherInstructions = @"
-You are the content publisher ,run code to save the tutorial's draft content as a Markdown file. Saved file's name is marked with current date and time, such as yearmonthdayhourminsec. Note that if it is 1-9, you need to add 0, such as  20240101123045.md.
+You are the content publisher who runs code to save the tutorial's draft content as a Markdown file. Saved file's name is marked with current date and time, such as yearmonthdayhourminsec. Note that if it is 1-9, you need to add 0, such as  20240101123045.md.
 ";
 
 // Sample content outline for tutorial generation
