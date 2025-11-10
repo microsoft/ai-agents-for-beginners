@@ -35,7 +35,7 @@ var bing_conn_id = Environment.GetEnvironmentVariable("BING_CONNECTION_ID");
 
 // Agent Instructions for Content Production Workflow
 const string EvangelistInstructions = @"
-You are a technology evangelist create a first draft for a technical tutorials.
+You are a technology evangelist who creates first drafts for technical tutorials.
 1. Each knowledge point in the outline must include a link. Follow the link to access the content related to the knowledge point in the outline. Expand on that content.
 2. Each knowledge point must be explained in detail.
 3. Rewrite the content according to the entry requirements, including the title, outline, and corresponding content. It is not necessary to follow the outline in full order.
