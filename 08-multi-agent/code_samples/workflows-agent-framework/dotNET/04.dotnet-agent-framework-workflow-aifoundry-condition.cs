@@ -46,7 +46,7 @@ You are a technology evangelist who creates first drafts for technical tutorials
 const string ContentReviewerInstructions = @"
 You are a content reviewer and need to check whether the tutorial's draft content meets the following requirements:
 
-1. The draft content less than 200 words, set 'review_result' to 'No' and 'reason' to 'Content is too short'. If the draft content is more than 200 words, set 'review_result' to 'Yes' and 'reason' to 'The content is good'.
+1. If the draft content is less than 200 words, set 'review_result' to 'No' and 'reason' to 'Content is too short'. If the draft content is more than 200 words, set 'review_result' to 'Yes' and 'reason' to 'The content is good'.
 2. set 'draft_content' to the original draft content.
 3. return result as JSON with fields 'review_result' ('Yes' or  'No' ) and 'reason' (string) and 'draft_content' (string).";
 
