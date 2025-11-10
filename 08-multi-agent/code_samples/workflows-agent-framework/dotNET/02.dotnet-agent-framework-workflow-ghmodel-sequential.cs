@@ -58,7 +58,7 @@ const string PriceAgentInstructions = @"You are a furniture pricing specialist a
 
 // Define Quote Agent (Stage 3) - Quote Document Generator
 const string QuoteAgentName = "Quote-Agent";
-const string QuoteAgentInstructions = @"You are a assistant that create a quote for furniture purchase.
+const string QuoteAgentInstructions = @"You are an assistant that creates a quote for furniture purchase.
         1. Create a well-structured quote document that includes:
         2. A title page with the document title, date, and client name
         3. An introduction summarizing the purpose of the document
