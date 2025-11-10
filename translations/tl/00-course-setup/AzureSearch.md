@@ -1,130 +1,181 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f0ce2d470f3efad6f8c7df376f416a4b",
-  "translation_date": "2025-07-12T07:38:58+00:00",
+  "original_hash": "11e38db0898a788612b917e329dcdb5b",
+  "translation_date": "2025-11-07T08:44:41+00:00",
   "source_file": "00-course-setup/AzureSearch.md",
   "language_code": "tl"
 }
 -->
-# Azure AI Search Setup Guide
+# Gabay sa Pagsasaayos ng Azure AI Search
 
-Tutulungan ka ng gabay na ito na i-setup ang Azure AI Search gamit ang Azure portal. Sundin ang mga hakbang sa ibaba para gumawa at i-configure ang iyong Azure AI Search service.
+Ang gabay na ito ay tutulong sa iyo na i-set up ang Azure AI Search gamit ang Azure portal. Sundin ang mga hakbang sa ibaba upang lumikha at i-configure ang iyong Azure AI Search service.
 
-## Prerequisites
+## Mga Kinakailangan
 
-Bago ka magsimula, siguraduhing mayroon kang mga sumusunod:
+Bago ka magsimula, tiyakin na mayroon ka ng mga sumusunod:
 
-- Isang Azure subscription. Kung wala ka pang Azure subscription, maaari kang gumawa ng libreng account sa [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
+- Isang subscription sa Azure. Kung wala ka pang subscription sa Azure, maaari kang gumawa ng libreng account sa [Azure Free Account](https://azure.microsoft.com/free/?wt.mc_id=studentamb_258691).
 
-## Step 1: Gumawa ng Azure AI Search Service
+## Hakbang 1: Gumawa ng Azure Storage Account
+
+1. Sundin ang mga tagubilin sa [Gumawa ng Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) upang lumikha ng bagong Azure Storage Account.  
+   **NOTE**: Siguraduhin na ang uri ng Storage Account ay Standard General Purpose V2.
+
+## Hakbang 2: Gumawa ng Azure AI Search Service
 
 1. Mag-sign in sa [Azure portal](https://portal.azure.com/?wt.mc_id=studentamb_258691).
 2. Sa kaliwang navigation pane, i-click ang **Create a resource**.
 3. Sa search box, i-type ang "Azure AI Search" at piliin ang **Azure AI Search** mula sa listahan ng mga resulta.
 4. I-click ang **Create** button.
-5. Sa **Basics** tab, ilagay ang mga sumusunod na impormasyon:
+5. Sa **Basics** tab, ibigay ang sumusunod na impormasyon:
    - **Subscription**: Piliin ang iyong Azure subscription.
-   - **Resource group**: Gumawa ng bagong resource group o piliin ang isang umiiral na.
+   - **Resource group**: Gumawa ng bagong resource group o piliin ang umiiral na.
    - **Resource name**: Maglagay ng natatanging pangalan para sa iyong search service.
-   - **Region**: Piliin ang rehiyon na pinakamalapit sa iyong mga gumagamit.
-   - **Pricing tier**: Pumili ng pricing tier na angkop sa iyong pangangailangan. Maaari kang magsimula sa Free tier para sa testing.
+   - **Region**: Piliin ang rehiyon na pinakamalapit sa iyong mga user.
+   - **Pricing tier**: Piliin ang pricing tier na naaayon sa iyong pangangailangan. Maaari kang magsimula sa Free tier para sa testing.
 6. I-click ang **Review + create**.
-7. Suriin ang mga settings at i-click ang **Create** para likhain ang search service.
+7. Suriin ang mga settings at i-click ang **Create** upang lumikha ng search service.
 
-## Step 2: Magsimula sa Azure AI Search
+## Hakbang 3: Simulan ang Paggamit ng Azure AI Search
 
-1. Kapag natapos na ang deployment, pumunta sa iyong search service sa Azure portal.
-2. Sa search service overview page, i-click ang **Quickstart** button.
-3. Sundin ang mga hakbang sa Quickstart guide para gumawa ng index, mag-upload ng data, at magsagawa ng search query.
+1. Kapag tapos na ang deployment, pumunta sa iyong search service sa Azure portal.
+2. Sa search service overview pane, kopyahin ang URL. Dapat itong magmukhang `https://<service-name>.search.windows.net`.
+3. Sa Settings > Keys pane, kopyahin ang query key.
+4. Sundin ang mga hakbang sa [Quickstart guide](https://learn.microsoft.com/azure/search/search-get-started-portal?pivots=import-data-new) page upang lumikha ng index, mag-upload ng data, at magsagawa ng search query.
 
-### Gumawa ng Index
+## Hakbang 4: Gamitin ang Mga Tool ng Azure AI Search
 
-1. Sa Quickstart guide, i-click ang **Create an index**.
-2. I-define ang index schema sa pamamagitan ng pagtukoy sa mga fields at kanilang mga attributes (halimbawa, data type, searchable, filterable).
-3. I-click ang **Create** para likhain ang index.
-
-### Mag-upload ng Data
-
-1. Sa Quickstart guide, i-click ang **Upload data**.
-2. Pumili ng data source (halimbawa, Azure Blob Storage, Azure SQL Database) at ilagay ang kinakailangang detalye ng koneksyon.
-3. I-map ang mga data source fields sa index fields.
-4. I-click ang **Submit** para i-upload ang data sa index.
-
-### Magsagawa ng Search Query
-
-1. Sa Quickstart guide, i-click ang **Search explorer**.
-2. Maglagay ng search query sa search box para subukan ang search functionality.
-3. Suriin ang mga resulta ng paghahanap at ayusin ang index schema o data kung kinakailangan.
-
-## Step 3: Gamitin ang Azure AI Search Tools
-
-Ang Azure AI Search ay maaaring gamitin kasama ng iba't ibang tools para mapahusay ang iyong search capabilities. Maaari mong gamitin ang Azure CLI, Python SDK, at iba pang tools para sa mas advanced na configurations at operasyon.
+Ang Azure AI Search ay maaaring isama sa iba't ibang mga tool upang mapahusay ang iyong search capabilities. Maaari mong gamitin ang Azure CLI, Python SDK, .NET SDK, at iba pang mga tool para sa advanced na configurations at operations.
 
 ### Paggamit ng Azure CLI
 
-1. I-install ang Azure CLI sa pamamagitan ng pagsunod sa mga tagubilin sa [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
+1. I-install ang Azure CLI sa pamamagitan ng pagsunod sa mga tagubilin sa [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?wt.mc_id=studentamb_258691).
 2. Mag-sign in sa Azure CLI gamit ang command:
+
    ```bash
    az login
    ```
-3. Gumawa ng bagong search service gamit ang Azure CLI:
-   ```bash
-   az search service create --resource-group <resource-group> --name <service-name> --sku Free
-   ```
-4. Gumawa ng index gamit ang Azure CLI:
-   ```bash
-   az search index create --service-name <service-name> --name <index-name> --fields "field1:type, field2:type"
-   ```
+
+3. I-store ang endpoint at API key ng Azure AI Search instance sa environment variables.
+
+    ```bash
+    # zsh/bash
+    export AZURE_SEARCH_SERVICE_ENDPOINT=$(az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv)
+    export AZURE_SEARCH_API_KEY=$(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    ```
+
+    ```powershell
+    # PowerShell
+    $env:AZURE_SEARCH_SERVICE_ENDPOINT = az search service show -g <resource-group> -n <service-name> --query "endpoint" -o tsv
+    $env:AZURE_SEARCH_API_KEY = $(az search service admin-key list -g <resource-group> --search-service-name <service-name> --query "primaryKey" -o tsv)
+    ```
 
 ### Paggamit ng Python SDK
 
 1. I-install ang Azure Cognitive Search client library para sa Python:
+
    ```bash
    pip install azure-search-documents
    ```
-2. Gamitin ang sumusunod na Python code para gumawa ng index at mag-upload ng mga dokumento:
-   ```python
-   from azure.core.credentials import AzureKeyCredential
-   from azure.search.documents import SearchClient
-   from azure.search.documents.indexes import SearchIndexClient
-   from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
-   service_endpoint = "https://<service-name>.search.windows.net"
-   api_key = "<api-key>"
+2. Gamitin ang sumusunod na Python code upang lumikha ng index at mag-upload ng mga dokumento:
 
-   index_client = SearchIndexClient(service_endpoint, AzureKeyCredential(api_key))
+    ```python
+    import os
+    from azure.core.credentials import AzureKeyCredential
+    from azure.search.documents import SearchClient
+    from azure.search.documents.indexes import SearchIndexClient
+    from azure.search.documents.indexes.models import SearchIndex, SimpleField, edm
 
-   fields = [
-       SimpleField(name="id", type=edm.String, key=True),
-       SimpleField(name="content", type=edm.String, searchable=True),
-   ]
+    service_endpoint = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
+    api_key = os.getenv("AZURE_SEARCH_API_KEY")
+    index_name = "sample-index"
 
-   index = SearchIndex(name="sample-index", fields=fields)
+    credential = AzureKeyCredential(api_key)
+    index_client = SearchIndexClient(service_endpoint, credential)
 
-   index_client.create_index(index)
+    fields = [
+        SimpleField(name="id", type=edm.String, key=True),
+        SimpleField(name="content", type=edm.String, searchable=True),
+    ]
 
-   search_client = SearchClient(service_endpoint, "sample-index", AzureKeyCredential(api_key))
+    index = SearchIndex(name=index_name, fields=fields)
 
-   documents = [
-       {"id": "1", "content": "Hello world"},
-       {"id": "2", "content": "Azure Cognitive Search"}
-   ]
+    index_client.create_index(index)
 
-   search_client.upload_documents(documents)
-   ```
+    search_client = SearchClient(service_endpoint, index_name, credential)
 
-Para sa mas detalyadong impormasyon, tingnan ang mga sumusunod na dokumentasyon:
+    documents = [
+        {"id": "1", "content": "Hello world"},
+        {"id": "2", "content": "Azure Cognitive Search"}
+    ]
 
-- [Create an Azure Cognitive Search service](https://learn.microsoft.com/en-us/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
-- [Get started with Azure Cognitive Search](https://learn.microsoft.com/en-us/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
-- [Azure AI Search Tools](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+    search_client.upload_documents(documents)
+    ```
 
-## Conclusion
+### Paggamit ng .NET SDK
 
-Matagumpay mong na-setup ang Azure AI Search gamit ang Azure portal at mga integrated tools. Maaari mo nang tuklasin ang mas advanced na mga feature at kakayahan ng Azure AI Search para mapabuti ang iyong mga search solution.
+1. Patakbuhin ang sumusunod na command upang lumikha ng index at mag-upload ng mga dokumento:
 
-Para sa karagdagang tulong, bisitahin ang [Azure Cognitive Search documentation](https://learn.microsoft.com/en-us/azure/search/?wt.mc_id=studentamb_258691).
+    ```bash
+    dotnet run ./AzureSearch.cs
+    ```
 
-**Paalala**:  
-Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat nagsusumikap kami para sa katumpakan, pakatandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o di-tumpak na impormasyon. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring magmula sa paggamit ng pagsasaling ito.
+2. Narito ang .NET code ng `AzureSearch.cs`:
+
+    ```csharp
+    #:package Azure.Search.Documents@11.*
+    #:property PublishAot=false
+
+    using Azure;
+    using Azure.Search.Documents;
+    using Azure.Search.Documents.Indexes;
+    using Azure.Search.Documents.Indexes.Models;
+
+    var serviceEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_SEARCH_SERVICE_ENDPOINT")!);
+    var apiKey = Environment.GetEnvironmentVariable("AZURE_SEARCH_API_KEY")!;
+    var indexName = "sample-index";
+
+    var credential = new AzureKeyCredential(apiKey);
+    var indexClient = new SearchIndexClient(serviceEndpoint, credential);
+
+    var fields = new List<SearchField>()
+    {
+        new SimpleField("id", SearchFieldDataType.String) { IsKey = true },
+        new SearchableField("content")
+    };
+
+    var index = new SearchIndex(name: indexName, fields: fields);
+
+    var response = await indexClient.CreateOrUpdateIndexAsync(index);
+    Console.WriteLine($"Index '{response.Value.Name}' ready.");
+
+    var searchClient = new SearchClient(serviceEndpoint, indexName, credential);
+
+    var documents = new[]
+    {
+        new { id = "1", content = "Hello world" },
+        new { id = "2", content = "Azure Cognitive Search" }
+    };
+
+    var result = await searchClient.UploadDocumentsAsync(documents);
+    Console.WriteLine($"Uploaded {result.Value.Results.Count} documents to index '{response.Value.Name}'.");
+    ```
+
+Para sa mas detalyadong impormasyon, bisitahin ang mga sumusunod na dokumentasyon:
+
+- [Gumawa ng Azure Cognitive Search service](https://learn.microsoft.com/azure/search/search-create-service-portal?wt.mc_id=studentamb_258691)
+- [Simulan ang paggamit ng Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-get-started-portal?wt.mc_id=studentamb_258691)
+- [Mga Tool ng Azure AI Search](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=code-examples?wt.mc_id=studentamb_258691)
+
+## Konklusyon
+
+Matagumpay mong na-set up ang Azure AI Search gamit ang Azure portal at mga integrated tools. Maaari mo nang tuklasin ang mas advanced na features at capabilities ng Azure AI Search upang mapahusay ang iyong search solutions.
+
+Para sa karagdagang tulong, bisitahin ang [Azure Cognitive Search documentation](https://learn.microsoft.com/azure/search/?wt.mc_id=studentamb_258691).
+
+---
+
+**Paunawa**:  
+Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat sinisikap naming maging tumpak, pakatandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa kanyang katutubong wika ang dapat ituring na opisyal na sanggunian. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na dulot ng paggamit ng pagsasaling ito.
