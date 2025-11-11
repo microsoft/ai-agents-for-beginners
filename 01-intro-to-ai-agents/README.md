@@ -103,7 +103,7 @@ In this course, we will explore the research-driven AutoGen framework and the pr
 
 ## Sample Codes
 
-- Python: [Agent Frmaework](./code_samples/01-python-agent-framework.ipynb)
+- Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
 
 ## Got More Questions about AI Agents?
