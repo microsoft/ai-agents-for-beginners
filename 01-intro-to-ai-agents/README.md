@@ -101,11 +101,14 @@ Agentic Frameworks allow developers to implement agentic patterns through code. 
 
 In this course, we will explore the research-driven AutoGen framework and the production-ready Agent framework from Semantic Kernel.
 
-### Got More Questions about AI Agents?
+## Sample Codes
+
+- Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
+
+## Got More Questions about AI Agents?
 
 Join the [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
-
-
 
 ## Previous Lesson
 
