@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "23afd9be7b6ba5b69a44c3b6a78e07f6",
-  "translation_date": "2025-11-06T10:00:56+00:00",
+  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
+  "translation_date": "2025-11-11T10:46:04+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "en"
 }
@@ -13,27 +13,31 @@ CO_OP_TRANSLATOR_METADATA:
 
 This notebook showcases how to create an intelligent travel planning agent using the Microsoft Agent Framework for .NET. The agent is capable of automatically generating personalized day-trip itineraries for random destinations worldwide.
 
-**Key Features:**
+### Key Capabilities:
+
 - 🎲 **Random Destination Selection**: Utilizes a custom tool to choose vacation spots
-- 🗺️ **Smart Trip Planning**: Develops detailed day-by-day itineraries
-- 🔄 **Real-time Streaming**: Offers both instant and streaming responses
-- 🛠️ **Custom Tool Integration**: Demonstrates how to expand agent functionalities
+- 🗺️ **Intelligent Trip Planning**: Develops detailed day-by-day itineraries
+- 🔄 **Real-time Streaming**: Provides both instant and streaming responses
+- 🛠️ **Custom Tool Integration**: Demonstrates how to enhance agent functionalities
 
 ## 🔧 Technical Architecture
 
 ### Core Technologies
+
 - **Microsoft Agent Framework**: The latest .NET implementation for developing AI agents
 - **GitHub Models Integration**: Employs GitHub's AI model inference service
-- **OpenAI API Compatibility**: Utilizes OpenAI client libraries with custom endpoints
-- **Secure Configuration**: API key management based on environment variables
+- **OpenAI API Compatibility**: Uses OpenAI client libraries with custom endpoints
+- **Secure Configuration**: Manages API keys through environment variables
 
 ### Key Components
+
 1. **AIAgent**: The primary agent orchestrator managing conversation flow
 2. **Custom Tools**: `GetRandomDestination()` function accessible to the agent
 3. **Chat Client**: Conversation interface powered by GitHub Models
-4. **Streaming Support**: Capability for generating real-time responses
+4. **Streaming Support**: Enables real-time response generation
 
 ### Integration Pattern
+
 ```mermaid
 graph LR
     A[User Request] --> B[AI Agent]
@@ -45,35 +49,68 @@ graph LR
 
 ## 🚀 Getting Started
 
-**Prerequisites:**
-- .NET 10.0 or higher
-- GitHub Models API access token
-- Environment variables set up in `.env` file
+### Prerequisites
 
-**Required Environment Variables:**
-```env
-GITHUB_TOKEN=your_github_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
-```
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or newer
+- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
-Execute the code sample below step-by-step to see the travel agent in action!
-
----
-
-## .NET Single File App: AI Travel Agent Example
-
-Refer to `01-dotnet-agent-framework.cs` for the complete runnable code sample.
+### Required Environment Variables
 
 ```bash
-dotnet run 01-dotnet-agent-framework.cs
+# zsh/bash
+export GH_TOKEN=<your_github_token>
+export GH_ENDPOINT=https://models.github.ai/inference
+export GH_MODEL_ID=openai/gpt-5-mini
+```
+
+```powershell
+# PowerShell
+$env:GH_TOKEN = "<your_github_token>"
+$env:GH_ENDPOINT = "https://models.github.ai/inference"
+$env:GH_MODEL_ID = "openai/gpt-5-mini"
 ```
 
 ### Sample Code
 
+To execute the code example,
+
+```bash
+# zsh/bash
+chmod +x ./01-dotnet-agent-framework.cs
+./01-dotnet-agent-framework.cs
+```
+
+Or use the dotnet CLI:
+
+```bash
+dotnet run ./01-dotnet-agent-framework.cs
+```
+
+Refer to [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) for the complete code.
+
 ```csharp
+#!/usr/bin/dotnet run
+
+#:package Microsoft.Extensions.AI@9.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
+
+using System.ClientModel;
+using System.ComponentModel;
+
+using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
+
+using OpenAI;
+
+// Tool Function: Random Destination Generator
+// This static method will be available to the agent as a callable tool
+// The [Description] attribute helps the AI understand when to use this function
+// This demonstrates how to create custom tools for AI agents
+[Description("Provides a random vacation destination.")]
 static string GetRandomDestination()
 {
+    // List of popular vacation destinations around the world
+    // The agent will randomly select from these options
     var destinations = new List<string>
     {
         "Paris, France",
@@ -87,26 +124,39 @@ static string GetRandomDestination()
         "Bangkok, Thailand",
         "Vancouver, Canada"
     };
+
+    // Generate random index and return selected destination
+    // Uses System.Random for simple random selection
     var random = new Random();
     int index = random.Next(destinations.Count);
     return destinations[index];
 }
 
 // Extract configuration from environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
+// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the GitHub token for authentication, throws exception if not specified
+var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
+var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
+var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
 
 // Configure OpenAI Client Options
+// Create configuration options to point to GitHub Models endpoint
+// This redirects OpenAI client calls to GitHub's model inference service
 var openAIOptions = new OpenAIClientOptions()
 {
     Endpoint = new Uri(github_endpoint)
 };
 
 // Initialize OpenAI Client with GitHub Models Configuration
+// Create OpenAI client using GitHub token for authentication
+// Configure it to use GitHub Models endpoint instead of OpenAI directly
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
 
 // Create AI Agent with Travel Planning Capabilities
+// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Configure agent with travel planning instructions and random destination tool
+// The agent can now plan trips using the GetRandomDestination function
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .CreateAIAgent(
@@ -114,17 +164,20 @@ AIAgent agent = openAIClient
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Execute Agent: Plan a Day Trip (Non-Streaming)
-Console.WriteLine(await agent.RunAsync("Plan me a day trip"));
-
-// Execute Agent: Plan a Day Trip (Streaming Response)
+// Execute Agent: Plan a Day Trip
+// Run the agent with streaming enabled for real-time response display
+// Shows the agent's thinking and response as it generates the content
+// Provides better user experience with immediate feedback
 await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 {
+    await Task.Delay(10);
     Console.Write(update);
 }
 ```
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:  
 This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we aim for accuracy, please note that automated translations may include errors or inaccuracies. The original document in its native language should be regarded as the authoritative source. For critical information, professional human translation is advised. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

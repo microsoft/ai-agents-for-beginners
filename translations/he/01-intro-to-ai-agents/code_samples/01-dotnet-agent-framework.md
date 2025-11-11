@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "23afd9be7b6ba5b69a44c3b6a78e07f6",
-  "translation_date": "2025-11-06T10:05:13+00:00",
+  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
+  "translation_date": "2025-11-11T11:26:32+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "he"
 }
@@ -11,29 +11,33 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 סקירה כללית של התרחיש
 
-מחברת זו מדגימה כיצד לבנות סוכן תכנון נסיעות חכם באמצעות Microsoft Agent Framework עבור .NET. הסוכן יכול ליצור באופן אוטומטי מסלולי טיול מותאמים אישית ליעדים אקראיים ברחבי העולם.
+מחברת זו מדגימה כיצד לבנות סוכן תכנון נסיעות חכם באמצעות Microsoft Agent Framework עבור .NET. הסוכן יכול ליצור באופן אוטומטי מסלולי טיול יומיים מותאמים אישית ליעדים אקראיים ברחבי העולם.
 
-**יכולות מרכזיות:**
+### יכולות מרכזיות:
+
 - 🎲 **בחירת יעד אקראי**: משתמש בכלי מותאם לבחירת מקומות חופשה
-- 🗺️ **תכנון טיול חכם**: יוצר מסלולים מפורטים יום-אחר-יום
-- 🔄 **סטרימינג בזמן אמת**: תומך בתגובות מיידיות ובסטרימינג
+- 🗺️ **תכנון טיול חכם**: יוצר מסלולים מפורטים יום-יום
+- 🔄 **הזרמה בזמן אמת**: תומך בתגובות מיידיות וגם בהזרמה
 - 🛠️ **שילוב כלי מותאם**: מדגים כיצד להרחיב את יכולות הסוכן
 
 ## 🔧 ארכיטקטורה טכנית
 
 ### טכנולוגיות מרכזיות
+
 - **Microsoft Agent Framework**: יישום .NET העדכני לפיתוח סוכני AI
-- **שילוב מודלים של GitHub**: משתמש בשירות הסקת מודלים של GitHub AI
+- **שילוב מודלים של GitHub**: משתמש בשירות הסקת מודלים של GitHub
 - **תאימות ל-OpenAI API**: מנצל ספריות לקוח של OpenAI עם נקודות קצה מותאמות
 - **תצורה מאובטחת**: ניהול מפתחות API מבוסס סביבה
 
 ### רכיבים מרכזיים
+
 1. **AIAgent**: מתזמר הסוכן הראשי שמנהל את זרימת השיחה
 2. **כלים מותאמים**: פונקציה `GetRandomDestination()` זמינה לסוכן
 3. **לקוח צ'אט**: ממשק שיחה מבוסס מודלים של GitHub
-4. **תמיכה בסטרימינג**: יכולות יצירת תגובות בזמן אמת
+4. **תמיכה בהזרמה**: יכולות יצירת תגובות בזמן אמת
 
 ### תבנית שילוב
+
 ```mermaid
 graph LR
     A[User Request] --> B[AI Agent]
@@ -43,37 +47,70 @@ graph LR
     D --> E
 ```
 
-## 🚀 התחלה מהירה
+## 🚀 התחלה
 
-**דרישות מוקדמות:**
-- .NET 10.0 או גרסה גבוהה יותר
-- אסימון גישה ל-API של GitHub Models
-- משתני סביבה מוגדרים בקובץ `.env`
+### דרישות מוקדמות
 
-**משתני סביבה נדרשים:**
-```env
-GITHUB_TOKEN=your_github_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
-```
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) או גרסה גבוהה יותר
+- [אסימון גישה ל-API של מודלים של GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
-הרץ את דוגמת הקוד למטה לפי הסדר כדי לראות את סוכן הנסיעות בפעולה!
-
----
-
-## אפליקציית קובץ יחיד ב-.NET: דוגמת סוכן נסיעות AI
-
-ראו `01-dotnet-agent-framework.cs` לדוגמת קוד מלאה שניתנת להרצה.
+### משתני סביבה נדרשים
 
 ```bash
-dotnet run 01-dotnet-agent-framework.cs
+# zsh/bash
+export GH_TOKEN=<your_github_token>
+export GH_ENDPOINT=https://models.github.ai/inference
+export GH_MODEL_ID=openai/gpt-5-mini
 ```
 
-### דוגמת קוד
+```powershell
+# PowerShell
+$env:GH_TOKEN = "<your_github_token>"
+$env:GH_ENDPOINT = "https://models.github.ai/inference"
+$env:GH_MODEL_ID = "openai/gpt-5-mini"
+```
+
+### קוד לדוגמה
+
+כדי להריץ את דוגמת הקוד,
+
+```bash
+# zsh/bash
+chmod +x ./01-dotnet-agent-framework.cs
+./01-dotnet-agent-framework.cs
+```
+
+או באמצעות CLI של dotnet:
+
+```bash
+dotnet run ./01-dotnet-agent-framework.cs
+```
+
+ראו [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) עבור הקוד המלא.
 
 ```csharp
+#!/usr/bin/dotnet run
+
+#:package Microsoft.Extensions.AI@9.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
+
+using System.ClientModel;
+using System.ComponentModel;
+
+using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
+
+using OpenAI;
+
+// Tool Function: Random Destination Generator
+// This static method will be available to the agent as a callable tool
+// The [Description] attribute helps the AI understand when to use this function
+// This demonstrates how to create custom tools for AI agents
+[Description("Provides a random vacation destination.")]
 static string GetRandomDestination()
 {
+    // List of popular vacation destinations around the world
+    // The agent will randomly select from these options
     var destinations = new List<string>
     {
         "Paris, France",
@@ -87,26 +124,39 @@ static string GetRandomDestination()
         "Bangkok, Thailand",
         "Vancouver, Canada"
     };
+
+    // Generate random index and return selected destination
+    // Uses System.Random for simple random selection
     var random = new Random();
     int index = random.Next(destinations.Count);
     return destinations[index];
 }
 
 // Extract configuration from environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
+// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the GitHub token for authentication, throws exception if not specified
+var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
+var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
+var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
 
 // Configure OpenAI Client Options
+// Create configuration options to point to GitHub Models endpoint
+// This redirects OpenAI client calls to GitHub's model inference service
 var openAIOptions = new OpenAIClientOptions()
 {
     Endpoint = new Uri(github_endpoint)
 };
 
 // Initialize OpenAI Client with GitHub Models Configuration
+// Create OpenAI client using GitHub token for authentication
+// Configure it to use GitHub Models endpoint instead of OpenAI directly
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
 
 // Create AI Agent with Travel Planning Capabilities
+// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Configure agent with travel planning instructions and random destination tool
+// The agent can now plan trips using the GetRandomDestination function
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .CreateAIAgent(
@@ -114,17 +164,20 @@ AIAgent agent = openAIClient
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Execute Agent: Plan a Day Trip (Non-Streaming)
-Console.WriteLine(await agent.RunAsync("Plan me a day trip"));
-
-// Execute Agent: Plan a Day Trip (Streaming Response)
+// Execute Agent: Plan a Day Trip
+// Run the agent with streaming enabled for real-time response display
+// Shows the agent's thinking and response as it generates the content
+// Provides better user experience with immediate feedback
 await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 {
+    await Task.Delay(10);
     Console.Write(update);
 }
 ```
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **כתב ויתור**:  
 מסמך זה תורגם באמצעות שירות תרגום AI [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש להיות מודעים לכך שתרגומים אוטומטיים עשויים להכיל שגיאות או אי דיוקים. המסמך המקורי בשפתו המקורית צריך להיחשב כמקור סמכותי. עבור מידע קריטי, מומלץ להשתמש בתרגום מקצועי אנושי. איננו אחראים לאי הבנות או לפרשנויות שגויות הנובעות משימוש בתרגום זה.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
