@@ -6,7 +6,7 @@
       "version": "20"
     },
     "ghcr.io/devcontainers/features/dotnet:latest": {
-      "version": "10.0-preview"
+      "version": "10.0"
     }
   },
   "hostRequirements": {
