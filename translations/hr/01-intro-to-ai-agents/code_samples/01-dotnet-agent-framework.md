@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:43:07+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T14:21:34+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "hr"
 }
@@ -11,12 +11,12 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Pregled scenarija
 
-Ovaj notebook pokazuje kako izraditi inteligentnog agenta za planiranje putovanja koristeći Microsoft Agent Framework za .NET. Agent može automatski generirati personalizirane itinerere za jednodnevne izlete na nasumične destinacije širom svijeta.
+Ovaj primjer pokazuje kako izraditi inteligentnog agenta za planiranje putovanja koristeći Microsoft Agent Framework za .NET. Agent može automatski generirati personalizirane jednodnevne itinerere za nasumične destinacije širom svijeta.
 
 ### Ključne mogućnosti:
 
 - 🎲 **Nasumični odabir destinacije**: Koristi prilagođeni alat za odabir lokacija za odmor
-- 🗺️ **Inteligentno planiranje putovanja**: Stvara detaljne itinerere po danima
+- 🗺️ **Inteligentno planiranje putovanja**: Kreira detaljne itinerere po danima
 - 🔄 **Streaming u stvarnom vremenu**: Podržava trenutne i streaming odgovore
 - 🛠️ **Integracija prilagođenih alata**: Pokazuje kako proširiti mogućnosti agenta
 
@@ -27,7 +27,7 @@ Ovaj notebook pokazuje kako izraditi inteligentnog agenta za planiranje putovanj
 - **Microsoft Agent Framework**: Najnovija .NET implementacija za razvoj AI agenata
 - **Integracija GitHub modela**: Koristi GitHubovu uslugu za inferenciju AI modela
 - **Kompatibilnost s OpenAI API-jem**: Koristi OpenAI klijentske biblioteke s prilagođenim endpointima
-- **Sigurna konfiguracija**: Upravljanje API ključevima na temelju okruženja
+- **Sigurna konfiguracija**: Upravljanje API ključevima putem okruženja
 
 ### Ključne komponente
 
@@ -174,6 +174,20 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
     Console.Write(update);
 }
 ```
+
+## 🎓 Ključne lekcije
+
+1. **Arhitektura agenta**: Microsoft Agent Framework pruža čist i tip-siguran pristup za izradu AI agenata u .NET-u
+2. **Integracija alata**: Funkcije označene atributima `[Description]` postaju dostupni alati za agenta
+3. **Upravljanje konfiguracijom**: Varijable okruženja i sigurno rukovanje vjerodajnicama slijede najbolje prakse .NET-a
+4. **Kompatibilnost s OpenAI**: Integracija GitHub modela besprijekorno funkcionira putem OpenAI-kompatibilnih API-ja
+
+## 🔗 Dodatni resursi
+
+- [Microsoft Agent Framework Dokumentacija](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

@@ -1,17 +1,17 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:23:54+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T12:56:36+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "fi"
 }
 -->
-# 🌍 AI-matkatoimisto Microsoft Agent Frameworkilla (.NET)
+# 🌍 Älykäs matkatoimisto Microsoft Agent Frameworkilla (.NET)
 
-## 📋 Skenaarion yleiskuvaus
+## 📋 Yleiskatsaus skenaarioon
 
-Tämä muistikirja näyttää, kuinka rakentaa älykäs matkasuunnittelija Microsoft Agent Frameworkin avulla .NET-ympäristössä. Agentti voi automaattisesti luoda henkilökohtaisia päiväretkien matkasuunnitelmia satunnaisiin kohteisiin ympäri maailmaa.
+Tämä esimerkki näyttää, kuinka rakentaa älykäs matkasuunnittelija-agentti Microsoft Agent Frameworkin avulla .NET-ympäristössä. Agentti voi automaattisesti luoda henkilökohtaisia päiväretkien matkasuunnitelmia satunnaisiin kohteisiin ympäri maailmaa.
 
 ### Keskeiset ominaisuudet:
 
@@ -27,7 +27,7 @@ Tämä muistikirja näyttää, kuinka rakentaa älykäs matkasuunnittelija Micro
 - **Microsoft Agent Framework**: Uusin .NET-toteutus tekoälyagenttien kehittämiseen
 - **GitHub Models -integraatio**: Käyttää GitHubin AI-mallien inferenssipalvelua
 - **OpenAI API -yhteensopivuus**: Hyödyntää OpenAI:n asiakaskirjastoja mukautetuilla päätepisteillä
-- **Turvallinen konfiguraatio**: API-avainten hallinta ympäristömuuttujien avulla
+- **Turvallinen konfigurointi**: API-avainten hallinta ympäristömuuttujien avulla
 
 ### Keskeiset komponentit
 
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Keskeiset opit
+
+1. **Agenttiarkkitehtuuri**: Microsoft Agent Framework tarjoaa selkeän ja tyypitetyn lähestymistavan tekoälyagenttien rakentamiseen .NET-ympäristössä
+2. **Työkalujen integrointi**: `[Description]`-attribuuteilla koristellut funktiot tulevat agentin käytettävissä oleviksi työkaluiksi
+3. **Konfiguraation hallinta**: Ympäristömuuttujat ja turvallinen tunnusten käsittely noudattavat .NET:n parhaita käytäntöjä
+4. **OpenAI-yhteensopivuus**: GitHub Models -integraatio toimii saumattomasti OpenAI-yhteensopivien API:iden kautta
+
+## 🔗 Lisäresurssit
+
+- [Microsoft Agent Framework -dokumentaatio](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäisellä kielellä tulisi pitää ensisijaisena lähteenä. Kriittisen tiedon osalta suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa väärinkäsityksistä tai virhetulkinnoista, jotka johtuvat tämän käännöksen käytöstä.
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäisellä kielellä tulisi pitää ensisijaisena lähteenä. Tärkeää tietoa varten suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa väärinkäsityksistä tai virhetulkinnoista, jotka johtuvat tämän käännöksen käytöstä.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:38:17+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:59:55+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "ro"
 }
@@ -11,13 +11,13 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Prezentare Generală a Scenariului
 
-Acest notebook demonstrează cum să construiești un agent inteligent pentru planificarea călătoriilor utilizând Microsoft Agent Framework pentru .NET. Agentul poate genera automat itinerarii personalizate pentru excursii de o zi către destinații aleatorii din întreaga lume.
+Acest exemplu demonstrează cum să construiești un agent inteligent pentru planificarea călătoriilor folosind Microsoft Agent Framework pentru .NET. Agentul poate genera automat itinerarii personalizate pentru excursii de o zi către destinații aleatorii din întreaga lume.
 
 ### Capacități Cheie:
 
-- 🎲 **Selecție Aleatorie a Destinației**: Folosește un instrument personalizat pentru a alege locuri de vacanță
-- 🗺️ **Planificare Inteligentă a Excursiilor**: Creează itinerarii detaliate zi cu zi
-- 🔄 **Streaming în Timp Real**: Suportă răspunsuri imediate și în flux
+- 🎲 **Selecție Aleatorie a Destinației**: Utilizează un instrument personalizat pentru a alege locuri de vacanță
+- 🗺️ **Planificare Inteligentă a Călătoriilor**: Creează itinerarii detaliate zi de zi
+- 🔄 **Streaming în Timp Real**: Suportă răspunsuri imediate și în flux continuu
 - 🛠️ **Integrare cu Instrumente Personalizate**: Demonstrează cum să extinzi capacitățile agentului
 
 ## 🔧 Arhitectura Tehnică
@@ -26,7 +26,7 @@ Acest notebook demonstrează cum să construiești un agent inteligent pentru pl
 
 - **Microsoft Agent Framework**: Cea mai recentă implementare .NET pentru dezvoltarea agenților AI
 - **Integrare cu Modelele GitHub**: Utilizează serviciul de inferență AI al GitHub
-- **Compatibilitate cu API-ul OpenAI**: Folosește biblioteci client OpenAI cu puncte de acces personalizate
+- **Compatibilitate cu API-ul OpenAI**: Folosește biblioteci client OpenAI cu endpoint-uri personalizate
 - **Configurare Securizată**: Gestionarea cheilor API bazată pe mediu
 
 ### Componente Cheie
@@ -47,7 +47,7 @@ graph LR
     D --> E
 ```
 
-## 🚀 Începeți
+## 🚀 Început Rapid
 
 ### Cerințe Prealabile
 
@@ -86,7 +86,7 @@ Sau folosind CLI-ul dotnet:
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-Consultați [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) pentru codul complet.
+Vezi [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) pentru codul complet.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -174,6 +174,20 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
     Console.Write(update);
 }
 ```
+
+## 🎓 Concluzii Cheie
+
+1. **Arhitectura Agentului**: Microsoft Agent Framework oferă o abordare clară și sigură din punct de vedere al tipurilor pentru construirea agenților AI în .NET
+2. **Integrarea Instrumentelor**: Funcțiile decorate cu atribute `[Description]` devin instrumente disponibile pentru agent
+3. **Gestionarea Configurației**: Variabilele de mediu și gestionarea securizată a acreditivelor urmează cele mai bune practici .NET
+4. **Compatibilitate cu OpenAI**: Integrarea cu Modelele GitHub funcționează perfect prin API-uri compatibile cu OpenAI
+
+## 🔗 Resurse Suplimentare
+
+- [Documentația Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Piața Modelelor GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

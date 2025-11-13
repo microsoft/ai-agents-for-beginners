@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T10:55:44+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T11:16:09+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "zh"
 }
@@ -11,7 +11,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 场景概述
 
-本笔记本展示了如何使用 Microsoft Agent Framework for .NET 构建一个智能旅行规划助手。该助手可以为全球随机目的地自动生成个性化的一日游行程。
+此示例展示了如何使用 Microsoft Agent Framework for .NET 构建一个智能旅行规划助手。该助手可以自动为全球随机目的地生成个性化的一日游行程。
 
 ### 主要功能：
 
@@ -24,16 +24,16 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### 核心技术
 
-- **Microsoft Agent Framework**：用于开发 AI 助手的最新 .NET 实现
-- **GitHub 模型集成**：使用 GitHub 的 AI 模型推理服务
-- **OpenAI API 兼容性**：结合 OpenAI 客户端库和自定义端点
-- **安全配置**：基于环境的 API 密钥管理
+- **Microsoft Agent Framework**：用于开发 AI助手的最新 .NET 实现
+- **GitHub Models 集成**：使用 GitHub 的 AI模型推理服务
+- **OpenAI API 兼容性**：通过自定义端点使用 OpenAI 客户端库
+- **安全配置**：基于环境的 API密钥管理
 
 ### 关键组件
 
-1. **AIAgent**：主要的助手协调器，负责对话流程
+1. **AIAgent**：主要的助手协调器，负责处理对话流程
 2. **自定义工具**：助手可用的 `GetRandomDestination()` 函数
-3. **聊天客户端**：基于 GitHub 模型的对话界面
+3. **聊天客户端**：基于 GitHub Models 的对话界面
 4. **流式支持**：实时响应生成功能
 
 ### 集成模式
@@ -49,7 +49,7 @@ graph LR
 
 ## 🚀 快速开始
 
-### 前置条件
+### 前提条件
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) 或更高版本
 - [GitHub Models API 访问令牌](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 关键点总结
+
+1. **助手架构**：Microsoft Agent Framework 提供了一种干净、类型安全的方法来在 .NET 中构建 AI助手
+2. **工具集成**：带有 `[Description]` 属性的函数会成为助手可用的工具
+3. **配置管理**：环境变量和安全凭证处理遵循 .NET 的最佳实践
+4. **OpenAI 兼容性**：GitHub Models 集成通过 OpenAI 兼容的 API 无缝工作
+
+## 🔗 其他资源
+
+- [Microsoft Agent Framework 文档](https://learn.microsoft.com/agent-framework)
+- [GitHub Models 市场](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET 单文件应用](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **免责声明**：  
-本文档使用AI翻译服务[Co-op Translator](https://github.com/Azure/co-op-translator)进行翻译。尽管我们努力确保翻译的准确性，但请注意，自动翻译可能包含错误或不准确之处。原始语言的文档应被视为权威来源。对于重要信息，建议使用专业人工翻译。我们对因使用此翻译而产生的任何误解或误读不承担责任。
+本文档使用AI翻译服务[Co-op Translator](https://github.com/Azure/co-op-translator)进行翻译。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应以原文档的母语版本为权威来源。对于关键信息，建议使用专业人工翻译。我们对因使用本翻译而引起的任何误解或误读不承担责任。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

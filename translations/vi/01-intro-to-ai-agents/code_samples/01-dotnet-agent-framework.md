@@ -1,17 +1,17 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:27:49+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:12:55+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "vi"
 }
 -->
 # 🌍 Đại lý Du lịch AI với Microsoft Agent Framework (.NET)
 
-## 📋 Tổng quan Kịch bản
+## 📋 Tổng quan về Kịch bản
 
-Notebook này hướng dẫn cách xây dựng một đại lý lập kế hoạch du lịch thông minh sử dụng Microsoft Agent Framework cho .NET. Đại lý có thể tự động tạo lịch trình du lịch cá nhân hóa cho các điểm đến ngẫu nhiên trên toàn thế giới.
+Ví dụ này minh họa cách xây dựng một đại lý lập kế hoạch du lịch thông minh sử dụng Microsoft Agent Framework cho .NET. Đại lý có thể tự động tạo lịch trình du lịch cá nhân hóa cho các điểm đến ngẫu nhiên trên toàn thế giới.
 
 ### Các khả năng chính:
 
@@ -24,14 +24,14 @@ Notebook này hướng dẫn cách xây dựng một đại lý lập kế hoạ
 
 ### Công nghệ cốt lõi
 
-- **Microsoft Agent Framework**: Phiên bản .NET mới nhất để phát triển đại lý AI
+- **Microsoft Agent Framework**: Triển khai .NET mới nhất để phát triển đại lý AI
 - **Tích hợp Mô hình GitHub**: Sử dụng dịch vụ suy luận mô hình AI của GitHub
-- **Tương thích API OpenAI**: Tận dụng thư viện khách hàng của OpenAI với các điểm cuối tùy chỉnh
+- **Tương thích API OpenAI**: Tận dụng thư viện khách hàng OpenAI với các điểm cuối tùy chỉnh
 - **Cấu hình bảo mật**: Quản lý khóa API dựa trên môi trường
 
 ### Các thành phần chính
 
-1. **AIAgent**: Bộ điều phối chính của đại lý xử lý luồng hội thoại
+1. **AIAgent**: Bộ điều phối đại lý chính xử lý luồng hội thoại
 2. **Công cụ tùy chỉnh**: Hàm `GetRandomDestination()` có sẵn cho đại lý
 3. **Chat Client**: Giao diện hội thoại hỗ trợ bởi Mô hình GitHub
 4. **Hỗ trợ phát trực tiếp**: Khả năng tạo phản hồi theo thời gian thực
@@ -80,7 +80,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Hoặc sử dụng CLI dotnet:
+Hoặc sử dụng dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Những điều cần lưu ý
+
+1. **Kiến trúc Đại lý**: Microsoft Agent Framework cung cấp cách tiếp cận sạch sẽ, an toàn kiểu để xây dựng đại lý AI trong .NET
+2. **Tích hợp Công cụ**: Các hàm được trang trí với thuộc tính `[Description]` trở thành công cụ có sẵn cho đại lý
+3. **Quản lý Cấu hình**: Các biến môi trường và xử lý thông tin xác thực an toàn tuân theo các thực tiễn tốt nhất của .NET
+4. **Tương thích OpenAI**: Tích hợp Mô hình GitHub hoạt động liền mạch thông qua các API tương thích với OpenAI
+
+## 🔗 Tài nguyên bổ sung
+
+- [Tài liệu Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Thị trường Mô hình GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Tuyên bố miễn trừ trách nhiệm**:  
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ bản địa nên được coi là nguồn thông tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ bản địa nên được coi là nguồn thông tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp của con người. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

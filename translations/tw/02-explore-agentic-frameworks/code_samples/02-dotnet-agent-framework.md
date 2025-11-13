@@ -1,149 +1,133 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "033f170be3b54183e2f6b5463371ab69",
-  "translation_date": "2025-11-07T09:32:38+00:00",
+  "original_hash": "e23058f87779da210fc0257ee2747c53",
+  "translation_date": "2025-11-13T11:27:29+00:00",
   "source_file": "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md",
   "language_code": "tw"
 }
 -->
-# 🔍 探索代理框架 - 基本代理 (.NET)
+# 🔍 探索 Microsoft Agent Framework - 基本代理 (.NET)
 
 ## 📋 學習目標
 
-本筆記本透過在 .NET 中實現基本代理，探討 Microsoft Agent Framework 的基本概念。您將學習核心代理模式，並了解智能代理如何在 C# 和 .NET 生態系統中運作。
+此範例透過在 .NET 中實現基本代理，探索 Microsoft Agent Framework 的基本概念。您將學習核心代理模式，並了解智能代理如何在 C# 和 .NET 生態系統中運作。
 
-**您將學到：**
-- 🏗️ **代理架構**：了解 .NET 中 AI 代理的基本結構
-- 🛠️ **工具整合**：代理如何使用外部函數擴展功能  
-- 💬 **對話流程**：通過線程管理處理多輪對話和上下文
-- 🔧 **配置模式**：在 .NET 中進行代理設置和管理的最佳實踐
+### 您將學到的內容
+
+- 🏗️ **代理架構**：了解 .NET 中 AI 代理的基本結構  
+- 🛠️ **工具整合**：代理如何使用外部函數來擴展功能  
+- 💬 **對話流程**：通過線程管理處理多輪對話和上下文  
+- 🔧 **配置模式**：在 .NET 中進行代理設置和管理的最佳實踐  
 
 ## 🎯 涵蓋的關鍵概念
 
 ### 代理框架原則
-- **自主性**：代理如何使用 .NET AI 抽象進行獨立決策
-- **反應性**：對環境變化和用戶輸入的響應
-- **主動性**：根據目標和上下文採取主動行動
-- **社交能力**：通過自然語言與對話線程進行互動
+
+- **自主性**：代理如何使用 .NET AI 抽象進行獨立決策  
+- **反應性**：響應環境變化和用戶輸入  
+- **主動性**：根據目標和上下文主動採取行動  
+- **社交能力**：通過自然語言與對話線程進行互動  
 
 ### 技術組件
-- **AIAgent**：核心代理編排和對話管理 (.NET)
-- **工具函數**：使用 C# 方法和屬性擴展代理功能
-- **OpenAI 整合**：通過標準化 .NET API 利用語言模型
-- **環境管理**：使用 DotNetEnv 進行安全配置和憑證處理
 
-## ⚙️ 前置條件與設置
-
-**所需依賴項：**
-- .NET 9.0 SDK 或更高版本
-- Visual Studio 2022 或安裝 C# 擴展的 VS Code
-
-**NuGet 套件：**
-- `Microsoft.Extensions.AI` - 核心 AI 抽象
-- `Microsoft.Extensions.AI.OpenAI` - OpenAI 整合 (預覽版)
-- `DotNetEnv` - 環境變數管理
-
-**環境配置 (.env 文件)：**
-```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
-```
+- **AIAgent**：核心代理編排和對話管理 (.NET)  
+- **工具函數**：使用 C# 方法和屬性擴展代理功能  
+- **OpenAI 整合**：通過標準化 .NET API 利用語言模型  
+- **安全配置**：基於環境的 API 金鑰管理  
 
 ## 🔧 技術堆疊
 
-**核心技術：**
-- Microsoft Agent Framework (.NET)
-- GitHub 模型 API 整合
-- OpenAI 兼容的客戶端模式
-- 基於環境的配置與 DotNetEnv
+### 核心技術
 
-**代理功能：**
-- 自然語言理解與生成
-- 使用 C# 屬性進行函數調用和工具使用
-- 基於對話線程的上下文感知響應
-- 使用依賴注入模式的可擴展架構
+- Microsoft Agent Framework (.NET)  
+- GitHub Models API 整合  
+- OpenAI 兼容的客戶端模式  
+- 使用 DotNetEnv 進行基於環境的配置  
+
+### 代理功能
+
+- 自然語言理解和生成  
+- 使用 C# 屬性進行函數調用和工具使用  
+- 通過對話線程進行上下文感知的響應  
+- 使用依賴注入模式的可擴展架構  
 
 ## 📚 框架比較
 
-此示例展示了 .NET 中 Microsoft Agent Framework 與其他平台的對比：
+此範例展示了 Microsoft Agent Framework 與其他代理框架的比較：
 
-| 功能 | .NET 代理框架 | Python 等效框架 |
-|------|---------------|----------------|
-| **類型安全性** | 使用 C# 的強類型 | 動態類型 |
-| **整合性** | 原生 .NET 生態系統 | 兼容性多樣 |
-| **性能** | 編譯代碼性能 | 解釋執行 |
-| **企業級準備** | 為生產級 .NET 應用構建 | 依框架而異 |
-| **工具支持** | Visual Studio 整合 | 依賴 IDE |
+| 功能       | Microsoft Agent Framework | 其他框架         |
+|------------|---------------------------|------------------|
+| **整合性** | 原生 Microsoft 生態系統   | 兼容性各異       |
+| **簡易性** | 清晰直觀的 API            | 通常設置較複雜   |
+| **可擴展性**| 易於工具整合              | 依賴框架         |
+| **企業級** | 為生產環境而設計          | 依框架而異       |
 
-## 🚀 開始使用
+## 🚀 快速入門
 
-按照以下步驟構建您的第一個基本代理，並了解基礎代理概念！
+### 先決條件
 
-## 📦 安裝與設置
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) 或更高版本  
+- [GitHub Models API 訪問令牌](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
 
-此示例可作為可運行的 .NET 單文件應用程序使用。請參閱附帶的 `02-dotnet-agent-framework.cs` 文件以獲取完整實現。
-
-運行此示例：
+### 必需的環境變數
 
 ```bash
-chmod +x 02-dotnet-agent-framework.cs
+# zsh/bash
+export GH_TOKEN=<your_github_token>
+export GH_ENDPOINT=https://models.github.ai/inference
+export GH_MODEL_ID=openai/gpt-5-mini
+```
+  
+```powershell
+# PowerShell
+$env:GH_TOKEN = "<your_github_token>"
+$env:GH_ENDPOINT = "https://models.github.ai/inference"
+$env:GH_MODEL_ID = "openai/gpt-5-mini"
+```
+  
+
+### 範例代碼
+
+要運行代碼範例：
+
+```bash
+# zsh/bash
+chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-
-或使用 dotnet CLI：
+  
+或者使用 dotnet CLI：
 
 ```bash
-dotnet run 02-dotnet-agent-framework.cs
+dotnet run ./02-dotnet-agent-framework.cs
 ```
-
-## 💡 代碼解析
-
-完整實現包括：
-
-### 1. 套件依賴項
+  
+請參閱 [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) 以獲取完整代碼。
 
 ```csharp
-// Core AI abstraction layer for .NET applications
-#r "nuget: Microsoft.Extensions.AI, 9.9.1"
+#!/usr/bin/dotnet run
 
-// Microsoft Agent Framework OpenAI integration
-#r "nuget: Microsoft.Agents.AI.OpenAI, 1.0.0-preview.251001.3"
+#:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
 
-// Core Microsoft Agent Framework library
-#r "nuget: Microsoft.Agents.AI, 1.0.0-preview.251001.3"
-
-// Environment variable management
-#r "nuget: DotNetEnv, 3.1.1"
-```
-
-### 2. 必要導入
-
-```csharp
-using System;
-using System.ComponentModel;
 using System.ClientModel;
-using Microsoft.Extensions.AI;
+using System.ComponentModel;
+
 using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
+
 using OpenAI;
-using DotNetEnv;
-```
 
-### 3. 環境配置
-
-```csharp
-// Load configuration from .env file
-Env.Load("../../../.env");
-```
-
-### 4. 工具函數定義
-
-```csharp
-// Random destination generator tool
+// Tool Function: Random Destination Generator
+// This static method will be available to the agent as a callable tool
+// The [Description] attribute helps the AI understand when to use this function
+// This demonstrates how to create custom tools for AI agents
 [Description("Provides a random vacation destination.")]
 static string GetRandomDestination()
 {
+    // List of popular vacation destinations around the world
+    // The agent will randomly select from these options
     var destinations = new List<string>
     {
         "Paris, France",
@@ -157,97 +141,118 @@ static string GetRandomDestination()
         "Bangkok, Thailand",
         "Vancouver, Canada"
     };
-    
+
+    // Generate random index and return selected destination
+    // Uses System.Random for simple random selection
     var random = new Random();
     int index = random.Next(destinations.Count);
     return destinations[index];
 }
-```
 
-### 5. 配置與客戶端設置
+// Extract configuration from environment variables
+// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
+// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the GitHub token for authentication, throws exception if not specified
+var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
+var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
+var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
 
-```csharp
-// Extract environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? 
-    throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? 
-    throw new InvalidOperationException("GITHUB_TOKEN is not set.");
-
-// Configure OpenAI client for GitHub Models
+// Configure OpenAI Client Options
+// Create configuration options to point to GitHub Models endpoint
+// This redirects OpenAI client calls to GitHub's model inference service
 var openAIOptions = new OpenAIClientOptions()
 {
     Endpoint = new Uri(github_endpoint)
 };
 
-// Initialize OpenAI client
+// Initialize OpenAI Client with GitHub Models Configuration
+// Create OpenAI client using GitHub token for authentication
+// Configure it to use GitHub Models endpoint instead of OpenAI directly
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
-```
 
-### 6. 代理配置
+// Define Agent Identity and Comprehensive Instructions
+// Agent name for identification and logging purposes
+var AGENT_NAME = "TravelAgent";
 
-```csharp
-const string AGENT_NAME = "TravelAgent";
-
-const string AGENT_INSTRUCTIONS = @"You are a helpful AI Agent that can help plan vacations for customers.
+// Detailed instructions that define the agent's personality, capabilities, and behavior
+// This system prompt shapes how the agent responds and interacts with users
+var AGENT_INSTRUCTIONS = """
+You are a helpful AI Agent that can help plan vacations for customers.
 
 Important: When users specify a destination, always plan for that location. Only suggest random destinations when the user hasn't specified a preference.
 
 When the conversation begins, introduce yourself with this message:
-""Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
+"Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
 1. Plan a day trip to a specific location
 2. Suggest a random vacation destination
 3. Find destinations with specific features (beaches, mountains, historical sites, etc.)
 4. Plan an alternative trip if you don't like my first suggestion
 
-What kind of trip would you like me to help you plan today?""
+What kind of trip would you like me to help you plan today?"
 
-Always prioritize user preferences. If they mention a specific destination like ""Bali"" or ""Paris,"" focus your planning on that location rather than suggesting alternatives.
-";
-```
+Always prioritize user preferences. If they mention a specific destination like "Bali" or "Paris," focus your planning on that location rather than suggesting alternatives.
+""";
 
-### 7. 代理初始化
-
-```csharp
-// Create AI agent with travel planning capabilities
-AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions)
+// Create AI Agent with Advanced Travel Planning Capabilities
+// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Configure agent with name, detailed instructions, and available tools
+// This demonstrates the .NET agent creation pattern with full configuration
+AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
-        tools: [AIFunctionFactory.Create((Func<string>)GetRandomDestination)]
+        tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
-```
 
-### 8. 對話管理
-
-```csharp
-// Create new conversation thread
+// Create New Conversation Thread for Context Management
+// Initialize a new conversation thread to maintain context across multiple interactions
+// Threads enable the agent to remember previous exchanges and maintain conversational state
+// This is essential for multi-turn conversations and contextual understanding
 AgentThread thread = agent.GetNewThread();
 
-// Execute agent: First travel planning request
-Console.WriteLine(await agent.RunAsync("Plan me a day trip", thread));
+// Execute Agent: First Travel Planning Request
+// Run the agent with an initial request that will likely trigger the random destination tool
+// The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
+// Using the thread parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 
-// Execute agent: Follow-up request with context awareness
-Console.WriteLine(await agent.RunAsync("I don't like that destination. Plan me another vacation.", thread));
+Console.WriteLine();
+
+// Execute Agent: Follow-up Request with Context Awareness
+// Demonstrate contextual conversation by referencing the previous response
+// The agent remembers the previous destination suggestion and will provide an alternative
+// This showcases the power of conversation threads and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 ```
+  
 
-## 🎓 關鍵收穫
+## 🎓 關鍵要點
 
-1. **代理架構**：Microsoft Agent Framework 提供了一種乾淨且類型安全的方法來在 .NET 中構建 AI 代理
-2. **工具整合**：使用 `[Description]` 屬性修飾的函數成為代理可用的工具
-3. **對話上下文**：線程管理支持多輪對話並具備完整上下文感知
-4. **配置管理**：環境變數和安全憑證處理遵循 .NET 最佳實踐
-5. **OpenAI 兼容性**：GitHub 模型整合通過 OpenAI 兼容 API 無縫運作
+1. **代理架構**：Microsoft Agent Framework 提供了一種清晰且類型安全的方法來構建 .NET 中的 AI 代理  
+2. **工具整合**：使用 `[Description]` 屬性修飾的函數成為代理可用的工具  
+3. **對話上下文**：線程管理支持多輪對話並具備完整的上下文感知能力  
+4. **配置管理**：環境變數和安全憑證處理遵循 .NET 的最佳實踐  
+5. **OpenAI 兼容性**：GitHub Models 整合通過 OpenAI 兼容的 API 無縫運作  
 
 ## 🔗 其他資源
 
-- [Microsoft Agent Framework 文件](https://learn.microsoft.com/en-us/dotnet/ai/agents)
-- [GitHub 模型市場](https://github.com/marketplace/models)
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai-overview)
-- [.NET 單文件應用](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app/)
+- [Microsoft Agent Framework 文件](https://learn.microsoft.com/agent-framework)  
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
+- [.NET 單文件應用](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **免責聲明**：  
-本文件已使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。儘管我們努力確保翻譯的準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應被視為權威來源。對於關鍵信息，建議使用專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或誤釋不承擔責任。
+本文件使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。我們致力於提供準確的翻譯，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原文文件為權威來源。對於關鍵資訊，建議尋求專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或誤釋不承擔責任。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

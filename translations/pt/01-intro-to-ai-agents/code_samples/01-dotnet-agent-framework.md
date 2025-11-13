@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:10:11+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T12:09:32+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "pt"
 }
@@ -11,22 +11,22 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Visão Geral do Cenário
 
-Este notebook demonstra como criar um agente inteligente de planeamento de viagens utilizando o Microsoft Agent Framework para .NET. O agente pode gerar automaticamente itinerários personalizados para viagens de um dia a destinos aleatórios ao redor do mundo.
+Este exemplo demonstra como criar um agente inteligente de planeamento de viagens utilizando o Microsoft Agent Framework para .NET. O agente pode gerar automaticamente itinerários personalizados para viagens de um dia em destinos aleatórios ao redor do mundo.
 
 ### Principais Capacidades:
 
 - 🎲 **Seleção Aleatória de Destinos**: Utiliza uma ferramenta personalizada para escolher locais de férias
 - 🗺️ **Planeamento Inteligente de Viagens**: Cria itinerários detalhados dia a dia
-- 🔄 **Streaming em Tempo Real**: Suporta respostas imediatas e em streaming
+- 🔄 **Streaming em Tempo Real**: Suporta respostas imediatas e em fluxo contínuo
 - 🛠️ **Integração de Ferramentas Personalizadas**: Demonstra como expandir as capacidades do agente
 
 ## 🔧 Arquitetura Técnica
 
 ### Tecnologias Principais
 
-- **Microsoft Agent Framework**: Implementação mais recente de .NET para desenvolvimento de agentes de IA
+- **Microsoft Agent Framework**: Implementação mais recente em .NET para desenvolvimento de agentes de IA
 - **Integração com Modelos do GitHub**: Utiliza o serviço de inferência de modelos de IA do GitHub
-- **Compatibilidade com API OpenAI**: Aproveita as bibliotecas cliente da OpenAI com endpoints personalizados
+- **Compatibilidade com API OpenAI**: Aproveita bibliotecas cliente da OpenAI com endpoints personalizados
 - **Configuração Segura**: Gestão de chaves API baseada em ambiente
 
 ### Componentes Principais
@@ -47,7 +47,7 @@ graph LR
     D --> E
 ```
 
-## 🚀 Primeiros Passos
+## 🚀 Começar
 
 ### Pré-requisitos
 
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Principais Aprendizados
+
+1. **Arquitetura de Agentes**: O Microsoft Agent Framework oferece uma abordagem limpa e segura para criar agentes de IA em .NET
+2. **Integração de Ferramentas**: Funções decoradas com atributos `[Description]` tornam-se ferramentas disponíveis para o agente
+3. **Gestão de Configuração**: Variáveis de ambiente e gestão segura de credenciais seguem as melhores práticas do .NET
+4. **Compatibilidade com OpenAI**: A integração com Modelos do GitHub funciona perfeitamente através de APIs compatíveis com OpenAI
+
+## 🔗 Recursos Adicionais
+
+- [Documentação do Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Marketplace de Modelos do GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Aviso Legal**:  
-Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos pela precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte autoritária. Para informações críticas, recomenda-se uma tradução profissional humana. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
+Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original no seu idioma nativo deve ser considerado a fonte autoritária. Para informações críticas, recomenda-se uma tradução profissional humana. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas resultantes do uso desta tradução.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

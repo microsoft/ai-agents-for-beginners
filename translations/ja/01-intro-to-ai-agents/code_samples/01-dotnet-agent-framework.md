@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:00:29+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T11:29:05+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "ja"
 }
@@ -11,13 +11,13 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 シナリオ概要
 
-このノートブックでは、Microsoft Agent Framework for .NET を使用して、知的な旅行計画エージェントを構築する方法を紹介します。このエージェントは、世界中のランダムな目的地に対して、個別にカスタマイズされた日帰り旅行の旅程を自動生成することができます。
+この例では、Microsoft Agent Framework for .NET を使用して、知的な旅行計画エージェントを構築する方法を示します。このエージェントは、世界中のランダムな目的地に対して個別の日帰り旅行プランを自動生成することができます。
 
 ### 主な機能:
 
 - 🎲 **ランダムな目的地選択**: カスタムツールを使用して旅行先を選択
-- 🗺️ **知的な旅行計画**: 詳細な日ごとの旅程を作成
-- 🔄 **リアルタイムストリーミング**: 即時およびストリーミング応答をサポート
+- 🗺️ **知的な旅行計画**: 日ごとの詳細な旅程を作成
+- 🔄 **リアルタイムストリーミング**: 即時応答とストリーミング応答の両方をサポート
 - 🛠️ **カスタムツール統合**: エージェントの機能拡張方法を示す
 
 ## 🔧 技術アーキテクチャ
@@ -26,7 +26,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 - **Microsoft Agent Framework**: AIエージェント開発のための最新の.NET実装
 - **GitHub Models Integration**: GitHubのAIモデル推論サービスを使用
-- **OpenAI API互換性**: カスタムエンドポイントを備えたOpenAIクライアントライブラリを活用
+- **OpenAI API互換性**: カスタムエンドポイントを使用したOpenAIクライアントライブラリを活用
 - **安全な設定**: 環境ベースのAPIキー管理
 
 ### 主なコンポーネント
@@ -49,12 +49,12 @@ graph LR
 
 ## 🚀 はじめに
 
-### 前提条件
+### 必要条件
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) 以上
 - [GitHub Models API アクセストークン](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
-### 必要な環境変数
+### 必須環境変数
 
 ```bash
 # zsh/bash
@@ -80,7 +80,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-または、dotnet CLI を使用して:
+または dotnet CLI を使用して:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 重要なポイント
+
+1. **エージェントアーキテクチャ**: Microsoft Agent Framework は、.NETでAIエージェントを構築するためのクリーンで型安全なアプローチを提供します
+2. **ツール統合**: `[Description]` 属性で装飾された関数は、エージェントが利用可能なツールになります
+3. **設定管理**: 環境変数と安全な資格情報管理は.NETのベストプラクティスに従います
+4. **OpenAI互換性**: GitHub Modelsの統合はOpenAI互換APIを通じてシームレスに動作します
+
+## 🔗 追加リソース
+
+- [Microsoft Agent Framework ドキュメント](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET シングルファイルアプリ](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **免責事項**:  
-この文書はAI翻訳サービス[Co-op Translator](https://github.com/Azure/co-op-translator)を使用して翻訳されています。正確性を追求しておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があります。元の言語で記載された文書を正式な情報源としてお考えください。重要な情報については、専門の人間による翻訳を推奨します。この翻訳の使用に起因する誤解や誤認について、当方は一切の責任を負いません。
+この文書は、AI翻訳サービス[Co-op Translator](https://github.com/Azure/co-op-translator)を使用して翻訳されています。正確性を期すよう努めておりますが、自動翻訳には誤りや不正確さが含まれる可能性があります。元の言語で記載された文書が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤認について、当方は一切の責任を負いません。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

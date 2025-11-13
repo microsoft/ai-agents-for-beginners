@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:12:26+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T12:15:43+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "it"
 }
@@ -11,32 +11,32 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Panoramica dello Scenario
 
-Questo notebook dimostra come costruire un agente intelligente per la pianificazione di viaggi utilizzando il Microsoft Agent Framework per .NET. L'agente può generare automaticamente itinerari personalizzati per gite giornaliere in destinazioni casuali in tutto il mondo.
+Questo esempio dimostra come creare un agente intelligente per la pianificazione di viaggi utilizzando il Microsoft Agent Framework per .NET. L'agente può generare automaticamente itinerari personalizzati per gite giornaliere verso destinazioni casuali in tutto il mondo.
 
-### Capacità Principali:
+### Capacità principali:
 
-- 🎲 **Selezione Casuale della Destinazione**: Utilizza uno strumento personalizzato per scegliere luoghi di vacanza
-- 🗺️ **Pianificazione Intelligente del Viaggio**: Crea itinerari dettagliati giorno per giorno
-- 🔄 **Streaming in Tempo Reale**: Supporta risposte immediate e in streaming
-- 🛠️ **Integrazione di Strumenti Personalizzati**: Dimostra come estendere le capacità dell'agente
+- 🎲 **Selezione casuale della destinazione**: Utilizza uno strumento personalizzato per scegliere luoghi di vacanza
+- 🗺️ **Pianificazione intelligente del viaggio**: Crea itinerari dettagliati giorno per giorno
+- 🔄 **Streaming in tempo reale**: Supporta risposte immediate e in streaming
+- 🛠️ **Integrazione di strumenti personalizzati**: Dimostra come estendere le capacità dell'agente
 
 ## 🔧 Architettura Tecnica
 
-### Tecnologie Principali
+### Tecnologie principali
 
 - **Microsoft Agent Framework**: Ultima implementazione .NET per lo sviluppo di agenti AI
-- **Integrazione con Modelli GitHub**: Utilizza il servizio di inferenza dei modelli AI di GitHub
-- **Compatibilità con OpenAI API**: Sfrutta le librerie client di OpenAI con endpoint personalizzati
-- **Configurazione Sicura**: Gestione delle chiavi API basata sull'ambiente
+- **Integrazione con i modelli GitHub**: Utilizza il servizio di inferenza dei modelli AI di GitHub
+- **Compatibilità con l'API OpenAI**: Sfrutta le librerie client OpenAI con endpoint personalizzati
+- **Configurazione sicura**: Gestione delle chiavi API basata sull'ambiente
 
-### Componenti Principali
+### Componenti principali
 
 1. **AIAgent**: L'orchestratore principale dell'agente che gestisce il flusso della conversazione
-2. **Strumenti Personalizzati**: Funzione `GetRandomDestination()` disponibile per l'agente
-3. **Client Chat**: Interfaccia di conversazione supportata dai modelli GitHub
-4. **Supporto Streaming**: Capacità di generazione di risposte in tempo reale
+2. **Strumenti personalizzati**: Funzione `GetRandomDestination()` disponibile per l'agente
+3. **Client di chat**: Interfaccia di conversazione supportata dai modelli GitHub
+4. **Supporto streaming**: Capacità di generazione di risposte in tempo reale
 
-### Modello di Integrazione
+### Modello di integrazione
 
 ```mermaid
 graph LR
@@ -47,14 +47,14 @@ graph LR
     D --> E
 ```
 
-## 🚀 Per Iniziare
+## 🚀 Per iniziare
 
 ### Prerequisiti
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o superiore
-- [Token di accesso API Modelli GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Token di accesso API per i modelli GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
-### Variabili d'Ambiente Necessarie
+### Variabili di ambiente richieste
 
 ```bash
 # zsh/bash
@@ -70,7 +70,7 @@ $env:GH_ENDPOINT = "https://models.github.ai/inference"
 $env:GH_MODEL_ID = "openai/gpt-5-mini"
 ```
 
-### Codice di Esempio
+### Codice di esempio
 
 Per eseguire l'esempio di codice,
 
@@ -80,7 +80,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Oppure utilizzando la CLI dotnet:
+Oppure utilizzando la CLI di dotnet:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Punti chiave
+
+1. **Architettura dell'agente**: Il Microsoft Agent Framework offre un approccio pulito e tipizzato per la creazione di agenti AI in .NET
+2. **Integrazione degli strumenti**: Le funzioni decorate con attributi `[Description]` diventano strumenti disponibili per l'agente
+3. **Gestione della configurazione**: Le variabili di ambiente e la gestione sicura delle credenziali seguono le migliori pratiche di .NET
+4. **Compatibilità con OpenAI**: L'integrazione con i modelli GitHub funziona perfettamente tramite API compatibili con OpenAI
+
+## 🔗 Risorse aggiuntive
+
+- [Documentazione Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Marketplace dei modelli GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire l'accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa dovrebbe essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale umana. Non siamo responsabili per eventuali incomprensioni o interpretazioni errate derivanti dall'uso di questa traduzione.
+**Clausola di esclusione della responsabilità**:  
+Questo documento è stato tradotto utilizzando il servizio di traduzione automatica [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire l'accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale umana. Non siamo responsabili per eventuali incomprensioni o interpretazioni errate derivanti dall'uso di questa traduzione.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

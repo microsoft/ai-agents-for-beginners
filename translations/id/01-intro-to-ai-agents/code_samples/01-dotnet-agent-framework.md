@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:28:56+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:19:08+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "id"
 }
@@ -11,13 +11,13 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Gambaran Umum Skenario
 
-Notebook ini menunjukkan cara membangun agen perencanaan perjalanan cerdas menggunakan Microsoft Agent Framework untuk .NET. Agen ini dapat secara otomatis menghasilkan rencana perjalanan sehari yang dipersonalisasi untuk destinasi acak di seluruh dunia.
+Contoh ini menunjukkan cara membangun agen perencana perjalanan cerdas menggunakan Microsoft Agent Framework untuk .NET. Agen ini dapat secara otomatis menghasilkan rencana perjalanan harian yang dipersonalisasi untuk destinasi acak di seluruh dunia.
 
 ### Kemampuan Utama:
 
 - 🎲 **Pemilihan Destinasi Acak**: Menggunakan alat khusus untuk memilih tempat liburan
 - 🗺️ **Perencanaan Perjalanan Cerdas**: Membuat rencana perjalanan harian yang terperinci
-- 🔄 **Streaming Real-time**: Mendukung respons langsung dan streaming
+- 🔄 **Streaming Waktu Nyata**: Mendukung respons langsung dan streaming
 - 🛠️ **Integrasi Alat Khusus**: Menunjukkan cara memperluas kemampuan agen
 
 ## 🔧 Arsitektur Teknis
@@ -27,14 +27,14 @@ Notebook ini menunjukkan cara membangun agen perencanaan perjalanan cerdas mengg
 - **Microsoft Agent Framework**: Implementasi .NET terbaru untuk pengembangan agen AI
 - **Integrasi Model GitHub**: Menggunakan layanan inferensi model AI dari GitHub
 - **Kompatibilitas API OpenAI**: Memanfaatkan pustaka klien OpenAI dengan endpoint khusus
-- **Konfigurasi Aman**: Pengelolaan kunci API berbasis lingkungan
+- **Konfigurasi Aman**: Manajemen kunci API berbasis lingkungan
 
 ### Komponen Utama
 
 1. **AIAgent**: Orkestrator utama agen yang menangani alur percakapan
-2. **Alat Khusus**: Fungsi `GetRandomDestination()` tersedia untuk agen
+2. **Alat Khusus**: Fungsi `GetRandomDestination()` yang tersedia untuk agen
 3. **Chat Client**: Antarmuka percakapan yang didukung oleh Model GitHub
-4. **Dukungan Streaming**: Kemampuan menghasilkan respons secara real-time
+4. **Dukungan Streaming**: Kemampuan menghasilkan respons secara waktu nyata
 
 ### Pola Integrasi
 
@@ -52,7 +52,7 @@ graph LR
 ### Prasyarat
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) atau lebih tinggi
-- [Token akses API GitHub Models](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Token akses API Model GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ### Variabel Lingkungan yang Diperlukan
 
@@ -174,6 +174,20 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
     Console.Write(update);
 }
 ```
+
+## 🎓 Pelajaran Penting
+
+1. **Arsitektur Agen**: Microsoft Agent Framework menyediakan pendekatan yang bersih dan aman tipe untuk membangun agen AI di .NET
+2. **Integrasi Alat**: Fungsi yang dihiasi dengan atribut `[Description]` menjadi alat yang tersedia untuk agen
+3. **Manajemen Konfigurasi**: Variabel lingkungan dan penanganan kredensial yang aman mengikuti praktik terbaik .NET
+4. **Kompatibilitas OpenAI**: Integrasi Model GitHub bekerja dengan mulus melalui API yang kompatibel dengan OpenAI
+
+## 🔗 Sumber Daya Tambahan
+
+- [Dokumentasi Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Marketplace Model GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

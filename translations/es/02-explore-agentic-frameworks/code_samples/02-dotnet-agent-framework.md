@@ -1,149 +1,133 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "033f170be3b54183e2f6b5463371ab69",
-  "translation_date": "2025-11-07T09:30:38+00:00",
+  "original_hash": "e23058f87779da210fc0257ee2747c53",
+  "translation_date": "2025-11-13T10:53:29+00:00",
   "source_file": "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md",
   "language_code": "es"
 }
 -->
-# 🔍 Explorando Marcos Agénticos - Agente Básico (.NET)
+# 🔍 Explorando el Marco de Agentes de Microsoft - Agente Básico (.NET)
 
 ## 📋 Objetivos de Aprendizaje
 
-Este cuaderno explora los conceptos fundamentales del Marco de Agentes de Microsoft a través de una implementación básica de un agente en .NET. Aprenderás patrones agénticos esenciales y comprenderás cómo funcionan los agentes inteligentes detrás de escena utilizando C# y el ecosistema .NET.
+Este ejemplo explora los conceptos fundamentales del Marco de Agentes de Microsoft a través de una implementación básica de un agente en .NET. Aprenderás patrones básicos de agentes y comprenderás cómo funcionan los agentes inteligentes detrás de escena utilizando C# y el ecosistema .NET.
 
-**Lo que descubrirás:**
-- 🏗️ **Arquitectura de Agentes**: Comprender la estructura básica de los agentes de IA en .NET
+### Lo que Descubrirás
+
+- 🏗️ **Arquitectura de Agentes**: Comprender la estructura básica de los agentes de IA en .NET  
 - 🛠️ **Integración de Herramientas**: Cómo los agentes utilizan funciones externas para ampliar capacidades  
-- 💬 **Flujo de Conversación**: Gestionar conversaciones de múltiples turnos y contexto con manejo de hilos
-- 🔧 **Patrones de Configuración**: Mejores prácticas para la configuración y gestión de agentes en .NET
+- 💬 **Flujo de Conversación**: Gestionar conversaciones de múltiples turnos y contexto con manejo de hilos  
+- 🔧 **Patrones de Configuración**: Mejores prácticas para la configuración y gestión de agentes en .NET  
 
 ## 🎯 Conceptos Clave Cubiertos
 
-### Principios del Marco Agéntico
-- **Autonomía**: Cómo los agentes toman decisiones independientes utilizando abstracciones de IA en .NET
-- **Reactividad**: Responder a cambios en el entorno y entradas del usuario
-- **Proactividad**: Tomar la iniciativa basada en objetivos y contexto
-- **Habilidad Social**: Interactuar mediante lenguaje natural con hilos de conversación
+### Principios del Marco de Agentes
+
+- **Autonomía**: Cómo los agentes toman decisiones independientes utilizando abstracciones de IA en .NET  
+- **Reactividad**: Responder a cambios en el entorno y entradas del usuario  
+- **Proactividad**: Tomar la iniciativa basada en objetivos y contexto  
+- **Habilidad Social**: Interactuar mediante lenguaje natural con hilos de conversación  
 
 ### Componentes Técnicos
-- **AIAgent**: Orquestación central del agente y gestión de conversaciones (.NET)
-- **Funciones de Herramientas**: Ampliar las capacidades del agente con métodos y atributos de C#
-- **Integración con OpenAI**: Aprovechar modelos de lenguaje a través de APIs estandarizadas de .NET
-- **Gestión del Entorno**: Configuración segura y manejo de credenciales con DotNetEnv
 
-## ⚙️ Requisitos Previos y Configuración
-
-**Dependencias Requeridas:**
-- SDK de .NET 9.0 o superior
-- Visual Studio 2022 o VS Code con extensión de C#
-
-**Paquetes NuGet:**
-- `Microsoft.Extensions.AI` - Abstracciones principales de IA
-- `Microsoft.Extensions.AI.OpenAI` - Integración con OpenAI (versión preliminar)
-- `DotNetEnv` - Gestión de variables de entorno
-
-**Configuración del Entorno (archivo .env):**
-```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
-```
+- **AIAgent**: Orquestación central del agente y gestión de conversaciones (.NET)  
+- **Funciones de Herramientas**: Ampliar las capacidades del agente con métodos y atributos de C#  
+- **Integración con OpenAI**: Aprovechar modelos de lenguaje a través de APIs estandarizadas de .NET  
+- **Configuración Segura**: Gestión de claves API basada en el entorno  
 
 ## 🔧 Stack Técnico
 
-**Tecnologías Principales:**
-- Marco de Agentes de Microsoft (.NET)
-- Integración con API de Modelos de GitHub
-- Patrones de cliente compatibles con OpenAI
-- Configuración basada en entorno con DotNetEnv
+### Tecnologías Principales
 
-**Capacidades del Agente:**
-- Comprensión y generación de lenguaje natural
-- Llamadas a funciones y uso de herramientas con atributos de C#
-- Respuestas conscientes del contexto con hilos de conversación
-- Arquitectura extensible con patrones de inyección de dependencias
+- Marco de Agentes de Microsoft (.NET)  
+- Integración con API de Modelos de GitHub  
+- Patrones de cliente compatibles con OpenAI  
+- Configuración basada en entorno con DotNetEnv  
+
+### Capacidades del Agente
+
+- Comprensión y generación de lenguaje natural  
+- Llamadas a funciones y uso de herramientas con atributos de C#  
+- Respuestas conscientes del contexto con hilos de conversación  
+- Arquitectura extensible con patrones de inyección de dependencias  
 
 ## 📚 Comparación de Marcos
 
-Este ejemplo demuestra el enfoque del Marco de Agentes de Microsoft en .NET en comparación con otras plataformas:
+Este ejemplo demuestra el enfoque del Marco de Agentes de Microsoft en comparación con otros marcos de agentes:
 
-| Característica | Marco de Agentes en .NET | Equivalentes en Python |
-|----------------|--------------------------|-------------------------|
-| **Seguridad de Tipos** | Tipado fuerte con C# | Tipado dinámico |
-| **Integración** | Ecosistema nativo de .NET | Compatibilidad variada |
-| **Rendimiento** | Código compilado | Ejecución interpretada |
-| **Preparado para Empresas** | Diseñado para aplicaciones de producción en .NET | Varía según el marco |
-| **Herramientas** | Integración con Visual Studio | Dependiente del IDE |
+| Característica | Marco de Agentes de Microsoft | Otros Marcos |
+|----------------|-------------------------------|--------------|
+| **Integración** | Ecosistema nativo de Microsoft | Compatibilidad variada |
+| **Simplicidad** | API limpia e intuitiva | Configuración frecuentemente compleja |
+| **Extensibilidad** | Integración fácil de herramientas | Dependiente del marco |
+| **Preparado para Empresas** | Diseñado para producción | Varía según el marco |
 
 ## 🚀 Comenzando
 
-Sigue las celdas a continuación para construir tu primer agente básico en .NET y comprender los conceptos agénticos fundamentales.
+### Requisitos Previos
 
-## 📦 Instalación y Configuración
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o superior  
+- [Token de acceso a la API de Modelos de GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
 
-Este ejemplo está disponible como una aplicación ejecutable de archivo único en .NET. Consulta el archivo `02-dotnet-agent-framework.cs` adjunto para la implementación completa.
-
-Para ejecutar este ejemplo:
+### Variables de Entorno Requeridas
 
 ```bash
-chmod +x 02-dotnet-agent-framework.cs
+# zsh/bash
+export GH_TOKEN=<your_github_token>
+export GH_ENDPOINT=https://models.github.ai/inference
+export GH_MODEL_ID=openai/gpt-5-mini
+```
+  
+```powershell
+# PowerShell
+$env:GH_TOKEN = "<your_github_token>"
+$env:GH_ENDPOINT = "https://models.github.ai/inference"
+$env:GH_MODEL_ID = "openai/gpt-5-mini"
+```
+  
+
+### Código de Ejemplo
+
+Para ejecutar el ejemplo de código,
+
+```bash
+# zsh/bash
+chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-
+  
 O utilizando la CLI de dotnet:
 
 ```bash
-dotnet run 02-dotnet-agent-framework.cs
+dotnet run ./02-dotnet-agent-framework.cs
 ```
-
-## 💡 Recorrido por el Código
-
-La implementación completa incluye:
-
-### 1. Dependencias de Paquetes
+  
+Consulta [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) para el código completo.
 
 ```csharp
-// Core AI abstraction layer for .NET applications
-#r "nuget: Microsoft.Extensions.AI, 9.9.1"
+#!/usr/bin/dotnet run
 
-// Microsoft Agent Framework OpenAI integration
-#r "nuget: Microsoft.Agents.AI.OpenAI, 1.0.0-preview.251001.3"
+#:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
 
-// Core Microsoft Agent Framework library
-#r "nuget: Microsoft.Agents.AI, 1.0.0-preview.251001.3"
-
-// Environment variable management
-#r "nuget: DotNetEnv, 3.1.1"
-```
-
-### 2. Importaciones Esenciales
-
-```csharp
-using System;
-using System.ComponentModel;
 using System.ClientModel;
-using Microsoft.Extensions.AI;
+using System.ComponentModel;
+
 using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
+
 using OpenAI;
-using DotNetEnv;
-```
 
-### 3. Configuración del Entorno
-
-```csharp
-// Load configuration from .env file
-Env.Load("../../../.env");
-```
-
-### 4. Definición de Funciones de Herramientas
-
-```csharp
-// Random destination generator tool
+// Tool Function: Random Destination Generator
+// This static method will be available to the agent as a callable tool
+// The [Description] attribute helps the AI understand when to use this function
+// This demonstrates how to create custom tools for AI agents
 [Description("Provides a random vacation destination.")]
 static string GetRandomDestination()
 {
+    // List of popular vacation destinations around the world
+    // The agent will randomly select from these options
     var destinations = new List<string>
     {
         "Paris, France",
@@ -157,97 +141,118 @@ static string GetRandomDestination()
         "Bangkok, Thailand",
         "Vancouver, Canada"
     };
-    
+
+    // Generate random index and return selected destination
+    // Uses System.Random for simple random selection
     var random = new Random();
     int index = random.Next(destinations.Count);
     return destinations[index];
 }
-```
 
-### 5. Configuración y Cliente
+// Extract configuration from environment variables
+// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
+// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the GitHub token for authentication, throws exception if not specified
+var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
+var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
+var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
 
-```csharp
-// Extract environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? 
-    throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? 
-    throw new InvalidOperationException("GITHUB_TOKEN is not set.");
-
-// Configure OpenAI client for GitHub Models
+// Configure OpenAI Client Options
+// Create configuration options to point to GitHub Models endpoint
+// This redirects OpenAI client calls to GitHub's model inference service
 var openAIOptions = new OpenAIClientOptions()
 {
     Endpoint = new Uri(github_endpoint)
 };
 
-// Initialize OpenAI client
+// Initialize OpenAI Client with GitHub Models Configuration
+// Create OpenAI client using GitHub token for authentication
+// Configure it to use GitHub Models endpoint instead of OpenAI directly
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
-```
 
-### 6. Configuración del Agente
+// Define Agent Identity and Comprehensive Instructions
+// Agent name for identification and logging purposes
+var AGENT_NAME = "TravelAgent";
 
-```csharp
-const string AGENT_NAME = "TravelAgent";
-
-const string AGENT_INSTRUCTIONS = @"You are a helpful AI Agent that can help plan vacations for customers.
+// Detailed instructions that define the agent's personality, capabilities, and behavior
+// This system prompt shapes how the agent responds and interacts with users
+var AGENT_INSTRUCTIONS = """
+You are a helpful AI Agent that can help plan vacations for customers.
 
 Important: When users specify a destination, always plan for that location. Only suggest random destinations when the user hasn't specified a preference.
 
 When the conversation begins, introduce yourself with this message:
-""Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
+"Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
 1. Plan a day trip to a specific location
 2. Suggest a random vacation destination
 3. Find destinations with specific features (beaches, mountains, historical sites, etc.)
 4. Plan an alternative trip if you don't like my first suggestion
 
-What kind of trip would you like me to help you plan today?""
+What kind of trip would you like me to help you plan today?"
 
-Always prioritize user preferences. If they mention a specific destination like ""Bali"" or ""Paris,"" focus your planning on that location rather than suggesting alternatives.
-";
-```
+Always prioritize user preferences. If they mention a specific destination like "Bali" or "Paris," focus your planning on that location rather than suggesting alternatives.
+""";
 
-### 7. Inicialización del Agente
-
-```csharp
-// Create AI agent with travel planning capabilities
-AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions)
+// Create AI Agent with Advanced Travel Planning Capabilities
+// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Configure agent with name, detailed instructions, and available tools
+// This demonstrates the .NET agent creation pattern with full configuration
+AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
-        tools: [AIFunctionFactory.Create((Func<string>)GetRandomDestination)]
+        tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
-```
 
-### 8. Gestión de Conversaciones
-
-```csharp
-// Create new conversation thread
+// Create New Conversation Thread for Context Management
+// Initialize a new conversation thread to maintain context across multiple interactions
+// Threads enable the agent to remember previous exchanges and maintain conversational state
+// This is essential for multi-turn conversations and contextual understanding
 AgentThread thread = agent.GetNewThread();
 
-// Execute agent: First travel planning request
-Console.WriteLine(await agent.RunAsync("Plan me a day trip", thread));
+// Execute Agent: First Travel Planning Request
+// Run the agent with an initial request that will likely trigger the random destination tool
+// The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
+// Using the thread parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 
-// Execute agent: Follow-up request with context awareness
-Console.WriteLine(await agent.RunAsync("I don't like that destination. Plan me another vacation.", thread));
+Console.WriteLine();
+
+// Execute Agent: Follow-up Request with Context Awareness
+// Demonstrate contextual conversation by referencing the previous response
+// The agent remembers the previous destination suggestion and will provide an alternative
+// This showcases the power of conversation threads and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 ```
+  
 
-## 🎓 Conclusiones Clave
+## 🎓 Puntos Clave
 
-1. **Arquitectura de Agentes**: El Marco de Agentes de Microsoft proporciona un enfoque limpio y seguro para construir agentes de IA en .NET
-2. **Integración de Herramientas**: Las funciones decoradas con atributos `[Description]` se convierten en herramientas disponibles para el agente
-3. **Contexto de Conversación**: La gestión de hilos permite conversaciones de múltiples turnos con plena conciencia del contexto
-4. **Gestión de Configuración**: Las variables de entorno y el manejo seguro de credenciales siguen las mejores prácticas de .NET
-5. **Compatibilidad con OpenAI**: La integración con Modelos de GitHub funciona perfectamente a través de APIs compatibles con OpenAI
+1. **Arquitectura de Agentes**: El Marco de Agentes de Microsoft proporciona un enfoque limpio y seguro para construir agentes de IA en .NET  
+2. **Integración de Herramientas**: Las funciones decoradas con atributos `[Description]` se convierten en herramientas disponibles para el agente  
+3. **Contexto de Conversación**: La gestión de hilos permite conversaciones de múltiples turnos con plena conciencia del contexto  
+4. **Gestión de Configuración**: Las variables de entorno y el manejo seguro de credenciales siguen las mejores prácticas de .NET  
+5. **Compatibilidad con OpenAI**: La integración con Modelos de GitHub funciona perfectamente a través de APIs compatibles con OpenAI  
 
 ## 🔗 Recursos Adicionales
 
-- [Documentación del Marco de Agentes de Microsoft](https://learn.microsoft.com/en-us/dotnet/ai/agents)
-- [Marketplace de Modelos de GitHub](https://github.com/marketplace/models)
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai-overview)
-- [Aplicaciones de Archivo Único en .NET](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app/)
+- [Documentación del Marco de Agentes de Microsoft](https://learn.microsoft.com/agent-framework)  
+- [Marketplace de Modelos de GitHub](https://github.com/marketplace?type=models)  
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que surjan del uso de esta traducción.
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que surjan del uso de esta traducción.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
