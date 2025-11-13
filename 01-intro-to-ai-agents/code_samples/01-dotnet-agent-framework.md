@@ -2,7 +2,7 @@
 
 ## 📋 Scenario Overview
 
-This notebook demonstrates how to build an intelligent travel planning agent using the Microsoft Agent Framework for .NET. The agent can automatically generate personalized day-trip itineraries for random destinations around the world.
+This example demonstrates how to build an intelligent travel planning agent using the Microsoft Agent Framework for .NET. The agent can automatically generate personalized day-trip itineraries for random destinations around the world.
 
 ### Key Capabilities:
 
@@ -165,3 +165,17 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
     Console.Write(update);
 }
 ```
+
+## 🎓 Key Takeaways
+
+1. **Agent Architecture**: The Microsoft Agent Framework provides a clean, type-safe approach to building AI agents in .NET
+2. **Tool Integration**: Functions decorated with `[Description]` attributes become available tools for the agent
+3. **Configuration Management**: Environment variables and secure credential handling follow .NET best practices
+4. **OpenAI Compatibility**: GitHub Models integration works seamlessly through OpenAI-compatible APIs
+
+## 🔗 Additional Resources
+
+- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)

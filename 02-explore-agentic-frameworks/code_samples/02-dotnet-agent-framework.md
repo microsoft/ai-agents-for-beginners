@@ -1,10 +1,11 @@
-# 🔍 Exploring Agentic Frameworks - Basic Agent (.NET)
+# 🔍 Exploring Microsoft Agent Framework - Basic Agent (.NET)
 
 ## 📋 Learning Objectives
 
-This notebook explores the fundamental concepts of the Microsoft Agent Framework through a basic agent implementation in .NET. You'll learn core agentic patterns and understand how intelligent agents work under the hood using C# and the .NET ecosystem.
+This example explores the fundamental concepts of the Microsoft Agent Framework through a basic agent implementation in .NET. You'll learn core agentic patterns and understand how intelligent agents work under the hood using C# and the .NET ecosystem.
 
-**What You'll Discover:**
+### What You'll Discover
+
 - 🏗️ **Agent Architecture**: Understanding the basic structure of AI agents in .NET
 - 🛠️ **Tool Integration**: How agents use external functions to extend capabilities  
 - 💬 **Conversation Flow**: Managing multi-turn conversations and context with thread management
@@ -13,44 +14,30 @@ This notebook explores the fundamental concepts of the Microsoft Agent Framework
 ## 🎯 Key Concepts Covered
 
 ### Agentic Framework Principles
+
 - **Autonomy**: How agents make independent decisions using .NET AI abstractions
 - **Reactivity**: Responding to environmental changes and user inputs
 - **Proactivity**: Taking initiative based on goals and context
 - **Social Ability**: Interacting through natural language with conversation threads
 
 ### Technical Components
+
 - **AIAgent**: Core agent orchestration and conversation management (.NET)
 - **Tool Functions**: Extending agent capabilities with C# methods and attributes
 - **OpenAI Integration**: Leveraging language models through standardized .NET APIs
-- **Environment Management**: Secure configuration and credential handling with DotNetEnv
-
-## ⚙️ Prerequisites & Setup
-
-**Required Dependencies:**
-- .NET 9.0 SDK or higher
-- Visual Studio 2022 or VS Code with C# extension
-
-**NuGet Packages:**
-- `Microsoft.Extensions.AI` - Core AI abstractions
-- `Microsoft.Extensions.AI.OpenAI` - OpenAI integration (preview)
-- `DotNetEnv` - Environment variable management
-
-**Environment Configuration (.env file):**
-```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
-```
+- **Secure Configuration**: Environment-based API key management
 
 ## 🔧 Technical Stack
 
-**Core Technologies:**
+### Core Technologies
+
 - Microsoft Agent Framework (.NET)
 - GitHub Models API integration
 - OpenAI-compatible client patterns
 - Environment-based configuration with DotNetEnv
 
-**Agent Capabilities:**
+### Agent Capabilities
+
 - Natural language understanding and generation
 - Function calling and tool usage with C# attributes
 - Context-aware responses with conversation threads
@@ -58,83 +45,79 @@ GITHUB_MODEL_ID=gpt-4o-mini
 
 ## 📚 Framework Comparison
 
-This example demonstrates the Microsoft Agent Framework approach in .NET compared to other platforms:
+This example demonstrates the Microsoft Agent Framework approach compared to other agentic frameworks:
 
-| Feature | .NET Agent Framework | Python Equivalents |
-|---------|---------------------|-------------------|
-| **Type Safety** | Strong typing with C# | Dynamic typing |
-| **Integration** | Native .NET ecosystem | Varied compatibility |
-| **Performance** | Compiled code performance | Interpreted execution |
-| **Enterprise Ready** | Built for production .NET apps | Varies by framework |
-| **Tooling** | Visual Studio integration | IDE-dependent |
+| Feature | Microsoft Agent Framework | Other Frameworks |
+|---------|-------------------------|------------------|
+| **Integration** | Native Microsoft ecosystem | Varied compatibility |
+| **Simplicity** | Clean, intuitive API | Often complex setup |
+| **Extensibility** | Easy tool integration | Framework-dependent |
+| **Enterprise Ready** | Built for production | Varies by framework |
 
 ## 🚀 Getting Started
 
-Follow the cells below to build your first basic agent in .NET and understand foundational agentic concepts!
+### Prerequisites
 
-## 📦 Installation and Setup
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or higher
+- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
-This example is available as a runnable .NET Single File App. See the accompanying `02-dotnet-agent-framework.cs` file for the complete implementation.
-
-To run this example:
+### Required Environment Variables
 
 ```bash
-chmod +x 02-dotnet-agent-framework.cs
+# zsh/bash
+export GH_TOKEN=<your_github_token>
+export GH_ENDPOINT=https://models.github.ai/inference
+export GH_MODEL_ID=openai/gpt-5-mini
+```
+
+```powershell
+# PowerShell
+$env:GH_TOKEN = "<your_github_token>"
+$env:GH_ENDPOINT = "https://models.github.ai/inference"
+$env:GH_MODEL_ID = "openai/gpt-5-mini"
+```
+
+### Sample Code
+
+To run the code example,
+
+```bash
+# zsh/bash
+chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
 
 Or using the dotnet CLI:
 
 ```bash
-dotnet run 02-dotnet-agent-framework.cs
+dotnet run ./02-dotnet-agent-framework.cs
 ```
 
-## 💡 Code Walkthrough
-
-The complete implementation includes:
-
-### 1. Package Dependencies
+See [`02-dotnet-agent-framework.cs`](./02-dotnet-agent-framework.cs) for the complete code.
 
 ```csharp
-// Core AI abstraction layer for .NET applications
-#r "nuget: Microsoft.Extensions.AI, 9.9.1"
+#!/usr/bin/dotnet run
 
-// Microsoft Agent Framework OpenAI integration
-#r "nuget: Microsoft.Agents.AI.OpenAI, 1.0.0-preview.251001.3"
+#:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
 
-// Core Microsoft Agent Framework library
-#r "nuget: Microsoft.Agents.AI, 1.0.0-preview.251001.3"
-
-// Environment variable management
-#r "nuget: DotNetEnv, 3.1.1"
-```
-
-### 2. Essential Imports
-
-```csharp
-using System;
-using System.ComponentModel;
 using System.ClientModel;
-using Microsoft.Extensions.AI;
+using System.ComponentModel;
+
 using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
+
 using OpenAI;
-using DotNetEnv;
-```
 
-### 3. Environment Configuration
-
-```csharp
-// Load configuration from .env file
-Env.Load("../../../.env");
-```
-
-### 4. Tool Function Definition
-
-```csharp
-// Random destination generator tool
+// Tool Function: Random Destination Generator
+// This static method will be available to the agent as a callable tool
+// The [Description] attribute helps the AI understand when to use this function
+// This demonstrates how to create custom tools for AI agents
 [Description("Provides a random vacation destination.")]
 static string GetRandomDestination()
 {
+    // List of popular vacation destinations around the world
+    // The agent will randomly select from these options
     var destinations = new List<string>
     {
         "Paris, France",
@@ -148,79 +131,97 @@ static string GetRandomDestination()
         "Bangkok, Thailand",
         "Vancouver, Canada"
     };
-    
+
+    // Generate random index and return selected destination
+    // Uses System.Random for simple random selection
     var random = new Random();
     int index = random.Next(destinations.Count);
     return destinations[index];
 }
-```
 
-### 5. Configuration and Client Setup
+// Extract configuration from environment variables
+// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
+// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the GitHub token for authentication, throws exception if not specified
+var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
+var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
+var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
 
-```csharp
-// Extract environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? 
-    throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? 
-    throw new InvalidOperationException("GITHUB_TOKEN is not set.");
-
-// Configure OpenAI client for GitHub Models
+// Configure OpenAI Client Options
+// Create configuration options to point to GitHub Models endpoint
+// This redirects OpenAI client calls to GitHub's model inference service
 var openAIOptions = new OpenAIClientOptions()
 {
     Endpoint = new Uri(github_endpoint)
 };
 
-// Initialize OpenAI client
+// Initialize OpenAI Client with GitHub Models Configuration
+// Create OpenAI client using GitHub token for authentication
+// Configure it to use GitHub Models endpoint instead of OpenAI directly
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
-```
 
-### 6. Agent Configuration
+// Define Agent Identity and Comprehensive Instructions
+// Agent name for identification and logging purposes
+var AGENT_NAME = "TravelAgent";
 
-```csharp
-const string AGENT_NAME = "TravelAgent";
-
-const string AGENT_INSTRUCTIONS = @"You are a helpful AI Agent that can help plan vacations for customers.
+// Detailed instructions that define the agent's personality, capabilities, and behavior
+// This system prompt shapes how the agent responds and interacts with users
+var AGENT_INSTRUCTIONS = """
+You are a helpful AI Agent that can help plan vacations for customers.
 
 Important: When users specify a destination, always plan for that location. Only suggest random destinations when the user hasn't specified a preference.
 
 When the conversation begins, introduce yourself with this message:
-""Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
+"Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
 1. Plan a day trip to a specific location
 2. Suggest a random vacation destination
 3. Find destinations with specific features (beaches, mountains, historical sites, etc.)
 4. Plan an alternative trip if you don't like my first suggestion
 
-What kind of trip would you like me to help you plan today?""
+What kind of trip would you like me to help you plan today?"
 
-Always prioritize user preferences. If they mention a specific destination like ""Bali"" or ""Paris,"" focus your planning on that location rather than suggesting alternatives.
-";
-```
+Always prioritize user preferences. If they mention a specific destination like "Bali" or "Paris," focus your planning on that location rather than suggesting alternatives.
+""";
 
-### 7. Agent Initialization
-
-```csharp
-// Create AI agent with travel planning capabilities
-AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions)
+// Create AI Agent with Advanced Travel Planning Capabilities
+// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Configure agent with name, detailed instructions, and available tools
+// This demonstrates the .NET agent creation pattern with full configuration
+AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
-        tools: [AIFunctionFactory.Create((Func<string>)GetRandomDestination)]
+        tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
-```
 
-### 8. Conversation Management
-
-```csharp
-// Create new conversation thread
+// Create New Conversation Thread for Context Management
+// Initialize a new conversation thread to maintain context across multiple interactions
+// Threads enable the agent to remember previous exchanges and maintain conversational state
+// This is essential for multi-turn conversations and contextual understanding
 AgentThread thread = agent.GetNewThread();
 
-// Execute agent: First travel planning request
-Console.WriteLine(await agent.RunAsync("Plan me a day trip", thread));
+// Execute Agent: First Travel Planning Request
+// Run the agent with an initial request that will likely trigger the random destination tool
+// The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
+// Using the thread parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 
-// Execute agent: Follow-up request with context awareness
-Console.WriteLine(await agent.RunAsync("I don't like that destination. Plan me another vacation.", thread));
+Console.WriteLine();
+
+// Execute Agent: Follow-up Request with Context Awareness
+// Demonstrate contextual conversation by referencing the previous response
+// The agent remembers the previous destination suggestion and will provide an alternative
+// This showcases the power of conversation threads and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 ```
 
 ## 🎓 Key Takeaways
@@ -233,7 +234,7 @@ Console.WriteLine(await agent.RunAsync("I don't like that destination. Plan me a
 
 ## 🔗 Additional Resources
 
-- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/en-us/dotnet/ai/agents)
-- [GitHub Models Marketplace](https://github.com/marketplace/models)
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai-overview)
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app/)
+- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
