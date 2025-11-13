@@ -86,7 +86,13 @@ Imagine you are designing a Travel Agent, here is how you could think about usin
 2. **Control** – Make sure it’s clear how the user can modify the Agent after it’s been created with things like the System Prompt. Enable the user to choose how verbose the Agent is, its writing style, and any caveats on what the Agent should not talk about. Allow the user to view and delete any associated files or data, prompts, and past conversations.
 3. **Consistency** – Make sure the icons for Share Prompt, add a file or photo and tag someone or something are standard and recognizable. Use the paperclip icon to indicate file upload/sharing with the Agent, and an image icon to indicate graphics upload.
 
-### Got More Questions about AI Agentic Design Patterns?
+## Sample Codes
+
+- Python: [Agent Framework](./code_samples/03-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/03-dotnet-agent-framework.md)
+
+
+## Got More Questions about AI Agentic Design Patterns?
 
 Join the [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
