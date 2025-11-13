@@ -1,149 +1,132 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "033f170be3b54183e2f6b5463371ab69",
-  "translation_date": "2025-11-07T09:36:40+00:00",
+  "original_hash": "e23058f87779da210fc0257ee2747c53",
+  "translation_date": "2025-11-13T12:54:51+00:00",
   "source_file": "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md",
   "language_code": "no"
 }
 -->
-# 🔍 Utforsking av Agentiske Rammeverk - Grunnleggende Agent (.NET)
+# 🔍 Utforsking av Microsoft Agent Framework - Grunnleggende Agent (.NET)
 
 ## 📋 Læringsmål
 
-Denne notatboken utforsker de grunnleggende konseptene i Microsoft Agent Framework gjennom en enkel agentimplementering i .NET. Du vil lære kjerneprinsipper for agentisk design og forstå hvordan intelligente agenter fungerer i praksis ved bruk av C# og .NET-økosystemet.
+Dette eksemplet utforsker de grunnleggende konseptene i Microsoft Agent Framework gjennom en enkel agentimplementering i .NET. Du vil lære kjerneprinsipper for agentisk design og forstå hvordan intelligente agenter fungerer under overflaten ved bruk av C# og .NET-økosystemet.
 
-**Hva du vil oppdage:**
+### Hva du vil oppdage
+
 - 🏗️ **Agentarkitektur**: Forstå den grunnleggende strukturen til AI-agenter i .NET
 - 🛠️ **Verktøyintegrasjon**: Hvordan agenter bruker eksterne funksjoner for å utvide funksjonalitet  
-- 💬 **Samtaleflyt**: Administrere samtaler med flere vendinger og kontekst med trådbehandling
+- 💬 **Samtaleflyt**: Håndtering av samtaler med flere runder og kontekst med trådadministrasjon
 - 🔧 **Konfigurasjonsmønstre**: Beste praksis for oppsett og administrasjon av agenter i .NET
 
-## 🎯 Nøkkelkonsepter som dekkes
+## 🎯 Viktige konsepter som dekkes
 
-### Prinsipper for Agentisk Rammeverk
+### Prinsipper for Agentisk Framework
+
 - **Autonomi**: Hvordan agenter tar selvstendige beslutninger ved bruk av .NET AI-abstraksjoner
 - **Reaktivitet**: Reagere på miljøendringer og brukerinput
 - **Proaktivitet**: Ta initiativ basert på mål og kontekst
 - **Sosial evne**: Interagere gjennom naturlig språk med samtaletråder
 
 ### Tekniske komponenter
+
 - **AIAgent**: Kjerneagent for orkestrering og samtaleadministrasjon (.NET)
 - **Verktøyfunksjoner**: Utvide agentens funksjonalitet med C#-metoder og attributter
-- **OpenAI-integrasjon**: Utnytte språkmodeller gjennom standardiserte .NET-APIer
-- **Miljøadministrasjon**: Sikker konfigurasjon og håndtering av legitimasjon med DotNetEnv
+- **OpenAI-integrasjon**: Utnytte språkmodeller gjennom standardiserte .NET API-er
+- **Sikker konfigurasjon**: Miljøbasert administrasjon av API-nøkler
 
-## ⚙️ Forutsetninger og oppsett
+## 🔧 Teknisk stack
 
-**Nødvendige avhengigheter:**
-- .NET 9.0 SDK eller nyere
-- Visual Studio 2022 eller VS Code med C#-utvidelse
+### Kjerne-teknologier
 
-**NuGet-pakker:**
-- `Microsoft.Extensions.AI` - Kjerne AI-abstraksjoner
-- `Microsoft.Extensions.AI.OpenAI` - OpenAI-integrasjon (forhåndsvisning)
-- `DotNetEnv` - Administrasjon av miljøvariabler
-
-**Miljøkonfigurasjon (.env-fil):**
-```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
-```
-
-## 🔧 Teknisk stabel
-
-**Kjerneteknologier:**
 - Microsoft Agent Framework (.NET)
 - GitHub Models API-integrasjon
 - OpenAI-kompatible klientmønstre
 - Miljøbasert konfigurasjon med DotNetEnv
 
-**Agentens funksjoner:**
+### Agentens funksjoner
+
 - Forståelse og generering av naturlig språk
 - Funksjonskalling og verktøybruk med C#-attributter
 - Kontekstbevisste svar med samtaletråder
 - Utvidbar arkitektur med avhengighetsinjeksjonsmønstre
 
-## 📚 Rammeverkssammenligning
+## 📚 Sammenligning av rammeverk
 
-Dette eksemplet demonstrerer tilnærmingen til Microsoft Agent Framework i .NET sammenlignet med andre plattformer:
+Dette eksemplet viser tilnærmingen til Microsoft Agent Framework sammenlignet med andre agentiske rammeverk:
 
-| Funksjon | .NET Agent Framework | Python-ekvivalenter |
-|----------|-----------------------|---------------------|
-| **Type-sikkerhet** | Sterk typisering med C# | Dynamisk typisering |
-| **Integrasjon** | Naturlig .NET-økosystem | Variert kompatibilitet |
-| **Ytelse** | Kompilert kodeytelse | Tolket utførelse |
-| **Klar for bedrifter** | Bygget for produksjonsapplikasjoner i .NET | Varierer etter rammeverk |
-| **Verktøy** | Integrasjon med Visual Studio | Avhengig av IDE |
+| Funksjon | Microsoft Agent Framework | Andre rammeverk |
+|----------|---------------------------|-----------------|
+| **Integrasjon** | Naturlig Microsoft-økosystem | Variert kompatibilitet |
+| **Enkelhet** | Ren, intuitiv API | Ofte komplisert oppsett |
+| **Utvidbarhet** | Enkel verktøyintegrasjon | Avhengig av rammeverk |
+| **Klar for bedrift** | Bygget for produksjon | Varierer etter rammeverk |
 
 ## 🚀 Komme i gang
 
-Følg cellene nedenfor for å bygge din første grunnleggende agent i .NET og forstå grunnleggende agentiske konsepter!
+### Forutsetninger
 
-## 📦 Installasjon og oppsett
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) eller nyere
+- [GitHub Models API tilgangstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
-Dette eksemplet er tilgjengelig som en kjørbar .NET Single File App. Se den medfølgende `02-dotnet-agent-framework.cs`-filen for fullstendig implementering.
-
-For å kjøre dette eksemplet:
+### Nødvendige miljøvariabler
 
 ```bash
-chmod +x 02-dotnet-agent-framework.cs
+# zsh/bash
+export GH_TOKEN=<your_github_token>
+export GH_ENDPOINT=https://models.github.ai/inference
+export GH_MODEL_ID=openai/gpt-5-mini
+```
+
+```powershell
+# PowerShell
+$env:GH_TOKEN = "<your_github_token>"
+$env:GH_ENDPOINT = "https://models.github.ai/inference"
+$env:GH_MODEL_ID = "openai/gpt-5-mini"
+```
+
+### Eksempelkode
+
+For å kjøre kodeeksemplet,
+
+```bash
+# zsh/bash
+chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
 
 Eller ved bruk av dotnet CLI:
 
 ```bash
-dotnet run 02-dotnet-agent-framework.cs
+dotnet run ./02-dotnet-agent-framework.cs
 ```
 
-## 💡 Gjennomgang av kode
-
-Den fullstendige implementeringen inkluderer:
-
-### 1. Pakkeavhengigheter
+Se [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) for fullstendig kode.
 
 ```csharp
-// Core AI abstraction layer for .NET applications
-#r "nuget: Microsoft.Extensions.AI, 9.9.1"
+#!/usr/bin/dotnet run
 
-// Microsoft Agent Framework OpenAI integration
-#r "nuget: Microsoft.Agents.AI.OpenAI, 1.0.0-preview.251001.3"
+#:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
 
-// Core Microsoft Agent Framework library
-#r "nuget: Microsoft.Agents.AI, 1.0.0-preview.251001.3"
-
-// Environment variable management
-#r "nuget: DotNetEnv, 3.1.1"
-```
-
-### 2. Essensielle imports
-
-```csharp
-using System;
-using System.ComponentModel;
 using System.ClientModel;
-using Microsoft.Extensions.AI;
+using System.ComponentModel;
+
 using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
+
 using OpenAI;
-using DotNetEnv;
-```
 
-### 3. Miljøkonfigurasjon
-
-```csharp
-// Load configuration from .env file
-Env.Load("../../../.env");
-```
-
-### 4. Definisjon av verktøyfunksjoner
-
-```csharp
-// Random destination generator tool
+// Tool Function: Random Destination Generator
+// This static method will be available to the agent as a callable tool
+// The [Description] attribute helps the AI understand when to use this function
+// This demonstrates how to create custom tools for AI agents
 [Description("Provides a random vacation destination.")]
 static string GetRandomDestination()
 {
+    // List of popular vacation destinations around the world
+    // The agent will randomly select from these options
     var destinations = new List<string>
     {
         "Paris, France",
@@ -157,97 +140,117 @@ static string GetRandomDestination()
         "Bangkok, Thailand",
         "Vancouver, Canada"
     };
-    
+
+    // Generate random index and return selected destination
+    // Uses System.Random for simple random selection
     var random = new Random();
     int index = random.Next(destinations.Count);
     return destinations[index];
 }
-```
 
-### 5. Konfigurasjon og klientoppsett
+// Extract configuration from environment variables
+// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
+// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the GitHub token for authentication, throws exception if not specified
+var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
+var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
+var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
 
-```csharp
-// Extract environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? 
-    throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? 
-    throw new InvalidOperationException("GITHUB_TOKEN is not set.");
-
-// Configure OpenAI client for GitHub Models
+// Configure OpenAI Client Options
+// Create configuration options to point to GitHub Models endpoint
+// This redirects OpenAI client calls to GitHub's model inference service
 var openAIOptions = new OpenAIClientOptions()
 {
     Endpoint = new Uri(github_endpoint)
 };
 
-// Initialize OpenAI client
+// Initialize OpenAI Client with GitHub Models Configuration
+// Create OpenAI client using GitHub token for authentication
+// Configure it to use GitHub Models endpoint instead of OpenAI directly
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
-```
 
-### 6. Agentkonfigurasjon
+// Define Agent Identity and Comprehensive Instructions
+// Agent name for identification and logging purposes
+var AGENT_NAME = "TravelAgent";
 
-```csharp
-const string AGENT_NAME = "TravelAgent";
-
-const string AGENT_INSTRUCTIONS = @"You are a helpful AI Agent that can help plan vacations for customers.
+// Detailed instructions that define the agent's personality, capabilities, and behavior
+// This system prompt shapes how the agent responds and interacts with users
+var AGENT_INSTRUCTIONS = """
+You are a helpful AI Agent that can help plan vacations for customers.
 
 Important: When users specify a destination, always plan for that location. Only suggest random destinations when the user hasn't specified a preference.
 
 When the conversation begins, introduce yourself with this message:
-""Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
+"Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
 1. Plan a day trip to a specific location
 2. Suggest a random vacation destination
 3. Find destinations with specific features (beaches, mountains, historical sites, etc.)
 4. Plan an alternative trip if you don't like my first suggestion
 
-What kind of trip would you like me to help you plan today?""
+What kind of trip would you like me to help you plan today?"
 
-Always prioritize user preferences. If they mention a specific destination like ""Bali"" or ""Paris,"" focus your planning on that location rather than suggesting alternatives.
-";
-```
+Always prioritize user preferences. If they mention a specific destination like "Bali" or "Paris," focus your planning on that location rather than suggesting alternatives.
+""";
 
-### 7. Initialisering av agent
-
-```csharp
-// Create AI agent with travel planning capabilities
-AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions)
+// Create AI Agent with Advanced Travel Planning Capabilities
+// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Configure agent with name, detailed instructions, and available tools
+// This demonstrates the .NET agent creation pattern with full configuration
+AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
-        tools: [AIFunctionFactory.Create((Func<string>)GetRandomDestination)]
+        tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
-```
 
-### 8. Administrasjon av samtaler
-
-```csharp
-// Create new conversation thread
+// Create New Conversation Thread for Context Management
+// Initialize a new conversation thread to maintain context across multiple interactions
+// Threads enable the agent to remember previous exchanges and maintain conversational state
+// This is essential for multi-turn conversations and contextual understanding
 AgentThread thread = agent.GetNewThread();
 
-// Execute agent: First travel planning request
-Console.WriteLine(await agent.RunAsync("Plan me a day trip", thread));
+// Execute Agent: First Travel Planning Request
+// Run the agent with an initial request that will likely trigger the random destination tool
+// The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
+// Using the thread parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 
-// Execute agent: Follow-up request with context awareness
-Console.WriteLine(await agent.RunAsync("I don't like that destination. Plan me another vacation.", thread));
+Console.WriteLine();
+
+// Execute Agent: Follow-up Request with Context Awareness
+// Demonstrate contextual conversation by referencing the previous response
+// The agent remembers the previous destination suggestion and will provide an alternative
+// This showcases the power of conversation threads and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 ```
 
 ## 🎓 Viktige lærdommer
 
-1. **Agentarkitektur**: Microsoft Agent Framework gir en ren, type-sikker tilnærming til å bygge AI-agenter i .NET
+1. **Agentarkitektur**: Microsoft Agent Framework gir en ren, typesikker tilnærming til å bygge AI-agenter i .NET
 2. **Verktøyintegrasjon**: Funksjoner dekorert med `[Description]`-attributter blir tilgjengelige verktøy for agenten
-3. **Samtalekontekst**: Trådbehandling muliggjør samtaler med flere vendinger og full kontekstbevissthet
+3. **Samtalekontekst**: Trådadministrasjon muliggjør samtaler med flere runder og full kontekstbevissthet
 4. **Konfigurasjonsadministrasjon**: Miljøvariabler og sikker håndtering av legitimasjon følger beste praksis i .NET
-5. **OpenAI-kompatibilitet**: GitHub Models-integrasjon fungerer sømløst gjennom OpenAI-kompatible APIer
+5. **OpenAI-kompatibilitet**: GitHub Models-integrasjon fungerer sømløst gjennom OpenAI-kompatible API-er
 
 ## 🔗 Tilleggsressurser
 
-- [Microsoft Agent Framework Dokumentasjon](https://learn.microsoft.com/en-us/dotnet/ai/agents)
-- [GitHub Models Marketplace](https://github.com/marketplace/models)
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai-overview)
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app/)
+- [Microsoft Agent Framework Dokumentasjon](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på dets opprinnelige språk bør anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på dets opprinnelige språk bør anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

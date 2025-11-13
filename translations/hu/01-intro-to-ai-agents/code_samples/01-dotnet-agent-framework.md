@@ -1,19 +1,19 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:34:16+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:37:16+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "hu"
 }
 -->
-# 🌍 AI Utazási Ügynök a Microsoft Agent Framework (.NET) segítségével
+# 🌍 AI Utazási Ügynök a Microsoft Agent Frameworkkel (.NET)
 
 ## 📋 Forgatókönyv Áttekintése
 
-Ez a jegyzetfüzet bemutatja, hogyan lehet intelligens utazástervező ügynököt létrehozni a Microsoft Agent Framework for .NET segítségével. Az ügynök automatikusan személyre szabott egynapos útitervet készít véletlenszerűen kiválasztott úti célokhoz a világ különböző pontjain.
+Ez a példa bemutatja, hogyan lehet intelligens utazástervező ügynököt létrehozni a Microsoft Agent Framework segítségével .NET környezetben. Az ügynök automatikusan személyre szabott egynapos útitervet készít véletlenszerű úti célokhoz világszerte.
 
-### Fő Képességek:
+### Főbb Képességek:
 
 - 🎲 **Véletlenszerű Úti Cél Kiválasztása**: Egyedi eszközt használ a nyaralóhelyek kiválasztásához
 - 🗺️ **Intelligens Utazástervezés**: Részletes napi útitervet készít
@@ -24,16 +24,16 @@ Ez a jegyzetfüzet bemutatja, hogyan lehet intelligens utazástervező ügynök�
 
 ### Alapvető Technológiák
 
-- **Microsoft Agent Framework**: Legújabb .NET megvalósítás AI ügynök fejlesztéséhez
+- **Microsoft Agent Framework**: A legújabb .NET megvalósítás AI ügynökök fejlesztéséhez
 - **GitHub Models Integráció**: GitHub AI modell következtetési szolgáltatást használ
 - **OpenAI API Kompatibilitás**: OpenAI kliens könyvtárakat használ egyedi végpontokkal
 - **Biztonságos Konfiguráció**: Környezetalapú API kulcskezelés
 
-### Fő Komponensek
+### Főbb Komponensek
 
 1. **AIAgent**: A fő ügynök, amely a beszélgetés folyamatát irányítja
 2. **Egyedi Eszközök**: `GetRandomDestination()` funkció elérhető az ügynök számára
-3. **Chat Client**: GitHub Models által támogatott beszélgetési felület
+3. **Chat Kliens**: GitHub Models által támogatott beszélgetési felület
 4. **Streaming Támogatás**: Valós idejű válaszgenerálási képességek
 
 ### Integrációs Minta
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Főbb Tanulságok
+
+1. **Ügynök Architektúra**: A Microsoft Agent Framework tiszta, típusbiztos megközelítést kínál AI ügynökök létrehozásához .NET-ben
+2. **Eszköz Integráció**: A `[Description]` attribútummal ellátott funkciók elérhető eszközökké válnak az ügynök számára
+3. **Konfiguráció Kezelés**: Környezeti változók és biztonságos hitelesítő adatok kezelése a .NET legjobb gyakorlatait követi
+4. **OpenAI Kompatibilitás**: A GitHub Models integráció zökkenőmentesen működik az OpenAI-kompatibilis API-kon keresztül
+
+## 🔗 További Források
+
+- [Microsoft Agent Framework Dokumentáció](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Egyszerű Fájl Alkalmazások](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Felelősség kizárása**:  
-Ez a dokumentum az AI fordítási szolgáltatás [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével lett lefordítva. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely a fordítás használatából eredhet.
+**Felelősségi nyilatkozat**:  
+Ez a dokumentum az [Co-op Translator](https://github.com/Azure/co-op-translator) AI fordítási szolgáltatás segítségével lett lefordítva. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely a fordítás használatából eredhet.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

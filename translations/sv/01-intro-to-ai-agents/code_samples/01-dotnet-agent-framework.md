@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:19:37+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T12:42:41+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "sv"
 }
@@ -11,14 +11,14 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Scenariobeskrivning
 
-Den här notebooken visar hur man bygger en intelligent reseplaneringsagent med Microsoft Agent Framework för .NET. Agenten kan automatiskt generera personliga dagsutflyktsplaner för slumpmässiga destinationer runt om i världen.
+Det här exemplet visar hur man bygger en intelligent reseplaneringsagent med Microsoft Agent Framework för .NET. Agenten kan automatiskt skapa personliga dagsutflyktsplaner för slumpmässiga destinationer runt om i världen.
 
 ### Viktiga funktioner:
 
 - 🎲 **Slumpmässigt val av destination**: Använder ett anpassat verktyg för att välja semesterorter
 - 🗺️ **Intelligent reseplanering**: Skapar detaljerade dagsplaner
-- 🔄 **Strömmande svar i realtid**: Stödjer både omedelbara och strömmande svar
-- 🛠️ **Integration av anpassade verktyg**: Visar hur man kan utöka agentens funktioner
+- 🔄 **Strömning i realtid**: Stödjer både omedelbara och strömmande svar
+- 🛠️ **Integration av anpassade verktyg**: Visar hur man utökar agentens kapacitet
 
 ## 🔧 Teknisk arkitektur
 
@@ -26,7 +26,7 @@ Den här notebooken visar hur man bygger en intelligent reseplaneringsagent med 
 
 - **Microsoft Agent Framework**: Senaste .NET-implementeringen för AI-agentutveckling
 - **GitHub Models Integration**: Använder GitHubs AI-modelltjänst för inferens
-- **OpenAI API-kompatibilitet**: Utnyttjar OpenAI-klientbibliotek med anpassade endpoints
+- **OpenAI API-kompatibilitet**: Utnyttjar OpenAI:s klientbibliotek med anpassade slutpunkter
 - **Säker konfiguration**: API-nyckelhantering baserad på miljövariabler
 
 ### Viktiga komponenter
@@ -34,7 +34,7 @@ Den här notebooken visar hur man bygger en intelligent reseplaneringsagent med 
 1. **AIAgent**: Huvudagenten som hanterar konversationsflödet
 2. **Anpassade verktyg**: `GetRandomDestination()`-funktionen tillgänglig för agenten
 3. **Chatklient**: Konversationsgränssnitt med stöd från GitHub Models
-4. **Strömmande stöd**: Förmåga att generera svar i realtid
+4. **Strömningsstöd**: Kapacitet för att generera svar i realtid
 
 ### Integrationsmönster
 
@@ -52,7 +52,7 @@ graph LR
 ### Förutsättningar
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) eller senare
-- [GitHub Models API-åtkomsttoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [GitHub Models API åtkomsttoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ### Nödvändiga miljövariabler
 
@@ -80,7 +80,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Eller med hjälp av dotnet CLI:
+Eller använd dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Viktiga lärdomar
+
+1. **Agentarkitektur**: Microsoft Agent Framework erbjuder ett rent, typ-säkert sätt att bygga AI-agenter i .NET
+2. **Verktygsintegration**: Funktioner dekorerade med `[Description]`-attribut blir tillgängliga verktyg för agenten
+3. **Konfigurationshantering**: Miljövariabler och säker hantering av autentiseringsuppgifter följer .NET:s bästa praxis
+4. **OpenAI-kompatibilitet**: GitHub Models-integration fungerar smidigt via OpenAI-kompatibla API:er
+
+## 🔗 Ytterligare resurser
+
+- [Microsoft Agent Framework Dokumentation](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Ansvarsfriskrivning**:  
-Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, bör det noteras att automatiserade översättningar kan innehålla fel eller felaktigheter. Det ursprungliga dokumentet på dess ursprungliga språk bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för eventuella missförstånd eller feltolkningar som uppstår vid användning av denna översättning.
+Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, bör det noteras att automatiserade översättningar kan innehålla fel eller felaktigheter. Det ursprungliga dokumentet på dess modersmål bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för eventuella missförstånd eller feltolkningar som uppstår vid användning av denna översättning.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

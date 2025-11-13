@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:32:46+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:32:16+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "sw"
 }
@@ -11,7 +11,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Muhtasari wa Hali
 
-Notebook hii inaonyesha jinsi ya kujenga wakala wa akili wa kupanga safari kwa kutumia Microsoft Agent Framework kwa .NET. Wakala anaweza kuunda ratiba za safari za siku moja kwa moja kwa maeneo ya nasibu duniani kote.
+Mfano huu unaonyesha jinsi ya kujenga wakala wa akili wa kupanga safari kwa kutumia Microsoft Agent Framework kwa .NET. Wakala anaweza kuunda ratiba za safari za siku moja kwa moja kwa maeneo ya nasibu duniani kote.
 
 ### Uwezo Muhimu:
 
@@ -20,12 +20,12 @@ Notebook hii inaonyesha jinsi ya kujenga wakala wa akili wa kupanga safari kwa k
 - 🔄 **Utiririshaji wa Wakati Halisi**: Inasaidia majibu ya papo hapo na ya utiririshaji
 - 🛠️ **Muunganiko wa Zana Maalum**: Inaonyesha jinsi ya kupanua uwezo wa wakala
 
-## 🔧 Usanifu wa Kiufundi
+## 🔧 Muundo wa Kiufundi
 
-### Teknolojia Muhimu
+### Teknolojia za Msingi
 
 - **Microsoft Agent Framework**: Utekelezaji wa hivi karibuni wa .NET kwa maendeleo ya wakala wa AI
-- **Muunganiko wa Miundo ya GitHub**: Hutumia huduma ya uelekezi wa miundo ya AI ya GitHub
+- **Muunganiko wa Miundo ya GitHub**: Hutumia huduma ya utambuzi wa miundo ya AI ya GitHub
 - **Ulinganifu wa API ya OpenAI**: Hutumia maktaba za mteja wa OpenAI na viunganishi maalum
 - **Usanidi Salama**: Usimamizi wa funguo za API kulingana na mazingira
 
@@ -33,7 +33,7 @@ Notebook hii inaonyesha jinsi ya kujenga wakala wa akili wa kupanga safari kwa k
 
 1. **AIAgent**: Msimamizi mkuu wa wakala anayeshughulikia mtiririko wa mazungumzo
 2. **Zana Maalum**: Kazi ya `GetRandomDestination()` inayopatikana kwa wakala
-3. **Mteja wa Gumzo**: Kiunganishi cha mazungumzo kinachotegemea Miundo ya GitHub
+3. **Mteja wa Mazungumzo**: Kiunganishi cha mazungumzo kinachotegemea Miundo ya GitHub
 4. **Utiririshaji wa Majibu**: Uwezo wa kuunda majibu ya wakati halisi
 
 ### Muundo wa Muunganiko
@@ -52,7 +52,7 @@ graph LR
 ### Mahitaji ya Awali
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) au zaidi
-- [Token ya ufikiaji wa API ya Miundo ya GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Tokeni ya ufikiaji wa API ya Miundo ya GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ### Vigezo vya Mazingira Vinavyohitajika
 
@@ -72,7 +72,7 @@ $env:GH_MODEL_ID = "openai/gpt-5-mini"
 
 ### Mfano wa Msimbo
 
-Ili kuendesha mfano wa msimbo,
+Kuendesha mfano wa msimbo,
 
 ```bash
 # zsh/bash
@@ -80,7 +80,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Au kwa kutumia CLI ya dotnet:
+Au kwa kutumia dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Mambo Muhimu ya Kujifunza
+
+1. **Muundo wa Wakala**: Microsoft Agent Framework hutoa njia safi na salama ya aina ya kujenga mawakala wa AI katika .NET
+2. **Muunganiko wa Zana**: Kazi zilizopambwa na sifa za `[Description]` zinakuwa zana zinazopatikana kwa wakala
+3. **Usimamizi wa Usanidi**: Vigezo vya mazingira na usimamizi salama wa hati vinazingatia mazoea bora ya .NET
+4. **Ulinganifu wa OpenAI**: Muunganiko wa Miundo ya GitHub unafanya kazi bila matatizo kupitia API zinazolingana na OpenAI
+
+## 🔗 Rasilimali za Ziada
+
+- [Nyaraka za Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Soko la Miundo ya GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Kanusho**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati ya asili katika lugha yake ya awali inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatutawajibika kwa kutoelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati asilia katika lugha yake ya asili inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatutawajibika kwa kutoelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

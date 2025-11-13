@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "4c46e4ff9e349c521e2b0b17f51afa64",
-  "translation_date": "2025-08-29T13:05:05+00:00",
+  "original_hash": "d71524fe83a23829ae7a23b4031aaac8",
+  "translation_date": "2025-11-13T12:18:20+00:00",
   "source_file": "03-agentic-design-patterns/README.md",
   "language_code": "it"
 }
@@ -10,53 +10,53 @@ CO_OP_TRANSLATOR_METADATA:
 [![Come progettare buoni agenti AI](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.it.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
-# Principi di Design per Agenti AI
+# Principi di progettazione degli agenti AI
 
 ## Introduzione
 
-Esistono molti modi per pensare alla costruzione di Sistemi Agentici AI. Dato che l'ambiguità è una caratteristica e non un difetto nel design dell'AI Generativa, a volte è difficile per gli ingegneri capire da dove iniziare. Abbiamo creato un insieme di principi di design UX centrati sull'uomo per consentire agli sviluppatori di costruire sistemi agentici incentrati sul cliente per soddisfare le loro esigenze aziendali. Questi principi di design non rappresentano un'architettura prescrittiva, ma piuttosto un punto di partenza per i team che stanno definendo e costruendo esperienze con agenti.
+Esistono molti modi per pensare alla costruzione di sistemi agentici AI. Dato che l'ambiguità è una caratteristica e non un difetto nella progettazione di AI generativa, a volte è difficile per gli ingegneri capire da dove iniziare. Abbiamo creato un insieme di principi di progettazione UX centrati sull'uomo per consentire agli sviluppatori di costruire sistemi agentici incentrati sul cliente per soddisfare le loro esigenze aziendali. Questi principi di progettazione non rappresentano un'architettura prescrittiva, ma piuttosto un punto di partenza per i team che stanno definendo e costruendo esperienze con agenti.
 
 In generale, gli agenti dovrebbero:
 
-- Ampliare e scalare le capacità umane (brainstorming, risoluzione di problemi, automazione, ecc.)
+- Ampliare e potenziare le capacità umane (brainstorming, risoluzione di problemi, automazione, ecc.)
 - Colmare lacune di conoscenza (aggiornarmi su domini di conoscenza, traduzione, ecc.)
 - Facilitare e supportare la collaborazione nei modi in cui preferiamo lavorare con gli altri
 - Renderci versioni migliori di noi stessi (ad esempio, coach di vita/gestore di compiti, aiutandoci a imparare abilità di regolazione emotiva e consapevolezza, costruendo resilienza, ecc.)
 
-## Questa lezione coprirà
+## Questa lezione tratterà
 
-- Cosa sono i Principi di Design Agentico
-- Quali sono alcune linee guida da seguire durante l'implementazione di questi principi di design
-- Quali sono alcuni esempi di utilizzo dei principi di design
+- Cosa sono i principi di progettazione agentica
+- Quali linee guida seguire durante l'implementazione di questi principi di progettazione
+- Alcuni esempi di utilizzo dei principi di progettazione
 
 ## Obiettivi di apprendimento
 
 Dopo aver completato questa lezione, sarai in grado di:
 
-1. Spiegare cosa sono i Principi di Design Agentico
-2. Spiegare le linee guida per l'utilizzo dei Principi di Design Agentico
-3. Comprendere come costruire un agente utilizzando i Principi di Design Agentico
+1. Spiegare cosa sono i principi di progettazione agentica
+2. Spiegare le linee guida per l'utilizzo dei principi di progettazione agentica
+3. Comprendere come costruire un agente utilizzando i principi di progettazione agentica
 
-## I Principi di Design Agentico
+## I principi di progettazione agentica
 
-![Principi di Design Agentico](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.it.png)
+![Principi di progettazione agentica](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.it.png)
 
 ### Agente (Spazio)
 
-Questo è l'ambiente in cui l'agente opera. Questi principi informano come progettiamo agenti per interagire nei mondi fisici e digitali.
+Questo è l'ambiente in cui l'agente opera. Questi principi informano su come progettare agenti per interagire nei mondi fisici e digitali.
 
-- **Connettere, non collassare** – aiutare a connettere le persone ad altre persone, eventi e conoscenze utili per abilitare collaborazione e connessione.
+- **Connettere, non sostituire** – aiutare a connettere le persone con altre persone, eventi e conoscenze utili per favorire collaborazione e connessione.
 - Gli agenti aiutano a connettere eventi, conoscenze e persone.
 - Gli agenti avvicinano le persone. Non sono progettati per sostituire o sminuire le persone.
 - **Facilmente accessibile ma occasionalmente invisibile** – l'agente opera principalmente in background e ci sollecita solo quando è rilevante e appropriato.
   - L'agente è facilmente individuabile e accessibile per utenti autorizzati su qualsiasi dispositivo o piattaforma.
   - L'agente supporta input e output multimodali (suono, voce, testo, ecc.).
   - L'agente può passare senza problemi tra primo piano e sfondo; tra proattivo e reattivo, a seconda della percezione delle esigenze dell'utente.
-  - L'agente può operare in forma invisibile, ma il percorso del processo in background e la collaborazione con altri agenti sono trasparenti e controllabili dall'utente.
+  - L'agente può operare in forma invisibile, ma il suo percorso di processo in background e la collaborazione con altri agenti sono trasparenti e controllabili dall'utente.
 
 ### Agente (Tempo)
 
-Questo è il modo in cui l'agente opera nel tempo. Questi principi informano come progettiamo agenti che interagiscono attraverso passato, presente e futuro.
+Questo è il modo in cui l'agente opera nel tempo. Questi principi informano su come progettare agenti che interagiscono attraverso passato, presente e futuro.
 
 - **Passato**: Riflettere sulla storia che include sia stato che contesto.
   - L'agente fornisce risultati più pertinenti basati sull'analisi di dati storici più ricchi oltre l'evento, le persone o gli stati.
@@ -72,16 +72,16 @@ Questo è il modo in cui l'agente opera nel tempo. Questi principi informano com
 
 ### Agente (Core)
 
-Questi sono gli elementi chiave nel nucleo del design di un agente.
+Questi sono gli elementi chiave nel nucleo della progettazione di un agente.
 
 - **Abbracciare l'incertezza ma stabilire fiducia**.
-  - Un certo livello di incertezza dell'agente è previsto. L'incertezza è un elemento chiave del design dell'agente.
-  - Fiducia e trasparenza sono strati fondamentali del design dell'agente.
-  - Gli esseri umani hanno il controllo su quando l'agente è acceso/spento e lo stato dell'agente è chiaramente visibile in ogni momento.
+  - Un certo livello di incertezza dell'agente è previsto. L'incertezza è un elemento chiave della progettazione dell'agente.
+  - Fiducia e trasparenza sono strati fondamentali della progettazione dell'agente.
+  - Gli esseri umani hanno il controllo su quando l'agente è acceso/spento e lo stato dell'agente è sempre chiaramente visibile.
 
 ## Le linee guida per implementare questi principi
 
-Quando utilizzi i principi di design precedenti, segui le seguenti linee guida:
+Quando utilizzi i principi di progettazione precedenti, segui le seguenti linee guida:
 
 1. **Trasparenza**: Informa l'utente che è coinvolta l'AI, come funziona (incluso le azioni passate) e come fornire feedback e modificare il sistema.
 2. **Controllo**: Consenti all'utente di personalizzare, specificare preferenze e personalizzare, e avere il controllo sul sistema e sui suoi attributi (inclusa la possibilità di dimenticare).
@@ -89,27 +89,38 @@ Quando utilizzi i principi di design precedenti, segui le seguenti linee guida:
 
 ## Come progettare un agente di viaggio utilizzando questi principi e linee guida
 
-Immagina di progettare un agente di viaggio, ecco come potresti pensare di utilizzare i Principi di Design e le Linee Guida:
+Immagina di progettare un agente di viaggio, ecco come potresti pensare di utilizzare i principi di progettazione e le linee guida:
 
-1. **Trasparenza** – Fai sapere all'utente che l'agente di viaggio è un agente abilitato dall'AI. Fornisci alcune istruzioni di base su come iniziare (ad esempio, un messaggio di "Benvenuto", suggerimenti di esempio). Documenta chiaramente questo sulla pagina del prodotto. Mostra l'elenco dei suggerimenti che un utente ha chiesto in passato. Rendilo chiaro su come fornire feedback (pollice su e giù, pulsante Invia Feedback, ecc.). Articola chiaramente se l'agente ha restrizioni di utilizzo o di argomento.
-2. **Controllo** – Assicurati che sia chiaro come l'utente può modificare l'agente dopo che è stato creato con cose come il Prompt di Sistema. Consenti all'utente di scegliere quanto dettagliato deve essere l'agente, il suo stile di scrittura e qualsiasi avvertenza su ciò di cui l'agente non dovrebbe parlare. Consenti all'utente di visualizzare e eliminare eventuali file o dati associati, suggerimenti e conversazioni passate.
+1. **Trasparenza** – Fai sapere all'utente che l'agente di viaggio è un agente abilitato all'AI. Fornisci alcune istruzioni di base su come iniziare (ad esempio, un messaggio di "Benvenuto", suggerimenti di esempio). Documenta chiaramente questo sulla pagina del prodotto. Mostra l'elenco dei suggerimenti che un utente ha chiesto in passato. Rendilo chiaro su come fornire feedback (pollice su e giù, pulsante Invia Feedback, ecc.). Articola chiaramente se l'agente ha restrizioni di utilizzo o argomento.
+2. **Controllo** – Assicurati che sia chiaro come l'utente può modificare l'agente dopo che è stato creato con cose come il System Prompt. Consenti all'utente di scegliere quanto dettagliato è l'agente, il suo stile di scrittura e eventuali limitazioni su ciò di cui l'agente non dovrebbe parlare. Permetti all'utente di visualizzare e eliminare eventuali file o dati associati, suggerimenti e conversazioni passate.
 3. **Coerenza** – Assicurati che le icone per Condividi Suggerimento, aggiungi un file o una foto e tagga qualcuno o qualcosa siano standard e riconoscibili. Usa l'icona della graffetta per indicare il caricamento/condivisione di file con l'agente e un'icona immagine per indicare il caricamento di grafica.
 
-### Hai altre domande sui modelli di design agentico AI?
+## Codici di esempio
 
-Unisciti al [Discord di Azure AI Foundry](https://aka.ms/ai-agents/discord) per incontrare altri studenti, partecipare a ore di ufficio e ottenere risposte alle tue domande sugli agenti AI.
+- Python: [Agent Framework](./code_samples/03-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/03-dotnet-agent-framework.md)
+
+## Hai altre domande sui modelli di progettazione agentica AI?
+
+Unisciti al [Discord di Azure AI Foundry](https://aka.ms/ai-agents/discord) per incontrare altri studenti, partecipare a sessioni di domande e risposte e ottenere risposte alle tue domande sugli agenti AI.
 
 ## Risorse aggiuntive
 
+- <a href="https://openai.com" target="_blank">Pratiche per governare sistemi AI agentici | OpenAI</a>
+- <a href="https://microsoft.com" target="_blank">Progetto HAX Toolkit - Microsoft Research</a>
+- <a href="https://responsibleaitoolbox.ai" target="_blank">Responsible AI Toolbox</a>
+
 ## Lezione precedente
 
-[Esplorare i Framework Agentici](../02-explore-agentic-frameworks/README.md)
+[Esplorare i framework agentici](../02-explore-agentic-frameworks/README.md)
 
 ## Prossima lezione
 
-[Modello di Design per l'Uso degli Strumenti](../04-tool-use/README.md)
+[Modello di progettazione per l'uso degli strumenti](../04-tool-use/README.md)
 
 ---
 
-**Disclaimer**:  
-Questo documento è stato tradotto utilizzando il servizio di traduzione automatica [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire l'accuratezza, si prega di notare che le traduzioni automatiche potrebbero contenere errori o imprecisioni. Il documento originale nella sua lingua nativa dovrebbe essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale eseguita da un traduttore umano. Non siamo responsabili per eventuali fraintendimenti o interpretazioni errate derivanti dall'uso di questa traduzione.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Clausola di esclusione della responsabilità**:  
+Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire l'accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa dovrebbe essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale umana. Non siamo responsabili per eventuali incomprensioni o interpretazioni errate derivanti dall'uso di questa traduzione.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

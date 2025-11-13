@@ -1,29 +1,29 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86b9c2b24da3b3e61711182ffa72601c",
-  "translation_date": "2025-09-29T22:35:33+00:00",
+  "original_hash": "7120197753abacc827b64ac2d5d6966f",
+  "translation_date": "2025-11-13T12:58:17+00:00",
   "source_file": "02-explore-agentic-frameworks/README.md",
   "language_code": "fi"
 }
 -->
-[![Tutustu tekoälyagenttien kehyksiin](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df4d5d407e29970e654629e614f357444a9c27c80feb54c79d.fi.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![Tutustu AI-agenttikehyksiin](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df4d5d407e29970e654629e614f357444a9c27c80feb54c79d.fi.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(Klikkaa yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
 
-# Tutustu tekoälyagenttien kehyksiin
+# Tutustu AI-agenttikehyksiin
 
-Tekoälyagenttien kehykset ovat ohjelmistoalustoja, jotka on suunniteltu helpottamaan tekoälyagenttien luomista, käyttöönottoa ja hallintaa. Nämä kehykset tarjoavat kehittäjille valmiita komponentteja, abstraktioita ja työkaluja, jotka yksinkertaistavat monimutkaisten tekoälyjärjestelmien kehittämistä.
+AI-agenttikehykset ovat ohjelmistoalustoja, jotka on suunniteltu helpottamaan AI-agenttien luomista, käyttöönottoa ja hallintaa. Nämä kehykset tarjoavat kehittäjille valmiita komponentteja, abstraktioita ja työkaluja, jotka yksinkertaistavat monimutkaisten AI-järjestelmien kehittämistä.
 
-Kehykset auttavat kehittäjiä keskittymään sovellustensa ainutlaatuisiin ominaisuuksiin tarjoamalla standardoituja lähestymistapoja tekoälyagenttien kehittämisen yleisiin haasteisiin. Ne parantavat tekoälyjärjestelmien skaalautuvuutta, saavutettavuutta ja tehokkuutta.
+Kehykset auttavat kehittäjiä keskittymään sovellustensa ainutlaatuisiin piirteisiin tarjoamalla standardoituja lähestymistapoja AI-agenttien kehittämisen yleisiin haasteisiin. Ne parantavat skaalautuvuutta, saavutettavuutta ja tehokkuutta AI-järjestelmien rakentamisessa.
 
-## Johdanto 
+## Johdanto
 
 Tämä oppitunti käsittelee:
 
-- Mitä tekoälyagenttien kehykset ovat ja mitä ne mahdollistavat kehittäjille?
+- Mitä AI-agenttikehykset ovat ja mitä ne mahdollistavat kehittäjille?
 - Kuinka tiimit voivat käyttää näitä nopeasti prototyyppien luomiseen, iterointiin ja agenttien kyvykkyyksien parantamiseen?
-- Mitkä ovat erot Microsoftin <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>, <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a> ja <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a> -työkalujen välillä?
+- Mitkä ovat erot Microsoftin <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>, <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a> ja <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a> -kehysten ja työkalujen välillä?
 - Voinko integroida olemassa olevat Azure-ekosysteemin työkalut suoraan, vai tarvitsenko erillisiä ratkaisuja?
 - Mikä on Azure AI Agents -palvelu ja miten se auttaa minua?
 
@@ -31,49 +31,49 @@ Tämä oppitunti käsittelee:
 
 Tämän oppitunnin tavoitteena on auttaa sinua ymmärtämään:
 
-- Tekoälyagenttien kehysten rooli tekoälykehityksessä.
-- Kuinka hyödyntää tekoälyagenttien kehyksiä älykkäiden agenttien rakentamisessa.
-- Tärkeimmät kyvykkyydet, joita tekoälyagenttien kehykset mahdollistavat.
+- AI-agenttikehysten rooli AI-kehityksessä.
+- Kuinka hyödyntää AI-agenttikehyksiä älykkäiden agenttien rakentamisessa.
+- AI-agenttikehysten mahdollistamat keskeiset kyvykkyydet.
 - Erot AutoGenin, Semantic Kernelin ja Azure AI Agent Servicen välillä.
 
-## Mitä tekoälyagenttien kehykset ovat ja mitä ne mahdollistavat kehittäjille?
+## Mitä AI-agenttikehykset ovat ja mitä ne mahdollistavat kehittäjille?
 
-Perinteiset tekoälykehykset voivat auttaa sinua integroimaan tekoälyä sovelluksiisi ja parantamaan näitä sovelluksia seuraavilla tavoilla:
+Perinteiset AI-kehykset voivat auttaa sinua integroimaan AI:n sovelluksiisi ja parantamaan näitä sovelluksia seuraavilla tavoilla:
 
-- **Personointi**: Tekoäly voi analysoida käyttäjän käyttäytymistä ja mieltymyksiä tarjotakseen henkilökohtaisia suosituksia, sisältöä ja kokemuksia.  
-Esimerkki: Suoratoistopalvelut, kuten Netflix, käyttävät tekoälyä ehdottaakseen elokuvia ja ohjelmia katseluhistorian perusteella, mikä parantaa käyttäjän sitoutumista ja tyytyväisyyttä.
-- **Automaatio ja tehokkuus**: Tekoäly voi automatisoida toistuvia tehtäviä, virtaviivaistaa työnkulkuja ja parantaa operatiivista tehokkuutta.  
-Esimerkki: Asiakaspalvelusovellukset käyttävät tekoälypohjaisia chatbotteja käsittelemään yleisiä kyselyitä, mikä lyhentää vastausaikoja ja vapauttaa ihmisiä monimutkaisempien ongelmien hoitamiseen.
-- **Parannettu käyttäjäkokemus**: Tekoäly voi parantaa kokonaisvaltaista käyttäjäkokemusta tarjoamalla älykkäitä ominaisuuksia, kuten puheentunnistusta, luonnollisen kielen käsittelyä ja ennakoivaa tekstinsyöttöä.  
-Esimerkki: Virtuaaliassistentit, kuten Siri ja Google Assistant, käyttävät tekoälyä ymmärtääkseen ja vastatakseen puhekomentoihin, mikä helpottaa käyttäjien vuorovaikutusta laitteidensa kanssa.
+- **Personointi**: AI voi analysoida käyttäjän käyttäytymistä ja mieltymyksiä tarjotakseen personoituja suosituksia, sisältöä ja kokemuksia.  
+Esimerkki: Suoratoistopalvelut, kuten Netflix, käyttävät AI:ta ehdottaakseen elokuvia ja ohjelmia katseluhistorian perusteella, mikä parantaa käyttäjän sitoutumista ja tyytyväisyyttä.
+- **Automaatio ja tehokkuus**: AI voi automatisoida toistuvia tehtäviä, virtaviivaistaa työnkulkuja ja parantaa operatiivista tehokkuutta.  
+Esimerkki: Asiakaspalvelusovellukset käyttävät AI-pohjaisia chatbotteja käsittelemään yleisiä kyselyitä, mikä lyhentää vastausaikoja ja vapauttaa ihmisiä monimutkaisempien ongelmien hoitamiseen.
+- **Parannettu käyttäjäkokemus**: AI voi parantaa kokonaisvaltaista käyttäjäkokemusta tarjoamalla älykkäitä ominaisuuksia, kuten puheentunnistusta, luonnollisen kielen käsittelyä ja ennakoivaa tekstinsyöttöä.  
+Esimerkki: Virtuaaliassistentit, kuten Siri ja Google Assistant, käyttävät AI:ta ymmärtääkseen ja vastatakseen puhekomentoihin, mikä helpottaa käyttäjien vuorovaikutusta laitteidensa kanssa.
 
-### Kuulostaa hyvältä, eikö? Miksi sitten tarvitsemme tekoälyagenttien kehyksen?
+### Kuulostaa hyvältä, mutta miksi tarvitsemme AI-agenttikehyksen?
 
-Tekoälyagenttien kehykset edustavat jotain enemmän kuin pelkät tekoälykehykset. Ne on suunniteltu mahdollistamaan älykkäiden agenttien luominen, jotka voivat olla vuorovaikutuksessa käyttäjien, muiden agenttien ja ympäristön kanssa saavuttaakseen tiettyjä tavoitteita. Nämä agentit voivat osoittaa autonomista käyttäytymistä, tehdä päätöksiä ja sopeutua muuttuviin olosuhteisiin. Katsotaanpa joitakin tekoälyagenttien kehysten keskeisiä kyvykkyyksiä:
+AI-agenttikehykset edustavat jotain enemmän kuin pelkät AI-kehykset. Ne on suunniteltu mahdollistamaan älykkäiden agenttien luominen, jotka voivat olla vuorovaikutuksessa käyttäjien, muiden agenttien ja ympäristön kanssa saavuttaakseen tiettyjä tavoitteita. Nämä agentit voivat osoittaa autonomista käyttäytymistä, tehdä päätöksiä ja sopeutua muuttuviin olosuhteisiin. Katsotaanpa joitakin AI-agenttikehysten mahdollistamia keskeisiä kyvykkyyksiä:
 
-- **Agenttien yhteistyö ja koordinointi**: Mahdollistaa useiden tekoälyagenttien luomisen, jotka voivat työskennellä yhdessä, kommunikoida ja koordinoida ratkaistakseen monimutkaisia tehtäviä.
-- **Tehtävien automaatio ja hallinta**: Tarjoaa mekanismeja monivaiheisten työnkulkujen automatisointiin, tehtävien delegointiin ja dynaamiseen tehtävien hallintaan agenttien välillä.
+- **Agenttien yhteistyö ja koordinointi**: Mahdollistaa useiden AI-agenttien luomisen, jotka voivat työskennellä yhdessä, kommunikoida ja koordinoida ratkaistakseen monimutkaisia tehtäviä.
+- **Tehtävien automaatio ja hallinta**: Tarjoaa mekanismeja monivaiheisten työnkulkujen automatisointiin, tehtävien delegointiin ja dynaamiseen tehtävien hallintaan agenttien kesken.
 - **Kontekstin ymmärtäminen ja sopeutuminen**: Varustaa agentit kyvyllä ymmärtää konteksti, sopeutua muuttuviin ympäristöihin ja tehdä päätöksiä reaaliaikaisen tiedon perusteella.
 
 Yhteenvetona voidaan todeta, että agentit mahdollistavat enemmän, vievät automaation seuraavalle tasolle ja luovat älykkäämpiä järjestelmiä, jotka voivat sopeutua ja oppia ympäristöstään.
 
 ## Kuinka nopeasti prototyyppien luominen, iterointi ja agenttien kyvykkyyksien parantaminen onnistuu?
 
-Tämä on nopeasti kehittyvä alue, mutta useimmissa tekoälyagenttien kehyksissä on yhteisiä piirteitä, jotka auttavat sinua nopeasti prototyyppien luomisessa ja iteroinnissa, kuten modulaariset komponentit, yhteistyötyökalut ja reaaliaikainen oppiminen. Sukelletaan näihin:
+Tämä on nopeasti kehittyvä ala, mutta on joitakin asioita, jotka ovat yhteisiä useimmille AI-agenttikehyksille ja jotka voivat auttaa sinua nopeasti prototyyppien luomisessa ja iteroinnissa, kuten modulaariset komponentit, yhteistyötyökalut ja reaaliaikainen oppiminen. Tarkastellaan näitä tarkemmin:
 
-- **Käytä modulaarisia komponentteja**: Tekoäly-SDK:t tarjoavat valmiita komponentteja, kuten tekoäly- ja muistiliittimiä, funktioiden kutsumista luonnollisella kielellä tai koodiplugineilla, kehotemalleja ja paljon muuta.
+- **Käytä modulaarisia komponentteja**: AI-SDK:t tarjoavat valmiita komponentteja, kuten AI- ja muistiliittimiä, funktiokutsuja luonnollisella kielellä tai koodiplugineilla, kehotemalleja ja paljon muuta.
 - **Hyödynnä yhteistyötyökaluja**: Suunnittele agentteja, joilla on erityiset roolit ja tehtävät, mikä mahdollistaa yhteistyötyönkulkujen testaamisen ja parantamisen.
-- **Oppiminen reaaliajassa**: Toteuta palautesilmukoita, joissa agentit oppivat vuorovaikutuksista ja mukauttavat käyttäytymistään dynaamisesti.
+- **Opi reaaliajassa**: Toteuta palautesilmukoita, joissa agentit oppivat vuorovaikutuksista ja mukauttavat käyttäytymistään dynaamisesti.
 
 ### Käytä modulaarisia komponentteja
 
-SDK:t, kuten Microsoft Semantic Kernel ja LangChain, tarjoavat valmiita komponentteja, kuten tekoälyliittimiä, kehotemalleja ja muistinhallintaa.
+SDK:t, kuten Microsoft Semantic Kernel ja LangChain, tarjoavat valmiita komponentteja, kuten AI-liittimiä, kehotemalleja ja muistinhallintaa.
 
 **Kuinka tiimit voivat käyttää näitä**: Tiimit voivat nopeasti koota nämä komponentit toimivan prototyypin luomiseksi ilman, että heidän tarvitsee aloittaa tyhjästä, mikä mahdollistaa nopean kokeilun ja iteroinnin.
 
-**Kuinka tämä toimii käytännössä**: Voit käyttää valmiiksi rakennettua parseria käyttäjän syötteen tiedon eristämiseen, muistimoduulia tiedon tallentamiseen ja hakemiseen sekä kehotegeneraattoria vuorovaikutukseen käyttäjien kanssa, ilman että sinun tarvitsee rakentaa näitä komponentteja alusta alkaen.
+**Kuinka tämä toimii käytännössä**: Voit käyttää valmiiksi rakennettua parseria käyttäjän syötteen tiedon eristämiseen, muistimoduulia tiedon tallentamiseen ja hakemiseen sekä kehotegeneraattoria vuorovaikutukseen käyttäjien kanssa, kaikki ilman, että sinun tarvitsee rakentaa näitä komponentteja alusta alkaen.
 
-**Esimerkkikoodi**. Katsotaan esimerkkejä siitä, kuinka voit käyttää valmiiksi rakennettua tekoälyliitintä Semantic Kernel Pythonilla ja .Netillä, joka käyttää automaattista funktiokutsua mallin vastaamiseen käyttäjän syötteeseen:
+**Esimerkkikoodi**. Katsotaan esimerkkejä siitä, kuinka voit käyttää valmiiksi rakennettua AI-liitintä Semantic Kernel Pythonilla ja .Netillä, joka käyttää automaattista funktiokutsua mallin vastaamiseen käyttäjän syötteeseen:
 
 ``` python
 # Semantic Kernel Python Example
@@ -225,7 +225,7 @@ public class BookTravelPlugin
 }
 ```
   
-Tässä esimerkissä näet, kuinka voit hyödyntää valmiiksi rakennettua parseria käyttäjän syötteen keskeisten tietojen, kuten lähtöpaikan, määränpään ja lennon varauspyynnön päivämäärän, eristämiseen. Tämä modulaarinen lähestymistapa mahdollistaa keskittymisen korkean tason logiikkaan.
+Tässä esimerkissä näet, kuinka voit hyödyntää valmiiksi rakennettua parseria käyttäjän syötteen keskeisten tietojen, kuten lähtöpaikan, määränpään ja lentovarauksen päivämäärän, eristämiseen. Tämä modulaarinen lähestymistapa mahdollistaa keskittymisen korkean tason logiikkaan.
 
 ### Hyödynnä yhteistyötyökaluja
 
@@ -233,7 +233,7 @@ Kehykset, kuten CrewAI, Microsoft AutoGen ja Semantic Kernel, helpottavat useide
 
 **Kuinka tiimit voivat käyttää näitä**: Tiimit voivat suunnitella agentteja, joilla on erityiset roolit ja tehtävät, mikä mahdollistaa yhteistyötyönkulkujen testaamisen ja parantamisen sekä järjestelmän tehokkuuden parantamisen.
 
-**Kuinka tämä toimii käytännössä**: Voit luoda agenttitiimin, jossa jokaisella agentilla on erikoistunut tehtävä, kuten tiedonhaku, analyysi tai päätöksenteko. Nämä agentit voivat kommunikoida ja jakaa tietoa yhteisen tavoitteen saavuttamiseksi, kuten käyttäjän kyselyyn vastaamiseksi tai tehtävän suorittamiseksi.
+**Kuinka tämä toimii käytännössä**: Voit luoda agenttitiimin, jossa jokaisella agentilla on erikoistunut tehtävä, kuten tiedonhaku, analyysi tai päätöksenteko. Nämä agentit voivat kommunikoida ja jakaa tietoa saavuttaakseen yhteisen tavoitteen, kuten käyttäjän kyselyyn vastaamisen tai tehtävän suorittamisen.
 
 **Esimerkkikoodi (AutoGen)**:
 
@@ -272,13 +272,13 @@ await Console(stream)
   
 Edellisessä koodissa näet, kuinka voit luoda tehtävän, joka sisältää useita agentteja, jotka työskentelevät yhdessä analysoidakseen dataa. Jokainen agentti suorittaa tietyn tehtävän, ja tehtävä toteutetaan koordinoimalla agenttien toimintaa halutun lopputuloksen saavuttamiseksi. Luomalla erikoistuneita agentteja voit parantaa tehtävän tehokkuutta ja suorituskykyä.
 
-### Oppiminen reaaliajassa
+### Opi reaaliajassa
 
 Edistyneet kehykset tarjoavat kyvykkyyksiä reaaliaikaiseen kontekstin ymmärtämiseen ja sopeutumiseen.
 
 **Kuinka tiimit voivat käyttää näitä**: Tiimit voivat toteuttaa palautesilmukoita, joissa agentit oppivat vuorovaikutuksista ja mukauttavat käyttäytymistään dynaamisesti, mikä johtaa jatkuvaan parantamiseen ja kyvykkyyksien hienosäätöön.
 
-**Kuinka tämä toimii käytännössä**: Agentit voivat analysoida käyttäjäpalautetta, ympäristötietoja ja tehtävien tuloksia päivittääkseen tietokantaansa, mukauttaakseen päätöksentekoalgoritmejaan ja parantaakseen suorituskykyään ajan myötä. Tämä iteratiivinen oppimisprosessi mahdollistaa agenttien sopeutumisen muuttuviin olosuhteisiin ja käyttäjän mieltymyksiin, mikä parantaa järjestelmän kokonaistehokkuutta.
+**Kuinka tämä toimii käytännössä**: Agentit voivat analysoida käyttäjäpalautetta, ympäristötietoja ja tehtävän tuloksia päivittääkseen tietokantaansa, mukauttaakseen päätöksentekoalgoritmejaan ja parantaakseen suorituskykyään ajan myötä. Tämä iteratiivinen oppimisprosessi mahdollistaa agenttien sopeutumisen muuttuviin olosuhteisiin ja käyttäjän mieltymyksiin, mikä parantaa järjestelmän kokonaistehokkuutta.
 
 ## Mitkä ovat erot AutoGenin, Semantic Kernelin ja Azure AI Agent Servicen välillä?
 
@@ -288,20 +288,20 @@ Näitä kehyksiä voidaan verrata monin tavoin, mutta tarkastellaan joitakin kes
 
 AutoGen on Microsoft Researchin AI Frontiers Labin kehittämä avoimen lähdekoodin kehys. Se keskittyy tapahtumapohjaisiin, hajautettuihin *agenttisiin* sovelluksiin, jotka mahdollistavat useiden LLM:ien ja SLM:ien, työkalujen ja edistyneiden monen agentin suunnittelumallien käytön.
 
-AutoGen perustuu agenttien ydinideaan, jotka ovat autonomisia yksiköitä, jotka voivat havaita ympäristönsä, tehdä päätöksiä ja ryhtyä toimiin saavuttaakseen tiettyjä tavoitteita. Agentit kommunikoivat asynkronisten viestien kautta, mikä mahdollistaa niiden itsenäisen ja rinnakkaisen toiminnan, parantaen järjestelmän skaalautuvuutta ja reagointikykyä.
+AutoGen perustuu agenttien ydinideaan, jotka ovat autonomisia yksiköitä, jotka voivat havaita ympäristönsä, tehdä päätöksiä ja ryhtyä toimiin saavuttaakseen tiettyjä tavoitteita. Agentit kommunikoivat asynkronisten viestien kautta, mikä mahdollistaa niiden itsenäisen ja rinnakkaisen työskentelyn, parantaen järjestelmän skaalautuvuutta ja reagointikykyä.
 
-<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Agentit perustuvat näyttelijämalliin</a>. Wikipedian mukaan näyttelijä on _perusosa rinnakkaislaskennassa. Vastauksena vastaanottamaansa viestiin näyttelijä voi: tehdä paikallisia päätöksiä, luoda lisää näyttelijöitä, lähettää lisää viestejä ja päättää, miten vastata seuraavaan vastaanotettuun viestiin_.
+<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Agentit perustuvat näyttelijämalliin</a>. Wikipedian mukaan näyttelijä on _perusosa rinnakkaisessa laskennassa. Vastauksena vastaanottamaansa viestiin näyttelijä voi: tehdä paikallisia päätöksiä, luoda lisää näyttelijöitä, lähettää lisää viestejä ja päättää, miten vastata seuraavaan vastaanotettuun viestiin_.
 
 **Käyttötapaukset**: Koodin generoinnin automatisointi, data-analyysitehtävät ja räätälöityjen agenttien rakentaminen suunnittelu- ja tutkimustoimintoihin.
 
 Tässä on joitakin AutoGenin keskeisiä käsitteitä:
 
-- **Agentit**. Agentti on ohjelmistoyksikkö, joka:
-  - **Kommunikoi viestien kautta**, jotka voivat olla synkronisia tai asynkronisia.
-  - **Ylläpitää omaa tilaansa**, jota saapuvat viestit voivat muuttaa.
-  - **Suorittaa toimia** vastauksena vastaanotettuihin viesteihin tai tilansa muutoksiin. Nämä toimet voivat muuttaa agentin tilaa ja tuottaa ulkoisia vaikutuksia, kuten viestilokien päivittämistä, uusien viestien lähettämistä, koodin suorittamista tai API-kutsujen tekemistä.
-    
-  Tässä on lyhyt koodiesimerkki, jossa luodaan oma agentti chat-ominaisuuksilla:
+- **Agentit**. Agentti on ohjelmistoyksikkö, joka:  
+  - **Kommunikoi viestien kautta**, jotka voivat olla synkronisia tai asynkronisia.  
+  - **Ylläpitää omaa tilaansa**, jota saapuvat viestit voivat muuttaa.  
+  - **Suorittaa toimia** vastauksena vastaanotettuihin viesteihin tai tilansa muutoksiin. Nämä toimet voivat muuttaa agentin tilaa ja tuottaa ulkoisia vaikutuksia, kuten viestilokien päivittämistä, uusien viestien lähettämistä, koodin suorittamista tai API-kutsujen tekemistä.  
+
+  Tässä on lyhyt koodiesimerkki, jossa luot oman agentin chat-ominaisuuksilla:
 
     ```python
     from autogen_agentchat.agents import AssistantAgent
@@ -324,9 +324,9 @@ Tässä on joitakin AutoGenin keskeisiä käsitteitä:
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
   
-Edellisessä koodissa `MyAgent` on luotu ja perii `RoutedAgent`-luokan. Sillä on viestinkäsittelijä, joka tulostaa viestin sisällön ja lähettää sitten vastauksen `AssistantAgent`-deleegaatin avulla. Huomaa erityisesti, kuinka `self._delegate`-muuttujalle annetaan `AssistantAgent`-instanssi, joka on valmiiksi rakennettu agentti, joka voi käsitellä chat-vastauksia.
+Edellisessä koodissa `MyAgent` on luotu ja perii `RoutedAgent`-luokan. Sillä on viestinkäsittelijä, joka tulostaa viestin sisällön ja lähettää sitten vastauksen `AssistantAgent`-edustajan avulla. Huomaa erityisesti, kuinka `self._delegate`-muuttujalle annetaan `AssistantAgent`-instanssi, joka on valmiiksi rakennettu agentti, joka voi käsitellä chat-vastauksia.
 
-Ilmoitetaan AutoGenille tästä agenttityypistä ja käynnistetään ohjelma seuraavaksi:
+AutoGenille ilmoitetaan tästä agenttityypistä ja ohjelma käynnistetään seuraavaksi:
 
     ```python
     
@@ -338,7 +338,7 @@ Ilmoitetaan AutoGenille tästä agenttityypistä ja käynnistetään ohjelma seu
     await runtime.send_message(MyMessageType("Hello, World!"), AgentId("my_agent", "default"))
     ```
   
-Edellisessä koodissa agentit rekisteröidään ajonaikaisessa ympäristössä, ja sitten agentille lähetetään viesti, mikä johtaa seuraavaan tulokseen:
+Edellisessä koodissa agentit rekisteröidään ajonaikaan ja sitten agentille lähetetään viesti, mikä johtaa seuraavaan tulokseen:
 
     ```text
     # Output from the console:
@@ -347,7 +347,7 @@ Edellisessä koodissa agentit rekisteröidään ajonaikaisessa ympäristössä, 
     my_assistant responded: Hello! How can I assist you today?
     ```
   
-- **Moniagenttijärjestelmät**. AutoGen tukee useiden agenttien luomista, jotka voivat työskennellä yhdessä saavuttaakseen monimutkaisia tehtäviä. Agentit voivat kommunikoida, jakaa tietoa ja koordinoida toimiaan ongelmien ratkaisemiseksi tehokkaammin. Moniagenttijärjestelmän luomiseksi voit määritellä erilaisia agenttityyppejä, joilla on erikoistuneita tehtäviä ja rooleja, kuten tiedonhaku, analyysi, päätöksenteko ja käyttäjän vuorovaikutus. Katsotaanpa, miltä tällainen luominen näyttää, jotta saamme siitä käsityksen:
+- **Moniagenttisuus**. AutoGen tukee useiden agenttien luomista, jotka voivat työskennellä yhdessä saavuttaakseen monimutkaisia tehtäviä. Agentit voivat kommunikoida, jakaa tietoa ja koordinoida toimiaan ongelmien ratkaisemiseksi tehokkaammin. Moniagenttijärjestelmän luomiseksi voit määritellä eri tyyppisiä agentteja, joilla on erikoistuneita tehtäviä ja rooleja, kuten tiedonhaku, analyysi, päätöksenteko ja käyttäjän vuorovaikutus. Katsotaanpa, miltä tällainen luominen näyttää:
 
     ```python
     editor_description = "Editor for planning and reviewing the content."
@@ -388,27 +388,23 @@ Edellisessä koodissa agentit rekisteröidään ajonaikaisessa ympäristössä, 
     )
     ```
   
-Edellisessä koodissa meillä on `GroupChatManager`, joka on rekisteröity ajonaikaisessa ympäristössä. Tämä manageri vastaa eri agenttityyppien, kuten kirjoittajien, kuvittajien, toimittajien ja käyttäjien, välisten vuorovaikutusten koordinoinnista.
+Edellisessä koodissa meillä on `GroupChatManager`, joka on rekisteröity ajonaikaan. Tämä manageri vastaa eri agenttityyppien, kuten kirjoittajien, kuvittajien, toimittajien ja käyttäjien, vuorovaikutuksen koordinoinnista.
 
-- **Agenttien ajonaikainen ympäristö**. Kehys tarjoaa ajonaikaisen ympäristön, joka mahdollistaa agenttien välisen viestinnän, hallitsee niiden identiteettejä ja elinkaaria sekä varmistaa turvallisuus- ja yksityisyysrajat. Tämä tarkoittaa, että voit ajaa agenttejasi turvallisessa ja hallitussa ympäristössä, mikä varmistaa niiden turvallisen ja tehokkaan vuorovaikutuksen. Kiinnostavia ajonaikaisia ympäristöjä ovat:
-  - **Itsenäinen ajonaikainen ympäristö**. Tämä on hyvä valinta yksiprosessisovelluksille, joissa kaikki agentit on toteutettu samalla ohjelmointikielellä ja ne toimivat samassa prosessissa. Tässä on havainnollistus siitä, miten se toimii:
-  
-    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">Itsenäinen ajonaikainen ympäristö</a>  
-Sovelluspino
-
-    *agentit kommunikoivat viestien kautta ajonaikaisen ympäristön kautta, ja ajonaikainen ympäristö hallitsee agenttien elinkaarta*
-
-  - **Hajautettu agenttien ajonaikainen ympäristö**, joka sopii moniprosessisovelluksille, joissa agentit voivat olla toteutettu eri ohjelmointikielillä ja toimia eri koneilla. Tässä on havainnollistus siitä, miten se toimii:
-  
-    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-distributed.svg" target="_blank">Hajautettu ajonaikainen ympäristö</a>
+- **Agenttien ajonaika**. Kehys tarjoaa ajonaikaympäristön, joka mahdollistaa agenttien välisen viestinnän, hallitsee niiden identiteettejä ja elinkaaria sekä valvoo turvallisuus- ja yksityisyysrajoja. Tämä tarkoittaa, että voit ajaa agenttejasi turvallisessa ja hallitussa ympäristössä, varmistaen, että ne voivat olla vuorovaikutuksessa turvallisesti ja tehokkaasti. Kiinnostavia ajonaikoja ovat:  
+  - **Itsenäinen ajonaika**. Tämä on hyvä valinta yksiprosessisovelluksille, joissa kaikki agentit on toteutettu samalla ohjelmointikielellä ja ne toimivat samassa prosessissa. Tässä on havainnollistus siitä, miten se toimii:  
+    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">Itsenäinen ajonaika</a>  
+Sovelluspino  
+    *agentit kommunikoivat viestien kautta ajonaikaan, ja ajonaika hallitsee agenttien elinkaarta*  
+  - **Hajautettu agenttien ajonaika**, joka sopii moniprosessisovelluksiin, joissa agentit voivat olla toteutettu eri ohjelmointikielillä ja toimia eri koneilla. Tässä on havainnollistus siitä, miten se toimii:  
+    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-distributed.svg" target="_blank">Hajautettu ajonaika</a>
 
 ## Semantic Kernel + Agent Framework
 
-Semantic Kernel on yrityskäyttöön valmis tekoälyn orkestrointiin tarkoitettu SDK. Se koostuu tekoäly- ja muistiliittimistä sekä agenttikehyksestä.
+Semantic Kernel on yritysvalmis AI Orchestration SDK. Se koostuu AI- ja muistiliittimistä sekä Agent Frameworkista.
 
 Käsitellään ensin joitakin keskeisiä komponentteja:
 
-- **Tekoälyliittimet**: Tämä on rajapinta ulkoisiin tekoälypalveluihin ja tietolähteisiin, joita voidaan käyttää sekä Pythonilla että C#:lla.
+- **AI-liittimet**: Tämä on rajapinta ulkoisiin AI-palveluihin ja tietolähteisiin käytettäväksi sekä Pythonissa että C#:ssa.
 
   ```python
   # Semantic Kernel Python
@@ -441,18 +437,20 @@ Käsitellään ensin joitakin keskeisiä komponentteja:
     var kernel = builder.Build();
     ```
   
-Tässä on yksinkertainen esimerkki siitä, kuinka voit luoda kernelin ja lisätä chat
+Tässä on yksinkertainen esimerkki siitä, kuinka voit luoda kernelin ja lisätä chat-vastauspalvelun. Semantic Kernel luo yhteyden ulkoiseen AI-palveluun, tässä tapauksessa Azure OpenAI Chat Completioniin.
+
+- **Pluginit**: Nämä kapseloivat funktioita, joita sovellus voi käyttää. On sekä valmiita plugineja että mukautettuja, joita voit luoda. Liittyvä käsite on "kehotefunktiot". Sen sijaan, että tarjoaisit luonnollisen kielen vihjeitä funktion kutsumiseen, lähetät tiettyjä funktioita mallille. Nykyisen chat
 Nämä tiedot tallennetaan muistikokoelmaan `SummarizedAzureDocs`. Tämä on hyvin yksinkertaistettu esimerkki, mutta voit nähdä, kuinka tietoa voidaan tallentaa muistiin LLM:n käyttöä varten.
 
-Siinä olivat Semantic Kernel -kehyksen perusteet, mutta entä Agent Framework?
+Siinä olivat Semantic Kernel -kehysjärjestelmän perusteet, mutta entä Agent Framework?
 
 ## Azure AI Agent Service
 
-Azure AI Agent Service on uudempi lisäys, joka esiteltiin Microsoft Ignite 2024 -tapahtumassa. Sen avulla voidaan kehittää ja ottaa käyttöön AI-agentteja joustavammilla malleilla, kuten suoraan kutsumalla avoimen lähdekoodin LLM-malleja, kuten Llama 3, Mistral ja Cohere.
+Azure AI Agent Service on uudempi lisäys, joka esiteltiin Microsoft Ignite 2024 -tapahtumassa. Sen avulla voidaan kehittää ja ottaa käyttöön AI-agentteja joustavammilla malleilla, kuten suoraan käyttämällä avoimen lähdekoodin LLM-malleja, kuten Llama 3, Mistral ja Cohere.
 
-Azure AI Agent Service tarjoaa vahvemmat yritystason tietoturvamekanismit ja tietojen tallennusmenetelmät, mikä tekee siitä sopivan yrityssovelluksiin.
+Azure AI Agent Service tarjoaa vahvempia yritystason tietoturvamekanismeja ja tietojen tallennusmenetelmiä, mikä tekee siitä sopivan yrityssovelluksiin.
 
-Se toimii valmiiksi monen agentin orkestrointikehysten, kuten AutoGenin ja Semantic Kernelin, kanssa.
+Se toimii heti valmiina monen agentin orkestrointikehysten, kuten AutoGenin ja Semantic Kernelin, kanssa.
 
 Tämä palvelu on tällä hetkellä julkisessa esikatselussa ja tukee Pythonia ja C#:a agenttien rakentamiseen.
 
@@ -548,7 +546,7 @@ if __name__ == "__main__":
 
 Azure AI Agent Servicellä on seuraavat keskeiset käsitteet:
 
-- **Agentti**. Azure AI Agent Service integroituu Azure AI Foundryyn. AI Foundryssa AI-agentti toimii "älykkäänä" mikropalveluna, jota voidaan käyttää kysymysten vastaamiseen (RAG), toimintojen suorittamiseen tai työnkulkujen täydelliseen automatisointiin. Tämä saavutetaan yhdistämällä generatiivisten AI-mallien voima työkaluihin, jotka mahdollistavat pääsyn ja vuorovaikutuksen todellisten tietolähteiden kanssa. Tässä esimerkki agentista:
+- **Agentti**. Azure AI Agent Service integroituu Azure AI Foundryyn. AI Foundryssa AI-agentti toimii "älykkäänä" mikropalveluna, jota voidaan käyttää vastaamaan kysymyksiin (RAG), suorittamaan toimintoja tai täysin automatisoimaan työnkulkuja. Tämä saavutetaan yhdistämällä generatiivisten AI-mallien voima työkaluihin, jotka mahdollistavat pääsyn ja vuorovaikutuksen todellisten tietolähteiden kanssa. Tässä esimerkki agentista:
 
     ```python
     agent = project_client.agents.create_agent(
@@ -560,7 +558,7 @@ Azure AI Agent Servicellä on seuraavat keskeiset käsitteet:
     )
     ```
 
-    Tässä esimerkissä luodaan agentti mallilla `gpt-4o-mini`, nimellä `my-agent` ja ohjeilla `You are helpful agent`. Agentti on varustettu työkaluilla ja resursseilla koodin tulkintatehtävien suorittamiseen.
+    Tässä esimerkissä agentti luodaan mallilla `gpt-4o-mini`, nimellä `my-agent` ja ohjeilla `You are helpful agent`. Agentti varustetaan työkaluilla ja resursseilla koodin tulkintatehtävien suorittamiseen.
 
 - **Keskusteluketju ja viestit**. Keskusteluketju on toinen tärkeä käsite. Se edustaa keskustelua tai vuorovaikutusta agentin ja käyttäjän välillä. Keskusteluketjuja voidaan käyttää keskustelun etenemisen seuraamiseen, kontekstin tallentamiseen ja vuorovaikutuksen tilan hallintaan. Tässä esimerkki keskusteluketjusta:
 
@@ -580,18 +578,18 @@ Azure AI Agent Servicellä on seuraavat keskeiset käsitteet:
     print(f"Messages: {messages}")
     ```
 
-    Edellisessä koodissa luodaan keskusteluketju. Sen jälkeen ketjuun lähetetään viesti. Kutsumalla `create_and_process_run` agenttia pyydetään suorittamaan tehtävä ketjussa. Lopuksi viestit haetaan ja kirjataan, jotta nähdään agentin vastaus. Viestit osoittavat keskustelun etenemisen käyttäjän ja agentin välillä. On myös tärkeää ymmärtää, että viestit voivat olla eri tyyppisiä, kuten tekstiä, kuvia tai tiedostoja, jotka ovat agentin työn tuloksia, esimerkiksi kuva tai tekstivastaus. Kehittäjänä voit käyttää näitä tietoja vastauksen jatkokäsittelyyn tai sen esittämiseen käyttäjälle.
+    Edellisessä koodissa luodaan keskusteluketju. Sen jälkeen ketjuun lähetetään viesti. Kutsumalla `create_and_process_run` agenttia pyydetään suorittamaan tehtävä ketjussa. Lopuksi viestit haetaan ja kirjataan, jotta nähdään agentin vastaus. Viestit osoittavat keskustelun etenemisen käyttäjän ja agentin välillä. On myös tärkeää ymmärtää, että viestit voivat olla eri tyyppisiä, kuten tekstiä, kuvia tai tiedostoja, jotka ovat agentin työn tuloksena syntyneitä, esimerkiksi kuva tai tekstivastaus. Kehittäjänä voit käyttää näitä tietoja jatkokäsittelyyn tai esittää ne käyttäjälle.
 
-- **Integrointi muihin AI-kehyksiin**. Azure AI Agent Service voi olla vuorovaikutuksessa muiden kehysten, kuten AutoGenin ja Semantic Kernelin, kanssa, mikä tarkoittaa, että voit rakentaa osan sovelluksestasi jossakin näistä kehyksistä ja esimerkiksi käyttää Agent Serviceä orkestroijana tai rakentaa kaiken Agent Servicen sisällä.
+- **Integroituu muihin AI-kehyksiin**. Azure AI Agent Service voi olla vuorovaikutuksessa muiden kehysten, kuten AutoGenin ja Semantic Kernelin, kanssa, mikä tarkoittaa, että voit rakentaa osan sovelluksestasi jossakin näistä kehyksistä ja esimerkiksi käyttää Agent Serviceä orkestroijana tai rakentaa kaiken Agent Servicen sisällä.
 
 **Käyttötapaukset**: Azure AI Agent Service on suunniteltu yrityssovelluksiin, jotka vaativat turvallista, skaalautuvaa ja joustavaa AI-agenttien käyttöönottoa.
 
-## Mitkä ovat näiden kehysten erot?
+## Mitä eroa näillä kehyksillä on?
 
-Vaikuttaa siltä, että näissä kehyksissä on paljon päällekkäisyyksiä, mutta niiden suunnittelussa, ominaisuuksissa ja kohdekäyttötapauksissa on joitakin keskeisiä eroja:
+Vaikuttaa siltä, että näillä kehyksillä on paljon päällekkäisyyksiä, mutta niiden suunnittelussa, ominaisuuksissa ja kohdekäyttötapauksissa on joitakin keskeisiä eroja:
 
-- **AutoGen**: On kokeilukehys, joka keskittyy huippututkimukseen monen agentin järjestelmistä. Se on paras paikka kokeilla ja prototyyppien rakentamiseen kehittyneitä monen agentin järjestelmiä.
-- **Semantic Kernel**: On tuotantovalmis agenttikirjasto yrityssovellusten rakentamiseen. Keskittyy tapahtumapohjaisiin, hajautettuihin agenttisovelluksiin, jotka mahdollistavat useiden LLM- ja SLM-mallien, työkalujen sekä yhden/monta agenttia sisältävien suunnittelumallien käytön.
+- **AutoGen**: On kokeilukehys, joka keskittyy huippututkimukseen monen agentin järjestelmistä. Se on paras paikka kokeilla ja prototyyppien rakentamiseen kehittyneistä monen agentin järjestelmistä.
+- **Semantic Kernel**: On tuotantovalmis agenttikirjasto yritysagenttisovellusten rakentamiseen. Keskittyy tapahtumapohjaisiin, hajautettuihin agenttisovelluksiin, jotka mahdollistavat useiden LLM- ja SLM-mallien, työkalujen sekä yhden/monta agenttia sisältävien suunnittelumallien käytön.
 - **Azure AI Agent Service**: On Azure Foundryn alusta ja käyttöönottopalvelu agenteille. Tarjoaa yhteyden rakentamisen Azure Foundryn tukemiin palveluihin, kuten Azure OpenAI, Azure AI Search, Bing Search ja koodin suoritus.
 
 Etkö vieläkään tiedä, minkä valita?
@@ -609,32 +607,36 @@ Katsotaanpa, voimmeko auttaa sinua käymällä läpi joitakin yleisiä käyttöt
 >
 > V: AutoGen on erityisesti suunniteltu tapahtumapohjaisiin, hajautettuihin agenttisovelluksiin, mikä tekee siitä hyvin sopivan koodin generointiin ja data-analyysitehtäviin. Se tarjoaa tarvittavat työkalut ja ominaisuudet monimutkaisten monen agentin järjestelmien rakentamiseen tehokkaasti.
 
->K: Kuulostaa siltä, että Azure AI Agent Service voisi toimia tässä myös, sillä siinä on työkaluja koodin generointiin ja muuhun?
-
+> K: Kuulostaa siltä, että Azure AI Agent Service voisi toimia tässä myös, sillä siinä on työkaluja koodin generointiin ja muuhun?
 >
-> V: Kyllä, Azure AI Agent Service on agenttien alusta ja tarjoaa sisäänrakennettuja ominaisuuksia useille malleille, Azure AI Searchille, Bing Searchille ja Azure Functionsille. Se tekee agenttien rakentamisesta helppoa Foundry-portaalissa ja niiden käyttöönotosta skaalautuvaa.
+> V: Kyllä, Azure AI Agent Service on agenttien alusta ja tarjoaa sisäänrakennettuja ominaisuuksia useille malleille, Azure AI Searchille, Bing Searchille ja Azure Functionsille. Se tekee agenttien rakentamisesta Foundry-portaalissa helppoa ja mahdollistaa niiden käyttöönoton laajassa mittakaavassa.
 
 > K: Olen edelleen hämmentynyt, anna vain yksi vaihtoehto
 >
-> V: Erinomainen valinta on rakentaa sovelluksesi ensin Semantic Kernelissä ja käyttää sitten Azure AI Agent Serviceä agenttisi käyttöönottoon. Tämä lähestymistapa mahdollistaa agenttien helpon säilyttämisen samalla, kun hyödynnetään Semantic Kernelin voimaa monen agentin järjestelmien rakentamiseen. Lisäksi Semantic Kernelillä on liitin AutoGeniin, mikä tekee näiden kehysten yhteiskäytöstä helppoa.
+> V: Erinomainen valinta on rakentaa sovelluksesi ensin Semantic Kernelissä ja käyttää sitten Azure AI Agent Serviceä agenttisi käyttöönottoon. Tämä lähestymistapa mahdollistaa agenttien helpon säilyttämisen samalla, kun hyödynnetään Semantic Kernelin voimaa monen agentin järjestelmien rakentamiseen. Lisäksi Semantic Kernelillä on liitin AutoGenissä, mikä tekee näiden kehysten yhteiskäytöstä helppoa.
 
-Kootaan keskeiset erot taulukkoon:
+Tiivistetään keskeiset erot taulukkoon:
 
 | Kehys | Painopiste | Keskeiset käsitteet | Käyttötapaukset |
 | --- | --- | --- | --- |
 | AutoGen | Tapahtumapohjaiset, hajautetut agenttisovellukset | Agentit, Persoonat, Funktiot, Data | Koodin generointi, data-analyysitehtävät |
 | Semantic Kernel | Ihmismäisen tekstisisällön ymmärtäminen ja generointi | Agentit, Modulaariset komponentit, Yhteistyö | Luonnollisen kielen ymmärtäminen, sisällön generointi |
-| Azure AI Agent Service | Joustavat mallit, yritystason tietoturva, Koodin generointi, Työkalujen kutsuminen | Modulaarisuus, Yhteistyö, Prosessien orkestrointi | Turvallinen, skaalautuva ja joustava AI-agenttien käyttöönotto |
+| Azure AI Agent Service | Joustavat mallit, yritystason tietoturva, Koodin generointi, Työkalujen käyttö | Modulaarisuus, Yhteistyö, Prosessien orkestrointi | Turvallinen, skaalautuva ja joustava AI-agenttien käyttöönotto |
 
-Mikä on kunkin kehyksen ihanteellinen käyttötapaus?
+Mikä on ihanteellinen käyttötapaus kullekin näistä kehyksistä?
 
-## Voinko integroida olemassa olevat Azure-ekosysteemin työkaluni suoraan, vai tarvitsenko erillisiä ratkaisuja?
+## Voinko integroida olemassa olevat Azure-ekosysteemin työkaluni suoraan vai tarvitsenko erillisiä ratkaisuja?
 
-Vastaus on kyllä, voit integroida olemassa olevat Azure-ekosysteemin työkalusi suoraan erityisesti Azure AI Agent Serviceen, koska se on rakennettu toimimaan saumattomasti muiden Azure-palveluiden kanssa. Voit esimerkiksi integroida Bingin, Azure AI Searchin ja Azure Functionsin. Lisäksi siinä on syvä integraatio Azure AI Foundryyn.
+Vastaus on kyllä, voit integroida olemassa olevat Azure-ekosysteemin työkalusi suoraan Azure AI Agent Serviceen erityisesti, koska se on rakennettu toimimaan saumattomasti muiden Azure-palveluiden kanssa. Voit esimerkiksi integroida Bingin, Azure AI Searchin ja Azure Functionsin. Lisäksi siinä on syvä integraatio Azure AI Foundryn kanssa.
 
-AutoGenin ja Semantic Kernelin osalta voit myös integroida Azure-palveluita, mutta se saattaa vaatia Azure-palveluiden kutsumista koodistasi. Toinen tapa integroida on käyttää Azure SDK:ita vuorovaikutukseen Azure-palveluiden kanssa agenteistasi. Lisäksi, kuten mainittiin, voit käyttää Azure AI Agent Serviceä orkestroijana AutoGenissä tai Semantic Kernelissä rakennettuihin agentteihin, mikä mahdollistaa helpon pääsyn Azure-ekosysteemiin.
+AutoGenin ja Semantic Kernelin osalta voit myös integroida Azure-palveluihin, mutta se saattaa vaatia Azure-palveluiden kutsumista koodistasi. Toinen tapa integroida on käyttää Azure SDK:ta vuorovaikutukseen Azure-palveluiden kanssa agenteistasi. Lisäksi, kuten mainittiin, voit käyttää Azure AI Agent Serviceä orkestroijana AutoGenissä tai Semantic Kernelissä rakennettuihin agentteihin, mikä mahdollistaa helpon pääsyn Azure-ekosysteemiin.
 
-### Onko sinulla lisää kysymyksiä AI Agent Frameworkeista?
+## Esimerkkikoodit
+
+- Python: [Agent Framework](./code_samples/02-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/02-dotnet-agent-framework.md)
+
+## Onko sinulla lisää kysymyksiä AI Agent Frameworkeista?
 
 Liity [Azure AI Foundry Discordiin](https://aka.ms/ai-agents/discord) tapaamaan muita oppijoita, osallistumaan toimistoaikoihin ja saamaan vastauksia AI-agentteihin liittyviin kysymyksiisi.
 
@@ -657,5 +659,7 @@ Liity [Azure AI Foundry Discordiin](https://aka.ms/ai-agents/discord) tapaamaan 
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäisellä kielellä tulisi pitää ensisijaisena lähteenä. Kriittisen tiedon osalta suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa väärinkäsityksistä tai virhetulkinnoista, jotka johtuvat tämän käännöksen käytöstä.
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäisellä kielellä tulisi katsoa ensisijaiseksi lähteeksi. Kriittisen tiedon osalta suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa väärinkäsityksistä tai virhetulkinnoista, jotka johtuvat tämän käännöksen käytöstä.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

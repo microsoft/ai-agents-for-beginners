@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:36:57+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:52:43+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "sk"
 }
@@ -11,11 +11,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Prehľad Scenára
 
-Tento notebook ukazuje, ako vytvoriť inteligentného agenta na plánovanie ciest pomocou Microsoft Agent Framework pre .NET. Agent dokáže automaticky generovať personalizované itineráre jednodňových výletov do náhodných destinácií po celom svete.
+Tento príklad ukazuje, ako vytvoriť inteligentného agenta na plánovanie ciest pomocou Microsoft Agent Framework pre .NET. Agent dokáže automaticky generovať personalizované itineráre na jednodňové výlety do náhodných destinácií po celom svete.
 
-### Hlavné Funkcie:
+### Hlavné Schopnosti:
 
-- 🎲 **Výber Náhodnej Destinácie**: Používa vlastný nástroj na výber dovolenkových miest
+- 🎲 **Náhodný Výber Destinácie**: Používa vlastný nástroj na výber dovolenkových miest
 - 🗺️ **Inteligentné Plánovanie Ciest**: Vytvára podrobné itineráre deň po dni
 - 🔄 **Streamovanie v Reálnom Čase**: Podporuje okamžité aj streamované odpovede
 - 🛠️ **Integrácia Vlastných Nástrojov**: Ukazuje, ako rozšíriť schopnosti agenta
@@ -24,17 +24,17 @@ Tento notebook ukazuje, ako vytvoriť inteligentného agenta na plánovanie cies
 
 ### Základné Technológie
 
-- **Microsoft Agent Framework**: Najnovšia implementácia .NET pre vývoj AI agentov
-- **Integrácia Modelov GitHub**: Používa službu inferencie AI modelov od GitHubu
-- **Kompatibilita s OpenAI API**: Využíva klientské knižnice OpenAI s vlastnými endpointmi
+- **Microsoft Agent Framework**: Najnovšia implementácia pre vývoj AI agentov v .NET
+- **Integrácia GitHub Models**: Používa inferenčnú službu AI modelov od GitHubu
+- **Kompatibilita s OpenAI API**: Využíva knižnice klientov OpenAI s vlastnými endpointmi
 - **Bezpečná Konfigurácia**: Správa API kľúčov na základe prostredia
 
 ### Kľúčové Komponenty
 
-1. **AIAgent**: Hlavný orchestrátor agenta, ktorý riadi tok konverzácie
-2. **Vlastné Nástroje**: Funkcia `GetRandomDestination()` dostupná agentovi
-3. **Chat Klient**: Rozhranie konverzácie podporované modelmi GitHub
-4. **Podpora Streamovania**: Schopnosti generovania odpovedí v reálnom čase
+1. **AIAgent**: Hlavný orchestrátor agenta, ktorý spracováva tok konverzácie
+2. **Vlastné Nástroje**: Funkcia `GetRandomDestination()` dostupná pre agenta
+3. **Chat Klient**: Rozhranie pre konverzáciu podporované GitHub Models
+4. **Podpora Streamovania**: Schopnosť generovať odpovede v reálnom čase
 
 ### Vzor Integrácie
 
@@ -51,8 +51,8 @@ graph LR
 
 ### Predpoklady
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) alebo vyšší
-- [Prístupový token API pre GitHub Models](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) alebo novší
+- [Prístupový token pre GitHub Models API](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ### Požadované Premenné Prostredia
 
@@ -174,6 +174,20 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
     Console.Write(update);
 }
 ```
+
+## 🎓 Kľúčové Zistenia
+
+1. **Architektúra Agenta**: Microsoft Agent Framework poskytuje čistý, typovo bezpečný prístup k vývoju AI agentov v .NET
+2. **Integrácia Nástrojov**: Funkcie označené atribútmi `[Description]` sa stávajú dostupnými nástrojmi pre agenta
+3. **Správa Konfigurácie**: Premenné prostredia a bezpečné spracovanie poverení nasledujú najlepšie praktiky .NET
+4. **Kompatibilita s OpenAI**: Integrácia GitHub Models funguje bezproblémovo cez OpenAI-kompatibilné API
+
+## 🔗 Ďalšie Zdroje
+
+- [Dokumentácia Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

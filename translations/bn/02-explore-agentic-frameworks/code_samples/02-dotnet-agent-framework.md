@@ -1,149 +1,133 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "033f170be3b54183e2f6b5463371ab69",
-  "translation_date": "2025-11-07T09:33:40+00:00",
+  "original_hash": "e23058f87779da210fc0257ee2747c53",
+  "translation_date": "2025-11-13T11:46:39+00:00",
   "source_file": "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md",
   "language_code": "bn"
 }
 -->
-# 🔍 এজেন্টিক ফ্রেমওয়ার্ক অন্বেষণ - বেসিক এজেন্ট (.NET)
+# 🔍 Microsoft Agent Framework - বেসিক এজেন্ট (.NET) অন্বেষণ
 
 ## 📋 শেখার লক্ষ্যসমূহ
 
-এই নোটবুকটি Microsoft Agent Framework-এর মৌলিক ধারণাগুলি .NET-এ একটি বেসিক এজেন্ট বাস্তবায়নের মাধ্যমে অন্বেষণ করে। আপনি এজেন্টিক প্যাটার্নের মূল বিষয়গুলি শিখবেন এবং C# এবং .NET ইকোসিস্টেম ব্যবহার করে বুদ্ধিমান এজেন্ট কীভাবে কাজ করে তা বুঝতে পারবেন।
+এই উদাহরণটি Microsoft Agent Framework-এর মৌলিক ধারণাগুলি .NET-এ একটি বেসিক এজেন্ট বাস্তবায়নের মাধ্যমে অন্বেষণ করে। আপনি এজেন্টিক প্যাটার্নের মূল বিষয়গুলি শিখবেন এবং C# এবং .NET ইকোসিস্টেম ব্যবহার করে বুদ্ধিমান এজেন্ট কীভাবে কাজ করে তা বুঝতে পারবেন।
 
-**আপনি যা আবিষ্কার করবেন:**
-- 🏗️ **এজেন্ট আর্কিটেকচার**: .NET-এ AI এজেন্টের মৌলিক কাঠামো বোঝা
+### আপনি যা আবিষ্কার করবেন
+
+- 🏗️ **এজেন্ট আর্কিটেকচার**: .NET-এ AI এজেন্টের মৌলিক কাঠামো বোঝা  
 - 🛠️ **টুল ইন্টিগ্রেশন**: এজেন্ট কীভাবে বহিরাগত ফাংশন ব্যবহার করে সক্ষমতা বাড়ায়  
-- 💬 **কথোপকথনের প্রবাহ**: থ্রেড ম্যানেজমেন্টের মাধ্যমে বহু-পর্ব কথোপকথন এবং প্রসঙ্গ পরিচালনা
-- 🔧 **কনফিগারেশন প্যাটার্ন**: .NET-এ এজেন্ট সেটআপ এবং ব্যবস্থাপনার সেরা পদ্ধতি
+- 💬 **কথোপকথনের প্রবাহ**: থ্রেড ম্যানেজমেন্টের মাধ্যমে বহু-পর্ব কথোপকথন এবং প্রসঙ্গ পরিচালনা  
+- 🔧 **কনফিগারেশন প্যাটার্ন**: .NET-এ এজেন্ট সেটআপ এবং ব্যবস্থাপনার সেরা পদ্ধতি  
 
 ## 🎯 মূল ধারণাগুলি
 
-### এজেন্টিক ফ্রেমওয়ার্কের নীতিমালা
-- **স্বায়ত্তশাসন**: .NET AI অ্যাবস্ট্রাকশন ব্যবহার করে এজেন্ট কীভাবে স্বাধীন সিদ্ধান্ত নেয়
-- **প্রতিক্রিয়াশীলতা**: পরিবেশগত পরিবর্তন এবং ব্যবহারকারীর ইনপুটের প্রতি সাড়া দেওয়া
-- **প্রোঅ্যাকটিভিটি**: লক্ষ্য এবং প্রসঙ্গের উপর ভিত্তি করে উদ্যোগ গ্রহণ
-- **সামাজিক দক্ষতা**: কথোপকথনের থ্রেডের মাধ্যমে প্রাকৃতিক ভাষায় যোগাযোগ করা
+### এজেন্টিক ফ্রেমওয়ার্ক নীতিমালা
+
+- **স্বায়ত্তশাসন**: .NET AI অ্যাবস্ট্রাকশন ব্যবহার করে এজেন্ট কীভাবে স্বাধীন সিদ্ধান্ত নেয়  
+- **প্রতিক্রিয়াশীলতা**: পরিবেশগত পরিবর্তন এবং ব্যবহারকারীর ইনপুটের প্রতি সাড়া দেওয়া  
+- **প্রোঅ্যাকটিভিটি**: লক্ষ্য এবং প্রসঙ্গের উপর ভিত্তি করে উদ্যোগ নেওয়া  
+- **সামাজিক দক্ষতা**: কথোপকথনের থ্রেডের মাধ্যমে প্রাকৃতিক ভাষায় যোগাযোগ করা  
 
 ### প্রযুক্তিগত উপাদান
-- **AIAgent**: .NET-এ মূল এজেন্ট অর্কেস্ট্রেশন এবং কথোপকথন ব্যবস্থাপনা
-- **টুল ফাংশন**: C# মেথড এবং অ্যাট্রিবিউট ব্যবহার করে এজেন্টের সক্ষমতা বাড়ানো
-- **OpenAI ইন্টিগ্রেশন**: স্ট্যান্ডার্ডাইজড .NET API-এর মাধ্যমে ভাষার মডেল ব্যবহার
-- **পরিবেশ ব্যবস্থাপনা**: DotNetEnv দিয়ে নিরাপদ কনফিগারেশন এবং ক্রেডেনশিয়াল হ্যান্ডলিং
 
-## ⚙️ প্রয়োজনীয়তা এবং সেটআপ
-
-**প্রয়োজনীয় ডিপেনডেন্সি:**
-- .NET 9.0 SDK বা তার বেশি
-- Visual Studio 2022 অথবা VS Code C# এক্সটেনশন সহ
-
-**NuGet প্যাকেজ:**
-- `Microsoft.Extensions.AI` - মূল AI অ্যাবস্ট্রাকশন
-- `Microsoft.Extensions.AI.OpenAI` - OpenAI ইন্টিগ্রেশন (প্রিভিউ)
-- `DotNetEnv` - পরিবেশ ভেরিয়েবল ব্যবস্থাপনা
-
-**পরিবেশ কনফিগারেশন (.env ফাইল):**
-```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
-```
+- **AIAgent**: মূল এজেন্ট অর্কেস্ট্রেশন এবং কথোপকথন ব্যবস্থাপনা (.NET)  
+- **টুল ফাংশন**: C# মেথড এবং অ্যাট্রিবিউট ব্যবহার করে এজেন্টের সক্ষমতা বাড়ানো  
+- **OpenAI ইন্টিগ্রেশন**: স্ট্যান্ডার্ডাইজড .NET API-এর মাধ্যমে ভাষার মডেল ব্যবহার করা  
+- **নিরাপদ কনফিগারেশন**: পরিবেশ-ভিত্তিক API কী ব্যবস্থাপনা  
 
 ## 🔧 প্রযুক্তিগত স্ট্যাক
 
-**মূল প্রযুক্তি:**
-- Microsoft Agent Framework (.NET)
-- GitHub Models API ইন্টিগ্রেশন
-- OpenAI-সামঞ্জস্যপূর্ণ ক্লায়েন্ট প্যাটার্ন
-- DotNetEnv দিয়ে পরিবেশ-ভিত্তিক কনফিগারেশন
+### মূল প্রযুক্তি
 
-**এজেন্টের সক্ষমতা:**
-- প্রাকৃতিক ভাষা বোঝা এবং তৈরি করা
-- C# অ্যাট্রিবিউট দিয়ে ফাংশন কলিং এবং টুল ব্যবহার
-- কথোপকথনের থ্রেড দিয়ে প্রসঙ্গ-সচেতন প্রতিক্রিয়া
-- ডিপেনডেন্সি ইনজেকশন প্যাটার্ন দিয়ে এক্সটেনসিবল আর্কিটেকচার
+- Microsoft Agent Framework (.NET)  
+- GitHub Models API ইন্টিগ্রেশন  
+- OpenAI-সামঞ্জস্যপূর্ণ ক্লায়েন্ট প্যাটার্ন  
+- DotNetEnv দিয়ে পরিবেশ-ভিত্তিক কনফিগারেশন  
+
+### এজেন্টের সক্ষমতা
+
+- প্রাকৃতিক ভাষা বোঝা এবং তৈরি করা  
+- C# অ্যাট্রিবিউট দিয়ে ফাংশন কলিং এবং টুল ব্যবহার  
+- কথোপকথনের থ্রেডের সাথে প্রসঙ্গ-সচেতন প্রতিক্রিয়া  
+- ডিপেনডেন্সি ইনজেকশন প্যাটার্ন দিয়ে প্রসারণযোগ্য আর্কিটেকচার  
 
 ## 📚 ফ্রেমওয়ার্ক তুলনা
 
-এই উদাহরণটি .NET-এ Microsoft Agent Framework পদ্ধতির তুলনা করে অন্যান্য প্ল্যাটফর্মের সাথে:
+এই উদাহরণটি Microsoft Agent Framework পদ্ধতি অন্যান্য এজেন্টিক ফ্রেমওয়ার্কের সাথে তুলনা করে:
 
-| বৈশিষ্ট্য | .NET এজেন্ট ফ্রেমওয়ার্ক | Python সমতুল্য |
-|---------|---------------------|-------------------|
-| **টাইপ সেফটি** | C# দিয়ে শক্তিশালী টাইপিং | ডাইনামিক টাইপিং |
-| **ইন্টিগ্রেশন** | নেটিভ .NET ইকোসিস্টেম | বিভিন্ন সামঞ্জস্যতা |
-| **পারফরম্যান্স** | কম্পাইলড কোড পারফরম্যান্স | ইন্টারপ্রেটেড এক্সিকিউশন |
-| **এন্টারপ্রাইজ রেডি** | প্রোডাকশন .NET অ্যাপের জন্য তৈরি | ফ্রেমওয়ার্ক অনুযায়ী পরিবর্তনশীল |
-| **টুলিং** | Visual Studio ইন্টিগ্রেশন | IDE-নির্ভর |
+| বৈশিষ্ট্য | Microsoft Agent Framework | অন্যান্য ফ্রেমওয়ার্ক |
+|---------|-------------------------|------------------|
+| **ইন্টিগ্রেশন** | নেটিভ Microsoft ইকোসিস্টেম | বিভিন্ন সামঞ্জস্যতা |
+| **সরলতা** | পরিষ্কার, সহজবোধ্য API | প্রায়ই জটিল সেটআপ |
+| **প্রসারণযোগ্যতা** | সহজ টুল ইন্টিগ্রেশন | ফ্রেমওয়ার্ক-নির্ভর |
+| **এন্টারপ্রাইজ প্রস্তুত** | প্রোডাকশনের জন্য তৈরি | ফ্রেমওয়ার্ক অনুযায়ী পরিবর্তনশীল |
 
 ## 🚀 শুরু করা
 
-নিচের সেলগুলো অনুসরণ করে .NET-এ আপনার প্রথম বেসিক এজেন্ট তৈরি করুন এবং এজেন্টিক ধারণার ভিত্তি বুঝুন!
+### প্রয়োজনীয়তা
 
-## 📦 ইনস্টলেশন এবং সেটআপ
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) বা তার বেশি  
+- [GitHub Models API অ্যাক্সেস টোকেন](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
 
-এই উদাহরণটি একটি রানযোগ্য .NET সিঙ্গেল ফাইল অ্যাপ হিসেবে উপলব্ধ। সম্পূর্ণ বাস্তবায়নের জন্য `02-dotnet-agent-framework.cs` ফাইলটি দেখুন।
-
-এই উদাহরণটি চালানোর জন্য:
+### প্রয়োজনীয় পরিবেশ ভেরিয়েবল
 
 ```bash
-chmod +x 02-dotnet-agent-framework.cs
+# zsh/bash
+export GH_TOKEN=<your_github_token>
+export GH_ENDPOINT=https://models.github.ai/inference
+export GH_MODEL_ID=openai/gpt-5-mini
+```
+  
+```powershell
+# PowerShell
+$env:GH_TOKEN = "<your_github_token>"
+$env:GH_ENDPOINT = "https://models.github.ai/inference"
+$env:GH_MODEL_ID = "openai/gpt-5-mini"
+```
+  
+
+### নমুনা কোড
+
+কোড উদাহরণ চালানোর জন্য,  
+
+```bash
+# zsh/bash
+chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-
-অথবা dotnet CLI ব্যবহার করে:
+  
+অথবা dotnet CLI ব্যবহার করে:  
 
 ```bash
-dotnet run 02-dotnet-agent-framework.cs
+dotnet run ./02-dotnet-agent-framework.cs
 ```
-
-## 💡 কোড ওয়াকথ্রু
-
-সম্পূর্ণ বাস্তবায়ন অন্তর্ভুক্ত করে:
-
-### 1. প্যাকেজ ডিপেনডেন্সি
+  
+সম্পূর্ণ কোডের জন্য দেখুন [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs)।  
 
 ```csharp
-// Core AI abstraction layer for .NET applications
-#r "nuget: Microsoft.Extensions.AI, 9.9.1"
+#!/usr/bin/dotnet run
 
-// Microsoft Agent Framework OpenAI integration
-#r "nuget: Microsoft.Agents.AI.OpenAI, 1.0.0-preview.251001.3"
+#:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
 
-// Core Microsoft Agent Framework library
-#r "nuget: Microsoft.Agents.AI, 1.0.0-preview.251001.3"
-
-// Environment variable management
-#r "nuget: DotNetEnv, 3.1.1"
-```
-
-### 2. প্রয়োজনীয় ইমপোর্ট
-
-```csharp
-using System;
-using System.ComponentModel;
 using System.ClientModel;
-using Microsoft.Extensions.AI;
+using System.ComponentModel;
+
 using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
+
 using OpenAI;
-using DotNetEnv;
-```
 
-### 3. পরিবেশ কনফিগারেশন
-
-```csharp
-// Load configuration from .env file
-Env.Load("../../../.env");
-```
-
-### 4. টুল ফাংশন সংজ্ঞা
-
-```csharp
-// Random destination generator tool
+// Tool Function: Random Destination Generator
+// This static method will be available to the agent as a callable tool
+// The [Description] attribute helps the AI understand when to use this function
+// This demonstrates how to create custom tools for AI agents
 [Description("Provides a random vacation destination.")]
 static string GetRandomDestination()
 {
+    // List of popular vacation destinations around the world
+    // The agent will randomly select from these options
     var destinations = new List<string>
     {
         "Paris, France",
@@ -157,97 +141,118 @@ static string GetRandomDestination()
         "Bangkok, Thailand",
         "Vancouver, Canada"
     };
-    
+
+    // Generate random index and return selected destination
+    // Uses System.Random for simple random selection
     var random = new Random();
     int index = random.Next(destinations.Count);
     return destinations[index];
 }
-```
 
-### 5. কনফিগারেশন এবং ক্লায়েন্ট সেটআপ
+// Extract configuration from environment variables
+// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
+// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the GitHub token for authentication, throws exception if not specified
+var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
+var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
+var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
 
-```csharp
-// Extract environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? 
-    throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? 
-    throw new InvalidOperationException("GITHUB_TOKEN is not set.");
-
-// Configure OpenAI client for GitHub Models
+// Configure OpenAI Client Options
+// Create configuration options to point to GitHub Models endpoint
+// This redirects OpenAI client calls to GitHub's model inference service
 var openAIOptions = new OpenAIClientOptions()
 {
     Endpoint = new Uri(github_endpoint)
 };
 
-// Initialize OpenAI client
+// Initialize OpenAI Client with GitHub Models Configuration
+// Create OpenAI client using GitHub token for authentication
+// Configure it to use GitHub Models endpoint instead of OpenAI directly
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
-```
 
-### 6. এজেন্ট কনফিগারেশন
+// Define Agent Identity and Comprehensive Instructions
+// Agent name for identification and logging purposes
+var AGENT_NAME = "TravelAgent";
 
-```csharp
-const string AGENT_NAME = "TravelAgent";
-
-const string AGENT_INSTRUCTIONS = @"You are a helpful AI Agent that can help plan vacations for customers.
+// Detailed instructions that define the agent's personality, capabilities, and behavior
+// This system prompt shapes how the agent responds and interacts with users
+var AGENT_INSTRUCTIONS = """
+You are a helpful AI Agent that can help plan vacations for customers.
 
 Important: When users specify a destination, always plan for that location. Only suggest random destinations when the user hasn't specified a preference.
 
 When the conversation begins, introduce yourself with this message:
-""Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
+"Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
 1. Plan a day trip to a specific location
 2. Suggest a random vacation destination
 3. Find destinations with specific features (beaches, mountains, historical sites, etc.)
 4. Plan an alternative trip if you don't like my first suggestion
 
-What kind of trip would you like me to help you plan today?""
+What kind of trip would you like me to help you plan today?"
 
-Always prioritize user preferences. If they mention a specific destination like ""Bali"" or ""Paris,"" focus your planning on that location rather than suggesting alternatives.
-";
-```
+Always prioritize user preferences. If they mention a specific destination like "Bali" or "Paris," focus your planning on that location rather than suggesting alternatives.
+""";
 
-### 7. এজেন্ট ইনিশিয়ালাইজেশন
-
-```csharp
-// Create AI agent with travel planning capabilities
-AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions)
+// Create AI Agent with Advanced Travel Planning Capabilities
+// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Configure agent with name, detailed instructions, and available tools
+// This demonstrates the .NET agent creation pattern with full configuration
+AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
-        tools: [AIFunctionFactory.Create((Func<string>)GetRandomDestination)]
+        tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
-```
 
-### 8. কথোপকথন ব্যবস্থাপনা
-
-```csharp
-// Create new conversation thread
+// Create New Conversation Thread for Context Management
+// Initialize a new conversation thread to maintain context across multiple interactions
+// Threads enable the agent to remember previous exchanges and maintain conversational state
+// This is essential for multi-turn conversations and contextual understanding
 AgentThread thread = agent.GetNewThread();
 
-// Execute agent: First travel planning request
-Console.WriteLine(await agent.RunAsync("Plan me a day trip", thread));
+// Execute Agent: First Travel Planning Request
+// Run the agent with an initial request that will likely trigger the random destination tool
+// The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
+// Using the thread parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 
-// Execute agent: Follow-up request with context awareness
-Console.WriteLine(await agent.RunAsync("I don't like that destination. Plan me another vacation.", thread));
+Console.WriteLine();
+
+// Execute Agent: Follow-up Request with Context Awareness
+// Demonstrate contextual conversation by referencing the previous response
+// The agent remembers the previous destination suggestion and will provide an alternative
+// This showcases the power of conversation threads and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 ```
+  
 
 ## 🎓 মূল শিক্ষা
 
-1. **এজেন্ট আর্কিটেকচার**: Microsoft Agent Framework .NET-এ AI এজেন্ট তৈরি করার জন্য একটি পরিষ্কার, টাইপ-সেফ পদ্ধতি প্রদান করে
-2. **টুল ইন্টিগ্রেশন**: `[Description]` অ্যাট্রিবিউট দিয়ে সজ্জিত ফাংশনগুলি এজেন্টের জন্য উপলব্ধ টুল হয়ে যায়
-3. **কথোপকথনের প্রসঙ্গ**: থ্রেড ম্যানেজমেন্ট বহু-পর্ব কথোপকথনকে সম্পূর্ণ প্রসঙ্গ সচেতন করে তোলে
-4. **কনফিগারেশন ব্যবস্থাপনা**: পরিবেশ ভেরিয়েবল এবং নিরাপদ ক্রেডেনশিয়াল হ্যান্ডলিং .NET-এর সেরা পদ্ধতি অনুসরণ করে
-5. **OpenAI সামঞ্জস্যতা**: GitHub Models ইন্টিগ্রেশন OpenAI-সামঞ্জস্যপূর্ণ API-এর মাধ্যমে নির্বিঘ্নে কাজ করে
+1. **এজেন্ট আর্কিটেকচার**: Microsoft Agent Framework .NET-এ AI এজেন্ট তৈরি করার জন্য একটি পরিষ্কার, টাইপ-সেফ পদ্ধতি প্রদান করে  
+2. **টুল ইন্টিগ্রেশন**: `[Description]` অ্যাট্রিবিউট দিয়ে সজ্জিত ফাংশনগুলি এজেন্টের জন্য উপলব্ধ টুল হয়ে যায়  
+3. **কথোপকথনের প্রসঙ্গ**: থ্রেড ম্যানেজমেন্ট বহু-পর্ব কথোপকথন সম্পূর্ণ প্রসঙ্গ সচেতনতা সহ সক্ষম করে  
+4. **কনফিগারেশন ব্যবস্থাপনা**: পরিবেশ ভেরিয়েবল এবং নিরাপদ ক্রেডেনশিয়াল হ্যান্ডলিং .NET-এর সেরা পদ্ধতি অনুসরণ করে  
+5. **OpenAI সামঞ্জস্যতা**: GitHub Models ইন্টিগ্রেশন OpenAI-সামঞ্জস্যপূর্ণ API-এর মাধ্যমে নির্বিঘ্নে কাজ করে  
 
 ## 🔗 অতিরিক্ত সম্পদ
 
-- [Microsoft Agent Framework ডকুমেন্টেশন](https://learn.microsoft.com/en-us/dotnet/ai/agents)
-- [GitHub Models মার্কেটপ্লেস](https://github.com/marketplace/models)
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai-overview)
-- [.NET সিঙ্গেল ফাইল অ্যাপ](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app/)
+- [Microsoft Agent Framework ডকুমেন্টেশন](https://learn.microsoft.com/agent-framework)  
+- [GitHub Models মার্কেটপ্লেস](https://github.com/marketplace?type=models)  
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
+- [.NET সিঙ্গেল ফাইল অ্যাপস](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **অস্বীকৃতি**:  
-এই নথিটি AI অনুবাদ পরিষেবা [Co-op Translator](https://github.com/Azure/co-op-translator) ব্যবহার করে অনুবাদ করা হয়েছে। আমরা যথাসাধ্য সঠিকতা নিশ্চিত করার চেষ্টা করি, তবে অনুগ্রহ করে মনে রাখবেন যে স্বয়ংক্রিয় অনুবাদে ত্রুটি বা অসঙ্গতি থাকতে পারে। মূল ভাষায় থাকা নথিটিকে প্রামাণিক উৎস হিসেবে বিবেচনা করা উচিত। গুরুত্বপূর্ণ তথ্যের জন্য, পেশাদার মানব অনুবাদ সুপারিশ করা হয়। এই অনুবাদ ব্যবহারের ফলে কোনো ভুল বোঝাবুঝি বা ভুল ব্যাখ্যা হলে আমরা দায়বদ্ধ থাকব না।
+এই নথিটি AI অনুবাদ পরিষেবা [Co-op Translator](https://github.com/Azure/co-op-translator) ব্যবহার করে অনুবাদ করা হয়েছে। আমরা যথাসাধ্য সঠিক অনুবাদের চেষ্টা করি, তবে দয়া করে মনে রাখবেন যে স্বয়ংক্রিয় অনুবাদে ত্রুটি বা অসঙ্গতি থাকতে পারে। নথিটির মূল ভাষায় থাকা সংস্করণটিকে প্রামাণিক উৎস হিসেবে বিবেচনা করা উচিত। গুরুত্বপূর্ণ তথ্যের জন্য, পেশাদার মানব অনুবাদ সুপারিশ করা হয়। এই অনুবাদ ব্যবহারের ফলে সৃষ্ট কোনো ভুল বোঝাবুঝি বা ভুল ব্যাখ্যার জন্য আমরা দায়ী নই।
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

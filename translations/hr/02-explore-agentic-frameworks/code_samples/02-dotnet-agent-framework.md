@@ -1,149 +1,133 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "033f170be3b54183e2f6b5463371ab69",
-  "translation_date": "2025-11-07T09:40:20+00:00",
+  "original_hash": "e23058f87779da210fc0257ee2747c53",
+  "translation_date": "2025-11-13T14:24:44+00:00",
   "source_file": "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md",
   "language_code": "hr"
 }
 -->
-# 🔍 Istraživanje Agent Frameworka - Osnovni Agent (.NET)
+# 🔍 Istraživanje Microsoft Agent Frameworka - Osnovni Agent (.NET)
 
 ## 📋 Ciljevi učenja
 
-Ovaj notebook istražuje temeljne koncepte Microsoft Agent Frameworka kroz implementaciju osnovnog agenta u .NET-u. Naučit ćete osnovne obrasce agentičkog rada i razumjeti kako inteligentni agenti funkcioniraju "ispod haube" koristeći C# i .NET ekosustav.
+Ovaj primjer istražuje temeljne koncepte Microsoft Agent Frameworka kroz implementaciju osnovnog agenta u .NET-u. Naučit ćete osnovne obrasce agentnog rada i razumjeti kako inteligentni agenti funkcioniraju "ispod haube" koristeći C# i .NET ekosustav.
 
-**Što ćete otkriti:**
-- 🏗️ **Arhitektura agenta**: Razumijevanje osnovne strukture AI agenata u .NET-u
+### Što ćete otkriti
+
+- 🏗️ **Arhitektura agenta**: Razumijevanje osnovne strukture AI agenata u .NET-u  
 - 🛠️ **Integracija alata**: Kako agenti koriste vanjske funkcije za proširenje mogućnosti  
-- 💬 **Tijek razgovora**: Upravljanje višestrukim razgovorima i kontekstom uz upravljanje nitima
-- 🔧 **Obrasci konfiguracije**: Najbolje prakse za postavljanje i upravljanje agentima u .NET-u
+- 💬 **Tijek razgovora**: Upravljanje višestrukim razgovorima i kontekstom uz upravljanje nitima  
+- 🔧 **Obrasci konfiguracije**: Najbolje prakse za postavljanje i upravljanje agentima u .NET-u  
 
 ## 🎯 Ključni koncepti
 
-### Principi Agent Frameworka
-- **Autonomija**: Kako agenti donose neovisne odluke koristeći .NET AI apstrakcije
-- **Reaktivnost**: Reagiranje na promjene u okruženju i korisničke unose
-- **Proaktivnost**: Preuzimanje inicijative na temelju ciljeva i konteksta
-- **Socijalna sposobnost**: Interakcija putem prirodnog jezika s nitima razgovora
+### Načela Agent Frameworka
+
+- **Autonomija**: Kako agenti donose neovisne odluke koristeći .NET AI apstrakcije  
+- **Reaktivnost**: Reagiranje na promjene u okruženju i korisničke unose  
+- **Proaktivnost**: Poduzimanje inicijative na temelju ciljeva i konteksta  
+- **Društvena sposobnost**: Interakcija putem prirodnog jezika s nitima razgovora  
 
 ### Tehničke komponente
-- **AIAgent**: Orkestracija agenta i upravljanje razgovorima (.NET)
-- **Funkcije alata**: Proširenje mogućnosti agenta pomoću C# metoda i atributa
-- **OpenAI integracija**: Korištenje jezičnih modela putem standardiziranih .NET API-ja
-- **Upravljanje okruženjem**: Sigurna konfiguracija i rukovanje vjerodajnicama pomoću DotNetEnv
 
-## ⚙️ Preduvjeti i postavljanje
+- **AIAgent**: Orkestracija agenta i upravljanje razgovorima (.NET)  
+- **Funkcije alata**: Proširenje mogućnosti agenta pomoću C# metoda i atributa  
+- **Integracija s OpenAI**: Korištenje jezičnih modela putem standardiziranih .NET API-ja  
+- **Sigurna konfiguracija**: Upravljanje API ključevima na temelju okruženja  
 
-**Potrebne ovisnosti:**
-- .NET 9.0 SDK ili noviji
-- Visual Studio 2022 ili VS Code s C# ekstenzijom
+## 🔧 Tehnički paket
 
-**NuGet paketi:**
-- `Microsoft.Extensions.AI` - Osnovne AI apstrakcije
-- `Microsoft.Extensions.AI.OpenAI` - OpenAI integracija (preview)
-- `DotNetEnv` - Upravljanje varijablama okruženja
+### Osnovne tehnologije
 
-**Konfiguracija okruženja (.env datoteka):**
-```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
-```
+- Microsoft Agent Framework (.NET)  
+- Integracija s GitHub Models API  
+- OpenAI-kompatibilni klijentski obrasci  
+- Konfiguracija na temelju okruženja s DotNetEnv  
 
-## 🔧 Tehnički stack
+### Sposobnosti agenta
 
-**Osnovne tehnologije:**
-- Microsoft Agent Framework (.NET)
-- Integracija GitHub Models API-ja
-- OpenAI-kompatibilni klijentski obrasci
-- Konfiguracija temeljena na okruženju s DotNetEnv
+- Razumijevanje i generiranje prirodnog jezika  
+- Pozivanje funkcija i korištenje alata s C# atributima  
+- Odgovori svjesni konteksta s nitima razgovora  
+- Proširiva arhitektura s obrascima ubrizgavanja ovisnosti  
 
-**Mogućnosti agenta:**
-- Razumijevanje i generiranje prirodnog jezika
-- Pozivanje funkcija i korištenje alata s C# atributima
-- Odgovori svjesni konteksta uz niti razgovora
-- Proširiva arhitektura s obrascima ubrizgavanja ovisnosti
+## 📚 Usporedba okvira
 
-## 📚 Usporedba frameworka
+Ovaj primjer prikazuje pristup Microsoft Agent Frameworka u usporedbi s drugim agentnim okvirima:
 
-Ovaj primjer prikazuje pristup Microsoft Agent Frameworka u .NET-u u usporedbi s drugim platformama:
-
-| Značajka | .NET Agent Framework | Python ekvivalenti |
-|----------|-----------------------|--------------------|
-| **Tipizacija** | Jaka tipizacija s C# | Dinamička tipizacija |
-| **Integracija** | Izvorni .NET ekosustav | Različita kompatibilnost |
-| **Performanse** | Performanse kompajliranog koda | Interpretirano izvršavanje |
-| **Spremnost za poduzeća** | Dizajnirano za produkcijske .NET aplikacije | Varira ovisno o frameworku |
-| **Alati** | Integracija s Visual Studiom | Ovisno o IDE-u |
+| Značajka | Microsoft Agent Framework | Drugi okviri |
+|----------|---------------------------|--------------|
+| **Integracija** | Izvorni Microsoft ekosustav | Različita kompatibilnost |
+| **Jednostavnost** | Čist, intuitivan API | Često složeno postavljanje |
+| **Proširivost** | Jednostavna integracija alata | Ovisno o okviru |
+| **Spremnost za poduzeća** | Dizajniran za produkciju | Varira ovisno o okviru |
 
 ## 🚀 Početak rada
 
-Slijedite dolje navedene korake kako biste izgradili svoj prvi osnovni agent u .NET-u i razumjeli temeljne agentičke koncepte!
+### Preduvjeti
 
-## 📦 Instalacija i postavljanje
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ili noviji  
+- [Pristupni token za GitHub Models API](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
 
-Ovaj primjer dostupan je kao pokretljiva .NET aplikacija u jednoj datoteci. Pogledajte priloženu datoteku `02-dotnet-agent-framework.cs` za kompletnu implementaciju.
-
-Za pokretanje ovog primjera:
+### Potrebne varijable okruženja
 
 ```bash
-chmod +x 02-dotnet-agent-framework.cs
+# zsh/bash
+export GH_TOKEN=<your_github_token>
+export GH_ENDPOINT=https://models.github.ai/inference
+export GH_MODEL_ID=openai/gpt-5-mini
+```
+  
+```powershell
+# PowerShell
+$env:GH_TOKEN = "<your_github_token>"
+$env:GH_ENDPOINT = "https://models.github.ai/inference"
+$env:GH_MODEL_ID = "openai/gpt-5-mini"
+```
+  
+
+### Primjer koda
+
+Za pokretanje primjera koda,
+
+```bash
+# zsh/bash
+chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-
-Ili koristeći dotnet CLI:
+  
+Ili pomoću dotnet CLI:
 
 ```bash
-dotnet run 02-dotnet-agent-framework.cs
+dotnet run ./02-dotnet-agent-framework.cs
 ```
-
-## 💡 Pregled koda
-
-Kompletna implementacija uključuje:
-
-### 1. Ovisnosti paketa
+  
+Pogledajte [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) za kompletan kod.
 
 ```csharp
-// Core AI abstraction layer for .NET applications
-#r "nuget: Microsoft.Extensions.AI, 9.9.1"
+#!/usr/bin/dotnet run
 
-// Microsoft Agent Framework OpenAI integration
-#r "nuget: Microsoft.Agents.AI.OpenAI, 1.0.0-preview.251001.3"
+#:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
 
-// Core Microsoft Agent Framework library
-#r "nuget: Microsoft.Agents.AI, 1.0.0-preview.251001.3"
-
-// Environment variable management
-#r "nuget: DotNetEnv, 3.1.1"
-```
-
-### 2. Osnovni uvozi
-
-```csharp
-using System;
-using System.ComponentModel;
 using System.ClientModel;
-using Microsoft.Extensions.AI;
+using System.ComponentModel;
+
 using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
+
 using OpenAI;
-using DotNetEnv;
-```
 
-### 3. Konfiguracija okruženja
-
-```csharp
-// Load configuration from .env file
-Env.Load("../../../.env");
-```
-
-### 4. Definicija funkcije alata
-
-```csharp
-// Random destination generator tool
+// Tool Function: Random Destination Generator
+// This static method will be available to the agent as a callable tool
+// The [Description] attribute helps the AI understand when to use this function
+// This demonstrates how to create custom tools for AI agents
 [Description("Provides a random vacation destination.")]
 static string GetRandomDestination()
 {
+    // List of popular vacation destinations around the world
+    // The agent will randomly select from these options
     var destinations = new List<string>
     {
         "Paris, France",
@@ -157,97 +141,118 @@ static string GetRandomDestination()
         "Bangkok, Thailand",
         "Vancouver, Canada"
     };
-    
+
+    // Generate random index and return selected destination
+    // Uses System.Random for simple random selection
     var random = new Random();
     int index = random.Next(destinations.Count);
     return destinations[index];
 }
-```
 
-### 5. Postavljanje konfiguracije i klijenta
+// Extract configuration from environment variables
+// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
+// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the GitHub token for authentication, throws exception if not specified
+var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
+var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
+var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
 
-```csharp
-// Extract environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? 
-    throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? 
-    throw new InvalidOperationException("GITHUB_TOKEN is not set.");
-
-// Configure OpenAI client for GitHub Models
+// Configure OpenAI Client Options
+// Create configuration options to point to GitHub Models endpoint
+// This redirects OpenAI client calls to GitHub's model inference service
 var openAIOptions = new OpenAIClientOptions()
 {
     Endpoint = new Uri(github_endpoint)
 };
 
-// Initialize OpenAI client
+// Initialize OpenAI Client with GitHub Models Configuration
+// Create OpenAI client using GitHub token for authentication
+// Configure it to use GitHub Models endpoint instead of OpenAI directly
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
-```
 
-### 6. Konfiguracija agenta
+// Define Agent Identity and Comprehensive Instructions
+// Agent name for identification and logging purposes
+var AGENT_NAME = "TravelAgent";
 
-```csharp
-const string AGENT_NAME = "TravelAgent";
-
-const string AGENT_INSTRUCTIONS = @"You are a helpful AI Agent that can help plan vacations for customers.
+// Detailed instructions that define the agent's personality, capabilities, and behavior
+// This system prompt shapes how the agent responds and interacts with users
+var AGENT_INSTRUCTIONS = """
+You are a helpful AI Agent that can help plan vacations for customers.
 
 Important: When users specify a destination, always plan for that location. Only suggest random destinations when the user hasn't specified a preference.
 
 When the conversation begins, introduce yourself with this message:
-""Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
+"Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
 1. Plan a day trip to a specific location
 2. Suggest a random vacation destination
 3. Find destinations with specific features (beaches, mountains, historical sites, etc.)
 4. Plan an alternative trip if you don't like my first suggestion
 
-What kind of trip would you like me to help you plan today?""
+What kind of trip would you like me to help you plan today?"
 
-Always prioritize user preferences. If they mention a specific destination like ""Bali"" or ""Paris,"" focus your planning on that location rather than suggesting alternatives.
-";
-```
+Always prioritize user preferences. If they mention a specific destination like "Bali" or "Paris," focus your planning on that location rather than suggesting alternatives.
+""";
 
-### 7. Inicijalizacija agenta
-
-```csharp
-// Create AI agent with travel planning capabilities
-AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions)
+// Create AI Agent with Advanced Travel Planning Capabilities
+// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Configure agent with name, detailed instructions, and available tools
+// This demonstrates the .NET agent creation pattern with full configuration
+AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
-        tools: [AIFunctionFactory.Create((Func<string>)GetRandomDestination)]
+        tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
-```
 
-### 8. Upravljanje razgovorima
-
-```csharp
-// Create new conversation thread
+// Create New Conversation Thread for Context Management
+// Initialize a new conversation thread to maintain context across multiple interactions
+// Threads enable the agent to remember previous exchanges and maintain conversational state
+// This is essential for multi-turn conversations and contextual understanding
 AgentThread thread = agent.GetNewThread();
 
-// Execute agent: First travel planning request
-Console.WriteLine(await agent.RunAsync("Plan me a day trip", thread));
+// Execute Agent: First Travel Planning Request
+// Run the agent with an initial request that will likely trigger the random destination tool
+// The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
+// Using the thread parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 
-// Execute agent: Follow-up request with context awareness
-Console.WriteLine(await agent.RunAsync("I don't like that destination. Plan me another vacation.", thread));
+Console.WriteLine();
+
+// Execute Agent: Follow-up Request with Context Awareness
+// Demonstrate contextual conversation by referencing the previous response
+// The agent remembers the previous destination suggestion and will provide an alternative
+// This showcases the power of conversation threads and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 ```
+  
 
 ## 🎓 Ključne lekcije
 
-1. **Arhitektura agenta**: Microsoft Agent Framework pruža čist, tipiziran pristup izgradnji AI agenata u .NET-u
-2. **Integracija alata**: Funkcije označene atributima `[Description]` postaju dostupni alati za agenta
-3. **Kontekst razgovora**: Upravljanje nitima omogućuje višestruke razgovore s punom sviješću o kontekstu
-4. **Upravljanje konfiguracijom**: Varijable okruženja i sigurno rukovanje vjerodajnicama slijede najbolje prakse .NET-a
-5. **Kompatibilnost s OpenAI**: Integracija GitHub modela radi besprijekorno putem OpenAI-kompatibilnih API-ja
+1. **Arhitektura agenta**: Microsoft Agent Framework pruža čist, tip-siguran pristup izgradnji AI agenata u .NET-u  
+2. **Integracija alata**: Funkcije označene atributima `[Description]` postaju dostupni alati za agenta  
+3. **Kontekst razgovora**: Upravljanje nitima omogućuje višestruke razgovore s potpunom sviješću o kontekstu  
+4. **Upravljanje konfiguracijom**: Varijable okruženja i sigurno rukovanje vjerodajnicama slijede najbolje prakse u .NET-u  
+5. **Kompatibilnost s OpenAI**: Integracija s GitHub Models radi besprijekorno putem OpenAI-kompatibilnih API-ja  
 
 ## 🔗 Dodatni resursi
 
-- [Microsoft Agent Framework Dokumentacija](https://learn.microsoft.com/en-us/dotnet/ai/agents)
-- [GitHub Models Marketplace](https://github.com/marketplace/models)
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai-overview)
-- [.NET Aplikacije u jednoj datoteci](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app/)
+- [Microsoft Agent Framework Dokumentacija](https://learn.microsoft.com/agent-framework)  
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
 
 ---
 
-**Izjava o odricanju odgovornosti**:  
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Odricanje od odgovornosti**:  
 Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za ključne informacije preporučuje se profesionalni prijevod od strane čovjeka. Ne preuzimamo odgovornost za nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

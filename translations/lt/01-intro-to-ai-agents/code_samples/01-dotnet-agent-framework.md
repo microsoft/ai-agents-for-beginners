@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:48:57+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T14:45:12+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "lt"
 }
@@ -11,32 +11,32 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Scenarijaus Apžvalga
 
-Šiame užrašų knygelėje demonstruojama, kaip sukurti intelektualų kelionių planavimo agentą naudojant Microsoft Agent Framework for .NET. Agentas gali automatiškai generuoti asmeninius dienos kelionių maršrutus atsitiktinėms pasaulio vietoms.
+Šis pavyzdys parodo, kaip sukurti išmanų kelionių planavimo agentą naudojant Microsoft Agent Framework skirtą .NET. Agentas gali automatiškai generuoti suasmenintus vienos dienos kelionių maršrutus atsitiktinėms pasaulio vietoms.
 
 ### Pagrindinės Galimybės:
 
 - 🎲 **Atsitiktinis Vietos Pasirinkimas**: Naudoja pritaikytą įrankį atostogų vietoms pasirinkti
-- 🗺️ **Išmanus Kelionių Planavimas**: Kuria detalius dienos maršrutus
+- 🗺️ **Išmanus Kelionių Planavimas**: Kuria detalius dienos po dienos maršrutus
 - 🔄 **Realaus Laiko Transliavimas**: Palaiko tiek momentinius, tiek transliuojamus atsakymus
-- 🛠️ **Pritaikyto Įrankio Integracija**: Demonstruoja, kaip išplėsti agento galimybes
+- 🛠️ **Pritaikytų Įrankių Integracija**: Parodo, kaip išplėsti agento galimybes
 
 ## 🔧 Techninė Architektūra
 
 ### Pagrindinės Technologijos
 
-- **Microsoft Agent Framework**: Naujausia .NET implementacija AI agentų kūrimui
+- **Microsoft Agent Framework**: Naujausia .NET įgyvendinimo versija AI agentų kūrimui
 - **GitHub Models Integracija**: Naudoja GitHub AI modelių inferencijos paslaugą
-- **OpenAI API Suderinamumas**: Pasitelkia OpenAI klientų bibliotekas su pritaikytais galiniais taškais
-- **Saugus Konfigūravimas**: API raktų valdymas pagal aplinką
+- **OpenAI API Suderinamumas**: Naudoja OpenAI klientų bibliotekas su pritaikytais galiniais taškais
+- **Saugus Konfigūravimas**: API raktų valdymas pagal aplinkos nustatymus
 
 ### Pagrindiniai Komponentai
 
-1. **AIAgent**: Pagrindinis agento organizatorius, kuris valdo pokalbių eigą
+1. **AIAgent**: Pagrindinis agento organizatorius, valdantis pokalbių eigą
 2. **Pritaikyti Įrankiai**: `GetRandomDestination()` funkcija, prieinama agentui
-3. **Chat Client**: Pokalbių sąsaja, paremta GitHub Models
+3. **Pokalbių Klientas**: GitHub Models pagrįsta pokalbių sąsaja
 4. **Transliavimo Palaikymas**: Realaus laiko atsakymų generavimo galimybės
 
-### Integracijos Šablonas
+### Integracijos Modelis
 
 ```mermaid
 graph LR
@@ -49,9 +49,9 @@ graph LR
 
 ## 🚀 Pradžia
 
-### Būtinos Sąlygos
+### Reikalavimai
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) arba naujesnė versija
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ar naujesnė versija
 - [GitHub Models API prieigos raktas](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ### Reikalingi Aplinkos Kintamieji
@@ -80,7 +80,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Arba naudojant dotnet CLI:
+Arba naudodami dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Pagrindinės Išvados
+
+1. **Agentų Architektūra**: Microsoft Agent Framework suteikia aiškų, tipų saugų požiūrį į AI agentų kūrimą .NET aplinkoje
+2. **Įrankių Integracija**: Funkcijos, pažymėtos `[Description]` atributais, tampa prieinamais įrankiais agentui
+3. **Konfigūracijos Valdymas**: Aplinkos kintamieji ir saugus kredencialų valdymas atitinka .NET geriausias praktikas
+4. **OpenAI Suderinamumas**: GitHub Models integracija veikia sklandžiai per OpenAI suderinamus API
+
+## 🔗 Papildomi Ištekliai
+
+- [Microsoft Agent Framework Dokumentacija](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Rinka](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Vieno Failo Programos](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama naudoti profesionalų žmogaus vertimą. Mes neprisiimame atsakomybės už nesusipratimus ar neteisingus aiškinimus, atsiradusius dėl šio vertimo naudojimo.
+Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Dėl svarbios informacijos rekomenduojama profesionali žmogaus vertimo paslauga. Mes neprisiimame atsakomybės už nesusipratimus ar neteisingus aiškinimus, atsiradusius naudojant šį vertimą.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

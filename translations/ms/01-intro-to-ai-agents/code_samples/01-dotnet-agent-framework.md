@@ -1,17 +1,17 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:30:05+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:23:12+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "ms"
 }
 -->
-# 🌍 Ejen Perjalanan AI dengan Microsoft Agent Framework (.NET)
+# 🌍 Ejen Pelancongan AI dengan Microsoft Agent Framework (.NET)
 
 ## 📋 Gambaran Senario
 
-Notebook ini menunjukkan cara membina ejen perancangan perjalanan pintar menggunakan Microsoft Agent Framework untuk .NET. Ejen ini boleh secara automatik menghasilkan jadual perjalanan sehari yang diperibadikan untuk destinasi rawak di seluruh dunia.
+Contoh ini menunjukkan cara membina ejen perancangan pelancongan pintar menggunakan Microsoft Agent Framework untuk .NET. Ejen ini boleh secara automatik menghasilkan jadual perjalanan harian yang diperibadikan untuk destinasi rawak di seluruh dunia.
 
 ### Keupayaan Utama:
 
@@ -26,7 +26,7 @@ Notebook ini menunjukkan cara membina ejen perancangan perjalanan pintar menggun
 
 - **Microsoft Agent Framework**: Implementasi .NET terkini untuk pembangunan ejen AI
 - **Integrasi Model GitHub**: Menggunakan perkhidmatan inferens model AI GitHub
-- **Keserasian API OpenAI**: Memanfaatkan perpustakaan klien OpenAI dengan titik akhir tersuai
+- **Keserasian API OpenAI**: Memanfaatkan pustaka klien OpenAI dengan titik akhir tersuai
 - **Konfigurasi Selamat**: Pengurusan kunci API berdasarkan persekitaran
 
 ### Komponen Utama
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Pengajaran Utama
+
+1. **Seni Bina Ejen**: Microsoft Agent Framework menyediakan pendekatan yang bersih dan selamat jenis untuk membina ejen AI dalam .NET
+2. **Integrasi Alat**: Fungsi yang dihiasi dengan atribut `[Description]` menjadi alat yang tersedia untuk ejen
+3. **Pengurusan Konfigurasi**: Pembolehubah persekitaran dan pengendalian kelayakan selamat mengikuti amalan terbaik .NET
+4. **Keserasian OpenAI**: Integrasi Model GitHub berfungsi dengan lancar melalui API yang serasi dengan OpenAI
+
+## 🔗 Sumber Tambahan
+
+- [Dokumentasi Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Marketplace Model GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat kritikal, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat yang kritikal, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

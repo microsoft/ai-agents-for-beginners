@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T10:49:23+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T10:54:47+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "de"
 }
@@ -11,29 +11,29 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Szenarioübersicht
 
-Dieses Notebook zeigt, wie man einen intelligenten Reiseplanungs-Agenten mit dem Microsoft Agent Framework für .NET erstellt. Der Agent kann automatisch personalisierte Tagesausflugspläne für zufällige Reiseziele weltweit erstellen.
+Dieses Beispiel zeigt, wie man einen intelligenten Reiseplanungs-Agenten mit dem Microsoft Agent Framework für .NET erstellt. Der Agent kann automatisch personalisierte Tagesausflugspläne für zufällige Reiseziele weltweit erstellen.
 
 ### Hauptfunktionen:
 
-- 🎲 **Zufällige Zielauswahl**: Verwendet ein benutzerdefiniertes Tool, um Urlaubsziele auszuwählen
+- 🎲 **Zufällige Zielauswahl**: Verwendet ein benutzerdefiniertes Tool, um Urlaubsorte auszuwählen
 - 🗺️ **Intelligente Reiseplanung**: Erstellt detaillierte Tagespläne
 - 🔄 **Echtzeit-Streaming**: Unterstützt sowohl sofortige als auch gestreamte Antworten
-- 🛠️ **Integration benutzerdefinierter Tools**: Zeigt, wie man die Fähigkeiten des Agenten erweitern kann
+- 🛠️ **Integration benutzerdefinierter Tools**: Zeigt, wie die Fähigkeiten des Agenten erweitert werden können
 
 ## 🔧 Technische Architektur
 
 ### Kerntechnologien
 
 - **Microsoft Agent Framework**: Neueste .NET-Implementierung für die Entwicklung von KI-Agenten
-- **GitHub Models Integration**: Nutzt den Inferenzdienst von GitHub's KI-Modellen
-- **OpenAI API-Kompatibilität**: Verwendet OpenAI-Client-Bibliotheken mit benutzerdefinierten Endpunkten
-- **Sichere Konfiguration**: API-Schlüsselverwaltung basierend auf der Umgebung
+- **GitHub Models Integration**: Nutzt den Inferenzdienst von GitHub für KI-Modelle
+- **OpenAI API-Kompatibilität**: Verwendet OpenAI-Clientbibliotheken mit benutzerdefinierten Endpunkten
+- **Sichere Konfiguration**: API-Schlüsselverwaltung basierend auf Umgebungsvariablen
 
 ### Hauptkomponenten
 
-1. **AIAgent**: Der Hauptagent, der den Gesprächsfluss steuert
-2. **Benutzerdefinierte Tools**: `GetRandomDestination()`-Funktion, die dem Agenten zur Verfügung steht
-3. **Chat-Client**: Gesprächsschnittstelle, unterstützt durch GitHub Models
+1. **AIAgent**: Der Hauptorchestrator des Agenten, der den Gesprächsfluss steuert
+2. **Benutzerdefinierte Tools**: Die Funktion `GetRandomDestination()` steht dem Agenten zur Verfügung
+3. **Chat-Client**: Gesprächsschnittstelle, die von GitHub Models unterstützt wird
 4. **Streaming-Unterstützung**: Echtzeit-Antwortgenerierung
 
 ### Integrationsmuster
@@ -174,6 +174,20 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
     Console.Write(update);
 }
 ```
+
+## 🎓 Wichtige Erkenntnisse
+
+1. **Agentenarchitektur**: Das Microsoft Agent Framework bietet einen sauberen, typsicheren Ansatz zur Erstellung von KI-Agenten in .NET
+2. **Tool-Integration**: Funktionen, die mit `[Description]`-Attributen versehen sind, werden als verfügbare Tools für den Agenten bereitgestellt
+3. **Konfigurationsmanagement**: Umgebungsvariablen und sichere Anmeldeinformationen folgen den Best Practices von .NET
+4. **OpenAI-Kompatibilität**: Die Integration von GitHub Models funktioniert nahtlos über OpenAI-kompatible APIs
+
+## 🔗 Zusätzliche Ressourcen
+
+- [Microsoft Agent Framework Dokumentation](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

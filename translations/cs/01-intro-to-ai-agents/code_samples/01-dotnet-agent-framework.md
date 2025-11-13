@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:35:35+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:45:59+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "cs"
 }
@@ -11,11 +11,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Přehled Scénáře
 
-Tento notebook ukazuje, jak vytvořit inteligentního cestovního agenta pro plánování výletů pomocí Microsoft Agent Framework pro .NET. Agent dokáže automaticky generovat personalizované itineráře jednodenních výletů do náhodných destinací po celém světě.
+Tento příklad ukazuje, jak vytvořit inteligentního cestovního agenta pomocí Microsoft Agent Framework pro .NET. Agent dokáže automaticky generovat personalizované itineráře jednodenních výletů do náhodných destinací po celém světě.
 
 ### Klíčové Funkce:
 
-- 🎲 **Výběr Náhodné Destinace**: Používá vlastní nástroj pro výběr dovolenkových míst
+- 🎲 **Výběr Náhodné Destinace**: Používá vlastní nástroj pro výběr míst na dovolenou
 - 🗺️ **Inteligentní Plánování Výletů**: Vytváří podrobné itineráře den po dni
 - 🔄 **Streamování v Reálném Čase**: Podporuje okamžité i průběžné odpovědi
 - 🛠️ **Integrace Vlastních Nástrojů**: Ukazuje, jak rozšířit schopnosti agenta
@@ -52,7 +52,7 @@ graph LR
 ### Předpoklady
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) nebo vyšší
-- [Přístupový token API modelů GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Přístupový token k API modelů GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ### Požadované Proměnné Prostředí
 
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Klíčové Závěry
+
+1. **Architektura Agenta**: Microsoft Agent Framework poskytuje čistý, typově bezpečný přístup k vytváření AI agentů v .NET
+2. **Integrace Nástrojů**: Funkce označené atributy `[Description]` se stávají dostupnými nástroji pro agenta
+3. **Správa Konfigurace**: Proměnné prostředí a bezpečné nakládání s přihlašovacími údaji odpovídají nejlepším praktikám .NET
+4. **Kompatibilita s OpenAI**: Integrace modelů GitHub funguje bezproblémově prostřednictvím API kompatibilních s OpenAI
+
+## 🔗 Další Zdroje
+
+- [Dokumentace Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Marketplace Modelů GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Prohlášení**:  
-Tento dokument byl přeložen pomocí služby AI pro překlady [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho rodném jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+Tento dokument byl přeložen pomocí služby AI pro překlady [Co-op Translator](https://github.com/Azure/co-op-translator). Ačkoli se snažíme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho původním jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

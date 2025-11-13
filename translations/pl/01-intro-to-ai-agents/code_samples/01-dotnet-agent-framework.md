@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:13:39+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T12:19:46+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "pl"
 }
@@ -11,13 +11,13 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Przegląd Scenariusza
 
-Ten notebook pokazuje, jak stworzyć inteligentnego agenta do planowania podróży, korzystając z Microsoft Agent Framework dla .NET. Agent może automatycznie generować spersonalizowane plany jednodniowych wycieczek do losowych miejsc na całym świecie.
+Ten przykład pokazuje, jak stworzyć inteligentnego agenta planującego podróże, korzystając z Microsoft Agent Framework dla .NET. Agent może automatycznie generować spersonalizowane plany jednodniowych wycieczek do losowych miejsc na świecie.
 
 ### Kluczowe Funkcje:
 
 - 🎲 **Losowy Wybór Miejsca**: Używa niestandardowego narzędzia do wyboru miejsc na wakacje
 - 🗺️ **Inteligentne Planowanie Wycieczek**: Tworzy szczegółowe plany dzień po dniu
-- 🔄 **Streaming w Czasie Rzeczywistym**: Obsługuje zarówno natychmiastowe, jak i strumieniowe odpowiedzi
+- 🔄 **Strumieniowanie w Czasie Rzeczywistym**: Obsługuje zarówno natychmiastowe, jak i strumieniowe odpowiedzi
 - 🛠️ **Integracja Niestandardowych Narzędzi**: Pokazuje, jak rozszerzyć możliwości agenta
 
 ## 🔧 Architektura Techniczna
@@ -25,16 +25,16 @@ Ten notebook pokazuje, jak stworzyć inteligentnego agenta do planowania podró�
 ### Główne Technologie
 
 - **Microsoft Agent Framework**: Najnowsza implementacja .NET do tworzenia agentów AI
-- **Integracja z Modelami GitHub**: Korzysta z usługi inferencji modeli AI od GitHub
-- **Kompatybilność z OpenAI API**: Wykorzystuje biblioteki klienta OpenAI z niestandardowymi punktami końcowymi
+- **Integracja z Modelami GitHub**: Wykorzystuje usługę inferencji modeli AI GitHub
+- **Kompatybilność z OpenAI API**: Korzysta z bibliotek klienta OpenAI z niestandardowymi punktami końcowymi
 - **Bezpieczna Konfiguracja**: Zarządzanie kluczami API oparte na środowisku
 
 ### Kluczowe Komponenty
 
 1. **AIAgent**: Główny orkiestrator agenta, który zarządza przepływem rozmowy
 2. **Niestandardowe Narzędzia**: Funkcja `GetRandomDestination()` dostępna dla agenta
-3. **Klient Czatu**: Interfejs rozmowy wspierany przez modele GitHub
-4. **Obsługa Streamingu**: Możliwości generowania odpowiedzi w czasie rzeczywistym
+3. **Klient Czatu**: Interfejs rozmowy oparty na Modelach GitHub
+4. **Obsługa Strumieniowania**: Możliwości generowania odpowiedzi w czasie rzeczywistym
 
 ### Wzorzec Integracji
 
@@ -52,7 +52,7 @@ graph LR
 ### Wymagania Wstępne
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) lub nowszy
-- [Token dostępu do API GitHub Models](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Token dostępu do API Modeli GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ### Wymagane Zmienne Środowiskowe
 
@@ -80,7 +80,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Lub używając dotnet CLI:
+Lub używając CLI dotnet:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Kluczowe Wnioski
+
+1. **Architektura Agenta**: Microsoft Agent Framework oferuje przejrzyste, typowane podejście do budowy agentów AI w .NET
+2. **Integracja Narzędzi**: Funkcje oznaczone atrybutami `[Description]` stają się dostępnymi narzędziami dla agenta
+3. **Zarządzanie Konfiguracją**: Zmienne środowiskowe i bezpieczne zarządzanie poświadczeniami zgodne z najlepszymi praktykami .NET
+4. **Kompatybilność z OpenAI**: Integracja z Modelami GitHub działa bezproblemowo przez API kompatybilne z OpenAI
+
+## 🔗 Dodatkowe Zasoby
+
+- [Dokumentacja Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Marketplace Modeli GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż staramy się zapewnić dokładność, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za autorytatywne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż staramy się zapewnić dokładność, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za wiarygodne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

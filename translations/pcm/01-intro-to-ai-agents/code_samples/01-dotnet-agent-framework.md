@@ -1,42 +1,42 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T14:12:02+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T15:00:45+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "pcm"
 }
 -->
 # 🌍 AI Travel Agent wit Microsoft Agent Framework (.NET)
 
-## 📋 Overview of di Scenario
+## 📋 Wetin Dis Scenario Be About
 
-Dis notebook dey show how pesin fit build smart travel planning agent wit di Microsoft Agent Framework for .NET. Di agent fit automatically create personalized day-trip plans for random destinations wey dey anywhere for di world.
+Dis example dey show how you fit build smart travel planning agent wit Microsoft Agent Framework for .NET. Di agent fit automatically create personal day-trip plans for random places for di world.
 
-### Di Main Abilities:
+### Di Main Things E Fit Do:
 
 - 🎲 **Random Destination Selection**: E dey use custom tool to choose vacation spots
 - 🗺️ **Smart Trip Planning**: E dey create detailed day-by-day plans
-- 🔄 **Real-time Streaming**: E support both immediate and streaming responses
-- 🛠️ **Custom Tool Integration**: E dey show how pesin fit add more power to di agent
+- 🔄 **Real-time Streaming**: E support both immediate and streaming response
+- 🛠️ **Custom Tool Integration**: E show how you fit add more power to di agent
 
-## 🔧 Technical Architecture
+## 🔧 How Di Technology Work
 
 ### Di Main Technologies
 
-- **Microsoft Agent Framework**: Di latest .NET implementation for AI agent development
+- **Microsoft Agent Framework**: Di latest .NET way to build AI agents
 - **GitHub Models Integration**: E dey use GitHub AI model inference service
 - **OpenAI API Compatibility**: E dey use OpenAI client libraries wit custom endpoints
-- **Secure Configuration**: E dey manage API keys based on environment
+- **Secure Configuration**: E manage API keys wit environment-based settings
 
-### Di Main Components
+### Di Main Parts
 
-1. **AIAgent**: Na di main agent wey dey handle di conversation flow
+1. **AIAgent**: Na di main agent wey dey control di conversation flow
 2. **Custom Tools**: `GetRandomDestination()` function wey di agent fit use
-3. **Chat Client**: GitHub Models-powered conversation interface
-4. **Streaming Support**: E fit generate real-time responses
+3. **Chat Client**: GitHub Models dey back di conversation interface
+4. **Streaming Support**: E fit generate response for real-time
 
-### Integration Pattern
+### How E Dey Work Together
 
 ```mermaid
 graph LR
@@ -49,12 +49,12 @@ graph LR
 
 ## 🚀 How to Start
 
-### Wetin You Need
+### Wetin You Go Need
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or higher
 - [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
-### Di Environment Variables We You Go Need
+### Di Environment Variables We You Go Set
 
 ```bash
 # zsh/bash
@@ -70,7 +70,7 @@ $env:GH_ENDPOINT = "https://models.github.ai/inference"
 $env:GH_MODEL_ID = "openai/gpt-5-mini"
 ```
 
-### Example Code
+### Sample Code
 
 To run di code example,
 
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Wetin You Go Learn
+
+1. **Agent Architecture**: Microsoft Agent Framework dey give clean, type-safe way to build AI agents for .NET
+2. **Tool Integration**: Functions wey get `[Description]` attribute go dey available as tools for di agent
+3. **Configuration Management**: E dey follow .NET best practices for environment variables and secure credential handling
+4. **OpenAI Compatibility**: GitHub Models dey work well wit OpenAI-compatible APIs
+
+## 🔗 More Resources
+
+- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:  
-Dis dokyument don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even as we dey try make am accurate, abeg sabi say machine translation fit get mistake or no dey correct well. Di original dokyument for im native language na di main source wey you go trust. For important information, e good make professional human translator check am. We no go fit take blame for any misunderstanding or wrong interpretation wey fit happen because you use dis translation.
+Dis dokyument don use AI translet service [Co-op Translator](https://github.com/Azure/co-op-translator) do di translet. Even as we dey try make am correct, abeg make you sabi say AI translet fit get mistake or no dey accurate well. Di original dokyument for im native language na di one wey you go take as di correct source. For important mata, e good make you use professional human translet. We no go fit take blame for any misunderstanding or wrong interpretation wey fit happen because you use dis translet.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

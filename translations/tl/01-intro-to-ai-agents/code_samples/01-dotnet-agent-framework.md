@@ -1,39 +1,39 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:31:23+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:27:52+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "tl"
 }
 -->
 # 🌍 AI Travel Agent gamit ang Microsoft Agent Framework (.NET)
 
-## 📋 Pangkalahatang-ideya ng Scenario
+## 📋 Pangkalahatang-ideya ng Senaryo
 
-Ipinapakita ng notebook na ito kung paano bumuo ng isang matalinong travel planning agent gamit ang Microsoft Agent Framework para sa .NET. Ang agent ay maaaring awtomatikong lumikha ng personalized na day-trip itineraries para sa mga random na destinasyon sa buong mundo.
+Ang halimbawang ito ay nagpapakita kung paano bumuo ng isang matalinong travel planning agent gamit ang Microsoft Agent Framework para sa .NET. Ang agent ay kayang awtomatikong lumikha ng personalized na day-trip itineraries para sa mga random na destinasyon sa buong mundo.
 
 ### Pangunahing Kakayahan:
 
 - 🎲 **Random na Pagpili ng Destinasyon**: Gumagamit ng custom na tool para pumili ng mga lugar na bakasyunan
-- 🗺️ **Matalinong Pagpaplano ng Biyahe**: Gumagawa ng detalyadong day-by-day na itineraries
-- 🔄 **Real-time Streaming**: Sinusuportahan ang parehong agarang at streaming na mga tugon
+- 🗺️ **Matalinong Pagpaplano ng Biyahe**: Lumilikha ng detalyadong day-by-day na itineraries
+- 🔄 **Real-time Streaming**: Sinusuportahan ang parehong agarang tugon at streaming na tugon
 - 🛠️ **Integrasyon ng Custom na Tool**: Ipinapakita kung paano palawakin ang kakayahan ng agent
 
 ## 🔧 Teknikal na Arkitektura
 
 ### Pangunahing Teknolohiya
 
-- **Microsoft Agent Framework**: Pinakabagong implementasyon ng .NET para sa pag-develop ng AI agent
+- **Microsoft Agent Framework**: Pinakabagong implementasyon ng .NET para sa pagbuo ng AI agents
 - **Integrasyon ng GitHub Models**: Gumagamit ng inference service ng AI model ng GitHub
-- **OpenAI API Compatibility**: Gumagamit ng OpenAI client libraries na may custom na endpoints
+- **OpenAI API Compatibility**: Umaasa sa mga OpenAI client libraries na may custom na endpoints
 - **Secure Configuration**: Pamamahala ng API key batay sa environment
 
 ### Pangunahing Komponent
 
 1. **AIAgent**: Ang pangunahing orchestrator ng agent na humahawak sa daloy ng usapan
-2. **Custom Tools**: `GetRandomDestination()` na function na magagamit ng agent
-3. **Chat Client**: Interface ng usapan na suportado ng GitHub Models
+2. **Custom Tools**: `GetRandomDestination()` function na magagamit ng agent
+3. **Chat Client**: Interface ng pag-uusap na suportado ng GitHub Models
 4. **Streaming Support**: Kakayahan sa real-time na pagbuo ng tugon
 
 ### Pattern ng Integrasyon
@@ -70,9 +70,9 @@ $env:GH_ENDPOINT = "https://models.github.ai/inference"
 $env:GH_MODEL_ID = "openai/gpt-5-mini"
 ```
 
-### Halimbawang Code
+### Halimbawang Kodigo
 
-Para patakbuhin ang halimbawa ng code,
+Upang patakbuhin ang halimbawa ng kodigo,
 
 ```bash
 # zsh/bash
@@ -86,7 +86,7 @@ O gamit ang dotnet CLI:
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-Tingnan ang [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) para sa kumpletong code.
+Tingnan ang [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) para sa kumpletong kodigo.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Mahahalagang Aral
+
+1. **Arkitektura ng Agent**: Ang Microsoft Agent Framework ay nagbibigay ng malinis at type-safe na paraan sa pagbuo ng AI agents sa .NET
+2. **Integrasyon ng Tool**: Ang mga function na may `[Description]` na attribute ay nagiging magagamit na tools para sa agent
+3. **Pamamahala ng Konfigurasyon**: Ang mga environment variable at secure na paghawak ng kredensyal ay sumusunod sa pinakamahusay na kasanayan ng .NET
+4. **OpenAI Compatibility**: Ang integrasyon ng GitHub Models ay gumagana nang maayos sa pamamagitan ng OpenAI-compatible APIs
+
+## 🔗 Karagdagang Mga Mapagkukunan
+
+- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Paunawa**:  
-Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat sinisikap naming maging tumpak, pakitandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa kanyang katutubong wika ang dapat ituring na opisyal na pinagmulan. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na dulot ng paggamit ng pagsasaling ito.
+Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't sinisikap naming maging tumpak, pakitandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na opisyal na sanggunian. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na dulot ng paggamit ng pagsasaling ito.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86b9c2b24da3b3e61711182ffa72601c",
-  "translation_date": "2025-09-29T22:49:12+00:00",
+  "original_hash": "7120197753abacc827b64ac2d5d6966f",
+  "translation_date": "2025-11-13T13:48:13+00:00",
   "source_file": "02-explore-agentic-frameworks/README.md",
   "language_code": "cs"
 }
@@ -29,7 +29,7 @@ Tato lekce se zaměří na:
 
 ## Cíle učení
 
-Cíle této lekce jsou pomoci vám pochopit:
+Cílem této lekce je pomoci vám pochopit:
 
 - Úlohu rámců AI agentů ve vývoji AI.
 - Jak využít rámce AI agentů k budování inteligentních agentů.
@@ -40,20 +40,20 @@ Cíle této lekce jsou pomoci vám pochopit:
 
 Tradiční AI rámce vám mohou pomoci integrovat AI do vašich aplikací a zlepšit je následujícími způsoby:
 
-- **Personalizace**: AI může analyzovat chování a preference uživatelů a poskytovat personalizovaná doporučení, obsah a zážitky.
+- **Personalizace**: AI může analyzovat chování uživatelů a jejich preference, aby poskytla personalizovaná doporučení, obsah a zážitky.  
 Příklad: Streamovací služby jako Netflix používají AI k doporučování filmů a pořadů na základě historie sledování, čímž zvyšují zapojení a spokojenost uživatelů.
-- **Automatizace a efektivita**: AI může automatizovat opakující se úkoly, zjednodušovat pracovní postupy a zlepšovat provozní efektivitu.
+- **Automatizace a efektivita**: AI může automatizovat opakující se úkoly, zjednodušit pracovní postupy a zlepšit provozní efektivitu.  
 Příklad: Aplikace zákaznického servisu používají chatboty poháněné AI k řešení běžných dotazů, čímž zkracují dobu odezvy a uvolňují lidské agenty pro složitější problémy.
-- **Zlepšený uživatelský zážitek**: AI může zlepšit celkový uživatelský zážitek poskytováním inteligentních funkcí, jako je rozpoznávání hlasu, zpracování přirozeného jazyka a prediktivní text.
+- **Vylepšený uživatelský zážitek**: AI může zlepšit celkový uživatelský zážitek poskytováním inteligentních funkcí, jako je rozpoznávání hlasu, zpracování přirozeného jazyka a prediktivní text.  
 Příklad: Virtuální asistenti jako Siri a Google Assistant používají AI k porozumění a reakci na hlasové příkazy, což uživatelům usnadňuje interakci s jejich zařízeními.
 
 ### To vše zní skvěle, že? Tak proč potřebujeme rámce AI agentů?
 
-Rámce AI agentů představují něco více než jen AI rámce. Jsou navrženy tak, aby umožnily tvorbu inteligentních agentů, kteří mohou interagovat s uživateli, jinými agenty a prostředím za účelem dosažení specifických cílů. Tito agenti mohou vykazovat autonomní chování, činit rozhodnutí a přizpůsobovat se měnícím se podmínkám. Podívejme se na některé klíčové schopnosti umožněné rámci AI agentů:
+Rámce AI agentů představují něco víc než jen AI rámce. Jsou navrženy tak, aby umožnily tvorbu inteligentních agentů, kteří mohou komunikovat s uživateli, jinými agenty a prostředím za účelem dosažení konkrétních cílů. Tito agenti mohou vykazovat autonomní chování, činit rozhodnutí a přizpůsobovat se měnícím se podmínkám. Podívejme se na některé klíčové schopnosti umožněné rámci AI agentů:
 
 - **Spolupráce a koordinace agentů**: Umožňuje tvorbu více AI agentů, kteří mohou spolupracovat, komunikovat a koordinovat se při řešení složitých úkolů.
 - **Automatizace a správa úkolů**: Poskytuje mechanismy pro automatizaci vícestupňových pracovních postupů, delegování úkolů a dynamickou správu úkolů mezi agenty.
-- **Kontextové porozumění a adaptace**: Vybavuje agenty schopností porozumět kontextu, přizpůsobit se měnícím se prostředím a činit rozhodnutí na základě informací v reálném čase.
+- **Porozumění kontextu a adaptace**: Vybavuje agenty schopností porozumět kontextu, přizpůsobit se měnícímu se prostředí a činit rozhodnutí na základě informací v reálném čase.
 
 Shrnuto, agenti vám umožňují dělat více, posunout automatizaci na vyšší úroveň, vytvářet inteligentnější systémy, které se mohou přizpůsobovat a učit se ze svého prostředí.
 
@@ -61,19 +61,19 @@ Shrnuto, agenti vám umožňují dělat více, posunout automatizaci na vyšší
 
 Toto je rychle se vyvíjející oblast, ale existují některé společné prvky napříč většinou rámců AI agentů, které vám mohou pomoci rychle prototypovat a iterovat, konkrétně modulární komponenty, nástroje pro spolupráci a učení v reálném čase. Pojďme se na ně podívat:
 
-- **Používejte modulární komponenty**: AI SDK nabízejí předem připravené komponenty, jako jsou konektory AI a paměti, volání funkcí pomocí přirozeného jazyka nebo pluginů kódu, šablony výzev a další.
+- **Používejte modulární komponenty**: AI SDK nabízejí předem připravené komponenty, jako jsou AI a paměťové konektory, volání funkcí pomocí přirozeného jazyka nebo pluginů kódu, šablony výzev a další.
 - **Využívejte nástroje pro spolupráci**: Navrhujte agenty s konkrétními rolemi a úkoly, což umožňuje testování a zdokonalování spolupráce.
 - **Učte se v reálném čase**: Implementujte zpětnovazební smyčky, kde se agenti učí z interakcí a dynamicky upravují své chování.
 
 ### Používejte modulární komponenty
 
-SDK jako Microsoft Semantic Kernel a LangChain nabízejí předem připravené komponenty, jako jsou konektory AI, šablony výzev a správa paměti.
+SDK jako Microsoft Semantic Kernel a LangChain nabízejí předem připravené komponenty, jako jsou AI konektory, šablony výzev a správa paměti.
 
 **Jak je mohou týmy využít**: Týmy mohou rychle sestavit tyto komponenty a vytvořit funkční prototyp bez nutnosti začínat od nuly, což umožňuje rychlé experimentování a iteraci.
 
 **Jak to funguje v praxi**: Můžete použít předem připravený parser k extrakci informací ze vstupu uživatele, modul paměti k ukládání a získávání dat a generátor výzev k interakci s uživateli, aniž byste museli tyto komponenty vytvářet od nuly.
 
-**Ukázkový kód**. Podívejme se na příklady, jak můžete použít předem připravený konektor AI se Semantic Kernel Python a .Net, který využívá automatické volání funkcí, aby model reagoval na vstup uživatele:
+**Ukázkový kód**. Podívejme se na příklady, jak můžete použít předem připravený AI konektor se Semantic Kernel Python a .Net, který používá automatické volání funkcí k tomu, aby model reagoval na vstup uživatele:
 
 ``` python
 # Semantic Kernel Python Example
@@ -231,9 +231,9 @@ Z tohoto příkladu vidíte, jak můžete využít předem připravený parser k
 
 Rámce jako CrewAI, Microsoft AutoGen a Semantic Kernel usnadňují tvorbu více agentů, kteří mohou spolupracovat.
 
-**Jak je mohou týmy využít**: Týmy mohou navrhovat agenty s konkrétními rolemi a úkoly, což umožňuje testování a zdokonalování spolupráce a zlepšení celkové efektivity systému.
+**Jak je mohou týmy využít**: Týmy mohou navrhnout agenty s konkrétními rolemi a úkoly, což umožňuje testování a zdokonalování spolupráce a zlepšení celkové efektivity systému.
 
-**Jak to funguje v praxi**: Můžete vytvořit tým agentů, kde každý agent má specializovanou funkci, jako je získávání dat, analýza nebo rozhodování. Tito agenti mohou komunikovat a sdílet informace za účelem dosažení společného cíle, jako je odpověď na dotaz uživatele nebo dokončení úkolu.
+**Jak to funguje v praxi**: Můžete vytvořit tým agentů, kde každý agent má specializovanou funkci, jako je získávání dat, analýza nebo rozhodování. Tito agenti mohou komunikovat a sdílet informace, aby dosáhli společného cíle, například odpovědi na dotaz uživatele nebo dokončení úkolu.
 
 **Ukázkový kód (AutoGen)**:
 
@@ -286,13 +286,13 @@ Existuje mnoho způsobů, jak tyto rámce porovnat, ale podívejme se na někter
 
 ## AutoGen
 
-AutoGen je open-source rámec vyvinutý laboratoří Microsoft Research's AI Frontiers Lab. Zaměřuje se na událostmi řízené, distribuované *agentní* aplikace, umožňující více LLMs a SLMs, nástroje a pokročilé návrhové vzory pro více agentů.
+AutoGen je open-source rámec vyvinutý laboratoří AI Frontiers společnosti Microsoft Research. Zaměřuje se na událostmi řízené, distribuované *agentní* aplikace, umožňující více LLMs a SLMs, nástroje a pokročilé návrhové vzory pro více agentů.
 
-AutoGen je postaven na základním konceptu agentů, což jsou autonomní entity, které mohou vnímat své prostředí, činit rozhodnutí a podnikat kroky k dosažení specifických cílů. Agenti komunikují prostřednictvím asynchronních zpráv, což jim umožňuje pracovat nezávisle a paralelně, čímž se zvyšuje škálovatelnost a odezva systému.
+AutoGen je postaven na základním konceptu agentů, což jsou autonomní entity, které mohou vnímat své prostředí, činit rozhodnutí a podnikat kroky k dosažení konkrétních cílů. Agenti komunikují prostřednictvím asynchronních zpráv, což jim umožňuje pracovat nezávisle a paralelně, čímž se zvyšuje škálovatelnost a odezva systému.
 
 <a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Agenti jsou založeni na modelu aktérů</a>. Podle Wikipedie je aktér _základním stavebním kamenem souběžného výpočtu. V reakci na zprávu, kterou obdrží, může aktér: činit lokální rozhodnutí, vytvářet další aktéry, posílat další zprávy a určit, jak reagovat na další obdrženou zprávu_.
 
-**Případy použití**: Automatizace generování kódu, úkoly analýzy dat a budování vlastních agentů pro plánovací a výzkumné funkce.
+**Případy použití**: Automatizace generování kódu, úkoly analýzy dat a budování vlastních agentů pro plánování a výzkumné funkce.
 
 Zde jsou některé důležité základní koncepty AutoGen:
 
@@ -324,10 +324,10 @@ Zde jsou některé důležité základní koncepty AutoGen:
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
     
-    V předchozím kódu byl vytvořen `MyAgent`, který dědí z `RoutedAgent`. Má obslužnou rutinu zpráv, která tiskne obsah zprávy a poté odešle odpověď pomocí delegáta `AssistantAgent`. Zvláště si všimněte, jak přiřazujeme `self._delegate` instanci `AssistantAgent`, což je předem připravený agent, který může zpracovávat dokončení chatu.
+    V předchozím kódu byl vytvořen `MyAgent`, který dědí z `RoutedAgent`. Má obslužnou rutinu zpráv, která tiskne obsah zprávy a poté odešle odpověď pomocí delegáta `AssistantAgent`. Zvláště si všimněte, jak přiřazujeme `self._delegate` instanci `AssistantAgent`, což je předem připravený agent, který dokáže zpracovat dokončení chatu.
 
 
-    Dále informujeme AutoGen o tomto typu agenta a spustíme program:
+    Pojďme informovat AutoGen o tomto typu agenta a spustit program:
 
     ```python
     
@@ -348,7 +348,7 @@ Zde jsou některé důležité základní koncepty AutoGen:
     my_assistant responded: Hello! How can I assist you today?
     ```
 
-- **Více agentů**. AutoGen podporuje tvorbu více agentů, kteří mohou spolupracovat na dosažení složitých úkolů. Agenti mohou komunikovat, sdílet informace a koordinovat své akce, aby problémy řešili efektivněji. Pro vytvoření systému s více agenty můžete definovat různé typy agentů se specializovanými funkcemi a rolemi, jako je získávání dat, analýza, rozhodování a interakce s uživateli. Podívejme se, jak taková tvorba vypadá:
+- **Více agentů**. AutoGen podporuje tvorbu více agentů, kteří mohou spolupracovat na dosažení složitých úkolů. Agenti mohou komunikovat, sdílet informace a koordinovat své akce, aby problémy řešili efektivněji. Pro vytvoření systému s více agenty můžete definovat různé typy agentů se specializovanými funkcemi a rolemi, jako je získávání dat, analýza, rozhodování a interakce s uživatelem. Podívejme se, jak taková tvorba vypadá:
 
     ```python
     editor_description = "Editor for planning and reviewing the content."
@@ -391,25 +391,25 @@ Zde jsou některé důležité základní koncepty AutoGen:
 
     V předchozím kódu máme `GroupChatManager`, který je zaregistrován v runtime. Tento manažer je zodpovědný za koordinaci interakcí mezi různými typy agentů, jako jsou spisovatelé, ilustrátoři, editoři a uživatelé.
 
-- **Runtime agenta**. Rámec poskytuje runtime prostředí, které umožňuje komunikaci mezi agenty, spravuje jejich identity a životní cykly a zajišťuje bezpečnostní a soukromé hranice. To znamená, že můžete své agenty provozovat v bezpečném a kontrolovaném prostředí, což zajišťuje, že mohou interagovat bezpečně a efektivně. Existují dva zajímavé typy runtime:
+- **Agentní runtime**. Rámec poskytuje runtime prostředí, které umožňuje komunikaci mezi agenty, spravuje jejich identity a životní cykly a zajišťuje bezpečnostní a soukromé hranice. To znamená, že můžete spouštět své agenty v bezpečném a kontrolovaném prostředí, což zajišťuje, že mohou interagovat bezpečně a efektivně. Existují dva zajímavé runtime:
   - **Samostatný runtime**. Toto je dobrá volba pro aplikace s jedním procesem, kde jsou všichni agenti implementováni ve stejném programovacím jazyce a běží ve stejném procesu. Zde je ilustrace, jak to funguje:
   
     <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">Samostatný runtime</a>   
 Aplikační stack
 
-    *agenti komunikují prostřednictvím zpráv přes runtime, který spravuje životní cyklus agentů*
+    *agenti komunikují prostřednictvím zpráv přes runtime, a runtime spravuje životní cyklus agentů*
 
-  - **Distribuovaný runtime agentů**, je vhodný pro aplikace s více procesy, kde mohou být agenti implementováni v různých programovacích jazycích a běžet na různých strojích. Zde je ilustrace, jak to funguje:
+  - **Distribuovaný runtime**, je vhodný pro aplikace s více procesy, kde agenti mohou být implementováni v různých programovacích jazycích a běžet na různých strojích. Zde je ilustrace, jak to funguje:
   
     <a href="https://microsoft.github.io/autogen/stable/_images/architecture-distributed.svg" target="_blank">Distribuovaný runtime</a>
 
 ## Semantic Kernel + Agent Framework
 
-Semantic Kernel je podnikový AI Orchestration SDK. Skládá se z konektorů AI a paměti spolu s rámcem agentů.
+Semantic Kernel je podnikový AI Orchestration SDK. Skládá se z AI a paměťových konektorů spolu s rámcem agentů.
 
 Nejprve se podívejme na některé základní komponenty:
 
-- **Konektory AI**: Toto je rozhraní s externími AI službami a datovými zdroji pro použití v Pythonu i C#.
+- **AI konektory**: Toto je rozhraní s externími AI službami a datovými zdroji pro použití v Pythonu i C#.
 
   ```python
   # Semantic Kernel Python
@@ -442,9 +442,9 @@ Nejprve se podívejme na některé základní komponenty:
     var kernel = builder.Build();
     ```
 
-    Zde máte jednoduchý příklad, jak můžete vytvořit kernel a přidat službu dokončení chatu. Semantic Kernel vytváří připojení k externí AI službě, v tomto případě Azure OpenAI Chat Completion.
+    Zde máte jednoduchý příklad, jak můžete vytvořit kernel a přidat službu dokončení chatu. Semantic Kernel vytváří spojení s externí AI službou, v tomto případě Azure OpenAI Chat Completion.
 
-- **Pluginy**: Tyto zapouzdřují funkce, které může aplikace použít. Existují jak hotové pluginy, tak vlastní, které můžete vytvořit. Souvisejícím konceptem jsou "funkce výzev". Místo poskytování přirozených jazykových podnětů pro vyvolání funkcí vysíláte určité funkce modelu. Na základě aktuálního kontextu chatu může model zvolit volání jedné z těchto funkcí k dokončení požadavku nebo dotazu. Zde je příklad:
+- **Pluginy**: Tyto zapouzdřují funkce, které může aplikace používat. Existují jak hotové pluginy, tak vlastní, které můžete vytvořit. Souvisejícím konceptem jsou "funkce výzev". Místo poskytování přirozených jazykových podnětů pro vyvolání funkcí vysíláte určité funkce modelu. Na základě aktuálního kontextu chatu může model zvolit jednu z těchto funkcí k dokončení požadavku nebo dotazu. Zde je příklad:
 
   ```python
   from semantic_kernel.connectors.ai.open_ai.services.azure_chat_completion import AzureChatCompletion
@@ -501,12 +501,12 @@ Nejprve se podívejme na některé základní komponenty:
 
     ```
 
-    Zde nejprve máte šablonu výzvy `skPrompt`, která ponechává prostor pro vstup uživatele, `$userInput`. Poté vytvoříte funkci kernelu `SummarizeText` a následně ji importujete do kernelu pod názvem pluginu `SemanticFunctions`. Všimněte si názvu funkce, který pomáhá Semantic Kernel pochopit, co funkce dělá a kdy by měla být volána.
+    Zde nejprve máte šablonu výzvy `skPrompt`, která ponechává prostor pro uživatelský vstup, `$userInput`. Poté vytvoříte kernel funkci `SummarizeText` a poté ji importujete do kernelu s názvem pluginu `SemanticFunctions`. Všimněte si názvu funkce, který pomáhá Semantic Kernel pochopit, co funkce dělá a kdy by měla být volána.
 
-- **Nativní funkce**: Existují také nativní funkce, které může rámec přímo volat k prov
-Tyto informace jsou poté uloženy v kolekci paměti `SummarizedAzureDocs`. Jedná se o velmi zjednodušený příklad, ale můžete vidět, jak lze ukládat informace do paměti, aby je LLM mohl využít.
+- **Nativní funkce**: Existují také nativní funkce, které může rámec pří
+Tyto informace jsou poté uloženy v paměťové kolekci `SummarizedAzureDocs`. Jedná se o velmi zjednodušený příklad, ale můžete vidět, jak lze ukládat informace do paměti, aby je LLM mohl využít.
 
-Takže to jsou základy frameworku Semantic Kernel, co ale Agent Framework?
+To jsou základy frameworku Semantic Kernel, co ale Agent Framework?
 
 ## Azure AI Agent Service
 
@@ -514,7 +514,7 @@ Azure AI Agent Service je novější přírůstek, představený na Microsoft Ig
 
 Azure AI Agent Service poskytuje silnější mechanismy zabezpečení pro podniky a metody ukládání dat, což ho činí vhodným pro podnikové aplikace.
 
-Funguje ihned po instalaci s frameworky pro orchestraci více agentů, jako jsou AutoGen a Semantic Kernel.
+Funguje ihned po instalaci s frameworky pro orchestraci multi-agentů, jako jsou AutoGen a Semantic Kernel.
 
 Tato služba je aktuálně ve veřejném náhledu a podporuje Python a C# pro tvorbu agentů.
 
@@ -624,7 +624,7 @@ Azure AI Agent Service má následující základní koncepty:
 
     V tomto příkladu je vytvořen agent s modelem `gpt-4o-mini`, názvem `my-agent` a instrukcemi `You are helpful agent`. Agent je vybaven nástroji a zdroji pro provádění úkolů interpretace kódu.
 
-- **Vlákno a zprávy**. Vlákno je další důležitý koncept. Představuje konverzaci nebo interakci mezi agentem a uživatelem. Vlákna lze použít ke sledování průběhu konverzace, ukládání kontextových informací a správě stavu interakce. Zde je příklad vlákna:
+- **Vlákno a zprávy**. Vlákno je dalším důležitým konceptem. Představuje konverzaci nebo interakci mezi agentem a uživatelem. Vlákna lze použít ke sledování průběhu konverzace, ukládání kontextových informací a správě stavu interakce. Zde je příklad vlákna:
 
     ```python
     thread = project_client.agents.create_thread()
@@ -652,37 +652,38 @@ Azure AI Agent Service má následující základní koncepty:
 
 Zdá se, že mezi těmito frameworky existuje značné překrývání, ale existují klíčové rozdíly v jejich designu, schopnostech a cílových případech použití:
 
-- **AutoGen**: Je experimentální framework zaměřený na špičkový výzkum systémů s více agenty. Je to nejlepší místo pro experimentování a prototypování sofistikovaných systémů s více agenty.
-- **Semantic Kernel**: Je produkčně připravená knihovna agentů pro tvorbu podnikových aplikací s agenty. Zaměřuje se na událostmi řízené, distribuované aplikace s agenty, umožňuje použití více LLM a SLM, nástrojů a návrhových vzorů pro jednoho nebo více agentů.
-- **Azure AI Agent Service**: Je platforma a služba pro nasazení agentů v Azure Foundry. Nabízí propojení s podporovanými službami Azure, jako jsou Azure OpenAI, Azure AI Search, Bing Search a provádění kódu.
+- **AutoGen**: Je experimentální framework zaměřený na špičkový výzkum multi-agentních systémů. Je ideální pro experimentování a prototypování sofistikovaných multi-agentních systémů.
+- **Semantic Kernel**: Je produkčně připravená knihovna agentů pro tvorbu podnikových agentních aplikací. Zaměřuje se na událostmi řízené, distribuované agentní aplikace, umožňuje použití více LLM a SLM, nástrojů a návrhových vzorů pro jednoho/multi-agenta.
+- **Azure AI Agent Service**: Je platforma a služba pro nasazení agentů v Azure Foundry. Nabízí propojení se službami podporovanými Azure, jako jsou Azure OpenAI, Azure AI Search, Bing Search a provádění kódu.
 
 Stále si nejste jisti, který zvolit?
 
 ### Použití
 
-Podívejme se, jestli vám můžeme pomoci projít některé běžné případy použití:
+Podívejme se, zda vám můžeme pomoci projít některé běžné případy použití:
 
-> Otázka: Experimentuji, učím se a vytvářím proof-of-concept aplikace s agenty a chci být schopen rychle stavět a experimentovat.
+> Q: Experimentuji, učím se a vytvářím proof-of-concept aplikace agentů a chci být schopen rychle stavět a experimentovat
+>
 
-> Odpověď: AutoGen by byl dobrá volba pro tento scénář, protože se zaměřuje na událostmi řízené, distribuované aplikace s agenty a podporuje pokročilé návrhové vzory pro více agentů.
+>A: AutoGen by byl dobrá volba pro tento scénář, protože se zaměřuje na událostmi řízené, distribuované agentní aplikace a podporuje pokročilé návrhové vzory pro multi-agenty.
 
-> Otázka: Co dělá AutoGen lepší volbou než Semantic Kernel a Azure AI Agent Service pro tento případ použití?
+> Q: Co dělá AutoGen lepší volbou než Semantic Kernel a Azure AI Agent Service pro tento případ použití?
+>
+> A: AutoGen je specificky navržen pro událostmi řízené, distribuované agentní aplikace, což ho činí vhodným pro automatizaci úkolů generování kódu a analýzy dat. Poskytuje potřebné nástroje a schopnosti pro efektivní tvorbu komplexních multi-agentních systémů.
 
-> Odpověď: AutoGen je speciálně navržen pro událostmi řízené, distribuované aplikace s agenty, což ho činí dobře vhodným pro automatizaci úkolů generování kódu a analýzy dat. Poskytuje potřebné nástroje a schopnosti pro efektivní tvorbu komplexních systémů s více agenty.
+>Q: Zní to, že Azure AI Agent Service by zde také mohl fungovat, má nástroje pro generování kódu a další?
+>
+> A: Ano, Azure AI Agent Service je platformová služba pro agenty a přidává vestavěné schopnosti pro více modelů, Azure AI Search, Bing Search a Azure Functions. Umožňuje snadno vytvářet agenty v Foundry Portálu a nasazovat je ve velkém měřítku.
 
-> Otázka: Zní to, že Azure AI Agent Service by zde mohl také fungovat, má nástroje pro generování kódu a další?
-
-> Odpověď: Ano, Azure AI Agent Service je platformová služba pro agenty a přidává vestavěné schopnosti pro více modelů, Azure AI Search, Bing Search a Azure Functions. Umožňuje snadno vytvářet vaše agenty v Foundry Portálu a nasazovat je ve velkém měřítku.
-
-> Otázka: Pořád jsem zmatený, dejte mi jen jednu možnost.
-
-> Odpověď: Skvělou volbou je nejprve vytvořit vaši aplikaci v Semantic Kernel a poté použít Azure AI Agent Service k nasazení vašeho agenta. Tento přístup vám umožní snadno uchovávat vaše agenty a zároveň využívat sílu tvorby systémů s více agenty v Semantic Kernel. Navíc má Semantic Kernel konektor v AutoGen, což usnadňuje použití obou frameworků společně.
+> Q: Pořád jsem zmatený, dejte mi jen jednu možnost
+>
+> A: Skvělou volbou je nejprve vytvořit svou aplikaci v Semantic Kernel a poté použít Azure AI Agent Service k nasazení vašeho agenta. Tento přístup vám umožní snadno uchovávat vaše agenty a zároveň využívat sílu pro tvorbu multi-agentních systémů v Semantic Kernel. Navíc má Semantic Kernel konektor v AutoGen, což usnadňuje použití obou frameworků společně.
 
 Shrňme klíčové rozdíly v tabulce:
 
-| Framework | Zaměření | Základní koncepty | Případy použití |
+| Framework | Zaměření | Základní koncepty | Použití |
 | --- | --- | --- | --- |
-| AutoGen | Událostmi řízené, distribuované aplikace s agenty | Agenti, Persony, Funkce, Data | Generování kódu, úkoly analýzy dat |
+| AutoGen | Událostmi řízené, distribuované agentní aplikace | Agenti, Persony, Funkce, Data | Generování kódu, úkoly analýzy dat |
 | Semantic Kernel | Porozumění a generování textového obsahu podobného lidskému | Agenti, Modulární komponenty, Spolupráce | Porozumění přirozenému jazyku, generování obsahu |
 | Azure AI Agent Service | Flexibilní modely, podnikové zabezpečení, Generování kódu, Volání nástrojů | Modularita, Spolupráce, Orchestrace procesů | Bezpečné, škálovatelné a flexibilní nasazení AI agentů |
 
@@ -690,13 +691,18 @@ Jaký je ideální případ použití pro každý z těchto frameworků?
 
 ## Mohu integrovat své stávající nástroje Azure ekosystému přímo, nebo potřebuji samostatná řešení?
 
-Odpověď je ano, můžete integrovat své stávající nástroje Azure ekosystému přímo s Azure AI Agent Service, zejména proto, že byl vytvořen tak, aby bezproblémově fungoval s ostatními službami Azure. Můžete například integrovat Bing, Azure AI Search a Azure Functions. Existuje také hluboká integrace s Azure AI Foundry.
+Odpověď je ano, můžete integrovat své stávající nástroje Azure ekosystému přímo s Azure AI Agent Service, zejména proto, že byl navržen tak, aby bezproblémově fungoval s ostatními službami Azure. Můžete například integrovat Bing, Azure AI Search a Azure Functions. Existuje také hluboká integrace s Azure AI Foundry.
 
-Pro AutoGen a Semantic Kernel můžete také integrovat služby Azure, ale může být nutné volat služby Azure z vašeho kódu. Dalším způsobem integrace je použití Azure SDKs pro interakci se službami Azure z vašich agentů. Navíc, jak bylo zmíněno, můžete použít Azure AI Agent Service jako orchestrátor pro vaše agenty vytvořené v AutoGen nebo Semantic Kernel, což by poskytlo snadný přístup k Azure ekosystému.
+Pro AutoGen a Semantic Kernel můžete také integrovat s Azure službami, ale může být nutné volat Azure služby z vašeho kódu. Dalším způsobem integrace je použití Azure SDKs pro interakci s Azure službami z vašich agentů. Navíc, jak bylo zmíněno, můžete použít Azure AI Agent Service jako orchestrátor pro vaše agenty vytvořené v AutoGen nebo Semantic Kernel, což by poskytlo snadný přístup k Azure ekosystému.
 
-### Máte další otázky ohledně AI Agent Frameworků?
+## Ukázkové kódy
 
-Připojte se na [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kde se můžete setkat s dalšími studenty, zúčastnit se konzultačních hodin a získat odpovědi na vaše otázky ohledně AI agentů.
+- Python: [Agent Framework](./code_samples/02-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/02-dotnet-agent-framework.md)
+
+## Máte další otázky ohledně AI Agent Frameworks?
+
+Připojte se k [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kde se můžete setkat s dalšími studenty, zúčastnit se konzultačních hodin a získat odpovědi na vaše otázky ohledně AI agentů.
 
 ## Reference
 
@@ -704,18 +710,20 @@ Připojte se na [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kd
 - <a href="https://devblogs.microsoft.com/semantic-kernel/microsofts-agentic-ai-frameworks-autogen-and-semantic-kernel/" target="_blank">Semantic Kernel a AutoGen</a>
 - <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-python" target="_blank">Semantic Kernel Python Agent Framework</a>
 - <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-csharp" target="_blank">Semantic Kernel .Net Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a>
-- <a href="https://techcommunity.microsoft.com/blog/educatordeveloperblog/using-azure-ai-agent-service-with-autogen--semantic-kernel-to-build-a-multi-agen/4363121" target="_blank">Použití Azure AI Agent Service s AutoGen / Semantic Kernel pro tvorbu řešení s více agenty</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent service</a>
+- <a href="https://techcommunity.microsoft.com/blog/educatordeveloperblog/using-azure-ai-agent-service-with-autogen--semantic-kernel-to-build-a-multi-agen/4363121" target="_blank">Použití Azure AI Agent Service s AutoGen / Semantic Kernel pro vytvoření multi-agentního řešení</a>
 
 ## Předchozí lekce
 
-[Úvod do AI agentů a jejich případů použití](../01-intro-to-ai-agents/README.md)
+[Úvod do AI agentů a jejich použití](../01-intro-to-ai-agents/README.md)
 
 ## Další lekce
 
-[Porozumění návrhovým vzorům pro agenty](../03-agentic-design-patterns/README.md)
+[Porozumění návrhovým vzorům agentů](../03-agentic-design-patterns/README.md)
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Prohlášení**:  
-Tento dokument byl přeložen pomocí služby AI pro překlady [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho původním jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+Tento dokument byl přeložen pomocí služby AI pro překlady [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho rodném jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

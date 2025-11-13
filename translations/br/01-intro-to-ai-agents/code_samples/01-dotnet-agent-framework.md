@@ -1,39 +1,39 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:11:18+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T12:12:42+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "br"
 }
 -->
-# 🌍 Agente de Viagem com Microsoft Agent Framework (.NET)
+# 🌍 Agente de Viagens com Microsoft Agent Framework (.NET)
 
 ## 📋 Visão Geral do Cenário
 
-Este notebook demonstra como criar um agente inteligente de planejamento de viagens usando o Microsoft Agent Framework para .NET. O agente pode gerar automaticamente roteiros personalizados de viagens de um dia para destinos aleatórios ao redor do mundo.
+Este exemplo demonstra como criar um agente inteligente de planejamento de viagens usando o Microsoft Agent Framework para .NET. O agente pode gerar automaticamente roteiros personalizados de viagens de um dia para destinos aleatórios ao redor do mundo.
 
 ### Principais Capacidades:
 
 - 🎲 **Seleção Aleatória de Destinos**: Utiliza uma ferramenta personalizada para escolher locais de férias
 - 🗺️ **Planejamento Inteligente de Viagens**: Cria roteiros detalhados dia a dia
 - 🔄 **Streaming em Tempo Real**: Suporta respostas imediatas e em streaming
-- 🛠️ **Integração de Ferramentas Personalizadas**: Demonstra como ampliar as capacidades do agente
+- 🛠️ **Integração de Ferramentas Personalizadas**: Demonstra como estender as capacidades do agente
 
 ## 🔧 Arquitetura Técnica
 
 ### Tecnologias Principais
 
-- **Microsoft Agent Framework**: Implementação mais recente em .NET para desenvolvimento de agentes de IA
+- **Microsoft Agent Framework**: Implementação mais recente do .NET para desenvolvimento de agentes de IA
 - **Integração com Modelos do GitHub**: Utiliza o serviço de inferência de modelos de IA do GitHub
-- **Compatibilidade com API OpenAI**: Aproveita as bibliotecas cliente da OpenAI com endpoints personalizados
+- **Compatibilidade com API OpenAI**: Aproveita bibliotecas cliente da OpenAI com endpoints personalizados
 - **Configuração Segura**: Gerenciamento de chaves de API baseado em ambiente
 
 ### Componentes Principais
 
 1. **AIAgent**: O orquestrador principal do agente que gerencia o fluxo de conversação
 2. **Ferramentas Personalizadas**: Função `GetRandomDestination()` disponível para o agente
-3. **Cliente de Chat**: Interface de conversação baseada em modelos do GitHub
+3. **Cliente de Chat**: Interface de conversação baseada em Modelos do GitHub
 4. **Suporte a Streaming**: Capacidades de geração de respostas em tempo real
 
 ### Padrão de Integração
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Principais Aprendizados
+
+1. **Arquitetura do Agente**: O Microsoft Agent Framework oferece uma abordagem limpa e segura para criar agentes de IA em .NET
+2. **Integração de Ferramentas**: Funções decoradas com atributos `[Description]` tornam-se ferramentas disponíveis para o agente
+3. **Gerenciamento de Configuração**: Variáveis de ambiente e manipulação segura de credenciais seguem as melhores práticas do .NET
+4. **Compatibilidade com OpenAI**: A integração com Modelos do GitHub funciona perfeitamente por meio de APIs compatíveis com OpenAI
+
+## 🔗 Recursos Adicionais
+
+- [Documentação do Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Marketplace de Modelos do GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [Aplicativos de Arquivo Único do .NET](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Aviso Legal**:  
-Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automatizadas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte autoritativa. Para informações críticas, recomenda-se a tradução profissional feita por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações equivocadas decorrentes do uso desta tradução.
+Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automatizadas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte autoritativa. Para informações críticas, recomenda-se a tradução profissional feita por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:21:21+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T12:47:40+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "da"
 }
@@ -11,14 +11,14 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Scenarieoversigt
 
-Denne notebook demonstrerer, hvordan man bygger en intelligent rejseplanlægningsagent ved hjælp af Microsoft Agent Framework for .NET. Agenten kan automatisk generere personlige dagsrejseplaner for tilfældige destinationer rundt om i verden.
+Dette eksempel viser, hvordan man opbygger en intelligent rejseplanlægningsagent ved hjælp af Microsoft Agent Framework for .NET. Agenten kan automatisk generere personlige dagsrejseplaner for tilfældige destinationer rundt om i verden.
 
 ### Nøglefunktioner:
 
 - 🎲 **Tilfældig destinationsvalg**: Bruger et specialværktøj til at vælge feriesteder
 - 🗺️ **Intelligent rejseplanlægning**: Skaber detaljerede dagsplaner
-- 🔄 **Realtidsstreaming**: Understøtter både øjeblikkelige og streamede svar
-- 🛠️ **Integration af specialværktøjer**: Viser, hvordan man udvider agentens funktioner
+- 🔄 **Streaming i realtid**: Understøtter både øjeblikkelige og streamede svar
+- 🛠️ **Integration af specialværktøj**: Viser, hvordan man udvider agentens funktioner
 
 ## 🔧 Teknisk arkitektur
 
@@ -31,7 +31,7 @@ Denne notebook demonstrerer, hvordan man bygger en intelligent rejseplanlægning
 
 ### Centrale komponenter
 
-1. **AIAgent**: Hovedagenten, der styrer samtaleflowet
+1. **AIAgent**: Den primære agentorkestrator, der håndterer samtaleflow
 2. **Specialværktøjer**: `GetRandomDestination()`-funktionen tilgængelig for agenten
 3. **Chatklient**: GitHub Models-baseret samtalegrænseflade
 4. **Streaming-understøttelse**: Evne til at generere svar i realtid
@@ -52,7 +52,7 @@ graph LR
 ### Forudsætninger
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) eller nyere
-- [GitHub Models API-adgangstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [GitHub Models API adgangstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ### Påkrævede miljøvariabler
 
@@ -174,6 +174,20 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
     Console.Write(update);
 }
 ```
+
+## 🎓 Vigtige pointer
+
+1. **Agentarkitektur**: Microsoft Agent Framework giver en ren, type-sikker tilgang til at bygge AI-agenter i .NET
+2. **Værktøjsintegration**: Funktioner dekoreret med `[Description]` attributter bliver tilgængelige værktøjer for agenten
+3. **Konfigurationshåndtering**: Miljøvariabler og sikker håndtering af legitimationsoplysninger følger .NET bedste praksis
+4. **OpenAI-kompatibilitet**: GitHub Models integration fungerer problemfrit via OpenAI-kompatible API'er
+
+## 🔗 Yderligere ressourcer
+
+- [Microsoft Agent Framework Dokumentation](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

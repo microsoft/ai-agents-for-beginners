@@ -1,31 +1,31 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86b9c2b24da3b3e61711182ffa72601c",
-  "translation_date": "2025-09-29T23:00:58+00:00",
+  "original_hash": "7120197753abacc827b64ac2d5d6966f",
+  "translation_date": "2025-11-13T14:28:22+00:00",
   "source_file": "02-explore-agentic-frameworks/README.md",
   "language_code": "sl"
 }
 -->
 [![Raziskovanje okvirov za AI agente](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df4d5d407e29970e654629e614f357444a9c27c80feb54c79d.sl.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
-> _(Kliknite zgornjo sliko za ogled videa te lekcije)_
+> _(Kliknite na zgornjo sliko za ogled videa te lekcije)_
 
 # Raziskovanje okvirov za AI agente
 
 Okviri za AI agente so programske platforme, zasnovane za poenostavitev ustvarjanja, uvajanja in upravljanja AI agentov. Ti okviri razvijalcem ponujajo vnaprej pripravljene komponente, abstrakcije in orodja, ki olajšajo razvoj kompleksnih AI sistemov.
 
-Okviri pomagajo razvijalcem, da se osredotočijo na edinstvene vidike svojih aplikacij, saj zagotavljajo standardizirane pristope k skupnim izzivom pri razvoju AI agentov. Povečujejo skalabilnost, dostopnost in učinkovitost pri gradnji AI sistemov.
+Ti okviri razvijalcem omogočajo, da se osredotočijo na edinstvene vidike svojih aplikacij, saj zagotavljajo standardizirane pristope k pogostim izzivom pri razvoju AI agentov. Izboljšujejo skalabilnost, dostopnost in učinkovitost pri gradnji AI sistemov.
 
-## Uvod 
+## Uvod
 
-Ta lekcija bo obravnavala:
+Ta lekcija bo zajemala:
 
 - Kaj so okviri za AI agente in kaj omogočajo razvijalcem?
-- Kako lahko ekipe z njihovo pomočjo hitro prototipirajo, iterirajo in izboljšajo zmogljivosti svojih agentov?
+- Kako lahko ekipe z njihovo pomočjo hitro prototipirajo, iterirajo in izboljšujejo zmogljivosti svojih agentov?
 - Kakšne so razlike med okviri in orodji, ki jih je ustvaril Microsoft <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>, <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a> in <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a>?
-- Ali lahko neposredno integriram obstoječa orodja ekosistema Azure ali potrebujem samostojne rešitve?
-- Kaj je storitev Azure AI Agents in kako mi pomaga?
+- Ali lahko neposredno integriram obstoječa orodja iz ekosistema Azure ali potrebujem samostojne rešitve?
+- Kaj je storitev Azure AI Agents in kako mi lahko pomaga?
 
 ## Cilji učenja
 
@@ -38,42 +38,42 @@ Cilji te lekcije so, da razumete:
 
 ## Kaj so okviri za AI agente in kaj omogočajo razvijalcem?
 
-Tradicionalni AI okviri lahko pomagajo pri integraciji AI v aplikacije in izboljšanju teh aplikacij na naslednje načine:
+Tradicionalni AI okviri vam lahko pomagajo integrirati AI v vaše aplikacije in jih izboljšati na naslednje načine:
 
-- **Personalizacija**: AI lahko analizira vedenje in preference uporabnikov ter ponudi personalizirana priporočila, vsebine in izkušnje.
+- **Personalizacija**: AI lahko analizira vedenje in preference uporabnikov ter ponudi personalizirana priporočila, vsebine in izkušnje.  
 Primer: Pretakalne storitve, kot je Netflix, uporabljajo AI za predlaganje filmov in oddaj na podlagi zgodovine ogledov, kar povečuje angažiranost in zadovoljstvo uporabnikov.
-- **Avtomatizacija in učinkovitost**: AI lahko avtomatizira ponavljajoče se naloge, poenostavi delovne procese in izboljša operativno učinkovitost.
-Primer: Aplikacije za podporo strankam uporabljajo AI-pogovorne robote za obravnavo pogostih vprašanj, kar skrajša čas odziva in omogoča človeškim agentom, da se osredotočijo na bolj zapletene težave.
-- **Izboljšana uporabniška izkušnja**: AI lahko izboljša splošno uporabniško izkušnjo z inteligentnimi funkcijami, kot so prepoznavanje glasu, obdelava naravnega jezika in prediktivno besedilo.
+- **Avtomatizacija in učinkovitost**: AI lahko avtomatizira ponavljajoče se naloge, poenostavi delovne tokove in izboljša operativno učinkovitost.  
+Primer: Aplikacije za podporo strankam uporabljajo AI-poganjane klepetalne bote za obravnavo pogostih vprašanj, kar skrajša odzivne čase in sprosti človeške agente za bolj kompleksne težave.
+- **Izboljšana uporabniška izkušnja**: AI lahko izboljša celotno uporabniško izkušnjo z zagotavljanjem inteligentnih funkcij, kot so prepoznavanje glasu, obdelava naravnega jezika in prediktivno besedilo.  
 Primer: Virtualni asistenti, kot sta Siri in Google Assistant, uporabljajo AI za razumevanje in odzivanje na glasovne ukaze, kar uporabnikom olajša interakcijo z napravami.
 
-### Zveni odlično, kajne? Zakaj torej potrebujemo okvire za AI agente?
+### To vse zveni odlično, kajne, zakaj torej potrebujemo okvir za AI agente?
 
-Okviri za AI agente predstavljajo nekaj več kot le AI okviri. Zasnovani so za omogočanje ustvarjanja inteligentnih agentov, ki lahko komunicirajo z uporabniki, drugimi agenti in okoljem, da dosežejo določene cilje. Ti agenti lahko izkazujejo avtonomno vedenje, sprejemajo odločitve in se prilagajajo spreminjajočim se razmeram. Poglejmo ključne zmogljivosti, ki jih omogočajo okviri za AI agente:
+Okviri za AI agente predstavljajo nekaj več kot le AI okviri. Zasnovani so za omogočanje ustvarjanja inteligentnih agentov, ki lahko komunicirajo z uporabniki, drugimi agenti in okoljem za dosego specifičnih ciljev. Ti agenti lahko izkazujejo avtonomno vedenje, sprejemajo odločitve in se prilagajajo spreminjajočim se razmeram. Oglejmo si nekaj ključnih zmogljivosti, ki jih omogočajo okviri za AI agente:
 
-- **Sodelovanje in koordinacija agentov**: Omogočajo ustvarjanje več AI agentov, ki lahko sodelujejo, komunicirajo in se usklajujejo pri reševanju kompleksnih nalog.
-- **Avtomatizacija in upravljanje nalog**: Zagotavljajo mehanizme za avtomatizacijo večstopenjskih delovnih procesov, delegiranje nalog in dinamično upravljanje nalog med agenti.
-- **Razumevanje konteksta in prilagoditev**: Opremljajo agente z zmožnostjo razumevanja konteksta, prilagajanja spreminjajočemu se okolju in sprejemanja odločitev na podlagi informacij v realnem času.
+- **Sodelovanje in koordinacija agentov**: Omogočajo ustvarjanje več AI agentov, ki lahko sodelujejo, komunicirajo in koordinirajo za reševanje kompleksnih nalog.
+- **Avtomatizacija in upravljanje nalog**: Zagotavljajo mehanizme za avtomatizacijo večstopenjskih delovnih tokov, delegiranje nalog in dinamično upravljanje nalog med agenti.
+- **Razumevanje konteksta in prilagoditev**: Opremljajo agente z zmožnostjo razumevanja konteksta, prilagajanja spreminjajočim se okoljem in sprejemanja odločitev na podlagi informacij v realnem času.
 
-Skratka, agenti omogočajo več, dvigujejo avtomatizacijo na višjo raven in ustvarjajo bolj inteligentne sisteme, ki se lahko prilagajajo in učijo iz svojega okolja.
+Skratka, agenti vam omogočajo več, dvigujejo avtomatizacijo na višjo raven in ustvarjajo bolj inteligentne sisteme, ki se lahko prilagajajo in učijo iz svojega okolja.
 
 ## Kako hitro prototipirati, iterirati in izboljšati zmogljivosti agenta?
 
-To je hitro razvijajoče se področje, vendar obstajajo nekatere skupne značilnosti večine okvirov za AI agente, ki vam lahko pomagajo hitro prototipirati in iterirati, kot so modularne komponente, orodja za sodelovanje in učenje v realnem času. Poglobimo se v te:
+To je hitro razvijajoče se področje, vendar obstajajo nekatere skupne značilnosti večine okvirov za AI agente, ki vam lahko pomagajo hitro prototipirati in iterirati, in sicer modularne komponente, orodja za sodelovanje in učenje v realnem času. Poglobimo se v te:
 
-- **Uporaba modularnih komponent**: AI SDK-ji ponujajo vnaprej pripravljene komponente, kot so AI in Memory konektorji, klicanje funkcij z uporabo naravnega jezika ali vtičnikov za kodo, predloge za pozive in drugo.
-- **Izkoristite orodja za sodelovanje**: Oblikujte agente s specifičnimi vlogami in nalogami, kar omogoča testiranje in izboljšanje sodelovalnih delovnih procesov.
-- **Učenje v realnem času**: Implementirajte povratne zanke, kjer se agenti učijo iz interakcij in dinamično prilagajajo svoje vedenje.
+- **Uporabite modularne komponente**: AI SDK-ji ponujajo vnaprej pripravljene komponente, kot so AI in Memory konektorji, klicanje funkcij z uporabo naravnega jezika ali vtičnikov za kodo, predloge za pozive in drugo.
+- **Izkoristite orodja za sodelovanje**: Oblikujte agente s specifičnimi vlogami in nalogami, kar omogoča testiranje in izboljšanje sodelovalnih delovnih tokov.
+- **Učite se v realnem času**: Implementirajte povratne zanke, kjer se agenti učijo iz interakcij in dinamično prilagajajo svoje vedenje.
 
-### Uporaba modularnih komponent
+### Uporabite modularne komponente
 
 SDK-ji, kot sta Microsoft Semantic Kernel in LangChain, ponujajo vnaprej pripravljene komponente, kot so AI konektorji, predloge za pozive in upravljanje spomina.
 
-**Kako lahko ekipe to uporabijo**: Ekipe lahko hitro sestavijo te komponente za ustvarjanje funkcionalnega prototipa, ne da bi začele od začetka, kar omogoča hitro eksperimentiranje in iteracijo.
+**Kako jih lahko ekipe uporabijo**: Ekipe lahko hitro sestavijo te komponente za ustvarjanje funkcionalnega prototipa brez potrebe po začetku iz nič, kar omogoča hitro eksperimentiranje in iteracijo.
 
-**Kako to deluje v praksi**: Uporabite lahko vnaprej pripravljen razčlenjevalnik za pridobivanje informacij iz uporabniškega vnosa, modul za spomin za shranjevanje in pridobivanje podatkov ter generator pozivov za interakcijo z uporabniki, vse brez potrebe po gradnji teh komponent od začetka.
+**Kako to deluje v praksi**: Uporabite lahko vnaprej pripravljen razčlenjevalnik za pridobivanje informacij iz uporabniškega vnosa, modul za spomin za shranjevanje in pridobivanje podatkov ter generator pozivov za interakcijo z uporabniki, vse to brez potrebe po gradnji teh komponent iz nič.
 
-**Primer kode**. Poglejmo primere, kako lahko uporabite vnaprej pripravljen AI konektor s Semantic Kernel Python in .Net, ki uporablja samodejno klicanje funkcij za odziv modela na uporabniški vnos:
+**Primer kode**. Oglejmo si primere, kako lahko uporabite vnaprej pripravljen AI konektor s Semantic Kernel Python in .Net, ki uporablja samodejno klicanje funkcij za odziv modela na uporabniški vnos:
 
 ``` python
 # Semantic Kernel Python Example
@@ -225,13 +225,13 @@ public class BookTravelPlugin
 }
 ```
 
-Iz tega primera lahko vidite, kako lahko izkoristite vnaprej pripravljen razčlenjevalnik za pridobivanje ključnih informacij iz uporabniškega vnosa, kot so izvor, destinacija in datum zahteve za rezervacijo leta. Ta modularni pristop vam omogoča, da se osredotočite na logiko na višji ravni.
+Iz tega primera lahko vidite, kako lahko izkoristite vnaprej pripravljen razčlenjevalnik za pridobivanje ključnih informacij iz uporabniškega vnosa, kot so izvor, cilj in datum zahteve za rezervacijo leta. Ta modularni pristop vam omogoča, da se osredotočite na logiko na višji ravni.
 
 ### Izkoristite orodja za sodelovanje
 
 Okviri, kot so CrewAI, Microsoft AutoGen in Semantic Kernel, omogočajo ustvarjanje več agentov, ki lahko sodelujejo.
 
-**Kako lahko ekipe to uporabijo**: Ekipe lahko oblikujejo agente s specifičnimi vlogami in nalogami, kar omogoča testiranje in izboljšanje sodelovalnih delovnih procesov ter izboljšanje splošne učinkovitosti sistema.
+**Kako jih lahko ekipe uporabijo**: Ekipe lahko oblikujejo agente s specifičnimi vlogami in nalogami, kar omogoča testiranje in izboljšanje sodelovalnih delovnih tokov ter izboljšanje celotne učinkovitosti sistema.
 
 **Kako to deluje v praksi**: Ustvarite lahko ekipo agentov, kjer ima vsak agent specializirano funkcijo, kot so pridobivanje podatkov, analiza ali sprejemanje odločitev. Ti agenti lahko komunicirajo in delijo informacije za dosego skupnega cilja, kot je odgovor na uporabniško vprašanje ali dokončanje naloge.
 
@@ -270,38 +270,38 @@ stream = team.run_stream(task="Analyze data", max_turns=10)
 await Console(stream)
 ```
 
-V prejšnji kodi vidite, kako lahko ustvarite nalogo, ki vključuje več agentov, ki sodelujejo pri analizi podatkov. Vsak agent opravlja določeno funkcijo, naloga pa se izvaja s koordinacijo agentov za dosego želenega rezultata. Z ustvarjanjem namenskih agentov s specializiranimi vlogami lahko izboljšate učinkovitost in zmogljivost nalog.
+V prejšnji kodi vidite, kako lahko ustvarite nalogo, ki vključuje več agentov, ki sodelujejo pri analizi podatkov. Vsak agent opravlja specifično funkcijo, naloga pa se izvaja s koordinacijo agentov za dosego želenega rezultata. Z ustvarjanjem namenskih agentov s specializiranimi vlogami lahko izboljšate učinkovitost in zmogljivost nalog.
 
-### Učenje v realnem času
+### Učite se v realnem času
 
-Napredni okviri omogočajo zmožnosti za razumevanje konteksta in prilagoditev v realnem času.
+Napredni okviri omogočajo razumevanje konteksta in prilagajanje v realnem času.
 
-**Kako lahko ekipe to uporabijo**: Ekipe lahko implementirajo povratne zanke, kjer se agenti učijo iz interakcij in dinamično prilagajajo svoje vedenje, kar vodi k nenehnemu izboljševanju in izpopolnjevanju zmogljivosti.
+**Kako jih lahko ekipe uporabijo**: Ekipe lahko implementirajo povratne zanke, kjer se agenti učijo iz interakcij in dinamično prilagajajo svoje vedenje, kar vodi do nenehnega izboljševanja in izpopolnjevanja zmogljivosti.
 
-**Kako to deluje v praksi**: Agenti lahko analizirajo povratne informacije uporabnikov, podatke o okolju in rezultate nalog za posodobitev svoje baze znanja, prilagoditev algoritmov za sprejemanje odločitev in izboljšanje zmogljivosti skozi čas. Ta iterativni proces učenja omogoča agentom, da se prilagodijo spreminjajočim se razmeram in preferencam uporabnikov, kar izboljša splošno učinkovitost sistema.
+**Kako to deluje v praksi**: Agenti lahko analizirajo povratne informacije uporabnikov, podatke o okolju in rezultate nalog za posodobitev svoje baze znanja, prilagoditev algoritmov za sprejemanje odločitev in izboljšanje zmogljivosti skozi čas. Ta iterativni proces učenja omogoča agentom, da se prilagodijo spreminjajočim se razmeram in preferencam uporabnikov, kar izboljšuje celotno učinkovitost sistema.
 
 ## Kakšne so razlike med okviri AutoGen, Semantic Kernel in Azure AI Agent Service?
 
-Obstaja veliko načinov za primerjavo teh okvirov, vendar si poglejmo ključne razlike glede njihove zasnove, zmogljivosti in ciljnih primerov uporabe:
+Obstaja veliko načinov za primerjavo teh okvirov, vendar si oglejmo nekaj ključnih razlik glede na njihovo zasnovo, zmogljivosti in ciljne primere uporabe:
 
 ## AutoGen
 
 AutoGen je odprtokodni okvir, ki ga je razvil Microsoft Research's AI Frontiers Lab. Osredotoča se na dogodkovno vodene, porazdeljene *agentne* aplikacije, ki omogočajo več LLM-jev in SLM-jev, orodij ter napredne vzorce oblikovanja več agentov.
 
-AutoGen temelji na osnovnem konceptu agentov, ki so avtonomne entitete, ki lahko zaznavajo svoje okolje, sprejemajo odločitve in ukrepajo za dosego določenih ciljev. Agenti komunicirajo prek asinhronih sporočil, kar jim omogoča, da delujejo neodvisno in vzporedno, kar povečuje skalabilnost in odzivnost sistema.
+AutoGen temelji na osnovnem konceptu agentov, ki so avtonomni subjekti, ki lahko zaznavajo svoje okolje, sprejemajo odločitve in ukrepajo za dosego specifičnih ciljev. Agenti komunicirajo prek asinhronih sporočil, kar jim omogoča, da delujejo neodvisno in vzporedno, kar izboljšuje skalabilnost in odzivnost sistema.
 
-<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Agenti temeljijo na modelu akterja</a>. Po Wikipediji je akter _osnovni gradnik sočasnega računalništva. Kot odziv na prejeto sporočilo lahko akter: sprejme lokalne odločitve, ustvari več akterjev, pošlje več sporočil in določi, kako se odzvati na naslednje prejeto sporočilo_.
+<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Agenti temeljijo na modelu akterja</a>. Po Wikipediji je akter _osnovni gradnik sočasnega računalništva. Kot odgovor na prejeto sporočilo lahko akter: sprejme lokalne odločitve, ustvari več akterjev, pošlje več sporočil in določi, kako se odzvati na naslednje prejeto sporočilo_.
 
 **Primeri uporabe**: Avtomatizacija generiranja kode, naloge analize podatkov in gradnja prilagojenih agentov za funkcije načrtovanja in raziskovanja.
 
-Tu so nekateri pomembni osnovni koncepti AutoGen:
+Tukaj je nekaj pomembnih osnovnih konceptov AutoGen:
 
-- **Agenti**. Agent je programska entiteta, ki:
+- **Agenti**. Agent je programski subjekt, ki:
   - **Komunicira prek sporočil**, ta sporočila so lahko sinhrona ali asinhrona.
-  - **Vzdržuje svoje stanje**, ki ga lahko spremenijo prejeta sporočila.
-  - **Izvaja dejanja** kot odziv na prejeta sporočila ali spremembe svojega stanja. Ta dejanja lahko spremenijo stanje agenta in povzročijo zunanje učinke, kot so posodobitev dnevnikov sporočil, pošiljanje novih sporočil, izvajanje kode ali klicanje API-jev.
+  - **Vzdržuje svoje stanje**, ki ga lahko spremenijo dohodna sporočila.
+  - **Izvaja dejanja** kot odgovor na prejeta sporočila ali spremembe svojega stanja. Ta dejanja lahko spremenijo stanje agenta in povzročijo zunanje učinke, kot so posodobitev dnevnikov sporočil, pošiljanje novih sporočil, izvajanje kode ali klicanje API-jev.
     
-  Tukaj je kratek del kode, v katerem ustvarite svojega agenta s funkcijami klepeta:
+  Tukaj je kratek del kode, v katerem ustvarite svojega agenta s funkcijami za klepet:
 
     ```python
     from autogen_agentchat.agents import AssistantAgent
@@ -324,7 +324,7 @@ Tu so nekateri pomembni osnovni koncepti AutoGen:
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
     
-    V prejšnji kodi je bil ustvarjen `MyAgent`, ki podeduje `RoutedAgent`. Ima obdelovalnik sporočil, ki natisne vsebino sporočila in nato pošlje odgovor z uporabo delegata `AssistantAgent`. Posebej opazite, kako dodelimo `self._delegate` instanco `AssistantAgent`, ki je vnaprej pripravljen agent, ki lahko obravnava zaključke klepeta.
+    V prejšnji kodi je bil ustvarjen `MyAgent`, ki deduje iz `RoutedAgent`. Ima obdelovalec sporočil, ki natisne vsebino sporočila in nato pošlje odgovor z uporabo delegata `AssistantAgent`. Posebej opazite, kako dodelimo `self._delegate` instanco `AssistantAgent`, ki je vnaprej pripravljen agent, ki lahko obravnava zaključke klepeta.
 
 
     Nato obvestimo AutoGen o tej vrsti agenta in zaženemo program:
@@ -339,7 +339,7 @@ Tu so nekateri pomembni osnovni koncepti AutoGen:
     await runtime.send_message(MyMessageType("Hello, World!"), AgentId("my_agent", "default"))
     ```
 
-    V prejšnji kodi so agenti registrirani v času izvajanja, nato pa je agentu poslano sporočilo, kar ima za posledico naslednji izhod:
+    V prejšnji kodi so agenti registrirani v okolju izvajanja, nato pa je agentu poslano sporočilo, kar povzroči naslednji izhod:
 
     ```text
     # Output from the console:
@@ -348,7 +348,7 @@ Tu so nekateri pomembni osnovni koncepti AutoGen:
     my_assistant responded: Hello! How can I assist you today?
     ```
 
-- **Več agentov**. AutoGen podpira ustvarjanje več agentov, ki lahko sodelujejo pri doseganju kompleksnih nalog. Agenti lahko komunicirajo, delijo informacije in usklajujejo svoja dejanja za učinkovitejše reševanje težav. Za ustvarjanje sistema z več agenti lahko definirate različne vrste agentov s specializiranimi funkcijami in vlogami, kot so pridobivanje podatkov, analiza, sprejemanje odločitev in interakcija z uporabnikom. Poglejmo, kako takšna kreacija izgleda, da dobimo občutek:
+- **Več agentov**. AutoGen podpira ustvarjanje več agentov, ki lahko sodelujejo pri doseganju kompleksnih nalog. Agenti lahko komunicirajo, delijo informacije in usklajujejo svoja dejanja za učinkovitejše reševanje problemov. Za ustvarjanje sistema z več agenti lahko definirate različne vrste agentov s specializiranimi funkcijami in vlogami, kot so pridobivanje podatkov, analiza, sprejemanje odločitev in interakcija z uporabniki. Poglejmo, kako takšna ustvaritev izgleda:
 
     ```python
     editor_description = "Editor for planning and reviewing the content."
@@ -389,25 +389,25 @@ Tu so nekateri pomembni osnovni koncepti AutoGen:
     )
     ```
 
-    V prejšnji kodi imamo `GroupChatManager`, ki je registriran v času izvajanja. Ta upravitelj je odgovoren za usklajevanje interakcij med različnimi vrstami agentov, kot so pisci, ilustratorji, uredniki in uporabniki.
+    V prejšnji kodi imamo `GroupChatManager`, ki je registriran v okolju izvajanja. Ta upravitelj je odgovoren za usklajevanje interakcij med različnimi vrstami agentov, kot so pisci, ilustratorji, uredniki in uporabniki.
 
-- **Čas izvajanja agenta**. Okvir zagotavlja okolje za čas izvajanja, omogoča komunikacijo med agenti, upravlja njihove identitete in življenjske cikle ter zagotavlja varnostne in zasebnostne meje. To pomeni, da lahko svoje agente zaženete v varnem in nadzorovanem okolju, kar zagotavlja, da lahko varno in učinkovito komunicirajo. Obstajata dve zanimivi okolji za čas izvajanja:
-  - **Samostojno okolje za čas izvajanja**. To je dobra izbira za aplikacije z enim procesom, kjer so vsi agenti implementirani v istem programskem jeziku in se izvajajo v istem procesu. Tukaj je ilustracija, kako deluje:
+- **Okolje izvajanja agentov**. Okvir zagotavlja okolje izvajanja, ki omogoča komunikacijo med agenti, upravlja njihove identitete in življenjske cikle ter zagotavlja varnostne in zasebnostne meje. To pomeni, da lahko svoje agente zaženete v varnem in nadzorovanem okolju, kar zagotavlja, da lahko varno in učinkovito sodelujejo. Obstajata dve zanimivi okolji izvajanja:
+  - **Samostojno okolje izvajanja**. To je dobra izbira za aplikacije z enim procesom, kjer so vsi agenti implementirani v istem programskem jeziku in tečejo v istem procesu. Tukaj je ilustracija, kako deluje:
   
-    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">Samostojno okolje za čas izvajanja</a>   
+    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">Samostojno okolje izvajanja</a>   
 Aplikacijski sklad
 
-    *agenti komunicirajo prek sporočil prek okolja za čas izvajanja, okolje pa upravlja življenjski cikel agentov*
+    *agenti komunicirajo prek sporočil skozi okolje izvajanja, ki upravlja življenjski cikel agentov*
 
-  - **Porazdeljeno okolje za čas izvajanja**, je primerno za aplikacije z več procesi, kjer so agenti lahko implementirani v različnih programskih jezikih in se izvajajo na različnih strojih. Tukaj je ilustracija, kako deluje:
+  - **Porazdeljeno okolje izvajanja**, je primerno za aplikacije z več procesi, kjer so agenti lahko implementirani v različnih programskih jezikih in tečejo na različnih strojih. Tukaj je ilustracija, kako deluje:
   
-    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-distributed.svg" target="_blank">Porazdeljeno okolje za čas izvajanja</a>
+    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-distributed.svg" target="_blank">Porazdeljeno okolje izvajanja</a>
 
-## Semantic Kernel + Agent Framework
+## Semantic Kernel + Okvir za agente
 
 Semantic Kernel je SDK za orkestracijo AI, pripravljen za podjetja. Sestavljajo ga AI in spominski konektorji ter okvir za agente.
 
-Najprej pokrijmo nekatere osnovne komponente:
+Najprej pokrijmo nekaj osnovnih komponent:
 
 - **AI konektorji**: To je vmesnik z zunanjimi AI storitvami in viri podatkov za uporabo v Pythonu in C#.
 
@@ -444,7 +444,7 @@ Najprej pokrijmo nekatere osnovne komponente:
 
     Tukaj imate preprost primer, kako lahko ustvarite jedro in dodate storitev za zaključevanje klepeta. Semantic Kernel ustvari povezavo z zunanjo AI storitvijo, v tem primeru Azure OpenAI Chat Completion.
 
-- **Vtičniki**: Ti vključujejo funkcije, ki jih aplikacija lahko uporablja. Obstajajo tako pripravljeni vtičniki kot tudi prilagojeni, ki jih lahko ustvarite. Soroden koncept so "funkcije pozivov." Namesto da zagotovite naravne jezikovne namige za klicanje funkcij, določene funkcije posredujete modelu. Na podlagi trenutnega konteksta klepeta lahko model izbere klic ene od teh funkcij za dokončanje zahteve ali poizvedbe. Tukaj je primer:
+- **Vtičniki**: Ti vključujejo funkcije, ki jih lahko aplikacija uporablja. Obstajajo tako pripravljeni vtičniki kot tudi prilagojeni, ki jih lahko ustvarite. Soroden koncept so "funkcije pozivov". Namesto da bi modelu podali naravne jezikovne namige za klic funkcij, določite določene funkcije, ki jih model lahko pokliče glede na trenutni kontekst klepeta. Tukaj je primer:
 
   ```python
   from semantic_kernel.connectors.ai.open_ai.services.azure_chat_completion import AzureChatCompletion
@@ -501,9 +501,9 @@ Najprej pokrijmo nekatere osnovne komponente:
 
     ```
 
-    Tukaj najprej imate predlogo poziva `skPrompt`, ki pušča prostor za uporabniški vnos, `$userInput`. Nato ustvarite funkcijo jedra `SummarizeText` in jo nato uvozite v jedro z imenom vtičnika `SemanticFunctions`. Opazite ime funkcije, ki pomaga Semantic Kernelu razumeti, kaj funkcija počne in kdaj naj jo pokliče.
+    Tukaj imate najprej predlogo poziva `skPrompt`, ki omogoča uporabniku, da vnese besedilo, `$userInput`. Nato ustvarite funkcijo jedra `SummarizeText` in jo nato uvozite v jedro z imenom vtičnika `SemanticFunctions`. Opazite ime funkcije, ki pomaga Semantic Kernelu razumeti, kaj funkcija počne in kdaj jo je treba poklicati.
 
-- **Naravna funkcija**: Obstajajo tudi naravne funkcije, ki jih okvir lahko neposredno pokliče za izvedbo naloge. Tukaj je primer takšne funkcije, ki pridobi vsebino iz datoteke:
+- **Domača funkcija**: Obstajajo tudi domače funkcije, ki jih okvir lahko neposredno pokliče za izvedbo naloge. Tukaj je primer takšne funkcije, ki pridobi vsebino iz datoteke:
 
     ```csharp
     public class NativeFunctions {
@@ -526,7 +526,36 @@ Najprej pokrijmo nekatere osnovne komponente:
 
     ```
 
-- **Spomin**: Abstrahira in poenostavi upravljanje konteksta za AI aplikacije. Ideja spomina je, da je to nekaj, kar bi moral LLM vedeti. Te informacije lahko shranite v vektorsko shrambo, ki je na koncu pomnilniška baza podatkov ali vektorska baza podatkov ali podobno. Tukaj je primer zelo poen
+- **Spomin**: Abstrahira in poenostavi upravljanje konteksta za AI aplikacije. Ideja spomina je, da je to nekaj, kar bi moral LLM vedeti. Te informacije lahko shranite v vektorsko shrambo, ki je lahko pomnilniška baza podatkov, vektorska baza podatkov ali podobno. Tukaj je primer zelo poenostavljenega scenarija, kjer se *dejstva* dodajo v spomin:
+
+    ```csharp
+    var facts = new Dictionary<string,string>();
+    facts.Add(
+        "Azure Machine Learning; https://learn.microsoft.com/azure/machine-learning/",
+        @"Azure Machine Learning is a cloud service for accelerating and
+        managing the machine learning project lifecycle. Machine learning professionals,
+        data scientists, and engineers can use it in their day-to-day workflows"
+    );
+    
+    facts.Add(
+        "Azure SQL Service; https://learn.microsoft.com/azure/azure-sql/",
+        @"Azure SQL is a family of managed, secure, and intelligent products
+        that use the SQL Server database engine in the Azure cloud."
+    );
+    
+    string memoryCollectionName = "SummarizedAzureDocs";
+    
+    foreach (var fact in facts) {
+        await memoryBuilder.SaveReferenceAsync(
+            collection: memoryCollectionName,
+            description: fact.Key.Split(";")[1].Trim(),
+            text: fact.Value,
+            externalId: fact.Key.Split(";")[2].Trim(),
+            externalSourceName: "Azure Documentation"
+        );
+    }
+    ```
+
 Te dejstva so nato shranjena v zbirki podatkov `SummarizedAzureDocs`. To je zelo poenostavljen primer, vendar lahko vidite, kako lahko shranite informacije v pomnilnik, da jih LLM uporabi.
 
 Torej, to so osnove okvira Semantic Kernel, kaj pa Agent Framework?
@@ -535,7 +564,7 @@ Torej, to so osnove okvira Semantic Kernel, kaj pa Agent Framework?
 
 Azure AI Agent Service je novejši dodatek, predstavljen na Microsoft Ignite 2024. Omogoča razvoj in uvajanje AI agentov z bolj prilagodljivimi modeli, kot je neposredno klicanje odprtokodnih LLM-jev, kot so Llama 3, Mistral in Cohere.
 
-Azure AI Agent Service zagotavlja močnejše mehanizme za varnost v podjetjih in metode shranjevanja podatkov, zaradi česar je primeren za poslovne aplikacije.
+Azure AI Agent Service zagotavlja močnejše mehanizme za varnost v podjetjih in metode shranjevanja podatkov, kar ga naredi primernega za poslovne aplikacije.
 
 Deluje takoj z večagentnimi orkestracijskimi okviri, kot sta AutoGen in Semantic Kernel.
 
@@ -647,7 +676,7 @@ Azure AI Agent Service vključuje naslednje osnovne koncepte:
 
     V tem primeru je agent ustvarjen z modelom `gpt-4o-mini`, imenom `my-agent` in navodili `You are helpful agent`. Agent je opremljen z orodji in viri za izvajanje nalog interpretacije kode.
 
-- **Nit in sporočila**. Nit je še en pomemben koncept. Predstavlja pogovor ali interakcijo med agentom in uporabnikom. Niti se lahko uporabljajo za sledenje napredku pogovora, shranjevanje kontekstnih informacij in upravljanje stanja interakcije. Tukaj je primer niti:
+- **Nit in sporočila**. Nit je še en pomemben koncept. Predstavlja pogovor ali interakcijo med agentom in uporabnikom. Niti se lahko uporabljajo za sledenje napredku pogovora, shranjevanje informacij o kontekstu in upravljanje stanja interakcije. Tukaj je primer niti:
 
     ```python
     thread = project_client.agents.create_thread()
@@ -665,7 +694,7 @@ Azure AI Agent Service vključuje naslednje osnovne koncepte:
     print(f"Messages: {messages}")
     ```
 
-    V prejšnji kodi je ustvarjena nit. Nato je sporočilo poslano v nit. Z uporabo `create_and_process_run` je agent pozvan, da opravi delo na niti. Na koncu so sporočila pridobljena in zabeležena, da se vidi odziv agenta. Sporočila kažejo napredek pogovora med uporabnikom in agentom. Pomembno je tudi razumeti, da so sporočila lahko različnih vrst, kot so besedilo, slika ali datoteka, kar pomeni, da je delo agenta rezultiralo na primer v sliki ali besedilnem odgovoru. Kot razvijalec lahko nato uporabite te informacije za nadaljnjo obdelavo odgovora ali njegovo predstavitev uporabniku.
+    V prejšnji kodi je ustvarjena nit. Nato je sporočilo poslano v nit. Z uporabo `create_and_process_run` je agentu naročeno, da opravi delo na niti. Na koncu so sporočila pridobljena in zabeležena, da se vidi agentov odgovor. Sporočila kažejo napredek pogovora med uporabnikom in agentom. Pomembno je tudi razumeti, da so sporočila lahko različnih vrst, kot so besedilo, slika ali datoteka, kar pomeni, da je agentovo delo rezultiralo na primer v sliki ali besedilnem odgovoru. Kot razvijalec lahko nato uporabite te informacije za nadaljnjo obdelavo odgovora ali njegovo predstavitev uporabniku.
 
 - **Integracija z drugimi AI okviri**. Azure AI Agent Service lahko komunicira z drugimi okviri, kot sta AutoGen in Semantic Kernel, kar pomeni, da lahko del svoje aplikacije zgradite v enem od teh okvirov, na primer z uporabo Agent Service kot orkestratorja, ali pa vse zgradite v Agent Service.
 
@@ -675,31 +704,30 @@ Azure AI Agent Service vključuje naslednje osnovne koncepte:
 
 Zdi se, da je med temi okviri veliko prekrivanja, vendar obstajajo ključne razlike glede njihove zasnove, zmogljivosti in ciljnih primerov uporabe:
 
-- **AutoGen**: Eksperimentalni okvir, osredotočen na vrhunske raziskave večagentnih sistemov. Najboljše mesto za eksperimentiranje in prototipiranje sofisticiranih večagentnih sistemov.
-- **Semantic Kernel**: Proizvodno pripravljen knjižnični agent za gradnjo poslovnih aplikacij z agenti. Osredotoča se na dogodkovno vodene, porazdeljene aplikacije z agenti, omogoča več LLM-jev in SLM-jev, orodja ter enojne/večagentne vzorce oblikovanja.
-- **Azure AI Agent Service**: Platforma in storitev uvajanja v Azure Foundry za agente. Ponuja povezljivost z storitvami, ki jih podpira Azure, kot so Azure OpenAI, Azure AI Search, Bing Search in izvajanje kode.
+- **AutoGen**: Je eksperimentalni okvir, osredotočen na najnovejše raziskave o večagentnih sistemih. Je najboljše mesto za eksperimentiranje in prototipiranje naprednih večagentnih sistemov.
+- **Semantic Kernel**: Je proizvodno pripravljen knjižnični agent za gradnjo poslovnih agentnih aplikacij. Osredotoča se na dogodkovno vodene, razpršene agentne aplikacije, ki omogočajo več LLM-jev in SLM-jev, orodij ter enojne/večagentne vzorce oblikovanja.
+- **Azure AI Agent Service**: Je platforma in storitev uvajanja v Azure Foundry za agente. Ponuja povezljivost z storitvami, ki jih podpira Azure, kot so Azure OpenAI, Azure AI Search, Bing Search in izvajanje kode.
 
-Še vedno niste prepričani, katerega izbrati?
+Še vedno niste prepričani, katero izbrati?
 
 ### Primeri uporabe
 
 Poglejmo, če vam lahko pomagamo z nekaj pogostimi primeri uporabe:
 
-> V: Eksperimentiram, se učim in gradim aplikacije z agenti kot dokaz koncepta, želim pa hitro graditi in eksperimentirati.
+> V: Eksperimentiram, se učim in gradim dokaz koncepta agentnih aplikacij, želim pa hitro graditi in eksperimentirati
 >
 
-> O: AutoGen bi bil dobra izbira za ta scenarij, saj se osredotoča na dogodkovno vodene, porazdeljene aplikacije z agenti in podpira napredne večagentne vzorce oblikovanja.
+> O: AutoGen bi bil dobra izbira za ta scenarij, saj se osredotoča na dogodkovno vodene, razpršene agentne aplikacije in podpira napredne večagentne vzorce oblikovanja.
 
 > V: Kaj naredi AutoGen boljšo izbiro kot Semantic Kernel in Azure AI Agent Service za ta primer uporabe?
 >
-> O: AutoGen je posebej zasnovan za dogodkovno vodene, porazdeljene aplikacije z agenti, zaradi česar je zelo primeren za avtomatizacijo nalog generiranja kode in analize podatkov. Ponuja potrebna orodja in zmogljivosti za učinkovito gradnjo kompleksnih večagentnih sistemov.
+> O: AutoGen je posebej zasnovan za dogodkovno vodene, razpršene agentne aplikacije, zaradi česar je zelo primeren za avtomatizacijo nalog generiranja kode in analize podatkov. Ponuja potrebna orodja in zmogljivosti za učinkovito gradnjo kompleksnih večagentnih sistemov.
 
 > V: Zdi se, da bi Azure AI Agent Service lahko deloval tudi tukaj, saj ima orodja za generiranje kode in več?
 >
-> 
-> O: Da, Azure AI Agent Service je platformna storitev za agente in dodaja vgrajene zmogljivosti za več modelov, Azure AI Search, Bing Search in Azure Functions. Omogoča enostavno gradnjo vaših agentov v Foundry Portalu in njihovo uvajanje na velikem obsegu.
+> O: Da, Azure AI Agent Service je platformna storitev za agente in ima vgrajene zmogljivosti za več modelov, Azure AI Search, Bing Search in Azure Functions. Omogoča enostavno gradnjo vaših agentov v Foundry Portalu in njihovo uvajanje na velikem obsegu.
 
-> V: Še vedno sem zmeden, samo dajte mi eno možnost.
+> V: Še vedno sem zmeden, samo dajte mi eno možnost
 >
 > O: Odlična izbira je, da najprej zgradite svojo aplikacijo v Semantic Kernel in nato uporabite Azure AI Agent Service za uvajanje vašega agenta. Ta pristop vam omogoča, da enostavno ohranite svoje agente, hkrati pa izkoristite moč za gradnjo večagentnih sistemov v Semantic Kernel. Poleg tega ima Semantic Kernel povezovalnik v AutoGen, kar omogoča enostavno uporabo obeh okvirov skupaj.
 
@@ -707,7 +735,7 @@ Povzemimo ključne razlike v tabeli:
 
 | Okvir | Osredotočenost | Osnovni koncepti | Primeri uporabe |
 | --- | --- | --- | --- |
-| AutoGen | Dogodkovno vodene, porazdeljene aplikacije z agenti | Agenti, Osebnosti, Funkcije, Podatki | Generiranje kode, naloge analize podatkov |
+| AutoGen | Dogodkovno vodene, razpršene agentne aplikacije | Agenti, Osebnosti, Funkcije, Podatki | Generiranje kode, naloge analize podatkov |
 | Semantic Kernel | Razumevanje in generiranje besedil, podobnih človeškim | Agenti, Modularne komponente, Sodelovanje | Razumevanje naravnega jezika, generiranje vsebine |
 | Azure AI Agent Service | Prilagodljivi modeli, varnost v podjetjih, Generiranje kode, Klicanje orodij | Modularnost, Sodelovanje, Orkestracija procesov | Varno, skalabilno in prilagodljivo uvajanje AI agentov |
 
@@ -715,11 +743,16 @@ Kateri je idealen primer uporabe za vsak od teh okvirov?
 
 ## Ali lahko neposredno integriram svoje obstoječe Azure ekosistemske storitve ali potrebujem samostojne rešitve?
 
-Odgovor je da, lahko neposredno integrirate svoje obstoječe Azure ekosistemske storitve z Azure AI Agent Service, še posebej zato, ker je bil zasnovan za brezhibno delovanje z drugimi Azure storitvami. Na primer, lahko integrirate Bing, Azure AI Search in Azure Functions. Obstaja tudi globoka integracija z Azure AI Foundry.
+Odgovor je da, lahko neposredno integrirate svoje obstoječe Azure ekosistemske storitve z Azure AI Agent Service, še posebej, ker je bil zasnovan za brezhibno delovanje z drugimi Azure storitvami. Na primer, lahko integrirate Bing, Azure AI Search in Azure Functions. Obstaja tudi globoka integracija z Azure AI Foundry.
 
 Za AutoGen in Semantic Kernel lahko prav tako integrirate z Azure storitvami, vendar boste morda morali klicati Azure storitve iz svoje kode. Drug način integracije je uporaba Azure SDK-jev za interakcijo z Azure storitvami iz vaših agentov. Poleg tega, kot je bilo omenjeno, lahko uporabite Azure AI Agent Service kot orkestrator za vaše agente, zgrajene v AutoGen ali Semantic Kernel, kar omogoča enostaven dostop do Azure ekosistema.
 
-### Imate več vprašanj o AI Agent Frameworkih?
+## Vzorčne kode
+
+- Python: [Agent Framework](./code_samples/02-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/02-dotnet-agent-framework.md)
+
+## Imate več vprašanj o AI Agent Frameworks?
 
 Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), da se povežete z drugimi učenci, udeležite uradnih ur in dobite odgovore na svoja vprašanja o AI agentih.
 
@@ -729,7 +762,7 @@ Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), da 
 - <a href="https://devblogs.microsoft.com/semantic-kernel/microsofts-agentic-ai-frameworks-autogen-and-semantic-kernel/" target="_blank">Semantic Kernel in AutoGen</a>
 - <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-python" target="_blank">Semantic Kernel Python Agent Framework</a>
 - <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-csharp" target="_blank">Semantic Kernel .Net Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent service</a>
 - <a href="https://techcommunity.microsoft.com/blog/educatordeveloperblog/using-azure-ai-agent-service-with-autogen--semantic-kernel-to-build-a-multi-agen/4363121" target="_blank">Uporaba Azure AI Agent Service z AutoGen / Semantic Kernel za gradnjo večagentne rešitve</a>
 
 ## Prejšnja lekcija
@@ -742,5 +775,7 @@ Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), da 
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Omejitev odgovornosti**:  
-Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas opozarjamo, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem maternem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitne nesporazume ali napačne razlage, ki bi nastale zaradi uporabe tega prevoda.
+Ta dokument je bil preveden z uporabo storitve za prevajanje AI [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem maternem jeziku naj se šteje za avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitne nesporazume ali napačne razlage, ki izhajajo iz uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

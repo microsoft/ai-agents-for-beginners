@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:22:35+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T12:52:13+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "no"
 }
@@ -11,9 +11,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Scenariooversikt
 
-Denne notatboken viser hvordan man kan bygge en intelligent reiseplanleggingsagent ved hjelp av Microsoft Agent Framework for .NET. Agenten kan automatisk generere personlige dagsplaner for tilfeldige destinasjoner rundt om i verden.
+Dette eksempelet viser hvordan man kan bygge en intelligent reiseplanleggingsagent ved hjelp av Microsoft Agent Framework for .NET. Agenten kan automatisk generere personlige dagsplaner for tilfeldige destinasjoner rundt om i verden.
 
-### Hovedfunksjoner:
+### Nøkkelfunksjoner:
 
 - 🎲 **Tilfeldig destinasjonsvalg**: Bruker et tilpasset verktøy for å velge feriesteder
 - 🗺️ **Intelligent reiseplanlegging**: Lager detaljerte dagsplaner
@@ -25,9 +25,9 @@ Denne notatboken viser hvordan man kan bygge en intelligent reiseplanleggingsage
 ### Kjerne-teknologier
 
 - **Microsoft Agent Framework**: Nyeste .NET-implementering for utvikling av AI-agenter
-- **GitHub Models-integrasjon**: Bruker GitHubs AI-modelltjeneste for inferens
+- **GitHub Models-integrasjon**: Bruker GitHubs AI-modellinferenstjeneste
 - **OpenAI API-kompatibilitet**: Utnytter OpenAI-klientbiblioteker med tilpassede endepunkter
-- **Sikker konfigurasjon**: Miljøbasert API-nøkkeladministrasjon
+- **Sikker konfigurasjon**: Miljøbasert API-nøkkelhåndtering
 
 ### Hovedkomponenter
 
@@ -174,6 +174,20 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
     Console.Write(update);
 }
 ```
+
+## 🎓 Viktige lærdommer
+
+1. **Agentarkitektur**: Microsoft Agent Framework gir en ren, type-sikker tilnærming til å bygge AI-agenter i .NET
+2. **Verktøyintegrasjon**: Funksjoner dekorert med `[Description]`-attributter blir tilgjengelige verktøy for agenten
+3. **Konfigurasjonshåndtering**: Miljøvariabler og sikker håndtering av legitimasjon følger beste praksis for .NET
+4. **OpenAI-kompatibilitet**: GitHub Models-integrasjon fungerer sømløst gjennom OpenAI-kompatible API-er
+
+## 🔗 Tilleggsressurser
+
+- [Microsoft Agent Framework-dokumentasjon](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

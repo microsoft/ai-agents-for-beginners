@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T10:46:04+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T10:46:58+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "en"
 }
@@ -11,14 +11,14 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Scenario Overview
 
-This notebook showcases how to create an intelligent travel planning agent using the Microsoft Agent Framework for .NET. The agent is capable of automatically generating personalized day-trip itineraries for random destinations worldwide.
+This example showcases how to create an intelligent travel planning agent using the Microsoft Agent Framework for .NET. The agent can automatically generate personalized day-trip itineraries for random destinations worldwide.
 
 ### Key Capabilities:
 
 - 🎲 **Random Destination Selection**: Utilizes a custom tool to choose vacation spots
 - 🗺️ **Intelligent Trip Planning**: Develops detailed day-by-day itineraries
-- 🔄 **Real-time Streaming**: Provides both instant and streaming responses
-- 🛠️ **Custom Tool Integration**: Demonstrates how to enhance agent functionalities
+- 🔄 **Real-time Streaming**: Supports both instant and streaming responses
+- 🛠️ **Custom Tool Integration**: Demonstrates how to expand agent functionalities
 
 ## 🔧 Technical Architecture
 
@@ -27,7 +27,7 @@ This notebook showcases how to create an intelligent travel planning agent using
 - **Microsoft Agent Framework**: The latest .NET implementation for developing AI agents
 - **GitHub Models Integration**: Employs GitHub's AI model inference service
 - **OpenAI API Compatibility**: Uses OpenAI client libraries with custom endpoints
-- **Secure Configuration**: Manages API keys through environment variables
+- **Secure Configuration**: Manages API keys through environment-based settings
 
 ### Key Components
 
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Key Takeaways
+
+1. **Agent Architecture**: The Microsoft Agent Framework offers a clean, type-safe method for building AI agents in .NET
+2. **Tool Integration**: Functions marked with `[Description]` attributes become accessible tools for the agent
+3. **Configuration Management**: Environment variables and secure credential handling adhere to .NET best practices
+4. **OpenAI Compatibility**: GitHub Models integration works seamlessly with OpenAI-compatible APIs
+
+## 🔗 Additional Resources
+
+- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:  
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we aim for accuracy, please note that automated translations may include errors or inaccuracies. The original document in its native language should be regarded as the authoritative source. For critical information, professional human translation is advised. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.
+This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please note that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
