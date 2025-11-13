@@ -1,6 +1,6 @@
 #!/usr/bin/dotnet run
 
-#:package Microsoft.Extensions.AI@9.*
+#:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
 
 using System.ClientModel;
@@ -63,8 +63,8 @@ var openAIOptions = new OpenAIClientOptions()
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
 
 // Create AI Agent with Travel Planning Capabilities
-// Initialize OpenAI client, get chat client for specified model, and create AI agent
-// Configure agent with travel planning instructions and random destination tool
+// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Configure agent with name, instructions, and available tools
 // The agent can now plan trips using the GetRandomDestination function
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
