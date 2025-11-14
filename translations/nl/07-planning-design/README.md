@@ -1,13 +1,62 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e4e06d3b5d6207459a019c05fee5eb4b",
-  "translation_date": "2025-07-12T10:43:32+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:12:15+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "nl"
 }
 -->
-voor een snel overzicht.
+[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.nl.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+
+> _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
+
+# Plannen en Ontwerpen
+
+## Introductie
+
+Deze les behandelt:
+
+* Het definiëren van een duidelijk algemeen doel en het opdelen van een complexe taak in beheersbare taken.
+* Het benutten van gestructureerde output voor betrouwbaardere en machine-leesbare antwoorden.
+* Het toepassen van een event-driven aanpak om dynamische taken en onverwachte invoer te verwerken.
+
+## Leerdoelen
+
+Na het voltooien van deze les heb je inzicht in:
+
+* Het identificeren en stellen van een algemeen doel voor een AI-agent, zodat deze duidelijk weet wat er moet worden bereikt.
+* Het opdelen van een complexe taak in beheersbare subtaken en deze organiseren in een logische volgorde.
+* Het uitrusten van agents met de juiste tools (bijv. zoektools of data-analysetools), beslissen wanneer en hoe ze worden gebruikt, en omgaan met onverwachte situaties die zich voordoen.
+* Het evalueren van de resultaten van subtaken, prestaties meten en acties herhalen om de uiteindelijke output te verbeteren.
+
+## Het Definiëren van het Algemeen Doel en Het Opdelen van een Taak
+
+![Doelen en Taken Definiëren](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.nl.png)
+
+De meeste taken in de echte wereld zijn te complex om in één stap aan te pakken. Een AI-agent heeft een beknopt doel nodig om zijn planning en acties te sturen. Bijvoorbeeld, overweeg het doel:
+
+    "Genereer een reisroute voor 3 dagen."
+
+Hoewel het eenvoudig te formuleren is, heeft het nog steeds verfijning nodig. Hoe duidelijker het doel, hoe beter de agent (en eventuele menselijke medewerkers) zich kunnen richten op het behalen van het juiste resultaat, zoals het creëren van een uitgebreide reisroute met vluchtopties, hotelaanbevelingen en activiteitensuggesties.
+
+### Taakopdeling
+
+Grote of ingewikkelde taken worden beheersbaarder wanneer ze worden opgesplitst in kleinere, doelgerichte subtaken.
+Voor het voorbeeld van de reisroute kun je het doel opdelen in:
+
+* Vlucht boeken
+* Hotel boeken
+* Auto huren
+* Personalisatie
+
+Elke subtaak kan vervolgens worden aangepakt door toegewijde agents of processen. Eén agent kan zich specialiseren in het zoeken naar de beste vluchtdeals, een andere richt zich op hotelboekingen, enzovoort. Een coördinerende of “downstream” agent kan deze resultaten vervolgens samenvoegen tot één samenhangende reisroute voor de eindgebruiker.
+
+Deze modulaire aanpak maakt ook stapsgewijze verbeteringen mogelijk. Bijvoorbeeld, je kunt gespecialiseerde agents toevoegen voor voedselaanbevelingen of lokale activiteitensuggesties en de reisroute in de loop van de tijd verfijnen.
+
+### Gestructureerde output
+
+Grote Taalmodellen (LLMs) kunnen gestructureerde output genereren (bijv. JSON) die gemakkelijker te verwerken is door downstream agents of services. Dit is vooral nuttig in een multi-agent context, waar we deze taken kunnen uitvoeren nadat de planning-output is ontvangen. Zie hiervoor een snelle samenvatting.
 
 De volgende Python-code laat zien hoe een eenvoudige planning-agent een doel opsplitst in subtaken en een gestructureerd plan genereert:
 
@@ -98,15 +147,15 @@ pprint(json.loads(response_content))
 # TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Planning Agent met Multi-Agent Orkestratie
+### Planning Agent met Multi-Agent Orchestratie
 
 In dit voorbeeld ontvangt een Semantic Router Agent een gebruikersverzoek (bijv. "Ik heb een hotelplan nodig voor mijn reis.").
 
-De planner doet vervolgens het volgende:
+De planner:
 
-* Ontvangt het Hotelplan: De planner neemt het bericht van de gebruiker en genereert, op basis van een systeemprompt (inclusief beschikbare agentdetails), een gestructureerd reisplan.
-* Lijst van Agents en Hun Tools: Het agentenregister bevat een lijst van agents (bijv. voor vlucht, hotel, autoverhuur en activiteiten) samen met de functies of tools die zij aanbieden.
-* Stuurt het Plan naar de Respectieve Agents: Afhankelijk van het aantal subtaken stuurt de planner het bericht direct naar een toegewijde agent (voor scenario's met één taak) of coördineert via een groepschatmanager voor samenwerking tussen meerdere agents.
+* Ontvangt het Hotelplan: De planner neemt het bericht van de gebruiker en genereert, op basis van een systeemprompt (inclusief details over beschikbare agents), een gestructureerd reisplan.
+* Lijst Agents en Hun Tools: Het agentregister bevat een lijst van agents (bijv. voor vluchten, hotels, autoverhuur en activiteiten) samen met de functies of tools die ze aanbieden.
+* Routeert het Plan naar de Respectieve Agents: Afhankelijk van het aantal subtaken stuurt de planner het bericht rechtstreeks naar een toegewijde agent (voor enkelvoudige taken) of coördineert via een groepschatmanager voor samenwerking tussen meerdere agents.
 * Vat het Resultaat Samen: Tot slot vat de planner het gegenereerde plan samen voor duidelijkheid.
 De volgende Python-code illustreert deze stappen:
 
@@ -183,7 +232,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Wat volgt is de output van de vorige code en je kunt deze gestructureerde output gebruiken om te routeren naar `assigned_agent` en het reisplan samen te vatten voor de eindgebruiker.
+Wat volgt is de output van de vorige code en je kunt deze gestructureerde output vervolgens gebruiken om te routeren naar `assigned_agent` en de reisroute samen te vatten voor de eindgebruiker.
 
 ```json
 {
@@ -214,15 +263,15 @@ Wat volgt is de output van de vorige code en je kunt deze gestructureerde output
 }
 ```
 
-Een voorbeeldnotebook met de vorige code is beschikbaar [hier](../../../07-planning-design/07-autogen.ipynb).
+Een voorbeeldnotebook met de vorige code is beschikbaar [hier](07-autogen.ipynb).
 
-### Iteratieve Planning
+### Iteratief Plannen
 
-Sommige taken vereisen een heen-en-weer of herplanning, waarbij het resultaat van de ene subtaak invloed heeft op de volgende. Bijvoorbeeld, als de agent een onverwacht dataformaat ontdekt tijdens het boeken van vluchten, moet hij mogelijk zijn strategie aanpassen voordat hij doorgaat met hotelboekingen.
+Sommige taken vereisen een heen-en-weer of herplanning, waarbij het resultaat van een subtaak invloed heeft op de volgende. Bijvoorbeeld, als de agent een onverwacht dataformaat ontdekt tijdens het boeken van vluchten, moet deze mogelijk zijn strategie aanpassen voordat hij verder gaat met hotelboekingen.
 
-Daarnaast kan gebruikersfeedback (bijv. een mens die besluit een eerdere vlucht te willen) een gedeeltelijke herplanning triggeren. Deze dynamische, iteratieve aanpak zorgt ervoor dat de uiteindelijke oplossing aansluit bij de realistische beperkingen en veranderende voorkeuren van de gebruiker.
+Daarnaast kan gebruikersfeedback (bijv. een mens die besluit dat ze een eerdere vlucht willen) een gedeeltelijke herplanning triggeren. Deze dynamische, iteratieve aanpak zorgt ervoor dat de uiteindelijke oplossing aansluit bij realistische beperkingen en veranderende gebruikersvoorkeuren.
 
-bijv. voorbeeldcode
+Bijvoorbeeld voorbeeldcode:
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
@@ -243,27 +292,31 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-Voor meer uitgebreide planning kun je Magnetic One bekijken
-
-voor het oplossen van complexe taken.
+Voor meer uitgebreide planning, bekijk Magnetic One voor het oplossen van complexe taken.
 
 ## Samenvatting
 
-In dit artikel hebben we een voorbeeld bekeken van hoe we een planner kunnen maken die dynamisch de beschikbare agents selecteert. De output van de planner splitst de taken op en wijst de agents toe zodat ze uitgevoerd kunnen worden. Er wordt aangenomen dat de agents toegang hebben tot de functies/tools die nodig zijn om de taak uit te voeren. Naast de agents kun je ook andere patronen opnemen zoals reflectie, samenvatter en round robin chat om verder te personaliseren.
+In dit artikel hebben we gekeken naar een voorbeeld van hoe we een planner kunnen maken die dynamisch de beschikbare agents selecteert die zijn gedefinieerd. De output van de Planner splitst de taken op en wijst de agents toe zodat ze kunnen worden uitgevoerd. Er wordt aangenomen dat de agents toegang hebben tot de functies/tools die nodig zijn om de taak uit te voeren. Naast de agents kun je andere patronen zoals reflectie, samenvatting en round robin chat toevoegen om verder aan te passen.
 
 ## Aanvullende Bronnen
 
-* AutoGen Magnetic One - Een generalistisch multi-agent systeem voor het oplossen van complexe taken en heeft indrukwekkende resultaten behaald op meerdere uitdagende agent benchmarks. Referentie:
+AutoGen Magnetic One - Een generalistisch multi-agent systeem voor het oplossen van complexe taken en heeft indrukwekkende resultaten behaald op meerdere uitdagende benchmarks voor agents. Referentie:
 
-. In deze implementatie maakt de orkestrator een taak-specifiek plan en delegeert deze taken aan de beschikbare agents. Naast planning gebruikt de orkestrator ook een trackingmechanisme om de voortgang van de taak te monitoren en herplant waar nodig.
+In deze implementatie creëert de orkestrator een taak-specifiek plan en delegeert deze taken aan de beschikbare agents. Naast planning gebruikt de orkestrator ook een trackingmechanisme om de voortgang van de taak te monitoren en indien nodig opnieuw te plannen.
+
+### Heb je Meer Vragen over het Planning Design Pattern?
+
+Word lid van de [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) om andere leerlingen te ontmoeten, spreekuren bij te wonen en je vragen over AI Agents beantwoord te krijgen.
 
 ## Vorige Les
 
-[Betrouwbare AI Agents Bouwen](../06-building-trustworthy-agents/README.md)
+[Vertrouwen Opbouwen in AI Agents](../06-building-trustworthy-agents/README.md)
 
 ## Volgende Les
 
-[Multi-Agent Ontwerp Patroon](../08-multi-agent/README.md)
+[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+
+---
 
 **Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsdienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet als de gezaghebbende bron worden beschouwd. Voor cruciale informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we ons best doen voor nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in zijn oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor cruciale informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.

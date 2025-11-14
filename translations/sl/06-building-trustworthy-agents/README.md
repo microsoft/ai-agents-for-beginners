@@ -1,53 +1,53 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f57852cac3a86c4a5ef47f793cc12178",
-  "translation_date": "2025-07-12T10:33:29+00:00",
+  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
+  "translation_date": "2025-08-29T23:15:38+00:00",
   "source_file": "06-building-trustworthy-agents/README.md",
   "language_code": "sl"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.sl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Zanesljivi AI agenti](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.sl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Kliknite na zgornjo sliko za ogled videa te lekcije)_
 
-# Gradnja zaupanja vrednih AI agentov
+# Gradnja zanesljivih AI agentov
 
 ## Uvod
 
 V tej lekciji bomo obravnavali:
 
-- Kako zgraditi in uvajati varne ter učinkovite AI agente
-- Pomembne varnostne vidike pri razvoju AI agentov
-- Kako ohranjati zasebnost podatkov in uporabnikov pri razvoju AI agentov
+- Kako zgraditi in implementirati varne ter učinkovite AI agente.
+- Pomembne varnostne vidike pri razvoju AI agentov.
+- Kako ohraniti zasebnost podatkov in uporabnikov pri razvoju AI agentov.
 
 ## Cilji učenja
 
 Po zaključku te lekcije boste znali:
 
-- Prepoznati in ublažiti tveganja pri ustvarjanju AI agentov
-- Uvesti varnostne ukrepe za ustrezno upravljanje podatkov in dostopa
-- Ustvariti AI agente, ki ohranjajo zasebnost podatkov in zagotavljajo kakovostno uporabniško izkušnjo
+- Prepoznati in zmanjšati tveganja pri ustvarjanju AI agentov.
+- Uvesti varnostne ukrepe za ustrezno upravljanje podatkov in dostopa.
+- Ustvariti AI agente, ki ohranjajo zasebnost podatkov in zagotavljajo kakovostno uporabniško izkušnjo.
 
 ## Varnost
 
-Najprej si poglejmo, kako zgraditi varne agentne aplikacije. Varnost pomeni, da AI agent deluje tako, kot je bilo načrtovano. Kot razvijalci agentnih aplikacij imamo na voljo metode in orodja za maksimiranje varnosti:
+Najprej si poglejmo, kako zgraditi varne aplikacije z agenti. Varnost pomeni, da AI agent deluje skladno z načrtom. Kot razvijalci aplikacij z agenti imamo metode in orodja za maksimiranje varnosti:
 
-### Gradnja ogrodja za sistemska sporočila
+### Gradnja okvirja za sistemska sporočila
 
-Če ste že kdaj razvijali AI aplikacijo z uporabo velikih jezikovnih modelov (LLM), veste, kako pomembno je oblikovati robusten sistemski poziv ali sistemsko sporočilo. Ti pozivi določajo meta pravila, navodila in smernice, kako bo LLM komuniciral z uporabnikom in podatki.
+Če ste že kdaj gradili AI aplikacijo z uporabo velikih jezikovnih modelov (LLM), veste, kako pomembno je oblikovati robusten sistemski poziv ali sistemsko sporočilo. Ta sporočila določajo meta pravila, navodila in smernice za interakcijo LLM z uporabnikom in podatki.
 
-Pri AI agentih je sistemski poziv še pomembnejši, saj bodo AI agenti potrebovali zelo specifična navodila za izvedbo nalog, ki smo jih zanje zasnovali.
+Za AI agente so sistemska sporočila še pomembnejša, saj potrebujejo zelo specifična navodila za izvedbo nalog, ki smo jih zanje zasnovali.
 
-Za ustvarjanje razširljivih sistemskih pozivov lahko uporabimo ogrodje sistemskih sporočil za gradnjo enega ali več agentov v naši aplikaciji:
+Za ustvarjanje skalabilnih sistemskih sporočil lahko uporabimo okvir za sistemska sporočila, ki omogoča gradnjo enega ali več agentov v naši aplikaciji:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.sl.png)
+![Gradnja okvirja za sistemska sporočila](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.sl.png)
 
 #### Korak 1: Ustvarite meta sistemsko sporočilo
 
-Meta poziv bo uporabil LLM za generiranje sistemskih pozivov za agente, ki jih ustvarimo. Oblikujemo ga kot predlogo, da lahko učinkovito ustvarimo več agentov, če je potrebno.
+Meta poziv bo uporabljen s strani LLM za generiranje sistemskih sporočil za agente, ki jih ustvarimo. Oblikujemo ga kot predlogo, da lahko po potrebi učinkovito ustvarimo več agentov.
 
-Tukaj je primer meta sistemskega sporočila, ki bi ga dali LLM:
+Tukaj je primer meta sistemskega sporočila, ki bi ga posredovali LLM:
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -58,7 +58,7 @@ To create the system prompt, be descriptive as possible and provide a structure 
 
 #### Korak 2: Ustvarite osnovni poziv
 
-Naslednji korak je ustvariti osnovni poziv, ki opisuje AI agenta. Vključiti morate vlogo agenta, naloge, ki jih bo agent opravil, in druge odgovornosti agenta.
+Naslednji korak je ustvariti osnovni poziv za opis AI agenta. Vključiti morate vlogo agenta, naloge, ki jih bo agent opravljal, in vse druge odgovornosti agenta.
 
 Tukaj je primer:
 
@@ -68,7 +68,7 @@ You are a travel agent for Contoso Travel that is great at booking flights for c
 
 #### Korak 3: Posredujte osnovno sistemsko sporočilo LLM
 
-Zdaj lahko optimiziramo to sistemsko sporočilo tako, da kot sistemsko sporočilo posredujemo meta sistemsko sporočilo in naše osnovno sistemsko sporočilo.
+Zdaj lahko optimiziramo to sistemsko sporočilo tako, da meta sistemsko sporočilo uporabimo kot sistemsko sporočilo in dodamo naše osnovno sistemsko sporočilo.
 
 To bo ustvarilo sistemsko sporočilo, ki je bolje zasnovano za usmerjanje naših AI agentov:
 
@@ -122,51 +122,51 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### Korak 4: Iterirajte in izboljšujte
+#### Korak 4: Iteracija in izboljšave
 
-Prednost tega ogrodja sistemskih sporočil je, da omogoča lažje razširjanje ustvarjanja sistemskih sporočil za več agentov ter izboljševanje sporočil skozi čas. Redko se zgodi, da bo sistemsko sporočilo delovalo popolnoma že prvič za vaš celoten primer uporabe. Možnost manjših prilagoditev in izboljšav z menjavo osnovnega sistemskega sporočila in njegovo obdelavo skozi sistem vam omogoča primerjavo in ocenjevanje rezultatov.
+Vrednost tega okvirja za sistemska sporočila je v tem, da omogoča lažje ustvarjanje sistemskih sporočil za več agentov ter izboljšanje sistemskih sporočil skozi čas. Redko boste imeli sistemsko sporočilo, ki bo delovalo že ob prvi uporabi za celoten primer uporabe. Zmožnost izvajanja manjših prilagoditev in izboljšav z spreminjanjem osnovnega sistemskega sporočila ter ponovnim zagonom sistema vam omogoča primerjavo in ocenjevanje rezultatov.
 
 ## Razumevanje groženj
 
-Za gradnjo zaupanja vrednih AI agentov je pomembno razumeti in ublažiti tveganja ter grožnje, ki jih lahko doleti vaš AI agent. Poglejmo nekaj različnih groženj za AI agente in kako se nanje bolje pripraviti.
+Za gradnjo zanesljivih AI agentov je pomembno razumeti in zmanjšati tveganja ter grožnje, ki vplivajo na vašega AI agenta. Poglejmo si nekaj različnih groženj za AI agente in kako se nanje bolje pripraviti.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.sl.png)
+![Razumevanje groženj](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.sl.png)
 
-### Naloga in navodila
+### Naloge in navodila
 
 **Opis:** Napadalci poskušajo spremeniti navodila ali cilje AI agenta z manipulacijo pozivov ali vhodnih podatkov.
 
-**Ublažitev:** Izvedite preverjanja veljavnosti in filtre vhodnih podatkov, da zaznate potencialno nevarne pozive, preden jih AI agent obdela. Ker ti napadi običajno zahtevajo pogoste interakcije z agentom, je omejevanje števila izmenjav v pogovoru še en način za preprečevanje takšnih napadov.
+**Zmanjšanje tveganja:** Izvajajte preverjanja veljavnosti in filtre vhodnih podatkov za zaznavanje potencialno nevarnih pozivov, preden jih obdela AI agent. Ker te vrste napadov običajno zahtevajo pogoste interakcije z agentom, je omejevanje števila korakov v pogovoru še en način za preprečevanje teh napadov.
 
 ### Dostop do kritičnih sistemov
 
-**Opis:** Če ima AI agent dostop do sistemov in storitev, ki hranijo občutljive podatke, lahko napadalci ogrozijo komunikacijo med agentom in temi storitvami. To so lahko neposredni napadi ali poskusi pridobitve informacij o teh sistemih preko agenta.
+**Opis:** Če ima AI agent dostop do sistemov in storitev, ki hranijo občutljive podatke, lahko napadalci kompromitirajo komunikacijo med agentom in temi storitvami. To so lahko neposredni napadi ali poskusi pridobivanja informacij o teh sistemih prek agenta.
 
-**Ublažitev:** AI agenti naj imajo dostop do sistemov le po potrebi, da preprečimo tovrstne napade. Komunikacija med agentom in sistemom naj bo tudi varna. Uvedba avtentikacije in nadzora dostopa je še en način zaščite teh informacij.
+**Zmanjšanje tveganja:** AI agenti naj imajo dostop do sistemov le po potrebi, da preprečite tovrstne napade. Komunikacija med agentom in sistemom naj bo varna. Uvedba avtentikacije in nadzora dostopa je še en način za zaščito teh informacij.
 
 ### Preobremenitev virov in storitev
 
-**Opis:** AI agenti lahko uporabljajo različna orodja in storitve za opravljanje nalog. Napadalci lahko to zlorabijo tako, da preko AI agenta pošiljajo veliko število zahtevkov, kar lahko povzroči okvare sistema ali visoke stroške.
+**Opis:** AI agenti lahko dostopajo do različnih orodij in storitev za izvedbo nalog. Napadalci lahko to sposobnost izkoristijo za napad na te storitve z velikim številom zahtevkov prek AI agenta, kar lahko povzroči odpoved sistemov ali visoke stroške.
 
-**Ublažitev:** Uvedite politike za omejitev števila zahtevkov, ki jih lahko AI agent pošlje storitvi. Omejevanje števila izmenjav v pogovoru in zahtevkov do AI agenta je še en način preprečevanja takšnih napadov.
+**Zmanjšanje tveganja:** Uvedite politike za omejevanje števila zahtevkov, ki jih AI agent lahko pošlje storitvi. Omejevanje števila korakov v pogovoru in zahtevkov vašemu AI agentu je še en način za preprečevanje teh napadov.
 
 ### Zastrupitev baze znanja
 
-**Opis:** Ta vrsta napada ne cilja neposredno na AI agenta, temveč na bazo znanja in druge storitve, ki jih AI agent uporablja. Lahko vključuje poškodovanje podatkov ali informacij, ki jih AI agent uporablja za opravljanje nalog, kar vodi do pristranskih ali neželenih odgovorov uporabniku.
+**Opis:** Ta vrsta napada ne cilja neposredno na AI agenta, temveč na bazo znanja in druge storitve, ki jih AI agent uporablja. To lahko vključuje korupcijo podatkov ali informacij, ki jih AI agent uporablja za izvedbo naloge, kar vodi do pristranskih ali nenamernih odzivov uporabniku.
 
-**Ublažitev:** Redno preverjajte podatke, ki jih AI agent uporablja v svojih delovnih tokovih. Poskrbite, da je dostop do teh podatkov varen in da jih spreminjajo le zaupanja vredne osebe, da preprečite tovrstne napade.
+**Zmanjšanje tveganja:** Redno preverjajte podatke, ki jih AI agent uporablja v svojih delovnih tokovih. Poskrbite, da je dostop do teh podatkov varen in da jih lahko spreminjajo le zaupanja vredne osebe, da preprečite tovrstne napade.
 
-### Kaskadne napake
+### Verižne napake
 
-**Opis:** AI agenti dostopajo do različnih orodij in storitev za opravljanje nalog. Napake, ki jih povzročijo napadalci, lahko povzročijo okvare drugih sistemov, s katerimi je AI agent povezan, kar povzroči širjenje napada in oteži odpravljanje težav.
+**Opis:** AI agenti dostopajo do različnih orodij in storitev za izvedbo nalog. Napake, ki jih povzročijo napadalci, lahko vodijo do odpovedi drugih sistemov, s katerimi je AI agent povezan, kar povzroči širši napad, ki ga je težje odpraviti.
 
-**Ublažitev:** Eden od načinov za preprečevanje tega je, da AI agent deluje v omejenem okolju, na primer z izvajanjem nalog v Docker kontejnerju, da prepreči neposredne napade na sistem. Ustvarjanje rezervnih mehanizmov in logike ponovnega poskusa, ko določeni sistemi vrnejo napako, je še en način za preprečevanje večjih okvar sistema.
+**Zmanjšanje tveganja:** Ena od metod za preprečevanje tega je, da AI agent deluje v omejenem okolju, kot je izvajanje nalog v Docker kontejnerju, da preprečite neposredne napade na sistem. Ustvarjanje mehanizmov za povratne ukrepe in logike ponovnega poskusa, ko določeni sistemi vrnejo napako, je še en način za preprečevanje večjih odpovedi sistema.
 
 ## Človek v zanki
 
-Še en učinkovit način za gradnjo zaupanja vrednih sistemov AI agentov je uporaba človeka v zanki. To ustvari tok, kjer lahko uporabniki med izvajanjem procesa dajejo povratne informacije agentom. Uporabniki v bistvu delujejo kot agenti v sistemu z več agenti in s tem potrjujejo ali prekinejo tekoči proces.
+Še en učinkovit način za gradnjo zanesljivih sistemov AI agentov je uporaba pristopa "človek v zanki". To ustvari tok, kjer lahko uporabniki med izvajanjem procesa podajo povratne informacije agentom. Uporabniki v bistvu delujejo kot agenti v večagentnem sistemu, saj odobravajo ali ustavljajo tekoče procese.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.sl.png)
+![Človek v zanki](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.sl.png)
 
 Tukaj je primer kode z uporabo AutoGen, ki prikazuje, kako je ta koncept implementiran:
 
@@ -192,14 +192,18 @@ await Console(stream)
 
 ## Zaključek
 
-Gradnja zaupanja vrednih AI agentov zahteva skrbno načrtovanje, robustne varnostne ukrepe in nenehno izboljševanje. Z uvedbo strukturiranih meta pozivnih sistemov, razumevanjem potencialnih groženj in uporabo strategij za ublažitev lahko razvijalci ustvarijo AI agente, ki so varni in učinkoviti. Poleg tega vključitev človeka v zanko zagotavlja, da AI agenti ostanejo usklajeni z uporabniškimi potrebami in hkrati zmanjšujejo tveganja. Ker se AI še naprej razvija, bo proaktiven pristop k varnosti, zasebnosti in etičnim vprašanjem ključnega pomena za gradnjo zaupanja in zanesljivosti v sistemih, ki temeljijo na AI.
+Gradnja zanesljivih AI agentov zahteva skrbno načrtovanje, robustne varnostne ukrepe in stalno iteracijo. Z implementacijo strukturiranih sistemov za meta pozive, razumevanjem potencialnih groženj in uporabo strategij za zmanjšanje tveganj lahko razvijalci ustvarijo AI agente, ki so varni in učinkoviti. Poleg tega vključitev pristopa "človek v zanki" zagotavlja, da AI agenti ostanejo usklajeni s potrebami uporabnikov, hkrati pa zmanjšujejo tveganja. Ker se AI še naprej razvija, bo ohranjanje proaktivnega pristopa k varnosti, zasebnosti in etičnim vidikom ključno za spodbujanje zaupanja in zanesljivosti v sistemih, ki jih poganja AI.
+
+### Imate več vprašanj o gradnji zanesljivih AI agentov?
+
+Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kjer se lahko povežete z drugimi učenci, udeležite uradnih ur in dobite odgovore na svoja vprašanja o AI agentih.
 
 ## Dodatni viri
 
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Pregled odgovorne uporabe AI</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Ocena generativnih AI modelov in AI aplikacij</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Vrednotenje generativnih AI modelov in aplikacij</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Varnostna sistemska sporočila</a>
-- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Predloga ocene tveganja</a>
+- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Predloga za oceno tveganj</a>
 
 ## Prejšnja lekcija
 
@@ -207,7 +211,9 @@ Gradnja zaupanja vrednih AI agentov zahteva skrbno načrtovanje, robustne varnos
 
 ## Naslednja lekcija
 
-[Planning Design Pattern](../07-planning-design/README.md)
+[Načrtovanje vzorca oblikovanja](../07-planning-design/README.md)
+
+---
 
 **Omejitev odgovornosti**:  
-Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas opozarjamo, da avtomatizirani prevodi lahko vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku velja za avtoritativni vir. Za ključne informacije priporočamo strokovni človeški prevod. Za morebitna nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda, ne odgovarjamo.
+Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitne nesporazume ali napačne razlage, ki bi nastale zaradi uporabe tega prevoda.

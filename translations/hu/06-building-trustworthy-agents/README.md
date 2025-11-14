@@ -1,51 +1,51 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f57852cac3a86c4a5ef47f793cc12178",
-  "translation_date": "2025-07-12T10:31:12+00:00",
+  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
+  "translation_date": "2025-08-29T20:07:35+00:00",
   "source_file": "06-building-trustworthy-agents/README.md",
   "language_code": "hu"
 }
 -->
-[![Megbízható AI ügynökök](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.hu.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Megbízható MI Ügynökök](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.hu.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Kattints a fenti képre a lecke videójának megtekintéséhez)_
+> _(Kattints a fenti képre a leckéhez tartozó videó megtekintéséhez)_
 
-# Megbízható AI ügynökök építése
+# Megbízható MI Ügynökök Létrehozása
 
 ## Bevezetés
 
-Ebben a leckében a következőkről lesz szó:
+Ebben a leckében az alábbiakat tárgyaljuk:
 
-- Hogyan építsünk és telepítsünk biztonságos és hatékony AI ügynököket
-- Fontos biztonsági szempontok AI ügynökök fejlesztése során
-- Hogyan őrizzük meg az adat- és felhasználói adatvédelmet AI ügynökök fejlesztésekor
+- Hogyan építsünk és telepítsünk biztonságos és hatékony MI ügynököket.
+- Fontos biztonsági szempontok az MI ügynökök fejlesztése során.
+- Hogyan biztosítsuk az adatok és a felhasználók magánéletének védelmét az MI ügynökök fejlesztésekor.
 
 ## Tanulási célok
 
-A lecke elvégzése után tudni fogod, hogyan:
+A lecke elvégzése után képes leszel:
 
-- Azonosítsd és csökkentsd a kockázatokat AI ügynökök létrehozásakor
-- Biztonsági intézkedéseket vezess be az adatok és hozzáférések megfelelő kezelése érdekében
-- Olyan AI ügynököket hozz létre, amelyek megőrzik az adatvédelmet és minőségi felhasználói élményt nyújtanak
+- Azonosítani és mérsékelni a kockázatokat az MI ügynökök létrehozása során.
+- Biztonsági intézkedéseket bevezetni az adatok és hozzáférések megfelelő kezelésének biztosítására.
+- Olyan MI ügynököket létrehozni, amelyek megőrzik az adatok bizalmasságát és minőségi felhasználói élményt nyújtanak.
 
 ## Biztonság
 
-Először nézzük meg, hogyan építhetünk biztonságos ügynöki alkalmazásokat. A biztonság azt jelenti, hogy az AI ügynök a tervek szerint működik. Ügynöki alkalmazások fejlesztőiként rendelkezünk módszerekkel és eszközökkel a biztonság maximalizálására:
+Először nézzük meg, hogyan építhetünk biztonságos ügynöki alkalmazásokat. A biztonság azt jelenti, hogy az MI ügynök az elvárásoknak megfelelően működik. Az ügynöki alkalmazások fejlesztőiként rendelkezésünkre állnak módszerek és eszközök a biztonság maximalizálására:
 
-### Rendszerüzenet keretrendszer építése
+### Rendszerüzenet-keretrendszer létrehozása
 
-Ha valaha építettél AI alkalmazást Nagy Nyelvi Modellek (LLM-ek) használatával, tudod, milyen fontos egy robusztus rendszerprompt vagy rendszerüzenet megtervezése. Ezek a promptok határozzák meg a meta szabályokat, utasításokat és irányelveket arra vonatkozóan, hogyan kommunikáljon az LLM a felhasználóval és az adatokkal.
+Ha valaha építettél MI alkalmazást Nagy Nyelvi Modellek (LLM-ek) használatával, tudod, milyen fontos egy robusztus rendszerprompt vagy rendszerüzenet megtervezése. Ezek az üzenetek határozzák meg a meta szabályokat, utasításokat és irányelveket arra vonatkozóan, hogyan lépjen kapcsolatba az LLM a felhasználóval és az adatokkal.
 
-AI ügynökök esetében a rendszerprompt még fontosabb, hiszen az AI ügynököknek nagyon specifikus utasításokra van szükségük a feladatok elvégzéséhez, amelyeket számukra terveztünk.
+Az MI ügynökök esetében a rendszerprompt még fontosabb, mivel az ügynököknek rendkívül specifikus utasításokra van szükségük a számukra kijelölt feladatok elvégzéséhez.
 
-Skálázható rendszerpromptok létrehozásához használhatunk egy rendszerüzenet keretrendszert, amely lehetővé teszi egy vagy több ügynök felépítését az alkalmazásunkban:
+A skálázható rendszerpromtok létrehozásához használhatunk egy rendszerüzenet-keretrendszert, amely lehetővé teszi egy vagy több ügynök létrehozását az alkalmazásunkban:
 
-![Rendszerüzenet keretrendszer építése](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.hu.png)
+![Rendszerüzenet-keretrendszer létrehozása](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.hu.png)
 
 #### 1. lépés: Meta rendszerüzenet létrehozása
 
-A meta promptot egy LLM fogja használni az általunk létrehozott ügynökök rendszerpromptjainak generálásához. Ezt sablonként tervezzük, hogy hatékonyan tudjunk több ügynököt is létrehozni, ha szükséges.
+A meta promptot egy LLM használja az általunk létrehozott ügynökök rendszerpromtjainak generálására. Ezt sablonként tervezzük meg, hogy szükség esetén hatékonyan hozhassunk létre több ügynököt.
 
 Íme egy példa egy meta rendszerüzenetre, amelyet az LLM-nek adnánk:
 
@@ -56,21 +56,21 @@ information that you will use to provide a system prompt for.
 To create the system prompt, be descriptive as possible and provide a structure that a system using an LLM can better understand the role and responsibilities of the AI assistant. 
 ```
 
-#### 2. lépés: Alap prompt létrehozása
+#### 2. lépés: Alapvető prompt létrehozása
 
-A következő lépés egy alap prompt létrehozása az AI ügynök leírására. Tartalmaznia kell az ügynök szerepét, a végrehajtandó feladatokat, valamint az ügynök egyéb felelősségeit.
+A következő lépés egy alapvető prompt létrehozása az MI ügynök leírására. Ebben szerepelnie kell az ügynök szerepének, az elvégzendő feladatoknak és az ügynök egyéb felelősségeinek.
 
-Példa erre:
+Íme egy példa:
 
 ```plaintext
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### 3. lépés: Alap rendszerüzenet átadása az LLM-nek
+#### 3. lépés: Alapvető rendszerüzenet megadása az LLM-nek
 
-Most optimalizálhatjuk ezt a rendszerüzenetet úgy, hogy a meta rendszerüzenetet adjuk meg rendszerüzenetként, és mellé tesszük az alap rendszerüzenetet.
+Most optimalizálhatjuk ezt a rendszerüzenetet azáltal, hogy a meta rendszerüzenetet rendszerüzenetként, az alapvető rendszerüzenetet pedig bemenetként adjuk meg.
 
-Ez egy jobban megtervezett rendszerüzenetet eredményez, amely hatékonyabban irányítja AI ügynökeinket:
+Ez egy olyan rendszerüzenetet eredményez, amely jobban irányítja az MI ügynököket:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -122,53 +122,53 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### 4. lépés: Iterálás és fejlesztés
+#### 4. lépés: Iteráció és fejlesztés
 
-Ennek a rendszerüzenet keretrendszernek az értéke abban rejlik, hogy könnyebbé teszi több ügynök rendszerüzeneteinek skálázható létrehozását, valamint a rendszerüzenetek folyamatos fejlesztését. Ritka, hogy egy rendszerüzenet elsőre tökéletesen működjön az adott felhasználási esethez. Az alap rendszerüzenet apró módosításával és a rendszer újrafuttatásával összehasonlíthatod és értékelheted az eredményeket.
+Ennek a rendszerüzenet-keretrendszernek az értéke abban rejlik, hogy megkönnyíti több ügynök rendszerüzenetének létrehozását, valamint lehetővé teszi a rendszerüzenetek időbeli javítását. Ritka, hogy egy rendszerüzenet az első próbálkozásra teljes mértékben megfelel az adott felhasználási esetnek. Az alapvető rendszerüzenet apró módosításai és a rendszer újrafuttatása lehetővé teszi az eredmények összehasonlítását és értékelését.
 
-## A fenyegetések megértése
+## Fenyegetések megértése
 
-Ahhoz, hogy megbízható AI ügynököket építsünk, fontos megérteni és csökkenteni az AI ügynököt érő kockázatokat és fenyegetéseket. Nézzünk meg néhány különböző fenyegetést az AI ügynökök ellen, és hogyan tervezhetsz és készülhetsz fel jobban ezekre.
+Ahhoz, hogy megbízható MI ügynököket építsünk, fontos megérteni és mérsékelni az ügynököket érintő kockázatokat és fenyegetéseket. Nézzünk meg néhányat az MI ügynököket érintő különböző fenyegetések közül, és hogyan tervezhetünk és készülhetünk fel ezekre.
 
 ![Fenyegetések megértése](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.hu.png)
 
-### Feladat és utasítás
+### Feladatok és utasítások
 
-**Leírás:** A támadók megpróbálják megváltoztatni az AI ügynök utasításait vagy céljait promptolással vagy bemenetek manipulálásával.
+**Leírás:** A támadók megpróbálják megváltoztatni az MI ügynök utasításait vagy céljait promptok vagy bemenetek manipulálásával.
 
-**Megelőzés:** Érvényesítési ellenőrzéseket és bemeneti szűrőket kell végrehajtani, hogy észleljük a potenciálisan veszélyes promptokat, mielőtt az AI ügynök feldolgozná azokat. Mivel ezek a támadások általában gyakori interakciót igényelnek az ügynökkel, a beszélgetések fordulóinak számának korlátozása szintén hatékony módja ezeknek a támadásoknak a megelőzésére.
+**Megelőzés:** Végezzen validációs ellenőrzéseket és bemeneti szűréseket, hogy azonosítsa a potenciálisan veszélyes promptokat, mielőtt azokat az MI ügynök feldolgozná. Mivel ezek a támadások általában gyakori interakciót igényelnek az ügynökkel, a beszélgetések fordulóinak korlátozása egy másik módja az ilyen támadások megelőzésének.
 
 ### Hozzáférés kritikus rendszerekhez
 
-**Leírás:** Ha egy AI ügynök hozzáfér olyan rendszerekhez és szolgáltatásokhoz, amelyek érzékeny adatokat tárolnak, a támadók kompromittálhatják az ügynök és ezek a szolgáltatások közötti kommunikációt. Ezek lehetnek közvetlen támadások vagy közvetett próbálkozások az információk megszerzésére az ügynökön keresztül.
+**Leírás:** Ha egy MI ügynök hozzáfér olyan rendszerekhez és szolgáltatásokhoz, amelyek érzékeny adatokat tárolnak, a támadók kompromittálhatják az ügynök és ezek között a szolgáltatások között zajló kommunikációt. Ezek lehetnek közvetlen támadások vagy közvetett kísérletek információk megszerzésére az ügynökön keresztül.
 
-**Megelőzés:** Az AI ügynökök csak szükség szerinti hozzáféréssel rendelkezzenek a rendszerekhez, hogy megelőzzük az ilyen típusú támadásokat. Az ügynök és a rendszer közötti kommunikációnak is biztonságosnak kell lennie. Hitelesítés és hozzáférés-vezérlés bevezetése további védelmet nyújt.
+**Megelőzés:** Az MI ügynököknek csak szükség esetén legyen hozzáférésük a rendszerekhez, hogy megelőzzük az ilyen támadásokat. Az ügynök és a rendszer közötti kommunikációnak biztonságosnak kell lennie. Az autentikáció és a hozzáférés-vezérlés bevezetése szintén segíthet az információk védelmében.
 
-### Erőforrás- és szolgáltatás túlterhelés
+### Erőforrások és szolgáltatások túlterhelése
 
-**Leírás:** Az AI ügynökök különböző eszközökhöz és szolgáltatásokhoz férhetnek hozzá a feladatok elvégzéséhez. A támadók ezt kihasználva nagy mennyiségű kérést küldhetnek az AI ügynökön keresztül ezeknek a szolgáltatásoknak, ami rendszerleálláshoz vagy magas költségekhez vezethet.
+**Leírás:** Az MI ügynökök különböző eszközökhöz és szolgáltatásokhoz férhetnek hozzá a feladatok elvégzéséhez. A támadók kihasználhatják ezt a képességet, hogy nagy mennyiségű kérést küldjenek az ügynökön keresztül, ami rendszerhibákhoz vagy magas költségekhez vezethet.
 
-**Megelőzés:** Szabályzatokat kell bevezetni, amelyek korlátozzák az AI ügynök által egy szolgáltatásnak küldhető kérések számát. A beszélgetések fordulóinak és a kérések számának korlátozása az AI ügynökhöz szintén hatékony módja az ilyen támadások megelőzésének.
+**Megelőzés:** Vezessen be szabályokat az MI ügynök által egy szolgáltatás felé küldhető kérések számának korlátozására. A beszélgetések fordulóinak és az ügynök által küldött kérések számának korlátozása szintén segíthet az ilyen támadások megelőzésében.
 
-### Tudásbázis megfertőzése
+### Tudásbázis mérgezése
 
-**Leírás:** Ez a támadás nem közvetlenül az AI ügynököt célozza, hanem a tudásbázist és más szolgáltatásokat, amelyeket az AI ügynök használ a feladatok elvégzéséhez. Ez magában foglalhatja az adatok vagy információk megsértését, amelyeket az AI ügynök használ, ami elfogult vagy nem kívánt válaszokhoz vezethet a felhasználó felé.
+**Leírás:** Ez a támadástípus nem közvetlenül az MI ügynököt célozza, hanem a tudásbázist és más szolgáltatásokat, amelyeket az ügynök használ. Ez magában foglalhatja az adatok vagy információk korrumpálását, amelyeket az ügynök a feladatok elvégzéséhez használ, ami elfogult vagy nem kívánt válaszokat eredményezhet a felhasználó számára.
 
-**Megelőzés:** Rendszeresen ellenőrizni kell az AI ügynök munkafolyamataiban használt adatokat. Biztosítani kell, hogy ezekhez az adatokhoz csak megbízható személyek férjenek hozzá, és csak ők módosíthassák azokat, hogy elkerüljük az ilyen típusú támadásokat.
+**Megelőzés:** Végezzen rendszeres ellenőrzéseket az adatokon, amelyeket az ügynök a munkafolyamataiban használ. Biztosítsa, hogy az adatokhoz való hozzáférés biztonságos legyen, és csak megbízható személyek módosíthassák azokat, hogy elkerülje az ilyen támadásokat.
 
-### Láncreakciós hibák
+### Hibák láncolata
 
-**Leírás:** Az AI ügynökök különböző eszközökhöz és szolgáltatásokhoz férnek hozzá a feladatok elvégzéséhez. A támadók által okozott hibák más rendszerek meghibásodásához vezethetnek, amelyekhez az AI ügynök kapcsolódik, így a támadás szélesebb körűvé válik és nehezebben hárítható el.
+**Leírás:** Az MI ügynökök különböző eszközökhöz és szolgáltatásokhoz férnek hozzá a feladatok elvégzéséhez. A támadók által okozott hibák más rendszerek meghibásodásához vezethetnek, amelyekhez az ügynök kapcsolódik, így a támadás szélesebb körűvé és nehezebben elháríthatóvá válik.
 
-**Megelőzés:** Egyik módszer az, hogy az AI ügynök korlátozott környezetben működjön, például Docker konténerben, hogy megakadályozzuk a közvetlen rendszerellenes támadásokat. Visszaesési mechanizmusok és újrapróbálkozási logika létrehozása, amikor bizonyos rendszerek hibával válaszolnak, szintén segít megelőzni a nagyobb rendszerhibákat.
+**Megelőzés:** Az egyik módszer ennek elkerülésére az, hogy az MI ügynök korlátozott környezetben működik, például feladatokat végez egy Docker-konténerben, hogy elkerülje a közvetlen rendszer támadásokat. Tartalék mechanizmusok és újrapróbálkozási logika létrehozása, amikor bizonyos rendszerek hibával válaszolnak, szintén segíthet a nagyobb rendszerhibák megelőzésében.
 
 ## Ember a folyamatban
 
-Egy másik hatékony módja a megbízható AI ügynök rendszerek építésének az emberi beavatkozás a folyamatban (Human-in-the-loop). Ez egy olyan folyamatot hoz létre, ahol a felhasználók futás közben visszajelzést adhatnak az ügynököknek. A felhasználók lényegében ügynökként működnek egy többügynökös rendszerben, jóváhagyást vagy a folyamat leállítását biztosítva.
+Egy másik hatékony módja a megbízható MI ügynökrendszerek létrehozásának az ember a folyamatban megközelítés alkalmazása. Ez egy olyan folyamatot hoz létre, amelyben a felhasználók visszajelzést adhatnak az ügynököknek a futás során. A felhasználók lényegében ügynökökként működnek egy több ügynökből álló rendszerben, és jóváhagyhatják vagy megszakíthatják a futó folyamatot.
 
 ![Ember a folyamatban](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.hu.png)
 
-Íme egy kódrészlet az AutoGen használatával, amely bemutatja ennek a koncepciónak a megvalósítását:
+Íme egy kódrészlet az AutoGen használatával, amely bemutatja, hogyan valósítható meg ez a koncepció:
 
 ```python
 
@@ -192,12 +192,16 @@ await Console(stream)
 
 ## Összefoglalás
 
-Megbízható AI ügynökök építése gondos tervezést, robusztus biztonsági intézkedéseket és folyamatos fejlesztést igényel. Strukturált meta prompt rendszerek bevezetésével, a potenciális fenyegetések megértésével és a megelőző stratégiák alkalmazásával a fejlesztők biztonságos és hatékony AI ügynököket hozhatnak létre. Emellett az emberi beavatkozás integrálása biztosítja, hogy az AI ügynökök összhangban maradjanak a felhasználói igényekkel, miközben minimalizálják a kockázatokat. Ahogy az AI fejlődik, a biztonság, adatvédelem és etikai szempontok proaktív kezelése kulcsfontosságú lesz a megbízhatóság és bizalom fenntartásához az AI-alapú rendszerekben.
+A megbízható MI ügynökök létrehozása gondos tervezést, robusztus biztonsági intézkedéseket és folyamatos iterációt igényel. Strukturált meta prompt rendszerek alkalmazásával, a potenciális fenyegetések megértésével és mérséklési stratégiák alkalmazásával a fejlesztők biztonságos és hatékony MI ügynököket hozhatnak létre. Ezenkívül az ember a folyamatban megközelítés alkalmazása biztosítja, hogy az MI ügynökök a felhasználói igényekhez igazodjanak, miközben minimalizálják a kockázatokat. Ahogy az MI tovább fejlődik, a biztonság, az adatvédelem és az etikai szempontok proaktív kezelése kulcsfontosságú lesz a bizalom és a megbízhatóság fenntartásában az MI-alapú rendszerekben.
+
+### További kérdéseid vannak a megbízható MI ügynökök létrehozásáról?
+
+Csatlakozz az [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) közösséghez, hogy találkozz más tanulókkal, részt vegyél konzultációkon, és választ kapj az MI ügynökökkel kapcsolatos kérdéseidre.
 
 ## További források
 
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Felelős AI áttekintés</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Generatív AI modellek és AI alkalmazások értékelése</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Felelős MI áttekintés</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Generatív MI modellek és alkalmazások értékelése</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Biztonsági rendszerüzenetek</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Kockázatértékelési sablon</a>
 
@@ -209,5 +213,7 @@ Megbízható AI ügynökök építése gondos tervezést, robusztus biztonsági 
 
 [Tervezési minta](../07-planning-design/README.md)
 
-**Jogi nyilatkozat**:  
-Ez a dokumentum az AI fordító szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár a pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Fontos információk esetén szakmai, emberi fordítást javaslunk. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
+---
+
+**Felelősség kizárása**:  
+Ez a dokumentum az AI fordítási szolgáltatás [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével lett lefordítva. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely a fordítás használatából eredhet.

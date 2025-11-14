@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "8cbf460468c802c7994aa62e0e0779c9",
-  "translation_date": "2025-07-12T13:24:49+00:00",
+  "original_hash": "5f0deef171fc3a68d5d3d770a8bfb03d",
+  "translation_date": "2025-08-29T22:58:47+00:00",
   "source_file": "09-metacognition/README.md",
   "language_code": "hr"
 }
@@ -10,95 +10,95 @@ CO_OP_TRANSLATOR_METADATA:
 [![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.hr.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Kliknite na sliku iznad za pregled videa ove lekcije)_
-# Metakognicija u AI agentima
+# Metakognicija kod AI agenata
 
 ## Uvod
 
-Dobrodošli na lekciju o metakogniciji u AI agentima! Ovaj je poglavlje namijenjeno početnicima koji su znatiželjni kako AI agenti mogu razmišljati o vlastitim procesima razmišljanja. Na kraju ove lekcije razumjet ćete ključne pojmove i imat ćete praktične primjere za primjenu metakognicije u dizajnu AI agenata.
+Dobrodošli u lekciju o metakogniciji kod AI agenata! Ovo poglavlje je namijenjeno početnicima koji su znatiželjni o tome kako AI agenti mogu razmišljati o vlastitim procesima razmišljanja. Na kraju ove lekcije razumjet ćete ključne koncepte i biti opremljeni praktičnim primjerima za primjenu metakognicije u dizajnu AI agenata.
 
 ## Ciljevi učenja
 
-Nakon završetka ove lekcije moći ćete:
+Nakon završetka ove lekcije, moći ćete:
 
-1. Razumjeti implikacije petlji rezoniranja u definicijama agenata.
-2. Koristiti tehnike planiranja i evaluacije za pomoć agentima koji se samopopravljaju.
-3. Kreirati vlastite agente sposobne manipulirati kodom za izvršavanje zadataka.
+1. Razumjeti implikacije petlji razmišljanja u definicijama agenata.
+2. Koristiti tehnike planiranja i evaluacije za pomoć agentima u samoispravljanju.
+3. Kreirati vlastite agente sposobne za manipulaciju kodom kako bi izvršili zadatke.
 
 ## Uvod u metakogniciju
 
-Metakognicija se odnosi na kognitivne procese višeg reda koji uključuju razmišljanje o vlastitom razmišljanju. Za AI agente to znači sposobnost evaluacije i prilagodbe svojih akcija na temelju samosvijesti i prošlih iskustava. Metakognicija, ili "razmišljanje o razmišljanju", važan je koncept u razvoju agentnih AI sustava. Uključuje da AI sustavi budu svjesni vlastitih unutarnjih procesa te da mogu pratiti, regulirati i prilagođavati svoje ponašanje u skladu s tim. Baš kao što mi to radimo kad "čitamo prostoriju" ili promatramo problem. Ova samosvijest može pomoći AI sustavima da donose bolje odluke, prepoznaju pogreške i poboljšaju svoje performanse tijekom vremena – što opet povezuje s Turingovim testom i raspravom hoće li AI preuzeti kontrolu.
+Metakognicija se odnosi na kognitivne procese višeg reda koji uključuju razmišljanje o vlastitom razmišljanju. Za AI agente, to znači sposobnost evaluacije i prilagodbe svojih postupaka na temelju samosvijesti i prošlih iskustava. Metakognicija, ili "razmišljanje o razmišljanju," važan je koncept u razvoju agentnih AI sustava. To uključuje da AI sustavi budu svjesni vlastitih unutarnjih procesa te da mogu pratiti, regulirati i prilagoditi svoje ponašanje. Slično kao što mi činimo kada procjenjujemo situaciju ili analiziramo problem. Ova samosvijest može pomoći AI sustavima da donose bolje odluke, identificiraju pogreške i poboljšaju svoje performanse tijekom vremena – ponovno se povezujući s Turingovim testom i raspravom o tome hoće li AI preuzeti kontrolu.
 
 U kontekstu agentnih AI sustava, metakognicija može pomoći u rješavanju nekoliko izazova, kao što su:
-- Transparentnost: Osiguravanje da AI sustavi mogu objasniti svoje rezoniranje i odluke.
-- Rezoniranje: Poboljšanje sposobnosti AI sustava da sintetiziraju informacije i donose ispravne odluke.
+- Transparentnost: Osiguravanje da AI sustavi mogu objasniti svoje razmišljanje i odluke.
+- Razmišljanje: Poboljšanje sposobnosti AI sustava da sintetiziraju informacije i donose razumne odluke.
 - Prilagodba: Omogućavanje AI sustavima da se prilagode novim okruženjima i promjenjivim uvjetima.
-- Percepcija: Poboljšanje točnosti AI sustava u prepoznavanju i tumačenju podataka iz okoline.
+- Percepcija: Poboljšanje točnosti AI sustava u prepoznavanju i interpretaciji podataka iz okruženja.
 
 ### Što je metakognicija?
 
-Metakognicija, ili "razmišljanje o razmišljanju", je kognitivni proces višeg reda koji uključuje samosvijest i samoregulaciju vlastitih kognitivnih procesa. U području AI, metakognicija omogućuje agentima da evaluiraju i prilagođavaju svoje strategije i akcije, što vodi do poboljšanih sposobnosti rješavanja problema i donošenja odluka. Razumijevanjem metakognicije možete dizajnirati AI agente koji nisu samo inteligentniji, već i prilagodljiviji i učinkovitiji. U pravoj metakogniciji, AI bi eksplicitno rezonirao o vlastitom rezoniranju.
+Metakognicija, ili "razmišljanje o razmišljanju," je kognitivni proces višeg reda koji uključuje samosvijest i samoregulaciju vlastitih kognitivnih procesa. U području AI-a, metakognicija omogućava agentima da evaluiraju i prilagode svoje strategije i postupke, što dovodi do poboljšanih sposobnosti rješavanja problema i donošenja odluka. Razumijevanjem metakognicije možete dizajnirati AI agente koji su ne samo inteligentniji, već i prilagodljiviji i učinkovitiji. U pravoj metakogniciji, vidjeli biste da AI eksplicitno razmišlja o vlastitom razmišljanju.
 
-Primjer: „Prioritizirao sam jeftinije letove jer... možda propuštam direktne letove, pa ću ponovno provjeriti.“
-Praćenje kako ili zašto je odabrao određenu rutu.
+Primjer: “Prioritizirao sam jeftinije letove jer… možda propuštam direktne letove, pa ću ponovno provjeriti.”
+Praćenje kako ili zašto je odabrao određeni put.
 - Primjećivanje da je napravio pogreške jer se previše oslanjao na korisničke preferencije iz prošlog puta, pa mijenja svoju strategiju donošenja odluka, a ne samo konačnu preporuku.
-- Dijagnosticiranje obrazaca poput: „Kad god vidim da korisnik spominje ‘previše gužve’, ne bih trebao samo ukloniti određene atrakcije, već i razmisliti da je moja metoda odabira ‘najboljih atrakcija’ pogrešna ako uvijek rangiram po popularnosti.“
+- Dijagnosticiranje obrazaca poput: “Kad god korisnik spomene ‘previše gužve,’ ne bih trebao samo ukloniti određene atrakcije, već i preispitati svoju metodu odabira ‘najboljih atrakcija’ ako uvijek rangiram prema popularnosti.”
 
-### Važnost metakognicije u AI agentima
+### Važnost metakognicije kod AI agenata
 
-Metakognicija ima ključnu ulogu u dizajnu AI agenata iz nekoliko razloga:
+Metakognicija igra ključnu ulogu u dizajnu AI agenata iz nekoliko razloga:
 
-![Importance of Metacognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.hr.png)
+![Važnost metakognicije](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.hr.png)
 
 - Samorefleksija: Agenti mogu procijeniti vlastite performanse i identificirati područja za poboljšanje.
-- Prilagodljivost: Agenti mogu mijenjati svoje strategije na temelju prošlih iskustava i promjenjivih uvjeta.
-- Ispravljanje pogrešaka: Agenti mogu samostalno otkriti i ispraviti pogreške, što vodi do točnijih rezultata.
-- Upravljanje resursima: Agenti mogu optimizirati korištenje resursa, poput vremena i računalne snage, planiranjem i evaluacijom svojih akcija.
+- Prilagodljivost: Agenti mogu mijenjati svoje strategije na temelju prošlih iskustava i promjenjivih okruženja.
+- Ispravljanje pogrešaka: Agenti mogu autonomno otkriti i ispraviti pogreške, što dovodi do točnijih rezultata.
+- Upravljanje resursima: Agenti mogu optimizirati korištenje resursa, poput vremena i računalne snage, planiranjem i evaluacijom svojih postupaka.
 
 ## Komponente AI agenta
 
 Prije nego što zaronimo u metakognitivne procese, važno je razumjeti osnovne komponente AI agenta. AI agent obično se sastoji od:
 
-- Persona: Osobnost i karakteristike agenta koje definiraju kako komunicira s korisnicima.
-- Alati: Sposobnosti i funkcije koje agent može izvršavati.
+- Persona: Osobnost i karakteristike agenta, koje definiraju kako komunicira s korisnicima.
+- Alati: Sposobnosti i funkcije koje agent može obavljati.
 - Vještine: Znanje i stručnost koje agent posjeduje.
 
 Ove komponente zajedno stvaraju "jedinicu stručnosti" koja može obavljati specifične zadatke.
 
 **Primjer**:
-Zamislite putničkog agenta, uslugu agenta koja ne samo da planira vaš odmor, već i prilagođava svoj put na temelju podataka u stvarnom vremenu i prošlih iskustava korisnika.
+Razmislite o putničkom agentu, usluzi agenta koja ne samo da planira vaš odmor, već i prilagođava svoj put na temelju podataka u stvarnom vremenu i prošlih iskustava korisničkih putovanja.
 
 ### Primjer: Metakognicija u usluzi putničkog agenta
 
-Zamislite da dizajnirate uslugu putničkog agenta pokretanog AI-jem. Ovaj agent, "Putnički agent", pomaže korisnicima u planiranju njihovih odmora. Da bi uključio metakogniciju, Putnički agent treba evaluirati i prilagođavati svoje akcije na temelju samosvijesti i prošlih iskustava. Evo kako metakognicija može igrati ulogu:
+Zamislite da dizajnirate uslugu putničkog agenta koju pokreće AI. Ovaj agent, "Putnički agent," pomaže korisnicima u planiranju njihovih odmora. Kako biste uključili metakogniciju, Putnički agent treba evaluirati i prilagoditi svoje postupke na temelju samosvijesti i prošlih iskustava. Evo kako metakognicija može igrati ulogu:
 
 #### Trenutni zadatak
 
 Trenutni zadatak je pomoći korisniku u planiranju putovanja u Pariz.
 
-#### Koraci za dovršetak zadatka
+#### Koraci za dovršavanje zadatka
 
-1. **Prikupljanje korisničkih preferencija**: Pitati korisnika o datumima putovanja, budžetu, interesima (npr. muzeji, kuhinja, shopping) i posebnim zahtjevima.
-2. **Prikupljanje informacija**: Pretražiti opcije letova, smještaja, atrakcija i restorana koji odgovaraju korisničkim preferencijama.
-3. **Generiranje preporuka**: Pružiti personalizirani itinerar s detaljima o letovima, rezervacijama hotela i predloženim aktivnostima.
-4. **Prilagodba na temelju povratnih informacija**: Pitati korisnika za povratne informacije o preporukama i napraviti potrebne prilagodbe.
+1. **Prikupljanje korisničkih preferencija**: Pitajte korisnika o njegovim datumima putovanja, budžetu, interesima (npr. muzeji, kuhinja, shopping) i svim specifičnim zahtjevima.
+2. **Pretraživanje informacija**: Potražite opcije letova, smještaja, atrakcija i restorana koji odgovaraju korisnikovim preferencijama.
+3. **Generiranje preporuka**: Pružite personalizirani itinerar s detaljima o letovima, rezervacijama hotela i predloženim aktivnostima.
+4. **Prilagodba na temelju povratnih informacija**: Zatražite povratne informacije od korisnika o preporukama i izvršite potrebne prilagodbe.
 
 #### Potrebni resursi
 
-- Pristup bazama podataka za rezervacije letova i hotela.
+- Pristup bazama podataka za rezervaciju letova i hotela.
 - Informacije o pariškim atrakcijama i restoranima.
 - Podaci o povratnim informacijama korisnika iz prethodnih interakcija.
 
 #### Iskustvo i samorefleksija
 
-Putnički agent koristi metakogniciju za evaluaciju vlastitih performansi i učenje iz prošlih iskustava. Na primjer:
+Putnički agent koristi metakogniciju za evaluaciju svojih performansi i učenje iz prošlih iskustava. Na primjer:
 
-1. **Analiza povratnih informacija korisnika**: Putnički agent pregledava povratne informacije kako bi utvrdio koje su preporuke bile dobro prihvaćene, a koje nisu. Prilagođava buduće prijedloge u skladu s tim.
-2. **Prilagodljivost**: Ako je korisnik ranije spomenuo da ne voli gužve, Putnički agent će ubuduće izbjegavati preporučivanje popularnih turističkih mjesta u vršnim satima.
-3. **Ispravljanje pogrešaka**: Ako je Putnički agent napravio pogrešku u prethodnoj rezervaciji, poput predlaganja hotela koji je bio pun, uči da strože provjerava dostupnost prije davanja preporuka.
+1. **Analiza povratnih informacija korisnika**: Putnički agent pregledava povratne informacije korisnika kako bi utvrdio koje su preporuke bile dobro prihvaćene, a koje nisu. Prema tome prilagođava svoje buduće prijedloge.
+2. **Prilagodljivost**: Ako je korisnik prethodno spomenuo da ne voli gužve, Putnički agent će u budućnosti izbjegavati preporučivanje popularnih turističkih mjesta tijekom vršnih sati.
+3. **Ispravljanje pogrešaka**: Ako je Putnički agent napravio pogrešku u prošloj rezervaciji, poput predlaganja hotela koji je bio potpuno rezerviran, naučit će rigoroznije provjeravati dostupnost prije nego što da preporuke.
 
 #### Praktični primjer za programere
 
-Evo pojednostavljenog primjera kako bi kod Putničkog agenta mogao izgledati pri uključivanju metakognicije:
+Evo pojednostavljenog primjera kako bi kod Putničkog agenta mogao izgledati kada uključuje metakogniciju:
 
 ```python
 class Travel_Agent:
@@ -145,66 +145,66 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 - **Samorefleksija**: Agenti mogu analizirati svoje performanse i identificirati područja za poboljšanje.
 - **Prilagodljivost**: Agenti mogu mijenjati strategije na temelju povratnih informacija i promjenjivih uvjeta.
-- **Ispravljanje pogrešaka**: Agenti mogu samostalno otkriti i ispraviti pogreške.
+- **Ispravljanje pogrešaka**: Agenti mogu autonomno otkriti i ispraviti pogreške.
 - **Upravljanje resursima**: Agenti mogu optimizirati korištenje resursa, poput vremena i računalne snage.
 
 Uključivanjem metakognicije, Putnički agent može pružiti personaliziranije i točnije preporuke za putovanja, poboljšavajući ukupno korisničko iskustvo.
 
 ---
 
-## 2. Planiranje u agentima
+## 2. Planiranje kod agenata
 
-Planiranje je ključna komponenta ponašanja AI agenta. Uključuje definiranje koraka potrebnih za postizanje cilja, uzimajući u obzir trenutačno stanje, resurse i moguće prepreke.
+Planiranje je ključna komponenta ponašanja AI agenta. Ono uključuje definiranje koraka potrebnih za postizanje cilja, uzimajući u obzir trenutni status, resurse i moguće prepreke.
 
 ### Elementi planiranja
 
-- **Trenutni zadatak**: Jasno definirati zadatak.
-- **Koraci za dovršetak zadatka**: Razložiti zadatak na upravljive korake.
-- **Potrebni resursi**: Identificirati potrebne resurse.
-- **Iskustvo**: Iskoristiti prošla iskustva za informiranje planiranja.
+- **Trenutni zadatak**: Jasno definirajte zadatak.
+- **Koraci za dovršavanje zadatka**: Razbijte zadatak na upravljive korake.
+- **Potrebni resursi**: Identificirajte potrebne resurse.
+- **Iskustvo**: Iskoristite prošla iskustva za informiranje planiranja.
 
 **Primjer**:
-Evo koraka koje Putnički agent treba poduzeti da bi učinkovito pomogao korisniku u planiranju putovanja:
+Evo koraka koje Putnički agent treba poduzeti kako bi učinkovito pomogao korisniku u planiranju putovanja:
 
 ### Koraci za Putničkog agenta
 
 1. **Prikupljanje korisničkih preferencija**
-   - Pitati korisnika za detalje o datumima putovanja, budžetu, interesima i posebnim zahtjevima.
+   - Pitajte korisnika za detalje o datumima putovanja, budžetu, interesima i svim specifičnim zahtjevima.
    - Primjeri: "Kada planirate putovati?" "Koji je vaš budžet?" "Koje aktivnosti volite na odmoru?"
 
-2. **Prikupljanje informacija**
-   - Pretražiti relevantne opcije putovanja na temelju korisničkih preferencija.
-   - **Letovi**: Potražiti dostupne letove unutar budžeta i željenih datuma.
-   - **Smještaj**: Pronaći hotele ili najam koji odgovaraju preferencijama korisnika po lokaciji, cijeni i sadržajima.
-   - **Atrakcije i restorani**: Identificirati popularne atrakcije, aktivnosti i restorane koji odgovaraju interesima korisnika.
+2. **Pretraživanje informacija**
+   - Potražite relevantne opcije putovanja na temelju korisničkih preferencija.
+   - **Letovi**: Potražite dostupne letove unutar korisnikovog budžeta i preferiranih datuma putovanja.
+   - **Smještaj**: Pronađite hotele ili iznajmljive nekretnine koje odgovaraju korisnikovim preferencijama za lokaciju, cijenu i pogodnosti.
+   - **Atrakcije i restorani**: Identificirajte popularne atrakcije, aktivnosti i opcije za objedovanje koje se slažu s korisnikovim interesima.
 
 3. **Generiranje preporuka**
-   - Sastaviti prikupljene informacije u personalizirani itinerar.
-   - Pružiti detalje poput opcija letova, rezervacija hotela i predloženih aktivnosti, prilagođavajući preporuke korisnikovim željama.
+   - Sastavite prikupljene informacije u personalizirani itinerar.
+   - Pružite detalje poput opcija letova, rezervacija hotela i predloženih aktivnosti, pazeći da preporuke budu prilagođene korisnikovim preferencijama.
 
 4. **Predstavljanje itinerara korisniku**
-   - Podijeliti predloženi itinerar s korisnikom na pregled.
-   - Primjer: "Evo prijedloga itinerara za vaše putovanje u Pariz. Uključuje detalje o letovima, rezervacije hotela i popis preporučenih aktivnosti i restorana. Javite mi što mislite!"
+   - Podijelite predloženi itinerar s korisnikom na pregled.
+   - Primjer: "Evo predloženog itinerara za vaše putovanje u Pariz. Uključuje detalje o letovima, rezervacije hotela i popis preporučenih aktivnosti i restorana. Javite mi svoje mišljenje!"
 
 5. **Prikupljanje povratnih informacija**
-   - Pitati korisnika za povratne informacije o predloženom itineraru.
-   - Primjeri: "Sviđaju li vam se opcije letova?" "Je li hotel prikladan za vaše potrebe?" "Postoje li aktivnosti koje želite dodati ili ukloniti?"
+   - Zatražite povratne informacije od korisnika o predloženom itineraru.
+   - Primjeri: "Sviđaju li vam se opcije letova?" "Je li hotel prikladan za vaše potrebe?" "Postoje li aktivnosti koje biste željeli dodati ili ukloniti?"
 
 6. **Prilagodba na temelju povratnih informacija**
-   - Izmijeniti itinerar prema korisničkim povratnim informacijama.
-   - Napraviti potrebne promjene u preporukama za letove, smještaj i aktivnosti kako bi bolje odgovarale željama korisnika.
+   - Prilagodite itinerar na temelju korisnikovih povratnih informacija.
+   - Izvršite potrebne promjene u preporukama za letove, smještaj i aktivnosti kako biste bolje odgovarali korisnikovim preferencijama.
 
-7. **Završna potvrda**
-   - Predstaviti ažurirani itinerar korisniku na konačnu potvrdu.
-   - Primjer: "Napravio sam izmjene prema vašim povratnim informacijama. Evo ažuriranog itinerara. Je li sve u redu?"
+7. **Konačna potvrda**
+   - Predstavite ažurirani itinerar korisniku na konačnu potvrdu.
+   - Primjer: "Izvršio sam prilagodbe na temelju vaših povratnih informacija. Evo ažuriranog itinerara. Je li sve u redu?"
 
 8. **Rezervacija i potvrda**
-   - Nakon što korisnik odobri itinerar, nastaviti s rezervacijom letova, smještaja i planiranih aktivnosti.
-   - Poslati korisniku potvrde.
+   - Nakon što korisnik odobri itinerar, nastavite s rezervacijom letova, smještaja i svih unaprijed planiranih aktivnosti.
+   - Pošaljite korisniku detalje o potvrdi.
 
 9. **Pružanje kontinuirane podrške**
-   - Biti dostupan za pomoć korisniku s bilo kakvim promjenama ili dodatnim zahtjevima prije i tijekom putovanja.
-   - Primjer: "Ako vam tijekom putovanja zatreba dodatna pomoć, slobodno mi se obratite u bilo kojem trenutku!"
+   - Budite dostupni za pomoć korisniku s bilo kakvim promjenama ili dodatnim zahtjevima prije i tijekom putovanja.
+   - Primjer: "Ako trebate dodatnu pomoć tijekom putovanja, slobodno mi se obratite u bilo kojem trenutku!"
 
 ### Primjer interakcije
 
@@ -251,44 +251,44 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Prvo, krenimo s razumijevanjem razlike između RAG alata i preemptivnog učitavanja konteksta.
 
-![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.hr.png)
+![RAG vs učitavanje konteksta](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.hr.png)
 
 ### Retrieval-Augmented Generation (RAG)
 
-RAG kombinira sustav za dohvat podataka s generativnim modelom. Kada se postavi upit, sustav za dohvat pronalazi relevantne dokumente ili podatke iz vanjskog izvora, a te dohvaćene informacije se koriste za obogaćivanje ulaza generativnom modelu. To pomaže modelu da generira točnije i kontekstualno relevantnije odgovore.
+RAG kombinira sustav za dohvaćanje s generativnim modelom. Kada se postavi upit, sustav za dohvaćanje pronalazi relevantne dokumente ili podatke iz vanjskog izvora, a ti dohvaćeni podaci koriste se za obogaćivanje ulaza generativnog modela. To pomaže modelu da generira točnije i kontekstualno relevantne odgovore.
 
-U RAG sustavu, agent dohvaća relevantne informacije iz baze znanja i koristi ih za generiranje prikladnih odgovora ili akcija.
+U RAG sustavu, agent dohvaća relevantne informacije iz baze znanja i koristi ih za generiranje odgovarajućih odgovora ili postupaka.
 
 ### Korektivni RAG pristup
 
 Korektivni RAG pristup fokusira se na korištenje RAG tehnika za ispravljanje pogrešaka i poboljšanje točnosti AI agenata. To uključuje:
 
-1. **Tehnika poticanja (prompting)**: Korištenje specifičnih upita za usmjeravanje agenta u dohvaćanju relevantnih informacija.
-2. **Alat**: Implementaciju algoritama i mehanizama koji omogućuju agentu da evaluira relevantnost dohvaćenih informacija i generira točne odgovore.
-3. **Evaluacija**: Kontinuirano procjenjivanje performansi agenta i prilagodbe za poboljšanje točnosti i učinkovitosti.
+1. **Tehnika upita**: Korištenje specifičnih upita za vođenje agenta u dohvaćanju relevantnih informacija.
+2. **Alat**: Implementacija algoritama i mehanizama koji omogućuju agentu da evaluira relevantnost dohvaćenih informacija i generira točne odgovore.
+3. **Evaluacija**: Kontinuirano procjenjivanje performansi agenta i prilagodbe za poboljšanje njegove točnosti i učinkovitosti.
 
 #### Primjer: Korektivni RAG u pretraživačkom agentu
 
-Zamislite pretraživačkog agenta koji dohvaća informacije s weba za odgovaranje na korisničke upite. Korektivni RAG pristup može uključivati:
+Razmislite o pretraživačkom agentu koji dohvaća informacije s weba kako bi odgovorio na korisničke upite. Korektivni RAG pristup mogao bi uključivati:
 
-1. **Tehnika poticanja**: Formuliranje upita za pretraživanje na temelju korisničkog unosa.
-2. **Alat**: Korištenje algoritama za obradu prirodnog jezika i strojnog učenja za rangiranje i filtriranje rezultata pretraživanja.
-3. **Evaluacija**: Analizu povratnih informacija korisnika za prepoznavanje i ispravljanje netočnosti u dohvaćenim informacijama.
+1. **Tehnika upita**: Formuliranje upita za pretraživanje na temelju korisničkog unosa.
+2. **Alat**: Korištenje algoritama za obradu prirodnog jezika i strojno učenje za rangiranje i filtriranje rezultata pretraživanja.
+3. **Evaluacija**: Analiza povratnih informacija korisnika kako bi se identificirale i ispravile netočnosti u dohvaćenim informacijama.
 
 ### Korektivni RAG u Putničkom agentu
 
-Korektivni RAG (Retrieval-Augmented Generation) poboljšava sposobnost AI-ja da dohvaća i generira informacije dok ispravlja eventualne netočnosti. Pogledajmo kako Putnički agent može koristiti Korektivni RAG pristup za pružanje točnijih i relevantnijih preporuka za putovanja.
+Korektivni RAG (Retrieval-Augmented Generation) poboljšava sposobnost AI-a da dohvaća i generira informacije dok ispravlja netočnosti. Pogledajmo kako Putnički agent može koristiti Korektivni RAG pristup za pružanje točnijih i relevantnijih preporuka za putovanja.
 
 To uključuje:
 
-- **Tehniku poticanja:** Korištenje specifičnih upita za usmjeravanje agenta u dohvaćanju relevantnih informacija.
-- **Alat:** Implementaciju algoritama i mehanizama koji omogućuju agentu da evaluira relevantnost dohvaćenih informacija i generira točne odgovore.
-- **Evaluaciju:** Kontinuirano procjenjivanje performansi agenta i prilagodbe za poboljšanje točnosti i učinkovitosti.
+- **Tehnika upita:** Korištenje specifičnih upita za vođenje agenta u dohvaćanju relevantnih informacija.
+- **Alat:** Implementacija algoritama i mehanizama koji omogućuju agentu da evaluira relevantnost dohvaćenih informacija i generira točne odgovore.
+- **Evaluacija:** Kontinuirano procjenjivanje performansi agenta i prilagodbe za poboljšanje njegove točnosti i učinkovitosti.
 
 #### Koraci za implementaciju Korektivnog RAG-a u Putničkom agentu
 
 1. **Početna interakcija s korisnikom**
-   - Putnički agent prikuplja početne preferencije korisnika, poput destinacije, datuma putovanja, budžeta i interesa.
+   - Putnički agent prikuplja početne preferencije od korisnika, poput destinacije, datuma putovanja, budžeta i interesa.
    - Primjer:
 
      ```python
@@ -300,7 +300,7 @@ To uključuje:
      }
      ```
 
-2. **Dohvat informacija**
+2. **Dohvaćanje informacija**
    - Putnički agent dohvaća informacije o letovima, smještaju, atrakcijama i restoranima na temelju korisničkih preferencija.
    - Primjer:
 
@@ -331,7 +331,7 @@ To uključuje:
      ```
 
 5. **Proces Korektivnog RAG-a**
-   - **Tehnika poticanja**: Putnički agent formulira nove upite za pretraživanje na temelju povratnih informacija korisnika.
+   - **Tehnika upita**: Putnički agent formulira nove upite za pretraživanje na temelju povratnih informacija korisnika.
      - Primjer:
 
        ```python
@@ -339,19 +339,52 @@ To uključuje:
            preferences["avoid"] = feedback["disliked"]
        ```
 
-   - **Alat**: Putnički agent koristi algoritme za rangiranje i filtriranje novih rezultata pretraživanja, naglašavajući relevantnost prema povratnim informacijama korisnika.
-     - Primjer:
+   - **Alat**: Putnički agent koristi algoritme za rangiranje i filtriranje novih rezultata pretraživanja, nag
+```python
+class Travel_Agent:
+    def __init__(self):
+        self.user_preferences = {}
+        self.experience_data = []
 
-       ```python
-       new_attractions = search_attractions(preferences)
-       new_itinerary = create_itinerary(flights, hotels, new_attractions)
-       print("Updated Itinerary:", new_itinerary)
-       ```
+    def gather_preferences(self, preferences):
+        self.user_preferences = preferences
 
-   - **Evaluacija**: Putnički agent kontinuirano procjenjuje relevantnost i točnost svojih preporuka analizom povratnih informacija i vr
+    def retrieve_information(self):
+        flights = search_flights(self.user_preferences)
+        hotels = search_hotels(self.user_preferences)
+        attractions = search_attractions(self.user_preferences)
+        return flights, hotels, attractions
+
+    def generate_recommendations(self):
+        flights, hotels, attractions = self.retrieve_information()
+        itinerary = create_itinerary(flights, hotels, attractions)
+        return itinerary
+
+    def adjust_based_on_feedback(self, feedback):
+        self.experience_data.append(feedback)
+        self.user_preferences = adjust_preferences(self.user_preferences, feedback)
+        new_itinerary = self.generate_recommendations()
+        return new_itinerary
+
+# Example usage
+travel_agent = Travel_Agent()
+preferences = {
+    "destination": "Paris",
+    "dates": "2025-04-01 to 2025-04-10",
+    "budget": "moderate",
+    "interests": ["museums", "cuisine"]
+}
+travel_agent.gather_preferences(preferences)
+itinerary = travel_agent.generate_recommendations()
+print("Suggested Itinerary:", itinerary)
+feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
+new_itinerary = travel_agent.adjust_based_on_feedback(feedback)
+print("Updated Itinerary:", new_itinerary)
+```
+
 ### Pre-emptivno Učitavanje Konteksta
 
-Pre-emptivno učitavanje konteksta podrazumijeva učitavanje relevantnih informacija ili pozadinskih podataka u model prije obrade upita. To znači da model od početka ima pristup tim informacijama, što mu pomaže da generira bolje i informiranije odgovore bez potrebe za dodatnim dohvatom podataka tijekom procesa.
+Pre-emptivno učitavanje konteksta uključuje učitavanje relevantnih informacija ili pozadinskog znanja u model prije obrade upita. To znači da model od početka ima pristup tim informacijama, što mu može pomoći da generira informiranije odgovore bez potrebe za dodatnim dohvaćanjem podataka tijekom procesa.
 
 Evo pojednostavljenog primjera kako bi pre-emptivno učitavanje konteksta moglo izgledati za aplikaciju turističkog agenta u Pythonu:
 
@@ -382,27 +415,27 @@ print(travel_agent.get_destination_info("Tokyo"))
 
 #### Objašnjenje
 
-1. **Inicijalizacija (`__init__` metoda)**: Klasa `TravelAgent` unaprijed učitava rječnik s informacijama o popularnim destinacijama poput Pariza, Tokija, New Yorka i Sydneya. Taj rječnik sadrži detalje poput države, valute, jezika i glavnih atrakcija za svaku destinaciju.
+1. **Inicijalizacija (`__init__` metoda)**: Klasa `TravelAgent` unaprijed učitava rječnik koji sadrži informacije o popularnim destinacijama poput Pariza, Tokija, New Yorka i Sydneya. Ovaj rječnik uključuje detalje poput države, valute, jezika i glavnih atrakcija za svaku destinaciju.
 
-2. **Dohvat Informacija (`get_destination_info` metoda)**: Kada korisnik postavi upit o određenoj destinaciji, metoda `get_destination_info` dohvaća relevantne informacije iz unaprijed učitanog rječnika konteksta.
+2. **Dohvaćanje informacija (`get_destination_info` metoda)**: Kada korisnik postavi upit o određenoj destinaciji, metoda `get_destination_info` dohvaća relevantne informacije iz unaprijed učitanog rječnika konteksta.
 
-Unaprijed učitavanjem konteksta, aplikacija turističkog agenta može brzo odgovoriti na korisničke upite bez potrebe za dohvatom podataka iz vanjskog izvora u stvarnom vremenu. To čini aplikaciju učinkovitijom i responzivnijom.
+Unaprijed učitavanjem konteksta, aplikacija turističkog agenta može brzo odgovarati na korisničke upite bez potrebe za dohvaćanjem tih informacija iz vanjskog izvora u stvarnom vremenu. To čini aplikaciju učinkovitijom i responzivnijom.
 
 ### Pokretanje Plana s Ciljem Prije Iteracije
 
-Pokretanje plana s ciljem znači započeti s jasnim ciljem ili željenim ishodom na umu. Definiranjem tog cilja unaprijed, model ga može koristiti kao vodilju tijekom iterativnog procesa. To pomaže osigurati da svaka iteracija vodi bliže ostvarenju željenog rezultata, čineći proces učinkovitijim i fokusiranijim.
+Pokretanje plana s ciljem uključuje započinjanje s jasnim ciljem ili željenim ishodom na umu. Definiranjem ovog cilja unaprijed, model ga može koristiti kao vodič tijekom iterativnog procesa. To pomaže osigurati da svaka iteracija vodi bliže postizanju željenog ishoda, čineći proces učinkovitijim i fokusiranim.
 
 Evo primjera kako možete pokrenuti plan putovanja s ciljem prije iteracije za turističkog agenta u Pythonu:
 
 ### Scenarij
 
-Turistički agent želi isplanirati prilagođeni odmor za klijenta. Cilj je kreirati putni itinerar koji maksimizira zadovoljstvo klijenta na temelju njegovih preferencija i budžeta.
+Turistički agent želi planirati prilagođeni odmor za klijenta. Cilj je stvoriti itinerar putovanja koji maksimizira zadovoljstvo klijenta na temelju njegovih preferencija i budžeta.
 
 ### Koraci
 
-1. Definirati preferencije i budžet klijenta.
-2. Pokrenuti početni plan na temelju tih preferencija.
-3. Iterirati kako bi se plan usavršio, optimizirajući zadovoljstvo klijenta.
+1. Definirajte preferencije i budžet klijenta.  
+2. Pokrenite početni plan na temelju tih preferencija.  
+3. Iterirajte kako biste usavršili plan, optimizirajući zadovoljstvo klijenta.  
 
 #### Python Kod
 
@@ -460,53 +493,53 @@ print("Refined Plan:", refined_plan)
 
 #### Objašnjenje Koda
 
-1. **Inicijalizacija (`__init__` metoda)**: Klasa `TravelAgent` inicijalizira se s popisom potencijalnih destinacija, od kojih svaka ima atribute poput imena, cijene i vrste aktivnosti.
+1. **Inicijalizacija (`__init__` metoda)**: Klasa `TravelAgent` inicijalizira se s popisom potencijalnih destinacija, od kojih svaka ima atribute poput imena, troškova i vrste aktivnosti.
 
-2. **Pokretanje Plana (`bootstrap_plan` metoda)**: Ova metoda kreira početni plan putovanja na temelju preferencija i budžeta klijenta. Prolazi kroz popis destinacija i dodaje ih u plan ako odgovaraju preferencijama klijenta i uklapaju se u budžet.
+2. **Pokretanje Plana (`bootstrap_plan` metoda)**: Ova metoda stvara početni plan putovanja na temelju preferencija i budžeta klijenta. Prolazi kroz popis destinacija i dodaje ih u plan ako odgovaraju preferencijama klijenta i uklapaju se u budžet.
 
-3. **Usklađivanje Preferencija (`match_preferences` metoda)**: Ova metoda provjerava odgovara li destinacija preferencijama klijenta.
+3. **Podudaranje Preferencija (`match_preferences` metoda)**: Ova metoda provjerava odgovara li destinacija preferencijama klijenta.
 
-4. **Iteracija Plana (`iterate_plan` metoda)**: Ova metoda usavršava početni plan pokušavajući zamijeniti svaku destinaciju u planu boljim izborom, uzimajući u obzir preferencije klijenta i ograničenja budžeta.
+4. **Iteracija Plana (`iterate_plan` metoda)**: Ova metoda usavršava početni plan pokušavajući zamijeniti svaku destinaciju u planu boljim izborom, uzimajući u obzir preferencije i budžet klijenta.
 
-5. **Izračun Troškova (`calculate_cost` metoda)**: Ova metoda računa ukupne troškove trenutnog plana, uključujući potencijalno novu destinaciju.
+5. **Izračun Troškova (`calculate_cost` metoda)**: Ova metoda izračunava ukupne troškove trenutnog plana, uključujući potencijalnu novu destinaciju.
 
 #### Primjer Korištenja
 
-- **Početni Plan**: Turistički agent kreira početni plan na temelju klijentovih preferencija za razgledavanje i budžeta od 2000$.
-- **Usavršeni Plan**: Turistički agent iterira plan, optimizirajući ga prema preferencijama i budžetu klijenta.
+- **Početni Plan**: Turistički agent stvara početni plan na temelju preferencija klijenta za razgledavanje i budžeta od 2000 USD.  
+- **Usavršeni Plan**: Turistički agent iterira plan, optimizirajući ga prema preferencijama i budžetu klijenta.  
 
-Pokretanjem plana s jasnim ciljem (npr. maksimiziranje zadovoljstva klijenta) i iteriranjem za usavršavanje, turistički agent može kreirati prilagođeni i optimizirani itinerar za klijenta. Ovaj pristup osigurava da plan putovanja od početka odgovara preferencijama i budžetu klijenta te se poboljšava s svakom iteracijom.
+Pokretanjem plana s jasnim ciljem (npr. maksimiziranje zadovoljstva klijenta) i iteracijom za njegovo usavršavanje, turistički agent može stvoriti prilagođeni i optimizirani itinerar putovanja za klijenta. Ovaj pristup osigurava da plan putovanja od početka odgovara preferencijama i budžetu klijenta te se poboljšava sa svakom iteracijom.
 
-### Iskorištavanje LLM-a za Ponovno Rangiranje i Ocjenjivanje
+### Korištenje LLM-a za Re-rangiranje i Ocjenjivanje
 
-Veliki jezični modeli (LLM) mogu se koristiti za ponovno rangiranje i ocjenjivanje tako da procjenjuju relevantnost i kvalitetu dohvaćenih dokumenata ili generiranih odgovora. Evo kako to funkcionira:
+Veliki Jezični Modeli (LLM-ovi) mogu se koristiti za re-rangiranje i ocjenjivanje procjenom relevantnosti i kvalitete dohvaćenih dokumenata ili generiranih odgovora. Evo kako to funkcionira:
 
-**Dohvat:** Početni korak dohvaća skup kandidata dokumenata ili odgovora na temelju upita.
+**Dohvaćanje:** Početni korak dohvaćanja prikuplja skup kandidata dokumenata ili odgovora na temelju upita.  
 
-**Ponovno Rangiranje:** LLM procjenjuje te kandidate i ponovno ih rangira prema relevantnosti i kvaliteti. Ovaj korak osigurava da se najrelevantnije i najkvalitetnije informacije prikažu prve.
+**Re-rangiranje:** LLM procjenjuje te kandidate i ponovno ih rangira na temelju njihove relevantnosti i kvalitete. Ovaj korak osigurava da se najrelevantnije i najkvalitetnije informacije prikažu prve.  
 
-**Ocjenjivanje:** LLM dodjeljuje ocjene svakom kandidatu, odražavajući njihovu relevantnost i kvalitetu. To pomaže u odabiru najboljeg odgovora ili dokumenta za korisnika.
+**Ocjenjivanje:** LLM dodjeljuje ocjene svakom kandidatu, odražavajući njihovu relevantnost i kvalitetu. To pomaže u odabiru najboljeg odgovora ili dokumenta za korisnika.  
 
-Korištenjem LLM-a za ponovno rangiranje i ocjenjivanje, sustav može pružiti točnije i kontekstualno relevantnije informacije, poboljšavajući ukupno korisničko iskustvo.
+Korištenjem LLM-ova za re-rangiranje i ocjenjivanje, sustav može pružiti točnije i kontekstualno relevantne informacije, poboljšavajući ukupno korisničko iskustvo.
 
-Evo primjera kako bi turistički agent mogao koristiti Veliki jezični model (LLM) za ponovno rangiranje i ocjenjivanje destinacija na temelju korisničkih preferencija u Pythonu:
+Evo primjera kako turistički agent može koristiti Veliki Jezični Model (LLM) za re-rangiranje i ocjenjivanje turističkih destinacija na temelju preferencija korisnika u Pythonu:
 
 #### Scenarij - Putovanje prema Preferencijama
 
-Turistički agent želi preporučiti najbolje destinacije klijentu na temelju njegovih preferencija. LLM će pomoći u ponovnom rangiranju i ocjenjivanju destinacija kako bi se osigurale najrelevantnije opcije.
+Turistički agent želi preporučiti najbolje turističke destinacije klijentu na temelju njegovih preferencija. LLM će pomoći u re-rangiranju i ocjenjivanju destinacija kako bi se osiguralo da se prikažu najrelevantnije opcije.
 
 #### Koraci:
 
-1. Prikupiti korisničke preferencije.
-2. Dohvatiti popis potencijalnih destinacija.
-3. Koristiti LLM za ponovno rangiranje i ocjenjivanje destinacija prema korisničkim preferencijama.
+1. Prikupite preferencije korisnika.  
+2. Dohvatite popis potencijalnih turističkih destinacija.  
+3. Koristite LLM za re-rangiranje i ocjenjivanje destinacija na temelju preferencija korisnika.  
 
-Evo kako možete nadograditi prethodni primjer za korištenje Azure OpenAI usluga:
+Evo kako možete ažurirati prethodni primjer za korištenje Azure OpenAI usluga:
 
 #### Zahtjevi
 
-1. Potrebno je imati Azure pretplatu.
-2. Kreirati Azure OpenAI resurs i dobiti API ključ.
+1. Trebate imati Azure pretplatu.  
+2. Kreirajte Azure OpenAI resurs i nabavite svoj API ključ.  
 
 #### Primjer Python Koda
 
@@ -571,19 +604,19 @@ for rec in recommendations:
 
 #### Objašnjenje Koda - Preference Booker
 
-1. **Inicijalizacija**: Klasa `TravelAgent` inicijalizira se s popisom potencijalnih destinacija, od kojih svaka ima atribute poput imena i opisa.
+1. **Inicijalizacija**: Klasa `TravelAgent` inicijalizira se s popisom potencijalnih turističkih destinacija, od kojih svaka ima atribute poput imena i opisa.
 
-2. **Dobivanje Preporuka (`get_recommendations` metoda)**: Ova metoda generira prompt za Azure OpenAI uslugu na temelju korisničkih preferencija i šalje HTTP POST zahtjev Azure OpenAI API-ju kako bi dobila ponovno rangirane i ocijenjene destinacije.
+2. **Dobivanje Preporuka (`get_recommendations` metoda)**: Ova metoda generira prompt za Azure OpenAI uslugu na temelju preferencija korisnika i šalje HTTP POST zahtjev Azure OpenAI API-ju kako bi dobila re-rangirane i ocijenjene destinacije.
 
-3. **Generiranje Prompt-a (`generate_prompt` metoda)**: Ova metoda sastavlja prompt za Azure OpenAI, uključujući korisničke preferencije i popis destinacija. Prompt usmjerava model da ponovno rangira i ocijeni destinacije prema navedenim preferencijama.
+3. **Generiranje Prompt-a (`generate_prompt` metoda)**: Ova metoda konstruira prompt za Azure OpenAI, uključujući preferencije korisnika i popis destinacija. Prompt vodi model da re-rangira i ocijeni destinacije na temelju danih preferencija.
 
-4. **API Poziv**: Biblioteka `requests` koristi se za slanje HTTP POST zahtjeva na Azure OpenAI API endpoint. Odgovor sadrži ponovno rangirane i ocijenjene destinacije.
+4. **API Poziv**: Knjižnica `requests` koristi se za slanje HTTP POST zahtjeva na Azure OpenAI API endpoint. Odgovor sadrži re-rangirane i ocijenjene destinacije.
 
-5. **Primjer Korištenja**: Turistički agent prikuplja korisničke preferencije (npr. interes za razgledavanje i raznoliku kulturu) i koristi Azure OpenAI uslugu za dobivanje ponovno rangiranih i ocijenjenih preporuka destinacija.
+5. **Primjer Korištenja**: Turistički agent prikuplja preferencije korisnika (npr. interes za razgledavanje i raznoliku kulturu) i koristi Azure OpenAI uslugu za dobivanje re-rangiranih i ocijenjenih preporuka za turističke destinacije.
 
-Obavezno zamijenite `your_azure_openai_api_key` stvarnim Azure OpenAI API ključem i `https://your-endpoint.com/...` stvarnim URL-om endpointa vaše Azure OpenAI implementacije.
+Obavezno zamijenite `your_azure_openai_api_key` svojim stvarnim Azure OpenAI API ključem i `https://your-endpoint.com/...` stvarnim URL-om endpointa vaše Azure OpenAI implementacije.
 
-Korištenjem LLM-a za ponovno rangiranje i ocjenjivanje, turistički agent može pružiti personaliziranije i relevantnije preporuke putovanja klijentima, poboljšavajući njihovo ukupno iskustvo.
+Korištenjem LLM-a za re-rangiranje i ocjenjivanje, turistički agent može pružiti personaliziranije i relevantnije preporuke za putovanja klijentima, poboljšavajući njihovo ukupno iskustvo.  
 
 ### RAG: Tehnika Promptanja vs Alat
 
@@ -593,47 +626,47 @@ Retrieval-Augmented Generation (RAG) može biti i tehnika promptanja i alat u ra
 
 **Što je to?**
 
-- Kao tehnika promptanja, RAG uključuje formuliranje specifičnih upita ili promptova za usmjeravanje dohvaćanja relevantnih informacija iz velikog korpusa ili baze podataka. Te informacije se zatim koriste za generiranje odgovora ili akcija.
+- Kao tehnika promptanja, RAG uključuje formuliranje specifičnih upita ili promptova za vođenje dohvaćanja relevantnih informacija iz velike baze podataka ili korpusa. Te se informacije zatim koriste za generiranje odgovora ili akcija.
 
 **Kako funkcionira:**
 
-1. **Formuliranje Promptova**: Kreiranje dobro strukturiranih promptova ili upita na temelju zadatka ili korisničkog unosa.
-2. **Dohvat Informacija**: Korištenje promptova za pretraživanje relevantnih podataka iz postojeće baze znanja ili skupa podataka.
-3. **Generiranje Odgovora**: Kombiniranje dohvaćenih informacija s generativnim AI modelima za proizvodnju sveobuhvatnog i koherentnog odgovora.
+1. **Formuliranje Promptova**: Kreirajte dobro strukturirane promptove ili upite na temelju zadatka ili korisničkog unosa.  
+2. **Dohvaćanje Informacija**: Koristite promptove za pretraživanje relevantnih podataka iz postojeće baze znanja ili skupa podataka.  
+3. **Generiranje Odgovora**: Kombinirajte dohvaćene informacije s generativnim AI modelima kako biste proizveli sveobuhvatan i koherentan odgovor.  
 
 **Primjer u Turističkom Agentu**:
 
-- Korisnički Upit: "Želim posjetiti muzeje u Parizu."
-- Prompt: "Pronađi najbolje muzeje u Parizu."
-- Dohvaćene Informacije: Detalji o Louvreu, Musée d'Orsay itd.
-- Generirani Odgovor: "Evo nekoliko najboljih muzeja u Parizu: Louvre, Musée d'Orsay i Centre Pompidou."
+- Korisnički Upit: "Želim posjetiti muzeje u Parizu."  
+- Prompt: "Pronađi najbolje muzeje u Parizu."  
+- Dohvaćene Informacije: Detalji o Louvreu, Musée d'Orsay itd.  
+- Generirani Odgovor: "Evo nekoliko najboljih muzeja u Parizu: Louvre, Musée d'Orsay i Centre Pompidou."  
 
 #### RAG kao Alat
 
 **Što je to?**
 
-- Kao alat, RAG je integrirani sustav koji automatizira proces dohvaćanja i generiranja, olakšavajući programerima implementaciju složenih AI funkcionalnosti bez ručnog kreiranja promptova za svaki upit.
+- Kao alat, RAG je integrirani sustav koji automatizira proces dohvaćanja i generiranja, olakšavajući developerima implementaciju složenih AI funkcionalnosti bez ručnog kreiranja promptova za svaki upit.
 
 **Kako funkcionira:**
 
-1. **Integracija**: Ugradnja RAG-a u arhitekturu AI agenta, omogućujući mu automatsko upravljanje dohvatom i generiranjem.
-2. **Automatizacija**: Alat upravlja cijelim procesom, od primanja korisničkog unosa do generiranja konačnog odgovora, bez potrebe za eksplicitnim promptovima za svaki korak.
-3. **Učinkovitost**: Poboljšava performanse agenta pojednostavljujući proces dohvaćanja i generiranja, omogućujući brže i preciznije odgovore.
+1. **Integracija**: Ugradite RAG unutar arhitekture AI agenta, omogućujući mu da automatski upravlja zadacima dohvaćanja i generiranja.  
+2. **Automatizacija**: Alat upravlja cijelim procesom, od primanja korisničkog unosa do generiranja konačnog odgovora, bez potrebe za eksplicitnim promptovima za svaki korak.  
+3. **Učinkovitost**: Poboljšava performanse agenta pojednostavljivanjem procesa dohvaćanja i generiranja, omogućujući brže i točnije odgovore.  
 
 **Primjer u Turističkom Agentu**:
 
-- Korisnički Upit: "Želim posjetiti muzeje u Parizu."
-- RAG Alat: Automatski dohvaća informacije o muzejima i generira odgovor.
-- Generirani Odgovor: "Evo nekoliko najboljih muzeja u Parizu: Louvre, Musée d'Orsay i Centre Pompidou."
+- Korisnički Upit: "Želim posjetiti muzeje u Parizu."  
+- RAG Alat: Automatski dohvaća informacije o muzejima i generira odgovor.  
+- Generirani Odgovor: "Evo nekoliko najboljih muzeja u Parizu: Louvre, Musée d'Orsay i Centre Pompidou."  
 
 ### Usporedba
 
 | Aspekt                 | Tehnika Promptanja                                        | Alat                                                  |
 |------------------------|-----------------------------------------------------------|-------------------------------------------------------|
-| **Ručno vs Automatsko**| Ručno formuliranje promptova za svaki upit.               | Automatizirani proces dohvaćanja i generiranja.       |
-| **Kontrola**            | Više kontrole nad procesom dohvaćanja.                    | Pojednostavljuje i automatizira dohvat i generiranje.|
-| **Fleksibilnost**       | Omogućuje prilagođene promptove prema specifičnim potrebama.| Učinkovitiji za implementacije velikih razmjera.     |
-| **Složenost**           | Zahtijeva kreiranje i podešavanje promptova.              | Lakše se integrira u arhitekturu AI agenta.           |
+| **Ručno vs Automatski**| Ručno formuliranje promptova za svaki upit.               | Automatizirani proces dohvaćanja i generiranja.       |
+| **Kontrola**            | Omogućuje veću kontrolu nad procesom dohvaćanja.         | Pojednostavljuje i automatizira dohvaćanje i generiranje.|
+| **Fleksibilnost**        | Omogućuje prilagođene promptove prema specifičnim potrebama. | Učinkovitiji za implementacije velikih razmjera.       |
+| **Složenost**           | Zahtijeva kreiranje i prilagodbu promptova.              | Lakše se integrira unutar arhitekture AI agenta.       |
 
 ### Praktični Primjeri
 
@@ -668,30 +701,30 @@ print("Top Museums in Paris:", museums)
 
 ### Procjena Relevantnosti
 
-Procjena relevantnosti ključan je aspekt performansi AI agenta. Osigurava da su informacije koje agent dohvaća i generira prikladne, točne i korisne za korisnika. Pogledajmo kako procijeniti relevantnost u AI agentima, uključujući praktične primjere i tehnike.
+Procjena relevantnosti ključni je aspekt performansi AI agenta. Osigurava da su informacije koje agent dohvaća i generira prikladne, točne i korisne za korisnika. Istražimo kako procijeniti relevantnost u AI agentima, uključujući praktične primjere i tehnike.
 
-#### Ključni Pojmovi u Procjeni Relevantnosti
+#### Ključni Koncepti u Procjeni Relevantnosti
 
 1. **Svijest o Kontekstu**:
-   - Agent mora razumjeti kontekst korisničkog upita kako bi dohvaćao i generirao relevantne informacije.
-   - Primjer: Ako korisnik traži "najbolje restorane u Parizu", agent treba uzeti u obzir korisnikove preferencije poput vrste kuhinje i budžeta.
+   - Agent mora razumjeti kontekst korisničkog upita kako bi dohvaćao i generirao relevantne informacije.  
+   - Primjer: Ako korisnik traži "najbolje restorane u Parizu," agent bi trebao uzeti u obzir preferencije korisnika, poput vrste kuhinje i budžeta.  
 
 2. **Točnost**:
-   - Informacije koje agent pruža trebaju biti činjenice i ažurirane.
-   - Primjer: Preporučivanje trenutno otvorenih restorana s dobrim recenzijama, a ne zastarjelih ili zatvorenih opcija.
+   - Informacije koje agent pruža trebaju biti činjenično točne i ažurirane.  
+   - Primjer: Preporučivanje trenutno otvorenih restorana s dobrim recenzijama umjesto zastarjelih ili zatvorenih opcija.  
 
 3. **Namjera Korisnika**:
-   - Agent treba zaključiti namjeru korisnika iza upita kako bi pružio najrelevantnije informacije.
-   - Primjer: Ako korisnik traži "povoljni hoteli", agent treba dati prioritet pristupačnim opcijama.
+   - Agent bi trebao zaključiti namjeru korisnika iza upita kako bi pružio najrelevantnije informacije.  
+   - Primjer: Ako korisnik traži "povoljne hotele," agent bi trebao prioritetno prikazati pristupačne opcije.  
 
 4. **Povratna Informacija**:
-   - Kontinuirano prikupljanje i analiza povratnih informacija korisnika pomaže agentu da poboljša proces procjene relevantnosti.
-   - Primjer: Uključivanje ocjena i komentara korisnika o prethodnim preporukama za bolje buduće odgovore.
+   - Kontinuirano prikupljanje i analiza povratnih informacija korisnika pomaže agentu da usavrši proces procjene relevantnosti.  
+   - Primjer: Uključivanje ocjena i povratnih informacija korisnika o prethodnim preporukama za poboljšanje budućih odgovora.  
 
 #### Praktične Tehnike za Procjenu Relevantnosti
 
 1. **Ocjenjivanje Relevantnosti**:
-   - Dodjeljivanje ocjene relevantnosti svakom dohvaćenom elementu na temelju podudarnosti s korisničkim upitom i preferencijama.
+   - Dodijelite ocjenu relevantnosti svakom dohvaćenom elementu na temelju toga koliko dobro odgovara korisničkom upitu i preferencijama.  
    - Primjer:
 
      ```python
@@ -707,7 +740,7 @@ Procjena relevantnosti ključan je aspekt performansi AI agenta. Osigurava da su
      ```
 
 2. **Filtriranje i Rangiranje**:
-   - Filtriranje irelevantnih stavki i rangiranje preostalih prema ocjenama relevantnosti.
+   - Filtrirajte irelevantne elemente i rangirajte preostale na temelju njihovih ocjena relevantnosti.  
    - Primjer:
 
      ```python
@@ -717,7 +750,7 @@ Procjena relevantnosti ključan je aspekt performansi AI agenta. Osigurava da su
      ```
 
 3. **Obrada Prirodnog Jezika (NLP)**:
-   - Korištenje NLP tehnika za razumijevanje korisničkog upita i dohvat relevantnih informacija.
+   - Koristite NLP tehnike za razumijevanje korisničkog upita i dohvaćanje relevantnih informacija.  
    - Primjer:
 
      ```python
@@ -728,7 +761,7 @@ Procjena relevantnosti ključan je aspekt performansi AI agenta. Osigurava da su
      ```
 
 4. **Integracija Povratnih Informacija Korisnika**:
-   - Prikupljanje povratnih informacija o preporukama i njihova upotreba za prilagodbu budućih procjena relevantnosti.
+   - Prikupljajte povratne informacije korisnika o pruženim preporukama i koristite ih za prilagodbu budućih procjena relevantnosti.  
    - Primjer:
 
      ```python
@@ -743,7 +776,7 @@ Procjena relevantnosti ključan je aspekt performansi AI agenta. Osigurava da su
 
 #### Primjer: Procjena Relevantnosti u Turističkom Agentu
 
-Evo praktičnog primjera kako `TravelAgent` može procijeniti relevantnost preporuka za putovanja:
+Evo praktičnog primjera kako Turistički Agent može procijeniti relevantnost turističkih preporuka:
 
 ```python
 class Travel_Agent:
@@ -804,29 +837,29 @@ updated_items = travel_agent.adjust_based_on_feedback(feedback, itinerary['hotel
 print("Updated Itinerary with Feedback:", updated_items)
 ```
 
-### Pretraživanje s Namjerom
+### Pretraga s Namjerom
 
-Pretraživanje s namjerom uključuje razumijevanje i tumačenje stvarne svrhe ili cilja iza korisničkog upita kako bi se dohvatile i generirale najrelevantnije i najkorisnije informacije. Ovaj pristup ide dalje od pukog podudaranja ključnih riječi i fokusira se na shvaćanje stvarnih potreba i konteksta korisnika.
+Pretraga s namjerom uključuje razumijevanje i interpretaciju osnovne svrhe ili cilja iza korisničkog upita kako bi se dohvatile i generirale najrelevantnije i najkorisnije informacije. Ovaj pristup nadilazi jednostavno podudaranje ključnih riječi i fokusira se na shvaćanje stvarnih potreba i konteksta korisnika.
 
-#### Ključni Pojmovi u Pretraživanju s Namjerom
+#### Ključni Koncepti u Pretrazi s Namjerom
 
 1. **Razumijevanje Namjere Korisnika**:
-   - Namjera korisnika može se podijeliti u tri glavne kategorije: informativna, navigacijska i transakcijska.
-     - **Informativna Namjera**: Korisnik traži informacije o nekoj temi (npr. "Koji su najbolji muzeji u Parizu?").
-     - **Navigacijska Namjera**: Korisnik želi doći do određene web stranice ili stranice (npr. "Službena stranica Louvre muzeja").
-     - **Transakcijska Namjera**: Korisnik želi izvršiti neku radnju, poput rezervacije leta ili kupnje (npr. "Rezerviraj let za Pariz").
+   - Namjera korisnika može se kategorizirati u tri glavne vrste: informativna, navigacijska i transakcijska.  
+     - **Informativna Namjera**: Korisnik traži informacije o nekoj temi (npr. "Koji su najbolji muzeji u Parizu?").  
+     - **Navigacijska Namjera**: Korisnik želi navigirati do određene web stranice ili stranice (npr. "Službena stranica muzeja Louvre").  
+     - **Transakcijska Namjera**: Korisnik želi obaviti transakciju, poput rezervacije leta ili kupnje (npr. "Rezerviraj let za Pariz").  
 
 2. **Svijest o Kontekstu**:
-   - Analiza konteksta korisničkog upita pomaže u točnom prepoznavanju njihove namjere. To uključuje razmatranje prethodnih interakcija, korisničkih preferencija i specifičnih detalja trenutnog upita.
+   - Analiziranje konteksta korisničkog upita pomaže u točnom identificiranju njegove namjere. To uključuje razmatranje prethodnih interakcija, preferencija korisnika i specifičnih detalja trenutnog upita.  
 
 3. **Obrada Prirodnog Jezika (NLP)**:
-   - NLP tehnike koriste se za razumijevanje i tumačenje prirodnih jezičnih upita korisnika. To uključuje zadatke poput prepoznavanja entiteta, analize sentimenta i parsiranja upita.
+   - NLP tehnike koriste se za razumijevanje i interpretaciju prirodnih jezičnih upita korisnika. To uključuje zadatke poput prepoznavanja entiteta, analize sentimenta i parsiranja upita.  
 
 4. **Personalizacija**:
-   - Personalizacija rezultata pretraživanja na temelju korisničke povijesti, preferencija i povratnih informacija povećava relevantnost dohvaćenih informacija.
+   - Personaliziranje rezultata pretrage na temelju povijesti korisnika, preferencija i povratnih informacija poboljšava relevantnost dohvaćenih informacija.  
 #### Praktični primjer: Pretraživanje s namjerom u Travel Agentu
 
-Uzmimo Travel Agent kao primjer da vidimo kako se može implementirati pretraživanje s namjerom.
+Uzmimo Travel Agent kao primjer kako implementirati pretraživanje s namjerom.
 
 1. **Prikupljanje korisničkih preferencija**
 
@@ -851,7 +884,7 @@ Uzmimo Travel Agent kao primjer da vidimo kako se može implementirati pretraži
            return "informational"
    ```
 
-3. **Svijest o kontekstu**
+3. **Svjesnost konteksta**
 
    ```python
    def analyze_context(query, user_history):
@@ -918,42 +951,42 @@ Uzmimo Travel Agent kao primjer da vidimo kako se može implementirati pretraži
 
 ## 4. Generiranje koda kao alat
 
-Agenti za generiranje koda koriste AI modele za pisanje i izvršavanje koda, rješavajući složene probleme i automatizirajući zadatke.
+Agent za generiranje koda koristi AI modele za pisanje i izvršavanje koda, rješavanje složenih problema i automatizaciju zadataka.
 
 ### Agenti za generiranje koda
 
-Agenti za generiranje koda koriste generativne AI modele za pisanje i izvršavanje koda. Ovi agenti mogu rješavati složene probleme, automatizirati zadatke i pružati vrijedne uvide generiranjem i pokretanjem koda u različitim programskim jezicima.
+Agenti za generiranje koda koriste generativne AI modele za pisanje i izvršavanje koda. Ovi agenti mogu rješavati složene probleme, automatizirati zadatke i pružiti vrijedne uvide generiranjem i pokretanjem koda na različitim programskim jezicima.
 
 #### Praktične primjene
 
 1. **Automatsko generiranje koda**: Generiranje isječaka koda za specifične zadatke, poput analize podataka, web scraping-a ili strojnog učenja.
-2. **SQL kao RAG**: Korištenje SQL upita za dohvat i manipulaciju podacima iz baza podataka.
+2. **SQL kao RAG**: Korištenje SQL upita za dohvaćanje i manipulaciju podacima iz baza podataka.
 3. **Rješavanje problema**: Kreiranje i izvršavanje koda za rješavanje specifičnih problema, poput optimizacije algoritama ili analize podataka.
 
 #### Primjer: Agent za generiranje koda za analizu podataka
 
-Zamislite da dizajnirate agenta za generiranje koda. Evo kako bi to moglo funkcionirati:
+Zamislite da dizajnirate agenta za generiranje koda. Evo kako bi to moglo izgledati:
 
 1. **Zadatak**: Analizirati skup podataka kako bi se identificirali trendovi i obrasci.
 2. **Koraci**:
-   - Učitati skup podataka u alat za analizu podataka.
-   - Generirati SQL upite za filtriranje i agregaciju podataka.
-   - Izvršiti upite i dohvatiti rezultate.
-   - Koristiti rezultate za generiranje vizualizacija i uvida.
+   - Učitavanje skupa podataka u alat za analizu podataka.
+   - Generiranje SQL upita za filtriranje i agregaciju podataka.
+   - Izvršavanje upita i dohvaćanje rezultata.
+   - Korištenje rezultata za generiranje vizualizacija i uvida.
 3. **Potrebni resursi**: Pristup skupu podataka, alati za analizu podataka i SQL mogućnosti.
-4. **Iskustvo**: Koristiti prethodne rezultate analiza za poboljšanje točnosti i relevantnosti budućih analiza.
+4. **Iskustvo**: Korištenje rezultata prethodnih analiza za poboljšanje točnosti i relevantnosti budućih analiza.
 
 ### Primjer: Agent za generiranje koda za Travel Agent
 
-U ovom primjeru dizajnirat ćemo agenta za generiranje koda, Travel Agent, koji pomaže korisnicima u planiranju putovanja generiranjem i izvršavanjem koda. Ovaj agent može obavljati zadatke poput dohvaćanja opcija putovanja, filtriranja rezultata i sastavljanja itinerera koristeći generativnu AI.
+U ovom primjeru dizajnirat ćemo agenta za generiranje koda, Travel Agent, koji pomaže korisnicima u planiranju putovanja generiranjem i izvršavanjem koda. Ovaj agent može obavljati zadatke poput dohvaćanja opcija putovanja, filtriranja rezultata i sastavljanja itinerara koristeći generativni AI.
 
 #### Pregled agenta za generiranje koda
 
-1. **Prikupljanje korisničkih preferencija**: Prikuplja korisničke unose poput destinacije, datuma putovanja, budžeta i interesa.
-2. **Generiranje koda za dohvat podataka**: Generira isječke koda za dohvat podataka o letovima, hotelima i atrakcijama.
-3. **Izvršavanje generiranog koda**: Pokreće generirani kod za dohvat informacija u stvarnom vremenu.
-4. **Generiranje itinerera**: Sastavlja dohvaćene podatke u personalizirani plan putovanja.
-5. **Prilagodba na temelju povratnih informacija**: Prima povratne informacije korisnika i po potrebi ponovno generira kod za poboljšanje rezultata.
+1. **Prikupljanje korisničkih preferencija**: Prikuplja korisničke unose poput odredišta, datuma putovanja, budžeta i interesa.
+2. **Generiranje koda za dohvaćanje podataka**: Generira isječke koda za dohvaćanje podataka o letovima, hotelima i atrakcijama.
+3. **Izvršavanje generiranog koda**: Pokreće generirani kod za dohvaćanje informacija u stvarnom vremenu.
+4. **Generiranje itinerara**: Sastavlja prikupljene podatke u personalizirani plan putovanja.
+5. **Prilagodba na temelju povratnih informacija**: Prima povratne informacije korisnika i ponovno generira kod ako je potrebno za poboljšanje rezultata.
 
 #### Implementacija korak po korak
 
@@ -968,7 +1001,7 @@ U ovom primjeru dizajnirat ćemo agenta za generiranje koda, Travel Agent, koji 
            self.user_preferences = preferences
    ```
 
-2. **Generiranje koda za dohvat podataka**
+2. **Generiranje koda za dohvaćanje podataka**
 
    ```python
    def generate_code_to_fetch_data(preferences):
@@ -1020,7 +1053,7 @@ U ovom primjeru dizajnirat ćemo agenta za generiranje koda, Travel Agent, koji 
    print("Hotel Options:", hotels)
    ```
 
-4. **Generiranje itinerera**
+4. **Generiranje itinerara**
 
    ```python
    def generate_itinerary(flights, hotels, attractions):
@@ -1061,15 +1094,15 @@ U ovom primjeru dizajnirat ćemo agenta za generiranje koda, Travel Agent, koji 
    print("Updated Itinerary:", updated_itinerary)
    ```
 
-### Iskorištavanje svijesti o okolišu i rezoniranja
+### Korištenje svjesnosti okruženja i zaključivanja
 
-Temeljeno na shemi tablice moguće je unaprijediti proces generiranja upita koristeći svijest o okolišu i rezoniranje.
+Razumijevanje sheme tablice može poboljšati proces generiranja upita korištenjem svjesnosti okruženja i zaključivanja.
 
-Evo primjera kako se to može napraviti:
+Evo primjera kako se to može učiniti:
 
-1. **Razumijevanje sheme**: Sustav razumije shemu tablice i koristi te informacije za temeljenje generiranja upita.
-2. **Prilagodba na temelju povratnih informacija**: Sustav prilagođava korisničke preferencije na temelju povratnih informacija i rezonira o tome koja polja u shemi treba ažurirati.
-3. **Generiranje i izvršavanje upita**: Sustav generira i izvršava upite za dohvat ažuriranih podataka o letovima i hotelima na temelju novih preferencija.
+1. **Razumijevanje sheme**: Sustav razumije shemu tablice i koristi te informacije za generiranje upita.
+2. **Prilagodba na temelju povratnih informacija**: Sustav prilagođava korisničke preferencije na temelju povratnih informacija i zaključuje koje polja u shemi treba ažurirati.
+3. **Generiranje i izvršavanje upita**: Sustav generira i izvršava upite za dohvaćanje ažuriranih podataka o letovima i hotelima na temelju novih preferencija.
 
 Evo ažuriranog primjera Python koda koji uključuje ove koncepte:
 
@@ -1134,31 +1167,31 @@ print("Updated Itinerary:", updated_itinerary)
 
 #### Objašnjenje - Rezervacija na temelju povratnih informacija
 
-1. **Svijest o shemi**: Rječnik `schema` definira kako se preferencije trebaju prilagoditi na temelju povratnih informacija. Uključuje polja poput `favorites` i `avoid` s pripadajućim prilagodbama.
-2. **Prilagodba preferencija (`adjust_based_on_feedback` metoda)**: Ova metoda prilagođava preferencije na temelju korisničkih povratnih informacija i sheme.
-3. **Prilagodbe temeljene na okolišu (`adjust_based_on_environment` metoda)**: Ova metoda prilagođava promjene na temelju sheme i povratnih informacija.
-4. **Generiranje i izvršavanje upita**: Sustav generira kod za dohvat ažuriranih podataka o letovima i hotelima na temelju prilagođenih preferencija i simulira izvršavanje tih upita.
-5. **Generiranje itinerera**: Sustav kreira ažurirani itinerer na temelju novih podataka o letovima, hotelima i atrakcijama.
+1. **Svjesnost sheme**: Rječnik `schema` definira kako se preferencije trebaju prilagoditi na temelju povratnih informacija. Uključuje polja poput `favorites` i `avoid` s odgovarajućim prilagodbama.
+2. **Prilagodba preferencija (`adjust_based_on_feedback` metoda)**: Ova metoda prilagođava preferencije na temelju povratnih informacija korisnika i sheme.
+3. **Prilagodbe temeljene na okruženju (`adjust_based_on_environment` metoda)**: Ova metoda prilagođava prilagodbe na temelju sheme i povratnih informacija.
+4. **Generiranje i izvršavanje upita**: Sustav generira kod za dohvaćanje ažuriranih podataka o letovima i hotelima na temelju prilagođenih preferencija i simulira izvršavanje tih upita.
+5. **Generiranje itinerara**: Sustav kreira ažurirani itinerar na temelju novih podataka o letovima, hotelima i atrakcijama.
 
-Uvođenjem svijesti o okolišu i rezoniranja temeljenog na shemi, sustav može generirati preciznije i relevantnije upite, što vodi do boljih preporuka za putovanja i personaliziranijeg korisničkog iskustva.
+Korištenjem svjesnosti okruženja i zaključivanja temeljenog na shemi, sustav može generirati točnije i relevantnije upite, što dovodi do boljih preporuka za putovanja i personaliziranijeg korisničkog iskustva.
 
-### Korištenje SQL-a kao Retrieval-Augmented Generation (RAG) tehnike
+### Korištenje SQL-a kao tehnike Retrieval-Augmented Generation (RAG)
 
-SQL (Structured Query Language) je moćan alat za rad s bazama podataka. Kada se koristi kao dio Retrieval-Augmented Generation (RAG) pristupa, SQL može dohvatiti relevantne podatke iz baza podataka kako bi informirao i generirao odgovore ili akcije u AI agentima. Pogledajmo kako se SQL može koristiti kao RAG tehnika u kontekstu Travel Agenta.
+SQL (Structured Query Language) je moćan alat za interakciju s bazama podataka. Kada se koristi kao dio pristupa Retrieval-Augmented Generation (RAG), SQL može dohvaćati relevantne podatke iz baza podataka kako bi informirao i generirao odgovore ili akcije u AI agentima. Pogledajmo kako se SQL može koristiti kao RAG tehnika u kontekstu Travel Agenta.
 
-#### Ključni pojmovi
+#### Ključni koncepti
 
 1. **Interakcija s bazom podataka**:
-   - SQL se koristi za upite prema bazama podataka, dohvat relevantnih informacija i manipulaciju podacima.
-   - Primjer: Dohvat podataka o letovima, hotelima i atrakcijama iz baze podataka za putovanja.
+   - SQL se koristi za upite prema bazama podataka, dohvaćanje relevantnih informacija i manipulaciju podacima.
+   - Primjer: Dohvaćanje detalja o letovima, informacijama o hotelima i atrakcijama iz baze podataka o putovanjima.
 
 2. **Integracija s RAG-om**:
-   - SQL upiti se generiraju na temelju korisničkih unosa i preferencija.
+   - SQL upiti se generiraju na temelju korisničkog unosa i preferencija.
    - Dohvaćeni podaci se zatim koriste za generiranje personaliziranih preporuka ili akcija.
 
 3. **Dinamičko generiranje upita**:
    - AI agent generira dinamičke SQL upite na temelju konteksta i potreba korisnika.
-   - Primjer: Prilagođavanje SQL upita za filtriranje rezultata prema budžetu, datumima i interesima.
+   - Primjer: Prilagodba SQL upita za filtriranje rezultata prema budžetu, datumima i interesima.
 
 #### Primjene
 
@@ -1166,16 +1199,17 @@ SQL (Structured Query Language) je moćan alat za rad s bazama podataka. Kada se
 - **SQL kao RAG**: Korištenje SQL upita za manipulaciju podacima.
 - **Rješavanje problema**: Kreiranje i izvršavanje koda za rješavanje problema.
 
-**Primjer**: agent za analizu podataka:
+**Primjer**:
+Agent za analizu podataka:
 
 1. **Zadatak**: Analizirati skup podataka kako bi se pronašli trendovi.
 2. **Koraci**:
-   - Učitati skup podataka.
-   - Generirati SQL upite za filtriranje podataka.
-   - Izvršiti upite i dohvatiti rezultate.
-   - Generirati vizualizacije i uvide.
+   - Učitavanje skupa podataka.
+   - Generiranje SQL upita za filtriranje podataka.
+   - Izvršavanje upita i dohvaćanje rezultata.
+   - Generiranje vizualizacija i uvida.
 3. **Resursi**: Pristup skupu podataka, SQL mogućnosti.
-4. **Iskustvo**: Koristiti prethodne rezultate za poboljšanje budućih analiza.
+4. **Iskustvo**: Korištenje prethodnih rezultata za poboljšanje budućih analiza.
 
 #### Praktični primjer: Korištenje SQL-a u Travel Agentu
 
@@ -1271,15 +1305,15 @@ Korištenjem SQL-a kao dijela Retrieval-Augmented Generation (RAG) tehnike, AI a
 
 ### Primjer metakognicije
 
-Da bismo demonstrirali implementaciju metakognicije, kreirat ćemo jednostavnog agenta koji *reflektira o svom procesu donošenja odluka* dok rješava problem. U ovom primjeru izgradit ćemo sustav u kojem agent pokušava optimizirati izbor hotela, ali zatim evaluira vlastito rezoniranje i prilagođava strategiju kada napravi pogreške ili suboptimalne odluke.
+Kako bismo demonstrirali implementaciju metakognicije, kreirat ćemo jednostavnog agenta koji *razmišlja o svom procesu donošenja odluka* dok rješava problem. U ovom primjeru, agent će pokušati optimizirati izbor hotela, ali će evaluirati vlastito razmišljanje i prilagoditi svoju strategiju kada napravi pogreške ili suboptimalne izbore.
 
-Simulirat ćemo to koristeći osnovni primjer gdje agent bira hotele na temelju kombinacije cijene i kvalitete, ali će "reflektirati" o svojim odlukama i prilagođavati se u skladu s tim.
+Simulirat ćemo ovo koristeći osnovni primjer gdje agent bira hotele na temelju kombinacije cijene i kvalitete, ali će "razmišljati" o svojim odlukama i prilagoditi se u skladu s tim.
 
 #### Kako ovo ilustrira metakogniciju:
 
-1. **Početna odluka**: Agent će odabrati najjeftiniji hotel, bez razumijevanja utjecaja kvalitete.
-2. **Refleksija i evaluacija**: Nakon početnog izbora, agent će provjeriti je li hotel bio "loš" izbor koristeći povratne informacije korisnika. Ako utvrdi da je kvaliteta hotela bila preniska, reflektira o svom rezoniranju.
-3. **Prilagodba strategije**: Agent prilagođava svoju strategiju na temelju refleksije, prelazeći s "najjeftinijeg" na "najkvalitetniji", čime poboljšava proces donošenja odluka u budućim iteracijama.
+1. **Početna odluka**: Agent će odabrati najjeftiniji hotel, ne uzimajući u obzir utjecaj kvalitete.
+2. **Refleksija i evaluacija**: Nakon početnog izbora, agent će provjeriti je li hotel bio "loš" izbor koristeći povratne informacije korisnika. Ako otkrije da je kvaliteta hotela bila preniska, razmišlja o svom razmišljanju.
+3. **Prilagodba strategije**: Agent prilagođava svoju strategiju na temelju refleksije i prelazi s "najjeftinijeg" na "najkvalitetniji", čime poboljšava svoj proces donošenja odluka u budućim iteracijama.
 
 Evo primjera:
 
@@ -1357,17 +1391,21 @@ adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
 
-#### Metakognitivne sposobnosti agenata
+#### Metakognitivne sposobnosti agenta
 
-Ključ je u sposobnosti agenta da:
+Ključ ovdje je sposobnost agenta da:
 - Evaluira svoje prethodne izbore i proces donošenja odluka.
-- Prilagođava svoju strategiju na temelju te refleksije, tj. metakognicija u praksi.
+- Prilagodi svoju strategiju na temelju te refleksije, tj. metakognicija na djelu.
 
-Ovo je jednostavan oblik metakognicije gdje sustav može prilagoditi svoj proces rezoniranja na temelju unutarnjih povratnih informacija.
+Ovo je jednostavan oblik metakognicije gdje sustav može prilagoditi svoj proces razmišljanja na temelju unutarnjih povratnih informacija.
 
 ### Zaključak
 
-Metakognicija je moćan alat koji može značajno unaprijediti sposobnosti AI agenata. Uključivanjem metakognitivnih procesa možete dizajnirati agente koji su inteligentniji, prilagodljiviji i učinkovitiji. Iskoristite dodatne resurse za daljnje istraživanje fascinantnog svijeta metakognicije u AI agentima.
+Metakognicija je moćan alat koji može značajno unaprijediti sposobnosti AI agenata. Uključivanjem metakognitivnih procesa možete dizajnirati agente koji su inteligentniji, prilagodljiviji i učinkovitiji. Koristite dodatne resurse kako biste dalje istražili fascinantan svijet metakognicije u AI agentima.
+
+### Imate li još pitanja o metakognitivnom dizajnu?
+
+Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) kako biste se povezali s drugim učenicima, sudjelovali na konzultacijama i dobili odgovore na svoja pitanja o AI agentima.
 
 ## Prethodna lekcija
 
@@ -1377,5 +1415,7 @@ Metakognicija je moćan alat koji može značajno unaprijediti sposobnosti AI ag
 
 [AI Agents in Production](../10-ai-agents-production/README.md)
 
+---
+
 **Odricanje od odgovornosti**:  
-Ovaj dokument je preveden korištenjem AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati službenim i autoritativnim izvorom. Za važne informacije preporučuje se profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakve nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za ključne informacije preporučuje se profesionalni prijevod od strane čovjeka. Ne preuzimamo odgovornost za bilo kakva nesporazuma ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.

@@ -1,104 +1,104 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "8cbf460468c802c7994aa62e0e0779c9",
-  "translation_date": "2025-07-12T12:34:56+00:00",
+  "original_hash": "5f0deef171fc3a68d5d3d770a8bfb03d",
+  "translation_date": "2025-08-29T13:07:00+00:00",
   "source_file": "09-metacognition/README.md",
   "language_code": "tr"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.tr.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Çoklu Ajan Tasarımı](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.tr.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
-> _(Bu dersin videosunu izlemek için yukarıdaki resme tıklayın)_
-# Yapay Zeka Ajanlarında Metabiliş
+> _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
+# AI Ajanlarında Metakognisyon
 
 ## Giriş
 
-Yapay zeka ajanlarında metabiliş konusuna hoş geldiniz! Bu bölüm, yapay zeka ajanlarının kendi düşünme süreçleri hakkında nasıl düşünebileceğini merak eden yeni başlayanlar için tasarlanmıştır. Bu dersin sonunda, temel kavramları anlayacak ve metabilişi yapay zeka ajan tasarımında uygulamak için pratik örneklerle donanmış olacaksınız.
+AI ajanlarında metakognisyon dersine hoş geldiniz! Bu bölüm, AI ajanlarının kendi düşünme süreçlerini nasıl değerlendirebileceğini merak eden yeni başlayanlar için tasarlanmıştır. Dersin sonunda, temel kavramları anlayacak ve metakognisyonu AI ajan tasarımında uygulamak için pratik örneklerle donanmış olacaksınız.
 
 ## Öğrenme Hedefleri
 
-Bu dersi tamamladıktan sonra şunları yapabileceksiniz:
+Bu dersi tamamladıktan sonra:
 
-1. Ajan tanımlarındaki akıl yürütme döngülerinin sonuçlarını anlamak.
-2. Kendi kendini düzelten ajanlara yardımcı olmak için planlama ve değerlendirme tekniklerini kullanmak.
-3. Görevleri yerine getirmek için kodu manipüle edebilen kendi ajanlarınızı oluşturmak.
+1. Ajan tanımlarındaki akıl yürütme döngülerinin etkilerini anlayabileceksiniz.
+2. Kendini düzeltebilen ajanlara yardımcı olmak için planlama ve değerlendirme tekniklerini kullanabileceksiniz.
+3. Görevleri yerine getirmek için kodu manipüle edebilen kendi ajanlarınızı oluşturabileceksiniz.
 
-## Metabilişe Giriş
+## Metakognisyona Giriş
 
-Metabiliş, kişinin kendi düşünme süreçleri hakkında düşünmesini içeren üst düzey bilişsel süreçlere denir. Yapay zeka ajanları için bu, kendi farkındalıkları ve geçmiş deneyimlerine dayanarak eylemlerini değerlendirebilme ve ayarlayabilme yeteneği anlamına gelir. Metabiliş, yani "düşünme hakkında düşünme", ajan tabanlı yapay zeka sistemlerinin geliştirilmesinde önemli bir kavramdır. Bu, yapay zeka sistemlerinin kendi iç süreçlerinin farkında olması ve davranışlarını buna göre izleyip, düzenleyip, uyarlayabilmesi anlamına gelir. Tıpkı bizim ortamı okuyup bir probleme bakışımız gibi. Bu öz-farkındalık, yapay zeka sistemlerinin daha iyi kararlar vermesine, hataları tespit etmesine ve zamanla performanslarını artırmasına yardımcı olabilir — bu da Turing testi ve yapay zekanın kontrolü ele geçirip geçiremeyeceği tartışmasına tekrar bağlanır.
+Metakognisyon, kişinin kendi düşünme süreçleri üzerine düşünmesini içeren üst düzey bilişsel süreçlere atıfta bulunur. AI ajanları için bu, kendi eylemlerini öz farkındalık ve geçmiş deneyimlere dayanarak değerlendirme ve ayarlama yeteneği anlamına gelir. "Düşünme üzerine düşünme" olarak da adlandırılan metakognisyon, ajan tabanlı AI sistemlerinin geliştirilmesinde önemli bir kavramdır. AI sistemlerinin kendi iç süreçlerinin farkında olması, davranışlarını izleyebilmesi, düzenleyebilmesi ve buna göre uyarlayabilmesi anlamına gelir. Tıpkı bizim bir ortamı analiz ederken veya bir problemi çözerken yaptığımız gibi. Bu öz farkındalık, AI sistemlerinin daha iyi kararlar almasına, hataları tanımlamasına ve zamanla performanslarını iyileştirmesine yardımcı olabilir. Bu durum, Turing testi ve AI'nın dünyayı ele geçirip geçiremeyeceği tartışmasıyla da bağlantılıdır.
 
-Ajan tabanlı yapay zeka sistemleri bağlamında, metabiliş şu zorlukların üstesinden gelmeye yardımcı olabilir:
-- Şeffaflık: Yapay zeka sistemlerinin akıl yürütmelerini ve kararlarını açıklayabilmesini sağlamak.
-- Akıl Yürütme: Yapay zeka sistemlerinin bilgiyi sentezleme ve sağlam kararlar alma yeteneğini geliştirmek.
-- Uyarlanabilirlik: Yapay zeka sistemlerinin yeni ortamlara ve değişen koşullara uyum sağlamasına olanak tanımak.
-- Algı: Yapay zeka sistemlerinin çevresinden gelen verileri tanıma ve yorumlama doğruluğunu artırmak.
+Ajan tabanlı AI sistemleri bağlamında metakognisyon, şu gibi zorlukların üstesinden gelmeye yardımcı olabilir:
+- Şeffaflık: AI sistemlerinin akıl yürütme ve kararlarını açıklayabilmesini sağlama.
+- Akıl Yürütme: AI sistemlerinin bilgiyi sentezleme ve sağlam kararlar alma yeteneğini artırma.
+- Uyum Sağlama: AI sistemlerinin yeni ortamlara ve değişen koşullara uyum sağlamasına olanak tanıma.
+- Algı: AI sistemlerinin çevrelerinden gelen verileri tanıma ve yorumlama doğruluğunu artırma.
 
-### Metabiliş Nedir?
+### Metakognisyon Nedir?
 
-Metabiliş, yani "düşünme hakkında düşünme", kişinin bilişsel süreçlerinin öz-farkındalığı ve öz-düzenlemesini içeren üst düzey bir bilişsel süreçtir. Yapay zeka alanında metabiliş, ajanların stratejilerini ve eylemlerini değerlendirmesine ve uyarlamasına olanak tanır; bu da problem çözme ve karar verme yeteneklerini geliştirir. Metabilişi anlayarak, sadece daha zeki değil, aynı zamanda daha uyumlu ve verimli yapay zeka ajanları tasarlayabilirsiniz. Gerçek bir metabilişte, yapay zekanın kendi akıl yürütmesi hakkında açıkça düşünmesini görürsünüz.
+Metakognisyon, "düşünme üzerine düşünme" olarak adlandırılan, kişinin bilişsel süreçlerinin öz farkındalığını ve öz düzenlemesini içeren üst düzey bir bilişsel süreçtir. AI alanında metakognisyon, ajanlara stratejilerini ve eylemlerini değerlendirme ve uyarlama yeteneği kazandırarak problem çözme ve karar verme yeteneklerini geliştirir. Metakognisyonu anlayarak, yalnızca daha zeki değil, aynı zamanda daha uyumlu ve verimli AI ajanları tasarlayabilirsiniz. Gerçek bir metakognisyonda, AI'nın kendi akıl yürütmesi hakkında açıkça akıl yürüttüğünü görebilirsiniz.
 
-Örnek: “Daha ucuz uçuşları önceliklendirdim çünkü… Direkt uçuşları kaçırıyor olabilirim, o yüzden tekrar kontrol edeyim.”
-Belirli bir rotayı neden veya nasıl seçtiğini takip etmek.
-- Önceki sefer kullanıcı tercihlerine fazla güvenip hata yaptığını fark edip, sadece son öneriyi değil karar verme stratejisini de değiştirmek.
-- “Kullanıcı ‘çok kalabalık’ dediğinde sadece bazı turistik yerleri çıkarmamalıyım, aynı zamanda ‘en popüler’ sıralama yöntemimin hatalı olduğunu da düşünmeliyim” gibi kalıpları teşhis etmek.
+Örnek: “Daha ucuz uçuşları önceliklendirdim çünkü… Direkt uçuşları kaçırıyor olabilirim, bu yüzden tekrar kontrol edeyim.”
+Seçtiği rotayı nasıl veya neden seçtiğini takip etme.
+- Geçen sefer kullanıcı tercihlerine fazla güvendiği için hata yaptığını fark edip, yalnızca nihai öneriyi değil, karar verme stratejisini de değiştirme.
+- “Kullanıcı ‘çok kalabalık’ dediğinde, yalnızca belirli cazibe merkezlerini kaldırmakla kalmayıp, ‘en popüler’ sıralaması yaparken yöntemimin hatalı olduğunu fark etmeliyim” gibi kalıpları teşhis etme.
 
-### Yapay Zeka Ajanlarında Metabilişin Önemi
+### AI Ajanlarında Metakognisyonun Önemi
 
-Metabiliş, yapay zeka ajan tasarımında birkaç nedenle kritik bir rol oynar:
+Metakognisyon, AI ajan tasarımında birkaç nedenden dolayı kritik bir rol oynar:
 
-![Importance of Metacognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.tr.png)
+![Metakognisyonun Önemi](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.tr.png)
 
-- Öz-Yansıtma: Ajanlar kendi performanslarını değerlendirebilir ve gelişim alanlarını belirleyebilir.
-- Uyarlanabilirlik: Ajanlar geçmiş deneyimlere ve değişen koşullara göre stratejilerini değiştirebilir.
-- Hata Düzeltme: Ajanlar hataları kendi kendine tespit edip düzeltebilir, böylece daha doğru sonuçlar elde edilir.
-- Kaynak Yönetimi: Ajanlar zaman ve hesaplama gücü gibi kaynakları planlayıp değerlendirerek optimize edebilir.
+- Öz Değerlendirme: Ajanlar kendi performanslarını değerlendirebilir ve geliştirilmesi gereken alanları belirleyebilir.
+- Uyum Sağlama: Ajanlar, geçmiş deneyimlere ve değişen ortamlara dayalı olarak stratejilerini değiştirebilir.
+- Hata Düzeltme: Ajanlar, hataları bağımsız olarak tespit edip düzeltebilir, bu da daha doğru sonuçlara yol açar.
+- Kaynak Yönetimi: Ajanlar, eylemlerini planlayarak ve değerlendirerek zaman ve hesaplama gücü gibi kaynakları optimize edebilir.
 
-## Bir Yapay Zeka Ajanının Bileşenleri
+## Bir AI Ajanının Bileşenleri
 
-Metabiliş süreçlerine girmeden önce, bir yapay zeka ajanının temel bileşenlerini anlamak önemlidir. Bir yapay zeka ajanı genellikle şunlardan oluşur:
+Metakognitif süreçlere dalmadan önce, bir AI ajanının temel bileşenlerini anlamak önemlidir. Bir AI ajanı tipik olarak şu bileşenlerden oluşur:
 
-- Persona: Ajanın kişiliği ve özellikleri, kullanıcılarla nasıl etkileşim kurduğunu belirler.
-- Araçlar: Ajanın gerçekleştirebileceği yetenekler ve fonksiyonlar.
+- Persona: Ajanın kullanıcılarla nasıl etkileşim kurduğunu tanımlayan kişilik ve özellikler.
+- Araçlar: Ajanın gerçekleştirebileceği yetenekler ve işlevler.
 - Beceriler: Ajanın sahip olduğu bilgi ve uzmanlık.
 
-Bu bileşenler birlikte belirli görevleri yerine getirebilen bir "uzmanlık birimi" oluşturur.
+Bu bileşenler, belirli görevleri yerine getirebilen bir "uzmanlık birimi" oluşturmak için birlikte çalışır.
 
 **Örnek**:
-Sadece tatilinizi planlamakla kalmayıp, gerçek zamanlı veriler ve önceki müşteri deneyimlerine göre yolunu ayarlayan bir seyahat acentesi düşünün.
+Bir seyahat acentesini düşünün; bu ajan yalnızca tatilinizi planlamakla kalmaz, aynı zamanda gerçek zamanlı verilere ve önceki müşteri deneyimlerine dayalı olarak rotasını ayarlar.
 
-### Örnek: Seyahat Acentesi Hizmetinde Metabiliş
+### Örnek: Bir Seyahat Acentesi Hizmetinde Metakognisyon
 
-Yapay zeka destekli bir seyahat acentesi hizmeti tasarladığınızı hayal edin. Bu ajan, "Seyahat Acentesi", kullanıcılara tatillerini planlamada yardımcı olur. Metabilişi dahil etmek için, Seyahat Acentesi kendi farkındalığı ve geçmiş deneyimlerine dayanarak eylemlerini değerlendirmeli ve ayarlamalıdır. İşte metabilişin rolü:
+Bir AI destekli seyahat acentesi hizmeti tasarladığınızı hayal edin. Bu ajan, "Seyahat Acentesi," kullanıcıların tatillerini planlamalarına yardımcı olur. Metakognisyonu dahil etmek için Seyahat Acentesi, öz farkındalık ve geçmiş deneyimlere dayanarak eylemlerini değerlendirmeli ve ayarlamalıdır. İşte metakognisyonun nasıl bir rol oynayabileceği:
 
 #### Mevcut Görev
 
-Kullanıcının Paris’e bir gezi planlamasına yardımcı olmak.
+Mevcut görev, bir kullanıcının Paris'e bir gezi planlamasına yardımcı olmaktır.
 
-#### Görevi Tamamlamak İçin Adımlar
+#### Görevi Tamamlama Adımları
 
-1. **Kullanıcı Tercihlerini Toplama**: Kullanıcıya seyahat tarihleri, bütçe, ilgi alanları (örneğin müzeler, mutfak, alışveriş) ve özel gereksinimler hakkında sorular sorma.
-2. **Bilgi Toplama**: Kullanıcının tercihlerine uygun uçuş seçenekleri, konaklama, gezilecek yerler ve restoranları arama.
-3. **Öneriler Oluşturma**: Uçuş detayları, otel rezervasyonları ve önerilen aktivitelerle kişiselleştirilmiş bir program sunma.
-4. **Geri Bildirime Göre Ayarlama**: Kullanıcıdan öneriler hakkında geri bildirim alıp gerekli düzenlemeleri yapma.
+1. **Kullanıcı Tercihlerini Topla**: Kullanıcıya seyahat tarihleri, bütçe, ilgi alanları (ör. müzeler, mutfak, alışveriş) ve özel gereksinimler hakkında sorular sor.
+2. **Bilgi Topla**: Kullanıcının tercihleriyle eşleşen uçuş seçeneklerini, konaklama yerlerini, cazibe merkezlerini ve restoranları ara.
+3. **Öneriler Oluştur**: Uçuş detayları, otel rezervasyonları ve önerilen aktivitelerle kişiselleştirilmiş bir gezi planı sun.
+4. **Geri Bildirime Göre Ayarla**: Kullanıcıdan öneriler hakkında geri bildirim iste ve gerekli ayarlamaları yap.
 
 #### Gerekli Kaynaklar
 
 - Uçuş ve otel rezervasyon veritabanlarına erişim.
-- Paris’teki turistik yerler ve restoranlar hakkında bilgi.
+- Paris'teki cazibe merkezleri ve restoranlar hakkında bilgi.
 - Önceki etkileşimlerden kullanıcı geri bildirim verileri.
 
-#### Deneyim ve Öz-Yansıtma
+#### Deneyim ve Öz Değerlendirme
 
-Seyahat Acentesi, performansını değerlendirmek ve geçmiş deneyimlerden öğrenmek için metabilişi kullanır. Örneğin:
+Seyahat Acentesi, performansını değerlendirmek ve geçmiş deneyimlerden öğrenmek için metakognisyon kullanır. Örneğin:
 
-1. **Kullanıcı Geri Bildirimlerini Analiz Etme**: Hangi önerilerin beğenildiğini ve hangilerinin beğenilmediğini inceleyip gelecekteki önerilerini buna göre ayarlar.
-2. **Uyarlanabilirlik**: Kullanıcı daha önce kalabalık yerlerden hoşlanmadığını belirtmişse, Seyahat Acentesi gelecekte yoğun saatlerde popüler turistik yerleri önermemeye çalışır.
-3. **Hata Düzeltme**: Daha önce tam dolu bir oteli önerdiği bir hata varsa, rezervasyon yapmadan önce müsaitliği daha sıkı kontrol etmeyi öğrenir.
+1. **Kullanıcı Geri Bildirimini Analiz Etme**: Seyahat Acentesi, hangi önerilerin beğenildiğini ve hangilerinin beğenilmediğini belirlemek için kullanıcı geri bildirimlerini gözden geçirir. Gelecekteki önerilerini buna göre ayarlar.
+2. **Uyum Sağlama**: Eğer bir kullanıcı daha önce kalabalık yerlerden hoşlanmadığını belirtmişse, Seyahat Acentesi gelecekte yoğun turist noktalarını yoğun saatlerde önermemeye çalışır.
+3. **Hata Düzeltme**: Seyahat Acentesi, geçmişte dolu bir oteli önerme gibi bir hata yaptıysa, önerilerde bulunmadan önce uygunluğu daha titizlikle kontrol etmeyi öğrenir.
 
 #### Pratik Geliştirici Örneği
 
-İşte Seyahat Acentesi kodunun metabilişi dahil ettiğinde nasıl görünebileceğine dair basitleştirilmiş bir örnek:
+İşte Seyahat Acentesi'nin metakognisyonu dahil eden kodunun basitleştirilmiş bir örneği:
 
 ```python
 class Travel_Agent:
@@ -141,70 +141,70 @@ feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)
 travel_agent.adjust_based_on_feedback(feedback)
 ```
 
-#### Metabilişin Önemi
+#### Metakognisyon Neden Önemlidir?
 
-- **Öz-Yansıtma**: Ajanlar performanslarını analiz edip gelişim alanlarını belirleyebilir.
-- **Uyarlanabilirlik**: Geri bildirim ve değişen koşullara göre stratejilerini değiştirebilirler.
-- **Hata Düzeltme**: Hataları kendi kendine tespit edip düzeltebilirler.
-- **Kaynak Yönetimi**: Zaman ve hesaplama gücü gibi kaynakları optimize edebilirler.
+- **Öz Değerlendirme**: Ajanlar performanslarını analiz edebilir ve geliştirilmesi gereken alanları belirleyebilir.
+- **Uyum Sağlama**: Ajanlar, geri bildirim ve değişen koşullara dayalı olarak stratejilerini değiştirebilir.
+- **Hata Düzeltme**: Ajanlar, hataları bağımsız olarak tespit edip düzeltebilir.
+- **Kaynak Yönetimi**: Ajanlar, zaman ve hesaplama gücü gibi kaynakları optimize edebilir.
 
-Metabilişi dahil ederek, Seyahat Acentesi daha kişiselleştirilmiş ve doğru seyahat önerileri sunabilir, böylece genel kullanıcı deneyimini artırır.
+Metakognisyonu dahil ederek, Seyahat Acentesi daha kişiselleştirilmiş ve doğru seyahat önerileri sunabilir, böylece genel kullanıcı deneyimini geliştirebilir.
 
 ---
 
 ## 2. Ajanlarda Planlama
 
-Planlama, yapay zeka ajan davranışının kritik bir bileşenidir. Bir hedefe ulaşmak için gereken adımları, mevcut durumu, kaynakları ve olası engelleri göz önünde bulundurarak belirlemeyi içerir.
+Planlama, AI ajan davranışının kritik bir bileşenidir. Mevcut durumu, kaynakları ve olası engelleri göz önünde bulundurarak bir hedefe ulaşmak için gerekli adımları belirlemeyi içerir.
 
 ### Planlamanın Unsurları
 
 - **Mevcut Görev**: Görevi net bir şekilde tanımlayın.
-- **Görevi Tamamlamak İçin Adımlar**: Görevi yönetilebilir adımlara bölün.
+- **Görevi Tamamlama Adımları**: Görevi yönetilebilir adımlara ayırın.
 - **Gerekli Kaynaklar**: Gerekli kaynakları belirleyin.
-- **Deneyim**: Planlamayı bilinen deneyimlerle destekleyin.
+- **Deneyim**: Planlamayı bilgilendirmek için geçmiş deneyimleri kullanın.
 
 **Örnek**:
-Seyahat Acentesi’nin bir kullanıcının seyahatini etkili şekilde planlamasına yardımcı olmak için atması gereken adımlar şunlardır:
+Seyahat Acentesi'nin bir kullanıcının seyahatini etkili bir şekilde planlamasına yardımcı olmak için atması gereken adımlar şunlardır:
 
-### Seyahat Acentesi İçin Adımlar
+### Seyahat Acentesi için Adımlar
 
-1. **Kullanıcı Tercihlerini Toplama**
-   - Kullanıcıdan seyahat tarihleri, bütçe, ilgi alanları ve özel gereksinimler hakkında bilgi alın.
-   - Örnekler: "Seyahatinizi ne zaman planlıyorsunuz?" "Bütçe aralığınız nedir?" "Tatilinizde hangi aktiviteleri seviyorsunuz?"
+1. **Kullanıcı Tercihlerini Topla**
+   - Kullanıcıdan seyahat tarihleri, bütçe, ilgi alanları ve özel gereksinimler hakkında bilgi iste.
+   - Örnekler: "Ne zaman seyahat etmeyi planlıyorsunuz?" "Bütçe aralığınız nedir?" "Tatilde hangi aktivitelerden hoşlanırsınız?"
 
-2. **Bilgi Toplama**
-   - Kullanıcı tercihleri doğrultusunda uygun seyahat seçeneklerini arayın.
-   - **Uçuşlar**: Kullanıcının bütçesine ve tercih ettiği seyahat tarihlerine uygun uçuşları bulun.
-   - **Konaklama**: Kullanıcının konum, fiyat ve olanak tercihine uygun otel veya kiralık yerler bulun.
-   - **Gezilecek Yerler ve Restoranlar**: Kullanıcının ilgi alanlarına uygun popüler yerleri ve yemek seçeneklerini belirleyin.
+2. **Bilgi Topla**
+   - Kullanıcı tercihlerini temel alarak ilgili seyahat seçeneklerini ara.
+   - **Uçuşlar**: Kullanıcının bütçesi ve tercih edilen seyahat tarihleri içinde mevcut uçuşları ara.
+   - **Konaklama**: Kullanıcının konum, fiyat ve olanak tercihlerini karşılayan otel veya kiralık mülkleri bul.
+   - **Cazibe Merkezleri ve Restoranlar**: Kullanıcının ilgi alanlarına uygun popüler cazibe merkezlerini, aktiviteleri ve yemek seçeneklerini belirle.
 
-3. **Öneriler Oluşturma**
-   - Toplanan bilgileri kişiselleştirilmiş bir program haline getirin.
-   - Uçuş seçenekleri, otel rezervasyonları ve önerilen aktiviteler gibi detayları kullanıcının tercihlerine göre sunun.
+3. **Öneriler Oluştur**
+   - Toplanan bilgileri kişiselleştirilmiş bir gezi planına dönüştür.
+   - Kullanıcının tercihlerini göz önünde bulundurarak uçuş seçenekleri, otel rezervasyonları ve önerilen aktiviteler gibi detayları sun.
 
-4. **Programı Kullanıcıya Sunma**
-   - Önerilen programı kullanıcının incelemesi için paylaşın.
-   - Örnek: "Paris seyahatiniz için önerilen program burada. Uçuş detayları, otel rezervasyonları ve önerilen aktiviteler listelenmiştir. Görüşlerinizi paylaşın!"
+4. **Gezi Planını Kullanıcıya Sun**
+   - Önerilen gezi planını kullanıcıya incelemesi için paylaş.
+   - Örnek: "İşte Paris geziniz için önerilen bir plan. Uçuş detaylarını, otel rezervasyonlarını ve önerilen aktiviteler ve restoranların bir listesini içeriyor. Düşüncelerinizi bana bildirin!"
 
-5. **Geri Bildirim Toplama**
-   - Kullanıcıdan öneriler hakkında geri bildirim isteyin.
+5. **Geri Bildirim Topla**
+   - Kullanıcıdan önerilen gezi planı hakkında geri bildirim iste.
    - Örnekler: "Uçuş seçeneklerini beğendiniz mi?" "Otel ihtiyaçlarınıza uygun mu?" "Eklemek veya çıkarmak istediğiniz aktiviteler var mı?"
 
-6. **Geri Bildirime Göre Ayarlama**
-   - Kullanıcının geri bildirimine göre programda değişiklik yapın.
-   - Uçuş, konaklama ve aktivite önerilerini kullanıcının tercihlerine daha uygun hale getirin.
+6. **Geri Bildirime Göre Ayarla**
+   - Kullanıcının geri bildirimine göre gezi planını değiştir.
+   - Uçuş, konaklama ve aktivite önerilerini kullanıcının tercihlerine daha iyi uyacak şekilde değiştir.
 
 7. **Son Onay**
-   - Güncellenen programı kullanıcının son onayı için sunun.
-   - Örnek: "Geri bildiriminiz doğrultusunda düzenlemeleri yaptım. Güncellenmiş program burada. Her şey uygun mu?"
+   - Güncellenmiş gezi planını kullanıcıya son onay için sun.
+   - Örnek: "Geri bildiriminize göre düzenlemeler yaptım. İşte güncellenmiş plan. Her şey size uygun görünüyor mu?"
 
-8. **Rezervasyonları Yapma ve Onaylama**
-   - Kullanıcı onayladıktan sonra uçuş, konaklama ve önceden planlanmış aktiviteleri rezerve edin.
+8. **Rezervasyonları Yap ve Onayla**
+   - Kullanıcı planı onayladıktan sonra uçuşları, konaklamaları ve önceden planlanmış aktiviteleri rezerve edin.
    - Onay detaylarını kullanıcıya gönderin.
 
-9. **Sürekli Destek Sağlama**
-   - Seyahat öncesi ve sırasında kullanıcının değişiklik veya ek taleplerine yardımcı olmak için hazır olun.
-   - Örnek: "Seyahatiniz sırasında herhangi bir yardıma ihtiyacınız olursa, istediğiniz zaman bana ulaşabilirsiniz!"
+9. **Sürekli Destek Sağla**
+   - Kullanıcının seyahatten önce ve seyahat sırasında herhangi bir değişiklik veya ek talep için size ulaşabilmesini sağlayın.
+   - Örnek: "Seyahatiniz sırasında herhangi bir yardıma ihtiyacınız olursa, bana her zaman ulaşabilirsiniz!"
 
 ### Örnek Etkileşim
 
@@ -249,41 +249,41 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 ## 3. Düzeltici RAG Sistemi
 
-Öncelikle RAG Aracı ile Önleyici Bağlam Yükleme arasındaki farkı anlamaya başlayalım.
+Öncelikle RAG Aracı ile Önleyici Bağlam Yükleme arasındaki farkı anlamakla başlayalım.
 
-![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.tr.png)
+![RAG ve Bağlam Yükleme](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.tr.png)
 
 ### Retrieval-Augmented Generation (RAG)
 
-RAG, bir arama sistemi ile üretici modeli birleştirir. Bir sorgu yapıldığında, arama sistemi dış bir kaynaktan ilgili belgeleri veya verileri getirir ve bu alınan bilgiler üretici modele eklenir. Bu, modelin daha doğru ve bağlama uygun yanıtlar üretmesine yardımcı olur.
+RAG, bir geri alma sistemi ile bir üretici modeli birleştirir. Bir sorgu yapıldığında, geri alma sistemi harici bir kaynaktan ilgili belgeleri veya verileri alır ve bu alınan bilgiler, üretici modele giriş olarak eklenir. Bu, modelin daha doğru ve bağlamsal olarak uygun yanıtlar üretmesine yardımcı olur.
 
-Bir RAG sisteminde, ajan bilgi tabanından ilgili bilgileri alır ve uygun yanıtlar veya eylemler üretmek için kullanır.
+Bir RAG sisteminde, ajan bir bilgi tabanından ilgili bilgileri alır ve bunları uygun yanıtlar veya eylemler oluşturmak için kullanır.
 
 ### Düzeltici RAG Yaklaşımı
 
-Düzeltici RAG yaklaşımı, RAG tekniklerini kullanarak hataları düzeltmeye ve yapay zeka ajanlarının doğruluğunu artırmaya odaklanır. Bu şunları içerir:
+Düzeltici RAG yaklaşımı, RAG tekniklerini kullanarak hataları düzeltmeye ve AI ajanlarının doğruluğunu artırmaya odaklanır. Bu, şunları içerir:
 
-1. **Yönlendirme Tekniği**: Ajanı ilgili bilgileri getirmesi için özel yönlendirmeler kullanmak.
-2. **Araç**: Ajanın getirilen bilgilerin alaka düzeyini değerlendirmesini ve doğru yanıtlar üretmesini sağlayan algoritmalar ve mekanizmalar uygulamak.
-3. **Değerlendirme**: Ajanın performansını sürekli izleyip doğruluğunu ve verimliliğini artırmak için ayarlamalar yapmak.
+1. **İpucu Tekniği**: Ajanı ilgili bilgileri almaya yönlendiren belirli ipuçlarını kullanma.
+2. **Araç**: Ajanın alınan bilginin alaka düzeyini değerlendirmesini ve doğru yanıtlar oluşturmasını sağlayan algoritmalar ve mekanizmalar uygulama.
+3. **Değerlendirme**: Ajanın performansını sürekli olarak değerlendirme ve doğruluğunu ve verimliliğini artırmak için ayarlamalar yapma.
 
-#### Örnek: Arama Ajanında Düzeltici RAG
+#### Örnek: Bir Arama Ajanında Düzeltici RAG
 
-Web’den bilgi getiren bir arama ajanını düşünün. Düzeltici RAG yaklaşımı şunları içerebilir:
+Bir kullanıcının sorgularını yanıtlamak için web'den bilgi alan bir arama ajanını düşünün. Düzeltici RAG yaklaşımı şunları içerebilir:
 
-1. **Yönlendirme Tekniği**: Kullanıcının girdisine göre arama sorguları oluşturmak.
-2. **Araç**: Doğal dil işleme ve makine öğrenimi algoritmaları kullanarak arama sonuçlarını sıralamak ve filtrelemek.
-3. **Değerlendirme**: Kullanıcı geri bildirimlerini analiz ederek getirilen bilgideki yanlışları tespit edip düzeltmek.
+1. **İpucu Tekniği**: Kullanıcının girdisine dayalı olarak arama sorguları oluşturma.
+2. **Araç**: Doğal dil işleme ve makine öğrenimi algoritmalarını kullanarak arama sonuçlarını sıralama ve filtreleme.
+3. **Değerlendirme**: Kullanıcı geri bildirimlerini analiz ederek alınan bilgideki yanlışlıkları belirleme ve düzeltme.
 
 ### Seyahat Acentesinde Düzeltici RAG
 
-Düzeltici RAG (Retrieval-Augmented Generation), yapay zekanın bilgi getirme ve üretme yeteneğini geliştirirken hataları da düzeltmesini sağlar. Seyahat Acentesi’nin daha doğru ve ilgili seyahat önerileri sunmak için Düzeltici RAG yaklaşımını nasıl kullanabileceğine bakalım.
+Düzeltici RAG (Retrieval-Augmented Generation), AI'nın bilgi alıp üretme yeteneğini geliştirirken yanlışlıkları düzeltir. Seyahat Acentesi'nin Düzeltici RAG yaklaşımını kullanarak daha doğru ve ilgili seyahat önerileri sunmasını nasıl sağlayabileceğimize bakalım.
 
 Bu şunları içerir:
 
-- **Yönlendirme Tekniği:** Ajanı ilgili bilgileri getirmesi için özel yönlendirmeler kullanmak.
-- **Araç:** Ajanın getirilen bilgilerin alaka düzeyini değerlendirmesini ve doğru yanıtlar üretmesini sağlayan algoritmalar ve mekanizmalar uygulamak.
-- **Değerlendirme:** Ajanın performansını sürekli izleyip doğruluğunu ve verimliliğini artırmak için ayarlamalar yapmak.
+- **İpucu Tekniği:** Ajanı ilgili bilgileri almaya yönlendiren belirli ipuçlarını kullanma.
+- **Araç:** Ajanın alınan bilginin alaka düzeyini değerlendirmesini ve doğru yanıtlar oluşturmasını sağlayan algoritmalar ve mekanizmalar uygulama.
+- **Değerlendirme:** Ajanın performansını sürekli olarak değerlendirerek doğruluğunu ve verimliliğini artırmak için ayarlamalar yapma.
 
 #### Seyahat Acentesinde Düzeltici RAG Uygulama Adımları
 
@@ -300,8 +300,8 @@ Bu şunları içerir:
      }
      ```
 
-2. **Bilgi Getirme**
-   - Seyahat Acentesi, kullanıcı tercihleri doğrultusunda uçuşlar, konaklama, gezilecek yerler ve restoranlar hakkında bilgi toplar.
+2. **Bilgi Alma**
+   - Seyahat Acentesi, kullanıcı tercihleri temelinde uçuşlar, konaklamalar, cazibe merkezleri ve restoranlar hakkında bilgi alır.
    - Örnek:
 
      ```python
@@ -311,7 +311,7 @@ Bu şunları içerir:
      ```
 
 3. **İlk Önerileri Oluşturma**
-   - Seyahat Acentesi, toplanan bilgileri kullanarak kişiselleştirilmiş bir program oluşturur.
+   - Seyahat Acentesi, alınan bilgileri kullanarak kişiselleştirilmiş bir gezi planı oluşturur.
    - Örnek:
 
      ```python
@@ -331,7 +331,7 @@ Bu şunları içerir:
      ```
 
 5. **Düzeltici RAG Süreci**
-   - **Yönlendirme Tekniği**: Seyahat Acentesi, kullanıcı geri bildirimine göre yeni arama sorguları oluşturur.
+   - **İpucu Tekniği**: Seyahat Acentesi, kullanıcı geri bildirimine dayalı olarak yeni arama sorguları oluşturur.
      - Örnek:
 
        ```python
@@ -339,7 +339,7 @@ Bu şunları içerir:
            preferences["avoid"] = feedback["disliked"]
        ```
 
-   - **Araç**: Seyahat Acentesi, yeni arama sonuçlarını sıralamak ve filtrelemek için algoritmalar kullanır, kullanıcı geri bildirimine göre alaka düzeyini önceliklendirir.
+   - **Araç**: Seyahat Acentesi, yeni arama sonuçlarını sıralamak ve filtrelemek için algoritmalar kullanır, geri bildirime dayalı olarak alaka düzeyine vurgu yapar.
      - Örnek:
 
        ```python
@@ -348,7 +348,7 @@ Bu şunları içerir:
        print("Updated Itinerary:", new_itinerary)
        ```
 
-   - **Değerlendirme**: Seyahat Acentesi, önerilerinin alaka düzeyini ve doğruluğunu kullanıcı geri bildirimlerini analiz ederek sürekli değerlendirir ve gerekli ayarlamaları yapar.
+   - **Değerlendirme**: Seyahat Acentesi, kullanıcı geri bildirimlerini analiz ederek önerilerinin alaka düzeyini ve doğruluğunu sürekli olarak değerlendirir ve gerekli ayarlamaları yapar.
      - Örnek:
 
        ```python
@@ -364,232 +364,529 @@ Bu şunları içerir:
 
 #### Pratik Örnek
 
-İşte Seyahat Acentesi’nde Düzeltici RAG yaklaşımını içeren basitleştirilmiş bir Python kod örneği:
+İşte Seyahat Acent
+```python
+class Travel_Agent:
+    def __init__(self):
+        self.user_preferences = {}
+        self.experience_data = []
+
+    def gather_preferences(self, preferences):
+        self.user_preferences = preferences
+
+    def retrieve_information(self):
+        flights = search_flights(self.user_preferences)
+        hotels = search_hotels(self.user_preferences)
+        attractions = search_attractions(self.user_preferences)
+        return flights, hotels, attractions
+
+    def generate_recommendations(self):
+        flights, hotels, attractions = self.retrieve_information()
+        itinerary = create_itinerary(flights, hotels, attractions)
+        return itinerary
+
+    def adjust_based_on_feedback(self, feedback):
+        self.experience_data.append(feedback)
+        self.user_preferences = adjust_preferences(self.user_preferences, feedback)
+        new_itinerary = self.generate_recommendations()
+        return new_itinerary
+
+# Example usage
+travel_agent = Travel_Agent()
+preferences = {
+    "destination": "Paris",
+    "dates": "2025-04-01 to 2025-04-10",
+    "budget": "moderate",
+    "interests": ["museums", "cuisine"]
+}
+travel_agent.gather_preferences(preferences)
+itinerary = travel_agent.generate_recommendations()
+print("Suggested Itinerary:", itinerary)
+feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
+new_itinerary = travel_agent.adjust_based_on_feedback(feedback)
+print("Updated Itinerary:", new_itinerary)
+```
+
 ### Önceden Bağlam Yükleme
 
-Önceden Bağlam Yükleme, bir sorgu işlenmeden önce modele ilgili bağlam veya arka plan bilgisinin yüklenmesini içerir. Bu, modelin sürecin başından itibaren bu bilgilere erişimi olduğu anlamına gelir ve böylece ek veri getirmeye gerek kalmadan daha bilinçli yanıtlar üretmesine yardımcı olur.
+Önceden bağlam yükleme, bir sorguyu işlemeye başlamadan önce modelin ilgili bağlam veya arka plan bilgisini yüklemesini içerir. Bu, modelin sürecin başından itibaren bu bilgilere erişebilmesini sağlar ve ek veri almaya gerek kalmadan daha bilinçli yanıtlar üretmesine yardımcı olur.
 
-İşte bir seyahat acentesi uygulaması için Python’da önceden bağlam yüklemenin basitleştirilmiş bir örneği:
+İşte bir seyahat acentesi uygulaması için Python'da önceden bağlam yüklemenin nasıl görünebileceğine dair basit bir örnek:
+
+```python
+class TravelAgent:
+    def __init__(self):
+        # Pre-load popular destinations and their information
+        self.context = {
+            "Paris": {"country": "France", "currency": "Euro", "language": "French", "attractions": ["Eiffel Tower", "Louvre Museum"]},
+            "Tokyo": {"country": "Japan", "currency": "Yen", "language": "Japanese", "attractions": ["Tokyo Tower", "Shibuya Crossing"]},
+            "New York": {"country": "USA", "currency": "Dollar", "language": "English", "attractions": ["Statue of Liberty", "Times Square"]},
+            "Sydney": {"country": "Australia", "currency": "Dollar", "language": "English", "attractions": ["Sydney Opera House", "Bondi Beach"]}
+        }
+
+    def get_destination_info(self, destination):
+        # Fetch destination information from pre-loaded context
+        info = self.context.get(destination)
+        if info:
+            return f"{destination}:\nCountry: {info['country']}\nCurrency: {info['currency']}\nLanguage: {info['language']}\nAttractions: {', '.join(info['attractions'])}"
+        else:
+            return f"Sorry, we don't have information on {destination}."
+
+# Example usage
+travel_agent = TravelAgent()
+print(travel_agent.get_destination_info("Paris"))
+print(travel_agent.get_destination_info("Tokyo"))
+```
 
 #### Açıklama
 
-1. **Başlatma (`__init__` metodu)**: `TravelAgent` sınıfı, Paris, Tokyo, New York ve Sydney gibi popüler destinasyonlar hakkında ülke, para birimi, dil ve önemli turistik yerler gibi bilgileri içeren bir sözlüğü önceden yükler.
+1. **Başlatma (`__init__` metodu)**: `TravelAgent` sınıfı, Paris, Tokyo, New York ve Sydney gibi popüler destinasyonlar hakkında bilgi içeren bir sözlüğü önceden yükler. Bu sözlük, her destinasyon için ülke, para birimi, dil ve başlıca cazibe merkezleri gibi ayrıntıları içerir.
 
-2. **Bilgi Getirme (`get_destination_info` metodu)**: Kullanıcı belirli bir destinasyon hakkında sorgu yaptığında, `get_destination_info` metodu önceden yüklenmiş bağlam sözlüğünden ilgili bilgileri getirir.
+2. **Bilgi Alma (`get_destination_info` metodu)**: Bir kullanıcı belirli bir destinasyon hakkında sorgu yaptığında, `get_destination_info` metodu önceden yüklenmiş bağlam sözlüğünden ilgili bilgileri alır.
 
-Bağlamı önceden yükleyerek, seyahat acentesi uygulaması kullanıcı sorgularına gerçek zamanlı olarak dış bir kaynaktan bilgi almak zorunda kalmadan hızlı yanıt verebilir. Bu da uygulamanın daha verimli ve hızlı olmasını sağlar.
+Bağlamı önceden yükleyerek, seyahat acentesi uygulaması kullanıcı sorgularına gerçek zamanlı olarak harici bir kaynaktan bilgi almaya gerek kalmadan hızlı bir şekilde yanıt verebilir. Bu, uygulamayı daha verimli ve duyarlı hale getirir.
 
-### Hedefle Planı Başlatıp Sonra İterasyon Yapmak
+### İterasyondan Önce Bir Hedefle Planı Başlatma
 
-Bir planı hedefle başlatmak, net bir amaç veya hedef sonuç belirleyerek sürece başlamayı ifade eder. Bu hedef önceden tanımlandığında, model iteratif süreç boyunca bunu rehber olarak kullanabilir. Böylece her iterasyon istenen sonuca daha yakın olur ve süreç daha odaklı ve verimli hale gelir.
+Bir hedefle planı başlatmak, sürece başlamadan önce net bir hedef veya sonuç belirlemeyi içerir. Bu hedefi baştan tanımlayarak, model bunu iteratif süreç boyunca bir rehber olarak kullanabilir. Bu, her iterasyonun istenen sonuca daha yakın olmasını sağlar ve süreci daha verimli ve odaklı hale getirir.
 
-İşte bir seyahat acentesi için Python’da hedefle planı başlatıp sonra iterasyon yapmaya dair bir örnek:
+İşte bir seyahat acentesi için bir hedefle seyahat planını başlatmanın ve ardından iterasyon yapmanın nasıl görünebileceğine dair bir örnek:
 
 ### Senaryo
 
-Bir seyahat acentesi, müşterisi için kişiselleştirilmiş bir tatil planı yapmak istiyor. Amaç, müşterinin tercihleri ve bütçesine göre memnuniyetini en üst düzeye çıkaran bir seyahat programı oluşturmaktır.
+Bir seyahat acentesi, bir müşteriye özel bir tatil planı oluşturmak istiyor. Amaç, müşterinin tercihlerine ve bütçesine göre memnuniyetini en üst düzeye çıkaran bir seyahat programı oluşturmaktır.
 
 ### Adımlar
 
 1. Müşterinin tercihlerini ve bütçesini tanımlayın.
-2. Bu tercihlere göre ilk planı başlatın.
-3. Planı müşteri memnuniyetini optimize etmek için iteratif olarak geliştirin.
+2. Bu tercihlere dayalı olarak başlangıç planını oluşturun.
+3. Planı iyileştirmek için iterasyon yaparak müşterinin memnuniyetini optimize edin.
 
 #### Python Kodu
 
+```python
+class TravelAgent:
+    def __init__(self, destinations):
+        self.destinations = destinations
+
+    def bootstrap_plan(self, preferences, budget):
+        plan = []
+        total_cost = 0
+
+        for destination in self.destinations:
+            if total_cost + destination['cost'] <= budget and self.match_preferences(destination, preferences):
+                plan.append(destination)
+                total_cost += destination['cost']
+
+        return plan
+
+    def match_preferences(self, destination, preferences):
+        for key, value in preferences.items():
+            if destination.get(key) != value:
+                return False
+        return True
+
+    def iterate_plan(self, plan, preferences, budget):
+        for i in range(len(plan)):
+            for destination in self.destinations:
+                if destination not in plan and self.match_preferences(destination, preferences) and self.calculate_cost(plan, destination) <= budget:
+                    plan[i] = destination
+                    break
+        return plan
+
+    def calculate_cost(self, plan, new_destination):
+        return sum(destination['cost'] for destination in plan) + new_destination['cost']
+
+# Example usage
+destinations = [
+    {"name": "Paris", "cost": 1000, "activity": "sightseeing"},
+    {"name": "Tokyo", "cost": 1200, "activity": "shopping"},
+    {"name": "New York", "cost": 900, "activity": "sightseeing"},
+    {"name": "Sydney", "cost": 1100, "activity": "beach"},
+]
+
+preferences = {"activity": "sightseeing"}
+budget = 2000
+
+travel_agent = TravelAgent(destinations)
+initial_plan = travel_agent.bootstrap_plan(preferences, budget)
+print("Initial Plan:", initial_plan)
+
+refined_plan = travel_agent.iterate_plan(initial_plan, preferences, budget)
+print("Refined Plan:", refined_plan)
+```
+
 #### Kod Açıklaması
 
-1. **Başlatma (`__init__` metodu)**: `TravelAgent` sınıfı, isim, maliyet ve aktivite türü gibi özelliklere sahip potansiyel destinasyonların bir listesi ile başlatılır.
+1. **Başlatma (`__init__` metodu)**: `TravelAgent` sınıfı, her biri ad, maliyet ve aktivite türü gibi özelliklere sahip potansiyel destinasyonların bir listesiyle başlatılır.
 
-2. **Planı Başlatma (`bootstrap_plan` metodu)**: Bu metod, müşterinin tercihleri ve bütçesine göre ilk seyahat planını oluşturur. Destinasyonlar listesinde gezinir ve müşterinin tercihlerine uyuyorsa ve bütçeye uygunsa planına ekler.
+2. **Planı Başlatma (`bootstrap_plan` metodu)**: Bu metod, müşterinin tercihleri ve bütçesi temelinde başlangıç seyahat planını oluşturur. Destinasyon listesini iterasyonla tarar ve müşterinin tercihleriyle eşleşen ve bütçeye uyan destinasyonları plana ekler.
 
-3. **Tercihleri Eşleştirme (`match_preferences` metodu)**: Bir destinasyonun müşterinin tercihleriyle uyup uymadığını kontrol eder.
+3. **Tercihleri Eşleştirme (`match_preferences` metodu)**: Bu metod, bir destinasyonun müşterinin tercihleriyle eşleşip eşleşmediğini kontrol eder.
 
-4. **Planı İterasyonla Geliştirme (`iterate_plan` metodu)**: İlk planı, müşterinin tercihleri ve bütçe kısıtlamalarını göz önünde bulundurarak daha iyi eşleşen destinasyonlarla değiştirmeye çalışarak iyileştirir.
+4. **Planı İterasyonla Geliştirme (`iterate_plan` metodu)**: Bu metod, başlangıç planını iyileştirir ve müşterinin tercihleri ve bütçe kısıtlamalarını göz önünde bulundurarak her destinasyonu daha iyi bir eşleşmeyle değiştirmeye çalışır.
 
-5. **Maliyeti Hesaplama (`calculate_cost` metodu)**: Mevcut planın toplam maliyetini, potansiyel yeni bir destinasyon dahil olmak üzere hesaplar.
+5. **Maliyet Hesaplama (`calculate_cost` metodu)**: Bu metod, mevcut planın toplam maliyetini ve potansiyel yeni bir destinasyonu hesaplar.
 
 #### Örnek Kullanım
 
-- **İlk Plan**: Seyahat acentesi, müşterinin gezi tercihleri ve 2000$ bütçesine göre ilk planı oluşturur.
-- **Geliştirilmiş Plan**: Seyahat acentesi, planı iteratif olarak geliştirir ve müşterinin tercihleri ile bütçesine göre optimize eder.
+- **Başlangıç Planı**: Seyahat acentesi, müşterinin gezi yapma tercihlerine ve 2000 dolarlık bütçesine dayalı olarak bir başlangıç planı oluşturur.
+- **Geliştirilmiş Plan**: Seyahat acentesi, planı iterasyonla geliştirerek müşterinin tercihlerini ve bütçesini optimize eder.
 
-Planı net bir hedefle (örneğin müşteri memnuniyetini maksimize etmek) başlatıp iterasyonla geliştirerek, seyahat acentesi müşteriye özel ve optimize edilmiş bir seyahat programı oluşturabilir. Bu yöntem, seyahat planının baştan itibaren müşterinin tercihleri ve bütçesiyle uyumlu olmasını sağlar ve her iterasyonda iyileşir.
+Bir hedefle planı başlatarak (örneğin, müşteri memnuniyetini en üst düzeye çıkarmak) ve planı iyileştirmek için iterasyon yaparak, seyahat acentesi müşteriye özel ve optimize edilmiş bir seyahat programı oluşturabilir. Bu yaklaşım, seyahat planının baştan itibaren müşterinin tercihleri ve bütçesiyle uyumlu olmasını sağlar ve her iterasyonla daha da iyileşir.
 
-### Yeniden Sıralama ve Puanlama için LLM’den Yararlanma
+### LLM Kullanarak Yeniden Sıralama ve Puanlama
 
-Büyük Dil Modelleri (LLM’ler), getirilen belgelerin veya oluşturulan yanıtların alaka düzeyini ve kalitesini değerlendirerek yeniden sıralama ve puanlama için kullanılabilir. İşleyişi şu şekildedir:
+Büyük Dil Modelleri (LLM'ler), alınan belgelerin veya oluşturulan yanıtların alaka düzeyini ve kalitesini değerlendirerek yeniden sıralama ve puanlama için kullanılabilir. İşte nasıl çalıştığı:
 
-**Getirme:** İlk getirme adımı, sorguya dayalı olarak aday belgeler veya yanıtlar seti getirir.
+**Alma:** İlk alma adımı, sorguya dayalı olarak bir dizi aday belge veya yanıt getirir.
 
-**Yeniden Sıralama:** LLM, bu adayları değerlendirir ve alaka düzeyi ile kaliteye göre yeniden sıralar. Bu adım, en alakalı ve kaliteli bilgilerin önce sunulmasını sağlar.
+**Yeniden Sıralama:** LLM, bu adayları değerlendirir ve alaka düzeyleri ve kalitelerine göre yeniden sıralar. Bu adım, en alakalı ve yüksek kaliteli bilgilerin önce sunulmasını sağlar.
 
-**Puanlama:** LLM, her adaya alaka ve kaliteyi yansıtan puanlar verir. Bu, kullanıcı için en iyi yanıt veya belgeyi seçmeye yardımcı olur.
+**Puanlama:** LLM, her adaya alaka düzeylerini ve kalitelerini yansıtan puanlar atar. Bu, kullanıcı için en iyi yanıtın veya belgenin seçilmesine yardımcı olur.
 
-LLM’leri yeniden sıralama ve puanlama için kullanarak, sistem daha doğru ve bağlama uygun bilgiler sunabilir, böylece genel kullanıcı deneyimini iyileştirir.
+LLM'leri yeniden sıralama ve puanlama için kullanarak, sistem daha doğru ve bağlamsal olarak alakalı bilgiler sağlayabilir ve genel kullanıcı deneyimini iyileştirebilir.
 
-İşte bir seyahat acentesinin kullanıcı tercihleri doğrultusunda seyahat destinasyonlarını yeniden sıralamak ve puanlamak için Azure OpenAI Hizmetlerini nasıl kullanabileceğine dair Python örneği:
+İşte bir seyahat acentesinin, kullanıcı tercihlerini temel alarak seyahat destinasyonlarını yeniden sıralamak ve puanlamak için bir Büyük Dil Modeli (LLM) kullanabileceği bir örnek:
 
 #### Senaryo - Tercihlere Göre Seyahat
 
-Bir seyahat acentesi, müşterinin tercihleri doğrultusunda en iyi seyahat destinasyonlarını önermek istiyor. LLM, destinasyonları yeniden sıralayıp puanlayarak en uygun seçeneklerin sunulmasını sağlar.
+Bir seyahat acentesi, müşteriye en iyi seyahat destinasyonlarını önermek istiyor. LLM, en alakalı seçeneklerin sunulmasını sağlamak için destinasyonları yeniden sıralamak ve puanlamak için yardımcı olacak.
 
 #### Adımlar:
 
-1. Kullanıcı tercihlerini topla.
-2. Potansiyel seyahat destinasyonları listesini getir.
-3. LLM’yi kullanarak destinasyonları kullanıcı tercihlerine göre yeniden sırala ve puanla.
+1. Kullanıcı tercihlerini toplayın.
+2. Potansiyel seyahat destinasyonlarının bir listesini alın.
+3. Kullanıcı tercihlerini temel alarak destinasyonları yeniden sıralamak ve puanlamak için LLM'yi kullanın.
 
-Azure OpenAI Hizmetlerini kullanmak için önceki örneği şu şekilde güncelleyebilirsiniz:
+Azure OpenAI Hizmetlerini kullanarak önceki örneği nasıl güncelleyebileceğinize dair bir örnek:
 
 #### Gereksinimler
 
 1. Bir Azure aboneliğiniz olmalı.
-2. Azure OpenAI kaynağı oluşturup API anahtarınızı alın.
+2. Bir Azure OpenAI kaynağı oluşturun ve API anahtarınızı alın.
 
-#### Python Örneği
+#### Örnek Python Kodu
 
-#### Kod Açıklaması - Tercih Rezervasyonu
+```python
+import requests
+import json
 
-1. **Başlatma**: `TravelAgent` sınıfı, isim ve açıklama gibi özelliklere sahip potansiyel seyahat destinasyonları listesi ile başlatılır.
+class TravelAgent:
+    def __init__(self, destinations):
+        self.destinations = destinations
 
-2. **Öneri Alma (`get_recommendations` metodu)**: Bu metod, kullanıcının tercihleri temelinde Azure OpenAI servisi için bir prompt oluşturur ve Azure OpenAI API’sine HTTP POST isteği yaparak yeniden sıralanmış ve puanlanmış destinasyonları alır.
+    def get_recommendations(self, preferences, api_key, endpoint):
+        # Generate a prompt for the Azure OpenAI
+        prompt = self.generate_prompt(preferences)
+        
+        # Define headers and payload for the request
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer {api_key}'
+        }
+        payload = {
+            "prompt": prompt,
+            "max_tokens": 150,
+            "temperature": 0.7
+        }
+        
+        # Call the Azure OpenAI API to get the re-ranked and scored destinations
+        response = requests.post(endpoint, headers=headers, json=payload)
+        response_data = response.json()
+        
+        # Extract and return the recommendations
+        recommendations = response_data['choices'][0]['text'].strip().split('\n')
+        return recommendations
 
-3. **Prompt Oluşturma (`generate_prompt` metodu)**: Kullanıcının tercihleri ve destinasyon listesi dahil edilerek Azure OpenAI için bir prompt hazırlar. Prompt, modelin destinasyonları verilen tercihlere göre yeniden sıralayıp puanlamasını sağlar.
+    def generate_prompt(self, preferences):
+        prompt = "Here are the travel destinations ranked and scored based on the following user preferences:\n"
+        for key, value in preferences.items():
+            prompt += f"{key}: {value}\n"
+        prompt += "\nDestinations:\n"
+        for destination in self.destinations:
+            prompt += f"- {destination['name']}: {destination['description']}\n"
+        return prompt
 
-4. **API Çağrısı**: `requests` kütüphanesi kullanılarak Azure OpenAI API uç noktasına HTTP POST isteği yapılır. Yanıt, yeniden sıralanmış ve puanlanmış destinasyonları içerir.
+# Example usage
+destinations = [
+    {"name": "Paris", "description": "City of lights, known for its art, fashion, and culture."},
+    {"name": "Tokyo", "description": "Vibrant city, famous for its modernity and traditional temples."},
+    {"name": "New York", "description": "The city that never sleeps, with iconic landmarks and diverse culture."},
+    {"name": "Sydney", "description": "Beautiful harbour city, known for its opera house and stunning beaches."},
+]
 
-5. **Örnek Kullanım**: Seyahat acentesi, kullanıcı tercihlerini (örneğin gezi ve çeşitli kültürlere ilgi) toplar ve Azure OpenAI servisini kullanarak yeniden sıralanmış ve puanlanmış seyahat önerileri alır.
+preferences = {"activity": "sightseeing", "culture": "diverse"}
+api_key = 'your_azure_openai_api_key'
+endpoint = 'https://your-endpoint.com/openai/deployments/your-deployment-name/completions?api-version=2022-12-01'
 
-`your_azure_openai_api_key` kısmını gerçek Azure OpenAI API anahtarınızla ve `https://your-endpoint.com/...` kısmını Azure OpenAI dağıtımınızın gerçek uç nokta URL’si ile değiştirin.
+travel_agent = TravelAgent(destinations)
+recommendations = travel_agent.get_recommendations(preferences, api_key, endpoint)
+print("Recommended Destinations:")
+for rec in recommendations:
+    print(rec)
+```
 
-LLM’den yeniden sıralama ve puanlama için yararlanarak, seyahat acentesi müşterilere daha kişiselleştirilmiş ve ilgili seyahat önerileri sunabilir, böylece genel deneyimi artırır.
+#### Kod Açıklaması - Tercih Kitapçısı
 
-### RAG: Promptlama Tekniği vs Araç
+1. **Başlatma**: `TravelAgent` sınıfı, her biri ad ve açıklama gibi özelliklere sahip potansiyel seyahat destinasyonlarının bir listesiyle başlatılır.
 
-Retrieval-Augmented Generation (RAG), AI ajanlarının geliştirilmesinde hem bir promptlama tekniği hem de bir araç olarak kullanılabilir. İkisi arasındaki farkı anlamak, RAG’i projelerinizde daha etkili kullanmanıza yardımcı olur.
+2. **Öneriler Alma (`get_recommendations` metodu)**: Bu metod, kullanıcının tercihlerini temel alarak Azure OpenAI hizmeti için bir istem oluşturur ve Azure OpenAI API'sine bir HTTP POST isteği yapar.
 
-#### RAG Bir Promptlama Tekniği Olarak
+3. **İstem Oluşturma (`generate_prompt` metodu)**: Bu metod, kullanıcının tercihlerini ve destinasyon listesini içeren bir istem oluşturur. İstem, modelin destinasyonları yeniden sıralamasını ve puanlamasını yönlendirir.
+
+4. **API Çağrısı**: `requests` kütüphanesi, Azure OpenAI API uç noktasına bir HTTP POST isteği yapmak için kullanılır. Yanıt, yeniden sıralanmış ve puanlanmış destinasyonları içerir.
+
+5. **Örnek Kullanım**: Seyahat acentesi, kullanıcı tercihlerini (örneğin, gezi ve çeşitli kültürlere ilgi) toplar ve Azure OpenAI hizmetini kullanarak yeniden sıralanmış ve puanlanmış seyahat önerileri alır.
+
+`your_azure_openai_api_key` yerine gerçek Azure OpenAI API anahtarınızı ve `https://your-endpoint.com/...` yerine Azure OpenAI dağıtımınızın gerçek uç nokta URL'sini koymayı unutmayın.
+
+LLM'yi yeniden sıralama ve puanlama için kullanarak, seyahat acentesi müşterilere daha kişiselleştirilmiş ve alakalı seyahat önerileri sunabilir ve genel deneyimlerini geliştirebilir.
+
+### RAG: İstem Tekniği vs Araç
+
+Bilgi Alma Destekli Üretim (RAG), hem bir istem tekniği hem de bir araç olarak kullanılabilir. İkisi arasındaki farkı anlamak, projelerinizde RAG'yi daha etkili bir şekilde kullanmanıza yardımcı olabilir.
+
+#### RAG Bir İstem Tekniği Olarak
 
 **Nedir?**
 
-- Bir promptlama tekniği olarak RAG, büyük bir veri kümesinden veya veritabanından ilgili bilgileri getirmek için belirli sorgular veya promptlar oluşturmayı içerir. Bu bilgiler daha sonra yanıt veya işlem üretmek için kullanılır.
+- Bir istem tekniği olarak RAG, büyük bir veri kümesinden veya veritabanından ilgili bilgilerin alınmasını yönlendirmek için belirli sorgular veya istemler oluşturmayı içerir. Bu bilgiler daha sonra yanıtlar veya eylemler oluşturmak için kullanılır.
 
-**Nasıl çalışır?**
+**Nasıl Çalışır:**
 
-1. **Promptlar Oluşturma**: Görev veya kullanıcı girdisine göre iyi yapılandırılmış promptlar veya sorgular oluşturulur.
-2. **Bilgi Getirme**: Promptlar kullanılarak önceden var olan bilgi tabanından ilgili veriler aranır.
-3. **Yanıt Üretme**: Getirilen bilgiler, üretken AI modelleriyle birleştirilerek kapsamlı ve tutarlı yanıtlar oluşturulur.
+1. **İstemleri Oluşturun**: Görev veya kullanıcının girdisine dayalı olarak iyi yapılandırılmış istemler veya sorgular oluşturun.
+2. **Bilgi Alın**: İstemleri kullanarak önceden var olan bir bilgi tabanından veya veri kümesinden ilgili verileri arayın.
+3. **Yanıt Oluşturun**: Alınan bilgileri üretici yapay zeka modelleriyle birleştirerek kapsamlı ve tutarlı bir yanıt oluşturun.
 
 **Seyahat Acentesi Örneği**:
 
-- Kullanıcı Girdisi: "Paris’teki müzeleri ziyaret etmek istiyorum."
-- Prompt: "Paris’teki en iyi müzeleri bul."
-- Getirilen Bilgi: Louvre Müzesi, Musée d'Orsay vb. hakkında detaylar.
-- Üretilen Yanıt: "Paris’teki bazı önemli müzeler şunlardır: Louvre Müzesi, Musée d'Orsay ve Centre Pompidou."
+- Kullanıcı Girdisi: "Paris'teki müzeleri ziyaret etmek istiyorum."
+- İstem: "Paris'teki en iyi müzeleri bulun."
+- Alınan Bilgi: Louvre Müzesi, Musée d'Orsay gibi detaylar.
+- Oluşturulan Yanıt: "İşte Paris'teki en iyi müzeler: Louvre Müzesi, Musée d'Orsay ve Centre Pompidou."
 
 #### RAG Bir Araç Olarak
 
 **Nedir?**
 
-- Bir araç olarak RAG, getirme ve üretme sürecini otomatikleştiren entegre bir sistemdir. Geliştiricilerin her sorgu için manuel prompt yazmadan karmaşık AI işlevlerini kolayca uygulamasını sağlar.
+- Bir araç olarak RAG, bilgi alma ve üretim sürecini otomatikleştiren entegre bir sistemdir ve geliştiricilerin her sorgu için manuel olarak istem oluşturmasına gerek kalmadan karmaşık yapay zeka işlevlerini uygulamasını kolaylaştırır.
 
-**Nasıl çalışır?**
+**Nasıl Çalışır:**
 
-1. **Entegrasyon**: RAG, AI ajanının mimarisine gömülür ve getirme ile üretme görevlerini otomatik olarak yönetir.
-2. **Otomasyon**: Kullanıcı girdisini alır, getirme ve üretme işlemlerini otomatik yapar, her adım için ayrı prompt gerektirmez.
-3. **Verimlilik**: Getirme ve üretme sürecini hızlandırır ve doğruluğu artırır.
+1. **Entegrasyon**: RAG'yi yapay zeka aracının mimarisine entegre ederek, bilgi alma ve üretim görevlerini otomatik olarak yönetmesini sağlayın.
+2. **Otomasyon**: Araç, kullanıcı girdisinden nihai yanıtın oluşturulmasına kadar tüm süreci yönetir.
+3. **Verimlilik**: Bilgi alma ve üretim sürecini kolaylaştırarak, daha hızlı ve daha doğru yanıtlar sağlar.
 
 **Seyahat Acentesi Örneği**:
 
-- Kullanıcı Girdisi: "Paris’teki müzeleri ziyaret etmek istiyorum."
-- RAG Aracı: Otomatik olarak müzeler hakkında bilgi getirir ve yanıt oluşturur.
-- Üretilen Yanıt: "Paris’teki bazı önemli müzeler şunlardır: Louvre Müzesi, Musée d'Orsay ve Centre Pompidou."
+- Kullanıcı Girdisi: "Paris'teki müzeleri ziyaret etmek istiyorum."
+- RAG Aracı: Otomatik olarak müzeler hakkında bilgi alır ve bir yanıt oluşturur.
+- Oluşturulan Yanıt: "İşte Paris'teki en iyi müzeler: Louvre Müzesi, Musée d'Orsay ve Centre Pompidou."
 
 ### Karşılaştırma
 
-| Özellik                | Promptlama Tekniği                                         | Araç                                                   |
-|------------------------|------------------------------------------------------------|--------------------------------------------------------|
-| **Manuel vs Otomatik** | Her sorgu için manuel prompt oluşturma.                    | Getirme ve üretme işlemlerini otomatikleştirir.        |
-| **Kontrol**            | Getirme süreci üzerinde daha fazla kontrol sağlar.         | Getirme ve üretme süreçlerini kolaylaştırır ve otomatikleştirir. |
-| **Esneklik**           | Belirli ihtiyaçlara göre özelleştirilmiş promptlar oluşturulabilir. | Büyük ölçekli uygulamalar için daha verimlidir.         |
-| **Karmaşıklık**        | Promptların hazırlanması ve ayarlanması gerekir.            | AI ajan mimarisine kolayca entegre edilir.              |
+| Özellik               | İstem Tekniği                                      | Araç                                                  |
+|-----------------------|----------------------------------------------------|------------------------------------------------------|
+| **Manuel vs Otomatik**| Her sorgu için manuel istem oluşturma.             | Bilgi alma ve üretim için otomatik süreç.            |
+| **Kontrol**           | Bilgi alma süreci üzerinde daha fazla kontrol.     | Bilgi alma ve üretimi otomatikleştirir.              |
+| **Esneklik**          | Belirli ihtiyaçlara göre özelleştirilmiş istemlere izin verir. | Büyük ölçekli uygulamalar için daha verimli.         |
+| **Karmaşıklık**       | İstemlerin oluşturulması ve ayarlanmasını gerektirir. | Bir yapay zeka aracının mimarisine kolayca entegre edilir. |
 
 ### Pratik Örnekler
 
-**Promptlama Tekniği Örneği:**
+**İstem Tekniği Örneği:**
+
+```python
+def search_museums_in_paris():
+    prompt = "Find top museums in Paris"
+    search_results = search_web(prompt)
+    return search_results
+
+museums = search_museums_in_paris()
+print("Top Museums in Paris:", museums)
+```
 
 **Araç Örneği:**
 
-### Alaka Değerlendirmesi
+```python
+class Travel_Agent:
+    def __init__(self):
+        self.rag_tool = RAGTool()
 
-Alaka değerlendirmesi, AI ajanlarının performansında kritik bir unsurdur. Ajanın getirdiği ve oluşturduğu bilgilerin kullanıcı için uygun, doğru ve faydalı olmasını sağlar. AI ajanlarında alaka değerlendirmesinin nasıl yapılacağını, pratik örnekler ve tekniklerle inceleyelim.
+    def get_museums_in_paris(self):
+        user_input = "I want to visit museums in Paris."
+        response = self.rag_tool.retrieve_and_generate(user_input)
+        return response
 
-#### Alaka Değerlendirmede Temel Kavramlar
+travel_agent = Travel_Agent()
+museums = travel_agent.get_museums_in_paris()
+print("Top Museums in Paris:", museums)
+```
+
+### Alaka Düzeyini Değerlendirme
+
+Alaka düzeyini değerlendirme, yapay zeka aracının performansının önemli bir yönüdür. Bu, aracın aldığı ve oluşturduğu bilgilerin kullanıcı için uygun, doğru ve faydalı olmasını sağlar. Yapay zeka araçlarında alaka düzeyini değerlendirme yöntemlerini, pratik örnekleri ve teknikleri inceleyelim.
+
+#### Alaka Düzeyini Değerlendirmede Temel Kavramlar
 
 1. **Bağlam Farkındalığı**:
-   - Ajan, kullanıcının sorgusunun bağlamını anlamalı ve buna göre ilgili bilgileri getirmeli ve üretmelidir.
-   - Örnek: Kullanıcı "Paris’teki en iyi restoranlar" dediğinde, ajanın kullanıcının tercihleri (örneğin mutfak türü, bütçe) gibi faktörleri dikkate alması gerekir.
+   - Aracın, kullanıcının sorgusunun bağlamını anlaması ve ilgili bilgileri alması gerekir.
+   - Örnek: Bir kullanıcı "Paris'teki en iyi restoranlar" diye sorarsa, araç kullanıcının tercihlerine (örneğin, mutfak türü ve bütçe) göre önerilerde bulunmalıdır.
 
 2. **Doğruluk**:
-   - Ajanın sağladığı bilgi doğru ve güncel olmalıdır.
-   - Örnek: Güncel olarak açık ve iyi yorumlar almış restoranları önermek, eski veya kapanmış yerleri değil.
+   - Aracın sağladığı bilgilerin doğru ve güncel olması gerekir.
+   - Örnek: Kapalı veya kötü yorumlar almış restoranlar yerine, açık ve iyi yorumlara sahip restoranları önermek.
 
 3. **Kullanıcı Niyeti**:
-   - Ajan, kullanıcının sorgusunun arkasındaki niyeti anlamalıdır.
-   - Örnek: "Bütçe dostu oteller" diyen kullanıcı için uygun fiyatlı seçeneklere öncelik vermek.
+   - Aracın, kullanıcının sorgusunun arkasındaki niyeti anlaması ve en alakalı bilgileri sağlaması gerekir.
+   - Örnek: Bir kullanıcı "bütçe dostu oteller" diye sorarsa, araç uygun fiyatlı seçeneklere öncelik vermelidir.
 
 4. **Geri Bildirim Döngüsü**:
-   - Kullanıcı geri bildirimleri toplanıp analiz edilerek alaka değerlendirme süreci iyileştirilir.
-   - Örnek: Önceki önerilere verilen kullanıcı puanları ve yorumları gelecekteki yanıtları geliştirmek için kullanılır.
+   - Kullanıcı geri bildirimlerini sürekli olarak toplamak ve analiz etmek, aracın alaka düzeyi değerlendirme sürecini iyileştirmesine yardımcı olur.
+   - Örnek: Önceki önerilerle ilgili kullanıcı derecelendirmelerini ve geri bildirimlerini dahil etmek.
 
-#### Alaka Değerlendirmede Pratik Teknikler
+#### Alaka Düzeyini Değerlendirme için Pratik Teknikler
 
 1. **Alaka Puanlama**:
-   - Her getirilen öğeye, kullanıcının sorgusu ve tercihleriyle ne kadar uyumlu olduğuna göre bir alaka puanı verilir.
+   - Kullanıcının sorgusu ve tercihleriyle ne kadar iyi eşleştiğine bağlı olarak her alınan öğeye bir alaka puanı atayın.
    - Örnek:
+
+     ```python
+     def relevance_score(item, query):
+         score = 0
+         if item['category'] in query['interests']:
+             score += 1
+         if item['price'] <= query['budget']:
+             score += 1
+         if item['location'] == query['destination']:
+             score += 1
+         return score
+     ```
 
 2. **Filtreleme ve Sıralama**:
-   - Alakasız öğeler elenir ve kalanlar alaka puanlarına göre sıralanır.
+   - Alakasız öğeleri filtreleyin ve kalanları alaka puanlarına göre sıralayın.
    - Örnek:
+
+     ```python
+     def filter_and_rank(items, query):
+         ranked_items = sorted(items, key=lambda item: relevance_score(item, query), reverse=True)
+         return ranked_items[:10]  # Return top 10 relevant items
+     ```
 
 3. **Doğal Dil İşleme (NLP)**:
-   - Kullanıcının sorgusunu anlamak ve ilgili bilgileri getirmek için NLP teknikleri kullanılır.
+   - Kullanıcının sorgusunu anlamak ve ilgili bilgileri almak için NLP tekniklerini kullanın.
    - Örnek:
+
+     ```python
+     def process_query(query):
+         # Use NLP to extract key information from the user's query
+         processed_query = nlp(query)
+         return processed_query
+     ```
 
 4. **Kullanıcı Geri Bildirimi Entegrasyonu**:
-   - Sağlanan önerilerle ilgili kullanıcı geri bildirimleri toplanır ve gelecekteki alaka değerlendirmeleri için kullanılır.
+   - Sağlanan önerilerle ilgili kullanıcı geri bildirimlerini toplayın ve gelecekteki alaka değerlendirmelerini ayarlamak için kullanın.
    - Örnek:
 
-#### Örnek: Seyahat Acentesinde Alaka Değerlendirmesi
+     ```python
+     def adjust_based_on_feedback(feedback, items):
+         for item in items:
+             if item['name'] in feedback['liked']:
+                 item['relevance'] += 1
+             if item['name'] in feedback['disliked']:
+                 item['relevance'] -= 1
+         return items
+     ```
 
-İşte Travel Agent’in seyahat önerilerinin alakasını nasıl değerlendirebileceğine dair pratik bir örnek:
+#### Örnek: Seyahat Acentesinde Alaka Düzeyini Değerlendirme
+
+İşte Seyahat Acentesi'nin seyahat önerilerinin alaka düzeyini nasıl değerlendirebileceğine dair pratik bir örnek:
+
+```python
+class Travel_Agent:
+    def __init__(self):
+        self.user_preferences = {}
+        self.experience_data = []
+
+    def gather_preferences(self, preferences):
+        self.user_preferences = preferences
+
+    def retrieve_information(self):
+        flights = search_flights(self.user_preferences)
+        hotels = search_hotels(self.user_preferences)
+        attractions = search_attractions(self.user_preferences)
+        return flights, hotels, attractions
+
+    def generate_recommendations(self):
+        flights, hotels, attractions = self.retrieve_information()
+        ranked_hotels = self.filter_and_rank(hotels, self.user_preferences)
+        itinerary = create_itinerary(flights, ranked_hotels, attractions)
+        return itinerary
+
+    def filter_and_rank(self, items, query):
+        ranked_items = sorted(items, key=lambda item: self.relevance_score(item, query), reverse=True)
+        return ranked_items[:10]  # Return top 10 relevant items
+
+    def relevance_score(self, item, query):
+        score = 0
+        if item['category'] in query['interests']:
+            score += 1
+        if item['price'] <= query['budget']:
+            score += 1
+        if item['location'] == query['destination']:
+            score += 1
+        return score
+
+    def adjust_based_on_feedback(self, feedback, items):
+        for item in items:
+            if item['name'] in feedback['liked']:
+                item['relevance'] += 1
+            if item['name'] in feedback['disliked']:
+                item['relevance'] -= 1
+        return items
+
+# Example usage
+travel_agent = Travel_Agent()
+preferences = {
+    "destination": "Paris",
+    "dates": "2025-04-01 to 2025-04-10",
+    "budget": "moderate",
+    "interests": ["museums", "cuisine"]
+}
+travel_agent.gather_preferences(preferences)
+itinerary = travel_agent.generate_recommendations()
+print("Suggested Itinerary:", itinerary)
+feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
+updated_items = travel_agent.adjust_based_on_feedback(feedback, itinerary['hotels'])
+print("Updated Itinerary with Feedback:", updated_items)
+```
 
 ### Niyetle Arama
 
-Niyetle arama, kullanıcının sorgusunun altında yatan amaç veya hedefi anlayıp yorumlayarak en alakalı ve faydalı bilgileri getirmeyi ve üretmeyi içerir. Bu yaklaşım, sadece anahtar kelimeleri eşleştirmekten öteye geçer ve kullanıcının gerçek ihtiyaçlarını ve bağlamını kavramaya odaklanır.
+Niyetle arama, bir kullanıcının sorgusunun altında yatan amacı veya hedefini anlamayı ve en alakalı ve faydalı bilgileri almayı ve oluşturmayı içerir. Bu yaklaşım, yalnızca anahtar kelimeleri eşleştirmekten öteye geçer ve kullanıcının gerçek ihtiyaçlarını ve bağlamını kavramaya odaklanır.
 
 #### Niyetle Aramada Temel Kavramlar
 
 1. **Kullanıcı Niyetini Anlama**:
-   - Kullanıcı niyeti üç ana kategoriye ayrılabilir: bilgi edinme, gezinme ve işlem yapma.
-     - **Bilgi Edinme Niyeti**: Kullanıcı bir konu hakkında bilgi arar (örneğin, "Paris’teki en iyi müzeler nelerdir?").
-     - **Gezinme Niyeti**: Kullanıcı belirli bir web sitesi veya sayfaya gitmek ister (örneğin, "Louvre Müzesi resmi sitesi").
-     - **İşlem Niyeti**: Kullanıcı bir işlem yapmak ister, örneğin uçak bileti rezervasyonu veya satın alma (örneğin, "Paris’e uçak bileti rezervasyonu yap").
+   - Kullanıcı niyeti üç ana kategoriye ayrılabilir: bilgilendirici, yönlendirici ve işlem odaklı.
+     - **Bilgilendirici Niyet**: Kullanıcı bir konu hakkında bilgi arar (örneğin, "Paris'teki en iyi müzeler nelerdir?").
+     - **Yönlendirici Niyet**: Kullanıcı belirli bir web sitesine veya sayfaya gitmek ister (örneğin, "Louvre Müzesi resmi web sitesi").
+     - **İşlem Odaklı Niyet**: Kullanıcı bir işlem gerçekleştirmek ister, örneğin uçak bileti rezervasyonu yapmak veya bir satın alma işlemi yapmak (örneğin, "Paris'e uçak bileti al").
 
 2. **Bağlam Farkındalığı**:
-   - Kullanıcının sorgusunun bağlamını analiz etmek, niyetini doğru belirlemeye yardımcı olur. Bu, önceki etkileşimler, kullanıcı tercihleri ve mevcut sorgunun detaylarını içerir.
+   - Kullanıcının sorgusunun bağlamını analiz etmek, niyetini doğru bir şekilde belirlemede yardımcı olur. Bu, önceki etkileşimleri, kullanıcı tercihlerini ve mevcut sorgunun özel ayrıntılarını dikkate almayı içerir.
 
 3. **Doğal Dil İşleme (NLP)**:
-   - Kullanıcıların doğal dildeki sorgularını anlamak ve yorumlamak için NLP teknikleri kullanılır. Bu, varlık tanıma, duygu analizi ve sorgu ayrıştırma gibi görevleri kapsar.
+   - Kullanıcıların sağladığı doğal dil sorgularını anlamak ve yorumlamak için NLP teknikleri kullanılır. Bu, varlık tanıma, duygu analizi ve sorgu ayrıştırma gibi görevleri içerir.
 
 4. **Kişiselleştirme**:
-   - Kullanıcının geçmişi, tercihleri ve geri bildirimlerine göre arama sonuçlarını kişiselleştirmek, getirilen bilgilerin alakasını artırır.
-#### Pratik Örnek: Seyahat Acentesinde Niyetle Arama
+   - Kullanıcının geçmişi, tercihleri ve geri bildirimlerine dayalı olarak arama sonuçlarını kişiselleştirmek, alınan bilgilerin alaka düzeyini artırır.
+#### Pratik Bir Örnek: Seyahat Acentasında Amaç Odaklı Arama
 
-Niyetle aramanın nasıl uygulanabileceğini görmek için Seyahat Acentesi örneğini ele alalım.
+Seyahat Acentası'nı bir örnek olarak ele alalım ve amaç odaklı aramanın nasıl uygulanabileceğini görelim.
 
-1. **Kullanıcı Tercihlerini Toplama**
+1. **Kullanıcı Tercihlerinin Toplanması**
 
    ```python
    class Travel_Agent:
@@ -600,7 +897,7 @@ Niyetle aramanın nasıl uygulanabileceğini görmek için Seyahat Acentesi örn
            self.user_preferences = preferences
    ```
 
-2. **Kullanıcı Niyetini Anlama**
+2. **Kullanıcı Amacını Anlama**
 
    ```python
    def identify_intent(query):
@@ -624,7 +921,7 @@ Niyetle aramanın nasıl uygulanabileceğini görmek için Seyahat Acentesi örn
        return context
    ```
 
-4. **Arama ve Sonuçları Kişiselleştirme**
+4. **Sonuçları Arama ve Kişiselleştirme**
 
    ```python
    def search_with_intent(query, preferences, user_history):
@@ -677,48 +974,48 @@ Niyetle aramanın nasıl uygulanabileceğini görmek için Seyahat Acentesi örn
 
 ---
 
-## 4. Araç Olarak Kod Üretme
+## 4. Bir Araç Olarak Kod Üretimi
 
-Kod üreten ajanlar, karmaşık problemleri çözmek ve görevleri otomatikleştirmek için AI modellerini kullanarak kod yazar ve çalıştırır.
+Kod üreten ajanlar, karmaşık problemleri çözmek ve görevleri otomatikleştirmek için yapay zeka modellerini kullanarak kod yazıp çalıştırır.
 
 ### Kod Üreten Ajanlar
 
-Kod üreten ajanlar, kod yazmak ve çalıştırmak için üretken AI modellerini kullanır. Bu ajanlar, çeşitli programlama dillerinde kod üreterek ve çalıştırarak karmaşık problemleri çözebilir, görevleri otomatikleştirebilir ve değerli içgörüler sağlayabilir.
+Kod üreten ajanlar, çeşitli programlama dillerinde kod yazıp çalıştırmak için üretici yapay zeka modellerini kullanır. Bu ajanlar, karmaşık problemleri çözebilir, görevleri otomatikleştirebilir ve kod üreterek değerli içgörüler sağlayabilir.
 
 #### Pratik Uygulamalar
 
 1. **Otomatik Kod Üretimi**: Veri analizi, web kazıma veya makine öğrenimi gibi belirli görevler için kod parçacıkları oluşturma.
-2. **SQL’i RAG Olarak Kullanma**: Veritabanlarından veri almak ve manipüle etmek için SQL sorguları kullanma.
+2. **SQL'i RAG Olarak Kullanma**: Veritabanlarından veri almak ve manipüle etmek için SQL sorguları kullanma.
 3. **Problem Çözme**: Algoritmaları optimize etmek veya verileri analiz etmek gibi belirli problemleri çözmek için kod oluşturma ve çalıştırma.
 
-#### Örnek: Veri Analizi İçin Kod Üreten Ajan
+#### Örnek: Veri Analizi için Kod Üreten Ajan
 
-Bir kod üreten ajan tasarladığınızı hayal edin. İşleyişi şöyle olabilir:
+Bir kod üreten ajan tasarladığınızı hayal edin. İşte nasıl çalışabileceği:
 
-1. **Görev**: Bir veri setini analiz ederek eğilimleri ve kalıpları belirlemek.
+1. **Görev**: Bir veri kümesini analiz ederek eğilimleri ve desenleri belirlemek.
 2. **Adımlar**:
-   - Veri setini bir veri analiz aracına yüklemek.
-   - Veriyi filtrelemek ve toplamak için SQL sorguları oluşturmak.
-   - Sorguları çalıştırmak ve sonuçları almak.
-   - Sonuçları kullanarak görselleştirmeler ve içgörüler oluşturmak.
-3. **Gerekli Kaynaklar**: Veri setine erişim, veri analiz araçları ve SQL yetenekleri.
-4. **Deneyim**: Geçmiş analiz sonuçlarını kullanarak gelecekteki analizlerin doğruluğunu ve alaka düzeyini artırmak.
+   - Veri kümesini bir veri analizi aracına yükleyin.
+   - Verileri filtrelemek ve birleştirmek için SQL sorguları oluşturun.
+   - Sorguları çalıştırarak sonuçları alın.
+   - Sonuçları görselleştirmeler ve içgörüler oluşturmak için kullanın.
+3. **Gerekli Kaynaklar**: Veri kümesine erişim, veri analizi araçları ve SQL yetenekleri.
+4. **Deneyim**: Geçmiş analiz sonuçlarını kullanarak gelecekteki analizlerin doğruluğunu ve alaka düzeyini artırma.
 
-### Örnek: Seyahat Acentesi İçin Kod Üreten Ajan
+### Örnek: Seyahat Acentası için Kod Üreten Ajan
 
-Bu örnekte, kullanıcıların seyahat planlamasına yardımcı olmak için kod üreten bir ajan, Seyahat Acentesi tasarlayacağız. Bu ajan, seyahat seçeneklerini getirme, sonuçları filtreleme ve üretken AI kullanarak bir seyahat programı oluşturma gibi görevleri yerine getirebilir.
+Bu örnekte, kullanıcıların seyahatlerini planlamalarına yardımcı olmak için kod üreten ve çalıştıran bir ajan olan Seyahat Acentası'nı tasarlayacağız. Bu ajan, seyahat seçeneklerini getirme, sonuçları filtreleme ve üretici yapay zeka kullanarak bir seyahat planı oluşturma gibi görevleri yerine getirebilir.
 
-#### Kod Üreten Ajanın Genel Bakışı
+#### Kod Üreten Ajanın Genel Görünümü
 
-1. **Kullanıcı Tercihlerini Toplama**: Kullanıcının varış yeri, seyahat tarihleri, bütçe ve ilgi alanları gibi bilgilerini toplar.
-2. **Veri Getirmek İçin Kod Üretme**: Uçuşlar, oteller ve gezilecek yerler hakkında veri almak için kod parçacıkları oluşturur.
-3. **Üretilen Kodu Çalıştırma**: Gerçek zamanlı bilgi almak için oluşturulan kodu çalıştırır.
-4. **Seyahat Programı Oluşturma**: Alınan verileri kişiselleştirilmiş bir seyahat planına dönüştürür.
-5. **Geri Bildirime Göre Ayarlama**: Kullanıcı geri bildirimlerini alır ve gerekirse sonuçları iyileştirmek için kodu yeniden üretir.
+1. **Kullanıcı Tercihlerinin Toplanması**: Kullanıcıdan varış noktası, seyahat tarihleri, bütçe ve ilgi alanları gibi bilgileri toplar.
+2. **Veri Getirmek için Kod Üretimi**: Uçuşlar, oteller ve gezilecek yerler hakkında veri almak için kod parçacıkları oluşturur.
+3. **Üretilen Kodu Çalıştırma**: Gerçek zamanlı bilgi almak için üretilen kodu çalıştırır.
+4. **Seyahat Planı Oluşturma**: Alınan verileri kişiselleştirilmiş bir seyahat planına dönüştürür.
+5. **Geri Bildirime Göre Ayarlama**: Kullanıcı geri bildirimi alır ve sonuçları iyileştirmek için kodu yeniden üretir.
 
 #### Adım Adım Uygulama
 
-1. **Kullanıcı Tercihlerini Toplama**
+1. **Kullanıcı Tercihlerinin Toplanması**
 
    ```python
    class Travel_Agent:
@@ -729,7 +1026,7 @@ Bu örnekte, kullanıcıların seyahat planlamasına yardımcı olmak için kod 
            self.user_preferences = preferences
    ```
 
-2. **Veri Getirmek İçin Kod Üretme**
+2. **Veri Getirmek için Kod Üretimi**
 
    ```python
    def generate_code_to_fetch_data(preferences):
@@ -781,7 +1078,7 @@ Bu örnekte, kullanıcıların seyahat planlamasına yardımcı olmak için kod 
    print("Hotel Options:", hotels)
    ```
 
-4. **Seyahat Programı Oluşturma**
+4. **Seyahat Planı Oluşturma**
 
    ```python
    def generate_itinerary(flights, hotels, attractions):
@@ -822,17 +1119,17 @@ Bu örnekte, kullanıcıların seyahat planlamasına yardımcı olmak için kod 
    print("Updated Itinerary:", updated_itinerary)
    ```
 
-### Çevresel Farkındalık ve Akıl Yürütmeden Yararlanma
+### Çevresel Farkındalık ve Akıl Yürütme Kullanımı
 
-Tablonun şemasına dayalı olarak, çevresel farkındalık ve akıl yürütmeden yararlanmak sorgu oluşturma sürecini gerçekten geliştirebilir.
+Tablonun şemasına dayalı olarak sorgu oluşturma sürecini geliştirmek, çevresel farkındalık ve akıl yürütme kullanılarak mümkün olabilir.
 
-Bunun nasıl yapılabileceğine dair bir örnek:
+İşte bunun nasıl yapılabileceğine dair bir örnek:
 
-1. **Şemayı Anlama**: Sistem, tablonun şemasını anlayacak ve bu bilgiyi sorgu oluşturmayı temellendirmek için kullanacak.
-2. **Geri Bildirime Göre Ayarlama**: Sistem, kullanıcı tercihlerini geri bildirimlere göre ayarlayacak ve şemadaki hangi alanların güncellenmesi gerektiği hakkında akıl yürütecek.
-3. **Sorguları Oluşturma ve Çalıştırma**: Sistem, yeni tercihlere göre güncellenmiş uçuş ve otel verilerini almak için sorgular oluşturacak ve çalıştıracak.
+1. **Şemayı Anlama**: Sistem, tablonun şemasını anlayacak ve bu bilgiyi sorgu oluşturmayı temellendirmek için kullanacaktır.
+2. **Geri Bildirime Göre Ayarlama**: Sistem, geri bildirime dayalı olarak kullanıcı tercihlerini ayarlayacak ve şemadaki hangi alanların güncellenmesi gerektiğini düşünecektir.
+3. **Sorguları Oluşturma ve Çalıştırma**: Sistem, yeni tercihlere dayalı olarak sorgular oluşturacak ve çalıştıracaktır.
 
-İşte bu kavramları içeren güncellenmiş bir Python kod örneği:
+İşte bu kavramları içeren güncellenmiş bir Python kodu örneği:
 
 ```python
 def adjust_based_on_feedback(feedback, preferences, schema):
@@ -895,52 +1192,53 @@ print("Updated Itinerary:", updated_itinerary)
 
 #### Açıklama - Geri Bildirime Dayalı Rezervasyon
 
-1. **Şema Farkındalığı**: `schema` sözlüğü, geri bildirimlere göre tercihlerin nasıl ayarlanacağını tanımlar. `favorites` ve `avoid` gibi alanları ve karşılık gelen ayarlamaları içerir.
-2. **Tercihleri Ayarlama (`adjust_based_on_feedback` metodu)**: Bu metot, kullanıcı geri bildirimlerine ve şemaya göre tercihleri ayarlar.
-3. **Çevreye Dayalı Ayarlamalar (`adjust_based_on_environment` metodu)**: Bu metot, şema ve geri bildirimlere göre ayarlamaları özelleştirir.
-4. **Sorguları Oluşturma ve Çalıştırma**: Sistem, ayarlanmış tercihlere göre güncellenmiş uçuş ve otel verilerini almak için kod üretir ve bu sorguların çalıştırılmasını simüle eder.
-5. **Seyahat Programı Oluşturma**: Sistem, yeni uçuş, otel ve gezilecek yer verilerine dayanarak güncellenmiş bir seyahat programı oluşturur.
+1. **Şema Farkındalığı**: `schema` sözlüğü, geri bildirime dayalı olarak tercihlerin nasıl ayarlanması gerektiğini tanımlar. Bu, `favorites` ve `avoid` gibi alanları ve bunlara karşılık gelen ayarlamaları içerir.
+2. **Tercihleri Ayarlama (`adjust_based_on_feedback` metodu)**: Bu metot, kullanıcı geri bildirimlerine ve şemaya dayalı olarak tercihleri ayarlar.
+3. **Çevreye Dayalı Ayarlamalar (`adjust_based_on_environment` metodu)**: Bu metot, şema ve geri bildirimlere dayalı olarak ayarlamaları özelleştirir.
+4. **Sorguları Oluşturma ve Çalıştırma**: Sistem, ayarlanmış tercihlere dayalı olarak veri almak için kod oluşturur ve bu sorguların çalıştırılmasını simüle eder.
+5. **Seyahat Planı Oluşturma**: Sistem, yeni uçuş, otel ve gezilecek yer verilerine dayalı olarak güncellenmiş bir seyahat planı oluşturur.
 
-Sistemi çevresel farkındalıklı ve şemaya dayalı akıl yürütme yeteneğiyle donatarak, daha doğru ve ilgili sorgular oluşturabilir, böylece daha iyi seyahat önerileri ve daha kişiselleştirilmiş bir kullanıcı deneyimi sunabilir.
+Sistemi çevreye duyarlı hale getirerek ve şemaya dayalı akıl yürütme yaparak, daha doğru ve alakalı sorgular oluşturulabilir. Bu da daha iyi seyahat önerileri ve daha kişiselleştirilmiş bir kullanıcı deneyimi sağlar.
 
-### SQL’i Retrieval-Augmented Generation (RAG) Tekniği Olarak Kullanma
+### SQL'i Bir Retrieval-Augmented Generation (RAG) Tekniği Olarak Kullanma
 
-SQL (Yapılandırılmış Sorgu Dili), veritabanlarıyla etkileşim için güçlü bir araçtır. Retrieval-Augmented Generation (RAG) yaklaşımının bir parçası olarak kullanıldığında, SQL veritabanlarından ilgili verileri alarak AI ajanlarının yanıtlarını veya eylemlerini bilgilendirmek ve oluşturmak için kullanılabilir. Seyahat Acentesi bağlamında SQL’in RAG tekniği olarak nasıl kullanılabileceğine bakalım.
+SQL (Structured Query Language), veritabanlarıyla etkileşim kurmak için güçlü bir araçtır. Retrieval-Augmented Generation (RAG) yaklaşımının bir parçası olarak kullanıldığında, SQL, AI ajanlarında yanıtları veya eylemleri bilgilendirmek ve oluşturmak için veritabanlarından ilgili verileri alabilir. Seyahat Acentası bağlamında SQL'in bir RAG tekniği olarak nasıl kullanılabileceğini inceleyelim.
 
 #### Temel Kavramlar
 
 1. **Veritabanı Etkileşimi**:
-   - SQL, veritabanlarını sorgulamak, ilgili bilgileri almak ve veriyi manipüle etmek için kullanılır.
-   - Örnek: Seyahat veritabanından uçuş detayları, otel bilgileri ve gezilecek yerleri çekmek.
+   - SQL, veritabanlarını sorgulamak, ilgili bilgileri almak ve verileri manipüle etmek için kullanılır.
+   - Örnek: Bir seyahat veritabanından uçuş detaylarını, otel bilgilerini ve gezilecek yerleri almak.
 
 2. **RAG ile Entegrasyon**:
-   - SQL sorguları, kullanıcı girdisi ve tercihlerine göre oluşturulur.
+   - SQL sorguları, kullanıcı girdilerine ve tercihlerine göre oluşturulur.
    - Alınan veriler, kişiselleştirilmiş öneriler veya eylemler oluşturmak için kullanılır.
 
 3. **Dinamik Sorgu Oluşturma**:
-   - AI ajanı, bağlama ve kullanıcı ihtiyaçlarına göre dinamik SQL sorguları üretir.
-   - Örnek: Bütçe, tarihler ve ilgi alanlarına göre sonuçları filtrelemek için SQL sorgularını özelleştirmek.
+   - AI ajanı, bağlama ve kullanıcı ihtiyaçlarına göre dinamik SQL sorguları oluşturur.
+   - Örnek: Bütçe, tarihler ve ilgi alanlarına göre sonuçları filtrelemek için SQL sorgularını özelleştirme.
 
 #### Uygulamalar
 
 - **Otomatik Kod Üretimi**: Belirli görevler için kod parçacıkları oluşturma.
-- **SQL’i RAG Olarak Kullanma**: Veriyi manipüle etmek için SQL sorguları kullanma.
+- **SQL'i RAG Olarak Kullanma**: Verileri manipüle etmek için SQL sorguları kullanma.
 - **Problem Çözme**: Problemleri çözmek için kod oluşturma ve çalıştırma.
 
-**Örnek**: Bir veri analiz ajanı:
+**Örnek**:
+Bir veri analizi ajanı:
 
-1. **Görev**: Bir veri setinde eğilimleri bulmak.
+1. **Görev**: Bir veri kümesini analiz ederek eğilimleri bulma.
 2. **Adımlar**:
-   - Veri setini yüklemek.
-   - Veriyi filtrelemek için SQL sorguları oluşturmak.
-   - Sorguları çalıştırmak ve sonuçları almak.
-   - Görselleştirmeler ve içgörüler oluşturmak.
-3. **Kaynaklar**: Veri seti erişimi, SQL yetenekleri.
-4. **Deneyim**: Geçmiş sonuçları kullanarak gelecekteki analizleri geliştirmek.
+   - Veri kümesini yükleyin.
+   - Verileri filtrelemek için SQL sorguları oluşturun.
+   - Sorguları çalıştırarak sonuçları alın.
+   - Görselleştirmeler ve içgörüler oluşturun.
+3. **Kaynaklar**: Veri kümesine erişim, SQL yetenekleri.
+4. **Deneyim**: Geçmiş sonuçları kullanarak gelecekteki analizleri iyileştirme.
 
-#### Pratik Örnek: Seyahat Acentesinde SQL Kullanımı
+#### Pratik Örnek: Seyahat Acentasında SQL Kullanımı
 
-1. **Kullanıcı Tercihlerini Toplama**
+1. **Kullanıcı Tercihlerinin Toplanması**
 
    ```python
    class Travel_Agent:
@@ -1028,19 +1326,19 @@ SQL (Yapılandırılmış Sorgu Dili), veritabanlarıyla etkileşim için güçl
    SELECT * FROM attractions WHERE destination='Paris' AND interests='museums, cuisine';
    ```
 
-SQL’i Retrieval-Augmented Generation (RAG) tekniğinin bir parçası olarak kullanarak, Seyahat Acentesi gibi AI ajanları, ilgili verileri dinamik olarak alabilir ve kullanarak doğru ve kişiselleştirilmiş öneriler sunabilir.
+SQL'i Retrieval-Augmented Generation (RAG) tekniğinin bir parçası olarak kullanarak, Seyahat Acentası gibi AI ajanları, doğru ve kişiselleştirilmiş öneriler sağlamak için dinamik olarak ilgili verileri alabilir ve kullanabilir.
 
-### Metabiliş Örneği
+### Metakognisyon Örneği
 
-Metabiliş uygulamasını göstermek için, bir problemi çözerken *kendi karar verme sürecini değerlendiren* basit bir ajan oluşturalım. Bu örnekte, ajan otel seçimini optimize etmeye çalışacak, ancak hatalar veya optimal olmayan seçimler yaptığında kendi akıl yürütmesini değerlendirecek ve stratejisini ayarlayacak.
+Metakognisyonun bir uygulamasını göstermek için, bir problemin çözüm sürecinde karar verme sürecini "düşünen" basit bir ajan oluşturalım. Bu örnekte, bir ajan bir otel seçimini optimize etmeye çalışacak, ancak hatalar veya alt-optimal seçimler yaptığında kendi akıl yürütmesini değerlendirecek ve stratejisini ayarlayacaktır.
 
-Bunu, ajanın fiyat ve kalite kombinasyonuna göre otel seçtiği, ancak kararlarını "yansıtıp" buna göre ayarladığı basit bir örnekle simüle edeceğiz.
+Bunu, fiyat ve kalite kombinasyonuna dayalı olarak otelleri seçen bir ajan örneğiyle simüle edeceğiz. Ancak, ajan "kararlarını" gözden geçirip stratejisini buna göre ayarlayacaktır.
 
-#### Bu, metabilişi nasıl gösterir:
+#### Bu Metakognisyonu Nasıl Gösterir:
 
-1. **İlk Karar**: Ajan, kalite etkisini anlamadan en ucuz oteli seçer.
-2. **Yansıtma ve Değerlendirme**: İlk seçimden sonra, kullanıcı geri bildirimiyle otelin "kötü" bir seçim olup olmadığını kontrol eder. Otelin kalitesi çok düşükse, akıl yürütmesini değerlendirir.
-3. **Stratejiyi Ayarlama**: Ajan, yansıtmasına dayanarak stratejisini değiştirir; "en ucuz"dan "en yüksek kalite"ye geçer ve böylece gelecekteki karar alma sürecini geliştirir.
+1. **İlk Karar**: Ajan, kalite etkisini anlamadan en ucuz oteli seçecektir.
+2. **Yansıma ve Değerlendirme**: İlk seçimden sonra, ajan otelin "kötü" bir seçim olup olmadığını kullanıcı geri bildirimiyle kontrol edecektir. Eğer otelin kalitesinin çok düşük olduğunu görürse, akıl yürütmesini gözden geçirir.
+3. **Stratejiyi Ayarlama**: Ajan, yansımasına dayanarak stratejisini ayarlar ve "en ucuz" yerine "en yüksek kalite" seçeneğine geçer, böylece gelecekteki karar verme sürecini iyileştirir.
 
 İşte bir örnek:
 
@@ -1118,25 +1416,31 @@ adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
 
-#### Ajanların Metabiliş Yetkinlikleri
+#### Ajanların Metakognitif Yetenekleri
 
 Buradaki anahtar, ajanın:
-- Önceki seçimlerini ve karar alma sürecini değerlendirebilme,
-- Bu değerlendirmeye dayanarak stratejisini ayarlayabilme yani metabilişi uygulayabilme yeteneğidir.
+- Önceki seçimlerini ve karar verme sürecini değerlendirme yeteneği.
+- Bu yansıma temelinde stratejisini ayarlama yeteneği, yani metakognisyonun devreye girmesi.
 
-Bu, sistemin iç geri bildirimlere dayanarak akıl yürütme sürecini ayarlayabildiği basit bir metabiliş biçimidir.
+Bu, sistemin iç geri bildirimlere dayalı olarak akıl yürütme sürecini ayarlayabildiği basit bir metakognisyon biçimidir.
 
 ### Sonuç
 
-Metabiliş, AI ajanlarının yeteneklerini önemli ölçüde artırabilecek güçlü bir araçtır. Metabiliş süreçlerini dahil ederek, daha zeki, uyumlu ve verimli ajanlar tasarlayabilirsiniz. Ek kaynakları kullanarak AI ajanlarında metabilişin büyüleyici dünyasını daha derinlemesine keşfedebilirsiniz.
+Metakognisyon, AI ajanlarının yeteneklerini önemli ölçüde artırabilecek güçlü bir araçtır. Metakognitif süreçleri entegre ederek, daha akıllı, uyarlanabilir ve verimli ajanlar tasarlayabilirsiniz. Ek kaynakları kullanarak AI ajanlarında metakognisyonun büyüleyici dünyasını daha fazla keşfedebilirsiniz.
+
+### Metakognisyon Tasarım Deseni Hakkında Daha Fazla Sorunuz mu Var?
+
+[Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) adresine katılarak diğer öğrenenlerle tanışabilir, ofis saatlerine katılabilir ve AI Ajanları hakkındaki sorularınıza yanıt alabilirsiniz.
 
 ## Önceki Ders
 
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+[Çoklu Ajan Tasarım Deseni](../08-multi-agent/README.md)
 
 ## Sonraki Ders
 
-[AI Agents in Production](../10-ai-agents-production/README.md)
+[Üretimde AI Ajanları](../10-ai-agents-production/README.md)
+
+---
 
 **Feragatname**:  
-Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalar veya yorum hatalarından sorumlu değiliz.
+Bu belge, [Co-op Translator](https://github.com/Azure/co-op-translator) adlı yapay zeka çeviri hizmeti kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belgenin kendi dilindeki hali, yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan yanlış anlamalar veya yanlış yorumlamalar için sorumluluk kabul etmiyoruz.

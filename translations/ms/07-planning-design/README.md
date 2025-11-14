@@ -1,15 +1,64 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e4e06d3b5d6207459a019c05fee5eb4b",
-  "translation_date": "2025-07-12T10:44:42+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:20:35+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "ms"
 }
 -->
-untuk gambaran ringkas.
+[![Perancangan Corak Reka Bentuk](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.ms.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-Petikan Python berikut menunjukkan agen perancangan mudah yang memecahkan matlamat kepada subtugas dan menghasilkan pelan berstruktur:
+> _(Klik imej di atas untuk menonton video pelajaran ini)_
+
+# Perancangan Reka Bentuk
+
+## Pengenalan
+
+Pelajaran ini akan merangkumi
+
+* Menentukan matlamat keseluruhan yang jelas dan memecahkan tugas yang kompleks kepada tugas yang boleh diurus.
+* Memanfaatkan output berstruktur untuk respons yang lebih boleh dipercayai dan boleh dibaca oleh mesin.
+* Menggunakan pendekatan berasaskan acara untuk menangani tugas dinamik dan input yang tidak dijangka.
+
+## Matlamat Pembelajaran
+
+Selepas menyelesaikan pelajaran ini, anda akan memahami tentang:
+
+* Mengenal pasti dan menetapkan matlamat keseluruhan untuk ejen AI, memastikan ia tahu dengan jelas apa yang perlu dicapai.
+* Memecahkan tugas yang kompleks kepada subtugas yang boleh diurus dan menyusunnya dalam urutan yang logik.
+* Melengkapkan ejen dengan alat yang sesuai (contohnya, alat carian atau alat analitik data), memutuskan bila dan bagaimana ia digunakan, dan menangani situasi yang tidak dijangka.
+* Menilai hasil subtugas, mengukur prestasi, dan mengulangi tindakan untuk meningkatkan output akhir.
+
+## Menentukan Matlamat Keseluruhan dan Memecahkan Tugas
+
+![Menentukan Matlamat dan Tugas](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.ms.png)
+
+Kebanyakan tugas dunia sebenar terlalu kompleks untuk ditangani dalam satu langkah. Ejen AI memerlukan objektif yang ringkas untuk membimbing perancangan dan tindakannya. Sebagai contoh, pertimbangkan matlamat:
+
+    "Hasilkan jadual perjalanan selama 3 hari."
+
+Walaupun ia mudah dinyatakan, ia masih memerlukan penjelasan. Semakin jelas matlamat, semakin baik ejen (dan mana-mana kolaborator manusia) dapat menumpukan perhatian untuk mencapai hasil yang tepat, seperti mencipta jadual perjalanan yang komprehensif dengan pilihan penerbangan, cadangan hotel, dan aktiviti.
+
+### Pemecahan Tugas
+
+Tugas yang besar atau rumit menjadi lebih mudah diurus apabila dipecahkan kepada subtugas kecil yang berorientasikan matlamat. 
+Untuk contoh jadual perjalanan, anda boleh memecahkan matlamat kepada:
+
+* Tempahan Penerbangan
+* Tempahan Hotel
+* Sewa Kereta
+* Penyesuaian Peribadi
+
+Setiap subtugas kemudian boleh ditangani oleh ejen atau proses khusus. Satu ejen mungkin pakar dalam mencari tawaran penerbangan terbaik, satu lagi memberi tumpuan kepada tempahan hotel, dan sebagainya. Ejen penyelaras atau "downstream" kemudian boleh menyusun hasil ini menjadi satu jadual perjalanan yang padu untuk pengguna akhir.
+
+Pendekatan modular ini juga membolehkan penambahbaikan secara beransur-ansur. Sebagai contoh, anda boleh menambah ejen khusus untuk Cadangan Makanan atau Cadangan Aktiviti Tempatan dan memperhalusi jadual perjalanan dari semasa ke semasa.
+
+### Output Berstruktur
+
+Model Bahasa Besar (LLM) boleh menghasilkan output berstruktur (contohnya, JSON) yang lebih mudah untuk ejen atau perkhidmatan hiliran untuk menganalisis dan memproses. Ini sangat berguna dalam konteks multi-ejen, di mana kita boleh melaksanakan tugas ini selepas output perancangan diterima. Rujuk ini untuk gambaran ringkas.
+
+Kod Python berikut menunjukkan ejen perancangan mudah yang memecahkan matlamat kepada subtugas dan menghasilkan rancangan berstruktur:
 
 ```python
 from pydantic import BaseModel
@@ -98,16 +147,17 @@ pprint(json.loads(response_content))
 # TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Agen Perancangan dengan Orkestrasi Multi-Agen
+### Ejen Perancangan dengan Orkestrasi Multi-Ejen
 
-Dalam contoh ini, Semantic Router Agent menerima permintaan pengguna (contohnya, "Saya perlukan pelan hotel untuk perjalanan saya.").
+Dalam contoh ini, Ejen Router Semantik menerima permintaan pengguna (contohnya, "Saya perlukan rancangan hotel untuk perjalanan saya.").
 
 Perancang kemudian:
 
-* Menerima Pelan Hotel: Perancang mengambil mesej pengguna dan, berdasarkan arahan sistem (termasuk butiran agen yang tersedia), menghasilkan pelan perjalanan berstruktur.
-* Menyenaraikan Agen dan Alat Mereka: Daftar agen memegang senarai agen (contohnya untuk penerbangan, hotel, sewa kereta, dan aktiviti) bersama fungsi atau alat yang mereka tawarkan.
-* Menghantar Pelan kepada Agen Berkaitan: Bergantung pada bilangan subtugas, perancang sama ada menghantar mesej terus kepada agen khusus (untuk senario tugas tunggal) atau mengkoordinasi melalui pengurus sembang kumpulan untuk kerjasama multi-agen.
-* Merumuskan Hasil: Akhir sekali, perancang merumuskan pelan yang dihasilkan untuk kejelasan.
+* Menerima Rancangan Hotel: Perancang mengambil mesej pengguna dan, berdasarkan arahan sistem (termasuk butiran ejen yang tersedia), menghasilkan rancangan perjalanan berstruktur.
+* Menyenaraikan Ejen dan Alat Mereka: Daftar ejen menyimpan senarai ejen (contohnya, untuk penerbangan, hotel, sewa kereta, dan aktiviti) bersama fungsi atau alat yang mereka tawarkan.
+* Mengarahkan Rancangan kepada Ejen Berkaitan: Bergantung pada bilangan subtugas, perancang sama ada menghantar mesej secara langsung kepada ejen khusus (untuk senario tugas tunggal) atau menyelaraskan melalui pengurus sembang kumpulan untuk kerjasama multi-ejen.
+* Merumuskan Hasil: Akhirnya, perancang merumuskan rancangan yang dihasilkan untuk kejelasan.
+
 Kod Python berikut menggambarkan langkah-langkah ini:
 
 ```python
@@ -183,7 +233,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Berikut adalah output dari kod sebelumnya dan anda boleh menggunakan output berstruktur ini untuk dihantar ke `assigned_agent` dan merumuskan pelan perjalanan kepada pengguna akhir.
+Berikut adalah output daripada kod sebelumnya dan anda kemudian boleh menggunakan output berstruktur ini untuk mengarahkan kepada `assigned_agent` dan merumuskan rancangan perjalanan kepada pengguna akhir.
 
 ```json
 {
@@ -214,15 +264,15 @@ Berikut adalah output dari kod sebelumnya dan anda boleh menggunakan output bers
 }
 ```
 
-Contoh notebook dengan kod sebelumnya boleh didapati [di sini](../../../07-planning-design/07-autogen.ipynb).
+Notebook contoh dengan kod sebelumnya tersedia [di sini](07-autogen.ipynb).
 
 ### Perancangan Iteratif
 
-Sesetengah tugas memerlukan proses bolak-balik atau perancangan semula, di mana hasil satu subtugas mempengaruhi yang seterusnya. Contohnya, jika agen menemui format data yang tidak dijangka semasa menempah penerbangan, ia mungkin perlu menyesuaikan strateginya sebelum meneruskan tempahan hotel.
+Sesetengah tugas memerlukan ulang-alik atau perancangan semula, di mana hasil satu subtugas mempengaruhi yang seterusnya. Sebagai contoh, jika ejen menemui format data yang tidak dijangka semasa menempah penerbangan, ia mungkin perlu menyesuaikan strateginya sebelum meneruskan tempahan hotel.
 
-Selain itu, maklum balas pengguna (contohnya manusia memutuskan mereka lebih suka penerbangan lebih awal) boleh mencetuskan perancangan semula sebahagian. Pendekatan dinamik dan iteratif ini memastikan penyelesaian akhir selaras dengan kekangan dunia sebenar dan keutamaan pengguna yang berubah.
+Selain itu, maklum balas pengguna (contohnya, manusia memutuskan mereka lebih suka penerbangan lebih awal) boleh mencetuskan perancangan semula separa. Pendekatan dinamik dan iteratif ini memastikan penyelesaian akhir sejajar dengan kekangan dunia sebenar dan keutamaan pengguna yang berkembang.
 
-contoh kod
+Contoh kod:
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
@@ -243,27 +293,29 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-Untuk perancangan yang lebih menyeluruh, sila lihat Magnetic One
-
-untuk menyelesaikan tugas kompleks.
+Untuk perancangan yang lebih komprehensif, lihat Magnetic One untuk menyelesaikan tugas yang kompleks.
 
 ## Ringkasan
 
-Dalam artikel ini, kita telah melihat contoh bagaimana kita boleh mencipta perancang yang boleh memilih agen yang tersedia secara dinamik. Output Perancang memecahkan tugas dan menetapkan agen supaya ia boleh dilaksanakan. Diasumsikan agen mempunyai akses kepada fungsi/alat yang diperlukan untuk melaksanakan tugas. Selain agen, anda boleh memasukkan corak lain seperti refleksi, perumus, dan sembang round robin untuk penyesuaian lanjut.
+Dalam artikel ini, kita telah melihat contoh bagaimana kita boleh mencipta perancang yang boleh memilih ejen yang tersedia secara dinamik. Output Perancang memecahkan tugas dan menetapkan ejen supaya ia boleh dilaksanakan. Diandaikan ejen mempunyai akses kepada fungsi/alat yang diperlukan untuk melaksanakan tugas. Selain ejen, anda boleh memasukkan corak lain seperti refleksi, perumus, dan sembang pusingan untuk penyesuaian lanjut.
 
 ## Sumber Tambahan
 
-* AutoGen Magnetic One - Sistem multi-agen generalis untuk menyelesaikan tugas kompleks dan telah mencapai keputusan mengagumkan pada beberapa penanda aras agen yang mencabar. Rujukan:
+AutoGen Magnetic One - Sistem multi-ejen umum untuk menyelesaikan tugas yang kompleks dan telah mencapai hasil yang mengagumkan pada pelbagai penanda aras ejen yang mencabar. Rujukan: Dalam pelaksanaan ini, pengaturcara mencipta rancangan khusus tugas dan mendelegasikan tugas ini kepada ejen yang tersedia. Selain perancangan, pengaturcara juga menggunakan mekanisme penjejakan untuk memantau kemajuan tugas dan merancang semula jika diperlukan.
 
-. Dalam pelaksanaan ini, pengorkestra mencipta pelan khusus tugas dan mendelegasikan tugas ini kepada agen yang tersedia. Selain merancang, pengorkestra juga menggunakan mekanisme penjejakan untuk memantau kemajuan tugas dan merancang semula jika perlu.
+### Ada Lagi Soalan tentang Corak Reka Bentuk Perancangan?
+
+Sertai [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) untuk berhubung dengan pelajar lain, menghadiri waktu pejabat, dan mendapatkan jawapan kepada soalan ejen AI anda.
 
 ## Pelajaran Sebelumnya
 
-[Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)
+[Memupuk Kepercayaan pada Ejen AI](../06-building-trustworthy-agents/README.md)
 
 ## Pelajaran Seterusnya
 
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+[Corak Reka Bentuk Multi-Ejen](../08-multi-agent/README.md)
+
+---
 
 **Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan profesional oleh manusia adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk memastikan ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat yang kritikal, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.

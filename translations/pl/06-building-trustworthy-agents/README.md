@@ -1,53 +1,53 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f57852cac3a86c4a5ef47f793cc12178",
-  "translation_date": "2025-07-12T10:26:46+00:00",
+  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
+  "translation_date": "2025-08-30T14:24:32+00:00",
   "source_file": "06-building-trustworthy-agents/README.md",
   "language_code": "pl"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.pl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Zaufani Agenci AI](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.pl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Kliknij powyższy obraz, aby obejrzeć wideo z tej lekcji)_
+> _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 
-# Tworzenie godnych zaufania agentów AI
+# Tworzenie Zaufanych Agentów AI
 
 ## Wprowadzenie
 
 W tej lekcji omówimy:
 
-- Jak tworzyć i wdrażać bezpieczne i skuteczne agentów AI
-- Ważne kwestie związane z bezpieczeństwem podczas tworzenia agentów AI
-- Jak dbać o prywatność danych i użytkowników podczas tworzenia agentów AI
+- Jak budować i wdrażać bezpiecznych i skutecznych Agentów AI.
+- Ważne kwestie związane z bezpieczeństwem podczas tworzenia Agentów AI.
+- Jak zapewnić prywatność danych i użytkowników podczas tworzenia Agentów AI.
 
 ## Cele nauki
 
-Po ukończeniu tej lekcji będziesz potrafił:
+Po ukończeniu tej lekcji będziesz wiedzieć, jak:
 
-- Identyfikować i minimalizować ryzyka związane z tworzeniem agentów AI
-- Wdrażać środki bezpieczeństwa, aby zapewnić właściwe zarządzanie danymi i dostępem
-- Tworzyć agentów AI, którzy dbają o prywatność danych i zapewniają wysoką jakość doświadczenia użytkownika
+- Identyfikować i minimalizować ryzyka podczas tworzenia Agentów AI.
+- Wdrażać środki bezpieczeństwa, aby zapewnić właściwe zarządzanie danymi i dostępem.
+- Tworzyć Agentów AI, którzy zachowują prywatność danych i zapewniają wysoką jakość doświadczenia użytkownika.
 
 ## Bezpieczeństwo
 
-Najpierw przyjrzyjmy się tworzeniu bezpiecznych aplikacji agentowych. Bezpieczeństwo oznacza, że agent AI działa zgodnie z założeniami. Jako twórcy aplikacji agentowych mamy metody i narzędzia, które maksymalizują bezpieczeństwo:
+Najpierw przyjrzyjmy się, jak budować bezpieczne aplikacje agentowe. Bezpieczeństwo oznacza, że agent AI działa zgodnie z założeniami. Jako twórcy aplikacji agentowych mamy metody i narzędzia, które pozwalają maksymalizować bezpieczeństwo:
 
-### Tworzenie ram systemowej wiadomości
+### Tworzenie Ram Systemowych Wiadomości
 
-Jeśli kiedykolwiek tworzyłeś aplikację AI wykorzystującą duże modele językowe (LLM), wiesz, jak ważne jest zaprojektowanie solidnego systemowego promptu lub wiadomości systemowej. Te prompt’y ustalają meta zasady, instrukcje i wytyczne dotyczące tego, jak LLM będzie komunikować się z użytkownikiem i danymi.
+Jeśli kiedykolwiek budowałeś aplikację AI wykorzystującą duże modele językowe (LLM), wiesz, jak ważne jest zaprojektowanie solidnego systemowego promptu lub wiadomości systemowej. Te prompty ustalają meta zasady, instrukcje i wytyczne dotyczące interakcji LLM z użytkownikiem i danymi.
 
-Dla agentów AI systemowy prompt jest jeszcze ważniejszy, ponieważ agenci AI potrzebują bardzo precyzyjnych instrukcji, aby wykonać zaprojektowane dla nich zadania.
+Dla Agentów AI wiadomość systemowa jest jeszcze ważniejsza, ponieważ agenci potrzebują bardzo precyzyjnych instrukcji, aby wykonać zaprojektowane dla nich zadania.
 
-Aby tworzyć skalowalne prompt’y systemowe, możemy użyć ram systemowej wiadomości do budowy jednego lub więcej agentów w naszej aplikacji:
+Aby tworzyć skalowalne wiadomości systemowe, możemy użyć ram systemowych wiadomości do budowy jednego lub więcej agentów w naszej aplikacji:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.pl.png)
+![Tworzenie Ram Systemowych Wiadomości](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.pl.png)
 
-#### Krok 1: Stwórz meta systemową wiadomość
+#### Krok 1: Stwórz Meta Wiadomość Systemową
 
-Meta prompt będzie używany przez LLM do generowania promptów systemowych dla tworzonych agentów. Projektujemy go jako szablon, aby efektywnie tworzyć wielu agentów, jeśli zajdzie taka potrzeba.
+Meta prompt będzie używany przez LLM do generowania wiadomości systemowych dla agentów, których tworzymy. Projektujemy go jako szablon, aby móc efektywnie tworzyć wielu agentów, jeśli zajdzie taka potrzeba.
 
-Oto przykład meta systemowej wiadomości, którą przekazalibyśmy LLM:
+Oto przykład meta wiadomości systemowej, którą moglibyśmy przekazać LLM:
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -58,7 +58,7 @@ To create the system prompt, be descriptive as possible and provide a structure 
 
 #### Krok 2: Stwórz podstawowy prompt
 
-Następnym krokiem jest stworzenie podstawowego promptu opisującego agenta AI. Powinieneś uwzględnić rolę agenta, zadania, które będzie wykonywał, oraz inne jego obowiązki.
+Kolejnym krokiem jest stworzenie podstawowego promptu opisującego Agenta AI. Powinien on zawierać rolę agenta, zadania, które ma wykonać, oraz inne jego obowiązki.
 
 Oto przykład:
 
@@ -66,11 +66,11 @@ Oto przykład:
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### Krok 3: Przekaż podstawową wiadomość systemową do LLM
+#### Krok 3: Przekaż Podstawową Wiadomość Systemową do LLM
 
-Teraz możemy zoptymalizować tę wiadomość systemową, przekazując meta systemową wiadomość jako systemową wiadomość oraz naszą podstawową wiadomość systemową.
+Teraz możemy zoptymalizować tę wiadomość systemową, przekazując meta wiadomość systemową jako wiadomość systemową oraz naszą podstawową wiadomość systemową.
 
-W efekcie powstanie wiadomość systemowa lepiej zaprojektowana do kierowania naszymi agentami AI:
+To wygeneruje wiadomość systemową lepiej zaprojektowaną do prowadzenia naszych agentów AI:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -122,53 +122,53 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### Krok 4: Iteruj i ulepszaj
+#### Krok 4: Iteracja i Ulepszanie
 
-Wartość tego frameworku wiadomości systemowej polega na łatwiejszym skalowaniu tworzenia wiadomości systemowych dla wielu agentów oraz na możliwości ulepszania ich z czasem. Rzadko zdarza się, że wiadomość systemowa działa idealnie za pierwszym razem dla całego przypadku użycia. Możliwość wprowadzania drobnych poprawek i ulepszeń poprzez zmianę podstawowej wiadomości systemowej i ponowne jej przetworzenie pozwala porównywać i oceniać wyniki.
+Wartość tej ramy wiadomości systemowych polega na możliwości łatwego skalowania tworzenia wiadomości systemowych dla wielu agentów oraz ulepszania ich z czasem. Rzadko zdarza się, aby wiadomość systemowa działała idealnie za pierwszym razem dla całego przypadku użycia. Możliwość wprowadzania drobnych poprawek i ulepszeń poprzez zmianę podstawowej wiadomości systemowej i ponowne jej przetworzenie pozwala na porównanie i ocenę wyników.
 
-## Zrozumienie zagrożeń
+## Zrozumienie Zagrożeń
 
-Aby tworzyć godnych zaufania agentów AI, ważne jest zrozumienie i minimalizowanie ryzyk oraz zagrożeń dla twojego agenta AI. Przyjrzyjmy się niektórym z różnych zagrożeń dla agentów AI oraz jak lepiej się na nie przygotować.
+Aby budować zaufanych agentów AI, ważne jest zrozumienie i minimalizowanie ryzyk oraz zagrożeń związanych z agentem AI. Przyjrzyjmy się niektórym z różnych zagrożeń dla agentów AI i sposobom ich lepszego planowania i przygotowania.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.pl.png)
+![Zrozumienie Zagrożeń](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.pl.png)
 
-### Zadanie i instrukcje
+### Zadania i Instrukcje
 
-**Opis:** Atakujący próbują zmienić instrukcje lub cele agenta AI poprzez promptowanie lub manipulowanie danymi wejściowymi.
+**Opis:** Atakujący próbują zmienić instrukcje lub cele agenta AI poprzez manipulację promptami lub wejściami.
 
-**Minimalizacja ryzyka:** Wykonuj walidację i filtry wejściowe, aby wykryć potencjalnie niebezpieczne prompt’y zanim zostaną przetworzone przez agenta AI. Ponieważ takie ataki zwykle wymagają częstej interakcji z agentem, ograniczenie liczby tur w rozmowie to kolejny sposób zapobiegania tego typu atakom.
+**Minimalizacja ryzyka:** Wykonuj walidację i filtrowanie wejść, aby wykrywać potencjalnie niebezpieczne prompty przed ich przetworzeniem przez agenta AI. Ponieważ tego typu ataki zwykle wymagają częstej interakcji z agentem, ograniczenie liczby wymian w rozmowie to kolejny sposób na zapobieganie tego typu atakom.
 
-### Dostęp do krytycznych systemów
+### Dostęp do Krytycznych Systemów
 
-**Opis:** Jeśli agent AI ma dostęp do systemów i usług przechowujących wrażliwe dane, atakujący mogą przechwycić komunikację między agentem a tymi usługami. Mogą to być bezpośrednie ataki lub pośrednie próby zdobycia informacji o tych systemach przez agenta.
+**Opis:** Jeśli agent AI ma dostęp do systemów i usług przechowujących wrażliwe dane, atakujący mogą skompromitować komunikację między agentem a tymi usługami. Mogą to być bezpośrednie ataki lub próby pośredniego uzyskania informacji o tych systemach za pośrednictwem agenta.
 
-**Minimalizacja ryzyka:** Agenci AI powinni mieć dostęp do systemów tylko wtedy, gdy jest to konieczne, aby zapobiec tego typu atakom. Komunikacja między agentem a systemem powinna być również zabezpieczona. Wdrożenie uwierzytelniania i kontroli dostępu to kolejny sposób ochrony tych informacji.
+**Minimalizacja ryzyka:** Agenci AI powinni mieć dostęp do systemów wyłącznie w razie potrzeby, aby zapobiec tego typu atakom. Komunikacja między agentem a systemem powinna być również zabezpieczona. Wdrożenie uwierzytelniania i kontroli dostępu to kolejny sposób na ochronę tych informacji.
 
-### Przeciążenie zasobów i usług
+### Przeciążenie Zasobów i Usług
 
-**Opis:** Agenci AI mogą korzystać z różnych narzędzi i usług do realizacji zadań. Atakujący mogą wykorzystać tę zdolność do ataku na te usługi, wysyłając dużą liczbę żądań przez agenta AI, co może prowadzić do awarii systemu lub wysokich kosztów.
+**Opis:** Agenci AI mogą korzystać z różnych narzędzi i usług do wykonywania zadań. Atakujący mogą wykorzystać tę zdolność do atakowania tych usług, wysyłając dużą liczbę żądań za pośrednictwem agenta AI, co może prowadzić do awarii systemu lub wysokich kosztów.
 
-**Minimalizacja ryzyka:** Wprowadź polityki ograniczające liczbę żądań, które agent AI może wysłać do danej usługi. Ograniczenie liczby tur rozmowy i żądań do agenta AI to kolejny sposób zapobiegania tego typu atakom.
+**Minimalizacja ryzyka:** Wdrożenie polityk ograniczających liczbę żądań, jakie agent AI może wysłać do usługi. Ograniczenie liczby wymian w rozmowie i żądań do agenta AI to kolejny sposób na zapobieganie tego typu atakom.
 
-### Zatrucie bazy wiedzy
+### Zatrucie Bazy Wiedzy
 
-**Opis:** Ten typ ataku nie jest skierowany bezpośrednio na agenta AI, lecz na bazę wiedzy i inne usługi, z których agent korzysta. Może to polegać na uszkodzeniu danych lub informacji, które agent AI wykorzysta do wykonania zadania, co prowadzi do stronniczych lub niezamierzonych odpowiedzi dla użytkownika.
+**Opis:** Ten rodzaj ataku nie jest skierowany bezpośrednio na agenta AI, ale na bazę wiedzy i inne usługi, z których korzysta agent AI. Może to obejmować uszkodzenie danych lub informacji, które agent AI wykorzystuje do wykonania zadania, co prowadzi do stronniczych lub niezamierzonych odpowiedzi dla użytkownika.
 
-**Minimalizacja ryzyka:** Regularnie weryfikuj dane, z których agent AI korzysta w swoich procesach. Upewnij się, że dostęp do tych danych jest zabezpieczony i mogą je modyfikować tylko zaufane osoby, aby uniknąć tego typu ataków.
+**Minimalizacja ryzyka:** Regularnie weryfikuj dane, z których agent AI korzysta w swoich procesach. Upewnij się, że dostęp do tych danych jest zabezpieczony i zmieniany wyłącznie przez zaufane osoby, aby uniknąć tego typu ataków.
 
-### Błędy kaskadowe
+### Błędy Kaskadowe
 
-**Opis:** Agenci AI korzystają z różnych narzędzi i usług do realizacji zadań. Błędy spowodowane przez atakujących mogą prowadzić do awarii innych systemów, z którymi agent jest połączony, powodując, że atak staje się bardziej rozległy i trudniejszy do zdiagnozowania.
+**Opis:** Agenci AI korzystają z różnych narzędzi i usług do wykonywania zadań. Błędy spowodowane przez atakujących mogą prowadzić do awarii innych systemów, z którymi agent AI jest połączony, powodując, że atak staje się bardziej rozległy i trudniejszy do rozwiązania.
 
-**Minimalizacja ryzyka:** Jednym ze sposobów zapobiegania temu jest uruchamianie agenta AI w ograniczonym środowisku, na przykład wykonując zadania w kontenerze Docker, aby zapobiec bezpośrednim atakom na system. Tworzenie mechanizmów awaryjnych i logiki ponawiania prób, gdy niektóre systemy zwracają błąd, to kolejny sposób zapobiegania poważniejszym awariom systemu.
+**Minimalizacja ryzyka:** Jednym ze sposobów uniknięcia tego jest działanie agenta AI w ograniczonym środowisku, takim jak wykonywanie zadań w kontenerze Docker, aby zapobiec bezpośrednim atakom na system. Tworzenie mechanizmów awaryjnych i logiki ponawiania prób, gdy określone systemy odpowiadają błędem, to kolejny sposób na zapobieganie większym awariom systemowym.
 
-## Człowiek w pętli
+## Człowiek w Pętli
 
-Innym skutecznym sposobem tworzenia godnych zaufania systemów agentów AI jest zastosowanie podejścia Human-in-the-loop. Tworzy to proces, w którym użytkownicy mogą przekazywać opinie agentom podczas działania. Użytkownicy pełnią w zasadzie rolę agentów w systemie wieloagentowym, zatwierdzając lub przerywając działanie procesu.
+Innym skutecznym sposobem budowania zaufanych systemów Agentów AI jest wykorzystanie człowieka w pętli. Tworzy to przepływ, w którym użytkownicy mogą dostarczać agentom opinii podczas ich działania. Użytkownicy zasadniczo działają jako agenci w systemie wieloagentowym, zapewniając zatwierdzenie lub zakończenie procesu.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.pl.png)
+![Człowiek w Pętli](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.pl.png)
 
-Oto fragment kodu wykorzystujący AutoGen, pokazujący, jak ten koncept jest realizowany:
+Oto fragment kodu wykorzystujący AutoGen, który pokazuje, jak ta koncepcja jest wdrażana:
 
 ```python
 
@@ -192,14 +192,18 @@ await Console(stream)
 
 ## Podsumowanie
 
-Tworzenie godnych zaufania agentów AI wymaga starannego projektowania, solidnych środków bezpieczeństwa oraz ciągłej iteracji. Poprzez wdrażanie ustrukturyzowanych systemów meta promptów, zrozumienie potencjalnych zagrożeń i stosowanie strategii minimalizacji ryzyka, deweloperzy mogą tworzyć agentów AI, którzy są zarówno bezpieczni, jak i skuteczni. Dodatkowo, włączenie podejścia human-in-the-loop zapewnia, że agenci AI pozostają zgodni z potrzebami użytkowników, minimalizując ryzyko. W miarę rozwoju AI, utrzymanie proaktywnego podejścia do bezpieczeństwa, prywatności i kwestii etycznych będzie kluczowe dla budowania zaufania i niezawodności systemów opartych na AI.
+Tworzenie zaufanych agentów AI wymaga starannego projektowania, solidnych środków bezpieczeństwa i ciągłej iteracji. Wdrażając strukturalne systemy meta promptów, rozumiejąc potencjalne zagrożenia i stosując strategie minimalizacji ryzyka, programiści mogą tworzyć agentów AI, którzy są zarówno bezpieczni, jak i skuteczni. Dodatkowo, włączenie człowieka w pętli zapewnia, że agenci AI pozostają zgodni z potrzebami użytkowników, minimalizując jednocześnie ryzyko. W miarę rozwoju AI, utrzymanie proaktywnego podejścia do bezpieczeństwa, prywatności i kwestii etycznych będzie kluczowe dla budowania zaufania i niezawodności w systemach opartych na AI.
+
+### Masz więcej pytań dotyczących tworzenia zaufanych Agentów AI?
+
+Dołącz do [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), aby spotkać innych uczących się, uczestniczyć w godzinach konsultacyjnych i uzyskać odpowiedzi na pytania dotyczące Agentów AI.
 
 ## Dodatkowe zasoby
 
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Responsible AI overview</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Evaluation of generative AI models and AI applications</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Safety system messages</a>
-- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Risk Assessment Template</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Przegląd odpowiedzialnego korzystania z AI</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Ocena modeli generatywnych AI i aplikacji AI</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Wiadomości systemowe dotyczące bezpieczeństwa</a>
+- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Szablon oceny ryzyka</a>
 
 ## Poprzednia lekcja
 
@@ -207,7 +211,9 @@ Tworzenie godnych zaufania agentów AI wymaga starannego projektowania, solidnyc
 
 ## Następna lekcja
 
-[Planning Design Pattern](../07-planning-design/README.md)
+[Wzorzec projektowania planowania](../07-planning-design/README.md)
+
+---
 
 **Zastrzeżenie**:  
-Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mimo że dążymy do dokładności, prosimy mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w języku źródłowym powinien być uznawany za źródło autorytatywne. W przypadku informacji o kluczowym znaczeniu zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.
+Ten dokument został przetłumaczony za pomocą usługi tłumaczeniowej AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy wszelkich starań, aby tłumaczenie było precyzyjne, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za wiarygodne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.

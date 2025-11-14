@@ -1,13 +1,13 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e4e06d3b5d6207459a019c05fee5eb4b",
-  "translation_date": "2025-07-12T10:42:14+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:02:49+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "sv"
 }
 -->
-[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.sv.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planeringsdesignmönster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.sv.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klicka på bilden ovan för att se videon för denna lektion)_
 
@@ -15,35 +15,34 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Introduktion
 
-Denna lektion kommer att täcka
+Denna lektion kommer att täcka:
 
-* Att definiera ett tydligt övergripande mål och bryta ner en komplex uppgift i hanterbara deluppgifter.
-* Att utnyttja strukturerad output för mer pålitliga och maskinläsbara svar.
-* Att tillämpa en händelsestyrd metod för att hantera dynamiska uppgifter och oväntade indata.
+* Att definiera ett tydligt övergripande mål och bryta ner en komplex uppgift i hanterbara delar.
+* Att använda strukturerad output för mer tillförlitliga och maskinläsbara svar.
+* Att tillämpa en händelsedriven metod för att hantera dynamiska uppgifter och oväntade indata.
 
 ## Lärandemål
 
-Efter att ha genomfört denna lektion kommer du att ha förståelse för:
+Efter att ha genomfört denna lektion kommer du att förstå:
 
-* Att identifiera och sätta ett övergripande mål för en AI-agent, så att den tydligt vet vad som ska uppnås.
-* Att dela upp en komplex uppgift i hanterbara deluppgifter och organisera dem i en logisk ordning.
-* Att utrusta agenter med rätt verktyg (t.ex. sökverktyg eller dataanalysverktyg), bestämma när och hur de ska användas, samt hantera oväntade situationer som uppstår.
-* Att utvärdera resultat av deluppgifter, mäta prestation och iterera på åtgärder för att förbättra slutresultatet.
+* Hur man identifierar och sätter ett övergripande mål för en AI-agent, så att den tydligt vet vad som ska uppnås.
+* Hur man bryter ner en komplex uppgift i hanterbara deluppgifter och organiserar dem i en logisk sekvens.
+* Hur man utrustar agenter med rätt verktyg (t.ex. sökverktyg eller dataanalysverktyg), beslutar när och hur de ska användas, och hanterar oväntade situationer som uppstår.
+* Hur man utvärderar resultatet av deluppgifter, mäter prestanda och itererar på åtgärder för att förbättra slutresultatet.
 
 ## Definiera det övergripande målet och bryta ner en uppgift
 
 ![Definiera mål och uppgifter](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.sv.png)
 
-De flesta verkliga uppgifter är för komplexa för att hanteras i ett enda steg. En AI-agent behöver ett koncist mål för att styra sin planering och sina handlingar. Till exempel, överväg målet:
+De flesta uppgifter i verkligheten är för komplexa för att hanteras i ett enda steg. En AI-agent behöver ett tydligt mål för att vägleda sin planering och sina handlingar. Till exempel, överväg målet:
 
     "Skapa en 3-dagars resplan."
 
-Även om det är enkelt att uttrycka, behöver det fortfarande förfinas. Ju tydligare målet är, desto bättre kan agenten (och eventuella mänskliga samarbetspartners) fokusera på att uppnå rätt resultat, som att skapa en omfattande resplan med flygalternativ, hotellrekommendationer och aktivitetsförslag.
+Även om det är enkelt att uttrycka, behöver det fortfarande förfinas. Ju tydligare målet är, desto bättre kan agenten (och eventuella mänskliga samarbetspartners) fokusera på att uppnå rätt resultat, såsom att skapa en omfattande resplan med flygalternativ, hotellrekommendationer och aktivitetsförslag.
 
-### Uppgiftsuppdelning
+### Uppgiftsnedbrytning
 
-Stora eller invecklade uppgifter blir mer hanterbara när de delas upp i mindre, målorienterade deluppgifter.
-För exemplet med resplanen kan du dela upp målet i:
+Stora eller komplexa uppgifter blir mer hanterbara när de delas upp i mindre, målinriktade deluppgifter. För exemplet med resplanen kan du bryta ner målet i:
 
 * Flygbokning
 * Hotellbokning
@@ -56,9 +55,9 @@ Denna modulära metod möjliggör också stegvisa förbättringar. Till exempel 
 
 ### Strukturerad output
 
-Stora språkmodeller (LLMs) kan generera strukturerad output (t.ex. JSON) som är enklare för nedströmsagenter eller tjänster att tolka och bearbeta. Detta är särskilt användbart i ett multi-agent-sammanhang, där vi kan agera på dessa uppgifter efter att planeringsoutputen mottagits. Se detta för en snabb översikt.
+Stora språkmodeller (LLMs) kan generera strukturerad output (t.ex. JSON) som är enklare för nedströms agenter eller tjänster att tolka och bearbeta. Detta är särskilt användbart i en multi-agent kontext, där vi kan agera på dessa uppgifter efter att planeringsoutputen har mottagits. För en snabb översikt.
 
-Följande Python-exempel visar en enkel planeringsagent som delar upp ett mål i deluppgifter och genererar en strukturerad plan:
+Följande Python-exempel visar en enkel planeringsagent som bryter ner ett mål i deluppgifter och genererar en strukturerad plan:
 
 ```python
 from pydantic import BaseModel
@@ -153,10 +152,11 @@ I detta exempel tar en Semantic Router Agent emot en användarförfrågan (t.ex.
 
 Planeraren gör sedan följande:
 
-* Tar emot hotellplanen: Planeraren tar användarens meddelande och, baserat på en systemprompt (inklusive tillgängliga agentdetaljer), genererar en strukturerad reseplan.
+* Tar emot hotellplanen: Planeraren tar användarens meddelande och, baserat på en systemprompt (inklusive detaljer om tillgängliga agenter), genererar en strukturerad resplan.
 * Listar agenter och deras verktyg: Agentregistret innehåller en lista över agenter (t.ex. för flyg, hotell, biluthyrning och aktiviteter) tillsammans med de funktioner eller verktyg de erbjuder.
-* Rutter planen till respektive agenter: Beroende på antalet deluppgifter skickar planeraren antingen meddelandet direkt till en dedikerad agent (för enkla uppgifter) eller koordinerar via en gruppchattchef för samarbete mellan flera agenter.
+* Dirigerar planen till respektive agenter: Beroende på antalet deluppgifter skickar planeraren antingen meddelandet direkt till en dedikerad agent (för enstaka uppgifter) eller koordinerar via en gruppchattmanager för multi-agent samarbete.
 * Sammanfattar resultatet: Slutligen sammanfattar planeraren den genererade planen för tydlighet.
+
 Följande Python-kodexempel illustrerar dessa steg:
 
 ```python
@@ -232,7 +232,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Nedan följer output från föregående kod och du kan sedan använda denna strukturerade output för att dirigera till `assigned_agent` och sammanfatta reseplanen för slutanvändaren.
+Vad som följer är output från föregående kod, och du kan sedan använda denna strukturerade output för att dirigera till `assigned_agent` och sammanfatta resplanen för slutanvändaren.
 
 ```json
 {
@@ -263,15 +263,15 @@ Nedan följer output från föregående kod och du kan sedan använda denna stru
 }
 ```
 
-Ett exempel på en notebook med föregående kodexempel finns tillgängligt [här](../../../07-planning-design/07-autogen.ipynb).
+Ett exempel på notebook med föregående kodexempel finns [här](07-autogen.ipynb).
 
 ### Iterativ planering
 
-Vissa uppgifter kräver fram-och-tillbaka eller omplanering, där resultatet av en deluppgift påverkar nästa. Till exempel, om agenten upptäcker ett oväntat dataformat vid flygbokning, kan den behöva anpassa sin strategi innan den går vidare till hotellbokningar.
+Vissa uppgifter kräver en fram-och-tillbaka-process eller omplanering, där resultatet av en deluppgift påverkar nästa. Till exempel, om agenten upptäcker ett oväntat dataformat vid flygbokning, kan den behöva anpassa sin strategi innan den går vidare till hotellbokningar.
 
-Dessutom kan användarfeedback (t.ex. att en människa bestämmer sig för att de föredrar ett tidigare flyg) trigga en partiell omplanering. Denna dynamiska, iterativa metod säkerställer att den slutgiltiga lösningen stämmer överens med verkliga begränsningar och föränderliga användarpreferenser.
+Dessutom kan användarfeedback (t.ex. en människa som bestämmer sig för att de föredrar ett tidigare flyg) utlösa en delvis omplanering. Denna dynamiska, iterativa metod säkerställer att den slutliga lösningen överensstämmer med verkliga begränsningar och föränderliga användarpreferenser.
 
-t.ex. exempel på kod
+Exempel på kod:
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
@@ -292,19 +292,21 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-För mer omfattande planering, kolla in Magnetic One
-
-för att lösa komplexa uppgifter.
+För mer omfattande planering, kolla in Magnetic One för att lösa komplexa uppgifter.
 
 ## Sammanfattning
 
-I denna artikel har vi tittat på ett exempel på hur vi kan skapa en planerare som dynamiskt kan välja de tillgängliga agenter som definierats. Planerarens output delar upp uppgifterna och tilldelar agenter så att de kan utföras. Det förutsätts att agenterna har tillgång till de funktioner/verktyg som krävs för att utföra uppgiften. Utöver agenterna kan du inkludera andra mönster som reflektion, sammanfattare och round robin-chatt för att ytterligare anpassa.
+I denna artikel har vi tittat på ett exempel på hur vi kan skapa en planerare som dynamiskt kan välja de tillgängliga agenter som definierats. Outputen från planeraren bryter ner uppgifterna och tilldelar agenter så att de kan utföras. Det antas att agenterna har tillgång till de funktioner/verktyg som krävs för att utföra uppgiften. Utöver agenterna kan du inkludera andra mönster som reflektion, sammanfattning och round robin-chatt för att ytterligare anpassa.
 
 ## Ytterligare resurser
 
-* AutoGen Magnetic One - Ett generalistiskt multi-agent-system för att lösa komplexa uppgifter och som har uppnått imponerande resultat på flera utmanande agentiska benchmarks. Referens:
+AutoGen Magnetic One - Ett generalistiskt multi-agent system för att lösa komplexa uppgifter och har uppnått imponerande resultat på flera utmanande agentiska benchmarks. Referens:
 
-. I denna implementation skapar orkestratorn en uppgiftsspecifik plan och delegerar dessa uppgifter till de tillgängliga agenterna. Utöver planeringen använder orkestratorn också en spårningsmekanism för att övervaka uppgiftens framsteg och omplanerar vid behov.
+. I denna implementation skapar orkestratorn en uppgiftsspecifik plan och delegerar dessa uppgifter till de tillgängliga agenterna. Utöver planering använder orkestratorn också en spårningsmekanism för att övervaka uppgiftens framsteg och omplanera vid behov.
+
+### Har du fler frågor om planeringsdesignmönstret?
+
+Gå med i [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) för att träffa andra elever, delta i öppet hus och få svar på dina frågor om AI-agenter.
 
 ## Föregående lektion
 
@@ -312,7 +314,9 @@ I denna artikel har vi tittat på ett exempel på hur vi kan skapa en planerare 
 
 ## Nästa lektion
 
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+[Multi-agent designmönster](../08-multi-agent/README.md)
+
+---
 
 **Ansvarsfriskrivning**:  
-Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, vänligen observera att automatiska översättningar kan innehålla fel eller brister. Det ursprungliga dokumentet på dess modersmål bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för några missförstånd eller feltolkningar som uppstår vid användning av denna översättning.
+Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, bör det noteras att automatiska översättningar kan innehålla fel eller brister. Det ursprungliga dokumentet på dess originalspråk bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för eventuella missförstånd eller feltolkningar som uppstår vid användning av denna översättning.

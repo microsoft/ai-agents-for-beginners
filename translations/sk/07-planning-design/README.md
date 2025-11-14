@@ -1,15 +1,64 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e4e06d3b5d6207459a019c05fee5eb4b",
-  "translation_date": "2025-07-12T10:46:08+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:33:54+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "sk"
 }
 -->
-for rýchly prehľad.
+[![Plánovanie dizajnového vzoru](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.sk.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-Nasledujúci úryvok v Pythone demonštruje jednoduchého plánovacieho agenta, ktorý rozkladá cieľ na podúlohy a generuje štruktúrovaný plán:
+> _(Kliknite na obrázok vyššie pre zobrazenie videa k tejto lekcii)_
+
+# Plánovanie dizajnu
+
+## Úvod
+
+Táto lekcia pokryje:
+
+* Definovanie jasného celkového cieľa a rozdelenie komplexnej úlohy na zvládnuteľné časti.
+* Využitie štruktúrovaného výstupu pre spoľahlivejšie a strojovo čitateľné odpovede.
+* Použitie prístupu založeného na udalostiach na zvládanie dynamických úloh a neočakávaných vstupov.
+
+## Ciele učenia
+
+Po dokončení tejto lekcie budete rozumieť:
+
+* Identifikácii a nastaveniu celkového cieľa pre AI agenta, aby jasne vedel, čo je potrebné dosiahnuť.
+* Rozdeleniu komplexnej úlohy na zvládnuteľné podúlohy a ich organizácii do logickej sekvencie.
+* Vybaveniu agentov správnymi nástrojmi (napr. vyhľadávacími nástrojmi alebo nástrojmi na analýzu dát), rozhodnutiu, kedy a ako ich použiť, a zvládaniu neočakávaných situácií.
+* Hodnoteniu výsledkov podúloh, meraniu výkonu a iterácii akcií na zlepšenie konečného výstupu.
+
+## Definovanie celkového cieľa a rozdelenie úlohy
+
+![Definovanie cieľov a úloh](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.sk.png)
+
+Väčšina úloh v reálnom svete je príliš komplexná na to, aby sa dala zvládnuť v jednom kroku. AI agent potrebuje stručný cieľ, ktorý bude riadiť jeho plánovanie a akcie. Napríklad, zvážte cieľ:
+
+    "Vytvorte 3-dňový cestovný itinerár."
+
+Aj keď je jednoduché ho formulovať, stále potrebuje spresnenie. Čím jasnejší je cieľ, tým lepšie sa agent (a akýkoľvek ľudský spolupracovník) môže sústrediť na dosiahnutie správneho výsledku, ako je vytvorenie komplexného itinerára s možnosťami letov, odporúčaniami hotelov a návrhmi aktivít.
+
+### Rozdelenie úlohy
+
+Veľké alebo zložité úlohy sa stávajú zvládnuteľnejšími, keď sa rozdelia na menšie, cielené podúlohy. 
+Pre príklad cestovného itinerára by ste mohli cieľ rozdeliť na:
+
+* Rezervácia letu
+* Rezervácia hotela
+* Prenájom auta
+* Personalizácia
+
+Každú podúlohu potom môžu riešiť špecializovaní agenti alebo procesy. Jeden agent sa môže špecializovať na vyhľadávanie najlepších ponúk letov, iný sa zameriava na rezervácie hotelov a podobne. Koordinujúci alebo „downstream“ agent potom môže tieto výsledky skompilovať do jedného súdržného itinerára pre koncového používateľa.
+
+Tento modulárny prístup tiež umožňuje postupné vylepšenia. Napríklad, môžete pridať špecializovaných agentov na odporúčania jedál alebo návrhy miestnych aktivít a itinerár časom zdokonaľovať.
+
+### Štruktúrovaný výstup
+
+Veľké jazykové modely (LLMs) môžu generovať štruktúrovaný výstup (napr. JSON), ktorý je jednoduchšie analyzovať a spracovať pre downstream agentov alebo služby. To je obzvlášť užitočné v kontexte viacerých agentov, kde môžeme tieto úlohy vykonať po prijatí výstupu plánovania. Pre rýchly prehľad.
+
+Nasledujúci Python kód ukazuje jednoduchého plánovacieho agenta, ktorý rozkladá cieľ na podúlohy a generuje štruktúrovaný plán:
 
 ```python
 from pydantic import BaseModel
@@ -98,17 +147,18 @@ pprint(json.loads(response_content))
 # TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Plánovací agent s multi-agentnou orchestráciou
+### Plánovací agent s orchestráciou viacerých agentov
 
-V tomto príklade Semantic Router Agent prijíma požiadavku používateľa (napr. „Potrebujem plán hotela na moju cestu.“).
+V tomto príklade Semantický Router Agent prijíma požiadavku používateľa (napr. "Potrebujem plán hotela na moju cestu.").
 
 Plánovač potom:
 
-* Prijme plán hotela: Plánovač vezme správu používateľa a na základe systémového promptu (vrátane dostupných detailov agentov) vygeneruje štruktúrovaný cestovný plán.
-* Vypíše agentov a ich nástroje: Registr agentov obsahuje zoznam agentov (napr. pre lety, hotely, požičovne áut a aktivity) spolu s funkciami alebo nástrojmi, ktoré ponúkajú.
-* Smeruje plán príslušným agentom: V závislosti od počtu podúloh plánovač buď pošle správu priamo vyhradenému agentovi (v prípade jednoulohových scenárov), alebo koordinuje cez správcu skupinového chatu pre spoluprácu viacerých agentov.
+* Prijíma plán hotela: Plánovač vezme správu používateľa a na základe systémového promptu (vrátane podrobností o dostupných agentoch) generuje štruktúrovaný cestovný plán.
+* Zoznam agentov a ich nástrojov: Registrácia agentov obsahuje zoznam agentov (napr. pre lety, hotely, prenájom áut a aktivity) spolu s funkciami alebo nástrojmi, ktoré ponúkajú.
+* Posiela plán príslušným agentom: V závislosti od počtu podúloh plánovač buď pošle správu priamo špecializovanému agentovi (pre scenáre s jednou úlohou) alebo koordinuje cez správcu skupinového chatu pre spoluprácu viacerých agentov.
 * Zhrnie výsledok: Nakoniec plánovač zhrnie vygenerovaný plán pre prehľadnosť.
-Nasledujúci príklad kódu v Pythone ilustruje tieto kroky:
+
+Nasledujúci Python kód ukazuje tieto kroky:
 
 ```python
 
@@ -183,7 +233,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Nižšie je výstup z predchádzajúceho kódu, ktorý môžete použiť na smerovanie k `assigned_agent` a zhrnutie cestovného plánu pre koncového používateľa.
+Nasleduje výstup z predchádzajúceho kódu, ktorý môžete použiť na smerovanie k `assigned_agent` a zhrnutie cestovného plánu pre koncového používateľa.
 
 ```json
 {
@@ -214,15 +264,15 @@ Nižšie je výstup z predchádzajúceho kódu, ktorý môžete použiť na smer
 }
 ```
 
-Príklad notebooku s predchádzajúcim kódom je dostupný [tu](../../../07-planning-design/07-autogen.ipynb).
+Príklad notebooku s predchádzajúcim kódom je dostupný [tu](07-autogen.ipynb).
 
 ### Iteratívne plánovanie
 
-Niektoré úlohy vyžadujú spätnú väzbu alebo preplánovanie, kde výsledok jednej podúlohy ovplyvňuje ďalšiu. Napríklad, ak agent objaví neočakávaný formát dát pri rezervácii letov, môže potrebovať upraviť svoju stratégiu pred pokračovaním k rezervácii hotela.
+Niektoré úlohy vyžadujú spätnú väzbu alebo preplánovanie, kde výsledok jednej podúlohy ovplyvňuje ďalšiu. Napríklad, ak agent objaví neočakávaný formát dát pri rezervácii letov, môže potrebovať prispôsobiť svoju stratégiu pred pokračovaním k rezervácii hotela.
 
-Okrem toho spätná väzba používateľa (napr. človek rozhodne, že uprednostňuje skorší let) môže spustiť čiastočné preplánovanie. Tento dynamický, iteratívny prístup zabezpečuje, že konečné riešenie zodpovedá reálnym obmedzeniam a meniacim sa preferenciám používateľa.
+Okrem toho spätná väzba od používateľa (napr. rozhodnutie človeka, že preferuje skorší let) môže spustiť čiastočné preplánovanie. Tento dynamický, iteratívny prístup zabezpečuje, že konečné riešenie zodpovedá reálnym obmedzeniam a meniacim sa preferenciám používateľa.
 
-napr. ukážkový kód
+Príklad kódu:
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
@@ -243,27 +293,31 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-Pre komplexnejšie plánovanie odporúčame Magnetic One
-
-pre riešenie zložitých úloh.
+Pre komplexnejšie plánovanie si pozrite Magnetic One na riešenie zložitých úloh.
 
 ## Zhrnutie
 
-V tomto článku sme si ukázali príklad, ako môžeme vytvoriť plánovač, ktorý dynamicky vyberá dostupných definovaných agentov. Výstup plánovača rozkladá úlohy a priraďuje agentov, aby mohli byť vykonané. Predpokladá sa, že agenti majú prístup k funkciám/nástrojom potrebným na vykonanie úlohy. Okrem agentov môžete zahrnúť aj ďalšie vzory ako reflexia, sumarizátor a round robin chat pre ďalšie prispôsobenie.
+V tomto článku sme sa pozreli na príklad, ako môžeme vytvoriť plánovač, ktorý dokáže dynamicky vybrať dostupných agentov. Výstup plánovača rozkladá úlohy a priraďuje agentov, aby ich mohli vykonať. Predpokladá sa, že agenti majú prístup k funkciám/nástrojom potrebným na vykonanie úlohy. Okrem agentov môžete zahrnúť aj iné vzory, ako reflexiu, sumarizáciu a round robin chat na ďalšie prispôsobenie.
 
 ## Dodatočné zdroje
 
-* AutoGen Magnetic One – Generalistický multi-agentný systém na riešenie zložitých úloh, ktorý dosiahol pôsobivé výsledky na viacerých náročných agentných benchmarkoch. Referencia:
+AutoGen Magnetic One - Generalistický systém viacerých agentov na riešenie zložitých úloh, ktorý dosiahol pôsobivé výsledky na viacerých náročných benchmarkoch agentov. Referencia:
 
-. V tejto implementácii orchestrátor vytvára plán špecifický pre úlohu a deleguje tieto úlohy dostupným agentom. Okrem plánovania orchestrátor tiež využíva mechanizmus sledovania na monitorovanie priebehu úlohy a podľa potreby preplánováva.
+V tejto implementácii orchestrátor vytvára plán špecifický pre úlohu a deleguje tieto úlohy dostupným agentom. Okrem plánovania orchestrátor tiež využíva sledovací mechanizmus na monitorovanie pokroku úlohy a preplánovanie podľa potreby.
+
+### Máte ďalšie otázky o dizajnovom vzore plánovania?
+
+Pripojte sa k [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kde sa môžete stretnúť s ostatnými študentmi, zúčastniť sa konzultačných hodín a získať odpovede na otázky týkajúce sa AI agentov.
 
 ## Predchádzajúca lekcia
 
-[Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)
+[Budovanie dôveryhodných AI agentov](../06-building-trustworthy-agents/README.md)
 
 ## Nasledujúca lekcia
 
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+[Viacagentový dizajnový vzor](../08-multi-agent/README.md)
 
-**Vyhlásenie o zodpovednosti**:  
-Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, prosím, majte na pamäti, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za akékoľvek nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+---
+
+**Upozornenie**:  
+Tento dokument bol preložený pomocou služby AI prekladu [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, prosím, berte na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho rodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.

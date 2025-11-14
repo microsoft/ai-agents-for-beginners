@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "c692a8975d7d5b99575a553de1c5e8a7",
-  "translation_date": "2025-07-12T11:16:39+00:00",
+  "original_hash": "1a008c204051cba8d0e253b75f261c41",
+  "translation_date": "2025-08-29T17:24:26+00:00",
   "source_file": "08-multi-agent/README.md",
   "language_code": "nl"
 }
@@ -11,119 +11,121 @@ CO_OP_TRANSLATOR_METADATA:
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
-# Multi-agent ontwerppatronen
+# Multi-agent ontwerp patronen
 
-Zodra je begint met een project waarbij meerdere agents betrokken zijn, moet je rekening houden met het multi-agent ontwerppatroon. Het is echter niet altijd meteen duidelijk wanneer je moet overstappen op meerdere agents en wat de voordelen daarvan zijn.
+Zodra je begint te werken aan een project met meerdere agents, moet je rekening houden met het multi-agent ontwerp patroon. Het is echter niet altijd meteen duidelijk wanneer je moet overstappen naar multi-agents en wat de voordelen zijn.
 
 ## Introductie
 
 In deze les proberen we de volgende vragen te beantwoorden:
 
-- In welke scenario’s zijn multi-agents toepasbaar?
-- Wat zijn de voordelen van het gebruik van meerdere agents ten opzichte van één enkele agent die meerdere taken uitvoert?
-- Wat zijn de bouwstenen voor het implementeren van het multi-agent ontwerppatroon?
-- Hoe krijgen we inzicht in hoe de verschillende agents met elkaar samenwerken?
+- Wat zijn de scenario's waarin multi-agents toepasbaar zijn?
+- Wat zijn de voordelen van het gebruik van multi-agents in plaats van één enkele agent die meerdere taken uitvoert?
+- Wat zijn de bouwstenen voor het implementeren van het multi-agent ontwerp patroon?
+- Hoe krijgen we inzicht in hoe de verschillende agents met elkaar interageren?
 
 ## Leerdoelen
 
 Na deze les zou je in staat moeten zijn om:
 
-- Scenario’s te herkennen waarin multi-agents toepasbaar zijn
-- De voordelen van het gebruik van meerdere agents ten opzichte van één enkele agent te begrijpen
-- De bouwstenen van het implementeren van het multi-agent ontwerppatroon te doorgronden
+- Scenario's te identificeren waarin multi-agents toepasbaar zijn.
+- De voordelen van het gebruik van multi-agents boven een enkele agent te herkennen.
+- De bouwstenen van het implementeren van het multi-agent ontwerp patroon te begrijpen.
 
 Wat is het grotere geheel?
 
-*Multi-agents zijn een ontwerppatroon waarbij meerdere agents samenwerken om een gemeenschappelijk doel te bereiken*.
+*Multi-agents zijn een ontwerp patroon waarmee meerdere agents kunnen samenwerken om een gemeenschappelijk doel te bereiken.*
 
-Dit patroon wordt veel gebruikt in diverse vakgebieden, zoals robotica, autonome systemen en gedistribueerde computing.
+Dit patroon wordt veel gebruikt in verschillende gebieden, waaronder robotica, autonome systemen en gedistribueerde computing.
 
-## Scenario’s waarin multi-agents toepasbaar zijn
+## Scenario's waarin Multi-Agents toepasbaar zijn
 
-In welke situaties is het zinvol om meerdere agents in te zetten? Het antwoord is dat er veel scenario’s zijn waarin het inzetten van meerdere agents voordelen biedt, vooral in de volgende gevallen:
+Dus, wat zijn goede gebruiksscenario's voor het gebruik van multi-agents? Het antwoord is dat er veel scenario's zijn waarin het inzetten van meerdere agents voordelig is, vooral in de volgende gevallen:
 
-- **Grote werklast**: Grote werklast kan worden opgesplitst in kleinere taken die aan verschillende agents worden toegewezen, waardoor parallelle verwerking en snellere afronding mogelijk zijn. Een voorbeeld hiervan is een grote data-verwerkingstaak.
-- **Complexe taken**: Complexe taken kunnen, net als grote werklast, worden opgedeeld in kleinere subtaken die aan verschillende agents worden toegewezen, waarbij elke agent zich specialiseert in een specifiek onderdeel van de taak. Een goed voorbeeld hiervan is bij autonome voertuigen, waar verschillende agents verantwoordelijk zijn voor navigatie, obstakeldetectie en communicatie met andere voertuigen.
-- **Diverse expertise**: Verschillende agents kunnen verschillende expertise hebben, waardoor ze verschillende aspecten van een taak effectiever kunnen afhandelen dan één enkele agent. Een goed voorbeeld hiervan is de gezondheidszorg, waar agents verantwoordelijk kunnen zijn voor diagnostiek, behandelplannen en patiëntmonitoring.
+- **Grote werklast**: Grote werklasten kunnen worden opgedeeld in kleinere taken en toegewezen aan verschillende agents, waardoor parallelle verwerking en snellere voltooiing mogelijk zijn. Een voorbeeld hiervan is een grote dataverwerkingstaak.
+- **Complexe taken**: Complexe taken, net als grote werklasten, kunnen worden opgesplitst in kleinere subtaken en toegewezen aan verschillende agents, die elk gespecialiseerd zijn in een specifiek aspect van de taak. Een goed voorbeeld hiervan is bij autonome voertuigen, waar verschillende agents navigatie, obstakeldetectie en communicatie met andere voertuigen beheren.
+- **Diverse expertise**: Verschillende agents kunnen diverse expertise hebben, waardoor ze verschillende aspecten van een taak effectiever kunnen aanpakken dan een enkele agent. Een goed voorbeeld hiervan is in de gezondheidszorg, waar agents diagnostiek, behandelplannen en patiëntmonitoring kunnen beheren.
 
-## Voordelen van het gebruik van meerdere agents ten opzichte van één enkele agent
+## Voordelen van het gebruik van Multi-Agents boven een enkele agent
 
-Een systeem met één enkele agent kan goed werken voor eenvoudige taken, maar bij complexere taken biedt het gebruik van meerdere agents verschillende voordelen:
+Een systeem met één agent kan goed werken voor eenvoudige taken, maar voor meer complexe taken kan het gebruik van meerdere agents verschillende voordelen bieden:
 
-- **Specialisatie**: Elke agent kan gespecialiseerd zijn in een specifieke taak. Het ontbreken van specialisatie in één enkele agent betekent dat deze agent alles kan doen, maar mogelijk in de war raakt bij complexe taken. Zo kan het bijvoorbeeld een taak uitvoeren waarvoor het niet het meest geschikt is.
-- **Schaalbaarheid**: Het is makkelijker om systemen op te schalen door meer agents toe te voegen dan door één enkele agent te overladen.
-- **Fouttolerantie**: Als één agent faalt, kunnen andere agents blijven functioneren, wat de betrouwbaarheid van het systeem waarborgt.
+- **Specialisatie**: Elke agent kan gespecialiseerd zijn in een specifieke taak. Gebrek aan specialisatie in een enkele agent betekent dat je een agent hebt die alles kan doen, maar die in de war kan raken bij complexe taken. Het kan bijvoorbeeld een taak uitvoeren waarvoor het niet het meest geschikt is.
+- **Schaalbaarheid**: Het is gemakkelijker om systemen te schalen door meer agents toe te voegen dan door een enkele agent te overbelasten.
+- **Fouttolerantie**: Als één agent faalt, kunnen anderen blijven functioneren, wat zorgt voor systeem betrouwbaarheid.
 
-Laten we een voorbeeld nemen: we boeken een reis voor een gebruiker. Een systeem met één enkele agent zou alle aspecten van het boekingsproces moeten afhandelen, van het zoeken naar vluchten tot het boeken van hotels en huurauto’s. Om dit met één agent te doen, moet deze agent over tools beschikken om al deze taken uit te voeren. Dit kan leiden tot een complex en monolithisch systeem dat moeilijk te onderhouden en op te schalen is. Een multi-agent systeem daarentegen kan verschillende agents hebben die gespecialiseerd zijn in het zoeken naar vluchten, het boeken van hotels en het regelen van huurauto’s. Dit maakt het systeem modulair, makkelijker te onderhouden en schaalbaar.
+Laten we een voorbeeld nemen: stel dat we een reis voor een gebruiker willen boeken. Een systeem met één agent zou alle aspecten van het reisboekingsproces moeten afhandelen, van het vinden van vluchten tot het boeken van hotels en huurauto's. Om dit te bereiken met één agent, zou de agent tools nodig hebben om al deze taken te beheren. Dit kan leiden tot een complex en monolithisch systeem dat moeilijk te onderhouden en te schalen is. Een multi-agent systeem daarentegen kan verschillende agents hebben die gespecialiseerd zijn in het vinden van vluchten, het boeken van hotels en huurauto's. Dit zou het systeem meer modulair, gemakkelijker te onderhouden en schaalbaar maken.
 
-Vergelijk dit met een reisbureau dat wordt gerund als een familiebedrijf versus een reisbureau dat als franchise wordt gerund. Het familiebedrijf heeft één agent die alle aspecten van het boekingsproces afhandelt, terwijl de franchise verschillende agents heeft die elk een deel van het proces verzorgen.
+Vergelijk dit met een reisbureau dat wordt gerund als een familiebedrijf versus een reisbureau dat wordt gerund als een franchise. Het familiebedrijf zou een enkele agent hebben die alle aspecten van het reisboekingsproces afhandelt, terwijl de franchise verschillende agents zou hebben die verschillende aspecten van het reisboekingsproces afhandelen.
 
-## Bouwstenen voor het implementeren van het multi-agent ontwerppatroon
+## Bouwstenen voor het implementeren van het Multi-Agent Ontwerp Patroon
 
-Voordat je het multi-agent ontwerppatroon kunt implementeren, moet je de bouwstenen begrijpen waaruit het patroon bestaat.
+Voordat je het multi-agent ontwerp patroon kunt implementeren, moet je de bouwstenen begrijpen die het patroon vormen.
 
-Laten we dit concreter maken door opnieuw te kijken naar het voorbeeld van het boeken van een reis voor een gebruiker. In dit geval omvatten de bouwstenen:
+Laten we dit concreet maken door opnieuw te kijken naar het voorbeeld van het boeken van een reis voor een gebruiker. In dit geval zouden de bouwstenen zijn:
 
-- **Agentcommunicatie**: Agents voor het zoeken naar vluchten, boeken van hotels en huurauto’s moeten met elkaar communiceren en informatie delen over de voorkeuren en beperkingen van de gebruiker. Je moet beslissen welke protocollen en methoden voor deze communicatie worden gebruikt. Concreet betekent dit dat de agent voor het zoeken naar vluchten moet communiceren met de agent voor het boeken van hotels om ervoor te zorgen dat het hotel wordt geboekt voor dezelfde data als de vlucht. Dit betekent dat de agents informatie over de reisdata van de gebruiker moeten delen, en dat je moet bepalen *welke agents informatie delen en hoe ze dat doen*.
-- **Coördinatiemechanismen**: Agents moeten hun acties coördineren om te zorgen dat de voorkeuren en beperkingen van de gebruiker worden gerespecteerd. Een gebruikersvoorkeur kan zijn dat ze een hotel dicht bij het vliegveld willen, terwijl een beperking kan zijn dat huurauto’s alleen op het vliegveld beschikbaar zijn. Dit betekent dat de agent voor het boeken van hotels moet samenwerken met de agent voor het boeken van huurauto’s om te zorgen dat aan de voorkeuren en beperkingen wordt voldaan. Je moet dus bepalen *hoe de agents hun acties coördineren*.
-- **Agentarchitectuur**: Agents moeten een interne structuur hebben om beslissingen te nemen en te leren van hun interacties met de gebruiker. Dit betekent dat de agent voor het zoeken naar vluchten een interne structuur moet hebben om te beslissen welke vluchten aan de gebruiker worden aanbevolen. Je moet bepalen *hoe de agents beslissingen nemen en leren van hun interacties met de gebruiker*. Een voorbeeld van hoe een agent leert en verbetert, is dat de agent voor het zoeken naar vluchten een machine learning-model kan gebruiken om vluchten aan te bevelen op basis van eerdere voorkeuren van de gebruiker.
-- **Inzicht in multi-agent interacties**: Je moet inzicht hebben in hoe de verschillende agents met elkaar omgaan. Dit betekent dat je tools en technieken nodig hebt om de activiteiten en interacties van agents te volgen. Dit kan in de vorm van logging- en monitoringtools, visualisatietools en prestatiestatistieken.
-- **Multi-agent patronen**: Er zijn verschillende patronen voor het implementeren van multi-agent systemen, zoals gecentraliseerde, gedecentraliseerde en hybride architecturen. Je moet het patroon kiezen dat het beste past bij jouw use case.
-- **Mens in de lus**: In de meeste gevallen is er een mens in de lus en moet je de agents instrueren wanneer ze om menselijke tussenkomst moeten vragen. Dit kan bijvoorbeeld zijn wanneer een gebruiker vraagt om een specifiek hotel of vlucht die de agents niet hebben aanbevolen, of om bevestiging voordat een vlucht of hotel wordt geboekt.
+- **Agentcommunicatie**: Agents voor het vinden van vluchten, het boeken van hotels en huurauto's moeten communiceren en informatie delen over de voorkeuren en beperkingen van de gebruiker. Je moet beslissen over de protocollen en methoden voor deze communicatie. Concreet betekent dit dat de agent voor het vinden van vluchten moet communiceren met de agent voor het boeken van hotels om ervoor te zorgen dat het hotel wordt geboekt voor dezelfde data als de vlucht. Dat betekent dat de agents informatie moeten delen over de reisdata van de gebruiker, wat betekent dat je moet beslissen *welke agents informatie delen en hoe ze informatie delen*.
+- **Coördinatiemechanismen**: Agents moeten hun acties coördineren om ervoor te zorgen dat de voorkeuren en beperkingen van de gebruiker worden nageleefd. Een gebruikersvoorkeur kan zijn dat ze een hotel dicht bij de luchthaven willen, terwijl een beperking kan zijn dat huurauto's alleen beschikbaar zijn op de luchthaven. Dit betekent dat de agent voor het boeken van hotels moet coördineren met de agent voor het boeken van huurauto's om ervoor te zorgen dat de voorkeuren en beperkingen van de gebruiker worden nageleefd. Dit betekent dat je moet beslissen *hoe de agents hun acties coördineren*.
+- **Agentarchitectuur**: Agents moeten een interne structuur hebben om beslissingen te nemen en te leren van hun interacties met de gebruiker. Dit betekent dat de agent voor het vinden van vluchten een interne structuur moet hebben om beslissingen te nemen over welke vluchten aan de gebruiker worden aanbevolen. Dit betekent dat je moet beslissen *hoe de agents beslissingen nemen en leren van hun interacties met de gebruiker*. Voorbeelden van hoe een agent leert en verbetert, kunnen zijn dat de agent voor het vinden van vluchten een machine learning-model gebruikt om vluchten aan de gebruiker aan te bevelen op basis van hun eerdere voorkeuren.
+- **Inzicht in Multi-Agent Interacties**: Je moet inzicht hebben in hoe de verschillende agents met elkaar interageren. Dit betekent dat je tools en technieken nodig hebt om agentactiviteiten en interacties te volgen. Dit kan in de vorm zijn van log- en monitoringtools, visualisatietools en prestatiestatistieken.
+- **Multi-Agent Patronen**: Er zijn verschillende patronen voor het implementeren van multi-agent systemen, zoals gecentraliseerde, gedecentraliseerde en hybride architecturen. Je moet beslissen welk patroon het beste past bij jouw gebruikssituatie.
+- **Mens in de lus**: In de meeste gevallen zal er een mens in de lus zijn en moet je de agents instrueren wanneer ze om menselijke tussenkomst moeten vragen. Dit kan in de vorm zijn van een gebruiker die vraagt om een specifiek hotel of vlucht die de agents niet hebben aanbevolen, of om bevestiging vraagt voordat een vlucht of hotel wordt geboekt.
 
-## Inzicht in multi-agent interacties
+## Inzicht in Multi-Agent Interacties
 
-Het is belangrijk dat je inzicht hebt in hoe de verschillende agents met elkaar samenwerken. Dit inzicht is essentieel voor het debuggen, optimaliseren en waarborgen van de effectiviteit van het systeem. Om dit te bereiken, heb je tools en technieken nodig om de activiteiten en interacties van agents te volgen. Dit kan in de vorm van logging- en monitoringtools, visualisatietools en prestatiestatistieken.
+Het is belangrijk dat je inzicht hebt in hoe de verschillende agents met elkaar interageren. Dit inzicht is essentieel voor debugging, optimalisatie en het waarborgen van de effectiviteit van het algehele systeem. Om dit te bereiken, heb je tools en technieken nodig om agentactiviteiten en interacties te volgen. Dit kan in de vorm zijn van log- en monitoringtools, visualisatietools en prestatiestatistieken.
 
-Bijvoorbeeld, in het geval van het boeken van een reis voor een gebruiker, zou je een dashboard kunnen hebben dat de status van elke agent toont, de voorkeuren en beperkingen van de gebruiker, en de interacties tussen agents. Dit dashboard kan de reisdata van de gebruiker tonen, de vluchten die door de vluchtagent worden aanbevolen, de hotels die door de hotelagent worden aanbevolen, en de huurauto’s die door de huurauto-agent worden aanbevolen. Dit geeft je een duidelijk beeld van hoe de agents met elkaar omgaan en of aan de voorkeuren en beperkingen van de gebruiker wordt voldaan.
+Bijvoorbeeld, in het geval van het boeken van een reis voor een gebruiker, zou je een dashboard kunnen hebben dat de status van elke agent, de voorkeuren en beperkingen van de gebruiker, en de interacties tussen agents toont. Dit dashboard zou de reisdata van de gebruiker, de vluchten aanbevolen door de vluchtagent, de hotels aanbevolen door de hotelagent, en de huurauto's aanbevolen door de huurautoagent kunnen tonen. Dit zou je een duidelijk beeld geven van hoe de agents met elkaar interageren en of de voorkeuren en beperkingen van de gebruiker worden nageleefd.
 
-Laten we elk van deze aspecten wat nader bekijken.
+Laten we elk van deze aspecten meer in detail bekijken.
 
-- **Logging- en monitoringtools**: Je wilt voor elke actie die een agent uitvoert een log bijhouden. Een logitem kan informatie bevatten over welke agent de actie heeft uitgevoerd, welke actie dat was, wanneer de actie is uitgevoerd en wat het resultaat was. Deze informatie kan worden gebruikt voor debuggen, optimaliseren en meer.
-- **Visualisatietools**: Visualisatietools kunnen je helpen om de interacties tussen agents op een intuïtieve manier te zien. Bijvoorbeeld, je zou een grafiek kunnen hebben die de informatiestroom tussen agents toont. Dit kan helpen om knelpunten, inefficiënties en andere problemen in het systeem te identificeren.
-- **Prestatiestatistieken**: Prestatiestatistieken kunnen je helpen om de effectiviteit van het multi-agent systeem te volgen. Bijvoorbeeld, je kunt de tijd bijhouden die nodig is om een taak te voltooien, het aantal voltooide taken per tijdseenheid, en de nauwkeurigheid van de aanbevelingen die door de agents worden gedaan. Deze informatie kan helpen om verbeterpunten te identificeren en het systeem te optimaliseren.
+- **Log- en Monitoringtools**: Je wilt logging uitvoeren voor elke actie die door een agent wordt ondernomen. Een logvermelding kan informatie opslaan over de agent die de actie heeft ondernomen, de actie die is ondernomen, het tijdstip waarop de actie is ondernomen en het resultaat van de actie. Deze informatie kan vervolgens worden gebruikt voor debugging, optimalisatie en meer.
 
-## Multi-agent patronen
+- **Visualisatietools**: Visualisatietools kunnen je helpen de interacties tussen agents op een meer intuïtieve manier te zien. Bijvoorbeeld, je zou een grafiek kunnen hebben die de informatiestroom tussen agents toont. Dit kan je helpen knelpunten, inefficiënties en andere problemen in het systeem te identificeren.
 
-Laten we enkele concrete patronen bekijken die we kunnen gebruiken om multi-agent apps te maken. Hier zijn een paar interessante patronen om te overwegen:
+- **Prestatiestatistieken**: Prestatiestatistieken kunnen je helpen de effectiviteit van het multi-agent systeem te volgen. Bijvoorbeeld, je zou de tijd kunnen volgen die nodig is om een taak te voltooien, het aantal taken dat per tijdseenheid wordt voltooid, en de nauwkeurigheid van de aanbevelingen die door de agents worden gedaan. Deze informatie kan je helpen gebieden voor verbetering te identificeren en het systeem te optimaliseren.
+
+## Multi-Agent Patronen
+
+Laten we enkele concrete patronen bekijken die we kunnen gebruiken om multi-agent apps te maken. Hier zijn enkele interessante patronen die het overwegen waard zijn:
 
 ### Groepschat
 
-Dit patroon is handig wanneer je een groepschat-applicatie wilt maken waarin meerdere agents met elkaar kunnen communiceren. Typische toepassingen van dit patroon zijn teamcollaboratie, klantenservice en sociale netwerken.
+Dit patroon is nuttig wanneer je een groepschat applicatie wilt maken waarin meerdere agents met elkaar kunnen communiceren. Typische gebruiksscenario's voor dit patroon zijn team samenwerking, klantenondersteuning en sociale netwerken.
 
-In dit patroon vertegenwoordigt elke agent een gebruiker in de groepschat, en worden berichten uitgewisseld tussen agents via een berichtprotocol. De agents kunnen berichten naar de groepschat sturen, berichten ontvangen van de groepschat en reageren op berichten van andere agents.
+In dit patroon vertegenwoordigt elke agent een gebruiker in de groepschat, en berichten worden uitgewisseld tussen agents met behulp van een berichtenprotocol. De agents kunnen berichten naar de groepschat sturen, berichten van de groepschat ontvangen en reageren op berichten van andere agents.
 
-Dit patroon kan worden geïmplementeerd met een gecentraliseerde architectuur waarbij alle berichten via een centrale server lopen, of een gedecentraliseerde architectuur waarbij berichten direct worden uitgewisseld.
+Dit patroon kan worden geïmplementeerd met behulp van een gecentraliseerde architectuur waarbij alle berichten via een centrale server worden gerouteerd, of een gedecentraliseerde architectuur waarbij berichten rechtstreeks worden uitgewisseld.
 
-![Group chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.nl.png)
+![Groepschat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.nl.png)
 
 ### Overdracht
 
-Dit patroon is handig wanneer je een applicatie wilt maken waarin meerdere agents taken aan elkaar kunnen overdragen.
+Dit patroon is nuttig wanneer je een applicatie wilt maken waarin meerdere agents taken aan elkaar kunnen overdragen.
 
-Typische toepassingen van dit patroon zijn klantenservice, taakbeheer en workflow-automatisering.
+Typische gebruiksscenario's voor dit patroon zijn klantenondersteuning, taakbeheer en workflow automatisering.
 
-In dit patroon vertegenwoordigt elke agent een taak of een stap in een workflow, en kunnen agents taken aan andere agents overdragen op basis van vooraf gedefinieerde regels.
+In dit patroon vertegenwoordigt elke agent een taak of een stap in een workflow, en agents kunnen taken aan andere agents overdragen op basis van vooraf gedefinieerde regels.
 
-![Hand off](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.nl.png)
+![Overdracht](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.nl.png)
 
 ### Collaboratief filteren
 
-Dit patroon is nuttig wanneer je een applicatie wilt maken waarin meerdere agents samenwerken om aanbevelingen te doen aan gebruikers.
+Dit patroon is nuttig wanneer je een applicatie wilt maken waarin meerdere agents kunnen samenwerken om aanbevelingen aan gebruikers te doen.
 
-Waarom je meerdere agents wilt laten samenwerken, is omdat elke agent verschillende expertise kan hebben en op verschillende manieren kan bijdragen aan het aanbevelingsproces.
+Waarom je zou willen dat meerdere agents samenwerken, is omdat elke agent verschillende expertise kan hebben en op verschillende manieren kan bijdragen aan het aanbevelingsproces.
 
-Laten we een voorbeeld nemen waarbij een gebruiker een aanbeveling wil voor het beste aandeel om te kopen op de aandelenmarkt.
+Laten we een voorbeeld nemen waarin een gebruiker een aanbeveling wil over de beste aandelen om te kopen op de aandelenmarkt.
 
 - **Industrie-expert**: Eén agent kan een expert zijn in een specifieke industrie.
-- **Technische analyse**: Een andere agent kan expert zijn in technische analyse.
-- **Fundamentele analyse**: En weer een andere agent kan expert zijn in fundamentele analyse. Door samen te werken kunnen deze agents een meer uitgebreide aanbeveling aan de gebruiker geven.
+- **Technische analyse**: Een andere agent kan een expert zijn in technische analyse.
+- **Fundamentele analyse**: En een andere agent kan een expert zijn in fundamentele analyse. Door samen te werken, kunnen deze agents een meer uitgebreide aanbeveling aan de gebruiker geven.
 
-![Recommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.nl.png)
+![Aanbeveling](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.nl.png)
 
 ## Scenario: Terugbetalingsproces
 
-Stel je een scenario voor waarin een klant een terugbetaling probeert te krijgen voor een product. Er kunnen behoorlijk wat agents betrokken zijn bij dit proces, maar laten we ze verdelen in agents die specifiek zijn voor dit proces en algemene agents die in andere processen kunnen worden gebruikt.
+Overweeg een scenario waarin een klant probeert een terugbetaling te krijgen voor een product. Er kunnen behoorlijk wat agents betrokken zijn bij dit proces, maar laten we het verdelen tussen agents die specifiek zijn voor dit proces en algemene agents die in andere processen kunnen worden gebruikt.
 
 **Agents specifiek voor het terugbetalingsproces**:
 
@@ -131,35 +133,67 @@ De volgende agents kunnen betrokken zijn bij het terugbetalingsproces:
 
 - **Klantagent**: Deze agent vertegenwoordigt de klant en is verantwoordelijk voor het starten van het terugbetalingsproces.
 - **Verkoperagent**: Deze agent vertegenwoordigt de verkoper en is verantwoordelijk voor het verwerken van de terugbetaling.
-- **Betaalagent**: Deze agent vertegenwoordigt het betaalproces en is verantwoordelijk voor het terugbetalen van de betaling aan de klant.
-- **Oplossingsagent**: Deze agent vertegenwoordigt het oplossingsproces en is verantwoordelijk voor het oplossen van eventuele problemen die tijdens het terugbetalingsproces ontstaan.
-- **Compliance-agent**: Deze agent vertegenwoordigt het compliance-proces en zorgt ervoor dat het terugbetalingsproces voldoet aan regelgeving en beleid.
+- **Betalingsagent**: Deze agent vertegenwoordigt het betalingsproces en is verantwoordelijk voor het terugbetalen van de betaling van de klant.
+- **Resolutieagent**: Deze agent vertegenwoordigt het resolutieproces en is verantwoordelijk voor het oplossen van eventuele problemen die zich voordoen tijdens het terugbetalingsproces.
+- **Complianceagent**: Deze agent vertegenwoordigt het complianceproces en is verantwoordelijk voor het waarborgen dat het terugbetalingsproces voldoet aan regelgeving en beleid.
 
 **Algemene agents**:
 
-Deze agents kunnen door andere delen van je bedrijf worden gebruikt.
+Deze agents kunnen worden gebruikt door andere delen van je bedrijf.
 
-- **Verzendagent**: Deze agent vertegenwoordigt het verzendproces en is verantwoordelijk voor het terugsturen van het product naar de verkoper. Deze agent kan zowel voor het terugbetalingsproces als voor algemene verzending van een product via een aankoop worden gebruikt.
-- **Feedback-agent**: Deze agent vertegenwoordigt het feedbackproces en is verantwoordelijk voor het verzamelen van feedback van de klant. Feedback kan op elk moment worden gegeven, niet alleen tijdens het terugbetalingsproces.
-- **Escalatie-agent**: Deze agent vertegenwoordigt het escalatieproces en is verantwoordelijk voor het doorverwijzen van problemen naar een hoger niveau van ondersteuning. Dit type agent kan in elk proces worden gebruikt waar escalatie nodig is.
-- **Notificatie-agent**: Deze agent vertegenwoordigt het notificatieproces en is verantwoordelijk voor het versturen van meldingen naar de klant in verschillende fasen van het terugbetalingsproces.
-- **Analytics-agent**: Deze agent vertegenwoordigt het analyseproces en is verantwoordelijk voor het analyseren van data gerelateerd aan het terugbetalingsproces.
-- **Audit-agent**: Deze agent vertegenwoordigt het auditproces en is verantwoordelijk voor het controleren van het terugbetalingsproces om te zorgen dat het correct wordt uitgevoerd.
-- **Rapportage-agent**: Deze agent vertegenwoordigt het rapportageproces en is verantwoordelijk voor het genereren van rapporten over het terugbetalingsproces.
-- **Kennisagent**: Deze agent vertegenwoordigt het kennisproces en is verantwoordelijk voor het onderhouden van een kennisbank met informatie over het terugbetalingsproces. Deze agent kan kennis hebben over zowel terugbetalingen als andere delen van je bedrijf.
-- **Beveiligingsagent**: Deze agent vertegenwoordigt het beveiligingsproces en is verantwoordelijk voor het waarborgen van de veiligheid van het terugbetalingsproces.
+- **Verzendagent**: Deze agent vertegenwoordigt het verzendproces en is verantwoordelijk voor het terugsturen van het product naar de verkoper. Deze agent kan zowel worden gebruikt voor het terugbetalingsproces als voor algemene verzending van een product, bijvoorbeeld bij een aankoop.
+- **Feedbackagent**: Deze agent vertegenwoordigt het feedbackproces en is verantwoordelijk voor het verzamelen van feedback van de klant. Feedback kan op elk moment worden verzameld en niet alleen tijdens het terugbetalingsproces.
+- **Escalatieagent**: Deze agent vertegenwoordigt het escalatieproces en is verantwoordelijk voor het escaleren van problemen naar een hoger niveau van ondersteuning. Je kunt dit type agent gebruiken voor elk proces waarin je een probleem moet escaleren.
+- **Notificatieagent**: Deze agent vertegenwoordigt het notificatieproces en is verantwoordelijk voor het verzenden van notificaties naar de klant in verschillende stadia van het terugbetalingsproces.
+- **Analyticsagent**: Deze agent vertegenwoordigt het analyticsproces en is verantwoordelijk voor het analyseren van gegevens met betrekking tot het terugbetalingsproces.
+- **Auditagent**: Deze agent vertegenwoordigt het auditproces en is verantwoordelijk voor het auditen van het terugbetalingsproces om ervoor te zorgen dat het correct wordt uitgevoerd.
+- **Rapportageagent**: Deze agent vertegenwoordigt het rapportageproces en is verantwoordelijk voor het genereren van rapporten over het terugbetalingsproces.
+- **Kennisagent**: Deze agent vertegenwoordigt het kennisproces en is verantwoordelijk voor het onderhouden van een kennisbank met informatie met betrekking tot het terugbetalingsproces. Deze agent kan zowel kennis hebben over terugbetalingen als andere delen van je bedrijf.
+- **Beveiligingsagent**: Deze agent vertegenwoordigt het beveiligingsproces en is verantwoordelijk voor het waarborgen van de beveiliging van het terugbetalingsproces.
 - **Kwaliteitsagent**: Deze agent vertegenwoordigt het kwaliteitsproces en is verantwoordelijk voor het waarborgen van de kwaliteit van het terugbetalingsproces.
 
-Er zijn dus behoorlijk wat agents genoemd, zowel voor het specifieke terugbetalingsproces als voor de algemene agents die in andere delen van je bedrijf kunnen worden ingezet. Hopelijk geeft dit je een idee hoe je kunt bepalen welke agents je gebruikt in je multi-agent systeem.
+Er zijn behoorlijk wat agents genoemd, zowel voor het specifieke terugbetalingsproces als voor de algemene agents die in andere delen van je bedrijf kunnen worden gebruikt. Hopelijk geeft dit je een idee van hoe je kunt beslissen welke agents je wilt gebruiken in je multi-agent systeem.
 
 ## Opdracht
-## Vorige les
+## Ontwerp een multi-agent systeem voor een klantenondersteuningsproces. Identificeer de betrokken agents in het proces, hun rollen en verantwoordelijkheden, en hoe ze met elkaar samenwerken. Overweeg zowel agents die specifiek zijn voor het klantenondersteuningsproces als algemene agents die in andere delen van je bedrijf kunnen worden gebruikt.
+
+> Denk goed na voordat je de onderstaande oplossing leest, je hebt misschien meer agents nodig dan je denkt.
+
+> TIP: Denk aan de verschillende fasen van het klantenondersteuningsproces en overweeg ook agents die nodig zijn voor elk systeem.
+
+## Oplossing
+
+[Oplossing](./solution/solution.md)
+
+## Kennisvragen
+
+Vraag: Wanneer moet je overwegen om multi-agents te gebruiken?
+
+- [ ] A1: Wanneer je een kleine werklast en een eenvoudige taak hebt.
+- [ ] A2: Wanneer je een grote werklast hebt.
+- [ ] A3: Wanneer je een eenvoudige taak hebt.
+
+[Oplossing quiz](./solution/solution-quiz.md)
+
+## Samenvatting
+
+In deze les hebben we gekeken naar het multi-agent ontwerpmodel, inclusief de scenario's waarin multi-agents toepasbaar zijn, de voordelen van het gebruik van multi-agents ten opzichte van een enkele agent, de bouwstenen voor het implementeren van het multi-agent ontwerpmodel, en hoe je inzicht kunt krijgen in hoe de verschillende agents met elkaar samenwerken.
+
+### Meer vragen over het Multi-Agent Ontwerpmodel?
+
+Word lid van de [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) om andere leerlingen te ontmoeten, spreekuren bij te wonen en je vragen over AI Agents beantwoord te krijgen.
+
+## Aanvullende bronnen
+
+## Vorige Les
 
 [Planning Ontwerp](../07-planning-design/README.md)
 
-## Volgende les
+## Volgende Les
 
-[Metacognitie in AI-agenten](../09-metacognition/README.md)
+[Metacognitie in AI Agents](../09-metacognition/README.md)
+
+---
 
 **Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsdienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet als de gezaghebbende bron worden beschouwd. Voor cruciale informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.

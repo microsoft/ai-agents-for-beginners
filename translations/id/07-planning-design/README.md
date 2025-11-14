@@ -1,269 +1,64 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e4e06d3b5d6207459a019c05fee5eb4b",
-  "translation_date": "2025-07-12T10:44:25+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:18:47+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "id"
 }
 -->
-untuk gambaran singkat.
+[![Perencanaan Pola Desain](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.id.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-Cuplikan Python berikut menunjukkan agen perencanaan sederhana yang memecah tujuan menjadi subtugas dan menghasilkan rencana terstruktur:
+> _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
-```python
-from pydantic import BaseModel
-from enum import Enum
-from typing import List, Optional, Union
-import json
-import os
-from typing import Optional
-from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+# Perencanaan Desain
 
-class AgentEnum(str, Enum):
-    FlightBooking = "flight_booking"
-    HotelBooking = "hotel_booking"
-    CarRental = "car_rental"
-    ActivitiesBooking = "activities_booking"
-    DestinationInfo = "destination_info"
-    DefaultAgent = "default_agent"
-    GroupChatManager = "group_chat_manager"
+## Pendahuluan
 
-# Travel SubTask Model
-class TravelSubTask(BaseModel):
-    task_details: str
-    assigned_agent: AgentEnum  # we want to assign the task to the agent
+Pelajaran ini akan membahas:
 
-class TravelPlan(BaseModel):
-    main_task: str
-    subtasks: List[TravelSubTask]
-    is_greeting: bool
+* Mendefinisikan tujuan keseluruhan yang jelas dan memecah tugas kompleks menjadi tugas yang dapat dikelola.
+* Memanfaatkan output terstruktur untuk respons yang lebih andal dan dapat dibaca oleh mesin.
+* Menerapkan pendekatan berbasis peristiwa untuk menangani tugas dinamis dan masukan yang tidak terduga.
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # To authenticate with the model you will need to generate a personal access token (PAT) in your GitHub settings.
-    # Create your PAT token by following instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
-)
+## Tujuan Pembelajaran
 
-# Define the user message
-messages = [
-    SystemMessage(content="""You are an planner agent.
-    Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
-{'main_task': 'Plan a family trip from Singapore to Melbourne.',
- 'subtasks': [{'assigned_agent': 'flight_booking',
-               'task_details': 'Book round-trip flights from Singapore to '
-                               'Melbourne.'}
-    Below are the available agents specialised in different tasks:
-    - FlightBooking: For booking flights and providing flight information
-    - HotelBooking: For booking hotels and providing hotel information
-    - CarRental: For booking cars and providing car rental information
-    - ActivitiesBooking: For booking activities and providing activity information
-    - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+Setelah menyelesaikan pelajaran ini, Anda akan memahami tentang:
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+* Mengidentifikasi dan menetapkan tujuan keseluruhan untuk agen AI, memastikan agen tersebut tahu dengan jelas apa yang harus dicapai.
+* Memecah tugas kompleks menjadi subtugas yang dapat dikelola dan mengorganisasikannya ke dalam urutan yang logis.
+* Membekali agen dengan alat yang tepat (misalnya, alat pencarian atau analitik data), memutuskan kapan dan bagaimana alat tersebut digunakan, serta menangani situasi tak terduga yang muncul.
+* Mengevaluasi hasil subtugas, mengukur kinerja, dan mengulangi tindakan untuk meningkatkan output akhir.
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+## Mendefinisikan Tujuan Keseluruhan dan Memecah Tugas
 
-pprint(json.loads(response_content))
+![Mendefinisikan Tujuan dan Tugas](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.id.png)
 
-# # Ensure the response content is a valid JSON string before loading it
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# if response_content is None:
-#     raise ValueError("Response content is not a valid JSON string")
+Sebagian besar tugas di dunia nyata terlalu kompleks untuk diselesaikan dalam satu langkah. Agen AI membutuhkan tujuan yang ringkas untuk memandu perencanaan dan tindakannya. Sebagai contoh, pertimbangkan tujuan:
 
-# # Print the response content after loading it as JSON
-# pprint(json.loads(response_content))
+    "Buat rencana perjalanan selama 3 hari."
 
-# Validate the response content with the MathReasoning model
-# TravelPlan.model_validate(json.loads(response_content))
-```
+Meskipun sederhana untuk dinyatakan, tujuan ini masih membutuhkan penyempurnaan. Semakin jelas tujuannya, semakin baik agen (dan kolaborator manusia) dapat fokus untuk mencapai hasil yang tepat, seperti membuat rencana perjalanan yang komprehensif dengan opsi penerbangan, rekomendasi hotel, dan saran aktivitas.
 
-### Agen Perencanaan dengan Orkestrasi Multi-Agen
+### Pemecahan Tugas
 
-Dalam contoh ini, Semantic Router Agent menerima permintaan pengguna (misalnya, "Saya butuh rencana hotel untuk perjalanan saya.").
+Tugas besar atau rumit menjadi lebih mudah dikelola ketika dipecah menjadi subtugas kecil yang berorientasi pada tujuan.
+Untuk contoh rencana perjalanan, Anda dapat memecah tujuan menjadi:
 
-Perencana kemudian:
+* Pemesanan Penerbangan
+* Pemesanan Hotel
+* Penyewaan Mobil
+* Personalisasi
 
-* Menerima Rencana Hotel: Perencana mengambil pesan pengguna dan, berdasarkan prompt sistem (termasuk detail agen yang tersedia), menghasilkan rencana perjalanan terstruktur.
-* Mendaftar Agen dan Alat Mereka: Registri agen memegang daftar agen (misalnya untuk penerbangan, hotel, sewa mobil, dan aktivitas) beserta fungsi atau alat yang mereka tawarkan.
-* Mengarahkan Rencana ke Agen Terkait: Tergantung pada jumlah subtugas, perencana mengirim pesan langsung ke agen khusus (untuk skenario tugas tunggal) atau mengoordinasikan melalui manajer obrolan grup untuk kolaborasi multi-agen.
-* Merangkum Hasil: Akhirnya, perencana merangkum rencana yang dihasilkan untuk kejelasan.
-Kode Python berikut mengilustrasikan langkah-langkah ini:
+Setiap subtugas kemudian dapat ditangani oleh agen atau proses khusus. Satu agen mungkin mengkhususkan diri dalam mencari penawaran penerbangan terbaik, agen lain fokus pada pemesanan hotel, dan seterusnya. Agen pengoordinasi atau agen "downstream" kemudian dapat menggabungkan hasil ini menjadi satu rencana perjalanan yang kohesif untuk pengguna akhir.
 
-```python
+Pendekatan modular ini juga memungkinkan peningkatan secara bertahap. Misalnya, Anda dapat menambahkan agen khusus untuk Rekomendasi Makanan atau Saran Aktivitas Lokal dan menyempurnakan rencana perjalanan dari waktu ke waktu.
 
-from pydantic import BaseModel
+### Output Terstruktur
 
-from enum import Enum
-from typing import List, Optional, Union
+Model Bahasa Besar (LLM) dapat menghasilkan output terstruktur (misalnya JSON) yang lebih mudah untuk diproses oleh agen atau layanan downstream. Hal ini sangat berguna dalam konteks multi-agen, di mana kita dapat menjalankan tugas-tugas ini setelah output perencanaan diterima. Untuk gambaran singkat, lihat
 
-class AgentEnum(str, Enum):
-    FlightBooking = "flight_booking"
-    HotelBooking = "hotel_booking"
-    CarRental = "car_rental"
-    ActivitiesBooking = "activities_booking"
-    DestinationInfo = "destination_info"
-    DefaultAgent = "default_agent"
-    GroupChatManager = "group_chat_manager"
-
-# Travel SubTask Model
-
-class TravelSubTask(BaseModel):
-    task_details: str
-    assigned_agent: AgentEnum # we want to assign the task to the agent
-
-class TravelPlan(BaseModel):
-    main_task: str
-    subtasks: List[TravelSubTask]
-    is_greeting: bool
-import json
-import os
-from typing import Optional
-
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
-
-# Create the client with type-checked environment variables
-
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-)
-
-from pprint import pprint
-
-# Define the user message
-
-messages = [
-    SystemMessage(content="""You are an planner agent.
-    Your job is to decide which agents to run based on the user's request.
-    Below are the available agents specialized in different tasks:
-    - FlightBooking: For booking flights and providing flight information
-    - HotelBooking: For booking hotels and providing hotel information
-    - CarRental: For booking cars and providing car rental information
-    - ActivitiesBooking: For booking activities and providing activity information
-    - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
-
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
-
-# Ensure the response content is a valid JSON string before loading it
-
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
-
-# Print the response content after loading it as JSON
-
-pprint(json.loads(response_content))
-```
-
-Berikut adalah output dari kode sebelumnya dan Anda dapat menggunakan output terstruktur ini untuk mengarahkan ke `assigned_agent` dan merangkum rencana perjalanan kepada pengguna akhir.
-
-```json
-{
-    "is_greeting": "False",
-    "main_task": "Plan a family trip from Singapore to Melbourne.",
-    "subtasks": [
-        {
-            "assigned_agent": "flight_booking",
-            "task_details": "Book round-trip flights from Singapore to Melbourne."
-        },
-        {
-            "assigned_agent": "hotel_booking",
-            "task_details": "Find family-friendly hotels in Melbourne."
-        },
-        {
-            "assigned_agent": "car_rental",
-            "task_details": "Arrange a car rental suitable for a family of four in Melbourne."
-        },
-        {
-            "assigned_agent": "activities_booking",
-            "task_details": "List family-friendly activities in Melbourne."
-        },
-        {
-            "assigned_agent": "destination_info",
-            "task_details": "Provide information about Melbourne as a travel destination."
-        }
-    ]
-}
-```
-
-Notebook contoh dengan kode sebelumnya tersedia [di sini](../../../07-planning-design/07-autogen.ipynb).
-
-### Perencanaan Iteratif
-
-Beberapa tugas memerlukan proses bolak-balik atau perencanaan ulang, di mana hasil dari satu subtugas memengaruhi subtugas berikutnya. Misalnya, jika agen menemukan format data yang tidak terduga saat memesan penerbangan, agen mungkin perlu menyesuaikan strateginya sebelum melanjutkan ke pemesanan hotel.
-
-Selain itu, umpan balik pengguna (misalnya manusia yang memutuskan mereka lebih memilih penerbangan lebih awal) dapat memicu perencanaan ulang sebagian. Pendekatan dinamis dan iteratif ini memastikan solusi akhir sesuai dengan kendala dunia nyata dan preferensi pengguna yang berkembang.
-
-contoh kode
-
-```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. same as previous code and pass on the user history, current plan
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
-    Your job is to decide which agents to run based on the user's request.
-    Below are the available agents specialized in different tasks:
-    - FlightBooking: For booking flights and providing flight information
-    - HotelBooking: For booking hotels and providing hotel information
-    - CarRental: For booking cars and providing car rental information
-    - ActivitiesBooking: For booking activities and providing activity information
-    - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
-# .. re-plan and send the tasks to respective agents
-```
-
-Untuk perencanaan yang lebih komprehensif, coba lihat Magnetic One
-
-untuk menyelesaikan tugas kompleks.
-
-## Ringkasan
-
-Dalam artikel ini kita telah melihat contoh bagaimana kita dapat membuat perencana yang dapat secara dinamis memilih agen yang tersedia yang telah didefinisikan. Output dari Perencana memecah tugas dan menetapkan agen agar dapat dieksekusi. Diasumsikan agen memiliki akses ke fungsi/alat yang diperlukan untuk melaksanakan tugas. Selain agen, Anda dapat memasukkan pola lain seperti refleksi, perangkuman, dan obrolan round robin untuk menyesuaikan lebih lanjut.
-
-## Sumber Tambahan
-
-* AutoGen Magnetic One - Sistem multi-agen generalis untuk menyelesaikan tugas kompleks dan telah mencapai hasil mengesankan pada berbagai tolok ukur agen yang menantang. Referensi:
-
-. Dalam implementasi ini, orkestrator membuat rencana spesifik tugas dan mendelegasikan tugas-tugas ini ke agen yang tersedia. Selain merencanakan, orkestrator juga menggunakan mekanisme pelacakan untuk memantau kemajuan tugas dan merencanakan ulang sesuai kebutuhan.
-
-## Pelajaran Sebelumnya
-
-[Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)
-
-## Pelajaran Berikutnya
-
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+---
 
 **Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diingat bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sahih. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
+Dokumen ini telah diterjemahkan menggunakan layanan penerjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berusaha untuk memberikan hasil yang akurat, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang otoritatif. Untuk informasi yang bersifat kritis, disarankan menggunakan jasa penerjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.

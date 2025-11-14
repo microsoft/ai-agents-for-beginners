@@ -1,15 +1,64 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e4e06d3b5d6207459a019c05fee5eb4b",
-  "translation_date": "2025-07-12T10:47:04+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:44:42+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "sr"
 }
 -->
-za brz pregled.
+[![Планирање дизајн шаблона](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.sr.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-Sledeći Python primer prikazuje jednostavnog planerskog agenta koji razlaže cilj na podzadatke i generiše strukturirani plan:
+> _(Кликните на слику изнад да бисте погледали видео овог часа)_
+
+# Планирање дизајна
+
+## Увод
+
+Овај час ће обухватити:
+
+* Дефинисање јасног општег циља и разлагање сложеног задатка на управљиве задатке.
+* Коришћење структурисаног излаза за поузданије и машински читљиве одговоре.
+* Примена приступа заснованог на догађајима за управљање динамичким задацима и неочекиваним уносима.
+
+## Циљеви учења
+
+Након завршетка овог часа, имаћете разумевање о:
+
+* Идентификовању и постављању општег циља за AI агента, осигуравајући да јасно зна шта треба да постигне.
+* Разлагању сложеног задатка на управљиве подзадатке и организовању у логичан редослед.
+* Опремању агената правим алатима (нпр. алати за претрагу или алати за анализу података), одлучивању када и како их користити, и управљању неочекиваним ситуацијама које се јављају.
+* Процени резултата подзадатака, мерењу учинка и итерацији акција ради побољшања коначног резултата.
+
+## Дефинисање општег циља и разлагање задатка
+
+![Дефинисање циљева и задатака](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.sr.png)
+
+Већина задатака из стварног света је превише сложена да би се решавала у једном кораку. AI агенту је потребан концизан циљ који ће водити његово планирање и акције. На пример, размотрите циљ:
+
+    "Генеришите тродневни план путовања."
+
+Иако је једноставно изречен, и даље захтева прецизирање. Што је циљ јаснији, то боље агент (и било који људски сарадници) могу да се фокусирају на постизање правог резултата, као што је креирање свеобухватног плана са опцијама за летове, препорукама за хотеле и предлозима активности.
+
+### Разлагање задатка
+
+Велики или сложени задаци постају управљивији када се поделе на мање, циљно оријентисане подзадатке.  
+За пример плана путовања, можете разложити циљ на:
+
+* Резервација летова
+* Резервација хотела
+* Изнајмљивање аутомобила
+* Персонализација
+
+Сваки подзадатак може бити решен од стране посебних агената или процеса. Један агент може бити специјализован за претрагу најбољих понуда за летове, други за резервацију хотела, и тако даље. Координирајући или „низводни“ агент може затим саставити ове резултате у један кохезиван план за крајњег корисника.
+
+Овај модуларни приступ такође омогућава постепена побољшања. На пример, можете додати специјализоване агенте за препоруке хране или предлоге локалних активности и временом усавршавати план путовања.
+
+### Структурисан излаз
+
+Модели великог језика (LLMs) могу генерисати структурисан излаз (нпр. JSON) који је лакши за парсирање и обраду од стране низводних агената или услуга. Ово је посебно корисно у контексту више агената, где можемо деловати на овим задацима након што се добије излаз планирања. Погледајте ово за брз преглед.
+
+Следећи Python код приказује једноставан агент за планирање који разлаже циљ на подзадатке и генерише структурисан план:
 
 ```python
 from pydantic import BaseModel
@@ -98,17 +147,17 @@ pprint(json.loads(response_content))
 # TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Planerski agent sa orkestracijom više agenata
+### Агент за планирање са оркестрацијом више агената
 
-U ovom primeru, Semantic Router Agent prima korisnički zahtev (npr. "Treba mi plan hotela za moje putovanje.").
+У овом примеру, Семантички рутер агент прима кориснички захтев (нпр. "Потребан ми је план за хотел за моје путовање.").
 
-Planer zatim:
+Планер затим:
 
-* Prima plan hotela: Planer uzima korisničku poruku i, na osnovu sistemskog upita (uključujući dostupne detalje agenata), generiše strukturirani plan putovanja.
-* Navodi agente i njihove alate: Registar agenata sadrži listu agenata (npr. za letove, hotele, iznajmljivanje automobila i aktivnosti) zajedno sa funkcijama ili alatima koje oni nude.
-* Usmerava plan odgovarajućim agentima: U zavisnosti od broja podzadatka, planer ili šalje poruku direktno posvećenom agentu (za scenarije sa jednim zadatkom) ili koordinira preko menadžera grupnog četa za saradnju više agenata.
-* Sumira ishod: Na kraju, planer sumira generisani plan radi jasnoće.
-Sledeći Python kod ilustruje ove korake:
+* Прима план за хотел: Планер узима корисничку поруку и, на основу системског упутства (укључујући детаље доступних агената), генерише структурисан план путовања.
+* Наводи агенте и њихове алате: Регистар агената садржи листу агената (нпр. за летове, хотеле, изнајмљивање аутомобила и активности) заједно са функцијама или алатима које нуде.
+* Упућује план одговарајућим агентима: У зависности од броја подзадатака, планер или директно шаље поруку посвећеном агенту (за сценарије са једним задатком) или координира преко менаџера групног чета за сарадњу више агената.
+* Сажима резултат: На крају, планер сажима генерисани план ради јасноће.  
+Следећи Python код илуструје ове кораке:
 
 ```python
 
@@ -183,7 +232,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Ispod je izlaz iz prethodnog koda, koji zatim možete koristiti da usmerite na `assigned_agent` i sumirate plan putovanja krajnjem korisniku.
+Шта следи је излаз из претходног кода, а затим можете користити овај структурисан излаз за упућивање на `assigned_agent` и сажимање плана путовања за крајњег корисника.
 
 ```json
 {
@@ -214,15 +263,15 @@ Ispod je izlaz iz prethodnog koda, koji zatim možete koristiti da usmerite na `
 }
 ```
 
-Primer beležnice sa prethodnim kodom dostupan je [ovde](../../../07-planning-design/07-autogen.ipynb).
+Пример нотебоок-а са претходним кодом доступан је [овде](07-autogen.ipynb).
 
-### Iterativno planiranje
+### Итеративно планирање
 
-Neki zadaci zahtevaju uzajamnu interakciju ili ponovno planiranje, gde ishod jednog podzadatka utiče na sledeći. Na primer, ako agent otkrije neočekivani format podataka prilikom rezervacije letova, možda će morati da prilagodi svoju strategiju pre nego što pređe na rezervaciju hotela.
+Неки задаци захтевају интеракцију или поновно планирање, где исход једног подзадатка утиче на следећи. На пример, ако агент открије неочекивани формат података приликом резервације летова, можда ће морати да прилагоди своју стратегију пре него што пређе на резервацију хотела.
 
-Pored toga, povratne informacije korisnika (npr. kada čovek odluči da preferira raniji let) mogu pokrenuti delimično ponovno planiranje. Ovaj dinamični, iterativni pristup osigurava da konačno rešenje bude usklađeno sa stvarnim ograničenjima i promenljivim preferencijama korisnika.
+Поред тога, повратна информација корисника (нпр. одлука да се изабере ранији лет) може покренути делимично поновно планирање. Овај динамички, итеративни приступ осигурава да коначно решење буде усклађено са стварним ограничењима и променљивим корисничким преференцијама.
 
-npr. primer koda
+Пример кода:
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
@@ -243,27 +292,31 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-Za sveobuhvatnije planiranje pogledajte Magnetic One
+За свеобухватније планирање погледајте Magnetic One за решавање сложених задатака.
 
-za rešavanje složenih zadataka.
+## Резиме
 
-## Rezime
+У овом чланку смо погледали пример како можемо креирати планер који може динамички изабрати доступне дефинисане агенте. Излаз планера разлаже задатке и додељује агенте како би могли бити извршени. Претпоставља се да агенти имају приступ функцијама/алатима који су потребни за обављање задатка. Поред агената, можете укључити и друге шаблоне као што су рефлексија, сажимач и ротација чета ради додатног прилагођавања.
 
-U ovom članku smo pogledali primer kako možemo kreirati planera koji dinamički bira dostupne agente. Izlaz planera razlaže zadatke i dodeljuje agente kako bi se oni mogli izvršiti. Pretpostavlja se da agenti imaju pristup funkcijama/alatima potrebnim za izvršenje zadatka. Pored agenata, možete uključiti i druge obrasce kao što su refleksija, sumiranje i rotacioni chat za dodatnu prilagođenost.
+## Додатни ресурси
 
-## Dodatni resursi
+AutoGen Magnetic One - Општи систем више агената за решавање сложених задатака који је постигао импресивне резултате на више изазовних бенчмаркова за агенте. Референца:
 
-* AutoGen Magnetic One - Generalistički multi-agentni sistem za rešavanje složenih zadataka koji je postigao impresivne rezultate na više zahtevnih agentnih benchmark testova. Referenca:
+У овој имплементацији оркестратор креира план специфичан за задатак и делегира те задатке доступним агентима. Поред планирања, оркестратор такође користи механизам праћења за надгледање напретка задатка и поновно планирање по потреби.
 
-. U ovoj implementaciji orkestrator kreira plan specifičan za zadatak i delegira te zadatke dostupnim agentima. Pored planiranja, orkestrator koristi i mehanizam praćenja za nadzor napretka zadatka i po potrebi ponovo planira.
+### Имате још питања о шаблону за планирање?
 
-## Prethodna lekcija
+Придружите се [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) да бисте се упознали са другим ученицима, присуствовали консултацијама и добили одговоре на ваша питања о AI агентима.
 
-[Izgradnja pouzdanih AI agenata](../06-building-trustworthy-agents/README.md)
+## Претходни час
 
-## Sledeća lekcija
+[Изградња поузданих AI агената](../06-building-trustworthy-agents/README.md)
 
-[Multi-agentni dizajn obrazac](../08-multi-agent/README.md)
+## Следећи час
+
+[Шаблон дизајна више агената](../08-multi-agent/README.md)
+
+---
 
 **Одрицање од одговорности**:  
-Овај документ је преведен коришћењем AI преводилачке услуге [Co-op Translator](https://github.com/Azure/co-op-translator). Иако се трудимо да превод буде тачан, молимо вас да имате у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати ауторитетним извором. За критичне информације препоручује се професионални људски превод. Нисмо одговорни за било каква неспоразума или погрешна тумачења која произилазе из коришћења овог превода.
+Овај документ је преведен коришћењем услуге за превођење помоћу вештачке интелигенције [Co-op Translator](https://github.com/Azure/co-op-translator). Иако се трудимо да обезбедимо тачност, молимо вас да имате у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати ауторитативним извором. За критичне информације препоручује се професионални превод од стране људи. Не преузимамо одговорност за било каква погрешна тумачења или неспоразуме који могу настати услед коришћења овог превода.

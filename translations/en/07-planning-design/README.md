@@ -1,13 +1,62 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e4e06d3b5d6207459a019c05fee5eb4b",
-  "translation_date": "2025-07-12T10:34:37+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T14:00:36+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "en"
 }
 -->
-for a quick overview.
+[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.en.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+
+> _(Click the image above to view video of this lesson)_
+
+# Planning Design
+
+## Introduction
+
+This lesson will cover:
+
+* Defining a clear overall goal and breaking a complex task into manageable tasks.
+* Leveraging structured output for more reliable and machine-readable responses.
+* Applying an event-driven approach to handle dynamic tasks and unexpected inputs.
+
+## Learning Goals
+
+After completing this lesson, you will understand:
+
+* How to identify and set an overall goal for an AI agent, ensuring it clearly knows what needs to be achieved.
+* How to break down a complex task into manageable subtasks and organize them into a logical sequence.
+* How to equip agents with the right tools (e.g., search tools or data analytics tools), decide when and how they are used, and handle unexpected situations that arise.
+* How to evaluate subtask outcomes, measure performance, and iterate on actions to improve the final output.
+
+## Defining the Overall Goal and Breaking Down a Task
+
+![Defining Goals and Tasks](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.en.png)
+
+Most real-world tasks are too complex to tackle in a single step. An AI agent needs a concise objective to guide its planning and actions. For example, consider the goal:
+
+    "Generate a 3-day travel itinerary."
+
+While it is simple to state, it still needs refinement. The clearer the goal, the better the agent (and any human collaborators) can focus on achieving the right outcome, such as creating a comprehensive itinerary with flight options, hotel recommendations, and activity suggestions.
+
+### Task Decomposition
+
+Large or intricate tasks become more manageable when split into smaller, goal-oriented subtasks.
+For the travel itinerary example, you could decompose the goal into:
+
+* Flight Booking
+* Hotel Booking
+* Car Rental
+* Personalization
+
+Each subtask can then be tackled by dedicated agents or processes. One agent might specialize in searching for the best flight deals, another focuses on hotel bookings, and so on. A coordinating or “downstream” agent can then compile these results into one cohesive itinerary for the end user.
+
+This modular approach also allows for incremental enhancements. For instance, you could add specialized agents for Food Recommendations or Local Activity Suggestions and refine the itinerary over time.
+
+### Structured Output
+
+Large Language Models (LLMs) can generate structured output (e.g., JSON) that is easier for downstream agents or services to parse and process. This is especially useful in a multi-agent context, where we can act on these tasks after the planning output is received. Refer to this for a quick overview.
 
 The following Python snippet demonstrates a simple planning agent decomposing a goal into subtasks and generating a structured plan:
 
@@ -108,6 +157,7 @@ The planner then:
 * Lists Agents and Their Tools: The agent registry holds a list of agents (e.g., for flight, hotel, car rental, and activities) along with the functions or tools they offer.
 * Routes the Plan to the Respective Agents: Depending on the number of subtasks, the planner either sends the message directly to a dedicated agent (for single-task scenarios) or coordinates via a group chat manager for multi-agent collaboration.
 * Summarizes the Outcome: Finally, the planner summarizes the generated plan for clarity.
+
 The following Python code sample illustrates these steps:
 
 ```python
@@ -183,7 +233,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-What follows is the output from the previous code and you can then use this structured output to route to `assigned_agent` and summarize the travel plan to the end user.
+What follows is the output from the previous code, and you can then use this structured output to route to `assigned_agent` and summarize the travel plan for the end user.
 
 ```json
 {
@@ -214,15 +264,15 @@ What follows is the output from the previous code and you can then use this stru
 }
 ```
 
-An example notebook with the previous code sample is available [here](../../../07-planning-design/07-autogen.ipynb).
+An example notebook with the previous code sample is available [here](07-autogen.ipynb).
 
 ### Iterative Planning
 
 Some tasks require a back-and-forth or re-planning, where the outcome of one subtask influences the next. For example, if the agent discovers an unexpected data format while booking flights, it might need to adapt its strategy before moving on to hotel bookings.
 
-Additionally, user feedback (e.g. a human deciding they prefer an earlier flight) can trigger a partial re-plan. This dynamic, iterative approach ensures that the final solution aligns with real-world constraints and evolving user preferences.
+Additionally, user feedback (e.g., a human deciding they prefer an earlier flight) can trigger a partial re-plan. This dynamic, iterative approach ensures that the final solution aligns with real-world constraints and evolving user preferences.
 
-e.g sample code
+e.g., sample code:
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
@@ -243,17 +293,21 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-For more comprehensive planning do checkout Magnetic One for solving complex tasks.
+For more comprehensive planning, do check out Magnetic One for solving complex tasks.
 
 ## Summary
 
-In this article, we have looked at an example of how we can create a planner that can dynamically select the available agents defined. The output of the Planner decomposes the tasks and assigns the agents so they can be executed. It is assumed the agents have access to the functions/tools that are required to perform the task. In addition to the agents, you can include other patterns like reflection, summarizer, and round robin chat to further customize.
+In this article, we have looked at an example of how we can create a planner that can dynamically select the available agents defined. The output of the Planner decomposes the tasks and assigns the agents so they can be executed. It is assumed the agents have access to the functions/tools that are required to perform the task. In addition to the agents, you can include other patterns like reflection, summarizer, and round-robin chat to further customize.
 
 ## Additional Resources
 
-* AutoGen Magnetic One - A Generalist multi-agent system for solving complex tasks and has achieved impressive results on multiple challenging agentic benchmarks. Reference:
+AutoGen Magnetic One - A generalist multi-agent system for solving complex tasks that has achieved impressive results on multiple challenging agentic benchmarks. Reference:
 
 . In this implementation, the orchestrator creates task-specific plans and delegates these tasks to the available agents. In addition to planning, the orchestrator also employs a tracking mechanism to monitor the progress of the task and re-plans as required.
+
+### Got More Questions about the Planning Design Pattern?
+
+Join the [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours, and get your AI Agents questions answered.
 
 ## Previous Lesson
 
@@ -263,5 +317,7 @@ In this article, we have looked at an example of how we can create a planner tha
 
 [Multi-Agent Design Pattern](../08-multi-agent/README.md)
 
+---
+
 **Disclaimer**:  
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we aim for accuracy, please note that automated translations may include errors or inaccuracies. The original document in its native language should be regarded as the authoritative source. For critical information, professional human translation is advised. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.

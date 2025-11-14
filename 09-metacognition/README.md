@@ -1421,6 +1421,10 @@ This is a simple form of metacognition where the system is capable of adjusting 
 
 Metacognition is a powerful tool that can significantly enhance the capabilities of AI agents. By incorporating metacognitive processes, you can design agents that are more intelligent, adaptable, and efficient. Use the additional resources to further explore the fascinating world of metacognition in AI agents.
 
+### Got More Questions about the Metacognition Design Pattern?
+
+Join the [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+
 ## Previous Lesson
 
 [Multi-Agent Design Pattern](../08-multi-agent/README.md)

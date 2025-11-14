@@ -1,0 +1,183 @@
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
+  "translation_date": "2025-11-11T11:09:03+00:00",
+  "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
+  "language_code": "pa"
+}
+-->
+# 🌍 Microsoft Agent Framework (.NET) ਨਾਲ AI ਯਾਤਰਾ ਏਜੰਟ
+
+## 📋 ਸਨਰੀਓ ਝਲਕ
+
+ਇਹ ਨੋਟਬੁੱਕ ਦਿਖਾਉਂਦੀ ਹੈ ਕਿ Microsoft Agent Framework ਲਈ .NET ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਇੱਕ ਸਮਰਥ ਯਾਤਰਾ ਯੋਜਨਾ ਏਜੰਟ ਕਿਵੇਂ ਬਣਾਇਆ ਜਾ ਸਕਦਾ ਹੈ। ਇਹ ਏਜੰਟ ਦੁਨੀਆ ਭਰ ਦੇ ਕਈ ਗੰਤੀ ਸਥਾਨਾਂ ਲਈ ਵਿਅਕਤੀਗਤ ਦਿਨ-ਯਾਤਰਾ ਯੋਜਨਾਵਾਂ ਆਪੋ-ਆਪ ਬਣਾਉਣ ਦੀ ਸਮਰਥਾ ਰੱਖਦਾ ਹੈ।
+
+### ਮੁੱਖ ਸਮਰਥਾਵਾਂ:
+
+- 🎲 **ਰੈਂਡਮ ਸਥਾਨ ਚੋਣ**: ਛੁੱਟੀਆਂ ਦੇ ਸਥਾਨ ਚੁਣਨ ਲਈ ਇੱਕ ਕਸਟਮ ਟੂਲ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ
+- 🗺️ **ਸਮਰਥ ਯਾਤਰਾ ਯੋਜਨਾ**: ਵਿਸਥਾਰਿਤ ਦਿਨ-ਦਰ-ਦਿਨ ਯੋਜਨਾਵਾਂ ਬਣਾਉਂਦਾ ਹੈ
+- 🔄 **ਰਿਅਲ-ਟਾਈਮ ਸਟ੍ਰੀਮਿੰਗ**: ਤੁਰੰਤ ਅਤੇ ਸਟ੍ਰੀਮਿੰਗ ਜਵਾਬਾਂ ਦਾ ਸਮਰਥਨ ਕਰਦਾ ਹੈ
+- 🛠️ **ਕਸਟਮ ਟੂਲ ਇੰਟੀਗ੍ਰੇਸ਼ਨ**: ਏਜੰਟ ਦੀ ਸਮਰਥਾ ਨੂੰ ਵਧਾਉਣ ਦਾ ਪ੍ਰਦਰਸ਼ਨ ਕਰਦਾ ਹੈ
+
+## 🔧 ਤਕਨੀਕੀ ਆਰਕੀਟੈਕਚਰ
+
+### ਮੁੱਖ ਤਕਨੀਕਾਂ
+
+- **Microsoft Agent Framework**: AI ਏਜੰਟ ਵਿਕਾਸ ਲਈ .NET ਦਾ ਨਵਾਂ ਵਰਜਨ
+- **GitHub Models Integration**: GitHub ਦੇ AI ਮਾਡਲ ਇੰਫਰੈਂਸ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ
+- **OpenAI API Compatibility**: OpenAI ਕਲਾਇੰਟ ਲਾਇਬ੍ਰੇਰੀਆਂ ਨੂੰ ਕਸਟਮ ਐਂਡਪੌਇੰਟਸ ਨਾਲ ਵਰਤਦਾ ਹੈ
+- **ਸੁਰੱਖਿਅਤ ਸੰਰਚਨਾ**: ਵਾਤਾਵਰਣ-ਅਧਾਰਿਤ API ਕੁੰਜੀਆਂ ਦਾ ਪ੍ਰਬੰਧਨ
+
+### ਮੁੱਖ ਹਿੱਸੇ
+
+1. **AIAgent**: ਮੁੱਖ ਏਜੰਟ ਆਰਕੈਸਟਰੇਟਰ ਜੋ ਗੱਲਬਾਤ ਦੇ ਪ੍ਰਵਾਹ ਨੂੰ ਸੰਭਾਲਦਾ ਹੈ
+2. **Custom Tools**: `GetRandomDestination()` ਫੰਕਸ਼ਨ ਜੋ ਏਜੰਟ ਲਈ ਉਪਲਬਧ ਹੈ
+3. **Chat Client**: GitHub Models-ਅਧਾਰਿਤ ਗੱਲਬਾਤ ਇੰਟਰਫੇਸ
+4. **Streaming Support**: ਰਿਅਲ-ਟਾਈਮ ਜਵਾਬ ਬਣਾਉਣ ਦੀ ਸਮਰਥਾ
+
+### ਇੰਟੀਗ੍ਰੇਸ਼ਨ ਪੈਟਰਨ
+
+```mermaid
+graph LR
+    A[User Request] --> B[AI Agent]
+    B --> C[GitHub Models API]
+    B --> D[GetRandomDestination Tool]
+    C --> E[Travel Itinerary]
+    D --> E
+```
+
+## 🚀 ਸ਼ੁਰੂਆਤ ਕਰਨਾ
+
+### ਪੂਰਵ ਸ਼ਰਤਾਂ
+
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ਜਾਂ ਇਸ ਤੋਂ ਉੱਚਾ
+- [GitHub Models API ਐਕਸੈਸ ਟੋਕਨ](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+
+### ਲੋੜੀਂਦੇ ਵਾਤਾਵਰਣ ਵੈਰੀਏਬਲ
+
+```bash
+# zsh/bash
+export GH_TOKEN=<your_github_token>
+export GH_ENDPOINT=https://models.github.ai/inference
+export GH_MODEL_ID=openai/gpt-5-mini
+```
+
+```powershell
+# PowerShell
+$env:GH_TOKEN = "<your_github_token>"
+$env:GH_ENDPOINT = "https://models.github.ai/inference"
+$env:GH_MODEL_ID = "openai/gpt-5-mini"
+```
+
+### ਨਮੂਨਾ ਕੋਡ
+
+ਕੋਡ ਉਦਾਹਰਣ ਚਲਾਉਣ ਲਈ,
+
+```bash
+# zsh/bash
+chmod +x ./01-dotnet-agent-framework.cs
+./01-dotnet-agent-framework.cs
+```
+
+ਜਾਂ dotnet CLI ਦੀ ਵਰਤੋਂ ਕਰਕੇ:
+
+```bash
+dotnet run ./01-dotnet-agent-framework.cs
+```
+
+ਪੂਰਾ ਕੋਡ ਦੇਖੋ [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs)।
+
+```csharp
+#!/usr/bin/dotnet run
+
+#:package Microsoft.Extensions.AI@9.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
+
+using System.ClientModel;
+using System.ComponentModel;
+
+using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
+
+using OpenAI;
+
+// Tool Function: Random Destination Generator
+// This static method will be available to the agent as a callable tool
+// The [Description] attribute helps the AI understand when to use this function
+// This demonstrates how to create custom tools for AI agents
+[Description("Provides a random vacation destination.")]
+static string GetRandomDestination()
+{
+    // List of popular vacation destinations around the world
+    // The agent will randomly select from these options
+    var destinations = new List<string>
+    {
+        "Paris, France",
+        "Tokyo, Japan",
+        "New York City, USA",
+        "Sydney, Australia",
+        "Rome, Italy",
+        "Barcelona, Spain",
+        "Cape Town, South Africa",
+        "Rio de Janeiro, Brazil",
+        "Bangkok, Thailand",
+        "Vancouver, Canada"
+    };
+
+    // Generate random index and return selected destination
+    // Uses System.Random for simple random selection
+    var random = new Random();
+    int index = random.Next(destinations.Count);
+    return destinations[index];
+}
+
+// Extract configuration from environment variables
+// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
+// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the GitHub token for authentication, throws exception if not specified
+var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
+var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
+var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+
+// Configure OpenAI Client Options
+// Create configuration options to point to GitHub Models endpoint
+// This redirects OpenAI client calls to GitHub's model inference service
+var openAIOptions = new OpenAIClientOptions()
+{
+    Endpoint = new Uri(github_endpoint)
+};
+
+// Initialize OpenAI Client with GitHub Models Configuration
+// Create OpenAI client using GitHub token for authentication
+// Configure it to use GitHub Models endpoint instead of OpenAI directly
+var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+
+// Create AI Agent with Travel Planning Capabilities
+// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Configure agent with travel planning instructions and random destination tool
+// The agent can now plan trips using the GetRandomDestination function
+AIAgent agent = openAIClient
+    .GetChatClient(github_model_id)
+    .CreateAIAgent(
+        instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
+        tools: [AIFunctionFactory.Create(GetRandomDestination)]
+    );
+
+// Execute Agent: Plan a Day Trip
+// Run the agent with streaming enabled for real-time response display
+// Shows the agent's thinking and response as it generates the content
+// Provides better user experience with immediate feedback
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
+```
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**ਅਸਵੀਕਰਤਾ**:  
+ਇਹ ਦਸਤਾਵੇਜ਼ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨੁਵਾਦ ਕੀਤਾ ਗਿਆ ਹੈ। ਜਦੋਂ ਕਿ ਅਸੀਂ ਸਹੀ ਹੋਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਹਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਦਿਓ ਕਿ ਸਵੈਚਾਲਿਤ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਸੁਚੀਤਤਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਇਸ ਦੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਮੂਲ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਅਧਿਕਾਰਤ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਮਹੱਤਵਪੂਰਨ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਇਸ ਅਨੁਵਾਦ ਦੀ ਵਰਤੋਂ ਤੋਂ ਪੈਦਾ ਹੋਣ ਵਾਲੇ ਕਿਸੇ ਵੀ ਗਲਤਫਹਿਮੀ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆ ਲਈ ਅਸੀਂ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

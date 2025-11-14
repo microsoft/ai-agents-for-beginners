@@ -1,15 +1,64 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e4e06d3b5d6207459a019c05fee5eb4b",
-  "translation_date": "2025-07-12T10:42:57+00:00",
+  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
+  "translation_date": "2025-09-18T15:07:44+00:00",
   "source_file": "07-planning-design/README.md",
   "language_code": "no"
 }
 -->
-for en rask oversikt.
+[![Planleggingsdesignmønster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.no.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-Følgende Python-eksempel viser en enkel planleggingsagent som bryter ned et mål i deloppgaver og genererer en strukturert plan:
+> _(Klikk på bildet ovenfor for å se videoen til denne leksjonen)_
+
+# Planleggingsdesign
+
+## Introduksjon
+
+Denne leksjonen vil dekke
+
+* Definere et klart overordnet mål og bryte ned en kompleks oppgave i håndterbare oppgaver.
+* Utnytte strukturert output for mer pålitelige og maskinlesbare svar.
+* Bruke en hendelsesdrevet tilnærming for å håndtere dynamiske oppgaver og uventede innspill.
+
+## Læringsmål
+
+Etter å ha fullført denne leksjonen, vil du ha forståelse for:
+
+* Identifisere og sette et overordnet mål for en AI-agent, slik at den tydelig vet hva som skal oppnås.
+* Dele opp en kompleks oppgave i håndterbare deloppgaver og organisere dem i en logisk rekkefølge.
+* Utstyre agenter med riktige verktøy (f.eks. søkeverktøy eller dataanalyseverktøy), bestemme når og hvordan de skal brukes, og håndtere uventede situasjoner som oppstår.
+* Evaluere resultatene av deloppgaver, måle ytelse og iterere handlinger for å forbedre sluttresultatet.
+
+## Definere det overordnede målet og bryte ned en oppgave
+
+![Definere mål og oppgaver](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.no.png)
+
+De fleste oppgaver i den virkelige verden er for komplekse til å løses i ett enkelt steg. En AI-agent trenger et konsist mål for å veilede sin planlegging og handlinger. For eksempel, vurder målet:
+
+    "Lag en 3-dagers reiseplan."
+
+Selv om det er enkelt å formulere, trenger det fortsatt presisering. Jo klarere målet er, desto bedre kan agenten (og eventuelle menneskelige samarbeidspartnere) fokusere på å oppnå riktig resultat, som å lage en omfattende reiseplan med flyalternativer, hotellanbefalinger og aktivitetsforslag.
+
+### Oppgaveoppdeling
+
+Store eller intrikate oppgaver blir mer håndterbare når de deles opp i mindre, målrettede deloppgaver.
+For reiseplaneksempelet kan du dele opp målet i:
+
+* Flybestilling
+* Hotellbestilling
+* Bilutleie
+* Personalisering
+
+Hver deloppgave kan deretter håndteres av dedikerte agenter eller prosesser. En agent kan spesialisere seg på å finne de beste flytilbudene, en annen på hotellbestillinger, og så videre. En koordinerende eller "nedstrøms" agent kan deretter samle disse resultatene til en sammenhengende reiseplan for sluttbrukeren.
+
+Denne modulære tilnærmingen tillater også gradvise forbedringer. For eksempel kan du legge til spesialiserte agenter for matanbefalinger eller lokale aktivitetsforslag og finjustere reiseplanen over tid.
+
+### Strukturert output
+
+Store språkmodeller (LLMs) kan generere strukturert output (f.eks. JSON) som er enklere for nedstrøms agenter eller tjenester å analysere og behandle. Dette er spesielt nyttig i en multi-agent-kontekst, hvor vi kan utføre disse oppgavene etter at planleggingsoutputen er mottatt. Se dette for en rask oversikt.
+
+Den følgende Python-koden viser en enkel planleggingsagent som deler opp et mål i deloppgaver og genererer en strukturert plan:
 
 ```python
 from pydantic import BaseModel
@@ -100,15 +149,15 @@ pprint(json.loads(response_content))
 
 ### Planleggingsagent med multi-agent orkestrering
 
-I dette eksempelet mottar en Semantic Router Agent en brukerforespørsel (f.eks. "Jeg trenger en hotellplan for turen min.").
+I dette eksempelet mottar en Semantic Router Agent en brukerforespørsel (f.eks. "Jeg trenger en hotellplan for reisen min.").
 
-Planleggeren gjør deretter:
+Planleggeren deretter:
 
-* Mottar hotellplanen: Planleggeren tar brukerens melding og, basert på et systemprompt (inkludert tilgjengelige agentdetaljer), genererer en strukturert reiseplan.
-* Lister opp agenter og deres verktøy: Agentregisteret inneholder en liste over agenter (f.eks. for fly, hotell, bilutleie og aktiviteter) sammen med funksjonene eller verktøyene de tilbyr.
-* Ruter planen til de respektive agentene: Avhengig av antall deloppgaver sender planleggeren enten meldingen direkte til en dedikert agent (for enkeltoppgaver) eller koordinerer via en gruppechattsjef for samarbeid mellom flere agenter.
+* Mottar hotellplanen: Planleggeren tar brukerens melding og, basert på et systemprompt (inkludert detaljer om tilgjengelige agenter), genererer en strukturert reiseplan.
+* Lister opp agenter og deres verktøy: Agentregisteret holder en liste over agenter (f.eks. for fly, hotell, bilutleie og aktiviteter) sammen med funksjonene eller verktøyene de tilbyr.
+* Ruter planen til de respektive agentene: Avhengig av antall deloppgaver, sender planleggeren enten meldingen direkte til en dedikert agent (for enkeltoppgave-scenarier) eller koordinerer via en gruppechat-manager for multi-agent samarbeid.
 * Oppsummerer resultatet: Til slutt oppsummerer planleggeren den genererte planen for klarhet.
-Følgende Python-kodeeksempel illustrerer disse trinnene:
+Den følgende Python-kodeeksempelet illustrerer disse trinnene:
 
 ```python
 
@@ -183,7 +232,7 @@ if response_content is None:
 pprint(json.loads(response_content))
 ```
 
-Det som følger er utdata fra forrige kode, og du kan deretter bruke denne strukturerte utdataen til å rute til `assigned_agent` og oppsummere reiseplanen for sluttbrukeren.
+Det som følger er outputen fra den forrige koden, og du kan deretter bruke denne strukturerte outputen til å rute til `assigned_agent` og oppsummere reiseplanen for sluttbrukeren.
 
 ```json
 {
@@ -214,15 +263,15 @@ Det som følger er utdata fra forrige kode, og du kan deretter bruke denne struk
 }
 ```
 
-Et eksempel-notatbok med forrige kodeeksempel er tilgjengelig [her](../../../07-planning-design/07-autogen.ipynb).
+En eksempelnotatbok med den forrige koden er tilgjengelig [her](07-autogen.ipynb).
 
 ### Iterativ planlegging
 
-Noen oppgaver krever en fram-og-tilbake-prosess eller omplanlegging, der resultatet av en deloppgave påvirker den neste. For eksempel, hvis agenten oppdager et uventet dataformat under flybestilling, kan det hende den må tilpasse strategien før den går videre til hotellbestillinger.
+Noen oppgaver krever en frem-og-tilbake-prosess eller re-planlegging, hvor resultatet av en deloppgave påvirker den neste. For eksempel, hvis agenten oppdager et uventet dataformat mens den bestiller fly, kan den måtte tilpasse strategien sin før den går videre til hotellbestillinger.
 
-I tillegg kan tilbakemeldinger fra brukeren (f.eks. at en person bestemmer seg for at de foretrekker et tidligere fly) utløse en delvis omplanlegging. Denne dynamiske, iterative tilnærmingen sikrer at den endelige løsningen samsvarer med virkelige begrensninger og brukernes endrede preferanser.
+I tillegg kan brukerfeedback (f.eks. en person som bestemmer seg for at de foretrekker et tidligere fly) utløse en delvis re-planlegging. Denne dynamiske, iterative tilnærmingen sikrer at den endelige løsningen samsvarer med virkelige begrensninger og utviklende brukerpreferanser.
 
-f.eks. eksempel på kode
+f.eks. eksempelkode
 
 ```python
 from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
@@ -243,19 +292,21 @@ messages = [
 # .. re-plan and send the tasks to respective agents
 ```
 
-For mer omfattende planlegging, sjekk ut Magnetic One
+For mer omfattende planlegging, sjekk ut Magnetic One for å løse komplekse oppgaver.
 
-for å løse komplekse oppgaver.
+## Sammendrag
 
-## Oppsummering
+I denne artikkelen har vi sett på et eksempel på hvordan vi kan lage en planlegger som dynamisk kan velge de tilgjengelige agentene som er definert. Outputen fra planleggeren deler opp oppgavene og tildeler agentene slik at de kan utføres. Det antas at agentene har tilgang til funksjonene/verktøyene som kreves for å utføre oppgaven. I tillegg til agentene kan du inkludere andre mønstre som refleksjon, oppsummering og rundgang-chat for ytterligere tilpasning.
 
-I denne artikkelen har vi sett på et eksempel på hvordan vi kan lage en planlegger som dynamisk kan velge tilgjengelige agenter som er definert. Planleggerens utdata bryter ned oppgavene og tildeler agentene slik at de kan utføres. Det forutsettes at agentene har tilgang til funksjonene/verktøyene som kreves for å utføre oppgaven. I tillegg til agentene kan du inkludere andre mønstre som refleksjon, oppsummering og round robin-chat for ytterligere tilpasning.
+## Tilleggsressurser
 
-## Ytterligere ressurser
+AutoGen Magnetic One - Et generalist multi-agent system for å løse komplekse oppgaver og har oppnådd imponerende resultater på flere utfordrende agent-benchmarks. Referanse:
 
-* AutoGen Magnetic One - Et generalist multi-agent system for å løse komplekse oppgaver som har oppnådd imponerende resultater på flere utfordrende agentiske benchmarks. Referanse:
+. I denne implementeringen oppretter orkestratoren en oppgavespesifikk plan og delegerer disse oppgavene til de tilgjengelige agentene. I tillegg til planlegging benytter orkestratoren også en sporingsmekanisme for å overvåke fremdriften av oppgaven og re-planlegge etter behov.
 
-. I denne implementeringen lager orkestratoren en oppgavespesifikk plan og delegerer disse oppgavene til tilgjengelige agenter. I tillegg til planlegging bruker orkestratoren også en sporingsmekanisme for å overvåke fremdriften i oppgaven og omplanlegger etter behov.
+### Har du flere spørsmål om planleggingsdesignmønsteret?
+
+Bli med i [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) for å møte andre elever, delta på kontortimer og få svar på spørsmålene dine om AI-agenter.
 
 ## Forrige leksjon
 
@@ -263,7 +314,9 @@ I denne artikkelen har vi sett på et eksempel på hvordan vi kan lage en planle
 
 ## Neste leksjon
 
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+[Multi-agent designmønster](../08-multi-agent/README.md)
+
+---
 
 **Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vennligst vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet på originalspråket skal anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiserte oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på sitt opprinnelige språk bør anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.

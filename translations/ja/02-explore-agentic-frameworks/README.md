@@ -1,24 +1,307 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "da3523bf8fa456371e21d8d14c67305d",
-  "translation_date": "2025-07-12T08:55:59+00:00",
+  "original_hash": "86b9c2b24da3b3e61711182ffa72601c",
+  "translation_date": "2025-09-29T22:05:15+00:00",
   "source_file": "02-explore-agentic-frameworks/README.md",
   "language_code": "ja"
 }
 -->
-. Wikipediaによると、アクターは「並行計算の基本的な構成要素であり、受け取ったメッセージに応じて、ローカルでの意思決定、さらなるアクターの生成、メッセージの送信、次に受け取るメッセージへの応答方法の決定ができる」とされています。
+[![AIエージェントフレームワークを探る](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df4d5d407e29970e654629e614f357444a9c27c80feb54c79d.ja.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
-**ユースケース**：コード生成の自動化、データ分析タスク、計画や研究機能のためのカスタムエージェントの構築。
+> _(上の画像をクリックして、このレッスンの動画をご覧ください)_
 
-AutoGenの重要なコアコンセプトをいくつか紹介します：
+# AIエージェントフレームワークを探る
 
-- **エージェント**。エージェントは以下の特徴を持つソフトウェアエンティティです：
-  - **メッセージを介して通信**し、これらのメッセージは同期的または非同期的であることがあります。
-  - **自身の状態を保持**し、受信したメッセージによって状態が変更されることがあります。
-  - **受信したメッセージや状態の変化に応じてアクションを実行**します。これらのアクションはエージェントの状態を変更したり、メッセージログの更新、新しいメッセージの送信、コードの実行、APIコールなどの外部効果を生み出すことがあります。
+AIエージェントフレームワークは、AIエージェントの作成、展開、管理を簡素化するために設計されたソフトウェアプラットフォームです。これらのフレームワークは、開発者に事前構築されたコンポーネント、抽象化、ツールを提供し、複雑なAIシステムの開発を効率化します。
 
-  以下はチャット機能を持つ独自のエージェントを作成する短いコードスニペットです：
+これらのフレームワークは、AIエージェント開発における一般的な課題に対する標準化されたアプローチを提供することで、開発者がアプリケーションの独自の側面に集中できるようにします。これにより、AIシステムのスケーラビリティ、アクセシビリティ、効率性が向上します。
+
+## はじめに
+
+このレッスンでは以下を学びます：
+
+- AIエージェントフレームワークとは何か、そしてそれが開発者に何を可能にするのか？
+- チームがこれらを使用してエージェントの能力を迅速にプロトタイプ化、反復、改善する方法は？
+- Microsoftが提供する<a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>、<a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a>、<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a>のフレームワークとツールの違いは？
+- 既存のAzureエコシステムツールを直接統合できるのか、それとも独立したソリューションが必要なのか？
+- Azure AI Agentsサービスとは何か、そしてこれがどのように役立つのか？
+
+## 学習目標
+
+このレッスンの目標は以下を理解することです：
+
+- AIエージェントフレームワークがAI開発において果たす役割。
+- AIエージェントフレームワークを活用してインテリジェントエージェントを構築する方法。
+- AIエージェントフレームワークによって可能になる主要な機能。
+- AutoGen、Semantic Kernel、Azure AI Agent Serviceの違い。
+
+## AIエージェントフレームワークとは何か、そしてそれが開発者に何を可能にするのか？
+
+従来のAIフレームワークは、AIをアプリに統合し、以下の方法でアプリを改善するのに役立ちます：
+
+- **パーソナライズ**: AIはユーザーの行動や好みを分析し、パーソナライズされた推奨、コンテンツ、体験を提供します。
+例: Netflixのようなストリーミングサービスは、視聴履歴に基づいて映画や番組を提案し、ユーザーのエンゲージメントと満足度を向上させます。
+- **自動化と効率化**: AIは繰り返しのタスクを自動化し、ワークフローを効率化し、運用効率を向上させます。
+例: カスタマーサービスアプリは、AI搭載のチャットボットを使用して一般的な問い合わせを処理し、応答時間を短縮し、複雑な問題に対応するために人間のエージェントを解放します。
+- **ユーザー体験の向上**: AIは音声認識、自然言語処理、予測テキストなどのインテリジェントな機能を提供することで、全体的なユーザー体験を向上させます。
+例: SiriやGoogleアシスタントのような仮想アシスタントは、音声コマンドを理解して応答することで、ユーザーがデバイスと簡単にやり取りできるようにします。
+
+### 素晴らしい話に聞こえますが、なぜAIエージェントフレームワークが必要なのでしょうか？
+
+AIエージェントフレームワークは、単なるAIフレームワーク以上のものを提供します。これらは、特定の目標を達成するためにユーザー、他のエージェント、環境と対話できるインテリジェントエージェントの作成を可能にするよう設計されています。これらのエージェントは自律的な行動を示し、意思決定を行い、変化する条件に適応することができます。以下は、AIエージェントフレームワークによって可能になる主要な機能のいくつかです：
+
+- **エージェントの協力と調整**: 複数のAIエージェントを作成し、協力し、コミュニケーションを取り、複雑なタスクを解決する能力を提供します。
+- **タスクの自動化と管理**: マルチステップのワークフロー、タスクの委任、エージェント間の動的なタスク管理のためのメカニズムを提供します。
+- **コンテキストの理解と適応**: エージェントにコンテキストを理解し、変化する環境に適応し、リアルタイム情報に基づいて意思決定を行う能力を装備します。
+
+要するに、エージェントはより多くのことを可能にし、自動化を次のレベルに引き上げ、環境から学び適応するインテリジェントなシステムを作成することを可能にします。
+
+## エージェントの能力を迅速にプロトタイプ化、反復、改善する方法は？
+
+この分野は急速に進化していますが、ほとんどのAIエージェントフレームワークに共通するいくつかの要素があります。それはモジュールコンポーネント、協力ツール、リアルタイム学習です。これらについて詳しく見ていきましょう：
+
+- **モジュールコンポーネントを使用する**: AI SDKは、AIおよびメモリコネクタ、自然言語やコードプラグインを使用した関数呼び出し、プロンプトテンプレートなどの事前構築されたコンポーネントを提供します。
+- **協力ツールを活用する**: 特定の役割とタスクを持つエージェントを設計し、協力的なワークフローをテストして改善します。
+- **リアルタイムで学ぶ**: フィードバックループを実装し、エージェントがインタラクションから学び、動的に行動を調整します。
+
+### モジュールコンポーネントを使用する
+
+Microsoft Semantic KernelやLangChainのようなSDKは、AIコネクタ、プロンプトテンプレート、メモリ管理などの事前構築されたコンポーネントを提供します。
+
+**チームがこれらを使用する方法**: チームはこれらのコンポーネントを迅速に組み立てて、ゼロから始めることなく機能的なプロトタイプを作成し、迅速な実験と反復を可能にします。
+
+**実際の動作**: ユーザー入力から情報を抽出するための事前構築されたパーサー、データを保存および取得するためのメモリモジュール、ユーザーと対話するためのプロンプトジェネレーターを使用することで、これらのコンポーネントをゼロから構築する必要がありません。
+
+**コード例**: Semantic Kernel Pythonと.Netを使用して、ユーザー入力に応答するモデルを自動関数呼び出しで動作させる事前構築されたAIコネクタの使用例を見てみましょう：
+
+``` python
+# Semantic Kernel Python Example
+
+import asyncio
+from typing import Annotated
+
+from semantic_kernel.connectors.ai import FunctionChoiceBehavior
+from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion, AzureChatPromptExecutionSettings
+from semantic_kernel.contents import ChatHistory
+from semantic_kernel.functions import kernel_function
+from semantic_kernel.kernel import Kernel
+
+# Define a ChatHistory object to hold the conversation's context
+chat_history = ChatHistory()
+chat_history.add_user_message("I'd like to go to New York on January 1, 2025")
+
+
+# Define a sample plugin that contains the function to book travel
+class BookTravelPlugin:
+    """A Sample Book Travel Plugin"""
+
+    @kernel_function(name="book_flight", description="Book travel given location and date")
+    async def book_flight(
+        self, date: Annotated[str, "The date of travel"], location: Annotated[str, "The location to travel to"]
+    ) -> str:
+        return f"Travel was booked to {location} on {date}"
+
+# Create the Kernel
+kernel = Kernel()
+
+# Add the sample plugin to the Kernel object
+kernel.add_plugin(BookTravelPlugin(), plugin_name="book_travel")
+
+# Define the Azure OpenAI AI Connector
+chat_service = AzureChatCompletion(
+    deployment_name="YOUR_DEPLOYMENT_NAME", 
+    api_key="YOUR_API_KEY", 
+    endpoint="https://<your-resource>.azure.openai.com/",
+)
+
+# Define the request settings to configure the model with auto-function calling
+request_settings = AzureChatPromptExecutionSettings(function_choice_behavior=FunctionChoiceBehavior.Auto())
+
+
+async def main():
+    # Make the request to the model for the given chat history and request settings
+    # The Kernel contains the sample that the model will request to invoke
+    response = await chat_service.get_chat_message_content(
+        chat_history=chat_history, settings=request_settings, kernel=kernel
+    )
+    assert response is not None
+
+    """
+    Note: In the auto function calling process, the model determines it can invoke the 
+    `BookTravelPlugin` using the `book_flight` function, supplying the necessary arguments. 
+    
+    For example:
+
+    "tool_calls": [
+        {
+            "id": "call_abc123",
+            "type": "function",
+            "function": {
+                "name": "BookTravelPlugin-book_flight",
+                "arguments": "{'location': 'New York', 'date': '2025-01-01'}"
+            }
+        }
+    ]
+
+    Since the location and date arguments are required (as defined by the kernel function), if the 
+    model lacks either, it will prompt the user to provide them. For instance:
+
+    User: Book me a flight to New York.
+    Model: Sure, I'd love to help you book a flight. Could you please specify the date?
+    User: I want to travel on January 1, 2025.
+    Model: Your flight to New York on January 1, 2025, has been successfully booked. Safe travels!
+    """
+
+    print(f"`{response}`")
+    # Example AI Model Response: `Your flight to New York on January 1, 2025, has been successfully booked. Safe travels! ✈️🗽`
+
+    # Add the model's response to our chat history context
+    chat_history.add_assistant_message(response.content)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+```csharp
+// Semantic Kernel C# example
+
+using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.ChatCompletion;
+using System.ComponentModel;
+using Microsoft.SemanticKernel.Connectors.AzureOpenAI;
+
+ChatHistory chatHistory = [];
+chatHistory.AddUserMessage("I'd like to go to New York on January 1, 2025");
+
+var kernelBuilder = Kernel.CreateBuilder();
+kernelBuilder.AddAzureOpenAIChatCompletion(
+    deploymentName: "NAME_OF_YOUR_DEPLOYMENT",
+    apiKey: "YOUR_API_KEY",
+    endpoint: "YOUR_AZURE_ENDPOINT"
+);
+kernelBuilder.Plugins.AddFromType<BookTravelPlugin>("BookTravel"); 
+var kernel = kernelBuilder.Build();
+
+var settings = new AzureOpenAIPromptExecutionSettings()
+{
+    FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
+};
+
+var chatCompletion = kernel.GetRequiredService<IChatCompletionService>();
+
+var response = await chatCompletion.GetChatMessageContentAsync(chatHistory, settings, kernel);
+
+/*
+Behind the scenes, the model recognizes the tool to call, what arguments it already has (location) and (date)
+{
+
+"tool_calls": [
+    {
+        "id": "call_abc123",
+        "type": "function",
+        "function": {
+            "name": "BookTravelPlugin-book_flight",
+            "arguments": "{'location': 'New York', 'date': '2025-01-01'}"
+        }
+    }
+]
+*/
+
+Console.WriteLine(response.Content);
+chatHistory.AddMessage(response!.Role, response!.Content!);
+
+// Example AI Model Response: Your flight to New York on January 1, 2025, has been successfully booked. Safe travels! ✈️🗽
+
+// Define a plugin that contains the function to book travel
+public class BookTravelPlugin
+{
+    [KernelFunction("book_flight")]
+    [Description("Book travel given location and date")]
+    public async Task<string> BookFlight(DateTime date, string location)
+    {
+        return await Task.FromResult( $"Travel was booked to {location} on {date}");
+    }
+}
+```
+
+この例からわかるように、ユーザー入力から出発地、目的地、フライト予約リクエストの日付などの重要な情報を抽出するための事前構築されたパーサーを活用できます。このモジュールアプローチにより、高レベルのロジックに集中することが可能になります。
+
+### 協力ツールを活用する
+
+CrewAI、Microsoft AutoGen、Semantic Kernelのようなフレームワークは、複数のエージェントを作成して協力させることを容易にします。
+
+**チームがこれらを使用する方法**: チームは特定の役割とタスクを持つエージェントを設計し、協力的なワークフローをテストして改善し、システム全体の効率を向上させます。
+
+**実際の動作**: データ取得、分析、意思決定などの専門的な機能を持つエージェントのチームを作成できます。これらのエージェントは情報を共有し、ユーザーの問い合わせに答えたりタスクを完了したりする共通の目標を達成するために協力します。
+
+**コード例 (AutoGen)**:
+
+```python
+# creating agents, then create a round robin schedule where they can work together, in this case in order
+
+# Data Retrieval Agent
+# Data Analysis Agent
+# Decision Making Agent
+
+agent_retrieve = AssistantAgent(
+    name="dataretrieval",
+    model_client=model_client,
+    tools=[retrieve_tool],
+    system_message="Use tools to solve tasks."
+)
+
+agent_analyze = AssistantAgent(
+    name="dataanalysis",
+    model_client=model_client,
+    tools=[analyze_tool],
+    system_message="Use tools to solve tasks."
+)
+
+# conversation ends when user says "APPROVE"
+termination = TextMentionTermination("APPROVE")
+
+user_proxy = UserProxyAgent("user_proxy", input_func=input)
+
+team = RoundRobinGroupChat([agent_retrieve, agent_analyze, user_proxy], termination_condition=termination)
+
+stream = team.run_stream(task="Analyze data", max_turns=10)
+# Use asyncio.run(...) when running in a script.
+await Console(stream)
+```
+
+前述のコードでは、複数のエージェントがデータを分析するタスクを協力して実行する方法を示しています。各エージェントは特定の機能を果たし、エージェント間の調整によって目的の結果を達成します。専用の役割を持つエージェントを作成することで、タスクの効率とパフォーマンスを向上させることができます。
+
+### リアルタイムで学ぶ
+
+高度なフレームワークは、リアルタイムのコンテキスト理解と適応の機能を提供します。
+
+**チームがこれらを使用する方法**: チームはフィードバックループを実装し、エージェントがインタラクションから学び、動的に行動を調整することで、能力の継続的な改善と洗練を実現します。
+
+**実際の動作**: エージェントはユーザーフィードバック、環境データ、タスク結果を分析して知識ベースを更新し、意思決定アルゴリズムを調整し、時間とともにパフォーマンスを向上させます。この反復的な学習プロセスにより、エージェントは変化する条件やユーザーの好みに適応し、システム全体の効果を向上させます。
+
+## AutoGen、Semantic Kernel、Azure AI Agent Serviceのフレームワークの違いは？
+
+これらのフレームワークを比較する方法は多くありますが、設計、機能、対象となるユースケースの観点からいくつかの重要な違いを見てみましょう：
+
+## AutoGen
+
+AutoGenは、Microsoft ResearchのAI Frontiers Labによって開発されたオープンソースフレームワークです。イベント駆動型、分散型の*エージェントアプリケーション*に焦点を当てており、複数のLLMやSLM、ツール、高度なマルチエージェント設計パターンを可能にします。
+
+AutoGenは、エージェントというコアコンセプトを中心に構築されています。エージェントは、自分の環境を認識し、意思決定を行い、特定の目標を達成するために行動を起こす自律的なエンティティです。エージェントは非同期メッセージを通じて通信し、独立して並行して動作することで、システムのスケーラビリティと応答性を向上させます。
+
+<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">エージェントはアクターモデルに基づいています</a>。Wikipediaによれば、アクターは _並行計算の基本的な構成要素です。受信したメッセージに応じて、アクターは以下を行うことができます：ローカルな意思決定を行う、新しいアクターを作成する、さらにメッセージを送信する、次に受信するメッセージにどのように応答するかを決定する_。
+
+**ユースケース**: コード生成の自動化、データ分析タスク、計画および研究機能のためのカスタムエージェントの構築。
+
+以下はAutoGenの重要なコアコンセプトです：
+
+- **エージェント**: エージェントは以下を行うソフトウェアエンティティです：
+  - **メッセージを介して通信する**: これらのメッセージは同期または非同期である可能性があります。
+  - **独自の状態を維持する**: この状態は受信メッセージによって変更される可能性があります。
+  - **アクションを実行する**: 受信したメッセージや状態の変化に応じてアクションを実行します。これらのアクションはエージェントの状態を変更し、メッセージログの更新、新しいメッセージの送信、コードの実行、API呼び出しなどの外部効果を生み出す可能性があります。
+
+以下はチャット機能を持つ独自のエージェントを作成する短いコードスニペットです：
 
     ```python
     from autogen_agentchat.agents import AssistantAgent
@@ -26,7 +309,7 @@ AutoGenの重要なコアコンセプトをいくつか紹介します：
     from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 
-    class MyAssistant(RoutedAgent):
+    class MyAgent(RoutedAgent):
         def __init__(self, name: str) -> None:
             super().__init__(name)
             model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -41,9 +324,9 @@ AutoGenの重要なコアコンセプトをいくつか紹介します：
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
     
-    上記のコードでは、`MyAssistant`が`RoutedAgent`を継承して作成されています。メッセージハンドラーはメッセージの内容を表示し、その後`AssistantAgent`デリゲートを使って応答を送信します。特に、`self._delegate`にチャット完了を処理できる事前構築済みのエージェントである`AssistantAgent`のインスタンスを割り当てている点に注目してください。
+前述のコードでは、`MyAgent`が作成され、`RoutedAgent`を継承しています。このエージェントにはメッセージハンドラーがあり、メッセージの内容を出力し、その後`AssistantAgent`デリゲートを使用して応答を送信します。特に注目すべき点は、`self._delegate`に`AssistantAgent`のインスタンスを割り当てている点です。このエージェントはチャット完了を処理できる事前構築されたエージェントです。
 
-    次に、このエージェントタイプをAutoGenに登録し、プログラムを開始します：
+次に、このエージェントタイプをAutoGenに知らせ、プログラムを開始します：
 
     ```python
     
@@ -55,7 +338,7 @@ AutoGenの重要なコアコンセプトをいくつか紹介します：
     await runtime.send_message(MyMessageType("Hello, World!"), AgentId("my_agent", "default"))
     ```
 
-    上記のコードでは、エージェントがランタイムに登録され、その後エージェントにメッセージが送信され、以下のような出力が得られます：
+前述のコードでは、エージェントがランタイムに登録され、その後エージェントにメッセージが送信され、以下の出力が得られます：
 
     ```text
     # Output from the console:
@@ -64,7 +347,7 @@ AutoGenの重要なコアコンセプトをいくつか紹介します：
     my_assistant responded: Hello! How can I assist you today?
     ```
 
-- **マルチエージェント**。AutoGenは複数のエージェントが協力して複雑なタスクを達成できるようにサポートします。エージェントは通信し、情報を共有し、行動を調整して問題をより効率的に解決します。マルチエージェントシステムを作成するには、データ取得、分析、意思決定、ユーザーインタラクションなど、専門的な機能や役割を持つ異なるタイプのエージェントを定義します。以下はその例です：
+- **マルチエージェント**: AutoGenは、複数のエージェントを作成し、複雑なタスクを効率的に達成するために協力させることをサポートします。エージェントは情報を共有し、行動を調整して問題をより効率的に解決できます。マルチエージェントシステムを作成するには、データ取得、分析、意思決定、ユーザーインタラクションなどの専門的な機能と役割を持つ異なるタイプのエージェントを定義できます。以下はその作成方法の例です：
 
     ```python
     editor_description = "Editor for planning and reviewing the content."
@@ -105,178 +388,234 @@ AutoGenの重要なコアコンセプトをいくつか紹介します：
     )
     ```
 
-    上記のコードでは、`GroupChatManager`がランタイムに登録されています。このマネージャーは、ライター、イラストレーター、編集者、ユーザーなど異なるタイプのエージェント間のやり取りを調整する役割を持っています。
+前述のコードでは、`GroupChatManager`がランタイムに登録されています。このマネージャーは、ライター、イラストレーター、編集者、ユーザーなどの異なるタイプのエージェント間のやり取りを調整する役割を果たします。
 
-- **エージェントランタイム**。フレームワークはエージェント間の通信を可能にし、エージェントの識別子やライフサイクルを管理し、セキュリティとプライバシーの境界を強制するランタイム環境を提供します。これにより、エージェントを安全かつ制御された環境で実行し、効率的かつ安全に相互作用させることができます。注目すべきランタイムは以下の2つです：
-  - **スタンドアロンランタイム**。すべてのエージェントが同じプログラミング言語で実装され、同一プロセス内で動作する単一プロセスアプリケーションに適しています。動作イメージは以下の通りです：
-
+- **エージェントランタイム**: フレームワークはランタイム環境を提供し、エージェント間の通信を可能にし、エージェントのアイデンティティとライフサイクルを管理し、セキュリティとプライバシーの境界を強制します。これにより、エージェントを安全で制御された環境で実行し、安全かつ効率的に相互作用することができます。以下の2つのランタイムが注目されています：
+  - **スタンドアロンランタイム**: すべてのエージェントが同じプログラミング言語で実装され、同じプロセスで実行される単一プロセスアプリケーションに適しています。以下はその動作のイラストです：
+  
+    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">スタンドアロンランタイム</a>   
 アプリケーションスタック
 
-    *エージェントはランタイムを介してメッセージで通信し、ランタイムがエージェントのライフサイクルを管理します*
+    *エージェントはランタイムを介してメッセージで通信し、ランタイムはエージェントのライフサイクルを管理します*
 
-  - **分散エージェントランタイム**。異なるプログラミング言語で実装され、異なるマシン上で動作するマルチプロセスアプリケーションに適しています。動作イメージは以下の通りです：
+  - **分散エージェントランタイム**: 異なるプログラミング言語で実装され、異なるマシンで実行されるエージェントに適しています。以下はその動作のイラストです：
+  
+    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-distributed.svg" target="_blank">分散ランタイム</a>
 
-## Semantic Kernel + Agent Framework
+## Semantic Kernel + エージ
+これらの事実は、メモリコレクション`SummarizedAzureDocs`に保存されます。これは非常に簡略化された例ですが、LLMが使用するための情報をメモリに保存する方法がわかります。
 
-Semantic Kernelはエンタープライズ対応のAIオーケストレーションSDKです。AIコネクターとメモリコネクター、そしてエージェントフレームワークで構成されています。
+これがSemantic Kernelフレームワークの基本ですが、Agent Frameworkについてはどうでしょうか？
 
-まずはコアコンポーネントを紹介します：
+## Azure AI Agent Service
 
-- **AIコネクター**：PythonとC#の両方で使用可能な外部AIサービスやデータソースとのインターフェースです。
+Azure AI Agent Serviceは、Microsoft Ignite 2024で導入された比較的新しい追加機能です。これにより、Llama 3、Mistral、CohereなどのオープンソースLLMを直接呼び出すような、より柔軟なモデルを使用してAIエージェントを開発・展開することが可能になります。
 
-  ```python
-  # Semantic Kernel Python
-  from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
-  from semantic_kernel.kernel import Kernel
+Azure AI Agent Serviceは、より強力なエンタープライズセキュリティメカニズムとデータ保存方法を提供し、企業向けアプリケーションに適しています。
 
-  kernel = Kernel()
-  kernel.add_service(
-    AzureChatCompletion(
-        deployment_name="your-deployment-name",
-        api_key="your-api-key",
-        endpoint="your-endpoint",
-    )
-  )
-  ```  
+このサービスは、AutoGenやSemantic Kernelのようなマルチエージェントオーケストレーションフレームワークとすぐに連携して動作します。
 
-    ```csharp
-    // Semantic Kernel C#
-    using Microsoft.SemanticKernel;
+現在、このサービスはPublic Preview段階にあり、PythonとC#を使用してエージェントを構築することができます。
 
-    // Create kernel
-    var builder = Kernel.CreateBuilder();
-    
-    // Add a chat completion service:
-    builder.Services.AddAzureOpenAIChatCompletion(
-        "your-resource-name",
-        "your-endpoint",
-        "your-resource-key",
-        "deployment-model");
-    var kernel = builder.Build();
-    ```
+Semantic Kernel Pythonを使用して、ユーザー定義のプラグインを持つAzure AI Agentを作成することができます：
 
-    ここでは、カーネルを作成し、チャット完了サービスを追加する簡単な例を示しています。Semantic Kernelは外部AIサービス、ここではAzure OpenAIのチャット完了サービスへの接続を作成します。
+```python
+import asyncio
+from typing import Annotated
 
-- **プラグイン**：アプリケーションが利用できる関数をカプセル化します。既製のプラグインもあれば、カスタムで作成することも可能です。関連する概念に「プロンプト関数」があります。これは関数呼び出しのために自然言語のキューを提供する代わりに、特定の関数をモデルにブロードキャストします。現在のチャットコンテキストに基づき、モデルはこれらの関数のいずれかを呼び出してリクエストやクエリを完了させることがあります。例を示します：
+from azure.identity.aio import DefaultAzureCredential
 
-  ```python
-  from semantic_kernel.connectors.ai.open_ai.services.azure_chat_completion import AzureChatCompletion
+from semantic_kernel.agents import AzureAIAgent, AzureAIAgentSettings, AzureAIAgentThread
+from semantic_kernel.contents import ChatMessageContent
+from semantic_kernel.contents import AuthorRole
+from semantic_kernel.functions import kernel_function
 
 
-  async def main():
-      from semantic_kernel.functions import KernelFunctionFromPrompt
-      from semantic_kernel.kernel import Kernel
+# Define a sample plugin for the sample
+class MenuPlugin:
+    """A sample Menu Plugin used for the concept sample."""
 
-      kernel = Kernel()
-      kernel.add_service(AzureChatCompletion())
+    @kernel_function(description="Provides a list of specials from the menu.")
+    def get_specials(self) -> Annotated[str, "Returns the specials from the menu."]:
+        return """
+        Special Soup: Clam Chowder
+        Special Salad: Cobb Salad
+        Special Drink: Chai Tea
+        """
 
-      user_input = input("User Input:> ")
-
-      kernel_function = KernelFunctionFromPrompt(
-          function_name="SummarizeText",
-          prompt="""
-          Summarize the provided unstructured text in a sentence that is easy to understand.
-          Text to summarize: {{$user_input}}
-          """,
-      )
-
-      response = await kernel_function.invoke(kernel=kernel, user_input=user_input)
-      print(f"Model Response: {response}")
-
-      """
-      Sample Console Output:
-
-      User Input:> I like dogs
-      Model Response: The text expresses a preference for dogs.
-      """
+    @kernel_function(description="Provides the price of the requested menu item.")
+    def get_item_price(
+        self, menu_item: Annotated[str, "The name of the menu item."]
+    ) -> Annotated[str, "Returns the price of the menu item."]:
+        return "$9.99"
 
 
-  if __name__ == "__main__":
-    import asyncio
+async def main() -> None:
+    ai_agent_settings = AzureAIAgentSettings.create()
+
+    async with (
+        DefaultAzureCredential() as creds,
+        AzureAIAgent.create_client(
+            credential=creds,
+            conn_str=ai_agent_settings.project_connection_string.get_secret_value(),
+        ) as client,
+    ):
+        # Create agent definition
+        agent_definition = await client.agents.create_agent(
+            model=ai_agent_settings.model_deployment_name,
+            name="Host",
+            instructions="Answer questions about the menu.",
+        )
+
+        # Create the AzureAI Agent using the defined client and agent definition
+        agent = AzureAIAgent(
+            client=client,
+            definition=agent_definition,
+            plugins=[MenuPlugin()],
+        )
+
+        # Create a thread to hold the conversation
+        # If no thread is provided, a new thread will be
+        # created and returned with the initial response
+        thread: AzureAIAgentThread | None = None
+
+        user_inputs = [
+            "Hello",
+            "What is the special soup?",
+            "How much does that cost?",
+            "Thank you",
+        ]
+
+        try:
+            for user_input in user_inputs:
+                print(f"# User: '{user_input}'")
+                # Invoke the agent for the specified thread
+                response = await agent.get_response(
+                    messages=user_input,
+                    thread_id=thread,
+                )
+                print(f"# {response.name}: {response.content}")
+                thread = response.thread
+        finally:
+            await thread.delete() if thread else None
+            await client.agents.delete_agent(agent.id)
+
+
+if __name__ == "__main__":
     asyncio.run(main())
-  ```
+```
 
-    ```csharp
-    var userInput = Console.ReadLine();
+### コアコンセプト
 
-    // Define semantic function inline.
-    string skPrompt = @"Summarize the provided unstructured text in a sentence that is easy to understand.
-                        Text to summarize: {{$userInput}}";
-    
-    // create the function from the prompt
-    KernelFunction summarizeFunc = kernel.CreateFunctionFromPrompt(
-        promptTemplate: skPrompt,
-        functionName: "SummarizeText"
-    );
+Azure AI Agent Serviceには以下のコアコンセプトがあります：
 
-    //then import into the current kernel
-    kernel.ImportPluginFromFunctions("SemanticFunctions", [summarizeFunc]);
+- **エージェント**。Azure AI Agent ServiceはAzure AI Foundryと統合されています。AI Foundry内では、AIエージェントは「スマート」なマイクロサービスとして機能し、質問への回答（RAG）、アクションの実行、またはワークフローの完全な自動化を行うことができます。これは、生成AIモデルの力を、実世界のデータソースにアクセスして対話するツールと組み合わせることで実現されます。以下はエージェントの例です：
 
+    ```python
+    agent = project_client.agents.create_agent(
+        model="gpt-4o-mini",
+        name="my-agent",
+        instructions="You are helpful agent",
+        tools=code_interpreter.definitions,
+        tool_resources=code_interpreter.resources,
+    )
     ```
 
-    ここでは、まずテンプレートプロンプト`skPrompt`があり、ユーザーが入力するテキスト`$userInput`のためのスペースを空けています。次にカーネル関数`SummarizeText`を作成し、プラグイン名`SemanticFunctions`でカーネルにインポートしています。関数名はSemantic Kernelが関数の役割と呼び出しタイミングを理解するのに役立ちます。
+    この例では、`gpt-4o-mini`モデル、名前`my-agent`、指示`You are helpful agent`を持つエージェントが作成されています。このエージェントは、コード解釈タスクを実行するためのツールとリソースを備えています。
 
-- **ネイティブ関数**：フレームワークが直接呼び出してタスクを実行するネイティブ関数もあります。以下はファイルから内容を取得する例です：
+- **スレッドとメッセージ**。スレッドはもう一つの重要な概念です。これはエージェントとユーザー間の会話ややり取りを表します。スレッドは会話の進行状況を追跡したり、コンテキスト情報を保存したり、やり取りの状態を管理するために使用されます。以下はスレッドの例です：
 
-    ```csharp
-    public class NativeFunctions {
-
-        [SKFunction, Description("Retrieve content from local file")]
-        public async Task<string> RetrieveLocalFile(string fileName, int maxSize = 5000)
-        {
-            string content = await File.ReadAllTextAsync(fileName);
-            if (content.Length <= maxSize) return content;
-            return content.Substring(0, maxSize);
-        }
-    }
+    ```python
+    thread = project_client.agents.create_thread()
+    message = project_client.agents.create_message(
+        thread_id=thread.id,
+        role="user",
+        content="Could you please create a bar chart for the operating profit using the following data and provide the file to me? Company A: $1.2 million, Company B: $2.5 million, Company C: $3.0 million, Company D: $1.8 million",
+    )
     
-    //Import native function
-    string plugInName = "NativeFunction";
-    string functionName = "RetrieveLocalFile";
-
-   //To add the functions to a kernel use the following function
-    kernel.ImportPluginFromType<NativeFunctions>();
-
+    # Ask the agent to perform work on the thread
+    run = project_client.agents.create_and_process_run(thread_id=thread.id, agent_id=agent.id)
+    
+    # Fetch and log all messages to see the agent's response
+    messages = project_client.agents.list_messages(thread_id=thread.id)
+    print(f"Messages: {messages}")
     ```
 
-- **メモリ**：AIアプリのコンテキスト管理を抽象化し簡素化します。メモリの考え方は、LLMが知っておくべき情報を保存することです。情報はベクターストアに保存され、これはインメモリデータベースやベクターデータベースなどになります。以下は非常に単純化したシナリオで、*facts*をメモリに追加する例です：
+    前述のコードでは、スレッドが作成され、その後スレッドにメッセージが送信されます。`create_and_process_run`を呼び出すことで、エージェントにスレッド上で作業を行うよう依頼します。最後に、メッセージが取得され、エージェントの応答を確認するためにログに記録されます。メッセージは、ユーザーとエージェント間の会話の進行状況を示します。また、メッセージはテキスト、画像、ファイルなど異なる種類のものになる可能性があり、例えばエージェントの作業結果が画像やテキスト応答として生成されることがあります。開発者として、この情報を使用して応答をさらに処理したり、ユーザーに提示したりすることができます。
 
-    ```csharp
-    var facts = new Dictionary<string,string>();
-    facts.Add(
-        "Azure Machine Learning; https://learn.microsoft.com/azure/machine-learning/",
-        @"Azure Machine Learning is a cloud service for accelerating and
-        managing the machine learning project lifecycle. Machine learning professionals,
-        data scientists, and engineers can use it in their day-to-day workflows"
-    );
-    
-    facts.Add(
-        "Azure SQL Service; https://learn.microsoft.com/azure/azure-sql/",
-        @"Azure SQL is a family of managed, secure, and intelligent products
-        that use the SQL Server database engine in the Azure cloud."
-    );
-    
-    string memoryCollectionName = "SummarizedAzureDocs";
-    
-    foreach (var fact in facts) {
-        await memoryBuilder.SaveReferenceAsync(
-            collection: memoryCollectionName,
-            description: fact.Key.Split(";")[1].Trim(),
-            text: fact.Value,
-            externalId: fact.Key.Split(";")[2].Trim(),
-            externalSourceName: "Azure Documentation"
-        );
-    }
-    ```
+- **他のAIフレームワークとの統合**。Azure AI Agent Serviceは、AutoGenやSemantic Kernelなどの他のフレームワークと連携することができます。これにより、これらのフレームワークの一部でアプリを構築し、例えばAgent Serviceをオーケストレーターとして使用することが可能です。または、すべてをAgent Service内で構築することもできます。
 
-    これらのfactsはメモリコレクション`SummarizedAzureDocs`に保存されます。非常に簡単な例ですが、LLMが利用できるように情報をメモリに保存する方法がわかります。
+**ユースケース**: Azure AI Agent Serviceは、セキュアでスケーラブル、柔軟なAIエージェント展開を必要とする企業向けアプリケーション向けに設計されています。
+
+## これらのフレームワークの違いは何ですか？
+
+これらのフレームワークには多くの重複があるように聞こえますが、設計、機能、対象となるユースケースにおいていくつかの重要な違いがあります：
+
+- **AutoGen**: マルチエージェントシステムに関する最先端の研究に焦点を当てた実験フレームワークです。複雑なマルチエージェントシステムを実験・プロトタイプ化するのに最適です。
+- **Semantic Kernel**: 企業向けエージェントアプリケーションを構築するためのプロダクション対応エージェントライブラリです。イベント駆動型、分散型エージェントアプリケーションに焦点を当て、複数のLLMやSLM、ツール、単一/マルチエージェント設計パターンを可能にします。
+- **Azure AI Agent Service**: Azure Foundry内のエージェント向けプラットフォームおよび展開サービスです。Azure OpenAI、Azure AI Search、Bing Search、コード実行など、Azure Foundryがサポートするサービスへの接続を構築する機能を提供します。
+
+まだどれを選ぶべきか迷っていますか？
+
+### ユースケース
+
+いくつかの一般的なユースケースを通じて、選択を助けましょう：
+
+> Q: 実験、学習、概念実証エージェントアプリケーションを構築しており、迅速に構築・実験したいです。
+>
+
+>A: AutoGenはこのシナリオに適しています。イベント駆動型、分散型エージェントアプリケーションに焦点を当てており、高度なマルチエージェント設計パターンをサポートしています。
+
+> Q: このユースケースにおいて、AutoGenがSemantic KernelやAzure AI Agent Serviceよりも優れている理由は何ですか？
+>
+> A: AutoGenはイベント駆動型、分散型エージェントアプリケーション向けに特別に設計されており、コード生成やデータ分析タスクの自動化に適しています。複雑なマルチエージェントシステムを効率的に構築するための必要なツールと機能を提供します。
+
+>Q: Azure AI Agent Serviceもここで使えるように思えます。コード生成などのツールもありますよね？
+>
+> A: はい、Azure AI Agent Serviceはエージェント向けのプラットフォームサービスであり、複数のモデル、Azure AI Search、Bing Search、Azure Functionsの組み込み機能を追加しています。Foundry Portalでエージェントを簡単に構築し、スケール展開することができます。
+
+> Q: まだ混乱しています。一つの選択肢を教えてください。
+>
+> A: 最初にSemantic Kernelでアプリケーションを構築し、その後Azure AI Agent Serviceを使用してエージェントを展開するのが良い選択肢です。このアプローチにより、Semantic Kernelでマルチエージェントシステムを構築する力を活用しながら、エージェントを簡単に永続化できます。さらに、Semantic KernelにはAutoGenとのコネクターがあり、両方のフレームワークを簡単に併用できます。
+
+以下に主要な違いを表にまとめます：
+
+| フレームワーク | 焦点 | コアコンセプト | ユースケース |
+| --- | --- | --- | --- |
+| AutoGen | イベント駆動型、分散型エージェントアプリケーション | エージェント、ペルソナ、関数、データ | コード生成、データ分析タスク |
+| Semantic Kernel | 人間のようなテキスト内容の理解と生成 | エージェント、モジュールコンポーネント、コラボレーション | 自然言語理解、コンテンツ生成 |
+| Azure AI Agent Service | 柔軟なモデル、エンタープライズセキュリティ、コード生成、ツール呼び出し | モジュール性、コラボレーション、プロセスオーケストレーション | セキュアでスケーラブル、柔軟なAIエージェント展開 |
+
+各フレームワークの理想的なユースケースは何ですか？
+
+## 既存のAzureエコシステムツールを直接統合できますか、それとも独立したソリューションが必要ですか？
+
+答えは「はい」です。特にAzure AI Agent Serviceは、他のAzureサービスとシームレスに連携するように設計されているため、既存のAzureエコシステムツールを直接統合できます。例えば、Bing、Azure AI Search、Azure Functionsを統合することが可能です。また、Azure AI Foundryとの深い統合もあります。
+
+AutoGenやSemantic KernelでもAzureサービスと統合できますが、コードからAzureサービスを呼び出す必要がある場合があります。もう一つの統合方法として、Azure SDKを使用してエージェントからAzureサービスと対話することができます。さらに、前述のように、AutoGenやSemantic Kernelで構築したエージェントのオーケストレーターとしてAzure AI Agent Serviceを使用することで、Azureエコシステムへの簡単なアクセスが可能になります。
+
+### AIエージェントフレームワークについてさらに質問がありますか？
+
+[Azure AI Foundry Discord](https://aka.ms/ai-agents/discord)に参加して、他の学習者と交流したり、オフィスアワーに参加したり、AIエージェントに関する質問に答えてもらいましょう。
+
+## 参考資料
+
+- <a href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-azure-ai-agent-service/4298357" target="_blank">Azure Agent Service</a>
+- <a href="https://devblogs.microsoft.com/semantic-kernel/microsofts-agentic-ai-frameworks-autogen-and-semantic-kernel/" target="_blank">Semantic KernelとAutoGen</a>
+- <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-python" target="_blank">Semantic Kernel Python Agent Framework</a>
+- <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-csharp" target="_blank">Semantic Kernel .Net Agent Framework</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a>
+- <a href="https://techcommunity.microsoft.com/blog/educatordeveloperblog/using-azure-ai-agent-service-with-autogen--semantic-kernel-to-build-a-multi-agen/4363121" target="_blank">AutoGen / Semantic Kernelを使用したAzure AI Agent Serviceによるマルチエージェントソリューションの構築</a>
+
 ## 前のレッスン
 
-[AIエージェントとエージェントのユースケースの紹介](../01-intro-to-ai-agents/README.md)
+[AIエージェントとそのユースケースの紹介](../01-intro-to-ai-agents/README.md)
 
 ## 次のレッスン
 
 [エージェント設計パターンの理解](../03-agentic-design-patterns/README.md)
 
-**免責事項**：  
-本書類はAI翻訳サービス「[Co-op Translator](https://github.com/Azure/co-op-translator)」を使用して翻訳されました。正確性を期しておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があります。原文の言語によるオリジナル文書が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じた誤解や誤訳について、当方は一切の責任を負いかねます。
+---
+
+**免責事項**:  
+この文書は、AI翻訳サービス[Co-op Translator](https://github.com/Azure/co-op-translator)を使用して翻訳されています。正確性を追求しておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があることをご承知ください。元の言語で記載された文書が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。この翻訳の使用に起因する誤解や誤解釈について、当方は責任を負いません。

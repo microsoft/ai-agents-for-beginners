@@ -1,146 +1,177 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "c692a8975d7d5b99575a553de1c5e8a7",
-  "translation_date": "2025-07-12T11:23:12+00:00",
+  "original_hash": "1a008c204051cba8d0e253b75f261c41",
+  "translation_date": "2025-08-29T20:06:44+00:00",
   "source_file": "08-multi-agent/README.md",
   "language_code": "hu"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.hu.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Többügynökös tervezés](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.hu.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
-> _(Kattints a fenti képre a lecke videójának megtekintéséhez)_
+> _(Kattints a fenti képre a leckéhez tartozó videó megtekintéséhez)_
 
 # Többügynökös tervezési minták
 
-Amint elkezdesz dolgozni egy olyan projekten, amely több ügynököt is érint, fontolóra kell venned a többügynökös tervezési mintát. Azonban nem mindig egyértelmű, mikor érdemes áttérni több ügynökre, és mik az előnyei.
+Amint elkezdesz egy olyan projekten dolgozni, amely több ügynököt is magában foglal, figyelembe kell venned a többügynökös tervezési mintát. Azonban nem mindig egyértelmű, mikor érdemes több ügynökre váltani, és mik az előnyei.
 
 ## Bevezetés
 
 Ebben a leckében a következő kérdésekre keressük a választ:
 
-- Milyen helyzetekben alkalmazhatók a többügynökös megoldások?
-- Milyen előnyei vannak a több ügynök használatának egyetlen, több feladatot ellátó ügynökhöz képest?
-- Mik a többügynökös tervezési minta megvalósításának építőelemei?
-- Hogyan láthatjuk, hogy a több ügynök hogyan lép kölcsönhatásba egymással?
+- Milyen forgatókönyvekben alkalmazható a többügynökös megközelítés?
+- Milyen előnyei vannak a többügynökös rendszernek az egyetlen ügynökkel szemben, amely több feladatot lát el?
+- Mik a többügynökös tervezési minta megvalósításának építőkövei?
+- Hogyan biztosítható az átláthatóság az ügynökök közötti interakciókban?
 
 ## Tanulási célok
 
-A lecke elvégzése után képes leszel:
+A lecke végére képes leszel:
 
-- Azonosítani azokat a helyzeteket, ahol többügynökös megoldás alkalmazható
-- Felismerni a több ügynök használatának előnyeit az egyetlen ügynökhöz képest
-- Megérteni a többügynökös tervezési minta megvalósításának építőelemeit
+- Azonosítani azokat a forgatókönyveket, ahol a többügynökös megközelítés alkalmazható.
+- Felismerni a többügynökös rendszer előnyeit az egyetlen ügynökkel szemben.
+- Megérteni a többügynökös tervezési minta megvalósításának építőköveit.
 
 Mi a nagyobb kép?
 
-*A többügynökös megoldás egy olyan tervezési minta, amely lehetővé teszi, hogy több ügynök együtt dolgozzon egy közös cél eléréséért.*
+*A többügynökös rendszer egy olyan tervezési minta, amely lehetővé teszi, hogy több ügynök együttműködve érjen el egy közös célt.*
 
-Ezt a mintát széles körben használják különböző területeken, például robotikában, autonóm rendszerekben és elosztott számítástechnikában.
+Ez a minta széles körben alkalmazott különböző területeken, például robotikában, autonóm rendszerekben és elosztott számítástechnikában.
 
-## Helyzetek, ahol a többügynökös megoldás alkalmazható
+## Forgatókönyvek, ahol a többügynökös megközelítés alkalmazható
 
-Milyen helyzetekben érdemes több ügynököt alkalmazni? A válasz az, hogy számos olyan eset van, amikor több ügynök bevonása előnyös, különösen az alábbi esetekben:
+Milyen forgatókönyvekben érdemes több ügynököt alkalmazni? A válasz az, hogy számos esetben előnyös lehet több ügynök alkalmazása, különösen az alábbi helyzetekben:
 
-- **Nagy munkaterhelés**: A nagy munkaterhelés kisebb feladatokra bontható, amelyeket különböző ügynököknek lehet kiosztani, így párhuzamos feldolgozás és gyorsabb befejezés érhető el. Erre példa egy nagy adatfeldolgozási feladat.
-- **Összetett feladatok**: Az összetett feladatok, hasonlóan a nagy munkaterheléshez, kisebb részfeladatokra bonthatók, amelyeket különböző ügynökök végeznek, mindegyik egy adott területre specializálódva. Jó példa erre az autonóm járművek esete, ahol külön ügynökök kezelik a navigációt, akadályfelismerést és a kommunikációt más járművekkel.
-- **Sokszínű szakértelem**: Különböző ügynökök eltérő szakértelemmel rendelkezhetnek, így hatékonyabban kezelhetnek különböző feladatokat, mint egyetlen ügynök. Erre jó példa az egészségügy, ahol az ügynökök diagnosztikát, kezelési terveket és betegmegfigyelést végezhetnek.
+- **Nagy munkaterhelés**: A nagy munkaterhelést kisebb feladatokra lehet bontani, és különböző ügynökökre osztani, lehetővé téve a párhuzamos feldolgozást és a gyorsabb befejezést. Példa erre egy nagy adatfeldolgozási feladat.
+- **Komplex feladatok**: A komplex feladatokat, hasonlóan a nagy munkaterheléshez, kisebb részfeladatokra lehet bontani, és különböző ügynökökre bízni, amelyek egy-egy specifikus részfeladatra specializálódtak. Jó példa erre az autonóm járművek esete, ahol különböző ügynökök kezelik a navigációt, az akadályok észlelését, valamint a többi járművel való kommunikációt.
+- **Sokféle szakértelem**: Különböző ügynökök eltérő szakértelemmel rendelkezhetnek, így hatékonyabban tudják kezelni a feladat különböző aspektusait, mint egyetlen ügynök. Példa erre az egészségügy, ahol az ügynökök kezelhetik a diagnosztikát, a kezelési terveket és a betegmegfigyelést.
 
-## A többügynökös megoldás előnyei az egyetlen ügynökhöz képest
+## A többügynökös rendszer előnyei az egyetlen ügynökkel szemben
 
-Egyetlen ügynök jól működhet egyszerű feladatok esetén, de összetettebb feladatoknál a több ügynök használata számos előnyt kínál:
+Egyetlen ügynökös rendszer jól működhet egyszerű feladatok esetén, de összetettebb feladatoknál a többügynökös megközelítés számos előnnyel járhat:
 
-- **Specializáció**: Minden ügynök egy adott feladatra specializálódhat. Egyetlen ügynök esetén, aki mindent csinál, előfordulhat, hogy összezavarodik egy összetett feladat során, és nem a legmegfelelőbb feladatot végzi el.
-- **Skálázhatóság**: Könnyebb a rendszert bővíteni több ügynök hozzáadásával, mint egyetlen ügynök túlterhelésével.
-- **Hibatűrés**: Ha egy ügynök meghibásodik, a többi tovább működhet, így a rendszer megbízhatósága biztosított.
+- **Specializáció**: Minden ügynök egy adott feladatra specializálódhat. Egyetlen ügynök specializációjának hiánya azt eredményezheti, hogy az ügynök összezavarodik egy komplex feladat esetén, és esetleg olyan feladatot végez el, amelyre nem a legalkalmasabb.
+- **Skálázhatóság**: Könnyebb a rendszert bővíteni további ügynökök hozzáadásával, mint egyetlen ügynök túlterhelésével.
+- **Hibatűrés**: Ha egy ügynök meghibásodik, a többi továbbra is működhet, biztosítva a rendszer megbízhatóságát.
 
-Vegyünk egy példát: foglaljunk utazást egy felhasználónak. Egyetlen ügynöknek kellene kezelnie az utazás összes aspektusát, a repülőjáratok keresésétől a szállodák és bérautók foglalásáig. Ehhez az ügynöknek eszközökkel kellene rendelkeznie minden feladat kezelésére, ami egy bonyolult, nehezen karbantartható és skálázható rendszert eredményezne. Ezzel szemben egy többügynökös rendszerben külön ügynökök specializálódhatnak a repülőjáratok keresésére, a szállodafoglalásra és a bérautók kezelésére. Ez modulárisabbá, könnyebben karbantarthatóvá és skálázhatóvá teszi a rendszert.
+Vegyünk egy példát: egy felhasználó számára utazást kell lefoglalni. Egyetlen ügynökös rendszernek az utazásfoglalási folyamat minden aspektusát kezelnie kellene, a repülőjáratok keresésétől a szállodák és bérautók foglalásáig. Ehhez az ügynöknek minden feladat kezelésére alkalmas eszközökkel kellene rendelkeznie, ami egy bonyolult és monolitikus rendszert eredményezne, amelyet nehéz karbantartani és skálázni. Ezzel szemben egy többügynökös rendszerben különböző ügynökök specializálódhatnak a repülőjáratok keresésére, a szállodák foglalására és a bérautók kezelésére. Ez a rendszer modulárisabb, könnyebben karbantartható és skálázható lenne.
 
-Hasonlítsuk össze ezt egy kis utazási irodával, amelyet egy családi vállalkozás működtet, és egy franchise irodával. A családi vállalkozásban egyetlen ügynök kezeli az utazás minden aspektusát, míg a franchise-ban különböző ügynökök foglalkoznak az egyes részekkel.
+Hasonlítsuk ezt össze egy kis családi utazási irodával és egy franchise rendszerben működő utazási irodával. A családi üzletben egyetlen ügynök kezelné az utazásfoglalási folyamat minden aspektusát, míg a franchise rendszerben különböző ügynökök foglalkoznának az utazás különböző aspektusaival.
 
-## A többügynökös tervezési minta megvalósításának építőelemei
+## A többügynökös tervezési minta megvalósításának építőkövei
 
-Mielőtt megvalósítanád a többügynökös tervezési mintát, meg kell értened a minta építőelemeit.
+Mielőtt megvalósítanád a többügynökös tervezési mintát, meg kell értened a minta építőköveit.
 
-Tegyük ezt konkrétabbá az utazásfoglalás példáján keresztül. Ebben az esetben az építőelemek a következők:
+Tegyük ezt konkrétabbá azzal, hogy ismét az utazásfoglalás példáját vesszük alapul. Ebben az esetben az építőkövek a következők lennének:
 
-- **Ügynökök közötti kommunikáció**: A repülőjáratokat kereső, szállodákat és bérautókat foglaló ügynököknek kommunikálniuk kell egymással, megosztva a felhasználó preferenciáit és korlátait. El kell döntened a kommunikáció protokollját és módját. Konkrétan ez azt jelenti, hogy a repülőjáratokat kereső ügynöknek kommunikálnia kell a szállodafoglaló ügynökkel, hogy a szálloda a repülőjárat dátumaival egyezzen. Ez azt jelenti, hogy az ügynököknek meg kell osztaniuk az utazás dátumait, vagyis el kell döntened, *mely ügynökök osztanak meg információt és hogyan*.
-- **Koordinációs mechanizmusok**: Az ügynököknek össze kell hangolniuk tevékenységüket, hogy a felhasználó preferenciái és korlátai teljesüljenek. Például a felhasználó szeretne egy repülőtérhez közeli szállodát, miközben a bérautók csak a repülőtéren érhetők el. Ez azt jelenti, hogy a szállodafoglaló ügynöknek koordinálnia kell a bérautó foglaló ügynökkel, hogy a felhasználó igényei teljesüljenek. Ez azt jelenti, hogy el kell döntened, *hogyan koordinálják az ügynökök a tevékenységüket*.
-- **Ügynök architektúra**: Az ügynököknek belső struktúrával kell rendelkezniük a döntéshozatalhoz és a felhasználóval való interakciókból való tanuláshoz. Ez azt jelenti, hogy a repülőjáratokat kereső ügynöknek képesnek kell lennie dönteni arról, mely járatokat ajánlja a felhasználónak. Ez azt jelenti, hogy el kell döntened, *hogyan hoznak döntéseket az ügynökök és hogyan tanulnak a felhasználóval való interakciókból*. Például a repülőjáratokat kereső ügynök gépi tanulási modellt használhat, hogy a felhasználó korábbi preferenciái alapján ajánljon járatokat.
-- **Átláthatóság a többügynökös interakciókban**: Látni kell, hogyan lépnek kölcsönhatásba az ügynökök egymással. Ehhez eszközökre és technikákra van szükség az ügynökök tevékenységeinek és interakcióinak nyomon követésére. Ez lehet naplózó és monitorozó eszközök, vizualizációs eszközök és teljesítménymutatók formájában.
-- **Többügynökös minták**: Különböző minták léteznek a többügynökös rendszerek megvalósítására, például központosított, decentralizált és hibrid architektúrák. El kell döntened, melyik minta illik legjobban az esetedhez.
-- **Ember a folyamatban**: A legtöbb esetben ember is részt vesz a folyamatban, és meg kell határoznod, mikor kérjenek az ügynökök emberi beavatkozást. Ez lehet például, amikor a felhasználó egy olyan szállodát vagy járatot kér, amit az ügynökök nem ajánlottak, vagy amikor megerősítést kérnek a foglalás előtt.
+- **Ügynökök közötti kommunikáció**: Az ügynököknek, amelyek a repülőjáratok keresésével, a szállodák foglalásával és a bérautók kezelésével foglalkoznak, kommunikálniuk kell egymással, és meg kell osztaniuk az információkat a felhasználó preferenciáiról és korlátairól. El kell döntened, hogy milyen protokollokat és módszereket használsz ehhez a kommunikációhoz. Ez konkrétan azt jelenti, hogy a repülőjáratokat kereső ügynöknek kommunikálnia kell a szállodafoglaló ügynökkel, hogy a szálloda ugyanarra az időpontra legyen lefoglalva, mint a repülőjárat.
+- **Koordinációs mechanizmusok**: Az ügynököknek össze kell hangolniuk a tevékenységeiket, hogy biztosítsák a felhasználó preferenciáinak és korlátainak teljesülését. Például, ha a felhasználó azt szeretné, hogy a szálloda közel legyen a repülőtérhez, akkor a szállodafoglaló ügynöknek koordinálnia kell a bérautó-foglaló ügynökkel.
+- **Ügynökök architektúrája**: Az ügynököknek rendelkezniük kell egy belső struktúrával, amely lehetővé teszi számukra a döntéshozatalt és a felhasználóval való interakciókból való tanulást.
+- **Átláthatóság az ügynökök közötti interakciókban**: Fontos, hogy átlátható legyen, hogyan működnek együtt az ügynökök. Ehhez eszközökre és technikákra van szükség az ügynökök tevékenységeinek és interakcióinak nyomon követésére.
+- **Többügynökös minták**: Különböző minták léteznek a többügynökös rendszerek megvalósítására, például központosított, decentralizált és hibrid architektúrák. El kell döntened, melyik minta illik legjobban az adott felhasználási esetedhez.
+- **Emberi beavatkozás**: A legtöbb esetben szükség lesz emberi beavatkozásra, és meg kell határoznod, hogy az ügynökök mikor kérjenek emberi segítséget.
 
-## Átláthatóság a többügynökös interakciókban
+## Átláthatóság az ügynökök közötti interakciókban
 
-Fontos, hogy átlátható legyen, hogyan lépnek kölcsönhatásba az ügynökök egymással. Ez az átláthatóság elengedhetetlen a hibakereséshez, optimalizáláshoz és a rendszer hatékonyságának biztosításához. Ehhez eszközökre és technikákra van szükség az ügynökök tevékenységeinek és interakcióinak nyomon követésére. Ez lehet naplózó és monitorozó eszközök, vizualizációs eszközök és teljesítménymutatók formájában.
+Fontos, hogy átlátható legyen, hogyan működnek együtt az ügynökök. Ez elengedhetetlen a hibakereséshez, az optimalizáláshoz és a rendszer hatékonyságának biztosításához. Ehhez eszközökre és technikákra van szükség az ügynökök tevékenységeinek és interakcióinak nyomon követésére.
 
-Például az utazásfoglalás esetén lehet egy irányítópult, amely mutatja az egyes ügynökök állapotát, a felhasználó preferenciáit és korlátait, valamint az ügynökök közötti interakciókat. Ez az irányítópult megjelenítheti a felhasználó utazási dátumait, a repülőjáratokat ajánló ügynök ajánlásait, a szállodákat ajánló ügynök javaslatait és a bérautókat ajánló ügynök ajánlásait. Ez tiszta képet ad arról, hogyan lépnek kölcsönhatásba az ügynökök, és teljesülnek-e a felhasználó igényei.
+Például az utazásfoglalás esetében lehetne egy irányítópult, amely megmutatja az egyes ügynökök állapotát, a felhasználó preferenciáit és korlátait, valamint az ügynökök közötti interakciókat.
 
-Nézzük meg ezeket az aspektusokat részletesebben.
-
-- **Naplózó és monitorozó eszközök**: Minden ügynök által végrehajtott műveletet naplózni kell. Egy naplóbejegyzés tartalmazhat információt az ügynökről, aki a műveletet végrehajtotta, a művelet típusáról, az időpontjáról és az eredményéről. Ezek az adatok segíthetnek a hibakeresésben, optimalizálásban és egyéb elemzésekben.
-- **Vizualizációs eszközök**: Ezek segítenek az ügynökök közötti interakciók intuitív megjelenítésében. Például lehet egy gráf, amely az információáramlást mutatja az ügynökök között. Ez segíthet azonosítani a szűk keresztmetszeteket, hatékonysági problémákat és egyéb hibákat.
-- **Teljesítménymutatók**: Ezekkel nyomon követhető a többügynökös rendszer hatékonysága. Például mérhető a feladatok elvégzéséhez szükséges idő, az időegység alatt elvégzett feladatok száma, vagy az ügynökök által adott ajánlások pontossága. Ezek az adatok segítenek a fejlesztési területek azonosításában és a rendszer optimalizálásában.
+- **Naplózási és monitorozási eszközök**: Minden ügynök által végrehajtott műveletet naplózni kell. Egy naplóbejegyzés tartalmazhatja az ügynök nevét, a végrehajtott műveletet, az időpontot és az eredményt.
+- **Vizualizációs eszközök**: Ezek segíthetnek az ügynökök közötti interakciók intuitívabb megértésében, például egy grafikon formájában, amely az információáramlást mutatja.
+- **Teljesítménymutatók**: Ezek segíthetnek a többügynökös rendszer hatékonyságának nyomon követésében, például a feladatok elvégzéséhez szükséges idő, az egységnyi idő alatt elvégzett feladatok száma és az ügynökök ajánlásainak pontossága alapján.
 
 ## Többügynökös minták
 
-Nézzünk néhány konkrét mintát, amelyeket többügynökös alkalmazások létrehozásához használhatunk. Íme néhány érdekes minta, amelyeket érdemes megfontolni:
+Nézzünk meg néhány konkrét mintát, amelyeket többügynökös alkalmazások létrehozásához használhatunk:
 
 ### Csoportos csevegés
 
-Ez a minta akkor hasznos, ha olyan csevegőalkalmazást szeretnél létrehozni, ahol több ügynök kommunikálhat egymással. Tipikus felhasználási területek a csapatmunka, ügyfélszolgálat és közösségi hálózatok.
+Ez a minta akkor hasznos, ha csoportos csevegőalkalmazást szeretnél létrehozni, ahol több ügynök kommunikálhat egymással. Tipikus felhasználási esetek: csapatmunka, ügyfélszolgálat és közösségi hálózatok.
 
-Ebben a mintában minden ügynök egy felhasználót képvisel a csoportos csevegésben, és az üzeneteket egy üzenetküldési protokoll segítségével cserélik. Az ügynökök üzeneteket küldhetnek a csoportnak, fogadhatnak üzeneteket, és válaszolhatnak más ügynökök üzeneteire.
-
-Ez a minta megvalósítható központosított architektúrával, ahol az összes üzenet egy központi szerveren keresztül halad, vagy decentralizált architektúrával, ahol az üzenetek közvetlenül cserélődnek.
-
-![Group chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.hu.png)
+![Csoportos csevegés](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.hu.png)
 
 ### Feladatátadás
 
-Ez a minta akkor hasznos, ha olyan alkalmazást szeretnél létrehozni, ahol az ügynökök feladatokat adhatnak át egymásnak.
+Ez a minta akkor hasznos, ha olyan alkalmazást szeretnél létrehozni, ahol az ügynökök átadhatják egymásnak a feladatokat.
 
-Tipikus felhasználási területek az ügyfélszolgálat, feladatkezelés és munkafolyamat-automatizálás.
+![Feladatátadás](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.hu.png)
 
-Ebben a mintában minden ügynök egy feladatot vagy munkafolyamat-lépést képvisel, és az ügynökök előre meghatározott szabályok alapján adhatnak át feladatokat egymásnak.
+### Közös ajánlás
 
-![Hand off](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.hu.png)
+Ez a minta akkor hasznos, ha olyan alkalmazást szeretnél létrehozni, ahol több ügynök együttműködve tesz ajánlásokat a felhasználóknak.
 
-### Együttműködő szűrés
+![Ajánlás](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.hu.png)
 
-Ez a minta akkor hasznos, ha olyan alkalmazást szeretnél létrehozni, ahol több ügynök együttműködve ajánlásokat készít a felhasználóknak.
+## Forgatókönyv: Visszatérítési folyamat
 
-Azért érdemes több ügynököt bevonni, mert mindegyik más-más szakértelemmel rendelkezik, és különböző módon járulhat hozzá az ajánlási folyamathoz.
+Vegyünk egy példát, ahol egy ügyfél visszatérítést szeretne kérni egy termékért. Ebben a folyamatban több ügynök is részt vehet, amelyeket két csoportra oszthatunk: a visszatérítési folyamathoz specifikus ügynökök és általános ügynökök.
 
-Vegyünk egy példát, amikor egy felhasználó a legjobb részvényt szeretné megtudni a tőzsdén.
+**A visszatérítési folyamathoz specifikus ügynökök**:
 
-- **Iparági szakértő**: Az egyik ügynök egy adott iparág szakértője lehet.
-- **Technikai elemző**: Egy másik ügynök a technikai elemzésben jártas.
-- **Fundamentális elemző**: Egy harmadik ügynök a fundamentális elemzés szakértője. Az együttműködés révén ezek az ügynökök átfogóbb ajánlást tudnak adni a felhasználónak.
+- **Ügyfélügynök**: Az ügyfelet képviseli, és felelős a visszatérítési folyamat elindításáért.
+- **Eladóügynök**: Az eladót képviseli, és felelős a visszatérítés feldolgozásáért.
+- **Fizetési ügynök**: A fizetési folyamatot képviseli, és felelős az ügyfél pénzének visszatérítéséért.
+- **Megoldási ügynök**: A problémák megoldásáért felelős, amelyek a visszatérítési folyamat során merülnek fel.
+- **Megfelelőségi ügynök**: Biztosítja, hogy a visszatérítési folyamat megfeleljen a szabályozásoknak és irányelveknek.
 
-![Recommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.hu.png)
+**Általános ügynökök**:
 
-## Példa: Visszatérítési folyamat
+- **Szállítási ügynök**: A szállítási folyamatot képviseli, és felelős a termék visszaküldéséért az eladónak.
+- **Visszajelzési ügynök**: Az ügyfél visszajelzéseinek gyűjtéséért felelős.
+- **Eszkalációs ügynök**: A problémák magasabb szintű támogatásra történő továbbításáért felelős.
+- **Értesítési ügynök**: Az ügyfél értesítéséért felelős a visszatérítési folyamat különböző szakaszaiban.
+- **Elemzési ügynök**: Az adatok elemzéséért felelős.
+- **Audit ügynök**: A visszatérítési folyamat helyességének ellenőrzéséért felelős.
+- **Jelentési ügynök**: Jelentések készítéséért felelős.
+- **Tudásügynök**: A visszatérítési folyamathoz kapcsolódó tudásbázis karbantartásáért felelős.
+- **Biztonsági ügynök**: A visszatérítési folyamat biztonságának biztosításáért felelős.
+- **Minőségügyi ügynök**: A visszatérítési folyamat minőségének biztosításáért felelős.
 
-Vegyünk egy olyan helyzetet, amikor egy vásárló visszatérítést szeretne kérni egy termékre. Ebben a folyamatban több ügynök is részt vehet, de osszuk fel őket a visszatérítési folyamathoz kapcsolódó specifikus ügynökökre és az általános, más folyamatokban is használható ügynökökre.
+Remélhetőleg ez az áttekintés segít abban, hogy eldöntsd, mely ügynököket érdemes használni a többügynökös rendszeredben.
 
-**A visszatérítési folyamathoz kapcsolódó specifikus ügynökök**:
+## Feladat
+Tervezzen egy többügynökös rendszert az ügyfélszolgálati folyamat számára. Határozza meg a folyamatban részt vevő ügynököket, azok szerepeit és felelősségeit, valamint azt, hogyan lépnek kapcsolatba egymással. Vegye figyelembe az ügyfélszolgálati folyamathoz specifikus ügynököket, valamint azokat az általános ügynököket, amelyek az üzlet más részein is használhatók.
 
-Az alábbi ügynökök vehetnek részt a visszatérítési folyamatban:
+> Gondolja át, mielőtt elolvassa a következő megoldást, lehet, hogy több ügynökre van szüksége, mint gondolná.
 
-- **Vevő ügynök**: Ez az ügynök képviseli a vásárlót, és ő indítja el a visszatérítési folyamatot.
-- **Eladó ügynök**: Ez az ügynök képviseli az eladót, és ő kezeli a visszatérítést.
-- **Fizetési ügynök**: Ez az ügynök kezeli a fizetési folyamatot, és felelős a vásárló pénzének visszatérítéséért.
-- **Megoldási ügynök**: Ez az ügynök kezeli a visszatérítési folyamat során felmerülő problémák megoldását.
-- **Megfelelőségi ügynök**: Ez az ügynök biztosítja, hogy a visszatérítési folyamat megfeleljen a szabályozásoknak és előírásoknak
+> TIP: Gondoljon az ügyfélszolgálati folyamat különböző szakaszaira, és vegye figyelembe az ügynököket, amelyek bármely rendszerhez szükségesek lehetnek.
+
+## Megoldás
+
+[Megoldás](./solution/solution.md)
+
+## Tudásellenőrzés
+
+Kérdés: Mikor érdemes többügynökös rendszert használni?
+
+- [ ] A1: Ha kis munkaterhelés és egyszerű feladat van.
+- [ ] A2: Ha nagy munkaterhelés van.
+- [ ] A3: Ha egyszerű feladat van.
+
+[Megoldás kvíz](./solution/solution-quiz.md)
+
+## Összefoglaló
+
+Ebben a leckében megvizsgáltuk a többügynökös tervezési mintát, beleértve azokat a helyzeteket, ahol a többügynökös megközelítés alkalmazható, a többügynökös rendszerek előnyeit az egyetlen ügynökhöz képest, a többügynökös tervezési minta megvalósításának építőelemeit, valamint azt, hogyan lehet átlátni, hogy az ügynökök hogyan lépnek kapcsolatba egymással.
+
+### További kérdései vannak a többügynökös tervezési mintával kapcsolatban?
+
+Csatlakozzon az [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) közösséghez, hogy találkozzon más tanulókkal, részt vegyen konzultációkon, és választ kapjon az AI ügynökökkel kapcsolatos kérdéseire.
+
+## További források
+
+- 
+
 ## Előző lecke
 
-[Tervezés tervezése](../07-planning-design/README.md)
+[Tervezési tervezés](../07-planning-design/README.md)
 
 ## Következő lecke
 
 [Metakogníció az AI ügynökökben](../09-metacognition/README.md)
 
-**Jogi nyilatkozat**:  
-Ez a dokumentum az AI fordító szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár a pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Kritikus információk esetén professzionális emberi fordítást javaslunk. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
+---
+
+**Felelősség kizárása**:  
+Ez a dokumentum az AI fordítási szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével lett lefordítva. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely a fordítás használatából eredhet.

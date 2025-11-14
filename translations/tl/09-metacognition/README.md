@@ -1,104 +1,104 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "8cbf460468c802c7994aa62e0e0779c9",
-  "translation_date": "2025-07-12T13:04:02+00:00",
+  "original_hash": "5f0deef171fc3a68d5d3d770a8bfb03d",
+  "translation_date": "2025-08-29T09:41:53+00:00",
   "source_file": "09-metacognition/README.md",
   "language_code": "tl"
 }
 -->
 [![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.tl.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
-> _(I-click ang larawan sa itaas para mapanood ang video ng araling ito)_
+> _(I-click ang larawan sa itaas upang mapanood ang video ng araling ito)_
 # Metakognisyon sa mga AI Agent
 
 ## Panimula
 
-Maligayang pagdating sa aralin tungkol sa metakognisyon sa mga AI agent! Ang kabanatang ito ay ginawa para sa mga baguhan na nais malaman kung paano iniisip ng mga AI agent ang kanilang sariling proseso ng pag-iisip. Sa pagtatapos ng araling ito, mauunawaan mo ang mga pangunahing konsepto at magkakaroon ng mga praktikal na halimbawa upang magamit ang metakognisyon sa disenyo ng AI agent.
+Maligayang pagdating sa aralin tungkol sa metakognisyon sa mga AI agent! Ang kabanatang ito ay idinisenyo para sa mga baguhan na interesado kung paano nag-iisip ang mga AI agent tungkol sa kanilang sariling proseso ng pag-iisip. Sa pagtatapos ng araling ito, mauunawaan mo ang mga pangunahing konsepto at magkakaroon ka ng mga praktikal na halimbawa upang magamit ang metakognisyon sa disenyo ng AI agent.
 
 ## Mga Layunin sa Pagkatuto
 
 Pagkatapos makumpleto ang araling ito, magagawa mong:
 
-1. Maunawaan ang mga epekto ng reasoning loops sa mga depinisyon ng agent.
-2. Gamitin ang mga teknik sa pagpaplano at pagsusuri upang tulungan ang mga self-correcting na agent.
-3. Gumawa ng sarili mong mga agent na kayang manipulahin ang code upang magawa ang mga gawain.
+1. Maunawaan ang mga implikasyon ng reasoning loops sa mga depinisyon ng agent.
+2. Gumamit ng mga teknik sa pagpaplano at pagsusuri upang matulungan ang mga self-correcting agent.
+3. Gumawa ng sarili mong mga agent na kayang manipulahin ang code upang maisakatuparan ang mga gawain.
 
 ## Panimula sa Metakognisyon
 
-Ang metakognisyon ay tumutukoy sa mga mas mataas na antas ng proseso ng pag-iisip na kinabibilangan ng pag-iisip tungkol sa sariling pag-iisip. Para sa mga AI agent, nangangahulugan ito ng kakayahang suriin at ayusin ang kanilang mga aksyon batay sa kamalayan sa sarili at mga nakaraang karanasan. Ang metakognisyon, o "pag-iisip tungkol sa pag-iisip," ay isang mahalagang konsepto sa pagbuo ng mga agentic AI system. Kasama rito ang pagiging mulat ng AI system sa kanilang sariling panloob na proseso at ang kakayahang subaybayan, kontrolin, at iangkop ang kanilang kilos nang naaayon. Katulad ng ginagawa natin kapag binabasa natin ang sitwasyon o tinitingnan ang isang problema. Ang ganitong kamalayan sa sarili ay makatutulong sa AI system na gumawa ng mas mahusay na desisyon, matukoy ang mga pagkakamali, at pagbutihin ang kanilang pagganap sa paglipas ng panahon—na muling bumabalik sa Turing test at ang debate kung sakaling sakupin ng AI ang mundo.
+Ang metakognisyon ay tumutukoy sa mas mataas na antas ng proseso ng pag-iisip na kinabibilangan ng pag-iisip tungkol sa sariling pag-iisip. Para sa mga AI agent, nangangahulugan ito ng kakayahang suriin at ayusin ang kanilang mga aksyon batay sa kamalayan sa sarili at mga nakaraang karanasan. Ang metakognisyon, o "pag-iisip tungkol sa pag-iisip," ay isang mahalagang konsepto sa pagbuo ng mga agentic AI system. Kasama rito ang pagiging mulat ng mga AI system sa kanilang sariling mga internal na proseso at ang kakayahang subaybayan, i-regulate, at iakma ang kanilang pag-uugali nang naaayon. Katulad ng ginagawa natin kapag nagbabasa ng sitwasyon o humaharap sa isang problema. Ang kamalayang ito sa sarili ay makakatulong sa mga AI system na gumawa ng mas mahusay na desisyon, tukuyin ang mga pagkakamali, at mapabuti ang kanilang pagganap sa paglipas ng panahon—na muling nag-uugnay sa Turing test at sa debate kung ang AI ay magtatagumpay sa tao.
 
-Sa konteksto ng mga agentic AI system, makatutulong ang metakognisyon sa paglutas ng ilang mga hamon, tulad ng:
-- Transparency: Pagtiyak na kayang ipaliwanag ng AI system ang kanilang mga dahilan at desisyon.
-- Reasoning: Pagpapahusay ng kakayahan ng AI system na pagsamahin ang impormasyon at gumawa ng matalinong desisyon.
-- Adaptation: Pagbibigay-daan sa AI system na mag-adjust sa mga bagong kapaligiran at nagbabagong kondisyon.
-- Perception: Pagpapabuti ng katumpakan ng AI system sa pagkilala at pag-interpret ng datos mula sa kanilang paligid.
+Sa konteksto ng mga agentic AI system, ang metakognisyon ay makakatulong sa pagtugon sa ilang mga hamon, tulad ng:
+- Transparency: Tiyakin na ang mga AI system ay kayang ipaliwanag ang kanilang pangangatwiran at mga desisyon.
+- Reasoning: Pagpapahusay ng kakayahan ng mga AI system na mag-synthesize ng impormasyon at gumawa ng matalinong desisyon.
+- Adaptation: Pagbibigay-daan sa mga AI system na umangkop sa mga bagong kapaligiran at nagbabagong kondisyon.
+- Perception: Pagpapabuti ng katumpakan ng mga AI system sa pagkilala at interpretasyon ng data mula sa kanilang kapaligiran.
 
 ### Ano ang Metakognisyon?
 
-Ang metakognisyon, o "pag-iisip tungkol sa pag-iisip," ay isang mas mataas na antas ng proseso ng pag-iisip na kinabibilangan ng kamalayan sa sarili at sariling regulasyon ng mga proseso ng pag-iisip. Sa larangan ng AI, binibigyan ng kapangyarihan ang mga agent na suriin at iangkop ang kanilang mga estratehiya at aksyon, na nagreresulta sa mas mahusay na kakayahan sa paglutas ng problema at paggawa ng desisyon. Sa pag-unawa sa metakognisyon, makakagawa ka ng mga AI agent na hindi lamang mas matalino kundi mas nababagay at epektibo rin. Sa tunay na metakognisyon, makikita mo ang AI na malinaw na nagrereason tungkol sa sariling reasoning.
+Ang metakognisyon, o "pag-iisip tungkol sa pag-iisip," ay isang mas mataas na antas ng proseso ng pag-iisip na kinabibilangan ng kamalayan sa sarili at regulasyon ng sariling mga proseso ng pag-iisip. Sa larangan ng AI, binibigyan ng metakognisyon ang mga agent ng kakayahang suriin at iakma ang kanilang mga estratehiya at aksyon, na nagreresulta sa mas mahusay na kakayahan sa paglutas ng problema at paggawa ng desisyon. Sa pamamagitan ng pag-unawa sa metakognisyon, maaari kang magdisenyo ng mga AI agent na hindi lamang mas matalino kundi mas adaptable at epektibo rin. Sa tunay na metakognisyon, makikita mong ang AI ay tahasang nagrereason tungkol sa sarili nitong pangangatwiran.
 
-Halimbawa: “Pinili ko ang mas murang flight dahil… maaaring may mga direct flight na hindi ko napansin, kaya susuriin ko muli.”
-Pagsubaybay kung paano o bakit pinili ang isang partikular na ruta.
-- Napapansin na nagkamali dahil masyadong umasa sa mga hilig ng user mula sa nakaraan, kaya binabago ang estratehiya sa paggawa ng desisyon, hindi lang ang huling rekomendasyon.
-- Pagsusuri ng mga pattern tulad ng, “Tuwing naririnig ko ang user na nagsasabing ‘masyadong siksikan,’ hindi lang dapat tanggalin ang ilang atraksyon kundi dapat ding pag-isipan na mali ang paraan ko sa pagpili ng ‘top attractions’ kung palagi kong inuuna ang popularidad.”
+Halimbawa: “Pinili ko ang mas murang mga flight dahil… maaaring hindi ko napansin ang mga direktang flight, kaya’t kailangan kong muling suriin.”
+Pag-track kung paano o bakit ito pumili ng isang partikular na ruta.
+- Napansin na nagkamali ito dahil masyado itong umasa sa mga kagustuhan ng user mula sa nakaraan, kaya binabago nito ang estratehiya sa paggawa ng desisyon, hindi lamang ang huling rekomendasyon.
+- Pagsusuri ng mga pattern tulad ng, “Tuwing binabanggit ng user ang ‘masyadong masikip,’ hindi ko lamang dapat alisin ang ilang atraksyon kundi dapat ding suriin kung ang paraan ko ng pagpili ng ‘mga pangunahing atraksyon’ ay mali kung palagi akong nagra-rank batay sa kasikatan.”
 
 ### Kahalagahan ng Metakognisyon sa mga AI Agent
 
-Mahalaga ang metakognisyon sa disenyo ng AI agent dahil sa mga sumusunod na dahilan:
+Ang metakognisyon ay may mahalagang papel sa disenyo ng mga AI agent para sa ilang mga dahilan:
 
-![Importance of Metacognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.tl.png)
+![Kahalagahan ng Metakognisyon](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.tl.png)
 
-- Pagsusuri sa Sarili: Kayang suriin ng mga agent ang kanilang sariling pagganap at tukuyin ang mga dapat pagbutihin.
-- Kakayahang Mag-adapt: Kayang baguhin ng mga agent ang kanilang mga estratehiya batay sa mga nakaraang karanasan at nagbabagong kapaligiran.
-- Pagwawasto ng Mali: Kayang tuklasin at itama ng mga agent ang mga pagkakamali nang mag-isa, na nagreresulta sa mas tumpak na resulta.
-- Pamamahala ng Mga Yaman: Kayang i-optimize ng mga agent ang paggamit ng mga yaman, tulad ng oras at computational power, sa pamamagitan ng pagpaplano at pagsusuri ng kanilang mga aksyon.
+- Pagninilay sa Sarili: Ang mga agent ay maaaring suriin ang kanilang sariling pagganap at tukuyin ang mga lugar na kailangang pagbutihin.
+- Kakayahang Umangkop: Ang mga agent ay maaaring baguhin ang kanilang mga estratehiya batay sa mga nakaraang karanasan at nagbabagong kapaligiran.
+- Pagwawasto ng Pagkakamali: Ang mga agent ay maaaring awtomatikong tukuyin at itama ang mga pagkakamali, na nagreresulta sa mas tumpak na mga resulta.
+- Pamamahala ng Mga Mapagkukunan: Ang mga agent ay maaaring i-optimize ang paggamit ng mga mapagkukunan, tulad ng oras at computational power, sa pamamagitan ng pagpaplano at pagsusuri ng kanilang mga aksyon.
 
-## Mga Bahagi ng isang AI Agent
+## Mga Komponent ng isang AI Agent
 
-Bago sumabak sa mga metakognitibong proseso, mahalagang maunawaan ang mga pangunahing bahagi ng isang AI agent. Karaniwang binubuo ang isang AI agent ng:
+Bago sumisid sa mga proseso ng metakognisyon, mahalagang maunawaan ang mga pangunahing komponent ng isang AI agent. Karaniwang binubuo ang isang AI agent ng:
 
-- Persona: Ang personalidad at mga katangian ng agent, na nagtatakda kung paano ito nakikipag-ugnayan sa mga user.
-- Tools: Ang mga kakayahan at function na kayang gawin ng agent.
-- Skills: Ang kaalaman at kasanayan na taglay ng agent.
+- Persona: Ang personalidad at mga katangian ng agent, na tumutukoy kung paano ito nakikipag-ugnayan sa mga user.
+- Mga Tool: Ang mga kakayahan at tungkulin na kayang gampanan ng agent.
+- Mga Kasanayan: Ang kaalaman at kadalubhasaan na taglay ng agent.
 
-Ang mga bahaging ito ay nagtutulungan upang makabuo ng isang "expertise unit" na kayang magsagawa ng mga partikular na gawain.
+Ang mga komponent na ito ay nagtutulungan upang makabuo ng isang "yunit ng kadalubhasaan" na kayang gampanan ang mga partikular na gawain.
 
 **Halimbawa**:
-Isipin ang isang travel agent, isang serbisyo ng agent na hindi lang nagpaplano ng iyong bakasyon kundi inaayos din ang ruta nito batay sa real-time na datos at mga karanasan ng mga nakaraang customer.
+Isipin ang isang travel agent, isang serbisyo ng agent na hindi lamang nagpaplano ng iyong bakasyon kundi ina-adjust din ang ruta nito batay sa real-time na data at mga nakaraang karanasan ng customer.
 
-### Halimbawa: Metakognisyon sa Serbisyo ng Travel Agent
+### Halimbawa: Metakognisyon sa isang Travel Agent Service
 
-Isipin na gumagawa ka ng isang travel agent service na pinapagana ng AI. Ang agent na ito, "Travel Agent," ay tumutulong sa mga user sa pagpaplano ng kanilang bakasyon. Para maisama ang metakognisyon, kailangang suriin at ayusin ng Travel Agent ang mga aksyon nito batay sa kamalayan sa sarili at mga nakaraang karanasan. Ganito ang maaaring papel ng metakognisyon:
+Isipin na nagdidisenyo ka ng isang travel agent service na pinapagana ng AI. Ang agent na ito, "Travel Agent," ay tumutulong sa mga user sa pagpaplano ng kanilang mga bakasyon. Upang maisama ang metakognisyon, kailangang suriin at ayusin ng Travel Agent ang mga aksyon nito batay sa kamalayan sa sarili at mga nakaraang karanasan. Narito kung paano maaaring gumanap ang metakognisyon:
 
 #### Kasalukuyang Gawain
 
-Ang kasalukuyang gawain ay tulungan ang user na magplano ng biyahe sa Paris.
+Ang kasalukuyang gawain ay tulungan ang isang user na magplano ng biyahe sa Paris.
 
-#### Mga Hakbang para Matapos ang Gawain
+#### Mga Hakbang upang Kumpletuhin ang Gawain
 
-1. **Kunin ang Mga Hilig ng User**: Tanungin ang user tungkol sa kanilang mga petsa ng biyahe, budget, interes (hal. museo, pagkain, pamimili), at iba pang partikular na pangangailangan.
-2. **Kunin ang Impormasyon**: Maghanap ng mga flight option, tirahan, atraksyon, at mga restawran na tugma sa mga hilig ng user.
-3. **Gumawa ng Mga Rekomendasyon**: Magbigay ng personalisadong itinerary na may detalye ng flight, hotel reservation, at mga mungkahing aktibidad.
-4. **Ayusin Batay sa Feedback**: Tanungin ang user tungkol sa kanilang opinyon sa mga rekomendasyon at gumawa ng kinakailangang pagbabago.
+1. **Kunin ang Mga Kagustuhan ng User**: Tanungin ang user tungkol sa kanilang mga petsa ng paglalakbay, badyet, interes (hal., museo, pagkain, pamimili), at anumang partikular na kinakailangan.
+2. **Kunin ang Impormasyon**: Maghanap ng mga opsyon sa flight, tirahan, atraksyon, at mga restawran na tumutugma sa mga kagustuhan ng user.
+3. **Gumawa ng Mga Rekomendasyon**: Magbigay ng isang personalized na itinerary na may mga detalye ng flight, reserbasyon sa hotel, at mga iminungkahing aktibidad.
+4. **Ayusin Batay sa Feedback**: Humingi ng feedback mula sa user sa mga rekomendasyon at gumawa ng kinakailangang mga pagsasaayos.
 
-#### Mga Kinakailangang Yaman
+#### Mga Kinakailangang Mapagkukunan
 
-- Access sa mga flight at hotel booking database.
+- Access sa mga database ng flight at hotel booking.
 - Impormasyon tungkol sa mga atraksyon at restawran sa Paris.
-- Datos ng feedback mula sa mga nakaraang interaksyon ng user.
+- Data ng feedback ng user mula sa mga nakaraang interaksyon.
 
-#### Karanasan at Pagsusuri sa Sarili
+#### Karanasan at Pagninilay sa Sarili
 
 Ginagamit ng Travel Agent ang metakognisyon upang suriin ang pagganap nito at matuto mula sa mga nakaraang karanasan. Halimbawa:
 
-1. **Pagsusuri ng Feedback ng User**: Tinitingnan ng Travel Agent ang feedback ng user upang malaman kung alin sa mga rekomendasyon ang nagustuhan at alin ang hindi. Inaayos nito ang mga susunod na mungkahi batay dito.
-2. **Kakayahang Mag-adapt**: Kung nabanggit ng user na ayaw niya sa masyadong mataong lugar, iiwasan ng Travel Agent ang pagrekomenda ng mga sikat na tourist spot sa mga peak hours sa susunod.
-3. **Pagwawasto ng Mali**: Kung nagkamali ang Travel Agent sa isang booking dati, tulad ng pagrekomenda ng hotel na puno na, natututo itong mas maingat na suriin ang availability bago magbigay ng mungkahi.
+1. **Pagsusuri ng Feedback ng User**: Sinusuri ng Travel Agent ang feedback ng user upang matukoy kung aling mga rekomendasyon ang nagustuhan at alin ang hindi. Ina-adjust nito ang mga susunod na mungkahi nang naaayon.
+2. **Kakayahang Umangkop**: Kung ang isang user ay dati nang nagpahayag ng hindi pagkagusto sa masisikip na lugar, iiwasan ng Travel Agent na magrekomenda ng mga sikat na lugar ng turista sa mga oras ng kasagsagan sa hinaharap.
+3. **Pagwawasto ng Pagkakamali**: Kung nagkamali ang Travel Agent sa isang nakaraang booking, tulad ng pagrekomenda ng isang hotel na fully booked na, natututo itong mas masusing suriin ang availability bago magbigay ng mga rekomendasyon.
 
 #### Praktikal na Halimbawa para sa Developer
 
-Narito ang isang pinasimpleng halimbawa ng code ng Travel Agent na may metakognisyon:
+Narito ang isang pinasimpleng halimbawa ng code ng Travel Agent na nagsasama ng metakognisyon:
 
 ```python
 class Travel_Agent:
@@ -143,68 +143,68 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 #### Bakit Mahalaga ang Metakognisyon
 
-- **Pagsusuri sa Sarili**: Kayang suriin ng mga agent ang kanilang pagganap at tukuyin ang mga dapat pagbutihin.
-- **Kakayahang Mag-adapt**: Kayang baguhin ng mga agent ang mga estratehiya batay sa feedback at nagbabagong kondisyon.
-- **Pagwawasto ng Mali**: Kayang tuklasin at itama ng mga agent ang mga pagkakamali nang mag-isa.
-- **Pamamahala ng Mga Yaman**: Kayang i-optimize ng mga agent ang paggamit ng mga yaman, tulad ng oras at computational power.
+- **Pagninilay sa Sarili**: Ang mga agent ay maaaring suriin ang kanilang pagganap at tukuyin ang mga lugar na kailangang pagbutihin.
+- **Kakayahang Umangkop**: Ang mga agent ay maaaring baguhin ang mga estratehiya batay sa feedback at nagbabagong kondisyon.
+- **Pagwawasto ng Pagkakamali**: Ang mga agent ay maaaring awtomatikong tukuyin at itama ang mga pagkakamali.
+- **Pamamahala ng Mga Mapagkukunan**: Ang mga agent ay maaaring i-optimize ang paggamit ng mga mapagkukunan, tulad ng oras at computational power.
 
-Sa pamamagitan ng pagsasama ng metakognisyon, makakapagbigay ang Travel Agent ng mas personalisado at tumpak na mga rekomendasyon sa paglalakbay, na nagpapabuti sa kabuuang karanasan ng user.
+Sa pamamagitan ng pagsasama ng metakognisyon, ang Travel Agent ay maaaring magbigay ng mas personalized at tumpak na mga rekomendasyon sa paglalakbay, na nagpapahusay sa kabuuang karanasan ng user.
 
 ---
 
 ## 2. Pagpaplano sa mga Agent
 
-Ang pagpaplano ay isang mahalagang bahagi ng kilos ng AI agent. Kasama rito ang pagbalangkas ng mga hakbang na kailangan upang makamit ang isang layunin, isinasaalang-alang ang kasalukuyang kalagayan, mga yaman, at posibleng mga hadlang.
+Ang pagpaplano ay isang mahalagang bahagi ng pag-uugali ng AI agent. Kasama rito ang pag-outline ng mga hakbang na kinakailangan upang makamit ang isang layunin, isinasaalang-alang ang kasalukuyang estado, mga mapagkukunan, at posibleng mga hadlang.
 
 ### Mga Elemento ng Pagpaplano
 
 - **Kasalukuyang Gawain**: Malinaw na tukuyin ang gawain.
-- **Mga Hakbang para Matapos ang Gawain**: Hatiin ang gawain sa mga kayang hakbang.
-- **Kinakailangang Yaman**: Tukuyin ang mga kailangang yaman.
+- **Mga Hakbang upang Kumpletuhin ang Gawain**: Hatiin ang gawain sa mga hakbang na madaling pamahalaan.
+- **Mga Kinakailangang Mapagkukunan**: Tukuyin ang mga kinakailangang mapagkukunan.
 - **Karanasan**: Gamitin ang mga nakaraang karanasan upang gabayan ang pagpaplano.
 
 **Halimbawa**:
-Narito ang mga hakbang na kailangang gawin ng Travel Agent upang epektibong matulungan ang user sa pagpaplano ng kanilang biyahe:
+Narito ang mga hakbang na kailangang gawin ng Travel Agent upang epektibong matulungan ang isang user sa pagpaplano ng kanilang biyahe:
 
 ### Mga Hakbang para sa Travel Agent
 
-1. **Kunin ang Mga Hilig ng User**
-   - Tanungin ang user tungkol sa mga detalye ng kanilang petsa ng biyahe, budget, interes, at iba pang partikular na pangangailangan.
-   - Mga halimbawa: "Kailan mo balak maglakbay?" "Magkano ang budget mo?" "Anong mga aktibidad ang gusto mo sa bakasyon?"
+1. **Kunin ang Mga Kagustuhan ng User**
+   - Tanungin ang user tungkol sa mga detalye ng kanilang mga petsa ng paglalakbay, badyet, interes, at anumang partikular na kinakailangan.
+   - Mga Halimbawa: "Kailan ka balak maglakbay?" "Ano ang saklaw ng iyong badyet?" "Anong mga aktibidad ang gusto mo sa bakasyon?"
 
 2. **Kunin ang Impormasyon**
-   - Maghanap ng mga opsyon sa paglalakbay batay sa mga hilig ng user.
-   - **Mga Flight**: Hanapin ang mga available na flight na pasok sa budget at petsa ng user.
-   - **Tirahan**: Maghanap ng mga hotel o paupahang lugar na tugma sa lokasyon, presyo, at amenities na gusto ng user.
-   - **Atraksyon at Restawran**: Tukuyin ang mga sikat na atraksyon, aktibidad, at kainan na naaayon sa interes ng user.
+   - Maghanap ng mga kaugnay na opsyon sa paglalakbay batay sa mga kagustuhan ng user.
+   - **Mga Flight**: Maghanap ng mga available na flight na pasok sa badyet at mga gustong petsa ng paglalakbay ng user.
+   - **Mga Tirahan**: Maghanap ng mga hotel o rental property na tumutugma sa mga kagustuhan ng user para sa lokasyon, presyo, at amenities.
+   - **Mga Atraksyon at Restawran**: Tukuyin ang mga sikat na atraksyon, aktibidad, at opsyon sa kainan na naaayon sa mga interes ng user.
 
 3. **Gumawa ng Mga Rekomendasyon**
-   - Ibuod ang nakuhang impormasyon sa isang personalisadong itinerary.
-   - Magbigay ng detalye tulad ng mga flight option, hotel booking, at mga mungkahing aktibidad, na nakaayon sa mga hilig ng user.
+   - I-compile ang nakuhang impormasyon sa isang personalized na itinerary.
+   - Magbigay ng mga detalye tulad ng mga opsyon sa flight, reserbasyon sa hotel, at mga iminungkahing aktibidad, na tinitiyak na iniangkop ang mga rekomendasyon sa mga kagustuhan ng user.
 
 4. **Ipakita ang Itinerary sa User**
-   - Ibahagi ang iminungkahing itinerary para sa pagsusuri ng user.
-   - Halimbawa: "Narito ang mungkahing itinerary para sa iyong biyahe sa Paris. Kasama dito ang detalye ng flight, booking ng hotel, at listahan ng mga inirerekomendang aktibidad at restawran. Sabihin mo lang kung ano ang palagay mo!"
+   - Ibahagi ang iminungkahing itinerary sa user para sa kanilang pagsusuri.
+   - Halimbawa: "Narito ang isang iminungkahing itinerary para sa iyong biyahe sa Paris. Kasama rito ang mga detalye ng flight, mga reserbasyon sa hotel, at isang listahan ng mga inirerekomendang aktibidad at restawran. Ano ang iyong opinyon?"
 
-5. **Kunin ang Feedback**
-   - Tanungin ang user tungkol sa kanilang opinyon sa iminungkahing itinerary.
-   - Mga halimbawa: "Nagustuhan mo ba ang mga flight option?" "Ayos ba ang hotel para sa iyong pangangailangan?" "May gusto ka bang idagdag o alisin na aktibidad?"
+5. **Kolektahin ang Feedback**
+   - Humingi ng feedback mula sa user tungkol sa iminungkahing itinerary.
+   - Mga Halimbawa: "Gusto mo ba ang mga opsyon sa flight?" "Angkop ba ang hotel para sa iyong mga pangangailangan?" "Mayroon bang mga aktibidad na nais mong idagdag o alisin?"
 
 6. **Ayusin Batay sa Feedback**
    - Baguhin ang itinerary batay sa feedback ng user.
-   - Gawin ang mga kinakailangang pagbabago sa flight, tirahan, at mga rekomendasyon ng aktibidad upang mas umayon sa gusto ng user.
+   - Gumawa ng mga kinakailangang pagbabago sa mga rekomendasyon sa flight, tirahan, at aktibidad upang mas tumugma sa mga kagustuhan ng user.
 
 7. **Panghuling Kumpirmasyon**
-   - Ipakita ang na-update na itinerary para sa huling kumpirmasyon ng user.
-   - Halimbawa: "Inayos ko na ang itinerary base sa iyong feedback. Narito ang updated na plano. Ayos ba ito sa iyo?"
+   - Ipakita ang na-update na itinerary sa user para sa panghuling kumpirmasyon.
+   - Halimbawa: "Ginawa ko na ang mga pagsasaayos batay sa iyong feedback. Narito ang na-update na itinerary. Ayos ba ang lahat para sa iyo?"
 
 8. **Mag-book at Kumpirmahin ang mga Reserbasyon**
-   - Kapag inaprubahan ng user ang itinerary, magpatuloy sa pag-book ng mga flight, tirahan, at mga pre-planned na aktibidad.
+   - Kapag inaprubahan ng user ang itinerary, magpatuloy sa pag-book ng mga flight, tirahan, at anumang pre-planned na aktibidad.
    - Ipadala ang mga detalye ng kumpirmasyon sa user.
 
 9. **Magbigay ng Patuloy na Suporta**
-   - Manatiling available upang tulungan ang user sa anumang pagbabago o karagdagang kahilingan bago at habang naglalakbay.
-   - Halimbawa: "Kung kailangan mo ng karagdagang tulong habang naglalakbay, huwag mag-atubiling kontakin ako anumang oras!"
+   - Manatiling available upang tumulong sa user sa anumang pagbabago o karagdagang kahilingan bago at habang nasa biyahe.
+   - Halimbawa: "Kung kailangan mo ng karagdagang tulong habang nasa biyahe, huwag kang mag-atubiling makipag-ugnayan sa akin anumang oras!"
 
 ### Halimbawa ng Interaksyon
 
@@ -249,313 +249,283 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 ## 3. Corrective RAG System
 
-Una, simulan natin sa pag-unawa sa pagkakaiba ng RAG Tool at Pre-emptive Context Load
+Una, unawain natin ang pagkakaiba ng RAG Tool at Pre-emptive Context Load.
 
 ![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.tl.png)
 
 ### Retrieval-Augmented Generation (RAG)
 
-Pinagsasama ng RAG ang retrieval system at generative model. Kapag may query, kinukuha ng retrieval system ang mga kaugnay na dokumento o datos mula sa panlabas na pinagmulan, at ginagamit ang impormasyong ito upang dagdagan ang input sa generative model. Nakakatulong ito sa modelong makabuo ng mas tumpak at kontekstwal na tugon.
+Ang RAG ay pinagsasama ang isang retrieval system sa isang generative model. Kapag may query, ang retrieval system ay kumukuha ng mga kaugnay na dokumento o data mula sa isang external na source, at ang nakuhang impormasyong ito ay ginagamit upang palakasin ang input sa generative model. Nakakatulong ito sa model na makabuo ng mas tumpak at kontekstwal na mga tugon.
 
-Sa isang RAG system, kumukuha ang agent ng kaugnay na impormasyon mula sa knowledge base at ginagamit ito upang makabuo ng angkop na tugon o aksyon.
+Sa isang RAG system, ang agent ay kumukuha ng kaugnay na impormasyon mula sa isang knowledge base at ginagamit ito upang makabuo ng angkop na mga tugon o aksyon.
 
 ### Corrective RAG Approach
 
-Nakatuon ang Corrective RAG approach sa paggamit ng mga teknik ng RAG upang itama ang mga pagkakamali at pagbutihin ang katumpakan ng mga AI agent. Kasama rito ang:
+Ang Corrective RAG approach ay nakatuon sa paggamit ng mga teknik ng RAG upang itama ang mga pagkakamali at mapabuti ang katumpakan ng mga AI agent. Kasama rito ang:
 
 1. **Prompting Technique**: Paggamit ng mga partikular na prompt upang gabayan ang agent sa pagkuha ng kaugnay na impormasyon.
-2. **Tool**: Pagpapatupad ng mga algorithm at mekanismo na nagpapahintulot sa agent na suriin ang kaugnayan ng nakuha nitong impormasyon at makabuo ng tumpak na tugon.
-3. **Evaluation**: Patuloy na pagsusuri sa pagganap ng agent at paggawa ng mga pagbabago upang mapabuti ang katumpakan at kahusayan nito.
+2. **Tool**: Pagpapatupad ng mga algorithm at mekanismo na nagbibigay-daan sa agent na suriin ang kaugnayan ng nakuhang impormasyon at makabuo ng tumpak na mga tugon.
+3. **Evaluation**: Patuloy na pagsusuri sa pagganap ng agent at paggawa ng mga pagsasaayos upang mapabuti ang katumpakan at kahusayan nito.
 
 #### Halimbawa: Corrective RAG sa isang Search Agent
 
-Isipin ang isang search agent na kumukuha ng impormasyon mula sa web upang sagutin ang mga tanong ng user. Maaaring kabilang sa Corrective RAG approach ang:
+Isipin ang isang search agent na kumukuha ng impormasyon mula sa web upang sagutin ang mga query ng user. Ang Corrective RAG approach ay maaaring kasangkutan ng:
 
-1. **Prompting Technique**: Pagbuo ng mga search query batay sa input ng user.
-2. **Tool**: Paggamit ng natural language processing at machine learning algorithm upang i-rank at i-filter ang mga resulta ng paghahanap.
-3. **Evaluation**: Pagsusuri ng feedback ng user upang matukoy at itama ang mga kamalian sa nakuha na impormasyon.
+1. **Prompting Technique**: Pagbuo ng mga query sa paghahanap batay sa input ng user.
+2. **Tool**: Paggamit ng natural language processing at machine learning algorithms upang i-rank at i-filter ang mga resulta ng paghahanap.
+3. **Evaluation**: Pagsusuri ng feedback ng user upang tukuyin at itama ang mga hindi tumpak na impormasyon na nakuha.
 
 ### Corrective RAG sa Travel Agent
 
-Pinapalakas ng Corrective RAG (Retrieval-Augmented Generation) ang kakayahan ng AI na kumuha at makabuo ng impormasyon habang inaayos ang anumang kamalian. Tingnan natin kung paano magagamit ng Travel Agent ang Corrective RAG approach upang magbigay ng mas tumpak at kaugnay na mga rekomendasyon sa paglalakbay.
+Ang Corrective RAG (Retrieval-Augmented Generation) ay nagpapahusay sa kakayahan ng AI na kumuha at bumuo ng impormasyon habang itinatama ang anumang hindi tumpak na datos. Tingnan natin kung paano magagamit ng Travel Agent ang Corrective RAG approach upang magbigay ng mas tumpak at kaugnay na mga rekomendasyon sa paglalakbay.
 
 Kasama rito ang:
 
 - **Prompting Technique:** Paggamit ng mga partikular na prompt upang gabayan ang agent sa pagkuha ng kaugnay na impormasyon.
-- **Tool:** Pagpapatupad ng mga algorithm at mekanismo na nagpapahintulot sa agent na suriin ang kaugnayan ng nakuha nitong impormasyon at makabuo ng tumpak na tugon.
-- **Evaluation:** Patuloy na pagsusuri sa pagganap ng agent at paggawa ng mga pagbabago upang mapabuti ang katumpakan at kahusayan nito.
+- **Tool:** Pagpapatupad ng mga algorithm at mekanismo na nagbibigay-daan sa agent na suriin ang kaugnayan ng nakuhang impormasyon at makabuo ng tumpak na mga tugon.
+- **Evaluation:** Patuloy na pagsusuri sa pagganap ng agent at paggawa ng mga pagsasaayos upang mapabuti ang katumpakan at kahusayan nito.
 
-#### Mga Hakbang sa Pagpapatupad ng Corrective RAG sa Travel Agent
 
-1. **Paunang Interaksyon sa User**
-   - Kinokolekta ng Travel Agent ang mga paunang hilig ng user, tulad ng destinasyon, petsa ng biyahe, budget, at interes.
-   - Halimbawa:
-
-     ```python
-     preferences = {
-         "destination": "Paris",
-         "dates": "2025-04-01 to 2025-04-10",
-         "budget": "moderate",
-         "interests": ["museums", "cuisine"]
-     }
-     ```
-
-2. **Pagkuha ng Impormasyon**
-   - Kinukuha ng Travel Agent ang impormasyon tungkol sa mga flight, tirahan, atraksyon, at restawran batay sa mga hilig ng user.
-   - Halimbawa:
-
-     ```python
-     flights = search_flights(preferences)
-     hotels = search_hotels(preferences)
-     attractions = search_attractions(preferences)
-     ```
-
-3. **Pagbuo ng Paunang Mga Rekomendasyon**
-   - Ginagamit ng Travel Agent ang nakuha na impormasyon upang makabuo ng personalisadong itinerary.
-   - Halimbawa:
-
-     ```python
-     itinerary = create_itinerary(flights, hotels, attractions)
-     print("Suggested Itinerary:", itinerary)
-     ```
-
-4. **Pagkuha ng Feedback ng User**
-   - Tinanong ng Travel Agent ang user tungkol sa paunang mga rekomendasyon.
-   - Halimbawa:
-
-     ```python
-     feedback = {
-         "liked": ["Louvre Museum"],
-         "disliked": ["Eiffel Tower (too crowded)"]
-     }
-     ```
-
-5
 ### Pre-emptive Context Load
 
-Ang Pre-emptive Context Load ay ang pag-load ng mga kaugnay na konteksto o impormasyon bago pa man iproseso ang isang query. Ibig sabihin, may access ang modelo sa impormasyong ito mula sa simula, na makakatulong upang makabuo ito ng mas may kaalamang mga sagot nang hindi na kailangang kumuha pa ng dagdag na datos habang nagpapatuloy ang proseso.
+Ang Pre-emptive Context Load ay tumutukoy sa paglo-load ng kaugnay na konteksto o impormasyon bago pa man iproseso ang isang query. Nangangahulugan ito na may access na ang modelo sa impormasyong ito mula sa simula, na makakatulong upang makabuo ng mas may kaalaman na sagot nang hindi na kailangang mag-retrieve ng karagdagang data habang nasa proseso.
 
-Narito ang isang pinasimpleng halimbawa kung paano maaaring gawin ang pre-emptive context load para sa isang travel agent application gamit ang Python:
+Narito ang isang simpleng halimbawa kung paano maaaring magmukha ang pre-emptive context load para sa isang travel agent application sa Python:
+
+```python
+class TravelAgent:
+    def __init__(self):
+        # Pre-load popular destinations and their information
+        self.context = {
+            "Paris": {"country": "France", "currency": "Euro", "language": "French", "attractions": ["Eiffel Tower", "Louvre Museum"]},
+            "Tokyo": {"country": "Japan", "currency": "Yen", "language": "Japanese", "attractions": ["Tokyo Tower", "Shibuya Crossing"]},
+            "New York": {"country": "USA", "currency": "Dollar", "language": "English", "attractions": ["Statue of Liberty", "Times Square"]},
+            "Sydney": {"country": "Australia", "currency": "Dollar", "language": "English", "attractions": ["Sydney Opera House", "Bondi Beach"]}
+        }
+
+    def get_destination_info(self, destination):
+        # Fetch destination information from pre-loaded context
+        info = self.context.get(destination)
+        if info:
+            return f"{destination}:\nCountry: {info['country']}\nCurrency: {info['currency']}\nLanguage: {info['language']}\nAttractions: {', '.join(info['attractions'])}"
+        else:
+            return f"Sorry, we don't have information on {destination}."
+
+# Example usage
+travel_agent = TravelAgent()
+print(travel_agent.get_destination_info("Paris"))
+print(travel_agent.get_destination_info("Tokyo"))
+```
 
 #### Paliwanag
 
-1. **Initialization (`__init__` method)**: Ang klase na `TravelAgent` ay nag-pre-load ng isang dictionary na naglalaman ng impormasyon tungkol sa mga sikat na destinasyon tulad ng Paris, Tokyo, New York, at Sydney. Kasama sa dictionary na ito ang mga detalye gaya ng bansa, pera, wika, at mga pangunahing atraksyon ng bawat destinasyon.
+1. **Initialization (`__init__` method)**: Ang `TravelAgent` class ay naglo-load ng isang dictionary na naglalaman ng impormasyon tungkol sa mga sikat na destinasyon tulad ng Paris, Tokyo, New York, at Sydney. Kasama sa dictionary ang mga detalye tulad ng bansa, pera, wika, at mga pangunahing atraksyon para sa bawat destinasyon.
 
-2. **Pagkuha ng Impormasyon (`get_destination_info` method)**: Kapag nagtanong ang user tungkol sa isang partikular na destinasyon, kinukuha ng `get_destination_info` method ang kaugnay na impormasyon mula sa pre-loaded na context dictionary.
+2. **Pagkuha ng Impormasyon (`get_destination_info` method)**: Kapag nagtanong ang isang user tungkol sa isang partikular na destinasyon, kinukuha ng `get_destination_info` method ang kaugnay na impormasyon mula sa pre-loaded na context dictionary.
 
-Sa pamamagitan ng pag-pre-load ng konteksto, mabilis na nakakasagot ang travel agent application sa mga tanong ng user nang hindi na kailangang kumuha ng impormasyon mula sa panlabas na source sa real-time. Ginagawa nitong mas epektibo at mabilis ang aplikasyon.
+Sa pamamagitan ng pre-loading ng konteksto, ang travel agent application ay maaaring mabilis na tumugon sa mga tanong ng user nang hindi na kailangang mag-retrieve ng impormasyon mula sa isang external na source sa real-time. Ginagawa nitong mas epektibo at responsive ang application.
 
-### Bootstrapping the Plan with a Goal Before Iterating
+### Bootstrapping ng Plano gamit ang Layunin Bago Mag-Iterate
 
-Ang pag-bootstrap ng plano na may malinaw na layunin ay nangangahulugan ng pagsisimula sa isang tiyak na target o objective. Sa pamamagitan ng pagtukoy ng layuning ito mula sa simula, nagagamit ito bilang gabay sa buong proseso ng pag-uulit. Nakakatulong ito upang matiyak na bawat pag-uulit ay papalapit sa nais na resulta, kaya mas epektibo at nakatuon ang proseso.
+Ang bootstrapping ng plano gamit ang layunin ay tumutukoy sa pagsisimula ng isang proseso na may malinaw na layunin o target na resulta. Sa pamamagitan ng pagtukoy sa layuning ito mula sa simula, magagamit ito ng modelo bilang gabay sa buong proseso ng pag-iterate. Nakakatulong ito upang masigurado na ang bawat iteration ay papalapit sa inaasahang resulta, na ginagawang mas epektibo at nakatuon ang proseso.
 
-Narito ang halimbawa kung paano mag-bootstrap ng travel plan na may layunin bago mag-iterate para sa isang travel agent gamit ang Python:
+Narito ang isang halimbawa kung paano maaaring mag-bootstrap ng travel plan gamit ang layunin bago mag-iterate para sa isang travel agent sa Python:
 
 ### Scenario
 
-Nais ng isang travel agent na magplano ng customized na bakasyon para sa isang kliyente. Ang layunin ay makagawa ng travel itinerary na pinakamataas ang kasiyahan ng kliyente base sa kanilang mga hilig at budget.
+Isang travel agent ang nais magplano ng customized na bakasyon para sa isang kliyente. Ang layunin ay lumikha ng travel itinerary na magbibigay ng pinakamataas na kasiyahan sa kliyente batay sa kanilang mga kagustuhan at budget.
 
 ### Mga Hakbang
 
-1. Tukuyin ang mga hilig at budget ng kliyente.
-2. I-bootstrap ang unang plano base sa mga hilig na ito.
-3. Ulitin ang plano upang mapabuti ito, na ini-optimize para sa kasiyahan ng kliyente.
+1. Tukuyin ang mga kagustuhan at budget ng kliyente.
+2. I-bootstrap ang paunang plano batay sa mga kagustuhan.
+3. Mag-iterate upang i-refine ang plano, na-optimize para sa kasiyahan ng kliyente.
 
 #### Python Code
 
+```python
+class TravelAgent:
+    def __init__(self, destinations):
+        self.destinations = destinations
+
+    def bootstrap_plan(self, preferences, budget):
+        plan = []
+        total_cost = 0
+
+        for destination in self.destinations:
+            if total_cost + destination['cost'] <= budget and self.match_preferences(destination, preferences):
+                plan.append(destination)
+                total_cost += destination['cost']
+
+        return plan
+
+    def match_preferences(self, destination, preferences):
+        for key, value in preferences.items():
+            if destination.get(key) != value:
+                return False
+        return True
+
+    def iterate_plan(self, plan, preferences, budget):
+        for i in range(len(plan)):
+            for destination in self.destinations:
+                if destination not in plan and self.match_preferences(destination, preferences) and self.calculate_cost(plan, destination) <= budget:
+                    plan[i] = destination
+                    break
+        return plan
+
+    def calculate_cost(self, plan, new_destination):
+        return sum(destination['cost'] for destination in plan) + new_destination['cost']
+
+# Example usage
+destinations = [
+    {"name": "Paris", "cost": 1000, "activity": "sightseeing"},
+    {"name": "Tokyo", "cost": 1200, "activity": "shopping"},
+    {"name": "New York", "cost": 900, "activity": "sightseeing"},
+    {"name": "Sydney", "cost": 1100, "activity": "beach"},
+]
+
+preferences = {"activity": "sightseeing"}
+budget = 2000
+
+travel_agent = TravelAgent(destinations)
+initial_plan = travel_agent.bootstrap_plan(preferences, budget)
+print("Initial Plan:", initial_plan)
+
+refined_plan = travel_agent.iterate_plan(initial_plan, preferences, budget)
+print("Refined Plan:", refined_plan)
+```
+
 #### Paliwanag ng Code
 
-1. **Initialization (`__init__` method)**: Ang klase na `TravelAgent` ay ini-initialize gamit ang listahan ng mga posibleng destinasyon, bawat isa ay may mga katangian tulad ng pangalan, gastos, at uri ng aktibidad.
+1. **Initialization (`__init__` method)**: Ang `TravelAgent` class ay ini-initialize gamit ang listahan ng mga potensyal na destinasyon, bawat isa ay may mga attribute tulad ng pangalan, gastos, at uri ng aktibidad.
 
-2. **Bootstrapping the Plan (`bootstrap_plan` method)**: Gumagawa ito ng unang travel plan base sa mga hilig at budget ng kliyente. Iniikot nito ang listahan ng mga destinasyon at idinadagdag ang mga ito sa plano kung tugma sa hilig ng kliyente at pasok sa budget.
+2. **Bootstrapping ng Plano (`bootstrap_plan` method)**: Ang method na ito ay lumilikha ng paunang travel plan batay sa mga kagustuhan at budget ng kliyente. Ini-iterate nito ang listahan ng mga destinasyon at idinadagdag ang mga ito sa plano kung tumutugma ang mga ito sa mga kagustuhan ng kliyente at pasok sa budget.
 
-3. **Pagtutugma ng Hilig (`match_preferences` method)**: Sinusuri nito kung tugma ang isang destinasyon sa mga hilig ng kliyente.
+3. **Pag-match ng Kagustuhan (`match_preferences` method)**: Ang method na ito ay nagche-check kung ang isang destinasyon ay tumutugma sa mga kagustuhan ng kliyente.
 
-4. **Pag-uulit ng Plano (`iterate_plan` method)**: Pinapabuti nito ang unang plano sa pamamagitan ng pagsubok na palitan ang bawat destinasyon ng mas angkop na tugma, isinasaalang-alang ang hilig at limitasyon sa budget ng kliyente.
+4. **Pag-iterate ng Plano (`iterate_plan` method)**: Ang method na ito ay nagre-refine ng paunang plano sa pamamagitan ng pagsubok na palitan ang bawat destinasyon sa plano ng mas angkop na destinasyon, isinasaalang-alang ang mga kagustuhan at limitasyon sa budget ng kliyente.
 
-5. **Pagkalkula ng Gastos (`calculate_cost` method)**: Kinakalkula nito ang kabuuang gastos ng kasalukuyang plano, kasama na ang posibleng bagong destinasyon.
+5. **Pagkalkula ng Gastos (`calculate_cost` method)**: Ang method na ito ay kinakalkula ang kabuuang gastos ng kasalukuyang plano, kabilang ang potensyal na bagong destinasyon.
 
 #### Halimbawa ng Paggamit
 
-- **Unang Plano**: Gumawa ang travel agent ng unang plano base sa hilig ng kliyente sa sightseeing at budget na $2000.
-- **Pinahusay na Plano**: Inulit ng travel agent ang plano, ini-optimize ito para sa hilig at budget ng kliyente.
+- **Paunang Plano**: Lumilikha ang travel agent ng paunang plano batay sa kagustuhan ng kliyente para sa sightseeing at budget na $2000.
+- **Refined Plan**: Ang travel agent ay nag-iiterate ng plano, na-optimize para sa mga kagustuhan at budget ng kliyente.
 
-Sa pamamagitan ng pag-bootstrap ng plano na may malinaw na layunin (halimbawa, pinakamataas na kasiyahan ng kliyente) at pag-uulit upang mapabuti ito, makakagawa ang travel agent ng customized at optimized na travel itinerary para sa kliyente. Tinitiyak ng paraang ito na ang plano ay nakaayon sa hilig at budget ng kliyente mula sa simula at patuloy na bumubuti sa bawat pag-uulit.
+Sa pamamagitan ng pag-bootstrap ng plano gamit ang malinaw na layunin (hal., pag-maximize ng kasiyahan ng kliyente) at pag-iterate upang i-refine ang plano, maaaring lumikha ang travel agent ng customized at optimized na travel itinerary para sa kliyente. Ang approach na ito ay nagsisiguro na ang travel plan ay naaayon sa mga kagustuhan at budget ng kliyente mula sa simula at patuloy na bumubuti sa bawat iteration.
 
 ### Paggamit ng LLM para sa Re-ranking at Scoring
 
-Maaaring gamitin ang Large Language Models (LLMs) para sa re-ranking at scoring sa pamamagitan ng pagsusuri sa kaugnayan at kalidad ng mga nakuha o nabuo na sagot o dokumento. Ganito ang proseso:
+Ang Large Language Models (LLMs) ay maaaring gamitin para sa re-ranking at scoring sa pamamagitan ng pagsusuri sa kaugnayan at kalidad ng mga na-retrieve na dokumento o mga generated na sagot. Narito kung paano ito gumagana:
 
-**Retrieval:** Kinukuha muna ang mga kandidato na dokumento o sagot base sa query.
+**Retrieval:** Ang unang hakbang sa retrieval ay ang pagkuha ng set ng mga kandidato na dokumento o sagot batay sa query.
 
-**Re-ranking:** Sinusuri ng LLM ang mga kandidato at nire-rerank ito base sa kaugnayan at kalidad. Tinitiyak nito na ang pinaka-angkop at mataas ang kalidad na impormasyon ang unang lumalabas.
+**Re-ranking:** Ang LLM ay sinusuri ang mga kandidatong ito at nire-re-rank ang mga ito batay sa kanilang kaugnayan at kalidad. Ang hakbang na ito ay nagsisiguro na ang pinaka-kaugnay at mataas na kalidad na impormasyon ang unang ipinapakita.
 
-**Scoring:** Nagbibigay ang LLM ng mga score sa bawat kandidato na nagpapakita ng kaugnayan at kalidad. Nakakatulong ito sa pagpili ng pinakamahusay na sagot o dokumento para sa user.
+**Scoring:** Ang LLM ay nag-aassign ng scores sa bawat kandidato, na nagpapakita ng kanilang kaugnayan at kalidad. Nakakatulong ito sa pagpili ng pinakamahusay na sagot o dokumento para sa user.
 
-Sa paggamit ng LLM para sa re-ranking at scoring, mas naibibigay ng sistema ang mas tumpak at kontekstwal na impormasyon, na nagpapabuti sa karanasan ng user.
+Sa pamamagitan ng paggamit ng LLMs para sa re-ranking at scoring, maaaring magbigay ang sistema ng mas tumpak at kontekstwal na kaugnay na impormasyon, na nagpapabuti sa kabuuang karanasan ng user.
 
-Narito ang halimbawa kung paano maaaring gamitin ng travel agent ang LLM para sa re-ranking at scoring ng mga destinasyon base sa hilig ng user gamit ang Python:
+Narito ang isang halimbawa kung paano maaaring gamitin ng isang travel agent ang Large Language Model (LLM) para sa re-ranking at scoring ng mga travel destinations batay sa mga kagustuhan ng user sa Python:
 
-#### Scenario - Paglalakbay base sa Hilig
+#### Scenario - Paglalakbay batay sa Kagustuhan
 
-Nais ng travel agent na irekomenda ang pinakamahusay na mga destinasyon sa kliyente base sa kanilang mga hilig. Tutulungan ng LLM na i-re-rank at i-score ang mga destinasyon upang matiyak na ang pinaka-angkop na mga opsyon ang maipapakita.
+Isang travel agent ang nais magrekomenda ng pinakamahusay na travel destinations sa isang kliyente batay sa kanilang mga kagustuhan. Ang LLM ang tutulong sa pag-re-rank at pag-score ng mga destinasyon upang masigurado na ang pinaka-kaugnay na mga opsyon ang maipapakita.
 
 #### Mga Hakbang:
 
-1. Kolektahin ang mga hilig ng user.
-2. Kunin ang listahan ng mga posibleng destinasyon.
-3. Gamitin ang LLM para i-re-rank at i-score ang mga destinasyon base sa hilig ng user.
+1. Kolektahin ang mga kagustuhan ng user.
+2. Mag-retrieve ng listahan ng mga potensyal na travel destinations.
+3. Gamitin ang LLM upang mag-re-rank at mag-score ng mga destinasyon batay sa mga kagustuhan ng user.
 
-Narito kung paano mo maa-update ang naunang halimbawa para gamitin ang Azure OpenAI Services:
+Narito kung paano mo maaaring i-update ang naunang halimbawa upang gamitin ang Azure OpenAI Services:
 
 #### Mga Kinakailangan
 
-1. Kailangan mong magkaroon ng Azure subscription.
+1. Kailangan mo ng Azure subscription.
 2. Gumawa ng Azure OpenAI resource at kunin ang iyong API key.
 
 #### Halimbawa ng Python Code
 
+```python
+import requests
+import json
+
+class TravelAgent:
+    def __init__(self, destinations):
+        self.destinations = destinations
+
+    def get_recommendations(self, preferences, api_key, endpoint):
+        # Generate a prompt for the Azure OpenAI
+        prompt = self.generate_prompt(preferences)
+        
+        # Define headers and payload for the request
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer {api_key}'
+        }
+        payload = {
+            "prompt": prompt,
+            "max_tokens": 150,
+            "temperature": 0.7
+        }
+        
+        # Call the Azure OpenAI API to get the re-ranked and scored destinations
+        response = requests.post(endpoint, headers=headers, json=payload)
+        response_data = response.json()
+        
+        # Extract and return the recommendations
+        recommendations = response_data['choices'][0]['text'].strip().split('\n')
+        return recommendations
+
+    def generate_prompt(self, preferences):
+        prompt = "Here are the travel destinations ranked and scored based on the following user preferences:\n"
+        for key, value in preferences.items():
+            prompt += f"{key}: {value}\n"
+        prompt += "\nDestinations:\n"
+        for destination in self.destinations:
+            prompt += f"- {destination['name']}: {destination['description']}\n"
+        return prompt
+
+# Example usage
+destinations = [
+    {"name": "Paris", "description": "City of lights, known for its art, fashion, and culture."},
+    {"name": "Tokyo", "description": "Vibrant city, famous for its modernity and traditional temples."},
+    {"name": "New York", "description": "The city that never sleeps, with iconic landmarks and diverse culture."},
+    {"name": "Sydney", "description": "Beautiful harbour city, known for its opera house and stunning beaches."},
+]
+
+preferences = {"activity": "sightseeing", "culture": "diverse"}
+api_key = 'your_azure_openai_api_key'
+endpoint = 'https://your-endpoint.com/openai/deployments/your-deployment-name/completions?api-version=2022-12-01'
+
+travel_agent = TravelAgent(destinations)
+recommendations = travel_agent.get_recommendations(preferences, api_key, endpoint)
+print("Recommended Destinations:")
+for rec in recommendations:
+    print(rec)
+```
+
 #### Paliwanag ng Code - Preference Booker
 
-1. **Initialization**: Ang klase na `TravelAgent` ay ini-initialize gamit ang listahan ng mga posibleng destinasyon, bawat isa ay may mga katangian tulad ng pangalan at deskripsyon.
+1. **Initialization**: Ang `TravelAgent` class ay ini-initialize gamit ang listahan ng mga potensyal na travel destinations, bawat isa ay may mga attribute tulad ng pangalan at deskripsyon.
 
-2. **Pagkuha ng Rekomendasyon (`get_recommendations` method)**: Gumagawa ito ng prompt para sa Azure OpenAI service base sa hilig ng user at nagsasagawa ng HTTP POST request sa Azure OpenAI API upang makuha ang mga re-ranked at scored na destinasyon.
+2. **Pagkuha ng Rekomendasyon (`get_recommendations` method)**: Ang method na ito ay bumubuo ng prompt para sa Azure OpenAI service batay sa mga kagustuhan ng user at gumagawa ng HTTP POST request sa Azure OpenAI API upang makuha ang re-ranked at scored na mga destinasyon.
 
-3. **Pagbuo ng Prompt (`generate_prompt` method)**: Gumagawa ito ng prompt para sa Azure OpenAI, kasama ang hilig ng user at listahan ng mga destinasyon. Ginagabayan ng prompt ang modelo na i-re-rank at i-score ang mga destinasyon base sa mga ibinigay na hilig.
+3. **Pagbuo ng Prompt (`generate_prompt` method)**: Ang method na ito ay nagko-construct ng prompt para sa Azure OpenAI, kabilang ang mga kagustuhan ng user at ang listahan ng mga destinasyon. Ang prompt ay gumagabay sa modelo upang mag-re-rank at mag-score ng mga destinasyon batay sa ibinigay na mga kagustuhan.
 
-4. **API Call**: Ginagamit ang `requests` library para gumawa ng HTTP POST request sa Azure OpenAI API endpoint. Ang sagot ay naglalaman ng mga re-ranked at scored na destinasyon.
+4. **API Call**: Ang `requests` library ay ginagamit upang gumawa ng HTTP POST request sa Azure OpenAI API endpoint. Ang response ay naglalaman ng re-ranked at scored na mga destinasyon.
 
-5. **Halimbawa ng Paggamit**: Kinokolekta ng travel agent ang hilig ng user (halimbawa, interes sa sightseeing at magkakaibang kultura) at ginagamit ang Azure OpenAI service para makakuha ng mga re-ranked at scored na rekomendasyon para sa mga destinasyon.
+5. **Halimbawa ng Paggamit**: Kinokolekta ng travel agent ang mga kagustuhan ng user (hal., interes sa sightseeing at diverse culture) at ginagamit ang Azure OpenAI service upang makuha ang re-ranked at scored na mga rekomendasyon para sa travel destinations.
 
-Siguraduhing palitan ang `your_azure_openai_api_key` ng iyong totoong Azure OpenAI API key at ang `https://your-endpoint.com/...` ng aktwal na endpoint URL ng iyong Azure OpenAI deployment.
+Siguraduhing palitan ang `your_azure_openai_api_key` ng iyong aktwal na Azure OpenAI API key at ang `https://your-endpoint.com/...` ng aktwal na endpoint URL ng iyong Azure OpenAI deployment.
 
-Sa paggamit ng LLM para sa re-ranking at scoring, makakapagbigay ang travel agent ng mas personalisado at angkop na mga rekomendasyon sa paglalakbay para sa mga kliyente, na nagpapabuti sa kanilang kabuuang karanasan.
-
-### RAG: Prompting Technique vs Tool
-
-Ang Retrieval-Augmented Generation (RAG) ay maaaring maging isang prompting technique o isang tool sa pagbuo ng AI agents. Ang pag-unawa sa pagkakaiba ng dalawa ay makakatulong upang mas epektibong magamit ang RAG sa iyong mga proyekto.
-
-#### RAG bilang Prompting Technique
-
-**Ano ito?**
-
-- Bilang prompting technique, ang RAG ay kinabibilangan ng paggawa ng mga tiyak na query o prompt upang gabayan ang pagkuha ng kaugnay na impormasyon mula sa malaking koleksyon o database. Ginagamit ang impormasyong ito upang makabuo ng mga sagot o aksyon.
-
-**Paano ito gumagana:**
-
-1. **Pagbuo ng Prompts**: Gumawa ng maayos na istrukturang mga prompt o query base sa gawain o input ng user.
-2. **Pagkuha ng Impormasyon**: Gamitin ang mga prompt upang maghanap ng kaugnay na datos mula sa umiiral na knowledge base o dataset.
-3. **Pagbuo ng Sagot**: Pagsamahin ang nakuha na impormasyon sa mga generative AI models upang makabuo ng komprehensibo at magkakaugnay na sagot.
-
-**Halimbawa sa Travel Agent**:
-
-- Input ng User: "Gusto kong bumisita sa mga museo sa Paris."
-- Prompt: "Hanapin ang mga nangungunang museo sa Paris."
-- Nakuha na Impormasyon: Mga detalye tungkol sa Louvre Museum, Musée d'Orsay, atbp.
-- Nabuo na Sagot: "Narito ang ilang mga nangungunang museo sa Paris: Louvre Museum, Musée d'Orsay, at Centre Pompidou."
-
-#### RAG bilang Tool
-
-**Ano ito?**
-
-- Bilang tool, ang RAG ay isang integrated system na awtomatikong pinamamahalaan ang proseso ng retrieval at generation, na nagpapadali sa mga developer na magpatupad ng kumplikadong AI functionalities nang hindi mano-manong gumagawa ng mga prompt para sa bawat query.
-
-**Paano ito gumagana:**
-
-1. **Integrasyon**: Isinama ang RAG sa arkitektura ng AI agent, na nagpapahintulot dito na awtomatikong hawakan ang retrieval at generation tasks.
-2. **Awtomasyon**: Pinamamahalaan ng tool ang buong proseso, mula sa pagtanggap ng input ng user hanggang sa pagbuo ng huling sagot, nang hindi nangangailangan ng tiyak na prompt sa bawat hakbang.
-3. **Epektibidad**: Pinapahusay ang performance ng agent sa pamamagitan ng pagpapadali ng retrieval at generation process, na nagbibigay ng mas mabilis at mas tumpak na mga sagot.
-
-**Halimbawa sa Travel Agent**:
-
-- Input ng User: "Gusto kong bumisita sa mga museo sa Paris."
-- RAG Tool: Awtomatikong kinukuha ang impormasyon tungkol sa mga museo at bumubuo ng sagot.
-- Nabuo na Sagot: "Narito ang ilang mga nangungunang museo sa Paris: Louvre Museum, Musée d'Orsay, at Centre Pompidou."
-
-### Paghahambing
-
-| Aspeto                 | Prompting Technique                                        | Tool                                                  |
-|------------------------|-------------------------------------------------------------|-------------------------------------------------------|
-| **Mano-mano vs Awtomatik** | Mano-manong paggawa ng mga prompt para sa bawat query.       | Awtomatikong proseso para sa retrieval at generation. |
-| **Kontrol**            | Mas maraming kontrol sa proseso ng retrieval.               | Pinapadali at ina-awtomatiko ang retrieval at generation.|
-| **Kakayahang Mag-adapt** | Pinapayagan ang customized na mga prompt base sa pangangailangan. | Mas epektibo para sa malakihang implementasyon.       |
-| **Kumplikado**         | Nangangailangan ng paggawa at pag-aayos ng mga prompt.       | Mas madaling isama sa arkitektura ng AI agent.         |
-
-### Mga Praktikal na Halimbawa
-
-**Halimbawa ng Prompting Technique:**
-
-**Halimbawa ng Tool:**
-
-### Pagsusuri ng Kaugnayan
-
-Mahalaga ang pagsusuri ng kaugnayan sa performance ng AI agent. Tinitiyak nito na ang impormasyong nakuha at nabuo ng agent ay angkop, tama, at kapaki-pakinabang sa user. Tingnan natin kung paano suriin ang kaugnayan sa AI agents, kasama ang mga praktikal na halimbawa at teknik.
-
-#### Mga Pangunahing Konsepto sa Pagsusuri ng Kaugnayan
-
-1. **Pagkaalam sa Konteksto**:
-   - Dapat maintindihan ng agent ang konteksto ng query ng user upang makakuha at makabuo ng angkop na impormasyon.
-   - Halimbawa: Kapag nagtanong ang user ng "pinakamagandang mga restaurant sa Paris," dapat isaalang-alang ng agent ang mga hilig ng user tulad ng uri ng pagkain at budget.
-
-2. **Katumpakan**:
-   - Dapat tama at napapanahon ang impormasyong ibinibigay ng agent.
-   - Halimbawa: Magrekomenda ng mga bukas na restaurant na may magagandang review, hindi mga luma o saradong lugar.
-
-3. **Intensyon ng User**:
-   - Dapat mahinuha ng agent ang intensyon ng user sa likod ng query upang makapagbigay ng pinaka-angkop na impormasyon.
-   - Halimbawa: Kapag humiling ang user ng "murang hotel," dapat unahin ng agent ang mga abot-kayang opsyon.
-
-4. **Feedback Loop**:
-   - Patuloy na pagkolekta at pagsusuri ng feedback ng user upang mapabuti ang proseso ng pagsusuri ng kaugnayan.
-   - Halimbawa: Isama ang mga rating at feedback ng user sa mga naunang rekomendasyon upang mapabuti ang mga susunod na sagot.
-
-#### Mga Praktikal na Teknik sa Pagsusuri ng Kaugnayan
-
-1. **Relevance Scoring**:
-   - Magbigay ng score sa bawat nakuha na item base sa kung gaano ito kaangkop sa query at hilig ng user.
-   - Halimbawa:
-
-2. **Filtering at Ranking**:
-   - Alisin ang mga hindi kaugnay na item at i-rank ang natitirang mga item base sa kanilang relevance score.
-   - Halimbawa:
-
-3. **Natural Language Processing (NLP)**:
-   - Gamitin ang NLP upang maintindihan ang query ng user at makakuha ng kaugnay na impormasyon.
-   - Halimbawa:
-
-4. **Pagsasama ng Feedback ng User**:
-   - Kolektahin ang feedback ng user sa mga ibinigay na rekomendasyon at gamitin ito upang ayusin ang mga susunod na pagsusuri ng kaugnayan.
-   - Halimbawa:
-
-#### Halimbawa: Pagsusuri ng Kaugnayan sa Travel Agent
-
-Narito ang praktikal na halimbawa kung paano sinusuri ng Travel Agent ang kaugnayan ng mga rekomendasyon sa paglalakbay:
-
-### Search with Intent
-
-Ang paghahanap na may intensyon ay nangangahulugan ng pag-unawa at pag-interpret sa tunay na layunin o hangarin sa likod ng query ng user upang makakuha at makabuo ng pinaka-angkop at kapaki-pakinabang na impormasyon. Hindi lang ito basta pagtutugma ng mga keyword kundi pagkuha ng tunay na pangangailangan at konteksto ng user.
-
-#### Mga Pangunahing Konsepto sa Paghahanap na may Intensyon
-
-1. **Pag-unawa sa Intensyon ng User**:
-   - Maaaring hatiin ang intensyon ng user sa tatlong pangunahing uri: informational, navigational, at transactional.
-     - **Informational Intent**: Naghahanap ang user ng impormasyon tungkol sa isang paksa (halimbawa, "Ano ang mga pinakamahusay na museo sa Paris?").
-     - **Navigational Intent**: Nais ng user na pumunta sa isang partikular na website o pahina (halimbawa, "Opisyal na website ng Louvre Museum").
-     - **Transactional Intent**: Layunin ng user na magsagawa ng transaksyon, tulad ng pag-book ng flight o pagbili (halimbawa, "Mag-book ng flight papuntang Paris").
-
-2. **Pagkaalam sa Konteksto**:
-   - Ang pagsusuri sa konteksto ng query ng user ay tumutulong upang tama ang pagkilala sa kanilang intensyon. Kasama dito ang pagtingin sa mga naunang interaksyon, hilig ng user, at mga detalye ng kasalukuyang query.
-
-3. **Natural Language Processing (NLP)**:
-   - Ginagamit ang mga teknik ng NLP upang maintindihan at ma-interpret ang mga natural na wika na query ng user. Kasama dito ang entity recognition, sentiment analysis, at query parsing.
-
-4. **Personalization**:
-   - Ang pag-personalize ng mga resulta ng paghahanap base sa kasaysayan, hilig, at feedback ng user ay nagpapahusay sa kaugnayan ng impormasyong nakuha.
+Sa pamamagitan ng paggamit ng LLM para sa re-ranking at scoring, maaaring magbigay ang travel agent ng mas personalized at kaugnay na travel recommendations sa mga kliyente, na nagpapahusay sa kanilang kabuuang karanasan.
 #### Praktikal na Halimbawa: Paghahanap na may Layunin sa Travel Agent
 
 Gamitin natin ang Travel Agent bilang halimbawa upang makita kung paano maipapatupad ang paghahanap na may layunin.
 
-1. **Pagkuha ng Mga Kagustuhan ng User**
+1. **Pagkuha ng Mga Kagustuhan ng Gumagamit**
 
    ```python
    class Travel_Agent:
@@ -566,7 +536,7 @@ Gamitin natin ang Travel Agent bilang halimbawa upang makita kung paano maipapat
            self.user_preferences = preferences
    ```
 
-2. **Pag-unawa sa Layunin ng User**
+2. **Pag-unawa sa Layunin ng Gumagamit**
 
    ```python
    def identify_intent(query):
@@ -578,7 +548,7 @@ Gamitin natin ang Travel Agent bilang halimbawa upang makita kung paano maipapat
            return "informational"
    ```
 
-3. **Pagkamulat sa Konteksto**
+3. **Pagiging Malaman sa Konteksto**
 
    ```python
    def analyze_context(query, user_history):
@@ -590,7 +560,7 @@ Gamitin natin ang Travel Agent bilang halimbawa upang makita kung paano maipapat
        return context
    ```
 
-4. **Paghahanap at Personalizing ng Resulta**
+4. **Paghahanap at Pag-personalize ng Mga Resulta**
 
    ```python
    def search_with_intent(query, preferences, user_history):
@@ -645,46 +615,46 @@ Gamitin natin ang Travel Agent bilang halimbawa upang makita kung paano maipapat
 
 ## 4. Pagbuo ng Code bilang Isang Kasangkapan
 
-Ang mga code generating agents ay gumagamit ng AI models upang magsulat at magpatakbo ng code, na nakakatulong sa paglutas ng mga komplikadong problema at pag-automate ng mga gawain.
+Ang mga ahenteng bumubuo ng code ay gumagamit ng mga AI model upang magsulat at magpatakbo ng code, na nagreresolba ng mga komplikadong problema at nag-a-automate ng mga gawain.
 
-### Mga Code Generating Agents
+### Mga Ahenteng Bumubuo ng Code
 
-Ang mga code generating agents ay gumagamit ng generative AI models upang magsulat at magpatakbo ng code. Kaya nilang lutasin ang mga komplikadong problema, mag-automate ng mga gawain, at magbigay ng mahahalagang insight sa pamamagitan ng pagbuo at pagpapatakbo ng code sa iba't ibang programming languages.
+Ang mga ahenteng bumubuo ng code ay gumagamit ng generative AI models upang magsulat at magpatakbo ng code. Ang mga ahenteng ito ay maaaring magresolba ng mga komplikadong problema, mag-automate ng mga gawain, at magbigay ng mahalagang kaalaman sa pamamagitan ng pagbuo at pagpapatakbo ng code sa iba't ibang programming languages.
 
 #### Praktikal na Aplikasyon
 
-1. **Automated Code Generation**: Gumawa ng mga code snippet para sa partikular na mga gawain, tulad ng data analysis, web scraping, o machine learning.
-2. **SQL bilang RAG**: Gumamit ng SQL queries upang kunin at manipulahin ang data mula sa mga database.
-3. **Paglutas ng Problema**: Gumawa at magpatakbo ng code upang lutasin ang mga partikular na problema, tulad ng pag-optimize ng mga algorithm o pagsusuri ng data.
+1. **Awtomatikong Pagbuo ng Code**: Bumuo ng mga code snippet para sa mga partikular na gawain, tulad ng data analysis, web scraping, o machine learning.
+2. **SQL bilang RAG**: Gumamit ng SQL queries upang kumuha at magmanipula ng data mula sa mga database.
+3. **Pagresolba ng Problema**: Gumawa at magpatakbo ng code upang magresolba ng mga partikular na problema, tulad ng pag-optimize ng mga algorithm o pagsusuri ng data.
 
-#### Halimbawa: Code Generating Agent para sa Data Analysis
+#### Halimbawa: Ahenteng Bumubuo ng Code para sa Data Analysis
 
-Isipin na gumagawa ka ng isang code generating agent. Ganito ang maaaring paraan ng pagtrabaho nito:
+Isipin na ikaw ay nagdidisenyo ng isang ahenteng bumubuo ng code. Ganito ito maaaring gumana:
 
-1. **Gawain**: Suriin ang isang dataset upang tuklasin ang mga trend at pattern.
+1. **Gawain**: Suriin ang isang dataset upang matukoy ang mga trend at pattern.
 2. **Mga Hakbang**:
    - I-load ang dataset sa isang data analysis tool.
-   - Gumawa ng mga SQL query upang i-filter at i-aggregate ang data.
+   - Bumuo ng mga SQL query upang i-filter at i-aggregate ang data.
    - Patakbuhin ang mga query at kunin ang mga resulta.
-   - Gamitin ang mga resulta upang gumawa ng mga visualization at insight.
-3. **Kailangang Resources**: Access sa dataset, mga data analysis tool, at kakayahan sa SQL.
+   - Gamitin ang mga resulta upang bumuo ng mga visualization at kaalaman.
+3. **Mga Kinakailangang Resource**: Access sa dataset, mga tool sa data analysis, at kakayahan sa SQL.
 4. **Karanasan**: Gamitin ang mga nakaraang resulta ng pagsusuri upang mapabuti ang katumpakan at kaugnayan ng mga susunod na pagsusuri.
 
-### Halimbawa: Code Generating Agent para sa Travel Agent
+### Halimbawa: Ahenteng Bumubuo ng Code para sa Travel Agent
 
-Sa halimbawang ito, gagawa tayo ng isang code generating agent, Travel Agent, upang tulungan ang mga user sa pagpaplano ng kanilang paglalakbay sa pamamagitan ng pagbuo at pagpapatakbo ng code. Kaya nitong hawakan ang mga gawain tulad ng pagkuha ng mga opsyon sa paglalakbay, pag-filter ng mga resulta, at paggawa ng itinerary gamit ang generative AI.
+Sa halimbawang ito, magdidisenyo tayo ng isang ahenteng bumubuo ng code, ang Travel Agent, upang tulungan ang mga gumagamit sa pagpaplano ng kanilang paglalakbay sa pamamagitan ng pagbuo at pagpapatakbo ng code. Ang ahenteng ito ay maaaring humawak ng mga gawain tulad ng pagkuha ng mga opsyon sa paglalakbay, pag-filter ng mga resulta, at pagbuo ng itinerary gamit ang generative AI.
 
-#### Pangkalahatang-ideya ng Code Generating Agent
+#### Pangkalahatang-ideya ng Ahenteng Bumubuo ng Code
 
-1. **Pagkuha ng Mga Kagustuhan ng User**: Kinokolekta ang input ng user tulad ng destinasyon, petsa ng paglalakbay, budget, at mga interes.
-2. **Pagbuo ng Code para Kumuha ng Data**: Gumagawa ng mga code snippet upang kunin ang impormasyon tungkol sa mga flight, hotel, at atraksyon.
-3. **Pagpapatakbo ng Nabuo na Code**: Pinapatakbo ang code upang makuha ang real-time na impormasyon.
-4. **Pagbuo ng Itinerary**: Pinagsasama-sama ang nakuhang data upang makagawa ng personalized na plano sa paglalakbay.
-5. **Pag-aayos Batay sa Feedback**: Tumatanggap ng feedback mula sa user at muling bumubuo ng code kung kinakailangan upang mapino ang mga resulta.
+1. **Pagkuha ng Mga Kagustuhan ng Gumagamit**: Kinokolekta ang input ng gumagamit tulad ng destinasyon, mga petsa ng paglalakbay, badyet, at interes.
+2. **Pagbuo ng Code upang Kumuha ng Data**: Bumubuo ng mga code snippet upang kumuha ng data tungkol sa mga flight, hotel, at atraksyon.
+3. **Pagpapatakbo ng Nabuo na Code**: Pinapatakbo ang nabuo na code upang kumuha ng real-time na impormasyon.
+4. **Pagbuo ng Itinerary**: Binubuo ang nakuhang data sa isang personalized na plano sa paglalakbay.
+5. **Pag-aayos Batay sa Feedback**: Tumanggap ng feedback mula sa gumagamit at muling bumuo ng code kung kinakailangan upang pinuhin ang mga resulta.
 
-#### Hakbang-hakbang na Implementasyon
+#### Hakbang-hakbang na Pagpapatupad
 
-1. **Pagkuha ng Mga Kagustuhan ng User**
+1. **Pagkuha ng Mga Kagustuhan ng Gumagamit**
 
    ```python
    class Travel_Agent:
@@ -695,7 +665,7 @@ Sa halimbawang ito, gagawa tayo ng isang code generating agent, Travel Agent, up
            self.user_preferences = preferences
    ```
 
-2. **Pagbuo ng Code para Kumuha ng Data**
+2. **Pagbuo ng Code upang Kumuha ng Data**
 
    ```python
    def generate_code_to_fetch_data(preferences):
@@ -788,17 +758,17 @@ Sa halimbawang ito, gagawa tayo ng isang code generating agent, Travel Agent, up
    print("Updated Itinerary:", updated_itinerary)
    ```
 
-### Paggamit ng kamalayan sa kapaligiran at pangangatwiran
+### Paggamit ng Kamalayan sa Kapaligiran at Pangangatwiran
 
-Ang pag-unawa sa schema ng table ay makakatulong sa proseso ng pagbuo ng query sa pamamagitan ng paggamit ng kamalayan sa kapaligiran at pangangatwiran.
+Ang paggamit ng schema ng table ay maaaring mapahusay ang proseso ng pagbuo ng query sa pamamagitan ng paggamit ng kamalayan sa kapaligiran at pangangatwiran.
 
 Narito ang isang halimbawa kung paano ito magagawa:
 
-1. **Pag-unawa sa Schema**: Mauunawaan ng sistema ang schema ng table at gagamitin ang impormasyong ito bilang batayan sa pagbuo ng query.
-2. **Pag-aayos Batay sa Feedback**: Iaayos ng sistema ang mga kagustuhan ng user batay sa feedback at magpapasya kung aling mga field sa schema ang kailangang baguhin.
-3. **Pagbuo at Pagpapatakbo ng Mga Query**: Bubuo at magpapatakbo ang sistema ng mga query upang kunin ang updated na data ng flight at hotel batay sa bagong mga kagustuhan.
+1. **Pag-unawa sa Schema**: Mauunawaan ng sistema ang schema ng table at gagamitin ang impormasyong ito upang i-ground ang pagbuo ng query.
+2. **Pag-aayos Batay sa Feedback**: Ia-adjust ng sistema ang mga kagustuhan ng gumagamit batay sa feedback at magpapasya kung aling mga field sa schema ang kailangang i-update.
+3. **Pagbuo at Pagpapatakbo ng Mga Query**: Bubuo at magpapatakbo ang sistema ng mga query upang kumuha ng na-update na data ng flight at hotel batay sa mga bagong kagustuhan.
 
-Narito ang isang updated na halimbawa ng Python code na naglalaman ng mga konseptong ito:
+Narito ang isang na-update na halimbawa ng Python code na nagsasama ng mga konseptong ito:
 
 ```python
 def adjust_based_on_feedback(feedback, preferences, schema):
@@ -861,52 +831,53 @@ print("Updated Itinerary:", updated_itinerary)
 
 #### Paliwanag - Pag-book Batay sa Feedback
 
-1. **Schema Awareness**: Ang `schema` dictionary ay naglalarawan kung paano dapat i-adjust ang mga kagustuhan batay sa feedback. Kasama dito ang mga field tulad ng `favorites` at `avoid`, pati na rin ang mga kaukulang adjustment.
-2. **Pag-aayos ng Mga Kagustuhan (`adjust_based_on_feedback` method)**: Inaayos ng method na ito ang mga kagustuhan batay sa feedback ng user at sa schema.
-3. **Pag-aayos Batay sa Kapaligiran (`adjust_based_on_environment` method)**: Inaangkop ng method na ito ang mga adjustment batay sa schema at feedback.
-4. **Pagbuo at Pagpapatakbo ng Mga Query**: Gumagawa ang sistema ng code upang kunin ang updated na data ng flight at hotel batay sa na-adjust na mga kagustuhan at pinapalakad ang mga query na ito.
-5. **Pagbuo ng Itinerary**: Gumagawa ang sistema ng updated na itinerary batay sa bagong data ng flight, hotel, at atraksyon.
+1. **Kamalayan sa Schema**: Ang `schema` dictionary ay nagde-define kung paano dapat i-adjust ang mga kagustuhan batay sa feedback. Kasama rito ang mga field tulad ng `favorites` at `avoid`, na may kaukulang mga adjustment.
+2. **Pag-aayos ng Mga Kagustuhan (`adjust_based_on_feedback` method)**: Ina-adjust ng method na ito ang mga kagustuhan batay sa feedback ng gumagamit at sa schema.
+3. **Mga Pag-aayos Batay sa Kapaligiran (`adjust_based_on_environment` method)**: Ina-customize ng method na ito ang mga adjustment batay sa schema at feedback.
+4. **Pagbuo at Pagpapatakbo ng Mga Query**: Bumubuo ang sistema ng code upang kumuha ng na-update na data ng flight at hotel batay sa mga na-adjust na kagustuhan at sinisimulate ang pagpapatakbo ng mga query na ito.
+5. **Pagbuo ng Itinerary**: Lumilikha ang sistema ng na-update na itinerary batay sa bagong data ng flight, hotel, at atraksyon.
 
-Sa pamamagitan ng pagiging environment-aware at paggamit ng pangangatwiran batay sa schema, makakabuo ang sistema ng mas tumpak at kaugnay na mga query, na magreresulta sa mas magagandang rekomendasyon sa paglalakbay at mas personalized na karanasan para sa user.
+Sa pamamagitan ng paggawa ng sistema na may kamalayan sa kapaligiran at pangangatwiran batay sa schema, makakabuo ito ng mas tumpak at kaugnay na mga query, na nagreresulta sa mas mahusay na mga rekomendasyon sa paglalakbay at mas personalized na karanasan ng gumagamit.
 
 ### Paggamit ng SQL bilang Retrieval-Augmented Generation (RAG) Technique
 
-Ang SQL (Structured Query Language) ay isang makapangyarihang kasangkapan para sa pakikipag-ugnayan sa mga database. Kapag ginamit bilang bahagi ng Retrieval-Augmented Generation (RAG) na pamamaraan, maaaring kunin ng SQL ang mga kaugnay na data mula sa mga database upang magbigay ng impormasyon at bumuo ng mga tugon o aksyon sa mga AI agent. Tingnan natin kung paano magagamit ang SQL bilang RAG technique sa konteksto ng Travel Agent.
+Ang SQL (Structured Query Language) ay isang makapangyarihang kasangkapan para sa pakikipag-ugnayan sa mga database. Kapag ginamit bilang bahagi ng Retrieval-Augmented Generation (RAG) approach, maaaring kumuha ang SQL ng kaugnay na data mula sa mga database upang magbigay ng impormasyon at bumuo ng mga tugon o aksyon sa mga AI agent. Tuklasin natin kung paano magagamit ang SQL bilang RAG technique sa konteksto ng Travel Agent.
 
-#### Pangunahing Konsepto
+#### Mga Pangunahing Konsepto
 
 1. **Pakikipag-ugnayan sa Database**:
-   - Ginagamit ang SQL upang mag-query sa mga database, kumuha ng kaugnay na impormasyon, at manipulahin ang data.
-   - Halimbawa: Pagkuha ng detalye ng flight, impormasyon ng hotel, at mga atraksyon mula sa travel database.
+   - Ginagamit ang SQL upang mag-query sa mga database, kumuha ng kaugnay na impormasyon, at magmanipula ng data.
+   - Halimbawa: Pagkuha ng mga detalye ng flight, impormasyon ng hotel, at mga atraksyon mula sa isang travel database.
 
 2. **Integrasyon sa RAG**:
-   - Gumagawa ng mga SQL query batay sa input at kagustuhan ng user.
-   - Ginagamit ang nakuhang data upang makabuo ng personalized na rekomendasyon o aksyon.
+   - Ang mga SQL query ay nabubuo batay sa input at kagustuhan ng gumagamit.
+   - Ang nakuhang data ay ginagamit upang bumuo ng mga personalized na rekomendasyon o aksyon.
 
-3. **Dynamic na Pagbuo ng Query**:
-   - Gumagawa ang AI agent ng dynamic na SQL query batay sa konteksto at pangangailangan ng user.
-   - Halimbawa: Pag-customize ng SQL query upang i-filter ang mga resulta batay sa budget, petsa, at interes.
+3. **Dynamic Query Generation**:
+   - Ang AI agent ay bumubuo ng dynamic SQL queries batay sa konteksto at pangangailangan ng gumagamit.
+   - Halimbawa: Pag-customize ng SQL queries upang i-filter ang mga resulta batay sa badyet, mga petsa, at interes.
 
 #### Mga Aplikasyon
 
-- **Automated Code Generation**: Gumawa ng mga code snippet para sa partikular na gawain.
-- **SQL bilang RAG**: Gumamit ng SQL queries upang manipulahin ang data.
-- **Paglutas ng Problema**: Gumawa at magpatakbo ng code upang lutasin ang mga problema.
+- **Awtomatikong Pagbuo ng Code**: Bumuo ng mga code snippet para sa mga partikular na gawain.
+- **SQL bilang RAG**: Gumamit ng SQL queries upang magmanipula ng data.
+- **Pagresolba ng Problema**: Gumawa at magpatakbo ng code upang magresolba ng mga problema.
 
-**Halimbawa**: Isang data analysis agent:
+**Halimbawa**:
+Isang data analysis agent:
 
-1. **Gawain**: Suriin ang isang dataset upang makita ang mga trend.
+1. **Gawain**: Suriin ang isang dataset upang makahanap ng mga trend.
 2. **Mga Hakbang**:
    - I-load ang dataset.
-   - Gumawa ng mga SQL query upang i-filter ang data.
+   - Bumuo ng mga SQL query upang i-filter ang data.
    - Patakbuhin ang mga query at kunin ang mga resulta.
-   - Gumawa ng mga visualization at insight.
-3. **Mga Resources**: Access sa dataset, kakayahan sa SQL.
+   - Bumuo ng mga visualization at kaalaman.
+3. **Mga Resource**: Access sa dataset, kakayahan sa SQL.
 4. **Karanasan**: Gamitin ang mga nakaraang resulta upang mapabuti ang mga susunod na pagsusuri.
 
 #### Praktikal na Halimbawa: Paggamit ng SQL sa Travel Agent
 
-1. **Pagkuha ng Mga Kagustuhan ng User**
+1. **Pagkuha ng Mga Kagustuhan ng Gumagamit**
 
    ```python
    class Travel_Agent:
@@ -994,19 +965,17 @@ Ang SQL (Structured Query Language) ay isang makapangyarihang kasangkapan para s
    SELECT * FROM attractions WHERE destination='Paris' AND interests='museums, cuisine';
    ```
 
-Sa pamamagitan ng paggamit ng SQL bilang bahagi ng Retrieval-Augmented Generation (RAG) technique, maaaring dynamic na kunin at gamitin ng mga AI agent tulad ng Travel Agent ang mga kaugnay na data upang makapagbigay ng tumpak at personalized na mga rekomendasyon.
+Sa pamamagitan ng paggamit ng SQL bilang bahagi ng Retrieval-Augmented Generation (RAG) technique, ang mga AI agent tulad ng Travel Agent ay maaaring dynamic na kumuha at gumamit ng kaugnay na data upang magbigay ng tumpak at personalized na mga rekomendasyon.
 
 ### Halimbawa ng Metacognition
 
-Upang ipakita ang implementasyon ng metacognition, gagawa tayo ng isang simpleng agent na *nagmumuni-muni sa proseso ng paggawa ng desisyon* habang nilulutas ang isang problema. Sa halimbawang ito, gagawa tayo ng sistema kung saan sinusubukan ng agent na i-optimize ang pagpili ng hotel, ngunit sinusuri rin nito ang sariling pangangatwiran at inaayos ang estratehiya kapag nagkamali o pumili ng hindi pinakamainam.
-
-Isusulat natin ito gamit ang isang simpleng halimbawa kung saan pumipili ang agent ng mga hotel batay sa kombinasyon ng presyo at kalidad, ngunit "nagmumuni-muni" ito sa mga desisyon at inaayos ang sarili.
+Upang maipakita ang isang implementasyon ng metacognition, gagawa tayo ng isang simpleng ahente na *nagpapakita ng proseso ng pagninilay sa sarili* habang nilulutas ang isang problema. Sa halimbawang ito, gagawa tayo ng sistema kung saan sinusubukan ng ahente na i-optimize ang pagpili ng hotel, ngunit sinusuri nito ang sariling proseso ng pagdedesisyon at ina-adjust ang estratehiya kapag may mga pagkakamali o hindi magandang pagpili.
 
 #### Paano ito nagpapakita ng metacognition:
 
-1. **Unang Desisyon**: Pipili ang agent ng pinakamurang hotel, nang hindi iniintindi ang epekto ng kalidad.
-2. **Pagninilay at Pagsusuri**: Pagkatapos ng unang pagpili, susuriin ng agent kung ang hotel ay isang "masamang" pagpili gamit ang feedback ng user. Kung napag-alaman na mababa ang kalidad ng hotel, magmumuni-muni ito sa sariling pangangatwiran.
-3. **Pag-aayos ng Estratehiya**: Inaayos ng agent ang estratehiya batay sa pagmumuni-muni at lilipat mula sa "pinakamura" patungo sa "pinakamataas na kalidad", kaya't pinapabuti ang proseso ng paggawa ng desisyon sa mga susunod na pagkakataon.
+1. **Paunang Desisyon**: Pipiliin ng ahente ang pinakamurang hotel, nang hindi isinasaalang-alang ang kalidad.
+2. **Pagninilay at Pagsusuri**: Pagkatapos ng paunang pagpili, susuriin ng ahente kung ang hotel ay isang "masamang" pagpili gamit ang feedback ng gumagamit. Kapag natukoy na mababa ang kalidad ng hotel, magmumuni-muni ito sa sariling pangangatwiran.
+3. **Pag-aayos ng Estratehiya**: Ia-adjust ng ahente ang estratehiya batay sa pagninilay at lilipat mula sa "pinakamura" patungo sa "pinakamataas na kalidad," kaya pinapabuti ang proseso ng pagdedesisyon sa mga susunod na pagkakataon.
 
 Narito ang isang halimbawa:
 
@@ -1084,17 +1053,21 @@ adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
 
-#### Mga Kakayahan ng Agent sa Metacognition
+#### Kakayahan ng Metacognition ng Ahente
 
-Ang mahalaga dito ay ang kakayahan ng agent na:
-- Suriin ang mga nakaraang pagpili at proseso ng paggawa ng desisyon.
-- Ayusin ang estratehiya batay sa pagmumuni-muni, ibig sabihin, metacognition sa aksyon.
+Ang mahalaga dito ay ang kakayahan ng ahente na:
+- Suriin ang mga naunang pagpili at proseso ng pagdedesisyon.
+- Ia-adjust ang estratehiya batay sa pagninilay, na nagpapakita ng metacognition sa aksyon.
 
-Ito ay isang simpleng anyo ng metacognition kung saan kaya ng sistema na i-adjust ang proseso ng pangangatwiran batay sa internal na feedback.
+Ito ay isang simpleng anyo ng metacognition kung saan ang sistema ay may kakayahang i-adjust ang proseso ng pangangatwiran batay sa internal na feedback.
 
 ### Konklusyon
 
-Ang metacognition ay isang makapangyarihang kasangkapan na maaaring lubos na mapabuti ang kakayahan ng mga AI agent. Sa pamamagitan ng pagsasama ng mga metacognitive na proseso, makakagawa ka ng mga agent na mas matalino, mas adaptable, at mas epektibo. Gamitin ang mga karagdagang resources upang mas mapalalim ang pag-aaral sa kahanga-hangang mundo ng metacognition sa mga AI agent.
+Ang metacognition ay isang makapangyarihang kasangkapan na maaaring lubos na mapahusay ang kakayahan ng mga AI agent. Sa pamamagitan ng pagsasama ng mga proseso ng metacognition, maaari kang magdisenyo ng mga ahente na mas matalino, adaptable, at mahusay. Gamitin ang mga karagdagang resource upang higit pang tuklasin ang kamangha-manghang mundo ng metacognition sa mga AI agent.
+
+### May Higit Pang Katanungan Tungkol sa Metacognition Design Pattern?
+
+Sumali sa [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) upang makipagkita sa ibang mga nag-aaral, dumalo sa office hours, at makuha ang mga sagot sa iyong mga tanong tungkol sa AI Agents.
 
 ## Nakaraang Aralin
 
@@ -1104,5 +1077,7 @@ Ang metacognition ay isang makapangyarihang kasangkapan na maaaring lubos na map
 
 [AI Agents in Production](../10-ai-agents-production/README.md)
 
-**Paalala**:  
-Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat nagsusumikap kami para sa katumpakan, pakatandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o di-tumpak na impormasyon. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring magmula sa paggamit ng pagsasaling ito.
+---
+
+**Paunawa**:  
+Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't sinisikap naming maging tumpak, pakitandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na opisyal na sanggunian. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring magmula sa paggamit ng pagsasaling ito.
