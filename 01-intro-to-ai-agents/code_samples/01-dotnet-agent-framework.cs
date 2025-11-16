@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/dotnet run
+#!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
