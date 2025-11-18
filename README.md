@@ -39,7 +39,7 @@ Don't forget to [star (🌟) this repo](https://docs.github.com/en/get-started/e
 
 ### Meet Other Learners, Get Your Questions Answered
 
-If you get stuck or have any questions about building AI Agents, join our dedicated Discord Channel in the [Azure AI Foundry Community Discord](https://aka.ms/ai-agents/discord).
+If you get stuck or have any questions about building AI Agents, join our dedicated Discord Channel in the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
 ### What You Need 
 
