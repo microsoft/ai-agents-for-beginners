@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e056335d729ba6e49571db7a6533825d",
-  "translation_date": "2025-09-30T07:55:04+00:00",
+  "original_hash": "d7c3b7bd1b3528074d8b6a7c5ad33b6f",
+  "translation_date": "2025-11-18T18:27:30+00:00",
   "source_file": "04-tool-use/README.md",
   "language_code": "sl"
 }
@@ -13,63 +13,63 @@ CO_OP_TRANSLATOR_METADATA:
 
 # Vzorec oblikovanja uporabe orodij
 
-Orodja so zanimiva, ker omogočajo AI agentom širši nabor zmožnosti. Namesto da bi agent imel omejen nabor dejanj, ki jih lahko izvede, mu dodatek orodja omogoča izvajanje širokega spektra dejanj. V tem poglavju bomo obravnavali vzorec oblikovanja uporabe orodij, ki opisuje, kako lahko AI agenti uporabljajo specifična orodja za dosego svojih ciljev.
+Orodja so zanimiva, ker omogočajo AI agentom širši nabor sposobnosti. Namesto da ima agent omejen nabor dejanj, ki jih lahko izvede, mu dodajanje orodja omogoči izvajanje širokega spektra dejanj. V tem poglavju bomo obravnavali vzorec oblikovanja uporabe orodij, ki opisuje, kako lahko AI agenti uporabljajo specifična orodja za dosego svojih ciljev.
 
 ## Uvod
 
 V tej lekciji bomo poskušali odgovoriti na naslednja vprašanja:
 
 - Kaj je vzorec oblikovanja uporabe orodij?
-- Na katere primere uporabe ga lahko uporabimo?
+- Za katere primere uporabe ga lahko uporabimo?
 - Kateri so elementi/gradniki, potrebni za implementacijo vzorca oblikovanja?
 - Katere posebne vidike je treba upoštevati pri uporabi vzorca oblikovanja uporabe orodij za gradnjo zaupanja vrednih AI agentov?
 
 ## Cilji učenja
 
-Po zaključku te lekcije boste lahko:
+Po zaključku te lekcije boste sposobni:
 
-- Opredelili vzorec oblikovanja uporabe orodij in njegov namen.
-- Prepoznali primere uporabe, kjer je vzorec oblikovanja uporabe orodij primeren.
-- Razumeli ključne elemente, potrebne za implementacijo vzorca oblikovanja.
-- Prepoznali vidike za zagotavljanje zaupanja vrednosti AI agentov, ki uporabljajo ta vzorec oblikovanja.
+- Opredeliti vzorec oblikovanja uporabe orodij in njegov namen.
+- Prepoznati primere uporabe, kjer je vzorec oblikovanja uporabe orodij primeren.
+- Razumeti ključne elemente, potrebne za implementacijo vzorca oblikovanja.
+- Prepoznati vidike za zagotavljanje zaupanja vrednosti AI agentov, ki uporabljajo ta vzorec oblikovanja.
 
 ## Kaj je vzorec oblikovanja uporabe orodij?
 
-**Vzorec oblikovanja uporabe orodij** se osredotoča na omogočanje LLM-jem interakcije z zunanjimi orodji za dosego specifičnih ciljev. Orodja so koda, ki jo lahko agent izvede za izvajanje dejanj. Orodje je lahko preprosta funkcija, kot je kalkulator, ali klic API-ja do storitve tretje osebe, kot je iskanje cen delnic ali vremenska napoved. V kontekstu AI agentov so orodja zasnovana tako, da jih agenti izvajajo kot odziv na **funkcijske klice, ki jih generira model**.
+**Vzorec oblikovanja uporabe orodij** se osredotoča na omogočanje LLM-jem interakcije z zunanjimi orodji za dosego specifičnih ciljev. Orodja so koda, ki jo lahko agent izvede za izvajanje dejanj. Orodje je lahko preprosta funkcija, kot je kalkulator, ali API klic do storitve tretje osebe, kot je iskanje cen delnic ali vremenska napoved. V kontekstu AI agentov so orodja zasnovana tako, da jih agenti izvajajo kot odgovor na **funkcijske klice, ki jih generira model**.
 
-## Na katere primere uporabe ga lahko uporabimo?
+## Za katere primere uporabe ga lahko uporabimo?
 
-AI agenti lahko uporabljajo orodja za dokončanje kompleksnih nalog, pridobivanje informacij ali sprejemanje odločitev. Vzorec oblikovanja uporabe orodij se pogosto uporablja v scenarijih, ki zahtevajo dinamično interakcijo z zunanjimi sistemi, kot so baze podatkov, spletne storitve ali tolmači kode. Ta sposobnost je uporabna za številne primere uporabe, vključno z:
+AI agenti lahko uporabljajo orodja za dokončanje kompleksnih nalog, pridobivanje informacij ali sprejemanje odločitev. Vzorec oblikovanja uporabe orodij se pogosto uporablja v scenarijih, ki zahtevajo dinamično interakcijo z zunanjimi sistemi, kot so baze podatkov, spletne storitve ali interpreterji kode. Ta sposobnost je uporabna za številne različne primere uporabe, vključno z:
 
-- **Dinamično pridobivanje informacij:** Agenti lahko poizvedujejo zunanje API-je ali baze podatkov za pridobivanje ažurnih podatkov (npr. poizvedovanje SQLite baze podatkov za analizo podatkov, pridobivanje cen delnic ali vremenskih informacij).
+- **Dinamično pridobivanje informacij:** Agenti lahko poizvedujejo zunanje API-je ali baze podatkov za pridobivanje najnovejših podatkov (npr. poizvedovanje SQLite baze podatkov za analizo podatkov, pridobivanje cen delnic ali vremenskih informacij).
 - **Izvajanje in interpretacija kode:** Agenti lahko izvajajo kodo ali skripte za reševanje matematičnih problemov, generiranje poročil ali izvajanje simulacij.
 - **Avtomatizacija delovnih procesov:** Avtomatizacija ponavljajočih se ali večstopenjskih delovnih procesov z integracijo orodij, kot so načrtovalniki nalog, storitve e-pošte ali podatkovni tokovi.
-- **Podpora strankam:** Agenti lahko komunicirajo s CRM sistemi, platformami za obravnavo zahtevkov ali bazami znanja za reševanje uporabniških poizvedb.
+- **Podpora strankam:** Agenti lahko komunicirajo s CRM sistemi, platformami za upravljanje zahtevkov ali bazami znanja za reševanje uporabniških poizvedb.
 - **Generiranje in urejanje vsebine:** Agenti lahko uporabljajo orodja, kot so preverjalniki slovnice, povzemalniki besedil ali ocenjevalci varnosti vsebine za pomoč pri nalogah ustvarjanja vsebine.
 
 ## Kateri so elementi/gradniki, potrebni za implementacijo vzorca oblikovanja uporabe orodij?
 
 Ti gradniki omogočajo AI agentu izvajanje širokega spektra nalog. Poglejmo ključne elemente, potrebne za implementacijo vzorca oblikovanja uporabe orodij:
 
-- **Sheme funkcij/orodij**: Podrobne definicije razpoložljivih orodij, vključno z imenom funkcije, namenom, zahtevanimi parametri in pričakovanimi izhodi. Te sheme omogočajo LLM-ju razumevanje, katera orodja so na voljo in kako sestaviti veljavne zahteve.
+- **Sheme funkcij/orodij**: Podrobne definicije razpoložljivih orodij, vključno z imenom funkcije, namenom, potrebnimi parametri in pričakovanimi izhodi. Te sheme omogočajo LLM-ju razumevanje, katera orodja so na voljo in kako sestaviti veljavne zahteve.
 
-- **Logika izvajanja funkcij**: Določa, kako in kdaj se orodja uporabljajo glede na uporabnikovo namero in kontekst pogovora. To lahko vključuje module načrtovalca, mehanizme usmerjanja ali pogojne tokove, ki dinamično določajo uporabo orodij.
+- **Logika izvajanja funkcij**: Določa, kako in kdaj se orodja uporabljajo glede na namen uporabnika in kontekst pogovora. To lahko vključuje module za načrtovanje, mehanizme usmerjanja ali pogojne tokove, ki dinamično določajo uporabo orodij.
 
-- **Sistem za obravnavo sporočil**: Komponente, ki upravljajo tok pogovora med uporabniškimi vnosi, odgovori LLM-ja, klici orodij in izhodi orodij.
+- **Sistem za upravljanje sporočil**: Komponente, ki upravljajo tok pogovora med uporabniškimi vnosi, odgovori LLM-ja, klici orodij in izhodi orodij.
 
 - **Okvir za integracijo orodij**: Infrastruktura, ki povezuje agenta z različnimi orodji, bodisi preprostimi funkcijami ali kompleksnimi zunanjimi storitvami.
 
-- **Obravnava napak in validacija**: Mehanizmi za obravnavo neuspehov pri izvajanju orodij, validacijo parametrov in upravljanje nepričakovanih odgovorov.
+- **Upravljanje napak in validacija**: Mehanizmi za obravnavo napak pri izvajanju orodij, validacijo parametrov in upravljanje nepričakovanih odgovorov.
 
 - **Upravljanje stanja**: Sledi kontekstu pogovora, prejšnjim interakcijam z orodji in trajnim podatkom za zagotavljanje doslednosti pri večkratnih interakcijah.
 
-Naslednje poglavje podrobneje obravnava klicanje funkcij/orodij.
+Nato si podrobneje oglejmo klicanje funkcij/orodij.
 
 ### Klicanje funkcij/orodij
 
-Klicanje funkcij je primarni način, kako omogočimo velikim jezikovnim modelom (LLM-jem) interakcijo z orodji. Pogosto boste videli, da se izraza 'funkcija' in 'orodje' uporabljata izmenično, ker so 'funkcije' (bloki ponovno uporabne kode) 'orodja', ki jih agenti uporabljajo za izvajanje nalog. Da bi se koda funkcije izvedla, mora LLM primerjati uporabnikovo zahtevo z opisom funkcije. Za to se LLM-ju pošlje shema, ki vsebuje opise vseh razpoložljivih funkcij. LLM nato izbere najbolj primerno funkcijo za nalogo in vrne njeno ime ter argumente. Izbrana funkcija se izvede, njen odgovor pa se pošlje nazaj LLM-ju, ki uporabi informacije za odgovor na uporabnikovo zahtevo.
+Klicanje funkcij je primarni način, kako omogočimo velikim jezikovnim modelom (LLM-jem) interakcijo z orodji. Pogosto boste videli izraza 'funkcija' in 'orodje' uporabljena izmenično, ker so 'funkcije' (bloki ponovno uporabne kode) 'orodja', ki jih agenti uporabljajo za izvajanje nalog. Da bi se koda funkcije izvedla, mora LLM primerjati uporabnikovo zahtevo z opisom funkcije. Za to se LLM-ju pošlje shema, ki vsebuje opise vseh razpoložljivih funkcij. LLM nato izbere najbolj primerno funkcijo za nalogo in vrne njeno ime ter argumente. Izbrana funkcija se izvede, njen odgovor pa se pošlje nazaj LLM-ju, ki uporabi informacije za odgovor na uporabnikovo zahtevo.
 
-Za implementacijo klicanja funkcij za agente razvijalci potrebujejo:
+Za implementacijo klicanja funkcij za agente bodo razvijalci potrebovali:
 
 1. LLM model, ki podpira klicanje funkcij
 2. Shemo, ki vsebuje opise funkcij
@@ -92,7 +92,7 @@ Poglejmo primer pridobivanja trenutnega časa v mestu:
 
 1. **Ustvarjanje sheme funkcij:**
 
-    Nato definiramo JSON shemo, ki vsebuje ime funkcije, opis funkcije in imena ter opise parametrov funkcije. To shemo nato posredujemo prej ustvarjenemu odjemalcu skupaj z uporabnikovo zahtevo za iskanje časa v San Franciscu. Pomembno je opaziti, da se vrne **klic orodja**, **ne** končni odgovor na vprašanje. Kot je bilo že omenjeno, LLM vrne ime funkcije, ki jo je izbral za nalogo, in argumente, ki bodo posredovani funkciji.
+    Nato definiramo JSON shemo, ki vsebuje ime funkcije, opis, kaj funkcija počne, ter imena in opise parametrov funkcije. To shemo nato posredujemo prej ustvarjenemu odjemalcu skupaj z uporabnikovo zahtevo za iskanje časa v San Franciscu. Pomembno je opaziti, da je vrnjen **klic orodja**, **ne** končni odgovor na vprašanje. Kot že omenjeno, LLM vrne ime funkcije, ki jo je izbral za nalogo, in argumente, ki bodo posredovani funkciji.
 
     ```python
     # Function description for the model to read
@@ -204,7 +204,7 @@ Poglejmo primer pridobivanja trenutnega časa v mestu:
       The current time in San Francisco is 09:24 AM.
      ```
 
-Klicanje funkcij je osrednji del večine, če ne vseh, oblikovanj uporabe orodij agentov, vendar je lahko njegova implementacija od začetka včasih zahtevna. Kot smo se naučili v [Lekciji 2](../../../02-explore-agentic-frameworks), nam agentni okvirji zagotavljajo že pripravljene gradnike za implementacijo uporabe orodij.
+Klicanje funkcij je osrednji del večine, če ne vseh, zasnov uporabe orodij agentov, vendar je lahko implementacija od začetka včasih zahtevna. Kot smo se naučili v [Lekciji 2](../../../02-explore-agentic-frameworks), nam agentni okvirji zagotavljajo vnaprej pripravljene gradnike za implementacijo uporabe orodij.
 
 ## Primeri uporabe orodij z agentnimi okvirji
 
@@ -212,13 +212,13 @@ Tukaj je nekaj primerov, kako lahko implementirate vzorec oblikovanja uporabe or
 
 ### Semantic Kernel
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> je odprtokodni AI okvir za razvijalce .NET, Python in Java, ki delajo z velikimi jezikovnimi modeli (LLM-ji). Poenostavi proces uporabe klicanja funkcij z avtomatskim opisovanjem vaših funkcij in njihovih parametrov modelu skozi proces, imenovan <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serializacija</a>. Prav tako upravlja komunikacijo med modelom in vašo kodo. Druga prednost uporabe agentnega okvirja, kot je Semantic Kernel, je, da omogoča dostop do že pripravljenih orodij, kot sta <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">Iskanje datotek</a> in <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Tolmač kode</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> je odprtokodni AI okvir za razvijalce .NET, Python in Java, ki delajo z velikimi jezikovnimi modeli (LLM-ji). Poenostavi proces uporabe klicanja funkcij z avtomatskim opisovanjem vaših funkcij in njihovih parametrov modelu skozi proces, imenovan <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serializacija</a>. Prav tako upravlja komunikacijo med modelom in vašo kodo. Druga prednost uporabe agentnega okvirja, kot je Semantic Kernel, je, da omogoča dostop do vnaprej pripravljenih orodij, kot sta <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">File Search</a> in <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Code Interpreter</a>.
 
 Naslednji diagram prikazuje proces klicanja funkcij z uporabo Semantic Kernel:
 
 ![klicanje funkcij](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.sl.png)
 
-V Semantic Kernel se funkcije/orodja imenujejo <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Vtičniki</a>. Funkcijo `get_current_time`, ki smo jo videli prej, lahko spremenimo v vtičnik tako, da jo spremenimo v razred, ki vsebuje funkcijo. Prav tako lahko uvozimo dekorator `kernel_function`, ki sprejme opis funkcije. Ko nato ustvarite jedro z vtičnikom GetCurrentTimePlugin, bo jedro samodejno serializiralo funkcijo in njene parametre ter ustvarilo shemo za pošiljanje LLM-ju v procesu.
+V Semantic Kernel se funkcije/orodja imenujejo <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Funkcijo `get_current_time`, ki smo jo videli prej, lahko pretvorimo v plugin tako, da jo spremenimo v razred, ki vsebuje funkcijo. Prav tako lahko uvozimo dekorator `kernel_function`, ki sprejme opis funkcije. Ko nato ustvarite kernel z GetCurrentTimePlugin, bo kernel samodejno serializiral funkcijo in njene parametre ter ustvaril shemo za pošiljanje LLM-ju v procesu.
 
 ```python
 from semantic_kernel.functions import kernel_function
@@ -250,24 +250,24 @@ kernel.add_plugin(get_current_time_plugin)
   
 ### Azure AI Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> je novejši agentni okvir, zasnovan za omogočanje razvijalcem, da varno gradijo, uvajajo in skalirajo visokokakovostne ter razširljive AI agente, ne da bi morali upravljati osnovne računalniške in shranjevalne vire. Posebej je uporaben za poslovne aplikacije, saj je popolnoma upravljana storitev z varnostjo na ravni podjetja.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> je novejši agentni okvir, zasnovan za omogočanje razvijalcem, da varno gradijo, uvajajo in skalirajo visokokakovostne ter razširljive AI agente, ne da bi morali upravljati osnovne računalniške in shranjevalne vire. Posebej je uporaben za podjetniške aplikacije, saj je popolnoma upravljana storitev z varnostjo na ravni podjetja.
 
-V primerjavi z razvojem z uporabo LLM API-ja neposredno Azure AI Agent Service ponuja nekaj prednosti, vključno z:
+V primerjavi z razvojem neposredno z LLM API-jem Azure AI Agent Service ponuja nekaj prednosti, vključno z:
 
 - Samodejno klicanje orodij – ni potrebe po razčlenjevanju klica orodja, izvajanju orodja in obravnavi odgovora; vse to se zdaj izvaja na strežniški strani
-- Varno upravljanje podatkov – namesto da bi sami upravljali stanje pogovora, se lahko zanesete na niti za shranjevanje vseh potrebnih informacij
-- Že pripravljena orodja – Orodja, ki jih lahko uporabite za interakcijo z vašimi viri podatkov, kot so Bing, Azure AI Search in Azure Functions.
+- Varno upravljanje podatkov – namesto da sami upravljate stanje pogovora, se lahko zanesete na niti za shranjevanje vseh potrebnih informacij
+- Vnaprej pripravljena orodja – Orodja, ki jih lahko uporabite za interakcijo z vašimi viri podatkov, kot so Bing, Azure AI Search in Azure Functions.
 
 Orodja, ki so na voljo v Azure AI Agent Service, lahko razdelimo v dve kategoriji:
 
 1. Orodja za znanje:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Utemeljitev z Bing iskanjem</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Iskanje datotek</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding z Bing Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">File Search</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
 2. Orodja za dejanja:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Klicanje funkcij</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Tolmač kode</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Code Interpreter</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">Orodja, definirana z OpenAPI</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
@@ -279,7 +279,7 @@ Naslednja slika prikazuje, kako bi lahko uporabili Azure AI Agent Service za ana
 
 ![Agentna storitev v akciji](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.sl.jpg)
 
-Za uporabo katerega koli od teh orodij s storitvijo lahko ustvarimo odjemalca in definiramo orodje ali nabor orodij. Za praktično implementacijo lahko uporabimo naslednjo Python kodo. LLM bo lahko pogledal nabor orodij in se odločil, ali bo uporabil funkcijo, ki jo je ustvaril uporabnik, `fetch_sales_data_using_sqlite_query`, ali že pripravljeni Tolmač kode, odvisno od uporabnikove zahteve.
+Za uporabo katerega koli od teh orodij s storitvijo lahko ustvarimo odjemalca in definiramo orodje ali toolset. Za praktično implementacijo lahko uporabimo naslednjo Python kodo. LLM bo lahko pogledal toolset in se odločil, ali bo uporabil funkcijo, ki jo je ustvaril uporabnik, `fetch_sales_data_using_sqlite_query`, ali vnaprej pripravljeni Code Interpreter, odvisno od uporabnikove zahteve.
 
 ```python 
 import os
@@ -312,18 +312,23 @@ agent = project_client.agents.create_agent(
 ## Katere posebne vidike je treba upoštevati pri uporabi vzorca oblikovanja uporabe orodij za gradnjo zaupanja vrednih AI agentov?
 
 Pogosta skrb pri SQL, ki ga dinamično generirajo LLM-ji, je varnost, zlasti tveganje SQL injekcij ali zlonamernih dejanj, kot je brisanje ali spreminjanje baze podatkov. Čeprav so te skrbi upravičene, jih je mogoče učinkovito omiliti z ustrezno konfiguracijo dovoljenj za dostop do baze podatkov. Za večino baz podatkov to vključuje konfiguracijo baze kot samo za branje. Za storitve baz podatkov, kot sta PostgreSQL ali Azure SQL, je treba aplikaciji dodeliti vlogo samo za branje (SELECT).
-Zagon aplikacije v varnem okolju dodatno povečuje zaščito. V poslovnih scenarijih se podatki običajno pridobivajo in preoblikujejo iz operativnih sistemov v bazo podatkov ali podatkovno skladišče, ki je samo za branje in ima uporabniku prijazno shemo. Ta pristop zagotavlja, da so podatki varni, optimizirani za zmogljivost in dostopnost, ter da ima aplikacija omejen dostop samo za branje.
+Zagon aplikacije v varnem okolju dodatno povečuje zaščito. V poslovnih scenarijih se podatki običajno pridobijo in preoblikujejo iz operativnih sistemov v bazo podatkov ali podatkovno skladišče, ki je samo za branje in ima uporabniku prijazno shemo. Ta pristop zagotavlja, da so podatki varni, optimizirani za zmogljivost in dostopnost, ter da ima aplikacija omejen dostop samo za branje.
 
-### Imate več vprašanj o uporabi vzorcev oblikovanja orodij?
+## Primeri kode
 
-Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kjer lahko spoznate druge učence, se udeležite uradnih ur in dobite odgovore na vprašanja o AI Agents.
+- Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
+
+## Imate več vprašanj o uporabi vzorcev oblikovanja orodij?
+
+Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kjer lahko spoznate druge učence, se udeležite uradnih ur in dobite odgovore na vprašanja o AI agentih.
 
 ## Dodatni viri
 
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Delavnica Azure AI Agents Service</a>
 - <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Delavnica Contoso Creative Writer Multi-Agent</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Vadnica za klic funkcij Semantic Kernel</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Interpreter kode Semantic Kernel</a>
+- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Vadnica za klic funkcij v Semantic Kernel</a>
+- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Interpreter kode v Semantic Kernel</a>
 - <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Orodja Autogen</a>
 
 ## Prejšnja lekcija
@@ -336,5 +341,7 @@ Pridružite se [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kje
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Omejitev odgovornosti**:  
-Ta dokument je bil preveden z uporabo storitve AI za prevajanje [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem maternem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitna nesporazumevanja ali napačne razlage, ki izhajajo iz uporabe tega prevoda.
+Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitne nesporazume ali napačne razlage, ki izhajajo iz uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
