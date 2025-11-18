@@ -1,64 +1,64 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "267d2e8120e380935483c946435117ef",
-  "translation_date": "2025-11-11T10:52:01+00:00",
+  "original_hash": "2845c3294897d0d30a5141d8b1241c67",
+  "translation_date": "2025-11-18T16:38:54+00:00",
   "source_file": "README.md",
   "language_code": "fa"
 }
 -->
-# دوره آموزش عوامل هوش مصنوعی برای مبتدیان
+# دوره‌ای برای مبتدیان در مورد عوامل هوش مصنوعی
 
-![هوش مصنوعی تولیدی برای مبتدیان](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.fa.png)
+![هوش مصنوعی مولد برای مبتدیان](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.fa.png)
 
-## دوره‌ای که همه چیز را برای شروع ساخت عوامل هوش مصنوعی به شما آموزش می‌دهد
+## دوره‌ای که همه چیزهایی که برای شروع ساخت عوامل هوش مصنوعی نیاز دارید را آموزش می‌دهد
 
 [![مجوز GitHub](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)  
 [![مشارکت‌کنندگان GitHub](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)  
 [![مشکلات GitHub](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)  
-[![درخواست‌های کشیدن GitHub](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)  
-[![درخواست‌های کشیدن خوش‌آمدید](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)  
+[![درخواست‌های کشش GitHub](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)  
+[![PRs خوش‌آمدید](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
 ### 🌐 پشتیبانی چندزبانه
 
 #### پشتیبانی شده از طریق GitHub Action (خودکار و همیشه به‌روز)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[عربی](../ar/README.md) | [بنگالی](../bn/README.md) | [بلغاری](../bg/README.md) | [برمه‌ای (میانمار)](../my/README.md) | [چینی (ساده‌شده)](../zh/README.md) | [چینی (سنتی، هنگ‌کنگ)](../hk/README.md) | [چینی (سنتی، ماکائو)](../mo/README.md) | [چینی (سنتی، تایوان)](../tw/README.md) | [کرواتی](../hr/README.md) | [چکی](../cs/README.md) | [دانمارکی](../da/README.md) | [هلندی](../nl/README.md) | [استونیایی](../et/README.md) | [فنلاندی](../fi/README.md) | [فرانسوی](../fr/README.md) | [آلمانی](../de/README.md) | [یونانی](../el/README.md) | [عبری](../he/README.md) | [هندی](../hi/README.md) | [مجاری](../hu/README.md) | [اندونزیایی](../id/README.md) | [ایتالیایی](../it/README.md) | [ژاپنی](../ja/README.md) | [کره‌ای](../ko/README.md) | [لیتوانیایی](../lt/README.md) | [مالایی](../ms/README.md) | [مراتی](../mr/README.md) | [نپالی](../ne/README.md) | [پیدگین نیجریه‌ای](../pcm/README.md) | [نروژی](../no/README.md) | [فارسی](./README.md) | [لهستانی](../pl/README.md) | [پرتغالی (برزیل)](../br/README.md) | [پرتغالی (پرتغال)](../pt/README.md) | [پنجابی (گورمخی)](../pa/README.md) | [رومانیایی](../ro/README.md) | [روسی](../ru/README.md) | [صربی (سیریلیک)](../sr/README.md) | [اسلواکی](../sk/README.md) | [اسلوونیایی](../sl/README.md) | [اسپانیایی](../es/README.md) | [سواحیلی](../sw/README.md) | [سوئدی](../sv/README.md) | [تاگالوگ (فیلیپینی)](../tl/README.md) | [تامیلی](../ta/README.md) | [تایلندی](../th/README.md) | [ترکی](../tr/README.md) | [اوکراینی](../uk/README.md) | [اردو](../ur/README.md) | [ویتنامی](../vi/README.md)  
+[عربی](../ar/README.md) | [بنگالی](../bn/README.md) | [بلغاری](../bg/README.md) | [برمه‌ای (میانمار)](../my/README.md) | [چینی (ساده‌شده)](../zh/README.md) | [چینی (سنتی، هنگ‌کنگ)](../hk/README.md) | [چینی (سنتی، ماکائو)](../mo/README.md) | [چینی (سنتی، تایوان)](../tw/README.md) | [کرواتی](../hr/README.md) | [چکی](../cs/README.md) | [دانمارکی](../da/README.md) | [هلندی](../nl/README.md) | [استونیایی](../et/README.md) | [فنلاندی](../fi/README.md) | [فرانسوی](../fr/README.md) | [آلمانی](../de/README.md) | [یونانی](../el/README.md) | [عبری](../he/README.md) | [هندی](../hi/README.md) | [مجاری](../hu/README.md) | [اندونزیایی](../id/README.md) | [ایتالیایی](../it/README.md) | [ژاپنی](../ja/README.md) | [کره‌ای](../ko/README.md) | [لیتوانیایی](../lt/README.md) | [مالایی](../ms/README.md) | [مراتی](../mr/README.md) | [نپالی](../ne/README.md) | [پیجین نیجریه‌ای](../pcm/README.md) | [نروژی](../no/README.md) | [فارسی](./README.md) | [لهستانی](../pl/README.md) | [پرتغالی (برزیل)](../br/README.md) | [پرتغالی (پرتغال)](../pt/README.md) | [پنجابی (گورمخی)](../pa/README.md) | [رومانیایی](../ro/README.md) | [روسی](../ru/README.md) | [صربی (سیریلیک)](../sr/README.md) | [اسلواکی](../sk/README.md) | [اسلوونیایی](../sl/README.md) | [اسپانیایی](../es/README.md) | [سواحیلی](../sw/README.md) | [سوئدی](../sv/README.md) | [تاگالوگ (فیلیپینی)](../tl/README.md) | [تامیلی](../ta/README.md) | [تایلندی](../th/README.md) | [ترکی](../tr/README.md) | [اوکراینی](../uk/README.md) | [اردو](../ur/README.md) | [ویتنامی](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**اگر مایل به اضافه کردن زبان‌های ترجمه بیشتری هستید، لیست زبان‌های پشتیبانی‌شده [اینجا](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md) موجود است.**
+**اگر می‌خواهید زبان‌های ترجمه بیشتری پشتیبانی شوند، لیست زبان‌های پشتیبانی شده [اینجا](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md) موجود است.**
 
-[![تماشاچیان GitHub](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)  
+[![تماشاگران GitHub](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)  
 [![فورک‌های GitHub](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)  
-[![ستاره‌های GitHub](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)  
+[![ستاره‌های GitHub](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
-[![دیسکورد Azure AI](https://dcbadge.limes.pink/api/server/kzRShWzttr)](https://discord.gg/kzRShWzttr)
+[![Discord Microsoft Foundry](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
 ## 🌱 شروع به کار
 
-این دوره شامل درس‌هایی است که اصول ساخت عوامل هوش مصنوعی را پوشش می‌دهند. هر درس موضوع خاص خود را دارد، بنابراین می‌توانید از هر جایی که دوست دارید شروع کنید!
+این دوره شامل درس‌هایی است که اصول ساخت عوامل هوش مصنوعی را پوشش می‌دهند. هر درس موضوع خاص خود را دارد، بنابراین از هر جایی که دوست دارید شروع کنید!
 
-این دوره از پشتیبانی چندزبانه برخوردار است. برای مشاهده زبان‌های موجود به [اینجا مراجعه کنید](../..).
+این دوره از پشتیبانی چندزبانه برخوردار است. به [زبان‌های موجود اینجا](../..) مراجعه کنید.
 
-اگر اولین بار است که با مدل‌های هوش مصنوعی تولیدی کار می‌کنید، دوره [هوش مصنوعی تولیدی برای مبتدیان](https://aka.ms/genai-beginners) را بررسی کنید که شامل ۲۱ درس در مورد ساخت با GenAI است.
+اگر این اولین بار است که با مدل‌های هوش مصنوعی مولد کار می‌کنید، دوره [هوش مصنوعی مولد برای مبتدیان](https://aka.ms/genai-beginners) ما را بررسی کنید که شامل ۲۱ درس در مورد ساخت با GenAI است.
 
 فراموش نکنید که [این مخزن را ستاره‌دار کنید (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) و [این مخزن را فورک کنید](https://github.com/microsoft/ai-agents-for-beginners/fork) تا کد را اجرا کنید.
 
 ### ملاقات با دیگر یادگیرندگان، پاسخ به سوالات شما
 
-اگر در ساخت عوامل هوش مصنوعی به مشکل برخوردید یا سوالی داشتید، به کانال اختصاصی دیسکورد ما در [جامعه دیسکورد Azure AI Foundry](https://aka.ms/ai-agents/discord) بپیوندید.
+اگر گیر کردید یا سوالی در مورد ساخت عوامل هوش مصنوعی دارید، به کانال اختصاصی Discord ما در [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) بپیوندید.
 
-### چه چیزی نیاز دارید
+### آنچه نیاز دارید
 
-هر درس در این دوره شامل نمونه‌های کد است که در پوشه code_samples قابل دسترسی هستند. شما می‌توانید [این مخزن را فورک کنید](https://github.com/microsoft/ai-agents-for-beginners/fork) تا نسخه‌ای از آن را برای خود ایجاد کنید.
+هر درس در این دوره شامل نمونه‌های کدی است که در پوشه code_samples قرار دارد. می‌توانید [این مخزن را فورک کنید](https://github.com/microsoft/ai-agents-for-beginners/fork) تا نسخه خودتان را ایجاد کنید.
 
-نمونه کدهای این تمرین‌ها از Azure AI Foundry و GitHub Model Catalogs برای تعامل با مدل‌های زبانی استفاده می‌کنند:
+نمونه کد در این تمرین‌ها از Azure AI Foundry و GitHub Model Catalogs برای تعامل با مدل‌های زبانی استفاده می‌کند:
 
 - [مدل‌های GitHub](https://aka.ms/ai-agents-beginners/github-models) - رایگان / محدود  
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - نیاز به حساب Azure  
 
-این دوره همچنین از چارچوب‌ها و خدمات عوامل هوش مصنوعی زیر از مایکروسافت استفاده می‌کند:
+این دوره همچنین از چارچوب‌ها و خدمات زیر از مایکروسافت استفاده می‌کند:
 
 - [چارچوب عامل مایکروسافت (MAF) - جدید!](https://aka.ms/ai-agents-beginners/agent-framewrok)  
 - [خدمات عامل هوش مصنوعی Azure](https://aka.ms/ai-agents-beginners/ai-agent-service)  
@@ -67,29 +67,29 @@ CO_OP_TRANSLATOR_METADATA:
 
 برای اطلاعات بیشتر در مورد اجرای کد این دوره، به [تنظیمات دوره](./00-course-setup/README.md) مراجعه کنید.
 
-## 🙏 آیا می‌خواهید کمک کنید؟
+## 🙏 می‌خواهید کمک کنید؟
 
-آیا پیشنهادی دارید یا خطاهای املایی یا کدی پیدا کرده‌اید؟ [یک مشکل مطرح کنید](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) یا [یک درخواست کشیدن ایجاد کنید](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst).
+آیا پیشنهادی دارید یا خطاهای املایی یا کدی پیدا کرده‌اید؟ [یک مشکل ایجاد کنید](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) یا [یک درخواست کشش ایجاد کنید](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst).
 
 ## 📂 هر درس شامل
 
-- یک درس نوشته شده در README و یک ویدئوی کوتاه  
+- یک درس نوشتاری در README و یک ویدیوی کوتاه  
 - نمونه‌های کد پایتون که از Azure AI Foundry و مدل‌های GitHub (رایگان) پشتیبانی می‌کنند  
-- لینک‌هایی به منابع اضافی برای ادامه یادگیری  
+- لینک‌هایی به منابع اضافی برای ادامه یادگیری شما  
 
 ## 🗃️ درس‌ها
 
-| **درس**                                     | **متن و کد**                                      | **ویدئو**                                                  | **یادگیری اضافی**                                                                     |
+| **درس**                                     | **متن و کد**                                      | **ویدیو**                                                  | **یادگیری اضافی**                                                                     |
 |---------------------------------------------|--------------------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| مقدمه‌ای بر عوامل هوش مصنوعی و موارد استفاده | [لینک](./01-intro-to-ai-agents/README.md)        | [ویدئو](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| بررسی چارچوب‌های عامل هوش مصنوعی            | [لینک](./02-explore-agentic-frameworks/README.md)| [ویدئو](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| درک الگوهای طراحی عامل هوش مصنوعی           | [لینک](./03-agentic-design-patterns/README.md)   | [ویدئو](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| الگوی طراحی استفاده از ابزار                | [لینک](./04-tool-use/README.md)                  | [ویدئو](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| عامل RAG                                    | [لینک](./05-agentic-rag/README.md)               | [ویدئو](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| ساخت عوامل هوش مصنوعی قابل اعتماد           | [لینک](./06-building-trustworthy-agents/README.md)| [ویدئو](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| الگوی طراحی برنامه‌ریزی                     | [لینک](./07-planning-design/README.md)           | [ویدئو](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| الگوی طراحی چندعاملی                        | [لینک](./08-multi-agent/README.md)               | [ویدئو](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| الگوی طراحی فراشناختی                       | [لینک](./09-metacognition/README.md)             | [ویدئو](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| مقدمه‌ای بر عوامل هوش مصنوعی و موارد استفاده | [لینک](./01-intro-to-ai-agents/README.md)        | [ویدیو](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)   | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| بررسی چارچوب‌های عامل هوش مصنوعی            | [لینک](./02-explore-agentic-frameworks/README.md)| [ویدیو](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)   | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| درک الگوهای طراحی عامل هوش مصنوعی           | [لینک](./03-agentic-design-patterns/README.md)   | [ویدیو](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)   | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| الگوی طراحی استفاده از ابزار                | [لینک](./04-tool-use/README.md)                  | [ویدیو](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)   | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| عامل RAG                                    | [لینک](./05-agentic-rag/README.md)               | [ویدیو](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)   | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ساخت عوامل هوش مصنوعی قابل اعتماد           | [لینک](./06-building-trustworthy-agents/README.md)| [ویدیو](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK )  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| الگوی طراحی برنامه‌ریزی                     | [لینک](./07-planning-design/README.md)           | [ویدیو](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)   | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| الگوی طراحی چندعاملی                        | [لینک](./08-multi-agent/README.md)               | [ویدیو](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)   | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| الگوی طراحی فراشناختی                       | [لینک](./09-metacognition/README.md)             | [ویدیو](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)   | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | عوامل هوش مصنوعی در تولید                     | [لینک](./10-ai-agents-production/README.md)        | [ویدیو](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | استفاده از پروتکل‌های عامل‌محور (MCP، A2A و NLWeb) | [لینک](./11-agentic-protocols/README.md)           | [ویدیو](https://youtu.be/X-Dh9R3Opn8)                                 | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | مهندسی زمینه برای عوامل هوش مصنوعی             | [لینک](./12-context-engineering/README.md)         | [ویدیو](https://youtu.be/F5zqRV7gEag)                                 | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### Azure / Edge / MCP / عوامل
 [![AZD برای مبتدیان](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![هوش مصنوعی Edge برای مبتدیان](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![Edge AI برای مبتدیان](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![MCP برای مبتدیان](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![عوامل هوش مصنوعی برای مبتدیان](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
 
@@ -144,9 +144,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## مشارکت
 
-این پروژه از مشارکت‌ها و پیشنهادات استقبال می‌کند. بیشتر مشارکت‌ها نیاز دارند که شما توافقنامه مجوز مشارکت‌کننده (CLA) را امضا کنید که اعلام می‌کند شما حق دارید و واقعاً حقوق استفاده از مشارکت خود را به ما اعطا می‌کنید. برای جزئیات، به <https://cla.opensource.microsoft.com> مراجعه کنید.
+این پروژه از مشارکت‌ها و پیشنهادات استقبال می‌کند. اکثر مشارکت‌ها نیاز به توافق‌نامه مجوز مشارکت‌کننده (CLA) دارند که اعلام می‌کند شما حق دارید و واقعاً حقوق استفاده از مشارکت خود را به ما اعطا می‌کنید. برای جزئیات، به <https://cla.opensource.microsoft.com> مراجعه کنید.
 
-هنگامی که یک درخواست pull ارسال می‌کنید، یک ربات CLA به طور خودکار تعیین می‌کند که آیا شما نیاز دارید CLA ارائه دهید و درخواست را به طور مناسب تزئین می‌کند (مانند بررسی وضعیت، نظر). فقط دستورالعمل‌های ارائه شده توسط ربات را دنبال کنید. شما فقط یک بار این کار را در تمام مخازن استفاده‌کننده از CLA ما انجام خواهید داد.
+هنگامی که یک درخواست pull ارسال می‌کنید، یک ربات CLA به طور خودکار تعیین می‌کند که آیا نیاز به ارائه CLA دارید و درخواست را به طور مناسب تزئین می‌کند (مانند بررسی وضعیت، نظر). فقط دستورالعمل‌های ارائه شده توسط ربات را دنبال کنید. شما فقط یک بار این کار را در تمام مخازن استفاده‌کننده از CLA ما انجام خواهید داد.
 
 این پروژه [کد رفتار منبع باز مایکروسافت](https://opensource.microsoft.com/codeofconduct/) را پذیرفته است.
 برای اطلاعات بیشتر به [سؤالات متداول کد رفتار](https://opensource.microsoft.com/codeofconduct/faq/) مراجعه کنید یا با [opencode@microsoft.com](mailto:opencode@microsoft.com) تماس بگیرید.
@@ -161,7 +161,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 اگر گیر کردید یا سوالی درباره ساخت برنامه‌های هوش مصنوعی دارید، به اینجا بپیوندید:
 
-[![دیسکورد Azure AI Foundry](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+[![دیسکورد جامعه Azure AI Foundry](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 اگر بازخورد محصول دارید یا در هنگام ساخت خطاهایی رخ داد، به اینجا مراجعه کنید:
 
@@ -171,5 +171,5 @@ CO_OP_TRANSLATOR_METADATA:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **سلب مسئولیت**:  
-این سند با استفاده از سرویس ترجمه هوش مصنوعی [Co-op Translator](https://github.com/Azure/co-op-translator) ترجمه شده است. در حالی که ما تلاش می‌کنیم دقت را حفظ کنیم، لطفاً توجه داشته باشید که ترجمه‌های خودکار ممکن است شامل خطاها یا نادرستی‌ها باشند. سند اصلی به زبان اصلی آن باید به عنوان منبع معتبر در نظر گرفته شود. برای اطلاعات حیاتی، ترجمه حرفه‌ای انسانی توصیه می‌شود. ما مسئولیتی در قبال سوء تفاهم‌ها یا تفسیرهای نادرست ناشی از استفاده از این ترجمه نداریم.
+این سند با استفاده از سرویس ترجمه هوش مصنوعی [Co-op Translator](https://github.com/Azure/co-op-translator) ترجمه شده است. در حالی که ما برای دقت تلاش می‌کنیم، لطفاً توجه داشته باشید که ترجمه‌های خودکار ممکن است شامل خطاها یا نادرستی‌هایی باشند. سند اصلی به زبان اصلی آن باید به عنوان منبع معتبر در نظر گرفته شود. برای اطلاعات حیاتی، ترجمه حرفه‌ای انسانی توصیه می‌شود. ما مسئولیتی در قبال هرگونه سوءتفاهم یا تفسیر نادرست ناشی از استفاده از این ترجمه نداریم.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
