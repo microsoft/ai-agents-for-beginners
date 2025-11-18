@@ -1,40 +1,40 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:51:54+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T14:56:11+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "et"
 }
 -->
-# 🌍 AI reisibüroo Microsoft Agent Frameworkiga (.NET)
+# 🌍 AI Reisibüroo Microsoft Agent Frameworkiga (.NET)
 
-## 📋 Stsenaariumi ülevaade
+## 📋 Stsenaariumi Ülevaade
 
-See märkmik näitab, kuidas luua intelligentset reisiplaneerimise agenti, kasutades Microsoft Agent Frameworki .NET jaoks. Agent suudab automaatselt koostada isikupärastatud päevaseid reisiplaane juhuslikele sihtkohtadele üle maailma.
+See näide näitab, kuidas luua intelligentne reisiplaane koostav agent, kasutades Microsoft Agent Frameworki .NET jaoks. Agent suudab automaatselt genereerida isikupärastatud päevaplaanid juhuslikele sihtkohtadele üle maailma.
 
-### Põhivõimalused:
+### Peamised Võimalused:
 
-- 🎲 **Juhuslik sihtkoha valik**: Kasutab kohandatud tööriista puhkusekohtade valimiseks
-- 🗺️ **Intelligentne reisiplaneerimine**: Loob üksikasjalikud päevaplaanid
-- 🔄 **Reaalajas voogedastus**: Toetab nii koheseid kui ka voogedastusega vastuseid
-- 🛠️ **Kohandatud tööriistade integreerimine**: Näitab, kuidas laiendada agendi võimalusi
+- 🎲 **Juhuslik Sihtkoha Valik**: Kasutab kohandatud tööriista puhkusekohtade valimiseks
+- 🗺️ **Tark Reisiplaanide Koostamine**: Loob üksikasjalikud päevaplaanid
+- 🔄 **Reaalajas Voogedastus**: Toetab nii koheseid kui ka voogedastusega vastuseid
+- 🛠️ **Kohandatud Tööriistade Integreerimine**: Näitab, kuidas laiendada agendi võimalusi
 
-## 🔧 Tehniline arhitektuur
+## 🔧 Tehniline Arhitektuur
 
 ### Põhitehnoloogiad
 
-- **Microsoft Agent Framework**: Viimane .NET-i rakendus AI agentide arendamiseks
-- **GitHub Models integratsioon**: Kasutab GitHubi AI mudelite järeldusteenust
-- **OpenAI API ühilduvus**: Kasutab OpenAI klienditeeke koos kohandatud lõpp-punktidega
-- **Turvaline konfiguratsioon**: API võtmete haldamine keskkonnapõhiselt
+- **Microsoft Agent Framework**: Viimane .NET-i teostus AI agentide arendamiseks
+- **GitHub Models Integratsioon**: Kasutab GitHubi AI mudelite järeldusteenust
+- **OpenAI API Ühilduvus**: Kasutab OpenAI klienditeeke koos kohandatud lõpp-punktidega
+- **Turvaline Konfiguratsioon**: API võtmete haldamine keskkonnapõhiselt
 
-### Põhikomponendid
+### Peamised Komponendid
 
-1. **AIAgent**: Peamine agent, mis haldab vestluse voogu
-2. **Kohandatud tööriistad**: `GetRandomDestination()` funktsioon, mis on agendile kättesaadav
+1. **AIAgent**: Peamine agent, mis haldab vestluse kulgu
+2. **Kohandatud Tööriistad**: `GetRandomDestination()` funktsioon, mis on agendile kättesaadav
 3. **Vestlusklient**: GitHub Models-põhine vestlusliides
-4. **Voogedastuse tugi**: Reaalajas vastuste genereerimise võimalused
+4. **Voogedastuse Tugi**: Reaalajas vastuste genereerimise võimalused
 
 ### Integreerimismuster
 
@@ -54,7 +54,7 @@ graph LR
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) või uuem
 - [GitHub Models API juurdepääsuvõti](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
-### Nõutavad keskkonnamuutujad
+### Vajalikud Keskkonnamuutujad
 
 ```bash
 # zsh/bash
@@ -72,7 +72,7 @@ $env:GH_MODEL_ID = "openai/gpt-5-mini"
 
 ### Näidiskood
 
-Koodi näite käivitamiseks,
+Näite käivitamiseks,
 
 ```bash
 # zsh/bash
@@ -86,7 +86,7 @@ Või kasutades dotnet CLI-d:
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-Vaata [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) täielikku koodi.
+Vaata täielikku koodi failist [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs).
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -174,6 +174,20 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
     Console.Write(update);
 }
 ```
+
+## 🎓 Olulised Õppetunnid
+
+1. **Agendi Arhitektuur**: Microsoft Agent Framework pakub puhta ja tüübiturvalise lähenemise AI agentide loomiseks .NET-is
+2. **Tööriistade Integreerimine**: `[Description]` atribuudiga tähistatud funktsioonid muutuvad agendile kättesaadavateks tööriistadeks
+3. **Konfiguratsiooni Halduse Parimad Tavad**: Keskkonnamuutujad ja turvaline mandaadihaldus järgivad .NET-i parimaid tavasid
+4. **OpenAI Ühilduvus**: GitHub Models integratsioon töötab sujuvalt OpenAI-ühilduvate API-de kaudu
+
+## 🔗 Lisamaterjalid
+
+- [Microsoft Agent Framework Dokumentatsioon](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Ühefaililised Rakendused](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

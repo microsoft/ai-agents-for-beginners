@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:44:25+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T14:28:05+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "sl"
 }
@@ -11,12 +11,12 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Pregled scenarija
 
-Ta zvezek prikazuje, kako zgraditi inteligentnega agenta za načrtovanje potovanj z uporabo Microsoft Agent Framework za .NET. Agent lahko samodejno ustvari personalizirane dnevne načrte izletov za naključne destinacije po svetu.
+Ta primer prikazuje, kako zgraditi inteligentnega agenta za načrtovanje potovanj z uporabo Microsoft Agent Framework za .NET. Agent lahko samodejno ustvari personalizirane dnevne načrte izletov za naključne destinacije po svetu.
 
 ### Ključne zmogljivosti:
 
-- 🎲 **Naključna izbira destinacije**: Uporablja prilagojeno orodje za izbiro počitniških krajev
-- 🗺️ **Inteligentno načrtovanje izletov**: Ustvari podrobne dnevne načrte
+- 🎲 **Naključna izbira destinacije**: Uporablja prilagojeno orodje za izbiro počitniških lokacij
+- 🗺️ **Inteligentno načrtovanje potovanj**: Ustvari podrobne dnevne načrte
 - 🔄 **Pretakanje v realnem času**: Podpira takojšnje in pretočne odgovore
 - 🛠️ **Integracija prilagojenih orodij**: Prikazuje, kako razširiti zmogljivosti agenta
 
@@ -24,17 +24,17 @@ Ta zvezek prikazuje, kako zgraditi inteligentnega agenta za načrtovanje potovan
 
 ### Osnovne tehnologije
 
-- **Microsoft Agent Framework**: Najnovejša .NET implementacija za razvoj AI agentov
-- **Integracija GitHub modelov**: Uporablja GitHubovo storitev za sklepanje AI modelov
-- **Združljivost z OpenAI API**: Izkoristi knjižnice OpenAI s prilagojenimi končnimi točkami
-- **Varna konfiguracija**: Upravljanje API ključev na podlagi okolja
+- **Microsoft Agent Framework**: Najnovejša implementacija .NET za razvoj AI agentov
+- **Integracija GitHub Models**: Uporablja GitHubovo storitev za sklepanje AI modelov
+- **Združljivost z OpenAI API**: Izkoristi OpenAI knjižnice s prilagojenimi končnimi točkami
+- **Varna konfiguracija**: Upravljanje API ključev na osnovi okolja
 
 ### Ključne komponente
 
-1. **AIAgent**: Glavni orkestrator agenta, ki upravlja tok pogovora
+1. **AIAgent**: Glavni orkestrator agenta, ki upravlja potek pogovora
 2. **Prilagojena orodja**: Funkcija `GetRandomDestination()` na voljo agentu
-3. **Chat Client**: Pogovorni vmesnik, podprt z GitHub modeli
-4. **Podpora za pretakanje**: Zmožnost generiranja odgovorov v realnem času
+3. **Chat Client**: Pogovorni vmesnik, podprt z GitHub Models
+4. **Podpora za pretakanje**: Zmožnosti generiranja odgovorov v realnem času
 
 ### Vzorec integracije
 
@@ -72,7 +72,7 @@ $env:GH_MODEL_ID = "openai/gpt-5-mini"
 
 ### Vzorec kode
 
-Za zagon primer kode,
+Za zagon primera kode,
 
 ```bash
 # zsh/bash
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Ključne ugotovitve
+
+1. **Arhitektura agenta**: Microsoft Agent Framework omogoča čist in tipno varen pristop k gradnji AI agentov v .NET
+2. **Integracija orodij**: Funkcije, označene z atributi `[Description]`, postanejo na voljo kot orodja za agenta
+3. **Upravljanje konfiguracije**: Okoljske spremenljivke in varno ravnanje s poverilnicami sledijo najboljšim praksam .NET
+4. **Združljivost z OpenAI**: Integracija GitHub Models deluje brezhibno prek OpenAI združljivih API-jev
+
+## 🔗 Dodatni viri
+
+- [Microsoft Agent Framework Dokumentacija](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Omejitev odgovornosti**:  
-Ta dokument je bil preveden z uporabo storitve za prevajanje AI [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem maternem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitne nesporazume ali napačne razlage, ki izhajajo iz uporabe tega prevoda.
+Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitne nesporazume ali napačne razlage, ki izhajajo iz uporabe tega prevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

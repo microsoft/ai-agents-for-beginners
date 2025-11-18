@@ -1,24 +1,24 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:14:58+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T12:24:33+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "tr"
 }
 -->
 # 🌍 Microsoft Agent Framework (.NET) ile AI Seyahat Acentesi
 
-## 📋 Senaryo Genel Bakış
+## 📋 Senaryo Özeti
 
-Bu not defteri, Microsoft Agent Framework for .NET kullanarak akıllı bir seyahat planlama acentesi oluşturmayı gösterir. Acenta, dünya çapında rastgele destinasyonlar için kişiselleştirilmiş günlük gezi planları otomatik olarak oluşturabilir.
+Bu örnek, Microsoft Agent Framework for .NET kullanarak akıllı bir seyahat planlama acentesi oluşturmayı gösterir. Acenta, dünya çapında rastgele destinasyonlar için kişiselleştirilmiş günlük gezi planları otomatik olarak oluşturabilir.
 
-### Temel Yetenekler:
+### Temel Özellikler:
 
 - 🎲 **Rastgele Destinasyon Seçimi**: Tatil yerlerini seçmek için özel bir araç kullanır
-- 🗺️ **Akıllı Gezi Planlama**: Günlük detaylı gezi planları oluşturur
+- 🗺️ **Akıllı Gezi Planlama**: Ayrıntılı günlük planlar oluşturur
 - 🔄 **Gerçek Zamanlı Akış**: Hem anlık hem de akış yanıtlarını destekler
-- 🛠️ **Özel Araç Entegrasyonu**: Acenta yeteneklerini genişletmenin nasıl yapılacağını gösterir
+- 🛠️ **Özel Araç Entegrasyonu**: Acenta yeteneklerini genişletmeyi gösterir
 
 ## 🔧 Teknik Mimari
 
@@ -27,16 +27,16 @@ Bu not defteri, Microsoft Agent Framework for .NET kullanarak akıllı bir seyah
 - **Microsoft Agent Framework**: AI acente geliştirme için en son .NET uygulaması
 - **GitHub Modelleri Entegrasyonu**: GitHub'ın AI model çıkarım hizmetini kullanır
 - **OpenAI API Uyumluluğu**: Özel uç noktalarla OpenAI istemci kütüphanelerinden yararlanır
-- **Güvenli Yapılandırma**: Çevre tabanlı API anahtar yönetimi
+- **Güvenli Yapılandırma**: Çevreye dayalı API anahtarı yönetimi
 
 ### Ana Bileşenler
 
-1. **AIAgent**: Konuşma akışını yöneten ana acenta düzenleyicisi
-2. **Özel Araçlar**: Acentaya sunulan `GetRandomDestination()` fonksiyonu
+1. **AIAgent**: Konuşma akışını yöneten ana acente düzenleyicisi
+2. **Özel Araçlar**: Acenta için kullanılabilir `GetRandomDestination()` fonksiyonu
 3. **Sohbet İstemcisi**: GitHub Modelleri destekli konuşma arayüzü
 4. **Akış Desteği**: Gerçek zamanlı yanıt oluşturma yetenekleri
 
-### Entegrasyon Deseni
+### Entegrasyon Modeli
 
 ```mermaid
 graph LR
@@ -49,9 +49,9 @@ graph LR
 
 ## 🚀 Başlarken
 
-### Gereksinimler
+### Ön Koşullar
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) veya daha üstü
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) veya üstü
 - [GitHub Modelleri API erişim anahtarı](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ### Gerekli Çevre Değişkenleri
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 Temel Çıkarımlar
+
+1. **Acenta Mimarisi**: Microsoft Agent Framework, .NET'te AI acentaları oluşturmak için temiz ve tür güvenli bir yaklaşım sunar
+2. **Araç Entegrasyonu**: `[Description]` öznitelikleriyle süslenmiş fonksiyonlar acenta için kullanılabilir araçlar haline gelir
+3. **Yapılandırma Yönetimi**: Çevre değişkenleri ve güvenli kimlik bilgisi yönetimi .NET en iyi uygulamalarını takip eder
+4. **OpenAI Uyumluluğu**: GitHub Modelleri entegrasyonu OpenAI uyumlu API'ler aracılığıyla sorunsuz çalışır
+
+## 🔗 Ek Kaynaklar
+
+- [Microsoft Agent Framework Belgeleri](https://learn.microsoft.com/agent-framework)
+- [GitHub Modelleri Pazarı](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Tek Dosya Uygulamaları](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Feragatname**:  
-Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çeviriler hata veya yanlışlıklar içerebilir. Belgenin orijinal dili, yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan yanlış anlamalar veya yanlış yorumlamalardan sorumlu değiliz.
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlıklar içerebileceğini lütfen unutmayın. Belgenin orijinal dili, yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan yanlış anlamalar veya yanlış yorumlamalardan sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

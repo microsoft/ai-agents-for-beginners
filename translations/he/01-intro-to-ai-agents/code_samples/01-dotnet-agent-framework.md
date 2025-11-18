@@ -1,40 +1,40 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:26:32+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:07:49+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "he"
 }
 -->
-# 🌍 סוכן נסיעות AI עם Microsoft Agent Framework (.NET)
+# 🌍 סוכן נסיעות מבוסס AI עם Microsoft Agent Framework (.NET)
 
 ## 📋 סקירה כללית של התרחיש
 
-מחברת זו מדגימה כיצד לבנות סוכן תכנון נסיעות חכם באמצעות Microsoft Agent Framework עבור .NET. הסוכן יכול ליצור באופן אוטומטי מסלולי טיול יומיים מותאמים אישית ליעדים אקראיים ברחבי העולם.
+דוגמה זו מדגימה כיצד לבנות סוכן חכם לתכנון נסיעות באמצעות Microsoft Agent Framework עבור .NET. הסוכן יכול ליצור באופן אוטומטי מסלולי טיול מותאמים אישית ליעדים אקראיים ברחבי העולם.
 
-### יכולות מרכזיות:
+### יכולות עיקריות:
 
 - 🎲 **בחירת יעד אקראי**: משתמש בכלי מותאם לבחירת מקומות חופשה
-- 🗺️ **תכנון טיול חכם**: יוצר מסלולים מפורטים יום-יום
-- 🔄 **הזרמה בזמן אמת**: תומך בתגובות מיידיות וגם בהזרמה
-- 🛠️ **שילוב כלי מותאם**: מדגים כיצד להרחיב את יכולות הסוכן
+- 🗺️ **תכנון טיול חכם**: יוצר מסלולים מפורטים לפי ימים
+- 🔄 **שידור בזמן אמת**: תומך בתגובות מיידיות ובשידור רציף
+- 🛠️ **שילוב כלים מותאמים**: מדגים כיצד להרחיב את יכולות הסוכן
 
 ## 🔧 ארכיטקטורה טכנית
 
-### טכנולוגיות מרכזיות
+### טכנולוגיות ליבה
 
 - **Microsoft Agent Framework**: יישום .NET העדכני לפיתוח סוכני AI
-- **שילוב מודלים של GitHub**: משתמש בשירות הסקת מודלים של GitHub
+- **שילוב מודלים של GitHub**: משתמש בשירות ההסקה של מודלי AI של GitHub
 - **תאימות ל-OpenAI API**: מנצל ספריות לקוח של OpenAI עם נקודות קצה מותאמות
 - **תצורה מאובטחת**: ניהול מפתחות API מבוסס סביבה
 
-### רכיבים מרכזיים
+### רכיבים עיקריים
 
 1. **AIAgent**: מתזמר הסוכן הראשי שמנהל את זרימת השיחה
-2. **כלים מותאמים**: פונקציה `GetRandomDestination()` זמינה לסוכן
-3. **לקוח צ'אט**: ממשק שיחה מבוסס מודלים של GitHub
-4. **תמיכה בהזרמה**: יכולות יצירת תגובות בזמן אמת
+2. **כלים מותאמים**: פונקציית `GetRandomDestination()` זמינה לסוכן
+3. **לקוח שיחה**: ממשק שיחה מבוסס מודלים של GitHub
+4. **תמיכה בשידור**: יכולות יצירת תגובות בזמן אמת
 
 ### תבנית שילוב
 
@@ -47,11 +47,11 @@ graph LR
     D --> E
 ```
 
-## 🚀 התחלה
+## 🚀 תחילת העבודה
 
 ### דרישות מוקדמות
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) או גרסה גבוהה יותר
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) או גרסה מתקדמת יותר
 - [אסימון גישה ל-API של מודלים של GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
 
 ### משתני סביבה נדרשים
@@ -86,7 +86,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-ראו [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) עבור הקוד המלא.
+ראו את [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) עבור הקוד המלא.
 
 ```csharp
 #!/usr/bin/dotnet run
@@ -175,9 +175,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
+## 🎓 תובנות עיקריות
+
+1. **ארכיטקטורת סוכן**: Microsoft Agent Framework מספק גישה נקייה ובטוחה מבחינת טיפוסים לבניית סוכני AI ב-.NET
+2. **שילוב כלים**: פונקציות המעוטרות בתכונת `[Description]` הופכות לכלים זמינים עבור הסוכן
+3. **ניהול תצורה**: משתני סביבה וטיפול מאובטח באישורים עוקבים אחר שיטות העבודה המומלצות של .NET
+4. **תאימות ל-OpenAI**: שילוב מודלים של GitHub פועל בצורה חלקה דרך APIs תואמי OpenAI
+
+## 🔗 משאבים נוספים
+
+- [תיעוד Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [שוק מודלים של GitHub](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **כתב ויתור**:  
-מסמך זה תורגם באמצעות שירות תרגום AI [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש להיות מודעים לכך שתרגומים אוטומטיים עשויים להכיל שגיאות או אי דיוקים. המסמך המקורי בשפתו המקורית צריך להיחשב כמקור סמכותי. עבור מידע קריטי, מומלץ להשתמש בתרגום מקצועי אנושי. איננו אחראים לאי הבנות או לפרשנויות שגויות הנובעות משימוש בתרגום זה.
+מסמך זה תורגם באמצעות שירות תרגום AI [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון שתרגומים אוטומטיים עשויים להכיל שגיאות או אי דיוקים. המסמך המקורי בשפתו המקורית צריך להיחשב כמקור סמכותי. עבור מידע קריטי, מומלץ להשתמש בתרגום מקצועי אנושי. איננו נושאים באחריות לאי הבנות או לפרשנויות שגויות הנובעות משימוש בתרגום זה.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86b9c2b24da3b3e61711182ffa72601c",
-  "translation_date": "2025-09-29T22:31:06+00:00",
+  "original_hash": "7120197753abacc827b64ac2d5d6966f",
+  "translation_date": "2025-11-13T12:43:53+00:00",
   "source_file": "02-explore-agentic-frameworks/README.md",
   "language_code": "sv"
 }
 -->
 [![Utforska AI-agentramverk](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df4d5d407e29970e654629e614f357444a9c27c80feb54c79d.sv.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
-> _(Klicka på bilden ovan för att se videon av denna lektion)_
+> _(Klicka på bilden ovan för att se videon för denna lektion)_
 
 # Utforska AI-agentramverk
 
@@ -19,11 +19,11 @@ Ramverken hjälper utvecklare att fokusera på de unika aspekterna av sina appli
 
 ## Introduktion 
 
-Denna lektion kommer att täcka:
+Denna lektion kommer att behandla:
 
 - Vad är AI-agentramverk och vad möjliggör de för utvecklare att uppnå?
-- Hur kan team använda dessa för att snabbt skapa prototyper, iterera och förbättra agentens kapabiliteter?
-- Vilka är skillnaderna mellan ramverken och verktygen skapade av Microsoft <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>, <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a> och <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a>?
+- Hur kan team använda dessa för att snabbt skapa prototyper, iterera och förbättra sin agents kapabiliteter?
+- Vilka är skillnaderna mellan ramverken och verktygen skapade av Microsoft <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>, <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a>, och <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a>?
 - Kan jag integrera mina befintliga Azure-ekosystemverktyg direkt, eller behöver jag fristående lösningar?
 - Vad är Azure AI Agents-tjänsten och hur hjälper den mig?
 
@@ -31,7 +31,7 @@ Denna lektion kommer att täcka:
 
 Målen med denna lektion är att hjälpa dig förstå:
 
-- AI-agentramverkens roll inom AI-utveckling.
+- AI-agentramverks roll inom AI-utveckling.
 - Hur man utnyttjar AI-agentramverk för att bygga intelligenta agenter.
 - Nyckelkapabiliteter som möjliggörs av AI-agentramverk.
 - Skillnaderna mellan AutoGen, Semantic Kernel och Azure AI Agent Service.
@@ -43,7 +43,7 @@ Traditionella AI-ramverk kan hjälpa dig att integrera AI i dina appar och förb
 - **Personalisering**: AI kan analysera användarbeteende och preferenser för att ge personliga rekommendationer, innehåll och upplevelser.
 Exempel: Streamingtjänster som Netflix använder AI för att föreslå filmer och serier baserat på tittarhistorik, vilket ökar användarengagemang och tillfredsställelse.
 - **Automatisering och effektivitet**: AI kan automatisera repetitiva uppgifter, effektivisera arbetsflöden och förbättra operativ effektivitet.
-Exempel: Kundtjänstappar använder AI-drivna chatbots för att hantera vanliga frågor, minska svarstider och frigöra mänskliga agenter för mer komplexa ärenden.
+Exempel: Kundtjänstappar använder AI-drivna chatbotar för att hantera vanliga frågor, vilket minskar svarstider och frigör mänskliga agenter för mer komplexa ärenden.
 - **Förbättrad användarupplevelse**: AI kan förbättra den övergripande användarupplevelsen genom att tillhandahålla intelligenta funktioner som röstigenkänning, naturlig språkbehandling och förutsägande text.
 Exempel: Virtuella assistenter som Siri och Google Assistant använder AI för att förstå och svara på röstkommandon, vilket gör det enklare för användare att interagera med sina enheter.
 
@@ -52,7 +52,7 @@ Exempel: Virtuella assistenter som Siri och Google Assistant använder AI för a
 AI-agentramverk representerar något mer än bara AI-ramverk. De är utformade för att möjliggöra skapandet av intelligenta agenter som kan interagera med användare, andra agenter och miljön för att uppnå specifika mål. Dessa agenter kan uppvisa autonomt beteende, fatta beslut och anpassa sig till förändrade förhållanden. Låt oss titta på några nyckelkapabiliteter som möjliggörs av AI-agentramverk:
 
 - **Agenters samarbete och koordinering**: Möjliggör skapandet av flera AI-agenter som kan arbeta tillsammans, kommunicera och koordinera för att lösa komplexa uppgifter.
-- **Automatisering och hantering av uppgifter**: Tillhandahåller mekanismer för att automatisera flerstegsarbetsflöden, delegera uppgifter och dynamisk hantering av uppgifter mellan agenter.
+- **Automatisering och hantering av uppgifter**: Tillhandahåller mekanismer för att automatisera flerstegsarbetsflöden, delegera uppgifter och dynamiskt hantera uppgifter mellan agenter.
 - **Kontextuell förståelse och anpassning**: Utrustar agenter med förmågan att förstå kontext, anpassa sig till förändrade miljöer och fatta beslut baserat på realtidsinformation.
 
 Sammanfattningsvis möjliggör agenter att göra mer, att ta automatisering till nästa nivå, att skapa mer intelligenta system som kan anpassa sig och lära sig från sin miljö.
@@ -63,7 +63,7 @@ Detta är ett snabbt föränderligt landskap, men det finns några saker som är
 
 - **Använd modulkomponenter**: AI-SDK:er erbjuder förbyggda komponenter såsom AI- och minnesanslutningar, funktionsanrop med naturligt språk eller kodplugins, promptmallar och mer.
 - **Utnyttja samarbetsverktyg**: Designa agenter med specifika roller och uppgifter, vilket gör det möjligt att testa och förfina samarbetsarbetsflöden.
-- **Lär dig i realtid**: Implementera feedbackloopar där agenter lär sig från interaktioner och justerar sitt beteende dynamiskt.
+- **Lär i realtid**: Implementera feedbackloopar där agenter lär sig från interaktioner och justerar sitt beteende dynamiskt.
 
 ### Använd modulkomponenter
 
@@ -233,7 +233,7 @@ Ramverk som CrewAI, Microsoft AutoGen och Semantic Kernel underlättar skapandet
 
 **Hur team kan använda dessa**: Team kan designa agenter med specifika roller och uppgifter, vilket gör det möjligt att testa och förfina samarbetsarbetsflöden och förbättra den övergripande systemeffektiviteten.
 
-**Hur det fungerar i praktiken**: Du kan skapa ett team av agenter där varje agent har en specialiserad funktion, såsom datainhämtning, analys eller beslutsfattande. Dessa agenter kan kommunicera och dela information för att uppnå ett gemensamt mål, såsom att svara på en användarfråga eller slutföra en uppgift.
+**Hur det fungerar i praktiken**: Du kan skapa ett team av agenter där varje agent har en specialiserad funktion, såsom datainsamling, analys eller beslutsfattande. Dessa agenter kan kommunicera och dela information för att uppnå ett gemensamt mål, såsom att svara på en användarförfrågan eller slutföra en uppgift.
 
 **Exempel på kod (AutoGen)**:
 
@@ -272,9 +272,9 @@ await Console(stream)
 
 Vad du ser i föregående kod är hur du kan skapa en uppgift som involverar flera agenter som arbetar tillsammans för att analysera data. Varje agent utför en specifik funktion, och uppgiften utförs genom att koordinera agenterna för att uppnå önskat resultat. Genom att skapa dedikerade agenter med specialiserade roller kan du förbättra uppgiftseffektiviteten och prestandan.
 
-### Lär dig i realtid
+### Lär i realtid
 
-Avancerade ramverk erbjuder kapabiliteter för realtidskontextförståelse och anpassning.
+Avancerade ramverk tillhandahåller kapabiliteter för realtidskontextförståelse och anpassning.
 
 **Hur team kan använda dessa**: Team kan implementera feedbackloopar där agenter lär sig från interaktioner och justerar sitt beteende dynamiskt, vilket leder till kontinuerlig förbättring och förfining av kapabiliteter.
 
@@ -286,13 +286,13 @@ Det finns många sätt att jämföra dessa ramverk, men låt oss titta på någr
 
 ## AutoGen
 
-AutoGen är ett open-source-ramverk utvecklat av Microsoft Research's AI Frontiers Lab. Det fokuserar på händelsedrivna, distribuerade *agentiska* applikationer, vilket möjliggör flera LLM:er och SLM:er, verktyg och avancerade designmönster för multi-agent.
+AutoGen är ett open-source ramverk utvecklat av Microsoft Research's AI Frontiers Lab. Det fokuserar på händelsedrivna, distribuerade *agentiska* applikationer, vilket möjliggör flera LLM:er och SLM:er, verktyg och avancerade multi-agent designmönster.
 
 AutoGen är byggt kring kärnkonceptet agenter, som är autonoma enheter som kan uppfatta sin miljö, fatta beslut och vidta åtgärder för att uppnå specifika mål. Agenter kommunicerar via asynkrona meddelanden, vilket gör att de kan arbeta självständigt och parallellt, vilket förbättrar systemets skalbarhet och responsivitet.
 
-<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Agenter är baserade på aktörsmodellen</a>. Enligt Wikipedia är en aktör _den grundläggande byggstenen för samtidig beräkning. Som svar på ett meddelande det tar emot kan en aktör: fatta lokala beslut, skapa fler aktörer, skicka fler meddelanden och bestämma hur man ska svara på nästa meddelande som tas emot_.
+<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Agenter är baserade på aktörsmodellen</a>. Enligt Wikipedia är en aktör _den grundläggande byggstenen för samtidig beräkning. Som svar på ett meddelande den tar emot kan en aktör: fatta lokala beslut, skapa fler aktörer, skicka fler meddelanden och bestämma hur den ska svara på nästa meddelande den tar emot_.
 
-**Användningsområden**: Automatisering av kodgenerering, dataanalysuppgifter och byggande av anpassade agenter för planerings- och forskningsfunktioner.
+**Användningsområden**: Automatisering av kodgenerering, dataanalysuppgifter och byggande av skräddarsydda agenter för planerings- och forskningsfunktioner.
 
 Här är några viktiga kärnkoncept för AutoGen:
 
@@ -324,7 +324,8 @@ Här är några viktiga kärnkoncept för AutoGen:
             print(f"{self.id.type} responded: {response.chat_message.content}")
     ```
     
-    I föregående kod har `MyAgent` skapats och ärver från `RoutedAgent`. Den har en meddelandehanterare som skriver ut innehållet i meddelandet och sedan skickar ett svar med hjälp av `AssistantAgent`-delegeringen. Särskilt notera hur vi tilldelar `self._delegate` en instans av `AssistantAgent`, som är en förbyggd agent som kan hantera chattkompletteringar.
+    I föregående kod har `MyAgent` skapats och ärver från `RoutedAgent`. Den har en meddelandehanterare som skriver ut innehållet i meddelandet och sedan skickar ett svar med hjälp av `AssistantAgent`-delegeringen. Notera särskilt hur vi tilldelar `self._delegate` en instans av `AssistantAgent`, som är en förbyggd agent som kan hantera chattkompletteringar.
+
 
     Låt oss informera AutoGen om denna agenttyp och starta programmet:
 
@@ -347,7 +348,7 @@ Här är några viktiga kärnkoncept för AutoGen:
     my_assistant responded: Hello! How can I assist you today?
     ```
 
-- **Multi-agenter**. AutoGen stödjer skapandet av flera agenter som kan arbeta tillsammans för att uppnå komplexa uppgifter. Agenter kan kommunicera, dela information och koordinera sina åtgärder för att lösa problem mer effektivt. För att skapa ett multi-agent-system kan du definiera olika typer av agenter med specialiserade funktioner och roller, såsom datainhämtning, analys, beslutsfattande och användarinteraktion. Låt oss se hur en sådan skapelse ser ut så vi får en känsla av det:
+- **Multi-agenter**. AutoGen stödjer skapandet av flera agenter som kan arbeta tillsammans för att uppnå komplexa uppgifter. Agenter kan kommunicera, dela information och koordinera sina åtgärder för att lösa problem mer effektivt. För att skapa ett multi-agent system kan du definiera olika typer av agenter med specialiserade funktioner och roller, såsom datainsamling, analys, beslutsfattande och användarinteraktion. Låt oss se hur en sådan skapelse ser ut så vi får en känsla av det:
 
     ```python
     editor_description = "Editor for planning and reviewing the content."
@@ -388,10 +389,10 @@ Här är några viktiga kärnkoncept för AutoGen:
     )
     ```
 
-    I föregående kod har vi en `GroupChatManager` som registreras med runtime. Denna manager är ansvarig för att koordinera interaktionerna mellan olika typer av agenter, såsom författare, illustratörer, redaktörer och användare.
+    I föregående kod har vi en `GroupChatManager` som registreras med runtime. Denna manager ansvarar för att koordinera interaktionerna mellan olika typer av agenter, såsom författare, illustratörer, redaktörer och användare.
 
-- **Agent-runtime**. Ramverket tillhandahåller en runtime-miljö, möjliggör kommunikation mellan agenter, hanterar deras identiteter och livscykler, och upprätthåller säkerhets- och integritetsgränser. Detta innebär att du kan köra dina agenter i en säker och kontrollerad miljö, vilket säkerställer att de kan interagera säkert och effektivt. Det finns två runtime-alternativ av intresse:
-  - **Fristående runtime**. Detta är ett bra val för enprocessapplikationer där alla agenter implementeras i samma programmeringsspråk och körs i samma process. Här är en illustration av hur det fungerar:
+- **Agent Runtime**. Ramverket tillhandahåller en runtime-miljö, möjliggör kommunikation mellan agenter, hanterar deras identiteter och livscykler, och upprätthåller säkerhets- och integritetsgränser. Detta innebär att du kan köra dina agenter i en säker och kontrollerad miljö, vilket säkerställer att de kan interagera säkert och effektivt. Det finns två intressanta runtime-alternativ:
+  - **Fristående runtime**. Detta är ett bra val för enkelprocessapplikationer där alla agenter implementeras i samma programmeringsspråk och körs i samma process. Här är en illustration av hur det fungerar:
   
     <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">Fristående runtime</a>   
 Applikationsstack
@@ -404,7 +405,7 @@ Applikationsstack
 
 ## Semantic Kernel + Agent Framework
 
-Semantic Kernel är en företagsklar AI Orchestration SDK. Den består av AI- och minnesanslutningar, tillsammans med ett agentramverk.
+Semantic Kernel är en företagsklar AI Orchestration SDK. Den består av AI- och minnesanslutningar, tillsammans med ett Agent Framework.
 
 Låt oss först täcka några kärnkomponenter:
 
@@ -443,7 +444,7 @@ Låt oss först täcka några kärnkomponenter:
 
     Här har du ett enkelt exempel på hur du kan skapa en kernel och lägga till en chattkompletteringstjänst. Semantic Kernel skapar en anslutning till en extern AI-tjänst, i detta fall Azure OpenAI Chat Completion.
 
-- **Plugins**: Dessa kapslar in funktioner som en applikation kan använda. Det finns både färdiga plugins och anpassade som du kan skapa. Ett relaterat koncept är "promptfunktioner." Istället för att tillhandahålla naturliga språkledtrådar för funktionsanrop, sänder du vissa funktioner till modellen. Baserat på den aktuella chattkontexten kan modellen välja att kalla på en av dessa funktioner för att slutföra en begäran eller fråga. Här är ett exempel:
+- **Plugins**: Dessa kapslar in funktioner som en applikation kan använda. Det finns både färdiga plugins och anpassade som du kan skapa. Ett relaterat koncept är "promptfunktioner." Istället för att ge naturliga språkledtrådar för funktionsanrop, sänder du vissa funktioner till modellen. Baserat på den aktuella chattkontexten kan modellen välja att kalla en av dessa funktioner för att slutföra en begäran eller fråga. Här är ett exempel:
 
   ```python
   from semantic_kernel.connectors.ai.open_ai.services.azure_chat_completion import AzureChatCompletion
@@ -502,7 +503,7 @@ Låt oss först täcka några kärnkomponenter:
 
     Här har du först en mallprompt `skPrompt` som lämnar utrymme för användaren att mata in text, `$userInput`. Sedan skapar du kernel-funktionen `SummarizeText` och importerar den sedan till kernel med plugin-namnet `SemanticFunctions`. Notera namnet på funktionen som hjälper Semantic Kernel att förstå vad funktionen gör och när den ska kallas.
 
-- **Native-funktion**: Det finns också inbyggda funktioner som ramverket kan kalla direkt för att utföra uppgiften. Här är ett exempel på en sådan funktion som hämtar innehållet från en fil:
+- **Native function**: Det finns också inbyggda funktioner som ramverket kan kalla direkt för att utföra uppgiften. Här är ett exempel på en sådan funktion som hämtar innehållet från en fil:
 
     ```csharp
     public class NativeFunctions {
@@ -525,7 +526,7 @@ Låt oss först täcka några kärnkomponenter:
 
     ```
 
-- **Minne**: Abstraherar och förenklar kontexthantering för AI-appar. Idén med minne är att detta är något LLM bör känna till. Du kan lagra denna information i en vektorlagring som slutar vara en in-memory-databas eller en vektordatabas eller liknande. Här är ett exempel på ett mycket förenklat scenario där *fakta* läggs till i minnet:
+- **Minne**: Abstraherar och förenklar kontexthantering för AI-appar. Idén med minne är att detta är något LLM bör känna till. Du kan lagra denna information i en vektorlagring som slutar vara en in-memory databas eller en vektordatabas eller liknande. Här är ett exempel på ett mycket förenklat scenario där *fakta* läggs till i minnet:
 
     ```csharp
     var facts = new Dictionary<string,string>();
@@ -557,17 +558,17 @@ Låt oss först täcka några kärnkomponenter:
 
 Dessa fakta lagras sedan i minnessamlingen `SummarizedAzureDocs`. Detta är ett mycket förenklat exempel, men du kan se hur information kan lagras i minnet för att LLM ska kunna använda det.
 
-Så det är grunderna i Semantic Kernel-ramverket, men hur är det med Agent Framework?
+Så det är grunderna i Semantic Kernel-ramverket, men vad sägs om Agent Framework?
 
 ## Azure AI Agent Service
 
-Azure AI Agent Service är en nyare funktion som introducerades på Microsoft Ignite 2024. Den möjliggör utveckling och implementering av AI-agenter med mer flexibla modeller, såsom att direkt anropa öppna LLM:er som Llama 3, Mistral och Cohere.
+Azure AI Agent Service är en nyare tillägg, introducerad på Microsoft Ignite 2024. Det möjliggör utveckling och distribution av AI-agenter med mer flexibla modeller, såsom att direkt anropa öppna LLM:er som Llama 3, Mistral och Cohere.
 
-Azure AI Agent Service erbjuder starkare säkerhetsmekanismer för företag och metoder för datalagring, vilket gör den lämplig för företagsapplikationer.
+Azure AI Agent Service erbjuder starkare säkerhetsmekanismer för företag och metoder för datalagring, vilket gör det lämpligt för företagsapplikationer.
 
-Den fungerar direkt med orkestreringsramverk för flera agenter, såsom AutoGen och Semantic Kernel.
+Det fungerar direkt med orkestreringsramverk för flera agenter som AutoGen och Semantic Kernel.
 
-Tjänsten är för närvarande i Public Preview och stöder Python och C# för att bygga agenter.
+Denna tjänst är för närvarande i Public Preview och stöder Python och C# för att bygga agenter.
 
 Med Semantic Kernel Python kan vi skapa en Azure AI Agent med ett användardefinierat plugin:
 
@@ -695,17 +696,17 @@ Azure AI Agent Service har följande grundläggande koncept:
 
     I den tidigare koden skapas en tråd. Därefter skickas ett meddelande till tråden. Genom att anropa `create_and_process_run` ombeds agenten att utföra arbete på tråden. Slutligen hämtas och loggas meddelandena för att se agentens svar. Meddelandena visar framstegen i konversationen mellan användaren och agenten. Det är också viktigt att förstå att meddelandena kan vara av olika typer, såsom text, bild eller fil, vilket innebär att agentens arbete har resulterat i exempelvis en bild eller ett textrespons. Som utvecklare kan du sedan använda denna information för att vidare bearbeta svaret eller presentera det för användaren.
 
-- **Integreras med andra AI-ramverk**. Azure AI Agent Service kan interagera med andra ramverk som AutoGen och Semantic Kernel, vilket innebär att du kan bygga delar av din app i ett av dessa ramverk och till exempel använda Agent Service som en orkestrator, eller så kan du bygga allt i Agent Service.
+- **Integreras med andra AI-ramverk**. Azure AI Agent Service kan interagera med andra ramverk som AutoGen och Semantic Kernel, vilket innebär att du kan bygga delar av din app i ett av dessa ramverk och till exempel använda Agent Service som en orkestrator eller bygga allt i Agent Service.
 
-**Användningsområden**: Azure AI Agent Service är utformad för företagsapplikationer som kräver säker, skalbar och flexibel implementering av AI-agenter.
+**Användningsområden**: Azure AI Agent Service är utformad för företagsapplikationer som kräver säker, skalbar och flexibel distribution av AI-agenter.
 
 ## Vad är skillnaden mellan dessa ramverk?
 
-Det verkar som om det finns mycket överlapp mellan dessa ramverk, men det finns några viktiga skillnader när det gäller deras design, kapacitet och målgrupper:
+Det verkar som att det finns mycket överlapp mellan dessa ramverk, men det finns några viktiga skillnader när det gäller deras design, kapabiliteter och målgrupper:
 
-- **AutoGen**: Är ett experimentellt ramverk som fokuserar på avancerad forskning om system med flera agenter. Det är den bästa platsen för att experimentera och prototypa sofistikerade system med flera agenter.
+- **AutoGen**: Är ett experimentellt ramverk som fokuserar på banbrytande forskning om system med flera agenter. Det är den bästa platsen för att experimentera och prototypa sofistikerade system med flera agenter.
 - **Semantic Kernel**: Är ett produktionsklart agentbibliotek för att bygga företagsapplikationer med agenter. Fokuserar på händelsedrivna, distribuerade applikationer med agenter, vilket möjliggör flera LLM:er och SLM:er, verktyg och designmönster för enskilda/flera agenter.
-- **Azure AI Agent Service**: Är en plattform och implementeringstjänst i Azure Foundry för agenter. Den erbjuder anslutning till tjänster som stöds av Azure, såsom Azure OpenAI, Azure AI Search, Bing Search och kodexekvering.
+- **Azure AI Agent Service**: Är en plattform och distributionstjänst i Azure Foundry för agenter. Den erbjuder anslutning till tjänster som stöds av Azure Foundry, såsom Azure OpenAI, Azure AI Search, Bing Search och kodexekvering.
 
 Fortfarande osäker på vilken du ska välja?
 
@@ -720,36 +721,41 @@ Låt oss se om vi kan hjälpa dig genom att gå igenom några vanliga användnin
 
 > Q: Vad gör AutoGen till ett bättre val än Semantic Kernel och Azure AI Agent Service för detta användningsområde?
 >
-> A: AutoGen är specifikt utformat för händelsedrivna, distribuerade applikationer med agenter, vilket gör det väl lämpat för att automatisera kodgenerering och dataanalysuppgifter. Det erbjuder de nödvändiga verktygen och kapaciteterna för att bygga komplexa system med flera agenter effektivt.
+> A: AutoGen är specifikt utformat för händelsedrivna, distribuerade applikationer med agenter, vilket gör det väl lämpat för att automatisera kodgenerering och dataanalysuppgifter. Det erbjuder de nödvändiga verktygen och kapabiliteterna för att bygga komplexa system med flera agenter effektivt.
 
->Q: Det låter som att Azure AI Agent Service också skulle kunna fungera här, den har verktyg för kodgenerering och mer?
+>Q: Det låter som att Azure AI Agent Service också skulle fungera här, det har verktyg för kodgenerering och mer?
 
 >
-> A: Ja, Azure AI Agent Service är en plattformstjänst för agenter och har inbyggda funktioner för flera modeller, Azure AI Search, Bing Search och Azure Functions. Det gör det enkelt att bygga dina agenter i Foundry Portal och implementera dem i stor skala.
+> A: Ja, Azure AI Agent Service är en plattformstjänst för agenter och har inbyggda kapabiliteter för flera modeller, Azure AI Search, Bing Search och Azure Functions. Det gör det enkelt att bygga dina agenter i Foundry Portal och distribuera dem i stor skala.
 
 > Q: Jag är fortfarande förvirrad, ge mig bara ett alternativ
 >
-> A: Ett bra val är att först bygga din applikation i Semantic Kernel och sedan använda Azure AI Agent Service för att implementera din agent. Denna metod gör det enkelt att bevara dina agenter samtidigt som du utnyttjar kraften i att bygga system med flera agenter i Semantic Kernel. Dessutom har Semantic Kernel en anslutning i AutoGen, vilket gör det enkelt att använda båda ramverken tillsammans.
+> A: Ett bra val är att bygga din applikation i Semantic Kernel först och sedan använda Azure AI Agent Service för att distribuera din agent. Denna metod gör det enkelt att bevara dina agenter samtidigt som du utnyttjar kraften att bygga system med flera agenter i Semantic Kernel. Dessutom har Semantic Kernel en anslutning i AutoGen, vilket gör det enkelt att använda båda ramverken tillsammans.
 
 Låt oss sammanfatta de viktigaste skillnaderna i en tabell:
 
 | Ramverk | Fokus | Grundläggande koncept | Användningsområden |
 | --- | --- | --- | --- |
 | AutoGen | Händelsedrivna, distribuerade applikationer med agenter | Agenter, Personas, Funktioner, Data | Kodgenerering, dataanalysuppgifter |
-| Semantic Kernel | Förståelse och generering av mänskligt liknande textinnehåll | Agenter, Modulära komponenter, Samarbete | Naturlig språkförståelse, innehållsgenerering |
-| Azure AI Agent Service | Flexibla modeller, företagsäkerhet, Kodgenerering, Verktygsanrop | Modularitet, Samarbete, Processorkestrering | Säker, skalbar och flexibel implementering av AI-agenter |
+| Semantic Kernel | Förstå och generera mänskligt liknande textinnehåll | Agenter, Modulära komponenter, Samarbete | Naturlig språkförståelse, innehållsgenerering |
+| Azure AI Agent Service | Flexibla modeller, företagsäkerhet, Kodgenerering, Verktygsanrop | Modularitet, Samarbete, Processorkestrering | Säker, skalbar och flexibel distribution av AI-agenter |
 
 Vad är det ideala användningsområdet för vart och ett av dessa ramverk?
 
 ## Kan jag integrera mina befintliga Azure-verktyg direkt, eller behöver jag fristående lösningar?
 
-Svaret är ja, du kan integrera dina befintliga Azure-verktyg direkt med Azure AI Agent Service, särskilt eftersom den har byggts för att fungera sömlöst med andra Azure-tjänster. Du kan till exempel integrera Bing, Azure AI Search och Azure Functions. Det finns också en djup integration med Azure AI Foundry.
+Svaret är ja, du kan integrera dina befintliga Azure-verktyg direkt med Azure AI Agent Service, särskilt eftersom det har byggts för att fungera sömlöst med andra Azure-tjänster. Du kan till exempel integrera Bing, Azure AI Search och Azure Functions. Det finns också en djup integration med Azure AI Foundry.
 
 För AutoGen och Semantic Kernel kan du också integrera med Azure-tjänster, men det kan kräva att du anropar Azure-tjänster från din kod. Ett annat sätt att integrera är att använda Azure SDK:er för att interagera med Azure-tjänster från dina agenter. Dessutom, som nämnts, kan du använda Azure AI Agent Service som en orkestrator för dina agenter byggda i AutoGen eller Semantic Kernel, vilket skulle ge enkel åtkomst till Azure-ekosystemet.
 
-### Har du fler frågor om AI Agent Frameworks?
+## Exempelkoder
 
-Gå med i [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) för att träffa andra som lär sig, delta i öppet hus och få svar på dina frågor om AI-agenter.
+- Python: [Agent Framework](./code_samples/02-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/02-dotnet-agent-framework.md)
+
+## Har du fler frågor om AI Agent Frameworks?
+
+Gå med i [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) för att träffa andra lärande, delta i öppet hus och få svar på dina frågor om AI-agenter.
 
 ## Referenser
 
@@ -757,7 +763,7 @@ Gå med i [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) för att 
 - <a href="https://devblogs.microsoft.com/semantic-kernel/microsofts-agentic-ai-frameworks-autogen-and-semantic-kernel/" target="_blank">Semantic Kernel och AutoGen</a>
 - <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-python" target="_blank">Semantic Kernel Python Agent Framework</a>
 - <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-csharp" target="_blank">Semantic Kernel .Net Agent Framework</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent service</a>
 - <a href="https://techcommunity.microsoft.com/blog/educatordeveloperblog/using-azure-ai-agent-service-with-autogen--semantic-kernel-to-build-a-multi-agen/4363121" target="_blank">Använda Azure AI Agent Service med AutoGen / Semantic Kernel för att bygga en lösning med flera agenter</a>
 
 ## Föregående lektion
@@ -770,5 +776,7 @@ Gå med i [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) för att 
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Ansvarsfriskrivning**:  
-Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, bör det noteras att automatiserade översättningar kan innehålla fel eller felaktigheter. Det ursprungliga dokumentet på dess originalspråk bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för eventuella missförstånd eller feltolkningar som uppstår vid användning av denna översättning.
+Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, bör det noteras att automatiserade översättningar kan innehålla fel eller felaktigheter. Det ursprungliga dokumentet på dess ursprungliga språk bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för eventuella missförstånd eller feltolkningar som uppstår vid användning av denna översättning.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

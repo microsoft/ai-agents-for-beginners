@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "e959fefef991a78e6eb72b5ce8ca58d4",
-  "translation_date": "2025-11-11T11:25:12+00:00",
+  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
+  "translation_date": "2025-11-13T13:02:52+00:00",
   "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
   "language_code": "nl"
 }
@@ -11,30 +11,30 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📋 Scenario-overzicht
 
-Deze notebook laat zien hoe je een intelligente reisplanner kunt bouwen met behulp van het Microsoft Agent Framework voor .NET. De agent kan automatisch gepersonaliseerde dagtriproutes genereren voor willekeurige bestemmingen wereldwijd.
+Dit voorbeeld laat zien hoe je een intelligente reisplanner kunt bouwen met behulp van het Microsoft Agent Framework voor .NET. De agent kan automatisch gepersonaliseerde dagtriproutes genereren voor willekeurige bestemmingen over de hele wereld.
 
-### Belangrijke mogelijkheden:
+### Belangrijkste mogelijkheden:
 
-- 🎲 **Willekeurige bestemmingsselectie**: Gebruikt een aangepaste tool om vakantiebestemmingen te kiezen
-- 🗺️ **Intelligente reisplanning**: Maakt gedetailleerde dag-tot-dag routes
-- 🔄 **Realtime streaming**: Ondersteunt zowel directe als gestreamde reacties
+- 🎲 **Willekeurige bestemmingskeuze**: Gebruikt een aangepaste tool om vakantiebestemmingen te selecteren
+- 🗺️ **Intelligente reisplanning**: Creëert gedetailleerde dag-tot-dag routes
+- 🔄 **Realtime streaming**: Ondersteunt zowel directe als streaming-antwoorden
 - 🛠️ **Integratie van aangepaste tools**: Laat zien hoe je de mogelijkheden van de agent kunt uitbreiden
 
 ## 🔧 Technische architectuur
 
 ### Kerntechnologieën
 
-- **Microsoft Agent Framework**: Nieuwste .NET-implementatie voor AI-agentontwikkeling
-- **GitHub Models-integratie**: Gebruikt de AI-model inferentiedienst van GitHub
-- **OpenAI API-compatibiliteit**: Maakt gebruik van OpenAI-clientbibliotheken met aangepaste eindpunten
-- **Veilige configuratie**: API-sleutelbeheer op basis van omgeving
+- **Microsoft Agent Framework**: De nieuwste .NET-implementatie voor AI-agentontwikkeling
+- **GitHub Models-integratie**: Maakt gebruik van de AI-modelinferenceservice van GitHub
+- **OpenAI API-compatibiliteit**: Benut OpenAI-clientbibliotheken met aangepaste eindpunten
+- **Veilige configuratie**: API-sleutelbeheer op basis van omgevingsvariabelen
 
 ### Belangrijke componenten
 
-1. **AIAgent**: De hoofdagent die de gespreksstroom beheert
+1. **AIAgent**: De belangrijkste agent-orkestrator die de gespreksstroom beheert
 2. **Aangepaste tools**: `GetRandomDestination()`-functie beschikbaar voor de agent
-3. **Chat Client**: Gespreksinterface ondersteund door GitHub Models
-4. **Streamingondersteuning**: Mogelijkheden voor realtime responsgeneratie
+3. **Chatclient**: Gespreksinterface ondersteund door GitHub Models
+4. **Streamingondersteuning**: Mogelijkheden voor realtime antwoordgeneratie
 
 ### Integratiepatroon
 
@@ -174,6 +174,20 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
     Console.Write(update);
 }
 ```
+
+## 🎓 Belangrijke inzichten
+
+1. **Agentarchitectuur**: Het Microsoft Agent Framework biedt een duidelijke, type-veilige aanpak voor het bouwen van AI-agents in .NET
+2. **Toolintegratie**: Functies met `[Description]`-attributen worden beschikbaar als tools voor de agent
+3. **Configuratiebeheer**: Omgevingsvariabelen en veilige referentiebeheer volgen de beste praktijken van .NET
+4. **OpenAI-compatibiliteit**: GitHub Models-integratie werkt naadloos via OpenAI-compatibele API's
+
+## 🔗 Aanvullende bronnen
+
+- [Microsoft Agent Framework-documentatie](https://learn.microsoft.com/agent-framework)
+- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 

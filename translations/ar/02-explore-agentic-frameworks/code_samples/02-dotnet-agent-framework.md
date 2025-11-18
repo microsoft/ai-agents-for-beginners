@@ -1,149 +1,133 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "033f170be3b54183e2f6b5463371ab69",
-  "translation_date": "2025-11-07T09:31:13+00:00",
+  "original_hash": "e23058f87779da210fc0257ee2747c53",
+  "translation_date": "2025-11-13T11:03:30+00:00",
   "source_file": "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md",
   "language_code": "ar"
 }
 -->
-# 🔍 استكشاف أطر العمل الذكية - الوكيل الأساسي (.NET)
+# 🔍 استكشاف إطار عمل Microsoft Agent - الوكيل الأساسي (.NET)
 
 ## 📋 أهداف التعلم
 
-يستعرض هذا الدليل المفاهيم الأساسية لإطار عمل الوكيل من مايكروسوفت من خلال تنفيذ وكيل بسيط باستخدام .NET. ستتعلم أنماط الوكلاء الأساسية وتفهم كيفية عمل الوكلاء الذكيين خلف الكواليس باستخدام C# ونظام .NET.
+يستعرض هذا المثال المفاهيم الأساسية لإطار عمل Microsoft Agent من خلال تنفيذ وكيل بسيط باستخدام .NET. ستتعلم أنماط الوكلاء الأساسية وتفهم كيفية عمل الوكلاء الذكيين خلف الكواليس باستخدام C# ونظام .NET.
 
-**ما ستكتشفه:**
-- 🏗️ **هيكلية الوكيل**: فهم الهيكل الأساسي لوكلاء الذكاء الاصطناعي في .NET  
+### ما ستكتشفه
+
+- 🏗️ **هيكل الوكيل**: فهم الهيكل الأساسي لوكلاء الذكاء الاصطناعي في .NET  
 - 🛠️ **تكامل الأدوات**: كيفية استخدام الوكلاء للوظائف الخارجية لتوسيع القدرات  
 - 💬 **تدفق المحادثة**: إدارة المحادثات متعددة الأدوار والسياق باستخدام إدارة الخيوط  
-- 🔧 **أنماط التكوين**: أفضل الممارسات لإعداد وإدارة الوكلاء في .NET  
+- 🔧 **أنماط التكوين**: أفضل الممارسات لإعداد الوكلاء وإدارتهم في .NET  
 
 ## 🎯 المفاهيم الرئيسية المغطاة
 
-### مبادئ إطار العمل الذكي
+### مبادئ إطار عمل الوكلاء
+
 - **الاستقلالية**: كيفية اتخاذ الوكلاء قرارات مستقلة باستخدام تجريدات الذكاء الاصطناعي في .NET  
 - **التفاعل**: الاستجابة للتغيرات البيئية ومدخلات المستخدم  
 - **المبادرة**: اتخاذ الإجراءات بناءً على الأهداف والسياق  
-- **القدرة الاجتماعية**: التفاعل من خلال اللغة الطبيعية مع خيوط المحادثة  
+- **القدرة الاجتماعية**: التفاعل من خلال اللغة الطبيعية باستخدام خيوط المحادثة  
 
 ### المكونات التقنية
-- **AIAgent**: إدارة تنظيم الوكيل والمحادثات (.NET)  
-- **وظائف الأدوات**: توسيع قدرات الوكيل باستخدام طرق وسمات C#  
-- **تكامل OpenAI**: الاستفادة من نماذج اللغة من خلال واجهات برمجة التطبيقات القياسية في .NET  
-- **إدارة البيئة**: إعداد آمن ومعالجة بيانات الاعتماد باستخدام DotNetEnv  
 
-## ⚙️ المتطلبات والإعداد
+- **AIAgent**: إدارة الوكيل الأساسية وتنظيم المحادثات (.NET)  
+- **وظائف الأدوات**: توسيع قدرات الوكلاء باستخدام طرق وسمات C#  
+- **تكامل OpenAI**: الاستفادة من نماذج اللغة من خلال واجهات برمجة التطبيقات القياسية لـ .NET  
+- **التكوين الآمن**: إدارة مفاتيح API بناءً على البيئة  
 
-**المتطلبات الأساسية:**
-- .NET 9.0 SDK أو أعلى  
-- Visual Studio 2022 أو VS Code مع امتداد C#  
+## 🔧 البنية التقنية
 
-**حزم NuGet:**
-- `Microsoft.Extensions.AI` - تجريدات الذكاء الاصطناعي الأساسية  
-- `Microsoft.Extensions.AI.OpenAI` - تكامل OpenAI (معاينة)  
-- `DotNetEnv` - إدارة متغيرات البيئة  
+### التقنيات الأساسية
 
-**تكوين البيئة (.env file):**
-```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
-```
-  
-## 🔧 التقنية المستخدمة
-
-**التقنيات الأساسية:**
-- إطار عمل الوكيل من مايكروسوفت (.NET)  
-- تكامل API لنماذج GitHub  
+- إطار عمل Microsoft Agent (.NET)  
+- تكامل واجهة برمجة تطبيقات نماذج GitHub  
 - أنماط العميل المتوافقة مع OpenAI  
 - التكوين المستند إلى البيئة باستخدام DotNetEnv  
 
-**قدرات الوكيل:**
+### قدرات الوكيل
+
 - فهم اللغة الطبيعية وتوليدها  
 - استدعاء الوظائف واستخدام الأدوات باستخدام سمات C#  
-- استجابات مدركة للسياق مع خيوط المحادثة  
-- هيكلية قابلة للتوسيع مع أنماط حقن التبعيات  
+- استجابات مدركة للسياق باستخدام خيوط المحادثة  
+- هيكل قابل للتوسيع باستخدام أنماط حقن التبعيات  
 
-## 📚 مقارنة الأطر
+## 📚 مقارنة الإطارات
 
-يوضح هذا المثال نهج إطار عمل الوكيل من مايكروسوفت في .NET مقارنة بالمنصات الأخرى:
+يوضح هذا المثال نهج إطار عمل Microsoft Agent مقارنةً بإطارات الوكلاء الأخرى:
 
-| الميزة | إطار عمل الوكيل في .NET | المكافئات في Python |
-|---------|---------------------|-------------------|
-| **سلامة النوع** | كتابة قوية باستخدام C# | كتابة ديناميكية |
-| **التكامل** | نظام .NET الأصلي | توافق متنوع |
-| **الأداء** | أداء الكود المترجم | تنفيذ مفسر |
-| **جاهزية المؤسسات** | مصمم لتطبيقات الإنتاج في .NET | يختلف حسب الإطار |
-| **الأدوات** | تكامل Visual Studio | يعتمد على بيئة التطوير |
+| الميزة | إطار عمل Microsoft Agent | الإطارات الأخرى |
+|--------|--------------------------|-----------------|
+| **التكامل** | نظام Microsoft الأصلي | توافق متنوع |
+| **البساطة** | واجهة برمجة تطبيقات نظيفة وبديهية | إعداد غالبًا معقد |
+| **التوسعية** | تكامل الأدوات بسهولة | يعتمد على الإطار |
+| **جاهزية المؤسسات** | مصمم للإنتاج | يختلف حسب الإطار |
 
 ## 🚀 البدء
 
-اتبع الخطوات أدناه لبناء أول وكيل أساسي في .NET وفهم المفاهيم الذكية الأساسية!
+### المتطلبات الأساسية
 
-## 📦 التثبيت والإعداد
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو أعلى  
+- [رمز الوصول لواجهة برمجة تطبيقات نماذج GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
 
-هذا المثال متاح كتطبيق ملف واحد قابل للتشغيل في .NET. راجع الملف المرفق `02-dotnet-agent-framework.cs` للحصول على التنفيذ الكامل.
-
-لتشغيل هذا المثال:
+### متغيرات البيئة المطلوبة
 
 ```bash
-chmod +x 02-dotnet-agent-framework.cs
+# zsh/bash
+export GH_TOKEN=<your_github_token>
+export GH_ENDPOINT=https://models.github.ai/inference
+export GH_MODEL_ID=openai/gpt-5-mini
+```
+  
+```powershell
+# PowerShell
+$env:GH_TOKEN = "<your_github_token>"
+$env:GH_ENDPOINT = "https://models.github.ai/inference"
+$env:GH_MODEL_ID = "openai/gpt-5-mini"
+```
+  
+
+### نموذج الكود
+
+لتشغيل مثال الكود،  
+
+```bash
+# zsh/bash
+chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
   
-أو باستخدام dotnet CLI:
+أو باستخدام CLI الخاص بـ dotnet:  
 
 ```bash
-dotnet run 02-dotnet-agent-framework.cs
+dotnet run ./02-dotnet-agent-framework.cs
 ```
   
-## 💡 استعراض الكود
-
-يتضمن التنفيذ الكامل:
-
-### 1. تبعيات الحزم
+راجع [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) للحصول على الكود الكامل.  
 
 ```csharp
-// Core AI abstraction layer for .NET applications
-#r "nuget: Microsoft.Extensions.AI, 9.9.1"
+#!/usr/bin/dotnet run
 
-// Microsoft Agent Framework OpenAI integration
-#r "nuget: Microsoft.Agents.AI.OpenAI, 1.0.0-preview.251001.3"
+#:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
 
-// Core Microsoft Agent Framework library
-#r "nuget: Microsoft.Agents.AI, 1.0.0-preview.251001.3"
-
-// Environment variable management
-#r "nuget: DotNetEnv, 3.1.1"
-```
-  
-### 2. الواردات الأساسية
-
-```csharp
-using System;
-using System.ComponentModel;
 using System.ClientModel;
-using Microsoft.Extensions.AI;
+using System.ComponentModel;
+
 using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
+
 using OpenAI;
-using DotNetEnv;
-```
-  
-### 3. تكوين البيئة
 
-```csharp
-// Load configuration from .env file
-Env.Load("../../../.env");
-```
-  
-### 4. تعريف وظائف الأدوات
-
-```csharp
-// Random destination generator tool
+// Tool Function: Random Destination Generator
+// This static method will be available to the agent as a callable tool
+// The [Description] attribute helps the AI understand when to use this function
+// This demonstrates how to create custom tools for AI agents
 [Description("Provides a random vacation destination.")]
 static string GetRandomDestination()
 {
+    // List of popular vacation destinations around the world
+    // The agent will randomly select from these options
     var destinations = new List<string>
     {
         "Paris, France",
@@ -157,97 +141,118 @@ static string GetRandomDestination()
         "Bangkok, Thailand",
         "Vancouver, Canada"
     };
-    
+
+    // Generate random index and return selected destination
+    // Uses System.Random for simple random selection
     var random = new Random();
     int index = random.Next(destinations.Count);
     return destinations[index];
 }
-```
-  
-### 5. إعداد التكوين والعميل
 
-```csharp
-// Extract environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? 
-    throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? 
-    throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+// Extract configuration from environment variables
+// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
+// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the GitHub token for authentication, throws exception if not specified
+var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
+var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
+var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
 
-// Configure OpenAI client for GitHub Models
+// Configure OpenAI Client Options
+// Create configuration options to point to GitHub Models endpoint
+// This redirects OpenAI client calls to GitHub's model inference service
 var openAIOptions = new OpenAIClientOptions()
 {
     Endpoint = new Uri(github_endpoint)
 };
 
-// Initialize OpenAI client
+// Initialize OpenAI Client with GitHub Models Configuration
+// Create OpenAI client using GitHub token for authentication
+// Configure it to use GitHub Models endpoint instead of OpenAI directly
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
-```
-  
-### 6. تكوين الوكيل
 
-```csharp
-const string AGENT_NAME = "TravelAgent";
+// Define Agent Identity and Comprehensive Instructions
+// Agent name for identification and logging purposes
+var AGENT_NAME = "TravelAgent";
 
-const string AGENT_INSTRUCTIONS = @"You are a helpful AI Agent that can help plan vacations for customers.
+// Detailed instructions that define the agent's personality, capabilities, and behavior
+// This system prompt shapes how the agent responds and interacts with users
+var AGENT_INSTRUCTIONS = """
+You are a helpful AI Agent that can help plan vacations for customers.
 
 Important: When users specify a destination, always plan for that location. Only suggest random destinations when the user hasn't specified a preference.
 
 When the conversation begins, introduce yourself with this message:
-""Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
+"Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
 1. Plan a day trip to a specific location
 2. Suggest a random vacation destination
 3. Find destinations with specific features (beaches, mountains, historical sites, etc.)
 4. Plan an alternative trip if you don't like my first suggestion
 
-What kind of trip would you like me to help you plan today?""
+What kind of trip would you like me to help you plan today?"
 
-Always prioritize user preferences. If they mention a specific destination like ""Bali"" or ""Paris,"" focus your planning on that location rather than suggesting alternatives.
-";
-```
-  
-### 7. تهيئة الوكيل
+Always prioritize user preferences. If they mention a specific destination like "Bali" or "Paris," focus your planning on that location rather than suggesting alternatives.
+""";
 
-```csharp
-// Create AI agent with travel planning capabilities
-AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions)
+// Create AI Agent with Advanced Travel Planning Capabilities
+// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Configure agent with name, detailed instructions, and available tools
+// This demonstrates the .NET agent creation pattern with full configuration
+AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
-        tools: [AIFunctionFactory.Create((Func<string>)GetRandomDestination)]
+        tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
-```
-  
-### 8. إدارة المحادثة
 
-```csharp
-// Create new conversation thread
+// Create New Conversation Thread for Context Management
+// Initialize a new conversation thread to maintain context across multiple interactions
+// Threads enable the agent to remember previous exchanges and maintain conversational state
+// This is essential for multi-turn conversations and contextual understanding
 AgentThread thread = agent.GetNewThread();
 
-// Execute agent: First travel planning request
-Console.WriteLine(await agent.RunAsync("Plan me a day trip", thread));
+// Execute Agent: First Travel Planning Request
+// Run the agent with an initial request that will likely trigger the random destination tool
+// The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
+// Using the thread parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 
-// Execute agent: Follow-up request with context awareness
-Console.WriteLine(await agent.RunAsync("I don't like that destination. Plan me another vacation.", thread));
+Console.WriteLine();
+
+// Execute Agent: Follow-up Request with Context Awareness
+// Demonstrate contextual conversation by referencing the previous response
+// The agent remembers the previous destination suggestion and will provide an alternative
+// This showcases the power of conversation threads and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
 ```
   
+
 ## 🎓 النقاط الرئيسية
 
-1. **هيكلية الوكيل**: يوفر إطار عمل الوكيل من مايكروسوفت نهجًا نظيفًا وآمنًا لبناء وكلاء الذكاء الاصطناعي في .NET  
-2. **تكامل الأدوات**: الوظائف المزينة بـ `[Description]` تصبح أدوات متاحة للوكيل  
+1. **هيكل الوكيل**: يوفر إطار عمل Microsoft Agent نهجًا نظيفًا وآمنًا من النوع لبناء وكلاء الذكاء الاصطناعي في .NET  
+2. **تكامل الأدوات**: الوظائف المزينة بسمات `[Description]` تصبح أدوات متاحة للوكيل  
 3. **سياق المحادثة**: إدارة الخيوط تمكن المحادثات متعددة الأدوار مع إدراك كامل للسياق  
 4. **إدارة التكوين**: متغيرات البيئة ومعالجة بيانات الاعتماد الآمنة تتبع أفضل ممارسات .NET  
 5. **التوافق مع OpenAI**: يعمل تكامل نماذج GitHub بسلاسة من خلال واجهات برمجة التطبيقات المتوافقة مع OpenAI  
 
 ## 🔗 موارد إضافية
 
-- [وثائق إطار عمل الوكيل من مايكروسوفت](https://learn.microsoft.com/en-us/dotnet/ai/agents)  
-- [سوق نماذج GitHub](https://github.com/marketplace/models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai-overview)  
-- [تطبيقات ملف واحد في .NET](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app/)  
+- [وثائق إطار عمل Microsoft Agent](https://learn.microsoft.com/agent-framework)  
+- [سوق نماذج GitHub](https://github.com/marketplace?type=models)  
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **إخلاء المسؤولية**:  
-تم ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الرسمي. للحصول على معلومات حاسمة، يُوصى بالترجمة البشرية الاحترافية. نحن غير مسؤولين عن أي سوء فهم أو تفسير خاطئ ينشأ عن استخدام هذه الترجمة.
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الموثوق. للحصول على معلومات حاسمة، يُوصى بالترجمة البشرية الاحترافية. نحن غير مسؤولين عن أي سوء فهم أو تفسيرات خاطئة ناتجة عن استخدام هذه الترجمة.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
