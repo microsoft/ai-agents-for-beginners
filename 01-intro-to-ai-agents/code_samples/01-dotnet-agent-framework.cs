@@ -1,4 +1,4 @@
-#!/usr/bin/dotnet run
+#!/opt/homebrew/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
@@ -43,7 +43,7 @@ static string GetRandomDestination()
 
 // Extract configuration from environment variables
 // Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
+// Retrieve the model ID, defaults to openai/gpt-4.1-mini if not specified
 // Retrieve the GitHub token for authentication, throws exception if not specified
 var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
 var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-4.1-mini";
