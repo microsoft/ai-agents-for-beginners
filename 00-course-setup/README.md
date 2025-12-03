@@ -95,6 +95,7 @@ The code samples use either:
 2) AutoGen Framework + GitHub Models Marketplace. Labeled as (autogen.ipynb)
 
 **Requires Azure Subscription**:
+
 3) Azure AI Foundry + Azure AI Agent Service. Labelled as (azureaiagent.ipynb)
 
 We encourage you to try out all three types of examples to see which one works best for you.
