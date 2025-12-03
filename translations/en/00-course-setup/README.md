@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
-  "translation_date": "2025-11-07T08:21:12+00:00",
+  "original_hash": "63b1a8f6e840df15934935b728e569f0",
+  "translation_date": "2025-12-03T13:39:35+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "en"
 }
@@ -15,21 +15,21 @@ This lesson will explain how to run the code samples provided in this course.
 
 ## Connect with Other Learners and Get Support
 
-Before cloning the repository, join the [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) to get help with setup, ask questions about the course, or connect with other learners.
+Before cloning the repository, join the [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) to get assistance with setup, ask questions about the course, or connect with fellow learners.
 
 ## Clone or Fork this Repository
 
-Start by cloning or forking the GitHub repository. This will create your own copy of the course materials, allowing you to run, test, and modify the code.
+Start by cloning or forking the GitHub repository. This will create your own version of the course materials, allowing you to run, test, and modify the code!
 
 You can do this by clicking the link to <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork the repository</a>.
 
-After forking, you will have your own version of the course at the following link:
+You should now have your own forked version of the course available at the following link:
 
 ![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.en.png)
 
-### Shallow Clone (recommended for workshops or Codespaces)
+### Shallow Clone (recommended for workshop / Codespaces)
 
-  >The full repository can be quite large (~3 GB) if you download the entire history and all files. If you're attending a workshop or only need specific lesson folders, a shallow clone (or sparse clone) minimizes the download by truncating history and/or skipping unnecessary files.
+  >The full repository can be quite large (~3 GB) if you download the complete history and all files. If you're attending a workshop or only need specific lesson folders, a shallow clone (or sparse clone) minimizes the download by truncating history and/or skipping unnecessary files.
 
 #### Quick shallow clone — minimal history, all files
 
@@ -47,7 +47,7 @@ To clone a specific branch:
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Partial (sparse) clone — minimal files + selected folders only
+#### Partial (sparse) clone — minimal blobs + only selected folders
 
 This method uses partial clone and sparse-checkout (requires Git 2.25+ and is recommended for modern Git versions with partial clone support):
 
@@ -61,7 +61,7 @@ Navigate into the repository folder:
 cd ai-agents-for-beginners
 ```
 
-Specify the folders you need (example below includes two folders):
+Then specify the folders you need (example below shows two folders):
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
@@ -85,7 +85,7 @@ Remove-Item -Recurse -Force .git
 
 - In the terminal of the newly created Codespace, run one of the shallow/sparse clone commands above to bring only the lesson folders you need into the Codespace workspace.
 - Optional: after cloning inside Codespaces, remove .git to reclaim extra space (see removal commands above).
-- Note: If you prefer to open the repository directly in Codespaces (without an extra clone), be aware that Codespaces will set up the devcontainer environment and may still provision more than you need. Cloning a shallow copy inside a fresh Codespace gives you more control over disk usage.
+- Note: If you prefer to open the repository directly in Codespaces (without an extra clone), be aware that Codespaces will construct the devcontainer environment and may still provision more than you need. Cloning a shallow copy inside a fresh Codespace gives you more control over disk usage.
 
 #### Tips
 
@@ -104,11 +104,12 @@ The code samples use one of the following:
 2) AutoGen Framework + GitHub Models Marketplace. Labeled as (autogen.ipynb)
 
 **Requires Azure Subscription**:
+
 3) Azure AI Foundry + Azure AI Agent Service. Labeled as (azureaiagent.ipynb)
 
-We recommend trying all three types of examples to determine which works best for you.
+We encourage you to try all three types of examples to determine which works best for you.
 
-Your choice will determine the setup steps you need to follow below:
+Your choice will dictate the setup steps you need to follow below:
 
 ## Requirements
 
@@ -135,7 +136,7 @@ Your choice will determine the setup steps you need to follow below:
     venv\Scripts\activate
     ```
 
-- .NET 10+: For sample codes using .NET, install [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later. Verify your installed .NET SDK version:
+- .NET 10+: For sample codes using .NET, ensure you install [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later. Then, check your installed .NET SDK version:
 
     ```bash|powershell
     dotnet --list-sdks
@@ -145,7 +146,7 @@ Your choice will determine the setup steps you need to follow below:
 - Azure Subscription - For access to Azure AI Foundry
 - Azure AI Foundry Account - For access to the Azure AI Agent Service
 
-A `requirements.txt` file is included in the root of this repository, listing all the required Python packages for running the code samples.
+A `requirements.txt` file is included in the root of this repository, listing all the required Python packages to run the code samples.
 
 Install them by running the following command in your terminal at the root of the repository:
 
@@ -157,7 +158,7 @@ We recommend creating a Python virtual environment to avoid conflicts and issues
 
 ## Setup VSCode
 
-Ensure you are using the correct Python version in VSCode.
+Ensure you are using the correct version of Python in VSCode.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
@@ -167,9 +168,9 @@ Ensure you are using the correct Python version in VSCode.
 
 This course uses the GitHub Models Marketplace, which provides free access to Large Language Models (LLMs) for building AI Agents.
 
-To use GitHub Models, create a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+To use the GitHub Models, you need to create a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
-Do this by visiting your <a href="https://github.com/settings/personal-access-tokens" target="_blank">Personal Access Tokens settings</a> in your GitHub account.
+Do this by visiting your <a href="https://github.com/settings/personal-access-tokens" target="_blank">Personal Access Tokens settings</a> in your GitHub Account.
 
 Follow the [Principle of Least Privilege](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) when creating your token. Only grant the permissions necessary to run the code samples in this course.
 
@@ -181,7 +182,7 @@ Follow the [Principle of Least Privilege](https://docs.github.com/en/get-started
 
    ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.en.png)
 
-2. Provide a descriptive name for your token that reflects its purpose, making it easy to identify later.
+2. Enter a descriptive name for your token to make its purpose clear for future reference.
 
     🔐 Token Duration Recommendation
 
@@ -195,7 +196,7 @@ Follow the [Principle of Least Privilege](https://docs.github.com/en/get-started
 
     ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.en.png)
 
-4. Restrict the token's permissions: Under **Permissions**, click the **Account** tab, then click the "+ Add permissions" button. A dropdown will appear. Search for **Models** and check the box.
+4. Restrict the token's permissions: Under **Permissions**, click the **Account** tab, then click the "+ Add permissions" button. A dropdown will appear. Search for **Models** and check the box for it.
 
     ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.en.png)
 
@@ -221,7 +222,7 @@ Copy-Item .env.example .env
 
 This will copy the example file and create a `.env` in your directory, where you can fill in the values for the environment variables.
 
-Open the `.env` file in your preferred text editor and paste your token into the `GITHUB_TOKEN` field.
+Paste your copied token into the `GITHUB_TOKEN` field in the `.env` file using your preferred text editor.
 
 ![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.en.png)
 
@@ -233,9 +234,9 @@ You should now be able to run the code samples provided in this course.
 
 Follow the steps for creating a hub and project in Azure AI Foundry outlined here: [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
 
-After creating your project, retrieve the connection string for your project.
+Once your project is created, retrieve the connection string for your project.
 
-This can be done by visiting the **Overview** page of your project in the Azure AI Foundry portal.
+Do this by visiting the **Overview** page of your project in the Azure AI Foundry portal.
 
 ![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.en.png)
 
@@ -255,7 +256,7 @@ Copy-Item .env.example .env
 
 This will copy the example file and create a `.env` in your directory, where you can fill in the values for the environment variables.
 
-Open the `.env` file in your preferred text editor and paste your token into the `PROJECT_ENDPOINT` field.
+Paste your copied token into the `PROJECT_ENDPOINT` field in the `.env` file using your preferred text editor.
 
 ### Step 3: Sign in to Azure
 
@@ -314,16 +315,18 @@ Rather than hardcoding your credentials, we'll use a keyless connection with Azu
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
-## Need Help?
-If you encounter any problems while setting up, feel free to join our <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> or <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">submit an issue</a>.
+## Stuck Somewhere?
+If you encounter any problems running this setup, feel free to join our <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> or <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">open an issue</a>.
 
 ## Next Lesson
 
-You're now ready to execute the code for this course. Enjoy exploring the fascinating world of AI Agents!
+You are now ready to execute the code for this course. Enjoy diving deeper into the world of AI Agents!
 
 [Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:  
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we aim for accuracy, please note that automated translations may include errors or inaccuracies. The original document in its native language should be regarded as the authoritative source. For critical information, professional human translation is advised. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.
+This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please note that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
-  "translation_date": "2025-11-07T08:22:51+00:00",
+  "original_hash": "63b1a8f6e840df15934935b728e569f0",
+  "translation_date": "2025-12-03T13:44:21+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "de"
 }
@@ -19,7 +19,7 @@ Bevor Sie Ihr Repository klonen, treten Sie dem [AI Agents For Beginners Discord
 
 ## Klonen oder Forken dieses Repositories
 
-Um zu beginnen, klonen oder forken Sie bitte das GitHub-Repository. Dadurch erhalten Sie Ihre eigene Version des Kursmaterials, sodass Sie den Code ausführen, testen und anpassen können!
+Um zu beginnen, klonen oder forken Sie bitte das GitHub-Repository. Dadurch erhalten Sie Ihre eigene Version des Kursmaterials, mit der Sie den Code ausführen, testen und anpassen können!
 
 Dies können Sie tun, indem Sie auf den Link klicken, um <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">das Repository zu forken</a>.
 
@@ -29,11 +29,11 @@ Sie sollten nun Ihre eigene geforkte Version dieses Kurses unter folgendem Link 
 
 ### Shallow Clone (empfohlen für Workshops / Codespaces)
 
-  >Das vollständige Repository kann groß sein (~3 GB), wenn Sie die gesamte Historie und alle Dateien herunterladen. Wenn Sie nur am Workshop teilnehmen oder nur einige Lektionenordner benötigen, vermeidet ein Shallow Clone (oder ein Sparse Clone) den Großteil dieses Downloads, indem die Historie gekürzt und/oder Blobs übersprungen werden.
+  >Das vollständige Repository kann groß sein (~3 GB), wenn Sie die gesamte Historie und alle Dateien herunterladen. Wenn Sie nur am Workshop teilnehmen oder nur einige Lektionen benötigen, vermeidet ein Shallow Clone (oder Sparse Clone) den Großteil des Downloads, indem die Historie gekürzt und/oder Blobs übersprungen werden.
 
 #### Schnelles Shallow Clone — minimale Historie, alle Dateien
 
-Ersetzen Sie `<your-username>` in den untenstehenden Befehlen durch Ihre Fork-URL (oder die Upstream-URL, falls Sie dies bevorzugen).
+Ersetzen Sie `<your-username>` in den untenstehenden Befehlen durch Ihre Fork-URL (oder die Upstream-URL, falls bevorzugt).
 
 Um nur die neueste Commit-Historie zu klonen (kleiner Download):
 
@@ -49,7 +49,7 @@ git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai
 
 #### Partielles (Sparse) Clone — minimale Blobs + nur ausgewählte Ordner
 
-Dies verwendet partielles Klonen und Sparse-Checkout (erfordert Git 2.25+ und wird mit modernem Git mit Unterstützung für partielles Klonen empfohlen):
+Dies verwendet partielles Klonen und Sparse-Checkout (erfordert Git 2.25+ und wird mit moderner Git-Version mit Unterstützung für partielles Klonen empfohlen):
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -61,13 +61,13 @@ Wechseln Sie in den Repository-Ordner:
 cd ai-agents-for-beginners
 ```
 
-Geben Sie dann an, welche Ordner Sie möchten (das Beispiel unten zeigt zwei Ordner):
+Geben Sie dann die gewünschten Ordner an (Beispiel unten zeigt zwei Ordner):
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Nachdem Sie die Dateien geklont und überprüft haben, löschen Sie bitte die Repository-Metadaten, wenn Sie nur Dateien benötigen und Speicherplatz freigeben möchten (💀irreversibel — Sie verlieren alle Git-Funktionen: keine Commits, Pulls, Pushes oder Zugriff auf die Historie).
+Nachdem Sie die Dateien geklont und überprüft haben, können Sie, falls Sie nur Dateien benötigen und Speicherplatz freigeben möchten (keine Git-Historie), die Repository-Metadaten löschen (💀irreversibel — Sie verlieren alle Git-Funktionen: keine Commits, Pulls, Pushes oder Zugriff auf die Historie).
 
 ```bash
 # zsh/bash
@@ -85,7 +85,7 @@ Remove-Item -Recurse -Force .git
 
 - Führen Sie im Terminal des neu erstellten Codespaces einen der oben genannten Shallow/Sparse Clone-Befehle aus, um nur die benötigten Lektionenordner in den Codespace-Arbeitsbereich zu bringen.
 - Optional: Entfernen Sie nach dem Klonen innerhalb von Codespaces `.git`, um zusätzlichen Speicherplatz zurückzugewinnen (siehe obenstehende Löschbefehle).
-- Hinweis: Wenn Sie das Repository direkt in Codespaces öffnen möchten (ohne zusätzliches Klonen), beachten Sie, dass Codespaces die Devcontainer-Umgebung erstellt und möglicherweise mehr bereitstellt, als Sie benötigen. Das Klonen einer Shallow-Kopie innerhalb eines neuen Codespaces gibt Ihnen mehr Kontrolle über die Festplattennutzung.
+- Hinweis: Wenn Sie das Repository direkt in Codespaces öffnen möchten (ohne zusätzliches Klonen), beachten Sie, dass Codespaces die Devcontainer-Umgebung erstellt und möglicherweise mehr als nötig bereitstellt. Das Klonen einer Shallow-Kopie innerhalb eines frischen Codespaces gibt Ihnen mehr Kontrolle über die Speichernutzung.
 
 #### Tipps
 
@@ -104,6 +104,7 @@ Die Codebeispiele verwenden entweder:
 2) AutoGen Framework + GitHub Models Marketplace. Beschriftet als (autogen.ipynb)
 
 **Erfordert Azure-Abonnement**:
+
 3) Azure AI Foundry + Azure AI Agent Service. Beschriftet als (azureaiagent.ipynb)
 
 Wir empfehlen Ihnen, alle drei Arten von Beispielen auszuprobieren, um herauszufinden, welche am besten für Sie geeignet ist.
@@ -135,7 +136,7 @@ Die von Ihnen gewählte Option bestimmt, welche Einrichtungsschritte Sie unten b
     venv\Scripts\activate
     ```
 
-- .NET 10+: Für die Beispielcodes, die .NET verwenden, stellen Sie sicher, dass Sie das [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) oder später installieren. Überprüfen Sie dann Ihre installierte .NET SDK-Version:
+- .NET 10+: Für die Beispielcodes, die .NET verwenden, stellen Sie sicher, dass Sie [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) oder später installieren. Überprüfen Sie dann Ihre installierte .NET SDK-Version:
 
     ```bash|powershell
     dotnet --list-sdks
@@ -147,7 +148,7 @@ Die von Ihnen gewählte Option bestimmt, welche Einrichtungsschritte Sie unten b
 
 Wir haben eine `requirements.txt`-Datei im Stammverzeichnis dieses Repositories enthalten, die alle erforderlichen Python-Pakete enthält, um die Codebeispiele auszuführen.
 
-Sie können diese installieren, indem Sie den folgenden Befehl in Ihrem Terminal im Stammverzeichnis des Repositories ausführen:
+Sie können sie installieren, indem Sie den folgenden Befehl in Ihrem Terminal im Stammverzeichnis des Repositories ausführen:
 
 ```bash|powershell
 pip install -r requirements.txt
@@ -165,7 +166,7 @@ Stellen Sie sicher, dass Sie die richtige Python-Version in VSCode verwenden.
 
 ### Schritt 1: Abrufen Ihres GitHub Personal Access Token (PAT)
 
-Dieser Kurs nutzt den GitHub Models Marketplace, der kostenlosen Zugang zu großen Sprachmodellen (LLMs) bietet, die Sie zum Erstellen von KI-Agenten verwenden werden.
+Dieser Kurs nutzt den GitHub Models Marketplace, der kostenlosen Zugang zu Large Language Models (LLMs) bietet, die Sie zum Erstellen von KI-Agenten verwenden werden.
 
 Um die GitHub-Modelle zu verwenden, müssen Sie ein [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) erstellen.
 
@@ -186,16 +187,16 @@ Bitte folgen Sie dem [Prinzip der minimalen Rechtevergabe](https://docs.github.c
     🔐 Empfehlung für Token-Dauer
 
     Empfohlene Dauer: 30 Tage
-    Für eine sicherere Haltung können Sie eine kürzere Dauer wählen – wie z. B. 7 Tage 🛡️
+    Für eine sicherere Haltung können Sie eine kürzere Dauer wählen – z. B. 7 Tage 🛡️
     Es ist eine großartige Möglichkeit, sich ein persönliches Ziel zu setzen und den Kurs abzuschließen, während Ihre Lernmotivation hoch ist 🚀.
 
     ![Token-Name und Ablaufdatum](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.de.png)
 
-3. Begrenzen Sie den Umfang des Tokens auf Ihre Fork dieses Repositories.
+3. Begrenzen Sie den Umfang des Tokens auf Ihren Fork dieses Repositories.
 
     ![Umfang auf Fork-Repository begrenzen](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.de.png)
 
-4. Beschränken Sie die Berechtigungen des Tokens: Unter **Permissions** klicken Sie auf den Tab **Account** und dann auf die Schaltfläche "+ Add permissions". Es erscheint ein Dropdown-Menü. Bitte suchen Sie nach **Models** und aktivieren Sie das Kästchen dafür.
+4. Beschränken Sie die Berechtigungen des Tokens: Unter **Permissions** klicken Sie auf die Registerkarte **Account** und dann auf die Schaltfläche "+ Add permissions". Es erscheint ein Dropdown-Menü. Suchen Sie nach **Models** und aktivieren Sie das Kontrollkästchen dafür.
 
     ![Models-Berechtigung hinzufügen](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.de.png)
 
@@ -231,7 +232,7 @@ Sie sollten nun in der Lage sein, die Codebeispiele dieses Kurses auszuführen.
 
 ### Schritt 1: Abrufen Ihres Azure-Projektendpunkts
 
-Folgen Sie den Schritten zur Erstellung eines Hubs und Projekts in Azure AI Foundry, die hier zu finden sind: [Hub-Ressourcenübersicht](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
+Befolgen Sie die Schritte zur Erstellung eines Hubs und Projekts in Azure AI Foundry, die hier zu finden sind: [Hub-Ressourcenübersicht](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
 
 Nachdem Sie Ihr Projekt erstellt haben, müssen Sie die Verbindungszeichenfolge für Ihr Projekt abrufen.
 
@@ -283,7 +284,7 @@ Wenn Sie diese Beispiele ausführen möchten, müssen Sie die folgenden Umgebung
 
 - `AZURE_OPENAI_RESOURCE_GROUP` - Gehen Sie zu **Projekteigenschaften** auf der **Übersicht**-Seite des **Management Centers**.
 
-- `GLOBAL_LLM_SERVICE` - Unter **Verbundene Ressourcen** finden Sie den **Azure AI Services** Verbindungsnamen. Wenn nicht aufgeführt, überprüfen Sie das **Azure-Portal** unter Ihrer Ressourcengruppe nach dem Namen der AI Services-Ressource.
+- `GLOBAL_LLM_SERVICE` - Unter **Verbundene Ressourcen** finden Sie den Verbindungsnamen für **Azure AI Services**. Falls nicht aufgeführt, überprüfen Sie das **Azure-Portal** unter Ihrer Ressourcengruppe nach dem Ressourcennamen der AI Services.
 
 ### Modelle + Endpunkte-Seite
 
@@ -299,7 +300,7 @@ Wenn Sie diese Beispiele ausführen möchten, müssen Sie die folgenden Umgebung
 
 - `AZURE_SEARCH_SERVICE_ENDPOINT` - Finden Sie Ihre **Azure AI Search**-Ressource, klicken Sie darauf und sehen Sie **Übersicht**.
 
-- `AZURE_SEARCH_API_KEY` - Gehen Sie dann zu **Einstellungen** und dann **Schlüssel**, um den primären oder sekundären Admin-Schlüssel zu kopieren.
+- `AZURE_SEARCH_API_KEY` - Gehen Sie dann zu **Einstellungen** und dann **Schlüssel**, um den primären oder sekundären Administratorschlüssel zu kopieren.
 
 ### Externe Webseite
 
@@ -315,7 +316,7 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
 ## Irgendwo festgefahren?
-Wenn Sie Probleme beim Ausführen dieses Setups haben, treten Sie unserem <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> bei oder <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">erstellen Sie ein Issue</a>.
+Wenn Sie Probleme mit diesem Setup haben, treten Sie unserem <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> bei oder <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">erstellen Sie ein Issue</a>.
 
 ## Nächste Lektion
 
@@ -325,5 +326,7 @@ Sie sind jetzt bereit, den Code für diesen Kurs auszuführen. Viel Spaß beim L
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Haftungsausschluss**:  
 Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner ursprünglichen Sprache sollte als maßgebliche Quelle betrachtet werden. Für kritische Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die sich aus der Nutzung dieser Übersetzung ergeben.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

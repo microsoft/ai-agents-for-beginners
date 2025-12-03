@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
-  "translation_date": "2025-11-07T08:53:06+00:00",
+  "original_hash": "63b1a8f6e840df15934935b728e569f0",
+  "translation_date": "2025-12-03T15:12:53+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "lt"
 }
@@ -21,21 +21,21 @@ Prieš pradėdami klonuoti savo saugyklą, prisijunkite prie [AI Agents For Begi
 
 Norėdami pradėti, prašome klonuoti arba šakoti GitHub saugyklą. Tai sukurs jūsų asmeninę kurso medžiagos versiją, kad galėtumėte paleisti, testuoti ir koreguoti kodą!
 
-Tai galite padaryti paspaudę nuorodą <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">šakoti saugyklą</a>.
+Tai galite padaryti paspaudę nuorodą <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">šakoti saugyklą</a>
 
 Dabar turėtumėte turėti savo šakotą šio kurso versiją šioje nuorodoje:
 
 ![Šakota saugykla](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.lt.png)
 
-### Paviršutinis klonavimas (rekomenduojama dirbtuvėms / Codespaces)
+### Paviršutiniškas klonavimas (rekomenduojama dirbtuvėms / Codespaces)
 
-  >Visa saugykla gali būti didelė (~3 GB), kai atsisiunčiate visą istoriją ir visus failus. Jei dalyvaujate tik dirbtuvėse arba jums reikia tik kelių pamokų aplankų, paviršutinis klonavimas (arba retas klonavimas) leidžia išvengti didžiosios dalies atsisiuntimo, sutrumpinant istoriją ir/arba praleidžiant failus.
+  >Visa saugykla gali būti didelė (~3 GB), kai atsisiunčiate visą istoriją ir visus failus. Jei dalyvaujate tik dirbtuvėse arba jums reikia tik kelių pamokų aplankų, paviršutiniškas klonavimas (arba dalinis klonavimas) leidžia išvengti didžiosios dalies atsisiuntimo, sutrumpinant istoriją ir/arba praleidžiant failus.
 
-#### Greitas paviršutinis klonavimas — minimalus istorijos kiekis, visi failai
+#### Greitas paviršutiniškas klonavimas — minimalus istorijos kiekis, visi failai
 
-Pakeiskite `<your-username>` žemiau pateiktuose komandose savo šakos URL (arba pirminį URL, jei norite).
+Pakeiskite `<your-username>` žemiau pateiktuose komandose savo šakos URL (arba pirminį URL, jei pageidaujate).
 
-Norėdami klonuoti tik naujausią istoriją (mažas atsisiuntimas):
+Norėdami klonuoti tik naujausią istorijos įrašą (mažas atsisiuntimas):
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -47,9 +47,9 @@ Norėdami klonuoti konkrečią šaką:
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Dalinis (retas) klonavimas — minimalūs failai + tik pasirinkti aplankai
+#### Dalinis (dalinis) klonavimas — minimalūs failai + tik pasirinkti aplankai
 
-Tai naudoja dalinį klonavimą ir retą patikrinimą (reikalinga Git 2.25+ ir rekomenduojama moderni Git versija su dalinio klonavimo palaikymu):
+Tai naudoja dalinį klonavimą ir dalinį patikrinimą (reikalinga Git 2.25+ ir rekomenduojama moderni Git versija su dalinio klonavimo palaikymu):
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -61,13 +61,13 @@ Pereikite į saugyklos aplanką:
 cd ai-agents-for-beginners
 ```
 
-Tada nurodykite, kuriuos aplankus norite (žemiau pateiktas pavyzdys rodo du aplankus):
+Tada nurodykite, kuriuos aplankus norite (žemiau pateiktame pavyzdyje rodomi du aplankai):
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Po klonavimo ir failų patikrinimo, jei jums reikia tik failų ir norite atlaisvinti vietą (be Git istorijos), prašome ištrinti saugyklos metaduomenis (💀negrįžtama — prarasite visą Git funkcionalumą: jokių įrašų, traukimų, stūmimų ar istorijos prieigos).
+Po klonavimo ir failų patikrinimo, jei jums reikia tik failų ir norite atlaisvinti vietą (be git istorijos), prašome ištrinti saugyklos metaduomenis (💀negrįžtama — prarasite visą Git funkcionalumą: jokių įrašų, traukimų, stūmimų ar istorijos prieigos).
 
 ```bash
 # zsh/bash
@@ -83,18 +83,18 @@ Remove-Item -Recurse -Force .git
 
 - Sukurkite naują Codespace šiai saugyklai per [GitHub UI](https://github.com/codespaces).  
 
-- Naujoje Codespace terminale paleiskite vieną iš paviršutinių/retų klonavimo komandų, kad įtrauktumėte tik jums reikalingus pamokų aplankus į Codespace darbo aplinką.
+- Naujoje Codespace terminale paleiskite vieną iš paviršutiniško/dalinio klonavimo komandų, kad įtrauktumėte tik jums reikalingus pamokų aplankus į Codespace darbo aplinką.
 - Pasirinktinai: po klonavimo Codespaces viduje, pašalinkite .git, kad atgautumėte papildomą vietą (žr. pašalinimo komandas aukščiau).
-- Pastaba: Jei norite tiesiogiai atidaryti saugyklą Codespaces (be papildomo klonavimo), atkreipkite dėmesį, kad Codespaces sukurs devcontainer aplinką ir vis tiek gali paruošti daugiau nei jums reikia. Klonuojant paviršutinę kopiją šviežioje Codespace suteikiama daugiau kontrolės disko naudojimui.
+- Pastaba: Jei pageidaujate atidaryti saugyklą tiesiogiai Codespaces (be papildomo klonavimo), atkreipkite dėmesį, kad Codespaces sukurs devcontainer aplinką ir vis tiek gali paruošti daugiau nei jums reikia. Klonuojant paviršutinišką kopiją šviežioje Codespace suteikia daugiau kontrolės disko naudojimui.
 
 #### Patarimai
 
 - Visada pakeiskite klonavimo URL savo šaka, jei norite redaguoti/įrašyti.
-- Jei vėliau jums reikės daugiau istorijos ar failų, galite juos gauti arba koreguoti retą patikrinimą, kad įtrauktumėte papildomus aplankus.
+- Jei vėliau jums reikia daugiau istorijos ar failų, galite juos gauti arba koreguoti dalinį patikrinimą, kad įtrauktumėte papildomus aplankus.
 
 ## Kodo paleidimas
 
-Šis kursas siūlo seriją Jupyter Notebooks, kuriuos galite paleisti, kad praktiškai išbandytumėte AI agentų kūrimą.
+Šis kursas siūlo seriją Jupyter Notebooks, kuriuos galite paleisti, kad praktiškai išmoktumėte kurti AI agentus.
 
 Kodo pavyzdžiai naudoja:
 
@@ -104,16 +104,17 @@ Kodo pavyzdžiai naudoja:
 2) AutoGen Framework + GitHub Models Marketplace. Pažymėta kaip (autogen.ipynb)
 
 **Reikalinga Azure prenumerata**:
+
 3) Azure AI Foundry + Azure AI Agent Service. Pažymėta kaip (azureaiagent.ipynb)
 
 Rekomenduojame išbandyti visus tris pavyzdžių tipus, kad pamatytumėte, kuris jums geriausiai tinka.
 
-Kurią parinktį pasirinksite, tai nulems, kokius nustatymo veiksmus turėsite atlikti toliau:
+Kurią parinktį pasirinksite, tai nulems, kokius nustatymo veiksmus turėsite atlikti žemiau:
 
 ## Reikalavimai
 
 - Python 3.12+
-  - **PASTABA**: Jei neturite įdiegto Python3.12, įsitikinkite, kad jį įdiegėte. Tada sukurkite savo venv naudodami python3.12, kad užtikrintumėte, jog iš requirements.txt failo bus įdiegtos tinkamos versijos.
+  - **PASTABA**: Jei neturite Python3.12 įdiegto, įsitikinkite, kad jį įdiegėte. Tada sukurkite savo venv naudodami python3.12, kad užtikrintumėte, jog teisingos versijos bus įdiegtos iš requirements.txt failo.
   
     >Pavyzdys
 
@@ -135,7 +136,7 @@ Kurią parinktį pasirinksite, tai nulems, kokius nustatymo veiksmus turėsite a
     venv\Scripts\activate
     ```
 
-- .NET 10+: Norėdami naudoti pavyzdinius kodus su .NET, įsitikinkite, kad įdiegėte [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) arba naujesnę versiją. Tada patikrinkite įdiegtą .NET SDK versiją:
+- .NET 10+: Norėdami naudoti pavyzdinius kodus su .NET, įsitikinkite, kad įdiegėte [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) arba naujesnę versiją. Tada patikrinkite savo įdiegtą .NET SDK versiją:
 
     ```bash|powershell
     dotnet --list-sdks
@@ -145,7 +146,7 @@ Kurią parinktį pasirinksite, tai nulems, kokius nustatymo veiksmus turėsite a
 - Azure prenumerata - Norint pasiekti Azure AI Foundry
 - Azure AI Foundry paskyra - Norint pasiekti Azure AI Agent Service
 
-Šios saugyklos šaknyje įtraukėme `requirements.txt` failą, kuriame yra visi reikalingi Python paketai, kad galėtumėte paleisti kodo pavyzdžius.
+Mes įtraukėme `requirements.txt` failą šios saugyklos šaknyje, kuriame yra visi reikalingi Python paketai, kad galėtumėte paleisti kodo pavyzdžius.
 
 Juos galite įdiegti paleisdami šią komandą savo terminale saugyklos šaknyje:
 
@@ -161,19 +162,19 @@ Rekomenduojame sukurti Python virtualią aplinką, kad išvengtumėte konfliktų
 
 ![vaizdas](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Nustatymas pavyzdžiams naudojant GitHub modelius 
+## Nustatymas pavyzdžiams naudojant GitHub Models 
 
 ### 1 žingsnis: Gaukite savo GitHub asmeninio prieigos žetoną (PAT)
 
-Šis kursas naudoja GitHub Models Marketplace, suteikiant nemokamą prieigą prie didelių kalbos modelių (LLMs), kuriuos naudosite AI agentų kūrimui.
+Šis kursas naudoja GitHub Models Marketplace, suteikiant nemokamą prieigą prie didelių kalbos modelių (LLMs), kuriuos naudosite kurdami AI agentus.
 
-Norėdami naudoti GitHub modelius, turėsite sukurti [GitHub asmeninio prieigos žetoną](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+Norėdami naudoti GitHub Models, turėsite sukurti [GitHub asmeninio prieigos žetoną](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 Tai galite padaryti eidami į savo <a href="https://github.com/settings/personal-access-tokens" target="_blank">Asmeninio prieigos žetonų nustatymus</a> savo GitHub paskyroje.
 
-Prašome laikytis [Mažiausio privilegijų principo](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) kuriant savo žetoną. Tai reiškia, kad turėtumėte suteikti žetonui tik tas teises, kurių reikia šio kurso kodo pavyzdžiams paleisti.
+Prašome laikytis [Mažiausio privilegijų principo](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) kuriant savo žetoną. Tai reiškia, kad turėtumėte suteikti žetonui tik tas teises, kurių reikia, kad galėtumėte paleisti šio kurso kodo pavyzdžius.
 
-1. Pasirinkite `Fine-grained tokens` parinktį kairėje ekrano pusėje, eidami į **Developer settings**.
+1. Pasirinkite `Fine-grained tokens` parinktį kairėje ekrano pusėje, eidami į **Kūrėjo nustatymus**
 
    ![Kūrėjo nustatymai](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.lt.png)
 
@@ -186,28 +187,28 @@ Prašome laikytis [Mažiausio privilegijų principo](https://docs.github.com/en/
     🔐 Žetono trukmės rekomendacija
 
     Rekomenduojama trukmė: 30 dienų
-    Dėl saugesnės pozicijos galite pasirinkti trumpesnį laikotarpį, pvz., 7 dienas 🛡️
+    Dėl saugesnės pozicijos galite pasirinkti trumpesnį laikotarpį—pvz., 7 dienas 🛡️
     Tai puikus būdas nustatyti asmeninį tikslą ir baigti kursą, kol jūsų mokymosi tempas yra aukštas 🚀.
 
     ![Žetono pavadinimas ir galiojimo data](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.lt.png)
 
-3. Apribokite žetono taikymo sritį savo šakai šioje saugykloje.
+3. Apribokite žetono apimtį savo šakai šioje saugykloje.
 
-    ![Apriboti taikymo sritį šakos saugyklai](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.lt.png)
+    ![Apriboti apimtį šakos saugyklai](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.lt.png)
 
-4. Apribokite žetono teises: Skiltyje **Permissions**, spustelėkite **Account** kortelę ir paspauskite "+ Add permissions" mygtuką. Atsiras išskleidžiamasis meniu. Prašome ieškoti **Models** ir pažymėti langelį.
+4. Apribokite žetono teises: Skiltyje **Teisės**, spustelėkite **Paskyros** skirtuką ir spustelėkite "+ Pridėti teises" mygtuką. Atsiras išskleidžiamasis meniu. Prašome ieškoti **Models** ir pažymėti langelį.
 
-    ![Pridėti modelių leidimą](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.lt.png)
+    ![Pridėti Models teisę](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.lt.png)
 
-5. Patikrinkite reikiamus leidimus prieš generuodami žetoną. ![Patikrinti leidimus](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.lt.png)
+5. Patikrinkite reikiamas teises prieš generuodami žetoną. ![Patikrinti teises](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.lt.png)
 
-6. Prieš generuodami žetoną, įsitikinkite, kad esate pasiruošę saugoti žetoną saugioje vietoje, pvz., slaptažodžių valdymo saugykloje, nes jis nebus rodomas dar kartą po sukūrimo. ![Saugoti žetoną saugiai](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.lt.png)
+6. Prieš generuodami žetoną, įsitikinkite, kad esate pasiruošę saugoti žetoną saugioje vietoje, pvz., slaptažodžių valdymo saugykloje, nes jis nebus rodomas dar kartą po jo sukūrimo. ![Saugoti žetoną saugiai](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.lt.png)
 
 Nukopijuokite naują žetoną, kurį ką tik sukūrėte. Dabar pridėsite jį į savo `.env` failą, įtrauktą į šį kursą.
 
 ### 2 žingsnis: Sukurkite savo `.env` failą
 
-Norėdami sukurti `.env` failą, paleiskite šią komandą savo terminale.
+Norėdami sukurti savo `.env` failą, paleiskite šią komandą savo terminale.
 
 ```bash
 # zsh/bash
@@ -231,7 +232,7 @@ Dabar turėtumėte galėti paleisti šio kurso kodo pavyzdžius.
 
 ### 1 žingsnis: Gaukite savo Azure projekto galutinį tašką
 
-Sekite žingsnius, kaip sukurti mazgą ir projektą Azure AI Foundry, pateiktus čia: [Mazgų išteklių apžvalga](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
+Sekite žingsnius, kaip sukurti centrą ir projektą Azure AI Foundry, pateiktus čia: [Centro išteklių apžvalga](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
 
 Kai sukursite savo projektą, turėsite gauti savo projekto prisijungimo eilutę.
 
@@ -241,7 +242,7 @@ Tai galite padaryti eidami į **Apžvalgos** puslapį savo projekte Azure AI Fou
 
 ### 2 žingsnis: Sukurkite savo `.env` failą
 
-Norėdami sukurti `.env` failą, paleiskite šią komandą savo terminale.
+Norėdami sukurti savo `.env` failą, paleiskite šią komandą savo terminale.
 
 ```bash
 # zsh/bash
@@ -263,7 +264,7 @@ Kaip saugumo geriausia praktika, naudosime [autentifikaciją be raktų](https://
 
 Tada atidarykite terminalą ir paleiskite `az login --use-device-code`, kad prisijungtumėte prie savo Azure paskyros.
 
-Kai prisijungsite, terminale pasirinkite savo prenumeratą.
+Kai prisijungsite, pasirinkite savo prenumeratą terminale.
 
 ## Papildomi aplinkos kintamieji - Azure Search ir Azure OpenAI 
 
@@ -277,19 +278,19 @@ Jei norite paleisti šiuos pavyzdžius, turėsite pridėti šiuos aplinkos kinta
 
 - `AZURE_AI_PROJECT_NAME` - Pažvelkite į **Apžvalgos** puslapio viršų savo projekte.
 
-- `AZURE_OPENAI_SERVICE` - Raskite tai **Įtrauktų galimybių** kortelėje **Azure OpenAI Service** **Apžvalgos** puslapyje.
+- `AZURE_OPENAI_SERVICE` - Raskite tai **Įtrauktų galimybių** skirtuke **Azure OpenAI Service** **Apžvalgos** puslapyje.
 
 ### Valdymo centras
 
 - `AZURE_OPENAI_RESOURCE_GROUP` - Eikite į **Projekto savybes** **Apžvalgos** puslapyje **Valdymo centre**.
 
-- `GLOBAL_LLM_SERVICE` - Skiltyje **Susieti ištekliai**, raskite **Azure AI Services** prisijungimo pavadinimą. Jei neįtraukta, patikrinkite **Azure portalą** savo išteklių grupėje dėl AI Services išteklių pavadinimo.
+- `GLOBAL_LLM_SERVICE` - Skiltyje **Susiję ištekliai**, raskite **Azure AI Services** prisijungimo pavadinimą. Jei nerandate, patikrinkite **Azure portalą** savo išteklių grupėje dėl AI Services išteklių pavadinimo.
 
-### Modeliai + Galutiniai taškai puslapis
+### Modeliai + galutiniai taškai puslapis
 
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Pasirinkite savo įterpimo modelį (pvz., `text-embedding-ada-002`) ir atkreipkite dėmesį į **Diegimo pavadinimą** iš modelio detalių.
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Pasirinkite savo įterpimo modelį (pvz., `text-embedding-ada-002`) ir užsirašykite **Diegimo pavadinimą** iš modelio detalių.
 
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Pasirinkite savo pokalbio modelį (pvz., `gpt-4o-mini`) ir atkreipkite dėmesį į **Diegimo pavadinimą** iš modelio detalių.
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Pasirinkite savo pokalbio modelį (pvz., `gpt-4o-mini`) ir užsirašykite **Diegimo pavadinimą** iš modelio detalių.
 
 ### Azure portalas
 
@@ -307,15 +308,8 @@ Jei norite paleisti šiuos pavyzdžius, turėsite pridėti šiuos aplinkos kinta
 
 ### Nustatykite autentifikaciją be raktų
 
-Užuot kodavę savo kredencialus, naudosime autentifikaciją be raktų su Azure OpenAI. Tam importuosime `DefaultAzureCredential` ir vėliau iškviesime `DefaultAzureCredential` funkciją, kad gautume kredencialą.
-
-```python
-# Python
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
-```
-
-## Užstrigote kažkur?
-Jei kyla problemų naudojant šią sąranką, prisijunkite prie mūsų <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI bendruomenės Discord</a> arba <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">sukurkite problemą</a>.
+Užuot kodavę savo kredencialus, naudosime ryšį be raktų su Azure OpenAI. Tam importuosime `DefaultAzureCredential` ir vėliau iškviesime `DefaultAzureCredential` funkciją, kad g
+Jei kyla problemų vykdant šį nustatymą, prisijunkite prie mūsų <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> arba <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">sukurkite problemos pranešimą</a>.
 
 ## Kita pamoka
 
@@ -325,5 +319,7 @@ Dabar esate pasiruošę vykdyti šio kurso kodą. Smagaus mokymosi apie AI agent
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Dėl svarbios informacijos rekomenduojama profesionali žmogaus vertimo paslauga. Mes neprisiimame atsakomybės už nesusipratimus ar neteisingus aiškinimus, atsiradusius naudojant šį vertimą.
+Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama naudoti profesionalų žmogaus vertimą. Mes neprisiimame atsakomybės už nesusipratimus ar neteisingus interpretavimus, atsiradusius dėl šio vertimo naudojimo.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
