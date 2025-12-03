@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
-  "translation_date": "2025-11-07T08:26:41+00:00",
+  "original_hash": "63b1a8f6e840df15934935b728e569f0",
+  "translation_date": "2025-12-03T13:55:49+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "mo"
 }
@@ -11,45 +11,45 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 簡介
 
-本課程將介紹如何運行課程中的代碼範例。
+這節課將介紹如何運行本課程的代碼範例。
 
-## 加入其他學習者並獲得幫助
+## 加入其他學員並獲得幫助
 
-在開始克隆您的倉庫之前，請加入 [AI Agents For Beginners Discord 頻道](https://aka.ms/ai-agents/discord)，以獲得設置幫助、課程相關問題的解答，或與其他學習者交流。
+在開始複製您的倉庫之前，請加入 [AI Agents For Beginners Discord 頻道](https://aka.ms/ai-agents/discord)，以獲得設置幫助、課程相關問題的解答，或與其他學員交流。
 
-## 克隆或分叉此倉庫
+## 複製或分叉此倉庫
 
-首先，請克隆或分叉 GitHub 倉庫。這將創建課程材料的個人版本，方便您運行、測試和調整代碼！
+首先，請複製或分叉 GitHub 倉庫。這將創建您自己的課程材料版本，方便您運行、測試和調整代碼！
 
 您可以通過點擊以下鏈接來 <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">分叉倉庫</a>
 
-現在，您應該擁有課程的分叉版本，鏈接如下：
+現在，您應該擁有以下鏈接中的課程分叉版本：
 
 ![分叉倉庫](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.mo.png)
 
-### 淺克隆（建議用於工作坊 / Codespaces）
+### 淺複製（建議用於工作坊 / Codespaces）
 
-  >完整倉庫可能很大（約 3 GB），如果您只參加工作坊或只需要部分課程文件夾，淺克隆（或稀疏克隆）可以避免下載大部分內容，通過截斷歷史記錄或跳過文件。
+  >完整倉庫可能很大（約 3 GB），當您下載完整歷史記錄和所有文件時。如果您僅參加工作坊或僅需要部分課程文件夾，淺複製（或稀疏複製）可以通過截斷歷史記錄和/或跳過文件來避免大部分下載。
 
-#### 快速淺克隆 — 最小歷史記錄，所有文件
+#### 快速淺複製 — 最小歷史記錄，所有文件
 
 在以下命令中將 `<your-username>` 替換為您的分叉 URL（或如果您更喜歡，使用上游 URL）。
 
-僅克隆最新提交歷史記錄（下載量小）：
+僅複製最新提交歷史記錄（小下載量）：
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-克隆特定分支：
+複製特定分支：
 
 ```bash|powershell
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### 部分（稀疏）克隆 — 最小文件 + 只選擇特定文件夾
+#### 部分（稀疏）複製 — 最小文件 + 僅選定文件夾
 
-此方法使用部分克隆和稀疏檢出（需要 Git 2.25+，建議使用支持部分克隆的現代 Git）：
+此方法使用部分複製和稀疏檢出（需要 Git 2.25+，並建議使用支持部分複製的現代 Git）：
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -67,7 +67,7 @@ cd ai-agents-for-beginners
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-克隆並驗證文件後，如果您只需要文件並希望釋放空間（無 Git 歷史記錄），請刪除倉庫元數據（💀不可逆 — 您將失去所有 Git 功能：無提交、拉取、推送或歷史記錄訪問）。
+複製並驗證文件後，如果您僅需要文件並希望釋放空間（無 git 歷史記錄），請刪除倉庫元數據（💀不可逆 — 您將失去所有 Git 功能：無提交、拉取、推送或歷史訪問）。
 
 ```bash
 # zsh/bash
@@ -79,24 +79,24 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### 使用 GitHub Codespaces（建議避免本地大文件下載）
+#### 使用 GitHub Codespaces（建議避免本地大下載）
 
 - 通過 [GitHub UI](https://github.com/codespaces) 為此倉庫創建新的 Codespace。
 
-- 在新創建的 Codespace 的終端中，運行上述淺克隆/稀疏克隆命令，僅將所需的課程文件夾帶入 Codespace 工作區。
-- 可選：在 Codespaces 中克隆後，移除 .git 以回收額外空間（請參考上述刪除命令）。
-- 注意：如果您更喜歡直接在 Codespaces 中打開倉庫（不進行額外克隆），請注意 Codespaces 會構建 devcontainer 環境，可能仍然會配置超出您需求的內容。在新的 Codespace 中克隆淺副本可以更好地控制磁盤使用。
+- 在新創建的 Codespace 的終端中，運行上述淺複製/稀疏複製命令，僅將您需要的課程文件夾帶入 Codespace 工作區。
+- 可選：在 Codespaces 中複製後，移除 .git 以回收額外空間（請參考上述移除命令）。
+- 注意：如果您更喜歡直接在 Codespaces 中打開倉庫（無需額外複製），請注意 Codespaces 將構建開發容器環境，可能仍會配置超出您需要的內容。在新 Codespace 中複製淺副本可讓您更好地控制磁盤使用。
 
 #### 提示
 
-- 如果您想編輯/提交，請始終替換克隆 URL 為您的分叉。
-- 如果您之後需要更多歷史記錄或文件，可以拉取它們或調整稀疏檢出以包含其他文件夾。
+- 如果您想編輯/提交，請始終替換分叉的克隆 URL。
+- 如果您稍後需要更多歷史記錄或文件，可以提取它們或調整稀疏檢出以包含其他文件夾。
 
 ## 運行代碼
 
-本課程提供一系列 Jupyter Notebook，您可以通過它們親身體驗如何構建 AI Agents。
+本課程提供一系列 Jupyter Notebooks，您可以通過它們獲得構建 AI Agents 的實踐經驗。
 
-代碼範例使用以下工具：
+代碼範例使用以下方式：
 
 **需要 GitHub 帳戶 - 免費**：
 
@@ -104,9 +104,10 @@ Remove-Item -Recurse -Force .git
 2) AutoGen Framework + GitHub Models Marketplace。標記為 (autogen.ipynb)
 
 **需要 Azure 訂閱**：
+
 3) Azure AI Foundry + Azure AI Agent Service。標記為 (azureaiagent.ipynb)
 
-我們鼓勵您嘗試所有三種類型的範例，看看哪一種最適合您。
+我們鼓勵您嘗試所有三種類型的範例，以了解哪一種最適合您。
 
 無論您選擇哪種選項，都將決定您需要遵循的設置步驟：
 
@@ -135,7 +136,7 @@ Remove-Item -Recurse -Force .git
     venv\Scripts\activate
     ```
 
-- .NET 10+: 對於使用 .NET 的示例代碼，請確保安裝 [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) 或更高版本。然後檢查您安裝的 .NET SDK 版本：
+- .NET 10+: 對於使用 .NET 的代碼範例，請確保安裝 [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) 或更高版本。然後檢查您安裝的 .NET SDK 版本：
 
     ```bash|powershell
     dotnet --list-sdks
@@ -169,11 +170,11 @@ pip install -r requirements.txt
 
 要使用 GitHub Models，您需要創建 [GitHub 個人訪問令牌](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)。
 
-您可以通過訪問 GitHub 帳戶中的 <a href="https://github.com/settings/personal-access-tokens" target="_blank">個人訪問令牌設置</a> 來完成此操作。
+您可以通過訪問您的 GitHub 帳戶中的 <a href="https://github.com/settings/personal-access-tokens" target="_blank">個人訪問令牌設置</a> 來完成此操作。
 
 請遵循 [最小特權原則](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) 創建令牌。這意味著您應僅授予令牌運行本課程代碼範例所需的權限。
 
-1. 在屏幕左側的 **開發者設置** 中選擇 `精細化令牌` 選項。
+1. 在屏幕左側的 **開發者設置** 中選擇 `細粒度令牌` 選項。
 
    ![開發者設置](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.mo.png)
 
@@ -181,13 +182,13 @@ pip install -r requirements.txt
 
    ![生成令牌](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.mo.png)
 
-2. 為您的令牌輸入一個描述性名稱，反映其用途，方便日後識別。
+2. 為您的令牌輸入一個描述性名稱，反映其用途，方便以後識別。
 
     🔐 令牌有效期建議
 
     建議有效期：30 天
-    為了更安全，可以選擇更短的期限，例如 7 天 🛡️
-    這是一個很好的方式來設置個人目標並在學習動力高漲時完成課程 🚀。
+    為了更安全，您可以選擇更短的期限，例如 7 天 🛡️
+    這是一個很好的方式來設置個人目標並完成課程，同時保持學習動力 🚀。
 
     ![令牌名稱和到期日期](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.mo.png)
 
@@ -195,13 +196,13 @@ pip install -r requirements.txt
 
     ![限制範圍到分叉倉庫](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.mo.png)
 
-4. 限制令牌的權限：在 **權限** 下，點擊 **帳戶** 標籤，然後點擊 "+ 添加權限" 按鈕。會出現一個下拉菜單。請搜索 **Models** 並勾選它。
+4. 限制令牌的權限：在 **權限** 下，點擊 **帳戶** 標籤，然後點擊 "+ 添加權限" 按鈕。將出現下拉菜單。請搜索 **Models** 並勾選它。
 
     ![添加 Models 權限](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.mo.png)
 
 5. 在生成令牌之前，請驗證所需的權限。 ![驗證權限](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.mo.png)
 
-6. 在生成令牌之前，確保您已準備好將令牌存儲在安全的地方，例如密碼管理器保險庫，因為生成後不會再次顯示。 ![安全存儲令牌](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.mo.png)
+6. 在生成令牌之前，請確保您準備好將令牌存儲在安全的地方，例如密碼管理器保險庫，因為生成後將無法再次查看。 ![安全存儲令牌](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.mo.png)
 
 複製您剛剛創建的新令牌。現在，您需要將其添加到本課程包含的 `.env` 文件中。
 
@@ -221,17 +222,17 @@ Copy-Item .env.example .env
 
 這將複製示例文件並在您的目錄中創建 `.env`，您需要在其中填寫環境變量的值。
 
-複製您的令牌後，打開您喜歡的文本編輯器中的 `.env` 文件，並將令牌粘貼到 `GITHUB_TOKEN` 字段中。
+複製令牌後，使用您喜歡的文本編輯器打開 `.env` 文件，並將令牌粘貼到 `GITHUB_TOKEN` 字段中。
 
 ![GitHub Token 字段](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.mo.png)
 
-現在，您應該可以運行本課程的代碼範例。
+現在，您應該能夠運行本課程的代碼範例。
 
 ## 使用 Azure AI Foundry 和 Azure AI Agent Service 的範例設置
 
 ### 步驟 1：獲取您的 Azure 項目端點
 
-按照此處的步驟創建 Azure AI Foundry 中的 hub 和項目：[Hub 資源概述](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
+請按照此處的步驟創建 Azure AI Foundry 中的 hub 和項目：[Hub 資源概述](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
 
 創建項目後，您需要獲取項目的連接字符串。
 
@@ -255,7 +256,7 @@ Copy-Item .env.example .env
 
 這將複製示例文件並在您的目錄中創建 `.env`，您需要在其中填寫環境變量的值。
 
-複製您的令牌後，打開您喜歡的文本編輯器中的 `.env` 文件，並將令牌粘貼到 `PROJECT_ENDPOINT` 字段中。
+複製令牌後，使用您喜歡的文本編輯器打開 `.env` 文件，並將令牌粘貼到 `PROJECT_ENDPOINT` 字段中。
 
 ### 步驟 3：登錄 Azure
 
@@ -267,7 +268,7 @@ Copy-Item .env.example .env
 
 ## 額外環境變量 - Azure Search 和 Azure OpenAI 
 
-對於 Agentic RAG 課程 - 第 5 課 - 有些範例使用 Azure Search 和 Azure OpenAI。
+對於 Agentic RAG 課程 - 第 5 課 - 有使用 Azure Search 和 Azure OpenAI 的範例。
 
 如果您想運行這些範例，您需要在 `.env` 文件中添加以下環境變量：
 
@@ -293,7 +294,7 @@ Copy-Item .env.example .env
 
 ### Azure 入口網站
 
-- `AZURE_OPENAI_ENDPOINT` - 查找 **Azure AI Services**，點擊它，然後轉到 **資源管理**，**密鑰和端點**，向下滾動到 "Azure OpenAI 端點"，並複製標記為 "語言 API" 的端點。
+- `AZURE_OPENAI_ENDPOINT` - 查找 **Azure AI services**，點擊它，然後轉到 **資源管理**，**密鑰和端點**，向下滾動到 "Azure OpenAI endpoints"，並複製標記為 "Language APIs" 的端點。
 
 - `AZURE_OPENAI_API_KEY` - 在同一屏幕中，複製密鑰 1 或密鑰 2。
 
@@ -303,11 +304,11 @@ Copy-Item .env.example .env
 
 ### 外部網頁
 
-- `AZURE_OPENAI_API_VERSION` - 訪問 [API 版本生命周期](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) 頁面下的 **最新 GA API 發布**。
+- `AZURE_OPENAI_API_VERSION` - 訪問 [API 版本生命周期](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) 頁面，查看 **最新 GA API 發布**。
 
 ### 設置無密鑰身份驗證
 
-為避免硬編碼憑據，我們將使用 Azure OpenAI 的無密鑰連接。為此，我們將導入 `DefaultAzureCredential`，稍後調用 `DefaultAzureCredential` 函數以獲取憑據。
+我們將使用 Azure OpenAI 的無密鑰連接，而不是硬編碼您的憑據。為此，我們將導入 `DefaultAzureCredential`，稍後調用 `DefaultAzureCredential` 函數以獲取憑據。
 
 ```python
 # Python
@@ -315,15 +316,17 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
 ## 卡住了嗎？
-如果您在執行此設置時遇到任何問題，請加入我們的 <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI 社群 Discord</a> 或 <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">建立問題</a>。
+如果您在執行此設置時遇到任何問題，可以加入我們的 <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI 社群 Discord</a> 或 <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">建立問題</a>。
 
 ## 下一課程
 
-您現在已準備好執行本課程的程式碼。祝您愉快地學習更多關於 AI Agents 的世界！
+您現在已準備好運行本課程的代碼。祝您愉快地學習更多有關 AI Agents 的知識！
 
-[AI Agents 和代理使用案例介紹](../01-intro-to-ai-agents/README.md)
+[AI Agents 及其使用案例介紹](../01-intro-to-ai-agents/README.md)
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **免責聲明**：  
-本文件已使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。儘管我們努力確保翻譯的準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應被視為權威來源。對於關鍵信息，建議使用專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或誤釋不承擔責任。
+此文件使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。我們致力於提供準確的翻譯，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原文文件作為權威來源。對於關鍵資訊，建議尋求專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或誤釋不承擔責任。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "2845c3294897d0d30a5141d8b1241c67",
-  "translation_date": "2025-11-18T18:36:46+00:00",
+  "original_hash": "218cf4d1ab3d9224f020f7e26155ef99",
+  "translation_date": "2025-12-03T15:11:54+00:00",
   "source_file": "README.md",
   "language_code": "lt"
 }
@@ -23,7 +23,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 #### Palaikoma per GitHub Action (Automatizuota ir visada atnaujinta)
 
-[Arabų](../ar/README.md) | [Bengalų](../bn/README.md) | [Bulgarų](../bg/README.md) | [Birmos (Mianmaras)](../my/README.md) | [Kinų (supaprastinta)](../zh/README.md) | [Kinų (tradicinė, Honkongas)](../hk/README.md) | [Kinų (tradicinė, Makao)](../mo/README.md) | [Kinų (tradicinė, Taivanas)](../tw/README.md) | [Kroatų](../hr/README.md) | [Čekų](../cs/README.md) | [Danų](../da/README.md) | [Olandų](../nl/README.md) | [Estų](../et/README.md) | [Suomių](../fi/README.md) | [Prancūzų](../fr/README.md) | [Vokiečių](../de/README.md) | [Graikų](../el/README.md) | [Hebrajų](../he/README.md) | [Hindi](../hi/README.md) | [Vengrų](../hu/README.md) | [Indoneziečių](../id/README.md) | [Italų](../it/README.md) | [Japonų](../ja/README.md) | [Korėjiečių](../ko/README.md) | [Lietuvių](./README.md) | [Malajų](../ms/README.md) | [Maratų](../mr/README.md) | [Nepalų](../ne/README.md) | [Nigerijos pidžinas](../pcm/README.md) | [Norvegų](../no/README.md) | [Persų (farsi)](../fa/README.md) | [Lenkų](../pl/README.md) | [Portugalų (Brazilija)](../br/README.md) | [Portugalų (Portugalija)](../pt/README.md) | [Pandžabų (Gurmukhi)](../pa/README.md) | [Rumunų](../ro/README.md) | [Rusų](../ru/README.md) | [Serbų (kirilica)](../sr/README.md) | [Slovakų](../sk/README.md) | [Slovėnų](../sl/README.md) | [Ispanų](../es/README.md) | [Svahilių](../sw/README.md) | [Švedų](../sv/README.md) | [Tagalogų (filipiniečių)](../tl/README.md) | [Tamilų](../ta/README.md) | [Tajų](../th/README.md) | [Turkų](../tr/README.md) | [Ukrainiečių](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamiečių](../vi/README.md)
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[Arabų](../ar/README.md) | [Bengalų](../bn/README.md) | [Bulgarų](../bg/README.md) | [Birmos (Mianmaras)](../my/README.md) | [Kinų (supaprastinta)](../zh/README.md) | [Kinų (tradicinė, Honkongas)](../hk/README.md) | [Kinų (tradicinė, Makao)](../mo/README.md) | [Kinų (tradicinė, Taivanas)](../tw/README.md) | [Kroatų](../hr/README.md) | [Čekų](../cs/README.md) | [Danų](../da/README.md) | [Olandų](../nl/README.md) | [Estų](../et/README.md) | [Suomių](../fi/README.md) | [Prancūzų](../fr/README.md) | [Vokiečių](../de/README.md) | [Graikų](../el/README.md) | [Hebrajų](../he/README.md) | [Hindi](../hi/README.md) | [Vengrų](../hu/README.md) | [Indoneziečių](../id/README.md) | [Italų](../it/README.md) | [Japonų](../ja/README.md) | [Kanadų](../kn/README.md) | [Korėjiečių](../ko/README.md) | [Lietuvių](./README.md) | [Malajų](../ms/README.md) | [Malajalių](../ml/README.md) | [Maratų](../mr/README.md) | [Nepalų](../ne/README.md) | [Nigerijos pidžinas](../pcm/README.md) | [Norvegų](../no/README.md) | [Persų (farsi)](../fa/README.md) | [Lenkų](../pl/README.md) | [Portugalų (Brazilija)](../br/README.md) | [Portugalų (Portugalija)](../pt/README.md) | [Pandžabų (Gurmukhi)](../pa/README.md) | [Rumunų](../ro/README.md) | [Rusų](../ru/README.md) | [Serbų (kirilica)](../sr/README.md) | [Slovakų](../sk/README.md) | [Slovėnų](../sl/README.md) | [Ispanų](../es/README.md) | [Svahilių](../sw/README.md) | [Švedų](../sv/README.md) | [Tagalogų (filipiniečių)](../tl/README.md) | [Tamilų](../ta/README.md) | [Telugų](../te/README.md) | [Tajų](../th/README.md) | [Turkų](../tr/README.md) | [Ukrainiečių](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamiečių](../vi/README.md)
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 **Jei norite, kad būtų palaikomos papildomos kalbos, sąrašą rasite [čia](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
@@ -37,11 +39,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 Šis kursas apima pamokas apie AI agentų kūrimo pagrindus. Kiekviena pamoka apima atskirą temą, todėl galite pradėti nuo bet kurios vietos!
 
-Šiam kursui yra daugiakalbė parama. Eikite į mūsų [galimų kalbų sąrašą čia](../..).  
+Šis kursas palaiko daugiakalbystę. Eikite į mūsų [galimų kalbų sąrašą čia](../..).  
 
 Jei pirmą kartą dirbate su generatyviais AI modeliais, peržiūrėkite mūsų [Generatyvus AI pradedantiesiems](https://aka.ms/genai-beginners) kursą, kuriame yra 21 pamoka apie darbą su GenAI.
 
-Nepamirškite [pažymėti šį repozitoriją žvaigždute (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ir [fork'inti šį repozitoriją](https://github.com/microsoft/ai-agents-for-beginners/fork), kad galėtumėte paleisti kodą.
+Nepamirškite [pažymėti šį repozitoriją žvaigždute (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ir [šakoti šį repozitoriją](https://github.com/microsoft/ai-agents-for-beginners/fork), kad galėtumėte paleisti kodą.
 
 ### Susipažinkite su kitais mokiniais, gaukite atsakymus į savo klausimus
 
@@ -49,19 +51,19 @@ Jei susiduriate su sunkumais ar turite klausimų apie AI agentų kūrimą, prisi
 
 ### Ko jums reikės
 
-Kiekviena šio kurso pamoka apima kodo pavyzdžius, kuriuos rasite aplanke code_samples. Galite [fork'inti šį repozitoriją](https://github.com/microsoft/ai-agents-for-beginners/fork), kad sukurtumėte savo kopiją.  
+Kiekviena šio kurso pamoka apima kodo pavyzdžius, kuriuos rasite aplanke code_samples. Galite [šakoti šį repozitoriją](https://github.com/microsoft/ai-agents-for-beginners/fork), kad sukurtumėte savo kopiją.  
 
 Šių pratimų kodo pavyzdžiai naudoja Azure AI Foundry ir GitHub Model Catalogs sąveikai su kalbos modeliais:
 
-- [Github Modeliai](https://aka.ms/ai-agents-beginners/github-models) - Nemokama / Ribota
+- [Github modeliai](https://aka.ms/ai-agents-beginners/github-models) - Nemokama / Ribota
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Reikalinga Azure paskyra
 
-Šis kursas taip pat naudoja šiuos AI agentų karkasus ir paslaugas iš Microsoft:
+Šiame kurse taip pat naudojami šie AI agentų karkasai ir paslaugos iš Microsoft:
 
-- [Microsoft Agent Framework (MAF) - Nauja!](https://aka.ms/ai-agents-beginners/agent-framewrok)  
-- [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)  
-- [Semantic Kernel](https://aka.ms/ai-agents-beginners/semantic-kernel)  
-- [AutoGen](https://aka.ms/ai-agents/autogen)  
+- [Microsoft Agent Framework (MAF) - Nauja!](https://aka.ms/ai-agents-beginners/agent-framewrok)
+- [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
+- [Semantic Kernel](https://aka.ms/ai-agents-beginners/semantic-kernel)
+- [AutoGen](https://aka.ms/ai-agents/autogen)
 
 Daugiau informacijos apie kodo paleidimą šiam kursui rasite [Kurso nustatymuose](./00-course-setup/README.md).
 
@@ -71,9 +73,9 @@ Turite pasiūlymų ar radote rašybos ar kodo klaidų? [Pateikite problemą](htt
 
 ## 📂 Kiekviena pamoka apima
 
-- Rašytinę pamoką README faile ir trumpą vaizdo įrašą  
-- Python kodo pavyzdžius, palaikančius Azure AI Foundry ir Github Modelius (nemokama)  
-- Nuorodas į papildomus išteklius, kad galėtumėte tęsti mokymąsi  
+- Rašytinę pamoką README faile ir trumpą vaizdo įrašą
+- Python kodo pavyzdžius, palaikančius Azure AI Foundry ir Github modelius (nemokama)
+- Nuorodas į papildomus išteklius, kad galėtumėte tęsti mokymąsi
 
 ## 🗃️ Pamokos
 
@@ -96,11 +98,11 @@ Turite pasiūlymų ar radote rašybos ar kodo klaidų? [Pateikite problemą](htt
 | Kompiuterio naudojimo agentų kūrimas (CUA)           | Netrukus                            |                                                            |                                                                                        |
 | Skalabilių agentų diegimas                    | Netrukus                            |                                                            |                                                                                        |
 | Vietinių AI agentų kūrimas                     | Netrukus                               |                                                            |                                                                                        |
-| AI agentų saugumas                           | Netrukus                               |                                                            |                                                                                        |
+| AI agentų saugumo užtikrinimas                           | Netrukus                               |                                                            |                                                                                        |
 
 ## 🎒 Kiti kursai
 
-Mūsų komanda kuria ir kitus kursus! Pažiūrėkite:
+Mūsų komanda kuria ir kitus kursus! Peržiūrėkite:
 
 ### Azure / Edge / MCP / Agentai
 [![AZD pradedantiesiems](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
@@ -110,11 +112,11 @@ Mūsų komanda kuria ir kitus kursus! Pažiūrėkite:
 
 ---
 
-### Generatyvios AI serijos
-[![Generatyvi AI pradedantiesiems](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![Generatyvi AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
-[![Generatyvi AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
-[![Generatyvi AI (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
+### Generatyviosios AI serija
+[![Generatyvioji AI pradedantiesiems](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![Generatyvioji AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+[![Generatyvioji AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+[![Generatyvioji AI (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
 
 ---
 
@@ -136,12 +138,12 @@ Mūsų komanda kuria ir kitus kursus! Pažiūrėkite:
 
 ## 🌟 Bendruomenės padėka
 
-Dėkojame [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) už svarbių kodo pavyzdžių, demonstruojančių Agentinį RAG, indėlį. 
+Dėkojame [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) už svarbių kodų pavyzdžių, demonstruojančių Agentinį RAG, pateikimą.
 
 ## Prisidėjimas
 
 Šis projektas laukia jūsų indėlio ir pasiūlymų. Dauguma indėlių reikalauja, kad sutiktumėte su
-Contributor License Agreement (CLA), patvirtinančiu, kad turite teisę ir faktiškai suteikiate mums
+Contributor License Agreement (CLA), patvirtinančiu, kad turite teisę ir iš tikrųjų suteikiate mums
 teisę naudoti jūsų indėlį. Daugiau informacijos rasite <https://cla.opensource.microsoft.com>.
 
 Kai pateikiate pull request, CLA bot automatiškai nustatys, ar jums reikia pateikti
@@ -158,21 +160,21 @@ susisiekite [opencode@microsoft.com](mailto:opencode@microsoft.com) su papildoma
 prekių ženklų ar logotipų naudojimas turi atitikti ir laikytis
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 Microsoft prekių ženklų ar logotipų naudojimas modifikuotose šio projekto versijose neturi sukelti painiavos ar nurodyti Microsoft rėmimo.
-Trečiųjų šalių prekių ženklų ar logotipų naudojimas turi atitikti tų trečiųjų šalių politiką.
+Bet koks trečiųjų šalių prekių ženklų ar logotipų naudojimas turi atitikti tų trečiųjų šalių politiką.
 
 ## Pagalba
 
 Jei susiduriate su sunkumais ar turite klausimų apie AI programų kūrimą, prisijunkite:
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
 Jei turite produktų atsiliepimų ar klaidų kūrimo metu, apsilankykite:
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama naudoti profesionalų žmogaus vertimą. Mes neprisiimame atsakomybės už nesusipratimus ar neteisingus interpretavimus, atsiradusius dėl šio vertimo naudojimo.
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, atkreipkite dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Dėl svarbios informacijos rekomenduojama profesionali žmogaus vertimo paslauga. Mes neprisiimame atsakomybės už nesusipratimus ar klaidingus aiškinimus, kylančius dėl šio vertimo naudojimo.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
