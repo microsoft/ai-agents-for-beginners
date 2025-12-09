@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
-  "translation_date": "2025-11-07T08:44:12+00:00",
+  "original_hash": "63b1a8f6e840df15934935b728e569f0",
+  "translation_date": "2025-12-03T14:46:40+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "tl"
 }
@@ -15,11 +15,11 @@ Ang araling ito ay magtuturo kung paano patakbuhin ang mga halimbawa ng code sa 
 
 ## Sumali sa Iba Pang Mga Mag-aaral at Humingi ng Tulong
 
-Bago mo simulan ang pag-clone ng iyong repo, sumali sa [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) upang makakuha ng tulong sa pagsasaayos, anumang tanong tungkol sa kurso, o upang makipag-ugnayan sa iba pang mga mag-aaral.
+Bago mo simulan ang pag-clone ng iyong repo, sumali sa [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) upang makakuha ng tulong sa pagsasaayos, magtanong tungkol sa kurso, o makipag-ugnayan sa iba pang mga mag-aaral.
 
 ## I-clone o I-fork ang Repo na Ito
 
-Upang magsimula, mangyaring i-clone o i-fork ang GitHub Repository. Magkakaroon ka ng sariling bersyon ng materyal ng kurso upang maipatupad, masubukan, at mabago ang code!
+Upang magsimula, mangyaring i-clone o i-fork ang GitHub Repository. Magkakaroon ka ng sariling bersyon ng materyales ng kurso upang maipatupad, masubukan, at mabago ang code!
 
 Magagawa ito sa pamamagitan ng pag-click sa link upang <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">i-fork ang repo</a>
 
@@ -29,13 +29,13 @@ Dapat ay mayroon ka na ngayong sariling forked na bersyon ng kursong ito sa sumu
 
 ### Shallow Clone (inirerekomenda para sa workshop / Codespaces)
 
-  >Ang buong repository ay maaaring malaki (~3 GB) kapag na-download ang buong kasaysayan at lahat ng mga file. Kung ikaw ay dadalo lamang sa workshop o kailangan lamang ng ilang mga folder ng aralin, ang shallow clone (o sparse clone) ay maiiwasan ang karamihan sa pag-download na iyon sa pamamagitan ng pag-truncate ng kasaysayan at/o pag-skip sa mga blobs.
+  >Ang buong repository ay maaaring malaki (~3 GB) kapag na-download ang buong kasaysayan at lahat ng mga file. Kung ikaw ay dadalo lamang sa workshop o kailangan lamang ng ilang mga folder ng aralin, ang shallow clone (o sparse clone) ay maiiwasan ang karamihan sa pag-download sa pamamagitan ng pag-truncate ng kasaysayan at/o pag-skip ng mga blobs.
 
 #### Mabilis na shallow clone — minimal na kasaysayan, lahat ng mga file
 
 Palitan ang `<your-username>` sa mga utos sa ibaba gamit ang iyong fork URL (o ang upstream URL kung mas gusto mo).
 
-Upang i-clone lamang ang pinakabagong kasaysayan ng commit (maliit na pag-download):
+Upang i-clone ang pinakabagong kasaysayan ng commit lamang (maliit na pag-download):
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -47,7 +47,7 @@ Upang i-clone ang isang partikular na branch:
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Partial (sparse) clone — minimal na blobs + piling mga folder lamang
+#### Partial (sparse) clone — minimal na blobs + mga napiling folder lamang
 
 Ginagamit nito ang partial clone at sparse-checkout (nangangailangan ng Git 2.25+ at inirerekomendang modernong Git na may suporta sa partial clone):
 
@@ -55,7 +55,7 @@ Ginagamit nito ang partial clone at sparse-checkout (nangangailangan ng Git 2.25
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Pumasok sa folder ng repo:
+Pumunta sa folder ng repo:
 
 ```bash|powershell
 cd ai-agents-for-beginners
@@ -84,8 +84,8 @@ Remove-Item -Recurse -Force .git
 - Gumawa ng bagong Codespace para sa repo na ito sa pamamagitan ng [GitHub UI](https://github.com/codespaces).  
 
 - Sa terminal ng bagong nilikhang codespace, patakbuhin ang isa sa mga shallow/sparse clone na utos sa itaas upang dalhin lamang ang mga folder ng aralin na kailangan mo sa workspace ng Codespace.
-- Opsyonal: pagkatapos ng pag-clone sa loob ng Codespaces, tanggalin ang .git upang mabawi ang dagdag na espasyo (tingnan ang mga utos ng pagtanggal sa itaas).
-- Tandaan: Kung mas gusto mong buksan ang repo nang direkta sa Codespaces (nang walang dagdag na clone), tandaan na ang Codespaces ay magtatayo ng devcontainer environment at maaaring mag-provision pa rin ng higit sa kailangan mo. Ang pag-clone ng shallow copy sa loob ng sariwang Codespace ay nagbibigay sa iyo ng higit na kontrol sa paggamit ng disk.
+- Opsyonal: pagkatapos ng pag-clone sa loob ng Codespaces, tanggalin ang .git upang mabawi ang karagdagang espasyo (tingnan ang mga utos ng pagtanggal sa itaas).
+- Tandaan: Kung mas gusto mong buksan ang repo nang direkta sa Codespaces (nang walang karagdagang clone), tandaan na ang Codespaces ay magtatayo ng devcontainer environment at maaaring maglaan pa rin ng higit sa kailangan mo. Ang pag-clone ng shallow copy sa loob ng sariwang Codespace ay nagbibigay sa iyo ng higit na kontrol sa paggamit ng disk.
 
 #### Mga Tip
 
@@ -100,11 +100,12 @@ Ang mga halimbawa ng code ay gumagamit ng alinman sa:
 
 **Kailangan ng GitHub Account - Libre**:
 
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Nakalabel bilang (semantic-kernel.ipynb)
-2) AutoGen Framework + GitHub Models Marketplace. Nakalabel bilang (autogen.ipynb)
+1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Tinatawag na (semantic-kernel.ipynb)
+2) AutoGen Framework + GitHub Models Marketplace. Tinatawag na (autogen.ipynb)
 
 **Kailangan ng Azure Subscription**:
-3) Azure AI Foundry + Azure AI Agent Service. Nakalabel bilang (azureaiagent.ipynb)
+
+3) Azure AI Foundry + Azure AI Agent Service. Tinatawag na (azureaiagent.ipynb)
 
 Hinihikayat namin kayong subukan ang lahat ng tatlong uri ng mga halimbawa upang makita kung alin ang pinakamahusay para sa inyo.
 
@@ -113,7 +114,7 @@ Anuman ang opsyon na pipiliin mo, ito ang magtatakda kung aling mga hakbang sa p
 ## Mga Kinakailangan
 
 - Python 3.12+
-  - **NOTE**: Kung wala kang Python3.12 na naka-install, tiyaking i-install ito. Pagkatapos ay gumawa ng iyong venv gamit ang python3.12 upang matiyak na ang tamang mga bersyon ay mai-install mula sa requirements.txt file.
+  - **NOTE**: Kung wala kang Python3.12 na naka-install, tiyaking i-install ito. Pagkatapos ay gumawa ng iyong venv gamit ang python3.12 upang matiyak na ang tamang mga bersyon ay naka-install mula sa requirements.txt file.
   
     >Halimbawa
 
@@ -135,7 +136,7 @@ Anuman ang opsyon na pipiliin mo, ito ang magtatakda kung aling mga hakbang sa p
     venv\Scripts\activate
     ```
 
-- .NET 10+: Para sa mga sample code na gumagamit ng .NET, tiyaking i-install ang [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o mas bago. Pagkatapos, suriin ang iyong naka-install na bersyon ng .NET SDK:
+- .NET 10+: Para sa mga sample code na gumagamit ng .NET, tiyaking i-install ang [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o mas bago. Pagkatapos, suriin ang naka-install na bersyon ng .NET SDK:
 
     ```bash|powershell
     dotnet --list-sdks
@@ -147,7 +148,7 @@ Anuman ang opsyon na pipiliin mo, ito ang magtatakda kung aling mga hakbang sa p
 
 Kasama sa repository na ito ang isang `requirements.txt` file sa root na naglalaman ng lahat ng kinakailangang Python packages upang patakbuhin ang mga halimbawa ng code.
 
-Maaari mong i-install ang mga ito sa pamamagitan ng pagpapatakbo ng sumusunod na utos sa iyong terminal sa root ng repository:
+Maaari mo itong i-install sa pamamagitan ng pagpapatakbo ng sumusunod na utos sa iyong terminal sa root ng repository:
 
 ```bash|powershell
 pip install -r requirements.txt
@@ -181,7 +182,7 @@ Mangyaring sundin ang [Principle of Least Privilege](https://docs.github.com/en/
 
    ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.tl.png)
 
-2. Maglagay ng deskriptibong pangalan para sa iyong token na sumasalamin sa layunin nito, upang madali itong makilala sa hinaharap.
+2. Maglagay ng isang deskriptibong pangalan para sa iyong token na sumasalamin sa layunin nito, upang madali itong makilala sa hinaharap.
 
     🔐 Rekomendasyon sa Tagal ng Token
 
@@ -195,7 +196,7 @@ Mangyaring sundin ang [Principle of Least Privilege](https://docs.github.com/en/
 
     ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.tl.png)
 
-4. Limitahan ang mga pahintulot ng token: Sa ilalim ng **Permissions**, i-click ang **Account** tab, at i-click ang "+ Add permissions" button. Lalabas ang isang dropdown. Mangyaring hanapin ang **Models** at i-check ang kahon para dito.
+4. I-restrict ang mga pahintulot ng token: Sa ilalim ng **Permissions**, i-click ang **Account** tab, at i-click ang "+ Add permissions" button. Lalabas ang isang dropdown. Mangyaring hanapin ang **Models** at i-check ang kahon para dito.
 
     ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.tl.png)
 
@@ -221,7 +222,7 @@ Copy-Item .env.example .env
 
 Ito ay kokopya sa example file at gagawa ng `.env` sa iyong direktoryo kung saan mo pupunan ang mga halaga para sa mga environment variables.
 
-Sa pagkopya ng iyong token, buksan ang `.env` file sa iyong paboritong text editor at i-paste ang iyong token sa `GITHUB_TOKEN` field.
+Sa iyong nakopyang token, buksan ang `.env` file sa iyong paboritong text editor at i-paste ang iyong token sa `GITHUB_TOKEN` field.
 
 ![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.tl.png)
 
@@ -255,7 +256,7 @@ Copy-Item .env.example .env
 
 Ito ay kokopya sa example file at gagawa ng `.env` sa iyong direktoryo kung saan mo pupunan ang mga halaga para sa mga environment variables.
 
-Sa pagkopya ng iyong token, buksan ang `.env` file sa iyong paboritong text editor at i-paste ang iyong token sa `PROJECT_ENDPOINT` field.
+Sa iyong nakopyang token, buksan ang `.env` file sa iyong paboritong text editor at i-paste ang iyong token sa `PROJECT_ENDPOINT` field.
 
 ### Hakbang 3: Mag-sign in sa Azure
 
@@ -269,7 +270,7 @@ Kapag naka-login ka na, piliin ang iyong subscription sa terminal.
 
 Para sa Agentic RAG Lesson - Lesson 5 - may mga halimbawa na gumagamit ng Azure Search at Azure OpenAI.
 
-Kung nais mong patakbuhin ang mga halimbawa na ito, kakailanganin mong idagdag ang sumusunod na mga environment variables sa iyong `.env` file:
+Kung nais mong patakbuhin ang mga halimbawa na ito, kakailanganin mong idagdag ang mga sumusunod na environment variables sa iyong `.env` file:
 
 ### Overview Page (Project)
 
@@ -325,5 +326,7 @@ Handa ka nang patakbuhin ang code para sa kursong ito. Masaya naming pag-aaralan
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Paunawa**:  
-Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat sinisikap naming maging tumpak, mangyaring tandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa kanyang katutubong wika ang dapat ituring na opisyal na pinagmulan. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na dulot ng paggamit ng pagsasaling ito.
+Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't sinisikap naming maging tumpak, pakitandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na opisyal na sanggunian. Para sa mahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na dulot ng paggamit ng pagsasaling ito.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

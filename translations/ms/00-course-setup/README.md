@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
-  "translation_date": "2025-11-07T08:43:37+00:00",
+  "original_hash": "63b1a8f6e840df15934935b728e569f0",
+  "translation_date": "2025-12-03T14:45:02+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "ms"
 }
@@ -11,15 +11,15 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Pengenalan
 
-Pelajaran ini akan merangkumi cara menjalankan contoh kod dalam kursus ini.
+Pelajaran ini akan membincangkan cara menjalankan contoh kod dalam kursus ini.
 
 ## Sertai Pelajar Lain dan Dapatkan Bantuan
 
-Sebelum anda mula menyalin repositori anda, sertai [saluran Discord AI Agents For Beginners](https://aka.ms/ai-agents/discord) untuk mendapatkan bantuan dengan persediaan, sebarang soalan tentang kursus, atau untuk berhubung dengan pelajar lain.
+Sebelum anda mula mengklon repositori anda, sertai [saluran Discord AI Agents For Beginners](https://aka.ms/ai-agents/discord) untuk mendapatkan bantuan dengan persediaan, sebarang soalan tentang kursus, atau untuk berhubung dengan pelajar lain.
 
-## Salin atau Fork Repositori ini
+## Klon atau Fork Repositori ini
 
-Untuk memulakan, sila salin atau fork Repositori GitHub. Ini akan membuat versi bahan kursus anda sendiri supaya anda boleh menjalankan, menguji, dan mengubah kod!
+Untuk memulakan, sila klon atau fork Repositori GitHub. Ini akan membuat versi bahan kursus anda sendiri supaya anda boleh menjalankan, menguji, dan mengubah suai kod!
 
 Ini boleh dilakukan dengan mengklik pautan untuk <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork repositori</a>
 
@@ -27,47 +27,47 @@ Anda kini sepatutnya mempunyai versi forked kursus ini di pautan berikut:
 
 ![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.ms.png)
 
-### Salin Shallow (disyorkan untuk bengkel / Codespaces)
+### Klon Shallow (disyorkan untuk bengkel / Codespaces)
 
-  >Repositori penuh boleh menjadi besar (~3 GB) apabila anda memuat turun sejarah penuh dan semua fail. Jika anda hanya menghadiri bengkel atau hanya memerlukan beberapa folder pelajaran, salin shallow (atau salin sparse) mengelakkan kebanyakan muat turun itu dengan memotong sejarah dan/atau melangkau blobs.
+  >Repositori penuh boleh menjadi besar (~3 GB) apabila anda memuat turun sejarah penuh dan semua fail. Jika anda hanya menghadiri bengkel atau hanya memerlukan beberapa folder pelajaran, klon shallow (atau klon sparse) mengelakkan kebanyakan muat turun itu dengan memotong sejarah dan/atau melangkau blobs.
 
-#### Salin shallow cepat — sejarah minimum, semua fail
+#### Klon shallow cepat — sejarah minimum, semua fail
 
 Gantikan `<your-username>` dalam arahan di bawah dengan URL fork anda (atau URL upstream jika anda lebih suka).
 
-Untuk menyalin hanya sejarah komit terbaru (muat turun kecil):
+Untuk mengklon hanya sejarah komit terbaru (muat turun kecil):
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Untuk menyalin cabang tertentu:
+Untuk mengklon cawangan tertentu:
 
 ```bash|powershell
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Salin separa (sparse) — blobs minimum + hanya folder terpilih
+#### Klon separa (sparse) — blobs minimum + hanya folder terpilih
 
-Ini menggunakan salin separa dan sparse-checkout (memerlukan Git 2.25+ dan Git moden yang disyorkan dengan sokongan salin separa):
+Ini menggunakan klon separa dan sparse-checkout (memerlukan Git 2.25+ dan disyorkan Git moden dengan sokongan klon separa):
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Masuk ke folder repositori:
+Masuk ke dalam folder repositori:
 
 ```bash|powershell
 cd ai-agents-for-beginners
 ```
 
-Kemudian tentukan folder yang anda mahu (contoh di bawah menunjukkan dua folder):
+Kemudian tentukan folder mana yang anda mahu (contoh di bawah menunjukkan dua folder):
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Selepas menyalin dan mengesahkan fail, jika anda hanya memerlukan fail dan ingin membebaskan ruang (tiada sejarah git), sila padam metadata repositori (💀tidak boleh dipulihkan — anda akan kehilangan semua fungsi Git: tiada komit, tarik, tolak, atau akses sejarah).
+Selepas mengklon dan mengesahkan fail, jika anda hanya memerlukan fail dan ingin membebaskan ruang (tanpa sejarah git), sila padam metadata repositori (💀tidak boleh dipulihkan — anda akan kehilangan semua fungsi Git: tiada komit, tarik, tolak, atau akses sejarah).
 
 ```bash
 # zsh/bash
@@ -83,13 +83,13 @@ Remove-Item -Recurse -Force .git
 
 - Buat Codespace baru untuk repositori ini melalui [UI GitHub](https://github.com/codespaces).  
 
-- Dalam terminal Codespace yang baru dibuat, jalankan salah satu arahan salin shallow/sparse di atas untuk membawa hanya folder pelajaran yang anda perlukan ke ruang kerja Codespace.
-- Pilihan: selepas menyalin dalam Codespaces, padam .git untuk mendapatkan semula ruang tambahan (lihat arahan pemadaman di atas).
-- Nota: Jika anda lebih suka membuka repositori secara langsung dalam Codespaces (tanpa salinan tambahan), sedar bahawa Codespaces akan membina persekitaran devcontainer dan mungkin masih menyediakan lebih daripada yang anda perlukan. Menyalin salinan shallow dalam Codespace baru memberi anda lebih kawalan terhadap penggunaan cakera.
+- Dalam terminal Codespace yang baru dibuat, jalankan salah satu arahan klon shallow/sparse di atas untuk membawa hanya folder pelajaran yang anda perlukan ke dalam ruang kerja Codespace.
+- Pilihan: selepas mengklon dalam Codespaces, keluarkan .git untuk mendapatkan semula ruang tambahan (lihat arahan penghapusan di atas).
+- Nota: Jika anda lebih suka membuka repositori secara langsung dalam Codespaces (tanpa klon tambahan), sedar bahawa Codespaces akan membina persekitaran devcontainer dan mungkin masih menyediakan lebih daripada yang anda perlukan. Mengklon salinan shallow dalam Codespace baru memberi anda lebih kawalan ke atas penggunaan cakera.
 
 #### Petua
 
-- Sentiasa gantikan URL salin dengan fork anda jika anda ingin mengedit/komit.
+- Sentiasa gantikan URL klon dengan fork anda jika anda ingin mengedit/komit.
 - Jika anda kemudian memerlukan lebih banyak sejarah atau fail, anda boleh mengambilnya atau menyesuaikan sparse-checkout untuk memasukkan folder tambahan.
 
 ## Menjalankan Kod
@@ -100,10 +100,11 @@ Contoh kod menggunakan sama ada:
 
 **Memerlukan Akaun GitHub - Percuma**:
 
-1) Kerangka Semantic Kernel Agent + Pasar Model GitHub. Dilabelkan sebagai (semantic-kernel.ipynb)
-2) Kerangka AutoGen + Pasar Model GitHub. Dilabelkan sebagai (autogen.ipynb)
+1) Rangka Kerja Semantic Kernel + Pasar Model GitHub. Dilabelkan sebagai (semantic-kernel.ipynb)
+2) Rangka Kerja AutoGen + Pasar Model GitHub. Dilabelkan sebagai (autogen.ipynb)
 
 **Memerlukan Langganan Azure**:
+
 3) Azure AI Foundry + Perkhidmatan Azure AI Agent. Dilabelkan sebagai (azureaiagent.ipynb)
 
 Kami menggalakkan anda mencuba ketiga-tiga jenis contoh untuk melihat mana yang paling sesuai untuk anda.
@@ -165,13 +166,13 @@ Pastikan anda menggunakan versi Python yang betul dalam VSCode.
 
 ### Langkah 1: Dapatkan Token Akses Peribadi (PAT) GitHub Anda
 
-Kursus ini menggunakan Pasar Model GitHub, memberikan akses percuma kepada Model Bahasa Besar (LLMs) yang akan anda gunakan untuk membina AI Agents.
+Kursus ini menggunakan Pasar Model GitHub, memberikan akses percuma ke Model Bahasa Besar (LLMs) yang akan anda gunakan untuk membina AI Agents.
 
 Untuk menggunakan Model GitHub, anda perlu membuat [Token Akses Peribadi GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 Ini boleh dilakukan dengan pergi ke <a href="https://github.com/settings/personal-access-tokens" target="_blank">tetapan Token Akses Peribadi</a> dalam Akaun GitHub anda.
 
-Sila ikuti [Prinsip Privasi Minimum](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) semasa membuat token anda. Ini bermaksud anda hanya perlu memberikan token kebenaran yang diperlukan untuk menjalankan contoh kod dalam kursus ini.
+Sila ikuti [Prinsip Keistimewaan Minimum](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) semasa membuat token anda. Ini bermakna anda hanya perlu memberikan token keizinan yang diperlukan untuk menjalankan contoh kod dalam kursus ini.
 
 1. Pilih pilihan `Fine-grained tokens` di sebelah kiri skrin anda dengan pergi ke **Developer settings**
 
@@ -191,17 +192,17 @@ Sila ikuti [Prinsip Privasi Minimum](https://docs.github.com/en/get-started/lear
 
     ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.ms.png)
 
-3. Hadkan skop token kepada fork repositori ini.
+3. Hadkan skop token ke fork repositori ini.
 
     ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.ms.png)
 
-4. Hadkan kebenaran token: Di bawah tab **Permissions**, klik tab **Account**, dan klik butang "+ Add permissions". Senarai dropdown akan muncul. Sila cari **Models** dan tandakan kotak untuknya.
+4. Hadkan keizinan token: Di bawah **Permissions**, klik tab **Account**, dan klik butang "+ Add permissions". Dropdown akan muncul. Sila cari **Models** dan tandakan kotak untuknya.
 
     ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.ms.png)
 
-5. Sahkan kebenaran yang diperlukan sebelum menghasilkan token. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.ms.png)
+5. Sahkan keizinan yang diperlukan sebelum menjana token. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.ms.png)
 
-6. Sebelum menghasilkan token, pastikan anda bersedia untuk menyimpan token di tempat yang selamat seperti peti simpanan pengurus kata laluan, kerana ia tidak akan ditunjukkan lagi selepas anda menciptanya. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.ms.png)
+6. Sebelum menjana token, pastikan anda bersedia menyimpan token di tempat yang selamat seperti peti besi pengurus kata laluan, kerana ia tidak akan ditunjukkan lagi selepas anda menciptanya. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.ms.png)
 
 Salin token baru anda yang baru sahaja anda buat. Anda kini akan menambahkannya ke fail `.env` yang disertakan dalam kursus ini.
 
@@ -221,7 +222,7 @@ Copy-Item .env.example .env
 
 Ini akan menyalin fail contoh dan membuat `.env` dalam direktori anda di mana anda mengisi nilai untuk pembolehubah persekitaran.
 
-Dengan token anda disalin, buka fail `.env` dalam editor teks kegemaran anda dan tampal token anda ke medan `GITHUB_TOKEN`.
+Dengan token anda disalin, buka fail `.env` dalam editor teks kegemaran anda dan tampal token anda ke dalam medan `GITHUB_TOKEN`.
 
 ![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.ms.png)
 
@@ -231,7 +232,7 @@ Anda kini sepatutnya boleh menjalankan contoh kod dalam kursus ini.
 
 ### Langkah 1: Dapatkan Endpoint Projek Azure Anda
 
-Ikuti langkah-langkah untuk membuat hub dan projek dalam Azure AI Foundry yang terdapat di sini: [Gambaran Keseluruhan Sumber Hub](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
+Ikuti langkah-langkah untuk membuat hub dan projek dalam Azure AI Foundry yang terdapat di sini: [Gambaran keseluruhan sumber Hub](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
 
 Setelah anda membuat projek anda, anda perlu mendapatkan string sambungan untuk projek anda.
 
@@ -255,11 +256,11 @@ Copy-Item .env.example .env
 
 Ini akan menyalin fail contoh dan membuat `.env` dalam direktori anda di mana anda mengisi nilai untuk pembolehubah persekitaran.
 
-Dengan token anda disalin, buka fail `.env` dalam editor teks kegemaran anda dan tampal token anda ke medan `PROJECT_ENDPOINT`.
+Dengan token anda disalin, buka fail `.env` dalam editor teks kegemaran anda dan tampal token anda ke dalam medan `PROJECT_ENDPOINT`.
 
 ### Langkah 3: Log Masuk ke Azure
 
-Sebagai amalan keselamatan terbaik, kita akan menggunakan [pengesahan tanpa kunci](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) untuk mengesahkan ke Azure OpenAI dengan Microsoft Entra ID. 
+Sebagai amalan keselamatan terbaik, kami akan menggunakan [pengesahan tanpa kunci](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) untuk mengesahkan ke Azure OpenAI dengan Microsoft Entra ID. 
 
 Seterusnya, buka terminal dan jalankan `az login --use-device-code` untuk log masuk ke akaun Azure anda.
 
@@ -273,9 +274,9 @@ Jika anda ingin menjalankan contoh ini, anda perlu menambah pembolehubah perseki
 
 ### Halaman Gambaran Keseluruhan (Projek)
 
-- `AZURE_SUBSCRIPTION_ID` - Periksa **Project details** di halaman **Overview** projek anda.
+- `AZURE_SUBSCRIPTION_ID` - Semak **Project details** di halaman **Overview** projek anda.
 
-- `AZURE_AI_PROJECT_NAME` - Lihat di bahagian atas halaman **Overview** untuk projek anda.
+- `AZURE_AI_PROJECT_NAME` - Lihat di bahagian atas halaman **Overview** projek anda.
 
 - `AZURE_OPENAI_SERVICE` - Cari ini di tab **Included capabilities** untuk **Azure OpenAI Service** di halaman **Overview**.
 
@@ -307,7 +308,7 @@ Jika anda ingin menjalankan contoh ini, anda perlu menambah pembolehubah perseki
 
 ### Persediaan pengesahan tanpa kunci
 
-Daripada mengkodkan kredensial anda, kita akan menggunakan sambungan tanpa kunci dengan Azure OpenAI. Untuk melakukannya, kita akan mengimport `DefaultAzureCredential` dan kemudian memanggil fungsi `DefaultAzureCredential` untuk mendapatkan kredensial.
+Daripada mengekodkan kelayakan anda, kami akan menggunakan sambungan tanpa kunci dengan Azure OpenAI. Untuk melakukannya, kami akan mengimport `DefaultAzureCredential` dan kemudian memanggil fungsi `DefaultAzureCredential` untuk mendapatkan kelayakan.
 
 ```python
 # Python
@@ -315,15 +316,17 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
 ## Tersangkut di Mana-Mana?
-Jika anda menghadapi sebarang masalah semasa menjalankan tetapan ini, sertai <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord Komuniti Azure AI</a> kami atau <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">buat isu</a>.
+Jika anda menghadapi sebarang masalah menjalankan tetapan ini, sertai <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> kami atau <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">buat isu</a>.
 
 ## Pelajaran Seterusnya
 
-Anda kini bersedia untuk menjalankan kod bagi kursus ini. Selamat belajar lebih lanjut tentang dunia Ejen AI!
+Anda kini bersedia untuk menjalankan kod bagi kursus ini. Selamat belajar lebih lanjut tentang dunia AI Agents!
 
-[Pengenalan kepada Ejen AI dan Kes Penggunaan Ejen](../01-intro-to-ai-agents/README.md)
+[Pengenalan kepada AI Agents dan Kes Penggunaan Agen](../01-intro-to-ai-agents/README.md)
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Penafian**:  
 Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat penting, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

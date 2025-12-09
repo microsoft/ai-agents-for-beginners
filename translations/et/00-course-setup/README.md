@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
-  "translation_date": "2025-11-07T08:54:44+00:00",
+  "original_hash": "63b1a8f6e840df15934935b728e569f0",
+  "translation_date": "2025-12-03T15:17:10+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "et"
 }
@@ -67,7 +67,7 @@ Seejärel määra, milliseid kaustu soovid (näide allpool näitab kahte kausta)
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Pärast kloonimist ja failide kontrollimist, kui vajad ainult faile ja soovid ruumi vabastada (ilma git'i ajaloota), kustuta repositooriumi metaandmed (💀 pöördumatu — kaotad kogu Git'i funktsionaalsuse: ei commit'e, tõmbeid, push'e ega ajaloo juurdepääsu).
+Pärast kloonimist ja failide kontrollimist, kui vajad ainult faile ja soovid ruumi vabastada (ilma git'i ajaloota), kustuta repositooriumi metaandmed (💀 pöördumatu — kaotad kogu Git'i funktsionaalsuse: ei commite, pull'e, push'e ega ajaloole ligipääsu).
 
 ```bash
 # zsh/bash
@@ -84,17 +84,17 @@ Remove-Item -Recurse -Force .git
 - Loo uus Codespace selle repositooriumi jaoks [GitHubi kasutajaliidese kaudu](https://github.com/codespaces).  
 
 - Uue Codespace'i terminalis käivita üks ülaltoodud madala/hõreda kloonimise käskudest, et tuua ainult vajalikud õppetüki kaustad Codespace'i tööruumi.
-- Valikuline: pärast kloonimist Codespaces'is eemalda .git, et vabastada lisaruumi (vaata ülaltoodud eemaldamise käske).
-- Märkus: Kui eelistad avada repositooriumi otse Codespaces'is (ilma lisakloonimiseta), ole teadlik, et Codespaces konstrueerib devcontainer'i keskkonna ja võib siiski ette valmistada rohkem kui vaja. Madala koopia kloonimine värskes Codespaces'is annab sulle rohkem kontrolli kettakasutuse üle.
+- Valikuline: pärast kloonimist Codespaces'is eemalda .git, et vabastada lisaruumi (vaata ülaltoodud eemaldamiskäske).
+- Märkus: Kui eelistad avada repositooriumi otse Codespaces'is (ilma lisakloonimiseta), ole teadlik, et Codespaces konstrueerib devcontainer'i keskkonna ja võib siiski ette valmistada rohkem, kui vajad. Madala koopia kloonimine värskes Codespaces'is annab sulle rohkem kontrolli kettaruumi kasutamise üle.
 
 #### Näpunäited
 
-- Asenda alati kloonimise URL oma hargiga, kui soovid redigeerida/commit'ida.
-- Kui hiljem vajad rohkem ajalugu või faile, saad need alla laadida või kohandada hõredat väljaregistreerimist, et lisada täiendavaid kaustu.
+- Asenda kloonimise URL alati oma hargiga, kui soovid redigeerida/commite teha.
+- Kui hiljem vajad rohkem ajalugu või faile, saad need fetch'ida või kohandada hõredat väljaregistreerimist, et lisada täiendavaid kaustu.
 
 ## Koodi käivitamine
 
-See kursus pakub Jupyter Notebook'e, mida saad käivitada, et saada praktilisi kogemusi AI agentide loomisel.
+See kursus pakub Jupyter Notebook'e, mida saad käivitada, et saada praktilist kogemust AI agentide loomisel.
 
 Koodinäited kasutavad kas:
 
@@ -104,16 +104,17 @@ Koodinäited kasutavad kas:
 2) AutoGen Framework + GitHub Models Marketplace. Märgistatud kui (autogen.ipynb)
 
 **Vajab Azure'i tellimust**:
+
 3) Azure AI Foundry + Azure AI Agent Service. Märgistatud kui (azureaiagent.ipynb)
 
 Soovitame proovida kõiki kolme tüüpi näiteid, et näha, milline neist sulle kõige paremini sobib.
 
-Sõltuvalt valitud variandist määratakse kindlaks, milliseid seadistusetappe allpool järgida:
+Sõltuvalt valitud variandist määratakse, milliseid seadistamise samme tuleb järgida allpool:
 
 ## Nõuded
 
 - Python 3.12+
-  - **MÄRKUS**: Kui sul pole Python3.12 paigaldatud, veendu, et paigaldad selle. Seejärel loo oma venv, kasutades python3.12, et tagada õige versioonide paigaldamine requirements.txt failist.
+  - **NOTE**: Kui sul pole Python3.12 paigaldatud, veendu, et paigaldad selle. Seejärel loo oma venv, kasutades python3.12, et tagada õige versioonide paigaldamine requirements.txt failist.
   
     >Näide
 
@@ -145,9 +146,9 @@ Sõltuvalt valitud variandist määratakse kindlaks, milliseid seadistusetappe a
 - Azure'i tellimus - Juurdepääsuks Azure AI Foundry'le
 - Azure AI Foundry konto - Juurdepääsuks Azure AI Agent Service'ile
 
-Me oleme lisanud `requirements.txt` faili selle repositooriumi juurkausta, mis sisaldab kõiki vajalikke Python'i pakette koodinäidete käivitamiseks.
+Oleme lisanud `requirements.txt` faili selle repositooriumi juurkausta, mis sisaldab kõiki vajalikke Python'i pakette koodinäidete käivitamiseks.
 
-Sa saad need paigaldada, käivitades järgmise käsu oma terminalis repositooriumi juurkaustas:
+Saad need paigaldada, käivitades järgmise käsu terminalis repositooriumi juurkaustas:
 
 ```bash|powershell
 pip install -r requirements.txt
@@ -157,11 +158,11 @@ Soovitame luua Python'i virtuaalse keskkonna, et vältida konflikte ja probleeme
 
 ## VSCode'i seadistamine
 
-Veendu, et kasutad õiget Python'i versiooni VSCode'is.
+Veendu, et kasutad VSCode'is õiget Python'i versiooni.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Seadistamine GitHub Models näidiste jaoks
+## Näidiste seadistamine, mis kasutavad GitHub Models'i
 
 ### Samm 1: Hangi oma GitHubi isiklik juurdepääsutoken (PAT)
 
@@ -169,45 +170,45 @@ See kursus kasutab GitHub Models Marketplace'i, mis pakub tasuta juurdepääsu s
 
 GitHub Models'i kasutamiseks pead looma [GitHubi isikliku juurdepääsutokeni](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
-Seda saab teha, minnes oma <a href="https://github.com/settings/personal-access-tokens" target="_blank">isikliku juurdepääsutokeni seadistuste</a> lehele oma GitHubi kontol.
+Seda saab teha, minnes oma <a href="https://github.com/settings/personal-access-tokens" target="_blank">isikliku juurdepääsutokeni seadete</a> lehele oma GitHubi kontol.
 
-Palun järgi [väikseima privileegi põhimõtet](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) tokeni loomisel. See tähendab, et peaksid andma tokenile ainult need õigused, mis on vajalikud selle kursuse koodinäidete käitamiseks.
+Palun järgi [väikseima privileegi põhimõtet](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) tokeni loomisel. See tähendab, et peaksid andma tokenile ainult need õigused, mis on vajalikud selle kursuse koodinäidete käivitamiseks.
 
-1. Vali ekraani vasakult küljelt `Peenhäälestatud tokenid` valik, liikudes **Arendaja seadistuste** juurde.
+1. Vali ekraani vasakul küljel **Developer settings** alt `Fine-grained tokens` valik.
 
-   ![Arendaja seadistused](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.et.png)
+   ![Arendaja seaded](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.et.png)
 
-   Seejärel vali `Loo uus token`.
+   Seejärel vali `Generate new token`.
 
    ![Loo token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.et.png)
 
-2. Sisesta tokenile kirjeldav nimi, mis peegeldab selle eesmärki, muutes selle hiljem lihtsasti tuvastatavaks.
+2. Sisesta tokenile kirjeldav nimi, mis kajastab selle eesmärki, et seda hiljem lihtne tuvastada oleks.
 
     🔐 Tokeni kestuse soovitus
 
     Soovitatav kestus: 30 päeva  
     Turvalisuse suurendamiseks võid valida lühema perioodi—näiteks 7 päeva 🛡️  
-    See on suurepärane viis seada isiklik eesmärk ja lõpetada kursus, hoides õppimise hoogu üleval 🚀.
+    See on suurepärane viis seada isiklik eesmärk ja lõpetada kursus, kui õpimoment on kõrge 🚀.
 
     ![Tokeni nimi ja aegumiskuupäev](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.et.png)
 
-3. Piira tokeni ulatust oma repositooriumi hargile.
+3. Piira tokeni ulatus oma hargitud repositooriumiga.
 
-    ![Piira ulatus hargitud repositooriumile](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.et.png)
+    ![Piira ulatus hargitud repositooriumiga](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.et.png)
 
-4. Piira tokeni õigusi: **Õiguste** all klõpsa **Konto** vahekaardil ja vajuta "+ Lisa õigused" nuppu. Ilmub rippmenüü. Palun otsi **Mudelid** ja märgi selle kastike.
+4. Piira tokeni õigused: **Permissions** all klõpsa **Account** vahekaarti ja vajuta "+ Add permissions" nuppu. Ilmub rippmenüü. Otsi **Models** ja märgi selle kast.
 
-    ![Lisa mudelite õigused](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.et.png)
+    ![Lisa Models õigused](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.et.png)
 
 5. Kontrolli enne tokeni loomist vajalikke õigusi. ![Kontrolli õigusi](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.et.png)
 
-6. Enne tokeni loomist veendu, et oled valmis tokeni turvaliselt salvestama, näiteks paroolihalduri seifi, kuna seda ei kuvata uuesti pärast loomist. ![Salvesta token turvaliselt](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.et.png)
+6. Enne tokeni loomist veendu, et oled valmis tokeni turvalises kohas, näiteks paroolihalduri seifis, salvestama, kuna seda ei kuvata uuesti pärast loomist. ![Salvesta token turvaliselt](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.et.png)
 
-Kopeeri oma äsja loodud token. Nüüd lisa see oma `.env` faili, mis on selle kursuse osaks.
+Kopeeri oma äsja loodud token. Nüüd lisad selle oma `.env` faili, mis on selle kursuse osaks.
 
 ### Samm 2: Loo oma `.env` fail
 
-`.env` faili loomiseks käivita järgmine käsk oma terminalis.
+`.env` faili loomiseks käivita järgmine käsk terminalis.
 
 ```bash
 # zsh/bash
@@ -221,27 +222,27 @@ Copy-Item .env.example .env
 
 See kopeerib näidisfaili ja loob `.env` faili sinu kataloogi, kuhu täidad keskkonnamuutujate väärtused.
 
-Kopeeritud tokeniga ava `.env` fail oma lemmiktekstitöötlusprogrammis ja kleebi token `GITHUB_TOKEN` väljale.
+Kopeeritud tokeniga ava `.env` fail oma lemmikteksti redaktoris ja kleebi token `GITHUB_TOKEN` väljale.
 
 ![GitHub Token väli](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.et.png)
 
 Nüüd peaksid saama käivitada selle kursuse koodinäiteid.
 
-## Seadistamine Azure AI Foundry ja Azure AI Agent Service näidiste jaoks
+## Näidiste seadistamine, mis kasutavad Azure AI Foundry't ja Azure AI Agent Service'it
 
 ### Samm 1: Hangi oma Azure'i projekti lõpp-punkt
 
-Järgi juhiseid Azure AI Foundry keskuse ja projekti loomiseks siin: [Keskuse ressursside ülevaade](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
+Järgi samme, kuidas luua hub'i ja projekti Azure AI Foundry's siin: [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
 
-Kui oled oma projekti loonud, pead hankima oma projekti ühendusstringi.
+Kui oled oma projekti loonud, pead hankima oma projekti ühenduse stringi.
 
-Seda saab teha, minnes **Ülevaate** lehele oma projektis Azure AI Foundry portaalis.
+Seda saab teha, minnes **Overview** lehele oma projektis Azure AI Foundry portaalis.
 
-![Projekti ühendusstring](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.et.png)
+![Projekti ühenduse string](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.et.png)
 
 ### Samm 2: Loo oma `.env` fail
 
-`.env` faili loomiseks käivita järgmine käsk oma terminalis.
+`.env` faili loomiseks käivita järgmine käsk terminalis.
 
 ```bash
 # zsh/bash
@@ -255,48 +256,77 @@ Copy-Item .env.example .env
 
 See kopeerib näidisfaili ja loob `.env` faili sinu kataloogi, kuhu täidad keskkonnamuutujate väärtused.
 
-Kopeeritud tokeniga ava `.env` fail oma lemmiktekstitöötlusprogrammis ja kleebi token `PROJECT_ENDPOINT` väljale.
+Kopeeritud tokeniga ava `.env` fail oma lemmikteksti redaktoris ja kleebi token `PROJECT_ENDPOINT` väljale.
 
 ### Samm 3: Logi sisse Azure'i
 
-Turvalisuse parima tava järgi kasutame [võtmeta autentimist](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst), et autentida Azure OpenAI Microsoft Entra ID-ga.
+Turvalisuse parima tava järgi kasutame [võtmeta autentimist](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst), et autentida Azure OpenAI'sse Microsoft Entra ID abil.
 
-Järgmiseks ava terminal ja käivita `az login --use-device-code`, et logida sisse oma Azure'i kontole.
+Järgmisena ava terminal ja käivita `az login --use-device-code`, et logida sisse oma Azure'i kontole.
 
-Kui oled sisse loginud, vali oma tellimus terminalis.
+Kui oled sisse loginud, vali terminalis oma tellimus.
 
-## Täiendavad keskkonnamuutujad - Azure Search ja Azure OpenAI 
+## Täiendavad keskkonnamuutujad - Azure Search ja Azure OpenAI
 
-Agentic RAG õppetüki - Õppetükk 5 - jaoks on näited, mis kasutavad Azure Search'i ja Azure OpenAI-d.
+Agentic RAG õppetüki - Õppetükk 5 - jaoks on näited, mis kasutavad Azure Search'i ja Azure OpenAI'd.
 
 Kui soovid neid näiteid käivitada, pead lisama järgmised keskkonnamuutujad oma `.env` faili:
 
 ### Ülevaate leht (Projekt)
 
-- `AZURE_SUBSCRIPTION_ID` - Kontrolli **Projekti üksikasju** oma projekti **Ülevaate** lehel.
+- `AZURE_SUBSCRIPTION_ID` - Kontrolli **Project details** **Overview** lehel oma projektis.
 
-- `AZURE_AI_PROJECT_NAME` - Vaata oma projekti **Ülevaate** lehe ülaosas.
+- `AZURE_AI_PROJECT_NAME` - Vaata oma projekti **Overview** lehe ülaosas.
 
-- `AZURE_OPENAI_SERVICE` - Leia see **Kaasa arvatud võimaluste** vahekaardilt **Azure OpenAI Service** kohta **Ülevaate** lehel.
+- `AZURE_OPENAI_SERVICE` - Leia see **Included capabilities** vahekaardilt **Azure OpenAI Service** **Overview** lehel.
 
 ### Halduse keskus
 
-- `AZURE_OPENAI_RESOURCE_GROUP` - Mine **Projekti omadused** lehele **Ülevaate** lehel **Halduse keskuses**.
+- `AZURE_OPENAI_RESOURCE_GROUP` - Mine **Project properties** **Overview** lehel **Management Center**.
 
-- `GLOBAL_LLM_SERVICE` - **Ühendatud ressursid** all leia **Azure AI Services** ühenduse nimi. Kui pole loetletud, kontrolli **Azure'i portaali** oma ressursigrupis AI Services ressursi nime.
+- `GLOBAL_LLM_SERVICE` - **Connected resources** all leia **Azure AI Services** ühenduse nimi. Kui pole loetletud, kontrolli **Azure portal** oma ressursigrupis AI Services ressursi nime.
 
-### Mudelid + Lõpp-punktid leht
+### Mudelid + lõpp-punktid leht
 
-- `
-Kui sul tekib probleeme selle seadistuse käivitamisel, liitu meiega <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discordis</a> või <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">loo probleem</a>.
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Vali oma embedding mudel (nt `text-embedding-ada-002`) ja pane tähele **Deployment name** mudeli detailidest.
+
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Vali oma chat mudel (nt `gpt-4o-mini`) ja pane tähele **Deployment name** mudeli detailidest.
+
+### Azure portaal
+
+- `AZURE_OPENAI_ENDPOINT` - Otsi **Azure AI services**, klõpsa sellel, mine **Resource Management**, **Keys and Endpoint**, kerige alla "Azure OpenAI endpoints" ja kopeeri see, mis ütleb "Language APIs".
+
+- `AZURE_OPENAI_API_KEY` - Samalt ekraanilt kopeeri KEY 1 või KEY 2.
+
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Leia oma **Azure AI Search** ressurss, klõpsa sellel ja vaata **Overview**.
+
+- `AZURE_SEARCH_API_KEY` - Seejärel mine **Settings** ja **Keys**, et kopeerida esmane või sekundaarne admini võti.
+
+### Väline veebileht
+
+- `AZURE_OPENAI_API_VERSION` - Külastage [API versiooni elutsükli](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) lehte **Latest GA API release** all.
+
+### Võtmeta autentimise seadistamine
+
+Selle asemel, et oma mandaate kõvakodeerida, kasutame võtmeta ühendust Azure OpenAI'ga. Selleks impordime `DefaultAzureCredential` ja hiljem kutsume `DefaultAzureCredential` funktsiooni, et saada mandaadi.
+
+```python
+# Python
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+```
+
+## Jäid kuskile toppama?
+Kui sul tekib selle seadistuse käivitamisel probleeme, liitu meiega <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI kogukonna Discordis</a> või <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">loo probleem</a>.
 
 ## Järgmine õppetund
 
-Sa oled nüüd valmis käivitama selle kursuse koodi. Rõõmsat õppimist AI agentide maailma kohta!
+Sa oled nüüd valmis selle kursuse koodi käivitama. Head õppimist AI agentide maailma kohta!
 
 [Sissejuhatus AI agentidesse ja agentide kasutusjuhtumid](../01-intro-to-ai-agents/README.md)
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Lahtiütlus**:  
-See dokument on tõlgitud AI tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palume arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle algses keeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgenduste eest.
+See dokument on tõlgitud AI tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palun arvestage, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle algkeeles tuleks lugeda autoriteetseks allikaks. Olulise teabe puhul on soovitatav kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valede tõlgenduste eest.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

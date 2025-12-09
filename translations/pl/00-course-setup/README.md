@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
-  "translation_date": "2025-11-07T08:35:38+00:00",
+  "original_hash": "63b1a8f6e840df15934935b728e569f0",
+  "translation_date": "2025-12-03T14:22:17+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "pl"
 }
@@ -11,7 +11,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Wprowadzenie
 
-W tej lekcji omówimy, jak uruchomić przykłady kodu z tego kursu.
+W tej lekcji dowiesz się, jak uruchomić przykłady kodu z tego kursu.
 
 ## Dołącz do innych uczestników i uzyskaj pomoc
 
@@ -19,9 +19,9 @@ Zanim zaczniesz klonować repozytorium, dołącz do [kanału Discord AI Agents F
 
 ## Sklonuj lub zrób fork tego repozytorium
 
-Na początek prosimy o sklonowanie lub zrobienie forka repozytorium GitHub. Dzięki temu będziesz mieć własną wersję materiałów kursowych, aby móc uruchamiać, testować i dostosowywać kod!
+Na początek sklonuj lub zrób fork repozytorium GitHub. Dzięki temu będziesz mieć własną wersję materiałów kursowych, aby móc uruchamiać, testować i dostosowywać kod!
 
-Możesz to zrobić, klikając link do <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">forkowania repozytorium</a>.
+Możesz to zrobić, klikając link do <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork repozytorium</a>.
 
 Teraz powinieneś mieć własną wersję tego kursu pod następującym linkiem:
 
@@ -29,11 +29,11 @@ Teraz powinieneś mieć własną wersję tego kursu pod następującym linkiem:
 
 ### Płytkie klonowanie (zalecane dla warsztatów / Codespaces)
 
-  >Pełne repozytorium może być duże (~3 GB) przy pobieraniu całej historii i wszystkich plików. Jeśli uczestniczysz tylko w warsztatach lub potrzebujesz tylko kilku folderów z lekcjami, płytkie klonowanie (lub klonowanie wybiórcze) pozwala uniknąć większości tego pobierania, skracając historię i/lub pomijając niektóre pliki.
+  >Pełne repozytorium może być duże (~3 GB) przy pobieraniu pełnej historii i wszystkich plików. Jeśli uczestniczysz tylko w warsztatach lub potrzebujesz tylko kilku folderów lekcji, płytkie klonowanie (lub klonowanie wybiórcze) pozwala uniknąć większości tego pobierania, skracając historię i/lub pomijając pliki.
 
 #### Szybkie płytkie klonowanie — minimalna historia, wszystkie pliki
 
-Zamień `<your-username>` w poniższych poleceniach na URL swojego forka (lub URL upstream, jeśli wolisz).
+Zastąp `<your-username>` w poniższych poleceniach URL-em swojego forka (lub URL-em upstream, jeśli wolisz).
 
 Aby sklonować tylko najnowszą historię commitów (mały rozmiar pobierania):
 
@@ -67,7 +67,7 @@ Następnie określ, które foldery chcesz (przykład poniżej pokazuje dwa folde
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Po sklonowaniu i zweryfikowaniu plików, jeśli potrzebujesz tylko plików i chcesz zwolnić miejsce (bez historii Git), usuń metadane repozytorium (💀nieodwracalne — stracisz wszystkie funkcje Git: brak commitów, pulli, pushów ani dostępu do historii).
+Po sklonowaniu i zweryfikowaniu plików, jeśli potrzebujesz tylko plików i chcesz zwolnić miejsce (bez historii git), usuń metadane repozytorium (💀nieodwracalne — stracisz całą funkcjonalność Git: brak commitów, pulli, pushów ani dostępu do historii).
 
 ```bash
 # zsh/bash
@@ -83,27 +83,28 @@ Remove-Item -Recurse -Force .git
 
 - Utwórz nowy Codespace dla tego repozytorium za pomocą [interfejsu GitHub](https://github.com/codespaces).  
 
-- W terminalu nowo utworzonego Codespace uruchom jedno z poleceń płytkiego/wybiórczego klonowania powyżej, aby pobrać tylko foldery lekcji, które są Ci potrzebne, do przestrzeni roboczej Codespace.
-- Opcjonalnie: po klonowaniu w Codespaces usuń .git, aby odzyskać dodatkowe miejsce (zobacz polecenia usuwania powyżej).
-- Uwaga: Jeśli wolisz otworzyć repozytorium bezpośrednio w Codespaces (bez dodatkowego klonowania), pamiętaj, że Codespaces skonstruuje środowisko devcontainer i może nadal przygotować więcej niż potrzebujesz. Klonowanie płytkiej kopii w świeżym Codespace daje większą kontrolę nad wykorzystaniem dysku.
+- W terminalu nowo utworzonego Codespace uruchom jedno z poleceń płytkiego/wybiórczego klonowania powyżej, aby pobrać tylko potrzebne foldery lekcji do przestrzeni roboczej Codespace.
+- Opcjonalnie: po sklonowaniu w Codespaces usuń .git, aby odzyskać dodatkowe miejsce (zobacz polecenia usuwania powyżej).
+- Uwaga: Jeśli wolisz otworzyć repozytorium bezpośrednio w Codespaces (bez dodatkowego klonowania), pamiętaj, że Codespaces skonstruuje środowisko devcontainer i może nadal przygotować więcej niż potrzebujesz. Klonowanie płytkiej kopii w świeżym Codespace daje większą kontrolę nad użyciem dysku.
 
 #### Wskazówki
 
-- Zawsze zamieniaj URL klonowania na swój fork, jeśli chcesz edytować/commitować.
+- Zawsze zastępuj URL klonowania swoim forkiem, jeśli chcesz edytować/commitować.
 - Jeśli później potrzebujesz więcej historii lub plików, możesz je pobrać lub dostosować sparse-checkout, aby uwzględnić dodatkowe foldery.
 
 ## Uruchamianie kodu
 
 Ten kurs oferuje serię Notatników Jupyter, które możesz uruchomić, aby zdobyć praktyczne doświadczenie w budowaniu agentów AI.
 
-Przykłady kodu korzystają z:
+Przykłady kodu wykorzystują:
 
 **Wymaga konta GitHub - Bezpłatne**:
 
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Oznaczone jako (semantic-kernel.ipynb)
-2) AutoGen Framework + GitHub Models Marketplace. Oznaczone jako (autogen.ipynb)
+1) Framework Semantic Kernel Agent + GitHub Models Marketplace. Oznaczone jako (semantic-kernel.ipynb)
+2) Framework AutoGen + GitHub Models Marketplace. Oznaczone jako (autogen.ipynb)
 
 **Wymaga subskrypcji Azure**:
+
 3) Azure AI Foundry + Azure AI Agent Service. Oznaczone jako (azureaiagent.ipynb)
 
 Zachęcamy do wypróbowania wszystkich trzech typów przykładów, aby zobaczyć, który najlepiej Ci odpowiada.
@@ -135,7 +136,7 @@ Opcja, którą wybierzesz, określi, które kroki konfiguracji musisz wykonać p
     venv\Scripts\activate
     ```
 
-- .NET 10+: Dla przykładów kodu korzystających z .NET, upewnij się, że zainstalowałeś [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) lub nowszy. Następnie sprawdź zainstalowaną wersję SDK .NET:
+- .NET 10+: Dla przykładowych kodów korzystających z .NET, upewnij się, że zainstalowałeś [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) lub nowszy. Następnie sprawdź zainstalowaną wersję .NET SDK:
 
     ```bash|powershell
     dotnet --list-sdks
@@ -171,7 +172,7 @@ Aby korzystać z modeli GitHub, musisz utworzyć [GitHub Personal Access Token](
 
 Możesz to zrobić, przechodząc do <a href="https://github.com/settings/personal-access-tokens" target="_blank">ustawień tokenów dostępu osobistego</a> w swoim koncie GitHub.
 
-Proszę przestrzegać [zasady najmniejszych uprawnień](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) podczas tworzenia tokena. Oznacza to, że powinieneś nadać tokenowi tylko te uprawnienia, które są potrzebne do uruchomienia przykładów kodu w tym kursie.
+Postępuj zgodnie z [zasadą najmniejszych uprawnień](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) podczas tworzenia tokena. Oznacza to, że powinieneś nadać tokenowi tylko te uprawnienia, które są potrzebne do uruchomienia przykładów kodu w tym kursie.
 
 1. Wybierz opcję `Fine-grained tokens` po lewej stronie ekranu, przechodząc do **Developer settings**
 
@@ -181,7 +182,7 @@ Proszę przestrzegać [zasady najmniejszych uprawnień](https://docs.github.com/
 
    ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.pl.png)
 
-2. Wprowadź opisową nazwę dla swojego tokena, która odzwierciedla jego przeznaczenie, aby łatwo go później zidentyfikować.
+2. Wprowadź opisową nazwę dla swojego tokena, która odzwierciedla jego cel, aby łatwo go później zidentyfikować.
 
     🔐 Zalecenie dotyczące czasu trwania tokena
 
@@ -195,7 +196,7 @@ Proszę przestrzegać [zasady najmniejszych uprawnień](https://docs.github.com/
 
     ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.pl.png)
 
-4. Ogranicz uprawnienia tokena: W zakładce **Permissions**, kliknij **Account**, a następnie przycisk "+ Add permissions". Pojawi się rozwijane menu. Wyszukaj **Models** i zaznacz odpowiednie pole.
+4. Ogranicz uprawnienia tokena: W sekcji **Permissions**, kliknij zakładkę **Account**, a następnie przycisk "+ Add permissions". Pojawi się rozwijane menu. Wyszukaj **Models** i zaznacz odpowiednie pole.
 
     ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.pl.png)
 
@@ -233,9 +234,9 @@ Teraz powinieneś być w stanie uruchomić przykłady kodu z tego kursu.
 
 Postępuj zgodnie z krokami tworzenia huba i projektu w Azure AI Foundry opisanymi tutaj: [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources)
 
-Po utworzeniu projektu będziesz musiał pobrać ciąg połączenia dla swojego projektu.
+Po utworzeniu projektu musisz pobrać ciąg połączenia dla swojego projektu.
 
-Możesz to zrobić, przechodząc do strony **Overview** swojego projektu w portalu Azure AI Foundry.
+Można to zrobić, przechodząc do strony **Overview** swojego projektu w portalu Azure AI Foundry.
 
 ![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.pl.png)
 
@@ -261,13 +262,13 @@ Po skopiowaniu tokena otwórz plik `.env` w swoim ulubionym edytorze tekstu i wk
 
 Jako najlepszą praktykę bezpieczeństwa użyjemy [uwierzytelniania bez klucza](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst), aby uwierzytelnić się w Azure OpenAI za pomocą Microsoft Entra ID. 
 
-Następnie otwórz terminal i uruchom `az login --use-device-code`, aby zalogować się do swojego konta Azure.
+Następnie otwórz terminal i uruchom `az login --use-device-code`, aby zalogować się na swoje konto Azure.
 
 Po zalogowaniu wybierz swoją subskrypcję w terminalu.
 
 ## Dodatkowe zmienne środowiskowe - Azure Search i Azure OpenAI 
 
-Dla lekcji Agentic RAG - Lekcja 5 - są przykłady, które korzystają z Azure Search i Azure OpenAI.
+Dla lekcji Agentic RAG - Lekcja 5 - są przykłady wykorzystujące Azure Search i Azure OpenAI.
 
 Jeśli chcesz uruchomić te przykłady, musisz dodać następujące zmienne środowiskowe do swojego pliku `.env`:
 
@@ -295,11 +296,11 @@ Jeśli chcesz uruchomić te przykłady, musisz dodać następujące zmienne śro
 
 - `AZURE_OPENAI_ENDPOINT` - Znajdź **Azure AI services**, kliknij na to, następnie przejdź do **Resource Management**, **Keys and Endpoint**, przewiń w dół do "Azure OpenAI endpoints" i skopiuj ten, który mówi "Language APIs".
 
-- `AZURE_OPENAI_API_KEY` - Z tego samego ekranu skopiuj KLUCZ 1 lub KLUCZ 2.
+- `AZURE_OPENAI_API_KEY` - Z tego samego ekranu, skopiuj KLUCZ 1 lub KLUCZ 2.
 
 - `AZURE_SEARCH_SERVICE_ENDPOINT` - Znajdź swój zasób **Azure AI Search**, kliknij na niego i zobacz **Overview**.
 
-- `AZURE_SEARCH_API_KEY` - Następnie przejdź do **Settings**, a potem **Keys**, aby skopiować klucz główny lub zapasowy.
+- `AZURE_SEARCH_API_KEY` - Następnie przejdź do **Settings** i potem **Keys**, aby skopiować klucz administracyjny główny lub pomocniczy.
 
 ### Zewnętrzna strona internetowa
 
@@ -307,7 +308,7 @@ Jeśli chcesz uruchomić te przykłady, musisz dodać następujące zmienne śro
 
 ### Konfiguracja uwierzytelniania bez klucza
 
-Zamiast twardo kodować swoje dane uwierzytelniające, użyjemy połączenia bez klucza z Azure OpenAI. Aby to zrobić, zaimportujemy `DefaultAzureCredential`, a następnie wywołamy funkcję `DefaultAzureCredential`, aby uzyskać dane uwierzytelniające.
+Zamiast twardo kodować swoje dane uwierzytelniające, użyjemy połączenia bez klucza z Azure OpenAI. Aby to zrobić, zaimportujemy `DefaultAzureCredential`, a później wywołamy funkcję `DefaultAzureCredential`, aby uzyskać dane uwierzytelniające.
 
 ```python
 # Python
@@ -315,15 +316,17 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
 ## Utknąłeś gdzieś?
-Jeśli masz jakiekolwiek problemy z uruchomieniem tego zestawu, dołącz do naszego <a href="https://discord.gg/kzRShWzttr" target="_blank">Discorda społeczności Azure AI</a> lub <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">zgłoś problem</a>.
+Jeśli masz jakiekolwiek problemy z uruchomieniem tego zestawu, dołącz do naszego <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> lub <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">utwórz zgłoszenie</a>.
 
 ## Następna lekcja
 
-Jesteś teraz gotowy, aby uruchomić kod dla tego kursu. Miłego zgłębiania świata agentów AI!
+Jesteś teraz gotowy, aby uruchomić kod dla tego kursu. Miłego zgłębiania świata Agentów AI! 
 
-[Wprowadzenie do agentów AI i przypadków ich użycia](../01-intro-to-ai-agents/README.md)
+[Wprowadzenie do Agentów AI i przypadków użycia agentów](../01-intro-to-ai-agents/README.md)
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż staramy się zapewnić dokładność, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za autorytatywne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+Ten dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż staramy się zapewnić dokładność, prosimy mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za wiarygodne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

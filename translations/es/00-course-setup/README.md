@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "86273689a010b5efecaf7fa23104e0fb",
-  "translation_date": "2025-11-07T08:22:19+00:00",
+  "original_hash": "63b1a8f6e840df15934935b728e569f0",
+  "translation_date": "2025-12-03T13:42:54+00:00",
   "source_file": "00-course-setup/README.md",
   "language_code": "es"
 }
@@ -21,7 +21,7 @@ Antes de comenzar a clonar tu repositorio, únete al [canal de Discord AI Agents
 
 Para comenzar, por favor clona o haz un fork del repositorio de GitHub. Esto creará tu propia versión del material del curso para que puedas ejecutar, probar y modificar el código.
 
-Esto se puede hacer haciendo clic en el enlace para <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">hacer un fork del repositorio</a>.
+Esto se puede hacer haciendo clic en el enlace para <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">hacer un fork del repositorio</a>
 
 Ahora deberías tener tu propia versión del curso en el siguiente enlace:
 
@@ -33,7 +33,7 @@ Ahora deberías tener tu propia versión del curso en el siguiente enlace:
 
 #### Clonación superficial rápida — historial mínimo, todos los archivos
 
-Reemplaza `<your-username>` en los siguientes comandos con la URL de tu fork (o la URL original si lo prefieres).
+Reemplaza `<your-username>` en los comandos a continuación con la URL de tu fork (o la URL original si lo prefieres).
 
 Para clonar solo el historial del último commit (descarga pequeña):
 
@@ -100,15 +100,16 @@ Los ejemplos de código utilizan:
 
 **Requiere Cuenta de GitHub - Gratis**:
 
-1) Framework Semantic Kernel Agent + GitHub Models Marketplace. Etiquetado como (semantic-kernel.ipynb)
-2) Framework AutoGen + GitHub Models Marketplace. Etiquetado como (autogen.ipynb)
+1) Marco de Agente Semantic Kernel + Marketplace de Modelos de GitHub. Etiquetado como (semantic-kernel.ipynb)
+2) Marco AutoGen + Marketplace de Modelos de GitHub. Etiquetado como (autogen.ipynb)
 
 **Requiere Suscripción a Azure**:
-3) Azure AI Foundry + Azure AI Agent Service. Etiquetado como (azureaiagent.ipynb)
+
+3) Azure AI Foundry + Servicio de Agente de Azure AI. Etiquetado como (azureaiagent.ipynb)
 
 Te animamos a probar los tres tipos de ejemplos para ver cuál funciona mejor para ti.
 
-La opción que elijas determinará los pasos de configuración que debes seguir a continuación:
+La opción que elijas determinará qué pasos de configuración necesitas seguir a continuación:
 
 ## Requisitos
 
@@ -135,15 +136,15 @@ La opción que elijas determinará los pasos de configuración que debes seguir 
     venv\Scripts\activate
     ```
 
-- .NET 10+: Para los códigos de ejemplo que usan .NET, asegúrate de instalar el [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o posterior. Luego, verifica la versión del SDK de .NET instalada:
+- .NET 10+: Para los ejemplos de código que usan .NET, asegúrate de instalar el [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o una versión posterior. Luego, verifica la versión instalada del SDK de .NET:
 
     ```bash|powershell
     dotnet --list-sdks
     ```
 
-- Una Cuenta de GitHub - Para Acceso al GitHub Models Marketplace
+- Una Cuenta de GitHub - Para Acceso al Marketplace de Modelos de GitHub
 - Suscripción a Azure - Para Acceso a Azure AI Foundry
-- Cuenta de Azure AI Foundry - Para Acceso al Azure AI Agent Service
+- Cuenta de Azure AI Foundry - Para Acceso al Servicio de Agente de Azure AI
 
 Hemos incluido un archivo `requirements.txt` en la raíz de este repositorio que contiene todos los paquetes de Python necesarios para ejecutar los ejemplos de código.
 
@@ -165,7 +166,7 @@ Asegúrate de estar utilizando la versión correcta de Python en VSCode.
 
 ### Paso 1: Obtén tu Token de Acceso Personal (PAT) de GitHub
 
-Este curso utiliza el GitHub Models Marketplace, que proporciona acceso gratuito a Modelos de Lenguaje Extendido (LLMs) que usarás para construir Agentes de IA.
+Este curso utiliza el Marketplace de Modelos de GitHub, que proporciona acceso gratuito a Modelos de Lenguaje Extenso (LLMs) que usarás para construir Agentes de IA.
 
 Para usar los Modelos de GitHub, necesitarás crear un [Token de Acceso Personal de GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
@@ -173,7 +174,7 @@ Esto se puede hacer yendo a tu <a href="https://github.com/settings/personal-acc
 
 Por favor, sigue el [Principio de Menor Privilegio](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) al crear tu token. Esto significa que solo debes otorgar al token los permisos necesarios para ejecutar los ejemplos de código de este curso.
 
-1. Selecciona la opción `Fine-grained tokens` en el lado izquierdo de tu pantalla navegando a **Developer settings**.
+1. Selecciona la opción `Fine-grained tokens` en el lado izquierdo de tu pantalla navegando a la **Configuración de Desarrollador**
 
    ![Configuración de Desarrollador](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.es.png)
 
@@ -185,8 +186,8 @@ Por favor, sigue el [Principio de Menor Privilegio](https://docs.github.com/en/g
 
     🔐 Recomendación de Duración del Token
 
-    Duración recomendada: 30 días  
-    Para una postura más segura, puedes optar por un período más corto, como 7 días 🛡️  
+    Duración recomendada: 30 días
+    Para una postura más segura, puedes optar por un período más corto, como 7 días 🛡️
     Es una excelente manera de establecer un objetivo personal y completar el curso mientras tu impulso de aprendizaje está alto 🚀.
 
     ![Nombre y Expiración del Token](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.es.png)
@@ -227,7 +228,7 @@ Con tu token copiado, abre el archivo `.env` en tu editor de texto favorito y pe
 
 Ahora deberías poder ejecutar los ejemplos de código de este curso.
 
-## Configuración para Ejemplos usando Azure AI Foundry y Azure AI Agent Service
+## Configuración para Ejemplos usando Azure AI Foundry y el Servicio de Agente de Azure AI
 
 ### Paso 1: Obtén tu Endpoint de Proyecto de Azure
 
@@ -259,7 +260,7 @@ Con tu token copiado, abre el archivo `.env` en tu editor de texto favorito y pe
 
 ### Paso 3: Inicia sesión en Azure
 
-Como mejor práctica de seguridad, utilizaremos [autenticación sin claves](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) para autenticarte en Azure OpenAI con Microsoft Entra ID.
+Como práctica de seguridad, utilizaremos [autenticación sin claves](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) para autenticarte en Azure OpenAI con Microsoft Entra ID. 
 
 A continuación, abre un terminal y ejecuta `az login --use-device-code` para iniciar sesión en tu cuenta de Azure.
 
@@ -287,23 +288,23 @@ Si deseas ejecutar estos ejemplos, necesitarás agregar las siguientes variables
 
 ### Página de Modelos + Endpoints
 
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Selecciona tu modelo de embeddings (por ejemplo, `text-embedding-ada-002`) y toma nota del **Deployment name** de los detalles del modelo.
+- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Selecciona tu modelo de embedding (por ejemplo, `text-embedding-ada-002`) y toma nota del **Nombre de Despliegue** de los detalles del modelo.
 
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Selecciona tu modelo de chat (por ejemplo, `gpt-4o-mini`) y toma nota del **Deployment name** de los detalles del modelo.
+- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Selecciona tu modelo de chat (por ejemplo, `gpt-4o-mini`) y toma nota del **Nombre de Despliegue** de los detalles del modelo.
 
 ### Portal de Azure
 
-- `AZURE_OPENAI_ENDPOINT` - Busca **Azure AI services**, haz clic en él, luego ve a **Resource Management**, **Keys and Endpoint**, desplázate hacia abajo hasta "Azure OpenAI endpoints" y copia el que dice "Language APIs".
+- `AZURE_OPENAI_ENDPOINT` - Busca **Azure AI services**, haz clic en él, luego ve a **Gestión de Recursos**, **Claves y Endpoint**, desplázate hacia abajo hasta los "Endpoints de Azure OpenAI" y copia el que dice "Language APIs".
 
 - `AZURE_OPENAI_API_KEY` - Desde la misma pantalla, copia la CLAVE 1 o CLAVE 2.
 
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - Encuentra tu recurso **Azure AI Search**, haz clic en él y consulta **Overview**.
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Encuentra tu recurso de **Azure AI Search**, haz clic en él y consulta **Overview**.
 
-- `AZURE_SEARCH_API_KEY` - Luego ve a **Settings** y luego a **Keys** para copiar la clave de administrador primaria o secundaria.
+- `AZURE_SEARCH_API_KEY` - Luego ve a **Configuración** y luego a **Claves** para copiar la clave de administrador primaria o secundaria.
 
 ### Página Externa
 
-- `AZURE_OPENAI_API_VERSION` - Visita la página [ciclo de vida de la versión API](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) bajo **Última versión GA API release**.
+- `AZURE_OPENAI_API_VERSION` - Visita la página [Ciclo de vida de la versión API](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) bajo **Última versión GA de la API**.
 
 ### Configuración de autenticación sin claves
 
@@ -315,7 +316,7 @@ from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 ```
 
 ## ¿Atascado en algún lugar?
-Si tienes algún problema al ejecutar esta configuración, únete a nuestro <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord de la Comunidad Azure AI</a> o <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">crea un problema</a>.
+Si tienes algún problema al ejecutar esta configuración, únete a nuestro <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord de la Comunidad de Azure AI</a> o <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">crea un problema</a>.
 
 ## Próxima Lección
 
@@ -325,5 +326,7 @@ Ahora estás listo para ejecutar el código de este curso. ¡Disfruta aprendiend
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que surjan del uso de esta traducción.
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que surjan del uso de esta traducción.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
