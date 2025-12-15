@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import asyncio
 import os
 import sys
@@ -6,7 +7,7 @@ from typing import Annotated
 
 # Check for dependencies
 try:
-    from dotenv import load_dotenv
+    from dotenv import load_dotenv, find_dotenv
     from openai import AsyncOpenAI
     from semantic_kernel import Kernel
     from semantic_kernel.connectors.ai.open_ai import OpenAIChatCompletion
@@ -20,7 +21,7 @@ except ImportError as e:
     sys.exit(1)
 
 # Load environment variables
-load_dotenv()
+load_dotenv(find_dotenv())
 
 # --- Plugins ---
 
