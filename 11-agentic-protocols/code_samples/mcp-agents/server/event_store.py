@@ -6,8 +6,12 @@ This module provides an in-memory event store that enables MCP session resumptio
 by storing and replaying events after client reconnection.
 """
 
+import asyncio
 import logging
+import sqlite3
 from typing import Optional
+
+from pydantic import TypeAdapter
 
 from mcp.server.streamable_http import (
     EventCallback,
@@ -83,23 +87,126 @@ class SimpleEventStore(EventStore):
 
 class PersistentEventStore(EventStore):
     """
-    Event store that persists events to disk.
-    
-    Note: This is a placeholder for future implementation.
-    In production, you would want to use a proper database.
+    Event store that persists events to disk using SQLite.
     """
     
     def __init__(self, storage_path: str = "events.db"):
         self.storage_path = storage_path
-        # TODO: Implement persistent storage
-        raise NotImplementedError("Persistent event store not yet implemented")
+        self._adapter = TypeAdapter(JSONRPCMessage)
+
+        # Use check_same_thread=False to allow access from asyncio executor threads
+        self._conn = sqlite3.connect(self.storage_path, check_same_thread=False)
+        self._create_table()
+        logger.info(f"PersistentEventStore initialized with {self.storage_path}")
+
+    def _create_table(self):
+        """Create the events table if it doesn't exist."""
+        cursor = self._conn.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS events (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                stream_id TEXT NOT NULL,
+                message TEXT NOT NULL
+            )
+        """)
+        self._conn.commit()
     
     async def store_event(self, stream_id: StreamId, message: JSONRPCMessage) -> EventId:
-        raise NotImplementedError()
+        """Store an event and return its ID."""
+        # Serialize message to JSON
+        json_str = self._adapter.dump_json(message).decode('utf-8')
+
+        # Run DB operation in thread pool to avoid blocking event loop
+        return await asyncio.to_thread(self._store_event_sync, stream_id, json_str)
+
+    def _store_event_sync(self, stream_id: str, json_str: str) -> EventId:
+        cursor = self._conn.cursor()
+        cursor.execute(
+            "INSERT INTO events (stream_id, message) VALUES (?, ?)",
+            (stream_id, json_str)
+        )
+        self._conn.commit()
+
+        event_id = str(cursor.lastrowid)
+        logger.info(f"Stored event {event_id} for stream {stream_id}")
+        return event_id
     
     async def replay_events_after(
         self,
         last_event_id: EventId,
         send_callback: EventCallback,
     ) -> StreamId | None:
-        raise NotImplementedError()
+        """Replay events after the specified ID, filtered by the stream of the last event."""
+        logger.info(f"Replaying events after {last_event_id}")
+
+        # Fetch events in thread pool
+        events_data = await asyncio.to_thread(self._fetch_events_sync, last_event_id)
+
+        if events_data is None:
+            logger.warning(f"Could not resume stream from event {last_event_id}")
+            return None
+
+        stream_id = None
+        replayed_count = 0
+
+        for event_id, row_stream_id, message_json in events_data:
+            if stream_id is None:
+                stream_id = row_stream_id
+
+            try:
+                message = self._adapter.validate_json(message_json)
+                await send_callback(EventMessage(message, event_id))
+                replayed_count += 1
+            except Exception as e:
+                logger.error(f"Failed to deserialize event {event_id}: {e}")
+
+        logger.info(f"Replayed {replayed_count} events for stream {stream_id}")
+        return stream_id
+
+    def _fetch_events_sync(self, last_event_id: str):
+        try:
+            target_id = int(last_event_id)
+        except (ValueError, TypeError):
+            logger.warning(f"Invalid event ID format: {last_event_id}")
+            return None
+
+        cursor = self._conn.cursor()
+
+        # 1. Identify the stream from the last event ID
+        cursor.execute("SELECT stream_id FROM events WHERE id = ?", (target_id,))
+        result = cursor.fetchone()
+
+        if not result:
+            logger.warning(f"Event ID {target_id} not found")
+            return None
+
+        stream_id = result[0]
+
+        # 2. Fetch subsequent events for THIS STREAM ONLY
+        cursor.execute(
+            "SELECT id, stream_id, message FROM events WHERE id > ? AND stream_id = ? ORDER BY id ASC",
+            (target_id, stream_id)
+        )
+
+        # Convert rows to list of (str_id, stream_id, msg_json)
+        return [(str(row[0]), row[1], row[2]) for row in cursor.fetchall()]
+
+    def get_event_count(self) -> int:
+        """Get the total number of stored events."""
+        cursor = self._conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM events")
+        result = cursor.fetchone()
+        return result[0] if result else 0
+
+    def clear_events(self) -> None:
+        """Clear all stored events."""
+        cursor = self._conn.cursor()
+        cursor.execute("DELETE FROM events")
+        # Reset auto-increment sequence
+        cursor.execute("DELETE FROM sqlite_sequence WHERE name='events'")
+        self._conn.commit()
+        logger.info("Event store cleared")
+
+    def __del__(self):
+        if hasattr(self, '_conn'):
+            self._conn.close()
