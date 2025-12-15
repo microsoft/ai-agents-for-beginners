@@ -2,7 +2,7 @@
 """
 Event Store Implementation for MCP Session Resumption
 
-This module provides an in-memory event store that enables MCP session resumption
+This module provides event store implementations that enable MCP session resumption
 by storing and replaying events after client reconnection.
 """
 
@@ -90,7 +90,7 @@ class PersistentEventStore(EventStore):
     Event store that persists events to disk using SQLite.
     """
     
-    def __init__(self, storage_path: str = "events.db"):
+    def __init__(self, storage_path: str = "events.db") -> None:
         self.storage_path = storage_path
         self._adapter = TypeAdapter(JSONRPCMessage)
 
@@ -99,7 +99,7 @@ class PersistentEventStore(EventStore):
         self._create_table()
         logger.info(f"PersistentEventStore initialized with {self.storage_path}")
 
-    def _create_table(self):
+    def _create_table(self) -> None:
         """Create the events table if it doesn't exist."""
         cursor = self._conn.cursor()
         cursor.execute("""
@@ -119,7 +119,7 @@ class PersistentEventStore(EventStore):
         # Run DB operation in thread pool to avoid blocking event loop
         return await asyncio.to_thread(self._store_event_sync, stream_id, json_str)
 
-    def _store_event_sync(self, stream_id: str, json_str: str) -> EventId:
+    def _store_event_sync(self, stream_id: StreamId, json_str: str) -> EventId:
         cursor = self._conn.cursor()
         cursor.execute(
             "INSERT INTO events (stream_id, message) VALUES (?, ?)",
@@ -163,7 +163,7 @@ class PersistentEventStore(EventStore):
         logger.info(f"Replayed {replayed_count} events for stream {stream_id}")
         return stream_id
 
-    def _fetch_events_sync(self, last_event_id: str):
+    def _fetch_events_sync(self, last_event_id: EventId) -> list[tuple[EventId, StreamId, str]] | None:
         try:
             target_id = int(last_event_id)
         except (ValueError, TypeError):
