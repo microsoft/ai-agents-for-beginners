@@ -1,65 +1,65 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "218cf4d1ab3d9224f020f7e26155ef99",
-  "translation_date": "2025-12-03T14:50:01+00:00",
+  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
+  "translation_date": "2025-12-17T11:48:47+00:00",
   "source_file": "README.md",
   "language_code": "hu"
 }
 -->
-# AI Ügynökök Kezdőknek - Egy Tanfolyam
+# AI ügynökök kezdőknek - Egy tanfolyam
 
-![Generative AI For Beginners](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.hu.png)
+![Generatív AI kezdőknek](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.hu.png)
 
-## Egy tanfolyam, amely megtanít mindent, amit tudnod kell az AI ügynökök építésének elkezdéséhez
+## Egy tanfolyam, amely mindent megtanít, amit az AI ügynökök építésének megkezdéséhez tudni kell
 
-[![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![GitHub issues](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
+[![GitHub licenc](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
+[![GitHub közreműködők](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![GitHub hibák](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![GitHub pull-kérelmek](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![PR-k üdvözölve](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
 ### 🌐 Többnyelvű támogatás
 
-#### Támogatott GitHub Action által (Automatikus és mindig naprakész)
+#### GitHub Action által támogatott (Automatizált és mindig naprakész)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arab](../ar/README.md) | [Bengáli](../bn/README.md) | [Bolgár](../bg/README.md) | [Burmai (Mianmar)](../my/README.md) | [Kínai (Egyszerűsített)](../zh/README.md) | [Kínai (Hagyományos, Hongkong)](../hk/README.md) | [Kínai (Hagyományos, Makaó)](../mo/README.md) | [Kínai (Hagyományos, Tajvan)](../tw/README.md) | [Horvát](../hr/README.md) | [Cseh](../cs/README.md) | [Dán](../da/README.md) | [Holland](../nl/README.md) | [Észt](../et/README.md) | [Finn](../fi/README.md) | [Francia](../fr/README.md) | [Német](../de/README.md) | [Görög](../el/README.md) | [Héber](../he/README.md) | [Hindi](../hi/README.md) | [Magyar](./README.md) | [Indonéz](../id/README.md) | [Olasz](../it/README.md) | [Japán](../ja/README.md) | [Kannada](../kn/README.md) | [Koreai](../ko/README.md) | [Litván](../lt/README.md) | [Maláj](../ms/README.md) | [Malajálam](../ml/README.md) | [Maráthi](../mr/README.md) | [Nepáli](../ne/README.md) | [Nigériai Pidgin](../pcm/README.md) | [Norvég](../no/README.md) | [Perzsa (Fárszi)](../fa/README.md) | [Lengyel](../pl/README.md) | [Portugál (Brazília)](../br/README.md) | [Portugál (Portugália)](../pt/README.md) | [Pandzsábi (Gurmukhi)](../pa/README.md) | [Román](../ro/README.md) | [Orosz](../ru/README.md) | [Szerb (Cirill)](../sr/README.md) | [Szlovák](../sk/README.md) | [Szlovén](../sl/README.md) | [Spanyol](../es/README.md) | [Szuahéli](../sw/README.md) | [Svéd](../sv/README.md) | [Tagalog (Filippínó)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Török](../tr/README.md) | [Ukrán](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnámi](../vi/README.md)
+[Arab](../ar/README.md) | [Bengáli](../bn/README.md) | [Bolgár](../bg/README.md) | [Burmai (Mianmar)](../my/README.md) | [Kínai (egyszerűsített)](../zh/README.md) | [Kínai (hagyományos, Hongkong)](../hk/README.md) | [Kínai (hagyományos, Makaó)](../mo/README.md) | [Kínai (hagyományos, Tajvan)](../tw/README.md) | [Horvát](../hr/README.md) | [Cseh](../cs/README.md) | [Dán](../da/README.md) | [Holland](../nl/README.md) | [Észt](../et/README.md) | [Finn](../fi/README.md) | [Francia](../fr/README.md) | [Német](../de/README.md) | [Görög](../el/README.md) | [Héber](../he/README.md) | [Hindi](../hi/README.md) | [Magyar](./README.md) | [Indonéz](../id/README.md) | [Olasz](../it/README.md) | [Japán](../ja/README.md) | [Kannada](../kn/README.md) | [Koreai](../ko/README.md) | [Litván](../lt/README.md) | [Maláj](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepáli](../ne/README.md) | [Nigériai pidgin](../pcm/README.md) | [Norvég](../no/README.md) | [Perzsa (Fárszi)](../fa/README.md) | [Lengyel](../pl/README.md) | [Portugál (Brazília)](../br/README.md) | [Portugál (Portugália)](../pt/README.md) | [Pandzsábi (Gurmukhi)](../pa/README.md) | [Román](../ro/README.md) | [Orosz](../ru/README.md) | [Szerb (cirill)](../sr/README.md) | [Szlovák](../sk/README.md) | [Szlovén](../sl/README.md) | [Spanyol](../es/README.md) | [Szuahéli](../sw/README.md) | [Svéd](../sv/README.md) | [Tagalog (Filippínó)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Török](../tr/README.md) | [Ukrán](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnami](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**Ha további fordításokat szeretnél, a támogatott nyelvek listája [itt található](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**Ha további fordítási nyelveket szeretnél támogatni, azok itt találhatók [itt](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
-[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub figyelők](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub forkok](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![GitHub csillagok](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
 
 ## 🌱 Kezdés
 
-Ez a tanfolyam az AI ügynökök építésének alapjait tárgyalja. Minden lecke egy-egy témát ölel fel, így kezdhetsz bárhol!
+Ez a tanfolyam az AI ügynökök építésének alapjait tárgyalja. Minden lecke a saját témáját fedi le, így bárhol elkezdheted!
 
-A tanfolyam többnyelvű támogatással rendelkezik. Nézd meg az [elérhető nyelveket itt](../..). 
+A tanfolyam többnyelvű támogatással rendelkezik. Nézd meg a [elérhető nyelveket itt](../..).
 
-Ha először dolgozol Generatív AI modellekkel, nézd meg a [Generative AI For Beginners](https://aka.ms/genai-beginners) tanfolyamot, amely 21 leckét tartalmaz a GenAI építéséről.
+Ha most építesz először generatív AI modellekkel, nézd meg a [Generatív AI kezdőknek](https://aka.ms/genai-beginners) tanfolyamunkat, amely 21 leckét tartalmaz a GenAI-vel való építésről.
 
-Ne felejtsd el [csillagozni (🌟) ezt a repót](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) és [forkolni ezt a repót](https://github.com/microsoft/ai-agents-for-beginners/fork), hogy futtathasd a kódot.
+Ne felejtsd el [megcsillagozni (🌟) ezt a repót](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) és [forkolni ezt a repót](https://github.com/microsoft/ai-agents-for-beginners/fork) a kód futtatásához.
 
-### Találkozz más tanulókkal, kapj válaszokat kérdéseidre
+### Ismerkedj meg más tanulókkal, kapj választ kérdéseidre
 
-Ha elakadsz vagy kérdéseid vannak az AI ügynökök építésével kapcsolatban, csatlakozz a dedikált Discord csatornánkhoz a [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) platformon.
+Ha elakadsz vagy kérdésed van az AI ügynökök építésével kapcsolatban, csatlakozz a dedikált Discord csatornánkhoz a [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) szerveren.
 
-### Mire van szükséged
+### Amire szükséged van
 
-Minden lecke tartalmaz kódpéldákat, amelyek a code_samples mappában találhatók. [Forkold ezt a repót](https://github.com/microsoft/ai-agents-for-beginners/fork), hogy létrehozd saját másolatodat.  
+Minden lecke tartalmaz kódpéldákat, amelyek a code_samples mappában találhatók. [Forkold ezt a repót](https://github.com/microsoft/ai-agents-for-beginners/fork), hogy létrehozd a saját példányodat.
 
-Az ezekben a gyakorlatokban található kódpéldák az Azure AI Foundry-t és a GitHub Model Catalogs-t használják a nyelvi modellekkel való interakcióhoz:
+A gyakorlatok kódpéldái az Azure AI Foundry-t és a GitHub Model Catalogokat használják a nyelvi modellekkel való interakcióhoz:
 
-- [Github Modellek](https://aka.ms/ai-agents-beginners/github-models) - Ingyenes / Korlátozott
+- [Github modellek](https://aka.ms/ai-agents-beginners/github-models) - Ingyenes / Korlátozott
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure fiók szükséges
 
-Ez a tanfolyam a következő AI ügynök keretrendszereket és szolgáltatásokat használja a Microsofttól:
+Ez a tanfolyam a Microsoft következő AI ügynök keretrendszereit és szolgáltatásait is használja:
 
 - [Microsoft Agent Framework (MAF) - Új!](https://aka.ms/ai-agents-beginners/agent-framewrok)
 - [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
@@ -67,49 +67,55 @@ Ez a tanfolyam a következő AI ügynök keretrendszereket és szolgáltatásoka
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-További információért a tanfolyam kódjának futtatásáról, látogass el a [Tanfolyam Beállítások](./00-course-setup/README.md) oldalra.
+A tanfolyam kódjának futtatásáról további információk a [Course Setup](./00-course-setup/README.md) fájlban találhatók.
 
 ## 🙏 Szeretnél segíteni?
 
-Van javaslatod vagy találtál helyesírási vagy kódhibát? [Nyiss egy hibajelentést](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) vagy [Hozz létre egy pull requestet](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Van javaslatod vagy találtál helyesírási vagy kódhibákat? [Nyiss egy hibajegyet](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) vagy [Hozz létre egy pull-kérelmet](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
 ## 📂 Minden lecke tartalmaz
 
-- Írott leckét a README-ben és egy rövid videót
-- Python kódpéldákat, amelyek támogatják az Azure AI Foundry-t és a Github Modelleket (Ingyenes)
-- Linkeket további tanulási forrásokhoz
+- Egy írott leckét a README-ben és egy rövid videót
+- Python kódpéldákat, amelyek támogatják az Azure AI Foundry-t és a Github modelleket (ingyenes)
+- Linkeket további forrásokhoz a tanulás folytatásához
 
 
 ## 🗃️ Leckék
 
-| **Lecke**                                    | **Szöveg & Kód**                                   | **Videó**                                                  | **További tanulás**                                                                     |
+| **Lecke**                                    | **Szöveg & Kód**                                   | **Videó**                                                  | **További tanulás**                                                                    |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Bevezetés az AI ügynökökbe és az ügynökök felhasználási eseteibe | [Link](./01-intro-to-ai-agents/README.md)          | [Videó](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Bevezetés az AI ügynökökbe és ügynök használati esetek | [Link](./01-intro-to-ai-agents/README.md)          | [Videó](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI ügynöki keretrendszerek felfedezése       | [Link](./02-explore-agentic-frameworks/README.md)  | [Videó](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI ügynöki tervezési minták megértése        | [Link](./03-agentic-design-patterns/README.md)     | [Videó](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Eszközhasználati tervezési minta             | [Link](./04-tool-use/README.md)                    | [Videó](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Ügynöki RAG                                  | [Link](./05-agentic-rag/README.md)                 | [Videó](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Megbízható AI ügynökök építése               | [Link](./06-building-trustworthy-agents/README.md) | [Videó](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Tervezési minta tervezése                    | [Link](./07-planning-design/README.md)             | [Videó](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Több ügynöki tervezési minta                 | [Link](./08-multi-agent/README.md)                 | [Videó](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Metakogníciós tervezési minta                | [Link](./09-metacognition/README.md)               | [Videó](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI ügynökök a gyakorlatban                  | [Link](./10-ai-agents-production/README.md)        | [Videó](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentikus protokollok használata (MCP, A2A és NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Videó](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Kontextus mérnökség AI ügynökök számára      | [Link](./12-context-engineering/README.md)         | [Videó](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentikus memória kezelése                  | [Link](./13-agent-memory/README.md)     |      [Videó](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| Microsoft Agent Framework felfedezése       | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Számítógép-használati ügynökök (CUA) építése | Hamarosan                            |                                                            |                                                                                        |
-| Skálázható ügynökök telepítése              | Hamarosan                            |                                                            |                                                                                        |
-| Lokális AI ügynökök létrehozása             | Hamarosan                               |                                                            |                                                                                        |
-| AI ügynökök biztonságossá tétele            | Hamarosan                               |                                                            |                                                                                        |
+| Eszközhasználati tervezési minta              | [Link](./04-tool-use/README.md)                    | [Videó](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Ügynöki RAG                                   | [Link](./05-agentic-rag/README.md)                 | [Videó](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Megbízható AI ügynökök építése                | [Link](./06-building-trustworthy-agents/README.md) | [Videó](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Tervezési minta                                | [Link](./07-planning-design/README.md)             | [Videó](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Többügynökös tervezési minta                   | [Link](./08-multi-agent/README.md)                 | [Videó](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Metakogníciós tervezési minta                  | [Link](./09-metacognition/README.md)               | [Videó](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI ügynökök éles környezetben                      | [Link](./10-ai-agents-production/README.md)        | [Videó](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Ügynöki protokollok használata (MCP, A2A és NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Videó](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Kontextus mérnökség AI ügynökök számára            | [Link](./12-context-engineering/README.md)         | [Videó](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Ügynöki memória kezelése                      | [Link](./13-agent-memory/README.md)     |      [Videó](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| A Microsoft Agent Framework felfedezése                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| Számítógép-használati ügynökök építése (CUA)           | Hamarosan érkezik                            |                                                            |                                                                                        |
+| Skálázható ügynökök telepítése                    | Hamarosan érkezik                            |                                                            |                                                                                        |
+| Helyi AI ügynökök létrehozása                     | Hamarosan érkezik                               |                                                            |                                                                                        |
+| AI ügynökök biztonságossá tétele                           | Hamarosan érkezik                               |                                                            |                                                                                        |
 
-## 🎒 Egyéb kurzusok
+## 🎒 Egyéb tanfolyamok
 
-Csapatunk más kurzusokat is készít! Nézd meg:
+Csapatunk más tanfolyamokat is készít! Nézd meg:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
+### LangChain
+[![LangChain4j kezdőknek](https://img.shields.io/badge/LangChain4j%20for%20Beginners-22C55E?style=for-the-badge&&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchain4j-for-beginners)
+[![LangChain.js kezdőknek](https://img.shields.io/badge/LangChain.js%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchainjs-for-beginners?WT.mc_id=m365-94501-dwahlin)
+
+---
+
 ### Azure / Edge / MCP / Ügynökök
 [![AZD kezdőknek](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Edge AI kezdőknek](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
@@ -143,42 +149,46 @@ Csapatunk más kurzusokat is készít! Nézd meg:
 [![Copilot kaland](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
-## 🌟 Közösségi köszönet
+## 🌟 Közösségi köszönetnyilvánítás
 
-Köszönjük [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) munkáját, aki fontos kódmintákat készített az Agentikus RAG bemutatására. 
+Köszönet [Shivam Goyal](https://www.linkedin.com/in/shivam2003/)-nak a fontos kódrészletekért, amelyek bemutatják az Agentic RAG működését.
 
 ## Hozzájárulás
 
-Ez a projekt szívesen fogad hozzájárulásokat és javaslatokat. A legtöbb hozzájárulás megköveteli, hogy elfogadja a
-Hozzájárulói Licencszerződést (CLA), amely kijelenti, hogy joga van, és ténylegesen megadja nekünk
-a jogokat a hozzájárulásának felhasználására. Részletekért látogasson el ide: <https://cla.opensource.microsoft.com>.
+Ez a projekt szívesen fogad hozzájárulásokat és javaslatokat. A legtöbb hozzájáruláshoz el kell fogadnia egy
+Hozzájárulói Licenc Szerződést (CLA), amelyben kijelenti, hogy joga van a hozzájárulás használatára, és ténylegesen megadja nekünk
+a jogokat a hozzájárulás felhasználására. Részletekért látogasson el a <https://cla.opensource.microsoft.com> oldalra.
 
-Amikor benyújt egy pull requestet, egy CLA bot automatikusan meghatározza, hogy szükséges-e CLA-t benyújtania, és megfelelően megjelöli a PR-t (pl. állapotellenőrzés, megjegyzés). Egyszerűen kövesse a bot által adott utasításokat. Ezt csak egyszer kell megtennie az összes CLA-t használó repó esetében.
+Amikor pull request-et nyújt be, egy CLA bot automatikusan megállapítja, hogy szükséges-e CLA-t benyújtania,
+és megfelelően jelöli a PR-t (pl. állapotellenőrzés, megjegyzés). Egyszerűen kövesse a bot által adott utasításokat.
+Ezt csak egyszer kell megtennie az összes CLA-t használó repóban.
 
 Ez a projekt elfogadta a [Microsoft Nyílt Forráskódú Magatartási Kódexét](https://opensource.microsoft.com/codeofconduct/).
-További információért tekintse meg a [Magatartási Kódex GYIK](https://opensource.microsoft.com/codeofconduct/faq/) oldalt, vagy
-vegye fel a kapcsolatot [opencode@microsoft.com](mailto:opencode@microsoft.com) címen további kérdésekkel vagy megjegyzésekkel.
+További információkért lásd a [Magatartási Kódex GYIK](https://opensource.microsoft.com/codeofconduct/faq/) oldalt, vagy
+lépjen kapcsolatba az [opencode@microsoft.com](mailto:opencode@microsoft.com) címen további kérdésekkel vagy észrevételekkel.
 
 ## Védjegyek
 
 Ez a projekt tartalmazhat védjegyeket vagy logókat projektekhez, termékekhez vagy szolgáltatásokhoz. A Microsoft
-védjegyek vagy logók engedélyezett használata a [Microsoft Védjegy és Márka Irányelveinek](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) betartásával történhet.
-A Microsoft védjegyek vagy logók módosított verzióinak használata nem okozhat zavart vagy nem utalhat a Microsoft szponzorálására.
-Harmadik fél védjegyeinek vagy logóinak használata az adott harmadik fél irányelveinek hatálya alá tartozik.
+védjegyek vagy logók jogosult használata a
+[Microsoft védjegy- és márka irányelveinek](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) betartása mellett történhet.
+A Microsoft védjegyek vagy logók módosított verziókban történő használata nem okozhat félreértést, és nem sugallhat Microsoft támogatást.
+Harmadik fél védjegyeinek vagy logóinak használata a harmadik felek szabályzatai szerint történik.
 
-## Segítség kérése
+## Segítségkérés
 
-Ha elakad vagy kérdése van az AI alkalmazások építésével kapcsolatban, csatlakozzon:
+
+Ha elakad vagy kérdése van AI alkalmazások fejlesztésével kapcsolatban, csatlakozz:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Ha termék visszajelzést szeretne adni vagy hibát tapasztal az építés során, látogasson el ide:
+Ha termék visszajelzése vagy hibák jelentkeznek fejlesztés közben, látogasson el:
 
-[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+[![Microsoft Foundry Fejlesztői Fórum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Felelősség kizárása**:  
-Ezt a dokumentumot az [Co-op Translator](https://github.com/Azure/co-op-translator) AI fordítási szolgáltatás segítségével fordították le. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt a professzionális emberi fordítás igénybevétele. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
+**Jogi nyilatkozat**:
+Ezt a dokumentumot az AI fordító szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével fordítottuk le. Bár a pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Fontos információk esetén professzionális emberi fordítást javaslunk. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy félreértelmezésekért.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
