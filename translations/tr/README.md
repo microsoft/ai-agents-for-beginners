@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
-  "translation_date": "2025-12-17T11:29:46+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:10:37+00:00",
   "source_file": "README.md",
   "language_code": "tr"
 }
@@ -21,10 +21,10 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### 🌐 Çok Dilli Destek
 
-#### GitHub Action ile desteklenmektedir (Otomatik ve Her Zaman Güncel)
+#### GitHub Action ile Desteklenmektedir (Otomatik ve Her Zaman Güncel)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arapça](../ar/README.md) | [Bengalce](../bn/README.md) | [Bulgarca](../bg/README.md) | [Birmanca (Myanmar)](../my/README.md) | [Çince (Basitleştirilmiş)](../zh/README.md) | [Çince (Geleneksel, Hong Kong)](../hk/README.md) | [Çince (Geleneksel, Makao)](../mo/README.md) | [Çince (Geleneksel, Tayvan)](../tw/README.md) | [Hırvatça](../hr/README.md) | [Çekçe](../cs/README.md) | [Danca](../da/README.md) | [Flemenkçe](../nl/README.md) | [Estonca](../et/README.md) | [Fince](../fi/README.md) | [Fransızca](../fr/README.md) | [Almanca](../de/README.md) | [Yunanca](../el/README.md) | [İbranice](../he/README.md) | [Hintçe](../hi/README.md) | [Macarca](../hu/README.md) | [Endonezce](../id/README.md) | [İtalyanca](../it/README.md) | [Japonca](../ja/README.md) | [Kannada](../kn/README.md) | [Korece](../ko/README.md) | [Litvanca](../lt/README.md) | [Malayca](../ms/README.md) | [Malayalamca](../ml/README.md) | [Marathi](../mr/README.md) | [Nepalce](../ne/README.md) | [Nijerya Pidgin](../pcm/README.md) | [Norveççe](../no/README.md) | [Farsça (Persian)](../fa/README.md) | [Lehçe](../pl/README.md) | [Portekizce (Brezilya)](../br/README.md) | [Portekizce (Portekiz)](../pt/README.md) | [Pencapça (Gurmukhi)](../pa/README.md) | [Rumence](../ro/README.md) | [Rusça](../ru/README.md) | [Sırpça (Kiril)](../sr/README.md) | [Slovakça](../sk/README.md) | [Slovence](../sl/README.md) | [İspanyolca](../es/README.md) | [Svahili](../sw/README.md) | [İsveççe](../sv/README.md) | [Tagalogca (Filipinler)](../tl/README.md) | [Tamilce](../ta/README.md) | [Telugu](../te/README.md) | [Tayca](../th/README.md) | [Türkçe](./README.md) | [Ukraynaca](../uk/README.md) | [Urduca](../ur/README.md) | [Vietnamca](../vi/README.md)
+[Arapça](../ar/README.md) | [Bengalce](../bn/README.md) | [Bulgarca](../bg/README.md) | [Birmanca (Myanmar)](../my/README.md) | [Çince (Basitleştirilmiş)](../zh/README.md) | [Çince (Geleneksel, Hong Kong)](../hk/README.md) | [Çince (Geleneksel, Makao)](../mo/README.md) | [Çince (Geleneksel, Tayvan)](../tw/README.md) | [Hırvatça](../hr/README.md) | [Çekçe](../cs/README.md) | [Danca](../da/README.md) | [Flemenkçe](../nl/README.md) | [Estonca](../et/README.md) | [Fince](../fi/README.md) | [Fransızca](../fr/README.md) | [Almanca](../de/README.md) | [Yunanca](../el/README.md) | [İbranice](../he/README.md) | [Hintçe](../hi/README.md) | [Macarca](../hu/README.md) | [Endonezce](../id/README.md) | [İtalyanca](../it/README.md) | [Japonca](../ja/README.md) | [Kannada](../kn/README.md) | [Korece](../ko/README.md) | [Litvanca](../lt/README.md) | [Malayca](../ms/README.md) | [Malayalamca](../ml/README.md) | [Marathi](../mr/README.md) | [Nepalce](../ne/README.md) | [Nijerya Pidgin](../pcm/README.md) | [Norveççe](../no/README.md) | [Farsça (Persian)](../fa/README.md) | [Lehçe](../pl/README.md) | [Portekizce (Brezilya)](../br/README.md) | [Portekizce (Portekiz)](../pt/README.md) | [Pencapça (Gurmukhi)](../pa/README.md) | [Rumence](../ro/README.md) | [Rusça](../ru/README.md) | [Sırpça (Kiril)](../sr/README.md) | [Slovakça](../sk/README.md) | [Slovence](../sl/README.md) | [İspanyolca](../es/README.md) | [Svahili](../sw/README.md) | [İsveççe](../sv/README.md) | [Tagalogca (Filipince)](../tl/README.md) | [Tamilce](../ta/README.md) | [Telugu](../te/README.md) | [Tayca](../th/README.md) | [Türkçe](./README.md) | [Ukraynaca](../uk/README.md) | [Urduca](../ur/README.md) | [Vietnamca](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 **Ek dil desteği isterseniz, desteklenen diller [burada](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md) listelenmiştir**
@@ -44,15 +44,15 @@ Bu kurs için çoklu dil desteği mevcuttur. Mevcut diller için [buraya bakabil
 
 Eğer Üretken Yapay Zeka modelleri ile ilk kez çalışıyorsanız, 21 ders içeren [Yeni Başlayanlar için Üretken Yapay Zeka](https://aka.ms/genai-beginners) kursumuza göz atın.
 
-Bu depoyu [yıldızlamayı (🌟) unutmayın](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ve kodu çalıştırmak için [forklayın](https://github.com/microsoft/ai-agents-for-beginners/fork).
+Bu depoyu [yıldızlamayı (🌟) unutmayın](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ve kodu çalıştırmak için [bu depoyu çatallayın](https://github.com/microsoft/ai-agents-for-beginners/fork).
 
 ### Diğer Öğrenenlerle Tanışın, Sorularınızı Yanıtlayın
 
-Yapay Zeka Ajanları geliştirme konusunda takılırsanız veya sorularınız olursa, [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) içindeki özel Discord Kanalımıza katılın.
+Yapay Zeka Ajanları oluştururken takılırsanız veya sorularınız olursa, [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) içindeki özel Discord Kanalımıza katılın.
 
-### Gerekenler
+### İhtiyacınız Olanlar
 
-Bu kurstaki her ders, kod örnekleri içerir ve bunlar code_samples klasöründe bulunabilir. Kendi kopyanızı oluşturmak için [bu depoyu forklayabilirsiniz](https://github.com/microsoft/ai-agents-for-beginners/fork).
+Bu kurstaki her ders, kod örnekleri içerir ve bunlar code_samples klasöründe bulunabilir. Kendi kopyanızı oluşturmak için [bu depoyu çatallayabilirsiniz](https://github.com/microsoft/ai-agents-for-beginners/fork).
 
 Bu egzersizlerdeki kod örnekleri, Dil Modelleri ile etkileşim için Azure AI Foundry ve GitHub Model Kataloglarını kullanır:
 
@@ -71,7 +71,7 @@ Bu kursun kodunu çalıştırmak için daha fazla bilgiye [Kurs Kurulumu](./00-c
 
 ## 🙏 Yardım etmek ister misiniz?
 
-Önerileriniz veya yazım ya da kod hataları bulduysanız, [bir sorun açın](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) veya [çekme isteği oluşturun](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Önerileriniz veya yazım ya da kod hataları bulduysanız, [bir sorun açın](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) veya [bir çekme isteği oluşturun](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -100,10 +100,10 @@ Bu kursun kodunu çalıştırmak için daha fazla bilgiye [Kurs Kurulumu](./00-c
 | AI Ajanları için Bağlam Mühendisliği            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentik Belleğin Yönetimi                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Microsoft Agent Framework'ü Keşfetmek                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Bilgisayar Kullanım Ajanları (CUA) Oluşturmak           | Yakında Geliyor                            |                                                            |                                                                                        |
-| Ölçeklenebilir Ajanları Dağıtmak                    | Yakında Geliyor                            |                                                            |                                                                                        |
-| Yerel AI Ajanları Oluşturmak                     | Yakında Geliyor                               |                                                            |                                                                                        |
-| AI Ajanlarını Güvence Almak                           | Yakında Geliyor                               |                                                            |                                                                                        |
+| Bilgisayar Kullanım Ajanları (CUA) Oluşturma           | Yakında Geliyor                            |                                                            |                                                                                        |
+| Ölçeklenebilir Ajanların Dağıtımı                    | Yakında Geliyor                            |                                                            |                                                                                        |
+| Yerel AI Ajanları Oluşturma                     | Yakında Geliyor                               |                                                            |                                                                                        |
+| AI Ajanlarının Güvenliği                           | Yakında Geliyor                               |                                                            |                                                                                        |
 
 ## 🎒 Diğer Kurslar
 
@@ -151,13 +151,13 @@ Ekibimiz başka kurslar da üretiyor! Göz atın:
 
 ## 🌟 Topluluk Teşekkürü
 
-Agentik RAG gösteren önemli kod örnekleri için [Shivam Goyal](https://www.linkedin.com/in/shivam2003/)'a teşekkürler.
+Agentik RAG'i gösteren önemli kod örnekleri için [Shivam Goyal](https://www.linkedin.com/in/shivam2003/)'a teşekkürler.
 
 ## Katkıda Bulunma
 
-Bu proje katkı ve önerilere açıktır. Çoğu katkı, katkınızı kullanma haklarını bize verdiğinizi ve gerçekten verdiğinizi beyan eden bir Katkı Sağlayıcı Lisans Sözleşmesi'ni (CLA) kabul etmenizi gerektirir. Detaylar için <https://cla.opensource.microsoft.com> adresini ziyaret edin.
+Bu proje katkılara ve önerilere açıktır. Çoğu katkı, katkınızı kullanma haklarını bize verdiğinizi ve gerçekten verdiğinizi beyan eden bir Katkı Sağlayıcı Lisans Sözleşmesi'ni (CLA) kabul etmenizi gerektirir. Detaylar için <https://cla.opensource.microsoft.com> adresini ziyaret edin.
 
-Bir pull request gönderdiğinizde, bir CLA botu otomatik olarak CLA sağlamanız gerekip gerekmediğini belirler ve PR'ı uygun şekilde işaretler (örneğin, durum kontrolü, yorum). Botun verdiği talimatları izleyin. CLA'yı kullanan tüm depolarda bunu yalnızca bir kez yapmanız yeterlidir.
+Bir çekme isteği gönderdiğinizde, bir CLA botu otomatik olarak CLA sağlamanız gerekip gerekmediğini belirleyecek ve PR'yi uygun şekilde (örneğin, durum kontrolü, yorum) işaretleyecektir. Botun verdiği talimatları izleyin. CLA'yı kullanan tüm depolarda bunu yalnızca bir kez yapmanız yeterlidir.
 
 Bu proje [Microsoft Açık Kaynak Davranış Kuralları](https://opensource.microsoft.com/codeofconduct/)nu benimsemiştir. Daha fazla bilgi için [Davranış Kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) sayfasına bakabilir veya ek sorularınız ya da yorumlarınız için [opencode@microsoft.com](mailto:opencode@microsoft.com) ile iletişime geçebilirsiniz.
 
@@ -167,11 +167,11 @@ Bu proje, projeler, ürünler veya hizmetler için ticari markalar veya logolar 
 
 ## Yardım Alma
 
-Takılırsanız veya AI uygulamaları geliştirme hakkında sorularınız varsa, katılın:
+Takılırsanız veya AI uygulamaları geliştirme hakkında sorularınız olursa, katılın:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Ürün geri bildirimi veya geliştirme sırasında hatalar için ziyaret edin:
+Ürün geri bildirimi veya hata bildirimi için ziyaret edin:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
@@ -179,5 +179,5 @@ Takılırsanız veya AI uygulamaları geliştirme hakkında sorularınız varsa,
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Feragatname**:  
-Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu oluşabilecek yanlış anlamalar veya yorum hatalarından sorumlu değiliz.
+Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba gösterilse de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu oluşabilecek yanlış anlamalar veya yorum hatalarından sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

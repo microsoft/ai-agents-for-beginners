@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
-  "translation_date": "2025-12-17T11:04:34+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T13:45:28+00:00",
   "source_file": "README.md",
   "language_code": "ar"
 }
@@ -42,7 +42,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 هناك دعم متعدد اللغات لهذه الدورة. اذهب إلى [اللغات المتاحة هنا](../..).
 
-إذا كانت هذه هي المرة الأولى التي تبني فيها باستخدام نماذج الذكاء الاصطناعي التوليدي، تحقق من دورتنا [الذكاء الاصطناعي التوليدي للمبتدئين](https://aka.ms/genai-beginners) التي تتضمن 21 درسًا حول البناء باستخدام GenAI.
+إذا كانت هذه هي المرة الأولى التي تبني فيها باستخدام نماذج الذكاء الاصطناعي التوليدي، تحقق من دورتنا [الذكاء الاصطناعي التوليدي للمبتدئين](https://aka.ms/genai-beginners)، والتي تتضمن 21 درسًا حول البناء باستخدام GenAI.
 
 لا تنسَ [وضع نجمة (🌟) على هذا المستودع](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) و[تفرع هذا المستودع](https://github.com/microsoft/ai-agents-for-beginners/fork) لتشغيل الكود.
 
@@ -59,10 +59,10 @@ CO_OP_TRANSLATOR_METADATA:
 - [نماذج Github](https://aka.ms/ai-agents-beginners/github-models) - مجاني / محدود
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - يتطلب حساب Azure
 
-تستخدم هذه الدورة أيضًا أطر عمل وخدمات وكلاء الذكاء الاصطناعي التالية من Microsoft:
+تستخدم هذه الدورة أيضًا أطر عمل وخدمات وكلاء الذكاء الاصطناعي التالية من مايكروسوفت:
 
-- [إطار عمل وكلاء Microsoft (MAF) - جديد!](https://aka.ms/ai-agents-beginners/agent-framewrok)
-- [خدمة وكلاء Azure AI](https://aka.ms/ai-agents-beginners/ai-agent-service)
+- [إطار عمل الوكيل من مايكروسوفت (MAF) - جديد!](https://aka.ms/ai-agents-beginners/agent-framewrok)
+- [خدمة وكيل Azure AI](https://aka.ms/ai-agents-beginners/ai-agent-service)
 - [النواة الدلالية](https://aka.ms/ai-agents-beginners/semantic-kernel)
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
@@ -78,7 +78,7 @@ CO_OP_TRANSLATOR_METADATA:
 ## 📂 كل درس يتضمن
 
 - درسًا مكتوبًا موجودًا في README وفيديو قصير
-- عينات كود بايثون تدعم Azure AI Foundry ونماذج Github (مجانية)
+- عينات كود بايثون تدعم Azure AI Foundry ونماذج Github (مجاني)
 - روابط لموارد إضافية لمواصلة التعلم
 
 
@@ -87,10 +87,10 @@ CO_OP_TRANSLATOR_METADATA:
 | **الدرس**                                   | **النص والكود**                                    | **الفيديو**                                                  | **تعلم إضافي**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | مقدمة في وكلاء الذكاء الاصطناعي وحالات استخدام الوكلاء       | [رابط](./01-intro-to-ai-agents/README.md)          | [فيديو](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| استكشاف أُطُر عمل الوكلاء الذكاء الاصطناعي              | [رابط](./02-explore-agentic-frameworks/README.md)  | [فيديو](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| فهم أنماط تصميم الوكلاء الذكاء الاصطناعي     | [رابط](./03-agentic-design-patterns/README.md)     | [فيديو](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| استكشاف أُطُر وكلاء الذكاء الاصطناعي              | [رابط](./02-explore-agentic-frameworks/README.md)  | [فيديو](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| فهم أنماط تصميم وكلاء الذكاء الاصطناعي     | [رابط](./03-agentic-design-patterns/README.md)     | [فيديو](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | نمط تصميم استخدام الأدوات                      | [رابط](./04-tool-use/README.md)                    | [فيديو](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| الوكيل الذكي RAG                                  | [رابط](./05-agentic-rag/README.md)                 | [فيديو](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| RAG الوكلي                                  | [رابط](./05-agentic-rag/README.md)                 | [فيديو](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | بناء وكلاء ذكاء اصطناعي موثوقين               | [رابط](./06-building-trustworthy-agents/README.md) | [فيديو](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | نمط تصميم التخطيط                      | [رابط](./07-planning-design/README.md)             | [فيديو](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | نمط تصميم الوكلاء المتعددين                   | [رابط](./08-multi-agent/README.md)                 | [فيديو](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -98,8 +98,8 @@ CO_OP_TRANSLATOR_METADATA:
 | وكلاء الذكاء الاصطناعي في الإنتاج                      | [رابط](./10-ai-agents-production/README.md)        | [فيديو](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | استخدام بروتوكولات الوكلاء (MCP, A2A و NLWeb) | [رابط](./11-agentic-protocols/README.md)           | [فيديو](https://youtu.be/X-Dh9R3Opn8)                                 | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | هندسة السياق لوكلاء الذكاء الاصطناعي            | [رابط](./12-context-engineering/README.md)         | [فيديو](https://youtu.be/F5zqRV7gEag)                                 | [رابط](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| إدارة ذاكرة الوكلاء                      | [رابط](./13-agent-memory/README.md)     |      [فيديو](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| استكشاف إطار عمل مايكروسوفت للوكلاء                         | [رابط](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| إدارة ذاكرة الوكيل                      | [رابط](./13-agent-memory/README.md)     |      [فيديو](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| استكشاف إطار عمل مايكروسوفت للوكيل                         | [رابط](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
 | بناء وكلاء استخدام الحاسوب (CUA)           | قريبًا                            |                                                            |                                                                                        |
 | نشر وكلاء قابلين للتوسع                    | قريبًا                            |                                                            |                                                                                        |
 | إنشاء وكلاء ذكاء اصطناعي محليين                     | قريبًا                               |                                                            |                                                                                        |
@@ -151,7 +151,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌟 شكر المجتمع
 
-شكرًا لـ [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) على المساهمة بعينات كود مهمة توضح Agentic RAG.
+شكرًا لـ [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) على مساهمته بأمثلة كود مهمة توضح Agentic RAG.
 
 ## المساهمة
 
@@ -161,9 +161,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 عند تقديم طلب سحب، سيقوم بوت CLA تلقائيًا بتحديد ما إذا كنت بحاجة إلى تقديم
 اتفاقية CLA وتزيين طلب السحب بشكل مناسب (مثل، فحص الحالة، تعليق). فقط اتبع التعليمات
-المقدمة من البوت. ستحتاج إلى القيام بذلك مرة واحدة فقط عبر جميع المستودعات التي تستخدم CLA الخاص بنا.
+المقدمة من البوت. ستحتاج إلى القيام بذلك مرة واحدة فقط عبر جميع المستودعات التي تستخدم اتفاقية CLA الخاصة بنا.
 
-اعتمد هذا المشروع [مدونة قواعد السلوك مفتوحة المصدر لمايكروسوفت](https://opensource.microsoft.com/codeofconduct/).
+اعتمد هذا المشروع على [مدونة قواعد السلوك مفتوحة المصدر لمايكروسوفت](https://opensource.microsoft.com/codeofconduct/).
 لمزيد من المعلومات، راجع [الأسئلة الشائعة حول مدونة قواعد السلوك](https://opensource.microsoft.com/codeofconduct/faq/) أو
 تواصل مع [opencode@microsoft.com](mailto:opencode@microsoft.com) لأي أسئلة أو تعليقات إضافية.
 
@@ -177,7 +177,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## الحصول على المساعدة
 
-إذا واجهت صعوبة أو كان لديك أي أسئلة حول بناء تطبيقات الذكاء الاصطناعي، انضم إلى:
+إذا واجهت مشكلة أو كان لديك أي أسئلة حول بناء تطبيقات الذكاء الاصطناعي، انضم إلى:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -189,5 +189,5 @@ CO_OP_TRANSLATOR_METADATA:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **إخلاء المسؤولية**:  
-تمت ترجمة هذا المستند باستخدام خدمة الترجمة الآلية [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الموثوق به. للمعلومات الهامة، يُنصح بالاعتماد على الترجمة البشرية المهنية. نحن غير مسؤولين عن أي سوء فهم أو تفسير ناتج عن استخدام هذه الترجمة.
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة الآلية [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الموثوق به. للمعلومات الهامة، يُنصح بالاستعانة بترجمة بشرية محترفة. نحن غير مسؤولين عن أي سوء فهم أو تفسير ناتج عن استخدام هذه الترجمة.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

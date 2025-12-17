@@ -1,17 +1,17 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
-  "translation_date": "2025-12-17T11:30:49+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:11:39+00:00",
   "source_file": "README.md",
   "language_code": "el"
 }
 -->
 # Πράκτορες Τεχνητής Νοημοσύνης για Αρχάριους - Ένα Μάθημα
 
-![Γενετική ΤΝ για Αρχάριους](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.el.png)
+![Γενετική Τεχνητή Νοημοσύνη για Αρχάριους](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.el.png)
 
-## Ένα μάθημα που διδάσκει όλα όσα χρειάζεστε για να ξεκινήσετε να δημιουργείτε Πράκτορες ΤΝ
+## Ένα μάθημα που διδάσκει όλα όσα χρειάζεστε για να ξεκινήσετε να δημιουργείτε Πράκτορες Τεχνητής Νοημοσύνης
 
 [![Άδεια GitHub](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
 [![Συνεισφέροντες GitHub](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
@@ -24,7 +24,7 @@ CO_OP_TRANSLATOR_METADATA:
 #### Υποστηρίζεται μέσω GitHub Action (Αυτοματοποιημένο & Πάντα Ενημερωμένο)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Αραβικά](../ar/README.md) | [Μπενγκάλι](../bn/README.md) | [Βουλγαρικά](../bg/README.md) | [Βιρμανικά (Μιανμάρ)](../my/README.md) | [Κινέζικα (Απλοποιημένα)](../zh/README.md) | [Κινέζικα (Παραδοσιακά, Χονγκ Κονγκ)](../hk/README.md) | [Κινέζικα (Παραδοσιακά, Μακάο)](../mo/README.md) | [Κινέζικα (Παραδοσιακά, Ταϊβάν)](../tw/README.md) | [Κροατικά](../hr/README.md) | [Τσέχικα](../cs/README.md) | [Δανέζικα](../da/README.md) | [Ολλανδικά](../nl/README.md) | [Εσθονικά](../et/README.md) | [Φινλανδικά](../fi/README.md) | [Γαλλικά](../fr/README.md) | [Γερμανικά](../de/README.md) | [Ελληνικά](./README.md) | [Εβραϊκά](../he/README.md) | [Χίντι](../hi/README.md) | [Ουγγρικά](../hu/README.md) | [Ινδονησιακά](../id/README.md) | [Ιταλικά](../it/README.md) | [Ιαπωνικά](../ja/README.md) | [Κανάντα](../kn/README.md) | [Κορεατικά](../ko/README.md) | [Λιθουανικά](../lt/README.md) | [Μαλαϊκά](../ms/README.md) | [Μαλαγιαλάμ](../ml/README.md) | [Μαράθι](../mr/README.md) | [Νεπάλι](../ne/README.md) | [Νιγηριανό Πίνγκιν](../pcm/README.md) | [Νορβηγικά](../no/README.md) | [Περσικά (Φαρσί)](../fa/README.md) | [Πολωνικά](../pl/README.md) | [Πορτογαλικά (Βραζιλία)](../br/README.md) | [Πορτογαλικά (Πορτογαλία)](../pt/README.md) | [Πουντζάμπι (Γκουρμούκι)](../pa/README.md) | [Ρουμανικά](../ro/README.md) | [Ρωσικά](../ru/README.md) | [Σερβικά (Κυριλλικά)](../sr/README.md) | [Σλοβακικά](../sk/README.md) | [Σλοβενικά](../sl/README.md) | [Ισπανικά](../es/README.md) | [Σουαχίλι](../sw/README.md) | [Σουηδικά](../sv/README.md) | [Ταγκάλογκ (Φιλιππινέζικα)](../tl/README.md) | [Ταμίλ](../ta/README.md) | [Τελούγκου](../te/README.md) | [Ταϊλανδικά](../th/README.md) | [Τουρκικά](../tr/README.md) | [Ουκρανικά](../uk/README.md) | [Ουρντού](../ur/README.md) | [Βιετναμέζικα](../vi/README.md)
+[Αραβικά](../ar/README.md) | [Μπενγκάλι](../bn/README.md) | [Βουλγαρικά](../bg/README.md) | [Βιρμανικά (Μιανμάρ)](../my/README.md) | [Κινέζικα (Απλοποιημένα)](../zh/README.md) | [Κινέζικα (Παραδοσιακά, Χονγκ Κονγκ)](../hk/README.md) | [Κινέζικα (Παραδοσιακά, Μακάο)](../mo/README.md) | [Κινέζικα (Παραδοσιακά, Ταϊβάν)](../tw/README.md) | [Κροατικά](../hr/README.md) | [Τσέχικα](../cs/README.md) | [Δανέζικα](../da/README.md) | [Ολλανδικά](../nl/README.md) | [Εσθονικά](../et/README.md) | [Φινλανδικά](../fi/README.md) | [Γαλλικά](../fr/README.md) | [Γερμανικά](../de/README.md) | [Ελληνικά](./README.md) | [Εβραϊκά](../he/README.md) | [Χίντι](../hi/README.md) | [Ουγγρικά](../hu/README.md) | [Ινδονησιακά](../id/README.md) | [Ιταλικά](../it/README.md) | [Ιαπωνικά](../ja/README.md) | [Κανάντα](../kn/README.md) | [Κορεατικά](../ko/README.md) | [Λιθουανικά](../lt/README.md) | [Μαλαισιανά](../ms/README.md) | [Μαλαγιαλάμ](../ml/README.md) | [Μαράθι](../mr/README.md) | [Νεπάλι](../ne/README.md) | [Νιγηριανή Πίτζιν](../pcm/README.md) | [Νορβηγικά](../no/README.md) | [Περσικά (Φαρσί)](../fa/README.md) | [Πολωνικά](../pl/README.md) | [Πορτογαλικά (Βραζιλία)](../br/README.md) | [Πορτογαλικά (Πορτογαλία)](../pt/README.md) | [Πουντζάμπι (Γκουρμούκι)](../pa/README.md) | [Ρουμανικά](../ro/README.md) | [Ρωσικά](../ru/README.md) | [Σερβικά (Κυριλλικά)](../sr/README.md) | [Σλοβακικά](../sk/README.md) | [Σλοβενικά](../sl/README.md) | [Ισπανικά](../es/README.md) | [Σουαχίλι](../sw/README.md) | [Σουηδικά](../sv/README.md) | [Ταγκάλογκ (Φιλιππινέζικα)](../tl/README.md) | [Ταμίλ](../ta/README.md) | [Τελούγκου](../te/README.md) | [Ταϊλανδικά](../th/README.md) | [Τουρκικά](../tr/README.md) | [Ουκρανικά](../uk/README.md) | [Ουρντού](../ur/README.md) | [Βιετναμέζικα](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 **Εάν επιθυμείτε να υποστηριχθούν επιπλέον γλώσσες μετάφρασης, αυτές αναφέρονται [εδώ](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
@@ -38,17 +38,17 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 Ξεκινώντας
 
-Αυτό το μάθημα περιλαμβάνει μαθήματα που καλύπτουν τα βασικά της δημιουργίας Πρακτόρων ΤΝ. Κάθε μάθημα καλύπτει το δικό του θέμα, οπότε ξεκινήστε από όπου θέλετε!
+Αυτό το μάθημα περιλαμβάνει μαθήματα που καλύπτουν τα βασικά της δημιουργίας Πρακτόρων Τεχνητής Νοημοσύνης. Κάθε μάθημα καλύπτει το δικό του θέμα, οπότε ξεκινήστε από όπου θέλετε!
 
 Υπάρχει υποστήριξη πολλών γλωσσών για αυτό το μάθημα. Μεταβείτε στις [διαθέσιμες γλώσσες εδώ](../..).
 
-Εάν είναι η πρώτη φορά που δημιουργείτε με μοντέλα Γενετικής ΤΝ, δείτε το μάθημά μας [Γενετική ΤΝ για Αρχάριους](https://aka.ms/genai-beginners), που περιλαμβάνει 21 μαθήματα για δημιουργία με GenAI.
+Εάν είναι η πρώτη φορά που δημιουργείτε με μοντέλα Γενετικής Τεχνητής Νοημοσύνης, δείτε το μάθημά μας [Γενετική Τεχνητή Νοημοσύνη για Αρχάριους](https://aka.ms/genai-beginners), που περιλαμβάνει 21 μαθήματα για τη δημιουργία με GenAI.
 
-Μην ξεχάσετε να [βαθμολογήσετε (🌟) αυτό το αποθετήριο](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) και να [κάνετε fork αυτό το αποθετήριο](https://github.com/microsoft/ai-agents-for-beginners/fork) για να τρέξετε τον κώδικα.
+Μην ξεχάσετε να [βαθμολογήσετε (🌟) αυτό το αποθετήριο](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) και να [κάνετε fork αυτό το αποθετήριο](https://github.com/microsoft/ai-agents-for-beginners/fork) για να εκτελέσετε τον κώδικα.
 
 ### Γνωρίστε Άλλους Μαθητές, Λάβετε Απαντήσεις στις Ερωτήσεις σας
 
-Εάν κολλήσετε ή έχετε ερωτήσεις σχετικά με τη δημιουργία Πρακτόρων ΤΝ, συμμετάσχετε στο αφιερωμένο κανάλι Discord στο [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+Εάν κολλήσετε ή έχετε οποιεσδήποτε ερωτήσεις σχετικά με τη δημιουργία Πρακτόρων Τεχνητής Νοημοσύνης, συμμετάσχετε στο αφιερωμένο κανάλι Discord στο [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
 ### Τι Χρειάζεστε
 
@@ -59,7 +59,7 @@ CO_OP_TRANSLATOR_METADATA:
 - [Μοντέλα Github](https://aka.ms/ai-agents-beginners/github-models) - Δωρεάν / Περιορισμένα
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Απαιτείται Λογαριασμός Azure
 
-Αυτό το μάθημα χρησιμοποιεί επίσης τα ακόλουθα πλαίσια και υπηρεσίες Πρακτόρων ΤΝ από τη Microsoft:
+Αυτό το μάθημα χρησιμοποιεί επίσης τα ακόλουθα πλαίσια και υπηρεσίες Πρακτόρων Τεχνητής Νοημοσύνης από τη Microsoft:
 
 - [Microsoft Agent Framework (MAF) - Νέο!](https://aka.ms/ai-agents-beginners/agent-framewrok)
 - [Υπηρεσία Πρακτόρων Azure AI](https://aka.ms/ai-agents-beginners/ai-agent-service)
@@ -71,7 +71,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🙏 Θέλετε να βοηθήσετε;
 
-Έχετε προτάσεις ή βρήκατε ορθογραφικά ή σφάλματα κώδικα; [Ανοίξτε ένα θέμα](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) ή [Δημιουργήστε ένα pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Έχετε προτάσεις ή βρήκατε ορθογραφικά ή σφάλματα κώδικα; [Ανοίξτε ένα θέμα](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) ή [Δημιουργήστε ένα αίτημα έλξης](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -84,22 +84,22 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🗃️ Μαθήματα
 
-| **Μάθημα**                                   | **Κείμενο & Κώδικας**                              | **Βίντεο**                                                | **Επιπλέον Μάθηση**                                                                   |
+| **Μάθημα**                                   | **Κείμενο & Κώδικας**                              | **Βίντεο**                                                | **Επιπλέον Μάθηση**                                                                    |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Εισαγωγή στους Πράκτορες ΤΝ και Χρήσεις     | [Σύνδεσμος](./01-intro-to-ai-agents/README.md)     | [Βίντεο](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Εξερεύνηση Πλαισίων Πρακτόρων ΤΝ             | [Σύνδεσμος](./02-explore-agentic-frameworks/README.md) | [Βίντεο](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Κατανόηση Προτύπων Σχεδίασης Πρακτόρων ΤΝ    | [Σύνδεσμος](./03-agentic-design-patterns/README.md) | [Βίντεο](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Πρότυπο Σχεδίασης Χρήσης Εργαλείων           | [Σύνδεσμος](./04-tool-use/README.md)                | [Βίντεο](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Πρακτορικό RAG                               | [Σύνδεσμος](./05-agentic-rag/README.md)             | [Βίντεο](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Δημιουργία Αξιόπιστων Πρακτόρων ΤΝ           | [Σύνδεσμος](./06-building-trustworthy-agents/README.md) | [Βίντεο](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Πρότυπο Σχεδίασης Σχεδιασμού                  | [Σύνδεσμος](./07-planning-design/README.md)         | [Βίντεο](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Πρότυπο Σχεδίασης Πολυπρακτόρων               | [Σύνδεσμος](./08-multi-agent/README.md)             | [Βίντεο](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Πρότυπο Σχεδίασης Μεταγνωστικής               | [Σύνδεσμος](./09-metacognition/README.md)           | [Βίντεο](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Εισαγωγή στους Πράκτορες Τεχνητής Νοημοσύνης και Χρήσεις Πρακτόρων | [Σύνδεσμος](./01-intro-to-ai-agents/README.md)          | [Βίντεο](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Εξερεύνηση Πλαισίων Πρακτόρων Τεχνητής Νοημοσύνης              | [Σύνδεσμος](./02-explore-agentic-frameworks/README.md)  | [Βίντεο](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Κατανόηση Προτύπων Σχεδίασης Πρακτόρων Τεχνητής Νοημοσύνης     | [Σύνδεσμος](./03-agentic-design-patterns/README.md)     | [Βίντεο](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Πρότυπο Σχεδίασης Χρήσης Εργαλείων                      | [Σύνδεσμος](./04-tool-use/README.md)                    | [Βίντεο](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Πρακτορικό RAG                                  | [Σύνδεσμος](./05-agentic-rag/README.md)                 | [Βίντεο](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Δημιουργία Αξιόπιστων Πρακτόρων Τεχνητής Νοημοσύνης               | [Σύνδεσμος](./06-building-trustworthy-agents/README.md) | [Βίντεο](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Πρότυπο Σχεδίασης Σχεδιασμού                      | [Σύνδεσμος](./07-planning-design/README.md)             | [Βίντεο](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Πρότυπο Σχεδίασης Πολυπρακτόρων                   | [Σύνδεσμος](./08-multi-agent/README.md)                 | [Βίντεο](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Πρότυπο Σχεδίασης Μεταγνωστικής                 | [Σύνδεσμος](./09-metacognition/README.md)               | [Βίντεο](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Σύνδεσμος](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Πράκτορες Τεχνητής Νοημοσύνης σε Παραγωγή          | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Χρήση Πρωτοκόλλων Πρακτόρων (MCP, A2A και NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Μηχανική Πλαισίου για Πράκτορες ΤΝ               | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Διαχείριση Μνήμης Πρακτόρων                       | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| Εξερεύνηση του Πλαισίου Πρακτόρων της Microsoft  | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| Εξερεύνηση του Πλαισίου Πρακτόρων Microsoft      | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
 | Δημιουργία Πρακτόρων Χρήσης Υπολογιστή (CUA)     | Έρχεται Σύντομα                            |                                                            |                                                                                        |
 | Ανάπτυξη Κλιμακούμενων Πρακτόρων                  | Έρχεται Σύντομα                            |                                                            |                                                                                        |
 | Δημιουργία Τοπικών Πρακτόρων ΤΝ                   | Έρχεται Σύντομα                               |                                                            |                                                                                        |
@@ -156,11 +156,11 @@ CO_OP_TRANSLATOR_METADATA:
 ## Συνεισφορά
 
 Αυτό το έργο καλωσορίζει συνεισφορές και προτάσεις. Οι περισσότερες συνεισφορές απαιτούν να συμφωνήσετε με μια
-Συμφωνία Άδειας Συνεργάτη (CLA) που δηλώνει ότι έχετε το δικαίωμα και πράγματι παραχωρείτε σε εμάς
+Συμφωνία Άδειας Συνεισφοράς (CLA) που δηλώνει ότι έχετε το δικαίωμα και πράγματι παραχωρείτε σε εμάς
 τα δικαιώματα να χρησιμοποιήσουμε τη συνεισφορά σας. Για λεπτομέρειες, επισκεφθείτε <https://cla.opensource.microsoft.com>.
 
 Όταν υποβάλλετε ένα pull request, ένα bot CLA θα καθορίσει αυτόματα αν χρειάζεται να παρέχετε
-μια CLA και θα διακοσμήσει το PR κατάλληλα (π.χ., έλεγχος κατάστασης, σχόλιο). Απλώς ακολουθήστε τις οδηγίες
+CLA και θα διακοσμήσει το PR κατάλληλα (π.χ., έλεγχος κατάστασης, σχόλιο). Απλώς ακολουθήστε τις οδηγίες
 που παρέχει το bot. Θα χρειαστεί να το κάνετε μόνο μία φορά σε όλα τα αποθετήρια που χρησιμοποιούν την CLA μας.
 
 Αυτό το έργο έχει υιοθετήσει τον [Κώδικα Δεοντολογίας Ανοιχτού Κώδικα της Microsoft](https://opensource.microsoft.com/codeofconduct/).
@@ -188,5 +188,5 @@ CO_OP_TRANSLATOR_METADATA:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Αποποίηση ευθυνών**:  
-Αυτό το έγγραφο έχει μεταφραστεί χρησιμοποιώντας την υπηρεσία αυτόματης μετάφρασης AI [Co-op Translator](https://github.com/Azure/co-op-translator). Παρόλο που επιδιώκουμε την ακρίβεια, παρακαλούμε να λάβετε υπόψη ότι οι αυτόματες μεταφράσεις ενδέχεται να περιέχουν λάθη ή ανακρίβειες. Το πρωτότυπο έγγραφο στη μητρική του γλώσσα πρέπει να θεωρείται η αυθεντική πηγή. Για κρίσιμες πληροφορίες, συνιστάται επαγγελματική ανθρώπινη μετάφραση. Δεν φέρουμε ευθύνη για τυχόν παρεξηγήσεις ή λανθασμένες ερμηνείες που προκύπτουν από τη χρήση αυτής της μετάφρασης.
+Αυτό το έγγραφο έχει μεταφραστεί χρησιμοποιώντας την υπηρεσία αυτόματης μετάφρασης AI [Co-op Translator](https://github.com/Azure/co-op-translator). Παρόλο που επιδιώκουμε την ακρίβεια, παρακαλούμε να λάβετε υπόψη ότι οι αυτόματες μεταφράσεις ενδέχεται να περιέχουν λάθη ή ανακρίβειες. Το πρωτότυπο έγγραφο στη γλώσσα του θεωρείται η αυθεντική πηγή. Για κρίσιμες πληροφορίες, συνιστάται επαγγελματική ανθρώπινη μετάφραση. Δεν φέρουμε ευθύνη για τυχόν παρεξηγήσεις ή λανθασμένες ερμηνείες που προκύπτουν από τη χρήση αυτής της μετάφρασης.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

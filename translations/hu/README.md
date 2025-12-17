@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
-  "translation_date": "2025-12-17T11:48:47+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:28:48+00:00",
   "source_file": "README.md",
   "language_code": "hu"
 }
@@ -44,9 +44,9 @@ A tanfolyam többnyelvű támogatással rendelkezik. Nézd meg a [elérhető nye
 
 Ha most építesz először generatív AI modellekkel, nézd meg a [Generatív AI kezdőknek](https://aka.ms/genai-beginners) tanfolyamunkat, amely 21 leckét tartalmaz a GenAI-vel való építésről.
 
-Ne felejtsd el [megcsillagozni (🌟) ezt a repót](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) és [forkolni ezt a repót](https://github.com/microsoft/ai-agents-for-beginners/fork) a kód futtatásához.
+Ne felejtsd el [megcsillagozni (🌟) ezt a repót](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) és [forkolni ezt a repót](https://github.com/microsoft/ai-agents-for-beginners/fork), hogy futtasd a kódot.
 
-### Ismerkedj meg más tanulókkal, kapj választ kérdéseidre
+### Találkozz más tanulókkal, kapj választ kérdéseidre
 
 Ha elakadsz vagy kérdésed van az AI ügynökök építésével kapcsolatban, csatlakozz a dedikált Discord csatornánkhoz a [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) szerveren.
 
@@ -67,7 +67,7 @@ Ez a tanfolyam a Microsoft következő AI ügynök keretrendszereit és szolgál
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-A tanfolyam kódjának futtatásáról további információk a [Course Setup](./00-course-setup/README.md) fájlban találhatók.
+A tanfolyam kódjának futtatásáról további információkért lásd a [Course Setup](./00-course-setup/README.md) részt.
 
 ## 🙏 Szeretnél segíteni?
 
@@ -84,7 +84,7 @@ Van javaslatod vagy találtál helyesírási vagy kódhibákat? [Nyiss egy hibaj
 
 ## 🗃️ Leckék
 
-| **Lecke**                                    | **Szöveg & Kód**                                   | **Videó**                                                  | **További tanulás**                                                                    |
+| **Lecke**                                   | **Szöveg & Kód**                                    | **Videó**                                                  | **További tanulás**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | Bevezetés az AI ügynökökbe és ügynök használati esetek | [Link](./01-intro-to-ai-agents/README.md)          | [Videó](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI ügynöki keretrendszerek felfedezése       | [Link](./02-explore-agentic-frameworks/README.md)  | [Videó](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -97,10 +97,10 @@ Van javaslatod vagy találtál helyesírási vagy kódhibákat? [Nyiss egy hibaj
 | Metakogníciós tervezési minta                  | [Link](./09-metacognition/README.md)               | [Videó](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI ügynökök éles környezetben                      | [Link](./10-ai-agents-production/README.md)        | [Videó](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Ügynöki protokollok használata (MCP, A2A és NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Videó](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Kontextus mérnökség AI ügynökök számára            | [Link](./12-context-engineering/README.md)         | [Videó](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Kontextus tervezés AI ügynökök számára            | [Link](./12-context-engineering/README.md)         | [Videó](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Ügynöki memória kezelése                      | [Link](./13-agent-memory/README.md)     |      [Videó](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | A Microsoft Agent Framework felfedezése                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Számítógép-használati ügynökök építése (CUA)           | Hamarosan érkezik                            |                                                            |                                                                                        |
+| Számítógép-használati ügynökök építése           | Hamarosan érkezik                            |                                                            |                                                                                        |
 | Skálázható ügynökök telepítése                    | Hamarosan érkezik                            |                                                            |                                                                                        |
 | Helyi AI ügynökök létrehozása                     | Hamarosan érkezik                               |                                                            |                                                                                        |
 | AI ügynökök biztonságossá tétele                           | Hamarosan érkezik                               |                                                            |                                                                                        |
@@ -151,16 +151,16 @@ Csapatunk más tanfolyamokat is készít! Nézd meg:
 
 ## 🌟 Közösségi köszönetnyilvánítás
 
-Köszönet [Shivam Goyal](https://www.linkedin.com/in/shivam2003/)-nak a fontos kódrészletekért, amelyek bemutatják az Agentic RAG működését.
+Köszönet [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) számára az Agentic RAG-et bemutató fontos kódrészletekért.
 
 ## Hozzájárulás
 
 Ez a projekt szívesen fogad hozzájárulásokat és javaslatokat. A legtöbb hozzájáruláshoz el kell fogadnia egy
-Hozzájárulói Licenc Szerződést (CLA), amelyben kijelenti, hogy joga van a hozzájárulás használatára, és ténylegesen megadja nekünk
-a jogokat a hozzájárulás felhasználására. Részletekért látogasson el a <https://cla.opensource.microsoft.com> oldalra.
+Hozzájárulói Licenc Megállapodást (CLA), amelyben kijelenti, hogy joga van és ténylegesen megadja nekünk
+a hozzájárulás használatának jogát. Részletekért látogasson el a <https://cla.opensource.microsoft.com> oldalra.
 
-Amikor pull request-et nyújt be, egy CLA bot automatikusan megállapítja, hogy szükséges-e CLA-t benyújtania,
-és megfelelően jelöli a PR-t (pl. állapotellenőrzés, megjegyzés). Egyszerűen kövesse a bot által adott utasításokat.
+Amikor pull request-et küld be, egy CLA bot automatikusan megállapítja, hogy szükséges-e CLA-t benyújtania,
+és ennek megfelelően jelöli meg a PR-t (pl. állapotellenőrzés, megjegyzés). Egyszerűen kövesse a bot által adott utasításokat.
 Ezt csak egyszer kell megtennie az összes CLA-t használó repóban.
 
 Ez a projekt elfogadta a [Microsoft Nyílt Forráskódú Magatartási Kódexét](https://opensource.microsoft.com/codeofconduct/).
@@ -172,7 +172,7 @@ lépjen kapcsolatba az [opencode@microsoft.com](mailto:opencode@microsoft.com) c
 Ez a projekt tartalmazhat védjegyeket vagy logókat projektekhez, termékekhez vagy szolgáltatásokhoz. A Microsoft
 védjegyek vagy logók jogosult használata a
 [Microsoft védjegy- és márka irányelveinek](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) betartása mellett történhet.
-A Microsoft védjegyek vagy logók módosított verziókban történő használata nem okozhat félreértést, és nem sugallhat Microsoft támogatást.
+A Microsoft védjegyek vagy logók módosított verziókban történő használata nem okozhat félreértést vagy nem sugallhat Microsoft támogatást.
 Harmadik fél védjegyeinek vagy logóinak használata a harmadik felek szabályzatai szerint történik.
 
 ## Segítségkérés
@@ -190,5 +190,5 @@ Ha termék visszajelzése vagy hibák jelentkeznek fejlesztés közben, látogas
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Jogi nyilatkozat**:
-Ezt a dokumentumot az AI fordító szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével fordítottuk le. Bár a pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Fontos információk esetén professzionális emberi fordítást javaslunk. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy félreértelmezésekért.
+Ezt a dokumentumot az AI fordító szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével fordítottuk le. Bár a pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Fontos információk esetén szakmai, emberi fordítást javaslunk. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

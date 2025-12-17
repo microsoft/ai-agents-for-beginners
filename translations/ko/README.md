@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
-  "translation_date": "2025-12-17T11:14:13+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T13:56:08+00:00",
   "source_file": "README.md",
   "language_code": "ko"
 }
@@ -27,7 +27,7 @@ CO_OP_TRANSLATOR_METADATA:
 [아랍어](../ar/README.md) | [벵골어](../bn/README.md) | [불가리아어](../bg/README.md) | [버마어 (미얀마)](../my/README.md) | [중국어 (간체)](../zh/README.md) | [중국어 (번체, 홍콩)](../hk/README.md) | [중국어 (번체, 마카오)](../mo/README.md) | [중국어 (번체, 대만)](../tw/README.md) | [크로아티아어](../hr/README.md) | [체코어](../cs/README.md) | [덴마크어](../da/README.md) | [네덜란드어](../nl/README.md) | [에스토니아어](../et/README.md) | [핀란드어](../fi/README.md) | [프랑스어](../fr/README.md) | [독일어](../de/README.md) | [그리스어](../el/README.md) | [히브리어](../he/README.md) | [힌디어](../hi/README.md) | [헝가리어](../hu/README.md) | [인도네시아어](../id/README.md) | [이탈리아어](../it/README.md) | [일본어](../ja/README.md) | [칸나다어](../kn/README.md) | [한국어](./README.md) | [리투아니아어](../lt/README.md) | [말레이어](../ms/README.md) | [말라얄람어](../ml/README.md) | [마라티어](../mr/README.md) | [네팔어](../ne/README.md) | [나이지리아 피진어](../pcm/README.md) | [노르웨이어](../no/README.md) | [페르시아어 (파르시)](../fa/README.md) | [폴란드어](../pl/README.md) | [포르투갈어 (브라질)](../br/README.md) | [포르투갈어 (포르투갈)](../pt/README.md) | [펀자브어 (구르무키)](../pa/README.md) | [루마니아어](../ro/README.md) | [러시아어](../ru/README.md) | [세르비아어 (키릴문자)](../sr/README.md) | [슬로바키아어](../sk/README.md) | [슬로베니아어](../sl/README.md) | [스페인어](../es/README.md) | [스와힐리어](../sw/README.md) | [스웨덴어](../sv/README.md) | [타갈로그어 (필리핀어)](../tl/README.md) | [타밀어](../ta/README.md) | [텔루구어](../te/README.md) | [태국어](../th/README.md) | [터키어](../tr/README.md) | [우크라이나어](../uk/README.md) | [우르두어](../ur/README.md) | [베트남어](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**추가 번역 언어 지원을 원하시면 [여기](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)를 참조하세요**
+**추가 번역 언어 지원을 원하시면 [여기](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)에서 확인하세요**
 
 [![GitHub 감시자](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![GitHub 포크](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
@@ -40,7 +40,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 이 강의는 AI 에이전트 구축의 기본을 다루는 수업들로 구성되어 있습니다. 각 수업은 자체 주제를 다루므로 원하는 곳에서 시작하세요!
 
-이 강의는 다국어 지원이 제공됩니다. [지원되는 언어 목록](../..)을 참조하세요.
+이 강의는 다국어 지원을 제공합니다. [여기에서 지원되는 언어](../..)를 확인하세요.
 
 생성 AI 모델로 처음 빌드하는 경우, 21개의 생성 AI 빌드 수업이 포함된 [초보자를 위한 생성 AI](https://aka.ms/genai-beginners) 강의를 확인하세요.
 
@@ -74,16 +74,16 @@ AI 에이전트 구축 중 막히거나 질문이 있으면, [Microsoft Foundry 
 
 
 
-## 📂 각 수업에는
+## 📂 각 수업에는 다음이 포함됩니다
 
-- README에 작성된 수업과 짧은 동영상
+- README에 위치한 서면 수업과 짧은 동영상
 - Azure AI Foundry 및 Github 모델(무료)을 지원하는 Python 코드 샘플
 - 학습을 계속할 수 있는 추가 자료 링크
 
 
 ## 🗃️ 수업 목록
 
-| **수업**                                   | **텍스트 & 코드**                                    | **동영상**                                                  | **추가 학습**                                                                     |
+| **수업**                                    | **텍스트 및 코드**                                  | **동영상**                                                  | **추가 학습**                                                                          |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | AI 에이전트 및 에이전트 사용 사례 소개       | [링크](./01-intro-to-ai-agents/README.md)          | [동영상](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [링크](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI 에이전트 프레임워크 탐색                  | [링크](./02-explore-agentic-frameworks/README.md)  | [동영상](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [링크](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -170,11 +170,11 @@ Agentic RAG를 시연하는 중요한 코드 샘플을 기여해 주신 [Shivam 
 공인된 사용은 [Microsoft 상표 및 브랜드 가이드라인](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general)을
 준수해야 합니다.
 이 프로젝트의 수정된 버전에서 Microsoft 상표 또는 로고를 사용하는 경우 혼동을 일으키거나 Microsoft 후원을 암시해서는 안 됩니다.
-서드파티 상표 또는 로고 사용은 해당 서드파티의 정책을 따릅니다.
+제3자 상표 또는 로고 사용은 해당 제3자의 정책을 따릅니다.
 
 ## 도움 받기
 
-AI 앱 개발 중 막히거나 질문이 있으면 다음에 참여하세요:
+AI 앱 개발 중 문제가 발생하거나 질문이 있으면 다음에 참여하세요:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
