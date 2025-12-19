@@ -1,13 +1,13 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
-  "translation_date": "2025-12-17T13:51:10+00:00",
+  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
+  "translation_date": "2025-12-19T08:27:26+00:00",
   "source_file": "README.md",
   "language_code": "mo"
 }
 -->
-# AI Agents for Beginners - A Course
+# AI Agents for Beginners - 一個課程
 
 ![Generative AI For Beginners](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.mo.png)
 
@@ -21,7 +21,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### 🌐 多語言支援
 
-#### 透過 GitHub Action 支援（自動且隨時更新）
+#### 透過 GitHub Action 支援（自動化且永遠保持最新）
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](./README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
@@ -36,23 +36,23 @@ CO_OP_TRANSLATOR_METADATA:
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
 
-## 🌱 開始使用
+## 🌱 開始入門
 
 本課程涵蓋建立 AI Agents 的基礎知識。每個課程涵蓋不同主題，您可以從任何一課開始！
 
-本課程支援多語言。請參閱我們的[可用語言](../..)。
+本課程支援多語言。請前往我們的[可用語言列表](../..)。
 
 如果您是第一次使用生成式 AI 模型，請參考我們的[生成式 AI 初學者課程](https://aka.ms/genai-beginners)，其中包含 21 節關於使用 GenAI 的課程。
 
-別忘了[為此倉庫點星 (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst)並[分叉此倉庫](https://github.com/microsoft/ai-agents-for-beginners/fork)以運行程式碼。
+別忘了[為此倉庫點星 (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst)並[分叉此倉庫](https://github.com/microsoft/ai-agents-for-beginners/fork)以執行程式碼。
 
 ### 認識其他學習者，獲得問題解答
 
-如果您遇到困難或有任何關於建立 AI Agents 的問題，請加入我們在 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 的專用 Discord 頻道。
+如果您遇到困難或有任何關於建立 AI Agents 的問題，歡迎加入我們在 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 的專屬 Discord 頻道。
 
 ### 您需要準備的東西
 
-本課程的每節課都包含程式碼範例，位於 code_samples 資料夾中。您可以[分叉此倉庫](https://github.com/microsoft/ai-agents-for-beginners/fork)來建立自己的副本。
+本課程的每節課都包含程式碼範例，位於 code_samples 資料夾。您可以[分叉此倉庫](https://github.com/microsoft/ai-agents-for-beginners/fork)來建立自己的副本。
 
 這些練習中的程式碼範例使用 Azure AI Foundry 和 GitHub 模型目錄來與語言模型互動：
 
@@ -67,7 +67,7 @@ CO_OP_TRANSLATOR_METADATA:
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-有關運行本課程程式碼的更多資訊，請參閱[課程設置](./00-course-setup/README.md)。
+欲了解本課程程式碼執行的更多資訊，請參閱[課程設定](./00-course-setup/README.md)。
 
 ## 🙏 想幫忙嗎？
 
@@ -77,24 +77,24 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 📂 每節課包含
 
-- 位於 README 的書面課程與短影片
+- 位於 README 的書面課程與短片教學
 - 支援 Azure AI Foundry 和 Github Models（免費）的 Python 程式碼範例
 - 延伸學習資源連結
 
 
 ## 🗃️ 課程列表
 
-| **課程**                                   | **文字與程式碼**                                    | **影片**                                                  | **延伸學習**                                                                     |
+| **課程**                                     | **文字與程式碼**                                    | **影片**                                                  | **額外學習**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| AI Agents 介紹與應用案例                     | [連結](./01-intro-to-ai-agents/README.md)          | [影片](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI Agents 介紹與應用案例                      | [連結](./01-intro-to-ai-agents/README.md)          | [影片](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 探索 AI Agentic 框架                         | [連結](./02-explore-agentic-frameworks/README.md)  | [影片](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| 理解 AI Agentic 設計模式                     | [連結](./03-agentic-design-patterns/README.md)     | [影片](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| 理解 AI Agentic 設計模式                      | [連結](./03-agentic-design-patterns/README.md)     | [影片](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 工具使用設計模式                             | [連結](./04-tool-use/README.md)                    | [影片](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentic RAG                                 | [連結](./05-agentic-rag/README.md)                 | [影片](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| 建立值得信賴的 AI Agents                     | [連結](./06-building-trustworthy-agents/README.md) | [影片](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| 規劃設計模式                                 | [連結](./07-planning-design/README.md)             | [影片](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| 多代理設計模式                               | [連結](./08-multi-agent/README.md)                 | [影片](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| 元認知設計模式                               | [連結](./09-metacognition/README.md)               | [影片](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| 建立值得信賴的 AI Agents                      | [連結](./06-building-trustworthy-agents/README.md) | [影片](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| 規劃設計模式                                | [連結](./07-planning-design/README.md)             | [影片](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| 多代理設計模式                              | [連結](./08-multi-agent/README.md)                 | [影片](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| 元認知設計模式                              | [連結](./09-metacognition/README.md)               | [影片](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI 代理於生產環境                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 使用 Agentic 協議 (MCP、A2A 及 NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI 代理的上下文工程            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -116,7 +116,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
 
-### Azure / Edge / MCP / Agents
+### Azure / Edge / MCP / 代理
 [![AZD for Beginners](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Edge AI for Beginners](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![MCP for Beginners](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
@@ -189,5 +189,5 @@ CLA，並適當標註 PR（例如狀態檢查、評論）。只需按照機器�
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **免責聲明**：
-本文件係使用人工智能翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我哋致力於確保準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件之母語版本應視為權威來源。對於重要資訊，建議採用專業人工翻譯。因使用本翻譯而引致之任何誤解或誤釋，我哋概不負責。
+本文件係使用人工智能翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我哋致力於確保準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件之母語版本應被視為權威來源。對於重要資訊，建議採用專業人工翻譯。我哋對因使用本翻譯而引起之任何誤解或誤釋概不負責。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

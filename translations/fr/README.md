@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
-  "translation_date": "2025-12-17T13:40:55+00:00",
+  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
+  "translation_date": "2025-12-19T08:18:47+00:00",
   "source_file": "README.md",
   "language_code": "fr"
 }
@@ -54,7 +54,7 @@ Si vous êtes bloqué ou avez des questions sur la création d'agents IA, rejoig
 
 Chaque leçon de ce cours inclut des exemples de code, que vous pouvez trouver dans le dossier code_samples. Vous pouvez [forker ce dépôt](https://github.com/microsoft/ai-agents-for-beginners/fork) pour créer votre propre copie.
 
-L'exemple de code dans ces exercices utilise Azure AI Foundry et les catalogues de modèles GitHub pour interagir avec les modèles de langage :
+Les exemples de code dans ces exercices utilisent Azure AI Foundry et les catalogues de modèles GitHub pour interagir avec les modèles de langage :
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Gratuit / Limité
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Compte Azure requis
@@ -67,7 +67,7 @@ Ce cours utilise également les frameworks et services d'agents IA suivants de M
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-Pour plus d'informations sur l'exécution du code pour ce cours, consultez la [configuration du cours](./00-course-setup/README.md).
+Pour plus d'informations sur l'exécution du code de ce cours, consultez la [configuration du cours](./00-course-setup/README.md).
 
 ## 🙏 Vous voulez aider ?
 
@@ -90,11 +90,11 @@ Avez-vous des suggestions ou avez-vous trouvé des fautes d'orthographe ou des e
 | Exploration des frameworks agentiques         | [Lien](./02-explore-agentic-frameworks/README.md)  | [Vidéo](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Comprendre les modèles de conception agentique | [Lien](./03-agentic-design-patterns/README.md)     | [Vidéo](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Modèle de conception d'utilisation d'outils  | [Lien](./04-tool-use/README.md)                    | [Vidéo](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentic RAG                                  | [Lien](./05-agentic-rag/README.md)                 | [Vidéo](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| RAG agentique                                 | [Lien](./05-agentic-rag/README.md)                 | [Vidéo](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Construire des agents IA dignes de confiance  | [Lien](./06-building-trustworthy-agents/README.md) | [Vidéo](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Modèle de conception de planification         | [Lien](./07-planning-design/README.md)             | [Vidéo](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Modèle de conception multi-agent              | [Lien](./08-multi-agent/README.md)                 | [Vidéo](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Modèle de conception de métacognition         | [Lien](./09-metacognition/README.md)               | [Vidéo](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Modèle de conception de planification          | [Lien](./07-planning-design/README.md)             | [Vidéo](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Modèle de conception multi-agent               | [Lien](./08-multi-agent/README.md)                 | [Vidéo](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Modèle de conception de métacognition          | [Lien](./09-metacognition/README.md)               | [Vidéo](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Lien](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agents IA en Production                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Utilisation des Protocoles Agentiques (MCP, A2A et NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Ingénierie du Contexte pour Agents IA            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |

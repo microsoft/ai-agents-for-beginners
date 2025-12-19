@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
-  "translation_date": "2025-12-17T14:44:12+00:00",
+  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
+  "translation_date": "2025-12-19T09:15:57+00:00",
   "source_file": "README.md",
   "language_code": "lt"
 }
@@ -52,9 +52,9 @@ Jei užstrigote arba turite klausimų apie AI agentų kūrimą, prisijunkite pri
 
 ### Ko jums reikia
 
-Kiekviena šio kurso pamoka apima kodo pavyzdžius, kuriuos rasite code_samples aplanke. Galite [padaryti šaką (fork) šio repozitorijaus](https://github.com/microsoft/ai-agents-for-beginners/fork), kad sukurtumėte savo kopiją.
+Kiekvienoje šio kurso pamokoje yra kodo pavyzdžių, kuriuos rasite code_samples aplanke. Galite [padaryti šaką (fork) šio repozitorija](https://github.com/microsoft/ai-agents-for-beginners/fork), kad sukurtumėte savo kopiją.
 
-Šių pratimų kodo pavyzdžiai naudoja Azure AI Foundry ir GitHub modelių katalogus darbui su kalbos modeliais:
+Šių pratimų kodo pavyzdžiai naudoja Azure AI Foundry ir GitHub modelių katalogus, skirtus sąveikai su kalbos modeliais:
 
 - [Github modeliai](https://aka.ms/ai-agents-beginners/github-models) – nemokama / ribota
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) – reikalinga Azure paskyra
@@ -70,7 +70,7 @@ Daugiau informacijos apie kodo paleidimą šiame kurse rasite [Kurso nustatymuos
 
 ## 🙏 Norite padėti?
 
-Ar turite pasiūlymų arba radote rašybos ar kodo klaidų? [Praneškite apie problemą](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) arba [sukurkite pull užklausą](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Ar turite pasiūlymų arba radote rašybos ar kodo klaidų? [Praneškite apie problemą](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) arba [sukurkite pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -123,7 +123,7 @@ Mūsų komanda kuria ir kitus kursus! Pažiūrėkite:
 
 ---
  
-### Generatyvinis AI serija
+### Generatyvinio AI serija
 [![Generatyvinis AI pradedantiesiems](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Generatyvinis AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
 [![Generatyvinis AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
@@ -164,7 +164,7 @@ Tai reikės padaryti tik vieną kartą visuose repozitorijuose, naudojančiuose 
 
 Šis projektas priėmė [Microsoft atvirojo kodo elgesio kodeksą](https://opensource.microsoft.com/codeofconduct/).
 Daugiau informacijos rasite [Elgesio kodekso DUK](https://opensource.microsoft.com/codeofconduct/faq/) arba
-kreipkitės el. paštu [opencode@microsoft.com](mailto:opencode@microsoft.com) su papildomais klausimais ar komentarais.
+kreipkitės el. paštu [opencode@microsoft.com](mailto:opencode@microsoft.com) dėl papildomų klausimų ar komentarų.
 
 ## Prekių ženklai
 
@@ -180,13 +180,13 @@ Jei užstrigote arba turite klausimų apie AI programų kūrimą, prisijunkite p
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Jei turite produkto atsiliepimų ar klaidų, kurdami apsilankykite:
+Jei turite produkto atsiliepimų ar klaidų kūrimo metu, apsilankykite:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Atsakomybės apribojimas**:  
+**Atsakomybės apribojimas**:
 Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojamas profesionalus žmogaus vertimas. Mes neatsakome už bet kokius nesusipratimus ar neteisingus aiškinimus, kilusius dėl šio vertimo naudojimo.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

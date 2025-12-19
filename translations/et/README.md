@@ -1,17 +1,17 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
-  "translation_date": "2025-12-17T14:46:36+00:00",
+  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
+  "translation_date": "2025-12-19T09:18:18+00:00",
   "source_file": "README.md",
   "language_code": "et"
 }
 -->
-# AI Agendid Algajatele - Kursus
+# AI agendid algajatele - kursus
 
 ![Generatiivne tehisintellekt algajatele](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.et.png)
 
-## Kursus, mis õpetab kõike, mida pead teadma AI agentide ehitamise alustamiseks
+## Kursus, mis õpetab kõike, mida pead teadma AI agentide loomiseks alustamiseks
 
 [![GitHub litsents](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
 [![GitHub panustajad](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
@@ -21,7 +21,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### 🌐 Mitmekeelne tugi
 
-#### Toetatud GitHub Actioni kaudu (Automaatne ja alati ajakohane)
+#### Toetatud GitHub Actioni kaudu (automatiseeritud ja alati ajakohane)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Araabia](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgaaria](../bg/README.md) | [Birma (Myanmar)](../my/README.md) | [Hiina (lihtsustatud)](../zh/README.md) | [Hiina (traditsiooniline, Hongkong)](../hk/README.md) | [Hiina (traditsiooniline, Macau)](../mo/README.md) | [Hiina (traditsiooniline, Taiwan)](../tw/README.md) | [Horvaadi](../hr/README.md) | [Tšehhi](../cs/README.md) | [Taani](../da/README.md) | [Hollandi](../nl/README.md) | [Eesti](./README.md) | [Soome](../fi/README.md) | [Prantsuse](../fr/README.md) | [Saksa](../de/README.md) | [Kreeka](../el/README.md) | [Heebrea](../he/README.md) | [Hindi](../hi/README.md) | [Ungari](../hu/README.md) | [Indoneesia](../id/README.md) | [Itaalia](../it/README.md) | [Jaapani](../ja/README.md) | [Kannada](../kn/README.md) | [Korea](../ko/README.md) | [Leedu](../lt/README.md) | [Malai](../ms/README.md) | [Malajalami](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigeeria pidžin](../pcm/README.md) | [Norra](../no/README.md) | [Pärsia (Farsi)](../fa/README.md) | [Poola](../pl/README.md) | [Portugali (Brasiilia)](../br/README.md) | [Portugali (Portugal)](../pt/README.md) | [Pandžabi (Gurmukhi)](../pa/README.md) | [Rumeenia](../ro/README.md) | [Vene](../ru/README.md) | [Serbia (kirilitsa)](../sr/README.md) | [Slovaki](../sk/README.md) | [Sloveeni](../sl/README.md) | [Hispaania](../es/README.md) | [Suaheli](../sw/README.md) | [Rootsi](../sv/README.md) | [Tagalogi (Filipino)](../tl/README.md) | [Tamili](../ta/README.md) | [Telugu](../te/README.md) | [Tai](../th/README.md) | [Türgi](../tr/README.md) | [Ukraina](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnami](../vi/README.md)
@@ -40,24 +40,24 @@ CO_OP_TRANSLATOR_METADATA:
 
 See kursus sisaldab õppetunde, mis käsitlevad AI agentide loomise põhialuseid. Iga õppetund käsitleb oma teemat, nii et alusta sealt, kus soovid!
 
-Sellel kursusel on mitmekeelne tugi. Vaata meie [saadavalolevaid keeli siit](../..).
+Selle kursuse jaoks on olemas mitmekeelne tugi. Vaata meie [saadavalolevaid keeli siit](../..).
 
-Kui see on sinu esimene kord generatiivsete tehisintellekti mudelitega töötamisel, vaata meie [Generatiivne tehisintellekt algajatele](https://aka.ms/genai-beginners) kursust, mis sisaldab 21 õppetundi GenAI-ga ehitamisest.
+Kui see on sinu esimene kord generatiivsete tehisintellekti mudelitega töötamisel, vaata meie [Generatiivne tehisintellekt algajatele](https://aka.ms/genai-beginners) kursust, mis sisaldab 21 õppetundi GenAI-ga töötamise kohta.
 
-Ära unusta [märgistada (🌟) seda hoidlat](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ja [forkida seda hoidlat](https://github.com/microsoft/ai-agents-for-beginners/fork), et koodi käivitada.
+Ära unusta [anda sellele repositooriumile täht (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ja [forkida see repositoorium](https://github.com/microsoft/ai-agents-for-beginners/fork), et koodi käivitada.
 
-### Kohtuge teiste õppijatega, saage vastused oma küsimustele
+### Kohtuge teiste õppijatega, saage oma küsimustele vastused
 
 Kui jääd hätta või sul on küsimusi AI agentide loomise kohta, liitu meie spetsiaalse Discordi kanaliga [Microsoft Foundry Discordis](https://aka.ms/ai-agents/discord).
 
 ### Mida vajad
 
-Igas selle kursuse õppetunnis on koodinäited, mis asuvad kaustas code_samples. Sa võid [forkida selle hoidla](https://github.com/microsoft/ai-agents-for-beginners/fork), et luua oma koopia.
+Igas selle kursuse õppetunnis on koodinäited, mis asuvad kaustas code_samples. Sa võid [forkida selle repositooriumi](https://github.com/microsoft/ai-agents-for-beginners/fork), et luua oma koopia.
 
 Nendes harjutustes kasutatav koodinäide kasutab Azure AI Foundryt ja GitHubi mudelikatalooge keelemudelitega suhtlemiseks:
 
 - [Githubi mudelid](https://aka.ms/ai-agents-beginners/github-models) - Tasuta / Piiratud
-- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Nõuab Azure kontot
+- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Nõuab Azure'i kontot
 
 See kursus kasutab ka järgmisi Microsofti AI agentide raamistikke ja teenuseid:
 
@@ -155,7 +155,7 @@ Täname [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) oluliste koodin�
 
 ## Panustamine
 
-See projekt ootab panuseid ja ettepanekuid. Enamik panuseid nõuab, et nõustuksite
+See projekt ootab panuseid ja ettepanekuid. Enamik panustamist nõuab, et nõustuksite
 panustaja litsentsilepinguga (CLA), mis kinnitab, et teil on õigus ja te annate meile tegelikult
 õiguse kasutada teie panust. Lisateabe saamiseks külastage <https://cla.opensource.microsoft.com>.
 
@@ -181,7 +181,7 @@ Kui jääte hätta või teil on küsimusi AI-rakenduste loomise kohta, liituge:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Kui teil on toote tagasisidet või ehitamisel esineb vigu, külastage:
+Kui teil on toote tagasisidet või ehitamisel vigu, külastage:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
@@ -189,5 +189,5 @@ Kui teil on toote tagasisidet või ehitamisel esineb vigu, külastage:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Vastutusest loobumine**:
-See dokument on tõlgitud kasutades tehisintellekti tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüame tagada täpsust, palun arvestage, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti mõistmiste eest.
+See dokument on tõlgitud kasutades tehisintellektil põhinevat tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüame tagada täpsust, palun arvestage, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti mõistmiste eest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

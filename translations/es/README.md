@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
-  "translation_date": "2025-12-17T13:41:52+00:00",
+  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
+  "translation_date": "2025-12-19T08:19:40+00:00",
   "source_file": "README.md",
   "language_code": "es"
 }
@@ -13,10 +13,10 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Un curso que enseña todo lo que necesitas saber para comenzar a construir Agentes de IA
 
-[![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg?)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg?)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![GitHub issues](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg?)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg?)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
+[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![GitHub issues](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
 ### 🌐 Soporte Multilingüe
@@ -40,7 +40,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Este curso tiene lecciones que cubren los fundamentos para construir Agentes de IA. Cada lección cubre su propio tema, ¡así que comienza donde quieras!
 
-Hay soporte multilingüe para este curso. Ve a nuestros [idiomas disponibles aquí](../..).
+Hay soporte multilingüe para este curso. Ve a nuestros [idiomas disponibles aquí](../..). 
 
 Si es la primera vez que construyes con modelos de IA Generativa, revisa nuestro curso [Generative AI For Beginners](https://aka.ms/genai-beginners), que incluye 21 lecciones sobre cómo construir con GenAI.
 
@@ -52,7 +52,7 @@ Si te quedas atascado o tienes alguna pregunta sobre cómo construir Agentes de 
 
 ### Lo Que Necesitas
 
-Cada lección de este curso incluye ejemplos de código, que se pueden encontrar en la carpeta code_samples. Puedes [hacer un fork de este repositorio](https://github.com/microsoft/ai-agents-for-beginners/fork) para crear tu propia copia.
+Cada lección de este curso incluye ejemplos de código, que se pueden encontrar en la carpeta code_samples. Puedes [hacer un fork de este repositorio](https://github.com/microsoft/ai-agents-for-beginners/fork) para crear tu propia copia.  
 
 El ejemplo de código en estos ejercicios utiliza Azure AI Foundry y Catálogos de Modelos de GitHub para interactuar con Modelos de Lenguaje:
 
@@ -87,14 +87,14 @@ Para más información sobre cómo ejecutar el código de este curso, ve a la [C
 | **Lección**                                   | **Texto y Código**                                    | **Video**                                                  | **Aprendizaje Extra**                                                                     |
 |----------------------------------------------|------------------------------------------------------|------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | Introducción a Agentes de IA y Casos de Uso  | [Enlace](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Explorando Frameworks Agénticos               | [Enlace](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Entendiendo Patrones de Diseño Agéntico       | [Enlace](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Patrón de Diseño de Uso de Herramientas      | [Enlace](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| RAG Agéntico                                  | [Enlace](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Construyendo Agentes de IA Confiables        | [Enlace](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Patrón de Diseño de Planificación             | [Enlace](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Patrón de Diseño Multi-Agente                 | [Enlace](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
-| Patrón de Diseño de Metacognición             | [Enlace](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| Explorando Frameworks Agénticos                | [Enlace](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| Entendiendo Patrones de Diseño Agéntico        | [Enlace](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| Patrón de Diseño de Uso de Herramientas        | [Enlace](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| RAG Agéntico                                    | [Enlace](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| Construyendo Agentes de IA Confiables           | [Enlace](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| Patrón de Diseño de Planificación                | [Enlace](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| Patrón de Diseño Multi-Agente                     | [Enlace](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
+| Patrón de Diseño de Metacognición                 | [Enlace](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Enlace](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)  |
 | Agentes de IA en Producción                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Uso de Protocolos Agénticos (MCP, A2A y NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Ingeniería de Contexto para Agentes de IA            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -159,7 +159,7 @@ Este proyecto acepta contribuciones y sugerencias. La mayoría de las contribuci
 Acuerdo de Licencia de Contribuidor (CLA) declarando que tienes el derecho y realmente otorgas
 los derechos para usar tu contribución. Para más detalles, visita <https://cla.opensource.microsoft.com>.
 
-Cuando envíes una solicitud de extracción, un bot de CLA determinará automáticamente si necesitas proporcionar
+Cuando envíes una solicitud de extracción, un bot CLA determinará automáticamente si necesitas proporcionar
 un CLA y decorará la PR apropiadamente (por ejemplo, verificación de estado, comentario). Simplemente sigue las instrucciones
 proporcionadas por el bot. Solo necesitarás hacer esto una vez en todos los repositorios que usan nuestro CLA.
 
@@ -169,8 +169,9 @@ contacta a [opencode@microsoft.com](mailto:opencode@microsoft.com) con cualquier
 
 ## Marcas Registradas
 
-Este proyecto puede contener marcas registradas o logotipos de proyectos, productos o servicios. El uso autorizado de las marcas o logotipos de Microsoft está sujeto a y debe seguir
-las [Directrices de Marcas y Marca de Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+Este proyecto puede contener marcas registradas o logotipos de proyectos, productos o servicios. El uso autorizado de las marcas
+o logotipos de Microsoft está sujeto a y debe seguir
+[las Directrices de Marca y Uso de Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 El uso de marcas o logotipos de Microsoft en versiones modificadas de este proyecto no debe causar confusión ni implicar patrocinio de Microsoft.
 Cualquier uso de marcas o logotipos de terceros está sujeto a las políticas de esos terceros.
 
@@ -187,6 +188,6 @@ Si tienes comentarios sobre el producto o errores mientras construyes, visita:
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Aviso Legal**:  
+**Aviso legal**:
 Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por la precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas derivadas del uso de esta traducción.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
