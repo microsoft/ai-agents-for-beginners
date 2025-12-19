@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
-  "translation_date": "2025-12-17T11:37:18+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:17:49+00:00",
   "source_file": "README.md",
   "language_code": "fi"
 }
@@ -14,7 +14,7 @@ CO_OP_TRANSLATOR_METADATA:
 ## Kurssi, joka opettaa kaiken, mitä tarvitset AI-agenttien rakentamisen aloittamiseen
 
 [![GitHub-lisenssi](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub-avustajat](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![GitHub-yhteistyökumppanit](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
 [![GitHub-ongelmat](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
 [![GitHub-pyynnöt](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
 [![PR:t tervetulleita](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
@@ -24,14 +24,14 @@ CO_OP_TRANSLATOR_METADATA:
 #### Tuettu GitHub Actionin kautta (automaattinen ja aina ajan tasalla)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabia](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgaria](../bg/README.md) | [Burma (Myanmar)](../my/README.md) | [Kiina (yksinkertaistettu)](../zh/README.md) | [Kiina (perinteinen, Hongkong)](../hk/README.md) | [Kiina (perinteinen, Macao)](../mo/README.md) | [Kiina (perinteinen, Taiwan)](../tw/README.md) | [Kroatia](../hr/README.md) | [Tšekki](../cs/README.md) | [Tanska](../da/README.md) | [Hollanti](../nl/README.md) | [Viro](../et/README.md) | [Suomi](./README.md) | [Ranska](../fr/README.md) | [Saksa](../de/README.md) | [Kreikka](../el/README.md) | [Heprea](../he/README.md) | [Hindi](../hi/README.md) | [Unkari](../hu/README.md) | [Indonesia](../id/README.md) | [Italia](../it/README.md) | [Japani](../ja/README.md) | [Kannada](../kn/README.md) | [Korea](../ko/README.md) | [Liettua](../lt/README.md) | [Malaiji](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norja](../no/README.md) | [Persia (Farsi)](../fa/README.md) | [Puola](../pl/README.md) | [Portugali (Brasilia)](../br/README.md) | [Portugali (Portugali)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romania](../ro/README.md) | [Venäjä](../ru/README.md) | [Serbia (kyrillinen)](../sr/README.md) | [Slovakki](../sk/README.md) | [Sloveeni](../sl/README.md) | [Espanja](../es/README.md) | [Swahili](../sw/README.md) | [Ruotsi](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamili](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkki](../tr/README.md) | [Ukraina](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnam](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](./README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**Jos haluat, että lisäkielien tuki lisätään, ne on listattu [tässä](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**Jos haluat, että lisäkielisiä käännöksiä tuetaan, ne on listattu [tässä](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
-[![GitHub-seuraajat](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Seuraa)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub-haarat](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Haarauta)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub-tähdet](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Tähti)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub-katsojat](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub-haarat](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![GitHub-tähdet](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -42,17 +42,17 @@ Tämä kurssi sisältää oppitunteja, jotka käsittelevät AI-agenttien rakenta
 
 Kurssilla on monikielinen tuki. Katso saatavilla olevat kielet [tästä](../..).
 
-Jos rakennat generatiivisia tekoälymalleja ensimmäistä kertaa, tutustu [Generatiivinen tekoäly aloittelijoille](https://aka.ms/genai-beginners) -kurssiin, joka sisältää 21 oppituntia generatiivisen tekoälyn käytöstä.
+Jos rakennat generatiivisia tekoälymalleja ensimmäistä kertaa, tutustu [Generative AI For Beginners](https://aka.ms/genai-beginners) -kurssiin, joka sisältää 21 oppituntia GenAI:n käytöstä.
 
-Älä unohda [tähtää (🌟) tähän repositorioon](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ja [haarauta tämä repositorio](https://github.com/microsoft/ai-agents-for-beginners/fork) ajaaksesi koodin.
+Älä unohda [tähtää (🌟) tätä repositoriota](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ja [forkkaa tämä repo](https://github.com/microsoft/ai-agents-for-beginners/fork) ajaaksesi koodin.
 
-### Tapaa muita oppijoita, saa vastauksia kysymyksiisi
+### Tapaa muita oppijoita, saat vastauksia kysymyksiisi
 
 Jos jäät jumiin tai sinulla on kysyttävää AI-agenttien rakentamisesta, liity omistettuun Discord-kanavaamme [Microsoft Foundry Discordissa](https://aka.ms/ai-agents/discord).
 
 ### Mitä tarvitset
 
-Jokainen kurssin oppitunti sisältää koodiesimerkkejä, jotka löytyvät kansion code_samples alta. Voit [haarauttaa tämän repositorion](https://github.com/microsoft/ai-agents-for-beginners/fork) luodaksesi oman kopiosi.
+Jokainen tämän kurssin oppitunti sisältää koodiesimerkkejä, jotka löytyvät code_samples-kansiosta. Voit [forkata tämän repositorion](https://github.com/microsoft/ai-agents-for-beginners/fork) luodaksesi oman kopiosi.
 
 Näissä harjoituksissa käytetyt koodiesimerkit hyödyntävät Azure AI Foundrya ja GitHubin mallikatalogeja kielimallien kanssa vuorovaikutukseen:
 
@@ -100,10 +100,10 @@ Onko sinulla ehdotuksia tai oletko löytänyt kirjoitus- tai koodivirheitä? [Lu
 | Kontekstisuunnittelu AI-agenteille            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agenttimuistin hallinta                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Microsoft Agent Frameworkin tutkiminen                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Tietokoneen käyttöagenttien rakentaminen (CUA)           | Tulossa pian                            |                                                            |                                                                                        |
-| Skaalautuvien agenttien käyttöönotto                    | Tulossa pian                            |                                                            |                                                                                        |
-| Paikallisten AI-agenttien luominen                     | Tulossa pian                               |                                                            |                                                                                        |
-| AI-agenttien suojaaminen                           | Tulossa pian                               |                                                            |                                                                                        |
+| Tietokoneen käyttöagenttien rakentaminen (CUA)           | Tulossa                            |                                                            |                                                                                        |
+| Skaalautuvien agenttien käyttöönotto                    | Tulossa                            |                                                            |                                                                                        |
+| Paikallisten AI-agenttien luominen                     | Tulossa                               |                                                            |                                                                                        |
+| AI-agenttien suojaaminen                           | Tulossa                               |                                                            |                                                                                        |
 
 ## 🎒 Muut kurssit
 
@@ -132,7 +132,7 @@ Tiimimme tuottaa myös muita kursseja! Tutustu:
 
 ---
  
-### Perusopetus
+### Perusoppiminen
 [![ML aloittelijoille](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
 [![Data-analytiikka aloittelijoille](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
 [![Tekoäly aloittelijoille](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
@@ -155,7 +155,7 @@ Kiitos [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) tärkeiden koodie
 
 ## Osallistuminen
 
-Tämä projekti toivottaa tervetulleiksi osallistumiset ja ehdotukset. Useimmat osallistumiset edellyttävät, että hyväksyt
+Tämä projekti toivottaa tervetulleeksi osallistumiset ja ehdotukset. Useimmat osallistumiset edellyttävät, että hyväksyt
 Contributor License Agreement (CLA) -sopimuksen, jossa vakuutat, että sinulla on oikeus ja todella myönnät meille
 oikeudet käyttää panostustasi. Lisätietoja löytyy osoitteesta <https://cla.opensource.microsoft.com>.
 
@@ -163,30 +163,30 @@ Kun lähetät pull requestin, CLA-botti määrittää automaattisesti, tarvitset
 CLA:n ja merkitsee PR:n asianmukaisesti (esim. tilantarkistus, kommentti). Noudata vain botin antamia ohjeita.
 Tämä täytyy tehdä vain kerran kaikissa CLA:ta käyttävissä repositorioissa.
 
-Tämä projekti on ottanut käyttöön [Microsoftin avoimen lähdekoodin käytösohjeet](https://opensource.microsoft.com/codeofconduct/).
-Lisätietoja löytyy [Käytösohjeiden UKK:sta](https://opensource.microsoft.com/codeofconduct/faq/) tai ota yhteyttä osoitteeseen [opencode@microsoft.com](mailto:opencode@microsoft.com) lisäkysymyksissä tai kommenteissa.
+Tämä projekti on ottanut käyttöön [Microsoftin avoimen lähdekoodin käytännesäännöt](https://opensource.microsoft.com/codeofconduct/).
+Lisätietoja löytyy [Käytännesääntöjen UKK:sta](https://opensource.microsoft.com/codeofconduct/faq/) tai ota yhteyttä osoitteeseen [opencode@microsoft.com](mailto:opencode@microsoft.com) lisäkysymyksissä tai kommenteissa.
 
 ## Tavaranmerkit
 
 Tämä projekti saattaa sisältää tavaramerkkejä tai logoja projekteista, tuotteista tai palveluista. Microsoftin
-tavaramerkkien tai logojen luvallinen käyttö on ehdollista ja sen tulee noudattaa
+tavaramerkkien tai logojen luvallinen käyttö on ehdollista ja sen on noudatettava
 [Microsoftin tavaramerkki- ja brändiohjeita](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Microsoftin tavaramerkkien tai logojen käyttö muokatuissa versioissa tästä projektista ei saa aiheuttaa sekaannusta tai antaa ymmärtää Microsoftin sponsorointia.
+Microsoftin tavaramerkkien tai logojen käyttö muokatuissa versioissa ei saa aiheuttaa sekaannusta tai antaa ymmärtää Microsoftin sponsorointia.
 Kolmansien osapuolien tavaramerkkien tai logojen käyttö on näiden osapuolten sääntöjen alaista.
 
 ## Apua
 
-Jos jumitut tai sinulla on kysyttävää tekoälysovellusten rakentamisesta, liity:
+Jos jäät jumiin tai sinulla on kysyttävää tekoälysovellusten rakentamisesta, liity:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Jos sinulla on tuotepalautetta tai kohtaat virheitä rakentamisen aikana, käy:
+Jos sinulla on tuotepalautetta tai virheitä rakentamisen aikana, käy:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastuuvapauslauseke**:
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattikäännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäiskielellä tulee pitää virallisena lähteenä. Tärkeissä tiedoissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
+**Vastuuvapauslauseke**:  
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattikäännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäiskielellä tulee pitää virallisena lähteenä. Tärkeissä tiedoissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

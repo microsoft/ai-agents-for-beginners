@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
-  "translation_date": "2025-12-17T11:45:08+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:25:21+00:00",
   "source_file": "README.md",
   "language_code": "tl"
 }
@@ -46,7 +46,7 @@ Kung ito ang iyong unang pagkakataon na gumawa gamit ang mga Generative AI model
 
 Huwag kalimutang [i-star (🌟) ang repo na ito](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) at [i-fork ang repo na ito](https://github.com/microsoft/ai-agents-for-beginners/fork) upang patakbuhin ang code.
 
-### Makipagkilala sa Iba pang mga Nag-aaral, Sagutin ang Iyong mga Tanong
+### Makipagkilala sa Iba Pang mga Nag-aaral, Sagutin ang Iyong mga Tanong
 
 Kung ikaw ay ma-stuck o may mga tanong tungkol sa paggawa ng AI Agents, sumali sa aming dedikadong Discord Channel sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
@@ -54,7 +54,7 @@ Kung ikaw ay ma-stuck o may mga tanong tungkol sa paggawa ng AI Agents, sumali s
 
 Bawat aralin sa kursong ito ay may kasamang mga halimbawa ng code, na matatagpuan sa folder na code_samples. Maaari kang [mag-fork ng repo na ito](https://github.com/microsoft/ai-agents-for-beginners/fork) upang gumawa ng sarili mong kopya.
 
-Ang mga halimbawa ng code sa mga pagsasanay na ito ay gumagamit ng Azure AI Foundry at GitHub Model Catalogs para sa pakikipag-ugnayan sa Language Models:
+Ang mga halimbawa ng code sa mga ehersisyong ito ay gumagamit ng Azure AI Foundry at GitHub Model Catalogs para sa pakikipag-ugnayan sa Language Models:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Libre / Limitado
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Kailangan ng Azure Account
@@ -77,7 +77,7 @@ Mayroon ka bang mga suhestiyon o nakakita ng mga maling baybay o error sa code? 
 
 ## 📂 Bawat aralin ay may kasamang
 
-- Isinulat na aralin na matatagpuan sa README at isang maikling video
+- Isang nakasulat na aralin na matatagpuan sa README at isang maikling video
 - Mga halimbawa ng Python code na sumusuporta sa Azure AI Foundry at Github Models (Libre)
 - Mga link sa karagdagang mga mapagkukunan upang ipagpatuloy ang iyong pag-aaral
 
@@ -149,21 +149,21 @@ Ang aming koponan ay gumagawa ng iba pang mga kurso! Tingnan ang:
 [![Copilot Adventure](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
-## 🌟 Pasasalamat sa Komunidad
+## 🌟 Pasasalamat ng Komunidad
 
 Salamat kay [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) para sa pagbibigay ng mahahalagang halimbawa ng code na nagpapakita ng Agentic RAG.
 
 ## Pagsasali
 
 Malugod na tinatanggap ng proyektong ito ang mga kontribusyon at mungkahi. Karamihan sa mga kontribusyon ay nangangailangan na sumang-ayon ka sa isang
-Contributor License Agreement (CLA) na nagsasaad na ikaw ay may karapatan, at talagang nagbibigay, sa amin ng
-mga karapatan na gamitin ang iyong kontribusyon. Para sa mga detalye, bisitahin ang <https://cla.opensource.microsoft.com>.
+Contributor License Agreement (CLA) na nagsasaad na may karapatan ka, at talagang binibigyan mo kami
+ng mga karapatan na gamitin ang iyong kontribusyon. Para sa mga detalye, bisitahin ang <https://cla.opensource.microsoft.com>.
 
 Kapag nagsumite ka ng pull request, awtomatikong tutukuyin ng CLA bot kung kailangan mong magbigay ng
 CLA at bibigyan ng angkop na dekorasyon ang PR (hal., status check, komento). Sundin lamang ang mga tagubiling
-ibinibigay ng bot. Isang beses mo lang ito kailangang gawin sa lahat ng repos na gumagamit ng aming CLA.
+ibinibigay ng bot. Isang beses mo lang ito kailangang gawin sa lahat ng mga repos na gumagamit ng aming CLA.
 
-Inampon ng proyektong ito ang [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+Ang proyektong ito ay nagpatibay ng [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 Para sa karagdagang impormasyon, tingnan ang [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) o
 makipag-ugnayan sa [opencode@microsoft.com](mailto:opencode@microsoft.com) para sa anumang karagdagang mga tanong o komento.
 
@@ -176,11 +176,12 @@ Anumang paggamit ng mga trademark o logo ng third-party ay napapailalim sa mga p
 
 ## Pagkuha ng Tulong
 
+
 Kung ikaw ay naipit o may mga tanong tungkol sa paggawa ng mga AI app, sumali sa:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Kung mayroon kang feedback sa produkto o mga error habang gumagawa, bisitahin:
+Kung mayroon kang puna sa produkto o mga error habang gumagawa, bisitahin:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
-  "translation_date": "2025-12-17T11:00:02+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T13:40:55+00:00",
   "source_file": "README.md",
   "language_code": "fr"
 }
@@ -38,13 +38,13 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 Pour commencer
 
-Ce cours comprend des leçons couvrant les fondamentaux de la création d'agents IA. Chaque leçon traite d'un sujet spécifique, commencez donc où vous le souhaitez !
+Ce cours comprend des leçons couvrant les fondamentaux de la création d'agents IA. Chaque leçon traite d'un sujet spécifique, commencez donc où vous voulez !
 
 Ce cours bénéficie d'un support multilingue. Consultez nos [langues disponibles ici](../..).
 
 Si c'est la première fois que vous créez avec des modèles d'IA générative, consultez notre cours [Generative AI For Beginners](https://aka.ms/genai-beginners), qui comprend 21 leçons sur la création avec GenAI.
 
-N'oubliez pas de [mettre une étoile (🌟) à ce dépôt](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) et de [forker ce dépôt](https://github.com/microsoft/ai-agents-for-beginners/fork) pour exécuter le code.
+N'oubliez pas de [mettre une étoile (🌟) sur ce dépôt](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) et de [forker ce dépôt](https://github.com/microsoft/ai-agents-for-beginners/fork) pour exécuter le code.
 
 ### Rencontrez d'autres apprenants, obtenez des réponses à vos questions
 
@@ -54,7 +54,7 @@ Si vous êtes bloqué ou avez des questions sur la création d'agents IA, rejoig
 
 Chaque leçon de ce cours inclut des exemples de code, que vous pouvez trouver dans le dossier code_samples. Vous pouvez [forker ce dépôt](https://github.com/microsoft/ai-agents-for-beginners/fork) pour créer votre propre copie.
 
-Les exemples de code dans ces exercices utilisent Azure AI Foundry et les catalogues de modèles GitHub pour interagir avec les modèles de langage :
+L'exemple de code dans ces exercices utilise Azure AI Foundry et les catalogues de modèles GitHub pour interagir avec les modèles de langage :
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Gratuit / Limité
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Compte Azure requis
@@ -67,7 +67,7 @@ Ce cours utilise également les frameworks et services d'agents IA suivants de M
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-Pour plus d'informations sur l'exécution du code de ce cours, consultez la [configuration du cours](./00-course-setup/README.md).
+Pour plus d'informations sur l'exécution du code pour ce cours, consultez la [configuration du cours](./00-course-setup/README.md).
 
 ## 🙏 Vous voulez aider ?
 
@@ -182,7 +182,7 @@ Si vous êtes bloqué ou avez des questions sur la création d'applications IA, 
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Si vous avez des retours sur le produit ou des erreurs lors de la création, visitez :
+Si vous avez des retours sur le produit ou des erreurs lors du développement, visitez :
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

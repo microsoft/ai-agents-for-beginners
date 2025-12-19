@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
-  "translation_date": "2025-12-17T11:40:53+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:20:58+00:00",
   "source_file": "README.md",
   "language_code": "vi"
 }
@@ -38,7 +38,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 Bắt Đầu
 
-Khóa học này có các bài học bao gồm các kiến thức cơ bản về xây dựng các Tác Nhân AI. Mỗi bài học bao gồm chủ đề riêng của nó nên bạn có thể bắt đầu từ bất cứ đâu bạn thích!
+Khóa học này có các bài học bao gồm các kiến thức cơ bản về xây dựng các Tác Nhân AI. Mỗi bài học bao gồm một chủ đề riêng nên bạn có thể bắt đầu từ bất cứ đâu bạn thích!
 
 Khóa học hỗ trợ đa ngôn ngữ. Vui lòng xem các [ngôn ngữ có sẵn tại đây](../..).
 
@@ -46,7 +46,7 @@ Nếu đây là lần đầu tiên bạn xây dựng với các mô hình AI T�
 
 Đừng quên [thêm dấu sao (🌟) cho repo này](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) và [fork repo này](https://github.com/microsoft/ai-agents-for-beginners/fork) để chạy mã.
 
-### Gặp Gỡ Các Học Viên Khác, Nhận Câu Hỏi Được Giải Đáp
+### Gặp Gỡ Các Học Viên Khác, Nhận Trả Lời Cho Câu Hỏi Của Bạn
 
 Nếu bạn gặp khó khăn hoặc có bất kỳ câu hỏi nào về việc xây dựng các Tác Nhân AI, hãy tham gia Kênh Discord chuyên biệt của chúng tôi trong [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
@@ -57,7 +57,7 @@ Mỗi bài học trong khóa học này bao gồm các ví dụ mã, có thể t
 Ví dụ mã trong các bài tập này sử dụng Azure AI Foundry và Danh mục Mô hình GitHub để tương tác với các Mô hình Ngôn ngữ:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Miễn phí / Giới hạn
-- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Cần Tài Khoản Azure
+- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Cần Tài khoản Azure
 
 Khóa học này cũng sử dụng các framework và dịch vụ Tác Nhân AI sau từ Microsoft:
 
@@ -87,21 +87,21 @@ Bạn có đề xuất hoặc phát hiện lỗi chính tả hay lỗi mã? [T�
 | **Bài học**                                   | **Văn bản & Mã**                                    | **Video**                                                  | **Học thêm**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------|
 | Giới thiệu về Tác Nhân AI và Các Trường Hợp Sử Dụng Tác Nhân       | [Link](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Khám phá Các Framework Tác Nhân AI              | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Hiểu về Các Mẫu Thiết Kế Tác Nhân AI     | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Khám Phá Các Framework Tác Nhân AI              | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Hiểu Các Mẫu Thiết Kế Tác Nhân AI     | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Mẫu Thiết Kế Sử Dụng Công Cụ                      | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentic RAG                                  | [Link](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Xây dựng Các Tác Nhân AI Đáng Tin Cậy               | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Xây Dựng Các Tác Nhân AI Đáng Tin Cậy               | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Mẫu Thiết Kế Lập Kế Hoạch                      | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Mẫu Thiết Kế Đa Tác Nhân                   | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Mẫu Thiết Kế Siêu Nhận Thức                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Đại lý AI trong Sản xuất                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Đại lý AI trong sản xuất                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Sử dụng Giao thức Agentic (MCP, A2A và NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Kỹ thuật Ngữ cảnh cho Đại lý AI            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Quản lý Bộ nhớ Agentic                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Khám phá Microsoft Agent Framework                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
 | Xây dựng Đại lý Sử dụng Máy tính (CUA)           | Sắp ra mắt                            |                                                            |                                                                                        |
-| Triển khai Đại lý Có thể Mở rộng                    | Sắp ra mắt                            |                                                            |                                                                                        |
+| Triển khai Đại lý Có thể mở rộng                    | Sắp ra mắt                            |                                                            |                                                                                        |
 | Tạo Đại lý AI Cục bộ                     | Sắp ra mắt                               |                                                            |                                                                                        |
 | Bảo mật Đại lý AI                           | Sắp ra mắt                               |                                                            |                                                                                        |
 
@@ -156,14 +156,14 @@ Cảm ơn [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) đã đóng g�
 ## Đóng góp
 
 Dự án này hoan nghênh các đóng góp và đề xuất. Hầu hết các đóng góp yêu cầu bạn đồng ý với
-Thỏa thuận Cấp phép Đóng góp (CLA) tuyên bố rằng bạn có quyền và thực sự cấp cho chúng tôi
+Thỏa thuận Giấy phép Đóng góp (CLA) tuyên bố rằng bạn có quyền và thực sự cấp cho chúng tôi
 quyền sử dụng đóng góp của bạn. Để biết chi tiết, hãy truy cập <https://cla.opensource.microsoft.com>.
 
 Khi bạn gửi yêu cầu kéo, một bot CLA sẽ tự động xác định xem bạn có cần cung cấp
 CLA và đánh dấu PR phù hợp (ví dụ: kiểm tra trạng thái, bình luận). Chỉ cần làm theo hướng dẫn
 do bot cung cấp. Bạn chỉ cần làm điều này một lần cho tất cả các kho lưu trữ sử dụng CLA của chúng tôi.
 
-Dự án này đã áp dụng [Bộ Quy tắc Ứng xử Mã nguồn Mở của Microsoft](https://opensource.microsoft.com/codeofconduct/).
+Dự án này đã áp dụng [Bộ Quy tắc Ứng xử Mã nguồn Mở Microsoft](https://opensource.microsoft.com/codeofconduct/).
 Để biết thêm thông tin, xem [Câu hỏi thường gặp về Bộ Quy tắc Ứng xử](https://opensource.microsoft.com/codeofconduct/faq/) hoặc
 liên hệ [opencode@microsoft.com](mailto:opencode@microsoft.com) với bất kỳ câu hỏi hoặc nhận xét bổ sung nào.
 

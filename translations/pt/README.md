@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d39ada370b10facbe2fee1eaa272baa6",
-  "translation_date": "2025-12-17T11:23:29+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:03:37+00:00",
   "source_file": "README.md",
   "language_code": "pt"
 }
@@ -40,7 +40,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Este curso tem lições que cobrem os fundamentos da construção de Agentes de IA. Cada lição cobre o seu próprio tópico, por isso comece onde quiser!
 
-Existe suporte multilíngue para este curso. Vá para as [línguas disponíveis aqui](../..). 
+Existe suporte multilíngue para este curso. Vá para as [línguas disponíveis aqui](../..).
 
 Se esta é a sua primeira vez a construir com modelos de IA Generativa, consulte o nosso curso [Generative AI For Beginners](https://aka.ms/genai-beginners), que inclui 21 lições sobre construção com GenAI.
 
@@ -52,7 +52,7 @@ Se ficar bloqueado ou tiver alguma dúvida sobre a construção de Agentes de IA
 
 ### O Que Precisa
 
-Cada lição deste curso inclui exemplos de código, que podem ser encontrados na pasta code_samples. Pode [fazer fork deste repositório](https://github.com/microsoft/ai-agents-for-beginners/fork) para criar a sua própria cópia.  
+Cada lição deste curso inclui exemplos de código, que podem ser encontrados na pasta code_samples. Pode [fazer fork deste repositório](https://github.com/microsoft/ai-agents-for-beginners/fork) para criar a sua própria cópia.
 
 O exemplo de código nestes exercícios utiliza Azure AI Foundry e Catálogos de Modelos do GitHub para interagir com Modelos de Linguagem:
 
@@ -156,11 +156,11 @@ Obrigado a [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) por contribui
 ## Contribuir
 
 Este projeto aceita contribuições e sugestões. A maioria das contribuições requer que concorde com um
-Acordo de Licença de Contribuidor (CLA) declarando que tem o direito e efetivamente concede-nos
-os direitos para usar a sua contribuição. Para detalhes, visite <https://cla.opensource.microsoft.com>.
+Acordo de Licença de Contribuidor (CLA) declarando que tem o direito, e de facto concede,
+os direitos para usarmos a sua contribuição. Para detalhes, visite <https://cla.opensource.microsoft.com>.
 
 Quando submeter um pull request, um bot CLA determinará automaticamente se precisa fornecer
-um CLA e decorará o PR adequadamente (por exemplo, verificação de estado, comentário). Basta seguir as instruções
+um CLA e decorará o PR apropriadamente (por exemplo, verificação de estado, comentário). Basta seguir as instruções
 fornecidas pelo bot. Só precisará fazer isto uma vez em todos os repositórios que usam o nosso CLA.
 
 Este projeto adotou o [Código de Conduta de Código Aberto da Microsoft](https://opensource.microsoft.com/codeofconduct/).
@@ -170,14 +170,14 @@ contacte [opencode@microsoft.com](mailto:opencode@microsoft.com) para quaisquer 
 ## Marcas Registadas
 
 Este projeto pode conter marcas registadas ou logótipos de projetos, produtos ou serviços. O uso autorizado das marcas
-ou logótipos da Microsoft está sujeito e deve seguir as
+ou logótipos da Microsoft está sujeito e deve seguir
 [Diretrizes de Marcas e Marca da Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 O uso de marcas ou logótipos da Microsoft em versões modificadas deste projeto não deve causar confusão nem implicar patrocínio da Microsoft.
 Qualquer uso de marcas ou logótipos de terceiros está sujeito às políticas desses terceiros.
 
 ## Obter Ajuda
 
-Se ficar bloqueado ou tiver alguma dúvida sobre como construir aplicações de IA, junte-se a:
+Se ficar bloqueado ou tiver dúvidas sobre como construir aplicações de IA, junte-se a:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
