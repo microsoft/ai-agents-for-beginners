@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
-  "translation_date": "2025-12-17T14:03:37+00:00",
+  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
+  "translation_date": "2025-12-19T08:39:32+00:00",
   "source_file": "README.md",
   "language_code": "pt"
 }
@@ -48,7 +48,7 @@ Não se esqueça de [favoritar (🌟) este repositório](https://docs.github.com
 
 ### Conheça Outros Aprendizes, Tire as Suas Dúvidas
 
-Se ficar bloqueado ou tiver alguma dúvida sobre a construção de Agentes de IA, junte-se ao nosso canal dedicado no Discord no [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+Se ficar bloqueado ou tiver alguma dúvida sobre a construção de Agentes de IA, junte-se ao nosso Canal dedicado no Discord no [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
 ### O Que Precisa
 
@@ -71,7 +71,7 @@ Para mais informações sobre como executar o código deste curso, vá para a [C
 
 ## 🙏 Quer ajudar?
 
-Tem sugestões ou encontrou erros ortográficos ou de código? [Abra uma issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) ou [Crie um pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Tem sugestões ou encontrou erros de ortografia ou código? [Abra uma issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) ou [Crie um pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -156,20 +156,20 @@ Obrigado a [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) por contribui
 ## Contribuir
 
 Este projeto aceita contribuições e sugestões. A maioria das contribuições requer que concorde com um
-Acordo de Licença de Contribuidor (CLA) declarando que tem o direito, e de facto concede,
-os direitos para usarmos a sua contribuição. Para detalhes, visite <https://cla.opensource.microsoft.com>.
+Acordo de Licença de Contribuidor (CLA) declarando que tem o direito e efetivamente concede-nos
+os direitos para usar a sua contribuição. Para detalhes, visite <https://cla.opensource.microsoft.com>.
 
 Quando submeter um pull request, um bot CLA determinará automaticamente se precisa fornecer
-um CLA e decorará o PR apropriadamente (por exemplo, verificação de estado, comentário). Basta seguir as instruções
+um CLA e decorará o PR adequadamente (por exemplo, verificação de estado, comentário). Basta seguir as instruções
 fornecidas pelo bot. Só precisará fazer isto uma vez em todos os repositórios que usam o nosso CLA.
 
 Este projeto adotou o [Código de Conduta de Código Aberto da Microsoft](https://opensource.microsoft.com/codeofconduct/).
 Para mais informações veja as [FAQ do Código de Conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou
 contacte [opencode@microsoft.com](mailto:opencode@microsoft.com) para quaisquer perguntas ou comentários adicionais.
 
-## Marcas Registadas
+## Marcas Comerciais
 
-Este projeto pode conter marcas registadas ou logótipos de projetos, produtos ou serviços. O uso autorizado das marcas
+Este projeto pode conter marcas comerciais ou logótipos de projetos, produtos ou serviços. O uso autorizado das marcas
 ou logótipos da Microsoft está sujeito e deve seguir
 [Diretrizes de Marcas e Marca da Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 O uso de marcas ou logótipos da Microsoft em versões modificadas deste projeto não deve causar confusão nem implicar patrocínio da Microsoft.
@@ -177,7 +177,7 @@ Qualquer uso de marcas ou logótipos de terceiros está sujeito às políticas d
 
 ## Obter Ajuda
 
-Se ficar bloqueado ou tiver dúvidas sobre como construir aplicações de IA, junte-se a:
+Se ficar bloqueado ou tiver alguma dúvida sobre como construir aplicações de IA, junte-se a:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 

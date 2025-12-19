@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
-  "translation_date": "2025-12-17T14:22:12+00:00",
+  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
+  "translation_date": "2025-12-19T08:56:36+00:00",
   "source_file": "README.md",
   "language_code": "id"
 }
@@ -54,7 +54,7 @@ Jika Anda mengalami kesulitan atau memiliki pertanyaan tentang membangun Agen AI
 
 Setiap pelajaran dalam kursus ini menyertakan contoh kode, yang dapat ditemukan di folder code_samples. Anda dapat [fork repo ini](https://github.com/microsoft/ai-agents-for-beginners/fork) untuk membuat salinan Anda sendiri.
 
-Contoh kode dalam latihan ini menggunakan Azure AI Foundry dan Katalog Model GitHub untuk berinteraksi dengan Model Bahasa:
+Contoh kode dalam latihan ini menggunakan Azure AI Foundry dan GitHub Model Catalogs untuk berinteraksi dengan Model Bahasa:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Gratis / Terbatas
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Memerlukan Akun Azure
@@ -78,7 +78,7 @@ Apakah Anda memiliki saran atau menemukan kesalahan ejaan atau kode? [Buat isu](
 ## 📂 Setiap pelajaran mencakup
 
 - Pelajaran tertulis yang terletak di README dan video singkat
-- Contoh kode Python yang mendukung Azure AI Foundry dan Model Github (Gratis)
+- Contoh kode Python yang mendukung Azure AI Foundry dan Github Models (Gratis)
 - Tautan ke sumber daya tambahan untuk melanjutkan pembelajaran Anda
 
 
@@ -189,5 +189,5 @@ Jika Anda memiliki umpan balik produk atau kesalahan saat membangun kunjungi:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diingat bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sahih. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berusaha untuk akurasi, harap diingat bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sah. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang salah yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
-  "translation_date": "2025-12-17T14:25:21+00:00",
+  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
+  "translation_date": "2025-12-19T08:58:52+00:00",
   "source_file": "README.md",
   "language_code": "tl"
 }
@@ -46,7 +46,7 @@ Kung ito ang iyong unang pagkakataon na gumawa gamit ang mga Generative AI model
 
 Huwag kalimutang [i-star (🌟) ang repo na ito](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) at [i-fork ang repo na ito](https://github.com/microsoft/ai-agents-for-beginners/fork) upang patakbuhin ang code.
 
-### Makipagkilala sa Iba Pang mga Nag-aaral, Sagutin ang Iyong mga Tanong
+### Makipagkilala sa Iba pang mga Nag-aaral, Sagutin ang Iyong mga Tanong
 
 Kung ikaw ay ma-stuck o may mga tanong tungkol sa paggawa ng AI Agents, sumali sa aming dedikadong Discord Channel sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
@@ -77,7 +77,7 @@ Mayroon ka bang mga suhestiyon o nakakita ng mga maling baybay o error sa code? 
 
 ## 📂 Bawat aralin ay may kasamang
 
-- Isang nakasulat na aralin na matatagpuan sa README at isang maikling video
+- Isinulat na aralin na matatagpuan sa README at isang maikling video
 - Mga halimbawa ng Python code na sumusuporta sa Azure AI Foundry at Github Models (Libre)
 - Mga link sa karagdagang mga mapagkukunan upang ipagpatuloy ang iyong pag-aaral
 
@@ -100,10 +100,10 @@ Mayroon ka bang mga suhestiyon o nakakita ng mga maling baybay o error sa code? 
 | Context Engineering para sa AI Agents            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Pamamahala ng Agentic Memory                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Pagsusuri sa Microsoft Agent Framework                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Paggawa ng Computer Use Agents (CUA)           | Malapit Nang Ilabas                            |                                                            |                                                                                        |
-| Pag-deploy ng Scalable Agents                    | Malapit Nang Ilabas                            |                                                            |                                                                                        |
-| Paglikha ng Lokal na AI Agents                     | Malapit Nang Ilabas                               |                                                            |                                                                                        |
-| Pag-secure ng AI Agents                           | Malapit Nang Ilabas                               |                                                            |                                                                                        |
+| Paggawa ng Computer Use Agents (CUA)           | Malapit Nang Dumating                            |                                                            |                                                                                        |
+| Pag-deploy ng Scalable Agents                    | Malapit Nang Dumating                            |                                                            |                                                                                        |
+| Paglikha ng Lokal na AI Agents                     | Malapit Nang Dumating                               |                                                            |                                                                                        |
+| Pag-secure ng AI Agents                           | Malapit Nang Dumating                               |                                                            |                                                                                        |
 
 ## 🎒 Iba Pang Mga Kurso
 
@@ -161,11 +161,11 @@ ng mga karapatan na gamitin ang iyong kontribusyon. Para sa mga detalye, bisitah
 
 Kapag nagsumite ka ng pull request, awtomatikong tutukuyin ng CLA bot kung kailangan mong magbigay ng
 CLA at bibigyan ng angkop na dekorasyon ang PR (hal., status check, komento). Sundin lamang ang mga tagubiling
-ibinibigay ng bot. Isang beses mo lang ito kailangang gawin sa lahat ng mga repos na gumagamit ng aming CLA.
+ibinibigay ng bot. Isang beses mo lang ito kailangang gawin sa lahat ng repos na gumagamit ng aming CLA.
 
-Ang proyektong ito ay nagpatibay ng [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+Inampon ng proyektong ito ang [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 Para sa karagdagang impormasyon, tingnan ang [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) o
-makipag-ugnayan sa [opencode@microsoft.com](mailto:opencode@microsoft.com) para sa anumang karagdagang mga tanong o komento.
+makipag-ugnayan sa [opencode@microsoft.com](mailto:opencode@microsoft.com) para sa anumang karagdagang tanong o komento.
 
 ## Mga Trademark
 
@@ -181,7 +181,7 @@ Kung ikaw ay naipit o may mga tanong tungkol sa paggawa ng mga AI app, sumali sa
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Kung mayroon kang puna sa produkto o mga error habang gumagawa, bisitahin:
+Kung mayroon kang feedback sa produkto o mga error habang gumagawa, bisitahin:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
