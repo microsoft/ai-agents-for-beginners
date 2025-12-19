@@ -16,9 +16,11 @@ try:
     from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
     from semantic_kernel.connectors.ai.open_ai.prompt_execution_settings.open_ai_prompt_execution_settings import OpenAIChatPromptExecutionSettings
 except ImportError as e:
-    print(f"Error importing dependencies: {e}")
-    print("Please install requirements using: pip install -r requirements.txt")
-    sys.exit(1)
+    error_message = (
+        f"Error importing dependencies: {e}\n"
+        "Please install requirements using: pip install -r requirements.txt"
+    )
+    raise ImportError(error_message) from e
 
 # Load environment variables
 load_dotenv(find_dotenv())
