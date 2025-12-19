@@ -102,14 +102,27 @@ class PersistentEventStore(EventStore):
     def _create_table(self) -> None:
         """Create the events table if it doesn't exist."""
         cursor = self._conn.cursor()
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS events (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                stream_id TEXT NOT NULL,
-                message TEXT NOT NULL
-            )
-        """)
-        self._conn.commit()
+        try:
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS events (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    stream_id TEXT NOT NULL,
+                    message TEXT NOT NULL
+                )
+            """)
+            self._conn.commit()
+        except sqlite3.Error:
+            logger.exception("Failed to create 'events' table in PersistentEventStore")
+            try:
+                self._conn.close()
+            except Exception:
+                logger.exception("Failed to close SQLite connection after table creation error")
+            raise
+        finally:
+            try:
+                cursor.close()
+            except Exception:
+                logger.exception("Failed to close SQLite cursor after table creation")
     
     async def store_event(self, stream_id: StreamId, message: JSONRPCMessage) -> EventId:
         """Store an event and return its ID."""
