@@ -220,6 +220,23 @@ class PersistentEventStore(EventStore):
         self._conn.commit()
         logger.info("Event store cleared")
 
-    def __del__(self):
-        if hasattr(self, '_conn'):
-            self._conn.close()
+    def close(self) -> None:
+        """Close the underlying SQLite connection."""
+        conn = getattr(self, "_conn", None)
+        if conn is None:
+            return
+        try:
+            conn.close()
+            logger.info("PersistentEventStore connection closed")
+        except sqlite3.Error as exc:
+            logger.warning("Error closing PersistentEventStore connection: %s", exc)
+        finally:
+            self._conn = None
+
+    def __enter__(self) -> "PersistentEventStore":
+        """Enter the runtime context related to this object."""
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        """Exit the runtime context and close the connection."""
+        self.close()
