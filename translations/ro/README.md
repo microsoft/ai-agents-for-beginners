@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T09:05:11+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:36:44+00:00",
   "source_file": "README.md",
   "language_code": "ro"
 }
@@ -38,13 +38,13 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 Începutul
 
-Acest curs conține lecții care acoperă fundamentele construirii Agenților AI. Fiecare lecție acoperă un subiect propriu, așa că începe de unde dorești!
+Acest curs conține lecții care acoperă elementele fundamentale ale construirii Agenților AI. Fiecare lecție acoperă un subiect propriu, așa că începe de unde dorești!
 
 Există suport multilingv pentru acest curs. Accesează [limbile disponibile aici](../..).
 
 Dacă este prima dată când construiești cu modele Generative AI, consultă cursul nostru [Generative AI For Beginners](https://aka.ms/genai-beginners), care include 21 de lecții despre construirea cu GenAI.
 
-Nu uita să [acordezi o stea (🌟) acestui repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) și să [faci fork la acest repo](https://github.com/microsoft/ai-agents-for-beginners/fork) pentru a rula codul.
+Nu uita să [acordezi o stea (🌟) acestui repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) și să [faci fork acestui repo](https://github.com/microsoft/ai-agents-for-beginners/fork) pentru a rula codul.
 
 ### Întâlnește alți cursanți, primește răspunsuri la întrebările tale
 
@@ -52,7 +52,7 @@ Dacă întâmpini dificultăți sau ai întrebări despre construirea Agenților
 
 ### Ce ai nevoie
 
-Fiecare lecție din acest curs include exemple de cod, care pot fi găsite în folderul code_samples. Poți [face fork la acest repo](https://github.com/microsoft/ai-agents-for-beginners/fork) pentru a-ți crea propria copie.
+Fiecare lecție din acest curs include exemple de cod, care pot fi găsite în folderul code_samples. Poți [face fork acestui repo](https://github.com/microsoft/ai-agents-for-beginners/fork) pentru a-ți crea propria copie.
 
 Exemplul de cod din aceste exerciții utilizează Azure AI Foundry și Catalogurile de Modele GitHub pentru interacțiunea cu Modelele de Limbaj:
 
@@ -71,14 +71,14 @@ Pentru mai multe informații despre rularea codului pentru acest curs, acceseaz�
 
 ## 🙏 Vrei să ajuți?
 
-Ai sugestii sau ai găsit greșeli de ortografie sau cod? [Deschide un issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) sau [Creează un pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Ai sugestii sau ai găsit greșeli de ortografie sau cod? [Deschide o problemă](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) sau [Creează un pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
 ## 📂 Fiecare lecție include
 
 - O lecție scrisă localizată în README și un videoclip scurt
-- Exemple de cod Python care suportă Azure AI Foundry și Modele Github (Gratuite)
+- Exemple de cod Python care susțin Azure AI Foundry și Modelele Github (Gratuite)
 - Linkuri către resurse suplimentare pentru a-ți continua învățarea
 
 
@@ -88,13 +88,13 @@ Ai sugestii sau ai găsit greșeli de ortografie sau cod? [Deschide un issue](ht
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | Introducere în Agenții AI și Cazuri de Utilizare a Agenților       | [Link](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Explorarea Cadrelor Agentice AI              | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Înțelegerea Tiparelor de Proiectare Agentică AI     | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Tiparul de Proiectare pentru Utilizarea Uneltelor                      | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Înțelegerea Tiparelor de Design Agentic AI     | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Tiparul de Design pentru Utilizarea Uneltelor                      | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentic RAG                                  | [Link](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Construirea Agenților AI de Încredere               | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Tiparul de Proiectare pentru Planificare                      | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Tiparul de Proiectare Multi-Agent                   | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Tiparul de Proiectare Metacogniție                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Tiparul de Design pentru Planificare                      | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Tiparul de Design Multi-Agent                   | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Tiparul de Design Metacogniție                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agenți AI în Producție                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Utilizarea Protocoalelor Agentice (MCP, A2A și NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Ingineria Contextului pentru Agenți AI            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -151,12 +151,12 @@ Echipa noastră produce și alte cursuri! Verifică:
 
 ## 🌟 Mulțumiri Comunității
 
-Mulțumim lui [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) pentru contribuirea cu exemple importante de cod demonstrând Agentic RAG.
+Mulțumiri lui [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) pentru contribuirea cu exemple importante de cod demonstrând Agentic RAG.
 
 ## Contribuții
 
 Acest proiect primește cu plăcere contribuții și sugestii. Majoritatea contribuțiilor necesită să fiți de acord cu un
-Acord de Licență pentru Contribuitori (CLA) prin care declarați că aveți dreptul și chiar acordați
+Acord de Licență pentru Contribuitor (CLA) prin care declarați că aveți dreptul și chiar acordați
 drepturile de a folosi contribuția dumneavoastră. Pentru detalii, vizitați <https://cla.opensource.microsoft.com>.
 
 Când trimiteți o cerere de pull, un bot CLA va determina automat dacă trebuie să furnizați
@@ -188,5 +188,5 @@ Dacă aveți feedback despre produs sau erori în timpul construirii, vizitați:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Declinare de responsabilitate**:  
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un specialist uman. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite rezultate din utilizarea acestei traduceri.
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un specialist uman. Nu ne asumăm răspunderea pentru eventualele neînțelegeri sau interpretări greșite rezultate din utilizarea acestei traduceri.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

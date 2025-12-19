@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:44:35+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:15:30+00:00",
   "source_file": "README.md",
   "language_code": "pl"
 }
@@ -42,9 +42,9 @@ Ten kurs zawiera lekcje obejmujące podstawy tworzenia Agentów AI. Każda lekcj
 
 Kurs oferuje wsparcie wielojęzyczne. Przejdź do naszych [dostępnych języków tutaj](../..).
 
-Jeśli to Twój pierwszy raz z modelami Generative AI, sprawdź nasz kurs [Generative AI For Beginners](https://aka.ms/genai-beginners), który zawiera 21 lekcji na temat budowania z GenAI.
+Jeśli to Twój pierwszy raz z modelami Generative AI, sprawdź nasz kurs [Generative AI For Beginners](https://aka.ms/genai-beginners), który zawiera 21 lekcji na temat tworzenia z GenAI.
 
-Nie zapomnij [dodać gwiazdki (🌟) temu repozytorium](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) i [zrobić fork tego repozytorium](https://github.com/microsoft/ai-agents-for-beginners/fork), aby uruchomić kod.
+Nie zapomnij [dodać gwiazdkę (🌟) temu repozytorium](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) i [zrobić fork tego repozytorium](https://github.com/microsoft/ai-agents-for-beginners/fork), aby uruchomić kod.
 
 ### Poznaj innych uczących się, uzyskaj odpowiedzi na swoje pytania
 
@@ -67,11 +67,11 @@ Ten kurs korzysta również z następujących frameworków i usług Agentów AI 
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-Aby uzyskać więcej informacji o uruchamianiu kodu dla tego kursu, przejdź do [Course Setup](./00-course-setup/README.md).
+Aby uzyskać więcej informacji o uruchamianiu kodu dla tego kursu, przejdź do [Konfiguracji kursu](./00-course-setup/README.md).
 
 ## 🙏 Chcesz pomóc?
 
-Masz sugestie lub znalazłeś błędy ortograficzne lub w kodzie? [Zgłoś problem](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) lub [stwórz pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Masz sugestie lub znalazłeś błędy ortograficzne lub w kodzie? [Zgłoś problem](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) lub [Utwórz pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -100,10 +100,10 @@ Masz sugestie lub znalazłeś błędy ortograficzne lub w kodzie? [Zgłoś probl
 | Inżynieria kontekstu dla agentów AI            | [Link](./12-context-engineering/README.md)         | [Wideo](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Zarządzanie pamięcią agentową                      | [Link](./13-agent-memory/README.md)     |      [Wideo](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Eksploracja Microsoft Agent Framework                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Tworzenie agentów komputerowych (CUA)           | Wkrótce                            |                                                            |                                                                                        |
-| Wdrażanie skalowalnych agentów                    | Wkrótce                            |                                                            |                                                                                        |
-| Tworzenie lokalnych agentów AI                     | Wkrótce                               |                                                            |                                                                                        |
-| Zabezpieczanie agentów AI                           | Wkrótce                               |                                                            |                                                                                        |
+| Tworzenie agentów komputerowych (CUA)           | Wkrótce dostępne                            |                                                            |                                                                                        |
+| Wdrażanie skalowalnych agentów                    | Wkrótce dostępne                            |                                                            |                                                                                        |
+| Tworzenie lokalnych agentów AI                     | Wkrótce dostępne                               |                                                            |                                                                                        |
+| Zabezpieczanie agentów AI                           | Wkrótce dostępne                               |                                                            |                                                                                        |
 
 ## 🎒 Inne kursy
 
@@ -132,7 +132,7 @@ Nasz zespół tworzy także inne kursy! Sprawdź:
 
 ---
  
-### Podstawy nauki
+### Podstawowe nauczanie
 [![ML dla początkujących](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
 [![Data Science dla początkujących](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
 [![AI dla początkujących](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
@@ -156,21 +156,21 @@ Dziękujemy [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) za wkład w 
 ## Wkład w projekt
 
 Ten projekt zachęca do wkładu i sugestii. Większość wkładów wymaga zgody na
-Umowę Licencyjną Współtwórcy (CLA), w której oświadczasz, że masz prawo i faktycznie udzielasz nam
+Umowę Licencyjną Współtwórcy (CLA), która potwierdza, że masz prawo i faktycznie udzielasz nam
 praw do korzystania z Twojego wkładu. Szczegóły znajdziesz na <https://cla.opensource.microsoft.com>.
 
 Po przesłaniu pull requesta, bot CLA automatycznie określi, czy musisz dostarczyć
 CLA i odpowiednio oznaczy PR (np. status, komentarz). Po prostu postępuj zgodnie z instrukcjami
-podanymi przez bota. Będziesz musiał to zrobić tylko raz we wszystkich repozytoriach korzystających z naszej CLA.
+podanymi przez bota. Będziesz musiał to zrobić tylko raz dla wszystkich repozytoriów korzystających z naszej CLA.
 
 Projekt przyjął [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-Więcej informacji znajdziesz w [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) lub
-kontaktując się z [opencode@microsoft.com](mailto:opencode@microsoft.com) w razie dodatkowych pytań lub uwag.
+Więcej informacji znajdziesz w [FAQ dotyczących Kodeksu Postępowania](https://opensource.microsoft.com/codeofconduct/faq/) lub
+skontaktuj się z [opencode@microsoft.com](mailto:opencode@microsoft.com) w razie dodatkowych pytań lub uwag.
 
 ## Znaki towarowe
 
 Projekt może zawierać znaki towarowe lub logotypy projektów, produktów lub usług. Autoryzowane użycie znaków towarowych lub logotypów Microsoft
-podlega i musi być zgodne z
+podlega i musi przestrzegać
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 Użycie znaków towarowych lub logotypów Microsoft w zmodyfikowanych wersjach tego projektu nie może powodować zamieszania ani sugerować sponsorowania przez Microsoft.
 Wszelkie użycie znaków towarowych lub logotypów stron trzecich podlega politykom tych stron trzecich.

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:54:30+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:25:22+00:00",
   "source_file": "README.md",
   "language_code": "he"
 }
@@ -40,7 +40,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 קורס זה כולל שיעורים המכסים את היסודות של בניית סוכני בינה מלאכותית. כל שיעור עוסק בנושא משלו, אז תתחילו איפה שתרצו!
 
-יש תמיכה בריבוי שפות עבור הקורס הזה. עברו ל[השפות הזמינות כאן](../..).
+יש תמיכה בריבוי שפות עבור הקורס הזה. גשו ל[השפות הזמינות כאן](../..).
 
 אם זו הפעם הראשונה שלכם בבנייה עם מודלים של בינה מלאכותית גנרטיבית, בדקו את קורס [בינה מלאכותית גנרטיבית למתחילים](https://aka.ms/genai-beginners), הכולל 21 שיעורים על בנייה עם GenAI.
 
@@ -48,16 +48,16 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### פגשו לומדים אחרים, קבלו מענה לשאלותיכם
 
-אם נתקעתם או יש לכם שאלות לגבי בניית סוכני בינה מלאכותית, הצטרפו לערוץ ה-Discord הייעודי שלנו ב[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+אם אתם נתקעים או יש לכם שאלות לגבי בניית סוכני בינה מלאכותית, הצטרפו לערוץ ה-Discord הייעודי שלנו ב-[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
 ### מה אתם צריכים
 
 כל שיעור בקורס כולל דוגמאות קוד, שניתן למצוא בתיקיית code_samples. אתם יכולים [לעשות מזלג למאגר זה](https://github.com/microsoft/ai-agents-for-beginners/fork) כדי ליצור עותק משלכם.
 
-דוגמת הקוד בתרגילים אלה משתמשת ב-Azure AI Foundry ובקטלוגי מודלים של GitHub לאינטראקציה עם מודלי שפה:
+דוגמת הקוד בתרגילים אלה משתמשת ב-Azure AI Foundry ובקטלוגי מודלים של GitHub לאינטראקציה עם מודלים לשוניים:
 
 - [מודלים של Github](https://aka.ms/ai-agents-beginners/github-models) - חינם / מוגבל
-- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - דרוש חשבון Azure
+- [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - נדרש חשבון Azure
 
 קורס זה משתמש גם במסגרת ושירותי סוכנים של מיקרוסופט הבאים:
 
@@ -67,7 +67,7 @@ CO_OP_TRANSLATOR_METADATA:
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-למידע נוסף על הרצת הקוד לקורס זה, עברו ל[הגדרת הקורס](./00-course-setup/README.md).
+למידע נוסף על הרצת הקוד לקורס זה, גשו ל[הגדרת הקורס](./00-course-setup/README.md).
 
 ## 🙏 רוצים לעזור?
 
@@ -84,17 +84,17 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🗃️ שיעורים
 
-| **שיעור**                                   | **טקסט וקוד**                                    | **וידאו**                                                  | **למידה נוספת**                                                                     |
+| **שיעור**                                   | **טקסט וקוד**                                    | **סרטון**                                                  | **למידה נוספת**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| מבוא לסוכני בינה מלאכותית ומקרי שימוש בסוכנים       | [קישור](./01-intro-to-ai-agents/README.md)          | [וידאו](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| חקר מסגרות סוכנים                        | [קישור](./02-explore-agentic-frameworks/README.md)  | [וידאו](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| הבנת תבניות עיצוב סוכנים                   | [קישור](./03-agentic-design-patterns/README.md)     | [וידאו](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| תבנית עיצוב לשימוש בכלים                      | [קישור](./04-tool-use/README.md)                    | [וידאו](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| סוכן RAG                                   | [קישור](./05-agentic-rag/README.md)                 | [וידאו](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| בניית סוכני בינה מלאכותית אמינים               | [קישור](./06-building-trustworthy-agents/README.md) | [וידאו](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| תבנית עיצוב לתכנון                      | [קישור](./07-planning-design/README.md)             | [וידאו](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| תבנית עיצוב רב-סוכנית                   | [קישור](./08-multi-agent/README.md)                 | [וידאו](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| תבנית עיצוב מטה-קוגניציה                 | [קישור](./09-metacognition/README.md)               | [וידאו](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| מבוא לסוכני בינה מלאכותית ומקרי שימוש בסוכנים       | [קישור](./01-intro-to-ai-agents/README.md)          | [סרטון](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| חקר מסגרות סוכנים                        | [קישור](./02-explore-agentic-frameworks/README.md)  | [סרטון](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| הבנת תבניות עיצוב סוכנים                   | [קישור](./03-agentic-design-patterns/README.md)     | [סרטון](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| תבנית עיצוב לשימוש בכלים                      | [קישור](./04-tool-use/README.md)                    | [סרטון](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| סוכן RAG                                   | [קישור](./05-agentic-rag/README.md)                 | [סרטון](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| בניית סוכני בינה מלאכותית אמינים               | [קישור](./06-building-trustworthy-agents/README.md) | [סרטון](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| תבנית עיצוב לתכנון                      | [קישור](./07-planning-design/README.md)             | [סרטון](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| תבנית עיצוב רב-סוכנית                   | [קישור](./08-multi-agent/README.md)                 | [סרטון](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| תבנית עיצוב מטה-קוגניציה                 | [קישור](./09-metacognition/README.md)               | [סרטון](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | סוכני AI בפרודקשן                      | [קישור](./10-ai-agents-production/README.md)        | [וידאו](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | שימוש בפרוטוקולים סוכניים (MCP, A2A ו-NLWeb) | [קישור](./11-agentic-protocols/README.md)           | [וידאו](https://youtu.be/X-Dh9R3Opn8)                                 | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | הנדסת הקשר לסוכני AI            | [קישור](./12-context-engineering/README.md)         | [וידאו](https://youtu.be/F5zqRV7gEag)                                 | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -133,7 +133,7 @@ CO_OP_TRANSLATOR_METADATA:
 ---
  
 ### למידה בסיסית
-[![למידת מכונה למתחילים](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
+[![ML למתחילים](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
 [![מדעי הנתונים למתחילים](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
 [![AI למתחילים](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
 [![סייברסקיוריטי למתחילים](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
@@ -143,15 +143,15 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
  
-### סדרת קופיילוט
-[![קופיילוט לתכנות זוגי עם AI](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
-[![קופיילוט ל-C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
-[![הרפתקאות קופיילוט](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
+### סדרת Copilot
+[![Copilot לתכנות זוגי עם AI](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+[![Copilot ל-C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+[![הרפתקאות Copilot](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
 ## 🌟 תודה לקהילה
 
-תודה ל-[Shivam Goyal](https://www.linkedin.com/in/shivam2003/) על תרומתו בדוגמאות קוד חשובות המדגימות Agentic RAG.
+תודה ל-[Shivam Goyal](https://www.linkedin.com/in/shivam2003/) על תרומת דוגמאות קוד חשובות המדגימות Agentic RAG.
 
 ## תרומה
 
@@ -165,8 +165,8 @@ CO_OP_TRANSLATOR_METADATA:
 ## סימני מסחר
 
 פרויקט זה עשוי להכיל סימני מסחר או לוגואים של פרויקטים, מוצרים או שירותים. שימוש מורשה בסימני המסחר או בלוגואים של מיקרוסופט כפוף וצריך לעקוב אחרי
-[הנחיות סימני המסחר והמותג של מיקרוסופט](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-שימוש בסימני מסחר או לוגואים של מיקרוסופט בגרסאות מותאמות של פרויקט זה אסור שיגרום לבלבול או יביע חסות של מיקרוסופט.
+[הנחיות סימני המסחר והמוניטין של מיקרוסופט](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+שימוש בסימני מסחר או לוגואים של מיקרוסופט בגרסאות מותאמות של פרויקט זה אסור שיגרום לבלבול או ירמוז על חסות מיקרוסופט.
 כל שימוש בסימני מסחר או לוגואים של צד שלישי כפוף למדיניות של אותם צדדים שלישיים.
 
 ## קבלת עזרה
@@ -175,7 +175,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-אם יש לך משוב על מוצר או שגיאות בזמן הבנייה, בקר ב:
+אם יש לך משוב על המוצר או שגיאות בזמן הבנייה, בקר ב:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

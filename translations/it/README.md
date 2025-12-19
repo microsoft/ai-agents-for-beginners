@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:43:37+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:14:34+00:00",
   "source_file": "README.md",
   "language_code": "it"
 }
@@ -40,13 +40,13 @@ CO_OP_TRANSLATOR_METADATA:
 
 Questo corso include lezioni che coprono le basi per costruire Agenti AI. Ogni lezione tratta un argomento specifico, quindi inizia da dove preferisci!
 
-Questo corso supporta più lingue. Vai alle nostre [lingue disponibili qui](../..).
+Questo corso supporta più lingue. Vai alle [lingue disponibili qui](../..).
 
 Se è la prima volta che costruisci con modelli di AI Generativa, dai un’occhiata al nostro corso [Generative AI For Beginners](https://aka.ms/genai-beginners), che include 21 lezioni sulla costruzione con GenAI.
 
 Non dimenticare di [mettere una stella (🌟) a questo repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) e di [fare il fork di questo repo](https://github.com/microsoft/ai-agents-for-beginners/fork) per eseguire il codice.
 
-### Incontra altri studenti, fai le tue domande
+### Incontra altri studenti, ottieni risposte alle tue domande
 
 Se rimani bloccato o hai domande sulla costruzione di Agenti AI, unisciti al nostro canale Discord dedicato nel [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
@@ -54,7 +54,7 @@ Se rimani bloccato o hai domande sulla costruzione di Agenti AI, unisciti al nos
 
 Ogni lezione di questo corso include esempi di codice, che si trovano nella cartella code_samples. Puoi [fare il fork di questo repo](https://github.com/microsoft/ai-agents-for-beginners/fork) per creare la tua copia.
 
-Gli esempi di codice in questi esercizi utilizzano Azure AI Foundry e i Cataloghi Modelli di GitHub per interagire con i Modelli di Linguaggio:
+Gli esempi di codice in questi esercizi utilizzano Azure AI Foundry e i Cataloghi Modelli di GitHub per interagire con i Modelli Linguistici:
 
 - [Modelli Github](https://aka.ms/ai-agents-beginners/github-models) - Gratis / Limitato
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Account Azure richiesto
@@ -86,15 +86,15 @@ Hai suggerimenti o hai trovato errori di ortografia o di codice? [Apri un issue]
 
 | **Lezione**                                   | **Testo & Codice**                                    | **Video**                                                  | **Apprendimento Extra**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Introduzione agli Agenti AI e Casi d'Uso     | [Link](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Esplorare Framework Agentici                  | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Comprendere i Pattern di Progettazione Agentica | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Pattern di Progettazione per l'Uso di Strumenti | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Introduzione agli Agenti AI e Casi d'Uso degli Agenti       | [Link](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Esplorare Framework Agentici              | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Comprendere i Pattern di Progettazione Agentica     | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pattern di Progettazione per l'Uso di Strumenti                      | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentic RAG                                  | [Link](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Costruire Agenti AI Affidabili               | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Pattern di Progettazione per la Pianificazione | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Pattern di Progettazione Multi-Agente        | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Pattern di Progettazione Metacognitiva       | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pattern di Progettazione per la Pianificazione                      | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pattern di Progettazione Multi-Agente                   | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pattern di Progettazione Metacognitiva                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agenti AI in Produzione                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Utilizzo di Protocolli Agentici (MCP, A2A e NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Ingegneria del Contesto per Agenti AI            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -169,9 +169,9 @@ contatta [opencode@microsoft.com](mailto:opencode@microsoft.com) per eventuali d
 
 ## Marchi
 
-Questo progetto può contenere marchi o loghi per progetti, prodotti o servizi. L'uso autorizzato dei marchi o loghi Microsoft
+Questo progetto può contenere marchi o loghi di progetti, prodotti o servizi. L'uso autorizzato dei marchi o loghi Microsoft
 è soggetto e deve seguire
-[Linee Guida sui Marchi e Brand Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+[le Linee Guida sui Marchi e Brand Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 L'uso di marchi o loghi Microsoft in versioni modificate di questo progetto non deve causare confusione o implicare sponsorizzazione Microsoft.
 Qualsiasi uso di marchi o loghi di terze parti è soggetto alle politiche di tali terze parti.
 

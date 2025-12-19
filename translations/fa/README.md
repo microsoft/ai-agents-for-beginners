@@ -1,20 +1,20 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:24:04+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T09:52:50+00:00",
   "source_file": "README.md",
   "language_code": "fa"
 }
 -->
-# عامل‌های هوش مصنوعی برای مبتدیان - یک دوره آموزشی
+# عامل‌های هوش مصنوعی برای مبتدیان - یک دوره
 
 ![هوش مصنوعی مولد برای مبتدیان](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.fa.png)
 
 ## دوره‌ای که همه چیزهایی را که برای شروع ساخت عامل‌های هوش مصنوعی نیاز دارید آموزش می‌دهد
 
 [![مجوز گیت‌هاب](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![مشارکت‌کنندگان گیت‌هاب](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![همکاران گیت‌هاب](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
 [![مسائل گیت‌هاب](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
 [![درخواست‌های کشش گیت‌هاب](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
 [![خوش‌آمدگویی به PRها](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
@@ -24,10 +24,10 @@ CO_OP_TRANSLATOR_METADATA:
 #### پشتیبانی شده از طریق GitHub Action (خودکار و همیشه به‌روز)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[عربی](../ar/README.md) | [بنگالی](../bn/README.md) | [بلغاری](../bg/README.md) | [برمه‌ای (میانمار)](../my/README.md) | [چینی (ساده‌شده)](../zh/README.md) | [چینی (سنتی، هنگ‌کنگ)](../hk/README.md) | [چینی (سنتی، ماکائو)](../mo/README.md) | [چینی (سنتی، تایوان)](../tw/README.md) | [کرواتی](../hr/README.md) | [چکی](../cs/README.md) | [دانمارکی](../da/README.md) | [هلندی](../nl/README.md) | [استونیایی](../et/README.md) | [فنلاندی](../fi/README.md) | [فرانسوی](../fr/README.md) | [آلمانی](../de/README.md) | [یونانی](../el/README.md) | [عبری](../he/README.md) | [هندی](../hi/README.md) | [مجارستانی](../hu/README.md) | [اندونزیایی](../id/README.md) | [ایتالیایی](../it/README.md) | [ژاپنی](../ja/README.md) | [کانادا](../kn/README.md) | [کره‌ای](../ko/README.md) | [لیتوانیایی](../lt/README.md) | [مالایی](../ms/README.md) | [مالایالام](../ml/README.md) | [مراتی](../mr/README.md) | [نپالی](../ne/README.md) | [پیدجین نیجریه‌ای](../pcm/README.md) | [نروژی](../no/README.md) | [فارسی (Farsi)](./README.md) | [لهستانی](../pl/README.md) | [پرتغالی (برزیل)](../br/README.md) | [پرتغالی (پرتغال)](../pt/README.md) | [پنجابی (گورمخی)](../pa/README.md) | [رومانیایی](../ro/README.md) | [روسی](../ru/README.md) | [صربی (سیریلیک)](../sr/README.md) | [اسلواکی](../sk/README.md) | [اسلوونیایی](../sl/README.md) | [اسپانیایی](../es/README.md) | [سواحیلی](../sw/README.md) | [سوئدی](../sv/README.md) | [تاگالوگ (فیلیپینی)](../tl/README.md) | [تامیل](../ta/README.md) | [تلگو](../te/README.md) | [تایلندی](../th/README.md) | [ترکی](../tr/README.md) | [اوکراینی](../uk/README.md) | [اردو](../ur/README.md) | [ویتنامی](../vi/README.md)
+[عربی](../ar/README.md) | [بنگالی](../bn/README.md) | [بلغاری](../bg/README.md) | [برمه‌ای (میانمار)](../my/README.md) | [چینی (ساده‌شده)](../zh/README.md) | [چینی (سنتی، هنگ‌کنگ)](../hk/README.md) | [چینی (سنتی، ماکائو)](../mo/README.md) | [چینی (سنتی، تایوان)](../tw/README.md) | [کرواتی](../hr/README.md) | [چکی](../cs/README.md) | [دانمارکی](../da/README.md) | [هلندی](../nl/README.md) | [استونیایی](../et/README.md) | [فنلاندی](../fi/README.md) | [فرانسوی](../fr/README.md) | [آلمانی](../de/README.md) | [یونانی](../el/README.md) | [عبری](../he/README.md) | [هندی](../hi/README.md) | [مجارستانی](../hu/README.md) | [اندونزیایی](../id/README.md) | [ایتالیایی](../it/README.md) | [ژاپنی](../ja/README.md) | [کانادا](../kn/README.md) | [کره‌ای](../ko/README.md) | [لیتوانیایی](../lt/README.md) | [مالایی](../ms/README.md) | [مالایالام](../ml/README.md) | [مراتی](../mr/README.md) | [نپالی](../ne/README.md) | [پیدگین نیجریه‌ای](../pcm/README.md) | [نروژی](../no/README.md) | [فارسی (Farsi)](./README.md) | [لهستانی](../pl/README.md) | [پرتغالی (برزیل)](../br/README.md) | [پرتغالی (پرتغال)](../pt/README.md) | [پنجابی (گورمخی)](../pa/README.md) | [رومانیایی](../ro/README.md) | [روسی](../ru/README.md) | [صربی (سیریلیک)](../sr/README.md) | [اسلواکی](../sk/README.md) | [اسلوونیایی](../sl/README.md) | [اسپانیایی](../es/README.md) | [سواحیلی](../sw/README.md) | [سوئدی](../sv/README.md) | [تاگالوگ (فیلیپینی)](../tl/README.md) | [تامیل](../ta/README.md) | [تلگو](../te/README.md) | [تایلندی](../th/README.md) | [ترکی](../tr/README.md) | [اوکراینی](../uk/README.md) | [اردو](../ur/README.md) | [ویتنامی](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**اگر می‌خواهید زبان‌های ترجمه بیشتری پشتیبانی شوند، فهرست آن‌ها را [اینجا](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md) ببینید**
+**اگر می‌خواهید زبان‌های ترجمه بیشتری پشتیبانی شوند، در اینجا فهرست شده‌اند [here](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
 [![ناظرین گیت‌هاب](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![شاخه‌های گیت‌هاب](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
@@ -42,7 +42,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 این دوره از چند زبان پشتیبانی می‌کند. به [زبان‌های موجود اینجا](../..) مراجعه کنید.
 
-اگر برای اولین بار با مدل‌های هوش مصنوعی مولد کار می‌کنید، دوره [هوش مصنوعی مولد برای مبتدیان](https://aka.ms/genai-beginners) ما را ببینید که شامل ۲۱ درس درباره ساخت با GenAI است.
+اگر برای اولین بار با مدل‌های هوش مصنوعی مولد کار می‌کنید، دوره [هوش مصنوعی مولد برای مبتدیان](https://aka.ms/genai-beginners) ما را بررسی کنید که شامل ۲۱ درس درباره ساخت با GenAI است.
 
 فراموش نکنید که به این مخزن [ستاره (🌟) بدهید](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) و [این مخزن را فورک کنید](https://github.com/microsoft/ai-agents-for-beginners/fork) تا کد را اجرا کنید.
 
@@ -78,7 +78,7 @@ CO_OP_TRANSLATOR_METADATA:
 ## 📂 هر درس شامل
 
 - یک درس مکتوب در README و یک ویدئوی کوتاه
-- نمونه کدهای پایتون که از Azure AI Foundry و مدل‌های GitHub (رایگان) پشتیبانی می‌کنند
+- نمونه کدهای پایتون که از Azure AI Foundry و مدل‌های Github (رایگان) پشتیبانی می‌کنند
 - لینک‌هایی به منابع اضافی برای ادامه یادگیری شما
 
 
@@ -88,18 +88,18 @@ CO_OP_TRANSLATOR_METADATA:
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | مقدمه‌ای بر عامل‌های هوش مصنوعی و موارد استفاده عامل | [لینک](./01-intro-to-ai-agents/README.md)          | [ویدئو](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | بررسی چارچوب‌های عاملی                         | [لینک](./02-explore-agentic-frameworks/README.md)  | [ویدئو](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| درک الگوهای طراحی عاملی                        | [لینک](./03-agentic-design-patterns/README.md)     | [ویدئو](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| الگوی طراحی استفاده از ابزار                    | [لینک](./04-tool-use/README.md)                    | [ویدئو](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| RAG عاملی                                      | [لینک](./05-agentic-rag/README.md)                 | [ویدئو](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| درک الگوهای طراحی عاملی                       | [لینک](./03-agentic-design-patterns/README.md)     | [ویدئو](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| الگوی طراحی استفاده از ابزار                   | [لینک](./04-tool-use/README.md)                    | [ویدئو](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| RAG عاملی                                     | [لینک](./05-agentic-rag/README.md)                 | [ویدئو](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | ساخت عامل‌های هوش مصنوعی قابل اعتماد          | [لینک](./06-building-trustworthy-agents/README.md) | [ویدئو](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| الگوی طراحی برنامه‌ریزی                         | [لینک](./07-planning-design/README.md)             | [ویدئو](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| الگوی طراحی چندعاملی                            | [لینک](./08-multi-agent/README.md)                 | [ویدئو](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| الگوی طراحی فراشناخت                             | [لینک](./09-metacognition/README.md)               | [ویدئو](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| عوامل هوش مصنوعی در تولید                      | [لینک](./10-ai-agents-production/README.md)        | [ویدئو](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| استفاده از پروتکل‌های عاملی (MCP، A2A و NLWeb) | [لینک](./11-agentic-protocols/README.md)           | [ویدئو](https://youtu.be/X-Dh9R3Opn8)                                 | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| مهندسی زمینه برای عوامل هوش مصنوعی            | [لینک](./12-context-engineering/README.md)         | [ویدئو](https://youtu.be/F5zqRV7gEag)                                 | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| مدیریت حافظه عاملی                      | [لینک](./13-agent-memory/README.md)     |      [ویدئو](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| کاوش چارچوب عامل مایکروسافت                         | [لینک](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| الگوی طراحی برنامه‌ریزی                        | [لینک](./07-planning-design/README.md)             | [ویدئو](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| الگوی طراحی چندعاملی                           | [لینک](./08-multi-agent/README.md)                 | [ویدئو](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| الگوی طراحی فراشناخت                            | [لینک](./09-metacognition/README.md)               | [ویدئو](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [لینک](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| عوامل هوش مصنوعی در تولید                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| استفاده از پروتکل‌های عاملی (MCP، A2A و NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| مهندسی زمینه برای عوامل هوش مصنوعی            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| مدیریت حافظه عاملی                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| کاوش چارچوب عامل مایکروسافت                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
 | ساخت عوامل استفاده‌کننده از کامپیوتر (CUA)           | به زودی منتشر می‌شود                            |                                                            |                                                                                        |
 | استقرار عوامل مقیاس‌پذیر                    | به زودی منتشر می‌شود                            |                                                            |                                                                                        |
 | ایجاد عوامل هوش مصنوعی محلی                     | به زودی منتشر می‌شود                               |                                                            |                                                                                        |
@@ -143,10 +143,10 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
  
-### سری همیار برنامه‌نویس
-[![همیار برنامه‌نویس برای برنامه‌نویسی جفتی هوش مصنوعی](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
-[![همیار برنامه‌نویس برای C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
-[![ماجراجویی همیار برنامه‌نویس](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
+### سری کوپایلوت
+[![کوپایلوت برای برنامه‌نویسی جفتی هوش مصنوعی](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+[![کوپایلوت برای C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+[![ماجراجویی کوپایلوت](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
 ## 🌟 تشکر از جامعه
@@ -159,8 +159,8 @@ CO_OP_TRANSLATOR_METADATA:
 توافقنامه مجوز مشارکت‌کننده (CLA) موافقت کنید که اعلام می‌کند شما حق دارید و در واقع این حق را به ما می‌دهید
 که از مشارکت شما استفاده کنیم. برای جزئیات، به <https://cla.opensource.microsoft.com> مراجعه کنید.
 
-وقتی یک درخواست کشش ارسال می‌کنید، یک ربات CLA به طور خودکار تعیین می‌کند که آیا نیاز به ارائه
-CLA دارید و درخواست کشش را به طور مناسب علامت‌گذاری می‌کند (مثلاً بررسی وضعیت، نظر). فقط دستورالعمل‌های
+وقتی درخواست کشش (pull request) ارسال می‌کنید، یک ربات CLA به طور خودکار تعیین می‌کند که آیا نیاز به ارائه
+CLA دارید و درخواست را به طور مناسب علامت‌گذاری می‌کند (مثلاً بررسی وضعیت، نظر). فقط دستورالعمل‌های
 ارائه شده توسط ربات را دنبال کنید. شما فقط یک بار در تمام مخازن استفاده‌کننده از CLA ما باید این کار را انجام دهید.
 
 این پروژه [کد رفتار منبع باز مایکروسافت](https://opensource.microsoft.com/codeofconduct/) را پذیرفته است.

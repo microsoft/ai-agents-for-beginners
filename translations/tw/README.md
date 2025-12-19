@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:29:35+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:00:19+00:00",
   "source_file": "README.md",
   "language_code": "tw"
 }
@@ -46,7 +46,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 別忘了[為此倉庫點星 (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst)並[分叉此倉庫](https://github.com/microsoft/ai-agents-for-beginners/fork)以運行程式碼。
 
-### 認識其他學習者，獲得問題解答
+### 與其他學習者交流，獲得問題解答
 
 如果您遇到困難或有任何關於構建 AI 代理的問題，歡迎加入我們在 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 的專屬 Discord 頻道。
 
@@ -84,7 +84,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🗃️ 課程列表
 
-| **課程**                                   | **文字與程式碼**                                    | **影片**                                                  | **延伸學習**                                                                     |
+| **課程**                                     | **文字與程式碼**                                    | **影片**                                                  | **延伸學習**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | AI 代理與代理使用案例介紹                     | [連結](./01-intro-to-ai-agents/README.md)          | [影片](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 探索 AI 代理框架                             | [連結](./02-explore-agentic-frameworks/README.md)  | [影片](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -95,7 +95,7 @@ CO_OP_TRANSLATOR_METADATA:
 | 規劃設計模式                                 | [連結](./07-planning-design/README.md)             | [影片](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 多代理設計模式                               | [連結](./08-multi-agent/README.md)                 | [影片](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 元認知設計模式                               | [連結](./09-metacognition/README.md)               | [影片](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [連結](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI 代理在生產環境                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| 生產環境中的 AI 代理                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 使用 Agentic 協議 (MCP、A2A 和 NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI 代理的上下文工程            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 管理 Agentic 記憶                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
@@ -151,7 +151,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌟 社群感謝
 
-感謝 [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) 貢獻了展示 Agentic RAG 的重要程式碼範例。
+感謝 [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) 貢獻展示 Agentic RAG 重要程式碼範例。
 
 ## 貢獻
 
@@ -161,7 +161,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 當您提交拉取請求時，CLA 機器人會自動判斷您是否需要提供
 CLA，並適當標註 PR（例如狀態檢查、評論）。只需按照機器人
-提供的指示操作。您在所有使用我們 CLA 的倉庫中只需執行一次。
+提供的指示操作。您只需在所有使用我們 CLA 的倉庫中執行一次。
 
 本專案已採用 [Microsoft 開源行為準則](https://opensource.microsoft.com/codeofconduct/)。
 更多資訊請參閱 [行為準則常見問題](https://opensource.microsoft.com/codeofconduct/faq/) 或
@@ -173,7 +173,7 @@ CLA，並適當標註 PR（例如狀態檢查、評論）。只需按照機器�
 商標或標誌須遵守並遵循
 [Microsoft 商標與品牌指南](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general)。
 在本專案修改版本中使用 Microsoft 商標或標誌不得造成混淆或暗示 Microsoft 贊助。
-任何第三方商標或標誌的使用均須遵守該第三方的政策。
+任何第三方商標或標誌的使用須遵守該第三方的政策。
 
 ## 尋求協助
 
@@ -189,5 +189,5 @@ CLA，並適當標註 PR（例如狀態檢查、評論）。只需按照機器�
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **免責聲明**：  
-本文件係使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們致力於確保翻譯的準確性，但請注意自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應視為權威來源。對於重要資訊，建議採用專業人工翻譯。我們不對因使用本翻譯而產生的任何誤解或誤譯負責。
+本文件係使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們致力於確保翻譯的準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件的母語版本應視為權威來源。對於重要資訊，建議採用專業人工翻譯。我們不對因使用本翻譯而產生的任何誤解或誤釋負責。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

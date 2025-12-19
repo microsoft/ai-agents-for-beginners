@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:58:52+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:29:49+00:00",
   "source_file": "README.md",
   "language_code": "tl"
 }
@@ -46,7 +46,7 @@ Kung ito ang iyong unang pagkakataon na gumawa gamit ang mga Generative AI model
 
 Huwag kalimutang [i-star (🌟) ang repo na ito](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) at [i-fork ang repo na ito](https://github.com/microsoft/ai-agents-for-beginners/fork) upang patakbuhin ang code.
 
-### Makipagkilala sa Iba pang mga Nag-aaral, Sagutin ang Iyong mga Tanong
+### Makipagkilala sa Iba Pang mga Nag-aaral, Sagutin ang Iyong mga Tanong
 
 Kung ikaw ay ma-stuck o may mga tanong tungkol sa paggawa ng AI Agents, sumali sa aming dedikadong Discord Channel sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
@@ -77,7 +77,7 @@ Mayroon ka bang mga suhestiyon o nakakita ng mga maling baybay o error sa code? 
 
 ## 📂 Bawat aralin ay may kasamang
 
-- Isinulat na aralin na matatagpuan sa README at isang maikling video
+- Isang nakasulat na aralin na matatagpuan sa README at isang maikling video
 - Mga halimbawa ng Python code na sumusuporta sa Azure AI Foundry at Github Models (Libre)
 - Mga link sa karagdagang mga mapagkukunan upang ipagpatuloy ang iyong pag-aaral
 
@@ -149,7 +149,7 @@ Ang aming koponan ay gumagawa ng iba pang mga kurso! Tingnan ang:
 [![Copilot Adventure](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
-## 🌟 Pasasalamat ng Komunidad
+## 🌟 Pasasalamat sa Komunidad
 
 Salamat kay [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) para sa pagbibigay ng mahahalagang halimbawa ng code na nagpapakita ng Agentic RAG.
 
@@ -165,7 +165,7 @@ ibinibigay ng bot. Isang beses mo lang ito kailangang gawin sa lahat ng repos na
 
 Inampon ng proyektong ito ang [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 Para sa karagdagang impormasyon, tingnan ang [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) o
-makipag-ugnayan sa [opencode@microsoft.com](mailto:opencode@microsoft.com) para sa anumang karagdagang tanong o komento.
+makipag-ugnayan sa [opencode@microsoft.com](mailto:opencode@microsoft.com) para sa anumang karagdagang mga tanong o komento.
 
 ## Mga Trademark
 
@@ -176,18 +176,17 @@ Anumang paggamit ng mga trademark o logo ng third-party ay napapailalim sa mga p
 
 ## Pagkuha ng Tulong
 
-
-Kung ikaw ay naipit o may mga tanong tungkol sa paggawa ng mga AI app, sumali sa:
+Kung ikaw ay na-stuck o may mga tanong tungkol sa paggawa ng mga AI app, sumali sa:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Kung mayroon kang feedback sa produkto o mga error habang gumagawa, bisitahin:
+Kung mayroon kang feedback sa produkto o mga error habang nagtatayo, bisitahin:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Paalala**:
+**Paunawa**:
 Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat nagsusumikap kami para sa katumpakan, pakatandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o di-tumpak na impormasyon. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring magmula sa paggamit ng pagsasaling ito.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
