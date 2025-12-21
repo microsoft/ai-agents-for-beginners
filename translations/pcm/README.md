@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T09:19:32+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:50:55+00:00",
   "source_file": "README.md",
   "language_code": "pcm"
 }
@@ -40,21 +40,21 @@ CO_OP_TRANSLATOR_METADATA:
 
 Dis course get lessons wey dey cover the basics of how to build AI Agents. Each lesson get im own topic so you fit start for anywhere wey you like!
 
-Dis course get multi-language support. Go check our [available languages here](../..). 
+Dis course get multi-language support. Go our [available languages here](../..). 
 
 If na your first time to dey build with Generative AI models, check our [Generative AI For Beginners](https://aka.ms/genai-beginners) course, wey get 21 lessons on how to build with GenAI.
 
-No forget to [star (🌟) dis repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) and [fork dis repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to fit run the code.
+No forget to [star (🌟) dis repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) and [fork dis repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to run the code.
 
 ### Meet Other Learners, Get Your Questions Answered
 
 If you jam problem or get any question about how to build AI Agents, join our special Discord Channel for the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
-### Wetin You Need
+### Wetin You Need 
 
 Each lesson for dis course get code examples, wey you fit find for the code_samples folder. You fit [fork dis repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to create your own copy.  
 
-The code examples for these exercises dey use Azure AI Foundry and GitHub Model Catalogs to interact with Language Models:
+The code example for these exercises dey use Azure AI Foundry and GitHub Model Catalogs to interact with Language Models:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Free / Limited
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - You need Azure Account
@@ -79,7 +79,7 @@ You get any suggestion or you see spelling or code mistakes? [Raise an issue](ht
 
 - One written lesson wey dey for the README and short video
 - Python code samples wey support Azure AI Foundry and Github Models (Free)
-- Links to extra resources to help you continue to learn
+- Links to extra resources to continue your learning
 
 
 ## 🗃️ Lessons
@@ -107,7 +107,7 @@ You get any suggestion or you see spelling or code mistakes? [Raise an issue](ht
 
 ## 🎒 Other Courses
 
-Our team dey produce other courses! Make you check am:
+Our team dey produce oda courses! Make you check am out:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### LangChain
@@ -151,20 +151,26 @@ Our team dey produce other courses! Make you check am:
 
 ## 🌟 Community Thanks
 
-Tenk yu to [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) for di important code samples wey e contribute wey dey show how Agentic RAG dey work. 
+Thanks to [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) for to contribute important code samples wey dey show Agentic RAG. 
 
 ## Contributing
 
-Dis project dey welcome contributions and suggestions. Most contributions go require say you agree to one Contributor License Agreement (CLA) wey talk say you get di right and you really dey give us di rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.
+Dis project dey welcome contributions and suggestions. Most contributions go require say you agree to a
+Contributor License Agreement (CLA) wey talk say you get di right to, and you really do, give us
+di rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.
 
-When you submit pull request, CLA bot go automatically check if you need provide CLA and e go put di correct status or comment for di PR. Just follow di instructions wey di bot give. You go only need do dis one time for all di repos wey dey use our CLA.
+When you submit pull request, CLA bot go automatically check whether you need to provide
+CLA and go put di correct decoration for di PR (like status check, comment). Just follow di instructions
+wey di bot give you. You go only need to do am once for all di repos wey dey use our CLA.
 
 Dis project don adopt di [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more info, check di [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) if you get any more questions or comments.
+For more info, see di [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) if you get any more questions or comments.
 
 ## Trademarks
 
-Dis project fit get trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos dey subject to and must follow
+Dis project fit get trademarks or logos for projects, products, or services. Authorized use of Microsoft
+trademarks or logos dey subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos for modified versions of dis project no suppose cause confusion or make people think say Microsoft dey sponsor am.
 Any use of third-party trademarks or logos dey subject to di policies of those third parties.
@@ -184,5 +190,5 @@ If you get product feedback or errors while you dey build, visit:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we dey try make am correct, abeg sabi say automated translation fit get some mistakes or no too correct. Di original document wey e dey for im own language na di correct one. If na serious matter, e better make human professional translate am. We no go responsible for any wahala or wrong understanding wey fit happen because of dis translation.
+Dis document don translate wit AI translation service wey dem dey call [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we dey try make am correct, abeg sabi say automated translation fit get some mistake or no too correct. Di original document wey dem write for im own language na di correct one wey you suppose trust. If na serious matter, e better make person wey sabi translate am well well do am. We no go take responsibility if person no understand well or if dem use dis translation do mistake.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

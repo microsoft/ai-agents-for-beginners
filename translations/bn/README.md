@@ -1,23 +1,23 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:34:13+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:04:44+00:00",
   "source_file": "README.md",
   "language_code": "bn"
 }
 -->
-# AI এজেন্টদের জন্য শুরু থেকে - একটি কোর্স
+# AI এজেন্টস ফর বিগিনার্স - একটি কোর্স
 
-![শুরুদের জন্য জেনারেটিভ AI](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.bn.png)
+![Generative AI For Beginners](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.bn.png)
 
 ## AI এজেন্ট তৈরি শুরু করার জন্য যা যা জানা দরকার সব শেখানো একটি কোর্স
 
-[![GitHub লাইসেন্স](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub অবদানকারীরা](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![GitHub ইস্যুগুলি](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub পুল-রিকোয়েস্ট](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PRs স্বাগত](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
+[![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
+[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![GitHub issues](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
 ### 🌐 বহু-ভাষা সমর্থন
 
@@ -27,24 +27,24 @@ CO_OP_TRANSLATOR_METADATA:
 [Arabic](../ar/README.md) | [Bengali](./README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**আপনি যদি অতিরিক্ত অনুবাদ ভাষা চান, সেগুলি এখানে তালিকাভুক্ত আছে [এখানে](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**আপনি যদি অতিরিক্ত অনুবাদ ভাষা চান, সেগুলো এখানে তালিকাভুক্ত আছে [here](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
-[![GitHub ওয়াচাররা](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub ফর্কস](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub স্টারস](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![GitHub stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
 
 ## 🌱 শুরু করা
 
-এই কোর্সে AI এজেন্ট তৈরি করার মৌলিক বিষয়গুলি শেখানো হয়েছে। প্রতিটি পাঠের নিজস্ব বিষয় আছে, তাই আপনি যেখান থেকে ইচ্ছা শুরু করতে পারেন!
+এই কোর্সে AI এজেন্ট তৈরি করার মৌলিক বিষয়গুলো শেখানো হয়েছে। প্রতিটি পাঠের নিজস্ব একটি বিষয় আছে, তাই আপনি যেখান থেকে ইচ্ছা শুরু করতে পারেন!
 
 এই কোর্সের জন্য বহু-ভাষা সমর্থন রয়েছে। আমাদের [উপলব্ধ ভাষাগুলো এখানে দেখুন](../..)।
 
-আপনি যদি প্রথমবার জেনারেটিভ AI মডেল দিয়ে কাজ শুরু করেন, তাহলে আমাদের [শুরুদের জন্য জেনারেটিভ AI](https://aka.ms/genai-beginners) কোর্সটি দেখুন, যেখানে GenAI দিয়ে তৈরি করার ২১টি পাঠ রয়েছে।
+আপনি যদি প্রথমবার জেনারেটিভ AI মডেল দিয়ে কাজ শুরু করতে চান, তাহলে আমাদের [Generative AI For Beginners](https://aka.ms/genai-beginners) কোর্সটি দেখুন, যেখানে GenAI দিয়ে তৈরি করার ২১টি পাঠ রয়েছে।
 
-এই রিপোজিটরিটিকে [স্টার (🌟) দিতে ভুলবেন না](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) এবং কোড চালানোর জন্য [ফর্ক করুন](https://github.com/microsoft/ai-agents-for-beginners/fork)।
+এই রিপোজিটরিটি [স্টার (🌟) দিতে](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) এবং [ফর্ক করতে](https://github.com/microsoft/ai-agents-for-beginners/fork) ভুলবেন না, যাতে কোড চালাতে পারেন।
 
 ### অন্যান্য শিক্ষার্থীদের সাথে পরিচিত হন, আপনার প্রশ্নের উত্তর পান
 
@@ -52,9 +52,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### আপনার যা দরকার
 
-এই কোর্সের প্রতিটি পাঠে কোড উদাহরণ রয়েছে, যা code_samples ফোল্ডারে পাওয়া যাবে। আপনি [এই রিপো ফর্ক করতে পারেন](https://github.com/microsoft/ai-agents-for-beginners/fork) নিজের কপি তৈরি করার জন্য।
+এই কোর্সের প্রতিটি পাঠে কোড উদাহরণ রয়েছে, যা code_samples ফোল্ডারে পাওয়া যাবে। আপনি [এই রিপোটি ফর্ক](https://github.com/microsoft/ai-agents-for-beginners/fork) করে নিজের কপি তৈরি করতে পারেন।
 
-এই অনুশীলনের কোড উদাহরণগুলো Azure AI Foundry এবং GitHub Model Catalogs ব্যবহার করে ভাষা মডেলগুলোর সাথে ইন্টারঅ্যাক্ট করার জন্য:
+এই অনুশীলনের কোড উদাহরণগুলো Azure AI Foundry এবং GitHub Model Catalogs ব্যবহার করে ভাষা মডেলগুলোর সাথে ইন্টারঅ্যাক্ট করে:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - ফ্রি / সীমিত
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure অ্যাকাউন্ট প্রয়োজন
@@ -67,11 +67,11 @@ CO_OP_TRANSLATOR_METADATA:
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-এই কোর্সের কোড চালানোর জন্য আরও তথ্যের জন্য, যান [Course Setup](./00-course-setup/README.md) এ।
+এই কোর্সের কোড চালানোর আরও তথ্যের জন্য, দেখুন [Course Setup](./00-course-setup/README.md)।
 
 ## 🙏 সাহায্য করতে চান?
 
-আপনার কোনো পরামর্শ আছে বা বানান বা কোড ত্রুটি পেয়েছেন? [একটি ইস্যু তুলুন](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) অথবা [একটি পুল রিকোয়েস্ট তৈরি করুন](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+আপনার কোনো পরামর্শ আছে বা বানান বা কোডে ভুল পেয়েছেন? [ইস্যু তুলুন](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) অথবা [পুল রিকোয়েস্ট তৈরি করুন](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -86,8 +86,8 @@ CO_OP_TRANSLATOR_METADATA:
 
 | **পাঠ**                                      | **লেখা ও কোড**                                     | **ভিডিও**                                                  | **অতিরিক্ত শেখা**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| AI এজেন্ট ও এজেন্ট ব্যবহারের পরিচিতি       | [লিঙ্ক](./01-intro-to-ai-agents/README.md)          | [ভিডিও](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [লিঙ্ক](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI এজেন্টিক ফ্রেমওয়ার্ক অন্বেষণ              | [লিঙ্ক](./02-explore-agentic-frameworks/README.md)  | [ভিডিও](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [লিঙ্ক](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI এজেন্টস এবং এজেন্ট ব্যবহারের পরিচিতি    | [লিঙ্ক](./01-intro-to-ai-agents/README.md)          | [ভিডিও](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [লিঙ্ক](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI এজেন্টিক ফ্রেমওয়ার্কস অন্বেষণ            | [লিঙ্ক](./02-explore-agentic-frameworks/README.md)  | [ভিডিও](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [লিঙ্ক](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI এজেন্টিক ডিজাইন প্যাটার্ন বোঝা            | [লিঙ্ক](./03-agentic-design-patterns/README.md)     | [ভিডিও](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [লিঙ্ক](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | টুল ব্যবহারের ডিজাইন প্যাটার্ন                | [লিঙ্ক](./04-tool-use/README.md)                    | [ভিডিও](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [লিঙ্ক](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | এজেন্টিক RAG                                | [লিঙ্ক](./05-agentic-rag/README.md)                 | [ভিডিও](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [লিঙ্ক](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -124,7 +124,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
  
-### জেনারেটিভ AI সিরিজ
+### Generative AI Series
 [![Generative AI for Beginners](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Generative AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
 [![Generative AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
@@ -132,7 +132,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
  
-### মূল শিক্ষণ
+### Core Learning
 [![ML for Beginners](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
 [![Data Science for Beginners](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
 [![AI for Beginners](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
@@ -143,7 +143,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
  
-### কপাইলট সিরিজ
+### Copilot Series
 [![Copilot for AI Paired Programming](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
 [![Copilot for C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
 [![Copilot Adventure](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
@@ -157,9 +157,9 @@ Agentic RAG প্রদর্শনকারী গুরুত্বপূর�
 
 এই প্রকল্প অবদান এবং পরামর্শ স্বাগত জানায়। বেশিরভাগ অবদানের জন্য আপনাকে একটি
 Contributor License Agreement (CLA) এ সম্মত হতে হবে যা ঘোষণা করে যে আপনার অধিকার আছে এবং আপনি প্রকৃতপক্ষে আমাদের
-আপনার অবদান ব্যবহারের অধিকার প্রদান করছেন। বিস্তারিত জানতে, দেখুন <https://cla.opensource.microsoft.com>।
+আপনার অবদান ব্যবহারের অধিকার প্রদান করছেন। বিস্তারিত জানতে দেখুন <https://cla.opensource.microsoft.com>।
 
-যখন আপনি একটি পুল রিকোয়েস্ট জমা দেন, একটি CLA বট স্বয়ংক্রিয়ভাবে নির্ধারণ করবে আপনি CLA প্রদান করতে হবে কিনা এবং PR যথাযথভাবে সজ্জিত করবে (যেমন, স্ট্যাটাস চেক, মন্তব্য)। বট প্রদত্ত নির্দেশাবলী অনুসরণ করুন। আমাদের CLA ব্যবহার করা সমস্ত রিপোজিটরির জন্য আপনাকে এটি একবারই করতে হবে।
+যখন আপনি একটি পুল রিকোয়েস্ট জমা দেন, একটি CLA বট স্বয়ংক্রিয়ভাবে নির্ধারণ করবে আপনি CLA প্রদান করতে হবে কিনা এবং PR যথাযথভাবে সজ্জিত করবে (যেমন, স্ট্যাটাস চেক, মন্তব্য)। বট প্রদত্ত নির্দেশাবলী অনুসরণ করুন। আমাদের CLA ব্যবহার করা সমস্ত রিপোজে আপনাকে এটি একবারই করতে হবে।
 
 এই প্রকল্প [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) গ্রহণ করেছে।
 অধিক তথ্যের জন্য দেখুন [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) অথবা
@@ -167,7 +167,7 @@ Contributor License Agreement (CLA) এ সম্মত হতে হবে য�
 
 ## ট্রেডমার্ক
 
-এই প্রকল্পে প্রকল্প, পণ্য, বা সেবার ট্রেডমার্ক বা লোগো থাকতে পারে। মাইক্রোসফট
+এই প্রকল্পে প্রকল্প, পণ্য, বা সেবার ট্রেডমার্ক বা লোগো থাকতে পারে। মাইক্রোসফটের
 ট্রেডমার্ক বা লোগোর অনুমোদিত ব্যবহার [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) অনুসরণ করতে হবে।
 এই প্রকল্পের সংশোধিত সংস্করণে মাইক্রোসফট ট্রেডমার্ক বা লোগোর ব্যবহার বিভ্রান্তি সৃষ্টি করা বা মাইক্রোসফট স্পন্সরশিপ বোঝানো উচিত নয়।
 তৃতীয় পক্ষের ট্রেডমার্ক বা লোগোর যেকোনো ব্যবহার সেই তৃতীয় পক্ষের নীতিমালা অনুসরণ করবে।

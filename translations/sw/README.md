@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:59:57+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:31:00+00:00",
   "source_file": "README.md",
   "language_code": "sw"
 }
@@ -40,11 +40,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 Kozi hii ina masomo yanayofunika misingi ya kujenga Wakala wa AI. Kila somo lina mada yake, hivyo anza popote unapotaka!
 
-Kuna msaada wa lugha nyingi kwa kozi hii. Nenda kwa [lugha zinazopatikana hapa](../..).
+Kuna msaada wa lugha nyingi kwa kozi hii. Nenda kwenye [lugha zinazopatikana hapa](../..).
 
 Kama hii ni mara yako ya kwanza kujenga kwa kutumia mifano ya Generative AI, angalia kozi yetu ya [Generative AI Kwa Waanzilishi](https://aka.ms/genai-beginners), ambayo ina masomo 21 kuhusu kujenga na GenAI.
 
-Usisahau [kutoa nyota (🌟) kwa repo hii](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) na [kufork repo hii](https://github.com/microsoft/ai-agents-for-beginners/fork) ili kuendesha msimbo.
+Usisahau [kutoa nyota (🌟) kwenye repo hii](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) na [kufork repo hii](https://github.com/microsoft/ai-agents-for-beginners/fork) ili kuendesha msimbo.
 
 ### Kutana na Wanafunzi Wengine, Pata Majibu ya Maswali Yako
 
@@ -54,7 +54,7 @@ Kama unakumbwa na shida au una maswali yoyote kuhusu kujenga Wakala wa AI, jiung
 
 Kila somo katika kozi hii lina mifano ya msimbo, ambayo inaweza kupatikana katika folda ya code_samples. Unaweza [kufork repo hii](https://github.com/microsoft/ai-agents-for-beginners/fork) kuunda nakala yako mwenyewe.
 
-Mfano wa msimbo katika mazoezi haya, unatumia Azure AI Foundry na Katalogi za Mifano za GitHub kwa kuingiliana na Mifano ya Lugha:
+Mfano wa msimbo katika mazoezi haya, unatumia Azure AI Foundry na GitHub Model Catalogs kwa kuingiliana na Mifano ya Lugha:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Bure / Iliyopunguzwa
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Akaunti ya Azure Inahitajika
@@ -62,12 +62,12 @@ Mfano wa msimbo katika mazoezi haya, unatumia Azure AI Foundry na Katalogi za Mi
 Kozi hii pia inatumia mifumo na huduma zifuatazo za Wakala wa AI kutoka Microsoft:
 
 - [Microsoft Agent Framework (MAF) - Mpya!](https://aka.ms/ai-agents-beginners/agent-framewrok)
-- [Huduma ya Wakala wa Azure AI](https://aka.ms/ai-agents-beginners/ai-agent-service)
+- [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
 - [Semantic Kernel](https://aka.ms/ai-agents-beginners/semantic-kernel)
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-Kwa maelezo zaidi kuhusu kuendesha msimbo wa kozi hii, nenda kwa [Mipangilio ya Kozi](./00-course-setup/README.md).
+Kwa maelezo zaidi kuhusu kuendesha msimbo wa kozi hii, nenda kwenye [Mipangilio ya Kozi](./00-course-setup/README.md).
 
 ## 🙏 Unataka kusaidia?
 
@@ -78,7 +78,7 @@ Je, una mapendekezo au umeona makosa ya tahajia au msimbo? [Toa tatizo](https://
 ## 📂 Kila somo linajumuisha
 
 - Somo lililoandikwa lililoko katika README na video fupi
-- Mifano ya msimbo ya Python inayounga mkono Azure AI Foundry na Mifano ya Github (Bure)
+- Mifano ya msimbo ya Python inayounga mkono Azure AI Foundry na Github Models (Bure)
 - Viungo vya rasilimali za ziada ili kuendelea na mafunzo yako
 
 
@@ -100,10 +100,10 @@ Je, una mapendekezo au umeona makosa ya tahajia au msimbo? [Toa tatizo](https://
 | Uhandisi wa Muktadha kwa Wakala wa AI            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Kusimamia Kumbukumbu ya Wakala                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Kuchunguza Mfumo wa Wakala wa Microsoft                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Kujenga Wakala wa Matumizi ya Kompyuta (CUA)           | Haitawezekana Hivi Karibuni                            |                                                            |                                                                                        |
-| Kuweka Wakala Zinazoweza Kupanuka                    | Haitawezekana Hivi Karibuni                            |                                                            |                                                                                        |
-| Kuunda Wakala wa AI wa Ndani                     | Haitawezekana Hivi Karibuni                               |                                                            |                                                                                        |
-| Kuweka Usalama wa Wakala wa AI                           | Haitawezekana Hivi Karibuni                               |                                                            |                                                                                        |
+| Kujenga Wakala wa Matumizi ya Kompyuta (CUA)           | Haitaonekana Hivi Karibuni                            |                                                            |                                                                                        |
+| Kuweka Wakala Zinazoweza Kupanuka                    | Haitaonekana Hivi Karibuni                            |                                                            |                                                                                        |
+| Kuunda Wakala wa AI wa Ndani                     | Haitaonekana Hivi Karibuni                               |                                                            |                                                                                        |
+| Kuweka Usalama wa Wakala wa AI                           | Haitaonekana Hivi Karibuni                               |                                                            |                                                                                        |
 
 ## 🎒 Kozi Nyingine
 
@@ -124,11 +124,11 @@ Timu yetu hutengeneza kozi nyingine! Angalia:
 
 ---
  
-### Mfululizo wa AI Inayotengeneza
-[![AI Inayotengeneza kwa Waanzilishi](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI Inayotengeneza (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
-[![AI Inayotengeneza (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
-[![AI Inayotengeneza (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
+### Mfululizo wa AI Inayozalisha
+[![AI Inayozalisha kwa Waanzilishi](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![AI Inayozalisha (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+[![AI Inayozalisha (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+[![AI Inayozalisha (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
 
 ---
  
@@ -159,7 +159,7 @@ Mradi huu unakaribisha michango na mapendekezo. Michango mingi inahitaji ukakuba
 Mkataba wa Leseni ya Mchangiaji (CLA) unaosema kuwa una haki ya, na kwa kweli unatoa,
 haki za kutumia mchango wako. Kwa maelezo, tembelea <https://cla.opensource.microsoft.com>.
 
-Unapowasilisha ombi la kuvuta, bot ya CLA itabaini moja kwa moja kama unahitaji kutoa
+Unapowasilisha ombi la kuvuta, bot wa CLA atagundua moja kwa moja kama unahitaji kutoa
 CLA na kupamba PR ipasavyo (mfano, ukaguzi wa hali, maoni). Fuata tu maelekezo
 yanayotolewa na bot. Utahitaji kufanya hivi mara moja tu kwa hifadhidata zote zinazotumia CLA yetu.
 
@@ -170,18 +170,17 @@ wasiliana na [opencode@microsoft.com](mailto:opencode@microsoft.com) kwa maswali
 ## Alama za Biashara
 
 Mradi huu unaweza kuwa na alama za biashara au nembo za miradi, bidhaa, au huduma. Matumizi yaliyothibitishwa ya alama za biashara au nembo za Microsoft yanategemea na lazima yafuatilie
-[Mwongozo wa Alama za Biashara & Brand wa Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+[Mwongozo wa Alama za Biashara na Brand wa Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 Matumizi ya alama za biashara au nembo za Microsoft katika matoleo yaliyobadilishwa ya mradi huu hayapaswi kusababisha mkanganyiko au kuashiria udhamini wa Microsoft.
 Matumizi yoyote ya alama za biashara au nembo za wahusika wengine yanategemea sera za wahusika hao.
 
 ## Kupata Msaada
 
-
-Kama unashindwa au una maswali yoyote kuhusu kujenga programu za AI, jiunge:
+Ikiwa unashindwa au una maswali yoyote kuhusu kujenga programu za AI, jiunge:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Kama una maoni kuhusu bidhaa au makosa wakati wa kujenga tembelea:
+Ikiwa una maoni kuhusu bidhaa au makosa wakati wa kujenga tembelea:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

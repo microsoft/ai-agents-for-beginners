@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T09:20:33+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:52:05+00:00",
   "source_file": "README.md",
   "language_code": "te"
 }
@@ -38,7 +38,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 ప్రారంభించడం
 
-ఈ కోర్సులో AI ఏజెంట్లు నిర్మాణం యొక్క ప్రాథమిక అంశాలను కవర్ చేసే పాఠాలు ఉన్నాయి. ప్రతి పాఠం తన స్వంత విషయాన్ని కవర్ చేస్తుంది కాబట్టి మీరు ఇష్టమైన చోటు నుండి ప్రారంభించండి!
+ఈ కోర్సు AI ఏజెంట్లు నిర్మాణం యొక్క ప్రాథమికాంశాలను కవర్ చేసే పాఠాలు కలిగి ఉంది. ప్రతి పాఠం దాని స్వంత విషయాన్ని కవర్ చేస్తుంది కాబట్టి మీరు ఇష్టమైన చోట నుండి ప్రారంభించండి!
 
 ఈ కోర్సుకు బహుభాషా మద్దతు ఉంది. మా [ఇక్కడ అందుబాటులో ఉన్న భాషలు](../..) చూడండి.
 
@@ -52,14 +52,14 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### మీకు కావలసినవి
 
-ఈ కోర్సులో ప్రతి పాఠంలో కోడ్ ఉదాహరణలు ఉంటాయి, అవి code_samples ఫోల్డర్‌లో ఉన్నాయి. మీరు మీ స్వంత కాపీ సృష్టించడానికి [ఈ రిపోను ఫోర్క్ చేయవచ్చు](https://github.com/microsoft/ai-agents-for-beginners/fork).
+ఈ కోర్సులో ప్రతి పాఠం కోడ్ ఉదాహరణలను కలిగి ఉంటుంది, అవి code_samples ఫోల్డర్‌లో ఉన్నాయి. మీరు మీ స్వంత కాపీ సృష్టించడానికి [ఈ రిపోను ఫోర్క్ చేయవచ్చు](https://github.com/microsoft/ai-agents-for-beginners/fork).
 
 ఈ వ్యాయామాలలోని కోడ్ ఉదాహరణలు, భాషా మోడల్స్‌తో ఇంటరాక్ట్ చేయడానికి Azure AI Foundry మరియు GitHub Model Catalogs ఉపయోగిస్తాయి:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - ఉచితం / పరిమితి
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure ఖాతా అవసరం
 
-ఈ కోర్సు Microsoft నుండి ఈ క్రింది AI ఏజెంట్ ఫ్రేమ్‌వర్క్‌లు మరియు సేవలను కూడా ఉపయోగిస్తుంది:
+ఈ కోర్సు Microsoft నుండి క్రింది AI ఏజెంట్ ఫ్రేమ్‌వర్క్‌లు మరియు సేవలను కూడా ఉపయోగిస్తుంది:
 
 - [Microsoft Agent Framework (MAF) - కొత్తది!](https://aka.ms/ai-agents-beginners/agent-framewrok)
 - [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
@@ -75,16 +75,16 @@ CO_OP_TRANSLATOR_METADATA:
 
 
 
-## 📂 ప్రతి పాఠంలో ఉంటాయి
+## 📂 ప్రతి పాఠం లో ఉంటాయి
 
-- READMEలో ఉన్న వ్రాత పాఠం మరియు ఒక చిన్న వీడియో
+- README లో ఉన్న వ్రాత పాఠం మరియు ఒక చిన్న వీడియో
 - Azure AI Foundry మరియు Github Models (ఉచితం) మద్దతు చేసే Python కోడ్ నమూనాలు
 - మీ అభ్యాసాన్ని కొనసాగించడానికి అదనపు వనరుల లింకులు
 
 
 ## 🗃️ పాఠాలు
 
-| **పాఠం**                                   | **వచనం & కోడ్**                                    | **వీడియో**                                                  | **అదనపు అభ్యాసం**                                                                     |
+| **పాఠం**                                   | **వ్రాత & కోడ్**                                    | **వీడియో**                                                  | **అదనపు అభ్యాసం**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | AI ఏజెంట్లు మరియు ఏజెంట్ ఉపయోగాల పరిచయం       | [లింక్](./01-intro-to-ai-agents/README.md)          | [వీడియో](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [లింక్](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI ఏజెంటిక్ ఫ్రేమ్‌వర్క్‌ల అన్వేషణ              | [లింక్](./02-explore-agentic-frameworks/README.md)  | [వీడియో](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [లింక్](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -111,56 +111,56 @@ CO_OP_TRANSLATOR_METADATA:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### లాంగ్‌చైన్
-[![LangChain4j for Beginners](https://img.shields.io/badge/LangChain4j%20for%20Beginners-22C55E?style=for-the-badge&&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchain4j-for-beginners)
-[![LangChain.js for Beginners](https://img.shields.io/badge/LangChain.js%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchainjs-for-beginners?WT.mc_id=m365-94501-dwahlin)
+[![LangChain4j ప్రారంభకులకు](https://img.shields.io/badge/LangChain4j%20for%20Beginners-22C55E?style=for-the-badge&&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchain4j-for-beginners)
+[![LangChain.js ప్రారంభకులకు](https://img.shields.io/badge/LangChain.js%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchainjs-for-beginners?WT.mc_id=m365-94501-dwahlin)
 
 ---
 
 ### అజ్యూర్ / ఎడ్జ్ / MCP / ఏజెంట్లు
-[![AZD for Beginners](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![Edge AI for Beginners](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![MCP for Beginners](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI Agents for Beginners](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![AZD ప్రారంభకులకు](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![ఎడ్జ్ AI ప్రారంభకులకు](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![MCP ప్రారంభకులకు](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![AI ఏజెంట్లు ప్రారంభకులకు](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
 
 ---
  
 ### జనరేటివ్ AI సిరీస్
-[![Generative AI for Beginners](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![Generative AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
-[![Generative AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
-[![Generative AI (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
+[![జనరేటివ్ AI ప్రారంభకులకు](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![జనరేటివ్ AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+[![జనరేటివ్ AI (జావా)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+[![జనరేటివ్ AI (జావాస్క్రిప్ట్)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
 
 ---
  
 ### కోర్ లెర్నింగ్
-[![ML for Beginners](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
-[![Data Science for Beginners](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI for Beginners](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
-[![Cybersecurity for Beginners](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
-[![Web Dev for Beginners](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
-[![IoT for Beginners](https://img.shields.io/badge/IoT%20for%20Beginners-14B8A6?style=for-the-badge&labelColor=E5E7EB&color=14B8A6)](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
-[![XR Development for Beginners](https://img.shields.io/badge/XR%20Development%20for%20Beginners-38BDF8?style=for-the-badge&labelColor=E5E7EB&color=38BDF8)](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![ML ప్రారంభకులకు](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
+[![డేటా సైన్స్ ప్రారంభకులకు](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
+[![AI ప్రారంభకులకు](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
+[![సైబర్‌సెక్యూరిటీ ప్రారంభకులకు](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
+[![వెబ్ డెవలప్‌మెంట్ ప్రారంభకులకు](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
+[![IoT ప్రారంభకులకు](https://img.shields.io/badge/IoT%20for%20Beginners-14B8A6?style=for-the-badge&labelColor=E5E7EB&color=14B8A6)](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
+[![XR డెవలప్‌మెంట్ ప్రారంభకులకు](https://img.shields.io/badge/XR%20Development%20for%20Beginners-38BDF8?style=for-the-badge&labelColor=E5E7EB&color=38BDF8)](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
 
 ---
  
 ### కోపైలట్ సిరీస్
-[![Copilot for AI Paired Programming](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
-[![Copilot for C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
-[![Copilot Adventure](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
+[![AI జంట ప్రోగ్రామింగ్ కోసం కోపైలట్](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+[![C#/.NET కోసం కోపైలట్](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+[![కోపైలట్ అడ్వెంచర్](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
 ## 🌟 కమ్యూనిటీ ధన్యవాదాలు
 
-Agentic RAGని ప్రదర్శించే ముఖ్యమైన కోడ్ నమూనాలను అందించినందుకు [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) కు ధన్యవాదాలు.
+Agentic RAG ను చూపించే ముఖ్యమైన కోడ్ నమూనాలను అందించినందుకు [శివం గోయల్](https://www.linkedin.com/in/shivam2003/) కు ధన్యవాదాలు.
 
 ## సహకారం
 
-ఈ ప్రాజెక్ట్ సహకారాలు మరియు సూచనలను స్వాగతిస్తుంది. చాలా సహకారాలు మీరు ఒక
-కాంట్రిబ్యూటర్ లైసెన్స్ అగ్రిమెంట్ (CLA) కు అంగీకరించాల్సి ఉంటుంది, ఇది మీరు మీ కాంట్రిబ్యూషన్ ఉపయోగించడానికి హక్కు కలిగి ఉన్నారని మరియు నిజంగా హక్కులు ఇస్తున్నారని ప్రకటిస్తుంది. వివరాలకు, సందర్శించండి <https://cla.opensource.microsoft.com>.
+ఈ ప్రాజెక్ట్ సహకారాలు మరియు సూచనలను స్వాగతిస్తుంది. ఎక్కువ భాగం సహకారాలకు మీరు ఒక
+కాంట్రిబ్యూటర్ లైసెన్స్ అగ్రిమెంట్ (CLA) కు అంగీకరించాలి, ఇది మీరు మీ సహకారాన్ని ఉపయోగించడానికి హక్కు కలిగి ఉన్నారని మరియు నిజంగా హక్కులు ఇస్తున్నారని ప్రకటిస్తుంది. వివరాలకు, సందర్శించండి <https://cla.opensource.microsoft.com>.
 
-మీరు ఒక పుల్ రిక్వెస్ట్ సమర్పించినప్పుడు, CLA బాట్ ఆటోమేటిక్‌గా మీరు CLA అందించాల్సిన అవసరం ఉందో లేదో నిర్ణయించి PRను సరైన విధంగా అలంకరించును (ఉదా: స్థితి తనిఖీ, వ్యాఖ్య). బాట్ ఇచ్చిన సూచనలను అనుసరించండి. మా CLA ఉపయోగించే అన్ని రిపోస్‌లో మీరు ఈ ప్రక్రియను ఒక్కసారి మాత్రమే చేయాలి.
+మీరు పుల్ రిక్వెస్ట్ సమర్పించినప్పుడు, CLA బాట్ ఆటోమేటిక్‌గా మీరు CLA అందించాల్సిన అవసరం ఉందో లేదో నిర్ణయించి PR ను సరైన విధంగా అలంకరించును (ఉదా: స్థితి తనిఖీ, వ్యాఖ్య). బాట్ ఇచ్చిన సూచనలను అనుసరించండి. మా CLA ఉపయోగించే అన్ని రిపోస్ లో మీరు ఈ ప్రక్రియను ఒక్కసారి మాత్రమే చేయాలి.
 
-ఈ ప్రాజెక్ట్ [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)ని అనుసరిస్తుంది.
+ఈ ప్రాజెక్ట్ [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) ను అనుసరిస్తుంది.
 మరింత సమాచారం కోసం [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) చూడండి లేదా
 ఏదైనా అదనపు ప్రశ్నలు లేదా వ్యాఖ్యల కోసం [opencode@microsoft.com](mailto:opencode@microsoft.com) ను సంప్రదించండి.
 
@@ -177,7 +177,7 @@ Agentic RAGని ప్రదర్శించే ముఖ్యమైన క
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-మీకు ఉత్పత్తి అభిప్రాయం లేదా నిర్మాణంలో లోపాలు ఉంటే సందర్శించండి:
+ఉత్పత్తి అభిప్రాయం లేదా నిర్మాణంలో లోపాలు ఉంటే సందర్శించండి:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
@@ -185,5 +185,5 @@ Agentic RAGని ప్రదర్శించే ముఖ్యమైన క
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **అస్పష్టత**:  
-ఈ పత్రాన్ని AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించబడింది. మేము ఖచ్చితత్వానికి ప్రయత్నించినప్పటికీ, ఆటోమేటెడ్ అనువాదాల్లో పొరపాట్లు లేదా తప్పిదాలు ఉండవచ్చు. మూల పత్రం దాని స్వదేశీ భాషలో అధికారిక మూలంగా పరిగణించాలి. ముఖ్యమైన సమాచారానికి, ప్రొఫెషనల్ మానవ అనువాదం సిఫార్సు చేయబడుతుంది. ఈ అనువాదం వాడకంలో ఏర్పడిన ఏవైనా అపార్థాలు లేదా తప్పుదారితీసే అర్థాలు కోసం మేము బాధ్యత వహించము.
+ఈ పత్రాన్ని AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించబడింది. మేము ఖచ్చితత్వానికి ప్రయత్నించినప్పటికీ, ఆటోమేటెడ్ అనువాదాల్లో పొరపాట్లు లేదా తప్పులు ఉండవచ్చు. అసలు పత్రం దాని స్వదేశీ భాషలోనే అధికారిక మూలంగా పరిగణించాలి. ముఖ్యమైన సమాచారానికి, ప్రొఫెషనల్ మానవ అనువాదం సిఫార్సు చేయబడుతుంది. ఈ అనువాదం వాడకంలో ఏర్పడిన ఏవైనా అపార్థాలు లేదా తప్పుదారితీసే అర్థాలు కోసం మేము బాధ్యత వహించము.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

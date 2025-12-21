@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:41:51+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:12:45+00:00",
   "source_file": "README.md",
   "language_code": "br"
 }
@@ -38,21 +38,21 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 Começando
 
-Este curso tem lições que cobrem os fundamentos da construção de Agentes de IA. Cada lição cobre seu próprio tópico, então comece onde quiser!
+Este curso tem lições que cobrem os fundamentos para construir Agentes de IA. Cada lição cobre seu próprio tópico, então comece onde quiser!
 
-Há suporte multilíngue para este curso. Vá para nossos [idiomas disponíveis aqui](../..).
+Há suporte multilíngue para este curso. Vá para nossos [idiomas disponíveis aqui](../..). 
 
 Se esta é sua primeira vez construindo com modelos de IA Generativa, confira nosso curso [Generative AI For Beginners](https://aka.ms/genai-beginners), que inclui 21 lições sobre construção com GenAI.
 
-Não se esqueça de [dar uma estrela (🌟) neste repositório](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) e [fazer um fork deste repositório](https://github.com/microsoft/ai-agents-for-beginners/fork) para executar o código.
+Não esqueça de [dar uma estrela (🌟) neste repositório](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) e [fazer um fork deste repositório](https://github.com/microsoft/ai-agents-for-beginners/fork) para executar o código.
 
 ### Conheça Outros Aprendizes, Tire Suas Dúvidas
 
-Se você ficar preso ou tiver alguma dúvida sobre a construção de Agentes de IA, junte-se ao nosso canal dedicado no Discord no [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+Se você ficar preso ou tiver alguma dúvida sobre como construir Agentes de IA, junte-se ao nosso canal dedicado no Discord no [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
 ### O Que Você Precisa
 
-Cada lição deste curso inclui exemplos de código, que podem ser encontrados na pasta code_samples. Você pode [fazer um fork deste repositório](https://github.com/microsoft/ai-agents-for-beginners/fork) para criar sua própria cópia.
+Cada lição deste curso inclui exemplos de código, que podem ser encontrados na pasta code_samples. Você pode [fazer um fork deste repositório](https://github.com/microsoft/ai-agents-for-beginners/fork) para criar sua própria cópia.  
 
 O exemplo de código nestes exercícios utiliza Azure AI Foundry e Catálogos de Modelos do GitHub para interagir com Modelos de Linguagem:
 
@@ -78,7 +78,7 @@ Você tem sugestões ou encontrou erros de ortografia ou código? [Abra uma issu
 ## 📂 Cada lição inclui
 
 - Uma lição escrita localizada no README e um vídeo curto
-- Exemplos de código Python que suportam Azure AI Foundry e Modelos do Github (Gratuito)
+- Exemplos de código Python que suportam Azure AI Foundry e Modelos do Github (Grátis)
 - Links para recursos extras para continuar seu aprendizado
 
 
@@ -169,16 +169,15 @@ contate [opencode@microsoft.com](mailto:opencode@microsoft.com) para quaisquer p
 
 ## Marcas Registradas
 
-Este projeto pode conter marcas registradas ou logotipos de projetos, produtos ou serviços. O uso autorizado das marcas
-registradas ou logotipos da Microsoft está sujeito e deve seguir
-[Diretrizes de Marcas e Marca da Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-O uso de marcas registradas ou logotipos da Microsoft em versões modificadas deste projeto não deve causar confusão nem implicar patrocínio da Microsoft.
-Qualquer uso de marcas registradas ou logotipos de terceiros está sujeito às políticas desses terceiros.
+Este projeto pode conter marcas registradas ou logotipos de projetos, produtos ou serviços. O uso autorizado das marcas ou logotipos da Microsoft está sujeito e deve seguir
+[Diretrizes de Marca e Marca da Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+O uso de marcas ou logotipos da Microsoft em versões modificadas deste projeto não deve causar confusão nem implicar patrocínio da Microsoft.
+Qualquer uso de marcas ou logotipos de terceiros está sujeito às políticas desses terceiros.
 
 ## Obtendo Ajuda
 
 
-Se você ficar preso ou tiver dúvidas sobre como construir aplicativos de IA, junte-se a:
+Se você ficar preso ou tiver dúvidas sobre como construir aplicativos de IA, participe:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -190,5 +189,5 @@ Se você tiver feedback sobre o produto ou erros durante a construção, visite:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Aviso Legal**:  
-Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte autorizada. Para informações críticas, recomenda-se tradução profissional realizada por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
+Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos para garantir a precisão, esteja ciente de que traduções automáticas podem conter erros ou imprecisões. O documento original em seu idioma nativo deve ser considerado a fonte autorizada. Para informações críticas, recomenda-se a tradução profissional realizada por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes do uso desta tradução.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
