@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:59:57+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:26:31+00:00",
   "source_file": "README.md",
   "language_code": "sw"
 }
@@ -21,7 +21,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### 🌐 Msaada wa Lugha Nyingi
 
-#### Unaungwa mkono kupitia GitHub Action (Otomatiki & Daima Imeboreshwa)
+#### Unaungwa mkono kupitia Kitendo cha GitHub (Kiotomatiki & Kila Wakati Kikiwa Kisasa)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](./README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
@@ -40,11 +40,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 Kozi hii ina masomo yanayofunika misingi ya kujenga Wakala wa AI. Kila somo lina mada yake, hivyo anza popote unapotaka!
 
-Kuna msaada wa lugha nyingi kwa kozi hii. Nenda kwa [lugha zinazopatikana hapa](../..).
+Kuna msaada wa lugha nyingi kwa kozi hii. Nenda kwenye [lugha zinazopatikana hapa](../..).
 
 Kama hii ni mara yako ya kwanza kujenga kwa kutumia mifano ya Generative AI, angalia kozi yetu ya [Generative AI Kwa Waanzilishi](https://aka.ms/genai-beginners), ambayo ina masomo 21 kuhusu kujenga na GenAI.
 
-Usisahau [kutoa nyota (🌟) kwa repo hii](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) na [kufork repo hii](https://github.com/microsoft/ai-agents-for-beginners/fork) ili kuendesha msimbo.
+Usisahau [kutoa nyota (🌟) kwenye repo hii](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) na [kufork repo hii](https://github.com/microsoft/ai-agents-for-beginners/fork) ili kuendesha msimbo.
 
 ### Kutana na Wanafunzi Wengine, Pata Majibu ya Maswali Yako
 
@@ -67,7 +67,7 @@ Kozi hii pia inatumia mifumo na huduma zifuatazo za Wakala wa AI kutoka Microsof
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-Kwa maelezo zaidi kuhusu kuendesha msimbo wa kozi hii, nenda kwa [Mipangilio ya Kozi](./00-course-setup/README.md).
+Kwa maelezo zaidi kuhusu kuendesha msimbo wa kozi hii, nenda kwenye [Mipangilio ya Kozi](./00-course-setup/README.md).
 
 ## 🙏 Unataka kusaidia?
 
@@ -77,7 +77,7 @@ Je, una mapendekezo au umeona makosa ya tahajia au msimbo? [Toa tatizo](https://
 
 ## 📂 Kila somo linajumuisha
 
-- Somo lililoandikwa lililoko katika README na video fupi
+- Somo lililoandikwa lipo katika README na video fupi
 - Mifano ya msimbo ya Python inayounga mkono Azure AI Foundry na Mifano ya Github (Bure)
 - Viungo vya rasilimali za ziada ili kuendelea na mafunzo yako
 
@@ -100,10 +100,10 @@ Je, una mapendekezo au umeona makosa ya tahajia au msimbo? [Toa tatizo](https://
 | Uhandisi wa Muktadha kwa Wakala wa AI            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Kusimamia Kumbukumbu ya Wakala                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Kuchunguza Mfumo wa Wakala wa Microsoft                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Kujenga Wakala wa Matumizi ya Kompyuta (CUA)           | Haitawezekana Hivi Karibuni                            |                                                            |                                                                                        |
-| Kuweka Wakala Zinazoweza Kupanuka                    | Haitawezekana Hivi Karibuni                            |                                                            |                                                                                        |
-| Kuunda Wakala wa AI wa Ndani                     | Haitawezekana Hivi Karibuni                               |                                                            |                                                                                        |
-| Kuweka Usalama wa Wakala wa AI                           | Haitawezekana Hivi Karibuni                               |                                                            |                                                                                        |
+| Kujenga Wakala wa Matumizi ya Kompyuta (CUA)           | Haitaonekana Hivi Karibuni                            |                                                            |                                                                                        |
+| Kuweka Wakala Zinazoweza Kupanuka                    | Haitaonekana Hivi Karibuni                            |                                                            |                                                                                        |
+| Kuunda Wakala wa AI wa Ndani                     | Haitaonekana Hivi Karibuni                               |                                                            |                                                                                        |
+| Kuweka Usalama wa Wakala wa AI                           | Haitaonekana Hivi Karibuni                               |                                                            |                                                                                        |
 
 ## 🎒 Kozi Nyingine
 
@@ -124,11 +124,11 @@ Timu yetu hutengeneza kozi nyingine! Angalia:
 
 ---
  
-### Mfululizo wa AI Inayotengeneza
-[![AI Inayotengeneza kwa Waanzilishi](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI Inayotengeneza (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
-[![AI Inayotengeneza (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
-[![AI Inayotengeneza (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
+### Mfululizo wa AI Inayozalisha
+[![AI Inayozalisha kwa Waanzilishi](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![AI Inayozalisha (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+[![AI Inayozalisha (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+[![AI Inayozalisha (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
 
 ---
  
@@ -144,7 +144,7 @@ Timu yetu hutengeneza kozi nyingine! Angalia:
 ---
  
 ### Mfululizo wa Copilot
-[![Copilot kwa Uandishi wa Programu kwa AI Pamoja](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+[![Copilot kwa Uandishi wa Programu wa AI kwa Pamoja](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
 [![Copilot kwa C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
 [![Copilot Adventure](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
@@ -156,10 +156,10 @@ Asante kwa [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) kwa kuchangia
 ## Kuchangia
 
 Mradi huu unakaribisha michango na mapendekezo. Michango mingi inahitaji ukakubali
-Mkataba wa Leseni ya Mchangiaji (CLA) unaosema kuwa una haki ya, na kwa kweli unatoa,
+Mkataba wa Leseni ya Mchango (CLA) unaosema kuwa una haki, na kwa kweli unatoa,
 haki za kutumia mchango wako. Kwa maelezo, tembelea <https://cla.opensource.microsoft.com>.
 
-Unapowasilisha ombi la kuvuta, bot ya CLA itabaini moja kwa moja kama unahitaji kutoa
+Unapowasilisha ombi la kuvuta, bot wa CLA atagundua moja kwa moja kama unahitaji kutoa
 CLA na kupamba PR ipasavyo (mfano, ukaguzi wa hali, maoni). Fuata tu maelekezo
 yanayotolewa na bot. Utahitaji kufanya hivi mara moja tu kwa hifadhidata zote zinazotumia CLA yetu.
 
@@ -176,12 +176,11 @@ Matumizi yoyote ya alama za biashara au nembo za wahusika wengine yanategemea se
 
 ## Kupata Msaada
 
-
-Kama unashindwa au una maswali yoyote kuhusu kujenga programu za AI, jiunge:
+Ikiwa unashindwa au una maswali yoyote kuhusu kujenga programu za AI, jiunge:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Kama una maoni kuhusu bidhaa au makosa wakati wa kujenga tembelea:
+Ikiwa una maoni kuhusu bidhaa au makosa wakati wa kujenga tembelea:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

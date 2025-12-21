@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:44:35+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:09:20+00:00",
   "source_file": "README.md",
   "language_code": "pl"
 }
@@ -38,13 +38,13 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 Rozpoczęcie
 
-Ten kurs zawiera lekcje obejmujące podstawy tworzenia Agentów AI. Każda lekcja omawia własny temat, więc zacznij tam, gdzie chcesz!
+Ten kurs zawiera lekcje obejmujące podstawy tworzenia Agentów AI. Każda lekcja dotyczy innego tematu, więc zacznij tam, gdzie chcesz!
 
 Kurs oferuje wsparcie wielojęzyczne. Przejdź do naszych [dostępnych języków tutaj](../..).
 
-Jeśli to Twój pierwszy raz z modelami Generative AI, sprawdź nasz kurs [Generative AI For Beginners](https://aka.ms/genai-beginners), który zawiera 21 lekcji na temat budowania z GenAI.
+Jeśli to Twój pierwszy raz z modelami Generative AI, sprawdź nasz kurs [Generative AI For Beginners](https://aka.ms/genai-beginners), który zawiera 21 lekcji na temat tworzenia z GenAI.
 
-Nie zapomnij [dodać gwiazdki (🌟) temu repozytorium](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) i [zrobić fork tego repozytorium](https://github.com/microsoft/ai-agents-for-beginners/fork), aby uruchomić kod.
+Nie zapomnij [dodać gwiazdkę (🌟) temu repozytorium](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) i [zrobić fork tego repozytorium](https://github.com/microsoft/ai-agents-for-beginners/fork), aby uruchomić kod.
 
 ### Poznaj innych uczących się, uzyskaj odpowiedzi na swoje pytania
 
@@ -88,14 +88,14 @@ Masz sugestie lub znalazłeś błędy ortograficzne lub w kodzie? [Zgłoś probl
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | Wprowadzenie do Agentów AI i przypadków użycia agentów       | [Link](./01-intro-to-ai-agents/README.md)          | [Wideo](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Eksploracja frameworków agentowych              | [Link](./02-explore-agentic-frameworks/README.md)  | [Wideo](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Zrozumienie wzorców projektowych agentów     | [Link](./03-agentic-design-patterns/README.md)     | [Wideo](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Zrozumienie wzorców projektowych agentów AI     | [Link](./03-agentic-design-patterns/README.md)     | [Wideo](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Wzorzec projektowy użycia narzędzi                      | [Link](./04-tool-use/README.md)                    | [Wideo](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentic RAG                                  | [Link](./05-agentic-rag/README.md)                 | [Wideo](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Budowanie godnych zaufania Agentów AI               | [Link](./06-building-trustworthy-agents/README.md) | [Wideo](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Wzorzec projektowy planowania                      | [Link](./07-planning-design/README.md)             | [Wideo](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Wzorzec projektowy multi-agenta                   | [Link](./08-multi-agent/README.md)                 | [Wideo](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Wzorzec projektowy metapoznawczy                 | [Link](./09-metacognition/README.md)               | [Wideo](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agent AI w produkcji                      | [Link](./10-ai-agents-production/README.md)        | [Wideo](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agenci AI w produkcji                      | [Link](./10-ai-agents-production/README.md)        | [Wideo](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Korzystanie z protokołów agentowych (MCP, A2A i NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Wideo](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Inżynieria kontekstu dla agentów AI            | [Link](./12-context-engineering/README.md)         | [Wideo](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Zarządzanie pamięcią agentową                      | [Link](./13-agent-memory/README.md)     |      [Wideo](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
@@ -107,7 +107,7 @@ Masz sugestie lub znalazłeś błędy ortograficzne lub w kodzie? [Zgłoś probl
 
 ## 🎒 Inne kursy
 
-Nasz zespół tworzy także inne kursy! Sprawdź:
+Nasz zespół tworzy inne kursy! Sprawdź:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### LangChain
@@ -132,7 +132,7 @@ Nasz zespół tworzy także inne kursy! Sprawdź:
 
 ---
  
-### Podstawy nauki
+### Podstawowe nauczanie
 [![ML dla początkujących](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
 [![Data Science dla początkujących](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
 [![AI dla początkujących](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
@@ -144,7 +144,7 @@ Nasz zespół tworzy także inne kursy! Sprawdź:
 ---
  
 ### Seria Copilot
-[![Copilot dla AI w programowaniu zespołowym](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+[![Copilot dla AI w programowaniu parami](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
 [![Copilot dla C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
 [![Copilot Adventure](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
@@ -153,27 +153,27 @@ Nasz zespół tworzy także inne kursy! Sprawdź:
 
 Dziękujemy [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) za wkład w ważne przykłady kodu demonstrujące Agentic RAG.
 
-## Wkład w projekt
+## Wkład
 
 Ten projekt zachęca do wkładu i sugestii. Większość wkładów wymaga zgody na
-Umowę Licencyjną Współtwórcy (CLA), w której oświadczasz, że masz prawo i faktycznie udzielasz nam
+Umowę Licencyjną Współtwórcy (CLA), która oświadcza, że masz prawo i faktycznie udzielasz nam
 praw do korzystania z Twojego wkładu. Szczegóły znajdziesz na <https://cla.opensource.microsoft.com>.
 
-Po przesłaniu pull requesta, bot CLA automatycznie określi, czy musisz dostarczyć
-CLA i odpowiednio oznaczy PR (np. status, komentarz). Po prostu postępuj zgodnie z instrukcjami
+Po przesłaniu pull request, bot CLA automatycznie określi, czy musisz dostarczyć
+CLA i odpowiednio oznaczy PR (np. kontrola statusu, komentarz). Po prostu postępuj zgodnie z instrukcjami
 podanymi przez bota. Będziesz musiał to zrobić tylko raz we wszystkich repozytoriach korzystających z naszej CLA.
 
-Projekt przyjął [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+Ten projekt przyjął [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 Więcej informacji znajdziesz w [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) lub
-kontaktując się z [opencode@microsoft.com](mailto:opencode@microsoft.com) w razie dodatkowych pytań lub uwag.
+skontaktuj się z [opencode@microsoft.com](mailto:opencode@microsoft.com) w razie dodatkowych pytań lub uwag.
 
 ## Znaki towarowe
 
-Projekt może zawierać znaki towarowe lub logotypy projektów, produktów lub usług. Autoryzowane użycie znaków towarowych lub logotypów Microsoft
-podlega i musi być zgodne z
+Ten projekt może zawierać znaki towarowe lub logotypy projektów, produktów lub usług. Autoryzowane użycie znaków towarowych lub logotypów Microsoft
+podlega i musi przestrzegać
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 Użycie znaków towarowych lub logotypów Microsoft w zmodyfikowanych wersjach tego projektu nie może powodować zamieszania ani sugerować sponsorowania przez Microsoft.
-Wszelkie użycie znaków towarowych lub logotypów stron trzecich podlega politykom tych stron trzecich.
+Każde użycie znaków towarowych lub logotypów stron trzecich podlega politykom tych stron trzecich.
 
 ## Uzyskanie pomocy
 
@@ -181,7 +181,7 @@ Jeśli utkniesz lub masz pytania dotyczące tworzenia aplikacji AI, dołącz do:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Jeśli masz uwagi dotyczące produktu lub błędy podczas tworzenia, odwiedź:
+Jeśli masz opinie o produkcie lub błędy podczas tworzenia, odwiedź:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
@@ -189,5 +189,5 @@ Jeśli masz uwagi dotyczące produktu lub błędy podczas tworzenia, odwiedź:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Zastrzeżenie**:  
-Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mimo że dokładamy starań, aby tłumaczenie było jak najbardziej precyzyjne, prosimy mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w języku źródłowym powinien być uznawany za źródło autorytatywne. W przypadku informacji krytycznych zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.
+Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mimo że dokładamy starań, aby tłumaczenie było jak najbardziej precyzyjne, prosimy mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w języku źródłowym należy traktować jako źródło wiążące. W przypadku informacji o kluczowym znaczeniu zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

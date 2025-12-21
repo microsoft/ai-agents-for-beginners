@@ -1,17 +1,17 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:45:44+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:10:37+00:00",
   "source_file": "README.md",
   "language_code": "tr"
 }
 -->
-# Yeni Başlayanlar için AI Ajanları - Bir Kurs
+# Yeni Başlayanlar için Yapay Zeka Ajanları - Bir Kurs
 
-![Yeni Başlayanlar için Üretken AI](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.tr.png)
+![Yeni Başlayanlar için Üretken Yapay Zeka](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.tr.png)
 
-## AI Ajanları geliştirmeye başlamak için bilmeniz gereken her şeyi öğreten bir kurs
+## Yapay Zeka Ajanları geliştirmeye başlamak için bilmeniz gereken her şeyi öğreten bir kurs
 
 [![GitHub lisansı](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
 [![GitHub katkıda bulunanlar](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
@@ -21,10 +21,10 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### 🌐 Çok Dilli Destek
 
-#### GitHub Action ile desteklenmektedir (Otomatik ve Her Zaman Güncel)
+#### GitHub Action ile Desteklenmektedir (Otomatik ve Her Zaman Güncel)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arapça](../ar/README.md) | [Bengalce](../bn/README.md) | [Bulgarca](../bg/README.md) | [Birmanca (Myanmar)](../my/README.md) | [Çince (Basitleştirilmiş)](../zh/README.md) | [Çince (Geleneksel, Hong Kong)](../hk/README.md) | [Çince (Geleneksel, Makao)](../mo/README.md) | [Çince (Geleneksel, Tayvan)](../tw/README.md) | [Hırvatça](../hr/README.md) | [Çekçe](../cs/README.md) | [Danca](../da/README.md) | [Flemenkçe](../nl/README.md) | [Estonca](../et/README.md) | [Fince](../fi/README.md) | [Fransızca](../fr/README.md) | [Almanca](../de/README.md) | [Yunanca](../el/README.md) | [İbranice](../he/README.md) | [Hintçe](../hi/README.md) | [Macarca](../hu/README.md) | [Endonezce](../id/README.md) | [İtalyanca](../it/README.md) | [Japonca](../ja/README.md) | [Kannada](../kn/README.md) | [Korece](../ko/README.md) | [Litvanca](../lt/README.md) | [Malayca](../ms/README.md) | [Malayalamca](../ml/README.md) | [Marathi](../mr/README.md) | [Nepalce](../ne/README.md) | [Nijerya Pidgin](../pcm/README.md) | [Norveççe](../no/README.md) | [Farsça (Persian)](../fa/README.md) | [Lehçe](../pl/README.md) | [Portekizce (Brezilya)](../br/README.md) | [Portekizce (Portekiz)](../pt/README.md) | [Pencapça (Gurmukhi)](../pa/README.md) | [Romence](../ro/README.md) | [Rusça](../ru/README.md) | [Sırpça (Kiril)](../sr/README.md) | [Slovakça](../sk/README.md) | [Slovence](../sl/README.md) | [İspanyolca](../es/README.md) | [Svahili](../sw/README.md) | [İsveççe](../sv/README.md) | [Tagalogca (Filipinler)](../tl/README.md) | [Tamilce](../ta/README.md) | [Telugu](../te/README.md) | [Tayca](../th/README.md) | [Türkçe](./README.md) | [Ukraynaca](../uk/README.md) | [Urduca](../ur/README.md) | [Vietnamca](../vi/README.md)
+[Arapça](../ar/README.md) | [Bengalce](../bn/README.md) | [Bulgarca](../bg/README.md) | [Birmanca (Myanmar)](../my/README.md) | [Çince (Basitleştirilmiş)](../zh/README.md) | [Çince (Geleneksel, Hong Kong)](../hk/README.md) | [Çince (Geleneksel, Makao)](../mo/README.md) | [Çince (Geleneksel, Tayvan)](../tw/README.md) | [Hırvatça](../hr/README.md) | [Çekçe](../cs/README.md) | [Danca](../da/README.md) | [Flemenkçe](../nl/README.md) | [Estonca](../et/README.md) | [Fince](../fi/README.md) | [Fransızca](../fr/README.md) | [Almanca](../de/README.md) | [Yunanca](../el/README.md) | [İbranice](../he/README.md) | [Hintçe](../hi/README.md) | [Macarca](../hu/README.md) | [Endonezce](../id/README.md) | [İtalyanca](../it/README.md) | [Japonca](../ja/README.md) | [Kannada](../kn/README.md) | [Korece](../ko/README.md) | [Litvanca](../lt/README.md) | [Malayca](../ms/README.md) | [Malayalamca](../ml/README.md) | [Marathi](../mr/README.md) | [Nepalce](../ne/README.md) | [Nijerya Pidgin](../pcm/README.md) | [Norveççe](../no/README.md) | [Farsça (Persian)](../fa/README.md) | [Lehçe](../pl/README.md) | [Portekizce (Brezilya)](../br/README.md) | [Portekizce (Portekiz)](../pt/README.md) | [Pencapça (Gurmukhi)](../pa/README.md) | [Rumence](../ro/README.md) | [Rusça](../ru/README.md) | [Sırpça (Kiril)](../sr/README.md) | [Slovakça](../sk/README.md) | [Slovence](../sl/README.md) | [İspanyolca](../es/README.md) | [Svahili](../sw/README.md) | [İsveççe](../sv/README.md) | [Tagalogca (Filipince)](../tl/README.md) | [Tamilce](../ta/README.md) | [Telugu](../te/README.md) | [Tayca](../th/README.md) | [Türkçe](./README.md) | [Ukraynaca](../uk/README.md) | [Urduca](../ur/README.md) | [Vietnamca](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 **Ek dil desteği isterseniz, desteklenen diller [burada](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md) listelenmiştir**
@@ -38,28 +38,28 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 Başlarken
 
-Bu kurs, AI Ajanları oluşturmanın temellerini kapsayan dersler içerir. Her ders kendi konusunu kapsar, istediğiniz yerden başlayabilirsiniz!
+Bu kurs, Yapay Zeka Ajanları oluşturmanın temellerini kapsayan dersler içerir. Her ders kendi konusunu kapsar, istediğiniz yerden başlayabilirsiniz!
 
-Bu kurs için çoklu dil desteği mevcuttur. Mevcut diller için [buraya](../..) bakabilirsiniz.
+Bu kurs için çoklu dil desteği mevcuttur. Mevcut diller için [buraya bakabilirsiniz](../..).
 
-Eğer Üretken AI modelleri ile ilk kez çalışıyorsanız, 21 ders içeren [Yeni Başlayanlar için Üretken AI](https://aka.ms/genai-beginners) kursumuza göz atın.
+Eğer Üretken Yapay Zeka modelleri ile ilk kez çalışıyorsanız, 21 ders içeren [Yeni Başlayanlar için Üretken Yapay Zeka](https://aka.ms/genai-beginners) kursumuza göz atın.
 
-Bu depoyu [yıldızlamayı (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ve kodu çalıştırmak için [forklamayı](https://github.com/microsoft/ai-agents-for-beginners/fork) unutmayın.
+Bu depoyu [yıldızlamayı (🌟) unutmayın](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ve kodu çalıştırmak için [bu depoyu çatallayın](https://github.com/microsoft/ai-agents-for-beginners/fork).
 
 ### Diğer Öğrenenlerle Tanışın, Sorularınızı Yanıtlayın
 
-AI Ajanları oluştururken takılırsanız veya sorularınız olursa, [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) içindeki özel Discord Kanalımıza katılın.
+Yapay Zeka Ajanları oluştururken takılırsanız veya sorularınız olursa, [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) içindeki özel Discord Kanalımıza katılın.
 
-### Gerekenler
+### İhtiyacınız Olanlar
 
-Bu kurstaki her ders, kod örnekleri içerir ve bunlar code_samples klasöründe bulunabilir. Kendi kopyanızı oluşturmak için [bu depoyu forklayabilirsiniz](https://github.com/microsoft/ai-agents-for-beginners/fork).
+Bu kurstaki her ders, kod örnekleri içerir ve bunlar code_samples klasöründe bulunabilir. Kendi kopyanızı oluşturmak için [bu depoyu çatallayabilirsiniz](https://github.com/microsoft/ai-agents-for-beginners/fork).
 
 Bu egzersizlerdeki kod örnekleri, Dil Modelleri ile etkileşim için Azure AI Foundry ve GitHub Model Kataloglarını kullanır:
 
 - [Github Modelleri](https://aka.ms/ai-agents-beginners/github-models) - Ücretsiz / Sınırlı
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure Hesabı Gereklidir
 
-Bu kurs ayrıca Microsoft'tan aşağıdaki AI Ajan çerçevelerini ve hizmetlerini kullanır:
+Bu kurs ayrıca Microsoft'tan aşağıdaki Yapay Zeka Ajanı çerçevelerini ve hizmetlerini kullanır:
 
 - [Microsoft Agent Framework (MAF) - Yeni!](https://aka.ms/ai-agents-beginners/agent-framewrok)
 - [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
@@ -86,24 +86,24 @@ Bu kursun kodunu çalıştırmak için daha fazla bilgiye [Kurs Kurulumu](./00-c
 
 | **Ders**                                    | **Metin & Kod**                                    | **Video**                                                  | **Ek Öğrenme**                                                                         |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| AI Ajanlarına Giriş ve Ajan Kullanım Durumları | [Bağlantı](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI Ajan Çerçevelerini Keşfetmek              | [Bağlantı](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI Ajan Tasarım Kalıplarını Anlamak          | [Bağlantı](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Araç Kullanım Tasarım Kalıbı                  | [Bağlantı](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Ajan RAG                                      | [Bağlantı](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Güvenilir AI Ajanları Oluşturmak              | [Bağlantı](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Planlama Tasarım Kalıbı                        | [Bağlantı](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Çoklu Ajan Tasarım Kalıbı                      | [Bağlantı](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Metakognisyon Tasarım Kalıbı                   | [Bağlantı](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Yapay Zeka Ajanlarına Giriş ve Ajan Kullanım Durumları | [Bağlantı](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Yapay Zeka Ajan Çerçevelerini Keşfetmek     | [Bağlantı](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Yapay Zeka Ajan Tasarım Kalıplarını Anlamak | [Bağlantı](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Araç Kullanım Tasarım Kalıbı                 | [Bağlantı](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Ajan RAG                                     | [Bağlantı](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Güvenilir Yapay Zeka Ajanları Oluşturmak    | [Bağlantı](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Planlama Tasarım Kalıbı                      | [Bağlantı](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Çoklu Ajan Tasarım Kalıbı                    | [Bağlantı](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Metakognisyon Tasarım Kalıbı                 | [Bağlantı](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Bağlantı](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Üretimde AI Ajanları                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentik Protokollerin Kullanımı (MCP, A2A ve NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI Ajanları için Bağlam Mühendisliği            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentik Belleğin Yönetimi                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Microsoft Agent Framework'ü Keşfetmek                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Bilgisayar Kullanım Ajanları (CUA) Oluşturmak           | Yakında Geliyor                            |                                                            |                                                                                        |
-| Ölçeklenebilir Ajanları Dağıtmak                    | Yakında Geliyor                            |                                                            |                                                                                        |
-| Yerel AI Ajanları Oluşturmak                     | Yakında Geliyor                               |                                                            |                                                                                        |
-| AI Ajanlarını Güvence Almak                           | Yakında Geliyor                               |                                                            |                                                                                        |
+| Bilgisayar Kullanım Ajanları (CUA) Oluşturma           | Yakında Geliyor                            |                                                            |                                                                                        |
+| Ölçeklenebilir Ajanların Dağıtımı                    | Yakında Geliyor                            |                                                            |                                                                                        |
+| Yerel AI Ajanları Oluşturma                     | Yakında Geliyor                               |                                                            |                                                                                        |
+| AI Ajanlarının Güvenliği                           | Yakında Geliyor                               |                                                            |                                                                                        |
 
 ## 🎒 Diğer Kurslar
 
@@ -151,15 +151,15 @@ Ekibimiz başka kurslar da üretiyor! Göz atın:
 
 ## 🌟 Topluluk Teşekkürü
 
-Agentik RAG gösteren önemli kod örnekleri için [Shivam Goyal](https://www.linkedin.com/in/shivam2003/)'a teşekkürler.
+Agentik RAG'i gösteren önemli kod örnekleri için [Shivam Goyal](https://www.linkedin.com/in/shivam2003/)'a teşekkürler.
 
 ## Katkıda Bulunma
 
-Bu proje katkı ve önerilere açıktır. Çoğu katkı, katkınızı kullanma haklarını bize verdiğinizi ve gerçekten verdiğinizi beyan eden bir Katkı Sağlayıcı Lisans Anlaşması'na (CLA) katılmanızı gerektirir. Detaylar için <https://cla.opensource.microsoft.com> adresini ziyaret edin.
+Bu proje katkılara ve önerilere açıktır. Çoğu katkı, katkınızı kullanma haklarını bize verdiğinizi ve gerçekten verdiğinizi beyan eden bir Katkı Sağlayıcı Lisans Sözleşmesi'ni (CLA) kabul etmenizi gerektirir. Detaylar için <https://cla.opensource.microsoft.com> adresini ziyaret edin.
 
-Bir çekme isteği gönderdiğinizde, bir CLA botu otomatik olarak CLA sağlamanız gerekip gerekmediğini belirler ve PR'ı uygun şekilde işaretler (örneğin, durum kontrolü, yorum). Botun verdiği talimatları izleyin. CLA'yı kullanan tüm depolarda bunu yalnızca bir kez yapmanız yeterlidir.
+Bir çekme isteği gönderdiğinizde, bir CLA botu otomatik olarak CLA sağlamanız gerekip gerekmediğini belirleyecek ve PR'yi uygun şekilde (örneğin, durum kontrolü, yorum) işaretleyecektir. Botun verdiği talimatları izleyin. CLA'yı kullanan tüm depolarda bunu yalnızca bir kez yapmanız yeterlidir.
 
-Bu proje [Microsoft Açık Kaynak Davranış Kuralları](https://opensource.microsoft.com/codeofconduct/)nu benimsemiştir. Daha fazla bilgi için [Davranış Kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) sayfasına bakabilir veya ek soru ve yorumlar için [opencode@microsoft.com](mailto:opencode@microsoft.com) ile iletişime geçebilirsiniz.
+Bu proje [Microsoft Açık Kaynak Davranış Kuralları](https://opensource.microsoft.com/codeofconduct/)nu benimsemiştir. Daha fazla bilgi için [Davranış Kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) sayfasına bakabilir veya ek sorularınız ya da yorumlarınız için [opencode@microsoft.com](mailto:opencode@microsoft.com) ile iletişime geçebilirsiniz.
 
 ## Ticari Markalar
 
@@ -167,7 +167,7 @@ Bu proje, projeler, ürünler veya hizmetler için ticari markalar veya logolar 
 
 ## Yardım Alma
 
-AI uygulamaları geliştirme konusunda takılırsanız veya sorularınız olursa katılın:
+Takılırsanız veya AI uygulamaları geliştirme hakkında sorularınız olursa, katılın:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -179,5 +179,5 @@ AI uygulamaları geliştirme konusunda takılırsanız veya sorularınız olursa
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Feragatname**:  
-Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba gösterilse de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu oluşabilecek yanlış anlamalar veya yorum hatalarından sorumlu değiliz.
+Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba gösterilse de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu oluşabilecek yanlış anlamalar veya yorum hatalarından sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

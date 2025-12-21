@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:30:43+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T13:55:01+00:00",
   "source_file": "README.md",
   "language_code": "ja"
 }
@@ -21,7 +21,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### 🌐 多言語対応
 
-#### GitHub Actionによるサポート（自動化＆常に最新）
+#### GitHub Actionsによるサポート（自動かつ常に最新）
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [アラビア語](../ar/README.md) | [ベンガル語](../bn/README.md) | [ブルガリア語](../bg/README.md) | [ビルマ語（ミャンマー）](../my/README.md) | [中国語（簡体字）](../zh/README.md) | [中国語（繁体字、香港）](../hk/README.md) | [中国語（繁体字、マカオ）](../mo/README.md) | [中国語（繁体字、台湾）](../tw/README.md) | [クロアチア語](../hr/README.md) | [チェコ語](../cs/README.md) | [デンマーク語](../da/README.md) | [オランダ語](../nl/README.md) | [エストニア語](../et/README.md) | [フィンランド語](../fi/README.md) | [フランス語](../fr/README.md) | [ドイツ語](../de/README.md) | [ギリシャ語](../el/README.md) | [ヘブライ語](../he/README.md) | [ヒンディー語](../hi/README.md) | [ハンガリー語](../hu/README.md) | [インドネシア語](../id/README.md) | [イタリア語](../it/README.md) | [日本語](./README.md) | [カンナダ語](../kn/README.md) | [韓国語](../ko/README.md) | [リトアニア語](../lt/README.md) | [マレー語](../ms/README.md) | [マラヤーラム語](../ml/README.md) | [マラーティー語](../mr/README.md) | [ネパール語](../ne/README.md) | [ナイジェリア・ピジン語](../pcm/README.md) | [ノルウェー語](../no/README.md) | [ペルシャ語（ファルシ）](../fa/README.md) | [ポーランド語](../pl/README.md) | [ポルトガル語（ブラジル）](../br/README.md) | [ポルトガル語（ポルトガル）](../pt/README.md) | [パンジャブ語（グルムキー）](../pa/README.md) | [ルーマニア語](../ro/README.md) | [ロシア語](../ru/README.md) | [セルビア語（キリル）](../sr/README.md) | [スロバキア語](../sk/README.md) | [スロベニア語](../sl/README.md) | [スペイン語](../es/README.md) | [スワヒリ語](../sw/README.md) | [スウェーデン語](../sv/README.md) | [タガログ語（フィリピン）](../tl/README.md) | [タミル語](../ta/README.md) | [テルグ語](../te/README.md) | [タイ語](../th/README.md) | [トルコ語](../tr/README.md) | [ウクライナ語](../uk/README.md) | [ウルドゥー語](../ur/README.md) | [ベトナム語](../vi/README.md)
@@ -54,9 +54,9 @@ AIエージェントの構築で困ったり質問があれば、[Microsoft Foun
 
 このコースの各レッスンにはコード例が含まれており、code_samplesフォルダーにあります。自分のコピーを作成するには[このリポジトリをフォーク](https://github.com/microsoft/ai-agents-for-beginners/fork)してください。
 
-これらの演習のコード例は、Azure AI FoundryとGitHubモデルカタログを利用して言語モデルとやり取りします：
+これらの演習のコード例は、Azure AI FoundryとGitHubモデルカタログを利用して言語モデルと対話します：
 
-- [GitHubモデル](https://aka.ms/ai-agents-beginners/github-models) - 無料／制限あり
+- [GitHub Models](https://aka.ms/ai-agents-beginners/github-models) - 無料 / 制限あり
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azureアカウントが必要
 
 また、このコースではMicrosoftの以下のAIエージェントフレームワークとサービスを使用しています：
@@ -77,7 +77,7 @@ AIエージェントの構築で困ったり質問があれば、[Microsoft Foun
 ## 📂 各レッスンに含まれるもの
 
 - READMEにある文章のレッスンと短いビデオ
-- Azure AI FoundryとGitHubモデル（無料）をサポートするPythonコード例
+- Azure AI FoundryとGitHub Models（無料）をサポートするPythonコード例
 - 学習を続けるための追加リソースへのリンク
 
 
@@ -89,20 +89,20 @@ AIエージェントの構築で困ったり質問があれば、[Microsoft Foun
 | AIエージェントフレームワークの探求              | [リンク](./02-explore-agentic-frameworks/README.md)  | [ビデオ](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AIエージェント設計パターンの理解     | [リンク](./03-agentic-design-patterns/README.md)     | [ビデオ](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | ツール使用設計パターン                      | [リンク](./04-tool-use/README.md)                    | [ビデオ](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| エージェントRAG                                  | [リンク](./05-agentic-rag/README.md)                 | [ビデオ](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| エージェント型RAG                                  | [リンク](./05-agentic-rag/README.md)                 | [ビデオ](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 信頼できるAIエージェントの構築               | [リンク](./06-building-trustworthy-agents/README.md) | [ビデオ](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 計画設計パターン                      | [リンク](./07-planning-design/README.md)             | [ビデオ](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | マルチエージェント設計パターン                   | [リンク](./08-multi-agent/README.md)                 | [ビデオ](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | メタ認知設計パターン                 | [リンク](./09-metacognition/README.md)               | [ビデオ](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [リンク](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | 本番環境のAIエージェント                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| エージェンシックプロトコルの使用 (MCP, A2A, NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| エージェンシックプロトコルの使用 (MCP、A2A、NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AIエージェントのためのコンテキストエンジニアリング            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | エージェンシックメモリの管理                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Microsoft Agent Frameworkの探求                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| コンピュータ使用エージェント（CUA）の構築           | 近日公開予定                            |                                                            |                                                                                        |
-| スケーラブルエージェントの展開                    | 近日公開予定                            |                                                            |                                                                                        |
-| ローカルAIエージェントの作成                     | 近日公開予定                               |                                                            |                                                                                        |
-| AIエージェントのセキュリティ                           | 近日公開予定                               |                                                            |                                                                                        |
+| コンピュータ使用エージェント（CUA）の構築           | 近日公開                            |                                                            |                                                                                        |
+| スケーラブルエージェントの展開                    | 近日公開                            |                                                            |                                                                                        |
+| ローカルAIエージェントの作成                     | 近日公開                               |                                                            |                                                                                        |
+| AIエージェントのセキュリティ                           | 近日公開                               |                                                            |                                                                                        |
 
 ## 🎒 その他のコース
 
@@ -157,7 +157,8 @@ Agentic RAGを示す重要なコードサンプルを提供してくれた[Shiva
 このプロジェクトは貢献や提案を歓迎します。ほとんどの貢献には、あなたが貢献物の使用権を持ち、実際に当社にその権利を付与することを宣言する
 Contributor License Agreement (CLA)への同意が必要です。詳細は<https://cla.opensource.microsoft.com>をご覧ください。
 
-プルリクエストを提出すると、CLAボットが自動的にCLAの提出が必要かどうかを判断し、PRに適切な装飾（ステータスチェックやコメントなど）を行います。ボットの指示に従うだけでOKです。CLAを使用しているすべてのリポジトリでこれを一度行えば十分です。
+プルリクエストを提出すると、CLAボットが自動的にCLAの提出が必要かどうかを判断し、PRに適切な装飾（ステータスチェックやコメントなど）を行います。
+ボットの指示に従うだけで、当社のCLAを使用しているすべてのリポジトリで一度だけ行えば十分です。
 
 このプロジェクトは[Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)を採用しています。
 詳細は[Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)をご覧いただくか、
@@ -167,7 +168,7 @@ Contributor License Agreement (CLA)への同意が必要です。詳細は<https
 
 このプロジェクトにはプロジェクト、製品、サービスの商標やロゴが含まれている場合があります。Microsoftの商標やロゴの正当な使用は
 [Microsoftの商標およびブランドガイドライン](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general)に従う必要があります。
-本プロジェクトの修正バージョンでMicrosoftの商標やロゴを使用する場合、混乱を招いたりMicrosoftの後援を示唆したりしてはなりません。
+このプロジェクトの修正バージョンでMicrosoftの商標やロゴを使用する場合、混乱を招いたりMicrosoftの後援を示唆したりしてはなりません。
 第三者の商標やロゴの使用は、それら第三者のポリシーに従います。
 
 ## ヘルプを得るには

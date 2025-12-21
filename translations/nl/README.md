@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:53:28+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:18:51+00:00",
   "source_file": "README.md",
   "language_code": "nl"
 }
@@ -52,7 +52,7 @@ Als je vastloopt of vragen hebt over het bouwen van AI Agents, sluit je dan aan 
 
 ### Wat Je Nodig Hebt
 
-Elke les in deze cursus bevat codevoorbeelden, die te vinden zijn in de map code_samples. Je kunt [deze repo fork-en](https://github.com/microsoft/ai-agents-for-beginners/fork) om je eigen kopie te maken.
+Elke les in deze cursus bevat codevoorbeelden, die te vinden zijn in de map code_samples. Je kunt [deze repo forken](https://github.com/microsoft/ai-agents-for-beginners/fork) om je eigen kopie te maken.
 
 De codevoorbeelden in deze oefeningen maken gebruik van Azure AI Foundry en GitHub Model Catalogs voor interactie met taalmodellen:
 
@@ -107,7 +107,7 @@ Heb je suggesties of spelling- of codefouten gevonden? [Meld een issue](https://
 
 ## 🎒 Andere cursussen
 
-Ons team produceert ook andere cursussen! Bekijk:
+Ons team maakt ook andere cursussen! Bekijk:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### LangChain
@@ -159,9 +159,9 @@ Dit project verwelkomt bijdragen en suggesties. De meeste bijdragen vereisen dat
 Contributor License Agreement (CLA) waarin je verklaart dat je het recht hebt om, en daadwerkelijk doet, ons
 de rechten te verlenen om je bijdrage te gebruiken. Voor details, bezoek <https://cla.opensource.microsoft.com>.
 
-Wanneer je een pull request indient, zal een CLA-bot automatisch bepalen of je een
-CLA moet aanleveren en het PR dienovereenkomstig markeren (bijv. statuscontrole, commentaar). Volg gewoon de instructies
-van de bot. Je hoeft dit maar één keer te doen voor alle repositories die onze CLA gebruiken.
+Wanneer je een pull request indient, bepaalt een CLA-bot automatisch of je een
+CLA moet aanleveren en voorziet de PR van de juiste aanduidingen (bijv. statuscontrole, commentaar). Volg gewoon de instructies
+van de bot. Dit hoef je maar één keer te doen voor alle repositories die onze CLA gebruiken.
 
 Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) aangenomen.
 Voor meer informatie zie de [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) of
@@ -169,11 +169,11 @@ neem contact op met [opencode@microsoft.com](mailto:opencode@microsoft.com) voor
 
 ## Handelsmerken
 
-Dit project kan handelsmerken of logo's bevatten van projecten, producten of diensten. Geautoriseerd gebruik van Microsoft
-handelsmerken of logo's is onderhevig aan en moet voldoen aan
+Dit project kan handelsmerken of logo’s bevatten van projecten, producten of diensten. Geautoriseerd gebruik van Microsoft
+handelsmerken of logo’s is onderhevig aan en moet voldoen aan
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Gebruik van Microsoft-handelsmerken of logo's in gewijzigde versies van dit project mag geen verwarring veroorzaken of Microsoft-sponsoring impliceren.
-Elk gebruik van handelsmerken of logo's van derden is onderhevig aan het beleid van die derden.
+Gebruik van Microsoft-handelsmerken of logo’s in gewijzigde versies van dit project mag geen verwarring veroorzaken of Microsoft-sponsoring impliceren.
+Elk gebruik van handelsmerken of logo’s van derden is onderhevig aan het beleid van die derden.
 
 ## Hulp krijgen
 

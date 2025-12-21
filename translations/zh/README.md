@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:26:18+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T13:49:43+00:00",
   "source_file": "README.md",
   "language_code": "zh"
 }
@@ -24,7 +24,7 @@ CO_OP_TRANSLATOR_METADATA:
 #### 通过 GitHub Action 支持（自动且始终保持最新）
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[阿拉伯语](../ar/README.md) | [孟加拉语](../bn/README.md) | [保加利亚语](../bg/README.md) | [缅甸语 (Myanmar)](../my/README.md) | [中文（简体）](./README.md) | [中文（繁体，香港）](../hk/README.md) | [中文（繁体，澳门）](../mo/README.md) | [中文（繁体，台湾）](../tw/README.md) | [克罗地亚语](../hr/README.md) | [捷克语](../cs/README.md) | [丹麦语](../da/README.md) | [荷兰语](../nl/README.md) | [爱沙尼亚语](../et/README.md) | [芬兰语](../fi/README.md) | [法语](../fr/README.md) | [德语](../de/README.md) | [希腊语](../el/README.md) | [希伯来语](../he/README.md) | [印地语](../hi/README.md) | [匈牙利语](../hu/README.md) | [印度尼西亚语](../id/README.md) | [意大利语](../it/README.md) | [日语](../ja/README.md) | [卡纳达语](../kn/README.md) | [韩语](../ko/README.md) | [立陶宛语](../lt/README.md) | [马来语](../ms/README.md) | [马拉雅拉姆语](../ml/README.md) | [马拉地语](../mr/README.md) | [尼泊尔语](../ne/README.md) | [尼日利亚皮钦语](../pcm/README.md) | [挪威语](../no/README.md) | [波斯语 (法尔西语)](../fa/README.md) | [波兰语](../pl/README.md) | [葡萄牙语（巴西）](../br/README.md) | [葡萄牙语（葡萄牙）](../pt/README.md) | [旁遮普语（古鲁姆奇）](../pa/README.md) | [罗马尼亚语](../ro/README.md) | [俄语](../ru/README.md) | [塞尔维亚语（西里尔字母）](../sr/README.md) | [斯洛伐克语](../sk/README.md) | [斯洛文尼亚语](../sl/README.md) | [西班牙语](../es/README.md) | [斯瓦希里语](../sw/README.md) | [瑞典语](../sv/README.md) | [他加禄语（菲律宾语）](../tl/README.md) | [泰米尔语](../ta/README.md) | [泰卢固语](../te/README.md) | [泰语](../th/README.md) | [土耳其语](../tr/README.md) | [乌克兰语](../uk/README.md) | [乌尔都语](../ur/README.md) | [越南语](../vi/README.md)
+[阿拉伯语](../ar/README.md) | [孟加拉语](../bn/README.md) | [保加利亚语](../bg/README.md) | [缅甸语 (Myanmar)](../my/README.md) | [中文（简体）](./README.md) | [中文（繁体，香港）](../hk/README.md) | [中文（繁体，澳门）](../mo/README.md) | [中文（繁体，台湾）](../tw/README.md) | [克罗地亚语](../hr/README.md) | [捷克语](../cs/README.md) | [丹麦语](../da/README.md) | [荷兰语](../nl/README.md) | [爱沙尼亚语](../et/README.md) | [芬兰语](../fi/README.md) | [法语](../fr/README.md) | [德语](../de/README.md) | [希腊语](../el/README.md) | [希伯来语](../he/README.md) | [印地语](../hi/README.md) | [匈牙利语](../hu/README.md) | [印度尼西亚语](../id/README.md) | [意大利语](../it/README.md) | [日语](../ja/README.md) | [卡纳达语](../kn/README.md) | [韩语](../ko/README.md) | [立陶宛语](../lt/README.md) | [马来语](../ms/README.md) | [马拉雅拉姆语](../ml/README.md) | [马拉地语](../mr/README.md) | [尼泊尔语](../ne/README.md) | [尼日利亚皮钦语](../pcm/README.md) | [挪威语](../no/README.md) | [波斯语 (法尔西语)](../fa/README.md) | [波兰语](../pl/README.md) | [葡萄牙语（巴西）](../br/README.md) | [葡萄牙语（葡萄牙）](../pt/README.md) | [旁遮普语 (古鲁穆奇文)](../pa/README.md) | [罗马尼亚语](../ro/README.md) | [俄语](../ru/README.md) | [塞尔维亚语（西里尔文）](../sr/README.md) | [斯洛伐克语](../sk/README.md) | [斯洛文尼亚语](../sl/README.md) | [西班牙语](../es/README.md) | [斯瓦希里语](../sw/README.md) | [瑞典语](../sv/README.md) | [他加禄语（菲律宾语）](../tl/README.md) | [泰米尔语](../ta/README.md) | [泰卢固语](../te/README.md) | [泰语](../th/README.md) | [土耳其语](../tr/README.md) | [乌克兰语](../uk/README.md) | [乌尔都语](../ur/README.md) | [越南语](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 **如果您希望支持更多翻译语言，请查看[此处](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
@@ -42,17 +42,17 @@ CO_OP_TRANSLATOR_METADATA:
 
 本课程支持多语言。请查看我们的[可用语言列表](../..)。
 
-如果您是第一次使用生成式 AI 模型构建应用，请查看我们的[生成式 AI 初学者课程](https://aka.ms/genai-beginners)，其中包含 21 节关于生成式 AI 构建的课程。
+如果您是第一次使用生成式 AI 模型构建应用，请查看我们的[面向初学者的生成式 AI](https://aka.ms/genai-beginners)课程，其中包含 21 节关于生成式 AI 构建的课程。
 
-别忘了[给本仓库点星 (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst)并[Fork 本仓库](https://github.com/microsoft/ai-agents-for-beginners/fork)以运行代码。
+别忘了[给本仓库点星 (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst)并[分叉本仓库](https://github.com/microsoft/ai-agents-for-beginners/fork)以运行代码。
 
 ### 结识其他学习者，获得问题解答
 
-如果您遇到困难或有任何关于构建 AI 代理的问题，欢迎加入我们在 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 的专属 Discord 频道。
+如果您遇到困难或有任何关于构建 AI 代理的问题，请加入我们在[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)中的专属 Discord 频道。
 
 ### 您需要准备的内容
 
-本课程的每节课都包含代码示例，代码示例位于 code_samples 文件夹中。您可以[Fork 本仓库](https://github.com/microsoft/ai-agents-for-beginners/fork)来创建自己的副本。
+本课程的每节课都包含代码示例，代码示例位于 code_samples 文件夹中。您可以[分叉本仓库](https://github.com/microsoft/ai-agents-for-beginners/fork)来创建自己的副本。
 
 这些练习中的代码示例使用 Azure AI Foundry 和 GitHub 模型目录与语言模型交互：
 
@@ -71,7 +71,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🙏 想要帮助吗？
 
-您有建议或发现拼写或代码错误吗？请[提交问题](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst)或[创建拉取请求](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+您有建议或发现拼写或代码错误吗？请[提出问题](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst)或[创建拉取请求](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -144,8 +144,8 @@ CO_OP_TRANSLATOR_METADATA:
 ---
  
 ### Copilot 系列
-[![AI 配对编程 Copilot](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
-[![C#/.NET Copilot](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+[![AI 配对编程的 Copilot](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+[![C#/.NET 的 Copilot](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
 [![Copilot 冒险](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
@@ -155,18 +155,20 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 贡献
 
-欢迎对本项目进行贡献和建议。大多数贡献需要您同意一份贡献者许可协议（CLA），声明您有权利且确实授予我们使用您贡献的权利。详情请访问 <https://cla.opensource.microsoft.com>。
+欢迎对本项目进行贡献和提出建议。大多数贡献需要您同意一份贡献者许可协议（CLA），声明您有权利且确实授予我们使用您贡献的权利。详情请访问 <https://cla.opensource.microsoft.com>。
 
-当您提交拉取请求时，CLA 机器人会自动判断您是否需要提供 CLA 并相应地标注 PR（例如状态检查、评论）。只需按照机器人提供的指示操作。您只需在所有使用我们 CLA 的仓库中执行一次此操作。
+当您提交拉取请求时，CLA 机器人会自动判断您是否需要提供 CLA 并相应地标注 PR（例如状态检查、评论）。只需按照机器人提供的指示操作。您在所有使用我们 CLA 的仓库中只需执行一次此操作。
 
-本项目已采用 [微软开源行为准则](https://opensource.microsoft.com/codeofconduct/)。更多信息请参见 [行为准则常见问题](https://opensource.microsoft.com/codeofconduct/faq/) 或通过 [opencode@microsoft.com](mailto:opencode@microsoft.com) 联系我们，提出任何额外问题或意见。
+本项目已采用 [微软开源行为准则](https://opensource.microsoft.com/codeofconduct/)。
+更多信息请参见 [行为准则常见问题](https://opensource.microsoft.com/codeofconduct/faq/) 或
+通过 [opencode@microsoft.com](mailto:opencode@microsoft.com) 联系我们，提出任何额外问题或意见。
 
 ## 商标
 
-本项目可能包含项目、产品或服务的商标或标志。微软商标或标志的授权使用须遵守并遵循
+本项目可能包含项目、产品或服务的商标或标识。微软商标或标识的授权使用须遵守并遵循
 [微软商标和品牌指南](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general)。
-在本项目的修改版本中使用微软商标或标志不得引起混淆或暗示微软赞助。
-任何第三方商标或标志的使用均须遵守相关第三方的政策。
+在本项目的修改版本中使用微软商标或标识不得引起混淆或暗示微软赞助。
+任何第三方商标或标识的使用均须遵守相关第三方的政策。
 
 ## 获取帮助
 

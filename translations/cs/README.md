@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T09:03:03+00:00",
+  "original_hash": "f0ebcc244c445360bbb05d23e11630d3",
+  "translation_date": "2025-12-17T14:29:52+00:00",
   "source_file": "README.md",
   "language_code": "cs"
 }
@@ -38,17 +38,17 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 Začínáme
 
-Tento kurz obsahuje lekce pokrývající základy vytváření AI Agentů. Každá lekce se věnuje svému tématu, takže začněte, kde chcete!
+Tento kurz obsahuje lekce pokrývající základy tvorby AI Agentů. Každá lekce se věnuje svému tématu, takže začněte, kde chcete!
 
 Kurz podporuje více jazyků. Podívejte se na naše [dostupné jazyky zde](../..).
 
-Pokud je to váš první kontakt s vytvářením pomocí generativních AI modelů, podívejte se na náš kurz [Generative AI For Beginners](https://aka.ms/genai-beginners), který obsahuje 21 lekcí o práci s GenAI.
+Pokud je to váš první kontakt s tvorbou pomocí generativních AI modelů, podívejte se na náš kurz [Generative AI For Beginners](https://aka.ms/genai-beginners), který obsahuje 21 lekcí o tvorbě s GenAI.
 
-Nezapomeňte [označit tento repozitář hvězdičkou (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) a [forknout tento repozitář](https://github.com/microsoft/ai-agents-for-beginners/fork), abyste mohli spustit kód.
+Nezapomeňte [označit (🌟) tento repozitář hvězdičkou](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) a [forknout tento repozitář](https://github.com/microsoft/ai-agents-for-beginners/fork), abyste mohli spustit kód.
 
 ### Poznejte ostatní studenty, získejte odpovědi na své otázky
 
-Pokud narazíte na problém nebo máte otázky ohledně vytváření AI Agentů, připojte se k našemu specializovanému Discord kanálu v [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+Pokud narazíte na problém nebo máte otázky ohledně tvorby AI Agentů, připojte se k našemu specializovanému Discord kanálu v [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
 ### Co potřebujete
 
@@ -71,7 +71,7 @@ Pro více informací o spuštění kódu pro tento kurz přejděte na [Course Se
 
 ## 🙏 Chcete pomoci?
 
-Máte návrhy nebo jste našli chyby v pravopisu či kódu? [Vytvořte issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) nebo [vytvořte pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Máte návrhy nebo jste našli chyby v pravopisu či kódu? [Založte issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) nebo [vytvořte pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -86,12 +86,12 @@ Máte návrhy nebo jste našli chyby v pravopisu či kódu? [Vytvořte issue](ht
 
 | **Lekce**                                    | **Text & Kód**                                     | **Video**                                                  | **Další učení**                                                                        |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Úvod do AI Agentů a případů použití agentů   | [Odkaz](./01-intro-to-ai-agents/README.md)         | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Prozkoumání AI agentních frameworků          | [Odkaz](./02-explore-agentic-frameworks/README.md) | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Pochopení AI agentních návrhových vzorů      | [Odkaz](./03-agentic-design-patterns/README.md)    | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Úvod do AI Agentů a případů použití agentů   | [Odkaz](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Prozkoumání AI agentních frameworků          | [Odkaz](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pochopení AI agentních návrhových vzorů       | [Odkaz](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Návrhový vzor používání nástrojů              | [Odkaz](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentní RAG                                   | [Odkaz](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Vytváření důvěryhodných AI Agentů             | [Odkaz](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Budování důvěryhodných AI Agentů              | [Odkaz](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Návrhový vzor plánování                        | [Odkaz](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Návrhový vzor multi-agentů                     | [Odkaz](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Návrhový vzor metakognice                      | [Odkaz](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -169,14 +169,15 @@ kontaktujte [opencode@microsoft.com](mailto:opencode@microsoft.com) s dalšími 
 
 ## Ochranné známky
 
-Tento projekt může obsahovat ochranné známky nebo loga projektů, produktů či služeb. Autorizované použití ochranných známek nebo log Microsoftu podléhá a musí dodržovat
+Tento projekt může obsahovat ochranné známky nebo loga projektů, produktů či služeb. Autorizované použití ochranných známek nebo log Microsoftu
+podléhá a musí dodržovat
 [Pravidla pro ochranné známky a značky Microsoftu](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Použití ochranných známek nebo log Microsoftu v upravených verzích tohoto projektu nesmí způsobovat záměnu ani naznačovat sponzorství Microsoftem.
+Použití ochranných známek nebo log Microsoftu v upravených verzích tohoto projektu nesmí způsobit záměnu nebo naznačovat sponzorství Microsoftem.
 Jakékoli použití ochranných známek nebo log třetích stran podléhá pravidlům těchto třetích stran.
 
 ## Získání pomoci
 
-Pokud narazíte na potíže nebo máte otázky ohledně tvorby AI aplikací, připojte se:
+Pokud narazíte na potíže nebo máte otázky ohledně vytváření AI aplikací, připojte se:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
