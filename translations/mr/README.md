@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:35:28+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:05:46+00:00",
   "source_file": "README.md",
   "language_code": "mr"
 }
@@ -42,15 +42,15 @@ CO_OP_TRANSLATOR_METADATA:
 
 या कोर्ससाठी बहुभाषिक समर्थन उपलब्ध आहे. आमच्या [उपलब्ध भाषांकडे येथे पहा](../..).
 
-जर तुम्ही Generative AI मॉडेल्ससह प्रथमच काम करत असाल, तर आमचा [Generative AI For Beginners](https://aka.ms/genai-beginners) कोर्स पहा, ज्यात GenAI सह तयार करण्याबाबत 21 धडे आहेत.
+जर तुम्ही Generative AI मॉडेल्ससह प्रथमच काम करत असाल, तर आमचा [Generative AI For Beginners](https://aka.ms/genai-beginners) कोर्स पहा, ज्यात GenAI वापरून तयार करण्याबाबत 21 धडे आहेत.
 
 हा रेपो [स्टार (🌟) करायला विसरू नका](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) आणि [फोर्क करा](https://github.com/microsoft/ai-agents-for-beginners/fork) जेणेकरून तुम्ही कोड चालवू शकता.
 
-### इतर शिकणाऱ्यांना भेटा, तुमचे प्रश्न विचारा
+### इतर शिकणाऱ्यांशी भेटा, तुमचे प्रश्न विचारा
 
-जर तुम्हाला अडचण आली किंवा AI एजंट्स तयार करण्याबाबत काही प्रश्न असतील, तर आमच्या समर्पित Discord चॅनेलमध्ये सामील व्हा [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+जर तुम्हाला अडचण आली किंवा AI एजंट्स तयार करण्याबाबत काही प्रश्न असतील, तर आमच्या समर्पित Discord चॅनेलमध्ये सहभागी व्हा [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
-### तुम्हाला काय लागेल
+### काय आवश्यक आहे
 
 या कोर्समधील प्रत्येक धड्यात कोड उदाहरणे आहेत, जी code_samples फोल्डरमध्ये सापडतील. तुम्ही [हा रेपो फोर्क](https://github.com/microsoft/ai-agents-for-beginners/fork) करून तुमची स्वतःची कॉपी तयार करू शकता.
 
@@ -59,7 +59,7 @@ CO_OP_TRANSLATOR_METADATA:
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - मोफत / मर्यादित
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure खाते आवश्यक
 
-हा कोर्स Microsoft कडून खालील AI एजंट फ्रेमवर्क आणि सेवा देखील वापरतो:
+हा कोर्स Microsoft कडून खालील AI एजंट फ्रेमवर्क्स आणि सेवा देखील वापरतो:
 
 - [Microsoft Agent Framework (MAF) - नवीन!](https://aka.ms/ai-agents-beginners/agent-framewrok)
 - [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
@@ -86,22 +86,22 @@ CO_OP_TRANSLATOR_METADATA:
 
 | **धडा**                                     | **मजकूर आणि कोड**                                  | **व्हिडिओ**                                                | **अतिरिक्त शिक्षण**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| AI एजंट्स आणि एजंट वापर प्रकरणांची ओळख     | [Link](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI एजंटिक फ्रेमवर्क्सचा शोध                  | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI एजंटिक डिझाइन पॅटर्न समजून घेणे          | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| टूल वापर डिझाइन पॅटर्न                      | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| एजंटिक RAG                                  | [Link](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| विश्वासार्ह AI एजंट्स तयार करणे               | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| नियोजन डिझाइन पॅटर्न                        | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| मल्टी-एजंट डिझाइन पॅटर्न                    | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| मेटाकॉग्निशन डिझाइन पॅटर्न                  | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI एजंट्स आणि एजंट वापर प्रकरणांची ओळख       | [दुवा](./01-intro-to-ai-agents/README.md)          | [व्हिडिओ](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [दुवा](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI एजंटिक फ्रेमवर्क्सचा शोध                   | [दुवा](./02-explore-agentic-frameworks/README.md)  | [व्हिडिओ](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [दुवा](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI एजंटिक डिझाइन पॅटर्न समजून घेणे           | [दुवा](./03-agentic-design-patterns/README.md)     | [व्हिडिओ](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [दुवा](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| टूल वापर डिझाइन पॅटर्न                        | [दुवा](./04-tool-use/README.md)                    | [व्हिडिओ](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [दुवा](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| एजंटिक RAG                                   | [दुवा](./05-agentic-rag/README.md)                 | [व्हिडिओ](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [दुवा](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| विश्वासार्ह AI एजंट्स तयार करणे                | [दुवा](./06-building-trustworthy-agents/README.md) | [व्हिडिओ](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [दुवा](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| नियोजन डिझाइन पॅटर्न                         | [दुवा](./07-planning-design/README.md)             | [व्हिडिओ](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [दुवा](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| मल्टी-एजंट डिझाइन पॅटर्न                      | [दुवा](./08-multi-agent/README.md)                 | [व्हिडिओ](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [दुवा](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| मेटाकॉग्निशन डिझाइन पॅटर्न                   | [दुवा](./09-metacognition/README.md)               | [व्हिडिओ](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [दुवा](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | उत्पादनातील AI एजंट्स                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | एजंटिक प्रोटोकॉल वापरणे (MCP, A2A आणि NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI एजंटसाठी संदर्भ अभियांत्रिकी            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | एजंटिक मेमरी व्यवस्थापन                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| मायक्रोसॉफ्ट एजंट फ्रेमवर्कचा शोध                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| मायक्रोसॉफ्ट एजंट फ्रेमवर्क एक्सप्लोर करणे                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
 | संगणक वापर एजंट्स (CUA) तयार करणे           | लवकरच येत आहे                            |                                                            |                                                                                        |
-| स्केलेबल एजंट्सची तैनाती                    | लवकरच येत आहे                            |                                                            |                                                                                        |
+| स्केलेबल एजंट्स तैनात करणे                    | लवकरच येत आहे                            |                                                            |                                                                                        |
 | स्थानिक AI एजंट्स तयार करणे                     | लवकरच येत आहे                               |                                                            |                                                                                        |
 | AI एजंट्स सुरक्षित करणे                           | लवकरच येत आहे                               |                                                            |                                                                                        |
 
@@ -124,7 +124,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
  
-### जनरेटिव AI मालिका
+### जनरेटिव AI सिरीज
 [![Generative AI for Beginners](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Generative AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
 [![Generative AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
@@ -132,7 +132,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
  
-### कोअर शिक्षण
+### कोअर लर्निंग
 [![ML for Beginners](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
 [![Data Science for Beginners](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
 [![AI for Beginners](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
@@ -143,7 +143,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
  
-### Copilot मालिका
+### Copilot सिरीज
 [![Copilot for AI Paired Programming](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
 [![Copilot for C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
 [![Copilot Adventure](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
@@ -153,20 +153,20 @@ CO_OP_TRANSLATOR_METADATA:
 
 Agentic RAG दर्शविणारे महत्त्वाचे कोड नमुने देण्यासाठी [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) यांचे आभार.
 
-## योगदान
+## योगदान देणे
 
-हा प्रकल्प योगदान आणि सूचना स्वागत करतो. बहुतेक योगदानांसाठी आपल्याला Contributor License Agreement (CLA) सहमत व्हावे लागते ज्यात आपण आपल्या योगदानाचा वापर करण्याचा अधिकार देत असल्याची घोषणा करता. तपशीलांसाठी भेट द्या <https://cla.opensource.microsoft.com>.
+हा प्रकल्प योगदान आणि सूचना स्वीकारतो. बहुतेक योगदानांसाठी आपल्याला Contributor License Agreement (CLA) सहमत व्हावे लागते ज्यात आपण आपल्या योगदानाचा वापर करण्याचा अधिकार देत असल्याची घोषणा करता. तपशीलांसाठी भेट द्या <https://cla.opensource.microsoft.com>.
 
 जेव्हा आपण पुल विनंती सादर करता, तेव्हा CLA बॉट आपल्याला CLA प्रदान करणे आवश्यक आहे का हे आपोआप ठरवेल आणि PR योग्यरित्या सजवेल (उदा., स्थिती तपासणी, टिप्पणी). फक्त बॉटने दिलेल्या सूचनांचे पालन करा. आपल्याला आमच्या CLA वापरणाऱ्या सर्व रेपॉजिटरीजमध्ये हे एकदाच करावे लागेल.
 
-या प्रकल्पाने [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) स्वीकारले आहे.
+हा प्रकल्प [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) स्वीकारतो.
 अधिक माहितीसाठी [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) पहा किंवा कोणत्याही अतिरिक्त प्रश्नांसाठी किंवा टिप्पण्यांसाठी [opencode@microsoft.com](mailto:opencode@microsoft.com) शी संपर्क करा.
 
 ## ट्रेडमार्क
 
 हा प्रकल्प प्रकल्प, उत्पादने किंवा सेवा यांचे ट्रेडमार्क किंवा लोगो असू शकतो. Microsoft ट्रेडमार्क किंवा लोगोचा अधिकृत वापर [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) च्या अधीन आहे आणि त्यांचे पालन करणे आवश्यक आहे.
 या प्रकल्पाच्या सुधारित आवृत्त्यांमध्ये Microsoft ट्रेडमार्क किंवा लोगोचा वापर गोंधळ निर्माण करू नये किंवा Microsoft प्रायोजकत्व सूचित करू नये.
-तृतीय पक्ष ट्रेडमार्क किंवा लोगोचा कोणताही वापर त्या तृतीय पक्षांच्या धोरणांनुसार असतो.
+तृतीय-पक्ष ट्रेडमार्क किंवा लोगोचा कोणताही वापर त्या तृतीय-पक्षांच्या धोरणांनुसार असतो.
 
 ## मदत मिळवा
 

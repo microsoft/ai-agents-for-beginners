@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:56:36+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:27:26+00:00",
   "source_file": "README.md",
   "language_code": "id"
 }
@@ -27,7 +27,7 @@ CO_OP_TRANSLATOR_METADATA:
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](./README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**Jika Anda ingin mendukung bahasa terjemahan tambahan, daftar bahasa yang didukung tersedia [di sini](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**Jika Anda ingin mendukung bahasa terjemahan tambahan, bahasa yang didukung tercantum [di sini](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
 [![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
@@ -40,7 +40,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Kursus ini memiliki pelajaran yang mencakup dasar-dasar membangun Agen AI. Setiap pelajaran membahas topik tersendiri jadi mulailah dari mana saja yang Anda suka!
 
-Ada dukungan multi-bahasa untuk kursus ini. Kunjungi [bahasa yang tersedia di sini](../..).
+Ada dukungan multi-bahasa untuk kursus ini. Pergi ke [bahasa yang tersedia di sini](../..).
 
 Jika ini adalah pertama kalinya Anda membangun dengan model Generative AI, lihat kursus kami [Generative AI For Beginners](https://aka.ms/genai-beginners), yang mencakup 21 pelajaran tentang membangun dengan GenAI.
 
@@ -54,7 +54,7 @@ Jika Anda mengalami kesulitan atau memiliki pertanyaan tentang membangun Agen AI
 
 Setiap pelajaran dalam kursus ini menyertakan contoh kode, yang dapat ditemukan di folder code_samples. Anda dapat [fork repo ini](https://github.com/microsoft/ai-agents-for-beginners/fork) untuk membuat salinan Anda sendiri.
 
-Contoh kode dalam latihan ini menggunakan Azure AI Foundry dan GitHub Model Catalogs untuk berinteraksi dengan Model Bahasa:
+Contoh kode dalam latihan ini menggunakan Azure AI Foundry dan Katalog Model GitHub untuk berinteraksi dengan Model Bahasa:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Gratis / Terbatas
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Memerlukan Akun Azure
@@ -67,7 +67,7 @@ Kursus ini juga menggunakan kerangka kerja dan layanan Agen AI berikut dari Micr
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-Untuk informasi lebih lanjut tentang menjalankan kode untuk kursus ini, kunjungi [Course Setup](./00-course-setup/README.md).
+Untuk informasi lebih lanjut tentang menjalankan kode untuk kursus ini, pergi ke [Pengaturan Kursus](./00-course-setup/README.md).
 
 ## 🙏 Ingin membantu?
 
@@ -78,7 +78,7 @@ Apakah Anda memiliki saran atau menemukan kesalahan ejaan atau kode? [Buat isu](
 ## 📂 Setiap pelajaran mencakup
 
 - Pelajaran tertulis yang terletak di README dan video singkat
-- Contoh kode Python yang mendukung Azure AI Foundry dan Github Models (Gratis)
+- Contoh kode Python yang mendukung Azure AI Foundry dan Model Github (Gratis)
 - Tautan ke sumber daya tambahan untuk melanjutkan pembelajaran Anda
 
 
@@ -189,5 +189,5 @@ Jika Anda memiliki umpan balik produk atau kesalahan saat membangun kunjungi:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berusaha untuk akurasi, harap diingat bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sah. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang salah yang timbul dari penggunaan terjemahan ini.
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diingat bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sahih. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

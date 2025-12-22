@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:49:13+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:20:08+00:00",
   "source_file": "README.md",
   "language_code": "sv"
 }
@@ -16,10 +16,10 @@ CO_OP_TRANSLATOR_METADATA:
 [![GitHub-licens](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
 [![GitHub-bidragsgivare](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
 [![GitHub-ärenden](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub-pull-förfrågningar](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![GitHub pull-förfrågningar](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
 [![PRs Välkomna](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
-### 🌐 Flerspråkigt stöd
+### 🌐 Fler språkstöd
 
 #### Stöds via GitHub Action (Automatiserat & Alltid Uppdaterat)
 
@@ -29,9 +29,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 **Om du vill ha ytterligare översättningsspråk stöds de som listas [här](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
-[![GitHub-tittare](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub-forkar](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub-stjärnor](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub bevakare](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![GitHub stjärnor](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -48,7 +48,7 @@ Glöm inte att [stjärnmärka (🌟) detta repo](https://docs.github.com/en/get-
 
 ### Träffa andra elever, få dina frågor besvarade
 
-Om du fastnar eller har några frågor om att bygga AI-agenter, gå med i vår dedikerade Discord-kanal i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+Om du fastnar eller har frågor om att bygga AI-agenter, gå med i vår dedikerade Discord-kanal i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
 ### Vad du behöver
 
@@ -67,7 +67,7 @@ Denna kurs använder också följande AI-agentramverk och tjänster från Micros
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-För mer information om hur du kör koden för denna kurs, gå till [Kursinställning](./00-course-setup/README.md).
+För mer information om att köra koden för denna kurs, gå till [Kursinställning](./00-course-setup/README.md).
 
 ## 🙏 Vill du hjälpa till?
 
@@ -77,14 +77,14 @@ Har du förslag eller hittat stavfel eller kodfel? [Skapa ett ärende](https://g
 
 ## 📂 Varje lektion innehåller
 
-- En skriftlig lektion som finns i README och en kort video
+- En skriftlig lektion i README och en kort video
 - Python-kodexempel som stöder Azure AI Foundry och Github Models (Gratis)
 - Länkar till extra resurser för att fortsätta ditt lärande
 
 
 ## 🗃️ Lektioner
 
-| **Lektion**                                   | **Text & Kod**                                    | **Video**                                                  | **Extra Lärande**                                                                     |
+| **Lektion**                                   | **Text & Kod**                                    | **Video**                                                  | **Extra lärande**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | Introduktion till AI-agenter och agentanvändningsfall       | [Länk](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Länk](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Utforska AI-agentramverk              | [Länk](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Länk](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -95,11 +95,11 @@ Har du förslag eller hittat stavfel eller kodfel? [Skapa ett ärende](https://g
 | Planeringsdesignmönster                      | [Länk](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Länk](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Multi-agentdesignmönster                   | [Länk](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Länk](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Metakognitionsdesignmönster                 | [Länk](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Länk](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI-agenter i produktion                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Använda agentiska protokoll (MCP, A2A och NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Kontextteknik för AI-agenter            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Hantera agentiskt minne                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| Utforska Microsoft Agent Framework                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| AI-agenter i produktion                      | [Länk](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Länk](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Använda agentiska protokoll (MCP, A2A och NLWeb) | [Länk](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Länk](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Kontextteknik för AI-agenter            | [Länk](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Länk](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Hantera agentiskt minne                      | [Länk](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| Utforska Microsoft Agent Framework                         | [Länk](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
 | Bygga datoranvändaragenter (CUA)           | Kommer snart                            |                                                            |                                                                                        |
 | Distribuera skalbara agenter                    | Kommer snart                            |                                                            |                                                                                        |
 | Skapa lokala AI-agenter                     | Kommer snart                               |                                                            |                                                                                        |
@@ -149,7 +149,7 @@ Vårt team producerar andra kurser! Kolla in:
 [![Copilot-äventyr](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
-## 🌟 Tack från communityn
+## 🌟 Tack till communityn
 
 Tack till [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) för att ha bidragit med viktiga kodexempel som demonstrerar Agentic RAG.
 

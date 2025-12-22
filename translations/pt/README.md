@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:39:32+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:10:38+00:00",
   "source_file": "README.md",
   "language_code": "pt"
 }
@@ -48,7 +48,7 @@ Não se esqueça de [favoritar (🌟) este repositório](https://docs.github.com
 
 ### Conheça Outros Aprendizes, Tire as Suas Dúvidas
 
-Se ficar bloqueado ou tiver alguma dúvida sobre a construção de Agentes de IA, junte-se ao nosso Canal dedicado no Discord no [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+Se ficar bloqueado ou tiver alguma dúvida sobre a construção de Agentes de IA, junte-se ao nosso canal dedicado no Discord no [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
 ### O Que Precisa
 
@@ -59,7 +59,7 @@ O exemplo de código nestes exercícios utiliza Azure AI Foundry e Catálogos de
 - [Modelos do Github](https://aka.ms/ai-agents-beginners/github-models) - Gratuito / Limitado
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Conta Azure Necessária
 
-Este curso também usa os seguintes frameworks e serviços de Agentes de IA da Microsoft:
+Este curso também utiliza os seguintes frameworks e serviços de Agentes de IA da Microsoft:
 
 - [Microsoft Agent Framework (MAF) - Novo!](https://aka.ms/ai-agents-beginners/agent-framewrok)
 - [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
@@ -71,7 +71,7 @@ Para mais informações sobre como executar o código deste curso, vá para a [C
 
 ## 🙏 Quer ajudar?
 
-Tem sugestões ou encontrou erros de ortografia ou código? [Abra uma issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) ou [Crie um pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Tem sugestões ou encontrou erros ortográficos ou de código? [Abra uma issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) ou [Crie um pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -84,17 +84,17 @@ Tem sugestões ou encontrou erros de ortografia ou código? [Abra uma issue](htt
 
 ## 🗃️ Lições
 
-| **Lição**                                   | **Texto & Código**                                    | **Vídeo**                                                  | **Aprendizagem Extra**                                                                     |
+| **Lição**                                    | **Texto & Código**                                  | **Vídeo**                                                  | **Aprendizagem Extra**                                                                |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Introdução a Agentes de IA e Casos de Uso de Agentes       | [Link](./01-intro-to-ai-agents/README.md)          | [Vídeo](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Explorar Frameworks Agentes de IA              | [Link](./02-explore-agentic-frameworks/README.md)  | [Vídeo](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Compreender Padrões de Design de Agentes de IA     | [Link](./03-agentic-design-patterns/README.md)     | [Vídeo](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Padrão de Design de Uso de Ferramentas                      | [Link](./04-tool-use/README.md)                    | [Vídeo](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| RAG Agente de IA                                  | [Link](./05-agentic-rag/README.md)                 | [Vídeo](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Construir Agentes de IA Confiáveis               | [Link](./06-building-trustworthy-agents/README.md) | [Vídeo](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Padrão de Design de Planeamento                      | [Link](./07-planning-design/README.md)             | [Vídeo](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Padrão de Design Multi-Agente                   | [Link](./08-multi-agent/README.md)                 | [Vídeo](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Padrão de Design de Metacognição                 | [Link](./09-metacognition/README.md)               | [Vídeo](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Introdução a Agentes de IA e Casos de Uso    | [Link](./01-intro-to-ai-agents/README.md)          | [Vídeo](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Explorar Frameworks Agentes de IA             | [Link](./02-explore-agentic-frameworks/README.md)  | [Vídeo](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Compreender Padrões de Design de Agentes de IA | [Link](./03-agentic-design-patterns/README.md)     | [Vídeo](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Padrão de Design de Uso de Ferramentas       | [Link](./04-tool-use/README.md)                    | [Vídeo](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| RAG Agente                                     | [Link](./05-agentic-rag/README.md)                 | [Vídeo](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Construir Agentes de IA Confiáveis            | [Link](./06-building-trustworthy-agents/README.md) | [Vídeo](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Padrão de Design de Planeamento                | [Link](./07-planning-design/README.md)             | [Vídeo](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Padrão de Design Multi-Agente                  | [Link](./08-multi-agent/README.md)                 | [Vídeo](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Padrão de Design de Metacognição               | [Link](./09-metacognition/README.md)               | [Vídeo](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentes de IA em Produção                      | [Link](./10-ai-agents-production/README.md)        | [Vídeo](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Utilização de Protocolos Agentes (MCP, A2A e NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Vídeo](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Engenharia de Contexto para Agentes de IA            | [Link](./12-context-engineering/README.md)         | [Vídeo](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -156,8 +156,8 @@ Obrigado a [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) por contribui
 ## Contribuir
 
 Este projeto aceita contribuições e sugestões. A maioria das contribuições requer que concorde com um
-Acordo de Licença de Contribuidor (CLA) declarando que tem o direito e efetivamente concede-nos
-os direitos para usar a sua contribuição. Para detalhes, visite <https://cla.opensource.microsoft.com>.
+Acordo de Licença de Contribuidor (CLA) declarando que tem o direito, e de facto concede,
+os direitos para usarmos a sua contribuição. Para detalhes, visite <https://cla.opensource.microsoft.com>.
 
 Quando submeter um pull request, um bot CLA determinará automaticamente se precisa fornecer
 um CLA e decorará o PR adequadamente (por exemplo, verificação de estado, comentário). Basta seguir as instruções
@@ -167,9 +167,9 @@ Este projeto adotou o [Código de Conduta de Código Aberto da Microsoft](https:
 Para mais informações veja as [FAQ do Código de Conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou
 contacte [opencode@microsoft.com](mailto:opencode@microsoft.com) para quaisquer perguntas ou comentários adicionais.
 
-## Marcas Comerciais
+## Marcas Registadas
 
-Este projeto pode conter marcas comerciais ou logótipos de projetos, produtos ou serviços. O uso autorizado das marcas
+Este projeto pode conter marcas registadas ou logótipos de projetos, produtos ou serviços. O uso autorizado das marcas
 ou logótipos da Microsoft está sujeito e deve seguir
 [Diretrizes de Marcas e Marca da Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 O uso de marcas ou logótipos da Microsoft em versões modificadas deste projeto não deve causar confusão nem implicar patrocínio da Microsoft.
@@ -177,7 +177,7 @@ Qualquer uso de marcas ou logótipos de terceiros está sujeito às políticas d
 
 ## Obter Ajuda
 
-Se ficar bloqueado ou tiver alguma dúvida sobre como construir aplicações de IA, junte-se a:
+Se ficar bloqueado ou tiver dúvidas sobre como construir aplicações de IA, junte-se a:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 

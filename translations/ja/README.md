@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T08:30:43+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:01:28+00:00",
   "source_file": "README.md",
   "language_code": "ja"
 }
@@ -13,15 +13,15 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## AIエージェント構築を始めるために必要なすべてを教えるコース
 
-[![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![GitHub issues](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
+[![GitHub ライセンス](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
+[![GitHub コントリビューター](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![GitHub イシュー](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![GitHub プルリクエスト](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![PR歓迎](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
 ### 🌐 多言語対応
 
-#### GitHub Actionによるサポート（自動化＆常に最新）
+#### GitHub Actionsによるサポート（自動かつ常に最新）
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [アラビア語](../ar/README.md) | [ベンガル語](../bn/README.md) | [ブルガリア語](../bg/README.md) | [ビルマ語（ミャンマー）](../my/README.md) | [中国語（簡体字）](../zh/README.md) | [中国語（繁体字、香港）](../hk/README.md) | [中国語（繁体字、マカオ）](../mo/README.md) | [中国語（繁体字、台湾）](../tw/README.md) | [クロアチア語](../hr/README.md) | [チェコ語](../cs/README.md) | [デンマーク語](../da/README.md) | [オランダ語](../nl/README.md) | [エストニア語](../et/README.md) | [フィンランド語](../fi/README.md) | [フランス語](../fr/README.md) | [ドイツ語](../de/README.md) | [ギリシャ語](../el/README.md) | [ヘブライ語](../he/README.md) | [ヒンディー語](../hi/README.md) | [ハンガリー語](../hu/README.md) | [インドネシア語](../id/README.md) | [イタリア語](../it/README.md) | [日本語](./README.md) | [カンナダ語](../kn/README.md) | [韓国語](../ko/README.md) | [リトアニア語](../lt/README.md) | [マレー語](../ms/README.md) | [マラヤーラム語](../ml/README.md) | [マラーティー語](../mr/README.md) | [ネパール語](../ne/README.md) | [ナイジェリア・ピジン語](../pcm/README.md) | [ノルウェー語](../no/README.md) | [ペルシャ語（ファルシ）](../fa/README.md) | [ポーランド語](../pl/README.md) | [ポルトガル語（ブラジル）](../br/README.md) | [ポルトガル語（ポルトガル）](../pt/README.md) | [パンジャブ語（グルムキー）](../pa/README.md) | [ルーマニア語](../ro/README.md) | [ロシア語](../ru/README.md) | [セルビア語（キリル）](../sr/README.md) | [スロバキア語](../sk/README.md) | [スロベニア語](../sl/README.md) | [スペイン語](../es/README.md) | [スワヒリ語](../sw/README.md) | [スウェーデン語](../sv/README.md) | [タガログ語（フィリピン）](../tl/README.md) | [タミル語](../ta/README.md) | [テルグ語](../te/README.md) | [タイ語](../th/README.md) | [トルコ語](../tr/README.md) | [ウクライナ語](../uk/README.md) | [ウルドゥー語](../ur/README.md) | [ベトナム語](../vi/README.md)
@@ -29,9 +29,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 **追加の翻訳言語をご希望の場合は、[こちら](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)をご覧ください**
 
-[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub ウォッチャー](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub フォーク](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![GitHub スター](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -44,19 +44,19 @@ CO_OP_TRANSLATOR_METADATA:
 
 生成AIモデルでの開発が初めての方は、21のレッスンでGenAIの構築を学べる[初心者向け生成AIコース](https://aka.ms/genai-beginners)もご覧ください。
 
-このリポジトリを[スター（🌟）](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst)し、[フォーク](https://github.com/microsoft/ai-agents-for-beginners/fork)してコードを実行するのを忘れないでください。
+このリポジトリに[スター（🌟）を付ける](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst)ことと、[フォークして](https://github.com/microsoft/ai-agents-for-beginners/fork)コードを実行することをお忘れなく。
 
 ### 他の学習者と交流し、質問に答えてもらう
 
-AIエージェントの構築で困ったり質問があれば、[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)内の専用Discordチャンネルに参加してください。
+AIエージェントの構築で困ったり質問がある場合は、[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)内の専用Discordチャンネルに参加してください。
 
 ### 必要なもの
 
 このコースの各レッスンにはコード例が含まれており、code_samplesフォルダーにあります。自分のコピーを作成するには[このリポジトリをフォーク](https://github.com/microsoft/ai-agents-for-beginners/fork)してください。
 
-これらの演習のコード例は、Azure AI FoundryとGitHubモデルカタログを利用して言語モデルとやり取りします：
+これらの演習のコード例は、Azure AI FoundryとGitHubモデルカタログを利用して言語モデルと対話します：
 
-- [GitHubモデル](https://aka.ms/ai-agents-beginners/github-models) - 無料／制限あり
+- [GitHubモデル](https://aka.ms/ai-agents-beginners/github-models) - 無料 / 制限あり
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azureアカウントが必要
 
 また、このコースではMicrosoftの以下のAIエージェントフレームワークとサービスを使用しています：
@@ -68,9 +68,9 @@ AIエージェントの構築で困ったり質問があれば、[Microsoft Foun
 
 このコースのコード実行に関する詳細は[コースセットアップ](./00-course-setup/README.md)をご覧ください。
 
-## 🙏 ご協力ください
+## 🙏 ご協力いただけますか？
 
-提案やスペルミス、コードの誤りを見つけた場合は、[Issueを投稿](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst)するか、[プルリクエストを作成](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)してください。
+提案やスペルミス、コードの誤りを見つけた場合は、[イシューを立てる](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst)か[プルリクエストを作成](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)してください。
 
 
 
@@ -99,10 +99,10 @@ AIエージェントの構築で困ったり質問があれば、[Microsoft Foun
 | AIエージェントのためのコンテキストエンジニアリング            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | エージェンシックメモリの管理                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Microsoft Agent Frameworkの探求                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| コンピュータ使用エージェント（CUA）の構築           | 近日公開予定                            |                                                            |                                                                                        |
-| スケーラブルエージェントの展開                    | 近日公開予定                            |                                                            |                                                                                        |
-| ローカルAIエージェントの作成                     | 近日公開予定                               |                                                            |                                                                                        |
-| AIエージェントのセキュリティ                           | 近日公開予定                               |                                                            |                                                                                        |
+| コンピュータ使用エージェント（CUA）の構築           | 近日公開                            |                                                            |                                                                                        |
+| スケーラブルエージェントの展開                    | 近日公開                            |                                                            |                                                                                        |
+| ローカルAIエージェントの作成                     | 近日公開                               |                                                            |                                                                                        |
+| AIエージェントのセキュリティ                           | 近日公開                               |                                                            |                                                                                        |
 
 ## 🎒 その他のコース
 
@@ -167,7 +167,7 @@ Contributor License Agreement (CLA)への同意が必要です。詳細は<https
 
 このプロジェクトにはプロジェクト、製品、サービスの商標やロゴが含まれている場合があります。Microsoftの商標やロゴの正当な使用は
 [Microsoftの商標およびブランドガイドライン](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general)に従う必要があります。
-本プロジェクトの修正バージョンでMicrosoftの商標やロゴを使用する場合、混乱を招いたりMicrosoftの後援を示唆したりしてはなりません。
+本プロジェクトの修正版でMicrosoftの商標やロゴを使用する場合、混乱を招いたりMicrosoftの後援を示唆したりしてはなりません。
 第三者の商標やロゴの使用は、それら第三者のポリシーに従います。
 
 ## ヘルプを得るには
@@ -176,7 +176,7 @@ AIアプリの構築で行き詰まったり質問がある場合は、以下に
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-製品のフィードバックや構築中のエラーについては、以下をご利用ください：
+製品のフィードバックや構築中のエラーについては以下をご利用ください：
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
@@ -184,5 +184,5 @@ AIアプリの構築で行き詰まったり質問がある場合は、以下に
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **免責事項**：  
-本書類はAI翻訳サービス「Co-op Translator」（https://github.com/Azure/co-op-translator）を使用して翻訳されました。正確性の向上に努めておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があります。原文の言語による文書が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や誤訳についても、当方は責任を負いかねます。
+本書類はAI翻訳サービス「Co-op Translator」（https://github.com/Azure/co-op-translator）を使用して翻訳されました。正確性の向上に努めておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があります。原文の言語による文書が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じた誤解や誤訳について、当方は一切の責任を負いかねます。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

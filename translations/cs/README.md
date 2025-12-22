@@ -1,13 +1,13 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T09:03:03+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:34:24+00:00",
   "source_file": "README.md",
   "language_code": "cs"
 }
 -->
-# AI Agenti pro Začátečníky - Kurz
+# AI Agenti pro začátečníky - Kurz
 
 ![Generative AI For Beginners](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.cs.png)
 
@@ -42,7 +42,7 @@ Tento kurz obsahuje lekce pokrývající základy vytváření AI Agentů. Každ
 
 Kurz podporuje více jazyků. Podívejte se na naše [dostupné jazyky zde](../..).
 
-Pokud je to váš první kontakt s vytvářením pomocí generativních AI modelů, podívejte se na náš kurz [Generative AI For Beginners](https://aka.ms/genai-beginners), který obsahuje 21 lekcí o práci s GenAI.
+Pokud je to poprvé, co pracujete s generativními AI modely, podívejte se na náš kurz [Generative AI For Beginners](https://aka.ms/genai-beginners), který obsahuje 21 lekcí o práci s GenAI.
 
 Nezapomeňte [označit tento repozitář hvězdičkou (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) a [forknout tento repozitář](https://github.com/microsoft/ai-agents-for-beginners/fork), abyste mohli spustit kód.
 
@@ -52,9 +52,9 @@ Pokud narazíte na problém nebo máte otázky ohledně vytváření AI Agentů,
 
 ### Co potřebujete
 
-Každá lekce v tomto kurzu obsahuje příklady kódu, které najdete ve složce code_samples. Můžete si [forknout tento repozitář](https://github.com/microsoft/ai-agents-for-beginners/fork) a vytvořit si tak vlastní kopii.
+Každá lekce v tomto kurzu obsahuje příklady kódu, které najdete ve složce code_samples. Můžete si [forknout tento repozitář](https://github.com/microsoft/ai-agents-for-beginners/fork) a vytvořit si vlastní kopii.
 
-Příklady kódu v těchto cvičeních využívají Azure AI Foundry a GitHub Model Catalogs pro interakci s jazykovými modely:
+Příklad kódu v těchto cvičeních využívá Azure AI Foundry a GitHub Model Catalogs pro interakci s jazykovými modely:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Zdarma / Omezené
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Vyžaduje účet Azure
@@ -71,7 +71,7 @@ Pro více informací o spuštění kódu pro tento kurz přejděte na [Course Se
 
 ## 🙏 Chcete pomoci?
 
-Máte návrhy nebo jste našli chyby v pravopisu či kódu? [Vytvořte issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) nebo [vytvořte pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Máte návrhy nebo jste našli chyby v pravopisu či kódu? [Nahlaste problém](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) nebo [vytvořte pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -88,13 +88,13 @@ Máte návrhy nebo jste našli chyby v pravopisu či kódu? [Vytvořte issue](ht
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | Úvod do AI Agentů a případů použití agentů   | [Odkaz](./01-intro-to-ai-agents/README.md)         | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Prozkoumání AI agentních frameworků          | [Odkaz](./02-explore-agentic-frameworks/README.md) | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Pochopení AI agentních návrhových vzorů      | [Odkaz](./03-agentic-design-patterns/README.md)    | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Návrhový vzor používání nástrojů              | [Odkaz](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentní RAG                                   | [Odkaz](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Vytváření důvěryhodných AI Agentů             | [Odkaz](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Návrhový vzor plánování                        | [Odkaz](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Návrhový vzor multi-agentů                     | [Odkaz](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Návrhový vzor metakognice                      | [Odkaz](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pochopení AI agentních návrhových vzorů       | [Odkaz](./03-agentic-design-patterns/README.md)    | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Návrhový vzor používání nástrojů              | [Odkaz](./04-tool-use/README.md)                   | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agentní RAG                                   | [Odkaz](./05-agentic-rag/README.md)                | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Budování důvěryhodných AI Agentů              | [Odkaz](./06-building-trustworthy-agents/README.md)| [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Návrhový vzor plánování                        | [Odkaz](./07-planning-design/README.md)            | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Návrhový vzor multi-agentů                     | [Odkaz](./08-multi-agent/README.md)                | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Návrhový vzor metakognice                      | [Odkaz](./09-metacognition/README.md)              | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI agenti v produkci                      | [Odkaz](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Používání agentních protokolů (MCP, A2A a NLWeb) | [Odkaz](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Kontextové inženýrství pro AI agenty            | [Odkaz](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -188,5 +188,5 @@ Pokud máte zpětnou vazbu k produktu nebo chyby při vývoji, navštivte:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Prohlášení o vyloučení odpovědnosti**:  
-Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoliv nedorozumění nebo nesprávné výklady vyplývající z použití tohoto překladu.
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo nesprávné výklady vyplývající z použití tohoto překladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T09:15:57+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:46:29+00:00",
   "source_file": "README.md",
   "language_code": "lt"
 }
@@ -44,7 +44,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Jei tai jūsų pirmas kartas, kai dirbate su generatyviaisiais AI modeliais, peržiūrėkite mūsų [Generatyvioji AI pradedantiesiems](https://aka.ms/genai-beginners) kursą, kuriame yra 21 pamoka apie darbą su GenAI.
 
-Nepamirškite [pažymėti (🌟) šį repozitoriją](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ir [padaryti šaką (fork)](https://github.com/microsoft/ai-agents-for-beginners/fork), kad galėtumėte paleisti kodą.
+Nepamirškite [pažymėti (🌟) šį repozitoriją](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ir [padaryti šaką (fork) šiam repozitorijui](https://github.com/microsoft/ai-agents-for-beginners/fork), kad galėtumėte paleisti kodą.
 
 ### Susipažinkite su kitais besimokančiais, gaukite atsakymus į savo klausimus
 
@@ -52,9 +52,9 @@ Jei užstrigote arba turite klausimų apie AI agentų kūrimą, prisijunkite pri
 
 ### Ko jums reikia
 
-Kiekvienoje šio kurso pamokoje yra kodo pavyzdžių, kuriuos rasite code_samples aplanke. Galite [padaryti šaką (fork) šio repozitorija](https://github.com/microsoft/ai-agents-for-beginners/fork), kad sukurtumėte savo kopiją.
+Kiekviena šio kurso pamoka apima kodo pavyzdžius, kuriuos rasite code_samples aplanke. Galite [padaryti šaką (fork) šiam repozitorijui](https://github.com/microsoft/ai-agents-for-beginners/fork), kad sukurtumėte savo kopiją.
 
-Šių pratimų kodo pavyzdžiai naudoja Azure AI Foundry ir GitHub modelių katalogus, skirtus sąveikai su kalbos modeliais:
+Šių pratimų kodo pavyzdžiai naudoja Azure AI Foundry ir GitHub modelių katalogus darbui su kalbos modeliais:
 
 - [Github modeliai](https://aka.ms/ai-agents-beginners/github-models) – nemokama / ribota
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) – reikalinga Azure paskyra
@@ -70,7 +70,7 @@ Daugiau informacijos apie kodo paleidimą šiame kurse rasite [Kurso nustatymuos
 
 ## 🙏 Norite padėti?
 
-Ar turite pasiūlymų arba radote rašybos ar kodo klaidų? [Praneškite apie problemą](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) arba [sukurkite pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Ar turite pasiūlymų arba radote rašybos ar kodo klaidų? [Praneškite apie problemą](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) arba [sukurkite pull užklausą](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -93,7 +93,7 @@ Ar turite pasiūlymų arba radote rašybos ar kodo klaidų? [Praneškite apie pr
 | Patikimų AI agentų kūrimas                     | [Nuoroda](./06-building-trustworthy-agents/README.md) | [Vaizdo įrašas](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Planavimo dizaino šablonas                      | [Nuoroda](./07-planning-design/README.md)           | [Vaizdo įrašas](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Daugiagentinis dizaino šablonas                 | [Nuoroda](./08-multi-agent/README.md)               | [Vaizdo įrašas](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Metakognicijos dizaino šablonas                  | [Nuoroda](./09-metacognition/README.md)             | [Vaizdo įrašas](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Metakognityvinis dizaino šablonas               | [Nuoroda](./09-metacognition/README.md)             | [Vaizdo įrašas](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Nuoroda](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI agentai gamyboje                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agentinių protokolų naudojimas (MCP, A2A ir NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Konteksto inžinerija AI agentams            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
@@ -150,29 +150,29 @@ Mūsų komanda kuria ir kitus kursus! Pažiūrėkite:
 
 ## 🌟 Bendruomenės padėka
 
-Dėkojame [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) už svarbių kodo pavyzdžių pateikimą, demonstruojančių agentinį RAG.
+Dėkojame [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) už svarbių kodo pavyzdžių pateikimą, demonstruojant Agentic RAG.
 
 ## Dalyvavimas
 
-Šis projektas kviečia prisidėti ir teikti pasiūlymus. Dauguma prisidėjimų reikalauja, kad sutiktumėte su
-Prisidėjimo licencijos sutartimi (CLA), kurioje deklaruojate, kad turite teisę ir iš tikrųjų suteikiate mums
-teisę naudoti jūsų prisidėjimą. Daugiau informacijos rasite <https://cla.opensource.microsoft.com>.
+Šis projektas kviečia prisidėti ir teikti pasiūlymus. Dauguma indėlių reikalauja, kad sutiktumėte su
+Indėlio licencijos sutartimi (CLA), kurioje deklaruojate, kad turite teisę ir iš tikrųjų suteikiate mums
+teisę naudoti jūsų indėlį. Daugiau informacijos rasite <https://cla.opensource.microsoft.com>.
 
 Kai pateikiate pull request, CLA robotas automatiškai nustatys, ar jums reikia pateikti
-CLA ir tinkamai pažymės PR (pvz., statuso patikrinimas, komentaras). Tiesiog vykdykite roboto nurodymus.
+CLA ir tinkamai pažymės PR (pvz., būsenos patikrinimas, komentaras). Tiesiog vykdykite roboto nurodymus.
 Tai reikės padaryti tik vieną kartą visuose repozitorijuose, naudojančiuose mūsų CLA.
 
 Šis projektas priėmė [Microsoft atvirojo kodo elgesio kodeksą](https://opensource.microsoft.com/codeofconduct/).
 Daugiau informacijos rasite [Elgesio kodekso DUK](https://opensource.microsoft.com/codeofconduct/faq/) arba
-kreipkitės el. paštu [opencode@microsoft.com](mailto:opencode@microsoft.com) dėl papildomų klausimų ar komentarų.
+kreipkitės el. paštu [opencode@microsoft.com](mailto:opencode@microsoft.com) su papildomais klausimais ar komentarais.
 
 ## Prekių ženklai
 
-Šiame projekte gali būti prekių ženklų ar logotipų, skirtų projektams, produktams ar paslaugoms. Leidžiamas Microsoft
-prekių ženklų ar logotipų naudojimas yra reglamentuojamas ir turi atitikti
+Šiame projekte gali būti prekių ženklų ar logotipų, susijusių su projektais, produktais ar paslaugomis.
+Leidžiamas Microsoft prekių ženklų ar logotipų naudojimas yra reglamentuojamas ir turi atitikti
 [Microsoft prekių ženklų ir prekės ženklo gairių](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general) reikalavimus.
-Microsoft prekių ženklų ar logotipų naudojimas modifikuotose šio projekto versijose neturi sukelti painiavos ar reikšti Microsoft rėmimą.
-Trečiųjų šalių prekių ženklų ar logotipų naudojimas yra reglamentuojamas tų trečiųjų šalių politikos.
+Microsoft prekių ženklų ar logotipų naudojimas modifikuotose šio projekto versijose neturi sukelti painiavos ar rodyti Microsoft rėmimą.
+Trečiųjų šalių prekių ženklų ar logotipų naudojimas yra reglamentuojamas tų trečiųjų šalių politikomis.
 
 ## Pagalbos gavimas
 
@@ -180,13 +180,13 @@ Jei užstrigote arba turite klausimų apie AI programų kūrimą, prisijunkite p
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Jei turite produkto atsiliepimų ar klaidų kūrimo metu, apsilankykite:
+Jei turite produkto atsiliepimų ar klaidų, susijusių su kūrimu, apsilankykite:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Atsakomybės apribojimas**:
+**Atsakomybės apribojimas**:  
 Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojamas profesionalus žmogaus vertimas. Mes neatsakome už bet kokius nesusipratimus ar neteisingus aiškinimus, kilusius dėl šio vertimo naudojimo.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

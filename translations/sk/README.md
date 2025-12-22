@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f3b7d49f960b1ab3619bd228a048d7aa",
-  "translation_date": "2025-12-19T09:04:05+00:00",
+  "original_hash": "beb4efaea62e71b95322f392d1a11812",
+  "translation_date": "2025-12-19T10:35:35+00:00",
   "source_file": "README.md",
   "language_code": "sk"
 }
@@ -15,9 +15,9 @@ CO_OP_TRANSLATOR_METADATA:
 
 [![GitHub licencia](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
 [![GitHub prispievatelia](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![GitHub issues](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![GitHub problémy](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
+[![PRs Vitajte](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
 ### 🌐 Podpora viacerých jazykov
 
@@ -67,7 +67,7 @@ Tento kurz tiež používa nasledujúce AI Agent frameworky a služby od Microso
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-Pre viac informácií o spustení kódu pre tento kurz choďte na [Nastavenie kurzu](./00-course-setup/README.md).
+Pre viac informácií o spustení kódu pre tento kurz prejdite na [Nastavenie kurzu](./00-course-setup/README.md).
 
 ## 🙏 Chcete pomôcť?
 
@@ -100,10 +100,10 @@ Máte návrhy alebo ste našli chyby v pravopise či kóde? [Vytvorte issue](htt
 | Kontextové inžinierstvo pre AI agentov            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Správa agentnej pamäte                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Preskúmanie Microsoft Agent Framework                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Tvorba agentov pre používanie počítača (CUA)           | Čoskoro dostupné                            |                                                            |                                                                                        |
-| Nasadzovanie škálovateľných agentov                    | Čoskoro dostupné                            |                                                            |                                                                                        |
-| Vytváranie lokálnych AI agentov                     | Čoskoro dostupné                               |                                                            |                                                                                        |
-| Zabezpečenie AI agentov                           | Čoskoro dostupné                               |                                                            |                                                                                        |
+| Tvorba agentov pre používanie počítača (CUA)           | Čoskoro k dispozícii                            |                                                            |                                                                                        |
+| Nasadzovanie škálovateľných agentov                    | Čoskoro k dispozícii                            |                                                            |                                                                                        |
+| Vytváranie lokálnych AI agentov                     | Čoskoro k dispozícii                               |                                                            |                                                                                        |
+| Zabezpečenie AI agentov                           | Čoskoro k dispozícii                               |                                                            |                                                                                        |
 
 ## 🎒 Iné kurzy
 
@@ -189,5 +189,5 @@ Ak máte spätnú väzbu k produktu alebo chyby počas vývoja, navštívte:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Zrieknutie sa zodpovednosti**:
-Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Aj keď sa snažíme o presnosť, prosím, majte na pamäti, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za akékoľvek nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Aj keď sa snažíme o presnosť, majte prosím na pamäti, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho rodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za akékoľvek nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
