@@ -1,6 +1,7 @@
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Extensions.AI.OpenAI@10.*-*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
 
 using System.ClientModel;
@@ -91,6 +92,7 @@ Always prioritize user preferences. If they mention a specific destination like 
 // This demonstrates the .NET agent creation pattern with full configuration
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
+    .AsIChatClient()
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
