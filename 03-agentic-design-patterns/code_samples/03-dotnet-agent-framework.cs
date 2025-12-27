@@ -11,15 +11,20 @@ using Microsoft.Extensions.AI;
 
 using OpenAI;
 
+// ============================================================================
+// AGENTIC DESIGN PRINCIPLES DEMONSTRATION
+// ============================================================================
+// This sample demonstrates the three key design principles from the lesson:
+// 1. TRANSPARENCY: The agent explains what it's doing and why
+// 2. CONTROL: Users can customize preferences and the agent respects them
+// 3. CONSISTENCY: The agent uses a predictable, standardized interaction pattern
+// ============================================================================
+
 // Tool Function: Random Destination Generator
-// This static method will be available to the agent as a callable tool
-// The [Description] attribute helps the AI understand when to use this function
-// This demonstrates how to create custom tools for AI agents
-[Description("Provides a random vacation destination.")]
+// TRANSPARENCY: Clear description helps users understand this tool's purpose
+[Description("Provides a random vacation destination. Returns a city and country.")]
 static string GetRandomDestination()
 {
-    // List of popular vacation destinations around the world
-    // The agent will randomly select from these options
     var destinations = new List<string>
     {
         "Paris, France",
@@ -34,92 +39,133 @@ static string GetRandomDestination()
         "Vancouver, Canada"
     };
 
-    // Generate random index and return selected destination
-    // Uses System.Random for simple random selection
     var random = new Random();
     int index = random.Next(destinations.Count);
     return destinations[index];
 }
 
+// Tool Function: User Preference Storage (Demonstrates CONTROL principle)
+// CONTROL: This tool allows users to set and manage their preferences
+[Description("Saves user preferences for trip planning. Use this when the user specifies preferences like budget level (budget/moderate/luxury), trip style (adventure/relaxation/cultural), or duration preference.")]
+static string SaveUserPreference(
+    [Description("The type of preference being saved, e.g., 'budget', 'style', 'duration'")] string preferenceType,
+    [Description("The value of the preference")] string preferenceValue)
+{
+    // In a real application, this would persist to a database
+    Console.WriteLine($"\n[TRANSPARENCY] Saving preference: {preferenceType} = {preferenceValue}");
+    return $"Preference saved: {preferenceType} is now set to '{preferenceValue}'. I will remember this for future suggestions.";
+}
+
 // Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
 var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
 var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
 var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
 
 // Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
 var openAIOptions = new OpenAIClientOptions()
 {
     Endpoint = new Uri(github_endpoint)
 };
 
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
 var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
 
-// Define Agent Identity and Comprehensive Instructions
-// Agent name for identification and logging purposes
+// Agent Identity
 var AGENT_NAME = "TravelAgent";
 
-// Detailed instructions that define the agent's personality, capabilities, and behavior
-// This system prompt shapes how the agent responds and interacts with users
+// ============================================================================
+// AGENT INSTRUCTIONS - Demonstrating Design Principles
+// ============================================================================
+// These instructions embed the three design principles directly into the agent's behavior
 var AGENT_INSTRUCTIONS = """
-You are a helpful AI Agent that can help plan vacations for customers.
+You are a helpful AI Agent that demonstrates the Agentic Design Principles.
 
-Important: When users specify a destination, always plan for that location. Only suggest random destinations when the user hasn't specified a preference.
+## Your Core Principles
 
-When the conversation begins, introduce yourself with this message:
-"Hello! I'm your TravelAgent assistant. I can help plan vacations and suggest interesting destinations for you. Here are some things you can ask me:
-1. Plan a day trip to a specific location
-2. Suggest a random vacation destination
-3. Find destinations with specific features (beaches, mountains, historical sites, etc.)
-4. Plan an alternative trip if you don't like my first suggestion
+**TRANSPARENCY**: Always explain what you're doing and why.
+- When using a tool, briefly explain which tool you're calling and why
+- Share your reasoning process with the user
+- Be honest about limitations or uncertainties
+
+**CONTROL**: Respect user preferences and allow customization.
+- Ask about preferences before making assumptions
+- Use the SaveUserPreference tool to remember user choices
+- Always prioritize explicit user requests over defaults
+
+**CONSISTENCY**: Use a predictable, standardized interaction pattern.
+- Start every conversation with a friendly greeting
+- Structure responses in a clear, organized format
+- Use similar phrasing for similar actions
+
+## Initial Greeting (CONSISTENCY)
+
+When the conversation begins, always introduce yourself with this message:
+"Hello! I'm TravelAgent, your AI vacation planning assistant.
+
+🔍 **Transparency**: I'll always explain my reasoning and the tools I use.
+🎮 **Control**: Tell me your preferences, and I'll remember them.
+🔄 **Consistency**: I follow a predictable pattern to make planning easy.
 
 What kind of trip would you like me to help you plan today?"
 
-Always prioritize user preferences. If they mention a specific destination like "Bali" or "Paris," focus your planning on that location rather than suggesting alternatives.
+## Guidelines
+- When users specify a destination, plan for that location
+- Only suggest random destinations when the user hasn't specified one
+- Always confirm before making changes to preferences
 """;
 
-// Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
-// Configure agent with name, detailed instructions, and available tools
-// This demonstrates the .NET agent creation pattern with full configuration
+// Create AI Agent with Design Principles
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
-        tools: [AIFunctionFactory.Create(GetRandomDestination)]
+        tools: [
+            AIFunctionFactory.Create(GetRandomDestination),
+            AIFunctionFactory.Create(SaveUserPreference)
+        ]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
-// This is essential for multi-turn conversations and contextual understanding
+// Create Conversation Thread for Context Management
 AgentThread thread = agent.GetNewThread();
 
-// Execute Agent: First Travel Planning Request
-// Run the agent with an initial request that will likely trigger the random destination tool
-// The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// ============================================================================
+// DEMONSTRATION: Start with "Hello" to trigger the greeting (Issue #402 fix)
+// ============================================================================
+Console.WriteLine("=== Demonstrating Agentic Design Principles ===\n");
+Console.WriteLine("User: Hello\n");
+Console.WriteLine("Agent Response:");
+
+await foreach (var update in agent.RunStreamingAsync("Hello", thread))
 {
     await Task.Delay(10);
     Console.Write(update);
 }
 
-Console.WriteLine();
+Console.WriteLine("\n");
 
-// Execute Agent: Follow-up Request with Context Awareness
-// Demonstrate contextual conversation by referencing the previous response
-// The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// ============================================================================
+// DEMONSTRATION: User sets a preference (CONTROL principle)
+// ============================================================================
+Console.WriteLine("---");
+Console.WriteLine("User: I prefer luxury travel and cultural experiences.\n");
+Console.WriteLine("Agent Response:");
+
+await foreach (var update in agent.RunStreamingAsync("I prefer luxury travel and cultural experiences.", thread))
+{
+    await Task.Delay(10);
+    Console.Write(update);
+}
+
+Console.WriteLine("\n");
+
+// ============================================================================
+// DEMONSTRATION: Agent uses tools with transparency
+// ============================================================================
+Console.WriteLine("---");
+Console.WriteLine("User: Suggest a destination for me.\n");
+Console.WriteLine("Agent Response:");
+
+await foreach (var update in agent.RunStreamingAsync("Suggest a destination for me.", thread))
 {
     await Task.Delay(10);
     Console.Write(update);
