@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # প্রোডাকশনে এআই এজেন্ট: পর্যবেক্ষণযোগ্যতা ও মূল্যায়ন
 
-[![প্রোডাকশনে এআই এজেন্ট](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.bn.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![প্রোডাকশনে এআই এজেন্ট](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.bn.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 যখন এআই এজেন্ট পরীক্ষামূলক প্রোটোটাইপ থেকে বাস্তব জীবনের অ্যাপ্লিকেশনে রূপান্তরিত হয়, তখন তাদের আচরণ বোঝা, কার্যকারিতা পর্যবেক্ষণ করা এবং তাদের আউটপুট পদ্ধতিগতভাবে মূল্যায়ন করার ক্ষমতা গুরুত্বপূর্ণ হয়ে ওঠে।
 

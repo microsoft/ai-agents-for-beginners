@@ -53,7 +53,7 @@ chainlit run app.py -w
 
 للاتصال بخادم Github MCP، اختر رمز "القابس" الموجود أسفل مربع الدردشة "اكتب رسالتك هنا..":
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28f1ea5f320b91e4404df4a24a0f236ce3de999666621f1cfc.ar.png)
+![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.ar.png)
 
 من هناك، يمكنك النقر على "Connect an MCP" لإضافة الأمر للاتصال بخادم Github MCP:
 

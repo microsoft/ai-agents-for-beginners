@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bg"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.bg.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.bg.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Кликнете върху изображението по-горе, за да гледате видеото на този урок)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) е нововъзниква
 
 Този итеративен стил „maker-checker“ е предназначен за подобряване на точността, обработка на неправилни заявки към структурирани бази данни (например NL2SQL) и гарантиране на балансирани, висококачествени резултати. Вместо да разчита единствено на внимателно проектирани вериги от подсказки, системата активно притежава процеса си на разсъждение. Тя може да пренаписва заявки, които се провалят, да избира различни методи за извличане и да интегрира множество инструменти—като векторно търсене в Azure AI Search, SQL бази данни или персонализирани API—преди да финализира отговора си. Това премахва нуждата от прекалено сложни рамки за оркестрация. Вместо това, сравнително прост цикъл от „LLM повикване → използване на инструмент → LLM повикване → …“ може да доведе до сложни и добре обосновани изходи.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.bg.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.bg.png)
 
 ## Притежаване на процеса на разсъждение
 
@@ -67,7 +67,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) е нововъзниква
 
 ## Итеративни цикли, интеграция на инструменти и памет
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.bg.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.bg.png)
 
 Агентната система разчита на модела на взаимодействие в цикъл:
 
@@ -89,7 +89,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) е нововъзниква
 
 Този итеративен и динамичен подход позволява на модела да се подобрява непрекъснато, гарантирайки, че той не е просто система за еднократна употреба, а такава, която се учи от грешките си по време на дадена сесия.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.bg.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.bg.png)
 
 ## Граници на агентността
 

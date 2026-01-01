@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Инженеринг на контекста за AI агенти
 
-[![Инженеринг на контекста](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.bg.png)](https://youtu.be/F5zqRV7gEag)
+[![Инженеринг на контекста](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.bg.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Кликнете върху изображението по-горе, за да гледате видеото на този урок)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Видове контекст
 
-[![Видове контекст](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.bg.png)](https://youtu.be/F5zqRV7gEag)
+[![Видове контекст](../../../translated_images/context-types.fc10b8927ee43f06.bg.png)](https://youtu.be/F5zqRV7gEag)
 
 Важно е да запомним, че контекстът не е само едно нещо. Информацията, от която AI агентът се нуждае, може да идва от различни източници, и е наша задача да гарантираме, че агентът има достъп до тези източници:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Стратегии за планиране
 
-[![Най-добри практики за инженеринг на контекста](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.bg.png)](https://youtu.be/F5zqRV7gEag)
+[![Най-добри практики за инженеринг на контекста](../../../translated_images/best-practices.f4170873dc554f58.bg.png)](https://youtu.be/F5zqRV7gEag)
 
 Добрият инженеринг на контекста започва с добро планиране. Ето подход, който ще ви помогне да започнете да мислите как да приложите концепцията за инженеринг на контекста:
 

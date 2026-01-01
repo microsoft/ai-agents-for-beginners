@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # এআই এজেন্টদের জন্য মেমোরি
-[![এজেন্ট মেমোরি](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.bn.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![এজেন্ট মেমোরি](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.bn.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 এআই এজেন্ট তৈরি করার বিশেষ সুবিধাগুলি নিয়ে আলোচনা করতে গেলে দুটি বিষয় প্রধানত উঠে আসে: টুল ব্যবহার করে কাজ সম্পন্ন করার ক্ষমতা এবং সময়ের সাথে সাথে উন্নতি করার ক্ষমতা। মেমোরি হলো এমন একটি ভিত্তি যা স্ব-উন্নতিশীল এজেন্ট তৈরি করতে সাহায্য করে, যা আমাদের ব্যবহারকারীদের জন্য আরও ভালো অভিজ্ঞতা তৈরি করতে পারে।
 
