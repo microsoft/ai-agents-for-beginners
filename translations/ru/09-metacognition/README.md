@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ru"
 }
 -->
-[![Многокомпонентный дизайн](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.ru.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Многокомпонентный дизайн](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.ru.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Нажмите на изображение выше, чтобы посмотреть видео этого урока)_
 # Метакогниция в AI-агентах
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Метакогниция играет ключевую роль в дизайне AI-агентов по нескольким причинам:
 
-![Важность метакогниции](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.ru.png)
+![Важность метакогниции](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.ru.png)
 
 - Саморефлексия: Агенты могут оценивать свою производительность и выявлять области для улучшения.
 - Адаптивность: Агенты могут изменять свои стратегии на основе прошлого опыта и изменяющихся условий.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Сначала давайте разберемся в разнице между инструментом RAG и предварительной загрузкой контекста.
 
-![RAG vs Загрузка контекста](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.ru.png)
+![RAG vs Загрузка контекста](../../../translated_images/rag-vs-context.9eae588520c00921.ru.png)
 
 ### Генерация с дополнением извлечения (RAG)
 

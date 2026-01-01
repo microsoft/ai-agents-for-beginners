@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Ingénierie du contexte pour les agents IA
 
-[![Ingénierie du contexte](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.fr.png)](https://youtu.be/F5zqRV7gEag)
+[![Ingénierie du contexte](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.fr.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Cliquez sur l'image ci-dessus pour visionner la vidéo de cette leçon)_
 
@@ -49,7 +49,7 @@ L'ingénierie des prompts se concentre sur un ensemble d'instructions statiques 
 
 ### Types de contexte
 
-[![Types de contexte](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.fr.png)](https://youtu.be/F5zqRV7gEag)
+[![Types de contexte](../../../translated_images/context-types.fc10b8927ee43f06.fr.png)](https://youtu.be/F5zqRV7gEag)
 
 Il est important de se rappeler que le contexte n'est pas une seule entité. Les informations dont l'agent IA a besoin peuvent provenir de diverses sources, et c'est à nous de nous assurer que l'agent a accès à ces sources :
 
@@ -69,7 +69,7 @@ Les types de contexte qu'un agent IA pourrait devoir gérer incluent :
 
 ### Stratégies de planification
 
-[![Bonnes pratiques d'ingénierie du contexte](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.fr.png)](https://youtu.be/F5zqRV7gEag)
+[![Bonnes pratiques d'ingénierie du contexte](../../../translated_images/best-practices.f4170873dc554f58.fr.png)](https://youtu.be/F5zqRV7gEag)
 
 Une bonne ingénierie du contexte commence par une bonne planification. Voici une approche qui vous aidera à réfléchir à la manière d'appliquer le concept d'ingénierie du contexte :
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "nl"
 }
 -->
-[![Betrouwbare AI-agenten](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.nl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Betrouwbare AI-agenten](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.nl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
@@ -41,7 +41,7 @@ Voor AI-agenten is de systeemprompt nog belangrijker, omdat de AI-agenten zeer s
 
 Om schaalbare systeemprompts te maken, kunnen we een systeemberichtframework gebruiken om één of meerdere agenten in onze toepassing te bouwen:
 
-![Een systeemberichtframework bouwen](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.nl.png)
+![Een systeemberichtframework bouwen](../../../translated_images/system-message-framework.3a97368c92d11d68.nl.png)
 
 #### Stap 1: Maak een meta-systeembericht
 
@@ -130,7 +130,7 @@ De waarde van dit systeemberichtframework is dat het gemakkelijker wordt om syst
 
 Om betrouwbare AI-agenten te bouwen, is het belangrijk om de risico's en bedreigingen voor je AI-agent te begrijpen en te beperken. Laten we enkele van de verschillende bedreigingen voor AI-agenten bekijken en hoe je hier beter op kunt plannen en je kunt voorbereiden.
 
-![Bedreigingen begrijpen](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.nl.png)
+![Bedreigingen begrijpen](../../../translated_images/understanding-threats.89edeada8a97fc0f.nl.png)
 
 ### Taken en instructies
 
@@ -166,7 +166,7 @@ Om betrouwbare AI-agenten te bouwen, is het belangrijk om de risico's en bedreig
 
 Een andere effectieve manier om betrouwbare AI-agentensystemen te bouwen, is door gebruik te maken van een mens-in-de-lus. Dit creëert een proces waarbij gebruikers feedback kunnen geven aan de agenten tijdens de uitvoering. Gebruikers fungeren in feite als agenten in een multi-agentsysteem door goedkeuring te geven of het proces te beëindigen.
 
-![Mens-in-de-lus](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.nl.png)
+![Mens-in-de-lus](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.nl.png)
 
 Hier is een codevoorbeeld met AutoGen om te laten zien hoe dit concept wordt geïmplementeerd:
 

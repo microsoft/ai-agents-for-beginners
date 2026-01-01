@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # AI ಏಜೆಂಟ್‌ಗಳ ಮೆಮೊರಿ
-[![ಏಜೆಂಟ್ ಮೆಮೊರಿ](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.kn.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![ಏಜೆಂಟ್ ಮೆಮೊರಿ](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.kn.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 AI ಏಜೆಂಟ್‌ಗಳನ್ನು ರಚಿಸುವ ವಿಶೇಷ ಪ್ರಯೋಜನಗಳ ಬಗ್ಗೆ ಚರ್ಚಿಸುವಾಗ, ಎರಡು ಪ್ರಮುಖ ವಿಷಯಗಳನ್ನು ಮುಖ್ಯವಾಗಿ ಚರ್ಚಿಸಲಾಗುತ್ತದೆ: ಕಾರ್ಯಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಸಾಧನಗಳನ್ನು ಕರೆಸುವ ಸಾಮರ್ಥ್ಯ ಮತ್ತು ಸಮಯದೊಂದಿಗೆ ಸುಧಾರಣೆ ಮಾಡಿಕೊಳ್ಳುವ ಸಾಮರ್ಥ್ಯ. ಮೆಮೊರಿ ನಮ್ಮ ಬಳಕೆದಾರರಿಗೆ ಉತ್ತಮ ಅನುಭವಗಳನ್ನು ನೀಡಲು ಸ್ವಯಂ-ಸುಧಾರಣಾ ಏಜೆಂಟ್‌ಗಳನ್ನು ರಚಿಸುವ ಮೂಲವಾಗಿದೆ.
 

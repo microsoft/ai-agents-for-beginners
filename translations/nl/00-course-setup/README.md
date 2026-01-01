@@ -25,7 +25,7 @@ Dit kan door op de link te klikken om de <a href="https://github.com/microsoft/a
 
 Je hebt nu je eigen geforkte versie van deze cursus via de volgende link:
 
-![Geforkte Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.nl.png)
+![Geforkte Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.nl.png)
 
 ### Shallow Clone (aanbevolen voor workshop / Codespaces)
 
@@ -176,11 +176,11 @@ Volg het [Principe van Minimale Toegang](https://docs.github.com/en/get-started/
 
 1. Selecteer de optie `Fine-grained tokens` aan de linkerkant van je scherm door naar de **Developer settings** te gaan.
 
-   ![Ontwikkelaarsinstellingen](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.nl.png)
+   ![Ontwikkelaarsinstellingen](../../../translated_images/profile_developer_settings.410a859fe749c755.nl.png)
 
    Selecteer vervolgens `Generate new token`.
 
-   ![Genereer Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.nl.png)
+   ![Genereer Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.nl.png)
 
 2. Geef je token een beschrijvende naam die het doel weerspiegelt, zodat je het later gemakkelijk kunt identificeren.
 
@@ -190,19 +190,19 @@ Volg het [Principe van Minimale Toegang](https://docs.github.com/en/get-started/
     Voor een veiliger gebruik kun je kiezen voor een kortere periode, zoals 7 dagen 🛡️  
     Dit is een geweldige manier om jezelf een persoonlijk doel te stellen en de cursus te voltooien terwijl je leerdrang hoog is 🚀.
 
-    ![Tokennaam en vervaldatum](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.nl.png)
+    ![Tokennaam en vervaldatum](../../../translated_images/token-name-expiry-date.a095fb0de6386864.nl.png)
 
 3. Beperk de scope van het token tot je fork van deze repository.
 
-    ![Beperk scope tot fork-repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.nl.png)
+    ![Beperk scope tot fork-repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.nl.png)
 
 4. Beperk de rechten van het token: Onder **Permissions**, klik op het tabblad **Account** en klik op de knop "+ Add permissions". Er verschijnt een dropdownmenu. Zoek naar **Models** en vink het vakje aan.
 
-    ![Voeg Models-rechten toe](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.nl.png)
+    ![Voeg Models-rechten toe](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.nl.png)
 
-5. Controleer de vereiste rechten voordat je het token genereert. ![Controleer rechten](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.nl.png)
+5. Controleer de vereiste rechten voordat je het token genereert. ![Controleer rechten](../../../translated_images/verify_permissions.06bd9e43987a8b21.nl.png)
 
-6. Zorg ervoor dat je het token op een veilige plaats opslaat, zoals een wachtwoordmanager, voordat je het genereert, want het wordt niet opnieuw weergegeven nadat je het hebt aangemaakt. ![Sla token veilig op](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.nl.png)
+6. Zorg ervoor dat je het token op een veilige plaats opslaat, zoals een wachtwoordmanager, voordat je het genereert, want het wordt niet opnieuw weergegeven nadat je het hebt aangemaakt. ![Sla token veilig op](../../../translated_images/store_token_securely.08ee2274c6ad6caf.nl.png)
 
 Kopieer je nieuwe token dat je zojuist hebt aangemaakt. Je voegt dit nu toe aan je `.env`-bestand dat bij deze cursus is inbegrepen.
 
@@ -224,7 +224,7 @@ Dit kopieert het voorbeeldbestand en maakt een `.env` in je map waar je de waard
 
 Met je gekopieerde token open je het `.env`-bestand in je favoriete teksteditor en plak je je token in het `GITHUB_TOKEN`-veld.
 
-![GitHub Token-veld](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.nl.png)
+![GitHub Token-veld](../../../translated_images/github_token_field.20491ed3224b5f4a.nl.png)
 
 Je zou nu in staat moeten zijn om de codevoorbeelden van deze cursus uit te voeren.
 
@@ -238,7 +238,7 @@ Zodra je je project hebt aangemaakt, moet je de verbindingsreeks voor je project
 
 Dit kan door naar de **Overzicht**-pagina van je project in het Azure AI Foundry-portaal te gaan.
 
-![Projectverbindingsreeks](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.nl.png)
+![Projectverbindingsreeks](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.nl.png)
 
 ### Stap 2: Maak je `.env`-bestand
 

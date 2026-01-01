@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "it"
 }
 -->
-[![Progettazione Multi-Agente](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.it.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Progettazione Multi-Agente](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.it.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
 
@@ -95,7 +95,7 @@ In questo modello, ogni agente rappresenta un utente nella chat di gruppo e i me
 
 Questo modello può essere implementato utilizzando un'architettura centralizzata in cui tutti i messaggi vengono instradati attraverso un server centrale, o un'architettura decentralizzata in cui i messaggi vengono scambiati direttamente.
 
-![Chat di gruppo](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.it.png)
+![Chat di gruppo](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.it.png)
 
 ### Passaggio di consegne
 
@@ -105,7 +105,7 @@ I casi d'uso tipici per questo modello includono supporto clienti, gestione dei 
 
 In questo modello, ogni agente rappresenta un compito o un passaggio in un flusso di lavoro, e gli agenti possono passarsi compiti basandosi su regole predefinite.
 
-![Passaggio di consegne](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.it.png)
+![Passaggio di consegne](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.it.png)
 
 ### Filtraggio collaborativo
 
@@ -119,7 +119,7 @@ Prendiamo un esempio in cui un utente desidera una raccomandazione sul miglior t
 - **Analisi tecnica**: Un altro agente potrebbe essere esperto in analisi tecnica.
 - **Analisi fondamentale**: E un altro agente potrebbe essere esperto in analisi fondamentale. Collaborando, questi agenti possono fornire una raccomandazione più completa all'utente.
 
-![Raccomandazione](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.it.png)
+![Raccomandazione](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.it.png)
 
 ## Scenario: Processo di rimborso
 

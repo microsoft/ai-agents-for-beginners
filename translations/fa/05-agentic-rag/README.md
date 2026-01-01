@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fa"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.fa.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.fa.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(برای مشاهده ویدئوی این درس، روی تصویر بالا کلیک کنید)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 این سبک تکراری "سازنده-بازبین" برای بهبود صحت، مدیریت پرسش‌های ناقص به پایگاه‌های داده ساختاریافته (مانند NL2SQL) و تضمین نتایج متعادل و با کیفیت بالا طراحی شده است. به جای تکیه بر زنجیره‌های پرسش‌نامه‌ای پیچیده، سیستم به صورت فعال مالکیت فرآیند استدلال خود را بر عهده می‌گیرد. این سیستم می‌تواند پرسش‌های ناموفق را بازنویسی کند، روش‌های بازیابی مختلف را انتخاب کند و ابزارهای متعددی مانند جستجوی برداری در Azure AI Search، پایگاه‌های داده SQL یا API‌های سفارشی را یکپارچه کند تا پاسخ نهایی خود را ارائه دهد. این امر نیاز به چارچوب‌های ارکستراسیون پیچیده را از بین می‌برد. در عوض، یک چرخه نسبتاً ساده از "تماس با LLM → استفاده از ابزار → تماس با LLM → ..." می‌تواند خروجی‌های پیچیده و مستدل ارائه دهد.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.fa.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.fa.png)
 
 ## مالکیت فرآیند استدلال
 
@@ -66,7 +66,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## چرخه‌های تکراری، یکپارچه‌سازی ابزار و حافظه
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.fa.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.fa.png)
 
 یک سیستم عامل‌محور به یک الگوی تعامل چرخه‌ای متکی است:
 
@@ -88,7 +88,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 این رویکرد تکراری و پویا به مدل امکان می‌دهد به طور مداوم بهبود یابد و اطمینان حاصل کند که فقط یک سیستم تک‌مرحله‌ای نیست بلکه سیستمی است که از اشتباهات خود در طول یک جلسه یاد می‌گیرد.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.fa.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.fa.png)
 
 ## مرزهای عامل‌محوری
 
@@ -117,7 +117,7 @@ Agentic RAG در سناریوهایی که نیاز به اصلاح تکراری
 
 داشتن ابزارهایی که یک رکورد واضح از اقدامات ارائه دهند ضروری است. بدون آن‌ها، اشکال‌زدایی یک فرآیند چندمرحله‌ای می‌تواند بسیار دشوار باشد. مثال زیر از Literal AI (شرکت پشت Chainlit) را برای یک اجرای عامل ببینید:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.fa.png)
+![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.fa.png)
 
 ## نتیجه‌گیری
 

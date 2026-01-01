@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "lt"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.lt.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.lt.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Spustelėkite paveikslėlį aukščiau, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) yra nauja AI vystymo paradi
 
 Šis iteracinis „maker-checker“ veikimo stilius skirtas gerinti tikslumą, tvarkyti netinkamas užklausas struktūrizuotose duomenų bazėse (pvz., NL2SQL) ir užtikrinti subalansuotus, aukštos kokybės rezultatus. Vietoj to, kad remtųsi kruopščiai sukonstruotomis užklausų grandinėmis, sistema aktyviai valdo savo sprendimų priėmimo procesą. Ji gali perrašyti nepavykusias užklausas, pasirinkti skirtingus paieškos metodus ir integruoti kelis įrankius – tokius kaip vektorinė paieška Azure AI Search, SQL duomenų bazės ar pritaikytos API – prieš pateikdama galutinį atsakymą. Tai pašalina poreikį sudėtingoms orkestravimo sistemoms. Vietoj to, santykinai paprastas ciklas „LLM kvietimas → įrankio naudojimas → LLM kvietimas → …“ gali duoti sudėtingus ir gerai pagrįstus rezultatus.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.lt.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.lt.png)
 
 ## Valdyti sprendimų priėmimo procesą
 
@@ -66,7 +66,7 @@ Visi šie žingsniai – užklausų tobulinimas, šaltinių pasirinkimas, iterac
 
 ## Iteraciniai ciklai, įrankių integracija ir atmintis
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.lt.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.lt.png)
 
 Agentinė sistema remiasi cikline sąveikos struktūra:
 
@@ -88,7 +88,7 @@ Agentic RAG autonomija taip pat apima tvirtus savikorekcijos mechanizmus. Kai si
 
 Šis iteracinis ir dinamiškas požiūris leidžia modeliui nuolat tobulėti, užtikrinant, kad jis nėra vienkartinė sistema, o tokia, kuri mokosi iš savo klaidų per tam tikrą sesiją.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.lt.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.lt.png)
 
 ## Agentūros ribos
 

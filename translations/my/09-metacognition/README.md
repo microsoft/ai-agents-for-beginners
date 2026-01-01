@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "my"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.my.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.my.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(ဓာတ်ပုံကိုနှိပ်ပြီး ဒီသင်ခန်းစာရဲ့ ဗီဒီယိုကို ကြည့်ပါ)_
 # AI အေးဂျင့်များတွင် Metacognition
@@ -47,7 +47,7 @@ Metacognition သည် "စဉ်းစားမှုကို စဉ်းစ
 
 Metacognition သည် အေးဂျင့် ဒီဇိုင်းတွင် အရေးပါသော အခန်းကဏ္ဍတစ်ခုကို ထိန်းသိမ်းထားသည်-
 
-![Importance of Metacognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.my.png)
+![Importance of Metacognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.my.png)
 
 - Self-Reflection: အေးဂျင့်များသည် ၎င်းတို့၏ စွမ်းဆောင်ရည်ကို အကဲဖြတ်ပြီး တိုးတက်မှုအပိုင်းများကို ဖော်ထုတ်နိုင်သည်။
 - Adaptability: အေးဂျင့်များသည် အတိတ်အတွေ့အကြုံများနှင့် အခြေအနေများ ပြောင်းလဲမှုများအပေါ် အခြေခံ၍ ၎င်းတို့၏ မဟာဗျူဟာများကို ပြောင်းလဲနိုင်သည်။

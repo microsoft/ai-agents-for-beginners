@@ -25,7 +25,7 @@ Untuk melengkapkan latihan ini, anda memerlukan perkara berikut:
 1. Ikuti panduan dari [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) dalam pos blog untuk mencipta hab Azure AI Foundry.
 2. Apabila projek anda telah dicipta, tutup sebarang petua yang dipaparkan dan semak halaman projek di portal Azure AI Foundry, yang sepatutnya kelihatan seperti imej berikut:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.ms.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ms.png)
 
 ## Lancarkan model
 
@@ -35,7 +35,7 @@ Untuk melengkapkan latihan ini, anda memerlukan perkara berikut:
 
     > **Note**: Mengurangkan TPM membantu mengelakkan penggunaan kuota yang berlebihan dalam langganan yang anda gunakan.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.ms.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.ms.png)
 
 ## Cipta ejen
 
@@ -77,7 +77,7 @@ Sekarang anda telah melancarkan model, anda boleh mencipta ejen. Ejen adalah mod
     
 > Selain itu, anda boleh menambah **Knowledge Base** dan **Actions** untuk meningkatkan keupayaan ejen dalam memberikan maklumat dan melaksanakan tugas automatik berdasarkan permintaan pengguna. Untuk latihan ini, anda boleh langkau langkah ini.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.ms.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.ms.png)
 
 3. Untuk mencipta ejen multi-AI baru, hanya klik **New Agent**. Ejen yang baru dicipta akan dipaparkan di halaman Agents.
 
@@ -90,7 +90,7 @@ Selepas mencipta ejen, anda boleh mengujinya untuk melihat bagaimana ia memberi 
 
     > **Note**: Ejen mungkin tidak memberikan jawapan yang tepat, kerana tiada data masa nyata digunakan dalam latihan ini. Tujuannya adalah untuk menguji keupayaan ejen memahami dan memberi respons kepada pertanyaan pengguna berdasarkan arahan yang diberikan.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.ms.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.ms.png)
 
 3. Selepas menguji ejen, anda boleh menyesuaikannya lagi dengan menambah lebih banyak niat, data latihan, dan tindakan untuk meningkatkan keupayaannya.
 

@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 이제 아래 링크에서 이 강의의 포크된 버전을 확인할 수 있습니다:
 
-![포크된 저장소](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.ko.png)
+![포크된 저장소](../../../translated_images/forked-repo.33f27ca1901baa6a.ko.png)
 
 ### 얕은 복제 (워크숍 / Codespaces에 권장)
 
@@ -176,11 +176,11 @@ GitHub 계정의 <a href="https://github.com/settings/personal-access-tokens" ta
 
 1. 화면 왼쪽의 **개발자 설정**으로 이동하여 `세분화된 토큰` 옵션을 선택하세요.
 
-   ![개발자 설정](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.ko.png)
+   ![개발자 설정](../../../translated_images/profile_developer_settings.410a859fe749c755.ko.png)
 
    그런 다음 `새 토큰 생성`을 선택하세요.
 
-   ![토큰 생성](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.ko.png)
+   ![토큰 생성](../../../translated_images/fga_new_token.1c1a234afe202ab3.ko.png)
 
 2. 나중에 쉽게 식별할 수 있도록 토큰의 목적을 반영하는 설명적인 이름을 입력하세요.
 
@@ -190,19 +190,19 @@ GitHub 계정의 <a href="https://github.com/settings/personal-access-tokens" ta
     더 안전한 설정을 원한다면 7일과 같은 짧은 기간을 선택할 수 있습니다 🛡️  
     이는 학습 동력을 유지하며 강의를 완료하는 데 좋은 목표가 될 수 있습니다 🚀.
 
-    ![토큰 이름 및 만료일](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.ko.png)
+    ![토큰 이름 및 만료일](../../../translated_images/token-name-expiry-date.a095fb0de6386864.ko.png)
 
 3. 토큰의 범위를 이 저장소의 포크로 제한하세요.
 
-    ![저장소 범위 제한](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.ko.png)
+    ![저장소 범위 제한](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.ko.png)
 
 4. 토큰의 권한을 제한하세요: **권한** 아래에서 **계정** 탭을 클릭하고 "+ 권한 추가" 버튼을 클릭하세요. 드롭다운이 나타납니다. **모델**을 검색하고 해당 상자를 선택하세요.
 
-    ![모델 권한 추가](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.ko.png)
+    ![모델 권한 추가](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.ko.png)
 
-5. 토큰을 생성하기 전에 필요한 권한을 확인하세요. ![권한 확인](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.ko.png)
+5. 토큰을 생성하기 전에 필요한 권한을 확인하세요. ![권한 확인](../../../translated_images/verify_permissions.06bd9e43987a8b21.ko.png)
 
-6. 토큰을 생성하기 전에 비밀번호 관리자 금고와 같은 안전한 장소에 토큰을 저장할 준비가 되었는지 확인하세요. 생성 후에는 다시 표시되지 않습니다. ![토큰 안전하게 저장](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.ko.png)
+6. 토큰을 생성하기 전에 비밀번호 관리자 금고와 같은 안전한 장소에 토큰을 저장할 준비가 되었는지 확인하세요. 생성 후에는 다시 표시되지 않습니다. ![토큰 안전하게 저장](../../../translated_images/store_token_securely.08ee2274c6ad6caf.ko.png)
 
 방금 생성한 새 토큰을 복사하세요. 이제 이 강의에 포함된 `.env` 파일에 추가합니다.
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 복사한 토큰을 열어 선호하는 텍스트 편집기에서 `.env` 파일을 열고 `GITHUB_TOKEN` 필드에 붙여넣으세요.
 
-![GitHub 토큰 필드](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.ko.png)
+![GitHub 토큰 필드](../../../translated_images/github_token_field.20491ed3224b5f4a.ko.png)
 
 이제 이 강의의 코드 샘플을 실행할 수 있습니다.
 
@@ -238,7 +238,7 @@ Azure AI Foundry에서 허브와 프로젝트를 생성하는 단계는 여기�
 
 이는 Azure AI Foundry 포털의 **개요** 페이지에서 확인할 수 있습니다.
 
-![프로젝트 연결 문자열](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.ko.png)
+![프로젝트 연결 문자열](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.ko.png)
 
 ### 2단계: `.env` 파일 생성
 

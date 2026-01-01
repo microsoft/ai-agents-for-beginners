@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ko"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.ko.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.ko.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(위 이미지를 클릭하면 이 강의의 영상을 볼 수 있습니다)_
 
@@ -95,7 +95,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 이 패턴은 모든 메시지가 중앙 서버를 통해 라우팅되는 중앙 집중식 아키텍처나 메시지가 직접 교환되는 분산형 아키텍처로 구현할 수 있습니다.
 
-![Group chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.ko.png)
+![Group chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.ko.png)
 
 ### 작업 전달
 
@@ -105,7 +105,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 이 패턴에서 각 에이전트는 작업 또는 워크플로의 단계를 나타내며, 에이전트는 사전 정의된 규칙에 따라 작업을 다른 에이전트에 전달할 수 있습니다.
 
-![Hand off](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.ko.png)
+![Hand off](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.ko.png)
 
 ### 협업 필터링
 
@@ -119,7 +119,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **기술적 분석**: 다른 에이전트는 기술적 분석에 대한 전문가일 수 있습니다.
 - **기본적 분석**: 또 다른 에이전트는 기본적 분석에 대한 전문가일 수 있습니다. 이러한 에이전트들이 협력함으로써 사용자에게 더 포괄적인 추천을 제공할 수 있습니다.
 
-![Recommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.ko.png)
+![Recommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.ko.png)
 
 ## 시나리오: 환불 프로세스
 

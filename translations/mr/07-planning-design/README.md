@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "mr"
 }
 -->
-[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.mr.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.mr.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(वरील प्रतिमेवर क्लिक करून या धड्याचा व्हिडिओ पहा)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## एकूण उद्दिष्ट निश्चित करणे आणि कार्याचे विभाजन करणे
 
-![उद्दिष्टे आणि कार्ये निश्चित करणे](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.mr.png)
+![उद्दिष्टे आणि कार्ये निश्चित करणे](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.mr.png)
 
 बहुतेक वास्तविक-जगातील कार्ये एका चरणात हाताळण्यासाठी खूप जटिल असतात. AI एजंटला त्याच्या नियोजन आणि कृतींना मार्गदर्शन करण्यासाठी संक्षिप्त उद्दिष्ट आवश्यक असते. उदाहरणार्थ, खालील उद्दिष्ट विचार करा:
 

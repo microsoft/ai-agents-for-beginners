@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "da"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.da.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.da.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klik på billedet ovenfor for at se videoen til denne lektion)_
 
@@ -97,7 +97,7 @@ I dette mønster repræsenterer hver agent en bruger i gruppechatten, og beskede
 
 Dette mønster kan implementeres ved hjælp af en centraliseret arkitektur, hvor alle beskeder dirigeres gennem en central server, eller en decentraliseret arkitektur, hvor beskeder udveksles direkte.
 
-![Gruppechat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.da.png)
+![Gruppechat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.da.png)
 
 ### Overdragelse
 
@@ -107,7 +107,7 @@ Typiske brugssager for dette mønster inkluderer kundesupport, opgavestyring og 
 
 I dette mønster repræsenterer hver agent en opgave eller et trin i et workflow, og agenter kan overdrage opgaver til andre agenter baseret på foruddefinerede regler.
 
-![Overdragelse](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.da.png)
+![Overdragelse](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.da.png)
 
 ### Samarbejdende filtrering
 
@@ -121,7 +121,7 @@ Lad os tage et eksempel, hvor en bruger ønsker en anbefaling om den bedste akti
 - **Teknisk analyse**: En anden agent kunne være ekspert i teknisk analyse.
 - **Fundamental analyse**: Og en tredje agent kunne være ekspert i fundamental analyse. Ved at samarbejde kan disse agenter give en mere omfattende anbefaling til brugeren.
 
-![Anbefaling](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.da.png)
+![Anbefaling](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.da.png)
 
 ## Scenario: Refunderingsproces
 

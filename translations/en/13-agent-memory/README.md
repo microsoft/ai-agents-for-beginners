@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Memory for AI Agents 
-[![Agent Memory](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.en.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agent Memory](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.en.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 When discussing the unique advantages of creating AI Agents, two main aspects are often highlighted: the ability to use tools to complete tasks and the ability to improve over time. Memory is the foundation of creating self-improving agents that can provide better experiences for users.
 

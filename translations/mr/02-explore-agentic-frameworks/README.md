@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "mr"
 }
 -->
-[![AI एजंट फ्रेमवर्क्स एक्सप्लोर करत आहे](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df4d5d407e29970e654629e614f357444a9c27c80feb54c79d.mr.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![AI एजंट फ्रेमवर्क्स एक्सप्लोर करत आहे](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.mr.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(वरील प्रतिमेवर क्लिक करा आणि या धड्याचा व्हिडिओ पहा)_
 

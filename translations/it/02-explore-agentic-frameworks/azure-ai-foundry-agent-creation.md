@@ -25,7 +25,7 @@ Per completare questo esercizio, ti servono i seguenti elementi:
 1. Segui queste linee guida dal post del blog di [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) per creare un hub Azure AI Foundry.
 2. Quando il progetto è creato, chiudi eventuali suggerimenti visualizzati e dai un’occhiata alla pagina del progetto nel portale Azure AI Foundry, che dovrebbe apparire simile all’immagine seguente:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.it.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.it.png)
 
 ## Distribuisci un modello
 
@@ -35,7 +35,7 @@ Per completare questo esercizio, ti servono i seguenti elementi:
 
     > **Note**: Ridurre il TPM aiuta a evitare di superare la quota disponibile nella sottoscrizione che stai utilizzando.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.it.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.it.png)
 
 ## Crea un agente
 
@@ -77,7 +77,7 @@ Ora che hai distribuito un modello, puoi creare un agente. Un agente è un model
     
 > Inoltre, puoi aggiungere una **Knowledge Base** e delle **Actions** per migliorare le capacità dell’agente di fornire informazioni e svolgere compiti automatici basati sulle richieste degli utenti. Per questo esercizio, puoi saltare questi passaggi.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.it.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.it.png)
 
 3. Per creare un nuovo agente multi-AI, clicca semplicemente su **New Agent**. L’agente appena creato verrà mostrato nella pagina Agents.
 
@@ -90,7 +90,7 @@ Dopo aver creato l’agente, puoi testarlo per vedere come risponde alle domande
 
     > **Note**: L’agente potrebbe non fornire risposte accurate, poiché in questo esercizio non vengono utilizzati dati in tempo reale. Lo scopo è testare la capacità dell’agente di comprendere e rispondere alle domande degli utenti basandosi sulle istruzioni fornite.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.it.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.it.png)
 
 3. Dopo aver testato l’agente, puoi personalizzarlo ulteriormente aggiungendo più intenti, dati di addestramento e azioni per potenziarne le capacità.
 

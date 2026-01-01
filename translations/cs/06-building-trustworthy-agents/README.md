@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "cs"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.cs.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.cs.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klikněte na obrázek výše pro zhlédnutí videa této lekce)_
 
@@ -41,7 +41,7 @@ Pro AI agenty je systémový prompt ještě důležitější, protože AI agenti
 
 Pro vytvoření škálovatelných systémových promptů můžeme použít rámec systémových zpráv pro budování jednoho nebo více agentů v naší aplikaci:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.cs.png)
+![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.cs.png)
 
 #### Krok 1: Vytvořte meta systémovou zprávu
 
@@ -130,7 +130,7 @@ Hodnota tohoto rámce systémových zpráv spočívá v tom, že usnadňuje šk�
 
 Pro vytvoření důvěryhodných AI agentů je důležité pochopit a zmírnit rizika a hrozby, kterým mohou čelit. Podívejme se na některé z různých hrozeb pro AI agenty a na to, jak se na ně lépe připravit.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.cs.png)
+![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.cs.png)
 
 ### Úkoly a instrukce
 
@@ -166,7 +166,7 @@ Pro vytvoření důvěryhodných AI agentů je důležité pochopit a zmírnit r
 
 Dalším efektivním způsobem, jak budovat důvěryhodné systémy AI agentů, je zapojení člověka do procesu. To vytváří tok, ve kterém mohou uživatelé poskytovat zpětnou vazbu agentům během jejich činnosti. Uživatelé v podstatě fungují jako agenti v systému s více agenty tím, že schvalují nebo ukončují probíhající proces.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.cs.png)
+![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.cs.png)
 
 Zde je ukázka kódu využívající AutoGen, která ukazuje, jak je tento koncept implementován:
 

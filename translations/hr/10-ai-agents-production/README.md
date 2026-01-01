@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI agenti u produkciji: Promatranje i evaluacija
 
-[![AI agenti u produkciji](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.hr.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI agenti u produkciji](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.hr.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Kako AI agenti prelaze iz eksperimentalnih prototipova u stvarne aplikacije, sposobnost razumijevanja njihovog ponašanja, praćenja performansi i sustavne evaluacije njihovih rezultata postaje ključna.
 

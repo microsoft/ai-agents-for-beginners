@@ -25,7 +25,7 @@ Tai galite padaryti paspaudę nuorodą <a href="https://github.com/microsoft/ai-
 
 Dabar turėtumėte turėti savo šakotą šio kurso versiją šioje nuorodoje:
 
-![Šakota saugykla](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.lt.png)
+![Šakota saugykla](../../../translated_images/forked-repo.33f27ca1901baa6a.lt.png)
 
 ### Paviršutiniškas klonavimas (rekomenduojama dirbtuvėms / Codespaces)
 
@@ -176,11 +176,11 @@ Prašome laikytis [Mažiausio privilegijų principo](https://docs.github.com/en/
 
 1. Pasirinkite `Fine-grained tokens` parinktį kairėje ekrano pusėje, eidami į **Kūrėjo nustatymus**
 
-   ![Kūrėjo nustatymai](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.lt.png)
+   ![Kūrėjo nustatymai](../../../translated_images/profile_developer_settings.410a859fe749c755.lt.png)
 
    Tada pasirinkite `Generate new token`.
 
-   ![Generuoti žetoną](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.lt.png)
+   ![Generuoti žetoną](../../../translated_images/fga_new_token.1c1a234afe202ab3.lt.png)
 
 2. Įveskite aprašomąjį žetono pavadinimą, kuris atspindi jo paskirtį, kad vėliau būtų lengva jį identifikuoti.
 
@@ -190,19 +190,19 @@ Prašome laikytis [Mažiausio privilegijų principo](https://docs.github.com/en/
     Dėl saugesnės pozicijos galite pasirinkti trumpesnį laikotarpį—pvz., 7 dienas 🛡️
     Tai puikus būdas nustatyti asmeninį tikslą ir baigti kursą, kol jūsų mokymosi tempas yra aukštas 🚀.
 
-    ![Žetono pavadinimas ir galiojimo data](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.lt.png)
+    ![Žetono pavadinimas ir galiojimo data](../../../translated_images/token-name-expiry-date.a095fb0de6386864.lt.png)
 
 3. Apribokite žetono apimtį savo šakai šioje saugykloje.
 
-    ![Apriboti apimtį šakos saugyklai](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.lt.png)
+    ![Apriboti apimtį šakos saugyklai](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.lt.png)
 
 4. Apribokite žetono teises: Skiltyje **Teisės**, spustelėkite **Paskyros** skirtuką ir spustelėkite "+ Pridėti teises" mygtuką. Atsiras išskleidžiamasis meniu. Prašome ieškoti **Models** ir pažymėti langelį.
 
-    ![Pridėti Models teisę](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.lt.png)
+    ![Pridėti Models teisę](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.lt.png)
 
-5. Patikrinkite reikiamas teises prieš generuodami žetoną. ![Patikrinti teises](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.lt.png)
+5. Patikrinkite reikiamas teises prieš generuodami žetoną. ![Patikrinti teises](../../../translated_images/verify_permissions.06bd9e43987a8b21.lt.png)
 
-6. Prieš generuodami žetoną, įsitikinkite, kad esate pasiruošę saugoti žetoną saugioje vietoje, pvz., slaptažodžių valdymo saugykloje, nes jis nebus rodomas dar kartą po jo sukūrimo. ![Saugoti žetoną saugiai](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.lt.png)
+6. Prieš generuodami žetoną, įsitikinkite, kad esate pasiruošę saugoti žetoną saugioje vietoje, pvz., slaptažodžių valdymo saugykloje, nes jis nebus rodomas dar kartą po jo sukūrimo. ![Saugoti žetoną saugiai](../../../translated_images/store_token_securely.08ee2274c6ad6caf.lt.png)
 
 Nukopijuokite naują žetoną, kurį ką tik sukūrėte. Dabar pridėsite jį į savo `.env` failą, įtrauktą į šį kursą.
 
@@ -224,7 +224,7 @@ Tai nukopijuos pavyzdinį failą ir sukurs `.env` jūsų kataloge, kur užpildys
 
 Nukopijavę savo žetoną, atidarykite `.env` failą savo mėgstamame teksto redaktoriuje ir įklijuokite savo žetoną į `GITHUB_TOKEN` lauką.
 
-![GitHub žetono laukas](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.lt.png)
+![GitHub žetono laukas](../../../translated_images/github_token_field.20491ed3224b5f4a.lt.png)
 
 Dabar turėtumėte galėti paleisti šio kurso kodo pavyzdžius.
 
@@ -238,7 +238,7 @@ Kai sukursite savo projektą, turėsite gauti savo projekto prisijungimo eilutę
 
 Tai galite padaryti eidami į **Apžvalgos** puslapį savo projekte Azure AI Foundry portale.
 
-![Projekto prisijungimo eilutė](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.lt.png)
+![Projekto prisijungimo eilutė](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.lt.png)
 
 ### 2 žingsnis: Sukurkite savo `.env` failą
 

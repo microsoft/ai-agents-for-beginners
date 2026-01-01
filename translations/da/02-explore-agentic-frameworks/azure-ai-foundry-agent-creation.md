@@ -25,7 +25,7 @@ For at gennemføre denne øvelse skal du have følgende:
 1. Følg disse retningslinjer fra [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blogindlægget for at oprette et Azure AI Foundry-hub.
 2. Når dit projekt er oprettet, luk eventuelle tips, der vises, og gennemgå projektets side i Azure AI Foundry-portalen, som bør ligne billedet herunder:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.da.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.da.png)
 
 ## Udrul en model
 
@@ -35,7 +35,7 @@ For at gennemføre denne øvelse skal du have følgende:
 
     > **Note**: At reducere TPM hjælper med at undgå overforbrug af den kvote, der er tilgængelig i det abonnement, du bruger.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.da.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.da.png)
 
 ## Opret en agent
 
@@ -77,7 +77,7 @@ Nu hvor du har udrullet en model, kan du oprette en agent. En agent er en samtal
     
 > Derudover kan du tilføje **Knowledge Base** og **Actions** for at forbedre agentens evner til at give mere information og udføre automatiserede opgaver baseret på brugerforespørgsler. Til denne øvelse kan du springe disse trin over.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.da.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.da.png)
 
 3. For at oprette en ny multi-AI agent skal du blot klikke på **New Agent**. Den nyoprettede agent vises derefter på Agents-siden.
 
@@ -90,7 +90,7 @@ Efter at have oprettet agenten kan du teste, hvordan den reagerer på brugerfore
 
     > **Note**: Agenten giver muligvis ikke præcise svar, da der ikke bruges realtidsdata i denne øvelse. Formålet er at teste agentens evne til at forstå og svare på brugerforespørgsler baseret på de givne instruktioner.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.da.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.da.png)
 
 3. Efter test af agenten kan du yderligere tilpasse den ved at tilføje flere intents, træningsdata og handlinger for at forbedre dens funktionalitet.
 

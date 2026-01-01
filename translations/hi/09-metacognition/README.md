@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hi"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.hi.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.hi.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(ऊपर दी गई छवि पर क्लिक करें इस पाठ का वीडियो देखने के लिए)_
 # एआई एजेंट्स में मेटाकॉग्निशन
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 एआई एजेंट डिज़ाइन में मेटाकॉग्निशन कई कारणों से महत्वपूर्ण भूमिका निभाता है:
 
-![मेटाकॉग्निशन का महत्व](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.hi.png)
+![मेटाकॉग्निशन का महत्व](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.hi.png)
 
 - आत्म-चिंतन: एजेंट्स अपने प्रदर्शन का आकलन कर सकते हैं और सुधार के क्षेत्रों की पहचान कर सकते हैं।
 - अनुकूलन क्षमता: एजेंट्स अपने पिछले अनुभवों और बदलते परिवेश के आधार पर अपनी रणनीतियों को संशोधित कर सकते हैं।
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 पहले आइए RAG टूल और प्री-एम्प्टिव कॉन्टेक्स्ट लोड के बीच अंतर को समझें।
 
-![RAG बनाम कॉन्टेक्स्ट लोडिंग](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.hi.png)
+![RAG बनाम कॉन्टेक्स्ट लोडिंग](../../../translated_images/rag-vs-context.9eae588520c00921.hi.png)
 
 ### रिट्रीवल-ऑगमेंटेड जनरेशन (RAG)
 

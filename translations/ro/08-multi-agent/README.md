@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ro"
 }
 -->
-[![Design Multi-Agent](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.ro.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Design Multi-Agent](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.ro.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
@@ -95,7 +95,7 @@ Acest model este util atunci când doriți să creați o aplicație de chat de g
 
 Acest model poate fi implementat folosind o arhitectură centralizată, în care toate mesajele sunt direcționate printr-un server central, sau o arhitectură descentralizată, în care mesajele sunt schimbate direct.
 
-![Chat de grup](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.ro.png)
+![Chat de grup](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.ro.png)
 
 ### Predare de sarcini
 
@@ -105,7 +105,7 @@ Cazuri de utilizare tipice pentru acest model includ suportul pentru clienți, g
 
 În acest model, fiecare agent reprezintă o sarcină sau un pas într-un flux de lucru, iar agenții pot preda sarcini altor agenți pe baza unor reguli predefinite.
 
-![Predare de sarcini](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.ro.png)
+![Predare de sarcini](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.ro.png)
 
 ### Filtrare colaborativă
 
@@ -119,7 +119,7 @@ Să luăm un exemplu în care un utilizator dorește o recomandare pentru cea ma
 - **Analiză tehnică**: Un alt agent ar putea fi expert în analiza tehnică.
 - **Analiză fundamentală**: Un alt agent ar putea fi expert în analiza fundamentală. Prin colaborare, acești agenți pot oferi o recomandare mai cuprinzătoare utilizatorului.
 
-![Recomandare](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.ro.png)
+![Recomandare](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.ro.png)
 
 ## Scenariu: Procesul de rambursare
 

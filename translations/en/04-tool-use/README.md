@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "en"
 }
 -->
-[![How to Design Good AI Agents](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.en.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![How to Design Good AI Agents](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.en.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Click the image above to view the video of this lesson)_
 
@@ -216,7 +216,7 @@ Here are some examples of how you can implement the Tool Use Design Pattern usin
 
 The following diagram illustrates the process of function calling with Semantic Kernel:
 
-![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.en.png)
+![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f6014.en.png)
 
 In Semantic Kernel, functions/tools are called <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. We can convert the `get_current_time` function from earlier into a plugin by turning it into a class containing the function. We can also import the `kernel_function` decorator, which takes the function’s description. When you create a kernel with the GetCurrentTimePlugin, the kernel automatically serializes the function and its parameters, creating the schema to send to the LLM.
 
@@ -277,7 +277,7 @@ Imagine you are a sales agent at a company called Contoso. You want to develop a
 
 The following image illustrates how you could use Azure AI Agent Service to analyze your sales data:
 
-![Agentic Service In Action](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.en.jpg)
+![Agentic Service In Action](../../../translated_images/agent-service-in-action.34fb465c9a84659e.en.jpg)
 
 To use any of these tools with the service, you can create a client and define a tool or toolset. To implement this practically, you can use the following Python code. The LLM will decide whether to use the user-created function, `fetch_sales_data_using_sqlite_query`, or the pre-built Code Interpreter based on the user’s request.
 

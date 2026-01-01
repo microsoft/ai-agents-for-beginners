@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "cs"
 }
 -->
-[![Plánování Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.cs.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Plánování Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.cs.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klikněte na obrázek výše pro zhlédnutí videa této lekce)_
 
@@ -32,7 +32,7 @@ Po dokončení této lekce budete rozumět:
 
 ## Definování celkového cíle a rozdělení úkolu
 
-![Definování cílů a úkolů](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.cs.png)
+![Definování cílů a úkolů](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.cs.png)
 
 Většina úkolů v reálném světě je příliš složitá na to, aby je bylo možné zvládnout jedním krokem. AI agent potřebuje stručný cíl, který bude řídit jeho plánování a akce. Například cíl:
 

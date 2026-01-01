@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "lt"
 }
 -->
-[![Planuojamo dizaino šablonas](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.lt.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planuojamo dizaino šablonas](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.lt.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Spustelėkite aukščiau esančią nuotrauką, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
@@ -32,7 +32,7 @@ Baigę šią pamoką, suprasite:
 
 ## Bendro tikslo nustatymas ir užduoties suskaidymas
 
-![Tikslų ir užduočių nustatymas](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.lt.png)
+![Tikslų ir užduočių nustatymas](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.lt.png)
 
 Dauguma realaus pasaulio užduočių yra per sudėtingos, kad jas būtų galima atlikti vienu žingsniu. AI agentui reikia aiškaus tikslo, kuris vadovautų jo planavimui ir veiksmams. Pavyzdžiui, apsvarstykite tikslą:
 

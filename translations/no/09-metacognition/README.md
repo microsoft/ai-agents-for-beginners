@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "no"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.no.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.no.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Klikk på bildet ovenfor for å se videoen av denne leksjonen)_
 # Metakognisjon i AI-agenter
@@ -47,7 +47,7 @@ Holde oversikt over hvordan eller hvorfor den valgte en bestemt rute.
 
 Metakognisjon spiller en avgjørende rolle i design av AI-agenter av flere grunner:
 
-![Viktigheten av metakognisjon](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.no.png)
+![Viktigheten av metakognisjon](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.no.png)
 
 - Selvrefleksjon: Agenter kan vurdere sin egen ytelse og identifisere områder for forbedring.
 - Tilpasningsevne: Agenter kan endre sine strategier basert på tidligere erfaringer og endrede miljøer.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 La oss først starte med å forstå forskjellen mellom RAG-verktøy og pre-emptiv kontekstinnlasting.
 
-![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.no.png)
+![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921.no.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

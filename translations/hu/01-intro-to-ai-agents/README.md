@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hu"
 }
 -->
-[![Bevezetés az AI ügynökökbe](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.hu.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Bevezetés az AI ügynökökbe](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.hu.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Kattints a fenti képre a videó megtekintéséhez erről a leckéről)_
 
@@ -47,7 +47,7 @@ Nézzük meg közelebbről ezt a definíciót:
   - **Érzékelők** - A környezet információkat és visszajelzéseket biztosít. Az AI ügynökök érzékelőket használnak, hogy összegyűjtsék és értelmezzék a környezet aktuális állapotáról szóló információkat. Az utazási foglalási ügynök példájában a foglalási rendszer információkat nyújthat, például a szállodai elérhetőségről vagy repülőjegyárakról.
   - **Végrehajtók** - Miután az AI ügynök megkapja a környezet aktuális állapotát, az ügynök meghatározza, hogy milyen cselekvést hajtson végre a környezet megváltoztatásához. Az utazási foglalási ügynök esetében ez lehet például egy szoba lefoglalása a felhasználó számára.
 
-![Mik azok az AI ügynökök?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.hu.png)
+![Mik azok az AI ügynökök?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.hu.png)
 
 **Nagy Nyelvi Modellek** - Az ügynökök fogalma már az LLM-ek létrehozása előtt is létezett. Az AI ügynökök LLM-ekkel való építésének előnye az, hogy képesek értelmezni az emberi nyelvet és adatokat. Ez a képesség lehetővé teszi az LLM-ek számára, hogy értelmezzék a környezeti információkat és tervet készítsenek a környezet megváltoztatására.
 
@@ -77,7 +77,7 @@ Az előző szakaszban az utazási ügynök példáját használtuk, hogy bemutas
 
 Nézzük meg, milyen típusú felhasználási esetekben a legjobb az AI ügynökök használata:
 
-![Mikor használjunk AI ügynököket?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.hu.png)
+![Mikor használjunk AI ügynököket?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.hu.png)
 
 - **Nyitott végű problémák** - lehetővé téve az LLM számára, hogy meghatározza a szükséges lépéseket egy feladat elvégzéséhez, mivel ez nem mindig kódolható előre egy munkafolyamatba.
 - **Többlépcsős folyamatok** - olyan feladatok, amelyek bizonyos szintű összetettséget igényelnek, és az AI ügynöknek eszközöket vagy információkat kell használnia több lépésben, nem csak egyszeri lekérdezés során.

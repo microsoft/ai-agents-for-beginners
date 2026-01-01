@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Azure AI Foundry hub സൃഷ്ടിക്കുന്നതിനുള്ള [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ബ്ലോഗ് പോസ്റ്റിലെ മാർഗനിർദ്ദേശങ്ങൾ പിന്തുടരുക.
 2. നിങ്ങളുടെ പ്രോജക്റ്റ് സൃഷ്ടിച്ച ശേഷം, പ്രദർശിപ്പിക്കുന്ന ഏതെങ്കിലും ടിപ്പുകൾ അടച്ച് Azure AI Foundry portal ൽ പ്രോജക്റ്റ് പേജ് അവലോകനം ചെയ്യുക. ഇത് താഴെ കാണുന്ന ചിത്രത്തോട് സമാനമായിരിക്കും:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.ml.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ml.png)
 
 ## മോഡൽ ഡിപ്ലോയ് ചെയ്യുക
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: TPM കുറയ്ക്കുന്നത് നിങ്ങൾ ഉപയോഗിക്കുന്ന സബ്സ്ക്രിപ്ഷനിൽ ലഭ്യമായ ക്വോട്ടാ അതിക്രമിക്കുന്നത് ഒഴിവാക്കാൻ സഹായിക്കുന്നു.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.ml.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.ml.png)
 
 ## ഏജന്റ് സൃഷ്ടിക്കുക
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > കൂടാതെ, **Knowledge Base**, **Actions** എന്നിവ ചേർത്ത് ഏജന്റിന്റെ കഴിവുകൾ മെച്ചപ്പെടുത്താനും ഉപയോക്തൃ അഭ്യർത്ഥനകളുടെ അടിസ്ഥാനത്തിൽ സ്വയം പ്രവർത്തനങ്ങൾ നടത്താനും കഴിയും. ഈ അഭ്യാസത്തിൽ, ഈ ഘട്ടങ്ങൾ ഒഴിവാക്കാം.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.ml.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.ml.png)
 
 3. പുതിയ multi-AI ഏജന്റ് സൃഷ്ടിക്കാൻ, **New Agent** ക്ലിക്ക് ചെയ്യുക. പുതിയ ഏജന്റ് **Agents** പേജിൽ പ്രദർശിപ്പിക്കും.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: ഈ അഭ്യാസത്തിൽ യഥാർത്ഥ സമയ ഡാറ്റ ഉപയോഗിക്കുന്നില്ല, അതിനാൽ ഏജന്റ് കൃത്യമായ പ്രതികരണങ്ങൾ നൽകില്ല. ഏജന്റിന്റെ ഉപയോക്തൃ ചോദ്യങ്ങൾ മനസിലാക്കാനും നൽകിയ നിർദ്ദേശങ്ങളുടെ അടിസ്ഥാനത്തിൽ പ്രതികരിക്കാനും ഉള്ള കഴിവ് പരിശോധിക്കുകയാണ് ലക്ഷ്യം.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.ml.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.ml.png)
 
 3. ഏജന്റ് പരീക്ഷിച്ചതിന് ശേഷം, കൂടുതൽ intents, training data, actions എന്നിവ ചേർത്ത് അതിന്റെ കഴിവുകൾ മെച്ചപ്പെടുത്താൻ കഴിയും.
 

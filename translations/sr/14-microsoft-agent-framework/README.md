@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Истраживање Microsoft Agent Framework-а
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee60be9ae59b754cb9c827569fcf52099caffc6f0e8e556bba.sr.png)
+![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.sr.png)
 
 ### Увод
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Разумевање Microsoft Agent Framework-а
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c0f80f555dbb43cb1066503eaf5a9cc0aa9be67b47722dd52.sr.png)
+![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.sr.png)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) је изграђен на основу искуства и научених лекција из Semantic Kernel-а и AutoGen-а. Пружа флексибилност за решавање широког спектра агентских случајева употребе у производним и истраживачким окружењима, укључујући:
 
@@ -63,7 +63,7 @@ Microsoft Agent Framework је такође фокусиран на интеро
 
 ### Агенти
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fefdce3760875b50526d01dd22a2ddd8a21e92da95beb82f84d.sr.png)
+![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.sr.png)
 
 **Креирање агената**
 

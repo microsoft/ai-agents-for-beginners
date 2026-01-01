@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ko"
 }
 -->
-[![AI 에이전트 프레임워크 탐구](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df4d5d407e29970e654629e614f357444a9c27c80feb54c79d.ko.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![AI 에이전트 프레임워크 탐구](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.ko.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(위 이미지를 클릭하면 이 강의의 동영상을 볼 수 있습니다)_
 

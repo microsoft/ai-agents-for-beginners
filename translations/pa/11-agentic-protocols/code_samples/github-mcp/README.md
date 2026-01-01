@@ -53,7 +53,7 @@ chainlit run app.py -w
 
 ਗਿਟਹੱਬ MCP ਸਰਵਰ ਨਾਲ ਜੁੜਨ ਲਈ, "Type your message here.." ਚੈਟ ਬਾਕਸ ਦੇ ਹੇਠਾਂ "ਪਲੱਗ" ਆਈਕਨ ਚੁਣੋ:
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28f1ea5f320b91e4404df4a24a0f236ce3de999666621f1cfc.pa.png)
+![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.pa.png)
 
 ਇੱਥੋਂ ਤੁਸੀਂ "Connect an MCP" 'ਤੇ ਕਲਿਕ ਕਰਕੇ ਗਿਟਹੱਬ MCP ਸਰਵਰ ਨਾਲ ਜੁੜਨ ਲਈ ਕਮਾਂਡ ਸ਼ਾਮਲ ਕਰ ਸਕਦੇ ਹੋ:
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Inżynieria kontekstu dla agentów AI
 
-[![Inżynieria kontekstu](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.pl.png)](https://youtu.be/F5zqRV7gEag)
+[![Inżynieria kontekstu](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.pl.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 
@@ -49,7 +49,7 @@ Inżynieria promptów koncentruje się na jednym zestawie statycznych instrukcji
 
 ### Rodzaje kontekstu
 
-[![Rodzaje kontekstu](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.pl.png)](https://youtu.be/F5zqRV7gEag)
+[![Rodzaje kontekstu](../../../translated_images/context-types.fc10b8927ee43f06.pl.png)](https://youtu.be/F5zqRV7gEag)
 
 Warto pamiętać, że kontekst to nie tylko jedna rzecz. Informacje, których potrzebuje agent AI, mogą pochodzić z różnych źródeł, a naszym zadaniem jest zapewnienie, że agent ma dostęp do tych źródeł:
 
@@ -69,7 +69,7 @@ Rodzaje kontekstu, którymi agent AI może zarządzać, obejmują:
 
 ### Strategie planowania
 
-[![Najlepsze praktyki inżynierii kontekstu](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.pl.png)](https://youtu.be/F5zqRV7gEag)
+[![Najlepsze praktyki inżynierii kontekstu](../../../translated_images/best-practices.f4170873dc554f58.pl.png)](https://youtu.be/F5zqRV7gEag)
 
 Dobra inżynieria kontekstu zaczyna się od dobrego planowania. Oto podejście, które pomoże Ci zacząć myśleć o zastosowaniu koncepcji inżynierii kontekstu:
 

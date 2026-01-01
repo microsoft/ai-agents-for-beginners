@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pl"
 }
 -->
-[![Projektowanie wieloagentowe](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.pl.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Projektowanie wieloagentowe](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.pl.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 
@@ -97,7 +97,7 @@ W tym wzorcu każdy agent reprezentuje użytkownika w czacie grupowym, a wiadomo
 
 Ten wzorzec można zaimplementować za pomocą architektury scentralizowanej, w której wszystkie wiadomości są przesyłane przez centralny serwer, lub architektury zdecentralizowanej, w której wiadomości są wymieniane bezpośrednio.
 
-![Czat grupowy](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.pl.png)
+![Czat grupowy](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.pl.png)
 
 ### Przekazywanie zadań
 
@@ -107,7 +107,7 @@ Typowe przypadki użycia tego wzorca obejmują obsługę klienta, zarządzanie z
 
 W tym wzorcu każdy agent reprezentuje zadanie lub krok w procesie, a agenci mogą przekazywać zadania innym agentom na podstawie wcześniej zdefiniowanych reguł.
 
-![Przekazywanie zadań](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.pl.png)
+![Przekazywanie zadań](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.pl.png)
 
 ### Filtracja współdzielona
 
@@ -121,7 +121,7 @@ Weźmy przykład, w którym użytkownik chce uzyskać rekomendację dotyczącą 
 - **Analiza techniczna**: Inny agent może być ekspertem w analizie technicznej.
 - **Analiza fundamentalna**: Jeszcze inny agent może być ekspertem w analizie fundamentalnej. Dzięki współpracy ci agenci mogą dostarczyć użytkownikowi bardziej kompleksową rekomendację.
 
-![Rekomendacja](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.pl.png)
+![Rekomendacja](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.pl.png)
 
 ## Scenariusz: Proces zwrotu
 

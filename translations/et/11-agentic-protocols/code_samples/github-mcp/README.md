@@ -55,7 +55,7 @@ See peaks käivitama sinu Chainlit serveri aadressil `localhost:8000` ning täit
 
 Github MCP Serveriga ühenduse loomiseks vali "pistiku" ikoon, mis asub "Sisesta oma sõnum siia.." vestluskasti all:
 
-![MCP Ühendus](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28f1ea5f320b91e4404df4a24a0f236ce3de999666621f1cfc.et.png)
+![MCP Ühendus](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.et.png)
 
 Sealt saad klõpsata "Connect an MCP", et lisada käsk Github MCP Serveriga ühenduse loomiseks:
 

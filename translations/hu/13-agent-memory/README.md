@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Memória AI ügynökök számára 
-[![Ügynök memória](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.hu.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Ügynök memória](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.hu.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Amikor az AI ügynökök létrehozásának egyedi előnyeiről beszélünk, két fő dolog kerül előtérbe: az eszközök használatának képessége a feladatok elvégzéséhez, valamint az idővel történő fejlődés képessége. A memória az alapja annak, hogy önfejlesztő ügynököket hozzunk létre, amelyek jobb élményeket nyújthatnak a felhasználóink számára.
 

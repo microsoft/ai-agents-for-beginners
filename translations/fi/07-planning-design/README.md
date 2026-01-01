@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fi"
 }
 -->
-[![Suunnittelumallin suunnittelu](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.fi.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Suunnittelumallin suunnittelu](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.fi.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klikkaa yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
 
@@ -32,7 +32,7 @@ Tämän oppitunnin jälkeen ymmärrät:
 
 ## Kokonaisvaltaisen tavoitteen määrittäminen ja tehtävän jakaminen
 
-![Tavoitteiden ja tehtävien määrittäminen](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.fi.png)
+![Tavoitteiden ja tehtävien määrittäminen](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.fi.png)
 
 Useimmat tosielämän tehtävät ovat liian monimutkaisia ratkaistavaksi yhdellä askeleella. Tekoälyagentti tarvitsee tiiviin tavoitteen ohjatakseen suunnitteluaan ja toimintaansa. Esimerkiksi tavoite:
 

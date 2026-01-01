@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sl"
 }
 -->
-[![Zanesljivi AI agenti](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.sl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Zanesljivi AI agenti](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.sl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Kliknite na zgornjo sliko za ogled videa te lekcije)_
 
@@ -41,7 +41,7 @@ Za AI agente so sistemska sporočila še pomembnejša, saj potrebujejo zelo spec
 
 Za ustvarjanje skalabilnih sistemskih sporočil lahko uporabimo okvir za sistemska sporočila, ki omogoča gradnjo enega ali več agentov v naši aplikaciji:
 
-![Gradnja okvirja za sistemska sporočila](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.sl.png)
+![Gradnja okvirja za sistemska sporočila](../../../translated_images/system-message-framework.3a97368c92d11d68.sl.png)
 
 #### Korak 1: Ustvarite meta sistemsko sporočilo
 
@@ -130,7 +130,7 @@ Vrednost tega okvirja za sistemska sporočila je v tem, da omogoča lažje ustva
 
 Za gradnjo zanesljivih AI agentov je pomembno razumeti in zmanjšati tveganja ter grožnje, ki vplivajo na vašega AI agenta. Poglejmo si nekaj različnih groženj za AI agente in kako se nanje bolje pripraviti.
 
-![Razumevanje groženj](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.sl.png)
+![Razumevanje groženj](../../../translated_images/understanding-threats.89edeada8a97fc0f.sl.png)
 
 ### Naloge in navodila
 
@@ -166,7 +166,7 @@ Za gradnjo zanesljivih AI agentov je pomembno razumeti in zmanjšati tveganja te
 
 Še en učinkovit način za gradnjo zanesljivih sistemov AI agentov je uporaba pristopa "človek v zanki". To ustvari tok, kjer lahko uporabniki med izvajanjem procesa podajo povratne informacije agentom. Uporabniki v bistvu delujejo kot agenti v večagentnem sistemu, saj odobravajo ali ustavljajo tekoče procese.
 
-![Človek v zanki](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.sl.png)
+![Človek v zanki](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.sl.png)
 
 Tukaj je primer kode z uporabo AutoGen, ki prikazuje, kako je ta koncept implementiran:
 

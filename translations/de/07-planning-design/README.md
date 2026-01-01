@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "de"
 }
 -->
-[![Planungs-Design-Muster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.de.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planungs-Design-Muster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.de.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klicken Sie auf das Bild oben, um das Video zu dieser Lektion anzusehen)_
 
@@ -32,7 +32,7 @@ Nach Abschluss dieser Lektion werden Sie verstehen:
 
 ## Das Gesamtziel definieren und eine Aufgabe aufteilen
 
-![Ziele und Aufgaben definieren](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.de.png)
+![Ziele und Aufgaben definieren](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.de.png)
 
 Die meisten Aufgaben in der realen Welt sind zu komplex, um sie in einem einzigen Schritt zu bewältigen. Ein KI-Agent benötigt ein prägnantes Ziel, um seine Planung und Aktionen zu leiten. Betrachten Sie beispielsweise das Ziel:
 

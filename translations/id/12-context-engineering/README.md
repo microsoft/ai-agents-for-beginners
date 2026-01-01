@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Rekayasa Konteks untuk Agen AI
 
-[![Rekayasa Konteks](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.id.png)](https://youtu.be/F5zqRV7gEag)
+[![Rekayasa Konteks](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.id.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
@@ -49,7 +49,7 @@ Rekayasa prompt berfokus pada satu set instruksi statis untuk secara efektif mem
 
 ### Jenis Konteks
 
-[![Jenis Konteks](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.id.png)](https://youtu.be/F5zqRV7gEag)
+[![Jenis Konteks](../../../translated_images/context-types.fc10b8927ee43f06.id.png)](https://youtu.be/F5zqRV7gEag)
 
 Penting untuk diingat bahwa konteks bukan hanya satu hal. Informasi yang dibutuhkan agen AI dapat berasal dari berbagai sumber, dan tugas kita adalah memastikan agen memiliki akses ke sumber-sumber ini:
 
@@ -69,7 +69,7 @@ Jenis konteks yang mungkin perlu dikelola oleh agen AI meliputi:
 
 ### Strategi Perencanaan
 
-[![Praktik Terbaik Rekayasa Konteks](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.id.png)](https://youtu.be/F5zqRV7gEag)
+[![Praktik Terbaik Rekayasa Konteks](../../../translated_images/best-practices.f4170873dc554f58.id.png)](https://youtu.be/F5zqRV7gEag)
 
 Rekayasa konteks yang baik dimulai dengan perencanaan yang baik. Berikut adalah pendekatan yang akan membantu Anda mulai memikirkan cara menerapkan konsep rekayasa konteks:
 

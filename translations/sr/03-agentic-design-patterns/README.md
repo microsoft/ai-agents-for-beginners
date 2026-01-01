@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sr"
 }
 -->
-[![Как дизајнирати добре AI агенте](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.sr.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Как дизајнирати добре AI агенте](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.sr.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Кликните на слику изнад да бисте погледали видео овог часа)_
 # Принципи дизајна агентских AI система
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Принципи дизајна агентских система
 
-![Принципи дизајна агентских система](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.sr.png)
+![Принципи дизајна агентских система](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.sr.png)
 
 ### Агент (Простор)
 

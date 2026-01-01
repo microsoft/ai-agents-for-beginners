@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Ingegneria del Contesto per Agenti AI
 
-[![Ingegneria del Contesto](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.it.png)](https://youtu.be/F5zqRV7gEag)
+[![Ingegneria del Contesto](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.it.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Clicca sull'immagine sopra per guardare il video di questa lezione)_
 
@@ -49,7 +49,7 @@ L'ingegneria dei prompt si concentra su un unico set di istruzioni statiche per 
 
 ### Tipi di Contesto
 
-[![Tipi di Contesto](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.it.png)](https://youtu.be/F5zqRV7gEag)
+[![Tipi di Contesto](../../../translated_images/context-types.fc10b8927ee43f06.it.png)](https://youtu.be/F5zqRV7gEag)
 
 È importante ricordare che il contesto non è un'unica cosa. Le informazioni di cui l'agente AI ha bisogno possono provenire da una varietà di fonti diverse, e spetta a noi garantire che l'agente abbia accesso a queste fonti:
 
@@ -69,7 +69,7 @@ I tipi di contesto che un agente AI potrebbe dover gestire includono:
 
 ### Strategie di Pianificazione
 
-[![Migliori Pratiche per l'Ingegneria del Contesto](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.it.png)](https://youtu.be/F5zqRV7gEag)
+[![Migliori Pratiche per l'Ingegneria del Contesto](../../../translated_images/best-practices.f4170873dc554f58.it.png)](https://youtu.be/F5zqRV7gEag)
 
 Una buona ingegneria del contesto inizia con una buona pianificazione. Ecco un approccio che ti aiuterà a iniziare a pensare a come applicare il concetto di ingegneria del contesto:
 

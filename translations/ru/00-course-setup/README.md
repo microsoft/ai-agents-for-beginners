@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Теперь у вас должна быть ваша собственная форкнутая версия курса по следующей ссылке:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.ru.png)
+![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.ru.png)
 
 ### Поверхностное клонирование (рекомендуется для воркшопов / Codespaces)
 
@@ -176,11 +176,11 @@ pip install -r requirements.txt
 
 1. Выберите опцию `Fine-grained tokens` на левой стороне экрана, перейдя в **Developer settings**.
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.ru.png)
+   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755.ru.png)
 
    Затем выберите `Generate new token`.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.ru.png)
+   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.ru.png)
 
 2. Введите описательное имя для вашего токена, которое отражает его назначение, чтобы его было легко идентифицировать позже.
 
@@ -190,19 +190,19 @@ pip install -r requirements.txt
     Для более безопасного подхода вы можете выбрать более короткий период — например, 7 дней 🛡️
     Это отличный способ установить личную цель и завершить курс, пока ваш учебный настрой высок 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.ru.png)
+    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de6386864.ru.png)
 
 3. Ограничьте область действия токена вашим форком этого репозитория.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.ru.png)
+    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.ru.png)
 
 4. Ограничьте разрешения токена: В разделе **Permissions** нажмите вкладку **Account** и кнопку "+ Add permissions". Появится выпадающее меню. Найдите **Models** и установите галочку.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.ru.png)
+    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.ru.png)
 
-5. Проверьте необходимые разрешения перед созданием токена. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.ru.png)
+5. Проверьте необходимые разрешения перед созданием токена. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b21.ru.png)
 
-6. Перед созданием токена убедитесь, что вы готовы сохранить токен в безопасном месте, например, в хранилище паролей, так как он не будет показан снова после создания. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.ru.png)
+6. Перед созданием токена убедитесь, что вы готовы сохранить токен в безопасном месте, например, в хранилище паролей, так как он не будет показан снова после создания. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf.ru.png)
 
 Скопируйте ваш новый токен, который вы только что создали. Теперь вы добавите его в файл `.env`, включенный в этот курс.
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 Скопировав ваш токен, откройте файл `.env` в вашем любимом текстовом редакторе и вставьте ваш токен в поле `GITHUB_TOKEN`.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.ru.png)
+![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4a.ru.png)
 
 Теперь вы должны быть готовы к запуску примеров кода из этого курса.
 
@@ -238,7 +238,7 @@ Copy-Item .env.example .env
 
 Это можно сделать, перейдя на страницу **Overview** вашего проекта в портале Azure AI Foundry.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.ru.png)
+![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.ru.png)
 
 ### Шаг 2: Создайте ваш файл `.env`
 

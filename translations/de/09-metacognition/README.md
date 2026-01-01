@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "de"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.de.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.de.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Klicken Sie auf das obige Bild, um das Video zu dieser Lektion anzusehen)_
 # Metakognition in KI-Agenten
@@ -47,7 +47,7 @@ Nachverfolgen, wie oder warum eine bestimmte Route gewählt wurde.
 
 Metakognition spielt aus mehreren Gründen eine entscheidende Rolle im Design von KI-Agenten:
 
-![Bedeutung der Metakognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.de.png)
+![Bedeutung der Metakognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.de.png)
 
 - Selbstreflexion: Agenten können ihre eigene Leistung bewerten und Verbesserungsmöglichkeiten identifizieren.
 - Anpassungsfähigkeit: Agenten können ihre Strategien basierend auf vergangenen Erfahrungen und sich ändernden Umgebungen anpassen.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Zunächst wollen wir den Unterschied zwischen dem RAG-Tool und dem präventiven Kontextladen verstehen.
 
-![RAG vs Kontextladen](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.de.png)
+![RAG vs Kontextladen](../../../translated_images/rag-vs-context.9eae588520c00921.de.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

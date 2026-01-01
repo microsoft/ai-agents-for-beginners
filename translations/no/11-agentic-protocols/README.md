@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Bruk av Agentiske Protokoller (MCP, A2A og NLWeb)
 
-[![Agentiske Protokoller](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.no.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentiske Protokoller](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.no.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Klikk på bildet over for å se videoen til denne leksjonen)_
 
@@ -69,7 +69,7 @@ MCP gir betydelige fordeler for AI-agenter:
 
 ### MCP Eksempel
 
-![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a12e1f0eb300191a036ab01124fce71c864fe9cb7f4ac2a15d.no.png)
+![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.no.png)
 
 Tenk deg at en bruker ønsker å bestille en flyreise ved hjelp av en AI-assistent drevet av MCP.
 
@@ -124,7 +124,7 @@ Denne komponenten brukes til **å håndtere oppdateringer og sende meldinger**. 
 
 ### A2A Eksempel
 
-![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc2687db4093d7b09ea2a595622f8fe18194a026ee55fc23af8e.no.png)
+![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc26.no.png)
 
 La oss utvide vårt reisebestillingsscenario, men denne gangen ved bruk av A2A.
 
@@ -158,7 +158,7 @@ La oss se på de ulike komponentene i NLWeb, fordelene med NLWeb og et eksempel 
 
 ### NLWeb Eksempel
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4b245b86690ac6c49c26e355da5ab124128c8675d58cc9b07.no.png)
+![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.no.png)
 
 Tenk deg vår reisebestillingsnettside igjen, men denne gangen drevet av NLWeb.
 

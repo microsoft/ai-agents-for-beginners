@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fr"
 }
 -->
-[![Introduction aux agents IA](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.fr.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Introduction aux agents IA](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.fr.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Cliquez sur l'image ci-dessus pour voir la vidéo de cette leçon)_
 
@@ -47,7 +47,7 @@ Décomposons cette définition en parties plus petites :
   - **Capteurs** - Les environnements contiennent des informations et fournissent des retours. Les agents IA utilisent des capteurs pour recueillir et interpréter ces informations sur l'état actuel de l'environnement. Dans l'exemple de l'agent de réservation de voyages, le système de réservation peut fournir des informations telles que la disponibilité des hôtels ou les prix des vols.
   - **Actionneurs** - Une fois que l'agent IA reçoit l'état actuel de l'environnement, pour la tâche en cours, l'agent détermine quelle action effectuer pour modifier l'environnement. Pour l'agent de réservation de voyages, cela pourrait être de réserver une chambre disponible pour l'utilisateur.
 
-![Qu'est-ce qu'un agent IA ?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.fr.png)
+![Qu'est-ce qu'un agent IA ?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.fr.png)
 
 **Modèles de langage étendus** - Le concept d'agents existait avant la création des LLMs. L'avantage de construire des agents IA avec des LLMs réside dans leur capacité à interpréter le langage humain et les données. Cette capacité permet aux LLMs d'interpréter les informations environnementales et de définir un plan pour modifier l'environnement.
 
@@ -77,7 +77,7 @@ Dans la section précédente, nous avons utilisé le cas d'utilisation de l'agen
 
 Examinons les types de cas d'utilisation pour lesquels les agents IA sont les plus adaptés :
 
-![Quand utiliser les agents IA ?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.fr.png)
+![Quand utiliser les agents IA ?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.fr.png)
 
 - **Problèmes ouverts** - Permettre au LLM de déterminer les étapes nécessaires pour accomplir une tâche, car cela ne peut pas toujours être codé en dur dans un flux de travail.
 - **Processus en plusieurs étapes** - Tâches nécessitant un niveau de complexité où l'agent IA doit utiliser des outils ou des informations sur plusieurs tours au lieu d'une récupération en une seule fois.  

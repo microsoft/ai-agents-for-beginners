@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # एआय एजंट्ससाठी संदर्भ अभियांत्रिकी
 
-[![संदर्भ अभियांत्रिकी](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.mr.png)](https://youtu.be/F5zqRV7gEag)
+[![संदर्भ अभियांत्रिकी](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.mr.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(वरील प्रतिमेवर क्लिक करून या धड्याचा व्हिडिओ पहा)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### संदर्भाचे प्रकार
 
-[![संदर्भाचे प्रकार](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.mr.png)](https://youtu.be/F5zqRV7gEag)
+[![संदर्भाचे प्रकार](../../../translated_images/context-types.fc10b8927ee43f06.mr.png)](https://youtu.be/F5zqRV7gEag)
 
 हे लक्षात ठेवणे महत्त्वाचे आहे की संदर्भ ही एकच गोष्ट नाही. एआय एजंटला आवश्यक असलेली माहिती विविध स्रोतांमधून येऊ शकते आणि एजंटला या स्रोतांमध्ये प्रवेश मिळावा याची खात्री करणे आपले काम आहे:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### नियोजन रणनीती
 
-[![संदर्भ अभियांत्रिकी सर्वोत्तम पद्धती](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.mr.png)](https://youtu.be/F5zqRV7gEag)
+[![संदर्भ अभियांत्रिकी सर्वोत्तम पद्धती](../../../translated_images/best-practices.f4170873dc554f58.mr.png)](https://youtu.be/F5zqRV7gEag)
 
 चांगली संदर्भ अभियांत्रिकी चांगल्या नियोजनाने सुरू होते. संदर्भ अभियांत्रिकीची संकल्पना कशी लागू करायची याचा विचार करण्यासाठी येथे एक दृष्टिकोन दिला आहे:
 

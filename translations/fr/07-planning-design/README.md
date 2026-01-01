@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fr"
 }
 -->
-[![Planification et Modèle de Conception](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.fr.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planification et Modèle de Conception](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.fr.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Cliquez sur l'image ci-dessus pour visionner la vidéo de cette leçon)_
 
@@ -32,7 +32,7 @@ Après avoir terminé cette leçon, vous comprendrez :
 
 ## Définir l'objectif global et décomposer une tâche
 
-![Définir les objectifs et les tâches](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.fr.png)
+![Définir les objectifs et les tâches](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.fr.png)
 
 La plupart des tâches du monde réel sont trop complexes pour être abordées en une seule étape. Un agent IA a besoin d'un objectif concis pour guider sa planification et ses actions. Par exemple, considérez l'objectif :
 

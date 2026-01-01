@@ -53,7 +53,7 @@ Hii inapaswa kuanzisha server yako ya Chainlit kwenye `localhost:8000` pamoja na
 
 Ili kuunganishwa na Server ya Github MCP, chagua ikoni ya "plug" chini ya kisanduku cha mazungumzo "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28f1ea5f320b91e4404df4a24a0f236ce3de999666621f1cfc.sw.png)
+![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.sw.png)
 
 Kutoka hapo unaweza kubofya "Connect an MCP" ili kuongeza amri ya kuunganishwa na Server ya Github MCP:
 

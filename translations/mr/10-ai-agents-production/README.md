@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # उत्पादनात AI एजंट्स: निरीक्षणक्षमता आणि मूल्यमापन
 
-[![उत्पादनात AI एजंट्स](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.mr.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![उत्पादनात AI एजंट्स](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.mr.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 AI एजंट्स प्रायोगिक प्रोटोटाइपपासून वास्तविक जगातील अनुप्रयोगांमध्ये जात असताना, त्यांच्या वर्तनाची समज, कार्यप्रदर्शनाचे निरीक्षण आणि त्यांच्या आउटपुटचे पद्धतशीर मूल्यमापन करण्याची क्षमता महत्त्वाची ठरते.
 

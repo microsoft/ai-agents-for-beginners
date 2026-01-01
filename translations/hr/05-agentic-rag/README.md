@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hr"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.hr.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.hr.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Kliknite na sliku iznad za video lekcije)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) je novi pristup u razvoju A
 
 Ovaj iterativni stil "maker-checker" osmišljen je za poboljšanje točnosti, rješavanje neispravnih upita prema strukturiranim bazama podataka (npr. NL2SQL) i osiguravanje uravnoteženih, visokokvalitetnih rezultata. Umjesto da se oslanja isključivo na pažljivo osmišljene sekvence upita, sustav aktivno preuzima odgovornost za proces zaključivanja. Može prepisati neuspjele upite, odabrati različite metode prikupljanja informacija i integrirati više alata—poput vektorskog pretraživanja u Azure AI Search, SQL baza podataka ili prilagođenih API-ja—prije nego što finalizira svoj odgovor. Ovo uklanja potrebu za prekompliciranim okvirima orkestracije. Umjesto toga, relativno jednostavan ciklus "poziv LLM-u → korištenje alata → poziv LLM-u → …" može rezultirati sofisticiranim i dobro utemeljenim izlazima.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.hr.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.hr.png)
 
 ## Vlasništvo nad procesom zaključivanja
 
@@ -67,7 +67,7 @@ Svi ovi koraci—poboljšavanje upita, odabir izvora, iteracija dok ne bude "zad
 
 ## Iterativni ciklusi, integracija alata i memorija
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.hr.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.hr.png)
 
 Agentički sustav oslanja se na iterativni obrazac interakcije:
 
@@ -89,7 +89,7 @@ Autonomija Agentic RAG-a također uključuje robusne mehanizme samoispravka. Kad
 
 Ovaj iterativni i dinamični pristup omogućuje modelu kontinuirano poboljšanje, osiguravajući da nije samo sustav za jednokratnu upotrebu, već onaj koji uči iz svojih pogrešaka tijekom određene sesije.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.hr.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.hr.png)
 
 ## Granice autonomije
 
@@ -119,7 +119,7 @@ Kako ovi sustavi postaju autonomniji u svom zaključivanju, upravljanje i transp
 
 Imati alate koji pružaju jasan zapis radnji je ključno. Bez njih, otklanjanje problema u višestupanjskom procesu može biti vrlo teško. Pogledajte sljedeći primjer iz Literal AI (tvrtka iza Chainlit-a) za Agent run:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.hr.png)
+![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.hr.png)
 
 ## Zaključak
 

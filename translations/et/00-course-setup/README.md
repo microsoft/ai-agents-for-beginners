@@ -25,7 +25,7 @@ Seda saab teha, klõpsates lingil <a href="https://github.com/microsoft/ai-agent
 
 Nüüd peaks sul olema selle kursuse enda hargitud versioon järgmisel lingil:
 
-![Hargitud repositoorium](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.et.png)
+![Hargitud repositoorium](../../../translated_images/forked-repo.33f27ca1901baa6a.et.png)
 
 ### Madal kloonimine (soovitatav töötubade / Codespaces jaoks)
 
@@ -176,11 +176,11 @@ Palun järgi [väikseima privileegi põhimõtet](https://docs.github.com/en/get-
 
 1. Vali ekraani vasakul küljel **Developer settings** alt `Fine-grained tokens` valik.
 
-   ![Arendaja seaded](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.et.png)
+   ![Arendaja seaded](../../../translated_images/profile_developer_settings.410a859fe749c755.et.png)
 
    Seejärel vali `Generate new token`.
 
-   ![Loo token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.et.png)
+   ![Loo token](../../../translated_images/fga_new_token.1c1a234afe202ab3.et.png)
 
 2. Sisesta tokenile kirjeldav nimi, mis kajastab selle eesmärki, et seda hiljem lihtne tuvastada oleks.
 
@@ -190,19 +190,19 @@ Palun järgi [väikseima privileegi põhimõtet](https://docs.github.com/en/get-
     Turvalisuse suurendamiseks võid valida lühema perioodi—näiteks 7 päeva 🛡️  
     See on suurepärane viis seada isiklik eesmärk ja lõpetada kursus, kui õpimoment on kõrge 🚀.
 
-    ![Tokeni nimi ja aegumiskuupäev](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.et.png)
+    ![Tokeni nimi ja aegumiskuupäev](../../../translated_images/token-name-expiry-date.a095fb0de6386864.et.png)
 
 3. Piira tokeni ulatus oma hargitud repositooriumiga.
 
-    ![Piira ulatus hargitud repositooriumiga](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.et.png)
+    ![Piira ulatus hargitud repositooriumiga](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.et.png)
 
 4. Piira tokeni õigused: **Permissions** all klõpsa **Account** vahekaarti ja vajuta "+ Add permissions" nuppu. Ilmub rippmenüü. Otsi **Models** ja märgi selle kast.
 
-    ![Lisa Models õigused](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.et.png)
+    ![Lisa Models õigused](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.et.png)
 
-5. Kontrolli enne tokeni loomist vajalikke õigusi. ![Kontrolli õigusi](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.et.png)
+5. Kontrolli enne tokeni loomist vajalikke õigusi. ![Kontrolli õigusi](../../../translated_images/verify_permissions.06bd9e43987a8b21.et.png)
 
-6. Enne tokeni loomist veendu, et oled valmis tokeni turvalises kohas, näiteks paroolihalduri seifis, salvestama, kuna seda ei kuvata uuesti pärast loomist. ![Salvesta token turvaliselt](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.et.png)
+6. Enne tokeni loomist veendu, et oled valmis tokeni turvalises kohas, näiteks paroolihalduri seifis, salvestama, kuna seda ei kuvata uuesti pärast loomist. ![Salvesta token turvaliselt](../../../translated_images/store_token_securely.08ee2274c6ad6caf.et.png)
 
 Kopeeri oma äsja loodud token. Nüüd lisad selle oma `.env` faili, mis on selle kursuse osaks.
 
@@ -224,7 +224,7 @@ See kopeerib näidisfaili ja loob `.env` faili sinu kataloogi, kuhu täidad kesk
 
 Kopeeritud tokeniga ava `.env` fail oma lemmikteksti redaktoris ja kleebi token `GITHUB_TOKEN` väljale.
 
-![GitHub Token väli](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.et.png)
+![GitHub Token väli](../../../translated_images/github_token_field.20491ed3224b5f4a.et.png)
 
 Nüüd peaksid saama käivitada selle kursuse koodinäiteid.
 
@@ -238,7 +238,7 @@ Kui oled oma projekti loonud, pead hankima oma projekti ühenduse stringi.
 
 Seda saab teha, minnes **Overview** lehele oma projektis Azure AI Foundry portaalis.
 
-![Projekti ühenduse string](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.et.png)
+![Projekti ühenduse string](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.et.png)
 
 ### Samm 2: Loo oma `.env` fail
 

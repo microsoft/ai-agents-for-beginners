@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "kn"
 }
 -->
-[![ಯೋಜನೆ ವಿನ್ಯಾಸ ಮಾದರಿ](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.kn.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![ಯೋಜನೆ ವಿನ್ಯಾಸ ಮಾದರಿ](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.kn.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(ಈ ಪಾಠದ ವೀಡಿಯೊವನ್ನು ನೋಡಲು ಮೇಲಿನ ಚಿತ್ರವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## ಒಟ್ಟು ಗುರಿಯನ್ನು ನಿರ್ಧರಿಸುವುದು ಮತ್ತು ಕಾರ್ಯವನ್ನು ವಿಭಜಿಸುವುದು
 
-![ಗುರಿಗಳನ್ನು ಮತ್ತು ಕಾರ್ಯಗಳನ್ನು ನಿರ್ಧರಿಸುವುದು](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.kn.png)
+![ಗುರಿಗಳನ್ನು ಮತ್ತು ಕಾರ್ಯಗಳನ್ನು ನಿರ್ಧರಿಸುವುದು](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.kn.png)
 
 ಬಹುತೇಕ ನಿಜಜೀವನದ ಕಾರ್ಯಗಳು ಒಂದೇ ಹೆಜ್ಜೆಯಲ್ಲಿ ನಿರ್ವಹಿಸಲು ತುಂಬಾ ಸಂಕೀರ್ಣವಾಗಿರುತ್ತವೆ. AI ಏಜೆಂಟ್ ತನ್ನ ಯೋಜನೆ ಮತ್ತು ಕ್ರಿಯೆಗಳನ್ನು ಮಾರ್ಗದರ್ಶಿಸಲು ಸಂಕ್ಷಿಪ್ತ ಗುರಿಯನ್ನು ಅಗತ್ಯವಿದೆ. ಉದಾಹರಣೆಗೆ, ಈ ಗುರಿಯನ್ನು ಪರಿಗಣಿಸಿ:
 

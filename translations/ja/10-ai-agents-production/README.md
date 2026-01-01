@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # 本番環境におけるAIエージェント: 可観測性と評価
 
-[![本番環境におけるAIエージェント](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.ja.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![本番環境におけるAIエージェント](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.ja.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 AIエージェントが実験的なプロトタイプから実際のアプリケーションへと移行する中で、その挙動を理解し、パフォーマンスを監視し、出力を体系的に評価する能力が重要になります。
 

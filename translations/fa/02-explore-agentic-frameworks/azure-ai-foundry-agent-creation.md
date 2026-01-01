@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. دستورالعمل‌های موجود در پست وبلاگ [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) را برای ایجاد یک هاب Azure AI Foundry دنبال کنید.
 2. پس از ایجاد پروژه، هر نکته‌ای که نمایش داده می‌شود را ببندید و صفحه پروژه را در پرتال Azure AI Foundry بررسی کنید که باید مشابه تصویر زیر باشد:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.fa.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.fa.png)
 
 ## استقرار یک مدل
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: کاهش TPM به جلوگیری از استفاده بیش از حد از سهمیه اشتراک شما کمک می‌کند.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.fa.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.fa.png)
 
 ## ایجاد یک عامل
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > علاوه بر این، می‌توانید **Knowledge Base** و **Actions** را اضافه کنید تا قابلیت‌های عامل برای ارائه اطلاعات بیشتر و انجام وظایف خودکار بر اساس درخواست‌های کاربر افزایش یابد. برای این تمرین، می‌توانید این مراحل را نادیده بگیرید.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.fa.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.fa.png)
 
 3. برای ایجاد یک عامل چندهوش مصنوعی جدید، کافی است روی **New Agent** کلیک کنید. عامل تازه ایجاد شده سپس در صفحه Agents نمایش داده خواهد شد.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: ممکن است عامل پاسخ‌های دقیقی ارائه ندهد، زیرا در این تمرین از داده‌های زنده استفاده نمی‌شود. هدف، آزمایش توانایی عامل در درک و پاسخ به پرسش‌های کاربران بر اساس دستورالعمل‌های داده شده است.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.fa.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.fa.png)
 
 3. پس از آزمایش عامل، می‌توانید با افزودن نیت‌های بیشتر، داده‌های آموزشی و اقدامات، قابلیت‌های آن را بیشتر سفارشی کنید.
 

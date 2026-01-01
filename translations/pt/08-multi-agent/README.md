@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pt"
 }
 -->
-[![Design de Multi-Agentes](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.pt.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Design de Multi-Agentes](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.pt.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Clique na imagem acima para ver o vídeo desta lição)_
 
@@ -95,7 +95,7 @@ Neste padrão, cada agente representa um utilizador no chat em grupo, e as mensa
 
 Este padrão pode ser implementado usando uma arquitetura centralizada, onde todas as mensagens são encaminhadas através de um servidor central, ou uma arquitetura descentralizada, onde as mensagens são trocadas diretamente.
 
-![Chat em Grupo](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.pt.png)
+![Chat em Grupo](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.pt.png)
 
 ### Transferência de Tarefas
 
@@ -105,7 +105,7 @@ Casos de uso típicos para este padrão incluem suporte ao cliente, gestão de t
 
 Neste padrão, cada agente representa uma tarefa ou um passo num fluxo de trabalho, e os agentes podem transferir tarefas para outros agentes com base em regras predefinidas.
 
-![Transferência de Tarefas](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.pt.png)
+![Transferência de Tarefas](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.pt.png)
 
 ### Filtragem Colaborativa
 
@@ -119,7 +119,7 @@ Vamos a um exemplo onde um utilizador quer uma recomendação sobre a melhor aç
 - **Análise Técnica**: Outro agente poderia ser especialista em análise técnica.
 - **Análise Fundamental**: E outro agente poderia ser especialista em análise fundamental. Ao colaborar, esses agentes podem fornecer uma recomendação mais abrangente ao utilizador.
 
-![Recomendação](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.pt.png)
+![Recomendação](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.pt.png)
 
 ## Cenário: Processo de Reembolso
 

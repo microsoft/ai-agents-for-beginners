@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Azure AI Foundry ہب بنانے کے لیے [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) بلاگ پوسٹ میں دی گئی ہدایات پر عمل کریں۔
 2. جب آپ کا پروجیکٹ بن جائے، تو دکھائی جانے والی کسی بھی ٹپس کو بند کریں اور Azure AI Foundry پورٹل میں پروجیکٹ صفحہ کا جائزہ لیں، جو درج ذیل تصویر کی طرح نظر آنا چاہیے:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.ur.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ur.png)
 
 ## ماڈل تعینات کریں
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > [!NOTE] TPM کو کم کرنے سے آپ کی سبسکرپشن میں دستیاب کوٹہ کے زیادہ استعمال سے بچا جا سکتا ہے۔
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.ur.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.ur.png)
 
 ## ایجنٹ بنائیں
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > مزید برآں، آپ ایجنٹ کی صلاحیتوں کو بڑھانے کے لیے **Knowledge Base** اور **Actions** شامل کر سکتے ہیں تاکہ صارف کی درخواستوں کی بنیاد پر مزید معلومات فراہم کی جا سکیں اور خودکار کام انجام دیے جا سکیں۔ اس مشق کے لیے، آپ ان مراحل کو چھوڑ سکتے ہیں۔
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.ur.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.ur.png)
 
 3. نیا ملٹی-AI ایجنٹ بنانے کے لیے بس **New Agent** پر کلک کریں۔ نیا بنایا گیا ایجنٹ پھر Agents صفحہ پر دکھایا جائے گا۔
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > [!NOTE] چونکہ اس مشق میں حقیقی وقت کا ڈیٹا استعمال نہیں ہو رہا، اس لیے ایجنٹ درست جوابات فراہم نہ کر سکے۔ مقصد یہ ہے کہ ایجنٹ کی صارف کے سوالات کو سمجھنے اور دی گئی ہدایات کی بنیاد پر جواب دینے کی صلاحیت کو جانچا جائے۔
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.ur.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.ur.png)
 
 3. ایجنٹ کا ٹیسٹ کرنے کے بعد، آپ اس کی صلاحیتوں کو بڑھانے کے لیے مزید ارادے، تربیتی ڈیٹا، اور ایکشنز شامل کر کے اسے مزید حسب ضرورت بنا سکتے ہیں۔
 

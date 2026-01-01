@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # AI အေးဂျင့်များအတွက် မှတ်ဉာဏ်
-[![Agent Memory](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.my.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agent Memory](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.my.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 AI အေးဂျင့်များ ဖန်တီးရာတွင် အထူးအကျိုးကျေးဇူးများကို ဆွေးနွေးသောအခါ၊ အဓိကအားဖြင့် အလုပ်များကို ပြီးမြောက်စေရန် ကိရိယာများကို ခေါ်ယူနိုင်ခြင်းနှင့် အချိန်ကြာလာသည်နှင့်အမျှ တိုးတက်လာနိုင်ခြင်းတို့ကို အဓိကထား၍ ဆွေးနွေးကြသည်။ မှတ်ဉာဏ်သည် အသုံးပြုသူများအတွက် ပိုမိုကောင်းမွန်သော အတွေ့အကြုံများ ဖန်တီးနိုင်သော ကိုယ်တိုင်တိုးတက်လာသော အေးဂျင့်ကို ဖန်တီးရာတွင် အခြေခံအဆင့်ဖြစ်သည်။
 

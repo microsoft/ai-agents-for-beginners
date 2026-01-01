@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # 에이전틱 프로토콜 사용하기 (MCP, A2A 및 NLWeb)
 
-[![에이전틱 프로토콜](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.ko.png)](https://youtu.be/X-Dh9R3Opn8)
+[![에이전틱 프로토콜](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.ko.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(위 이미지를 클릭하면 이 강의의 동영상을 볼 수 있습니다)_
 
@@ -69,7 +69,7 @@ MCP는 AI 에이전트에 다음과 같은 중요한 이점을 제공합니다:
 
 ### MCP 예시
 
-![MCP 다이어그램](../../../translated_images/mcp-diagram.e4ca1cbd551444a12e1f0eb300191a036ab01124fce71c864fe9cb7f4ac2a15d.ko.png)
+![MCP 다이어그램](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.ko.png)
 
 사용자가 MCP를 활용하는 AI 어시스턴트를 통해 항공편을 예약하고 싶어한다고 가정해봅시다.
 
@@ -124,7 +124,7 @@ MCP 서버가 도구 목록을 공유하는 방식과 유사하게, 에이전트
 
 ### A2A 예시
 
-![A2A 다이어그램](../../../translated_images/A2A-Diagram.8666928d648acc2687db4093d7b09ea2a595622f8fe18194a026ee55fc23af8e.ko.png)
+![A2A 다이어그램](../../../translated_images/A2A-Diagram.8666928d648acc26.ko.png)
 
 이번에는 여행 예약 시나리오를 확장하여 A2A를 사용하는 경우를 살펴보겠습니다.
 
@@ -158,7 +158,7 @@ NLWeb의 다양한 구성 요소, NLWeb의 이점, 그리고 여행 애플리케
 
 ### NLWeb 예시
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4b245b86690ac6c49c26e355da5ab124128c8675d58cc9b07.ko.png)
+![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.ko.png)
 
 이번에는 여행 예약 웹사이트가 NLWeb으로 구동되는 경우를 살펴보겠습니다.
 

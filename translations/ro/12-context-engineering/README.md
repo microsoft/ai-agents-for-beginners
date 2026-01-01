@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Ingineria Contextului pentru Agenți AI
 
-[![Ingineria Contextului](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.ro.png)](https://youtu.be/F5zqRV7gEag)
+[![Ingineria Contextului](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.ro.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Click pe imaginea de mai sus pentru a viziona videoclipul lecției)_
 
@@ -49,7 +49,7 @@ Ingineria prompturilor se concentrează pe un set unic de instrucțiuni statice 
 
 ### Tipuri de Context
 
-[![Tipuri de Context](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.ro.png)](https://youtu.be/F5zqRV7gEag)
+[![Tipuri de Context](../../../translated_images/context-types.fc10b8927ee43f06.ro.png)](https://youtu.be/F5zqRV7gEag)
 
 Este important să ne amintim că contextul nu este doar un singur lucru. Informațiile de care agentul AI are nevoie pot proveni dintr-o varietate de surse diferite, iar noi trebuie să ne asigurăm că agentul are acces la aceste surse:
 
@@ -69,7 +69,7 @@ Tipurile de context pe care un agent AI ar putea să le gestioneze includ:
 
 ### Strategii de Planificare
 
-[![Cele Mai Bune Practici pentru Ingineria Contextului](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.ro.png)](https://youtu.be/F5zqRV7gEag)
+[![Cele Mai Bune Practici pentru Ingineria Contextului](../../../translated_images/best-practices.f4170873dc554f58.ro.png)](https://youtu.be/F5zqRV7gEag)
 
 O bună inginerie a contextului începe cu o bună planificare. Iată o abordare care te va ajuta să începi să aplici conceptul de inginerie a contextului:
 

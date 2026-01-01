@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ja"
 }
 -->
-[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.ja.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.ja.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(上の画像をクリックすると、このレッスンの動画が視聴できます)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 全体目標の定義とタスクの分解
 
-![目標とタスクの定義](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.ja.png)
+![目標とタスクの定義](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.ja.png)
 
 ほとんどの現実世界のタスクは、1ステップで解決するには複雑すぎます。AIエージェントには、計画と行動を導くための簡潔な目的が必要です。例えば、以下の目標を考えてみましょう：
 

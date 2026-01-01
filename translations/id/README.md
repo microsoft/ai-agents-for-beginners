@@ -1,22 +1,22 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "b3581c11869b3563f33773adfb011949",
-  "translation_date": "2025-12-24T23:49:02+00:00",
+  "original_hash": "7f112154d137460ec15a92bf3eec99df",
+  "translation_date": "2026-01-01T11:04:22+00:00",
   "source_file": "README.md",
   "language_code": "id"
 }
 -->
-# AI Agents for Beginners - A Course
+# Agen AI untuk Pemula - Sebuah Kursus
 
-![Generative AI For Beginners](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.id.png)
+![AI Generatif untuk Pemula](../../translated_images/repo-thumbnailv2.06f4a48036fde647.id.png)
 
-## A course teaching everything you need to know to start building AI Agents
+## Sebuah kursus yang mengajarkan semua yang Anda perlu ketahui untuk mulai membangun Agen AI
 
 [![Lisensi GitHub](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
 [![Kontributor GitHub](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![Masalah GitHub](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![Permintaan tarik GitHub](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![Isu GitHub](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![Pull request GitHub](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
 [![PRs Dipersilakan](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
 ### 🌐 Dukungan Multi-Bahasa
@@ -24,13 +24,13 @@ CO_OP_TRANSLATOR_METADATA:
 #### Didukung melalui GitHub Action (Otomatis & Selalu Terbaru)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Bahasa Arab](../ar/README.md) | [Bahasa Bengali](../bn/README.md) | [Bahasa Bulgaria](../bg/README.md) | [Bahasa Burma (Myanmar)](../my/README.md) | [Cina (Sederhana)](../zh/README.md) | [Cina (Tradisional, Hong Kong)](../hk/README.md) | [Cina (Tradisional, Macau)](../mo/README.md) | [Cina (Tradisional, Taiwan)](../tw/README.md) | [Bahasa Kroasia](../hr/README.md) | [Bahasa Ceko](../cs/README.md) | [Bahasa Denmark](../da/README.md) | [Bahasa Belanda](../nl/README.md) | [Bahasa Estonia](../et/README.md) | [Bahasa Finlandia](../fi/README.md) | [Bahasa Prancis](../fr/README.md) | [Bahasa Jerman](../de/README.md) | [Bahasa Yunani](../el/README.md) | [Bahasa Ibrani](../he/README.md) | [Bahasa Hindi](../hi/README.md) | [Bahasa Hungaria](../hu/README.md) | [Bahasa Indonesia](./README.md) | [Bahasa Italia](../it/README.md) | [Bahasa Jepang](../ja/README.md) | [Bahasa Kannada](../kn/README.md) | [Bahasa Korea](../ko/README.md) | [Bahasa Lituania](../lt/README.md) | [Bahasa Melayu](../ms/README.md) | [Bahasa Malayalam](../ml/README.md) | [Bahasa Marathi](../mr/README.md) | [Bahasa Nepal](../ne/README.md) | [Pidgin Nigeria](../pcm/README.md) | [Bahasa Norwegia](../no/README.md) | [Persia (Farsi)](../fa/README.md) | [Bahasa Polandia](../pl/README.md) | [Portugis (Brasil)](../br/README.md) | [Portugis (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Bahasa Rumania](../ro/README.md) | [Bahasa Rusia](../ru/README.md) | [Serbia (Sirilik)](../sr/README.md) | [Bahasa Slowakia](../sk/README.md) | [Bahasa Slovenia](../sl/README.md) | [Bahasa Spanyol](../es/README.md) | [Bahasa Swahili](../sw/README.md) | [Bahasa Swedia](../sv/README.md) | [Tagalog (Filipina)](../tl/README.md) | [Bahasa Tamil](../ta/README.md) | [Bahasa Telugu](../te/README.md) | [Bahasa Thai](../th/README.md) | [Bahasa Turki](../tr/README.md) | [Bahasa Ukraina](../uk/README.md) | [Bahasa Urdu](../ur/README.md) | [Bahasa Vietnam](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](./README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**Jika Anda ingin menambahkan bahasa terjemahan lainnya, bahasa yang didukung tercantum [di sini](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**If you wish to have additional translations languages supported are listed [here](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
 [![Pengamat GitHub](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![Forks GitHub](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![Fork GitHub](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
 [![Bintang GitHub](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
@@ -38,40 +38,40 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 🌱 Memulai
 
-Kursus ini memiliki pelajaran yang mencakup dasar-dasar membangun AI Agents. Setiap pelajaran membahas topik tersendiri jadi mulailah dari mana saja yang Anda suka!
+Kursus ini berisi pelajaran yang mencakup dasar-dasar membangun Agen AI. Setiap pelajaran membahas topik tersendiri sehingga Anda bisa mulai dari mana saja yang Anda suka!
 
-Ada dukungan multi-bahasa untuk kursus ini. Buka [bahasa yang tersedia di sini](../..). 
+Kursus ini mendukung banyak bahasa. Kunjungi [bahasa yang tersedia di sini](../..). 
 
-Jika ini pertama kalinya Anda membangun dengan model Generative AI, lihat kursus kami [Generative AI For Beginners](https://aka.ms/genai-beginners), yang mencakup 21 pelajaran tentang membangun dengan GenAI.
+Jika ini pertama kali Anda membangun menggunakan model AI Generatif, lihat kursus [Generative AI For Beginners](https://aka.ms/genai-beginners), yang mencakup 21 pelajaran tentang pembangunan dengan GenAI.
 
-Jangan lupa untuk [memberi bintang (🌟) repo ini](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) dan [fork repo ini](https://github.com/microsoft/ai-agents-for-beginners/fork) untuk menjalankan kode.
+Jangan lupa untuk [memberi bintang (🌟) repo ini](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) dan [membuat fork repo ini](https://github.com/microsoft/ai-agents-for-beginners/fork) untuk menjalankan kode.
 
-### Bertemu Pelajar Lain, Dapatkan Pertanyaan Anda Dijawab
+### Bertemu Pelajar Lain, Dapatkan Pertanyaan Anda Terjawab
 
-Jika Anda terjebak atau memiliki pertanyaan tentang membangun AI Agents, bergabunglah dengan Saluran Discord khusus kami di [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+Jika Anda mengalami kendala atau memiliki pertanyaan tentang membangun Agen AI, bergabunglah dengan Saluran Discord khusus kami di [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
-### Yang Anda Butuhkan
+### Yang Anda Butuhkan 
 
-Setiap pelajaran dalam kursus ini menyertakan contoh kode, yang dapat ditemukan di folder code_samples. Anda dapat [fork repo ini](https://github.com/microsoft/ai-agents-for-beginners/fork) untuk membuat salinan Anda sendiri.  
+Setiap pelajaran dalam kursus ini menyertakan contoh kode, yang dapat ditemukan di folder code_samples. Anda dapat [membuat fork repo ini](https://github.com/microsoft/ai-agents-for-beginners/fork) untuk membuat salinan Anda sendiri.  
 
-Contoh kode dalam latihan ini memanfaatkan Azure AI Foundry dan GitHub Model Catalogs untuk berinteraksi dengan Language Models:
+Contoh kode dalam latihan ini menggunakan Azure AI Foundry dan GitHub Model Catalogs untuk berinteraksi dengan Model Bahasa:
 
 - [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Gratis / Terbatas
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Memerlukan Akun Azure
 
-Kursus ini juga menggunakan kerangka kerja dan layanan AI Agent berikut dari Microsoft:
+Kursus ini juga menggunakan kerangka kerja dan layanan Agen AI berikut dari Microsoft:
 
-- [Microsoft Agent Framework (MAF) - New!](https://aka.ms/ai-agents-beginners/agent-framewrok)
+- [Microsoft Agent Framework (MAF) - Baru!](https://aka.ms/ai-agents-beginners/agent-framewrok)
 - [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
 - [Semantic Kernel](https://aka.ms/ai-agents-beginners/semantic-kernel)
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-Untuk informasi lebih lanjut tentang menjalankan kode untuk kursus ini, buka [Course Setup](./00-course-setup/README.md).
+Untuk informasi lebih lanjut tentang menjalankan kode untuk kursus ini, pergi ke [Pengaturan Kursus](./00-course-setup/README.md).
 
 ## 🙏 Ingin membantu?
 
-Apakah Anda memiliki saran atau menemukan kesalahan ejaan atau kode? [Buat sebuah issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) atau [Buat pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Apakah Anda memiliki saran atau menemukan kesalahan ejaan atau kode? [Laporkan masalah](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) atau [Buat pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
@@ -84,24 +84,24 @@ Apakah Anda memiliki saran atau menemukan kesalahan ejaan atau kode? [Buat sebua
 
 ## 🗃️ Pelajaran
 
-| **Pelajaran**                                | **Teks & Kode**                                   | **Video**                                                  | **Pembelajaran Tambahan**                                                               |
+| **Pelajaran**                                | **Teks & Kode**                                   | **Video**                                                  | **Pembelajaran Tambahan**                                                              |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Intro to AI Agents and Agent Use Cases       | [Tautan](./01-intro-to-ai-agents/README.md)        | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Exploring AI Agentic Frameworks              | [Tautan](./02-explore-agentic-frameworks/README.md)| [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Understanding AI Agentic Design Patterns     | [Tautan](./03-agentic-design-patterns/README.md)   | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Tool Use Design Pattern                      | [Tautan](./04-tool-use/README.md)                  | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentic RAG                                  | [Tautan](./05-agentic-rag/README.md)               | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Building Trustworthy AI Agents               | [Tautan](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Planning Design Pattern                      | [Tautan](./07-planning-design/README.md)           | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Multi-Agent Design Pattern                   | [Tautan](./08-multi-agent/README.md)               | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Metacognition Design Pattern                 | [Tautan](./09-metacognition/README.md)             | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pengantar Agen AI dan Kasus Penggunaan Agen  | [Tautan](./01-intro-to-ai-agents/README.md)        | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Menjelajahi Kerangka Agentik AI              | [Tautan](./02-explore-agentic-frameworks/README.md)| [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Memahami Pola Desain Agentik AI              | [Tautan](./03-agentic-design-patterns/README.md)   | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pola Desain Penggunaan Alat                  | [Tautan](./04-tool-use/README.md)                  | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agentik RAG                                  | [Tautan](./05-agentic-rag/README.md)               | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Membangun Agen AI yang Dapat Dipercaya       | [Tautan](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pola Desain Perencanaan                      | [Tautan](./07-planning-design/README.md)           | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pola Desain Multi-Agen                       | [Tautan](./08-multi-agent/README.md)               | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pola Desain Metakognisi                      | [Tautan](./09-metacognition/README.md)             | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Agen AI dalam Produksi                      | [Tautan](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Menggunakan Protokol Agenik (MCP, A2A dan NLWeb) | [Tautan](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Menggunakan Protokol Agenik (MCP, A2A and NLWeb) | [Tautan](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Rekayasa Konteks untuk Agen AI            | [Tautan](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Tautan](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Mengelola Memori Agenik                      | [Tautan](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| Menjelajahi Microsoft Agent Framework                         | [Tautan](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Membangun Computer Use Agents (CUA)           | Segera Hadir                            |                                                            |                                                                                        |
-| Menerapkan Agen yang Dapat Diskalakan                    | Segera Hadir                            |                                                            |                                                                                        |
+| Menjelajahi Kerangka Agen Microsoft                         | [Tautan](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| Membangun Agen Pengguna Komputer (CUA)           | Segera Hadir                            |                                                            |                                                                                        |
+| Menyebarkan Agen yang Dapat Diskalakan                    | Segera Hadir                            |                                                            |                                                                                        |
 | Membuat Agen AI Lokal                     | Segera Hadir                               |                                                            |                                                                                        |
 | Mengamankan Agen AI                           | Segera Hadir                               |                                                            |                                                                                        |
 
@@ -116,19 +116,19 @@ Tim kami juga membuat kursus lain! Lihat:
 
 ---
 
-### Azure / Edge / MCP / Agents
+### Azure / Edge / MCP / Agen
 [![AZD untuk Pemula](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Edge AI untuk Pemula](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![MCP untuk Pemula](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI Agents untuk Pemula](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![Agen AI untuk Pemula](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
 
 ---
  
-### Seri Generative AI
-[![Generative AI untuk Pemula](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![Generative AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
-[![Generative AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
-[![Generative AI (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
+### Seri AI Generatif
+[![AI Generatif untuk Pemula](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![AI Generatif (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+[![AI Generatif (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+[![AI Generatif (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
 
 ---
  
@@ -151,37 +151,43 @@ Tim kami juga membuat kursus lain! Lihat:
 
 ## 🌟 Ucapan Terima Kasih Komunitas
 
-Terima kasih kepada [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) karena telah menyumbangkan contoh kode penting yang mendemonstrasikan Agentic RAG. 
+Terima kasih kepada [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) atas kontribusi contoh kode penting yang mendemonstrasikan Agentic RAG. 
 
 ## Kontribusi
 
-Proyek ini menerima kontribusi dan saran. Sebagian besar kontribusi mengharuskan Anda menyetujui sebuah Perjanjian Lisensi Kontributor (Contributor License Agreement, CLA) yang menyatakan bahwa Anda memiliki hak untuk, dan memang benar memberikan kami hak untuk menggunakan kontribusi Anda. Untuk detail, kunjungi <https://cla.opensource.microsoft.com>.
+Proyek ini menerima kontribusi dan saran. Kebanyakan kontribusi mengharuskan Anda menyetujui
+Perjanjian Lisensi Kontributor (CLA) yang menyatakan bahwa Anda memiliki hak untuk, dan memang memberikan kepada kami
+hak untuk menggunakan kontribusi Anda. Untuk detail, kunjungi <https://cla.opensource.microsoft.com>.
 
-Ketika Anda mengirim pull request, bot CLA akan secara otomatis menentukan apakah Anda perlu menyediakan CLA dan memberi tanda pada PR sesuai (misalnya, pemeriksaan status, komentar). Cukup ikuti instruksi yang diberikan oleh bot. Anda hanya perlu melakukan ini sekali untuk semua repo yang menggunakan CLA kami.
+Saat Anda mengirim pull request, bot CLA akan secara otomatis menentukan apakah Anda perlu menyediakan
+CLA dan menandai PR dengan tepat (misalnya, pemeriksaan status, komentar). Cukup ikuti instruksi
+yang diberikan oleh bot. Anda hanya perlu melakukan ini sekali di semua repositori yang menggunakan CLA kami.
 
-Proyek ini telah mengadopsi [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-Untuk informasi lebih lanjut lihat [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) atau hubungi [opencode@microsoft.com](mailto:opencode@microsoft.com) jika ada pertanyaan atau komentar tambahan.
+Proyek ini telah mengadopsi [Kode Etik Sumber Terbuka Microsoft](https://opensource.microsoft.com/codeofconduct/).
+Untuk informasi lebih lanjut lihat [FAQ Kode Etik](https://opensource.microsoft.com/codeofconduct/faq/) atau
+hubungi [opencode@microsoft.com](mailto:opencode@microsoft.com) dengan pertanyaan atau komentar tambahan.
 
 ## Merek Dagang
 
-Proyek ini mungkin berisi merek dagang atau logo untuk proyek, produk, atau layanan. Penggunaan resmi merek dagang atau logo Microsoft tunduk pada dan harus mengikuti [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Penggunaan merek dagang atau logo Microsoft pada versi proyek yang dimodifikasi tidak boleh menimbulkan kebingungan atau memberi kesan adanya sponsor dari Microsoft.
+Proyek ini mungkin berisi merek dagang atau logo untuk proyek, produk, atau layanan. Penggunaan resmi merek dagang atau logo Microsoft tunduk pada dan harus mengikuti
+[Pedoman Merek & Merek Dagang Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+Penggunaan merek dagang atau logo Microsoft dalam versi yang dimodifikasi dari proyek ini tidak boleh menyebabkan kebingungan atau menyiratkan dukungan Microsoft.
 Setiap penggunaan merek dagang atau logo pihak ketiga tunduk pada kebijakan pihak ketiga tersebut.
 
 ## Mendapatkan Bantuan
 
 
-Jika Anda mengalami kendala atau memiliki pertanyaan tentang membangun aplikasi AI, bergabunglah:
+Jika Anda mengalami kesulitan atau memiliki pertanyaan tentang pembuatan aplikasi AI, bergabunglah:
 
-[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
+[![Discord Microsoft Foundry](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
 Jika Anda memiliki masukan produk atau menemukan kesalahan saat membangun, kunjungi:
 
-[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+[![Forum Pengembang Microsoft Foundry](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Penafian:
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan berbasis AI Co-op Translator (https://github.com/Azure/co-op-translator). Meskipun kami berupaya mencapai ketepatan, harap diperhatikan bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber otoritatif. Untuk informasi penting, disarankan menggunakan jasa terjemahan profesional oleh penerjemah manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya mencapai ketepatan, harap diperhatikan bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang berwenang. Untuk informasi yang bersifat kritis, disarankan menggunakan jasa penerjemah manusia profesional. Kami tidak bertanggung jawab atas segala kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

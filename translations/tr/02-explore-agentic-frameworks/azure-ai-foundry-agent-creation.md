@@ -25,7 +25,7 @@ Bu alıştırmayı tamamlamak için aşağıdakilere ihtiyacınız var:
 1. Azure AI Foundry hub oluşturmak için [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog yazısındaki yönergeleri izleyin.
 2. Projeniz oluşturulduğunda, gösterilen ipuçlarını kapatın ve Azure AI Foundry portalındaki proje sayfasını inceleyin. Sayfa aşağıdaki görsele benzer olmalıdır:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.tr.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.tr.png)
 
 ## Model dağıtma
 
@@ -35,7 +35,7 @@ Bu alıştırmayı tamamlamak için aşağıdakilere ihtiyacınız var:
 
     > **Note**: TPM değerini düşürmek, kullandığınız abonelikteki kota aşımını önlemeye yardımcı olur.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.tr.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.tr.png)
 
 ## Ajan oluşturma
 
@@ -77,7 +77,7 @@ Modeli dağıttığınıza göre, artık bir ajan oluşturabilirsiniz. Ajan, kul
     
 > Ayrıca, ajanınızın yeteneklerini artırmak ve kullanıcı taleplerine dayalı otomatik görevler gerçekleştirmek için **Knowledge Base** ve **Actions** ekleyebilirsiniz. Bu alıştırma için bu adımları atlayabilirsiniz.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.tr.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.tr.png)
 
 3. Yeni bir çoklu AI ajanı oluşturmak için sadece **New Agent** butonuna tıklayın. Oluşturulan ajan, Agents sayfasında görüntülenecektir.
 
@@ -90,7 +90,7 @@ Ajanı oluşturduktan sonra, Azure AI Foundry portalındaki oyun alanında kulla
 
     > **Note**: Bu alıştırmada gerçek zamanlı veri kullanılmadığı için ajan doğru yanıtlar vermeyebilir. Amaç, ajanın verilen yönergelere göre kullanıcı sorgularını anlama ve yanıt verme yeteneğini test etmektir.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.tr.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.tr.png)
 
 3. Ajanı test ettikten sonra, daha fazla niyet, eğitim verisi ve eylem ekleyerek yeteneklerini geliştirebilirsiniz.
 

@@ -53,7 +53,7 @@ chainlit run app.py -w
 
 برای اتصال به سرور MCP گیت‌هاب، آیکون "پلاگ" زیر جعبه چت "پیام خود را اینجا تایپ کنید..." را انتخاب کنید:
 
-![اتصال MCP](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28f1ea5f320b91e4404df4a24a0f236ce3de999666621f1cfc.fa.png)
+![اتصال MCP](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.fa.png)
 
 از آنجا می‌توانید روی "اتصال MCP" کلیک کنید تا فرمان اتصال به سرور MCP گیت‌هاب اضافه شود:
 

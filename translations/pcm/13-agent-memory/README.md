@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Memory for AI Agents 
-[![Agent Memory](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.pcm.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agent Memory](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.pcm.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Wen we dey talk about di special benefits of creating AI Agents, two main tins dey wey people dey discuss: di ability to use tools finish tasks and di ability to dey improve as time dey go. Memory na di foundation wey dey help create self-improving agent wey fit give beta experience to our users.
 

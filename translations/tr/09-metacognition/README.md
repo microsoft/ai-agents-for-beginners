@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tr"
 }
 -->
-[![Çoklu Ajan Tasarımı](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.tr.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Çoklu Ajan Tasarımı](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.tr.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 # AI Ajanlarında Metakognisyon
@@ -47,7 +47,7 @@ Seçtiği rotayı nasıl veya neden seçtiğini takip etme.
 
 Metakognisyon, AI ajan tasarımında birkaç nedenden dolayı kritik bir rol oynar:
 
-![Metakognisyonun Önemi](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.tr.png)
+![Metakognisyonun Önemi](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.tr.png)
 
 - Öz Değerlendirme: Ajanlar kendi performanslarını değerlendirebilir ve geliştirilmesi gereken alanları belirleyebilir.
 - Uyum Sağlama: Ajanlar, geçmiş deneyimlere ve değişen ortamlara dayalı olarak stratejilerini değiştirebilir.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Öncelikle RAG Aracı ile Önleyici Bağlam Yükleme arasındaki farkı anlamakla başlayalım.
 
-![RAG ve Bağlam Yükleme](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.tr.png)
+![RAG ve Bağlam Yükleme](../../../translated_images/rag-vs-context.9eae588520c00921.tr.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

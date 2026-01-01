@@ -25,7 +25,7 @@ Harjoituksen suorittamiseksi tarvitset seuraavat:
 1. Noudata näitä ohjeita [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) -blogikirjoituksesta Azure AI Foundry -keskuksen luomiseksi.
 2. Kun projektisi on luotu, sulje mahdolliset vinkit ja tarkastele projektisivua Azure AI Foundry -portaalissa, jonka pitäisi näyttää suunnilleen tältä:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.fi.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.fi.png)
 
 ## Ota malli käyttöön
 
@@ -35,7 +35,7 @@ Harjoituksen suorittamiseksi tarvitset seuraavat:
 
     > **Note**: TPM:n alentaminen auttaa välttämään tilauksesi käytettävissä olevan kiintiön liiallista kulutusta.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.fi.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.fi.png)
 
 ## Luo agentti
 
@@ -77,7 +77,7 @@ Nyt kun olet ottanut mallin käyttöön, voit luoda agentin. Agentti on keskuste
 
 > Lisäksi voit lisätä **Knowledge Base** ja **Actions** parantaaksesi agentin kykyjä tarjota lisätietoa ja suorittaa automatisoituja tehtäviä käyttäjän pyyntöjen perusteella. Tässä harjoituksessa voit ohittaa nämä vaiheet.
 
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.fi.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.fi.png)
 
 3. Uuden monitekoälyagentin luomiseksi klikkaa vain **New Agent**. Uusi agentti näkyy sitten Agents-sivulla.
 
@@ -90,7 +90,7 @@ Agentin luomisen jälkeen voit testata sitä nähdäksesi, miten se vastaa käyt
 
     > **Note**: Agentti ei välttämättä anna tarkkoja vastauksia, koska tässä harjoituksessa ei käytetä reaaliaikaista dataa. Tarkoituksena on testata agentin kykyä ymmärtää ja vastata käyttäjän kyselyihin annettujen ohjeiden perusteella.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.fi.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.fi.png)
 
 3. Testauksen jälkeen voit räätälöidä agenttia lisäämällä siihen lisää intenttejä, koulutusdataa ja toimintoja sen kykyjen parantamiseksi.
 

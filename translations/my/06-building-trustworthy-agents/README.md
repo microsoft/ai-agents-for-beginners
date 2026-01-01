@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "my"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.my.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.my.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(အထက်ပါပုံကိုနှိပ်ပြီး ဒီသင်ခန်းစာရဲ့ ဗီဒီယိုကို ကြည့်ပါ)_
 
@@ -41,7 +41,7 @@ AI အေးဂျင့်များအတွက် စနစ်မက်ဆ�
 
 စနစ်မက်ဆေ့ချ်များကို အကျိုးရှိစွာ တည်ဆောက်ရန်အတွက် ကျွန်ုပ်တို့သည် အက်ပ်လီကေးရှင်းတွင် အေးဂျင့်များ တစ်ခု သို့မဟုတ် အများအပြားကို တည်ဆောက်ရန် စနစ်မက်ဆေ့ချ် ဖွဲ့စည်းမှုကို အသုံးပြုနိုင်သည်-
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.my.png)
+![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.my.png)
 
 #### အဆင့် ၁- Meta စနစ်မက်ဆေ့ချ် တစ်ခု ဖန်တီးပါ
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ယုံကြည်စိတ်ချရသော AI အေးဂျင့်များကို တည်ဆောက်ရန် အေးဂျင့်၏ အန္တရာယ်များနှင့် ခြိမ်းခြောက်မှုများကို နားလည်ပြီး လျှော့ချရန် လိုအပ်သည်။ အေးဂျင့်များကို ပိုမိုကောင်းမွန်စွာ စီမံဆောင်ရွက်နိုင်ရန် အန္တရာယ်များအချို့ကို လေ့လာကြမည်-
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.my.png)
+![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.my.png)
 
 ### တာဝန်နှင့် လမ်းညွှန်ချက်
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ယုံကြည်စိတ်ချရသော AI အေးဂျင့်စနစ်များကို တည်ဆောက်ရန် ထိရောက်သော နည်းလမ်းတစ်ခုမှာ Human-in-the-loop ကို အသုံးပြုခြင်းဖြစ်သည်။ ဒီနည်းလမ်းသည် အသုံးပြုသူများကို အေးဂျင့်များ၏ လုပ်ဆောင်မှုအတွင်း feedback ပေးနိုင်ရန် လမ်းကြောင်းတစ်ခု ဖန်တီးပေးသည်။ အသုံးပြုသူများသည် multi-agent system တွင် အေးဂျင့်များအဖြစ် လုပ်ဆောင်ပြီး လုပ်ဆောင်မှုကို အတည်ပြုခြင်း သို့မဟုတ် ရပ်တန့်ခြင်းကို ဆောင်ရွက်နိုင်သည်။
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.my.png)
+![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.my.png)
 
 AutoGen ကို အသုံးပြု၍ ဒီအယူအဆကို အကောင်အထည်ဖော်ထားသော code snippet ဤနေရာတွင် ဖော်ပြထားသည်-
 

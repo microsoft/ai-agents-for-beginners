@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sv"
 }
 -->
-[![Planeringsdesignmönster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.sv.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planeringsdesignmönster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.sv.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klicka på bilden ovan för att se videon för denna lektion)_
 
@@ -32,7 +32,7 @@ Efter att ha genomfört denna lektion kommer du att förstå:
 
 ## Definiera det övergripande målet och bryta ner en uppgift
 
-![Definiera mål och uppgifter](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.sv.png)
+![Definiera mål och uppgifter](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.sv.png)
 
 De flesta uppgifter i verkligheten är för komplexa för att hanteras i ett enda steg. En AI-agent behöver ett tydligt mål för att vägleda sin planering och sina handlingar. Till exempel, överväg målet:
 

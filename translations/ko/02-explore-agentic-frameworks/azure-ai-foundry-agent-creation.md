@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) 블로그 게시물의 가이드라인을 따라 Azure AI Foundry 허브를 생성하세요.
 2. 프로젝트가 생성되면 표시되는 팁을 닫고 Azure AI Foundry 포털의 프로젝트 페이지를 확인하세요. 다음 이미지와 비슷하게 보일 것입니다:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.ko.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ko.png)
 
 ## 모델 배포
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: TPM을 낮추면 사용 중인 구독의 할당량을 과도하게 사용하지 않도록 도와줍니다.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.ko.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.ko.png)
 
 ## 에이전트 생성
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > 또한, **Knowledge Base**와 **Actions**를 추가하여 에이전트가 더 많은 정보를 제공하고 사용자 요청에 따라 자동화된 작업을 수행할 수 있도록 기능을 확장할 수 있습니다. 이 연습에서는 이 단계들을 건너뛸 수 있습니다.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.ko.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.ko.png)
 
 3. 새 멀티 AI 에이전트를 만들려면 **New Agent**를 클릭하세요. 새로 생성된 에이전트가 Agents 페이지에 표시됩니다.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: 이 연습에서는 실시간 데이터를 사용하지 않기 때문에 에이전트가 정확한 답변을 제공하지 않을 수 있습니다. 목적은 에이전트가 제공된 지침에 따라 사용자 쿼리를 이해하고 응답하는 능력을 테스트하는 것입니다.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.ko.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.ko.png)
 
 3. 에이전트를 테스트한 후에는 더 많은 인텐트, 학습 데이터, 액션을 추가하여 기능을 확장할 수 있습니다.
 

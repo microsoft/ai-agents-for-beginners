@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pcm"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.pcm.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.pcm.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Click di image wey dey up to watch di video for dis lesson)_
 # Metacognition for AI Agents
@@ -47,7 +47,7 @@ Dey track how or why e choose one particular route.
 
 Metacognition dey very important for AI agent design because:
 
-![Importance of Metacognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.pcm.png)
+![Importance of Metacognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.pcm.png)
 
 - Self-Reflection: Agents fit check dia own performance and know where dem need to improve.
 - Adaptability: Agents fit change dia strategies based on wetin dem don learn before and new situations.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 First, make we understand di difference between RAG Tool and Pre-emptive Context Load
 
-![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.pcm.png)
+![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921.pcm.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

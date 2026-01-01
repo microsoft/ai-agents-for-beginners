@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "el"
 }
 -->
-[![Πώς να Σχεδιάσετε Καλούς Πράκτορες AI](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.el.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Πώς να Σχεδιάσετε Καλούς Πράκτορες AI](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.el.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Κάντε κλικ στην εικόνα παραπάνω για να δείτε το βίντεο αυτού του μαθήματος)_
 
@@ -219,7 +219,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Το παρακάτω διάγραμμα απεικονίζει τη διαδικασία κλήσης λειτουργιών με το Semantic Kernel:
 
-![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.el.png)
+![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f6014.el.png)
 
 Στο Semantic Kernel οι λειτουργίες/εργαλεία ονομάζονται <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Μπορούμε να μετατρέψουμε τη λειτουργία `get_current_time` που είδαμε νωρίτερα σε plugin μετατρέποντάς την σε κλάση με τη λειτουργία μέσα σε αυτήν. Μπορούμε επίσης να εισάγουμε τον διακοσμητή `kernel_function`, ο οποίος λαμβάνει την περιγραφή της λειτουργίας. Όταν στη συνέχεια δημιουργείτε έναν πυρήνα με το GetCurrentTimePlugin, ο πυρήνας θα κάνει αυτόματα serialize τη λειτουργία και τις παραμέτρους της, δημιουργώντας το σχήμα για να το στείλει στο LLM στη διαδικασία.
 

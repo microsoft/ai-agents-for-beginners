@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "no"
 }
 -->
-[![Intro til AI-agenter](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.no.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro til AI-agenter](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.no.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klikk på bildet over for å se videoen til denne leksjonen)_
 
@@ -47,7 +47,7 @@ La oss dele opp denne definisjonen i mindre deler:
   - **Sensorer** - Miljøer har informasjon og gir tilbakemeldinger. AI-agenter bruker sensorer for å samle inn og tolke denne informasjonen om miljøets nåværende tilstand. I eksempelet med reisebestillingsagenten kan systemet gi informasjon som hotelltilgjengelighet eller flypriser.
   - **Aktuatorer** - Når AI-agenten mottar miljøets nåværende tilstand, bestemmer agenten hvilken handling som skal utføres for å endre miljøet. For reisebestillingsagenten kan det være å bestille et tilgjengelig rom for brukeren.
 
-![Hva er AI-agenter?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.no.png)
+![Hva er AI-agenter?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.no.png)
 
 **Large Language Models** - Konseptet med agenter eksisterte før LLMs ble utviklet. Fordelen med å bygge AI-agenter med LLMs er deres evne til å tolke menneskelig språk og data. Denne evnen gjør det mulig for LLMs å tolke miljøinformasjon og definere en plan for å endre miljøet.
 
@@ -77,7 +77,7 @@ I den tidligere delen brukte vi reiseagent-bruksområdet for å forklare hvordan
 
 La oss se på hvilke typer bruksområder AI-agenter egner seg best for:
 
-![Når skal man bruke AI-agenter?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.no.png)
+![Når skal man bruke AI-agenter?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.no.png)
 
 - **Åpne problemer** - lar LLM bestemme nødvendige steg for å fullføre en oppgave fordi det ikke alltid kan hardkodes inn i en arbeidsflyt.
 - **Flertrinnsprosesser** - oppgaver som krever et nivå av kompleksitet der AI-agenten må bruke verktøy eller informasjon over flere omganger i stedet for enkelthentinger.  

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "id"
 }
 -->
-[![Intro to AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.id.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.id.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
@@ -47,7 +47,7 @@ Mari kita pecah definisi ini menjadi bagian-bagian yang lebih kecil:
   - **Sensor** - Lingkungan memiliki informasi dan memberikan umpan balik. AI Agents menggunakan sensor untuk mengumpulkan dan menafsirkan informasi ini tentang keadaan lingkungan saat ini. Dalam contoh Agen Pemesanan Perjalanan, sistem pemesanan perjalanan dapat memberikan informasi seperti ketersediaan hotel atau harga tiket pesawat.
   - **Aktuator** - Setelah AI Agent menerima keadaan lingkungan saat ini, untuk tugas yang sedang berlangsung, agen menentukan tindakan apa yang harus dilakukan untuk mengubah lingkungan. Untuk agen pemesanan perjalanan, itu mungkin memesan kamar yang tersedia untuk pengguna.
 
-![Apa itu AI Agents?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.id.png)
+![Apa itu AI Agents?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.id.png)
 
 **Large Language Models** - Konsep agen sudah ada sebelum penciptaan LLMs. Keuntungan membangun AI Agents dengan LLMs adalah kemampuan mereka untuk menafsirkan bahasa manusia dan data. Kemampuan ini memungkinkan LLMs untuk menafsirkan informasi lingkungan dan mendefinisikan rencana untuk mengubah lingkungan.
 
@@ -77,7 +77,7 @@ Pada bagian sebelumnya, kita menggunakan kasus penggunaan Agen Perjalanan untuk 
 
 Mari kita lihat jenis kasus penggunaan yang paling cocok untuk AI Agents:
 
-![Kapan menggunakan AI Agents?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.id.png)
+![Kapan menggunakan AI Agents?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.id.png)
 
 - **Masalah Terbuka** - memungkinkan LLM untuk menentukan langkah-langkah yang diperlukan untuk menyelesaikan tugas karena tidak selalu dapat dikodekan secara langsung ke dalam alur kerja.
 - **Proses Multi-Langkah** - tugas yang membutuhkan tingkat kompleksitas di mana AI Agent perlu menggunakan alat atau informasi selama beberapa langkah, bukan hanya pengambilan satu kali.  

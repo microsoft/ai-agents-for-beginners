@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sl"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.sl.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.sl.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Kliknite na zgornjo sliko za ogled videa te lekcije)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) je nova paradigma v razvoju
 
 Ta iterativni pristop "maker-checker" je zasnovan za izboljšanje pravilnosti, obravnavo nepravilnih poizvedb v strukturirane baze podatkov (npr. NL2SQL) in zagotavljanje uravnoteženih, visokokakovostnih rezultatov. Namesto da se zanaša zgolj na skrbno zasnovane verige pozivov, sistem aktivno upravlja svoj proces razmišljanja. Lahko prepiše neuspele poizvedbe, izbere različne metode pridobivanja in integrira več orodij—kot so iskanje vektorjev v Azure AI Search, SQL baze podatkov ali prilagojeni API-ji—preden dokonča svoj odgovor. To odpravlja potrebo po preveč kompleksnih orkestracijskih okvirih. Namesto tega lahko relativno preprosta zanka "klic LLM → uporaba orodja → klic LLM → …" prinese sofisticirane in dobro utemeljene izhode.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.sl.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.sl.png)
 
 ## Samostojno upravljanje procesa razmišljanja
 
@@ -67,7 +67,7 @@ Vsi ti koraki—izpopolnjevanje poizvedb, izbira virov, iteracija, dokler ni dos
 
 ## Iterativne zanke, integracija orodij in spomin
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.sl.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.sl.png)
 
 Agentni sistem se zanaša na vzorec interakcije v zanki:
 
@@ -89,7 +89,7 @@ Avtonomija Agentic RAG vključuje tudi robustne mehanizme samopopravljanja. Ko s
 
 Ta iterativen in dinamičen pristop omogoča modelu, da se nenehno izboljšuje, kar zagotavlja, da ni zgolj sistem za enkratno uporabo, temveč takšen, ki se uči iz svojih napak med določeno sejo.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.sl.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.sl.png)
 
 ## Meje avtonomije
 
@@ -118,7 +118,7 @@ Ker ti sistemi postajajo bolj avtonomni v svojem razmišljanju, so upravljanje i
 
 Imeti orodja, ki zagotavljajo jasen zapis dejanj, je bistveno. Brez njih je odpravljanje napak v večstopenjskem procesu lahko zelo težavno. Oglejte si naslednji primer iz Literal AI (podjetje za Chainlit) za izvedbo agenta:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.sl.png)
+![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.sl.png)
 
 ## Zaključek
 

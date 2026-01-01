@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "et"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.et.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.et.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) on AI arenduse uus paradigm
 
 See iteratiivne "maker-checker" stiil on loodud täpsuse parandamiseks, vigaste päringute käsitlemiseks struktureeritud andmebaasides (nt NL2SQL) ja tasakaalustatud, kvaliteetsete tulemuste tagamiseks. Selle asemel, et tugineda ainult hoolikalt kavandatud päringujadadele, omab süsteem aktiivselt oma mõtlemisprotsessi. See võib ümber kirjutada ebaõnnestunud päringuid, valida erinevaid otsingumeetodeid ja integreerida mitmeid tööriistu—näiteks vektoriotsing Azure AI Searchis, SQL-andmebaasid või kohandatud API-d—enne lõpliku vastuse andmist. See eemaldab vajaduse ülemäära keerukate orkestreerimisraamistike järele. Selle asemel võib suhteliselt lihtne tsükkel "LLM-i päring → tööriista kasutamine → LLM-i päring → …" anda keerukaid ja hästi põhjendatud väljundeid.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.et.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.et.png)
 
 ## Mõtlemisprotsessi omamine
 
@@ -65,7 +65,7 @@ Kõik need sammud—päringute täpsustamine, allikate valimine, iteratsioon kun
 
 ## Iteratiivsed tsüklid, tööriistade integreerimine ja mälu
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.et.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.et.png)
 
 Agentlik süsteem tugineb korduvatele interaktsioonimustritele:
 
@@ -87,7 +87,7 @@ Agentic RAG-i autonoomia hõlmab ka tugevaid enesekorrektsiooni mehhanisme. Kui 
 
 See iteratiivne ja dünaamiline lähenemine võimaldab mudelil pidevalt paraneda, tagades, et see pole lihtsalt ühekordne süsteem, vaid selline, mis õpib oma eksimustest antud sessiooni jooksul.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.et.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.et.png)
 
 ## Agentlikkuse piirid
 
@@ -117,7 +117,7 @@ Kuna need süsteemid muutuvad oma mõtlemises autonoomsemaks, on juhtimine ja l�
 
 Tööriistad, mis pakuvad selget ülevaadet toimingutest, on hädavajalikud. Ilma nendeta võib mitmeastmelise protsessi silumine olla väga keeruline. Vaata järgmist näidet Literal AI-st (Chainlit'i taga olev ettevõte) agendi töö kohta:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.et.png)
+![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.et.png)
 
 ## Kokkuvõte
 

@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Paměť pro AI agenty 
-[![Paměť agenta](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.cs.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Paměť agenta](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.cs.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Při diskusi o unikátních výhodách vytváření AI agentů se nejčastěji zmiňují dvě věci: schopnost využívat nástroje k plnění úkolů a schopnost se zlepšovat v průběhu času. Paměť je základem pro vytvoření samo-zlepšujícího se agenta, který dokáže poskytovat lepší zážitky našim uživatelům.
 

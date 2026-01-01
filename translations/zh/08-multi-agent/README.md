@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "zh"
 }
 -->
-[![多代理设计](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.zh.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![多代理设计](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.zh.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(点击上方图片观看本课视频)_
 
@@ -95,7 +95,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 这种模式可以通过集中式架构实现，所有消息通过中央服务器路由，或者通过分散式架构直接交换消息。
 
-![群聊](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.zh.png)
+![群聊](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.zh.png)
 
 ### 任务交接
 
@@ -105,7 +105,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 在这种模式中，每个代理代表工作流中的一个任务或步骤，代理可以根据预定义规则将任务交接给其他代理。
 
-![任务交接](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.zh.png)
+![任务交接](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.zh.png)
 
 ### 协同过滤
 
@@ -119,7 +119,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **技术分析**：另一个代理可以是技术分析的专家。
 - **基本面分析**：还有一个代理可以是基本面分析的专家。通过协作，这些代理可以为用户提供更全面的推荐。
 
-![推荐](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.zh.png)
+![推荐](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.zh.png)
 
 ## 场景：退款流程
 

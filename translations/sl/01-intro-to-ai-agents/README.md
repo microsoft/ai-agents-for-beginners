@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sl"
 }
 -->
-[![Uvod v AI agente](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.sl.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Uvod v AI agente](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.sl.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Kliknite na zgornjo sliko za ogled videa te lekcije)_
 
@@ -47,7 +47,7 @@ Razčlenimo to definicijo na manjše dele:
   - **Senzorji** - Okolja imajo informacije in zagotavljajo povratne informacije. AI agenti uporabljajo senzorje za zbiranje in interpretacijo teh informacij o trenutnem stanju okolja. V primeru agenta za rezervacijo potovanj lahko sistem za rezervacijo zagotovi informacije, kot so razpoložljivost hotelov ali cene letov.
   - **Aktuatorji** - Ko AI agent prejme trenutno stanje okolja, za trenutno nalogo določi, katero dejanje izvesti, da spremeni okolje. Za agenta za rezervacijo potovanj bi to lahko bilo rezervacija razpoložljive sobe za uporabnika.
 
-![Kaj so AI agenti?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.sl.png)
+![Kaj so AI agenti?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.sl.png)
 
 **Veliki jezikovni modeli** - Koncept agentov je obstajal že pred nastankom LLM-jev. Prednost gradnje AI agentov z LLM-ji je njihova sposobnost interpretacije človeškega jezika in podatkov. Ta sposobnost omogoča LLM-jem interpretacijo informacij iz okolja in določanje načrta za spremembo okolja.
 
@@ -77,7 +77,7 @@ V prejšnjem razdelku smo uporabili primer agenta za potovanja, da pojasnimo, ka
 
 Poglejmo vrste primerov uporabe, za katere so AI agenti najbolj primerni:
 
-![Kdaj uporabiti AI agente?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.sl.png)
+![Kdaj uporabiti AI agente?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.sl.png)
 
 - **Odprti problemi** - omogočanje LLM-ju, da določi potrebne korake za dokončanje naloge, ker jih ni vedno mogoče vnaprej določiti v delovnem procesu.
 - **Večstopenjski procesi** - naloge, ki zahtevajo določeno stopnjo kompleksnosti, pri kateri AI agent potrebuje uporabo orodij ali informacij skozi več korakov namesto enkratnega pridobivanja.

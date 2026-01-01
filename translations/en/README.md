@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "b3581c11869b3563f33773adfb011949",
-  "translation_date": "2025-12-24T22:35:07+00:00",
+  "original_hash": "7f112154d137460ec15a92bf3eec99df",
+  "translation_date": "2026-01-01T09:46:30+00:00",
   "source_file": "README.md",
   "language_code": "en"
 }
 -->
 # AI Agents for Beginners - A Course
 
-![Generative AI For Beginners](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.en.png)
+![Generative AI For Beginners](../../translated_images/repo-thumbnailv2.06f4a48036fde647.en.png)
 
 ## A course teaching everything you need to know to start building AI Agents
 
@@ -189,6 +189,8 @@ If you have product feedback or errors while building visit:
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Disclaimer:
-This document was translated using the AI translation service Co-op Translator (https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, a professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+This text is already in English. Here it is:
+
+**Disclaimer**:
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

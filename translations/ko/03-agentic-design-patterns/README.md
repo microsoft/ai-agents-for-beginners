@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ko"
 }
 -->
-[![좋은 AI 에이전트 설계 방법](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.ko.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![좋은 AI 에이전트 설계 방법](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.ko.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(위 이미지를 클릭하면 이 강의의 영상을 볼 수 있습니다)_
 # AI 에이전트 설계 원칙
@@ -39,7 +39,7 @@ AI 에이전트 시스템을 구축하는 방법에는 여러 가지가 있습�
 
 ## 에이전트 설계 원칙
 
-![에이전트 설계 원칙](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.ko.png)
+![에이전트 설계 원칙](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.ko.png)
 
 ### 에이전트 (공간)
 

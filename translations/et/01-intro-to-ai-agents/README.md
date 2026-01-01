@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "et"
 }
 -->
-[![Sissejuhatus tehisintellekti agentidesse](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.et.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Sissejuhatus tehisintellekti agentidesse](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.et.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klõpsake ülaloleval pildil, et vaadata selle õppetunni videot)_
 
@@ -47,7 +47,7 @@ Lahkame seda määratlust väiksemateks osadeks:
   - **Sensorid** - Keskkonnad sisaldavad teavet ja annavad tagasisidet. Tehisintellekti agendid kasutavad sensoreid, et koguda ja tõlgendada teavet keskkonna praeguse seisundi kohta. Reisibroneerimise agendi näites võib reisibroneerimise süsteem anda teavet, nagu hotellide saadavus või lennupiletite hinnad.
   - **Aktuaatorid** - Kui tehisintellekti agent saab keskkonna praeguse seisundi, määrab agent praeguse ülesande jaoks, millist tegevust keskkonna muutmiseks teha. Reisibroneerimise agendi puhul võib see olla kasutajale saadaval oleva toa broneerimine.
 
-![Mis on tehisintellekti agendid?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.et.png)
+![Mis on tehisintellekti agendid?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.et.png)
 
 **Suured keelemudelid** - Agentide kontseptsioon eksisteeris enne LLM-ide loomist. Tehisintellekti agentide loomise eelis LLM-idega on nende võime tõlgendada inimkeelt ja andmeid. See võime võimaldab LLM-idel tõlgendada keskkonnainfot ja määratleda plaani keskkonna muutmiseks.
 
@@ -77,7 +77,7 @@ Eelmises osas kasutasime reisibroneerimise kasutusjuhtumit, et selgitada, kuidas
 
 Vaatame, millised kasutusjuhtumid sobivad tehisintellekti agentidele kõige paremini:
 
-![Millal kasutada tehisintellekti agente?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.et.png)
+![Millal kasutada tehisintellekti agente?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.et.png)
 
 - **Avatud probleemid** - võimaldades LLM-il määrata vajalikud sammud ülesande täitmiseks, kuna neid ei saa alati töövoogu kõvasti kodeerida.
 - **Mitmeastmelised protsessid** - ülesanded, mis nõuavad teatud keerukuse taset, kus tehisintellekti agent peab kasutama tööriistu või teavet mitme pöörde jooksul, mitte ainult ühe päringu korral.  

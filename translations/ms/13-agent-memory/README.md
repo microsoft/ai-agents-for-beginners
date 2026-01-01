@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Memori untuk Ejen AI 
-[![Memori Ejen](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.ms.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Memori Ejen](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.ms.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Apabila membincangkan kelebihan unik dalam mencipta Ejen AI, dua perkara utama sering dibincangkan: keupayaan untuk menggunakan alat bagi menyelesaikan tugas dan keupayaan untuk bertambah baik dari masa ke masa. Memori adalah asas dalam mencipta ejen yang mampu memperbaiki diri sendiri untuk memberikan pengalaman yang lebih baik kepada pengguna kita.
 

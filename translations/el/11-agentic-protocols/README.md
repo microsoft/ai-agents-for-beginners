@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Χρήση Πρωτοκόλλων Πρακτόρων (MCP, A2A και NLWeb)
 
-[![Πρωτόκολλα Πρακτόρων](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.el.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Πρωτόκολλα Πρακτόρων](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.el.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Κάντε κλικ στην εικόνα παραπάνω για να παρακολουθήσετε το βίντεο αυτού του μαθήματος)_
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Παράδειγμα MCP
 
-![Διάγραμμα MCP](../../../translated_images/mcp-diagram.e4ca1cbd551444a12e1f0eb300191a036ab01124fce71c864fe9cb7f4ac2a15d.el.png)
+![Διάγραμμα MCP](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.el.png)
 
 Φανταστείτε ότι ένας χρήστης θέλει να κλείσει μια πτήση χρησιμοποιώντας έναν βοηθό AI που υποστηρίζεται από MCP.
 
@@ -124,7 +124,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Παράδειγμα A2A
 
-![Διάγραμμα A2A](../../../translated_images/A2A-Diagram.8666928d648acc2687db4093d7b09ea2a595622f8fe18194a026ee55fc23af8e.el.png)
+![Διάγραμμα A2A](../../../translated_images/A2A-Diagram.8666928d648acc26.el.png)
 
 Ας επεκτείνουμε το σενάριο κράτησης ταξιδιού μας, αλλά αυτή τη φορά χρησιμοποιώντας A2A.
 

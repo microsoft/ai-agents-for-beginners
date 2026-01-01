@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ar"
 }
 -->
-[![كيفية تصميم وكلاء ذكاء اصطناعي جيدين](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.ar.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![كيفية تصميم وكلاء ذكاء اصطناعي جيدين](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.ar.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو هذا الدرس)_
 
@@ -211,7 +211,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 يوضح الرسم البياني التالي عملية استدعاء الوظائف باستخدام Semantic Kernel:
 
-![استدعاء الوظائف](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.ar.png)
+![استدعاء الوظائف](../../../translated_images/functioncalling-diagram.a84006fc287f6014.ar.png)
 
 في Semantic Kernel تُسمى الوظائف/الأدوات <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">الإضافات</a>. يمكننا تحويل وظيفة `get_current_time` التي رأيناها سابقًا إلى إضافة عن طريق تحويلها إلى فئة تحتوي على الوظيفة بداخلها. يمكننا أيضًا استيراد الزخرفة `kernel_function`، التي تأخذ وصف الوظيفة. عندما تقوم بعد ذلك بإنشاء نواة مع GetCurrentTimePlugin، ستقوم النواة تلقائيًا بتسلسل الوظيفة ومعاملاتها، مما ينشئ المخطط لإرساله إلى نموذج اللغة الكبير في العملية.
 
@@ -272,7 +272,7 @@ kernel.add_plugin(get_current_time_plugin)
 
 توضح الصورة التالية كيف يمكنك استخدام خدمة Azure AI Agent لتحليل بيانات مبيعاتك:
 
-![خدمة الوكلاء أثناء العمل](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.ar.jpg)
+![خدمة الوكلاء أثناء العمل](../../../translated_images/agent-service-in-action.34fb465c9a84659e.ar.jpg)
 
 لاستخدام أي من هذه الأدوات مع الخدمة، يمكننا إنشاء عميل وتعريف أداة أو مجموعة أدوات. لتنفيذ ذلك عمليًا، يمكننا استخدام الكود التالي بلغة Python. سيتمكن نموذج اللغة الكبير من النظر إلى مجموعة الأدوات وتحديد ما إذا كان سيستخدم الوظيفة التي أنشأها المستخدم، `fetch_sales_data_using_sqlite_query`، أو مفسر الأكواد الجاهز بناءً على طلب المستخدم.
 

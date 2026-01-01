@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Ακολουθήστε αυτές τις οδηγίες από το [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog post για τη δημιουργία ενός Azure AI Foundry hub.
 2. Όταν δημιουργηθεί το έργο σας, κλείστε τυχόν συμβουλές που εμφανίζονται και εξετάστε τη σελίδα του έργου στο Azure AI Foundry portal, η οποία θα πρέπει να μοιάζει με την παρακάτω εικόνα:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.el.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.el.png)
 
 ## Ανάπτυξη μοντέλου
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: Η μείωση του TPM βοηθά στην αποφυγή υπερβολικής χρήσης του διαθέσιμου ορίου στη συνδρομή που χρησιμοποιείτε.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.el.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.el.png)
 
 ## Δημιουργία agent
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > Επιπλέον, μπορείτε να προσθέσετε **Knowledge Base** και **Actions** για να ενισχύσετε τις δυνατότητες του agent να παρέχει περισσότερες πληροφορίες και να εκτελεί αυτοματοποιημένες ενέργειες βάσει των αιτημάτων των χρηστών. Για αυτή την άσκηση, μπορείτε να παραλείψετε αυτά τα βήματα.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.el.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.el.png)
 
 3. Για να δημιουργήσετε έναν νέο multi-AI agent, απλά κάντε κλικ στο **New Agent**. Ο νεοδημιουργημένος agent θα εμφανιστεί στη σελίδα Agents.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: Ο agent μπορεί να μην παρέχει ακριβείς απαντήσεις, καθώς δεν χρησιμοποιούνται δεδομένα σε πραγματικό χρόνο σε αυτή την άσκηση. Ο σκοπός είναι να δοκιμαστεί η ικανότητα του agent να κατανοεί και να απαντά σε ερωτήματα χρηστών βάσει των παρεχόμενων οδηγιών.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.el.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.el.png)
 
 3. Μετά τη δοκιμή του agent, μπορείτε να τον προσαρμόσετε περαιτέρω προσθέτοντας περισσότερα intents, δεδομένα εκπαίδευσης και ενέργειες για να βελτιώσετε τις δυνατότητές του.
 

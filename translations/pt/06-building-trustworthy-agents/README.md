@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pt"
 }
 -->
-[![Agentes de IA Confiáveis](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.pt.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Agentes de IA Confiáveis](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.pt.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Clique na imagem acima para ver o vídeo desta lição)_
 
@@ -41,7 +41,7 @@ Para agentes de IA, o prompt de sistema é ainda mais importante, pois os agente
 
 Para criar prompts de sistema escaláveis, podemos usar uma estrutura de mensagem de sistema para construir um ou mais agentes na nossa aplicação:
 
-![Construindo uma Estrutura de Mensagem de Sistema](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.pt.png)
+![Construindo uma Estrutura de Mensagem de Sistema](../../../translated_images/system-message-framework.3a97368c92d11d68.pt.png)
 
 #### Passo 1: Criar uma Meta Mensagem de Sistema
 
@@ -130,7 +130,7 @@ O valor desta estrutura de mensagem de sistema é poder escalar a criação de m
 
 Para construir agentes de IA confiáveis, é importante compreender e mitigar os riscos e ameaças ao seu agente de IA. Vamos analisar algumas das diferentes ameaças aos agentes de IA e como pode planear e preparar-se melhor para elas.
 
-![Compreendendo Ameaças](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.pt.png)
+![Compreendendo Ameaças](../../../translated_images/understanding-threats.89edeada8a97fc0f.pt.png)
 
 ### Tarefa e Instrução
 
@@ -166,7 +166,7 @@ Para construir agentes de IA confiáveis, é importante compreender e mitigar os
 
 Outra forma eficaz de construir sistemas de agentes de IA confiáveis é usar um humano no circuito. Isso cria um fluxo onde os utilizadores podem fornecer feedback aos agentes durante a execução. Os utilizadores essencialmente atuam como agentes num sistema multiagente, fornecendo aprovação ou encerrando o processo em execução.
 
-![Humano no Circuito](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.pt.png)
+![Humano no Circuito](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.pt.png)
 
 Aqui está um trecho de código usando AutoGen para mostrar como este conceito é implementado:
 

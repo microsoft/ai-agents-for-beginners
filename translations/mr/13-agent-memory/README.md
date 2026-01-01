@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # AI एजंट्ससाठी मेमरी 
-[![एजंट मेमरी](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.mr.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![एजंट मेमरी](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.mr.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 AI एजंट्स तयार करण्याच्या अनोख्या फायद्यांबद्दल चर्चा करताना दोन गोष्टी मुख्यतः चर्चेत असतात: टूल्स वापरून कार्य पूर्ण करण्याची क्षमता आणि वेळोवेळी सुधारणा करण्याची क्षमता. मेमरी ही स्वतः सुधारणा करणाऱ्या एजंट्स तयार करण्याचा पाया आहे, ज्यामुळे आपल्या वापरकर्त्यांसाठी चांगले अनुभव निर्माण होतात.
 

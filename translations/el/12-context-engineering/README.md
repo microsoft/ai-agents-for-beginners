@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Μηχανική Πλαισίου για Πράκτορες Τεχνητής Νοημοσύνης
 
-[![Μηχανική Πλαισίου](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.el.png)](https://youtu.be/F5zqRV7gEag)
+[![Μηχανική Πλαισίου](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.el.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Κάντε κλικ στην παραπάνω εικόνα για να παρακολουθήσετε το βίντεο αυτού του μαθήματος)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Τύποι Πλαισίου
 
-[![Τύποι Πλαισίου](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.el.png)](https://youtu.be/F5zqRV7gEag)
+[![Τύποι Πλαισίου](../../../translated_images/context-types.fc10b8927ee43f06.el.png)](https://youtu.be/F5zqRV7gEag)
 
 Είναι σημαντικό να θυμόμαστε ότι το πλαίσιο δεν είναι ένα μόνο πράγμα. Οι πληροφορίες που χρειάζεται ο πράκτορας μπορούν να προέρχονται από διάφορες πηγές και είναι δική μας ευθύνη να διασφαλίσουμε ότι ο πράκτορας έχει πρόσβαση σε αυτές τις πηγές:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Στρατηγικές Σχεδιασμού
 
-[![Βέλτιστες Πρακτικές Μηχανικής Πλαισίου](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.el.png)](https://youtu.be/F5zqRV7gEag)
+[![Βέλτιστες Πρακτικές Μηχανικής Πλαισίου](../../../translated_images/best-practices.f4170873dc554f58.el.png)](https://youtu.be/F5zqRV7gEag)
 
 Η καλή μηχανική πλαισίου ξεκινά με καλό σχεδιασμό. Ακολουθεί μια προσέγγιση που θα σας βοηθήσει να αρχίσετε να σκέφτεστε πώς να εφαρμόσετε την έννοια της μηχανικής πλαισίου:
 

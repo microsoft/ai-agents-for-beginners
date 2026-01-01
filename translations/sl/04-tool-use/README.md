@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sl"
 }
 -->
-[![Kako oblikovati dobre AI agente](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.sl.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Kako oblikovati dobre AI agente](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.sl.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Kliknite zgornjo sliko za ogled videa te lekcije)_
 
@@ -216,7 +216,7 @@ Tukaj je nekaj primerov, kako lahko implementirate vzorec oblikovanja uporabe or
 
 Naslednji diagram prikazuje proces klicanja funkcij z uporabo Semantic Kernel:
 
-![klicanje funkcij](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.sl.png)
+![klicanje funkcij](../../../translated_images/functioncalling-diagram.a84006fc287f6014.sl.png)
 
 V Semantic Kernel se funkcije/orodja imenujejo <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Funkcijo `get_current_time`, ki smo jo videli prej, lahko pretvorimo v plugin tako, da jo spremenimo v razred, ki vsebuje funkcijo. Prav tako lahko uvozimo dekorator `kernel_function`, ki sprejme opis funkcije. Ko nato ustvarite kernel z GetCurrentTimePlugin, bo kernel samodejno serializiral funkcijo in njene parametre ter ustvaril shemo za pošiljanje LLM-ju v procesu.
 
@@ -277,7 +277,7 @@ Predstavljajte si, da ste prodajni agent v podjetju Contoso. Želite razviti pog
 
 Naslednja slika prikazuje, kako bi lahko uporabili Azure AI Agent Service za analizo vaših prodajnih podatkov:
 
-![Agentna storitev v akciji](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.sl.jpg)
+![Agentna storitev v akciji](../../../translated_images/agent-service-in-action.34fb465c9a84659e.sl.jpg)
 
 Za uporabo katerega koli od teh orodij s storitvijo lahko ustvarimo odjemalca in definiramo orodje ali toolset. Za praktično implementacijo lahko uporabimo naslednjo Python kodo. LLM bo lahko pogledal toolset in se odločil, ali bo uporabil funkcijo, ki jo je ustvaril uporabnik, `fetch_sales_data_using_sqlite_query`, ali vnaprej pripravljeni Code Interpreter, odvisno od uporabnikove zahteve.
 

@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # एआई एजेन्टहरूको मेमोरी  
-[![एजेन्ट मेमोरी](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.ne.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![एजेन्ट मेमोरी](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.ne.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 एआई एजेन्टहरू निर्माण गर्दा हुने विशेष फाइदाहरूको चर्चा गर्दा मुख्यत: दुई कुराहरूमा ध्यान दिइन्छ: टास्क पूरा गर्न उपकरणहरू प्रयोग गर्ने क्षमता र समयसँगै सुधार गर्ने क्षमता। मेमोरी भनेको आत्म-सुधार गर्ने एजेन्ट निर्माणको आधार हो, जसले हाम्रो प्रयोगकर्ताहरूलाई राम्रो अनुभव प्रदान गर्न सक्छ।
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Paggalugad sa Microsoft Agent Framework
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee60be9ae59b754cb9c827569fcf52099caffc6f0e8e556bba.tl.png)
+![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.tl.png)
 
 ### Panimula
 
@@ -33,7 +33,7 @@ Ang mga halimbawa ng code para sa [Microsoft Agent Framework (MAF)](https://aka.
 
 ## Pag-unawa sa Microsoft Agent Framework
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c0f80f555dbb43cb1066503eaf5a9cc0aa9be67b47722dd52.tl.png)
+![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.tl.png)
 
 Ang [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) ay binuo batay sa karanasan at mga natutunan mula sa Semantic Kernel at AutoGen. Nag-aalok ito ng kakayahang umangkop upang matugunan ang iba't ibang uri ng agentic use cases na makikita sa parehong production at research environments kabilang ang:
 
@@ -63,7 +63,7 @@ Tingnan natin kung paano ginagamit ang mga tampok na ito sa ilang pangunahing ko
 
 ### Mga Agents
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fefdce3760875b50526d01dd22a2ddd8a21e92da95beb82f84d.tl.png)
+![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.tl.png)
 
 **Paglikha ng Mga Agents**
 

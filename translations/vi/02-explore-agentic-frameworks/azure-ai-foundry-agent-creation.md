@@ -25,7 +25,7 @@ Trong bài tập này, bạn sẽ sử dụng các công cụ dịch vụ Azure 
 1. Làm theo hướng dẫn từ bài viết trên blog [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) để tạo một Azure AI Foundry hub.
 2. Khi dự án của bạn được tạo, đóng các mẹo hiển thị và xem lại trang dự án trong cổng Azure AI Foundry, trang này sẽ trông giống như hình dưới đây:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.vi.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.vi.png)
 
 ## Triển khai một mô hình
 
@@ -35,7 +35,7 @@ Trong bài tập này, bạn sẽ sử dụng các công cụ dịch vụ Azure 
 
     > **Note**: Giảm TPM giúp tránh sử dụng quá mức hạn ngạch có trong đăng ký bạn đang dùng.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.vi.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.vi.png)
 
 ## Tạo một agent
 
@@ -77,7 +77,7 @@ Bây giờ bạn đã triển khai mô hình, bạn có thể tạo một agent.
     
 > Hơn nữa, bạn có thể thêm **Knowledge Base** và **Actions** để nâng cao khả năng của agent trong việc cung cấp thông tin và thực hiện các tác vụ tự động dựa trên yêu cầu của người dùng. Trong bài tập này, bạn có thể bỏ qua các bước đó.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.vi.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.vi.png)
 
 3. Để tạo một agent đa AI mới, chỉ cần nhấn **New Agent**. Agent mới tạo sẽ được hiển thị trên trang Agents.
 
@@ -90,7 +90,7 @@ Sau khi tạo agent, bạn có thể kiểm tra để xem nó phản hồi các 
 
     > **Note**: Agent có thể không cung cấp câu trả lời chính xác vì không sử dụng dữ liệu thời gian thực trong bài tập này. Mục đích là để kiểm tra khả năng hiểu và phản hồi các truy vấn của người dùng dựa trên hướng dẫn đã cho.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.vi.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.vi.png)
 
 3. Sau khi kiểm tra agent, bạn có thể tùy chỉnh thêm bằng cách thêm nhiều intent, dữ liệu huấn luyện và hành động để nâng cao khả năng của nó.
 

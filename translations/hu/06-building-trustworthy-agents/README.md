@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hu"
 }
 -->
-[![Megbízható MI Ügynökök](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.hu.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Megbízható MI Ügynökök](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.hu.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Kattints a fenti képre a leckéhez tartozó videó megtekintéséhez)_
 
@@ -41,7 +41,7 @@ Az MI ügynökök esetében a rendszerprompt még fontosabb, mivel az ügynökö
 
 A skálázható rendszerpromtok létrehozásához használhatunk egy rendszerüzenet-keretrendszert, amely lehetővé teszi egy vagy több ügynök létrehozását az alkalmazásunkban:
 
-![Rendszerüzenet-keretrendszer létrehozása](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.hu.png)
+![Rendszerüzenet-keretrendszer létrehozása](../../../translated_images/system-message-framework.3a97368c92d11d68.hu.png)
 
 #### 1. lépés: Meta rendszerüzenet létrehozása
 
@@ -130,7 +130,7 @@ Ennek a rendszerüzenet-keretrendszernek az értéke abban rejlik, hogy megkönn
 
 Ahhoz, hogy megbízható MI ügynököket építsünk, fontos megérteni és mérsékelni az ügynököket érintő kockázatokat és fenyegetéseket. Nézzünk meg néhányat az MI ügynököket érintő különböző fenyegetések közül, és hogyan tervezhetünk és készülhetünk fel ezekre.
 
-![Fenyegetések megértése](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.hu.png)
+![Fenyegetések megértése](../../../translated_images/understanding-threats.89edeada8a97fc0f.hu.png)
 
 ### Feladatok és utasítások
 
@@ -166,7 +166,7 @@ Ahhoz, hogy megbízható MI ügynököket építsünk, fontos megérteni és mé
 
 Egy másik hatékony módja a megbízható MI ügynökrendszerek létrehozásának az ember a folyamatban megközelítés alkalmazása. Ez egy olyan folyamatot hoz létre, amelyben a felhasználók visszajelzést adhatnak az ügynököknek a futás során. A felhasználók lényegében ügynökökként működnek egy több ügynökből álló rendszerben, és jóváhagyhatják vagy megszakíthatják a futó folyamatot.
 
-![Ember a folyamatban](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.hu.png)
+![Ember a folyamatban](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.hu.png)
 
 Íme egy kódrészlet az AutoGen használatával, amely bemutatja, hogyan valósítható meg ez a koncepció:
 

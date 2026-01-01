@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hi"
 }
 -->
-[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.hi.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.hi.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(ऊपर दी गई छवि पर क्लिक करें इस पाठ का वीडियो देखने के लिए)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## समग्र लक्ष्य को परिभाषित करना और कार्य को विभाजित करना
 
-![लक्ष्य और कार्यों को परिभाषित करना](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.hi.png)
+![लक्ष्य और कार्यों को परिभाषित करना](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.hi.png)
 
 अधिकांश वास्तविक दुनिया के कार्य इतने जटिल होते हैं कि उन्हें एक ही चरण में पूरा करना संभव नहीं होता। एक AI एजेंट को अपने योजना और कार्यों को मार्गदर्शित करने के लिए एक संक्षिप्त उद्देश्य की आवश्यकता होती है। उदाहरण के लिए, इस लक्ष्य पर विचार करें:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "kn"
 }
 -->
-[![How to Design Good AI Agents](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.kn.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![How to Design Good AI Agents](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.kn.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(ಈ ಪಾಠದ ವೀಡಿಯೊವನ್ನು ನೋಡಲು ಮೇಲಿನ ಚಿತ್ರವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ)_
 # AI ಏಜೆಂಟಿಕ್ ಡಿಸೈನ್ ತತ್ವಗಳು
@@ -39,7 +39,7 @@ AI ಏಜೆಂಟಿಕ್ ಸಿಸ್ಟಮ್ಸ್ ನಿರ್ಮಾಣವ
 
 ## ಏಜೆಂಟಿಕ್ ಡಿಸೈನ್ ತತ್ವಗಳು
 
-![Agentic Design Principles](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.kn.png)
+![Agentic Design Principles](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.kn.png)
 
 ### ಏಜೆಂಟ್ (ಜಾಗ)
 

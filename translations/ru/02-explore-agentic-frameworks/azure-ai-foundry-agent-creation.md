@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Следуйте инструкциям из [блога Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) по созданию хаба Azure AI Foundry.
 2. После создания проекта закройте все подсказки и ознакомьтесь со страницей проекта в портале Azure AI Foundry, которая должна выглядеть примерно так:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.ru.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ru.png)
 
 ## Развертывание модели
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: Снижение TPM помогает избежать чрезмерного использования квоты в вашей подписке.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.ru.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.ru.png)
 
 ## Создание агента
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > Кроме того, вы можете добавить **Knowledge Base** и **Actions**, чтобы расширить возможности агента, позволяя ему предоставлять больше информации и выполнять автоматические задачи по запросам пользователей. Для этого упражнения эти шаги можно пропустить.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.ru.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.ru.png)
 
 3. Чтобы создать нового мульти-ИИ агента, просто нажмите **New Agent**. Новый агент появится на странице Agents.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: Агент может не давать точных ответов, так как в этом упражнении не используется актуальная информация в реальном времени. Цель — проверить способность агента понимать и отвечать на запросы на основе заданных инструкций.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.ru.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.ru.png)
 
 3. После тестирования агента вы можете дополнительно настроить его, добавив больше интентов, обучающих данных и действий для расширения его возможностей.
 

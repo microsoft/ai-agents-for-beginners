@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # وكلاء الذكاء الاصطناعي في الإنتاج: المراقبة والتقييم
 
-[![وكلاء الذكاء الاصطناعي في الإنتاج](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.ar.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![وكلاء الذكاء الاصطناعي في الإنتاج](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.ar.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 مع انتقال وكلاء الذكاء الاصطناعي من النماذج التجريبية إلى التطبيقات الواقعية، يصبح فهم سلوكهم، مراقبة أدائهم، وتقييم مخرجاتهم بشكل منهجي أمرًا بالغ الأهمية.
 

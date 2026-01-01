@@ -25,7 +25,7 @@ You fit do am by clicking di link to <a href="https://github.com/microsoft/ai-ag
 
 You suppose don get your own forked version of dis course for di following link:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.pcm.png)
+![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.pcm.png)
 
 ### Shallow Clone (e better for workshop / Codespaces)
 
@@ -176,11 +176,11 @@ Abeg follow di [Principle of Least Privilege](https://docs.github.com/en/get-sta
 
 1. Choose di `Fine-grained tokens` option for di left side of your screen by going to di **Developer settings**
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.pcm.png)
+   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755.pcm.png)
 
    Then choose `Generate new token`.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.pcm.png)
+   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.pcm.png)
 
 2. Enter one name wey go describe di token purpose, so e go easy to identify later.
 
@@ -190,19 +190,19 @@ Abeg follow di [Principle of Least Privilege](https://docs.github.com/en/get-sta
     If you wan make e more secure, you fit choose shorter time—like 7 days 🛡️
     E go help you set personal target and finish di course while your learning dey strong 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.pcm.png)
+    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de6386864.pcm.png)
 
 3. Limit di token scope to your fork of dis repository.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.pcm.png)
+    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.pcm.png)
 
 4. Restrict di token permissions: Under **Permissions**, click **Account** tab, and click di "+ Add permissions" button. Dropdown go show. Search for **Models** and check di box for am.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.pcm.png)
+    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.pcm.png)
 
-5. Confirm di permissions wey you need before you generate di token. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.pcm.png)
+5. Confirm di permissions wey you need before you generate di token. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b21.pcm.png)
 
-6. Before you generate di token, make sure say you ready to store di token for safe place like password manager vault, because e no go show again after you create am. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.pcm.png)
+6. Before you generate di token, make sure say you ready to store di token for safe place like password manager vault, because e no go show again after you create am. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf.pcm.png)
 
 Copy di new token wey you don create. You go now add am to your `.env` file wey dey dis course.
 
@@ -224,7 +224,7 @@ Dis one go copy di example file and create `.env` for your directory where you g
 
 With your token wey you don copy, open di `.env` file for your favorite text editor and paste di token inside di `GITHUB_TOKEN` field.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.pcm.png)
+![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4a.pcm.png)
 
 You suppose fit run di code samples for dis course now.
 
@@ -238,7 +238,7 @@ After you don create your project, you go need to get di connection string for y
 
 You fit do am by going to di **Overview** page of your project for di Azure AI Foundry portal.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.pcm.png)
+![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.pcm.png)
 
 ### Step 2: Create Your `.env` File
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ne"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.ne.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.ne.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(माथिको चित्रमा क्लिक गरेर यो पाठको भिडियो हेर्नुहोस्)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 यो ढाँचा केन्द्रित आर्किटेक्चर प्रयोग गरेर कार्यान्वयन गर्न सकिन्छ जहाँ सबै सन्देशहरू केन्द्रीय सर्भर मार्फत रुट गरिन्छ, वा विकेन्द्रीकृत आर्किटेक्चर जहाँ सन्देशहरू प्रत्यक्ष आदानप्रदान गरिन्छ।
 
-![समूह च्याट](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.ne.png)
+![समूह च्याट](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.ne.png)
 
 ### हस्तान्तरण
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 यस ढाँचामा, प्रत्येक एजेन्ट कार्य वा वर्कफ्लोको चरणलाई प्रतिनिधित्व गर्दछ, र एजेन्टहरूले पूर्वनिर्धारित नियमहरूको आधारमा अन्य एजेन्टहरूलाई कार्यहरू हस्तान्तरण गर्न सक्छन्।
 
-![हस्तान्तरण](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.ne.png)
+![हस्तान्तरण](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.ne.png)
 
 ### सहकारी फिल्टरिङ
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **प्राविधिक विश्लेषण**: अर्को एजेन्ट प्राविधिक विश्लेषणमा विशेषज्ञ हुन सक्छ।
 - **मूलभूत विश्लेषण**: र अर्को एजेन्ट मूलभूत विश्लेषणमा विशेषज्ञ हुन सक्छ। सहयोग गरेर, यी एजेन्टहरूले प्रयोगकर्तालाई थप व्यापक सिफारिस प्रदान गर्न सक्छन्।
 
-![सिफारिस](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.ne.png)
+![सिफारिस](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.ne.png)
 
 ## परिदृश्य: फिर्ता प्रक्रिया
 

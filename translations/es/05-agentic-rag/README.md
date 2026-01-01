@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "es"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.es.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.es.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Haz clic en la imagen de arriba para ver el video de esta lección)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) es un paradigma emergente e
 
 Este estilo iterativo “maker-checker” está diseñado para mejorar la precisión, manejar consultas malformadas a bases de datos estructuradas (por ejemplo, NL2SQL) y asegurar resultados equilibrados y de alta calidad. En lugar de depender únicamente de cadenas de indicaciones cuidadosamente diseñadas, el sistema asume activamente su proceso de razonamiento. Puede reescribir consultas que fallan, elegir diferentes métodos de recuperación e integrar múltiples herramientas—como búsqueda vectorial en Azure AI Search, bases de datos SQL o APIs personalizadas—antes de finalizar su respuesta. Esto elimina la necesidad de marcos de orquestación excesivamente complejos. En su lugar, un ciclo relativamente simple de “llamada al LLM → uso de herramienta → llamada al LLM → …” puede generar salidas sofisticadas y bien fundamentadas.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.es.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.es.png)
 
 ## Asumir el proceso de razonamiento
 
@@ -67,7 +67,7 @@ Todos estos pasos—refinar consultas, elegir fuentes, iterar hasta estar “sat
 
 ## Bucles iterativos, integración de herramientas y memoria
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.es.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.es.png)
 
 Un sistema agentic depende de un patrón de interacción en bucle:
 
@@ -89,7 +89,7 @@ La autonomía de Agentic RAG también implica mecanismos robustos de autocorrecc
 
 Este enfoque iterativo y dinámico permite que el modelo mejore continuamente, asegurando que no sea solo un sistema de un solo intento, sino uno que aprende de sus errores durante una sesión dada.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.es.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.es.png)
 
 ## Límites de la autonomía
 
@@ -119,7 +119,7 @@ A medida que estos sistemas se vuelven más autónomos en su razonamiento, la go
 
 Tener herramientas que proporcionen un registro claro de las acciones es esencial. Sin ellas, depurar un proceso de múltiples pasos puede ser muy difícil. Ve el siguiente ejemplo de Literal AI (empresa detrás de Chainlit) para una ejecución de agente:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.es.png)
+![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.es.png)
 
 ## Conclusión
 

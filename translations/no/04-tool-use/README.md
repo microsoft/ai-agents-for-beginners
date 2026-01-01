@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "no"
 }
 -->
-[![Hvordan designe gode AI-agenter](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.no.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Hvordan designe gode AI-agenter](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.no.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Klikk på bildet ovenfor for å se videoen til denne leksjonen)_
 
@@ -216,7 +216,7 @@ Her er noen eksempler på hvordan du kan implementere designmønsteret for verkt
 
 Følgende diagram illustrerer prosessen med funksjonskall med Semantic Kernel:
 
-![funksjonskall](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.no.png)
+![funksjonskall](../../../translated_images/functioncalling-diagram.a84006fc287f6014.no.png)
 
 I Semantic Kernel kalles funksjoner/verktøy <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Vi kan konvertere `get_current_time`-funksjonen vi så tidligere til en plugin ved å gjøre den om til en klasse med funksjonen i den. Vi kan også importere `kernel_function`-dekoratoren, som tar inn beskrivelsen av funksjonen. Når du deretter oppretter en kernel med GetCurrentTimePlugin, vil kernel automatisk serialisere funksjonen og dens parametere, og opprette skjemaet som sendes til LLM-en i prosessen.
 
@@ -277,7 +277,7 @@ Tenk deg at du er en salgsagent i et selskap som heter Contoso. Du ønsker å ut
 
 Følgende bilde illustrerer hvordan du kan bruke Azure AI Agent Service til å analysere salgsdataene dine:
 
-![Agentisk tjeneste i aksjon](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.no.jpg)
+![Agentisk tjeneste i aksjon](../../../translated_images/agent-service-in-action.34fb465c9a84659e.no.jpg)
 
 For å bruke noen av disse verktøyene med tjenesten kan vi opprette en klient og definere et verktøy eller verktøysett. For å implementere dette praktisk kan vi bruke følgende Python-kode. LLM-en vil kunne se på verktøysettet og avgjøre om den skal bruke den brukerskapte funksjonen, `fetch_sales_data_using_sqlite_query`, eller den forhåndsbygde kodefortolkeren, avhengig av brukerens forespørsel.
 

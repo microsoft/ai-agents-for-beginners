@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "es"
 }
 -->
-[![Diseño Multi-Agente](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.es.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Diseño Multi-Agente](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.es.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Haz clic en la imagen de arriba para ver el video de esta lección)_
 
@@ -97,7 +97,7 @@ En este patrón, cada agente representa a un usuario en el chat grupal, y los me
 
 Este patrón puede implementarse utilizando una arquitectura centralizada donde todos los mensajes se enrutan a través de un servidor central, o una arquitectura descentralizada donde los mensajes se intercambian directamente.
 
-![Chat grupal](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.es.png)
+![Chat grupal](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.es.png)
 
 ### Transferencia de tareas
 
@@ -107,7 +107,7 @@ Los casos de uso típicos para este patrón incluyen soporte al cliente, gestió
 
 En este patrón, cada agente representa una tarea o un paso en un flujo de trabajo, y los agentes pueden transferir tareas a otros agentes basándose en reglas predefinidas.
 
-![Transferencia](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.es.png)
+![Transferencia](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.es.png)
 
 ### Filtrado colaborativo
 
@@ -121,7 +121,7 @@ Tomemos un ejemplo donde un usuario quiere una recomendación sobre la mejor acc
 - **Análisis técnico**: Otro agente podría ser experto en análisis técnico.
 - **Análisis fundamental**: Y otro agente podría ser experto en análisis fundamental. Al colaborar, estos agentes pueden proporcionar una recomendación más completa al usuario.
 
-![Recomendación](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.es.png)
+![Recomendación](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.es.png)
 
 ## Escenario: Proceso de reembolso
 

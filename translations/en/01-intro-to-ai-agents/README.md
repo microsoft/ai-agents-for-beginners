@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "en"
 }
 -->
-[![Intro to AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.en.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.en.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Click the image above to view the video of this lesson)_
 
@@ -47,7 +47,7 @@ Let’s break this definition into smaller parts:
   - **Sensors** - Environments contain information and provide feedback. AI Agents use sensors to gather and interpret this information about the current state of the environment. In the travel booking agent example, the travel booking system might provide information like hotel availability or flight prices.
   - **Actuators** - Once the AI Agent receives the current state of the environment, it determines the action to perform to change the environment for the current task. For the travel booking agent, this might involve booking an available room for the user.
 
-![What Are AI Agents?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.en.png)
+![What Are AI Agents?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.en.png)
 
 **Large Language Models** - The concept of agents existed before LLMs were created. The advantage of building AI Agents with LLMs is their ability to interpret human language and data. This capability allows LLMs to understand environmental information and define a plan to change the environment.
 
@@ -77,7 +77,7 @@ In the earlier section, we used the Travel Agent use case to explain how differe
 
 Let’s examine the types of use cases where AI Agents are most effective:
 
-![When to use AI Agents?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.en.png)
+![When to use AI Agents?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.en.png)
 
 - **Open-Ended Problems** - Allowing the LLM to determine the necessary steps to complete a task because it can’t always be hardcoded into a workflow.
 - **Multi-Step Processes** - Tasks that require a level of complexity where the AI Agent needs to use tools or information over multiple turns instead of single-shot retrieval.  

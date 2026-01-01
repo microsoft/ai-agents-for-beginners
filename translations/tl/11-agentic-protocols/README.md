@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Paggamit ng Agentic Protocols (MCP, A2A at NLWeb)
 
-[![Agentic Protocols](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.tl.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentic Protocols](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.tl.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(I-click ang imahe sa itaas para mapanood ang video ng araling ito)_
 
@@ -69,7 +69,7 @@ Ang MCP ay nag-aalok ng mga makabuluhang benepisyo para sa AI Agents:
 
 ### Halimbawa ng MCP
 
-![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a12e1f0eb300191a036ab01124fce71c864fe9cb7f4ac2a15d.tl.png)
+![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.tl.png)
 
 Isipin na ang isang user ay nais mag-book ng flight gamit ang isang AI assistant na pinapagana ng MCP.
 
@@ -124,7 +124,7 @@ Ang bahaging ito ay ginagamit para sa **paghawak ng mga update at pagpapasa ng m
 
 ### Halimbawa ng A2A
 
-![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc2687db4093d7b09ea2a595622f8fe18194a026ee55fc23af8e.tl.png)
+![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc26.tl.png)
 
 Palawakin natin ang ating travel booking scenario, ngunit sa pagkakataong ito gamit ang A2A.
 
@@ -158,7 +158,7 @@ Tingnan natin ang iba't ibang bahagi ng NLWeb, ang mga benepisyo nito, at isang 
 
 ### Halimbawa ng NLWeb
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4b245b86690ac6c49c26e355da5ab124128c8675d58cc9b07.tl.png)
+![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.tl.png)
 
 Isipin ang ating travel booking website, ngunit sa pagkakataong ito, pinapagana ng NLWeb.
 

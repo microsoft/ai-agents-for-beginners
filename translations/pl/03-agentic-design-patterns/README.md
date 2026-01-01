@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pl"
 }
 -->
-[![Jak projektować dobre agenty AI](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.pl.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Jak projektować dobre agenty AI](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.pl.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 # Zasady projektowania agentów AI
@@ -39,7 +39,7 @@ Po ukończeniu tej lekcji będziesz w stanie:
 
 ## Zasady projektowania agentów
 
-![Zasady projektowania agentów](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.pl.png)
+![Zasady projektowania agentów](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.pl.png)
 
 ### Agent (Przestrzeń)
 

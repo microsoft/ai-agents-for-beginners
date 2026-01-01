@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bg"
 }
 -->
-[![Доверени AI агенти](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.bg.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Доверени AI агенти](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.bg.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Кликнете върху изображението по-горе, за да гледате видеото на този урок)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 За да създадем мащабируеми системни промптове, можем да използваме рамка за системни съобщения за изграждане на един или повече агенти в нашето приложение:
 
-![Създаване на рамка за системни съобщения](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.bg.png)
+![Създаване на рамка за системни съобщения](../../../translated_images/system-message-framework.3a97368c92d11d68.bg.png)
 
 #### Стъпка 1: Създайте мета системно съобщение
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 За да създавате доверени AI агенти, е важно да разбирате и намалявате рисковете и заплахите за вашия AI агент. Нека разгледаме някои от различните заплахи за AI агентите и как можете по-добре да планирате и да се подготвите за тях.
 
-![Разбиране на заплахите](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.bg.png)
+![Разбиране на заплахите](../../../translated_images/understanding-threats.89edeada8a97fc0f.bg.png)
 
 ### Задачи и инструкции
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 Друг ефективен начин за създаване на доверени AI агентни системи е използването на подход „човек в цикъла“. Това създава поток, при който потребителите могат да предоставят обратна връзка на агентите по време на изпълнението. Потребителите на практика действат като агенти в многоагентна система, като предоставят одобрение или прекратяване на текущия процес.
 
-![Човек в цикъла](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.bg.png)
+![Човек в цикъла](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.bg.png)
 
 Ето примерен код с AutoGen, който показва как се прилага тази концепция:
 

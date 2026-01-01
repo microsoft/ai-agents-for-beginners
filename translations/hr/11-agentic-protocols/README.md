@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Korištenje Agentnih Protokola (MCP, A2A i NLWeb)
 
-[![Agentni Protokoli](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.hr.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentni Protokoli](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.hr.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Kliknite na sliku iznad za pregled videa ove lekcije)_
 
@@ -69,7 +69,7 @@ MCP nudi značajne prednosti za AI agente:
 
 ### Primjer MCP-a
 
-![MCP Dijagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a12e1f0eb300191a036ab01124fce71c864fe9cb7f4ac2a15d.hr.png)
+![MCP Dijagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.hr.png)
 
 Zamislite da korisnik želi rezervirati let koristeći AI asistenta koji koristi MCP.
 
@@ -124,7 +124,7 @@ Ova komponenta koristi se za **upravljanje ažuriranjima i prosljeđivanje poruk
 
 ### Primjer A2A-a
 
-![A2A Dijagram](../../../translated_images/A2A-Diagram.8666928d648acc2687db4093d7b09ea2a595622f8fe18194a026ee55fc23af8e.hr.png)
+![A2A Dijagram](../../../translated_images/A2A-Diagram.8666928d648acc26.hr.png)
 
 Proširimo naš scenarij rezervacije putovanja, ali ovaj put koristeći A2A.
 
@@ -158,7 +158,7 @@ Pogledajmo različite komponente NLWeb-a, prednosti NLWeb-a i primjer kako NLWeb
 
 ### NLWeb kroz primjer
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4b245b86690ac6c49c26e355da5ab124128c8675d58cc9b07.hr.png)
+![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.hr.png)
 
 Razmotrimo našu web stranicu za rezervaciju putovanja, ali ovaj put, ona je pokretana NLWeb-om.
 

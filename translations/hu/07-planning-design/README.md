@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hu"
 }
 -->
-[![Tervezési minták tervezése](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.hu.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Tervezési minták tervezése](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.hu.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Kattints a fenti képre a videó megtekintéséhez az óráról)_
 
@@ -32,7 +32,7 @@ A lecke elvégzése után megérted:
 
 ## Az általános cél meghatározása és a feladat bontása
 
-![Célok és feladatok meghatározása](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.hu.png)
+![Célok és feladatok meghatározása](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.hu.png)
 
 A legtöbb valós feladat túl összetett ahhoz, hogy egyetlen lépésben megoldható legyen. Egy AI ügynöknek tömör célkitűzésre van szüksége, hogy irányítsa a tervezést és a cselekvéseket. Például vegyük a következő célt:
 
