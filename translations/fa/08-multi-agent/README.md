@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fa"
 }
 -->
-[![طراحی چندعاملی](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.fa.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![طراحی چندعاملی](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.fa.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(برای مشاهده ویدئوی این درس روی تصویر بالا کلیک کنید)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 این الگو می‌تواند با استفاده از یک معماری متمرکز که در آن تمام پیام‌ها از طریق یک سرور مرکزی مسیریابی می‌شوند، یا یک معماری غیرمتمرکز که در آن پیام‌ها مستقیماً مبادله می‌شوند، پیاده‌سازی شود.
 
-![چت گروهی](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.fa.png)
+![چت گروهی](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.fa.png)
 
 ### انتقال وظیفه
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 در این الگو، هر عامل نماینده یک وظیفه یا یک مرحله در یک جریان کار است و عوامل می‌توانند وظایف را بر اساس قوانین از پیش تعریف‌شده به سایر عوامل منتقل کنند.
 
-![انتقال وظیفه](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.fa.png)
+![انتقال وظیفه](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.fa.png)
 
 ### فیلترسازی مشارکتی
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **تحلیل تکنیکال**: عامل دیگر می‌تواند متخصص در تحلیل تکنیکال باشد.
 - **تحلیل بنیادی**: و عامل دیگر می‌تواند متخصص در تحلیل بنیادی باشد. با همکاری، این عوامل می‌توانند پیشنهاد جامع‌تری به کاربر ارائه دهند.
 
-![پیشنهاددهی](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.fa.png)
+![پیشنهاددهی](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.fa.png)
 
 ## سناریو: فرآیند بازپرداخت
 

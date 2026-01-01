@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Microsoft Agent Frameworkin tutkiminen
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee60be9ae59b754cb9c827569fcf52099caffc6f0e8e556bba.fi.png)
+![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.fi.png)
 
 ### Johdanto
 
@@ -33,7 +33,7 @@ Koodiesimerkit [Microsoft Agent Frameworkista (MAF)](https://aka.ms/ai-agents-be
 
 ## Microsoft Agent Frameworkin ymmärtäminen
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c0f80f555dbb43cb1066503eaf5a9cc0aa9be67b47722dd52.fi.png)
+![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.fi.png)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) perustuu Semantic Kernel- ja AutoGen-tekniikoista saatuun kokemukseen ja oppimiseen. Se tarjoaa joustavuutta monenlaisten agenttipohjaisten käyttötapausten käsittelyyn sekä tuotanto- että tutkimusympäristöissä, mukaan lukien:
 
@@ -63,7 +63,7 @@ Tarkastellaan, miten nämä ominaisuudet soveltuvat Microsoft Agent Frameworkin 
 
 ### Agentit
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fefdce3760875b50526d01dd22a2ddd8a21e92da95beb82f84d.fi.png)
+![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.fi.png)
 
 **Agenttien luominen**
 

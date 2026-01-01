@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "et"
 }
 -->
-[![Planeerimise disainimuster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.et.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planeerimise disainimuster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.et.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_
 
@@ -32,7 +32,7 @@ Pärast selle õppetunni läbimist mõistad:
 
 ## Üldeesmärgi määratlemine ja ülesande jagamine
 
-![Eesmärkide ja ülesannete määratlemine](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.et.png)
+![Eesmärkide ja ülesannete määratlemine](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.et.png)
 
 Enamik päriselu ülesandeid on liiga keerulised, et neid ühe sammuga lahendada. AI agent vajab konkreetset eesmärki, mis juhiks selle planeerimist ja tegevusi. Näiteks võib eesmärk olla:
 

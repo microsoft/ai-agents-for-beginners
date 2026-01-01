@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fa"
 }
 -->
-[![چگونه عوامل هوش مصنوعی خوب طراحی کنیم](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.fa.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![چگونه عوامل هوش مصنوعی خوب طراحی کنیم](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.fa.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(برای مشاهده ویدئوی این درس، روی تصویر بالا کلیک کنید)_
 # اصول طراحی عامل‌های هوش مصنوعی
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## اصول طراحی عامل
 
-![اصول طراحی عامل](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.fa.png)
+![اصول طراحی عامل](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.fa.png)
 
 ### عامل (فضا)
 

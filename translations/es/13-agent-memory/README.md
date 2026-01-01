@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Memoria para Agentes de IA 
-[![Memoria del Agente](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.es.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Memoria del Agente](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.es.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Cuando se habla de los beneficios únicos de crear Agentes de IA, se destacan principalmente dos cosas: la capacidad de utilizar herramientas para completar tareas y la capacidad de mejorar con el tiempo. La memoria es la base para crear agentes auto-mejorables que puedan ofrecer mejores experiencias a nuestros usuarios.
 

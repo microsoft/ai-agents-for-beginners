@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fr"
 }
 -->
-[![Comment concevoir de bons agents IA](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.fr.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Comment concevoir de bons agents IA](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.fr.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Cliquez sur l'image ci-dessus pour visionner la vidéo de cette leçon)_
 # Principes de conception des agents IA
@@ -39,7 +39,7 @@ Après avoir terminé cette leçon, vous serez capable de :
 
 ## Les principes de conception des agents
 
-![Principes de conception des agents](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.fr.png)
+![Principes de conception des agents](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.fr.png)
 
 ### Agent (Espace)
 
