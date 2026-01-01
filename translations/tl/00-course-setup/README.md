@@ -25,7 +25,7 @@ Magagawa ito sa pamamagitan ng pag-click sa link upang <a href="https://github.c
 
 Dapat ay mayroon ka na ngayong sariling forked na bersyon ng kursong ito sa sumusunod na link:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.tl.png)
+![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.tl.png)
 
 ### Shallow Clone (inirerekomenda para sa workshop / Codespaces)
 
@@ -176,11 +176,11 @@ Mangyaring sundin ang [Principle of Least Privilege](https://docs.github.com/en/
 
 1. Piliin ang opsyon na `Fine-grained tokens` sa kaliwang bahagi ng iyong screen sa pamamagitan ng pagpunta sa **Developer settings**
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.tl.png)
+   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755.tl.png)
 
    Pagkatapos piliin ang `Generate new token`.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.tl.png)
+   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.tl.png)
 
 2. Maglagay ng isang deskriptibong pangalan para sa iyong token na sumasalamin sa layunin nito, upang madali itong makilala sa hinaharap.
 
@@ -190,19 +190,19 @@ Mangyaring sundin ang [Principle of Least Privilege](https://docs.github.com/en/
     Para sa mas ligtas na postura, maaari kang pumili ng mas maikling panahon—tulad ng 7 araw 🛡️
     Ito ay isang mahusay na paraan upang magtakda ng personal na target at tapusin ang kurso habang mataas ang iyong momentum sa pag-aaral 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.tl.png)
+    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de6386864.tl.png)
 
 3. Limitahan ang saklaw ng token sa iyong fork ng repository na ito.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.tl.png)
+    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.tl.png)
 
 4. I-restrict ang mga pahintulot ng token: Sa ilalim ng **Permissions**, i-click ang **Account** tab, at i-click ang "+ Add permissions" button. Lalabas ang isang dropdown. Mangyaring hanapin ang **Models** at i-check ang kahon para dito.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.tl.png)
+    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.tl.png)
 
-5. I-verify ang mga kinakailangang pahintulot bago gumawa ng token. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.tl.png)
+5. I-verify ang mga kinakailangang pahintulot bago gumawa ng token. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b21.tl.png)
 
-6. Bago gumawa ng token, tiyaking handa kang itago ang token sa isang ligtas na lugar tulad ng password manager vault, dahil hindi na ito ipapakita muli pagkatapos mong gawin ito. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.tl.png)
+6. Bago gumawa ng token, tiyaking handa kang itago ang token sa isang ligtas na lugar tulad ng password manager vault, dahil hindi na ito ipapakita muli pagkatapos mong gawin ito. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf.tl.png)
 
 Kopyahin ang iyong bagong token na kakagawa mo lang. Idadagdag mo ito ngayon sa iyong `.env` file na kasama sa kursong ito.
 
@@ -224,7 +224,7 @@ Ito ay kokopya sa example file at gagawa ng `.env` sa iyong direktoryo kung saan
 
 Sa iyong nakopyang token, buksan ang `.env` file sa iyong paboritong text editor at i-paste ang iyong token sa `GITHUB_TOKEN` field.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.tl.png)
+![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4a.tl.png)
 
 Dapat ay kaya mo nang patakbuhin ang mga halimbawa ng code sa kursong ito.
 
@@ -238,7 +238,7 @@ Kapag nagawa mo na ang iyong proyekto, kakailanganin mong kunin ang connection s
 
 Magagawa ito sa pamamagitan ng pagpunta sa **Overview** page ng iyong proyekto sa Azure AI Foundry portal.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.tl.png)
+![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.tl.png)
 
 ### Hakbang 2: Gumawa ng Iyong `.env` File
 

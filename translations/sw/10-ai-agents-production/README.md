@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Mawakala wa AI Katika Uzalishaji: Ufuatiliaji na Tathmini
 
-[![Mawakala wa AI Katika Uzalishaji](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.sw.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![Mawakala wa AI Katika Uzalishaji](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.sw.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Wakati mawakala wa AI wanapohama kutoka kwa mifano ya majaribio hadi matumizi halisi, uwezo wa kuelewa tabia zao, kufuatilia utendaji wao, na kutathmini matokeo yao kwa utaratibu unakuwa muhimu.
 

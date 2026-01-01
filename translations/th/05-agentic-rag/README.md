@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "th"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.th.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.th.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(คลิกที่ภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) เป็นแนวทา
 
 รูปแบบ “maker-checker” แบบวนซ้ำนี้ออกแบบมาเพื่อปรับปรุงความถูกต้อง จัดการคำค้นหาที่ผิดพลาดในฐานข้อมูลที่มีโครงสร้าง (เช่น NL2SQL) และรับรองผลลัพธ์ที่สมดุลและมีคุณภาพสูง แทนที่จะพึ่งพา chain ของ prompt ที่ออกแบบมาอย่างละเอียด ระบบสามารถควบคุมกระบวนการให้เหตุผลของตัวเองได้อย่างแข็งขัน โดยเขียนคำค้นหาที่ล้มเหลวใหม่ เลือกวิธีการดึงข้อมูลที่แตกต่าง และรวมเครื่องมือหลายอย่าง เช่น การค้นหาเวกเตอร์ใน Azure AI Search ฐานข้อมูล SQL หรือ API แบบกำหนดเอง ก่อนที่จะสรุปคำตอบ สิ่งนี้ช่วยลดความจำเป็นในการใช้เฟรมเวิร์กการจัดลำดับที่ซับซ้อน แทนที่จะใช้วงจรที่ค่อนข้างเรียบง่ายของ “เรียก LLM → ใช้เครื่องมือ → เรียก LLM → …” ก็สามารถสร้างผลลัพธ์ที่ซับซ้อนและมีพื้นฐานที่ดีได้
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.th.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.th.png)
 
 ## การควบคุมกระบวนการให้เหตุผล
 
@@ -67,7 +67,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) เป็นแนวทา
 
 ## วงจรวนซ้ำ การรวมเครื่องมือ และหน่วยความจำ
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.th.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.th.png)
 
 ระบบ agentic พึ่งพารูปแบบการโต้ตอบแบบวนซ้ำ:
 
@@ -89,7 +89,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) เป็นแนวทา
 
 แนวทางที่วนซ้ำและไดนามิกนี้ช่วยให้โมเดลปรับปรุงอย่างต่อเนื่อง รับรองว่ามันไม่ใช่ระบบที่ทำงานครั้งเดียว แต่เป็นระบบที่เรียนรู้จากข้อผิดพลาดในระหว่างเซสชันที่กำหนด
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.th.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.th.png)
 
 ## ขอบเขตของความเป็นอิสระ
 

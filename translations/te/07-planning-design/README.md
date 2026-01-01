@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "te"
 }
 -->
-[![ప్లానింగ్ డిజైన్ ప్యాటర్న్](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.te.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![ప్లానింగ్ డిజైన్ ప్యాటర్న్](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.te.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(ఈ పాఠం వీడియోను చూడటానికి పై చిత్రంపై క్లిక్ చేయండి)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## మొత్తం లక్ష్యాన్ని నిర్వచించడం మరియు పనిని విభజించడం
 
-![లక్ష్యాలు మరియు పనులను నిర్వచించడం](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.te.png)
+![లక్ష్యాలు మరియు పనులను నిర్వచించడం](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.te.png)
 
 చాలా రియల్-వరల్డ్ పనులు ఒకే దశలో పరిష్కరించడానికి చాలా క్లిష్టంగా ఉంటాయి. AI ఏజెంట్ తన ప్లానింగ్ మరియు చర్యలను మార్గనిర్దేశం చేయడానికి సంక్షిప్త లక్ష్యాన్ని అవసరం. ఉదాహరణకు, ఈ లక్ష్యాన్ని పరిగణించండి:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "th"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.th.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.th.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(คลิกที่ภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 เพื่อสร้างข้อความระบบที่สามารถปรับขนาดได้ เราสามารถใช้กรอบข้อความระบบในการสร้างตัวแทนหนึ่งตัวหรือมากกว่าในแอปพลิเคชันของเรา:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.th.png)
+![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.th.png)
 
 #### ขั้นตอนที่ 1: สร้างข้อความระบบเมตา
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 เพื่อสร้างตัวแทน AI ที่น่าเชื่อถือ สิ่งสำคัญคือต้องเข้าใจและลดความเสี่ยงและภัยคุกคามต่อตัวแทน AI ของคุณ เรามาดูตัวอย่างบางส่วนของภัยคุกคามที่อาจเกิดขึ้นกับตัวแทน AI และวิธีการวางแผนและเตรียมตัวให้ดีขึ้น
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.th.png)
+![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.th.png)
 
 ### งานและคำสั่ง
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 อีกวิธีหนึ่งที่มีประสิทธิภาพในการสร้างระบบตัวแทน AI ที่น่าเชื่อถือคือการใช้มนุษย์ในกระบวนการ ซึ่งสร้างกระบวนการที่ผู้ใช้สามารถให้ข้อเสนอแนะกับตัวแทนระหว่างการทำงาน ผู้ใช้จะทำหน้าที่เป็นตัวแทนในระบบหลายตัวแทน โดยให้การอนุมัติหรือยุติกระบวนการที่กำลังดำเนินอยู่
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.th.png)
+![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.th.png)
 
 นี่คือตัวอย่างโค้ดที่ใช้ AutoGen เพื่อแสดงให้เห็นว่าหลักการนี้ถูกนำไปใช้:
 

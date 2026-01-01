@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Uhandisi wa Muktadha kwa Mawakala wa AI
 
-[![Uhandisi wa Muktadha](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.sw.png)](https://youtu.be/F5zqRV7gEag)
+[![Uhandisi wa Muktadha](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.sw.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Bofya picha hapo juu kutazama video ya somo hili)_
 
@@ -49,7 +49,7 @@ Uhandisi wa maelekezo unazingatia seti moja ya maelekezo ya kudumu ili kuelekeza
 
 ### Aina za Muktadha
 
-[![Aina za Muktadha](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.sw.png)](https://youtu.be/F5zqRV7gEag)
+[![Aina za Muktadha](../../../translated_images/context-types.fc10b8927ee43f06.sw.png)](https://youtu.be/F5zqRV7gEag)
 
 Ni muhimu kukumbuka kuwa muktadha si kitu kimoja tu. Taarifa ambazo wakala wa AI anahitaji zinaweza kutoka kwa vyanzo mbalimbali, na ni jukumu letu kuhakikisha wakala anaweza kufikia vyanzo hivi:
 
@@ -69,7 +69,7 @@ Aina za muktadha ambazo wakala wa AI anaweza kuhitaji kudhibiti ni pamoja na:
 
 ### Mikakati ya Mipango
 
-[![Mikakati Bora ya Uhandisi wa Muktadha](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.sw.png)](https://youtu.be/F5zqRV7gEag)
+[![Mikakati Bora ya Uhandisi wa Muktadha](../../../translated_images/best-practices.f4170873dc554f58.sw.png)](https://youtu.be/F5zqRV7gEag)
 
 Uhandisi mzuri wa muktadha huanza na mipango mizuri. Hapa kuna mbinu ambayo itakusaidia kuanza kufikiria jinsi ya kutumia dhana ya uhandisi wa muktadha:
 

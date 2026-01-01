@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ఉత్పత్తిలో AI ఏజెంట్లు: గమనించగలిగే సామర్థ్యం & మూల్యాంకనం
 
-[![ఉత్పత్తిలో AI ఏజెంట్లు](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.te.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![ఉత్పత్తిలో AI ఏజెంట్లు](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.te.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 AI ఏజెంట్లు ప్రయోగాత్మక నమూనాల నుండి వాస్తవ ప్రపంచ అనువర్తనాలకు మారుతున్నప్పుడు, వాటి ప్రవర్తనను అర్థం చేసుకోవడం, పనితీరును పర్యవేక్షించడం, మరియు అవుట్‌పుట్‌లను పద్ధతిగా మూల్యాంకనం చేయడం చాలా ముఖ్యమవుతుంది.
 

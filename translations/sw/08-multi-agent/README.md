@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sw"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.sw.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.sw.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Bofya picha hapo juu kutazama video ya somo hili)_
 
@@ -97,7 +97,7 @@ Katika mfumo huu, kila wakala anawakilisha mtumiaji katika mazungumzo ya kundi, 
 
 Mfumo huu unaweza kutekelezwa kwa kutumia muundo wa kati ambapo ujumbe wote hupitishwa kupitia seva kuu, au muundo uliosambazwa ambapo ujumbe hubadilishwa moja kwa moja.
 
-![Mazungumzo ya Kundi](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.sw.png)
+![Mazungumzo ya Kundi](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.sw.png)
 
 ### Uhamishaji wa Kazi
 
@@ -107,7 +107,7 @@ Matumizi ya kawaida ya mfumo huu ni pamoja na msaada wa wateja, usimamizi wa kaz
 
 Katika mfumo huu, kila wakala anawakilisha kazi au hatua katika mchakato wa kazi, na mawakala wanaweza kuhamishiana kazi kulingana na sheria zilizowekwa.
 
-![Uhamishaji wa Kazi](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.sw.png)
+![Uhamishaji wa Kazi](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.sw.png)
 
 ### Uchujaji wa Ushirikiano
 
@@ -121,7 +121,7 @@ Hebu tuchukue mfano ambapo mtumiaji anataka pendekezo la hisa bora kununua kweny
 - **Uchambuzi wa kiufundi**: Wakala mwingine anaweza kuwa mtaalamu wa uchambuzi wa kiufundi.
 - **Uchambuzi wa msingi**: Na wakala mwingine anaweza kuwa mtaalamu wa uchambuzi wa msingi. Kwa kushirikiana, mawakala hawa wanaweza kutoa pendekezo kamili zaidi kwa mtumiaji.
 
-![Pendekezo](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.sw.png)
+![Pendekezo](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.sw.png)
 
 ## Hali: Mchakato wa Marejesho
 

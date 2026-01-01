@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Context Engineering para sa AI Agents
 
-[![Context Engineering](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.tl.png)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.tl.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(I-click ang imahe sa itaas para mapanood ang video ng araling ito)_
 
@@ -49,7 +49,7 @@ Ang prompt engineering ay nakatuon sa isang set ng static na mga instruksyon upa
 
 ### Mga Uri ng Context
 
-[![Types of Context](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.tl.png)](https://youtu.be/F5zqRV7gEag)
+[![Types of Context](../../../translated_images/context-types.fc10b8927ee43f06.tl.png)](https://youtu.be/F5zqRV7gEag)
 
 Mahalagang tandaan na ang context ay hindi lamang isang bagay. Ang impormasyon na kailangan ng AI Agent ay maaaring magmula sa iba't ibang pinagmulan, at nasa atin ang responsibilidad na tiyakin na may access ang agent sa mga ito:
 
@@ -69,7 +69,7 @@ Ang mga uri ng context na maaaring pamahalaan ng AI agent ay kinabibilangan ng:
 
 ### Mga Estratehiya sa Pagpaplano
 
-[![Context Engineering Best Practices](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.tl.png)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering Best Practices](../../../translated_images/best-practices.f4170873dc554f58.tl.png)](https://youtu.be/F5zqRV7gEag)
 
 Ang mahusay na context engineering ay nagsisimula sa mahusay na pagpaplano. Narito ang isang paraan upang simulan ang pag-iisip kung paano ilapat ang konsepto ng context engineering:
 
