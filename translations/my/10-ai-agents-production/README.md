@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI ကို ထုတ်လုပ်မှုတွင် အသုံးချခြင်း: ကြည့်ရှုနိုင်မှုနှင့် အကဲဖြတ်ခြင်း
 
-[![AI ကို ထုတ်လုပ်မှုတွင် အသုံးချခြင်း](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.my.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI ကို ထုတ်လုပ်မှုတွင် အသုံးချခြင်း](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.my.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 AI ကို စမ်းသပ်မှုအဆင့်မှ အမှန်တကယ် အသုံးချနိုင်သော အပလီကေးရှင်းများသို့ ရောက်ရှိလာစဉ်တွင်၊ ၎င်းတို့၏ အပြုအမူကို နားလည်ခြင်း၊ စွမ်းဆောင်ရည်ကို စောင့်ကြည့်ခြင်းနှင့် ထွက်ရှိမှုများကို စနစ်တကျ အကဲဖြတ်ခြင်းတို့သည် အရေးကြီးလာပါသည်။
 

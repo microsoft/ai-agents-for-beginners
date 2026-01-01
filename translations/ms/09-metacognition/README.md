@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ms"
 }
 -->
-[![Reka Bentuk Multi-Ejen](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.ms.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Reka Bentuk Multi-Ejen](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.ms.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 # Metakognisi dalam Ejen AI
@@ -47,7 +47,7 @@ Menjejaki bagaimana atau mengapa ia memilih laluan tertentu.
 
 Metakognisi memainkan peranan penting dalam reka bentuk ejen AI atas beberapa sebab:
 
-![Kepentingan Metakognisi](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.ms.png)
+![Kepentingan Metakognisi](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.ms.png)
 
 - Refleksi Diri: Ejen boleh menilai prestasi mereka sendiri dan mengenal pasti bidang untuk penambahbaikan.
 - Penyesuaian: Ejen boleh mengubah strategi mereka berdasarkan pengalaman lalu dan persekitaran yang berubah.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Mari kita mulakan dengan memahami perbezaan antara Alat RAG dan Pemuatan Konteks Pra-emptif.
 
-![RAG vs Pemuatan Konteks](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.ms.png)
+![RAG vs Pemuatan Konteks](../../../translated_images/rag-vs-context.9eae588520c00921.ms.png)
 
 ### Penjanaan Augmentasi Pengambilan (RAG)
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # 探索 Microsoft Agent Framework
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee60be9ae59b754cb9c827569fcf52099caffc6f0e8e556bba.mo.png)
+![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.mo.png)
 
 ### 簡介
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 理解 Microsoft Agent Framework
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c0f80f555dbb43cb1066503eaf5a9cc0aa9be67b47722dd52.mo.png)
+![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.mo.png)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) 建立在 Semantic Kernel 和 AutoGen 的經驗和學習基礎之上。它提供了靈活性，能夠應對生產和研究環境中各種代理使用案例，包括：
 
@@ -63,7 +63,7 @@ Microsoft Agent Framework 也致力於互操作性：
 
 ### 代理
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fefdce3760875b50526d01dd22a2ddd8a21e92da95beb82f84d.mo.png)
+![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.mo.png)
 
 **創建代理**
 

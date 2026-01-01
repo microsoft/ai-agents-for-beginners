@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ms"
 }
 -->
-[![Reka Bentuk Multi-Ejen](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.ms.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Reka Bentuk Multi-Ejen](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.ms.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 
@@ -97,7 +97,7 @@ Dalam corak ini, setiap ejen mewakili pengguna dalam sembang kumpulan, dan mesej
 
 Corak ini boleh dilaksanakan menggunakan seni bina berpusat di mana semua mesej dihantar melalui pelayan pusat, atau seni bina teragih di mana mesej ditukar secara langsung.
 
-![Sembang Kumpulan](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.ms.png)
+![Sembang Kumpulan](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.ms.png)
 
 ### Penyerahan Tugas
 
@@ -107,7 +107,7 @@ Kes penggunaan tipikal untuk corak ini termasuk sokongan pelanggan, pengurusan t
 
 Dalam corak ini, setiap ejen mewakili tugas atau langkah dalam aliran kerja, dan ejen boleh menyerahkan tugas kepada ejen lain berdasarkan peraturan yang telah ditetapkan.
 
-![Penyerahan Tugas](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.ms.png)
+![Penyerahan Tugas](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.ms.png)
 
 ### Penapisan Kolaboratif
 
@@ -121,7 +121,7 @@ Mari kita ambil contoh di mana seorang pengguna ingin mendapatkan cadangan tenta
 - **Analisis Teknikal**: Ejen lain boleh menjadi pakar dalam analisis teknikal.
 - **Analisis Fundamental**: Dan ejen lain boleh menjadi pakar dalam analisis fundamental. Dengan bekerjasama, ejen-ejen ini boleh memberikan cadangan yang lebih komprehensif kepada pengguna.
 
-![Cadangan](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.ms.png)
+![Cadangan](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.ms.png)
 
 ## Senario: Proses Pemulangan Wang
 

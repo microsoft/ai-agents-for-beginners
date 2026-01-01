@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ms"
 }
 -->
-[![Cara Merancang Ejen AI yang Baik](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.ms.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Cara Merancang Ejen AI yang Baik](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.ms.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 
@@ -219,7 +219,7 @@ Berikut adalah beberapa contoh bagaimana anda boleh melaksanakan Corak Reka Bent
 
 Rajah berikut menggambarkan proses panggilan fungsi dengan Semantic Kernel:
 
-![panggilan fungsi](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.ms.png)
+![panggilan fungsi](../../../translated_images/functioncalling-diagram.a84006fc287f6014.ms.png)
 
 Dalam Semantic Kernel fungsi/alat dipanggil <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Kita boleh menukar fungsi `get_current_time` yang kita lihat sebelum ini menjadi plugin dengan menjadikannya kelas dengan fungsi di dalamnya. Kita juga boleh mengimport penghias `kernel_function`, yang mengambil penerangan fungsi. Apabila anda kemudian mencipta kernel dengan GetCurrentTimePlugin, kernel akan secara automatik menyusun fungsi dan parameternya, mencipta skema untuk dihantar kepada LLM dalam proses tersebut.
 
@@ -280,7 +280,7 @@ Bayangkan anda adalah ejen jualan di sebuah syarikat bernama Contoso. Anda ingin
 
 Imej berikut menggambarkan bagaimana anda boleh menggunakan Azure AI Agent Service untuk menganalisis data jualan anda:
 
-![Agentic Service Dalam Tindakan](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.ms.jpg)
+![Agentic Service Dalam Tindakan](../../../translated_images/agent-service-in-action.34fb465c9a84659e.ms.jpg)
 
 Untuk menggunakan mana-mana alat ini dengan perkhidmatan, kita boleh mencipta klien dan menentukan alat atau set alat. Untuk melaksanakannya secara praktikal, kita boleh menggunakan kod Python berikut. LLM akan dapat melihat set alat dan memutuskan sama ada untuk menggunakan fungsi yang dicipta pengguna, `fetch_sales_data_using_sqlite_query`, atau Code Interpreter yang telah dibina bergantung pada permintaan pengguna.
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # माइक्रोसफ्ट एजेन्ट फ्रेमवर्क अन्वेषण
 
-![एजेन्ट फ्रेमवर्क](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee60be9ae59b754cb9c827569fcf52099caffc6f0e8e556bba.ne.png)
+![एजेन्ट फ्रेमवर्क](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.ne.png)
 
 ### परिचय
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## माइक्रोसफ्ट एजेन्ट फ्रेमवर्कको समझ
 
-![फ्रेमवर्क परिचय](../../../translated_images/framework-intro.077af16617cf130c0f80f555dbb43cb1066503eaf5a9cc0aa9be67b47722dd52.ne.png)
+![फ्रेमवर्क परिचय](../../../translated_images/framework-intro.077af16617cf130c.ne.png)
 
 [माइक्रोसफ्ट एजेन्ट फ्रेमवर्क (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) ले सेमान्टिक कर्नेल र AutoGen बाट सिकाइ र अनुभवलाई आधार मानेर निर्माण गरिएको हो। यसले उत्पादन र अनुसन्धान वातावरणमा देखिने विभिन्न प्रकारका एजेन्टिक प्रयोगका केसहरूलाई सम्बोधन गर्न लचिलोपन प्रदान गर्दछ, जस्तै:
 
@@ -63,7 +63,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### एजेन्टहरू
 
-![एजेन्ट फ्रेमवर्क](../../../translated_images/agent-components.410a06daf87b4fefdce3760875b50526d01dd22a2ddd8a21e92da95beb82f84d.ne.png)
+![एजेन्ट फ्रेमवर्क](../../../translated_images/agent-components.410a06daf87b4fef.ne.png)
 
 **एजेन्ट सिर्जना**
 
