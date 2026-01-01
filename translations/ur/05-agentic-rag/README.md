@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ur"
 }
 -->
-[![ایجنٹک RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.ur.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![ایجنٹک RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.ur.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(اوپر دی گئی تصویر پر کلک کریں تاکہ اس سبق کی ویڈیو دیکھ سکیں)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 یہ تکراری "میکر-چیکر" انداز درستگی کو بہتر بنانے، خراب سوالات کو سنبھالنے (مثلاً NL2SQL)، اور متوازن، اعلیٰ معیار کے نتائج کو یقینی بنانے کے لیے ڈیزائن کیا گیا ہے۔ احتیاط سے انجینئرڈ پرامپٹ چینز پر انحصار کرنے کے بجائے، نظام فعال طور پر اپنے استدلالی عمل کی ملکیت رکھتا ہے۔ یہ ناکام سوالات کو دوبارہ لکھ سکتا ہے، مختلف ریٹریول طریقے منتخب کر سکتا ہے، اور متعدد ٹولز کو مربوط کر سکتا ہے—جیسے Azure AI Search میں ویکٹر سرچ، SQL ڈیٹا بیس، یا کسٹم APIs—پہلے جواب کو حتمی شکل دینے سے پہلے۔ اس سے پیچیدہ آرکیسٹریشن فریم ورک کی ضرورت ختم ہو جاتی ہے۔ اس کے بجائے، "LLM کال → ٹول استعمال → LLM کال → ..." کا ایک نسبتاً سادہ لوپ پیچیدہ اور اچھی طرح سے بنیاد شدہ آؤٹ پٹس فراہم کر سکتا ہے۔
 
-![ایجنٹک RAG کور لوپ](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.ur.png)
+![ایجنٹک RAG کور لوپ](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.ur.png)
 
 ## استدلالی عمل کی ملکیت
 
@@ -66,7 +66,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## تکراری لوپس، ٹول انٹیگریشن، اور میموری
 
-![ٹول انٹیگریشن آرکیٹیکچر](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.ur.png)
+![ٹول انٹیگریشن آرکیٹیکچر](../../../translated_images/tool-integration.0f569710b5c17c10.ur.png)
 
 ایجنٹک نظام ایک لوپڈ تعامل کے انداز پر انحصار کرتا ہے:
 
@@ -88,7 +88,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 یہ تکراری اور متحرک انداز ماڈل کو مسلسل بہتر بنانے کی اجازت دیتا ہے، یہ یقینی بناتا ہے کہ یہ صرف ایک بار استعمال ہونے والا نظام نہیں ہے بلکہ ایک ایسا نظام ہے جو دیے گئے سیشن کے دوران اپنی غلطیوں سے سیکھتا ہے۔
 
-![خود اصلاحی میکانزم](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.ur.png)
+![خود اصلاحی میکانزم](../../../translated_images/self-correction.da87f3783b7f174b.ur.png)
 
 ## ایجنسی کی حدود
 

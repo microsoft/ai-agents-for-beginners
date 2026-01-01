@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ur"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.ur.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.ur.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(اوپر دی گئی تصویر پر کلک کریں تاکہ اس سبق کی ویڈیو دیکھی جا سکے)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 یہ پیٹرن ایک مرکزی آرکیٹیکچر کا استعمال کرتے ہوئے نافذ کیا جا سکتا ہے جہاں تمام پیغامات ایک مرکزی سرور کے ذریعے بھیجے جاتے ہیں، یا ایک غیر مرکزی آرکیٹیکچر کا استعمال کرتے ہوئے جہاں پیغامات براہ راست تبادلہ کیے جاتے ہیں۔
 
-![گروپ چیٹ](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.ur.png)
+![گروپ چیٹ](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.ur.png)
 
 ### ہینڈ آف
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 اس پیٹرن میں، ہر ایجنٹ ایک کام یا ورک فلو میں ایک قدم کی نمائندگی کرتا ہے، اور ایجنٹس پہلے سے طے شدہ قواعد کی بنیاد پر کاموں کو دوسرے ایجنٹس کو منتقل کر سکتے ہیں۔
 
-![ہینڈ آف](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.ur.png)
+![ہینڈ آف](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.ur.png)
 
 ### مشترکہ فلٹرنگ
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **تکنیکی تجزیہ**: دوسرا ایجنٹ تکنیکی تجزیہ میں ماہر ہو سکتا ہے۔
 - **بنیادی تجزیہ**: اور ایک اور ایجنٹ بنیادی تجزیہ میں ماہر ہو سکتا ہے۔ ان ایجنٹس کے تعاون سے، وہ صارف کو ایک زیادہ جامع تجویز فراہم کر سکتے ہیں۔
 
-![تجویز](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.ur.png)
+![تجویز](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.ur.png)
 
 ## منظرنامہ: ریفنڈ کا عمل
 

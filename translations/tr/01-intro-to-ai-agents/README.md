@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tr"
 }
 -->
-[![AI Ajanlarına Giriş](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.tr.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![AI Ajanlarına Giriş](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.tr.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 
@@ -47,7 +47,7 @@ Bu tanımı daha küçük parçalara ayıralım:
   - **Sensörler** - Ortamlar bilgi sağlar ve geri bildirimde bulunur. AI Ajanları, ortamın mevcut durumu hakkında bilgi toplamak ve yorumlamak için sensörleri kullanır. Seyahat rezervasyonu ajanı örneğinde, seyahat rezervasyon sistemi otel müsaitliği veya uçuş fiyatları gibi bilgiler sağlayabilir.
   - **Eyleyiciler** - AI Ajanı, ortamın mevcut durumunu aldıktan sonra, mevcut görev için ortamı değiştirmek üzere hangi eylemi gerçekleştireceğine karar verir. Seyahat rezervasyonu ajanı için bu, kullanıcı için uygun bir oda rezervasyonu yapmak olabilir.
 
-![AI Ajanları Nedir?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.tr.png)
+![AI Ajanları Nedir?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.tr.png)
 
 **Büyük Dil Modelleri** - Ajan kavramı, LLM'lerin oluşturulmasından önce de vardı. LLM'lerle AI Ajanları oluşturmanın avantajı, insan dilini ve veriyi yorumlama yetenekleridir. Bu yetenek, LLM'lerin çevresel bilgiyi yorumlamasını ve ortamı değiştirmek için bir plan tanımlamasını sağlar.
 
@@ -77,7 +77,7 @@ Artık AI Ajanlarının genel bir tanımına sahip olduğumuza göre, bazı öze
 
 AI Ajanlarının en iyi şekilde kullanılabileceği kullanım alanlarına bir göz atalım:
 
-![AI Ajanları Ne Zaman Kullanılır?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.tr.png)
+![AI Ajanları Ne Zaman Kullanılır?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.tr.png)
 
 - **Açık Uçlu Problemler** - LLM'nin bir görevi tamamlamak için gereken adımları belirlemesine izin vermek, çünkü bu her zaman bir iş akışına sabitlenemez.
 - **Çok Adımlı Süreçler** - AI Ajanının tek seferlik bilgi alma yerine araçları veya bilgiyi birden fazla turda kullanması gereken karmaşıklık düzeyine sahip görevler.  

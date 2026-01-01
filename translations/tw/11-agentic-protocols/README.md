@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # 使用 Agentic Protocols（MCP、A2A 和 NLWeb）
 
-[![Agentic Protocols](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.tw.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentic Protocols](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.tw.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(點擊上方圖片觀看本課程的影片)_
 
@@ -69,7 +69,7 @@ MCP 為 AI 代理提供了顯著的優勢：
 
 ### MCP 示例
 
-![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a12e1f0eb300191a036ab01124fce71c864fe9cb7f4ac2a15d.tw.png)
+![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.tw.png)
 
 假設用戶希望使用基於 MCP 的 AI 助手預訂航班。
 
@@ -124,7 +124,7 @@ A2A 專注於實現代理之間的通信，並讓它們協作完成用戶的子�
 
 ### A2A 示例
 
-![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc2687db4093d7b09ea2a595622f8fe18194a026ee55fc23af8e.tw.png)
+![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc26.tw.png)
 
 讓我們擴展旅行預訂場景，但這次使用 A2A。
 
@@ -158,7 +158,7 @@ A2A 專注於實現代理之間的通信，並讓它們協作完成用戶的子�
 
 ### NLWeb 示例
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4b245b86690ac6c49c26e355da5ab124128c8675d58cc9b07.tw.png)
+![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.tw.png)
 
 考慮我們的旅行預訂網站，但這次由 NLWeb 提供支持。
 

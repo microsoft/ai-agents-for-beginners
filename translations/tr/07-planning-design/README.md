@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tr"
 }
 -->
-[![Planlama Tasarım Deseni](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.tr.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planlama Tasarım Deseni](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.tr.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 
@@ -32,7 +32,7 @@ Bu dersi tamamladıktan sonra şunları anlayacaksınız:
 
 ## Genel Hedefi Belirleme ve Görevi Parçalara Ayırma
 
-![Hedefleri ve Görevleri Belirleme](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.tr.png)
+![Hedefleri ve Görevleri Belirleme](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.tr.png)
 
 Gerçek dünya görevlerinin çoğu tek bir adımda ele alınamayacak kadar karmaşıktır. Bir yapay zeka ajanının planlama ve eylemlerini yönlendirmek için net bir hedefe ihtiyacı vardır. Örneğin, şu hedefi düşünün:
 

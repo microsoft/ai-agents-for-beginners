@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "uk"
 }
 -->
-[![Як створювати якісних AI-агентів](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.uk.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Як створювати якісних AI-агентів](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.uk.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Натисніть на зображення вище, щоб переглянути відео цього уроку)_
 
@@ -216,7 +216,7 @@ AI-агенти можуть використовувати інструмент
 
 Наступна діаграма ілюструє процес виклику функцій із Semantic Kernel:
 
-![виклик функцій](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.uk.png)
+![виклик функцій](../../../translated_images/functioncalling-diagram.a84006fc287f6014.uk.png)
 
 У Semantic Kernel функції/інструменти називаються <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Плагінами</a>. Ми можемо перетворити функцію `get_current_time`, яку ми бачили раніше, на плагін, перетворивши її на клас із функцією всередині. Ми також можемо імпортувати декоратор `kernel_function`, який приймає опис функції. Коли ви створюєте ядро з GetCurrentTimePlugin, ядро автоматично серіалізує функцію та її параметри, створюючи схему для надсилання до LLM у процесі.
 
@@ -277,7 +277,7 @@ kernel.add_plugin(get_current_time_plugin)
 
 Наступне зображення ілюструє, як можна використовувати Azure AI Agent Service для аналізу ваших даних продажів:
 
-![Agentic Service у дії](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.uk.jpg)
+![Agentic Service у дії](../../../translated_images/agent-service-in-action.34fb465c9a84659e.uk.jpg)
 
 Щоб використовувати будь-який із цих інструментів із сервісом, ми можемо створити клієнта та визначити інструмент або набір інструментів. Для практичної реалізації ми можемо використовувати наступний код на Python. LLM зможе переглянути набір інструментів і вирішити, чи використовувати функцію, створену користувачем, `fetch_sales_data_using_sqlite_query`, або готовий Інтерпретатор коду залежно від запиту користувача.
 

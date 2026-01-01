@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Microsoft Agent Framework'ü Keşfetmek
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee60be9ae59b754cb9c827569fcf52099caffc6f0e8e556bba.tr.png)
+![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.tr.png)
 
 ### Giriş
 
@@ -33,7 +33,7 @@ Bu dersi tamamladıktan sonra şunları yapmayı öğreneceksiniz:
 
 ## Microsoft Agent Framework'ü Anlamak
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c0f80f555dbb43cb1066503eaf5a9cc0aa9be67b47722dd52.tr.png)
+![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.tr.png)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok), Semantic Kernel ve AutoGen'den elde edilen deneyim ve öğrenimlerin üzerine inşa edilmiştir. Hem üretim hem de araştırma ortamlarında görülen geniş çeşitlilikteki ajan kullanım senaryolarını ele almak için esneklik sunar, bunlar arasında:
 
@@ -63,7 +63,7 @@ Microsoft Agent Framework ayrıca şu yollarla birlikte çalışabilir olmaya od
 
 ### Ajanlar
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fefdce3760875b50526d01dd22a2ddd8a21e92da95beb82f84d.tr.png)
+![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.tr.png)
 
 **Ajan Oluşturma**
 

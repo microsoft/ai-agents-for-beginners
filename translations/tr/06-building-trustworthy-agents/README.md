@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tr"
 }
 -->
-[![Güvenilir AI Ajanları](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.tr.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Güvenilir AI Ajanları](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.tr.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 
@@ -41,7 +41,7 @@ AI Ajanları için sistem istemi daha da önemlidir çünkü AI Ajanlarının ta
 
 Ölçeklenebilir sistem istemleri oluşturmak için uygulamamızda bir veya daha fazla ajan oluşturmak üzere bir sistem mesajı çerçevesi kullanabiliriz:
 
-![Sistem Mesajı Çerçevesi Oluşturma](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.tr.png)
+![Sistem Mesajı Çerçevesi Oluşturma](../../../translated_images/system-message-framework.3a97368c92d11d68.tr.png)
 
 #### Adım 1: Meta Sistem Mesajı Oluşturma
 
@@ -130,7 +130,7 @@ Bu sistem mesajı çerçevesinin değeri, birden fazla ajan için sistem mesajla
 
 Güvenilir AI ajanları oluşturmak için, AI ajanınıza yönelik riskleri ve tehditleri anlamak ve azaltmak önemlidir. AI ajanlarına yönelik farklı tehditlerden bazılarına ve bunlara karşı nasıl daha iyi plan yapabileceğinize bakalım.
 
-![Tehditleri Anlama](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.tr.png)
+![Tehditleri Anlama](../../../translated_images/understanding-threats.89edeada8a97fc0f.tr.png)
 
 ### Görev ve Talimat
 
@@ -166,7 +166,7 @@ Güvenilir AI ajanları oluşturmak için, AI ajanınıza yönelik riskleri ve t
 
 Güvenilir AI Ajanı sistemleri oluşturmanın bir başka etkili yolu, İnsan Döngüsü İçinde (Human-in-the-loop) yaklaşımını kullanmaktır. Bu, kullanıcıların çalıştırma sırasında ajanlara geri bildirim sağlayabileceği bir akış oluşturur. Kullanıcılar, çoklu ajan sisteminde ajanlar gibi hareket eder ve çalıştırma sürecini onaylayarak veya sonlandırarak katkıda bulunur.
 
-![İnsan Döngüsü İçinde](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.tr.png)
+![İnsan Döngüsü İçinde](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.tr.png)
 
 İşte bu konseptin AutoGen kullanılarak nasıl uygulandığını gösteren bir kod parçası:
 
