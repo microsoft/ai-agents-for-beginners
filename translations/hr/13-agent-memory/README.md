@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Memorija za AI agente 
-[![Memorija agenta](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.hr.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Memorija agenta](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.hr.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Kada govorimo o jedinstvenim prednostima stvaranja AI agenata, najčešće se spominju dvije stvari: sposobnost korištenja alata za obavljanje zadataka i sposobnost poboljšanja tijekom vremena. Memorija je temelj stvaranja samopoboljšavajućih agenata koji mogu pružiti bolje iskustvo našim korisnicima.
 

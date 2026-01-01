@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hu"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.hu.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.hu.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Kattints a fenti képre a leckéhez tartozó videó megtekintéséhez)_
 # Metakogníció az AI ügynökökben
@@ -47,7 +47,7 @@ Nyomon követi, hogyan vagy miért választott egy bizonyos útvonalat.
 
 A metakogníció több okból is kulcsfontosságú az AI ügynökök tervezésében:
 
-![A metakogníció fontossága](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.hu.png)
+![A metakogníció fontossága](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.hu.png)
 
 - Önelemzés: Az ügynökök értékelhetik saját teljesítményüket, és azonosíthatják a fejlesztendő területeket.
 - Alkalmazkodóképesség: Az ügynökök módosíthatják stratégiáikat a korábbi tapasztalatok és változó környezetek alapján.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Először értsük meg a különbséget a RAG eszköz és az előzetes kontextus betöltése között.
 
-![RAG vs Kontextus betöltése](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.hu.png)
+![RAG vs Kontextus betöltése](../../../translated_images/rag-vs-context.9eae588520c00921.hu.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

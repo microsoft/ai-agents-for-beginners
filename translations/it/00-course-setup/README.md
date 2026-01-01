@@ -25,7 +25,7 @@ Puoi farlo cliccando sul link per <a href="https://github.com/microsoft/ai-agent
 
 Ora dovresti avere la tua versione forkata di questo corso al seguente link:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.it.png)
+![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.it.png)
 
 ### Clone Superficiale (consigliato per workshop / Codespaces)
 
@@ -176,11 +176,11 @@ Segui il [Principio del Minimo Privilegio](https://docs.github.com/en/get-starte
 
 1. Seleziona l'opzione `Fine-grained tokens` sul lato sinistro dello schermo accedendo alle **Developer settings**.
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.it.png)
+   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755.it.png)
 
    Poi seleziona `Generate new token`.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.it.png)
+   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.it.png)
 
 2. Inserisci un nome descrittivo per il tuo token che rifletta il suo scopo, rendendolo facile da identificare in seguito.
 
@@ -190,19 +190,19 @@ Segui il [Principio del Minimo Privilegio](https://docs.github.com/en/get-starte
     Per una postura più sicura, puoi optare per un periodo più breve—come 7 giorni 🛡️
     È un ottimo modo per impostare un obiettivo personale e completare il corso mentre il tuo slancio di apprendimento è alto 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.it.png)
+    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de6386864.it.png)
 
 3. Limita l'ambito del token al tuo fork di questo repository.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.it.png)
+    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.it.png)
 
 4. Restringi i permessi del token: Sotto **Permissions**, clicca sulla scheda **Account** e premi il pulsante "+ Add permissions". Apparirà un menu a tendina. Cerca **Models** e seleziona la casella corrispondente.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.it.png)
+    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.it.png)
 
-5. Verifica i permessi richiesti prima di generare il token. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.it.png)
+5. Verifica i permessi richiesti prima di generare il token. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b21.it.png)
 
-6. Prima di generare il token, assicurati di essere pronto a conservarlo in un luogo sicuro come un gestore di password, poiché non sarà mostrato di nuovo dopo la creazione. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.it.png)
+6. Prima di generare il token, assicurati di essere pronto a conservarlo in un luogo sicuro come un gestore di password, poiché non sarà mostrato di nuovo dopo la creazione. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf.it.png)
 
 Copia il tuo nuovo token appena creato. Ora lo aggiungerai al file `.env` incluso in questo corso.
 
@@ -224,7 +224,7 @@ Questo copierà il file di esempio e creerà un `.env` nella tua directory dove 
 
 Con il tuo token copiato, apri il file `.env` nel tuo editor di testo preferito e incolla il tuo token nel campo `GITHUB_TOKEN`.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.it.png)
+![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4a.it.png)
 
 Ora dovresti essere in grado di eseguire gli esempi di codice di questo corso.
 
@@ -238,7 +238,7 @@ Una volta creato il tuo progetto, dovrai recuperare la stringa di connessione pe
 
 Puoi farlo andando alla pagina **Overview** del tuo progetto nel portale Azure AI Foundry.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.it.png)
+![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.it.png)
 
 ### Passo 2: Crea il Tuo File `.env`
 

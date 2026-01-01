@@ -1,33 +1,33 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "b3581c11869b3563f33773adfb011949",
-  "translation_date": "2025-12-24T23:43:28+00:00",
+  "original_hash": "7f112154d137460ec15a92bf3eec99df",
+  "translation_date": "2026-01-01T10:58:21+00:00",
   "source_file": "README.md",
   "language_code": "he"
 }
 -->
-# סוכני AI למתחילים - קורס
+# סוכני בינה מלאכותית למתחילים - קורס
 
-![Generative AI למתחילים](../../translated_images/repo-thumbnailv2.06f4a48036fde647f6ba4eb19f5651babe59bb30e972748afb349e47725d7601.he.png)
+![בינה גנרטיבית למתחילים](../../translated_images/repo-thumbnailv2.06f4a48036fde647.he.png)
 
-## קורס שמלמד את כל מה שעליך לדעת כדי להתחיל לבנות סוכני AI
+## קורס המלמד כל מה שצריך לדעת כדי להתחיל לבנות סוכני בינה מלאכותית
 
 [![רישיון GitHub](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![תורמי GitHub](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![נושאים ב-GitHub](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![תורמים ב-GitHub](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![בעיות ב-GitHub](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
 [![בקשות משיכה ב-GitHub](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PRs רצויות](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
+[![PRs ברוכים הבאים](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
-### 🌐 תמיכה בריבוי שפות
+### 🌐 תמיכה רב-לשונית
 
 #### נתמך באמצעות GitHub Action (ממוכן ותמיד מעודכן)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[ערבית](../ar/README.md) | [בנגלית](../bn/README.md) | [בולגרית](../bg/README.md) | [בורמזית (מיאנמר)](../my/README.md) | [סינית (מפושטת)](../zh/README.md) | [סינית (מסורתית, הונג קונג)](../hk/README.md) | [סינית (מסורתית, מקאו)](../mo/README.md) | [סינית (מסורתית, טייוואן)](../tw/README.md) | [קרואטית](../hr/README.md) | [צ'כית](../cs/README.md) | [דנית](../da/README.md) | [הולנדית](../nl/README.md) | [אסטונית](../et/README.md) | [פינית](../fi/README.md) | [צרפתית](../fr/README.md) | [גרמנית](../de/README.md) | [יוונית](../el/README.md) | [עברית](./README.md) | [הינדי](../hi/README.md) | [הונגרית](../hu/README.md) | [אינדונזית](../id/README.md) | [איטלקית](../it/README.md) | [יפנית](../ja/README.md) | [Kannada](../kn/README.md) | [קוריאנית](../ko/README.md) | [ליטאית](../lt/README.md) | [מלאית](../ms/README.md) | [מלאיאלאם](../ml/README.md) | [מרטהי](../mr/README.md) | [נפאלית](../ne/README.md) | [פיג'ין ניגרי](../pcm/README.md) | [נורווגית](../no/README.md) | [פרסית (פארסי)](../fa/README.md) | [פולנית](../pl/README.md) | [פורטוגזית (ברזיל)](../br/README.md) | [פורטוגזית (פורטוגל)](../pt/README.md) | [פונג'אבי (גורמוקי)](../pa/README.md) | [רומנית](../ro/README.md) | [רוסית](../ru/README.md) | [סרבית (קירילית)](../sr/README.md) | [סלובקית](../sk/README.md) | [סלובנית](../sl/README.md) | [ספרדית](../es/README.md) | [סווהילית](../sw/README.md) | [שוודית](../sv/README.md) | [טאגאלוג (פיליפינית)](../tl/README.md) | [טמילית](../ta/README.md) | [טלווגו](../te/README.md) | [תאית](../th/README.md) | [טורקית](../tr/README.md) | [אוקראינית](../uk/README.md) | [אורדו](../ur/README.md) | [וייטנאמית](../vi/README.md)
+[ערבית](../ar/README.md) | [בנגלית](../bn/README.md) | [בולגרית](../bg/README.md) | [בורמזית (מיאנמר)](../my/README.md) | [סינית (מפושטת)](../zh/README.md) | [סינית (מסורתית, הונג קונג)](../hk/README.md) | [סינית (מסורתית, מקאו)](../mo/README.md) | [סינית (מסורתית, טאיוואן)](../tw/README.md) | [קרואטית](../hr/README.md) | [צ'כית](../cs/README.md) | [דנית](../da/README.md) | [הולנדית](../nl/README.md) | [אסטונית](../et/README.md) | [פינית](../fi/README.md) | [צרפתית](../fr/README.md) | [גרמנית](../de/README.md) | [יוונית](../el/README.md) | [עברית](./README.md) | [הינדי](../hi/README.md) | [הונגרית](../hu/README.md) | [אינדונזית](../id/README.md) | [איטלקית](../it/README.md) | [יפנית](../ja/README.md) | [קאנאדה](../kn/README.md) | [קוריאנית](../ko/README.md) | [ליטאית](../lt/README.md) | [מלאית](../ms/README.md) | [מאליאלאם](../ml/README.md) | [מראתי](../mr/README.md) | [נפאלית](../ne/README.md) | [פידג'ין ניגרי](../pcm/README.md) | [נורווגית](../no/README.md) | [פרסית (פארסי)](../fa/README.md) | [פולנית](../pl/README.md) | [פורטוגזית (ברזילאית)](../br/README.md) | [פורטוגזית (פורטוגל)](../pt/README.md) | [פנג'אבי (גורמוקי)](../pa/README.md) | [רומנית](../ro/README.md) | [רוסית](../ru/README.md) | [סרבית (קירילית)](../sr/README.md) | [סלובקית](../sk/README.md) | [סלובנית](../sl/README.md) | [ספרדית](../es/README.md) | [סווהילית](../sw/README.md) | [שבדית](../sv/README.md) | [טגלוג (פיליפינית)](../tl/README.md) | [טמילית](../ta/README.md) | [טלוגו](../te/README.md) | [תאית](../th/README.md) | [טורקית](../tr/README.md) | [אוקראינית](../uk/README.md) | [אורדו](../ur/README.md) | [וייטנאמית](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**If you wish to have additional translations languages supported are listed [here](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**אם ברצונך ששפות נוספות ייתמכו, השפות הנתמכות מפורטות [כאן](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
 
 [![עוקבים ב-GitHub](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![Forks ב-GitHub](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
@@ -36,78 +36,78 @@ CO_OP_TRANSLATOR_METADATA:
 [![Discord של Microsoft Foundry](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
 
-## 🌱 להתחלה
+## 🌱 התחלה
 
-בקורס זה יש שיעורים המכסים את יסודות בניית סוכני AI. כל שיעור עוסק בנושא משלו, אז התחל בכל מקום שתרצה!
+בקורס זה יש שיעורים המכסים את היסודות של בניית סוכני בינה מלאכותית. כל שיעור עוסק בנושא משלו — התחל איפה שתרצה!
 
-יש תמיכה בריבוי שפות לקורס זה. עבור ל-[השפות הזמינות כאן](../..). 
+יש תמיכה רב-לשונית לקורס זה. עבור ל[השפות הזמינות כאן](../..). 
 
-אם זו הפעם הראשונה שלך בבנייה עם מודלים של Generative AI, עיין בקורס שלנו [Generative AI למתחילים](https://aka.ms/genai-beginners), הכולל 21 שיעורים על בנייה עם GenAI.
+אם זו הפעם הראשונה שאתה בונה עם מודלים של בינה גנרטיבית, עיין בקורס שלנו [בינה גנרטיבית למתחילים](https://aka.ms/genai-beginners), הכולל 21 שיעורים על בנייה עם GenAI.
 
-אל תשכחו לתת [כוכב (🌟) למאגר זה](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ו[לעשות fork למאגר זה](https://github.com/microsoft/ai-agents-for-beginners/fork) כדי להפעיל את הקוד.
+אל תשכח/י [להעניק כוכב (🌟) למאגר זה](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ול[ליצור fork של מאגר זה](https://github.com/microsoft/ai-agents-for-beginners/fork) כדי להריץ את הקוד.
 
-### פגוש לומדים אחרים, קבל מענה לשאלותיך
+### פגשו לומדים אחרים, קבלו תשובות לשאלותיכם
 
-אם תיתקע או יש לך שאלות על בניית סוכני AI, הצטרף לערוץ הייעודי שלנו ב-[Discord של Microsoft Foundry](https://aka.ms/ai-agents/discord).
+אם תיתקעו או יהיו לכם שאלות לגבי בניית סוכני בינה מלאכותית, הצטרפו לערוץ ה-Discord הייעודי שלנו ב[Discord של Microsoft Foundry](https://aka.ms/ai-agents/discord).
 
-### מה צריך
+### מה נדרש
 
-כל שיעור בקורס זה כולל דוגמאות קוד, שניתן למצוא בתיקיית code_samples. אתה יכול [לעשות fork למאגר זה](https://github.com/microsoft/ai-agents-for-beginners/fork) כדי ליצור עותק משלך.  
+כל שיעור בקורס זה כולל דוגמאות קוד, שנמצאות בתיקיית code_samples. ניתן [ליצור fork של מאגר זה](https://github.com/microsoft/ai-agents-for-beginners/fork) כדי ליצור עותק משלך.  
 
-דוגמת הקוד בתרגילים אלה משתמשת ב-Azure AI Foundry וב-GitHub Model Catalogs כדי לתקשר עם מודלי שפה:
+דוגמאות הקוד בתרגילים אלה משתמשות ב-Azure AI Foundry ובקטלוגי מודלים של GitHub כדי לתקשר עם מודלי שפה:
 
-- [דגמי GitHub](https://aka.ms/ai-agents-beginners/github-models) - חינם / מוגבל
+- [מודלים של GitHub](https://aka.ms/ai-agents-beginners/github-models) - Free / Limited
 - [Azure AI Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - נדרש חשבון Azure
 
-קורס זה גם משתמש במסגרת ובשירותים הבאים של Microsoft עבור סוכני AI:
+הקורס משתמש גם במסגרת ושירותים הבאים לסוכני AI של מיקרוסופט:
 
 - [Microsoft Agent Framework (MAF) - חדש!](https://aka.ms/ai-agents-beginners/agent-framewrok)
-- [שירות Azure AI Agent](https://aka.ms/ai-agents-beginners/ai-agent-service)
+- [שירות סוכני Azure AI](https://aka.ms/ai-agents-beginners/ai-agent-service)
 - [Semantic Kernel](https://aka.ms/ai-agents-beginners/semantic-kernel)
 - [AutoGen](https://aka.ms/ai-agents/autogen)
 
 
-לקבלת מידע נוסף על הרצת הקוד לקורס זה, עבור ל-[הגדרת הקורס](./00-course-setup/README.md).
+למידע נוסף על הרצת הקוד של קורס זה, עבור אל [הגדרת הקורס](./00-course-setup/README.md).
 
-## 🙏 רוצה לעזור?
+## 🙏 רוצים לעזור?
 
-יש לך הצעות או מצאת שגיאות כתיב או שגיאות בקוד? [פתח issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) או [צור בקשת משיכה](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+יש לכם הצעות או מצאתם שגיאות כתיב או שגיאות בקוד? [דווחו על בעיה](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) או [צרו בקשת משיכה](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
 ## 📂 כל שיעור כולל
 
 - שיעור כתוב שנמצא ב-README וסרטון קצר
-- דוגמאות קוד ב-Python התומכות ב-Azure AI Foundry וב-Github Models (חינם)
-- קישורים למשאבים נוספים להמשך הלמידה שלך
+- דוגמאות קוד בפייתון התומכות ב-Azure AI Foundry ובמודלים של GitHub (חינם)
+- קישורים למשאבים נוספים להמשך הלימוד
 
 
-## 🗃️ השיעורים
+## 🗃️ שיעורים
 
 | **שיעור**                                   | **טקסט וקוד**                                    | **וידאו**                                                  | **למידה נוספת**                                                                     |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| מבוא לסוכני AI ושימושי סוכנים       | [קישור](./01-intro-to-ai-agents/README.md)          | [וידאו](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| חקירת מסגרות סוכניות של AI              | [קישור](./02-explore-agentic-frameworks/README.md)  | [וידאו](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| הבנת תבניות עיצוב סוכניות של AI     | [קישור](./03-agentic-design-patterns/README.md)     | [וידאו](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| מבוא לסוכני בינה מלאכותית ומקרי שימוש של סוכנים       | [קישור](./01-intro-to-ai-agents/README.md)          | [וידאו](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| חקירת מסגרות סוכניות של בינה מלאכותית              | [קישור](./02-explore-agentic-frameworks/README.md)  | [וידאו](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| הבנת תבניות עיצוב סוכניות בבינה מלאכותית     | [קישור](./03-agentic-design-patterns/README.md)     | [וידאו](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | תבנית עיצוב לשימוש בכלים                      | [קישור](./04-tool-use/README.md)                    | [וידאו](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentic RAG                                  | [קישור](./05-agentic-rag/README.md)                 | [וידאו](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| בניית סוכני AI מהימנים               | [קישור](./06-building-trustworthy-agents/README.md) | [וידאו](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| RAG סוכני                                  | [קישור](./05-agentic-rag/README.md)                 | [וידאו](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| בניית סוכני בינה אמינים               | [קישור](./06-building-trustworthy-agents/README.md) | [וידאו](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | תבנית עיצוב לתכנון                      | [קישור](./07-planning-design/README.md)             | [וידאו](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | תבנית עיצוב רב-סוכנית                   | [קישור](./08-multi-agent/README.md)                 | [וידאו](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| תבנית עיצוב מטא-קוגניציה                 | [קישור](./09-metacognition/README.md)               | [וידאו](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| סוכני בינה מלאכותית בסביבת הייצור                      | [קישור](./10-ai-agents-production/README.md)        | [סרטון](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| שימוש בפרוטוקולים אייג'נטיים (MCP, A2A and NLWeb) | [קישור](./11-agentic-protocols/README.md)           | [סרטון](https://youtu.be/X-Dh9R3Opn8)                                 | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| הנדסת הקשר עבור סוכני בינה מלאכותית            | [קישור](./12-context-engineering/README.md)         | [סרטון](https://youtu.be/F5zqRV7gEag)                                 | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| ניהול זיכרון אייג'נטי                      | [קישור](./13-agent-memory/README.md)     |      [סרטון](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| חקירת מסגרת הסוכנים של Microsoft                         | [קישור](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| תבנית עיצוב מטה-קוגניציה                 | [קישור](./09-metacognition/README.md)               | [וידאו](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| סוכני בינה מלאכותית בסביבת ייצור                      | [קישור](./10-ai-agents-production/README.md)        | [וידאו](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| שימוש בפרוטוקולים פעלתניים (MCP, A2A ו-NLWeb) | [קישור](./11-agentic-protocols/README.md)           | [וידאו](https://youtu.be/X-Dh9R3Opn8)                                 | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| הנדסת הקשר עבור סוכני בינה מלאכותית            | [קישור](./12-context-engineering/README.md)         | [וידאו](https://youtu.be/F5zqRV7gEag)                                 | [קישור](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| ניהול זיכרון פעלתני                      | [קישור](./13-agent-memory/README.md)     |      [וידאו](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| חקירת Microsoft Agent Framework                         | [קישור](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
 | בניית סוכני שימוש במחשב (CUA)           | בקרוב                            |                                                            |                                                                                        |
-| פריסת סוכנים בקנה מידה                    | בקרוב                            |                                                            |                                                                                        |
+| פריסת סוכנים מדרגיים                    | בקרוב                            |                                                            |                                                                                        |
 | יצירת סוכני בינה מלאכותית מקומיים                     | בקרוב                               |                                                            |                                                                                        |
 | אבטחת סוכני בינה מלאכותית                           | בקרוב                               |                                                            |                                                                                        |
 
 ## 🎒 קורסים נוספים
 
-הצוות שלנו מייצר קורסים נוספים! בדקו:
+הצוות שלנו מפיק קורסים נוספים! בדקו:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### LangChain
@@ -116,7 +116,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
 
-### Azure / Edge / MCP / סוכנים
+### Azure / Edge / MCP / Agents
 [![AZD למתחילים](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Edge AI למתחילים](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![MCP למתחילים](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
@@ -124,19 +124,19 @@ CO_OP_TRANSLATOR_METADATA:
 
 ---
  
-### סדרת בינה גנרטיבית
-[![בינה גנרטיבית למתחילים](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![בינה גנרטיבית (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
-[![בינה גנרטיבית (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
-[![בינה גנרטיבית (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
+### סדרת בינה יוצרת
+[![בינה יוצרת למתחילים](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![בינה יוצרת (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+[![בינה יוצרת (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+[![בינה יוצרת (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
 
 ---
  
-### לימוד ליבה
+### למידה מרכזית
 [![למידת מכונה למתחילים](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
-[![מדע הנתונים למתחילים](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
+[![מדעי הנתונים למתח beginners](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
 [![בינה מלאכותית למתחילים](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
-[![אבטחת מידע למתחילים](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
+[![אבטחת סייבר למתחילים](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
 [![פיתוח ווב למתחילים](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
 [![IoT למתחילים](https://img.shields.io/badge/IoT%20for%20Beginners-14B8A6?style=for-the-badge&labelColor=E5E7EB&color=14B8A6)](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
 [![פיתוח XR למתחילים](https://img.shields.io/badge/XR%20Development%20for%20Beginners-38BDF8?style=for-the-badge&labelColor=E5E7EB&color=38BDF8)](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
@@ -144,38 +144,38 @@ CO_OP_TRANSLATOR_METADATA:
 ---
  
 ### סדרת Copilot
-[![Copilot לתכנות בזוג עם בינה מלאכותית](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
-[![Copilot ל-C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+[![Copilot לתכנות זוגי בעזרת בינה מלאכותית](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+[![Copilot עבור C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
 [![הרפתקת Copilot](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
-## 🌟 תודה לקהילה
+## 🌟 תודות לקהילה
 
-תודה ל[Shivam Goyal](https://www.linkedin.com/in/shivam2003/) על תרומתו בדוגמי קוד חשובים המדגימים Agentic RAG. 
+תודה ל-[Shivam Goyal](https://www.linkedin.com/in/shivam2003/) על שתרם דוגמאות קוד חשובות המדגימות Agentic RAG. 
 
 ## תרומה
 
-פרויקט זה מקבל בברכה תרומות והצעות. רוב התרומות מחייבות הסכמתך להסכם רישיון תורם (CLA) המצהיר שיש לך את הזכות, ובפועל אתה מעניק לנו את הזכויות להשתמש בתרומתך. לפרטים, בקר ב- <https://cla.opensource.microsoft.com>.
+פרויקט זה מזמין תרומות והצעות. רוב התרומות מחייבות הסכמה להסכם רישיון תורמים (CLA) המצהיר שיש לך את הזכות, ובאופן מעשי אתה מעניק לנו את הזכויות להשתמש בתרומתך. לפרטים, בקר: <https://cla.opensource.microsoft.com>.
 
-כאשר תשלח בקשת משיכה, בוט CLA יקבע אוטומטית האם עליך לספק CLA ויעטר את ה-PR בהתאם (למשל, בדיקת סטטוס, תגובה). פשוט פעל לפי ההנחיות שהבוט יספק. תידרש לעשות זאת רק פעם אחת בכל הרפוזיטוריות המשתמשות ב-CLA שלנו.
+כאשר תגישו בקשת משיכה (pull request), רובוט CLA יקבע אוטומטית האם עליכם לספק CLA ויעטר את ה-PR בהתאם (למשל, בדיקת מצב, תגובה). פשוט עקבו אחר ההוראות שמספק הרובוט. תצטרכו לעשות זאת רק פעם אחת בכל הריפוזיטוריות שמשתמשות ב-CLA שלנו.
 
-פרויקט זה אימץ את [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-למידע נוסף ראו את [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) או פנו ל-[opencode@microsoft.com](mailto:opencode@microsoft.com) עם שאלות או הערות נוספות.
+פרויקט זה אימץ את [קוד ההתנהלות בקוד פתוח של Microsoft](https://opensource.microsoft.com/codeofconduct/).
+למידע נוסף ראו את [שאלות נפוצות על קוד ההתנהלות](https://opensource.microsoft.com/codeofconduct/faq/) או פנו ל-[opencode@microsoft.com](mailto:opencode@microsoft.com) עם כל שאלה או הערה נוספת.
 
 ## סימני מסחר
 
-ייתכן שבפרויקט זה ישנם סימני מסחר או לוגואים של פרויקטים, מוצרים או שירותים. שימוש מורשה בסימני מסחר או לוגואים של Microsoft כפוף וצריך לעמוד ב-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-שימוש בסימני מסחר או לוגואים של Microsoft בגירסאות ערוכות של פרויקט זה אסור שיהיה מבלבל או ייתן רושם של חסות מצד Microsoft.
-כל שימוש בסימני מסחר או לוגואים של צד שלישי כפוף למדיניות של אותם צדדים.
+פרויקט זה עשוי להכיל סימני מסחר או לוגואים של פרויקטים, מוצרים או שירותים. שימוש מורשה בסימני המסחר או בלוגואים של Microsoft כפוף וצריך להתבצע בהתאם ל-[הנחיות השימוש בסימני המסחר והמוניטין של Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+שימוש בסימני המסחר או בלוגואים של Microsoft בגרסאות מותאמות של פרויקט זה לא יגרום לבלבול ולא ירמז על חסות של Microsoft.
+כל שימוש בסימני מסחר או בלוגואים של צד שלישי כפוף למדיניות של צדדים שלישיים אלה.
 
 ## קבלת עזרה
 
 
-אם תיתקלו בקשיים או יש לכם שאלות לגבי בניית אפליקציות בינה מלאכותית, הצטרפו:
+אם אתם נתקעים או יש לכם שאלות לגבי בניית אפליקציות בינה מלאכותית, הצטרפו ל:
 
-[![Microsoft Foundry ב-Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
+[![Discord של Microsoft Foundry](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-אם יש לכם משוב על המוצר או שגיאות במהלך הבנייה, בקרו ב-:
+אם יש לכם משוב על המוצר או שגיאות במהלך הבנייה בקרו ב:
 
 [![פורום המפתחים של Microsoft Foundry](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
@@ -183,5 +183,5 @@ CO_OP_TRANSLATOR_METADATA:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 הצהרת אחריות:
-מסמך זה תורגם בעזרת שירות תרגום מבוסס בינה מלאכותית Co-op Translator (https://github.com/Azure/co-op-translator). אף שאנו שואפים לדייק, שימו לב שתרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. יש לראות במסמך המקורי בשפת המקור כמקור הסמכות. לפרטים קריטיים מומלץ תרגום מקצועי על ידי מתרגם אנושי. איננו נושאים באחריות לכל אי-הבנות או פרשנויות שגויות הנובעות משימוש בתרגום זה.
+מסמך זה תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית Co-op Translator (https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לשים לב כי תרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. יש לראות במסמך המקורי בשפת המקור כמקור הסמכות. עבור מידע קריטי מומלץ לבצע תרגום מקצועי על ידי מתרגם אנושי. איננו אחראים לכל אי-הבנות או לפרשנויות שגויות הנובעות משימוש בתרגום זה.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

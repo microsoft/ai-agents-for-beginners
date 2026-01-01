@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hu"
 }
 -->
-[![Hogyan tervezzünk jó AI ügynököket](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.hu.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Hogyan tervezzünk jó AI ügynököket](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.hu.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Kattints a fenti képre, hogy megnézd a videót az óráról)_
 
@@ -211,7 +211,7 @@ A Funkcióhívás a legtöbb, ha nem az összes ügynök eszközhasználati terv
 
 Az alábbi diagram bemutatja a funkcióhívás folyamatát a Semantic Kernel használatával:
 
-![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.hu.png)
+![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f6014.hu.png)
 
 A Semantic Kernel-ben a funkciókat/eszközöket <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Pluginoknak</a> nevezik. Az előzőekben látott `get_current_time` funkciót átalakíthatjuk egy pluginná úgy, hogy egy osztállyá alakítjuk, amely tartalmazza a funkciót. Importálhatjuk a `kernel_function` dekorátort is, amely a funkció leírását veszi át. Amikor létrehozol egy kernelt a GetCurrentTimePlugin-nal, a kernel automatikusan szerializálja a funkciót és annak paramétereit, létrehozva a sémát, amelyet elküld az LLM-nek a folyamat során.
 

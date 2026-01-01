@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "id"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.id.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.id.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) adalah paradigma yang sedan
 
 Gaya operasi iteratif “maker-checker” ini dirancang untuk meningkatkan akurasi, menangani kueri yang tidak sesuai ke database terstruktur (misalnya NL2SQL), dan memastikan hasil yang seimbang dan berkualitas tinggi. Alih-alih hanya mengandalkan rantai prompt yang dirancang dengan hati-hati, sistem ini secara aktif menguasai proses penalarannya. Sistem ini dapat menulis ulang kueri yang gagal, memilih metode pengambilan yang berbeda, dan mengintegrasikan berbagai alat—seperti pencarian vektor di Azure AI Search, database SQL, atau API khusus—sebelum menyelesaikan jawabannya. Hal ini menghilangkan kebutuhan akan kerangka orkestrasi yang terlalu kompleks. Sebaliknya, siklus sederhana “panggilan LLM → penggunaan alat → panggilan LLM → …” dapat menghasilkan output yang canggih dan terstruktur dengan baik.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.id.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.id.png)
 
 ## Menguasai Proses Penalaran
 
@@ -67,7 +67,7 @@ Semua langkah ini—menyempurnakan kueri, memilih sumber, mengulangi hingga “p
 
 ## Siklus Iteratif, Integrasi Alat, dan Memori
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.id.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.id.png)
 
 Sistem agentic bergantung pada pola interaksi berulang:
 
@@ -89,7 +89,7 @@ Otonomi Agentic RAG juga melibatkan mekanisme koreksi diri yang kuat. Ketika sis
 
 Pendekatan yang iteratif dan dinamis ini memungkinkan model untuk terus meningkatkan diri, memastikan bahwa ia bukan hanya sistem sekali pakai tetapi sistem yang belajar dari kesalahan selama sesi tertentu.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.id.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.id.png)
 
 ## Batasan Agensi
 
@@ -119,7 +119,7 @@ Seiring sistem ini menjadi lebih mandiri dalam penalarannya, tata kelola dan tra
 
 Memiliki alat yang menyediakan catatan tindakan yang jelas sangat penting. Tanpa itu, debugging proses multi-langkah bisa sangat sulit. Lihat contoh berikut dari Literal AI (perusahaan di balik Chainlit) untuk Agent run:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.id.png)
+![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.id.png)
 
 ## Kesimpulan
 

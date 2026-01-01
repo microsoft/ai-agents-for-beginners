@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "it"
 }
 -->
-[![Come progettare buoni agenti AI](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.it.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Come progettare buoni agenti AI](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.it.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
 # Principi di progettazione degli agenti AI
@@ -39,7 +39,7 @@ Dopo aver completato questa lezione, sarai in grado di:
 
 ## I principi di progettazione agentica
 
-![Principi di progettazione agentica](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.it.png)
+![Principi di progettazione agentica](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.it.png)
 
 ### Agente (Spazio)
 

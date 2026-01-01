@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hr"
 }
 -->
-[![Višestruki dizajn agenata](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.hr.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Višestruki dizajn agenata](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.hr.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Kliknite na sliku iznad za pregled videa ove lekcije)_
 
@@ -95,7 +95,7 @@ U ovom obrascu, svaki agent predstavlja korisnika u grupnom chatu, a poruke se r
 
 Ovaj obrazac može se implementirati koristeći centraliziranu arhitekturu gdje se sve poruke usmjeravaju kroz centralni poslužitelj ili decentraliziranu arhitekturu gdje se poruke razmjenjuju izravno.
 
-![Grupni chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.hr.png)
+![Grupni chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.hr.png)
 
 ### Predaja zadatka
 
@@ -105,7 +105,7 @@ Tipični slučajevi upotrebe za ovaj obrazac uključuju korisničku podršku, up
 
 U ovom obrascu, svaki agent predstavlja zadatak ili korak u tijeku rada, a agenti mogu predavati zadatke drugim agentima na temelju unaprijed definiranih pravila.
 
-![Predaja zadatka](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.hr.png)
+![Predaja zadatka](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.hr.png)
 
 ### Kolaborativno filtriranje
 
@@ -119,7 +119,7 @@ Uzmimo primjer gdje korisnik želi preporuku za najbolju dionicu za kupnju na bu
 - **Tehnička analiza**: Drugi agent mogao bi biti stručnjak za tehničku analizu.
 - **Fundamentalna analiza**: Treći agent mogao bi biti stručnjak za fundamentalnu analizu. Suradnjom, ovi agenti mogu korisniku pružiti sveobuhvatniju preporuku.
 
-![Preporuka](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.hr.png)
+![Preporuka](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.hr.png)
 
 ## Scenarij: Proces povrata novca
 

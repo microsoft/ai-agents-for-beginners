@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI代理在生產環境中的應用：可觀察性與評估
 
-[![AI代理在生產環境中的應用](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.hk.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI代理在生產環境中的應用](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.hk.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 當AI代理從實驗性原型轉向現實世界的應用時，理解其行為、監控其性能以及系統性地評估其輸出變得至關重要。
 

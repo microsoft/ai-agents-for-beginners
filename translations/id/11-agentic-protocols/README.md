@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Menggunakan Protokol Agen (MCP, A2A, dan NLWeb)
 
-[![Protokol Agen](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.id.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Protokol Agen](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.id.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
@@ -69,7 +69,7 @@ MCP menawarkan keuntungan signifikan bagi Agen AI:
 
 ### Contoh MCP
 
-![Diagram MCP](../../../translated_images/mcp-diagram.e4ca1cbd551444a12e1f0eb300191a036ab01124fce71c864fe9cb7f4ac2a15d.id.png)
+![Diagram MCP](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.id.png)
 
 Bayangkan seorang pengguna ingin memesan penerbangan menggunakan asisten AI yang didukung oleh MCP.
 
@@ -124,7 +124,7 @@ Komponen ini digunakan untuk **menangani pembaruan dan meneruskan pesan**. Ini s
 
 ### Contoh A2A
 
-![Diagram A2A](../../../translated_images/A2A-Diagram.8666928d648acc2687db4093d7b09ea2a595622f8fe18194a026ee55fc23af8e.id.png)
+![Diagram A2A](../../../translated_images/A2A-Diagram.8666928d648acc26.id.png)
 
 Mari kita kembangkan skenario pemesanan perjalanan kita, tetapi kali ini menggunakan A2A.
 
@@ -158,7 +158,7 @@ Mari kita lihat berbagai komponen NLWeb, manfaat NLWeb, dan contoh bagaimana NLW
 
 ### Contoh NLWeb
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4b245b86690ac6c49c26e355da5ab124128c8675d58cc9b07.id.png)
+![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.id.png)
 
 Pertimbangkan situs web pemesanan perjalanan kita lagi, tetapi kali ini didukung oleh NLWeb.
 

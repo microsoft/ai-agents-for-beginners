@@ -25,7 +25,7 @@ Za dovršetak ovog zadatka potrebni su vam sljedeći uvjeti:
 1. Slijedite upute iz [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog posta za kreiranje Azure AI Foundry hub-a.
 2. Kada je vaš projekt kreiran, zatvorite sve prikazane savjete i pregledajte stranicu projekta u Azure AI Foundry portalu, koja bi trebala izgledati slično kao na slici ispod:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.hr.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.hr.png)
 
 ## Postavljanje modela
 
@@ -35,7 +35,7 @@ Za dovršetak ovog zadatka potrebni su vam sljedeći uvjeti:
 
     > **Note**: Smanjenje TPM pomaže izbjeći prekomjernu potrošnju kvote dostupne u pretplati koju koristite.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.hr.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.hr.png)
 
 ## Kreiranje agenta
 
@@ -77,7 +77,7 @@ Sada kada ste postavili model, možete kreirati agenta. Agent je konverzacijski 
     
 > Također, možete dodati **Knowledge Base** i **Actions** kako biste unaprijedili mogućnosti agenta da pruži više informacija i izvršava automatizirane zadatke na temelju korisničkih zahtjeva. Za ovaj zadatak možete preskočiti ove korake.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.hr.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.hr.png)
 
 3. Za kreiranje novog multi-AI agenta, jednostavno kliknite **New Agent**. Novi agent će se zatim prikazati na stranici Agents.
 
@@ -90,7 +90,7 @@ Nakon što ste kreirali agenta, možete ga testirati kako biste vidjeli kako odg
 
     > **Note**: Agent možda neće dati točne odgovore jer se u ovom zadatku ne koristi stvarni vremenski podatak. Cilj je testirati sposobnost agenta da razumije i odgovori na korisničke upite na temelju danih uputa.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.hr.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.hr.png)
 
 3. Nakon testiranja agenta, možete ga dodatno prilagoditi dodavanjem više namjera, podataka za treniranje i akcija kako biste poboljšali njegove mogućnosti.
 
