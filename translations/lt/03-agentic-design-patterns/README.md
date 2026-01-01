@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "lt"
 }
 -->
-[![Kaip kurti gerus AI agentus](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.lt.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Kaip kurti gerus AI agentus](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.lt.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Spustelėkite aukščiau esančią nuotrauką, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 # AI agentų dizaino principai
@@ -39,7 +39,7 @@ Baigę šią pamoką, galėsite:
 
 ## Agentų dizaino principai
 
-![Agentų dizaino principai](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.lt.png)
+![Agentų dizaino principai](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.lt.png)
 
 ### Agentas (Erdvė)
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "lt"
 }
 -->
-[![Patikimi dirbtinio intelekto agentai](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.lt.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Patikimi dirbtinio intelekto agentai](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.lt.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Spustelėkite aukščiau esančią nuotrauką, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
@@ -41,7 +41,7 @@ DI agentams sisteminė užklausa yra dar svarbesnė, nes DI agentams reikia itin
 
 Norėdami sukurti mastelio keičiamas sistemines užklausas, galime naudoti sisteminės žinutės kūrimo sistemą, skirtą vienam ar keliems agentams mūsų programoje:
 
-![Sisteminės žinutės kūrimo sistema](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.lt.png)
+![Sisteminės žinutės kūrimo sistema](../../../translated_images/system-message-framework.3a97368c92d11d68.lt.png)
 
 #### 1 žingsnis: Sukurkite meta sisteminę žinutę
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 Norint sukurti patikimus DI agentus, svarbu suprasti ir sumažinti rizikas bei grėsmes, su kuriomis gali susidurti jūsų DI agentas. Pažvelkime į kai kurias grėsmes ir kaip galite geriau planuoti bei pasiruošti joms.
 
-![Grėsmių supratimas](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.lt.png)
+![Grėsmių supratimas](../../../translated_images/understanding-threats.89edeada8a97fc0f.lt.png)
 
 ### Užduotys ir instrukcijos
 
@@ -166,7 +166,7 @@ Norint sukurti patikimus DI agentus, svarbu suprasti ir sumažinti rizikas bei g
 
 Dar vienas efektyvus būdas kurti patikimas DI agentų sistemas yra naudoti žmogų procese. Tai sukuria srautą, kuriame naudotojai gali teikti atsiliepimus agentams vykdymo metu. Naudotojai iš esmės veikia kaip agentai daugiagentėje sistemoje, suteikdami patvirtinimą arba nutraukdami vykdomą procesą.
 
-![Žmogus procese](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.lt.png)
+![Žmogus procese](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.lt.png)
 
 Štai kodo fragmentas, naudojant „AutoGen“, kuris parodo, kaip šis konceptas įgyvendinamas:
 

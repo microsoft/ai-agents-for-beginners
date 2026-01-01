@@ -53,7 +53,7 @@ Tai turėtų paleisti jūsų Chainlit serverį `localhost:8000` ir užpildyti j�
 
 Norėdami prisijungti prie Github MCP Serverio, pasirinkite „kištuko“ ikoną po „Įveskite savo žinutę čia..“ pokalbių laukeliu:
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28f1ea5f320b91e4404df4a24a0f236ce3de999666621f1cfc.lt.png)
+![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.lt.png)
 
 Iš ten galite spustelėti „Prisijungti prie MCP“, kad pridėtumėte komandą prisijungti prie Github MCP Serverio:
 

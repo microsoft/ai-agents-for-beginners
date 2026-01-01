@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ഉൽപാദനത്തിൽ AI ഏജന്റുകൾ: നിരീക്ഷണശേഷി & മൂല്യനിർണയം
 
-[![AI ഏജന്റുകൾ ഉൽപാദനത്തിൽ](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.ml.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI ഏജന്റുകൾ ഉൽപാദനത്തിൽ](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.ml.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 AI ഏജന്റുകൾ പരീക്ഷണാത്മക പ്രോട്ടോടൈപ്പുകളിൽ നിന്ന് യഥാർത്ഥ ലോക ആപ്ലിക്കേഷനുകളിലേക്ക് മാറുമ്പോൾ, അവയുടെ പെരുമാറ്റം മനസ്സിലാക്കാനുള്ള കഴിവ്, പ്രകടനം നിരീക്ഷിക്കുക, സിസ്റ്റമാറ്റിക് ആയി ഔട്ട്പുട്ടുകൾ വിലയിരുത്തുക എന്നിവ പ്രധാനമാകുന്നു.
 

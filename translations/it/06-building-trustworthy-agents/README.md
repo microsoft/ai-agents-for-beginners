@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "it"
 }
 -->
-[![Agenti AI Affidabili](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.it.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Agenti AI Affidabili](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.it.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Clicca sull'immagine sopra per guardare il video di questa lezione)_
 
@@ -41,7 +41,7 @@ Per gli Agenti AI, il messaggio di sistema è ancora più importante, poiché gl
 
 Per creare prompt di sistema scalabili, possiamo utilizzare un framework per i messaggi di sistema per costruire uno o più agenti nella nostra applicazione:
 
-![Creare un Framework per i Messaggi di Sistema](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.it.png)
+![Creare un Framework per i Messaggi di Sistema](../../../translated_images/system-message-framework.3a97368c92d11d68.it.png)
 
 #### Passo 1: Creare un Meta Messaggio di Sistema
 
@@ -130,7 +130,7 @@ Il valore di questo framework per i messaggi di sistema è la possibilità di sc
 
 Per costruire agenti AI affidabili, è importante comprendere e mitigare i rischi e le minacce per il tuo agente AI. Esaminiamo alcune delle diverse minacce agli agenti AI e come puoi pianificare e prepararti meglio per affrontarle.
 
-![Comprendere le Minacce](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.it.png)
+![Comprendere le Minacce](../../../translated_images/understanding-threats.89edeada8a97fc0f.it.png)
 
 ### Compiti e Istruzioni
 
@@ -166,7 +166,7 @@ Per costruire agenti AI affidabili, è importante comprendere e mitigare i risch
 
 Un altro modo efficace per costruire sistemi di Agenti AI affidabili è utilizzare un approccio Human-in-the-Loop. Questo crea un flusso in cui gli utenti possono fornire feedback agli Agenti durante l'esecuzione. Gli utenti agiscono essenzialmente come agenti in un sistema multi-agente, fornendo approvazione o terminazione del processo in corso.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.it.png)
+![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.it.png)
 
 Ecco un esempio di codice che utilizza AutoGen per mostrare come viene implementato questo concetto:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "it"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.it.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.it.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
 # Metacognizione negli Agenti AI
@@ -47,7 +47,7 @@ Tenere traccia di come o perché ha scelto una certa opzione.
 
 La metacognizione svolge un ruolo cruciale nella progettazione degli agenti AI per diversi motivi:
 
-![Importanza della Metacognizione](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.it.png)
+![Importanza della Metacognizione](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.it.png)
 
 - Auto-riflessione: Gli agenti possono valutare le proprie prestazioni e identificare aree di miglioramento.
 - Adattabilità: Gli agenti possono modificare le proprie strategie basandosi su esperienze passate e ambienti mutevoli.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Iniziamo comprendendo la differenza tra lo strumento RAG e il caricamento contestuale pre-emptivo.
 
-![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.it.png)
+![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921.it.png)
 
 ### Generazione Augmentata da Recupero (RAG)
 

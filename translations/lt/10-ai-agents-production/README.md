@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI agentai gamyboje: stebėjimas ir vertinimas
 
-[![AI agentai gamyboje](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.lt.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI agentai gamyboje](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.lt.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Kai AI agentai pereina iš eksperimentinių prototipų į realias programas, tampa svarbu suprasti jų elgesį, stebėti jų veikimą ir sistemingai vertinti jų rezultatus.
 
