@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # 投产中的 AI Agent：可观测性与评估
 
-[![投产中的 AI Agent](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.zh.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![投产中的 AI Agent](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.zh.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 当 AI Agent 从实验性原型转向实际应用时，理解其行为、监控其性能以及系统性地评估其输出的能力变得尤为重要。
 
