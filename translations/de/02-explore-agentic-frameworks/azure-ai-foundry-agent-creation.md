@@ -25,7 +25,7 @@ Um diese Übung abzuschließen, benötigen Sie Folgendes:
 1. Folgen Sie den Anleitungen im [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) Blogbeitrag zum Erstellen eines Azure AI Foundry Hubs.
 2. Wenn Ihr Projekt erstellt wurde, schließen Sie alle angezeigten Tipps und überprüfen Sie die Projektseite im Azure AI Foundry Portal, die etwa wie im folgenden Bild aussehen sollte:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.de.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.de.png)
 
 ## Modell bereitstellen
 
@@ -35,7 +35,7 @@ Um diese Übung abzuschließen, benötigen Sie Folgendes:
 
     > **Note**: Das Reduzieren des TPM hilft, eine Übernutzung des in Ihrem Abonnement verfügbaren Kontingents zu vermeiden.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.de.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.de.png)
 
 ## Einen Agenten erstellen
 
@@ -77,7 +77,7 @@ Nachdem Sie ein Modell bereitgestellt haben, können Sie einen Agenten erstellen
     
 > Außerdem können Sie eine **Knowledge Base** und **Actions** hinzufügen, um die Fähigkeiten des Agenten zu erweitern, damit er mehr Informationen bereitstellen und automatisierte Aufgaben basierend auf Benutzeranfragen ausführen kann. Für diese Übung können Sie diese Schritte überspringen.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.de.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.de.png)
 
 3. Um einen neuen Multi-AI-Agenten zu erstellen, klicken Sie einfach auf **New Agent**. Der neu erstellte Agent wird dann auf der Seite Agents angezeigt.
 
@@ -90,7 +90,7 @@ Nachdem Sie den Agenten erstellt haben, können Sie testen, wie er auf Benutzera
 
     > **Note**: Der Agent liefert möglicherweise keine genauen Antworten, da in dieser Übung keine Echtzeitdaten verwendet werden. Ziel ist es, die Fähigkeit des Agenten zu testen, Benutzeranfragen basierend auf den gegebenen Anweisungen zu verstehen und zu beantworten.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.de.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.de.png)
 
 3. Nach dem Testen können Sie den Agenten weiter anpassen, indem Sie weitere Intents, Trainingsdaten und Aktionen hinzufügen, um seine Fähigkeiten zu verbessern.
 

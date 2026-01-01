@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "cs"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.cs.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.cs.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klikněte na obrázek výše pro zhlédnutí videa této lekce)_
 
@@ -95,7 +95,7 @@ V tomto vzoru každý agent představuje uživatele ve skupinovém chatu a zprá
 
 Tento vzor lze implementovat pomocí centralizované architektury, kde jsou všechny zprávy směrovány přes centrální server, nebo decentralizované architektury, kde jsou zprávy vyměňovány přímo.
 
-![Skupinový chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.cs.png)
+![Skupinový chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.cs.png)
 
 ### Předání úkolu
 
@@ -105,7 +105,7 @@ Typické případy použití tohoto vzoru zahrnují zákaznickou podporu, správ
 
 V tomto vzoru každý agent představuje úkol nebo krok v pracovním postupu a agenti si mohou předávat úkoly na základě předem definovaných pravidel.
 
-![Předání úkolu](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.cs.png)
+![Předání úkolu](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.cs.png)
 
 ### Spolupracující filtrování
 
@@ -119,7 +119,7 @@ Pojďme si vzít příklad, kdy uživatel chce doporučení na nejlepší akcii 
 - **Technická analýza**: Další agent může být odborníkem na technickou analýzu.
 - **Fundamentální analýza**: A další agent může být odborníkem na fundamentální analýzu. Spoluprací mohou tito agenti poskytnout uživateli komplexnější doporučení.
 
-![Doporučení](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.cs.png)
+![Doporučení](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.cs.png)
 
 ## Scénář: Proces vrácení peněz
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "el"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.el.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.el.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Κάντε κλικ στην παραπάνω εικόνα για να παρακολουθήσετε το βίντεο αυτού του μαθήματος)_
 
@@ -95,7 +95,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Αυτό το πρότυπο μπορεί να υλοποιηθεί χρησιμοποιώντας μια κεντρική αρχιτεκτονική όπου όλα τα μηνύματα δρομολογούνται μέσω ενός κεντρικού διακομιστή ή μια αποκεντρωμένη αρχιτεκτονική όπου τα μηνύματα ανταλλάσσονται απευθείας.
 
-![Ομαδική συνομιλία](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.el.png)
+![Ομαδική συνομιλία](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.el.png)
 
 ### Ανάθεση εργασιών
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "da"
 }
 -->
-[![Pålidelige AI-agenter](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.da.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Pålidelige AI-agenter](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.da.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klik på billedet ovenfor for at se videoen til denne lektion)_
 
@@ -41,7 +41,7 @@ For AI-agenter er systemprompten endnu vigtigere, da AI-agenter har brug for meg
 
 For at skabe skalerbare systemprompts kan vi bruge en systemmeddelelsesramme til at bygge en eller flere agenter i vores applikation:
 
-![Opbygning af en systemmeddelelsesramme](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.da.png)
+![Opbygning af en systemmeddelelsesramme](../../../translated_images/system-message-framework.3a97368c92d11d68.da.png)
 
 #### Trin 1: Opret en metasystemmeddelelse
 
@@ -130,7 +130,7 @@ Fordelen ved denne systemmeddelelsesramme er, at det bliver lettere at skalere o
 
 For at bygge pålidelige AI-agenter er det vigtigt at forstå og håndtere risici og trusler mod din AI-agent. Lad os se på nogle af de forskellige trusler mod AI-agenter og hvordan du bedre kan planlægge og forberede dig på dem.
 
-![Forståelse af trusler](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.da.png)
+![Forståelse af trusler](../../../translated_images/understanding-threats.89edeada8a97fc0f.da.png)
 
 ### Opgave og instruktion
 
@@ -166,7 +166,7 @@ For at bygge pålidelige AI-agenter er det vigtigt at forstå og håndtere risic
 
 En anden effektiv måde at bygge pålidelige AI-agent-systemer på er ved at bruge et menneske i loopet. Dette skaber et flow, hvor brugere kan give feedback til agenterne under deres kørsel. Brugere fungerer i praksis som agenter i et multi-agent-system og kan give godkendelse eller afslutte processen.
 
-![Mennesket i loopet](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.da.png)
+![Mennesket i loopet](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.da.png)
 
 Her er et kodeeksempel, der bruger AutoGen til at vise, hvordan dette koncept implementeres:
 
