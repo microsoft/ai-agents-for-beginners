@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ru"
 }
 -->
-[![Планирование шаблона проектирования](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.ru.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Планирование шаблона проектирования](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.ru.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Нажмите на изображение выше, чтобы посмотреть видео урока)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Определение общей цели и разбиение задачи
 
-![Определение целей и задач](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.ru.png)
+![Определение целей и задач](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.ru.png)
 
 Большинство задач в реальном мире слишком сложны, чтобы решить их за один шаг. AI-агенту нужна четкая цель, чтобы направлять его планирование и действия. Например, рассмотрим цель:
 

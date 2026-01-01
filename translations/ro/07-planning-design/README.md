@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ro"
 }
 -->
-[![Planificarea Modelului de Design](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.ro.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planificarea Modelului de Design](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.ro.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Click pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
@@ -32,7 +32,7 @@ După finalizarea acestei lecții, vei înțelege:
 
 ## Definirea Obiectivului General și Descompunerea Sarcinii
 
-![Definirea Obiectivelor și Sarcinilor](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.ro.png)
+![Definirea Obiectivelor și Sarcinilor](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.ro.png)
 
 Majoritatea sarcinilor din lumea reală sunt prea complexe pentru a fi abordate într-un singur pas. Un agent AI are nevoie de un obiectiv concis pentru a-și ghida planificarea și acțiunile. De exemplu, consideră obiectivul:
 

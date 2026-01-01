@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Kontextové inžinierstvo pre AI agentov
 
-[![Kontextové inžinierstvo](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.sk.png)](https://youtu.be/F5zqRV7gEag)
+[![Kontextové inžinierstvo](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.sk.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Kliknite na obrázok vyššie pre zobrazenie videa k tejto lekcii)_
 
@@ -49,7 +49,7 @@ Promptové inžinierstvo sa zameriava na jednu sadu statických inštrukcií na 
 
 ### Typy kontextu
 
-[![Typy kontextu](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.sk.png)](https://youtu.be/F5zqRV7gEag)
+[![Typy kontextu](../../../translated_images/context-types.fc10b8927ee43f06.sk.png)](https://youtu.be/F5zqRV7gEag)
 
 Je dôležité si uvedomiť, že kontext nie je len jedna vec. Informácie, ktoré AI agent potrebuje, môžu pochádzať z rôznych zdrojov a je na nás, aby sme zabezpečili, že agent má prístup k týmto zdrojom:
 
@@ -69,7 +69,7 @@ Typy kontextu, ktoré AI agent môže potrebovať spravovať, zahŕňajú:
 
 ### Plánovacie stratégie
 
-[![Najlepšie praktiky kontextového inžinierstva](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.sk.png)](https://youtu.be/F5zqRV7gEag)
+[![Najlepšie praktiky kontextového inžinierstva](../../../translated_images/best-practices.f4170873dc554f58.sk.png)](https://youtu.be/F5zqRV7gEag)
 
 Dobré kontextové inžinierstvo začína dobrým plánovaním. Tu je prístup, ktorý vám pomôže začať uvažovať o tom, ako aplikovať koncept kontextového inžinierstva:
 

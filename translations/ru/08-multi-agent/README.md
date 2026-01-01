@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ru"
 }
 -->
-[![Многоагентный дизайн](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.ru.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Многоагентный дизайн](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.ru.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Нажмите на изображение выше, чтобы посмотреть видео этого урока)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Этот шаблон можно реализовать с использованием централизованной архитектуры, где все сообщения проходят через центральный сервер, или децентрализованной архитектуры, где сообщения обмениваются напрямую.
 
-![Групповой чат](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.ru.png)
+![Групповой чат](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.ru.png)
 
 ### Передача задач
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 В этом шаблоне каждый агент представляет задачу или шаг в рабочем процессе, и агенты могут передавать задачи другим агентам на основе заранее определенных правил.
 
-![Передача задач](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.ru.png)
+![Передача задач](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.ru.png)
 
 ### Коллаборативная фильтрация
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **Технический анализ**: Другой агент может быть экспертом в техническом анализе.
 - **Фундаментальный анализ**: Еще один агент может быть экспертом в фундаментальном анализе. Сотрудничая, эти агенты могут предоставить пользователю более комплексную рекомендацию.
 
-![Рекомендация](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.ru.png)
+![Рекомендация](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.ru.png)
 
 ## Сценарий: Процесс возврата средств
 

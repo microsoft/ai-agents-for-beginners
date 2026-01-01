@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sr"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.sr.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.sr.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Кликните на слику изнад да бисте погледали видео овог часа)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Овај шаблон се може имплементирати користећи централизовану архитектуру где се све поруке усмеравају преко централног сервера, или децентрализовану архитектуру где се поруке размењују директно.
 
-![Групни чет](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.sr.png)
+![Групни чет](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.sr.png)
 
 ### Пренос задатка
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 У овом шаблону, сваки агент представља задатак или корак у радном процесу, а агенти могу преносити задатке другим агентима на основу унапред дефинисаних правила.
 
-![Пренос задатка](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.sr.png)
+![Пренос задатка](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.sr.png)
 
 ### Колаборативно филтрирање
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **Техничка анализа**: Други агент може бити експерт за техничку анализу.
 - **Фундаментална анализа**: А трећи агент може бити експерт за фундаменталну анализу. Сарађујући, ови агенти могу пружити свеобухватнију препоруку кориснику.
 
-![Препорука](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.sr.png)
+![Препорука](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.sr.png)
 
 ## Сценарио: Процес рефундације
 

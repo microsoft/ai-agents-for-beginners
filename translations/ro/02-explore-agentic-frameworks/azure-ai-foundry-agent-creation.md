@@ -25,7 +25,7 @@ Pentru a finaliza acest exercițiu, ai nevoie de următoarele:
 1. Urmează aceste recomandări din postarea de pe blogul [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) pentru a crea un hub Azure AI Foundry.
 2. Când proiectul tău este creat, închide orice sfaturi afișate și verifică pagina proiectului în portalul Azure AI Foundry, care ar trebui să arate similar cu imaginea de mai jos:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.ro.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ro.png)
 
 ## Desfășoară un model
 
@@ -35,7 +35,7 @@ Pentru a finaliza acest exercițiu, ai nevoie de următoarele:
 
     > **Note**: Reducerea TPM ajută la evitarea utilizării excesive a cotei disponibile în abonamentul pe care îl folosești.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.ro.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.ro.png)
 
 ## Creează un agent
 
@@ -77,7 +77,7 @@ Acum că ai desfășurat un model, poți crea un agent. Un agent este un model A
     
 > În plus, poți adăuga **Knowledge Base** și **Actions** pentru a îmbunătăți capacitățile agentului de a oferi mai multe informații și de a efectua sarcini automate pe baza cererilor utilizatorilor. Pentru acest exercițiu, poți sări peste acești pași.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.ro.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.ro.png)
 
 3. Pentru a crea un agent multi-AI nou, apasă pur și simplu pe **New Agent**. Agentul nou creat va fi afișat apoi pe pagina Agents.
 
@@ -90,7 +90,7 @@ După ce ai creat agentul, îl poți testa pentru a vedea cum răspunde la într
 
     > **Note**: Agentul poate să nu ofere răspunsuri exacte, deoarece nu se folosesc date în timp real în acest exercițiu. Scopul este să testezi capacitatea agentului de a înțelege și răspunde la întrebările utilizatorilor pe baza instrucțiunilor primite.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.ro.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.ro.png)
 
 3. După testarea agentului, îl poți personaliza în continuare adăugând mai multe intenții, date de antrenament și acțiuni pentru a-i îmbunătăți capacitățile.
 

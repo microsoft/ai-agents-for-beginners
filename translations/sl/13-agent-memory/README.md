@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Spomin za AI agente
-[![Spomin agenta](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.sl.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Spomin agenta](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.sl.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Ko govorimo o edinstvenih prednostih ustvarjanja AI agentov, sta glavni temi: sposobnost uporabe orodij za dokončanje nalog in sposobnost izboljševanja skozi čas. Spomin je temelj za ustvarjanje samopoboljšujočih agentov, ki lahko uporabnikom zagotavljajo boljše izkušnje.
 

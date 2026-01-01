@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ro"
 }
 -->
-[![Cum să proiectezi agenți AI buni](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.ro.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Cum să proiectezi agenți AI buni](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.ro.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Click pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
@@ -219,7 +219,7 @@ Iată câteva exemple despre cum poți implementa modelul de proiectare pentru u
 
 Diagrama următoare ilustrează procesul de apelare a funcțiilor cu Semantic Kernel:
 
-![apelarea funcțiilor](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.ro.png)
+![apelarea funcțiilor](../../../translated_images/functioncalling-diagram.a84006fc287f6014.ro.png)
 
 În Semantic Kernel, funcțiile/instrumentele sunt numite <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Pluginuri</a>. Putem converti funcția `get_current_time` pe care am văzut-o mai devreme într-un plugin transformând-o într-o clasă care conține funcția. De asemenea, putem importa decoratorul `kernel_function`, care preia descrierea funcției. Când creezi un kernel cu GetCurrentTimePlugin, kernel-ul va serializa automat funcția și parametrii acesteia, creând schema pentru a fi trimis către LLM în proces.
 
@@ -280,7 +280,7 @@ Imaginează-ți că ești un agent de vânzări la o companie numită Contoso. V
 
 Imaginea următoare ilustrează cum ai putea folosi Serviciul Azure AI Agent pentru a analiza datele tale de vânzări:
 
-![Serviciul Agentic în acțiune](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.ro.jpg)
+![Serviciul Agentic în acțiune](../../../translated_images/agent-service-in-action.34fb465c9a84659e.ro.jpg)
 
 Pentru a utiliza oricare dintre aceste instrumente cu serviciul, putem crea un client și defini un instrument sau un set de instrumente. Pentru a implementa acest lucru practic, putem folosi următorul cod Python. LLM-ul va putea analiza setul de instrumente și decide dacă să folosească funcția creată de utilizator, `fetch_sales_data_using_sqlite_query`, sau interpretul de cod predefinit, în funcție de cererea utilizatorului.
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Utilizarea Protocoalelor Agentice (MCP, A2A și NLWeb)
 
-[![Protocoale Agentice](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.ro.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Protocoale Agentice](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.ro.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Click pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
@@ -69,7 +69,7 @@ MCP oferă avantaje semnificative pentru agenții AI:
 
 ### Exemplu MCP
 
-![Diagrama MCP](../../../translated_images/mcp-diagram.e4ca1cbd551444a12e1f0eb300191a036ab01124fce71c864fe9cb7f4ac2a15d.ro.png)
+![Diagrama MCP](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.ro.png)
 
 Imaginează-ți că un utilizator dorește să rezerve un zbor folosind un asistent AI alimentat de MCP.
 
@@ -124,7 +124,7 @@ Această componentă este utilizată pentru **gestionarea actualizărilor și tr
 
 ### Exemplu A2A
 
-![Diagrama A2A](../../../translated_images/A2A-Diagram.8666928d648acc2687db4093d7b09ea2a595622f8fe18194a026ee55fc23af8e.ro.png)
+![Diagrama A2A](../../../translated_images/A2A-Diagram.8666928d648acc26.ro.png)
 
 Să extindem scenariul nostru de rezervare de călătorii, dar de această dată folosind A2A.
 
@@ -158,7 +158,7 @@ Să analizăm diferitele componente ale NLWeb, beneficiile NLWeb și un exemplu 
 
 ### NLWeb prin Exemplu
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4b245b86690ac6c49c26e355da5ab124128c8675d58cc9b07.ro.png)
+![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.ro.png)
 
 Să luăm în considerare din nou site-ul nostru de rezervări de călătorii, dar de această dată alimentat de NLWeb.
 

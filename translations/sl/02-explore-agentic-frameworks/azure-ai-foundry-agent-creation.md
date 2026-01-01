@@ -25,7 +25,7 @@ Za dokončanje te vaje potrebujete naslednje:
 1. Sledite navodilom iz [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog objave za ustvarjanje Azure AI Foundry huba.
 2. Ko je vaš projekt ustvarjen, zaprite vse prikazane nasvete in si oglejte stran projekta v Azure AI Foundry portalu, ki naj bi izgledala podobno kot na spodnji sliki:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.sl.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.sl.png)
 
 ## Namestitev modela
 
@@ -35,7 +35,7 @@ Za dokončanje te vaje potrebujete naslednje:
 
     > **Note**: Zmanjšanje TPM pomaga preprečiti prekomerno porabo kvote, ki je na voljo v vaši naročnini.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.sl.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.sl.png)
 
 ## Ustvarjanje agenta
 
@@ -77,7 +77,7 @@ Ko ste namestili model, lahko ustvarite agenta. Agent je pogovorni AI model, ki 
     
 > Poleg tega lahko dodate **Knowledge Base** in **Actions**, da izboljšate zmogljivosti agenta za zagotavljanje dodatnih informacij in izvajanje avtomatiziranih nalog na podlagi uporabniških zahtev. Za to vajo lahko te korake preskočite.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.sl.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.sl.png)
 
 3. Če želite ustvariti novega multi-AI agenta, preprosto kliknite **New Agent**. Novoustanovljeni agent bo nato prikazan na strani Agents.
 
@@ -90,7 +90,7 @@ Po ustvarjanju agenta ga lahko preizkusite, da vidite, kako odgovarja na uporabn
 
     > **Note**: Agent morda ne bo dajal natančnih odgovorov, saj v tej vaji ne uporabljamo podatkov v realnem času. Namen je preizkusiti sposobnost agenta, da razume in odgovori na uporabniške poizvedbe glede na podana navodila.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.sl.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.sl.png)
 
 3. Po preizkusu agenta ga lahko dodatno prilagodite z dodajanjem več namenov, učnih podatkov in dejanj za izboljšanje njegovih zmogljivosti.
 

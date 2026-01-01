@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sl"
 }
 -->
-[![Načrtovanje vzorca oblikovanja](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.sl.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Načrtovanje vzorca oblikovanja](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.sl.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Kliknite na zgornjo sliko za ogled videa te lekcije)_
 
@@ -32,7 +32,7 @@ Po zaključku te lekcije boste razumeli:
 
 ## Določanje splošnega cilja in razdelitev naloge
 
-![Določanje ciljev in nalog](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.sl.png)
+![Določanje ciljev in nalog](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.sl.png)
 
 Večina nalog v resničnem svetu je preveč kompleksnih, da bi jih lahko obravnavali v enem koraku. AI agent potrebuje jedrnat cilj, ki usmerja njegovo načrtovanje in dejanja. Na primer, razmislite o cilju:
 

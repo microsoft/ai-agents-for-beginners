@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI-агенты в производстве: наблюдаемость и оценка
 
-[![AI Agents in Production](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.ru.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents in Production](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.ru.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Когда AI-агенты переходят от экспериментальных прототипов к реальным приложениям, становится важно понимать их поведение, отслеживать их производительность и систематически оценивать их результаты.
 
