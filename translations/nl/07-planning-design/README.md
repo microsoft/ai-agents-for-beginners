@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "nl"
 }
 -->
-[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.nl.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.nl.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
@@ -32,7 +32,7 @@ Na het voltooien van deze les heb je inzicht in:
 
 ## Het Definiëren van het Algemeen Doel en Het Opdelen van een Taak
 
-![Doelen en Taken Definiëren](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.nl.png)
+![Doelen en Taken Definiëren](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.nl.png)
 
 De meeste taken in de echte wereld zijn te complex om in één stap aan te pakken. Een AI-agent heeft een beknopt doel nodig om zijn planning en acties te sturen. Bijvoorbeeld, overweeg het doel:
 

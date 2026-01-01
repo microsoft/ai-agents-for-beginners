@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pcm"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.pcm.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.pcm.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Click di image wey dey up to watch di video for dis lesson)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) na one new AI way wey LLMs 
 
 Dis “maker-checker” style dey help make sure di answer correct, dey fix bad queries for structured databases (like NL2SQL), and dey give balanced, better results. Di system dey take charge of di reasoning process, dey rewrite failed queries, dey choose different ways to collect info, and dey use tools like vector search for Azure AI Search, SQL databases, or custom APIs before e finalize di answer. E no need complex frameworks, just simple loop of “LLM call → tool use → LLM call → …” fit give better and grounded outputs.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.pcm.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.pcm.png)
 
 ## Owning the Reasoning Process
 
@@ -67,7 +67,7 @@ All dis steps—fixing queries, choosing sources, repeating until e dey satisfie
 
 ## Iterative Loops, Tool Integration, and Memory
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.pcm.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.pcm.png)
 
 Agentic system dey use loop interaction pattern:
 
@@ -89,7 +89,7 @@ Agentic RAG dey also get strong way to fix itself. If di system jam wahala—lik
 
 Dis way wey di model dey fix itself dey make sure say e no be one-time system but one wey dey learn from di mistakes wey e make for di session.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.pcm.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.pcm.png)
 
 ## Boundaries of Agency
 
@@ -119,7 +119,7 @@ As di system dey get more power to reason by itself, e dey important to make sur
 
 Tools wey fit show clear record of actions dey very important. Without dem, e go hard to debug multi-step process. See dis example from Literal AI (di company wey dey behind Chainlit) for how Agent dey work:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.pcm.png)
+![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.pcm.png)
 
 ## Conclusion
 

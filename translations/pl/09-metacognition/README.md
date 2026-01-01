@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pl"
 }
 -->
-[![Projektowanie wieloagentowe](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.pl.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Projektowanie wieloagentowe](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.pl.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 # Metapoznanie w agentach AI
@@ -47,7 +47,7 @@ Przykład: „Priorytetowo traktowałem tańsze loty, ponieważ... Mogę pomija�
 
 Metapoznanie odgrywa kluczową rolę w projektowaniu agentów AI z kilku powodów:
 
-![Znaczenie metapoznania](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.pl.png)
+![Znaczenie metapoznania](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.pl.png)
 
 - Samorefleksja: Agenci mogą oceniać swoje własne działania i identyfikować obszary do poprawy.
 - Adaptacyjność: Agenci mogą modyfikować swoje strategie na podstawie wcześniejszych doświadczeń i zmieniających się warunków.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Najpierw zrozummy różnicę między narzędziem RAG a prewencyjnym ładowaniem kontekstu.
 
-![RAG vs Ładowanie kontekstu](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.pl.png)
+![RAG vs Ładowanie kontekstu](../../../translated_images/rag-vs-context.9eae588520c00921.pl.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

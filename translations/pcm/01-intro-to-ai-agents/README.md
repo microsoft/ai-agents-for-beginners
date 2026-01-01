@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pcm"
 }
 -->
-[![Intro to AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.pcm.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.pcm.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Click di image wey dey up to watch di video for dis lesson)_
 
@@ -48,7 +48,7 @@ Make we break di definition into small parts:
   - **Sensors** - Environment dey give information and feedback. AI Agents dey use sensors to collect and understand di information about di environment state. For di Travel Booking Agent example, di travel booking system fit give info like hotel availability or flight prices.
   - **Actuators** - After di AI Agent don collect di environment state, e go decide wetin action e go take to change di environment. For di travel booking agent, e fit be to book available room for di user.
 
-![What Are AI Agents?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.pcm.png)
+![What Are AI Agents?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.pcm.png)
 
 **Large Language Models** - Di idea of agents don dey before LLMs come. Di advantage of using LLMs for AI Agents na say dem sabi understand human language and data. Dis ability dey help LLMs understand di environment info and plan how to change di environment.
 
@@ -78,7 +78,7 @@ For di earlier section, we use di Travel Agent example to explain how di differe
 
 Make we look di types of use cases wey AI Agents dey best for:
 
-![When to use AI Agents?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.pcm.png)
+![When to use AI Agents?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.pcm.png)
 
 
 - **Open-Ended Problems** - Make di LLM decide wetin steps e need to complete task because e no fit always dey hardcoded into workflow.

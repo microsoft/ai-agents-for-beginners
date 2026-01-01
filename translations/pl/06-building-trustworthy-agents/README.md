@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pl"
 }
 -->
-[![Zaufani Agenci AI](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.pl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Zaufani Agenci AI](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.pl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 
@@ -41,7 +41,7 @@ Dla Agentów AI wiadomość systemowa jest jeszcze ważniejsza, ponieważ agenci
 
 Aby tworzyć skalowalne wiadomości systemowe, możemy użyć ram systemowych wiadomości do budowy jednego lub więcej agentów w naszej aplikacji:
 
-![Tworzenie Ram Systemowych Wiadomości](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.pl.png)
+![Tworzenie Ram Systemowych Wiadomości](../../../translated_images/system-message-framework.3a97368c92d11d68.pl.png)
 
 #### Krok 1: Stwórz Meta Wiadomość Systemową
 
@@ -130,7 +130,7 @@ Wartość tej ramy wiadomości systemowych polega na możliwości łatwego skalo
 
 Aby budować zaufanych agentów AI, ważne jest zrozumienie i minimalizowanie ryzyk oraz zagrożeń związanych z agentem AI. Przyjrzyjmy się niektórym z różnych zagrożeń dla agentów AI i sposobom ich lepszego planowania i przygotowania.
 
-![Zrozumienie Zagrożeń](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.pl.png)
+![Zrozumienie Zagrożeń](../../../translated_images/understanding-threats.89edeada8a97fc0f.pl.png)
 
 ### Zadania i Instrukcje
 
@@ -166,7 +166,7 @@ Aby budować zaufanych agentów AI, ważne jest zrozumienie i minimalizowanie ry
 
 Innym skutecznym sposobem budowania zaufanych systemów Agentów AI jest wykorzystanie człowieka w pętli. Tworzy to przepływ, w którym użytkownicy mogą dostarczać agentom opinii podczas ich działania. Użytkownicy zasadniczo działają jako agenci w systemie wieloagentowym, zapewniając zatwierdzenie lub zakończenie procesu.
 
-![Człowiek w Pętli](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.pl.png)
+![Człowiek w Pętli](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.pl.png)
 
 Oto fragment kodu wykorzystujący AutoGen, który pokazuje, jak ta koncepcja jest wdrażana:
 

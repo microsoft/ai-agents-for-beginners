@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "no"
 }
 -->
-[![Pålitelige AI-agenter](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.no.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Pålitelige AI-agenter](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.no.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klikk på bildet over for å se videoen til denne leksjonen)_
 
@@ -41,7 +41,7 @@ For AI-agenter er systemprompten enda viktigere, ettersom AI-agentene trenger sv
 
 For å lage skalerbare systemprompter kan vi bruke et rammeverk for systemmeldinger for å bygge én eller flere agenter i applikasjonen vår:
 
-![Bygge et rammeverk for systemmeldinger](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.no.png)
+![Bygge et rammeverk for systemmeldinger](../../../translated_images/system-message-framework.3a97368c92d11d68.no.png)
 
 #### Trinn 1: Lag en meta-systemmelding
 
@@ -130,7 +130,7 @@ Verdien av dette rammeverket for systemmeldinger er at det gjør det enklere å 
 
 For å bygge pålitelige AI-agenter er det viktig å forstå og redusere risikoene og truslene mot AI-agenten din. La oss se på noen av de ulike truslene mot AI-agenter og hvordan du bedre kan planlegge og forberede deg på dem.
 
-![Forstå trusler](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.no.png)
+![Forstå trusler](../../../translated_images/understanding-threats.89edeada8a97fc0f.no.png)
 
 ### Oppgaver og instruksjoner
 
@@ -166,7 +166,7 @@ For å bygge pålitelige AI-agenter er det viktig å forstå og redusere risikoe
 
 En annen effektiv måte å bygge pålitelige AI-agentsystemer på er å bruke et menneske i loopen. Dette skaper en flyt der brukere kan gi tilbakemelding til agentene under kjøringen. Brukere fungerer i praksis som agenter i et multi-agent-system ved å gi godkjenning eller avslutte prosessen som kjører.
 
-![Menneske i loopen](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.no.png)
+![Menneske i loopen](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.no.png)
 
 Her er et kodeeksempel som bruker AutoGen for å vise hvordan dette konseptet implementeres:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pa"
 }
 -->
-[![Intro to AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.pa.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.pa.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(ਉਪਰ ਦਿੱਤੀ ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇਸ ਪਾਠ ਦਾ ਵੀਡੀਓ ਵੇਖੋ)_
 
@@ -49,7 +49,7 @@ AI ਏਜੰਟਸ **ਸਿਸਟਮ** ਹਨ ਜੋ **ਵੱਡੇ ਭਾਸ਼
   - **Sensors** - Environment ਵਿੱਚ ਜਾਣਕਾਰੀ ਹੁੰਦੀ ਹੈ ਅਤੇ ਫੀਡਬੈਕ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ। AI ਏਜੰਟਸ ਸੈਂਸਰਾਂ ਦੀ ਵਰਤੋਂ ਕਰਕੇ environment ਦੀ ਮੌਜੂਦਾ ਸਥਿਤੀ ਬਾਰੇ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਅਤੇ ਵਿਆਖਿਆ ਕਰਦੇ ਹਨ। ਯਾਤਰਾ ਬੁਕਿੰਗ ਏਜੰਟ ਦੇ ਉਦਾਹਰਣ ਵਿੱਚ, ਯਾਤਰਾ ਬੁਕਿੰਗ ਸਿਸਟਮ ਹੋਟਲ ਦੀ ਉਪਲਬਧਤਾ ਜਾਂ ਉਡਾਨਾਂ ਦੀ ਕੀਮਤਾਂ ਵਰਗੀਆਂ ਜਾਣਕਾਰੀਆਂ ਪ੍ਰਦਾਨ ਕਰ ਸਕਦਾ ਹੈ।
   - **Actuators** - ਜਦੋਂ AI ਏਜੰਟ environment ਦੀ ਮੌਜੂਦਾ ਸਥਿਤੀ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ, ਤਾਂ ਮੌਜੂਦਾ ਕੰਮ ਲਈ ਏਜੰਟ ਇਹ ਨਿਰਧਾਰਤ ਕਰਦਾ ਹੈ ਕਿ environment ਨੂੰ ਬਦਲਣ ਲਈ ਕਿਹੜਾ ਕਰਮ ਕਰਨਾ ਹੈ। ਯਾਤਰਾ ਬੁਕਿੰਗ ਏਜੰਟ ਲਈ, ਇਹ ਯੂਜ਼ਰ ਲਈ ਉਪਲਬਧ ਕਮਰੇ ਨੂੰ ਬੁਕ ਕਰਨਾ ਹੋ ਸਕਦਾ ਹੈ।
 
-![AI ਏਜੰਟਸ ਕੀ ਹਨ?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.pa.png)
+![AI ਏਜੰਟਸ ਕੀ ਹਨ?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.pa.png)
 
 **ਵੱਡੇ ਭਾਸ਼ਾ ਮਾਡਲ** - ਏਜੰਟਸ ਦਾ ਸੰਕਲਪ LLMs ਦੇ ਬਣਨ ਤੋਂ ਪਹਿਲਾਂ ਮੌਜੂਦ ਸੀ। LLMs ਨਾਲ AI ਏਜੰਟਸ ਬਣਾਉਣ ਦਾ ਫਾਇਦਾ ਇਹ ਹੈ ਕਿ ਉਹ ਮਨੁੱਖੀ ਭਾਸ਼ਾ ਅਤੇ ਡਾਟਾ ਦੀ ਵਿਆਖਿਆ ਕਰਨ ਦੀ ਯੋਗਤਾ ਰੱਖਦੇ ਹਨ। ਇਹ ਯੋਗਤਾ LLMs ਨੂੰ environment ਦੀ ਜਾਣਕਾਰੀ ਦੀ ਵਿਆਖਿਆ ਕਰਨ ਅਤੇ environment ਨੂੰ ਬਦਲਣ ਲਈ ਯੋਜਨਾ ਬਣਾਉਣ ਯੋਗ ਬਣਾਉਂਦੀ ਹੈ।
 
@@ -79,7 +79,7 @@ AI ਏਜੰਟਸ **ਸਿਸਟਮ** ਹਨ ਜੋ **ਵੱਡੇ ਭਾਸ਼
 
 ਆਓ ਉਹ ਵਰਤੋਂ ਦੇ ਕੇਸਾਂ ਦੇ ਕਿਸਮਾਂ ਦੇਖੀਏ ਜਿਨ੍ਹਾਂ ਲਈ AI ਏਜੰਟਸ ਸਭ ਤੋਂ ਵਧੀਆ ਹਨ:
 
-![AI ਏਜੰਟਸ ਕਦੋਂ ਵਰਤਣੇ ਹਨ?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.pa.png)
+![AI ਏਜੰਟਸ ਕਦੋਂ ਵਰਤਣੇ ਹਨ?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.pa.png)
 
 
 - **ਖੁੱਲੇ-ਅੰਤ ਵਾਲੇ ਸਮੱਸਿਆਵਾਂ** - LLM ਨੂੰ ਕੰਮ ਪੂਰਾ ਕਰਨ ਲਈ ਜ਼ਰੂਰੀ ਕਦਮ ਨਿਰਧਾਰਤ ਕਰਨ ਦੇਣਾ ਕਿਉਂਕਿ ਇਹ ਹਮੇਸ਼ਾ ਵਰਕਫਲੋ ਵਿੱਚ ਹਾਰਡਕੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।

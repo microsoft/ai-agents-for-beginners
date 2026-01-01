@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pcm"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.pcm.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.pcm.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Click di image wey dey up to watch di video for dis lesson)_
 
@@ -41,7 +41,7 @@ For AI Agents, di system prompt dey even more important because di AI Agents go 
 
 To create system prompts wey fit scale, we fit use system message framework to build one or more agents for our application:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.pcm.png)
+![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.pcm.png)
 
 #### Step 1: Create Meta System Message 
 
@@ -130,7 +130,7 @@ Di value of dis system message framework na say e go make am easy to create syst
 
 To build AI agents wey people go trust, e dey important to understand di risks and threats wey fit affect your AI agent. Make we look some of di threats wey fit happen to AI agents and how you fit plan and prepare for dem.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.pcm.png)
+![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.pcm.png)
 
 ### Task and Instruction
 
@@ -166,7 +166,7 @@ To build AI agents wey people go trust, e dey important to understand di risks a
 
 Another way wey dey effective to build AI Agent systems wey people go trust na to use Human-in-the-loop. Dis one go create flow wey users fit give feedback to di Agents when dem dey run. Users go act like agents for multi-agent system and dem fit approve or stop di process wey dey run.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.pcm.png)
+![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.pcm.png)
 
 Example code snippet wey dey use AutoGen to show how dis concept dey work:
 

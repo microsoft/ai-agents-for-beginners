@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pa"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.pa.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.pa.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(ਉਪਰ ਦਿੱਤੀ ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇਸ ਪਾਠ ਦਾ ਵੀਡੀਓ ਵੇਖੋ)_
 

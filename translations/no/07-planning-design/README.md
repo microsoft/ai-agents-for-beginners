@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "no"
 }
 -->
-[![Planleggingsdesignmønster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.no.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planleggingsdesignmønster](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.no.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klikk på bildet ovenfor for å se videoen til denne leksjonen)_
 
@@ -32,7 +32,7 @@ Etter å ha fullført denne leksjonen, vil du ha forståelse for:
 
 ## Definere det overordnede målet og bryte ned en oppgave
 
-![Definere mål og oppgaver](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.no.png)
+![Definere mål og oppgaver](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.no.png)
 
 De fleste oppgaver i den virkelige verden er for komplekse til å løses i ett enkelt steg. En AI-agent trenger et konsist mål for å veilede sin planlegging og handlinger. For eksempel, vurder målet:
 

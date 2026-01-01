@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ਮਾਈਕਰੋਸਾਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ ਦੀ ਖੋਜ
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee60be9ae59b754cb9c827569fcf52099caffc6f0e8e556bba.pa.png)
+![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.pa.png)
 
 ### ਪਰਿਚਯ
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## ਮਾਈਕਰੋਸਾਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ ਨੂੰ ਸਮਝਣਾ
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c0f80f555dbb43cb1066503eaf5a9cc0aa9be67b47722dd52.pa.png)
+![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.pa.png)
 
 [ਮਾਈਕਰੋਸਾਫਟ ਏਜੰਟ ਫਰੇਮਵਰਕ (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) ਸੈਮੈਂਟਿਕ ਕਰਨਲ ਅਤੇ AutoGen ਤੋਂ ਪ੍ਰਾਪਤ ਤਜਰਬੇ ਅਤੇ ਸਿੱਖਿਆ 'ਤੇ ਅਧਾਰਿਤ ਹੈ। ਇਹ ਉਤਪਾਦਨ ਅਤੇ ਖੋਜ ਦੇ ਵਾਤਾਵਰਣਾਂ ਵਿੱਚ ਵੇਖੇ ਗਏ ਵੱਖ-ਵੱਖ ਏਜੰਟਿਕ ਕੇਸਾਂ ਨੂੰ ਹੱਲ ਕਰਨ ਲਈ ਲਚਕਦਾਰਤਾ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ:
 
@@ -63,7 +63,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### ਏਜੰਟ
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fefdce3760875b50526d01dd22a2ddd8a21e92da95beb82f84d.pa.png)
+![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.pa.png)
 
 **ਏਜੰਟ ਬਣਾਉਣਾ**
 
