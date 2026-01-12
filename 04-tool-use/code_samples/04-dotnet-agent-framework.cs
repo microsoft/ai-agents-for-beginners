@@ -1,6 +1,7 @@
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Extensions.AI.OpenAI@10.*-*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
 
 using System.ClientModel;
@@ -222,6 +223,7 @@ Always mention which tools you used so users understand the agent's capabilities
 // This demonstrates the Tool Use Design Pattern with a variety of tool types
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
+    .AsIChatClient()
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,

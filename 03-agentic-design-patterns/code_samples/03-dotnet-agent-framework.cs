@@ -1,6 +1,7 @@
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Extensions.AI.OpenAI@10.*-*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
 
 using System.ClientModel;
@@ -116,6 +117,7 @@ What kind of trip would you like me to help you plan today?"
 // Create AI Agent with Design Principles
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
+    .AsIChatClient()
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
