@@ -55,7 +55,7 @@ Dis go start your Chainlit server for `localhost:8000` and e go also put di `eve
 
 To connect di Github MCP Server, click di "plug" icon wey dey under di "Type your message here.." chat box:
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28f1ea5f320b91e4404df4a24a0f236ce3de999666621f1cfc.pcm.png)
+![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.pcm.png)
 
 From dia, you fit click "Connect an MCP" to add di command wey go connect di Github MCP Server:
 

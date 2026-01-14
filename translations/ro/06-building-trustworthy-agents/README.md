@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ro"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.ro.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.ro.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
@@ -41,7 +41,7 @@ Pentru agenții AI, mesajul de sistem este și mai important, deoarece aceștia 
 
 Pentru a crea mesaje de sistem scalabile, putem folosi un cadru pentru mesaje de sistem în construirea unuia sau mai multor agenți în aplicația noastră:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.ro.png)
+![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.ro.png)
 
 #### Pasul 1: Creați un Mesaj Meta de Sistem
 
@@ -130,7 +130,7 @@ Valoarea acestui cadru pentru mesaje de sistem constă în capacitatea de a scal
 
 Pentru a construi agenți AI de încredere, este important să înțelegeți și să reduceți riscurile și amenințările la adresa agentului AI. Să analizăm câteva dintre diferitele amenințări la adresa agenților AI și cum puteți planifica și pregăti mai bine pentru acestea.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.ro.png)
+![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.ro.png)
 
 ### Sarcini și Instrucțiuni
 
@@ -166,7 +166,7 @@ Pentru a construi agenți AI de încredere, este important să înțelegeți și
 
 O altă metodă eficientă de a construi sisteme de agenți AI de încredere este utilizarea unui om în buclă. Acest lucru creează un flux în care utilizatorii pot oferi feedback agenților în timpul rulării. Utilizatorii acționează practic ca agenți într-un sistem multi-agent, oferind aprobare sau oprirea procesului în desfășurare.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.ro.png)
+![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.ro.png)
 
 Iată un fragment de cod folosind AutoGen pentru a arăta cum este implementat acest concept:
 

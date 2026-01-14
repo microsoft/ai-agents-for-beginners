@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "vi"
 }
 -->
-[![Cách thiết kế các tác nhân AI tốt](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.vi.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Cách thiết kế các tác nhân AI tốt](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.vi.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Nhấp vào hình ảnh trên để xem video của bài học này)_
 
@@ -216,7 +216,7 @@ Dưới đây là một số ví dụ về cách bạn có thể triển khai M�
 
 Sơ đồ sau minh họa quy trình gọi hàm với Semantic Kernel:
 
-![gọi hàm](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.vi.png)
+![gọi hàm](../../../translated_images/functioncalling-diagram.a84006fc287f6014.vi.png)
 
 Trong Semantic Kernel, các hàm/công cụ được gọi là <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Chúng ta có thể chuyển đổi hàm `get_current_time` mà chúng ta đã thấy trước đó thành một plugin bằng cách biến nó thành một lớp chứa hàm đó. Chúng ta cũng có thể nhập decorator `kernel_function`, nhận mô tả của hàm. Khi bạn tạo một kernel với GetCurrentTimePlugin, kernel sẽ tự động serialize hàm và các tham số của nó, tạo schema để gửi đến LLM trong quá trình này.
 
@@ -277,7 +277,7 @@ Hãy tưởng tượng bạn là một nhân viên bán hàng tại một công 
 
 Hình ảnh sau minh họa cách bạn có thể sử dụng Azure AI Agent Service để phân tích dữ liệu bán hàng của mình:
 
-![Dịch vụ Agent đang hoạt động](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.vi.jpg)
+![Dịch vụ Agent đang hoạt động](../../../translated_images/agent-service-in-action.34fb465c9a84659e.vi.jpg)
 
 Để sử dụng bất kỳ công cụ nào với dịch vụ này, chúng ta có thể tạo một client và định nghĩa một công cụ hoặc bộ công cụ. Để triển khai điều này một cách thực tế, chúng ta có thể sử dụng mã Python sau. LLM sẽ có thể xem xét bộ công cụ và quyết định sử dụng hàm do người dùng tạo, `fetch_sales_data_using_sqlite_query`, hoặc Code Interpreter dựng sẵn tùy thuộc vào yêu cầu của người dùng.
 

@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # حافظه برای عوامل هوش مصنوعی  
-[![حافظه عامل](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.fa.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![حافظه عامل](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.fa.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 وقتی درباره مزایای منحصر به فرد ایجاد عوامل هوش مصنوعی صحبت می‌کنیم، دو موضوع اصلی مطرح می‌شود: توانایی استفاده از ابزارها برای انجام وظایف و توانایی بهبود در طول زمان. حافظه پایه‌ای برای ایجاد عاملی است که بتواند خود را بهبود دهد و تجربه‌های بهتری برای کاربران ما ایجاد کند.
 

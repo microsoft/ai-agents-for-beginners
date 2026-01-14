@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hu"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.hu.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.hu.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Kattints a fenti képre a leckéhez tartozó videó megtekintéséhez)_
 
@@ -49,7 +49,7 @@ Az Agentic Retrieval-Augmented Generation (Agentic RAG) egy új paradigma az AI 
 
 Ez az iteratív „maker-checker” működési stílus a helyesség javítására, a strukturált adatbázisokhoz (pl. NL2SQL) kapcsolódó hibás lekérdezések kezelésére és kiegyensúlyozott, magas minőségű eredmények biztosítására szolgál. A rendszer nem csupán gondosan megtervezett prompt-láncokra támaszkodik, hanem aktívan irányítja a gondolkodási folyamatát. Újraírhatja a sikertelen lekérdezéseket, különböző keresési módszereket választhat, és több eszközt integrálhat—például vektorkeresést az Azure AI Search-ben, SQL adatbázisokat vagy egyedi API-kat—mielőtt véglegesítené válaszát. Ez megszünteti az összetett orkestrációs keretrendszerek szükségességét. Ehelyett egy viszonylag egyszerű „LLM hívás → eszköz használat → LLM hívás → …” ciklus is képes kifinomult és jól megalapozott kimeneteket létrehozni.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.hu.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.hu.png)
 
 ## A gondolkodási folyamat irányítása
 
@@ -67,7 +67,7 @@ Mindezeket a lépéseket—a lekérdezések finomítása, források kiválasztá
 
 ## Iteratív ciklusok, eszközintegráció és memória
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.hu.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.hu.png)
 
 Egy agentikus rendszer egy ciklikus interakciós mintázatra támaszkodik:
 
@@ -89,7 +89,7 @@ Az Agentic RAG autonómiája robusztus önkorrekciós mechanizmusokat is magába
 
 Ez az iteratív és dinamikus megközelítés lehetővé teszi a modell számára, hogy folyamatosan javuljon, biztosítva, hogy ne csupán egy egyszeri rendszer legyen, hanem olyan, amely tanul a hibáiból egy adott munkamenet során.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.hu.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.hu.png)
 
 ## Az ügynökség határai
 

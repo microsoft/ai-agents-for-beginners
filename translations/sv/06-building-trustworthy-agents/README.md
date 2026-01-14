@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sv"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.sv.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.sv.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klicka på bilden ovan för att se videon för denna lektion)_
 
@@ -41,7 +41,7 @@ För AI-agenter är systemprompten ännu viktigare eftersom AI-agenter behöver 
 
 För att skapa skalbara systemprompter kan vi använda ett ramverk för systemmeddelanden för att bygga en eller flera agenter i vår applikation:
 
-![Bygga ett ramverk för systemmeddelanden](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.sv.png)
+![Bygga ett ramverk för systemmeddelanden](../../../translated_images/system-message-framework.3a97368c92d11d68.sv.png)
 
 #### Steg 1: Skapa ett metasystemmeddelande
 
@@ -130,7 +130,7 @@ Värdet av detta ramverk för systemmeddelanden är att det gör det enklare att
 
 För att bygga pålitliga AI-agenter är det viktigt att förstå och hantera riskerna och hoten mot din AI-agent. Låt oss titta på några av de olika hoten mot AI-agenter och hur du bättre kan planera och förbereda dig för dem.
 
-![Förstå hot](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.sv.png)
+![Förstå hot](../../../translated_images/understanding-threats.89edeada8a97fc0f.sv.png)
 
 ### Uppgifter och instruktioner
 
@@ -166,7 +166,7 @@ För att bygga pålitliga AI-agenter är det viktigt att förstå och hantera ri
 
 Ett annat effektivt sätt att bygga pålitliga AI-agentsystem är att använda en människa i loopen. Detta skapar ett flöde där användare kan ge feedback till agenterna under körningen. Användare fungerar i princip som agenter i ett multi-agent-system genom att godkänna eller avbryta den pågående processen.
 
-![Människa i loopen](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.sv.png)
+![Människa i loopen](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.sv.png)
 
 Här är ett kodexempel som använder AutoGen för att visa hur detta koncept implementeras:
 

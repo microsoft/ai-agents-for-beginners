@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "en"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.en.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.en.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Click the image above to view video of this lesson)_
 
@@ -41,7 +41,7 @@ For AI Agents, the system prompt is even more critical because the agents requir
 
 To create scalable system prompts, we can use a system message framework to build one or more agents within our application:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.en.png)
+![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.en.png)
 
 #### Step 1: Create a Meta System Message 
 
@@ -130,7 +130,7 @@ The advantage of this system message framework is that it simplifies the process
 
 To build trustworthy AI agents, it’s essential to understand and mitigate risks and threats. Let’s examine some common threats to AI agents and strategies to address them.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.en.png)
+![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.en.png)
 
 ### Task and Instruction
 
@@ -166,7 +166,7 @@ To build trustworthy AI agents, it’s essential to understand and mitigate risk
 
 Another effective approach to building trustworthy AI Agent systems is incorporating a Human-in-the-loop. This allows users to provide feedback to the agents during their operation. Users essentially act as agents in a multi-agent system, approving or terminating processes as needed.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.en.png)
+![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.en.png)
 
 Here’s a code snippet using AutoGen to demonstrate this concept:
 

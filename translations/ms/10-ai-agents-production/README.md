@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Ejen AI dalam Pengeluaran: Pemerhatian & Penilaian
 
-[![Ejen AI dalam Pengeluaran](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.ms.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![Ejen AI dalam Pengeluaran](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.ms.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Apabila ejen AI beralih daripada prototaip eksperimen kepada aplikasi dunia sebenar, keupayaan untuk memahami tingkah laku mereka, memantau prestasi mereka, dan menilai output mereka secara sistematik menjadi penting.
 

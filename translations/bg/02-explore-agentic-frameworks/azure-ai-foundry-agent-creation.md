@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Следвайте указанията от [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) блог поста за създаване на Azure AI Foundry hub.
 2. Когато проектът ви е създаден, затворете всички показани съвети и прегледайте страницата на проекта в Azure AI Foundry портала, която трябва да изглежда подобно на следното изображение:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.bg.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.bg.png)
 
 ## Разгръщане на модел
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: Намаляването на TPM помага да се избегне прекомерната употреба на квотата, налична в абонамента, който използвате.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.bg.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.bg.png)
 
 ## Създаване на агент
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > Освен това, можете да добавите **Knowledge Base** и **Actions**, за да разширите възможностите на агента да предоставя повече информация и да изпълнява автоматизирани задачи според заявките на потребителите. За това упражнение можете да пропуснете тези стъпки.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.bg.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.bg.png)
 
 3. За да създадете нов мулти-AI агент, просто кликнете върху **New Agent**. Новосъздаденият агент ще се покаже на страницата Agents.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: Агентът може да не дава точни отговори, тъй като в това упражнение не се използват реални данни в реално време. Целта е да се тества способността на агента да разбира и отговаря на потребителски запитвания според зададените инструкции.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.bg.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.bg.png)
 
 3. След тестването на агента, можете да го персонализирате допълнително, като добавите повече intents, тренировъчни данни и действия, за да подобрите възможностите му.
 

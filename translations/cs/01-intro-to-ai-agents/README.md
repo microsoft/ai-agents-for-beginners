@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "cs"
 }
 -->
-[![Úvod do AI agentů](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bbc7f1b4a40a81b031970b6076b4e0c59fb006cf818cac5d4a.cs.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Úvod do AI agentů](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.cs.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klikněte na obrázek výše pro zhlédnutí videa této lekce)_
 
@@ -47,7 +47,7 @@ Rozložme tuto definici na menší části:
   - **Senzory** - Prostředí obsahuje informace a poskytuje zpětnou vazbu. AI agenti používají senzory k získávání a interpretaci těchto informací o aktuálním stavu prostředí. V příkladu agenta pro rezervaci cest může systém poskytovat informace, jako je dostupnost hotelů nebo ceny letů.
   - **Aktuátory** - Jakmile AI agent obdrží aktuální stav prostředí, určí, jakou akci provést, aby změnil prostředí. V případě agenta pro rezervaci cest by to mohlo být rezervování dostupného pokoje pro uživatele.
 
-![Co jsou AI agenti?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a3a78c6c02e5c355d19c06a4a74fe93e3609a1d08e8c15689.cs.png)
+![Co jsou AI agenti?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.cs.png)
 
 **Velké jazykové modely** - Koncept agentů existoval již před vytvořením LLMs. Výhodou budování AI agentů s LLMs je jejich schopnost interpretovat lidský jazyk a data. Tato schopnost umožňuje LLMs interpretovat informace z prostředí a definovat plán pro změnu prostředí.
 
@@ -77,7 +77,7 @@ V předchozí části jsme použili příklad cestovního agenta k vysvětlení,
 
 Podívejme se na typy případů použití, pro které jsou AI agenti nejvhodnější:
 
-![Kdy používat AI agenty?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479f5caca9c951132ce81d482a6704bcd22e5a600dbabc9434e.cs.png)
+![Kdy používat AI agenty?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.cs.png)
 
 - **Problémy s otevřeným koncem** - umožnění LLM určit potřebné kroky k dokončení úkolu, protože je nelze vždy pevně zakódovat do pracovního postupu.
 - **Vícekrokové procesy** - úkoly, které vyžadují určitou úroveň složitosti, při níž AI agent potřebuje používat nástroje nebo informace během více kroků místo jednorázového získání.

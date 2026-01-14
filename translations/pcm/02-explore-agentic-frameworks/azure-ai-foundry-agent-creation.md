@@ -25,7 +25,7 @@ To complete dis exercise, you go need:
 1. Follow di guidelines wey dey for [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog post to create Azure AI Foundry hub.
 2. When you don create your project, close any tips wey show and check di project page for Azure AI Foundry portal. E go resemble di image wey dey below:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.pcm.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.pcm.png)
 
 ## How to deploy model
 
@@ -35,7 +35,7 @@ To complete dis exercise, you go need:
 
     > **Note**: To reduce TPM go help make you no over-use di quota wey dey for di subscription wey you dey use.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.pcm.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.pcm.png)
 
 ## How to create agent
 
@@ -77,7 +77,7 @@ Now wey you don deploy model, you fit create agent. Agent na conversational AI m
     
 > You fit also add **Knowledge Base** and **Actions** to make di agent sabi more things and fit do automated tasks based on wetin user request. For dis exercise, you fit skip dis steps.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.pcm.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.pcm.png)
 
 3. To create new multi-AI agent, just click **New Agent**. Di new agent wey you create go show for di Agents page.
 
@@ -90,7 +90,7 @@ After you don create di agent, you fit test am to see how e dey respond to user 
 
     > **Note**: Di agent fit no give correct answers because e no dey use real-time data for dis exercise. Di main thing na to test di agent ability to understand and respond to user questions based on di instructions wey you give am.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.pcm.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.pcm.png)
 
 3. After you don test di agent, you fit customize am more by adding more intents, training data, and actions to make am sabi more things.
 

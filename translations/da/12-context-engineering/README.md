@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Kontekst Engineering for AI-agenter
 
-[![Kontekst Engineering](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.da.png)](https://youtu.be/F5zqRV7gEag)
+[![Kontekst Engineering](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.da.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Klik på billedet ovenfor for at se videoen til denne lektion)_
 
@@ -49,7 +49,7 @@ Prompt engineering fokuserer på et enkelt sæt statiske instruktioner for effek
 
 ### Typer af Kontekst
 
-[![Typer af Kontekst](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.da.png)](https://youtu.be/F5zqRV7gEag)
+[![Typer af Kontekst](../../../translated_images/context-types.fc10b8927ee43f06.da.png)](https://youtu.be/F5zqRV7gEag)
 
 Det er vigtigt at huske, at kontekst ikke bare er én ting. Den information, som AI-agenten har brug for, kan komme fra en række forskellige kilder, og det er op til os at sikre, at agenten har adgang til disse kilder:
 
@@ -69,7 +69,7 @@ De typer af kontekst, en AI-agent kan have brug for at administrere, inkluderer:
 
 ### Planlægningsstrategier
 
-[![Bedste Praksis for Kontekst Engineering](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.da.png)](https://youtu.be/F5zqRV7gEag)
+[![Bedste Praksis for Kontekst Engineering](../../../translated_images/best-practices.f4170873dc554f58.da.png)](https://youtu.be/F5zqRV7gEag)
 
 God kontekst engineering starter med god planlægning. Her er en tilgang, der kan hjælpe dig med at begynde at tænke over, hvordan du anvender konceptet kontekst engineering:
 

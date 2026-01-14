@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ja"
 }
 -->
-[![良いAIエージェントの設計方法](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.ja.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![良いAIエージェントの設計方法](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.ja.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(上の画像をクリックして、このレッスンの動画をご覧ください)_
 # AIエージェント設計の原則
@@ -39,7 +39,7 @@ AIエージェントシステムを構築する方法は多岐にわたります
 
 ## エージェント設計の原則
 
-![エージェント設計の原則](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.ja.png)
+![エージェント設計の原則](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.ja.png)
 
 ### エージェント（空間）
 

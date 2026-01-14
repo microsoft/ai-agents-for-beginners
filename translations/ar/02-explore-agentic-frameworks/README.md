@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ar"
 }
 -->
-[![استكشاف أطر عمل وكلاء الذكاء الاصطناعي](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df4d5d407e29970e654629e614f357444a9c27c80feb54c79d.ar.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![استكشاف أطر عمل وكلاء الذكاء الاصطناعي](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.ar.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو الدرس)_
 

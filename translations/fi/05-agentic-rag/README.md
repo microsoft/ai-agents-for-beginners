@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fi"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.fi.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.fi.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Klikkaa yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) on nouseva paradigma tekoä
 
 Tämä iteratiivinen “maker-checker”-tyyli on suunniteltu parantamaan tarkkuutta, käsittelemään virheellisiä kyselyitä rakenteellisiin tietokantoihin (esim. NL2SQL) ja varmistamaan tasapainoiset, korkealaatuiset tulokset. Sen sijaan, että järjestelmä luottaisi pelkästään huolellisesti suunniteltuihin kehotusketjuihin, se hallitsee aktiivisesti omaa päättelyprosessiaan. Se voi kirjoittaa uudelleen epäonnistuneita kyselyitä, valita erilaisia hakumenetelmiä ja integroida useita työkaluja—kuten vektorihaku Azure AI Searchissa, SQL-tietokantoja tai mukautettuja API:ita—ennen lopullisen vastauksen antamista. Tämä poistaa tarpeen monimutkaisille orkestrointikehyksille. Sen sijaan suhteellisen yksinkertainen silmukka “LLM-kutsu → työkalun käyttö → LLM-kutsu → …” voi tuottaa hienostuneita ja hyvin perusteltuja tuloksia.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.fi.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.fi.png)
 
 ## Päättelyprosessin hallinta
 
@@ -67,7 +67,7 @@ Kaikki nämä askeleet—kyselyiden tarkentaminen, lähteiden valinta, iterointi
 
 ## Iteratiiviset silmukat, työkalujen integrointi ja muisti
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.fi.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.fi.png)
 
 Agenttijärjestelmä perustuu silmukkamaiseen vuorovaikutusmalliin:
 
@@ -89,7 +89,7 @@ Agentic RAG:n autonomia sisältää myös vahvat itsekorjausmekanismit. Kun jär
 
 Tämä iteratiivinen ja dynaaminen lähestymistapa mahdollistaa mallin jatkuvan parantamisen, varmistaen, että se ei ole vain kertaluonteinen järjestelmä, vaan oppii virheistään kyseisen istunnon aikana.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.fi.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.fi.png)
 
 ## Toiminnan rajat
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI Агенти в Производство: Наблюдаемост и Оценка
 
-[![AI Агенти в Производство](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.bg.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Агенти в Производство](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.bg.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Когато AI агентите преминават от експериментални прототипи към реални приложения, способността да се разбира тяхното поведение, да се следи тяхната производителност и систематично да се оценяват техните резултати става от съществено значение.
 

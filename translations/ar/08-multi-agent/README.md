@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ar"
 }
 -->
-[![تصميم متعدد الوكلاء](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.ar.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![تصميم متعدد الوكلاء](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.ar.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو هذا الدرس)_
 
@@ -95,7 +95,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 يمكن تنفيذ هذا النمط باستخدام هيكلية مركزية حيث يتم توجيه جميع الرسائل عبر خادم مركزي، أو هيكلية لامركزية حيث يتم تبادل الرسائل مباشرة.
 
-![الدردشة الجماعية](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.ar.png)
+![الدردشة الجماعية](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.ar.png)
 
 ### التناوب
 
@@ -105,7 +105,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 في هذا النمط، يمثل كل وكيل مهمة أو خطوة في سير العمل، ويمكن للوكلاء التناوب في تنفيذ المهام بناءً على قواعد محددة مسبقًا.
 
-![التناوب](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.ar.png)
+![التناوب](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.ar.png)
 
 ### التصفية التعاونية
 
@@ -119,7 +119,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **التحليل الفني**: يمكن أن يكون وكيل آخر خبيرًا في التحليل الفني.
 - **التحليل الأساسي**: ويمكن أن يكون وكيل آخر خبيرًا في التحليل الأساسي. من خلال التعاون، يمكن لهؤلاء الوكلاء تقديم توصية أكثر شمولية للمستخدم.
 
-![التوصية](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.ar.png)
+![التوصية](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.ar.png)
 
 ## السيناريو: عملية استرداد الأموال
 

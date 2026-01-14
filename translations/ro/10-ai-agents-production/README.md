@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agenți AI în Producție: Observabilitate și Evaluare
 
-[![Agenți AI în Producție](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.ro.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![Agenți AI în Producție](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.ro.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Pe măsură ce agenții AI trec de la prototipuri experimentale la aplicații reale, abilitatea de a înțelege comportamentul lor, de a monitoriza performanța și de a evalua sistematic rezultatele devine esențială.
 

@@ -53,7 +53,7 @@ Aceasta ar trebui să pornească serverul Chainlit pe `localhost:8000` și să p
 
 Pentru a te conecta la Serverul MCP Github, selectează pictograma „plug” de sub caseta de chat „Type your message here..”:
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28f1ea5f320b91e4404df4a24a0f236ce3de999666621f1cfc.ro.png)
+![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.ro.png)
 
 De acolo, poți face clic pe „Connect an MCP” pentru a adăuga comanda de conectare la Serverul MCP Github:
 

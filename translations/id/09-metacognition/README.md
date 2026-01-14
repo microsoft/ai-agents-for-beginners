@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "id"
 }
 -->
-[![Desain Multi-Agen](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.id.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Desain Multi-Agen](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.id.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 # Metakognisi pada Agen AI
@@ -47,7 +47,7 @@ Melacak bagaimana atau mengapa ia memilih rute tertentu.
 
 Metakognisi memainkan peran penting dalam desain agen AI karena beberapa alasan:
 
-![Pentingnya Metakognisi](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.id.png)
+![Pentingnya Metakognisi](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.id.png)
 
 - Refleksi Diri: Agen dapat menilai kinerja mereka sendiri dan mengidentifikasi area yang perlu diperbaiki.
 - Adaptabilitas: Agen dapat memodifikasi strategi mereka berdasarkan pengalaman masa lalu dan lingkungan yang berubah.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Pertama-tama mari kita mulai dengan memahami perbedaan antara Alat RAG dan Pemuatan Konteks Pre-emptive
 
-![RAG vs Pemuatan Konteks](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.id.png)
+![RAG vs Pemuatan Konteks](../../../translated_images/rag-vs-context.9eae588520c00921.id.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

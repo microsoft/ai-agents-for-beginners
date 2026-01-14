@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ms"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.ms.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.ms.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 
@@ -41,7 +41,7 @@ Bagi Ejen AI, arahan sistem adalah lebih penting kerana Ejen AI memerlukan araha
 
 Untuk mencipta arahan sistem yang boleh diskalakan, kita boleh menggunakan rangka kerja mesej sistem untuk membina satu atau lebih ejen dalam aplikasi kita:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.ms.png)
+![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.ms.png)
 
 #### Langkah 1: Cipta Mesej Sistem Meta
 
@@ -130,7 +130,7 @@ Nilai rangka kerja mesej sistem ini adalah untuk memudahkan penciptaan mesej sis
 
 Untuk membina ejen AI yang boleh dipercayai, adalah penting untuk memahami dan mengurangkan risiko dan ancaman kepada ejen AI anda. Mari kita lihat beberapa ancaman yang berbeza kepada ejen AI dan cara anda boleh merancang dan bersedia dengan lebih baik untuk menghadapinya.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.ms.png)
+![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.ms.png)
 
 ### Tugas dan Arahan
 
@@ -166,7 +166,7 @@ Untuk membina ejen AI yang boleh dipercayai, adalah penting untuk memahami dan m
 
 Satu lagi cara yang berkesan untuk membina sistem Ejen AI yang boleh dipercayai adalah dengan menggunakan pendekatan Manusia dalam Gelung. Ini mencipta aliran di mana pengguna dapat memberikan maklum balas kepada Ejen semasa proses berjalan. Pengguna pada dasarnya bertindak sebagai ejen dalam sistem berbilang ejen dengan memberikan kelulusan atau penamatan proses yang sedang berjalan.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.ms.png)
+![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.ms.png)
 
 Berikut adalah petikan kod menggunakan AutoGen untuk menunjukkan bagaimana konsep ini dilaksanakan:
 

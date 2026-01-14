@@ -25,7 +25,7 @@ For å fullføre denne øvelsen trenger du følgende:
 1. Følg retningslinjene i [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blogginnlegget for å opprette en Azure AI Foundry-hub.
 2. Når prosjektet ditt er opprettet, lukk eventuelle tips som vises, og gå gjennom prosjektets side i Azure AI Foundry-portalen, som bør se omtrent slik ut:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.no.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.no.png)
 
 ## Distribuer en modell
 
@@ -35,7 +35,7 @@ For å fullføre denne øvelsen trenger du følgende:
 
     > **Note**: Å redusere TPM hjelper med å unngå overforbruk av kvoten i abonnementet du bruker.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.no.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.no.png)
 
 ## Opprett en agent
 
@@ -77,7 +77,7 @@ Nå som du har distribuert en modell, kan du opprette en agent. En agent er en s
     
 > I tillegg kan du legge til **Knowledge Base** og **Actions** for å forbedre agentens evner til å gi mer informasjon og utføre automatiserte oppgaver basert på brukerforespørsler. For denne øvelsen kan du hoppe over disse trinnene.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.no.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.no.png)
 
 3. For å opprette en ny multi-AI-agent, klikk bare på **New Agent**. Den nylig opprettede agenten vil da vises på Agents-siden.
 
@@ -90,7 +90,7 @@ Etter at du har opprettet agenten, kan du teste hvordan den svarer på brukerhen
 
     > **Note**: Agenten kan gi unøyaktige svar, siden det ikke brukes sanntidsdata i denne øvelsen. Hensikten er å teste agentens evne til å forstå og svare på brukerhenvendelser basert på de gitte instruksjonene.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.no.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.no.png)
 
 3. Etter testing kan du tilpasse agenten ytterligere ved å legge til flere intensjoner, treningsdata og handlinger for å forbedre dens funksjonalitet.
 

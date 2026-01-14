@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hr"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.hr.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.hr.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Kliknite na sliku iznad za pregled videa ove lekcije)_
 # Metakognicija kod AI agenata
@@ -47,7 +47,7 @@ Praćenje kako ili zašto je odabrao određeni put.
 
 Metakognicija igra ključnu ulogu u dizajnu AI agenata iz nekoliko razloga:
 
-![Važnost metakognicije](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.hr.png)
+![Važnost metakognicije](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.hr.png)
 
 - Samorefleksija: Agenti mogu procijeniti vlastite performanse i identificirati područja za poboljšanje.
 - Prilagodljivost: Agenti mogu mijenjati svoje strategije na temelju prošlih iskustava i promjenjivih okruženja.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Prvo, krenimo s razumijevanjem razlike između RAG alata i preemptivnog učitavanja konteksta.
 
-![RAG vs učitavanje konteksta](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.hr.png)
+![RAG vs učitavanje konteksta](../../../translated_images/rag-vs-context.9eae588520c00921.hr.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

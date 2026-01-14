@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Inženjering konteksta za AI agente
 
-[![Inženjering konteksta](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.hr.png)](https://youtu.be/F5zqRV7gEag)
+[![Inženjering konteksta](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.hr.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Kliknite na sliku iznad za video lekcije)_
 
@@ -49,7 +49,7 @@ Inženjering upita fokusira se na skup statičkih uputa za učinkovito vođenje 
 
 ### Vrste konteksta
 
-[![Vrste konteksta](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.hr.png)](https://youtu.be/F5zqRV7gEag)
+[![Vrste konteksta](../../../translated_images/context-types.fc10b8927ee43f06.hr.png)](https://youtu.be/F5zqRV7gEag)
 
 Važno je zapamtiti da kontekst nije samo jedna stvar. Informacije koje AI agent treba mogu dolaziti iz različitih izvora, a na nama je da osiguramo da agent ima pristup tim izvorima:
 
@@ -69,7 +69,7 @@ Vrste konteksta koje AI agent može trebati uključuju:
 
 ### Strategije planiranja
 
-[![Najbolje prakse inženjeringa konteksta](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.hr.png)](https://youtu.be/F5zqRV7gEag)
+[![Najbolje prakse inženjeringa konteksta](../../../translated_images/best-practices.f4170873dc554f58.hr.png)](https://youtu.be/F5zqRV7gEag)
 
 Dobar inženjering konteksta počinje dobrim planiranjem. Evo pristupa koji će vam pomoći da počnete razmišljati o primjeni koncepta inženjeringa konteksta:
 

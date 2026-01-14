@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sv"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.sv.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.sv.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klicka på bilden ovan för att se videon för denna lektion)_
 
@@ -97,7 +97,7 @@ I detta mönster representerar varje agent en användare i gruppchatten, och med
 
 Detta mönster kan implementeras med en centraliserad arkitektur där alla meddelanden dirigeras genom en central server, eller en decentraliserad arkitektur där meddelanden utbyts direkt.
 
-![Gruppchatt](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.sv.png)
+![Gruppchatt](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.sv.png)
 
 ### Överlämning
 
@@ -107,7 +107,7 @@ Typiska användningsfall för detta mönster inkluderar kundsupport, uppgiftshan
 
 I detta mönster representerar varje agent en uppgift eller ett steg i ett arbetsflöde, och agenter kan överlämna uppgifter till andra agenter baserat på fördefinierade regler.
 
-![Överlämning](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.sv.png)
+![Överlämning](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.sv.png)
 
 ### Samarbetsfiltrering
 
@@ -121,7 +121,7 @@ Låt oss ta ett exempel där en användare vill ha en rekommendation om den bäs
 - **Teknisk analys**: En annan agent kan vara expert på teknisk analys.
 - **Fundamental analys**: Och en annan agent kan vara expert på fundamental analys. Genom att samarbeta kan dessa agenter ge en mer omfattande rekommendation till användaren.
 
-![Rekommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.sv.png)
+![Rekommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.sv.png)
 
 ## Scenario: Återbetalningsprocess
 

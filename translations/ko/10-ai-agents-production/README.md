@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # 프로덕션 환경에서의 AI 에이전트: 관찰 가능성과 평가
 
-[![프로덕션 환경에서의 AI 에이전트](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.ko.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![프로덕션 환경에서의 AI 에이전트](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.ko.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 AI 에이전트가 실험적 프로토타입에서 실제 애플리케이션으로 전환됨에 따라, 이들의 행동을 이해하고 성능을 모니터링하며 출력물을 체계적으로 평가하는 능력이 중요해지고 있습니다.
 

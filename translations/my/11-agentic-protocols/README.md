@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agentic Protocols (MCP, A2A နှင့် NLWeb) ကို အသုံးပြုခြင်း
 
-[![Agentic Protocols](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.my.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentic Protocols](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.my.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(ဤသင်ခန်းစာ၏ ဗီဒီယိုကို ကြည့်ရန် အထက်ပါ ပုံကို နှိပ်ပါ)_
 
@@ -69,7 +69,7 @@ MCP သည် AI အေးဂျင့်များအတွက် အရေ�
 
 ### MCP ၏ ဥပမာ
 
-![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a12e1f0eb300191a036ab01124fce71c864fe9cb7f4ac2a15d.my.png)
+![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.my.png)
 
 ဥပမာအားဖြင့် အသုံးပြုသူတစ်ဦးသည် MCP ဖြင့် အလုပ်လုပ်သော AI အကူအညီကို အသုံးပြု၍ လေယာဉ်လက်မှတ်ကို ရှာဖွေလိုသည်။
 
@@ -125,7 +125,7 @@ Remote agent သည် တောင်းဆိုထားသော task ကိ
 
 ### A2A ၏ ဥပမာ
 
-![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc2687db4093d7b09ea2a595622f8fe18194a026ee55fc23af8e.my.png)
+![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc26.my.png)
 
 ခရီးသွား booking scenario ကို A2A ဖြင့် တိုးတက်စေခြင်းကို လေ့လာကြမည်။
 
@@ -159,7 +159,7 @@ NLWeb ၏ အစိတ်အပိုင်းများ၊ အကျိုး
 
 ### NLWeb ၏ ဥပမာ
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4b245b86690ac6c49c26e355da5ab124128c8675d58cc9b07.my.png)
+![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.my.png)
 
 ခရီးသွား booking website ကို NLWeb ဖြင့် အကောင်အထည်ဖော်ခြင်းကို လေ့လာကြမည်။
 

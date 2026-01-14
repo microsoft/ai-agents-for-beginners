@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI agenti v produkcii: Pozorovateľnosť a hodnotenie
 
-[![AI agenti v produkcii](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.sk.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI agenti v produkcii](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.sk.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Keď sa AI agenti presúvajú z experimentálnych prototypov do reálnych aplikácií, schopnosť pochopiť ich správanie, monitorovať ich výkon a systematicky hodnotiť ich výstupy sa stáva kľúčovou.
 

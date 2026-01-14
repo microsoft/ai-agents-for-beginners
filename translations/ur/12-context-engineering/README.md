@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # اے آئی ایجنٹس کے لیے کانٹیکسٹ انجینئرنگ
 
-[![کانٹیکسٹ انجینئرنگ](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.ur.png)](https://youtu.be/F5zqRV7gEag)
+[![کانٹیکسٹ انجینئرنگ](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.ur.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(اوپر دی گئی تصویر پر کلک کریں تاکہ اس سبق کی ویڈیو دیکھ سکیں)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### کانٹیکسٹ کی اقسام
 
-[![کانٹیکسٹ کی اقسام](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.ur.png)](https://youtu.be/F5zqRV7gEag)
+[![کانٹیکسٹ کی اقسام](../../../translated_images/context-types.fc10b8927ee43f06.ur.png)](https://youtu.be/F5zqRV7gEag)
 
 یہ یاد رکھنا ضروری ہے کہ کانٹیکسٹ صرف ایک چیز نہیں ہے۔ وہ معلومات جو اے آئی ایجنٹ کو درکار ہوتی ہیں مختلف ذرائع سے آ سکتی ہیں، اور یہ ہماری ذمہ داری ہے کہ ایجنٹ کو ان ذرائع تک رسائی حاصل ہو:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### منصوبہ بندی کی حکمت عملیاں
 
-[![کانٹیکسٹ انجینئرنگ کے بہترین طریقے](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.ur.png)](https://youtu.be/F5zqRV7gEag)
+[![کانٹیکسٹ انجینئرنگ کے بہترین طریقے](../../../translated_images/best-practices.f4170873dc554f58.ur.png)](https://youtu.be/F5zqRV7gEag)
 
 اچھی کانٹیکسٹ انجینئرنگ اچھی منصوبہ بندی سے شروع ہوتی ہے۔ یہاں ایک طریقہ کار ہے جو آپ کو کانٹیکسٹ انجینئرنگ کے تصور کو لاگو کرنے کے بارے میں سوچنے میں مدد دے گا:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sr"
 }
 -->
-[![Планирање дизајн шаблона](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.sr.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Планирање дизајн шаблона](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.sr.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Кликните на слику изнад да бисте погледали видео овог часа)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Дефинисање општег циља и разлагање задатка
 
-![Дефинисање циљева и задатака](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.sr.png)
+![Дефинисање циљева и задатака](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.sr.png)
 
 Већина задатака из стварног света је превише сложена да би се решавала у једном кораку. AI агенту је потребан концизан циљ који ће водити његово планирање и акције. На пример, размотрите циљ:
 

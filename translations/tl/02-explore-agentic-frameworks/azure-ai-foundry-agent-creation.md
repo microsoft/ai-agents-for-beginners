@@ -25,7 +25,7 @@ Upang matapos ang pagsasanay na ito, kailangan mo ang mga sumusunod:
 1. Sundin ang mga gabay mula sa [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog post para sa paggawa ng Azure AI Foundry hub.
 2. Kapag nagawa na ang iyong proyekto, isara ang anumang tips na lumabas at tingnan ang pahina ng proyekto sa Azure AI Foundry portal, na dapat ay kahawig ng sumusunod na larawan:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.tl.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.tl.png)
 
 ## Deploy a model
 
@@ -35,7 +35,7 @@ Upang matapos ang pagsasanay na ito, kailangan mo ang mga sumusunod:
 
     > **Note**: Ang pagbabawas ng TPM ay nakakatulong upang maiwasan ang labis na paggamit ng quota na available sa subscription na ginagamit mo.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.tl.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.tl.png)
 
 ## Create an agent
 
@@ -77,7 +77,7 @@ Ngayon na na-deploy mo na ang modelo, maaari ka nang gumawa ng agent. Ang agent 
     
 > Bukod dito, maaari kang magdagdag ng **Knowledge Base** at **Actions** upang mapalawak ang kakayahan ng agent na magbigay ng mas maraming impormasyon at magsagawa ng mga automated na gawain base sa mga kahilingan ng user. Para sa pagsasanay na ito, maaari mong laktawan ang mga hakbang na ito.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.tl.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.tl.png)
 
 3. Upang gumawa ng bagong multi-AI agent, i-click lamang ang **New Agent**. Ang bagong agent ay ipapakita sa pahina ng Agents.
 
@@ -90,7 +90,7 @@ Pagkatapos gawin ang agent, maaari mo itong subukan upang makita kung paano ito 
 
     > **Note**: Maaaring hindi magbigay ang agent ng eksaktong sagot, dahil walang real-time na data na ginagamit sa pagsasanay na ito. Layunin nito ay subukan ang kakayahan ng agent na maintindihan at tumugon sa mga tanong ng user base sa mga ibinigay na instruksyon.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.tl.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.tl.png)
 
 3. Pagkatapos subukan ang agent, maaari mo pa itong i-customize sa pamamagitan ng pagdagdag ng mas maraming intents, training data, at actions upang mapalawak ang kakayahan nito.
 

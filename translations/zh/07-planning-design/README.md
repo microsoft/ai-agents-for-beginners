@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "zh"
 }
 -->
-[![规划设计模式](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.zh.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![规划设计模式](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.zh.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(点击上方图片观看本课视频)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 定义总体目标并分解任务
 
-![定义目标和任务](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.zh.png)
+![定义目标和任务](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.zh.png)
 
 大多数现实世界的任务过于复杂，无法一步完成。AI 代理需要一个简明的目标来指导其规划和行动。例如，考虑以下目标：
 

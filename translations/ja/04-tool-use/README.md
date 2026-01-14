@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ja"
 }
 -->
-[![良いAIエージェントの設計方法](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.ja.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![良いAIエージェントの設計方法](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.ja.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(上の画像をクリックして、このレッスンの動画をご覧ください)_
 
@@ -218,7 +218,7 @@ AIエージェントは、ツールを活用して複雑なタスクを完了し
 
 以下の図は、Semantic Kernelを使用した関数呼び出しのプロセスを示しています：
 
-![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.ja.png)
+![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f6014.ja.png)
 
 Semantic Kernelでは、関数/ツールは<a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">プラグイン</a>と呼ばれます。先ほど見た`get_current_time`関数をクラスに変換してプラグインにすることができます。また、関数の説明を受け取る`kernel_function`デコレーターをインポートすることもできます。その後、GetCurrentTimePluginを使用してカーネルを作成すると、カーネルは関数とそのパラメータを自動的にシリアル化し、LLMに送信するスキーマを作成します。
 
@@ -279,7 +279,7 @@ Agent Serviceを使用すると、これらのツールを`toolset`として一�
 
 以下の画像は、Azure AI Agent Serviceを使用して営業データを分析する方法を示しています：
 
-![Agentic Service In Action](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.ja.jpg)
+![Agentic Service In Action](../../../translated_images/agent-service-in-action.34fb465c9a84659e.ja.jpg)
 
 このサービスでツールを使用するには、クライアントを作成し、ツールまたはツールセットを定義します。これを実際に実装するには、以下のPythonコードを使用できます。LLMはツールセットを見て、ユーザーが作成した関数`fetch_sales_data_using_sqlite_query`を使用するか、事前構築されたコードインタープリターを使用するかをユーザーリクエストに応じて判断します。
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ar"
 }
 -->
-[![تخطيط نمط التصميم](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.ar.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![تخطيط نمط التصميم](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.ar.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو الدرس)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## تحديد الهدف الشامل وتقسيم المهمة
 
-![تحديد الأهداف والمهام](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.ar.png)
+![تحديد الأهداف والمهام](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.ar.png)
 
 معظم المهام في العالم الحقيقي معقدة للغاية بحيث لا يمكن التعامل معها في خطوة واحدة. يحتاج وكيل الذكاء الاصطناعي إلى هدف موجز لتوجيه تخطيطه وأفعاله. على سبيل المثال، ضع في اعتبارك الهدف:
 

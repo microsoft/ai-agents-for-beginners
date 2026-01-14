@@ -53,7 +53,7 @@ chainlit run app.py -w
 
 Για να συνδεθείτε στον Github MCP Server, επιλέξτε το εικονίδιο "plug" κάτω από το πλαίσιο συνομιλίας "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28f1ea5f320b91e4404df4a24a0f236ce3de999666621f1cfc.el.png)
+![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.el.png)
 
 Από εκεί μπορείτε να κάνετε κλικ στο "Connect an MCP" για να προσθέσετε την εντολή σύνδεσης με τον Github MCP Server:
 

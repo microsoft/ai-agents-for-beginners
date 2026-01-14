@@ -25,7 +25,7 @@ Norint atlikti šį pratimą, jums reikės:
 1. Sekite šias gaires iš [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) tinklaraščio įrašo, kad sukurtumėte Azure AI Foundry centrą.
 2. Kai jūsų projektas bus sukurtas, uždarykite bet kokius rodomus patarimus ir peržiūrėkite projekto puslapį Azure AI Foundry portale, kuris turėtų atrodyti panašiai kaip šiame paveikslėlyje:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.lt.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.lt.png)
 
 ## Modelio diegimas
 
@@ -35,7 +35,7 @@ Norint atlikti šį pratimą, jums reikės:
 
     > **Note**: TPM mažinimas padeda išvengti per didelio prenumeratos kvotos naudojimo.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.lt.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.lt.png)
 
 ## Sukurkite agentą
 
@@ -77,7 +77,7 @@ Kai modelis jau yra įdiegtas, galite sukurti agentą. Agentas yra pokalbių AI 
 
 > Be to, galite pridėti **Knowledge Base** ir **Actions**, kad pagerintumėte agento galimybes teikti daugiau informacijos ir atlikti automatizuotas užduotis pagal vartotojo užklausas. Šiame pratime galite praleisti šiuos žingsnius.
 
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.lt.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.lt.png)
 
 3. Norėdami sukurti naują multi-AI agentą, tiesiog spustelėkite **New Agent**. Naujas agentas bus rodomas Agents puslapyje.
 
@@ -90,7 +90,7 @@ Sukūrę agentą, galite jį išbandyti, kad pamatytumėte, kaip jis reaguoja į
 
     > **Note**: Agentas gali pateikti netikslius atsakymus, nes šiame pratime nenaudojami realaus laiko duomenys. Tikslas yra išbandyti agento gebėjimą suprasti ir atsakyti į vartotojo užklausas pagal pateiktus nurodymus.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.lt.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.lt.png)
 
 3. Po agento testavimo galite jį toliau pritaikyti, pridėdami daugiau ketinimų, mokymo duomenų ir veiksmų, kad pagerintumėte jo galimybes.
 

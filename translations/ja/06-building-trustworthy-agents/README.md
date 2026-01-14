@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ja"
 }
 -->
-[![信頼できるAIエージェント](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.ja.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![信頼できるAIエージェント](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.ja.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(上の画像をクリックすると、このレッスンのビデオをご覧いただけます)_
 
@@ -41,7 +41,7 @@ AIエージェントの場合、システムプロンプトはさらに重要で
 
 スケーラブルなシステムプロンプトを作成するために、アプリケーション内で1つ以上のエージェントを構築するためのシステムメッセージフレームワークを使用できます：
 
-![システムメッセージフレームワークの構築](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.ja.png)
+![システムメッセージフレームワークの構築](../../../translated_images/system-message-framework.3a97368c92d11d68.ja.png)
 
 #### ステップ1: メタシステムメッセージを作成する
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 信頼できるAIエージェントを構築するには、リスクや脅威を理解し、それを軽減することが重要です。ここでは、AIエージェントに対するさまざまな脅威の一部と、それに対する計画・準備方法を見ていきます。
 
-![脅威の理解](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.ja.png)
+![脅威の理解](../../../translated_images/understanding-threats.89edeada8a97fc0f.ja.png)
 
 ### タスクと指示
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 信頼できるAIエージェントシステムを構築するもう一つの効果的な方法は、ヒューマン・イン・ザ・ループを使用することです。これにより、ユーザーがエージェントにフィードバックを提供し、実行中のプロセスを承認または終了するフローを作成できます。ユーザーは、マルチエージェントシステム内のエージェントとして機能し、プロセスを監視します。
 
-![ヒューマン・イン・ザ・ループ](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.ja.png)
+![ヒューマン・イン・ザ・ループ](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.ja.png)
 
 以下は、この概念を実装するためにAutoGenを使用したコードスニペットです：
 

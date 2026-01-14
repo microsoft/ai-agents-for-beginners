@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "th"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.th.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.th.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(คลิกที่ภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 # การคิดเกี่ยวกับการคิดในตัวแทน AI
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 การคิดเกี่ยวกับการคิดมีบทบาทสำคัญในการออกแบบตัวแทน AI ด้วยเหตุผลหลายประการ:
 
-![ความสำคัญของการคิดเกี่ยวกับการคิด](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.th.png)
+![ความสำคัญของการคิดเกี่ยวกับการคิด](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.th.png)
 
 - การสะท้อนตัวเอง: ตัวแทนสามารถประเมินประสิทธิภาพของตัวเองและระบุพื้นที่ที่ต้องปรับปรุง
 - การปรับตัว: ตัวแทนสามารถปรับเปลี่ยนกลยุทธ์ของตัวเองโดยอิงจากประสบการณ์ที่ผ่านมาและสภาพแวดล้อมที่เปลี่ยนแปลง
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 ก่อนอื่นเรามาเริ่มต้นด้วยการทำความเข้าใจความแตกต่างระหว่างเครื่องมือ RAG และการโหลดบริบทแบบคาดการณ์ล่วงหน้า
 
-![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.th.png)
+![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921.th.png)
 
 ### การสร้างแบบเสริมด้วยการดึงข้อมูล (RAG)
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sk"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.sk.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.sk.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Kliknite na obrázok vyššie, aby ste si pozreli video k tejto lekcii)_
 # Metakognícia v AI agentoch
@@ -47,7 +47,7 @@ Sledovanie toho, ako alebo prečo si vybral určitú trasu.
 
 Metakognícia zohráva kľúčovú úlohu pri návrhu AI agentov z viacerých dôvodov:
 
-![Dôležitosť metakognície](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.sk.png)
+![Dôležitosť metakognície](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.sk.png)
 
 - Sebareflexia: Agenti môžu hodnotiť svoj vlastný výkon a identifikovať oblasti na zlepšenie.
 - Adaptabilita: Agenti môžu meniť svoje stratégie na základe minulých skúseností a meniacich sa prostredí.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Najprv začnime pochopením rozdielu medzi nástrojom RAG a prediktívnym načítaním kontextu.
 
-![RAG vs načítanie kontextu](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.sk.png)
+![RAG vs načítanie kontextu](../../../translated_images/rag-vs-context.9eae588520c00921.sk.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

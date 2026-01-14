@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pcm"
 }
 -->
-[![How to Design Good AI Agents](../../../translated_images/lesson-4-thumbnail.546162853cb3daffd64edd92014f274103f76360dfb39fc6e6ee399494da38fd.pcm.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![How to Design Good AI Agents](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.pcm.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Click di image wey dey up to watch di video for dis lesson)_
 
@@ -216,7 +216,7 @@ Here be some examples of how you fit implement Tool Use Design Pattern using dif
 
 Di diagram wey dey below dey show how function calling dey work with Semantic Kernel:
 
-![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f60140cc0a484ff399acd25f69553ea05186981ac4d5155f9c2f6.pcm.png)
+![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f6014.pcm.png)
 
 For Semantic Kernel, functions/tools dey called <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. We fit turn di `get_current_time` function wey we see before into plugin by turning am into class wey get di function inside. We fit also import di `kernel_function` decorator, wey dey take di description of di function. When you create kernel with GetCurrentTimePlugin, di kernel go automatically serialize di function and di parameters, create di schema to send to di LLM.
 
@@ -277,7 +277,7 @@ Imagine say you be sales agent for one company wey dem call Contoso. You wan dev
 
 Di image wey dey below dey show how you fit use Azure AI Agent Service to analyze your sales data:
 
-![Agentic Service In Action](../../../translated_images/agent-service-in-action.34fb465c9a84659edd3003f8cb62d6b366b310a09b37c44e32535021fbb5c93f.pcm.jpg)
+![Agentic Service In Action](../../../translated_images/agent-service-in-action.34fb465c9a84659e.pcm.jpg)
 
 To use any of dis tools with di service, we fit create client and define tool or toolset. To implement dis practically, we fit use di Python code wey dey below. Di LLM go fit look di toolset and decide whether to use di user created function, `fetch_sales_data_using_sqlite_query`, or di pre-built Code Interpreter based on wetin di user wan do.
 

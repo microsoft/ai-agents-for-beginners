@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "he"
 }
 -->
-[![סוכני AI אמינים](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.he.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![סוכני AI אמינים](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.he.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(לחצו על התמונה למעלה לצפייה בסרטון של השיעור הזה)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 כדי ליצור הנחיות מערכת בקנה מידה, ניתן להשתמש במסגרת הודעות מערכת לבניית סוכן אחד או יותר ביישום שלנו:
 
-![בניית מסגרת הודעות מערכת](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.he.png)
+![בניית מסגרת הודעות מערכת](../../../translated_images/system-message-framework.3a97368c92d11d68.he.png)
 
 #### שלב 1: יצירת הודעת מערכת מטא
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 כדי לבנות סוכני AI אמינים, חשוב להבין ולהפחית את הסיכונים והאיומים על הסוכן. בואו נבחן כמה מהאיומים השונים על סוכני AI וכיצד ניתן לתכנן ולהתכונן אליהם טוב יותר.
 
-![הבנת איומים](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.he.png)
+![הבנת איומים](../../../translated_images/understanding-threats.89edeada8a97fc0f.he.png)
 
 ### משימות והוראות
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 דרך יעילה נוספת לבנות מערכות סוכני AI אמינות היא שימוש במעורבות אדם בתהליך. זה יוצר זרימה שבה משתמשים יכולים לספק משוב לסוכנים במהלך הריצה. משתמשים למעשה פועלים כסוכנים במערכת רב-סוכנים על ידי מתן אישור או הפסקת התהליך.
 
-![אדם בתהליך](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.he.png)
+![אדם בתהליך](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.he.png)
 
 להלן קטע קוד שמשתמש ב-AutoGen כדי להראות כיצד מושג זה מיושם:
 

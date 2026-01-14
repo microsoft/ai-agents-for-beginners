@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agents IA en Production : Observabilité et Évaluation
 
-[![Agents IA en Production](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e0b4fb47aaa618069e0afb4745fad4836526cf51df87f9ac9.fr.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![Agents IA en Production](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.fr.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Lorsque les agents IA passent de prototypes expérimentaux à des applications réelles, il devient essentiel de comprendre leur comportement, de surveiller leurs performances et d'évaluer systématiquement leurs résultats.
 

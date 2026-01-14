@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fr"
 }
 -->
-[![Agents IA de Confiance](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4f786c2b0d5d6e89f41f4c2ecc05ab10b67bced2695eeb218.fr.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Agents IA de Confiance](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.fr.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Cliquez sur l'image ci-dessus pour visionner la vidéo de cette leçon)_
 
@@ -41,7 +41,7 @@ Pour les agents IA, le message système est encore plus important, car ces agent
 
 Pour créer des messages système évolutifs, nous pouvons utiliser un cadre de messages systémiques pour construire un ou plusieurs agents dans notre application :
 
-![Construire un Cadre de Messages Systémiques](../../../translated_images/system-message-framework.3a97368c92d11d6814577b03cd128ec8c71a5fd1e26f341835cfa5df59ae87ae.fr.png)
+![Construire un Cadre de Messages Systémiques](../../../translated_images/system-message-framework.3a97368c92d11d68.fr.png)
 
 #### Étape 1 : Créer un Message Systémique Méta
 
@@ -130,7 +130,7 @@ L'intérêt de ce cadre de messages systémiques est de faciliter la création d
 
 Pour construire des agents IA de confiance, il est important de comprendre et d'atténuer les risques et menaces auxquels votre agent IA peut être confronté. Examinons quelques-unes des différentes menaces et comment mieux les anticiper et s'y préparer.
 
-![Comprendre les Menaces](../../../translated_images/understanding-threats.89edeada8a97fc0f7053558567d5dd27c0c333b74e47fffdde490fa6777a4c17.fr.png)
+![Comprendre les Menaces](../../../translated_images/understanding-threats.89edeada8a97fc0f.fr.png)
 
 ### Tâches et Instructions
 
@@ -166,7 +166,7 @@ Pour construire des agents IA de confiance, il est important de comprendre et d'
 
 Une autre méthode efficace pour construire des systèmes d'agents IA de confiance est d'intégrer un humain dans la boucle. Cela crée un flux où les utilisateurs peuvent fournir des retours aux agents pendant leur exécution. Les utilisateurs agissent essentiellement comme des agents dans un système multi-agents en approuvant ou en interrompant le processus en cours.
 
-![Humain dans la Boucle](../../../translated_images/human-in-the-loop.5f0068a678f62f4fc8373d5b78c4c22f35d9e4da35c93f66c3b634c1774eff34.fr.png)
+![Humain dans la Boucle](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.fr.png)
 
 Voici un extrait de code utilisant AutoGen pour montrer comment ce concept est mis en œuvre :
 

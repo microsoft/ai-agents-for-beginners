@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # مهندسی زمینه برای عوامل هوش مصنوعی
 
-[![مهندسی زمینه](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.fa.png)](https://youtu.be/F5zqRV7gEag)
+[![مهندسی زمینه](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.fa.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(برای مشاهده ویدئوی این درس، روی تصویر بالا کلیک کنید)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### انواع زمینه
 
-[![انواع زمینه](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.fa.png)](https://youtu.be/F5zqRV7gEag)
+[![انواع زمینه](../../../translated_images/context-types.fc10b8927ee43f06.fa.png)](https://youtu.be/F5zqRV7gEag)
 
 مهم است که به یاد داشته باشید زمینه فقط یک چیز نیست. اطلاعاتی که عامل هوش مصنوعی نیاز دارد می‌تواند از منابع مختلفی بیاید و این وظیفه ماست که اطمینان حاصل کنیم عامل به این منابع دسترسی دارد:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### استراتژی‌های برنامه‌ریزی
 
-[![بهترین شیوه‌های مهندسی زمینه](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.fa.png)](https://youtu.be/F5zqRV7gEag)
+[![بهترین شیوه‌های مهندسی زمینه](../../../translated_images/best-practices.f4170873dc554f58.fa.png)](https://youtu.be/F5zqRV7gEag)
 
 مهندسی زمینه خوب با برنامه‌ریزی خوب شروع می‌شود. در اینجا رویکردی آورده شده است که به شما کمک می‌کند درباره نحوه اعمال مفهوم مهندسی زمینه فکر کنید:
 

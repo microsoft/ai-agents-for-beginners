@@ -53,7 +53,7 @@ Ez elindítja a Chainlit szervert a `localhost:8000` címen, és feltölti az Az
 
 A Github MCP Serverhez való csatlakozáshoz kattints a "dugó" ikonra a "Írd be az üzeneted ide..." chat mező alatt:
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28f1ea5f320b91e4404df4a24a0f236ce3de999666621f1cfc.hu.png)
+![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.hu.png)
 
 Ezután kattints a "Connect an MCP" gombra, hogy hozzáadd a parancsot a Github MCP Serverhez való csatlakozáshoz:
 

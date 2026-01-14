@@ -25,7 +25,7 @@ Toto môžete urobiť kliknutím na odkaz na <a href="https://github.com/microso
 
 Teraz by ste mali mať vlastnú forknutú verziu tohto kurzu na nasledujúcom odkaze:
 
-![Forknuté úložisko](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.sk.png)
+![Forknuté úložisko](../../../translated_images/forked-repo.33f27ca1901baa6a.sk.png)
 
 ### Plytké klonovanie (odporúčané pre workshopy / Codespaces)
 
@@ -176,11 +176,11 @@ Prosím, dodržujte [Princíp minimálnych oprávnení](https://docs.github.com/
 
 1. Vyberte možnosť `Fine-grained tokens` na ľavej strane obrazovky prechodom do **Developer settings**.
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.sk.png)
+   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755.sk.png)
 
    Potom vyberte `Generate new token`.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.sk.png)
+   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.sk.png)
 
 2. Zadajte popisný názov pre váš token, ktorý odráža jeho účel, aby ste ho neskôr ľahko identifikovali.
 
@@ -190,19 +190,19 @@ Prosím, dodržujte [Princíp minimálnych oprávnení](https://docs.github.com/
     Pre bezpečnejší prístup môžete zvoliť kratšie obdobie — napríklad 7 dní 🛡️
     Je to skvelý spôsob, ako si stanoviť osobný cieľ a dokončiť kurz, kým je vaša motivácia vysoká 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.sk.png)
+    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de6386864.sk.png)
 
 3. Obmedzte rozsah tokenu na váš fork tohto úložiska.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.sk.png)
+    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.sk.png)
 
 4. Obmedzte oprávnenia tokenu: V časti **Permissions** kliknite na kartu **Account** a potom na tlačidlo "+ Add permissions". Zobrazí sa rozbaľovacie menu. Vyhľadajte **Models** a zaškrtnite políčko.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.sk.png)
+    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.sk.png)
 
-5. Overte požadované oprávnenia pred generovaním tokenu. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.sk.png)
+5. Overte požadované oprávnenia pred generovaním tokenu. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b21.sk.png)
 
-6. Pred generovaním tokenu sa uistite, že ste pripravení uložiť token na bezpečné miesto, ako je trezor správcu hesiel, pretože po jeho vytvorení už nebude zobrazený. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.sk.png)
+6. Pred generovaním tokenu sa uistite, že ste pripravení uložiť token na bezpečné miesto, ako je trezor správcu hesiel, pretože po jeho vytvorení už nebude zobrazený. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf.sk.png)
 
 Skopírujte svoj nový token, ktorý ste práve vytvorili. Teraz ho pridáte do svojho súboru `.env` zahrnutého v tomto kurze.
 
@@ -224,7 +224,7 @@ Týmto sa skopíruje príklad súboru a vytvorí sa `.env` vo vašom adresári, 
 
 So skopírovaným tokenom otvorte súbor `.env` vo svojom obľúbenom textovom editore a vložte svoj token do poľa `GITHUB_TOKEN`.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.sk.png)
+![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4a.sk.png)
 
 Teraz by ste mali byť schopní spustiť ukážky kódu z tohto kurzu.
 
@@ -238,7 +238,7 @@ Keď vytvoríte svoj projekt, budete musieť získať reťazec pripojenia pre v�
 
 Toto môžete urobiť prechodom na stránku **Overview** vášho projektu v portáli Azure AI Foundry.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.sk.png)
+![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.sk.png)
 
 ### Krok 2: Vytvorte svoj `.env` súbor
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pcm"
 }
 -->
-[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.pcm.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.pcm.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Click di image wey dey up to watch di video for dis lesson)_
 
@@ -32,7 +32,7 @@ After you finish dis lesson, you go sabi:
 
 ## How to Set Goal and Break Task Down
 
-![Defining Goals and Tasks](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.pcm.png)
+![Defining Goals and Tasks](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.pcm.png)
 
 Most tasks for real life dey too big to do am once. AI agent need clear objective to guide di way e go plan and act. For example, di goal fit be:
 

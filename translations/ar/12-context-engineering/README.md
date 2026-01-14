@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # هندسة السياق لوكلاء الذكاء الاصطناعي
 
-[![هندسة السياق](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.ar.png)](https://youtu.be/F5zqRV7gEag)
+[![هندسة السياق](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.ar.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو الدرس)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### أنواع السياق
 
-[![أنواع السياق](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.ar.png)](https://youtu.be/F5zqRV7gEag)
+[![أنواع السياق](../../../translated_images/context-types.fc10b8927ee43f06.ar.png)](https://youtu.be/F5zqRV7gEag)
 
 من المهم أن نتذكر أن السياق ليس شيئًا واحدًا فقط. المعلومات التي يحتاجها وكيل الذكاء الاصطناعي يمكن أن تأتي من مصادر متنوعة، ويقع على عاتقنا ضمان وصول الوكيل إلى هذه المصادر:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### استراتيجيات التخطيط
 
-[![أفضل الممارسات لهندسة السياق](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.ar.png)](https://youtu.be/F5zqRV7gEag)
+[![أفضل الممارسات لهندسة السياق](../../../translated_images/best-practices.f4170873dc554f58.ar.png)](https://youtu.be/F5zqRV7gEag)
 
 تبدأ هندسة السياق الجيدة بتخطيط جيد. إليك نهجًا يساعدك على التفكير في كيفية تطبيق مفهوم هندسة السياق:
 

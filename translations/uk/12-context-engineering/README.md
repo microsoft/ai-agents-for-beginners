@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Інженерія контексту для AI-агентів
 
-[![Інженерія контексту](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d43dfb7dacda2cd436740b2f84d61aa778849335dbca162dff.uk.png)](https://youtu.be/F5zqRV7gEag)
+[![Інженерія контексту](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.uk.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Натисніть на зображення вище, щоб переглянути відео цього уроку)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Типи контексту
 
-[![Типи контексту](../../../translated_images/context-types.fc10b8927ee43f06c12a0238692eb2703063a01c544cd7981108ff97ba32fbde.uk.png)](https://youtu.be/F5zqRV7gEag)
+[![Типи контексту](../../../translated_images/context-types.fc10b8927ee43f06.uk.png)](https://youtu.be/F5zqRV7gEag)
 
 Важливо пам’ятати, що контекст — це не щось одне. Інформація, яка потрібна AI-агенту, може надходити з різних джерел, і саме ми маємо забезпечити доступ агента до цих джерел:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Стратегії планування
 
-[![Найкращі практики інженерії контексту](../../../translated_images/best-practices.f4170873dc554f58e86de090732bfa260d20c0937b577254e70bedf49442fedf.uk.png)](https://youtu.be/F5zqRV7gEag)
+[![Найкращі практики інженерії контексту](../../../translated_images/best-practices.f4170873dc554f58.uk.png)](https://youtu.be/F5zqRV7gEag)
 
 Ефективна інженерія контексту починається з ретельного планування. Ось підхід, який допоможе вам почати застосовувати концепцію інженерії контексту:
 

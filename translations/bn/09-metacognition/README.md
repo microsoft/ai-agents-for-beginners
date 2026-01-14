@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bn"
 }
 -->
-[![মাল্টি-এজেন্ট ডিজাইন](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d890c92f576f933c6a307c691339dca7e8ca6ea75a8d857a1.bn.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![মাল্টি-এজেন্ট ডিজাইন](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.bn.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(উপরের ছবিতে ক্লিক করে এই পাঠের ভিডিও দেখুন)_
 # এআই এজেন্টে মেটাকগনিশন
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 মেটাকগনিশন এআই এজেন্ট ডিজাইনে কয়েকটি কারণে গুরুত্বপূর্ণ ভূমিকা পালন করে:
 
-![মেটাকগনিশনের গুরুত্ব](../../../translated_images/importance-of-metacognition.b381afe9aae352f7734c8628ea3f4b23084634b791c5a120c76a02bb7eeeb7ec.bn.png)
+![মেটাকগনিশনের গুরুত্ব](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.bn.png)
 
 - আত্ম-প্রতিফলন: এজেন্ট তাদের নিজস্ব কর্মক্ষমতা মূল্যায়ন করতে পারে এবং উন্নতির ক্ষেত্র চিহ্নিত করতে পারে।
 - অভিযোজনযোগ্যতা: এজেন্ট অতীত অভিজ্ঞতা এবং পরিবর্তিত পরিবেশের ভিত্তিতে তাদের কৌশল পরিবর্তন করতে পারে।
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 প্রথমে আসুন RAG টুল এবং প্রি-এম্পটিভ কনটেক্সট লোডের পার্থক্য বুঝি।
 
-![RAG বনাম কনটেক্সট লোডিং](../../../translated_images/rag-vs-context.9eae588520c00921f531e4dc788992e8a7b69b6ff7c9eaa69fb9bc83ad243504.bn.png)
+![RAG বনাম কনটেক্সট লোডিং](../../../translated_images/rag-vs-context.9eae588520c00921.bn.png)
 
 ### রিট্রিভাল-অগমেন্টেড জেনারেশন (RAG)
 

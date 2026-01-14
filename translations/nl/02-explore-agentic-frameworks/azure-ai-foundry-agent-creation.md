@@ -25,7 +25,7 @@ Om deze oefening te voltooien, heb je het volgende nodig:
 1. Volg de richtlijnen uit de [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blogpost voor het aanmaken van een Azure AI Foundry hub.
 2. Wanneer je project is aangemaakt, sluit dan eventuele tips die worden weergegeven en bekijk de projectpagina in de Azure AI Foundry portal, die er ongeveer zo uit zou moeten zien:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.nl.png)
+    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.nl.png)
 
 ## Implementeer een model
 
@@ -35,7 +35,7 @@ Om deze oefening te voltooien, heb je het volgende nodig:
 
     > **Note**: Het verlagen van de TPM helpt om overmatig gebruik van de beschikbare quota in je abonnement te voorkomen.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.nl.png)
+    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.nl.png)
 
 ## Maak een agent aan
 
@@ -77,7 +77,7 @@ Nu je een model hebt geïmplementeerd, kun je een agent maken. Een agent is een 
     
 > Daarnaast kun je een **Knowledge Base** en **Actions** toevoegen om de mogelijkheden van de agent uit te breiden, zodat deze meer informatie kan geven en geautomatiseerde taken kan uitvoeren op basis van gebruikersverzoeken. Voor deze oefening kun je deze stappen overslaan.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.nl.png)
+![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.nl.png)
 
 3. Om een nieuwe multi-AI agent te maken, klik je simpelweg op **New Agent**. De nieuw aangemaakte agent wordt dan weergegeven op de Agents-pagina.
 
@@ -90,7 +90,7 @@ Nadat je de agent hebt gemaakt, kun je deze testen om te zien hoe hij reageert o
 
     > **Note**: De agent geeft mogelijk geen nauwkeurige antwoorden, omdat er in deze oefening geen realtime data wordt gebruikt. Het doel is om te testen of de agent gebruikersvragen kan begrijpen en beantwoorden op basis van de gegeven instructies.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.nl.png)
+    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.nl.png)
 
 3. Na het testen van de agent kun je deze verder aanpassen door meer intents, trainingsdata en acties toe te voegen om de mogelijkheden te verbeteren.
 

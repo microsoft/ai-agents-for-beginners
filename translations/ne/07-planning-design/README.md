@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ne"
 }
 -->
-[![योजना डिजाइन ढाँचा](../../../translated_images/lesson-7-thumbnail.f7163ac557bea1236242cc86b178c3f1bbf5eb07b87f9cd7c256b366e32bcbb6.ne.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![योजना डिजाइन ढाँचा](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.ne.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(माथिको चित्रमा क्लिक गरेर यस पाठको भिडियो हेर्नुहोस्)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## समग्र लक्ष्य परिभाषित गर्ने र कार्यलाई विभाजन गर्ने
 
-![लक्ष्य र कार्य परिभाषित गर्दै](../../../translated_images/defining-goals-tasks.d70439e19e37c47ac76c48b209a4eb515bea5b8a5207f6b2e7b5e597f09ccf6a.ne.png)
+![लक्ष्य र कार्य परिभाषित गर्दै](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.ne.png)
 
 अधिकांश वास्तविक-विश्व कार्यहरू एक चरणमा समाधान गर्न धेरै जटिल हुन्छन्। AI एजेन्टलाई यसको योजना र कार्यहरूलाई मार्गदर्शन गर्न एक संक्षिप्त उद्देश्य आवश्यक हुन्छ। उदाहरणका लागि, निम्न लक्ष्यलाई विचार गर्नुहोस्:
 

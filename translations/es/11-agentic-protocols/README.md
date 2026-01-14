@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Usando Protocolos Agénticos (MCP, A2A y NLWeb)
 
-[![Protocolos Agénticos](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2aa0255968d287b31c99b51dfa9c9beaede7c3fbed90e8fcfb.es.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Protocolos Agénticos](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.es.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Haz clic en la imagen de arriba para ver el video de esta lección)_
 
@@ -69,7 +69,7 @@ MCP ofrece ventajas significativas para los agentes de IA:
 
 ### Ejemplo de MCP
 
-![Diagrama MCP](../../../translated_images/mcp-diagram.e4ca1cbd551444a12e1f0eb300191a036ab01124fce71c864fe9cb7f4ac2a15d.es.png)
+![Diagrama MCP](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.es.png)
 
 Imagina que un usuario quiere reservar un vuelo usando un asistente de IA impulsado por MCP.
 
@@ -124,7 +124,7 @@ Este componente se utiliza para **manejar actualizaciones y pasar mensajes**. Es
 
 ### Ejemplo de A2A
 
-![Diagrama A2A](../../../translated_images/A2A-Diagram.8666928d648acc2687db4093d7b09ea2a595622f8fe18194a026ee55fc23af8e.es.png)
+![Diagrama A2A](../../../translated_images/A2A-Diagram.8666928d648acc26.es.png)
 
 Ampliemos nuestro escenario de reserva de viajes, pero esta vez usando A2A.
 
@@ -158,7 +158,7 @@ Veamos los diferentes componentes de NLWeb, los beneficios de NLWeb y un ejemplo
 
 ### NLWeb por Ejemplo
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4b245b86690ac6c49c26e355da5ab124128c8675d58cc9b07.es.png)
+![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.es.png)
 
 Consideremos nuevamente nuestro sitio web de reservas de viajes, pero esta vez, está impulsado por NLWeb.
 

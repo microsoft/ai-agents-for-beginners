@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "de"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d625df92de3f885d2da2a92b1f7017abba25a99fb25edd83a55.de.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.de.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klicken Sie auf das obige Bild, um das Video zu dieser Lektion anzusehen)_
 
@@ -97,7 +97,7 @@ In diesem Muster repräsentiert jeder Agent einen Nutzer im Gruppenchat, und Nac
 
 Dieses Muster kann mit einer zentralisierten Architektur implementiert werden, bei der alle Nachrichten über einen zentralen Server geleitet werden, oder mit einer dezentralisierten Architektur, bei der Nachrichten direkt ausgetauscht werden.
 
-![Gruppenchat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd7b450fd01e1a0fac1f9788c27d3b9e54029377bb1bdd1db6.de.png)
+![Gruppenchat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.de.png)
 
 ### Übergabe
 
@@ -107,7 +107,7 @@ Typische Anwendungsfälle für dieses Muster sind Kundensupport, Aufgabenmanagem
 
 In diesem Muster repräsentiert jeder Agent eine Aufgabe oder einen Schritt in einem Workflow, und Agenten können Aufgaben basierend auf vordefinierten Regeln an andere Agenten übergeben.
 
-![Übergabe](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a0754bf29d49fa19d578080c61da40416df84d866bcdd87a3.de.png)
+![Übergabe](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.de.png)
 
 ### Kollaboratives Filtern
 
@@ -121,7 +121,7 @@ Nehmen wir ein Beispiel, bei dem ein Nutzer eine Empfehlung für die beste Aktie
 - **Technische Analyse**: Ein anderer Agent könnte ein Experte für technische Analysen sein.
 - **Fundamentalanalyse**: Und ein weiterer Agent könnte ein Experte für Fundamentalanalysen sein. Durch die Zusammenarbeit können diese Agenten dem Nutzer eine umfassendere Empfehlung geben.
 
-![Empfehlung](../../../translated_images/multi-agent-filtering.d959cb129dc9f60826916f0f12fe7a8339b532f5f236860afb8f16b63ea10dc2.de.png)
+![Empfehlung](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.de.png)
 
 ## Szenario: Rückerstattungsprozess
 

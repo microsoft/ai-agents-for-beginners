@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # AI代理的记忆
-[![代理记忆](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64a614a3bece6b170a2c472138dc0a14c7fbde07306ef95ae7.zh.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![代理记忆](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.zh.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 在讨论创建AI代理的独特优势时，主要涉及两个方面：调用工具完成任务的能力以及随着时间推移不断改进的能力。记忆是创建能够自我改进的代理的基础，这些代理可以为用户提供更好的体验。
 

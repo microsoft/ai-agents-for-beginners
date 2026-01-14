@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "cs"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.cs.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.cs.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Klikněte na obrázek výše pro zhlédnutí videa této lekce)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) je nově vznikající parad
 
 Tento iterativní styl „maker-checker“ je navržen ke zlepšení správnosti, řešení chybných dotazů na strukturované databáze (např. NL2SQL) a zajištění vyvážených, vysoce kvalitních výsledků. Místo spoléhání se pouze na pečlivě navržené řetězce promptů systém aktivně vlastní svůj proces uvažování. Může přepisovat dotazy, které selhaly, volit různé metody získávání informací a integrovat více nástrojů—například vektorové vyhledávání v Azure AI Search, SQL databáze nebo vlastní API—před dokončením své odpovědi. To eliminuje potřebu příliš složitých orchestrálních rámců. Místo toho relativně jednoduchá smyčka „volání LLM → použití nástroje → volání LLM → …“ může přinést sofistikované a dobře podložené výstupy.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.cs.png)
+![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.cs.png)
 
 ## Vlastnictví procesu uvažování
 
@@ -67,7 +67,7 @@ Všechny tyto kroky—zpřesňování dotazů, volba zdrojů, iterace, dokud nen
 
 ## Iterativní smyčky, integrace nástrojů a paměť
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.cs.png)
+![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.cs.png)
 
 Agentický systém se spoléhá na vzorec interakce ve smyčce:
 
@@ -89,7 +89,7 @@ Autonomie Agentic RAG zahrnuje také robustní mechanismy samokorekce. Když sys
 
 Tento iterativní a dynamický přístup umožňuje modelu neustále se zlepšovat, což zajišťuje, že není jen jednorázovým systémem, ale systémem, který se učí ze svých chyb během dané relace.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.cs.png)
+![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.cs.png)
 
 ## Hranice autonomie
 
@@ -118,7 +118,7 @@ Jak se tyto systémy stávají autonomnějšími ve svém uvažování, řízen�
 
 Mít nástroje, které poskytují jasný záznam akcí, je zásadní. Bez nich může být ladění vícekrokového procesu velmi obtížné. Viz následující příklad od Literal AI (společnost za Chainlit) pro běh agenta:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.cs.png)
+![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.cs.png)
 
 ## Závěr
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "nl"
 }
 -->
-[![Hoe ontwerp je goede AI-agenten](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5b26e35aa8f810814e05a22fed1765c20c14b2b508c7ae379.nl.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Hoe ontwerp je goede AI-agenten](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.nl.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 # Principes voor het ontwerpen van AI-agenten
@@ -39,7 +39,7 @@ Na het voltooien van deze les kun je:
 
 ## De ontwerpprincipes voor agenten
 
-![Ontwerpprincipes voor agenten](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2b738951ee7b2043e224441d98babcf654be69d866120f93a.nl.png)
+![Ontwerpprincipes voor agenten](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.nl.png)
 
 ### Agent (Ruimte)
 
