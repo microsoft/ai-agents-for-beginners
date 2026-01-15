@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "el"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.el.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/el/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Κάντε κλικ στην εικόνα παραπάνω για να δείτε το βίντεο αυτού του μαθήματος)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Αυτό το επαναληπτικό στυλ “maker-checker” έχει σχεδιαστεί για να βελτιώνει την ακρίβεια, να διαχειρίζεται εσφαλμένα ερωτήματα σε δομημένες βάσεις δεδομένων (π.χ. NL2SQL) και να εξασφαλίζει ισορροπημένα, υψηλής ποιότητας αποτελέσματα. Αντί να βασίζεται αποκλειστικά σε προσεκτικά σχεδιασμένες αλυσίδες προτροπών, το σύστημα αναλαμβάνει ενεργά τη διαδικασία λογικής του. Μπορεί να ξαναγράψει ερωτήματα που αποτυγχάνουν, να επιλέξει διαφορετικές μεθόδους ανάκτησης και να ενσωματώσει πολλαπλά εργαλεία—όπως αναζήτηση με διανύσματα στο Azure AI Search, βάσεις δεδομένων SQL ή προσαρμοσμένα APIs—πριν ολοκληρώσει την απάντησή του. Αυτό εξαλείφει την ανάγκη για υπερβολικά περίπλοκα πλαίσια ορχήστρωσης. Αντίθετα, ένας σχετικά απλός κύκλος “κλήση LLM → χρήση εργαλείου → κλήση LLM → …” μπορεί να αποδώσει εξελιγμένα και καλά τεκμηριωμένα αποτελέσματα.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.el.png)
+![Agentic RAG Core Loop](../../../translated_images/el/agentic-rag-core-loop.c8f4b85c26920f71.png)
 
 ## Ανάληψη της Διαδικασίας Λογικής
 
@@ -67,7 +67,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Επαναληπτικοί Κύκλοι, Ενσωμάτωση Εργαλείων και Μνήμη
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.el.png)
+![Tool Integration Architecture](../../../translated_images/el/tool-integration.0f569710b5c17c10.png)
 
 Ένα agentic σύστημα βασίζεται σε ένα μοτίβο αλληλεπίδρασης με κύκλους:
 
@@ -89,7 +89,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Αυτή η επαναληπτική και δυναμική προσέγγιση επιτρέπει στο μοντέλο να βελτιώνεται συνεχώς, εξασφαλίζοντας ότι δεν είναι απλώς ένα σύστημα μιας χρήσης αλλά ένα που μαθαίνει από τα λάθη του κατά τη διάρκεια μιας δεδομένης συνεδρίας.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.el.png)
+![Self Correction Mechanism](../../../translated_images/el/self-correction.da87f3783b7f174b.png)
 
 ## Όρια της Αυτονομίας
 

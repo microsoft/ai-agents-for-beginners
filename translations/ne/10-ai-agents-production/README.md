@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # उत्पादनमा AI एजेन्टहरू: अवलोकनशीलता र मूल्याङ्कन
 
-[![उत्पादनमा AI एजेन्टहरू](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.ne.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![उत्पादनमा AI एजेन्टहरू](../../../translated_images/ne/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 जब AI एजेन्टहरू प्रोटोटाइपबाट वास्तविक संसारका अनुप्रयोगहरूमा जान्छन्, तिनीहरूको व्यवहार बुझ्न, प्रदर्शन अनुगमन गर्न, र तिनीहरूको नतिजाहरू व्यवस्थित रूपमा मूल्याङ्कन गर्न सक्ने क्षमता महत्त्वपूर्ण हुन्छ।
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "nl"
 }
 -->
-[![Betrouwbare AI-agenten](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.nl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Betrouwbare AI-agenten](../../../translated_images/nl/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
@@ -41,7 +41,7 @@ Voor AI-agenten is de systeemprompt nog belangrijker, omdat de AI-agenten zeer s
 
 Om schaalbare systeemprompts te maken, kunnen we een systeemberichtframework gebruiken om één of meerdere agenten in onze toepassing te bouwen:
 
-![Een systeemberichtframework bouwen](../../../translated_images/system-message-framework.3a97368c92d11d68.nl.png)
+![Een systeemberichtframework bouwen](../../../translated_images/nl/system-message-framework.3a97368c92d11d68.png)
 
 #### Stap 1: Maak een meta-systeembericht
 
@@ -130,7 +130,7 @@ De waarde van dit systeemberichtframework is dat het gemakkelijker wordt om syst
 
 Om betrouwbare AI-agenten te bouwen, is het belangrijk om de risico's en bedreigingen voor je AI-agent te begrijpen en te beperken. Laten we enkele van de verschillende bedreigingen voor AI-agenten bekijken en hoe je hier beter op kunt plannen en je kunt voorbereiden.
 
-![Bedreigingen begrijpen](../../../translated_images/understanding-threats.89edeada8a97fc0f.nl.png)
+![Bedreigingen begrijpen](../../../translated_images/nl/understanding-threats.89edeada8a97fc0f.png)
 
 ### Taken en instructies
 
@@ -166,7 +166,7 @@ Om betrouwbare AI-agenten te bouwen, is het belangrijk om de risico's en bedreig
 
 Een andere effectieve manier om betrouwbare AI-agentensystemen te bouwen, is door gebruik te maken van een mens-in-de-lus. Dit creëert een proces waarbij gebruikers feedback kunnen geven aan de agenten tijdens de uitvoering. Gebruikers fungeren in feite als agenten in een multi-agentsysteem door goedkeuring te geven of het proces te beëindigen.
 
-![Mens-in-de-lus](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.nl.png)
+![Mens-in-de-lus](../../../translated_images/nl/human-in-the-loop.5f0068a678f62f4f.png)
 
 Hier is een codevoorbeeld met AutoGen om te laten zien hoe dit concept wordt geïmplementeerd:
 

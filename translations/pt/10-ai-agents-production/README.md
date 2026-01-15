@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agentes de IA em Produção: Observabilidade e Avaliação
 
-[![Agentes de IA em Produção](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.pt.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![Agentes de IA em Produção](../../../translated_images/pt/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 À medida que os agentes de IA passam de protótipos experimentais para aplicações no mundo real, torna-se essencial compreender o seu comportamento, monitorizar o seu desempenho e avaliar sistematicamente os seus resultados.
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "el"
 }
 -->
-[![Πώς να Σχεδιάσετε Καλούς Πράκτορες AI](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.el.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Πώς να Σχεδιάσετε Καλούς Πράκτορες AI](../../../translated_images/el/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Κάντε κλικ στην παραπάνω εικόνα για να παρακολουθήσετε το βίντεο αυτού του μαθήματος)_
 # Αρχές Σχεδιασμού Πρακτόρων AI
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Οι Αρχές Σχεδιασμού Πρακτόρων
 
-![Αρχές Σχεδιασμού Πρακτόρων](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.el.png)
+![Αρχές Σχεδιασμού Πρακτόρων](../../../translated_images/el/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### Πράκτορας (Χώρος)
 

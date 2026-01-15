@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # AI 에이전트를 위한 메모리  
-[![에이전트 메모리](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.ko.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![에이전트 메모리](../../../translated_images/ko/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 AI 에이전트를 만드는 고유한 이점에 대해 논의할 때 주로 두 가지가 언급됩니다: 도구를 호출하여 작업을 완료하는 능력과 시간이 지남에 따라 개선되는 능력입니다. 메모리는 사용자에게 더 나은 경험을 제공할 수 있는 자기 개선 에이전트를 만드는 데 핵심적인 요소입니다.
 

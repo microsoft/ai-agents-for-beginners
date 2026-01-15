@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # ਏਆਈ ਏਜੰਟਾਂ ਲਈ ਮੈਮੋਰੀ 
-[![ਏਜੰਟ ਮੈਮੋਰੀ](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.pa.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![ਏਜੰਟ ਮੈਮੋਰੀ](../../../translated_images/pa/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 ਜਦੋਂ ਏਆਈ ਏਜੰਟਾਂ ਬਣਾਉਣ ਦੇ ਵਿਲੱਖਣ ਫਾਇਦਿਆਂ ਬਾਰੇ ਗੱਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ, ਤਾਂ ਮੁੱਖ ਤੌਰ 'ਤੇ ਦੋ ਗੱਲਾਂ 'ਤੇ ਚਰਚਾ ਹੁੰਦੀ ਹੈ: ਟਾਸਕ ਪੂਰੇ ਕਰਨ ਲਈ ਟੂਲ ਕਾਲ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਅਤੇ ਸਮੇਂ ਦੇ ਨਾਲ ਸੁਧਾਰ ਕਰਨ ਦੀ ਯੋਗਤਾ। ਮੈਮੋਰੀ ਇੱਕ ਸਵੈ-ਸੁਧਾਰਕ ਏਜੰਟ ਬਣਾਉਣ ਦੀ ਬੁਨਿਆਦ ਹੈ ਜੋ ਸਾਡੇ ਯੂਜ਼ਰਾਂ ਲਈ ਵਧੀਆ ਤਜਰਬੇ ਪੈਦਾ ਕਰ ਸਕੇ।
 

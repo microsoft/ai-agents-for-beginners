@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pa"
 }
 -->
-[![ਚੰਗੇ AI ਏਜੰਟ ਬਣਾਉਣ ਦਾ ਤਰੀਕਾ](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.pa.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![ਚੰਗੇ AI ਏਜੰਟ ਬਣਾਉਣ ਦਾ ਤਰੀਕਾ](../../../translated_images/pa/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(ਉਪਰ ਦਿੱਤੀ ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇਸ ਪਾਠ ਦਾ ਵੀਡੀਓ ਵੇਖੋ)_
 
@@ -222,7 +222,7 @@ AI ਏਜੰਟ ਟੂਲਾਂ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਜਟਿਲ
 
 ਹੇਠਾਂ ਦਿੱਤਾ ਡਾਇਗ੍ਰਾਮ ਸੈਮੈਂਟਿਕ ਕਰਨਲ ਨਾਲ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦੀ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਦਰਸਾਉਂਦਾ ਹੈ:
 
-![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f6014.pa.png)
+![function calling](../../../translated_images/pa/functioncalling-diagram.a84006fc287f6014.png)
 
 ਸੈਮੈਂਟਿਕ ਕਰਨਲ ਵਿੱਚ ਫੰਕਸ਼ਨ/ਟੂਲਾਂ ਨੂੰ <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">ਪਲੱਗਇਨ</a> ਕਿਹਾ ਜਾਂਦਾ ਹੈ।  
 ਅਸੀਂ ਪਹਿਲਾਂ ਦੇਖੇ `get_current_time` ਫੰਕਸ਼ਨ

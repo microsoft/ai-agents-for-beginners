@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ms"
 }
 -->
-[![Cara Merancang Ejen AI yang Baik](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.ms.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Cara Merancang Ejen AI yang Baik](../../../translated_images/ms/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 # Prinsip Reka Bentuk Ejen AI
@@ -39,7 +39,7 @@ Selepas menyelesaikan pelajaran ini, anda akan dapat:
 
 ## Prinsip Reka Bentuk Ejen
 
-![Prinsip Reka Bentuk Ejen](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.ms.png)
+![Prinsip Reka Bentuk Ejen](../../../translated_images/ms/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### Ejen (Ruang)
 

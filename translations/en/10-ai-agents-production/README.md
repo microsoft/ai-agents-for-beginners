@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI Agents in Production: Observability & Evaluation
 
-[![AI Agents in Production](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.en.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents in Production](../../../translated_images/en/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 As AI agents transition from experimental prototypes to real-world applications, it becomes crucial to understand their behavior, monitor their performance, and systematically evaluate their outputs.
 

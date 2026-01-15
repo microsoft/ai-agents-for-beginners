@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bn"
 }
 -->
-[![কীভাবে ভালো এআই এজেন্ট ডিজাইন করবেন](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.bn.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![কীভাবে ভালো এআই এজেন্ট ডিজাইন করবেন](../../../translated_images/bn/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(উপরের ছবিতে ক্লিক করে এই পাঠের ভিডিও দেখুন)_
 # এআই এজেন্টিক ডিজাইন নীতিমালা
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## এজেন্টিক ডিজাইন নীতিমালা
 
-![এজেন্টিক ডিজাইন নীতিমালা](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.bn.png)
+![এজেন্টিক ডিজাইন নীতিমালা](../../../translated_images/bn/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### এজেন্ট (স্পেস)
 

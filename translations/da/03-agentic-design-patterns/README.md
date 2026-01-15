@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "da"
 }
 -->
-[![Sådan designer man gode AI-agenter](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.da.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Sådan designer man gode AI-agenter](../../../translated_images/da/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Klik på billedet ovenfor for at se videoen til denne lektion)_
 # Principper for design af AI-agenter
@@ -39,7 +39,7 @@ Efter at have gennemført denne lektion vil du kunne:
 
 ## Principperne for design af agenter
 
-![Principper for design af agenter](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.da.png)
+![Principper for design af agenter](../../../translated_images/da/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### Agent (Rum)
 

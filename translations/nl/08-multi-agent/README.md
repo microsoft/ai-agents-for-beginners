@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "nl"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.nl.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/nl/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
@@ -97,7 +97,7 @@ In dit patroon vertegenwoordigt elke agent een gebruiker in de groepschat, en be
 
 Dit patroon kan worden geïmplementeerd met behulp van een gecentraliseerde architectuur waarbij alle berichten via een centrale server worden gerouteerd, of een gedecentraliseerde architectuur waarbij berichten rechtstreeks worden uitgewisseld.
 
-![Groepschat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.nl.png)
+![Groepschat](../../../translated_images/nl/multi-agent-group-chat.ec10f4cde556babd.png)
 
 ### Overdracht
 
@@ -107,7 +107,7 @@ Typische gebruiksscenario's voor dit patroon zijn klantenondersteuning, taakbehe
 
 In dit patroon vertegenwoordigt elke agent een taak of een stap in een workflow, en agents kunnen taken aan andere agents overdragen op basis van vooraf gedefinieerde regels.
 
-![Overdracht](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.nl.png)
+![Overdracht](../../../translated_images/nl/multi-agent-hand-off.4c5fb00ba6f8750a.png)
 
 ### Collaboratief filteren
 
@@ -121,7 +121,7 @@ Laten we een voorbeeld nemen waarin een gebruiker een aanbeveling wil over de be
 - **Technische analyse**: Een andere agent kan een expert zijn in technische analyse.
 - **Fundamentele analyse**: En een andere agent kan een expert zijn in fundamentele analyse. Door samen te werken, kunnen deze agents een meer uitgebreide aanbeveling aan de gebruiker geven.
 
-![Aanbeveling](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.nl.png)
+![Aanbeveling](../../../translated_images/nl/multi-agent-filtering.d959cb129dc9f608.png)
 
 ## Scenario: Terugbetalingsproces
 

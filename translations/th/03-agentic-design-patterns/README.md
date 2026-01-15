@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "th"
 }
 -->
-[![วิธีออกแบบ AI Agents ที่ดี](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.th.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![วิธีออกแบบ AI Agents ที่ดี](../../../translated_images/th/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(คลิกที่ภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 # หลักการออกแบบ AI Agentic
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## หลักการออกแบบ Agentic
 
-![หลักการออกแบบ Agentic](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.th.png)
+![หลักการออกแบบ Agentic](../../../translated_images/th/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### เอเจนต์ (พื้นที่)
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sv"
 }
 -->
-[![Hur man designar bra AI-agenter](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.sv.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Hur man designar bra AI-agenter](../../../translated_images/sv/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Klicka på bilden ovan för att se videon för denna lektion)_
 
@@ -216,7 +216,7 @@ Här är några exempel på hur du kan implementera designmönstret för verktyg
 
 Följande diagram illustrerar processen för funktionsanrop med Semantic Kernel:
 
-![funktionsanrop](../../../translated_images/functioncalling-diagram.a84006fc287f6014.sv.png)
+![funktionsanrop](../../../translated_images/sv/functioncalling-diagram.a84006fc287f6014.png)
 
 I Semantic Kernel kallas funktioner/verktyg <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Vi kan konvertera `get_current_time`-funktionen vi såg tidigare till ett plugin genom att göra det till en klass med funktionen i den. Vi kan också importera dekoratorn `kernel_function`, som tar in beskrivningen av funktionen. När du sedan skapar en kernel med GetCurrentTimePlugin kommer kerneln automatiskt att serialisera funktionen och dess parametrar, vilket skapar schemat som skickas till LLM i processen.
 
@@ -277,7 +277,7 @@ Föreställ dig att du är en säljagent på ett företag som heter Contoso. Du 
 
 Följande bild illustrerar hur du kan använda Azure AI Agent Service för att analysera din försäljningsdata:
 
-![Agenttjänst i aktion](../../../translated_images/agent-service-in-action.34fb465c9a84659e.sv.jpg)
+![Agenttjänst i aktion](../../../translated_images/sv/agent-service-in-action.34fb465c9a84659e.jpg)
 
 För att använda något av dessa verktyg med tjänsten kan vi skapa en klient och definiera ett verktyg eller en verktygssamling. För att implementera detta praktiskt kan vi använda följande Python-kod. LLM kommer att kunna titta på verktygssamlingen och avgöra om den ska använda den användarskapade funktionen, `fetch_sales_data_using_sqlite_query`, eller den förbyggda Code Interpreter beroende på användarens förfrågan.
 

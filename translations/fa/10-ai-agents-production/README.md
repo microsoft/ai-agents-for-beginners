@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # عوامل هوش مصنوعی در تولید: مشاهده‌پذیری و ارزیابی
 
-[![عوامل هوش مصنوعی در تولید](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.fa.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![عوامل هوش مصنوعی در تولید](../../../translated_images/fa/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 وقتی عوامل هوش مصنوعی از نمونه‌های اولیه آزمایشی به کاربردهای واقعی منتقل می‌شوند، توانایی درک رفتار آن‌ها، نظارت بر عملکردشان و ارزیابی سیستماتیک خروجی‌هایشان اهمیت پیدا می‌کند.
 

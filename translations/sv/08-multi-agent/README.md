@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sv"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.sv.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/sv/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klicka på bilden ovan för att se videon för denna lektion)_
 
@@ -97,7 +97,7 @@ I detta mönster representerar varje agent en användare i gruppchatten, och med
 
 Detta mönster kan implementeras med en centraliserad arkitektur där alla meddelanden dirigeras genom en central server, eller en decentraliserad arkitektur där meddelanden utbyts direkt.
 
-![Gruppchatt](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.sv.png)
+![Gruppchatt](../../../translated_images/sv/multi-agent-group-chat.ec10f4cde556babd.png)
 
 ### Överlämning
 
@@ -107,7 +107,7 @@ Typiska användningsfall för detta mönster inkluderar kundsupport, uppgiftshan
 
 I detta mönster representerar varje agent en uppgift eller ett steg i ett arbetsflöde, och agenter kan överlämna uppgifter till andra agenter baserat på fördefinierade regler.
 
-![Överlämning](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.sv.png)
+![Överlämning](../../../translated_images/sv/multi-agent-hand-off.4c5fb00ba6f8750a.png)
 
 ### Samarbetsfiltrering
 
@@ -121,7 +121,7 @@ Låt oss ta ett exempel där en användare vill ha en rekommendation om den bäs
 - **Teknisk analys**: En annan agent kan vara expert på teknisk analys.
 - **Fundamental analys**: Och en annan agent kan vara expert på fundamental analys. Genom att samarbeta kan dessa agenter ge en mer omfattande rekommendation till användaren.
 
-![Rekommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.sv.png)
+![Rekommendation](../../../translated_images/sv/multi-agent-filtering.d959cb129dc9f608.png)
 
 ## Scenario: Återbetalningsprocess
 

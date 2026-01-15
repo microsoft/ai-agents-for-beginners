@@ -53,7 +53,7 @@ Tämän pitäisi käynnistää Chainlit-serverisi osoitteessa `localhost:8000` s
 
 Yhdistääksesi Github MCP Serveriin, valitse "pistoke"-ikoni "Type your message here.." -chat-laatikon alapuolelta:
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.fi.png)
+![MCP Connect](../../../../../translated_images/fi/mcp-chainlit-1.7ed66d648e3cfb28.png)
 
 Tämän jälkeen voit klikata "Connect an MCP" lisätäksesi komennon, joka yhdistää Github MCP Serveriin:
 

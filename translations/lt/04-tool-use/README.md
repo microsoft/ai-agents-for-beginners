@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "lt"
 }
 -->
-[![Kaip kurti gerus AI agentus](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.lt.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Kaip kurti gerus AI agentus](../../../translated_images/lt/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Spustelėkite aukščiau esančią nuotrauką, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
@@ -216,7 +216,7 @@ Funkcijų iškvietimas yra daugelio, jei ne visų, agentų įrankių naudojimo d
 
 Šiame diagramoje pavaizduotas funkcijų iškvietimo procesas su Semantic Kernel:
 
-![funkcijų iškvietimas](../../../translated_images/functioncalling-diagram.a84006fc287f6014.lt.png)
+![funkcijų iškvietimas](../../../translated_images/lt/functioncalling-diagram.a84006fc287f6014.png)
 
 Semantic Kernel funkcijos/įrankiai vadinami <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Priedais</a>. Galime konvertuoti `get_current_time` funkciją, kurią matėme anksčiau, į priedą, paversdami ją klase su funkcija joje. Taip pat galime importuoti `kernel_function` dekoratorių, kuris priima funkcijos aprašymą. Kai sukuriate branduolį su GetCurrentTimePlugin, branduolys automatiškai serializuoja funkciją ir jos parametrus, kurdamas schemą, kuri bus siunčiama LLM.
 
@@ -277,7 +277,7 @@ Agent Service leidžia naudoti šiuos įrankius kartu kaip `toolset`. Jis taip p
 
 Šiame paveikslėlyje pavaizduota, kaip galite naudoti Azure AI Agent Service analizuoti savo pardavimų duomenis:
 
-![Agentinė paslauga veiksme](../../../translated_images/agent-service-in-action.34fb465c9a84659e.lt.jpg)
+![Agentinė paslauga veiksme](../../../translated_images/lt/agent-service-in-action.34fb465c9a84659e.jpg)
 
 Norėdami naudoti bet kurį iš šių įrankių su paslauga, galime sukurti klientą ir apibrėžti įrankį ar įrankių rinkinį. Praktiniam įgyvendinimui galime naudoti šį Python kodą. LLM galės peržiūrėti įrankių rinkinį ir nuspręsti, ar naudoti vartotojo sukurtą funkciją `fetch_sales_data_using_sqlite_query`, ar iš anksto paruoštą Kodo interpretatorių, priklausomai nuo vartotojo užklausos.
 

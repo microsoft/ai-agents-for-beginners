@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI Agents for Beginners - একটি কোর্স
 
-![জেনারেটিভ এআই ফর বিগিনার্স](../../translated_images/repo-thumbnailv2.06f4a48036fde647.bn.png)
+![জেনারেটিভ এআই ফর বিগিনার্স](../../translated_images/bn/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## AI এজেন্ট তৈরি শুরু করার জন্য যা কিছু জানতে হবে তা শেখানো একটি কোর্স
 

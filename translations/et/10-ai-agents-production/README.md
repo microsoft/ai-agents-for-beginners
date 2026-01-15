@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI-agentide kasutamine tootmises: Jälgitavus ja hindamine
 
-[![AI-agentid tootmises](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.et.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI-agentid tootmises](../../../translated_images/et/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Kui AI-agentid liiguvad eksperimentaalsetest prototüüpidest reaalse maailma rakendustesse, muutub nende käitumise mõistmine, jõudluse jälgimine ja väljundite süstemaatiline hindamine üha olulisemaks.
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sl"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.sl.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/sl/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Kliknite zgornjo sliko za ogled videa te lekcije)_
 # Metakognicija pri AI agentih
@@ -47,7 +47,7 @@ Sledenje, kako ali zakaj je izbral določeno pot.
 
 Metakognicija igra ključno vlogo pri oblikovanju AI agentov iz več razlogov:
 
-![Pomen metakognicije](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.sl.png)
+![Pomen metakognicije](../../../translated_images/sl/importance-of-metacognition.b381afe9aae352f7.png)
 
 - Samorefleksija: Agenti lahko ocenijo svojo uspešnost in prepoznajo področja za izboljšanje.
 - Prilagodljivost: Agenti lahko prilagodijo svoje strategije na podlagi preteklih izkušenj in spreminjajočih se okolij.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Najprej začnimo z razumevanjem razlike med orodjem RAG in predhodnim nalaganjem konteksta.
 
-![RAG vs nalaganje konteksta](../../../translated_images/rag-vs-context.9eae588520c00921.sl.png)
+![RAG vs nalaganje konteksta](../../../translated_images/sl/rag-vs-context.9eae588520c00921.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

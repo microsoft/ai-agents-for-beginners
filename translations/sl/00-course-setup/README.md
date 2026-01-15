@@ -25,7 +25,7 @@ To lahko storite s klikom na povezavo za <a href="https://github.com/microsoft/a
 
 Zdaj bi morali imeti svojo forkirano različico tega tečaja na naslednji povezavi:
 
-![Forkiran repozitorij](../../../translated_images/forked-repo.33f27ca1901baa6a.sl.png)
+![Forkiran repozitorij](../../../translated_images/sl/forked-repo.33f27ca1901baa6a.png)
 
 ### Plitko kloniranje (priporočeno za delavnice / Codespaces)
 
@@ -176,11 +176,11 @@ Prosimo, sledite [načelu najmanjših privilegijev](https://docs.github.com/en/g
 
 1. Na levi strani zaslona izberite možnost `Fine-grained tokens` z navigacijo do **Developer settings**.
 
-   ![Nastavitve razvijalca](../../../translated_images/profile_developer_settings.410a859fe749c755.sl.png)
+   ![Nastavitve razvijalca](../../../translated_images/sl/profile_developer_settings.410a859fe749c755.png)
 
    Nato izberite `Generate new token`.
 
-   ![Ustvari žeton](../../../translated_images/fga_new_token.1c1a234afe202ab3.sl.png)
+   ![Ustvari žeton](../../../translated_images/sl/fga_new_token.1c1a234afe202ab3.png)
 
 2. Vnesite opisno ime za svoj žeton, ki odraža njegov namen, da ga boste kasneje lažje prepoznali.
 
@@ -190,19 +190,19 @@ Prosimo, sledite [načelu najmanjših privilegijev](https://docs.github.com/en/g
     Za bolj varno držo lahko izberete krajše obdobje—na primer 7 dni 🛡️
     To je odličen način, da si postavite osebni cilj in dokončate tečaj, medtem ko je vaša učna motivacija visoka 🚀.
 
-    ![Ime in potek žetona](../../../translated_images/token-name-expiry-date.a095fb0de6386864.sl.png)
+    ![Ime in potek žetona](../../../translated_images/sl/token-name-expiry-date.a095fb0de6386864.png)
 
 3. Omejite obseg žetona na svoj fork tega repozitorija.
 
-    ![Omejitev obsega na fork repozitorija](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.sl.png)
+    ![Omejitev obsega na fork repozitorija](../../../translated_images/sl/token_repository_limit.924ade5e11d9d8bb.png)
 
 4. Omejite dovoljenja žetona: Pod **Permissions**, kliknite zavihek **Account** in nato gumb "+ Add permissions". Pojavi se spustni meni. Poiščite **Models** in označite polje.
 
-    ![Dodaj dovoljenje za modele](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.sl.png)
+    ![Dodaj dovoljenje za modele](../../../translated_images/sl/add_models_permissions.c0c44ed8b40fc143.png)
 
-5. Preverite zahtevana dovoljenja pred ustvarjanjem žetona. ![Preveri dovoljenja](../../../translated_images/verify_permissions.06bd9e43987a8b21.sl.png)
+5. Preverite zahtevana dovoljenja pred ustvarjanjem žetona. ![Preveri dovoljenja](../../../translated_images/sl/verify_permissions.06bd9e43987a8b21.png)
 
-6. Pred ustvarjanjem žetona se prepričajte, da ste pripravljeni shraniti žeton na varno mesto, kot je trezor za gesla, saj ga po ustvarjanju ne boste več videli. ![Varno shranjevanje žetona](../../../translated_images/store_token_securely.08ee2274c6ad6caf.sl.png)
+6. Pred ustvarjanjem žetona se prepričajte, da ste pripravljeni shraniti žeton na varno mesto, kot je trezor za gesla, saj ga po ustvarjanju ne boste več videli. ![Varno shranjevanje žetona](../../../translated_images/sl/store_token_securely.08ee2274c6ad6caf.png)
 
 Kopirajte svoj novi žeton, ki ste ga pravkar ustvarili. Zdaj ga boste dodali v svojo `.env` datoteko, vključeno v ta tečaj.
 
@@ -224,7 +224,7 @@ To bo kopiralo primer datoteke in ustvarilo `.env` v vaši mapi, kjer izpolnite 
 
 S kopiranim žetonom odprite `.env` datoteko v svojem najljubšem urejevalniku besedila in prilepite svoj žeton v polje `GITHUB_TOKEN`.
 
-![Polje za GitHub žeton](../../../translated_images/github_token_field.20491ed3224b5f4a.sl.png)
+![Polje za GitHub žeton](../../../translated_images/sl/github_token_field.20491ed3224b5f4a.png)
 
 Zdaj bi morali biti sposobni zagnati vzorčne kode tega tečaja.
 
@@ -238,7 +238,7 @@ Ko ustvarite svoj projekt, boste morali pridobiti povezovalni niz za svoj projek
 
 To lahko storite tako, da obiščete stran **Pregled** svojega projekta v portalu Azure AI Foundry.
 
-![Povezovalni niz projekta](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.sl.png)
+![Povezovalni niz projekta](../../../translated_images/sl/project-endpoint.8cf04c9975bbfbf1.png)
 
 ### Korak 2: Ustvarite svojo `.env` datoteko
 

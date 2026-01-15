@@ -25,7 +25,7 @@ Bunu yapmak için <a href="https://github.com/microsoft/ai-agents-for-beginners/
 
 Artık bu kursun çatallanmış kendi versiyonuna aşağıdaki bağlantıdan sahip olmalısınız:
 
-![Çatallanmış Depo](../../../translated_images/forked-repo.33f27ca1901baa6a.tr.png)
+![Çatallanmış Depo](../../../translated_images/tr/forked-repo.33f27ca1901baa6a.png)
 
 ### Yüzeysel Klonlama (atölye çalışması / Codespaces için önerilir)
 
@@ -176,11 +176,11 @@ Jetonunuzu oluştururken [En Az Ayrıcalık İlkesi](https://docs.github.com/en/
 
 1. **Geliştirici ayarları**na giderek ekranın sol tarafındaki `İnce Ayarlı Jetonlar` seçeneğini seçin.
 
-   ![Geliştirici ayarları](../../../translated_images/profile_developer_settings.410a859fe749c755.tr.png)
+   ![Geliştirici ayarları](../../../translated_images/tr/profile_developer_settings.410a859fe749c755.png)
 
    Ardından `Yeni jeton oluştur` seçeneğini seçin.
 
-   ![Jeton Oluştur](../../../translated_images/fga_new_token.1c1a234afe202ab3.tr.png)
+   ![Jeton Oluştur](../../../translated_images/tr/fga_new_token.1c1a234afe202ab3.png)
 
 2. Jetonun amacını yansıtan açıklayıcı bir ad girin, böylece daha sonra kolayca tanımlayabilirsiniz.
 
@@ -190,19 +190,19 @@ Jetonunuzu oluştururken [En Az Ayrıcalık İlkesi](https://docs.github.com/en/
     Daha güvenli bir duruş için daha kısa bir süre seçebilirsiniz—örneğin 7 gün 🛡️
     Bu, kişisel bir hedef belirlemek ve öğrenme ivmeniz yüksekken kursu tamamlamak için harika bir yoldur 🚀.
 
-    ![Jeton Adı ve Süresi](../../../translated_images/token-name-expiry-date.a095fb0de6386864.tr.png)
+    ![Jeton Adı ve Süresi](../../../translated_images/tr/token-name-expiry-date.a095fb0de6386864.png)
 
 3. Jetonun kapsamını bu deponun çatallanmış versiyonuyla sınırlayın.
 
-    ![Kapsamı çatallanmış depoyla sınırla](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.tr.png)
+    ![Kapsamı çatallanmış depoyla sınırla](../../../translated_images/tr/token_repository_limit.924ade5e11d9d8bb.png)
 
 4. Jetonun izinlerini kısıtlayın: **İzinler** altında, **Hesap** sekmesine tıklayın ve "+ İzin ekle" düğmesine tıklayın. Bir açılır menü görünecektir. Lütfen **Modeller**i arayın ve kutuyu işaretleyin.
 
-    ![Modeller İzni Ekle](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.tr.png)
+    ![Modeller İzni Ekle](../../../translated_images/tr/add_models_permissions.c0c44ed8b40fc143.png)
 
-5. Jetonu oluşturmadan önce gereken izinleri doğrulayın. ![İzinleri Doğrula](../../../translated_images/verify_permissions.06bd9e43987a8b21.tr.png)
+5. Jetonu oluşturmadan önce gereken izinleri doğrulayın. ![İzinleri Doğrula](../../../translated_images/tr/verify_permissions.06bd9e43987a8b21.png)
 
-6. Jetonu oluşturmadan önce, jetonu bir şifre yöneticisi kasası gibi güvenli bir yerde saklamaya hazır olduğunuzdan emin olun, çünkü oluşturduktan sonra tekrar gösterilmeyecektir. ![Jetonu Güvenli Bir Şekilde Sakla](../../../translated_images/store_token_securely.08ee2274c6ad6caf.tr.png)
+6. Jetonu oluşturmadan önce, jetonu bir şifre yöneticisi kasası gibi güvenli bir yerde saklamaya hazır olduğunuzdan emin olun, çünkü oluşturduktan sonra tekrar gösterilmeyecektir. ![Jetonu Güvenli Bir Şekilde Sakla](../../../translated_images/tr/store_token_securely.08ee2274c6ad6caf.png)
 
 Yeni oluşturduğunuz jetonu kopyalayın. Şimdi bu jetonu bu kursa dahil edilen `.env` dosyasına ekleyeceksiniz.
 
@@ -224,7 +224,7 @@ Bu, örnek dosyayı kopyalayacak ve dizininizde bir `.env` dosyası oluşturacak
 
 Jetonunuzu kopyalayarak, favori metin düzenleyicinizi açın ve jetonunuzu `.env` dosyasındaki `GITHUB_TOKEN` alanına yapıştırın.
 
-![GitHub Jeton Alanı](../../../translated_images/github_token_field.20491ed3224b5f4a.tr.png)
+![GitHub Jeton Alanı](../../../translated_images/tr/github_token_field.20491ed3224b5f4a.png)
 
 Artık bu kursun kod örneklerini çalıştırabilirsiniz.
 
@@ -238,7 +238,7 @@ Projenizi oluşturduktan sonra, projenizin bağlantı dizgesini almanız gerekec
 
 Bu, Azure AI Foundry portalındaki projenizin **Genel Bakış** sayfasına giderek yapılabilir.
 
-![Proje Bağlantı Dizgesi](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.tr.png)
+![Proje Bağlantı Dizgesi](../../../translated_images/tr/project-endpoint.8cf04c9975bbfbf1.png)
 
 ### Adım 2: `.env` Dosyanızı Oluşturun
 

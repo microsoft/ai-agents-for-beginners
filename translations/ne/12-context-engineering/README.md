@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # एआई एजेन्टहरूको लागि सन्दर्भ इन्जिनियरिङ
 
-[![सन्दर्भ इन्जिनियरिङ](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.ne.png)](https://youtu.be/F5zqRV7gEag)
+[![सन्दर्भ इन्जिनियरिङ](../../../translated_images/ne/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(माथिको चित्रमा क्लिक गरेर यस पाठको भिडियो हेर्नुहोस्)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### सन्दर्भका प्रकारहरू
 
-[![सन्दर्भका प्रकारहरू](../../../translated_images/context-types.fc10b8927ee43f06.ne.png)](https://youtu.be/F5zqRV7gEag)
+[![सन्दर्भका प्रकारहरू](../../../translated_images/ne/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
 
 सन्दर्भ केवल एक कुरा होइन भन्ने कुरा सम्झनु महत्त्वपूर्ण छ। एआई एजेन्टलाई आवश्यक जानकारी विभिन्न स्रोतहरूबाट आउन सक्छ, र यो सुनिश्चित गर्नु हाम्रो जिम्मेवारी हो कि एजेन्टसँग ती स्रोतहरूमा पहुँच होस्:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### योजना बनाउने रणनीतिहरू
 
-[![सन्दर्भ इन्जिनियरिङका उत्कृष्ट अभ्यासहरू](../../../translated_images/best-practices.f4170873dc554f58.ne.png)](https://youtu.be/F5zqRV7gEag)
+[![सन्दर्भ इन्जिनियरिङका उत्कृष्ट अभ्यासहरू](../../../translated_images/ne/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
 
 राम्रो सन्दर्भ इन्जिनियरिङ राम्रो योजना बनाउनेबाट सुरु हुन्छ। यहाँ सन्दर्भ इन्जिनियरिङको अवधारणा लागू गर्न सोच्न मद्दत गर्ने एउटा दृष्टिकोण छ:
 

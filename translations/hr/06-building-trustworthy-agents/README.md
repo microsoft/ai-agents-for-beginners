@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hr"
 }
 -->
-[![Pouzdani AI agenti](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.hr.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Pouzdani AI agenti](../../../translated_images/hr/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Kliknite na sliku iznad za pregled videa ove lekcije)_
 
@@ -41,7 +41,7 @@ Za AI agente, sistemske upute su još važnije jer agenti trebaju vrlo specifič
 
 Kako bismo stvorili skalabilne sistemske upute, možemo koristiti okvir za sistemske poruke za izgradnju jednog ili više agenata u našoj aplikaciji:
 
-![Izgradnja okvira za sistemske poruke](../../../translated_images/system-message-framework.3a97368c92d11d68.hr.png)
+![Izgradnja okvira za sistemske poruke](../../../translated_images/hr/system-message-framework.3a97368c92d11d68.png)
 
 #### Korak 1: Stvorite meta sistemsku poruku
 
@@ -130,7 +130,7 @@ Vrijednost ovog okvira za sistemske poruke je u tome što omogućuje lakše skal
 
 Kako bismo izgradili pouzdane AI agente, važno je razumjeti i ublažiti rizike i prijetnje za vašeg AI agenta. Pogledajmo neke od različitih prijetnji AI agentima i kako se bolje pripremiti za njih.
 
-![Razumijevanje prijetnji](../../../translated_images/understanding-threats.89edeada8a97fc0f.hr.png)
+![Razumijevanje prijetnji](../../../translated_images/hr/understanding-threats.89edeada8a97fc0f.png)
 
 ### Zadatak i upute
 
@@ -166,7 +166,7 @@ Kako bismo izgradili pouzdane AI agente, važno je razumjeti i ublažiti rizike 
 
 Još jedan učinkovit način za izgradnju pouzdanih sustava AI agenata je uključivanje ljudskog faktora u petlju. Ovo stvara tijek rada u kojem korisnici mogu pružiti povratne informacije agentima tijekom izvršavanja. Korisnici u osnovi djeluju kao agenti u sustavu s više agenata, pružajući odobrenje ili prekidanje procesa koji je u tijeku.
 
-![Ljudski faktor u petlji](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.hr.png)
+![Ljudski faktor u petlji](../../../translated_images/hr/human-in-the-loop.5f0068a678f62f4f.png)
 
 Evo isječka koda koji koristi AutoGen za prikaz kako se ovaj koncept implementira:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pl"
 }
 -->
-[![Zaufani Agenci AI](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.pl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Zaufani Agenci AI](../../../translated_images/pl/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 
@@ -41,7 +41,7 @@ Dla Agentów AI wiadomość systemowa jest jeszcze ważniejsza, ponieważ agenci
 
 Aby tworzyć skalowalne wiadomości systemowe, możemy użyć ram systemowych wiadomości do budowy jednego lub więcej agentów w naszej aplikacji:
 
-![Tworzenie Ram Systemowych Wiadomości](../../../translated_images/system-message-framework.3a97368c92d11d68.pl.png)
+![Tworzenie Ram Systemowych Wiadomości](../../../translated_images/pl/system-message-framework.3a97368c92d11d68.png)
 
 #### Krok 1: Stwórz Meta Wiadomość Systemową
 
@@ -130,7 +130,7 @@ Wartość tej ramy wiadomości systemowych polega na możliwości łatwego skalo
 
 Aby budować zaufanych agentów AI, ważne jest zrozumienie i minimalizowanie ryzyk oraz zagrożeń związanych z agentem AI. Przyjrzyjmy się niektórym z różnych zagrożeń dla agentów AI i sposobom ich lepszego planowania i przygotowania.
 
-![Zrozumienie Zagrożeń](../../../translated_images/understanding-threats.89edeada8a97fc0f.pl.png)
+![Zrozumienie Zagrożeń](../../../translated_images/pl/understanding-threats.89edeada8a97fc0f.png)
 
 ### Zadania i Instrukcje
 
@@ -166,7 +166,7 @@ Aby budować zaufanych agentów AI, ważne jest zrozumienie i minimalizowanie ry
 
 Innym skutecznym sposobem budowania zaufanych systemów Agentów AI jest wykorzystanie człowieka w pętli. Tworzy to przepływ, w którym użytkownicy mogą dostarczać agentom opinii podczas ich działania. Użytkownicy zasadniczo działają jako agenci w systemie wieloagentowym, zapewniając zatwierdzenie lub zakończenie procesu.
 
-![Człowiek w Pętli](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.pl.png)
+![Człowiek w Pętli](../../../translated_images/pl/human-in-the-loop.5f0068a678f62f4f.png)
 
 Oto fragment kodu wykorzystujący AutoGen, który pokazuje, jak ta koncepcja jest wdrażana:
 

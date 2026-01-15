@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Bộ nhớ cho các tác nhân AI
-[![Bộ nhớ tác nhân](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.vi.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Bộ nhớ tác nhân](../../../translated_images/vi/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Khi thảo luận về lợi ích độc đáo của việc tạo ra các tác nhân AI, hai điều chính thường được nhắc đến: khả năng gọi công cụ để hoàn thành nhiệm vụ và khả năng cải thiện theo thời gian. Bộ nhớ là nền tảng để tạo ra các tác nhân tự cải thiện, mang lại trải nghiệm tốt hơn cho người dùng.
 

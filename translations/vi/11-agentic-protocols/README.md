@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Sử dụng Các Giao Thức Agentic (MCP, A2A và NLWeb)
 
-[![Agentic Protocols](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.vi.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentic Protocols](../../../translated_images/vi/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Nhấp vào hình ảnh trên để xem video của bài học này)_
 
@@ -69,7 +69,7 @@ MCP mang lại những lợi ích đáng kể cho các tác nhân AI:
 
 ### Ví dụ về MCP
 
-![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.vi.png)
+![MCP Diagram](../../../translated_images/vi/mcp-diagram.e4ca1cbd551444a1.png)
 
 Hãy tưởng tượng một người dùng muốn đặt vé máy bay bằng trợ lý AI được hỗ trợ bởi MCP.
 
@@ -125,7 +125,7 @@ Thành phần này được sử dụng để **xử lý cập nhật và truy�
 
 ### Ví dụ về A2A
 
-![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc26.vi.png)
+![A2A Diagram](../../../translated_images/vi/A2A-Diagram.8666928d648acc26.png)
 
 Hãy mở rộng kịch bản đặt vé du lịch của chúng ta, nhưng lần này sử dụng A2A.
 
@@ -159,7 +159,7 @@ Hãy cùng tìm hiểu các thành phần khác nhau của NLWeb, lợi ích c�
 
 ### NLWeb qua ví dụ
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.vi.png)
+![NLWeb](../../../translated_images/vi/nlweb-diagram.c1e2390b310e5fe4.png)
 
 Hãy xem xét trang web đặt vé du lịch của chúng ta, nhưng lần này được hỗ trợ bởi NLWeb.
 

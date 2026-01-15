@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ms"
 }
 -->
-[![Pengenalan kepada Ejen AI](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.ms.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Pengenalan kepada Ejen AI](../../../translated_images/ms/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 
@@ -47,7 +47,7 @@ Mari kita pecahkan definisi ini kepada bahagian yang lebih kecil:
   - **Sensor** - Persekitaran mempunyai maklumat dan memberikan maklum balas. Ejen AI menggunakan sensor untuk mengumpul dan mentafsir maklumat tentang keadaan semasa persekitaran. Dalam contoh Ejen Tempahan Perjalanan, sistem tempahan perjalanan boleh memberikan maklumat seperti ketersediaan hotel atau harga penerbangan.
   - **Aktuator** - Setelah Ejen AI menerima keadaan semasa persekitaran, untuk tugas semasa, ejen menentukan tindakan apa yang perlu dilakukan untuk mengubah persekitaran. Untuk ejen tempahan perjalanan, ia mungkin menempah bilik yang tersedia untuk pengguna.
 
-![Apa itu Ejen AI?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.ms.png)
+![Apa itu Ejen AI?](../../../translated_images/ms/what-are-ai-agents.1ec8c4d548af601a.png)
 
 **Model Bahasa Besar** - Konsep ejen telah wujud sebelum penciptaan LLMs. Kelebihan membina Ejen AI dengan LLMs adalah keupayaannya untuk mentafsir bahasa manusia dan data. Keupayaan ini membolehkan LLMs mentafsir maklumat persekitaran dan menentukan rancangan untuk mengubah persekitaran.
 
@@ -77,7 +77,7 @@ Dalam bahagian sebelumnya, kita menggunakan kes penggunaan Ejen Perjalanan untuk
 
 Mari kita lihat jenis kes penggunaan yang paling sesuai untuk Ejen AI:
 
-![Bila menggunakan Ejen AI?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.ms.png)
+![Bila menggunakan Ejen AI?](../../../translated_images/ms/when-to-use-ai-agents.54becb3bed74a479.png)
 
 - **Masalah Terbuka** - membolehkan LLM menentukan langkah-langkah yang diperlukan untuk menyelesaikan tugas kerana ia tidak selalu dapat dikodkan secara tetap dalam aliran kerja.
 - **Proses Berbilang Langkah** - tugas yang memerlukan tahap kerumitan di mana Ejen AI perlu menggunakan alat atau maklumat dalam beberapa giliran dan bukannya pengambilan satu kali.  

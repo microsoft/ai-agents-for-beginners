@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Azure AI Foundry ਹੱਬ ਬਣਾਉਣ ਲਈ [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ਬਲੌਗ ਪੋਸਟ ਵਿੱਚ ਦਿੱਤੀਆਂ ਹਦਾਇਤਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ।
 2. ਜਦੋਂ ਤੁਹਾਡਾ ਪ੍ਰੋਜੈਕਟ ਬਣ ਜਾਵੇ, ਤਾਂ ਕੋਈ ਵੀ ਟਿਪਸ ਬੰਦ ਕਰੋ ਅਤੇ Azure AI Foundry ਪੋਰਟਲ ਵਿੱਚ ਪ੍ਰੋਜੈਕਟ ਪੇਜ ਨੂੰ ਵੇਖੋ, ਜੋ ਹੇਠਾਂ ਦਿੱਤੀ ਤਸਵੀਰ ਵਾਂਗ ਲੱਗਣਾ ਚਾਹੀਦਾ ਹੈ:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.pa.png)
+    ![Azure AI Foundry Project](../../../translated_images/pa/azure-ai-foundry.88d0c35298348c2f.png)
 
 ## Deploy a model
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > [!NOTE] TPM ਘਟਾਉਣ ਨਾਲ ਤੁਹਾਡੇ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਵਿੱਚ ਉਪਲਬਧ ਕੋਟਾ ਦੀ ਬੇਹੱਦ ਵਰਤੋਂ ਤੋਂ ਬਚਿਆ ਜਾ ਸਕਦਾ ਹੈ।
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.pa.png)
+    ![Model Deployed](../../../translated_images/pa/model-deployment.3749c53fb81e18fd.png)
 
 ## Create an agent
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 > ਇਸ ਤੋਂ ਇਲਾਵਾ, ਤੁਸੀਂ ਏਜੰਟ ਦੀ ਸਮਰੱਥਾ ਵਧਾਉਣ ਲਈ **Knowledge Base** ਅਤੇ **Actions** ਵੀ ਸ਼ਾਮਲ ਕਰ ਸਕਦੇ ਹੋ, ਜੋ ਯੂਜ਼ਰ ਦੀਆਂ ਬੇਨਤੀਆਂ ਦੇ ਅਧਾਰ 'ਤੇ ਹੋਰ ਜਾਣਕਾਰੀ ਦੇਣ ਅਤੇ ਆਟੋਮੇਟਿਕ ਕੰਮ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਦੇ ਹਨ। ਇਸ ਅਭਿਆਸ ਲਈ, ਤੁਸੀਂ ਇਹ ਕਦਮ ਛੱਡ ਸਕਦੇ ਹੋ।
 
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.pa.png)
+![Agent Setup](../../../translated_images/pa/agent-setup.9bbb8755bf5df672.png)
 
 3. ਨਵਾਂ multi-AI ਏਜੰਟ ਬਣਾਉਣ ਲਈ ਸਿਰਫ **New Agent** 'ਤੇ ਕਲਿੱਕ ਕਰੋ। ਨਵਾਂ ਬਣਾਇਆ ਗਿਆ ਏਜੰਟ Agents ਪੇਜ 'ਤੇ ਦਿਖਾਈ ਦੇਵੇਗਾ।
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > [!NOTE] ਏਜੰਟ ਸਹੀ ਜਵਾਬ ਨਾ ਦੇ ਸਕੇ, ਕਿਉਂਕਿ ਇਸ ਅਭਿਆਸ ਵਿੱਚ ਕੋਈ ਰੀਅਲ-ਟਾਈਮ ਡੇਟਾ ਵਰਤਿਆ ਨਹੀਂ ਜਾ ਰਿਹਾ। ਮਕਸਦ ਏਜੰਟ ਦੀ ਸਮਝ ਅਤੇ ਦਿੱਤੀਆਂ ਹਦਾਇਤਾਂ ਦੇ ਅਧਾਰ 'ਤੇ ਯੂਜ਼ਰ ਦੇ ਸਵਾਲਾਂ ਦਾ ਜਵਾਬ ਦੇਣ ਦੀ ਯੋਗਤਾ ਦੀ ਜਾਂਚ ਕਰਨਾ ਹੈ।
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.pa.png)
+    ![Agent Playground](../../../translated_images/pa/agent-playground.dc146586de715010.png)
 
 3. ਏਜੰਟ ਦੀ ਟੈਸਟਿੰਗ ਤੋਂ ਬਾਅਦ, ਤੁਸੀਂ ਇਸਨੂੰ ਹੋਰ intents, training data, ਅਤੇ actions ਸ਼ਾਮਲ ਕਰਕੇ ਹੋਰ ਕਸਟਮਾਈਜ਼ ਕਰ ਸਕਦੇ ਹੋ ਤਾਂ ਜੋ ਇਸ ਦੀ ਸਮਰੱਥਾ ਵਧੇ।
 

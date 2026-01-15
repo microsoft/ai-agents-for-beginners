@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "he"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.he.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/he/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(לחצו על התמונה למעלה לצפייה בסרטון של השיעור)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) הוא פרדיגמה חד�
 
 סגנון פעולה איטרטיבי זה, המכונה "יצרן-בודק", נועד לשפר את הדיוק, לטפל בשאילתות פגומות למסדי נתונים מובנים (לדוגמה, NL2SQL) ולהבטיח תוצאות מאוזנות ואיכותיות. במקום להסתמך רק על שרשראות הנחיות מתוכננות בקפידה, המערכת שולטת באופן פעיל בתהליך ההסקה שלה. היא יכולה לשכתב שאילתות שנכשלו, לבחור שיטות שליפה שונות ולשלב כלים מרובים—כגון חיפוש וקטורי ב-Azure AI Search, מסדי נתונים SQL או APIs מותאמים אישית—לפני שהיא מסיימת את תשובתה. הדבר מבטל את הצורך במסגרות תזמור מורכבות מדי. במקום זאת, מחזור פשוט יחסית של "קריאה למודל שפה → שימוש בכלי → קריאה למודל שפה → ..." יכול להניב תוצרים מתוחכמים ומבוססים היטב.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.he.png)
+![Agentic RAG Core Loop](../../../translated_images/he/agentic-rag-core-loop.c8f4b85c26920f71.png)
 
 ## שליטה בתהליך ההסקה
 
@@ -66,7 +66,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) הוא פרדיגמה חד�
 
 ## מחזורים איטרטיביים, שילוב כלים וזיכרון
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.he.png)
+![Tool Integration Architecture](../../../translated_images/he/tool-integration.0f569710b5c17c10.png)
 
 מערכת אג'נטית מסתמכת על דפוס אינטראקציה מחזורי:
 
@@ -88,7 +88,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) הוא פרדיגמה חד�
 
 גישה איטרטיבית ודינמית זו מאפשרת למודל להשתפר באופן מתמיד, ומבטיחה שהוא לא רק מערכת חד-פעמית אלא כזו שלומדת מטעויותיה במהלך סשן נתון.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.he.png)
+![Self Correction Mechanism](../../../translated_images/he/self-correction.da87f3783b7f174b.png)
 
 ## גבולות האג'נטיות
 
@@ -118,7 +118,7 @@ Agentic RAG מצטיין בתרחישים הדורשים איטרציה ודיו
 
 שימוש בכלים המספקים תיעוד ברור של פעולות הוא חיוני. בלעדיהם, איתור שגיאות בתהליך רב-שלבי יכול להיות קשה מאוד. ראו את הדוגמה הבאה מ-Literal AI (החברה מאחורי Chainlit) עבור הפעלת סוכן:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.he.png)
+![AgentRunExample](../../../translated_images/he/AgentRunExample.471a94bc40cbdc0c.png)
 
 ## סיכום
 

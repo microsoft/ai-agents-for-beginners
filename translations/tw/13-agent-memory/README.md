@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # AI代理的記憶
-[![代理記憶](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.tw.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![代理記憶](../../../translated_images/tw/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 在討論創建AI代理的獨特優勢時，主要提到兩件事：調用工具完成任務的能力，以及隨時間改進的能力。而記憶是創建能夠自我改進的代理的基礎，能為用戶帶來更好的體驗。
 

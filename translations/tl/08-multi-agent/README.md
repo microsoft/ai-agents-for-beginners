@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tl"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.tl.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/tl/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(I-click ang larawan sa itaas upang mapanood ang video ng araling ito)_
 
@@ -95,7 +95,7 @@ Sa pattern na ito, ang bawat ahente ay kumakatawan sa isang user sa group chat, 
 
 Ang pattern na ito ay maaaring ipatupad gamit ang isang centralized architecture kung saan ang lahat ng mga mensahe ay dumadaan sa isang central server, o isang decentralized architecture kung saan ang mga mensahe ay direktang ipinapasa.
 
-![Group chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.tl.png)
+![Group chat](../../../translated_images/tl/multi-agent-group-chat.ec10f4cde556babd.png)
 
 ### Hand-off
 
@@ -105,7 +105,7 @@ Karaniwang mga use case para sa pattern na ito ay ang customer support, task man
 
 Sa pattern na ito, ang bawat ahente ay kumakatawan sa isang gawain o isang hakbang sa workflow, at maaaring ipasa ng mga ahente ang mga gawain sa ibang mga ahente batay sa mga paunang natukoy na mga patakaran.
 
-![Hand off](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.tl.png)
+![Hand off](../../../translated_images/tl/multi-agent-hand-off.4c5fb00ba6f8750a.png)
 
 ### Collaborative Filtering
 
@@ -119,7 +119,7 @@ Halimbawa, kung nais ng isang user ng rekomendasyon sa pinakamahusay na stock na
 - **Teknikal na Pagsusuri**: Isa pang ahente ang maaaring dalubhasa sa teknikal na pagsusuri.
 - **Pangunahing Pagsusuri**: At isa pang ahente ang maaaring dalubhasa sa pangunahing pagsusuri. Sa pamamagitan ng pagtutulungan, maaaring magbigay ang mga ahenteng ito ng mas komprehensibong rekomendasyon sa user.
 
-![Recommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.tl.png)
+![Recommendation](../../../translated_images/tl/multi-agent-filtering.d959cb129dc9f608.png)
 
 ## Sitwasyon: Proseso ng Refund
 

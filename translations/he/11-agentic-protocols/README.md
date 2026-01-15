@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # שימוש בפרוטוקולים סוכניים (MCP, A2A ו-NLWeb)
 
-[![פרוטוקולים סוכניים](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.he.png)](https://youtu.be/X-Dh9R3Opn8)
+[![פרוטוקולים סוכניים](../../../translated_images/he/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(לחצו על התמונה למעלה לצפייה בסרטון של השיעור)_
 
@@ -69,7 +69,7 @@ MCP מציע יתרונות משמעותיים לסוכני AI:
 
 ### דוגמה ל-MCP
 
-![תרשים MCP](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.he.png)
+![תרשים MCP](../../../translated_images/he/mcp-diagram.e4ca1cbd551444a1.png)
 
 דמיינו שמשתמש רוצה להזמין טיסה באמצעות עוזר AI שמופעל על ידי MCP.
 
@@ -124,7 +124,7 @@ A2A מתמקד באפשרות לתקשורת בין סוכנים ובכך שהם
 
 ### דוגמה ל-A2A
 
-![תרשים A2A](../../../translated_images/A2A-Diagram.8666928d648acc26.he.png)
+![תרשים A2A](../../../translated_images/he/A2A-Diagram.8666928d648acc26.png)
 
 בואו נרחיב את תרחיש הזמנת הנסיעות שלנו, אך הפעם באמצעות A2A.
 
@@ -158,7 +158,7 @@ A2A מתמקד באפשרות לתקשורת בין סוכנים ובכך שהם
 
 ### NLWeb בדוגמה
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.he.png)
+![NLWeb](../../../translated_images/he/nlweb-diagram.c1e2390b310e5fe4.png)
 
 שקלו שוב את אתר הזמנת הנסיעות שלנו, אך הפעם הוא מופעל על ידי NLWeb.
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI代理的上下文工程
 
-[![上下文工程](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.hk.png)](https://youtu.be/F5zqRV7gEag)
+[![上下文工程](../../../translated_images/hk/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(點擊上方圖片觀看本課程的影片)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### 上下文的類型
 
-[![上下文的類型](../../../translated_images/context-types.fc10b8927ee43f06.hk.png)](https://youtu.be/F5zqRV7gEag)
+[![上下文的類型](../../../translated_images/hk/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
 
 需要記住的是，上下文並非單一事物。AI代理需要的資訊可能來自多種不同來源，而我們的責任是確保代理能夠訪問這些來源：
 
@@ -69,7 +69,7 @@ AI代理可能需要管理的上下文類型包括：
 
 ### 規劃策略
 
-[![上下文工程最佳實踐](../../../translated_images/best-practices.f4170873dc554f58.hk.png)](https://youtu.be/F5zqRV7gEag)
+[![上下文工程最佳實踐](../../../translated_images/hk/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
 
 良好的上下文工程始於良好的規劃。以下是一種幫助您開始思考如何應用上下文工程概念的方法：
 

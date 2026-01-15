@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI Agents sa Produksyon: Pagmamasid at Pagsusuri
 
-[![AI Agents sa Produksyon](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.tl.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents sa Produksyon](../../../translated_images/tl/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Habang ang mga AI agent ay lumilipat mula sa mga eksperimento patungo sa mga tunay na aplikasyon, nagiging mahalaga ang kakayahang maunawaan ang kanilang pag-uugali, subaybayan ang kanilang pagganap, at sistematikong suriin ang kanilang mga output.
 

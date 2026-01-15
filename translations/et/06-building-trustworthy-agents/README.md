@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "et"
 }
 -->
-[![Usaldusväärsed AI-agendid](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.et.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Usaldusväärsed AI-agendid](../../../translated_images/et/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klõpsake ülaloleval pildil, et vaadata selle õppetunni videot)_
 
@@ -41,7 +41,7 @@ AI-agentide puhul on süsteemiprompt veelgi olulisem, kuna AI-agendid vajavad v�
 
 Skaalautuvate süsteemipromptide loomiseks saame kasutada süsteemisõnumite raamistikku, et luua oma rakenduses üks või mitu agenti:
 
-![Süsteemisõnumite raamistiku loomine](../../../translated_images/system-message-framework.3a97368c92d11d68.et.png)
+![Süsteemisõnumite raamistiku loomine](../../../translated_images/et/system-message-framework.3a97368c92d11d68.png)
 
 #### Samm 1: Loo meta-süsteemisõnum
 
@@ -130,7 +130,7 @@ Selle süsteemisõnumite raamistiku väärtus seisneb selles, et see lihtsustab 
 
 Usaldusväärsete AI-agentide loomiseks on oluline mõista ja leevendada riske ja ohte, mis võivad AI-agenti mõjutada. Vaatame mõningaid erinevaid ohte ja kuidas nende vastu paremini valmistuda.
 
-![Ohtude mõistmine](../../../translated_images/understanding-threats.89edeada8a97fc0f.et.png)
+![Ohtude mõistmine](../../../translated_images/et/understanding-threats.89edeada8a97fc0f.png)
 
 ### Ülesanded ja juhised
 
@@ -166,7 +166,7 @@ Usaldusväärsete AI-agentide loomiseks on oluline mõista ja leevendada riske j
 
 Teine tõhus viis usaldusväärsete AI-agendisüsteemide loomiseks on kasutada inimese osalust protsessis. See loob voolu, kus kasutajad saavad agentidele jooksvalt tagasisidet anda. Kasutajad toimivad sisuliselt mitmeagendisüsteemi agentidena, andes heakskiidu või lõpetades protsessi.
 
-![Inimene protsessis](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.et.png)
+![Inimene protsessis](../../../translated_images/et/human-in-the-loop.5f0068a678f62f4f.png)
 
 Siin on koodinäide AutoGeni kasutamisest, mis näitab, kuidas seda kontseptsiooni rakendatakse:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ro"
 }
 -->
-[![Design Multi-Agent](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.ro.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Design Multi-Agent](../../../translated_images/ro/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 # Metacogniția în Agenții AI
@@ -47,7 +47,7 @@ Urmărirea modului sau motivului pentru care a ales o anumită rută.
 
 Metacogniția joacă un rol crucial în designul agenților AI din mai multe motive:
 
-![Importanța Metacogniției](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.ro.png)
+![Importanța Metacogniției](../../../translated_images/ro/importance-of-metacognition.b381afe9aae352f7.png)
 
 - Auto-reflecție: Agenții pot evalua propria performanță și identifica zonele care necesită îmbunătățiri.
 - Adaptabilitate: Agenții pot modifica strategiile pe baza experiențelor anterioare și a mediilor în schimbare.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Mai întâi, să începem prin a înțelege diferența dintre Instrumentul RAG și Încărcarea Contextului Preemptiv.
 
-![RAG vs Încărcarea Contextului](../../../translated_images/rag-vs-context.9eae588520c00921.ro.png)
+![RAG vs Încărcarea Contextului](../../../translated_images/ro/rag-vs-context.9eae588520c00921.png)
 
 ### Generare Augmentată prin Recuperare (RAG)
 

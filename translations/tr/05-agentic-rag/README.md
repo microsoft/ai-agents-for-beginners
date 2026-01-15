@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tr"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.tr.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/tr/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG), büyük dil modellerinin (
 
 Bu yinelemeli “maker-checker” çalışma tarzı, doğruluğu artırmak, yapılandırılmış veri tabanlarına (ör. NL2SQL) yönelik hatalı sorguları ele almak ve dengeli, yüksek kaliteli sonuçlar sağlamak için tasarlanmıştır. Sadece dikkatlice tasarlanmış istem zincirlerine güvenmek yerine, sistem akıl yürütme sürecine aktif olarak sahip olur. Başarısız olan sorguları yeniden yazabilir, farklı bilgi çekme yöntemleri seçebilir ve yanıtını tamamlamadan önce Azure AI Search'teki vektör arama, SQL veri tabanları veya özel API'ler gibi birden fazla aracı entegre edebilir. Bu, aşırı karmaşık orkestrasyon çerçevelerine olan ihtiyacı ortadan kaldırır. Bunun yerine, nispeten basit bir “LLM çağrısı → araç kullanımı → LLM çağrısı → …” döngüsü, sofistike ve iyi temellendirilmiş çıktılar sağlayabilir.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.tr.png)
+![Agentic RAG Core Loop](../../../translated_images/tr/agentic-rag-core-loop.c8f4b85c26920f71.png)
 
 ## Akıl Yürütme Sürecine Sahip Olmak
 
@@ -66,7 +66,7 @@ Tüm bu adımlar—sorguları iyileştirme, kaynakları seçme, yanıtından “
 
 ## Yinelemeli Döngüler, Araç Entegrasyonu ve Bellek
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.tr.png)
+![Tool Integration Architecture](../../../translated_images/tr/tool-integration.0f569710b5c17c10.png)
 
 Agentic bir sistem, döngüsel bir etkileşim modeline dayanır:
 
@@ -88,7 +88,7 @@ Agentic RAG’ın özerkliği, aynı zamanda sağlam kendini düzeltme mekanizma
 
 Bu yinelemeli ve dinamik yaklaşım, modelin sürekli olarak gelişmesini sağlar, sadece tek seferlik bir sistem değil, verilen bir oturum sırasında hatalarından öğrenen bir sistem olmasını sağlar.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.tr.png)
+![Self Correction Mechanism](../../../translated_images/tr/self-correction.da87f3783b7f174b.png)
 
 ## Ajansın Sınırları
 
@@ -117,7 +117,7 @@ Bu sistemler akıl yürütmede daha özerk hale geldikçe, yönetim ve şeffafl�
 
 Eylemlerin net bir kaydını sağlayan araçlara sahip olmak çok önemlidir. Bunlar olmadan, çok adımlı bir süreci hata ayıklamak çok zor olabilir. Chainlit'in arkasındaki Literal AI'dan bir Agent çalıştırma örneğine bakın:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.tr.png)
+![AgentRunExample](../../../translated_images/tr/AgentRunExample.471a94bc40cbdc0c.png)
 
 ## Sonuç
 

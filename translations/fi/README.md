@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Tekoälyagentit aloittelijoille - Kurssi
 
-![Generatiivinen tekoäly aloittelijoille](../../translated_images/repo-thumbnailv2.06f4a48036fde647.fi.png)
+![Generatiivinen tekoäly aloittelijoille](../../translated_images/fi/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## Kurssi, joka opettaa kaiken tarvittavan tekoälyagenttien rakentamisen aloittamiseen
 

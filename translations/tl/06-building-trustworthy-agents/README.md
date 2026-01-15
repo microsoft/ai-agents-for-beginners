@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tl"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.tl.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/tl/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(I-click ang imahe sa itaas upang mapanood ang video ng araling ito)_
 
@@ -41,7 +41,7 @@ Para sa AI Agents, mas mahalaga ang system prompt dahil kailangan ng AI Agents n
 
 Upang makagawa ng scalable na system prompts, maaari tayong gumamit ng system message framework para sa paggawa ng isa o higit pang agents sa ating application:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.tl.png)
+![Building a System Message Framework](../../../translated_images/tl/system-message-framework.3a97368c92d11d68.png)
 
 #### Hakbang 1: Gumawa ng Meta System Message
 
@@ -130,7 +130,7 @@ Ang halaga ng system message framework na ito ay ang kakayahang gawing mas madal
 
 Upang makagawa ng mapagkakatiwalaang AI agents, mahalagang maunawaan at mabawasan ang mga panganib at banta sa iyong AI agent. Tingnan natin ang ilan sa iba't ibang banta sa AI agents at kung paano mo mas mahusay na mapaplano at maihahanda ang mga ito.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.tl.png)
+![Understanding Threats](../../../translated_images/tl/understanding-threats.89edeada8a97fc0f.png)
 
 ### Gawain at Instruksyon
 
@@ -166,7 +166,7 @@ Upang makagawa ng mapagkakatiwalaang AI agents, mahalagang maunawaan at mabawasa
 
 Isa pang epektibong paraan upang makagawa ng mapagkakatiwalaang AI Agent systems ay ang paggamit ng Human-in-the-loop. Ito ay lumilikha ng daloy kung saan ang mga user ay maaaring magbigay ng feedback sa Agents habang tumatakbo ang proseso. Ang mga user ay kumikilos bilang mga agent sa isang multi-agent system at nagbibigay ng pag-apruba o pagwawakas ng tumatakbong proseso.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.tl.png)
+![Human in The Loop](../../../translated_images/tl/human-in-the-loop.5f0068a678f62f4f.png)
 
 Narito ang isang code snippet gamit ang AutoGen upang ipakita kung paano ipinatutupad ang konseptong ito:
 

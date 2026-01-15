@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "br"
 }
 -->
-[![Como Projetar Bons Agentes de IA](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.br.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Como Projetar Bons Agentes de IA](../../../translated_images/br/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Clique na imagem acima para assistir ao vídeo desta lição)_
 
@@ -219,7 +219,7 @@ Aqui estão alguns exemplos de como você pode implementar o Padrão de Design d
 
 O diagrama a seguir ilustra o processo de chamada de função com Semantic Kernel:
 
-![chamada de função](../../../translated_images/functioncalling-diagram.a84006fc287f6014.br.png)
+![chamada de função](../../../translated_images/br/functioncalling-diagram.a84006fc287f6014.png)
 
 No Semantic Kernel, funções/ferramentas são chamadas de <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Podemos converter a função `get_current_time` que vimos anteriormente em um plugin transformando-a em uma classe com a função dentro dela. Também podemos importar o decorador `kernel_function`, que recebe a descrição da função. Quando você cria um kernel com o GetCurrentTimePlugin, o kernel automaticamente serializa a função e seus parâmetros, criando o esquema para enviar ao LLM no processo.
 
@@ -280,7 +280,7 @@ Imagine que você é um agente de vendas em uma empresa chamada Contoso. Você d
 
 A imagem a seguir ilustra como você poderia usar o Azure AI Agent Service para analisar seus dados de vendas:
 
-![Serviço Agentivo em Ação](../../../translated_images/agent-service-in-action.34fb465c9a84659e.br.jpg)
+![Serviço Agentivo em Ação](../../../translated_images/br/agent-service-in-action.34fb465c9a84659e.jpg)
 
 Para usar qualquer uma dessas ferramentas com o serviço, podemos criar um cliente e definir uma ferramenta ou conjunto de ferramentas. Para implementar isso na prática, podemos usar o seguinte código em Python. O LLM será capaz de analisar o conjunto de ferramentas e decidir se usa a função criada pelo usuário, `fetch_sales_data_using_sqlite_query`, ou o Interpretador de Código pré-construído, dependendo da solicitação do usuário.
 

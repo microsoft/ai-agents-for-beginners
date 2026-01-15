@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "vi"
 }
 -->
-[![Thiết Kế Đa Tác Nhân](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.vi.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Thiết Kế Đa Tác Nhân](../../../translated_images/vi/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Nhấn vào hình ảnh trên để xem video của bài học này)_
 # Siêu nhận thức trong các tác nhân AI
@@ -47,7 +47,7 @@ Theo dõi cách hoặc lý do tại sao nó chọn một tuyến đường nhấ
 
 Siêu nhận thức đóng vai trò quan trọng trong thiết kế tác nhân AI vì nhiều lý do:
 
-![Tầm Quan Trọng của Siêu Nhận Thức](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.vi.png)
+![Tầm Quan Trọng của Siêu Nhận Thức](../../../translated_images/vi/importance-of-metacognition.b381afe9aae352f7.png)
 
 - Tự Phản Ánh: Các tác nhân có thể đánh giá hiệu suất của chính mình và xác định các lĩnh vực cần cải thiện.
 - Thích Nghi: Các tác nhân có thể điều chỉnh chiến lược của mình dựa trên kinh nghiệm trong quá khứ và môi trường thay đổi.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Trước tiên, hãy bắt đầu bằng cách hiểu sự khác biệt giữa Công Cụ RAG và Tải Ngữ Cảnh Dự Đoán
 
-![RAG vs Tải Ngữ Cảnh](../../../translated_images/rag-vs-context.9eae588520c00921.vi.png)
+![RAG vs Tải Ngữ Cảnh](../../../translated_images/vi/rag-vs-context.9eae588520c00921.png)
 
 ### Tạo Dữ Liệu Tăng Cường Truy Xuất (RAG)
 

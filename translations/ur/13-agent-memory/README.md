@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # اے آئی ایجنٹس کے لیے میموری
-[![ایجنٹ میموری](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.ur.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![ایجنٹ میموری](../../../translated_images/ur/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 جب اے آئی ایجنٹس بنانے کے منفرد فوائد پر بات کی جاتی ہے، تو دو چیزیں خاص طور پر زیر بحث آتی ہیں: ٹاسک مکمل کرنے کے لیے ٹولز کا استعمال اور وقت کے ساتھ بہتر ہونے کی صلاحیت۔ میموری ایک خود کو بہتر بنانے والے ایجنٹ کی بنیاد ہے جو ہمارے صارفین کے لیے بہتر تجربات تخلیق کر سکتی ہے۔
 

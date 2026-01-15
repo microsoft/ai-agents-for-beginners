@@ -25,7 +25,7 @@ Dette kan gjøres ved å klikke på lenken for å <a href="https://github.com/mi
 
 Du bør nå ha din egen forkede versjon av dette kurset på følgende lenke:
 
-![Forket Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.no.png)
+![Forket Repo](../../../translated_images/no/forked-repo.33f27ca1901baa6a.png)
 
 ### Grunnleggende kloning (anbefalt for workshop / Codespaces)
 
@@ -176,11 +176,11 @@ Vennligst følg [Prinsippet om minst privilegium](https://docs.github.com/en/get
 
 1. Velg alternativet `Fine-grained tokens` på venstre side av skjermen ved å navigere til **Utviklerinnstillinger**
 
-   ![Utviklerinnstillinger](../../../translated_images/profile_developer_settings.410a859fe749c755.no.png)
+   ![Utviklerinnstillinger](../../../translated_images/no/profile_developer_settings.410a859fe749c755.png)
 
    Deretter velg `Generer nytt token`.
 
-   ![Generer Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.no.png)
+   ![Generer Token](../../../translated_images/no/fga_new_token.1c1a234afe202ab3.png)
 
 2. Skriv inn et beskrivende navn for tokenet som reflekterer dets formål, slik at det er lett å identifisere senere.
 
@@ -190,19 +190,19 @@ Vennligst følg [Prinsippet om minst privilegium](https://docs.github.com/en/get
     For en mer sikker tilnærming kan du velge en kortere periode—som 7 dager 🛡️
     Det er en flott måte å sette et personlig mål og fullføre kurset mens læringsmomentet ditt er høyt 🚀.
 
-    ![Token Navn og Utløpsdato](../../../translated_images/token-name-expiry-date.a095fb0de6386864.no.png)
+    ![Token Navn og Utløpsdato](../../../translated_images/no/token-name-expiry-date.a095fb0de6386864.png)
 
 3. Begrens tokenets omfang til din fork av dette repositoriet.
 
-    ![Begrens omfang til fork-repositoriet](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.no.png)
+    ![Begrens omfang til fork-repositoriet](../../../translated_images/no/token_repository_limit.924ade5e11d9d8bb.png)
 
 4. Begrens tokenets tillatelser: Under **Tillatelser**, klikk på **Konto**-fanen, og klikk på "+ Legg til tillatelser"-knappen. En rullegardinmeny vil vises. Vennligst søk etter **Modeller** og merk av boksen for det.
 
-    ![Legg til Modeller Tillatelse](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.no.png)
+    ![Legg til Modeller Tillatelse](../../../translated_images/no/add_models_permissions.c0c44ed8b40fc143.png)
 
-5. Verifiser de nødvendige tillatelsene før du genererer tokenet. ![Verifiser Tillatelser](../../../translated_images/verify_permissions.06bd9e43987a8b21.no.png)
+5. Verifiser de nødvendige tillatelsene før du genererer tokenet. ![Verifiser Tillatelser](../../../translated_images/no/verify_permissions.06bd9e43987a8b21.png)
 
-6. Før du genererer tokenet, sørg for at du er klar til å lagre tokenet på et sikkert sted som en passordhåndteringshvelv, da det ikke vil bli vist igjen etter at du har opprettet det. ![Lagre Token Sikkert](../../../translated_images/store_token_securely.08ee2274c6ad6caf.no.png)
+6. Før du genererer tokenet, sørg for at du er klar til å lagre tokenet på et sikkert sted som en passordhåndteringshvelv, da det ikke vil bli vist igjen etter at du har opprettet det. ![Lagre Token Sikkert](../../../translated_images/no/store_token_securely.08ee2274c6ad6caf.png)
 
 Kopier ditt nye token som du nettopp har opprettet. Du vil nå legge dette til din `.env`-fil inkludert i dette kurset.
 
@@ -224,7 +224,7 @@ Dette vil kopiere eksempel-filen og opprette en `.env` i katalogen din hvor du f
 
 Med ditt token kopiert, åpne `.env`-filen i din favoritt tekstredigerer og lim inn tokenet ditt i `GITHUB_TOKEN`-feltet.
 
-![GitHub Token Felt](../../../translated_images/github_token_field.20491ed3224b5f4a.no.png)
+![GitHub Token Felt](../../../translated_images/no/github_token_field.20491ed3224b5f4a.png)
 
 Du bør nå kunne kjøre kodeeksemplene i dette kurset.
 
@@ -238,7 +238,7 @@ Når du har opprettet prosjektet ditt, må du hente tilkoblingsstrengen for pros
 
 Dette kan gjøres ved å gå til **Oversikt**-siden for prosjektet ditt i Azure AI Foundry-portalen.
 
-![Prosjekt Tilkoblingsstreng](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.no.png)
+![Prosjekt Tilkoblingsstreng](../../../translated_images/no/project-endpoint.8cf04c9975bbfbf1.png)
 
 ### Steg 2: Opprett din `.env`-fil
 

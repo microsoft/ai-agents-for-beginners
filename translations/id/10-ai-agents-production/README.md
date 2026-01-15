@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agen AI di Produksi: Observabilitas & Evaluasi
 
-[![Agen AI di Produksi](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.id.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![Agen AI di Produksi](../../../translated_images/id/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Saat agen AI beralih dari prototipe eksperimental ke aplikasi dunia nyata, kemampuan untuk memahami perilaku mereka, memantau kinerja mereka, dan mengevaluasi output mereka secara sistematis menjadi sangat penting.
 

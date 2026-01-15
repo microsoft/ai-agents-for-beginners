@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bg"
 }
 -->
-[![Как да проектираме добри AI агенти](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.bg.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Как да проектираме добри AI агенти](../../../translated_images/bg/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Кликнете върху изображението по-горе, за да гледате видеото на този урок)_
 # Принципи за проектиране на AI агенти
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Принципите за агентен дизайн
 
-![Принципи за агентен дизайн](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.bg.png)
+![Принципи за агентен дизайн](../../../translated_images/bg/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### Агент (Пространство)
 

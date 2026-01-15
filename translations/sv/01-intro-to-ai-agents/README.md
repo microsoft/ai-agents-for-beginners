@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sv"
 }
 -->
-[![Intro till AI-agenter](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.sv.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro till AI-agenter](../../../translated_images/sv/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klicka på bilden ovan för att se videon för denna lektion)_
 
@@ -47,7 +47,7 @@ Låt oss bryta ner denna definition i mindre delar:
   - **Sensorer** - Miljöer har information och ger feedback. AI-agenter använder sensorer för att samla in och tolka denna information om miljöns aktuella tillstånd. I exemplet med resebokningsagenten kan bokningssystemet ge information som hotellens tillgänglighet eller flygpriser.
   - **Aktuatorer** - När AI-agenten har fått information om miljöns aktuella tillstånd, bestämmer den vilka åtgärder som ska vidtas för att förändra miljön. För resebokningsagenten kan det vara att boka ett tillgängligt rum åt användaren.
 
-![Vad är AI-agenter?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.sv.png)
+![Vad är AI-agenter?](../../../translated_images/sv/what-are-ai-agents.1ec8c4d548af601a.png)
 
 **Large Language Models** - Konceptet med agenter fanns redan innan LLMs skapades. Fördelen med att bygga AI-agenter med LLMs är deras förmåga att tolka mänskligt språk och data. Denna förmåga gör det möjligt för LLMs att tolka miljöinformation och definiera en plan för att förändra miljön.
 
@@ -77,7 +77,7 @@ I det tidigare avsnittet använde vi reseagentens användningsfall för att för
 
 Låt oss titta på vilka typer av användningsområden som AI-agenter passar bäst för:
 
-![När ska man använda AI-agenter?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.sv.png)
+![När ska man använda AI-agenter?](../../../translated_images/sv/when-to-use-ai-agents.54becb3bed74a479.png)
 
 - **Öppna problem** - låta LLM avgöra vilka steg som behövs för att slutföra en uppgift eftersom det inte alltid kan hårdkodas i ett arbetsflöde.
 - **Flerstegsprocesser** - uppgifter som kräver en nivå av komplexitet där AI-agenten behöver använda verktyg eller information över flera steg istället för enkel åtkomst.

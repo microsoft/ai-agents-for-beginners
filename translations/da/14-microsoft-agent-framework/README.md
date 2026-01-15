@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Udforskning af Microsoft Agent Framework
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.da.png)
+![Agent Framework](../../../translated_images/da/lesson-14-thumbnail.90df0065b9d234ee.png)
 
 ### Introduktion
 
@@ -33,7 +33,7 @@ Kodeeksempler for [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beg
 
 ## Forståelse af Microsoft Agent Framework
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.da.png)
+![Framework Intro](../../../translated_images/da/framework-intro.077af16617cf130c.png)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) bygger på erfaringer og læring fra Semantic Kernel og AutoGen. Det tilbyder fleksibilitet til at adressere en bred vifte af agentbaserede brugsscenarier, som ses både i produktions- og forskningsmiljøer, herunder:
 
@@ -63,7 +63,7 @@ Lad os se på, hvordan disse funktioner anvendes på nogle af de centrale koncep
 
 ### Agenter
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.da.png)
+![Agent Framework](../../../translated_images/da/agent-components.410a06daf87b4fef.png)
 
 **Oprettelse af agenter**
 

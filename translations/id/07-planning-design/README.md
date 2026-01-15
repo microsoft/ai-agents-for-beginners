@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "id"
 }
 -->
-[![Perencanaan Pola Desain](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.id.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Perencanaan Pola Desain](../../../translated_images/id/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
@@ -32,7 +32,7 @@ Setelah menyelesaikan pelajaran ini, Anda akan memahami tentang:
 
 ## Mendefinisikan Tujuan Keseluruhan dan Memecah Tugas
 
-![Mendefinisikan Tujuan dan Tugas](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.id.png)
+![Mendefinisikan Tujuan dan Tugas](../../../translated_images/id/defining-goals-tasks.d70439e19e37c47a.png)
 
 Sebagian besar tugas di dunia nyata terlalu kompleks untuk diselesaikan dalam satu langkah. Agen AI membutuhkan tujuan yang ringkas untuk memandu perencanaan dan tindakannya. Sebagai contoh, pertimbangkan tujuan:
 

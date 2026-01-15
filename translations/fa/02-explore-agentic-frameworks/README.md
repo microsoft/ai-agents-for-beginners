@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fa"
 }
 -->
-[![کاوش در چارچوب‌های عامل هوش مصنوعی](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.fa.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![کاوش در چارچوب‌های عامل هوش مصنوعی](../../../translated_images/fa/lesson-2-thumbnail.c65f44c93b8558df.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(برای مشاهده ویدئوی این درس روی تصویر بالا کلیک کنید)_
 

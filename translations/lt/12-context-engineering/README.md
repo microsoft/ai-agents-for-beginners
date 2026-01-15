@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Kontekstų inžinerija dirbtinio intelekto agentams
 
-[![Kontekstų inžinerija](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.lt.png)](https://youtu.be/F5zqRV7gEag)
+[![Kontekstų inžinerija](../../../translated_images/lt/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Spustelėkite aukščiau esančią nuotrauką, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
@@ -49,7 +49,7 @@ Užklausų inžinerija orientuota į vieną statinių instrukcijų rinkinį, kur
 
 ### Konteksto tipai
 
-[![Konteksto tipai](../../../translated_images/context-types.fc10b8927ee43f06.lt.png)](https://youtu.be/F5zqRV7gEag)
+[![Konteksto tipai](../../../translated_images/lt/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
 
 Svarbu prisiminti, kad kontekstas nėra vienalytis. Informacija, kurios DI agentui reikia, gali būti gaunama iš įvairių šaltinių, ir mūsų užduotis yra užtikrinti, kad agentas turėtų prieigą prie šių šaltinių:
 
@@ -69,7 +69,7 @@ DI agentui reikalingi konteksto tipai gali apimti:
 
 ### Planavimo strategijos
 
-[![Geriausios kontekstų inžinerijos praktikos](../../../translated_images/best-practices.f4170873dc554f58.lt.png)](https://youtu.be/F5zqRV7gEag)
+[![Geriausios kontekstų inžinerijos praktikos](../../../translated_images/lt/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
 
 Gera kontekstų inžinerija prasideda nuo gero planavimo. Štai požiūris, kuris padės jums pradėti taikyti kontekstų inžinerijos koncepciją:
 

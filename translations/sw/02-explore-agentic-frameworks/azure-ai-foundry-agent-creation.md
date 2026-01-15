@@ -25,7 +25,7 @@ Ili kumaliza zoezi hili, unahitaji yafuatayo:
 1. Fuata miongozo hii kutoka kwenye chapisho la blogu la [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) kwa ajili ya kuunda Azure AI Foundry hub.
 2. Unapounda mradi wako, funga vidokezo vyovyote vinavyoonekana na kagua ukurasa wa mradi katika Azure AI Foundry portal, ambao unapaswa kuonekana kama picha ifuatayo:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.sw.png)
+    ![Azure AI Foundry Project](../../../translated_images/sw/azure-ai-foundry.88d0c35298348c2f.png)
 
 ## Sambaza mfano
 
@@ -35,7 +35,7 @@ Ili kumaliza zoezi hili, unahitaji yafuatayo:
 
     > **Note**: Kupunguza TPM husaidia kuepuka matumizi ya ziada ya kikwazo kilichopo kwenye usajili unaotumia.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.sw.png)
+    ![Model Deployed](../../../translated_images/sw/model-deployment.3749c53fb81e18fd.png)
 
 ## Unda wakala
 
@@ -77,7 +77,7 @@ Sasa baada ya kusambaza mfano, unaweza kuunda wakala. Wakala ni mfano wa AI wa m
     
 > Zaidi ya hayo, unaweza kuongeza **Knowledge Base** na **Actions** kuboresha uwezo wa wakala kutoa taarifa zaidi na kutekeleza kazi za kiotomatiki kulingana na maombi ya mtumiaji. Kwa zoezi hili, unaweza kuruka hatua hizi.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.sw.png)
+![Agent Setup](../../../translated_images/sw/agent-setup.9bbb8755bf5df672.png)
 
 3. Kuunda wakala mpya wa AI nyingi, bonyeza tu **New Agent**. Wakala mpya atatokea kwenye ukurasa wa Agents.
 
@@ -90,7 +90,7 @@ Baada ya kuunda wakala, unaweza kujaribu kuona jinsi anavyotumia majibu kwa masw
 
     > **Note**: Wakala huenda asitoe majibu sahihi, kwani hakuna data ya wakati halisi inayotumika katika zoezi hili. Kusudi ni kujaribu uwezo wa wakala kuelewa na kujibu maswali ya watumiaji kulingana na maelekezo yaliyotolewa.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.sw.png)
+    ![Agent Playground](../../../translated_images/sw/agent-playground.dc146586de715010.png)
 
 3. Baada ya kujaribu wakala, unaweza kuuboresha zaidi kwa kuongeza nia zaidi, data za mafunzo, na vitendo ili kuongeza uwezo wake.
 

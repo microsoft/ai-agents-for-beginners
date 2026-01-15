@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "es"
 }
 -->
-[![Diseño Multi-Agente](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.es.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Diseño Multi-Agente](../../../translated_images/es/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Haz clic en la imagen de arriba para ver el video de esta lección)_
 # Metacognición en Agentes de IA
@@ -47,7 +47,7 @@ Mantener un registro de cómo o por qué eligió una ruta específica.
 
 La metacognición desempeña un papel crucial en el diseño de agentes de IA por varias razones:
 
-![Importancia de la Metacognición](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.es.png)
+![Importancia de la Metacognición](../../../translated_images/es/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Autoevaluación: Los agentes pueden evaluar su propio rendimiento e identificar áreas de mejora.
 - Adaptabilidad: Los agentes pueden modificar sus estrategias basándose en experiencias pasadas y entornos cambiantes.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Primero, comencemos entendiendo la diferencia entre la Herramienta RAG y la Carga de Contexto Preventiva.
 
-![RAG vs Carga de Contexto](../../../translated_images/rag-vs-context.9eae588520c00921.es.png)
+![RAG vs Carga de Contexto](../../../translated_images/es/rag-vs-context.9eae588520c00921.webp)
 
 ### Generación Aumentada por Recuperación (RAG)
 

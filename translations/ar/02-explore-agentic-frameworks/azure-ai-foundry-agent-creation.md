@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. اتبع هذه الإرشادات من منشور مدونة [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) لإنشاء مركز Azure AI Foundry.
 2. عند إنشاء مشروعك، أغلق أي نصائح تظهر وراجع صفحة المشروع في بوابة Azure AI Foundry، والتي يجب أن تبدو مشابهة للصورة التالية:
 
-    ![مشروع Azure AI Foundry](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ar.png)
+    ![مشروع Azure AI Foundry](../../../translated_images/ar/azure-ai-foundry.88d0c35298348c2f.png)
 
 ## نشر نموذج
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: تقليل TPM يساعد على تجنب استهلاك الحصة المتاحة في الاشتراك الذي تستخدمه بشكل مفرط.
 
-    ![نموذج تم نشره](../../../translated_images/model-deployment.3749c53fb81e18fd.ar.png)
+    ![نموذج تم نشره](../../../translated_images/ar/model-deployment.3749c53fb81e18fd.png)
 
 ## إنشاء وكيل
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > بالإضافة إلى ذلك، يمكنك إضافة **قاعدة المعرفة** و**الإجراءات** لتعزيز قدرات الوكيل لتقديم مزيد من المعلومات وأداء مهام تلقائية بناءً على طلبات المستخدم. في هذا التمرين، يمكنك تخطي هذه الخطوات.
     
-![إعداد الوكيل](../../../translated_images/agent-setup.9bbb8755bf5df672.ar.png)
+![إعداد الوكيل](../../../translated_images/ar/agent-setup.9bbb8755bf5df672.png)
 
 3. لإنشاء وكيل متعدد الذكاء الاصطناعي جديد، فقط انقر على **New Agent**. سيتم عرض الوكيل الجديد بعد ذلك في صفحة الوكلاء.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: قد لا يقدم الوكيل ردودًا دقيقة، حيث لا يتم استخدام بيانات حية في هذا التمرين. الهدف هو اختبار قدرة الوكيل على فهم والرد على استفسارات المستخدم بناءً على التعليمات المقدمة.
 
-    ![ملعب الوكيل](../../../translated_images/agent-playground.dc146586de715010.ar.png)
+    ![ملعب الوكيل](../../../translated_images/ar/agent-playground.dc146586de715010.png)
 
 3. بعد اختبار الوكيل، يمكنك تخصيصه أكثر بإضافة المزيد من النوايا، وبيانات التدريب، والإجراءات لتعزيز قدراته.
 

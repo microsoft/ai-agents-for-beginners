@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bn"
 }
 -->
-[![AI এজেন্ট ফ্রেমওয়ার্ক অন্বেষণ](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.bn.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![AI এজেন্ট ফ্রেমওয়ার্ক অন্বেষণ](../../../translated_images/bn/lesson-2-thumbnail.c65f44c93b8558df.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(উপরের ছবিতে ক্লিক করে এই পাঠের ভিডিও দেখুন)_
 

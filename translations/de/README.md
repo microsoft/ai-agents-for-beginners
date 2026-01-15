@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # KI-Agenten für Anfänger - Ein Kurs
 
-![Generative KI für Anfänger](../../translated_images/repo-thumbnailv2.06f4a48036fde647.de.png)
+![Generative KI für Anfänger](../../translated_images/de/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## Ein Kurs, der alles vermittelt, was Sie wissen müssen, um mit dem Erstellen von KI-Agenten zu beginnen
 

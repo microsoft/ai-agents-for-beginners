@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "no"
 }
 -->
-[![Hvordan designe gode AI-agenter](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.no.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Hvordan designe gode AI-agenter](../../../translated_images/no/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Klikk på bildet over for å se videoen til denne leksjonen)_
 # Prinsipper for design av AI-agenter
@@ -39,7 +39,7 @@ Etter å ha fullført denne leksjonen, vil du kunne:
 
 ## De agentiske designprinsippene
 
-![Agentiske designprinsipper](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.no.png)
+![Agentiske designprinsipper](../../../translated_images/no/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### Agent (Rom)
 

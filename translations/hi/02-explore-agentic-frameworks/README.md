@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hi"
 }
 -->
-[![AI एजेंट फ्रेमवर्क्स का अन्वेषण](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.hi.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![AI एजेंट फ्रेमवर्क्स का अन्वेषण](../../../translated_images/hi/lesson-2-thumbnail.c65f44c93b8558df.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(इस पाठ का वीडियो देखने के लिए ऊपर दी गई छवि पर क्लिक करें)_
 

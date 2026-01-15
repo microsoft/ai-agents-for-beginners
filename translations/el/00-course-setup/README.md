@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Θα πρέπει τώρα να έχετε τη δική σας έκδοση fork αυτού του μαθήματος στον παρακάτω σύνδεσμο:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.el.png)
+![Forked Repo](../../../translated_images/el/forked-repo.33f27ca1901baa6a.png)
 
 ### Ρηχή Κλωνοποίηση (συνιστάται για εργαστήρια / Codespaces)
 
@@ -176,11 +176,11 @@ pip install -r requirements.txt
 
 1. Επιλέξτε την επιλογή `Fine-grained tokens` στην αριστερή πλευρά της οθόνης σας πηγαίνοντας στις **Ρυθμίσεις Προγραμματιστή**
 
-   ![Ρυθμίσεις Προγραμματιστή](../../../translated_images/profile_developer_settings.410a859fe749c755.el.png)
+   ![Ρυθμίσεις Προγραμματιστή](../../../translated_images/el/profile_developer_settings.410a859fe749c755.png)
 
    Στη συνέχεια, επιλέξτε `Generate new token`.
 
-   ![Δημιουργία Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.el.png)
+   ![Δημιουργία Token](../../../translated_images/el/fga_new_token.1c1a234afe202ab3.png)
 
 2. Εισάγετε ένα περιγραφικό όνομα για το token σας που να αντικατοπτρίζει τον σκοπό του, ώστε να είναι εύκολο να το αναγνωρίσετε αργότερα.
 
@@ -190,19 +190,19 @@ pip install -r requirements.txt
     Για πιο ασφαλή στάση, μπορείτε να επιλέξετε μικρότερη περίοδο—όπως 7 ημέρες 🛡️
     Είναι ένας εξαιρετικός τρόπος να θέσετε έναν προσωπικό στόχο και να ολοκληρώσετε το μάθημα ενώ η μαθησιακή σας ορμή είναι υψηλή 🚀.
 
-    ![Όνομα και Λήξη Token](../../../translated_images/token-name-expiry-date.a095fb0de6386864.el.png)
+    ![Όνομα και Λήξη Token](../../../translated_images/el/token-name-expiry-date.a095fb0de6386864.png)
 
 3. Περιορίστε το εύρος του token στο fork σας αυτού του αποθετηρίου.
 
-    ![Περιορισμός εύρους στο fork αποθετηρίου](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.el.png)
+    ![Περιορισμός εύρους στο fork αποθετηρίου](../../../translated_images/el/token_repository_limit.924ade5e11d9d8bb.png)
 
 4. Περιορίστε τα δικαιώματα του token: Στην καρτέλα **Permissions**, κάντε κλικ στην καρτέλα **Account** και πατήστε το κουμπί "+ Add permissions". Θα εμφανιστεί ένα αναδυόμενο μενού. Αναζητήστε **Models** και επιλέξτε το κουτάκι.
 
-    ![Προσθήκη Δικαιώματος Models](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.el.png)
+    ![Προσθήκη Δικαιώματος Models](../../../translated_images/el/add_models_permissions.c0c44ed8b40fc143.png)
 
-5. Επαληθεύστε τα απαιτούμενα δικαιώματα πριν δημιουργήσετε το token. ![Επαλήθευση Δικαιωμάτων](../../../translated_images/verify_permissions.06bd9e43987a8b21.el.png)
+5. Επαληθεύστε τα απαιτούμενα δικαιώματα πριν δημιουργήσετε το token. ![Επαλήθευση Δικαιωμάτων](../../../translated_images/el/verify_permissions.06bd9e43987a8b21.png)
 
-6. Πριν δημιουργήσετε το token, βεβαιωθείτε ότι είστε έτοιμοι να αποθηκεύσετε το token σε ασφαλές μέρος, όπως ένα θησαυροφυλάκιο διαχείρισης κωδικών πρόσβασης, καθώς δεν θα εμφανιστεί ξανά μετά τη δημιουργία του. ![Αποθήκευση Token με Ασφάλεια](../../../translated_images/store_token_securely.08ee2274c6ad6caf.el.png)
+6. Πριν δημιουργήσετε το token, βεβαιωθείτε ότι είστε έτοιμοι να αποθηκεύσετε το token σε ασφαλές μέρος, όπως ένα θησαυροφυλάκιο διαχείρισης κωδικών πρόσβασης, καθώς δεν θα εμφανιστεί ξανά μετά τη δημιουργία του. ![Αποθήκευση Token με Ασφάλεια](../../../translated_images/el/store_token_securely.08ee2274c6ad6caf.png)
 
 Αντιγράψτε το νέο token που μόλις δημιουργήσατε. Θα το προσθέσετε τώρα στο αρχείο `.env` που περιλαμβάνεται σε αυτό το μάθημα.
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 Με το token σας αντιγραμμένο, ανοίξτε το αρχείο `.env` στον αγαπημένο σας επεξεργαστή κειμένου και επικολλήστε το token στο πεδίο `GITHUB_TOKEN`.
 
-![Πεδίο Token GitHub](../../../translated_images/github_token_field.20491ed3224b5f4a.el.png)
+![Πεδίο Token GitHub](../../../translated_images/el/github_token_field.20491ed3224b5f4a.png)
 
 Θα πρέπει τώρα να μπορείτε να εκτελέσετε τα παραδείγματα κώδικα αυτού του μαθήματος.
 
@@ -238,7 +238,7 @@ Copy-Item .env.example .env
 
 Αυτό μπορεί να γίνει πηγαίνοντας στη σελίδα **Επισκόπηση** του έργου σας στην πύλη Azure AI Foundry.
 
-![Συμβολοσειρά Σύνδεσης Έργου](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.el.png)
+![Συμβολοσειρά Σύνδεσης Έργου](../../../translated_images/el/project-endpoint.8cf04c9975bbfbf1.png)
 
 ### Βήμα 2: Δημιουργία του Αρχείου `.env`
 

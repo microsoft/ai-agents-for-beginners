@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "nl"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.nl.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/nl/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) is een opkomend paradigma i
 
 Deze iteratieve “maker-checker” stijl van werken is ontworpen om de nauwkeurigheid te verbeteren, foutieve zoekopdrachten naar gestructureerde databases (bijv. NL2SQL) te corrigeren en gebalanceerde, hoogwaardige resultaten te garanderen. In plaats van uitsluitend te vertrouwen op zorgvuldig ontworpen promptketens, beheert het systeem actief zijn eigen redeneringsproces. Het kan zoekopdrachten herschrijven die mislukken, verschillende ophaalmethoden kiezen en meerdere tools integreren—zoals vectorzoekopdrachten in Azure AI Search, SQL-databases of aangepaste API's—voordat het zijn antwoord afrondt. Dit elimineert de noodzaak voor overdreven complexe orkestratiekaders. In plaats daarvan kan een relatief eenvoudige cyclus van “LLM-oproep → toolgebruik → LLM-oproep → …” leiden tot verfijnde en goed onderbouwde outputs.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.nl.png)
+![Agentic RAG Core Loop](../../../translated_images/nl/agentic-rag-core-loop.c8f4b85c26920f71.png)
 
 ## Het Redeneringsproces Beheren
 
@@ -67,7 +67,7 @@ Al deze stappen—zoekopdrachten verfijnen, bronnen kiezen, itereren totdat het 
 
 ## Iteratieve Cycli, Toolintegratie en Geheugen
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.nl.png)
+![Tool Integration Architecture](../../../translated_images/nl/tool-integration.0f569710b5c17c10.png)
 
 Een agentisch systeem vertrouwt op een interactiepatroon met cycli:
 
@@ -89,7 +89,7 @@ De autonomie van Agentic RAG omvat ook robuuste zelfcorrectiemechanismen. Wannee
 
 Deze iteratieve en dynamische aanpak stelt het model in staat om continu te verbeteren, waardoor het niet slechts een eenmalig systeem is, maar een systeem dat leert van zijn fouten tijdens een sessie.
 
-![Zelfcorrectiemechanisme](../../../translated_images/self-correction.da87f3783b7f174b.nl.png)
+![Zelfcorrectiemechanisme](../../../translated_images/nl/self-correction.da87f3783b7f174b.png)
 
 ## Grenzen van Autonomie
 
@@ -119,7 +119,7 @@ Naarmate deze systemen autonomer worden in hun redenering, zijn governance en tr
 
 Het hebben van tools die een duidelijk overzicht van acties bieden is essentieel. Zonder deze tools kan het debuggen van een meerstapsproces erg moeilijk zijn. Zie het volgende voorbeeld van Literal AI (bedrijf achter Chainlit) voor een Agent-run:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.nl.png)
+![AgentRunExample](../../../translated_images/nl/AgentRunExample.471a94bc40cbdc0c.png)
 
 ## Conclusie
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Context Engineering voor AI-agenten
 
-[![Context Engineering](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.nl.png)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering](../../../translated_images/nl/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
@@ -49,7 +49,7 @@ Prompt engineering richt zich op een enkele set statische instructies om AI-agen
 
 ### Soorten Context
 
-[![Types of Context](../../../translated_images/context-types.fc10b8927ee43f06.nl.png)](https://youtu.be/F5zqRV7gEag)
+[![Types of Context](../../../translated_images/nl/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
 
 Het is belangrijk om te onthouden dat context niet slechts één ding is. De informatie die de AI-agent nodig heeft, kan uit verschillende bronnen komen, en het is aan ons om ervoor te zorgen dat de agent toegang heeft tot deze bronnen:
 
@@ -69,7 +69,7 @@ De soorten context die een AI-agent mogelijk moet beheren, omvatten:
 
 ### Planningsstrategieën
 
-[![Context Engineering Best Practices](../../../translated_images/best-practices.f4170873dc554f58.nl.png)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering Best Practices](../../../translated_images/nl/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
 
 Goede context engineering begint met goede planning. Hier is een aanpak die je helpt na te denken over hoe je het concept van context engineering kunt toepassen:
 

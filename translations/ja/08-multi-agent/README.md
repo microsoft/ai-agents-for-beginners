@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ja"
 }
 -->
-[![マルチエージェント設計](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.ja.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![マルチエージェント設計](../../../translated_images/ja/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(上の画像をクリックすると、このレッスンのビデオが視聴できます)_
 
@@ -95,7 +95,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 このパターンは、すべてのメッセージが中央サーバーを介してルーティングされる集中型アーキテクチャ、またはメッセージが直接交換される分散型アーキテクチャを使用して実装できます。
 
-![グループチャット](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.ja.png)
+![グループチャット](../../../translated_images/ja/multi-agent-group-chat.ec10f4cde556babd.png)
 
 ### ハンドオフ
 
@@ -105,7 +105,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 このパターンでは、各エージェントがタスクまたはワークフロー内のステップを表し、エージェントは事前に定義されたルールに基づいてタスクを他のエージェントに引き継ぐことができます。
 
-![ハンドオフ](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.ja.png)
+![ハンドオフ](../../../translated_images/ja/multi-agent-hand-off.4c5fb00ba6f8750a.png)
 
 ### 協調フィルタリング
 
@@ -119,7 +119,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **テクニカル分析**: 別のエージェントはテクニカル分析の専門家である可能性があります。
 - **ファンダメンタル分析**: さらに別のエージェントはファンダメンタル分析の専門家である可能性があります。これらのエージェントが協力することで、ユーザーにより包括的な推奨を提供できます。
 
-![推奨](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.ja.png)
+![推奨](../../../translated_images/ja/multi-agent-filtering.d959cb129dc9f608.png)
 
 ## シナリオ: 返金プロセス
 

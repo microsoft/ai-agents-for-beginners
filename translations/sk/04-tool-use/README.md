@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sk"
 }
 -->
-[![Ako navrhnúť dobrých AI agentov](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.sk.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Ako navrhnúť dobrých AI agentov](../../../translated_images/sk/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Kliknite na obrázok vyššie pre zobrazenie videa tejto lekcie)_
 
@@ -216,7 +216,7 @@ Tu sú niektoré príklady, ako môžete implementovať vzor návrhu používani
 
 Nasledujúci diagram ilustruje proces volania funkcií so Semantic Kernel:
 
-![volanie funkcií](../../../translated_images/functioncalling-diagram.a84006fc287f6014.sk.png)
+![volanie funkcií](../../../translated_images/sk/functioncalling-diagram.a84006fc287f6014.png)
 
 V Semantic Kernel sa funkcie/nástroje nazývajú <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Pluginy</a>. Funkciu `get_current_time`, ktorú sme videli skôr, môžeme previesť na plugin tým, že ju premeníme na triedu s touto funkciou. Môžeme tiež importovať dekorátor `kernel_function`, ktorý prijíma popis funkcie. Keď potom vytvoríte kernel s GetCurrentTimePlugin, kernel automaticky serializuje funkciu a jej parametre, čím vytvorí schému na odoslanie LLM.
 
@@ -277,7 +277,7 @@ Predstavte si, že ste obchodný agent v spoločnosti Contoso. Chcete vyvinúť 
 
 Nasledujúci obrázok ilustruje, ako by ste mohli použiť Azure AI Agent Service na analýzu vašich obchodných údajov:
 
-![Agentická služba v akcii](../../../translated_images/agent-service-in-action.34fb465c9a84659e.sk.jpg)
+![Agentická služba v akcii](../../../translated_images/sk/agent-service-in-action.34fb465c9a84659e.jpg)
 
 Na použitie ktoréhokoľvek z týchto nástrojov so službou môžeme vytvoriť klienta a definovať nástroj alebo sadu nástrojov. Na praktickú implementáciu môžeme použiť nasledujúci kód v Pythone. LLM bude schopný pozrieť sa na sadu nástrojov a rozhodnúť, či použiť používateľom vytvorenú funkciu `fetch_sales_data_using_sqlite_query`, alebo predpripravený interpret kódu v závislosti od požiadavky používateľa.
 

@@ -25,7 +25,7 @@ Bạn có thể thực hiện điều này bằng cách nhấp vào liên kết 
 
 Bây giờ bạn sẽ có phiên bản fork của khóa học này tại liên kết sau:
 
-![Kho Lưu Trữ Đã Fork](../../../translated_images/forked-repo.33f27ca1901baa6a.vi.png)
+![Kho Lưu Trữ Đã Fork](../../../translated_images/vi/forked-repo.33f27ca1901baa6a.png)
 
 ### Sao Chép Nông (khuyến nghị cho workshop / Codespaces)
 
@@ -176,11 +176,11 @@ Vui lòng tuân theo [Nguyên tắc Quyền Hạn Tối Thiểu](https://docs.gi
 
 1. Chọn tùy chọn `Fine-grained tokens` ở phía bên trái màn hình của bạn bằng cách đi đến **Developer settings**
 
-   ![Cài Đặt Nhà Phát Triển](../../../translated_images/profile_developer_settings.410a859fe749c755.vi.png)
+   ![Cài Đặt Nhà Phát Triển](../../../translated_images/vi/profile_developer_settings.410a859fe749c755.png)
 
    Sau đó chọn `Generate new token`.
 
-   ![Tạo Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.vi.png)
+   ![Tạo Token](../../../translated_images/vi/fga_new_token.1c1a234afe202ab3.png)
 
 2. Nhập một tên mô tả cho token của bạn phản ánh mục đích của nó, giúp dễ dàng nhận diện sau này.
 
@@ -190,19 +190,19 @@ Vui lòng tuân theo [Nguyên tắc Quyền Hạn Tối Thiểu](https://docs.gi
     Để bảo mật hơn, bạn có thể chọn thời gian ngắn hơn—chẳng hạn như 7 ngày 🛡️
     Đây là cách tuyệt vời để đặt mục tiêu cá nhân và hoàn thành khóa học trong khi động lực học tập của bạn đang cao 🚀.
 
-    ![Tên và Thời Hạn Token](../../../translated_images/token-name-expiry-date.a095fb0de6386864.vi.png)
+    ![Tên và Thời Hạn Token](../../../translated_images/vi/token-name-expiry-date.a095fb0de6386864.png)
 
 3. Giới hạn phạm vi của token vào fork của kho lưu trữ này.
 
-    ![Giới Hạn Phạm Vi Token](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.vi.png)
+    ![Giới Hạn Phạm Vi Token](../../../translated_images/vi/token_repository_limit.924ade5e11d9d8bb.png)
 
 4. Hạn chế quyền của token: Dưới **Permissions**, nhấp vào tab **Account**, và nhấp vào nút "+ Add permissions". Một menu thả xuống sẽ xuất hiện. Vui lòng tìm kiếm **Models** và đánh dấu vào ô.
 
-    ![Thêm Quyền Models](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.vi.png)
+    ![Thêm Quyền Models](../../../translated_images/vi/add_models_permissions.c0c44ed8b40fc143.png)
 
-5. Xác minh các quyền cần thiết trước khi tạo token. ![Xác Minh Quyền](../../../translated_images/verify_permissions.06bd9e43987a8b21.vi.png)
+5. Xác minh các quyền cần thiết trước khi tạo token. ![Xác Minh Quyền](../../../translated_images/vi/verify_permissions.06bd9e43987a8b21.png)
 
-6. Trước khi tạo token, hãy đảm bảo bạn sẵn sàng lưu token vào một nơi an toàn như kho mật khẩu, vì nó sẽ không được hiển thị lại sau khi bạn tạo. ![Lưu Token An Toàn](../../../translated_images/store_token_securely.08ee2274c6ad6caf.vi.png)
+6. Trước khi tạo token, hãy đảm bảo bạn sẵn sàng lưu token vào một nơi an toàn như kho mật khẩu, vì nó sẽ không được hiển thị lại sau khi bạn tạo. ![Lưu Token An Toàn](../../../translated_images/vi/store_token_securely.08ee2274c6ad6caf.png)
 
 Sao chép token mới mà bạn vừa tạo. Bây giờ bạn sẽ thêm token này vào tệp `.env` được bao gồm trong khóa học này.
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 Với token đã sao chép, mở tệp `.env` trong trình soạn thảo văn bản yêu thích của bạn và dán token vào trường `GITHUB_TOKEN`.
 
-![Trường GitHub Token](../../../translated_images/github_token_field.20491ed3224b5f4a.vi.png)
+![Trường GitHub Token](../../../translated_images/vi/github_token_field.20491ed3224b5f4a.png)
 
 Bây giờ bạn đã có thể chạy các mẫu mã của khóa học này.
 
@@ -238,7 +238,7 @@ Sau khi bạn đã tạo dự án của mình, bạn sẽ cần lấy chuỗi k�
 
 Bạn có thể thực hiện điều này bằng cách truy cập trang **Overview** của dự án trong cổng Azure AI Foundry.
 
-![Chuỗi Kết Nối Dự Án](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.vi.png)
+![Chuỗi Kết Nối Dự Án](../../../translated_images/vi/project-endpoint.8cf04c9975bbfbf1.png)
 
 ### Bước 2: Tạo Tệp `.env` của Bạn
 

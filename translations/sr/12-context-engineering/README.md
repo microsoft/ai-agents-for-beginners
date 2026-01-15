@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Инжењеринг контекста за AI агенте
 
-[![Инжењеринг контекста](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.sr.png)](https://youtu.be/F5zqRV7gEag)
+[![Инжењеринг контекста](../../../translated_images/sr/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Кликните на слику изнад да бисте погледали видео лекцију)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Типови контекста
 
-[![Типови контекста](../../../translated_images/context-types.fc10b8927ee43f06.sr.png)](https://youtu.be/F5zqRV7gEag)
+[![Типови контекста](../../../translated_images/sr/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
 
 Важно је запамтити да контекст није само једна ствар. Информације које су потребне AI агенту могу долазити из различитих извора, а на нама је да осигурамо да агент има приступ тим изворима:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Стратегије планирања
 
-[![Најбоље праксе за инжењеринг контекста](../../../translated_images/best-practices.f4170873dc554f58.sr.png)](https://youtu.be/F5zqRV7gEag)
+[![Најбоље праксе за инжењеринг контекста](../../../translated_images/sr/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
 
 Добар инжењеринг контекста почиње добрим планирањем. Ево приступа који ће вам помоћи да почнете да размишљате о примени концепта инжењеринга контекста:
 

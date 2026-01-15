@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "en"
 }
 -->
-[![How to Design Good AI Agents](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.en.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![How to Design Good AI Agents](../../../translated_images/en/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Click the image above to view the video of this lesson)_
 # AI Agentic Design Principles
@@ -39,7 +39,7 @@ After completing this lesson, you will be able to:
 
 ## The Agentic Design Principles
 
-![Agentic Design Principles](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.en.png)
+![Agentic Design Principles](../../../translated_images/en/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agent (Space)
 

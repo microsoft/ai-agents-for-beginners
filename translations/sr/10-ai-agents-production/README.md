@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI агенти у продукцији: Опсервабилност и евалуација
 
-[![AI агенти у продукцији](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.sr.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI агенти у продукцији](../../../translated_images/sr/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Како AI агенти прелазе из експерименталних прототипа у стварне апликације, способност разумевања њиховог понашања, праћења њиховог учинка и систематске евалуације њихових резултата постаје веома важна.
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hi"
 }
 -->
-[![मल्टी-एजेंट डिज़ाइन](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.hi.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![मल्टी-एजेंट डिज़ाइन](../../../translated_images/hi/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(ऊपर दी गई छवि पर क्लिक करें इस पाठ का वीडियो देखने के लिए)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 इस पैटर्न को केंद्रीकृत आर्किटेक्चर का उपयोग करके लागू किया जा सकता है जहां सभी संदेश एक केंद्रीय सर्वर के माध्यम से रूट किए जाते हैं, या विकेंद्रीकृत आर्किटेक्चर का उपयोग करके जहां संदेश सीधे आदान-प्रदान किए जाते हैं।
 
-![ग्रुप चैट](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.hi.png)
+![ग्रुप चैट](../../../translated_images/hi/multi-agent-group-chat.ec10f4cde556babd.png)
 
 ### हैंड-ऑफ
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 इस पैटर्न में, प्रत्येक एजेंट एक कार्य या वर्कफ़्लो में एक चरण का प्रतिनिधित्व करता है, और एजेंट्स पूर्वनिर्धारित नियमों के आधार पर कार्यों को अन्य एजेंट्स को सौंप सकते हैं।
 
-![हैंड-ऑफ](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.hi.png)
+![हैंड-ऑफ](../../../translated_images/hi/multi-agent-hand-off.4c5fb00ba6f8750a.png)
 
 ### सहयोगात्मक फ़िल्टरिंग
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **तकनीकी विश्लेषण**: दूसरा एजेंट तकनीकी विश्लेषण में विशेषज्ञ हो सकता है।
 - **मूलभूत विश्लेषण**: और एक अन्य एजेंट मूलभूत विश्लेषण में विशेषज्ञ हो सकता है। सहयोग करके, ये एजेंट उपयोगकर्ता को अधिक व्यापक अनुशंसा प्रदान कर सकते हैं।
 
-![अनुशंसा](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.hi.png)
+![अनुशंसा](../../../translated_images/hi/multi-agent-filtering.d959cb129dc9f608.png)
 
 ## परिदृश्य: रिफंड प्रक्रिया
 

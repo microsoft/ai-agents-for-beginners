@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "br"
 }
 -->
-[![Planejamento de Padrão de Design](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.br.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planejamento de Padrão de Design](../../../translated_images/br/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Clique na imagem acima para assistir ao vídeo desta lição)_
 
@@ -32,7 +32,7 @@ Após concluir esta lição, você terá uma compreensão sobre:
 
 ## Definindo o Objetivo Geral e Dividindo uma Tarefa
 
-![Definindo Objetivos e Tarefas](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.br.png)
+![Definindo Objetivos e Tarefas](../../../translated_images/br/defining-goals-tasks.d70439e19e37c47a.png)
 
 A maioria das tarefas do mundo real é muito complexa para ser resolvida em um único passo. Um agente de IA precisa de um objetivo conciso para orientar seu planejamento e ações. Por exemplo, considere o objetivo:
 

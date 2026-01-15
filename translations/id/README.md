@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agen AI untuk Pemula - Sebuah Kursus
 
-![AI Generatif untuk Pemula](../../translated_images/repo-thumbnailv2.06f4a48036fde647.id.png)
+![AI Generatif untuk Pemula](../../translated_images/id/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## Sebuah kursus yang mengajarkan semua yang Anda perlu ketahui untuk mulai membangun Agen AI
 

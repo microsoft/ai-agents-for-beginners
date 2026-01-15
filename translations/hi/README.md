@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI एजेंट्स शुरुआती के लिए - एक कोर्स
 
-![जनरेटिव AI शुरुआती के लिए](../../translated_images/repo-thumbnailv2.06f4a48036fde647.hi.png)
+![जनरेटिव AI शुरुआती के लिए](../../translated_images/hi/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## एक कोर्स जो आपको AI एजेंट्स बनाना शुरू करने के लिए आवश्यक सब कुछ सिखाता है
 

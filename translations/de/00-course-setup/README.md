@@ -25,7 +25,7 @@ Dies können Sie tun, indem Sie auf den Link klicken, um <a href="https://github
 
 Sie sollten nun Ihre eigene geforkte Version dieses Kurses unter folgendem Link haben:
 
-![Geforktes Repository](../../../translated_images/forked-repo.33f27ca1901baa6a.de.png)
+![Geforktes Repository](../../../translated_images/de/forked-repo.33f27ca1901baa6a.png)
 
 ### Shallow Clone (empfohlen für Workshops / Codespaces)
 
@@ -176,11 +176,11 @@ Bitte folgen Sie dem [Prinzip der minimalen Rechtevergabe](https://docs.github.c
 
 1. Wählen Sie die Option `Fine-grained tokens` auf der linken Seite Ihres Bildschirms, indem Sie zu den **Entwicklereinstellungen** navigieren.
 
-   ![Entwicklereinstellungen](../../../translated_images/profile_developer_settings.410a859fe749c755.de.png)
+   ![Entwicklereinstellungen](../../../translated_images/de/profile_developer_settings.410a859fe749c755.png)
 
    Wählen Sie dann `Generate new token`.
 
-   ![Token generieren](../../../translated_images/fga_new_token.1c1a234afe202ab3.de.png)
+   ![Token generieren](../../../translated_images/de/fga_new_token.1c1a234afe202ab3.png)
 
 2. Geben Sie einen beschreibenden Namen für Ihr Token ein, der seinen Zweck widerspiegelt, damit es später leicht identifiziert werden kann.
 
@@ -190,19 +190,19 @@ Bitte folgen Sie dem [Prinzip der minimalen Rechtevergabe](https://docs.github.c
     Für eine sicherere Haltung können Sie eine kürzere Dauer wählen – z. B. 7 Tage 🛡️
     Es ist eine großartige Möglichkeit, sich ein persönliches Ziel zu setzen und den Kurs abzuschließen, während Ihre Lernmotivation hoch ist 🚀.
 
-    ![Token-Name und Ablaufdatum](../../../translated_images/token-name-expiry-date.a095fb0de6386864.de.png)
+    ![Token-Name und Ablaufdatum](../../../translated_images/de/token-name-expiry-date.a095fb0de6386864.png)
 
 3. Begrenzen Sie den Umfang des Tokens auf Ihren Fork dieses Repositories.
 
-    ![Umfang auf Fork-Repository begrenzen](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.de.png)
+    ![Umfang auf Fork-Repository begrenzen](../../../translated_images/de/token_repository_limit.924ade5e11d9d8bb.png)
 
 4. Beschränken Sie die Berechtigungen des Tokens: Unter **Permissions** klicken Sie auf die Registerkarte **Account** und dann auf die Schaltfläche "+ Add permissions". Es erscheint ein Dropdown-Menü. Suchen Sie nach **Models** und aktivieren Sie das Kontrollkästchen dafür.
 
-    ![Models-Berechtigung hinzufügen](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.de.png)
+    ![Models-Berechtigung hinzufügen](../../../translated_images/de/add_models_permissions.c0c44ed8b40fc143.png)
 
-5. Überprüfen Sie die erforderlichen Berechtigungen, bevor Sie das Token generieren. ![Berechtigungen überprüfen](../../../translated_images/verify_permissions.06bd9e43987a8b21.de.png)
+5. Überprüfen Sie die erforderlichen Berechtigungen, bevor Sie das Token generieren. ![Berechtigungen überprüfen](../../../translated_images/de/verify_permissions.06bd9e43987a8b21.png)
 
-6. Bevor Sie das Token generieren, stellen Sie sicher, dass Sie bereit sind, das Token an einem sicheren Ort wie einem Passwort-Manager-Tresor zu speichern, da es nach der Erstellung nicht erneut angezeigt wird. ![Token sicher speichern](../../../translated_images/store_token_securely.08ee2274c6ad6caf.de.png)
+6. Bevor Sie das Token generieren, stellen Sie sicher, dass Sie bereit sind, das Token an einem sicheren Ort wie einem Passwort-Manager-Tresor zu speichern, da es nach der Erstellung nicht erneut angezeigt wird. ![Token sicher speichern](../../../translated_images/de/store_token_securely.08ee2274c6ad6caf.png)
 
 Kopieren Sie Ihr neu erstelltes Token. Sie werden es nun Ihrer `.env`-Datei hinzufügen, die in diesem Kurs enthalten ist.
 
@@ -224,7 +224,7 @@ Dies kopiert die Beispieldatei und erstellt eine `.env`-Datei in Ihrem Verzeichn
 
 Nachdem Sie Ihr Token kopiert haben, öffnen Sie die `.env`-Datei in Ihrem bevorzugten Texteditor und fügen Sie Ihr Token in das Feld `GITHUB_TOKEN` ein.
 
-![GitHub Token Feld](../../../translated_images/github_token_field.20491ed3224b5f4a.de.png)
+![GitHub Token Feld](../../../translated_images/de/github_token_field.20491ed3224b5f4a.png)
 
 Sie sollten nun in der Lage sein, die Codebeispiele dieses Kurses auszuführen.
 
@@ -238,7 +238,7 @@ Nachdem Sie Ihr Projekt erstellt haben, müssen Sie die Verbindungszeichenfolge 
 
 Dies können Sie tun, indem Sie zur **Übersicht**-Seite Ihres Projekts im Azure AI Foundry-Portal gehen.
 
-![Projekt-Verbindungszeichenfolge](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.de.png)
+![Projekt-Verbindungszeichenfolge](../../../translated_images/de/project-endpoint.8cf04c9975bbfbf1.png)
 
 ### Schritt 2: Erstellen Ihrer `.env`-Datei
 

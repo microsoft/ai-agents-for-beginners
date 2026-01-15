@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Memoria per Agenti AI 
-[![Memoria Agente](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.it.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Memoria Agente](../../../translated_images/it/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Quando si parla dei vantaggi unici della creazione di Agenti AI, si discutono principalmente due aspetti: la capacità di utilizzare strumenti per completare compiti e la capacità di migliorare nel tempo. La memoria è alla base della creazione di agenti auto-miglioranti che possono offrire esperienze migliori ai nostri utenti.
 

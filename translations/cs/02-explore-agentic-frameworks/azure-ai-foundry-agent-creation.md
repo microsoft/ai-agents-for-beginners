@@ -25,7 +25,7 @@ Pro dokončení tohoto cvičení potřebujete:
 1. Postupujte podle pokynů z [blogového příspěvku Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) pro vytvoření Azure AI Foundry hubu.
 2. Po vytvoření projektu zavřete všechny zobrazené tipy a prohlédněte si stránku projektu v portálu Azure AI Foundry, která by měla vypadat podobně jako na následujícím obrázku:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.cs.png)
+    ![Azure AI Foundry Project](../../../translated_images/cs/azure-ai-foundry.88d0c35298348c2f.png)
 
 ## Nasazení modelu
 
@@ -35,7 +35,7 @@ Pro dokončení tohoto cvičení potřebujete:
 
     > **Note**: Snížení TPM pomáhá zabránit nadměrnému využívání kvóty dostupné ve vašem předplatném.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.cs.png)
+    ![Model Deployed](../../../translated_images/cs/model-deployment.3749c53fb81e18fd.png)
 
 ## Vytvoření agenta
 
@@ -77,7 +77,7 @@ Nyní, když máte nasazený model, můžete vytvořit agenta. Agent je konverza
     
 > Dále můžete přidat **Knowledge Base** a **Actions** pro rozšíření schopností agenta poskytovat více informací a provádět automatizované úkoly na základě požadavků uživatelů. Pro toto cvičení můžete tyto kroky přeskočit.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.cs.png)
+![Agent Setup](../../../translated_images/cs/agent-setup.9bbb8755bf5df672.png)
 
 3. Pro vytvoření nového multi-AI agenta jednoduše klikněte na **New Agent**. Nově vytvořený agent se pak zobrazí na stránce Agents.
 
@@ -90,7 +90,7 @@ Po vytvoření agenta ho můžete otestovat, jak reaguje na dotazy uživatelů v
 
     > **Note**: Agent nemusí poskytovat přesné odpovědi, protože v tomto cvičení nejsou použita žádná aktuální data. Cílem je otestovat schopnost agenta porozumět a reagovat na dotazy uživatelů na základě zadaných instrukcí.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.cs.png)
+    ![Agent Playground](../../../translated_images/cs/agent-playground.dc146586de715010.png)
 
 3. Po otestování agenta ho můžete dále přizpůsobit přidáním dalších záměrů (intents), tréninkových dat a akcí pro rozšíření jeho schopností.
 

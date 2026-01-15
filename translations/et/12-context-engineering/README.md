@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Konteksti inseneriteadus AI-agentide jaoks
 
-[![Konteksti inseneriteadus](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.et.png)](https://youtu.be/F5zqRV7gEag)
+[![Konteksti inseneriteadus](../../../translated_images/et/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(Klõpsake ülaloleval pildil, et vaadata selle õppetunni videot)_
 
@@ -49,7 +49,7 @@ Juhiste inseneriteadus keskendub ühele staatiliste juhiste komplektile, et tõh
 
 ### Konteksti tüübid
 
-[![Konteksti tüübid](../../../translated_images/context-types.fc10b8927ee43f06.et.png)](https://youtu.be/F5zqRV7gEag)
+[![Konteksti tüübid](../../../translated_images/et/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
 
 Oluline on meeles pidada, et kontekst ei ole ainult üks asi. Teave, mida AI-agent vajab, võib pärineda mitmesugustest allikatest, ja meie ülesanne on tagada, et agent pääseb nendele allikatele ligi:
 
@@ -69,7 +69,7 @@ AI-agendi hallatavad konteksti tüübid hõlmavad:
 
 ### Planeerimisstrateegiad
 
-[![Konteksti inseneriteaduse parimad praktikad](../../../translated_images/best-practices.f4170873dc554f58.et.png)](https://youtu.be/F5zqRV7gEag)
+[![Konteksti inseneriteaduse parimad praktikad](../../../translated_images/et/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
 
 Hea konteksti inseneriteadus algab heast planeerimisest. Siin on lähenemine, mis aitab teil hakata mõtlema, kuidas konteksti inseneriteadust rakendada:
 

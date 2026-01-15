@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ru"
 }
 -->
-[![Доверенные AI-агенты](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.ru.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Доверенные AI-агенты](../../../translated_images/ru/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Нажмите на изображение выше, чтобы посмотреть видео этого урока)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Чтобы создавать масштабируемые системные запросы, мы можем использовать структуру системных сообщений для создания одного или нескольких агентов в нашем приложении:
 
-![Создание структуры системных сообщений](../../../translated_images/system-message-framework.3a97368c92d11d68.ru.png)
+![Создание структуры системных сообщений](../../../translated_images/ru/system-message-framework.3a97368c92d11d68.png)
 
 #### Шаг 1: Создайте мета-системное сообщение
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 Чтобы создавать доверенных AI-агентов, важно понимать и снижать риски и угрозы для вашего AI-агента. Давайте рассмотрим некоторые из различных угроз для AI-агентов и способы их предотвращения.
 
-![Понимание угроз](../../../translated_images/understanding-threats.89edeada8a97fc0f.ru.png)
+![Понимание угроз](../../../translated_images/ru/understanding-threats.89edeada8a97fc0f.png)
 
 ### Задачи и инструкции
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 Еще один эффективный способ создания доверенных систем AI-агентов — использование подхода "человек в процессе". Это создает поток, в котором пользователи могут предоставлять обратную связь агентам во время выполнения задач. Пользователи фактически выступают в роли агентов в многоагентной системе, предоставляя одобрение или прекращая выполнение процесса.
 
-![Человек в процессе](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.ru.png)
+![Человек в процессе](../../../translated_images/ru/human-in-the-loop.5f0068a678f62f4f.png)
 
 Вот пример кода с использованием AutoGen, демонстрирующий, как реализуется эта концепция:
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # 初心者向け AI エージェント - コース
 
-![生成AI入門](../../translated_images/repo-thumbnailv2.06f4a48036fde647.ja.png)
+![生成AI入門](../../translated_images/ja/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## AIエージェントを構築し始めるために必要なすべてを教えるコース
 

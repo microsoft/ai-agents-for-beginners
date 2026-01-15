@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pa"
 }
 -->
-[![AI ਏਜੰਟ ਫਰੇਮਵਰਕਸ ਦੀ ਖੋਜ](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.pa.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![AI ਏਜੰਟ ਫਰੇਮਵਰਕਸ ਦੀ ਖੋਜ](../../../translated_images/pa/lesson-2-thumbnail.c65f44c93b8558df.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(ਉਪਰ ਦਿੱਤੀ ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇਸ ਪਾਠ ਦਾ ਵੀਡੀਓ ਵੇਖੋ)_
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "vi"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.vi.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/vi/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Nhấp vào hình ảnh trên để xem video của bài học này)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) là một mô hình mới n
 
 Phong cách lặp lại “maker-checker” này được thiết kế để cải thiện độ chính xác, xử lý các truy vấn bị lỗi đối với cơ sở dữ liệu có cấu trúc (ví dụ: NL2SQL) và đảm bảo kết quả cân bằng, chất lượng cao. Thay vì chỉ dựa vào các chuỗi nhắc được thiết kế cẩn thận, hệ thống chủ động sở hữu quy trình suy luận của mình. Nó có thể viết lại các truy vấn bị lỗi, chọn các phương pháp truy xuất khác nhau và tích hợp nhiều công cụ—chẳng hạn như tìm kiếm vector trong Azure AI Search, cơ sở dữ liệu SQL hoặc API tùy chỉnh—trước khi hoàn thiện câu trả lời của mình. Điều này loại bỏ nhu cầu về các khung điều phối quá phức tạp. Thay vào đó, một vòng lặp tương đối đơn giản của “gọi LLM → sử dụng công cụ → gọi LLM → …” có thể tạo ra các đầu ra tinh vi và có cơ sở.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.vi.png)
+![Agentic RAG Core Loop](../../../translated_images/vi/agentic-rag-core-loop.c8f4b85c26920f71.png)
 
 ## Sở hữu quy trình suy luận
 
@@ -66,7 +66,7 @@ Tất cả các bước này—tinh chỉnh truy vấn, chọn nguồn, lặp l�
 
 ## Vòng lặp lặp lại, tích hợp công cụ và bộ nhớ
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.vi.png)
+![Tool Integration Architecture](../../../translated_images/vi/tool-integration.0f569710b5c17c10.png)
 
 Một hệ thống agentic dựa vào mô hình tương tác lặp lại:
 
@@ -88,7 +88,7 @@ Tính tự chủ của Agentic RAG cũng bao gồm các cơ chế tự sửa l�
 
 Cách tiếp cận lặp lại và năng động này cho phép mô hình cải thiện liên tục, đảm bảo rằng nó không chỉ là một hệ thống một lần mà là một hệ thống học hỏi từ những sai lầm của mình trong một phiên làm việc nhất định.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.vi.png)
+![Self Correction Mechanism](../../../translated_images/vi/self-correction.da87f3783b7f174b.png)
 
 ## Giới hạn của tính tự chủ
 
@@ -118,7 +118,7 @@ Khi các hệ thống này trở nên tự chủ hơn trong suy luận của mì
 
 Có các công cụ cung cấp một bản ghi rõ ràng về các hành động là rất cần thiết. Nếu không có chúng, việc gỡ lỗi một quy trình nhiều bước có thể rất khó khăn. Xem ví dụ sau từ Literal AI (công ty đứng sau Chainlit) về một Agent run:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.vi.png)
+![AgentRunExample](../../../translated_images/vi/AgentRunExample.471a94bc40cbdc0c.png)
 
 ## Kết luận
 

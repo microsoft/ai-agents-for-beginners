@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Дотримуйтесь інструкцій із [блогу Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) для створення Azure AI Foundry hub.
 2. Коли ваш проєкт буде створено, закрийте всі підказки, що з’являться, і перегляньте сторінку проєкту в порталі Azure AI Foundry, яка має виглядати приблизно так:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.uk.png)
+    ![Azure AI Foundry Project](../../../translated_images/uk/azure-ai-foundry.88d0c35298348c2f.png)
 
 ## Розгортання моделі
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: Зменшення TPM допомагає уникнути перевищення квоти, доступної у вашій підписці.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.uk.png)
+    ![Model Deployed](../../../translated_images/uk/model-deployment.3749c53fb81e18fd.png)
 
 ## Створення агента
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > Крім того, ви можете додати **Knowledge Base** та **Actions**, щоб розширити можливості агента, надаючи більше інформації та виконуючи автоматизовані завдання на основі запитів користувачів. Для цього завдання ці кроки можна пропустити.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.uk.png)
+![Agent Setup](../../../translated_images/uk/agent-setup.9bbb8755bf5df672.png)
 
 3. Щоб створити нового мульти-ШІ агента, просто натисніть **New Agent**. Новостворений агент з’явиться на сторінці Agents.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: Агент може не надавати точних відповідей, оскільки в цьому завданні не використовується актуальна інформація в реальному часі. Мета — перевірити здатність агента розуміти та відповідати на запити користувачів на основі заданих інструкцій.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.uk.png)
+    ![Agent Playground](../../../translated_images/uk/agent-playground.dc146586de715010.png)
 
 3. Після тестування агента ви можете додатково налаштувати його, додаючи більше намірів, тренувальних даних та дій для розширення його можливостей.
 

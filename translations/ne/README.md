@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # शुरुआतीहरूको लागि AI एजेन्टहरू - एक पाठ्यक्रम
 
-![शुरुआतीहरूको लागि जनरेटिभ एआई](../../translated_images/repo-thumbnailv2.06f4a48036fde647.ne.png)
+![शुरुआतीहरूको लागि जनरेटिभ एआई](../../translated_images/ne/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## एक पाठ्यक्रम जसले AI एजेन्टहरू निर्माण गर्न सुरु गर्न आवश्यक सबै कुरा सिकाउँछ
 

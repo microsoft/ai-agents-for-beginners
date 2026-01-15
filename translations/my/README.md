@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI အေးဂျင့်များ (စတင်သူများ) - သင်တန်း
 
-![Generative AI စတင်သူများအတွက်](../../translated_images/repo-thumbnailv2.06f4a48036fde647.my.png)
+![Generative AI စတင်သူများအတွက်](../../translated_images/my/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## AI အေးဂျင့်များကို တည်ဆောက်ဖို့ စတင်ရန် သိထားရန် လိုအပ်သည့် အရာအားလုံးကို သင်ကြားပေးသော သင်တန်း
 

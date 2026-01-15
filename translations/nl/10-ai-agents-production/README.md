@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI-agenten in productie: Observatie en Evaluatie
 
-[![AI-agenten in productie](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.nl.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI-agenten in productie](../../../translated_images/nl/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Wanneer AI-agenten evolueren van experimentele prototypes naar toepassingen in de echte wereld, wordt het essentieel om hun gedrag te begrijpen, hun prestaties te monitoren en hun output systematisch te evalueren.
 

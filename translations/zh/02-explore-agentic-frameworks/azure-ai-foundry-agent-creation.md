@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. 按照 [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) 博客文章中的指南创建 Azure AI Foundry hub。
 2. 项目创建完成后，关闭任何弹出的提示，查看 Azure AI Foundry 门户中的项目页面，页面应类似下图：
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.zh.png)
+    ![Azure AI Foundry Project](../../../translated_images/zh/azure-ai-foundry.88d0c35298348c2f.png)
 
 ## 部署模型
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: 降低 TPM 有助于避免超出您订阅中可用的配额。
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.zh.png)
+    ![Model Deployed](../../../translated_images/zh/model-deployment.3749c53fb81e18fd.png)
 
 ## 创建 agent
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > 此外，您可以添加 **Knowledge Base** 和 **Actions**，以增强 agent 的能力，提供更多信息并根据用户请求执行自动化任务。本练习中可跳过这些步骤。
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.zh.png)
+![Agent Setup](../../../translated_images/zh/agent-setup.9bbb8755bf5df672.png)
 
 3. 若要创建新的多 AI agent，只需点击 **New Agent**。新创建的 agent 会显示在 Agents 页面中。
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: 由于本练习未使用实时数据，agent 可能无法提供准确答案。目的是测试 agent 根据指令理解并响应用户查询的能力。
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.zh.png)
+    ![Agent Playground](../../../translated_images/zh/agent-playground.dc146586de715010.png)
 
 3. 测试完成后，您可以通过添加更多意图、训练数据和操作，进一步定制 agent，提升其功能。
 

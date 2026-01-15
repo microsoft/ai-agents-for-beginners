@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ne"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.ne.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/ne/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(माथिको तस्बिरमा क्लिक गरेर यो पाठको भिडियो हेर्नुहोस्)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 स्केलेबल सिस्टम प्रम्प्टहरू सिर्जना गर्न, हामी हाम्रो एप्लिकेसनमा एक वा बढी एजेन्टहरू निर्माण गर्न प्रणाली सन्देश फ्रेमवर्क प्रयोग गर्न सक्छौं:
 
-![सिस्टम सन्देश फ्रेमवर्क निर्माण](../../../translated_images/system-message-framework.3a97368c92d11d68.ne.png)
+![सिस्टम सन्देश फ्रेमवर्क निर्माण](../../../translated_images/ne/system-message-framework.3a97368c92d11d68.png)
 
 #### चरण १: मेटा सिस्टम सन्देश सिर्जना गर्नुहोस्
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 भरपर्दो एआई एजेन्टहरू निर्माण गर्न, तपाईंको एआई एजेन्टमा हुने जोखिम र खतराहरू बुझ्नु र न्यूनीकरण गर्नु महत्त्वपूर्ण छ। एआई एजेन्टहरूमा हुने विभिन्न खतराहरू र तिनीहरूलाई कसरी राम्रोसँग योजना र तयारी गर्न सकिन्छ भन्ने केही उदाहरणहरू हेरौं।
 
-![खतराहरू बुझ्दै](../../../translated_images/understanding-threats.89edeada8a97fc0f.ne.png)
+![खतराहरू बुझ्दै](../../../translated_images/ne/understanding-threats.89edeada8a97fc0f.png)
 
 ### कार्य र निर्देशन
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 भरपर्दो एआई एजेन्ट प्रणालीहरू निर्माण गर्ने अर्को प्रभावकारी उपाय भनेको मानव-इन-द-लूप प्रयोग गर्नु हो। यसले प्रयोगकर्ताहरूलाई एजेन्टहरूको प्रक्रियामा प्रतिक्रिया प्रदान गर्न सक्षम बनाउने प्रवाह सिर्जना गर्छ। प्रयोगकर्ताहरूले बहु-एजेन्ट प्रणालीमा एजेन्टको रूपमा काम गर्छन् र चलिरहेको प्रक्रियाको स्वीकृति वा समाप्ति प्रदान गर्छन्।
 
-![मानव-इन-द-लूप](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.ne.png)
+![मानव-इन-द-लूप](../../../translated_images/ne/human-in-the-loop.5f0068a678f62f4f.png)
 
 यहाँ AutoGen प्रयोग गरेर यो अवधारणा कसरी कार्यान्वयन गरिन्छ भन्ने देखाउने कोड स्निपेट छ:
 

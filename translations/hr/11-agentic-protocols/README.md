@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Korištenje Agentnih Protokola (MCP, A2A i NLWeb)
 
-[![Agentni Protokoli](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.hr.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentni Protokoli](../../../translated_images/hr/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Kliknite na sliku iznad za pregled videa ove lekcije)_
 
@@ -69,7 +69,7 @@ MCP nudi značajne prednosti za AI agente:
 
 ### Primjer MCP-a
 
-![MCP Dijagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.hr.png)
+![MCP Dijagram](../../../translated_images/hr/mcp-diagram.e4ca1cbd551444a1.png)
 
 Zamislite da korisnik želi rezervirati let koristeći AI asistenta koji koristi MCP.
 
@@ -124,7 +124,7 @@ Ova komponenta koristi se za **upravljanje ažuriranjima i prosljeđivanje poruk
 
 ### Primjer A2A-a
 
-![A2A Dijagram](../../../translated_images/A2A-Diagram.8666928d648acc26.hr.png)
+![A2A Dijagram](../../../translated_images/hr/A2A-Diagram.8666928d648acc26.png)
 
 Proširimo naš scenarij rezervacije putovanja, ali ovaj put koristeći A2A.
 
@@ -158,7 +158,7 @@ Pogledajmo različite komponente NLWeb-a, prednosti NLWeb-a i primjer kako NLWeb
 
 ### NLWeb kroz primjer
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.hr.png)
+![NLWeb](../../../translated_images/hr/nlweb-diagram.c1e2390b310e5fe4.png)
 
 Razmotrimo našu web stranicu za rezervaciju putovanja, ali ovaj put, ona je pokretana NLWeb-om.
 

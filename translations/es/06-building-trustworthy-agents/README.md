@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "es"
 }
 -->
-[![Agentes de IA Confiables](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.es.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Agentes de IA Confiables](../../../translated_images/es/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Haz clic en la imagen de arriba para ver el video de esta lección)_
 
@@ -41,7 +41,7 @@ Para los agentes de IA, el mensaje del sistema es aún más importante, ya que l
 
 Para crear mensajes del sistema escalables, podemos usar un marco de mensajes del sistema para construir uno o más agentes en nuestra aplicación:
 
-![Construcción de un Marco de Mensajes del Sistema](../../../translated_images/system-message-framework.3a97368c92d11d68.es.png)
+![Construcción de un Marco de Mensajes del Sistema](../../../translated_images/es/system-message-framework.3a97368c92d11d68.webp)
 
 #### Paso 1: Crear un Mensaje Meta del Sistema
 
@@ -130,7 +130,7 @@ El valor de este marco de mensajes del sistema es poder escalar la creación de 
 
 Para construir agentes de IA confiables, es importante comprender y mitigar los riesgos y amenazas para tu agente de IA. Veamos algunas de las diferentes amenazas para los agentes de IA y cómo puedes planificar y prepararte mejor para ellas.
 
-![Comprensión de Amenazas](../../../translated_images/understanding-threats.89edeada8a97fc0f.es.png)
+![Comprensión de Amenazas](../../../translated_images/es/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Tarea e Instrucción
 
@@ -166,7 +166,7 @@ Para construir agentes de IA confiables, es importante comprender y mitigar los 
 
 Otra forma efectiva de construir sistemas de agentes de IA confiables es utilizando un humano en el bucle. Esto crea un flujo donde los usuarios pueden proporcionar retroalimentación a los agentes durante la ejecución. Los usuarios esencialmente actúan como agentes en un sistema multiagente al proporcionar aprobación o terminación del proceso en ejecución.
 
-![Humano en el Bucle](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.es.png)
+![Humano en el Bucle](../../../translated_images/es/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Aquí hay un fragmento de código usando AutoGen para mostrar cómo se implementa este concepto:
 

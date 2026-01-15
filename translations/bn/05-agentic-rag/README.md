@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bn"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.bn.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/bn/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(উপরের ছবিতে ক্লিক করে এই পাঠের ভিডিও দেখুন)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) AI উন্নয়নে
 
 এই পুনরাবৃত্তি "maker-checker" স্টাইল অপারেশন সঠিকতা উন্নত করতে, ত্রুটিপূর্ণ প্রশ্ন পরিচালনা করতে এবং সুষম, উচ্চ-মানের ফলাফল নিশ্চিত করতে ডিজাইন করা হয়েছে। সাবধানে প্রকৌশলযুক্ত prompt chains-এর উপর নির্ভর করার পরিবর্তে, সিস্টেমটি সক্রিয়ভাবে তার যুক্তি প্রক্রিয়ার মালিকানা গ্রহণ করে। এটি ব্যর্থ প্রশ্নগুলি পুনরায় লেখার ক্ষমতা রাখে, বিভিন্ন retrieval পদ্ধতি বেছে নেয় এবং একাধিক টুল একত্রিত করে—যেমন Azure AI Search-এ vector search, SQL ডেটাবেস বা কাস্টম API—তার উত্তর চূড়ান্ত করার আগে। এটি অত্যন্ত জটিল orchestration frameworks-এর প্রয়োজনীয়তা দূর করে। পরিবর্তে, একটি তুলনামূলকভাবে সহজ লুপ "LLM call → tool use → LLM call → …" জটিল এবং ভাল-ভিত্তিক আউটপুট প্রদান করতে পারে।
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.bn.png)
+![Agentic RAG Core Loop](../../../translated_images/bn/agentic-rag-core-loop.c8f4b85c26920f71.png)
 
 ## যুক্তি প্রক্রিয়ার মালিকানা
 
@@ -66,7 +66,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) AI উন্নয়নে
 
 ## পুনরাবৃত্তি লুপ, টুল ইন্টিগ্রেশন এবং মেমরি
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.bn.png)
+![Tool Integration Architecture](../../../translated_images/bn/tool-integration.0f569710b5c17c10.png)
 
 একটি Agentic সিস্টেম একটি লুপড ইন্টারঅ্যাকশন প্যাটার্নের উপর নির্ভর করে:
 
@@ -88,7 +88,7 @@ Agentic RAG-এর স্বায়ত্তশাসন শক্তিশা
 
 এই পুনরাবৃত্তি এবং গতিশীল পদ্ধতি মডেলটিকে ক্রমাগত উন্নতি করতে দেয়, নিশ্চিত করে যে এটি শুধুমাত্র একটি এক-বারের সিস্টেম নয় বরং একটি সিস্টেম যা একটি প্রদত্ত সেশনের সময় তার ভুল থেকে শিখে।
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.bn.png)
+![Self Correction Mechanism](../../../translated_images/bn/self-correction.da87f3783b7f174b.png)
 
 ## Agentic ক্ষমতার সীমাবদ্ধতা
 

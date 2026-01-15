@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fi"
 }
 -->
-[![Kuinka suunnitella hyviä tekoälyagentteja](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.fi.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Kuinka suunnitella hyviä tekoälyagentteja](../../../translated_images/fi/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Klikkaa yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
 # Tekoälyagenttien suunnitteluperiaatteet
@@ -39,7 +39,7 @@ Tämän oppitunnin jälkeen osaat:
 
 ## Tekoälyagenttien suunnitteluperiaatteet
 
-![Tekoälyagenttien suunnitteluperiaatteet](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.fi.png)
+![Tekoälyagenttien suunnitteluperiaatteet](../../../translated_images/fi/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### Agentti (Tila)
 

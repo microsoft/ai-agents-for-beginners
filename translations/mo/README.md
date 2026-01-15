@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI Agents for Beginners - 初學者課程
 
-![為初學者而設的生成式 AI](../../translated_images/repo-thumbnailv2.06f4a48036fde647.mo.png)
+![為初學者而設的生成式 AI](../../translated_images/mo/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## 本課程教授建立 AI 代理所需的一切基礎知識
 

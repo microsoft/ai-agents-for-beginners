@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Explorarea Microsoft Agent Framework
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.ro.png)
+![Agent Framework](../../../translated_images/ro/lesson-14-thumbnail.90df0065b9d234ee.png)
 
 ### Introducere
 
@@ -33,7 +33,7 @@ Exemplele de cod pentru [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agen
 
 ## Înțelegerea Microsoft Agent Framework
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.ro.png)
+![Framework Intro](../../../translated_images/ro/framework-intro.077af16617cf130c.png)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) se bazează pe experiența și învățăturile din Semantic Kernel și AutoGen. Acesta oferă flexibilitatea de a aborda o varietate largă de cazuri de utilizare agentică întâlnite atât în medii de producție, cât și în cercetare, inclusiv:
 
@@ -63,7 +63,7 @@ Să vedem cum sunt aplicate aceste caracteristici la unele dintre conceptele de 
 
 ### Agenți
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.ro.png)
+![Agent Framework](../../../translated_images/ro/agent-components.410a06daf87b4fef.png)
 
 **Crearea agenților**
 

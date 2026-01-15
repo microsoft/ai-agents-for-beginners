@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pa"
 }
 -->
-[![ਪਲਾਨਿੰਗ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.pa.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![ਪਲਾਨਿੰਗ ਡਿਜ਼ਾਈਨ ਪੈਟਰਨ](../../../translated_images/pa/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(ਉਪਰ ਦਿੱਤੀ ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇਸ ਪਾਠ ਦਾ ਵੀਡੀਓ ਵੇਖੋ)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## ਸਮੁੱਚੇ ਲਕਸ਼ ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰਨਾ ਅਤੇ ਕੰਮ ਨੂੰ ਵੰਡਣਾ
 
-![ਲਕਸ਼ ਅਤੇ ਕੰਮ ਪਰਿਭਾਸ਼ਿਤ ਕਰਨਾ](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.pa.png)
+![ਲਕਸ਼ ਅਤੇ ਕੰਮ ਪਰਿਭਾਸ਼ਿਤ ਕਰਨਾ](../../../translated_images/pa/defining-goals-tasks.d70439e19e37c47a.png)
 
 ਅਧਿਕਤਰ ਅਸਲ-ਜਗਤ ਦੇ ਕੰਮ ਇੱਕ ਹੀ ਕਦਮ ਵਿੱਚ ਹੱਲ ਕਰਨ ਲਈ ਬਹੁਤ ਜਟਿਲ ਹੁੰਦੇ ਹਨ। ਇੱਕ AI ਏਜੰਟ ਨੂੰ ਆਪਣੀ ਯੋਜਨਾ ਅਤੇ ਕਾਰਵਾਈਆਂ ਨੂੰ ਮਾਰਗਦਰਸ਼ਨ ਦੇਣ ਲਈ ਇੱਕ ਸੰਖੇਪ ਉਦੇਸ਼ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ। ਉਦਾਹਰਣ ਲਈ, ਲਕਸ਼ ਨੂੰ ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ:
 

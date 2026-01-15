@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI ایجنٹس برائے مبتدی - ایک کورس
 
-![ابتدائی افراد کے لیے جنریٹو AI](../../translated_images/repo-thumbnailv2.06f4a48036fde647.ur.png)
+![ابتدائی افراد کے لیے جنریٹو AI](../../translated_images/ur/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## ایک کورس جو آپ کو AI ایجنٹس بنانے شروع کرنے کے لیے درکار ہر چیز سکھاتا ہے
 

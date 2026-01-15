@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "en"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.en.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/en/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Click the image above to view video of this lesson)_
 
@@ -41,7 +41,7 @@ For AI Agents, the system prompt is even more critical because the agents requir
 
 To create scalable system prompts, we can use a system message framework to build one or more agents within our application:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.en.png)
+![Building a System Message Framework](../../../translated_images/en/system-message-framework.3a97368c92d11d68.webp)
 
 #### Step 1: Create a Meta System Message 
 
@@ -130,7 +130,7 @@ The advantage of this system message framework is that it simplifies the process
 
 To build trustworthy AI agents, it’s essential to understand and mitigate risks and threats. Let’s examine some common threats to AI agents and strategies to address them.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.en.png)
+![Understanding Threats](../../../translated_images/en/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Task and Instruction
 
@@ -166,7 +166,7 @@ To build trustworthy AI agents, it’s essential to understand and mitigate risk
 
 Another effective approach to building trustworthy AI Agent systems is incorporating a Human-in-the-loop. This allows users to provide feedback to the agents during their operation. Users essentially act as agents in a multi-agent system, approving or terminating processes as needed.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.en.png)
+![Human in The Loop](../../../translated_images/en/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Here’s a code snippet using AutoGen to demonstrate this concept:
 

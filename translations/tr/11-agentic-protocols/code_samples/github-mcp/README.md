@@ -53,7 +53,7 @@ Bu, Chainlit sunucunuzu `localhost:8000` üzerinde başlatmalı ve `event-descri
 
 Github MCP Sunucusuna bağlanmak için, "Mesajınızı buraya yazın.." sohbet kutusunun altındaki "fiş" simgesini seçin:
 
-![MCP Bağlan](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.tr.png)
+![MCP Bağlan](../../../../../translated_images/tr/mcp-chainlit-1.7ed66d648e3cfb28.png)
 
 Buradan, Github MCP Sunucusuna bağlanma komutunu eklemek için "Bir MCP Bağlayın" seçeneğine tıklayabilirsiniz:
 

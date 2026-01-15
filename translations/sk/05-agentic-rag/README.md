@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sk"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.sk.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/sk/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Kliknite na obrázok vyššie a pozrite si video k tejto lekcii)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) je nový AI paradigma, kde 
 
 Tento iteratívny štýl „maker-checker“ je navrhnutý na zlepšenie správnosti, riešenie chybných dotazov do štruktúrovaných databáz (napr. NL2SQL) a zabezpečenie vyvážených, vysokokvalitných výsledkov. Namiesto spoliehania sa výlučne na starostlivo navrhnuté reťazce promptov systém aktívne vlastní svoj proces uvažovania. Môže prepisovať neúspešné dotazy, voliť rôzne metódy získavania informácií a integrovať viaceré nástroje—ako napríklad vektorové vyhľadávanie v Azure AI Search, SQL databázy alebo vlastné API—predtým, než dokončí svoju odpoveď. To eliminuje potrebu príliš komplexných orchestrálnych rámcov. Namiesto toho relatívne jednoduchý cyklus „volanie LLM → použitie nástroja → volanie LLM → …“ môže priniesť sofistikované a dobre podložené výstupy.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.sk.png)
+![Agentic RAG Core Loop](../../../translated_images/sk/agentic-rag-core-loop.c8f4b85c26920f71.png)
 
 ## Vlastníctvo procesu uvažovania
 
@@ -67,7 +67,7 @@ Všetky tieto kroky—upravovanie dotazov, výber zdrojov, iterácia až do „s
 
 ## Iteratívne cykly, integrácia nástrojov a pamäť
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.sk.png)
+![Tool Integration Architecture](../../../translated_images/sk/tool-integration.0f569710b5c17c10.png)
 
 Agentický systém sa spolieha na vzorec interakcie v cykloch:
 
@@ -89,7 +89,7 @@ Autonómia Agentic RAG zahŕňa aj robustné mechanizmy samokorekcie. Keď syst�
 
 Tento iteratívny a dynamický prístup umožňuje modelu neustále sa zlepšovať, čím zabezpečuje, že nie je len jednorazovým systémom, ale takým, ktorý sa učí zo svojich chýb počas danej relácie.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.sk.png)
+![Self Correction Mechanism](../../../translated_images/sk/self-correction.da87f3783b7f174b.png)
 
 ## Hranice autonómie
 

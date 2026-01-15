@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agenttisten protokollien käyttö (MCP, A2A ja NLWeb)
 
-[![Agenttiset protokollat](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.fi.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agenttiset protokollat](../../../translated_images/fi/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Klikkaa yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
 
@@ -69,7 +69,7 @@ MCP tarjoaa merkittäviä etuja tekoälyagenteille:
 
 ### MCP-esimerkki
 
-![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.fi.png)
+![MCP Diagram](../../../translated_images/fi/mcp-diagram.e4ca1cbd551444a1.png)
 
 Kuvitellaan, että käyttäjä haluaa varata lennon tekoälyavustajan avulla, joka käyttää MCP:tä.
 
@@ -124,7 +124,7 @@ Tätä komponenttia käytetään **päivitysten käsittelyyn ja viestien välitt
 
 ### A2A-esimerkki
 
-![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc26.fi.png)
+![A2A Diagram](../../../translated_images/fi/A2A-Diagram.8666928d648acc26.png)
 
 Laajennetaan matkavarauksen skenaariota, mutta tällä kertaa käytetään A2A:ta.
 
@@ -158,7 +158,7 @@ Katsotaan NLWebin eri komponentteja, sen hyötyjä ja esimerkkiä siitä, kuinka
 
 ### NLWeb esimerkin avulla
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.fi.png)
+![NLWeb](../../../translated_images/fi/nlweb-diagram.c1e2390b310e5fe4.png)
 
 Tarkastellaan matkailuvarauksen verkkosivustoa, mutta tällä kertaa se on NLWebin voimin.
 

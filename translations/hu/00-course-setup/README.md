@@ -25,7 +25,7 @@ Ezt megteheted, ha rákattintasz a következő linkre: <a href="https://github.c
 
 Most már meg kell, hogy legyen a tanfolyam saját forkolt verziója a következő linken:
 
-![Forkolt Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.hu.png)
+![Forkolt Repo](../../../translated_images/hu/forked-repo.33f27ca1901baa6a.png)
 
 ### Sekély Klónozás (ajánlott workshopokhoz / Codespaces-hez)
 
@@ -176,11 +176,11 @@ Kérjük, kövesd a [Legkisebb Jogosultság Elvét](https://docs.github.com/en/g
 
 1. Válaszd ki a `Fine-grained tokens` opciót a képernyő bal oldalán a **Fejlesztői beállítások** alatt.
 
-   ![Fejlesztői beállítások](../../../translated_images/profile_developer_settings.410a859fe749c755.hu.png)
+   ![Fejlesztői beállítások](../../../translated_images/hu/profile_developer_settings.410a859fe749c755.png)
 
    Ezután válaszd a `Generate new token` lehetőséget.
 
-   ![Token Generálása](../../../translated_images/fga_new_token.1c1a234afe202ab3.hu.png)
+   ![Token Generálása](../../../translated_images/hu/fga_new_token.1c1a234afe202ab3.png)
 
 2. Adj meg egy leíró nevet a tokenednek, amely tükrözi annak célját, így később könnyen azonosítható lesz.
 
@@ -190,19 +190,19 @@ Kérjük, kövesd a [Legkisebb Jogosultság Elvét](https://docs.github.com/en/g
     A biztonságosabb hozzáállás érdekében választhatsz rövidebb időszakot is — például 7 nap 🛡️
     Ez egy remek módja annak, hogy személyes célt tűzz ki, és befejezd a tanfolyamot, miközben a tanulási lendületed magas 🚀.
 
-    ![Token Név és Lejárati Idő](../../../translated_images/token-name-expiry-date.a095fb0de6386864.hu.png)
+    ![Token Név és Lejárati Idő](../../../translated_images/hu/token-name-expiry-date.a095fb0de6386864.png)
 
 3. Korlátozd a token hatókörét a repód forkjára.
 
-    ![Hatókör Korlátozása Fork Repóra](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.hu.png)
+    ![Hatókör Korlátozása Fork Repóra](../../../translated_images/hu/token_repository_limit.924ade5e11d9d8bb.png)
 
 4. Korlátozd a token jogosultságait: A **Jogosultságok** alatt kattints az **Account** fülre, majd kattints a "+ Add permissions" gombra. Egy legördülő menü jelenik meg. Keresd meg a **Models** opciót, és jelöld be a négyzetet.
 
-    ![Modellek Jogosultság Hozzáadása](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.hu.png)
+    ![Modellek Jogosultság Hozzáadása](../../../translated_images/hu/add_models_permissions.c0c44ed8b40fc143.png)
 
-5. Ellenőrizd a szükséges jogosultságokat a token generálása előtt. ![Jogosultságok Ellenőrzése](../../../translated_images/verify_permissions.06bd9e43987a8b21.hu.png)
+5. Ellenőrizd a szükséges jogosultságokat a token generálása előtt. ![Jogosultságok Ellenőrzése](../../../translated_images/hu/verify_permissions.06bd9e43987a8b21.png)
 
-6. A token generálása előtt győződj meg róla, hogy készen állsz a token biztonságos helyen történő tárolására, például egy jelszókezelőben, mivel a token nem lesz újra megjelenítve a létrehozás után. ![Token Biztonságos Tárolása](../../../translated_images/store_token_securely.08ee2274c6ad6caf.hu.png)
+6. A token generálása előtt győződj meg róla, hogy készen állsz a token biztonságos helyen történő tárolására, például egy jelszókezelőben, mivel a token nem lesz újra megjelenítve a létrehozás után. ![Token Biztonságos Tárolása](../../../translated_images/hu/store_token_securely.08ee2274c6ad6caf.png)
 
 Másold ki az újonnan létrehozott tokent. Most add hozzá ezt a `.env` fájlodhoz, amely a tanfolyam része.
 
@@ -224,7 +224,7 @@ Ez lemásolja a példafájlt, és létrehoz egy `.env` fájlt a könyvtáradban,
 
 A tokened bemásolásával nyisd meg a `.env` fájlt a kedvenc szövegszerkesztődben, és illeszd be a tokenedet a `GITHUB_TOKEN` mezőbe.
 
-![GitHub Token Mező](../../../translated_images/github_token_field.20491ed3224b5f4a.hu.png)
+![GitHub Token Mező](../../../translated_images/hu/github_token_field.20491ed3224b5f4a.png)
 
 Most már képesnek kell lenned a tanfolyam kódpéldáinak futtatására.
 
@@ -238,7 +238,7 @@ Miután létrehoztad a projektedet, le kell kérned a projekted kapcsolati strin
 
 Ezt megteheted, ha ellátogatsz a projekted **Áttekintés** oldalára az Azure AI Foundry portálon.
 
-![Projekt Kapcsolati String](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.hu.png)
+![Projekt Kapcsolati String](../../../translated_images/hu/project-endpoint.8cf04c9975bbfbf1.png)
 
 ### 2. lépés: `.env` Fájl Létrehozása
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ml"
 }
 -->
-[![How to Design Good AI Agents](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.ml.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![How to Design Good AI Agents](../../../translated_images/ml/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(മുകളിൽ കാണുന്ന ചിത്രം ക്ലിക്ക് ചെയ്ത് ഈ പാഠത്തിന്റെ വീഡിയോ കാണുക)_
 
@@ -216,7 +216,7 @@ AI ഏജന്റുകൾ സങ്കീർണ്ണമായ പ്രവർ
 
 താഴെ കാണുന്ന ഡയാഗ്രാം സെമാന്റിക് കർണൽ ഉപയോഗിച്ച് ഫംഗ്ഷൻ കോളിംഗ് പ്രക്രിയയെ ചിത്രീകരിക്കുന്നു:
 
-![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f6014.ml.png)
+![function calling](../../../translated_images/ml/functioncalling-diagram.a84006fc287f6014.png)
 
 സെമാന്റിക് കർണലിൽ ഫംഗ്ഷനുകൾ/ടൂളുകൾ <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a> എന്ന് വിളിക്കുന്നു. മുമ്പ് കണ്ട `get_current_time` ഫംഗ്ഷനെ ക്ലാസ്സായി മാറ്റി, അതിൽ ഫംഗ്ഷൻ ഉൾപ്പെടുത്തി പ്ലഗിനായി മാറ്റാം. `kernel_function` ഡെക്കറേറ്റർ ഇറക്കുമതി ചെയ്യാം, ഇത് ഫംഗ്ഷന്റെ വിവരണം സ്വീകരിക്കുന്നു. GetCurrentTimePlugin ഉപയോഗിച്ച് ഒരു കർണൽ സൃഷ്ടിക്കുമ്പോൾ, കർണൽ ഫംഗ്ഷനും അതിന്റെ പാരാമീറ്ററുകളും സ്വയം വിവരണം നൽകുകയും, LLM-ന് അയയ്ക്കാൻ സ്കീമ സൃഷ്ടിക്കുകയും ചെയ്യുന്നു.
 

@@ -53,7 +53,7 @@ Dette bør starte Chainlit-serveren din på `localhost:8000` og fylle Azure AI S
 
 For å koble til Github MCP Server, velg "plug"-ikonet under "Type your message here.." chat-boksen:
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.no.png)
+![MCP Connect](../../../../../translated_images/no/mcp-chainlit-1.7ed66d648e3cfb28.png)
 
 Derfra kan du klikke på "Connect an MCP" for å legge til kommandoen for å koble til Github MCP Server:
 

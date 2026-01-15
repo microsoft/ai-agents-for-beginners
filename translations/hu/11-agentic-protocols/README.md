@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agentikus protokollok használata (MCP, A2A és NLWeb)
 
-[![Agentikus protokollok](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.hu.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentikus protokollok](../../../translated_images/hu/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Kattints a fenti képre a leckéhez tartozó videó megtekintéséhez)_
 
@@ -69,7 +69,7 @@ Az MCP jelentős előnyöket kínál az AI ügynökök számára:
 
 ### MCP példa
 
-![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.hu.png)
+![MCP Diagram](../../../translated_images/hu/mcp-diagram.e4ca1cbd551444a1.png)
 
 Képzeljük el, hogy egy felhasználó repülőjegyet szeretne foglalni egy MCP által működtetett AI asszisztens segítségével.
 
@@ -124,7 +124,7 @@ Ez az összetevő **frissítések kezelésére és üzenetek továbbítására**
 
 ### A2A példa
 
-![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc26.hu.png)
+![A2A Diagram](../../../translated_images/hu/A2A-Diagram.8666928d648acc26.png)
 
 Bővítsük ki az utazási foglalási forgatókönyvet, de ezúttal az A2A használatával.
 

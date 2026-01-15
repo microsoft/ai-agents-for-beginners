@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sv"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.sv.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/sv/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Klicka på bilden ovan för att se videon för denna lektion)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) är ett framväxande paradi
 
 Denna iterativa "maker-checker"-stil är utformad för att förbättra korrekthet, hantera felaktiga frågor till strukturerade databaser (t.ex. NL2SQL) och säkerställa balanserade, högkvalitativa resultat. Istället för att enbart förlita sig på noggrant konstruerade promptkedjor tar systemet aktivt ansvar för sin resonemangsprocess. Det kan omskriva frågor som misslyckas, välja olika hämtmetoder och integrera flera verktyg—såsom vektorsökning i Azure AI Search, SQL-databaser eller anpassade API:er—innan det slutför sitt svar. Detta eliminerar behovet av överdrivet komplexa orkestreringsramverk. Istället kan en relativt enkel loop av "LLM-anrop → verktygsanvändning → LLM-anrop → …" ge sofistikerade och välgrundade utdata.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.sv.png)
+![Agentic RAG Core Loop](../../../translated_images/sv/agentic-rag-core-loop.c8f4b85c26920f71.png)
 
 ## Ta ansvar för resonemangsprocessen
 
@@ -67,7 +67,7 @@ Alla dessa steg—att förfina frågor, välja källor, iterera tills modellen �
 
 ## Iterativa loopar, verktygsintegration och minne
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.sv.png)
+![Tool Integration Architecture](../../../translated_images/sv/tool-integration.0f569710b5c17c10.png)
 
 Ett agentiskt system förlitar sig på ett loopat interaktionsmönster:
 
@@ -89,7 +89,7 @@ Agentic RAG:s autonomi innefattar också robusta självkorrigeringsmekanismer. N
 
 Denna iterativa och dynamiska metod gör det möjligt för modellen att kontinuerligt förbättras, vilket säkerställer att den inte bara är ett engångssystem utan ett som lär sig av sina misstag under en given session.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.sv.png)
+![Self Correction Mechanism](../../../translated_images/sv/self-correction.da87f3783b7f174b.png)
 
 ## Gränser för agentisk förmåga
 
@@ -119,7 +119,7 @@ När dessa system blir mer autonoma i sitt resonemang är styrning och transpare
 
 Att ha verktyg som tillhandahåller en tydlig redovisning av åtgärder är avgörande. Utan dem kan felsökning av en flerledad process vara mycket svårt. Se följande exempel från Literal AI (företaget bakom Chainlit) för en Agent-run:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.sv.png)
+![AgentRunExample](../../../translated_images/sv/AgentRunExample.471a94bc40cbdc0c.png)
 
 ## Slutsats
 

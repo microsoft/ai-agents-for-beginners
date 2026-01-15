@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Microsoft Agent Framework പഠനം
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.ml.png)
+![Agent Framework](../../../translated_images/ml/lesson-14-thumbnail.90df0065b9d234ee.png)
 
 ### പരിചയം
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Microsoft Agent Framework മനസ്സിലാക്കുക
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.ml.png)
+![Framework Intro](../../../translated_images/ml/framework-intro.077af16617cf130c.png)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) Semantic Kernel, AutoGen എന്നിവയിൽ നിന്നുള്ള അനുഭവങ്ങളും പഠനങ്ങളും അടിസ്ഥാനമാക്കി നിർമ്മിച്ചിരിക്കുന്നു. ഇത് പ്രൊഡക്ഷൻ, ഗവേഷണ പരിസ്ഥിതികളിൽ കാണുന്ന വിവിധ ഏജന്റിക് ഉപയോഗ കേസുകൾ കൈകാര്യം ചെയ്യാൻ ആവശ്യമായ സൗകര്യങ്ങൾ നൽകുന്നു:
 
@@ -63,7 +63,7 @@ Microsoft Agent Framework-ന്റെ മറ്റൊരു പ്രധാന 
 
 ### ഏജന്റുകൾ
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.ml.png)
+![Agent Framework](../../../translated_images/ml/agent-components.410a06daf87b4fef.png)
 
 **ഏജന്റുകൾ സൃഷ്ടിക്കൽ**
 

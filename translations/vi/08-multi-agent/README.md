@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "vi"
 }
 -->
-[![Thiết kế Đa Tác Nhân](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.vi.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Thiết kế Đa Tác Nhân](../../../translated_images/vi/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Nhấp vào hình ảnh trên để xem video của bài học này)_
 
@@ -97,7 +97,7 @@ Trong mẫu này, mỗi tác nhân đại diện cho một người dùng trong 
 
 Mẫu này có thể được triển khai bằng cách sử dụng kiến trúc tập trung nơi tất cả các tin nhắn được định tuyến qua một máy chủ trung tâm, hoặc kiến trúc phi tập trung nơi các tin nhắn được trao đổi trực tiếp.
 
-![Trò chuyện nhóm](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.vi.png)
+![Trò chuyện nhóm](../../../translated_images/vi/multi-agent-group-chat.ec10f4cde556babd.png)
 
 ### Chuyển giao
 
@@ -107,7 +107,7 @@ Các trường hợp sử dụng điển hình cho mẫu này bao gồm hỗ tr�
 
 Trong mẫu này, mỗi tác nhân đại diện cho một nhiệm vụ hoặc một bước trong quy trình làm việc, và các tác nhân có thể chuyển giao nhiệm vụ cho các tác nhân khác dựa trên các quy tắc được định trước.
 
-![Chuyển giao](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.vi.png)
+![Chuyển giao](../../../translated_images/vi/multi-agent-hand-off.4c5fb00ba6f8750a.png)
 
 ### Lọc cộng tác
 
@@ -121,7 +121,7 @@ Hãy lấy một ví dụ nơi một người dùng muốn có đề xuất về
 - **Phân tích kỹ thuật**: Một tác nhân khác có thể là chuyên gia trong phân tích kỹ thuật.
 - **Phân tích cơ bản**: Và một tác nhân khác có thể là chuyên gia trong phân tích cơ bản. Bằng cách cộng tác, các tác nhân này có thể cung cấp một đề xuất toàn diện hơn cho người dùng.
 
-![Đề xuất](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.vi.png)
+![Đề xuất](../../../translated_images/vi/multi-agent-filtering.d959cb129dc9f608.png)
 
 ## Tình huống: Quy trình hoàn tiền
 

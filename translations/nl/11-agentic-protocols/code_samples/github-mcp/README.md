@@ -53,7 +53,7 @@ Dit zou je Chainlit-server moeten starten op `localhost:8000` en je Azure AI Sea
 
 Om verbinding te maken met de Github MCP Server, selecteer je het "stekker"-icoon onder het chatvak "Typ hier je bericht...":
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.nl.png)
+![MCP Connect](../../../../../translated_images/nl/mcp-chainlit-1.7ed66d648e3cfb28.png)
 
 Van daaruit kun je klikken op "Connect an MCP" om het commando toe te voegen om verbinding te maken met de Github MCP Server:
 

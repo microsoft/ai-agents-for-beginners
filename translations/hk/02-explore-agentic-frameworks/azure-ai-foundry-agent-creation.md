@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. 請參考 [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) 部落格文章中的指引，建立 Azure AI Foundry hub。
 2. 專案建立完成後，關閉任何顯示的提示，並檢視 Azure AI Foundry portal 中的專案頁面，應該會類似以下圖片：
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.hk.png)
+    ![Azure AI Foundry Project](../../../translated_images/hk/azure-ai-foundry.88d0c35298348c2f.png)
 
 ## 部署模型
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: 降低 TPM 有助於避免超出你所使用訂閱的配額限制。
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.hk.png)
+    ![Model Deployed](../../../translated_images/hk/model-deployment.3749c53fb81e18fd.png)
 
 ## 建立代理
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > 此外，你也可以加入 **Knowledge Base** 和 **Actions**，以增強代理的能力，提供更多資訊並根據使用者請求執行自動化任務。此練習中可跳過這些步驟。
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.hk.png)
+![Agent Setup](../../../translated_images/hk/agent-setup.9bbb8755bf5df672.png)
 
 3. 若要建立新的多 AI 代理，只需點選 **New Agent**。新建立的代理將會顯示在 Agents 頁面上。
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: 代理可能不會提供準確的回應，因為此練習中未使用即時資料。目的是測試代理根據指示理解並回應使用者查詢的能力。
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.hk.png)
+    ![Agent Playground](../../../translated_images/hk/agent-playground.dc146586de715010.png)
 
 3. 測試完代理後，你可以進一步自訂，加入更多意圖、訓練資料和動作，以提升代理的功能。
 

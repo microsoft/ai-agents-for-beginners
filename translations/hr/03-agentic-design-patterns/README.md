@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hr"
 }
 -->
-[![Kako dizajnirati dobre AI agente](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.hr.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Kako dizajnirati dobre AI agente](../../../translated_images/hr/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Kliknite na sliku iznad za pregled videa ove lekcije)_
 # Principi dizajna agentičkih AI sustava
@@ -39,7 +39,7 @@ Nakon završetka ove lekcije, moći ćete:
 
 ## Principi dizajna agentičkih sustava
 
-![Principi dizajna agentičkih sustava](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.hr.png)
+![Principi dizajna agentičkih sustava](../../../translated_images/hr/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### Agent (Prostor)
 

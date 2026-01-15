@@ -53,7 +53,7 @@ This will launch your Chainlit server on `localhost:8000` and populate your Azur
 
 To connect to the Github MCP Server, click the "plug" icon below the "Type your message here..." chat box:
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.en.png)
+![MCP Connect](../../../../../translated_images/en/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
 From there, click "Connect an MCP" to add the command for connecting to the Github MCP Server:
 

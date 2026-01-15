@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fr"
 }
 -->
-[![Conception Multi-Agent](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.fr.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Conception Multi-Agent](../../../translated_images/fr/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Cliquez sur l'image ci-dessus pour voir la vidéo de cette leçon)_
 # Métacognition chez les agents IA
@@ -47,7 +47,7 @@ Suivre comment ou pourquoi elle a choisi une certaine option.
 
 La métacognition joue un rôle crucial dans la conception des agents IA pour plusieurs raisons :
 
-![Importance de la métacognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.fr.png)
+![Importance de la métacognition](../../../translated_images/fr/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Auto-réflexion : Les agents peuvent évaluer leurs propres performances et identifier des domaines à améliorer.
 - Adaptabilité : Les agents peuvent modifier leurs stratégies en fonction des expériences passées et des environnements changeants.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Commençons par comprendre la différence entre l'outil RAG et le chargement contextuel préventif.
 
-![RAG vs Chargement contextuel](../../../translated_images/rag-vs-context.9eae588520c00921.fr.png)
+![RAG vs Chargement contextuel](../../../translated_images/fr/rag-vs-context.9eae588520c00921.webp)
 
 ### Génération augmentée par récupération (RAG)
 

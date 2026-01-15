@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI Agents for Beginners - A Course
 
-![面向初学者的生成式 AI](../../translated_images/repo-thumbnailv2.06f4a48036fde647.zh.png)
+![面向初学者的生成式 AI](../../translated_images/zh/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## A course teaching everything you need to know to start building AI Agents
 

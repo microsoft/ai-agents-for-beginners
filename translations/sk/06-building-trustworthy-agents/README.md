@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sk"
 }
 -->
-[![Dôveryhodní AI agenti](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.sk.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Dôveryhodní AI agenti](../../../translated_images/sk/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Kliknite na obrázok vyššie pre zobrazenie videa k tejto lekcii)_
 
@@ -41,7 +41,7 @@ Pre AI agentov je systémový prompt ešte dôležitejší, pretože AI agenti p
 
 Na vytvorenie škálovateľných systémových promptov môžeme použiť rámec systémových správ na budovanie jedného alebo viacerých agentov v našej aplikácii:
 
-![Budovanie rámca systémových správ](../../../translated_images/system-message-framework.3a97368c92d11d68.sk.png)
+![Budovanie rámca systémových správ](../../../translated_images/sk/system-message-framework.3a97368c92d11d68.png)
 
 #### Krok 1: Vytvorte meta systémovú správu
 
@@ -130,7 +130,7 @@ Hodnota tohto rámca systémových správ spočíva v tom, že umožňuje jednod
 
 Na vytvorenie dôveryhodných AI agentov je dôležité pochopiť a zmierniť riziká a hrozby pre vášho AI agenta. Pozrime sa na niektoré z rôznych hrozieb pre AI agentov a ako sa na ne lepšie pripraviť.
 
-![Pochopenie hrozieb](../../../translated_images/understanding-threats.89edeada8a97fc0f.sk.png)
+![Pochopenie hrozieb](../../../translated_images/sk/understanding-threats.89edeada8a97fc0f.png)
 
 ### Úloha a pokyny
 
@@ -166,7 +166,7 @@ Na vytvorenie dôveryhodných AI agentov je dôležité pochopiť a zmierniť ri
 
 Ďalším efektívnym spôsobom, ako budovať dôveryhodné systémy AI agentov, je použitie človeka v procese. To vytvára tok, kde používatelia môžu poskytovať spätnú väzbu agentom počas ich činnosti. Používatelia v podstate pôsobia ako agenti v systéme s viacerými agentmi tým, že poskytujú schválenie alebo ukončenie bežiaceho procesu.
 
-![Človek v procese](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.sk.png)
+![Človek v procese](../../../translated_images/sk/human-in-the-loop.5f0068a678f62f4f.png)
 
 Tu je ukážka kódu pomocou AutoGen na ilustráciu, ako je tento koncept implementovaný:
 

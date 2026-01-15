@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI एजंट्स फॉर बिगिनर्स - एक अभ्यासक्रम
 
-![नवसुरुवातीसाठी जनरेटिव्ह AI](../../translated_images/repo-thumbnailv2.06f4a48036fde647.mr.png)
+![नवसुरुवातीसाठी जनरेटिव्ह AI](../../translated_images/mr/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## AI एजंट्स तयार करण्यास सुरू करण्यासाठी आपणास जाणून घेण्याची सर्व काही शिकवणारा अभ्यासक्रम
 

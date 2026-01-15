@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Azure AI Foundry হাব তৈরি করার জন্য [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ব্লগ পোস্ট থেকে এই নির্দেশনাগুলো অনুসরণ করুন।
 2. আপনার প্রজেক্ট তৈরি হলে, প্রদর্শিত টিপসগুলো বন্ধ করুন এবং Azure AI Foundry পোর্টালে প্রজেক্ট পেজটি পর্যালোচনা করুন, যা নিচের ছবির মতো দেখতে হবে:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.bn.png)
+    ![Azure AI Foundry Project](../../../translated_images/bn/azure-ai-foundry.88d0c35298348c2f.png)
 
 ## Deploy a model
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: TPM কমানো সাবস্ক্রিপশনে উপলব্ধ কোটার অতিরিক্ত ব্যবহার এড়াতে সাহায্য করে।
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.bn.png)
+    ![Model Deployed](../../../translated_images/bn/model-deployment.3749c53fb81e18fd.png)
 
 ## Create an agent
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 > এছাড়াও, আপনি এজেন্টের ক্ষমতা বাড়ানোর জন্য **Knowledge Base** এবং **Actions** যোগ করতে পারেন যাতে এটি ব্যবহারকারীর অনুরোধ অনুযায়ী আরও তথ্য দিতে এবং স্বয়ংক্রিয় কাজ করতে পারে। এই অনুশীলনের জন্য, আপনি এই ধাপগুলো এড়িয়ে যেতে পারেন।
 
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.bn.png)
+![Agent Setup](../../../translated_images/bn/agent-setup.9bbb8755bf5df672.png)
 
 3. নতুন একটি মাল্টি-AI এজেন্ট তৈরি করতে, শুধু **New Agent** ক্লিক করুন। নতুন তৈরি হওয়া এজেন্টটি Agents পেজে প্রদর্শিত হবে।
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: এই অনুশীলনে কোনো রিয়েল-টাইম ডেটা ব্যবহার করা হচ্ছে না, তাই এজেন্ট সঠিক উত্তর নাও দিতে পারে। উদ্দেশ্য হলো এজেন্টের ব্যবহারকারীর প্রশ্ন বুঝতে এবং প্রদত্ত নির্দেশনা অনুযায়ী সাড়া দিতে সক্ষমতা পরীক্ষা করা।
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.bn.png)
+    ![Agent Playground](../../../translated_images/bn/agent-playground.dc146586de715010.png)
 
 3. এজেন্ট পরীক্ষা করার পর, আপনি আরও intents, training data, এবং actions যোগ করে এর ক্ষমতা বাড়াতে পারেন।
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "de"
 }
 -->
-[![Vertrauenswürdige KI-Agenten](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.de.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Vertrauenswürdige KI-Agenten](../../../translated_images/de/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klicken Sie auf das Bild oben, um das Video zu dieser Lektion anzusehen)_
 
@@ -41,7 +41,7 @@ Für KI-Agenten ist die Systemaufforderung noch wichtiger, da die KI-Agenten hoc
 
 Um skalierbare Systemaufforderungen zu erstellen, können wir ein Systemnachrichten-Framework verwenden, um einen oder mehrere Agenten in unserer Anwendung zu entwickeln:
 
-![Aufbau eines Systemnachrichten-Frameworks](../../../translated_images/system-message-framework.3a97368c92d11d68.de.png)
+![Aufbau eines Systemnachrichten-Frameworks](../../../translated_images/de/system-message-framework.3a97368c92d11d68.png)
 
 #### Schritt 1: Erstellen einer Meta-Systemnachricht
 
@@ -130,7 +130,7 @@ Der Wert dieses Systemnachrichten-Frameworks liegt darin, die Erstellung von Sys
 
 Um vertrauenswürdige KI-Agenten zu entwickeln, ist es wichtig, die Risiken und Bedrohungen für Ihren KI-Agenten zu verstehen und zu minimieren. Schauen wir uns einige der verschiedenen Bedrohungen für KI-Agenten an und wie Sie besser planen und sich darauf vorbereiten können.
 
-![Bedrohungen verstehen](../../../translated_images/understanding-threats.89edeada8a97fc0f.de.png)
+![Bedrohungen verstehen](../../../translated_images/de/understanding-threats.89edeada8a97fc0f.png)
 
 ### Aufgaben und Anweisungen
 
@@ -166,7 +166,7 @@ Um vertrauenswürdige KI-Agenten zu entwickeln, ist es wichtig, die Risiken und 
 
 Eine weitere effektive Methode, um vertrauenswürdige KI-Agentensysteme zu entwickeln, ist die Verwendung eines Mensch-in-der-Schleife-Ansatzes. Dies schafft einen Ablauf, bei dem Benutzer während der Ausführung Feedback an die Agenten geben können. Benutzer fungieren im Wesentlichen als Agenten in einem Multi-Agenten-System, indem sie den laufenden Prozess genehmigen oder beenden.
 
-![Mensch in der Schleife](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.de.png)
+![Mensch in der Schleife](../../../translated_images/de/human-in-the-loop.5f0068a678f62f4f.png)
 
 Hier ist ein Codebeispiel mit AutoGen, das zeigt, wie dieses Konzept implementiert wird:
 

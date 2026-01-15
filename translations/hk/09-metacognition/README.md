@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hk"
 }
 -->
-[![多代理設計](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.hk.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![多代理設計](../../../translated_images/hk/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(點擊上方圖片觀看本課程的影片)_
 # AI代理的後設認知
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 後設認知在AI代理設計中扮演著至關重要的角色，原因如下：
 
-![後設認知的重要性](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.hk.png)
+![後設認知的重要性](../../../translated_images/hk/importance-of-metacognition.b381afe9aae352f7.png)
 
 - 自我反思：代理可以評估自身表現並找出改進空間。
 - 適應性：代理可以根據過往經驗和變化的環境調整其策略。
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 首先，讓我們了解RAG工具與預先上下文加載的區別。
 
-![RAG與上下文加載](../../../translated_images/rag-vs-context.9eae588520c00921.hk.png)
+![RAG與上下文加載](../../../translated_images/hk/rag-vs-context.9eae588520c00921.png)
 
 ### 檢索增強生成（RAG）
 

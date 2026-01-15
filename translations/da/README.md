@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI Agents for Beginners - A Course
 
-![Generativ AI for Begyndere](../../translated_images/repo-thumbnailv2.06f4a48036fde647.da.png)
+![Generativ AI for Begyndere](../../translated_images/da/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## A course teaching everything you need to know to start building AI Agents
 

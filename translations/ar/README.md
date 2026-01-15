@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # وكلاء الذكاء الاصطناعي للمبتدئين - دورة
 
-![الذكاء التوليدي للمبتدئين](../../translated_images/repo-thumbnailv2.06f4a48036fde647.ar.png)
+![الذكاء التوليدي للمبتدئين](../../translated_images/ar/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## دورة تعلمك كل ما تحتاج لمعرفته لبدء بناء وكلاء الذكاء الاصطناعي
 

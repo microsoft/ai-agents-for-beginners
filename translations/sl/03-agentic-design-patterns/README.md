@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sl"
 }
 -->
-[![Kako oblikovati dobre AI agente](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.sl.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Kako oblikovati dobre AI agente](../../../translated_images/sl/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Kliknite na zgornjo sliko za ogled videa te lekcije)_
 # Načela oblikovanja agentov AI
@@ -39,7 +39,7 @@ Po zaključku te lekcije boste lahko:
 
 ## Načela oblikovanja agentov
 
-![Načela oblikovanja agentov](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.sl.png)
+![Načela oblikovanja agentov](../../../translated_images/sl/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### Agent (Prostor)
 

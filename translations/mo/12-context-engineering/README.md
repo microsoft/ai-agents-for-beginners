@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI代理的情境工程
 
-[![情境工程](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.mo.png)](https://youtu.be/F5zqRV7gEag)
+[![情境工程](../../../translated_images/mo/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
 
 > _(點擊上方圖片觀看本課程影片)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### 情境的類型
 
-[![情境類型](../../../translated_images/context-types.fc10b8927ee43f06.mo.png)](https://youtu.be/F5zqRV7gEag)
+[![情境類型](../../../translated_images/mo/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
 
 重要的是要記住，情境不僅僅是一件事。AI代理需要的資訊可能來自多種不同來源，我們需要確保代理能夠訪問這些來源：
 
@@ -69,7 +69,7 @@ AI代理可能需要管理的情境類型包括：
 
 ### 規劃策略
 
-[![情境工程最佳實踐](../../../translated_images/best-practices.f4170873dc554f58.mo.png)](https://youtu.be/F5zqRV7gEag)
+[![情境工程最佳實踐](../../../translated_images/mo/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
 
 良好的情境工程始於良好的規劃。以下是幫助您開始思考如何應用情境工程概念的方法：
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "my"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.my.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/my/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(အထက်ပါပုံကိုနှိပ်ပြီး ဒီသင်ခန်းစာရဲ့ ဗီဒီယိုကို ကြည့်ပါ)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) ဆိုတာ AI နည�
 
 ဒီ iterative “maker-checker” ပုံစံက malformed queries တွေကို ကိုင်တွယ်နိုင်စွမ်းရှိစေပြီး၊ balanced, high-quality results တွေကို အာမခံပါတယ်။ Prompt chains တွေကို အားကိုးမနေဘဲ reasoning process ကို ကိုယ်တိုင်ဆောင်ရွက်နိုင်စွမ်းရှိပါတယ်။ Query တွေကို ပြန်ရေးခြင်း၊ retrieval methods အသစ်တွေကို ရွေးခြင်း၊ tools များကို ပေါင်းစပ်အသုံးပြုခြင်း စသည်တို့ကို ဆောင်ရွက်နိုင်ပါတယ်။
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.my.png)
+![Agentic RAG Core Loop](../../../translated_images/my/agentic-rag-core-loop.c8f4b85c26920f71.png)
 
 ## Reasoning Process ကို ကိုယ်တိုင်ဆောင်ရွက်နိုင်မှု
 
@@ -69,7 +69,7 @@ Agentic စနစ်ကတော့ ပြဿနာကို ကိုယ်တ�
 
 ## Iterative Loops, Tool Integration, and Memory
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.my.png)
+![Tool Integration Architecture](../../../translated_images/my/tool-integration.0f569710b5c17c10.png)
 
 Agentic စနစ်က looped interaction pattern ကို အားကိုးပါတယ်-
 
@@ -89,7 +89,7 @@ Agentic RAG ရဲ့ autonomy က robust self-correction mechanisms ကို�
 - **Use Diagnostic Tools:** Debugging tools သို့မဟုတ် data correctness ကို အတည်ပြုနိုင်တဲ့ functions တွေကို အသုံးပြုခြင်း
 - **Fallback on Human Oversight:** High-stakes scenarios တွေမှာ လူ့အကူအညီကို အားကိုးခြင်း
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.my.png)
+![Self Correction Mechanism](../../../translated_images/my/self-correction.da87f3783b7f174b.png)
 
 ## Boundaries of Agency
 
@@ -115,7 +115,7 @@ Agentic RAG systems တွေမှာ governance နှင့် transparency �
 - **Bias Control and Balanced Retrieval:** Balanced data sources ကို ရွေးချယ်နိုင်မှု
 - **Human Oversight and Compliance:** Sensitive tasks တွေမှာ လူ့အကူအညီကို အားကိုးမှု
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.my.png)
+![AgentRunExample](../../../translated_images/my/AgentRunExample.471a94bc40cbdc0c.png)
 
 ## နိဂုံး
 

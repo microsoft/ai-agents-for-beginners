@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Kuchunguza Mfumo wa Microsoft Agent
 
-![Mfumo wa Agent](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.sw.png)
+![Mfumo wa Agent](../../../translated_images/sw/lesson-14-thumbnail.90df0065b9d234ee.png)
 
 ### Utangulizi
 
@@ -33,7 +33,7 @@ Sampuli za msimbo wa [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-
 
 ## Kuelewa Mfumo wa Microsoft Agent
 
-![Utangulizi wa Mfumo](../../../translated_images/framework-intro.077af16617cf130c.sw.png)
+![Utangulizi wa Mfumo](../../../translated_images/sw/framework-intro.077af16617cf130c.png)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) umejengwa juu ya uzoefu na mafunzo kutoka kwa Semantic Kernel na AutoGen. Unatoa kubadilika kushughulikia aina mbalimbali za matumizi ya kiwakala yanayoonekana katika mazingira ya uzalishaji na utafiti, ikiwa ni pamoja na:
 
@@ -63,7 +63,7 @@ Hebu tuangalie jinsi vipengele hivi vinavyotumika kwa baadhi ya dhana za msingi 
 
 ### Mawakala
 
-![Mfumo wa Agent](../../../translated_images/agent-components.410a06daf87b4fef.sw.png)
+![Mfumo wa Agent](../../../translated_images/sw/agent-components.410a06daf87b4fef.png)
 
 **Kuunda Mawakala**
 

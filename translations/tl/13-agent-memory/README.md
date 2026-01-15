@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Memory para sa AI Agents 
-[![Memory ng Agent](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.tl.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Memory ng Agent](../../../translated_images/tl/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Kapag pinag-uusapan ang mga natatanging benepisyo ng paglikha ng AI Agents, dalawang bagay ang karaniwang binibigyang-diin: ang kakayahang gumamit ng mga tool para tapusin ang mga gawain at ang kakayahang mag-improve sa paglipas ng panahon. Ang memorya ang pundasyon ng paglikha ng self-improving agent na makakapagbigay ng mas mahusay na karanasan para sa ating mga user.
 

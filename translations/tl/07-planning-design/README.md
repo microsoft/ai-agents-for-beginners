@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tl"
 }
 -->
-[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.tl.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/tl/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(I-click ang imahe sa itaas para mapanood ang video ng araling ito)_
 
@@ -32,7 +32,7 @@ Pagkatapos makumpleto ang araling ito, magkakaroon ka ng kaalaman tungkol sa:
 
 ## Pagpapakahulugan ng Pangkalahatang Layunin at Paghahati ng Gawain
 
-![Pagpapakahulugan ng Mga Layunin at Gawain](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.tl.png)
+![Pagpapakahulugan ng Mga Layunin at Gawain](../../../translated_images/tl/defining-goals-tasks.d70439e19e37c47a.png)
 
 Karamihan sa mga gawain sa totoong mundo ay masyadong masalimuot upang harapin sa isang hakbang lamang. Ang isang AI agent ay nangangailangan ng malinaw na layunin upang gabayan ang pagpaplano at mga aksyon nito. Halimbawa, isaalang-alang ang layunin:
 

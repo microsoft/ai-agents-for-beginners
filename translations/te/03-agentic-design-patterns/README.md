@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "te"
 }
 -->
-[![How to Design Good AI Agents](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.te.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![How to Design Good AI Agents](../../../translated_images/te/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(ఈ పాఠం వీడియోను చూడటానికి పై చిత్రంపై క్లిక్ చేయండి)_
 # AI ఏజెంటిక్ డిజైన్ ప్రిన్సిపిల్స్
@@ -39,7 +39,7 @@ AI ఏజెంటిక్ సిస్టమ్స్ నిర్మించ
 
 ## ఏజెంటిక్ డిజైన్ ప్రిన్సిపిల్స్
 
-![Agentic Design Principles](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.te.png)
+![Agentic Design Principles](../../../translated_images/te/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### ఏజెంట్ (స్పేస్)
 

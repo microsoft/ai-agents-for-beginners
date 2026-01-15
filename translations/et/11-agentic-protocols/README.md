@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agentlike protokollide kasutamine (MCP, A2A ja NLWeb)
 
-[![Agentlike protokollid](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.et.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentlike protokollid](../../../translated_images/et/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Klõpsake ülaloleval pildil, et vaadata selle õppetunni videot)_
 
@@ -69,7 +69,7 @@ MCP pakub AI-agentidele olulisi eeliseid:
 
 ### MCP näide
 
-![MCP Diagramm](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.et.png)
+![MCP Diagramm](../../../translated_images/et/mcp-diagram.e4ca1cbd551444a1.png)
 
 Kujutage ette, et kasutaja soovib broneerida lendu AI-assistendi abil, mis kasutab MCP-d.
 
@@ -124,7 +124,7 @@ See komponent on mõeldud **uuenduste haldamiseks ja sõnumite edastamiseks**. S
 
 ### A2A näide
 
-![A2A Diagramm](../../../translated_images/A2A-Diagram.8666928d648acc26.et.png)
+![A2A Diagramm](../../../translated_images/et/A2A-Diagram.8666928d648acc26.png)
 
 Laiendame oma reisibroneerimise stsenaariumi, kuid seekord kasutades A2A-d.
 
@@ -158,7 +158,7 @@ Vaatame NLWebi erinevaid komponente, NLWebi eeliseid ja näidet, kuidas meie rei
 
 ### NLWebi näide
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.et.png)
+![NLWeb](../../../translated_images/et/nlweb-diagram.c1e2390b310e5fe4.png)
 
 Vaatame taas meie reisibroneerimise veebisaiti, kuid seekord on see NLWebi abil käitatav.
 

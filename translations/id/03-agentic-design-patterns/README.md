@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "id"
 }
 -->
-[![Cara Merancang Agen AI yang Baik](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.id.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Cara Merancang Agen AI yang Baik](../../../translated_images/id/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 # Prinsip Desain Agen AI
@@ -39,7 +39,7 @@ Setelah menyelesaikan pelajaran ini, Anda akan dapat:
 
 ## Prinsip Desain Agen
 
-![Prinsip Desain Agen](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.id.png)
+![Prinsip Desain Agen](../../../translated_images/id/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### Agen (Ruang)
 

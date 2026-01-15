@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hr"
 }
 -->
-[![Istraživanje AI okvira za agente](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.hr.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![Istraživanje AI okvira za agente](../../../translated_images/hr/lesson-2-thumbnail.c65f44c93b8558df.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(Kliknite na sliku iznad za pregled videa ove lekcije)_
 

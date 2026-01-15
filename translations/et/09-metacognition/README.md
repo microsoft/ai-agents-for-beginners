@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "et"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.et.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/et/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_
 # Metakognitsioon tehisintellekti agentides
@@ -47,7 +47,7 @@ Jälgides, kuidas või miks ta valis teatud marsruudi.
 
 Metakognitsioon mängib tehisintellekti agentide disainis olulist rolli mitmel põhjusel:
 
-![Metakognitsiooni tähtsus](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.et.png)
+![Metakognitsiooni tähtsus](../../../translated_images/et/importance-of-metacognition.b381afe9aae352f7.png)
 
 - Enesereflektsioon: Agendid suudavad hinnata oma jõudlust ja tuvastada parendamist vajavaid valdkondi.
 - Kohanemisvõime: Agendid suudavad kohandada oma strateegiaid varasemate kogemuste ja muutuvate keskkondade põhjal.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Kõigepealt alustame RAG-tööriista ja ennetava konteksti laadimise erinevuse mõistmisest.
 
-![RAG vs konteksti laadimine](../../../translated_images/rag-vs-context.9eae588520c00921.et.png)
+![RAG vs konteksti laadimine](../../../translated_images/et/rag-vs-context.9eae588520c00921.png)
 
 ### Retrieval-Augmented Generation (RAG)
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # סוכני בינה מלאכותית למתחילים - קורס
 
-![בינה גנרטיבית למתחילים](../../translated_images/repo-thumbnailv2.06f4a48036fde647.he.png)
+![בינה גנרטיבית למתחילים](../../translated_images/he/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## קורס המלמד כל מה שצריך לדעת כדי להתחיל לבנות סוכני בינה מלאכותית
 

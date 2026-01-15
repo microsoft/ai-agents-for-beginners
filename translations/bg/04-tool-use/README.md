@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bg"
 }
 -->
-[![Как да проектираме добри AI агенти](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.bg.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Как да проектираме добри AI агенти](../../../translated_images/bg/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Кликнете върху изображението по-горе, за да гледате видеото на този урок)_
 
@@ -211,7 +211,7 @@ AI агентите могат да използват инструменти з
 
 Следната диаграма илюстрира процеса на извикване на функции със Semantic Kernel:
 
-![извикване на функции](../../../translated_images/functioncalling-diagram.a84006fc287f6014.bg.png)
+![извикване на функции](../../../translated_images/bg/functioncalling-diagram.a84006fc287f6014.png)
 
 В Semantic Kernel функциите/инструментите се наричат <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Можем да преобразуваме функцията `get_current_time`, която видяхме по-рано, в плъгин, като я превърнем в клас с функцията в него. Можем също така да импортираме декоратора `kernel_function`, който приема описанието на функцията. Когато създадете ядро с GetCurrentTimePlugin, ядрото автоматично ще сериализира функцията и нейните параметри, създавайки схемата за изпращане на LLM в процеса.
 
@@ -272,7 +272,7 @@ kernel.add_plugin(get_current_time_plugin)
 
 Следното изображение илюстрира как можете да използвате Azure AI Agent Service за анализ на вашите данни за продажби:
 
-![Agentic Service In Action](../../../translated_images/agent-service-in-action.34fb465c9a84659e.bg.jpg)
+![Agentic Service In Action](../../../translated_images/bg/agent-service-in-action.34fb465c9a84659e.jpg)
 
 За да използвате някой от тези инструменти с услугата, можем да създадем клиент и да дефинираме инструмент или набор от инструменти. За да го внедрим практически, можем да използваме следния Python код. LLM ще може да разгледа набора от инструменти и да реши дали да използва създадената от потребителя функция `fetch_sales_data_using_sqlite_query` или предварително изградения интерпретатор на код в зависимост от заявката на потребителя.
 

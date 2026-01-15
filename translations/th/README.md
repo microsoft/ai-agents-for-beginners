@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ตัวแทน AI สำหรับผู้เริ่มต้น - หลักสูตร
 
-![Generative AI สำหรับผู้เริ่มต้น](../../translated_images/repo-thumbnailv2.06f4a48036fde647.th.png)
+![Generative AI สำหรับผู้เริ่มต้น](../../translated_images/th/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## หลักสูตรที่สอนทุกสิ่งที่คุณจำเป็นต้องรู้เพื่อเริ่มสร้างตัวแทน AI
 

@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. עקוב אחר ההנחיות בפוסט הבלוג של [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ליצירת Azure AI Foundry hub.
 2. כאשר הפרויקט שלך נוצר, סגור את כל הטיפים שמוצגים ובדוק את דף הפרויקט בפורטל Azure AI Foundry, שצריך להיראות דומה לתמונה הבאה:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.he.png)
+    ![Azure AI Foundry Project](../../../translated_images/he/azure-ai-foundry.88d0c35298348c2f.png)
 
 ## פריסת מודל
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: הפחתת TPM עוזרת למנוע שימוש יתר במכסת המנוי שבשימושך.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.he.png)
+    ![Model Deployed](../../../translated_images/he/model-deployment.3749c53fb81e18fd.png)
 
 ## יצירת סוכן
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > בנוסף, ניתן להוסיף **Knowledge Base** ו-**Actions** כדי לשפר את יכולות הסוכן לספק מידע נוסף ולבצע משימות אוטומטיות על פי בקשות המשתמש. בתרגיל זה ניתן לדלג על שלבים אלה.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.he.png)
+![Agent Setup](../../../translated_images/he/agent-setup.9bbb8755bf5df672.png)
 
 3. כדי ליצור סוכן רב-מודלי חדש, פשוט לחץ על **New Agent**. הסוכן החדש יוצג בדף Agents.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: ייתכן שהסוכן לא יספק תגובות מדויקות, מאחר שבתרגיל זה לא נעשה שימוש בנתונים בזמן אמת. המטרה היא לבדוק את יכולת הסוכן להבין ולהגיב לשאילתות המשתמש בהתאם להנחיות שניתנו.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.he.png)
+    ![Agent Playground](../../../translated_images/he/agent-playground.dc146586de715010.png)
 
 3. לאחר הבדיקה, תוכל להתאים את הסוכן עוד יותר על ידי הוספת כוונות, נתוני אימון ופעולות לשיפור יכולותיו.
 

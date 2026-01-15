@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "vi"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.vi.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/vi/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Nhấn vào hình ảnh trên để xem video của bài học này)_
 
@@ -41,7 +41,7 @@ Nếu bạn đã từng xây dựng một ứng dụng AI sử dụng các mô h
 
 Để tạo các thông điệp hệ thống có thể mở rộng, chúng ta có thể sử dụng một khung thông điệp hệ thống để xây dựng một hoặc nhiều tác nhân trong ứng dụng của mình:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.vi.png)
+![Building a System Message Framework](../../../translated_images/vi/system-message-framework.3a97368c92d11d68.png)
 
 #### Bước 1: Tạo một thông điệp hệ thống meta
 
@@ -130,7 +130,7 @@ Giá trị của khung thông điệp hệ thống này là khả năng mở r�
 
 Để xây dựng các tác nhân AI đáng tin cậy, điều quan trọng là phải hiểu và giảm thiểu các rủi ro và mối đe dọa đối với tác nhân AI của bạn. Hãy cùng xem một số mối đe dọa khác nhau đối với các tác nhân AI và cách bạn có thể lập kế hoạch và chuẩn bị tốt hơn.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.vi.png)
+![Understanding Threats](../../../translated_images/vi/understanding-threats.89edeada8a97fc0f.png)
 
 ### Nhiệm vụ và chỉ dẫn
 
@@ -166,7 +166,7 @@ Giá trị của khung thông điệp hệ thống này là khả năng mở r�
 
 Một cách hiệu quả khác để xây dựng các hệ thống tác nhân AI đáng tin cậy là sử dụng con người trong vòng lặp. Điều này tạo ra một luồng nơi người dùng có thể cung cấp phản hồi cho các tác nhân trong quá trình chạy. Người dùng về cơ bản đóng vai trò như các tác nhân trong một hệ thống đa tác nhân và bằng cách cung cấp sự chấp thuận hoặc chấm dứt quy trình đang chạy.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.vi.png)
+![Human in The Loop](../../../translated_images/vi/human-in-the-loop.5f0068a678f62f4f.png)
 
 Dưới đây là một đoạn mã sử dụng AutoGen để minh họa cách khái niệm này được triển khai:
 

@@ -1,85 +1,85 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d7c3b7bd1b3528074d8b6a7c5ad33b6f",
-  "translation_date": "2025-11-18T16:26:26+00:00",
+  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
+  "translation_date": "2026-01-15T14:27:57+00:00",
   "source_file": "04-tool-use/README.md",
   "language_code": "en"
 }
 -->
-[![How to Design Good AI Agents](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.en.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![How to Design Good AI Agents](../../../../../translated_images/en/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(Click the image above to view the video of this lesson)_
+> _(Click the image above to view video of this lesson)_
 
 # Tool Use Design Pattern
 
-Tools are fascinating because they enable AI agents to expand their range of capabilities. Instead of being limited to a predefined set of actions, an agent can perform a variety of tasks by utilizing tools. In this chapter, we will explore the Tool Use Design Pattern, which explains how AI agents can use specific tools to achieve their objectives.
+Tools are interesting because they allow AI agents to have a broader range of capabilities. Instead of the agent having a limited set of actions it can perform, by adding a tool, the agent can now perform a wide range of actions. In this chapter, we will look at the Tool Use Design Pattern, which describes how AI agents can use specific tools to achieve their goals.
 
 ## Introduction
 
-In this lesson, we aim to answer the following questions:
+In this lesson, we're looking to answer the following questions:
 
 - What is the tool use design pattern?
-- What are the use cases where it can be applied?
-- What are the elements/building blocks required to implement the design pattern?
+- What are the use cases it can be applied to?
+- What are the elements/building blocks needed to implement the design pattern?
 - What are the special considerations for using the Tool Use Design Pattern to build trustworthy AI agents?
 
 ## Learning Goals
 
-By the end of this lesson, you will be able to:
+After completing this lesson, you will be able to:
 
 - Define the Tool Use Design Pattern and its purpose.
 - Identify use cases where the Tool Use Design Pattern is applicable.
-- Understand the key elements required to implement the design pattern.
+- Understand the key elements needed to implement the design pattern.
 - Recognize considerations for ensuring trustworthiness in AI agents using this design pattern.
 
 ## What is the Tool Use Design Pattern?
 
-The **Tool Use Design Pattern** is about enabling LLMs to interact with external tools to accomplish specific goals. Tools are pieces of code that an agent can execute to perform actions. A tool can be as simple as a calculator function or as complex as an API call to a third-party service, such as retrieving stock prices or weather forecasts. In the context of AI agents, tools are designed to be executed by agents in response to **model-generated function calls**.
+The **Tool Use Design Pattern** focuses on giving LLMs the ability to interact with external tools to achieve specific goals. Tools are code that can be executed by an agent to perform actions. A tool can be a simple function such as a calculator, or an API call to a third-party service such as stock price lookup or weather forecast. In the context of AI agents, tools are designed to be executed by agents in response to **model-generated function calls**.
 
 ## What are the use cases it can be applied to?
 
-AI agents can use tools to handle complex tasks, retrieve information, or make decisions. The tool use design pattern is commonly applied in scenarios requiring dynamic interaction with external systems, such as databases, web services, or code interpreters. This capability is valuable for various use cases, including:
+AI Agents can leverage tools to complete complex tasks, retrieve information, or make decisions. The tool use design pattern is often used in scenarios requiring dynamic interaction with external systems, such as databases, web services, or code interpreters. This ability is useful for a number of different use cases including:
 
-- **Dynamic Information Retrieval:** Agents can query external APIs or databases to access up-to-date data (e.g., querying a SQLite database for data analysis, fetching stock prices, or retrieving weather information).
-- **Code Execution and Interpretation:** Agents can execute code or scripts to solve mathematical problems, generate reports, or run simulations.
+- **Dynamic Information Retrieval:** Agents can query external APIs or databases to fetch up-to-date data (e.g., querying a SQLite database for data analysis, fetching stock prices or weather information).
+- **Code Execution and Interpretation:** Agents can execute code or scripts to solve mathematical problems, generate reports, or perform simulations.
 - **Workflow Automation:** Automating repetitive or multi-step workflows by integrating tools like task schedulers, email services, or data pipelines.
-- **Customer Support:** Agents can interact with CRM systems, ticketing platforms, or knowledge bases to address user queries.
-- **Content Generation and Editing:** Agents can use tools like grammar checkers, text summarizers, or content safety evaluators to assist with content creation tasks.
+- **Customer Support:** Agents can interact with CRM systems, ticketing platforms, or knowledge bases to resolve user queries.
+- **Content Generation and Editing:** Agents can leverage tools like grammar checkers, text summarizers, or content safety evaluators to assist with content creation tasks.
 
 ## What are the elements/building blocks needed to implement the tool use design pattern?
 
-These building blocks enable the AI agent to perform a wide range of tasks. Let’s examine the key elements required to implement the Tool Use Design Pattern:
+These building blocks allow the AI agent to perform a wide range of tasks. Let's look at the key elements needed to implement the Tool Use Design Pattern:
 
-- **Function/Tool Schemas**: Detailed definitions of available tools, including the function name, purpose, required parameters, and expected outputs. These schemas help the LLM understand what tools are available and how to construct valid requests.
+- **Function/Tool Schemas**: Detailed definitions of available tools, including function name, purpose, required parameters, and expected outputs. These schemas enable the LLM to understand what tools are available and how to construct valid requests.
 
-- **Function Execution Logic**: Determines how and when tools are invoked based on the user’s intent and conversation context. This may include planner modules, routing mechanisms, or conditional flows that dynamically decide tool usage.
+- **Function Execution Logic**: Governs how and when tools are invoked based on the user’s intent and conversation context. This may include planner modules, routing mechanisms, or conditional flows that determine tool usage dynamically.
 
 - **Message Handling System**: Components that manage the conversational flow between user inputs, LLM responses, tool calls, and tool outputs.
 
 - **Tool Integration Framework**: Infrastructure that connects the agent to various tools, whether they are simple functions or complex external services.
 
-- **Error Handling & Validation**: Mechanisms to manage tool execution failures, validate parameters, and handle unexpected responses.
+- **Error Handling & Validation**: Mechanisms to handle failures in tool execution, validate parameters, and manage unexpected responses.
 
 - **State Management**: Tracks conversation context, previous tool interactions, and persistent data to ensure consistency across multi-turn interactions.
 
-Next, let’s dive deeper into Function/Tool Calling.
-
+Next, let's look at Function/Tool Calling in more detail.
+ 
 ### Function/Tool Calling
 
-Function calling is the primary method for enabling Large Language Models (LLMs) to interact with tools. The terms 'Function' and 'Tool' are often used interchangeably because 'functions' (reusable blocks of code) are the 'tools' agents use to perform tasks. For a function’s code to be executed, the LLM must match the user’s request with the function’s description. A schema containing descriptions of all available functions is sent to the LLM. The LLM then selects the most appropriate function for the task and returns its name and arguments. The selected function is executed, its response is sent back to the LLM, and the LLM uses the information to respond to the user’s request.
+Function calling is the primary way we enable Large Language Models (LLMs) to interact with tools. You will often see 'Function' and 'Tool' used interchangeably because 'functions' (blocks of reusable code) are the 'tools' agents use to carry out tasks. In order for a function's code to be invoked, an LLM must compare the users request against the functions description. To do this a schema containing the descriptions of all the available functions is sent to the LLM. The LLM then selects the most appropriate function for the task and returns its name and arguments. The selected function is invoked, it's response is sent back to the LLM, which uses the information to respond to the users request.
 
-To implement function calling for agents, developers need:
+For developers to implement function calling for agents, you will need:
 
 1. An LLM model that supports function calling
 2. A schema containing function descriptions
-3. The code for each described function
+3. The code for each function described
 
-Let’s use an example of retrieving the current time in a city to illustrate:
+Let's use the example of getting the current time in a city to illustrate:
 
 1. **Initialize an LLM that supports function calling:**
 
-    Not all models support function calling, so it’s important to verify that the LLM you’re using does. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> supports function calling. We can start by initializing the Azure OpenAI client.
+    Not all models support function calling, so it's important to check that the LLM you are using does.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> supports function calling. We can start by initiating the Azure OpenAI client. 
 
     ```python
     # Initialize the Azure OpenAI client
@@ -90,9 +90,10 @@ Let’s use an example of retrieving the current time in a city to illustrate:
     )
     ```
 
-2. **Create a Function Schema**:
+1. **Create a Function Schema**:
 
-    Next, we define a JSON schema that includes the function name, a description of what the function does, and the names and descriptions of the function parameters. This schema is then passed to the client along with the user’s request to find the time in San Francisco. It’s important to note that a **tool call** is returned, **not** the final answer to the question. As mentioned earlier, the LLM returns the name of the function it selected for the task and the arguments to be passed to it.
+    Next we will define a JSON schema that contains the function name, description of what the function does, and the names and descriptions of the function parameters.
+    We will then take this schema and pass it to the client created previously, along with the users request to find the time in San Francisco. What's important to note is that a **tool call** is what is returned, **not** the final answer to the question. As mentioned earlier, the LLM returns the name of the function it selected for the task, and the arguments that will be passed to it.
 
     ```python
     # Function description for the model to read
@@ -145,9 +146,10 @@ Let’s use an example of retrieving the current time in a city to illustrate:
     ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
     ```
   
-3. **The function code required to carry out the task:**
+1. **The function code required to carry out the task:**
 
-    Once the LLM has chosen the function to run, the code that performs the task must be implemented and executed. We can write the code to get the current time in Python. Additionally, we need to extract the name and arguments from the response_message to obtain the final result.
+    Now that the LLM has chosen which function needs to be run the code that carries out the task needs to be implemented and executed.
+    We can implement the code to get the current time in Python. We will also need to write the code to extract the name and arguments from the response_message to get the final result.
 
     ```python
       def get_current_time(location):
@@ -204,21 +206,22 @@ Let’s use an example of retrieving the current time in a city to illustrate:
       The current time in San Francisco is 09:24 AM.
      ```
 
-Function Calling is central to most, if not all, agent tool use designs. However, implementing it from scratch can sometimes be challenging. As we learned in [Lesson 2](../../../02-explore-agentic-frameworks), agentic frameworks provide pre-built building blocks to implement tool use.
-
+Function Calling is at the heart of most, if not all agent tool use design, however implementing it from scratch can sometimes be challenging.
+As we learned in [Lesson 2](../../../02-explore-agentic-frameworks) agentic frameworks provide us with pre-built building blocks to implement tool use.
+ 
 ## Tool Use Examples with Agentic Frameworks
 
 Here are some examples of how you can implement the Tool Use Design Pattern using different agentic frameworks:
 
 ### Semantic Kernel
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> is an open-source AI framework for .NET, Python, and Java developers working with Large Language Models (LLMs). It simplifies function calling by automatically describing your functions and their parameters to the model through a process called <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serializing</a>. It also manages the communication between the model and your code. Another advantage of using an agentic framework like Semantic Kernel is access to pre-built tools like <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">File Search</a> and <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Code Interpreter</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> is an open-source AI framework for .NET, Python, and Java developers working with Large Language Models (LLMs). It simplifies the process of using function calling by automatically describing your functions and their parameters to the model through a process called <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serializing</a>. It also handles the back-and-forth communication between the model and your code. Another advantage of using an agentic framework like Semantic Kernel, is that it allows you to access pre-built tools like <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">File Search</a> and <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Code Interpreter</a>.
 
 The following diagram illustrates the process of function calling with Semantic Kernel:
 
-![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f6014.en.png)
+![function calling](../../../../../translated_images/en/functioncalling-diagram.a84006fc287f6014.webp)
 
-In Semantic Kernel, functions/tools are called <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. We can convert the `get_current_time` function from earlier into a plugin by turning it into a class containing the function. We can also import the `kernel_function` decorator, which takes the function’s description. When you create a kernel with the GetCurrentTimePlugin, the kernel automatically serializes the function and its parameters, creating the schema to send to the LLM.
+In Semantic Kernel functions/tools are called <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. We can convert the `get_current_time` function we saw earlier into a plugin by turning it into a class with the function in it. We can also import the `kernel_function` decorator, which takes in the description of the function. When you then create a kernel with the GetCurrentTimePlugin, the kernel will automatically serialize the function and its parameters, creating the schema to send to the LLM in the process.
 
 ```python
 from semantic_kernel.functions import kernel_function
@@ -250,15 +253,15 @@ kernel.add_plugin(get_current_time_plugin)
   
 ### Azure AI Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> is a newer agentic framework designed to help developers securely build, deploy, and scale high-quality, extensible AI agents without managing the underlying compute and storage resources. It is particularly useful for enterprise applications as it is a fully managed service with enterprise-grade security.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> is a newer agentic framework that is designed to empower developers to securely build, deploy, and scale high-quality, and extensible AI agents without needing to manage the underlying compute and storage resources. It is particularly useful for enterprise applications since it is a fully managed service with enterprise grade security.
 
-Compared to developing directly with the LLM API, Azure AI Agent Service offers several advantages, including:
+When compared to developing with the LLM API directly, Azure AI Agent Service provides some advantages, including:
 
-- Automatic tool calling – no need to parse a tool call, invoke the tool, and handle the response; all of this is done server-side.
-- Securely managed data – instead of managing your own conversation state, you can rely on threads to store all necessary information.
-- Out-of-the-box tools – Tools for interacting with data sources, such as Bing, Azure AI Search, and Azure Functions.
+- Automatic tool calling – no need to parse a tool call, invoke the tool, and handle the response; all of this is now done server-side
+- Securely managed data – instead of managing your own conversation state, you can rely on threads to store all the information you need
+- Out-of-the-box tools – Tools that you can use to interact with your data sources, such as Bing, Azure AI Search, and Azure Functions.
 
-The tools available in Azure AI Agent Service fall into two categories:
+The tools available in Azure AI Agent Service can be divided into two categories:
 
 1. Knowledge Tools:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding with Bing Search</a>
@@ -271,15 +274,15 @@ The tools available in Azure AI Agent Service fall into two categories:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI defined tools</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-The Agent Service allows these tools to be used together as a `toolset`. It also uses `threads` to keep track of the history of messages in a particular conversation.
+The Agent Service allows us to be able to use these tools together as a `toolset`. It also utilizes `threads` which keep track of the history of messages from a particular conversation.
 
 Imagine you are a sales agent at a company called Contoso. You want to develop a conversational agent that can answer questions about your sales data.
 
 The following image illustrates how you could use Azure AI Agent Service to analyze your sales data:
 
-![Agentic Service In Action](../../../translated_images/agent-service-in-action.34fb465c9a84659e.en.jpg)
+![Agentic Service In Action](../../../../../translated_images/en/agent-service-in-action.34fb465c9a84659e.webp)
 
-To use any of these tools with the service, you can create a client and define a tool or toolset. To implement this practically, you can use the following Python code. The LLM will decide whether to use the user-created function, `fetch_sales_data_using_sqlite_query`, or the pre-built Code Interpreter based on the user’s request.
+To use any of these tools with the service we can create a client and define a tool or toolset. To implement this practically we can use the following Python code. The LLM will be able to look at the toolset and decide whether to use the user created function, `fetch_sales_data_using_sqlite_query`, or the pre-built Code Interpreter depending on the user request.
 
 ```python 
 import os
@@ -293,14 +296,15 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
+# Initialize toolset
+toolset = ToolSet()
+
 # Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
-toolset = ToolSet()
 toolset.add(fetch_data_function)
 
-# Initialize Code Interpreter tool and adding it to the toolset. 
+# Initialize Code Interpreter tool and adding it to the toolset.
 code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset = ToolSet()
 toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
@@ -311,8 +315,8 @@ agent = project_client.agents.create_agent(
 
 ## What are the special considerations for using the Tool Use Design Pattern to build trustworthy AI agents?
 
-A common concern with SQL dynamically generated by LLMs is security, particularly the risk of SQL injection or malicious actions, such as dropping or tampering with the database. While these concerns are valid, they can be effectively mitigated by properly configuring database access permissions. For most databases, this involves setting the database to read-only mode. For database services like PostgreSQL or Azure SQL, the app should be assigned a read-only (SELECT) role.
-Running the app in a secure environment provides an additional layer of protection. In enterprise scenarios, data is often extracted and transformed from operational systems into a read-only database or data warehouse with a user-friendly schema. This method ensures that the data remains secure, is optimized for performance and accessibility, and that the app has limited, read-only access.
+A common concern with SQL dynamically generated by LLMs is security, particularly the risk of SQL injection or malicious actions, such as dropping or tampering with the database. While these concerns are valid, they can be effectively mitigated by properly configuring database access permissions. For most databases this involves configuring the database as read-only. For database services like PostgreSQL or Azure SQL, the app should be assigned a read-only (SELECT) role.
+Running the app in a secure environment further enhances protection. In enterprise scenarios, data is typically extracted and transformed from operational systems into a read-only database or data warehouse with a user-friendly schema. This approach ensures that the data is secure, optimized for performance and accessibility, and that the app has restricted, read-only access.
 
 ## Sample Codes
 
@@ -321,7 +325,7 @@ Running the app in a secure environment provides an additional layer of protecti
 
 ## Got More Questions about the Tool Use Design Patterns?
 
-Join the [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) to connect with other learners, participate in office hours, and get answers to your AI Agents-related questions.
+Join the [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Additional Resources
 
@@ -343,5 +347,5 @@ Join the [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) to connect
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:  
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please note that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations resulting from the use of this translation.
+This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

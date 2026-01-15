@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "uk"
 }
 -->
-[![Планування шаблону дизайну](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.uk.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Планування шаблону дизайну](../../../translated_images/uk/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Натисніть на зображення вище, щоб переглянути відео цього уроку)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Визначення загальної мети та розбиття завдання
 
-![Визначення цілей і завдань](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.uk.png)
+![Визначення цілей і завдань](../../../translated_images/uk/defining-goals-tasks.d70439e19e37c47a.png)
 
 Більшість завдань у реальному світі занадто складні, щоб вирішувати їх одним кроком. AI-агенту потрібна чітка мета, яка буде направляти його планування та дії. Наприклад, розглянемо мету:
 

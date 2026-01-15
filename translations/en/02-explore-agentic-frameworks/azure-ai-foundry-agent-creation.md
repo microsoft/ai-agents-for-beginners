@@ -25,7 +25,7 @@ To complete this exercise, you need the following:
 1. Follow the guidelines in the [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog post to create an Azure AI Foundry hub.
 2. Once your project is created, close any tips that appear and review the project page in the Azure AI Foundry portal, which should look similar to the image below:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.en.png)
+    ![Azure AI Foundry Project](../../../translated_images/en/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Deploy a model
 
@@ -35,7 +35,7 @@ To complete this exercise, you need the following:
 
     > **Note**: Lowering the TPM helps prevent overusing the quota available in your subscription.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.en.png)
+    ![Model Deployed](../../../translated_images/en/model-deployment.3749c53fb81e18fd.webp)
 
 ## Create an agent
 
@@ -77,7 +77,7 @@ Now that you have deployed a model, you can create an agent. An agent is a conve
     
 > Additionally, you can add a **Knowledge Base** and **Actions** to enhance the agent's capabilities to provide more information and perform automated tasks based on user requests. For this exercise, you can skip these steps.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.en.png)
+![Agent Setup](../../../translated_images/en/agent-setup.9bbb8755bf5df672.webp)
 
 3. To create a new multi-AI agent, simply click **New Agent**. The newly created agent will then appear on the Agents page.
 
@@ -90,7 +90,7 @@ After creating the agent, you can test how it responds to user queries in the Az
 
     > **Note**: The agent might not provide accurate responses since no real-time data is used in this exercise. The goal is to test the agent's ability to understand and respond to user queries based on the instructions given.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.en.png)
+    ![Agent Playground](../../../translated_images/en/agent-playground.dc146586de715010.webp)
 
 3. After testing, you can further customize the agent by adding more intents, training data, and actions to improve its capabilities.
 

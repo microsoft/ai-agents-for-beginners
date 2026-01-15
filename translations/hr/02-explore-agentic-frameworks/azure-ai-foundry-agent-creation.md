@@ -25,7 +25,7 @@ Za dovršetak ovog zadatka potrebni su vam sljedeći uvjeti:
 1. Slijedite upute iz [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog posta za kreiranje Azure AI Foundry hub-a.
 2. Kada je vaš projekt kreiran, zatvorite sve prikazane savjete i pregledajte stranicu projekta u Azure AI Foundry portalu, koja bi trebala izgledati slično kao na slici ispod:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.hr.png)
+    ![Azure AI Foundry Project](../../../translated_images/hr/azure-ai-foundry.88d0c35298348c2f.png)
 
 ## Postavljanje modela
 
@@ -35,7 +35,7 @@ Za dovršetak ovog zadatka potrebni su vam sljedeći uvjeti:
 
     > **Note**: Smanjenje TPM pomaže izbjeći prekomjernu potrošnju kvote dostupne u pretplati koju koristite.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.hr.png)
+    ![Model Deployed](../../../translated_images/hr/model-deployment.3749c53fb81e18fd.png)
 
 ## Kreiranje agenta
 
@@ -77,7 +77,7 @@ Sada kada ste postavili model, možete kreirati agenta. Agent je konverzacijski 
     
 > Također, možete dodati **Knowledge Base** i **Actions** kako biste unaprijedili mogućnosti agenta da pruži više informacija i izvršava automatizirane zadatke na temelju korisničkih zahtjeva. Za ovaj zadatak možete preskočiti ove korake.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.hr.png)
+![Agent Setup](../../../translated_images/hr/agent-setup.9bbb8755bf5df672.png)
 
 3. Za kreiranje novog multi-AI agenta, jednostavno kliknite **New Agent**. Novi agent će se zatim prikazati na stranici Agents.
 
@@ -90,7 +90,7 @@ Nakon što ste kreirali agenta, možete ga testirati kako biste vidjeli kako odg
 
     > **Note**: Agent možda neće dati točne odgovore jer se u ovom zadatku ne koristi stvarni vremenski podatak. Cilj je testirati sposobnost agenta da razumije i odgovori na korisničke upite na temelju danih uputa.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.hr.png)
+    ![Agent Playground](../../../translated_images/hr/agent-playground.dc146586de715010.png)
 
 3. Nakon testiranja agenta, možete ga dodatno prilagoditi dodavanjem više namjera, podataka za treniranje i akcija kako biste poboljšali njegove mogućnosti.
 

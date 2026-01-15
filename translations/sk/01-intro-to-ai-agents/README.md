@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sk"
 }
 -->
-[![Úvod do AI agentov](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.sk.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Úvod do AI agentov](../../../translated_images/sk/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Kliknite na obrázok vyššie, aby ste si pozreli video k tejto lekcii)_
 
@@ -47,7 +47,7 @@ Rozdeľme túto definíciu na menšie časti:
   - **Senzory** - Prostredia obsahujú informácie a poskytujú spätnú väzbu. AI agenti používajú senzory na zhromažďovanie a interpretáciu týchto informácií o aktuálnom stave prostredia. V príklade agenta na rezerváciu cestovania môže systém poskytovať informácie, ako je dostupnosť hotelov alebo ceny letov.
   - **Aktuátory** - Keď AI agent získa aktuálny stav prostredia, pre danú úlohu určí, akú akciu vykonať na zmenu prostredia. Pre agenta na rezerváciu cestovania to môže byť rezervácia dostupnej izby pre používateľa.
 
-![Čo sú AI agenti?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.sk.png)
+![Čo sú AI agenti?](../../../translated_images/sk/what-are-ai-agents.1ec8c4d548af601a.png)
 
 **Veľké jazykové modely** - Koncept agentov existoval už pred vznikom LLMs. Výhodou budovania AI agentov s LLMs je ich schopnosť interpretovať ľudský jazyk a dáta. Táto schopnosť umožňuje LLMs interpretovať informácie z prostredia a definovať plán na jeho zmenu.
 
@@ -77,7 +77,7 @@ V predchádzajúcej časti sme použili prípad použitia cestovného agenta na 
 
 Pozrime sa na typy prípadov použitia, na ktoré sú AI agenti najvhodnejší:
 
-![Kedy používať AI agentov?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.sk.png)
+![Kedy používať AI agentov?](../../../translated_images/sk/when-to-use-ai-agents.54becb3bed74a479.png)
 
 - **Otvorené problémy** - umožnenie LLM určiť potrebné kroky na dokončenie úlohy, pretože ich nie je vždy možné pevne zakódovať do pracovného postupu.
 - **Procesy s viacerými krokmi** - úlohy, ktoré vyžadujú určitú úroveň zložitosti, pri ktorej AI agent potrebuje používať nástroje alebo informácie počas viacerých krokov namiesto jednorazového získania.

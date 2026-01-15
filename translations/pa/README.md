@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI ਏਜੰਟਸ - ਸ਼ੁਰੂਆਤੀਆਂ ਲਈ ਕੋਰਸ
 
-![ਜਨਰੇਟਿਵ AI ਸ਼ੁਰੂਆਤੀਆਂ ਲਈ](../../translated_images/repo-thumbnailv2.06f4a48036fde647.pa.png)
+![ਜਨਰੇਟਿਵ AI ਸ਼ੁਰੂਆਤੀਆਂ ਲਈ](../../translated_images/pa/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## ਇੱਕ ਕੋਰਸ ਜੋ ਤੁਹਾਨੂੰ AI ਏਜੰਟਸ ਬਣਾਉਣਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਜ਼ਰੂਰੀ ਸਭ ਕੁਝ ਸਿਖਾਉਂਦਾ ਹੈ
 

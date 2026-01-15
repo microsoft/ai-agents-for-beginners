@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "vi"
 }
 -->
-[![Giới thiệu về AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.vi.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Giới thiệu về AI Agents](../../../translated_images/vi/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Nhấn vào hình ảnh trên để xem video của bài học này)_
 
@@ -47,7 +47,7 @@ Hãy phân tích định nghĩa này thành các phần nhỏ hơn:
   - **Cảm biến** - Môi trường có thông tin và cung cấp phản hồi. AI Agents sử dụng cảm biến để thu thập và diễn giải thông tin về trạng thái hiện tại của môi trường. Trong ví dụ về Agent đặt vé du lịch, hệ thống đặt vé du lịch có thể cung cấp thông tin như tình trạng phòng khách sạn hoặc giá vé máy bay.
   - **Bộ truyền động** - Sau khi AI Agent nhận được trạng thái hiện tại của môi trường, đối với nhiệm vụ hiện tại, agent xác định hành động nào cần thực hiện để thay đổi môi trường. Đối với agent đặt vé du lịch, hành động có thể là đặt một phòng trống cho người dùng.
 
-![AI Agents là gì?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.vi.png)
+![AI Agents là gì?](../../../translated_images/vi/what-are-ai-agents.1ec8c4d548af601a.png)
 
 **Large Language Models** - Khái niệm về agents đã tồn tại trước khi LLMs được tạo ra. Lợi thế của việc xây dựng AI Agents với LLMs là khả năng diễn giải ngôn ngữ và dữ liệu của con người. Khả năng này cho phép LLMs diễn giải thông tin môi trường và xác định kế hoạch để thay đổi môi trường.
 
@@ -77,7 +77,7 @@ Trong phần trước, chúng ta đã sử dụng trường hợp đặt vé du 
 
 Hãy xem xét các loại trường hợp sử dụng mà AI Agents phù hợp nhất:
 
-![Khi nào nên sử dụng AI Agents?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.vi.png)
+![Khi nào nên sử dụng AI Agents?](../../../translated_images/vi/when-to-use-ai-agents.54becb3bed74a479.png)
 
 - **Vấn đề mở** - cho phép LLM xác định các bước cần thiết để hoàn thành một nhiệm vụ vì không phải lúc nào cũng có thể mã hóa cứng vào quy trình làm việc.
 - **Quy trình nhiều bước** - các nhiệm vụ yêu cầu một mức độ phức tạp mà AI Agent cần sử dụng công cụ hoặc thông tin qua nhiều lượt thay vì chỉ truy xuất một lần.  

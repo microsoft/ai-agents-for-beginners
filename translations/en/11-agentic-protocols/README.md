@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Using Agentic Protocols (MCP, A2A, and NLWeb)
 
-[![Agentic Protocols](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.en.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentic Protocols](../../../translated_images/en/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Click the image above to view the video of this lesson)_
 
@@ -69,7 +69,7 @@ MCP offers several advantages for AI agents:
 
 ### MCP Example
 
-![MCP Diagram](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.en.png)
+![MCP Diagram](../../../translated_images/en/mcp-diagram.e4ca1cbd551444a1.webp)
 
 Imagine a user wants to book a flight using an AI assistant powered by MCP.
 
@@ -124,7 +124,7 @@ This component manages **updates and message passing**. It ensures connections b
 
 ### A2A Example
 
-![A2A Diagram](../../../translated_images/A2A-Diagram.8666928d648acc26.en.png)
+![A2A Diagram](../../../translated_images/en/A2A-Diagram.8666928d648acc26.webp)
 
 Let’s revisit the travel booking scenario, this time using A2A.
 
@@ -158,7 +158,7 @@ Let’s explore NLWeb’s components, benefits, and an example using our travel 
 
 ### NLWeb by Example
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.en.png)
+![NLWeb](../../../translated_images/en/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 Consider our travel booking website, now powered by NLWeb.
 

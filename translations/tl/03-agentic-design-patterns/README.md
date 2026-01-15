@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tl"
 }
 -->
-[![Paano Magdisenyo ng Magandang AI Agents](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.tl.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Paano Magdisenyo ng Magandang AI Agents](../../../translated_images/tl/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(I-click ang imahe sa itaas para mapanood ang video ng araling ito)_
 # Prinsipyo sa Disenyo ng AI Agentic
@@ -39,7 +39,7 @@ Pagkatapos makumpleto ang araling ito, magagawa mo:
 
 ## Ang Prinsipyo sa Disenyo ng Agentic
 
-![Prinsipyo sa Disenyo ng Agentic](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.tl.png)
+![Prinsipyo sa Disenyo ng Agentic](../../../translated_images/tl/agentic-design-principles.1cfdf8b6d3cc73c2.png)
 
 ### Agent (Space)
 

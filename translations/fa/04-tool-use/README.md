@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fa"
 }
 -->
-[![چگونه عوامل هوش مصنوعی خوب طراحی کنیم](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.fa.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![چگونه عوامل هوش مصنوعی خوب طراحی کنیم](../../../translated_images/fa/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(برای مشاهده ویدئوی این درس روی تصویر بالا کلیک کنید)_
 
@@ -219,7 +219,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 نمودار زیر فرآیند فراخوانی تابع با Semantic Kernel را نشان می‌دهد:
 
-![فراخوانی تابع](../../../translated_images/functioncalling-diagram.a84006fc287f6014.fa.png)
+![فراخوانی تابع](../../../translated_images/fa/functioncalling-diagram.a84006fc287f6014.png)
 
 در Semantic Kernel، توابع/ابزارها <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">پلاگین</a> نامیده می‌شوند. می‌توانیم تابع `get_current_time` که قبلاً دیدیم را با تبدیل آن به یک کلاس با تابع درون آن به یک پلاگین تبدیل کنیم. همچنین می‌توانیم دکوراتور `kernel_function` را وارد کنیم که توضیحات تابع را دریافت می‌کند. هنگامی که کرنلی با پلاگین GetCurrentTimePlugin ایجاد می‌کنید، کرنل به طور خودکار تابع و پارامترهای آن را سریال‌سازی کرده و طرحی برای ارسال به LLM ایجاد می‌کند.
 
@@ -280,7 +280,7 @@ kernel.add_plugin(get_current_time_plugin)
 
 تصویر زیر نشان می‌دهد که چگونه می‌توانید از سرویس عامل Azure AI برای تحلیل داده‌های فروش خود استفاده کنید:
 
-![سرویس عامل در عمل](../../../translated_images/agent-service-in-action.34fb465c9a84659e.fa.jpg)
+![سرویس عامل در عمل](../../../translated_images/fa/agent-service-in-action.34fb465c9a84659e.jpg)
 
 برای استفاده از هر یک از این ابزارها با این سرویس، می‌توانیم یک کلاینت ایجاد کرده و یک ابزار یا مجموعه ابزار تعریف کنیم. برای پیاده‌سازی عملی این کار می‌توانیم از کد پایتون زیر استفاده کنیم. LLM می‌تواند به مجموعه ابزار نگاه کند و بسته به درخواست کاربر تصمیم بگیرد که آیا از تابع ایجادشده توسط کاربر، `fetch_sales_data_using_sqlite_query`، یا مفسر کد از پیش ساخته‌شده استفاده کند.
 

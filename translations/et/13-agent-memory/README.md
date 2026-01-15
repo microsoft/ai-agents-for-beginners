@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Mälu tehisintellekti agentide jaoks 
-[![Agendi mälu](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.et.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agendi mälu](../../../translated_images/et/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Kui räägitakse tehisintellekti agentide loomise unikaalsetest eelistest, keskendutakse peamiselt kahele asjale: võimele kasutada tööriistu ülesannete täitmiseks ja võimele aja jooksul paremaks muutuda. Mälu on enesetäiendavate agentide loomise alus, mis suudavad pakkuda meie kasutajatele paremaid kogemusi.
 

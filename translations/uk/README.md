@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Агенти ШІ для початківців - Курс
 
-![Генеративний ШІ для початківців](../../translated_images/repo-thumbnailv2.06f4a48036fde647.uk.png)
+![Генеративний ШІ для початківців](../../translated_images/uk/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## Курс, який навчає всьому, що потрібно знати, щоб почати створювати агентів ШІ
 

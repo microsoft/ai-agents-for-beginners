@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "uk"
 }
 -->
-[![Довірені AI-агенти](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.uk.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Довірені AI-агенти](../../../translated_images/uk/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Натисніть на зображення вище, щоб переглянути відео цього уроку)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Щоб створювати масштабовані системні запити, ми можемо використовувати фреймворк системних повідомлень для створення одного або кількох агентів у нашому додатку:
 
-![Створення фреймворку системних повідомлень](../../../translated_images/system-message-framework.3a97368c92d11d68.uk.png)
+![Створення фреймворку системних повідомлень](../../../translated_images/uk/system-message-framework.3a97368c92d11d68.png)
 
 #### Крок 1: Створіть мета-системне повідомлення
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 Щоб створювати довірені AI-агенти, важливо розуміти та зменшувати ризики й загрози для вашого AI-агента. Розгляньмо деякі з можливих загроз для AI-агентів і способи їх уникнення.
 
-![Розуміння загроз](../../../translated_images/understanding-threats.89edeada8a97fc0f.uk.png)
+![Розуміння загроз](../../../translated_images/uk/understanding-threats.89edeada8a97fc0f.png)
 
 ### Завдання та інструкції
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 Ще один ефективний спосіб створення довірених систем AI-агентів — це використання підходу "людина в процесі". Це створює потік, у якому користувачі можуть надавати зворотний зв’язок агентам під час їх роботи. Користувачі фактично виступають як агенти в багатокомпонентній системі, надаючи схвалення або припиняючи виконання процесу.
 
-![Людина в процесі](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.uk.png)
+![Людина в процесі](../../../translated_images/uk/human-in-the-loop.5f0068a678f62f4f.png)
 
 Ось приклад коду з використанням AutoGen, який демонструє, як реалізується ця концепція:
 

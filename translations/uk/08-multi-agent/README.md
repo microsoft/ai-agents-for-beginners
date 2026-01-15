@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "uk"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.uk.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/uk/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Натисніть на зображення вище, щоб переглянути відео цього уроку)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Цей шаблон можна реалізувати за допомогою централізованої архітектури, де всі повідомлення передаються через центральний сервер, або децентралізованої архітектури, де повідомлення обмінюються безпосередньо.
 
-![Груповий чат](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.uk.png)
+![Груповий чат](../../../translated_images/uk/multi-agent-group-chat.ec10f4cde556babd.png)
 
 ### Передача завдань
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 У цьому шаблоні кожен агент представляє завдання або крок у робочому процесі, і агенти можуть передавати завдання іншим агентам на основі заздалегідь визначених правил.
 
-![Передача завдань](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.uk.png)
+![Передача завдань](../../../translated_images/uk/multi-agent-hand-off.4c5fb00ba6f8750a.png)
 
 ### Спільна фільтрація
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **Технічний аналіз**: Інший агент може бути експертом із технічного аналізу.
 - **Фундаментальний аналіз**: Ще один агент може бути експертом із фундаментального аналізу. Співпрацюючи, ці агенти можуть надати користувачеві більш комплексну рекомендацію.
 
-![Рекомендація](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.uk.png)
+![Рекомендація](../../../translated_images/uk/multi-agent-filtering.d959cb129dc9f608.png)
 
 ## Сценарій: Процес повернення коштів
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tl"
 }
 -->
-[![Intro to AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.tl.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](../../../translated_images/tl/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(I-click ang imahe sa itaas para mapanood ang video ng araling ito)_
 
@@ -47,7 +47,7 @@ Himayin natin ang depinisyong ito sa mas maliliit na bahagi:
   - **Sensors** - Ang mga environment ay may impormasyon at nagbibigay ng feedback. Ginagamit ng AI Agents ang sensors upang mangolekta at mag-interpret ng impormasyon tungkol sa kasalukuyang estado ng environment. Sa halimbawa ng Travel Booking Agent, ang travel booking system ay maaaring magbigay ng impormasyon tulad ng availability ng hotel o presyo ng flight.
   - **Actuators** - Kapag natanggap ng AI Agent ang kasalukuyang estado ng environment, para sa kasalukuyang gawain, tinutukoy ng agent kung anong aksyon ang gagawin upang baguhin ang environment. Para sa travel booking agent, maaaring mag-book ito ng available na kuwarto para sa user.
 
-![What Are AI Agents?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.tl.png)
+![What Are AI Agents?](../../../translated_images/tl/what-are-ai-agents.1ec8c4d548af601a.png)
 
 **Large Language Models** - Ang konsepto ng agents ay umiiral na bago pa ang paglikha ng LLMs. Ang bentahe ng paggawa ng AI Agents gamit ang LLMs ay ang kanilang kakayahang mag-interpret ng human language at data. Ang kakayahang ito ay nagbibigay-daan sa LLMs na mag-interpret ng impormasyon mula sa environment at magtakda ng plano upang baguhin ang environment.
 
@@ -77,7 +77,7 @@ Sa naunang seksyon, ginamit natin ang Travel Agent use-case upang ipaliwanag kun
 
 Tingnan natin ang mga uri ng use cases na pinakaangkop para sa AI Agents:
 
-![When to use AI Agents?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.tl.png)
+![When to use AI Agents?](../../../translated_images/tl/when-to-use-ai-agents.54becb3bed74a479.png)
 
 - **Open-Ended Problems** - Pinapayagan ang LLM na tukuyin ang mga kinakailangang hakbang upang tapusin ang isang gawain dahil hindi ito laging maaaring i-hardcode sa isang workflow.
 - **Multi-Step Processes** - Mga gawain na nangangailangan ng antas ng komplikasyon kung saan ang AI Agent ay kailangang gumamit ng tools o impormasyon sa maraming turn sa halip na single shot retrieval.  

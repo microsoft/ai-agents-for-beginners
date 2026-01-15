@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ಆರಂಭಿಕರಿಗಾಗಿ AI ಏಜೆಂಟ್‌ಗಳು - ಕೋರ್ಸ್
 
-![ಸೃಜನಾತ್ಮಕ AI ಆರಂಭಿಕರಿಗೆ](../../translated_images/repo-thumbnailv2.06f4a48036fde647.kn.png)
+![ಸೃಜನಾತ್ಮಕ AI ಆರಂಭಿಕರಿಗೆ](../../translated_images/kn/repo-thumbnailv2.06f4a48036fde647.png)
 
 ## AI ಏಜೆಂಟ್‌ಗಳನ್ನು ನಿರ್ಮಿಸಲು ಆರಂಭಿಸಲು ನಿಮಗೆ ತಿಳಿಯಬೇಕಾದ ಎಲ್ಲದರನ್ನೂ ಕಲಿಸುವ ಕೋರ್ಸ್
 
