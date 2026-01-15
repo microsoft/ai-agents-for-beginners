@@ -1,88 +1,88 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d7c3b7bd1b3528074d8b6a7c5ad33b6f",
-  "translation_date": "2025-11-18T18:37:51+00:00",
+  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
+  "translation_date": "2026-01-15T18:05:20+00:00",
   "source_file": "04-tool-use/README.md",
   "language_code": "lt"
 }
 -->
-[![Kaip kurti gerus AI agentus](../../../translated_images/lt/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Kaip sukurti gerus AI agentus](../../../../../translated_images/lt/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(Spustelėkite aukščiau esančią nuotrauką, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
+> _(Spustelėkite aukščiau esančią nuotrauką norėdami peržiūrėti šios pamokos vaizdo įrašą)_
 
 # Įrankių naudojimo dizaino šablonas
 
-Įrankiai yra įdomūs, nes jie leidžia AI agentams turėti platesnį gebėjimų spektrą. Vietoj to, kad agentas turėtų ribotą veiksmų rinkinį, pridėjus įrankį, agentas gali atlikti daugybę veiksmų. Šiame skyriuje aptarsime Įrankių naudojimo dizaino šabloną, kuris aprašo, kaip AI agentai gali naudoti specifinius įrankius savo tikslams pasiekti.
+Įrankiai yra įdomūs, nes jie leidžia AI agentams turėti platesnį gebėjimų spektrą. Vietoj to, kad agentas turėtų ribotą veiksmų rinkinį, pridėjus įrankį, agentas dabar gali atlikti platų veiksmų spektrą. Šiame skyriuje aptarsime Įrankių naudojimo dizaino šabloną, kuris aprašo, kaip AI agentai gali naudoti tam tikrus įrankius savo tikslams pasiekti.
 
 ## Įvadas
 
-Šioje pamokoje siekiame atsakyti į šiuos klausimus:
+Šioje pamokoje sieksime atsakyti į šiuos klausimus:
 
 - Kas yra įrankių naudojimo dizaino šablonas?
 - Kokiais atvejais jis gali būti taikomas?
-- Kokie elementai/sudėtinės dalys reikalingos šablonui įgyvendinti?
-- Kokie yra ypatingi aspektai, į kuriuos reikia atsižvelgti naudojant Įrankių naudojimo dizaino šabloną, kad būtų sukurti patikimi AI agentai?
+- Kokie elementai/komponentai reikalingi dizaino šablonui įgyvendinti?
+- Kokie yra specialūs aspektai naudojant Įrankių naudojimo dizaino šabloną kuriant patikimus AI agentus?
 
 ## Mokymosi tikslai
 
-Baigę šią pamoką, galėsite:
+Baigus šią pamoką, gebėsite:
 
 - Apibrėžti Įrankių naudojimo dizaino šabloną ir jo paskirtį.
-- Nustatyti atvejus, kur šis dizaino šablonas yra taikytinas.
-- Suprasti pagrindinius elementus, reikalingus šablonui įgyvendinti.
-- Atpažinti aspektus, užtikrinančius AI agentų patikimumą naudojant šį dizaino šabloną.
+- Nustatyti atvejus, kur galima taikyti Įrankių naudojimo dizaino šabloną.
+- Suprasti pagrindinius elementus, reikalingus dizaino šablonui įgyvendinti.
+- Pripažinti svarbias aplinkybes, užtikrinančias patikimumą naudojant šį dizaino šabloną AI agentams.
 
 ## Kas yra Įrankių naudojimo dizaino šablonas?
 
-**Įrankių naudojimo dizaino šablonas** yra orientuotas į tai, kad LLM galėtų sąveikauti su išoriniais įrankiais, siekdami specifinių tikslų. Įrankiai yra kodas, kurį agentas gali vykdyti, kad atliktų veiksmus. Įrankis gali būti paprasta funkcija, pavyzdžiui, skaičiuotuvas, arba API užklausa trečiosios šalies paslaugai, pavyzdžiui, akcijų kainų paieškai ar orų prognozei. AI agentų kontekste įrankiai yra sukurti taip, kad juos vykdytų agentai, reaguodami į **modelio generuojamus funkcijų iškvietimus**.
+**Įrankių naudojimo dizaino šablonas** orientuotas į tai, kad LLM galėtų sąveikauti su išoriniais įrankiais, siekiant pasiekti konkrečius tikslus. Įrankiai yra kodas, kurį agentas gali vykdyti, kad atliktų veiksmus. Įrankis gali būti paprasta funkcija, tokia kaip skaičiuoklė, arba API kvietimas trečiosios šalies paslaugai, pavyzdžiui, akcijų kainų paieškai ar orų prognozėms. Dirbtinio intelekto agentų kontekste įrankiai sukurti taip, kad agentai juos vykdytų atsakydami į **modelio sugeneruotus funkcijų kvietimus**.
 
-## Kokiais atvejais jis gali būti taikomas?
+## Kokiems atvejams tai taikoma?
 
-AI agentai gali naudoti įrankius sudėtingoms užduotims atlikti, informacijai gauti ar sprendimams priimti. Įrankių naudojimo dizaino šablonas dažnai taikomas scenarijams, kuriems reikalinga dinaminė sąveika su išorinėmis sistemomis, tokiomis kaip duomenų bazės, interneto paslaugos ar kodo interpretatoriai. Šis gebėjimas yra naudingas įvairiems atvejams, įskaitant:
+AI agentai gali naudoti įrankius sudėtingoms užduotims atlikti, informacijai gauti ar sprendimams priimti. Įrankių naudojimo dizaino šablonas dažnai taikomas scenarijuose, kuriuose reikalinga dinamiška sąveika su išorinėmis sistemomis, tokiomis kaip duomenų bazės, žiniatinklio paslaugos ar kodo interpretatoriai. Ši galimybė naudinga daugeliui panaudojimo atvejų, įskaitant:
 
-- **Dinaminė informacijos paieška:** Agentai gali užklausti išorinių API ar duomenų bazių, kad gautų naujausius duomenis (pvz., užklausti SQLite duomenų bazės analizei, gauti akcijų kainas ar orų informaciją).
-- **Kodo vykdymas ir interpretavimas:** Agentai gali vykdyti kodą ar scenarijus, kad išspręstų matematines problemas, generuotų ataskaitas ar atliktų simuliacijas.
-- **Darbo eigos automatizavimas:** Automatizuoti pasikartojančias ar daugiapakopes darbo eigas, integruojant įrankius, tokius kaip užduočių planuotojai, el. pašto paslaugos ar duomenų srautai.
-- **Klientų aptarnavimas:** Agentai gali sąveikauti su CRM sistemomis, bilietų platformomis ar žinių bazėmis, kad išspręstų vartotojų užklausas.
-- **Turinio kūrimas ir redagavimas:** Agentai gali naudoti įrankius, tokius kaip gramatikos tikrintuvai, teksto santraukų generatoriai ar turinio saugumo vertintojai, kad padėtų atlikti turinio kūrimo užduotis.
+- **Dinaminis informacijos gavimas:** agentai gali užklausti išorinių API ar duomenų bazių, kad gautų aktualius duomenis (pvz., užklausos SQLite duomenų bazėje duomenų analizei, akcijų kainų ar orų informacijos gavimui).
+- **Kodo vykdymas ir interpretavimas:** agentai gali vykdyti kodą ar scenarijus spręsti matematikos uždaviniams, generuoti ataskaitas ar atlikti simuliacijas.
+- **Darbo eigos automatizavimas:** automatizuoti pasikartojančias ar daugiapakopes darbo eigos, integruojant įrankius, tokius kaip užduočių tvarkyklės, el. pašto paslaugos ar duomenų vamzdynai.
+- **Klientų aptarnavimas:** agentai gali sąveikauti su CRM sistemomis, bilietų platformomis ar žinių bazėmis, kad išspręstų vartotojų klausimus.
+- **Turinio kūrimas ir redagavimas:** agentai gali naudoti įrankius, tokius kaip gramatikos tikrintuvai, teksto santraukos ar turinio saugumo vertintojai, kad padėtų kurti turinį.
 
-## Kokie elementai/sudėtinės dalys reikalingos įrankių naudojimo dizaino šablonui įgyvendinti?
+## Kokie elementai/komponentai reikalingi įrankių naudojimo dizaino šablonui įgyvendinti?
 
-Šie elementai leidžia AI agentui atlikti daugybę užduočių. Pažvelkime į pagrindinius elementus, reikalingus Įrankių naudojimo dizaino šablonui įgyvendinti:
+Šie komponentai leidžia AI agentui atlikti platų užduočių spektrą. Pažvelkime į pagrindinius elementus, reikalingus Įrankių naudojimo dizaino šablonui įgyvendinti:
 
-- **Funkcijų/Įrankių schemos**: Išsamūs galimų įrankių apibrėžimai, įskaitant funkcijos pavadinimą, paskirtį, reikalingus parametrus ir tikėtinus rezultatus. Šios schemos leidžia LLM suprasti, kokie įrankiai yra prieinami ir kaip sukurti galiojančias užklausas.
+- **Funkcijų/Įrankių schemos**: Išsamūs prieinamų įrankių aprašymai, įskaitant funkcijos pavadinimą, paskirtį, reikiamus parametrus ir numatomus rezultatus. Šios schemos leidžia LLM suprasti, kokie įrankiai yra prieinami ir kaip sudaryti galiojančias užklausas.
 
-- **Funkcijų vykdymo logika**: Valdo, kaip ir kada įrankiai yra iškviečiami, atsižvelgiant į vartotojo ketinimus ir pokalbio kontekstą. Tai gali apimti planavimo modulius, maršrutizavimo mechanizmus ar sąlyginius srautus, kurie dinamiškai nustato įrankių naudojimą.
+- **Funkcijų vykdymo logika**: Valdo, kaip ir kada įrankiai kviečiami, atsižvelgiant į vartotojo ketinimą ir pokalbio kontekstą. Tai gali apimti planavimo modulius, maršrutizavimo mechanizmus ar sąlyginį srautą, dinamiškai nusprendžiantį įrankių naudojimą.
 
-- **Pranešimų valdymo sistema**: Komponentai, kurie valdo pokalbio srautą tarp vartotojo įvesties, LLM atsakymų, įrankių užklausų ir jų rezultatų.
+- **Pranešimų apdorojimo sistema**: Komponentai, valdomi pokalbio srauto tarp vartotojo įvesties, LLM atsakymų, įrankių kvietimų ir jų rezultatų.
 
-- **Įrankių integravimo sistema**: Infrastruktūra, jungianti agentą su įvairiais įrankiais, nesvarbu, ar tai paprastos funkcijos, ar sudėtingos išorinės paslaugos.
+- **Įrankių integracijos sistema**: Infrastruktūra, jungiantis agentą su įvairiais įrankiais, nesvarbu, ar tai paprastos funkcijos, ar sudėtingos išorinės paslaugos.
 
-- **Klaidų valdymas ir patikra**: Mechanizmai, skirti spręsti įrankių vykdymo nesėkmes, tikrinti parametrus ir valdyti netikėtus atsakymus.
+- **Klaidų valdymas ir patikra**: Mechanizmai, tvarkantys įrankių vykdymo klaidas, patikrinantys parametrus ir valdantys netikėtas atsakymų situacijas.
 
-- **Būsenos valdymas**: Sekama pokalbio kontekstas, ankstesnės sąveikos su įrankiais ir nuolatiniai duomenys, kad būtų užtikrintas nuoseklumas per daugiapakopius pokalbius.
+- **Būsenos valdymas**: Sekimas pokalbio kontekste, ankstesnėse įrankių sąveikose ir nuolatinės duomenų saugyklos valdymas, siekiant užtikrinti nuoseklumą daugelių turų sąveikose.
 
-Toliau pažvelkime į funkcijų/įrankių iškvietimą išsamiau.
+Dabar pažvelkime detaliau į Funkcijų/Įrankių kvietimą.
 
-### Funkcijų/Įrankių iškvietimas
+### Funkcijų/Įrankių kvietimas
 
-Funkcijų iškvietimas yra pagrindinis būdas, kaip leidžiame Dideliems Kalbos Modeliams (LLM) sąveikauti su įrankiais. Dažnai matysite, kad „Funkcija“ ir „Įrankis“ naudojami kaip sinonimai, nes „funkcijos“ (pakartotinai naudojamo kodo blokai) yra „įrankiai“, kuriuos agentai naudoja užduotims atlikti. Kad funkcijos kodas būtų iškviestas, LLM turi palyginti vartotojo užklausą su funkcijos aprašymu. Tam schema, kurioje aprašytos visos galimos funkcijos, siunčiama LLM. Tada LLM pasirenka tinkamiausią funkciją užduočiai ir grąžina jos pavadinimą bei argumentus. Pasirinkta funkcija yra iškviečiama, jos atsakymas siunčiamas atgal į LLM, kuris naudoja informaciją atsakydamas į vartotojo užklausą.
+Funkcijų kvietimas yra pagrindinis būdas, kuriuo leidžiame Dideliems kalbos modeliams (LLM) sąveikauti su įrankiais. Dažnai matysite, kad "Funkcija" ir "Įrankis" vartojami sinonimiškai, nes "funkcijos" (daugiakartinio naudojimo kodo blokai) yra tie „įrankiai“, kuriuos agentai naudoja užduotims atlikti. Kad funkcijos kodas būtų iškviečiamas, LLM turi palyginti vartotojo užklausą su funkcijos aprašymu. Tam siunčiama schema, kurioje yra visų galimų funkcijų aprašymai. Tada LLM parenka tinkamiausią funkciją užduočiai ir grąžina jos pavadinimą bei argumentus. Išrinkta funkcija yra iškviečiama, jo atsakymas siunčiamas atgal LLM, kuris panaudoja informaciją atsakydamas vartotojui.
 
-Norint, kad kūrėjai galėtų įgyvendinti funkcijų iškvietimą agentams, jums reikės:
+Norint kūrėjams įgyvendinti funkcijų kvietimą agentams, reikės:
 
-1. LLM modelio, kuris palaiko funkcijų iškvietimą
-2. Schemos, kurioje aprašytos funkcijos
-3. Kodo kiekvienai aprašytai funkcijai
+1. LLM modelio, palaikančio funkcijų kvietimą
+2. Schemos su funkcijų aprašymais
+3. Kiekvienos aprašytos funkcijos kodo
 
-Pavyzdžiui, norint gauti dabartinį laiką mieste:
+Pažiūrėkime pavyzdį, kaip gauti dabartinį laiką mieste:
 
-1. **Inicializuokite LLM, kuris palaiko funkcijų iškvietimą:**
+1. **Inicijuokite LLM, palaikantį funkcijų kvietimą:**
 
-    Ne visi modeliai palaiko funkcijų iškvietimą, todėl svarbu patikrinti, ar naudojamas LLM tai daro. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> palaiko funkcijų iškvietimą. Galime pradėti inicijuodami Azure OpenAI klientą.
+    Nepalaiko visi modeliai funkcijų kvietimo, todėl svarbu patikrinti, ar naudojamas LLM tai palaiko.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> palaiko funkcijų kvietimą. Galime pradėti inicijuodami Azure OpenAI klientą. 
 
     ```python
-    # Initialize the Azure OpenAI client
+    # Inicializuoti Azure OpenAI klientą
     client = AzureOpenAI(
         azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
         api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
@@ -90,12 +90,13 @@ Pavyzdžiui, norint gauti dabartinį laiką mieste:
     )
     ```
 
-1. **Sukurkite funkcijos schemą:**
+1. **Sukurkite funkcijų schemą**:
 
-    Toliau apibrėšime JSON schemą, kurioje yra funkcijos pavadinimas, funkcijos aprašymas ir funkcijos parametrų pavadinimai bei aprašymai. Tada šią schemą perduosime anksčiau sukurtam klientui kartu su vartotojo užklausa, norint rasti laiką San Franciske. Svarbu pažymėti, kad grąžinamas **įrankio iškvietimas**, o ne galutinis atsakymas į klausimą. Kaip minėta anksčiau, LLM grąžina funkcijos pavadinimą, kurį jis pasirinko užduočiai, ir argumentus, kurie bus perduoti funkcijai.
+    Tada aprašysime JSON schemą, kurioje bus funkcijos pavadinimas, aprašymas, ką funkcija daro, bei funkcijos parametrų pavadinimai ir aprašymai.
+    Šią schemą perduosime anksčiau sukurtam klientui kartu su vartotojo užklausa surasti laiką San Franciske. Svarbu paminėti, kad grąžinama yra **įrankio kvietimas**, **ne** galutinis atsakymas į klausimą. Kaip minėta anksčiau, LLM grąžina pasirinktą funkcijos pavadinimą ir argumentus.
 
     ```python
-    # Function description for the model to read
+    # Funkcijos aprašymas modeliui skaityti
     tools = [
         {
             "type": "function",
@@ -119,10 +120,10 @@ Pavyzdžiui, norint gauti dabartinį laiką mieste:
    
     ```python
   
-    # Initial user message
+    # Pradinis naudotojo pranešimas
     messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
   
-    # First API call: Ask the model to use the function
+    # Pirmasis API kvietimas: Paprašykite modelio naudoti funkciją
       response = client.chat.completions.create(
           model=deployment_name,
           messages=messages,
@@ -130,7 +131,7 @@ Pavyzdžiui, norint gauti dabartinį laiką mieste:
           tool_choice="auto",
       )
   
-      # Process the model's response
+      # Apdorokite modeli atsakymą
       response_message = response.choices[0].message
       messages.append(response_message)
   
@@ -145,9 +146,10 @@ Pavyzdžiui, norint gauti dabartinį laiką mieste:
     ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
     ```
   
-1. **Funkcijos kodas, reikalingas užduočiai atlikti:**
+1. **Funkcijos kodas užduočiai atlikti:**
 
-    Dabar, kai LLM pasirinko, kuri funkcija turi būti vykdoma, reikia įgyvendinti ir vykdyti kodą, kuris atliks užduotį. Galime įgyvendinti kodą, kad gautume dabartinį laiką Python kalba. Taip pat reikės parašyti kodą, kuris ištrauks pavadinimą ir argumentus iš response_message, kad gautume galutinį rezultatą.
+    Kadangi LLM pasirinko, kurią funkciją reikia vykdyti, reikalingas kodas turi būti įgyvendintas ir vykdomas.
+    Galime įgyvendinti kodą, kuris gauna dabartinį laiką Python kalba. Taip pat reikės parašyti kodą, kuris ištrauks pavadinimą ir argumentus iš response_message, norint gauti galutinį rezultatą.
 
     ```python
       def get_current_time(location):
@@ -169,7 +171,7 @@ Pavyzdžiui, norint gauti dabartinį laiką mieste:
     ```
 
      ```python
-     # Handle function calls
+     # Tvarkyti funkcijų kvietimus
       if response_message.tool_calls:
           for tool_call in response_message.tool_calls:
               if tool_call.function.name == "get_current_time":
@@ -189,7 +191,7 @@ Pavyzdžiui, norint gauti dabartinį laiką mieste:
       else:
           print("No tool calls were made by the model.")  
   
-      # Second API call: Get the final response from the model
+      # Antras API kvietimas: Gauti galutinį modelio atsakymą
       final_response = client.chat.completions.create(
           model=deployment_name,
           messages=messages,
@@ -204,21 +206,22 @@ Pavyzdžiui, norint gauti dabartinį laiką mieste:
       The current time in San Francisco is 09:24 AM.
      ```
 
-Funkcijų iškvietimas yra daugelio, jei ne visų, agentų įrankių naudojimo dizaino pagrindas, tačiau kartais gali būti sudėtinga jį įgyvendinti nuo nulio. Kaip sužinojome [2 pamokoje](../../../02-explore-agentic-frameworks), agentiniai karkasai suteikia mums iš anksto sukurtus elementus įrankių naudojimui įgyvendinti.
+Funkcijų kvietimas yra pagrindinis daugumos, jei ne visų agentų įrankių naudojimo dizaino šablonų branduolys, tačiau jį įgyvendinti nuo nulio kartais gali būti sudėtinga.
+Kaip sužinojome [Pamokoje 2](../../../02-explore-agentic-frameworks) agentiniai karkasai suteikia mums iš anksto paruoštus komponentus įrankių naudojimui įgyvendinti.
 
 ## Įrankių naudojimo pavyzdžiai su agentiniais karkasais
 
-Štai keletas pavyzdžių, kaip galite įgyvendinti Įrankių naudojimo dizaino šabloną naudodami skirtingus agentinius karkasus:
+Štai keli pavyzdžiai, kaip galima įgyvendinti Įrankių naudojimo dizaino šabloną, naudojant skirtingus agentinius karkasus:
 
 ### Semantic Kernel
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> yra atvirojo kodo AI karkasas .NET, Python ir Java kūrėjams, dirbantiems su Dideliais Kalbos Modeliais (LLM). Jis supaprastina funkcijų iškvietimo procesą automatiškai aprašydamas jūsų funkcijas ir jų parametrus modeliui per procesą, vadinamą <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serializacija</a>. Jis taip pat valdo komunikaciją tarp modelio ir jūsų kodo. Kitas privalumas naudojant agentinį karkasą, kaip Semantic Kernel, yra tas, kad jis leidžia pasiekti iš anksto sukurtus įrankius, tokius kaip <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">Failų paieška</a> ir <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Kodo interpretatorius</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> yra atvirojo kodo AI karkasas .NET, Python ir Java kūrėjams, dirbantiems su Dideliais kalbos modeliais (LLM). Jis supaprastina funkcijų kvietimo procesą automatiškai aprašydamas jūsų funkcijas ir jų parametrus modeliui per procesą, vadinamą <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serializavimu</a>. Taip pat jis valdo abi puses - komunikaciją tarp modelio ir jūsų kodo. Kitas Semantic Kernel naudojimo privalumas yra tas, kad jis leidžia naudotis paruoštais įrankiais, pvz., <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">Failų paieška</a> ir <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Kodo interpretatorius</a>.
 
-Šiame diagramoje pavaizduotas funkcijų iškvietimo procesas su Semantic Kernel:
+Toliau pateiktas diagrama iliustruoja funkcijų kvietimo procesą su Semantic Kernel:
 
-![funkcijų iškvietimas](../../../translated_images/lt/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../../../translated_images/lt/functioncalling-diagram.a84006fc287f6014.webp)
 
-Semantic Kernel funkcijos/įrankiai vadinami <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Priedais</a>. Galime konvertuoti `get_current_time` funkciją, kurią matėme anksčiau, į priedą, paversdami ją klase su funkcija joje. Taip pat galime importuoti `kernel_function` dekoratorių, kuris priima funkcijos aprašymą. Kai sukuriate branduolį su GetCurrentTimePlugin, branduolys automatiškai serializuoja funkciją ir jos parametrus, kurdamas schemą, kuri bus siunčiama LLM.
+Semantic Kernel funkcijos/įrankiai vadinami <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">įskiepiais</a>. Galime paversti anksčiau matytą `get_current_time` funkciją į įskiepį, pakeisdami ją į klasę su ta funkcija. Taip pat galime importuoti `kernel_function` dekoratorių, kuris priima funkcijos aprašymą. Sukūrus branduolį su GetCurrentTimePlugin, branduolys automatiškai serializuos funkciją ir jos parametrus, tuo pačiu sukuriant schemą, kuri bus siunčiama LLM.
 
 ```python
 from semantic_kernel.functions import kernel_function
@@ -238,54 +241,54 @@ class GetCurrentTimePlugin:
 ```python 
 from semantic_kernel import Kernel
 
-# Create the kernel
+# Sukurkite branduolį
 kernel = Kernel()
 
-# Create the plugin
+# Sukurkite papildinį
 get_current_time_plugin = GetCurrentTimePlugin(location)
 
-# Add the plugin to the kernel
+# Pridėkite papildinį prie branduolio
 kernel.add_plugin(get_current_time_plugin)
 ```
   
 ### Azure AI Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> yra naujesnis agentinis karkasas, skirtas padėti kūrėjams saugiai kurti, diegti ir plėsti aukštos kokybės bei išplečiamus AI agentus, nereikalaujant valdyti pagrindinių skaičiavimo ir saugojimo išteklių. Jis ypač naudingas įmonių programoms, nes tai yra visiškai valdomas paslaugų sprendimas su įmonės lygio saugumu.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> yra naujesnis agentinis karkasas, sukurtas, kad padėtų kūrėjams saugiai kurti, diegti ir keisti aukštos kokybės bei išplečiamus AI agentus neprivalant valdyti pagrindinių skaičiavimo ar saugojimo išteklių. Tai ypač naudinga įmonių programoms, nes tai visiškai valdomas, verslo klasės saugumo turintis servisais.
 
-Lyginant su kūrimu tiesiogiai naudojant LLM API, Azure AI Agent Service suteikia keletą privalumų, įskaitant:
+Palyginti su tiesioginiu vystymu naudojant LLM API, Azure AI Agent Service suteikia tam tikrų privalumų, įskaitant:
 
-- Automatinis įrankių iškvietimas – nereikia analizuoti įrankio iškvietimo, vykdyti įrankio ir tvarkyti atsakymo; visa tai dabar atliekama serverio pusėje
-- Saugiai valdomi duomenys – vietoj to, kad valdytumėte savo pokalbio būseną, galite pasikliauti gijom, kurios saugo visą jums reikalingą informaciją
-- Iš anksto paruošti įrankiai – Įrankiai, kuriuos galite naudoti sąveikai su savo duomenų šaltiniais, tokiais kaip Bing, Azure AI Search ir Azure Functions.
+- Automatinis įrankių kvietimas – nereikia analizuoti įrankio kvietimo, vykdyti įrankio ir tvarkyti atsakymų; visa tai dabar vykdoma serverio pusėje
+- Saugiai valdomi duomenys – vietoje savo pokalbių būsenos valdymo galite pasikliauti temomis (threads), kurios saugo visą reikalingą informaciją
+- Out-of-the-box įrankiai – įrankiai, leidžiantys sąveikauti su jūsų duomenų šaltiniais, tokie kaip Bing, Azure AI Search ir Azure Functions.
 
-Azure AI Agent Service siūlomi įrankiai gali būti suskirstyti į dvi kategorijas:
+Azure AI Agent Service įrankiai yra suskirstyti į dvi kategorijas:
 
 1. Žinių įrankiai:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Bing paieška</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Pagrindimas su Bing paieška</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Failų paieška</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI paieška</a>
 
 2. Veiksmų įrankiai:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Funkcijų iškvietimas</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Funkcijų kvietimas</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Kodo interpretatorius</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI apibrėžti įrankiai</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agent Service leidžia naudoti šiuos įrankius kartu kaip `toolset`. Jis taip pat naudoja `threads`, kurios seka konkretaus pokalbio pranešimų istoriją.
+Agentų servisas leidžia naudoti šiuos įrankius kartu kaip `įrankių rinkinį`. Jis taip pat naudoja `threads`, kurie seka konkrečių pokalbių žinučių istoriją.
 
-Įsivaizduokite, kad esate pardavimų agentas įmonėje Contoso. Norite sukurti pokalbių agentą, kuris galėtų atsakyti į klausimus apie jūsų pardavimų duomenis.
+Įsivaizduokite, kad esate prekybos agentas kompanijoje Contoso. Norite sukurti pokalbių agentą, galintį atsakyti į klausimus apie jūsų pardavimų duomenis.
 
-Šiame paveikslėlyje pavaizduota, kaip galite naudoti Azure AI Agent Service analizuoti savo pardavimų duomenis:
+Toliau pateikta iliustracija rodo, kaip galite naudoti Azure AI Agent Service, analizuodami savo pardavimų duomenis:
 
-![Agentinė paslauga veiksme](../../../translated_images/lt/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../../../translated_images/lt/agent-service-in-action.34fb465c9a84659e.webp)
 
-Norėdami naudoti bet kurį iš šių įrankių su paslauga, galime sukurti klientą ir apibrėžti įrankį ar įrankių rinkinį. Praktiniam įgyvendinimui galime naudoti šį Python kodą. LLM galės peržiūrėti įrankių rinkinį ir nuspręsti, ar naudoti vartotojo sukurtą funkciją `fetch_sales_data_using_sqlite_query`, ar iš anksto paruoštą Kodo interpretatorių, priklausomai nuo vartotojo užklausos.
+Norėdami naudoti bet kurį iš šių įrankių su servisu, galime sukurti klientą ir apibrėžti įrankį arba įrankių rinkinį. Praktiniam įgyvendinimui galime naudoti šį Python kodą. LLM galės pažvelgti į įrankių rinkinį ir nuspręsti, ar naudoti vartotojo sukurtą funkciją `fetch_sales_data_using_sqlite_query`, ar iš anksto sukurtą Kodo interpretatorių, priklausomai nuo vartotojo užklausos.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query funkcija, kurią galima rasti fetch_sales_data_functions.py faile.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -293,14 +296,15 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
-fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
+# Įdiegti įrankių rinkinį
 toolset = ToolSet()
+
+# Inicializuoti funkcijų kvietimo agentą su fetch_sales_data_using_sqlite_query funkcija ir pridėti jį prie įrankių rinkinio
+fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Initialize Code Interpreter tool and adding it to the toolset. 
+# Inicializuoti kodo interpretuotojo įrankį ir pridėti jį prie įrankių rinkinio.
 code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset = ToolSet()
 toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
@@ -309,19 +313,19 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-## Kokie yra ypatingi aspektai, į kuriuos reikia atsižvelgti naudojant Įrankių naudojimo dizaino šabloną, kad būtų sukurti patikimi AI agentai?
+## Kokie yra specialūs aspektai naudojant Įrankių naudojimo dizaino šabloną kuriant patikimus AI agentus?
 
-Dažnas susirūpinimas dėl SQL, dinamiškai gener
-Programos paleidimas saugioje aplinkoje dar labiau sustiprina apsaugą. Įmonių scenarijuose duomenys paprastai išgaunami ir transformuojami iš operacinių sistemų į tik skaitymo duomenų bazę arba duomenų saugyklą su patogia naudotojui schema. Šis metodas užtikrina, kad duomenys yra saugūs, optimizuoti našumui ir prieinamumui, o programai suteikiama ribota, tik skaitymo prieiga.
+Dažna problema su SQL, dinamiškai generuojamu LLM, yra saugumas, ypač SQL injekcijos rizika ar kenkėjiškos veiksmai, tokie kaip duomenų bazės ištrynimas ar klastojimas. Nors šios problemos yra aktualios, jas galima veiksmingai sumažinti tinkamai sukonfigūravus duomenų bazės prieigos teises. Daugumai duomenų bazių tai reiškia duomenų bazės konfigūravimą kaip tik skaitymui. Duomenų bazių paslaugoms, tokioms kaip PostgreSQL ar Azure SQL, programai turėtų būti priskirta tik skaitymo (SELECT) teisė.
+Programėlės paleidimas saugioje aplinkoje dar labiau sustiprina apsaugą. Įmonių scenarijuose duomenys paprastai yra paimami ir transformuojami iš operacinių sistemų į tik skaitymui skirtą duomenų bazę arba duomenų sandėlį su patogiu vartotojui schemomis. Šis požiūris užtikrina, kad duomenys yra saugūs, optimizuoti našumui ir prieinamumui, o programėlė turi ribotą, tik skaitymui skirtą prieigą.
 
 ## Pavyzdiniai kodai
 
 - Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-## Turite daugiau klausimų apie įrankių naudojimo dizaino šablonus?
+## Turite daugiau klausimų apie Įrankių naudojimo dizaino šablonus?
 
-Prisijunkite prie [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), kad susitiktumėte su kitais besimokančiais, dalyvautumėte konsultacijų valandose ir gautumėte atsakymus į savo klausimus apie AI agentus.
+Prisijunkite prie [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), susipažinkite su kitais besimokančiais, dalyvaukite konsultacijose ir gaukite atsakymus į savo AI agentų klausimus.
 
 ## Papildomi ištekliai
 
@@ -333,15 +337,15 @@ Prisijunkite prie [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord), 
 
 ## Ankstesnė pamoka
 
-[Agentinių dizaino šablonų supratimas](../03-agentic-design-patterns/README.md)
+[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
 
-## Kitas pamoka
+## Kitoji pamoka
 
 [Agentic RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, atkreipkite dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Dėl svarbios informacijos rekomenduojama profesionali žmogaus vertimo paslauga. Mes neprisiimame atsakomybės už nesusipratimus ar klaidingus aiškinimus, kylančius dėl šio vertimo naudojimo.
+**Atsakomybės atsisakymas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinėje informacijoje rekomenduojamas profesionalus žmogaus vertimas. Mes neatsakome už bet kokius nesusipratimus ar neteisingus traktavimus, kilusius dėl šio vertimo naudojimo.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
