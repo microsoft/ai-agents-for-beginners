@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "te"
 }
 -->
-[![Agentic RAG](../../../translated_images/te/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/te/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(ఈ పాఠం వీడియోను చూడటానికి పై చిత్రంపై క్లిక్ చేయండి)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ఈ పునరావృత “మేకర్-చెకర్” శైలి సరైనతను మెరుగుపరచడానికి, తప్పుగా రూపొందించిన ప్రశ్నలను నిర్వహించడానికి, మరియు అధిక నాణ్యత గల ఫలితాలను నిర్ధారించడానికి రూపొందించబడింది. జాగ్రత్తగా ఇంజినీరింగ్ చేయబడిన ప్రాంప్ట్ చైన్లపై మాత్రమే ఆధారపడకుండా, వ్యవస్థ తన తర్క ప్రక్రియను స్వంతం చేసుకుంటుంది. ఇది విఫలమైన ప్రశ్నలను తిరిగి రాయగలదు, వేరే రిట్రీవల్ పద్ధతులను ఎంచుకోగలదు, మరియు ఫైనల్ సమాధానాన్ని తేల్చడానికి వెక్టర్ సెర్చ్, SQL డేటాబేస్‌లు, లేదా కస్టమ్ APIలు వంటి అనేక టూల్స్‌ను అనుసంధానించగలదు. ఇది అధిక సంక్లిష్ట ఆర్కెస్ట్రేషన్ ఫ్రేమ్‌వర్క్‌ల అవసరాన్ని తొలగిస్తుంది. బదులుగా, “LLM కాల్ → టూల్ ఉపయోగం → LLM కాల్ → …” అనే సరళమైన చక్రం సొఫిస్టికేటెడ్ మరియు బాగా ఆధారపడిన అవుట్‌పుట్‌లను అందించగలదు.
 
-![Agentic RAG Core Loop](../../../translated_images/te/agentic-rag-core-loop.c8f4b85c26920f71.png)
+![Agentic RAG Core Loop](../../../translated_images/te/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## తర్క ప్రక్రియను స్వంతం చేసుకోవడం
 
@@ -67,7 +67,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## పునరావృత చక్రాలు, టూల్ ఇంటిగ్రేషన్, మరియు మెమరీ
 
-![Tool Integration Architecture](../../../translated_images/te/tool-integration.0f569710b5c17c10.png)
+![Tool Integration Architecture](../../../translated_images/te/tool-integration.0f569710b5c17c10.webp)
 
 ఏజెంటిక్ వ్యవస్థ ఒక లూప్ చేసిన పరస్పర చర్య నమూనాపై ఆధారపడుతుంది:
 
@@ -89,7 +89,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ఈ పునరావృత మరియు డైనమిక్ దృక్పథం మోడల్ నిరంతరం మెరుగుపడటానికి అనుమతిస్తుంది, ఇది కేవలం ఒకసారి-షాట్ వ్యవస్థ కాదు, కానీ ఒక సెషన్ సమయంలో దాని తప్పిదాల నుండి నేర్చుకునే వ్యవస్థ.
 
-![Self Correction Mechanism](../../../translated_images/te/self-correction.da87f3783b7f174b.png)
+![Self Correction Mechanism](../../../translated_images/te/self-correction.da87f3783b7f174b.webp)
 
 ## ఏజెన్సీ యొక్క పరిమితులు
 

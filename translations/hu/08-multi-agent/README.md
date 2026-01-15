@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hu"
 }
 -->
-[![Többügynökös tervezés](../../../translated_images/hu/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Többügynökös tervezés](../../../translated_images/hu/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Kattints a fenti képre a leckéhez tartozó videó megtekintéséhez)_
 
@@ -89,19 +89,19 @@ Nézzünk meg néhány konkrét mintát, amelyeket többügynökös alkalmazáso
 
 Ez a minta akkor hasznos, ha csoportos csevegőalkalmazást szeretnél létrehozni, ahol több ügynök kommunikálhat egymással. Tipikus felhasználási esetek: csapatmunka, ügyfélszolgálat és közösségi hálózatok.
 
-![Csoportos csevegés](../../../translated_images/hu/multi-agent-group-chat.ec10f4cde556babd.png)
+![Csoportos csevegés](../../../translated_images/hu/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Feladatátadás
 
 Ez a minta akkor hasznos, ha olyan alkalmazást szeretnél létrehozni, ahol az ügynökök átadhatják egymásnak a feladatokat.
 
-![Feladatátadás](../../../translated_images/hu/multi-agent-hand-off.4c5fb00ba6f8750a.png)
+![Feladatátadás](../../../translated_images/hu/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Közös ajánlás
 
 Ez a minta akkor hasznos, ha olyan alkalmazást szeretnél létrehozni, ahol több ügynök együttműködve tesz ajánlásokat a felhasználóknak.
 
-![Ajánlás](../../../translated_images/hu/multi-agent-filtering.d959cb129dc9f608.png)
+![Ajánlás](../../../translated_images/hu/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Forgatókönyv: Visszatérítési folyamat
 

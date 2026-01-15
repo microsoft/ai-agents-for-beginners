@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI agentai pradedantiesiems - A Course
 
-![Generatyvus DI pradedantiesiems](../../translated_images/lt/repo-thumbnailv2.06f4a48036fde647.png)
+![Generatyvus DI pradedantiesiems](../../translated_images/lt/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Kursas, kuriame mokoma visko, ką reikia žinoti norint pradėti kurti DI agentus
 

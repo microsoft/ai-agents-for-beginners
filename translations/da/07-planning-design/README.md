@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "da"
 }
 -->
-[![Planlægningsdesignmønster](../../../translated_images/da/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planlægningsdesignmønster](../../../translated_images/da/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klik på billedet ovenfor for at se videoen til denne lektion)_
 
@@ -32,7 +32,7 @@ Efter at have gennemført denne lektion vil du have forståelse for:
 
 ## Definere det overordnede mål og bryde en opgave ned
 
-![Definere mål og opgaver](../../../translated_images/da/defining-goals-tasks.d70439e19e37c47a.png)
+![Definere mål og opgaver](../../../translated_images/da/defining-goals-tasks.d70439e19e37c47a.webp)
 
 De fleste opgaver i den virkelige verden er for komplekse til at blive løst i ét enkelt trin. En AI-agent har brug for et klart mål for at guide dens planlægning og handlinger. For eksempel, overvej målet:
 

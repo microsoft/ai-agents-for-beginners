@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agenci AI w produkcji: Obserwowalność i ocena
 
-[![Agenci AI w produkcji](../../../translated_images/pl/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![Agenci AI w produkcji](../../../translated_images/pl/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Gdy agenci AI przechodzą od eksperymentalnych prototypów do aplikacji w rzeczywistym świecie, kluczowe staje się zrozumienie ich zachowań, monitorowanie wydajności oraz systematyczna ocena ich wyników.
 

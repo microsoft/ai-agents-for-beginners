@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # उत्पादन में एआई एजेंट्स: अवलोकन और मूल्यांकन
 
-[![उत्पादन में एआई एजेंट्स](../../../translated_images/hi/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![उत्पादन में एआई एजेंट्स](../../../translated_images/hi/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 जैसे-जैसे एआई एजेंट्स प्रायोगिक प्रोटोटाइप से वास्तविक दुनिया के अनुप्रयोगों में परिवर्तित होते हैं, उनके व्यवहार को समझने, उनके प्रदर्शन की निगरानी करने और उनके आउटपुट का व्यवस्थित रूप से मूल्यांकन करने की क्षमता महत्वपूर्ण हो जाती है।
 

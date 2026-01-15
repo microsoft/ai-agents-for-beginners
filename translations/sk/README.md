@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI agenti pre začiatočníkov - Kurz
 
-![Generatívne AI pre začiatočníkov](../../translated_images/sk/repo-thumbnailv2.06f4a48036fde647.png)
+![Generatívne AI pre začiatočníkov](../../translated_images/sk/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Kurz, ktorý učí všetko, čo potrebujete vedieť, aby ste začali vytvárať AI agentov
 

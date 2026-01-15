@@ -25,7 +25,7 @@ Hii inaweza kufanyika kwa kubonyeza kiungo cha <a href="https://github.com/micro
 
 Sasa unapaswa kuwa na toleo lako la forked la kozi hii katika kiungo kifuatacho:
 
-![Forked Repo](../../../translated_images/sw/forked-repo.33f27ca1901baa6a.png)
+![Forked Repo](../../../translated_images/sw/forked-repo.33f27ca1901baa6a.webp)
 
 ### Nakili kwa Kina Kidogo (inapendekezwa kwa warsha / Codespaces)
 
@@ -176,11 +176,11 @@ Tafadhali fuata [Kanuni ya Upendeleo wa Chini](https://docs.github.com/en/get-st
 
 1. Chagua chaguo la `Fine-grained tokens` upande wa kushoto wa skrini yako kwa kwenda kwenye **Developer settings**
 
-   ![Developer settings](../../../translated_images/sw/profile_developer_settings.410a859fe749c755.png)
+   ![Developer settings](../../../translated_images/sw/profile_developer_settings.410a859fe749c755.webp)
 
    Kisha chagua `Generate new token`.
 
-   ![Generate Token](../../../translated_images/sw/fga_new_token.1c1a234afe202ab3.png)
+   ![Generate Token](../../../translated_images/sw/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Weka jina la kuelezea kwa token yako linaloonyesha kusudi lake, ili iwe rahisi kuitambua baadaye.
 
@@ -190,19 +190,19 @@ Tafadhali fuata [Kanuni ya Upendeleo wa Chini](https://docs.github.com/en/get-st
     Kwa usalama zaidi, unaweza kuchagua muda mfupi—kama siku 7 🛡️
     Ni njia nzuri ya kuweka lengo la kibinafsi na kukamilisha kozi wakati kasi yako ya kujifunza iko juu 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/sw/token-name-expiry-date.a095fb0de6386864.png)
+    ![Token Name and Expiration](../../../translated_images/sw/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Punguza wigo wa token kwa fork yako ya hifadhi hii.
 
-    ![Limit scope to fork repository](../../../translated_images/sw/token_repository_limit.924ade5e11d9d8bb.png)
+    ![Limit scope to fork repository](../../../translated_images/sw/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Punguza ruhusa za token: Chini ya **Permissions**, bonyeza tab ya **Account**, na bonyeza kitufe cha "+ Add permissions". Dropdown itaonekana. Tafadhali tafuta **Models** na angalia kisanduku chake.
 
-    ![Add Models Permission](../../../translated_images/sw/add_models_permissions.c0c44ed8b40fc143.png)
+    ![Add Models Permission](../../../translated_images/sw/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Thibitisha ruhusa zinazohitajika kabla ya kuunda token. ![Verify Permissions](../../../translated_images/sw/verify_permissions.06bd9e43987a8b21.png)
+5. Thibitisha ruhusa zinazohitajika kabla ya kuunda token. ![Verify Permissions](../../../translated_images/sw/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Kabla ya kuunda token, hakikisha uko tayari kuhifadhi token katika sehemu salama kama vault ya meneja wa nywila, kwani haitatolewa tena baada ya kuunda. ![Store Token Securely](../../../translated_images/sw/store_token_securely.08ee2274c6ad6caf.png)
+6. Kabla ya kuunda token, hakikisha uko tayari kuhifadhi token katika sehemu salama kama vault ya meneja wa nywila, kwani haitatolewa tena baada ya kuunda. ![Store Token Securely](../../../translated_images/sw/store_token_securely.08ee2274c6ad6caf.webp)
 
 Nakili token yako mpya ambayo umekuja kuunda. Sasa utaongeza hii kwenye faili yako ya `.env` iliyojumuishwa katika kozi hii.
 
@@ -224,7 +224,7 @@ Hii itanakili faili ya mfano na kuunda `.env` katika folda yako ambapo utaweka m
 
 Kwa token yako iliyokopiwa, fungua faili ya `.env` katika mhariri wako wa maandishi unaopenda na bandika token yako kwenye sehemu ya `GITHUB_TOKEN`.
 
-![GitHub Token Field](../../../translated_images/sw/github_token_field.20491ed3224b5f4a.png)
+![GitHub Token Field](../../../translated_images/sw/github_token_field.20491ed3224b5f4a.webp)
 
 Sasa unapaswa kuwa na uwezo wa kuendesha sampuli za msimbo wa kozi hii.
 
@@ -238,7 +238,7 @@ Baada ya kuunda mradi wako, utahitaji kupata string ya muunganisho kwa mradi wak
 
 Hii inaweza kufanyika kwa kwenda kwenye ukurasa wa **Overview** wa mradi wako katika portal ya Azure AI Foundry.
 
-![Project Connection String](../../../translated_images/sw/project-endpoint.8cf04c9975bbfbf1.png)
+![Project Connection String](../../../translated_images/sw/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Hatua ya 2: Unda Faili Yako ya `.env`
 

@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Pamięć dla Agentów AI 
-[![Pamięć Agenta](../../../translated_images/pl/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Pamięć Agenta](../../../translated_images/pl/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Podczas omawiania unikalnych korzyści tworzenia Agentów AI, najczęściej poruszane są dwie kwestie: zdolność do korzystania z narzędzi w celu realizacji zadań oraz zdolność do samodoskonalenia się w czasie. Pamięć jest fundamentem tworzenia samodoskonalących się agentów, którzy mogą zapewniać lepsze doświadczenia użytkownikom.
 

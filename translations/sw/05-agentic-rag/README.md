@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sw"
 }
 -->
-[![Agentic RAG](../../../translated_images/sw/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/sw/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Bonyeza picha hapo juu kutazama video ya somo hili)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) ni dhana mpya katika maende
 
 Mtindo huu wa "maker-checker" wa kurudia umeundwa kuboresha usahihi, kushughulikia maswali yaliyokosewa kwa hifadhidata zilizojengwa (mfano NL2SQL), na kuhakikisha matokeo ya hali ya juu na yenye usawa. Badala ya kutegemea tu mlolongo wa maelekezo yaliyoundwa kwa uangalifu, mfumo unamiliki mchakato wake wa uamuzi kwa bidii. Unaweza kuandika upya maswali yaliyoshindwa, kuchagua mbinu tofauti za kuchukua taarifa, na kujumuisha zana mbalimbali—kama utafutaji wa vector katika Azure AI Search, hifadhidata za SQL, au API maalum—kabla ya kukamilisha jibu lake. Hii huondoa hitaji la mifumo tata ya uratibu. Badala yake, mzunguko rahisi wa "miito ya LLM → matumizi ya zana → miito ya LLM → …" unaweza kutoa matokeo ya hali ya juu na yenye msingi mzuri.
 
-![Agentic RAG Core Loop](../../../translated_images/sw/agentic-rag-core-loop.c8f4b85c26920f71.png)
+![Agentic RAG Core Loop](../../../translated_images/sw/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## Kumiliki Mchakato wa Uamuzi
 
@@ -67,7 +67,7 @@ Hatua hizi zote—kurekebisha maswali, kuchagua vyanzo, kurudia hadi "kuridhika"
 
 ## Mizunguko ya Iterative, Ujumuishaji wa Zana, na Kumbukumbu
 
-![Tool Integration Architecture](../../../translated_images/sw/tool-integration.0f569710b5c17c10.png)
+![Tool Integration Architecture](../../../translated_images/sw/tool-integration.0f569710b5c17c10.webp)
 
 Mfumo wa agentic hutegemea muundo wa mwingiliano wa mzunguko:
 
@@ -89,7 +89,7 @@ Uhuru wa Agentic RAG pia unahusisha mifumo thabiti ya kujirekebisha. Wakati mfum
 
 Mbinu hii ya kurudia na yenye nguvu inaruhusu mfano kuboresha kila mara, kuhakikisha kuwa si mfumo wa "jaribio moja" bali ni mfumo unaojifunza kutokana na makosa yake wakati wa kikao fulani.
 
-![Self Correction Mechanism](../../../translated_images/sw/self-correction.da87f3783b7f174b.png)
+![Self Correction Mechanism](../../../translated_images/sw/self-correction.da87f3783b7f174b.webp)
 
 ## Mipaka ya Uamuzi
 
@@ -119,7 +119,7 @@ Kadri mifumo hii inavyokuwa huru zaidi katika uamuzi wake, usimamizi na uwazi ni
 
 Kuwa na zana zinazotoa rekodi wazi ya hatua ni muhimu. Bila zana hizo, kurekebisha mchakato wa hatua nyingi inaweza kuwa ngumu sana. Tazama mfano ufuatao kutoka Literal AI (kampuni nyuma ya Chainlit) kwa mwendo wa Agent:
 
-![AgentRunExample](../../../translated_images/sw/AgentRunExample.471a94bc40cbdc0c.png)
+![AgentRunExample](../../../translated_images/sw/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## Hitimisho
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Yeni Başlayanlar için AI Ajanları - Bir Kurs
 
-![Yeni Başlayanlar için Üretken Yapay Zeka](../../translated_images/tr/repo-thumbnailv2.06f4a48036fde647.png)
+![Yeni Başlayanlar için Üretken Yapay Zeka](../../translated_images/tr/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## AI Ajanları geliştirmeye başlamanız için bilmeniz gereken her şeyi öğreten bir kurs
 

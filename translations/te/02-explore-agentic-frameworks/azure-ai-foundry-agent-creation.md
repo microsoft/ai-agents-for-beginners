@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) బ్లాగ్ పోస్ట్‌లోని మార్గదర్శకాలను అనుసరించి Azure AI Foundry హబ్‌ను సృష్టించండి.
 2. మీ ప్రాజెక్ట్ సృష్టించబడిన తర్వాత, ప్రదర్శించబడే సూచనలను మూసివేసి, Azure AI Foundry పోర్టల్‌లోని ప్రాజెక్ట్ పేజీని సమీక్షించండి. ఇది క్రింది చిత్రానికి సమానంగా కనిపించాలి:
 
-    ![Azure AI Foundry Project](../../../translated_images/te/azure-ai-foundry.88d0c35298348c2f.png)
+    ![Azure AI Foundry Project](../../../translated_images/te/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## మోడల్‌ను డిప్లాయ్ చేయండి
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: TPM తగ్గించడం, మీరు ఉపయోగిస్తున్న సబ్‌స్క్రిప్షన్‌లో అందుబాటులో ఉన్న కోటాను అధికంగా ఉపయోగించకుండా ఉండటానికి సహాయపడుతుంది.
 
-    ![Model Deployed](../../../translated_images/te/model-deployment.3749c53fb81e18fd.png)
+    ![Model Deployed](../../../translated_images/te/model-deployment.3749c53fb81e18fd.webp)
 
 ## ఏజెంట్‌ను సృష్టించండి
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 > అదనంగా, మీరు ఏజెంట్ సామర్థ్యాలను మెరుగుపరచడానికి **Knowledge Base** మరియు **Actions** ను జోడించవచ్చు, తద్వారా వినియోగదారుల అభ్యర్థనల ఆధారంగా మరింత సమాచారం అందించగలదు మరియు ఆటోమేటెడ్ పనులను నిర్వహించగలదు. ఈ వ్యాయామంలో, మీరు ఈ దశలను వదిలివేయవచ్చు.
 
-![Agent Setup](../../../translated_images/te/agent-setup.9bbb8755bf5df672.png)
+![Agent Setup](../../../translated_images/te/agent-setup.9bbb8755bf5df672.webp)
 
 3. కొత్త మల్టీ-AI ఏజెంట్‌ను సృష్టించడానికి, **New Agent** పై క్లిక్ చేయండి. కొత్తగా సృష్టించిన ఏజెంట్ తరువాత ఏజెంట్స్ పేజీలో ప్రదర్శించబడుతుంది.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: ఈ వ్యాయామంలో నిజ-సమయ డేటా ఉపయోగించబడటం లేదు కాబట్టి ఏజెంట్ ఖచ్చితమైన సమాధానాలను అందించకపోవచ్చు. ఈ వ్యాయామం ఉద్దేశం ఏజెంట్ వినియోగదారుల ప్రశ్నలను అర్థం చేసుకోవడం మరియు అందుకు అనుగుణంగా స్పందించగల సామర్థ్యాన్ని పరీక్షించడం.
 
-    ![Agent Playground](../../../translated_images/te/agent-playground.dc146586de715010.png)
+    ![Agent Playground](../../../translated_images/te/agent-playground.dc146586de715010.webp)
 
 3. ఏజెంట్‌ను పరీక్షించిన తర్వాత, దాని సామర్థ్యాలను మెరుగుపరచడానికి మరిన్ని intents, training data, మరియు actions జోడించి అనుకూలీకరించవచ్చు.
 

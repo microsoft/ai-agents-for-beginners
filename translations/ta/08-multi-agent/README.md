@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ta"
 }
 -->
-[![பல முகவர் வடிவமைப்பு](../../../translated_images/ta/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![பல முகவர் வடிவமைப்பு](../../../translated_images/ta/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(மேலே உள்ள படத்தை கிளிக் செய்து இந்த பாடத்தின் வீடியோவைப் பாருங்கள்)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 இந்த முறையை அனைத்து செய்திகளும் மையச் சேவையகத்தின் மூலம் வழிமாற்றப்படுகின்ற மையமயமாக்கப்பட்ட கட்டமைப்பைப் பயன்படுத்தி அல்லது செய்திகள் நேரடியாக பரிமாற்றப்படும் மையமற்ற கட்டமைப்பைப் பயன்படுத்தி செயல்படுத்தலாம்.
 
-![குழு உரையாடல்](../../../translated_images/ta/multi-agent-group-chat.ec10f4cde556babd.png)
+![குழு உரையாடல்](../../../translated_images/ta/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### ஒப்படைப்பு
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 இந்த முறையில், ஒவ்வொரு முகவரும் ஒரு பணியை அல்லது ஒரு வேலைப்போக்கில் ஒரு படியை பிரதிநிதித்துவம் செய்கிறது, மேலும் முகவர்கள் முன்கூட்டிய விதிகளின் அடிப்படையில் பணிகளை மற்ற முகவர்களுக்கு ஒப்படைக்கலாம்.
 
-![ஒப்படைப்பு](../../../translated_images/ta/multi-agent-hand-off.4c5fb00ba6f8750a.png)
+![ஒப்படைப்பு](../../../translated_images/ta/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### ஒத்துழைப்பு வடிகட்டல்
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **தொழில்நுட்ப பகுப்பாய்வு**: மற்றொரு முகவர் தொழில்நுட்ப பகுப்பாய்வில் நிபுணத்துவம் கொண்டிருக்கலாம்.
 - **அடிப்படை பகுப்பாய்வு**: மற்றொரு முகவர் அடிப்படை பகுப்பாய்வில் நிபுணத்துவம் கொண்டிருக்கலாம். இவை ஒத்துழைப்பதன் மூலம், இந்த முகவர்கள் பயனருக்கு மேலும் விரிவான பரிந்துரையை வழங்க முடியும்.
 
-![பரிந்துரை](../../../translated_images/ta/multi-agent-filtering.d959cb129dc9f608.png)
+![பரிந்துரை](../../../translated_images/ta/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## சூழல்: பணத்தைத் திருப்பி வழங்கும் செயல்முறை
 

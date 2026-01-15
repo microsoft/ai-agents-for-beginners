@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI-agendid algajatele - Kursus
 
-![Generative AI For Beginners](../../translated_images/et/repo-thumbnailv2.06f4a48036fde647.png)
+![Generative AI For Beginners](../../translated_images/et/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Kursus, mis õpetab kõike, mida pead teadma, et alustada AI-agentide loomist
 

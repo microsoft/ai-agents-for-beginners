@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fa"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/fa/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/fa/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(برای مشاهده ویدئوی این درس، روی تصویر بالا کلیک کنید)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 برای ایجاد پیام‌های سیستمی مقیاس‌پذیر، می‌توانیم از یک چارچوب پیام سیستمی برای ساخت یک یا چند عامل در برنامه خود استفاده کنیم:
 
-![Building a System Message Framework](../../../translated_images/fa/system-message-framework.3a97368c92d11d68.png)
+![Building a System Message Framework](../../../translated_images/fa/system-message-framework.3a97368c92d11d68.webp)
 
 #### مرحله ۱: ایجاد یک پیام سیستمی متا
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 برای ساخت عوامل هوش مصنوعی قابل اعتماد، درک و کاهش خطرات و تهدیدات مربوط به عامل هوش مصنوعی بسیار مهم است. بیایید به برخی از تهدیدات مختلفی که ممکن است عوامل هوش مصنوعی با آن‌ها مواجه شوند و نحوه برنامه‌ریزی و آماده‌سازی بهتر برای آن‌ها نگاهی بیندازیم.
 
-![Understanding Threats](../../../translated_images/fa/understanding-threats.89edeada8a97fc0f.png)
+![Understanding Threats](../../../translated_images/fa/understanding-threats.89edeada8a97fc0f.webp)
 
 ### وظایف و دستورالعمل‌ها
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 یکی دیگر از روش‌های مؤثر برای ساخت سیستم‌های عامل هوش مصنوعی قابل اعتماد، استفاده از انسان در حلقه است. این روش جریانی ایجاد می‌کند که در آن کاربران می‌توانند در حین اجرای عوامل به آن‌ها بازخورد دهند. کاربران عملاً به‌عنوان عامل در یک سیستم چندعاملی عمل می‌کنند و با تأیید یا متوقف کردن فرآیند در حال اجرا، نقش ایفا می‌کنند.
 
-![Human in The Loop](../../../translated_images/fa/human-in-the-loop.5f0068a678f62f4f.png)
+![Human in The Loop](../../../translated_images/fa/human-in-the-loop.5f0068a678f62f4f.webp)
 
 در اینجا یک قطعه کد با استفاده از AutoGen آورده شده است که نشان می‌دهد این مفهوم چگونه پیاده‌سازی می‌شود:
 

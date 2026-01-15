@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ஆரம்பர்களுக்கான AI முகவர்கள் - ஒரு பாடநெறி
 
-![உருவாக்கும் AI தொடக்கத்தினருக்கான](../../translated_images/ta/repo-thumbnailv2.06f4a48036fde647.png)
+![உருவாக்கும் AI தொடக்கத்தினருக்கான](../../translated_images/ta/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## AI முகவர்களை கட்டமைக்கத் தொடங்குவதற்கு தேவையான அனைத்தையும் கற்பிக்கும் பாடநெறி
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agenci AI dla początkujących - Kurs
 
-![Generatywna AI dla początkujących](../../translated_images/pl/repo-thumbnailv2.06f4a48036fde647.png)
+![Generatywna AI dla początkujących](../../translated_images/pl/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Kurs uczący wszystkiego, co musisz wiedzieć, aby zacząć tworzyć agentów AI
 

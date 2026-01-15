@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Microsoft Agent Framework 탐구하기
 
-![Agent Framework](../../../translated_images/ko/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/ko/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### 소개
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Microsoft Agent Framework 이해하기
 
-![Framework Intro](../../../translated_images/ko/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/ko/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok)는 Semantic Kernel과 AutoGen에서 얻은 경험과 학습을 기반으로 구축되었습니다. 이는 프로덕션 및 연구 환경에서 다양한 에이전트 기반 사용 사례를 처리할 수 있는 유연성을 제공합니다. 주요 시나리오는 다음과 같습니다:
 
@@ -63,7 +63,7 @@ Microsoft Agent Framework는 상호 운용성을 중점적으로 다음을 제�
 
 ### 에이전트
 
-![Agent Framework](../../../translated_images/ko/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/ko/agent-components.410a06daf87b4fef.webp)
 
 **에이전트 생성**
 

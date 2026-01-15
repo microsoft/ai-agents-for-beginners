@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pl"
 }
 -->
-[![Projektowanie wieloagentowe](../../../translated_images/pl/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Projektowanie wieloagentowe](../../../translated_images/pl/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 
@@ -97,7 +97,7 @@ W tym wzorcu każdy agent reprezentuje użytkownika w czacie grupowym, a wiadomo
 
 Ten wzorzec można zaimplementować za pomocą architektury scentralizowanej, w której wszystkie wiadomości są przesyłane przez centralny serwer, lub architektury zdecentralizowanej, w której wiadomości są wymieniane bezpośrednio.
 
-![Czat grupowy](../../../translated_images/pl/multi-agent-group-chat.ec10f4cde556babd.png)
+![Czat grupowy](../../../translated_images/pl/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Przekazywanie zadań
 
@@ -107,7 +107,7 @@ Typowe przypadki użycia tego wzorca obejmują obsługę klienta, zarządzanie z
 
 W tym wzorcu każdy agent reprezentuje zadanie lub krok w procesie, a agenci mogą przekazywać zadania innym agentom na podstawie wcześniej zdefiniowanych reguł.
 
-![Przekazywanie zadań](../../../translated_images/pl/multi-agent-hand-off.4c5fb00ba6f8750a.png)
+![Przekazywanie zadań](../../../translated_images/pl/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Filtracja współdzielona
 
@@ -121,7 +121,7 @@ Weźmy przykład, w którym użytkownik chce uzyskać rekomendację dotyczącą 
 - **Analiza techniczna**: Inny agent może być ekspertem w analizie technicznej.
 - **Analiza fundamentalna**: Jeszcze inny agent może być ekspertem w analizie fundamentalnej. Dzięki współpracy ci agenci mogą dostarczyć użytkownikowi bardziej kompleksową rekomendację.
 
-![Rekomendacja](../../../translated_images/pl/multi-agent-filtering.d959cb129dc9f608.png)
+![Rekomendacja](../../../translated_images/pl/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenariusz: Proces zwrotu
 

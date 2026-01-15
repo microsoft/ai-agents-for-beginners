@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ko"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/ko/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/ko/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(위 이미지를 클릭하면 이 강의의 동영상을 볼 수 있습니다)_
 # AI 에이전트의 메타인지
@@ -47,7 +47,7 @@ AI 에이전트의 메타인지에 대한 강의에 오신 것을 환영합니�
 
 메타인지는 여러 가지 이유로 AI 에이전트 설계에서 중요한 역할을 합니다:
 
-![메타인지의 중요성](../../../translated_images/ko/importance-of-metacognition.b381afe9aae352f7.png)
+![메타인지의 중요성](../../../translated_images/ko/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - 자기 성찰: 에이전트가 자신의 성과를 평가하고 개선이 필요한 영역을 식별할 수 있습니다.
 - 적응성: 에이전트가 과거 경험과 변화하는 환경에 따라 전략을 수정할 수 있습니다.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 우선 RAG 도구와 사전 컨텍스트 로드의 차이를 이해해 봅시다.
 
-![RAG vs Context Loading](../../../translated_images/ko/rag-vs-context.9eae588520c00921.png)
+![RAG vs Context Loading](../../../translated_images/ko/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 

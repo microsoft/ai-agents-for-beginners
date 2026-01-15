@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agenți AI pentru Începători - Un curs
 
-![AI generativ pentru începători](../../translated_images/ro/repo-thumbnailv2.06f4a48036fde647.png)
+![AI generativ pentru începători](../../translated_images/ro/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Un curs care te învață tot ce trebuie să știi pentru a începe să construiești agenți AI
 

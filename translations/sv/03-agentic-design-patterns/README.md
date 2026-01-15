@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sv"
 }
 -->
-[![Hur man designar bra AI-agenter](../../../translated_images/sv/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Hur man designar bra AI-agenter](../../../translated_images/sv/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Klicka på bilden ovan för att se videon av denna lektion)_
 # Principer för agentisk AI-design
@@ -39,7 +39,7 @@ Efter att ha genomfört denna lektion kommer du att kunna:
 
 ## De agentiska designprinciperna
 
-![Agentiska designprinciper](../../../translated_images/sv/agentic-design-principles.1cfdf8b6d3cc73c2.png)
+![Agentiska designprinciper](../../../translated_images/sv/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agent (Plats)
 

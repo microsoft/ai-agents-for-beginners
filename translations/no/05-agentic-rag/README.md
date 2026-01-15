@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "no"
 }
 -->
-[![Agentic RAG](../../../translated_images/no/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/no/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Klikk på bildet over for å se videoen til denne leksjonen)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) er et fremvoksende paradigm
 
 Denne iterative "maker-checker"-stilen er designet for å forbedre korrekthet, håndtere feilformede forespørsler til strukturerte databaser (f.eks. NL2SQL) og sikre balanserte, høykvalitetsresultater. I stedet for å være avhengig av nøye konstruerte promptkjeder, eier systemet aktivt sin resonnementprosess. Det kan omskrive forespørsler som mislykkes, velge forskjellige metoder for henting og integrere flere verktøy—som vektorsøk i Azure AI Search, SQL-databaser eller tilpassede API-er—før det gir sitt endelige svar. Dette eliminerer behovet for altfor komplekse orkestreringsrammeverk. I stedet kan en relativt enkel loop av "LLM-kall → verktøybruk → LLM-kall → …" gi sofistikerte og godt begrunnede utdata.
 
-![Agentic RAG Core Loop](../../../translated_images/no/agentic-rag-core-loop.c8f4b85c26920f71.png)
+![Agentic RAG Core Loop](../../../translated_images/no/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## Eie resonnementet
 
@@ -67,7 +67,7 @@ Alle disse stegene—forbedring av forespørsler, valg av kilder, iterering til 
 
 ## Iterative looper, verktøyintegrasjon og minne
 
-![Tool Integration Architecture](../../../translated_images/no/tool-integration.0f569710b5c17c10.png)
+![Tool Integration Architecture](../../../translated_images/no/tool-integration.0f569710b5c17c10.webp)
 
 Et agentisk system er avhengig av et loopet interaksjonsmønster:
 
@@ -89,7 +89,7 @@ Agentic RAGs autonomi innebærer også robuste selvkorrigeringsmekanismer. Når 
 
 Denne iterative og dynamiske tilnærmingen gjør det mulig for modellen å forbedre seg kontinuerlig, og sikrer at den ikke bare er et engangssystem, men et som lærer av sine feil under en gitt sesjon.
 
-![Self Correction Mechanism](../../../translated_images/no/self-correction.da87f3783b7f174b.png)
+![Self Correction Mechanism](../../../translated_images/no/self-correction.da87f3783b7f174b.webp)
 
 ## Begrensninger av autonomi
 
@@ -118,7 +118,7 @@ Etter hvert som disse systemene blir mer autonome i sitt resonnement, er styring
 
 Å ha verktøy som gir en klar oversikt over handlinger er avgjørende. Uten dem kan det være svært vanskelig å feilsøke en flertrinnsprosess. Se følgende eksempel fra Literal AI (selskapet bak Chainlit) for en Agent-run:
 
-![AgentRunExample](../../../translated_images/no/AgentRunExample.471a94bc40cbdc0c.png)
+![AgentRunExample](../../../translated_images/no/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## Konklusjon
 

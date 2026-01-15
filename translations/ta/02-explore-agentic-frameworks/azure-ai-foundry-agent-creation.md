@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Azure AI Foundry hub ஒன்றை உருவாக்க [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) வலைப்பதிவில் உள்ள வழிகாட்டுதல்களைப் பின்பற்றவும்.
 2. உங்கள் திட்டம் உருவாக்கப்பட்ட பிறகு, காட்டப்படும் எந்த குறிப்புகளையும் மூடி, Azure AI Foundry portal இல் உள்ள திட்டப் பக்கத்தைப் பார்வையிடவும். அது பின்வரும் படத்தைப் போன்றதாக இருக்கும்:
 
-    ![Azure AI Foundry Project](../../../translated_images/ta/azure-ai-foundry.88d0c35298348c2f.png)
+    ![Azure AI Foundry Project](../../../translated_images/ta/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## ஒரு மாடலை பிரயோகிக்கவும்
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **குறிப்பு**: TPM ஐ குறைப்பது, நீங்கள் பயன்படுத்தும் சந்தாவில் உள்ள ஒதுக்கீட்டை அதிகமாக பயன்படுத்துவதைத் தவிர்க்க உதவுகிறது.
 
-    ![Model Deployed](../../../translated_images/ta/model-deployment.3749c53fb81e18fd.png)
+    ![Model Deployed](../../../translated_images/ta/model-deployment.3749c53fb81e18fd.webp)
 
 ## ஒரு ஏஜெண்ட்டை உருவாக்கவும்
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 > மேலும், ஏஜெண்ட்டின் திறன்களை மேம்படுத்த **Knowledge Base** மற்றும் **Actions** ஐச் சேர்க்கலாம், இது பயனர் கோரிக்கைகளின் அடிப்படையில் கூடுதல் தகவல்களை வழங்கவும், தானியங்கி செயல்களைச் செய்யவும் உதவும். இந்த பயிற்சிக்காக, இந்த படிகளை தவிர்க்கலாம்.
 
-![Agent Setup](../../../translated_images/ta/agent-setup.9bbb8755bf5df672.png)
+![Agent Setup](../../../translated_images/ta/agent-setup.9bbb8755bf5df672.webp)
 
 3. புதிய பல-AI ஏஜெண்ட்டை உருவாக்க, **New Agent** ஐ கிளிக் செய்யவும். புதிய ஏஜெண்ட் பின்னர் Agents பக்கத்தில் காட்டப்படும்.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **குறிப்பு**: இந்த பயிற்சியில் எந்த நேரடி தரவையும் பயன்படுத்தவில்லை என்பதால், ஏஜெண்ட் சரியான பதில்களை வழங்காது. இந்த பயிற்சியின் நோக்கம், ஏஜெண்ட் பயனர் கேள்விகளைப் புரிந்து கொண்டு பதிலளிக்கக் கூடிய திறனை சோதிப்பதே.
 
-    ![Agent Playground](../../../translated_images/ta/agent-playground.dc146586de715010.png)
+    ![Agent Playground](../../../translated_images/ta/agent-playground.dc146586de715010.webp)
 
 3. ஏஜெண்ட்டை சோதித்த பிறகு, அதன் திறன்களை மேம்படுத்த மேலும் நோக்கங்கள், பயிற்சி தரவுகள் மற்றும் செயல்களைச் சேர்க்கலாம்.
 

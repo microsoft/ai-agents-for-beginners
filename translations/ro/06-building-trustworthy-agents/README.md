@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ro"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/ro/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/ro/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
@@ -41,7 +41,7 @@ Pentru agenții AI, mesajul de sistem este și mai important, deoarece aceștia 
 
 Pentru a crea mesaje de sistem scalabile, putem folosi un cadru pentru mesaje de sistem în construirea unuia sau mai multor agenți în aplicația noastră:
 
-![Building a System Message Framework](../../../translated_images/ro/system-message-framework.3a97368c92d11d68.png)
+![Building a System Message Framework](../../../translated_images/ro/system-message-framework.3a97368c92d11d68.webp)
 
 #### Pasul 1: Creați un Mesaj Meta de Sistem
 
@@ -130,7 +130,7 @@ Valoarea acestui cadru pentru mesaje de sistem constă în capacitatea de a scal
 
 Pentru a construi agenți AI de încredere, este important să înțelegeți și să reduceți riscurile și amenințările la adresa agentului AI. Să analizăm câteva dintre diferitele amenințări la adresa agenților AI și cum puteți planifica și pregăti mai bine pentru acestea.
 
-![Understanding Threats](../../../translated_images/ro/understanding-threats.89edeada8a97fc0f.png)
+![Understanding Threats](../../../translated_images/ro/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Sarcini și Instrucțiuni
 
@@ -166,7 +166,7 @@ Pentru a construi agenți AI de încredere, este important să înțelegeți și
 
 O altă metodă eficientă de a construi sisteme de agenți AI de încredere este utilizarea unui om în buclă. Acest lucru creează un flux în care utilizatorii pot oferi feedback agenților în timpul rulării. Utilizatorii acționează practic ca agenți într-un sistem multi-agent, oferind aprobare sau oprirea procesului în desfășurare.
 
-![Human in The Loop](../../../translated_images/ro/human-in-the-loop.5f0068a678f62f4f.png)
+![Human in The Loop](../../../translated_images/ro/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Iată un fragment de cod folosind AutoGen pentru a arăta cum este implementat acest concept:
 

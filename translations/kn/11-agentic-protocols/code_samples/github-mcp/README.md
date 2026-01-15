@@ -55,7 +55,7 @@ chainlit run app.py -w
 
 Github MCP ಸರ್ವರ್‌ಗೆ ಸಂಪರ್ಕಿಸಲು, "Type your message here.." ಚಾಟ್ ಬಾಕ್ಸ್ ಕೆಳಗಿನ "plug" ಐಕಾನ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ:
 
-![MCP Connect](../../../../../translated_images/kn/mcp-chainlit-1.7ed66d648e3cfb28.png)
+![MCP Connect](../../../../../translated_images/kn/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
 ಅಲ್ಲಿ ನೀವು "Connect an MCP" ಕ್ಲಿಕ್ ಮಾಡಿ Github MCP ಸರ್ವರ್‌ಗೆ ಸಂಪರ್ಕಿಸಲು ಆಜ್ಞೆಯನ್ನು ಸೇರಿಸಬಹುದು:
 

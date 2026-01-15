@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # استكشاف إطار عمل Microsoft Agent Framework
 
-![إطار العمل](../../../translated_images/ar/lesson-14-thumbnail.90df0065b9d234ee.png)
+![إطار العمل](../../../translated_images/ar/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### المقدمة
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## فهم إطار عمل Microsoft Agent Framework
 
-![مقدمة الإطار](../../../translated_images/ar/framework-intro.077af16617cf130c.png)
+![مقدمة الإطار](../../../translated_images/ar/framework-intro.077af16617cf130c.webp)
 
 [إطار عمل Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) يعتمد على الخبرة والدروس المستفادة من Semantic Kernel و AutoGen. يوفر المرونة لمعالجة مجموعة واسعة من حالات الاستخدام الوكالية في بيئات الإنتاج والبحث، بما في ذلك:
 
@@ -63,7 +63,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### الوكلاء
 
-![إطار العمل](../../../translated_images/ar/agent-components.410a06daf87b4fef.png)
+![إطار العمل](../../../translated_images/ar/agent-components.410a06daf87b4fef.webp)
 
 **إنشاء الوكلاء**
 

@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 これで、以下のリンクに自分専用のフォーク版コースが作成されます。
 
-![フォークされたリポジトリ](../../../translated_images/ja/forked-repo.33f27ca1901baa6a.png)
+![フォークされたリポジトリ](../../../translated_images/ja/forked-repo.33f27ca1901baa6a.webp)
 
 ### シャロークローン（ワークショップ / Codespacesに推奨）
 
@@ -176,11 +176,11 @@ GitHubアカウントの<a href="https://github.com/settings/personal-access-tok
 
 1. **Developer settings**に移動し、画面左側の`Fine-grained tokens`オプションを選択します。
 
-   ![Developer settings](../../../translated_images/ja/profile_developer_settings.410a859fe749c755.png)
+   ![Developer settings](../../../translated_images/ja/profile_developer_settings.410a859fe749c755.webp)
 
    次に`Generate new token`を選択します。
 
-   ![Generate Token](../../../translated_images/ja/fga_new_token.1c1a234afe202ab3.png)
+   ![Generate Token](../../../translated_images/ja/fga_new_token.1c1a234afe202ab3.webp)
 
 2. トークンの目的を反映した説明的な名前を入力し、後で簡単に識別できるようにします。
 
@@ -190,19 +190,19 @@ GitHubアカウントの<a href="https://github.com/settings/personal-access-tok
     より安全な設定を希望する場合は、7日などの短期間を選択することもできます 🛡️
     これにより、学習の勢いを維持しながらコースを完了するための個人的な目標を設定できます 🚀。
 
-    ![Token Name and Expiration](../../../translated_images/ja/token-name-expiry-date.a095fb0de6386864.png)
+    ![Token Name and Expiration](../../../translated_images/ja/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. トークンのスコープをこのリポジトリのフォークに限定します。
 
-    ![Limit scope to fork repository](../../../translated_images/ja/token_repository_limit.924ade5e11d9d8bb.png)
+    ![Limit scope to fork repository](../../../translated_images/ja/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. トークンの権限を制限します: **Permissions**の下で**Account**タブをクリックし、"+ Add permissions"ボタンをクリックします。ドロップダウンが表示されます。**Models**を検索し、チェックボックスをオンにしてください。
 
-    ![Add Models Permission](../../../translated_images/ja/add_models_permissions.c0c44ed8b40fc143.png)
+    ![Add Models Permission](../../../translated_images/ja/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. トークンを生成する前に、必要な権限を確認してください。 ![Verify Permissions](../../../translated_images/ja/verify_permissions.06bd9e43987a8b21.png)
+5. トークンを生成する前に、必要な権限を確認してください。 ![Verify Permissions](../../../translated_images/ja/verify_permissions.06bd9e43987a8b21.webp)
 
-6. トークンを生成する前に、パスワードマネージャーの保管庫など安全な場所にトークンを保存する準備ができていることを確認してください。生成後は再表示されません。 ![Store Token Securely](../../../translated_images/ja/store_token_securely.08ee2274c6ad6caf.png)
+6. トークンを生成する前に、パスワードマネージャーの保管庫など安全な場所にトークンを保存する準備ができていることを確認してください。生成後は再表示されません。 ![Store Token Securely](../../../translated_images/ja/store_token_securely.08ee2274c6ad6caf.webp)
 
 作成した新しいトークンをコピーしてください。このトークンをこのコースに含まれる`.env`ファイルに追加します。
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 コピーしたトークンを使用して、お気に入りのテキストエディタで`.env`ファイルを開き、`GITHUB_TOKEN`フィールドにトークンを貼り付けます。
 
-![GitHub Token Field](../../../translated_images/ja/github_token_field.20491ed3224b5f4a.png)
+![GitHub Token Field](../../../translated_images/ja/github_token_field.20491ed3224b5f4a.webp)
 
 これで、このコースのコードサンプルを実行できるようになります。
 
@@ -238,7 +238,7 @@ Azure AI Foundryでハブとプロジェクトを作成する手順について�
 
 これは、Azure AI Foundryポータルのプロジェクトの**概要**ページに移動することで行えます。
 
-![Project Connection String](../../../translated_images/ja/project-endpoint.8cf04c9975bbfbf1.png)
+![Project Connection String](../../../translated_images/ja/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### ステップ2: `.env`ファイルを作成
 

@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 اب آپ کے پاس اس کورس کا فورک شدہ ورژن درج ذیل لنک میں ہونا چاہیے:
 
-![Forked Repo](../../../translated_images/ur/forked-repo.33f27ca1901baa6a.png)
+![Forked Repo](../../../translated_images/ur/forked-repo.33f27ca1901baa6a.webp)
 
 ### شالو کلون (ورکشاپ / کوڈ اسپیسز کے لیے تجویز کردہ)
 
@@ -176,11 +176,11 @@ GitHub Models استعمال کرنے کے لیے، آپ کو ایک [GitHub Per
 
 1. **Developer settings** پر جا کر اسکرین کے بائیں جانب `Fine-grained tokens` آپشن منتخب کریں۔
 
-   ![Developer settings](../../../translated_images/ur/profile_developer_settings.410a859fe749c755.png)
+   ![Developer settings](../../../translated_images/ur/profile_developer_settings.410a859fe749c755.webp)
 
    پھر `Generate new token` منتخب کریں۔
 
-   ![Generate Token](../../../translated_images/ur/fga_new_token.1c1a234afe202ab3.png)
+   ![Generate Token](../../../translated_images/ur/fga_new_token.1c1a234afe202ab3.webp)
 
 2. اپنے ٹوکن کے لیے ایک وضاحتی نام درج کریں جو اس کے مقصد کی عکاسی کرے، تاکہ بعد میں اسے پہچاننا آسان ہو۔
 
@@ -190,19 +190,19 @@ GitHub Models استعمال کرنے کے لیے، آپ کو ایک [GitHub Per
     زیادہ محفوظ انداز کے لیے، آپ مختصر مدت کا انتخاب کر سکتے ہیں—جیسے 7 دن 🛡️
     یہ ایک ذاتی ہدف مقرر کرنے اور کورس مکمل کرنے کا ایک بہترین طریقہ ہے جب آپ کی سیکھنے کی رفتار زیادہ ہو 🚀۔
 
-    ![Token Name and Expiration](../../../translated_images/ur/token-name-expiry-date.a095fb0de6386864.png)
+    ![Token Name and Expiration](../../../translated_images/ur/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. ٹوکن کے دائرہ کار کو اس ریپوزٹری کے فورک تک محدود کریں۔
 
-    ![Limit scope to fork repository](../../../translated_images/ur/token_repository_limit.924ade5e11d9d8bb.png)
+    ![Limit scope to fork repository](../../../translated_images/ur/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. ٹوکن کی اجازتوں کو محدود کریں: **Permissions** کے تحت، **Account** ٹیب پر کلک کریں، اور "+ Add permissions" بٹن پر کلک کریں۔ ایک ڈراپ ڈاؤن ظاہر ہوگا۔ براہ کرم **Models** تلاش کریں اور اس کے لیے باکس چیک کریں۔
 
-    ![Add Models Permission](../../../translated_images/ur/add_models_permissions.c0c44ed8b40fc143.png)
+    ![Add Models Permission](../../../translated_images/ur/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. ٹوکن بنانے سے پہلے مطلوبہ اجازتوں کی تصدیق کریں۔ ![Verify Permissions](../../../translated_images/ur/verify_permissions.06bd9e43987a8b21.png)
+5. ٹوکن بنانے سے پہلے مطلوبہ اجازتوں کی تصدیق کریں۔ ![Verify Permissions](../../../translated_images/ur/verify_permissions.06bd9e43987a8b21.webp)
 
-6. ٹوکن بنانے سے پہلے، یقینی بنائیں کہ آپ اسے محفوظ جگہ جیسے پاس ورڈ مینیجر والٹ میں محفوظ کرنے کے لیے تیار ہیں، کیونکہ یہ آپ کے بنائے جانے کے بعد دوبارہ نہیں دکھایا جائے گا۔ ![Store Token Securely](../../../translated_images/ur/store_token_securely.08ee2274c6ad6caf.png)
+6. ٹوکن بنانے سے پہلے، یقینی بنائیں کہ آپ اسے محفوظ جگہ جیسے پاس ورڈ مینیجر والٹ میں محفوظ کرنے کے لیے تیار ہیں، کیونکہ یہ آپ کے بنائے جانے کے بعد دوبارہ نہیں دکھایا جائے گا۔ ![Store Token Securely](../../../translated_images/ur/store_token_securely.08ee2274c6ad6caf.webp)
 
 اپنا نیا ٹوکن کاپی کریں جو آپ نے ابھی بنایا ہے۔ آپ اسے اس کورس میں شامل `.env` فائل میں شامل کریں گے۔
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 اپنا ٹوکن کاپی کرنے کے بعد، اپنی پسندیدہ ٹیکسٹ ایڈیٹر میں `.env` فائل کھولیں اور اپنے ٹوکن کو `GITHUB_TOKEN` فیلڈ میں پیسٹ کریں۔
 
-![GitHub Token Field](../../../translated_images/ur/github_token_field.20491ed3224b5f4a.png)
+![GitHub Token Field](../../../translated_images/ur/github_token_field.20491ed3224b5f4a.webp)
 
 اب آپ اس کورس کے کوڈ نمونوں کو چلانے کے قابل ہونے چاہیئے۔
 
@@ -238,7 +238,7 @@ Azure AI Foundry میں ہب اور پروجیکٹ بنانے کے مراحل پ
 
 یہ Azure AI Foundry پورٹل میں اپنے پروجیکٹ کے **Overview** صفحے پر جا کر کیا جا سکتا ہے۔
 
-![Project Connection String](../../../translated_images/ur/project-endpoint.8cf04c9975bbfbf1.png)
+![Project Connection String](../../../translated_images/ur/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### مرحلہ 2: اپنی `.env` فائل بنائیں
 

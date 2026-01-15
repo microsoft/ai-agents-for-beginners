@@ -53,7 +53,7 @@ chainlit run app.py -w
 
 گِٹ ہب ایم سی پی سرور سے جڑنے کے لیے، "Type your message here.." چیٹ باکس کے نیچے موجود "پلگ" آئیکن پر کلک کریں:
 
-![MCP Connect](../../../../../translated_images/ur/mcp-chainlit-1.7ed66d648e3cfb28.png)
+![MCP Connect](../../../../../translated_images/ur/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
 اس کے بعد، "Connect an MCP" پر کلک کریں تاکہ گِٹ ہب ایم سی پی سرور سے جڑنے کا کمانڈ شامل کیا جا سکے:
 

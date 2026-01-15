@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ms"
 }
 -->
-[![Reka Bentuk Multi-Ejen](../../../translated_images/ms/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Reka Bentuk Multi-Ejen](../../../translated_images/ms/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 
@@ -97,7 +97,7 @@ Dalam corak ini, setiap ejen mewakili pengguna dalam sembang kumpulan, dan mesej
 
 Corak ini boleh dilaksanakan menggunakan seni bina berpusat di mana semua mesej dihantar melalui pelayan pusat, atau seni bina teragih di mana mesej ditukar secara langsung.
 
-![Sembang Kumpulan](../../../translated_images/ms/multi-agent-group-chat.ec10f4cde556babd.png)
+![Sembang Kumpulan](../../../translated_images/ms/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Penyerahan Tugas
 
@@ -107,7 +107,7 @@ Kes penggunaan tipikal untuk corak ini termasuk sokongan pelanggan, pengurusan t
 
 Dalam corak ini, setiap ejen mewakili tugas atau langkah dalam aliran kerja, dan ejen boleh menyerahkan tugas kepada ejen lain berdasarkan peraturan yang telah ditetapkan.
 
-![Penyerahan Tugas](../../../translated_images/ms/multi-agent-hand-off.4c5fb00ba6f8750a.png)
+![Penyerahan Tugas](../../../translated_images/ms/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Penapisan Kolaboratif
 
@@ -121,7 +121,7 @@ Mari kita ambil contoh di mana seorang pengguna ingin mendapatkan cadangan tenta
 - **Analisis Teknikal**: Ejen lain boleh menjadi pakar dalam analisis teknikal.
 - **Analisis Fundamental**: Dan ejen lain boleh menjadi pakar dalam analisis fundamental. Dengan bekerjasama, ejen-ejen ini boleh memberikan cadangan yang lebih komprehensif kepada pengguna.
 
-![Cadangan](../../../translated_images/ms/multi-agent-filtering.d959cb129dc9f608.png)
+![Cadangan](../../../translated_images/ms/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Senario: Proses Pemulangan Wang
 

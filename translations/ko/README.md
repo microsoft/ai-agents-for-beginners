@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI 에이전트 초보자용 - 강좌
 
-![초보자를 위한 생성형 AI](../../translated_images/ko/repo-thumbnailv2.06f4a48036fde647.png)
+![초보자를 위한 생성형 AI](../../translated_images/ko/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## AI 에이전트를 구축하는 데 필요한 모든 것을 가르치는 강좌
 

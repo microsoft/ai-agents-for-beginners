@@ -53,7 +53,7 @@ chainlit run app.py -w
 
 Github MCP 서버에 연결하려면 "Type your message here.." 채팅 상자 아래에 있는 "플러그" 아이콘을 선택하세요:
 
-![MCP Connect](../../../../../translated_images/ko/mcp-chainlit-1.7ed66d648e3cfb28.png)
+![MCP Connect](../../../../../translated_images/ko/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
 그 후 "Connect an MCP"를 클릭하여 Github MCP 서버에 연결하는 명령어를 추가하세요:
 

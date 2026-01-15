@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # หน่วยความจำสำหรับ AI Agents
-[![Agent Memory](../../../translated_images/th/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agent Memory](../../../translated_images/th/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 เมื่อพูดถึงข้อดีเฉพาะของการสร้าง AI Agents มีสองสิ่งที่มักถูกพูดถึง: ความสามารถในการเรียกใช้เครื่องมือเพื่อทำงานให้สำเร็จ และความสามารถในการพัฒนาตัวเองเมื่อเวลาผ่านไป หน่วยความจำเป็นพื้นฐานสำคัญในการสร้างเอเจนต์ที่สามารถพัฒนาตัวเองได้ เพื่อสร้างประสบการณ์ที่ดียิ่งขึ้นสำหรับผู้ใช้งานของเรา
 

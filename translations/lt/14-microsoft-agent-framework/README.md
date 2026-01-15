@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Microsoft Agent Framework tyrinėjimas
 
-![Agent Framework](../../../translated_images/lt/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/lt/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Įvadas
 
@@ -33,7 +33,7 @@ Kodo pavyzdžius [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-begi
 
 ## Microsoft Agent Framework supratimas
 
-![Framework Intro](../../../translated_images/lt/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/lt/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) yra sukurtas remiantis patirtimi ir išmokimais iš Semantic Kernel ir AutoGen. Jis siūlo lankstumą, leidžiantį spręsti įvairius agentų naudojimo atvejus tiek gamybos, tiek mokslinių tyrimų aplinkose, įskaitant:
 
@@ -63,7 +63,7 @@ Pažvelkime, kaip šios funkcijos taikomos kai kurioms pagrindinėms Microsoft A
 
 ### Agentai
 
-![Agent Framework](../../../translated_images/lt/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/lt/agent-components.410a06daf87b4fef.webp)
 
 **Agentų kūrimas**
 

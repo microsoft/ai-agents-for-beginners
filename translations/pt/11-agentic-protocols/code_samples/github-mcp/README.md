@@ -53,7 +53,7 @@ Isto deverá iniciar o seu servidor Chainlit em `localhost:8000`, bem como preen
 
 Para se conectar ao Servidor MCP do Github, selecione o ícone de "plug" abaixo da caixa de chat "Escreva a sua mensagem aqui...":
 
-![Conectar MCP](../../../../../translated_images/pt/mcp-chainlit-1.7ed66d648e3cfb28.png)
+![Conectar MCP](../../../../../translated_images/pt/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
 A partir daí, pode clicar em "Connect an MCP" para adicionar o comando que conecta ao Servidor MCP do Github:
 

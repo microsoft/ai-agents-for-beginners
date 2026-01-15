@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hk"
 }
 -->
-[![如何設計優質的 AI 代理](../../../translated_images/hk/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![如何設計優質的 AI 代理](../../../translated_images/hk/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(點擊上方圖片觀看本課程影片)_
 # AI 代理設計原則
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 代理設計原則
 
-![代理設計原則](../../../translated_images/hk/agentic-design-principles.1cfdf8b6d3cc73c2.png)
+![代理設計原則](../../../translated_images/hk/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### 代理（空間）
 

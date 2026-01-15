@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "it"
 }
 -->
-[![Introduzione agli Agenti AI](../../../translated_images/it/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Introduzione agli Agenti AI](../../../translated_images/it/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
 
@@ -47,7 +47,7 @@ Analizziamo questa definizione in parti più piccole:
   - **Sensori** - Gli ambienti contengono informazioni e forniscono feedback. Gli Agenti AI utilizzano sensori per raccogliere e interpretare queste informazioni sullo stato attuale dell'ambiente. Nell'esempio dell'agente di prenotazione viaggi, il sistema di prenotazione può fornire informazioni come la disponibilità di hotel o i prezzi dei voli.
   - **Attuatori** - Una volta che l'Agente AI riceve lo stato attuale dell'ambiente, per il compito corrente l'agente determina quale azione eseguire per modificare l'ambiente. Per l'agente di prenotazione viaggi, potrebbe essere prenotare una stanza disponibile per l'utente.
 
-![Cosa sono gli Agenti AI?](../../../translated_images/it/what-are-ai-agents.1ec8c4d548af601a.png)
+![Cosa sono gli Agenti AI?](../../../translated_images/it/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Modelli di Linguaggio Avanzati** - Il concetto di agenti esisteva prima della creazione degli LLM. Il vantaggio di costruire Agenti AI con LLM è la loro capacità di interpretare il linguaggio umano e i dati. Questa capacità consente agli LLM di interpretare le informazioni ambientali e definire un piano per modificare l'ambiente.
 
@@ -77,7 +77,7 @@ Nella sezione precedente, abbiamo utilizzato il caso d'uso dell'agente di viaggi
 
 Esaminiamo i tipi di casi d'uso per cui gli Agenti AI sono più adatti:
 
-![Quando usare gli Agenti AI?](../../../translated_images/it/when-to-use-ai-agents.54becb3bed74a479.png)
+![Quando usare gli Agenti AI?](../../../translated_images/it/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Problemi Aperti** - permettendo all'LLM di determinare i passaggi necessari per completare un compito, poiché non sempre possono essere codificati in un flusso di lavoro.
 - **Processi Multi-Step** - compiti che richiedono un livello di complessità in cui l'Agente AI deve utilizzare strumenti o informazioni in più turni invece di un singolo recupero.

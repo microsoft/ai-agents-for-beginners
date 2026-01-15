@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ko"
 }
 -->
-[![AI 에이전트 소개](../../../translated_images/ko/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![AI 에이전트 소개](../../../translated_images/ko/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(위 이미지를 클릭하면 이 강의의 영상을 볼 수 있습니다)_
 
@@ -47,7 +47,7 @@ AI 에이전트는 **대규모 언어 모델(LLM)**이 **도구와 지식에 접
   - **센서** - 환경은 정보를 제공하고 피드백을 제공합니다. AI 에이전트는 센서를 사용하여 환경의 현재 상태에 대한 정보를 수집하고 해석합니다. 여행 예약 에이전트의 경우, 호텔 가용성이나 항공편 가격과 같은 정보를 제공하는 여행 예약 시스템이 센서 역할을 할 수 있습니다.
   - **액추에이터** - AI 에이전트가 환경의 현재 상태를 받은 후, 현재 작업에 대해 환경을 변경하기 위해 어떤 행동을 수행할지 결정합니다. 여행 예약 에이전트의 경우, 사용자를 위해 이용 가능한 방을 예약하는 것이 행동이 될 수 있습니다.
 
-![AI 에이전트란 무엇인가?](../../../translated_images/ko/what-are-ai-agents.1ec8c4d548af601a.png)
+![AI 에이전트란 무엇인가?](../../../translated_images/ko/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **대규모 언어 모델** - 에이전트의 개념은 LLM이 만들어지기 전에도 존재했습니다. LLM을 사용하여 AI 에이전트를 구축하는 장점은 인간의 언어와 데이터를 해석할 수 있는 능력입니다. 이 능력은 LLM이 환경 정보를 해석하고 환경을 변경하기 위한 계획을 정의할 수 있도록 합니다.
 
@@ -77,7 +77,7 @@ AI 에이전트는 **대규모 언어 모델(LLM)**이 **도구와 지식에 접
 
 AI 에이전트가 가장 적합한 활용 사례 유형을 살펴보겠습니다:
 
-![AI 에이전트를 사용할 때?](../../../translated_images/ko/when-to-use-ai-agents.54becb3bed74a479.png)
+![AI 에이전트를 사용할 때?](../../../translated_images/ko/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **열린 문제** - LLM이 작업을 완료하기 위해 필요한 단계를 결정하도록 허용하는 경우, 워크플로우에 항상 하드코딩할 수 없는 경우.
 - **다단계 프로세스** - AI 에이전트가 단일 검색이 아닌 여러 턴에 걸쳐 도구나 정보를 사용해야 하는 복잡한 작업.  

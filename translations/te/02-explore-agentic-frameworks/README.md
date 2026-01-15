@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "te"
 }
 -->
-[![AI ఏజెంట్ ఫ్రేమ్‌వర్క్‌లను అన్వేషించడం](../../../translated_images/te/lesson-2-thumbnail.c65f44c93b8558df.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![AI ఏజెంట్ ఫ్రేమ్‌వర్క్‌లను అన్వేషించడం](../../../translated_images/te/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(ఈ పాఠం వీడియోను చూడటానికి పై చిత్రాన్ని క్లిక్ చేయండి)_
 

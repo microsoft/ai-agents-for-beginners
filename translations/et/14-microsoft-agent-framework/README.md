@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Microsoft Agent Frameworki uurimine
 
-![Agent Framework](../../../translated_images/et/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/et/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Sissejuhatus
 
@@ -33,7 +33,7 @@ Koodinäited [Microsoft Agent Frameworki (MAF)](https://aka.ms/ai-agents-beginne
 
 ## Microsoft Agent Frameworki mõistmine
 
-![Framework Intro](../../../translated_images/et/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/et/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) põhineb Semantic Kernel ja AutoGen kogemustel ja õppetundidel. See pakub paindlikkust, et lahendada mitmesuguseid agentlikke kasutusjuhtumeid nii tootmis- kui ka uurimiskeskkondades, sealhulgas:
 
@@ -63,7 +63,7 @@ Vaatame, kuidas neid funktsioone rakendatakse Microsoft Agent Frameworki põhiko
 
 ### Agendid
 
-![Agent Framework](../../../translated_images/et/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/et/agent-components.410a06daf87b4fef.webp)
 
 **Agentide loomine**
 

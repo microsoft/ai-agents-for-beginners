@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fi"
 }
 -->
-[![Kuinka suunnitella hyviä tekoälyagentteja](../../../translated_images/fi/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Kuinka suunnitella hyviä tekoälyagentteja](../../../translated_images/fi/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Klikkaa yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
 
@@ -216,7 +216,7 @@ Tässä on joitakin esimerkkejä siitä, kuinka voit toteuttaa Työkalujen käyt
 
 Seuraava kaavio havainnollistaa funktiokutsujen prosessia Semantic Kernelin avulla:
 
-![funktiokutsut](../../../translated_images/fi/functioncalling-diagram.a84006fc287f6014.png)
+![funktiokutsut](../../../translated_images/fi/functioncalling-diagram.a84006fc287f6014.webp)
 
 Semantic Kernelissä funktioita/työkaluja kutsutaan <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugineiksi</a>. Voimme muuntaa aiemmin näkemämme `get_current_time`-funktion pluginiksi muuttamalla sen luokaksi, jossa funktio sijaitsee. Voimme myös tuoda `kernel_function`-koristelijan, joka ottaa funktion kuvauksen. Kun sitten luot kernelin GetCurrentTimePluginin kanssa, kernel serialisoi automaattisesti funktion ja sen parametrit, luoden skeeman lähetettäväksi LLM:lle prosessin aikana.
 
@@ -277,7 +277,7 @@ Kuvittele, että olet myyntiedustaja yrityksessä nimeltä Contoso. Haluat kehit
 
 Seuraava kuva havainnollistaa, kuinka voisit käyttää Azure AI Agent Servicea analysoidaksesi myyntidatasi:
 
-![Agenttikehys toiminnassa](../../../translated_images/fi/agent-service-in-action.34fb465c9a84659e.jpg)
+![Agenttikehys toiminnassa](../../../translated_images/fi/agent-service-in-action.34fb465c9a84659e.webp)
 
 Jotta voisit käyttää mitä tahansa näistä työkaluista palvelun kanssa, voit luoda asiakkaan ja määritellä työkalun tai työkalukokonaisuuden. Käytännön toteutuksessa voimme käyttää seuraavaa Python-koodia. LLM pystyy tarkastelemaan työkalukokonaisuutta ja päättämään, käyttääkö se käyttäjän luomaa funktiota, `fetch_sales_data_using_sqlite_query`, vai valmiiksi rakennettua Koodintulkitsijaa käyttäjän pyynnön mukaan.
 

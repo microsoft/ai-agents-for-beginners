@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Các Tác Nhân AI Trong Sản Xuất: Khả Năng Quan Sát & Đánh Giá
 
-[![Các Tác Nhân AI Trong Sản Xuất](../../../translated_images/vi/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![Các Tác Nhân AI Trong Sản Xuất](../../../translated_images/vi/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Khi các tác nhân AI chuyển từ nguyên mẫu thử nghiệm sang ứng dụng thực tế, khả năng hiểu hành vi của chúng, giám sát hiệu suất, và đánh giá kết quả một cách có hệ thống trở nên rất quan trọng.
 

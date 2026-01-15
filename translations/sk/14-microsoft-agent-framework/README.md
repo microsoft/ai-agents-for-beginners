@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Preskúmanie Microsoft Agent Framework
 
-![Agent Framework](../../../translated_images/sk/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/sk/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Úvod
 
@@ -33,7 +33,7 @@ Ukážky kódu pre [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-be
 
 ## Porozumenie Microsoft Agent Framework
 
-![Framework Intro](../../../translated_images/sk/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/sk/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) stavia na skúsenostiach a poznatkoch zo Semantic Kernel a AutoGen. Ponúka flexibilitu na riešenie širokej škály agentických prípadov použitia v produkčných aj výskumných prostrediach vrátane:
 
@@ -63,7 +63,7 @@ Pozrime sa, ako sú tieto funkcie aplikované na niektoré základné koncepty M
 
 ### Agenti
 
-![Agent Framework](../../../translated_images/sk/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/sk/agent-components.410a06daf87b4fef.webp)
 
 **Vytváranie agentov**
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # KI-Agenten in der Produktion: Beobachtbarkeit & Bewertung
 
-[![KI-Agenten in der Produktion](../../../translated_images/de/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![KI-Agenten in der Produktion](../../../translated_images/de/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Wenn KI-Agenten von experimentellen Prototypen zu realen Anwendungen übergehen, wird die Fähigkeit, ihr Verhalten zu verstehen, ihre Leistung zu überwachen und ihre Ergebnisse systematisch zu bewerten, entscheidend.
 

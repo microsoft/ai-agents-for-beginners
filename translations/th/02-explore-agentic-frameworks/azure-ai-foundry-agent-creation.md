@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. ทำตามคำแนะนำจากโพสต์บล็อก [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) สำหรับการสร้าง Azure AI Foundry hub
 2. เมื่อโปรเจกต์ของคุณถูกสร้างขึ้น ให้ปิดคำแนะนำใด ๆ ที่แสดงขึ้นมา และตรวจสอบหน้าของโปรเจกต์ใน Azure AI Foundry portal ซึ่งควรมีลักษณะคล้ายกับภาพต่อไปนี้:
 
-    ![Azure AI Foundry Project](../../../translated_images/th/azure-ai-foundry.88d0c35298348c2f.png)
+    ![Azure AI Foundry Project](../../../translated_images/th/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## การปรับใช้โมเดล
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: การลด TPM จะช่วยหลีกเลี่ยงการใช้โควต้ามากเกินไปในบัญชีที่คุณใช้งานอยู่
 
-    ![Model Deployed](../../../translated_images/th/model-deployment.3749c53fb81e18fd.png)
+    ![Model Deployed](../../../translated_images/th/model-deployment.3749c53fb81e18fd.webp)
 
 ## สร้างเอเจนต์
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 > นอกจากนี้ คุณสามารถเพิ่ม **Knowledge Base** และ **Actions** เพื่อเพิ่มความสามารถของเอเจนต์ในการให้ข้อมูลและทำงานอัตโนมัติตามคำขอของผู้ใช้ สำหรับแบบฝึกหัดนี้ คุณสามารถข้ามขั้นตอนเหล่านี้ได้
 
-![Agent Setup](../../../translated_images/th/agent-setup.9bbb8755bf5df672.png)
+![Agent Setup](../../../translated_images/th/agent-setup.9bbb8755bf5df672.webp)
 
 3. หากต้องการสร้างเอเจนต์ multi-AI ใหม่ ให้คลิก **New Agent** เอเจนต์ที่สร้างใหม่จะแสดงในหน้าของ Agents
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: เอเจนต์อาจไม่ให้คำตอบที่ถูกต้อง เนื่องจากไม่มีการใช้ข้อมูลเรียลไทม์ในแบบฝึกหัดนี้ จุดประสงค์คือเพื่อทดสอบความสามารถของเอเจนต์ในการเข้าใจและตอบคำถามตามคำสั่งที่ให้ไว้
 
-    ![Agent Playground](../../../translated_images/th/agent-playground.dc146586de715010.png)
+    ![Agent Playground](../../../translated_images/th/agent-playground.dc146586de715010.webp)
 
 3. หลังจากทดสอบเอเจนต์แล้ว คุณสามารถปรับแต่งเพิ่มเติมโดยเพิ่ม intents, ข้อมูลฝึกสอน และ actions เพื่อเพิ่มความสามารถของเอเจนต์
 

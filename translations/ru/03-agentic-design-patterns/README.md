@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ru"
 }
 -->
-[![Как разработать качественных AI-агентов](../../../translated_images/ru/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Как разработать качественных AI-агентов](../../../translated_images/ru/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Нажмите на изображение выше, чтобы посмотреть видео этого урока)_
 # Принципы проектирования агентных систем AI
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Принципы проектирования агентных систем
 
-![Принципы проектирования агентных систем](../../../translated_images/ru/agentic-design-principles.1cfdf8b6d3cc73c2.png)
+![Принципы проектирования агентных систем](../../../translated_images/ru/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Агент (Пространство)
 

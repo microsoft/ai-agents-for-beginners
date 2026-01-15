@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ko"
 }
 -->
-[![좋은 AI 에이전트 설계 방법](../../../translated_images/ko/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![좋은 AI 에이전트 설계 방법](../../../translated_images/ko/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(위 이미지를 클릭하면 이 강의의 동영상을 볼 수 있습니다)_
 
@@ -212,7 +212,7 @@ AI 에이전트는 도구를 활용하여 복잡한 작업을 완료하거나 �
 
 다음 다이어그램은 Semantic Kernel에서 함수 호출 과정을 보여줍니다:
 
-![함수 호출](../../../translated_images/ko/functioncalling-diagram.a84006fc287f6014.png)
+![함수 호출](../../../translated_images/ko/functioncalling-diagram.a84006fc287f6014.webp)
 
 Semantic Kernel에서 함수/도구는 <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">플러그인</a>이라고 불립니다. 이전에 본 `get_current_time` 함수를 플러그인으로 변환하려면 이를 포함하는 클래스로 변환하면 됩니다. 또한 함수 설명을 입력받는 `kernel_function` 데코레이터를 가져올 수 있습니다. 그런 다음 GetCurrentTimePlugin으로 커널을 생성하면, 커널이 함수와 매개변수를 자동으로 직렬화하여 LLM에 보낼 스키마를 생성합니다.
 
@@ -273,7 +273,7 @@ Contoso라는 회사의 영업 담당자라고 가정해 보겠습니다. 여러
 
 다음 이미지는 Azure AI Agent Service를 사용하여 영업 데이터를 분석하는 방법을 보여줍니다:
 
-![에이전틱 서비스 작동 예시](../../../translated_images/ko/agent-service-in-action.34fb465c9a84659e.jpg)
+![에이전틱 서비스 작동 예시](../../../translated_images/ko/agent-service-in-action.34fb465c9a84659e.webp)
 
 이 서비스에서 도구를 사용하려면 클라이언트를 생성하고 도구 또는 도구 세트를 정의할 수 있습니다. 이를 실제로 구현하려면 다음 Python 코드를 사용할 수 있습니다. LLM은 도구 세트를 살펴보고 사용자가 만든 함수 `fetch_sales_data_using_sqlite_query`를 사용할지, 아니면 사전 구축된 코드 인터프리터를 사용할지 사용자 요청에 따라 결정할 수 있습니다.
 

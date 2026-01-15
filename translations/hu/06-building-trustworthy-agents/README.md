@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hu"
 }
 -->
-[![Megbízható MI Ügynökök](../../../translated_images/hu/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Megbízható MI Ügynökök](../../../translated_images/hu/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Kattints a fenti képre a leckéhez tartozó videó megtekintéséhez)_
 
@@ -41,7 +41,7 @@ Az MI ügynökök esetében a rendszerprompt még fontosabb, mivel az ügynökö
 
 A skálázható rendszerpromtok létrehozásához használhatunk egy rendszerüzenet-keretrendszert, amely lehetővé teszi egy vagy több ügynök létrehozását az alkalmazásunkban:
 
-![Rendszerüzenet-keretrendszer létrehozása](../../../translated_images/hu/system-message-framework.3a97368c92d11d68.png)
+![Rendszerüzenet-keretrendszer létrehozása](../../../translated_images/hu/system-message-framework.3a97368c92d11d68.webp)
 
 #### 1. lépés: Meta rendszerüzenet létrehozása
 
@@ -130,7 +130,7 @@ Ennek a rendszerüzenet-keretrendszernek az értéke abban rejlik, hogy megkönn
 
 Ahhoz, hogy megbízható MI ügynököket építsünk, fontos megérteni és mérsékelni az ügynököket érintő kockázatokat és fenyegetéseket. Nézzünk meg néhányat az MI ügynököket érintő különböző fenyegetések közül, és hogyan tervezhetünk és készülhetünk fel ezekre.
 
-![Fenyegetések megértése](../../../translated_images/hu/understanding-threats.89edeada8a97fc0f.png)
+![Fenyegetések megértése](../../../translated_images/hu/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Feladatok és utasítások
 
@@ -166,7 +166,7 @@ Ahhoz, hogy megbízható MI ügynököket építsünk, fontos megérteni és mé
 
 Egy másik hatékony módja a megbízható MI ügynökrendszerek létrehozásának az ember a folyamatban megközelítés alkalmazása. Ez egy olyan folyamatot hoz létre, amelyben a felhasználók visszajelzést adhatnak az ügynököknek a futás során. A felhasználók lényegében ügynökökként működnek egy több ügynökből álló rendszerben, és jóváhagyhatják vagy megszakíthatják a futó folyamatot.
 
-![Ember a folyamatban](../../../translated_images/hu/human-in-the-loop.5f0068a678f62f4f.png)
+![Ember a folyamatban](../../../translated_images/hu/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Íme egy kódrészlet az AutoGen használatával, amely bemutatja, hogyan valósítható meg ez a koncepció:
 

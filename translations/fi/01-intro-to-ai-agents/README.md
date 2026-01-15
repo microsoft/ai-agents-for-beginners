@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fi"
 }
 -->
-[![Johdanto tekoälyagentteihin](../../../translated_images/fi/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Johdanto tekoälyagentteihin](../../../translated_images/fi/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klikkaa yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
 
@@ -47,7 +47,7 @@ Puretaan tämä määritelmä pienempiin osiin:
   - **Anturit** - Ympäristöt sisältävät tietoa ja antavat palautetta. Tekoälyagentit käyttävät antureita kerätäkseen ja tulkitakseen tietoa ympäristön nykytilasta. Matkavarausagentin tapauksessa varaussysteemi voi antaa tietoa, kuten hotellien saatavuuden tai lentojen hinnat.
   - **Toimilaitteet** - Kun tekoälyagentti saa ympäristön nykytilan, se määrittää tehtävän perusteella, mitä toimia tarvitaan ympäristön muuttamiseksi. Matkavarausagentin tapauksessa tämä voisi olla huoneen varaaminen käyttäjälle.
 
-![Mitä ovat tekoälyagentit?](../../../translated_images/fi/what-are-ai-agents.1ec8c4d548af601a.png)
+![Mitä ovat tekoälyagentit?](../../../translated_images/fi/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Suuret kielimallit** - Agenttien käsite oli olemassa jo ennen LLM:ien luomista. Tekoälyagenttien rakentamisen etu LLM:ien avulla on niiden kyky tulkita ihmiskieltä ja dataa. Tämä kyky mahdollistaa LLM:ien ympäristötiedon tulkinnan ja suunnitelman laatimisen ympäristön muuttamiseksi.
 
@@ -77,7 +77,7 @@ Edellisessä osiossa käytimme matkavarausagenttia esimerkkinä selittääksemme
 
 Tarkastellaan nyt, millaisiin käyttötapauksiin tekoälyagentit sopivat parhaiten:
 
-![Milloin käyttää tekoälyagentteja?](../../../translated_images/fi/when-to-use-ai-agents.54becb3bed74a479.png)
+![Milloin käyttää tekoälyagentteja?](../../../translated_images/fi/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Avoimet ongelmat** - LLM:n salliminen määrittää tarvittavat askeleet tehtävän suorittamiseksi, koska niitä ei aina voida kovakoodata työnkulkuun.
 - **Monivaiheiset prosessit** - Tehtävät, jotka vaativat tiettyä monimutkaisuutta, jossa tekoälyagentin täytyy käyttää työkaluja tai tietoa useiden vuorovaikutusten aikana yhden hakukerran sijaan.  

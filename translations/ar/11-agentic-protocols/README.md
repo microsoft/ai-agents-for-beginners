@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # استخدام بروتوكولات الوكلاء (MCP، A2A وNLWeb)
 
-[![بروتوكولات الوكلاء](../../../translated_images/ar/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
+[![بروتوكولات الوكلاء](../../../translated_images/ar/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو هذا الدرس)_
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### مثال على MCP
 
-![رسم تخطيطي لـ MCP](../../../translated_images/ar/mcp-diagram.e4ca1cbd551444a1.png)
+![رسم تخطيطي لـ MCP](../../../translated_images/ar/mcp-diagram.e4ca1cbd551444a1.webp)
 
 تخيل أن مستخدمًا يريد حجز رحلة باستخدام مساعد ذكاء اصطناعي مدعوم بـ MCP.
 
@@ -124,7 +124,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### مثال على A2A
 
-![رسم تخطيطي لـ A2A](../../../translated_images/ar/A2A-Diagram.8666928d648acc26.png)
+![رسم تخطيطي لـ A2A](../../../translated_images/ar/A2A-Diagram.8666928d648acc26.webp)
 
 دعونا نوسع سيناريو حجز السفر الخاص بنا، ولكن هذه المرة باستخدام A2A.
 
@@ -158,7 +158,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### NLWeb بالمثال
 
-![NLWeb](../../../translated_images/ar/nlweb-diagram.c1e2390b310e5fe4.png)
+![NLWeb](../../../translated_images/ar/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 لنأخذ بعين الاعتبار موقع حجز السفر الخاص بنا مرة أخرى، ولكن هذه المرة، يتم تشغيله بواسطة NLWeb.
 

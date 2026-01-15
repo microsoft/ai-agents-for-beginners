@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hr"
 }
 -->
-[![Planiranje dizajnerskog obrasca](../../../translated_images/hr/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planiranje dizajnerskog obrasca](../../../translated_images/hr/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Kliknite na sliku iznad za video lekcije)_
 
@@ -32,7 +32,7 @@ Nakon završetka ove lekcije, razumjet ćete:
 
 ## Definiranje općeg cilja i razbijanje zadatka
 
-![Definiranje ciljeva i zadataka](../../../translated_images/hr/defining-goals-tasks.d70439e19e37c47a.png)
+![Definiranje ciljeva i zadataka](../../../translated_images/hr/defining-goals-tasks.d70439e19e37c47a.webp)
 
 Većina zadataka iz stvarnog svijeta previše je složena da bi se riješila u jednom koraku. AI agentu je potreban sažet cilj koji će voditi njegovo planiranje i radnje. Na primjer, razmotrite cilj:
 

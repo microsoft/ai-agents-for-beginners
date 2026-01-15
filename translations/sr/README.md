@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI агенти за почетнике - Курс
 
-![Генеративни AI за почетнике](../../translated_images/sr/repo-thumbnailv2.06f4a48036fde647.png)
+![Генеративни AI за почетнике](../../translated_images/sr/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Курс који обухвата све што треба да знате да бисте почели да правите AI агенте
 

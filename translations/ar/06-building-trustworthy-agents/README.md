@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ar"
 }
 -->
-[![وكلاء الذكاء الاصطناعي الموثوق بهم](../../../translated_images/ar/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![وكلاء الذكاء الاصطناعي الموثوق بهم](../../../translated_images/ar/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو الدرس)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 لإنشاء رسائل نظام قابلة للتوسع، يمكننا استخدام إطار عمل لرسائل النظام لبناء وكيل أو أكثر في تطبيقنا:
 
-![بناء إطار عمل لرسائل النظام](../../../translated_images/ar/system-message-framework.3a97368c92d11d68.png)
+![بناء إطار عمل لرسائل النظام](../../../translated_images/ar/system-message-framework.3a97368c92d11d68.webp)
 
 #### الخطوة 1: إنشاء رسالة نظام عامة
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 لبناء وكلاء ذكاء اصطناعي موثوق بهم، من المهم فهم المخاطر والتهديدات التي تواجه وكيل الذكاء الاصطناعي والتخفيف منها. دعونا نلقي نظرة على بعض التهديدات المختلفة وكيف يمكنك التخطيط لها بشكل أفضل.
 
-![فهم التهديدات](../../../translated_images/ar/understanding-threats.89edeada8a97fc0f.png)
+![فهم التهديدات](../../../translated_images/ar/understanding-threats.89edeada8a97fc0f.webp)
 
 ### المهام والتعليمات
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 طريقة فعالة أخرى لبناء أنظمة وكلاء ذكاء اصطناعي موثوق بها هي استخدام الإنسان في الحلقة. هذا يخلق تدفقًا حيث يمكن للمستخدمين تقديم ملاحظات للوكلاء أثناء التشغيل. يعمل المستخدمون بشكل أساسي كعملاء في نظام متعدد الوكلاء من خلال تقديم الموافقة أو إنهاء العملية الجارية.
 
-![الإنسان في الحلقة](../../../translated_images/ar/human-in-the-loop.5f0068a678f62f4f.png)
+![الإنسان في الحلقة](../../../translated_images/ar/human-in-the-loop.5f0068a678f62f4f.webp)
 
 إليك مقتطف من الكود باستخدام AutoGen يوضح كيفية تنفيذ هذا المفهوم:
 

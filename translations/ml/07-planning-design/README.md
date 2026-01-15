@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ml"
 }
 -->
-[![പ്ലാനിംഗ് ഡിസൈൻ പാറ്റേൺ](../../../translated_images/ml/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![പ്ലാനിംഗ് ഡിസൈൻ പാറ്റേൺ](../../../translated_images/ml/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(മുകളിൽ കാണുന്ന ചിത്രം ക്ലിക്ക് ചെയ്ത് ഈ പാഠത്തിന്റെ വീഡിയോ കാണുക)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## ആകെ ലക്ഷ്യം നിർവചിക്കുകയും ഒരു പ്രവർത്തി വിഭജിക്കുകയും ചെയ്യുക
 
-![ലക്ഷ്യങ്ങളും പ്രവർത്തികളും നിർവചിക്കൽ](../../../translated_images/ml/defining-goals-tasks.d70439e19e37c47a.png)
+![ലക്ഷ്യങ്ങളും പ്രവർത്തികളും നിർവചിക്കൽ](../../../translated_images/ml/defining-goals-tasks.d70439e19e37c47a.webp)
 
 മിക്ക യഥാർത്ഥ ലോക പ്രവർത്തികളും ഒരു ഘട്ടത്തിൽ കൈകാര്യം ചെയ്യാൻ വളരെ സങ്കീർണ്ണമാണ്. ഒരു AI ഏജന്റിന് തന്റെ പ്ലാനിംഗ്, പ്രവർത്തനങ്ങൾ എന്നിവയ്ക്ക് മാർഗ്ഗനിർദ്ദേശം നൽകാൻ ഒരു ചുരുക്കമായ ലക്ഷ്യം ആവശ്യമുണ്ട്. ഉദാഹരണത്തിന്, ഈ ലക്ഷ്യം പരിഗണിക്കുക:
 

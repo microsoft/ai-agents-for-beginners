@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI-agenter för nybörjare - En kurs
 
-![Generativ AI för nybörjare](../../translated_images/sv/repo-thumbnailv2.06f4a48036fde647.png)
+![Generativ AI för nybörjare](../../translated_images/sv/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## En kurs som lär dig allt du behöver veta för att börja bygga AI-agenter
 

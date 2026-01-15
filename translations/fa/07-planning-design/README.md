@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fa"
 }
 -->
-[![الگوی طراحی برنامه‌ریزی](../../../translated_images/fa/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![الگوی طراحی برنامه‌ریزی](../../../translated_images/fa/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(برای مشاهده ویدئوی این درس، روی تصویر بالا کلیک کنید)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## تعریف هدف کلی و تقسیم وظیفه
 
-![تعریف اهداف و وظایف](../../../translated_images/fa/defining-goals-tasks.d70439e19e37c47a.png)
+![تعریف اهداف و وظایف](../../../translated_images/fa/defining-goals-tasks.d70439e19e37c47a.webp)
 
 بیشتر وظایف دنیای واقعی برای انجام در یک مرحله بسیار پیچیده هستند. یک عامل هوش مصنوعی به یک هدف مختصر نیاز دارد تا برنامه‌ریزی و اقدامات خود را هدایت کند. به عنوان مثال، هدف زیر را در نظر بگیرید:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ta"
 }
 -->
-[![திட்டமிடல் வடிவமைப்பு முறை](../../../translated_images/ta/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![திட்டமிடல் வடிவமைப்பு முறை](../../../translated_images/ta/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(மேலே உள்ள படத்தை கிளிக் செய்து இந்த பாடத்தின் வீடியோவைப் பாருங்கள்)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## மொத்த இலக்கை வரையறுத்தல் மற்றும் பணியை பிரித்தல்
 
-![இலக்குகள் மற்றும் பணிகளை வரையறுத்தல்](../../../translated_images/ta/defining-goals-tasks.d70439e19e37c47a.png)
+![இலக்குகள் மற்றும் பணிகளை வரையறுத்தல்](../../../translated_images/ta/defining-goals-tasks.d70439e19e37c47a.webp)
 
 அதிகபட்சம் உண்மையான உலக பணிகள் ஒரு படியில் கையாள முடியாத அளவுக்கு சிக்கலானவை. AI முகவருக்கு அதன் திட்டமிடல் மற்றும் செயல்பாடுகளை வழிநடத்த ஒரு சுருக்கமான இலக்கு தேவை. உதாரணமாக, இந்த இலக்கை எடுத்துக்கொள்ளுங்கள்:
 

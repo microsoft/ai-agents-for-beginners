@@ -53,7 +53,7 @@ Dette bør starte din Chainlit-server på `localhost:8000` og samtidig udfylde d
 
 For at forbinde til Github MCP Server skal du vælge "stik"-ikonet under chatboksen "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/da/mcp-chainlit-1.7ed66d648e3cfb28.png)
+![MCP Connect](../../../../../translated_images/da/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
 Herfra kan du klikke på "Connect an MCP" for at tilføje kommandoen til at forbinde til Github MCP Server:
 

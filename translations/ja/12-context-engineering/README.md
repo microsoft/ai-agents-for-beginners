@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AIエージェントのためのコンテキストエンジニアリング
 
-[![コンテキストエンジニアリング](../../../translated_images/ja/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
+[![コンテキストエンジニアリング](../../../translated_images/ja/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(上の画像をクリックして、このレッスンの動画をご覧ください)_
 
@@ -49,7 +49,7 @@ AIエージェントにとって、コンテキストは特定の行動を取る
 
 ### コンテキストの種類
 
-[![コンテキストの種類](../../../translated_images/ja/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
+[![コンテキストの種類](../../../translated_images/ja/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 コンテキストは単一のものではないことを覚えておくことが重要です。AIエージェントが必要とする情報はさまざまなソースから来る可能性があり、エージェントがこれらのソースにアクセスできるようにするのは私たちの役割です。
 
@@ -69,7 +69,7 @@ AIエージェントが管理する必要があるコンテキストの種類に
 
 ### 計画戦略
 
-[![コンテキストエンジニアリングのベストプラクティス](../../../translated_images/ja/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
+[![コンテキストエンジニアリングのベストプラクティス](../../../translated_images/ja/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 良いコンテキストエンジニアリングは良い計画から始まります。以下はコンテキストエンジニアリングの概念を適用する方法を考えるためのアプローチです：
 

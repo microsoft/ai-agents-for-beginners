@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Kontekstisuunnittelu tekoälyagenteille
 
-[![Kontekstisuunnittelu](../../../translated_images/fi/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
+[![Kontekstisuunnittelu](../../../translated_images/fi/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(Klikkaa yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
 
@@ -49,7 +49,7 @@ Kehotesuunnittelu keskittyy yhteen staattiseen ohjejoukkoon, jolla ohjataan teko
 
 ### Kontekstin tyypit
 
-[![Kontekstin tyypit](../../../translated_images/fi/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
+[![Kontekstin tyypit](../../../translated_images/fi/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 On tärkeää muistaa, että konteksti ei ole vain yksi asia. Tekoälyagentin tarvitsemat tiedot voivat tulla monista eri lähteistä, ja meidän tehtävämme on varmistaa, että agentilla on pääsy näihin lähteisiin:
 
@@ -69,7 +69,7 @@ Tekoälyagentin hallittavaksi tarvittavat kontekstityypit voivat sisältää:
 
 ### Suunnittelustrategiat
 
-[![Kontekstisuunnittelun parhaat käytännöt](../../../translated_images/fi/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
+[![Kontekstisuunnittelun parhaat käytännöt](../../../translated_images/fi/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 Hyvä kontekstisuunnittelu alkaa hyvästä suunnittelusta. Tässä on lähestymistapa, joka auttaa sinua miettimään, kuinka soveltaa kontekstisuunnittelun käsitettä:
 

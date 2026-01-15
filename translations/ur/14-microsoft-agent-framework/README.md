@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # مائیکروسافٹ ایجنٹ فریم ورک کا جائزہ
 
-![ایجنٹ فریم ورک](../../../translated_images/ur/lesson-14-thumbnail.90df0065b9d234ee.png)
+![ایجنٹ فریم ورک](../../../translated_images/ur/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### تعارف
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## مائیکروسافٹ ایجنٹ فریم ورک کو سمجھنا
 
-![فریم ورک تعارف](../../../translated_images/ur/framework-intro.077af16617cf130c.png)
+![فریم ورک تعارف](../../../translated_images/ur/framework-intro.077af16617cf130c.webp)
 
 [مائیکروسافٹ ایجنٹ فریم ورک (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) سیمینٹک کرنل اور آٹو جن سے حاصل کردہ تجربات اور سیکھنے پر مبنی ہے۔ یہ پروڈکشن اور تحقیق کے ماحول میں مختلف ایجنٹک استعمال کے کیسز کو حل کرنے کے لیے لچک فراہم کرتا ہے، جن میں شامل ہیں:
 
@@ -63,7 +63,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### ایجنٹس
 
-![ایجنٹ فریم ورک](../../../translated_images/ur/agent-components.410a06daf87b4fef.png)
+![ایجنٹ فریم ورک](../../../translated_images/ur/agent-components.410a06daf87b4fef.webp)
 
 **ایجنٹس بنانا**
 

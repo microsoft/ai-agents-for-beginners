@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "et"
 }
 -->
-[![AI Agent Frameworkide uurimine](../../../translated_images/et/lesson-2-thumbnail.c65f44c93b8558df.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![AI Agent Frameworkide uurimine](../../../translated_images/et/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(Klõpsake ülaloleval pildil, et vaadata selle õppetunni videot)_
 

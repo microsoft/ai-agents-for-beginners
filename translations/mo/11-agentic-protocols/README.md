@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # 使用代理協議 (MCP、A2A 和 NLWeb)
 
-[![代理協議](../../../translated_images/mo/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
+[![代理協議](../../../translated_images/mo/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(點擊上方圖片觀看本課程影片)_
 
@@ -69,7 +69,7 @@ MCP 為 AI 代理提供了顯著的優勢：
 
 ### MCP 示例
 
-![MCP 圖示](../../../translated_images/mo/mcp-diagram.e4ca1cbd551444a1.png)
+![MCP 圖示](../../../translated_images/mo/mcp-diagram.e4ca1cbd551444a1.webp)
 
 假設使用者希望使用 MCP 驅動的 AI 助手預訂航班。
 
@@ -124,7 +124,7 @@ A2A 專注於促進代理之間的通信，並讓它們共同完成使用者的�
 
 ### A2A 示例
 
-![A2A 圖示](../../../translated_images/mo/A2A-Diagram.8666928d648acc26.png)
+![A2A 圖示](../../../translated_images/mo/A2A-Diagram.8666928d648acc26.webp)
 
 讓我們擴展旅行預訂場景，但這次使用 A2A。
 
@@ -158,7 +158,7 @@ A2A 專注於促進代理之間的通信，並讓它們共同完成使用者的�
 
 ### NLWeb 示例
 
-![NLWeb 圖示](../../../translated_images/mo/nlweb-diagram.c1e2390b310e5fe4.png)
+![NLWeb 圖示](../../../translated_images/mo/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 考慮我們的旅行預訂網站，但這次由 NLWeb 驅動。
 

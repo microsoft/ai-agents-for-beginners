@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fa"
 }
 -->
-[![طراحی چندعاملی](../../../translated_images/fa/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![طراحی چندعاملی](../../../translated_images/fa/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(برای مشاهده ویدئوی این درس روی تصویر بالا کلیک کنید)_
 # فراشناخت در عوامل هوش مصنوعی
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 فراشناخت به دلایل متعددی نقش حیاتی در طراحی عوامل هوش مصنوعی ایفا می‌کند:
 
-![اهمیت فراشناخت](../../../translated_images/fa/importance-of-metacognition.b381afe9aae352f7.png)
+![اهمیت فراشناخت](../../../translated_images/fa/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - خودبازتابی: عوامل می‌توانند عملکرد خود را ارزیابی کرده و زمینه‌های بهبود را شناسایی کنند.
 - تطبیق‌پذیری: عوامل می‌توانند استراتژی‌های خود را بر اساس تجربیات گذشته و محیط‌های متغیر تنظیم کنند.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 ابتدا بیایید تفاوت بین ابزار RAG و بارگذاری پیشگیرانه زمینه را درک کنیم.
 
-![RAG در مقابل بارگذاری زمینه](../../../translated_images/fa/rag-vs-context.9eae588520c00921.png)
+![RAG در مقابل بارگذاری زمینه](../../../translated_images/fa/rag-vs-context.9eae588520c00921.webp)
 
 ### تولید تقویت‌شده با بازیابی (RAG)
 

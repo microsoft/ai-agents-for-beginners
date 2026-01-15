@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # عامل‌های هوش مصنوعی برای مبتدیان - یک دوره
 
-![هوش تولیدی برای مبتدیان](../../translated_images/fa/repo-thumbnailv2.06f4a48036fde647.png)
+![هوش تولیدی برای مبتدیان](../../translated_images/fa/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## دوره‌ای که همه چیزهایی را که برای شروع ساخت عامل‌های هوش مصنوعی نیاز دارید آموزش می‌دهد
 

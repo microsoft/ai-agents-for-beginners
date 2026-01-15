@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ja"
 }
 -->
-[![AIエージェントフレームワークを探る](../../../translated_images/ja/lesson-2-thumbnail.c65f44c93b8558df.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![AIエージェントフレームワークを探る](../../../translated_images/ja/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(上の画像をクリックして、このレッスンの動画をご覧ください)_
 

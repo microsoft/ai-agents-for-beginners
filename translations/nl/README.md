@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI Agents voor Beginners - Een cursus
 
-![Generatieve AI voor Beginners](../../translated_images/nl/repo-thumbnailv2.06f4a48036fde647.png)
+![Generatieve AI voor Beginners](../../translated_images/nl/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Een cursus die alles uitlegt wat je moet weten om te beginnen met het bouwen van AI-agents
 

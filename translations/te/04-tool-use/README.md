@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "te"
 }
 -->
-[![How to Design Good AI Agents](../../../translated_images/te/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![How to Design Good AI Agents](../../../translated_images/te/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(ఈ పాఠం వీడియోను చూడటానికి పై చిత్రంపై క్లిక్ చేయండి)_
 
@@ -216,7 +216,7 @@ AI ఏజెంట్లు టూల్స్‌ను ఉపయోగించ
 
 సెమాంటిక్ కర్నెల్‌తో ఫంక్షన్ కాలింగ్ ప్రక్రియను వివరిస్తున్న డయాగ్రామ్:
 
-![function calling](../../../translated_images/te/functioncalling-diagram.a84006fc287f6014.png)
+![function calling](../../../translated_images/te/functioncalling-diagram.a84006fc287f6014.webp)
 
 సెమాంటిక్ కర్నెల్‌లో ఫంక్షన్‌లు/టూల్స్‌ను <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">ప్లగిన్లు</a> అని పిలుస్తారు. మేము ముందు చూశాం `get_current_time` ఫంక్షన్‌ను క్లాస్‌గా మార్చి ప్లగిన్‌గా మార్చవచ్చు. మేము `kernel_function` డెకరేటర్‌ను కూడా ఇంపోర్ట్ చేయవచ్చు, ఇది ఫంక్షన్ యొక్క వివరణను తీసుకుంటుంది. మీరు GetCurrentTimePluginతో కర్నెల్‌ను సృష్టించినప్పుడు, కర్నెల్ స్వయంచాలకంగా ఫంక్షన్ మరియు దాని పారామీటర్లను సీరియలైజ్ చేస్తుంది, LLMకు పంపడానికి స్కీమాను సృష్టిస్తుంది.
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sw"
 }
 -->
-[![Mpangilio wa Muundo wa Mipango](../../../translated_images/sw/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Mpangilio wa Muundo wa Mipango](../../../translated_images/sw/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Bofya picha hapo juu kutazama video ya somo hili)_
 
@@ -32,7 +32,7 @@ Baada ya kukamilisha somo hili, utakuwa na uelewa kuhusu:
 
 ## Kufafanua Lengo Kuu na Kugawanya Kazi
 
-![Kufafanua Malengo na Kazi](../../../translated_images/sw/defining-goals-tasks.d70439e19e37c47a.png)
+![Kufafanua Malengo na Kazi](../../../translated_images/sw/defining-goals-tasks.d70439e19e37c47a.webp)
 
 Kazi nyingi za ulimwengu halisi ni ngumu sana kushughulikiwa kwa hatua moja. Wakala wa AI anahitaji lengo fupi ili kuongoza mipango na hatua zake. Kwa mfano, fikiria lengo:
 

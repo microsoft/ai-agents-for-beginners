@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ಉತ್ಪಾದನೆಯಲ್ಲಿ AI ಏಜೆಂಟ್‌ಗಳು: ಗಮನಾರ್ಹತೆ ಮತ್ತು ಮೌಲ್ಯಮಾಪನ
 
-[![ಉತ್ಪಾದನೆಯಲ್ಲಿ AI ಏಜೆಂಟ್‌ಗಳು](../../../translated_images/kn/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![ಉತ್ಪಾದನೆಯಲ್ಲಿ AI ಏಜೆಂಟ್‌ಗಳು](../../../translated_images/kn/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 AI ಏಜೆಂಟ್‌ಗಳು ಪ್ರಯೋಗಾತ್ಮಕ ಮಾದರಿಗಳಿಂದ ನೈಜ ಜಗತ್ತಿನ ಅನ್ವಯಿಕತೆಗೆ ಸಾಗಿದಂತೆ, ಅವುಗಳ ವರ್ತನೆ, ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ಗಮನಿಸುವುದು ಮತ್ತು ಅವುಗಳ ಔಟ್‌ಪುಟ್‌ಗಳನ್ನು ವ್ಯವಸ್ಥಿತವಾಗಿ ಮೌಲ್ಯಮಾಪನ ಮಾಡುವುದು ಮುಖ್ಯವಾಗುತ್ತದೆ.
 

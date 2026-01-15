@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Azure AI Foundry हब बनाने के लिए [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ब्लॉग पोस्ट में दिए गए निर्देशों का पालन करें।
 2. जब आपका प्रोजेक्ट बन जाए, तो प्रदर्शित किसी भी टिप को बंद करें और Azure AI Foundry पोर्टल में प्रोजेक्ट पेज की समीक्षा करें, जो निम्नलिखित छवि जैसा दिखना चाहिए:
 
-    ![Azure AI Foundry Project](../../../translated_images/hi/azure-ai-foundry.88d0c35298348c2f.png)
+    ![Azure AI Foundry Project](../../../translated_images/hi/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## मॉडल तैनात करें
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > [!NOTE] TPM कम करने से आपकी सदस्यता में उपलब्ध कोटा के अधिक उपयोग से बचा जा सकता है।
 
-    ![Model Deployed](../../../translated_images/hi/model-deployment.3749c53fb81e18fd.png)
+    ![Model Deployed](../../../translated_images/hi/model-deployment.3749c53fb81e18fd.webp)
 
 ## एजेंट बनाएं
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 > इसके अलावा, आप एजेंट की क्षमताओं को बढ़ाने के लिए **Knowledge Base** और **Actions** जोड़ सकते हैं ताकि वह उपयोगकर्ता अनुरोधों के आधार पर अधिक जानकारी प्रदान कर सके और स्वचालित कार्य कर सके। इस अभ्यास के लिए, आप इन चरणों को छोड़ सकते हैं।
 
-![Agent Setup](../../../translated_images/hi/agent-setup.9bbb8755bf5df672.png)
+![Agent Setup](../../../translated_images/hi/agent-setup.9bbb8755bf5df672.webp)
 
 3. नया मल्टी-AI एजेंट बनाने के लिए, बस **New Agent** पर क्लिक करें। नया बनाया गया एजेंट Agents पेज पर दिखेगा।
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > [!NOTE] एजेंट सटीक उत्तर न दे सके क्योंकि इस अभ्यास में कोई वास्तविक समय डेटा उपयोग नहीं किया जा रहा है। उद्देश्य एजेंट की उपयोगकर्ता प्रश्नों को समझने और दिए गए निर्देशों के आधार पर प्रतिक्रिया देने की क्षमता का परीक्षण करना है।
 
-    ![Agent Playground](../../../translated_images/hi/agent-playground.dc146586de715010.png)
+    ![Agent Playground](../../../translated_images/hi/agent-playground.dc146586de715010.webp)
 
 3. एजेंट का परीक्षण करने के बाद, आप इसे और अधिक intents, प्रशिक्षण डेटा, और actions जोड़कर उसकी क्षमताओं को बढ़ा सकते हैं।
 

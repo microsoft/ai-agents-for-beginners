@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ar"
 }
 -->
-[![تصميم متعدد الوكلاء](../../../translated_images/ar/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![تصميم متعدد الوكلاء](../../../translated_images/ar/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو الدرس)_
 # التفكير فوق المعرفي في وكلاء الذكاء الاصطناعي
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 يلعب التفكير فوق المعرفي دورًا حيويًا في تصميم وكلاء الذكاء الاصطناعي لعدة أسباب:
 
-![أهمية التفكير فوق المعرفي](../../../translated_images/ar/importance-of-metacognition.b381afe9aae352f7.png)
+![أهمية التفكير فوق المعرفي](../../../translated_images/ar/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - التفكير الذاتي: يمكن للوكلاء تقييم أدائهم وتحديد المجالات التي تحتاج إلى تحسين.
 - التكيف: يمكن للوكلاء تعديل استراتيجياتهم بناءً على الخبرات السابقة والبيئات المتغيرة.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 أولاً، دعونا نبدأ بفهم الفرق بين أداة RAG وتحميل السياق الاستباقي.
 
-![RAG مقابل تحميل السياق](../../../translated_images/ar/rag-vs-context.9eae588520c00921.png)
+![RAG مقابل تحميل السياق](../../../translated_images/ar/rag-vs-context.9eae588520c00921.webp)
 
 ### توليد معزز بالاسترجاع (RAG)
 

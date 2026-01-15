@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tl"
 }
 -->
-[![Agentic RAG](../../../translated_images/tl/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/tl/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(I-click ang larawan sa itaas para mapanood ang video ng araling ito)_
 
@@ -49,7 +49,7 @@ Ang Agentic Retrieval-Augmented Generation (Agentic RAG) ay isang umuusbong na p
 
 Ang iterative na “maker-checker” na istilo ng operasyon ay idinisenyo upang mapabuti ang katumpakan, harapin ang mga maling query sa mga naka-istrukturang database (hal. NL2SQL), at tiyakin ang balanseng, mataas na kalidad na mga resulta. Sa halip na umasa lamang sa maingat na engineered na prompt chains, ang sistema ay aktibong nagmamay-ari ng proseso ng pangangatwiran nito. Maaari nitong muling isulat ang mga nabigong query, pumili ng iba't ibang retrieval methods, at mag-integrate ng maraming tool—tulad ng vector search sa Azure AI Search, SQL databases, o custom APIs—bago tapusin ang sagot nito. Inaalis nito ang pangangailangan para sa sobrang kumplikadong orchestration frameworks. Sa halip, isang medyo simpleng loop ng “LLM call → tool use → LLM call → …” ang maaaring magbunga ng sopistikado at maayos na mga output.
 
-![Agentic RAG Core Loop](../../../translated_images/tl/agentic-rag-core-loop.c8f4b85c26920f71.png)
+![Agentic RAG Core Loop](../../../translated_images/tl/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## Pagmamay-ari ng Proseso ng Pangangatwiran
 
@@ -66,7 +66,7 @@ Ang lahat ng mga hakbang na ito—pagpapabuti ng mga query, pagpili ng mga mapag
 
 ## Iterative Loops, Tool Integration, at Memory
 
-![Tool Integration Architecture](../../../translated_images/tl/tool-integration.0f569710b5c17c10.png)
+![Tool Integration Architecture](../../../translated_images/tl/tool-integration.0f569710b5c17c10.webp)
 
 Ang isang agentic na sistema ay umaasa sa isang pattern ng looped interaction:
 
@@ -88,7 +88,7 @@ Ang awtonomiya ng Agentic RAG ay kinabibilangan din ng matatag na mekanismo ng s
 
 Ang iterative at dynamic na diskarte na ito ay nagbibigay-daan sa modelo na patuloy na mag-improve, na tinitiyak na hindi lamang ito isang one-shot system kundi isang sistema na natututo mula sa mga pagkakamali nito sa isang partikular na session.
 
-![Self Correction Mechanism](../../../translated_images/tl/self-correction.da87f3783b7f174b.png)
+![Self Correction Mechanism](../../../translated_images/tl/self-correction.da87f3783b7f174b.webp)
 
 ## Mga Hangganan ng Agency
 

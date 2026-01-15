@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # A Microsoft Agent Framework felfedezése
 
-![Agent Framework](../../../translated_images/hu/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/hu/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Bevezetés
 
@@ -33,7 +33,7 @@ A [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-fra
 
 ## A Microsoft Agent Framework megértése
 
-![Framework Intro](../../../translated_images/hu/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/hu/framework-intro.077af16617cf130c.webp)
 
 A [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) a Semantic Kernel és AutoGen tapasztalataira és tanulságaira épít. Rugalmasságot kínál a különféle ügynöki felhasználási esetek kezelésére, amelyek gyártási és kutatási környezetekben egyaránt előfordulnak, például:
 
@@ -63,7 +63,7 @@ Nézzük meg, hogyan alkalmazhatók ezek a funkciók a Microsoft Agent Framework
 
 ### Ügynökök
 
-![Agent Framework](../../../translated_images/hu/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/hu/agent-components.410a06daf87b4fef.webp)
 
 **Ügynökök létrehozása**
 

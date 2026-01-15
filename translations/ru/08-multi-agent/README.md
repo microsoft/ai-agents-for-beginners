@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ru"
 }
 -->
-[![Многоагентный дизайн](../../../translated_images/ru/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Многоагентный дизайн](../../../translated_images/ru/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Нажмите на изображение выше, чтобы посмотреть видео этого урока)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Этот шаблон можно реализовать с использованием централизованной архитектуры, где все сообщения проходят через центральный сервер, или децентрализованной архитектуры, где сообщения обмениваются напрямую.
 
-![Групповой чат](../../../translated_images/ru/multi-agent-group-chat.ec10f4cde556babd.png)
+![Групповой чат](../../../translated_images/ru/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Передача задач
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 В этом шаблоне каждый агент представляет задачу или шаг в рабочем процессе, и агенты могут передавать задачи другим агентам на основе заранее определенных правил.
 
-![Передача задач](../../../translated_images/ru/multi-agent-hand-off.4c5fb00ba6f8750a.png)
+![Передача задач](../../../translated_images/ru/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Коллаборативная фильтрация
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **Технический анализ**: Другой агент может быть экспертом в техническом анализе.
 - **Фундаментальный анализ**: Еще один агент может быть экспертом в фундаментальном анализе. Сотрудничая, эти агенты могут предоставить пользователю более комплексную рекомендацию.
 
-![Рекомендация](../../../translated_images/ru/multi-agent-filtering.d959cb129dc9f608.png)
+![Рекомендация](../../../translated_images/ru/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Сценарий: Процесс возврата средств
 

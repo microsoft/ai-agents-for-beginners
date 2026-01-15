@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ko"
 }
 -->
-[![Agentic RAG](../../../translated_images/ko/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/ko/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(위 이미지를 클릭하면 이 강의의 영상을 볼 수 있습니다)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG)은 LLM이 외부 데이터 
 
 이 반복적인 “Maker-Checker” 스타일의 운영은 정확성을 개선하고, 구조화된 데이터베이스(예: NL2SQL)에 대한 잘못된 쿼리를 처리하며, 균형 잡힌 고품질 결과를 보장하도록 설계되었습니다. 신중하게 설계된 프롬프트 체인에만 의존하는 대신, 시스템은 추론 과정을 적극적으로 소유합니다. 실패한 쿼리를 다시 작성하고, 다른 검색 방법을 선택하며, 여러 도구를 통합합니다. 예를 들어 Azure AI Search의 벡터 검색, SQL 데이터베이스 또는 사용자 지정 API를 사용하여 최종 답변을 완성합니다. 이는 지나치게 복잡한 오케스트레이션 프레임워크의 필요성을 제거합니다. 대신, “LLM 호출 → 도구 사용 → LLM 호출 → …”의 비교적 간단한 루프를 통해 정교하고 근거 있는 출력을 생성할 수 있습니다.
 
-![Agentic RAG Core Loop](../../../translated_images/ko/agentic-rag-core-loop.c8f4b85c26920f71.png)
+![Agentic RAG Core Loop](../../../translated_images/ko/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## 추론 과정 소유하기
 
@@ -67,7 +67,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG)은 LLM이 외부 데이터 
 
 ## 반복 루프, 도구 통합 및 메모리
 
-![Tool Integration Architecture](../../../translated_images/ko/tool-integration.0f569710b5c17c10.png)
+![Tool Integration Architecture](../../../translated_images/ko/tool-integration.0f569710b5c17c10.webp)
 
 Agentic 시스템은 반복적 상호작용 패턴에 의존합니다:
 
@@ -89,7 +89,7 @@ Agentic RAG의 자율성은 강력한 자기 수정 메커니즘도 포함합니
 
 이 반복적이고 역동적인 접근 방식은 모델이 지속적으로 개선되도록 하며, 단순히 한 번의 시도로 끝나는 시스템이 아니라 주어진 세션 동안 실수를 통해 학습하는 시스템이 되도록 합니다.
 
-![Self Correction Mechanism](../../../translated_images/ko/self-correction.da87f3783b7f174b.png)
+![Self Correction Mechanism](../../../translated_images/ko/self-correction.da87f3783b7f174b.webp)
 
 ## 에이전시의 한계
 
@@ -119,7 +119,7 @@ Agentic RAG는 반복적 수정과 정밀성이 요구되는 시나리오에서 
 
 행동 기록을 명확히 제공하는 도구가 필수적입니다. 그렇지 않으면 다단계 프로세스를 디버깅하는 것이 매우 어려울 수 있습니다. Chainlit을 개발한 Literal AI의 Agent 실행 예제를 참조하세요:
 
-![AgentRunExample](../../../translated_images/ko/AgentRunExample.471a94bc40cbdc0c.png)
+![AgentRunExample](../../../translated_images/ko/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## 결론
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ko"
 }
 -->
-[![신뢰할 수 있는 AI 에이전트](../../../translated_images/ko/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![신뢰할 수 있는 AI 에이전트](../../../translated_images/ko/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(위 이미지를 클릭하면 이 강의의 동영상을 볼 수 있습니다)_
 
@@ -41,7 +41,7 @@ AI 에이전트의 경우, 시스템 프롬프트는 더욱 중요합니다. 에
 
 확장 가능한 시스템 프롬프트를 만들기 위해 애플리케이션에서 하나 이상의 에이전트를 구축하는 시스템 메시지 프레임워크를 사용할 수 있습니다:
 
-![시스템 메시지 프레임워크 구축](../../../translated_images/ko/system-message-framework.3a97368c92d11d68.png)
+![시스템 메시지 프레임워크 구축](../../../translated_images/ko/system-message-framework.3a97368c92d11d68.webp)
 
 #### 1단계: 메타 시스템 메시지 생성
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 신뢰할 수 있는 AI 에이전트를 구축하려면 AI 에이전트에 대한 위험과 위협을 이해하고 이를 완화하는 것이 중요합니다. AI 에이전트에 대한 다양한 위협 중 일부를 살펴보고 이를 더 잘 계획하고 준비하는 방법을 알아보겠습니다.
 
-![위협 이해](../../../translated_images/ko/understanding-threats.89edeada8a97fc0f.png)
+![위협 이해](../../../translated_images/ko/understanding-threats.89edeada8a97fc0f.webp)
 
 ### 작업 및 지침
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 신뢰할 수 있는 AI 에이전트 시스템을 구축하는 또 다른 효과적인 방법은 인간 개입 루프를 사용하는 것입니다. 이를 통해 사용자가 실행 중인 에이전트에 피드백을 제공할 수 있는 흐름을 만듭니다. 사용자는 다중 에이전트 시스템에서 에이전트 역할을 하며 실행 프로세스를 승인하거나 종료할 수 있습니다.
 
-![인간 개입 루프](../../../translated_images/ko/human-in-the-loop.5f0068a678f62f4f.png)
+![인간 개입 루프](../../../translated_images/ko/human-in-the-loop.5f0068a678f62f4f.webp)
 
 다음은 AutoGen을 사용하여 이 개념이 구현되는 방법을 보여주는 코드 스니펫입니다:
 

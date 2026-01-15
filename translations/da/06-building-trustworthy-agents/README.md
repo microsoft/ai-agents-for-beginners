@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "da"
 }
 -->
-[![Pålidelige AI-agenter](../../../translated_images/da/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Pålidelige AI-agenter](../../../translated_images/da/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klik på billedet ovenfor for at se videoen til denne lektion)_
 
@@ -41,7 +41,7 @@ For AI-agenter er systemprompten endnu vigtigere, da AI-agenter har brug for meg
 
 For at skabe skalerbare systemprompts kan vi bruge en systemmeddelelsesramme til at bygge en eller flere agenter i vores applikation:
 
-![Opbygning af en systemmeddelelsesramme](../../../translated_images/da/system-message-framework.3a97368c92d11d68.png)
+![Opbygning af en systemmeddelelsesramme](../../../translated_images/da/system-message-framework.3a97368c92d11d68.webp)
 
 #### Trin 1: Opret en metasystemmeddelelse
 
@@ -130,7 +130,7 @@ Fordelen ved denne systemmeddelelsesramme er, at det bliver lettere at skalere o
 
 For at bygge pålidelige AI-agenter er det vigtigt at forstå og håndtere risici og trusler mod din AI-agent. Lad os se på nogle af de forskellige trusler mod AI-agenter og hvordan du bedre kan planlægge og forberede dig på dem.
 
-![Forståelse af trusler](../../../translated_images/da/understanding-threats.89edeada8a97fc0f.png)
+![Forståelse af trusler](../../../translated_images/da/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Opgave og instruktion
 
@@ -166,7 +166,7 @@ For at bygge pålidelige AI-agenter er det vigtigt at forstå og håndtere risic
 
 En anden effektiv måde at bygge pålidelige AI-agent-systemer på er ved at bruge et menneske i loopet. Dette skaber et flow, hvor brugere kan give feedback til agenterne under deres kørsel. Brugere fungerer i praksis som agenter i et multi-agent-system og kan give godkendelse eller afslutte processen.
 
-![Mennesket i loopet](../../../translated_images/da/human-in-the-loop.5f0068a678f62f4f.png)
+![Mennesket i loopet](../../../translated_images/da/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Her er et kodeeksempel, der bruger AutoGen til at vise, hvordan dette koncept implementeres:
 

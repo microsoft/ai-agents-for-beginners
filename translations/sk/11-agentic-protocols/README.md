@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Používanie agentických protokolov (MCP, A2A a NLWeb)
 
-[![Agentické protokoly](../../../translated_images/sk/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentické protokoly](../../../translated_images/sk/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Kliknite na obrázok vyššie pre zobrazenie videa k tejto lekcii)_
 
@@ -69,7 +69,7 @@ MCP prináša významné výhody pre AI agentov:
 
 ### Príklad MCP
 
-![MCP Diagram](../../../translated_images/sk/mcp-diagram.e4ca1cbd551444a1.png)
+![MCP Diagram](../../../translated_images/sk/mcp-diagram.e4ca1cbd551444a1.webp)
 
 Predstavte si, že používateľ chce rezervovať let pomocou AI asistenta poháňaného MCP.
 
@@ -124,7 +124,7 @@ Táto komponenta sa používa na **spracovanie aktualizácií a odovzdávanie sp
 
 ### Príklad A2A
 
-![A2A Diagram](../../../translated_images/sk/A2A-Diagram.8666928d648acc26.png)
+![A2A Diagram](../../../translated_images/sk/A2A-Diagram.8666928d648acc26.webp)
 
 Rozšírme náš scenár rezervácie cesty, ale tentokrát pomocou A2A.
 
@@ -158,7 +158,7 @@ Pozrime sa na rôzne komponenty NLWeb, výhody NLWeb a príklad, ako NLWeb fungu
 
 ### NLWeb na príklade
 
-![NLWeb](../../../translated_images/sk/nlweb-diagram.c1e2390b310e5fe4.png)
+![NLWeb](../../../translated_images/sk/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 Zvážme našu webovú stránku na rezerváciu ciest, ale tentokrát poháňanú NLWeb.
 

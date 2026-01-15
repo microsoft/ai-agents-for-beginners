@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tr"
 }
 -->
-[![Çoklu Ajan Tasarımı](../../../translated_images/tr/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Çoklu Ajan Tasarımı](../../../translated_images/tr/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 
@@ -95,7 +95,7 @@ Bu kalıpta, her ajan grup sohbetindeki bir kullanıcıyı temsil eder ve mesajl
 
 Bu kalıp, tüm mesajların merkezi bir sunucu üzerinden yönlendirildiği merkezi bir mimari veya mesajların doğrudan değiştirildiği merkezi olmayan bir mimari kullanılarak uygulanabilir.
 
-![Grup Sohbeti](../../../translated_images/tr/multi-agent-group-chat.ec10f4cde556babd.png)
+![Grup Sohbeti](../../../translated_images/tr/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Görev Devri
 
@@ -105,7 +105,7 @@ Bu kalıbın tipik kullanım durumları arasında müşteri desteği, görev yö
 
 Bu kalıpta, her ajan bir görevi veya bir iş akışındaki bir adımı temsil eder ve ajanlar, önceden tanımlanmış kurallara göre görevleri diğer ajanlara devredebilir.
 
-![Görev Devri](../../../translated_images/tr/multi-agent-hand-off.4c5fb00ba6f8750a.png)
+![Görev Devri](../../../translated_images/tr/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### İş Birlikçi Filtreleme
 
@@ -119,7 +119,7 @@ Birden fazla ajanın iş birliği yapmasını istemenizin nedeni, her ajanın fa
 - **Teknik Analiz**: Başka bir ajan teknik analizde uzman olabilir.
 - **Temel Analiz**: Ve başka bir ajan temel analizde uzman olabilir. Bu ajanlar iş birliği yaparak kullanıcıya daha kapsamlı bir öneri sunabilir.
 
-![Öneri](../../../translated_images/tr/multi-agent-filtering.d959cb129dc9f608.png)
+![Öneri](../../../translated_images/tr/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Senaryo: İade Süreci
 

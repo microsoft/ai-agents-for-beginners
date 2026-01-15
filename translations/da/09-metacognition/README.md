@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "da"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/da/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/da/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Klik på billedet ovenfor for at se videoen til denne lektion)_
 # Metakognition i AI-agenter
@@ -47,7 +47,7 @@ Holde styr på, hvordan eller hvorfor den valgte en bestemt rute.
 
 Metakognition spiller en afgørende rolle i designet af AI-agenter af flere grunde:
 
-![Vigtigheden af Metakognition](../../../translated_images/da/importance-of-metacognition.b381afe9aae352f7.png)
+![Vigtigheden af Metakognition](../../../translated_images/da/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Selvrefleksion: Agenter kan vurdere deres egen præstation og identificere områder, der kan forbedres.
 - Tilpasningsevne: Agenter kan ændre deres strategier baseret på tidligere erfaringer og skiftende miljøer.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Lad os først forstå forskellen mellem RAG-værktøjet og præventiv kontekstindlæsning.
 
-![RAG vs Context Loading](../../../translated_images/da/rag-vs-context.9eae588520c00921.png)
+![RAG vs Context Loading](../../../translated_images/da/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 

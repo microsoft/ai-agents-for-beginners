@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "da"
 }
 -->
-[![Intro til AI-agenter](../../../translated_images/da/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro til AI-agenter](../../../translated_images/da/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klik på billedet ovenfor for at se videoen til denne lektion)_
 
@@ -47,7 +47,7 @@ Lad os bryde denne definition ned i mindre dele:
   - **Sensorer** - Miljøer har information og giver feedback. AI-agenter bruger sensorer til at indsamle og fortolke denne information om miljøets aktuelle tilstand. I eksemplet med rejsebooking-agenten kan rejsebookingsystemet give information som hoteltilgængelighed eller flypriser.
   - **Aktuatorer** - Når AI-agenten modtager miljøets aktuelle tilstand, bestemmer agenten, hvilken handling der skal udføres for at ændre miljøet. For rejsebooking-agenten kunne det være at booke et ledigt værelse til brugeren.
 
-![Hvad er AI-agenter?](../../../translated_images/da/what-are-ai-agents.1ec8c4d548af601a.png)
+![Hvad er AI-agenter?](../../../translated_images/da/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Large Language Models** - Konceptet med agenter eksisterede før oprettelsen af LLMs. Fordelen ved at bygge AI-agenter med LLMs er deres evne til at fortolke menneskesprog og data. Denne evne gør det muligt for LLMs at fortolke miljøinformation og definere en plan for at ændre miljøet.
 
@@ -77,7 +77,7 @@ I det tidligere afsnit brugte vi rejseagentens anvendelsesområde til at forklar
 
 Lad os se på de typer anvendelsesområder, som AI-agenter er bedst egnet til:
 
-![Hvornår skal man bruge AI-agenter?](../../../translated_images/da/when-to-use-ai-agents.54becb3bed74a479.png)
+![Hvornår skal man bruge AI-agenter?](../../../translated_images/da/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Åbne problemer** - giver LLM mulighed for at bestemme nødvendige trin for at fuldføre en opgave, fordi det ikke altid kan hardcodes i en arbejdsgang.
 - **Flertrinsprocesser** - opgaver, der kræver en vis kompleksitet, hvor AI-agenten skal bruge værktøjer eller information over flere trin i stedet for enkeltstående hentning.  

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hk"
 }
 -->
-[![可信的 AI 代理](../../../translated_images/hk/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![可信的 AI 代理](../../../translated_images/hk/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(點擊上方圖片觀看本課程影片)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 為了創建可擴展的系統提示，我們可以使用系統訊息框架來建立應用程式中的一個或多個代理：
 
-![建立系統訊息框架](../../../translated_images/hk/system-message-framework.3a97368c92d11d68.png)
+![建立系統訊息框架](../../../translated_images/hk/system-message-framework.3a97368c92d11d68.webp)
 
 #### 步驟 1：創建元系統訊息
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 要建立可信的 AI 代理，理解並減輕 AI 代理面臨的風險及威脅至關重要。讓我們來看看一些 AI 代理可能面臨的不同威脅，以及如何更好地計劃及準備應對它們。
 
-![理解威脅](../../../translated_images/hk/understanding-threats.89edeada8a97fc0f.png)
+![理解威脅](../../../translated_images/hk/understanding-threats.89edeada8a97fc0f.webp)
 
 ### 任務及指令
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 另一種建立可信 AI 代理系統的有效方法是使用人類介入。這創建了一個流程，讓用戶能在代理運行過程中提供反饋。用戶本質上充當多代理系統中的代理，並通過批准或終止運行過程來參與。
 
-![人類介入](../../../translated_images/hk/human-in-the-loop.5f0068a678f62f4f.png)
+![人類介入](../../../translated_images/hk/human-in-the-loop.5f0068a678f62f4f.webp)
 
 以下是一段使用 AutoGen 展示此概念如何實現的程式碼片段：
 

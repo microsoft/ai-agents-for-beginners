@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "uk"
 }
 -->
-[![Як створювати хороших AI-агентів](../../../translated_images/uk/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Як створювати хороших AI-агентів](../../../translated_images/uk/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Натисніть на зображення вище, щоб переглянути відео цього уроку)_
 # Принципи дизайну агентів штучного інтелекту
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Принципи дизайну агентів
 
-![Принципи дизайну агентів](../../../translated_images/uk/agentic-design-principles.1cfdf8b6d3cc73c2.png)
+![Принципи дизайну агентів](../../../translated_images/uk/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Агент (Простір)
 

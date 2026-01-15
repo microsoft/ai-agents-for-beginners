@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ar"
 }
 -->
-[![Agentic RAG](../../../translated_images/ar/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/ar/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو الدرس)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 هذا النمط التكراري "Maker-Checker" مصمم لتحسين الدقة، معالجة الاستفسارات غير الصحيحة لقواعد البيانات المنظمة (مثل NL2SQL)، وضمان نتائج متوازنة وعالية الجودة. بدلاً من الاعتماد فقط على سلاسل التعليمات المصممة بعناية، يمتلك النظام عملية التفكير الخاصة به. يمكنه إعادة كتابة الاستفسارات الفاشلة، اختيار طرق استرجاع مختلفة، ودمج أدوات متعددة—مثل البحث المتجهي في Azure AI Search، قواعد بيانات SQL، أو واجهات برمجة التطبيقات المخصصة—قبل تقديم الإجابة النهائية. هذا يلغي الحاجة إلى أطر تنظيمية معقدة للغاية. بدلاً من ذلك، يمكن لدورة بسيطة نسبيًا من "استدعاء النموذج → استخدام الأداة → استدعاء النموذج → ..." أن تنتج مخرجات متطورة وموثوقة.
 
-![Agentic RAG Core Loop](../../../translated_images/ar/agentic-rag-core-loop.c8f4b85c26920f71.png)
+![Agentic RAG Core Loop](../../../translated_images/ar/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## امتلاك عملية التفكير
 
@@ -66,7 +66,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## الحلقات التكرارية، تكامل الأدوات، والذاكرة
 
-![Tool Integration Architecture](../../../translated_images/ar/tool-integration.0f569710b5c17c10.png)
+![Tool Integration Architecture](../../../translated_images/ar/tool-integration.0f569710b5c17c10.webp)
 
 يعتمد النظام الذاتي على نمط تفاعل متكرر:
 
@@ -88,7 +88,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 هذا النهج التكراري والديناميكي يسمح للنموذج بالتحسن باستمرار، مما يضمن أنه ليس مجرد نظام يعتمد على محاولة واحدة، بل نظام يتعلم من أخطائه خلال الجلسة.
 
-![Self Correction Mechanism](../../../translated_images/ar/self-correction.da87f3783b7f174b.png)
+![Self Correction Mechanism](../../../translated_images/ar/self-correction.da87f3783b7f174b.webp)
 
 ## حدود الوكالة
 
@@ -117,7 +117,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 وجود أدوات توفر سجلًا واضحًا للإجراءات أمر ضروري. بدونها، يمكن أن يكون تصحيح عملية متعددة الخطوات أمرًا صعبًا للغاية. انظر المثال التالي من Literal AI (الشركة وراء Chainlit) لتشغيل وكيل:
 
-![AgentRunExample](../../../translated_images/ar/AgentRunExample.471a94bc40cbdc0c.png)
+![AgentRunExample](../../../translated_images/ar/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## الخاتمة
 

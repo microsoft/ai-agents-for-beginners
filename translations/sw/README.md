@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Wakala wa AI kwa Waanzilishi - Kozi
 
-![AI ya Kuzalisha kwa Waanzilishi](../../translated_images/sw/repo-thumbnailv2.06f4a48036fde647.png)
+![AI ya Kuzalisha kwa Waanzilishi](../../translated_images/sw/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Kozi inayoelezea kila kitu unachohitaji kujua kuanza kujenga Wakala wa AI
 

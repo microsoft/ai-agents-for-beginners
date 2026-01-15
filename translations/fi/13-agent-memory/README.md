@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Muisti tekoälyagenteille 
-[![Agentin muisti](../../../translated_images/fi/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agentin muisti](../../../translated_images/fi/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Kun puhutaan tekoälyagenttien ainutlaatuisista eduista, kaksi asiaa nousee usein esiin: kyky käyttää työkaluja tehtävien suorittamiseen ja kyky parantaa itseään ajan myötä. Muisti on keskeisessä roolissa itseään parantavien agenttien luomisessa, jotka voivat tarjota parempia kokemuksia käyttäjillemme.
 

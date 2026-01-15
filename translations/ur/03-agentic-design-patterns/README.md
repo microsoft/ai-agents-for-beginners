@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ur"
 }
 -->
-[![اے آئی ایجنٹس کو بہتر ڈیزائن کرنے کا طریقہ](../../../translated_images/ur/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![اے آئی ایجنٹس کو بہتر ڈیزائن کرنے کا طریقہ](../../../translated_images/ur/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(اوپر دی گئی تصویر پر کلک کریں تاکہ اس سبق کی ویڈیو دیکھ سکیں)_
 # اے آئی ایجنٹک ڈیزائن اصول
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## ایجنٹک ڈیزائن اصول
 
-![ایجنٹک ڈیزائن اصول](../../../translated_images/ur/agentic-design-principles.1cfdf8b6d3cc73c2.png)
+![ایجنٹک ڈیزائن اصول](../../../translated_images/ur/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### ایجنٹ (جگہ)
 

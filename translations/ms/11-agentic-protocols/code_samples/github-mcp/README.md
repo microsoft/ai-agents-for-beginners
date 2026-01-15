@@ -53,7 +53,7 @@ Ini akan memulakan pelayan Chainlit anda pada `localhost:8000` serta mengisi Ind
 
 Untuk menyambung ke Pelayan MCP Github, pilih ikon "plug" di bawah kotak sembang "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/ms/mcp-chainlit-1.7ed66d648e3cfb28.png)
+![MCP Connect](../../../../../translated_images/ms/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
 Dari situ, anda boleh klik pada "Connect an MCP" untuk menambah arahan bagi menyambung ke Pelayan MCP Github:
 

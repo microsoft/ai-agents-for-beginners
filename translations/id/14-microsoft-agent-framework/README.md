@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Menjelajahi Microsoft Agent Framework
 
-![Agent Framework](../../../translated_images/id/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/id/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Pendahuluan
 
@@ -33,7 +33,7 @@ Contoh kode untuk [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beg
 
 ## Memahami Microsoft Agent Framework
 
-![Framework Intro](../../../translated_images/id/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/id/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) dibangun berdasarkan pengalaman dan pembelajaran dari Semantic Kernel dan AutoGen. Framework ini menawarkan fleksibilitas untuk menangani berbagai kasus penggunaan berbasis agen yang ditemukan di lingkungan produksi maupun penelitian, termasuk:
 
@@ -63,7 +63,7 @@ Mari kita lihat bagaimana fitur-fitur ini diterapkan pada beberapa konsep inti M
 
 ### Agen
 
-![Agent Framework](../../../translated_images/id/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/id/agent-components.410a06daf87b4fef.webp)
 
 **Membuat Agen**
 

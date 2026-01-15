@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್‌ವರ್ಕ್ ಅನ್ನು ಅನ್ವೇಷಿಸುವುದು
 
-![Agent Framework](../../../translated_images/kn/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/kn/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### ಪರಿಚಯ
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್‌ವರ್ಕ್ ಅನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು
 
-![Framework Intro](../../../translated_images/kn/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/kn/framework-intro.077af16617cf130c.webp)
 
 [ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್‌ವರ್ಕ್ (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) ಸೆಮ್ಯಾಂಟಿಕ್ ಕರ್ಣಲ್ ಮತ್ತು AutoGen ನ ಅನುಭವ ಮತ್ತು ಪಾಠಗಳ ಮೇಲೆ ಆಧಾರಿತವಾಗಿದೆ. ಇದು ಉತ್ಪಾದನೆ ಮತ್ತು ಸಂಶೋಧನಾ ಪರಿಸರಗಳಲ್ಲಿ ಕಂಡುಬರುವ ವಿವಿಧ ಏಜೆಂಟಿಕ್ ಬಳಕೆ ಪ್ರಕರಣಗಳನ್ನು ಪರಿಹರಿಸಲು ಲಚ್ಯತೆಯನ್ನು ನೀಡುತ್ತದೆ:
 
@@ -63,7 +63,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### ಏಜೆಂಟ್‌ಗಳು
 
-![Agent Framework](../../../translated_images/kn/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/kn/agent-components.410a06daf87b4fef.webp)
 
 **ಏಜೆಂಟ್‌ಗಳನ್ನು ರಚಿಸುವುದು**
 

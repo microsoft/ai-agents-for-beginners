@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "da"
 }
 -->
-[![Sådan designer man gode AI-agenter](../../../translated_images/da/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Sådan designer man gode AI-agenter](../../../translated_images/da/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Klik på billedet ovenfor for at se videoen til denne lektion)_
 
@@ -216,7 +216,7 @@ Her er nogle eksempler på, hvordan du kan implementere designmønsteret for væ
 
 Følgende diagram illustrerer processen med funktionskald med Semantic Kernel:
 
-![funktionskald](../../../translated_images/da/functioncalling-diagram.a84006fc287f6014.png)
+![funktionskald](../../../translated_images/da/functioncalling-diagram.a84006fc287f6014.webp)
 
 I Semantic Kernel kaldes funktioner/værktøjer <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Vi kan konvertere `get_current_time`-funktionen, vi så tidligere, til et plugin ved at gøre den til en klasse med funktionen i den. Vi kan også importere dekoratoren `kernel_function`, som tager beskrivelsen af funktionen. Når du derefter opretter en kernel med GetCurrentTimePlugin, vil kernelen automatisk serialisere funktionen og dens parametre og skabe skemaet til at sende til LLM'en i processen.
 
@@ -277,7 +277,7 @@ Forestil dig, at du er en salgsagent i en virksomhed kaldet Contoso. Du vil udvi
 
 Følgende billede illustrerer, hvordan du kunne bruge Azure AI Agent Service til at analysere dine salgsdata:
 
-![Agentisk service i aktion](../../../translated_images/da/agent-service-in-action.34fb465c9a84659e.jpg)
+![Agentisk service i aktion](../../../translated_images/da/agent-service-in-action.34fb465c9a84659e.webp)
 
 For at bruge nogen af disse værktøjer med tjenesten kan vi oprette en klient og definere et værktøj eller et værktøjssæt. For at implementere dette praktisk kan vi bruge følgende Python-kode. LLM'en vil kunne se på værktøjssættet og beslutte, om den skal bruge den brugeroprettede funktion, `fetch_sales_data_using_sqlite_query`, eller den forudbyggede Code Interpreter afhængigt af brugerens forespørgsel.
 

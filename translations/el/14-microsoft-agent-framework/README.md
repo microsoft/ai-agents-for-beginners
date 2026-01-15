@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Εξερεύνηση του Microsoft Agent Framework
 
-![Agent Framework](../../../translated_images/el/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/el/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Εισαγωγή
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Κατανόηση του Microsoft Agent Framework
 
-![Framework Intro](../../../translated_images/el/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/el/framework-intro.077af16617cf130c.webp)
 
 Το [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) βασίζεται στην εμπειρία και τις γνώσεις από το Semantic Kernel και το AutoGen. Προσφέρει ευελιξία για την αντιμετώπιση μιας ευρείας ποικιλίας περιπτώσεων χρήσης Agents τόσο σε παραγωγικά όσο και σε ερευνητικά περιβάλλοντα, όπως:
 
@@ -63,7 +63,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Agents
 
-![Agent Framework](../../../translated_images/el/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/el/agent-components.410a06daf87b4fef.webp)
 
 **Δημιουργία Agents**
 

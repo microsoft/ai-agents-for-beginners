@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ta"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/ta/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/ta/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(மேலே உள்ள படத்தை கிளிக் செய்து இந்த பாடத்தின் வீடியோவைப் பாருங்கள்)_
 # AI முகவர்களில் தன்னிலை உணர்வு
@@ -47,7 +47,7 @@ Agentic AI அமைப்புகளின் சூழலில், தன்
 
 AI முகவர் வடிவமைப்பில் தன்னிலை உணர்வு பல காரணங்களுக்காக முக்கிய பங்கு வகிக்கிறது:
 
-![தன்னிலை உணர்வின் முக்கியத்துவம்](../../../translated_images/ta/importance-of-metacognition.b381afe9aae352f7.png)
+![தன்னிலை உணர்வின் முக்கியத்துவம்](../../../translated_images/ta/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - தன்னிலை சிந்தனை: முகவர்கள் தங்கள் செயல்திறனை மதிப்பீடு செய்து மேம்படுத்த வேண்டிய பகுதிகளை அடையாளம் காண முடியும்.
 - தழுவல்: கடந்த அனுபவங்கள் மற்றும் மாறும் சூழல்களை அடிப்படையாகக் கொண்டு தங்கள் உத்திகளை மாற்ற முடியும்.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 முதலில் RAG கருவி மற்றும் முன்னேற்பாட்டு சூழல் ஏற்றுதல் இடையேயான வேறுபாட்டை புரிந்துகொள்வோம்.
 
-![RAG vs Context Loading](../../../translated_images/ta/rag-vs-context.9eae588520c00921.png)
+![RAG vs Context Loading](../../../translated_images/ta/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 

@@ -53,7 +53,7 @@ To bi moralo zagnati vaš Chainlit strežnik na `localhost:8000` in napolniti va
 
 Za povezavo z Github MCP Serverjem kliknite na ikono "vtič" pod poljem za klepet "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/sl/mcp-chainlit-1.7ed66d648e3cfb28.png)
+![MCP Connect](../../../../../translated_images/sl/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
 Od tam lahko kliknete na "Connect an MCP", da dodate ukaz za povezavo z Github MCP Serverjem:
 

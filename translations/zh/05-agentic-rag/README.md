@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "zh"
 }
 -->
-[![Agentic RAG](../../../translated_images/zh/lesson-5-thumbnail.20ba9d0c0ae64fae.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/zh/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(点击上方图片观看本课视频)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation（Agentic RAG）是一种新兴的人工�
 
 这种迭代的“制造者-检查者”操作模式旨在提高正确性、处理结构化数据库（例如NL2SQL）中的不良查询，并确保平衡且高质量的结果。系统不仅依赖精心设计的提示链，还能主动掌控其推理过程。它可以重写失败的查询、选择不同的检索方法并集成多种工具，例如Azure AI Search中的向量搜索、SQL数据库或自定义API，然后最终生成答案。这消除了对过于复杂的编排框架的需求。相反，一个相对简单的循环“LLM调用 → 工具使用 → LLM调用 → …”即可生成复杂且有依据的输出。
 
-![Agentic RAG核心循环](../../../translated_images/zh/agentic-rag-core-loop.c8f4b85c26920f71.png)
+![Agentic RAG核心循环](../../../translated_images/zh/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## 掌控推理过程
 
@@ -66,7 +66,7 @@ Agentic Retrieval-Augmented Generation（Agentic RAG）是一种新兴的人工�
 
 ## 迭代循环、工具集成和记忆
 
-![工具集成架构](../../../translated_images/zh/tool-integration.0f569710b5c17c10.png)
+![工具集成架构](../../../translated_images/zh/tool-integration.0f569710b5c17c10.webp)
 
 Agentic系统依赖循环交互模式：
 
@@ -88,7 +88,7 @@ Agentic RAG的自主性还包括强大的自我纠正机制。当系统遇到瓶
 
 这种迭代和动态的方法使模型能够不断改进，确保它不仅仅是一个一次性系统，而是一个能够在给定会话中从错误中学习的系统。
 
-![自我纠正机制](../../../translated_images/zh/self-correction.da87f3783b7f174b.png)
+![自我纠正机制](../../../translated_images/zh/self-correction.da87f3783b7f174b.webp)
 
 ## 自主性的边界
 
@@ -117,7 +117,7 @@ Agentic RAG在需要迭代优化和精确性的场景中表现出色：
 
 拥有能够提供清晰操作记录的工具至关重要。没有这些工具，调试多步骤过程可能会非常困难。以下是Literal AI（Chainlit背后的公司）提供的一个代理运行示例：
 
-![Agent运行示例](../../../translated_images/zh/AgentRunExample.471a94bc40cbdc0c.png)
+![Agent运行示例](../../../translated_images/zh/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## 结论
 

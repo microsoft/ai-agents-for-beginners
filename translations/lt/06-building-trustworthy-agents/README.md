@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "lt"
 }
 -->
-[![Patikimi dirbtinio intelekto agentai](../../../translated_images/lt/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Patikimi dirbtinio intelekto agentai](../../../translated_images/lt/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Spustelėkite aukščiau esančią nuotrauką, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
@@ -41,7 +41,7 @@ DI agentams sisteminė užklausa yra dar svarbesnė, nes DI agentams reikia itin
 
 Norėdami sukurti mastelio keičiamas sistemines užklausas, galime naudoti sisteminės žinutės kūrimo sistemą, skirtą vienam ar keliems agentams mūsų programoje:
 
-![Sisteminės žinutės kūrimo sistema](../../../translated_images/lt/system-message-framework.3a97368c92d11d68.png)
+![Sisteminės žinutės kūrimo sistema](../../../translated_images/lt/system-message-framework.3a97368c92d11d68.webp)
 
 #### 1 žingsnis: Sukurkite meta sisteminę žinutę
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 Norint sukurti patikimus DI agentus, svarbu suprasti ir sumažinti rizikas bei grėsmes, su kuriomis gali susidurti jūsų DI agentas. Pažvelkime į kai kurias grėsmes ir kaip galite geriau planuoti bei pasiruošti joms.
 
-![Grėsmių supratimas](../../../translated_images/lt/understanding-threats.89edeada8a97fc0f.png)
+![Grėsmių supratimas](../../../translated_images/lt/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Užduotys ir instrukcijos
 
@@ -166,7 +166,7 @@ Norint sukurti patikimus DI agentus, svarbu suprasti ir sumažinti rizikas bei g
 
 Dar vienas efektyvus būdas kurti patikimas DI agentų sistemas yra naudoti žmogų procese. Tai sukuria srautą, kuriame naudotojai gali teikti atsiliepimus agentams vykdymo metu. Naudotojai iš esmės veikia kaip agentai daugiagentėje sistemoje, suteikdami patvirtinimą arba nutraukdami vykdomą procesą.
 
-![Žmogus procese](../../../translated_images/lt/human-in-the-loop.5f0068a678f62f4f.png)
+![Žmogus procese](../../../translated_images/lt/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Štai kodo fragmentas, naudojant „AutoGen“, kuris parodo, kaip šis konceptas įgyvendinamas:
 

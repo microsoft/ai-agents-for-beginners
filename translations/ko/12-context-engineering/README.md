@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI 에이전트를 위한 컨텍스트 엔지니어링
 
-[![컨텍스트 엔지니어링](../../../translated_images/ko/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
+[![컨텍스트 엔지니어링](../../../translated_images/ko/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(위 이미지를 클릭하면 이 강의의 영상을 볼 수 있습니다)_
 
@@ -49,7 +49,7 @@ AI 에이전트의 경우, 컨텍스트는 에이전트가 특정 행동을 계�
 
 ### 컨텍스트의 유형
 
-[![컨텍스트의 유형](../../../translated_images/ko/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
+[![컨텍스트의 유형](../../../translated_images/ko/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 컨텍스트는 단일 요소가 아니라는 점을 기억하는 것이 중요합니다. AI 에이전트가 필요로 하는 정보는 다양한 출처에서 올 수 있으며, 에이전트가 이러한 출처에 접근할 수 있도록 하는 것은 우리의 책임입니다:
 
@@ -69,7 +69,7 @@ AI 에이전트가 관리해야 할 컨텍스트 유형은 다음과 같습니�
 
 ### 계획 전략
 
-[![컨텍스트 엔지니어링 모범 사례](../../../translated_images/ko/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
+[![컨텍스트 엔지니어링 모범 사례](../../../translated_images/ko/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 좋은 컨텍스트 엔지니어링은 좋은 계획에서 시작됩니다. 다음은 컨텍스트 엔지니어링 개념을 적용하는 방법에 대해 생각해볼 수 있는 접근 방식입니다:
 

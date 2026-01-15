@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "he"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/he/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/he/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(לחצו על התמונה למעלה לצפייה בסרטון של השיעור הזה)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 תבנית זו יכולה להיות מיושמת באמצעות ארכיטקטורה מרכזית שבה כל ההודעות מנותבות דרך שרת מרכזי, או ארכיטקטורה מבוזרת שבה ההודעות מוחלפות ישירות.
 
-![צ'אט קבוצתי](../../../translated_images/he/multi-agent-group-chat.ec10f4cde556babd.png)
+![צ'אט קבוצתי](../../../translated_images/he/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### העברת משימות
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 בתבנית זו, כל סוכן מייצג משימה או שלב בתהליך עבודה, וסוכנים יכולים להעביר משימות לסוכנים אחרים על בסיס כללים מוגדרים מראש.
 
-![העברת משימות](../../../translated_images/he/multi-agent-hand-off.4c5fb00ba6f8750a.png)
+![העברת משימות](../../../translated_images/he/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### סינון שיתופי
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **ניתוח טכני**: סוכן אחר יכול להיות מומחה בניתוח טכני.
 - **ניתוח יסודי**: וסוכן נוסף יכול להיות מומחה בניתוח יסודי. על ידי שיתוף פעולה, סוכנים אלה יכולים לספק המלצה מקיפה יותר למשתמש.
 
-![המלצה](../../../translated_images/he/multi-agent-filtering.d959cb129dc9f608.png)
+![המלצה](../../../translated_images/he/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## תרחיש: תהליך החזר כספי
 

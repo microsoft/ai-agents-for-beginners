@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sl"
 }
 -->
-[![Zanesljivi AI agenti](../../../translated_images/sl/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Zanesljivi AI agenti](../../../translated_images/sl/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Kliknite na zgornjo sliko za ogled videa te lekcije)_
 
@@ -41,7 +41,7 @@ Za AI agente so sistemska sporočila še pomembnejša, saj potrebujejo zelo spec
 
 Za ustvarjanje skalabilnih sistemskih sporočil lahko uporabimo okvir za sistemska sporočila, ki omogoča gradnjo enega ali več agentov v naši aplikaciji:
 
-![Gradnja okvirja za sistemska sporočila](../../../translated_images/sl/system-message-framework.3a97368c92d11d68.png)
+![Gradnja okvirja za sistemska sporočila](../../../translated_images/sl/system-message-framework.3a97368c92d11d68.webp)
 
 #### Korak 1: Ustvarite meta sistemsko sporočilo
 
@@ -130,7 +130,7 @@ Vrednost tega okvirja za sistemska sporočila je v tem, da omogoča lažje ustva
 
 Za gradnjo zanesljivih AI agentov je pomembno razumeti in zmanjšati tveganja ter grožnje, ki vplivajo na vašega AI agenta. Poglejmo si nekaj različnih groženj za AI agente in kako se nanje bolje pripraviti.
 
-![Razumevanje groženj](../../../translated_images/sl/understanding-threats.89edeada8a97fc0f.png)
+![Razumevanje groženj](../../../translated_images/sl/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Naloge in navodila
 
@@ -166,7 +166,7 @@ Za gradnjo zanesljivih AI agentov je pomembno razumeti in zmanjšati tveganja te
 
 Še en učinkovit način za gradnjo zanesljivih sistemov AI agentov je uporaba pristopa "človek v zanki". To ustvari tok, kjer lahko uporabniki med izvajanjem procesa podajo povratne informacije agentom. Uporabniki v bistvu delujejo kot agenti v večagentnem sistemu, saj odobravajo ali ustavljajo tekoče procese.
 
-![Človek v zanki](../../../translated_images/sl/human-in-the-loop.5f0068a678f62f4f.png)
+![Človek v zanki](../../../translated_images/sl/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Tukaj je primer kode z uporabo AutoGen, ki prikazuje, kako je ta koncept implementiran:
 

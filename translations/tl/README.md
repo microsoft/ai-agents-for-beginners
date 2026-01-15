@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI Agents para sa mga Nagsisimula - Isang Kurso
 
-![Generative AI Para sa Mga Nagsisimula](../../translated_images/tl/repo-thumbnailv2.06f4a48036fde647.png)
+![Generative AI Para sa Mga Nagsisimula](../../translated_images/tl/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Isang kurso na nagtuturo ng lahat ng kailangan mong malaman para makapagsimula sa paggawa ng AI Agents
 

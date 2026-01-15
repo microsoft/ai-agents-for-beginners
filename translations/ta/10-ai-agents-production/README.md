@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # உற்பத்தியில் AI முகவர்கள்: கண்காணிப்பு மற்றும் மதிப்பீடு
 
-[![உற்பத்தியில் AI முகவர்கள்](../../../translated_images/ta/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![உற்பத்தியில் AI முகவர்கள்](../../../translated_images/ta/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 AI முகவர்கள் பரிசோதனை மாதிரிகளிலிருந்து உண்மையான பயன்பாடுகளுக்கு மாறும்போது, அவற்றின் நடத்தை, செயல்திறன் மற்றும் வெளியீடுகளை முறையாக மதிப்பீடு செய்யும் திறன் முக்கியமாகிறது.
 

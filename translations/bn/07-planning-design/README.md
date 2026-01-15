@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bn"
 }
 -->
-[![পরিকল্পনা ডিজাইন প্যাটার্ন](../../../translated_images/bn/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![পরিকল্পনা ডিজাইন প্যাটার্ন](../../../translated_images/bn/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(উপরের ছবিতে ক্লিক করে এই পাঠের ভিডিও দেখুন)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## সামগ্রিক লক্ষ্য নির্ধারণ এবং কাজকে বিভক্ত করা
 
-![লক্ষ্য এবং কাজ নির্ধারণ](../../../translated_images/bn/defining-goals-tasks.d70439e19e37c47a.png)
+![লক্ষ্য এবং কাজ নির্ধারণ](../../../translated_images/bn/defining-goals-tasks.d70439e19e37c47a.webp)
 
 বেশিরভাগ বাস্তব জীবনের কাজ এক ধাপে সম্পন্ন করার জন্য খুব জটিল। একটি AI এজেন্টের পরিকল্পনা এবং কর্ম পরিচালনার জন্য একটি সংক্ষিপ্ত উদ্দেশ্য প্রয়োজন। উদাহরণস্বরূপ, লক্ষ্য হতে পারে:
 

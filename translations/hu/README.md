@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI ügynökök kezdőknek - Tanfolyam
 
-![Generatív AI kezdőknek](../../translated_images/hu/repo-thumbnailv2.06f4a48036fde647.png)
+![Generatív AI kezdőknek](../../translated_images/hu/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## A tanfolyam, amely megtanít mindent, amire szükséged van az AI-ügynökök építésének elkezdéséhez
 

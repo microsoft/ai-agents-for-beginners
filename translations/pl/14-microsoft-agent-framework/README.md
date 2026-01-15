@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Eksploracja Microsoft Agent Framework
 
-![Agent Framework](../../../translated_images/pl/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/pl/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Wprowadzenie
 
@@ -33,7 +33,7 @@ Przykłady kodu dla [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-b
 
 ## Zrozumienie Microsoft Agent Framework
 
-![Framework Intro](../../../translated_images/pl/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/pl/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) opiera się na doświadczeniach i wnioskach z Semantic Kernel i AutoGen. Oferuje elastyczność w obsłudze szerokiej gamy przypadków użycia agentów zarówno w środowiskach produkcyjnych, jak i badawczych, w tym:
 
@@ -63,7 +63,7 @@ Przyjrzyjmy się, jak te funkcje są stosowane w niektórych kluczowych koncepcj
 
 ### Agenty
 
-![Agent Framework](../../../translated_images/pl/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/pl/agent-components.410a06daf87b4fef.webp)
 
 **Tworzenie agentów**
 

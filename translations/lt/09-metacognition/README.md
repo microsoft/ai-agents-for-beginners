@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "lt"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lt/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/lt/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Spustelėkite aukščiau esančią nuotrauką, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 # Metakognicija dirbtinio intelekto agentuose
@@ -47,7 +47,7 @@ Sekti, kaip ar kodėl buvo pasirinktas tam tikras maršrutas.
 
 Metakognicija atlieka svarbų vaidmenį DI agentų kūrime dėl kelių priežasčių:
 
-![Metakognicijos svarba](../../../translated_images/lt/importance-of-metacognition.b381afe9aae352f7.png)
+![Metakognicijos svarba](../../../translated_images/lt/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Savirefleksija: Agentai gali įvertinti savo veikimą ir nustatyti tobulintinas sritis.
 - Prisitaikymas: Agentai gali keisti savo strategijas, remdamiesi ankstesne patirtimi ir besikeičiančiomis aplinkybėmis.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Pirmiausia pradėkime nuo skirtumo tarp RAG įrankio ir išankstinio konteksto įkėlimo supratimo.
 
-![RAG ir konteksto įkėlimas](../../../translated_images/lt/rag-vs-context.9eae588520c00921.png)
+![RAG ir konteksto įkėlimas](../../../translated_images/lt/rag-vs-context.9eae588520c00921.webp)
 
 ### Informacijos paieška su generavimu (RAG)
 

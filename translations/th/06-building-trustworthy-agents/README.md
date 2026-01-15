@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "th"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/th/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/th/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(คลิกที่ภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 เพื่อสร้างข้อความระบบที่สามารถปรับขนาดได้ เราสามารถใช้กรอบข้อความระบบในการสร้างตัวแทนหนึ่งตัวหรือมากกว่าในแอปพลิเคชันของเรา:
 
-![Building a System Message Framework](../../../translated_images/th/system-message-framework.3a97368c92d11d68.png)
+![Building a System Message Framework](../../../translated_images/th/system-message-framework.3a97368c92d11d68.webp)
 
 #### ขั้นตอนที่ 1: สร้างข้อความระบบเมตา
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 เพื่อสร้างตัวแทน AI ที่น่าเชื่อถือ สิ่งสำคัญคือต้องเข้าใจและลดความเสี่ยงและภัยคุกคามต่อตัวแทน AI ของคุณ เรามาดูตัวอย่างบางส่วนของภัยคุกคามที่อาจเกิดขึ้นกับตัวแทน AI และวิธีการวางแผนและเตรียมตัวให้ดีขึ้น
 
-![Understanding Threats](../../../translated_images/th/understanding-threats.89edeada8a97fc0f.png)
+![Understanding Threats](../../../translated_images/th/understanding-threats.89edeada8a97fc0f.webp)
 
 ### งานและคำสั่ง
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 อีกวิธีหนึ่งที่มีประสิทธิภาพในการสร้างระบบตัวแทน AI ที่น่าเชื่อถือคือการใช้มนุษย์ในกระบวนการ ซึ่งสร้างกระบวนการที่ผู้ใช้สามารถให้ข้อเสนอแนะกับตัวแทนระหว่างการทำงาน ผู้ใช้จะทำหน้าที่เป็นตัวแทนในระบบหลายตัวแทน โดยให้การอนุมัติหรือยุติกระบวนการที่กำลังดำเนินอยู่
 
-![Human in The Loop](../../../translated_images/th/human-in-the-loop.5f0068a678f62f4f.png)
+![Human in The Loop](../../../translated_images/th/human-in-the-loop.5f0068a678f62f4f.webp)
 
 นี่คือตัวอย่างโค้ดที่ใช้ AutoGen เพื่อแสดงให้เห็นว่าหลักการนี้ถูกนำไปใช้:
 

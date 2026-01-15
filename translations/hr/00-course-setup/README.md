@@ -25,7 +25,7 @@ To možete učiniti klikom na poveznicu za <a href="https://github.com/microsoft
 
 Sada biste trebali imati svoju vlastitu fork verziju ovog tečaja na sljedećoj poveznici:
 
-![Forked Repo](../../../translated_images/hr/forked-repo.33f27ca1901baa6a.png)
+![Forked Repo](../../../translated_images/hr/forked-repo.33f27ca1901baa6a.webp)
 
 ### Plitko kloniranje (preporučeno za radionice / Codespaces)
 
@@ -176,11 +176,11 @@ Molimo vas da slijedite [Princip najmanje privilegije](https://docs.github.com/e
 
 1. Odaberite opciju `Fine-grained tokens` na lijevoj strani ekrana prelaskom na **Developer settings**
 
-   ![Developer settings](../../../translated_images/hr/profile_developer_settings.410a859fe749c755.png)
+   ![Developer settings](../../../translated_images/hr/profile_developer_settings.410a859fe749c755.webp)
 
    Zatim odaberite `Generate new token`.
 
-   ![Generate Token](../../../translated_images/hr/fga_new_token.1c1a234afe202ab3.png)
+   ![Generate Token](../../../translated_images/hr/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Unesite opisno ime za svoj token koje odražava njegovu svrhu, čineći ga lakim za identifikaciju kasnije.
 
@@ -190,19 +190,19 @@ Molimo vas da slijedite [Princip najmanje privilegije](https://docs.github.com/e
     Za sigurniji pristup možete odabrati kraći period—kao što je 7 dana 🛡️
     To je odličan način da postavite osobni cilj i završite tečaj dok je vaš entuzijazam za učenje visok 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/hr/token-name-expiry-date.a095fb0de6386864.png)
+    ![Token Name and Expiration](../../../translated_images/hr/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Ograničite opseg tokena na vaš fork ovog repozitorija.
 
-    ![Limit scope to fork repository](../../../translated_images/hr/token_repository_limit.924ade5e11d9d8bb.png)
+    ![Limit scope to fork repository](../../../translated_images/hr/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Ograničite dozvole tokena: Pod **Permissions**, kliknite karticu **Account**, i kliknite gumb "+ Add permissions". Pojavit će se padajući izbornik. Molimo vas da potražite **Models** i označite okvir za njega.
 
-    ![Add Models Permission](../../../translated_images/hr/add_models_permissions.c0c44ed8b40fc143.png)
+    ![Add Models Permission](../../../translated_images/hr/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Provjerite potrebne dozvole prije generiranja tokena. ![Verify Permissions](../../../translated_images/hr/verify_permissions.06bd9e43987a8b21.png)
+5. Provjerite potrebne dozvole prije generiranja tokena. ![Verify Permissions](../../../translated_images/hr/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Prije generiranja tokena, osigurajte da ste spremni pohraniti token na sigurno mjesto poput trezora upravitelja lozinki, jer neće biti prikazan ponovno nakon što ga kreirate. ![Store Token Securely](../../../translated_images/hr/store_token_securely.08ee2274c6ad6caf.png)
+6. Prije generiranja tokena, osigurajte da ste spremni pohraniti token na sigurno mjesto poput trezora upravitelja lozinki, jer neće biti prikazan ponovno nakon što ga kreirate. ![Store Token Securely](../../../translated_images/hr/store_token_securely.08ee2274c6ad6caf.webp)
 
 Kopirajte svoj novi token koji ste upravo kreirali. Sada ćete ga dodati u svoju `.env` datoteku uključenu u ovaj tečaj.
 
@@ -224,7 +224,7 @@ Ovo će kopirati primjer datoteke i kreirati `.env` u vašem direktoriju gdje ć
 
 S kopiranim tokenom, otvorite `.env` datoteku u svom omiljenom uređivaču teksta i zalijepite svoj token u polje `GITHUB_TOKEN`.
 
-![GitHub Token Field](../../../translated_images/hr/github_token_field.20491ed3224b5f4a.png)
+![GitHub Token Field](../../../translated_images/hr/github_token_field.20491ed3224b5f4a.webp)
 
 Sada biste trebali biti u mogućnosti pokrenuti uzorke koda ovog tečaja.
 
@@ -238,7 +238,7 @@ Nakon što ste kreirali svoj projekt, trebat ćete dohvatiti vezni niz za svoj p
 
 To možete učiniti odlaskom na stranicu **Pregled** vašeg projekta u Azure AI Foundry portalu.
 
-![Project Connection String](../../../translated_images/hr/project-endpoint.8cf04c9975bbfbf1.png)
+![Project Connection String](../../../translated_images/hr/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Korak 2: Kreirajte svoju `.env` datoteku
 

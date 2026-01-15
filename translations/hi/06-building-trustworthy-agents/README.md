@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hi"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/hi/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/hi/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(ऊपर दी गई छवि पर क्लिक करें इस पाठ का वीडियो देखने के लिए)_
 
@@ -41,7 +41,7 @@ AI एजेंटों के लिए, सिस्टम प्रॉम्
 
 स्केलेबल सिस्टम प्रॉम्प्ट बनाने के लिए, हम अपने एप्लिकेशन में एक या अधिक एजेंट बनाने के लिए सिस्टम संदेश फ्रेमवर्क का उपयोग कर सकते हैं:
 
-![सिस्टम संदेश फ्रेमवर्क बनाना](../../../translated_images/hi/system-message-framework.3a97368c92d11d68.png)
+![सिस्टम संदेश फ्रेमवर्क बनाना](../../../translated_images/hi/system-message-framework.3a97368c92d11d68.webp)
 
 #### चरण 1: मेटा सिस्टम संदेश बनाएं
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 भरोसेमंद AI एजेंट बनाने के लिए, आपके AI एजेंट के लिए जोखिमों और खतरों को समझना और उन्हें कम करना महत्वपूर्ण है। आइए AI एजेंटों के लिए कुछ अलग-अलग खतरों और उनके लिए बेहतर योजना और तैयारी करने के तरीकों पर नज़र डालें।
 
-![खतरों को समझना](../../../translated_images/hi/understanding-threats.89edeada8a97fc0f.png)
+![खतरों को समझना](../../../translated_images/hi/understanding-threats.89edeada8a97fc0f.webp)
 
 ### कार्य और निर्देश
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 भरोसेमंद AI एजेंट सिस्टम बनाने का एक और प्रभावी तरीका मानव-इन-द-लूप का उपयोग करना है। यह एक प्रवाह बनाता है जहां उपयोगकर्ता रन के दौरान एजेंटों को प्रतिक्रिया प्रदान कर सकते हैं। उपयोगकर्ता मूल रूप से एक बहु-एजेंट सिस्टम में एजेंट के रूप में कार्य करते हैं और चल रही प्रक्रिया को स्वीकृति या समाप्ति प्रदान करते हैं।
 
-![मानव-इन-द-लूप](../../../translated_images/hi/human-in-the-loop.5f0068a678f62f4f.png)
+![मानव-इन-द-लूप](../../../translated_images/hi/human-in-the-loop.5f0068a678f62f4f.webp)
 
 यहां AutoGen का उपयोग करके दिखाया गया एक कोड स्निपेट है कि इस अवधारणा को कैसे लागू किया गया है:
 

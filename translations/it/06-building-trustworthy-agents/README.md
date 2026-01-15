@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "it"
 }
 -->
-[![Agenti AI Affidabili](../../../translated_images/it/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Agenti AI Affidabili](../../../translated_images/it/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Clicca sull'immagine sopra per guardare il video di questa lezione)_
 
@@ -41,7 +41,7 @@ Per gli Agenti AI, il messaggio di sistema è ancora più importante, poiché gl
 
 Per creare prompt di sistema scalabili, possiamo utilizzare un framework per i messaggi di sistema per costruire uno o più agenti nella nostra applicazione:
 
-![Creare un Framework per i Messaggi di Sistema](../../../translated_images/it/system-message-framework.3a97368c92d11d68.png)
+![Creare un Framework per i Messaggi di Sistema](../../../translated_images/it/system-message-framework.3a97368c92d11d68.webp)
 
 #### Passo 1: Creare un Meta Messaggio di Sistema
 
@@ -130,7 +130,7 @@ Il valore di questo framework per i messaggi di sistema è la possibilità di sc
 
 Per costruire agenti AI affidabili, è importante comprendere e mitigare i rischi e le minacce per il tuo agente AI. Esaminiamo alcune delle diverse minacce agli agenti AI e come puoi pianificare e prepararti meglio per affrontarle.
 
-![Comprendere le Minacce](../../../translated_images/it/understanding-threats.89edeada8a97fc0f.png)
+![Comprendere le Minacce](../../../translated_images/it/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Compiti e Istruzioni
 
@@ -166,7 +166,7 @@ Per costruire agenti AI affidabili, è importante comprendere e mitigare i risch
 
 Un altro modo efficace per costruire sistemi di Agenti AI affidabili è utilizzare un approccio Human-in-the-Loop. Questo crea un flusso in cui gli utenti possono fornire feedback agli Agenti durante l'esecuzione. Gli utenti agiscono essenzialmente come agenti in un sistema multi-agente, fornendo approvazione o terminazione del processo in corso.
 
-![Human in The Loop](../../../translated_images/it/human-in-the-loop.5f0068a678f62f4f.png)
+![Human in The Loop](../../../translated_images/it/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Ecco un esempio di codice che utilizza AutoGen per mostrare come viene implementato questo concetto:
 

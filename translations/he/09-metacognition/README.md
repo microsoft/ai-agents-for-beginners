@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "he"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/he/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/he/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(לחצו על התמונה למעלה לצפייה בסרטון של השיעור הזה)_
 # מטא-קוגניציה בסוכני AI
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 מטא-קוגניציה משחקת תפקיד קריטי בעיצוב סוכני AI ממספר סיבות:
 
-![חשיבות המטא-קוגניציה](../../../translated_images/he/importance-of-metacognition.b381afe9aae352f7.png)
+![חשיבות המטא-קוגניציה](../../../translated_images/he/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - רפלקציה עצמית: סוכנים יכולים להעריך את הביצועים שלהם ולזהות תחומים לשיפור.
 - הסתגלות: סוכנים יכולים לשנות את האסטרטגיות שלהם בהתבסס על ניסיון עבר וסביבות משתנות.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 ראשית, בואו נתחיל בהבנת ההבדל בין כלי RAG לטעינת הקשר מקדימה.
 
-![RAG לעומת טעינת הקשר](../../../translated_images/he/rag-vs-context.9eae588520c00921.png)
+![RAG לעומת טעינת הקשר](../../../translated_images/he/rag-vs-context.9eae588520c00921.webp)
 
 ### יצירה מוגברת אחזור (RAG)
 

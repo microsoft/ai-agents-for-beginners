@@ -25,7 +25,7 @@ Seda saab teha, klõpsates lingil <a href="https://github.com/microsoft/ai-agent
 
 Nüüd peaks sul olema selle kursuse enda hargitud versioon järgmisel lingil:
 
-![Hargitud repositoorium](../../../translated_images/et/forked-repo.33f27ca1901baa6a.png)
+![Hargitud repositoorium](../../../translated_images/et/forked-repo.33f27ca1901baa6a.webp)
 
 ### Madal kloonimine (soovitatav töötubade / Codespaces jaoks)
 
@@ -176,11 +176,11 @@ Palun järgi [väikseima privileegi põhimõtet](https://docs.github.com/en/get-
 
 1. Vali ekraani vasakul küljel **Developer settings** alt `Fine-grained tokens` valik.
 
-   ![Arendaja seaded](../../../translated_images/et/profile_developer_settings.410a859fe749c755.png)
+   ![Arendaja seaded](../../../translated_images/et/profile_developer_settings.410a859fe749c755.webp)
 
    Seejärel vali `Generate new token`.
 
-   ![Loo token](../../../translated_images/et/fga_new_token.1c1a234afe202ab3.png)
+   ![Loo token](../../../translated_images/et/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Sisesta tokenile kirjeldav nimi, mis kajastab selle eesmärki, et seda hiljem lihtne tuvastada oleks.
 
@@ -190,19 +190,19 @@ Palun järgi [väikseima privileegi põhimõtet](https://docs.github.com/en/get-
     Turvalisuse suurendamiseks võid valida lühema perioodi—näiteks 7 päeva 🛡️  
     See on suurepärane viis seada isiklik eesmärk ja lõpetada kursus, kui õpimoment on kõrge 🚀.
 
-    ![Tokeni nimi ja aegumiskuupäev](../../../translated_images/et/token-name-expiry-date.a095fb0de6386864.png)
+    ![Tokeni nimi ja aegumiskuupäev](../../../translated_images/et/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Piira tokeni ulatus oma hargitud repositooriumiga.
 
-    ![Piira ulatus hargitud repositooriumiga](../../../translated_images/et/token_repository_limit.924ade5e11d9d8bb.png)
+    ![Piira ulatus hargitud repositooriumiga](../../../translated_images/et/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Piira tokeni õigused: **Permissions** all klõpsa **Account** vahekaarti ja vajuta "+ Add permissions" nuppu. Ilmub rippmenüü. Otsi **Models** ja märgi selle kast.
 
-    ![Lisa Models õigused](../../../translated_images/et/add_models_permissions.c0c44ed8b40fc143.png)
+    ![Lisa Models õigused](../../../translated_images/et/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Kontrolli enne tokeni loomist vajalikke õigusi. ![Kontrolli õigusi](../../../translated_images/et/verify_permissions.06bd9e43987a8b21.png)
+5. Kontrolli enne tokeni loomist vajalikke õigusi. ![Kontrolli õigusi](../../../translated_images/et/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Enne tokeni loomist veendu, et oled valmis tokeni turvalises kohas, näiteks paroolihalduri seifis, salvestama, kuna seda ei kuvata uuesti pärast loomist. ![Salvesta token turvaliselt](../../../translated_images/et/store_token_securely.08ee2274c6ad6caf.png)
+6. Enne tokeni loomist veendu, et oled valmis tokeni turvalises kohas, näiteks paroolihalduri seifis, salvestama, kuna seda ei kuvata uuesti pärast loomist. ![Salvesta token turvaliselt](../../../translated_images/et/store_token_securely.08ee2274c6ad6caf.webp)
 
 Kopeeri oma äsja loodud token. Nüüd lisad selle oma `.env` faili, mis on selle kursuse osaks.
 
@@ -224,7 +224,7 @@ See kopeerib näidisfaili ja loob `.env` faili sinu kataloogi, kuhu täidad kesk
 
 Kopeeritud tokeniga ava `.env` fail oma lemmikteksti redaktoris ja kleebi token `GITHUB_TOKEN` väljale.
 
-![GitHub Token väli](../../../translated_images/et/github_token_field.20491ed3224b5f4a.png)
+![GitHub Token väli](../../../translated_images/et/github_token_field.20491ed3224b5f4a.webp)
 
 Nüüd peaksid saama käivitada selle kursuse koodinäiteid.
 
@@ -238,7 +238,7 @@ Kui oled oma projekti loonud, pead hankima oma projekti ühenduse stringi.
 
 Seda saab teha, minnes **Overview** lehele oma projektis Azure AI Foundry portaalis.
 
-![Projekti ühenduse string](../../../translated_images/et/project-endpoint.8cf04c9975bbfbf1.png)
+![Projekti ühenduse string](../../../translated_images/et/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Samm 2: Loo oma `.env` fail
 

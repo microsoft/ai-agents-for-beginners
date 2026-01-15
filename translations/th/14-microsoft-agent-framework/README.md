@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # การสำรวจ Microsoft Agent Framework
 
-![Agent Framework](../../../translated_images/th/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/th/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### บทนำ
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## การทำความเข้าใจ Microsoft Agent Framework
 
-![Framework Intro](../../../translated_images/th/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/th/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) ถูกพัฒนาขึ้นจากประสบการณ์และการเรียนรู้จาก Semantic Kernel และ AutoGen โดยมีความยืดหยุ่นในการตอบสนองต่อกรณีการใช้งาน Agentic ที่หลากหลายในทั้งสภาพแวดล้อมการผลิตและการวิจัย เช่น:
 
@@ -63,7 +63,7 @@ Microsoft Agent Framework ยังมุ่งเน้นที่การท
 
 ### Agents
 
-![Agent Framework](../../../translated_images/th/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/th/agent-components.410a06daf87b4fef.webp)
 
 **การสร้าง Agent**
 

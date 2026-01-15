@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Tác nhân AI cho Người mới bắt đầu - Một Khóa học
 
-![AI Tạo sinh Cho Người Mới Bắt Đầu](../../translated_images/vi/repo-thumbnailv2.06f4a48036fde647.png)
+![AI Tạo sinh Cho Người Mới Bắt Đầu](../../translated_images/vi/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Một khóa học dạy mọi thứ bạn cần biết để bắt đầu xây dựng Tác nhân AI
 

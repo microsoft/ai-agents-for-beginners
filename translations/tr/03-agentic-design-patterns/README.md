@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tr"
 }
 -->
-[![İyi AI Ajanları Nasıl Tasarlanır](../../../translated_images/tr/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![İyi AI Ajanları Nasıl Tasarlanır](../../../translated_images/tr/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 # AI Ajanik Tasarım İlkeleri
@@ -39,7 +39,7 @@ Bu dersi tamamladıktan sonra şunları yapabileceksiniz:
 
 ## Ajanik Tasarım İlkeleri
 
-![Ajanik Tasarım İlkeleri](../../../translated_images/tr/agentic-design-principles.1cfdf8b6d3cc73c2.png)
+![Ajanik Tasarım İlkeleri](../../../translated_images/tr/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Ajan (Mekan)
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sw"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/sw/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/sw/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Bofya picha hapo juu kutazama video ya somo hili)_
 # Metakujitambua kwa Mawakala wa AI
@@ -47,7 +47,7 @@ Kufuatilia jinsi au kwa nini ilichagua njia fulani.
 
 Metakujitambua ina jukumu muhimu katika muundo wa mawakala wa AI kwa sababu kadhaa:
 
-![Umuhimu wa Metakujitambua](../../../translated_images/sw/importance-of-metacognition.b381afe9aae352f7.png)
+![Umuhimu wa Metakujitambua](../../../translated_images/sw/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Kujitafakari: Mawakala wanaweza kutathmini utendaji wao na kutambua maeneo yanayohitaji kuboreshwa.
 - Urekebishaji: Mawakala wanaweza kubadilisha mikakati yao kulingana na uzoefu wa zamani na mazingira yanayobadilika.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Kwanza, hebu tuanze kwa kuelewa tofauti kati ya Zana ya RAG na Upakiaji wa Muktadha wa Kuzuia Mapema.
 
-![RAG vs Upakiaji wa Muktadha](../../../translated_images/sw/rag-vs-context.9eae588520c00921.png)
+![RAG vs Upakiaji wa Muktadha](../../../translated_images/sw/rag-vs-context.9eae588520c00921.webp)
 
 ### Utoaji wa Taarifa Ulioimarishwa na Urejeshaji (RAG)
 

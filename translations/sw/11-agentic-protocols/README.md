@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Kutumia Itifaki za Wakala (MCP, A2A na NLWeb)
 
-[![Itifaki za Wakala](../../../translated_images/sw/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Itifaki za Wakala](../../../translated_images/sw/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Bofya picha hapo juu kutazama video ya somo hili)_
 
@@ -69,7 +69,7 @@ MCP inatoa faida kubwa kwa Mawakala wa AI:
 
 ### Mfano wa MCP
 
-![MCP Diagram](../../../translated_images/sw/mcp-diagram.e4ca1cbd551444a1.png)
+![MCP Diagram](../../../translated_images/sw/mcp-diagram.e4ca1cbd551444a1.webp)
 
 Fikiria mtumiaji anataka kuweka nafasi ya ndege kwa kutumia msaidizi wa AI unaotumia MCP.
 
@@ -125,7 +125,7 @@ Kipengele hiki kinatumika kwa **kushughulikia masasisho na kupitisha ujumbe**. N
 
 ### Mfano wa A2A
 
-![A2A Diagram](../../../translated_images/sw/A2A-Diagram.8666928d648acc26.png)
+![A2A Diagram](../../../translated_images/sw/A2A-Diagram.8666928d648acc26.webp)
 
 Hebu tuendelee na hali yetu ya uhifadhi wa safari, lakini wakati huu tukitumia A2A.
 
@@ -159,7 +159,7 @@ Hebu tuangalie vipengele tofauti vya NLWeb, faida za NLWeb, na mfano wa jinsi NL
 
 ### NLWeb kwa Mfano
 
-![NLWeb](../../../translated_images/sw/nlweb-diagram.c1e2390b310e5fe4.png)
+![NLWeb](../../../translated_images/sw/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 Fikiria tovuti yetu ya uhifadhi wa safari tena, lakini wakati huu, inatumia NLWeb.
 

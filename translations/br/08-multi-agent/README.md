@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "br"
 }
 -->
-[![Design de Multi-Agentes](../../../translated_images/br/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Design de Multi-Agentes](../../../translated_images/br/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Clique na imagem acima para assistir ao vídeo desta lição)_
 
@@ -95,7 +95,7 @@ Neste padrão, cada agente representa um usuário no chat em grupo, e as mensage
 
 Este padrão pode ser implementado usando uma arquitetura centralizada, onde todas as mensagens são roteadas por um servidor central, ou uma arquitetura descentralizada, onde as mensagens são trocadas diretamente.
 
-![Chat em grupo](../../../translated_images/br/multi-agent-group-chat.ec10f4cde556babd.png)
+![Chat em grupo](../../../translated_images/br/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Transferência de tarefas
 
@@ -105,7 +105,7 @@ Casos de uso típicos para este padrão incluem suporte ao cliente, gerenciament
 
 Neste padrão, cada agente representa uma tarefa ou uma etapa em um fluxo de trabalho, e os agentes podem transferir tarefas para outros agentes com base em regras predefinidas.
 
-![Transferência de tarefas](../../../translated_images/br/multi-agent-hand-off.4c5fb00ba6f8750a.png)
+![Transferência de tarefas](../../../translated_images/br/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Filtragem colaborativa
 
@@ -119,7 +119,7 @@ Vamos pegar um exemplo onde um usuário deseja uma recomendação sobre a melhor
 - **Análise técnica**: Outro agente pode ser especialista em análise técnica.
 - **Análise fundamental**: E outro agente pode ser especialista em análise fundamental. Ao colaborar, esses agentes podem fornecer uma recomendação mais abrangente ao usuário.
 
-![Recomendação](../../../translated_images/br/multi-agent-filtering.d959cb129dc9f608.png)
+![Recomendação](../../../translated_images/br/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Cenário: Processo de reembolso
 

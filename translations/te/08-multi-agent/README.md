@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "te"
 }
 -->
-[![మల్టీ-ఏజెంట్ డిజైన్](../../../translated_images/te/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![మల్టీ-ఏజెంట్ డిజైన్](../../../translated_images/te/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(ఈ పాఠం వీడియోను చూడటానికి పై చిత్రంపై క్లిక్ చేయండి)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ఈ ప్యాటర్న్‌ను అన్ని సందేశాలు కేంద్ర సర్వర్ ద్వారా రూట్ చేయబడే కేంద్రీకృత ఆర్కిటెక్చర్‌ను ఉపయోగించి లేదా సందేశాలు నేరుగా మార్పిడి చేయబడే వికేంద్రీకృత ఆర్కిటెక్చర్‌ను ఉపయోగించి అమలు చేయవచ్చు.
 
-![గ్రూప్ చాట్](../../../translated_images/te/multi-agent-group-chat.ec10f4cde556babd.png)
+![గ్రూప్ చాట్](../../../translated_images/te/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### హ్యాండ్-ఆఫ్
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ఈ ప్యాటర్న్‌లో, ప్రతి ఏజెంట్ ఒక పని లేదా వర్క్‌ఫ్లోలో ఒక దశను ప్రాతినిధ్యం వహిస్తుంది, మరియు ఏజెంట్లు ముందుగా నిర్వచించిన నియమాల ఆధారంగా ఇతర ఏజెంట్లకు పనులను హ్యాండ్-ఆఫ్ చేయవచ్చు.
 
-![హ్యాండ్-ఆఫ్](../../../translated_images/te/multi-agent-hand-off.4c5fb00ba6f8750a.png)
+![హ్యాండ్-ఆఫ్](../../../translated_images/te/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### సహకార ఫిల్టరింగ్
 

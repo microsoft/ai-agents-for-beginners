@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Kỹ thuật Ngữ cảnh cho Các Tác nhân AI
 
-[![Kỹ thuật Ngữ cảnh](../../../translated_images/vi/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
+[![Kỹ thuật Ngữ cảnh](../../../translated_images/vi/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(Nhấp vào hình ảnh trên để xem video của bài học này)_
 
@@ -49,7 +49,7 @@ Kỹ thuật nhắc lệnh tập trung vào một tập hợp các hướng dẫ
 
 ### Các loại Ngữ cảnh
 
-[![Các loại Ngữ cảnh](../../../translated_images/vi/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
+[![Các loại Ngữ cảnh](../../../translated_images/vi/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 Điều quan trọng cần nhớ là ngữ cảnh không chỉ là một thứ duy nhất. Thông tin mà tác nhân AI cần có thể đến từ nhiều nguồn khác nhau và chúng ta phải đảm bảo rằng tác nhân có quyền truy cập vào các nguồn này:
 
@@ -69,7 +69,7 @@ Các loại ngữ cảnh mà một tác nhân AI có thể cần quản lý bao 
 
 ### Chiến lược Lập kế hoạch
 
-[![Thực hành Tốt nhất về Kỹ thuật Ngữ cảnh](../../../translated_images/vi/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
+[![Thực hành Tốt nhất về Kỹ thuật Ngữ cảnh](../../../translated_images/vi/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 Kỹ thuật ngữ cảnh tốt bắt đầu với việc lập kế hoạch tốt. Đây là một cách tiếp cận giúp bạn bắt đầu suy nghĩ về cách áp dụng khái niệm kỹ thuật ngữ cảnh:
 

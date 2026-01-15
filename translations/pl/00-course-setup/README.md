@@ -25,7 +25,7 @@ Możesz to zrobić, klikając link do <a href="https://github.com/microsoft/ai-a
 
 Teraz powinieneś mieć własną wersję tego kursu pod następującym linkiem:
 
-![Forked Repo](../../../translated_images/pl/forked-repo.33f27ca1901baa6a.png)
+![Forked Repo](../../../translated_images/pl/forked-repo.33f27ca1901baa6a.webp)
 
 ### Płytkie klonowanie (zalecane dla warsztatów / Codespaces)
 
@@ -176,11 +176,11 @@ Postępuj zgodnie z [zasadą najmniejszych uprawnień](https://docs.github.com/e
 
 1. Wybierz opcję `Fine-grained tokens` po lewej stronie ekranu, przechodząc do **Developer settings**
 
-   ![Developer settings](../../../translated_images/pl/profile_developer_settings.410a859fe749c755.png)
+   ![Developer settings](../../../translated_images/pl/profile_developer_settings.410a859fe749c755.webp)
 
    Następnie wybierz `Generate new token`.
 
-   ![Generate Token](../../../translated_images/pl/fga_new_token.1c1a234afe202ab3.png)
+   ![Generate Token](../../../translated_images/pl/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Wprowadź opisową nazwę dla swojego tokena, która odzwierciedla jego cel, aby łatwo go później zidentyfikować.
 
@@ -190,19 +190,19 @@ Postępuj zgodnie z [zasadą najmniejszych uprawnień](https://docs.github.com/e
     Dla większego bezpieczeństwa możesz wybrać krótszy okres — na przykład 7 dni 🛡️
     To świetny sposób na wyznaczenie osobistego celu i ukończenie kursu, gdy Twoje tempo nauki jest wysokie 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/pl/token-name-expiry-date.a095fb0de6386864.png)
+    ![Token Name and Expiration](../../../translated_images/pl/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Ogranicz zakres tokena do swojego forka tego repozytorium.
 
-    ![Limit scope to fork repository](../../../translated_images/pl/token_repository_limit.924ade5e11d9d8bb.png)
+    ![Limit scope to fork repository](../../../translated_images/pl/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Ogranicz uprawnienia tokena: W sekcji **Permissions**, kliknij zakładkę **Account**, a następnie przycisk "+ Add permissions". Pojawi się rozwijane menu. Wyszukaj **Models** i zaznacz odpowiednie pole.
 
-    ![Add Models Permission](../../../translated_images/pl/add_models_permissions.c0c44ed8b40fc143.png)
+    ![Add Models Permission](../../../translated_images/pl/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Zweryfikuj wymagane uprawnienia przed wygenerowaniem tokena. ![Verify Permissions](../../../translated_images/pl/verify_permissions.06bd9e43987a8b21.png)
+5. Zweryfikuj wymagane uprawnienia przed wygenerowaniem tokena. ![Verify Permissions](../../../translated_images/pl/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Przed wygenerowaniem tokena upewnij się, że jesteś gotowy do przechowywania tokena w bezpiecznym miejscu, takim jak sejf menedżera haseł, ponieważ nie będzie on ponownie wyświetlany po jego utworzeniu. ![Store Token Securely](../../../translated_images/pl/store_token_securely.08ee2274c6ad6caf.png)
+6. Przed wygenerowaniem tokena upewnij się, że jesteś gotowy do przechowywania tokena w bezpiecznym miejscu, takim jak sejf menedżera haseł, ponieważ nie będzie on ponownie wyświetlany po jego utworzeniu. ![Store Token Securely](../../../translated_images/pl/store_token_securely.08ee2274c6ad6caf.webp)
 
 Skopiuj nowo utworzony token. Teraz dodasz go do swojego pliku `.env` dołączonego do tego kursu.
 
@@ -224,7 +224,7 @@ To skopiuje plik przykładowy i utworzy `.env` w Twoim katalogu, gdzie wypełnis
 
 Po skopiowaniu tokena otwórz plik `.env` w swoim ulubionym edytorze tekstu i wklej token w polu `GITHUB_TOKEN`.
 
-![GitHub Token Field](../../../translated_images/pl/github_token_field.20491ed3224b5f4a.png)
+![GitHub Token Field](../../../translated_images/pl/github_token_field.20491ed3224b5f4a.webp)
 
 Teraz powinieneś być w stanie uruchomić przykłady kodu z tego kursu.
 
@@ -238,7 +238,7 @@ Po utworzeniu projektu musisz pobrać ciąg połączenia dla swojego projektu.
 
 Można to zrobić, przechodząc do strony **Overview** swojego projektu w portalu Azure AI Foundry.
 
-![Project Connection String](../../../translated_images/pl/project-endpoint.8cf04c9975bbfbf1.png)
+![Project Connection String](../../../translated_images/pl/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Krok 2: Utwórz plik `.env`
 

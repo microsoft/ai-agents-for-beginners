@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "de"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/de/lesson-8-thumbnail.278a3e4a59137d62.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/de/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klicken Sie auf das obige Bild, um das Video zu dieser Lektion anzusehen)_
 
@@ -97,7 +97,7 @@ In diesem Muster repräsentiert jeder Agent einen Nutzer im Gruppenchat, und Nac
 
 Dieses Muster kann mit einer zentralisierten Architektur implementiert werden, bei der alle Nachrichten über einen zentralen Server geleitet werden, oder mit einer dezentralisierten Architektur, bei der Nachrichten direkt ausgetauscht werden.
 
-![Gruppenchat](../../../translated_images/de/multi-agent-group-chat.ec10f4cde556babd.png)
+![Gruppenchat](../../../translated_images/de/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Übergabe
 
@@ -107,7 +107,7 @@ Typische Anwendungsfälle für dieses Muster sind Kundensupport, Aufgabenmanagem
 
 In diesem Muster repräsentiert jeder Agent eine Aufgabe oder einen Schritt in einem Workflow, und Agenten können Aufgaben basierend auf vordefinierten Regeln an andere Agenten übergeben.
 
-![Übergabe](../../../translated_images/de/multi-agent-hand-off.4c5fb00ba6f8750a.png)
+![Übergabe](../../../translated_images/de/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Kollaboratives Filtern
 
@@ -121,7 +121,7 @@ Nehmen wir ein Beispiel, bei dem ein Nutzer eine Empfehlung für die beste Aktie
 - **Technische Analyse**: Ein anderer Agent könnte ein Experte für technische Analysen sein.
 - **Fundamentalanalyse**: Und ein weiterer Agent könnte ein Experte für Fundamentalanalysen sein. Durch die Zusammenarbeit können diese Agenten dem Nutzer eine umfassendere Empfehlung geben.
 
-![Empfehlung](../../../translated_images/de/multi-agent-filtering.d959cb129dc9f608.png)
+![Empfehlung](../../../translated_images/de/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Szenario: Rückerstattungsprozess
 

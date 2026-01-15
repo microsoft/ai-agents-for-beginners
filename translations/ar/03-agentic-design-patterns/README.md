@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ar"
 }
 -->
-[![كيفية تصميم وكلاء ذكاء اصطناعي جيدين](../../../translated_images/ar/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![كيفية تصميم وكلاء ذكاء اصطناعي جيدين](../../../translated_images/ar/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو هذا الدرس)_
 # مبادئ تصميم الوكلاء الذكيين
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## مبادئ تصميم الوكلاء الذكيين
 
-![مبادئ تصميم الوكلاء الذكيين](../../../translated_images/ar/agentic-design-principles.1cfdf8b6d3cc73c2.png)
+![مبادئ تصميم الوكلاء الذكيين](../../../translated_images/ar/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### الوكيل (المكان)
 

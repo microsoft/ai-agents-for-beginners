@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI-agenter i produktion: Observabilitet och utvärdering
 
-[![AI-agenter i produktion](../../../translated_images/sv/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI-agenter i produktion](../../../translated_images/sv/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 När AI-agenter går från experimentella prototyper till verkliga applikationer blir det viktigt att förstå deras beteende, övervaka deras prestanda och systematiskt utvärdera deras resultat.
 

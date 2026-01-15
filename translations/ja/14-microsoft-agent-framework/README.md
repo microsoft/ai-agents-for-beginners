@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Microsoft Agent Framework を探る
 
-![Agent Framework](../../../translated_images/ja/lesson-14-thumbnail.90df0065b9d234ee.png)
+![Agent Framework](../../../translated_images/ja/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### はじめに
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Microsoft Agent Framework の理解
 
-![Framework Intro](../../../translated_images/ja/framework-intro.077af16617cf130c.png)
+![Framework Intro](../../../translated_images/ja/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) は、Semantic Kernel や AutoGen から得た経験と知見を基に構築されています。これにより、以下のような実運用および研究環境で見られる多様なエージェントユースケースに対応する柔軟性を提供します：
 
@@ -63,7 +63,7 @@ Microsoft Agent Framework は、以下の点で相互運用性にも重点を置
 
 ### エージェント
 
-![Agent Framework](../../../translated_images/ja/agent-components.410a06daf87b4fef.png)
+![Agent Framework](../../../translated_images/ja/agent-components.410a06daf87b4fef.webp)
 
 **エージェントの作成**
 

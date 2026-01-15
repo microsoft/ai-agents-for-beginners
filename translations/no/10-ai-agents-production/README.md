@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI-agenter i produksjon: Observabilitet og evaluering
 
-[![AI-agenter i produksjon](../../../translated_images/no/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI-agenter i produksjon](../../../translated_images/no/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Når AI-agenter går fra eksperimentelle prototyper til virkelige applikasjoner, blir det viktig å forstå deres oppførsel, overvåke ytelsen og systematisk evaluere resultatene deres.
 

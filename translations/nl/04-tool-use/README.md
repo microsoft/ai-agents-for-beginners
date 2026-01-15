@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "nl"
 }
 -->
-[![Hoe ontwerp je goede AI-agenten](../../../translated_images/nl/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Hoe ontwerp je goede AI-agenten](../../../translated_images/nl/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
@@ -216,7 +216,7 @@ Hier zijn enkele voorbeelden van hoe je het Tool Use Design Pattern kunt impleme
 
 Het volgende diagram illustreert het proces van functieaanroepen met Semantic Kernel:
 
-![functieaanroepen](../../../translated_images/nl/functioncalling-diagram.a84006fc287f6014.png)
+![functieaanroepen](../../../translated_images/nl/functioncalling-diagram.a84006fc287f6014.webp)
 
 In Semantic Kernel worden functies/tools <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a> genoemd. We kunnen de `get_current_time`-functie die we eerder zagen omzetten in een plugin door er een klasse van te maken met de functie erin. We kunnen ook de `kernel_function`-decorator importeren, die de beschrijving van de functie accepteert. Wanneer je vervolgens een kernel maakt met de GetCurrentTimePlugin, serialiseert de kernel automatisch de functie en haar parameters, waardoor het schema wordt gemaakt om naar de LLM te sturen.
 
@@ -277,7 +277,7 @@ Stel je voor dat je een verkoopagent bent bij een bedrijf genaamd Contoso. Je wi
 
 De volgende afbeelding illustreert hoe je Azure AI Agent Service kunt gebruiken om je verkoopgegevens te analyseren:
 
-![Agentic Service In Action](../../../translated_images/nl/agent-service-in-action.34fb465c9a84659e.jpg)
+![Agentic Service In Action](../../../translated_images/nl/agent-service-in-action.34fb465c9a84659e.webp)
 
 Om een van deze tools met de service te gebruiken, kunnen we een client maken en een tool of toolset definiëren. Om dit praktisch te implementeren, kunnen we de volgende Python-code gebruiken. De LLM kan naar de toolset kijken en beslissen of de door de gebruiker gemaakte functie, `fetch_sales_data_using_sqlite_query`, of de vooraf gebouwde Code Interpreter wordt gebruikt, afhankelijk van het verzoek van de gebruiker.
 

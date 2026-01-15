@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "he"
 }
 -->
-[![איך לעצב סוכני AI טובים](../../../translated_images/he/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![איך לעצב סוכני AI טובים](../../../translated_images/he/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(לחצו על התמונה למעלה לצפייה בסרטון של השיעור הזה)_
 # עקרונות עיצוב סוכני AI
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## עקרונות עיצוב סוכנים
 
-![עקרונות עיצוב סוכנים](../../../translated_images/he/agentic-design-principles.1cfdf8b6d3cc73c2.png)
+![עקרונות עיצוב סוכנים](../../../translated_images/he/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### סוכן (מרחב)
 

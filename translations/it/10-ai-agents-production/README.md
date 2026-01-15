@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agenti AI in Produzione: Osservabilità e Valutazione
 
-[![Agenti AI in Produzione](../../../translated_images/it/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![Agenti AI in Produzione](../../../translated_images/it/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Man mano che gli agenti AI passano da prototipi sperimentali ad applicazioni nel mondo reale, diventa fondamentale comprendere il loro comportamento, monitorarne le prestazioni e valutarne sistematicamente i risultati.
 

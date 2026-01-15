@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "de"
 }
 -->
-[![Einführung in KI-Agenten](../../../translated_images/de/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Einführung in KI-Agenten](../../../translated_images/de/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klicken Sie auf das Bild oben, um das Video zu dieser Lektion anzusehen)_
 
@@ -47,7 +47,7 @@ Lassen Sie uns diese Definition in kleinere Teile zerlegen:
   - **Sensoren** - Umgebungen enthalten Informationen und geben Rückmeldungen. KI-Agenten nutzen Sensoren, um diese Informationen über den aktuellen Zustand der Umgebung zu sammeln und zu interpretieren. Im Beispiel des Reisebuchungs-Agenten könnte das Buchungssystem Informationen wie Hotelverfügbarkeit oder Flugpreise bereitstellen.
   - **Aktoren** - Sobald der KI-Agent den aktuellen Zustand der Umgebung erfasst hat, bestimmt er für die aktuelle Aufgabe, welche Aktion ausgeführt werden soll, um die Umgebung zu verändern. Für den Reisebuchungs-Agenten könnte dies bedeuten, ein verfügbares Zimmer für den Benutzer zu buchen.
 
-![Was sind KI-Agenten?](../../../translated_images/de/what-are-ai-agents.1ec8c4d548af601a.png)
+![Was sind KI-Agenten?](../../../translated_images/de/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Große Sprachmodelle** - Das Konzept von Agenten existierte bereits vor der Entwicklung von LLMs. Der Vorteil beim Aufbau von KI-Agenten mit LLMs liegt in ihrer Fähigkeit, menschliche Sprache und Daten zu interpretieren. Diese Fähigkeit ermöglicht es LLMs, Umgebungsinformationen zu verstehen und einen Plan zur Veränderung der Umgebung zu erstellen.
 
@@ -77,7 +77,7 @@ Im vorherigen Abschnitt haben wir den Anwendungsfall des Reiseagenten verwendet,
 
 Schauen wir uns die Arten von Anwendungsfällen an, für die KI-Agenten am besten geeignet sind:
 
-![Wann sollten KI-Agenten eingesetzt werden?](../../../translated_images/de/when-to-use-ai-agents.54becb3bed74a479.png)
+![Wann sollten KI-Agenten eingesetzt werden?](../../../translated_images/de/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Offene Probleme** - Ermöglichen dem LLM, die notwendigen Schritte zur Erledigung einer Aufgabe zu bestimmen, da diese nicht immer in einen Workflow fest codiert werden können.
 - **Mehrstufige Prozesse** - Aufgaben, die ein gewisses Maß an Komplexität erfordern, bei denen der KI-Agent Werkzeuge oder Informationen über mehrere Schritte hinweg nutzen muss, anstatt sie in einem einzigen Durchgang abzurufen.  

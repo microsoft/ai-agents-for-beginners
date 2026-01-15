@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # הנדסת הקשר לסוכני AI
 
-[![הנדסת הקשר](../../../translated_images/he/lesson-12-thumbnail.ed19c94463e774d4.png)](https://youtu.be/F5zqRV7gEag)
+[![הנדסת הקשר](../../../translated_images/he/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(לחצו על התמונה למעלה לצפייה בסרטון של השיעור)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### סוגי הקשר
 
-[![סוגי הקשר](../../../translated_images/he/context-types.fc10b8927ee43f06.png)](https://youtu.be/F5zqRV7gEag)
+[![סוגי הקשר](../../../translated_images/he/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 חשוב לזכור שהקשר אינו דבר אחד בלבד. המידע שהסוכן צריך יכול להגיע ממגוון מקורות שונים, ועלינו להבטיח שלסוכן תהיה גישה למקורות אלו:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### אסטרטגיות תכנון
 
-[![הנדסת הקשר - שיטות עבודה מומלצות](../../../translated_images/he/best-practices.f4170873dc554f58.png)](https://youtu.be/F5zqRV7gEag)
+[![הנדסת הקשר - שיטות עבודה מומלצות](../../../translated_images/he/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 הנדסת הקשר טובה מתחילה בתכנון טוב. הנה גישה שתעזור לכם להתחיל לחשוב איך ליישם את הרעיון של הנדסת הקשר:
 

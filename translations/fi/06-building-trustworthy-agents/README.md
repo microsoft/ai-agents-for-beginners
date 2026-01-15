@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fi"
 }
 -->
-[![Luotettavat tekoälyagentit](../../../translated_images/fi/lesson-6-thumbnail.a58ab36c099038d4.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Luotettavat tekoälyagentit](../../../translated_images/fi/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klikkaa yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
 
@@ -41,7 +41,7 @@ Tekoälyagenttien kohdalla järjestelmäkehotus on vielä tärkeämpi, koska age
 
 Jotta voimme luoda skaalautuvia järjestelmäkehotteita, voimme käyttää järjestelmäviestikehystä rakentaessamme yhtä tai useampaa agenttia sovellukseemme:
 
-![Järjestelmäviestikehyksen rakentaminen](../../../translated_images/fi/system-message-framework.3a97368c92d11d68.png)
+![Järjestelmäviestikehyksen rakentaminen](../../../translated_images/fi/system-message-framework.3a97368c92d11d68.webp)
 
 #### Vaihe 1: Luo metajärjestelmäviesti
 
@@ -130,7 +130,7 @@ Tämän järjestelmäviestikehyksen arvo on siinä, että se helpottaa useiden a
 
 Luotettavien tekoälyagenttien rakentamiseksi on tärkeää ymmärtää ja vähentää tekoälyagenttiin kohdistuvia riskejä ja uhkia. Tarkastellaan joitakin erilaisia uhkia ja sitä, kuinka voit paremmin suunnitella ja valmistautua niihin.
 
-![Uhka-analyysi](../../../translated_images/fi/understanding-threats.89edeada8a97fc0f.png)
+![Uhka-analyysi](../../../translated_images/fi/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Tehtävät ja ohjeet
 
@@ -166,7 +166,7 @@ Luotettavien tekoälyagenttien rakentamiseksi on tärkeää ymmärtää ja vähe
 
 Toinen tehokas tapa rakentaa luotettavia tekoälyagenttijärjestelmiä on käyttää ihmistä mukana prosessissa. Tämä luo työnkulun, jossa käyttäjät voivat antaa palautetta agenteille niiden suorittaessa tehtäviä. Käyttäjät toimivat käytännössä agenteina monen agentin järjestelmässä ja voivat hyväksyä tai keskeyttää käynnissä olevan prosessin.
 
-![Ihminen mukana prosessissa](../../../translated_images/fi/human-in-the-loop.5f0068a678f62f4f.png)
+![Ihminen mukana prosessissa](../../../translated_images/fi/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Tässä on koodiesimerkki AutoGenin avulla, joka näyttää, kuinka tämä konsepti toteutetaan:
 

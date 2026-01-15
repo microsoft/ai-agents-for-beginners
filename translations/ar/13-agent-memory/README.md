@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # الذاكرة لوكلاء الذكاء الاصطناعي
-[![ذاكرة الوكيل](../../../translated_images/ar/lesson-13-thumbnail.959e3bc52d210c64.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![ذاكرة الوكيل](../../../translated_images/ar/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 عند مناقشة الفوائد الفريدة لإنشاء وكلاء الذكاء الاصطناعي، يتم التركيز بشكل أساسي على أمرين: القدرة على استخدام الأدوات لإتمام المهام والقدرة على التحسن مع مرور الوقت. الذاكرة هي الأساس لإنشاء وكيل ذاتي التحسين يمكنه تقديم تجارب أفضل لمستخدمينا.
 

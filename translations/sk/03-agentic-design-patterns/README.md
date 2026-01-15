@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sk"
 }
 -->
-[![Ako navrhnúť dobrých AI agentov](../../../translated_images/sk/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Ako navrhnúť dobrých AI agentov](../../../translated_images/sk/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Kliknite na obrázok vyššie, aby ste si pozreli video k tejto lekcii)_
 # Princípy dizajnu agentov AI
@@ -39,7 +39,7 @@ Po dokončení tejto lekcie budete schopní:
 
 ## Princípy dizajnu agentov
 
-![Princípy dizajnu agentov](../../../translated_images/sk/agentic-design-principles.1cfdf8b6d3cc73c2.png)
+![Princípy dizajnu agentov](../../../translated_images/sk/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agent (Priestor)
 

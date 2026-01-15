@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sw"
 }
 -->
-[![Jinsi ya Kubuni Mawakala wa AI Wazuri](../../../translated_images/sw/lesson-4-thumbnail.546162853cb3daff.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Jinsi ya Kubuni Mawakala wa AI Wazuri](../../../translated_images/sw/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Bofya picha hapo juu ili kutazama video ya somo hili)_
 
@@ -211,7 +211,7 @@ Hapa kuna mifano ya jinsi unavyoweza kutekeleza Muundo wa Matumizi ya Zana kwa k
 
 Mchoro ufuatao unaonyesha mchakato wa miito ya kazi na Semantic Kernel:
 
-![miito ya kazi](../../../translated_images/sw/functioncalling-diagram.a84006fc287f6014.png)
+![miito ya kazi](../../../translated_images/sw/functioncalling-diagram.a84006fc287f6014.webp)
 
 Katika Semantic Kernel kazi/zana zinaitwa <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Tunaweza kubadilisha kazi ya `get_current_time` tuliyoiona awali kuwa plugin kwa kuibadilisha kuwa darasa lenye kazi ndani yake. Tunaweza pia kuingiza kipambo cha `kernel_function`, ambacho kinachukua maelezo ya kazi. Unapounda kernel na GetCurrentTimePlugin, kernel itaweka moja kwa moja kazi na vigezo vyake katika muundo wa serial, ikitengeneza mfumo wa kutuma kwa LLM katika mchakato.
 
@@ -272,7 +272,7 @@ Fikiria wewe ni wakala wa mauzo katika kampuni inayoitwa Contoso. Unataka kuunda
 
 Picha ifuatayo inaonyesha jinsi unavyoweza kutumia Huduma ya Mawakala ya AI ya Azure kuchambua data yako ya mauzo:
 
-![Huduma ya Mawakala Katika Matendo](../../../translated_images/sw/agent-service-in-action.34fb465c9a84659e.jpg)
+![Huduma ya Mawakala Katika Matendo](../../../translated_images/sw/agent-service-in-action.34fb465c9a84659e.webp)
 
 Ili kutumia zana yoyote na huduma hii tunaweza kuunda mteja na kufafanua zana au seti ya zana. Ili kutekeleza hili kwa vitendo tunaweza kutumia msimbo wa Python ufuatao. LLM itaweza kuangalia seti ya zana na kuamua kutumia kazi iliyoundwa na mtumiaji, `fetch_sales_data_using_sqlite_query`, au Mkalimani wa Msimbo uliotengenezwa tayari kulingana na ombi la mtumiaji.
 

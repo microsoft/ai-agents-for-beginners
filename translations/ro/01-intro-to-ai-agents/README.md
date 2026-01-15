@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ro"
 }
 -->
-[![Introducere în Agenții AI](../../../translated_images/ro/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Introducere în Agenții AI](../../../translated_images/ro/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Click pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
@@ -47,7 +47,7 @@ Să descompunem această definiție în părți mai mici:
   - **Senzori** - Mediile au informații și oferă feedback. Agenții AI folosesc senzori pentru a colecta și interpreta aceste informații despre starea curentă a mediului. În exemplul agentului de rezervări de călătorii, sistemul de rezervări poate oferi informații precum disponibilitatea hotelurilor sau prețurile zborurilor.
   - **Actuatori** - Odată ce Agentul AI primește starea curentă a mediului, pentru sarcina curentă, agentul determină ce acțiune să efectueze pentru a schimba mediul. Pentru agentul de rezervări de călătorii, aceasta ar putea fi rezervarea unei camere disponibile pentru utilizator.
 
-![Ce sunt Agenții AI?](../../../translated_images/ro/what-are-ai-agents.1ec8c4d548af601a.png)
+![Ce sunt Agenții AI?](../../../translated_images/ro/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Modele de Limbaj Extins** - Conceptul de agenți a existat înainte de crearea LLM-urilor. Avantajul construirii Agenților AI cu LLM-uri este capacitatea lor de a interpreta limbajul uman și datele. Această abilitate permite LLM-urilor să interpreteze informațiile din mediu și să definească un plan pentru a schimba mediul.
 
@@ -77,7 +77,7 @@ Acum că avem o definiție generală a Agenților AI, să analizăm câteva tipu
 
 Să analizăm tipurile de cazuri de utilizare pentru care Agenții AI sunt cel mai potriviți:
 
-![Când să folosești Agenți AI?](../../../translated_images/ro/when-to-use-ai-agents.54becb3bed74a479.png)
+![Când să folosești Agenți AI?](../../../translated_images/ro/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Probleme Deschise** - permit LLM-ului să determine pașii necesari pentru a finaliza o sarcină, deoarece nu pot fi întotdeauna codificați într-un flux de lucru.
 - **Procese Multi-Pas** - sarcini care necesită un nivel de complexitate în care Agentul AI trebuie să folosească instrumente sau informații pe parcursul mai multor etape, în loc de o singură recuperare.

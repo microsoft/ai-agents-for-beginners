@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ప్రారంభికుల కోసం AI ఏజెంట్స్ - కోర్సు
 
-![జనరేటివ్ AI ప్రారంభికులకు](../../translated_images/te/repo-thumbnailv2.06f4a48036fde647.png)
+![జనరేటివ్ AI ప్రారంభికులకు](../../translated_images/te/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## AI ఏజెంట్స్ రూపొందించడం ప్రారంభించడానికి మీకు అవసరమైన అన్ని విషయాలు నేర్పించే ఒక కోర్సు
 

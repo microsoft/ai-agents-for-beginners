@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Ejen AI untuk Pemula - Kursus
 
-![AI Generatif Untuk Pemula](../../translated_images/ms/repo-thumbnailv2.06f4a48036fde647.png)
+![AI Generatif Untuk Pemula](../../translated_images/ms/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Satu kursus yang mengajar segala yang anda perlu tahu untuk mula membina Ejen AI
 

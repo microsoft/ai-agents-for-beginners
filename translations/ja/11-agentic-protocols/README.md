@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # エージェンティックプロトコルの活用 (MCP、A2A、NLWeb)
 
-[![エージェンティックプロトコル](../../../translated_images/ja/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
+[![エージェンティックプロトコル](../../../translated_images/ja/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(上の画像をクリックすると、このレッスンの動画をご覧いただけます)_
 
@@ -69,7 +69,7 @@ MCPはAIエージェントにとって以下のような重要な利点を提供
 
 ### MCPの例
 
-![MCP Diagram](../../../translated_images/ja/mcp-diagram.e4ca1cbd551444a1.png)
+![MCP Diagram](../../../translated_images/ja/mcp-diagram.e4ca1cbd551444a1.webp)
 
 ユーザーがAIアシスタントを使ってフライトを予約したいとします。
 
@@ -124,7 +124,7 @@ MCPサーバーがツールのリストを共有するのと同様に、エー�
 
 ### A2Aの例
 
-![A2A Diagram](../../../translated_images/ja/A2A-Diagram.8666928d648acc26.png)
+![A2A Diagram](../../../translated_images/ja/A2A-Diagram.8666928d648acc26.webp)
 
 旅行予約シナリオを拡張し、今回はA2Aを使用します。
 
@@ -158,7 +158,7 @@ NLWebの異なる構成要素、NLWebの利点、そして旅行アプリケー�
 
 ### NLWebの例
 
-![NLWeb](../../../translated_images/ja/nlweb-diagram.c1e2390b310e5fe4.png)
+![NLWeb](../../../translated_images/ja/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 旅行予約ウェブサイトを例に取り上げ、今回はNLWebを活用します。
 

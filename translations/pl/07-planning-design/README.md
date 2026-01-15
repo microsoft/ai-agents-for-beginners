@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pl"
 }
 -->
-[![Wzorzec projektowania planowania](../../../translated_images/pl/lesson-7-thumbnail.f7163ac557bea123.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Wzorzec projektowania planowania](../../../translated_images/pl/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 
@@ -32,7 +32,7 @@ Po ukończeniu tej lekcji będziesz rozumieć:
 
 ## Definiowanie ogólnego celu i rozbijanie zadania
 
-![Definiowanie celów i zadań](../../../translated_images/pl/defining-goals-tasks.d70439e19e37c47a.png)
+![Definiowanie celów i zadań](../../../translated_images/pl/defining-goals-tasks.d70439e19e37c47a.webp)
 
 Większość zadań w rzeczywistym świecie jest zbyt złożona, aby można je było rozwiązać w jednym kroku. Agent AI potrzebuje zwięzłego celu, który będzie kierował jego planowaniem i działaniami. Na przykład rozważ cel:
 

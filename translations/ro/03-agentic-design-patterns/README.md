@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ro"
 }
 -->
-[![Cum să proiectezi agenți AI buni](../../../translated_images/ro/lesson-3-thumbnail.1092dd7a8f1074a5.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Cum să proiectezi agenți AI buni](../../../translated_images/ro/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 # Principii de Design pentru Agenți AI
@@ -39,7 +39,7 @@ După finalizarea acestei lecții, veți putea:
 
 ## Principiile de Design Agentic
 
-![Principiile de Design Agentic](../../../translated_images/ro/agentic-design-principles.1cfdf8b6d3cc73c2.png)
+![Principiile de Design Agentic](../../../translated_images/ro/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agent (Spațiu)
 

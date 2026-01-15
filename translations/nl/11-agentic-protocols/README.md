@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Gebruik van Agentische Protocollen (MCP, A2A en NLWeb)
 
-[![Agentische Protocollen](../../../translated_images/nl/lesson-11-thumbnail.b6c742949cf1ce2a.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentische Protocollen](../../../translated_images/nl/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
@@ -69,7 +69,7 @@ MCP biedt aanzienlijke voordelen voor AI-agenten:
 
 ### MCP Voorbeeld
 
-![MCP Diagram](../../../translated_images/nl/mcp-diagram.e4ca1cbd551444a1.png)
+![MCP Diagram](../../../translated_images/nl/mcp-diagram.e4ca1cbd551444a1.webp)
 
 Stel je voor dat een gebruiker een vlucht wil boeken met behulp van een AI-assistent die wordt aangedreven door MCP.
 
@@ -124,7 +124,7 @@ Deze component wordt gebruikt voor **het afhandelen van updates en het doorgeven
 
 ### A2A Voorbeeld
 
-![A2A Diagram](../../../translated_images/nl/A2A-Diagram.8666928d648acc26.png)
+![A2A Diagram](../../../translated_images/nl/A2A-Diagram.8666928d648acc26.webp)
 
 Laten we ons reisscenario uitbreiden, maar deze keer met A2A.
 
@@ -158,7 +158,7 @@ Laten we kijken naar de verschillende componenten van NLWeb, de voordelen van NL
 
 ### NLWeb Voorbeeld
 
-![NLWeb](../../../translated_images/nl/nlweb-diagram.c1e2390b310e5fe4.png)
+![NLWeb](../../../translated_images/nl/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 Laten we onze reisboekingswebsite opnieuw bekijken, maar deze keer aangedreven door NLWeb.
 

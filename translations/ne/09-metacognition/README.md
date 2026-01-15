@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ne"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/ne/lesson-9-thumbnail.38059e8af1a5b71d.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/ne/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(माथिको तस्बिरमा क्लिक गरेर यो पाठको भिडियो हेर्नुहोस्)_
 # एआई एजेन्टहरूमा मेटाकग्निशन
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 मेटाकग्निशनले एआई एजेन्ट डिजाइनमा निम्न कारणहरूले महत्त्वपूर्ण भूमिका खेल्छ:
 
-![मेटाकग्निशनको महत्त्व](../../../translated_images/ne/importance-of-metacognition.b381afe9aae352f7.png)
+![मेटाकग्निशनको महत्त्व](../../../translated_images/ne/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - आत्म-प्रतिबिम्ब: एजेन्टहरूले आफ्नो प्रदर्शनको मूल्याङ्कन गर्न र सुधारका क्षेत्रहरू पहिचान गर्न सक्छन्।
 - अनुकूलनशीलता: एजेन्टहरूले विगतका अनुभव र परिवर्तनशील वातावरणका आधारमा आफ्ना रणनीतिहरू परिमार्जन गर्न सक्छन्।
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 सबैभन्दा पहिले, RAG उपकरण र पूर्व-प्रत्याशित सन्दर्भ लोडको बीचको फरक बुझौं।
 
-![RAG बनाम सन्दर्भ लोड](../../../translated_images/ne/rag-vs-context.9eae588520c00921.png)
+![RAG बनाम सन्दर्भ लोड](../../../translated_images/ne/rag-vs-context.9eae588520c00921.webp)
 
 ### पुनःप्राप्ति-अग्मेन्टेड जेनेरेसन (RAG)
 

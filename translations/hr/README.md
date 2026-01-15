@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI agenti za početnike - Tečaj
 
-![Generativna AI za početnike](../../translated_images/hr/repo-thumbnailv2.06f4a48036fde647.png)
+![Generativna AI za početnike](../../translated_images/hr/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Tečaj koji podučava sve što trebate znati za početak izrade AI agenata
 

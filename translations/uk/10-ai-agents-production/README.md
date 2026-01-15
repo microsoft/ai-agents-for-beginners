@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI-агенти у виробництві: спостережуваність та оцінка
 
-[![AI-агенти у виробництві](../../../translated_images/uk/lesson-10-thumbnail.2b79a30773db093e.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI-агенти у виробництві](../../../translated_images/uk/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Коли AI-агенти переходять від експериментальних прототипів до реальних застосувань, здатність розуміти їхню поведінку, контролювати їхню продуктивність і систематично оцінювати їхні результати стає важливою.
 

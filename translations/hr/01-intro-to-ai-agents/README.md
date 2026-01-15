@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hr"
 }
 -->
-[![Uvod u AI agente](../../../translated_images/hr/lesson-1-thumbnail.d21b2c34b32d35bb.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Uvod u AI agente](../../../translated_images/hr/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Kliknite na sliku iznad za pregled videa ove lekcije)_
 
@@ -47,7 +47,7 @@ Razložimo ovu definiciju na manje dijelove:
   - **Senzori** - Okruženja imaju informacije i pružaju povratne informacije. AI agenti koriste senzore za prikupljanje i interpretaciju tih informacija o trenutnom stanju okruženja. U primjeru agenta za rezervaciju putovanja, sustav za rezervaciju može pružiti informacije poput dostupnosti hotela ili cijena letova.
   - **Aktuatori** - Kada AI agent primi trenutne informacije o stanju okruženja, za trenutni zadatak agent određuje koju radnju treba poduzeti kako bi promijenio okruženje. Za agenta za rezervaciju putovanja, to može biti rezervacija dostupne sobe za korisnika.
 
-![Što su AI agenti?](../../../translated_images/hr/what-are-ai-agents.1ec8c4d548af601a.png)
+![Što su AI agenti?](../../../translated_images/hr/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Veliki jezični modeli** - Koncept agenata postojao je prije stvaranja LLM-ova. Prednost izgradnje AI agenata s LLM-ovima je njihova sposobnost interpretacije ljudskog jezika i podataka. Ta sposobnost omogućuje LLM-ovima da interpretiraju informacije iz okruženja i definiraju plan za promjenu okruženja.
 
@@ -77,7 +77,7 @@ U prethodnom dijelu koristili smo primjer agenta za putovanja kako bismo objasni
 
 Pogledajmo vrste slučajeva primjene za koje su AI agenti najprikladniji:
 
-![Kada koristiti AI agente?](../../../translated_images/hr/when-to-use-ai-agents.54becb3bed74a479.png)
+![Kada koristiti AI agente?](../../../translated_images/hr/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Problemi otvorenog tipa** - omogućavanje LLM-u da odredi potrebne korake za dovršavanje zadatka jer se ne može uvijek unaprijed kodirati u radni proces.
 - **Procesi s više koraka** - zadaci koji zahtijevaju razinu složenosti u kojoj AI agent treba koristiti alate ili informacije tijekom više koraka umjesto jednokratnog dohvaćanja.  
