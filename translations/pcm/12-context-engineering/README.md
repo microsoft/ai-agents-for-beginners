@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Context Engineering for AI Agents
 
-[![Context Engineering](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.pcm.png)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering](../../../translated_images/pcm/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(Click di image wey dey up to watch di video for dis lesson)_
 
@@ -49,7 +49,7 @@ Prompt engineering na di work wey dey focus on one set of fixed instructions to 
 
 ### Types of Context
 
-[![Types of Context](../../../translated_images/context-types.fc10b8927ee43f06.pcm.png)](https://youtu.be/F5zqRV7gEag)
+[![Types of Context](../../../translated_images/pcm/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 E dey important to remember say context no be just one thing. Di information wey di AI Agent need fit come from different sources and na our work to make sure say di agent fit access dis sources:
 
@@ -69,7 +69,7 @@ Di types of context wey AI agent fit need to manage include:
 
 ### Planning Strategies
 
-[![Context Engineering Best Practices](../../../translated_images/best-practices.f4170873dc554f58.pcm.png)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering Best Practices](../../../translated_images/pcm/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 Good context engineering dey start with good planning. Dis na how you fit begin to think about how to use di idea of context engineering:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pcm"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.pcm.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/pcm/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Click di image wey dey up to watch di video for dis lesson)_
 
@@ -41,7 +41,7 @@ For AI Agents, di system prompt dey even more important because di AI Agents go 
 
 To create system prompts wey fit scale, we fit use system message framework to build one or more agents for our application:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.pcm.png)
+![Building a System Message Framework](../../../translated_images/pcm/system-message-framework.3a97368c92d11d68.webp)
 
 #### Step 1: Create Meta System Message 
 
@@ -130,7 +130,7 @@ Di value of dis system message framework na say e go make am easy to create syst
 
 To build AI agents wey people go trust, e dey important to understand di risks and threats wey fit affect your AI agent. Make we look some of di threats wey fit happen to AI agents and how you fit plan and prepare for dem.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.pcm.png)
+![Understanding Threats](../../../translated_images/pcm/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Task and Instruction
 
@@ -166,7 +166,7 @@ To build AI agents wey people go trust, e dey important to understand di risks a
 
 Another way wey dey effective to build AI Agent systems wey people go trust na to use Human-in-the-loop. Dis one go create flow wey users fit give feedback to di Agents when dem dey run. Users go act like agents for multi-agent system and dem fit approve or stop di process wey dey run.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.pcm.png)
+![Human in The Loop](../../../translated_images/pcm/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Example code snippet wey dey use AutoGen to show how dis concept dey work:
 

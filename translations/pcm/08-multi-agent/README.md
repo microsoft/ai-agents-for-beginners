@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pcm"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.pcm.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/pcm/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Click di image wey dey up to watch di video for dis lesson)_
 
@@ -91,7 +91,7 @@ Dis pattern dey useful for group chat apps where agents fit dey communicate. Use
 
 For dis pattern, each agent dey represent one user, and dem dey exchange messages using messaging protocol. E fit dey centralized or decentralized.
 
-![Group chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.pcm.png)
+![Group chat](../../../translated_images/pcm/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Hand-off
 
@@ -99,7 +99,7 @@ Dis pattern dey useful for apps where agents fit dey hand over tasks to each oth
 
 For dis pattern, each agent dey represent one task or step for workflow, and dem dey hand over tasks based on rules.
 
-![Hand off](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.pcm.png)
+![Hand off](../../../translated_images/pcm/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Collaborative filtering
 
@@ -111,7 +111,7 @@ Example na stock market recommendation:
 - **Technical analysis**: Another agent sabi technical analysis.
 - **Fundamental analysis**: Another agent sabi fundamental analysis. Together, dem fit give better recommendation.
 
-![Recommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.pcm.png)
+![Recommendation](../../../translated_images/pcm/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenario: Refund process
 
