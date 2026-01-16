@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "kn"
 }
 -->
-[![ಬಹು-ಏಜೆಂಟ್ ವಿನ್ಯಾಸ](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.kn.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![ಬಹು-ಏಜೆಂಟ್ ವಿನ್ಯಾಸ](../../../translated_images/kn/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(ಈ ಪಾಠದ ವೀಡಿಯೊವನ್ನು ವೀಕ್ಷಿಸಲು ಮೇಲಿನ ಚಿತ್ರವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ)_
 
@@ -83,19 +83,19 @@ CO_OP_TRANSLATOR_METADATA:
 
 ಈ ಮಾದರಿ ಗುಂಪು ಚಾಟ್ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ರಚಿಸಲು ಉಪಯುಕ್ತವಾಗಿದೆ. 
 
-![ಗುಂಪು ಚಾಟ್](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.kn.png)
+![ಗುಂಪು ಚಾಟ್](../../../translated_images/kn/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### ಹ್ಯಾಂಡ್-ಆಫ್
 
 ಈ ಮಾದರಿ ಏಜೆಂಟ್‌ಗಳು ಕಾರ್ಯಗಳನ್ನು ಪರಸ್ಪರ ಹಸ್ತಾಂತರಿಸಲು ಉಪಯುಕ್ತವಾಗಿದೆ.
 
-![ಹ್ಯಾಂಡ್-ಆಫ್](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.kn.png)
+![ಹ್ಯಾಂಡ್-ಆಫ್](../../../translated_images/kn/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### ಸಹಯೋಗಿ ಶಿಫಾರಸು
 
 ಈ ಮಾದರಿ ಏಜೆಂಟ್‌ಗಳು ಬಳಕೆದಾರರಿಗೆ ಶಿಫಾರಸುಗಳನ್ನು ನೀಡಲು ಸಹಕರಿಸಲು ಉಪಯುಕ್ತವಾಗಿದೆ.
 
-![ಶಿಫಾರಸು](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.kn.png)
+![ಶಿಫಾರಸು](../../../translated_images/kn/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## ಸಂದರ್ಭ: ಮರುಪಾವತಿ ಪ್ರಕ್ರಿಯೆ
 

@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Сега трябва да имате ваша собствена версия на този курс на следния линк:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.bg.png)
+![Forked Repo](../../../translated_images/bg/forked-repo.33f27ca1901baa6a.webp)
 
 ### Повърхностно клониране (препоръчително за работилници / Codespaces)
 
@@ -176,11 +176,11 @@ pip install -r requirements.txt
 
 1. Изберете опцията `Fine-grained tokens` от лявата страна на екрана, като отидете в **Developer settings**.
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755.bg.png)
+   ![Developer settings](../../../translated_images/bg/profile_developer_settings.410a859fe749c755.webp)
 
    След това изберете `Generate new token`.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.bg.png)
+   ![Generate Token](../../../translated_images/bg/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Въведете описателно име за вашия токен, което отразява неговата цел, за да бъде лесно разпознаваем по-късно.
 
@@ -190,19 +190,19 @@ pip install -r requirements.txt
     За по-сигурна настройка можете да изберете по-кратък период — например 7 дни 🛡️
     Това е чудесен начин да си поставите лична цел и да завършите курса, докато вашият учебен импулс е висок 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de6386864.bg.png)
+    ![Token Name and Expiration](../../../translated_images/bg/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Ограничете обхвата на токена до вашето копие на това хранилище.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.bg.png)
+    ![Limit scope to fork repository](../../../translated_images/bg/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Ограничете разрешенията на токена: Под **Permissions**, кликнете върху таба **Account** и натиснете бутона "+ Add permissions". Ще се появи падащо меню. Моля, потърсете **Models** и отметнете полето за него.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.bg.png)
+    ![Add Models Permission](../../../translated_images/bg/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Проверете необходимите разрешения преди да генерирате токена. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b21.bg.png)
+5. Проверете необходимите разрешения преди да генерирате токена. ![Verify Permissions](../../../translated_images/bg/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Преди да генерирате токена, уверете се, че сте готови да го съхраните на сигурно място, като например сейф за пароли, тъй като той няма да бъде показан отново след създаването му. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf.bg.png)
+6. Преди да генерирате токена, уверете се, че сте готови да го съхраните на сигурно място, като например сейф за пароли, тъй като той няма да бъде показан отново след създаването му. ![Store Token Securely](../../../translated_images/bg/store_token_securely.08ee2274c6ad6caf.webp)
 
 Копирайте новия токен, който току-що сте създали. Сега ще го добавите към вашия `.env` файл, включен в този курс.
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 С копирания токен, отворете `.env` файла в любимия си текстов редактор и поставете вашия токен в полето `GITHUB_TOKEN`.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4a.bg.png)
+![GitHub Token Field](../../../translated_images/bg/github_token_field.20491ed3224b5f4a.webp)
 
 Сега трябва да можете да стартирате примерите с код от този курс.
 
@@ -238,7 +238,7 @@ Copy-Item .env.example .env
 
 Това може да се направи, като отидете на страницата **Overview** на вашия проект в портала Azure AI Foundry.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.bg.png)
+![Project Connection String](../../../translated_images/bg/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Стъпка 2: Създайте вашия `.env` файл
 

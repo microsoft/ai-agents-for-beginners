@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Пратите упутства из [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) блог поста за креирање Azure AI Foundry хаба.
 2. Када је ваш пројекат креиран, затворите све савете који се појаве и прегледајте страницу пројекта у Azure AI Foundry порталу, која би требало да изгледа слично као на следећој слици:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.sr.png)
+    ![Azure AI Foundry Project](../../../translated_images/sr/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Деплојовање модела
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: Смањење TPM помаже да се избегне прекомерна употреба квоте доступне у претплати коју користите.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.sr.png)
+    ![Model Deployed](../../../translated_images/sr/model-deployment.3749c53fb81e18fd.webp)
 
 ## Креирање агента
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > Поред тога, можете додати **Knowledge Base** и **Actions** да бисте побољшали могућности агента да пружа више информација и извршава аутоматизоване задатке на основу корисничких захтева. За овај задатак, ове кораке можете прескочити.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.sr.png)
+![Agent Setup](../../../translated_images/sr/agent-setup.9bbb8755bf5df672.webp)
 
 3. Да бисте креирали новог мулти-AI агента, једноставно кликните на **New Agent**. Новокреирани агент ће се појавити на страници Agents.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: Агент можда неће пружити тачне одговоре, јер се у овом задатку не користе подаци у реалном времену. Циљ је да се тестира способност агента да разуме и одговара на корисничке упите на основу датих упутстава.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.sr.png)
+    ![Agent Playground](../../../translated_images/sr/agent-playground.dc146586de715010.webp)
 
 3. Након тестирања агента, можете га додатно прилагодити додавањем више намера, података за обуку и акција како бисте побољшали његове могућности.
 

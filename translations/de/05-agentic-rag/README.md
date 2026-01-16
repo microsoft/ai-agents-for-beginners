@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "de"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.de.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/de/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Klicken Sie auf das Bild oben, um das Video zu dieser Lektion anzusehen)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) ist ein aufkommendes Paradi
 
 Dieser iterative „Maker-Checker“-Stil der Arbeitsweise ist darauf ausgelegt, die Korrektheit zu verbessern, fehlerhafte Abfragen an strukturierte Datenbanken (z. B. NL2SQL) zu behandeln und ausgewogene, hochwertige Ergebnisse zu gewährleisten. Anstatt sich ausschließlich auf sorgfältig konstruierte Prompt-Ketten zu verlassen, übernimmt das System aktiv seinen Denkprozess. Es kann fehlgeschlagene Abfragen umschreiben, unterschiedliche Abrufmethoden wählen und mehrere Werkzeuge integrieren – wie Vektorsuche in Azure AI Search, SQL-Datenbanken oder benutzerdefinierte APIs – bevor es seine Antwort finalisiert. Dies macht komplexe Orchestrierungsframeworks überflüssig. Stattdessen kann eine relativ einfache Schleife aus „LLM-Aufruf → Werkzeugnutzung → LLM-Aufruf → …“ zu anspruchsvollen und fundierten Ergebnissen führen.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.de.png)
+![Agentic RAG Core Loop](../../../translated_images/de/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## Den Denkprozess übernehmen
 
@@ -67,7 +67,7 @@ All diese Schritte – Abfragen verfeinern, Quellen auswählen, iterieren, bis d
 
 ## Iterative Schleifen, Werkzeugintegration und Gedächtnis
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.de.png)
+![Tool Integration Architecture](../../../translated_images/de/tool-integration.0f569710b5c17c10.webp)
 
 Ein agentisches System basiert auf einem iterativen Interaktionsmuster:
 
@@ -89,7 +89,7 @@ Die Autonomie von Agentic RAG umfasst auch robuste Selbstkorrekturmechanismen. W
 
 Dieser iterative und dynamische Ansatz ermöglicht es dem Modell, sich kontinuierlich zu verbessern, sodass es nicht nur ein einmaliges System ist, sondern eines, das aus seinen Fehlern während einer Sitzung lernt.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.de.png)
+![Self Correction Mechanism](../../../translated_images/de/self-correction.da87f3783b7f174b.webp)
 
 ## Grenzen der Eigenständigkeit
 
@@ -118,7 +118,7 @@ Da diese Systeme in ihrer Entscheidungsfindung immer autonomer werden, sind Gove
 
 Werkzeuge, die eine klare Aufzeichnung der Aktionen bereitstellen, sind unerlässlich. Ohne sie kann das Debuggen eines mehrstufigen Prozesses sehr schwierig sein. Sehen Sie sich das folgende Beispiel von Literal AI (Unternehmen hinter Chainlit) für einen Agentenlauf an:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.de.png)
+![AgentRunExample](../../../translated_images/de/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## Fazit
 

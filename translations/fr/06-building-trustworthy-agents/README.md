@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fr"
 }
 -->
-[![Agents IA de Confiance](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.fr.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Agents IA de Confiance](../../../translated_images/fr/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Cliquez sur l'image ci-dessus pour visionner la vidéo de cette leçon)_
 
@@ -41,7 +41,7 @@ Pour les agents IA, le message système est encore plus important, car ces agent
 
 Pour créer des messages système évolutifs, nous pouvons utiliser un cadre de messages systémiques pour construire un ou plusieurs agents dans notre application :
 
-![Construire un Cadre de Messages Systémiques](../../../translated_images/system-message-framework.3a97368c92d11d68.fr.png)
+![Construire un Cadre de Messages Systémiques](../../../translated_images/fr/system-message-framework.3a97368c92d11d68.webp)
 
 #### Étape 1 : Créer un Message Systémique Méta
 
@@ -130,7 +130,7 @@ L'intérêt de ce cadre de messages systémiques est de faciliter la création d
 
 Pour construire des agents IA de confiance, il est important de comprendre et d'atténuer les risques et menaces auxquels votre agent IA peut être confronté. Examinons quelques-unes des différentes menaces et comment mieux les anticiper et s'y préparer.
 
-![Comprendre les Menaces](../../../translated_images/understanding-threats.89edeada8a97fc0f.fr.png)
+![Comprendre les Menaces](../../../translated_images/fr/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Tâches et Instructions
 
@@ -166,7 +166,7 @@ Pour construire des agents IA de confiance, il est important de comprendre et d'
 
 Une autre méthode efficace pour construire des systèmes d'agents IA de confiance est d'intégrer un humain dans la boucle. Cela crée un flux où les utilisateurs peuvent fournir des retours aux agents pendant leur exécution. Les utilisateurs agissent essentiellement comme des agents dans un système multi-agents en approuvant ou en interrompant le processus en cours.
 
-![Humain dans la Boucle](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.fr.png)
+![Humain dans la Boucle](../../../translated_images/fr/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Voici un extrait de code utilisant AutoGen pour montrer comment ce concept est mis en œuvre :
 

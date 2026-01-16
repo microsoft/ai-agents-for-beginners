@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "el"
 }
 -->
-[![Σχεδιασμός Προγραμματισμού](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.el.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Σχεδιασμός Προγραμματισμού](../../../translated_images/el/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Κάντε κλικ στην εικόνα παραπάνω για να δείτε το βίντεο αυτού του μαθήματος)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Καθορισμός του Συνολικού Στόχου και Διάσπαση μιας Εργασίας
 
-![Καθορισμός Στόχων και Εργασιών](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.el.png)
+![Καθορισμός Στόχων και Εργασιών](../../../translated_images/el/defining-goals-tasks.d70439e19e37c47a.webp)
 
 Οι περισσότερες εργασίες στον πραγματικό κόσμο είναι πολύ σύνθετες για να αντιμετωπιστούν σε ένα μόνο βήμα. Ένας AI agent χρειάζεται έναν συνοπτικό στόχο για να καθοδηγήσει τον προγραμματισμό και τις ενέργειές του. Για παράδειγμα, σκεφτείτε τον στόχο:
 

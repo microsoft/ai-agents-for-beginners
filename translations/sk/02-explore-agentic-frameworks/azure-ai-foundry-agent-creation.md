@@ -25,7 +25,7 @@ Na dokončenie tohto cvičenia potrebujete:
 1. Postupujte podľa pokynov z [blogového príspevku Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) na vytvorenie Azure AI Foundry hubu.
 2. Keď je váš projekt vytvorený, zatvorte všetky zobrazené tipy a prezrite si stránku projektu v portáli Azure AI Foundry, ktorá by mala vyzerať podobne ako na nasledujúcom obrázku:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.sk.png)
+    ![Azure AI Foundry Project](../../../translated_images/sk/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Nasadenie modelu
 
@@ -35,7 +35,7 @@ Na dokončenie tohto cvičenia potrebujete:
 
     > **Note**: Zníženie TPM pomáha predísť nadmernému využívaniu kvóty dostupnej vo vašom predplatnom.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.sk.png)
+    ![Model Deployed](../../../translated_images/sk/model-deployment.3749c53fb81e18fd.webp)
 
 ## Vytvorenie agenta
 
@@ -77,7 +77,7 @@ Keď máte model nasadený, môžete vytvoriť agenta. Agent je konverzačný AI
     
 > Okrem toho môžete pridať **Knowledge Base** a **Actions** na rozšírenie schopností agenta poskytovať viac informácií a vykonávať automatizované úlohy na základe požiadaviek používateľa. Pre toto cvičenie môžete tieto kroky preskočiť.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.sk.png)
+![Agent Setup](../../../translated_images/sk/agent-setup.9bbb8755bf5df672.webp)
 
 3. Ak chcete vytvoriť nového multi-AI agenta, jednoducho kliknite na **New Agent**. Novovytvorený agent sa potom zobrazí na stránke Agents.
 
@@ -90,7 +90,7 @@ Po vytvorení agenta ho môžete otestovať, aby ste videli, ako reaguje na pou�
 
     > **Note**: Agent nemusí poskytovať presné odpovede, pretože v tomto cvičení sa nepoužívajú žiadne aktuálne dáta. Cieľom je otestovať schopnosť agenta porozumieť a reagovať na používateľské otázky na základe poskytnutých inštrukcií.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.sk.png)
+    ![Agent Playground](../../../translated_images/sk/agent-playground.dc146586de715010.webp)
 
 3. Po otestovaní agenta ho môžete ďalej prispôsobiť pridaním ďalších zámerov, tréningových dát a akcií na rozšírenie jeho schopností.
 

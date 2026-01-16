@@ -25,7 +25,7 @@ Untuk melengkapkan latihan ini, anda memerlukan perkara berikut:
 1. Ikuti panduan dari [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) dalam pos blog untuk mencipta hab Azure AI Foundry.
 2. Apabila projek anda telah dicipta, tutup sebarang petua yang dipaparkan dan semak halaman projek di portal Azure AI Foundry, yang sepatutnya kelihatan seperti imej berikut:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ms.png)
+    ![Azure AI Foundry Project](../../../translated_images/ms/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Lancarkan model
 
@@ -35,7 +35,7 @@ Untuk melengkapkan latihan ini, anda memerlukan perkara berikut:
 
     > **Note**: Mengurangkan TPM membantu mengelakkan penggunaan kuota yang berlebihan dalam langganan yang anda gunakan.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.ms.png)
+    ![Model Deployed](../../../translated_images/ms/model-deployment.3749c53fb81e18fd.webp)
 
 ## Cipta ejen
 
@@ -77,7 +77,7 @@ Sekarang anda telah melancarkan model, anda boleh mencipta ejen. Ejen adalah mod
     
 > Selain itu, anda boleh menambah **Knowledge Base** dan **Actions** untuk meningkatkan keupayaan ejen dalam memberikan maklumat dan melaksanakan tugas automatik berdasarkan permintaan pengguna. Untuk latihan ini, anda boleh langkau langkah ini.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.ms.png)
+![Agent Setup](../../../translated_images/ms/agent-setup.9bbb8755bf5df672.webp)
 
 3. Untuk mencipta ejen multi-AI baru, hanya klik **New Agent**. Ejen yang baru dicipta akan dipaparkan di halaman Agents.
 
@@ -90,7 +90,7 @@ Selepas mencipta ejen, anda boleh mengujinya untuk melihat bagaimana ia memberi 
 
     > **Note**: Ejen mungkin tidak memberikan jawapan yang tepat, kerana tiada data masa nyata digunakan dalam latihan ini. Tujuannya adalah untuk menguji keupayaan ejen memahami dan memberi respons kepada pertanyaan pengguna berdasarkan arahan yang diberikan.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.ms.png)
+    ![Agent Playground](../../../translated_images/ms/agent-playground.dc146586de715010.webp)
 
 3. Selepas menguji ejen, anda boleh menyesuaikannya lagi dengan menambah lebih banyak niat, data latihan, dan tindakan untuk meningkatkan keupayaannya.
 

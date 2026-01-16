@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Microsoft Agent Framework का अन्वेषण
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.hi.png)
+![Agent Framework](../../../translated_images/hi/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### परिचय
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Microsoft Agent Framework को समझना
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.hi.png)
+![Framework Intro](../../../translated_images/hi/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) Semantic Kernel और AutoGen के अनुभव और सीखों पर आधारित है। यह प्रोडक्शन और शोध वातावरण में देखे जाने वाले विभिन्न एजेंटिक उपयोग मामलों को संबोधित करने के लिए लचीलापन प्रदान करता है, जिनमें शामिल हैं:
 
@@ -63,7 +63,7 @@ Microsoft Agent Framework को इंटरऑपरेबल बनाने 
 
 ### एजेंट्स
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.hi.png)
+![Agent Framework](../../../translated_images/hi/agent-components.410a06daf87b4fef.webp)
 
 **एजेंट्स बनाना**
 

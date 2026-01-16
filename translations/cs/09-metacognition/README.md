@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "cs"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.cs.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/cs/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Klikněte na obrázek výše pro zhlédnutí videa této lekce)_
 # Metakognice u AI agentů
@@ -47,7 +47,7 @@ Sledování, jak nebo proč si zvolila určitou trasu.
 
 Metakognice hraje klíčovou roli při návrhu AI agentů z několika důvodů:
 
-![Důležitost metakognice](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.cs.png)
+![Důležitost metakognice](../../../translated_images/cs/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Sebereflexe: Agenti mohou hodnotit svůj vlastní výkon a identifikovat oblasti ke zlepšení.
 - Přizpůsobivost: Agenti mohou upravovat své strategie na základě minulých zkušeností a měnících se podmínek.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Nejprve si vysvětleme rozdíl mezi nástrojem RAG a předběžným načítáním kontextu.
 
-![RAG vs načítání kontextu](../../../translated_images/rag-vs-context.9eae588520c00921.cs.png)
+![RAG vs načítání kontextu](../../../translated_images/cs/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 

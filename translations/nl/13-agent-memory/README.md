@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Geheugen voor AI-agenten 
-[![Agent Memory](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.nl.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agent Memory](../../../translated_images/nl/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Bij het bespreken van de unieke voordelen van het creëren van AI-agenten worden vooral twee dingen besproken: de mogelijkheid om tools te gebruiken om taken uit te voeren en de mogelijkheid om in de loop van de tijd te verbeteren. Geheugen vormt de basis voor het creëren van zelfverbeterende agenten die betere ervaringen voor onze gebruikers kunnen bieden.
 

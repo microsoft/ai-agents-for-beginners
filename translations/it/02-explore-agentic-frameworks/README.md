@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "it"
 }
 -->
-[![Esplorare i Framework per Agenti AI](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.it.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![Esplorare i Framework per Agenti AI](../../../translated_images/it/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
 

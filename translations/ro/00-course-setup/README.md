@@ -25,7 +25,7 @@ Acest lucru poate fi realizat făcând clic pe linkul pentru <a href="https://gi
 
 Acum ar trebui să ai propria ta versiune fork-uită a acestui curs la următorul link:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.ro.png)
+![Forked Repo](../../../translated_images/ro/forked-repo.33f27ca1901baa6a.webp)
 
 ### Clone superficial (recomandat pentru workshop-uri / Codespaces)
 
@@ -176,11 +176,11 @@ Te rugăm să urmezi [Principiul Privilegiului Minim](https://docs.github.com/en
 
 1. Selectează opțiunea `Fine-grained tokens` din partea stângă a ecranului navigând la **Developer settings**
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755.ro.png)
+   ![Developer settings](../../../translated_images/ro/profile_developer_settings.410a859fe749c755.webp)
 
    Apoi selectează `Generate new token`.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.ro.png)
+   ![Generate Token](../../../translated_images/ro/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Introdu un nume descriptiv pentru token-ul tău care reflectă scopul său, făcându-l ușor de identificat mai târziu.
 
@@ -190,19 +190,19 @@ Te rugăm să urmezi [Principiul Privilegiului Minim](https://docs.github.com/en
     Pentru o postură mai sigură, poți opta pentru o perioadă mai scurtă—cum ar fi 7 zile 🛡️
     Este o modalitate excelentă de a-ți seta un obiectiv personal și de a finaliza cursul în timp ce momentumul tău de învățare este ridicat 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de6386864.ro.png)
+    ![Token Name and Expiration](../../../translated_images/ro/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Limitează domeniul token-ului la fork-ul acestui depozit.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.ro.png)
+    ![Limit scope to fork repository](../../../translated_images/ro/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Restricționează permisiunile token-ului: Sub **Permissions**, fă clic pe fila **Account** și apasă butonul "+ Add permissions". Va apărea un dropdown. Te rugăm să cauți **Models** și să bifezi caseta pentru aceasta.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.ro.png)
+    ![Add Models Permission](../../../translated_images/ro/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Verifică permisiunile necesare înainte de a genera token-ul. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b21.ro.png)
+5. Verifică permisiunile necesare înainte de a genera token-ul. ![Verify Permissions](../../../translated_images/ro/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Înainte de a genera token-ul, asigură-te că ești pregătit să stochezi token-ul într-un loc sigur, cum ar fi un seif de manager de parole, deoarece nu va fi afișat din nou după ce îl creezi. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf.ro.png)
+6. Înainte de a genera token-ul, asigură-te că ești pregătit să stochezi token-ul într-un loc sigur, cum ar fi un seif de manager de parole, deoarece nu va fi afișat din nou după ce îl creezi. ![Store Token Securely](../../../translated_images/ro/store_token_securely.08ee2274c6ad6caf.webp)
 
 Copiază noul token pe care tocmai l-ai creat. Acum îl vei adăuga în fișierul `.env` inclus în acest curs.
 
@@ -224,7 +224,7 @@ Aceasta va copia fișierul exemplu și va crea un `.env` în directorul tău, un
 
 Cu token-ul copiat, deschide fișierul `.env` în editorul tău de text preferat și lipește token-ul în câmpul `GITHUB_TOKEN`.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4a.ro.png)
+![GitHub Token Field](../../../translated_images/ro/github_token_field.20491ed3224b5f4a.webp)
 
 Acum ar trebui să poți rula exemplele de cod din acest curs.
 
@@ -238,7 +238,7 @@ După ce ai creat proiectul, va trebui să obții șirul de conexiune pentru pro
 
 Acest lucru poate fi realizat accesând pagina **Overview** a proiectului tău în portalul Azure AI Foundry.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.ro.png)
+![Project Connection String](../../../translated_images/ro/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Pasul 2: Creează fișierul `.env`
 

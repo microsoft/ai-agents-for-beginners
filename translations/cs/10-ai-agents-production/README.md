@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI agenti v produkci: Observabilita a hodnocení
 
-[![AI agenti v produkci](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.cs.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI agenti v produkci](../../../translated_images/cs/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Jakmile se AI agenti přesunou z experimentálních prototypů do reálných aplikací, stává se klíčovou schopnost porozumět jejich chování, monitorovat jejich výkon a systematicky hodnotit jejich výstupy.
 

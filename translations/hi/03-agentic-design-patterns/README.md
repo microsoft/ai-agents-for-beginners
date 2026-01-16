@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hi"
 }
 -->
-[![अच्छे AI एजेंट्स कैसे डिज़ाइन करें](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.hi.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![अच्छे AI एजेंट्स कैसे डिज़ाइन करें](../../../translated_images/hi/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(इस पाठ का वीडियो देखने के लिए ऊपर दी गई छवि पर क्लिक करें)_
 # AI एजेंटिक डिज़ाइन सिद्धांत
@@ -39,7 +39,7 @@ AI एजेंटिक सिस्टम बनाने के बारे 
 
 ## एजेंटिक डिज़ाइन सिद्धांत
 
-![एजेंटिक डिज़ाइन सिद्धांत](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.hi.png)
+![एजेंटिक डिज़ाइन सिद्धांत](../../../translated_images/hi/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### एजेंट (स्पेस)
 

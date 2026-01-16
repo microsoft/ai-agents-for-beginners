@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hr"
 }
 -->
-[![Višestruki dizajn agenata](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.hr.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Višestruki dizajn agenata](../../../translated_images/hr/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Kliknite na sliku iznad za pregled videa ove lekcije)_
 
@@ -95,7 +95,7 @@ U ovom obrascu, svaki agent predstavlja korisnika u grupnom chatu, a poruke se r
 
 Ovaj obrazac može se implementirati koristeći centraliziranu arhitekturu gdje se sve poruke usmjeravaju kroz centralni poslužitelj ili decentraliziranu arhitekturu gdje se poruke razmjenjuju izravno.
 
-![Grupni chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.hr.png)
+![Grupni chat](../../../translated_images/hr/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Predaja zadatka
 
@@ -105,7 +105,7 @@ Tipični slučajevi upotrebe za ovaj obrazac uključuju korisničku podršku, up
 
 U ovom obrascu, svaki agent predstavlja zadatak ili korak u tijeku rada, a agenti mogu predavati zadatke drugim agentima na temelju unaprijed definiranih pravila.
 
-![Predaja zadatka](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.hr.png)
+![Predaja zadatka](../../../translated_images/hr/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Kolaborativno filtriranje
 
@@ -119,7 +119,7 @@ Uzmimo primjer gdje korisnik želi preporuku za najbolju dionicu za kupnju na bu
 - **Tehnička analiza**: Drugi agent mogao bi biti stručnjak za tehničku analizu.
 - **Fundamentalna analiza**: Treći agent mogao bi biti stručnjak za fundamentalnu analizu. Suradnjom, ovi agenti mogu korisniku pružiti sveobuhvatniju preporuku.
 
-![Preporuka](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.hr.png)
+![Preporuka](../../../translated_images/hr/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenarij: Proces povrata novca
 

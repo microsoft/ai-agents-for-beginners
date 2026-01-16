@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sw"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.sw.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/sw/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Bonyeza picha hapo juu kutazama video ya somo hili)_
 
@@ -41,7 +41,7 @@ Kwa Mawakala wa AI, ujumbe wa mfumo ni muhimu zaidi kwani Mawakala wa AI wanahit
 
 Ili kuunda ujumbe wa mfumo unaoweza kupanuka, tunaweza kutumia mfumo wa ujumbe wa mfumo kwa ajili ya kujenga wakala mmoja au zaidi katika programu yetu:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.sw.png)
+![Building a System Message Framework](../../../translated_images/sw/system-message-framework.3a97368c92d11d68.webp)
 
 #### Hatua ya 1: Unda Ujumbe wa Mfumo wa Meta
 
@@ -130,7 +130,7 @@ Thamani ya mfumo huu wa ujumbe wa mfumo ni uwezo wa kupanua kuunda ujumbe wa mfu
 
 Ili kujenga Mawakala wa AI wenye kuaminika, ni muhimu kuelewa na kupunguza hatari na vitisho kwa wakala wako wa AI. Hebu tuangalie baadhi tu ya vitisho tofauti kwa Mawakala wa AI na jinsi unavyoweza kupanga na kujiandaa vyema.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.sw.png)
+![Understanding Threats](../../../translated_images/sw/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Majukumu na Maelekezo
 
@@ -166,7 +166,7 @@ Ili kujenga Mawakala wa AI wenye kuaminika, ni muhimu kuelewa na kupunguza hatar
 
 Njia nyingine bora ya kujenga mifumo ya Mawakala wa AI yenye kuaminika ni kutumia Binadamu Katika Mzunguko. Hii huunda mtiririko ambapo watumiaji wanaweza kutoa maoni kwa Mawakala wakati wa mchakato wa utekelezaji. Watumiaji kimsingi hufanya kama mawakala katika mfumo wa mawakala wengi kwa kutoa idhini au kusitisha mchakato unaoendelea.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.sw.png)
+![Human in The Loop](../../../translated_images/sw/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Hapa kuna kipande cha msimbo kinachotumia AutoGen kuonyesha jinsi dhana hii inavyotekelezwa:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "br"
 }
 -->
-[![Agentes de IA Confiáveis](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.br.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Agentes de IA Confiáveis](../../../translated_images/br/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Clique na imagem acima para assistir ao vídeo desta lição)_
 
@@ -41,7 +41,7 @@ Para Agentes de IA, o prompt do sistema é ainda mais importante, pois os Agente
 
 Para criar prompts de sistema escaláveis, podemos usar uma estrutura de mensagem do sistema para construir um ou mais agentes em nossa aplicação:
 
-![Construindo uma Estrutura de Mensagem do Sistema](../../../translated_images/system-message-framework.3a97368c92d11d68.br.png)
+![Construindo uma Estrutura de Mensagem do Sistema](../../../translated_images/br/system-message-framework.3a97368c92d11d68.webp)
 
 #### Passo 1: Criar uma Meta Mensagem do Sistema
 
@@ -130,7 +130,7 @@ O valor dessa estrutura de mensagem do sistema é a capacidade de escalar a cria
 
 Para construir agentes de IA confiáveis, é importante entender e mitigar os riscos e ameaças ao seu agente de IA. Vamos analisar algumas das diferentes ameaças aos agentes de IA e como você pode planejar e se preparar melhor para elas.
 
-![Compreendendo Ameaças](../../../translated_images/understanding-threats.89edeada8a97fc0f.br.png)
+![Compreendendo Ameaças](../../../translated_images/br/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Tarefa e Instrução
 
@@ -166,7 +166,7 @@ Para construir agentes de IA confiáveis, é importante entender e mitigar os ri
 
 Outra maneira eficaz de construir sistemas de Agentes de IA confiáveis é usar um Humano no Ciclo. Isso cria um fluxo onde os usuários podem fornecer feedback aos Agentes durante a execução. Os usuários essencialmente atuam como agentes em um sistema multiagente, fornecendo aprovação ou encerrando o processo em execução.
 
-![Humano no Ciclo](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.br.png)
+![Humano no Ciclo](../../../translated_images/br/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Aqui está um trecho de código usando AutoGen para mostrar como esse conceito é implementado:
 

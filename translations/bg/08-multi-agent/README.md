@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bg"
 }
 -->
-[![Многоагентен дизайн](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.bg.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Многоагентен дизайн](../../../translated_images/bg/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Кликнете върху изображението по-горе, за да гледате видеото към този урок)_
 
@@ -93,19 +93,19 @@ CO_OP_TRANSLATOR_METADATA:
 
 В този модел всеки агент представлява потребител в груповия чат, а съобщенията се обменят между агентите чрез протокол за съобщения.
 
-![Групов чат](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.bg.png)
+![Групов чат](../../../translated_images/bg/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Предаване на задачи
 
 Този модел е полезен, когато искате да създадете приложение, където множество агенти могат да предават задачи един на друг.
 
-![Предаване на задачи](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.bg.png)
+![Предаване на задачи](../../../translated_images/bg/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Съвместна филтрация
 
 Този модел е полезен, когато искате да създадете приложение, където множество агенти могат да си сътрудничат, за да правят препоръки на потребителите.
 
-![Препоръки](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.bg.png)
+![Препоръки](../../../translated_images/bg/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Сценарий: Процес на възстановяване на сума
 

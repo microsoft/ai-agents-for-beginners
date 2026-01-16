@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "cs"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.cs.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/cs/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klikněte na obrázek výše pro zhlédnutí videa této lekce)_
 
@@ -95,7 +95,7 @@ V tomto vzoru každý agent představuje uživatele ve skupinovém chatu a zprá
 
 Tento vzor lze implementovat pomocí centralizované architektury, kde jsou všechny zprávy směrovány přes centrální server, nebo decentralizované architektury, kde jsou zprávy vyměňovány přímo.
 
-![Skupinový chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.cs.png)
+![Skupinový chat](../../../translated_images/cs/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Předání úkolu
 
@@ -105,7 +105,7 @@ Typické případy použití tohoto vzoru zahrnují zákaznickou podporu, správ
 
 V tomto vzoru každý agent představuje úkol nebo krok v pracovním postupu a agenti si mohou předávat úkoly na základě předem definovaných pravidel.
 
-![Předání úkolu](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.cs.png)
+![Předání úkolu](../../../translated_images/cs/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Spolupracující filtrování
 
@@ -119,7 +119,7 @@ Pojďme si vzít příklad, kdy uživatel chce doporučení na nejlepší akcii 
 - **Technická analýza**: Další agent může být odborníkem na technickou analýzu.
 - **Fundamentální analýza**: A další agent může být odborníkem na fundamentální analýzu. Spoluprací mohou tito agenti poskytnout uživateli komplexnější doporučení.
 
-![Doporučení](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.cs.png)
+![Doporučení](../../../translated_images/cs/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scénář: Proces vrácení peněz
 

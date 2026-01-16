@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "cs"
 }
 -->
-[![Jak navrhnout dobré AI agenty](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.cs.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Jak navrhnout dobré AI agenty](../../../translated_images/cs/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Klikněte na obrázek výše pro zhlédnutí videa této lekce)_
 # Principy návrhu agentů AI
@@ -39,7 +39,7 @@ Po dokončení této lekce budete schopni:
 
 ## Principy návrhu agentů
 
-![Principy návrhu agentů](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.cs.png)
+![Principy návrhu agentů](../../../translated_images/cs/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agent (Prostor)
 

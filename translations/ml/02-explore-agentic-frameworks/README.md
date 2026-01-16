@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ml"
 }
 -->
-[![AI ഏജന്റ് ഫ്രെയിംവർക്കുകൾ അന്വേഷിക്കുന്നു](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.ml.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![AI ഏജന്റ് ഫ്രെയിംവർക്കുകൾ അന്വേഷിക്കുന്നു](../../../translated_images/ml/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(ഈ പാഠത്തിന്റെ വീഡിയോ കാണാൻ മുകളിൽ ചിത്രത്തിൽ ക്ലിക്ക് ചെയ്യുക)_
 

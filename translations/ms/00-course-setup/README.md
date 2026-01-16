@@ -25,7 +25,7 @@ Ini boleh dilakukan dengan mengklik pautan untuk <a href="https://github.com/mic
 
 Anda kini sepatutnya mempunyai versi forked kursus ini di pautan berikut:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.ms.png)
+![Forked Repo](../../../translated_images/ms/forked-repo.33f27ca1901baa6a.webp)
 
 ### Klon Shallow (disyorkan untuk bengkel / Codespaces)
 
@@ -176,11 +176,11 @@ Sila ikuti [Prinsip Keistimewaan Minimum](https://docs.github.com/en/get-started
 
 1. Pilih pilihan `Fine-grained tokens` di sebelah kiri skrin anda dengan pergi ke **Developer settings**
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755.ms.png)
+   ![Developer settings](../../../translated_images/ms/profile_developer_settings.410a859fe749c755.webp)
 
    Kemudian pilih `Generate new token`.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.ms.png)
+   ![Generate Token](../../../translated_images/ms/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Masukkan nama deskriptif untuk token anda yang mencerminkan tujuannya, menjadikannya mudah dikenali kemudian.
 
@@ -190,19 +190,19 @@ Sila ikuti [Prinsip Keistimewaan Minimum](https://docs.github.com/en/get-started
     Untuk postur yang lebih selamat, anda boleh memilih tempoh yang lebih pendek—seperti 7 hari 🛡️
     Ia adalah cara yang baik untuk menetapkan sasaran peribadi dan menyelesaikan kursus semasa momentum pembelajaran anda tinggi 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de6386864.ms.png)
+    ![Token Name and Expiration](../../../translated_images/ms/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Hadkan skop token ke fork repositori ini.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.ms.png)
+    ![Limit scope to fork repository](../../../translated_images/ms/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Hadkan keizinan token: Di bawah **Permissions**, klik tab **Account**, dan klik butang "+ Add permissions". Dropdown akan muncul. Sila cari **Models** dan tandakan kotak untuknya.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.ms.png)
+    ![Add Models Permission](../../../translated_images/ms/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Sahkan keizinan yang diperlukan sebelum menjana token. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b21.ms.png)
+5. Sahkan keizinan yang diperlukan sebelum menjana token. ![Verify Permissions](../../../translated_images/ms/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Sebelum menjana token, pastikan anda bersedia menyimpan token di tempat yang selamat seperti peti besi pengurus kata laluan, kerana ia tidak akan ditunjukkan lagi selepas anda menciptanya. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf.ms.png)
+6. Sebelum menjana token, pastikan anda bersedia menyimpan token di tempat yang selamat seperti peti besi pengurus kata laluan, kerana ia tidak akan ditunjukkan lagi selepas anda menciptanya. ![Store Token Securely](../../../translated_images/ms/store_token_securely.08ee2274c6ad6caf.webp)
 
 Salin token baru anda yang baru sahaja anda buat. Anda kini akan menambahkannya ke fail `.env` yang disertakan dalam kursus ini.
 
@@ -224,7 +224,7 @@ Ini akan menyalin fail contoh dan membuat `.env` dalam direktori anda di mana an
 
 Dengan token anda disalin, buka fail `.env` dalam editor teks kegemaran anda dan tampal token anda ke dalam medan `GITHUB_TOKEN`.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4a.ms.png)
+![GitHub Token Field](../../../translated_images/ms/github_token_field.20491ed3224b5f4a.webp)
 
 Anda kini sepatutnya boleh menjalankan contoh kod dalam kursus ini.
 
@@ -238,7 +238,7 @@ Setelah anda membuat projek anda, anda perlu mendapatkan string sambungan untuk 
 
 Ini boleh dilakukan dengan pergi ke halaman **Overview** projek anda di portal Azure AI Foundry.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.ms.png)
+![Project Connection String](../../../translated_images/ms/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Langkah 2: Buat Fail `.env` Anda
 

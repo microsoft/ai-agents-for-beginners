@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # एआई एजेंट्स के लिए मेमोरी 
-[![एजेंट मेमोरी](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.hi.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![एजेंट मेमोरी](../../../translated_images/hi/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 जब एआई एजेंट्स बनाने के अनोखे लाभों की बात होती है, तो मुख्य रूप से दो चीजों पर चर्चा होती है: टूल्स का उपयोग करके कार्य पूरा करने की क्षमता और समय के साथ सुधार करने की क्षमता। मेमोरी एक ऐसा आधार है जो आत्म-सुधार करने वाले एजेंट्स को बनाने में मदद करता है, जिससे हमारे उपयोगकर्ताओं के लिए बेहतर अनुभव तैयार किया जा सके।
 

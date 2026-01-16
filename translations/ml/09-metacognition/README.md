@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ml"
 }
 -->
-[![മൾട്ടി-ഏജന്റ് ഡിസൈൻ](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.ml.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![മൾട്ടി-ഏജന്റ് ഡിസൈൻ](../../../translated_images/ml/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(മുകളിൽ കാണുന്ന ചിത്രം ക്ലിക്കുചെയ്ത് ഈ പാഠത്തിന്റെ വീഡിയോ കാണുക)_
 # AI ഏജന്റുകളിൽ മെറ്റാകോഗ്നിഷൻ
@@ -47,7 +47,7 @@ AI ഏജന്റുകളിൽ മെറ്റാകോഗ്നിഷൻ എ
 
 മെറ്റാകോഗ്നിഷൻ AI ഏജന്റ് ഡിസൈനിൽ നിരവധി കാരണങ്ങളാൽ നിർണായകമാണ്:
 
-![മെറ്റാകോഗ്നിഷന്റെ പ്രാധാന്യം](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.ml.png)
+![മെറ്റാകോഗ്നിഷന്റെ പ്രാധാന്യം](../../../translated_images/ml/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - സ്വയംപരിശോധന: ഏജന്റുകൾ അവരുടെ പ്രകടനം വിലയിരുത്തുകയും മെച്ചപ്പെടുത്തേണ്ട മേഖലകൾ തിരിച്ചറിയുകയും ചെയ്യുന്നു.
 - അനുകൂലനക്ഷമത: ഏജന്റുകൾ മുൻ അനുഭവങ്ങളും മാറുന്ന സാഹചര്യങ്ങളും അടിസ്ഥാനമാക്കി അവരുടെ തന്ത്രങ്ങൾ മാറ്റുന്നു.
@@ -249,7 +249,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 ആദ്യം RAG ടൂൾ, പ്രീ-എംപ്റ്റീവ് കോൺടെക്സ്റ്റ് ലോഡ് എന്നിവ തമ്മിലുള്ള വ്യത്യാസം മനസ്സിലാക്കാം.
 
-![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921.ml.png)
+![RAG vs Context Loading](../../../translated_images/ml/rag-vs-context.9eae588520c00921.webp)
 
 ### റിട്രീവൽ-ഓഗ്മെന്റഡ് ജനറേഷൻ (RAG)
 

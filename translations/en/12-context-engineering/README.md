@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Context Engineering for AI Agents
 
-[![Context Engineering](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.en.png)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering](../../../translated_images/en/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(Click the image above to view the video of this lesson)_
 
@@ -49,7 +49,7 @@ Prompt engineering focuses on crafting a single set of static instructions to gu
 
 ### Types of Context
 
-[![Types of Context](../../../translated_images/context-types.fc10b8927ee43f06.en.png)](https://youtu.be/F5zqRV7gEag)
+[![Types of Context](../../../translated_images/en/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 It’s important to remember that context isn’t just one thing. The information an AI Agent needs can come from various sources, and it’s our responsibility to ensure the agent has access to these sources:
 
@@ -69,7 +69,7 @@ The types of context an AI agent might need to manage include:
 
 ### Planning Strategies
 
-[![Context Engineering Best Practices](../../../translated_images/best-practices.f4170873dc554f58.en.png)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering Best Practices](../../../translated_images/en/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 Good context engineering begins with good planning. Here’s an approach to help you think about applying context engineering:
 

@@ -53,7 +53,7 @@ chainlit run app.py -w
 
 Да бисте се повезали са Github MCP Server-ом, изаберите икону "утикач" испод поља за унос поруке "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/mcp-chainlit-1.7ed66d648e3cfb28.sr.png)
+![MCP Connect](../../../../../translated_images/sr/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
 Одатле можете кликнути на "Connect an MCP" да додате команду за повезивање са Github MCP Server-ом:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "mo"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.mo.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/mo/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(點擊上方圖片觀看本課程影片)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) 是 AI 開發中的新興�
 
 這種迭代的「Maker-Checker」操作模式旨在提高正確性、處理結構化數據庫（例如 NL2SQL）的不良查詢，並確保平衡且高品質的結果。系統不僅依賴精心設計的提示鏈，還能主動掌控其推理過程。它能重寫失敗的查詢、選擇不同的檢索方法並整合多種工具，例如 Azure AI Search 的向量搜索、SQL 數據庫或自定義 API，然後再最終生成答案。這樣就不需要過於複雜的編排框架，而是通過相對簡單的「LLM 呼叫 → 工具使用 → LLM 呼叫 → …」循環即可生成精緻且有根據的輸出。
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.mo.png)
+![Agentic RAG Core Loop](../../../translated_images/mo/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## 掌控推理過程
 
@@ -66,7 +66,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) 是 AI 開發中的新興�
 
 ## 迭代循環、工具整合與記憶
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.mo.png)
+![Tool Integration Architecture](../../../translated_images/mo/tool-integration.0f569710b5c17c10.webp)
 
 代理系統依賴迴圈式交互模式：
 
@@ -88,7 +88,7 @@ Agentic RAG 的自主性還包括強大的自我修正機制。當系統遇到�
 
 這種迭代和動態的方法使模型能夠持續改進，確保它不僅僅是一個一次性系統，而是一個能在特定會話中從錯誤中學習的系統。
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.mo.png)
+![Self Correction Mechanism](../../../translated_images/mo/self-correction.da87f3783b7f174b.webp)
 
 ## 代理的界限
 
@@ -117,7 +117,7 @@ Agentic RAG 在需要迭代改進和精確性的場景中表現出色：
 
 擁有能提供清晰行動記錄的工具至關重要。沒有這些工具，調試多步驟過程可能非常困難。以下是 Literal AI（Chainlit 背後的公司）提供的一個代理運行示例：
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.mo.png)
+![AgentRunExample](../../../translated_images/mo/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## 結論
 

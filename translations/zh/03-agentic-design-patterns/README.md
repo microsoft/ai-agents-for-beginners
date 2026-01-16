@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "zh"
 }
 -->
-[![如何设计优秀的AI代理](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.zh.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![如何设计优秀的AI代理](../../../translated_images/zh/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(点击上方图片观看本课视频)_
 # AI代理设计原则
@@ -39,7 +39,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 代理设计原则
 
-![代理设计原则](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.zh.png)
+![代理设计原则](../../../translated_images/zh/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### 代理（空间）
 

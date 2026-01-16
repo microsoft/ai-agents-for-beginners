@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "de"
 }
 -->
-[![Wie man gute KI-Agenten entwirft](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.de.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Wie man gute KI-Agenten entwirft](../../../translated_images/de/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Klicken Sie auf das obige Bild, um das Video zu dieser Lektion anzusehen)_
 # Prinzipien des agentischen Designs für KI
@@ -39,7 +39,7 @@ Nach Abschluss dieser Lektion können Sie:
 
 ## Die Prinzipien des agentischen Designs
 
-![Prinzipien des agentischen Designs](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.de.png)
+![Prinzipien des agentischen Designs](../../../translated_images/de/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agent (Raum)
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pl"
 }
 -->
-[![Wprowadzenie do agentów AI](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.pl.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Wprowadzenie do agentów AI](../../../translated_images/pl/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Kliknij obrazek powyżej, aby obejrzeć wideo z tej lekcji)_
 
@@ -47,7 +47,7 @@ Rozbijmy tę definicję na mniejsze części:
   - **Czujniki** - Środowiska zawierają informacje i dostarczają informacji zwrotnych. Agenci AI używają czujników do zbierania i interpretowania tych informacji o aktualnym stanie środowiska. W przykładzie agenta rezerwacji podróży, system rezerwacji podróży może dostarczać informacji, takich jak dostępność hoteli czy ceny lotów.
   - **Siłowniki** - Gdy agent AI otrzyma aktualny stan środowiska, dla bieżącego zadania określa, jakie działanie wykonać, aby zmienić środowisko. W przypadku agenta rezerwacji podróży może to być zarezerwowanie dostępnego pokoju dla użytkownika.
 
-![Czym są agenci AI?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.pl.png)
+![Czym są agenci AI?](../../../translated_images/pl/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Modele językowe dużej skali** - Koncepcja agentów istniała przed powstaniem LLM. Zaletą budowania agentów AI z LLM jest ich zdolność do interpretowania języka ludzkiego i danych. Ta zdolność pozwala LLM interpretować informacje o środowisku i definiować plan zmiany środowiska.
 
@@ -77,7 +77,7 @@ W poprzedniej sekcji użyliśmy przykładu agenta podróży, aby wyjaśnić, jak
 
 Przyjrzyjmy się typom zastosowań, w których agenci AI sprawdzają się najlepiej:
 
-![Kiedy używać agentów AI?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.pl.png)
+![Kiedy używać agentów AI?](../../../translated_images/pl/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Problemy otwarte** - pozwalając LLM określić potrzebne kroki do wykonania zadania, ponieważ nie zawsze można je zakodować w procesie.
 - **Procesy wieloetapowe** - zadania wymagające poziomu złożoności, w których agent AI musi korzystać z narzędzi lub informacji przez wiele tur, zamiast jednorazowego pobierania.  

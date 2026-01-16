@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "no"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.no.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/no/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klikk på bildet ovenfor for å se videoen til denne leksjonen)_
 
@@ -97,7 +97,7 @@ I dette mønsteret representerer hver agent en bruker i gruppechatten, og meldin
 
 Dette mønsteret kan implementeres ved hjelp av en sentralisert arkitektur der alle meldinger rutes gjennom en sentral server, eller en desentralisert arkitektur der meldinger utveksles direkte.
 
-![Gruppechat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.no.png)
+![Gruppechat](../../../translated_images/no/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Overlevering
 
@@ -107,7 +107,7 @@ Typiske brukstilfeller for dette mønsteret inkluderer kundestøtte, oppgavestyr
 
 I dette mønsteret representerer hver agent en oppgave eller et steg i en arbeidsflyt, og agenter kan overlevere oppgaver til andre agenter basert på forhåndsdefinerte regler.
 
-![Overlevering](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.no.png)
+![Overlevering](../../../translated_images/no/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Samarbeidsfiltrering
 
@@ -121,7 +121,7 @@ La oss ta et eksempel der en bruker ønsker en anbefaling om den beste aksjen å
 - **Teknisk analyse**: En annen agent kan være ekspert på teknisk analyse.
 - **Fundamental analyse**: Og en annen agent kan være ekspert på fundamental analyse. Ved å samarbeide kan disse agentene gi en mer omfattende anbefaling til brukeren.
 
-![Anbefaling](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.no.png)
+![Anbefaling](../../../translated_images/no/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenario: Refusjonsprosess
 

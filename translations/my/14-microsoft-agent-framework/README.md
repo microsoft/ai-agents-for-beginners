@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Microsoft Agent Framework ကိုလေ့လာခြင်း
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.my.png)
+![Agent Framework](../../../translated_images/my/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### အကျဉ်းချုပ်
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Microsoft Agent Framework ကိုနားလည်ခြင်း
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.my.png)
+![Framework Intro](../../../translated_images/my/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) ဟာ Semantic Kernel နှင့် AutoGen ရဲ့ အတွေ့အကြုံတွေကို အခြေခံပြီး တည်ဆောက်ထားပါတယ်။ ဒါဟာ ထုတ်လုပ်မှုနဲ့ သုတေသနပတ်ဝန်းကျင်မှာ တွေ့ရတဲ့ agentic use cases အမျိုးမျိုးကို ဖြေရှင်းနိုင်ဖို့ လွယ်ကူမှုကို ပေးစွမ်းပါတယ်။ အထူးသဖြင့်-
 
@@ -63,7 +63,7 @@ Microsoft Agent Framework ဟာ အပြန်အလှန်လုပ်ဆ�
 
 ### Agents
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.my.png)
+![Agent Framework](../../../translated_images/my/agent-components.410a06daf87b4fef.webp)
 
 **Agents ဖန်တီးခြင်း**
 

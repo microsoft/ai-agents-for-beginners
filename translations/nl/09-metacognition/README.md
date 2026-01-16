@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "nl"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.nl.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/nl/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 # Metacognitie in AI-agenten
@@ -47,7 +47,7 @@ Bijhouden hoe of waarom een bepaalde route is gekozen.
 
 Metacognitie speelt een cruciale rol in het ontwerp van AI-agenten om verschillende redenen:
 
-![Belang van Metacognitie](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.nl.png)
+![Belang van Metacognitie](../../../translated_images/nl/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Zelfreflectie: Agenten kunnen hun eigen prestaties beoordelen en verbeterpunten identificeren.
 - Aanpassingsvermogen: Agenten kunnen hun strategieën aanpassen op basis van eerdere ervaringen en veranderende omgevingen.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Laten we eerst het verschil begrijpen tussen het RAG-tool en Pre-emptive Context Load.
 
-![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921.nl.png)
+![RAG vs Context Loading](../../../translated_images/nl/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 

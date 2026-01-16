@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "uk"
 }
 -->
-[![Дослідження фреймворків AI агентів](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.uk.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![Дослідження фреймворків AI агентів](../../../translated_images/uk/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(Натисніть на зображення вище, щоб переглянути відео цього уроку)_
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sl"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.sl.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/sl/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Kliknite na zgornjo sliko za ogled videoposnetka te lekcije)_
 
@@ -97,7 +97,7 @@ V tem vzorcu vsak agent predstavlja uporabnika v skupinskem klepetu, sporočila 
 
 Ta vzorec je mogoče implementirati z uporabo centralizirane arhitekture, kjer se vsa sporočila usmerjajo prek centralnega strežnika, ali decentralizirane arhitekture, kjer se sporočila izmenjujejo neposredno.
 
-![Skupinski klepet](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.sl.png)
+![Skupinski klepet](../../../translated_images/sl/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Predaja nalog
 
@@ -107,7 +107,7 @@ Tipični primeri uporabe tega vzorca vključujejo podporo strankam, upravljanje 
 
 V tem vzorcu vsak agent predstavlja nalogo ali korak v delovnem toku, agenti pa lahko predajajo naloge drugim agentom na podlagi vnaprej določenih pravil.
 
-![Predaja nalog](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.sl.png)
+![Predaja nalog](../../../translated_images/sl/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Sodelovalno filtriranje
 
@@ -121,7 +121,7 @@ Vzemimo primer, kjer uporabnik želi priporočilo za najboljšo delnico za nakup
 - **Tehnična analiza**: Drug agent bi lahko bil strokovnjak za tehnično analizo.
 - **Temeljna analiza**: Tretji agent pa bi lahko bil strokovnjak za temeljno analizo. S sodelovanjem lahko ti agenti uporabniku podajo bolj celovito priporočilo.
 
-![Priporočilo](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.sl.png)
+![Priporočilo](../../../translated_images/sl/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenarij: Postopek vračila denarja
 

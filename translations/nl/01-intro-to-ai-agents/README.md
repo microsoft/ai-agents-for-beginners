@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "nl"
 }
 -->
-[![Intro to AI Agents](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.nl.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](../../../translated_images/nl/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
 
@@ -47,7 +47,7 @@ Laten we deze definitie in kleinere delen opsplitsen:
   - **Sensoren** - Omgevingen bevatten informatie en geven feedback. AI Agents gebruiken sensoren om deze informatie over de huidige staat van de omgeving te verzamelen en te interpreteren. In het voorbeeld van de reisboekingsagent kan het reisboekingssysteem informatie geven zoals hotelbeschikbaarheid of vluchtprijzen.
   - **Actuatoren** - Zodra de AI Agent de huidige staat van de omgeving ontvangt, bepaalt de agent welke actie moet worden uitgevoerd om de omgeving te veranderen. Voor de reisboekingsagent kan dit bijvoorbeeld het boeken van een beschikbare kamer voor de gebruiker zijn.
 
-![Wat zijn AI Agents?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.nl.png)
+![Wat zijn AI Agents?](../../../translated_images/nl/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Large Language Models** - Het concept van agents bestond al vóór de creatie van LLMs. Het voordeel van het bouwen van AI Agents met LLMs is hun vermogen om menselijke taal en data te interpreteren. Dit vermogen stelt LLMs in staat om omgevingsinformatie te interpreteren en een plan te definiëren om de omgeving te veranderen.
 
@@ -77,7 +77,7 @@ In de eerdere sectie hebben we de reisagent-toepassing gebruikt om uit te leggen
 
 Laten we eens kijken naar de soorten toepassingen waarvoor AI Agents het meest geschikt zijn:
 
-![Wanneer AI Agents te gebruiken?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.nl.png)
+![Wanneer AI Agents te gebruiken?](../../../translated_images/nl/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Open-eindige problemen** - waarbij de LLM de benodigde stappen bepaalt om een taak te voltooien, omdat dit niet altijd hardcoded kan worden in een workflow.
 - **Meerstapsprocessen** - taken die een bepaalde mate van complexiteit vereisen waarbij de AI Agent tools of informatie over meerdere stappen moet gebruiken in plaats van eenmalige gegevensopvraging.  

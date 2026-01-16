@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "en"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.en.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/en/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Click the image above to view video of this lesson)_
 
@@ -93,7 +93,7 @@ This pattern is ideal for group chat applications where multiple agents communic
 
 Agents represent users, exchanging messages via a messaging protocol. Messages can be routed through a central server (centralized architecture) or exchanged directly (decentralized architecture).
 
-![Group chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.en.png)
+![Group chat](../../../translated_images/en/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Hand-off
 
@@ -101,7 +101,7 @@ This pattern is useful for applications where agents hand off tasks to each othe
 
 Agents represent tasks or workflow steps, passing tasks to others based on predefined rules.
 
-![Hand off](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.en.png)
+![Hand off](../../../translated_images/en/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Collaborative filtering
 
@@ -115,7 +115,7 @@ For example, recommending stocks to buy:
 
 Together, they provide comprehensive recommendations.
 
-![Recommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.en.png)
+![Recommendation](../../../translated_images/en/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenario: Refund process
 

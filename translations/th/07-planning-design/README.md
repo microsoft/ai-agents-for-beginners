@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "th"
 }
 -->
-[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.th.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/th/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(คลิกที่ภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## การกำหนดเป้าหมายโดยรวมและการแบ่งงาน
 
-![Defining Goals and Tasks](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.th.png)
+![Defining Goals and Tasks](../../../translated_images/th/defining-goals-tasks.d70439e19e37c47a.webp)
 
 งานในโลกจริงส่วนใหญ่มีความซับซ้อนเกินกว่าจะจัดการได้ในขั้นตอนเดียว AI agent จำเป็นต้องมีวัตถุประสงค์ที่ชัดเจนเพื่อเป็นแนวทางในการวางแผนและการดำเนินการ ตัวอย่างเช่น ลองพิจารณาเป้าหมาย:
 

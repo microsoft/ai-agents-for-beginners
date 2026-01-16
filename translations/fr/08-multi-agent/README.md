@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fr"
 }
 -->
-[![Conception Multi-Agent](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.fr.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Conception Multi-Agent](../../../translated_images/fr/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Cliquez sur l'image ci-dessus pour voir la vidéo de cette leçon)_
 
@@ -97,7 +97,7 @@ Dans ce modèle, chaque agent représente un utilisateur dans le chat de groupe,
 
 Ce modèle peut être mis en œuvre à l'aide d'une architecture centralisée où tous les messages sont acheminés via un serveur central, ou d'une architecture décentralisée où les messages sont échangés directement.
 
-![Chat de groupe](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.fr.png)
+![Chat de groupe](../../../translated_images/fr/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Transmission de tâches
 
@@ -107,7 +107,7 @@ Les cas d'utilisation typiques de ce modèle incluent le support client, la gest
 
 Dans ce modèle, chaque agent représente une tâche ou une étape dans un flux de travail, et les agents peuvent transmettre des tâches à d'autres agents en fonction de règles prédéfinies.
 
-![Transmission de tâches](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.fr.png)
+![Transmission de tâches](../../../translated_images/fr/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Filtrage collaboratif
 
@@ -121,7 +121,7 @@ Prenons un exemple où un utilisateur souhaite une recommandation sur la meilleu
 - **Analyse technique** : Un autre agent pourrait être expert en analyse technique.
 - **Analyse fondamentale** : Et un autre agent pourrait être expert en analyse fondamentale. En collaborant, ces agents peuvent fournir une recommandation plus complète à l'utilisateur.
 
-![Recommandation](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.fr.png)
+![Recommandation](../../../translated_images/fr/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scénario : Processus de remboursement
 

@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ตอนนี้คุณควรมีเวอร์ชัน fork ของคอร์สนี้ในลิงก์ต่อไปนี้:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.th.png)
+![Forked Repo](../../../translated_images/th/forked-repo.33f27ca1901baa6a.webp)
 
 ### โคลนแบบตื้น (แนะนำสำหรับ workshop / Codespaces)
 
@@ -176,11 +176,11 @@ pip install -r requirements.txt
 
 1. เลือกตัวเลือก `Fine-grained tokens` ทางด้านซ้ายของหน้าจอโดยไปที่ **Developer settings**
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755.th.png)
+   ![Developer settings](../../../translated_images/th/profile_developer_settings.410a859fe749c755.webp)
 
    จากนั้นเลือก `Generate new token`.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.th.png)
+   ![Generate Token](../../../translated_images/th/fga_new_token.1c1a234afe202ab3.webp)
 
 2. ใส่ชื่อที่อธิบายได้สำหรับ token ของคุณที่สะท้อนถึงวัตถุประสงค์ ทำให้ง่ายต่อการระบุในภายหลัง
 
@@ -190,19 +190,19 @@ pip install -r requirements.txt
     เพื่อความปลอดภัยมากขึ้น คุณสามารถเลือกช่วงเวลาที่สั้นลง เช่น 7 วัน 🛡️
     เป็นวิธีที่ดีในการตั้งเป้าหมายส่วนตัวและทำคอร์สให้เสร็จในขณะที่คุณมีแรงจูงใจในการเรียนรู้ 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de6386864.th.png)
+    ![Token Name and Expiration](../../../translated_images/th/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. จำกัดขอบเขตของ token ให้กับ fork ของ repository นี้
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.th.png)
+    ![Limit scope to fork repository](../../../translated_images/th/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. จำกัดสิทธิ์ของ token: ภายใต้ **Permissions** คลิกแท็บ **Account** และคลิกปุ่ม "+ Add permissions" จะปรากฏ dropdown โปรดค้นหา **Models** และทำเครื่องหมายในช่อง
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.th.png)
+    ![Add Models Permission](../../../translated_images/th/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. ตรวจสอบสิทธิ์ที่จำเป็นก่อนสร้าง token ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b21.th.png)
+5. ตรวจสอบสิทธิ์ที่จำเป็นก่อนสร้าง token ![Verify Permissions](../../../translated_images/th/verify_permissions.06bd9e43987a8b21.webp)
 
-6. ก่อนสร้าง token ตรวจสอบให้แน่ใจว่าคุณพร้อมที่จะเก็บ token ไว้ในที่ปลอดภัย เช่น password manager vault เนื่องจากจะไม่แสดงอีกหลังจากที่คุณสร้างมัน ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf.th.png)
+6. ก่อนสร้าง token ตรวจสอบให้แน่ใจว่าคุณพร้อมที่จะเก็บ token ไว้ในที่ปลอดภัย เช่น password manager vault เนื่องจากจะไม่แสดงอีกหลังจากที่คุณสร้างมัน ![Store Token Securely](../../../translated_images/th/store_token_securely.08ee2274c6ad6caf.webp)
 
 คัดลอก token ใหม่ที่คุณเพิ่งสร้างขึ้น คุณจะเพิ่มสิ่งนี้ลงในไฟล์ `.env` ที่รวมอยู่ในคอร์สนี้
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 เมื่อคุณคัดลอก token แล้ว ให้เปิดไฟล์ `.env` ใน text editor ที่คุณชื่นชอบและวาง token ลงในฟิลด์ `GITHUB_TOKEN`
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4a.th.png)
+![GitHub Token Field](../../../translated_images/th/github_token_field.20491ed3224b5f4a.webp)
 
 ตอนนี้คุณควรสามารถรันตัวอย่างโค้ดในคอร์สนี้ได้แล้ว
 
@@ -238,7 +238,7 @@ Copy-Item .env.example .env
 
 คุณสามารถทำได้โดยไปที่หน้า **Overview** ของโปรเจกต์ใน Azure AI Foundry portal
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.th.png)
+![Project Connection String](../../../translated_images/th/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### ขั้นตอนที่ 2: สร้างไฟล์ `.env` ของคุณ
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tr"
 }
 -->
-[![Çoklu Ajan Tasarımı](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.tr.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Çoklu Ajan Tasarımı](../../../translated_images/tr/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 # AI Ajanlarında Metakognisyon
@@ -47,7 +47,7 @@ Seçtiği rotayı nasıl veya neden seçtiğini takip etme.
 
 Metakognisyon, AI ajan tasarımında birkaç nedenden dolayı kritik bir rol oynar:
 
-![Metakognisyonun Önemi](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.tr.png)
+![Metakognisyonun Önemi](../../../translated_images/tr/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Öz Değerlendirme: Ajanlar kendi performanslarını değerlendirebilir ve geliştirilmesi gereken alanları belirleyebilir.
 - Uyum Sağlama: Ajanlar, geçmiş deneyimlere ve değişen ortamlara dayalı olarak stratejilerini değiştirebilir.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Öncelikle RAG Aracı ile Önleyici Bağlam Yükleme arasındaki farkı anlamakla başlayalım.
 
-![RAG ve Bağlam Yükleme](../../../translated_images/rag-vs-context.9eae588520c00921.tr.png)
+![RAG ve Bağlam Yükleme](../../../translated_images/tr/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 

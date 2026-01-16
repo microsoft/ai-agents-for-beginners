@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "my"
 }
 -->
-[![How to Design Good AI Agents](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.my.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![How to Design Good AI Agents](../../../translated_images/my/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(ဤသင်ခန်းစာ၏ ဗီဒီယိုကို ကြည့်ရန် အထက်ပါ ပုံကို နှိပ်ပါ)_
 # AI အေးဂျင့် ဒီဇိုင်း မူဝါဒများ
@@ -39,7 +39,7 @@ AI အေးဂျင့်စနစ်များကို တည်ဆော�
 
 ## အေးဂျင့် ဒီဇိုင်း မူဝါဒများ
 
-![Agentic Design Principles](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.my.png)
+![Agentic Design Principles](../../../translated_images/my/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### အေးဂျင့် (အာကာသ)
 

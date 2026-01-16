@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ms"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.ms.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/ms/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 
@@ -41,7 +41,7 @@ Bagi Ejen AI, arahan sistem adalah lebih penting kerana Ejen AI memerlukan araha
 
 Untuk mencipta arahan sistem yang boleh diskalakan, kita boleh menggunakan rangka kerja mesej sistem untuk membina satu atau lebih ejen dalam aplikasi kita:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.ms.png)
+![Building a System Message Framework](../../../translated_images/ms/system-message-framework.3a97368c92d11d68.webp)
 
 #### Langkah 1: Cipta Mesej Sistem Meta
 
@@ -130,7 +130,7 @@ Nilai rangka kerja mesej sistem ini adalah untuk memudahkan penciptaan mesej sis
 
 Untuk membina ejen AI yang boleh dipercayai, adalah penting untuk memahami dan mengurangkan risiko dan ancaman kepada ejen AI anda. Mari kita lihat beberapa ancaman yang berbeza kepada ejen AI dan cara anda boleh merancang dan bersedia dengan lebih baik untuk menghadapinya.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.ms.png)
+![Understanding Threats](../../../translated_images/ms/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Tugas dan Arahan
 
@@ -166,7 +166,7 @@ Untuk membina ejen AI yang boleh dipercayai, adalah penting untuk memahami dan m
 
 Satu lagi cara yang berkesan untuk membina sistem Ejen AI yang boleh dipercayai adalah dengan menggunakan pendekatan Manusia dalam Gelung. Ini mencipta aliran di mana pengguna dapat memberikan maklum balas kepada Ejen semasa proses berjalan. Pengguna pada dasarnya bertindak sebagai ejen dalam sistem berbilang ejen dengan memberikan kelulusan atau penamatan proses yang sedang berjalan.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.ms.png)
+![Human in The Loop](../../../translated_images/ms/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Berikut adalah petikan kod menggunakan AutoGen untuk menunjukkan bagaimana konsep ini dilaksanakan:
 

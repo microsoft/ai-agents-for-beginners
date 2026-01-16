@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "it"
 }
 -->
-[![Progettazione Multi-Agente](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.it.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Progettazione Multi-Agente](../../../translated_images/it/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
 
@@ -95,7 +95,7 @@ In questo modello, ogni agente rappresenta un utente nella chat di gruppo e i me
 
 Questo modello può essere implementato utilizzando un'architettura centralizzata in cui tutti i messaggi vengono instradati attraverso un server centrale, o un'architettura decentralizzata in cui i messaggi vengono scambiati direttamente.
 
-![Chat di gruppo](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.it.png)
+![Chat di gruppo](../../../translated_images/it/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Passaggio di consegne
 
@@ -105,7 +105,7 @@ I casi d'uso tipici per questo modello includono supporto clienti, gestione dei 
 
 In questo modello, ogni agente rappresenta un compito o un passaggio in un flusso di lavoro, e gli agenti possono passarsi compiti basandosi su regole predefinite.
 
-![Passaggio di consegne](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.it.png)
+![Passaggio di consegne](../../../translated_images/it/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Filtraggio collaborativo
 
@@ -119,7 +119,7 @@ Prendiamo un esempio in cui un utente desidera una raccomandazione sul miglior t
 - **Analisi tecnica**: Un altro agente potrebbe essere esperto in analisi tecnica.
 - **Analisi fondamentale**: E un altro agente potrebbe essere esperto in analisi fondamentale. Collaborando, questi agenti possono fornire una raccomandazione più completa all'utente.
 
-![Raccomandazione](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.it.png)
+![Raccomandazione](../../../translated_images/it/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenario: Processo di rimborso
 

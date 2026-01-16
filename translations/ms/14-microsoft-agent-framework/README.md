@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Meneroka Microsoft Agent Framework
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.ms.png)
+![Agent Framework](../../../translated_images/ms/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Pengenalan
 
@@ -33,7 +33,7 @@ Contoh kod untuk [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-begi
 
 ## Memahami Microsoft Agent Framework
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.ms.png)
+![Framework Intro](../../../translated_images/ms/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) dibina berdasarkan pengalaman dan pembelajaran daripada Semantic Kernel dan AutoGen. Ia menawarkan fleksibiliti untuk menangani pelbagai kes penggunaan ejenik yang dilihat dalam persekitaran pengeluaran dan penyelidikan termasuk:
 
@@ -63,7 +63,7 @@ Mari kita lihat bagaimana ciri-ciri ini diterapkan kepada beberapa konsep utama 
 
 ### Ejen
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.ms.png)
+![Agent Framework](../../../translated_images/ms/agent-components.410a06daf87b4fef.webp)
 
 **Mencipta Ejen**
 

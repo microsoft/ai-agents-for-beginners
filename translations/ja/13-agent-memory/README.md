@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # AIエージェントのメモリ
-[![エージェントメモリ](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.ja.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![エージェントメモリ](../../../translated_images/ja/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 AIエージェントを作成する際のユニークな利点について話すとき、主に議論されるのは、タスクを完了するためにツールを呼び出す能力と、時間とともに改善する能力です。メモリは、自己改善型エージェントを作成し、ユーザーにより良い体験を提供するための基盤となります。
 

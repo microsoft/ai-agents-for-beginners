@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Azure AI Foundry ಹಬ್ ಅನ್ನು ರಚಿಸಲು [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ಬ್ಲಾಗ್ ಪೋಸ್ಟ್‌ನ ಮಾರ್ಗಸೂಚಿಗಳನ್ನು ಅನುಸರಿಸಿ.
 2. ನಿಮ್ಮ ಪ್ರಾಜೆಕ್ಟ್ ರಚನೆಯಾದ ನಂತರ, ತೋರಿಸಲಾದ ಯಾವುದೇ ಟಿಪ್ಪಣಿಗಳನ್ನು ಮುಚ್ಚಿ ಮತ್ತು Azure AI Foundry ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ಪ್ರಾಜೆಕ್ಟ್ ಪುಟವನ್ನು ಪರಿಶೀಲಿಸಿ, ಇದು ಕೆಳಗಿನ ಚಿತ್ರದಂತಿರುತ್ತದೆ:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.kn.png)
+    ![Azure AI Foundry Project](../../../translated_images/kn/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## ಮಾದರಿಯನ್ನು ಡಿಪ್ಲಾಯ್ ಮಾಡಿ
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: TPM ಅನ್ನು ಕಡಿಮೆ ಮಾಡುವುದು ನೀವು ಬಳಸುತ್ತಿರುವ ಚಂದಾದಾರಿಕೆಯಲ್ಲಿ ಲಭ್ಯವಿರುವ ಕ್ವೋಟಾವನ್ನು ಹೆಚ್ಚು ಬಳಸುವುದನ್ನು ತಪ್ಪಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.kn.png)
+    ![Model Deployed](../../../translated_images/kn/model-deployment.3749c53fb81e18fd.webp)
 
 ## ಏಜೆಂಟ್ ರಚಿಸಿ
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 > ಹೆಚ್ಚುವರಿಯಾಗಿ, ನೀವು **Knowledge Base** ಮತ್ತು **Actions** ಅನ್ನು ಸೇರಿಸಿ ಏಜೆಂಟ್‌ನ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೆಚ್ಚಿಸಿ, ಬಳಕೆದಾರರ ವಿನಂತಿಗಳ ಆಧಾರದ ಮೇಲೆ ಹೆಚ್ಚಿನ ಮಾಹಿತಿಯನ್ನು ನೀಡಲು ಮತ್ತು ಸ್ವಯಂಚಾಲಿತ ಕಾರ್ಯಗಳನ್ನು ನಿರ್ವಹಿಸಲು. ಈ ವ್ಯಾಯಾಮಕ್ಕಾಗಿ, ನೀವು ಈ ಹಂತಗಳನ್ನು ಬಿಟ್ಟುಬಿಡಬಹುದು.
 
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.kn.png)
+![Agent Setup](../../../translated_images/kn/agent-setup.9bbb8755bf5df672.webp)
 
 3. ಹೊಸ ಮಲ್ಟಿ-AI ಏಜೆಂಟ್ ಅನ್ನು ರಚಿಸಲು, **New Agent** ಕ್ಲಿಕ್ ಮಾಡಿ. ಹೊಸದಾಗಿ ರಚಿಸಿದ ಏಜೆಂಟ್ ನಂತರ Agents ಪುಟದಲ್ಲಿ ತೋರಿಸಲಾಗುತ್ತದೆ.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: ಈ ವ್ಯಾಯಾಮದಲ್ಲಿ ಯಾವುದೇ ರಿಯಲ್-ಟೈಮ್ ಡೇಟಾವನ್ನು ಬಳಸಲಾಗುತ್ತಿಲ್ಲ, ಆದ್ದರಿಂದ ಏಜೆಂಟ್ ನಿಖರವಾದ ಉತ್ತರಗಳನ್ನು ನೀಡದಿರಬಹುದು. ಈ ವ್ಯಾಯಾಮದ ಉದ್ದೇಶವು ಏಜೆಂಟ್ ನೀಡಲಾದ ಸೂಚನೆಗಳ ಆಧಾರದ ಮೇಲೆ ಬಳಕೆದಾರರ ಪ್ರಶ್ನೆಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಪರೀಕ್ಷಿಸುವುದು.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.kn.png)
+    ![Agent Playground](../../../translated_images/kn/agent-playground.dc146586de715010.webp)
 
 3. ಏಜೆಂಟ್ ಅನ್ನು ಪರೀಕ್ಷಿಸಿದ ನಂತರ, ನೀವು ಅದರ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೆಚ್ಚಿಸಲು ಹೆಚ್ಚಿನ ಉದ್ದೇಶಗಳು, ತರಬೇತಿ ಡೇಟಾ, ಮತ್ತು ಕ್ರಿಯೆಗಳನ್ನು ಸೇರಿಸಬಹುದು.
 

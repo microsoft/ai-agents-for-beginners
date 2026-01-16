@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Verwendung von Agentenprotokollen (MCP, A2A und NLWeb)
 
-[![Agentenprotokolle](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.de.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentenprotokolle](../../../translated_images/de/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Klicken Sie auf das Bild oben, um das Video zu dieser Lektion anzusehen)_
 
@@ -69,7 +69,7 @@ MCP bietet erhebliche Vorteile für KI-Agenten:
 
 ### MCP-Beispiel
 
-![MCP Diagramm](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.de.png)
+![MCP Diagramm](../../../translated_images/de/mcp-diagram.e4ca1cbd551444a1.webp)
 
 Stellen Sie sich vor, ein Benutzer möchte mit einem KI-Assistenten, der MCP verwendet, einen Flug buchen.
 
@@ -124,7 +124,7 @@ Diese Komponente wird verwendet, um **Updates zu verwalten und Nachrichten zu ü
 
 ### A2A-Beispiel
 
-![A2A Diagramm](../../../translated_images/A2A-Diagram.8666928d648acc26.de.png)
+![A2A Diagramm](../../../translated_images/de/A2A-Diagram.8666928d648acc26.webp)
 
 Erweitern wir unser Reisebuchungsszenario, diesmal mit A2A.
 
@@ -158,7 +158,7 @@ Schauen wir uns die verschiedenen Komponenten von NLWeb, die Vorteile von NLWeb 
 
 ### NLWeb am Beispiel
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.de.png)
+![NLWeb](../../../translated_images/de/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 Betrachten wir unsere Reisebuchungs-Website erneut, diesmal jedoch mit NLWeb.
 

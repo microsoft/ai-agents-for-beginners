@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "he"
 }
 -->
-[![תבנית תכנון](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.he.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![תבנית תכנון](../../../translated_images/he/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(לחצו על התמונה למעלה לצפייה בסרטון של השיעור הזה)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## הגדרת המטרה הכללית ופירוק משימה
 
-![הגדרת מטרות ומשימות](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.he.png)
+![הגדרת מטרות ומשימות](../../../translated_images/he/defining-goals-tasks.d70439e19e37c47a.webp)
 
 רוב המשימות בעולם האמיתי מורכבות מדי מכדי להתמודד איתן בצעד אחד. סוכן AI זקוק למטרה תמציתית שתנחה את תכנון הפעולות שלו. לדוגמה, שקלו את המטרה:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ms"
 }
 -->
-[![Perancangan Corak Reka Bentuk](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.ms.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Perancangan Corak Reka Bentuk](../../../translated_images/ms/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 
@@ -32,7 +32,7 @@ Selepas menyelesaikan pelajaran ini, anda akan memahami tentang:
 
 ## Menentukan Matlamat Keseluruhan dan Memecahkan Tugas
 
-![Menentukan Matlamat dan Tugas](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.ms.png)
+![Menentukan Matlamat dan Tugas](../../../translated_images/ms/defining-goals-tasks.d70439e19e37c47a.webp)
 
 Kebanyakan tugas dunia sebenar terlalu kompleks untuk ditangani dalam satu langkah. Ejen AI memerlukan objektif yang ringkas untuk membimbing perancangan dan tindakannya. Sebagai contoh, pertimbangkan matlamat:
 

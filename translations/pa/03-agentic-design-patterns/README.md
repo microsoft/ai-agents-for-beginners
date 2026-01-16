@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pa"
 }
 -->
-[![ਚੰਗੇ AI ਏਜੰਟ ਬਣਾਉਣ ਦੇ ਤਰੀਕੇ](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.pa.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![ਚੰਗੇ AI ਏਜੰਟ ਬਣਾਉਣ ਦੇ ਤਰੀਕੇ](../../../translated_images/pa/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(ਉਪਰ ਦਿੱਤੀ ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇਸ ਪਾਠ ਦਾ ਵੀਡੀਓ ਵੇਖੋ)_
 # AI ਏਜੰਟਿਕ ਡਿਜ਼ਾਈਨ ਸਿਧਾਂਤ
@@ -39,7 +39,7 @@ AI ਏਜੰਟਿਕ ਸਿਸਟਮ ਬਣਾਉਣ ਬਾਰੇ ਸੋਚਣ 
 
 ## ਏਜੰਟਿਕ ਡਿਜ਼ਾਈਨ ਸਿਧਾਂਤ
 
-![ਏਜੰਟਿਕ ਡਿਜ਼ਾਈਨ ਸਿਧਾਂਤ](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.pa.png)
+![ਏਜੰਟਿਕ ਡਿਜ਼ਾਈਨ ਸਿਧਾਂਤ](../../../translated_images/pa/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### ਏਜੰਟ (ਸਪੇਸ)
 

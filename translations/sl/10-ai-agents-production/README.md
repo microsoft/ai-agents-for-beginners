@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI agenti v produkciji: opazovanje in ocenjevanje
 
-[![AI agenti v produkciji](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.sl.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI agenti v produkciji](../../../translated_images/sl/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 Ko AI agenti prehajajo iz eksperimentalnih prototipov v resnične aplikacije, postane ključnega pomena razumevanje njihovega vedenja, spremljanje njihovega delovanja in sistematično ocenjevanje njihovih rezultatov.
 

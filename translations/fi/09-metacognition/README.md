@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fi"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.fi.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/fi/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Klikkaa yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
 # Metakognitio tekoälyagenteissa
@@ -47,7 +47,7 @@ Seurataan, miten tai miksi tietty reitti valittiin.
 
 Metakognitiolla on keskeinen rooli tekoälyagenttien suunnittelussa useista syistä:
 
-![Metakognition merkitys](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.fi.png)
+![Metakognition merkitys](../../../translated_images/fi/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Itsearviointi: Agentit voivat arvioida omaa suorituskykyään ja tunnistaa parannuskohteita.
 - Mukautuvuus: Agentit voivat muuttaa strategioitaan aiempien kokemusten ja muuttuvien ympäristöjen perusteella.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Aloitetaan ymmärtämällä ero RAG-työkalun ja ennakoivan kontekstilatauksen välillä.
 
-![RAG vs kontekstilataus](../../../translated_images/rag-vs-context.9eae588520c00921.fi.png)
+![RAG vs kontekstilataus](../../../translated_images/fi/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "vi"
 }
 -->
-[![Mẫu Thiết Kế Lập Kế Hoạch](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.vi.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Mẫu Thiết Kế Lập Kế Hoạch](../../../translated_images/vi/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Nhấp vào hình ảnh trên để xem video của bài học này)_
 
@@ -32,7 +32,7 @@ Sau khi hoàn thành bài học này, bạn sẽ hiểu về:
 
 ## Xác Định Mục Tiêu Tổng Thể và Phân Chia Nhiệm Vụ
 
-![Xác Định Mục Tiêu và Nhiệm Vụ](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.vi.png)
+![Xác Định Mục Tiêu và Nhiệm Vụ](../../../translated_images/vi/defining-goals-tasks.d70439e19e37c47a.webp)
 
 Hầu hết các nhiệm vụ trong thực tế đều quá phức tạp để giải quyết trong một bước duy nhất. Một tác nhân AI cần một mục tiêu ngắn gọn để định hướng kế hoạch và hành động của mình. Ví dụ, hãy xem xét mục tiêu:
 

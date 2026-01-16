@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "vi"
 }
 -->
-[![Khám phá các khung AI Agent](../../../translated_images/lesson-2-thumbnail.c65f44c93b8558df.vi.png)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![Khám phá các khung AI Agent](../../../translated_images/vi/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(Nhấp vào hình ảnh trên để xem video của bài học này)_
 

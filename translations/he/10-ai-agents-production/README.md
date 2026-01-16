@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # סוכני AI בסביבת ייצור: תצפיתיות והערכה
 
-[![סוכני AI בסביבת ייצור](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.he.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![סוכני AI בסביבת ייצור](../../../translated_images/he/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 כאשר סוכני AI עוברים מפרוטוטיפים ניסיוניים ליישומים בעולם האמיתי, היכולת להבין את התנהגותם, לעקוב אחר ביצועיהם ולהעריך את תוצאותיהם באופן שיטתי הופכת לחשובה.
 

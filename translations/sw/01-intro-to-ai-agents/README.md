@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sw"
 }
 -->
-[![Utangulizi wa Mawakala wa AI](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.sw.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Utangulizi wa Mawakala wa AI](../../../translated_images/sw/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Bonyeza picha hapo juu kutazama video ya somo hili)_
 
@@ -47,7 +47,7 @@ Hebu tuchambue ufafanuzi huu katika sehemu ndogo:
   - **Vihisi** - Mazingira yana taarifa na hutoa maoni. Mawakala wa AI hutumia vihisi kukusanya na kutafsiri taarifa kuhusu hali ya sasa ya mazingira. Katika mfano wa Mwakala wa Kuhifadhi Safari, mfumo wa kuhifadhi safari unaweza kutoa taarifa kama upatikanaji wa hoteli au bei za ndege.
   - **Vitendaji** - Mara Mwakala wa AI anapopokea hali ya sasa ya mazingira, kwa kazi ya sasa mwakala huamua ni kitendo gani cha kufanya kubadilisha mazingira. Kwa mfano wa Mwakala wa Kuhifadhi Safari, inaweza kuwa kuhifadhi chumba kinachopatikana kwa mtumiaji.
 
-![Mawakala wa AI ni nini?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.sw.png)
+![Mawakala wa AI ni nini?](../../../translated_images/sw/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Large Language Models** - Dhana ya mawakala ilikuwepo kabla ya kuundwa kwa LLMs. Faida ya kujenga Mawakala wa AI kwa kutumia LLMs ni uwezo wao wa kutafsiri lugha ya binadamu na data. Uwezo huu unawawezesha LLMs kutafsiri taarifa za mazingira na kufafanua mpango wa kubadilisha mazingira.
 
@@ -77,7 +77,7 @@ Katika sehemu ya awali, tulitumia mfano wa Mwakala wa Safari kuelezea jinsi aina
 
 Hebu tuangalie aina za matumizi ambayo Mawakala wa AI yanatumika vizuri:
 
-![Wakati wa kutumia Mawakala wa AI?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.sw.png)
+![Wakati wa kutumia Mawakala wa AI?](../../../translated_images/sw/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Masuala Yasiyo na Mwisho** - kuruhusu LLM kuamua hatua zinazohitajika kukamilisha kazi kwa sababu haiwezi kila mara kuwekwa moja kwa moja katika mtiririko wa kazi.
 - **Michakato ya Hatua Nyingi** - kazi zinazohitaji kiwango cha ugumu ambapo Mwakala wa AI anahitaji kutumia zana au taarifa kwa mizunguko mingi badala ya upatikanaji wa mara moja.  

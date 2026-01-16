@@ -1,83 +1,88 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d7c3b7bd1b3528074d8b6a7c5ad33b6f",
-  "translation_date": "2025-11-18T18:08:02+00:00",
+  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
+  "translation_date": "2026-01-15T16:34:36+00:00",
   "source_file": "04-tool-use/README.md",
   "language_code": "hu"
 }
 -->
-[![Hogyan tervezzünk jó AI ügynököket](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.hu.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Hogyan tervezzünk jó AI ügynököket](../../../../../translated_images/hu/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(Kattints a fenti képre, hogy megnézd a videót az óráról)_
+> _(Kattints a fenti képre a lecke videójának megtekintéséhez)_
 
-# Eszközhasználati tervezési minta
+# Eszközhasználat tervezési minta
 
-Az eszközök azért érdekesek, mert lehetővé teszik az AI ügynökök számára, hogy szélesebb körű képességekkel rendelkezzenek. Az ügynök korlátozott cselekvési lehetőségei helyett, egy eszköz hozzáadásával az ügynök most már számos különböző műveletet tud végrehajtani. Ebben a fejezetben az Eszközhasználati tervezési mintát vizsgáljuk meg, amely leírja, hogyan használhatnak az AI ügynökök specifikus eszközöket céljaik eléréséhez.
+Az eszközök érdekessége, hogy lehetővé teszik az AI ügynökök számára a képességek szélesebb skáláját. Ahelyett, hogy az ügynöknek egy korlátozott műveletkészlete lenne, egy eszköz hozzáadásával az ügynök már szélesebb körű műveleteket képes végrehajtani. Ebben a fejezetben megvizsgáljuk az Eszközhasználat tervezési mintát, amely leírja, hogyan használhatják az AI ügynökök a specifikus eszközöket céljaik eléréséhez.
 
 ## Bevezetés
 
-Ebben az órában a következő kérdésekre keressük a választ:
+Ebben a leckében a következő kérdésekre keressük a választ:
 
-- Mi az eszközhasználati tervezési minta?
+- Mi az eszközhasználat tervezési minta?
 - Milyen felhasználási esetekre alkalmazható?
-- Milyen elemek/építőelemek szükségesek a tervezési minta megvalósításához?
-- Milyen különleges szempontokat kell figyelembe venni az Eszközhasználati tervezési minta alkalmazásakor, hogy megbízható AI ügynököket építsünk?
+- Mely elemek/építőelemek szükségesek a minta megvalósításához?
+- Milyen különös szempontokat kell figyelembe venni az Eszközhasználat tervezési minta megbízható AI ügynökök építéséhez?
 
 ## Tanulási célok
 
-Az óra elvégzése után képes leszel:
+A lecke elvégzése után képes leszel:
 
-- Meghatározni az Eszközhasználati tervezési mintát és annak célját.
-- Azonosítani azokat a felhasználási eseteket, ahol az Eszközhasználati tervezési minta alkalmazható.
-- Megérteni a tervezési minta megvalósításához szükséges kulcselemeket.
-- Felismerni azokat a szempontokat, amelyek biztosítják az AI ügynökök megbízhatóságát e tervezési minta alkalmazásakor.
+- Meghatározni az Eszközhasználat tervezési mintát és annak célját.
+- Azonosítani azokat a felhasználási eseteket, ahol ez a minta alkalmazható.
+- Megérteni a minta megvalósításához szükséges kulcselemeket.
+- Felismerni a megbízhatóság biztosításának szempontjait az AI ügynökök esetében, amelyek ezt a mintát használják.
 
-## Mi az eszközhasználati tervezési minta?
+## Mi az Eszközhasználat tervezési minta?
 
-Az **Eszközhasználati tervezési minta** arra összpontosít, hogy a LLM-ek képesek legyenek külső eszközökkel interakcióba lépni konkrét célok elérése érdekében. Az eszközök olyan kódok, amelyeket egy ügynök végrehajthat műveletek elvégzésére. Egy eszköz lehet egy egyszerű funkció, például egy számológép, vagy egy API-hívás egy harmadik fél szolgáltatásához, például részvényárfolyamok lekérdezése vagy időjárás-előrejelzés. Az AI ügynökök kontextusában az eszközöket úgy tervezték, hogy az ügynökök végrehajtsák őket **modell által generált funkcióhívások** alapján.
+Az **Eszközhasználat tervezési minta** arra összpontosít, hogy a nagy nyelvi modellek (LLM-ek) képesek legyenek külső eszközökkel együttműködni meghatározott célok elérése érdekében. Az eszközök olyan kódok, amelyeket az ügynök végrehajthat bizonyos műveletek elvégzésére. Egy eszköz lehet egyszerű függvény, például egy számológép, vagy egy harmadik fél szolgáltatásának API hívása, például árfolyam vagy időjárás lekérdezése. AI ügynökök kontextusában az eszközöket úgy tervezik, hogy az ügynökök modell által generált függvényhívások válaszaként hajtsák végre.
 
 ## Milyen felhasználási esetekre alkalmazható?
 
-Az AI ügynökök eszközöket használhatnak összetett feladatok elvégzésére, információk lekérésére vagy döntések meghozatalára. Az eszközhasználati tervezési mintát gyakran alkalmazzák olyan helyzetekben, amelyek dinamikus interakciót igényelnek külső rendszerekkel, például adatbázisokkal, webszolgáltatásokkal vagy kódértelmezőkkel. Ez a képesség számos különböző felhasználási esetben hasznos, például:
+Az AI ügynökök eszközöket használhatnak bonyolult feladatok elvégzésére, információk lekérésére, vagy döntéshozatalra. Az eszközhasználati tervezési mintát gyakran alkalmazzák olyan forgatókönyvekben, ahol dinamikus interakció szükséges külső rendszerekkel, mint adatbázisok, webszolgáltatások vagy kódértelmezők. Ez a képesség számos különböző felhasználási esetben hasznos, például:
 
-- **Dinamikus információlekérés:** Az ügynökök külső API-kat vagy adatbázisokat kérdezhetnek le, hogy naprakész adatokat szerezzenek (pl. SQLite adatbázis lekérdezése adat-elemzéshez, részvényárfolyamok vagy időjárási információk lekérése).
-- **Kódvégrehajtás és értelmezés:** Az ügynökök kódot vagy szkripteket hajthatnak végre matematikai problémák megoldására, jelentések készítésére vagy szimulációk végrehajtására.
-- **Munkafolyamat automatizálás:** Ismétlődő vagy több lépésből álló munkafolyamatok automatizálása olyan eszközök integrálásával, mint feladatütemezők, e-mail szolgáltatások vagy adatfolyamok.
-- **Ügyfélszolgálat:** Az ügynökök interakcióba léphetnek CRM rendszerekkel, jegykezelő platformokkal vagy tudásbázisokkal a felhasználói kérdések megoldása érdekében.
-- **Tartalomgenerálás és szerkesztés:** Az ügynökök olyan eszközöket használhatnak, mint nyelvtani ellenőrzők, szövegösszefoglalók vagy tartalombiztonsági értékelők, hogy segítsenek a tartalomkészítési feladatokban.
+- **Dinamikus információlekérés:** Az ügynökök lekérdezhetnek külső API-kat vagy adatbázisokat friss adatértékekért (például SQLite adatbázis lekérdezés adat elemzéshez, árfolyam vagy időjárás információk lekérése).
+- **Kódvégrehajtás és értelmezés:** Az ügynökök kódot vagy scriptet hajthatnak végre matematikai problémák megoldásához, jelentések készítéséhez vagy szimulációk lebonyolításához.
+- **Munkafolyamat automatizálás:** Ismétlődő vagy többlépéses munkafolyamatok automatizálása eszközök integrálásával, például feladatütemezők, e-mail szolgáltatások vagy adatcsővezetékek használatával.
+- **Ügyféltámogatás:** Az ügynökök kapcsolatba léphetnek CRM rendszerekkel, jegykezelő platformokkal vagy tudásbázisokkal, hogy megválaszolják a felhasználói kérdéseket.
+- **Tartalomgenerálás és szerkesztés:** Az ügynökök eszközöket használhatnak, mint például nyelvtani ellenőrzők, szövegösszefoglalók vagy tartalombiztonsági értékelők, hogy segítsék a tartalomkészítést.
 
-## Milyen elemek/építőelemek szükségesek az eszközhasználati tervezési minta megvalósításához?
+## Mely elemek/építőelemek szükségesek az eszközhasználat tervezési minta megvalósításához?
 
-Ezek az építőelemek lehetővé teszik az AI ügynök számára, hogy széles körű feladatokat végezzen el. Nézzük meg az Eszközhasználati tervezési minta megvalósításához szükséges kulcselemeket:
+Ezek az építőelemek teszik lehetővé az AI ügynök számára, hogy széles körű feladatokat hajtson végre. Nézzük meg a kulcsfontosságú elemeket az Eszközhasználat tervezési minta megvalósításához:
 
-- **Funkció/Eszköz sémák**: Az elérhető eszközök részletes definíciói, beleértve a funkció nevét, célját, szükséges paramétereit és várható kimeneteit. Ezek a sémák lehetővé teszik a LLM számára, hogy megértse, milyen eszközök állnak rendelkezésre, és hogyan kell érvényes kéréseket összeállítani.
-- **Funkcióvégrehajtási logika**: Szabályozza, hogy mikor és hogyan hívják meg az eszközöket a felhasználó szándéka és a beszélgetés kontextusa alapján. Ez magában foglalhat tervező modulokat, útválasztási mechanizmusokat vagy feltételes folyamatokat, amelyek dinamikusan határozzák meg az eszközhasználatot.
-- **Üzenetkezelő rendszer**: Olyan komponensek, amelyek kezelik a beszélgetési folyamatot a felhasználói bemenetek, LLM válaszok, eszközhívások és eszközkimenetek között.
-- **Eszközintegrációs keretrendszer**: Infrastruktúra, amely összekapcsolja az ügynököt különböző eszközökkel, legyenek azok egyszerű funkciók vagy összetett külső szolgáltatások.
-- **Hibakezelés és validáció**: Mechanizmusok az eszközvégrehajtás hibáinak kezelésére, a paraméterek érvényesítésére és a váratlan válaszok kezelésére.
-- **Állapotkezelés**: Nyomon követi a beszélgetés kontextusát, korábbi eszközinterakciókat és tartós adatokat, hogy biztosítsa a következetességet többfordulós interakciók során.
+- **Függvény/Eszköz sémák**: Részletes definíciók az elérhető eszközökről, beleértve a függvény nevét, célját, szükséges paramétereket és a várt kimeneteket. Ezek a sémák lehetővé teszik az LLM számára, hogy megértse, mely eszközök állnak rendelkezésre és hogyan kell érvényes kéréseket összeállítani.
 
-Ezután részletesebben megvizsgáljuk a Funkció/Eszköz hívást.
+- **Függvény-végrehajtási logika**: Szabályozza, hogy mikor és hogyan hívják meg az eszközöket a felhasználó szándéka és a beszélgetés kontextusa alapján. Ez tartalmazhat tervező modulokat, útválasztó mechanizmusokat vagy feltételes folyamatokat, amelyek dinamikusan határozzák meg az eszközhasználatot.
 
-### Funkció/Eszköz hívás
+- **Üzenetkezelő rendszer**: Olyan komponensek, amelyek kezelik a beszélgetési folyamatot a felhasználói bemenetek, LLM válaszok, eszközhívások és eszközválaszok között.
 
-A funkcióhívás az elsődleges módja annak, hogy lehetővé tegyük a Nagy Nyelvi Modellek (LLM-ek) számára az eszközökkel való interakciót. Gyakran látni fogod, hogy a "Funkció" és "Eszköz" kifejezéseket felcserélhetően használják, mert a "funkciók" (újrafelhasználható kódrészletek) azok az "eszközök", amelyeket az ügynökök a feladatok végrehajtására használnak. Ahhoz, hogy egy funkció kódját végrehajtsák, az LLM-nek össze kell hasonlítania a felhasználói kérést a funkció leírásával. Ehhez egy séma, amely tartalmazza az összes elérhető funkció leírását, elküldésre kerül az LLM-nek. Az LLM kiválasztja a feladathoz legmegfelelőbb funkciót, és visszaküldi annak nevét és argumentumait. A kiválasztott funkciót végrehajtják, válaszát visszaküldik az LLM-nek, amely az információt felhasználja a felhasználói kérés megválaszolására.
+- **Eszközintegrációs keretrendszer**: Infrastruktúra, amely összekapcsolja az ügynököt különféle eszközökkel, legyenek azok egyszerű függvények vagy összetett külső szolgáltatások.
 
-A fejlesztőknek a funkcióhívás megvalósításához az ügynökök számára szükségük lesz:
+- **Hibakezelés és érvényesítés**: Mechanizmusok az eszközvégrehajtási hibák kezelésére, paraméterek érvényesítésére és váratlan válaszok kezelésére.
 
-1. Funkcióhívást támogató LLM modellre
-2. Funkcióleírásokat tartalmazó sémára
-3. Az egyes funkciókhoz szükséges kódra
+- **Állapotkezelés**: Követi a beszélgetés kontextusát, a korábbi eszközös interakciókat és tartós adatokat a többfordulós interakciók konzisztenciájának biztosításához.
 
-Nézzük meg a példát, hogyan lehet megkapni az aktuális időt egy városban:
+Most nézzük meg részletesebben a Függvény/Eszköz hívást.
 
-1. **Egy funkcióhívást támogató LLM inicializálása:**
+### Függvény/Eszköz hívás
 
-    Nem minden modell támogatja a funkcióhívást, ezért fontos ellenőrizni, hogy az általad használt LLM támogatja-e. Az <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> támogatja a funkcióhívást. Kezdhetjük az Azure OpenAI kliens inicializálásával.
+A függvényhívás az elsődleges módja annak, hogy a Nagy Nyelvi Modelleket (LLM-eket) eszközökkel együttműködve használjuk. Gyakran látjuk a „Függvény” és „Eszköz” kifejezéseket felcserélhetően, mert a „függvények” (újrahasználható kódrészek) az „eszközök”, amelyeket az ügynökök használnak a feladatok végrehajtására. Ahhoz, hogy egy függvény kódját meghívják, az LLM-nek össze kell hasonlítania a felhasználó kérését a függvény leírásával. Ehhez egy olyan séma kerül elküldésre az LLM-nek, amely tartalmazza az összes elérhető függvény leírását. Az LLM kiválasztja a legmegfelelőbb függvényt a feladathoz, és visszaküldi a nevét és az argumentumait. A kiválasztott függvényt meghívják, a válasza visszakerül az LLM-hez, amely az információk alapján válaszol a felhasználó kérésére.
+
+A fejlesztőknek, akik függvényhívást akarnak megvalósítani ügynökök számára, szükségük lesz:
+
+1. Egy olyan LLM modellre, amely támogatja a függvényhívást
+2. Egy sémára, amely tartalmazza a függvények leírásait
+3. A leírt függvények kódjára
+
+Vegyük az aktuális idő lekérésének példáját egy városban a szemléltetéshez:
+
+1. **Indítsunk el egy LLM-et, amely támogatja a függvényhívást:**
+
+    Nem minden modell támogatja a függvényhívást, ezért fontos ellenőrizni, hogy a használt LLM igen. Az <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> támogatja a függvényhívást. Kezdhetünk az Azure OpenAI kliens inicializálásával.
 
     ```python
-    # Initialize the Azure OpenAI client
+    # Inicializálja az Azure OpenAI klienset
     client = AzureOpenAI(
         azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
         api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
@@ -85,12 +90,13 @@ Nézzük meg a példát, hogyan lehet megkapni az aktuális időt egy városban:
     )
     ```
 
-1. **Funkció séma létrehozása:**
+1. **Hozzunk létre egy függvénysémát**:
 
-    Ezután definiálunk egy JSON sémát, amely tartalmazza a funkció nevét, a funkció céljának leírását, valamint a funkció paramétereinek neveit és leírásait. Ezt a sémát átadjuk az előzőleg létrehozott kliensnek, valamint a felhasználói kérésnek, hogy megtaláljuk az időt San Franciscóban. Fontos megjegyezni, hogy egy **eszközhívás** az, ami visszatér, **nem** a kérdés végső válasza. Ahogy korábban említettük, az LLM visszaküldi a feladathoz kiválasztott funkció nevét és az átadandó argumentumokat.
+    Ezután definiálunk egy JSON sémát, amely tartalmazza a függvény nevét, a függvény leírását és a paraméterek nevét, leírását.
+    Ezt a sémát aztán átadjuk a korábban létrehozott kliensnek, együtt a felhasználói kéréssel, miszerint San Francisco aktuális idejére kíváncsiak vagyunk. Fontos megjegyezni, hogy ez egy **eszköz hívás** eredménye, **nem** a végső válasz a kérdésre. Amint korábban említettük, az LLM visszaküldi a feladathoz kiválasztott függvény nevét és az argumentumokat.
 
     ```python
-    # Function description for the model to read
+    # Függvényleírás a modell számára olvasásra
     tools = [
         {
             "type": "function",
@@ -114,10 +120,10 @@ Nézzük meg a példát, hogyan lehet megkapni az aktuális időt egy városban:
    
     ```python
   
-    # Initial user message
+    # Kezdeti felhasználói üzenet
     messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
   
-    # First API call: Ask the model to use the function
+    # Első API hívás: Kérje meg a modellt, hogy használja a függvényt
       response = client.chat.completions.create(
           model=deployment_name,
           messages=messages,
@@ -125,7 +131,7 @@ Nézzük meg a példát, hogyan lehet megkapni az aktuális időt egy városban:
           tool_choice="auto",
       )
   
-      # Process the model's response
+      # Feldolgozza a modell válaszát
       response_message = response.choices[0].message
       messages.append(response_message)
   
@@ -140,9 +146,10 @@ Nézzük meg a példát, hogyan lehet megkapni az aktuális időt egy városban:
     ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
     ```
   
-1. **A feladat végrehajtásához szükséges funkciókód:**
+1. **A feladat végrehajtásához szükséges függvénykód:**
 
-    Most, hogy az LLM kiválasztotta, melyik funkciót kell futtatni, a feladat végrehajtásához szükséges kódot kell megvalósítani és végrehajtani. Megvalósíthatjuk a kódot az aktuális idő lekérésére Pythonban. Azt is meg kell írnunk a kódot, amely kivonja a nevet és az argumentumokat a response_message-ből, hogy megkapjuk a végső eredményt.
+    Miután az LLM kiválasztotta, hogy melyik függvényt kell futtatni, a végrehajtó kódot meg kell valósítani és futtatni kell.
+    Pythonban megvalósíthatjuk az aktuális idő lekéréséhez szükséges kódot. Emellett szükséges lesz a válaszüzenetből kinyerni a függvény nevét és argumentumait a végső eredményhez.
 
     ```python
       def get_current_time(location):
@@ -164,7 +171,7 @@ Nézzük meg a példát, hogyan lehet megkapni az aktuális időt egy városban:
     ```
 
      ```python
-     # Handle function calls
+     # Függvényhívások kezelése
       if response_message.tool_calls:
           for tool_call in response_message.tool_calls:
               if tool_call.function.name == "get_current_time":
@@ -184,7 +191,7 @@ Nézzük meg a példát, hogyan lehet megkapni az aktuális időt egy városban:
       else:
           print("No tool calls were made by the model.")  
   
-      # Second API call: Get the final response from the model
+      # Második API hívás: A modell végső válaszának lekérése
       final_response = client.chat.completions.create(
           model=deployment_name,
           messages=messages,
@@ -199,21 +206,22 @@ Nézzük meg a példát, hogyan lehet megkapni az aktuális időt egy városban:
       The current time in San Francisco is 09:24 AM.
      ```
 
-A Funkcióhívás a legtöbb, ha nem az összes ügynök eszközhasználati tervezésének középpontjában áll, azonban a nulláról történő megvalósítása néha kihívást jelenthet. Ahogy a [2. órában](../../../02-explore-agentic-frameworks) tanultuk, az ügynöki keretrendszerek előre elkészített építőelemeket biztosítanak az eszközhasználat megvalósításához.
+A függvényhívás a legtöbb, ha nem az összes ügynökös eszközhasználati minta központi eleme, azonban a kézi megvalósítása néha kihívást jelenthet.
+Ahogy a [2. leckében](../../../02-explore-agentic-frameworks) tanultuk, az ügynökös keretrendszerek előre elkészített építőelemeket kínálnak az eszközhasználat megvalósításához.
+ 
+## Példák eszközhasználatra ügynökös keretrendszerekkel
 
-## Eszközhasználati példák ügynöki keretrendszerekkel
-
-Íme néhány példa arra, hogyan valósíthatod meg az Eszközhasználati tervezési mintát különböző ügynöki keretrendszerek használatával:
+Íme néhány példa arra, hogyan valósítható meg az Eszközhasználat tervezési minta különféle ügynökös keretrendszerek használatával:
 
 ### Semantic Kernel
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> egy nyílt forráskódú AI keretrendszer .NET, Python és Java fejlesztők számára, akik Nagy Nyelvi Modellekkel (LLM-ekkel) dolgoznak. Egyszerűsíti a funkcióhívás használatának folyamatát azáltal, hogy automatikusan leírja a funkcióidat és azok paramétereit a modell számára egy <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">szerializálás</a> nevű folyamaton keresztül. Emellett kezeli a modell és a kód közötti oda-vissza kommunikációt. Az ügynöki keretrendszer, mint például a Semantic Kernel használatának másik előnye, hogy hozzáférést biztosít előre elkészített eszközökhöz, mint például <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">File Search</a> és <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Code Interpreter</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">A Semantic Kernel</a> egy nyílt forráskódú AI keretrendszer .NET, Python és Java fejlesztők számára, akik nagy nyelvi modellekkel dolgoznak. Egyszerűsíti a függvényhívás folyamatát azáltal, hogy automatikusan leírja a függvényeidet és azok paramétereit a modellnek egy <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">szerializálás</a> nevű folyamaton keresztül. Kezeli továbbá a kommunikáció oda-vissza menetét a modell és a kód között. Egy további előnye annak, hogy Semantic Kernel ügynökös keretrendszert használunk, hogy előre elkészített eszközökhöz férhetünk hozzá, mint például a <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">Fájlkereső</a> és <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Kódértelmező</a>.
 
-Az alábbi diagram bemutatja a funkcióhívás folyamatát a Semantic Kernel használatával:
+A következő ábra szemlélteti a függvényhívás folyamatát a Semantic Kernel használatával:
 
-![function calling](../../../translated_images/functioncalling-diagram.a84006fc287f6014.hu.png)
+![function calling](../../../../../translated_images/hu/functioncalling-diagram.a84006fc287f6014.webp)
 
-A Semantic Kernel-ben a funkciókat/eszközöket <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Pluginoknak</a> nevezik. Az előzőekben látott `get_current_time` funkciót átalakíthatjuk egy pluginná úgy, hogy egy osztállyá alakítjuk, amely tartalmazza a funkciót. Importálhatjuk a `kernel_function` dekorátort is, amely a funkció leírását veszi át. Amikor létrehozol egy kernelt a GetCurrentTimePlugin-nal, a kernel automatikusan szerializálja a funkciót és annak paramétereit, létrehozva a sémát, amelyet elküld az LLM-nek a folyamat során.
+A Semantic Kernelben a függvényeket/eszközöket <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">bővítményeknek</a> hívják. Az előbb látott `get_current_time` függvényt egy osztállyá alakíthatjuk, amely tartalmazza a függvényt, és ebből bővítményt készítünk. Importálhatjuk a `kernel_function` dekorátort is, amely a függvény leírását fogadja be. Amikor létrehozunk egy kernelet a GetCurrentTimePlugin-nel, az automatikusan szerializálja a függvényt és paramétereit, így létrehozva a sémát, amelyet a modellnek továbbítunk.
 
 ```python
 from semantic_kernel.functions import kernel_function
@@ -233,68 +241,111 @@ class GetCurrentTimePlugin:
 ```python 
 from semantic_kernel import Kernel
 
-# Create the kernel
+# Hozd létre a magot
 kernel = Kernel()
 
-# Create the plugin
+# Hozd létre a bővítményt
 get_current_time_plugin = GetCurrentTimePlugin(location)
 
-# Add the plugin to the kernel
+# Add hozzá a bővítményt a maghoz
 kernel.add_plugin(get_current_time_plugin)
 ```
   
 ### Azure AI Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> egy újabb ügynöki keretrendszer, amelyet arra terveztek, hogy lehetővé tegye a fejlesztők számára, hogy biztonságosan építsenek, telepítsenek és skálázzanak magas minőségű és bővíthető AI ügynököket anélkül, hogy az alapvető számítási és tárolási erőforrásokat kellene kezelniük. Különösen hasznos vállalati alkalmazásokhoz, mivel teljesen kezelt szolgáltatás vállalati szintű biztonsággal.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Az Azure AI Agent Service</a> egy újabb ügynökös keretrendszer, amely arra szolgál, hogy a fejlesztők biztonságosan, könnyen fejleszthessenek, telepíthessenek és méretezzenek magas színvonalú, bővíthető AI ügynököket anélkül, hogy az alapvető számítási és tárhely erőforrásokat kezelniük kellene. Különösen hasznos vállalati alkalmazások esetén, mivel egy teljesen menedzselt szolgáltatás és vállalati szintű biztonságot nyújt.
 
-Az LLM API-val való közvetlen fejlesztéshez képest az Azure AI Agent Service néhány előnyt kínál, többek között:
+Az LLM API közvetlen használatához képest az Azure AI Agent Service a következő előnyöket kínálja:
 
-- Automatikus eszközhívás – nincs szükség eszközhívás elemzésére, eszköz végrehajtására és válasz kezelésére; mindez most szerveroldalon történik
-- Biztonságosan kezelt adatok – ahelyett, hogy saját beszélgetési állapotot kezelnél, támaszkodhatsz a szálakra, hogy tárolják az összes szükséges információt
-- Előre elkészített eszközök – Eszközök, amelyeket használhatsz az adatforrásokkal való interakcióhoz, például Bing, Azure AI Search és Azure Functions.
+- Automatikus eszközhívás – nem kell maga parse-olni az eszköz hívást, meghívni az eszközt és kezelni a választ; mindez a szerver oldalon történik
+- Biztonságosan kezelt adatok – ahelyett, hogy saját beszélgetési állapotot kezelne, a szálakra támaszkodhat az összes szükséges információ tárolásához
+- Használatra kész eszközök – eszközök, amelyekkel adatforrásokkal léphetünk kapcsolatba, mint például Bing, Azure AI Search és Azure Functions.
 
 Az Azure AI Agent Service-ben elérhető eszközök két kategóriába sorolhatók:
 
-1. Tudás eszközök:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Bing kereséssel való alapozás</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">File Search</a>
+1. Tudás Eszközök:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding a Bing Keresővel</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Fájlkereső</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
-2. Akció eszközök:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Funkcióhívás</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Code Interpreter</a>
+2. Műveleti Eszközök:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Függvényhívás</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Kódértelmező</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI által definiált eszközök</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</
-Az alkalmazás biztonságos környezetben történő futtatása tovább növeli a védelmet. Vállalati környezetben az adatok általában operatív rendszerekből kerülnek kinyerésre és átalakításra egy csak olvasható adatbázisba vagy adattárházba, amely felhasználóbarát sémával rendelkezik. Ez a megközelítés biztosítja, hogy az adatok biztonságosak, teljesítményre és hozzáférhetőségre optimalizáltak legyenek, és hogy az alkalmazás korlátozott, csak olvasható hozzáféréssel rendelkezzen.
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-## Példakódok
+Az Agent Service lehetővé teszi ezek együttes használatát, mint `eszközkészlet` (toolset). Emellett `szálakat` is használ, amelyek nyomon követik az adott beszélgetés üzenet előzményeit.
+
+Képzeld el, hogy egy Contoso nevű cég értékesítési ügynöke vagy. Beszélgető ügynököt szeretnél fejleszteni, amely képes válaszolni az értékesítési adataiddal kapcsolatos kérdésekre.
+
+A következő kép szemlélteti, hogyan lehet az Azure AI Agent Service-t használni az értékesítési adatok elemzésére:
+
+![Agentic Service In Action](../../../../../translated_images/hu/agent-service-in-action.34fb465c9a84659e.webp)
+
+Az eszközök használatához a szolgáltatással létrehozhatunk egy klienst és definiálhatunk egy eszközt vagy eszközkészletet. Ennek gyakorlati megvalósítására az alábbi Python kód használható. Az LLM megvizsgálja az eszközkészletet, és eldönti, hogy használja-e a felhasználó által létrehozott `fetch_sales_data_using_sqlite_query` függvényt vagy az előre elkészített Kódértelmezőt a felhasználói kérés alapján.
+
+```python 
+import os
+from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query függvény, amely megtalálható a fetch_sales_data_functions.py fájlban.
+from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
+
+project_client = AIProjectClient.from_connection_string(
+    credential=DefaultAzureCredential(),
+    conn_str=os.environ["PROJECT_CONNECTION_STRING"],
+)
+
+# Eszközkészlet inicializálása
+toolset = ToolSet()
+
+# Függvényhívó ügynök inicializálása a fetch_sales_data_using_sqlite_query függvénnyel és hozzáadása az eszközkészlethez
+fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
+toolset.add(fetch_data_function)
+
+# Kódértelmező eszköz inicializálása és hozzáadása az eszközkészlethez.
+code_interpreter = code_interpreter = CodeInterpreterTool()
+toolset.add(code_interpreter)
+
+agent = project_client.agents.create_agent(
+    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    toolset=toolset
+)
+```
+
+## Milyen különleges szempontokat kell figyelembe venni az Eszközhasználat tervezési minta alkalmazásánál megbízható AI ügynökök építéséhez?
+
+Az LLM-ek által dinamikusan generált SQL-lel kapcsolatban gyakori aggodalom a biztonság, különösen az SQL injekció vagy rosszindulatú műveletek, mint az adatbázis törlése vagy manipulálása. Bár ezek az aggodalmak jogosak, hatékonyan mérsékelhetők az adatbázishoz való hozzáférési engedélyek megfelelő konfigurálásával. A legtöbb adatbázis esetén ez az adatbázis csak olvasható (read-only) beállítását jelenti. Olyan adatbázis szolgáltatásoknál mint a PostgreSQL vagy az Azure SQL, az alkalmazásnak olvasási (SELECT) szerepkört kell kapnia.
+Az alkalmazás futtatása biztonságos környezetben további védelmet nyújt. Vállalati környezetekben az adatok jellemzően az operatív rendszerekből vannak kinyerve és átalakítva egy csak olvasható adatbázisba vagy adattárházba, amely felhasználóbarát sémával rendelkezik. Ez a megközelítés biztosítja, hogy az adatok biztonságosak, teljesítmény és hozzáférhetőség szempontjából optimalizáltak, valamint az alkalmazás korlátozott, csak olvasható hozzáféréssel rendelkezik.
+
+## Mintakódok
 
 - Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-## További kérdéseid vannak az eszközhasználati tervezési mintákról?
+## További kérdése van az eszközhasználati tervezési mintákkal kapcsolatban?
 
-Csatlakozz az [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) közösséghez, hogy találkozhass más tanulókkal, részt vehess konzultációkon, és választ kapj az AI Agents-szel kapcsolatos kérdéseidre.
+Csatlakozzon az [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) szerveréhez, hogy találkozhasson más tanulókkal, részt vegyen ügyfélszolgálati órákon és megválaszoltassa AI Agentekkel kapcsolatos kérdéseit.
 
 ## További források
 
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agents Service Workshop</a>
 - <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Multi-Agent Workshop</a>
 - <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Semantic Kernel Function Calling Tutorial</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Semantic Kernel Code Interpreter</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Autogen Tools</a>
+- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Semantic Kernel Kódértelmező</a>
+- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Autogen Eszközök</a>
 
 ## Előző lecke
 
-[Agentic Design Patterns megértése](../03-agentic-design-patterns/README.md)
+[Agentikus tervezési minták megértése](../03-agentic-design-patterns/README.md)
 
 ## Következő lecke
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[Agentikus RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Felelősség kizárása**:  
-Ezt a dokumentumot az [Co-op Translator](https://github.com/Azure/co-op-translator) AI fordítási szolgáltatás segítségével fordították le. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
+**Nyilatkozat**:
+Ez a dokumentum az AI fordító szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár a pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítás hibákat vagy pontatlanságokat tartalmazhat. Az eredeti dokumentum az adott nyelven tekintendő hiteles forrásnak. Kritikus információk esetén szakmai emberi fordítást javaslunk. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy helytelen értelmezésekért.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

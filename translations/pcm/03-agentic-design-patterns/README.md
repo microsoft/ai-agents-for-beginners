@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "pcm"
 }
 -->
-[![How to Design Good AI Agents](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.pcm.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![How to Design Good AI Agents](../../../translated_images/pcm/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Click di image wey dey up to watch di video for dis lesson)_
 # AI Agentic Design Principles
@@ -39,7 +39,7 @@ After you finish dis lesson, you go fit:
 
 ## Di Agentic Design Principles
 
-![Agentic Design Principles](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.pcm.png)
+![Agentic Design Principles](../../../translated_images/pcm/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agent (Space)
 

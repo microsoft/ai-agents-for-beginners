@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # זיכרון לסוכני AI
-[![זיכרון לסוכנים](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.he.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![זיכרון לסוכנים](../../../translated_images/he/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 כשמדברים על היתרונות הייחודיים של יצירת סוכני AI, שני דברים עיקריים עולים לדיון: היכולת להשתמש בכלים לביצוע משימות והיכולת להשתפר עם הזמן. זיכרון הוא הבסיס ליצירת סוכן שמשתפר בעצמו ויכול להעניק חוויות טובות יותר למשתמשים שלנו.
 

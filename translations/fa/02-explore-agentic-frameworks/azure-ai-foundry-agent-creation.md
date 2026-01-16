@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. دستورالعمل‌های موجود در پست وبلاگ [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) را برای ایجاد یک هاب Azure AI Foundry دنبال کنید.
 2. پس از ایجاد پروژه، هر نکته‌ای که نمایش داده می‌شود را ببندید و صفحه پروژه را در پرتال Azure AI Foundry بررسی کنید که باید مشابه تصویر زیر باشد:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.fa.png)
+    ![Azure AI Foundry Project](../../../translated_images/fa/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## استقرار یک مدل
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: کاهش TPM به جلوگیری از استفاده بیش از حد از سهمیه اشتراک شما کمک می‌کند.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.fa.png)
+    ![Model Deployed](../../../translated_images/fa/model-deployment.3749c53fb81e18fd.webp)
 
 ## ایجاد یک عامل
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > علاوه بر این، می‌توانید **Knowledge Base** و **Actions** را اضافه کنید تا قابلیت‌های عامل برای ارائه اطلاعات بیشتر و انجام وظایف خودکار بر اساس درخواست‌های کاربر افزایش یابد. برای این تمرین، می‌توانید این مراحل را نادیده بگیرید.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.fa.png)
+![Agent Setup](../../../translated_images/fa/agent-setup.9bbb8755bf5df672.webp)
 
 3. برای ایجاد یک عامل چندهوش مصنوعی جدید، کافی است روی **New Agent** کلیک کنید. عامل تازه ایجاد شده سپس در صفحه Agents نمایش داده خواهد شد.
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: ممکن است عامل پاسخ‌های دقیقی ارائه ندهد، زیرا در این تمرین از داده‌های زنده استفاده نمی‌شود. هدف، آزمایش توانایی عامل در درک و پاسخ به پرسش‌های کاربران بر اساس دستورالعمل‌های داده شده است.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.fa.png)
+    ![Agent Playground](../../../translated_images/fa/agent-playground.dc146586de715010.webp)
 
 3. پس از آزمایش عامل، می‌توانید با افزودن نیت‌های بیشتر، داده‌های آموزشی و اقدامات، قابلیت‌های آن را بیشتر سفارشی کنید.
 

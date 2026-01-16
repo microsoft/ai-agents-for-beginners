@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "te"
 }
 -->
-[![మల్టీ-ఏజెంట్ డిజైన్](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.te.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![మల్టీ-ఏజెంట్ డిజైన్](../../../translated_images/te/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(ఈ పాఠం వీడియోను చూడటానికి పై చిత్రంపై క్లిక్ చేయండి)_
 # AI ఏజెంట్లలో మెటాకాగ్నిషన్
@@ -47,7 +47,7 @@ AI ఏజెంట్లలో మెటాకాగ్నిషన్ గుర
 
 మెటాకాగ్నిషన్ AI ఏజెంట్ డిజైన్‌లో అనేక కారణాల వల్ల కీలక పాత్ర పోషిస్తుంది:
 
-![మెటాకాగ్నిషన్ ప్రాముఖ్యత](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.te.png)
+![మెటాకాగ్నిషన్ ప్రాముఖ్యత](../../../translated_images/te/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - స్వీయ-పరిశీలన: ఏజెంట్లు తమ పనితీరును అంచనా వేసి మెరుగుపరచాల్సిన ప్రాంతాలను గుర్తించగలవు.
 - అనుకూలత: ఏజెంట్లు గత అనుభవాలు మరియు మారుతున్న పరిసరాల ఆధారంగా తమ వ్యూహాలను సర్దుబాటు చేసుకోవచ్చు.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 ముందుగా RAG టూల్ మరియు ప్రీ-ఎంప్టివ్ కాంటెక్స్ట్ లోడ్ మధ్య తేడాను అర్థం చేసుకుందాం.
 
-![RAG vs కాంటెక్స్ట్ లోడింగ్](../../../translated_images/rag-vs-context.9eae588520c00921.te.png)
+![RAG vs కాంటెక్స్ట్ లోడింగ్](../../../translated_images/te/rag-vs-context.9eae588520c00921.webp)
 
 ### రిట్రీవల్-ఆగ్మెంటెడ్ జనరేషన్ (RAG)
 

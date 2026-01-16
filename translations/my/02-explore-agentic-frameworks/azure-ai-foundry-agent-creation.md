@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Azure AI Foundry hub ဖန်တီးဖို့အတွက် [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ဘလော့ဂ်ပို့စ်ထဲက လမ်းညွှန်ချက်တွေကို လိုက်နာပါ။
 2. သင့် project ဖန်တီးပြီးသွားရင် ပြသနေတဲ့ အကြံပြုချက်တွေကို ပိတ်ပြီး Azure AI Foundry portal ထဲက project စာမျက်နှာကို ပြန်လည်ကြည့်ရှုပါ၊ အောက်ပါပုံနှင့် ဆင်တူပါလိမ့်မယ်။
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.my.png)
+    ![Azure AI Foundry Project](../../../translated_images/my/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Deploy a model
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: TPM ကို လျော့ချခြင်းက သင့် subscription မှာ ရရှိနိုင်တဲ့ quota ကို မကျော်လွန်စေရန် ကူညီပေးပါတယ်။
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.my.png)
+    ![Model Deployed](../../../translated_images/my/model-deployment.3749c53fb81e18fd.webp)
 
 ## Create an agent
 
@@ -77,7 +77,7 @@ Model တစ်ခု deploy လုပ်ပြီးသွားပြီဆိ
     
 > ထို့အပြင် **Knowledge Base** နဲ့ **Actions** တွေ ထည့်သွင်းပြီး agent ရဲ့ စွမ်းရည်တွေကို တိုးမြှင့်နိုင်ပါတယ်။ ဒီလေ့ကျင့်ခန်းအတွက်တော့ ဒီအဆင့်တွေကို ကျော်လွှားနိုင်ပါတယ်။
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.my.png)
+![Agent Setup](../../../translated_images/my/agent-setup.9bbb8755bf5df672.webp)
 
 3. Multi-AI agent အသစ်တစ်ခု ဖန်တီးချင်ရင် **New Agent** ကို နှိပ်ပါ။ ဖန်တီးပြီးတဲ့ agent ကို Agents စာမျက်နှာမှာ ပြသပါလိမ့်မယ်။
 
@@ -90,7 +90,7 @@ Agent ဖန်တီးပြီးသွားရင် Azure AI Foundry porta
 
     > **Note**: ဒီလေ့ကျင့်ခန်းမှာ အချိန်နဲ့တပြေးညီ ဒေတာ မသုံးထားလို့ agent ရဲ့ တုံ့ပြန်ချက်တွေ မှန်ကန်မှုနည်းနည်းရှိနိုင်ပါတယ်။ ရည်ရွယ်ချက်ကတော့ agent ရဲ့ အသုံးပြုသူမေးခွန်းတွေကို နားလည်ပြီး တုံ့ပြန်နိုင်မှုကို စမ်းသပ်ခြင်း ဖြစ်ပါတယ်။
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.my.png)
+    ![Agent Playground](../../../translated_images/my/agent-playground.dc146586de715010.webp)
 
 3. Agent ကို စမ်းသပ်ပြီးနောက်မှာ intents, training data, actions တွေ ပိုထည့်သွင်းပြီး စွမ်းရည်ပိုမိုတိုးမြှင့်နိုင်ပါတယ်။
 

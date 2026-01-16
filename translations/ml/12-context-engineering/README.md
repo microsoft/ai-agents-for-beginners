@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # AI ഏജന്റുകൾക്കുള്ള കോൺടെക്സ്റ്റ് എഞ്ചിനീയറിംഗ്
 
-[![Context Engineering](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.ml.png)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering](../../../translated_images/ml/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(മുകളിൽ കാണുന്ന ചിത്രം ക്ലിക്ക് ചെയ്ത് ഈ പാഠത്തിന്റെ വീഡിയോ കാണുക)_
 
@@ -49,7 +49,7 @@ AI ഏജന്റുകൾക്കായി, കോൺടെക്സ്റ്
 
 ### കോൺടെക്സ്റ്റിന്റെ തരം
 
-[![Types of Context](../../../translated_images/context-types.fc10b8927ee43f06.ml.png)](https://youtu.be/F5zqRV7gEag)
+[![Types of Context](../../../translated_images/ml/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 കോൺടെക്സ്റ്റ് ഒരു കാര്യമായി മാത്രം കാണരുത്. AI ഏജന്റിന് ആവശ്യമായ വിവരങ്ങൾ വിവിധ സ്രോതസ്സുകളിൽ നിന്ന് വരാം, ഈ സ്രോതസ്സുകൾ ഏജന്റിന് ലഭ്യമാക്കുന്നത് നമ്മുടെ ഉത്തരവാദിത്തമാണ്:
 
@@ -69,7 +69,7 @@ AI ഏജന്റിന് കൈകാര്യം ചെയ്യേണ്ട
 
 ### പദ്ധതിയിടൽ തന്ത്രങ്ങൾ
 
-[![Context Engineering Best Practices](../../../translated_images/best-practices.f4170873dc554f58.ml.png)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering Best Practices](../../../translated_images/ml/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 നല്ല കോൺടെക്സ്റ്റ് എഞ്ചിനീയറിംഗ് നല്ല പദ്ധതിയിടലിൽ നിന്ന് ആരംഭിക്കുന്നു. കോൺടെക്സ്റ്റ് എഞ്ചിനീയറിംഗിന്റെ ആശയം എങ്ങനെ പ്രയോഗിക്കാമെന്ന് ചിന്തിക്കാൻ സഹായിക്കുന്ന സമീപനം ഇതാ:
 

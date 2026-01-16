@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Memori untuk Agen AI 
-[![Memori Agen](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.id.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Memori Agen](../../../translated_images/id/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Saat membahas manfaat unik dari menciptakan Agen AI, dua hal utama yang sering dibahas adalah kemampuan untuk menggunakan alat guna menyelesaikan tugas dan kemampuan untuk berkembang seiring waktu. Memori menjadi dasar dalam menciptakan agen yang dapat meningkatkan diri sendiri untuk memberikan pengalaman yang lebih baik bagi pengguna.
 

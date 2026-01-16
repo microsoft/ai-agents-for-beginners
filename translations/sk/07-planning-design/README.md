@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sk"
 }
 -->
-[![Plánovanie dizajnového vzoru](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.sk.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Plánovanie dizajnového vzoru](../../../translated_images/sk/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Kliknite na obrázok vyššie pre zobrazenie videa k tejto lekcii)_
 
@@ -32,7 +32,7 @@ Po dokončení tejto lekcie budete rozumieť:
 
 ## Definovanie celkového cieľa a rozdelenie úlohy
 
-![Definovanie cieľov a úloh](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.sk.png)
+![Definovanie cieľov a úloh](../../../translated_images/sk/defining-goals-tasks.d70439e19e37c47a.webp)
 
 Väčšina úloh v reálnom svete je príliš komplexná na to, aby sa dala zvládnuť v jednom kroku. AI agent potrebuje stručný cieľ, ktorý bude riadiť jeho plánovanie a akcie. Napríklad, zvážte cieľ:
 

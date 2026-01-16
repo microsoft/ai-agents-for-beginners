@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "he"
 }
 -->
-[![סוכני AI אמינים](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.he.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![סוכני AI אמינים](../../../translated_images/he/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(לחצו על התמונה למעלה לצפייה בסרטון של השיעור הזה)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 כדי ליצור הנחיות מערכת בקנה מידה, ניתן להשתמש במסגרת הודעות מערכת לבניית סוכן אחד או יותר ביישום שלנו:
 
-![בניית מסגרת הודעות מערכת](../../../translated_images/system-message-framework.3a97368c92d11d68.he.png)
+![בניית מסגרת הודעות מערכת](../../../translated_images/he/system-message-framework.3a97368c92d11d68.webp)
 
 #### שלב 1: יצירת הודעת מערכת מטא
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 כדי לבנות סוכני AI אמינים, חשוב להבין ולהפחית את הסיכונים והאיומים על הסוכן. בואו נבחן כמה מהאיומים השונים על סוכני AI וכיצד ניתן לתכנן ולהתכונן אליהם טוב יותר.
 
-![הבנת איומים](../../../translated_images/understanding-threats.89edeada8a97fc0f.he.png)
+![הבנת איומים](../../../translated_images/he/understanding-threats.89edeada8a97fc0f.webp)
 
 ### משימות והוראות
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 דרך יעילה נוספת לבנות מערכות סוכני AI אמינות היא שימוש במעורבות אדם בתהליך. זה יוצר זרימה שבה משתמשים יכולים לספק משוב לסוכנים במהלך הריצה. משתמשים למעשה פועלים כסוכנים במערכת רב-סוכנים על ידי מתן אישור או הפסקת התהליך.
 
-![אדם בתהליך](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.he.png)
+![אדם בתהליך](../../../translated_images/he/human-in-the-loop.5f0068a678f62f4f.webp)
 
 להלן קטע קוד שמשתמש ב-AutoGen כדי להראות כיצד מושג זה מיושם:
 

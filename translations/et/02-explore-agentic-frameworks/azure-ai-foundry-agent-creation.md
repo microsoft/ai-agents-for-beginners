@@ -25,7 +25,7 @@ Selle harjutuse läbiviimiseks vajad järgmist:
 1. Järgi juhiseid [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blogipostitusest, et luua Azure AI Foundry hub.
 2. Kui projekt on loodud, sulge kõik kuvatavad näpunäited ja vaata projekti lehte Azure AI Foundry portaalis, mis peaks välja nägema sarnane järgmisele pildile:
 
-    ![Azure AI Foundry Projekt](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.et.png)
+    ![Azure AI Foundry Projekt](../../../translated_images/et/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Mudeli juurutamine
 
@@ -35,7 +35,7 @@ Selle harjutuse läbiviimiseks vajad järgmist:
 
     > **Note**: TPM-i vähendamine aitab vältida tellimuse kvoodi ületarbimist.
 
-    ![Mudeli Juurutamine](../../../translated_images/model-deployment.3749c53fb81e18fd.et.png)
+    ![Mudeli Juurutamine](../../../translated_images/et/model-deployment.3749c53fb81e18fd.webp)
 
 ## Agendi loomine
 
@@ -77,7 +77,7 @@ Kui mudel on juurutatud, saad luua agendi. Agent on vestlus-AI mudel, mida saab 
     
 > Lisaks saad lisada **Knowledge Base** ja **Actions**, et täiustada agendi võimekust pakkuda rohkem teavet ja täita automatiseeritud ülesandeid vastavalt kasutaja päringutele. Selle harjutuse jaoks võid need sammud vahele jätta.
     
-![Agendi Seadistamine](../../../translated_images/agent-setup.9bbb8755bf5df672.et.png)
+![Agendi Seadistamine](../../../translated_images/et/agent-setup.9bbb8755bf5df672.webp)
 
 3. Uue multi-AI agendi loomiseks klõpsa lihtsalt **New Agent**. Uus agent kuvatakse seejärel lehel Agents.
 
@@ -90,7 +90,7 @@ Pärast agendi loomist saad seda testida, et näha, kuidas see reageerib kasutaj
 
     > **Note**: Agent ei pruugi anda täpseid vastuseid, kuna selles harjutuses ei kasutata reaalajas andmeid. Eesmärk on testida agendi võimet mõista ja vastata kasutaja päringutele vastavalt antud juhistele.
 
-    ![Agendi Mänguväljak](../../../translated_images/agent-playground.dc146586de715010.et.png)
+    ![Agendi Mänguväljak](../../../translated_images/et/agent-playground.dc146586de715010.webp)
 
 3. Pärast agendi testimist saad seda edasi kohandada, lisades rohkem intentsioone, treeningandmeid ja tegevusi, et täiustada selle võimekust.
 

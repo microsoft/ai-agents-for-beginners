@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "id"
 }
 -->
-[![Desain Multi-Agen](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.id.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Desain Multi-Agen](../../../translated_images/id/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
@@ -97,7 +97,7 @@ Dalam pola ini, setiap agen mewakili pengguna dalam obrolan grup, dan pesan dipe
 
 Pola ini dapat diterapkan menggunakan arsitektur terpusat di mana semua pesan dirutekan melalui server pusat, atau arsitektur terdesentralisasi di mana pesan dipertukarkan secara langsung.
 
-![Obrolan Grup](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.id.png)
+![Obrolan Grup](../../../translated_images/id/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Serah Terima
 
@@ -107,7 +107,7 @@ Kasus penggunaan khas untuk pola ini termasuk dukungan pelanggan, manajemen tuga
 
 Dalam pola ini, setiap agen mewakili tugas atau langkah dalam alur kerja, dan agen dapat menyerahkan tugas kepada agen lain berdasarkan aturan yang telah ditentukan.
 
-![Serah Terima](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.id.png)
+![Serah Terima](../../../translated_images/id/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Penyaringan Kolaboratif
 
@@ -121,7 +121,7 @@ Mari kita ambil contoh di mana seorang pengguna ingin mendapatkan rekomendasi te
 - **Analisis teknis**: Agen lain bisa menjadi ahli dalam analisis teknis.
 - **Analisis fundamental**: Dan agen lainnya bisa menjadi ahli dalam analisis fundamental. Dengan berkolaborasi, agen-agen ini dapat memberikan rekomendasi yang lebih komprehensif kepada pengguna.
 
-![Rekomendasi](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.id.png)
+![Rekomendasi](../../../translated_images/id/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Skenario: Proses Pengembalian Dana
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # 使用 Agentic 协议 (MCP、A2A 和 NLWeb)
 
-[![Agentic 协议](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.zh.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentic 协议](../../../translated_images/zh/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(点击上方图片观看本课视频)_
 
@@ -69,7 +69,7 @@ MCP 为 AI 代理提供了显著优势：
 
 ### MCP 示例
 
-![MCP 图示](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.zh.png)
+![MCP 图示](../../../translated_images/zh/mcp-diagram.e4ca1cbd551444a1.webp)
 
 假设用户希望通过 MCP 驱动的 AI 助手预订航班。
 
@@ -124,7 +124,7 @@ A2A 专注于实现代理之间的通信，并让它们协作完成用户的子�
 
 ### A2A 示例
 
-![A2A 图示](../../../translated_images/A2A-Diagram.8666928d648acc26.zh.png)
+![A2A 图示](../../../translated_images/zh/A2A-Diagram.8666928d648acc26.webp)
 
 让我们扩展旅行预订场景，这次使用 A2A。
 
@@ -158,7 +158,7 @@ A2A 专注于实现代理之间的通信，并让它们协作完成用户的子�
 
 ### NLWeb 示例
 
-![NLWeb 图示](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.zh.png)
+![NLWeb 图示](../../../translated_images/zh/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 考虑我们的旅行预订网站，这次由 NLWeb 驱动。
 

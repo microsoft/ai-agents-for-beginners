@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. Azure AI Foundry हब सिर्जना गर्न [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ब्लग पोस्टका निर्देशनहरू पालना गर्नुहोस्।
 2. तपाईंको प्रोजेक्ट सिर्जना भएपछि, देखाइएका कुनै पनि सुझावहरू बन्द गर्नुहोस् र Azure AI Foundry पोर्टलमा प्रोजेक्ट पृष्ठ समीक्षा गर्नुहोस्, जुन तलको तस्वीर जस्तै देखिनुपर्छ:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ne.png)
+    ![Azure AI Foundry Project](../../../translated_images/ne/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## मोडेल तैनाथ गर्नुहोस्
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: TPM घटाउँदा तपाईंले प्रयोग गरिरहेको सदस्यतामा उपलब्ध कोटा अत्यधिक प्रयोग हुनबाट बच्न मद्दत गर्छ।
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.ne.png)
+    ![Model Deployed](../../../translated_images/ne/model-deployment.3749c53fb81e18fd.webp)
 
 ## एजेन्ट सिर्जना गर्नुहोस्
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > थप रूपमा, तपाईं एजेन्टको क्षमता बढाउन **Knowledge Base** र **Actions** थप्न सक्नुहुन्छ जसले प्रयोगकर्ताका अनुरोधहरूमा आधारित थप जानकारी र स्वचालित कार्यहरू गर्न मद्दत गर्छ। यस अभ्यासका लागि, यी चरणहरू छोड्न सकिन्छ।
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.ne.png)
+![Agent Setup](../../../translated_images/ne/agent-setup.9bbb8755bf5df672.webp)
 
 3. नयाँ बहु-AI एजेन्ट सिर्जना गर्न, केवल **New Agent** क्लिक गर्नुहोस्। नयाँ सिर्जना गरिएको एजेन्ट Agents पृष्ठमा देखिनेछ।
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: एजेन्टले सटीक उत्तर नदिन सक्छ, किनभने यस अभ्यासमा कुनै वास्तविक-समय डेटा प्रयोग गरिएको छैन। उद्देश्य भनेको एजेन्टले दिइएका निर्देशनहरूका आधारमा प्रयोगकर्ताका प्रश्नहरू बुझ्न र जवाफ दिन सक्ने क्षमता परीक्षण गर्नु हो।
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.ne.png)
+    ![Agent Playground](../../../translated_images/ne/agent-playground.dc146586de715010.webp)
 
 3. एजेन्ट परीक्षण गरेपछि, तपाईं यसलाई थप उद्देश्यहरू, प्रशिक्षण डेटा, र कार्यहरू थपेर यसको क्षमता बढाउन सक्नुहुन्छ।
 

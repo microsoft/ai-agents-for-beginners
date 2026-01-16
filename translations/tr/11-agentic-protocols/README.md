@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agentik Protokolleri Kullanma (MCP, A2A ve NLWeb)
 
-[![Agentik Protokoller](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.tr.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentik Protokoller](../../../translated_images/tr/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 
@@ -69,7 +69,7 @@ MCP, AI ajanları için önemli avantajlar sunar:
 
 ### MCP Örneği
 
-![MCP Diyagramı](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.tr.png)
+![MCP Diyagramı](../../../translated_images/tr/mcp-diagram.e4ca1cbd551444a1.webp)
 
 Bir kullanıcının MCP destekli bir AI asistanı kullanarak uçak bileti rezervasyonu yapmak istediğini hayal edin.
 
@@ -124,7 +124,7 @@ Bu bileşen, **güncellemeleri işlemek ve mesajları iletmek** için kullanıl�
 
 ### A2A Örneği
 
-![A2A Diyagramı](../../../translated_images/A2A-Diagram.8666928d648acc26.tr.png)
+![A2A Diyagramı](../../../translated_images/tr/A2A-Diagram.8666928d648acc26.webp)
 
 Seyahat rezervasyonu senaryomuzu genişletelim, ancak bu kez A2A kullanarak.
 
@@ -158,7 +158,7 @@ NLWeb'in farklı bileşenlerine, NLWeb'in faydalarına ve seyahat uygulamamıza 
 
 ### NLWeb Örneği
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.tr.png)
+![NLWeb](../../../translated_images/tr/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 Seyahat rezervasyon web sitemizi tekrar ele alalım, ancak bu kez NLWeb tarafından destekleniyor.
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ko"
 }
 -->
-[![Planning Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.ko.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/ko/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(위 이미지를 클릭하면 이 강의의 영상을 볼 수 있습니다)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 전체 목표 정의 및 작업 분해
 
-![목표 및 작업 정의](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.ko.png)
+![목표 및 작업 정의](../../../translated_images/ko/defining-goals-tasks.d70439e19e37c47a.webp)
 
 대부분의 실제 작업은 한 단계로 해결하기에는 너무 복잡합니다. AI 에이전트는 계획과 행동을 안내할 간결한 목표가 필요합니다. 예를 들어, 다음 목표를 고려해 보세요:
 

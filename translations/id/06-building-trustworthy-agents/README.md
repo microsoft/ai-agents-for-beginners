@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "id"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.id.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/id/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
@@ -41,7 +41,7 @@ Untuk Agen AI, prompt sistem menjadi lebih penting karena Agen AI memerlukan ins
 
 Untuk membuat prompt sistem yang dapat diskalakan, kita dapat menggunakan kerangka pesan sistem untuk membangun satu atau lebih agen dalam aplikasi kita:
 
-![Building a System Message Framework](../../../translated_images/system-message-framework.3a97368c92d11d68.id.png)
+![Building a System Message Framework](../../../translated_images/id/system-message-framework.3a97368c92d11d68.webp)
 
 #### Langkah 1: Buat Meta Pesan Sistem
 
@@ -130,7 +130,7 @@ Nilai dari kerangka pesan sistem ini adalah kemampuannya untuk mempermudah pembu
 
 Untuk membangun Agen AI yang dapat dipercaya, penting untuk memahami dan mengurangi risiko serta ancaman terhadap Agen AI Anda. Mari kita lihat beberapa ancaman terhadap Agen AI dan cara Anda dapat merencanakan serta mempersiapkannya dengan lebih baik.
 
-![Understanding Threats](../../../translated_images/understanding-threats.89edeada8a97fc0f.id.png)
+![Understanding Threats](../../../translated_images/id/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Tugas dan Instruksi
 
@@ -166,7 +166,7 @@ Untuk membangun Agen AI yang dapat dipercaya, penting untuk memahami dan mengura
 
 Cara efektif lainnya untuk membangun sistem Agen AI yang dapat dipercaya adalah dengan menggunakan Human-in-the-loop. Ini menciptakan alur di mana pengguna dapat memberikan umpan balik kepada Agen selama proses berjalan. Pengguna pada dasarnya bertindak sebagai agen dalam sistem multi-agen dengan memberikan persetujuan atau penghentian proses yang sedang berjalan.
 
-![Human in The Loop](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.id.png)
+![Human in The Loop](../../../translated_images/id/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Berikut adalah cuplikan kode menggunakan AutoGen untuk menunjukkan bagaimana konsep ini diterapkan:
 

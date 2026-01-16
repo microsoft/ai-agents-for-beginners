@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ja"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.ja.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/ja/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(上の画像をクリックすると、このレッスンの動画が視聴できます)_
 # AIエージェントにおけるメタ認知
@@ -47,7 +47,7 @@ AIエージェントにおけるメタ認知についてのレッスンへよう
 
 メタ認知は、AIエージェント設計において以下の理由で重要な役割を果たします：
 
-![メタ認知の重要性](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.ja.png)
+![メタ認知の重要性](../../../translated_images/ja/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - **自己反省**: エージェントが自分のパフォーマンスを評価し、改善すべき点を特定できる。
 - **適応性**: 過去の経験や変化する環境に基づいて戦略を修正できる。
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 まず、RAGツールと予測的コンテキストロードの違いを理解しましょう。
 
-![RAG vs コンテキストロード](../../../translated_images/rag-vs-context.9eae588520c00921.ja.png)
+![RAG vs コンテキストロード](../../../translated_images/ja/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 

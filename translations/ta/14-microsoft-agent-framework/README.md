@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Microsoft Agent Framework ஆராய்ச்சி
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.ta.png)
+![Agent Framework](../../../translated_images/ta/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### அறிமுகம்
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Microsoft Agent Framework-ஐப் புரிந்துகொள்வது
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.ta.png)
+![Framework Intro](../../../translated_images/ta/framework-intro.077af16617cf130c.webp)
 
 [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) என்பது Semantic Kernel மற்றும் AutoGen ஆகியவற்றின் அனுபவங்களையும் கற்றல்களையும் அடிப்படையாகக் கொண்டு உருவாக்கப்பட்டுள்ளது. இது உற்பத்தி மற்றும் ஆராய்ச்சி சூழல்களில் காணப்படும் பல்வேறு Agentic பயன்பாடுகளைத் தீர்க்கும் வகையில் நெகிழ்வுத்தன்மையை வழங்குகிறது:
 
@@ -63,7 +63,7 @@ Microsoft Agent Framework-இன் முக்கிய கருத்து�
 
 ### முகவர்கள்
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.ta.png)
+![Agent Framework](../../../translated_images/ta/agent-components.410a06daf87b4fef.webp)
 
 **முகவர்களை உருவாக்குதல்**
 

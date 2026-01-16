@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bn"
 }
 -->
-[![মাল্টি-এজেন্ট ডিজাইন](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.bn.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![মাল্টি-এজেন্ট ডিজাইন](../../../translated_images/bn/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(উপরের ছবিতে ক্লিক করে এই পাঠের ভিডিও দেখুন)_
 
@@ -97,7 +97,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 এই প্যাটার্নটি কেন্দ্রীভূত স্থাপত্য ব্যবহার করে বাস্তবায়িত হতে পারে যেখানে সমস্ত বার্তা একটি কেন্দ্রীয় সার্ভারের মাধ্যমে রাউট করা হয়, অথবা বিকেন্দ্রীভূত স্থাপত্য ব্যবহার করে যেখানে বার্তা সরাসরি বিনিময় হয়।
 
-![গ্রুপ চ্যাট](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.bn.png)
+![গ্রুপ চ্যাট](../../../translated_images/bn/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### হ্যান্ড-অফ
 
@@ -107,7 +107,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 এই প্যাটার্নে, প্রতিটি এজেন্ট একটি কাজ বা কর্মপ্রবাহের একটি ধাপকে প্রতিনিধিত্ব করে এবং পূর্বনির্ধারিত নিয়মের ভিত্তিতে এজেন্টগুলো একে অপরের কাছে কাজ হস্তান্তর করতে পারে।
 
-![হ্যান্ড-অফ](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.bn.png)
+![হ্যান্ড-অফ](../../../translated_images/bn/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### সহযোগী ফিল্টারিং
 
@@ -121,7 +121,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **টেকনিক্যাল অ্যানালাইসিস**: আরেকটি এজেন্ট টেকনিক্যাল অ্যানালাইসিসে বিশেষজ্ঞ হতে পারে।
 - **ফান্ডামেন্টাল অ্যানালাইসিস**: এবং আরেকটি এজেন্ট ফান্ডামেন্টাল অ্যানালাইসিসে বিশেষজ্ঞ হতে পারে। একসাথে কাজ করে, এই এজেন্টগুলো ব্যবহারকারীর জন্য আরও ব্যাপক সুপারিশ দিতে পারে।
 
-![সুপারিশ](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.bn.png)
+![সুপারিশ](../../../translated_images/bn/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## পরিস্থিতি: রিফান্ড প্রক্রিয়া
 

@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Minne for AI-agenter 
-[![Agent Memory](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.no.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agent Memory](../../../translated_images/no/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Når vi diskuterer de unike fordelene ved å lage AI-agenter, er det to ting som ofte nevnes: evnen til å bruke verktøy for å fullføre oppgaver og evnen til å forbedre seg over tid. Minne er grunnlaget for å skape selvforbedrende agenter som kan gi bedre opplevelser for brukerne våre.
 

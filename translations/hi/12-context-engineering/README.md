@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # एआई एजेंट्स के लिए संदर्भ इंजीनियरिंग
 
-[![संदर्भ इंजीनियरिंग](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.hi.png)](https://youtu.be/F5zqRV7gEag)
+[![संदर्भ इंजीनियरिंग](../../../translated_images/hi/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(ऊपर दी गई छवि पर क्लिक करें इस पाठ का वीडियो देखने के लिए)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### संदर्भ के प्रकार
 
-[![संदर्भ के प्रकार](../../../translated_images/context-types.fc10b8927ee43f06.hi.png)](https://youtu.be/F5zqRV7gEag)
+[![संदर्भ के प्रकार](../../../translated_images/hi/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 यह याद रखना महत्वपूर्ण है कि संदर्भ केवल एक चीज नहीं है। एआई एजेंट को आवश्यक जानकारी विभिन्न स्रोतों से प्राप्त हो सकती है, और यह हमारी जिम्मेदारी है कि एजेंट को इन स्रोतों तक पहुंच प्रदान करें:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### योजना बनाने की रणनीतियाँ
 
-[![संदर्भ इंजीनियरिंग सर्वोत्तम प्रथाएँ](../../../translated_images/best-practices.f4170873dc554f58.hi.png)](https://youtu.be/F5zqRV7gEag)
+[![संदर्भ इंजीनियरिंग सर्वोत्तम प्रथाएँ](../../../translated_images/hi/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 अच्छी संदर्भ इंजीनियरिंग अच्छी योजना से शुरू होती है। यहां एक दृष्टिकोण है जो आपको संदर्भ इंजीनियरिंग की अवधारणा को लागू करने के बारे में सोचने में मदद करेगा:
 

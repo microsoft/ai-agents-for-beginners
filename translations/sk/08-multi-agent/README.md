@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sk"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.sk.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/sk/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Kliknite na obrázok vyššie, aby ste si pozreli video k tejto lekcii)_
 
@@ -95,7 +95,7 @@ V tomto vzore každý agent predstavuje používateľa v skupinovom chate a spr�
 
 Tento vzor môže byť implementovaný pomocou centralizovanej architektúry, kde všetky správy prechádzajú cez centrálny server, alebo decentralizovanej architektúry, kde sa správy vymieňajú priamo.
 
-![Skupinový chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.sk.png)
+![Skupinový chat](../../../translated_images/sk/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Odovzdanie úlohy
 
@@ -105,7 +105,7 @@ Typické prípady použitia tohto vzoru zahŕňajú zákaznícku podporu, správ
 
 V tomto vzore každý agent predstavuje úlohu alebo krok v pracovnom procese a agenti môžu odovzdávať úlohy iným agentom na základe preddefinovaných pravidiel.
 
-![Odovzdanie úlohy](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.sk.png)
+![Odovzdanie úlohy](../../../translated_images/sk/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Kolaboratívne filtrovanie
 
@@ -119,7 +119,7 @@ Pozrime sa na príklad, kde používateľ chce odporúčanie na najlepšiu akciu
 - **Technická analýza**: Ďalší agent môže byť odborníkom na technickú analýzu.
 - **Fundamentálna analýza**: A ďalší agent môže byť odborníkom na fundamentálnu analýzu. Spoluprácou môžu títo agenti poskytnúť používateľovi komplexnejšie odporúčanie.
 
-![Odporúčanie](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.sk.png)
+![Odporúčanie](../../../translated_images/sk/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenár: Proces refundácie
 

@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Память для AI-агентов 
-[![Память агента](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.ru.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Память агента](../../../translated_images/ru/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Когда речь идет о преимуществах создания AI-агентов, обычно обсуждаются две основные вещи: способность использовать инструменты для выполнения задач и возможность улучшаться со временем. Память лежит в основе создания самообучающихся агентов, которые могут предоставлять лучший опыт для наших пользователей.
 

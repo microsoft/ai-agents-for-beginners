@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Naudojant Agentinius Protokolus (MCP, A2A ir NLWeb)
 
-[![Agentiniai Protokolai](../../../translated_images/lesson-11-thumbnail.b6c742949cf1ce2a.lt.png)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentiniai Protokolai](../../../translated_images/lt/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Spustelėkite paveikslėlį aukščiau, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
@@ -69,7 +69,7 @@ MCP suteikia reikšmingų privalumų dirbtinio intelekto agentams:
 
 ### MCP Pavyzdys
 
-![MCP Diagrama](../../../translated_images/mcp-diagram.e4ca1cbd551444a1.lt.png)
+![MCP Diagrama](../../../translated_images/lt/mcp-diagram.e4ca1cbd551444a1.webp)
 
 Įsivaizduokite, kad vartotojas nori užsisakyti skrydį naudodamas dirbtinio intelekto asistentą, kuris naudoja MCP.
 
@@ -124,7 +124,7 @@ Kai nuotolinis agentas užbaigia prašomą užduotį, jo darbo produktas sukuria
 
 ### A2A Pavyzdys
 
-![A2A Diagrama](../../../translated_images/A2A-Diagram.8666928d648acc26.lt.png)
+![A2A Diagrama](../../../translated_images/lt/A2A-Diagram.8666928d648acc26.webp)
 
 Išplėskime mūsų kelionių užsakymo scenarijų, bet šį kartą naudodami A2A.
 
@@ -158,7 +158,7 @@ Pažvelkime į skirtingus NLWeb komponentus, NLWeb privalumus ir pavyzdį, kaip 
 
 ### NLWeb Pavyzdys
 
-![NLWeb](../../../translated_images/nlweb-diagram.c1e2390b310e5fe4.lt.png)
+![NLWeb](../../../translated_images/lt/nlweb-diagram.c1e2390b310e5fe4.webp)
 
 Apsvarstykime mūsų kelionių užsakymo svetainę, bet šį kartą ji veikia su NLWeb.
 

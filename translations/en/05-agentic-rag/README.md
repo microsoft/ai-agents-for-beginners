@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "en"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.en.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/en/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Click the image above to view the video of this lesson)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) is an emerging AI paradigm 
 
 This iterative “maker-checker” style is designed to improve accuracy, handle malformed queries to structured databases (e.g., NL2SQL), and ensure balanced, high-quality results. Instead of relying solely on carefully engineered prompt chains, the system actively takes ownership of its reasoning process. It can rewrite failed queries, choose different retrieval methods, and integrate multiple tools—such as vector search in Azure AI Search, SQL databases, or custom APIs—before finalizing its answer. This eliminates the need for overly complex orchestration frameworks. Instead, a relatively simple loop of “LLM call → tool use → LLM call → …” can produce sophisticated and well-grounded outputs.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.en.png)
+![Agentic RAG Core Loop](../../../translated_images/en/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## Owning the Reasoning Process
 
@@ -67,7 +67,7 @@ All of these steps—refining queries, choosing sources, iterating until “sati
 
 ## Iterative Loops, Tool Integration, and Memory
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.en.png)
+![Tool Integration Architecture](../../../translated_images/en/tool-integration.0f569710b5c17c10.webp)
 
 An agentic system relies on a looped interaction pattern:
 
@@ -89,7 +89,7 @@ Agentic RAG’s autonomy also includes robust self-correction mechanisms. When t
 
 This iterative and dynamic approach allows the model to continuously improve, ensuring it’s not just a one-shot system but one that learns from its missteps during a given session.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.en.png)
+![Self Correction Mechanism](../../../translated_images/en/self-correction.da87f3783b7f174b.webp)
 
 ## Boundaries of Agency
 
@@ -118,7 +118,7 @@ As these systems become more autonomous in their reasoning, governance and trans
 
 Having tools that provide a clear record of actions is crucial. Without them, debugging a multi-step process can be very challenging. See the following example from Literal AI (the company behind Chainlit) for an Agent run:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.en.png)
+![AgentRunExample](../../../translated_images/en/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## Conclusion
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "en"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.en.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/en/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Click the image above to view the video of this lesson)_
 # Metacognition in AI Agents
@@ -47,7 +47,7 @@ Tracking how or why it chose a certain route:
 
 Metacognition is crucial in AI agent design for several reasons:
 
-![Importance of Metacognition](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.en.png)
+![Importance of Metacognition](../../../translated_images/en/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Self-Reflection: Agents can assess their own performance and identify areas for improvement.
 - Adaptability: Agents can modify their strategies based on past experiences and changing environments.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 First, let’s understand the difference between RAG Tool and Pre-emptive Context Load.
 
-![RAG vs Context Loading](../../../translated_images/rag-vs-context.9eae588520c00921.en.png)
+![RAG vs Context Loading](../../../translated_images/en/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 

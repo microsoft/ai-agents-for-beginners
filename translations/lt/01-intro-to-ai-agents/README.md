@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "lt"
 }
 -->
-[![Įvadas į AI agentus](../../../translated_images/lesson-1-thumbnail.d21b2c34b32d35bb.lt.png)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Įvadas į AI agentus](../../../translated_images/lt/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Spustelėkite paveikslėlį aukščiau, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
@@ -47,7 +47,7 @@ Išskaidykime šį apibrėžimą į mažesnes dalis:
   - **Jutikliai** - Aplinka turi informaciją ir teikia grįžtamąjį ryšį. AI agentai naudoja jutiklius, kad surinktų ir interpretuotų informaciją apie dabartinę aplinkos būseną. Kelionių rezervavimo agento pavyzdyje sistema gali pateikti informaciją, pvz., viešbučių prieinamumą ar skrydžių kainas.
   - **Aktuatoriai** - Kai AI agentas gauna dabartinę aplinkos būseną, jis nustato, kokį veiksmą atlikti, kad pakeistų aplinką. Kelionių rezervavimo agento atveju tai gali būti kambario rezervavimas vartotojui.
 
-![Kas yra AI agentai?](../../../translated_images/what-are-ai-agents.1ec8c4d548af601a.lt.png)
+![Kas yra AI agentai?](../../../translated_images/lt/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Dideli kalbos modeliai** - Agentų koncepcija egzistavo dar prieš LLM sukūrimą. AI agentų kūrimo su LLM privalumas yra jų gebėjimas interpretuoti žmogaus kalbą ir duomenis. Šis gebėjimas leidžia LLM interpretuoti aplinkos informaciją ir apibrėžti planą, kaip pakeisti aplinką.
 
@@ -77,7 +77,7 @@ Ankstesniame skyriuje mes naudojome kelionių agento panaudojimo atvejį, kad pa
 
 Pažvelkime į panaudojimo atvejus, kuriems AI agentai yra geriausiai pritaikyti:
 
-![Kada naudoti AI agentus?](../../../translated_images/when-to-use-ai-agents.54becb3bed74a479.lt.png)
+![Kada naudoti AI agentus?](../../../translated_images/lt/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Atviri klausimai** - leidžiant LLM nustatyti reikalingus žingsnius užduočiai atlikti, nes jų ne visada galima užkoduoti darbo eigoje.
 - **Daugiapakopiai procesai** - užduotys, kurioms reikia tam tikro sudėtingumo lygio, kai AI agentas turi naudoti įrankius ar informaciją per kelis žingsnius, o ne vienkartinį gavimą.

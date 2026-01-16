@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sr"
 }
 -->
-[![Trustworthy AI Agents](../../../translated_images/lesson-6-thumbnail.a58ab36c099038d4.sr.png)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/sr/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Кликните на слику изнад да бисте погледали видео лекције)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Да бисмо креирали скалабилне системске упите, можемо користити оквир за системске поруке за изградњу једног или више агената у нашој апликацији:
 
-![Изградња оквира за системске поруке](../../../translated_images/system-message-framework.3a97368c92d11d68.sr.png)
+![Изградња оквира за системске поруке](../../../translated_images/sr/system-message-framework.3a97368c92d11d68.webp)
 
 #### Корак 1: Креирајте мета системску поруку
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 Да бисмо изградили поуздане AI агенте, важно је разумети и ублажити ризике и претње за вашег AI агента. Погледајмо неке од различитих претњи за AI агенте и како можете боље планирати и припремити се за њих.
 
-![Разумевање претњи](../../../translated_images/understanding-threats.89edeada8a97fc0f.sr.png)
+![Разумевање претњи](../../../translated_images/sr/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Задаци и инструкције
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 Још један ефикасан начин за изградњу поузданих система AI агената је коришћење концепта "човек у петљи". Ово ствара ток у коме корисници могу пружити повратне информације агентима током извршавања. Корисници у суштини делују као агенти у мултиагентском систему, пружајући одобрење или прекид процеса који је у току.
 
-![Човек у петљи](../../../translated_images/human-in-the-loop.5f0068a678f62f4f.sr.png)
+![Човек у петљи](../../../translated_images/sr/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Ево примера кода који користи AutoGen за приказивање како се овај концепт примењује:
 

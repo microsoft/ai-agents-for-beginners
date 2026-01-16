@@ -25,7 +25,7 @@ Cela peut être fait en cliquant sur le lien pour <a href="https://github.com/mi
 
 Vous devriez maintenant avoir votre propre version forkée de ce cours au lien suivant :
 
-![Dépôt Forké](../../../translated_images/forked-repo.33f27ca1901baa6a.fr.png)
+![Dépôt Forké](../../../translated_images/fr/forked-repo.33f27ca1901baa6a.webp)
 
 ### Clone superficiel (recommandé pour les ateliers / Codespaces)
 
@@ -176,11 +176,11 @@ Veuillez suivre le [principe du moindre privilège](https://docs.github.com/en/g
 
 1. Sélectionnez l'option `Fine-grained tokens` sur le côté gauche de votre écran en accédant aux **paramètres du développeur**.
 
-   ![Paramètres du développeur](../../../translated_images/profile_developer_settings.410a859fe749c755.fr.png)
+   ![Paramètres du développeur](../../../translated_images/fr/profile_developer_settings.410a859fe749c755.webp)
 
    Ensuite, sélectionnez `Generate new token`.
 
-   ![Générer un jeton](../../../translated_images/fga_new_token.1c1a234afe202ab3.fr.png)
+   ![Générer un jeton](../../../translated_images/fr/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Entrez un nom descriptif pour votre jeton qui reflète son objectif, ce qui le rend facile à identifier plus tard.
 
@@ -190,19 +190,19 @@ Veuillez suivre le [principe du moindre privilège](https://docs.github.com/en/g
     Pour une posture plus sécurisée, vous pouvez opter pour une période plus courte — comme 7 jours 🛡️  
     C'est une excellente façon de se fixer un objectif personnel et de terminer le cours tout en maintenant votre élan d'apprentissage 🚀.
 
-    ![Nom et expiration du jeton](../../../translated_images/token-name-expiry-date.a095fb0de6386864.fr.png)
+    ![Nom et expiration du jeton](../../../translated_images/fr/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Limitez la portée du jeton à votre fork de ce dépôt.
 
-    ![Limiter la portée au dépôt forké](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.fr.png)
+    ![Limiter la portée au dépôt forké](../../../translated_images/fr/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Restreignez les permissions du jeton : Sous l'onglet **Permissions**, cliquez sur **Account**, puis sur le bouton "+ Add permissions". Un menu déroulant apparaîtra. Recherchez **Models** et cochez la case correspondante.
 
-    ![Ajouter la permission Models](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.fr.png)
+    ![Ajouter la permission Models](../../../translated_images/fr/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Vérifiez les permissions requises avant de générer le jeton. ![Vérifier les permissions](../../../translated_images/verify_permissions.06bd9e43987a8b21.fr.png)
+5. Vérifiez les permissions requises avant de générer le jeton. ![Vérifier les permissions](../../../translated_images/fr/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Avant de générer le jeton, assurez-vous d'être prêt à le stocker dans un endroit sécurisé comme un gestionnaire de mots de passe, car il ne sera plus affiché après sa création. ![Stocker le jeton en toute sécurité](../../../translated_images/store_token_securely.08ee2274c6ad6caf.fr.png)
+6. Avant de générer le jeton, assurez-vous d'être prêt à le stocker dans un endroit sécurisé comme un gestionnaire de mots de passe, car il ne sera plus affiché après sa création. ![Stocker le jeton en toute sécurité](../../../translated_images/fr/store_token_securely.08ee2274c6ad6caf.webp)
 
 Copiez votre nouveau jeton que vous venez de créer. Vous l'ajouterez maintenant à votre fichier `.env` inclus dans ce cours.
 
@@ -224,7 +224,7 @@ Cela copiera le fichier exemple et créera un `.env` dans votre répertoire où 
 
 Avec votre jeton copié, ouvrez le fichier `.env` dans votre éditeur de texte préféré et collez votre jeton dans le champ `GITHUB_TOKEN`.
 
-![Champ du jeton GitHub](../../../translated_images/github_token_field.20491ed3224b5f4a.fr.png)
+![Champ du jeton GitHub](../../../translated_images/fr/github_token_field.20491ed3224b5f4a.webp)
 
 Vous devriez maintenant être en mesure d'exécuter les exemples de code de ce cours.
 
@@ -238,7 +238,7 @@ Une fois votre projet créé, vous devrez récupérer la chaîne de connexion de
 
 Cela peut être fait en accédant à la page **Vue d'ensemble** de votre projet dans le portail Azure AI Foundry.
 
-![Chaîne de connexion du projet](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.fr.png)
+![Chaîne de connexion du projet](../../../translated_images/fr/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Étape 2 : Créez votre fichier `.env`
 

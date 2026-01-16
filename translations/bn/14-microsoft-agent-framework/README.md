@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # মাইক্রোসফট এজেন্ট ফ্রেমওয়ার্ক অন্বেষণ
 
-![Agent Framework](../../../translated_images/lesson-14-thumbnail.90df0065b9d234ee.bn.png)
+![Agent Framework](../../../translated_images/bn/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### পরিচিতি
 
@@ -33,7 +33,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## মাইক্রোসফট এজেন্ট ফ্রেমওয়ার্ক বোঝা
 
-![Framework Intro](../../../translated_images/framework-intro.077af16617cf130c.bn.png)
+![Framework Intro](../../../translated_images/bn/framework-intro.077af16617cf130c.webp)
 
 [মাইক্রোসফট এজেন্ট ফ্রেমওয়ার্ক (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) Semantic Kernel এবং AutoGen থেকে প্রাপ্ত অভিজ্ঞতা এবং শিক্ষা ভিত্তিক। এটি প্রোডাকশন এবং গবেষণা পরিবেশে দেখা বিভিন্ন এজেন্টিক ব্যবহারের ক্ষেত্রে নমনীয়তা প্রদান করে, যার মধ্যে রয়েছে:
 
@@ -63,7 +63,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### এজেন্ট
 
-![Agent Framework](../../../translated_images/agent-components.410a06daf87b4fef.bn.png)
+![Agent Framework](../../../translated_images/bn/agent-components.410a06daf87b4fef.webp)
 
 **এজেন্ট তৈরি করা**
 

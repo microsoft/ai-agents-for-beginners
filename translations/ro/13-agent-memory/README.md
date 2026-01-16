@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Memorie pentru Agenți AI 
-[![Memorie Agenți](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.ro.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Memorie Agenți](../../../translated_images/ro/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Când discutăm despre beneficiile unice ale creării Agenților AI, două lucruri sunt în principal menționate: abilitatea de a utiliza instrumente pentru a finaliza sarcini și capacitatea de a se îmbunătăți în timp. Memoria stă la baza creării unui agent auto-îmbunătățitor care poate oferi experiențe mai bune utilizatorilor noștri.
 

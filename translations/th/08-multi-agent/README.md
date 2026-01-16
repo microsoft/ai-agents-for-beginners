@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "th"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.th.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/th/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(คลิกที่ภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 
@@ -95,7 +95,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 รูปแบบนี้สามารถนำมาใช้โดยใช้สถาปัตยกรรมแบบรวมศูนย์ที่ข้อความทั้งหมดถูกส่งผ่านเซิร์ฟเวอร์กลาง หรือสถาปัตยกรรมแบบกระจายที่ข้อความถูกแลกเปลี่ยนโดยตรง
 
-![Group chat](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.th.png)
+![Group chat](../../../translated_images/th/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### การส่งต่อ
 
@@ -105,7 +105,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ในรูปแบบนี้ ตัวแทนแต่ละตัวแทนภารกิจหรือขั้นตอนในกระบวนการทำงาน และตัวแทนสามารถส่งต่อภารกิจให้ตัวแทนอื่น ๆ ตามกฎที่กำหนดไว้ล่วงหน้า
 
-![Hand off](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.th.png)
+![Hand off](../../../translated_images/th/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### การกรองร่วมกัน
 
@@ -119,7 +119,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **การวิเคราะห์ทางเทคนิค**: ตัวแทนอีกตัวอาจเป็นผู้เชี่ยวชาญในด้านการวิเคราะห์ทางเทคนิค
 - **การวิเคราะห์พื้นฐาน**: และตัวแทนอีกตัวอาจเป็นผู้เชี่ยวชาญในด้านการวิเคราะห์พื้นฐาน โดยการร่วมมือกัน ตัวแทนเหล่านี้สามารถให้คำแนะนำที่ครอบคลุมมากขึ้นแก่ผู้ใช้
 
-![Recommendation](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.th.png)
+![Recommendation](../../../translated_images/th/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## สถานการณ์: กระบวนการคืนเงิน
 

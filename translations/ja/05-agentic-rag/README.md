@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ja"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.ja.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/ja/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(上の画像をクリックすると、このレッスンの動画が視聴できます)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) は、LLMが外部データ
 
 この反復的な「Maker-Checker」スタイルの操作は、正確性を向上させ、構造化されたデータベース（例：NL2SQL）への誤ったクエリを処理し、バランスの取れた高品質な結果を保証するよう設計されています。慎重に設計されたプロンプトチェーンにのみ依存するのではなく、システムは推論プロセスを積極的に所有します。失敗したクエリを書き直し、異なる取得方法を選択し、複数のツール（Azure AI Searchのベクトル検索、SQLデータベース、カスタムAPIなど）を統合して最終的な回答を作成します。これにより、複雑なオーケストレーションフレームワークの必要性が排除されます。代わりに、「LLM呼び出し → ツール使用 → LLM呼び出し → …」という比較的シンプルなループで、洗練された根拠のある出力を得ることができます。
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.ja.png)
+![Agentic RAG Core Loop](../../../translated_images/ja/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## 推論プロセスの所有
 
@@ -67,7 +67,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) は、LLMが外部データ
 
 ## 反復ループ、ツール統合、メモリ
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.ja.png)
+![Tool Integration Architecture](../../../translated_images/ja/tool-integration.0f569710b5c17c10.webp)
 
 エージェントシステムは、以下のようなループ型のインタラクションパターンに依存します：
 
@@ -89,7 +89,7 @@ Agentic RAGの自律性には、強力な自己修正メカニズムも含まれ
 
 この反復的で動的なアプローチにより、モデルは継続的に改善し、単なる一回限りのシステムではなく、セッション中に失敗から学ぶシステムとなります。
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.ja.png)
+![Self Correction Mechanism](../../../translated_images/ja/self-correction.da87f3783b7f174b.webp)
 
 ## エージェンシーの限界
 

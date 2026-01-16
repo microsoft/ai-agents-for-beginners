@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "mo"
 }
 -->
-[![多代理設計](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.mo.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![多代理設計](../../../translated_images/mo/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(點擊上方圖片觀看本課程的影片)_
 
@@ -95,7 +95,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 這種模式可以通過集中式架構（所有消息通過中央伺服器路由）或分散式架構（消息直接交換）來實現。
 
-![群組聊天](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.mo.png)
+![群組聊天](../../../translated_images/mo/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### 任務交接
 
@@ -105,7 +105,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 在這種模式中，每個代理代表一個任務或工作流程中的一個步驟，代理可以根據預定規則將任務交接給其他代理。
 
-![任務交接](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.mo.png)
+![任務交接](../../../translated_images/mo/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### 協作過濾
 
@@ -119,7 +119,7 @@ CO_OP_TRANSLATOR_METADATA:
 - **技術分析**：另一個代理可能是技術分析的專家。
 - **基本面分析**：還有一個代理可能是基本面分析的專家。通過協作，這些代理可以向用戶提供更全面的建議。
 
-![推薦](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.mo.png)
+![推薦](../../../translated_images/mo/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## 情境：退款流程
 

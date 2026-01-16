@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sr"
 }
 -->
-[![Дизајн више агената](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.sr.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Дизајн више агената](../../../translated_images/sr/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Кликните на слику изнад да бисте погледали видео овог часа)_
 # Метакогниција код AI агената
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Метакогниција игра кључну улогу у дизајну AI агената из неколико разлога:
 
-![Значај метакогниције](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.sr.png)
+![Значај метакогниције](../../../translated_images/sr/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Саморефлексија: Агенти могу проценити сопствене перформансе и идентификовати области за побољшање.
 - Адаптабилност: Агенти могу модификовати своје стратегије на основу претходних искустава и променљивих окружења.
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 Прво, хајде да разумемо разлику између RAG алатке и превентивног учитавања контекста.
 
-![RAG vs Учитавање контекста](../../../translated_images/rag-vs-context.9eae588520c00921.sr.png)
+![RAG vs Учитавање контекста](../../../translated_images/sr/rag-vs-context.9eae588520c00921.webp)
 
 ### Генерација уз помоћ претраживања (RAG)
 

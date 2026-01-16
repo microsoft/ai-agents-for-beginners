@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hu"
 }
 -->
-[![Hogyan tervezzünk jó AI ügynököket](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.hu.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Hogyan tervezzünk jó AI ügynököket](../../../translated_images/hu/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Kattints a fenti képre a videó megtekintéséhez)_
 # AI Ügynöki Tervezési Elvek
@@ -39,7 +39,7 @@ A lecke elvégzése után képes leszel:
 
 ## Az ügynöki tervezési elvek
 
-![Ügynöki tervezési elvek](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.hu.png)
+![Ügynöki tervezési elvek](../../../translated_images/hu/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Ügynök (Tér)
 

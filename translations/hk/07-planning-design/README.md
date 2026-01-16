@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "hk"
 }
 -->
-[![規劃設計模式](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.hk.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![規劃設計模式](../../../translated_images/hk/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(點擊上方圖片觀看本課程的影片)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 定義整體目標並分解任務
 
-![定義目標和任務](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.hk.png)
+![定義目標和任務](../../../translated_images/hk/defining-goals-tasks.d70439e19e37c47a.webp)
 
 大多數現實世界的任務過於複雜，無法在一步中完成。AI 代理需要一個簡潔的目標來指導其規劃和行動。例如，考慮以下目標：
 

@@ -25,7 +25,7 @@ Aby ukończyć to ćwiczenie, potrzebujesz:
 1. Postępuj zgodnie z wytycznymi z wpisu na blogu [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) dotyczącymi tworzenia huba Azure AI Foundry.
 2. Po utworzeniu projektu zamknij wszelkie wyświetlane wskazówki i przejrzyj stronę projektu w portalu Azure AI Foundry, która powinna wyglądać podobnie do poniższego obrazu:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.pl.png)
+    ![Azure AI Foundry Project](../../../translated_images/pl/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Wdróż model
 
@@ -35,7 +35,7 @@ Aby ukończyć to ćwiczenie, potrzebujesz:
 
     > **Note**: Zmniejszenie TPM pomaga uniknąć nadmiernego wykorzystania dostępnego limitu w subskrypcji, której używasz.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.pl.png)
+    ![Model Deployed](../../../translated_images/pl/model-deployment.3749c53fb81e18fd.webp)
 
 ## Utwórz agenta
 
@@ -77,7 +77,7 @@ Teraz, gdy wdrożyłeś model, możesz stworzyć agenta. Agent to konwersacyjny 
     
 > Ponadto możesz dodać **Knowledge Base** i **Actions**, aby rozszerzyć możliwości agenta o dostarczanie dodatkowych informacji i wykonywanie zautomatyzowanych zadań na podstawie żądań użytkownika. W tym ćwiczeniu możesz pominąć te kroki.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.pl.png)
+![Agent Setup](../../../translated_images/pl/agent-setup.9bbb8755bf5df672.webp)
 
 3. Aby utworzyć nowego agenta multi-AI, po prostu kliknij **New Agent**. Nowo utworzony agent pojawi się na stronie Agents.
 
@@ -90,7 +90,7 @@ Po utworzeniu agenta możesz go przetestować, aby zobaczyć, jak odpowiada na z
 
     > **Note**: Agent może nie udzielać dokładnych odpowiedzi, ponieważ w tym ćwiczeniu nie korzysta się z danych w czasie rzeczywistym. Celem jest przetestowanie zdolności agenta do rozumienia i odpowiadania na zapytania użytkowników na podstawie podanych instrukcji.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.pl.png)
+    ![Agent Playground](../../../translated_images/pl/agent-playground.dc146586de715010.webp)
 
 3. Po przetestowaniu agenta możesz dalej go dostosowywać, dodając więcej intencji, danych treningowych i akcji, aby zwiększyć jego możliwości.
 

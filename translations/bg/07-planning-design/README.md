@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "bg"
 }
 -->
-[![Планиране на дизайн шаблон](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.bg.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Планиране на дизайн шаблон](../../../translated_images/bg/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Кликнете върху изображението по-горе, за да гледате видеото на този урок)_
 
@@ -32,7 +32,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## Определяне на общата цел и разбиване на задача
 
-![Определяне на цели и задачи](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.bg.png)
+![Определяне на цели и задачи](../../../translated_images/bg/defining-goals-tasks.d70439e19e37c47a.webp)
 
 Повечето задачи от реалния свят са твърде сложни, за да бъдат решени в една стъпка. AI агентът се нуждае от кратка цел, която да насочва неговото планиране и действия. Например, разгледайте целта:
 

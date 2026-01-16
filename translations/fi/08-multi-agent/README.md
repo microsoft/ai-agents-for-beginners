@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "fi"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.fi.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/fi/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klikkaa yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
 
@@ -95,7 +95,7 @@ Tässä mallissa jokainen agentti edustaa käyttäjää ryhmäkeskustelussa, ja 
 
 Tämä malli voidaan toteuttaa käyttämällä keskitettyä arkkitehtuuria, jossa kaikki viestit reititetään keskitetyn palvelimen kautta, tai hajautettua arkkitehtuuria, jossa viestit vaihdetaan suoraan.
 
-![Ryhmäkeskustelu](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.fi.png)
+![Ryhmäkeskustelu](../../../translated_images/fi/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Tehtävän siirto
 
@@ -105,7 +105,7 @@ Tyypillisiä käyttötapauksia tälle mallille ovat asiakastuki, tehtävien hall
 
 Tässä mallissa jokainen agentti edustaa tehtävää tai työnkulun vaihetta, ja agentit voivat siirtää tehtäviä toisilleen ennalta määriteltyjen sääntöjen perusteella.
 
-![Tehtävän siirto](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.fi.png)
+![Tehtävän siirto](../../../translated_images/fi/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Yhteistyöhön perustuva suodatus
 
@@ -119,7 +119,7 @@ Otetaan esimerkki, jossa käyttäjä haluaa suosituksen parhaasta osakkeesta ost
 - **Tekninen analyysi**: Toinen agentti voisi olla asiantuntija teknisessä analyysissä.
 - **Perusanalyysi**: Ja kolmas agentti voisi olla asiantuntija perusanalyysissä. Yhteistyön avulla nämä agentit voivat antaa käyttäjälle kattavamman suosituksen.
 
-![Suositus](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.fi.png)
+![Suositus](../../../translated_images/fi/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Tilanne: Hyvitysprosessi
 

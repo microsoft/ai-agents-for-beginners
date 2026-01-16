@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Hukommelse for AI-agenter 
-[![Agent Memory](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.da.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agent Memory](../../../translated_images/da/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Når man diskuterer de unikke fordele ved at skabe AI-agenter, er der to ting, der ofte nævnes: evnen til at bruge værktøjer til at udføre opgaver og evnen til at forbedre sig over tid. Hukommelse er fundamentet for at skabe selvforbedrende agenter, der kan levere bedre oplevelser for vores brugere.
 

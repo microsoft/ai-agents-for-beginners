@@ -25,7 +25,7 @@ Pentru a finaliza acest exercițiu, ai nevoie de următoarele:
 1. Urmează aceste recomandări din postarea de pe blogul [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) pentru a crea un hub Azure AI Foundry.
 2. Când proiectul tău este creat, închide orice sfaturi afișate și verifică pagina proiectului în portalul Azure AI Foundry, care ar trebui să arate similar cu imaginea de mai jos:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ro.png)
+    ![Azure AI Foundry Project](../../../translated_images/ro/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Desfășoară un model
 
@@ -35,7 +35,7 @@ Pentru a finaliza acest exercițiu, ai nevoie de următoarele:
 
     > **Note**: Reducerea TPM ajută la evitarea utilizării excesive a cotei disponibile în abonamentul pe care îl folosești.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.ro.png)
+    ![Model Deployed](../../../translated_images/ro/model-deployment.3749c53fb81e18fd.webp)
 
 ## Creează un agent
 
@@ -77,7 +77,7 @@ Acum că ai desfășurat un model, poți crea un agent. Un agent este un model A
     
 > În plus, poți adăuga **Knowledge Base** și **Actions** pentru a îmbunătăți capacitățile agentului de a oferi mai multe informații și de a efectua sarcini automate pe baza cererilor utilizatorilor. Pentru acest exercițiu, poți sări peste acești pași.
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.ro.png)
+![Agent Setup](../../../translated_images/ro/agent-setup.9bbb8755bf5df672.webp)
 
 3. Pentru a crea un agent multi-AI nou, apasă pur și simplu pe **New Agent**. Agentul nou creat va fi afișat apoi pe pagina Agents.
 
@@ -90,7 +90,7 @@ După ce ai creat agentul, îl poți testa pentru a vedea cum răspunde la într
 
     > **Note**: Agentul poate să nu ofere răspunsuri exacte, deoarece nu se folosesc date în timp real în acest exercițiu. Scopul este să testezi capacitatea agentului de a înțelege și răspunde la întrebările utilizatorilor pe baza instrucțiunilor primite.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.ro.png)
+    ![Agent Playground](../../../translated_images/ro/agent-playground.dc146586de715010.webp)
 
 3. După testarea agentului, îl poți personaliza în continuare adăugând mai multe intenții, date de antrenament și acțiuni pentru a-i îmbunătăți capacitățile.
 

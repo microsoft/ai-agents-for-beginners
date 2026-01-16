@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # AI முகவர்களின் நினைவகம்
-[![Agent Memory](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.ta.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Agent Memory](../../../translated_images/ta/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 AI முகவர்களை உருவாக்குவதன் தனித்துவமான நன்மைகள் குறித்து பேசும்போது, இரண்டு முக்கிய அம்சங்கள் பேசப்படுகின்றன: கருவிகளை அழைத்து பணிகளை முடிக்கவும், காலப்போக்கில் மேம்படவும். நினைவகம் என்பது தன்னம்பிக்கையுடன் மேம்படும் முகவர்களை உருவாக்குவதற்கான அடித்தளமாகும், இது எங்கள் பயனர்களுக்கு சிறந்த அனுபவங்களை உருவாக்க உதவுகிறது.
 

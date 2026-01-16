@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "vi"
 }
 -->
-[![Cách thiết kế các tác nhân AI tốt](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.vi.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Cách thiết kế các tác nhân AI tốt](../../../translated_images/vi/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Nhấp vào hình ảnh trên để xem video của bài học này)_
 # Nguyên tắc thiết kế tác nhân AI
@@ -39,7 +39,7 @@ Sau khi hoàn thành bài học này, bạn sẽ có thể:
 
 ## Nguyên tắc thiết kế tác nhân
 
-![Nguyên tắc thiết kế tác nhân](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.vi.png)
+![Nguyên tắc thiết kế tác nhân](../../../translated_images/vi/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Tác nhân (Không gian)
 

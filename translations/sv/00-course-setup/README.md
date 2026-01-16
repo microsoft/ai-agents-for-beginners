@@ -25,7 +25,7 @@ Detta kan göras genom att klicka på länken för att <a href="https://github.c
 
 Du bör nu ha din egen förgrenade version av denna kurs på följande länk:
 
-![Förgrenat Repo](../../../translated_images/forked-repo.33f27ca1901baa6a.sv.png)
+![Förgrenat Repo](../../../translated_images/sv/forked-repo.33f27ca1901baa6a.webp)
 
 ### Grundläggande kloning (rekommenderas för workshop / Codespaces)
 
@@ -176,11 +176,11 @@ Följ [Principen om minsta privilegier](https://docs.github.com/en/get-started/l
 
 1. Välj alternativet `Fine-grained tokens` på vänster sida av skärmen genom att navigera till **Utvecklarinställningar**
 
-   ![Utvecklarinställningar](../../../translated_images/profile_developer_settings.410a859fe749c755.sv.png)
+   ![Utvecklarinställningar](../../../translated_images/sv/profile_developer_settings.410a859fe749c755.webp)
 
    Välj sedan `Generate new token`.
 
-   ![Generera Token](../../../translated_images/fga_new_token.1c1a234afe202ab3.sv.png)
+   ![Generera Token](../../../translated_images/sv/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Ange ett beskrivande namn för din token som reflekterar dess syfte, vilket gör det enkelt att identifiera senare.
 
@@ -190,19 +190,19 @@ Följ [Principen om minsta privilegier](https://docs.github.com/en/get-started/l
     För en säkrare inställning kan du välja en kortare period—som 7 dagar 🛡️
     Det är ett bra sätt att sätta ett personligt mål och slutföra kursen medan din lärandemotivation är hög 🚀.
 
-    ![Token Namn och Utgångsdatum](../../../translated_images/token-name-expiry-date.a095fb0de6386864.sv.png)
+    ![Token Namn och Utgångsdatum](../../../translated_images/sv/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Begränsa tokenens räckvidd till din förgrening av detta repositorium.
 
-    ![Begränsa räckvidd till förgreningsrepo](../../../translated_images/token_repository_limit.924ade5e11d9d8bb.sv.png)
+    ![Begränsa räckvidd till förgreningsrepo](../../../translated_images/sv/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Begränsa tokenens behörigheter: Under **Behörigheter**, klicka på fliken **Konto**, och klicka på knappen "+ Lägg till behörigheter". En dropdown kommer att visas. Sök efter **Modeller** och markera rutan för det.
 
-    ![Lägg till Modeller Behörighet](../../../translated_images/add_models_permissions.c0c44ed8b40fc143.sv.png)
+    ![Lägg till Modeller Behörighet](../../../translated_images/sv/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Verifiera de behörigheter som krävs innan du genererar token. ![Verifiera Behörigheter](../../../translated_images/verify_permissions.06bd9e43987a8b21.sv.png)
+5. Verifiera de behörigheter som krävs innan du genererar token. ![Verifiera Behörigheter](../../../translated_images/sv/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Innan du genererar token, se till att du är redo att lagra token på en säker plats som ett lösenordshanteringsvalv, eftersom den inte kommer att visas igen efter att du skapat den. ![Lagra Token Säkert](../../../translated_images/store_token_securely.08ee2274c6ad6caf.sv.png)
+6. Innan du genererar token, se till att du är redo att lagra token på en säker plats som ett lösenordshanteringsvalv, eftersom den inte kommer att visas igen efter att du skapat den. ![Lagra Token Säkert](../../../translated_images/sv/store_token_securely.08ee2274c6ad6caf.webp)
 
 Kopiera din nya token som du just har skapat. Du kommer nu att lägga till detta i din `.env`-fil som ingår i denna kurs.
 
@@ -224,7 +224,7 @@ Detta kommer att kopiera exempel-filen och skapa en `.env` i din katalog där du
 
 Med din token kopierad, öppna `.env`-filen i din favorittextredigerare och klistra in din token i fältet `GITHUB_TOKEN`.
 
-![GitHub Token Fält](../../../translated_images/github_token_field.20491ed3224b5f4a.sv.png)
+![GitHub Token Fält](../../../translated_images/sv/github_token_field.20491ed3224b5f4a.webp)
 
 Du bör nu kunna köra kodexemplen i denna kurs.
 
@@ -238,7 +238,7 @@ När du har skapat ditt projekt måste du hämta anslutningssträngen för ditt 
 
 Detta kan göras genom att gå till **Översikt**-sidan för ditt projekt i Azure AI Foundry-portalen.
 
-![Projektanslutningssträng](../../../translated_images/project-endpoint.8cf04c9975bbfbf1.sv.png)
+![Projektanslutningssträng](../../../translated_images/sv/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Steg 2: Skapa din `.env`-fil
 

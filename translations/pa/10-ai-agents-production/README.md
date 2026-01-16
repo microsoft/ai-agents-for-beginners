@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ਪ੍ਰੋਡਕਸ਼ਨ ਵਿੱਚ AI ਏਜੰਟ: ਦ੍ਰਿਸ਼ਯਤਾ ਅਤੇ ਮੁਲਾਂਕਣ
 
-[![ਪ੍ਰੋਡਕਸ਼ਨ ਵਿੱਚ AI ਏਜੰਟ](../../../translated_images/lesson-10-thumbnail.2b79a30773db093e.pa.png)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![ਪ੍ਰੋਡਕਸ਼ਨ ਵਿੱਚ AI ਏਜੰਟ](../../../translated_images/pa/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
 ਜਦੋਂ AI ਏਜੰਟ ਪ੍ਰਯੋਗਾਤਮਕ ਪ੍ਰੋਟੋਟਾਈਪ ਤੋਂ ਅਸਲ ਦੁਨੀਆ ਦੇ ਐਪਲੀਕੇਸ਼ਨਾਂ ਵੱਲ ਅੱਗੇ ਵਧਦੇ ਹਨ, ਤਾਂ ਉਨ੍ਹਾਂ ਦੇ ਵਿਹਾਰ ਨੂੰ ਸਮਝਣ, ਉਨ੍ਹਾਂ ਦੇ ਪ੍ਰਦਰਸ਼ਨ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਉਨ੍ਹਾਂ ਦੇ ਨਤੀਜਿਆਂ ਦਾ ਵਿਵਸਥਿਤ ਤੌਰ 'ਤੇ ਮੁਲਾਂਕਣ ਕਰਨ ਦੀ ਯੋਗਤਾ ਮਹੱਤਵਪੂਰਨ ਬਣ ਜਾਂਦੀ ਹੈ।
 

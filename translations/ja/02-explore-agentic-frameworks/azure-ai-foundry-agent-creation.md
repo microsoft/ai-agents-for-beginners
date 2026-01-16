@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 1. [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) のブログ記事にあるガイドラインに従って、Azure AI Foundry ハブを作成します。
 2. プロジェクトが作成されたら、表示されるヒントを閉じて、Azure AI Foundry ポータルのプロジェクトページを確認してください。以下の画像のような画面が表示されるはずです：
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2f.ja.png)
+    ![Azure AI Foundry Project](../../../translated_images/ja/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## モデルのデプロイ
 
@@ -35,7 +35,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: TPM を下げることで、使用中のサブスクリプションのクォータを過剰に消費するのを防げます。
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fd.ja.png)
+    ![Model Deployed](../../../translated_images/ja/model-deployment.3749c53fb81e18fd.webp)
 
 ## エージェントの作成
 
@@ -77,7 +77,7 @@ CO_OP_TRANSLATOR_METADATA:
     
 > また、**Knowledge Base** や **Actions** を追加することで、エージェントの情報提供能力や自動タスク実行能力を強化できますが、この演習ではこれらのステップは省略して構いません。
     
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672.ja.png)
+![Agent Setup](../../../translated_images/ja/agent-setup.9bbb8755bf5df672.webp)
 
 3. 新しいマルチ AI エージェントを作成するには、単に **New Agent** をクリックします。作成されたエージェントは Agents ページに表示されます。
 
@@ -90,7 +90,7 @@ CO_OP_TRANSLATOR_METADATA:
 
     > **Note**: この演習ではリアルタイムデータを使用していないため、エージェントの応答が正確でない場合があります。目的は、指示に基づいてユーザーの問い合わせを理解し応答する能力をテストすることです。
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de715010.ja.png)
+    ![Agent Playground](../../../translated_images/ja/agent-playground.dc146586de715010.webp)
 
 3. エージェントのテスト後、さらにインテントやトレーニングデータ、アクションを追加して機能を強化することも可能です。
 

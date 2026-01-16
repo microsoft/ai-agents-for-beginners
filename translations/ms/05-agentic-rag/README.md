@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ms"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae.ms.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/ms/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Klik pada imej di atas untuk menonton video pelajaran ini)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) adalah satu paradigma yang 
 
 Gaya operasi iteratif "maker-checker" ini direka untuk meningkatkan ketepatan, menangani pertanyaan yang tidak sempurna kepada pangkalan data berstruktur (contohnya NL2SQL), dan memastikan hasil yang seimbang dan berkualiti tinggi. Daripada bergantung semata-mata pada rantai prompt yang direka dengan teliti, sistem ini secara aktif menguasai proses pemikirannya. Ia boleh menulis semula pertanyaan yang gagal, memilih kaedah pengambilan yang berbeza, dan mengintegrasikan pelbagai alat—seperti carian vektor dalam Azure AI Search, pangkalan data SQL, atau API khusus—sebelum menyelesaikan jawapannya. Ini menghapuskan keperluan untuk rangka kerja orkestrasi yang terlalu kompleks. Sebaliknya, kitaran yang agak mudah "panggilan LLM → penggunaan alat → panggilan LLM → …" boleh menghasilkan output yang canggih dan berasas.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71.ms.png)
+![Agentic RAG Core Loop](../../../translated_images/ms/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## Menguasai Proses Pemikiran
 
@@ -66,7 +66,7 @@ Semua langkah ini—memperbaiki pertanyaan, memilih sumber, mengulangi sehingga 
 
 ## Kitaran Iteratif, Integrasi Alat, dan Memori
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c10.ms.png)
+![Tool Integration Architecture](../../../translated_images/ms/tool-integration.0f569710b5c17c10.webp)
 
 Sistem agentic bergantung pada corak interaksi berulang:
 
@@ -88,7 +88,7 @@ Autonomi Agentic RAG juga melibatkan mekanisme pembetulan diri yang kukuh. Apabi
 
 Pendekatan iteratif dan dinamik ini membolehkan model untuk terus memperbaiki, memastikan bahawa ia bukan sekadar sistem satu kali tetapi satu yang belajar daripada kesilapan semasa sesi tertentu.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174b.ms.png)
+![Self Correction Mechanism](../../../translated_images/ms/self-correction.da87f3783b7f174b.webp)
 
 ## Batasan Agensi
 
@@ -117,7 +117,7 @@ Apabila sistem ini menjadi lebih autonomi dalam pemikirannya, tadbir urus dan ke
 
 Mempunyai alat yang menyediakan rekod tindakan yang jelas adalah penting. Tanpa alat ini, menyahpepijat proses berbilang langkah boleh menjadi sangat sukar. Lihat contoh berikut daripada Literal AI (syarikat di belakang Chainlit) untuk Agent run:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0c.ms.png)
+![AgentRunExample](../../../translated_images/ms/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## Kesimpulan
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "sw"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.sw.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/sw/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Bofya picha hapo juu kutazama video ya somo hili)_
 
@@ -97,7 +97,7 @@ Katika mfumo huu, kila wakala anawakilisha mtumiaji katika mazungumzo ya kundi, 
 
 Mfumo huu unaweza kutekelezwa kwa kutumia muundo wa kati ambapo ujumbe wote hupitishwa kupitia seva kuu, au muundo uliosambazwa ambapo ujumbe hubadilishwa moja kwa moja.
 
-![Mazungumzo ya Kundi](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.sw.png)
+![Mazungumzo ya Kundi](../../../translated_images/sw/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Uhamishaji wa Kazi
 
@@ -107,7 +107,7 @@ Matumizi ya kawaida ya mfumo huu ni pamoja na msaada wa wateja, usimamizi wa kaz
 
 Katika mfumo huu, kila wakala anawakilisha kazi au hatua katika mchakato wa kazi, na mawakala wanaweza kuhamishiana kazi kulingana na sheria zilizowekwa.
 
-![Uhamishaji wa Kazi](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.sw.png)
+![Uhamishaji wa Kazi](../../../translated_images/sw/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Uchujaji wa Ushirikiano
 
@@ -121,7 +121,7 @@ Hebu tuchukue mfano ambapo mtumiaji anataka pendekezo la hisa bora kununua kweny
 - **Uchambuzi wa kiufundi**: Wakala mwingine anaweza kuwa mtaalamu wa uchambuzi wa kiufundi.
 - **Uchambuzi wa msingi**: Na wakala mwingine anaweza kuwa mtaalamu wa uchambuzi wa msingi. Kwa kushirikiana, mawakala hawa wanaweza kutoa pendekezo kamili zaidi kwa mtumiaji.
 
-![Pendekezo](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.sw.png)
+![Pendekezo](../../../translated_images/sw/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Hali: Mchakato wa Marejesho
 

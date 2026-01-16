@@ -1,88 +1,88 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "d7c3b7bd1b3528074d8b6a7c5ad33b6f",
-  "translation_date": "2025-11-18T17:27:36+00:00",
+  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
+  "translation_date": "2026-01-16T08:45:17+00:00",
   "source_file": "04-tool-use/README.md",
   "language_code": "tr"
 }
 -->
-[![İyi AI Ajanları Nasıl Tasarlanır](../../../translated_images/lesson-4-thumbnail.546162853cb3daff.tr.png)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![İyi AI Ajanları Nasıl Tasarlanır](../../../../../translated_images/tr/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 
-# Araç Kullanımı Tasarım Deseni
+# Araç Kullanım Tasarım Deseni
 
-Araçlar ilginçtir çünkü AI ajanlarının daha geniş bir yetenek yelpazesine sahip olmasını sağlar. Ajanın gerçekleştirebileceği sınırlı bir eylem seti yerine, bir araç ekleyerek ajan artık çok çeşitli eylemler gerçekleştirebilir. Bu bölümde, AI ajanlarının belirli araçları kullanarak hedeflerine nasıl ulaşabileceğini açıklayan Araç Kullanımı Tasarım Deseni'ni inceleyeceğiz.
+Araçlar ilginçtir çünkü AI ajanlarının daha geniş bir yetenek yelpazesine sahip olmalarını sağlar. Ajanın gerçekleştirebileceği sınırlı bir eylem seti yerine, bir araç ekleyerek, ajan artık çok çeşitli eylemler gerçekleştirebilir. Bu bölümde, AI ajanlarının hedeflerine ulaşmak için belirli araçları nasıl kullanabileceğini tanımlayan Araç Kullanım Tasarım Deseni'ne bakacağız.
 
 ## Giriş
 
-Bu derste şu soruları yanıtlamayı hedefliyoruz:
+Bu derste şu soruları yanıtlamaya çalışıyoruz:
 
-- Araç kullanımı tasarım deseni nedir?
-- Hangi kullanım durumlarına uygulanabilir?
-- Tasarım desenini uygulamak için gereken unsurlar/yapı taşları nelerdir?
-- Güvenilir AI ajanları oluşturmak için Araç Kullanımı Tasarım Deseni'ni kullanırken özel hususlar nelerdir?
+- Araç kullanım tasarım deseni nedir?
+- Hangi kullanım durumlarında uygulanabilir?
+- Tasarım desenini uygulamak için gereken öğeler/yapı taşları nelerdir?
+- Güvenilir AI ajanları oluşturmak için Araç Kullanım Tasarım Deseni'ni kullanırken özel olarak dikkat edilmesi gereken hususlar nelerdir?
 
 ## Öğrenme Hedefleri
 
-Bu dersi tamamladıktan sonra:
+Bu dersi tamamladıktan sonra şunları yapabileceksiniz:
 
-- Araç Kullanımı Tasarım Deseni'ni ve amacını tanımlayabileceksiniz.
-- Araç Kullanımı Tasarım Deseni'nin uygulanabilir olduğu kullanım durumlarını belirleyebileceksiniz.
-- Tasarım desenini uygulamak için gereken temel unsurları anlayabileceksiniz.
-- Bu tasarım desenini kullanan AI ajanlarında güvenilirliği sağlama hususlarını tanıyabileceksiniz.
+- Araç Kullanım Tasarım Deseni'ni ve amacını tanımlamak.
+- Bu tasarım deseninin uygulanabilir olduğu kullanım durumlarını belirlemek.
+- Tasarım desenini uygulamak için gereken temel öğeleri anlamak.
+- Bu tasarım desenini kullanan AI ajanlarında güvenilirliği sağlamak için dikkat edilmesi gerekenleri fark etmek.
 
-## Araç Kullanımı Tasarım Deseni Nedir?
+## Araç Kullanım Tasarım Deseni Nedir?
 
-**Araç Kullanımı Tasarım Deseni**, LLM'lere belirli hedeflere ulaşmak için harici araçlarla etkileşim kurma yeteneği kazandırmaya odaklanır. Araçlar, bir ajanın eylemleri gerçekleştirmek için çalıştırabileceği kodlardır. Bir araç, bir hesap makinesi gibi basit bir fonksiyon veya bir üçüncü taraf hizmetine yapılan bir API çağrısı (örneğin, hisse senedi fiyatı sorgulama veya hava durumu tahmini) olabilir. AI ajanları bağlamında, araçlar **model tarafından oluşturulan fonksiyon çağrılarına** yanıt olarak ajanlar tarafından çalıştırılmak üzere tasarlanmıştır.
+**Araç Kullanım Tasarım Deseni**, LLM'lere belirli hedeflere ulaşmak için dış araçlarla etkileşim kurma yeteneği kazandırmaya odaklanır. Araçlar, bir ajanın eylemler gerçekleştirmek için çalıştırabileceği kod parçalarıdır. Bir araç, hesap makinesi gibi basit bir işlev olabileceği gibi, hisse senedi fiyat sorgulama veya hava durumu tahmini gibi üçüncü taraf bir hizmete yapılan API çağrısı da olabilir. AI ajanları bağlamında, araçlar **model tarafından oluşturulan fonksiyon çağrıları**na yanıt olarak ajanlar tarafından çalıştırılmak üzere tasarlanmıştır.
 
-## Hangi kullanım durumlarına uygulanabilir?
+## Hangi kullanım durumlarında uygulanabilir?
 
-AI ajanları, karmaşık görevleri tamamlamak, bilgi almak veya kararlar vermek için araçlardan yararlanabilir. Araç kullanımı tasarım deseni, genellikle veritabanları, web hizmetleri veya kod yorumlayıcılar gibi harici sistemlerle dinamik etkileşim gerektiren senaryolarda kullanılır. Bu yetenek, aşağıdaki gibi çeşitli kullanım durumları için faydalıdır:
+AI Ajanları karmaşık görevleri tamamlamak, bilgi almak veya karar vermek için araçlardan yararlanabilir. Araç kullanım tasarım deseni, veritabanları, web servisleri veya kod yorumlayıcıları gibi dış sistemlerle dinamik etkileşim gerektiren senaryolarda sıkça kullanılır. Bu yetenek, aşağıdaki farklı kullanım durumları için faydalıdır:
 
-- **Dinamik Bilgi Alma:** Ajanlar, güncel verileri almak için harici API'leri veya veritabanlarını sorgulayabilir (örneğin, SQLite veritabanını veri analizi için sorgulama, hisse senedi fiyatlarını veya hava durumu bilgilerini alma).
-- **Kod Çalıştırma ve Yorumlama:** Ajanlar, matematiksel problemleri çözmek, raporlar oluşturmak veya simülasyonlar yapmak için kod veya betikleri çalıştırabilir.
-- **İş Akışı Otomasyonu:** Görev zamanlayıcılar, e-posta hizmetleri veya veri hatları gibi araçları entegre ederek tekrarlayan veya çok adımlı iş akışlarını otomatikleştirme.
-- **Müşteri Desteği:** Ajanlar, CRM sistemleri, biletleme platformları veya bilgi tabanları ile etkileşim kurarak kullanıcı sorularını çözebilir.
-- **İçerik Üretimi ve Düzenleme:** Ajanlar, dilbilgisi denetleyicileri, metin özetleyiciler veya içerik güvenliği değerlendiriciler gibi araçlardan yararlanarak içerik oluşturma görevlerine yardımcı olabilir.
+- **Dinamik Bilgi Alma:** Ajanlar, güncel verileri almak için dış API'leri veya veritabanlarını sorgulayabilir (örn. veri analiz için SQLite veritabanı sorgulama, hisse senedi fiyatları veya hava durumu bilgisi alma).
+- **Kod Çalıştırma ve Yorumlama:** Ajanlar matematiksel problemleri çözmek, raporlar üretmek veya simülasyonlar yapmak için kod veya betikler çalıştırabilir.
+- **İş Akışı Otomasyonu:** Görev zamanlayıcılar, e-posta servisleri veya veri boru hatları gibi araçları entegre ederek tekrarlayan veya çok adımlı iş akışlarını otomatikleştirme.
+- **Müşteri Desteği:** Ajanlar CRM sistemleri, bilet platformları veya bilgi tabanları ile etkileşimde bulunarak kullanıcı sorularını çözebilir.
+- **İçerik Oluşturma ve Düzenleme:** Ajanlar, içerik oluşturma görevlerinde yardımcı olmak için dilbilgisi denetleyicileri, metin özetleyicileri veya içerik güvenliği değerlendiricileri gibi araçlardan faydalanabilir.
 
-## Araç kullanımı tasarım desenini uygulamak için gereken unsurlar/yapı taşları nelerdir?
+## Araç kullanım tasarım desenini uygulamak için gereken öğeler/yapı taşları nelerdir?
 
-Bu yapı taşları, AI ajanının çok çeşitli görevleri gerçekleştirmesini sağlar. Araç Kullanımı Tasarım Deseni'ni uygulamak için gereken temel unsurlara bakalım:
+Bu yapı taşları, AI ajanın çok çeşitli görevleri gerçekleştirmesine olanak tanır. Araç Kullanım Tasarım Deseni'ni uygulamak için gereken ana öğelere bakalım:
 
-- **Fonksiyon/Arac Şemaları**: Kullanılabilir araçların ayrıntılı tanımları, fonksiyon adı, amacı, gerekli parametreler ve beklenen çıktılar dahil. Bu şemalar, LLM'nin hangi araçların mevcut olduğunu ve geçerli istekleri nasıl oluşturacağını anlamasını sağlar.
+- **Fonksiyon/Araç Şemaları**: Kullanılabilir araçların fonksiyon adı, amacı, gerekli parametreler ve beklenen çıktılar dahil olmak üzere detaylı tanımları. Bu şemalar, LLM'nin hangi araçların mevcut olduğunu ve geçerli istekleri nasıl oluşturacağını anlamasını sağlar.
 
-- **Fonksiyon Çalıştırma Mantığı**: Kullanıcının niyetine ve konuşma bağlamına göre araçların nasıl ve ne zaman çağrılacağını yönetir. Bu, planlayıcı modüller, yönlendirme mekanizmaları veya araç kullanımını dinamik olarak belirleyen koşullu akışları içerebilir.
+- **Fonksiyon Çalıştırma Mantığı**: Araçların ne zaman ve nasıl çağrılacağını, kullanıcının niyeti ve sohbet bağlamına göre yönetir. Bu, planlayıcı modüller, yönlendirme mekanizmaları veya araç kullanımını dinamik olarak belirleyen koşullu akışlar içerebilir.
 
-- **Mesaj İşleme Sistemi**: Kullanıcı girdileri, LLM yanıtları, araç çağrıları ve araç çıktıları arasındaki konuşma akışını yöneten bileşenler.
+- **Mesaj Yönetim Sistemi**: Kullanıcı girdileri, LLM yanıtları, araç çağrıları ve araç çıktıları arasındaki konuşma akışını yöneten bileşenler.
 
-- **Araç Entegrasyon Çerçevesi**: Ajanı basit fonksiyonlardan karmaşık harici hizmetlere kadar çeşitli araçlara bağlayan altyapı.
+- **Araç Entegrasyon Çerçevesi**: Ajanı basit fonksiyonlar veya karmaşık dış hizmetler olsun çeşitli araçlara bağlayan alt yapı.
 
-- **Hata Yönetimi ve Doğrulama**: Araç çalıştırma hatalarını yönetmek, parametreleri doğrulamak ve beklenmeyen yanıtları ele almak için mekanizmalar.
+- **Hata Yönetimi & Doğrulama**: Araç çalıştırmadaki hataları yönetme, parametreleri doğrulama ve beklenmedik yanıtları ele alma mekanizmaları.
 
-- **Durum Yönetimi**: Konuşma bağlamını, önceki araç etkileşimlerini ve çoklu dönüşlü etkileşimlerde tutarlılığı sağlamak için kalıcı verileri izler.
+- **Durum Yönetimi**: Çok adımlı etkileşimlerde tutarlılığı sağlamak için konuşma bağlamını, önceki araç etkileşimlerini ve kalıcı veriyi takip eder.
 
-Şimdi Fonksiyon/Arac Çağrısını daha ayrıntılı inceleyelim.
+Sonra, Fonksiyon/Araç Çağrısını daha ayrıntılı inceleyelim.
 
-### Fonksiyon/Arac Çağrısı
+### Fonksiyon/Araç Çağrısı
 
-Fonksiyon çağrısı, Büyük Dil Modelleri'nin (LLM'ler) araçlarla etkileşim kurmasını sağlamanın birincil yoludur. 'Fonksiyon' ve 'Araç' terimlerini genellikle birbirinin yerine kullanıldığını göreceksiniz çünkü 'fonksiyonlar' (yeniden kullanılabilir kod blokları), ajanların görevleri yerine getirmek için kullandığı 'araçlardır'. Bir fonksiyonun kodunun çalıştırılabilmesi için, LLM'nin kullanıcı isteğini fonksiyon açıklamasına karşı karşılaştırması gerekir. Bunun için, mevcut tüm fonksiyonların açıklamalarını içeren bir şema LLM'ye gönderilir. LLM, görev için en uygun fonksiyonu seçer ve adını ve argümanlarını döndürür. Seçilen fonksiyon çalıştırılır, yanıtı LLM'ye geri gönderilir ve LLM bu bilgiyi kullanıcının isteğine yanıt vermek için kullanır.
+Fonksiyon çağrısı, Büyük Dil Modelleri'nin (LLM'ler) araçlarla etkileşim kurmalarını sağlayan temel yoldur. Genellikle 'Fonksiyon' ve 'Araç' terimleri birbirinin yerine kullanılır çünkü 'fonksiyonlar' (yeniden kullanılabilir kod blokları) ajanların görevleri yerine getirmek için kullandığı 'araçlardır'. Bir fonksiyonun kodunun çalıştırılabilmesi için, LLM kullanıcının isteğini fonksiyonun açıklamasıyla karşılaştırmalıdır. Bunun için tüm mevcut fonksiyonların açıklamalarını içeren bir şema LLM'ye gönderilir. LLM daha sonra görev için en uygun fonksiyonu seçer ve ismini ile argümanlarını döner. Seçilen fonksiyon çalıştırılır, yanıtı LLM'ye iletilir ve LLM bu bilgiyi kullanarak kullanıcı isteğine yanıt verir.
 
-Ajanlar için fonksiyon çağrısını uygulamak isteyen geliştiriciler şunlara ihtiyaç duyar:
+Geliştiricilerin ajanlar için fonksiyon çağrısını uygulayabilmesi için şunlara ihtiyaç vardır:
 
 1. Fonksiyon çağrısını destekleyen bir LLM modeli
 2. Fonksiyon açıklamalarını içeren bir şema
-3. Açıklanan her fonksiyonun kodu
+3. Tanımlanan her fonksiyon için kod
 
-San Francisco'daki mevcut zamanı almak örneğini kullanarak açıklayalım:
+Bir şehre ait güncel saati alma örneğiyle açıklayalım:
 
 1. **Fonksiyon çağrısını destekleyen bir LLM başlatın:**
 
-    Tüm modeller fonksiyon çağrısını desteklemez, bu yüzden kullandığınız LLM'nin bunu desteklediğinden emin olmak önemlidir. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> fonksiyon çağrısını destekler. Azure OpenAI istemcisini başlatarak başlayabiliriz.
+    Her model fonksiyon çağrısını desteklemez, bu yüzden kullandığınız LLM'nin desteklediğinden emin olmak önemlidir. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> fonksiyon çağrısını destekler. Azure OpenAI istemcisini başlatarak başlayabiliriz.
 
     ```python
-    # Initialize the Azure OpenAI client
+    # Azure OpenAI istemcisini başlat
     client = AzureOpenAI(
         azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
         api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
@@ -92,10 +92,11 @@ San Francisco'daki mevcut zamanı almak örneğini kullanarak açıklayalım:
 
 1. **Bir Fonksiyon Şeması Oluşturun:**
 
-    Ardından, fonksiyon adı, fonksiyonun ne yaptığına dair açıklama ve fonksiyon parametrelerinin adları ve açıklamalarını içeren bir JSON şeması tanımlayacağız. Bu şemayı, San Francisco'daki zamanı bulmak için kullanıcının isteğiyle birlikte daha önce oluşturulan istemciye ileteceğiz. Önemli olan, dönen şeyin **araç çağrısı** olduğu, sorunun nihai cevabı **olmadığıdır**. Daha önce belirtildiği gibi, LLM görev için seçtiği fonksiyonun adını ve ona iletilecek argümanları döndürür.
+    Sonra fonksiyon adı, fonksiyonun ne yaptığına dair açıklama ile fonksiyon parametrelerinin isimlerini ve açıklamalarını içeren bir JSON şeması tanımlayacağız. 
+    Bu şemayı, kullanıcı isteği (San Francisco saatini bulmak gibi) ile birlikte daha önce oluşturulan istemciye göndeririz. Önemli olan, **araç çağrısının** döndürüldüğüdür, **sorunun nihai cevabı değil**. Daha önce belirtildiği gibi, LLM görevi için seçtiği fonksiyonun adını ve ona geçirilecek argümanları döner.
 
     ```python
-    # Function description for the model to read
+    # Modelin okuyabilmesi için işlev açıklaması
     tools = [
         {
             "type": "function",
@@ -119,10 +120,10 @@ San Francisco'daki mevcut zamanı almak örneğini kullanarak açıklayalım:
    
     ```python
   
-    # Initial user message
+    # İlk kullanıcı mesajı
     messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
   
-    # First API call: Ask the model to use the function
+    # İlk API çağrısı: Modelden fonksiyonu kullanmasını isteyin
       response = client.chat.completions.create(
           model=deployment_name,
           messages=messages,
@@ -130,7 +131,7 @@ San Francisco'daki mevcut zamanı almak örneğini kullanarak açıklayalım:
           tool_choice="auto",
       )
   
-      # Process the model's response
+      # Modelin yanıtını işleyin
       response_message = response.choices[0].message
       messages.append(response_message)
   
@@ -145,10 +146,10 @@ San Francisco'daki mevcut zamanı almak örneğini kullanarak açıklayalım:
     ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
     ```
   
-1. **Görevi yerine getirmek için gereken fonksiyon kodu:**
+1. **Görevi gerçekleştirmek için gereken fonksiyon kodu:**
 
-    Artık LLM hangi fonksiyonun çalıştırılması gerektiğini seçtiğine göre, görevi yerine getirecek kodun uygulanması ve çalıştırılması gerekiyor. 
-    Python'da mevcut zamanı almak için kodu uygulayabiliriz. Ayrıca, nihai sonucu almak için response_message'dan ad ve argümanları çıkarmak için kod yazmamız gerekecek.
+    Şimdi LLM'nin hangi fonksiyonun çalıştırılması gerektiğini seçtiğine göre, görevi gerçekleştiren kod uygulanmalı ve çalıştırılmalıdır.
+    Mevcut saati almak için Python'da kodu yazabiliriz. Sonuçta, response_message'dan fonksiyon adı ve argümanları alacak kodu da yazmamız gerekir.
 
     ```python
       def get_current_time(location):
@@ -170,7 +171,7 @@ San Francisco'daki mevcut zamanı almak örneğini kullanarak açıklayalım:
     ```
 
      ```python
-     # Handle function calls
+     # Fonksiyon çağrılarını işleyin
       if response_message.tool_calls:
           for tool_call in response_message.tool_calls:
               if tool_call.function.name == "get_current_time":
@@ -190,7 +191,7 @@ San Francisco'daki mevcut zamanı almak örneğini kullanarak açıklayalım:
       else:
           print("No tool calls were made by the model.")  
   
-      # Second API call: Get the final response from the model
+      # İkinci API çağrısı: Modelden nihai yanıtı alın
       final_response = client.chat.completions.create(
           model=deployment_name,
           messages=messages,
@@ -205,22 +206,22 @@ San Francisco'daki mevcut zamanı almak örneğini kullanarak açıklayalım:
       The current time in San Francisco is 09:24 AM.
      ```
 
-Fonksiyon Çağrısı, ajan araç kullanımı tasarımının çoğunun, hatta tamamının merkezindedir, ancak sıfırdan uygulamak bazen zor olabilir. 
-[2. Derste](../../../02-explore-agentic-frameworks) öğrendiğimiz gibi, ajan çerçeveleri bize araç kullanımını uygulamak için önceden oluşturulmuş yapı taşları sağlar.
+Fonksiyon Çağrısı, çoğu ya da tüm ajan araç kullanım tasarımının merkezindedir ancak sıfırdan uygulaması bazen zor olabilir.
+[2. Ders](../../../02-explore-agentic-frameworks)’de öğrendiğimiz gibi, ajan çerçeveleri araç kullanımını uygulamak için önceden hazırlanmış yapı taşları sağlar.
 
-## Ajan Çerçeveleri ile Araç Kullanımı Örnekleri
+## Ajan Çerçeveleri ile Araç Kullanım Örnekleri
 
-Farklı ajan çerçevelerini kullanarak Araç Kullanımı Tasarım Deseni'ni nasıl uygulayabileceğinize dair bazı örnekler:
+Farklı ajan çerçevelerini kullanarak Araç Kullanım Tasarım Deseni'ni nasıl uygulayabileceğinize dair birkaç örnek:
 
 ### Semantic Kernel
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a>, Büyük Dil Modelleri (LLM'ler) ile çalışan .NET, Python ve Java geliştiricileri için açık kaynaklı bir AI çerçevesidir. Fonksiyon çağrısını kullanma sürecini, fonksiyonlarınızı ve parametrelerini modele otomatik olarak açıklayan bir süreç olan <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serileştirme</a> yoluyla basitleştirir. Ayrıca model ile kodunuz arasındaki iletişimi yönetir. Semantic Kernel gibi bir ajan çerçevesi kullanmanın bir diğer avantajı, <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">Dosya Arama</a> ve <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Kod Yorumlayıcı</a> gibi önceden oluşturulmuş araçlara erişim sağlamasıdır.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a>, Büyük Dil Modelleri (LLM) ile çalışan .NET, Python ve Java geliştiricileri için açık kaynaklı bir AI çerçevesidir. Fonksiyon çağrısı kullanımını kolaylaştırır; fonksiyonlarınızı ve parametrelerini <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serileştirme</a> adlı bir işlemle modele otomatik olarak tanıtır. Ayrıca model ile kodunuz arasındaki karşılıklı iletişimi yönetir. Semantic Kernel gibi ajan çerçevelerinin bir diğer avantajı da <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">Dosya Arama</a> ve <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Kod Yorumlayıcı</a> gibi önceden hazırlanmış araçlara erişim sağlamasıdır.
 
-Aşağıdaki diyagram, Semantic Kernel ile fonksiyon çağrısı sürecini göstermektedir:
+Aşağıdaki diyagram Semantic Kernel ile fonksiyon çağrısı sürecini göstermektedir:
 
-![fonksiyon çağrısı](../../../translated_images/functioncalling-diagram.a84006fc287f6014.tr.png)
+![function calling](../../../../../translated_images/tr/functioncalling-diagram.a84006fc287f6014.webp)
 
-Semantic Kernel'de fonksiyonlar/araçlar <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Eklentiler</a> olarak adlandırılır. Daha önce gördüğümüz `get_current_time` fonksiyonunu bir sınıfa dönüştürerek bir eklentiye dönüştürebiliriz. Ayrıca, fonksiyonun açıklamasını alan `kernel_function` dekoratörünü içe aktarabiliriz. GetCurrentTimePlugin ile bir çekirdek oluşturduğunuzda, çekirdek fonksiyonu ve parametrelerini otomatik olarak serileştirir ve sürecin bir parçası olarak LLM'ye gönderilecek şemayı oluşturur.
+Semantic Kernel'de fonksiyonlar/araçlar <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Eklenti (Plugin)</a> olarak adlandırılır. Daha önce gördüğümüz `get_current_time` fonksiyonunu, fonksiyonu içeren bir sınıfa dönüştürerek bir eklenti haline getirebiliriz. Ayrıca fonksiyonun açıklamasını alan `kernel_function` dekoratörünü import edebiliriz. Ardından GetCurrentTimePlugin ile bir kernel oluşturdukça, kernel fonksiyonu ve parametrelerini otomatik olarak serileştirip modeli göndermek üzere şema oluşturur.
 
 ```python
 from semantic_kernel.functions import kernel_function
@@ -240,54 +241,54 @@ class GetCurrentTimePlugin:
 ```python 
 from semantic_kernel import Kernel
 
-# Create the kernel
+# Çekirdeği oluştur
 kernel = Kernel()
 
-# Create the plugin
+# Eklentiyi oluştur
 get_current_time_plugin = GetCurrentTimePlugin(location)
 
-# Add the plugin to the kernel
+# Eklentiyi çekirdeğe ekle
 kernel.add_plugin(get_current_time_plugin)
 ```
   
-### Azure AI Agent Service
+### Azure AI Agent Hizmeti
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a>, geliştiricilerin yüksek kaliteli ve genişletilebilir AI ajanlarını güvenli bir şekilde oluşturmasını, dağıtmasını ve ölçeklendirmesini sağlayan, temel hesaplama ve depolama kaynaklarını yönetme gereksinimi olmadan tasarlanmış daha yeni bir ajan çerçevesidir. Özellikle kurumsal uygulamalar için kullanışlıdır çünkü tamamen yönetilen bir hizmettir ve kurumsal düzeyde güvenlik sunar.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Hizmeti</a>, geliştiricilerin temel hesaplama ve depolama kaynaklarını yönetmeye gerek kalmadan yüksek kaliteli ve genişletilebilir AI ajanları güvenli bir şekilde oluşturmasını, dağıtmasını ve ölçeklendirmesini sağlayan daha yeni bir ajan çerçevesidir. Bu hizmet, özellikle kurumsal uygulamalar için uygun olup, tam yönetilen ve kurumsal güvenlik seviyesine sahiptir.
 
-LLM API ile doğrudan geliştirmeye kıyasla, Azure AI Agent Service bazı avantajlar sağlar, bunlar arasında:
+LLM API doğrudan geliştirilmeye kıyasla, Azure AI Agent Hizmeti aşağıdaki avantajları sunar:
 
-- Otomatik araç çağrısı – bir araç çağrısını ayrıştırma, aracı çağırma ve yanıtı işleme gereksinimi yoktur; tüm bunlar artık sunucu tarafında yapılır.
-- Güvenli bir şekilde yönetilen veri – kendi konuşma durumunuzu yönetmek yerine, ihtiyacınız olan tüm bilgileri saklamak için diyalogları kullanabilirsiniz.
-- Hazır araçlar – Bing, Azure AI Search ve Azure Functions gibi veri kaynaklarınızla etkileşim kurmak için kullanabileceğiniz araçlar.
+- Otomatik araç çağrısı – araç çağrısını çözümleme, aracı çalıştırma ve yanıtı yönetme gereksinimini ortadan kaldırır; tüm bunlar artık sunucu tarafında yapılır.
+- Güvenli şekilde yönetilen veriler – sohbet durumu yönetmek yerine, ihtiyacınız olan tüm verileri depolamak için thread’lere güvenebilirsiniz.
+- Kutudan çıkar çıkmaz hazır araçlar – Bing, Azure AI Arama ve Azure Fonksiyonları gibi veri kaynaklarınızla etkileşim kurabileceğiniz araçlar.
 
-Azure AI Agent Service'deki araçlar iki kategoriye ayrılabilir:
+Azure AI Agent Hizmetinde mevcut araçlar iki kategoriye ayrılır:
 
 1. Bilgi Araçları:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Bing Arama ile Temellendirme</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Dosya Arama</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Arama</a>
 
 2. Eylem Araçları:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Fonksiyon Çağrısı</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Kod Yorumlayıcı</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI tanımlı araçlar</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI ile tanımlı araçlar</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Fonksiyonları</a>
 
-Agent Service, bu araçları bir `araç seti` olarak birlikte kullanmamıza olanak tanır. Ayrıca, belirli bir konuşmadan gelen mesajların geçmişini takip eden `diyalogları` kullanır.
+Agent Service, bu araçları bir `araç seti (toolset)` olarak birlikte kullanmamıza olanak tanır. Ayrıca belirli bir konuşmanın mesaj geçmişini takip eden `thread`leri kullanır.
 
-Contoso adlı bir şirkette satış temsilcisi olduğunuzu hayal edin. Satış verilerinizle ilgili soruları yanıtlayabilecek bir konuşma ajanı geliştirmek istiyorsunuz.
+Contoso adlı bir şirkette satış temsilcisi olduğunuzu hayal edin. Satış verilerinizle ilgili soruları yanıtlayabilen bir konuşma ajanı geliştirmek istiyorsunuz.
 
-Aşağıdaki görsel, Azure AI Agent Service'i kullanarak satış verilerinizi nasıl analiz edebileceğinizi göstermektedir:
+Aşağıdaki görsel, Azure AI Agent Hizmeti’ni kullanarak satış verilerinizi nasıl analiz edebileceğinizi göstermektedir:
 
-![Agentic Service In Action](../../../translated_images/agent-service-in-action.34fb465c9a84659e.tr.jpg)
+![Agentic Service In Action](../../../../../translated_images/tr/agent-service-in-action.34fb465c9a84659e.webp)
 
-Bu hizmetle herhangi bir aracı kullanmak için bir istemci oluşturabilir ve bir araç veya araç seti tanımlayabilirsiniz. Bunu pratikte uygulamak için aşağıdaki Python kodunu kullanabiliriz. LLM, araç setine bakarak kullanıcı tarafından oluşturulan `fetch_sales_data_using_sqlite_query` fonksiyonunu veya önceden oluşturulmuş Kod Yorumlayıcıyı kullanıcı isteğine bağlı olarak kullanıp kullanmayacağına karar verebilir.
+Servisle bu araçlardan herhangi birini kullanmak için bir istemci yaratarak bir araç veya araç seti tanımlayabiliriz. Bunu pratikte uygulamak için aşağıdaki Python kodunu kullanabiliriz. LLM, araç setine bakarak kullanıcı tarafından oluşturulan `fetch_sales_data_using_sqlite_query` fonksiyonunu mu yoksa önceden oluşturulmuş Kod Yorumlayıcı’yı mı kullanacağına karar verecektir.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query function which can be found in a fetch_sales_data_functions.py file.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_functions.py dosyasında bulunan fetch_sales_data_using_sqlite_query fonksiyonu.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -295,14 +296,15 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
-fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
+# Araç setini başlat
 toolset = ToolSet()
+
+# fetch_sales_data_using_sqlite_query fonksiyonu ile işlev çağırma ajanını başlat ve araç setine ekle
+fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Initialize Code Interpreter tool and adding it to the toolset. 
+# Kod Yorumlayıcı aracını başlat ve araç setine ekle.
 code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset = ToolSet()
 toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
@@ -311,19 +313,19 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-## Güvenilir AI ajanları oluşturmak için Araç Kullanımı Tasarım Deseni'ni kullanırken özel hususlar nelerdir?
+## Güvenilir AI ajanları oluşturmak için Araç Kullanım Tasarım Deseni’ni kullanırken özel olarak dikkat edilmesi gerekenler nelerdir?
 
-LLM'ler tarafından dinamik olarak oluşturulan SQL ile ilgili yaygın bir endişe, özellikle SQL enjeksiyonu veya veritabanını silme veya değiştirme gibi kötü niyetli eylemler riskidir. Bu endişeler geçerli olsa da, veritabanı erişim izinlerini doğru bir şekilde yapılandırarak etkili bir şekilde azaltılabilir. Çoğu veritabanı için bu, veritabanını salt okunur olarak yapılandırmayı içerir. PostgreSQL veya Azure SQL gibi veritabanı hizmetleri için uygulamaya salt okunur (SELECT) rol atanmalıdır.
-Uygulamayı güvenli bir ortamda çalıştırmak, korumayı daha da artırır. Kurumsal senaryolarda, veriler genellikle operasyonel sistemlerden alınır ve kullanıcı dostu bir şema ile salt okunur bir veritabanına veya veri ambarına dönüştürülür. Bu yaklaşım, verilerin güvenli, performans ve erişilebilirlik açısından optimize edilmiş olmasını ve uygulamanın sınırlı, salt okunur erişime sahip olmasını sağlar.
+LLM'ler tarafından dinamik oluşturulan SQL ile ilgili yaygın bir endişe güvenliktir; özellikle SQL enjeksiyonu riski veya veritabanını silme/tahrif etme gibi kötü niyetli eylemler söz konusudur. Bu endişeler geçerlidir ancak veritabanı erişim izinlerinin doğru yapılandırılmasıyla etkili şekilde azaltılabilir. Çoğu veritabanı için bu, veritabanının salt okunur (read-only) olarak yapılandırılması anlamına gelir. PostgreSQL veya Azure SQL gibi veritabanı hizmetlerinde, uygulamaya salt okunur (SELECT) rolü atanmalıdır.
+Uygulamayı güvenli bir ortamda çalıştırmak korumayı daha da artırır. Kurumsal senaryolarda, veriler genellikle operasyonel sistemlerden çıkarılır ve kullanımı kolay bir şemaya sahip salt okunur bir veritabanı veya veri ambarına dönüştürülür. Bu yaklaşım, verilerin güvenli, performans ve erişilebilirlik için optimize edilmiş olmasını sağlar ve uygulamanın kısıtlı, salt okunur erişime sahip olmasını garanti eder.
 
 ## Örnek Kodlar
 
 - Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-## Araç Kullanım Tasarım Kalıpları Hakkında Daha Fazla Sorunuz mu Var?
+## Araç Kullanımı Tasarım Kalıpları Hakkında Daha Fazla Sorunuz mu Var?
 
-Diğer öğrenicilerle tanışmak, ofis saatlerine katılmak ve AI Agents ile ilgili sorularınızı yanıtlamak için [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord) topluluğuna katılın.
+Diğer öğrenenlerle tanışmak, çalışma saatlerine katılmak ve AI Agent sorularınızı cevaplamak için [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord)’a katılın.
 
 ## Ek Kaynaklar
 
@@ -335,7 +337,7 @@ Diğer öğrenicilerle tanışmak, ofis saatlerine katılmak ve AI Agents ile il
 
 ## Önceki Ders
 
-[Agentic Tasarım Kalıplarını Anlamak](../03-agentic-design-patterns/README.md)
+[Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
 
 ## Sonraki Ders
 
@@ -344,6 +346,6 @@ Diğer öğrenicilerle tanışmak, ofis saatlerine katılmak ve AI Agents ile il
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Feragatname**:  
-Bu belge, [Co-op Translator](https://github.com/Azure/co-op-translator) adlı yapay zeka çeviri hizmeti kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlıklar içerebileceğini lütfen unutmayın. Belgenin orijinal dilindeki hali yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan yanlış anlama veya yanlış yorumlamalardan sorumlu değiliz.
+**Feragatname**:
+Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek herhangi bir yanlış anlama veya yanlış yorumlamadan sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

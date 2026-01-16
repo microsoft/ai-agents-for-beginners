@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "et"
 }
 -->
-[![Kuidas kujundada häid AI agente](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.et.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Kuidas kujundada häid AI agente](../../../translated_images/et/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_
 # AI agentide kujundamise põhimõtted
@@ -39,7 +39,7 @@ Pärast selle õppetunni läbimist suudad:
 
 ## Agentide disainipõhimõtted
 
-![Agentide disainipõhimõtted](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.et.png)
+![Agentide disainipõhimõtted](../../../translated_images/et/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agent (Ruum)
 

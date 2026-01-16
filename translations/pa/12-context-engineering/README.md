@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # ਏਆਈ ਏਜੰਟਾਂ ਲਈ ਕੌਂਟੈਕਸਟ ਇੰਜੀਨੀਅਰਿੰਗ
 
-[![ਕੌਂਟੈਕਸਟ ਇੰਜੀਨੀਅਰਿੰਗ](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.pa.png)](https://youtu.be/F5zqRV7gEag)
+[![ਕੌਂਟੈਕਸਟ ਇੰਜੀਨੀਅਰਿੰਗ](../../../translated_images/pa/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(ਉਪਰ ਦਿੱਤੀ ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇਸ ਪਾਠ ਦਾ ਵੀਡੀਓ ਵੇਖੋ)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### ਕੌਂਟੈਕਸਟ ਦੇ ਪ੍ਰਕਾਰ
 
-[![ਕੌਂਟੈਕਸਟ ਦੇ ਪ੍ਰਕਾਰ](../../../translated_images/context-types.fc10b8927ee43f06.pa.png)](https://youtu.be/F5zqRV7gEag)
+[![ਕੌਂਟੈਕਸਟ ਦੇ ਪ੍ਰਕਾਰ](../../../translated_images/pa/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 ਇਹ ਯਾਦ ਰੱਖਣਾ ਮਹੱਤਵਪੂਰਨ ਹੈ ਕਿ ਕੌਂਟੈਕਸਟ ਸਿਰਫ ਇੱਕ ਚੀਜ਼ ਨਹੀਂ ਹੈ। ਉਹ ਜਾਣਕਾਰੀ ਜੋ ਏਆਈ ਏਜੰਟ ਨੂੰ ਲੋੜੀਂਦੀ ਹੈ ਵੱਖ-ਵੱਖ ਸਰੋਤਾਂ ਤੋਂ ਆ ਸਕਦੀ ਹੈ, ਅਤੇ ਇਹ ਸਾਡੀ ਜ਼ਿੰਮੇਵਾਰੀ ਹੈ ਕਿ ਇਹ ਯਕੀਨੀ ਬਣਾਇਆ ਜਾਵੇ ਕਿ ਏਜੰਟ ਨੂੰ ਇਹਨਾਂ ਸਰੋਤਾਂ ਤੱਕ ਪਹੁੰਚ ਹੈ:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### ਯੋਜਨਾ ਬਣਾਉਣ ਦੀਆਂ ਰਣਨੀਤੀਆਂ
 
-[![ਕੌਂਟੈਕਸਟ ਇੰਜੀਨੀਅਰਿੰਗ ਦੇ ਸਰਬੋਤਮ ਅਭਿਆਸ](../../../translated_images/best-practices.f4170873dc554f58.pa.png)](https://youtu.be/F5zqRV7gEag)
+[![ਕੌਂਟੈਕਸਟ ਇੰਜੀਨੀਅਰਿੰਗ ਦੇ ਸਰਬੋਤਮ ਅਭਿਆਸ](../../../translated_images/pa/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 ਚੰਗੀ ਕੌਂਟੈਕਸਟ ਇੰਜੀਨੀਅਰਿੰਗ ਚੰਗੀ ਯੋਜਨਾ ਨਾਲ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ। ਇੱਥੇ ਇੱਕ ਪਹੁੰਚ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਕੌਂਟੈਕਸਟ ਇੰਜੀਨੀਅਰਿੰਗ ਦੇ ਸਿਧਾਂਤ ਨੂੰ ਲਾਗੂ ਕਰਨ ਬਾਰੇ ਸੋਚਣ ਵਿੱਚ ਮਦਦ ਕਰੇਗੀ:
 

@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Инженерия контекста для ИИ-агентов
 
-[![Инженерия контекста](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.ru.png)](https://youtu.be/F5zqRV7gEag)
+[![Инженерия контекста](../../../translated_images/ru/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(Нажмите на изображение выше, чтобы посмотреть видео к этому уроку)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Типы контекста
 
-[![Типы контекста](../../../translated_images/context-types.fc10b8927ee43f06.ru.png)](https://youtu.be/F5zqRV7gEag)
+[![Типы контекста](../../../translated_images/ru/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 Важно помнить, что контекст — это нечто многогранное. Информация, необходимая ИИ-агенту, может поступать из различных источников, и наша задача — обеспечить доступ агента к этим источникам.
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### Стратегии планирования
 
-[![Лучшие практики инженерии контекста](../../../translated_images/best-practices.f4170873dc554f58.ru.png)](https://youtu.be/F5zqRV7gEag)
+[![Лучшие практики инженерии контекста](../../../translated_images/ru/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 Хорошая инженерия контекста начинается с хорошего планирования. Вот подход, который поможет вам начать применять концепцию инженерии контекста:
 

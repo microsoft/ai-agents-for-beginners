@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "el"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-9-thumbnail.38059e8af1a5b71d.el.png)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/el/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Κάντε κλικ στην παραπάνω εικόνα για να παρακολουθήσετε το βίντεο αυτού του μαθήματος)_
 # Μεταγνώση στους Πράκτορες Τεχνητής Νοημοσύνης
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Η μεταγνώση παίζει κρίσιμο ρόλο στο σχεδιασμό πρακτόρων τεχνητής νοημοσύνης για διάφορους λόγους:
 
-![Σημασία της Μεταγνώσης](../../../translated_images/importance-of-metacognition.b381afe9aae352f7.el.png)
+![Σημασία της Μεταγνώσης](../../../translated_images/el/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - Αυτοαντανάκλαση: Οι πράκτορες μπορούν να αξιολογούν την απόδοσή τους και να εντοπίζουν τομείς για βελτίωση.
 - Προσαρμοστικότητα: Οι πράκτορες μπορούν να τροποποιούν τις στρατηγικές τους με βάση προηγούμενες εμπειρίες και μεταβαλλόμενα περιβάλλοντα.

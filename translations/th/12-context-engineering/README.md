@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # การออกแบบบริบทสำหรับตัวแทน AI
 
-[![การออกแบบบริบท](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.th.png)](https://youtu.be/F5zqRV7gEag)
+[![การออกแบบบริบท](../../../translated_images/th/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(คลิกที่ภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 
@@ -49,7 +49,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### ประเภทของบริบท
 
-[![ประเภทของบริบท](../../../translated_images/context-types.fc10b8927ee43f06.th.png)](https://youtu.be/F5zqRV7gEag)
+[![ประเภทของบริบท](../../../translated_images/th/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 สิ่งสำคัญคือต้องจำไว้ว่าบริบทไม่ได้เป็นเพียงสิ่งเดียว ข้อมูลที่ตัวแทน AI ต้องการอาจมาจากแหล่งต่างๆ และเป็นหน้าที่ของเราที่จะทำให้ตัวแทนสามารถเข้าถึงแหล่งข้อมูลเหล่านี้ได้:
 
@@ -69,7 +69,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ### กลยุทธ์การวางแผน
 
-[![แนวปฏิบัติที่ดีที่สุดในการออกแบบบริบท](../../../translated_images/best-practices.f4170873dc554f58.th.png)](https://youtu.be/F5zqRV7gEag)
+[![แนวปฏิบัติที่ดีที่สุดในการออกแบบบริบท](../../../translated_images/th/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 การออกแบบบริบทที่ดีเริ่มต้นด้วยการวางแผนที่ดี นี่คือแนวทางที่จะช่วยให้คุณเริ่มคิดเกี่ยวกับการประยุกต์ใช้แนวคิดของการออกแบบบริบท:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "it"
 }
 -->
-[![Pianificazione del Design Pattern](../../../translated_images/lesson-7-thumbnail.f7163ac557bea123.it.png)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Pianificazione del Design Pattern](../../../translated_images/it/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
 
@@ -32,7 +32,7 @@ Dopo aver completato questa lezione, avrai una comprensione di:
 
 ## Definire l'Obiettivo Generale e Suddividere un Compito
 
-![Definire Obiettivi e Compiti](../../../translated_images/defining-goals-tasks.d70439e19e37c47a.it.png)
+![Definire Obiettivi e Compiti](../../../translated_images/it/defining-goals-tasks.d70439e19e37c47a.webp)
 
 La maggior parte dei compiti del mondo reale è troppo complessa per essere affrontata in un unico passaggio. Un agente AI ha bisogno di un obiettivo conciso per guidare la sua pianificazione e le sue azioni. Ad esempio, considera l'obiettivo:
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "lt"
 }
 -->
-[![Multi-Agent Design](../../../translated_images/lesson-8-thumbnail.278a3e4a59137d62.lt.png)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/lt/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Spustelėkite paveikslėlį aukščiau, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
@@ -95,7 +95,7 @@ Pažvelkime į keletą konkrečių šablonų, kuriuos galime naudoti kuriant dau
 
 Šis šablonas gali būti įgyvendintas naudojant centralizuotą architektūrą, kur visos žinutės nukreipiamos per centrinį serverį, arba decentralizuotą architektūrą, kur žinutės keičiasi tiesiogiai.
 
-![Grupinis pokalbis](../../../translated_images/multi-agent-group-chat.ec10f4cde556babd.lt.png)
+![Grupinis pokalbis](../../../translated_images/lt/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Perdavimas
 
@@ -105,7 +105,7 @@ Tipiniai šio šablono naudojimo atvejai apima klientų aptarnavimą, užduoči�
 
 Šiame šablone kiekvienas agentas atstovauja užduotį arba žingsnį darbo sraute, o agentai gali perduoti užduotis kitiems agentams pagal iš anksto nustatytas taisykles.
 
-![Perdavimas](../../../translated_images/multi-agent-hand-off.4c5fb00ba6f8750a.lt.png)
+![Perdavimas](../../../translated_images/lt/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Bendradarbiavimo filtravimas
 
@@ -119,7 +119,7 @@ Pavyzdžiui, vartotojas nori rekomendacijos dėl geriausios akcijos, kurią gali
 - **Techninė analizė**: Kitas agentas galėtų būti techninės analizės ekspertas.
 - **Fundamentinė analizė**: Ir dar vienas agentas galėtų būti fundamentinės analizės ekspertas. Bendradarbiaudami šie agentai galėtų pateikti vartotojui išsamesnę rekomendaciją.
 
-![Rekomendacija](../../../translated_images/multi-agent-filtering.d959cb129dc9f608.lt.png)
+![Rekomendacija](../../../translated_images/lt/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenarijus: Grąžinimo procesas
 

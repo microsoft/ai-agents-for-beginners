@@ -8,7 +8,7 @@ CO_OP_TRANSLATOR_METADATA:
 }
 -->
 # Меморија за AI агенте 
-[![Меморија агента](../../../translated_images/lesson-13-thumbnail.959e3bc52d210c64.sr.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+[![Меморија агента](../../../translated_images/sr/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
 Када говоримо о јединственим предностима креирања AI агената, углавном се дискутује о две ствари: могућност позивања алата за обављање задатака и способност побољшања током времена. Меморија је основа за креирање агента који се сам побољшава и који може пружити боље искуство нашим корисницима.
 

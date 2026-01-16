@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "es"
 }
 -->
-[![Cómo Diseñar Buenos Agentes de IA](../../../translated_images/lesson-3-thumbnail.1092dd7a8f1074a5.es.png)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Cómo Diseñar Buenos Agentes de IA](../../../translated_images/es/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Haz clic en la imagen de arriba para ver el video de esta lección)_
 # Principios de Diseño de Agentes de IA
@@ -39,7 +39,7 @@ Después de completar esta lección, podrás:
 
 ## Los Principios de Diseño de Agentes
 
-![Principios de Diseño de Agentes](../../../translated_images/agentic-design-principles.1cfdf8b6d3cc73c2.es.png)
+![Principios de Diseño de Agentes](../../../translated_images/es/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agente (Espacio)
 

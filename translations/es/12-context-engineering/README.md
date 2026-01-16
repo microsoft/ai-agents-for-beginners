@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Ingeniería de Contexto para Agentes de IA
 
-[![Ingeniería de Contexto](../../../translated_images/lesson-12-thumbnail.ed19c94463e774d4.es.png)](https://youtu.be/F5zqRV7gEag)
+[![Ingeniería de Contexto](../../../translated_images/es/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
 > _(Haz clic en la imagen de arriba para ver el video de esta lección)_
 
@@ -49,7 +49,7 @@ La ingeniería de prompts se centra en un conjunto único de instrucciones está
 
 ### Tipos de Contexto
 
-[![Tipos de Contexto](../../../translated_images/context-types.fc10b8927ee43f06.es.png)](https://youtu.be/F5zqRV7gEag)
+[![Tipos de Contexto](../../../translated_images/es/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
 Es importante recordar que el contexto no es solo una cosa. La información que el agente de IA necesita puede provenir de una variedad de fuentes diferentes, y depende de nosotros asegurarnos de que el agente tenga acceso a estas fuentes:
 
@@ -69,7 +69,7 @@ Los tipos de contexto que un agente de IA podría necesitar gestionar incluyen:
 
 ### Estrategias de Planificación
 
-[![Mejores Prácticas de Ingeniería de Contexto](../../../translated_images/best-practices.f4170873dc554f58.es.png)](https://youtu.be/F5zqRV7gEag)
+[![Mejores Prácticas de Ingeniería de Contexto](../../../translated_images/es/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
 Una buena ingeniería de contexto comienza con una buena planificación. Aquí hay un enfoque que te ayudará a pensar cómo aplicar el concepto de ingeniería de contexto:
 
