@@ -313,6 +313,32 @@ git merge upstream/main
 - **When not presenting:** 1:1 student support, troubleshooting
 - **Hackathon:** Guide assigned team, provide technical support
 
+### 🎓 Teaching Best Practice: Azure UI First, Then Code
+
+**Recommended Demo Flow:**
+1. **Show in Azure Portal/AI Foundry UI FIRST**
+   - Create resources visually
+   - Configure settings in the UI
+   - Demonstrate where to find endpoints, keys, etc.
+   - Show RBAC role assignments, authentication options
+   
+2. **Then show the same in CODE**
+   - Reference what they just saw in the UI
+   - Connect code parameters to UI settings
+   - Explain how code authenticates/connects to those resources
+
+**Why This Works:**
+- ✅ Builds mental model of Azure architecture
+- ✅ Students understand WHERE the code is connecting
+- ✅ Easier to troubleshoot when they see both perspectives
+- ✅ Makes abstract code concepts concrete
+
+**Example Flow for Lesson 1:**
+1. Show Azure OpenAI resource in Portal → deployment, endpoint, keys
+2. Show AI Foundry Hub & Project UI → agents, deployments
+3. Show RBAC role assignments → where trainers/students get permissions
+4. THEN run the notebook → point out how code uses those endpoints
+
 ---
 
 ## 🎯 Next Steps for New Trainers
