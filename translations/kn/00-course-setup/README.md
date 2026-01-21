@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ಈಗ ನೀವು ಈ ಕೋರ್ಸ್‌ನ ನಿಮ್ಮದೇ ಆದ ಫೋರ್ಕ್ ಮಾಡಿದ ಆವೃತ್ತಿಯನ್ನು ಈ ಕೆಳಗಿನ ಲಿಂಕ್‌ನಲ್ಲಿ ಹೊಂದಿರುತ್ತೀರಿ:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.kn.png)
+![Forked Repo](../../../translated_images/kn/forked-repo.33f27ca1901baa6a.webp)
 
 ### ಶಾಲೋ ಕ್ಲೋನ್ (ವರ್ಕ್‌ಶಾಪ್ / ಕೋಡ್ಸ್‌ಪೇಸ್ಗಳಿಗೆ ಶಿಫಾರಸು)
 
@@ -176,11 +176,11 @@ GitHub Models ಬಳಸಲು, ನೀವು [GitHub Personal Access Token](https
 
 1. **Developer settings** ಗೆ ಹೋಗಿ, ಎಡಭಾಗದಲ್ಲಿ `Fine-grained tokens` ಆಯ್ಕೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.kn.png)
+   ![Developer settings](../../../translated_images/kn/profile_developer_settings.410a859fe749c755.webp)
 
    ನಂತರ `Generate new token` ಆಯ್ಕೆಮಾಡಿ.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.kn.png)
+   ![Generate Token](../../../translated_images/kn/fga_new_token.1c1a234afe202ab3.webp)
 
 2. ನಿಮ್ಮ ಟೋಕನ್‌ಗೆ ವಿವರಣಾತ್ಮಕ ಹೆಸರನ್ನು ನಮೂದಿಸಿ, ಇದು ಅದರ ಉದ್ದೇಶವನ್ನು ಪ್ರತಿಬಿಂಬಿಸುತ್ತದೆ, ನಂತರದಲ್ಲಿ ಅದನ್ನು ಗುರುತಿಸಲು ಸುಲಭವಾಗುತ್ತದೆ.
 
@@ -190,19 +190,19 @@ GitHub Models ಬಳಸಲು, ನೀವು [GitHub Personal Access Token](https
     ಹೆಚ್ಚು ಸುರಕ್ಷಿತ ಸ್ಥಿತಿಗೆ, ನೀವು 7 ದಿನಗಳಂತಹ ಕಡಿಮೆ ಅವಧಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡಬಹುದು 🛡️
     ಇದು ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಗುರಿಯನ್ನು ಹೊಂದಿಸಲು ಮತ್ತು ನಿಮ್ಮ ಕಲಿಕೆಯ ವೇಗವನ್ನು ಉಳಿಸಿಕೊಂಡು ಕೋರ್ಸ್ ಅನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಉತ್ತಮ ಮಾರ್ಗವಾಗಿದೆ 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.kn.png)
+    ![Token Name and Expiration](../../../translated_images/kn/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. ಟೋಕನ್‌ನ ವ್ಯಾಪ್ತಿಯನ್ನು ಈ ರೆಪೊ ಫೋರ್ಕ್‌ಗೆ ಮಾತ್ರ ಮಿತಿಗೊಳಿಸಿ.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.kn.png)
+    ![Limit scope to fork repository](../../../translated_images/kn/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. ಟೋಕನ್‌ನ ಅನುಮತಿಗಳನ್ನು ನಿರ್ಬಂಧಿಸಿ: **Permissions** ಅಡಿಯಲ್ಲಿ, **Account** ಟ್ಯಾಬ್ ಕ್ಲಿಕ್ ಮಾಡಿ, ಮತ್ತು "+ Add permissions" ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ. ಡ್ರಾಪ್‌ಡೌನ್ ಕಾಣಿಸುತ್ತದೆ. **Models** ಅನ್ನು ಹುಡುಕಿ ಮತ್ತು ಅದರ ಬಾಕ್ಸ್ ಅನ್ನು ಟಿಕ್ ಮಾಡಿ.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.kn.png)
+    ![Add Models Permission](../../../translated_images/kn/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. ಟೋಕನ್ ರಚಿಸುವ ಮೊದಲು ಅಗತ್ಯವಿರುವ ಅನುಮತಿಗಳನ್ನು ಪರಿಶೀಲಿಸಿ. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.kn.png)
+5. ಟೋಕನ್ ರಚಿಸುವ ಮೊದಲು ಅಗತ್ಯವಿರುವ ಅನುಮತಿಗಳನ್ನು ಪರಿಶೀಲಿಸಿ. ![Verify Permissions](../../../translated_images/kn/verify_permissions.06bd9e43987a8b21.webp)
 
-6. ಟೋಕನ್ ರಚಿಸುವ ಮೊದಲು, ನೀವು ಟೋಕನ್ ಅನ್ನು ಪಾಸ್ವರ್ಡ್ ಮ್ಯಾನೇಜರ್ ವಾಲ್ಟ್‌ನಂತಹ ಸುರಕ್ಷಿತ ಸ್ಥಳದಲ್ಲಿ ಸಂಗ್ರಹಿಸಲು ಸಿದ್ಧರಾಗಿದ್ದೀರಿ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ, ಏಕೆಂದರೆ ನೀವು ಅದನ್ನು ರಚಿಸಿದ ನಂತರ ಮತ್ತೆ ತೋರಿಸಲಾಗುವುದಿಲ್ಲ. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.kn.png)
+6. ಟೋಕನ್ ರಚಿಸುವ ಮೊದಲು, ನೀವು ಟೋಕನ್ ಅನ್ನು ಪಾಸ್ವರ್ಡ್ ಮ್ಯಾನೇಜರ್ ವಾಲ್ಟ್‌ನಂತಹ ಸುರಕ್ಷಿತ ಸ್ಥಳದಲ್ಲಿ ಸಂಗ್ರಹಿಸಲು ಸಿದ್ಧರಾಗಿದ್ದೀರಿ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ, ಏಕೆಂದರೆ ನೀವು ಅದನ್ನು ರಚಿಸಿದ ನಂತರ ಮತ್ತೆ ತೋರಿಸಲಾಗುವುದಿಲ್ಲ. ![Store Token Securely](../../../translated_images/kn/store_token_securely.08ee2274c6ad6caf.webp)
 
 ನೀವು ಈಗ ರಚಿಸಿದ ಹೊಸ ಟೋಕನ್ ಅನ್ನು ಪ್ರತಿಲಿಪಿ ಮಾಡಿ. ನೀವು ಈಗ ಈ ಕೋರ್ಸ್‌ನಲ್ಲಿ ಸೇರಿಸಿರುವ `.env` ಫೈಲ್‌ಗೆ ಇದನ್ನು ಸೇರಿಸುತ್ತೀರಿ.
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 ನಿಮ್ಮ ಟೋಕನ್ ಅನ್ನು ಪ್ರತಿಲಿಪಿ ಮಾಡಿ, `.env` ಫೈಲ್ ಅನ್ನು ನಿಮ್ಮ ಮೆಚ್ಚಿನ ಪಠ್ಯ ಸಂಪಾದಕದಲ್ಲಿ ತೆರೆಯಿರಿ ಮತ್ತು ನಿಮ್ಮ ಟೋಕನ್ ಅನ್ನು `GITHUB_TOKEN` ಕ್ಷೇತ್ರದಲ್ಲಿ ಅಂಟಿಸಿ.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.kn.png)
+![GitHub Token Field](../../../translated_images/kn/github_token_field.20491ed3224b5f4a.webp)
 
 ಈಗ ನೀವು ಈ ಕೋರ್ಸ್‌ನ ಕೋಡ್ ಮಾದರಿಗಳನ್ನು ಚಲಾಯಿಸಲು ಸಿದ್ಧರಾಗಿದ್ದೀರಿ.
 
@@ -238,7 +238,7 @@ Azure AI Foundry ನಲ್ಲಿ ಹಬ್ ಮತ್ತು ಪ್ರಾಜೆಕ
 
 ಇದು Azure AI Foundry ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ನಿಮ್ಮ ಪ್ರಾಜೆಕ್ಟ್‌ನ **Overview** ಪುಟಕ್ಕೆ ಹೋಗುವ ಮೂಲಕ ಮಾಡಬಹುದು.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.kn.png)
+![Project Connection String](../../../translated_images/kn/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### ಹಂತ 2: ನಿಮ್ಮ `.env` ಫೈಲ್ ರಚಿಸಿ
 

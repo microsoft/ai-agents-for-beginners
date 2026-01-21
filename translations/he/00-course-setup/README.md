@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 כעת אמור להיות לכם מאגר משלכם בקישור הבא:
 
-![מאגר משוכפל](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.he.png)
+![מאגר משוכפל](../../../translated_images/he/forked-repo.33f27ca1901baa6a.webp)
 
 ### שכפול רדוד (מומלץ לסדנאות / Codespaces)
 
@@ -176,11 +176,11 @@ pip install -r requirements.txt
 
 1. בחרו באפשרות `Fine-grained tokens` בצד השמאלי של המסך על ידי מעבר ל-**Developer settings**
 
-   ![הגדרות מפתחים](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.he.png)
+   ![הגדרות מפתחים](../../../translated_images/he/profile_developer_settings.410a859fe749c755.webp)
 
    לאחר מכן בחרו `Generate new token`.
 
-   ![יצירת טוקן](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.he.png)
+   ![יצירת טוקן](../../../translated_images/he/fga_new_token.1c1a234afe202ab3.webp)
 
 2. הזינו שם תיאורי לטוקן שלכם שמשקף את מטרתו, כך שיהיה קל לזהות אותו מאוחר יותר.
 
@@ -190,19 +190,19 @@ pip install -r requirements.txt
     למען אבטחה גבוהה יותר, תוכלו לבחור תקופה קצרה יותר—כמו 7 ימים 🛡️
     זו דרך מצוינת להציב יעד אישי ולהשלים את הקורס בזמן שהמומנטום הלימודי שלכם גבוה 🚀.
 
-    ![שם הטוקן ותאריך תפוגה](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.he.png)
+    ![שם הטוקן ותאריך תפוגה](../../../translated_images/he/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. הגבילו את תחום הטוקן למאגר המשוכפל שלכם.
 
-    ![הגבלת תחום למאגר משוכפל](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.he.png)
+    ![הגבלת תחום למאגר משוכפל](../../../translated_images/he/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. הגבלות הרשאות הטוקן: תחת **Permissions**, לחצו על לשונית **Account**, ולחצו על כפתור "+ Add permissions". תופיע רשימה נפתחת. חפשו **Models** וסמנו את התיבה עבורו.
 
-    ![הוספת הרשאות Models](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.he.png)
+    ![הוספת הרשאות Models](../../../translated_images/he/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. ודאו את ההרשאות הנדרשות לפני יצירת הטוקן. ![אימות הרשאות](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.he.png)
+5. ודאו את ההרשאות הנדרשות לפני יצירת הטוקן. ![אימות הרשאות](../../../translated_images/he/verify_permissions.06bd9e43987a8b21.webp)
 
-6. לפני יצירת הטוקן, ודאו שאתם מוכנים לשמור את הטוקן במקום בטוח כמו כספת מנהל סיסמאות, מכיוון שהוא לא יוצג שוב לאחר יצירתו. ![שמירת טוקן בצורה בטוחה](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.he.png)
+6. לפני יצירת הטוקן, ודאו שאתם מוכנים לשמור את הטוקן במקום בטוח כמו כספת מנהל סיסמאות, מכיוון שהוא לא יוצג שוב לאחר יצירתו. ![שמירת טוקן בצורה בטוחה](../../../translated_images/he/store_token_securely.08ee2274c6ad6caf.webp)
 
 העתיקו את הטוקן החדש שיצרתם. כעת תוסיפו אותו לקובץ `.env` הכלול בקורס הזה.
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 עם הטוקן שהעתקתם, פתחו את קובץ `.env` בעורך הטקסט המועדף עליכם והדביקו את הטוקן בשדה `GITHUB_TOKEN`.
 
-![שדה טוקן GitHub](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.he.png)
+![שדה טוקן GitHub](../../../translated_images/he/github_token_field.20491ed3224b5f4a.webp)
 
 כעת תוכלו להפעיל את דוגמאות הקוד של הקורס הזה.
 
@@ -238,7 +238,7 @@ Copy-Item .env.example .env
 
 ניתן לעשות זאת על ידי מעבר לדף **Overview** של הפרויקט שלכם בפורטל Azure AI Foundry.
 
-![מחרוזת חיבור פרויקט](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.he.png)
+![מחרוזת חיבור פרויקט](../../../translated_images/he/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### שלב 2: יצירת קובץ `.env`
 

@@ -25,7 +25,7 @@ Dette kan gøres ved at klikke på linket for at <a href="https://github.com/mic
 
 Du bør nu have din egen forkede version af dette kursus på følgende link:
 
-![Forket Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.da.png)
+![Forket Repo](../../../translated_images/da/forked-repo.33f27ca1901baa6a.webp)
 
 ### Shallow Clone (anbefales til workshop / Codespaces)
 
@@ -176,11 +176,11 @@ Følg venligst [Principle of Least Privilege](https://docs.github.com/en/get-sta
 
 1. Vælg `Fine-grained tokens`-muligheden i venstre side af din skærm ved at navigere til **Udviklerindstillinger**.
 
-   ![Udviklerindstillinger](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.da.png)
+   ![Udviklerindstillinger](../../../translated_images/da/profile_developer_settings.410a859fe749c755.webp)
 
    Vælg derefter `Generate new token`.
 
-   ![Generer Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.da.png)
+   ![Generer Token](../../../translated_images/da/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Indtast et beskrivende navn til din token, der afspejler dens formål, så det er nemt at identificere senere.
 
@@ -190,19 +190,19 @@ Følg venligst [Principle of Least Privilege](https://docs.github.com/en/get-sta
     For en mere sikker tilgang kan du vælge en kortere periode—såsom 7 dage 🛡️  
     Det er en god måde at sætte et personligt mål og gennemføre kurset, mens din læringsmotivation er høj 🚀.
 
-    ![Token Navn og Udløbsdato](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.da.png)
+    ![Token Navn og Udløbsdato](../../../translated_images/da/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Begræns tokenens rækkevidde til din fork af dette repository.
 
-    ![Begræns rækkevidde til fork-repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.da.png)
+    ![Begræns rækkevidde til fork-repository](../../../translated_images/da/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Begræns tokenens tilladelser: Under **Tilladelser**, klik på **Konto**-fanen, og klik på knappen "+ Tilføj tilladelser". En dropdown-menu vil dukke op. Søg efter **Models** og marker boksen for det.
 
-    ![Tilføj Models Tilladelse](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.da.png)
+    ![Tilføj Models Tilladelse](../../../translated_images/da/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Bekræft de nødvendige tilladelser, før du genererer tokenet. ![Bekræft Tilladelser](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.da.png)
+5. Bekræft de nødvendige tilladelser, før du genererer tokenet. ![Bekræft Tilladelser](../../../translated_images/da/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Før du genererer tokenet, skal du sikre dig, at du er klar til at gemme tokenet et sikkert sted som en adgangskodehåndteringsboks, da det ikke vil blive vist igen efter oprettelsen. ![Gem Token Sikkert](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.da.png)
+6. Før du genererer tokenet, skal du sikre dig, at du er klar til at gemme tokenet et sikkert sted som en adgangskodehåndteringsboks, da det ikke vil blive vist igen efter oprettelsen. ![Gem Token Sikkert](../../../translated_images/da/store_token_securely.08ee2274c6ad6caf.webp)
 
 Kopiér dit nye token, som du lige har oprettet. Du vil nu tilføje dette til din `.env`-fil, der er inkluderet i dette kursus.
 
@@ -224,7 +224,7 @@ Dette vil kopiere eksempel-filen og oprette en `.env` i din mappe, hvor du udfyl
 
 Med dit token kopieret, åbn `.env`-filen i din foretrukne teksteditor og indsæt dit token i `GITHUB_TOKEN`-feltet.
 
-![GitHub Token Felt](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.da.png)
+![GitHub Token Felt](../../../translated_images/da/github_token_field.20491ed3224b5f4a.webp)
 
 Du bør nu kunne køre kodeeksemplerne i dette kursus.
 
@@ -238,7 +238,7 @@ Når du har oprettet dit projekt, skal du hente forbindelsesstrengen til dit pro
 
 Dette kan gøres ved at gå til **Oversigt**-siden for dit projekt i Azure AI Foundry-portalen.
 
-![Projektforbindelsesstreng](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.da.png)
+![Projektforbindelsesstreng](../../../translated_images/da/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Trin 2: Opret din `.env`-fil
 

@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 இப்போது, இந்த பாடநெறியின் ஃபோர்க் செய்யப்பட்ட பதிப்பு உங்கள் கீழ்க்கண்ட இணைப்பில் இருக்கும்:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.ta.png)
+![Forked Repo](../../../translated_images/ta/forked-repo.33f27ca1901baa6a.webp)
 
 ### சுருக்கமான கிளோன் (பயிற்சி / Codespaces க்கு பரிந்துரைக்கப்படுகிறது)
 
@@ -176,11 +176,11 @@ GitHub Models ஐப் பயன்படுத்த, நீங்கள் [G
 
 1. உங்கள் திரையில் இடதுபுறத்தில் **Developer settings** சென்று `Fine-grained tokens` விருப்பத்தைத் தேர்ந்தெடுக்கவும்.
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.ta.png)
+   ![Developer settings](../../../translated_images/ta/profile_developer_settings.410a859fe749c755.webp)
 
    பின்னர் `Generate new token` ஐத் தேர்ந்தெடுக்கவும்.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.ta.png)
+   ![Generate Token](../../../translated_images/ta/fga_new_token.1c1a234afe202ab3.webp)
 
 2. உங்கள் டோக்கனின் நோக்கத்தை பிரதிபலிக்கும் விளக்கமான பெயரை உள்ளிடவும், பின்னர் அதை அடையாளம் காண எளிதாக இருக்கும்.
 
@@ -190,19 +190,19 @@ GitHub Models ஐப் பயன்படுத்த, நீங்கள் [G
     மேலும் பாதுகாப்பான நிலைப்பாட்டிற்காக, குறுகிய காலத்தைத் தேர்ந்தெடுக்கலாம்—7 நாட்கள் போன்றது 🛡️  
     இது ஒரு தனிப்பட்ட இலக்கை அமைக்கவும், உங்கள் கற்றல் வேகத்தை அதிகரிக்கவும் ஒரு சிறந்த வழியாகும் 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.ta.png)
+    ![Token Name and Expiration](../../../translated_images/ta/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. டோக்கனின் அளவை உங்கள் ரெப்போ ஃபோர்க் வரை மட்டுப்படுத்தவும்.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.ta.png)
+    ![Limit scope to fork repository](../../../translated_images/ta/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. டோக்கனின் அனுமதிகளை வரையறுக்கவும்: **Permissions** கீழ், **Account** தாவலை கிளிக் செய்து, "+ Add permissions" பொத்தானை கிளிக் செய்யவும். ஒரு dropdown தோன்றும். **Models** ஐத் தேடி, அதற்கான பெட்டியைச் சரிபார்க்கவும்.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.ta.png)
+    ![Add Models Permission](../../../translated_images/ta/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. டோக்கனை உருவாக்குவதற்கு முன் தேவையான அனுமதிகளை சரிபார்க்கவும். ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.ta.png)
+5. டோக்கனை உருவாக்குவதற்கு முன் தேவையான அனுமதிகளை சரிபார்க்கவும். ![Verify Permissions](../../../translated_images/ta/verify_permissions.06bd9e43987a8b21.webp)
 
-6. டோக்கனை உருவாக்குவதற்கு முன், அதை ஒரு பாதுகாப்பான இடத்தில் (கடவுச்சொல் மேலாளர் vault போன்றது) சேமிக்க தயாராக இருக்கவும், ஏனெனில் நீங்கள் அதை உருவாக்கிய பிறகு மீண்டும் காண முடியாது. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.ta.png)
+6. டோக்கனை உருவாக்குவதற்கு முன், அதை ஒரு பாதுகாப்பான இடத்தில் (கடவுச்சொல் மேலாளர் vault போன்றது) சேமிக்க தயாராக இருக்கவும், ஏனெனில் நீங்கள் அதை உருவாக்கிய பிறகு மீண்டும் காண முடியாது. ![Store Token Securely](../../../translated_images/ta/store_token_securely.08ee2274c6ad6caf.webp)
 
 உங்கள் புதிய டோக்கனை நகலெடுக்கவும். இப்போது இந்த பாடநெறியில் சேர்க்கப்பட்ட `.env` கோப்பில் இதைச் சேர்க்க வேண்டும்.
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 உங்கள் டோக்கனை நகலெடுத்து, உங்கள் விருப்பமான உரை திருத்தியில் `.env` கோப்பைத் திறந்து, `GITHUB_TOKEN` புலத்தில் உங்கள் டோக்கனை ஒட்டவும்.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.ta.png)
+![GitHub Token Field](../../../translated_images/ta/github_token_field.20491ed3224b5f4a.webp)
 
 இப்போது நீங்கள் இந்த பாடநெறியின் குறியீட்டு மாதிரிகளை இயக்க முடியும்.
 
@@ -238,7 +238,7 @@ Azure AI Foundry இல் hub மற்றும் project ஐ உருவா
 
 இது Azure AI Foundry portal இல் உங்கள் project இன் **Overview** பக்கத்திற்குச் சென்று செய்யலாம்.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.ta.png)
+![Project Connection String](../../../translated_images/ta/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Step 2: Create Your `.env` File
 

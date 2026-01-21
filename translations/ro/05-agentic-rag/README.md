@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "ro"
 }
 -->
-[![Agentic RAG](../../../translated_images/lesson-5-thumbnail.20ba9d0c0ae64fae06637eb2023395d437b0152c0463c2227ff456afe5f14644.ro.png)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/ro/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Click pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
@@ -49,7 +49,7 @@ Agentic Retrieval-Augmented Generation (Agentic RAG) este o paradigmă emergent�
 
 Acest stil iterativ „maker-checker” este conceput pentru a îmbunătăți corectitudinea, a gestiona interogările defectuoase către baze de date structurate (de exemplu, NL2SQL) și a asigura rezultate echilibrate și de înaltă calitate. În loc să se bazeze exclusiv pe lanțuri de prompturi atent proiectate, sistemul își asumă activ procesul de raționare. Poate rescrie interogările care eșuează, alege metode de extragere diferite și integrează multiple instrumente—cum ar fi căutarea vectorială în Azure AI Search, baze de date SQL sau API-uri personalizate—înainte de a finaliza răspunsul. Acest lucru elimină necesitatea unor cadre de orchestrare excesiv de complexe. În schimb, o buclă relativ simplă de „apel LLM → utilizare instrument → apel LLM → …” poate produce rezultate sofisticate și bine fundamentate.
 
-![Agentic RAG Core Loop](../../../translated_images/agentic-rag-core-loop.c8f4b85c26920f71ed181ebb14001ac7aae47c0b0af237edcf71898645a62db3.ro.png)
+![Agentic RAG Core Loop](../../../translated_images/ro/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## Deținerea procesului de raționare
 
@@ -67,7 +67,7 @@ Toți acești pași—rafinarea interogărilor, alegerea surselor, iterarea pân
 
 ## Bucle iterative, integrarea instrumentelor și memorie
 
-![Tool Integration Architecture](../../../translated_images/tool-integration.0f569710b5c17c106757adba082f6c4be025ca0721bff7d1ee4b929a3617a600.ro.png)
+![Tool Integration Architecture](../../../translated_images/ro/tool-integration.0f569710b5c17c10.webp)
 
 Un sistem agentic se bazează pe un model de interacțiune în buclă:
 
@@ -89,7 +89,7 @@ Autonomia Agentic RAG implică, de asemenea, mecanisme robuste de autocorecție.
 
 Această abordare iterativă și dinamică permite modelului să se îmbunătățească continuu, asigurând că nu este doar un sistem „one-shot”, ci unul care învață din greșelile sale în timpul unei sesiuni date.
 
-![Self Correction Mechanism](../../../translated_images/self-correction.da87f3783b7f174bdc592c754b352884dd283814758bfeb7a68f5fd910272f3b.ro.png)
+![Self Correction Mechanism](../../../translated_images/ro/self-correction.da87f3783b7f174b.webp)
 
 ## Limitele autonomiei
 
@@ -119,7 +119,7 @@ Pe măsură ce aceste sisteme devin mai autonome în raționamentul lor, guverna
 
 A avea instrumente care oferă un record clar al acțiunilor este esențial. Fără ele, depanarea unui proces în mai mulți pași poate fi foarte dificilă. Vezi exemplul următor de la Literal AI (compania din spatele Chainlit) pentru un Agent run:
 
-![AgentRunExample](../../../translated_images/AgentRunExample.471a94bc40cbdc0cd04c1f43c8d8c9b751f10d97918c900e29cb3ba0d6aa4c00.ro.png)
+![AgentRunExample](../../../translated_images/ro/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## Concluzie
 

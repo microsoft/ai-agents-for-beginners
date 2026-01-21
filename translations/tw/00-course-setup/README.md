@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 現在，您應該擁有此課程的分叉版本，連結如下：
 
-![分叉倉庫](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.tw.png)
+![分叉倉庫](../../../translated_images/tw/forked-repo.33f27ca1901baa6a.webp)
 
 ### 淺層複製（建議用於工作坊 / Codespaces）
 
@@ -176,11 +176,11 @@ pip install -r requirements.txt
 
 1. 在螢幕左側選擇 `Fine-grained tokens` 選項，進入 **開發者設定**。
 
-   ![開發者設定](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.tw.png)
+   ![開發者設定](../../../translated_images/tw/profile_developer_settings.410a859fe749c755.webp)
 
    然後選擇 `Generate new token`。
 
-   ![生成權杖](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.tw.png)
+   ![生成權杖](../../../translated_images/tw/fga_new_token.1c1a234afe202ab3.webp)
 
 2. 為您的權杖輸入一個描述性名稱，反映其用途，方便日後識別。
 
@@ -190,19 +190,19 @@ pip install -r requirements.txt
     為了更安全，您可以選擇更短的期限，例如 7 天 🛡️
     這是一個很好的方式來設定個人目標，並在學習動力高漲時完成課程 🚀。
 
-    ![權杖名稱和到期日期](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.tw.png)
+    ![權杖名稱和到期日期](../../../translated_images/tw/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. 將權杖的範圍限制在此倉庫的分叉版本。
 
-    ![限制範圍至分叉倉庫](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.tw.png)
+    ![限制範圍至分叉倉庫](../../../translated_images/tw/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. 限制權杖的權限：在 **Permissions** 下，點擊 **Account** 標籤，然後點擊 "+ Add permissions" 按鈕。下拉選單會出現。請搜尋 **Models** 並勾選它。
 
-    ![新增 Models 權限](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.tw.png)
+    ![新增 Models 權限](../../../translated_images/tw/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. 在生成權杖之前，請確認所需的權限。 ![確認權限](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.tw.png)
+5. 在生成權杖之前，請確認所需的權限。 ![確認權限](../../../translated_images/tw/verify_permissions.06bd9e43987a8b21.webp)
 
-6. 在生成權杖之前，請確保您已準備好將權杖存放在安全的地方，例如密碼管理器保險庫，因為生成後將無法再次查看。 ![安全存放權杖](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.tw.png)
+6. 在生成權杖之前，請確保您已準備好將權杖存放在安全的地方，例如密碼管理器保險庫，因為生成後將無法再次查看。 ![安全存放權杖](../../../translated_images/tw/store_token_securely.08ee2274c6ad6caf.webp)
 
 複製您剛剛建立的新權杖。您現在需要將此權杖添加到本課程包含的 `.env` 檔案中。
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 複製您的權杖後，使用您喜愛的文字編輯器打開 `.env` 檔案，並將您的權杖貼到 `GITHUB_TOKEN` 欄位中。
 
-![GitHub 權杖欄位](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.tw.png)
+![GitHub 權杖欄位](../../../translated_images/tw/github_token_field.20491ed3224b5f4a.webp)
 
 現在，您應該可以執行本課程的程式碼範例。
 
@@ -238,7 +238,7 @@ Copy-Item .env.example .env
 
 您可以在 Azure AI Foundry 入口網站的專案 **概述** 頁面找到此資訊。
 
-![專案連接字串](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.tw.png)
+![專案連接字串](../../../translated_images/tw/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### 步驟 2：建立您的 `.env` 檔案
 

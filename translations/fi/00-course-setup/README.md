@@ -25,7 +25,7 @@ Tämä onnistuu klikkaamalla linkkiä <a href="https://github.com/microsoft/ai-a
 
 Sinulla pitäisi nyt olla oma haarautettu versio tästä kurssista seuraavassa linkissä:
 
-![Haarautettu Repositorio](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.fi.png)
+![Haarautettu Repositorio](../../../translated_images/fi/forked-repo.33f27ca1901baa6a.webp)
 
 ### Pintakloonaus (suositeltu työpajoihin / Codespaces-ympäristöihin)
 
@@ -176,11 +176,11 @@ Noudata [vähimmän oikeuden periaatetta](https://docs.github.com/en/get-started
 
 1. Valitse `Fine-grained tokens` -vaihtoehto näytön vasemmasta reunasta siirtymällä **Kehittäjäasetuksiin**.
 
-   ![Kehittäjäasetukset](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.fi.png)
+   ![Kehittäjäasetukset](../../../translated_images/fi/profile_developer_settings.410a859fe749c755.webp)
 
    Valitse sitten `Luo uusi token`.
 
-   ![Luo Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.fi.png)
+   ![Luo Token](../../../translated_images/fi/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Anna tokenille kuvaava nimi, joka heijastaa sen tarkoitusta, jotta se on helppo tunnistaa myöhemmin.
 
@@ -190,19 +190,19 @@ Noudata [vähimmän oikeuden periaatetta](https://docs.github.com/en/get-started
     Turvallisemman käytännön vuoksi voit valita lyhyemmän ajan—esimerkiksi 7 päivää 🛡️  
     Tämä on hyvä tapa asettaa henkilökohtainen tavoite ja suorittaa kurssi, kun oppimismotivaatiota riittää 🚀.
 
-    ![Tokenin nimi ja vanhenemispäivä](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.fi.png)
+    ![Tokenin nimi ja vanhenemispäivä](../../../translated_images/fi/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Rajoita tokenin käyttöoikeus haarautumiseesi tästä repositoriosta.
 
-    ![Rajoita käyttöoikeus haarautumiseen](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.fi.png)
+    ![Rajoita käyttöoikeus haarautumiseen](../../../translated_images/fi/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Rajoita tokenin oikeudet: Valitse **Oikeudet**-kohdassa **Tili**-välilehti ja napsauta "+ Lisää oikeuksia" -painiketta. Avautuvasta valikosta etsi **Models** ja valitse se.
 
-    ![Lisää Models-oikeus](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.fi.png)
+    ![Lisää Models-oikeus](../../../translated_images/fi/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Varmista tarvittavat oikeudet ennen tokenin luomista. ![Varmista oikeudet](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.fi.png)
+5. Varmista tarvittavat oikeudet ennen tokenin luomista. ![Varmista oikeudet](../../../translated_images/fi/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Ennen tokenin luomista varmista, että olet valmis tallentamaan tokenin turvalliseen paikkaan, kuten salasananhallintaohjelmaan, sillä sitä ei näytetä uudelleen luomisen jälkeen. ![Tallenna Token Turvallisesti](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.fi.png)
+6. Ennen tokenin luomista varmista, että olet valmis tallentamaan tokenin turvalliseen paikkaan, kuten salasananhallintaohjelmaan, sillä sitä ei näytetä uudelleen luomisen jälkeen. ![Tallenna Token Turvallisesti](../../../translated_images/fi/store_token_securely.08ee2274c6ad6caf.webp)
 
 Kopioi juuri luomasi token. Lisää se nyt tämän kurssin mukana toimitettuun `.env`-tiedostoon.
 
@@ -224,7 +224,7 @@ Tämä kopioi esimerkkitiedoston ja luo `.env`-tiedoston hakemistoosi, jossa tä
 
 Kopioidun tokenin kanssa avaa `.env`-tiedosto suosikkitekstieditorissasi ja liitä token `GITHUB_TOKEN`-kenttään.
 
-![GitHub Token -kenttä](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.fi.png)
+![GitHub Token -kenttä](../../../translated_images/fi/github_token_field.20491ed3224b5f4a.webp)
 
 Nyt sinun pitäisi pystyä suorittamaan tämän kurssin koodiesimerkit.
 
@@ -238,7 +238,7 @@ Kun olet luonut projektisi, sinun täytyy hankkia projektisi yhteysmerkkijono.
 
 Tämä onnistuu menemällä projektisi **Yleiskatsaus**-sivulle Azure AI Foundry -portaalissa.
 
-![Projektin yhteysmerkkijono](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.fi.png)
+![Projektin yhteysmerkkijono](../../../translated_images/fi/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Vaihe 2: Luo `.env`-tiedosto
 

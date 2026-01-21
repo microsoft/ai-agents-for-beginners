@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 يجب أن يكون لديك الآن نسختك المفروعة من هذه الدورة في الرابط التالي:
 
-![المستودع المفروع](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.ar.png)
+![المستودع المفروع](../../../translated_images/ar/forked-repo.33f27ca1901baa6a.webp)
 
 ### استنساخ سطحي (موصى به للورش / Codespaces)
 
@@ -176,11 +176,11 @@ pip install -r requirements.txt
 
 1. حدد خيار `Fine-grained tokens` على الجانب الأيسر من شاشتك بالانتقال إلى **إعدادات المطور**.
 
-   ![إعدادات المطور](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.ar.png)
+   ![إعدادات المطور](../../../translated_images/ar/profile_developer_settings.410a859fe749c755.webp)
 
    ثم حدد `Generate new token`.
 
-   ![إنشاء رمز](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.ar.png)
+   ![إنشاء رمز](../../../translated_images/ar/fga_new_token.1c1a234afe202ab3.webp)
 
 2. أدخل اسمًا وصفيًا للرمز الخاص بك يعكس الغرض منه، مما يسهل التعرف عليه لاحقًا.
 
@@ -190,19 +190,19 @@ pip install -r requirements.txt
     للحصول على وضع أمني أكثر أمانًا، يمكنك اختيار فترة أقصر — مثل 7 أيام 🛡️
     إنها طريقة رائعة لتحديد هدف شخصي وإكمال الدورة بينما تكون في ذروة حماسك 🚀.
 
-    ![اسم الرمز وتاريخ انتهاء الصلاحية](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.ar.png)
+    ![اسم الرمز وتاريخ انتهاء الصلاحية](../../../translated_images/ar/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. قم بتقييد نطاق الرمز إلى التفريع الخاص بك لهذا المستودع.
 
-    ![تقييد النطاق إلى مستودع التفريع](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.ar.png)
+    ![تقييد النطاق إلى مستودع التفريع](../../../translated_images/ar/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. قيد أذونات الرمز: ضمن **الأذونات**، انقر فوق علامة التبويب **الحساب**، ثم انقر فوق زر "+ Add permissions". ستظهر قائمة منسدلة. يرجى البحث عن **Models** وتحديد المربع الخاص بها.
 
-    ![إضافة إذن النماذج](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.ar.png)
+    ![إضافة إذن النماذج](../../../translated_images/ar/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. تحقق من الأذونات المطلوبة قبل إنشاء الرمز. ![التحقق من الأذونات](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.ar.png)
+5. تحقق من الأذونات المطلوبة قبل إنشاء الرمز. ![التحقق من الأذونات](../../../translated_images/ar/verify_permissions.06bd9e43987a8b21.webp)
 
-6. قبل إنشاء الرمز، تأكد من أنك مستعد لتخزين الرمز في مكان آمن مثل مدير كلمات المرور، حيث لن يتم عرضه مرة أخرى بعد إنشائه. ![تخزين الرمز بأمان](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.ar.png)
+6. قبل إنشاء الرمز، تأكد من أنك مستعد لتخزين الرمز في مكان آمن مثل مدير كلمات المرور، حيث لن يتم عرضه مرة أخرى بعد إنشائه. ![تخزين الرمز بأمان](../../../translated_images/ar/store_token_securely.08ee2274c6ad6caf.webp)
 
 انسخ الرمز الجديد الذي أنشأته للتو. ستضيفه الآن إلى ملف `.env` المضمن في هذه الدورة.
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 مع نسخ الرمز الخاص بك، افتح ملف `.env` في محرر النصوص المفضل لديك والصق الرمز في حقل `GITHUB_TOKEN`.
 
-![حقل رمز GitHub](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.ar.png)
+![حقل رمز GitHub](../../../translated_images/ar/github_token_field.20491ed3224b5f4a.webp)
 
 يجب أن تكون الآن قادرًا على تشغيل أمثلة الكود في هذه الدورة.
 
@@ -238,7 +238,7 @@ Copy-Item .env.example .env
 
 يمكنك القيام بذلك عن طريق الذهاب إلى صفحة **نظرة عامة** على مشروعك في بوابة Azure AI Foundry.
 
-![سلسلة اتصال المشروع](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.ar.png)
+![سلسلة اتصال المشروع](../../../translated_images/ar/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### الخطوة 2: إنشاء ملف `.env` الخاص بك
 

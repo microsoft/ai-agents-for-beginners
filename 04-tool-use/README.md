@@ -287,14 +287,15 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
+# Initialize toolset
+toolset = ToolSet()
+
 # Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
-toolset = ToolSet()
 toolset.add(fetch_data_function)
 
 # Initialize Code Interpreter tool and adding it to the toolset. 
 code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset = ToolSet()
 toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(

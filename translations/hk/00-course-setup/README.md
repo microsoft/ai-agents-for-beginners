@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 現在你應該在以下鏈接中擁有課程的分叉版本：
 
-![分叉倉庫](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.hk.png)
+![分叉倉庫](../../../translated_images/hk/forked-repo.33f27ca1901baa6a.webp)
 
 ### 淺克隆（建議用於工作坊 / Codespaces）
 
@@ -176,11 +176,11 @@ pip install -r requirements.txt
 
 1. 在屏幕左側的 **開發者設置** 中選擇 `精細化令牌` 選項。
 
-   ![開發者設置](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.hk.png)
+   ![開發者設置](../../../translated_images/hk/profile_developer_settings.410a859fe749c755.webp)
 
    然後選擇 `生成新令牌`。
 
-   ![生成令牌](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.hk.png)
+   ![生成令牌](../../../translated_images/hk/fga_new_token.1c1a234afe202ab3.webp)
 
 2. 為你的令牌輸入一個描述性名稱，反映其用途，方便日後識別。
 
@@ -190,19 +190,19 @@ pip install -r requirements.txt
     為了更安全，你可以選擇更短的期限，例如 7 天 🛡️  
     這是一個很好的方式，幫助你在學習動力高漲時完成課程 🚀。
 
-    ![令牌名稱和到期日期](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.hk.png)
+    ![令牌名稱和到期日期](../../../translated_images/hk/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. 將令牌的範圍限制為此倉庫的分叉。
 
-    ![限制範圍到分叉倉庫](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.hk.png)
+    ![限制範圍到分叉倉庫](../../../translated_images/hk/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. 限制令牌的權限：在 **權限** 下，點擊 **帳戶** 標籤，然後點擊 "+ 添加權限" 按鈕。會出現一個下拉菜單。請搜索 **Models** 並勾選它。
 
-    ![添加模型權限](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.hk.png)
+    ![添加模型權限](../../../translated_images/hk/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. 在生成令牌之前，確認所需的權限。 ![確認權限](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.hk.png)
+5. 在生成令牌之前，確認所需的權限。 ![確認權限](../../../translated_images/hk/verify_permissions.06bd9e43987a8b21.webp)
 
-6. 在生成令牌之前，確保你準備好將令牌存儲在安全的地方，例如密碼管理器保險庫，因為生成後將無法再次查看。 ![安全存儲令牌](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.hk.png)
+6. 在生成令牌之前，確保你準備好將令牌存儲在安全的地方，例如密碼管理器保險庫，因為生成後將無法再次查看。 ![安全存儲令牌](../../../translated_images/hk/store_token_securely.08ee2274c6ad6caf.webp)
 
 複製你剛剛創建的新令牌。現在你需要將其添加到本課程包含的 `.env` 文件中。
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 複製你的令牌後，使用你喜歡的文本編輯器打開 `.env` 文件，並將令牌粘貼到 `GITHUB_TOKEN` 欄位中。
 
-![GitHub 令牌欄位](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.hk.png)
+![GitHub 令牌欄位](../../../translated_images/hk/github_token_field.20491ed3224b5f4a.webp)
 
 現在你應該可以運行本課程的代碼範例了。
 
@@ -238,7 +238,7 @@ Copy-Item .env.example .env
 
 你可以在 Azure AI Foundry 入口網站的 **概述** 頁面找到它。
 
-![項目連接字符串](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.hk.png)
+![項目連接字符串](../../../translated_images/hk/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### 步驟 2：創建你的 `.env` 文件
 

@@ -25,7 +25,7 @@ A gyakorlat elvégzéséhez a következőkre van szükséged:
 1. Kövesd az [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blogbejegyzés útmutatásait az Azure AI Foundry hub létrehozásához.
 2. Amikor a projekt elkészült, zárd be a megjelenő tippeket, és nézd át a projektoldalt az Azure AI Foundry portálon, amely hasonlóan fog kinézni, mint az alábbi kép:
 
-    ![Azure AI Foundry Project](../../../translated_images/azure-ai-foundry.88d0c35298348c2fca620668d9b567b50b18dfe94fd2251e0793a28d4d60854e.hu.png)
+    ![Azure AI Foundry Project](../../../translated_images/hu/azure-ai-foundry.88d0c35298348c2f.webp)
 
 ## Modell telepítése
 
@@ -35,7 +35,7 @@ A gyakorlat elvégzéséhez a következőkre van szükséged:
 
     > **Note**: A TPM csökkentése segít elkerülni az előfizetésedben rendelkezésre álló kvóta túlzott használatát.
 
-    ![Model Deployed](../../../translated_images/model-deployment.3749c53fb81e18fdc2da5beb872441b4a5f86a2d1206c5a9999a4997f78e4b7a.hu.png)
+    ![Model Deployed](../../../translated_images/hu/model-deployment.3749c53fb81e18fd.webp)
 
 ## Ügynök létrehozása
 
@@ -77,7 +77,7 @@ Most, hogy telepítettél egy modellt, létrehozhatsz egy ügynököt. Az ügyn�
 
 > Ezen felül hozzáadhatsz **Knowledge Base**-t és **Actions**-t, hogy bővítsd az ügynök képességeit, több információt nyújtson és automatizált feladatokat hajtson végre a felhasználói kérések alapján. Ehhez a gyakorlathoz ezeket a lépéseket kihagyhatod.
 
-![Agent Setup](../../../translated_images/agent-setup.9bbb8755bf5df672c712a9aaed6482305d32a4986742e6b21faf59485f25c50a.hu.png)
+![Agent Setup](../../../translated_images/hu/agent-setup.9bbb8755bf5df672.webp)
 
 3. Új multi-AI ügynök létrehozásához egyszerűen kattints a **New Agent** gombra. Az újonnan létrehozott ügynök meg fog jelenni az Agents oldalon.
 
@@ -90,7 +90,7 @@ Az ügynök létrehozása után tesztelheted, hogyan válaszol a felhasználói 
 
     > **Note**: Az ügynök válaszai nem feltétlenül pontosak, mivel ebben a gyakorlatban nem használunk valós idejű adatokat. A cél az, hogy teszteld az ügynök képességét a felhasználói kérdések megértésére és megválaszolására az adott utasítások alapján.
 
-    ![Agent Playground](../../../translated_images/agent-playground.dc146586de71501011798b919ae595f4d4facf8c3a5f53e0107e7b80fc2418d1.hu.png)
+    ![Agent Playground](../../../translated_images/hu/agent-playground.dc146586de715010.webp)
 
 3. A tesztelés után tovább finomíthatod az ügynököt további szándékok, tanító adatok és műveletek hozzáadásával, hogy növeld a képességeit.
 

@@ -25,7 +25,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Сада би требало да имате своју форковану верзију овог курса на следећем линку:
 
-![Forked Repo](../../../translated_images/forked-repo.33f27ca1901baa6a5e13ec3eb1f0ddd3a44d936d91cc8cfb19bfdb9688bd2c3d.sr.png)
+![Forked Repo](../../../translated_images/sr/forked-repo.33f27ca1901baa6a.webp)
 
 ### Плитко клонирање (препоручено за радионице / Codespaces)
 
@@ -176,11 +176,11 @@ pip install -r requirements.txt
 
 1. Изаберите опцију `Fine-grained tokens` на левој страни екрана тако што ћете отићи на **Developer settings**.
 
-   ![Developer settings](../../../translated_images/profile_developer_settings.410a859fe749c755c859d414294c5908e307222b2c61819c3203bbeed4470e25.sr.png)
+   ![Developer settings](../../../translated_images/sr/profile_developer_settings.410a859fe749c755.webp)
 
    Затим изаберите `Generate new token`.
 
-   ![Generate Token](../../../translated_images/fga_new_token.1c1a234afe202ab37483944a291ee80c1868e1e78082fd6bd4180fea5d5a15b4.sr.png)
+   ![Generate Token](../../../translated_images/sr/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Унесите описно име за ваш токен које одражава његову сврху, чинећи га лако препознатљивим касније.
 
@@ -190,19 +190,19 @@ pip install -r requirements.txt
     За сигурнији приступ, можете се одлучити за краћи период—као што је 7 дана 🛡️  
     То је одличан начин да поставите лични циљ и завршите курс док је ваш ентузијазам за учење висок 🚀.
 
-    ![Token Name and Expiration](../../../translated_images/token-name-expiry-date.a095fb0de63868640a4c82d6b1bbc92b482930a663917a5983a3c7cd1ef86b77.sr.png)
+    ![Token Name and Expiration](../../../translated_images/sr/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Ограничите опсег токена на ваш форк овог репозиторијума.
 
-    ![Limit scope to fork repository](../../../translated_images/token_repository_limit.924ade5e11d9d8bb6cd21293987e4579dea860e2ba66d607fb46e49524d53644.sr.png)
+    ![Limit scope to fork repository](../../../translated_images/sr/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Ограничите дозволе токена: Под **Permissions**, кликните на **Account** таб, и кликните на дугме "+ Add permissions". Појавиће се падајући мени. Молимо вас да потражите **Models** и означите поље за то.
 
-    ![Add Models Permission](../../../translated_images/add_models_permissions.c0c44ed8b40fc143dc87792da9097d715b7de938354e8f771d65416ecc7816b8.sr.png)
+    ![Add Models Permission](../../../translated_images/sr/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Потврдите потребне дозволе пре него што генеришете токен. ![Verify Permissions](../../../translated_images/verify_permissions.06bd9e43987a8b219f171bbcf519e45ababae35b844f5e9757e10afcb619b936.sr.png)
+5. Потврдите потребне дозволе пре него што генеришете токен. ![Verify Permissions](../../../translated_images/sr/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Пре него што генеришете токен, уверите се да сте спремни да га сачувате на сигурном месту као што је менаџер лозинки, јер неће бити поново приказан након креирања. ![Store Token Securely](../../../translated_images/store_token_securely.08ee2274c6ad6caf3482f1cd1bad7ca3fdca1ce737bc485bfa6499c84297c789.sr.png)
+6. Пре него што генеришете токен, уверите се да сте спремни да га сачувате на сигурном месту као што је менаџер лозинки, јер неће бити поново приказан након креирања. ![Store Token Securely](../../../translated_images/sr/store_token_securely.08ee2274c6ad6caf.webp)
 
 Копирајте ваш нови токен који сте управо креирали. Сада ћете га додати у вашу `.env` датотеку укључену у овај курс.
 
@@ -224,7 +224,7 @@ Copy-Item .env.example .env
 
 Са вашим копираним токеном, отворите `.env` датотеку у вашем омиљеном текст едитору и налепите ваш токен у поље `GITHUB_TOKEN`.
 
-![GitHub Token Field](../../../translated_images/github_token_field.20491ed3224b5f4ab24d10ced7a68c4aba2948fe8999cfc8675edaa16f5e5681.sr.png)
+![GitHub Token Field](../../../translated_images/sr/github_token_field.20491ed3224b5f4a.webp)
 
 Сада би требало да можете да покренете узорке кода из овог курса.
 
@@ -238,7 +238,7 @@ Copy-Item .env.example .env
 
 Ово можете урадити тако што ћете отићи на **Overview** страницу вашег пројекта у Azure AI Foundry порталу.
 
-![Project Connection String](../../../translated_images/project-endpoint.8cf04c9975bbfbf18f6447a599550edb052e52264fb7124d04a12e6175e330a5.sr.png)
+![Project Connection String](../../../translated_images/sr/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Корак 2: Направите вашу `.env` датотеку
 
