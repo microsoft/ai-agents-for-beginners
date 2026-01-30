@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c06b12caf3c901eb3156e3dd5b0aea56",
-  "translation_date": "2025-07-12T06:55:49+00:00",
-  "source_file": "CODE_OF_CONDUCT.md",
-  "language_code": "th"
-}
--->
 # Microsoft Open Source Code of Conduct
 
 โครงการนี้ได้นำ [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) มาใช้

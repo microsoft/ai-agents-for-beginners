@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "91d6061e402489603f2ec8b528cae59b",
-  "translation_date": "2025-11-18T17:35:27+00:00",
-  "source_file": "04-tool-use/code_samples/04-dotnet-agent-framework.md",
-  "language_code": "th"
-}
--->
 # 🛠️ การใช้งานเครื่องมือขั้นสูงกับ GitHub Models (.NET)
 
 ## 📋 วัตถุประสงค์การเรียนรู้

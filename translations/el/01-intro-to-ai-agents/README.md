@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdd28bc00816d2773bb2b5968d782abc",
-  "translation_date": "2025-11-11T11:16:22+00:00",
-  "source_file": "01-intro-to-ai-agents/README.md",
-  "language_code": "el"
-}
--->
 [![Εισαγωγή στους Πράκτορες AI](../../../translated_images/el/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Κάντε κλικ στην εικόνα παραπάνω για να δείτε το βίντεο αυτού του μαθήματος)_

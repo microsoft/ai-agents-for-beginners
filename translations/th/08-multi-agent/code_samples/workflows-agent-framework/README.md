@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T15:39:46+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "th"
-}
--->
 # การสร้างแอปพลิเคชันหลายตัวแทนด้วย Microsoft Agent Framework Workflow
 
 บทเรียนนี้จะช่วยให้คุณเข้าใจและสร้างแอปพลิเคชันหลายตัวแทนโดยใช้ Microsoft Agent Framework เราจะสำรวจแนวคิดหลักของระบบหลายตัวแทน เจาะลึกสถาปัตยกรรมของส่วน Workflow ในเฟรมเวิร์ก และดูตัวอย่างการใช้งานจริงใน Python และ .NET สำหรับรูปแบบ Workflow ต่างๆ

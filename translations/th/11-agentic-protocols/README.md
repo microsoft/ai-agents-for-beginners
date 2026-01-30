@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "aff92c6f019b4627ca9399c6e3882e17",
-  "translation_date": "2025-09-18T14:59:01+00:00",
-  "source_file": "11-agentic-protocols/README.md",
-  "language_code": "th"
-}
--->
 # การใช้งานโปรโตคอล Agentic (MCP, A2A และ NLWeb)
 
 [![Agentic Protocols](../../../translated_images/th/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)

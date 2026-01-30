@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-16T06:47:39+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "el"
-}
--->
-[![Πώς να Σχεδιάσετε Καλούς Πράκτορες Τεχνητής Νοημοσύνης](../../../../../translated_images/el/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Πώς να Σχεδιάσετε Καλούς Πράκτορες Τεχνητής Νοημοσύνης](../../../translated_images/el/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Κάντε κλικ στην παραπάνω εικόνα για να δείτε το βίντεο αυτού του μαθήματος)_
 
@@ -219,7 +210,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Το ακόλουθο διάγραμμα απεικονίζει τη διαδικασία κλήσης συναρτήσεων με το Semantic Kernel:
 
-![function calling](../../../../../translated_images/el/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/el/functioncalling-diagram.a84006fc287f6014.webp)
 
 Στο Semantic Kernel, οι συναρτήσεις/εργαλεία ονομάζονται <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Μπορούμε να μετατρέψουμε τη συνάρτηση `get_current_time` που είδαμε προηγουμένως σε plugin κάνοντάς την κλάση που περιλαμβάνει τη συνάρτηση. Μπορούμε επίσης να εισάγουμε τον διακοσμητή `kernel_function`, ο οποίος λαμβάνει την περιγραφή της συνάρτησης. Όταν στη συνέχεια δημιουργείτε έναν kernel με το GetCurrentTimePlugin, ο kernel θα σειριοποιεί αυτόματα τη συνάρτηση και τις παραμέτρους της, δημιουργώντας το σχήμα που αποστέλλεται στο LLM στη διαδικασία.
 
@@ -280,7 +271,7 @@ kernel.add_plugin(get_current_time_plugin)
 
 Η παρακάτω εικόνα απεικονίζει πώς θα μπορούσατε να χρησιμοποιήσετε την Υπηρεσία Πράκτορα Azure AI για να αναλύσετε τα δεδομένα πωλήσεών σας:
 
-![Agentic Service In Action](../../../../../translated_images/el/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/el/agent-service-in-action.34fb465c9a84659e.webp)
 
 Για να χρησιμοποιήσουμε οποιοδήποτε από αυτά τα εργαλεία με την υπηρεσία, μπορούμε να δημιουργήσουμε έναν πελάτη και να ορίσουμε ένα εργαλείο ή σύνολο εργαλείων. Για να το υλοποιήσουμε πρακτικά, μπορούμε να χρησιμοποιήσουμε τον παρακάτω κώδικα Python. Το LLM θα μπορεί να εξετάζει το toolset και να αποφασίζει αν θα χρησιμοποιήσει τη συνάρτηση που δημιούργησε ο χρήστης, `fetch_sales_data_using_sqlite_query`, ή τον προ-κατασκευασμένο Ερμηνευτή Κώδικα ανάλογα με το αίτημα του χρήστη.
 

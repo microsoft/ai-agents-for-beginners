@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-29T16:15:49+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "th"
-}
--->
 # ยินดีต้อนรับสู่ Chainlit! 🚀🤖
 
 สวัสดี นักพัฒนา! 👋 เรารู้สึกตื่นเต้นที่คุณมาร่วมงานกับเรา Chainlit เป็นเครื่องมือที่ทรงพลังที่ออกแบบมาเพื่อช่วยคุณสร้างต้นแบบ แก้ไขข้อบกพร่อง และแบ่งปันแอปพลิเคชันที่สร้างขึ้นบน LLMs

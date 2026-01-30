@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:38:14+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "th"
-}
--->
 # คู่มือการตั้งค่า Azure AI Search
 
 คู่มือนี้จะช่วยคุณตั้งค่า Azure AI Search โดยใช้ Azure portal ทำตามขั้นตอนด้านล่างเพื่อสร้างและกำหนดค่าบริการ Azure AI Search ของคุณ

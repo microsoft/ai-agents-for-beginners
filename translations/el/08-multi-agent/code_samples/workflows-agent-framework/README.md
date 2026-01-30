@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T15:38:56+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "el"
-}
--->
 # Δημιουργία Εφαρμογών Πολλαπλών Πρακτόρων με το Microsoft Agent Framework Workflow
 
 Αυτός ο οδηγός θα σας βοηθήσει να κατανοήσετε και να δημιουργήσετε εφαρμογές πολλαπλών πρακτόρων χρησιμοποιώντας το Microsoft Agent Framework. Θα εξετάσουμε τις βασικές έννοιες των συστημάτων πολλαπλών πρακτόρων, θα εμβαθύνουμε στην αρχιτεκτονική του Workflow component του framework και θα δούμε πρακτικά παραδείγματα σε Python και .NET για διαφορετικά μοτίβα ροής εργασίας.

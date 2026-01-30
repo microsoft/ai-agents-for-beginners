@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d71524fe83a23829ae7a23b4031aaac8",
-  "translation_date": "2025-11-13T12:32:19+00:00",
-  "source_file": "03-agentic-design-patterns/README.md",
-  "language_code": "el"
-}
--->
 [![Πώς να Σχεδιάσετε Καλούς Πράκτορες AI](../../../translated_images/el/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Κάντε κλικ στην παραπάνω εικόνα για να παρακολουθήσετε το βίντεο αυτού του μαθήματος)_
