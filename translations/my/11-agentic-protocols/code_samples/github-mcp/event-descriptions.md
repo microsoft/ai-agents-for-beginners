@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "4d3b0e20122a974cc2fae7f889400bbc",
-  "translation_date": "2025-08-30T00:23:23+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md",
-  "language_code": "my"
-}
--->
 ## အခန်းအမည်: Azure AI Agent Service ဖြင့် ကိုယ်ပိုင် Code-First App တည်ဆောက်ခြင်း (EMEA/US အစီအစဉ်)
 
 ## ဖော်ပြချက်

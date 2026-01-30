@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c06b12caf3c901eb3156e3dd5b0aea56",
-  "translation_date": "2025-07-12T06:57:25+00:00",
-  "source_file": "CODE_OF_CONDUCT.md",
-  "language_code": "uk"
-}
--->
 # Кодекс поведінки Microsoft для відкритого програмного забезпечення
 
 Цей проєкт прийняв [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
-  "translation_date": "2025-09-18T15:52:18+00:00",
-  "source_file": "07-planning-design/README.md",
-  "language_code": "my"
-}
--->
 [![Planning Design Pattern](../../../translated_images/my/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(အထက်ပါပုံကိုနှိပ်ပြီး ဒီသင်ခန်းစာရဲ့ ဗီဒီယိုကို ကြည့်ပါ)_

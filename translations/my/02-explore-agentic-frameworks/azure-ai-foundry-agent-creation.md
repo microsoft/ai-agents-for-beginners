@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:23:27+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "my"
-}
--->
 # Azure AI Agent Service Development
 
 ဒီလေ့ကျင့်ခန်းမှာတော့ [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) ထဲက Azure AI Agent service tools တွေကို အသုံးပြုပြီး Flight Booking အတွက် agent တစ်ခု ဖန်တီးမှာဖြစ်ပါတယ်။ ဒီ agent က အသုံးပြုသူတွေနဲ့ ဆက်သွယ်ပြီး လေယာဉ်ခရီးစဉ်အကြောင်း အချက်အလက်တွေ ပေးနိုင်မှာ ဖြစ်ပါတယ်။

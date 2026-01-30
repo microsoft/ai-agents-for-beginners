@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-30T00:25:46+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "my"
-}
--->
 # Chainlit မှ ကြိုဆိုပါတယ်! 🚀🤖
 
 ဟယ်လို Developer! 👋 သင်ကို ကျွန်ုပ်တို့နှင့် ပူးပေါင်းဆောင်ရွက်ရန် ဝမ်းသာစွာ ကြိုဆိုပါသည်။ Chainlit သည် LLMs အပေါ်တွင် တည်ဆောက်ထားသော အက်ပ်များကို prototype ပြုလုပ်ခြင်း၊ အမှားရှာဖွေခြင်းနှင့် မျှဝေခြင်းများကို ကူညီပေးရန် ရည်ရွယ်ထားသော အင်အားကြီးသော ကိရိယာတစ်ခုဖြစ်ပါသည်။

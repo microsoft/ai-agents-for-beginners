@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
-  "translation_date": "2025-11-13T14:45:12+00:00",
-  "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
-  "language_code": "lt"
-}
--->
 # 🌍 AI Kelionių Agentas su Microsoft Agent Framework (.NET)
 
 ## 📋 Scenarijaus Apžvalga

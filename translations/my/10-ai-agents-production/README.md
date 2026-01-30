@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdfd0acc8592c1af14f8637833450375",
-  "translation_date": "2025-08-29T23:54:40+00:00",
-  "source_file": "10-ai-agents-production/README.md",
-  "language_code": "my"
-}
--->
 # AI ကို ထုတ်လုပ်မှုတွင် အသုံးချခြင်း: ကြည့်ရှုနိုင်မှုနှင့် အကဲဖြတ်ခြင်း
 
 [![AI ကို ထုတ်လုပ်မှုတွင် အသုံးချခြင်း](../../../translated_images/my/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)

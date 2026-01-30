@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T18:05:20+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "lt"
-}
--->
-[![Kaip sukurti gerus AI agentus](../../../../../translated_images/lt/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Kaip sukurti gerus AI agentus](../../../translated_images/lt/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Spustelėkite aukščiau esančią nuotrauką norėdami peržiūrėti šios pamokos vaizdo įrašą)_
 
@@ -219,7 +210,7 @@ Kaip sužinojome [Pamokoje 2](../../../02-explore-agentic-frameworks) agentiniai
 
 Toliau pateiktas diagrama iliustruoja funkcijų kvietimo procesą su Semantic Kernel:
 
-![function calling](../../../../../translated_images/lt/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/lt/functioncalling-diagram.a84006fc287f6014.webp)
 
 Semantic Kernel funkcijos/įrankiai vadinami <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">įskiepiais</a>. Galime paversti anksčiau matytą `get_current_time` funkciją į įskiepį, pakeisdami ją į klasę su ta funkcija. Taip pat galime importuoti `kernel_function` dekoratorių, kuris priima funkcijos aprašymą. Sukūrus branduolį su GetCurrentTimePlugin, branduolys automatiškai serializuos funkciją ir jos parametrus, tuo pačiu sukuriant schemą, kuri bus siunčiama LLM.
 
@@ -280,7 +271,7 @@ Agentų servisas leidžia naudoti šiuos įrankius kartu kaip `įrankių rinkin�
 
 Toliau pateikta iliustracija rodo, kaip galite naudoti Azure AI Agent Service, analizuodami savo pardavimų duomenis:
 
-![Agentic Service In Action](../../../../../translated_images/lt/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/lt/agent-service-in-action.34fb465c9a84659e.webp)
 
 Norėdami naudoti bet kurį iš šių įrankių su servisu, galime sukurti klientą ir apibrėžti įrankį arba įrankių rinkinį. Praktiniam įgyvendinimui galime naudoti šį Python kodą. LLM galės pažvelgti į įrankių rinkinį ir nuspręsti, ar naudoti vartotojo sukurtą funkciją `fetch_sales_data_using_sqlite_query`, ar iš anksto sukurtą Kodo interpretatorių, priklausomai nuo vartotojo užklausos.
 

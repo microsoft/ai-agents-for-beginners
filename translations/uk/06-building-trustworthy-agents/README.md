@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
-  "translation_date": "2025-08-29T23:41:52+00:00",
-  "source_file": "06-building-trustworthy-agents/README.md",
-  "language_code": "uk"
-}
--->
 [![Довірені AI-агенти](../../../translated_images/uk/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Натисніть на зображення вище, щоб переглянути відео цього уроку)_

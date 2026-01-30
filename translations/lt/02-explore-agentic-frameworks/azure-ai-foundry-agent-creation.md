@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-08-30T15:07:59+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "lt"
-}
--->
 # Azure AI Agent Service Development
 
 Šiame pratime naudosite Azure AI Agent paslaugos įrankius [Azure AI Foundry portale](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst), kad sukurtumėte agentą skrydžių rezervacijai. Agentas galės bendrauti su vartotojais ir teikti informaciją apie skrydžius.

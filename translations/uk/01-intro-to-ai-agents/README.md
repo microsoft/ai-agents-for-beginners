@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdd28bc00816d2773bb2b5968d782abc",
-  "translation_date": "2025-11-11T11:47:04+00:00",
-  "source_file": "01-intro-to-ai-agents/README.md",
-  "language_code": "uk"
-}
--->
 [![Вступ до AI агентів](../../../translated_images/uk/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Натисніть на зображення вище, щоб переглянути відео цього уроку)_

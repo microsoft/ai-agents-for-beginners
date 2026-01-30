@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:52:54+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "uk"
-}
--->
 # Посібник з налаштування Azure AI Search
 
 Цей посібник допоможе вам налаштувати Azure AI Search за допомогою порталу Azure. Дотримуйтесь наведених нижче кроків, щоб створити та налаштувати вашу службу Azure AI Search.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f0deef171fc3a68d5d3d770a8bfb03d",
-  "translation_date": "2025-08-29T23:51:50+00:00",
-  "source_file": "09-metacognition/README.md",
-  "language_code": "my"
-}
--->
 [![Multi-Agent Design](../../../translated_images/my/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(ဓာတ်ပုံကိုနှိပ်ပြီး ဒီသင်ခန်းစာရဲ့ ဗီဒီယိုကို ကြည့်ပါ)_

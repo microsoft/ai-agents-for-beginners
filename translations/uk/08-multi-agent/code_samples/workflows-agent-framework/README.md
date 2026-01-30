@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T06:03:40+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "uk"
-}
--->
 # Створення багатокомпонентних додатків за допомогою Microsoft Agent Framework Workflow
 
 Цей посібник допоможе вам зрозуміти та створити багатокомпонентні додатки, використовуючи Microsoft Agent Framework. Ми розглянемо основні концепції багатокомпонентних систем, заглибимося в архітектуру компонента Workflow цього фреймворку та пройдемо практичні приклади на Python і .NET для різних шаблонів робочих процесів.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "50518c351b4501f2649aeaba31c2592e",
-  "translation_date": "2025-07-12T07:32:20+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "my"
-}
--->
 # TODO: ဒီ repo ရဲ့ maintainer က ဒီဖိုင်ကို မသေချာစွာ ပြင်ဆင်ထားသေးပါဘူး
 
 **REPO OWNER**: ဒီထုတ်ကုန်/ပရောဂျက်အတွက် Customer Service & Support (CSS) အထောက်အပံ့လိုပါသလား?
