@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-29T21:18:19+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "hu"
-}
--->
 # Agent-to-Agent Kommunikációs Rendszerek Építése MCP-vel
 
 > Röviden - Lehet MCP-n Agent2Agent Kommunikációt Építeni? Igen!

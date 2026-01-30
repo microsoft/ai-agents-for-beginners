@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T16:29:26+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "sw"
-}
--->
-[![Jinsi ya Kubuni Wakala Bora wa AI](../../../../../translated_images/sw/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Jinsi ya Kubuni Wakala Bora wa AI](../../../translated_images/sw/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Bonyeza picha iliyo juu kutazama video ya somo hili)_
 
@@ -219,7 +210,7 @@ Hapa kuna mifano ya jinsi unavyoweza kutekeleza Mfumo wa Ubunifu wa Matumizi ya 
 
 Mchoro unaofuata unaonyesha mchakato wa miito ya kazi kwa Semantic Kernel:
 
-![kuitwa kwa kazi](../../../../../translated_images/sw/functioncalling-diagram.a84006fc287f6014.webp)
+![kuitwa kwa kazi](../../../translated_images/sw/functioncalling-diagram.a84006fc287f6014.webp)
 
 Katika Semantic Kernel kazi/zana huitwa <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Viongezi</a>. Tunaweza kubadilisha kazi `get_current_time` tuliyoiona hapo awali kuwa kiongezi kwa kuiweka kuwa darasa lenye kazi hiyo ndani. Pia tunaweza kuleta dekoreta `kernel_function` inayochukua maelezo ya kazi. Unapounda kernel na GetCurrentTimePlugin, kernel itaenda moja kwa moja kuserialize kazi na vigezo vyake, ikitengeneza sura ya kutumwa kwa LLM katika mchakato.
 
@@ -280,7 +271,7 @@ Fikiria wewe ni wakala wa mauzo katika kampuni iitwayo Contoso. Unataka kuendele
 
 Picha ifuatayo inaonyesha jinsi unavyoweza kutumia Huduma ya Wakala wa Azure AI kuchambua data zako za mauzo:
 
-![Huduma ya Wakala Katika Utekelezaji](../../../../../translated_images/sw/agent-service-in-action.34fb465c9a84659e.webp)
+![Huduma ya Wakala Katika Utekelezaji](../../../translated_images/sw/agent-service-in-action.34fb465c9a84659e.webp)
 
 Ili kutumia zana yoyote kati ya hizi na huduma, tunaweza kuunda mteja na kufafanua kifaa au seti ya zana. Kutekeleza hii vitendo tunaweza kutumia nambari ya Python ifuatayo. LLM itakuwa na uwezo wa kuangalia seti ya zana na kuamua ikiwa itatumia kazi iliyoundwa na mtumiaji, `fetch_sales_data_using_sqlite_query`, au Mfasiri wa Nambari aliyejengwa tayari kulingana na ombi la mtumiaji.
 

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cb7e50f471905ce6fdb92a30269a7a98",
-  "translation_date": "2025-09-04T10:22:42+00:00",
-  "source_file": "12-context-engineering/README.md",
-  "language_code": "sw"
-}
--->
 # Uhandisi wa Muktadha kwa Mawakala wa AI
 
 [![Uhandisi wa Muktadha](../../../translated_images/sw/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)

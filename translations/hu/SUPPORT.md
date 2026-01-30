@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "50518c351b4501f2649aeaba31c2592e",
-  "translation_date": "2025-07-12T07:31:26+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "hu"
-}
--->
 # TODO: Ennek a repónak a karbantartója még nem szerkesztette ezt a fájlt
 
 **REPO TULAJDONOS**: Szeretnél Customer Service & Support (CSS) támogatást ehhez a termékhez/projekthez?

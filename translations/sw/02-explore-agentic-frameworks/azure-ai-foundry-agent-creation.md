@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:21:35+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "sw"
-}
--->
 # Azure AI Agent Service Development
 
 Katika zoezi hili, utatumia zana za huduma ya Azure AI Agent katika [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) kuunda wakala wa Booking ya Ndege. Wakala huyo ataweza kuwasiliana na watumiaji na kutoa taarifa kuhusu ndege.

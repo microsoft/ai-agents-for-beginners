@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-07-12T11:40:00+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "sw"
-}
--->
 **Wakala maalum kwa mchakato wa msaada kwa wateja**:
 
 - **Wakala wa mteja**: Wakala huyu anawakilisha mteja na anahusika kuanzisha mchakato wa msaada.

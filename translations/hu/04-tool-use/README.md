@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T16:34:36+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "hu"
-}
--->
-[![Hogyan tervezzünk jó AI ügynököket](../../../../../translated_images/hu/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Hogyan tervezzünk jó AI ügynököket](../../../translated_images/hu/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Kattints a fenti képre a lecke videójának megtekintéséhez)_
 
@@ -219,7 +210,7 @@ Ahogy a [2. leckében](../../../02-explore-agentic-frameworks) tanultuk, az ügy
 
 A következő ábra szemlélteti a függvényhívás folyamatát a Semantic Kernel használatával:
 
-![function calling](../../../../../translated_images/hu/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/hu/functioncalling-diagram.a84006fc287f6014.webp)
 
 A Semantic Kernelben a függvényeket/eszközöket <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">bővítményeknek</a> hívják. Az előbb látott `get_current_time` függvényt egy osztállyá alakíthatjuk, amely tartalmazza a függvényt, és ebből bővítményt készítünk. Importálhatjuk a `kernel_function` dekorátort is, amely a függvény leírását fogadja be. Amikor létrehozunk egy kernelet a GetCurrentTimePlugin-nel, az automatikusan szerializálja a függvényt és paramétereit, így létrehozva a sémát, amelyet a modellnek továbbítunk.
 
@@ -280,7 +271,7 @@ Képzeld el, hogy egy Contoso nevű cég értékesítési ügynöke vagy. Beszé
 
 A következő kép szemlélteti, hogyan lehet az Azure AI Agent Service-t használni az értékesítési adatok elemzésére:
 
-![Agentic Service In Action](../../../../../translated_images/hu/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/hu/agent-service-in-action.34fb465c9a84659e.webp)
 
 Az eszközök használatához a szolgáltatással létrehozhatunk egy klienst és definiálhatunk egy eszközt vagy eszközkészletet. Ennek gyakorlati megvalósítására az alábbi Python kód használható. Az LLM megvizsgálja az eszközkészletet, és eldönti, hogy használja-e a felhasználó által létrehozott `fetch_sales_data_using_sqlite_query` függvényt vagy az előre elkészített Kódértelmezőt a felhasználói kérés alapján.
 

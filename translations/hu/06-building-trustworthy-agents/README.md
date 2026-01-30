@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
-  "translation_date": "2025-08-29T20:07:35+00:00",
-  "source_file": "06-building-trustworthy-agents/README.md",
-  "language_code": "hu"
-}
--->
 [![Megbízható MI Ügynökök](../../../translated_images/hu/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Kattints a fenti képre a leckéhez tartozó videó megtekintéséhez)_

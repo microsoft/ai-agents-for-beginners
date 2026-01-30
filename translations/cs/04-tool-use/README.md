@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T16:38:09+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "cs"
-}
--->
-[![Jak navrhnout dobré AI agenty](../../../../../translated_images/cs/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Jak navrhnout dobré AI agenty](../../../translated_images/cs/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Klikněte na obrázek výše pro zobrazení videa této lekce)_
 
@@ -219,7 +210,7 @@ Zde jsou příklady, jak můžete implementovat návrhový vzor používání n�
 
 Následující diagram ilustruje proces volání funkcí se Semantic Kernel:
 
-![function calling](../../../../../translated_images/cs/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/cs/functioncalling-diagram.a84006fc287f6014.webp)
 
 Ve Semantic Kernel se funkce/nástroje nazývají <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">pluginy</a>. Můžeme převést funkci `get_current_time`, kterou jsme viděli dříve, na plugin tak, že ji převedeme na třídu s touto funkcí uvnitř. Můžeme také importovat dekorátor `kernel_function`, který přijímá popis funkce. Když potom vytvoříte kernel s GetCurrentTimePlugin, kernel automaticky serializuje funkci a její parametry a při tom vytvoří schéma, které se odešle LLM.
 
@@ -280,7 +271,7 @@ Představte si, že jste obchodní zástupce ve společnosti Contoso. Chcete vyv
 
 Následující obrázek znázorňuje, jak byste mohli použít Azure AI Agent Service k analýze vašich prodejních dat:
 
-![Agentic Service In Action](../../../../../translated_images/cs/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/cs/agent-service-in-action.34fb465c9a84659e.webp)
 
 Pro použití kterékoli z těchto nástrojů se službou můžeme vytvořit klienta a definovat nástroj nebo sadu nástrojů. Pro praktickou implementaci můžeme použít následující Python kód. LLM bude moci prohlédnout toolset a rozhodnout, zda použít uživatelem vytvořenou funkci `fetch_sales_data_using_sqlite_query` nebo předpřipravený Code Interpreter v závislosti na požadavku uživatele.
 

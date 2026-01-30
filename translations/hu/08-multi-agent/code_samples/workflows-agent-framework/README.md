@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T08:56:58+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "hu"
-}
--->
 # Többügynökös alkalmazások építése a Microsoft Agent Framework Workflow segítségével
 
 Ez az útmutató bemutatja, hogyan érthetjük meg és építhetünk többügynökös alkalmazásokat a Microsoft Agent Framework segítségével. Megvizsgáljuk a többügynökös rendszerek alapfogalmait, elmélyedünk a keretrendszer Workflow komponensének architektúrájában, és gyakorlati példákon keresztül bemutatjuk a különböző workflow mintákat Pythonban és .NET-ben.

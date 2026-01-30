@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T16:57:07+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "hu"
-}
--->
 # AI Ügynökök Kezdőknek - Tanulmányi Útmutató és Kurzus Összefoglaló
 
 Ez az útmutató összefoglalja az "AI Ügynökök Kezdőknek" kurzust, és magyarázatot ad az AI ügynökök építéséhez szükséges kulcsfogalmakra, keretrendszerekre és tervezési mintákra.
