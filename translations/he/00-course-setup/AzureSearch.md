@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:42:16+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "he"
-}
--->
 # מדריך הגדרת Azure AI Search
 
 מדריך זה יסייע לך להגדיר את Azure AI Search באמצעות פורטל Azure. עקוב אחר השלבים הבאים ליצירה ולהגדרת שירות Azure AI Search שלך.

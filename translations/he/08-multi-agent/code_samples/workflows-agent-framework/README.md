@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T17:22:45+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "he"
-}
--->
 # בניית יישומים מרובי סוכנים עם Microsoft Agent Framework Workflow
 
 מדריך זה יסביר כיצד להבין ולבנות יישומים מרובי סוכנים באמצעות Microsoft Agent Framework. נחקור את המושגים המרכזיים של מערכות מרובות סוכנים, נעמיק בארכיטקטורה של רכיב ה-Workflow של המסגרת, ונעבור על דוגמאות מעשיות ב-Python וב-.NET עבור דפוסי עבודה שונים.

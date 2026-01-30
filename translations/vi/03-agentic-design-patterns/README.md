@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d71524fe83a23829ae7a23b4031aaac8",
-  "translation_date": "2025-11-13T13:17:31+00:00",
-  "source_file": "03-agentic-design-patterns/README.md",
-  "language_code": "vi"
-}
--->
 [![Cách thiết kế các tác nhân AI tốt](../../../translated_images/vi/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Nhấp vào hình ảnh trên để xem video của bài học này)_

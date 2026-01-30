@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "4d3b0e20122a974cc2fae7f889400bbc",
-  "translation_date": "2025-08-29T18:36:13+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md",
-  "language_code": "he"
-}
--->
 ## שם האירוע: בנה את האפליקציה שלך עם Azure AI Agent Service (הצעה לאזורי EMEA/US)
 
 ## תיאור

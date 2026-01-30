@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T15:52:37+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "nl"
-}
--->
 # AI Agents voor Beginners - Studiegids & Cursusoverzicht
 
 Deze gids biedt een overzicht van de cursus "AI Agents voor Beginners" en legt belangrijke concepten, frameworks en ontwerppatronen uit voor het bouwen van AI Agents.

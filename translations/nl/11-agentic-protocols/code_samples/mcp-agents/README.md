@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-29T18:28:27+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "nl"
-}
--->
 # Agent-naar-Agent Communicatiesystemen Bouwen met MCP
 
 > TL;DR - Kun je Agent2Agent-communicatie bouwen op MCP? Ja!

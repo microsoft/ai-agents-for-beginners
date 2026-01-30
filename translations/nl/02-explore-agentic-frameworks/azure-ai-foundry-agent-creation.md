@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:20:26+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "nl"
-}
--->
 # Azure AI Agent Service Ontwikkeling
 
 In deze oefening gebruik je de Azure AI Agent service tools in de [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) om een agent te maken voor het boeken van vluchten. De agent kan met gebruikers communiceren en informatie over vluchten geven.

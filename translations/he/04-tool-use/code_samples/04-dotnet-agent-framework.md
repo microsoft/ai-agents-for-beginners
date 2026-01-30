@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "91d6061e402489603f2ec8b528cae59b",
-  "translation_date": "2025-11-18T17:52:51+00:00",
-  "source_file": "04-tool-use/code_samples/04-dotnet-agent-framework.md",
-  "language_code": "he"
-}
--->
 # 🛠️ שימוש מתקדם בכלים עם מודלים של GitHub (.NET)
 
 ## 📋 מטרות למידה

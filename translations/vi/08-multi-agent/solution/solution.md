@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-07-12T11:39:34+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "vi"
-}
--->
 **Các đại lý cụ thể cho quy trình hỗ trợ khách hàng**:
 
 - **Customer agent**: Đại lý này đại diện cho khách hàng và chịu trách nhiệm khởi xướng quy trình hỗ trợ.
