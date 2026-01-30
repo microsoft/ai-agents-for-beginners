@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:36:48+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "tr"
-}
--->
 # Azure AI Search Kurulum Kılavuzu
 
 Bu kılavuz, Azure portalını kullanarak Azure AI Search hizmetini kurmanıza yardımcı olacaktır. Azure AI Search hizmetinizi oluşturmak ve yapılandırmak için aşağıdaki adımları takip edin.

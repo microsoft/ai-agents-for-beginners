@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-16T09:01:35+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "pl"
-}
--->
 # Agent AI dla początkujących - Przewodnik i Podsumowanie Kursu
 
 Ten przewodnik zawiera podsumowanie kursu "Agent AI dla początkujących" oraz wyjaśnia kluczowe pojęcia, frameworki i wzorce projektowe do budowy Agentów AI.

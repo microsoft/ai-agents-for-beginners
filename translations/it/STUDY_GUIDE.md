@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-16T09:00:45+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "it"
-}
--->
 # Agenti AI per Principianti - Guida di Studio e Riassunto del Corso
 
 Questa guida fornisce un riassunto del corso "Agenti AI per Principianti" e spiega i concetti chiave, i framework e i modelli di design per costruire Agenti AI.

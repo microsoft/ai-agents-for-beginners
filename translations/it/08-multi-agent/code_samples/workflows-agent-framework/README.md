@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T14:01:54+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "it"
-}
--->
 # Creare Applicazioni Multi-Agente con il Workflow del Microsoft Agent Framework
 
 Questo tutorial ti guiderà nella comprensione e nella creazione di applicazioni multi-agente utilizzando il Microsoft Agent Framework. Esploreremo i concetti fondamentali dei sistemi multi-agente, approfondiremo l'architettura del componente Workflow del framework e analizzeremo esempi pratici in Python e .NET per diversi modelli di workflow.

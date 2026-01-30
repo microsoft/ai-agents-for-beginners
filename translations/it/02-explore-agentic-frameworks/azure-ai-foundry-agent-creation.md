@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:18:36+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "it"
-}
--->
 # Sviluppo del servizio Azure AI Agent
 
 In questo esercizio, utilizzerai gli strumenti del servizio Azure AI Agent nel [portale Azure AI Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) per creare un agente per la prenotazione voli. L'agente sarà in grado di interagire con gli utenti e fornire informazioni sui voli.

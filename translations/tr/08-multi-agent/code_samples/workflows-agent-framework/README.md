@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T14:02:28+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "tr"
-}
--->
 # Microsoft Agent Framework Workflow ile Çoklu Ajan Uygulamaları Geliştirme
 
 Bu eğitim, Microsoft Agent Framework kullanarak çoklu ajan uygulamalarını anlamanızı ve geliştirmenizi sağlayacak. Çoklu ajan sistemlerinin temel kavramlarını keşfedecek, framework'ün Workflow bileşeninin mimarisine dalacak ve farklı iş akışı modelleri için hem Python hem de .NET'te pratik örnekler üzerinden ilerleyeceğiz.

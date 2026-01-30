@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "1a008c204051cba8d0e253b75f261c41",
-  "translation_date": "2025-08-29T12:58:31+00:00",
-  "source_file": "08-multi-agent/README.md",
-  "language_code": "it"
-}
--->
 [![Progettazione Multi-Agente](../../../translated_images/it/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_

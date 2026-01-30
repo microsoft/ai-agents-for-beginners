@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-16T09:02:17+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "tr"
-}
--->
 # Yeni Başlayanlar için Yapay Zeka Ajanları - Çalışma Rehberi ve Kurs Özeti
 
 Bu rehber, "Yeni Başlayanlar için Yapay Zeka Ajanları" kursunun özetini sunar ve Yapay Zeka Ajanları oluşturmak için temel kavramları, çerçeveleri ve tasarım kalıplarını açıklar.
