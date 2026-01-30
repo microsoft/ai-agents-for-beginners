@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:22:50+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "sr"
-}
--->
 # Azure AI Agent Service Development
 
 У овом задатку користите алате Azure AI Agent сервиса у [Azure AI Foundry порталу](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) да бисте креирали агента за резервацију летова. Агент ће моћи да комуницира са корисницима и пружа информације о летовима.

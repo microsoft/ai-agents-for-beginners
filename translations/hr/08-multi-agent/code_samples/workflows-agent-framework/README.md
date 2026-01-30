@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T06:48:28+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "hr"
-}
--->
 # Izrada aplikacija s više agenata pomoću Microsoft Agent Framework Workflowa
 
 Ovaj vodič će vas provesti kroz razumijevanje i izradu aplikacija s više agenata koristeći Microsoft Agent Framework. Istražit ćemo osnovne koncepte sustava s više agenata, detaljno analizirati arhitekturu Workflow komponenti okvira i proći kroz praktične primjere u Pythonu i .NET-u za različite obrasce rada.
