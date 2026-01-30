@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cb7e50f471905ce6fdb92a30269a7a98",
-  "translation_date": "2025-09-04T09:59:10+00:00",
-  "source_file": "12-context-engineering/README.md",
-  "language_code": "pa"
-}
--->
 # ਏਆਈ ਏਜੰਟਾਂ ਲਈ ਕੌਂਟੈਕਸਟ ਇੰਜੀਨੀਅਰਿੰਗ
 
 [![ਕੌਂਟੈਕਸਟ ਇੰਜੀਨੀਅਰਿੰਗ](../../../translated_images/pa/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)

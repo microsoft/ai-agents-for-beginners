@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-29T10:56:33+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "pa"
-}
--->
 # MCP ਨਾਲ ਏਜੰਟ-ਤੋਂ-ਏਜੰਟ ਸੰਚਾਰ ਪ੍ਰਣਾਲੀਆਂ ਬਣਾਉਣਾ
 
 > TL;DR - ਕੀ ਤੁਸੀਂ MCP 'ਤੇ Agent2Agent ਸੰਚਾਰ ਬਣਾਉਣ ਲਈ ਯੋਗ ਹੋ? ਹਾਂ!

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "aff92c6f019b4627ca9399c6e3882e17",
-  "translation_date": "2025-09-18T14:42:41+00:00",
-  "source_file": "11-agentic-protocols/README.md",
-  "language_code": "pa"
-}
--->
 # ਏਜੈਂਟਿਕ ਪ੍ਰੋਟੋਕੋਲ (MCP, A2A ਅਤੇ NLWeb) ਦੀ ਵਰਤੋਂ
 
 [![Agentic Protocols](../../../translated_images/pa/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
