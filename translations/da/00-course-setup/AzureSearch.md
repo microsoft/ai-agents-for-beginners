@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:39:28+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "da"
-}
--->
 # Azure AI Search Opsætningsguide
 
 Denne guide hjælper dig med at opsætte Azure AI Search ved hjælp af Azure-portalen. Følg trinnene nedenfor for at oprette og konfigurere din Azure AI Search-tjeneste.

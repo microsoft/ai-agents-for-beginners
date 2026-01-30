@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:20:03+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "no"
-}
--->
 # Azure AI Agent Service-utvikling
 
 I denne øvelsen bruker du verktøyene i Azure AI Agent-tjenesten i [Azure AI Foundry-portalen](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) for å lage en agent for flybestilling. Agenten vil kunne kommunisere med brukere og gi informasjon om flyreiser.

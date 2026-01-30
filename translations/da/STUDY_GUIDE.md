@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-16T07:34:45+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "da"
-}
--->
 # AI-agenter for begyndere - Studieguide og kursussammenfatning
 
 Denne guide giver et overblik over kurset "AI Agents for Beginners" og forklarer nøglebegreber, frameworks og designmønstre til opbygning af AI-agenter.

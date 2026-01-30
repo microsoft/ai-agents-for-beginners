@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c06b12caf3c901eb3156e3dd5b0aea56",
-  "translation_date": "2025-07-12T06:56:02+00:00",
-  "source_file": "CODE_OF_CONDUCT.md",
-  "language_code": "no"
-}
--->
 # Microsoft Open Source Code of Conduct
 
 Dette prosjektet har tatt i bruk [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-16T07:35:23+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "no"
-}
--->
 # AI-agenter for nybegynnere - Studieveiledning og kurssammendrag
 
 Denne veiledningen gir en oppsummering av kurset "AI-agenter for nybegynnere" og forklarer viktige konsepter, rammeverk og designmønstre for å bygge AI-agenter.
