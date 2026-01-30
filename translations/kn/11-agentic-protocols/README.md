@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "aff92c6f019b4627ca9399c6e3882e17",
-  "translation_date": "2025-12-03T17:32:37+00:00",
-  "source_file": "11-agentic-protocols/README.md",
-  "language_code": "kn"
-}
--->
 # ಏಜೆಂಟಿಕ್ ಪ್ರೋಟೋಕಾಲ್‌ಗಳನ್ನು (MCP, A2A ಮತ್ತು NLWeb) ಬಳಸುವುದು
 
 [![ಏಜೆಂಟಿಕ್ ಪ್ರೋಟೋಕಾಲ್‌ಗಳು](../../../translated_images/kn/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)

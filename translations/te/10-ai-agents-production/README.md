@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdfd0acc8592c1af14f8637833450375",
-  "translation_date": "2025-12-03T16:43:40+00:00",
-  "source_file": "10-ai-agents-production/README.md",
-  "language_code": "te"
-}
--->
 # ఉత్పత్తిలో AI ఏజెంట్లు: గమనించగలిగే సామర్థ్యం & మూల్యాంకనం
 
 [![ఉత్పత్తిలో AI ఏజెంట్లు](../../../translated_images/te/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "50518c351b4501f2649aeaba31c2592e",
-  "translation_date": "2025-12-03T15:28:10+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "kn"
-}
--->
 # TODO: ಈ ರೆಪೊಸಿಟರಿಯ ನಿರ್ವಹಣಾಕಾರರು ಈ ಫೈಲ್ ಅನ್ನು ಇನ್ನೂ ಸಂಪಾದಿಸಿಲ್ಲ
 
 **ರೆಪೊ ಮಾಲೀಕರು**: ಈ ಉತ್ಪನ್ನ/ಪ್ರಾಜೆಕ್ಟ್‌ಗೆ ಗ್ರಾಹಕ ಸೇವೆ ಮತ್ತು ಬೆಂಬಲ (CSS) ಬೇಕೇ?

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9bf0395cbc541ce8db2a9699c8678dfc",
-  "translation_date": "2025-12-03T17:39:32+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/README.md",
-  "language_code": "kn"
-}
--->
 # Github MCP Server ಉದಾಹರಣೆ
 
 ## ವಿವರಣೆ

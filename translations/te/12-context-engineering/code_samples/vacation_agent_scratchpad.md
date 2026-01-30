@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9e2a4a04b4686b008a7e06f916884e58",
-  "translation_date": "2025-12-03T17:18:27+00:00",
-  "source_file": "12-context-engineering/code_samples/vacation_agent_scratchpad.md",
-  "language_code": "te"
-}
--->
 # ఏజెంట్ స్క్రాచ్‌ప్యాడ్
 
 ## వినియోగదారుల ప్రాధాన్యతలు

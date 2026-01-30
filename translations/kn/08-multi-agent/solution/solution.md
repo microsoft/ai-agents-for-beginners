@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-12-03T16:09:16+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "kn"
-}
--->
 **ಗ್ರಾಹಕ ಬೆಂಬಲ ಪ್ರಕ್ರಿಯೆಗೆ ವಿಶೇಷ ಏಜೆಂಟ್‌ಗಳು**:
 
 - **ಗ್ರಾಹಕ ಏಜೆಂಟ್**: ಈ ಏಜೆಂಟ್ ಗ್ರಾಹಕನನ್ನು ಪ್ರತಿನಿಧಿಸುತ್ತಿದ್ದು, ಬೆಂಬಲ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪ್ರಾರಂಭಿಸಲು ಹೊಣೆಗಾರನಾಗಿರುತ್ತಾನೆ.

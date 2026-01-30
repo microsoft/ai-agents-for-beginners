@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-12-03T17:28:06+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "te"
-}
--->
 # Azure AI Search సెటప్ గైడ్
 
 ఈ గైడ్ మీకు Azure పోర్టల్ ఉపయోగించి Azure AI Search సెటప్ చేయడంలో సహాయపడుతుంది. మీ Azure AI Search సేవను సృష్టించడానికి మరియు కాన్ఫిగర్ చేయడానికి క్రింది దశలను అనుసరించండి.

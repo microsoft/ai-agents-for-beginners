@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9e2a4a04b4686b008a7e06f916884e58",
-  "translation_date": "2025-12-03T17:19:02+00:00",
-  "source_file": "12-context-engineering/code_samples/vacation_agent_scratchpad.md",
-  "language_code": "kn"
-}
--->
 # ಏಜೆಂಟ್ ಸ್ಕ್ರಾಚ್‌ಪ್ಯಾಡ್
 
 ## ಬಳಕೆದಾರರ ಪ್ರಿಯತೆಗಳು

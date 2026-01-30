@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f5a5f2902f32272257506d88d3c43a1",
-  "translation_date": "2025-12-03T16:11:41+00:00",
-  "source_file": "08-multi-agent/code_samples/08-dotnet-agent-framework.md",
-  "language_code": "kn"
-}
--->
 # 🤝 ಎಂಟರ್‌ಪ್ರೈಸ್ ಮಲ್ಟಿ-ಏಜೆಂಟ್ ವರ್ಕ್‌ಫ್ಲೋ ಸಿಸ್ಟಮ್ಸ್ (.NET)
 
 ## 📋 ಕಲಿಕೆಯ ಉದ್ದೇಶಗಳು

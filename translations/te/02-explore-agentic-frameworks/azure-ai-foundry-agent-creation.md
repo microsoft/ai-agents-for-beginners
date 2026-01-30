@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-12-03T16:56:39+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "te"
-}
--->
 # Azure AI ఏజెంట్ సేవ అభివృద్ధి
 
 ఈ వ్యాయామంలో, మీరు [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) లోని Azure AI ఏజెంట్ సేవ టూల్స్ ఉపయోగించి ఫ్లైట్ బుకింగ్ కోసం ఒక ఏజెంట్‌ను సృష్టిస్తారు. ఈ ఏజెంట్ వినియోగదారులతో సంభాషించి, ఫ్లైట్ల గురించి సమాచారం అందించగలదు.

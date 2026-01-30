@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "2d13c1e3518a0257a00fea949e2d0350",
-  "translation_date": "2025-12-03T17:23:59+00:00",
-  "source_file": "07-planning-design/code_samples/07-dotnet-agent-framework.md",
-  "language_code": "kn"
-}
--->
 # 🎯 GitHub ಮಾದರಿಗಳೊಂದಿಗೆ ಯೋಜನೆ ಮತ್ತು ವಿನ್ಯಾಸ ಮಾದರಿಗಳು (.NET)
 
 ## 📋 ಕಲಿಕೆಯ ಉದ್ದೇಶಗಳು

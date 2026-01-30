@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
-  "translation_date": "2025-12-03T16:37:18+00:00",
-  "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
-  "language_code": "te"
-}
--->
 # 🌍 మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ (.NET) తో AI ట్రావెల్ ఏజెంట్
 
 ## 📋 సన్నివేశం అవలోకనం

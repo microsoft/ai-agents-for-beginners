@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-12-03T17:47:51+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "kn"
-}
--->
 # MCP ಬಳಸಿ ಏಜೆಂಟ್-ಟು-ಏಜೆಂಟ್ ಸಂವಹನ ವ್ಯವಸ್ಥೆಗಳನ್ನು ನಿರ್ಮಿಸುವುದು
 
 > TL;DR - MCP ಮೇಲೆ Agent2Agent ಸಂವಹನವನ್ನು ನಿರ್ಮಿಸಬಹುದೇ? ಹೌದು!

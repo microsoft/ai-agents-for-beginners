@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-12-03T17:29:44+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "kn"
-}
--->
 # Azure AI Search ಸೆಟಪ್ ಮಾರ್ಗದರ್ಶಿ
 
 ಈ ಮಾರ್ಗದರ್ಶಿ ನಿಮಗೆ Azure ಪೋರ್ಟಲ್ ಬಳಸಿ Azure AI Search ಅನ್ನು ಸೆಟಪ್ ಮಾಡಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ನಿಮ್ಮ Azure AI Search ಸೇವೆಯನ್ನು ರಚಿಸಲು ಮತ್ತು ಸಂರಚಿಸಲು ಕೆಳಗಿನ ಹಂತಗಳನ್ನು ಅನುಸರಿಸಿ.
