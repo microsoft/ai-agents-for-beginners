@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f0deef171fc3a68d5d3d770a8bfb03d",
-  "translation_date": "2025-08-29T20:47:35+00:00",
-  "source_file": "09-metacognition/README.md",
-  "language_code": "ro"
-}
--->
 [![Design Multi-Agent](../../../translated_images/ro/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_

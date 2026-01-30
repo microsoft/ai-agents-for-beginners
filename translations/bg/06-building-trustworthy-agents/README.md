@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
-  "translation_date": "2025-08-29T21:05:02+00:00",
-  "source_file": "06-building-trustworthy-agents/README.md",
-  "language_code": "bg"
-}
--->
 [![Доверени AI агенти](../../../translated_images/bg/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Кликнете върху изображението по-горе, за да гледате видеото на този урок)_

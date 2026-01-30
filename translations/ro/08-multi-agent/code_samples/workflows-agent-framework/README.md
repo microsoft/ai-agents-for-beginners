@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T08:10:36+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "ro"
-}
--->
 # Construirea aplicațiilor multi-agent cu Microsoft Agent Framework Workflow
 
 Acest tutorial te va ghida în înțelegerea și construirea aplicațiilor multi-agent folosind Microsoft Agent Framework. Vom explora conceptele de bază ale sistemelor multi-agent, arhitectura componentei Workflow a framework-ului și vom parcurge exemple practice în Python și .NET pentru diferite modele de flux de lucru.

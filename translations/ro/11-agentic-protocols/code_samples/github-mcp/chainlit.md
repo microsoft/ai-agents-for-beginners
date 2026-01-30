@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-29T21:28:39+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "ro"
-}
--->
 # Bine ai venit la Chainlit! 🚀🤖
 
 Salut, Dezvoltatorule! 👋 Suntem încântați să te avem alături. Chainlit este un instrument puternic conceput pentru a te ajuta să creezi prototipuri, să depanezi și să distribui aplicații construite pe baza LLM-urilor.

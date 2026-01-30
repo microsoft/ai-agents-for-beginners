@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:22:13+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "sk"
-}
--->
 # Vývoj služby Azure AI Agent
 
 V tomto cvičení použijete nástroje služby Azure AI Agent v [portáli Azure AI Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) na vytvorenie agenta pre rezerváciu letov. Agent bude schopný komunikovať s používateľmi a poskytovať informácie o letoch.

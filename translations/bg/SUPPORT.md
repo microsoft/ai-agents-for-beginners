@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "50518c351b4501f2649aeaba31c2592e",
-  "translation_date": "2025-07-12T07:31:53+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "bg"
-}
--->
 # TODO: Поддържащият този репозиторий все още не е редактирал този файл
 
 **СОБСТВЕНИК НА РЕПОЗИТОРИЯ**: Искате ли поддръжка от Customer Service & Support (CSS) за този продукт/проект?

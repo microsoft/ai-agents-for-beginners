@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7120197753abacc827b64ac2d5d6966f",
-  "translation_date": "2025-11-13T14:00:11+00:00",
-  "source_file": "02-explore-agentic-frameworks/README.md",
-  "language_code": "ro"
-}
--->
 [![Explorarea Cadrelor pentru Agenți AI](../../../translated_images/ro/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
