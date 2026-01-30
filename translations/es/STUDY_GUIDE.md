@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T14:47:01+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "es"
-}
--->
 # Agentes de IA para Principiantes - Guía de Estudio y Resumen del Curso
 
 Esta guía proporciona un resumen del curso "Agentes de IA para Principiantes" y explica conceptos clave, marcos y patrones de diseño para construir agentes de IA.

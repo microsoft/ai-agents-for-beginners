@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # 初學者的 AI 代理人課程
 
-![初學者的生成式 AI](../../../../translated_images/tw/repo-thumbnailv2.06f4a48036fde647.webp)
+![初學者的生成式 AI](../../../../translated_images/zh-TW/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## 一門教你開始化建 AI 代理人所需了解的一切的課程
 

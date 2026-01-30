@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-01T21:39:33+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "es"
-}
--->
 # Construcción de Aplicaciones Multi-Agente con el Flujo de Trabajo del Marco de Agentes de Microsoft
 
 Este tutorial te guiará para comprender y construir aplicaciones multi-agente utilizando el Marco de Agentes de Microsoft. Exploraremos los conceptos básicos de los sistemas multi-agente, profundizaremos en la arquitectura del componente Workflow del marco y revisaremos ejemplos prácticos en Python y .NET para diferentes patrones de flujo de trabajo.

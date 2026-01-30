@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "zh"
 }
 -->
-[![如何设计优秀的 AI 代理](../../../../../translated_images/zh/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![如何设计优秀的 AI 代理](../../../../../translated_images/zh-CN/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(点击上方图片观看本课视频)_
 
@@ -219,7 +219,7 @@ AI 代理可以利用工具完成复杂任务、检索信息或做出决策。�
 
 下图展示了使用 Semantic Kernel 进行函数调用的流程：
 
-![function calling](../../../../../translated_images/zh/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../../../translated_images/zh-CN/functioncalling-diagram.a84006fc287f6014.webp)
 
 在 Semantic Kernel 中，函数/工具被称为<a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">插件</a>。我们可以将之前的 `get_current_time` 函数通过封装为带函数的类转换成插件。还可导入 `kernel_function` 装饰器，传入函数描述。当用 GetCurrentTimePlugin 创建内核时，内核会自动序列化函数及其参数，创建发送给 LLM 的模式。
 
@@ -280,7 +280,7 @@ Azure AI 代理服务中的工具分为两类：
 
 下图演示了如何使用 Azure AI 代理服务分析销售数据：
 
-![Agentic Service In Action](../../../../../translated_images/zh/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../../../translated_images/zh-CN/agent-service-in-action.34fb465c9a84659e.webp)
 
 要使用服务中的任一工具，我们可以创建客户端并定义工具或工具集。以下 Python 代码演示了该实现。LLM 会查看工具集，并根据用户请求决定使用用户创建的函数 `fetch_sales_data_using_sqlite_query` 还是预构建的代码解释器。
 

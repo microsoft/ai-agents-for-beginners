@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-30T14:44:11+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "es"
-}
--->
 # Construyendo Sistemas de Comunicación entre Agentes con MCP
 
 > Resumen rápido - ¿Puedes construir comunicación entre agentes con MCP? ¡Sí!

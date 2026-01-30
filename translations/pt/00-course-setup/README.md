@@ -25,7 +25,7 @@ Isso pode ser feito clicando no link para <a href="https://github.com/microsoft/
 
 Agora você deve ter a sua própria versão do curso no seguinte link:
 
-![Repositório com Fork](../../../translated_images/pt/forked-repo.33f27ca1901baa6a.webp)
+![Repositório com Fork](../../../translated_images/pt-PT/forked-repo.33f27ca1901baa6a.webp)
 
 ### Clone Raso (recomendado para workshop / Codespaces)
 
@@ -176,11 +176,11 @@ Por favor, siga o [Princípio do Menor Privilégio](https://docs.github.com/en/g
 
 1. Selecione a opção `Fine-grained tokens` no lado esquerdo da tela, navegando até as **Configurações de Desenvolvedor**.
 
-   ![Configurações de Desenvolvedor](../../../translated_images/pt/profile_developer_settings.410a859fe749c755.webp)
+   ![Configurações de Desenvolvedor](../../../translated_images/pt-PT/profile_developer_settings.410a859fe749c755.webp)
 
    Em seguida, selecione `Generate new token`.
 
-   ![Gerar Token](../../../translated_images/pt/fga_new_token.1c1a234afe202ab3.webp)
+   ![Gerar Token](../../../translated_images/pt-PT/fga_new_token.1c1a234afe202ab3.webp)
 
 2. Insira um nome descritivo para o seu token que reflita seu propósito, facilitando a identificação posterior.
 
@@ -190,19 +190,19 @@ Por favor, siga o [Princípio do Menor Privilégio](https://docs.github.com/en/g
     Para uma postura mais segura, você pode optar por um período mais curto — como 7 dias 🛡️  
     É uma ótima maneira de definir uma meta pessoal e concluir o curso enquanto mantém o ritmo de aprendizado 🚀.
 
-    ![Nome e Expiração do Token](../../../translated_images/pt/token-name-expiry-date.a095fb0de6386864.webp)
+    ![Nome e Expiração do Token](../../../translated_images/pt-PT/token-name-expiry-date.a095fb0de6386864.webp)
 
 3. Limite o escopo do token ao seu fork deste repositório.
 
-    ![Limitar escopo ao repositório fork](../../../translated_images/pt/token_repository_limit.924ade5e11d9d8bb.webp)
+    ![Limitar escopo ao repositório fork](../../../translated_images/pt-PT/token_repository_limit.924ade5e11d9d8bb.webp)
 
 4. Restrinja as permissões do token: Em **Permissions**, clique na aba **Account** e no botão "+ Add permissions". Um menu suspenso aparecerá. Procure por **Models** e marque a caixa correspondente.
 
-    ![Adicionar Permissão de Modelos](../../../translated_images/pt/add_models_permissions.c0c44ed8b40fc143.webp)
+    ![Adicionar Permissão de Modelos](../../../translated_images/pt-PT/add_models_permissions.c0c44ed8b40fc143.webp)
 
-5. Verifique as permissões necessárias antes de gerar o token. ![Verificar Permissões](../../../translated_images/pt/verify_permissions.06bd9e43987a8b21.webp)
+5. Verifique as permissões necessárias antes de gerar o token. ![Verificar Permissões](../../../translated_images/pt-PT/verify_permissions.06bd9e43987a8b21.webp)
 
-6. Antes de gerar o token, certifique-se de que está pronto para armazená-lo em um local seguro, como um cofre de gerenciador de senhas, pois ele não será exibido novamente após a criação. ![Armazenar Token com Segurança](../../../translated_images/pt/store_token_securely.08ee2274c6ad6caf.webp)
+6. Antes de gerar o token, certifique-se de que está pronto para armazená-lo em um local seguro, como um cofre de gerenciador de senhas, pois ele não será exibido novamente após a criação. ![Armazenar Token com Segurança](../../../translated_images/pt-PT/store_token_securely.08ee2274c6ad6caf.webp)
 
 Copie o novo token que acabou de criar. Agora você o adicionará ao arquivo `.env` incluído neste curso.
 
@@ -224,7 +224,7 @@ Isso copiará o arquivo de exemplo e criará um `.env` no seu diretório, onde v
 
 Com o token copiado, abra o arquivo `.env` no seu editor de texto favorito e cole o token no campo `GITHUB_TOKEN`.
 
-![Campo do Token do GitHub](../../../translated_images/pt/github_token_field.20491ed3224b5f4a.webp)
+![Campo do Token do GitHub](../../../translated_images/pt-PT/github_token_field.20491ed3224b5f4a.webp)
 
 Agora você deve conseguir executar os exemplos de código deste curso.
 
@@ -238,7 +238,7 @@ Depois de criar o seu projeto, você precisará obter a string de conexão do pr
 
 Isso pode ser feito acessando a página **Visão Geral** do seu projeto no portal Azure AI Foundry.
 
-![String de Conexão do Projeto](../../../translated_images/pt/project-endpoint.8cf04c9975bbfbf1.webp)
+![String de Conexão do Projeto](../../../translated_images/pt-PT/project-endpoint.8cf04c9975bbfbf1.webp)
 
 ### Passo 2: Crie o Seu Arquivo `.env`
 

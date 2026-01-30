@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "zh"
 }
 -->
-[![多智能体设计](../../../translated_images/zh/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![多智能体设计](../../../translated_images/zh-CN/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(点击上方图片观看本课视频)_
 # AI智能体中的元认知
@@ -47,7 +47,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 元认知在AI智能体设计中起着至关重要的作用，原因如下：
 
-![元认知的重要性](../../../translated_images/zh/importance-of-metacognition.b381afe9aae352f7.webp)
+![元认知的重要性](../../../translated_images/zh-CN/importance-of-metacognition.b381afe9aae352f7.webp)
 
 - **自我反思**：智能体可以评估自身表现并找出需要改进的地方。
 - **适应性**：智能体可以根据过去的经验和变化的环境调整策略。
@@ -251,7 +251,7 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 首先，让我们了解RAG工具与预加载上下文的区别。
 
-![RAG与上下文加载](../../../translated_images/zh/rag-vs-context.9eae588520c00921.webp)
+![RAG与上下文加载](../../../translated_images/zh-CN/rag-vs-context.9eae588520c00921.webp)
 
 ### 检索增强生成（RAG）
 

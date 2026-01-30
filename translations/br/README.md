@@ -9,7 +9,7 @@ CO_OP_TRANSLATOR_METADATA:
 -->
 # Agentes de IA para Iniciantes - Um Curso
 
-![IA Generativa para Iniciantes](../../../../translated_images/br/repo-thumbnailv2.06f4a48036fde647.webp)
+![IA Generativa para Iniciantes](../../../../translated_images/pt-BR/repo-thumbnailv2.06f4a48036fde647.webp)
 
 ## Um curso que ensina tudo o que você precisa saber para começar a construir Agentes de IA
 

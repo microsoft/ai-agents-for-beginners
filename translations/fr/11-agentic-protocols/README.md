@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "aff92c6f019b4627ca9399c6e3882e17",
-  "translation_date": "2025-09-18T14:01:34+00:00",
-  "source_file": "11-agentic-protocols/README.md",
-  "language_code": "fr"
-}
--->
 # Utilisation des Protocoles Agentiques (MCP, A2A et NLWeb)
 
 [![Protocoles Agentiques](../../../translated_images/fr/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)

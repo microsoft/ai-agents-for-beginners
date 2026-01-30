@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d8fe220fa2850df0759b07cf391ea77c",
-  "translation_date": "2025-07-12T07:21:10+00:00",
-  "source_file": "SECURITY.md",
-  "language_code": "es"
-}
--->
 # Seguridad
 
 Microsoft se toma en serio la seguridad de nuestros productos y servicios de software, lo que incluye todos los repositorios de código fuente gestionados a través de nuestras organizaciones en GitHub, que incluyen [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) y [Xamarin](https://github.com/xamarin).

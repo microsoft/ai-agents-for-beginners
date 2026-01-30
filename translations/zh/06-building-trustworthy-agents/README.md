@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "zh"
 }
 -->
-[![可信的AI代理](../../../translated_images/zh/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![可信的AI代理](../../../translated_images/zh-CN/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(点击上方图片观看本课视频)_
 
@@ -41,7 +41,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 为了创建可扩展的系统提示，我们可以使用一个系统消息框架来为应用程序中的一个或多个代理构建提示：
 
-![构建系统消息框架](../../../translated_images/zh/system-message-framework.3a97368c92d11d68.webp)
+![构建系统消息框架](../../../translated_images/zh-CN/system-message-framework.3a97368c92d11d68.webp)
 
 #### 第一步：创建元系统消息
 
@@ -130,7 +130,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 为了构建可信的AI代理，理解并减轻对AI代理的风险和威胁至关重要。让我们来看一些针对AI代理的不同威胁，以及如何更好地规划和应对这些威胁。
 
-![理解威胁](../../../translated_images/zh/understanding-threats.89edeada8a97fc0f.webp)
+![理解威胁](../../../translated_images/zh-CN/understanding-threats.89edeada8a97fc0f.webp)
 
 ### 任务和指令
 
@@ -166,7 +166,7 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 另一种构建可信AI代理系统的有效方法是引入人类参与。这种方式创建了一个流程，用户可以在代理运行期间向其提供反馈。用户实际上充当了多代理系统中的代理，通过批准或终止运行过程来参与。
 
-![人类参与](../../../translated_images/zh/human-in-the-loop.5f0068a678f62f4f.webp)
+![人类参与](../../../translated_images/zh-CN/human-in-the-loop.5f0068a678f62f4f.webp)
 
 以下是一个使用AutoGen实现此概念的代码片段：
 

@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "br"
 }
 -->
-[![Introdução aos Agentes de IA](../../../translated_images/br/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Introdução aos Agentes de IA](../../../translated_images/pt-BR/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Clique na imagem acima para assistir ao vídeo desta aula)_
 
@@ -47,7 +47,7 @@ Vamos dividir essa definição em partes menores:
   - **Sensores** - Ambientes possuem informações e fornecem feedback. Agentes de IA utilizam sensores para coletar e interpretar essas informações sobre o estado atual do ambiente. No exemplo do Agente de Reserva de Viagens, o sistema de reservas pode fornecer informações como disponibilidade de hotéis ou preços de voos.
   - **Atuadores** - Após o Agente de IA receber o estado atual do ambiente, para a tarefa em questão, o agente determina qual ação realizar para alterar o ambiente. No exemplo do agente de reserva de viagens, pode ser reservar um quarto disponível para o usuário.
 
-![O que são Agentes de IA?](../../../translated_images/br/what-are-ai-agents.1ec8c4d548af601a.webp)
+![O que são Agentes de IA?](../../../translated_images/pt-BR/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **Modelos de Linguagem de Grande Escala** - O conceito de agentes existia antes da criação dos LLMs. A vantagem de construir Agentes de IA com LLMs é sua capacidade de interpretar linguagem humana e dados. Essa habilidade permite que os LLMs interpretem informações do ambiente e definam um plano para alterá-lo.
 
@@ -77,7 +77,7 @@ Na seção anterior, usamos o caso de uso do Agente de Viagens para explicar com
 
 Vamos analisar os tipos de casos de uso para os quais os Agentes de IA são mais adequados:
 
-![Quando usar Agentes de IA?](../../../translated_images/br/when-to-use-ai-agents.54becb3bed74a479.webp)
+![Quando usar Agentes de IA?](../../../translated_images/pt-BR/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **Problemas Abertos** - permitindo que o LLM determine os passos necessários para completar uma tarefa, pois nem sempre é possível codificar isso em um fluxo de trabalho.
 - **Processos de Múltiplas Etapas** - tarefas que exigem um nível de complexidade em que o Agente de IA precisa usar ferramentas ou informações em várias etapas, em vez de uma única recuperação.

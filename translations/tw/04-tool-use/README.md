@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "tw"
 }
 -->
-[![如何設計良好的 AI 代理人](../../../../../translated_images/tw/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![如何設計良好的 AI 代理人](../../../../../translated_images/zh-TW/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(點擊上方圖片觀看本課程影片)_
 
@@ -219,7 +219,7 @@ AI 代理人可利用工具完成複雜任務、檢索資訊或做出決策。�
 
 下圖說明 Semantic Kernel 的函式呼叫流程：
 
-![function calling](../../../../../translated_images/tw/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../../../translated_images/zh-TW/functioncalling-diagram.a84006fc287f6014.webp)
 
 在 Semantic Kernel 中，函式/工具稱為<a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">擴充套件（Plugins）</a>。我們可將之前的 `get_current_time` 函式轉成擴充套件，方法是將其包裝在类中，並引入 `kernel_function` 裝飾器，該裝飾器帶有函式描述。當您使用 GetCurrentTimePlugin 建立 kernel 時，kernel 會自動序列化函式與參數，在過程中建立可傳送給 LLM 的結構。
 
@@ -280,7 +280,7 @@ Azure AI Agent Service 中可用的工具可分為兩類：
 
 下圖說明如何使用 Azure AI Agent Service 分析銷售資料：
 
-![Agentic Service In Action](../../../../../translated_images/tw/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../../../translated_images/zh-TW/agent-service-in-action.34fb465c9a84659e.webp)
 
 要使用這些工具，我們可以建立用戶端並定義工具或工具組。以下 Python 程式碼示範如何實作。LLM 將查看工具組並判斷要使用使用者建立的函式 `fetch_sales_data_using_sqlite_query`，或是內建的程式碼解譯器，取決於使用者需求。
 

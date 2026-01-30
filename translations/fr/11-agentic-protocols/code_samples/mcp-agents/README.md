@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-28T09:54:46+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "fr"
-}
--->
 # Construire des systèmes de communication entre agents avec MCP
 
 > TL;DR - Peut-on construire une communication Agent2Agent avec MCP ? Oui !

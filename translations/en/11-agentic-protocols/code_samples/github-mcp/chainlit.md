@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-30T15:00:39+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "en"
-}
--->
 # Welcome to Chainlit! 🚀🤖
 
 Hello, Developer! 👋 We're thrilled to have you here. Chainlit is a powerful tool designed to help you prototype, debug, and share applications built on top of LLMs.

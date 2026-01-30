@@ -7,7 +7,7 @@ CO_OP_TRANSLATOR_METADATA:
   "language_code": "zh"
 }
 -->
-[![AI代理简介](../../../translated_images/zh/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![AI代理简介](../../../translated_images/zh-CN/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(点击上方图片观看本课视频)_
 
@@ -48,7 +48,7 @@ AI代理是**系统**，通过为**大型语言模型（LLMs）**提供**工具*
   - **传感器** - 环境提供信息和反馈。AI代理使用传感器收集并解释有关环境当前状态的信息。在旅行预订代理的例子中，旅行预订系统可以提供酒店可用性或航班价格等信息。
   - **执行器** - 一旦AI代理接收到环境的当前状态，代理会根据当前任务决定采取什么行动来改变环境。对于旅行预订代理来说，这可能是为用户预订一个可用的房间。
 
-![什么是AI代理？](../../../translated_images/zh/what-are-ai-agents.1ec8c4d548af601a.webp)
+![什么是AI代理？](../../../translated_images/zh-CN/what-are-ai-agents.1ec8c4d548af601a.webp)
 
 **大型语言模型** - 代理的概念在LLMs出现之前就已经存在。使用LLMs构建AI代理的优势在于它们能够解释人类语言和数据。这种能力使LLMs能够解释环境信息并制定改变环境的计划。
 
@@ -78,7 +78,7 @@ AI代理是**系统**，通过为**大型语言模型（LLMs）**提供**工具*
 
 让我们看看AI代理最适合的应用场景类型：
 
-![何时使用AI代理？](../../../translated_images/zh/when-to-use-ai-agents.54becb3bed74a479.webp)
+![何时使用AI代理？](../../../translated_images/zh-CN/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 - **开放性问题** - 允许LLM确定完成任务所需的步骤，因为这些步骤无法总是硬编码到工作流程中。
 - **多步骤流程** - 需要一定复杂性的任务，AI代理需要在多个回合中使用工具或信息，而不是单次检索。

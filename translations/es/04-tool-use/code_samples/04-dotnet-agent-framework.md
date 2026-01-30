@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "91d6061e402489603f2ec8b528cae59b",
-  "translation_date": "2025-11-18T16:31:07+00:00",
-  "source_file": "04-tool-use/code_samples/04-dotnet-agent-framework.md",
-  "language_code": "es"
-}
--->
 # 🛠️ Uso Avanzado de Herramientas con Modelos de GitHub (.NET)
 
 ## 📋 Objetivos de Aprendizaje

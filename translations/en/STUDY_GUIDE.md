@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T14:45:59+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "en"
-}
--->
 # AI Agents for Beginners - Study Guide & Course Summary
 
 This guide provides a summary of the "AI Agents for Beginners" course and explains key concepts, frameworks, and design patterns for building AI Agents.
