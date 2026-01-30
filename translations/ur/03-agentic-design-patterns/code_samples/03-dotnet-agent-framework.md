@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "bcc874e190347bd6a095aed56dc16de8",
-  "translation_date": "2025-11-13T11:15:33+00:00",
-  "source_file": "03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.md",
-  "language_code": "ur"
-}
--->
 # 🎨 ایجنٹک ڈیزائن پیٹرنز کے ساتھ GitHub ماڈلز (.NET)
 
 ## 📋 سیکھنے کے مقاصد

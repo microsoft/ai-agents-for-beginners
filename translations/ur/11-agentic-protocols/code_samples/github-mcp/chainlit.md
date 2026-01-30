@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-29T11:06:23+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "ur"
-}
--->
 # چین لِٹ میں خوش آمدید! 🚀🤖
 
 ہیلو، ڈیولپر! 👋 ہمیں خوشی ہے کہ آپ ہمارے ساتھ ہیں۔ چین لِٹ ایک زبردست ٹول ہے جو آپ کو LLMs پر مبنی ایپلیکیشنز کو پروٹوٹائپ، ڈیبگ اور شیئر کرنے میں مدد دیتا ہے۔

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-01T21:39:59+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "fa"
-}
--->
 # ساخت برنامه‌های چندعاملی با جریان کاری Microsoft Agent Framework
 
 این آموزش شما را در درک و ساخت برنامه‌های چندعاملی با استفاده از Microsoft Agent Framework راهنمایی می‌کند. ما مفاهیم اصلی سیستم‌های چندعاملی را بررسی می‌کنیم، به معماری مؤلفه جریان کاری این فریم‌ورک می‌پردازیم و مثال‌های عملی در پایتون و .NET برای الگوهای مختلف جریان کاری ارائه می‌دهیم.

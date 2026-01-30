@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f0deef171fc3a68d5d3d770a8bfb03d",
-  "translation_date": "2025-08-30T13:31:22+00:00",
-  "source_file": "09-metacognition/README.md",
-  "language_code": "fa"
-}
--->
 [![طراحی چندعاملی](../../../translated_images/fa/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(برای مشاهده ویدئوی این درس روی تصویر بالا کلیک کنید)_

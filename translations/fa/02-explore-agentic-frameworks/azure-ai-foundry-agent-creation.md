@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:15:31+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "fa"
-}
--->
 # توسعه سرویس Azure AI Agent
 
 در این تمرین، از ابزارهای سرویس Azure AI Agent در [پرتال Azure AI Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) برای ایجاد یک عامل برای رزرو پرواز استفاده می‌کنید. این عامل قادر خواهد بود با کاربران تعامل داشته و اطلاعات مربوط به پروازها را ارائه دهد.

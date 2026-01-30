@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
-  "translation_date": "2025-09-18T14:15:53+00:00",
-  "source_file": "07-planning-design/README.md",
-  "language_code": "ur"
-}
--->
 [![پلاننگ ڈیزائن پیٹرن](../../../translated_images/ur/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(اوپر دی گئی تصویر پر کلک کریں تاکہ اس سبق کی ویڈیو دیکھی جا سکے)_
