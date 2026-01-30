@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:54:31+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "ta"
-}
--->
 # Azure AI Search அமைப்பு வழிகாட்டி
 
 இந்த வழிகாட்டி Azure AI Search ஐ Azure போர்டல் மூலம் அமைக்க உதவுகிறது. உங்கள் Azure AI Search சேவையை உருவாக்கி அமைக்க கீழே உள்ள படிகளை பின்பற்றவும்.

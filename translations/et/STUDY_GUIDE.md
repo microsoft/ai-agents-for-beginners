@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T18:54:01+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "et"
-}
--->
 # AI Agendid Algajatele - Õppejuhend ja Kursuse Kokkuvõte
 
 See juhend annab ülevaate kursusest "AI Agendid Algajatele" ja selgitab põhikontseptsioone, raamistikke ja disainimustreid AI agentide ehitamiseks.

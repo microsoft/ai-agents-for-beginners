@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "0943ad1b2b8f33ed9911842b552c6376",
-  "translation_date": "2025-10-11T11:09:01+00:00",
-  "source_file": "08-multi-agent/solution/solution-quiz.md",
-  "language_code": "ta"
-}
--->
 A2: நீங்கள் பெரிய பணிச்சுமையை கொண்டிருக்கும்போது
 
 ---

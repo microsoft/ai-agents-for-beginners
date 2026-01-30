@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
-  "translation_date": "2025-10-11T11:06:39+00:00",
-  "source_file": "06-building-trustworthy-agents/README.md",
-  "language_code": "et"
-}
--->
 [![Usaldusväärsed AI-agendid](../../../translated_images/et/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klõpsake ülaloleval pildil, et vaadata selle õppetunni videot)_

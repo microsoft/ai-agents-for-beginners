@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "aff92c6f019b4627ca9399c6e3882e17",
-  "translation_date": "2025-10-11T11:25:58+00:00",
-  "source_file": "11-agentic-protocols/README.md",
-  "language_code": "ta"
-}
--->
 # ஏஜென்டிக் நெறிமுறைகளைப் பயன்படுத்துதல் (MCP, A2A மற்றும் NLWeb)
 
 [![ஏஜென்டிக் நெறிமுறைகள்](../../../translated_images/ta/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)

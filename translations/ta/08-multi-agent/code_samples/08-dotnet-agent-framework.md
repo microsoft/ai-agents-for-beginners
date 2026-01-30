@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f5a5f2902f32272257506d88d3c43a1",
-  "translation_date": "2025-11-07T09:20:02+00:00",
-  "source_file": "08-multi-agent/code_samples/08-dotnet-agent-framework.md",
-  "language_code": "ta"
-}
--->
 # 🤝 நிறுவன பல முகவர் வேலைப்பாடுகள் (.NET)
 
 ## 📋 கற்றல் நோக்கங்கள்

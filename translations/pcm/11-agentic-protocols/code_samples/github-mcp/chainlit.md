@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-11-11T14:21:55+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "pcm"
-}
--->
 # Welcome to Chainlit! 🚀🤖
 
 Hello dia, Developer! 👋 We dey happy say you join us. Chainlit na strong tool wey go help you prototype, debug, and share apps wey dey work on top LLMs.

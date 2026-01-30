@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-11-11T11:57:54+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "pcm"
-}
--->
 **Agents wey dey for customer support process**:
 
 - **Customer agent**: Na dis agent dey represent di customer, e dey responsible to start di support process.

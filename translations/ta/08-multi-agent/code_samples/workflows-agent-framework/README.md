@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-11T11:09:09+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "ta"
-}
--->
 # Microsoft Agent Framework Workflow மூலம் பல முகவர் பயன்பாடுகளை உருவாக்குதல்
 
 இந்த பயிற்சியில், Microsoft Agent Framework-ஐப் பயன்படுத்தி பல முகவர் பயன்பாடுகளை உருவாக்குவதற்கான வழிகாட்டுதலைப் பெறுவீர்கள். பல முகவர் அமைப்புகளின் முக்கிய கருத்துகளைப் புரிந்துகொள்வதுடன், Framework-இன் Workflow கூறின் கட்டமைப்பை ஆராய்ந்து, Python மற்றும் .NET-இல் பல Workflow முறைமைகளுக்கான நடைமுறை உதாரணங்களைப் பார்ப்போம்.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-11-11T14:14:15+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "pcm"
-}
--->
 # Azure AI Agent Service Development
 
 For dis exercise, you go use Azure AI Agent service tools wey dey for [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) to create one agent wey go help for Flight Booking. Dis agent go fit interact wit users and give dem information about flights.

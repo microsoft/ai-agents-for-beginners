@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-10-11T11:16:31+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "ta"
-}
--->
 # Azure AI Agent சேவை மேம்பாடு
 
 இந்த பயிற்சியில், நீங்கள் [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) இல் உள்ள Azure AI Agent சேவை கருவிகளைப் பயன்படுத்தி ஒரு விமான முன்பதிவு ஏஜெண்ட்டை உருவாக்குவீர்கள். இந்த ஏஜெண்ட் பயனர்களுடன் தொடர்பு கொண்டு விமானங்களின் தகவல்களை வழங்க முடியும்.

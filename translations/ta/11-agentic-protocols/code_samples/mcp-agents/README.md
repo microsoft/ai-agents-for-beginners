@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-10-11T11:29:52+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "ta"
-}
--->
 # MCP மூலம் முகவர்-முகவர் தொடர்பு அமைப்புகளை உருவாக்குதல்
 
 > TL;DR - MCP-ல் Agent2Agent தொடர்பு அமைக்க முடியுமா? முடியும்!

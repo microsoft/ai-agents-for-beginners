@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-10-11T11:29:46+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "et"
-}
--->
 # Tere tulemast Chainliti! 🚀🤖
 
 Tere, arendaja! 👋 Meil on hea meel, et oled meiega liitunud. Chainlit on võimas tööriist, mis aitab sul prototüüpida, siluda ja jagada rakendusi, mis põhinevad LLM-idel.

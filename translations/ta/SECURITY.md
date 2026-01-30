@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d8fe220fa2850df0759b07cf391ea77c",
-  "translation_date": "2025-10-11T10:57:04+00:00",
-  "source_file": "SECURITY.md",
-  "language_code": "ta"
-}
--->
 <!-- BEGIN MICROSOFT SECURITY.MD V0.0.9 BLOCK -->
 
 # பாதுகாப்பு
