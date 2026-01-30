@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cb7e50f471905ce6fdb92a30269a7a98",
-  "translation_date": "2025-09-04T09:37:38+00:00",
-  "source_file": "12-context-engineering/README.md",
-  "language_code": "de"
-}
--->
 Translation for chunk 1 of 'README.md' skipped due to timeout.
 
 ---

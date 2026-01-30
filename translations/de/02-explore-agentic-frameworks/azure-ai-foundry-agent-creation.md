@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:14:55+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "de"
-}
--->
 # Azure AI Agent Service Entwicklung
 
 In dieser Übung verwenden Sie die Azure AI Agent Service-Tools im [Azure AI Foundry Portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst), um einen Agenten für Flugbuchungen zu erstellen. Der Agent kann mit Nutzern interagieren und Informationen zu Flügen bereitstellen.

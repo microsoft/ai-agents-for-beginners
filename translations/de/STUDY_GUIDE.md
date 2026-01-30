@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T15:12:59+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "de"
-}
--->
 # KI-Agenten für Einsteiger – Studienführer & Kurszusammenfassung
 
 Dieser Leitfaden bietet eine Zusammenfassung des Kurses "KI-Agenten für Einsteiger" und erklärt wichtige Konzepte, Frameworks und Designmuster für den Aufbau von KI-Agenten.

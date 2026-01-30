@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "0ebf6b2290db55dbf2d10cc49655523b",
-  "translation_date": "2025-09-30T06:19:01+00:00",
-  "source_file": "05-agentic-rag/README.md",
-  "language_code": "ar"
-}
--->
 [![Agentic RAG](../../../translated_images/ar/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو الدرس)_

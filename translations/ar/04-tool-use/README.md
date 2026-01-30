@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T14:58:33+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "ar"
-}
--->
-[![كيفية تصميم وكلاء ذكاء اصطناعي جيدين](../../../../../translated_images/ar/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![كيفية تصميم وكلاء ذكاء اصطناعي جيدين](../../../translated_images/ar/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(انقر على الصورة أعلاه لمشاهدة فيديو هذا الدرس)_
 
@@ -218,7 +209,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 يوضح الرسم البياني التالي عملية استدعاء الدوال مع Semantic Kernel:
 
-![function calling](../../../../../translated_images/ar/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/ar/functioncalling-diagram.a84006fc287f6014.webp)
 
 في Semantic Kernel تُسمى الدوال/الأدوات <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">الإضافات (Plugins)</a>. يمكننا تحويل الدالة `get_current_time` التي رأيناها سابقًا إلى إضافة عن طريق تحويلها إلى صنف يحتوي على الدالة. يمكننا أيضًا استيراد مزين `kernel_function`، الذي يأخذ وصف الدالة. عند إنشاء Kernel باستخدام GetCurrentTimePlugin، يقوم Kernel تلقائيًا بتسلسل الدالة ومعاملاتها، وينشئ المخطط لإرساله إلى نموذج اللغة الكبير في هذه العملية.
 
@@ -279,7 +270,7 @@ kernel.add_plugin(get_current_time_plugin)
 
 توضح الصورة التالية كيف يمكنك استخدام خدمة Azure AI Agent لتحليل بيانات المبيعات الخاصة بك:
 
-![Agentic Service In Action](../../../../../translated_images/ar/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/ar/agent-service-in-action.34fb465c9a84659e.webp)
 
 لاستخدام أي من هذه الأدوات مع الخدمة، يمكننا إنشاء عميل وتعريف أداة أو مجموعة أدوات. لتطبيق هذا عمليًا، يمكننا استخدام كود Python التالي. سيتمكن نموذج اللغة الكبير (LLM) من النظر في مجموعة الأدوات وتقرير ما إذا كان يستخدم الدالة التي أنشأها المستخدم، `fetch_sales_data_using_sqlite_query`، أو مفسر الشفرة المُعد مسبقًا بناءً على طلب المستخدم.
 

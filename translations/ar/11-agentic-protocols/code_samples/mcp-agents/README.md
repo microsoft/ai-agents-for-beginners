@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-29T10:49:24+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "ar"
-}
--->
 # بناء أنظمة تواصل بين الوكلاء باستخدام MCP
 
 > ملخص سريع - هل يمكنك بناء تواصل بين الوكلاء باستخدام MCP؟ نعم!

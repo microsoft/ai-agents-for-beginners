@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T11:09:52+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "ar"
-}
--->
 # بناء تطبيقات متعددة الوكلاء باستخدام إطار عمل Microsoft Agent Workflow
 
 هذا الدليل سيرشدك لفهم وبناء تطبيقات متعددة الوكلاء باستخدام إطار عمل Microsoft Agent. سنستكشف المفاهيم الأساسية لأنظمة الوكلاء المتعددة، ونغوص في بنية مكون Workflow الخاص بالإطار، ونستعرض أمثلة عملية باستخدام Python و .NET لأنماط سير العمل المختلفة.

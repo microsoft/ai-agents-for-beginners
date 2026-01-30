@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c268705e6fb2b30c7690d5b2a002e072",
-  "translation_date": "2025-11-07T08:56:48+00:00",
-  "source_file": "05-agentic-rag/code_samples/05-dotnet-agent-framework.md",
-  "language_code": "ar"
-}
--->
 # 🔍 نظام RAG للمؤسسات باستخدام Azure AI Foundry (.NET)
 
 ## 📋 أهداف التعلم

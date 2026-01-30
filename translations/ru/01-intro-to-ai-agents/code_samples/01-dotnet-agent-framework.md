@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f351412e934f0833c8c821a0a60efaf",
-  "translation_date": "2025-11-13T10:58:48+00:00",
-  "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
-  "language_code": "ru"
-}
--->
 # 🌍 AI Туристический Агент с Microsoft Agent Framework (.NET)
 
 ## 📋 Обзор сценария
