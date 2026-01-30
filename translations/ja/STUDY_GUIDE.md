@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-16T06:41:20+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "ja"
-}
--->
 # 初心者向けAIエージェント - 学習ガイド＆コース要約
 
 このガイドは「初心者向けAIエージェント」コースの要約を提供し、AIエージェント構築のための重要な概念、フレームワーク、およびデザインパターンを説明します。

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "4d3b0e20122a974cc2fae7f889400bbc",
-  "translation_date": "2025-08-30T14:55:04+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md",
-  "language_code": "ko"
-}
--->
 ## 이벤트 이름: Azure AI Agent Service로 코드 우선 앱 만들기 (EMEA/US 제공)
 
 ## 설명

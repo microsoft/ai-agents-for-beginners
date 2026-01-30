@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:29:41+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "ko"
-}
--->
 # Azure AI Search 설정 가이드
 
 이 가이드는 Azure 포털을 사용하여 Azure AI Search를 설정하는 방법을 안내합니다. 아래 단계를 따라 Azure AI Search 서비스를 생성하고 구성하세요.

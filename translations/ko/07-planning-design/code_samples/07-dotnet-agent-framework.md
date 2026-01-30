@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "2d13c1e3518a0257a00fea949e2d0350",
-  "translation_date": "2025-11-07T09:55:37+00:00",
-  "source_file": "07-planning-design/code_samples/07-dotnet-agent-framework.md",
-  "language_code": "ko"
-}
--->
 # 🎯 GitHub 모델(.NET)을 활용한 계획 및 디자인 패턴
 
 ## 📋 학습 목표

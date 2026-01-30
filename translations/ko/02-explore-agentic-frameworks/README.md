@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7120197753abacc827b64ac2d5d6966f",
-  "translation_date": "2025-11-13T11:34:50+00:00",
-  "source_file": "02-explore-agentic-frameworks/README.md",
-  "language_code": "ko"
-}
--->
 [![AI 에이전트 프레임워크 탐구](../../../translated_images/ko/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(위 이미지를 클릭하면 이 강의의 동영상을 볼 수 있습니다)_

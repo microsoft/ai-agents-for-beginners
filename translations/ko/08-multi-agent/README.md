@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "1a008c204051cba8d0e253b75f261c41",
-  "translation_date": "2025-08-30T13:46:24+00:00",
-  "source_file": "08-multi-agent/README.md",
-  "language_code": "ko"
-}
--->
 [![Multi-Agent Design](../../../translated_images/ko/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(위 이미지를 클릭하면 이 강의의 영상을 볼 수 있습니다)_

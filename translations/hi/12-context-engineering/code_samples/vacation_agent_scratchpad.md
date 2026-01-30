@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9e2a4a04b4686b008a7e06f916884e58",
-  "translation_date": "2025-09-18T16:28:22+00:00",
-  "source_file": "12-context-engineering/code_samples/vacation_agent_scratchpad.md",
-  "language_code": "hi"
-}
--->
 # एजेंट स्क्रैचपैड
 
 ## उपयोगकर्ता प्राथमिकताएँ

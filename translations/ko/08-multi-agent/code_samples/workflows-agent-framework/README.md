@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-01T21:41:36+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "ko"
-}
--->
 # Microsoft Agent Framework Workflow을 활용한 다중 에이전트 애플리케이션 구축
 
 이 튜토리얼은 Microsoft Agent Framework을 사용하여 다중 에이전트 애플리케이션을 이해하고 구축하는 과정을 안내합니다. 다중 에이전트 시스템의 핵심 개념을 탐구하고, 프레임워크의 Workflow 구성 요소 아키텍처를 깊이 있게 살펴보며, Python과 .NET에서 다양한 워크플로 패턴을 활용한 실용적인 예제를 다룹니다.

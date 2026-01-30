@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "91d6061e402489603f2ec8b528cae59b",
-  "translation_date": "2025-11-18T16:57:24+00:00",
-  "source_file": "04-tool-use/code_samples/04-dotnet-agent-framework.md",
-  "language_code": "ko"
-}
--->
 # 🛠️ GitHub 모델을 활용한 고급 도구 사용 (.NET)
 
 ## 📋 학습 목표

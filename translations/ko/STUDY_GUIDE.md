@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-16T06:41:59+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "ko"
-}
--->
 # AI 에이전트 초보자용 - 학습 가이드 및 강의 요약
 
 이 가이드는 "AI 에이전트 초보자용" 강의 내용을 요약하고 AI 에이전트 구축을 위한 핵심 개념, 프레임워크 및 설계 패턴을 설명합니다.

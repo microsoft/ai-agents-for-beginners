@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-07-12T11:37:19+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "ko"
-}
--->
 **고객 지원 프로세스에 특화된 에이전트들**:
 
 - **Customer agent**: 이 에이전트는 고객을 대표하며 지원 프로세스를 시작하는 역할을 합니다.

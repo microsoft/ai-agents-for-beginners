@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T06:03:02+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "ja"
-}
--->
 # Microsoft Agent Framework Workflowを使ったマルチエージェントアプリケーションの構築
 
 このチュートリアルでは、Microsoft Agent Frameworkを使用してマルチエージェントアプリケーションを理解し構築する方法を説明します。マルチエージェントシステムの基本概念を探り、フレームワークのWorkflowコンポーネントのアーキテクチャを詳しく解説し、Pythonと.NETでの実践的な例を通じてさまざまなワークフローパターンを学びます。

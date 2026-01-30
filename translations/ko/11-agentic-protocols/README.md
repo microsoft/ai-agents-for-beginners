@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "aff92c6f019b4627ca9399c6e3882e17",
-  "translation_date": "2025-09-18T14:28:48+00:00",
-  "source_file": "11-agentic-protocols/README.md",
-  "language_code": "ko"
-}
--->
 # 에이전틱 프로토콜 사용하기 (MCP, A2A 및 NLWeb)
 
 [![에이전틱 프로토콜](../../../translated_images/ko/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
