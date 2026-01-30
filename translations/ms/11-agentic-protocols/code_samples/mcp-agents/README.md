@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-29T18:32:17+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "ms"
-}
--->
 # Membina Sistem Komunikasi Ejen-ke-Ejen dengan MCP
 
 > Ringkasan - Bolehkah Anda Membina Komunikasi Ejen2Ejen dengan MCP? Ya!

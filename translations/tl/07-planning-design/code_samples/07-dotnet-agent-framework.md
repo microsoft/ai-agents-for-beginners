@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "2d13c1e3518a0257a00fea949e2d0350",
-  "translation_date": "2025-11-07T09:58:46+00:00",
-  "source_file": "07-planning-design/code_samples/07-dotnet-agent-framework.md",
-  "language_code": "tl"
-}
--->
 # 🎯 Pagpaplano at Mga Disenyo ng Pattern gamit ang GitHub Models (.NET)
 
 ## 📋 Mga Layunin sa Pag-aaral

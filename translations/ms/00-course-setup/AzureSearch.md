@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:44:01+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "ms"
-}
--->
 # Panduan Penyediaan Azure AI Search
 
 Panduan ini akan membantu anda menyediakan Azure AI Search menggunakan portal Azure. Ikuti langkah-langkah di bawah untuk mencipta dan mengkonfigurasi perkhidmatan Azure AI Search anda.

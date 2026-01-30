@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T17:24:35+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "ms"
-}
--->
 # Membina Aplikasi Multi-Ejen dengan Microsoft Agent Framework Workflow
 
 Tutorial ini akan membimbing anda memahami dan membina aplikasi multi-ejen menggunakan Microsoft Agent Framework. Kita akan meneroka konsep asas sistem multi-ejen, menyelami seni bina komponen Workflow dalam rangka kerja ini, dan melalui contoh praktikal dalam Python dan .NET untuk pelbagai corak workflow.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d71524fe83a23829ae7a23b4031aaac8",
-  "translation_date": "2025-11-13T13:30:28+00:00",
-  "source_file": "03-agentic-design-patterns/README.md",
-  "language_code": "tl"
-}
--->
 [![Paano Magdisenyo ng Magandang AI Agents](../../../translated_images/tl/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(I-click ang imahe sa itaas para mapanood ang video ng araling ito)_

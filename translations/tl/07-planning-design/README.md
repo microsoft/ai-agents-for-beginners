@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
-  "translation_date": "2025-09-18T15:23:15+00:00",
-  "source_file": "07-planning-design/README.md",
-  "language_code": "tl"
-}
--->
 [![Planning Design Pattern](../../../translated_images/tl/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(I-click ang imahe sa itaas para mapanood ang video ng araling ito)_

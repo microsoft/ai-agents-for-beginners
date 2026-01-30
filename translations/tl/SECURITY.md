@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d8fe220fa2850df0759b07cf391ea77c",
-  "translation_date": "2025-07-12T07:25:53+00:00",
-  "source_file": "SECURITY.md",
-  "language_code": "tl"
-}
--->
 # Seguridad
 
 Seryoso ang Microsoft sa seguridad ng aming mga software na produkto at serbisyo, kabilang na ang lahat ng source code repositories na pinamamahalaan sa pamamagitan ng aming mga GitHub organizations, tulad ng [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) at [Xamarin](https://github.com/xamarin).

@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T16:04:49+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "tl"
-}
--->
-[![Paano Magdisenyo ng Magandang AI Agents](../../../../../translated_images/tl/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Paano Magdisenyo ng Magandang AI Agents](../../../translated_images/tl/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(I-click ang larawan sa itaas upang panoorin ang video ng araling ito)_
 
@@ -219,7 +210,7 @@ Ang <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" targ
 
 Ipinapakita ng sumusunod na diagram ang proseso ng function calling gamit ang Semantic Kernel:
 
-![function calling](../../../../../translated_images/tl/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/tl/functioncalling-diagram.a84006fc287f6014.webp)
 
 Sa Semantic Kernel, ang mga functions/tools ay tinatawag na <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Maaari nating gawing plugin ang function na `get_current_time` na nakita natin kanina sa pamamagitan ng pag-convert nito sa isang klase na may function sa loob nito. Maaari rin nating i-import ang dekorador na `kernel_function`, na tumatanggap ng paglalarawan ng function. Kapag gumawa ka ng kernel gamit ang GetCurrentTimePlugin, awtomatikong isi-serialize ng kernel ang function at ang mga parameter nito, na lumilikha ng schema na ipapadala sa LLM sa proseso.
 
@@ -280,7 +271,7 @@ Isipin na ikaw ay isang sales agent sa kumpanyang Contoso. Nais mong bumuo ng is
 
 Ipinapakita ng sumusunod na larawan kung paano mo magagamit ang Azure AI Agent Service upang suriin ang iyong sales data:
 
-![Agentic Service In Action](../../../../../translated_images/tl/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/tl/agent-service-in-action.34fb465c9a84659e.webp)
 
 Para magamit ang alinman sa mga tool na ito sa serbisyo, maaari tayong gumawa ng client at magdeklara ng isang tool o toolset. Para maipatupad ito nang praktikal, maaari nating gamitin ang sumusunod na Python code. Magagawa ng LLM na tingnan ang toolset at magpasya kung gagamitin ang user-created na function na `fetch_sales_data_using_sqlite_query` o ang pre-built Code Interpreter depende sa kahilingan ng user.
 

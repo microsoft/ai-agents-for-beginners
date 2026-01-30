@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "aff92c6f019b4627ca9399c6e3882e17",
-  "translation_date": "2025-09-18T15:17:47+00:00",
-  "source_file": "11-agentic-protocols/README.md",
-  "language_code": "id"
-}
--->
 # Menggunakan Protokol Agen (MCP, A2A, dan NLWeb)
 
 [![Protokol Agen](../../../translated_images/id/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
