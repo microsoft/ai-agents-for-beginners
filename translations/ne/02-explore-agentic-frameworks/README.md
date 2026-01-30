@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7120197753abacc827b64ac2d5d6966f",
-  "translation_date": "2025-11-13T11:57:42+00:00",
-  "source_file": "02-explore-agentic-frameworks/README.md",
-  "language_code": "ne"
-}
--->
 [![AI एजेन्ट फ्रेमवर्क्स अन्वेषण गर्दै](../../../translated_images/ne/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(माथिको तस्बिरमा क्लिक गरेर यस पाठको भिडियो हेर्नुहोस्)_

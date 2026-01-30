@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "e23058f87779da210fc0257ee2747c53",
-  "translation_date": "2025-11-13T11:59:41+00:00",
-  "source_file": "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md",
-  "language_code": "ne"
-}
--->
 # 🔍 माइक्रोसफ्ट एजेन्ट फ्रेमवर्क - आधारभूत एजेन्ट (.NET)
 
 ## 📋 सिक्ने उद्देश्यहरू

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-07-12T11:37:49+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "ne"
-}
--->
 **ग्राहक समर्थन प्रक्रियाका लागि विशेष एजेन्टहरू**:
 
 - **ग्राहक एजेन्ट**: यो एजेन्ट ग्राहकको प्रतिनिधित्व गर्छ र समर्थन प्रक्रिया सुरु गर्ने जिम्मेवारी लिन्छ।

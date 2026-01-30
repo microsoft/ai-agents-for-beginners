@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "63b1a8f6e840df15934935b728e569f0",
-  "translation_date": "2025-12-03T14:07:06+00:00",
-  "source_file": "00-course-setup/README.md",
-  "language_code": "bn"
-}
--->
 # কোর্স সেটআপ
 
 ## পরিচিতি

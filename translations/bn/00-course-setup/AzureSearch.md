@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:31:04+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "bn"
-}
--->
 # Azure AI Search সেটআপ গাইড
 
 এই গাইডটি আপনাকে Azure পোর্টাল ব্যবহার করে Azure AI Search সেটআপ করতে সাহায্য করবে। Azure AI Search সার্ভিস তৈরি এবং কনফিগার করার জন্য নিচের ধাপগুলো অনুসরণ করুন।

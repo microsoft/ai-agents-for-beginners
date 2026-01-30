@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-07-12T11:37:41+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "mr"
-}
--->
 **ग्राहक समर्थन प्रक्रियेतील विशिष्ट एजंट्स**:
 
 - **Customer agent**: हा एजंट ग्राहकाचे प्रतिनिधित्व करतो आणि समर्थन प्रक्रिया सुरू करण्यासाठी जबाबदार असतो.

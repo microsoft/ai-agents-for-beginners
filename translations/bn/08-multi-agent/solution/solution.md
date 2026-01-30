@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-07-12T11:37:33+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "bn"
-}
--->
 **গ্রাহক সহায়তা প্রক্রিয়ার জন্য নির্দিষ্ট এজেন্টগণ**:
 
 - **Customer agent**: এই এজেন্ট গ্রাহককে প্রতিনিধিত্ব করে এবং সহায়তা প্রক্রিয়া শুরু করার জন্য দায়ী।

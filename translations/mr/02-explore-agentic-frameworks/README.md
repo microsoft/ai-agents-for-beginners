@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7120197753abacc827b64ac2d5d6966f",
-  "translation_date": "2025-11-13T11:50:49+00:00",
-  "source_file": "02-explore-agentic-frameworks/README.md",
-  "language_code": "mr"
-}
--->
 [![AI एजंट फ्रेमवर्क्स एक्सप्लोर करत आहे](../../../translated_images/mr/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(वरील प्रतिमेवर क्लिक करा आणि या धड्याचा व्हिडिओ पहा)_

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "a1d90991499ad697c4ad24decaf36968",
-  "translation_date": "2025-12-09T12:06:26+00:00",
-  "source_file": "13-agent-memory/README.md",
-  "language_code": "bn"
-}
--->
 # এআই এজেন্টদের জন্য মেমোরি
 [![এজেন্ট মেমোরি](../../../translated_images/bn/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 

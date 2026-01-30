@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d8fe220fa2850df0759b07cf391ea77c",
-  "translation_date": "2025-07-12T07:23:01+00:00",
-  "source_file": "SECURITY.md",
-  "language_code": "mr"
-}
--->
 # सुरक्षा
 
 मायक्रोसॉफ्ट आपल्या सॉफ्टवेअर उत्पादनांची आणि सेवा सुरक्षिततेला गंभीरपणे घेतो, ज्यामध्ये आमच्या GitHub संस्थांद्वारे व्यवस्थापित सर्व स्रोत कोड रिपॉझिटरीजचा समावेश आहे, ज्यात [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) आणि [Xamarin](https://github.com/xamarin) यांचा समावेश आहे.
