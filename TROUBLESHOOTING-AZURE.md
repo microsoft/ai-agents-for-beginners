@@ -87,6 +87,97 @@ Your Azure OpenAI resource has key-based authentication disabled by policy. You 
 
 ---
 
+### Issue: Cannot Create Agent - "Azure AI User" Role Assignment Option is Disabled
+
+**Symptoms:**
+- When trying to create an agent in Azure AI Foundry (v2), you see an error message
+- The error indicates you need the "Azure AI User" role
+- When you navigate to Settings → Permissions to assign the role, the **"Azure AI User" option is disabled/greyed out**
+- You cannot click or select the role to assign it to yourself
+
+**Root Cause:**  
+You don't have sufficient permissions to assign roles on the Azure AI Foundry project. Only users with **Owner** or **User Access Administrator** roles can assign RBAC permissions to others (or themselves).
+
+**Solution Options:**
+
+**Option 1: Use the "Fix me" Button (EASIEST - RECOMMENDED)**
+
+1. Navigate to [Azure AI Foundry](https://ai.azure.com)
+2. Select your **PROJECT** (e.g., `proj-default`) - **NOT the Hub**
+3. Click on **Agents** in the left navigation
+4. If you see the banner **"Your principal is missing the Azure AI User role"**, click the **"Fix me"** button
+   - This button has special permissions and can often assign the role even when manual assignment is disabled
+   - The role will be automatically assigned to your account
+5. Wait 5-10 minutes for the role to propagate
+6. Refresh the page and try creating an agent again
+
+**Option 2: Contact Your Azure Administrator**
+
+If the "Fix me" button doesn't work or isn't available, you need someone with elevated permissions to assign the role:
+
+1. Identify who has **Owner** or **User Access Administrator** role on your Azure subscription or project
+   - For this course: Contact **David Yu** (tenant admin) or **Chad Toney** (see Emergency Contacts section below)
+   - For your organization: Contact your Azure subscription administrator
+
+2. Request they assign you the **"Azure AI User"** role on the **PROJECT** (not the Hub)
+
+3. They can assign it via:
+   
+   **Azure AI Foundry Portal:**
+   - Go to [Azure AI Foundry](https://ai.azure.com) → Select the PROJECT
+   - Click **Settings** → **Permissions** → **+ Add member**
+   - Search for your user email
+   - Select role: **Azure AI User**
+   - Click **Add**
+   
+   **OR Azure Portal:**
+   - Go to [Azure Portal](https://portal.azure.com)
+   - Navigate to the Azure AI Foundry project resource
+   - Click **Access control (IAM)** → **+ Add** → **Add role assignment**
+   - Select role: **Azure AI User**
+   - Select your user account
+   - Click **Review + assign**
+   
+   **OR PowerShell:**
+   ```powershell
+   # Get user ID
+   $userId = (Get-AzADUser -UserPrincipalName "user.email@domain.com").Id
+   
+   # Get project resource
+   $project = Get-AzMLWorkspace -ResourceGroupName "YOUR_RESOURCE_GROUP" -Name "YOUR_PROJECT_NAME"
+   
+   # Assign Azure AI User role
+   New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Azure AI User" -Scope $project.Id
+   ```
+
+**Option 3: Use GitHub Models as a Workaround (TEMPORARY)**
+
+While waiting for role assignment, you can use the free GitHub Models to complete the lessons:
+
+1. Follow the [GitHub Models setup instructions](../00-course-setup/README.md#set-up-for-samples-using-github-models) 
+2. Use the `*-semantic-kernel.ipynb` or `*-autogen.ipynb` notebooks instead of `*-azureaiagent.ipynb`
+3. These don't require Azure AI Foundry and work with just a GitHub account
+4. Once you get the "Azure AI User" role, you can return to the Azure AI Agent Service examples
+
+**Verification:**
+
+After role assignment, verify it worked:
+
+1. Wait 5-10 minutes for Azure RBAC propagation
+2. Navigate to [Azure AI Foundry](https://ai.azure.com) → Your PROJECT → **Agents**
+3. Try creating a new agent
+4. You should now be able to create agents without errors
+
+**Common Mistakes:**
+- ❌ Trying to assign the role to yourself when you don't have Owner/User Access Administrator permissions
+- ❌ Assigning the role on the **Hub** instead of the **Project**
+- ❌ Not waiting 5-10 minutes after role assignment for propagation
+- ✅ Using the "Fix me" button in Azure AI Foundry (it has special permissions)
+- ✅ Contacting an administrator with proper permissions to assign the role
+- ✅ Ensuring the role is assigned on the **Project**, not the Hub
+
+---
+
 ### Issue: `PermissionDenied` on Azure AI Foundry (Lesson 5 RAG)
 
 **Full Error:**
