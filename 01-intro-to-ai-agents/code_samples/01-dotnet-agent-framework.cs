@@ -1,8 +1,8 @@
 #!/usr/bin/dotnet run
 
-#:package Microsoft.Extensions.AI@10.*
-#:package Microsoft.Extensions.AI.OpenAI@10.*-*
-#:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Microsoft.Extensions.AI@10.1.1
+#:package Microsoft.Extensions.AI.OpenAI@10.1.1-preview.1.25612.2
+#:package Microsoft.Agents.AI.OpenAI@1.0.0-preview.251219.1
 
 using System.ClientModel;
 using System.ComponentModel;
