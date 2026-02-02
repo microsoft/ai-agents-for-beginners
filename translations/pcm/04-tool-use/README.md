@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T18:37:50+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "pcm"
-}
--->
-[![How to Design Good AI Agents](../../../../../translated_images/pcm/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![How to Design Good AI Agents](../../../translated_images/pcm/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Click di picture wey dey top na so to watch video for dis lesson)_
 
@@ -219,7 +210,7 @@ Here some examples how you fit implement di Tool Use Design Pattern with differe
 
 Di diagram below dey show how function calling with Semantic Kernel dey go:
 
-![function calling](../../../../../translated_images/pcm/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/pcm/functioncalling-diagram.a84006fc287f6014.webp)
 
 For Semantic Kernel functions/tools na <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a> dem dey call am. We fit change di `get_current_time` function wey we see before into plugin by turning am into class wey get di function inside. We fit also import di `kernel_function` decorator, wey dey take description of di function. When you create kernel with GetCurrentTimePlugin, di kernel go automatically serialize di function and parameters, for create schema to send go LLM.
 
@@ -280,7 +271,7 @@ Imagine say you be sales agent for company wey dem call Contoso. You want create
 
 Picture below explain how you fit use Azure AI Agent Service to analyze your sales data:
 
-![Agentic Service In Action](../../../../../translated_images/pcm/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/pcm/agent-service-in-action.34fb465c9a84659e.webp)
 
 To use any of dis tools with di service, we fit create client and define tool or toolset. For practical implementation we fit use this Python code. LLM go fit check di toolset make e decide whether to use user created function, `fetch_sales_data_using_sqlite_query`, or di pre-built Code Interpreter base on wetin user request.
 

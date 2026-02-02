@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f5a5f2902f32272257506d88d3c43a1",
-  "translation_date": "2025-11-07T09:14:46+00:00",
-  "source_file": "08-multi-agent/code_samples/08-dotnet-agent-framework.md",
-  "language_code": "hi"
-}
--->
 # 🤝 एंटरप्राइज मल्टी-एजेंट वर्कफ़्लो सिस्टम (.NET)
 
 ## 📋 सीखने के उद्देश्य

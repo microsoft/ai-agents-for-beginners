@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T18:24:51+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "lt"
-}
--->
 # AI Agentai pradedantiesiems – studijų vadovas ir kurso santrauka
 
 Šis vadovas pateikia „AI Agentai pradedantiesiems“ kurso santrauką ir paaiškina pagrindines sąvokas, sistemas bei dizaino šablonus, skirtus AI Agentų kūrimui.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T16:56:12+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "sw"
-}
--->
 # Wakalimu wa AI kwa Waanzishaji - Mwongozo wa Kujifunza & Muhtasari wa Kozi
 
 Mwongozo huu unatoa muhtasari wa kozi ya "Wakalimu wa AI kwa Waanzishaji" na kufafanua dhana muhimu, mifumo, na mifumo ya kubuni kwa ajili ya kujenga Wakalimu wa AI.

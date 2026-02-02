@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d8fe220fa2850df0759b07cf391ea77c",
-  "translation_date": "2025-11-11T11:53:34+00:00",
-  "source_file": "SECURITY.md",
-  "language_code": "pcm"
-}
--->
 # Security
 
 Microsoft dey take di security of dia software products and services serious, e include all di source code repositories wey dem dey manage for dia GitHub organizations, wey include [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) and [Xamarin](https://github.com/xamarin).

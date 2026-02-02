@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-30T00:11:13+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "sr"
-}
--->
 # Изградња система за комуникацију између агената уз MCP
 
 > Укратко - Можете ли изградити комуникацију између агената уз MCP? Да!

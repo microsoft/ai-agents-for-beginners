@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d71524fe83a23829ae7a23b4031aaac8",
-  "translation_date": "2025-11-13T14:53:59+00:00",
-  "source_file": "03-agentic-design-patterns/README.md",
-  "language_code": "ta"
-}
--->
 [![சிறந்த AI முகவர்களை வடிவமைப்பது எப்படி](../../../translated_images/ta/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(மேலே உள்ள படத்தை கிளிக் செய்து இந்த பாடத்தின் வீடியோவைப் பாருங்கள்)_

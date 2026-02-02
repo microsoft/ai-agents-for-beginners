@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T06:49:06+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "sl"
-}
--->
 # Gradnja aplikacij z več agenti z uporabo Microsoft Agent Framework Workflow
 
 Ta vadnica vas bo vodila skozi razumevanje in gradnjo aplikacij z več agenti z uporabo Microsoft Agent Framework. Raziskali bomo osnovne koncepte sistemov z več agenti, se poglobili v arhitekturo komponent Workflow v okviru in preučili praktične primere v Pythonu in .NET za različne vzorce delovnih tokov.

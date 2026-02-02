@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f0deef171fc3a68d5d3d770a8bfb03d",
-  "translation_date": "2025-08-28T09:37:33+00:00",
-  "source_file": "09-metacognition/README.md",
-  "language_code": "fr"
-}
--->
 [![Conception Multi-Agent](../../../translated_images/fr/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Cliquez sur l'image ci-dessus pour voir la vidéo de cette leçon)_

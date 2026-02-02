@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "50518c351b4501f2649aeaba31c2592e",
-  "translation_date": "2025-07-12T07:31:02+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "id"
-}
--->
 # TODO: Pemelihara repo ini belum mengedit file ini
 
 **PEMILIK REPO**: Apakah Anda menginginkan dukungan Customer Service & Support (CSS) untuk produk/proyek ini?

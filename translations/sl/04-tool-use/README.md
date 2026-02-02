@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T17:38:55+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "sl"
-}
--->
-[![Kako oblikovati dobre AI agente](../../../../../translated_images/sl/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Kako oblikovati dobre AI agente](../../../translated_images/sl/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Kliknite na zgornjo sliko za ogled videoposnetka te lekcije)_
 
@@ -219,7 +210,7 @@ Tukaj je nekaj primerov, kako lahko implementirate vzorec oblikovanja uporabe or
 
 Naslednji diagram ponazarja postopek klicanja funkcij s Semantic Kernel:
 
-![function calling](../../../../../translated_images/sl/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/sl/functioncalling-diagram.a84006fc287f6014.webp)
 
 V Semantic Kernel so funkcije/orodja imenovane <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Funkcijo `get_current_time`, ki smo jo videli prej, lahko spremenimo v razširitev s tem, da jo naredimo razred, ki vsebuje funkcijo. Prav tako lahko uvozimo dekorator `kernel_function`, ki sprejema opis funkcije. Ko nato ustvarite kernel z GetCurrentTimePlugin, kernel samodejno seralizira funkcijo in njene parametre ter v postopku ustvari shemo za pošiljanje LLM-u.
 
@@ -280,7 +271,7 @@ Predstavljajte si, da ste prodajni agent v podjetju Contoso. Želite razviti pog
 
 Naslednja slika ponazarja, kako bi lahko uporabili Azure AI Agent Service za analizo vaših prodajnih podatkov:
 
-![Agentic Service In Action](../../../../../translated_images/sl/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/sl/agent-service-in-action.34fb465c9a84659e.webp)
 
 Če želite katerokoli od teh orodij uporabiti s storitvijo, lahko ustvarimo klienta in definiramo orodje ali nabor orodij. Za praktično implementacijo lahko uporabimo naslednjo Python kodo. LLM bo lahko pregledal nabor orodij in se odločil, ali bo uporabil funkcijo, ki jo je ustvaril uporabnik, `fetch_sales_data_using_sqlite_query`, ali predhodno zgrajeni tolmač kode, glede na uporabnikovo zahtevo.
 

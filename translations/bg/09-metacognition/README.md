@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5f0deef171fc3a68d5d3d770a8bfb03d",
-  "translation_date": "2025-08-29T21:00:41+00:00",
-  "source_file": "09-metacognition/README.md",
-  "language_code": "bg"
-}
--->
 [![Многопотребителски дизайн](../../../translated_images/bg/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Кликнете върху изображението по-горе, за да гледате видеото на този урок)_

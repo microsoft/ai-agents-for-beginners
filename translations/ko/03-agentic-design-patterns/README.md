@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d71524fe83a23829ae7a23b4031aaac8",
-  "translation_date": "2025-11-13T11:36:36+00:00",
-  "source_file": "03-agentic-design-patterns/README.md",
-  "language_code": "ko"
-}
--->
 [![좋은 AI 에이전트 설계 방법](../../../translated_images/ko/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(위 이미지를 클릭하면 이 강의의 영상을 볼 수 있습니다)_

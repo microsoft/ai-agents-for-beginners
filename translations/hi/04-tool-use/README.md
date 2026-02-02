@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-16T06:27:50+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "hi"
-}
--->
-[![कैसे डिज़ाइन करें अच्छे AI एजेंट](../../../../../translated_images/hi/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![कैसे डिज़ाइन करें अच्छे AI एजेंट](../../../translated_images/hi/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(इस पाठ का वीडियो देखने के लिए ऊपर की छवि पर क्लिक करें)_
 
@@ -217,7 +208,7 @@ AI एजेंट टूल्स का उपयोग जटिल कार
 
 निम्न आरेख सेमैटिक कर्नेल के साथ फ़ंक्शन कॉलिंग की प्रक्रिया को दर्शाता है:
 
-![function calling](../../../../../translated_images/hi/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/hi/functioncalling-diagram.a84006fc287f6014.webp)
 
 सेमैटिक कर्नेल में फ़ंक्शन्स/टूल्स को <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">प्लगइन्स</a> कहा जाता है। हम पहले देखी गई `get_current_time` फ़ंक्शन को एक क्लास में बदलकर एक प्लगइन बना सकते हैं जिसमें वह फ़ंक्शन होता है। हम `kernel_function` डेकोरेटर भी इम्पोर्ट कर सकते हैं, जो फ़ंक्शन के विवरण को लेता है। जब आप GetCurrentTimePlugin के साथ कर्नेल बनाएंगे, तो कर्नेल स्वचालित रूप से फ़ंक्शन और उसके पैरामीटर को सीरियलाइज़ करेगा, जिससे स्कीमा बनेगा जिसे मॉडल को भेजा जाएगा।
 
@@ -278,7 +269,7 @@ Agent Service हमें इन टूल्स को `toolset` के रू
 
 निम्न छवि दिखाती है कि आप Azure AI Agent Service का उपयोग करके अपनी बिक्री डेटा का विश्लेषण कैसे कर सकते हैं:
 
-![Agentic Service In Action](../../../../../translated_images/hi/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/hi/agent-service-in-action.34fb465c9a84659e.webp)
 
 सेवा के साथ इनमें से किसी भी टूल का उपयोग करने के लिए हम एक क्लाइंट बना सकते हैं और एक टूल या टूलसेट को परिभाषित कर सकते हैं। इसे व्यावहारिक रूप से लागू करने के लिए हम निम्नलिखित पायथन कोड का उपयोग कर सकते हैं। LLM टूलसेट को देख सकेगा और उपयोगकर्ता अनुरोध के आधार पर या तो उपयोगकर्ता द्वारा बनाई गई फ़ंक्शन `fetch_sales_data_using_sqlite_query` का उपयोग करेगा या पूर्व-निर्मित Code Interpreter का।
 

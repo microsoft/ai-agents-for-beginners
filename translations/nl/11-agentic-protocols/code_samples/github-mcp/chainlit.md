@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-29T18:41:18+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "nl"
-}
--->
 # Welkom bij Chainlit! 🚀🤖
 
 Hallo daar, Developer! 👋 We zijn blij dat je erbij bent. Chainlit is een krachtig hulpmiddel dat is ontworpen om je te helpen bij het prototypen, debuggen en delen van applicaties die zijn gebouwd op basis van LLMs.

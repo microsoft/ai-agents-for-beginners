@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "0943ad1b2b8f33ed9911842b552c6376",
-  "translation_date": "2025-12-03T16:09:46+00:00",
-  "source_file": "08-multi-agent/solution/solution-quiz.md",
-  "language_code": "ml"
-}
--->
 A2: നിങ്ങൾക്ക് വലിയൊരു ജോലിഭാരം ഉണ്ടായിരിക്കുമ്പോൾ
 
 ---

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-07-12T11:40:47+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "sr"
-}
--->
 **Агенти специфични за процес корисничке подршке**:
 
 - **Customer agent**: Овај агент представља корисника и одговоран је за покретање процеса подршке.

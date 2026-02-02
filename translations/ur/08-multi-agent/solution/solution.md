@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-07-12T11:36:39+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "ur"
-}
--->
 **کسٹمر سپورٹ کے عمل کے لیے مخصوص ایجنٹس**:
 
 - **Customer agent**: یہ ایجنٹ کسٹمر کی نمائندگی کرتا ہے اور سپورٹ کے عمل کو شروع کرنے کا ذمہ دار ہوتا ہے۔

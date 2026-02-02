@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "bcc874e190347bd6a095aed56dc16de8",
-  "translation_date": "2025-11-13T12:23:55+00:00",
-  "source_file": "03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.md",
-  "language_code": "pl"
-}
--->
 # 🎨 Wzorce projektowe agentów z modelami GitHub (.NET)
 
 ## 📋 Cele nauki

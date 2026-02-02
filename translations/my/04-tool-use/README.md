@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T18:00:07+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "my"
-}
--->
-[![How to Design Good AI Agents](../../../../../translated_images/my/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![How to Design Good AI Agents](../../../translated_images/my/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(ဤသင်ခန်းစာ၏ ဗီဒီယိုကို ကြည့်ရန် အပေါ်ရှိ ပုံကို နှိပ်ပါ)_
 
@@ -219,7 +210,7 @@ Function Calling သည် အက်ဂျင့်ကိရိယာအသု�
 
 Semantic Kernel ဖြင့် function calling နေရာရပြင် ပုံစံကို အောက်ပါပုံက ဖော်ပြပါသည် -
 
-![function calling](../../../../../translated_images/my/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/my/functioncalling-diagram.a84006fc287f6014.webp)
 
 Semantic Kernel တွင် function/ကိရိယာများကို <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a> ဟု ခေါ်သည်။ ယခင်တွင် မြင်ခဲ့သော `get_current_time` function ကို class အဖြစ် ပြောင်းပြီး plugin တစ်ခုအဖြစ် ပြုလုပ်နိုင်သည်။ `kernel_function` decorator ကို မူကြမ်းအနေဖြင့် ထည့်သွင်းနိုင်ပြီး function ရဲ့ ဖော်ပြချက်ကိုလည်း ထည့်သွင်းသည်။ GetCurrentTimePlugin ဖြင့် kernel ကို ဖန်တီးပါက kernel သည် function နှင့် ပါရာမီတာများကို လက်ဖြင့် serializing ပြုလုပ်ပြီး LLM ပို့ရန် schema ဖန်တီးသည်။
 
@@ -280,7 +271,7 @@ Contoso ဟု အမည်ရှိကုမ္ပဏီတစ်ခုတွ�
 
 အောက်ပါပုံသည် Azure AI Agent Service ကို အသုံးပြုပြီး သင်၏ အရောင်းအချက်အလက်များကို ခွဲခြမ်းစိတ်ဖြာသည့် နည်းလမ်းကို ဖော်ပြထားသည် -
 
-![Agentic Service In Action](../../../../../translated_images/my/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/my/agent-service-in-action.34fb465c9a84659e.webp)
 
 ဤကိရိယာများထဲမှ တစ်ခုခုကို service နှင့် အသုံးပြုရန် client တစ်ခု ဖန်တီးပြီး tool လုပ် ဒါမှမဟုတ် toolset သတ်မှတ်နိုင်သည်။ လက်တွေ့တွင် Python ကုဒ်အောက်ပါအတိုင်း အသုံးပြုနိုင်သည်။ LLM သည် toolset ကို ကြည့်၍ အသုံးပြုသူ ဖြင့် ဖန်တီးထားသော `fetch_sales_data_using_sqlite_query` function သို့မဟုတ် ပြင်ပရှိ Code Interpreter ကို အသုံးပြုရန် ဆုံးဖြတ်လိမ့်မည်။
 

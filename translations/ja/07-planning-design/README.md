@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
-  "translation_date": "2025-09-18T14:27:29+00:00",
-  "source_file": "07-planning-design/README.md",
-  "language_code": "ja"
-}
--->
 [![Planning Design Pattern](../../../translated_images/ja/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(上の画像をクリックすると、このレッスンの動画が視聴できます)_

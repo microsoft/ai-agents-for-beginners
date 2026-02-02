@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:41:28+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "nl"
-}
--->
 # Azure AI Search Installatiehandleiding
 
 Deze handleiding helpt je bij het instellen van Azure AI Search via de Azure portal. Volg de onderstaande stappen om je Azure AI Search-service te maken en configureren.

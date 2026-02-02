@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-29T13:37:46+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "tr"
-}
--->
 # Chainlit'e Hoş Geldiniz! 🚀🤖
 
 Merhaba, Geliştirici! 👋 Aramıza katıldığınız için çok heyecanlıyız. Chainlit, LLM'ler üzerine inşa edilen uygulamaları prototiplemek, hata ayıklamak ve paylaşmak için tasarlanmış güçlü bir araçtır.

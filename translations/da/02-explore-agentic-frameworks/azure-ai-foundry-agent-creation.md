@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:19:51+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "da"
-}
--->
 # Azure AI Agent Service Udvikling
 
 I denne øvelse bruger du Azure AI Agent serviceværktøjerne i [Azure AI Foundry-portalen](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) til at oprette en agent til flybooking. Agenten vil kunne interagere med brugere og give information om flyrejser.

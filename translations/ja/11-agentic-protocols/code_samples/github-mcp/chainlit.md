@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-30T00:25:31+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "ja"
-}
--->
 # Chainlitへようこそ！🚀🤖
 
 こんにちは、開発者の皆さん！👋 私たちはあなたを歓迎できることにとてもワクワクしています。Chainlitは、LLMを基盤としたアプリケーションのプロトタイプ作成、デバッグ、共有を支援する強力なツールです。

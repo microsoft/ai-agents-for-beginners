@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "e23058f87779da210fc0257ee2747c53",
-  "translation_date": "2025-11-13T10:53:29+00:00",
-  "source_file": "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md",
-  "language_code": "es"
-}
--->
 # 🔍 Explorando el Marco de Agentes de Microsoft - Agente Básico (.NET)
 
 ## 📋 Objetivos de Aprendizaje

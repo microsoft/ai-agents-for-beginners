@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-16T08:45:17+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "tr"
-}
--->
-[![İyi AI Ajanları Nasıl Tasarlanır](../../../../../translated_images/tr/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![İyi AI Ajanları Nasıl Tasarlanır](../../../translated_images/tr/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 
@@ -219,7 +210,7 @@ Farklı ajan çerçevelerini kullanarak Araç Kullanım Tasarım Deseni'ni nası
 
 Aşağıdaki diyagram Semantic Kernel ile fonksiyon çağrısı sürecini göstermektedir:
 
-![function calling](../../../../../translated_images/tr/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/tr/functioncalling-diagram.a84006fc287f6014.webp)
 
 Semantic Kernel'de fonksiyonlar/araçlar <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Eklenti (Plugin)</a> olarak adlandırılır. Daha önce gördüğümüz `get_current_time` fonksiyonunu, fonksiyonu içeren bir sınıfa dönüştürerek bir eklenti haline getirebiliriz. Ayrıca fonksiyonun açıklamasını alan `kernel_function` dekoratörünü import edebiliriz. Ardından GetCurrentTimePlugin ile bir kernel oluşturdukça, kernel fonksiyonu ve parametrelerini otomatik olarak serileştirip modeli göndermek üzere şema oluşturur.
 
@@ -280,7 +271,7 @@ Contoso adlı bir şirkette satış temsilcisi olduğunuzu hayal edin. Satış v
 
 Aşağıdaki görsel, Azure AI Agent Hizmeti’ni kullanarak satış verilerinizi nasıl analiz edebileceğinizi göstermektedir:
 
-![Agentic Service In Action](../../../../../translated_images/tr/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/tr/agent-service-in-action.34fb465c9a84659e.webp)
 
 Servisle bu araçlardan herhangi birini kullanmak için bir istemci yaratarak bir araç veya araç seti tanımlayabiliriz. Bunu pratikte uygulamak için aşağıdaki Python kodunu kullanabiliriz. LLM, araç setine bakarak kullanıcı tarafından oluşturulan `fetch_sales_data_using_sqlite_query` fonksiyonunu mu yoksa önceden oluşturulmuş Kod Yorumlayıcı’yı mı kullanacağına karar verecektir.
 

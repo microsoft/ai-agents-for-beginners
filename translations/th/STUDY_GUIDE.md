@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-16T07:09:28+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "th"
-}
--->
 # AI Agents for Beginners - คู่มือการศึกษาและสรุปหลักสูตร
 
 คู่มือนี้สรุปหลักสูตร "AI Agents for Beginners" และอธิบายแนวคิด หลักการ และรูปแบบการออกแบบสำคัญสำหรับการสร้าง AI Agents

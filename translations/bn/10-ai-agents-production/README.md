@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdfd0acc8592c1af14f8637833450375",
-  "translation_date": "2025-08-29T12:09:59+00:00",
-  "source_file": "10-ai-agents-production/README.md",
-  "language_code": "bn"
-}
--->
 # প্রোডাকশনে এআই এজেন্ট: পর্যবেক্ষণযোগ্যতা ও মূল্যায়ন
 
 [![প্রোডাকশনে এআই এজেন্ট](../../../translated_images/bn/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)

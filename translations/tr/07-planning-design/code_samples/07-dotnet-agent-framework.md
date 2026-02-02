@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "2d13c1e3518a0257a00fea949e2d0350",
-  "translation_date": "2025-11-07T09:57:06+00:00",
-  "source_file": "07-planning-design/code_samples/07-dotnet-agent-framework.md",
-  "language_code": "tr"
-}
--->
 # 🎯 GitHub Modelleri ile Planlama ve Tasarım Kalıpları (.NET)
 
 ## 📋 Öğrenme Hedefleri

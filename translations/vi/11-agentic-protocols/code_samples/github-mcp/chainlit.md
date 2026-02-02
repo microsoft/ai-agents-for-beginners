@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-29T18:41:33+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "vi"
-}
--->
 # Chào mừng đến với Chainlit! 🚀🤖
 
 Xin chào, Nhà phát triển! 👋 Chúng tôi rất vui mừng khi bạn tham gia cùng chúng tôi. Chainlit là một công cụ mạnh mẽ được thiết kế để giúp bạn tạo mẫu, gỡ lỗi và chia sẻ các ứng dụng được xây dựng trên nền tảng LLMs.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "50518c351b4501f2649aeaba31c2592e",
-  "translation_date": "2025-07-12T07:29:15+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "mr"
-}
--->
 # TODO: या रेपोचा मेंटेनर अजूनही या फाइलमध्ये संपादन केलेले नाही
 
 **REPO OWNER**: तुम्हाला या उत्पादन/प्रकल्पासाठी Customer Service & Support (CSS) ची मदत हवी आहे का?

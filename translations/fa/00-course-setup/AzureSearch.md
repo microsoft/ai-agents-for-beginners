@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:25:14+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "fa"
-}
--->
 # راهنمای راه‌اندازی Azure AI Search
 
 این راهنما به شما کمک می‌کند تا Azure AI Search را با استفاده از پورتال Azure راه‌اندازی کنید. مراحل زیر را دنبال کنید تا سرویس Azure AI Search خود را ایجاد و پیکربندی کنید.

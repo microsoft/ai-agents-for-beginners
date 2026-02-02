@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "a1d90991499ad697c4ad24decaf36968",
-  "translation_date": "2025-12-09T12:58:08+00:00",
-  "source_file": "13-agent-memory/README.md",
-  "language_code": "uk"
-}
--->
 # Пам'ять для AI-агентів 
 [![Пам'ять агента](../../../translated_images/uk/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 

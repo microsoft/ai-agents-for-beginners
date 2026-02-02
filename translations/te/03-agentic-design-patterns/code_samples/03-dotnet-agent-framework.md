@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "bcc874e190347bd6a095aed56dc16de8",
-  "translation_date": "2025-12-03T17:13:56+00:00",
-  "source_file": "03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.md",
-  "language_code": "te"
-}
--->
 # 🎨 GitHub మోడల్స్ (.NET) తో Agentic డిజైన్ ప్యాటర్న్స్
 
 ## 📋 నేర్చుకునే లక్ష్యాలు

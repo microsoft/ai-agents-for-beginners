@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T17:27:50+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "ro"
-}
--->
 # AI Agents for Beginners - Ghid de studiu și rezumat de curs
 
 Acest ghid oferă un rezumat al cursului „AI Agents for Beginners” și explică conceptele cheie, cadrele și modelele de design pentru construirea Agenților AI.

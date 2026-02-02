@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "bcc874e190347bd6a095aed56dc16de8",
-  "translation_date": "2025-11-13T13:18:34+00:00",
-  "source_file": "03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.md",
-  "language_code": "vi"
-}
--->
 # 🎨 Mẫu Thiết Kế Tác Nhân với GitHub Models (.NET)
 
 ## 📋 Mục Tiêu Học Tập

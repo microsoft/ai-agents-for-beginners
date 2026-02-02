@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdd28bc00816d2773bb2b5968d782abc",
-  "translation_date": "2025-11-11T11:12:01+00:00",
-  "source_file": "01-intro-to-ai-agents/README.md",
-  "language_code": "it"
-}
--->
 [![Introduzione agli Agenti AI](../../../translated_images/it/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:37:34+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "el"
-}
--->
 # Οδηγός Ρύθμισης του Azure AI Search
 
 Αυτός ο οδηγός θα σας βοηθήσει να ρυθμίσετε το Azure AI Search χρησιμοποιώντας την πύλη Azure. Ακολουθήστε τα παρακάτω βήματα για να δημιουργήσετε και να διαμορφώσετε την υπηρεσία Azure AI Search.

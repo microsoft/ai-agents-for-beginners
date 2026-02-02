@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "4d3b0e20122a974cc2fae7f889400bbc",
-  "translation_date": "2025-08-29T16:11:48+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md",
-  "language_code": "sv"
-}
--->
 ## Eventnamn: Bygg din kod-först-app med Azure AI Agent Service (EMEA/US erbjudande)
 
 ## Beskrivning

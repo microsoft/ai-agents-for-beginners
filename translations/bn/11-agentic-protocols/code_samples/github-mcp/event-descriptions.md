@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "4d3b0e20122a974cc2fae7f889400bbc",
-  "translation_date": "2025-08-29T13:31:53+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md",
-  "language_code": "bn"
-}
--->
 ## ইভেন্টের নাম: Azure AI Agent Service ব্যবহার করে কোড-ফার্স্ট অ্যাপ তৈরি করুন (EMEA/US অফারিং)
 
 ## বিবরণ

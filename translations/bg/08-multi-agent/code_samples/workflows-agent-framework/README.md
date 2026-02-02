@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T08:11:12+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "bg"
-}
--->
 # Създаване на приложения с множество агенти с Microsoft Agent Framework Workflow
 
 Този урок ще ви помогне да разберете и създадете приложения с множество агенти, използвайки Microsoft Agent Framework. Ще разгледаме основните концепции на системите с множество агенти, ще се запознаем с архитектурата на Workflow компонента на рамката и ще преминем през практически примери на Python и .NET за различни модели на работни потоци.

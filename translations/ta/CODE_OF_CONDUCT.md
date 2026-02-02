@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c06b12caf3c901eb3156e3dd5b0aea56",
-  "translation_date": "2025-10-11T10:56:53+00:00",
-  "source_file": "CODE_OF_CONDUCT.md",
-  "language_code": "ta"
-}
--->
 # மைக்ரோசாஃப்ட் திறந்த மூல நடத்தை விதிமுறைகள்
 
 இந்த திட்டம் [மைக்ரோசாஃப்ட் திறந்த மூல நடத்தை விதிமுறைகள்](https://opensource.microsoft.com/codeofconduct/) ஏற்றுக்கொண்டுள்ளது.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
-  "translation_date": "2025-08-30T13:47:16+00:00",
-  "source_file": "06-building-trustworthy-agents/README.md",
-  "language_code": "ko"
-}
--->
 [![신뢰할 수 있는 AI 에이전트](../../../translated_images/ko/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(위 이미지를 클릭하면 이 강의의 동영상을 볼 수 있습니다)_

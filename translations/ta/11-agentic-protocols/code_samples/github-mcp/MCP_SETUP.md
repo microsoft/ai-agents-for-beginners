@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c4be907703b836d1a1c360db20da4de9",
-  "translation_date": "2025-10-11T11:27:05+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/MCP_SETUP.md",
-  "language_code": "ta"
-}
--->
 # MCP சர்வர் ஒருங்கிணைப்பு வழிகாட்டி
 
 ## முன்பதிவுகள்

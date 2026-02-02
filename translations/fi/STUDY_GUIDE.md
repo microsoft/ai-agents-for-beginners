@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-16T07:36:04+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "fi"
-}
--->
 # AI-agentit aloittelijoille - Opas ja kurssin yhteenveto
 
 Tämä opas tarjoaa yhteenvetona "AI Agents for Beginners" -kurssin ja selittää keskeiset käsitteet, kehykset ja suunnittelumallit AI-agenttien rakentamiseen.

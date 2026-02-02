@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:48:08+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "ro"
-}
--->
 # Ghid de configurare Azure AI Search
 
 Acest ghid te va ajuta să configurezi Azure AI Search folosind portalul Azure. Urmează pașii de mai jos pentru a crea și configura serviciul Azure AI Search.

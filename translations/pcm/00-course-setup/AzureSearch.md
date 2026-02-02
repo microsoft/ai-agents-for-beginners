@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-11T14:19:48+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "pcm"
-}
--->
 # Azure AI Search Setup Guide
 
 Dis guide go help you set up Azure AI Search using di Azure portal. Follow di steps wey dey below to create and configure your Azure AI Search service.

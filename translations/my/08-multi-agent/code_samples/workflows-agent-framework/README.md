@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T06:04:14+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "my"
-}
--->
 # Microsoft Agent Framework Workflow ကို အသုံးပြု၍ Multi-Agent Applications တည်ဆောက်ခြင်း
 
 ဒီလမ်းညွှန်စာတမ်းက Microsoft Agent Framework ကို အသုံးပြုပြီး Multi-Agent Applications ကို နားလည်ရန်နှင့် တည်ဆောက်ရန်အတွက် လမ်းညွှန်ပေးပါမည်။ Multi-Agent Systems ရဲ့ အဓိကအကြောင်းအရာများကို လေ့လာပြီး Framework ရဲ့ Workflow component ရဲ့ Architecture ကို ဆန်းစစ်ကြည့်မည်။ Python နှင့် .NET တို့တွင် Workflow Patterns များအတွက် လက်တွေ့နမူနာများကိုလည်း လေ့လာမည်။

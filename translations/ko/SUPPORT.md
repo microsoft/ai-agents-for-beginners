@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "50518c351b4501f2649aeaba31c2592e",
-  "translation_date": "2025-07-12T07:28:54+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "ko"
-}
--->
 # TODO: 이 저장소 관리자가 아직 이 파일을 편집하지 않았습니다
 
 **REPO OWNER**: 이 제품/프로젝트에 대해 Customer Service & Support(CSS) 지원을 원하시나요?

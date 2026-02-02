@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9bf0395cbc541ce8db2a9699c8678dfc",
-  "translation_date": "2025-08-29T13:30:04+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/README.md",
-  "language_code": "bn"
-}
--->
 # Github MCP Server Example
 
 ## বিবরণ

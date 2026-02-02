@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-11T11:09:44+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "et"
-}
--->
 # Mitmeagendiliste rakenduste loomine Microsoft Agent Framework Workflow abil
 
 See juhend aitab teil mõista ja luua mitmeagendilisi rakendusi, kasutades Microsoft Agent Frameworki. Uurime mitmeagendiliste süsteemide põhikontseptsioone, süveneme raamistikus Workflow komponendi arhitektuuri ning läbime praktilisi näiteid nii Pythonis kui .NET-is erinevate töövoomustrite jaoks.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
-  "translation_date": "2025-09-18T15:20:35+00:00",
-  "source_file": "07-planning-design/README.md",
-  "language_code": "ms"
-}
--->
 [![Perancangan Corak Reka Bentuk](../../../translated_images/ms/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_

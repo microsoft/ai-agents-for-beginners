@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-01T20:33:59+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "lt"
-}
--->
 # Kuriant daugiaveiksnius taikymus su Microsoft Agent Framework Workflow
 
 Šiame vadove sužinosite, kaip suprasti ir kurti daugiaveiksnius taikymus naudojant Microsoft Agent Framework. Mes nagrinėsime pagrindines daugiaveiksnių sistemų sąvokas, gilinsimės į Framework Workflow komponento architektūrą ir peržiūrėsime praktinius pavyzdžius Python ir .NET kalbomis, skirtus skirtingiems darbo eigos modeliams.

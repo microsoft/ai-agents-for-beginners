@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-12-03T16:57:06+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "ml"
-}
--->
 # Azure AI Agent സേവന വികസനം
 
 ഈ അഭ്യാസത്തിൽ, നിങ്ങൾ [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) ൽ Azure AI Agent സേവന ഉപകരണങ്ങൾ ഉപയോഗിച്ച് Flight Booking വേണ്ടി ഒരു ഏജന്റ് സൃഷ്ടിക്കുന്നു. ഈ ഏജന്റ് ഉപയോക്താക്കളുമായി സംവദിച്ച് വിമാനങ്ങളെക്കുറിച്ചുള്ള വിവരങ്ങൾ നൽകാൻ കഴിയും.

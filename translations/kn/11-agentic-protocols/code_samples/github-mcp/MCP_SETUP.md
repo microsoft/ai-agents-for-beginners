@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c4be907703b836d1a1c360db20da4de9",
-  "translation_date": "2025-12-03T17:34:22+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/MCP_SETUP.md",
-  "language_code": "kn"
-}
--->
 # MCP ಸರ್ವರ್ ಇಂಟಿಗ್ರೇಶನ್ ಮಾರ್ಗದರ್ಶಿ
 
 ## ಪೂರ್ವಶರತ್ತುಗಳು

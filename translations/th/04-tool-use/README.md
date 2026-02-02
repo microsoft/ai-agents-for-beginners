@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-16T06:50:09+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "th"
-}
--->
-[![วิธีออกแบบเอเจนต์ AI ที่ดี](../../../../../translated_images/th/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![วิธีออกแบบเอเจนต์ AI ที่ดี](../../../translated_images/th/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(คลิกที่รูปภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 
@@ -219,7 +210,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 แผนภาพต่อไปนี้แสดงขั้นตอนการเรียกใช้ฟังก์ชันด้วย Semantic Kernel:
 
-![function calling](../../../../../translated_images/th/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/th/functioncalling-diagram.a84006fc287f6014.webp)
 
 ใน Semantic Kernel ฟังก์ชัน/เครื่องมือเรียกว่า <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a> เราสามารถแปลงฟังก์ชัน `get_current_time` ที่เห็นก่อนหน้าให้เป็นปลั๊กอินโดยเปลี่ยนเป็นคลาสที่มีฟังก์ชันในนั้นได้ นอกจากนี้เรายังสามารถนำเข้า decorator ชื่อ `kernel_function` ซึ่งรับคำอธิบายฟังก์ชัน เมื่อสร้าง kernel กับ GetCurrentTimePlugin kernel จะทำการ serialize ฟังก์ชันและพารามิเตอร์โดยอัตโนมัติ สร้าง schema เพื่อส่งให้ LLM
 
@@ -280,7 +271,7 @@ Agent Service ช่วยให้เราใช้เครื่องมื
 
 ภาพต่อไปนี้แสดงวิธีที่คุณจะใช้ Azure AI Agent Service วิเคราะห์ข้อมูลการขาย:
 
-![Agentic Service In Action](../../../../../translated_images/th/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/th/agent-service-in-action.34fb465c9a84659e.webp)
 
 เพื่อใช้เครื่องมือเหล่านี้กับบริการ เราสามารถสร้างไคลเอนต์และกำหนดเครื่องมือหรือชุดเครื่องมือ ในทางปฏิบัติ เราสามารถใช้โค้ด Python ดังต่อไปนี้ LLM จะดูชุดเครื่องมือแล้วตัดสินใจว่าจะใช้ฟังก์ชันที่ผู้ใช้สร้างเอง `fetch_sales_data_using_sqlite_query` หรือ Code Interpreter ที่มีมาให้ขึ้นอยู่กับคำขอของผู้ใช้
 

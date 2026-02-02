@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-30T14:49:51+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "lt"
-}
--->
 # Agentų tarpusavio komunikacijos sistemų kūrimas su MCP
 
 > TL;DR - Ar galite sukurti Agent2Agent komunikaciją naudojant MCP? Taip!

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:20:48+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "vi"
-}
--->
 # Phát triển Dịch vụ Azure AI Agent
 
 Trong bài tập này, bạn sẽ sử dụng các công cụ dịch vụ Azure AI Agent trong [cổng Azure AI Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) để tạo một agent cho Đặt vé máy bay. Agent này sẽ có khả năng tương tác với người dùng và cung cấp thông tin về các chuyến bay.

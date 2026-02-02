@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-10-11T11:30:34+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "et"
-}
--->
 # Agentidevaheline kommunikatsioonisüsteemide loomine MCP-ga
 
 > TL;DR - Kas MCP-ga saab luua agentidevahelist kommunikatsiooni? Jah!

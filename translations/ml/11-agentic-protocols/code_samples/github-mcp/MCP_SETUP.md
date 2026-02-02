@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c4be907703b836d1a1c360db20da4de9",
-  "translation_date": "2025-12-03T17:33:58+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/MCP_SETUP.md",
-  "language_code": "ml"
-}
--->
 # MCP സെർവർ ഇന്റഗ്രേഷൻ ഗൈഡ്
 
 ## മുൻ‌വശതയാർപ്പുകൾ

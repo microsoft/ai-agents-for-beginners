@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-16T08:37:23+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "it"
-}
--->
-[![Come progettare buoni agenti AI](../../../../../translated_images/it/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Come progettare buoni agenti AI](../../../translated_images/it/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Clicca sull'immagine sopra per vedere il video di questa lezione)_
 
@@ -219,7 +210,7 @@ Ecco alcuni esempi di come puoi implementare il Pattern di Progettazione per l�
 
 Il diagramma seguente illustra il processo di chiamata di funzione con Semantic Kernel:
 
-![function calling](../../../../../translated_images/it/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/it/functioncalling-diagram.a84006fc287f6014.webp)
 
 In Semantic Kernel le funzioni/strumenti sono chiamati <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugin</a>. Possiamo convertire la funzione `get_current_time` vista prima in un plugin trasformandola in una classe che la contiene. Possiamo anche importare il decoratore `kernel_function`, che prende in ingresso la descrizione della funzione. Quando crei un kernel con GetCurrentTimePlugin, il kernel serializzerà automaticamente la funzione e i suoi parametri, creando lo schema da inviare all’LLM nel processo.
 
@@ -280,7 +271,7 @@ Immagina di essere un agente di vendita in un’azienda chiamata Contoso. Vuoi s
 
 L’immagine seguente illustra come potresti usare Azure AI Agent Service per analizzare i tuoi dati di vendita:
 
-![Agentic Service In Action](../../../../../translated_images/it/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/it/agent-service-in-action.34fb465c9a84659e.webp)
 
 Per usare uno qualsiasi di questi strumenti con il servizio, possiamo creare un client e definire uno strumento o un set di strumenti. Per implementarlo praticamente possiamo usare il seguente codice Python. L’LLM potrà esaminare il toolset e decidere se usare la funzione creata dall’utente, `fetch_sales_data_using_sqlite_query`, o l’interprete di codice predefinito a seconda della richiesta dell’utente.
 

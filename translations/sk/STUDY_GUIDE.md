@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T17:27:10+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "sk"
-}
--->
 # AI agenti pre začiatočníkov - študijný sprievodca a súhrn kurzu
 
 Tento sprievodca poskytuje súhrn kurzu "AI agenti pre začiatočníkov" a vysvetľuje kľúčové koncepty, rámce a návrhové vzory pre budovanie AI agentov.

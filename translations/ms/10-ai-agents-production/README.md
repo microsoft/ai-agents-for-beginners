@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdfd0acc8592c1af14f8637833450375",
-  "translation_date": "2025-08-29T18:15:03+00:00",
-  "source_file": "10-ai-agents-production/README.md",
-  "language_code": "ms"
-}
--->
 # Ejen AI dalam Pengeluaran: Pemerhatian & Penilaian
 
 [![Ejen AI dalam Pengeluaran](../../../translated_images/ms/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)

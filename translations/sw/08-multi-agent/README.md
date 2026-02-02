@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "1a008c204051cba8d0e253b75f261c41",
-  "translation_date": "2025-08-29T19:54:01+00:00",
-  "source_file": "08-multi-agent/README.md",
-  "language_code": "sw"
-}
--->
 [![Multi-Agent Design](../../../translated_images/sw/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Bofya picha hapo juu kutazama video ya somo hili)_

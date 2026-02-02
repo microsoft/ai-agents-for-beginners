@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "1a008c204051cba8d0e253b75f261c41",
-  "translation_date": "2025-08-29T10:16:40+00:00",
-  "source_file": "08-multi-agent/README.md",
-  "language_code": "ne"
-}
--->
 [![Multi-Agent Design](../../../translated_images/ne/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(माथिको चित्रमा क्लिक गरेर यो पाठको भिडियो हेर्नुहोस्)_

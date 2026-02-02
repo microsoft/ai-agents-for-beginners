@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "19c4dab375acbc733855cc7f2f04edbc",
-  "translation_date": "2025-10-02T14:05:11+00:00",
-  "source_file": "14-microsoft-agent-framework/README.md",
-  "language_code": "it"
-}
--->
 # Esplorare Microsoft Agent Framework
 
 ![Agent Framework](../../../translated_images/it/lesson-14-thumbnail.90df0065b9d234ee.webp)

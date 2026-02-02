@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-29T18:30:57+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "vi"
-}
--->
 # Xây dựng Hệ thống Giao tiếp Giữa Các Tác nhân với MCP
 
 > Tóm tắt - Có thể xây dựng giao tiếp giữa các tác nhân trên MCP không? Có thể!

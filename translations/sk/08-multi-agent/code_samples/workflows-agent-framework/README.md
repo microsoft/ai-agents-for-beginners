@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T08:10:07+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "sk"
-}
--->
 # Vytváranie aplikácií s viacerými agentmi pomocou Microsoft Agent Framework Workflow
 
 Tento návod vás prevedie pochopením a vytváraním aplikácií s viacerými agentmi pomocou Microsoft Agent Framework. Preskúmame základné koncepty systémov s viacerými agentmi, ponoríme sa do architektúry komponentu Workflow v rámci frameworku a prejdeme si praktické príklady v Pythone a .NET pre rôzne vzory workflowu.

@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-16T07:20:06+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "fi"
-}
--->
-[![Miten suunnitella hyviä AI-agentteja](../../../../../translated_images/fi/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Miten suunnitella hyviä AI-agentteja](../../../translated_images/fi/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Napsauta yllä olevaa kuvaa nähdäksesi opetuksen videon)_
 
@@ -219,7 +210,7 @@ Tässä on joitakin esimerkkejä siitä, miten voit toteuttaa työkalujen käytt
 
 Seuraava kaavio havainnollistaa funktiokutsun prosessin Semantic Kernelissä:
 
-![funktiokutsu](../../../../../translated_images/fi/functioncalling-diagram.a84006fc287f6014.webp)
+![funktiokutsu](../../../translated_images/fi/functioncalling-diagram.a84006fc287f6014.webp)
 
 Semantic Kernelissä funktioita/työkaluja kutsutaan <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Lisäosiksi</a>. Voimme muuntaa aiemmin näkemiämme `get_current_time` -funktion lisäosaksi muuttamalla sen luokaksi, jossa funktio sijaitsee. Voimme myös tuoda `kernel_function`-koristelijan, joka saa funktion kuvauksen. Kun sitten luomme kernelin GetCurrentTimePluginilla, kernel serialisoi automaattisesti funktion ja sen parametrit, luoden skeeman, joka lähetetään LLM:lle.
 
@@ -280,7 +271,7 @@ Kuvitellaan, että olet myyntiedustaja yrityksessä nimeltä Contoso. Haluat keh
 
 Seuraava kuva havainnollistaa, miten voisit käyttää Azure AI Agent Serviceä analysoidaksesi myyntitietojasi:
 
-![Agent Service toiminnassa](../../../../../translated_images/fi/agent-service-in-action.34fb465c9a84659e.webp)
+![Agent Service toiminnassa](../../../translated_images/fi/agent-service-in-action.34fb465c9a84659e.webp)
 
 Käyttääksesi mitä tahansa näistä työkaluista palvelun kanssa voimme luoda asiakkaan ja määritellä työkalun tai työkalusarjan. Käytännössä voimme toteuttaa tämän Python-koodilla. LLM pystyy tarkastelemaan työkalusarjaa ja päättämään, käytetäänkö käyttäjän luomaa funktiota `fetch_sales_data_using_sqlite_query` vai valmista Koodin tulkkia käyttäjän pyynnön mukaan.
 

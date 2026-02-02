@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:22:25+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "ro"
-}
--->
 # Dezvoltarea serviciului Azure AI Agent
 
 În acest exercițiu, vei folosi instrumentele serviciului Azure AI Agent din [portalul Azure AI Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) pentru a crea un agent pentru rezervarea zborurilor. Agentul va putea interacționa cu utilizatorii și va oferi informații despre zboruri.

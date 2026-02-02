@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-30T14:47:01+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "hi"
-}
--->
 # MCP के साथ एजेंट-से-एजेंट संचार प्रणाली बनाना
 
 > संक्षेप में - क्या आप MCP पर Agent2Agent संचार बना सकते हैं? हां!

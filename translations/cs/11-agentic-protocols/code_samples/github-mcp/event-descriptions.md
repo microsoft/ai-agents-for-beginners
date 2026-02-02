@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "4d3b0e20122a974cc2fae7f889400bbc",
-  "translation_date": "2025-08-29T21:24:45+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md",
-  "language_code": "cs"
-}
--->
 ## Název události: Vytvořte svou aplikaci zaměřenou na kód s Azure AI Agent Service (nabídka EMEA/US)
 
 ## Popis

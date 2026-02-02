@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "aff92c6f019b4627ca9399c6e3882e17",
-  "translation_date": "2025-09-18T15:32:46+00:00",
-  "source_file": "11-agentic-protocols/README.md",
-  "language_code": "sk"
-}
--->
 # Používanie agentických protokolov (MCP, A2A a NLWeb)
 
 [![Agentické protokoly](../../../translated_images/sk/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)

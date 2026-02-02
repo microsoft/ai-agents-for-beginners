@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdfd0acc8592c1af14f8637833450375",
-  "translation_date": "2025-08-29T10:00:12+00:00",
-  "source_file": "10-ai-agents-production/README.md",
-  "language_code": "mr"
-}
--->
 # उत्पादनात AI एजंट्स: निरीक्षणक्षमता आणि मूल्यमापन
 
 [![उत्पादनात AI एजंट्स](../../../translated_images/mr/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)

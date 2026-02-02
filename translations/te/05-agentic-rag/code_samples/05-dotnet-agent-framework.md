@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c268705e6fb2b30c7690d5b2a002e072",
-  "translation_date": "2025-12-03T15:54:20+00:00",
-  "source_file": "05-agentic-rag/code_samples/05-dotnet-agent-framework.md",
-  "language_code": "te"
-}
--->
 # 🔍 ఎంటర్‌ప్రైజ్ RAG Azure AI Foundry (.NET) తో
 
 ## 📋 నేర్చుకునే లక్ష్యాలు

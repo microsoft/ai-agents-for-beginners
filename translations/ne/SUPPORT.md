@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "50518c351b4501f2649aeaba31c2592e",
-  "translation_date": "2025-07-12T07:29:21+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "ne"
-}
--->
 # TODO: यस रिपोको मर्मतकर्ता अझै यो फाइल सम्पादन गरेका छैनन्
 
 **REPO OWNER**: के तपाईंलाई यस उत्पादन/प्रोजेक्टका लागि Customer Service & Support (CSS) समर्थन चाहिन्छ?

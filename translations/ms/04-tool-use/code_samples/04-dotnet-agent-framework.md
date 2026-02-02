@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "91d6061e402489603f2ec8b528cae59b",
-  "translation_date": "2025-11-18T18:00:19+00:00",
-  "source_file": "04-tool-use/code_samples/04-dotnet-agent-framework.md",
-  "language_code": "ms"
-}
--->
 # 🛠️ Penggunaan Alat Lanjutan dengan Model GitHub (.NET)
 
 ## 📋 Objektif Pembelajaran

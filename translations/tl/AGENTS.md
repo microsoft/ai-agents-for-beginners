@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "a5f54aa3f419865e5d58bcfddb1d3198",
-  "translation_date": "2025-10-03T15:50:37+00:00",
-  "source_file": "AGENTS.md",
-  "language_code": "tl"
-}
--->
 # AGENTS.md
 
 ## Pangkalahatang-ideya ng Proyekto

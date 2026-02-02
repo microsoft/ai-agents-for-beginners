@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T16:22:00+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "tl"
-}
--->
 # Mga AI Agent para sa Mga Nagsisimula - Gabay sa Pag-aaral at Buod ng Kurso
 
 Ang gabay na ito ay naglalaman ng buod ng kurso na "AI Agents for Beginners" at nagpapaliwanag ng mga pangunahing konsepto, framework, at disenyo ng pattern para sa pagbuo ng mga AI Agent.

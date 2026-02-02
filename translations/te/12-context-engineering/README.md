@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cb7e50f471905ce6fdb92a30269a7a98",
-  "translation_date": "2025-12-03T17:15:44+00:00",
-  "source_file": "12-context-engineering/README.md",
-  "language_code": "te"
-}
--->
 # AI ఏజెంట్ల కోసం కాంటెక్స్ట్ ఇంజినీరింగ్
 
 [![కాంటెక్స్ట్ ఇంజినీరింగ్](../../../translated_images/te/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)

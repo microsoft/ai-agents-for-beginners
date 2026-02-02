@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-12-03T17:44:57+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "ml"
-}
--->
 # MCP ഉപയോഗിച്ച് ഏജന്റ്-ടു-ഏജന്റ് ആശയവിനിമയ സംവിധാനങ്ങൾ നിർമ്മിക്കൽ
 
 > TL;DR - MCP ഉപയോഗിച്ച് Agent2Agent Communication നിർമ്മിക്കാമോ? അതെ!

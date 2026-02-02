@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "91d6061e402489603f2ec8b528cae59b",
-  "translation_date": "2025-11-18T18:42:31+00:00",
-  "source_file": "04-tool-use/code_samples/04-dotnet-agent-framework.md",
-  "language_code": "ta"
-}
--->
 # 🛠️ GitHub மாடல்களுடன் மேம்பட்ட கருவி பயன்பாடு (.NET)
 
 ## 📋 கற்றல் நோக்கங்கள்

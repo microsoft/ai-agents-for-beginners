@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-16T08:08:12+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "pa"
-}
--->
-[![ਵਧੀਆ ਏਆਈ ਏਜੰਟ ਕਿਵੇਂ ਡિઝ਼ਾਈਨ ਕਰੀਏ](../../../../../translated_images/pa/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![ਵਧੀਆ ਏਆਈ ਏਜੰਟ ਕਿਵੇਂ ਡિઝ਼ਾਈਨ ਕਰੀਏ](../../../translated_images/pa/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(ਇਸ ਪਾਠ ਦਾ ਵੀਡੀਓ ਦੇਖਣ ਲਈ ਉਪਰ ਦਿੱਤੀ ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰੋ)_
 
@@ -219,7 +210,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ਹੇਠਾਂ ਦਿੱਤੀ ਡਾਇਗ੍ਰਾਮ ਸੈਮਾਂਟਿਕ ਕਰਨਲ ਨਾਲ ਫੰਕਸ਼ਨ ਕਾਲਿੰਗ ਦੀ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਦਰਸਾਉਂਦੀ ਹੈ:
 
-![function calling](../../../../../translated_images/pa/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/pa/functioncalling-diagram.a84006fc287f6014.webp)
 
 ਸੈਮਾਂਟਿਕ ਕਰਨਲ ਵਿੱਚ ਫੰਕਸ਼ਨ/ਟੂਲਾਂ ਨੂੰ <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">ਪਲੱਗਇਨਾਂ</a> ਕਿਹਾ ਜਾਂਦਾ ਹੈ। ਅਸੀਂ ਪਹਿਲਾਂ ਦਿਖਾਏ `get_current_time` ਫੰਕਸ਼ਨ ਨੂੰ ਇੱਕ ਕਲਾਸ ਵਿੱਚ ਬਦਲ ਕੇ ਪਲੱਗਇਨ ਬਣਾ ਸਕਦੇ ਹਾਂ ਜਿਸ ਵਿੱਚ ਇਹ ਫੰਕਸ਼ਨ ਸ਼ਾਮਲ ਹੋਵੇ। ਅਸੀਂ `kernel_function` ਡੈਕਰੇਟਰ ਨੂੰ ਵੀ ਇੰਪੋਰਟ ਕਰ ਸਕਦੇ ਹਾਂ, ਜੋ ਫੰਕਸ਼ਨ ਦੀ ਵਰਣਨਾ ਲੈਂਦਾ ਹੈ। ਜਦ ਤੁਸੀਂ GetCurrentTimePlugin ਨਾਲ ਇੱਕ ਕਰਨਲ ਬਣਾਉਦੇ ਹੋ, ਕਰਨਲ ਆਪਣੇ ਆਪ ਫੰਕਸ਼ਨ ਅਤੇ ਪੈਰਾਮੀਟਰਾਂ ਨੂੰ ਸਿਰੀਅਲਾਈਜ਼ ਕਰਦਾ ਹੈ ਅਤੇ ਪ੍ਰਕਿਰਿਆ ਦੌਰਾਨ LLM ਨੂੰ ਭੇਜਣ ਲਈ ਸਕੀਮਾ ਬਣਾਉਂਦਾ ਹੈ।
 
@@ -280,7 +271,7 @@ Azure AI ਏਜੰਟ ਸਰਵਿਸ ਵਿੱਚ ਉਪਲਬਧ ਟੂਲੋ 
 
 ਹੇਠਾਂ ਦੀ ਤਸਵੀਰ ਦਰਸਾਂਦੀ ਹੈ ਕਿ ਤੁਸੀਂ Azure AI ਏਜੰਟ ਸਰਵਿਸ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਆਪਣੀ ਸੇਲਜ਼ ਡੇਟਾ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਿਵੇਂ ਕਰ ਸਕਦੇ ਹੋ:
 
-![Agentic Service In Action](../../../../../translated_images/pa/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/pa/agent-service-in-action.34fb465c9a84659e.webp)
 
 ਇਹਨਾਂ ਟੂਲਾਂ ਵਿੱਚੋਂ ਕਿਸੇ ਇੱਕ ਨੂੰ ਸਰਵਿਸ ਨਾਲ ਵਰਤਣ ਲਈ ਅਸੀਂ ਕਲਾਇੰਟ ਬਣਾਈਏਗਾ ਅਤੇ ਟੂਲ ਜਾਂ ਟੂਲਸੈੱਟ ਪਰਿਭਾਸ਼ਿਤ ਕਰਾਂਗੇ। ਹਕੀਕਤ ਵਿੱਚ ਲਾਗੂ ਕਰਨ ਲਈ ਅਸੀਂ ਹੇਠਾਂ ਦਿੱਤਾ Python ਕੋਡ ਵਰਤ ਸਕਦੇ ਹਾਂ। LLM ਟੂਲਸੈੱਟ ਨੂੰ ਵੇਖ ਕੇ ਨਿਰਣਾ ਕਰ ਸਕਦਾ ਹੈ ਕਿ ਯੂਜ਼ਰ ਬਣਾਇਆ ਫੰਕਸ਼ਨ `fetch_sales_data_using_sqlite_query` ਵਰਤਣਾ ਹੈ ਜਾਂ ਪਹਿਲਾਂ ਤਿਆਰ Code Interpreter ਨੂੰ ਵਰਤਣਾ ਹੈ, ਯੂਜ਼ਰ ਦੀ ਬੇਨਤੀ ਦੇ ਅਨੁਸਾਰ।
 

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-29T10:54:52+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "ne"
-}
--->
 # MCP प्रयोग गरेर एजेन्ट-देखि-एजेन्ट संचार प्रणाली निर्माण
 
 > छोटकरीमा - के तपाई MCP मा Agent2Agent संचार प्रणाली निर्माण गर्न सक्नुहुन्छ? हो, सकिन्छ!

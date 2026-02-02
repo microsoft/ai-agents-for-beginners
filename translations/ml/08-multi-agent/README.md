@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "1a008c204051cba8d0e253b75f261c41",
-  "translation_date": "2025-12-03T16:06:47+00:00",
-  "source_file": "08-multi-agent/README.md",
-  "language_code": "ml"
-}
--->
 [![മൾട്ടി-ഏജന്റ് ഡിസൈൻ](../../../translated_images/ml/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(മുകളിൽ കാണുന്ന ചിത്രം ക്ലിക്കുചെയ്ത് ഈ പാഠത്തിന്റെ വീഡിയോ കാണുക)_

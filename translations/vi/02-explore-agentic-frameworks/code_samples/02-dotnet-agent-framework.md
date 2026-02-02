@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "e23058f87779da210fc0257ee2747c53",
-  "translation_date": "2025-11-13T13:17:08+00:00",
-  "source_file": "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md",
-  "language_code": "vi"
-}
--->
 # 🔍 Khám phá Microsoft Agent Framework - Agent cơ bản (.NET)
 
 ## 📋 Mục tiêu học tập

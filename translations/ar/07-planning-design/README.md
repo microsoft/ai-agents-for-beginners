@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
-  "translation_date": "2025-09-18T14:11:06+00:00",
-  "source_file": "07-planning-design/README.md",
-  "language_code": "ar"
-}
--->
 [![تخطيط نمط التصميم](../../../translated_images/ar/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(اضغط على الصورة أعلاه لمشاهدة فيديو الدرس)_

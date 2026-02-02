@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdfd0acc8592c1af14f8637833450375",
-  "translation_date": "2025-12-03T16:45:36+00:00",
-  "source_file": "10-ai-agents-production/README.md",
-  "language_code": "ml"
-}
--->
 # ഉൽപാദനത്തിൽ AI ഏജന്റുകൾ: നിരീക്ഷണശേഷി & മൂല്യനിർണയം
 
 [![AI ഏജന്റുകൾ ഉൽപാദനത്തിൽ](../../../translated_images/ml/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T17:23:19+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "vi"
-}
--->
 # Xây dựng ứng dụng đa tác nhân với Microsoft Agent Framework Workflow
 
 Hướng dẫn này sẽ giúp bạn hiểu và xây dựng các ứng dụng đa tác nhân bằng Microsoft Agent Framework. Chúng ta sẽ khám phá các khái niệm cốt lõi của hệ thống đa tác nhân, đi sâu vào kiến trúc của thành phần Workflow trong framework, và thực hiện các ví dụ thực tế bằng Python và .NET cho các mẫu workflow khác nhau.

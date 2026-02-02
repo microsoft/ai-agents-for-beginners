@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T16:58:05+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "cs"
-}
--->
 # AI Agenti pro začátečníky - studie a shrnutí kurzu
 
 Tato příručka poskytuje shrnutí kurzu „AI Agenti pro začátečníky“ a vysvětluje klíčové pojmy, rámce a návrhové vzory pro vytváření AI Agentů.

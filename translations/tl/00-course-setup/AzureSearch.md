@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:44:41+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "tl"
-}
--->
 # Gabay sa Pagsasaayos ng Azure AI Search
 
 Ang gabay na ito ay tutulong sa iyo na i-set up ang Azure AI Search gamit ang Azure portal. Sundin ang mga hakbang sa ibaba upang lumikha at i-configure ang iyong Azure AI Search service.

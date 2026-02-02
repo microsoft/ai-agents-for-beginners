@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "2d13c1e3518a0257a00fea949e2d0350",
-  "translation_date": "2025-11-07T10:00:17+00:00",
-  "source_file": "07-planning-design/code_samples/07-dotnet-agent-framework.md",
-  "language_code": "my"
-}
--->
 # 🎯 GitHub Models (.NET) ဖြင့် အစီအစဉ်ရေးဆွဲခြင်းနှင့် ဒီဇိုင်းပုံစံများ
 
 ## 📋 သင်ယူရမည့် ရည်ရွယ်ချက်များ

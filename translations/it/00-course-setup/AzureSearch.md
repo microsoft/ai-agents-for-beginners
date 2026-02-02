@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:35:28+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "it"
-}
--->
 # Guida alla configurazione di Azure AI Search
 
 Questa guida ti aiuterà a configurare Azure AI Search utilizzando il portale di Azure. Segui i passaggi qui sotto per creare e configurare il tuo servizio Azure AI Search.

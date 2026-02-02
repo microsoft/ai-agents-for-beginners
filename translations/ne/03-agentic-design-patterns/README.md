@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d71524fe83a23829ae7a23b4031aaac8",
-  "translation_date": "2025-11-13T11:59:58+00:00",
-  "source_file": "03-agentic-design-patterns/README.md",
-  "language_code": "ne"
-}
--->
 [![कसरी राम्रो AI एजेन्ट डिजाइन गर्ने](../../../translated_images/ne/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(यो पाठको भिडियो हेर्न माथिको तस्बिरमा क्लिक गर्नुहोस्)_

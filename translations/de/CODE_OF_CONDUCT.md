@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c06b12caf3c901eb3156e3dd5b0aea56",
-  "translation_date": "2025-07-12T06:54:11+00:00",
-  "source_file": "CODE_OF_CONDUCT.md",
-  "language_code": "de"
-}
--->
 # Microsoft Open Source Verhaltenskodex
 
 Dieses Projekt hat den [Microsoft Open Source Verhaltenskodex](https://opensource.microsoft.com/codeofconduct/) übernommen.

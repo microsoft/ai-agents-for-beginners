@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:29:04+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "ja"
-}
--->
 # Azure AI Search セットアップガイド
 
 このガイドでは、Azure ポータルを使用して Azure AI Search をセットアップする方法を説明します。以下の手順に従って、Azure AI Search サービスを作成および構成してください。

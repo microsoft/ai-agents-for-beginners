@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T15:53:59+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "vi"
-}
--->
 # Đại lý AI cho Người mới bắt đầu - Hướng dẫn học & Tóm tắt khóa học
 
 Hướng dẫn này cung cấp bản tóm tắt về khóa học "Đại lý AI cho Người mới bắt đầu" và giải thích các khái niệm chính, khung làm việc, và các mẫu thiết kế để xây dựng Đại lý AI.

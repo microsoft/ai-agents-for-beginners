@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-16T05:37:19+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "ur"
-}
--->
-[![اچھے AI ایجنٹس کیسے ڈیزائن کریں](../../../../../translated_images/ur/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![اچھے AI ایجنٹس کیسے ڈیزائن کریں](../../../translated_images/ur/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(اس سبق کی ویڈیو دیکھنے کے لیے اوپر تصویر پر کلک کریں)_
 
@@ -219,7 +210,7 @@ AI ایجنٹس ٹولز کا استعمال کر کے پیچیدہ کام مک�
 
 ذیل میں Semantic Kernel کے ساتھ فنکشن کالنگ کے عمل کی جھلک دکھائی گئی ہے:
 
-![function calling](../../../../../translated_images/ur/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/ur/functioncalling-diagram.a84006fc287f6014.webp)
 
 سیمنٹک کرنل میں فنکشنز/ٹولز کو <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">پلگ انز</a> کہا جاتا ہے۔ ہم نے جو `get_current_time` فنکشن دیکھا تھا اسے پلگ ان میں تبدیل کر سکتے ہیں، یعنی اسے ایک کلاس بنائیں جس میں یہ فنکشن ہو۔ ہم `kernel_function` ڈیکوریٹر بھی امپورٹ کر سکتے ہیں، جو فنکشن کی وضاحت لیتا ہے۔ جب آپ GetCurrentTimePlugin کے ساتھ ایک کرنل بنائیں گے، تو کرنل خود بخود فنکشن اور اس کے پیرا میٹرز کو سیریلائز کرے گا، اور LLM کو بھیجنے کے لیے سکیمہ تیار کرے گا۔
 
@@ -280,7 +271,7 @@ Azure AI Agent Service میں دستیاب ٹولز کو دو اقسام میں 
 
 ذیل کی تصویر دکھاتی ہے کہ آپ کس طرح Azure AI Agent Service کو استعمال کر کے اپنے سیلز ڈیٹا کا تجزیہ کر سکتے ہیں:
 
-![Agentic Service In Action](../../../../../translated_images/ur/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/ur/agent-service-in-action.34fb465c9a84659e.webp)
 
 کسی بھی ٹول کو سروس کے ساتھ استعمال کرنے کے لیے ہم کلائنٹ بنائیں گے اور ٹول یا ٹول سیٹ کی تعریف کریں گے۔ عملی نفاذ کے لیے نیچے Python کوڈ دیا گیا ہے۔ LLM ٹول سیٹ کو دیکھ کر فیصلہ کرے گا کہ صارف کی درخواست کے مطابق خود سے بنایا گیا فنکشن `fetch_sales_data_using_sqlite_query` استعمال کرے یا پہلے سے بنائے گئے کوڈ انٹرپریٹر کو۔
 

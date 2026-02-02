@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "19c4dab375acbc733855cc7f2f04edbc",
-  "translation_date": "2025-10-01T21:42:42+00:00",
-  "source_file": "14-microsoft-agent-framework/README.md",
-  "language_code": "es"
-}
--->
 # Explorando el Marco de Agentes de Microsoft
 
 ![Marco de Agentes](../../../translated_images/es/lesson-14-thumbnail.90df0065b9d234ee.webp)

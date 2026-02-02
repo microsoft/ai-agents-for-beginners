@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T17:21:39+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "fi"
-}
--->
 # Moniagenttisovellusten rakentaminen Microsoft Agent Framework Workflow'n avulla
 
 Tämä opas auttaa sinua ymmärtämään ja rakentamaan moniagenttisovelluksia Microsoft Agent Frameworkin avulla. Käymme läpi moniagenttijärjestelmien keskeiset käsitteet, tutustumme frameworkin Workflow-komponentin arkkitehtuuriin ja tarkastelemme käytännön esimerkkejä Pythonilla ja .NET:llä eri työnkulkujen malleista.

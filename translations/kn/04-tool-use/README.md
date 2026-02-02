@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-16T09:24:30+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "kn"
-}
--->
-[![ಒಳ್ಳೆಯ AI ಏಜೆಂಟ್‌ಗಳನ್ನು ಹೇಗೆ ವಿನ್ಯಾಸಗೊಳಿಸಬೇಕು](../../../../../translated_images/kn/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![ಒಳ್ಳೆಯ AI ಏಜೆಂಟ್‌ಗಳನ್ನು ಹೇಗೆ ವಿನ್ಯಾಸಗೊಳಿಸಬೇಕು](../../../translated_images/kn/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(ಈ ಪಾಠದ ವೀಡಿಯೋ ನೋಡಲು ಮೇಲಿನ ಚಿತ್ರವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ)_
 
@@ -219,7 +210,7 @@ AI ಏಜೆಂಟ್‌ಗಳು ಸങ്കೀರ್ಣ ಕಾರ್ಯಗಳ
 
 ಕೆಳಗಿನ ಆಕೃತಿ Semantic Kernel ನಲ್ಲಿ ಕಾರ್ಯವಿಧಾನ ಕರೆಯ ಪ್ರಕ್ರಿಯೆಯನ್ನು ವಿವರಿಸುತ್ತದೆ:
 
-![function calling](../../../../../translated_images/kn/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/kn/functioncalling-diagram.a84006fc287f6014.webp)
 
 Semantic Kernel ನಲ್ಲಿ ಕಾರ್ಯಗಳು/ಉಪಕರಣಗಳನ್ನು <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">ಪ್ಲಗಿನ್‌ಗಳು</a> ಎಂದು ಕರೆಯಲಾಗುತ್ತದೆ. ನಾವು ಮೊದಲು ಕಂಡ get_current_time ಕಾರ್ಯವನ್ನು ಪ್ಲಗಿನ್ ಆಗಿ ತರಲು ಅದನ್ನು ಕ್ಲಾಸ್ ಆಗಿ ಮಾರ್ಪಡಿಸಬಹುದು. kernel_function ಡೆಕೋರೇಟರ್ ಅನ್ನು ಆಮದು ಮಾಡಿಕೊಳ್ಳಬಹುದು, ಇದು ಕಾರ್ಯದ ವಿವರಣೆಯನ್ನು ಹೊಂದಿದೆ. ನಂತರ GetCurrentTimePlugin ಜೊತೆ kernel ರಚಿಸಿದಾಗ, kernel ಕಾರ್ಯ ಮತ್ತು ಅದರ ಪರಿಮಾಣಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸೀರಿಯಲೈಸ್ ಮಾಡಿ LLMಗೆ ಕಳುಹಿಸಲು ಸ್ಕಿಮಾಗೆ ರೂಪ ನೀಡುತ್ತದೆ.
 
@@ -280,7 +271,7 @@ kernel.add_plugin(get_current_time_plugin)
 
 ಕೆಳಗಿನ ಚಿತ್ರದಲ್ಲಿ ನೀವು ಅಜೂರ್ AI ಏಜೆಂಟ್ ಸರ್ವೀಸ್ ಬಳಸಿ ನಿಮ್ಮ ಮಾರಾಟ ಡೇಟಾವನ್ನು ವಿಶ್ಲೇಷಿಸಲು ಹೇಗೆ ಉಪಯೋಗಿಸಬಹುದು ಎಂಬುದನ್ನು ತೋರಿಸಲಾಗಿದೆ:
 
-![Agentic Service In Action](../../../../../translated_images/kn/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/kn/agent-service-in-action.34fb465c9a84659e.webp)
 
 ಸರ್ವೀಸ್ ಜೊತೆಗೆ ಇವುಗಳಲ್ಲಿ ಯಾವುದಾದರೂ ಉಪಕರಣಗಳನ್ನು ಬಳಸಲು ನಾವು ಕ್ಲೈಯಿಂಟ್ ರಚಿಸಿ ಉಪಕರಣ ಅಥವಾ ಉಪಕರಣ ಸಂಗ್ರಹವನ್ನು ವ್ಯಾಖ್ಯಾನಿಸಬಹುದು. ಇದನ್ನು ಪ್ರಾಯೋಗಿಕವಾಗಿ ಅನುಷ್ಠಾನಗೊಳ್ಳಿಸಲು ಕೆಳಗಿನ ಪೈಥಾನ್ ಕೋಡ್ ಬಳಸಬಹುದು. LLM ಉಪಕರಣ ಸಂಗ್ರಹವನ್ನು ನೋಡಿ ಬಳಸುವ ಮಾರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡುತ್ತದೆ: ಬಳಕೆದಾರ ರಚಿಸಿದ `fetch_sales_data_using_sqlite_query` ಕಾರ್ಯವಿಧಾನ ಅಥವಾ ಪೂರ್ವ ನಿರ್ಮಿತ ಕೋಡ್ ವಿವೇಚಕ.
 

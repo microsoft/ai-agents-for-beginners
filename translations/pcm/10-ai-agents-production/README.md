@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdfd0acc8592c1af14f8637833450375",
-  "translation_date": "2025-11-11T14:12:55+00:00",
-  "source_file": "10-ai-agents-production/README.md",
-  "language_code": "pcm"
-}
--->
 # AI Agents for Production: Observability & Evaluation
 
 [![AI Agents for Production](../../../translated_images/pcm/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:42:51+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "vi"
-}
--->
 # Hướng dẫn thiết lập Azure AI Search
 
 Hướng dẫn này sẽ giúp bạn thiết lập Azure AI Search bằng cách sử dụng Azure portal. Làm theo các bước dưới đây để tạo và cấu hình dịch vụ Azure AI Search của bạn.

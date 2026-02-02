@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-30T15:01:28+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "lt"
-}
--->
 # Sveiki atvykę į Chainlit! 🚀🤖
 
 Sveiki, Programuotojau! 👋 Džiaugiamės, kad prisijungėte. Chainlit yra galingas įrankis, sukurtas padėti jums kurti prototipus, šalinti klaidas ir dalintis programomis, sukurtomis naudojant LLMs.

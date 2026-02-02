@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:16:44+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "ja"
-}
--->
 # Azure AI Agent Service 開発
 
 この演習では、[Azure AI Foundry ポータル](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)の Azure AI Agent サービスツールを使って、フライト予約用のエージェントを作成します。このエージェントはユーザーと対話し、フライトに関する情報を提供できるようになります。

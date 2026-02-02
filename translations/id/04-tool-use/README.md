@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T15:59:44+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "id"
-}
--->
-[![Cara Merancang Agen AI yang Baik](../../../../../translated_images/id/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Cara Merancang Agen AI yang Baik](../../../translated_images/id/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
@@ -219,7 +210,7 @@ Berikut beberapa contoh bagaimana Anda dapat menerapkan Pola Desain Penggunaan A
 
 Diagram berikut mengilustrasikan proses pemanggilan fungsi dengan Semantic Kernel:
 
-![function calling](../../../../../translated_images/id/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/id/functioncalling-diagram.a84006fc287f6014.webp)
 
 Dalam Semantic Kernel fungsi/alat disebut <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugin</a>. Kita dapat mengonversi fungsi `get_current_time` yang kita lihat sebelumnya menjadi plugin dengan mengubahnya menjadi kelas yang berisi fungsi tersebut. Kita juga bisa mengimpor dekorator `kernel_function`, yang menerima deskripsi fungsi. Saat Anda membuat kernel dengan GetCurrentTimePlugin, kernel akan secara otomatis melakukan serialisasi fungsi dan parameternya, membuat skema untuk dikirim ke LLM dalam prosesnya.
 
@@ -280,7 +271,7 @@ Bayangkan Anda adalah agen penjualan di perusahaan bernama Contoso. Anda ingin m
 
 Gambar berikut mengilustrasikan bagaimana Anda bisa menggunakan Layanan Agen Azure AI untuk menganalisis data penjualan Anda:
 
-![Agentic Service In Action](../../../../../translated_images/id/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/id/agent-service-in-action.34fb465c9a84659e.webp)
 
 Untuk menggunakan salah satu alat ini dengan layanan, kita dapat membuat klien dan menentukan alat atau toolset. Untuk menerapkannya secara praktis, kita dapat menggunakan kode Python berikut. LLM akan dapat melihat toolset dan memutuskan apakah menggunakan fungsi buatan pengguna, `fetch_sales_data_using_sqlite_query`, atau Interpreter Kode bawaan tergantung pada permintaan pengguna.
 

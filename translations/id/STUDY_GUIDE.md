@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T16:20:34+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "id"
-}
--->
 # Agen AI untuk Pemula - Panduan Studi & Ringkasan Kursus
 
 Panduan ini memberikan ringkasan dari kursus "Agen AI untuk Pemula" dan menjelaskan konsep kunci, kerangka kerja, serta pola desain untuk membangun Agen AI.

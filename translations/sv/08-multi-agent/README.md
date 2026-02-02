@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "1a008c204051cba8d0e253b75f261c41",
-  "translation_date": "2025-08-29T15:24:46+00:00",
-  "source_file": "08-multi-agent/README.md",
-  "language_code": "sv"
-}
--->
 [![Multi-Agent Design](../../../translated_images/sv/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klicka på bilden ovan för att se videon för denna lektion)_

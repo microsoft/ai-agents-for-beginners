@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-12-03T17:28:48+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "ml"
-}
--->
 # Azure AI Search സെറ്റപ്പ് ഗൈഡ്
 
 ഈ ഗൈഡ് ഉപയോഗിച്ച് Azure പോർട്ടൽ വഴി Azure AI Search സജ്ജമാക്കാൻ നിങ്ങളെ സഹായിക്കും. Azure AI Search സേവനം സൃഷ്ടിക്കുകയും ക്രമീകരിക്കുകയും ചെയ്യാൻ താഴെ നൽകിയിരിക്കുന്ന ഘട്ടങ്ങൾ പിന്തുടരുക.

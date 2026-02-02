@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-12-03T16:18:55+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "kn"
-}
--->
 # Microsoft Agent Framework Workflow ಬಳಸಿ ಬಹು-ಏಜೆಂಟ್ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ನಿರ್ಮಿಸುವುದು
 
 ಈ ಟ್ಯುಟೋರಿಯಲ್ Microsoft Agent Framework ಬಳಸಿ ಬಹು-ಏಜೆಂಟ್ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಮತ್ತು ನಿರ್ಮಿಸಲು ನಿಮಗೆ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತದೆ. ನಾವು ಬಹು-ಏಜೆಂಟ್ ಸಿಸ್ಟಮ್‌ಗಳ ಮೂಲ ಪರಿಕಲ್ಪನೆಗಳನ್ನು ಅನ್ವೇಷಿಸುತ್ತೇವೆ, ಫ್ರೇಮ್‌ವರ್ಕ್‌ನ Workflow ಘಟಕದ ಆರ್ಕಿಟೆಕ್ಚರ್‌ನಲ್ಲಿ ತೊಡಗುತ್ತೇವೆ ಮತ್ತು Python ಮತ್ತು .NET ನಲ್ಲಿ ವಿವಿಧ ವರ್ಕ್‌ಫ್ಲೋ ಮಾದರಿಗಳ ಪ್ರಾಯೋಗಿಕ ಉದಾಹರಣೆಗಳನ್ನು ನೋಡುತ್ತೇವೆ.

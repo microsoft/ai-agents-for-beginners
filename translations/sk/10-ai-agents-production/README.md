@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdfd0acc8592c1af14f8637833450375",
-  "translation_date": "2025-08-29T20:36:01+00:00",
-  "source_file": "10-ai-agents-production/README.md",
-  "language_code": "sk"
-}
--->
 # AI agenti v produkcii: Pozorovateľnosť a hodnotenie
 
 [![AI agenti v produkcii](../../../translated_images/sk/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)

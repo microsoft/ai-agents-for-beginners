@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-16T05:34:54+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "fa"
-}
--->
-[![چگونه عامل‌های هوش مصنوعی خوب طراحی کنیم](../../../../../translated_images/fa/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![چگونه عامل‌های هوش مصنوعی خوب طراحی کنیم](../../../translated_images/fa/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(برای مشاهده ویدیوی این درس روی تصویر بالا کلیک کنید)_
 
@@ -216,7 +207,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 نمودار زیر فرایند فراخوانی تابع با Semantic Kernel را نشان می‌دهد:
 
-![function calling](../../../../../translated_images/fa/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/fa/functioncalling-diagram.a84006fc287f6014.webp)
 
 در Semantic Kernel توابع/ابزارها <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">افزونه (Plugins)</a> نامیده می‌شوند. می‌توانیم تابع `get_current_time` که قبلاً دیدیم را تبدیل به افزونه کنیم، با تبدیل آن به یک کلاس که درون آن تابع قرار دارد. همچنین می‌توانیم دکوریتور `kernel_function` را وارد کنیم که شرح تابع را دریافت می‌کند. وقتی کرنل را با GetCurrentTimePlugin ایجاد می‌کنید، کرنل به‌صورت خودکار تابع و پارامترهای آن را سریال‌سازی می‌کند و طرحواره‌ای برای ارسال به LLM در فرایند ایجاد می‌کند.
 
@@ -277,7 +268,7 @@ kernel.add_plugin(get_current_time_plugin)
 
 تصویر زیر نشان می‌دهد چگونه می‌توانید از سرویس عامل Azure AI برای تحلیل داده‌های فروش خود استفاده کنید:
 
-![Agentic Service In Action](../../../../../translated_images/fa/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/fa/agent-service-in-action.34fb465c9a84659e.webp)
 
 برای استفاده از هرکدام از این ابزارها در سرویس، می‌توانیم کلاینت ایجاد کنیم و یک ابزار یا مجموعه ابزار تعریف کنیم. برای پیاده‌سازی این موضوع در عمل می‌توانیم از کد پایتون زیر استفاده کنیم. مدل زبان بزرگ می‌تواند به toolset نگاه کند و تصمیم بگیرد که آیا از تابع ایجاد شده توسط کاربر با نام `fetch_sales_data_using_sqlite_query` استفاده کند یا از مفسر کد پیش‌ساخته بسته به درخواست کاربر.
 

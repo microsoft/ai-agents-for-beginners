@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:45:24+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "sw"
-}
--->
 # Mwongozo wa Kuweka Azure AI Search
 
 Mwongozo huu utakusaidia kuweka Azure AI Search kwa kutumia Azure portal. Fuata hatua zilizo hapa chini kuunda na kusanidi huduma yako ya Azure AI Search.

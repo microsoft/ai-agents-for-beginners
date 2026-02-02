@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-30T00:25:15+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "hr"
-}
--->
 # Dobrodošli u Chainlit! 🚀🤖
 
 Pozdrav, programeru! 👋 Drago nam je što si s nama. Chainlit je moćan alat osmišljen kako bi ti pomogao u prototipiranju, otklanjanju grešaka i dijeljenju aplikacija izgrađenih na LLM-ovima.

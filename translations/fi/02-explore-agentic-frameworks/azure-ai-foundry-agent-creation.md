@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:20:15+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "fi"
-}
--->
 # Azure AI Agent Service Development
 
 Tässä harjoituksessa käytät Azure AI Agent -palvelun työkaluja [Azure AI Foundry -portaalissa](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) luodaksesi agentin lentovarauksia varten. Agentti pystyy keskustelemaan käyttäjien kanssa ja tarjoamaan tietoa lennoista.

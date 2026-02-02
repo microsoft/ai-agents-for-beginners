@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cdfd0acc8592c1af14f8637833450375",
-  "translation_date": "2025-08-29T23:26:27+00:00",
-  "source_file": "10-ai-agents-production/README.md",
-  "language_code": "ja"
-}
--->
 # 本番環境におけるAIエージェント: 可観測性と評価
 
 [![本番環境におけるAIエージェント](../../../translated_images/ja/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "1a008c204051cba8d0e253b75f261c41",
-  "translation_date": "2025-10-11T11:07:57+00:00",
-  "source_file": "08-multi-agent/README.md",
-  "language_code": "et"
-}
--->
 [![Mitmeagendi disain](../../../translated_images/et/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
 > _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_

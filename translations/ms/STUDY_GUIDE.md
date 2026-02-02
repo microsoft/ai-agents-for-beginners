@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T16:21:14+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "ms"
-}
--->
 # Ejen AI untuk Pemula - Panduan Kajian & Ringkasan Kursus
 
 Panduan ini menyediakan ringkasan kursus "Ejen AI untuk Pemula" dan menerangkan konsep utama, rangka kerja, dan corak reka bentuk untuk membina Ejen AI.

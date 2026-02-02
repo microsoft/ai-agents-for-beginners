@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-12-03T17:42:08+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "te"
-}
--->
 # MCP తో ఏజెంట్-టు-ఏజెంట్ కమ్యూనికేషన్ సిస్టమ్స్ నిర్మించడం
 
 > TL;DR - మీరు MCP పై Agent2Agent కమ్యూనికేషన్ నిర్మించగలరా? అవును!

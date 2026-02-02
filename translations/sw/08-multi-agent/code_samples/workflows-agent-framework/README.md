@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T08:56:23+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "sw"
-}
--->
 # Kujenga Programu za Wakala Wengi kwa Kutumia Microsoft Agent Framework Workflow
 
 Mafunzo haya yatakusaidia kuelewa na kujenga programu za wakala wengi kwa kutumia Microsoft Agent Framework. Tutachunguza dhana kuu za mifumo ya wakala wengi, kuingia ndani ya usanifu wa sehemu ya Workflow ya mfumo, na kupitia mifano ya vitendo katika Python na .NET kwa mifumo tofauti ya kazi.

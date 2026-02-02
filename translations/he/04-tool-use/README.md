@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T15:31:51+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "he"
-}
--->
-[![כיצד לעצב סוכני AI טובים](../../../../../translated_images/he/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![כיצד לעצב סוכני AI טובים](../../../translated_images/he/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(לחצו על התמונה למעלה לצפייה בווידאו של השיעור)_
 
@@ -219,7 +210,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 התמונה הבאה ממחישה את תהליך קריאת הפונקציות עם Semantic Kernel:
 
-![function calling](../../../../../translated_images/he/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/he/functioncalling-diagram.a84006fc287f6014.webp)
 
 ב-Semantic Kernel פונקציות/כלים נקראים <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">תוספים</a>. נוכל להמיר את הפונקציה `get_current_time` שראינו קודם לתוסף על ידי הפיכתה למחלקה עם הפונקציה בתוכה. נוכל גם לייבא את הדקורטור `kernel_function`, שלוקח את תיאור הפונקציה. כאשר ניצור Kernel עם GetCurrentTimePlugin, הקוד יסריאליז את הפונקציה ופרמטריה אוטומטית, וייצר את הסכימה שנשלחת ל-LLM בתהליך.
 
@@ -280,7 +271,7 @@ kernel.add_plugin(get_current_time_plugin)
 
 התמונה הבאה ממחישה כיצד ניתן להשתמש בשירות Azure AI Agent לניתוח נתוני המכירות:
 
-![Agentic Service In Action](../../../../../translated_images/he/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/he/agent-service-in-action.34fb465c9a84659e.webp)
 
 כדי להשתמש בכלים אלה עם השירות, ניתן ליצור לקוח ולהגדיר כלי או toolset. ליישום מעשי ניתן להשתמש בקוד פייתון הבא. ה-LLM יוכל לבחון את ה-toolset ולהחליט אם להשתמש בפונקציה שהמשתמש יצר, `fetch_sales_data_using_sqlite_query`, או במפרש הקוד המובנה בהתאם לבקשת המשתמש.
 

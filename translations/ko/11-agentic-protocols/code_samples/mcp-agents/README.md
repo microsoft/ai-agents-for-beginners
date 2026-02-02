@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-  "translation_date": "2025-08-30T14:46:21+00:00",
-  "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
-  "language_code": "ko"
-}
--->
 # MCP를 활용한 에이전트 간 통신 시스템 구축
 
 > TL;DR - MCP에서 Agent2Agent 통신을 구축할 수 있을까요? 네, 가능합니다!

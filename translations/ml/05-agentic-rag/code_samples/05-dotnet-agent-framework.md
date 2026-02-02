@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c268705e6fb2b30c7690d5b2a002e072",
-  "translation_date": "2025-12-03T15:56:08+00:00",
-  "source_file": "05-agentic-rag/code_samples/05-dotnet-agent-framework.md",
-  "language_code": "ml"
-}
--->
 # 🔍 എന്റർപ്രൈസ് RAG Azure AI Foundry (.NET) ഉപയോഗിച്ച്
 
 ## 📋 പഠന ലക്ഷ്യങ്ങൾ

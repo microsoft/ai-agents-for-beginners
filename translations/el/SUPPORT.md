@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "50518c351b4501f2649aeaba31c2592e",
-  "translation_date": "2025-07-12T07:30:06+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "el"
-}
--->
 # TODO: Ο διαχειριστής αυτού του αποθετηρίου δεν έχει επεξεργαστεί ακόμα αυτό το αρχείο
 
 **REPO OWNER**: Θέλετε υποστήριξη Customer Service & Support (CSS) για αυτό το προϊόν/έργο;

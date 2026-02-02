@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-12-03T16:08:26+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "te"
-}
--->
 **కస్టమర్ సపోర్ట్ ప్రక్రియకు ప్రత్యేకమైన ఏజెంట్లు**:
 
 - **కస్టమర్ ఏజెంట్**: ఈ ఏజెంట్ కస్టమర్‌ను ప్రాతినిధ్యం వహించి, సపోర్ట్ ప్రక్రియను ప్రారంభించడానికి బాధ్యత వహిస్తారు.  

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
-  "translation_date": "2025-08-28T09:42:33+00:00",
-  "source_file": "06-building-trustworthy-agents/README.md",
-  "language_code": "fr"
-}
--->
 [![Agents IA de Confiance](../../../translated_images/fr/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Cliquez sur l'image ci-dessus pour visionner la vidéo de cette leçon)_

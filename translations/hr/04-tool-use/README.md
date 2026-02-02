@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T17:36:39+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "hr"
-}
--->
-[![Kako dizajnirati dobre AI agente](../../../../../translated_images/hr/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Kako dizajnirati dobre AI agente](../../../translated_images/hr/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Kliknite na gornju sliku za pregled videa ove lekcije)_
 
@@ -219,7 +210,7 @@ Evo nekoliko primjera kako možete implementirati Dizajnerski obrazac upotrebe a
 
 Sljedeća dijagrama ilustrira proces poziva funkcija s Semantic Kernel:
 
-![function calling](../../../../../translated_images/hr/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/hr/functioncalling-diagram.a84006fc287f6014.webp)
 
 U Semantic Kernel funkcije/alati nazivaju se <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Funkciju `get_current_time` koju smo ranije vidjeli možemo pretvoriti u plugin tako da je stavimo u klasu. Također možemo uvesti dekorator `kernel_function` koji prima opis funkcije. Kada zatim kreirate kernel s GetCurrentTimePlugin, kernel će automatski serijalizirati funkciju i njene parametre te u tom procesu kreirati shemu za slanje LLM-u.
 
@@ -280,7 +271,7 @@ Zamislite da ste prodajni agent u tvrtki Contoso. Želite razviti konverzacijski
 
 Slika ispod ilustrira kako možete koristiti Azure AI Agent Service za analizu vaših prodajnih podataka:
 
-![Agentic Service In Action](../../../../../translated_images/hr/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/hr/agent-service-in-action.34fb465c9a84659e.webp)
 
 Za korištenje bilo kojeg od ovih alata s uslugom možemo kreirati klijenta i definirati alat ili skup alata. Za praktičnu implementaciju možemo koristiti sljedeći Python kod. LLM će moći pogledati skup alata i odlučiti hoće li koristiti korisnički definiranu funkciju `fetch_sales_data_using_sqlite_query` ili unaprijed izrađeni Code Interpreter, ovisno o zahtjevu korisnika.
 

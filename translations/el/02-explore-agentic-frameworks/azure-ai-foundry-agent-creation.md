@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:19:11+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "el"
-}
--->
 # Ανάπτυξη Υπηρεσίας Azure AI Agent
 
 Σε αυτή την άσκηση, χρησιμοποιείτε τα εργαλεία της υπηρεσίας Azure AI Agent στο [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) για να δημιουργήσετε έναν agent για Κράτηση Πτήσεων. Ο agent θα μπορεί να αλληλεπιδρά με τους χρήστες και να παρέχει πληροφορίες σχετικά με πτήσεις.

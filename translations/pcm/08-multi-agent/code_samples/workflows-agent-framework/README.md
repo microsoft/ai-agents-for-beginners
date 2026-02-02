@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-11-11T11:58:45+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "pcm"
-}
--->
 # How to Build Multi-Agent Applications wit Microsoft Agent Framework Workflow
 
 Dis tutorial go show you how you fit sabi and build multi-agent applications wit Microsoft Agent Framework. We go look di main idea of multi-agent systems, check di architecture of di framework Workflow part, and do practical examples for Python and .NET for different workflow patterns.

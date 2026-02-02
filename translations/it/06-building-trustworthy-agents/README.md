@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
-  "translation_date": "2025-08-29T12:59:22+00:00",
-  "source_file": "06-building-trustworthy-agents/README.md",
-  "language_code": "it"
-}
--->
 [![Agenti AI Affidabili](../../../translated_images/it/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Clicca sull'immagine sopra per guardare il video di questa lezione)_

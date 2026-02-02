@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "43069833a0412210ad5c3cc93d9c2146",
-  "translation_date": "2025-09-18T14:29:51+00:00",
-  "source_file": "07-planning-design/README.md",
-  "language_code": "ko"
-}
--->
 [![Planning Design Pattern](../../../translated_images/ko/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(위 이미지를 클릭하면 이 강의의 영상을 볼 수 있습니다)_

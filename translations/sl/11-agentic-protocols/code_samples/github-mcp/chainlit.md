@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c49526c7abc56b0b5f1e835c1739f18e",
-  "translation_date": "2025-08-30T00:25:23+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/chainlit.md",
-  "language_code": "sl"
-}
--->
 # Dobrodošli v Chainlit! 🚀🤖
 
 Pozdravljeni, razvijalec! 👋 Veseli smo, da ste se nam pridružili. Chainlit je zmogljivo orodje, zasnovano za prototipiranje, odpravljanje napak in deljenje aplikacij, zgrajenih na osnovi LLM-jev.

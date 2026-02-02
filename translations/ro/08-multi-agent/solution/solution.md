@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-07-12T11:40:31+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "ro"
-}
--->
 **Agenți specifici pentru procesul de suport clienți**:
 
 - **Agent client**: Acest agent reprezintă clientul și este responsabil pentru inițierea procesului de suport.

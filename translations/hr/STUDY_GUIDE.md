@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T17:54:12+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "hr"
-}
--->
 # AI Agenti za Početnike - Vodič za Učenje i Sažetak Tečaja
 
 Ovaj vodič pruža sažetak tečaja "AI Agenti za Početnike" i objašnjava ključne pojmove, okvire i dizajnerske obrasce za izgradnju AI Agenta.

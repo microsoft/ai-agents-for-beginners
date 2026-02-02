@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7120197753abacc827b64ac2d5d6966f",
-  "translation_date": "2025-12-03T17:03:30+00:00",
-  "source_file": "02-explore-agentic-frameworks/README.md",
-  "language_code": "ml"
-}
--->
 [![AI ഏജന്റ് ഫ്രെയിംവർക്കുകൾ അന്വേഷിക്കുന്നു](../../../translated_images/ml/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(ഈ പാഠത്തിന്റെ വീഡിയോ കാണാൻ മുകളിൽ ചിത്രത്തിൽ ക്ലിക്ക് ചെയ്യുക)_

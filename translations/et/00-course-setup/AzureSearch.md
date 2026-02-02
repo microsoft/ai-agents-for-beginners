@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "11e38db0898a788612b917e329dcdb5b",
-  "translation_date": "2025-11-07T08:55:12+00:00",
-  "source_file": "00-course-setup/AzureSearch.md",
-  "language_code": "et"
-}
--->
 # Azure AI Searchi seadistamise juhend
 
 See juhend aitab teil seadistada Azure AI Searchi Azure'i portaalis. Järgige allolevaid samme, et luua ja konfigureerida oma Azure AI Search teenus.

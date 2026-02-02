@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "bcc874e190347bd6a095aed56dc16de8",
-  "translation_date": "2025-11-13T12:51:45+00:00",
-  "source_file": "03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.md",
-  "language_code": "da"
-}
--->
 # 🎨 Agentiske Designmønstre med GitHub-modeller (.NET)
 
 ## 📋 Læringsmål

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T17:54:47+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "sl"
-}
--->
 # AI agenti za začetnike - študijski vodič in povzetek tečaja
 
 Ta vodič ponuja povzetek tečaja "AI agenti za začetnike" in pojasnjuje ključne koncepte, okvire in oblikovne vzorce za gradnjo AI agentov.

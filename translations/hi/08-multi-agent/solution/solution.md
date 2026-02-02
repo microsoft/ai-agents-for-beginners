@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5be7b05ac3220c4fb91e9bd5a37a3794",
-  "translation_date": "2025-07-12T11:37:26+00:00",
-  "source_file": "08-multi-agent/solution/solution.md",
-  "language_code": "hi"
-}
--->
 **ग्राहक सहायता प्रक्रिया के लिए विशिष्ट एजेंट्स**:
 
 - **Customer agent**: यह एजेंट ग्राहक का प्रतिनिधित्व करता है और सहायता प्रक्रिया शुरू करने के लिए जिम्मेदार होता है।

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T14:00:24+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "ru"
-}
--->
 # Создание приложений с несколькими агентами с использованием Microsoft Agent Framework Workflow
 
 Этот учебник поможет вам понять и создать приложения с несколькими агентами, используя Microsoft Agent Framework. Мы изучим основные концепции систем с несколькими агентами, рассмотрим архитектуру компонента Workflow фреймворка и разберем практические примеры на Python и .NET для различных шаблонов рабочих процессов.

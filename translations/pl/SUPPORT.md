@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "50518c351b4501f2649aeaba31c2592e",
-  "translation_date": "2025-07-12T07:29:53+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "pl"
-}
--->
 # TODO: Opiekun tego repozytorium jeszcze nie edytował tego pliku
 
 **WŁAŚCICIEL REPOZYTORIUM**: Czy chcesz wsparcie Customer Service & Support (CSS) dla tego produktu/projektu?

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:21:00+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "id"
-}
--->
 # Pengembangan Layanan Azure AI Agent
 
 Dalam latihan ini, Anda akan menggunakan alat layanan Azure AI Agent di [portal Azure AI Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) untuk membuat agen pemesanan penerbangan. Agen ini akan dapat berinteraksi dengan pengguna dan memberikan informasi tentang penerbangan.

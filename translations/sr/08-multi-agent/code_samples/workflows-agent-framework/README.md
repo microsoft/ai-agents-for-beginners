@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b39c052ef109db90ad9251183791e2d6",
-  "translation_date": "2025-10-02T06:47:32+00:00",
-  "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
-  "language_code": "sr"
-}
--->
 # Изградња апликација са више агената уз Microsoft Agent Framework Workflow
 
 Овај туторијал ће вас водити кроз разумевање и изградњу апликација са више агената користећи Microsoft Agent Framework. Истражићемо основне концепте система са више агената, дубље ући у архитектуру Workflow компонента оквира и проћи кроз практичне примере у Python-у и .NET-у за различите шаблоне радних токова.

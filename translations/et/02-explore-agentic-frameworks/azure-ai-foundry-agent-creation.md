@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-10-11T11:16:54+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "et"
-}
--->
 # Azure AI Agent Service Arendus
 
 Selles harjutuses kasutad Azure AI Agent teenuse tööriistu [Azure AI Foundry portaalis](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst), et luua lennupiletite broneerimise agent. Agent suudab suhelda kasutajatega ja anda teavet lendude kohta.

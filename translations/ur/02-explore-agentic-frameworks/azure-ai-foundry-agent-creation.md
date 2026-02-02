@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "7e92870dc0843e13d4dabc620c09d2d9",
-  "translation_date": "2025-07-12T08:15:44+00:00",
-  "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
-  "language_code": "ur"
-}
--->
 # Azure AI Agent Service Development
 
 اس مشق میں، آپ [Azure AI Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) میں Azure AI Agent سروس کے ٹولز استعمال کرتے ہوئے فلائٹ بکنگ کے لیے ایک ایجنٹ بنائیں گے۔ یہ ایجنٹ صارفین کے ساتھ بات چیت کر سکے گا اور پروازوں کے بارے میں معلومات فراہم کرے گا۔

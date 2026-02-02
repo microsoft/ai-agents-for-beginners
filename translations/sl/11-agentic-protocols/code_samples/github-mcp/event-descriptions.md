@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "4d3b0e20122a974cc2fae7f889400bbc",
-  "translation_date": "2025-08-30T00:21:19+00:00",
-  "source_file": "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md",
-  "language_code": "sl"
-}
--->
 ## Ime dogodka: Zgradite svojo aplikacijo s kodo z Azure AI Agent Service (ponudba za EMEA/ZDA)
 
 ## Opis

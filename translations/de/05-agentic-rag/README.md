@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "0ebf6b2290db55dbf2d10cc49655523b",
-  "translation_date": "2025-09-30T06:15:00+00:00",
-  "source_file": "05-agentic-rag/README.md",
-  "language_code": "de"
-}
--->
 [![Agentic RAG](../../../translated_images/de/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
 > _(Klicken Sie auf das Bild oben, um das Video zu dieser Lektion anzusehen)_

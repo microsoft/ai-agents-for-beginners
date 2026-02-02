@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "498802b4c3c3cc486b86f27a12cebb34",
-  "translation_date": "2025-08-29T18:16:53+00:00",
-  "source_file": "06-building-trustworthy-agents/README.md",
-  "language_code": "ms"
-}
--->
 [![Trustworthy AI Agents](../../../translated_images/ms/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_

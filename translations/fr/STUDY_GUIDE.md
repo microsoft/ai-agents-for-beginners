@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cff58d3058a72462ea778c853f5cb3e4",
-  "translation_date": "2026-01-15T14:46:29+00:00",
-  "source_file": "STUDY_GUIDE.md",
-  "language_code": "fr"
-}
--->
 # Agents IA pour Débutants - Guide d'Étude & Résumé du Cours
 
 Ce guide fournit un résumé du cours "Agents IA pour Débutants" et explique les concepts clés, les frameworks et les modèles de conception pour construire des Agents IA.

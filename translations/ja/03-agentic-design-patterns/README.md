@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d71524fe83a23829ae7a23b4031aaac8",
-  "translation_date": "2025-11-13T11:32:54+00:00",
-  "source_file": "03-agentic-design-patterns/README.md",
-  "language_code": "ja"
-}
--->
 [![良いAIエージェントの設計方法](../../../translated_images/ja/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(上の画像をクリックして、このレッスンの動画をご覧ください)_

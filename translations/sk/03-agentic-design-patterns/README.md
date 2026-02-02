@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d71524fe83a23829ae7a23b4031aaac8",
-  "translation_date": "2025-11-13T13:57:48+00:00",
-  "source_file": "03-agentic-design-patterns/README.md",
-  "language_code": "sk"
-}
--->
 [![Ako navrhnúť dobrých AI agentov](../../../translated_images/sk/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
 > _(Kliknite na obrázok vyššie, aby ste si pozreli video k tejto lekcii)_

@@ -1,13 +1,4 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "8c2fe0ee784146c508260771ef01ddca",
-  "translation_date": "2026-01-15T18:33:53+00:00",
-  "source_file": "04-tool-use/README.md",
-  "language_code": "et"
-}
--->
-[![Kuidas kujundada häid tehisintellekti agente](../../../../../translated_images/et/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Kuidas kujundada häid tehisintellekti agente](../../../translated_images/et/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
 > _(Klõpsake ülaloleval pildil, et vaadata selle tunni videot)_
 
@@ -219,7 +210,7 @@ Siin on mõned näited, kuidas saab Tööriistade kasutamise disainimustrit rake
 
 Järgnev diagramm illustreerib funktsiooni kutsumise protsessi Semantic Kerneliga:
 
-![function calling](../../../../../translated_images/et/functioncalling-diagram.a84006fc287f6014.webp)
+![function calling](../../../translated_images/et/functioncalling-diagram.a84006fc287f6014.webp)
 
 Semantic Kernelis kutsutakse funktsioone/tööriistu <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">pluginateks</a>. Saame funktsiooni `get_current_time`, mida eelnevalt nägime, muuta pluginaks, muutes selle klassiks koos funktsiooniga. Saame importida ka `kernel_function` dekoratiivse meetodi, mis võtab vastu funktsiooni kirjelduse. Kui siis loote kernel’i koos GetCurrentTimePlugin’iga, serialiseerib kernel automaatselt funktsiooni ja selle parameetrid, luues skeemi, mis saadetakse LLM-ile.
 
@@ -280,7 +271,7 @@ Kujutame ette, et olete müügiesindaja ettevõttes Contoso. Soovite arendada ve
 
 Järgmine pilt illustreerib, kuidas võiksite Azure AI Agent Service abil oma müügiandmeid analüüsida:
 
-![Agentic Service In Action](../../../../../translated_images/et/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentic Service In Action](../../../translated_images/et/agent-service-in-action.34fb465c9a84659e.webp)
 
 Neid tööriistu teenusega kasutamiseks saab luua kliendi ja määratleda tööriista või töövahendite komplekti. Praktikas saame kasutada järgmist Python koodi. LLM saab tööriistakomplekti põhjal otsustada, kas kasutada kasutaja loodud funktsiooni `fetch_sales_data_using_sqlite_query` või eelnevalt loodud Koodi tõlgendajat, sõltuvalt kasutaja päringust.
 

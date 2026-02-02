@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d8fe220fa2850df0759b07cf391ea77c",
-  "translation_date": "2025-07-12T07:22:43+00:00",
-  "source_file": "SECURITY.md",
-  "language_code": "hi"
-}
--->
 # सुरक्षा
 
 Microsoft हमारे सॉफ़्टवेयर उत्पादों और सेवाओं की सुरक्षा को गंभीरता से लेता है, जिसमें हमारे GitHub संगठनों के माध्यम से प्रबंधित सभी स्रोत कोड रिपॉजिटरी शामिल हैं, जिनमें [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) और [Xamarin](https://github.com/xamarin) शामिल हैं।
