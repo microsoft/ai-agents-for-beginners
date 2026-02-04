@@ -17,11 +17,25 @@ This lesson will cover:
 
 ## Available Implementations
 
-This lesson includes two comprehensive notebook tutorials:
+This lesson includes multiple approaches to implementing agent memory:
+
+### Code-Based Implementations:
 
 • **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implements memory using Mem0 and Azure AI Search with Semantic Kernel framework
 
 • **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implements structured memory using Cognee, automatically building knowledge graph backed by embeddings, visualizing graph, and intelligent retrieval
+
+• **[13-python-agent-framework.ipynb](./13-python-agent-framework.ipynb)**: Simple JSON-based memory using Microsoft Agent Framework (great for learning)
+
+### GUI-Based Implementation:
+
+• **[GUI Approach (No Coding)](./azure-ai-foundry-agent-memory.md)**: Build advanced agent memory directly in Azure AI Foundry UI - builds on Lessons 7 & 12
+
+**Choose based on your needs:**
+- **GUI**: Best for learning concepts, quick demos, builds on Lesson 12
+- **Agent Framework**: Simple code-based approach with JSON files
+- **Semantic Kernel + Mem0**: Production-ready with semantic search
+- **Cognee**: Advanced knowledge graphs for complex relationships
 
 ## Learning Goals
 
