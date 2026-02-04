@@ -108,12 +108,12 @@ python -c "import json; nb = json.load(open('path/to/notebook.ipynb', encoding='
 | Trainer | Email | Assigned Lessons |
 |---------|-------|------------------|
 | Cameron Jackson | cameron.jackson@MngEnvMCAP295748.onmicrosoft.com | **01 (Intro), 03 (Design Patterns)** |
-| **Chad Toney** | chad.toney@MngEnvMCAP295748.onmicrosoft.com | **12 (Context), 13 (Memory)** |
+| **Chad Toney** | chad.toney@MngEnvMCAP295748.onmicrosoft.com | **12 (Context), 13 (Memory)** - *Builds on Lab 7 Travel Agent* |
 | David Yu | TBD | **00 (Setup), 06 (Trustworthy), 10 (Production), 15 (Browser Use)** |
 | John Spinella | john.spinella@MngEnvMCAP295748.onmicrosoft.com | **02 (Frameworks), 14 (MAF)** |
 | Narasimhan Kidambi | kidambi@MngEnvMCAP295748.onmicrosoft.com | **09 (Metacognition), 11 (Protocols)** |
 | Paul Cho | paul.cho@MngEnvMCAP295748.onmicrosoft.com | **04 (Tool Use), 05 (Agentic RAG)** |
-| Seth Brandes | seth.brandes@MngEnvMCAP295748.onmicrosoft.com | **07 (Planning), 08 (Multi-Agent)** |
+| Seth Brandes | seth.brandes@MngEnvMCAP295748.onmicrosoft.com | **07 (Planning), 08 (Multi-Agent)** - *Lab 7 Travel Agent is foundation for Labs 12/13* |
 | Brian Zoucha | brian.zoucha@MngEnvMCAP295748.onmicrosoft.com | TBD |
 | Kesha Brooks | kesha.brooks@MngEnvMCAP295748.onmicrosoft.com | TBD |
 | Phillip Bracher | phillip.bracher@MngEnvMCAP295748.onmicrosoft.com | TBD |
@@ -274,7 +274,44 @@ git merge upstream/main
 
 ---
 
-## 📚 Training Event Structure
+## � Lab Continuity: Travel Agent Story Arc
+
+**Key Design Decision from David Yu (Feb 2, 2026):**
+
+Labs 7, 12, and 13 form a **connected learning experience** for attendees:
+
+1. **Lab 7 (Seth - Planning/Design):** Build a Travel Planning Agent in Azure AI Foundry UI
+   - Create agent from UI perspective
+   - Demonstrate agent planning and design patterns
+   - Students deploy a working Travel Agent
+
+2. **Lab 12 (Chad - Context Engineering):** Enhance Travel Agent with context
+   - Build on the **same Travel Agent from Lab 7**
+   - Add context engineering capabilities via **scratchpad memory**
+   - **Two implementation paths:**
+     - **GUI Approach** (recommended for continuity): Add file-based scratchpad directly in Azure AI Foundry UI
+     - **Code Approach** (optional): Python notebook with markdown file storage
+   - Students see how context improves the agent they already built
+
+3. **Lab 13 (Chad - Agent Memory):** Add memory to Travel Agent
+   - Continue with the **same Travel Agent from Labs 7 & 12**
+   - Add memory functions (user preferences, conversation history)
+   - Upgrade from scratchpad to database-backed memory
+   - Complete journey: basic agent → context-aware → memory-enabled
+
+**Coordination Required:**
+- **Chad & Seth:** Coordinate on Lab 7 Travel Agent architecture
+- **Chad:** Test Labs 12/13 using Lab 7 as foundation
+- **Goal:** Seamless attendee experience across 3 labs
+
+**Teaching Approach for Lab 12:**
+- **Primary:** GUI-based scratchpad (builds on Lab 7 UI experience)
+- **Secondary:** Show Python notebook as "code alternative"
+- **Emphasis:** Same concepts, different implementation methods
+
+---
+
+## �📚 Training Event Structure
 
 ### Day 1: Foundation (Lessons 1-5)
 - Lesson 01: Intro to AI Agents
@@ -292,8 +329,8 @@ git merge upstream/main
 - Lesson 11: Agentic Protocols
 
 ### Day 3: Production + Hackathon (Lessons 12-14)
-- Lesson 12: Context Engineering **(Chad)**
-- Lesson 13: Agent Memory **(Chad)**
+- Lesson 12: Context Engineering **(Chad)** - *Adds to Lab 7 Travel Agent*
+- Lesson 13: Agent Memory **(Chad)** - *Continues Lab 7 Travel Agent*
 - Lesson 14: Microsoft Agent Framework
 - **Hackathon:** Guide teams, provide support
 
@@ -307,6 +344,7 @@ git merge upstream/main
 - [ ] Review lessons 1-11 for context
 - [ ] Prepare backup demos (in case of failures)
 - [ ] Join trainer Discord channel
+- [ ] **Coordinate with dependent trainers** (e.g., Chad + Seth on Labs 7/12/13)
 
 ### During Event
 - **When presenting:** Deliver lessons, demos, Q&A

@@ -18,6 +18,16 @@ This lesson will cover:
 
 • **Common Context Failures** that can derail your AI agent and how to fix them.
 
+## Available Implementations
+
+This lesson includes two approaches to implementing context engineering:
+
+• **[Code-based Approach](./code_samples/12-python-agent-framework.ipynb)**: Implements scratchpad memory using Python and markdown files (programmatic control)
+
+• **[GUI-based Approach](./azure-ai-foundry-context-engineering.md)**: Build the same agent directly in Azure AI Foundry UI (no coding required)
+
+Both approaches demonstrate the same context engineering principles. Choose based on your learning style and use case.
+
 ## Learning Goals
 
 After completing this lesson, you will know understand how to:
