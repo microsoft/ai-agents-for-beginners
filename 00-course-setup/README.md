@@ -257,6 +257,17 @@ Next, open a terminal and run `az login --use-device-code` to sign in to your Az
 
 Once you've logged in, select your subscription in the terminal.
 
+### Step 4: Assign Required Permissions
+
+To create and use agents in Azure AI Foundry, you need the **"Azure AI User"** role on your project.
+
+**If you encounter errors when creating agents** (e.g., "Your principal is missing the Azure AI User role"), refer to the [Azure Troubleshooting Guide](../TROUBLESHOOTING-AZURE.md#issue-cannot-create-agent---azure-ai-user-role-assignment-option-is-disabled) for detailed solutions.
+
+**Quick fix:** 
+1. Go to [Azure AI Foundry](https://ai.azure.com) → Select your PROJECT → **Agents**
+2. If you see an error banner, click the **"Fix me"** button to automatically assign the role
+3. Wait 5-10 minutes for the role to propagate
+
 ## Additional Environment Variables - Azure Search and Azure OpenAI 
 
 For the Agentic RAG Lesson - Lesson 5 - there are samples that use Azure Search and Azure OpenAI.

@@ -217,6 +217,17 @@ credential = InteractiveBrowserCredential()
 
 ## 🔧 Common Trainer Issues
 
+### Issue: Cannot Create Agent - "Azure AI User" Role Disabled
+
+**Symptoms:** Error when creating agents in Azure AI Foundry, role assignment option is disabled
+
+**Quick Fix:** 
+1. Go to [Azure AI Foundry](https://ai.azure.com) → Your PROJECT → **Agents**
+2. Click the **"Fix me"** button if you see the error banner
+3. Wait 5-10 minutes for role propagation
+
+**Detailed Fix:** See [TROUBLESHOOTING-AZURE.md](./TROUBLESHOOTING-AZURE.md#issue-cannot-create-agent---azure-ai-user-role-assignment-option-is-disabled)
+
 ### Issue: 403 AuthenticationTypeDisabled
 
 **Cause:** Missing "Cognitive Services OpenAI User" role
