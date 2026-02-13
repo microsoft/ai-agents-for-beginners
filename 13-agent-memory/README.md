@@ -1,7 +1,7 @@
 # Memory for AI Agents 
 [![Agent Memory](./images/lesson-13-thumbnail.png)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-When discussing the unique benefits of creating AI Agents, two things are mainly discussed: the ability to call tools to complete tasks and the the ability to improve over time. Memory is at the foundation of creating self-improving agent that can create better experiences for our users.
+When discussing the unique benefits of creating AI Agents, two things are mainly discussed: the ability to call tools to complete tasks and the ability to improve over time. Memory is at the foundation of creating self-improving agent that can create better experiences for our users.
 
 In this lesson, we will look at what memory is for AI Agents and how we can manage it and use it for the benefit of our applications.
 
