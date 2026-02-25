@@ -1,0 +1,27 @@
+# Pipelock: AI agent security scan
+# Scans pull requests for exposed credentials, prompt injection patterns,
+# and other AI agent security risks.
+# https://github.com/luckyPipewrench/pipelock
+
+name: Pipelock Security Scan
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Pipelock Scan
+        uses: luckyPipewrench/pipelock@v1
+        with:
+          scan-diff: 'true'
+          fail-on-findings: 'true'
