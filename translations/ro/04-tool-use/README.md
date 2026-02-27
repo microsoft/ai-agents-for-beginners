@@ -2,63 +2,63 @@
 
 > _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
-# Tipar de proiectare: Utilizarea instrumentelor
+# Tiparul de utilizare a uneltelor
 
-Instrumentele sunt interesante deoarece le permit agenților AI să aibă un spectru mai larg de capabilități. În loc ca agentul să aibă un set limitat de acțiuni pe care le poate realiza, prin adăugarea unui instrument, agentul poate acum executa o gamă largă de acțiuni. În acest capitol, vom analiza Tiparul de proiectare pentru utilizarea instrumentelor, care descrie cum agenții AI pot folosi instrumente specifice pentru a-și atinge obiectivele.
+Uneltele sunt interesante deoarece permit agenților AI să aibă un set mai larg de capabilități. În loc ca agentul să aibă un set limitat de acțiuni pe care le poate executa, prin adăugarea unei unelte, agentul poate acum să execute o gamă largă de acțiuni. În acest capitol, vom analiza Tiparul de utilizare a uneltelor, care descrie modul în care agenții AI pot folosi unelte specifice pentru a-și atinge obiectivele.
 
 ## Introducere
 
 În această lecție, încercăm să răspundem la următoarele întrebări:
 
-- Ce este tiparul de proiectare pentru utilizarea instrumentelor?
-- În ce cazuri de utilizare poate fi aplicat?
+- Ce este tiparul de utilizare a uneltelor?
+- Pentru ce cazuri de utilizare poate fi aplicat?
 - Care sunt elementele/blocurile de construcție necesare pentru a implementa tiparul de proiectare?
-- Care sunt considerațiile speciale pentru utilizarea Tiparului de proiectare pentru utilizarea instrumentelor pentru a construi agenți AI de încredere?
+- Care sunt considerațiile speciale pentru utilizarea Tiparului de utilizare a uneltelor pentru a construi agenți AI de încredere?
 
 ## Obiective de învățare
 
 După finalizarea acestei lecții, veți putea:
 
-- Defini Tiparul de proiectare pentru utilizarea instrumentelor și scopul său.
-- Identifica cazuri de utilizare în care Tiparul de proiectare pentru utilizarea instrumentelor este aplicabil.
+- Defini Tiparul de utilizare a uneltelor și scopul său.
+- Identifica cazuri de utilizare în care Tiparul de utilizare a uneltelor este aplicabil.
 - Înțelege elementele cheie necesare pentru a implementa tiparul de proiectare.
-- Recunoaște considerațiile pentru asigurarea încrederii în agenții AI care utilizează acest tipar de proiectare.
+- Recunoaște considerațiile pentru asigurarea încrederii în agenții AI care folosesc acest tipar de proiectare.
 
-## Ce este Tiparul de proiectare pentru utilizarea instrumentelor?
+## Ce este Tiparul de utilizare a uneltelor?
 
-Tiparul de proiectare pentru utilizarea instrumentelor se concentrează pe oferirea LLM-urilor (Modele Lingvistice Mari) a capacității de a interacționa cu instrumente externe pentru a atinge scopuri specifice. Instrumentele sunt cod care poate fi executat de un agent pentru a efectua acțiuni. Un instrument poate fi o funcție simplă, cum ar fi un calculator, sau un apel API către un serviciu terț, cum ar fi interogarea prețului unei acțiuni sau prognoza meteo. În contextul agenților AI, instrumentele sunt proiectate pentru a fi executate de agenți ca răspuns la apeluri de funcții generate de model.
+Tiparul de utilizare a uneltelor se concentrează pe oferirea LLM-urilor a capacității de a interacționa cu unelte externe pentru a atinge obiective specifice. Uneltele sunt cod care poate fi executat de un agent pentru a efectua acțiuni. O unealtă poate fi o funcție simplă, precum un calculator, sau un apel de API către un serviciu terț, cum ar fi consultarea prețului acțiunilor sau prognoza meteo. În contextul agenților AI, uneltele sunt concepute pentru a fi executate de agenți ca răspuns la **apeluri de funcții generate de model**.
 
-## În ce cazuri de utilizare poate fi aplicat?
+## La ce cazuri de utilizare poate fi aplicat?
 
-Agenții AI pot valorifica instrumentele pentru a finaliza sarcini complexe, a recupera informații sau a lua decizii. Tiparul de proiectare pentru utilizarea instrumentelor este adesea folosit în scenarii care necesită interacțiune dinamică cu sisteme externe, cum ar fi baze de date, servicii web sau interpretoare de cod. Această abilitate este utilă pentru o serie de cazuri de utilizare, inclusiv:
+Agenții AI pot folosi unelte pentru a îndeplini sarcini complexe, a recupera informații sau a lua decizii. Tiparul de utilizare a uneltelor este folosit adesea în scenarii care necesită interacțiune dinamică cu sisteme externe, cum ar fi baze de date, servicii web sau interpretoare de cod. Această capacitate este utilă pentru o serie de cazuri de utilizare diferite, inclusiv:
 
-- Dynamic Information Retrieval: Agenții pot interoga API-uri externe sau baze de date pentru a obține date actualizate (de ex., interogarea unei baze de date SQLite pentru analiză de date, obținerea prețurilor acțiunilor sau a informațiilor meteo).
-- Code Execution and Interpretation: Agenții pot executa cod sau scripturi pentru a rezolva probleme matematice, a genera rapoarte sau a realiza simulări.
-- Workflow Automation: Automatizarea fluxurilor de lucru repetitive sau în mai mulți pași prin integrarea unor instrumente precum programatoare de sarcini, servicii de email sau pipeline-uri de date.
-- Customer Support: Agenții pot interacționa cu sisteme CRM, platforme de ticketing sau baze de cunoștințe pentru a rezolva cererile utilizatorilor.
-- Content Generation and Editing: Agenții pot folosi instrumente precum verificatoare gramaticale, sumarizatoare de text sau evaluatoare de siguranță a conținutului pentru a asista în sarcinile de creare de conținut.
+- **Recuperare dinamică a informațiilor:** Agenții pot interoga API-uri externe sau baze de date pentru a obține date actualizate (de ex., interogarea unei baze de date SQLite pentru analiză de date, consultarea prețurilor acțiunilor sau a informațiilor meteo).
+- **Executarea și interpretarea codului:** Agenții pot executa cod sau scripturi pentru a rezolva probleme matematice, a genera rapoarte sau a efectua simulări.
+- **Automatizarea fluxurilor de lucru:** Automatizarea sarcinilor repetitive sau a fluxurilor de lucru în mai mulți pași prin integrarea uneltelor precum programe de planificare a sarcinilor, servicii de e-mail sau pipeline-uri de date.
+- **Asistență pentru clienți:** Agenții pot interacționa cu sisteme CRM, platforme de ticketing sau baze de cunoștințe pentru a rezolva cererile utilizatorilor.
+- **Generare și editare de conținut:** Agenții pot folosi unelte precum verificatoare gramaticale, rezumatoare de text sau evaluatori de siguranță a conținutului pentru a asista la sarcinile de creare a conținutului.
 
-## Care sunt elementele/blocurile de construcție necesare pentru implementarea tiparului de utilizare a instrumentelor?
+## Care sunt elementele/blocurile de construcție necesare pentru a implementa tiparul de utilizare a uneltelor?
 
-Aceste blocuri de construcție permit agentului AI să execute o gamă largă de sarcini. Să analizăm elementele cheie necesare pentru implementarea Tiparului de proiectare pentru utilizarea instrumentelor:
+Aceste blocuri de construcție permit agentului AI să execute o gamă largă de sarcini. Să analizăm elementele cheie necesare pentru a implementa Tiparul de utilizare a uneltelor:
 
-- Function/Tool Schemas: Definiții detaliate ale instrumentelor disponibile, inclusiv numele funcției, scopul, parametrii necesari și rezultatele așteptate. Aceste scheme permit LLM-ului să înțeleagă ce instrumente sunt disponibile și cum să construiască cereri valide.
+- **Scheme de Functii/Unelte**: Definiții detaliate ale uneltelor disponibile, incluzând numele funcției, scopul, parametrii necesari și rezultatele așteptate. Aceste scheme permit LLM-ului să înțeleagă ce unelte sunt disponibile și cum să construiască cereri valide.
 
-- Function Execution Logic: Guvernează cum și când sunt invocate instrumentele pe baza intenției utilizatorului și a contextului conversației. Aceasta poate include module de planificare, mecanisme de rutare sau fluxuri condiționale care determină utilizarea instrumentelor în mod dinamic.
+- **Logică de execuție a funcțiilor**: Guvernează modul și momentul în care uneltele sunt invocate în funcție de intenția utilizatorului și de contextul conversației. Aceasta poate include module de planificare, mecanisme de rutare sau fluxuri condiționale care determină utilizarea uneltelor dinamic.
 
-- Message Handling System: Componente care gestionează fluxul conversațional între intrările utilizatorului, răspunsurile LLM, apelurile către instrumente și rezultatele instrumentelor.
+- **Sistem de gestionare a mesajelor**: Componente care gestionează fluxul conversațional între intrările utilizatorului, răspunsurile LLM, apelurile către unelte și rezultatele uneltelor.
 
-- Tool Integration Framework: Infrastructura care conectează agentul la diverse instrumente, fie că sunt funcții simple sau servicii externe complexe.
+- **Cadru de integrare a uneltelor**: Infrastructura care conectează agentul la diverse unelte, fie că sunt funcții simple sau servicii externe complexe.
 
-- Error Handling & Validation: Mecanisme pentru a gestiona eșecurile în execuția instrumentelor, a valida parametrii și a trata răspunsurile neașteptate.
+- **Gestionarea erorilor și validarea**: Mecanisme pentru a gestiona eșecurile în execuția uneltelor, a valida parametrii și a gestiona răspunsurile neașteptate.
 
-- State Management: Urmărește contextul conversației, interacțiunile anterioare cu instrumentele și datele persistente pentru a asigura consistența în interacțiunile multi-turn.
+- **Gestionarea stării**: Urmărește contextul conversației, interacțiunile anterioare cu uneltele și datele persistente pentru a asigura consistența pe parcursul interacțiunilor multi-turn.
 
-Următorul pas, să privim în detaliu Apelarea Funcțiilor/Instrumentelor.
+În continuare, să analizăm Apelarea Funțiilor/Uneltelor în mai multă detaliu.
  
-### Apelarea Funcțiilor/Instrumentelor
+### Apelarea funcțiilor/uneltelor
 
-Apelarea funcțiilor este modalitatea principală prin care permitem Modelelor Lingvistice Mari (LLM-urilor) să interacționeze cu instrumentele. Veți vedea adesea 'Function' și 'Tool' folosite interschimbabil deoarece 'funcțiile' (blocuri de cod reutilizabile) sunt 'instrumentele' pe care agenții le folosesc pentru a îndeplini sarcini. Pentru ca codul unei funcții să fie invocat, un LLM trebuie să compare cererea utilizatorului cu descrierea funcțiilor. Pentru aceasta, o schemă care conține descrierile tuturor funcțiilor disponibile este trimisă LLM-ului. LLM-ul selectează apoi funcția cea mai potrivită pentru sarcină și returnează numele și argumentele acesteia. Funcția selectată este invocată, răspunsul ei este trimis înapoi la LLM, care folosește informațiile pentru a răspunde la cererea utilizatorului.
+Apelarea funcțiilor este modalitatea principală prin care permitem Modelelor Lingvistice Mari (LLM) să interacționeze cu uneltele. Veți vedea adesea termenii 'Funcție' și 'Unealtă' folosiți interschimbabil deoarece 'funcțiile' (blocuri de cod reutilizabile) sunt 'uneltele' pe care agenții le folosesc pentru a îndeplini sarcini. Pentru ca codul unei funcții să fie invocat, un LLM trebuie să compare solicitarea utilizatorului cu descrierea funcțiilor. Pentru a face acest lucru, se trimite către LLM o schemă care conține descrierile tuturor funcțiilor disponibile. LLM-ul selectează apoi funcția cea mai potrivită pentru sarcină și returnează numele și argumentele acesteia. Funcția selectată este invocată, răspunsul său este trimis înapoi la LLM, care folosește informația pentru a răspunde cererii utilizatorului.
 
 Pentru ca dezvoltatorii să implementeze apelarea funcțiilor pentru agenți, veți avea nevoie de:
 
@@ -70,12 +70,12 @@ Să folosim exemplul obținerii orei curente într-un oraș pentru a ilustra:
 
 1. **Inițializați un LLM care suportă apelarea funcțiilor:**
 
-    Nu toate modelele suportă apelarea funcțiilor, așadar este important să verificați că LLM-ul pe care îl utilizați o acceptă.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> suportă apelarea funcțiilor. Putem începe prin a iniția clientul Azure OpenAI. 
+    Nu toate modelele suportă apelarea funcțiilor, așa că este important să verificați dacă LLM-ul pe care îl utilizați o suportă.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> suportă apelarea funcțiilor. Putem începe prin a iniția clientul Azure OpenAI. 
 
     ```python
     # Inițializează clientul Azure OpenAI
     client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
+        azure_endpoint = os.getenv("AZURE_AI_PROJECT_ENDPOINT"), 
         api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
         api_version="2024-05-01-preview"
     )
@@ -83,8 +83,8 @@ Să folosim exemplul obținerii orei curente într-un oraș pentru a ilustra:
 
 1. **Creați o schemă de funcție**:
 
-    În continuare vom defini o schemă JSON care conține numele funcției, descrierea a ceea ce face funcția și numele și descrierile parametrilor funcției.
-    Apoi vom prelua această schemă și o vom transmite clientului creat anterior, împreună cu cererea utilizatorului de a afla ora în San Francisco. Ceea ce este important de remarcat este că un **apel la instrument** este ceea ce este returnat, **nu** răspunsul final la întrebare. După cum s-a menționat anterior, LLM-ul returnează numele funcției pe care a selectat-o pentru sarcină și argumentele care vor fi transmise acesteia.
+    Următorul pas este să definim o schemă JSON care conține numele funcției, descrierea a ceea ce face funcția și numele și descrierile parametrilor funcției.
+    Apoi vom lua această schemă și o vom transmite clientului creat anterior, împreună cu solicitarea utilizatorului de a afla ora în San Francisco. Ceea ce este important de remarcat este că un **apel către o unealtă** este ceea ce este returnat, **nu** răspunsul final la întrebare. După cum s-a menționat mai devreme, LLM-ul returnează numele funcției pe care a selectat-o pentru sarcină și argumentele care îi vor fi transmise.
 
     ```python
     # Descrierea funcției pentru ca modelul să o citească
@@ -111,7 +111,7 @@ Să folosim exemplul obținerii orei curente într-un oraș pentru a ilustra:
    
     ```python
   
-    # Mesajul inițial al utilizatorului
+    # Mesaj inițial al utilizatorului
     messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
   
     # Primul apel API: Cere modelului să folosească funcția
@@ -137,9 +137,9 @@ Să folosim exemplul obținerii orei curente într-un oraș pentru a ilustra:
     ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
     ```
   
-1. **Codul funcției necesar pentru a realiza sarcina:**
+1. **Codul funcției necesar pentru îndeplinirea sarcinii:**
 
-    Acum că LLM-ul a ales ce funcție trebuie rulată, codul care realizează sarcina trebuie implementat și executat.
+    Acum că LLM-ul a ales ce funcție trebuie rulate, codul care îndeplinește sarcina trebuie implementat și executat.
     Putem implementa codul pentru a obține ora curentă în Python. De asemenea, va trebui să scriem codul pentru a extrage numele și argumentele din response_message pentru a obține rezultatul final.
 
     ```python
@@ -162,7 +162,7 @@ Să folosim exemplul obținerii orei curente într-un oraș pentru a ilustra:
     ```
 
      ```python
-     # Gestionează apelurile funcțiilor
+     # Gestionarea apelurilor de funcții
       if response_message.tool_calls:
           for tool_call in response_message.tool_calls:
               if tool_call.function.name == "get_current_time":
@@ -182,7 +182,7 @@ Să folosim exemplul obținerii orei curente într-un oraș pentru a ilustra:
       else:
           print("No tool calls were made by the model.")  
   
-      # Al doilea apel API: Obține răspunsul final de la model
+      # Al doilea apel API: Obțineți răspunsul final de la model
       final_response = client.chat.completions.create(
           model=deployment_name,
           messages=messages,
@@ -197,83 +197,73 @@ Să folosim exemplul obținerii orei curente într-un oraș pentru a ilustra:
       The current time in San Francisco is 09:24 AM.
      ```
 
-Apelarea Funcțiilor se află în centrul majorității, dacă nu al tuturor, proiectelor de utilizare a instrumentelor pentru agenți; totuși implementarea de la zero poate fi uneori provocatoare.
-Așa cum am învățat în [Lesson 2](../../../02-explore-agentic-frameworks), cadrele agentice ne oferă blocuri de construcție predefinite pentru a implementa utilizarea instrumentelor.
+Apelarea funcțiilor este în centrul majorității, dacă nu al tuturor, proiectărilor de utilizare a uneltelor pentru agenți, însă implementarea acesteia de la zero poate fi uneori provocatoare.
+Așa cum am învățat în [Lecția 2](../../../02-explore-agentic-frameworks), cadrele agentice ne oferă blocuri de construcție predefinite pentru a implementa utilizarea uneltelor.
  
-## Exemple de utilizare a instrumentelor cu cadre agentice
+## Exemple de utilizare a uneltelor cu cadre agentice
 
-Iată câteva exemple despre cum puteți implementa Tiparul de proiectare pentru utilizarea instrumentelor folosind diferite cadre agentice:
+Iată câteva exemple despre cum puteți implementa Tiparul de utilizare a uneltelor folosind diferite cadre agentice:
 
-### Semantic Kernel
+### Microsoft Agent Framework
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Semantic Kernel</a> este un cadru AI open-source pentru dezvoltatorii .NET, Python și Java care lucrează cu Modele Lingvistice Mari (LLM-uri). Simplifică procesul de utilizare a apelării funcțiilor prin descrierea automată a funcțiilor și a parametrilor acestora pentru model printr-un proces numit <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">serializare</a>. De asemenea, gestionează comunicarea dus-întors între model și codul dvs. Un alt avantaj al utilizării unui cadru agentic precum Semantic Kernel este că vă permite să accesați instrumente preconstruite precum <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step4_assistant_tool_file_search.py" target="_blank">File Search</a> și <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Code Interpreter</a>.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> este un cadru AI open-source pentru construirea agenților AI. Simplifică procesul de utilizare a apelării funcțiilor permițându-vă să definiți uneltele ca funcții Python cu decoratorul `@tool`. Cadrul gestionează comunicarea dus-întors dintre model și codul dvs. De asemenea, oferă acces la unelte predefinite precum File Search și Code Interpreter prin `AzureAIProjectAgentProvider`.
 
-Diagrama următoare ilustrează procesul de apelare a funcțiilor cu Semantic Kernel:
+Diagrama următoare ilustrează procesul de apelare a funcțiilor cu Microsoft Agent Framework:
 
-![function calling](../../../translated_images/ro/functioncalling-diagram.a84006fc287f6014.webp)
+![Apelarea funcțiilor](../../../translated_images/ro/functioncalling-diagram.a84006fc287f6014.webp)
 
-În Semantic Kernel, funcțiile/instrumentele sunt numite <a href="https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-python" target="_blank">Plugins</a>. Putem converti funcția `get_current_time` pe care am văzut-o mai devreme într-un plugin transformând-o într-o clasă care conține funcția. De asemenea, putem importa decoratorul `kernel_function`, care preia descrierea funcției. Când creați un kernel cu GetCurrentTimePlugin, kernelul va serializa automat funcția și parametrii acesteia, creând schema care va fi trimisă către LLM în acest proces.
+În Microsoft Agent Framework, uneltele sunt definite ca funcții decorate. Putem converti funcția `get_current_time` pe care am văzut-o mai devreme într-o unealtă folosind decoratorul `@tool`. Cadrul va serializa automat funcția și parametrii acesteia, creând schema care va fi trimisă către LLM.
 
 ```python
-from semantic_kernel.functions import kernel_function
+from agent_framework import tool
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-class GetCurrentTimePlugin:
-    async def __init__(self, location):
-        self.location = location
+@tool
+def get_current_time(location: str) -> str:
+    """Get the current time for a given location"""
+    ...
 
-    @kernel_function(
-        description="Get the current time for a given location"
-    )
-    def get_current_time(location: str = ""):
-        ...
+# Creează clientul
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
-```
-
-```python 
-from semantic_kernel import Kernel
-
-# Creează kernelul
-kernel = Kernel()
-
-# Creează pluginul
-get_current_time_plugin = GetCurrentTimePlugin(location)
-
-# Adaugă pluginul în kernel
-kernel.add_plugin(get_current_time_plugin)
+# Creează un agent și rulează-l cu instrumentul
+agent = await provider.create_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+response = await agent.run("What time is it?")
 ```
   
 ### Azure AI Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> este un cadru agentic mai nou, proiectat pentru a permite dezvoltatorilor să construiască, să implementeze și să scaleze în siguranță agenți AI extensibili și de înaltă calitate fără a fi nevoie să gestioneze resursele de calcul și stocare subiacente. Este deosebit de util pentru aplicațiile enterprise, deoarece este un serviciu complet gestionat cu securitate la nivel enterprise.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> este un cadru agentic mai nou, conceput pentru a permite dezvoltatorilor să construiască, să implementeze și să scaleze în mod sigur agenți AI extensibili și de înaltă calitate fără a trebui să gestioneze resursele de calcul și stocare subiacente. Este deosebit de util pentru aplicațiile enterprise, deoarece este un serviciu complet gestionat, cu securitate la nivel enterprise.
 
-Comparativ cu dezvoltarea directă cu API-ul LLM, Azure AI Agent Service oferă câteva avantaje, inclusiv:
+În comparație cu dezvoltarea directă cu API-ul LLM, Azure AI Agent Service oferă unele avantaje, inclusiv:
 
-- Apelare automată a instrumentelor – nu este necesar să analizați un apel la instrument, să invocați instrumentul și să gestionați răspunsul; toate acestea se realizează acum pe server
-- Date gestionate în siguranță – în loc să vă gestionați propriul stoc de conversații, vă puteți baza pe threads pentru a stoca toate informațiile de care aveți nevoie
-- Instrumente disponibile din cutie – Instrumente pe care le puteți folosi pentru a interacționa cu sursele dvs. de date, cum ar fi Bing, Azure AI Search și Azure Functions.
+- Apelare automată a uneltelor – nu este nevoie să analizați un apel către o unealtă, să invocați unealta și să gestionați răspunsul; toate acestea sunt acum realizate server-side
+- Date gestionate în siguranță – în loc să vă gestionați propria stare a conversației, vă puteți baza pe threads pentru a stoca toate informațiile de care aveți nevoie
+- Unelte gata de utilizare – unelte pe care le puteți folosi pentru a interacționa cu sursele dvs. de date, cum ar fi Bing, Azure AI Search și Azure Functions.
 
-Instrumentele disponibile în Azure AI Agent Service pot fi împărțite în două categorii:
+Uneltele disponibile în Azure AI Agent Service pot fi împărțite în două categorii:
 
-1. Knowledge Tools:
+1. Unelte de cunoaștere:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding with Bing Search</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">File Search</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
-2. Action Tools:
+2. Unelte de acțiune:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Function Calling</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Code Interpreter</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI defined tools</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agent Service ne permite să folosim aceste instrumente împreună ca un `toolset`. De asemenea, utilizează `threads` care țin evidența istoricului mesajelor dintr-o anumită conversație.
+Agent Service ne permite să folosim aceste unelte împreună ca un `toolset`. De asemenea, utilizează `threads` care păstrează istoricul mesajelor dintr-o conversație particulară.
 
-Imaginați-vă că sunteți un agent de vânzări la o companie numită Contoso. Doriți să dezvoltați un agent conversațional care să poată răspunde la întrebări despre datele dvs. de vânzări.
+Imaginați-vă că sunteți un agent de vânzări într-o companie numită Contoso. Doriți să dezvoltați un agent conversațional care poate răspunde la întrebări despre datele dvs. de vânzări.
 
 Imaginea următoare ilustrează cum ați putea folosi Azure AI Agent Service pentru a analiza datele de vânzări:
 
-![Agentic Service In Action](../../../translated_images/ro/agent-service-in-action.34fb465c9a84659e.webp)
+![Serviciul Agentic în acțiune](../../../translated_images/ro/agent-service-in-action.34fb465c9a84659e.webp)
 
-Pentru a folosi oricare dintre aceste instrumente cu serviciul, putem crea un client și defini un instrument sau un set de instrumente. Pentru a implementa acest lucru practic, putem folosi următorul cod Python. LLM-ul va putea analiza toolset-ul și decide dacă să folosească funcția creată de utilizator, `fetch_sales_data_using_sqlite_query`, sau Code Interpreter-ul preconstruit în funcție de cererea utilizatorului.
+Pentru a folosi oricare dintre aceste unelte cu serviciul, putem crea un client și defini o unealtă sau un toolset. Pentru a implementa aceasta practic, putem folosi următorul cod Python. LLM-ul va putea să examineze toolset-ul și să decidă dacă să folosească funcția creată de utilizator, `fetch_sales_data_using_sqlite_query`, sau Code Interpreter-ul predefinit în funcție de solicitarea utilizatorului.
 
 ```python 
 import os
@@ -290,11 +280,11 @@ project_client = AIProjectClient.from_connection_string(
 # Inițializează setul de instrumente
 toolset = ToolSet()
 
-# Inițializează agentul de apelare a funcțiilor cu funcția fetch_sales_data_using_sqlite_query și îl adaugă la setul de instrumente
+# Inițializează agentul de apelare a funcțiilor cu funcția fetch_sales_data_using_sqlite_query și îl adaugă în setul de instrumente
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Inițializează instrumentul Code Interpreter și îl adaugă la setul de instrumente.
+# Inițializează instrumentul Code Interpreter și îl adaugă în setul de instrumente.
 code_interpreter = code_interpreter = CodeInterpreterTool()
 toolset.add(code_interpreter)
 
@@ -304,39 +294,37 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-## Care sunt considerațiile speciale pentru utilizarea Tiparului de proiectare pentru utilizarea instrumentelor pentru a construi agenți AI de încredere?
+## Care sunt considerațiile speciale pentru utilizarea Tiparului de utilizare a uneltelor pentru a construi agenți AI de încredere?
 
-O preocupare comună legată de SQL-ul generat dinamic de LLM-uri este securitatea, în special riscul de injecție SQL sau acțiuni malițioase, cum ar fi ștergerea sau manipularea bazei de date. Deși aceste preocupări sunt valide, ele pot fi atenuate eficient prin configurarea corectă a permisiunilor de acces la baza de date. Pentru majoritatea bazelor de date, aceasta implică configurarea bazei de date ca fiind doar pentru citire. Pentru servicii de baze de date precum PostgreSQL sau Azure SQL, aplicației ar trebui să i se atribuie un rol doar pentru citire (SELECT).
+O preocupare comună legată de SQL generat dinamic de LLM-uri este securitatea, în special riscul de SQL injection sau acțiuni malițioase, cum ar fi ștergerea sau manipularea bazei de date. Deși aceste preocupări sunt valabile, ele pot fi atenuate eficient prin configurarea corectă a permisiunilor de acces la baza de date. Pentru majoritatea bazelor de date, acest lucru implică configurarea bazei de date ca read-only. Pentru servicii de baze de date precum PostgreSQL sau Azure SQL, aplicației ar trebui să i se atribuie un rol read-only (SELECT).
 
-Rularea aplicației într-un mediu securizat sporește în continuare protecția. În scenarii enterprise, datele sunt de obicei extrase și transformate din sistemele operaționale într-o bază de date doar pentru citire sau într-un data warehouse cu un schemă ușor de utilizat. Această abordare asigură că datele sunt securizate, optimizate pentru performanță și accesibilitate și că aplicația are acces restricționat, doar pentru citire.
+Executarea aplicației într-un mediu securizat îmbunătățește în continuare protecția. În scenariile enterprise, datele sunt, de obicei, extrase și transformate din sistemele operaționale într-o bază de date read-only sau într-un depozit de date cu un schemă prietenoasă pentru utilizator. Această abordare asigură că datele sunt securizate, optimizate pentru performanță și accesibilitate și că aplicația are acces restricționat, doar în citire.
 
-## Exemple de cod (Sample Codes)
-- Python: [Cadru pentru agenți](./code_samples/04-python-agent-framework.ipynb)
-- .NET: [Cadru pentru agenți](./code_samples/04-dotnet-agent-framework.md)
+## Exemple de cod
 
-## Aveți mai multe întrebări despre modelele de proiectare pentru utilizarea instrumentelor?
+- Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-Alăturați-vă [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) pentru a întâlni alți cursanți, a participa la orele de consultații și a primi răspunsuri la întrebările dvs. despre agenții AI.
+## Aveți mai multe întrebări despre Tiparele de utilizare a uneltelor?
+
+Alăturați-vă [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) pentru a întâlni alți cursanți, a participa la ore de consultanță și a obține răspunsuri la întrebările dvs. despre agenți AI.
 
 ## Resurse suplimentare
 
-- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Atelier Azure AI Agents Service</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Atelier multi-agent Contoso Creative Writer</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/concepts/ai-services/chat-completion/function-calling/?pivots=programming-language-python#1-serializing-the-functions" target="_blank">Tutorial despre apelarea funcțiilor în Semantic Kernel</a>
-- <a href="https://github.com/microsoft/semantic-kernel/blob/main/python/samples/getting_started_with_agents/openai_assistant/step3_assistant_tool_code_interpreter.py" target="_blank">Interpreter de cod Semantic Kernel</a>
-- <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/components/tools.html" target="_blank">Instrumente Autogen</a>
+- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agents Service Workshop</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Multi-Agent Workshop</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework Overview</a>
 
-## Lecția precedentă
+## Lecția anterioară
 
-[Înțelegerea modelelor de proiectare agentice](../03-agentic-design-patterns/README.md)
+[Înțelegerea tiparelor de proiectare agentică](../03-agentic-design-patterns/README.md)
 
 ## Lecția următoare
-
-[Agentic RAG](../05-agentic-rag/README.md)
+[Agențial RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 Declinare de responsabilitate:
-Acest document a fost tradus folosind serviciul de traducere automată AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original, în limba sa nativă, trebuie considerat sursa autoritară. Pentru informații critice se recomandă o traducere profesională realizată de un traducător uman. Nu ne asumăm nicio răspundere pentru eventualele neînțelegeri sau interpretări greșite care rezultă din utilizarea acestei traduceri.
+Acest document a fost tradus folosind serviciul de traducere AI Co-op Translator (https://github.com/Azure/co-op-translator). Deși ne străduim pentru acuratețe, vă rugăm să aveți în vedere că traducerile automate pot conține erori sau inexactități. Documentul original, în limba sa nativă, trebuie considerat sursa autorizată. Pentru informații critice se recomandă o traducere profesională realizată de un traducător uman. Nu ne asumăm răspunderea pentru eventuale neînțelegeri sau interpretări greșite care rezultă din utilizarea acestei traduceri.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

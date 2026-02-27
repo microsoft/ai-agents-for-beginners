@@ -2,31 +2,30 @@
 
 ## Prehľad projektu
 
-Tento repozitár obsahuje "AI Agentov pre začiatočníkov" - komplexný vzdelávací kurz, ktorý učí všetko potrebné na vytváranie AI Agentov. Kurz pozostáva z viac ako 15 lekcií pokrývajúcich základy, návrhové vzory, frameworky a produkčné nasadenie AI agentov.
+Tento repozitár obsahuje "AI Agentov pre začiatočníkov" - komplexný vzdelávací kurz, ktorý učí všetko potrebné na vytvorenie AI agentov. Kurz sa skladá z viac ako 15 lekcií pokrývajúcich základy, návrhové vzory, frameworky a produkčné nasadenie AI agentov.
 
 **Kľúčové technológie:**
 - Python 3.12+
 - Jupyter Notebooky pre interaktívne učenie
-- AI Frameworky: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Azure AI služby: Microsoft Foundry, Azure AI Agent Service
-- GitHub Models Marketplace (dostupná bezplatná úroveň)
+- AI frameworky: Microsoft Agent Framework (MAF)
+- Azure AI služby: Microsoft Foundry, Azure AI Foundry Agent Service V2
 
 **Architektúra:**
-- Štruktúra podľa lekcií (adresáre 00-15+)
-- Každá lekcia obsahuje: dokumentáciu README, príklady kódu (Jupyter notebooky) a obrázky
-- Podpora viacerých jazykov pomocou automatizovaného systému prekladu
-- Viaceré možnosti frameworkov na lekciu (Semantic Kernel, AutoGen, Azure AI Agent Service)
+- Štruktúra založená na lekciách (adresáre 00-15+)
+- Každá lekcia obsahuje: dokumentáciu README, ukážky kódu (Jupyter notebooky) a obrázky
+- Podpora viacerých jazykov cez automatizovaný prekladový systém
+- Jeden Python notebook na lekciu používajúci Microsoft Agent Framework
 
 ## Príkazy na nastavenie
 
-### Predpoklady
-- Python 3.12 alebo novší
-- GitHub účet (pre GitHub Models - bezplatná vrstva)
-- Predplatné Azure (voliteľné, pre Azure AI služby)
+### Požiadavky
+- Python 3.12 alebo vyšší
+- Azure predplatné (pre Azure AI Foundry)
+- Azure CLI nainštalované a autentifikované (`az login`)
 
 ### Počiatočné nastavenie
 
-1. **Naklonujte alebo forknite repozitár:**
+1. **Klonujte alebo vytvorte fork repozitára:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
    # ALEBO
@@ -37,7 +36,7 @@ Tento repozitár obsahuje "AI Agentov pre začiatočníkov" - komplexný vzdelá
 2. **Vytvorte a aktivujte Python virtuálne prostredie:**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # Vo Windows: venv\Scripts\activate
+   source venv/bin/activate  # Vo Windowse: venv\Scripts\activate
    ```
 
 3. **Nainštalujte závislosti:**
@@ -48,27 +47,26 @@ Tento repozitár obsahuje "AI Agentov pre začiatočníkov" - komplexný vzdelá
 4. **Nastavte premenné prostredia:**
    ```bash
    cp .env.example .env
-   # Upraviť .env s vašimi API kľúčmi a koncovými bodmi
+   # Upravte .env so svojimi API kľúčmi a koncovými bodmi
    ```
 
 ### Povinné premenné prostredia
 
-Pre **GitHub Models (bezplatne)**:
-- `GITHUB_TOKEN` - osobný prístupový token z GitHubu
+Pre **Azure AI Foundry** (vyžaduje sa):
+- `AZURE_AI_PROJECT_ENDPOINT` - endpoint projektu Azure AI Foundry
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - meno nasadenia modelu (napr. gpt-4o)
 
-Pre **Azure AI služby** (voliteľné):
-- `PROJECT_ENDPOINT` - endpoint projektu Microsoft Foundry
-- `AZURE_OPENAI_API_KEY` - kľúč API Azure OpenAI
-- `AZURE_OPENAI_ENDPOINT` - URL endpointu Azure OpenAI
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - názov nasadenia chat modelu
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - názov nasadenia embeddingov
-- Ďalšie Azure konfigurácie podľa `.env.example`
+Pre **Azure AI Search** (Lekcia 05 – RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - endpoint Azure AI Search
+- `AZURE_SEARCH_API_KEY` - API kľúč Azure AI Search
 
-## Vývojový workflow
+Autentifikácia: Spustite `az login` pred spustením notebookov (používa `AzureCliCredential`).
+
+## Vývojový pracovný postup
 
 ### Spustenie Jupyter notebookov
 
-Každá lekcia obsahuje viacero Jupyter notebookov pre rôzne frameworky:
+Každá lekcia obsahuje niekoľko Jupyter notebookov pre rôzne frameworky:
 
 1. **Spustite Jupyter:**
    ```bash
@@ -78,49 +76,32 @@ Každá lekcia obsahuje viacero Jupyter notebookov pre rôzne frameworky:
 2. **Prejdite do adresára lekcie** (napr. `01-intro-to-ai-agents/code_samples/`)
 
 3. **Otvorte a spustite notebooky:**
-   - `*-semantic-kernel.ipynb` - Použitie frameworku Semantic Kernel
-   - `*-autogen.ipynb` - Použitie frameworku AutoGen
    - `*-python-agent-framework.ipynb` - Použitie Microsoft Agent Framework (Python)
    - `*-dotnet-agent-framework.ipynb` - Použitie Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Použitie Azure AI Agent Service
 
-### Práca s rôznymi frameworkmi
+### Práca s Microsoft Agent Framework
 
-**Semantic Kernel + GitHub Models:**
-- Bezplatná vrstva dostupná s GitHub účtom
-- Vhodné na učenie a experimentovanie
-- Vzor súboru: `*-semantic-kernel*.ipynb`
-
-**AutoGen + GitHub Models:**
-- Bezplatná vrstva dostupná s GitHub účtom
-- Podpora orchestrácie viacerých agentov
-- Vzor súboru: `*-autogen.ipynb`
-
-**Microsoft Agent Framework (MAF):**
-- Najnovší framework od Microsoftu
-- Dostupný v Python a .NET
-- Vzor súboru: `*-agent-framework.ipynb`
-
-**Azure AI Agent Service:**
-- Vyžaduje predplatné Azure
-- Produkčné funkcie pripravené na nasadenie
-- Vzor súboru: `*-azureaiagent.ipynb`
+**Microsoft Agent Framework + Azure AI Foundry:**
+- Vyžaduje Azure predplatné
+- Používa `AzureAIProjectAgentProvider` pre Agent Service V2 (agenti viditeľní v portáli Foundry)
+- Produkčne pripravené s integrovanou pozorovateľnosťou
+- Vzor súborov: `*-python-agent-framework.ipynb`
 
 ## Inštrukcie na testovanie
 
-Toto je vzdelávací repozitár s ukážkovým kódom, nie produkčný kód s automatizovanými testami. Na overenie nastavenia a zmien:
+Toto je vzdelávací repozitár s príkladovým kódom, nie produkčný kód s automatizovanými testami. Na overenie nastavenia a zmien:
 
 ### Manuálne testovanie
 
 1. **Otestujte Python prostredie:**
    ```bash
-   python --version  # Malo by byť 3.12 a vyšší
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   python --version  # Malo by byť 3.12+
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Otestujte spustenie notebooku:**
+2. **Otestujte vykonanie notebooku:**
    ```bash
-   # Prekonvertujte zápisník do skriptu a spustite (testuje importy)
+   # Preveďte poznámkový blok na skript a spustite ho (testuje importy)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
@@ -131,27 +112,27 @@ Toto je vzdelávací repozitár s ukážkovým kódom, nie produkčný kód s au
 
 ### Spustenie jednotlivých notebookov
 
-Otvorte notebooky v Jupyter a vykonávajte bunky postupne. Každý notebook je samostatný a obsahuje:
-- importy
-- načítanie konfigurácie
-- príklady implementácie agentov
-- očakávané výstupy v markdown bunkách
+Otvorte notebooky v Jupyter a vykonávajte bunky sekvenčne. Každý notebook je samostatný a obsahuje:
+- Importy
+- Načítanie konfigurácie
+- Príklady implementácie agentov
+- Očakávané výstupy v markdown bunkách
 
 ## Štýl kódu
 
 ### Python konvencie
 
-- **Verzia Pythonu**: 3.12+
-- **Štýl kódu**: dodržiavajte štandardné konvencie PEP 8
-- **Notebooky**: používajte jasné markdown bunky na vysvetlenie pojmov
-- **Importy**: zoskupujte podľa štandardnej knižnice, tretích strán a lokálne
+- **Verzia Pythonu:** 3.12+
+- **Štýl kódu:** Dodržiavajte štandardné Python PEP 8 konvencie
+- **Notebooky:** Používajte jasné markdown bunky na vysvetlenie konceptov
+- **Importy:** Zoraďte podľa štandardnej knižnice, tretích strán a lokálnych importov
 
-### Konvencie Jupyter notebookov
+### Jupyter Notebook konvencie
 
 - Zahrňte popisné markdown bunky pred kódovými bunkami
-- Pridajte príklady výstupov v notebookoch pre referenciu
-- Používajte zrozumiteľné premenné, ktoré zodpovedajú konceptom lekcie
-- Dodržujte lineárny poradie vykonávania buniek (bunka 1 → 2 → 3...)
+- Pridajte príklady výstupov v notebookoch na referenciu
+- Používajte jasné názvy premenných zodpovedajúce konceptom lekcie
+- Udržiavajte lineárne poradie vykonávania notebooku (bunka 1 → 2 → 3...)
 
 ### Organizácia súborov
 
@@ -159,183 +140,173 @@ Otvorte notebooky v Jupyter a vykonávajte bunky postupne. Každý notebook je s
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
-## Skladanie a nasadenie
+## Kompilácia a nasadenie
 
-### Skladanie dokumentácie
+### Tvorba dokumentácie
 
-Tento repozitár používa Markdown na dokumentáciu:
-- README.md súbory v každom adresári lekcie
-- Hlavný README.md v koreňovom adresári repozitára
-- Automatizovaný systém prekladu cez GitHub Actions
+Tento repozitár používa Markdown pre dokumentáciu:
+- Súbory README.md v každom adresári lekcie
+- Hlavný README.md v koreňovom adresári
+- Automatizovaný prekladový systém cez GitHub Actions
 
-### CI/CD pipeline
+### CI/CD Pipeline
 
 Nachádza sa v `.github/workflows/`:
 
-1. **co-op-translator.yml** - automatický preklad do viac ako 50 jazykov
-2. **welcome-issue.yml** - vítanie nových autorov issues
-3. **welcome-pr.yml** - vítanie nových autorov pull requestov
+1. **co-op-translator.yml** - Automatický preklad do viac ako 50 jazykov
+2. **welcome-issue.yml** - Privítanie nových tvorcov issue
+3. **welcome-pr.yml** - Privítanie nových prispievateľov pull requestov
 
 ### Nasadenie
 
-Tento repozitár je vzdelávací - bez nasadzovacieho procesu. Používatelia:
-1. Forknú alebo naklonujú repozitár
+Toto je vzdelávací repozitár - žiadny proces nasadenia. Používatelia:
+1. Vytvoria fork alebo naklonujú repozitár
 2. Spúšťajú notebooky lokálne alebo v GitHub Codespaces
-3. Učia sa úpravou a experimentovaním na príkladoch
+3. Učia sa modifikáciou a experimentovaním s príkladmi
 
-## Pokyny k pull requestom
+## Pokyny pre pull requesty
 
 ### Pred odoslaním
 
-1. **Otestujte zmeny:**
-   - Spustite úplné notebooky, ktorých sa zmeny týkajú
-   - Overte, že všetky bunky sa vykonajú bez chýb
-   - Skontrolujte, či výstupy dávajú zmysel
+1. **Otestujte svoje zmeny:**
+   - Spustite úplne dotknuté notebooky
+   - Overte, že všetky bunky sa vykonávajú bez chýb
+   - Skontrolujte, či sú výstupy vhodné
 
-2. **Aktualizácia dokumentácie:**
+2. **Aktualizácie dokumentácie:**
    - Aktualizujte README.md ak pridávate nové koncepty
-   - Pridajte komentáre v notebookoch pri zložitejšom kóde
-   - Uistite sa, že markdown bunky vysvetľujú účel
+   - Pridajte komentáre do notebookov pri zložitejšom kóde
+   - Zaistite, že markdown bunky vysvetľujú účel
 
 3. **Zmeny v súboroch:**
-   - Vyhnite sa commitovaniu `.env` súborov (používajte `.env.example`)
-   - Nekommitujte adresáre `venv/` alebo `__pycache__/`
-   - Zachovajte výstupy notebookov, ak ilustrujú koncepty
-   - Odstráňte dočasné súbory a zálohy notebookov (`*-backup.ipynb`)
+   - Necommitujte `.env` súbory (používajte `.env.example`)
+   - Necommitujte adresáre `venv/` alebo `__pycache__/`
+   - Zachovajte výstupy notebookov, keď demonštrujú koncepty
+   - Odstráňte dočasné a záložné notebooky (`*-backup.ipynb`)
 
-### Formát názvu PR
+### Formát názvov PR
 
 Používajte popisné názvy:
 - `[Lesson-XX] Pridanie nového príkladu pre <koncept>`
-- `[Fix] Oprava preklepu v README lekcie XX`
-- `[Update] Vylepšenie príkladu kódu v lekcii XX`
+- `[Fix] Oprava preklepu v README lekcie-XX`
+- `[Update] Vylepšenie ukážky kódu v lekcii-XX`
 - `[Docs] Aktualizácia inštrukcií na nastavenie`
 
 ### Povinné kontroly
 
-- Notebooky sa majú vykonať bez chýb
-- README súbory majú byť jasné a presné
-- Dodržiavajte existujúce vzory kódu v repozitári
-- Zachovajte konzistenciu s ostatnými lekciami
+- Notebooky sa musia spustiť bez chýb
+- README súbory by mali byť jasné a presné
+- Dodržujte existujúce kódové vzory v repozitári
+- Zachovajte konzistentnosť s ostatnými lekciami
 
 ## Ďalšie poznámky
 
 ### Bežné problémy
 
-1. **Nezladená verzia Pythonu:**
-   - Uistite sa, že používate Python 3.12+
-   - Niektoré balíky nemusia fungovať na starších verziách
+1. **Nesúlad verzie Pythonu:**
+   - Používajte Python 3.12+
+   - Niektoré balíčky nemusia fungovať s staršími verziami
    - Použite `python3 -m venv` pre explicitné určenie verzie Pythonu
 
 2. **Premenné prostredia:**
-   - Vždy vytvorte `.env` z `.env.example`
-   - Necommitujte `.env` (je v `.gitignore`)
-   - GitHub token vyžaduje primerané povolenia
+   - Vždy vytvorte `.env` zo súboru `.env.example`
+   - `.env` necommitujte (je v `.gitignore`)
+   - GitHub token vyžaduje príslušné oprávnenia
 
-3. **Konflikty balíkov:**
+3. **Konflikty balíčkov:**
    - Použite čisté virtuálne prostredie
-   - Inštalujte z `requirements.txt`, nie jednotlivo
-   - Niektoré notebooky môžu vyžadovať ďalšie balíky uvedené v ich markdown bunkách
+   - Inštalujte zo súboru `requirements.txt`, nie jednotlivé balíčky
+   - Niektoré notebooky môžu potrebovať ďalšie balíčky uvedené v markdown bunkách
 
 4. **Azure služby:**
    - Azure AI služby vyžadujú aktívne predplatné
-   - Niektoré funkcie sú regiónovo obmedzené
-   - Bezplatná vrstva platí pre GitHub Models
+   - Niektoré funkcie sú závislé od regiónu
+   - Zdarma tier má obmedzenia pre GitHub Models
 
-### Učebná cesta
+### Cesta učenia
 
 Odporúčané poradie lekcií:
 1. **00-course-setup** - Začnite tu s nastavením prostredia
-2. **01-intro-to-ai-agents** - Zoznámte sa so základmi AI agentov
+2. **01-intro-to-ai-agents** - Pochopenie základov AI agentov
 3. **02-explore-agentic-frameworks** - Naučte sa o rôznych frameworkoch
 4. **03-agentic-design-patterns** - Základné návrhové vzory
-5. Pokračujte v očíslovaných lekciách postupne
+5. Pokračujte v číslovaných lekciách postupne
 
 ### Výber frameworku
 
-Vyberte framework podľa vašich cieľov:
-- **Učenie/prototypy**: Semantic Kernel + GitHub Models (bezplatne)
-- **Multi-agent systémy**: AutoGen
-- **Najnovšie funkcie**: Microsoft Agent Framework (MAF)
-- **Produkčné nasadenie**: Azure AI Agent Service
+Vyberte si framework podľa cieľov:
+- **Všetky lekcie**: Microsoft Agent Framework (MAF) s `AzureAIProjectAgentProvider`
+- **Agenti sa registrujú na serveri** v Azure AI Foundry Agent Service V2 a sú viditeľní v portáli Foundry
 
-### Hľadanie pomoci
+### Ako získať pomoc
 
-- Pripojte sa k [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Prejdite README súbory lekcií pre špecifické návody
-- Pozrite hlavný [README.md](./README.md) pre prehľad kurzu
-- Pre detaily ohľadom nastavenia nájdete inštrukcie v [Course Setup](./00-course-setup/README.md)
+- Pridajte sa do [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
+- Prezrite si README súbory lekcií pre konkrétne návody
+- Skontrolujte hlavný [README.md](./README.md) s prehľadom kurzu
+- Odkaz na [Course Setup](./00-course-setup/README.md) s podrobnými inštrukciami na nastavenie
 
-### Spolupráca
+### Prínos
 
 Toto je otvorený vzdelávací projekt. Príspevky sú vítané:
-- Vylepšujte príklady kódu
-- Opravujte preklepy alebo chyby
-- Pridávajte vysvetľujúce komentáre
-- Navrhujte nové témy lekcií
-- Prekladajte do ďalších jazykov
+- Zlepšenie príkladov kódu
+- Oprava preklepov alebo chýb
+- Pridávanie vysvetľujúcich komentárov
+- Navrhovanie nových tém lekcií
+- Preklady do ďalších jazykov
 
 Pozrite si [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) pre aktuálne potreby.
 
-## Kontext špecifický pre projekt
+## Kontext projektu
 
 ### Podpora viacerých jazykov
 
-Tento repozitár používa automatizovaný systém prekladu:
+Tento repozitár používa automatizovaný prekladový systém:
 - Podpora viac ako 50 jazykov
-- Preklady sú v priečinkoch `/translations/<lang-code>/`
-- GitHub Actions workflow spravuje aktualizácie prekladov
-- Zdrojové súbory sú v angličtine v koreňovom adresári repozitára
+- Preklady v adresároch `/translations/<lang-code>/`
+- Prekladové aktualizácie spravuje GitHub Actions workflow
+- Zdrojové súbory sú v angličtine v koreňovom adresári
 
-### Štruktúra lekcie
+### Štruktúra lekcií
 
-Každá lekcia sleduje konzistentný vzor:
+Každá lekcia nasleduje konzistentný vzor:
 1. Náhľad videa s odkazom
 2. Písaný obsah lekcie (README.md)
-3. Príklady kódu v rôznych frameworkoch
-4. Výukové ciele a predpoklady
-5. Odkazy na doplnkové materiály na učenie
+3. Ukážky kódu v rôznych frameworkoch
+4. Ciele učenia a požiadavky
+5. Dodatočné učebné zdroje s odkazmi
 
-### Názvy ukážok kódu
+### Názvoslovie ukážok kódu
 
-Formát: `<lesson-number>-<framework-name>.ipynb`
-- `04-semantic-kernel.ipynb` - Lekcia 4, Semantic Kernel
-- `07-autogen.ipynb` - Lekcia 7, AutoGen
-- `14-python-agent-framework.ipynb` - Lekcia 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Lekcia 14, MAF .NET
+Formát: `<lesson-number>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Lekcia 1, MAF Python
+- `14-sequential.ipynb` - Lekcia 14, MAF pokročilé vzory
 
 ### Špeciálne adresáre
 
 - `translated_images/` - lokalizované obrázky pre preklady
 - `images/` - originálne obrázky pre anglický obsah
-- `.devcontainer/` - konfigurácia vývojového kontajnera VS Code
-- `.github/` - GitHub Actions workflowy a šablóny
+- `.devcontainer/` - konfigurácia VS Code vývojového kontajnera
+- `.github/` - workflowy a šablóny GitHub Actions
 
 ### Závislosti
 
-Kľúčové balíky z `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - framework AutoGen
-- `semantic-kernel` - framework Semantic Kernel
+Kľúčové balíčky zo súboru `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
+- `a2a-sdk` - podpora protokolu agent-to-agent
 - `azure-ai-inference`, `azure-ai-projects` - Azure AI služby
+- `azure-identity` - Azure autentifikácia (AzureCliCredential)
 - `azure-search-documents` - integrácia Azure AI Search
-- `chromadb` - vektorová databáza pre RAG príklady
-- `chainlit` - framework pre chatovacie UI
-- `browser_use` - automatizácia prehliadača pre agentov
 - `mcp[cli]` - podpora Model Context Protocol
-- `mem0ai` - správa pamäte pre agentov
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Zrieknutie sa zodpovednosti**:  
-Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Aj keď sa snažíme o presnosť, prosím vezmite na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+**Vylúčenie zodpovednosti**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, majte prosím na pamäti, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by sa mal považovať za autoritatívny zdroj. Pri dôležitých informáciách sa odporúča využiť profesionálny ľudský preklad. Nezodpovedáme za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
