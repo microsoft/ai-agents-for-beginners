@@ -1,38 +1,38 @@
-# Course Setup
+# Cursusopzet
 
-## Introduction
+## Inleiding
 
 Deze les behandelt hoe je de codevoorbeelden van deze cursus kunt uitvoeren.
 
-## Join Other Learners and Get Help
+## Sluit je aan bij andere cursisten en krijg hulp
 
-Voordat je je repo kloont, sluit je aan bij het [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) om hulp te krijgen bij de setup, vragen over de cursus, of om in contact te komen met andere cursisten.
+Voordat je je repo kloont, sluit je aan bij het [AI Agents For Beginners Discord-kanaal](https://aka.ms/ai-agents/discord) om hulp te krijgen bij de setup, vragen over de cursus te stellen of om in contact te komen met andere cursisten.
 
-## Clone or Fork this Repo
+## Deze repo klonen of forken
 
-Om te beginnen, kloon of fork je de GitHub-repository. Dit maakt je eigen versie van het cursusmateriaal zodat je de code kunt uitvoeren, testen en aanpassen!
+Om te beginnen, kloon of fork het GitHub-repository. Dit maakt je eigen versie van het cursusmateriaal zodat je de code kunt uitvoeren, testen en aanpassen!
 
-Dit kan gedaan worden door op de link te klikken om <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">een fork van de repo te maken</a>
+Dit kan worden gedaan door op de link te klikken om <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork de repo</a>
 
-Je zou nu je eigen geforkte versie van deze cursus in de volgende link moeten hebben:
+Je zou nu je eigen geforkte versie van deze cursus moeten hebben op de volgende link:
 
 ![Geforkte repo](../../../translated_images/nl/forked-repo.33f27ca1901baa6a.webp)
 
 ### Shallow Clone (aanbevolen voor workshop / Codespaces)
 
-  >De volledige repository kan groot zijn (~3 GB) wanneer je de volledige geschiedenis en alle bestanden downloadt. Als je alleen de workshop bijwoont of slechts een paar lesmappen nodig hebt, voorkomt een shallow clone (of een sparse clone) dat je dat grootste deel van de download krijgt door de geschiedenis in te korten en/of blobs over te slaan.
+  >De volledige repository kan groot zijn (~3 GB) wanneer je de volledige geschiedenis en alle bestanden downloadt. Als je alleen de workshop bijwoont of maar een paar lesmappen nodig hebt, voorkomt een shallow clone (of een sparse clone) het grootste deel van die download door de geschiedenis in te korten en/of blobs over te slaan.
 
 #### Snelle shallow clone — minimale geschiedenis, alle bestanden
 
-Vervang `<your-username>` in de onderstaande opdrachten door je fork URL (of de upstream URL als je dat prefereert).
+Vervang `<your-username>` in de onderstaande commando's door je fork-URL (of de upstream-URL als je dat liever hebt).
 
-Om alleen de laatste commitgeschiedenis te clonen (kleine download):
+Om alleen de meest recente commitgeschiedenis te klonen (kleine download):
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Om een specifieke branch te clonen:
+Om een specifieke branch te klonen:
 
 ```bash|powershell
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -52,13 +52,13 @@ Ga naar de repo-map:
 cd ai-agents-for-beginners
 ```
 
-Geef vervolgens op welke mappen je wilt (voorbeeld toont twee mappen):
+Geef vervolgens aan welke mappen je wilt (voorbeeld hieronder toont twee mappen):
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Na het clonen en verifiëren van de bestanden, als je alleen de bestanden nodig hebt en ruimte wilt vrijmaken (geen git-geschiedenis), verwijder dan de repository-metadata (💀onomkeerbaar — je verliest alle Git-functionaliteit: geen commits, pulls, pushes of toegang tot geschiedenis).
+Na het klonen en verifiëren van de bestanden, als je alleen bestanden nodig hebt en ruimte wilt vrijmaken (geen git-geschiedenis), verwijder dan de repository-metadata (💀onherroepelijk — je verliest alle Git-functionaliteit: geen commits, pulls, pushes of toegang tot geschiedenis).
 
 ```bash
 # zsh/bash
@@ -70,41 +70,31 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### Gebruik van GitHub Codespaces (aanbevolen om lokale grote downloads te voorkomen)
+#### GitHub Codespaces gebruiken (aanbevolen om grote lokale downloads te vermijden)
 
 - Maak een nieuwe Codespace voor deze repo via de [GitHub UI](https://github.com/codespaces).  
 
-- Voer in de terminal van de nieuw gemaakte Codespace een van de shallow/sparse clone-opdrachten hierboven uit om alleen de lesmappen die je nodig hebt in de Codespace-werkruimte te brengen.
-- Optioneel: verwijder na het clonen binnen Codespaces .git om extra ruimte terug te winnen (zie verwijderopdrachten hierboven).
-- Opmerking: Als je de voorkeur geeft aan het rechtstreeks openen van de repo in Codespaces (zonder een extra clone), wees je er dan van bewust dat Codespaces de devcontainer-omgeving zal opbouwen en mogelijk nog steeds meer zal provisionen dan je nodig hebt. Het clonen van een shallow kopie binnen een verse Codespace geeft je meer controle over schijfgebruik.
+- In de terminal van de nieuw gemaakte codespace, voer een van de shallow/sparse clone-commando's hierboven uit om alleen de lesmappen die je nodig hebt in de Codespace-werkruimte te halen.
+- Optioneel: na het klonen binnen Codespaces, verwijder .git om extra ruimte terug te winnen (zie verwijderingscommando's hierboven).
+- Opmerking: Als je de repo liever direct in Codespaces opent (zonder een extra clone), houd er dan rekening mee dat Codespaces de devcontainer-omgeving zal opbouwen en mogelijk meer zal voorzien dan je nodig hebt. Het klonen van een shallow-kopie binnen een frisse Codespace geeft je meer controle over schijfruimte.
 
 #### Tips
 
 - Vervang altijd de clone-URL door je fork als je wilt bewerken/committen.
-- Als je later meer geschiedenis of bestanden nodig hebt, kun je deze ophalen of sparse-checkout aanpassen om extra mappen op te nemen.
+- Als je later meer geschiedenis of bestanden nodig hebt, kun je ze ophalen of sparse-checkout aanpassen om extra mappen op te nemen.
 
-## Running the Code
+## De code uitvoeren
 
-Deze cursus biedt een reeks Jupyter Notebooks die je kunt uitvoeren om praktische ervaring op te doen met het bouwen van AI-agents.
+Deze cursus biedt een serie Jupyter Notebooks die je kunt uitvoeren om praktijkervaring op te doen met het bouwen van AI-agents.
 
-De codevoorbeelden gebruiken ofwel:
+De codevoorbeelden gebruiken **Microsoft Agent Framework (MAF)** met de `AzureAIProjectAgentProvider`, die verbinding maakt met **Azure AI Agent Service V2** (de Responses API) via **Microsoft Foundry**.
 
-**Requires GitHub Account - Free**:
+Alle Python-notebooks zijn gelabeld `*-python-agent-framework.ipynb`.
 
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Gelabeld als (semantic-kernel.ipynb)
-2) AutoGen Framework + GitHub Models Marketplace. Gelabeld als (autogen.ipynb)
-
-**Requires Azure Subscription**:
-3) Azure AI Foundry + Azure AI Agent Service. Gelabeld als (azureaiagent.ipynb)
-
-We moedigen je aan om alle drie de typen voorbeelden uit te proberen om te zien welke het beste voor jou werkt.
-
-Welke optie je ook kiest, dat bepaalt welke setupstappen je hieronder moet volgen:
-
-## Requirements
+## Vereisten
 
 - Python 3.12+
-  - **NOTE**: Als je Python3.12 niet hebt geïnstalleerd, zorg dan dat je het installeert. Maak daarna je venv aan met python3.12 om ervoor te zorgen dat de juiste versies worden geïnstalleerd vanuit het requirements.txt-bestand.
+  - **OPMERKING**: Als je Python3.12 niet geïnstalleerd hebt, zorg er dan voor dat je het installeert. Maak daarna je venv aan met python3.12 om te verzekeren dat de juiste versies uit het requirements.txt-bestand worden geïnstalleerd.
   
     >Voorbeeld
 
@@ -126,17 +116,17 @@ Welke optie je ook kiest, dat bepaalt welke setupstappen je hieronder moet volge
     venv\Scripts\activate
     ```
 
-- .NET 10+: Voor de voorbeeldcodes die .NET gebruiken, zorg dat je [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) of later installeert. Controleer daarna je geïnstalleerde .NET SDK-versie:
+- .NET 10+: Voor de voorbeeldcodes die .NET gebruiken, zorg ervoor dat je de [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) of later installeert. Controleer daarna je geïnstalleerde .NET SDK-versie:
 
     ```bash|powershell
     dotnet --list-sdks
     ```
 
-- A GitHub Account - For Access to the GitHub Models Marketplace
-- Azure Subscription - For Access to Microsoft Foundry
-- Microsoft Foundry Account - For Access to the Azure AI Agent Service
+- **Azure CLI** — Vereist voor authenticatie. Installeer vanaf [aka.ms/installazurecli](https://aka.ms/installazurecli).
+- **Azure Subscription** — Voor toegang tot Microsoft Foundry en Azure AI Agent Service.
+- **Microsoft Foundry-project** — Een project met een gedeployd model (bijv. `gpt-4o`). Zie [Stap 1](../../../00-course-setup) hieronder.
 
-We hebben een `requirements.txt` bestand opgenomen in de root van deze repository dat alle vereiste Python-pakketten bevat om de codevoorbeelden uit te voeren.
+We hebben een `requirements.txt`-bestand opgenomen in de root van deze repository met alle benodigde Python-pakketten om de codevoorbeelden uit te voeren.
 
 Je kunt ze installeren door het volgende commando uit te voeren in je terminal in de root van de repository:
 
@@ -144,97 +134,66 @@ Je kunt ze installeren door het volgende commando uit te voeren in je terminal i
 pip install -r requirements.txt
 ```
 
-We raden aan om een Python virtual environment te creëren om conflicten en problemen te voorkomen.
+We raden aan een Python-virtuele omgeving te creëren om conflicten en problemen te voorkomen.
 
-## Setup VSCode
+## VSCode instellen
 
-Zorg ervoor dat je de juiste versie van Python gebruikt in VSCode.
+Zorg ervoor dat je de juiste versie van Python in VSCode gebruikt.
 
 ![afbeelding](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Set Up for Samples using GitHub Models 
+## Microsoft Foundry en Azure AI Agent Service instellen
 
-### Step 1: Retrieve Your GitHub Personal Access Token (PAT)
+### Stap 1: Maak een Microsoft Foundry-project
 
-Deze cursus maakt gebruik van de GitHub Models Marketplace, die gratis toegang biedt tot Large Language Models (LLMs) die je zult gebruiken om AI-agents te bouwen.
+Je hebt een Azure AI Foundry **hub** en **project** met een gedeployed model nodig om de notebooks uit te voeren.
 
-Om de GitHub Models te gebruiken, moet je een [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) aanmaken.
+1. Ga naar [ai.azure.com](https://ai.azure.com) en meld je aan met je Azure-account.
+2. Maak een **hub** (of gebruik een bestaande). Zie: [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
+3. Maak binnen de hub een **project**.
+4. Deploy een model (bijv. `gpt-4o`) via **Models + Endpoints** → **Deploy model**.
 
-Dit kan gedaan worden door naar je <a href="https://github.com/settings/personal-access-tokens" target="_blank">Personal Access Tokens-instellingen</a> in je GitHub-account te gaan.
+### Stap 2: Haal je projectendpoint en de naam van de modelimplementatie op
 
-Volg alstublieft het [Principle of Least Privilege](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) bij het creëren van je token. Dit betekent dat je het token alleen de permissies moet geven die nodig zijn om de codevoorbeelden in deze cursus uit te voeren.
+Vanaf je project in de Microsoft Foundry-portal:
 
-1. Selecteer de optie `Fine-grained tokens` aan de linkerkant van je scherm door naar de **Developer settings** te gaan
+- **Projectendpoint** — Ga naar de **Overzicht**-pagina en kopieer de endpoint-URL.
 
-   ![Developer instellingen](../../../translated_images/nl/profile_developer_settings.410a859fe749c755.webp)
+![Projectendpoint](../../../translated_images/nl/project-endpoint.8cf04c9975bbfbf1.webp)
 
-   Selecteer vervolgens `Generate new token`.
+- **Naam van de modelimplementatie** — Ga naar **Models + Endpoints**, selecteer je gedeployde model en noteer de **Deployment name** (bijv. `gpt-4o`).
 
-   ![Genereer Token](../../../translated_images/nl/fga_new_token.1c1a234afe202ab3.webp)
+### Stap 3: Meld je aan bij Azure met `az login`
 
-2. Voer een beschrijvende naam in voor je token die het doel weergeeft, zodat je het later gemakkelijk kunt herkennen.
+Alle notebooks gebruiken **`AzureCliCredential`** voor authenticatie — geen API-sleutels om te beheren. Dit vereist dat je aangemeld bent via de Azure CLI.
 
-    🔐 Aanbeveling voor tokenduur
+1. **Installeer de Azure CLI** als je dat nog niet hebt gedaan: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
-    Aanbevolen duur: 30 dagen
-    Voor een veiliger aanpak kun je kiezen voor een kortere periode — zoals 7 dagen 🛡️
-    Het is een goede manier om een persoonlijke deadline te stellen en de cursus af te ronden terwijl je leermomentum hoog is 🚀.
+2. **Meld je aan** door het volgende uit te voeren:
 
-    ![Tokennaam en vervaldatum](../../../translated_images/nl/token-name-expiry-date.a095fb0de6386864.webp)
+    ```bash|powershell
+    az login
+    ```
 
-3. Beperk de scope van het token tot je fork van deze repository.
+    Of als je in een remote/Codespace-omgeving bent zonder browser:
 
-    ![Scope beperken tot fork repository](../../../translated_images/nl/token_repository_limit.924ade5e11d9d8bb.webp)
+    ```bash|powershell
+    az login --use-device-code
+    ```
 
-4. Beperk de permissies van het token: Onder **Permissions**, klik op het **Account**-tabblad en klik op de knop "+ Add permissions". Er verschijnt een dropdown. Zoek naar **Models** en vink het vakje aan.
+3. **Selecteer je subscription** als daarom wordt gevraagd — kies degene met je Foundry-project.
 
-    ![Voeg Models-permissie toe](../../../translated_images/nl/add_models_permissions.c0c44ed8b40fc143.webp)
+4. **Verifieer** dat je bent aangemeld:
 
-5. Controleer de vereiste permissies voordat je het token genereert. ![Controleer permissies](../../../translated_images/nl/verify_permissions.06bd9e43987a8b21.webp)
+    ```bash|powershell
+    az account show
+    ```
 
-6. Zorg ervoor dat je het token op een veilige plaats hebt opgeslagen, zoals een wachtwoordmanager, voordat je het genereert, aangezien het niet opnieuw wordt getoond nadat je het hebt aangemaakt. ![Token veilig opslaan](../../../translated_images/nl/store_token_securely.08ee2274c6ad6caf.webp)
+> **Waarom `az login`?** De notebooks authenticeren met `AzureCliCredential` van het `azure-identity`-pakket. Dit betekent dat je Azure CLI-sessie de referenties levert — geen API-sleutels of secrets in je `.env`-bestand. Dit is een [security best practice](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
 
-Kopieer je nieuwe token dat je zojuist hebt aangemaakt. Je zult dit nu toevoegen aan je `.env`-bestand dat bij deze cursus is inbegrepen.
+### Stap 4: Maak je `.env`-bestand aan
 
-### Step 2: Create Your `.env` File
-
-Om je `.env`-bestand te maken, voer het volgende commando uit in je terminal.
-
-```bash
-# zsh/bash
-cp .env.example .env
-```
-
-```powershell
-# PowerShell
-Copy-Item .env.example .env
-```
-
-Dit kopieert het voorbeeldbestand en maakt een `.env` in je map waarin je de waarden voor de omgevingsvariabelen invult.
-
-Met je token gekopieerd, open je het `.env`-bestand in je favoriete teksteditor en plak je je token in het veld `GITHUB_TOKEN`.
-
-![GitHub Token Field](../../../translated_images/nl/github_token_field.20491ed3224b5f4a.webp)
-
-Je zou nu in staat moeten zijn om de codevoorbeelden van deze cursus uit te voeren.
-
-## Set Up for Samples using Microsoft Foundry and Azure AI Agent Service
-
-### Step 1: Retrieve Your Azure Project Endpoint
-
-
-Volg de stappen om een hub en project te maken in Azure AI Foundry die hier worden beschreven: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
-
-
-Zodra je je project hebt aangemaakt, moet je de verbindingsreeks voor je project ophalen.
-
-Dit kan gedaan worden door naar de **Overview**-pagina van je project te gaan in het Microsoft Foundry-portaal.
-
-![Project Connection String](../../../translated_images/nl/project-endpoint.8cf04c9975bbfbf1.webp)
-
-### Step 2: Create Your `.env` File
-
-Om je `.env`-bestand te maken, voer het volgende commando uit in je terminal.
+Kopieer het voorbeeldbestand:
 
 ```bash
 # zsh/bash
@@ -246,79 +205,114 @@ cp .env.example .env
 Copy-Item .env.example .env
 ```
 
-Dit kopieert het voorbeeldbestand en maakt een `.env` in je map waarin je de waarden voor de omgevingsvariabelen invult.
+Open `.env` en vul deze twee waarden in:
 
-Met je token gekopieerd, open je het `.env`-bestand in je favoriete teksteditor en plak je je token in het veld `PROJECT_ENDPOINT`.
+```env
+AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
+AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4o
+```
 
-### Step 3: Sign in to Azure
+| Variabele | Waar te vinden |
+|----------|-----------------|
+| `AZURE_AI_PROJECT_ENDPOINT` | Foundry-portal → je project → **Overzicht**-pagina |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundry-portal → **Models + Endpoints** → de naam van je gedeployde model |
 
-Als best practice voor beveiliging gebruiken we [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) om te authenticeren bij Azure OpenAI met Microsoft Entra ID. 
+Dat is het voor de meeste lessen! De notebooks authenticeren automatisch via je `az login`-sessie.
 
-Open vervolgens een terminal en voer `az login --use-device-code` uit om in te loggen op je Azure-account.
+### Stap 5: Installeer Python-afhankelijkheden
 
-Zodra je bent ingelogd, selecteer je je subscription in de terminal.
+```bash|powershell
+pip install -r requirements.txt
+```
 
-## Additional Environment Variables - Azure Search and Azure OpenAI 
+We raden aan dit binnen de eerder aangemaakte virtuele omgeving uit te voeren.
 
-Voor de Agentic RAG-les - Les 5 - zijn er voorbeelden die Azure Search en Azure OpenAI gebruiken.
+## Aanvullende setup voor les 5 (Agentic RAG)
 
-Als je deze voorbeelden wilt uitvoeren, moet je de volgende omgevingsvariabelen aan je `.env`-bestand toevoegen:
+Les 5 gebruikt **Azure AI Search** voor retrieval-augmented generation. Als je van plan bent die les uit te voeren, voeg dan deze variabelen toe aan je `.env`-bestand:
 
-### Overview Page (Project)
+| Variabele | Waar te vinden |
+|----------|-----------------|
+| `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure-portal → je **Azure AI Search** resource → **Overview** → URL |
+| `AZURE_SEARCH_API_KEY` | Azure-portal → je **Azure AI Search** resource → **Settings** → **Keys** → primary admin key |
 
-- `AZURE_SUBSCRIPTION_ID` - Controleer **Project details** op de **Overview**-pagina van je project.
+## Aanvullende setup voor les 6 en les 8 (GitHub Models)
 
-- `AZURE_AI_PROJECT_NAME` - Kijk bovenaan de **Overview**-pagina van je project.
+Sommige notebooks in les 6 en 8 gebruiken **GitHub Models** in plaats van Azure AI Foundry. Als je van plan bent die voorbeelden uit te voeren, voeg dan deze variabelen toe aan je `.env`-bestand:
 
-- `AZURE_OPENAI_SERVICE` - Zoek dit in het **Included capabilities**-tabblad voor **Azure OpenAI Service** op de **Overview**-pagina.
+| Variabele | Waar te vinden |
+|----------|-----------------|
+| `GITHUB_TOKEN` | GitHub → **Settings** → **Developer settings** → **Personal access tokens** |
+| `GITHUB_ENDPOINT` | Gebruik `https://models.inference.ai.azure.com` (standaardwaarde) |
+| `GITHUB_MODEL_ID` | Modelnaam om te gebruiken (bijv. `gpt-4o-mini`) |
 
-### Management Center
+## Aanvullende setup voor les 8 (Bing Grounding Workflow)
 
-- `AZURE_OPENAI_RESOURCE_GROUP` - Ga naar **Project properties** op de **Overview**-pagina van het **Management Center**.
+De conditionele workflow-notebook in les 8 gebruikt **Bing grounding** via Azure AI Foundry. Als je van plan bent dat voorbeeld uit te voeren, voeg dan deze variabele toe aan je `.env`-bestand:
 
-- `GLOBAL_LLM_SERVICE` - Onder **Connected resources** vind je de naam van de **Azure AI Services**-verbinding. Als deze niet wordt weergegeven, controleer dan de **Azure portal** onder je resourcegroep voor de naam van de AI Services-resource.
+| Variabele | Waar te vinden |
+|----------|-----------------|
+| `BING_CONNECTION_ID` | Azure AI Foundry-portal → je project → **Management** → **Connected resources** → je Bing-verbinding → kopieer de connection ID |
 
-### Models + Endpoints Page
+## Probleemoplossing
 
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Selecteer je embedding-model (bijv. `text-embedding-ada-002`) en noteer de **Deployment name** uit de modelgegevens.
+### SSL-certificaatverificatiefouten op macOS
 
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Selecteer je chatmodel (bijv. `gpt-4o-mini`) en noteer de **Deployment name** uit de modelgegevens.
+Als je macOS gebruikt en een fout tegenkomt zoals:
 
-### Azure Portal
+```plaintext
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
+```
 
-- `AZURE_OPENAI_ENDPOINT` - Zoek naar **Azure AI services**, klik erop, ga vervolgens naar **Resource Management**, **Keys and Endpoint**, scrol naar beneden naar de "Azure OpenAI endpoints" en kopieer degene die "Language APIs" zegt.
+Dit is een bekend probleem met Python op macOS waarbij de systeem-SSL-certificaten niet automatisch vertrouwd worden. Probeer de volgende oplossingen in volgorde:
 
-- `AZURE_OPENAI_API_KEY` - Kopieer van hetzelfde scherm KEY 1 of KEY 2.
+**Optie 1: Voer het Install Certificates-script van Python uit (aanbevolen)**
 
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - Zoek je **Azure AI Search**-resource, klik erop en bekijk **Overview**.
+```bash
+# Vervang 3.XX door uw geïnstalleerde Python-versie (bijv. 3.12 of 3.13):
+/Applications/Python\ 3.XX/Install\ Certificates.command
+```
 
-- `AZURE_SEARCH_API_KEY` - Ga vervolgens naar **Settings** en dan **Keys** om de primaire of secundaire admin-sleutel te kopiëren.
+**Optie 2: Gebruik `connection_verify=False` in je notebook (alleen voor GitHub Models-notebooks)**
 
-### External Webpage
-
-- `AZURE_OPENAI_API_VERSION` - Bezoek de [API version lifecycle](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) pagina onder **Latest GA API release**.
-
-### Setup keyless authentication
-
-In plaats van je referenties hardcoded toe te voegen, gebruiken we een keyless-verbinding met Azure OpenAI. Hiervoor importeren we `DefaultAzureCredential` en zullen we later de `DefaultAzureCredential`-functie aanroepen om de credential te verkrijgen.
+In de les 6-notebook (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`) is een uitgecommentarieerde workaround al opgenomen. Haal de commentaar weg bij `connection_verify=False` wanneer je de client aanmaakt:
 
 ```python
-# Python
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+client = ChatCompletionsClient(
+    endpoint=endpoint,
+    credential=AzureKeyCredential(token),
+    connection_verify=False,  # Schakel SSL-verificatie uit als u certificaatfouten tegenkomt
+)
 ```
 
-## Stuck Somewhere?
-Als je problemen hebt met het uitvoeren van deze setup, kom naar onze <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> of <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">maak een issue aan</a>.
+> **⚠️ Waarschuwing:** Het uitschakelen van SSL-verificatie (`connection_verify=False`) vermindert de beveiliging door certificate-validatie over te slaan. Gebruik dit alleen als tijdelijke workaround in ontwikkelomgevingen, nooit in productie.
+
+**Optie 3: Installeer en gebruik `truststore`**
+
+```bash
+pip install truststore
+```
+
+Voeg daarna het volgende toe bovenaan je notebook of script voordat je netwerkverzoeken maakt:
+
+```python
+import truststore
+truststore.inject_into_ssl()
+```
+
+## Vastgelopen?
+
+Als je problemen hebt met het uitvoeren van deze setup, ga naar onze <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> of <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">maak een issue aan</a>.
 
 ## Volgende les
 
-Je bent nu klaar om de code voor deze cursus uit te voeren. Veel plezier met het verder ontdekken van de wereld van AI-agents! 
+Je bent nu klaar om de code voor deze cursus uit te voeren. Veel plezier met het verder verkennen van de wereld van AI-agents! 
 
 [Introductie tot AI-agents en gebruiksscenario's](../01-intro-to-ai-agents/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vrijwaring**:
-Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we naar nauwkeurigheid streven, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet als de gezaghebbende bron worden beschouwd. Voor cruciale informatie wordt een professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+**Disclaimer**:
+Dit document is vertaald met behulp van de AI-vertalingsdienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel wij ons inspannen voor nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal geldt als de gezaghebbende bron. Voor cruciale informatie raden wij een professionele menselijke vertaling aan. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

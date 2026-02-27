@@ -1,31 +1,30 @@
 # AGENTS.md
 
-## Tổng quan dự án
+## Tổng Quan Dự Án
 
-Kho lưu trữ này chứa "Các tác nhân AI cho người mới bắt đầu" - một khóa học giáo dục toàn diện dạy mọi thứ cần thiết để xây dựng các tác nhân AI. Khóa học gồm hơn 15 bài học bao gồm các kiến thức cơ bản, mẫu thiết kế, framework và triển khai sản xuất các tác nhân AI.
+Kho lưu trữ này chứa "Đại Lý AI cho Người Mới Bắt Đầu" - một khóa học giáo dục toàn diện dạy mọi thứ cần thiết để xây dựng Đại Lý AI. Khóa học bao gồm hơn 15 bài học bao quát các nền tảng, mẫu thiết kế, khung làm việc và triển khai sản xuất của các đại lý AI.
 
 **Công nghệ chính:**
 - Python 3.12+
 - Jupyter Notebooks cho học tương tác
-- Các Framework AI: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Dịch vụ AI Azure: Microsoft Foundry, Azure AI Agent Service
-- Thị trường mô hình GitHub (có tầng miễn phí)
+- Khung AI: Microsoft Agent Framework (MAF)
+- Dịch vụ AI Azure: Microsoft Foundry, Azure AI Foundry Agent Service V2
 
 **Kiến trúc:**
-- Cấu trúc theo bài học (thư mục 00-15+)
-- Mỗi bài học bao gồm: tài liệu README, ví dụ mã (Jupyter notebooks), và hình ảnh
+- Cấu trúc dựa trên bài học (thư mục 00-15+)
+- Mỗi bài học chứa: tài liệu README, mẫu mã (Jupyter notebooks) và hình ảnh
 - Hỗ trợ đa ngôn ngữ qua hệ thống dịch tự động
-- Nhiều lựa chọn framework cho mỗi bài học (Semantic Kernel, AutoGen, Azure AI Agent Service)
+- Một notebook Python cho mỗi bài học sử dụng Microsoft Agent Framework
 
-## Lệnh thiết lập
+## Các Lệnh Thiết Lập
 
-### Yêu cầu trước
+### Yêu Cầu Trước
 
 - Python 3.12 trở lên
-- Tài khoản GitHub (cho các mô hình GitHub - tầng miễn phí)
-- Đăng ký Azure (tùy chọn, cho dịch vụ AI Azure)
+- Đăng ký Azure (cho Azure AI Foundry)
+- Azure CLI được cài và đăng nhập (`az login`)
 
-### Thiết lập ban đầu
+### Thiết Lập Ban Đầu
 
 1. **Sao chép hoặc fork kho lưu trữ:**
    ```bash
@@ -46,300 +45,269 @@ Kho lưu trữ này chứa "Các tác nhân AI cho người mới bắt đầu" 
    pip install -r requirements.txt
    ```
 
-4. **Cấu hình biến môi trường:**
+4. **Thiết lập biến môi trường:**
    ```bash
    cp .env.example .env
    # Chỉnh sửa .env với các khóa API và điểm cuối của bạn
    ```
 
+### Biến Môi Trường Cần Thiết
 
-### Biến môi trường cần thiết
+Đối với **Azure AI Foundry** (Bắt buộc):
+- `AZURE_AI_PROJECT_ENDPOINT` - điểm cuối dự án Azure AI Foundry
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - tên triển khai mô hình (ví dụ: gpt-4o)
 
-Đối với **Mô hình GitHub (Miễn phí)**:
-- `GITHUB_TOKEN` - Mã truy cập cá nhân từ GitHub
+Đối với **Azure AI Search** (Bài 05 - RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - điểm cuối Azure AI Search
+- `AZURE_SEARCH_API_KEY` - khóa API Azure AI Search
 
-Đối với **Dịch vụ AI Azure** (tùy chọn):
-- `PROJECT_ENDPOINT` - Điểm cuối dự án Microsoft Foundry
-- `AZURE_OPENAI_API_KEY` - Khóa API Azure OpenAI
-- `AZURE_OPENAI_ENDPOINT` - URL điểm cuối Azure OpenAI
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Tên triển khai mô hình chat
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Tên triển khai mô hình embeddings
-- Cấu hình Azure bổ sung như trong `.env.example`
+Xác thực: Chạy `az login` trước khi chạy notebooks (sử dụng `AzureCliCredential`).
 
-## Quy trình phát triển
+## Quy Trình Phát Triển
 
 ### Chạy Jupyter Notebooks
 
-Mỗi bài học có nhiều notebook cho các framework khác nhau:
+Mỗi bài học chứa nhiều notebook Jupyter cho các khung làm việc khác nhau:
 
 1. **Khởi động Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **Đi tới thư mục bài học** (ví dụ: `01-intro-to-ai-agents/code_samples/`)
+2. **Đi đến thư mục bài học** (ví dụ `01-intro-to-ai-agents/code_samples/`)
 
-3. **Mở và chạy notebooks:**
-   - `*-semantic-kernel.ipynb` - Sử dụng framework Semantic Kernel
-   - `*-autogen.ipynb` - Sử dụng framework AutoGen
+3. **Mở và chạy các notebook:**
    - `*-python-agent-framework.ipynb` - Sử dụng Microsoft Agent Framework (Python)
    - `*-dotnet-agent-framework.ipynb` - Sử dụng Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Sử dụng Azure AI Agent Service
 
-### Làm việc với các Framework khác nhau
+### Làm Việc với Microsoft Agent Framework
 
-**Semantic Kernel + Mô hình GitHub:**
-- Tầng miễn phí có sẵn với tài khoản GitHub
-- Phù hợp cho học tập và thử nghiệm
-- Mẫu file: `*-semantic-kernel*.ipynb`
+**Microsoft Agent Framework + Azure AI Foundry:**
+- Yêu cầu đăng ký Azure
+- Sử dụng `AzureAIProjectAgentProvider` cho Agent Service V2 (các đại lý hiển thị trên cổng Foundry)
+- Sẵn sàng cho sản xuất với khả năng quan sát tích hợp
+- Mẫu tệp: `*-python-agent-framework.ipynb`
 
-**AutoGen + Mô hình GitHub:**
-- Tầng miễn phí có sẵn với tài khoản GitHub
-- Hỗ trợ điều phối đa tác nhân
-- Mẫu file: `*-autogen.ipynb`
+## Hướng Dẫn Kiểm Thử
 
-**Microsoft Agent Framework (MAF):**
-- Framework mới nhất từ Microsoft
-- Có sẵn cho Python và .NET
-- Mẫu file: `*-agent-framework.ipynb`
+Đây là kho lưu trữ giáo dục với mã ví dụ chứ không phải mã sản xuất có kiểm thử tự động. Để xác minh thiết lập và thay đổi của bạn:
 
-**Azure AI Agent Service:**
-- Cần đăng ký Azure
-- Tính năng sẵn sàng cho sản xuất
-- Mẫu file: `*-azureaiagent.ipynb`
+### Kiểm Thử Thủ Công
 
-## Hướng dẫn kiểm tra
-
-Kho lưu trữ này là kho giáo dục có mã ví dụ, không phải mã sản xuất với kiểm tra tự động. Để xác minh thiết lập và thay đổi của bạn:
-
-### Kiểm tra thủ công
-
-1. **Kiểm tra môi trường Python:**
+1. **Kiểm thử môi trường Python:**
    ```bash
    python --version  # Nên là 3.12 trở lên
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Kiểm tra chạy notebook:**
+2. **Kiểm thử thực thi notebook:**
    ```bash
-   # Chuyển đổi notebook thành script và chạy (kiểm tra các import)
+   # Chuyển đổi sổ tay sang kịch bản và chạy (kiểm tra nhập khẩu)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **Kiểm tra biến môi trường:**
+3. **Xác minh biến môi trường:**
    ```bash
    python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
    ```
 
+### Chạy Các Notebook Riêng Lẻ
 
-### Chạy các notebook riêng biệt
-
-Mở notebook trong Jupyter và thực hiện các ô lần lượt. Mỗi notebook độc lập và bao gồm:
-- Các câu lệnh import
+Mở các notebook trong Jupyter và thực thi các ô theo thứ tự. Mỗi notebook có nội dung độc lập và bao gồm:
+- Các lệnh import
 - Tải cấu hình
-- Ví dụ triển khai tác nhân
+- Ví dụ thực thi đại lý
 - Kết quả dự kiến trong các ô markdown
 
-## Phong cách mã
+## Phong Cách Mã
 
-### Quy ước Python
+### Quy Ước Python
 
 - **Phiên bản Python**: 3.12+
-- **Phong cách mã**: Tuân thủ chuẩn PEP 8 của Python
-- **Notebooks**: Dùng ô markdown rõ ràng để giải thích khái niệm
-- **Imports**: Nhóm theo thư viện chuẩn, thư viện bên thứ ba, imports địa phương
+- **Phong cách mã**: Theo chuẩn PEP 8 Python
+- **Notebooks**: Dùng các ô markdown rõ ràng để giải thích khái niệm
+- **Import**: Nhóm theo thư viện chuẩn, bên thứ ba, và nhập khẩu cục bộ
 
-### Quy ước Jupyter Notebook
+### Quy Ước Jupyter Notebook
 
-- Bao gồm ô markdown mô tả trước ô code
-- Thêm ví dụ kết quả trong notebook để tham khảo
-- Dùng tên biến rõ ràng phù hợp khái niệm bài học
-- Giữ thứ tự chạy notebook tuyến tính (ô 1 → 2 → 3...)
+- Bao gồm các ô markdown mô tả trước các ô mã
+- Thêm ví dụ đầu ra trong notebooks để tham khảo
+- Dùng tên biến rõ ràng phù hợp với khái niệm bài học
+- Giữ thứ tự thực thi notebook tuyến tính (ô 1 → 2 → 3...)
 
-### Tổ chức file
+### Tổ Chức Tệp Tin
 
 ```
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
+## Xây Dựng và Triển Khai
 
-## Xây dựng và Triển khai
+### Xây dựng Tài Liệu
 
-### Xây dựng tài liệu
-
-Kho dùng Markdown làm tài liệu:
+Kho lưu trữ này dùng Markdown cho tài liệu:
 - File README.md trong mỗi thư mục bài học
 - README.md chính ở thư mục gốc kho lưu trữ
 - Hệ thống dịch tự động qua GitHub Actions
 
 ### Pipeline CI/CD
 
-Có trong `.github/workflows/`:
+Nằm trong thư mục `.github/workflows/`:
 
 1. **co-op-translator.yml** - Dịch tự động sang hơn 50 ngôn ngữ
 2. **welcome-issue.yml** - Chào mừng người tạo issue mới
 3. **welcome-pr.yml** - Chào mừng người đóng góp pull request mới
 
-### Triển khai
+### Triển Khai
 
-Đây là kho giáo dục - không có quy trình triển khai. Người dùng:
-1. Fork hoặc sao chép kho lưu trữ
-2. Chạy notebooks tại máy hoặc trong GitHub Codespaces
-3. Học bằng cách sửa đổi và thử nghiệm ví dụ
+Đây là kho lưu trữ giáo dục - không có quy trình triển khai. Người dùng:
+1. Fork hoặc clone kho lưu trữ
+2. Chạy notebooks tại chỗ hoặc trong GitHub Codespaces
+3. Học qua chỉnh sửa và thử nghiệm ví dụ
 
-## Hướng dẫn Pull Request
+## Hướng Dẫn Pull Request
 
-### Trước khi gửi
+### Trước Khi Gửi
 
-1. **Kiểm tra thay đổi:**
-   - Chạy đầy đủ các notebook liên quan
+1. **Kiểm thử thay đổi:**
+   - Chạy hoàn toàn các notebooks bị ảnh hưởng
    - Đảm bảo các ô chạy không lỗi
-   - Kiểm tra kết quả đầu ra phù hợp
+   - Kiểm tra đầu ra phù hợp
 
 2. **Cập nhật tài liệu:**
-   - Cập nhật README.md nếu thêm khái niệm mới
-   - Thêm chú thích trong notebook cho đoạn mã phức tạp
-   - Đảm bảo ô markdown giải thích rõ mục đích
+   - Cập nhật README.md khi thêm khái niệm mới
+   - Thêm chú thích trong notebooks cho mã phức tạp
+   - Đảm bảo ô markdown giải thích mục đích
 
-3. **Thay đổi file:**
-   - Tránh commit file `.env` (dùng `.env.example`)
+3. **Thay đổi tệp:**
+   - Không commit các file `.env` (dùng `.env.example`)
    - Không commit thư mục `venv/` hoặc `__pycache__/`
-   - Giữ kết quả đầu ra notebook khi minh họa khái niệm
-   - Xóa file tạm và backup notebook (`*-backup.ipynb`)
+   - Giữ lại đầu ra notebook khi chúng minh hoạ khái niệm
+   - Xoá các tệp tạm thời và backup notebooks (`*-backup.ipynb`)
 
-### Định dạng tiêu đề PR
+### Định Dạng Tiêu Đề PR
 
 Dùng tiêu đề mô tả:
 - `[Lesson-XX] Thêm ví dụ mới cho <khái niệm>`
 - `[Fix] Sửa lỗi chính tả trong README bài học-XX`
-- `[Update] Cải thiện ví dụ mã trong bài học-XX`
+- `[Update] Cải thiện mẫu mã trong bài học-XX`
 - `[Docs] Cập nhật hướng dẫn thiết lập`
 
-### Kiểm tra bắt buộc
+### Yêu Cầu Kiểm Tra
 
-- Các notebook chạy không lỗi
-- README rõ ràng và chính xác
-- Tuân thủ mẫu mã có sẵn trong kho
-- Duy trì sự thống nhất với các bài học khác
+- Notebooks chạy không lỗi
+- Tệp README rõ ràng và chính xác
+- Tuân theo mẫu mã tồn tại trong kho
+- Giữ sự nhất quán với các bài học khác
 
-## Ghi chú bổ sung
+## Ghi Chú Thêm
 
-### Các lỗi phổ biến
+### Những Sự Cố Thường Gặp
 
-1. **Không khớp phiên bản Python:**
+1. **Phiên bản Python không phù hợp:**
    - Đảm bảo dùng Python 3.12+
-   - Một số gói không hoạt động với phiên bản cũ
-   - Dùng `python3 -m venv` để chỉ định phiên bản Python rõ ràng
+   - Một số gói không hoạt động trên phiên bản cũ hơn
+   - Dùng `python3 -m venv` để chỉ định rõ phiên bản Python
 
 2. **Biến môi trường:**
    - Luôn tạo `.env` từ `.env.example`
-   - Không commit file `.env` (đã có trong `.gitignore`)
-   - Token GitHub cần quyền phù hợp
+   - Không commit file `.env` (đã nằm trong `.gitignore`)
+   - Token GitHub cần có quyền thích hợp
 
 3. **Xung đột gói:**
-   - Sử dụng môi trường ảo mới
+   - Dùng môi trường ảo mới hoàn toàn
    - Cài đặt từ `requirements.txt` thay vì từng gói riêng lẻ
-   - Một số notebook yêu cầu thêm các gói được ghi trong ô markdown của chúng
+   - Một số notebook cần thêm gói ghi trong các ô markdown
 
 4. **Dịch vụ Azure:**
-   - Dịch vụ AI Azure yêu cầu đăng ký hoạt động
-   - Một số tính năng chỉ dành cho vùng địa lý nhất định
-   - Giới hạn tầng miễn phí áp dụng cho Mô hình GitHub
+   - Dịch vụ AI Azure yêu cầu tài khoản đăng ký còn hiệu lực
+   - Một số tính năng phụ thuộc vùng miền
+   - Hạn chế cấp miễn phí áp dụng cho GitHub Models
 
-### Lộ trình học
+### Lộ Trình Học
 
-Đề xuất học theo thứ tự:
+Khuyến nghị theo trình tự bài học:
 1. **00-course-setup** - Bắt đầu với thiết lập môi trường
-2. **01-intro-to-ai-agents** - Hiểu kiến thức cơ bản về tác nhân AI
-3. **02-explore-agentic-frameworks** - Tìm hiểu các framework khác nhau
-4. **03-agentic-design-patterns** - Các mẫu thiết kế chính
-5. Tiếp tục theo thứ tự số bài học
+2. **01-intro-to-ai-agents** - Hiểu nền tảng đại lý AI
+3. **02-explore-agentic-frameworks** - Tìm hiểu các khung làm việc khác nhau
+4. **03-agentic-design-patterns** - Các mẫu thiết kế cốt lõi
+5. Tiếp tục các bài học theo số thứ tự
 
-### Lựa chọn Framework
+### Lựa Chọn Khung Làm Việc
 
-Chọn framework dựa theo mục tiêu:
-- **Học/Prototype**: Semantic Kernel + Mô hình GitHub (miễn phí)
-- **Hệ thống đa tác nhân**: AutoGen
-- **Tính năng mới nhất**: Microsoft Agent Framework (MAF)
-- **Triển khai sản xuất**: Azure AI Agent Service
+Chọn khung làm việc dựa trên mục tiêu:
+- **Tất cả bài học**: Microsoft Agent Framework (MAF) với `AzureAIProjectAgentProvider`
+- **Đại lý đăng ký phía máy chủ** trong Azure AI Foundry Agent Service V2 và hiển thị trong cổng Foundry
 
-### Tìm trợ giúp
+### Hỗ Trợ
 
 - Tham gia [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Xem file README của từng bài học để hướng dẫn cụ thể
-- Tham khảo [README.md chính](./README.md) cho tổng quan khóa học
-- Xem [Course Setup](./00-course-setup/README.md) để biết hướng dẫn chi tiết
+- Xem file README bài học để biết hướng dẫn cụ thể
+- Xem [README.md](./README.md) chính cho tổng quan khóa học
+- Tham khảo [Course Setup](./00-course-setup/README.md) cho hướng dẫn chi tiết
 
-### Đóng góp
+### Đóng Góp
 
 Đây là dự án giáo dục mở. Hoan nghênh đóng góp:
 - Cải thiện ví dụ mã
 - Sửa lỗi chính tả hoặc lỗi
-- Thêm chú thích giải thích
+- Thêm chú thích làm rõ
 - Đề xuất chủ đề bài học mới
-- Dịch sang ngôn ngữ khác
+- Dịch sang các ngôn ngữ khác
 
 Xem [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) để biết các nhu cầu hiện tại.
 
-## Bối cảnh dự án
+## Bối Cảnh Dự Án Riêng
 
-### Hỗ trợ đa ngôn ngữ
+### Hỗ Trợ Đa Ngôn Ngữ
 
-Kho dùng hệ thống dịch tự động:
-- Hơn 50 ngôn ngữ được hỗ trợ
-- Bản dịch nằm trong thư mục `/translations/<mã-ngôn-ngữ>/`
-- Workflow GitHub Actions xử lý cập nhật bản dịch
-- File gốc bằng tiếng Anh ở thư mục gốc kho
+Kho lưu trữ này sử dụng hệ thống dịch tự động:
+- Hỗ trợ hơn 50 ngôn ngữ
+- Bản dịch trong thư mục `/translations/<mã-ngôn-ngữ>/`
+- Quy trình GitHub Actions xử lý cập nhật dịch
+- Các tệp nguồn bằng tiếng Anh ở thư mục gốc kho
 
-### Cấu trúc bài học
+### Cấu Trúc Bài Học
 
-Mỗi bài học theo mẫu nhất quán:
+Mỗi bài học theo mẫu dưới đây:
 1. Hình thu nhỏ video có liên kết
 2. Nội dung bài học viết (README.md)
-3. Ví dụ mã với nhiều framework
-4. Mục tiêu học và yêu cầu trước
-5. Tài nguyên học thêm liên kết
+3. Mẫu mã trong nhiều khung làm việc
+4. Mục tiêu học tập và yêu cầu trước
+5. Tài nguyên học tập thêm liên kết
 
-### Đặt tên ví dụ mã
+### Đặt Tên Mẫu Mã
 
-Định dạng: `<số-bài-học>-<tên-framework>.ipynb`
-- `04-semantic-kernel.ipynb` - Bài 4, Semantic Kernel
-- `07-autogen.ipynb` - Bài 7, AutoGen
-- `14-python-agent-framework.ipynb` - Bài 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Bài 14, MAF .NET
+Định dạng: `<số-bài>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Bài 1, MAF Python
+- `14-sequential.ipynb` - Bài 14, MAF mẫu nâng cao
 
-### Thư mục đặc biệt
+### Thư Mục Đặc Biệt
 
-- `translated_images/` - Hình ảnh được bản địa hóa cho bản dịch
+- `translated_images/` - Hình ảnh được bản địa hoá cho các bản dịch
 - `images/` - Hình ảnh gốc cho nội dung tiếng Anh
 - `.devcontainer/` - Cấu hình container phát triển VS Code
-- `.github/` - Workflow và mẫu GitHub Actions
+- `.github/` - Quy trình GitHub Actions và mẫu
 
-### Các phụ thuộc
+### Phụ Thuộc
 
-Các gói chính trong `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - Framework AutoGen
-- `semantic-kernel` - Framework Semantic Kernel
+Các gói chính từ `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
+- `a2a-sdk` - Hỗ trợ giao thức Agent-to-Agent
 - `azure-ai-inference`, `azure-ai-projects` - Dịch vụ AI Azure
-- `azure-search-documents` - Tích hợp tìm kiếm Azure AI
-- `chromadb` - Cơ sở dữ liệu vector cho các ví dụ RAG
-- `chainlit` - Framework giao diện trò chuyện
-- `browser_use` - Tự động hóa trình duyệt cho tác nhân
+- `azure-identity` - Xác thực Azure (AzureCliCredential)
+- `azure-search-documents` - Tích hợp Azure AI Search
 - `mcp[cli]` - Hỗ trợ Model Context Protocol
-- `mem0ai` - Quản lý bộ nhớ cho tác nhân
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Tuyên bố từ chối trách nhiệm**:  
-Tài liệu này đã được dịch sử dụng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc sự không chính xác. Tài liệu gốc bằng ngôn ngữ ban đầu nên được coi là nguồn thông tin chính thức. Đối với những thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp do con người thực hiện. Chúng tôi không chịu trách nhiệm về bất kỳ sự hiểu nhầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ gốc của nó nên được coi là nguồn thông tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp do con người thực hiện. Chúng tôi không chịu trách nhiệm về bất kỳ sự hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

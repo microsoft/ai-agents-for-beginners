@@ -2,69 +2,68 @@
 
 ## Mô tả
 
-Đây là một bản demo được tạo ra cho cuộc thi Hackathon AI Agents do Microsoft Reactor tổ chức.
+Đây là một bản demo được tạo cho AI Agents Hackathon được tổ chức thông qua Microsoft Reactor.
 
-Công cụ này được sử dụng để đề xuất các dự án hackathon dựa trên các kho lưu trữ Github của người dùng. Điều này được thực hiện thông qua:
+Công cụ này được dùng để đề xuất các dự án hackathon dựa trên các kho (repo) Github của người dùng.
+Điều này được thực hiện bằng:
 
-1. **Github Agent** - Sử dụng Github MCP Server để truy xuất các kho lưu trữ và thông tin về các kho lưu trữ đó.
-2. **Hackathon Agent** - Sử dụng dữ liệu từ Github Agent để đưa ra các ý tưởng sáng tạo cho dự án hackathon dựa trên các dự án, ngôn ngữ lập trình mà người dùng sử dụng và các chủ đề của cuộc thi Hackathon AI Agents.
-3. **Events Agent** - Dựa trên gợi ý của Hackathon Agent, Events Agent sẽ đề xuất các sự kiện liên quan từ chuỗi sự kiện Hackathon AI Agents.
+1. **Github Agent** - Sử dụng Github MCP Server để truy xuất các repo và thông tin về các repo đó.
+2. **Hackathon Agent** - Lấy dữ liệu từ Github Agent và đưa ra các ý tưởng dự án hackathon sáng tạo dựa trên các dự án, ngôn ngữ người dùng sử dụng và các chủ đề dự án cho AI Agents hackathon.
+3. **Events Agent** - Dựa trên đề xuất của hackathon agent, events agent sẽ đề xuất các sự kiện liên quan từ chuỗi AI Agent Hackathon.
+## Running the code 
 
-## Chạy mã 
+### Environment Variables
 
-### Biến môi trường
+This demo uses Microsoft Agent Framework, Azure OpenAI Service, the Github MCP Server and Azure AI Search.
 
-Bản demo này sử dụng Azure Open AI Service, Semantic Kernel, Github MCP Server và Azure AI Search.
-
-Hãy đảm bảo rằng bạn đã thiết lập đúng các biến môi trường để sử dụng các công cụ này:
+Make sure that you have the proper environment variables set to use these tools:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Chạy Chainlit Server
+## Running the Chainlit Server
 
-Để kết nối với MCP Server, bản demo này sử dụng Chainlit làm giao diện trò chuyện.
+To connect to the MCP server, this demo use Chainlit as a chat interface. 
 
-Để chạy server, sử dụng lệnh sau trong terminal của bạn:
+To run the server, use the following command in your terminal:
 
 ```bash
 chainlit run app.py -w
 ```
 
-Lệnh này sẽ khởi động Chainlit server trên `localhost:8000` và đồng thời điền nội dung từ tệp `event-descriptions.md` vào Azure AI Search Index.
+This should start your Chainlit server on `localhost:8000` as well as populate your Azure AI Search Index with the `event-descriptions.md` content. 
 
-## Kết nối với MCP Server
+## Connecting to the MCP Server
 
-Để kết nối với Github MCP Server, chọn biểu tượng "plug" bên dưới hộp trò chuyện "Type your message here..":
+To connect to the Github MCP Server, select the "plug" icon underneath the "Type your message here.." chat box:
 
-![MCP Connect](../../../../../translated_images/vi/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![Kết nối MCP](../../../../../translated_images/vi/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Từ đó, bạn có thể nhấp vào "Connect an MCP" để thêm lệnh kết nối với Github MCP Server:
+From there you can click on the "Connect an MCP" to add the command to connect to the Github MCP Server:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Thay thế "[YOUR PERSONAL ACCESS TOKEN]" bằng Personal Access Token thực tế của bạn.
+Replace "[YOUR PERSONAL ACCESS TOKEN]" with your actual Personal Access Token. 
 
-Sau khi kết nối, bạn sẽ thấy số (1) bên cạnh biểu tượng plug để xác nhận rằng đã kết nối thành công. Nếu không, hãy thử khởi động lại Chainlit server bằng lệnh `chainlit run app.py -w`.
+After connecting, you should see a (1) next to the plug icon to confirm that its connected. If not, try restarting the chainlit server with `chainlit run app.py -w`.
 
-## Sử dụng bản demo 
+## Using the Demo 
 
-Để bắt đầu quy trình làm việc của agent nhằm đề xuất các dự án hackathon, bạn có thể nhập một tin nhắn như:
+To start the agent workflow of recommending hackathon projects, you can type a message like: 
 
-"Recommend hackathon projects for the Github user koreyspace"
+"Đề xuất dự án hackathon cho người dùng Github koreyspace"
 
-Router Agent sẽ phân tích yêu cầu của bạn và xác định sự kết hợp tốt nhất giữa các agent (GitHub, Hackathon, và Events) để xử lý truy vấn của bạn. Các agent sẽ phối hợp với nhau để cung cấp các đề xuất toàn diện dựa trên phân tích kho lưu trữ Github, ý tưởng dự án, và các sự kiện công nghệ liên quan.
+The Router Agent will analyze your request and determine which combination of agents (GitHub, Hackathon, and Events) is best suited to handle your query. The agents work together to provide comprehensive recommendations based on GitHub repository analysis, project ideation, and relevant tech events.
 
 ---
 
-**Tuyên bố miễn trừ trách nhiệm**:  
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ bản địa nên được coi là nguồn thông tin chính thức. Đối với các thông tin quan trọng, khuyến nghị sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Miễn trừ trách nhiệm**:
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật bằng AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi nỗ lực đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn chính thức. Đối với những thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp do con người thực hiện. Chúng tôi không chịu trách nhiệm về bất kỳ hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
