@@ -1,73 +1,69 @@
 # Github MCP Server Example
 
-## விளக்கம்
+## Description
 
-இந்த டெமோ Microsoft Reactor மூலம் நடத்தப்பட்ட AI Agents Hackathon க்காக உருவாக்கப்பட்டது.
+This was a demo created for the AI Agents Hackathon hosted through the Microsoft Reactor.
 
-இந்த கருவி, பயனர் Github ரெப்போக்களை அடிப்படையாகக் கொண்டு ஹாக்கத்தான் திட்டங்களை பரிந்துரைக்க பயன்படுகிறது. இது கீழ்க்கண்டவாறு செயல்படுகிறது:
+The tools is used to recommend hackathon projects based on a user's Github repos.
+This is done by:
 
-1. **Github Agent** - Github MCP Server ஐப் பயன்படுத்தி ரெப்போக்கள் மற்றும் அவற்றின் தகவல்களை பெறுகிறது.
-2. **Hackathon Agent** - Github Agent வழங்கிய தரவுகளை அடிப்படையாகக் கொண்டு, பயனர் பயன்படுத்திய திட்டங்கள், மொழிகள் மற்றும் AI Agents Hackathon க்கான திட்டப் பாதைகள் ஆகியவற்றின் அடிப்படையில் படைப்பாற்றல் கொண்ட ஹாக்கத்தான் திட்ட யோசனைகளை உருவாக்குகிறது.
-3. **Events Agent** - Hackathon Agent பரிந்துரையின் அடிப்படையில், AI Agent Hackathon தொடரில் தொடர்புடைய நிகழ்வுகளை பரிந்துரைக்கிறது.
+1. **Github Agent** - Github MCP Server-ஐ பயன்படுத்தி ரெப்போக்களை மற்றும் அவற்றைப் பற்றிய தகவல்களை பெறுதல்.
+2. **Hackathon Agent** - Github Agent-இலிருந்து வரும் தரவுகளை கொண்டு, பயனர் பயன்படுத்தும் மொழிகள் மற்றும் AI Agents hackathon இன் ப்ராஜெக்ட் டிராக்-களை அடிப்படையாகக் கொண்டு 창작மான ஹேக்கதான் திட்ட ஐடியாக்களை உருவாக்குதல்.
+3. **Events Agent** - ஹேக்கதான் ஏஜெண்டின் பரிந்துரைகளை அடிப்படையாக கொண்டு, Events Agent AI Agent Hackathon தொடர் சார்ந்த தொடர்புடைய நிகழ்ச்சிகளை பரிந்துரைக்கும்.
+## Running the code 
 
-## கோடை இயக்குதல்
+### Environment Variables
 
-### சூழல் மாறிகள்
+This demo uses Microsoft Agent Framework, Azure OpenAI Service, the Github MCP Server and Azure AI Search.
 
-இந்த டெமோ Azure Open AI Service, Semantic Kernel, Github MCP Server மற்றும் Azure AI Search ஐப் பயன்படுத்துகிறது.
-
-இந்த கருவிகளைப் பயன்படுத்த சரியான சூழல் மாறிகள் அமைக்கப்பட்டுள்ளதை உறுதிப்படுத்தவும்:
+Make sure that you have the proper environment variables set to use these tools:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
+## Running the Chainlit Server
 
-## Chainlit Server ஐ இயக்குதல்
+To connect to the MCP server, this demo use Chainlit as a chat interface. 
 
-MCP Server ஐ இணைக்க, இந்த டெமோ Chainlit ஐ ஒரு உரையாடல் இடைமுகமாகப் பயன்படுத்துகிறது.
-
-சர்வரை இயக்க, உங்கள் டெர்மினலில் கீழ்க்கண்ட கட்டளையை பயன்படுத்தவும்:
+To run the server, use the following command in your terminal:
 
 ```bash
 chainlit run app.py -w
 ```
 
+This should start your Chainlit server on `localhost:8000` as well as populate your Azure AI Search Index with the `event-descriptions.md` content. 
 
-இது உங்கள் Chainlit சர்வரை `localhost:8000` இல் தொடங்குவதுடன் `event-descriptions.md` உள்ளடக்கத்தை Azure AI Search Index இல் நிரப்பும்.
+## Connecting to the MCP Server
 
-## MCP Server ஐ இணைத்தல்
+To connect to the Github MCP Server, select the "plug" icon underneath the "Type your message here.." chat box:
 
-Github MCP Server ஐ இணைக்க, "Type your message here.." உரையாடல் பெட்டியின் கீழ் உள்ள "plug" ஐகானைத் தேர்ந்தெடுக்கவும்:
+![MCP இணைப்பு](../../../../../translated_images/ta/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-![MCP Connect](../../../../../translated_images/ta/mcp-chainlit-1.7ed66d648e3cfb28.webp)
-
-அதன் பின்னர், Github MCP Server ஐ இணைக்க கட்டளையைச் சேர்க்க "Connect an MCP" ஐ கிளிக் செய்யலாம்:
+From there you can click on the "Connect an MCP" to add the command to connect to the Github MCP Server:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
+Replace "[YOUR PERSONAL ACCESS TOKEN]" with your actual Personal Access Token. 
 
-"[YOUR PERSONAL ACCESS TOKEN]" ஐ உங்கள் உண்மையான Personal Access Token மூலம் மாற்றவும்.
+After connecting, you should see a (1) next to the plug icon to confirm that its connected. If not, try restarting the chainlit server with `chainlit run app.py -w`.
 
-இணைத்த பிறகு, plug ஐகானின் பக்கத்தில் (1) எனக் காணலாம், இது இணைக்கப்பட்டதை உறுதிப்படுத்தும். இணைக்கப்படவில்லை என்றால், `chainlit run app.py -w` மூலம் chainlit சர்வரை மீண்டும் தொடங்க முயற்சிக்கவும்.
+## Using the Demo 
 
-## டெமோவைப் பயன்படுத்துதல்
+To start the agent workflow of recommending hackathon projects, you can type a message like: 
 
-ஹாக்கத்தான் திட்டங்களை பரிந்துரைக்கும் ஏஜென்ட் வேலைப்பாடுகளைத் தொடங்க, நீங்கள் இவ்வாறு ஒரு செய்தியைத் தட்டச்சு செய்யலாம்:
+"Github பயனர் koreyspace க்கான ஹேக்கதான் திட்டங்களை பரிந்துரையிடுங்கள்"
 
-"Github பயனர் koreyspace க்கான ஹாக்கத்தான் திட்டங்களை பரிந்துரைக்கவும்"
-
-Router Agent உங்கள் கோரிக்கையை பகுப்பாய்வு செய்து, எந்த ஏஜென்ட்களின் (GitHub, Hackathon, மற்றும் Events) சேர்க்கை உங்கள் கேள்வியைச் சமாளிக்க சிறந்தது என்பதைத் தீர்மானிக்கும். ஏஜென்ட்கள் ஒன்றாக இணைந்து, Github ரெப்போ பகுப்பாய்வு, திட்ட யோசனைகள் மற்றும் தொடர்புடைய தொழில்நுட்ப நிகழ்வுகள் அடிப்படையில் விரிவான பரிந்துரைகளை வழங்கும்.
+The Router Agent will analyze your request and determine which combination of agents (GitHub, Hackathon, and Events) is best suited to handle your query. The agents work together to provide comprehensive recommendations based on GitHub repository analysis, project ideation, and relevant tech events.
 
 ---
 
-**அறிவிப்பு**:  
-இந்த ஆவணம் [Co-op Translator](https://github.com/Azure/co-op-translator) என்ற AI மொழிபெயர்ப்பு சேவையை பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சிக்கிறோம், ஆனால் தானியங்கி மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறுகள் இருக்கக்கூடும் என்பதை கவனத்தில் கொள்ளவும். அதன் சொந்த மொழியில் உள்ள மூல ஆவணம் அதிகாரப்பூர்வ ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்முறை மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்த தவறான புரிதல்களுக்கும் அல்லது தவறான விளக்கங்களுக்கும் நாங்கள் பொறுப்பல்ல.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+பொறுப்புமறுப்பு:
+இந்த ஆவணம் AI மொழிபெயர்ப்பு சேவையாசிரியர் [Co-op Translator](https://github.com/Azure/co-op-translator) மூலம் மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சித்தாலும், தானியக்க மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறான தகவல்கள் இடம்பெறக்கூடும் என்பதை தயவுசெய்து கவனத்தில் கொள்ளவும். அதன் மூல மொழியில் உள்ள ஆவணத்தை அதிகாரப்பூர்வமான மூலமாகக் கருத வேண்டும். முக்கியமான தகவலுக்கு, தொழில்முறை மனித மொழிபெயர்ப்பைப் பெற பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பின் பயன்பாட்டால் ஏற்படும் எந்த தவறான புரிதலுக்கோ அல்லது தவறான பொருள் விளக்கத்திற்கோ நாங்கள் பொறுப்பாற்றமாட்டோம்.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

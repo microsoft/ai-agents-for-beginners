@@ -1,67 +1,66 @@
-# AI Agendid Algajatele - Õppejuhend ja Kursuse Kokkuvõte
+# AI-agensid algajatele - õppematerjal ja kursuse kokkuvõte
 
-See juhend annab ülevaate kursusest "AI Agendid Algajatele" ja selgitab põhikontseptsioone, raamistikke ja disainimustreid AI agentide ehitamiseks.
+See juhend annab kokkuvõtte "AI Agents for Beginners" kursusest ning selgitab peamisi kontseptsioone, raamistikke ja disainimustreid AI-agenside ehitamiseks.
 
-## 1. Sissejuhatus AI Agentidesse
+## 1. Sissejuhatus AI-agensitesse
 
-**Mis on AI Agendid?**
-AI agendid on süsteemid, mis laiendavad Suurte Keelemudelite (LLM-ide) võimalusi, andes neile juurdepääsu **tööriistadele**, **teadmistele** ja **mälule**. Erinevalt tavalisest LLM-i vestlusrobotist, mis ainult genereerib teksti treeningandmete põhjal, saab AI agent:
-- **Tajuda** oma keskkonda (sensorite või sisendite kaudu).
-- **Arutleda** selle üle, kuidas probleemi lahendada.
-- **Teha** tegevusi keskkonna muutmiseks (hädavalt tööriistade või tegevuste abil).
+**Mis on AI-agensid?**
+AI-agensid on süsteemid, mis laiendavad suurte keelemudelite (LLMs) võimekust, andes neile juurdepääsu **tööriistadele**, **teadmistele** ja **mälule**. Erinevalt tavalise LLM-chatbot'ist, mis ainult genereerib teksti treeningandmete põhjal, võib AI-agens:
+- **Taju** oma keskkonda (andurite või sisendite kaudu).
+- **Mõtleb** selle üle, kuidas probleemi lahendada.
+- **Tegutseb** keskkonna muutmiseks (aktuaatorite või tööriistade käivitamise kaudu).
 
-**Agendi Põhikomponendid:**
-- **Keskkond**: Ruumi, kus agent tegutseb (nt broneerimissüsteem).
+**Agendi põhikomponendid:**
+- **Keskkond**: Ruum, kus agent tegutseb (nt broneerimissüsteem).
 - **Sensorid**: Mehhanismid info kogumiseks (nt API lugemine).
-- **Tegutsejad**: Mehhanismid tegevuste sooritamiseks (nt e-kirja saatmine).
-- **Aju (LLM)**: Mõtlemisosa, mis planeerib ja otsustab, milliseid tegevusi teha.
+- **Aktuaatorid**: Mehhanismid tegevuste sooritamiseks (nt e-kirja saatmine).
+- **Aju (LLM)**: Järeldamismootor, mis planeerib ja otsustab, milliseid toiminguid teha.
 
-## 2. Agentseadme Raamistikud
+## 2. Agentide raamistikud
 
-Kursus käsitleb kolme peamist agentide loomise raamistikku:
+Kursus kasutab **Microsoft Agent Framework (MAF)** koos **Azure AI Foundry Agent Service V2** agentide ehitamiseks:
 
-| Raamistik | Fookus | Parim Kasutuseks |
-|-----------|---------|------------------|
-| **Semantic Kernel** | Tootmiskõlblik SDK .NET/Python jaoks | Ettevõtte rakendused, AI integreerimine olemasoleva koodiga. |
-| **AutoGen** | Mitme agendi koostöö | Keerulised olukorrad, kus mitu spetsialiseerunud agenti omavahel suhtlevad. |
-| **Azure AI Agent Service** | Haldatud pilveteenus | Turvaline, skaleeritav juurutus koos sisseehitatud olekuhaldusega. |
+| Component | Focus | Best For |
+|-----------|-------|----------|
+| **Microsoft Agent Framework** | Ühendatud Python/C# SDK agentide, tööriistade ja töövoogude jaoks | Agentide loomine tööriistadega, mitmeagendiliste töövoogude ja tootmistavade jaoks. |
+| **Azure AI Foundry Agent Service** | Hallatud pilve käituskeskkond | Turvaline, skaleeritav juurutus koos sisseehitatud oleku halduse, jälgitavuse ja usaldusega. |
 
-## 3. Agentseadme Disainimustrid
+## 3. Agentide disainimustrid
 
-Disainimustrid aitavad struktuureerida agentide tööd, et lahendada probleeme usaldusväärselt.
+Disainimustrid aitavad struktureerida, kuidas agendid toimivad, et lahendada probleeme usaldusväärselt.
 
-### **Tööriistade Kasutamise Muster** (Õppetund 4)
+### **Tööriistade kasutamise muster** (Õppetund 4)
 See muster võimaldab agentidel suhelda välismaailmaga.
-- **Kontseptsioon**: Agendile antakse "skeem" (järjestus saadavalolevatest funktsioonidest ja nende parameetritest). LLM otsustab, *millist* tööriista valida ja *milliste* argumentidega vastavalt kasutaja päringule.
-- **Voog**: Kasutaja Päring -> LLM -> **Tööriista Valik** -> **Tööriista Käivitamine** -> LLM (tööriista väljundiga) -> Lõplik Vastus.
-- **Kasutusjuhtumid**: Reaalajas andmete (ilm, aktsiakulud) hankimine, arvutuste tegemine, koodi käivitamine.
+- **Kontseptsioon**: Agendile antakse "skeem" (loetelu saadaolevatest funktsioonidest ja nende parameetritest). LLM otsustab *millist* tööriista kutsuda ja *milliste* argumentidega, lähtudes kasutaja taotlusest.
+- **Töövoog**: User Request -> LLM -> **Tööriista valik** -> **Tööriista täitmine** -> LLM (tööriista väljundiga) -> Lõplik vastus.
+- **Kasutusjuhtumid**: Reaalajas andmete hankimine (ilm, aktsiahinnad), arvutuste tegemine, koodi täitmine.
 
-### **Planeerimise Muster** (Õppetund 7)
+### **Planeerimise muster** (Õppetund 7)
 See muster võimaldab agentidel lahendada keerukaid, mitmeastmelisi ülesandeid.
-- **Kontseptsioon**: Agent jagab kõrgetasemelise eesmärgi väiksemateks osülesanneteks.
+- **Kontseptsioon**: Agent jagab kõrgetasemelise eesmärgi järjestikusteks väiksemateks alamülesanneteks.
 - **Lähenemised**:
-  - **Ülesannete Lahutamine**: Jagades "Reisi planeerimise" "Lennu broneerimiseks", "Hotelli broneerimiseks", "Autoliisi jaoks".
-  - **Iteratiivne Planeerimine**: Plaani uuesti hindamine varasemate sammude väljundi põhjal (nt kui lend on täis, valida teine kuupäev).
-- **Rakendamine**: Sageli kasutatakse "Planeerija" agenti, mis genereerib struktureeritud plaani (nt JSON), mida siis teised agendid täidavad.
+  - **Ülesande dekompositsioon**: Jagades "Reisi planeerimine" osadeks "Broneeri lend", "Broneeri hotell", "Üüri auto".
+  - **Iteratiivne planeerimine**: Plaani uuesti hindamine varasemate sammude väljundi põhjal (nt kui lend on täis, vali teine kuupäev).
+- **Rakendus**: Sageli hõlmab see "Planeerija" agenti, mis genereerib struktureeritud plaani (nt JSON), mida seejärel täidavad teised agendid.
 
 ## 4. Disainipõhimõtted
 
-Agentide loomisel tuleks arvestada kolme mõõtmega:
-- **Ruum**: Agendid peaksid ühendama inimesi ja teadmisi, olema ligipääsetavad, aga mitte pealetükkivad.
-- **Aeg**: Agendid peaksid õppima *minevikust*, pakkuma asjakohaseid viiteid *praeguses* ning kohanema *tuleviku* jaoks.
-- **Tuumik**: Võtta omaks ebakindlus, kuid rajada usaldus läbipaistvuse ja kasutajapoolse kontrolli kaudu.
+Agentide disainimisel arvestage kolme dimensiooniga:
+- **Ruum**: Agendid peaksid ühendama inimesi ja teadmisi, olema ligipääsetavad, kuid mitte pealetükkivad.
+- **Aeg**: Agendid peaksid õppima *minevikust*, pakkuma asjakohaseid vihjeid *praegusel hetkel* ja kohanema *tuleviku jaoks*.
+- **Tuum**: Aktsepteeri ebakindlust, kuid loo usaldus läbipaistvuse ja kasutaja kontrolli kaudu.
 
-## 5. Peamiste Õppetundide Kokkuvõte
+## 5. Oluliste õppetundide kokkuvõte
 
-- **Õppetund 1**: Agendid on süsteemid, mitte ainult mudelid. Nad tajuvad, arutlevad ja tegutsevad.
-- **Õppetund 2**: Raamistikud nagu Semantic Kernel ja AutoGen varjavad tööriistakutsumise ja olekuhalduse keerukust.
-- **Õppetund 3**: Disaini läbipaistvust ja kasutajakontrolli silmas pidades.
-- **Õppetund 4**: Tööriistad on agendi "käed". Skeemi määratlus on LLM-ile hädavajalik tööriistade kasutamise mõistmiseks.
-- **Õppetund 7**: Planeerimine on agendi "juhtimisfunktsioon", mis võimaldab toime tulla keerukate töövoogudega.
+- **Õppetund 1**: Agendid on süsteemid, mitte ainult mudelid. Nad tajuvad, teevad järeldusi ja tegutsevad.
+- **Õppetund 2**: Microsoft Agent Framework abstraheerib tööriistakõnede ja oleku haldamise keerukuse.
+- **Õppetund 3**: Disaini, silmas pidades läbipaistvust ja kasutaja kontrolli.
+- **Õppetund 4**: Tööriistad on agendi "käed". Skeemi defineerimine on LLM-ile ülioluline, et mõista, kuidas neid kasutada.
+- **Õppetund 7**: Planeerimine on agendi "juhtfunktsioon", mis võimaldab tal käsitleda keerukaid töövooge.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastutusest loobumine**:
-See dokument on tõlgitud kasutades tehisintellektil põhinevat tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüame tagada täpsust, palun pidage meeles, et automatiseeritud tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti mõistmiste eest.
+Lahtiütlus:
+Seda dokumenti on tõlgitud tehisintellekti-põhise tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, võivad automaatsed tõlked sisaldada vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleb pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste ega väärtõlgete eest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
