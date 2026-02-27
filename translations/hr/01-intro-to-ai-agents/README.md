@@ -1,104 +1,104 @@
 [![Uvod u AI agente](../../../translated_images/hr/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Kliknite na gornju sliku da pogledate video ovog sata)_
+> _(Kliknite na gornju sliku za pregled videa ovog časa)_
 
 
-# Uvod u AI agente i primjenu agenata
+# Uvod u AI agente i primjere korištenja agenata
 
-Dobrodošli na tečaj "AI agenti za početnike"! Ovaj tečaj pruža osnovno znanje i primjere primjene za izradu AI agenata.
+Dobrodošli na kurs "AI Agent za početnike"! Ovaj kurs pruža osnovno znanje i primjere za izgradnju AI agenata.
 
-Pridružite se <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord zajednici</a> kako biste upoznali druge učenike i tvorce AI agenata te postavljali sva pitanja o ovom tečaju.
+Pridružite se <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord zajednici</a> kako biste upoznali druge učenike i graditelje AI agenata te postavili sva pitanja koja imate o ovom kursu.
 
-Za početak ovog tečaja, započinjemo s boljim razumijevanjem što su AI agenti i kako ih možemo koristiti u aplikacijama i radnim tokovima koje izrađujemo.
+Za početak ovog kursa, započinjemo s boljim razumijevanjem što su AI agenti i kako ih možemo koristiti u aplikacijama i radnim tokovima koje gradimo.
 
 ## Uvod
 
-Ovaj sat obuhvaća:
+Ovaj čas pokriva:
 
 - Što su AI agenti i koje su različite vrste agenata?
-- Koji su najbolji slučajevi uporabe AI agenata i kako nam oni mogu pomoći?
+- Koji su najbolji primjeri korištenja AI agenata i kako nam mogu pomoći?
 - Koji su neki osnovni gradivni blokovi pri dizajniranju agentnih rješenja?
 
 ## Ciljevi učenja
-Nakon dovršetka ovog sata, trebali biste moći:
+Nakon završetka ovog časa, trebali biste moći:
 
 - Razumjeti koncepte AI agenata i kako se razlikuju od drugih AI rješenja.
-- Najučinkovitije primijeniti AI agente.
-- Produktivno dizajnirati agentna rješenja za korisnike i klijente.
+- Najefikasnije primjenjivati AI agente.
+- Produktivno dizajnirati agentna rješenja za korisnike i kupce.
 
 ## Definiranje AI agenata i vrste AI agenata
 
 ### Što su AI agenti?
 
-AI agenti su **sustavi** koji omogućuju **velikim jezičnim modelima (LLM-ovima)** da **izvršavaju radnje** proširujući njihove mogućnosti dajući LLM-ovima **pristup alatima** i **znanju**.
+AI agenti su **sistemi** koji omogućuju **velikim jezičnim modelima (LLM)** da **izvode radnje** proširujući njihove mogućnosti davanjem LLM-ovima **pristupa alatima** i **znanju**.
 
-Razbijmo ovu definiciju na manje dijelove:
+Razložimo ovu definiciju na manje dijelove:
 
-- **Sustav** - Važno je razmišljati o agentima ne samo kao o jednoj komponenti, već kao o sustavu mnogih komponenti. Na osnovnoj razini, komponente AI agenta su:
-  - **Okolina** - Definirani prostor u kojem AI agent djeluje. Na primjer, ako imamo AI agenta za rezervaciju putovanja, okolina može biti sustav za rezervaciju putovanja koji AI agent koristi za dovršavanje zadataka.
-  - **Senzori** - Okoline imaju informacije i pružaju povratne informacije. AI agenti koriste senzore za prikupljanje i tumačenje tih informacija o trenutačnom stanju okoline. U primjeru Agenta za rezervaciju putovanja, sustav za rezervaciju može pružiti informacije poput dostupnosti hotela ili cijena letova.
-  - **Aktuatori** - Nakon što AI agent primi trenutačno stanje okoline, za trenutačni zadatak agent određuje koju radnju treba poduzeti kako bi promijenio okolinu. Za agenta za rezervaciju putovanja, to može biti rezervacija dostupne sobe za korisnika.
+- **Sistem** - Važno je razmišljati o agentima ne kao o pojedinačnoj komponenti, već kao o sistemu mnogih komponenti. Na osnovnoj razini, komponente AI agenta su:
+  - **Okolina** - Definirani prostor u kojem AI agent djeluje. Na primjer, ako imamo AI agenta za rezervacije putovanja, okolina može biti sustav za rezervaciju putovanja koji agent koristi za izvršavanje zadataka.
+  - **Senzori** - Okoline imaju informacije i pružaju povratne informacije. AI agenti koriste senzore da prikupe i interpretiraju informacije o trenutnom stanju okoline. U primjeru agent putničke rezervacije, sustav za rezervacije može pružiti informacije poput dostupnosti hotela ili cijena letova.
+  - **Aktuatori** - Kada AI agent primi trenutno stanje okoline, za zadatak koji ima, agent određuje koju radnju treba izvršiti kako bi promijenio okolinu. Za agenta za putničku rezervaciju to može biti rezervacija dostupne sobe za korisnika.
 
 ![Što su AI agenti?](../../../translated_images/hr/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-**Veliki jezični modeli** - Koncept agenata postojao je prije stvaranja LLM-ova. Prednost izrade AI agenata s LLM-ovima je njihova sposobnost interpretacije ljudskog jezika i podataka. Ta sposobnost omogućuje LLM-ovima interpretaciju informacija o okolini i definiranje plana za promjenu okoline.
+**Veliki jezični modeli** - Koncept agenata postojao je prije stvaranja LLM-ova. Prednost izgradnje AI agenata s LLM-ovima je njihova sposobnost tumačenja ljudskog jezika i podataka. Ova sposobnost omogućava LLM-ovima tumačenje informacija iz okoline i definiranje plana za promjenu okoline.
 
-**Izvršavanje radnji** - Izvan sustava AI agenata, LLM-ovi su ograničeni na situacije u kojima je radnja generiranje sadržaja ili informacija na temelju korisničkog upita. Unutar sustava AI agenata, LLM-ovi mogu izvršavati zadatke tumačeći korisnički zahtjev i koristeći alate dostupne u njihovoj okolini.
+**Izvođenje radnji** - Izvan sistema AI agenata, LLM-ovi su ograničeni na situacije gdje je radnja generiranje sadržaja ili informacija na temelju korisničkog upita. Unutar sistema AI agenata, LLM-ovi mogu izvršavati zadatke tumačeći zahtjev korisnika i koristeći alate dostupne u njihovoj okolini.
 
-**Pristup alatima** - Koji alati su dostupni LLM-u definira 1) okolina u kojoj djeluje i 2) programer AI agenta. Za naš primjer agent za putovanja, alati agenta su ograničeni operacijama dostupnima u sustavu rezervacija, i/ili programer može ograničiti pristup alatu agenta samo na letove.
+**Pristup alatima** - Koji alati su dostupni LLM-u određeno je 1) okolinom u kojoj djeluje i 2) programerom AI agenta. Za primjer našeg agenta za putovanja, alati agenta su ograničeni operacijama dostupnim u sustavu za rezervaciju i/ili programer može ograničiti pristup agentovim alatima samo na letove.
 
-**Memorija+Znanje** - Memorija može biti kratkoročna u kontekstu razgovora između korisnika i agenta. Dugoročno, osim informacija koje pruža okolina, AI agenti mogu dohvatiti i znanje iz drugih sustava, servisa, alata pa čak i drugih agenata. U primjeru agenta za putovanja, to znanje može biti informacija o korisnikovim preferencijama putovanja pohranjena u bazi podataka klijenata.
+**Memorija+Znanje** - Memorija može biti kratkoročna u kontekstu razgovora između korisnika i agenta. Dugoročno, osim informacija koje pruža okolina, AI agenti mogu dohvatiti znanje iz drugih sustava, servisa, alata pa čak i drugih agenata. U primjeru agenta za putovanja, to znanje može biti informacije o korisnikovim preferencijama putovanja pohranjene u bazi podataka korisnika.
 
 ### Različite vrste agenata
 
-Sada kada imamo opću definiciju AI agenata, pogledajmo neke specifične vrste agenata i kako bi se primijenili na AI agenta za rezervaciju putovanja.
+Sad kad imamo opći definiranje AI agenata, pogledajmo neke specifične vrste agenata i kako bi se oni primijenili na AI agenta za rezervacije putovanja.
 
-| **Vrsta agenta**             | **Opis**                                                                                                                           | **Primjer**                                                                                                                                                                                                                |
-| -----------------------------| ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Jednostavni refleksni agenti** | Izvršavaju trenutne radnje na temelju unaprijed definiranih pravila.                                                             | Agent za putovanja interpretira kontekst e-pošte i prosljeđuje pritužbe o putovanju službi za korisnike.                                                                                                                   |
-| **Modelom vođeni refleksni agenti** | Izvršavaju radnje na temelju modela svijeta i promjena tog modela.                                                               | Agent za putovanja daje prioritet rutama s značajnim promjenama cijena na temelju pristupa povijesnim podacima o cijenama.                                                                                                |
-| **Agent s ciljem**            | Stvaraju planove za postizanje određenih ciljeva tumačeći cilj i određujući radnje za njegovo ostvarenje.                          | Agent za putovanja rezervira putovanje određujući potrebne aranžmane (automobil, javni prijevoz, letovi) s trenutačne lokacije do odredišta.                                                                              |
-| **Agent s korisničkom vrijednošću** | Uzimaju u obzir preferencije i numerički uspoređuju kompromise kako bi odredili kako postići ciljeve.                               | Agent za putovanja maksimizira korisničku vrijednost balansiranjem između praktičnosti i cijene prilikom rezervacije putovanja.                                                                                            |
-| **Učeći agenti**              | Poboljšavaju se tijekom vremena reagiranjem na povratne informacije i prilagođavanjem radnji.                                      | Agent za putovanja poboljšava se koristeći povratne informacije korisnika iz anketa nakon putovanja za prilagodbe u budućim rezervacijama.                                                                                |
-| **Hijerarhijski agenti**      | Sastoje se od više agenata u slojevitom sustavu, pri čemu viši agenti razdvajaju zadatke u podzadatke za niže agente.             | Agent za putovanja otkazuje putovanje dijeleći zadatak na podzadatke (npr. otkazivanje pojedinačnih rezervacija) i niži agenti ih izvršavaju, izvještavajući višem agentu.                                                |
-| **Sistemi s više agenata (MAS)** | Agenti dovršavaju zadatke neovisno, kooperativno ili konkurentno.                                                                | Kooperativno: Više agenata rezerviraju specifične usluge poput hotela, letova i zabave. Konkurentno: Više agenata upravljaju i natječu se za zajednički kalendar rezervacija hotela kako bi smjestili goste u hotel.       |
+| **Vrsta agenta**              | **Opis**                                                                                                                          | **Primjer**                                                                                                                                                                        |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Jednostavni refleksni agenti** | Izvršavaju trenutne radnje na temelju unaprijed definiranih pravila.                                                           | Agent za putovanja interpretira kontekst e-maila i prosljeđuje pritužbe putovanja službi za korisnike.                                                                             |
+| **Model-based refleksni agenti** | Izvršavaju radnje na temelju modela svijeta i promjena tog modela.                                                            | Agent za putovanja prioritizira rute s značajnim promjenama cijena koristeći povijesne podatke o cijenama.                                                                         |
+| **Agent s ciljevima**          | Izrađuju planove za postizanje specifičnih ciljeva tumačeći cilj i određujući radnje potrebne za njegovo ostvarenje.           | Agent za putovanja rezervira putovanje određujući potrebne aranžmane (auto, javni prijevoz, letove) od trenutne lokacije do odredišta.                                           |
+| **Agent temeljen na korisnosti** | Razmatra preferencije i numerički procjenjuje kompromise kako bi odredio kako postići ciljeve.                                 | Agent za putovanja maksimizira korisnost procjenjujući pogodnost naspram troškova prilikom rezervacije putovanja.                                                                   |
+| **Učeći agenti**              | Poboljšavaju se tijekom vremena odgovarajući na povratne informacije i prilagođavajući radnje u skladu s tim.                  | Agent za putovanja poboljšava se koristeći povratne informacije korisnika iz anketa nakon putovanja te vrši prilagodbe budućih rezervacija.                                        |
+| **Hijerarhijski agenti**       | Sastoje se od više agenata u slojevitoj strukturi, pri čemu viši agenti razlažu zadatke u podzadatke koje niži agenti izvršavaju. | Agent za putovanja otkazuje putovanje dijeleći zadatak u podzadatke (na primjer, otkazivanje specifičnih rezervacija) koje izvršavaju niži agenti, a zatim se izvještava višem agentu. |
+| **Sustavi s više agenata (MAS)** | Agenti neovisno izvršavaju zadatke, bilo suradnički ili natjecateljski.                                                       | Suradnički: Više agenata rezervira specifične usluge putovanja poput hotela, letova i zabave. Natjecateljski: Više agenata upravlja i natječe se za rezervacije u zajedničkom kalendaru hotela. |
 
 ## Kada koristiti AI agente
 
-U ranijem dijelu koristili smo primjer agenta za putovanja da objasnimo kako se različite vrste agenata mogu koristiti u različitim scenarijima rezervacije putovanja. Nastavit ćemo koristiti ovu aplikaciju kroz cijeli tečaj.
+U prethodnom odjeljku koristili smo primjer agenta za putničke rezervacije za objasniti kako se različite vrste agenata mogu koristiti u različitim scenarijima rezervacije putovanja. Nastavimo koristiti ovu aplikaciju kroz cijeli kurs.
 
-Pogledajmo vrste slučajeva uporabe za koje su AI agenti najbolji:
+Pogledajmo vrste primjera korištenja za koje su AI agenti najbolje primjenjivi:
 
 ![Kada koristiti AI agente?](../../../translated_images/hr/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 
-- **Problemi s otvorenim ishodom** - dopuštajući LLM-u da odredi potrebne korake za dovršetak zadatka jer se oni ne mogu uvijek hardkodirati u radni tok.
-- **Višekorakni procesi** - zadaci koji zahtijevaju razinu složenosti u kojoj AI agent mora koristiti alate ili informacije kroz više koraka umjesto jednokratnog dohvaćanja.  
-- **Poboljšanje tijekom vremena** - zadaci gdje se agent može poboljšati tijekom vremena primanjem povratnih informacija iz okoline ili od korisnika za pružanje bolje korisnosti.
+- **Problemi otvorenog tipa** - LLM sam određuje potrebne korake za izvršenje zadatka jer se ti koraci ne mogu uvijek unaprijed hardkodirati u radni tok.
+- **Višekoračni procesi** - zadaci koji zahtijevaju razinu kompleksnosti u kojoj AI agent mora koristiti alate ili informacije tijekom više koraka, a ne samo jednokratno dohvaćanje.
+- **Poboljšanje tijekom vremena** - zadaci gdje se agent može poboljšavati kroz vrijeme primanjem povratnih informacija iz okoline ili od korisnika za pružanje bolje usluge.
 
-Više o razmatranjima kod korištenja AI agenata pokriveno je u satu Izgradnja pouzdanih AI agenata.
+Više o razmatranjima korištenja AI agenata obrađujemo u lekciji o izgradnji pouzdanih AI agenata.
 
 ## Osnove agentnih rješenja
 
 ### Razvoj agenata
 
-Prvi korak u dizajniranju sustava AI agenta jest definirati alate, radnje i ponašanja. U ovom tečaju fokusiramo se na korištenje **Azure AI Agent Service** za definiranje naših agenata. Nudi značajke kao što su:
+Prvi korak u dizajniranju sustava AI agenata je definirati alate, radnje i ponašanja. U ovom kursu fokusiramo se na korištenje **Azure AI Agent Service** za definiranje naših agenata. Nudi funkcije poput:
 
-- Izbor otvorenih modela poput OpenAI, Mistral i Llama
-- Korištenje licenciranih podataka kroz pružatelje poput Tripadvisor
+- Izbor otvorenih modela kao što su OpenAI, Mistral i Llama
+- Korištenje licenciranih podataka putem pružatelja poput Tripadvisor
 - Korištenje standardiziranih OpenAPI 3.0 alata
 
 ### Agentni obrasci
 
-Komunikacija s LLM-ovima odvija se putem upita (promptova). S obzirom na poluautonomnu prirodu AI agenata, nije uvijek moguće ili potrebno ručno ponovno slati upite LLM-u nakon promjene u okolini. Koristimo **agentne obrasce** koji nam omogućuju slanje upita LLM-u kroz više koraka na skalabilniji način.
+Komunikacija s LLM-ovima odvija se putem upita (prompta). Zbog polu-autonomne prirode AI agenata, ne može se uvijek ili nije potrebno ručno ponovno postavljati upite LLM-u nakon promjene u okolini. Koristimo **agentne obrasce** koji nam omogućuju da upite LLM-u postavljamo kroz više koraka na skalabilniji način.
 
-Ovaj tečaj podijeljen je na neke od trenutno popularnih agentnih obrazaca.
+Ovaj kurs podijeljen je prema nekim od trenutno popularnih agentnih obrazaca.
 
 ### Agentni okviri
 
-Agentni okviri omogućuju programerima implementaciju agentnih obrazaca putem koda. Ti okviri nude predloške, dodatke i alate za bolju suradnju AI agenata. Ove prednosti pružaju mogućnosti bolje vidljivosti i otklanjanja problema sa sustavima AI agenata.
+Agentni okviri omogućuju developerima implementaciju agentnih obrazaca kroz kod. Ovi okviri nude predloške, dodatke i alate za bolju suradnju AI agenata. Takve prednosti omogućuju bolju uvidljivost i otklanjanje problema u sustavima AI agenata.
 
-U ovom tečaju istražit ćemo istraživački okvir AutoGen i produkcijski spreman okviri Agent iz Semantic Kernel.
+U ovom kursu istražit ćemo Microsoft Agent Framework (MAF) za izgradnju produkcijski spremnih AI agenata.
 
 ## Primjeri koda
 
@@ -107,19 +107,19 @@ U ovom tečaju istražit ćemo istraživački okvir AutoGen i produkcijski sprem
 
 ## Imate li još pitanja o AI agentima?
 
-Pridružite se [Microsoft Foundry Discordu](https://aka.ms/ai-agents/discord) da upoznate druge učenike, sudjelujete u radnim satima i dobijete odgovore na pitanja o AI agentima.
+Pridružite se [Microsoft Foundry Discordu](https://aka.ms/ai-agents/discord) da upoznate druge učenike, sudjelujete u konzultacijama i dobijete odgovore na svoja pitanja o AI agentima.
 
-## Prethodni sat
+## Prethodna lekcija
 
-[Postavljanje tečaja](../00-course-setup/README.md)
+[Postavljanje kursa](../00-course-setup/README.md)
 
-## Sljedeći sat
+## Sljedeća lekcija
 
 [Istraživanje agentnih okvira](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Izjava o odricanju od odgovornosti**:
-Ovaj dokument preveden je pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za kritične informacije preporučuje se profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakva nesporazuma ili pogrešna tumačenja koja proizađu iz korištenja ovog prijevoda.
+**Odricanje od odgovornosti**:
+Ovaj dokument preveden je pomoću AI prevoditeljskog servisa [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba se smatrati službenim izvorom. Za važne informacije preporučuje se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakve nesporazume ili kriva tumačenja koja proizlaze iz korištenja ovog prijevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

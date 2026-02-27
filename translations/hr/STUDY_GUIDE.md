@@ -1,67 +1,66 @@
-# AI Agenti za Početnike - Vodič za Učenje i Sažetak Tečaja
+# AI agenti za početnike - Vodič za učenje & Sažetak tečaja
 
-Ovaj vodič pruža sažetak tečaja "AI Agenti za Početnike" i objašnjava ključne pojmove, okvire i dizajnerske obrasce za izgradnju AI Agenta.
+Ovaj vodič daje sažetak tečaja "AI Agents for Beginners" i objašnjava ključne pojmove, okvire i obrasce dizajna za izgradnju AI agenata.
 
-## 1. Uvod u AI Agente
+## 1. Uvod u AI agente
 
-**Što su AI Agenti?**
-AI Agenti su sustavi koji proširuju mogućnosti Velikih Jezičnih Modela (LLM) dajući im pristup **alatima**, **znanju** i **memoriji**. Za razliku od standardnog LLM chatbota koji samo generira tekst na temelju podataka za treniranje, AI Agent može:
-- **Perceptirati** svoje okruženje (putem senzora ili ulaza).
-- **Razmišljati** o tome kako riješiti problem.
-- **Djelovati** da promijeni okruženje (putem aktuatora ili izvršavanja alata).
+**Što su AI agenti?**
+AI agenti su sustavi koji proširuju mogućnosti Large Language Models (LLMs) dajući im pristup **alatima**, **znanju** i **memoriji**. Za razliku od standardnog LLM chatbota koji samo generira tekst na temelju podataka za treniranje, AI agent može:
+- **Percipirati** svoje okruženje (putem senzora ili ulaza).
+- **Rasuđivati** o tome kako riješiti problem.
+- **Djelovati** kako bi promijenio okruženje (putem aktuatora ili izvršavanja alata).
 
-**Ključne Komponente Agenta:**
+**Ključne komponente agenta:**
 - **Okruženje**: Prostor u kojem agent djeluje (npr. sustav za rezervacije).
 - **Senzori**: Mehanizmi za prikupljanje informacija (npr. čitanje API-ja).
-- **Aktuatori**: Mehanizmi za izvođenje radnji (npr. slanje emaila).
-- **Mozak (LLM)**: Motor razmišljanja koji planira i odlučuje koje radnje poduzeti.
+- **Aktuatori**: Mehanizmi za izvršavanje radnji (npr. slanje e-pošte).
+- **Mozak (LLM)**: Jedinica za rasuđivanje koja planira i odlučuje koje akcije poduzeti.
 
-## 2. Agentni Okviri
+## 2. Okviri za agente
 
-Tečaj pokriva tri glavna okvira za izgradnju agenata:
+Tečaj koristi **Microsoft Agent Framework (MAF)** s **Azure AI Foundry Agent Service V2** za izgradnju agenata:
 
-| Okvir | Fokus | Najbolje za |
+| Komponenta | Fokus | Najprikladnije za |
 |-----------|-------|----------|
-| **Semantic Kernel** | SDK spreman za proizvodnju za .NET/Python | Poslovne aplikacije, integracija AI-ja s postojećim kodom. |
-| **AutoGen** | Suradnja više agenata | Kompleksni scenariji koji zahtijevaju komunikaciju višestrukih specijaliziranih agenata. |
-| **Azure AI Agent Service** | Upravljana cloud usluga | Sigurno, skalabilno postavljanje s ugrađenim upravljanjem stanja. |
+| **Microsoft Agent Framework** | Ujedinjeni Python/C# SDK za agente, alate, i tokove rada | Izgradnju agenata s alatima, tijekovima rada više agenata i produkcijskim obrascima. |
+| **Azure AI Foundry Agent Service** | Upravljano runtime okruženje u oblaku | Sigurna, skalabilna implementacija s ugrađenim upravljanjem stanja, nadzorom i povjerenjem. |
 
-## 3. Agentni Dizajnerski Obrasci
+## 3. Obrasci dizajna agenata
 
-Dizajnerski obrasci pomažu strukturirati način rada agenata kako bi pouzdano rješavali probleme.
+Obrasci dizajna pomažu strukturirati način na koji agenti djeluju kako bi pouzdano rješavali probleme.
 
-### **Obrazac Korištenja Alata** (Lekcija 4)
+### **Obrazac korištenja alata** (Lekcija 4)
 Ovaj obrazac omogućuje agentima interakciju s vanjskim svijetom.
-- **Koncept**: Agentu se pruža "shema" (lista dostupnih funkcija i njihovih parametara). LLM odlučuje *koji* alat pozvati i s *kojim* argumentima na temelju zahtjeva korisnika.
-- **Tijek**: Korisnički Zahtjev -> LLM -> **Odabir Alata** -> **Izvršenje Alata** -> LLM (s izlazom alata) -> Konačni Odgovor.
-- **Primjene**: Dohvaćanje podataka u stvarnom vremenu (vrijeme, cijene dionica), izvođenje proračuna, izvršavanje koda.
+- **Koncept**: Agentu se daje "shema" (popis dostupnih funkcija i njihovih parametara). LLM odlučuje *koji* alat pozvati i s *kojim* argumentima na temelju korisničkog zahtjeva.
+- **Tijek**: Zahtjev korisnika -> LLM -> **Odabir alata** -> **Izvršavanje alata** -> LLM (s izlazom alata) -> Konačni odgovor.
+- **Primjeri upotrebe**: Dohvaćanje podataka u stvarnom vremenu (vrijeme, cijene dionica), izvođenje proračuna, izvršavanje koda.
 
-### **Obrazac Planiranja** (Lekcija 7)
-Ovaj obrazac omogućuje agentima da riješe složene zadatke s više koraka.
-- **Koncept**: Agent razlaže visoku razinu cilja u niz manjih podzadatka.
+### **Obrazac planiranja** (Lekcija 7)
+Ovaj obrazac omogućuje agentima rješavanje složenih zadataka s više koraka.
+- **Koncept**: Agent razlaže cilj visoke razine u niz manjih podzadataka.
 - **Pristupi**:
-  - **Raspad Zadataka**: Razbijanje "Isplaniraj putovanje" u "Rezerviraj let", "Rezerviraj hotel", "Iznajmi auto".
-  - **Iterativno Planiranje**: Ponovno ocjenjivanje plana na temelju izlaza prethodnih koraka (npr. ako je let pun, odabrati drugi datum).
-- **Implementacija**: Često uključuje "Planner" agenta koji generira strukturirani plan (npr. JSON) koji zatim drugi agenti izvršavaju.
+  - **Razlaganje zadatka**: Raščlanjivanje "Isplaniraj putovanje" u "Rezerviraj let", "Rezerviraj hotel", "Iznajmi auto".
+  - **Iterativno planiranje**: Ponovna procjena plana na temelju izlaza prethodnih koraka (npr. ako je let pun, odaberite drugi datum).
+- **Implementacija**: Često uključuje "Planner" agenta koji generira strukturirani plan (npr. JSON) koji zatim izvršavaju drugi agenti.
 
-## 4. Dizajnerska Načela
+## 4. Načela dizajna
 
-Pri dizajniranju agenata razmotrite tri dimenzije:
-- **Prostor**: Agenti trebaju povezivati ljude i znanje, biti dostupni, ali nenametljivi.
-- **Vrijeme**: Agenti trebaju učiti iz *Prošlosti*, pružati relevantne poticaje *Sada*, i prilagođavati se za *Budućnost*.
-- **Srž**: Prihvatiti nesigurnost, ali uspostaviti povjerenje kroz transparentnost i kontrolu korisnika.
+Prilikom dizajniranja agenata, razmotrite tri dimenzije:
+- **Prostor**: Agenti bi trebali povezati ljude i znanje, biti dostupni ali nenametljivi.
+- **Vrijeme**: Agenti bi trebali učiti iz *prošlosti*, pružati relevantne poticaje u *sadašnjosti*, i prilagođavati se za *budućnost*.
+- **Srž**: Prihvatite nesigurnost, ali uspostavite povjerenje kroz transparentnost i kontrolu korisnika.
 
-## 5. Sažetak Ključnih Lekcija
+## 5. Sažetak ključnih lekcija
 
-- **Lekcija 1**: Agenti su sustavi, ne samo modeli. Oni percipiraju, razmišljaju i djeluju.
-- **Lekcija 2**: Okviri poput Semantic Kernel i AutoGen apstrahiraju složenost pozivanja alata i upravljanja stanjem.
-- **Lekcija 3**: Dizajnirajte s transparentnošću i kontrolom korisnika na umu.
-- **Lekcija 4**: Alati su "ruke" agenta. Definicija sheme je ključna da LLM razumije kako ih koristiti.
-- **Lekcija 7**: Planiranje je "izvršna funkcija" agenta koja mu omogućuje rješavanje složenih radnih tokova.
+- **Lekcija 1**: Agenti su sustavi, a ne samo modeli. Oni percipiraju, rasuđuju i djeluju.
+- **Lekcija 2**: Microsoft Agent Framework apstrahira složenost pozivanja alata i upravljanja stanjem.
+- **Lekcija 3**: Dizajnirajte imajući na umu transparentnost i kontrolu korisnika.
+- **Lekcija 4**: Alati su "ruke" agenta. Definicija sheme je ključna za to da LLM razumije kako ih koristiti.
+- **Lekcija 7**: Planiranje je "izvršna funkcija" agenta, omogućavajući mu da se nosi sa složenim tokovima rada.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Odricanje od odgovornosti**:
-Ovaj dokument preveden je korištenjem AI usluge za prijevod [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba se smatrati službenim i autoritativnim izvorom. Za važne informacije preporučujemo profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakva nesporazuma ili pogrešna tumačenja koja proizlaze iz upotrebe ovog prijevoda.
+**Odricanje odgovornosti**:
+Ovaj dokument je preveden pomoću AI usluge prevođenja [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo biti točni, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na njegovom izvornom jeziku treba smatrati mjerodavnim izvorom. Za ključne informacije preporučuje se profesionalan ljudski prijevod. Ne snosimo odgovornost za bilo kakve nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
