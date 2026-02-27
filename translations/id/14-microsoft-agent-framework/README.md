@@ -8,15 +8,15 @@ Pelajaran ini akan membahas:
 
 - Memahami Microsoft Agent Framework: Fitur Utama dan Nilai  
 - Menjelajahi Konsep Kunci Microsoft Agent Framework
-- Membandingkan MAF dengan Semantic Kernel dan AutoGen: Panduan Migrasi
+- Pola Lanjutan MAF: Alur Kerja, Middleware, dan Memori
 
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan pelajaran ini, Anda akan mengetahui cara:
 
 - Membangun AI Agent Siap Produksi menggunakan Microsoft Agent Framework
-- Menerapkan fitur inti Microsoft Agent Framework pada Kasus Penggunaan Agen Anda
-- Memigrasi dan mengintegrasikan framework dan alat Agentic yang sudah ada  
+- Menerapkan fitur inti Microsoft Agent Framework ke Kasus Penggunaan Agentik Anda
+- Menggunakan pola lanjutan termasuk alur kerja, middleware, dan observabilitas
 
 ## Contoh Kode
 
@@ -26,27 +26,27 @@ Contoh kode untuk [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beg
 
 ![Framework Intro](../../../translated_images/id/framework-intro.077af16617cf130c.webp)
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) dibangun di atas pengalaman dan pembelajaran dari Semantic Kernel dan AutoGen. Ini menawarkan fleksibilitas untuk menangani berbagai macam kasus penggunaan agentic yang terlihat baik dalam lingkungan produksi maupun penelitian, termasuk:
+[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) adalah kerangka kerja terintegrasi Microsoft untuk membangun AI agent. Ini menawarkan fleksibilitas untuk menangani berbagai macam kasus penggunaan agentik yang terlihat baik dalam produksi maupun lingkungan penelitian termasuk:
 
-- **Orkestrasi Agen Berurutan** dalam skenario di mana alur kerja langkah demi langkah dibutuhkan.
+- **Orkestrasi Agen Berurutan** dalam skenario di mana alur kerja langkah-demi-langkah dibutuhkan.
 - **Orkestrasi Konkuren** dalam skenario di mana agen perlu menyelesaikan tugas secara bersamaan.
-- **Orkestrasi Obrolan Grup** dalam skenario di mana agen dapat berkolaborasi bersama pada satu tugas.
-- **Orkestrasi Penyerahan Tugas** dalam skenario di mana agen menyerahkan tugas satu sama lain saat subtugas selesai.
-- **Orkestrasi Magnetik** dalam skenario di mana agen manajer membuat dan memodifikasi daftar tugas serta mengatur koordinasi subagen untuk menyelesaikan tugas.
+- **Orkestrasi Grup Chat** dalam skenario di mana agen dapat berkolaborasi bersama dalam satu tugas.
+- **Orkestrasi Serah Terima** dalam skenario di mana agen menyerahkan tugas ke satu sama lain saat subtugas selesai.
+- **Orkestrasi Magnetik** dalam skenario di mana agen pengelola membuat dan memodifikasi daftar tugas dan mengatur koordinasi sub-agen untuk menyelesaikan tugas.
 
-Untuk menghadirkan AI Agent dalam Produksi, MAF juga menyertakan fitur untuk:
+Untuk menyediakan AI Agent dalam Produksi, MAF juga menyertakan fitur untuk:
 
-- **Observabilitas** melalui penggunaan OpenTelemetry di mana setiap aksi AI Agent termasuk pemanggilan alat, langkah orkestrasi, alur pemikiran, dan pemantauan kinerja melalui dashboard Microsoft Foundry.
-- **Keamanan** dengan meng-host agen secara native di Microsoft Foundry yang mencakup kontrol keamanan seperti akses berbasis peran, penanganan data pribadi, dan keamanan konten bawaan.
-- **Daya Tahan** karena thread dan alur kerja agen dapat dijeda, dilanjutkan, dan pulih dari kesalahan yang memungkinkan proses berjalan lebih lama.
-- **Kontrol** karena alur kerja manusia dalam loop didukung di mana tugas ditandai sebagai memerlukan persetujuan manusia.
+- **Observabilitas** melalui penggunaan OpenTelemetry di mana setiap tindakan AI Agent termasuk pemanggilan alat, langkah orkestrasi, alur penalaran dan pemantauan kinerja melalui dashboard Microsoft Foundry.
+- **Keamanan** dengan menjalankan agen secara native pada Microsoft Foundry yang mencakup kontrol keamanan seperti akses berbasis peran, penanganan data pribadi dan keamanan konten bawaan.
+- **Daya Tahan** karena thread dan alur kerja Agen dapat berhenti sementara, dilanjutkan, dan pulih dari kesalahan yang memungkinkan proses berjalan lebih lama.
+- **Kontrol** karena alur kerja human-in-the-loop didukung di mana tugas ditandai memerlukan persetujuan manusia.
 
-Microsoft Agent Framework juga fokus pada interoperabilitas dengan:
+Microsoft Agent Framework juga berfokus pada interoperabilitas dengan:
 
-- **Bersifat Cloud-agnostic** - Agen dapat dijalankan di container, on-premise, dan di berbagai cloud berbeda.
-- **Bersifat Provider-agnostic** - Agen dapat dibuat melalui SDK pilihan Anda termasuk Azure OpenAI dan OpenAI.
-- **Mengintegrasikan Standar Terbuka** - Agen dapat memanfaatkan protokol seperti Agent-to-Agent (A2A) dan Model Context Protocol (MCP) untuk menemukan dan menggunakan agen serta alat lain.
-- **Plugin dan Connector** - Koneksi dapat dilakukan ke layanan data dan memori seperti Microsoft Fabric, SharePoint, Pinecone, dan Qdrant.
+- **Bersifat Cloud-agnostik** - Agen dapat berjalan di kontainer, on-premise dan di berbagai cloud berbeda.
+- **Bersifat Provider-agnostik** - Agen dapat dibuat melalui SDK pilihan Anda termasuk Azure OpenAI dan OpenAI
+- **Mengintegrasikan Standar Terbuka** - Agen dapat menggunakan protokol seperti Agent-to-Agent (A2A) dan Model Context Protocol (MCP) untuk menemukan dan menggunakan agen serta alat lain.
+- **Plugin dan Konektor** - Koneksi dapat dibuat ke layanan data dan memori seperti Microsoft Fabric, SharePoint, Pinecone dan Qdrant.
 
 Mari kita lihat bagaimana fitur-fitur ini diterapkan pada beberapa konsep inti Microsoft Agent Framework.
 
@@ -59,19 +59,19 @@ Mari kita lihat bagaimana fitur-fitur ini diterapkan pada beberapa konsep inti M
 **Membuat Agen**
 
 Pembuatan agen dilakukan dengan mendefinisikan layanan inferensi (Penyedia LLM),  
-serangkaian instruksi yang harus diikuti AI Agent, dan `nama` yang ditetapkan:
+serangkaian instruksi untuk AI Agent diikuti, dan `name` yang ditetapkan:
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
 
-Yang di atas menggunakan `Azure OpenAI` tetapi agen dapat dibuat menggunakan berbagai layanan termasuk `Microsoft Foundry Agent Service`:
+Di atas menggunakan `Azure OpenAI` tetapi agen dapat dibuat menggunakan berbagai layanan termasuk `Microsoft Foundry Agent Service`:
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
 ```
 
-API `Responses`, `ChatCompletion` OpenAI
+OpenAI `Responses`, API `ChatCompletion`
 
 ```python
 agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="You are a helpful weather assistant.", )
@@ -103,7 +103,7 @@ async for update in agent.run_stream("What are the good places to visit in Amste
 
 ```
 
-Setiap jalannya agen juga dapat memiliki opsi untuk menyesuaikan parameter seperti `max_tokens` yang digunakan agen, `tools` yang dapat dipanggil oleh agen, dan bahkan `model` yang digunakan untuk agen.
+Setiap jalankan agen juga dapat memiliki opsi untuk menyesuaikan parameter seperti `max_tokens` yang digunakan oleh agen, `tools` yang dapat dipanggil agen, dan bahkan `model` itu sendiri yang digunakan untuk agen.
 
 Ini berguna dalam kasus di mana model atau alat tertentu diperlukan untuk menyelesaikan tugas pengguna.
 
@@ -125,53 +125,53 @@ dan juga saat menjalankan agen:
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Alat disediakan hanya untuk pemakaian kali ini )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Alat yang disediakan hanya untuk run ini )
 ```
 
 **Thread Agen**
 
-Thread Agen digunakan untuk menangani percakapan multi-turn. Thread dapat dibuat dengan:
+Thread Agen digunakan untuk menangani percakapan multi-tahap. Thread dapat dibuat dengan:
 
-- Menggunakan `get_new_thread()` yang memungkinkan thread disimpan seiring waktu  
-- Membuat thread secara otomatis saat menjalankan agen dan thread tersebut hanya bertahan selama jalannya saat ini.
+- Menggunakan `get_new_thread()` yang memungkinkan thread disimpan untuk penggunaan jangka panjang
+- Membuat thread secara otomatis ketika menjalankan agen dan thread hanya bertahan selama jalankan saat ini.
 
-Untuk membuat thread, kodenya seperti ini:
+Untuk membuat thread, kode terlihat seperti ini:
 
 ```python
-# Buat thread baru.
+# Buat sebuah thread baru.
 thread = agent.get_new_thread() # Jalankan agen dengan thread tersebut.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
 
-Anda kemudian dapat menyerialisasi thread untuk disimpan guna penggunaan nanti:
+Anda kemudian dapat men-serialize thread untuk disimpan dan digunakan nanti:
 
 ```python
 # Buat thread baru.
 thread = agent.get_new_thread() 
 
-# Jalankan agen dengan thread.
+# Jalankan agen dengan thread tersebut.
 
 response = await agent.run("Hello, how are you?", thread=thread) 
 
-# Serialisasi thread untuk penyimpanan.
+# Serialisasikan thread untuk penyimpanan.
 
 serialized_thread = await thread.serialize() 
 
-# Deserialisasi status thread setelah memuat dari penyimpanan.
+# Deserialisasikan status thread setelah dimuat dari penyimpanan.
 
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
 
 **Middleware Agen**
 
-Agen berinteraksi dengan alat dan LLM untuk menyelesaikan tugas pengguna. Dalam skenario tertentu, kita ingin mengeksekusi atau melacak interaksi tersebut. Middleware agen memungkinkan kita melakukan ini melalui:
+Agen berinteraksi dengan alat dan LLM untuk menyelesaikan tugas pengguna. Dalam beberapa skenario, kita ingin menjalankan atau melacak di antara interaksi tersebut. Middleware agen memungkinkan kita melakukan ini melalui:
 
-*Middleware Fungsi*
+*Function Middleware*
 
-Middleware ini memungkinkan kita mengeksekusi aksi antara agen dan fungsi/alat yang akan dipanggilnya. Contohnya adalah ketika Anda ingin melakukan pencatatan pada pemanggilan fungsi.
+Middleware ini memungkinkan kita mengeksekusi tindakan di antara agen dan fungsi/alat yang akan dipanggil. Contoh penggunaannya adalah saat Anda ingin melakukan pencatatan pada pemanggilan fungsi.
 
-Dalam kode di bawah, `next` menentukan apakah middleware berikutnya atau fungsi sebenarnya harus dipanggil.
+Dalam kode di bawah `next` menentukan apakah middleware berikutnya atau fungsi sebenarnya harus dipanggil.
 
 ```python
 async def logging_function_middleware(
@@ -179,19 +179,19 @@ async def logging_function_middleware(
     next: Callable[[FunctionInvocationContext], Awaitable[None]],
 ) -> None:
     """Function middleware that logs function execution."""
-    # Pra-pemrosesan: Log sebelum eksekusi fungsi
+    # Pra-pemrosesan: Catat sebelum eksekusi fungsi
     print(f"[Function] Calling {context.function.name}")
 
     # Lanjutkan ke middleware berikutnya atau eksekusi fungsi
     await next(context)
 
-    # Pasca-pemrosesan: Log setelah eksekusi fungsi
+    # Pasca-pemrosesan: Catat setelah eksekusi fungsi
     print(f"[Function] {context.function.name} completed")
 ```
 
-*Middleware Obrolan*
+*Chat Middleware*
 
-Middleware ini memungkinkan kita mengeksekusi atau mencatat aksi antara agen dan permintaan ke LLM.
+Middleware ini memungkinkan kita mengeksekusi atau mencatat tindakan antara agen dan permintaan antara LLM.
 
 Ini berisi informasi penting seperti `messages` yang dikirim ke layanan AI.
 
@@ -214,7 +214,7 @@ async def logging_chat_middleware(
 
 **Memori Agen**
 
-Seperti yang dibahas dalam pelajaran `Agentic Memory`, memori adalah elemen penting untuk memungkinkan agen beroperasi dalam berbagai konteks. MAF menawarkan beberapa jenis memori:
+Seperti yang dibahas di pelajaran `Agentic Memory`, memori adalah elemen penting untuk memungkinkan agen beroperasi dalam konteks berbeda. MAF menawarkan beberapa jenis memori berbeda:
 
 *Penyimpanan Dalam Memori*
 
@@ -228,7 +228,7 @@ response = await agent.run("Hello, I am here to help you book travel. Where woul
 
 *Pesan Persisten*
 
-Memori ini digunakan saat menyimpan riwayat percakapan antar sesi berbeda. Didefinisikan menggunakan `chat_message_store_factory`:
+Memori ini digunakan saat menyimpan riwayat percakapan antar sesi yang berbeda. Didefinisikan menggunakan `chat_message_store_factory` :
 
 ```python
 from agent_framework import ChatMessageStore
@@ -247,7 +247,7 @@ agent = ChatAgent(
 
 *Memori Dinamis*
 
-Memori ini ditambahkan ke konteks sebelum agen dijalankan. Memori ini dapat disimpan di layanan eksternal seperti mem0:
+Memori ini ditambahkan ke konteks sebelum agen dijalankan. Memori ini dapat disimpan dalam layanan eksternal seperti mem0:
 
 ```python
 from agent_framework.mem0 import Mem0Provider
@@ -269,7 +269,7 @@ agent = ChatAgent(
 
 **Observabilitas Agen**
 
-Observabilitas penting untuk membangun sistem agentic yang andal dan dapat dipelihara. MAF terintegrasi dengan OpenTelemetry untuk menyediakan pelacakan dan pengukuran demi observabilitas yang lebih baik.
+Observabilitas penting untuk membangun sistem agentik yang dapat diandalkan dan mudah dipelihara. MAF terintegrasi dengan OpenTelemetry untuk menyediakan tracing dan meter untuk observabilitas yang lebih baik.
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -285,21 +285,21 @@ counter.add(1, {"key": "value"})
 
 ### Alur Kerja
 
-MAF menawarkan alur kerja yang merupakan langkah-langkah yang telah ditetapkan untuk menyelesaikan tugas dan mencakup AI agent sebagai komponen dalam langkah-langkah tersebut.
+MAF menyediakan alur kerja yang merupakan langkah-langkah yang telah ditentukan untuk menyelesaikan tugas dan melibatkan AI agent sebagai komponen dalam langkah-langkah tersebut.
 
-Alur kerja terdiri dari berbagai komponen yang memungkinkan aliran kontrol yang lebih baik. Alur kerja juga mendukung **orkestrasi multi-agen** dan **checkpointing** untuk menyimpan status alur kerja.
+Alur kerja terdiri dari beberapa komponen yang memungkinkan kontrol alur yang lebih baik. Alur kerja juga memungkinkan **orkestrasi multi-agen** dan **checkpointing** untuk menyimpan status alur kerja.
 
-Komponen inti dari sebuah alur kerja adalah:
+Komponen inti dari alur kerja adalah:
 
-**Eksekutor**
+**Executor**
 
-Eksekutor menerima pesan input, melakukan tugas yang ditugaskan, dan kemudian menghasilkan pesan output. Ini melanjutkan alur kerja menuju penyelesaian tugas yang lebih besar. Eksekutor dapat berupa agen AI atau logika kustom.
+Executor menerima pesan input, melaksanakan tugas yang ditugaskan, dan kemudian menghasilkan pesan keluaran. Ini memajukan alur kerja menuju penyelesaian tugas yang lebih besar. Executor bisa berupa agen AI atau logika khusus.
 
 **Edges**
 
-Edges digunakan untuk mendefinisikan aliran pesan dalam alur kerja. Ini bisa berupa:
+Edges digunakan untuk mendefinisikan alur pesan dalam alur kerja. Ini bisa berupa:
 
-*Edges Langsung* - Koneksi satu-ke-satu sederhana antar eksekutor:
+*Direct Edges* - Koneksi satu-ke-satu sederhana antara executor:
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -310,78 +310,45 @@ builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
 
-*Edges Kondisional* - Diaktifkan setelah kondisi tertentu terpenuhi. Misalnya, ketika kamar hotel tidak tersedia, eksekutor dapat menyarankan opsi lain.
+*Conditional Edges* - Diaktifkan setelah kondisi tertentu terpenuhi. Contohnya, ketika kamar hotel tidak tersedia, executor dapat menyarankan opsi lain.
 
-*Edges Switch-case* - Mengarahkan pesan ke eksekutor berbeda berdasarkan kondisi yang didefinisikan. Contohnya, jika pelanggan travel memiliki akses prioritas maka tugas mereka akan ditangani melalui alur kerja lain.
+*Switch-case Edges* - Mengarahkan pesan ke executor berbeda berdasarkan kondisi yang ditentukan. Misalnya, jika pelanggan perjalanan memiliki akses prioritas dan tugas mereka akan ditangani melalui alur kerja berbeda.
 
-*Edges Fan-out* - Mengirim satu pesan ke beberapa target.
+*Fan-out Edges* - Mengirim satu pesan ke beberapa target.
 
-*Edges Fan-in* - Mengumpulkan beberapa pesan dari berbagai eksekutor dan mengirim ke satu target.
+*Fan-in Edges* - Mengumpulkan beberapa pesan dari executor berbeda dan mengirim ke satu target.
 
-**Event**
+**Events**
 
-Untuk menyediakan observabilitas yang lebih baik ke dalam alur kerja, MAF menawarkan event bawaan untuk pelaksanaan termasuk:
+Untuk memberikan observabilitas yang lebih baik ke dalam alur kerja, MAF menawarkan event bawaan untuk eksekusi termasuk:
 
-- `WorkflowStartedEvent` - Eksekusi alur kerja dimulai  
-- `WorkflowOutputEvent` - Alur kerja menghasilkan output  
-- `WorkflowErrorEvent` - Alur kerja mengalami kesalahan  
-- `ExecutorInvokeEvent` - Eksekutor mulai memproses  
-- `ExecutorCompleteEvent` - Eksekutor selesai memproses  
-- `RequestInfoEvent` - Sebuah permintaan dikeluarkan
+- `WorkflowStartedEvent`  - Eksekusi alur kerja dimulai
+- `WorkflowOutputEvent` - Alur kerja menghasilkan output
+- `WorkflowErrorEvent` - Alur kerja mengalami kesalahan
+- `ExecutorInvokeEvent`  - Executor mulai memproses
+- `ExecutorCompleteEvent`  -  Executor selesai memproses
+- `RequestInfoEvent` - Sebuah permintaan dibuat
 
-## Migrasi Dari Framework Lain (Semantic Kernel dan AutoGen)
+## Pola Lanjutan MAF
 
-### Perbedaan antara MAF dan Semantic Kernel
+Bagian di atas membahas konsep kunci Microsoft Agent Framework. Saat Anda membangun agen yang lebih kompleks, berikut adalah beberapa pola lanjutan yang perlu dipertimbangkan:
 
-**Pembuatan Agen yang Disederhanakan**
-
-Semantic Kernel bergantung pada pembuatan instance Kernel untuk setiap agen. MAF menggunakan pendekatan yang disederhanakan dengan menggunakan ekstensi untuk penyedia utama.
-
-```python
-agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at reccomending trips to customers based on their preferences.", name="TripRecommender" )
-```
-
-**Pembuatan Thread Agen**
-
-Semantic Kernel mengharuskan thread dibuat secara manual. Dalam MAF, thread langsung ditugaskan ke agen.
-
-```python
-thread = agent.get_new_thread() # Jalankan agen dengan thread.
-```
-
-**Registrasi Alat**
-
-Dalam Semantic Kernel, alat didaftarkan ke Kernel kemudian Kernel diteruskan ke agen. Dalam MAF, alat didaftarkan langsung saat proses pembuatan agen.
-
-```python
-agent = ChatAgent( chat_client=OpenAIChatClient(), instructions="You are a helpful assistant", tools=[get_attractions]
-```
-
-### Perbedaan antara MAF dan AutoGen
-
-**Tim vs Alur Kerja**
-
-`Teams` adalah struktur event untuk aktivitas berbasis event dengan agen di AutoGen. MAF menggunakan `Workflows` yang mengarahkan data ke eksekutor melalui arsitektur berbasis grafik.
-
-**Pembuatan Alat**
-
-AutoGen menggunakan `FunctionTool` untuk membungkus fungsi agar dapat dipanggil agen. MAF menggunakan @ai_function yang beroperasi serupa namun juga menginfer skema secara otomatis untuk setiap fungsi.
-
-**Perilaku Agen**
-
-Agen adalah agen single-turn secara default di AutoGen kecuali `max_tool_iterations` disetel lebih tinggi. Dalam MAF, `ChatAgent` adalah multi-turn secara default yang berarti ia akan terus memanggil alat sampai tugas pengguna selesai.
+- **Kombinasi Middleware**: Rangkai beberapa handler middleware (pencatatan, otentikasi, pembatasan laju) menggunakan middleware fungsi dan chat untuk kendali halus perilaku agen.
+- **Checkpointing Alur Kerja**: Gunakan event alur kerja dan serialisasi untuk menyimpan dan melanjutkan proses agen yang berjalan lama.
+- **Pemilihan Alat Dinamis**: Gabungkan RAG pada deskripsi alat dengan pendaftaran alat MAF untuk menghadirkan hanya alat yang relevan per kueri.
+- **Serah Terima Multi-Agen**: Gunakan edges alur kerja dan pengalihan bersyarat untuk mengatur serah terima antara agen spesialis.
 
 ## Contoh Kode
 
 Contoh kode untuk Microsoft Agent Framework dapat ditemukan di repositori ini di bawah file `xx-python-agent-framework` dan `xx-dotnet-agent-framework`.
 
-## Punya Pertanyaan Lebih Lanjut Tentang Microsoft Agent Framework?
+## Punya Pertanyaan Lebih Lanjut tentang Microsoft Agent Framework?
 
-Bergabunglah dengan [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk bertemu dengan pelajar lain, menghadiri jam kantor, dan mendapatkan jawaban atas pertanyaan AI Agents Anda.
+Bergabunglah di [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk bertemu dengan pelajar lain, menghadiri jam kantor, dan mendapatkan jawaban atas pertanyaan AI Agents Anda.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk memberikan terjemahan yang akurat, harap diingat bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sah dan resmi. Untuk informasi penting, disarankan menggunakan jasa terjemahan profesional oleh penerjemah manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau salah tafsir yang timbul dari penggunaan terjemahan ini.
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diingat bahwa terjemahan otomatis dapat mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang paling sahih. Untuk informasi yang penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang salah yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

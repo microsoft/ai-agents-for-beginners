@@ -1,125 +1,125 @@
-[![Intro to AI Agents](../../../translated_images/ms/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Pengenalan kepada Ejen AI](../../../translated_images/ms/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 
 
 # Pengenalan kepada Ejen AI dan Kes Penggunaan Ejen
 
-Selamat datang ke kursus "Ejen AI untuk Pemula"! Kursus ini menyediakan pengetahuan asas dan contoh aplikasi untuk membina Ejen AI.
+Selamat datang ke kursus "Ejen AI untuk Pemula"! Kursus ini menyediakan pengetahuan asas dan sampel terapan untuk membina Ejen AI.
 
-Sertai <a href="https://discord.gg/kzRShWzttr" target="_blank">Komuniti Discord Azure AI</a> untuk bertemu pelajar lain dan Pembina Ejen AI serta ajukan apa-apa soalan yang anda ada mengenai kursus ini.
+Sertai <a href="https://discord.gg/kzRShWzttr" target="_blank">Komuniti Discord Azure AI</a> untuk berjumpa dengan pelajar lain dan Pembina Ejen AI serta bertanya apa-apa soalan berkaitan kursus ini.
 
-Untuk memulakan kursus ini, kita mulakan dengan mendapatkan pemahaman yang lebih baik tentang apa itu Ejen AI dan bagaimana kita boleh menggunakannya dalam aplikasi dan aliran kerja yang kita bina.
+Untuk memulakan kursus ini, kita akan mula dengan memahami dengan lebih baik apa itu Ejen AI dan bagaimana kita boleh menggunakannya dalam aplikasi dan aliran kerja yang kita bina.
 
 ## Pengenalan
 
-Pelajaran ini merangkumi:
+Pelajaran ini meliputi:
 
-- Apakah Ejen AI dan apakah jenis ejen yang berbeza?
-- Apakah kes penggunaan terbaik untuk Ejen AI dan bagaimana mereka boleh membantu kita?
-- Apakah blok binaan asas apabila mereka bentuk Penyelesaian Berasaskan Ejen?
+- Apa itu Ejen AI dan apakah jenis ejen yang berbeza?
+- Kes penggunaan apa yang paling sesuai untuk Ejen AI dan bagaimana ia boleh membantu kita?
+- Apakah beberapa blok binaan asas ketika mereka bentuk Penyelesaian Agentik?
 
 ## Matlamat Pembelajaran
 Selepas menamatkan pelajaran ini, anda sepatutnya dapat:
 
 - Memahami konsep Ejen AI dan bagaimana ia berbeza daripada penyelesaian AI lain.
-- Mengaplikasikan Ejen AI dengan cara yang paling berkesan.
-- Mereka bentuk penyelesaian Berasaskan Ejen dengan produktif untuk pengguna dan pelanggan.
+- Mengaplikasikan Ejen AI dengan cara yang paling cekap.
+- Mereka bentuk penyelesaian Agentik dengan produktif untuk kedua-dua pengguna dan pelanggan.
 
 ## Mendefinisikan Ejen AI dan Jenis Ejen AI
 
-### Apakah Ejen AI?
+### Apa itu Ejen AI?
 
-Ejen AI adalah **sistem** yang membolehkan **Model Bahasa Besar (LLM)** untuk **melaksanakan tindakan** dengan meluaskan kebolehan mereka dengan memberikan LLM **akses kepada alat** dan **pengetahuan**.
+Ejen AI adalah **sistem** yang membolehkan **Model Bahasa Besar (LLMs)** untuk **melaksanakan tindakan** dengan memperluaskan keupayaan mereka dengan memberikan LLMs **akses kepada alat** dan **pengetahuan**.
 
 Mari kita pecahkan definisi ini kepada bahagian yang lebih kecil:
 
-- **Sistem** - Penting untuk memikirkan ejen bukan hanya sebagai satu komponen tunggal tetapi sebagai sistem yang terdiri daripada banyak komponen. Pada tahap asas, komponen Ejen AI adalah:
-  - **Persekitaran** - Ruang yang ditentukan di mana Ejen AI beroperasi. Sebagai contoh, jika kita mempunyai ejen tempahan perjalanan, persekitarannya boleh menjadi sistem tempahan pelancongan yang digunakan oleh Ejen AI untuk melengkapkan tugasan.
-  - **Sensor** - Persekitaran mempunyai maklumat dan memberikan maklum balas. Ejen AI menggunakan sensor untuk mengumpul dan mentafsir maklumat ini tentang keadaan semasa persekitaran. Dalam contoh Ejen Tempahan Perjalanan, sistem tempahan perjalanan boleh memberikan maklumat seperti ketersediaan hotel atau harga penerbangan.
-  - **Penggerak** - Setelah Ejen AI menerima keadaan semasa persekitaran, untuk tugasan semasa ejen menentukan tindakan apa yang perlu dilakukan untuk mengubah persekitaran. Untuk ejen tempahan perjalanan, ia mungkin untuk menempah bilik yang tersedia untuk pengguna.
+- **Sistem** - Penting untuk berfikir tentang ejen bukan hanya sebagai satu komponen tunggal tetapi sebagai satu sistem yang terdiri daripada banyak komponen. Pada tahap asas, komponen dalam Ejen AI adalah:
+  - **Persekitaran** - Ruang yang ditakrifkan di mana Ejen AI beroperasi. Contohnya, jika kita mempunyai ejen tempahan perjalanan, persekitaran boleh jadi sistem tempahan perjalanan yang digunakan oleh Ejen AI untuk melengkapkan tugasan.
+  - **Sensor** - Persekitaran mempunyai maklumat dan memberikan maklum balas. Ejen AI menggunakan sensor untuk mengumpul dan mentafsir maklumat tersebut tentang keadaan semasa persekitaran. Dalam contoh Ejen Tempahan Perjalanan, sistem tempahan perjalanan boleh menyediakan maklumat seperti ketersediaan hotel atau harga penerbangan.
+  - **Penggerak** - Setelah Ejen AI menerima keadaan semasa persekitaran, bagi tugasan semasa ejen menentukan tindakan apa yang perlu dilakukan untuk mengubah persekitaran. Bagi ejen tempahan perjalanan, ia mungkin menempah bilik yang tersedia untuk pengguna.
 
-![What Are AI Agents?](../../../translated_images/ms/what-are-ai-agents.1ec8c4d548af601a.webp)
+![Apa Itu Ejen AI?](../../../translated_images/ms/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-**Model Bahasa Besar** - Konsep ejen telah wujud sebelum penciptaan LLM. Kelebihan membina Ejen AI dengan LLM adalah keupayaan mereka untuk mentafsir bahasa manusia dan data. Keupayaan ini membolehkan LLM mentafsir maklumat persekitaran dan menentukan rancangan untuk mengubah persekitaran.
+**Model Bahasa Besar** - Konsep ejen telah wujud sebelum kewujudan LLM. Kelebihan membina Ejen AI dengan LLM adalah keupayaan mereka untuk mentafsir bahasa manusia dan data. Keupayaan ini membolehkan LLM mentafsir maklumat persekitaran dan merangka pelan untuk mengubah persekitaran.
 
 **Melaksanakan Tindakan** - Di luar sistem Ejen AI, LLM terhad kepada situasi di mana tindakan adalah menjana kandungan atau maklumat berdasarkan arahan pengguna. Dalam sistem Ejen AI, LLM boleh menyelesaikan tugasan dengan mentafsir permintaan pengguna dan menggunakan alat yang tersedia dalam persekitaran mereka.
 
-**Akses Kepada Alat** - Alat apa yang LLM boleh akses ditentukan oleh 1) persekitaran di mana ia beroperasi dan 2) pembangun Ejen AI. Untuk contoh ejen perjalanan kita, alat ejen terhad oleh operasi yang tersedia dalam sistem tempahan, dan/atau pembangun boleh mengehadkan akses alat ejen kepada penerbangan sahaja.
+**Akses kepada Alat** - Alat yang boleh diakses oleh LLM ditentukan oleh 1) persekitaran tempat ia beroperasi dan 2) pembangun Ejen AI. Untuk contoh ejen perjalanan kita, alat ejen terhad kepada operasi yang tersedia dalam sistem tempahan, dan/atau pembangun boleh mengehadkan akses alat ejen kepada penerbangan.
 
-**Memori+Pengetahuan** - Memori boleh bersifat jangka pendek dalam konteks perbualan antara pengguna dan ejen. Jangka panjang, di luar maklumat yang disediakan oleh persekitaran, Ejen AI juga boleh mendapatkan pengetahuan dari sistem lain, perkhidmatan, alat, dan juga ejen lain. Dalam contoh ejen perjalanan, pengetahuan ini boleh jadi maklumat mengenai keutamaan perjalanan pengguna yang terletak di dalam pangkalan data pelanggan.
+**Memori+Pengetahuan** - Memori boleh bersifat jangka pendek dalam konteks perbualan antara pengguna dan ejen. Secara jangka panjang, di luar maklumat yang disediakan oleh persekitaran, Ejen AI juga boleh mendapatkan pengetahuan daripada sistem lain, perkhidmatan, alat, dan juga ejen lain. Dalam contoh ejen perjalanan, pengetahuan ini boleh merangkumi maklumat tentang keutamaan perjalanan pengguna yang terdapat dalam pangkalan data pelanggan.
 
-### Jenis-jenis ejen
+### Jenis-jenis Ejen
 
-Kini kita sudah ada definisi umum mengenai Ejen AI, mari kita lihat beberapa jenis ejen tertentu dan bagaimana mereka akan digunakan dalam ejen tempahan perjalanan.
+Sekarang kita mempunyai definisi umum tentang Ejen AI, mari lihat beberapa jenis ejen khusus dan bagaimana ia akan digunakan untuk ejen tempahan perjalanan.
 
-| **Jenis Ejen**               | **Penerangan**                                                                                                                       | **Contoh**                                                                                                                                                                                                                   |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Ejen Refleks Mudah**       | Melakukan tindakan segera berdasarkan peraturan yang telah ditetapkan.                                                             | Ejen perjalanan mentafsir konteks e-mel dan mengarahkan aduan perjalanan kepada khidmat pelanggan.                                                                                                                           |
-| **Ejen Refleks Berasaskan Model** | Melakukan tindakan berdasarkan model tentang dunia dan perubahan pada model tersebut.                                               | Ejen perjalanan memberi keutamaan laluan dengan perubahan harga yang ketara berdasarkan akses kepada data harga sejarah.                                                                                                     |
-| **Ejen Berasaskan Matlamat** | Membuat rancangan untuk mencapai matlamat tertentu dengan mentafsir matlamat dan menentukan tindakan untuk mencapainya.               | Ejen perjalanan menempah perjalanan dengan menentukan keperluan perjalanan (kereta, pengangkutan awam, penerbangan) dari lokasi semasa ke destinasi.                                                                        |
-| **Ejen Berasaskan Utiliti**  | Mengambil kira keutamaan dan mengimbangi trade-off secara berangka untuk menentukan cara mencapai matlamat.                       | Ejen perjalanan memaksimumkan utiliti dengan menimbang kemudahan berbanding kos semasa menempah perjalanan.                                                                                                                  |
-| **Ejen Pembelajaran**        | Membaiki prestasi dari masa ke masa dengan memberi maklum balas dan melaras tindakan sewajarnya.                                      | Ejen perjalanan memperbaiki dengan menggunakan maklum balas pelanggan dari tinjauan selepas perjalanan untuk membuat pelarasan pada tempahan akan datang.                                                                     |
-| **Ejen Hierarki**            | Mempunyai pelbagai ejen dalam sistem berperingkat, dengan ejen peringkat tinggi membahagikan tugasan kepada sub-tugasan untuk ejen peringkat rendah selesaikan. | Ejen perjalanan membatalkan perjalanan dengan membahagikan tugasan kepada sub-tugasan (contoh: membatalkan tempahan tertentu) dan membenarkan ejen peringkat rendah menyelesaikannya, melaporkan kembali kepada ejen peringkat tinggi. |
-| **Sistem Berbilang Ejen (MAS)** | Ejen melengkapkan tugasan secara berdikari, sama ada secara kerjasama atau bersaing.                                                   | Kerjasama: Pelbagai ejen menempah perkhidmatan perjalanan khusus seperti hotel, penerbangan, dan hiburan. Persaingan: Pelbagai ejen mengurus dan bersaing atas kalendar tempahan hotel yang sama untuk menempah pelanggan ke hotel. |
+| **Jenis Ejen**                | **Penerangan**                                                                                                                       | **Contoh**                                                                                                                                                                                                                   |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Ejen Refleks Mudah**      | Melaksanakan tindakan segera berdasarkan peraturan yang telah ditetapkan.                                                             | Ejen perjalanan mentafsir konteks e-mel dan menghantar aduan perjalanan kepada perkhidmatan pelanggan.                                                                                                                         |
+| **Ejen Refleks Berasaskan Model** | Melaksanakan tindakan berdasarkan model dunia dan perubahan pada model tersebut.                                                         | Ejen perjalanan mengutamakan laluan dengan perubahan harga yang ketara berdasarkan akses kepada data harga sejarah.                                                                                                          |
+| **Ejen Berasaskan Matlamat**         | Membuat rancangan untuk mencapai matlamat tertentu dengan mentafsir matlamat dan menentukan tindakan untuk mencapainya.               | Ejen perjalanan menempah perjalanan dengan menentukan susunan perjalanan yang perlu (kereta, pengangkutan awam, penerbangan) dari lokasi semasa ke destinasi.                                                                    |
+| **Ejen Berasaskan Utiliti**      | Mengambil kira keutamaan dan menilai pertukaran secara numerik untuk menentukan cara mencapai matlamat.                                | Ejen perjalanan memaksimumkan utiliti dengan menilai keselesaan berbanding kos ketika menempah perjalanan.                                                                                                                     |
+| **Ejen Pembelajaran**           | Membaiki prestasi dari masa ke masa dengan memberi respons kepada maklum balas dan melaraskan tindakan.                               | Ejen perjalanan memperbaiki dengan menggunakan maklum balas pelanggan dari soal selidik pasca-perjalanan untuk membuat penyesuaian pada tempahan akan datang.                                                                  |
+| **Ejen Hierarki**       | Mempunyai pelbagai ejen dalam sistem bertingkat, dengan ejen tahap tinggi membahagikan tugasan kepada tugasan kecil untuk ejen tahap rendah melengkapkan. | Ejen perjalanan membatalkan perjalanan dengan membahagikan tugasan kepada tugasan kecil (contohnya, membatalkan tempahan tertentu) dan membenarkan ejen tahap rendah melengkapkannya, melaporkan kembali kepada ejen tahap tinggi. |
+| **Sistem Multi-Ejen (MAS)** | Ejen melengkapkan tugasan secara berdikari, sama ada secara kerjasama atau persaingan.                                                   | Kerjasama: Pelbagai ejen menempah perkhidmatan perjalanan tertentu seperti hotel, penerbangan, dan hiburan. Persaingan: Pelbagai ejen mengurus dan bersaing ke atas kalendar tempahan hotel untuk menempah pelanggan ke hotel.       |
 
 ## Bila Menggunakan Ejen AI
 
-Dalam seksyen sebelumnya, kita menggunakan kes penggunaan Ejen Perjalanan untuk menjelaskan bagaimana jenis-jenis ejen yang berlainan boleh digunakan dalam senario tempahan perjalanan yang berbeza. Kita akan terus menggunakan aplikasi ini sepanjang kursus.
+Dalam bahagian sebelumnya, kita menggunakan kes penggunaan Ejen Perjalanan untuk menerangkan bagaimana jenis ejen berbeza boleh digunakan dalam senario tempahan perjalanan yang berbeza. Kita akan terus menggunakan aplikasi ini sepanjang kursus.
 
-Mari kita lihat jenis kes penggunaan yang paling sesuai untuk digunakan dengan Ejen AI:
+Mari kita lihat jenis kes penggunaan yang paling sesuai digunakan untuk Ejen AI:
 
-![When to use AI Agents?](../../../translated_images/ms/when-to-use-ai-agents.54becb3bed74a479.webp)
+![Bila untuk menggunakan Ejen AI?](../../../translated_images/ms/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 
-- **Masalah Terbuka** - membenarkan LLM menentukan langkah yang diperlukan untuk melengkapkan tugasan kerana ia tidak boleh sentiasa diprogramkan keras ke dalam aliran kerja.
-- **Proses Berbilang Langkah** - tugasan yang memerlukan tahap kerumitan di mana Ejen AI perlu menggunakan alat atau maklumat dalam banyak giliran dan bukan cuma pengambilan sekali sahaja.  
-- **Pembaikan Dari Masa ke Masa** - tugasan di mana ejen boleh memperbaiki dari masa ke masa dengan menerima maklum balas sama ada dari persekitarannya atau pengguna agar dapat memberikan utiliti yang lebih baik.
+- **Masalah Terbuka** - membenarkan LLM menentukan langkah-langkah yang diperlukan untuk melengkapkan tugasan kerana ia tidak selalu boleh diprogramkan secara keras dalam aliran kerja.
+- **Proses Berbilang Langkah** - tugasan yang memerlukan tahap kerumitan di mana Ejen AI perlu menggunakan alat atau maklumat melalui pelbagai pusingan dan bukan hanya pengambilan satu kali.  
+- **Peningkatan dari Masa ke Masa** - tugasan di mana ejen boleh memperbaiki dari masa ke masa dengan menerima maklum balas daripada persekitarannya atau pengguna untuk menyediakan utiliti yang lebih baik.
 
-Kami membincangkan lebih banyak pertimbangan penggunaan Ejen AI dalam pelajaran Membangunkan Ejen AI yang Boleh Dipercayai.
+Kami membincangkan lebih banyak pertimbangan dalam menggunakan Ejen AI dalam pelajaran Membina Ejen AI yang Boleh Dipercayai.
 
-## Asas Penyelesaian Berasaskan Ejen
+## Asas Penyelesaian Agentik
 
 ### Pembangunan Ejen
 
-Langkah pertama dalam mereka bentuk sistem Ejen AI adalah untuk mentakrif alat, tindakan, dan tingkah laku. Dalam kursus ini, kita memberi tumpuan kepada menggunakan **Perkhidmatan Ejen Azure AI** untuk mentakrif Ejen kita. Ia menawarkan ciri seperti:
+Langkah pertama dalam mereka bentuk sistem Ejen AI adalah untuk menentukan alat, tindakan, dan tingkah laku. Dalam kursus ini, kita fokus menggunakan **Perkhidmatan Ejen Azure AI** untuk menentukan Ejen kita. Ia menawarkan ciri seperti:
 
 - Pemilihan Model Terbuka seperti OpenAI, Mistral, dan Llama
-- Penggunaan Data Berlesen melalui penyedia seperti Tripadvisor
+- Penggunaan Data Berlesen melalui pembekal seperti Tripadvisor
 - Penggunaan alat OpenAPI 3.0 yang distandardkan
 
-### Corak Agentic
+### Corak Agentik
 
-Komunikasi dengan LLM adalah melalui arahan. Memandangkan sifat separa autonomi Ejen AI, ia tidak selalu mungkin atau diperlukan untuk memberi arahan semula secara manual selepas perubahan dalam persekitaran. Kita menggunakan **Corak Agentic** yang membenarkan kita memberi arahan kepada LLM dalam banyak langkah dengan cara yang lebih boleh diskala.
+Komunikasi dengan LLM dilakukan melalui prompt. Memandangkan sifat separa autonomi Ejen AI, ia tidak selalu mungkin atau diperlukan untuk melakukan prompt semula ke atas LLM selepas perubahan dalam persekitaran. Kita menggunakan **Corak Agentik** yang membolehkan kita memberikan prompt kepada LLM dalam beberapa langkah dengan cara yang lebih boleh diskalakan.
 
-Kursus ini dibahagikan kepada beberapa corak Agentic yang popular pada masa kini.
+Kursus ini dibahagikan mengikut beberapa corak Agentik yang popular kini.
 
-### Rangka Kerja Agentic
+### Rangka Kerja Agentik
 
-Rangka kerja Agentic membolehkan pembangun melaksanakan corak agentic melalui kod. Rangka kerja ini menawarkan templat, pemalam, dan alat untuk kolaborasi Ejen AI yang lebih baik. Manfaat ini menyediakan keupayaan untuk pemerhatian yang lebih baik dan penyelesaian masalah sistem Ejen AI.
+Rangka Kerja Agentik membenarkan pembangun melaksanakan corak agentik melalui kod. Rangka kerja ini menawarkan templat, pemalam, dan alat untuk kolaborasi Ejen AI yang lebih baik. Manfaat ini menyediakan keupayaan untuk keterlihatan dan penyelesaian masalah yang lebih baik bagi sistem Ejen AI.
 
-Dalam kursus ini, kita akan meneroka rangka kerja AutoGen yang berasaskan penyelidikan dan rangka kerja ejen yang sedia untuk penghasilan dari Semantic Kernel.
+Dalam kursus ini, kita akan meneroka Rangka Kerja Ejen Microsoft (MAF) untuk membina ejen AI yang bersedia produksi.
 
-## Contoh Kod
+## Kod Sampel
 
-- Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
-- .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
+- Python: [Rangka Kerja Ejen](./code_samples/01-python-agent-framework.ipynb)
+- .NET: [Rangka Kerja Ejen](./code_samples/01-dotnet-agent-framework.md)
 
-## Ada Lebih Banyak Soalan tentang Ejen AI?
+## Ada Soalan Lanjut tentang Ejen AI?
 
-Sertai [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk berjumpa dengan pelajar lain, menghadiri sesi waktu pejabat dan mendapatkan jawapan untuk soalan Ejen AI anda.
+Sertai [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk berjumpa dengan pelajar lain, menghadiri sesi pejabat, dan dapatkan soalan Ejen AI anda dijawab.
 
 ## Pelajaran Sebelumnya
 
-[Course Setup](../00-course-setup/README.md)
+[Persediaan Kursus](../00-course-setup/README.md)
 
 ## Pelajaran Seterusnya
 
-[Menjelajah Rangka Kerja Agentic](../02-explore-agentic-frameworks/README.md)
+[Meneroka Rangka Kerja Agentik](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Penafian**:
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidakakuratan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sah. Untuk maklumat penting, terjemahan profesional oleh manusia adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau interpretasi yang timbul daripada penggunaan terjemahan ini.
+**Penafian**:  
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya hendaklah dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan profesional oleh manusia adalah digalakkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

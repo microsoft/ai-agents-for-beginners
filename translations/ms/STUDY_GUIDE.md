@@ -1,67 +1,66 @@
-# Ejen AI untuk Pemula - Panduan Kajian & Ringkasan Kursus
+# AI Agents for Beginners - Study Guide & Course Summary
 
-Panduan ini menyediakan ringkasan kursus "Ejen AI untuk Pemula" dan menerangkan konsep utama, rangka kerja, dan corak reka bentuk untuk membina Ejen AI.
+This guide provides a summary of the "AI Agents for Beginners" course and explains key concepts, frameworks, and design patterns for building AI Agents.
 
-## 1. Pengenalan kepada Ejen AI
+## 1. Introduction to AI Agents
 
-**Apakah Ejen AI?**  
-Ejen AI adalah sistem yang memanjangkan keupayaan Large Language Models (LLMs) dengan memberikan mereka akses kepada **alat**, **pengetahuan**, dan **ingatan**. Berbeza dengan chatbot LLM standard yang hanya menjana teks berdasarkan data latihan, Ejen AI dapat:  
-- **Menerima deria** persekitarannya (melalui penderia atau input).  
-- **Berfikir** tentang cara menyelesaikan masalah.  
-- **Bertindak** untuk mengubah persekitaran (melalui penggerak atau pelaksanaan alat).
+**What are AI Agents?**
+AI Agents are systems that extend the capabilities of Large Language Models (LLMs) by giving them access to **tools**, **knowledge**, and **memory**. Unlike a standard LLM chatbot that only generates text based on training data, an AI Agent can:
+- **Perceive** its environment (via sensors or inputs).
+- **Reason** about how to solve a problem.
+- **Act** to change the environment (via actuators or tool execution).
 
-**Komponen Utama Ejen:**  
-- **Persekitaran**: Ruang tempat ejen beroperasi (contoh: sistem tempahan).  
-- **Penderia**: Mekanisme untuk mengumpul maklumat (contoh: membaca API).  
-- **Penggerak**: Mekanisme untuk melaksanakan tindakan (contoh: menghantar e-mel).  
-- **Otak (LLM)**: Enjin pemikiran yang merancang dan membuat keputusan tindakan yang akan diambil.
+**Key Components of an Agent:**
+- **Environment**: The space where the agent operates (e.g., a booking system).
+- **Sensors**: Mechanisms to gather information (e.g., reading an API).
+- **Actuators**: Mechanisms to perform actions (e.g., sending an email).
+- **Brain (LLM)**: The reasoning engine that plans and decides which actions to take.
 
-## 2. Rangka Kerja Ejen
+## 2. Agentic Frameworks
 
-Kursus ini merangkumi tiga rangka kerja utama untuk membina ejen:
+The course uses **Microsoft Agent Framework (MAF)** with **Azure AI Foundry Agent Service V2** for building agents:
 
-| Rangka Kerja | Fokus | Sesuai Untuk |
-|--------------|-------|--------------|
-| **Semantic Kernel** | SDK sedia untuk pengeluaran untuk .NET/Python | Aplikasi perusahaan, mengintegrasikan AI dengan kod sedia ada. |
-| **AutoGen** | Kolaborasi multi-ejen | Senario kompleks yang memerlukan banyak ejen khusus berkomunikasi antara satu sama lain. |
-| **Azure AI Agent Service** | Perkhidmatan awan terurus | Pelaksanaan yang selamat dan skala dengan pengurusan keadaan terbina dalam. |
+| Component | Focus | Best For |
+|-----------|-------|----------|
+| **Microsoft Agent Framework** | Unified Python/C# SDK for agents, tools, and workflows | Building agents with tools, multi-agent workflows, and production patterns. |
+| **Azure AI Foundry Agent Service** | Managed cloud runtime | Secure, scalable deployment with built-in state management, observability, and trust. |
 
-## 3. Corak Reka Bentuk Ejen
+## 3. Agentic Design Patterns
 
-Corak reka bentuk membantu menyusun bagaimana ejen beroperasi untuk menyelesaikan masalah secara boleh dipercayai.
+Design patterns help structure how agents operate to solve problems reliably.
 
-### **Corak Penggunaan Alat** (Pelajaran 4)  
-Corak ini membolehkan ejen berinteraksi dengan dunia luar.  
-- **Konsep**: Ejen diberikan "skim" (senarai fungsi tersedia dan parameternya). LLM memutuskan *alat* mana yang akan dipanggil dan dengan *argumen* apa berdasarkan permintaan pengguna.  
-- **Aliran**: Permintaan Pengguna -> LLM -> **Pemilihan Alat** -> **Pelaksanaan Alat** -> LLM (dengan output alat) -> Respons Akhir.  
-- **Kes Penggunaan**: Mendapatkan data masa nyata (cuaca, harga saham), melakukan pengiraan, melaksanakan kod.
+### **Tool Use Pattern** (Lesson 4)
+This pattern enables agents to interact with the outside world.
+- **Concept**: The agent is provided with a "schema" (a list of available functions and their parameters). The LLM decides *which* tool to call and with *what* arguments based on the user's request.
+- **Flow**: User Request -> LLM -> **Tool Selection** -> **Tool Execution** -> LLM (with tool output) -> Final Response.
+- **Use Cases**: Retrieving real-time data (weather, stock prices), performing calculations, executing code.
 
-### **Corak Perancangan** (Pelajaran 7)  
-Corak ini membolehkan ejen menyelesaikan tugas kompleks berbilang langkah.  
-- **Konsep**: Ejen membahagikan matlamat tinggi ke dalam urutan subtugas yang lebih kecil.  
-- **Pendekatan**:  
-  - **Pecahan Tugasan**: Memecahkan "Rancang perjalanan" kepada "Tempah penerbangan", "Tempah hotel", "Sewa kereta".  
-  - **Perancangan Iteratif**: Menilai semula pelan berdasarkan output langkah sebelumnya (contohnya, jika penerbangan penuh, pilih tarikh lain).  
-- **Pelaksanaan**: Selalunya melibatkan ejen "Perancang" yang menjana pelan berstruktur (contoh: JSON) yang kemudiannya dilaksanakan oleh ejen lain.
+### **Planning Pattern** (Lesson 7)
+This pattern enables agents to solve complex, multi-step tasks.
+- **Concept**: The agent breaks down a high-level goal into a sequence of smaller subtasks.
+- **Approaches**:
+  - **Task Decomposition**: Splitting "Plan a trip" into "Book flight", "Book hotel", "Rent car".
+  - **Iterative Planning**: Re-evaluating the plan based on the output of previous steps (e.g., if the flight is full, choose a different date).
+- **Implementation**: Often involves a "Planner" agent that generates a structured plan (e.g., JSON) which is then executed by other agents.
 
-## 4. Prinsip Reka Bentuk
+## 4. Design Principles
 
-Apabila mereka bentuk ejen, pertimbangkan tiga dimensi:  
-- **Ruang**: Ejen harus menghubungkan manusia dan pengetahuan, boleh diakses tetapi tidak mengganggu.  
-- **Masa**: Ejen harus belajar dari *Masa Lalu*, memberikan dorongan relevan pada *Masa Kini*, dan menyesuaikan untuk *Masa Depan*.  
-- **Teras**: Terima ketidakpastian tetapi bina kepercayaan melalui ketelusan dan kawalan pengguna.
+When designing agents, consider three dimensions:
+- **Space**: Agents should connect people and knowledge, be accessible but unobtrusive.
+- **Time**: Agents should learn from the *Past*, provide relevant nudges in the *Now*, and adapt for the *Future*.
+- **Core**: Embrace uncertainty but establish trust through transparency and user control.
 
-## 5. Ringkasan Pelajaran Utama
+## 5. Summary of Key Lessons
 
-- **Pelajaran 1**: Ejen adalah sistem, bukan sekadar model. Mereka menerima deria, berfikir, dan bertindak.  
-- **Pelajaran 2**: Rangka kerja seperti Semantic Kernel dan AutoGen memudahkan kerumitan pemanggilan alat dan pengurusan keadaan.  
-- **Pelajaran 3**: Mereka bentuk dengan ketelusan dan kawalan pengguna dalam fikiran.  
-- **Pelajaran 4**: Alat adalah "tangan" ejen. Definisi skim penting untuk LLM memahami cara menggunakannya.  
-- **Pelajaran 7**: Perancangan adalah "fungsi eksekutif" ejen, membolehkan ia mengendalikan aliran kerja yang kompleks.
+- **Lesson 1**: Agents are systems, not just models. They perceive, reason, and act.
+- **Lesson 2**: Microsoft Agent Framework abstracts the complexity of tool calling and state management.
+- **Lesson 3**: Design with transparency and user control in mind.
+- **Lesson 4**: Tools are the "hands" of the agent. Schema definition is crucial for the LLM to understand how to use them.
+- **Lesson 7**: Planning is the "executive function" of the agent, enabling it to tackle complex workflows.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan profesional oleh manusia adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+Penafian:
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil perhatian bahawa terjemahan automatik mungkin mengandungi ralat atau ketidaktepatan. Dokumen asal dalam bahasa asalnya hendaklah dianggap sebagai sumber yang sah. Untuk maklumat penting, disarankan terjemahan profesional oleh penterjemah manusia. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsiran yang timbul daripada penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
