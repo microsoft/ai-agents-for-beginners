@@ -1,32 +1,31 @@
 # AGENTS.md
 
-## Огляд проєкту
+## Project Overview
 
 This repository contains "AI Agents for Beginners" - a comprehensive educational course teaching everything needed to build AI Agents. The course consists of 15+ lessons covering fundamentals, design patterns, frameworks, and production deployment of AI agents.
 
-**Ключові технології:**
+**Key Technologies:**
 - Python 3.12+
-- Jupyter Notebooks для інтерактивного навчання
-- AI-фреймворки: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Служби Azure AI: Microsoft Foundry, Azure AI Agent Service
-- GitHub Models Marketplace (доступний безкоштовний рівень)
+- Jupyter Notebooks for interactive learning
+- AI Frameworks: Microsoft Agent Framework (MAF)
+- Azure AI Services: Microsoft Foundry, Azure AI Foundry Agent Service V2
 
-**Архітектура:**
-- Структура на основі уроків (каталоги 00-15+)
-- Кожен урок містить: документацію README, приклади коду (Jupyter notebooks) та зображення
-- Підтримка багатьох мов через автоматизовану систему перекладу
-- Декілька варіантів фреймворків для кожного уроку (Semantic Kernel, AutoGen, Azure AI Agent Service)
+**Architecture:**
+- Lesson-based structure (00-15+ directories)
+- Each lesson contains: README documentation, code samples (Jupyter notebooks), and images
+- Multi-language support via automated translation system
+- One Python notebook per lesson using Microsoft Agent Framework
 
-## Команди налаштування
+## Setup Commands
 
-### Передумови
-- Python 3.12 або новіший
-- GitHub account (for GitHub Models - free tier)
-- Azure subscription (optional, for Azure AI services)
+### Prerequisites
+- Python 3.12 or higher
+- Azure subscription (for Azure AI Foundry)
+- Azure CLI installed and authenticated (`az login`)
 
-### Початкове налаштування
+### Initial Setup
 
-1. **Клонувати або форкнути репозиторій:**
+1. **Clone or fork the repository:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
    # АБО
@@ -34,308 +33,280 @@ This repository contains "AI Agents for Beginners" - a comprehensive educational
    cd ai-agents-for-beginners
    ```
 
-2. **Створіть і активуйте віртуальне середовище Python:**
+2. **Create and activate Python virtual environment:**
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # У Windows: venv\Scripts\activate
    ```
 
-3. **Встановіть залежності:**
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Налаштуйте змінні середовища:**
+4. **Set up environment variables:**
    ```bash
    cp .env.example .env
-   # Відредагуйте .env, додавши ваші ключі API та кінцеві точки
+   # Відредагуйте файл .env, додавши свої API-ключі та кінцеві точки
    ```
 
-### Необхідні змінні середовища
+### Required Environment Variables
 
-Для **GitHub Models (Free)**:
-- `GITHUB_TOKEN` - Персональний токен доступу з GitHub
+For **Azure AI Foundry** (Required):
+- `AZURE_AI_PROJECT_ENDPOINT` - Azure AI Foundry project endpoint
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Model deployment name (e.g., gpt-4o)
 
-Для **Azure AI Services** (опціонально):
-- `PROJECT_ENDPOINT` - адреса кінцевої точки проєкту Microsoft Foundry
-- `AZURE_OPENAI_API_KEY` - ключ API Azure OpenAI
-- `AZURE_OPENAI_ENDPOINT` - URL кінцевої точки Azure OpenAI
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - ім'я розгортання для чат-моделі
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - ім'я розгортання для ембеддингів
-- Додаткова конфігурація Azure, як показано в `.env.example`
+For **Azure AI Search** (Lesson 05 - RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search endpoint
+- `AZURE_SEARCH_API_KEY` - Azure AI Search API key
 
-## Робочий процес розробки
+Authentication: Run `az login` before running notebooks (uses `AzureCliCredential`).
 
-### Запуск Jupyter Notebooks
+## Development Workflow
 
-Кожен урок містить кілька Jupyter notebooks для різних фреймворків:
+### Running Jupyter Notebooks
 
-1. **Запустіть Jupyter:**
+Each lesson contains multiple Jupyter notebooks for different frameworks:
+
+1. **Start Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **Перейдіть до каталогу уроку** (наприклад, `01-intro-to-ai-agents/code_samples/`)
+2. **Navigate to a lesson directory** (e.g., `01-intro-to-ai-agents/code_samples/`)
 
-3. **Відкрийте та запустіть ноутбуки:**
-   - `*-semantic-kernel.ipynb` - Використання фреймворку Semantic Kernel
-   - `*-autogen.ipynb` - Використання фреймворку AutoGen
-   - `*-python-agent-framework.ipynb` - Використання Microsoft Agent Framework (Python)
-   - `*-dotnet-agent-framework.ipynb` - Використання Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Використання Azure AI Agent Service
+3. **Open and run notebooks:**
+   - `*-python-agent-framework.ipynb` - Using Microsoft Agent Framework (Python)
+   - `*-dotnet-agent-framework.ipynb` - Using Microsoft Agent Framework (.NET)
 
-### Робота з різними фреймворками
+### Working with Microsoft Agent Framework
 
-**Semantic Kernel + GitHub Models:**
-- Доступний безкоштовний рівень при наявності облікового запису GitHub
-- Підходить для навчання та експериментів
-- Шаблон файлу: `*-semantic-kernel*.ipynb`
+**Microsoft Agent Framework + Azure AI Foundry:**
+- Requires Azure subscription
+- Uses `AzureAIProjectAgentProvider` for Agent Service V2 (agents visible in Foundry portal)
+- Production-ready with built-in observability
+- File pattern: `*-python-agent-framework.ipynb`
 
-**AutoGen + GitHub Models:**
-- Доступний безкоштовний рівень при наявності облікового запису GitHub
-- Можливості оркестрації кількох агентів
-- Шаблон файлу: `*-autogen.ipynb`
-
-**Microsoft Agent Framework (MAF):**
-- Останній фреймворк від Microsoft
-- Доступний для Python та .NET
-- Шаблон файлу: `*-agent-framework.ipynb`
-
-**Azure AI Agent Service:**
-- Потребує підписки Azure
-- Функції, готові до використання у виробництві
-- Шаблон файлу: `*-azureaiagent.ipynb`
-
-## Інструкції з тестування
+## Testing Instructions
 
 This is an educational repository with example code rather than production code with automated tests. To verify your setup and changes:
 
-### Ручне тестування
+### Manual Testing
 
-1. **Перевірте середовище Python:**
+1. **Test Python environment:**
    ```bash
    python --version  # Має бути 3.12+
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Перевірте виконання ноутбуків:**
+2. **Test notebook execution:**
    ```bash
-   # Перетворити ноутбук у скрипт і запустити (імпорти для тестів)
+   # Перетворити ноутбук у скрипт і запустити (перевіряє імпорти)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **Перевірте змінні середовища:**
+3. **Verify environment variables:**
    ```bash
    python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
    ```
 
-### Запуск окремих ноутбуків
+### Running Individual Notebooks
 
-Відкрийте ноутбуки в Jupyter і виконуйте клітинки послідовно. Кожен ноутбук є автономним і містить:
-- Інструкції імпорту
-- Завантаження конфігурації
-- Приклади реалізацій агентів
-- Очікувані результати в markdown-клітинках
+Open notebooks in Jupyter and execute cells sequentially. Each notebook is self-contained and includes:
+- Import statements
+- Configuration loading
+- Example agent implementations
+- Expected outputs in markdown cells
 
-## Стиль коду
+## Code Style
 
-### Конвенції Python
+### Python Conventions
 
-- **Версія Python**: 3.12+
-- **Стиль коду**: Дотримуйтесь стандартних конвенцій Python PEP 8
-- **Ноутбуки**: Використовуйте чіткі markdown-клітинки для пояснення концепцій
-- **Імпорти**: Групуйте стандартну бібліотеку, сторонні та локальні імпорти
+- **Python Version**: 3.12+
+- **Code Style**: Follow standard Python PEP 8 conventions
+- **Notebooks**: Use clear markdown cells to explain concepts
+- **Imports**: Group by standard library, third-party, local imports
 
-### Конвенції Jupyter Notebook
+### Jupyter Notebook Conventions
 
-- Включайте описові markdown-клітинки перед кодовими клітинками
-- Додавайте приклади виводу в ноутбуках для довідки
-- Використовуйте зрозумілі імена змінних, що відповідають концепціям уроку
-- Підтримуйте лінійний порядок виконання ноутбука (клітинка 1 → 2 → 3...)
+- Include descriptive markdown cells before code cells
+- Add output examples in notebooks for reference
+- Use clear variable names that match lesson concepts
+- Keep notebook execution order linear (cell 1 → 2 → 3...)
 
-### Організація файлів
+### File Organization
 
 ```
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
-## Збирання та розгортання
+## Build and Deployment
 
-### Створення документації
+### Building Documentation
 
-У цьому репозиторії для документації використовується Markdown:
-- README.md файли в кожній папці уроку
-- Головний README.md у корені репозиторію
-- Автоматизована система перекладу через GitHub Actions
+This repository uses Markdown for documentation:
+- README.md files in each lesson folder
+- Main README.md at repository root
+- Automated translation system via GitHub Actions
 
-### CI/CD конвеєр
+### CI/CD Pipeline
 
-Розташований у `.github/workflows/`:
+Located in `.github/workflows/`:
 
-1. **co-op-translator.yml** - Автоматичний переклад на 50+ мов
-2. **welcome-issue.yml** - Привітання авторів нових issue
-3. **welcome-pr.yml** - Привітання авторів нових pull request'ів
+1. **co-op-translator.yml** - Automatic translation to 50+ languages
+2. **welcome-issue.yml** - Welcomes new issue creators
+3. **welcome-pr.yml** - Welcomes new pull request contributors
 
-### Розгортання
+### Deployment
 
 This is an educational repository - no deployment process. Users:
-1. Форкнути або клонувати репозиторій
-2. Запускати ноутбуки локально або в GitHub Codespaces
-3. Вчитися, змінюючи та експериментуючи з прикладами
+1. Fork or clone the repository
+2. Run notebooks locally or in GitHub Codespaces
+3. Learn by modifying and experimenting with examples
 
-## Керівництво щодо Pull Request'ів
+## Pull Request Guidelines
 
-### Перед надсиланням
+### Before Submitting
 
-1. **Перевірте свої зміни:**
-   - Повністю виконайте змінені ноутбуки
-   - Переконайтеся, що всі клітинки виконуються без помилок
-   - Перевірте, що виводи є відповідними
+1. **Test your changes:**
+   - Run affected notebooks completely
+   - Verify all cells execute without errors
+   - Check that outputs are appropriate
 
-2. **Оновлення документації:**
-   - Оновіть README.md, якщо додаєте нові концепції
-   - Додайте коментарі в ноутбуках для складного коду
-   - Переконайтеся, що markdown-клітинки пояснюють призначення
+2. **Documentation updates:**
+   - Update README.md if adding new concepts
+   - Add comments in notebooks for complex code
+   - Ensure markdown cells explain the purpose
 
-3. **Зміни у файлах:**
-   - Уникайте коміту файлів `.env` (користуйтеся `.env.example`)
-   - Не додавайте в коміт директорії `venv/` або `__pycache__/`
-   - Залишайте результати ноутбуків, коли вони демонструють концепції
-   - Видаліть тимчасові файли та резервні ноутбуки (`*-backup.ipynb`)
+3. **File changes:**
+   - Avoid committing `.env` files (use `.env.example`)
+   - Don't commit `venv/` or `__pycache__/` directories
+   - Keep notebook outputs when they demonstrate concepts
+   - Remove temporary files and backup notebooks (`*-backup.ipynb`)
 
-### Формат назви PR
+### PR Title Format
 
-Використовуйте описові назви:
-- `[Lesson-XX] Додати новий приклад для <concept>`
-- `[Fix] Виправити опечатку в lesson-XX README`
-- `[Update] Поліпшити приклад коду в lesson-XX`
-- `[Docs] Оновити інструкції з налаштування`
+Use descriptive titles:
+- `[Lesson-XX] Add new example for <concept>`
+- `[Fix] Correct typo in lesson-XX README`
+- `[Update] Improve code sample in lesson-XX`
+- `[Docs] Update setup instructions`
 
-### Обов'язкові перевірки
+### Required Checks
 
-- Ноутбуки повинні виконуватися без помилок
-- Файли README мають бути чіткими та точними
-- Дотримуйтесь існуючих шаблонів коду в репозиторії
-- Підтримуйте узгодженість з іншими уроками
+- Notebooks should execute without errors
+- README files should be clear and accurate
+- Follow existing code patterns in the repository
+- Maintain consistency with other lessons
 
-## Додаткові нотатки
+## Additional Notes
 
-### Поширені помилки
+### Common Gotchas
 
-1. **Невідповідність версії Python:**
-   - Переконайтеся, що використовується Python 3.12+
-   - Деякі пакети можуть не працювати з більш старими версіями
-   - Використовуйте `python3 -m venv`, щоб явно вказати версію Python
+1. **Python version mismatch:**
+   - Ensure Python 3.12+ is used
+   - Some packages may not work with older versions
+   - Use `python3 -m venv` to specify Python version explicitly
 
-2. **Змінні середовища:**
-   - Завжди створюйте `.env` з `.env.example`
-   - Не комітьте файл `.env` (він у `.gitignore`)
-   - Токен GitHub потребує відповідних дозволів
+2. **Environment variables:**
+   - Always create `.env` from `.env.example`
+   - Don't commit `.env` file (it's in `.gitignore`)
+   - GitHub token needs appropriate permissions
 
-3. **Конфлікти пакетів:**
-   - Користуйтесь новим віртуальним середовищем
-   - Встановлюйте з `requirements.txt`, а не по одному пакету
-   - Деякі ноутбуки можуть вимагати додаткових пакетів, згаданих у їхніх markdown-клітинках
+3. **Package conflicts:**
+   - Use a fresh virtual environment
+   - Install from `requirements.txt` rather than individual packages
+   - Some notebooks may require additional packages mentioned in their markdown cells
 
-4. **Служби Azure:**
-   - Служби Azure AI потребують активної підписки
-   - Деякі функції залежать від регіону
-   - Обмеження безкоштовного рівня застосовуються до GitHub Models
+4. **Azure services:**
+   - Azure AI services require active subscription
+   - Some features are region-specific
+   - Free tier limitations apply to GitHub Models
 
-### Шлях навчання
+### Learning Path
 
-Рекомендований порядок проходження уроків:
-1. **00-course-setup** - Почніть тут для налаштування середовища
-2. **01-intro-to-ai-agents** - Зрозуміти основи AI-агентів
-3. **02-explore-agentic-frameworks** - Дізнатися про різні фреймворки
-4. **03-agentic-design-patterns** - Основні шаблони проєктування
-5. Продовжуйте послідовно проходити уроки за номерами
+Recommended progression through lessons:
+1. **00-course-setup** - Start here for environment setup
+2. **01-intro-to-ai-agents** - Understand AI agent fundamentals
+3. **02-explore-agentic-frameworks** - Learn about different frameworks
+4. **03-agentic-design-patterns** - Core design patterns
+5. Continue through numbered lessons sequentially
 
-### Вибір фреймворку
+### Framework Selection
 
-Обирайте фреймворк залежно від ваших цілей:
-- **Навчання/Прототипування**: Semantic Kernel + GitHub Models (безкоштовно)
-- **Багатоагентні системи**: AutoGen
-- **Останні можливості**: Microsoft Agent Framework (MAF)
-- **Розгортання у виробництві**: Azure AI Agent Service
+Choose framework based on your goals:
+- **All lessons**: Microsoft Agent Framework (MAF) with `AzureAIProjectAgentProvider`
+- **Agents register server-side** in Azure AI Foundry Agent Service V2 and are visible in the Foundry portal
 
-### Отримати допомогу
+### Getting Help
 
-- Приєднуйтесь до [спільноти Microsoft Foundry у Discord](https://aka.ms/ai-agents/discord)
-- Перегляньте README файли уроків для конкретних вказівок
-- Перегляньте головний [README.md](./README.md) для огляду курсу
-- Зверніться до [Налаштування курсу](./00-course-setup/README.md) для детальних інструкцій з налаштування
+- Join the [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
+- Review lesson README files for specific guidance
+- Check the main [README.md](./README.md) for course overview
+- Refer to [Course Setup](./00-course-setup/README.md) for detailed setup instructions
 
-### Внесок
+### Contributing
 
-Це відкритий освітній проєкт. Внески вітаються:
-- Поліпшити приклади коду
-- Виправити опечатки або помилки
-- Додати роз'яснювальні коментарі
-- Запропонувати нові теми уроків
-- Перекласти на додаткові мови
+This is an open educational project. Contributions welcome:
+- Improve code examples
+- Fix typos or errors
+- Add clarifying comments
+- Suggest new lesson topics
+- Translate to additional languages
 
 See [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) for current needs.
 
-## Контекст проєкту
+## Project-Specific Context
 
-### Підтримка кількох мов
+### Multi-Language Support
 
-У цьому репозиторії використовується автоматизована система перекладу:
-- Підтримується понад 50 мов
-- Переклади у директоріях `/translations/<lang-code>/`
-- Робочий процес GitHub Actions обробляє оновлення перекладів
-- Початкові файли англійською у корені репозиторію
+This repository uses an automated translation system:
+- 50+ languages supported
+- Translations in `/translations/<lang-code>/` directories
+- GitHub Actions workflow handles translation updates
+- Source files are in English at repository root
 
-### Структура уроку
+### Lesson Structure
 
-Кожен урок слідує єдиному шаблону:
-1. Мініатюра відео з посиланням
-2. Писемний вміст уроку (README.md)
-3. Приклади коду в кількох фреймворках
-4. Навчальні цілі та передумови
-5. Додаткові навчальні ресурси із посиланнями
+Each lesson follows a consistent pattern:
+1. Video thumbnail with link
+2. Written lesson content (README.md)
+3. Code samples in multiple frameworks
+4. Learning objectives and prerequisites
+5. Extra learning resources linked
 
-### Іменування прикладів коду
+### Code Sample Naming
 
-Формат: `<lesson-number>-<framework-name>.ipynb`
-- `04-semantic-kernel.ipynb` - Урок 4, Semantic Kernel
-- `07-autogen.ipynb` - Урок 7, AutoGen
-- `14-python-agent-framework.ipynb` - Урок 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Урок 14, MAF .NET
+Format: `<lesson-number>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Lesson 1, MAF Python
+- `14-sequential.ipynb` - Lesson 14, MAF advanced patterns
 
-### Спеціальні директорії
+### Special Directories
 
-- `translated_images/` - Локалізовані зображення для перекладів
-- `images/` - Оригінальні зображення для англомовного вмісту
-- `.devcontainer/` - Конфігурація контейнера розробки для VS Code
-- `.github/` - GitHub Actions робочі процеси та шаблони
+- `translated_images/` - Localized images for translations
+- `images/` - Original images for English content
+- `.devcontainer/` - VS Code development container configuration
+- `.github/` - GitHub Actions workflows and templates
 
-### Залежності
+### Dependencies
 
-Ключові пакети з `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - фреймворк AutoGen
-- `semantic-kernel` - фреймворк Semantic Kernel
+Key packages from `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
-- `azure-ai-inference`, `azure-ai-projects` - служби Azure AI
-- `azure-search-documents` - інтеграція Azure AI Search
-- `chromadb` - Векторна база даних для прикладів RAG
-- `chainlit` - фреймворк інтерфейсу чату
-- `browser_use` - Автоматизація браузера для агентів
-- `mcp[cli]` - підтримка Model Context Protocol
-- `mem0ai` - Управління пам'яттю для агентів
+- `a2a-sdk` - Agent-to-Agent protocol support
+- `azure-ai-inference`, `azure-ai-projects` - Azure AI services
+- `azure-identity` - Azure authentication (AzureCliCredential)
+- `azure-search-documents` - Azure AI Search integration
+- `mcp[cli]` - Model Context Protocol support
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Відмова від відповідальності**:
-Цей документ було перекладено за допомогою сервісу перекладу на основі штучного інтелекту [Co-op Translator](https://github.com/Azure/co-op-translator). Хоча ми прагнемо до точності, просимо врахувати, що автоматичні переклади можуть містити помилки або неточності. Оригінальний документ рідною мовою слід вважати авторитетним джерелом. Для критично важливої інформації рекомендується скористатися професійним перекладом, виконаним людиною. Ми не несемо відповідальності за будь-які непорозуміння або неправильні тлумачення, що виникли внаслідок використання цього перекладу.
+Відмова від відповідальності:
+Цей документ було перекладено за допомогою сервісу машинного перекладу на основі штучного інтелекту [Co-op Translator](https://github.com/Azure/co-op-translator). Хоча ми прагнемо до точності, просимо звернути увагу, що автоматичні переклади можуть містити помилки або неточності. Оригінальний документ у його оригінальній версії слід вважати авторитетним джерелом. Для критичної інформації рекомендується скористатися послугами професійного перекладача. Ми не несемо відповідальності за будь-які непорозуміння або неправильні тлумачення, що виникли внаслідок використання цього перекладу.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

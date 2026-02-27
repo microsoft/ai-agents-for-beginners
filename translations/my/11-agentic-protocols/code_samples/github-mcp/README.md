@@ -1,70 +1,70 @@
-# Github MCP Server ဥပမာ
+# Github MCP Server Example
 
 ## ဖော်ပြချက်
 
-ဒီဟာက Microsoft Reactor မှာ ကျင်းပတဲ့ AI Agents Hackathon အတွက် ဖန်တီးထားတဲ့ နမူနာတစ်ခုဖြစ်ပါတယ်။
+ဤသည်ကို Microsoft Reactor မှ ကျင်းပသော AI Agents Hackathon အတွက် ဖန်တီးထားသည့် ဒေမို (demo) တစ်ခု ဖြစ်သည်။
 
-ဒီ tool ကို အသုံးပြုပြီး အသုံးပြုသူရဲ့ Github repos အပေါ် အခြေခံပြီး hackathon project တွေကို အကြံပြုပေးနိုင်ပါတယ်။ ဒီလုပ်ငန်းစဉ်ကို အောက်ပါအတိုင်း ဆောင်ရွက်ပါတယ် -
+ဤကိရိယာကို အသုံးပြု၍ အသုံးပြုသူ၏ Github repos များအပေါ် အခြေခံပြီး hackathon ပရောဂျက်များကို အကြံပြုနိုင်သည်။
+၎င်းကို အောက်ပါအတိုင်း ဆောင်ရွက်သည်။
 
-1. **Github Agent** - Github MCP Server ကို အသုံးပြုပြီး repos နဲ့ အဲဒီ repos တွေကို ပတ်သက်တဲ့ အချက်အလက်တွေကို ရယူပါ။
-2. **Hackathon Agent** - Github Agent က ရရှိတဲ့ အချက်အလက်တွေကို အသုံးပြုပြီး အသုံးပြုသူရဲ့ project တွေ၊ အသုံးပြုထားတဲ့ programming languages နဲ့ AI Agents Hackathon ရဲ့ project tracks တွေအပေါ် အခြေခံပြီး ဖန်တီးမှုရှိတဲ့ hackathon project အကြံပြုချက်တွေကို ထုတ်ပေးပါ။
-3. **Events Agent** - Hackathon Agent ရဲ့ အကြံပြုချက်အပေါ် အခြေခံပြီး AI Agent Hackathon စီးရီးထဲက သက်ဆိုင်ရာ အခမ်းအနားတွေကို အကြံပြုပေးပါ။
+1. **Github Agent** - Github MCP Server ကို အသုံးပြုပြီး repo များနှင့် ၎င်း repo များဆိုင်ရာ သတင်းအချက်အလက်များကို ရယူသည်။
+2. **Hackathon Agent** - Github Agent မှ ယူထားသည့် ဒေတာများကို အသုံးပြုပြီး အသုံးပြုသူ၏ project များ၊ သုံးထားသော ဘာသာစကားများနှင့် AI Agents hackathon အတွက် project tracks များအပေါ် အခြေခံ၍ ဖန်တီးသော hackathon project အတွေးများကို ထုတ်ပေးသည်။
+3. **Events Agent** - Hackathon Agent ၏ အကြံပြုချက်အပေါ် အခြေခံ၍ Events Agent သည် AI Agent Hackathon စီးရီးမှ သက်ဆိုင်ရာ event များကို အကြံပြုပေးမည်။
 
-## ကုဒ်ကို အလုပ်လုပ်စေခြင်း
+## ကုဒ်ကို လည်ပတ်ခြင်း
 
-### ပတ်ဝန်းကျင် အပြောင်းအလဲများ
+### Environment Variables
 
-ဒီနမူနာမှာ Azure Open AI Service, Semantic Kernel, Github MCP Server နဲ့ Azure AI Search ကို အသုံးပြုထားပါတယ်။
+ဤဒေမိုတွင် Microsoft Agent Framework, Azure OpenAI Service, Github MCP Server နှင့် Azure AI Search ကို အသုံးပြုထားပါသည်။
 
-ဒီ tool တွေကို အသုံးပြုနိုင်ဖို့ အောက်ပါ ပတ်ဝန်းကျင် အပြောင်းအလဲတွေကို သေချာစွာ သတ်မှတ်ထားပါ -
+ဤကိရိယာများကို အသုံးပြုရန် လိုအပ်သော environment variables များကို သတ်မှတ်ထားကြောင်း သေချာပါ။
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Chainlit Server ကို အလုပ်လုပ်စေခြင်း
+## Chainlit Server လည်ပတ်ခြင်း
 
-MCP server နဲ့ ချိတ်ဆက်ဖို့ ဒီနမူနာမှာ Chainlit ကို chat interface အနေနဲ့ အသုံးပြုထားပါတယ်။
+MCP server နှင့် ဆက်သွယ်ရန် ဤဒေမိုတွင် chat အင်တာဖေ့စ်အဖြစ် Chainlit ကို အသုံးပြုထားသည်။
 
-Server ကို အလုပ်လုပ်စေဖို့ အောက်ပါ command ကို သင့် terminal မှာ အသုံးပြုပါ -
+Server ကို ပြေးစေရန် သင်၏ terminal တွင် အောက်ပါ command ကို အသုံးပြုပါ။
 
 ```bash
 chainlit run app.py -w
 ```
 
-ဒီဟာက သင့် Chainlit server ကို `localhost:8000` မှာ စတင်ပြီး Azure AI Search Index ကို `event-descriptions.md` content နဲ့ ဖြည့်စွက်ပေးပါလိမ့်မယ်။
+ဤသည်က သင့် Chainlit server ကို `localhost:8000` တွင် စတင်လည်ပတ်စေပြီး သင့် Azure AI Search Index ကို `event-descriptions.md` အကြောင်းအရာဖြင့် ဖြည့်စွက်ပေးမည်။
 
-## MCP Server နဲ့ ချိတ်ဆက်ခြင်း
+## MCP Server နှင့် ဆက်သွယ်ခြင်း
 
-Github MCP Server နဲ့ ချိတ်ဆက်ဖို့ "Type your message here.." chat box အောက်မှာရှိတဲ့ "plug" icon ကို ရွေးချယ်ပါ -
+Github MCP Server သို့ ဆက်ရန်၊ chat box အောက်ဘက်ရှိ "Type your message here.." ဟု ပြထားသော နေရာအောက်ရှိ "plug" အိုင်ကွန်ကို ရွေးပါ:
 
-![MCP Connect](../../../../../translated_images/my/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![MCP ချိတ်ဆက်](../../../../../translated_images/my/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-အဲဒီနေရာကနေ "Connect an MCP" ကို နှိပ်ပြီး Github MCP Server နဲ့ ချိတ်ဆက်ဖို့ command ကို ထည့်သွင်းနိုင်ပါတယ် -
+အဲဒီနေရာမှ "Connect an MCP" ကို နှိပ်၍ Github MCP Server သို့ ဆက်ရန် command ကို ထည့်ပါ:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-"[YOUR PERSONAL ACCESS TOKEN]" ကို သင့်ရဲ့ Personal Access Token နဲ့ အစားထိုးပါ။
+"[YOUR PERSONAL ACCESS TOKEN]" ကို သင့်၏ လက်ရှိ Personal Access Token ဖြင့် အစားထိုးပါ။
 
-ချိတ်ဆက်ပြီးရင် plug icon ရဲ့ ဘေးမှာ (1) ဆိုတဲ့ အမှတ်ကို မြင်ရပါလိမ့်မယ်။ မမြင်ရဘူးဆိုရင် `chainlit run app.py -w` နဲ့ chainlit server ကို ပြန်စတင်ကြည့်ပါ။
+ဆက်သွယ်ပြီးနောက် plug အိုင်ကွန်အနီး၌ (1) ဟု ပြနေမည်ဖြစ်ပြီး ဆက်သွယ်ထားကြောင်း အတည်ပြုမည်။ မတွေ့ပါက `chainlit run app.py -w` ဖြင့် chainlit server ကို ပြန်စတင်ကြည့်ပါ။
 
-## နမူနာကို အသုံးပြုခြင်း
+## ဒေမိုကို အသုံးပြုခြင်း
 
-Hackathon project recommendation အတွက် agent workflow ကို စတင်ဖို့ အောက်ပါလိုမျိုး စာသားတစ်ခု ရိုက်ထည့်နိုင်ပါတယ် -
+hackathon project များအတွက် အကြံပြုရန် agent workflow ကို စတင်ရန် အောက်ပါမက်ဆေ့ချ်တစ်ခုကို ရိုက်ထည့်နိုင်သည်။
 
 "Recommend hackathon projects for the Github user koreyspace"
 
-Router Agent က သင့်ရဲ့ တောင်းဆိုချက်ကို ခွဲခြမ်းစိတ်ဖြာပြီး အကောင်းဆုံးဖြေရှင်းနိုင်မယ့် agents (GitHub, Hackathon, နဲ့ Events) တွေကို ရွေးချယ်ပေးပါလိမ့်မယ်။ အဲဒီ agents တွေက Github repository ကို ခွဲခြမ်းစိတ်ဖြာခြင်း၊ project idea ဖန်တီးခြင်း၊ နဲ့ သက်ဆိုင်ရာ နည်းပညာ အခမ်းအနားတွေကို အကြံပြုခြင်းတို့အတွက် ပေါင်းစပ်လုပ်ဆောင်ပေးပါလိမ့်မယ်။
+Router Agent သည် သင့်တောင်းဆိုချက်ကို ခွဲခြမ်းစိတ်ဖြာပြီး သင့်မေးခွန်းကို ဖြေရှင်းရန်အတွက် ဘယ် agent ပေါင်းစပ်မှု (GitHub, Hackathon, နှင့် Events) များက သင့်တော်ဆုံးဖြစ်မည်ကို ဆုံးဖြတ်ပါလိမ့်မည်။ agents များသည် GitHub repository ခွဲခြမ်းစစ်ဆေးမှု၊ project အတွေးပေါ်ထွက်မှုနှင့် သက်ဆိုင်ရာ နည်းပညာအဖြစ်အပျက်များကို အခြေခံ၍ စုံလင်အကြံပြုချက်များ ပေးရန် ပူးပေါင်းလှုပ်ရှားကြသည်။
 
 ---
 
-**အကြောင်းကြားချက်**:  
-ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးစားနေသော်လည်း၊ အလိုအလျောက် ဘာသာပြန်မှုများတွင် အမှားများ သို့မဟုတ် မတိကျမှုများ ပါရှိနိုင်သည်ကို သတိပြုပါ။ မူရင်းဘာသာစကားဖြင့် ရေးသားထားသော စာရွက်စာတမ်းကို အာဏာတရ အရင်းအမြစ်အဖြစ် သတ်မှတ်သင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူက ဘာသာပြန်မှု ဝန်ဆောင်မှုကို အသုံးပြုရန် အကြံပြုပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော အလွဲအလွန်များ သို့မဟုတ် အနားယူမှားမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+ရှင်းလင်းချက်:
+ယခုစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ဖြင့် ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးစားသော်လည်း အလိုအလျောက်ပြုလုပ်ထားသော ဘာသာပြန်ချက်များတွင် အမှားများ သို့မဟုတ် တိကျမှုနည်းပါးမှုများ ပါဝင်နိုင်သည်ကို ကျေးဇူးပြု၍ သတိပြုပါ။ မူလစာရွက်စာတမ်းကို မူလဘာသာဖြင့်သာ တရားဝင် အချက်အလက်အဖြစ် ယူဆသင့်သည်။ အရေးကြီးသော အချက်အလက်များအတွက် ပရော်ဖက်ရှင်နယ် လူဘာသာပြန်ကို အသုံးပြုရန် အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုမှုကြောင့် ဖြစ်ပေါ်နိုင်သည့် နားမလည်မှုများ သို့မဟုတ် မှားယွင်းစွာ နားလည်မှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မယူပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

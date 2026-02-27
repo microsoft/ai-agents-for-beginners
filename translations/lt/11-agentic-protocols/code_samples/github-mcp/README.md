@@ -1,70 +1,69 @@
-# Github MCP Server Pavyzdys
+# Github MCP Server pavyzdys
 
 ## Aprašymas
 
-Tai yra demonstracinis projektas, sukurtas AI Agentų Hackathon renginiui, organizuotam per Microsoft Reactor.
+Tai demonstracija, sukurta AI Agents Hackathon renginiui, organizuotam Microsoft Reactor.
 
-Įrankis naudojamas rekomenduoti hackathon projektus, remiantis vartotojo Github saugyklomis. Tai atliekama:
+Šis įrankis naudojamas rekomenduoti hackathon projektus, remiantis vartotojo Github saugyklomis.
+Tai atliekama taip:
 
-1. **Github Agentas** - Naudojant Github MCP Serverį, siekiant gauti saugyklas ir informaciją apie jas.
-2. **Hackathon Agentas** - Naudoja duomenis iš Github Agento ir sukuria kūrybingas hackathon projektų idėjas, remdamasis vartotojo projektais, naudojamomis programavimo kalbomis ir AI Agentų hackathon projektų temomis.
-3. **Renginių Agentas** - Remdamasis Hackathon agento pasiūlymais, renginių agentas rekomenduoja aktualius renginius iš AI Agentų Hackathon serijos.
-
-## Kodo paleidimas
+1. **Github Agent** - Naudoja Github MCP Server, kad gautų repozitorijas ir informaciją apie jas.
+2. **Hackathon Agent** - Paims duomenis iš Github Agent ir sukurs kūrybingas hackathon projektų idėjas remiantis projektais, vartotojo naudojamomis kalbomis ir AI Agents hackathon projekto kryptimis.
+3. **Events Agent** - Remiantis Hackathon Agent pasiūlymais, Events Agent rekomenduos atitinkamus renginius iš AI Agent Hackathon serijos.
+## Kodo paleidimas 
 
 ### Aplinkos kintamieji
 
-Šiame demonstraciniame projekte naudojamos Azure Open AI Service, Semantic Kernel, Github MCP Server ir Azure AI Search.
+Ši demonstracija naudoja Microsoft Agent Framework, Azure OpenAI Service, Github MCP Server ir Azure AI Search.
 
 Įsitikinkite, kad turite tinkamai nustatytus aplinkos kintamuosius, kad galėtumėte naudoti šiuos įrankius:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Chainlit Serverio paleidimas
+## Chainlit serverio paleidimas
 
-Norint prisijungti prie MCP serverio, šiame demonstraciniame projekte naudojamas Chainlit kaip pokalbių sąsaja.
+Norėdami prisijungti prie MCP serverio, ši demonstracija naudoja Chainlit kaip pokalbių sąsają. 
 
-Norėdami paleisti serverį, terminale naudokite šią komandą:
+Norėdami paleisti serverį, naudokite šią komandą terminale:
 
 ```bash
 chainlit run app.py -w
 ```
 
-Tai turėtų paleisti jūsų Chainlit serverį `localhost:8000` ir užpildyti jūsų Azure AI Search indeksą su `event-descriptions.md` turiniu.
+Tai turėtų paleisti jūsų Chainlit serverį adresu `localhost:8000`, taip pat užpildyti jūsų Azure AI Search indeksą su `event-descriptions.md` turiniu. 
 
-## Prisijungimas prie MCP Serverio
+## Prisijungimas prie MCP serverio
 
-Norėdami prisijungti prie Github MCP Serverio, pasirinkite „kištuko“ ikoną po „Įveskite savo žinutę čia..“ pokalbių laukeliu:
+Norėdami prisijungti prie Github MCP Server, pasirinkite "plug" piktogramą po "Type your message here.." pokalbių laukeliu:
 
-![MCP Connect](../../../../../translated_images/lt/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![Prisijungimas prie MCP](../../../../../translated_images/lt/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Iš ten galite spustelėti „Prisijungti prie MCP“, kad pridėtumėte komandą prisijungti prie Github MCP Serverio:
+Iš ten galite paspausti "Connect an MCP", kad pridėtumėte komandą prisijungti prie Github MCP Server:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Pakeiskite "[YOUR PERSONAL ACCESS TOKEN]" savo asmeniniu prieigos raktu.
+Pakeiskite "[YOUR PERSONAL ACCESS TOKEN]" savo tikruoju Personal Access Token. 
 
-Po prisijungimo turėtumėte matyti (1) šalia kištuko ikonos, patvirtinant, kad prisijungta. Jei ne, pabandykite iš naujo paleisti Chainlit serverį su `chainlit run app.py -w`.
+Po prisijungimo, šalia plug piktogramos turėtumėte matyti (1), patvirtinantį, kad jis prijungtas. Jei ne, pabandykite iš naujo paleisti chainlit serverį su `chainlit run app.py -w`.
 
-## Demonstracijos naudojimas
+## Demonstracijos naudojimas 
 
-Norėdami pradėti agentų darbo eigą, rekomenduojančią hackathon projektus, galite įvesti tokią žinutę:
+Norėdami pradėti agentų darbo eigą, rekomenduojančią hackathon projektus, galite įvesti pranešimą, pvz.:
 
-„Rekomenduok hackathon projektus Github vartotojui koreyspace“
+"Rekomenduokite hackathon projektus Github vartotojui koreyspace"
 
-Maršrutizavimo agentas analizuos jūsų užklausą ir nustatys, kuri agentų kombinacija (GitHub, Hackathon ir Renginių) geriausiai tinka jūsų užklausai. Agentai dirbs kartu, kad pateiktų išsamias rekomendacijas, remdamiesi Github saugyklų analize, projektų idėjomis ir aktualiais technologijų renginiais.
+Router Agent išanalizuos jūsų užklausą ir nustatys, kuri agentų kombinacija (GitHub, Hackathon, ir Events) geriausiai tinka jūsų užklausai apdoroti. Agentai dirbs kartu, kad pateiktų išsamias rekomendacijas, remdamiesi GitHub saugyklų analize, projektų idėjų generavimu ir susijusiais technologijų renginiais.
 
 ---
 
-**Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama naudoti profesionalų žmogaus vertimą. Mes neprisiimame atsakomybės už nesusipratimus ar klaidingus interpretavimus, atsiradusius dėl šio vertimo naudojimo.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+Atsakomybės apribojimas:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, atkreipkite dėmesį, kad automatizuoti vertimai gali turėti klaidų arba netikslumų. Originalus dokumentas pradinėje kalboje turėtų būti laikomas autoritetingu šaltiniu. Svarbios informacijos atveju rekomenduojama pasitelkti profesionalų žmogaus vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingus aiškinimus, kilusius dėl šio vertimo naudojimo.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

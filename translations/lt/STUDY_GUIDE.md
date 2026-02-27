@@ -1,67 +1,66 @@
-# AI Agentai pradedantiesiems – studijų vadovas ir kurso santrauka
+# AI agentai pradedantiesiems – mokymosi vadovas ir kurso santrauka
 
-Šis vadovas pateikia „AI Agentai pradedantiesiems“ kurso santrauką ir paaiškina pagrindines sąvokas, sistemas bei dizaino šablonus, skirtus AI Agentų kūrimui.
+Šis vadovas pateikia „AI agentai pradedantiesiems“ kurso santrauką ir paaiškina pagrindines sąvokas, sistemas ir dizaino šablonus, skirtus AI agentų kūrimui.
 
-## 1. Įvadas į AI Agentus
+## 1. Įvadas į AI agentus
 
-**Kas yra AI Agentai?**  
-AI Agentai yra sistemos, kurios išplečia Didelių Kalbos Modelių (DKM) galimybes suteikdamos jiems prieigą prie **įrankių**, **žinių** ir **atminties**. Skirtingai nei standartinis DKM pokalbių robotas, kuris tik generuoja tekstą remdamasis mokymosi duomenimis, AI Agentas gali:
-- **Suvokti** savo aplinką (per jutiklius arba įvestis).
-- **Mąstyti**, kaip išspręsti problemą.
-- **Veikti**, kad pakeistų aplinką (per aktuliatorius arba įrankių vykdymą).
+**Kas yra AI agentai?**
+AI agentai yra sistemos, kurios išplečia Didžiųjų kalbos modelių (LLM) galimybes suteikdamos jiems prieigą prie **įrankių**, **žinių** ir **atminties**. Skirtingai nei standartinis LLM pokalbių robotas, kuris tik generuoja tekstą remdamasis mokymo duomenimis, AI agentas gali:
+- **Suvokti** savo aplinką (per jutiklius ar įvestį).
+- **Mąstyti** apie tai, kaip išspręsti problemą.
+- **Veikti**, kad pakeistų aplinką (per aktyvatorius ar įrankių vykdymą).
 
-**Pagrindinės Agentų sudedamosios dalys:**  
-- **Aplinka**: erdvė, kurioje agentas veikia (pvz., rezervavimo sistema).  
-- **Jutikliai**: mechanizmai informacijos rinkimui (pvz., API skaitymas).  
-- **Aktuliatoriai**: mechanizmai veiksmams atlikti (pvz., el. laiško siuntimas).  
-- **Smegenys (DKM)**: mąstymo variklis, kuris planuoja ir nusprendžia, kokius veiksmus atlikti.
+**Pagrindinės agente sudedamosios dalys:**
+- **Aplinka**: erdvė, kurioje agentas veikia (pvz., užsakymų sistema).
+- **Jutikliai**: mechanizmai informacijos rinkimui (pvz., API skaitymas).
+- **Aktyvatoriai**: mechanizmai veiksmams atlikti (pvz., el. pašto siuntimas).
+- **Smegenys (LLM)**: mąstymo variklis, kuris planuoja ir nusprendžia, kokius veiksmus atlikti.
 
 ## 2. Agentų sistemos
 
-Kursas apima tris pagrindines agentų kūrimo sistemas:
+Kursas naudoja **Microsoft Agent Framework (MAF)** su **Azure AI Foundry Agent Service V2**, skirtą agentams kurti:
 
-| Sistema | Fokusas | Geriausia skirta |
-|---------|---------|------------------|
-| **Semantic Kernel** | Produkcijai paruoštas SDK .NET/Python | Įmonių programoms, AI integracijai su esamu kodu. |
-| **AutoGen** | Daugiaagentinė bendradarbiavimas | Sudėtingoms situacijoms, reikalaujančioms kelių specializuotų agentų bendravimo. |
-| **Azure AI Agent Service** | Valdoma debesų paslauga | Saugiam, masteliui pritaikytam diegimui su įdiegtu būsenos valdymu. |
+| Sudedamoji dalis | Dėmesys | Geriausia |
+|------------------|---------|-----------|
+| **Microsoft Agent Framework** | Vieningas Python/C# SDK agentams, įrankiams ir darbų srautams | Agentų kūrimui su įrankiais, daugiagentinių darbų srautų valdymui ir gamybos šablonams. |
+| **Azure AI Foundry Agent Service** | Valdomoji debesijos vykdymo aplinka | Saugiam, masteliu pritaikomam diegimui su integruotu būsenos valdymu, stebėjimu ir patikimumu. |
 
 ## 3. Agentų dizaino šablonai
 
-Dizaino šablonai padeda struktūruoti agentų veikimą, kad problemos būtų patikimai sprendžiamos.
+Dizaino šablonai padeda struktūruoti, kaip agentai veikia, kad patikimai spręstų problemas.
 
-### **Įrankių naudojimo šablonas** (4 pamoka)  
-Šis šablonas leidžia agentams bendrauti su išoriniu pasauliu.  
-- **Sąvoka**: agentui pateikiama „schema“ (sąrašas prieinamų funkcijų ir jų parametrų). DKM nusprendžia, *kurį* įrankį iškviesti ir su *kokiais* argumentais pagal vartotojo užklausą.  
-- **Srautas**: Vartotojo užklausa -> DKM -> **Įrankio pasirinkimas** -> **Įrankio vykdymas** -> DKM (su įrankio rezultatu) -> Galutinis atsakymas.  
-- **Naudojimo atvejai**: realaus laiko duomenų gavimas (oras, akcijų kainos), skaičiavimų atlikimas, kodo vykdymas.
+### **Įrankių naudojimo šablonas** (4 pamoka)
+Šis šablonas leidžia agentams bendrauti su išoriniu pasauliu.
+- **Sąvoka**: agentui suteikiamas „schema“ (galimų funkcijų ir jų parametrų sąrašas). LLM nusprendžia, *kurį* įrankį kviesti ir su *kokiais* argumentais, atsižvelgdamas į vartotojo užklausą.
+- **Procesas**: Vartotojo užklausa -> LLM -> **Įrankio pasirinkimas** -> **Įrankio vykdymas** -> LLM (su įrankio išvestimi) -> Galutinis atsakymas.
+- **Panaudojimo atvejai**: realaus laiko duomenų gavimas (oras, akcijų kainos), skaičiavimų atlikimas, kodo vykdymas.
 
-### **Planavimo šablonas** (7 pamoka)  
-Šis šablonas leidžia agentams spręsti sudėtingas, daug žingsnių turinčias užduotis.  
-- **Sąvoka**: agentas suskaido aukšto lygio tikslą į mažesnių užduočių seką.  
-- **Požiūriai**:  
-  - **Užduočių suskaidymas**: „Planuoti kelionę“ į „Rezervuoti skrydį“, „Rezervuoti viešbutį“, „Išsinuomoti automobilį“.  
-  - **Iteratyvus planavimas**: plano peržiūra pagal ankstesnių žingsnių rezultatus (pvz., jei skrydis pilnas, pasirinkti kitą datą).  
-- **Įgyvendinimas**: dažnai įtraukiamas „Planner“ agentas, kuris generuoja struktūruotą planą (pvz., JSON), kurį vėliau vykdo kiti agentai.
+### **Planavimo šablonas** (7 pamoka)
+Šis šablonas leidžia agentams spręsti sudėtingas, daugiasluoksnes užduotis.
+- **Sąvoka**: agentas suskaido aukšto lygio tikslą į mažesnes tarpines užduotis.
+- **Požiūriai**:
+  - **Užduoties skaidymas**: pvz., „Suplanuoti kelionę“ į „Užsakyti skrydį“, „Užsakyti viešbutį“, „Išsinuomoti automobilį“.
+  - **Iteratyvus planavimas**: planas peržiūrimas pagal ankstesnių žingsnių rezultatus (pvz., jei skrydis pilnas, pasirenkama kita data).
+- **Įgyvendinimas**: dažnai ūkinis agentas „Planuotojas“, kuris generuoja struktūruotą planą (pvz., JSON), kuris vėliau vykdomas kitų agentų.
 
 ## 4. Dizaino principai
 
-Kuriant agentus, svarbu atsižvelgti į tris dimensijas:  
-- **Erdvė**: agentai turėtų jungti žmones ir žinias, būti prieinami, bet neįkyrūs.  
-- **Laikas**: agentai turėtų mokytis iš *praeities*, suteikti aktualius paskatinimus *dabartyje*, ir prisitaikyti *ateičiai*.  
-- **Branduolys**: priimti neapibrėžtumą, bet kurti pasitikėjimą per skaidrumą ir vartotojo kontrolę.
+Kuriant agentus, atsižvelkite į tris dimensijas:
+- **Erdvė**: agentai turėtų jungti žmones ir žinias, būti prieinami, bet nepastebimi.
+- **Laikas**: agentai turėtų mokytis iš *praeities*, pateikti tinkamus paskatinimus *dabar* ir prisitaikyti prie *ateities*.
+- **Branduolys**: priimti neapibrėžtumą, bet užtikrinti pasitikėjimą per skaidrumą ir vartotojo kontrolę.
 
 ## 5. Pagrindinių pamokų santrauka
 
-- **1 pamoka**: Agentai yra sistemos, ne tik modeliai. Jie suvokia, mąsto ir veikia.  
-- **2 pamoka**: Tokios sistemos kaip Semantic Kernel ir AutoGen abstrahuoja įrankių kvietimų bei būsenos valdymo sudėtingumą.  
-- **3 pamoka**: Kurkite su skaidrumu ir vartotojo kontrole mintyje.  
-- **4 pamoka**: Įrankiai yra agento „rankos“. Schemos apibrėžimas yra esminis, kad DKM suprastų, kaip jais naudotis.  
-- **7 pamoka**: Planavimas yra agento „vykdomoji funkcija“, leidžianti spręsti sudėtingus darbo srautus.
+- **1 pamoka**: Agentai yra sistemos, ne tik modeliai. Jie suvokia, mąsto ir veikia.
+- **2 pamoka**: Microsoft Agent Framework abstrahuoja sudėtingumą skambinant įrankiams ir valdyti būseną.
+- **3 pamoka**: Kuriant reikėtų galvoti apie skaidrumą ir vartotojo kontrolę.
+- **4 pamoka**: Įrankiai yra agento „rankos“. Schema yra būtina, kad LLM suprastų, kaip juos naudoti.
+- **7 pamoka**: Planavimas yra agento „vykdomoji funkcija“, leidžianti jiems spręsti sudėtingus darbų srautus.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Atsakomybės apribojimas**:
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome suprasti, kad automatizuoti vertimai gali turėti klaidų ar netikslumų. Pirminė dokumento versija gimtąja kalba turėtų būti laikoma autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama kreiptis į profesionalius vertėjus. Mes neatsakome už bet kokius nesusipratimus ar neteisingus aiškinimus, kilusius dėl šio vertimo naudojimo.
+Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatizuoti vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turi būti laikomas autoritetingu šaltiniu. Esant svarbiai informacijai rekomenduojama pasitelkti profesionalų žmogaus vertimą. Mes neatsakome už bet kokius nesusipratimus ar neteisingus aiškinimus, kilusius dėl šio vertimo naudojimo.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
