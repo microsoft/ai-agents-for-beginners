@@ -1,70 +1,69 @@
-# Github MCP Server Example
+# Příklad Github MCP serveru
 
 ## Popis
 
-Toto je demo vytvořené pro hackathon AI Agents pořádaný prostřednictvím Microsoft Reactor.
+Toto byla ukázka vytvořená pro AI Agents Hackathon pořádaný prostřednictvím Microsoft Reactor.
 
-Nástroj slouží k doporučování projektů pro hackathon na základě Github repozitářů uživatele. To se provádí pomocí:
+Tyto nástroje se používají k doporučování hackathonových projektů na základě uživatelových Github repozitářů.
+To probíhá takto:
 
-1. **Github Agent** - Používá Github MCP Server k získání repozitářů a informací o těchto repozitářích.
-2. **Hackathon Agent** - Využívá data od Github Agenta a přichází s kreativními nápady na projekty pro hackathon na základě projektů, jazyků používaných uživatelem a témat hackathonu AI Agents.
-3. **Events Agent** - Na základě návrhů Hackathon Agenta doporučuje Events Agent relevantní události ze série AI Agent Hackathon.
-
+1. **Github Agent** - Pomocí Github MCP Serveru načítá repozitáře a informace o těchto repozitářích.
+2. **Hackathon Agent** - Zpracuje data od Github Agenta a navrhne kreativní nápady na hackathonové projekty založené na projektech, programovacích jazycích, které uživatel používá, a tématech pro AI Agents hackathon.
+3. **Events Agent** - Na základě návrhů Hackathon Agenta doporučí Events Agent relevantní akce ze série AI Agent Hackathon.
 ## Spuštění kódu 
 
 ### Proměnné prostředí
 
-Toto demo využívá Azure Open AI Service, Semantic Kernel, Github MCP Server a Azure AI Search.
+Tato ukázka používá Microsoft Agent Framework, Azure OpenAI Service, the Github MCP Server and Azure AI Search.
 
-Ujistěte se, že máte správně nastavené proměnné prostředí pro použití těchto nástrojů:
+Ujistěte se, že máte nastavené odpovídající proměnné prostředí pro použití těchto nástrojů:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Spuštění Chainlit Serveru
+## Spuštění Chainlit serveru
 
-Pro připojení k MCP serveru toto demo používá Chainlit jako chatovací rozhraní.
+Pro připojení k MCP serveru tato ukázka používá Chainlit jako chatovací rozhraní. 
 
-Pro spuštění serveru použijte následující příkaz ve vašem terminálu:
+Pro spuštění serveru použijte v terminálu následující příkaz:
 
 ```bash
 chainlit run app.py -w
 ```
 
-Tím by se měl spustit váš Chainlit server na `localhost:8000` a zároveň naplnit váš Azure AI Search Index obsahem souboru `event-descriptions.md`.
+Tím by se měl spustit váš Chainlit server na `localhost:8000` a zároveň naplnit váš Azure AI Search Index obsahem souboru `event-descriptions.md`. 
 
-## Připojení k MCP Serveru
+## Připojení k MCP serveru
 
-Pro připojení k Github MCP Serveru klikněte na ikonu "zástrčky" pod chatovacím polem "Type your message here..":
+Pro připojení k Github MCP Serveru vyberte ikonu "plug" pod chatovacím polem "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/cs/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![Připojení MCP](../../../../../translated_images/cs/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Odtud můžete kliknout na "Connect an MCP" a přidat příkaz pro připojení k Github MCP Serveru:
+Odtud můžete kliknout na "Connect an MCP" pro přidání příkazu pro připojení k Github MCP Serveru:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Nahraďte "[YOUR PERSONAL ACCESS TOKEN]" vaším skutečným osobním přístupovým tokenem.
+Nahraďte "[YOUR PERSONAL ACCESS TOKEN]" svým skutečným Personal Access Tokenem. 
 
-Po připojení byste měli vidět (1) vedle ikony zástrčky, což potvrzuje, že je připojeno. Pokud ne, zkuste restartovat Chainlit server pomocí `chainlit run app.py -w`.
+Po připojení byste vedle ikony plug měli vidět (1), což potvrzuje, že je připojeno. Pokud ne, zkuste restartovat chainlit server pomocí `chainlit run app.py -w`.
 
-## Použití dema 
+## Použití ukázky 
 
-Pro zahájení pracovního postupu agenta, který doporučuje projekty pro hackathon, můžete napsat zprávu jako:
+Chcete-li spustit workflow agentů pro doporučování hackathonových projektů, můžete zadat zprávu jako: 
 
-"Doporuč projekty pro hackathon pro Github uživatele koreyspace"
+"Doporučte projekty na hackathon pro uživatele Github koreyspace"
 
-Router Agent analyzuje váš požadavek a určí, která kombinace agentů (GitHub, Hackathon a Events) je nejvhodnější pro zpracování vašeho dotazu. Agenti spolupracují, aby poskytli komplexní doporučení na základě analýzy Github repozitářů, návrhů projektů a relevantních technologických událostí.
+Router Agent analyzuje váš požadavek a určí, která kombinace agentů (GitHub, Hackathon a Events) je nejvhodnější pro zpracování dotazu. Agenti spolupracují, aby poskytli komplexní doporučení založená na analýze Github repozitářů, generování nápadů na projekty a relevantních technologických akcích.
 
 ---
 
-**Prohlášení**:  
-Tento dokument byl přeložen pomocí služby pro automatický překlad [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o přesnost, mějte na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho původním jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+Vyloučení odpovědnosti:
+Tento dokument byl přeložen pomocí AI překladatelské služby Co-op Translator (https://github.com/Azure/co-op-translator). Ačkoli usilujeme o přesnost, vezměte prosím na vědomí, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho mateřském jazyce by měl být považován za závazný zdroj. Pro zásadní informace se doporučuje profesionální lidský překlad. Neneseme odpovědnost za jakákoli nedorozumění nebo chybné výklady, které by mohly vzniknout v důsledku použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -2,69 +2,68 @@
 
 ## Leírás
 
-Ez egy demó, amelyet a Microsoft Reactor által szervezett AI Agents Hackathonra készítettek.
+Ez egy demó volt, amelyet az AI Agents Hackathon keretében hoztak létre a Microsoft Reactor által.
 
-Az eszköz célja, hogy hackathon projektek ajánlásával segítse a felhasználókat a Github repóik alapján. Ez a következőképpen működik:
+Az eszköz célja, hogy javaslatot tegyen hackathon projektekről egy felhasználó Github repóinak alapján.
+Ez a következőképpen történik:
 
-1. **Github Agent** - A Github MCP Server segítségével lekéri a repókat és azok adatait.
-2. **Hackathon Agent** - A Github Agent által gyűjtött adatok alapján kreatív hackathon projektötleteket javasol, figyelembe véve a felhasználó projektjeit, használt programozási nyelveit és az AI Agents hackathon projektpályáit.
-3. **Events Agent** - A Hackathon Agent javaslatai alapján az Events Agent releváns eseményeket ajánl az AI Agents Hackathon sorozatból.
-
-## A kód futtatása
+1. **Github Agent** - A Github MCP Server használata a repók és az azokkal kapcsolatos információk lekéréséhez.
+2. **Hackathon Agent** - A Github Agent adatait felhasználva kreatív hackathon projektötleteket alkot a projektekről, a felhasználó által használt nyelvekről és az AI Agents hackathon projektútvonalairól.
+3. **Events Agent** - A hackathon agent javaslata alapján az events agent ajánlja az AI Agent Hackathon sorozat releváns eseményeit.
+## A kód futtatása 
 
 ### Környezeti változók
 
-Ez a demó az Azure Open AI Service-t, a Semantic Kernel-t, a Github MCP Server-t és az Azure AI Search-t használja.
+Ez a bemutató a Microsoft Agent Frameworköt, az Azure OpenAI Szolgáltatást, a Github MCP Servert és az Azure AI Search-t használja.
 
-Győződj meg róla, hogy a megfelelő környezeti változók be vannak állítva ezekhez az eszközökhöz:
+Győződj meg róla, hogy a megfelelő környezeti változók be vannak állítva ezen eszközök használatához:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## A Chainlit Server futtatása
+## A Chainlit szerver indítása
 
-A MCP serverhez való csatlakozáshoz ez a demó a Chainlit-et használja chat interfészként.
+Az MCP szerverhez való kapcsolódáshoz ez a demó a Chainlit-et használja chat interfészként.
 
-A szerver futtatásához használd az alábbi parancsot a terminálban:
+A szerver indításához használd a következő parancsot a terminálban:
 
 ```bash
 chainlit run app.py -w
 ```
 
-Ez elindítja a Chainlit szervert a `localhost:8000` címen, és feltölti az Azure AI Search Indexet az `event-descriptions.md` tartalmával.
+Ez elindítja a Chainlit szerveredet a `localhost:8000` címen, illetve feltölti az Azure AI Search Indexed az `event-descriptions.md` tartalmával.
 
-## Csatlakozás az MCP Serverhez
+## Kapcsolódás az MCP szerverhez
 
-A Github MCP Serverhez való csatlakozáshoz kattints a "dugó" ikonra a "Írd be az üzeneted ide..." chat mező alatt:
+A Github MCP Serverhez való kapcsolódáshoz válaszd a "dugasz" ikont a "Írd ide az üzeneted.." chatbox alatt:
 
 ![MCP Connect](../../../../../translated_images/hu/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Ezután kattints a "Connect an MCP" gombra, hogy hozzáadd a parancsot a Github MCP Serverhez való csatlakozáshoz:
+Innen kattints a "Connect an MCP" gombra a Github MCP Serverhez való kapcsolódási parancs hozzáadásához:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Cseréld le a "[YOUR PERSONAL ACCESS TOKEN]" szöveget a saját személyes hozzáférési tokenedre.
+Cseréld ki a "[YOUR PERSONAL ACCESS TOKEN]" részt a saját személyes hozzáférési tokenedre.
 
-A csatlakozás után egy (1) jelenik meg a dugó ikon mellett, jelezve, hogy sikeresen csatlakoztál. Ha nem, próbáld újraindítani a Chainlit szervert a `chainlit run app.py -w` parancs segítségével.
+A kapcsolódás után egy (1) jelzésnek kell megjelennie a dugasz ikon mellett, ami megerősíti a kapcsolatot. Ha nem jelenik meg, próbáld újraindítani a chainlit szervert a `chainlit run app.py -w` paranccsal.
 
 ## A demó használata
 
-A hackathon projektek ajánlására szolgáló agent workflow elindításához írhatsz egy üzenetet, például:
+A hackathon projektek ajánlására szolgáló ügynök munkafolyamatának elindításához írhatsz egy üzenetet, például:
 
-"Ajánlj hackathon projekteket a koreyspace Github felhasználónak"
+"Ajánlj hackathon projekteket a Github felhasználónak, koreyspace"
 
-A Router Agent elemzi a kérésedet, és meghatározza, hogy melyik agentek kombinációja (GitHub, Hackathon és Events) a legalkalmasabb a kérdésed kezelésére. Az agentek együttműködve átfogó ajánlásokat nyújtanak a Github repók elemzése, projektötletek kidolgozása és releváns technológiai események alapján.
+A Router Agent elemezni fogja a kérésedet és megállapítja, hogy melyik ügynökök kombinációja (GitHub, Hackathon és Events) a legmegfelelőbb a lekérdezés kezeléséhez. Az ügynökök együttműködnek, hogy átfogó ajánlásokat nyújtsanak GitHub repó elemzés, projektötlet generálás és releváns tech események alapján.
 
 ---
 
-**Felelősség kizárása**:  
-Ez a dokumentum az AI fordítási szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével lett lefordítva. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely a fordítás használatából eredhet.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Jogi nyilatkozat**:
+Ez a dokumentum az AI fordító szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár az pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások tartalmazhatnak hibákat vagy pontatlanságokat. Az eredeti dokumentum az anyanyelvén tekintendő hivatalos forrásnak. Kritikus információk esetén szakképzett emberi fordítás igénybevétele javasolt. Nem vállalunk felelősséget az ezen fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
