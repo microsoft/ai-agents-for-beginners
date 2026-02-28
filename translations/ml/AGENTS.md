@@ -1,341 +1,312 @@
 # AGENTS.md
 
-## പ്രോജക്റ്റ് അവലോകനം
+## Project Overview
 
-ഈ റിപോസിറ്ററി "AI Agents for Beginners" എന്ന പേരിൽ ഒരു സമഗ്രമായ വിദ്യാഭ്യാസ കോഴ്സ് ഉൾക്കൊള്ളുന്നു, AI ഏജന്റുകൾ നിർമ്മിക്കാൻ ആവശ്യമായ എല്ലാ കാര്യങ്ങളും പഠിപ്പിക്കുന്നു. ഈ കോഴ്സ് 15+ പാഠങ്ങൾ ഉൾക്കൊള്ളുന്നു, അടിസ്ഥാനങ്ങൾ, ഡിസൈൻ പാറ്റേണുകൾ, ഫ്രെയിംവർക്കുകൾ, AI ഏജന്റുകളുടെ പ്രൊഡക്ഷൻ ഡിപ്ലോയ്‌മെന്റ് എന്നിവയെക്കുറിച്ച് പഠിപ്പിക്കുന്നു.
+This repository contains "AI Agents for Beginners" - a comprehensive educational course teaching everything needed to build AI Agents. The course consists of 15+ lessons covering fundamentals, design patterns, frameworks, and production deployment of AI agents.
 
-**പ്രധാന സാങ്കേതികവിദ്യകൾ:**
+**Key Technologies:**
 - Python 3.12+
-- ഇന്ററാക്ടീവ് പഠനത്തിനുള്ള Jupyter Notebooks
-- AI ഫ്രെയിംവർക്കുകൾ: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Azure AI Services: Azure AI Foundry, Azure AI Agent Service
-- GitHub Models Marketplace (ഉപയോഗിക്കാൻ സൗജന്യ ടയർ ലഭ്യമാണ്)
+- Jupyter Notebooks for interactive learning
+- AI Frameworks: Microsoft Agent Framework (MAF)
+- Azure AI Services: Microsoft Foundry, Azure AI Foundry Agent Service V2
 
-**ആർക്കിടെക്ചർ:**
-- പാഠം അടിസ്ഥാനമാക്കിയുള്ള ഘടന (00-15+ ഡയറക്ടറികൾ)
-- ഓരോ പാഠവും ഉൾക്കൊള്ളുന്നു: README ഡോക്യുമെന്റേഷൻ, കോഡ് സാമ്പിളുകൾ (Jupyter notebooks), ചിത്രങ്ങൾ
-- ഓട്ടോമേറ്റഡ് ട്രാൻസ്ലേഷൻ സിസ്റ്റം വഴി മൾട്ടി-ലാംഗ്വേജ് പിന്തുണ
-- ഓരോ പാഠത്തിനും നിരവധി ഫ്രെയിംവർക്കുകൾ (Semantic Kernel, AutoGen, Azure AI Agent Service)
+**Architecture:**
+- Lesson-based structure (00-15+ directories)
+- Each lesson contains: README documentation, code samples (Jupyter notebooks), and images
+- Multi-language support via automated translation system
+- One Python notebook per lesson using Microsoft Agent Framework
 
-## സെറ്റപ്പ് കമാൻഡുകൾ
+## Setup Commands
 
-### മുൻ‌വശതകൾ
-- Python 3.12 അല്ലെങ്കിൽ അതിനുമുകളിൽ
-- GitHub അക്കൗണ്ട് (GitHub Models - സൗജന്യ ടയർ)
-- Azure സബ്‌സ്‌ക്രിപ്ഷൻ (ഓപ്ഷണൽ, Azure AI സേവനങ്ങൾക്കായി)
+### Prerequisites
+- Python 3.12 or higher
+- Azure subscription (for Azure AI Foundry)
+- Azure CLI installed and authenticated (`az login`)
 
-### പ്രാരംഭ സെറ്റപ്പ്
+### Initial Setup
 
-1. **റിപോസിറ്ററി ക്ലോൺ ചെയ്യുക അല്ലെങ്കിൽ ഫോർക്ക് ചെയ്യുക:**
+1. **Clone or fork the repository:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
-   # അല്ലെങ്കിൽ
+   # അതവാ
    git clone https://github.com/microsoft/ai-agents-for-beginners.git
    cd ai-agents-for-beginners
    ```
 
-2. **Python വെർച്വൽ എൻവയോൺമെന്റ് സൃഷ്ടിച്ച് ആക്ടിവേറ്റ് ചെയ്യുക:**
+2. **Create and activate Python virtual environment:**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # വിൻഡോസ് ഓപ്പറേറ്റിംഗ് സിസ്റ്റത്തിൽ: venv\Scripts\activate
+   source venv/bin/activate  # Windows-ൽ: venv\Scripts\activate
    ```
 
-3. **ഡിപെൻഡൻസികൾ ഇൻസ്റ്റാൾ ചെയ്യുക:**
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **എൻവയോൺമെന്റ് വേരിയബിളുകൾ സജ്ജമാക്കുക:**
+4. **Set up environment variables:**
    ```bash
    cp .env.example .env
-   # നിങ്ങളുടെ API കീകളും എന്റ്പോയിന്റുകളും ഉപയോഗിച്ച് .env എഡിറ്റ് ചെയ്യുക
+   # നിങ്ങളുടെ API കീകളും എൻഡ്‌പോയിന്റുകളും ചേർത്തുകൊണ്ട് .env ഫയൽ തിരുത്തുക
    ```
 
-### ആവശ്യമായ എൻവയോൺമെന്റ് വേരിയബിളുകൾ
+### Required Environment Variables
 
-**GitHub Models (Free)**:
-- `GITHUB_TOKEN` - GitHub-ൽ നിന്ന് വ്യക്തിഗത ആക്സസ് ടോക്കൺ
+For **Azure AI Foundry** (Required):
+- `AZURE_AI_PROJECT_ENDPOINT` - Azure AI Foundry project endpoint
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Model deployment name (e.g., gpt-4o)
 
-**Azure AI Services** (ഓപ്ഷണൽ):
-- `PROJECT_ENDPOINT` - Azure AI Foundry പ്രോജക്റ്റ് എൻഡ്പോയിന്റ്
-- `AZURE_OPENAI_API_KEY` - Azure OpenAI API കീ
-- `AZURE_OPENAI_ENDPOINT` - Azure OpenAI എൻഡ്പോയിന്റ് URL
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - ചാറ്റ് മോഡലിനുള്ള ഡിപ്ലോയ്‌മെന്റ് നാമം
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - എംബെഡിംഗിനുള്ള ഡിപ്ലോയ്‌മെന്റ് നാമം
-- `.env.example`-ൽ കാണുന്ന അധിക Azure കോൺഫിഗറേഷൻ
+For **Azure AI Search** (Lesson 05 - RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search endpoint
+- `AZURE_SEARCH_API_KEY` - Azure AI Search API key
 
-## ഡെവലപ്മെന്റ് വർക്‌ഫ്ലോ
+Authentication: Run `az login` before running notebooks (uses `AzureCliCredential`).
 
-### Jupyter Notebooks പ്രവർത്തിപ്പിക്കൽ
+## Development Workflow
 
-ഓരോ പാഠവും വിവിധ ഫ്രെയിംവർക്കുകൾക്കുള്ള നിരവധി Jupyter notebooks ഉൾക്കൊള്ളുന്നു:
+### Running Jupyter Notebooks
 
-1. **Jupyter ആരംഭിക്കുക:**
+Each lesson contains multiple Jupyter notebooks for different frameworks:
+
+1. **Start Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **ഒരു പാഠം ഡയറക്ടറിയിലേക്ക് നാവിഗേറ്റ് ചെയ്യുക** (ഉദാ., `01-intro-to-ai-agents/code_samples/`)
+2. **Navigate to a lesson directory** (e.g., `01-intro-to-ai-agents/code_samples/`)
 
-3. **Notebooks തുറന്ന് പ്രവർത്തിപ്പിക്കുക:**
-   - `*-semantic-kernel.ipynb` - Semantic Kernel ഫ്രെയിംവർക്കിന്റെ ഉപയോഗം
-   - `*-autogen.ipynb` - AutoGen ഫ്രെയിംവർക്കിന്റെ ഉപയോഗം
-   - `*-python-agent-framework.ipynb` - Microsoft Agent Framework (Python) ഉപയോഗം
-   - `*-dotnet-agent-framework.ipynb` - Microsoft Agent Framework (.NET) ഉപയോഗം
-   - `*-azureaiagent.ipynb` - Azure AI Agent Service ഉപയോഗം
+3. **Open and run notebooks:**
+   - `*-python-agent-framework.ipynb` - Using Microsoft Agent Framework (Python)
+   - `*-dotnet-agent-framework.ipynb` - Using Microsoft Agent Framework (.NET)
 
-### വ്യത്യസ്ത ഫ്രെയിംവർക്കുകൾ ഉപയോഗിച്ച് പ്രവർത്തിക്കൽ
+### Working with Microsoft Agent Framework
 
-**Semantic Kernel + GitHub Models:**
-- GitHub അക്കൗണ്ടിനൊപ്പം സൗജന്യ ടയർ ലഭ്യമാണ്
-- പഠനത്തിനും പരീക്ഷണത്തിനും അനുയോജ്യം
-- ഫയൽ പാറ്റേൺ: `*-semantic-kernel*.ipynb`
+**Microsoft Agent Framework + Azure AI Foundry:**
+- Requires Azure subscription
+- Uses `AzureAIProjectAgentProvider` for Agent Service V2 (agents visible in Foundry portal)
+- Production-ready with built-in observability
+- File pattern: `*-python-agent-framework.ipynb`
 
-**AutoGen + GitHub Models:**
-- GitHub അക്കൗണ്ടിനൊപ്പം സൗജന്യ ടയർ ലഭ്യമാണ്
-- മൾട്ടി-ഏജന്റ് ഓർക്കസ്ട്രേഷൻ ശേഷികൾ
-- ഫയൽ പാറ്റേൺ: `*-autogen.ipynb`
+## Testing Instructions
 
-**Microsoft Agent Framework (MAF):**
-- Microsoft-ന്റെ ഏറ്റവും പുതിയ ഫ്രെയിംവർക്കുകൾ
-- Python, .NET-ൽ ലഭ്യമാണ്
-- ഫയൽ പാറ്റേൺ: `*-agent-framework.ipynb`
+This is an educational repository with example code rather than production code with automated tests. To verify your setup and changes:
 
-**Azure AI Agent Service:**
-- Azure സബ്‌സ്‌ക്രിപ്ഷൻ ആവശ്യമാണ്
-- പ്രൊഡക്ഷൻ-റെഡി ഫീച്ചറുകൾ
-- ഫയൽ പാറ്റേൺ: `*-azureaiagent.ipynb`
+### Manual Testing
 
-## ടെസ്റ്റിംഗ് നിർദ്ദേശങ്ങൾ
-
-ഇത് ഒരു വിദ്യാഭ്യാസ റിപോസിറ്ററിയാണ്, ഉദാഹരണ കോഡുകൾ ഉൾക്കൊള്ളുന്നു, പ്രൊഡക്ഷൻ കോഡിനൊപ്പം ഓട്ടോമേറ്റഡ് ടെസ്റ്റുകൾ ഇല്ല. നിങ്ങളുടെ സെറ്റപ്പ്, മാറ്റങ്ങൾ പരിശോധിക്കാൻ:
-
-### മാനുവൽ ടെസ്റ്റിംഗ്
-
-1. **Python എൻവയോൺമെന്റ് ടെസ്റ്റ് ചെയ്യുക:**
+1. **Test Python environment:**
    ```bash
-   python --version  # 3.12+ ആയിരിക്കണം
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   python --version  # 3.12+ ആകണം
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Notebook പ്രവർത്തനം ടെസ്റ്റ് ചെയ്യുക:**
+2. **Test notebook execution:**
    ```bash
-   # നോട്ട്ബുക്ക് സ്ക്രിപ്റ്റിലേക്ക് മാറ്റി പ്രവർത്തിപ്പിക്കുക (ഇമ്പോർട്ടുകൾ പരിശോധിക്കുന്നു)
+   # നോട്ട്ബുക്കിനെ സ്ക്രിപ്റ്റായി മാറ്റി ഓടിക്കുക (ടെസ്റ്റ് ഇംപോർട്ടുകൾ)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **എൻവയോൺമെന്റ് വേരിയബിളുകൾ പരിശോധിക്കുക:**
+3. **Verify environment variables:**
    ```bash
    python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
    ```
 
-### വ്യക്തിഗത Notebooks പ്രവർത്തിപ്പിക്കൽ
+### Running Individual Notebooks
 
-Jupyter-ൽ notebooks തുറന്ന് സെല്ലുകൾ ക്രമാനുസരിച്ച് പ്രവർത്തിപ്പിക്കുക. ഓരോ notebook-വും സ്വയം-സമ്പൂർണ്ണമാണ്, ഉൾക്കൊള്ളുന്നു:
-- ഇമ്പോർട്ട് സ്റ്റേറ്റ്മെന്റുകൾ
-- കോൺഫിഗറേഷൻ ലോഡിംഗ്
-- ഉദാഹരണ ഏജന്റ് നടപ്പാക്കലുകൾ
-- പ്രതീക്ഷിക്കുന്ന ഔട്ട്പുട്ടുകൾ markdown സെല്ലുകളിൽ
+Open notebooks in Jupyter and execute cells sequentially. Each notebook is self-contained and includes:
+- Import statements
+- Configuration loading
+- Example agent implementations
+- Expected outputs in markdown cells
 
-## കോഡ് സ്റ്റൈൽ
+## Code Style
 
-### Python കൺവെൻഷനുകൾ
+### Python Conventions
 
-- **Python പതിപ്പ്**: 3.12+
-- **കോഡ് സ്റ്റൈൽ**: സ്റ്റാൻഡേർഡ് Python PEP 8 കൺവെൻഷനുകൾ പിന്തുടരുക
-- **Notebooks**: ആശയങ്ങൾ വിശദീകരിക്കാൻ വ്യക്തമായ markdown സെല്ലുകൾ ഉപയോഗിക്കുക
-- **ഇമ്പോർട്ടുകൾ**: സ്റ്റാൻഡേർഡ് ലൈബ്രറി, തർഡ്-പാർട്ടി, ലോക്കൽ ഇമ്പോർട്ടുകൾ പ്രകാരം ഗ്രൂപ്പ് ചെയ്യുക
+- **Python Version**: 3.12+
+- **Code Style**: Follow standard Python PEP 8 conventions
+- **Notebooks**: Use clear markdown cells to explain concepts
+- **Imports**: Group by standard library, third-party, local imports
 
-### Jupyter Notebook കൺവെൻഷനുകൾ
+### Jupyter Notebook Conventions
 
-- കോഡ് സെല്ലുകൾക്ക് മുമ്പ് വിവരണാത്മക markdown സെല്ലുകൾ ഉൾക്കൊള്ളിക്കുക
-- റഫറൻസിനായി notebooks-ൽ ഔട്ട്പുട്ട് ഉദാഹരണങ്ങൾ ചേർക്കുക
-- പാഠ ആശയങ്ങൾ അനുയോജ്യമാക്കുന്ന വ്യക്തമായ വേരിയബിൾ നാമങ്ങൾ ഉപയോഗിക്കുക
-- Notebook പ്രവർത്തന ക്രമം ലീനിയർ ആകാൻ ശ്രദ്ധിക്കുക (സെൽ 1 → 2 → 3...)
+- Include descriptive markdown cells before code cells
+- Add output examples in notebooks for reference
+- Use clear variable names that match lesson concepts
+- Keep notebook execution order linear (cell 1 → 2 → 3...)
 
-### ഫയൽ ഓർഗനൈസേഷൻ
+### File Organization
 
 ```
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
-## നിർമ്മാണവും ഡിപ്ലോയ്‌മെന്റും
+## Build and Deployment
 
-### ഡോക്യുമെന്റേഷൻ നിർമ്മാണം
+### Building Documentation
 
-ഈ റിപോസിറ്ററി ഡോക്യുമെന്റേഷനായി Markdown ഉപയോഗിക്കുന്നു:
-- ഓരോ പാഠം ഫോൾഡറിലും README.md ഫയലുകൾ
-- റിപോസിറ്ററി റൂട്ടിൽ പ്രധാന README.md
-- GitHub Actions വഴി ഓട്ടോമേറ്റഡ് ട്രാൻസ്ലേഷൻ സിസ്റ്റം
+This repository uses Markdown for documentation:
+- README.md files in each lesson folder
+- Main README.md at repository root
+- Automated translation system via GitHub Actions
 
-### CI/CD പൈപ്പ്‌ലൈൻ
+### CI/CD Pipeline
 
-`.github/workflows/`-ൽ സ്ഥിതിചെയ്യുന്നു:
+Located in `.github/workflows/`:
 
-1. **co-op-translator.yml** - 50+ ഭാഷകളിലേക്ക് ഓട്ടോമാറ്റിക് ട്രാൻസ്ലേഷൻ
-2. **welcome-issue.yml** - പുതിയ ഇഷ്യൂ ക്രിയേറ്റർമാരെ സ്വാഗതം ചെയ്യുന്നു
-3. **welcome-pr.yml** - പുതിയ പുൾ റിക്വസ്റ്റ് സംഭാവനകരെ സ്വാഗതം ചെയ്യുന്നു
+1. **co-op-translator.yml** - Automatic translation to 50+ languages
+2. **welcome-issue.yml** - Welcomes new issue creators
+3. **welcome-pr.yml** - Welcomes new pull request contributors
 
-### ഡിപ്ലോയ്‌മെന്റ്
+### Deployment
 
-ഇത് ഒരു വിദ്യാഭ്യാസ റിപോസിറ്ററിയാണ് - ഡിപ്ലോയ്‌മെന്റ് പ്രക്രിയയില്ല. ഉപയോക്താക്കൾ:
-1. റിപോസിറ്ററി ഫോർക്ക് ചെയ്യുക അല്ലെങ്കിൽ ക്ലോൺ ചെയ്യുക
-2. notebooks ലോക്കലായി അല്ലെങ്കിൽ GitHub Codespaces-ൽ പ്രവർത്തിപ്പിക്കുക
-3. ഉദാഹരണങ്ങൾ മാറ്റി പരീക്ഷിച്ച് പഠിക്കുക
+This is an educational repository - no deployment process. Users:
+1. Fork or clone the repository
+2. Run notebooks locally or in GitHub Codespaces
+3. Learn by modifying and experimenting with examples
 
-## പുൾ റിക്വസ്റ്റ് മാർഗനിർദ്ദേശങ്ങൾ
+## Pull Request Guidelines
 
-### സമർപ്പിക്കുന്നതിന് മുമ്പ്
+### Before Submitting
 
-1. **മാറ്റങ്ങൾ ടെസ്റ്റ് ചെയ്യുക:**
-   - ബാധിച്ച notebooks പൂർണ്ണമായി പ്രവർത്തിപ്പിക്കുക
-   - എല്ലാ സെല്ലുകളും പിശകുകൾ കൂടാതെ പ്രവർത്തിക്കുന്നുവെന്ന് ഉറപ്പാക്കുക
-   - ഔട്ട്പുട്ടുകൾ അനുയോജ്യമാണെന്ന് പരിശോധിക്കുക
+1. **Test your changes:**
+   - Run affected notebooks completely
+   - Verify all cells execute without errors
+   - Check that outputs are appropriate
 
-2. **ഡോക്യുമെന്റേഷൻ അപ്ഡേറ്റുകൾ:**
-   - പുതിയ ആശയങ്ങൾ ചേർക്കുമ്പോൾ README.md അപ്ഡേറ്റ് ചെയ്യുക
-   - ക്ലിഷ്ടമായ കോഡിനായി notebooks-ൽ കമന്റുകൾ ചേർക്കുക
-   - markdown സെല്ലുകൾ ഉദ്ദേശ്യം വിശദീകരിക്കുന്നുവെന്ന് ഉറപ്പാക്കുക
+2. **Documentation updates:**
+   - Update README.md if adding new concepts
+   - Add comments in notebooks for complex code
+   - Ensure markdown cells explain the purpose
 
-3. **ഫയൽ മാറ്റങ്ങൾ:**
-   - `.env` ഫയലുകൾ കമ്മിറ്റ് ചെയ്യുന്നത് ഒഴിവാക്കുക (`.env.example` ഉപയോഗിക്കുക)
-   - `venv/` അല്ലെങ്കിൽ `__pycache__/` ഡയറക്ടറികൾ കമ്മിറ്റ് ചെയ്യരുത്
-   - ആശയങ്ങൾ കാണിക്കുന്നപ്പോൾ notebook ഔട്ട്പുട്ടുകൾ സൂക്ഷിക്കുക
-   - താൽക്കാലിക ഫയലുകളും ബാക്കപ്പ് notebooks (`*-backup.ipynb`) നീക്കം ചെയ്യുക
+3. **File changes:**
+   - Avoid committing `.env` files (use `.env.example`)
+   - Don't commit `venv/` or `__pycache__/` directories
+   - Keep notebook outputs when they demonstrate concepts
+   - Remove temporary files and backup notebooks (`*-backup.ipynb`)
 
-### PR ടൈറ്റിൽ ഫോർമാറ്റ്
+### PR Title Format
 
-വിവരണാത്മകമായ ടൈറ്റിലുകൾ ഉപയോഗിക്കുക:
+Use descriptive titles:
 - `[Lesson-XX] Add new example for <concept>`
 - `[Fix] Correct typo in lesson-XX README`
 - `[Update] Improve code sample in lesson-XX`
 - `[Docs] Update setup instructions`
 
-### ആവശ്യമായ പരിശോധനകൾ
+### Required Checks
 
-- Notebooks പിശകുകൾ കൂടാതെ പ്രവർത്തിക്കണം
-- README ഫയലുകൾ വ്യക്തവും കൃത്യവുമാകണം
-- റിപോസിറ്ററിയിലെ നിലവിലുള്ള കോഡ് പാറ്റേണുകൾ പിന്തുടരുക
-- മറ്റ് പാഠങ്ങളുമായി സുസ്ഥിരത നിലനിർത്തുക
+- Notebooks should execute without errors
+- README files should be clear and accurate
+- Follow existing code patterns in the repository
+- Maintain consistency with other lessons
 
-## അധിക കുറിപ്പുകൾ
+## Additional Notes
 
-### സാധാരണ പ്രശ്നങ്ങൾ
+### Common Gotchas
 
-1. **Python പതിപ്പ് പൊരുത്തക്കേട്:**
-   - Python 3.12+ ഉപയോഗിക്കുന്നുവെന്ന് ഉറപ്പാക്കുക
-   - ചില പാക്കേജുകൾ പഴയ പതിപ്പുകളിൽ പ്രവർത്തിക്കില്ല
-   - Python പതിപ്പ് വ്യക്തമായി വ്യക്തമാക്കാൻ `python3 -m venv` ഉപയോഗിക്കുക
+1. **Python version mismatch:**
+   - Ensure Python 3.12+ is used
+   - Some packages may not work with older versions
+   - Use `python3 -m venv` to specify Python version explicitly
 
-2. **എൻവയോൺമെന്റ് വേരിയബിളുകൾ:**
-   - `.env.example`-ൽ നിന്ന് `.env` സൃഷ്ടിക്കുക
-   - `.env` ഫയൽ കമ്മിറ്റ് ചെയ്യരുത് (`.gitignore`-ൽ ഉൾക്കൊള്ളുന്നു)
-   - GitHub ടോക്കൺ അനുയോജ്യമായ അനുമതികൾ ആവശ്യമുണ്ട്
+2. **Environment variables:**
+   - Always create `.env` from `.env.example`
+   - Don't commit `.env` file (it's in `.gitignore`)
+   - GitHub token needs appropriate permissions
 
-3. **പാക്കേജ് പൊരുത്തക്കേട്:**
-   - പുതിയ വെർച്വൽ എൻവയോൺമെന്റ് ഉപയോഗിക്കുക
-   - `requirements.txt`-ൽ നിന്ന് ഇൻസ്റ്റാൾ ചെയ്യുക, വ്യക്തിഗത പാക്കേജുകൾ അല്ല
-   - ചില notebooks-ൽ അവരുടെ markdown സെല്ലുകളിൽ പരാമർശിച്ചിരിക്കുന്ന അധിക പാക്കേജുകൾ ആവശ്യമായേക്കാം
+3. **Package conflicts:**
+   - Use a fresh virtual environment
+   - Install from `requirements.txt` rather than individual packages
+   - Some notebooks may require additional packages mentioned in their markdown cells
 
-4. **Azure സേവനങ്ങൾ:**
-   - Azure AI സേവനങ്ങൾക്ക് സജീവ സബ്‌സ്‌ക്രിപ്ഷൻ ആവശ്യമാണ്
-   - ചില ഫീച്ചറുകൾ പ്രദേശത്തെ പ്രത്യേകമാണ്
-   - GitHub Models-ന്റെ സൗജന്യ ടയർ പരിമിതികൾ ബാധകമാണ്
+4. **Azure services:**
+   - Azure AI services require active subscription
+   - Some features are region-specific
+   - Free tier limitations apply to GitHub Models
 
-### പഠന പാത
+### Learning Path
 
-പാഠങ്ങൾ വഴി ശുപാർശ ചെയ്യുന്ന പുരോഗതി:
-1. **00-course-setup** - എൻവയോൺമെന്റ് സെറ്റപ്പിനായി ഇവിടെ ആരംഭിക്കുക
-2. **01-intro-to-ai-agents** - AI ഏജന്റ് അടിസ്ഥാനങ്ങൾ മനസ്സിലാക്കുക
-3. **02-explore-agentic-frameworks** - വ്യത്യസ്ത ഫ്രെയിംവർക്കുകൾക്കുറിച്ച് പഠിക്കുക
-4. **03-agentic-design-patterns** - പ്രധാന ഡിസൈൻ പാറ്റേണുകൾ
-5. നമ്പർ ചെയ്ത പാഠങ്ങൾ ക്രമാനുസരിച്ച് തുടരുക
+Recommended progression through lessons:
+1. **00-course-setup** - Start here for environment setup
+2. **01-intro-to-ai-agents** - Understand AI agent fundamentals
+3. **02-explore-agentic-frameworks** - Learn about different frameworks
+4. **03-agentic-design-patterns** - Core design patterns
+5. Continue through numbered lessons sequentially
 
-### ഫ്രെയിംവർക്കിന്റെ തിരഞ്ഞെടുപ്പ്
+### Framework Selection
 
-നിങ്ങളുടെ ലക്ഷ്യങ്ങൾ അടിസ്ഥാനമാക്കി ഫ്രെയിംവർക്കുകൾ തിരഞ്ഞെടുക്കുക:
-- **പഠനം/പ്രോട്ടോടൈപ്പിംഗ്**: Semantic Kernel + GitHub Models (സൗജന്യം)
-- **മൾട്ടി-ഏജന്റ് സിസ്റ്റങ്ങൾ**: AutoGen
-- **ഏറ്റവും പുതിയ ഫീച്ചറുകൾ**: Microsoft Agent Framework (MAF)
-- **പ്രൊഡക്ഷൻ ഡിപ്ലോയ്‌മെന്റ്**: Azure AI Agent Service
+Choose framework based on your goals:
+- **All lessons**: Microsoft Agent Framework (MAF) with `AzureAIProjectAgentProvider`
+- **Agents register server-side** in Azure AI Foundry Agent Service V2 and are visible in the Foundry portal
 
-### സഹായം ലഭ്യമാക്കൽ
+### Getting Help
 
-- [Azure AI Foundry Community Discord](https://aka.ms/ai-agents/discord) ചേരുക
-- പ്രത്യേക മാർഗനിർദ്ദേശങ്ങൾക്കായി പാഠം README ഫയലുകൾ അവലോകനം ചെയ്യുക
-- കോഴ്സ് അവലോകനത്തിനായി പ്രധാന [README.md](./README.md) പരിശോധിക്കുക
-- വിശദമായ സെറ്റപ്പ് നിർദ്ദേശങ്ങൾക്കായി [Course Setup](./00-course-setup/README.md) കാണുക
+- Join the [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
+- Review lesson README files for specific guidance
+- Check the main [README.md](./README.md) for course overview
+- Refer to [Course Setup](./00-course-setup/README.md) for detailed setup instructions
 
-### സംഭാവന
+### Contributing
 
-ഇത് ഒരു ഓപ്പൺ വിദ്യാഭ്യാസ പ്രോജക്റ്റാണ്. സംഭാവനകൾ സ്വാഗതം ചെയ്യുന്നു:
-- കോഡ് ഉദാഹരണങ്ങൾ മെച്ചപ്പെടുത്തുക
-- ടൈപ്പോകൾ അല്ലെങ്കിൽ പിശകുകൾ ശരിയാക്കുക
-- വ്യക്തീകരിക്കുന്ന കമന്റുകൾ ചേർക്കുക
-- പുതിയ പാഠ വിഷയങ്ങൾ നിർദ്ദേശിക്കുക
-- അധിക ഭാഷകളിലേക്ക് വിവർത്തനം ചെയ്യുക
+This is an open educational project. Contributions welcome:
+- Improve code examples
+- Fix typos or errors
+- Add clarifying comments
+- Suggest new lesson topics
+- Translate to additional languages
 
-നിലവിലെ ആവശ്യങ്ങൾക്കായി [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) കാണുക.
+See [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) for current needs.
 
-## പ്രോജക്റ്റ്-സ്പെസിഫിക് കോൺടെക്സ്റ്റ്
+## Project-Specific Context
 
-### മൾട്ടി-ലാംഗ്വേജ് പിന്തുണ
+### Multi-Language Support
 
-ഈ റിപോസിറ്ററി ഒരു ഓട്ടോമേറ്റഡ് ട്രാൻസ്ലേഷൻ സിസ്റ്റം ഉപയോഗിക്കുന്നു:
-- 50+ ഭാഷകൾ പിന്തുണയ്ക്കുന്നു
-- `/translations/<lang-code>/` ഡയറക്ടറികളിൽ വിവർത്തനങ്ങൾ
-- GitHub Actions വർക്‌ഫ്ലോ ട്രാൻസ്ലേഷൻ അപ്ഡേറ്റുകൾ കൈകാര്യം ചെയ്യുന്നു
-- റിപോസിറ്ററി റൂട്ടിൽ ഉറവിട ഫയലുകൾ ഇംഗ്ലീഷിൽ
+This repository uses an automated translation system:
+- 50+ languages supported
+- Translations in `/translations/<lang-code>/` directories
+- GitHub Actions workflow handles translation updates
+- Source files are in English at repository root
 
-### പാഠ ഘടന
+### Lesson Structure
 
-ഓരോ പാഠവും ഒരു സുസ്ഥിര പാറ്റേൺ പിന്തുടരുന്നു:
-1. വീഡിയോ തമ്പ്‌നെയിൽ ലിങ്ക് സഹിതം
-2. എഴുത്ത് പാഠ ഉള്ളടക്കം (README.md)
-3. വിവിധ ഫ്രെയിംവർക്കുകളിൽ കോഡ് സാമ്പിളുകൾ
-4. പഠന ലക്ഷ്യങ്ങൾ, മുൻ‌വശതകൾ
-5. അധിക പഠന വിഭവങ്ങൾ ലിങ്ക് ചെയ്തിരിക്കുന്നു
+Each lesson follows a consistent pattern:
+1. Video thumbnail with link
+2. Written lesson content (README.md)
+3. Code samples in multiple frameworks
+4. Learning objectives and prerequisites
+5. Extra learning resources linked
 
-### കോഡ് സാമ്പിൾ നാമകരണം
+### Code Sample Naming
 
-ഫോർമാറ്റ്: `<lesson-number>-<framework-name>.ipynb`
-- `04-semantic-kernel.ipynb` - പാഠം 4, Semantic Kernel
-- `07-autogen.ipynb` - പാഠം 7, AutoGen
-- `14-python-agent-framework.ipynb` - പാഠം 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - പാഠം 14, MAF .NET
+Format: `<lesson-number>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Lesson 1, MAF Python
+- `14-sequential.ipynb` - Lesson 14, MAF advanced patterns
 
-### പ്രത്യേക ഡയറക്ടറികൾ
+### Special Directories
 
-- `translated_images/` - വിവർത്തനങ്ങൾക്കുള്ള ലോക്കലൈസ്ഡ് ചിത്രങ്ങൾ
-- `images/` - ഇംഗ്ലീഷ് ഉള്ളടക്കത്തിനുള്ള ഒറിജിനൽ ചിത്രങ്ങൾ
-- `.devcontainer/` - VS Code ഡെവലപ്മെന്റ് കണ്ടെയ്നർ കോൺഫിഗറേഷൻ
-- `.github/` - GitHub Actions വർക്‌ഫ്ലോയും ടെംപ്ലേറ്റുകളും
+- `translated_images/` - Localized images for translations
+- `images/` - Original images for English content
+- `.devcontainer/` - VS Code development container configuration
+- `.github/` - GitHub Actions workflows and templates
 
-### ഡിപെൻഡൻസികൾ
+### Dependencies
 
-`requirements.txt`-ൽ നിന്ന് പ്രധാന പാക്കേജുകൾ:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - AutoGen ഫ്രെയിംവർക്കുകൾ
-- `semantic-kernel` - Semantic Kernel ഫ്രെയിംവർക്കുകൾ
+Key packages from `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
-- `azure-ai-inference`, `azure-ai-projects` - Azure AI സേവനങ്ങൾ
-- `azure-search-documents` - Azure AI Search ഇന്റഗ്രേഷൻ
-- `chromadb` - RAG ഉദാഹരണങ്ങൾക്കുള്ള വെക്ടർ ഡാറ്റാബേസ്
-- `chainlit` - ചാറ്റ് UI ഫ്രെയിംവർക്കുകൾ
-- `browser_use` - ഏജന്റുകൾക്കുള്ള ബ്രൗസർ ഓട്ടോമേഷൻ
-- `mcp[cli]` - മോഡൽ കോൺടെക്സ്റ്റ് പ്രോട്ടോക്കോൾ പിന്തുണ
-- `mem0ai` - ഏജന്റുകൾക്കുള്ള മെമ്മറി മാനേജ്മെന്റ്
+- `a2a-sdk` - Agent-to-Agent protocol support
+- `azure-ai-inference`, `azure-ai-projects` - Azure AI services
+- `azure-identity` - Azure authentication (AzureCliCredential)
+- `azure-search-documents` - Azure AI Search integration
+- `mcp[cli]` - Model Context Protocol support
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**അസത്യവാദം**:  
-ഈ രേഖ AI വിവർത്തന സേവനമായ [Co-op Translator](https://github.com/Azure/co-op-translator) ഉപയോഗിച്ച് വിവർത്തനം ചെയ്തതാണ്. ഞങ്ങൾ കൃത്യതയ്ക്കായി ശ്രമിക്കുന്നുവെങ്കിലും, ഓട്ടോമേറ്റഡ് വിവർത്തനങ്ങളിൽ പിശകുകൾ അല്ലെങ്കിൽ തെറ്റായ വിവരങ്ങൾ ഉണ്ടാകാൻ സാധ്യതയുണ്ട്. അതിന്റെ സ്വാഭാവിക ഭാഷയിലുള്ള മൗലിക രേഖ പ്രാമാണികമായ ഉറവിടമായി കണക്കാക്കണം. നിർണായകമായ വിവരങ്ങൾക്ക്, പ്രൊഫഷണൽ മനുഷ്യ വിവർത്തനം ശുപാർശ ചെയ്യുന്നു. ഈ വിവർത്തനം ഉപയോഗിക്കുന്നതിൽ നിന്നുണ്ടാകുന്ന തെറ്റിദ്ധാരണകൾക്കോ തെറ്റായ വ്യാഖ്യാനങ്ങൾക്കോ ഞങ്ങൾ ഉത്തരവാദികളല്ല.
+അസ്വീകാരം:
+ഈ രേഖ AI തർജ്ജമാ സേവനമായ [Co-op Translator](https://github.com/Azure/co-op-translator) ഉപയോഗിച്ച് തർജ്ജമ ചെയ്തത് ആണ്. ഞങ്ങൾ കൃത്യതയ്ക്ക് ശ്രമിക്കുന്നുവെങ്കിലും, സ്വയംക്രമിത തർജ്ജമകൾ പിശകുകളും അസത്യതകളും ഉൾക്കൊള്ളാമെന്ന് ദയവായി ശ്രദ്ധിക്കുക. മൂലഭാഷയിലെ അസൽ രേഖയെ അധികാരപരമായ ഉറവിടമായി കരുതണം. നിർണായകമായ വിവരങ്ങൾക്ക് 전문 മാനവ തർജ്ജമ ശുപാർശ ചെയ്യപ്പെടുന്നു. ഈ തർജ്ജമ ഉപയോഗിച്ചതിന്റെ ഫലമായി ഉണ്ടായ ഏതെങ്കിലും തെറ്റിദ്ധാരണകൾക്കും തെറ്റുവ്യാഖ്യാനങ്ങൾക്കും ഞങ്ങൾ ഉത്തരവാദികളല്ല.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
