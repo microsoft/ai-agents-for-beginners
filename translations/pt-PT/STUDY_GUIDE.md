@@ -1,67 +1,66 @@
-# Agentes de IA para Iniciantes - Guia de Estudo & Resumo do Curso
+# Agentes de IA para Iniciantes - Guia de Estudo e Resumo do Curso
 
 Este guia fornece um resumo do curso "Agentes de IA para Iniciantes" e explica conceitos-chave, frameworks e padrões de design para construir Agentes de IA.
 
 ## 1. Introdução aos Agentes de IA
 
 **O que são Agentes de IA?**
-Agentes de IA são sistemas que estendem as capacidades dos Grandes Modelos de Linguagem (LLMs) ao dar-lhes acesso a **ferramentas**, **conhecimento** e **memória**. Ao contrário de um chatbot padrão de LLM que apenas gera texto com base nos dados de treino, um Agente de IA pode:
-- **Perspetivar** o seu ambiente (através de sensores ou entradas).
+Os Agentes de IA são sistemas que estendem as capacidades dos Large Language Models (LLMs) dando-lhes acesso a **ferramentas**, **conhecimento** e **memória**. Ao contrário de um chatbot LLM padrão que apenas gera texto com base nos dados de treino, um Agente de IA pode:
+- **Perceber** o seu ambiente (via sensores ou entradas).
 - **Raciocinar** sobre como resolver um problema.
-- **Agir** para mudar o ambiente (através de atuadores ou execução de ferramentas).
+- **Agir** para alterar o ambiente (via atuadores ou execução de ferramentas).
 
-**Componentes Chave de um Agente:**
-- **Ambiente**: O espaço onde o agente opera (ex. um sistema de reservas).
-- **Sensores**: Mecanismos para recolher informação (ex. ler uma API).
-- **Atuadores**: Mecanismos para realizar ações (ex. enviar um e-mail).
-- **Cérebro (LLM)**: O motor de raciocínio que planeia e decide quais ações tomar.
+**Componentes-chave de um Agente:**
+- **Ambiente**: O espaço onde o agente opera (por exemplo, um sistema de reservas).
+- **Sensores**: Mecanismos para recolher informação (por exemplo, leitura de uma API).
+- **Atuadores**: Mecanismos para executar ações (por exemplo, envio de um email).
+- **Cérebro (LLM)**: O motor de raciocínio que planeia e decide que ações tomar.
 
 ## 2. Frameworks Agenticos
 
-O curso cobre três frameworks principais para construir agentes:
+O curso utiliza **Microsoft Agent Framework (MAF)** com **Azure AI Foundry Agent Service V2** para construir agentes:
 
-| Framework | Foco | Melhor Para |
-|-----------|-------|-------------|
-| **Semantic Kernel** | SDK pronto para produção para .NET/Python | Aplicações empresariais, integração de IA com código existente. |
-| **AutoGen** | Colaboração multiagente | Cenários complexos que exigem agentes especializados a comunicarem entre si. |
-| **Azure AI Agent Service** | Serviço cloud gerido | Implementação segura e escalável com gestão de estado integrada. |
+| Component | Focus | Best For |
+|-----------|-------|----------|
+| **Microsoft Agent Framework** | Unified Python/C# SDK for agents, tools, and workflows | Building agents with tools, multi-agent workflows, and production patterns. |
+| **Azure AI Foundry Agent Service** | Managed cloud runtime | Secure, scalable deployment with built-in state management, observability, and trust. |
 
-## 3. Padrões de Design Agenticos
+## 3. Padrões de Design para Agentes
 
-Padrões de design ajudam a estruturar como os agentes operam para resolver problemas de forma fiável.
+Os padrões de design ajudam a estruturar como os agentes operam para resolver problemas de forma fiável.
 
 ### **Padrão de Utilização de Ferramentas** (Lição 4)
-Este padrão permite aos agentes interagir com o mundo exterior.
-- **Conceito**: O agente recebe um "esquema" (uma lista de funções disponíveis e seus parâmetros). O LLM decide *qual* ferramenta usar e com *quais* argumentos com base no pedido do utilizador.
-- **Fluxo**: Pedido do Utilizador -> LLM -> **Seleção da Ferramenta** -> **Execução da Ferramenta** -> LLM (com output da ferramenta) -> Resposta Final.
-- **Casos de Uso**: Obtenção de dados em tempo real (tempo, preços de ações), realização de cálculos, execução de código.
+Este padrão permite que os agentes interajam com o mundo exterior.
+- **Conceito**: O agente recebe um "esquema" (uma lista de funções disponíveis e os seus parâmetros). O LLM decide *qual* ferramenta chamar e com *quais* argumentos com base no pedido do utilizador.
+- **Fluxo**: Pedido do Utilizador -> LLM -> **Seleção da Ferramenta** -> **Execução da Ferramenta** -> LLM (com a saída da ferramenta) -> Resposta Final.
+- **Casos de Uso**: Obter dados em tempo real (tempo, preços de ações), efetuar cálculos, executar código.
 
 ### **Padrão de Planeamento** (Lição 7)
-Este padrão permite aos agentes resolver tarefas complexas e multi-etapas.
-- **Conceito**: O agente divide um objetivo de alto nível numa sequência de subtarefas menores.
+Este padrão permite que os agentes resolvam tarefas complexas e com vários passos.
+- **Conceito**: O agente divide um objetivo de alto nível numa sequência de subtarefas mais pequenas.
 - **Abordagens**:
-  - **Decomposição da Tarefa**: Dividir "Planear uma viagem" em "Reservar voo", "Reservar hotel", "Alugar carro".
-  - **Planeamento Iterativo**: Reavaliar o plano com base no resultado das etapas anteriores (ex. se o voo estiver lotado, escolher outra data).
-- **Implementação**: Frequentemente envolve um agente "Planeador" que gera um plano estruturado (ex. JSON) que é depois executado por outros agentes.
+  - **Decomposição de Tarefas**: Dividir "Planear uma viagem" em "Reservar voo", "Reservar hotel", "Alugar carro".
+  - **Planeamento Iterativo**: Reavaliar o plano com base na saída de passos anteriores (por exemplo, se o voo estiver cheio, escolher outra data).
+- **Implementação**: Frequentemente envolve um agente "Planeador" que gera um plano estruturado (por exemplo, JSON) que é então executado por outros agentes.
 
 ## 4. Princípios de Design
 
 Ao desenhar agentes, considere três dimensões:
 - **Espaço**: Os agentes devem ligar pessoas e conhecimento, ser acessíveis mas discretos.
-- **Tempo**: Os agentes devem aprender com o *Passado*, fornecer sugestões relevantes no *Presente* e adaptar-se para o *Futuro*.
-- **Núcleo**: Abraçar a incerteza mas estabelecer confiança através da transparência e controlo do utilizador.
+- **Tempo**: Os agentes devem aprender com o *Passado*, fornecer sugestões relevantes no *Agora*, e adaptar-se para o *Futuro*.
+- **Núcleo**: Aceitar a incerteza, mas estabelecer confiança através da transparência e do controlo do utilizador.
 
 ## 5. Resumo das Lições Principais
 
-- **Lição 1**: Agentes são sistemas, não apenas modelos. Eles percebem, raciocinam e agem.
-- **Lição 2**: Frameworks como Semantic Kernel e AutoGen abstraem a complexidade da chamada de ferramentas e gestão de estado.
-- **Lição 3**: Projetar com transparência e controlo do utilizador em mente.
-- **Lição 4**: Ferramentas são as "mãos" do agente. A definição do esquema é crucial para o LLM entender como usá-las.
+- **Lição 1**: Os agentes são sistemas, não apenas modelos. Eles percebem, raciocinam e atuam.
+- **Lição 2**: O Microsoft Agent Framework abstrai a complexidade da chamada de ferramentas e da gestão de estado.
+- **Lição 3**: Conceber com transparência e controlo do utilizador em mente.
+- **Lição 4**: As ferramentas são as "mãos" do agente. A definição do esquema é crucial para o LLM compreender como usá-las.
 - **Lição 7**: O planeamento é a "função executiva" do agente, permitindo-lhe enfrentar fluxos de trabalho complexos.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Aviso Legal**:
-Este documento foi traduzido utilizando o serviço de tradução automática [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos pela precisão, por favor tenha em consideração que traduções automatizadas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte autorizada. Para informações críticas, recomenda-se tradução profissional feita por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações erradas decorrentes do uso desta tradução.
+**Isenção de responsabilidade**:
+Este documento foi traduzido usando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos empenhemos em garantir a precisão, esteja ciente de que traduções automatizadas podem conter erros ou imprecisões. O documento original, no seu idioma nativo, deve ser considerado a fonte autoritativa. Para informação crítica, recomenda-se uma tradução profissional realizada por um tradutor humano. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas decorrentes da utilização desta tradução.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

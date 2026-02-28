@@ -1,170 +1,170 @@
-# ਏਆਈ ਏਜੰਟਾਂ ਲਈ ਮੈਮੋਰੀ 
-[![ਏਜੈਂਟ ਮੈਮੋਰੀ](../../../translated_images/pa/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+# Memory for AI Agents 
+[![ਏਜੰਟ ਮੈਮਰੀ](../../../translated_images/pa/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-ਜਦੋਂ ਏਆਈ ਏਜੰਟ ਬਣਾਉਣ ਦੇ ਵਿਲੱਖਣ ਫਾਇਦਿਆਂ ਬਾਰੇ ਗੱਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ, ਤਾਂ ਦੋ ਮੁੱਖ ਚੀਜ਼ਾਂ ਦੀ ਚਰਚਾ ਹੁੰਦੀ ਹੈ: ਟਾਸਕ ਪੂਰੇ ਕਰਨ ਲਈ ਟੂਲਾਂ ਨੂੰ ਕਾਲ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਅਤੇ ਸਮੇਂ ਦੇ ਨਾਲ ਸੁਧਾਰ ਕਰਨ ਦੀ ਸਮਰੱਥਾ। ਮੈਮੋਰੀ ਇੱਕ ਸਵੈ-ਸੁਧਾਰ ਕਰਨ ਵਾਲੇ ਏਜੰਟ ਦੀ ਨੀਂਹ ਹੈ ਜੋ ਸਾਡੇ ਯੂਜ਼ਰਾਂ ਲਈ ਵਧੀਆ ਤਜਰਬੇ ਬਣਾ ਸਕਦਾ ਹੈ।
+When discussing the unique benefits of creating AI Agents, two things are mainly discussed: the ability to call tools to complete tasks and the ability to improve over time. Memory is at the foundation of creating self-improving agent that can create better experiences for our users.
 
-ਇਸ ਲੈਸਨ ਵਿੱਚ, ਅਸੀਂ ਦੇਖਾਂਗੇ ਕਿ ਏਆਈ ਏਜੰਟਾਂ ਲਈ ਮੈਮੋਰੀ ਕੀ ਹੈ ਅਤੇ ਅਸੀਂ ਇਸ ਨੂੰ ਕਿਵੇਂ ਪ੍ਰਬੰਧਿਤ ਕਰ ਸਕਦੇ ਹਾਂ ਅਤੇ ਆਪਣੇ ਐਪਲੀਕੇਸ਼ਨਾਂ ਦੇ ਫਾਇਦੇ ਲਈ ਇਸ ਨੂੰ ਕਿਵੇਂ ਵਰਤ ਸਕਦੇ ਹਾਂ।
+In this lesson, we will look at what memory is for AI Agents and how we can manage it and use it for the benefit of our applications.
 
-## ਤਾਰੁਫ
+## Introduction
 
-ਇਸ ਲੈਸਨ ਵਿੱਚ ਇਹ ਕਵਰ ਕੀਤਾ ਜਾਵੇਗਾ:
+This lesson will cover:
 
-• **AI ਏਜੰਟ ਮੈਮੋਰੀ ਨੂੰ ਸਮਝਣਾ**: ਮੈਮੋਰੀ ਕੀ ਹੈ ਅਤੇ ਏਜੰਟਾਂ ਲਈ ਇਹ ਕਿਉਂ ਜਰੂਰੀ ਹੈ।
+• **Understanding AI Agent Memory**: What memory is and why it's essential for agents.
 
-• **ਮੈਮੋਰੀ ਨੂੰ ਲਾਗੂ ਕਰਨਾ ਅਤੇ ਸਟੋਰ ਕਰਨਾ**: ਤੁਹਾਡੇ ਏਜੰਟਾਂ ਵਿੱਚ ਮੈਮੋਰੀ ਸਮਰੱਥਾਵਾਂ ਜੋੜਨ ਲਈ عملي ਤਰੀਕੇ, ਖਾਸ ਤੌਰ 'ਤੇ ਸ਼ੋਰਟ-ਟਰਮ ਅਤੇ ਲੰਬੀ-ਅਵਧੀ ਮੈਮੋਰੀ 'ਤੇ ਧਿਆਨ ਕੇਂਦਰਿਤ।
+• **Implementing and Storing Memory**: Practical methods for adding memory capabilities to your AI agents, focusing on short-term and long-term memory.
 
-• **ਏਆਈ ਏਜੰਟਾਂ ਨੂੰ ਸਵੈ-ਸੁਧਾਰ ਬਣਾਉਣਾ**: ਕਿਵੇਂ ਮੈਮੋਰੀ ਏਜੰਟਾਂ ਨੂੰ ਪਿੱਛਲੇ ਇੰਟਰੈਕਸ਼ਨਾਂ ਤੋਂ ਸਿੱਖਣ ਅਤੇ ਸਮੇਂ ਦੇ ਨਾਲ ਸੁਧਾਰ ਕਰਨ ਯੋਗ ਬਣਾਉਂਦੀ ਹੈ।
+• **Making AI Agents Self-Improving**: How memory enables agents to learn from past interactions and improve over time.
 
-## ਉਪਲਬਧ ਇੰਪਲੀਮੇਂਟੇਸ਼ਨ
+## Available Implementations
 
-ਇਸ ਲੈਸਨ ਵਿੱਚ ਦੋ ਵਿਸਥਾਰਪੂਰਕ ਨੋਟਬੁੱਕ ਟਿਊਟੋਰਿਆਲ ਸ਼ਾਮਲ ਹਨ:
+This lesson includes two comprehensive notebook tutorials:
 
-• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Mem0 ਅਤੇ Azure AI Search ਨਾਲ Semantic Kernel ਫਰੇਮਵਰਕ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਮੈਮੋਰੀ ਨੂੰ ਲਾਗੂ ਕਰਦਾ ਹੈ
+• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implements memory using Mem0 and Azure AI Search with Microsoft Agent Framework
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Cognee ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਸਟ੍ਰਕਚਰਡ ਮੈਮੋਰੀ ਨੂੰ ਲਾਗੂ ਕਰਦਾ ਹੈ, embeddings ਦੁਆਰਾ ਪਿੱਛੇ ਖੜਾ ਗਿਆ ਨੋਲੇਜ ਗ੍ਰਾਫ ਆਪਣੇ ਆਪ ਬਣਾਉਂਦਾ ਹੈ, ਗ੍ਰਾਫ ਨੂੰ ਵਿਜੁਅਲਾਈਜ਼ ਕਰਦਾ ਹੈ, ਅਤੇ ਸਮਾਰਟ ਰੀਟਰੀਵਲ ਪੇਸ਼ ਕਰਦਾ ਹੈ
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implements structured memory using Cognee, automatically building knowledge graph backed by embeddings, visualizing graph, and intelligent retrieval
 
-## ਸਿੱਖਣ ਦੇ ਲਕਸ਼
+## Learning Goals
 
-ਇਸ ਲੈਸਨ ਨੂੰ ਪੂਰਾ ਕਰਨ ਤੋਂ ਬਾਅਦ, ਤੁਸੀਂ ਜਾਣੋਂਗੇ ਕਿ:
+After completing this lesson, you will know how to:
 
-• **ਏਆਈ ਏਜੰਟ ਮੈਮੋਰੀ ਦੇ ਵੱਖ-ਵੱਖ ਕਿਸਮਾਂ ਵਿੱਚ ਫ਼ਰਕ ਕਰਨਾ**—ਜਿਵੇਂ ਕਿ ਵਰਕਿੰਗ, ਸ਼ੋਰਟ-ਟਰਮ, ਅਤੇ ਲੰਬੀ-ਅਵਧੀ ਮੈਮੋਰੀ, ਨਾਲ ਹੀ ਵਿਸ਼ੇਸ਼ ਰੂਪਾਂ ਜਿਵੇਂ ਕਿ persona ਅਤੇ episodic ਮੈਮੋਰੀ।
+• **Differentiate between various types of AI agent memory**, including working, short-term, and long-term memory, as well as specialized forms like persona and episodic memory.
 
-• **Semantic Kernel ਫਰੇਮਵਰਕ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਏਆਈ ਏਜੰਟਾਂ ਲਈ ਸ਼ੋਰਟ-ਟਰਮ ਅਤੇ ਲੰਬੀ-ਅਵਧੀ ਮੈਮੋਰੀ ਨੂੰ ਲਾਗੂ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰਨਾ**, Mem0, Cognee, Whiteboard memory ਵਰਗੇ ਟੂਲਾਂ ਨੂੰ ਲੈਵਰੇਜ ਕਰਦੇ ਹੋਏ ਅਤੇ Azure AI Search ਨਾਲ ਇਕੱਠੇ ਕਰਦੇ ਹੋਏ।
+• **Implement and manage short-term and long-term memory for AI agents** using Microsoft Agent Framework, leveraging tools like Mem0, Cognee, Whiteboard memory, and integrating with Azure AI Search.
 
-• **ਸਵੈ-ਸੁਧਾਰ ਕਰਨ ਵਾਲੇ ਏਆਈ ਏਜੰਟਾਂ ਦੇ ਸਿਧਾਂਤਾਂ ਨੂੰ ਸਮਝਣਾ** ਅਤੇ ਕਿਵੇਂ ਮਜ਼ਬੂਤ ਮੈਮੋਰੀ ਪ੍ਰਬੰਧਨ ਪ੍ਰਣਾਲੀਆਂ ਲਗਾਤਾਰ ਸਿੱਖਣ ਅਤੇ ਅਨੁਕੂਲਨ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਂਦੀਆਂ ਹਨ।
+• **Understand the principles behind self-improving AI agents** and how robust memory management systems contribute to continuous learning and adaptation.
 
-## ਏਆਈ ਏਜੰਟ ਮੈਮੋਰੀ ਨੂੰ ਸਮਝਣਾ
+## Understanding AI Agent Memory
 
-ਮੂਲ ਰੂਪ ਵਿੱਚ, **ਏਆਈ ਏਜੰਟਾਂ ਲਈ ਮੈਮੋਰੀ ਉਹ ਪ੍ਰਣਾਲੀਆਂ ਹਨ ਜੋ ਉਨ੍ਹਾਂ ਨੂੰ ਜਾਣਕਾਰੀ ਰੱਖਣ ਅਤੇ ਯਾਦ ਕਰਨ ਯੋਗ ਬਣਾਉਂਦੀਆਂ ਹਨ**। ਇਹ ਜਾਣਕਾਰੀ ਕਿਸੇ ਗੱਲਬਾਤ ਦੇ ਵਿਸ਼ੇਸ਼ ਵੇਰਵੇ, ਯੂਜ਼ਰ ਦੀਆਂ ਪਸੰਦਾਂ, ਪਿਛਲੇ ਕਾਰਜ, ਜਾਂ ਸਿੱਖੀਆਂ ਗਈਆਂ ਰੂਪਰੇਖਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ।
+At its core, **memory for AI agents refers to the mechanisms that allow them to retain and recall information**. This information can be specific details about a conversation, user preferences, past actions, or even learned patterns.
 
-ਮੈਮੋਰੀ ਦੇ ਬਿਨਾਂ, ਏਆਈ ਐਪਲੀਕੇਸ਼ਨ ਅਕਸਰ ਸਟੇਟਲੈੱਸ ਹੁੰਦੇ ਹਨ, ਜਿਸਦਾ ਮਤਲਬ ਹੈ ਕਿ ਹਰ ਇੰਟਰੈਕਸ਼ਨ ਨਵੇਂ ਸਿਰੇ ਤੋਂ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ। ਇਸ ਨਾਲ ਇੱਕ ਦੁਹਰਾਉਣ ਵਾਲਾ ਅਤੇ ਨਿਰਾਸ਼ਾਜਨਕ ਯੂਜ਼ਰ ਤਜਰਬਾ ਪੈਦਾ ਹੁੰਦਾ ਹੈ ਜਿੱਥੇ ਏਜੰਟ ਪਿਛਲੇ ਸੰਦਰਭ ਜਾਂ ਪਸੰਦਾਂ ਨੂੰ "ਭੁੱਲ" ਜਾਂਦਾ ਹੈ।
+Without memory, AI applications are often stateless, meaning each interaction starts from scratch. This leads to a repetitive and frustrating user experience where the agent "forgets" previous context or preferences.
 
-### ਮੈਮੋਰੀ ਕਿਉਂ ਜਰੂਰੀ ਹੈ?
+### Why is Memory Important?
 
-ਏਕ ਏਜੰਟ ਦੀ ਸਿਆਣਪ ਉਸ ਦੀ ਪਿਛਲੀ ਜਾਣਕਾਰੀ ਨੂੰ ਯਾਦ ਕਰਨ ਅਤੇ ਇਸਦੀ ਵਰਤੋਂ ਕਰਨ ਦੇ ਯੋਗ ਨਾਲ ਗਹਿਰੀ ਤਰ੍ਹਾਂ ਜੁੜੀ ਹੁੰਦੀ ਹੈ। ਮੈਮੋਰੀ ਏਜੰਟਾਂ ਨੂੰ ਇਨ੍ਹਾਂ ਤਰੀਕਿਆਂ ਨਾਲ ਬਣਾਉਂਦੀ ਹੈ:
+an agent's intelligence is deeply tied to its ability to recall and utilize past information. Memory allows agents to be:
 
-• **ਪਰਾਵਲੋਕਨਾਤਮਕ (Reflective)**: ਪਿਛਲੇ ਕਾਰਜਾਂ ਅਤੇ ਨਤੀਜਿਆਂ ਤੋਂ ਸਿੱਖਣਾ।
+• **Reflective**: Learning from past actions and outcomes.
 
-• **ਇੰਟਰਐਕਟਿਵ (Interactive)**: ਇੱਕ ਚੱਲ ਰਹੀ ਗੱਲਬਾਤ ਦੌਰਾਨ ਸੰਦਰਭ ਨੂੰ ਬਣਾਈ ਰੱਖਣਾ।
+• **Interactive**: Maintaining context over an ongoing conversation.
 
-• **ਪ੍ਰੋਐਕਟਿਵ ਅਤੇ ਰੀਐਕਟਿਵ (Proactive and Reactive)**: ਇਤਿਹਾਸਕ ਡੇਟਾ ਦੇ ਆਧਾਰ 'ਤੇ ਲੋੜਾਂ ਦੀ ਅਨੁਮਾਨ ਲਗਾਉਣਾ ਜਾਂ ਉਚਿਤ ਤਰੀਕੇ ਨਾਲ ਜਵਾਬ ਦੇਣਾ।
+• **Proactive and Reactive**: Anticipating needs or responding appropriately based on historical data.
 
-• **ਸਵੈ-ਨਿਰਭਰ (Autonomous)**: ਸਟੋਰ ਕੀਤੀ ਗਿਆ ਗਿਆਨ ਖਿੱਚ ਕੇ ਜ਼ਿਆਦਾ ਆਜ਼ਾਦੀ ਨਾਲ ਚਲਨਾ।
+• **Autonomous**: Operating more independently by drawing on stored knowledge.
 
-ਮੈਮੋਰੀ ਲਾਗੂ ਕਰਨ ਦਾ ਹੇਠਾਂ ਦਾ ਮਕਸਦ ਏਜੰਟਾਂ ਨੂੰ ਹੋਰ **ਭਰੋਸੇਯੋਗ ਅਤੇ ਸਮਰੱਥ** ਬਣਾਉਣਾ ਹੈ।
+The goal of implementing memory is to make agents more **reliable and capable**.
 
-### ਮੈਮੋਰੀ ਦੇ ਕਿਸਮ
+### Types of Memory
 
-#### ਵਰਕਿੰਗ ਮੈਮੋਰੀ
+#### Working Memory
 
-ਇਸਨੂੰ ਉਸ ਰੇਖਾ-ਕਾਗਜ਼ ਵਾਂਗ ਸੋਚੋ ਜੋ ਏਜੰਟ ਇੱਕ ਸਿੰਗਲ, ਚੱਲ ਰਹੇ ਟਾਸਕ ਜਾਂ ਸੋਚ ਪ੍ਰਕਿਰਿਆ ਦੌਰਾਨ ਵਰਤਦਾ ਹੈ। ਇਹ ਅਗਲਾ ਕਦਮ ਗਣਨਾ ਕਰਨ ਲਈ ਲੋੜੀਂਦੀ ਤਤਕਾਲ ਜਾਣਕਾਰੀ ਰੱਖਦਾ ਹੈ।
+Think of this as a piece of scratch paper an agent uses during a single, ongoing task or thought process. It holds immediate information needed to compute the next step.
 
-ਏਆਈ ਏਜੰਟਾਂ ਲਈ, ਵਰਕਿੰਗ ਮੈਮੋਰੀ ਅਕਸਰ ਗੱਲਬਾਤ ਵਿੱਚੋਂ ਸਭ ਤੋਂ ਸੰਬੰਧਿਤ ਜਾਣਕਾਰੀ ਕੈਪਚਰ ਕਰਦੀ ਹੈ, ਭਾਵੇਂ ਕਿ ਪੂਰਾ ਚੈਟ ਇਤਿਹਾਸ ਲੰਮਾ ਜਾਂ ਟ੍ਰੰਕੇਟਡ ਹੋਵੇ। ਇਹ ਜ਼ਰੂਰੀ ਤੱਤਾਂ ਜਿਵੇਂ ਮੰਗਾਂ, ਪ੍ਰਸਤਾਵਾਂ, ਫੈਸਲੇ, ਅਤੇ ਕਾਰਵਾਈਆਂ ਨੂੰ ਨਿਕਾਲਣ 'ਤੇ ਕੇਂਦਰਿਤ ਹੁੰਦੀ ਹੈ।
+For AI agents, working memory often captures the most relevant information from a conversation, even if the full chat history is long or truncated. It focuses on extracting key elements like requirements, proposals, decisions, and actions.
 
-**ਵਰਕਿੰਗ ਮੈਮੋਰੀ ਉਦਾਹਰਨ**
+**Working Memory Example**
 
-ਇੱਕ ਟਰੈਵਲ ਬੁਕਿੰਗ ਏਜੰਟ ਵਿੱਚ, ਵਰਕਿੰਗ ਮੈਮੋਰੀ ਯੂਜ਼ਰ ਦੀ ਮੌਜੂਦਾ ਬੇਨਤੀ ਨੂੰ ਕੈਪਚਰ ਕਰ ਸਕਦੀ ਹੈ, ਜਿਵੇਂ "ਮੈਂ ਪੈਰਿਸ ਦਾ ਟ੍ਰਿਪ ਬੁੱਕ ਕਰਨਾ ਚਾਹੁੰਦਾ/ਚਾਹੁੰਦੀ ਹਾਂ"। ਇਹ ਨਿਰਧਾਰਤ ਮੰਗ ਏਜੰਟ ਦੀ ਤਤਕਾਲ ਸੰਦਰਭ ਵਿੱਚ ਰੱਖੀ ਜਾਂਦੀ ਹੈ ਤਾਂ ਜੋ ਮੌਜੂਦਾ ਇੰਟਰਐਕਸ਼ਨ ਨੂੰ ਦਿਸ਼ਾ ਦਿੱਤੀ ਜਾ ਸਕੇ।
+In a travel booking agent, working memory might capture the user's current request, such as "ਮੈਂ ਪੈਰਿਸ ਲਈ ਇੱਕ ਯਾਤਰਾ ਬੁੱਕ ਕਰਨਾ ਚਾਹੁੰਦਾ/ਚਾਹੁੰਦੀ ਹਾਂ". This specific requirement is held in the agent's immediate context to guide the current interaction.
 
-#### ਸ਼ੋਰਟ ਟਰਮ ਮੈਮੋਰੀ
+#### Short Term Memory
 
-ਇਸ ਕਿਸਮ ਦੀ ਮੈਮੋਰੀ ਇੱਕ ਸਿੰਗਲ ਗੱਲਬਾਤ ਜਾਂ ਸੈਸ਼ਨ ਦੀ ਅਵਧੀ ਲਈ ਜਾਣਕਾਰੀ ਰੱਖਦੀ ਹੈ। ਇਹ ਮੌਜੂਦਾ ਚੈਟ ਦਾ ਸੰਦਰਭ ਹੈ, ਜੋ ਏਜੰਟ ਨੂੰ ਸੰਲੱਗਨ ਡਾਇਲਾਗ ਦੇ ਪਹਿਲੇ ਮੋੜਾਂ ਨੂੰ ਸੰਦਰਭ ਦੇ ਤੌਰ 'ਤੇ ਵੇਖਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।
+This type of memory retains information for the duration of a single conversation or session. It's the context of the current chat, allowing the agent to refer back to previous turns in the dialogue.
 
-**ਸ਼ੋਰਟ ਟਰਮ ਮੈਮੋਰੀ ਉਦਾਹਰਨ**
+**Short Term Memory Example**
 
-ਜੇ ਇੱਕ ਯੂਜ਼ਰ ਪੁੱਛਦਾ ਹੈ, "ਪੈਰਿਸ ਲਈ ਇੱਕ ਫਲਾਈਟ ਦੀ ਕੀਮਤ ਕਿੰਨੀ ਹੋਵੇਗੀ?" ਅਤੇ ਫਿਰ ਅਗਲਾ ਪ੍ਰਸ਼ਨ ਪੂਛਦਾ ਹੈ, "ਉਥੇ ਰਹਿਣ ਬਾਰੇ ਕੀ?" ਤਾਂ ਸ਼ੋਰਟ-ਟਰਮ ਮੈਮੋਰੀ ਇਹ ਯਕੀਨੀ ਬਣਾਉਂਦੀ ਹੈ ਕਿ ਏਜੰਟ ਜਾਣਦਾ ਹੈ ਕਿ "ਉਥੇ" ਦਾ ਜ਼ਿਕਰ ਉਨ੍ਹਾਂ ਦੀ ਵਤੀਕ ਗੱਲਬਾਤ ਵਿੱਚ "ਪੈਰਿਸ" ਨੂੰ ਸੂਚਿਤ ਕਰਦਾ ਹੈ।
+If a user asks, "How much would a flight to Paris cost?" and then follows up with "What about accommodation there?", short-term memory ensures the agent knows "there" refers to "Paris" within the same conversation.
 
-#### ਲੰਬੀ-ਅਵਧੀ ਮੈਮੋਰੀ
+#### Long Term Memory
 
-ਇਹ ਉਹ ਜਾਣਕਾਰੀ ਹੈ ਜੋ ਬਹੁਤ ਸਾਰੀਆਂ ਗੱਲਬਾਤਾਂ ਜਾਂ ਸੈਸ਼ਨਾਂ ਵਿੱਚ ਟਿਕੀ ਰਹਿੰਦੀ ਹੈ। ਇਹ ਏਜੰਟਾਂ ਨੂੰ ਯੂਜ਼ਰ ਪਸੰਦਾਂ, ਇਤਿਹਾਸਕ ਇੰਟਰੈਕਸ਼ਨਾਂ, ਜਾਂ ਵਿਸ਼ਤ ਜਾਣਕਾਰੀ ਨੂੰ ਲੰਬੇ ਸਮੇਂ ਤੱਕ ਯਾਦ ਰੱਖਣ ਦੀ ਆਗਿਆ ਦਿੰਦੀ ਹੈ। ਇਹ ਨਿੱਜੀਕਰਨ ਲਈ ਮਹੱਤਵਪੂਰਣ ਹੈ।
+This is information that persists across multiple conversations or sessions. It allows agents to remember user preferences, historical interactions, or general knowledge over extended periods. This is important for personalization.
 
-**ਲੰਬੀ-ਅਵਧੀ ਮੈਮੋਰੀ ਉਦਾਹਰਨ**
+**Long Term Memory Example**
 
-ਇੱਕ ਲੰਬੀ-ਅਵਧੀ ਮੈਮੋਰੀ ਇਹ ਸਟੋਰ ਕਰ ਸਕਦੀ ਹੈ ਕਿ "ਬੇਨ ਸਕੀਂਗ ਅਤੇ ਆਉਟਡੋਰ ਗਤੀਵਿਧੀਆਂ ਨੂੰ ਪਸੰਦ ਕਰਦਾ ਹੈ, ਪਹਾੜੀ ਨਜ਼ਾਰੇ ਨਾਲ ਕੌਫੀ ਪਸੰਦ ਹੈ, ਅਤੇ ਪਿਛਲੀ ਜੋਖਮ ਕਾਰਨ ਅਡਵਾਂਸਡ ਸਕੀ ਸਲੋਪਸ ਤੋਂ ਬਚਣਾ ਚਾਹੁੰਦਾ ਹੈ"। ਪਿਛਲੇ ਇੰਟਰੈਕਸ਼ਨਾਂ ਤੋਂ ਸਿੱਖੀ ਗਈ ਇਹ ਜਾਣਕਾਰੀ ਭਵਿੱਖ ਦੇ ਟਰੈਵਲ ਯੋਜਨਾ ਸੈਸ਼ਨਾਂ ਵਿੱਚ ਸਿਫਾਰਸ਼ਾਂ ਨੂੰ ਕਾਫ਼ੀ ਨਿੱਜੀਕ੍ਰਿਤ ਕਰਦੀ ਹੈ।
+A long-term memory might store that "Ben enjoys skiing and outdoor activities, likes coffee with a mountain view, and wants to avoid advanced ski slopes due to a past injury". This information, learned from previous interactions, influences recommendations in future travel planning sessions, making them highly personalized.
 
-#### Persona ਮੈਮੋਰੀ
+#### Persona Memory
 
-ਇਹ ਵਿਸ਼ੇਸ਼ ਮੈਮੋਰੀ ਕਿਸਮ ਏਜੰਟ ਨੂੰ ਇੱਕ ਲਗਾਤਾਰ "ਪੁਰਸਨੈਲਟੀ" ਜਾਂ "ਪੇਰਸੋਨਾ" ਵਿਕਸਿਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਦੀ ਹੈ। ਇਹ ਏਜੰਟ ਨੂੰ ਆਪਣੇ ਆਪ ਜਾਂ ਆਪਣੇ ਨਿਰਧਾਰਿਤ ਭੂਮਿਕਾ ਬਾਰੇ ਵੇਰਵੇ ਯਾਦ ਰੱਖਣ ਦੀ ਆਗਿਆ ਦਿੰਦੀ ਹੈ, ਜਿਸ ਨਾਲ ਇੰਟਰਐਕਸ਼ਨ ਹੋਰ ਫਲੂਇਡ ਅਤੇ ਕੇਂਦਰਿਤ ਹੁੰਦੇ ਹਨ।
+This specialized memory type helps an agent develop a consistent "personality" or "persona". It allows the agent to remember details about itself or its intended role, making interactions more fluid and focused.
 
-**Persona ਮੈਮੋਰੀ ਉਦਾਹਰਨ**
-ਜੇ ਟਰੈਵਲ ਏਜੰਟ ਨੂੰ ਇੱਕ "ਐਕਸਪਰਟ ਸਕੀ ਪਲੈਨਰ" ਬਣਾਇਆ ਗਿਆ ਹੈ, ਤਾਂ persona ਮੈਮੋਰੀ ਇਸ ਭੂਮਿਕਾ ਨੂੰ ਮਜ਼ਬੂਤ ਕਰ ਸਕਦੀ ਹੈ, ਜਿਸ ਨਾਲ ਇਸਦੇ ਜਵਾਬ ਇੱਕ ਵਿਸ਼ੇਸ਼ਗਿਆਨ ਦੀ ਟੋਨ ਅਤੇ ਗਿਆਨ ਦੇ ਅਨੁਕੂਲ ਹੋਣਗੇ।
+**Persona Memory Example**
+If the travel agent is designed to be an "expert ski planner," persona memory might reinforce this role, influencing its responses to align with an expert's tone and knowledge.
 
-#### Workflow/Episodic ਮੈਮੋਰੀ
+#### Workflow/Episodic Memory
 
-ਇਹ ਮੈਮੋਰੀ ਇੱਕ ਜਟਿਲ ਟਾਸਕ ਦੌਰਾਨ ਏਜੰਟ ਦੁਆਰਾ ਲਏ ਗਏ ਕਦਮਾਂ ਦੇ ਕ੍ਰਮ ਨੂੰ ਸਟੋਰ ਕਰਦੀ ਹੈ, ਜਿਸ ਵਿੱਚ ਸਫਲਤਾਵਾਂ ਅਤੇ ਨਾਕਾਮੀਆਂ ਸ਼ਾਮਲ ਹਨ। ਇਹ ਉਦਾਹਰਨਾਂ ਜਾਂ ਪਿਛਲੇ ਅਨੁਭਵਾਂ ਨੂੰ ਯਾਦ ਰੱਖਣ ਵਾਂਗ ਹੈ ਤਾਂ ਕਿ ਉਨ੍ਹਾਂ ਤੋਂ ਸਿੱਖਿਆ ਜਾ ਸਕੇ।
+This memory stores the sequence of steps an agent takes during a complex task, including successes and failures. It's like remembering specific "episodes" or past experiences to learn from them.
 
-**Episodic ਮੈਮੋਰੀ ਉਦਾਹਰਨ**
+**Episodic Memory Example**
 
-ਜੇ ਏਜੰਟ ਕਿਸੇ ਵਿਸ਼ੇਸ਼ ਫਲਾਈਟ ਨੂੰ ਬੁਕ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਦਾ ਹੈ ਪਰ ਉਪਲਬਧਤਾ ਨਾ ਹੋਣ ਕਾਰਨ ਫੇਲ ਹੋ ਜਾਂਦਾ ਹੈ, ਤਾਂ episodic ਮੈਮੋਰੀ ਇਸ ਨਾਕਾਮੀ ਨੂੰ ਰਿਕਾਰਡ ਕਰ ਸਕਦੀ ਹੈ, ਜੋ ਏਜੰਟ ਨੂੰ ਭਵਿੱਖ ਵਿੱਚ ਵਿਕਲਪਿਕ ਫਲਾਈਟਾਂ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਜਾਂ ਯੂਜ਼ਰ ਨੂੰ ਜ਼ਿਆਦਾ ਜਾਣੂ ਢੰਗ ਨਾਲ ਸੂਚਿਤ ਕਰਨ ਦੀ ਆਗਿਆ ਦੇਵੇਗੀ।
+If the agent attempted to book a specific flight but it failed due to unavailability, episodic memory could record this failure, allowing the agent to try alternative flights or inform the user about the issue in a more informed way during a subsequent attempt.
 
-#### ਐਂਟੀਟੀ ਮੈਮੋਰੀ
+#### Entity Memory
 
-ਇਸ ਵਿੱਚ ਗੱਲਬਾਤਾਂ ਤੋਂ ਵਿਸ਼ੇਸ਼ ਐਂਟੀਟੀਆਂ (ਜਿਵੇਂ ਲੋਕ, ਸਥਾਨਕ, ਜਾਂ ਚੀਜ਼ਾਂ) ਅਤੇ ਘਟਨਾਵਾਂ ਨੂੰ ਨਿਕਾਲਣਾ ਅਤੇ ਯਾਦ ਰੱਖਣਾ ਸ਼ਾਮਲ ਹੈ। ਇਹ ਏਜੰਟ ਨੂੰ ਚਰਚਾ ਕੀਤੇ ਮੁੱਖ ਤੱਤਾਂ ਦੀ ਸੰਰਚਿਤ ਸਮਝ ਬਣਾਉਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।
+This involves extracting and remembering specific entities (like people, places, or things) and events from conversations. It allows the agent to build a structured understanding of key elements discussed.
 
-**ਐਂਟੀਟੀ ਮੈਮੋਰੀ ਉਦਾਹਰਣ**
+**Entity Memory Example**
 
-ਇੱਕ ਪਿਛਲੇ ਯਾਤਰਾ ਬਾਰੇ ਗੱਲਬਾਤ ਤੋਂ, ਏਜੰਟ "ਪੈਰਿਸ", "ਐਫ਼ਲ ਟਾਵਰ", ਅਤੇ "Le Chat Noir ਰੈਸਟੋਰੈਂਟ ਵਿੱਚ ਡਿਨਰ" ਨੂੰ ਐਂਟੀਟੀਆਂ ਵਜੋਂ ਨਿਕਾਲ ਸਕਦਾ ਹੈ। ਭਵਿੱਖ ਦੀ ਇੰਟਰਐਕਸ਼ਨ ਵਿੱਚ, ਏਜੰਟ "Le Chat Noir" ਨੂੰ ਯਾਦ ਕਰ ਕੇ ਉੱਥੇ ਨਵੀਂ ਰਿਜ਼ਰਵੇਸ਼ਨ ਕਰਨ ਦੀ ਪੇਸ਼ਕਸ਼ ਕਰ ਸਕਦਾ ਹੈ।
+From a conversation about a past trip, the agent might extract "Paris," "Eiffel Tower," and "dinner at Le Chat Noir restaurant" as entities. In a future interaction, the agent could recall "Le Chat Noir" and offer to make a new reservation there.
 
 #### Structured RAG (Retrieval Augmented Generation)
 
-ਜਦਕਿ RAG ਇੱਕ ਵਿਆਪਕ ਤਕਨੀਕ ਹੈ, "Structured RAG" ਨੂੰ ਇੱਕ ਸ਼ਕਤੀਸ਼ਾਲੀ ਮੈਮੋਰੀ ਤਕਨਾਲੋਜੀ ਵਜੋਂ ਉਭਾਰਿਆ ਗਿਆ ਹੈ। ਇਹ ਵੱਖ-ਵੱਖ ਸ੍ਰੋਤਾਂ (ਗੱਲਬਾਤਾਂ, ਈਮੇਲਾਂ, ਚિત્રਾਂ) ਤੋਂ ਘਣ, ਸੰਰਚਿਤ ਜਾਣਕਾਰੀ ਨਿਕਾਲਦੀ ਹੈ ਅਤੇ ਇਸਨੂੰ ਜਵਾਬਾਂ ਵਿੱਚ ਸਹੀਪਨ, ਰੀਕਾਲ, ਅਤੇ ਤੇਜ਼ੀ ਵਧਾਉਣ ਲਈ ਵਰਤਦੀ ਹੈ। ਪਰੰਪਰਾਗਤ RAG ਜੋ ਸਿਰਫ਼ semantic similarity 'ਤੇ ਨਿਰਭਰ ਹੁੰਦਾ ਹੈ, Structured RAG ਜਾਣਕਾਰੀ ਦੀ ਅੰਦਰੂਨੀ ਸੰਰਚਨਾ ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ।
+While RAG is a broader technique, "Structured RAG" is highlighted as a powerful memory technology. It extracts dense, structured information from various sources (conversations, emails, images) and uses it to enhance precision, recall, and speed in responses. Unlike classic RAG that relies solely on semantic similarity, Structured RAG works with the inherent structure of information.
 
-**Structured RAG ਉਦਾਹਰਨ**
+**Structured RAG Example**
 
-ਸਿਰਫ਼ ਕੁੰਜੀ-ਸ਼ਬਦਾਂ ਨੂੰ ਮਿਲਾਉਣ ਦੀ ਬਜਾਏ, Structured RAG ਈਮੇਲ ਤੋਂ ਫਲਾਈਟ ਵੇਰਵੇ (ਗੰਤব্য, ਤਾਰੀਖ, ਸਮਾਂ, ਏਅਰਲਾਈਨ) ਪਾਰਸ ਕਰ ਸਕਦਾ ਹੈ ਅਤੇ ਉਨ੍ਹਾਂ ਨੂੰ ਸੰਰਚਿਤ ਢੰਗ ਨਾਲ ਸਟੋਰ ਕਰ ਸਕਦਾ ਹੈ। ਇਸ ਨਾਲ ਸਪਸ਼ਟ ਪ੍ਰਸ਼ਨਾਂ ਲਈ ਜਿਵੇਂ "ਮੈਂ ਮੰਗਲਵਾਰ ਨੂੰ ਪੈਰਿਸ ਲਈ ਕਿਹੜੀ ਫਲਾਈਟ ਬੁਕ ਕੀਤੀ ਸੀ?" ਦੇ ਸਹੀ ਜਵਾਬ ਮਿਲ ਸਕਦੇ ਹਨ।
+Instead of just matching keywords, Structured RAG could parse flight details (destination, date, time, airline) from an email and store them in a structured way. This allows precise queries like "What flight did I book to Paris on Tuesday?"
 
-## ਮੈਮੋਰੀ ਨੂੰ ਲਾਗੂ ਕਰਨਾ ਅਤੇ ਸਟੋਰ ਕਰਨਾ
+## Implementing and Storing Memory
 
-ਏਆਈ ਏਜੰਟਾਂ ਲਈ ਮੈਮੋਰੀ ਲਾਗੂ ਕਰਨਾ ਇੱਕ ਵਿਵਸਥਿਤ ਪ੍ਰਕਿਰਿਆ ਸ਼ਾਮਲ ਕਰਦਾ ਹੈ ਜੋ **ਮੈਮੋਰੀ ਪ੍ਰਬੰਧਨ** ਦਾ ਹਿੱਸਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਜਨਰੇਸ਼ਨ, ਸਟੋਰ ਕਰਨਾ, ਰੀਟਰੀਵਲ, ਏਕਠਿਆ ਕਰਨਾ, ਅਪਡੇਟ ਕਰਨਾ, ਅਤੇ ਇੱਥੋਂ ਤੱਕ ਕਿ ਜਾਣਕਾਰੀ ਨੂੰ "ਭੁੱਲਣਾ" (ਜਾਂ ਮਿਟਾਉਣਾ) ਸ਼ਾਮਲ ਹੈ। ਰੀਟਰੀਵਲ ਇੱਕ ਖਾਸ ਤੌਰ 'ਤੇ ਮਹੱਤਵਪੂਰਣ ਪੱਖ ਹੈ।
+Implementing memory for AI agents involves a systematic process of **memory management**, which includes generating, storing, retrieving, integrating, updating, and even "forgetting" (or deleting) information. Retrieval is a particularly crucial aspect.
 
-### ਵਿਸ਼ੇਸ਼ ਮੈਮੋਰੀ ਟੂਲ
+### Specialized Memory Tools
 
 #### Mem0
 
-ਏਜੰਟ ਮੈਮੋਰੀ ਨੂੰ ਸਟੋਰ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰਨ ਦਾ ਇੱਕ ਤਰੀਕਾ Mem0 ਵਰਗੇ ਵਿਸ਼ੇਸ਼ ਟੂਲਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨਾ ਹੈ। Mem0 ਇੱਕ ਸਥਾਈ ਮੈਮੋਰੀ ਲੇਅਰ ਵਜੋਂ ਕੰਮ ਕਰਦਾ ਹੈ, ਜੋ ਏਜੰਟਾਂ ਨੂੰ ਸੰਬੰਧਿਤ ਇੰਟਰੈਕਸ਼ਨਾਂ ਨੂੰ ਯਾਦ ਕਰਨ, ਯੂਜ਼ਰ ਪਸੰਦਾਂ ਅਤੇ ਤੱਥਾਤਮਕ ਸੰਦਰਭ ਨੂੰ ਸਟੋਰ ਕਰਨ, ਅਤੇ ਸਮੇਂ ਦੇ ਨਾਲ ਸਫਲਤਾਵਾਂ ਅਤੇ ਨਾਕਾਮੀਆਂ ਤੋਂ ਸਿੱਖਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ। ਇੱਥੇ ਵਿਚਾਰ ਇਹ ਹੈ ਕਿ ਸਟੇਟਲੈੱਸ ਏਜੰਟ ਸਟੇਟਫੁਲ ਬਣ ਜਾਂਦੇ ਹਨ।
+One way to store and manage agent memory is using specialized tools like Mem0. Mem0 works as a persistent memory layer, allowing agents to recall relevant interactions, store user preferences and factual context, and learn from successes and failures over time. The idea here is that stateless agents turn into stateful ones.
 
-ਇਹ **ਦੋ-ਫੇਜ਼ ਮੈਮੋਰੀ ਪਾਈਪਲਾਈਨ: ਨਿਕਾਸ ਅਤੇ ਅਪਡੇਟ** ਦੇ ਰਾਹੀਂ ਕੰਮ ਕਰਦਾ ਹੈ। ਪਹਿਲਾਂ, ਏਜੰਟ ਦੇ ਥ੍ਰੈੱਡ ਵਿੱਚ ਜੋ ਸੰਦੇਸ਼ ਜੋੜੇ ਜਾਂਦੇ ਹਨ ਉਹ Mem0 ਸੇਵਾ ਨੂੰ ਭੇਜੇ ਜਾਂਦੇ ਹਨ, ਜੋ ਗੱਲਬਾਤ ਇਤਿਹਾਸ ਦਾ ਸਾਰ ਕਰਨ ਅਤੇ ਨਵੀਂ ਮੈਮੋਰੀਜ਼ ਨਿਕਾਲਣ ਲਈ ਇੱਕ Large Language Model (LLM) ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ। ਬਾਅਦ ਵਿੱਚ, ਇੱਕ LLM-ਚਲਿਤ ਅਪਡੇਟ ਫੇਜ਼ ਇਹ ਨਿਰਧਾਰਤ ਕਰਦਾ ਹੈ ਕਿ ਇਹ ਮੈਮੋਰੀਜ਼ ਜੋੜਣੀਆਂ, ਸੋਧਣੀਆਂ, ਜਾਂ ਮਿਟਾਣੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ, ਅਤੇ ਉਨ੍ਹਾਂ ਨੂੰ ਇੱਕ ਹਾਈਬ੍ਰਿਡ ਡੇਟਾ ਸਟੋਰ ਵਿੱਚ ਸਟੋਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਜਿਸ ਵਿੱਚ vector, graph, ਅਤੇ key-value ਡੇਟਾਬੇਸ ਸ਼ਾਮਲ ਹੋ ਸਕਦੇ ਹਨ। ਇਹ ਸਿਸਟਮ ਵੱਖ-ਵੱਖ ਮੈਮੋਰੀ ਕਿਸਮਾਂ ਨੂੰ ਸਮਰਥਨ ਦਿੰਦਾ ਹੈ ਅਤੇ ਐਂਟੀਟੀਆਂ ਦੇ ਰਿਸ਼ਤਿਆਂ ਨੂੰ ਪ੍ਰਬੰਧ ਕਰਨ ਲਈ graph ਮੈਮੋਰੀ ਨੂੰ ਸ਼ਾਮਿਲ ਕਰ ਸਕਦਾ ਹੈ।
+It works through a **two-phase memory pipeline: extraction and update**. First, messages added to an agent's thread are sent to the Mem0 service, which uses a Large Language Model (LLM) to summarize conversation history and extract new memories. Subsequently, an LLM-driven update phase determines whether to add, modify, or delete these memories, storing them in a hybrid data store that can include vector, graph, and key-value databases. This system also supports various memory types and can incorporate graph memory for managing relationships between entities.
 
 #### Cognee
 
-ਇੱਕ ਹੋਰ ਸ਼ਕਤੀਸ਼ਾਲੀ ਤਰੀਕਾ **Cognee** ਦੀ ਵਰਤੋਂ ਕਰਨਾ ਹੈ, ਜੋ ਕਿ ਏਆਈ ਏਜੰਟਾਂ ਲਈ ਇੱਕ open-source semantic ਮੈਮੋਰੀ ਹੈ ਜੋ ਸੰਰਚਿਤ ਅਤੇ ਅਣਸੰਰਚਿਤ ਡੇਟਾ ਨੂੰ embeddings ਦੁਆਰਾ ਸਮਰੱਥ, ਕੁਇਰੀਯੋਗ ਨੋਲੇਜ ਗ੍ਰਾਫਾਂ ਵਿੱਚ ਬਦਲ ਦਿੰਦੀ ਹੈ। Cognee ਇੱਕ **dual-store ਆਰਕੀਟੈਕਚਰ** ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ ਜੋ vector similarity search ਨੂੰ graph relationships ਨਾਲ ਜੋੜਦਾ ਹੈ, ਜੋ ਏਜੰਟਾਂ ਨੂੰ ਸਿਰਫ਼ ਇਹ ਸਮਝਣ ਵਿੱਚ ਸਹਾਇਤਾ ਨਹੀਂ ਦਿੰਦਾ ਕਿ ਕਿਹੜੀ ਜਾਣਕਾਰੀ ਮਿਲਦੀ ਹੈ, ਬਲਕਿ ਕਿ ਵਿਚਾਰਾਂ ਇਕ ਦੂਜੇ ਨਾਲ ਕਿਵੇਂ ਸਬੰਧਤ ਹਨ।
+Another powerful approach is using **Cognee**, an open-source semantic memory for AI agents that transforms structured and unstructured data into queryable knowledge graphs backed by embeddings. Cognee provides a **dual-store architecture** combining vector similarity search with graph relationships, enabling agents to understand not just what information is similar, but how concepts relate to each other.
 
-ਇਹ **ਹਾਈਬ੍ਰਿਡ ਰੀਟਰੀਵਲ** ਵਿੱਚ ਮਹਿਰਤ ਰੱਖਦਾ ਹੈ ਜੋ vector similarity, graph structure, ਅਤੇ LLM reasoning ਨੂੰ ਮਿਲਾਉਂਦਾ ਹੈ - ਕੱਚੇ chunk ਲੁੱਕਅਪ ਤੋਂ ਲੈ ਕੇ graph-aware ਪ੍ਰਸ਼ਨ-ਉਤਰ ਤੱਕ। ਸਿਸਟਮ ਇੱਕ **living memory** ਰੱਖਦਾ ਹੈ ਜੋ ਵਿਕਸਤ ਹੁੰਦੀ ਹੈ ਅਤੇ ਵਧਦੀ ਹੈ ਜਦੋਂ ਕਿ ਇੱਕ ਜੁੜੇ ਗ੍ਰਾਫ ਵਜੋਂ ਪੁੱਛੇ ਜਾਣ ਯੋਗ ਰਹਿੰਦੀ ਹੈ, ਦੋਹਾਂ ਸ਼ੋਰਟ-ਟਰਮ ਸੈਸ਼ਨ ਸੰਦਰਭ ਅਤੇ ਲੰਬੀ-ਅवਧੀ ਸਥਾਈ ਮੈਮੋਰੀ ਦਾ ਸਮਰਥਨ ਕਰਦੀ ਹੈ।
+It excels at **hybrid retrieval** that blends vector similarity, graph structure, and LLM reasoning - from raw chunk lookup to graph-aware question answering. The system maintains **living memory** that evolves and grows while remaining queryable as one connected graph, supporting both short-term session context and long-term persistent memory.
 
-Cognee ਨੋਟਬੁੱਕ ਟਿਊਟੋਰਿਆਲ ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) ਇਸ ਸੰਜੀਵ ਮੈਮੋਰੀ ਲੇਅਰ ਨੂੰ ਬਣਾਉਣ ਦਾ ਪ੍ਰਯੋਗਿਕ ਉਦਾਹਰਨ ਦਿਖਾਉਂਦਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਵੱਖ-ਵੱਖ ਡੇਟਾ ਸ੍ਰੋਤਾਂ ਨੂੰ ingest ਕਰਨ, ਨੋਲੇਜ ਗ੍ਰਾਫ ਨੂੰ ਵਿਜੁਅਲਾਈਜ਼ ਕਰਨ, ਅਤੇ ਵਿਭਿੰਨ ਖੋਜ ਰਣਨੀਤੀਆਂ ਨਾਲ ਕੁਇਰੀ ਕਰਨ ਦੀਆਂ ਪ੍ਰੈਕਟਿਕਲ ਉਦਾਹਰਨਾਂ ਸ਼ਾਮਲ ਹਨ ਜੋ ਖਾਸ ਏਜੰਟ ਦੀਆਂ ਜ਼ਰੂਰਤਾਂ ਲਈ ਤਿਆਰ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ।
+The Cognee notebook tutorial ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) demonstrates building this unified memory layer, with practical examples of ingesting diverse data sources, visualizing the knowledge graph, and querying with different search strategies tailored to specific agent needs.
 
-### RAG ਨਾਲ ਮੈਮੋਰੀ ਸਟੋਰ ਕਰਨਾ
+### Storing Memory with RAG
 
-mem0 ਵਰਗੇ ਵਿਸ਼ੇਸ਼ ਮੈਮੋਰੀ ਟੂਲਾਂ ਤੋਂ ਅਗੇ, ਤੁਸੀਂ ਮੈਮੋਰੀਜ਼ ਸਟੋਰ ਕਰਨ ਅਤੇ ਰੀਟਰੀਵ ਕਰਨ ਲਈ ਇੱਕ ਬੈਕਐਂਡ ਵਜੋਂ Azure AI Search ਵਰਗੀਆਂ ਮਜ਼ਬੂਤ ਖੋਜ ਸੇਵਾਵਾਂ ਦੀ ਵਰਤੋਂ ਕਰ ਸਕਦੇ ਹੋ, ਖਾਸ ਕਰਕੇ Structured RAG ਲਈ।
+Beyond specialized memory tools like mem0 , you can leverage robust search services like **Azure AI Search as a backend for storing and retrieving memories**, especially for structured RAG.
 
-ਇਸ ਨਾਲ ਤੁਸੀਂ ਆਪਣੇ ਏਜੰਟ ਦੇ ਜਵਾਬਾਂ ਨੂੰ ਆਪਣੇ ਖਾਸ ਡੇਟਾ ਦੇ ਨਾਲ ਗ੍ਰਾਉਂਡ ਕਰ ਸਕਦੇ ਹੋ, ਜਿਸ ਨਾਲ ਹੋਰ ਸੰਬੰਧਤ ਅਤੇ ਸਹੀ ਉੱਤਰ ਮੁਹੱਈਆ ਹੁੰਦੇ ਹਨ। Azure AI Search ਯੂਜ਼ਰ-ਨਿਰਧਾਰਿਤ ਯਾਤਰਾ ਮੈਮੋਰੀਜ਼, ਉਤਪਾਦ ਕੈਟਲਾਗਜ਼, ਜਾਂ ਕਿਸੇ ਵੀ ਹੋਰ ਡੋਮੇਨ-ਵਿਸ਼ੇਸ਼ ਗਿਆਨ ਨੂੰ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤੀ ਜਾ ਸਕਦੀ ਹੈ।
+This allows you to ground your agent's responses with your own data, ensuring more relevant and accurate answers. Azure AI Search can be used to store user-specific travel memories, product catalogs, or any other domain-specific knowledge.
 
-Azure AI Search ਜਿਵੇਂ ਕਾਬਲੀਅਤਾਂ ਨੂੰ ਸਮਰਥਨ ਕਰਦਾ ਹੈ ਜਿਵੇਂ **Structured RAG**, ਜੋ ਵੱਡੇ ਡੇਟਾਸੈੱਟਾਂ (ਗੱਲਬਾਤ ਇਤਿਹਾਸ, ਈਮੇਲਾਂ, ਜਾਂ ਇਮেজਾਂ) ਤੋਂ ਘਣ, ਸੰਰਚਿਤ ਜਾਣਕਾਰੀ ਨਿਕਾਲਣ ਅਤੇ ਰੀਟਰੀਵ ਕਰਨ ਵਿੱਚ ਮਾਹਿਰ ਹੈ। ਇਹ ਰਵਾਇਤੀ ਟੈਕਸਟ ਚੰਕਿੰਗ ਅਤੇ embedding ਅਪ੍ਰੋਚਾਂ ਨਾਲੋਂ "ਸੁਪਰਹਿਊਮਨ ਸਹੀਪਨ ਅਤੇ ਰੀਕਾਲ" ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।
+Azure AI Search supports capabilities like **Structured RAG**, which excels at extracting and retrieving dense, structured information from large datasets like conversation histories, emails, or even images. This provides "superhuman precision and recall" compared to traditional text chunking and embedding approaches.
 
-## ਏਆਈ ਏਜੰਟਾਂ ਨੂੰ ਸਵੈ-ਸੁਧਾਰ ਬਣਾਉਣਾ
+## Making AI Agents Self-Improve
 
-ਸਵੈ-ਸੁਧਾਰ ਕਰਨ ਵਾਲੇ ਏਜੰਟਾਂ ਲਈ ਇੱਕ ਆਮ ਪੈਟਰਨ ਵਿੱਚ ਇੱਕ **"ਨਾਲੀਜ ਏਜੰਟ"** ਸ਼ਾਮਲ ਹੁੰਦਾ ਹੈ। ਇਹ ਵੱਖਰਾ ਏਜੰਟ ਯੂਜ਼ਰ ਅਤੇ ਪ੍ਰਾਇਮਰੀ ਏਜੰਟ ਦੇ ਮੁੱਖ ਗੱਲਬਾਤ ਨੂੰ ਵੇਖਦਾ ਹੈ। ਇਸ ਦੀ ਭੂਮਿਕਾ ਇਹ ਹੈ:
+A common pattern for self-improving agents involves introducing a **"knowledge agent"**. This separate agent observes the main conversation between the user and the primary agent. Its role is to:
 
-1. **ਮੁੱਲਵਾਨ ਜਾਣਕਾਰੀ ਦੀ ਪਛਾਣ ਕਰਨਾ**: ਨਿਰਧਾਰਤ ਕਰਨਾ ਕਿ ਗੱਲਬਾਤ ਦਾ ਕੋਈ ਹਿੱਸਾ ਆਮ ਗਿਆਨ ਜਾਂ ਕਿਸੇ ਖਾਸ ਯੂਜ਼ਰ ਪਸੰਦ ਵਜੋਂ ਸਟੋਰ ਕਰਨ ਯੋਗ ਹੈ ਜਾਂ ਨਹੀਂ।
+1. **Identify valuable information**: Determine if any part of the conversation is worth saving as general knowledge or a specific user preference.
 
-2. **ਨਿਕਾਸ ਅਤੇ ਸਾਰ**: ਗੱਲਬਾਤ ਤੋਂ ਮੁੱਖ ਸਿੱਖਿਆ ਜਾਂ ਪਸੰਦ ਨੂੰ ਸੰਪਾਸ਼ਟ ਕਰਨਾ।
+2. **Extract and summarize**: Distill the essential learning or preference from the conversation.
 
-3. **ਨੋਲੇਜ ਬੇਸ ਵਿੱਚ ਸਟੋਰ ਕਰਨਾ**: ਇਹ ਨਿਕਾਲੀ ਗਈ ਜਾਣਕਾਰੀ ਅਮਰ ਕਰਨਾ, ਅਕਸਰ ਇੱਕ vector ਡੇਟਾਬੇਸ ਵਿੱਚ, ਤਾਂ ਜੋ ਇਹ ਬਾਅਦ ਵਿੱਚ ਰੀਟਰੀਵ ਕੀਤੀ ਜਾ ਸਕੇ।
+3. **Store in a knowledge base**: Persist this extracted information, often in a vector database, so it can be retrieved later.
 
-4. **ਭਵਿੱਖੀ ਕੁਇਰੀਜ਼ ਨੂੰ ਅਗਮਿੰਟ ਕਰਨਾ**: ਜਦੋਂ ਯੂਜ਼ਰ ਇੱਕ ਨਵੀਂ ਕੁਇਰੀ ਸ਼ੁਰੂ ਕਰਦਾ ਹੈ, ਤਾਂ knowledge agent ਸੰਬੰਧਿਤ ਸਟੋਰ ਕੀਤੀ ਜਾਣਕਾਰੀ ਰੀਟਰੀਵ ਕਰਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਯੂਜ਼ਰ ਦੇ ਪ੍ਰਾਂਪਟ ਦੇ ਨਾਲ ਜੋੜ ਦਿੰਦਾ ਹੈ, ਪ੍ਰਾਇਮਰੀ ਏਜੰਟ ਨੂੰ ਮਹੱਤਵਪੂਰਕ ਸੰਦਰਭ ਮੁਹੱਈਆ ਕਰਵਾਉਂਦਾ ਹੈ (RAG ਨਾਲ ਸਮਾਨ)।
+4. **Augment future queries**: When the user initiates a new query, the knowledge agent retrieves relevant stored information and appends it to the user's prompt, providing crucial context to the primary agent (similar to RAG).
 
-### ਮੈਮੋਰੀ ਲਈ ਓਪਟੀਮਾਈਜੇਸ਼ਨ
+### Optimizations for Memory
 
-• **Latency ਪ੍ਰਬੰਧਨ**: ਯੂਜ਼ਰ ਇੰਟਰਐਕਸ਼ਨਾਂ ਨੂੰ ਸੁਸਤ ਹੋਣ ਤੋਂ ਬਚਾਉਣ ਲਈ, ਇੱਕ ਸਸਤਾ ਤੇ ਤੇਜ਼ ਮਾਡਲ ਪਹਿਲਾਂ ਤੇਜ਼ੀ ਨਾਲ ਜਾਂਚ ਕਰਨ ਲਈ ਵਰਤੀ ਜਾ ਸਕਦੀ ਹੈ ਕਿ ਕੋਈ ਜਾਣਕਾਰੀ ਸਟੋਰ ਕਰਨ ਯੋਗ ਹੈ ਜਾਂ ਨਹੀਂ, ਅਤੇ ਸਿਰਫ ਜ਼ਰੂਰਤ ਪੈਣ 'ਤੇ ਜ਼ਿਆਦਾ ਕੰਪਲੈਕਸ ਨਿਕਾਸ/ਰੀਟਰੀਵਲ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਕਾਲ ਕੀਤਾ ਜਾਵੇ।
+• **Latency Management**: To avoid slowing down user interactions, a cheaper, faster model can be used initially to quickly check if information is valuable to store or retrieve, only invoking the more complex extraction/retrieval process when necessary.
 
-• **ਨੋਲੇਜ ਬੇਸ ਮੈਨਟੇਨੈਂਸ**: ਇੱਕ ਵਧਦੀ ਨੋਲੇਜ ਬੇਸ ਲਈ, ਘੱਟ ਵਰਤੀ ਜਾਂਦੀ ਜਾਣਕਾਰੀ ਨੂੰ ਲਾਗਤਾਂ ਦਾ ਪ੍ਰਬੰਧ ਕਰਨ ਲਈ "ਕੋਲਡ ਸਟੋਰੇਜ" ਵਿੱਚ ਸਿਫ਼ਟ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।
+• **Knowledge Base Maintenance**: For a growing knowledge base, less frequently used information can be moved to "cold storage" to manage costs.
 
-## ਏਜੰਟ ਮੈਮੋਰੀ ਬਾਰੇ ਹੋਰ ਸਵਾਲ ਹਨ?
+## Got More Questions About Agent Memory?
 
-[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) ਵਿੱਚ ਜੁੜੋ ਤਾਂ ਜੋ ਹੋਰ ਵਿਦਿਆਰਥੀਆਂ ਨਾਲ ਮਿਲ ਸਕੋ, ਓਫਿਸ ਘੰਟਿਆਂ ਵਿੱਚ ਹਾਜ਼ਰੀ ਲੈ ਸਕੋ ਅਤੇ ਆਪਣੇ ਏਆਈ ਏਜੰਟਾਂ ਸਬੰਧੀ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਪ੍ਰਾਪਤ ਕਰੋ।
+Join the [Microsoft Foundry ਡਿਸਕੋਰਡ](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-ਡਿਸਕਲੇਮਰ:
-ਇਸ ਦਸਤਾਵੇਜ਼ ਦਾ ਅਨੁਵਾਦ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਗਿਆ ਹੈ। ਹਾਲਾਂਕਿ ਅਸੀਂ ਸ਼ੁੱਧਤਾ ਲਈ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਹਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਰੱਖੋ ਕਿ ਆਟੋਮੇਟਿਕ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਣਸ਼ੁੱਧਤਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਉਸਦੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਪ੍ਰਮਾਣਿਕ ਸਰੋਤ ਸਮਝਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਮਹੱਤਵਪੂਰਨ ਜਾਂ ਸੰਵੇਦਨਸ਼ੀਲ ਜਾਣਕਾਰੀ ਲਈ ਪ੍ਰੋਫੈਸ਼ਨਲ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ ਇਸ ਅਨੁਵਾਦ ਦੇ ਉਪਯੋਗ ਤੋਂ ਉਤਪੰਨ ਹੋਣ ਵਾਲੀਆਂ ਕਿਸੇ ਵੀ ਗਲਤਫਹਮੀਆਂ ਜਾਂ ਵਿਆਖਿਆਵੇਂ ਲਈ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।
+ਅਸਵੀਕਾਰ:
+ਇਸ ਦਸਤਾਵੇਜ਼ ਦਾ ਅਨੁਵਾਦ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਗਿਆ ਹੈ। ਅਸੀਂ ਸਹੀਤਾ ਲਈ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਹਾਂ, ਪਰ ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਰੱਖੋ ਕਿ ਆਟੋਮੇਟਿਕ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਣਪੂਰਨਤਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼ ਆਪਣੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਹੀ ਪ੍ਰਮਾਣਿਕ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਜਰੂਰੀ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫ਼ਾਰਿਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ ਇਸ ਅਨੁਵਾਦ ਦੀ ਵਰਤੋਂ ਨਾਲ ਹੋਣ ਵਾਲੀਆਂ ਕਿਸੇ ਵੀ ਗਲਤਫਹਮੀਆਂ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆਆਂ ਲਈ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
