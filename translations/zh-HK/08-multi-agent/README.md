@@ -1,182 +1,181 @@
-[![多代理設計](../../../translated_images/zh-HK/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![多智能體設計](../../../translated_images/zh-HK/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
-> _(按上方圖片查看本課影片)_
+> _(點擊上方圖片觀看此課堂的影片)_
 
-# 多代理設計模式
+# 多智能體設計模式
 
-As soon as you start working on a project that involves multiple agents, you will need to consider the multi-agent design pattern. However, it might not be immediately clear when to switch to multi-agents and what the advantages are.
+一旦你開始在一個涉及多個智能體的專案工作，你就需要考慮多智能體設計模式。不過，可能不會立即清楚何時要切換到多智能體，以及其優勢為何。
 
-## Introduction
+## 介紹
 
-In this lesson, we're looking to answer the following questions:
+在本課程中，我們會嘗試回答以下問題：
 
-- What are the scenarios where multi-agents are applicable to?
-- What are the advantages of using multi-agents over just one singular agent doing multiple tasks?
-- What are the building blocks of implementing the multi-agent design pattern?
-- How do we have visibility to how the multiple agents are interacting with each other?
+- 哪些情境適合使用多智能體？
+- 與單一智能體處理多項任務相比，使用多智能體有哪些優勢？
+- 實作多智能體設計模式的構成要素有哪些？
+- 如何能觀察到多個智能體之間的互動？
 
-## Learning Goals
+## 學習目標
 
-After this lesson, you should be able to:
+完成本課程後，你應該能夠：
 
-- Identify scenarios where multi-agents are applicable
-- Recognize the advantages of using multi-agents over a singular agent.
-- Comprehend the building blocks of implementing the multi-agent design pattern.
+- 識別適合使用多智能體的情境
+- 了解使用多智能體相對於單一智能體的優勢。
+- 理解實作多智能體設計模式的構成要素。
 
-What's the bigger picture?
+整體來看：
 
-*Multi agents are a design pattern that allows multiple agents to work together to achieve a common goal*.
+*多智能體是一種設計模式，允許多個智能體共同合作以達成共同目標*。
 
-This pattern is widely used in various fields, including robotics, autonomous systems, and distributed computing.
+這種模式廣泛應用於各個領域，包括機器人技術、自主系統和分散式運算。
 
-## Scenarios Where Multi-Agents Are Applicable
+## 適合使用多智能體的情境
 
-So what scenarios are a good use case for using multi-agents? The answer is that there are many scenarios where employing multiple agents is beneficial especially in the following cases:
+哪些情境適合使用多智能體？答案是有很多情境特別適合採用多智能體，尤其是以下情況：
 
-- **Large workloads**: Large workloads can be divided into smaller tasks and assigned to different agents, allowing for parallel processing and faster completion. An example of this is in the case of a large data processing task.
-- **Complex tasks**: Complex tasks, like large workloads, can be broken down into smaller subtasks and assigned to different agents, each specializing in a specific aspect of the task. A good example of this is in the case of autonomous vehicles where different agents manage navigation, obstacle detection, and communication with other vehicles.
-- **Diverse expertise**: Different agents can have diverse expertise, allowing them to handle different aspects of a task more effectively than a single agent. For this case, a good example is in the case of healthcare where agents can manage diagnostics, treatment plans, and patient monitoring.
+- **大型工作量**: 大型工作量可以拆分成較小的任務並分配給不同的智能體，允許並行處理並更快完成。舉例來說，大型資料處理任務就是一個例子。
+- **複雜任務**: 像大型工作量一樣，複雜任務可以被拆解成更小的子任務並分配給不同智能體，每個智能體專精於任務的特定面向。舉例是自駕車，當中不同智能體分別管理導航、障礙偵測以及與其他車輛的通訊。
+- **多元專長**: 不同智能體可以擁有多元專長，使它們能比單一智能體更有效地處理任務的不同面向。舉例是醫療保健領域，智能體可分別負責診斷、治療計畫和病人監測。
 
-## Advantages of Using Multi-Agents Over a Singular Agent
+## 使用多智能體相較於單一智能體的優勢
 
-A single agent system could work well for simple tasks, but for more complex tasks, using multiple agents can provide several advantages:
+單一智能體系統對於簡單任務可能運作良好，但對於更複雜的任務，使用多個智能體可以提供數項優勢：
 
-- **Specialization**: Each agent can be specialized for a specific task. Lack of specialization in a single agent means you have an agent that can do everything but might get confused on what to do when faced with a complex task. It might for example end up doing a task that it is not best suited for.
-- **Scalability**: It is easier to scale systems by adding more agents rather than overloading a single agent.
-- **Fault Tolerance**: If one agent fails, others can continue functioning, ensuring system reliability.
+- **專業化**: 每個智能體可以專精於特定任務。單一智能體缺乏專業化，代表你會有一個能做所有事卻可能在面對複雜任務時不知所措的智能體。它可能最終做出不適合自己的任務。
+- **可擴展性**: 透過增加更多智能體比起讓單一智能體超負荷更容易擴展系統。
+- **容錯性**: 若其中一個智能體失效，其他智能體仍可繼續運作，確保系統可靠性。
 
-Let's take an example, let's book a trip for a user. A single agent system would have to handle all aspects of the trip booking process, from finding flights to booking hotels and rental cars. To achieve this with a single agent, the agent would need to have tools for handling all these tasks. This could lead to a complex and monolithic system that is difficult to maintain and scale. A multi-agent system, on the other hand, could have different agents specialized in finding flights, booking hotels, and rental cars. This would make the system more modular, easier to maintain, and scalable.
+舉例來說，為使用者預訂行程。單一智能體系統必須處理行程預訂流程的所有面向，從尋找航班到預訂飯店和租車。要用單一智能體達成這些，該智能體需要有處理所有這些任務的工具。這可能導致系統複雜且單一化，難以維護和擴展。多智能體系統則可以有不同智能體專門負責尋找航班、預訂飯店和租車。這會使系統更模組化、更易維護並具可擴展性。
 
-Compare this to a travel bureau run as a mom-and-pop store versus a travel bureau run as a franchise. The mom-and-pop store would have a single agent handling all aspects of the trip booking process, while the franchise would have different agents handling different aspects of the trip booking process.
+把這比作一間由夫妻小店經營的旅行社與一間特許經營的旅行社。夫妻小店會由單一智能體處理行程預訂的所有面向，而特許經營則會由不同智能體處理行程預訂的不同面向。
 
-## Building Blocks of Implementing the Multi-Agent Design Pattern
+## 實作多智能體設計模式的構成要素
 
-Before you can implement the multi-agent design pattern, you need to understand the building blocks that make up the pattern.
+在實作多智能體設計模式之前，你需要理解構成該模式的要素。
 
-Let's make this more concrete by again looking at the example of booking a trip for a user. In this case, the building blocks would include:
+讓這個概念更具體，我們再次以為使用者預訂行程為例。在這個案例中，構成要素會包括：
 
-- **Agent Communication**: Agents for finding flights, booking hotels, and rental cars need to communicate and share information about the user's preferences and constraints. You need to decide on the protocols and methods for this communication. What this means concretely is that the agent for finding flights needs to communicate with the agent for booking hotels to ensure that the hotel is booked for the same dates as the flight. That means that the agents need to share information about the user's travel dates, meaning that you need to decide *which agents are sharing info and how they are sharing info*.
-- **Coordination Mechanisms**: Agents need to coordinate their actions to ensure that the user's preferences and constraints are met. A user preference could be that they want a hotel close to the airport whereas a constraint could be that rental cars are only available at the airport. This means that the agent for booking hotels needs to coordinate with the agent for booking rental cars to ensure that the user's preferences and constraints are met. This means that you need to decide *how the agents are coordinating their actions*.
-- **Agent Architecture**: Agents need to have the internal structure to make decisions and learn from their interactions with the user. This means that the agent for finding flights needs to have the internal structure to make decisions about which flights to recommend to the user. This means that you need to decide *how the agents are making decisions and learning from their interactions with the user*. Examples of how an agent learns and improves could be that the agent for finding flights could use a machine learning model to recommend flights to the user based on their past preferences.
-- **Visibility into Multi-Agent Interactions**: You need to have visibility into how the multiple agents are interacting with each other. This means that you need to have tools and techniques for tracking agent activities and interactions. This could be in the form of logging and monitoring tools, visualization tools, and performance metrics.
-- **Multi-Agent Patterns**: There are different patterns for implementing multi-agent systems, such as centralized, decentralized, and hybrid architectures. You need to decide on the pattern that best fits your use case.
-- **Human in the loop**: In most cases, you will have a human in the loop and you need to instruct the agents when to ask for human intervention. This could be in the form of a user asking for a specific hotel or flight that the agents have not recommended or asking for confirmation before booking a flight or hotel.
+- **智能體通訊**: 負責尋找航班、預訂飯店和租車的智能體需要溝通並分享有關使用者偏好和限制的資訊。你需要決定此通訊的協議和方法。具體來說，尋找航班的智能體需要與預訂飯店的智能體溝通，確保飯店的預訂日期與航班相同。那表示這些智能體需要共享使用者的旅行日期，意味著你必須決定 *哪些智能體在分享資訊以及如何分享資訊*。
+- **協調機制**: 智能體需要協調它們的行動以確保滿足使用者的偏好和限制。使用者偏好可能是想住靠近機場的飯店，而限制可能是租車僅在機場可取車。這代表預訂飯店的智能體需要與預訂租車的智能體協調以確保符合使用者的偏好和限制。這意味著你需要決定 *智能體如何協調它們的行動*。
+- **智能體架構**: 智能體需要有內部結構以做決策並從與使用者的互動中學習。這表示尋找航班的智能體需要有內部結構來決定要向使用者推薦哪些航班。這意味著你需要決定 *智能體如何做決策並從與使用者的互動中學習*。舉例智能體學習與改進的方法可以是，尋找航班的智能體可以使用機器學習模型根據使用者過去的偏好來推薦航班。
+- **多智能體互動的可視性**: 你需要能夠查看多個智能體如何互相互動。這表示你需要具備追蹤智能體活動和互動的工具與技術。這可以是日誌和監控工具、視覺化工具以及效能指標等形式。
+- **多智能體模式**: 實作多智能體系統有不同模式，例如集中式、去中心化和混合式架構。你需要決定最符合你使用情境的模式。
+- **人類介入**: 在大多數情況下，你會有介入的人類，且你需要指示智能體何時尋求人類介入。這可以是使用者要求特定飯店或航班，智能體未建議該選項，或在預訂航班或飯店前要求確認。
 
-## Visibility into Multi-Agent Interactions
+## 多智能體互動的可視性
 
-It's important that you have visibility into how the multiple agents are interacting with each other. This visibility is essential for debugging, optimizing, and ensuring the overall system's effectiveness. To achieve this, you need to have tools and techniques for tracking agent activities and interactions. This could be in the form of logging and monitoring tools, visualization tools, and performance metrics.
+檢視多個智能體之間的互動很重要。這種可視性對於除錯、優化以及確保整體系統效能至關重要。為達成此目標，你需要追蹤智能體活動和互動的工具與技術。這可以是日誌與監控工具、視覺化工具，以及績效指標等形式。
 
-For example, in the case of booking a trip for a user, you could have a dashboard that shows the status of each agent, the user's preferences and constraints, and the interactions between agents. This dashboard could show the user's travel dates, the flights recommended by the flight agent, the hotels recommended by the hotel agent, and the rental cars recommended by the rental car agent. This would give you a clear view of how the agents are interacting with each other and whether the user's preferences and constraints are being met.
+舉例來說，在為使用者預訂行程的情境中，你可以有一個儀表板顯示每個智能體的狀態、使用者的偏好與限制，以及智能體之間的互動。這個儀表板可以顯示使用者的旅行日期、航班智能體推薦的航班、飯店智能體推薦的飯店，以及租車智能體推薦的租車。這會讓你清楚看到智能體之間如何互動，以及使用者的偏好與限制是否被滿足。
 
-Let's look at each of these aspects more in detail.
+讓我們更詳細地看看這些面向。
 
-- **Logging and Monitoring Tools**: You want to have logging done for each action taken by an agent. A log entry could store information on the agent that took the action, the action taken, the time the action was taken, and the outcome of the action. This information can then be used for debugging, optimizing and more.
+- **日誌與監控工具**: 你要為每個智能體所採取的每項動作進行日誌記錄。日誌條目可以儲存採取動作的智能體、所採取的動作、動作發生的時間，以及動作的結果。這些資訊可以用來除錯、優化等。
+- **視覺化工具**: 視覺化工具可以幫助你以更直觀的方式看見智能體之間的互動。例如，你可以有一個圖表顯示智能體之間資訊流動。這可以幫助你識別系統中的瓶頸、低效率與其他問題。
+- **效能指標**: 效能指標可以幫助追蹤多智能體系統的效用。例如，你可以追蹤完成一項任務所需的時間、每單位時間完成的任務數量，以及智能體所做推薦的準確率。這些資訊可以幫助你找出改進空間並優化系統。
 
-- **Visualization Tools**: Visualization tools can help you see the interactions between agents in a more intuitive way. For example, you could have a graph that shows the flow of information between agents. This could help you identify bottlenecks, inefficiencies, and other issues in the system.
+## 多智能體模式
 
-- **Performance Metrics**: Performance metrics can help you track the effectiveness of the multi-agent system. For example, you could track the time taken to complete a task, the number of tasks completed per unit of time, and the accuracy of the recommendations made by the agents. This information can help you identify areas for improvement and optimize the system.
-
-## Multi-Agent Patterns
-
-Let's dive into some concrete patterns we can use to create multi-agent apps. Here are some interesting patterns worth considering:
+接下來深入一些可用於建立多智能體應用的具體模式。以下是一些值得考慮的有趣模式：
 
 ### 群組聊天
 
-This pattern is useful when you want to create a group chat application where multiple agents can communicate with each other. Typical use cases for this pattern include team collaboration, customer support, and social networking.
+當你想建立一個群組聊天應用，讓多個智能體可以互相通訊時，此模式非常有用。此模式的典型使用情境包括團隊協作、客服支援與社交網路。
 
-In this pattern, each agent represents a user in the group chat, and messages are exchanged between agents using a messaging protocol. The agents can send messages to the group chat, receive messages from the group chat, and respond to messages from other agents.
+在此模式中，每個智能體代表群組聊天中的一個使用者，訊息透過一個通訊協議在智能體之間交換。智能體可以向群組發送訊息、從群組接收訊息，並回應其他智能體的訊息。
 
-This pattern can be implemented using a centralized architecture where all messages are routed through a central server, or a decentralized architecture where messages are exchanged directly.
+此模式可以用集中式架構實作，所有訊息都經由中央伺服器轉發，或用去中心化架構，訊息在智能體之間直接交換。
 
 ![群組聊天](../../../translated_images/zh-HK/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### 交接
 
-This pattern is useful when you want to create an application where multiple agents can hand off tasks to each other.
+當你想建立一個應用，讓多個智能體可以彼此交接任務時，此模式非常有用。
 
-Typical use cases for this pattern include customer support, task management, and workflow automation.
+此模式的典型使用情境包括客服支援、任務管理與工作流程自動化。
 
-In this pattern, each agent represents a task or a step in a workflow, and agents can hand off tasks to other agents based on predefined rules.
+在此模式中，每個智能體代表一個任務或工作流程中的一步，智能體可根據預先定義的規則將任務交接給其他智能體。
 
-![Hand off](../../../translated_images/zh-HK/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
+![交接](../../../translated_images/zh-HK/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### 協同過濾
 
-This pattern is useful when you want to create an application where multiple agents can collaborate to make recommendations to users.
+當你想建立一個應用，讓多個智能體能夠合作為使用者提供推薦時，此模式非常有用。
 
-Why you would want multiple agents to collaborate is because each agent can have different expertise and can contribute to the recommendation process in different ways.
+之所以需要多個智能體合作，是因為每個智能體可以擁有不同的專長，並以不同方式為推薦流程貢獻。
 
-Let's take an example where a user wants a recommendation on the best stock to buy on the stock market.
+舉例來說，當使用者想要在股市上獲得最佳買股建議時：
 
-- **Industry expert**:. One agent could be an expert in a specific industry.
-- **Technical analysis**: Another agent could be an expert in technical analysis.
-- **Fundamental analysis**: and another agent could be an expert in fundamental analysis. By collaborating, these agents can provide a more comprehensive recommendation to the user.
+- **產業專家**:. 一個智能體可以是特定產業的專家。
+- **技術分析**: 另一個智能體可以是技術分析方面的專家。
+- **基本面分析**: 還有一個智能體可以是基本面分析方面的專家。透過合作，這些智能體可以為使用者提供更全面的建議。
 
-![Recommendation](../../../translated_images/zh-HK/multi-agent-filtering.d959cb129dc9f608.webp)
+![推薦](../../../translated_images/zh-HK/multi-agent-filtering.d959cb129dc9f608.webp)
 
-## Scenario: Refund process
+## 情境：退款流程
 
-Consider a scenario where a customer is trying to get a refund for a product, there can be quite a few agents involved in this process but let's divide it up between agents specific for this process and general agents that can be used in other processes.
+考慮一個顧客嘗試為產品取得退款的情境，這個流程可能涉及相當多的智能體，但我們將其分為專屬於此流程的智能體與可在其他流程中使用的通用智能體。
 
-**Agents specific for the refund process**:
+**特定於退款流程的智能體**:
 
-Following are some agents that could be involved in the refund process:
+以下是一些可能參與退款流程的智能體：
 
-- **Customer agent**: This agent represents the customer and is responsible for initiating the refund process.
-- **Seller agent**: This agent represents the seller and is responsible for processing the refund.
-- **Payment agent**: This agent represents the payment process and is responsible for refunding the customer's payment.
-- **Resolution agent**: This agent represents the resolution process and is responsible for resolving any issues that arise during the refund process.
-- **Compliance agent**: This agent represents the compliance process and is responsible for ensuring that the refund process complies with regulations and policies.
+- **顧客智能體**: 此智能體代表顧客，負責發起退款流程。
+- **賣家智能體**: 此智能體代表賣家，負責處理退款。
+- **付款智能體**: 此智能體代表付款流程，負責退還顧客的款項。
+- **調解智能體**: 此智能體代表調解流程，負責解決退款流程中出現的任何問題。
+- **合規智能體**: 此智能體代表合規流程，負責確保退款流程符合法規與政策。
 
-**General agents**:
+**通用智能體**:
 
-These agents can be used by other parts of your business.
+這些智能體可以被業務的其他部分重複使用。
 
-- **Shipping agent**: This agent represents the shipping process and is responsible for shipping the product back to the seller. This agent can be used both for the refund process and for general shipping of a product via a purchase for example.
-- **Feedback agent**: This agent represents the feedback process and is responsible for collecting feedback from the customer. Feedback could be had at any time and not just during the refund process.
-- **Escalation agent**: This agent represents the escalation process and is responsible for escalating issues to a higher level of support. You can use this type of agent for any process where you need to escalate an issue.
-- **Notification agent**: This agent represents the notification process and is responsible for sending notifications to the customer at various stages of the refund process.
-- **Analytics agent**: This agent represents the analytics process and is responsible for analyzing data related to the refund process.
-- **Audit agent**: This agent represents the audit process and is responsible for auditing the refund process to ensure that it is being carried out correctly.
-- **Reporting agent**: This agent represents the reporting process and is responsible for generating reports on the refund process.
-- **Knowledge agent**: This agent represents the knowledge process and is responsible for maintaining a knowledge base of information related to the refund process. This agent could be knowledgeable both on refunds and other parts of your business.
-- **Security agent**: This agent represents the security process and is responsible for ensuring the security of the refund process.
-- **Quality agent**: This agent represents the quality process and is responsible for ensuring the quality of the refund process.
+- **運輸智能體**: 此智能體代表運輸流程，負責將產品運回給賣家。此智能體既可用於退款流程，也可用於例如購買後的一般運送。
+- **回饋智能體**: 此智能體代表回饋流程，負責蒐集顧客的回饋。回饋可以在任何時間發生，而不只在退款期間。
+- **升級智能體**: 此智能體代表升級流程，負責將問題升級到更高級別的支援。你可以在任何需要升級問題的流程中使用此類智能體。
+- **通知智能體**: 此智能體代表通知流程，負責在退款流程的各個階段向顧客發送通知。
+- **分析智能體**: 此智能體代表分析流程，負責分析與退款流程相關的資料。
+- **稽核智能體**: 此智能體代表稽核流程，負責稽核退款流程以確保其正確執行。
+- **報告智能體**: 此智能體代表報告流程，負責產生退款流程的報告。
+- **知識智能體**: 此智能體代表知識流程，負責維護與退款流程相關的知識庫。此智能體可以同時對退款和業務其他部分有所了解。
+- **安全智能體**: 此智能體代表安全流程，負責確保退款流程的安全性。
+- **品質智能體**: 此智能體代表品質流程，負責確保退款流程的品質。
 
-There's quite a few agents listed previously both for the specific refund process but also for the general agents that can be used in other parts of your business. Hopefully this gives you an idea on how you can decide on which agents to use in your multi-agent system.
+先前列出了相當多的智能體，既有特定於退款流程的，也有可用於業務其他部分的通用智能體。希望這能讓你了解如何決定在多智能體系統中使用哪些智能體。
 
-## Assignment
+## 作業
 
-Design a multi-agent system for a customer support process. Identify the agents involved in the process, their roles and responsibilities, and how they interact with each other. Consider both agents specific to the customer support process and general agents that can be used in other parts of your business.
-> 在閱讀以下解答前先想一想，你可能需要比想像中更多的代理。
-> 提示：想想客戶支援流程的不同階段，並同時考慮任何系統所需要的代理。
+為客服流程設計一個多智能體系統。識別參與該流程的智能體、它們的角色與責任，以及它們如何互相互動。請同時考慮特定於客服流程的智能體與可用於業務其他部分的通用智能體。
+> 在閱讀以下解決方案前請先思考，你可能需要比想像中更多的代理。
+>
+> 提示：考慮客戶支援流程的不同階段，並且考慮任何系統所需的代理。
 
 ## Solution
 
-[解答](./solution/solution.md)
+[解決方案](./solution/solution.md)
 
 ## Knowledge checks
 
 Question: When should you consider using multi-agents?
 
-- [ ] A1: 當你有少量工作負載和一個簡單任務時。
-- [ ] A2: 當你有大量工作負載時。
+- [ ] A1: 當你有少量工作負載和簡單任務時。
+- [ ] A2: 當你有大量工作負載時
 - [ ] A3: 當你有一個簡單任務時。
 
-[解答小測驗](./solution/solution-quiz.md)
+[解答測驗](./solution/solution-quiz.md)
 
 ## Summary
 
-在本課中，我們探討了多代理設計模式（multi-agent design pattern），包括適用於多代理的情境、使用多代理相對於單一代理的優勢、實作多代理設計模式的構建模組，以及如何監察多個代理之間互動的可見性。
+在本課中，我們已檢視多代理設計模式，包括適用多代理的情境、使用多代理相對於單一代理的優勢、實作多代理設計模式的構成要素，以及如何可視化多個代理之間的互動。
 
 ### Got More Questions about the Multi-Agent Design Pattern?
 
-加入 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 與其他學習者交流、參加辦公時間，並獲得 AI 代理相關問題的解答。
+加入 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 與其他學習者見面、參加辦公時間，並解答你對 AI 代理的問題。
 
 ## Additional resources
 
-- <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html" target="_blank">AutoGen 設計模式</a>
-- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">Agentic 設計模式</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework 文件</a>
+- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">代理式設計模式</a>
 
 
 ## Previous Lesson
@@ -185,11 +184,11 @@ Question: When should you consider using multi-agents?
 
 ## Next Lesson
 
-[AI 代理的後設認知](../09-metacognition/README.md)
+[AI 代理中的後設認知](../09-metacognition/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 免責聲明：
-本文件經由 AI 翻譯服務「Co-op Translator」(https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們致力於確保準確性，但請注意自動翻譯可能包含錯誤或不準確之處。原始語言的文件應視為具權威性的版本；如涉及重要資訊，建議採用專業人工翻譯。我們不就因使用此翻譯而產生的任何誤解或錯誤詮釋承擔責任。
+本文件透過 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。儘管我們力求準確，請注意自動翻譯可能包含錯誤或不準確之處。原始語言的原文應被視為具權威性的版本。對於重要資訊，建議採用專業人工翻譯。我們不會就因使用本翻譯而導致的任何誤解或錯誤詮釋承擔責任。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

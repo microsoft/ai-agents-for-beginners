@@ -1,70 +1,73 @@
-# Github MCP 伺服器示例
+# Github MCP 伺服器範例
 
 ## 描述
 
-這是一個為 Microsoft Reactor 主辦的 AI Agents Hackathon 而創建的示範。
+這是一個為 Microsoft Reactor 主辦的 AI Agents Hackathon 所製作的示範。
 
-此工具用於根據用戶的 Github 儲存庫推薦黑客松項目。其工作方式如下：
+此工具用來根據用戶的 Github 倉庫推薦黑客松專案。
+實現方式如下：
 
-1. **Github Agent** - 使用 Github MCP 伺服器檢索儲存庫及其相關資訊。
-2. **Hackathon Agent** - 根據 Github Agent 提供的數據，結合用戶的項目、使用的程式語言以及 AI Agents Hackathon 的項目主題，提出創意黑客松項目。
-3. **Events Agent** - 根據 Hackathon Agent 的建議，Events Agent 會推薦 AI Agents Hackathon 系列中相關的活動。
+1. **Github Agent** - 使用 Github MCP 伺服器來擷取倉庫及其相關資訊。
+2. **Hackathon Agent** - 利用 Github Agent 提供的資料，根據用戶的專案、使用的程式語言以及 AI Agents 黑客松的專案主題，構思有創意的黑客松專案點子。
+3. **Events Agent** - 根據 Hackathon Agent 的建議，Events Agent 會推薦 AI Agent Hackathon 系列的相關活動。
 
 ## 執行程式碼
 
 ### 環境變數
 
-此示範使用 Azure Open AI Service、Semantic Kernel、Github MCP Server 和 Azure AI Search。
+此示範使用 Microsoft Agent Framework、Azure OpenAI 服務、Github MCP 伺服器及 Azure AI 搜尋。
 
-請確保已正確設置環境變數以使用這些工具：
+請確保您已設定好使用這些工具所需的環境變數：
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
+
 
 ## 執行 Chainlit 伺服器
 
 為了連接 MCP 伺服器，此示範使用 Chainlit 作為聊天介面。
 
-要啟動伺服器，請在終端中使用以下指令：
+要啟動伺服器，請在終端機中輸入以下指令：
 
 ```bash
 chainlit run app.py -w
 ```
 
-此指令將啟動您的 Chainlit 伺服器，地址為 `localhost:8000`，並將 `event-descriptions.md` 的內容填充到 Azure AI Search Index 中。
+
+這將啟動位於 `localhost:8000` 的 Chainlit 伺服器，並將 `event-descriptions.md` 的內容填入您的 Azure AI 搜尋索引。
 
 ## 連接 MCP 伺服器
 
-要連接 Github MCP 伺服器，請點擊 "Type your message here.." 聊天框下方的 "plug" 圖標：
+要連接 Github MCP 伺服器，請點選「Type your message here..」聊天框下方的「插頭」圖示：
 
 ![MCP Connect](../../../../../translated_images/zh-HK/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-然後，您可以點擊 "Connect an MCP" 以添加連接 Github MCP 伺服器的指令：
+接著點擊「Connect an MCP」以加入命令，連接到 Github MCP 伺服器：
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-將 "[YOUR PERSONAL ACCESS TOKEN]" 替換為您的實際個人訪問令牌。
 
-連接成功後，您應該會看到 "plug" 圖標旁顯示 (1)，確認已連接。如果未顯示，請嘗試使用 `chainlit run app.py -w` 重新啟動 Chainlit 伺服器。
+請將 "[YOUR PERSONAL ACCESS TOKEN]" 替換成您真實的 Personal Access Token。
+
+完成連接後，您應該會在插頭圖示旁看到 (1) 訊號以確認已連接。如果沒有，請嘗試使用 `chainlit run app.py -w` 重啟 chainlit 伺服器。
 
 ## 使用示範
 
-要啟動推薦黑客松項目的代理工作流程，您可以輸入類似以下的訊息：
+要啟動推薦黑客松專案的代理流程，您可以輸入如下訊息：
 
 "Recommend hackathon projects for the Github user koreyspace"
 
-Router Agent 會分析您的請求並確定最適合處理您的查詢的代理組合（GitHub、Hackathon 和 Events）。這些代理將協同工作，基於 Github 儲存庫分析、項目創意以及相關技術活動提供全面的推薦。
+Router Agent 將分析您的請求並判斷最適合處理您查詢的代理組合（GitHub、Hackathon 與 Events）。這些代理會協同合作，基於 GitHub 倉庫分析、專案構想與相關科技活動，提供全面的推薦。
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **免責聲明**：  
-本文件已使用人工智能翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。儘管我們致力於提供準確的翻譯，但請注意，自動翻譯可能包含錯誤或不準確之處。原始語言的文件應被視為具權威性的來源。對於重要信息，建議使用專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或錯誤解釋概不負責。
+本文件係使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們努力確保準確性，但請注意自動翻譯可能存在錯誤或不準確之處。原始文件的原文版本應被視為權威來源。對於重要資訊，建議採用專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或誤釋概不負責。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

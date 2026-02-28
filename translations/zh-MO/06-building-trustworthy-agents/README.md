@@ -1,44 +1,44 @@
-[![可靠的 AI 代理](../../../translated_images/zh-MO/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/zh-MO/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(點擊上方圖片觀看本課程影片)_
 
-# 建立可靠的 AI 代理
+# 建立可信賴的 AI 代理
 
 ## 介紹
 
 本課程將涵蓋：
 
-- 如何建立和部署安全且有效的 AI 代理
+- 如何建立與部署安全且有效的 AI 代理
 - 開發 AI 代理時的重要安全考量
-- 開發 AI 代理時如何維護數據和用戶隱私
+- 開發 AI 代理時如何維護數據與用戶隱私
 
 ## 學習目標
 
 完成本課程後，您將能夠：
 
-- 識別和減輕創建 AI 代理時的風險
-- 實施安全措施以確保數據和訪問權限得到妥善管理
-- 創建維護數據隱私並提供優質用戶體驗的 AI 代理
+- 識別並減輕建立 AI 代理時的風險
+- 實施安全措施以確保對數據和訪問的妥善管理
+- 建立維護數據隱私並提供優質用戶體驗的 AI 代理
 
 ## 安全性
 
-我們先來看看如何建立安全的代理應用。安全意味著 AI 代理按設計執行。作為代理應用的開發者，我們有方法和工具來最大化安全：
+首先讓我們來看看建立安全的代理式應用程式。安全性意指 AI 代理能如設計般執行。作為代理式應用程式的開發者，我們擁有最大化安全性的 方法與工具：
 
-### 建立系統訊息框架
+### 建立系統訊息架構
 
-如果您曾使用大型語言模型（LLM）建立 AI 應用，便知道設計健壯的系統提示或系統訊息有多重要。這些提示設定了元規則、指令和準則，規範 LLM 如何與用戶及數據互動。
+如果您曾使用大型語言模型（LLM）建立 AI 應用，便會知道設計強健系統提示或系統訊息的重要性。這些提示確定 LLM 與用戶及數據互動的元規則、指令與準則。
 
-對於 AI 代理來說，系統提示更為重要，因為 AI 代理需要非常具體的指示來完成我們為它們設計的任務。
+對 AI 代理而言，系統提示更加重要，因為 AI 代理需要非常具體的指令以完成我們為其設計的任務。
 
-為了建立可擴展的系統提示，我們可以使用系統訊息框架來構建一個或多個應用內代理：
+為了建立可擴充的系統提示，我們可以為應用中的一個或多個代理使用系統訊息架構：
 
-![建立系統訊息框架](../../../translated_images/zh-MO/system-message-framework.3a97368c92d11d68.webp)
+![Building a System Message Framework](../../../translated_images/zh-MO/system-message-framework.3a97368c92d11d68.webp)
 
 #### 步驟 1：建立元系統訊息
 
-元提示將由 LLM 用來生成我們創建的代理的系統提示。我們將其設計為模板，以便在需要時能有效率地創建多個代理。
+元提示會被 LLM 用來產生我們建立的代理的系統提示。我們將其設計為範本，以便必要時有效率地建立多個代理。
 
-以下是我們會給 LLM 的元系統訊息範例：
+以下為我們會給 LLM 的元系統訊息範例：
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -49,7 +49,7 @@ To create the system prompt, be descriptive as possible and provide a structure 
 
 #### 步驟 2：建立基本提示
 
-下一步是建立描述 AI 代理的基本提示。您應該包含代理的角色、代理將完成的任務，以及代理的其他職責。
+下一步是建立描述 AI 代理的基本提示。您應包含代理的角色、代理將完成的任務以及代理的其他職責。
 
 範例如下：
 
@@ -59,9 +59,9 @@ You are a travel agent for Contoso Travel that is great at booking flights for c
 
 #### 步驟 3：向 LLM 提供基本系統訊息
 
-現在我們可以優化這個系統訊息，方法是將元系統訊息作為系統訊息提供，再加上我們的基本系統訊息。
+現在我們可以透過提供元系統訊息作為系統訊息，以及我們的基本系統訊息來優化此系統訊息。
 
-這將產生更適合指引我們 AI 代理的系統訊息：
+這將產生更適合引導 AI 代理的系統訊息：
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -113,90 +113,95 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### 步驟 4：反覆修改與改進
+#### 步驟 4：反覆調整與改進
 
-這個系統訊息框架的價值在於能讓多個代理的系統訊息創建更易擴展，並隨時間改善您的系統訊息。您的系統訊息很少會在第一次就完全符合使用需求。能夠通過改變基本系統訊息並運行到系統中做小幅調整和改進，將幫助您比較和評估結果。
+這個系統訊息架構的價值在於能夠更輕鬆擴充多個代理的系統訊息建立，並隨時間改進系統訊息。完成用例時，很少能一次就創建出完美的系統訊息。能夠藉由更改基本系統訊息並將其輸入系統中，進行小幅調整與改進，將允許您比較與評估結果。
 
 ## 理解威脅
 
-要建立可靠的 AI 代理，理解並降低對 AI 代理的風險和威脅非常重要。讓我們看看部分 AI 代理可能面對的不同威脅，以及您如何更好地規劃和防範。
+建立可信賴的 AI 代理時，了解並減輕對您的 AI 代理的風險與威脅非常重要。讓我們只看部分針對 AI 代理的不同威脅，以及您如何更好地規劃與準備。
 
-![理解威脅](../../../translated_images/zh-MO/understanding-threats.89edeada8a97fc0f.webp)
+![Understanding Threats](../../../translated_images/zh-MO/understanding-threats.89edeada8a97fc0f.webp)
 
 ### 任務與指令
 
-**描述：** 攻擊者試圖通過提示或操控輸入來改變 AI 代理的指令或目標。
+**說明：** 攻擊者試圖透過提示或操縱輸入來更改 AI 代理的指令或目標。
 
-**減輕方法：** 執行驗證檢查和輸入過濾，以偵測可能危險的提示，防止其被 AI 代理處理。由於此類攻擊通常需要與代理頻繁互動，限制對話回合數也是防止此類攻擊的方法之一。
+**減緩方式：** 執行驗證檢查和輸入過濾，偵測可能危險的提示，避免被 AI 代理處理。由於這類攻擊通常需頻繁與代理交互，限制對話輪數也是防止此類攻擊的方式之一。
 
 ### 存取關鍵系統
 
-**描述：** 若 AI 代理可存取存放敏感數據的系統及服務，攻擊者可能破壞代理與這些服務之間的通訊。這些攻擊可以是直接或間接嘗試從代理取得系統資訊。
+**說明：** 若 AI 代理能存取儲存敏感資料的系統與服務，攻擊者可能會破壞代理與該等服務的通訊。這些攻擊可直接或間接透過代理獲取系統資訊。
 
-**減輕方法：** AI 代理應僅在必要時獲得系統訪問權限以防止此類攻擊。代理與系統之間的通訊也應是安全的。實施驗證與存取控制是防護此資訊的另一種方式。
+**減緩方式：** AI 代理應以必要為限存取系統，以防止此類攻擊。代理與系統間的通訊也須安全。實施驗證與存取控制是另一種保護資訊方式。
 
-### 資源和服務過載
+### 資源與服務負載過高
 
-**描述：** AI 代理可存取多種工具和服務以完成任務。攻擊者可利用此能力透過 AI 代理發送大量請求來攻擊這些服務，可能導致系統故障或高額費用。
+**說明：** AI 代理可使用不同工具與服務來完成任務。攻擊者可利用此能力透過 AI 代理大量發送請求攻擊服務，可能導致系統失效或成本高昂。
 
-**減輕方法：** 實施政策以限制 AI 代理向服務發出請求的數量。限制對 AI 代理的對話回合數和請求量也是防止此類攻擊的方法。
+**減緩方式：** 對 AI 代理對服務的請求數量實施限制政策。限制與 AI 代理的對話輪數與請求次數也是防範此類攻擊的方式。
 
-### 知識庫中毒
+### 知識庫毒害
 
-**描述：** 此類攻擊不直接針對 AI 代理，而是針對 AI 代理將使用的知識庫及其他服務。這可能包括破壞代理用於完成任務的資料，導致對用戶產生偏頗或非預期的回應。
+**說明：** 此類攻擊不直接針對 AI 代理，而是針對 AI 代理將使用的知識庫及其他服務。攻擊可能導致資料或資訊遭破壞，使 AI 代理產生偏頗或非預期的回應。
 
-**減輕方法：** 定期驗證 AI 代理在工作流程中使用的資料。確保該資料的存取安全，並僅由信任的人員更動，避免此類攻擊。
+**減緩方式：** 定期驗證 AI 代理運作中所使用的資料。確保此資料存取安全且僅由受信任的人員變更，以避免此類攻擊。
 
-### 累積性錯誤
+### 連鎖錯誤
 
-**描述：** AI 代理存取各種工具和服務以完成任務。攻擊者引發的錯誤可能導致與代理連接的其他系統失效，使攻擊範圍擴大且難以排除故障。
+**說明：** AI 代理存取多種工具與服務以完成任務。攻擊者造成的錯誤可能導致 AI 代理連接的其他系統失效，使攻擊範圍擴散且更難排除故障。
 
-**減輕方法：** 避免此情況一種方法是讓 AI 代理運行在有限環境中，例如在 Docker 容器內執行任務，以阻止直接系統攻擊。建立回退機制與重試邏輯，當某些系統回應錯誤時，也能防止更大範圍的系統故障。
+**減緩方式：** 一個方法是讓 AI 代理在受限環境中運作，例如在 Docker 容器內執行任務，以避免直接攻擊系統。建立當特定系統回應錯誤時的後備機制與重試邏輯，是防止更大系統失效的另一種方法。
 
-## 人類在迴路中
+## 人工審核介入
 
-另一種建立可靠 AI 代理系統的有效方式是使用「人類在迴路」(Human-in-the-loop) 方法。此流程讓用戶能在代理執行過程中提供反饋。用戶本質上在多代理系統中擔任代理身份，並可對執行程序給予批准或終止。
+另一個建立可信賴 AI 代理系統的有效方式是使用人工審核介入。此流程讓用戶能在代理運作過程中提供反饋。用戶本質上是多代理系統中的代理，能對運作程序進行批准或終止。
 
-![人類在迴路中](../../../translated_images/zh-MO/human-in-the-loop.5f0068a678f62f4f.webp)
+![Human in The Loop](../../../translated_images/zh-MO/human-in-the-loop.5f0068a678f62f4f.webp)
 
-以下是使用 AutoGen 展示此概念實作的程式碼片段：
+以下為使用 Microsoft Agent Framework 展示此概念實作的程式碼範例：
 
 ```python
+import os
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# 建立代理。
-model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
-assistant = AssistantAgent("assistant", model_client=model_client)
-user_proxy = UserProxyAgent("user_proxy", input_func=input)  # 使用 input() 從主控台取得用戶輸入。
+# 建立需人手審批的服務提供者
+provider = AzureAIProjectAgentProvider(
+    credential=AzureCliCredential(),
+)
 
-# 建立終止條件，當用戶說「APPROVE」時結束對話。
-termination = TextMentionTermination("APPROVE")
+# 建立帶有人手審批步驟的代理
+response = provider.create_response(
+    input="Write a 4-line poem about the ocean.",
+    instructions="You are a helpful assistant. Ask for user approval before finalizing.",
+)
 
-# 建立團隊。
-team = RoundRobinGroupChat([assistant, user_proxy], termination_condition=termination)
-
-# 執行對話並串流到主控台。
-stream = team.run_stream(task="Write a 4-line poem about the ocean.")
-# 在執行腳本時使用 asyncio.run(...)。
-await Console(stream)
-
+# 用戶可以審查及批准回應
+print(response.output_text)
+user_input = input("Do you approve? (APPROVE/REJECT): ")
+if user_input == "APPROVE":
+    print("Response approved.")
+else:
+    print("Response rejected. Revising...")
 ```
 
 ## 結論
 
-建立可靠的 AI 代理需要謹慎設計、穩健的安全措施與持續迭代。透過實施結構化的元提示系統、了解潛在威脅並運用減緩策略，開發者能創造既安全又有效的 AI 代理。此外，結合人類在迴路的方法確保 AI 代理始終符合用戶需求，同時降低風險。隨著 AI 持續演進，持續在安全性、隱私及倫理方面採取主動態度，將是培養 AI 驅動系統信賴與可靠性的關鍵。
+建立可信賴的 AI 代理需要謹慎的設計、健全的安全措施以及持續的迭代。透過實施結構化的元提示系統、了解潛在威脅並採取緩解策略，開發者能打造安全且有效的 AI 代理。此外，整合人工審核介入的方法確保 AI 代理與用戶需求保持一致，同時減少風險。隨著 AI 持續演進，積極維護安全、隱私與倫理考量，將是促成 AI 驅動系統可信賴性與可靠性的關鍵。
 
-### 想了解更多關於建立可靠 AI 代理的問題嗎？
+### 想深入了解建立可信賴 AI 代理嗎？
 
-加入 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 與其他學習者互動，參加線上答疑時段，並解決您的 AI 代理相關問題。
+加入 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) 與其他學習者交流，參加諮詢時段，並獲得 AI 代理相關問題的解答。
 
 ## 其他資源
 
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">負責任的 AI 概述</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">生成式 AI 模型與 AI 應用評估</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">負責任 AI 概述</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">生成式 AI 模型與 AI 應用的評估</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">安全系統訊息</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">風險評估範本</a>
 
-## 上一課
+## 前一課
 
 [Agentic RAG](../05-agentic-rag/README.md)
 
@@ -207,6 +212,6 @@ await Console(stream)
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**免責聲明**：  
-本文件係使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我哋致力於提供準確嘅翻譯，但請注意，自動翻譯可能存在錯誤或不準確之處。原始文件嘅母語版本應被視為唯一權威來源。對於重要資訊，建議採用專業人工翻譯。我哋不對因使用本翻譯而引起嘅任何誤解或曲解承擔責任。
+**免責聲明**：
+本文件是使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 翻譯而成。儘管我們努力確保準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。原始文件以其原語言版本為權威版本。對於重要資訊，建議採用專業人工翻譯。我們對因使用本翻譯而引致的任何誤解或誤釋不承擔任何責任。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
