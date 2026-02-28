@@ -1,32 +1,32 @@
-# إعداد المقرر
+# إعداد الدورة
 
 ## مقدمة
 
-ستغطي هذه الدرس كيفية تشغيل أمثلة الشيفرة الخاصة بهذا المقرر.
+ستغطي هذه الدرس كيفية تشغيل عينات الشيفرة لهذه الدورة.
 
-## انضم إلى متعلمين آخرين واحصل على المساعدة
+## انضم إلى المتعلمين الآخرين واحصل على المساعدة
 
-قبل أن تبدأ في استنساخ المستودع الخاص بك، انضم إلى قناة [قناة Discord لوكلاء الذكاء الاصطناعي للمبتدئين](https://aka.ms/ai-agents/discord) للحصول على أي مساعدة في الإعداد، أو لأي أسئلة حول المقرر، أو للتواصل مع متعلمين آخرين.
+قبل أن تبدأ في استنساخ مستودعك، انضم إلى قناة [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) للحصول على أي مساعدة في الإعداد، أو لأي أسئلة حول الدورة، أو للتواصل مع متعلمين آخرين.
 
-## استنساخ أو عمل فورك لهذا المستودع
+## استنساخ أو عمل Fork لهذا المستودع
 
-لبدء العمل، يرجى استنساخ أو عمل فورك لمستودع GitHub. سيؤدي هذا إلى إنشاء نسختك الخاصة من مواد المقرر حتى تتمكن من تشغيل الشيفرة واختبارها وتعديلها!
+لبدء، يرجى استنساخ أو عمل fork لمستودع GitHub. سيجعل هذا نسختك الخاصة من مواد الدورة حتى تتمكن من تشغيل، اختبار، وتعديل الشيفرة!
 
-يمكن القيام بذلك بالنقر على الرابط إلى <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">إنشاء فورك للمستودع</a>
+يمكن تنفيذ ذلك من خلال النقر على الرابط إلى <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">استنساخ المستودع</a>
 
-يجب أن يكون لديك الآن نسختك المفَرَّعة من هذا المقرر في الرابط التالي:
+يجب أن يكون لديك الآن نسختك المنسوخة من هذه الدورة في الرابط التالي:
 
-![المستودع المفَرَّع](../../../translated_images/ar/forked-repo.33f27ca1901baa6a.webp)
+![Forked Repo](../../../translated_images/ar/forked-repo.33f27ca1901baa6a.webp)
 
 ### استنساخ سطحي (موصى به للورشة / Codespaces)
 
-  >يمكن أن يكون المستودع الكامل كبيرًا (~3 GB) عند تنزيل السجل الكامل وجميع الملفات. إذا كنت ستحضر الورشة فقط أو تحتاج إلى عدد قليل من مجلدات الدروس، فإن الاستنساخ السطحي (أو الاستنساخ الجزئي) يتجنّب معظم ذلك التحميل عن طريق تقصير السجل و/أو تخطي البلوغز.
+  >المستودع الكامل يمكن أن يكون كبيرًا (~3 GB) عند تنزيل السجل الكامل وجميع الملفات. إذا كنت تحضر الورشة فقط أو تحتاج فقط إلى بعض مجلدات الدروس، فإن الاستنساخ السطحي (أو الاستنساخ الجزئي) يتجنب معظم هذا التنزيل عن طريق تقصير التاريخ و/أو تخطي البلوكات.
 
-#### استنساخ سطحي سريع — سجل منخفض، كل الملفات
+#### استنساخ سطحي سريع — تاريخ محدود، جميع الملفات
 
-استبدل `<your-username>` في الأوامر أدناه بعنوان URL للفورك الخاص بك (أو عنوان URL الخاص بالمستودع الأصلي إذا فضلت).
+استبدل `<your-username>` في الأوامر أدناه بعنوان URL الخاص بفوركك (أو عنوان URL upstream إذا فضلت).
 
-للاستنساخ بسجل الالتزام الأخير فقط (تنزيل صغير):
+للاستنساخ فقط سجل الالتزامات الأخير (تنزيل صغير):
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -38,9 +38,9 @@ git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.g
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### استنساخ جزئي (sparse) — بلوغز قليلة + مجلدات محددة فقط
+#### استنساخ جزئي (sparse) — بلوكات قليلة + مجلدات محددة فقط
 
-هذا يستخدم الاستنساخ الجزئي وsparse-checkout (يتطلب Git 2.25+ ومن المستحسن Git حديث مع دعم الاستنساخ الجزئي):
+هذا يستخدم الاستنساخ الجزئي وsparse-checkout (يتطلب Git 2.25+ ويُنصح باستخدام Git حديث بدعم الاستنساخ الجزئي):
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -58,10 +58,10 @@ cd ai-agents-for-beginners
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-بعد الاستنساخ والتحقق من الملفات، إذا كنت تحتاج فقط إلى الملفات وتريد تحرير المساحة (بدون سجل git)، يرجى حذف بيانات التعريف الخاصة بالمستودع (💀غير قابل للعودة — ستفقد كل وظائف Git: لا التزامات، ولا سحب، ولا دفع، ولا وصول إلى التاريخ).
+بعد الاستنساخ والتحقق من الملفات، إذا كنت تحتاج فقط إلى الملفات وتريد تحرير مساحة (بدون سجل git)، يرجى حذف بيانات تعريف المستودع (💀غير قابل للعكس — ستفقد كل وظائف Git: لا امتدادات، لا سحب، لا دفع، ولا وصول للسجل).
 
 ```bash
-# زد-إس-إتش/باش
+# زي إس إتش/باش
 rm -rf .git
 ```
 
@@ -70,51 +70,41 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### استخدام GitHub Codespaces (موصى به لتجنّب التنزيلات المحلية الكبيرة)
+#### استخدام GitHub Codespaces (موصى به لتجنب التنزيلات الكبيرة محليًا)
 
-- أنشئ Codespace جديدًا لهذا المستودع عبر [واجهة GitHub](https://github.com/codespaces).  
+- أنشئ Codespace جديد لهذا المستودع عبر [GitHub UI](https://github.com/codespaces).  
 
-- في الطرفية الخاصة بـ Codespace التي تم إنشاؤها حديثًا، شغّل أحد أوامر الاستنساخ السطحي/الجزئي أعلاه لإحضار مجلدات الدروس التي تحتاجها فقط إلى مساحة عمل Codespace.
-- اختياري: بعد الاستنساخ داخل Codespaces، احذف .git لاستعادة مساحة إضافية (انظر أوامر الإزالة أعلاه).
-- ملاحظة: إذا فضلت فتح المستودع مباشرة في Codespaces (بدون استنساخ إضافي)، فاعلم أن Codespaces سيقوم بإنشاء بيئة devcontainer وقد يجهز أشياء قد لا تحتاجها. يؤدي استنساخ نسخة سطحية داخل Codespace جديد إلى منحك تحكمًا أكبر في استخدام القرص.
+- في طرفية الـ Codespace المنشأ حديثًا، نفذ أحد أوامر الاستنساخ السطحي/الجزئي أعلاه لجلب مجلدات الدروس التي تحتاجها فقط إلى مساحة عمل الـ Codespace.
+- اختياري: بعد الاستنساخ داخل Codespaces، احذف .git لاسترداد مساحة إضافية (انظر أوامر الحذف أعلاه).
+- ملاحظة: إذا فضلت فتح المستودع مباشرة في Codespaces (بدون استنساخ إضافي)، فكن على علم أن Codespaces سيبني بيئة devcontainer وقد يوفر موارد أكثر مما تحتاج. استنساخ نسخة سطحية داخل Codespace جديد يمنحك تحكمًا أفضل في استخدام القرص.
 
 #### نصائح
 
-- استبدل دائمًا عنوان URL الخاص بالاستنساخ بفوركك إذا أردت التحرير/الالتزام.
-- إذا احتجت لاحقًا إلى مزيد من السجل أو الملفات، يمكنك جلبها أو تعديل sparse-checkout لتضمين مجلدات إضافية.
+- استبدل دائمًا عنوان URL للاستنساخ بفوركك إذا أردت التحرير/الالتزام.
+- إذا احتجت لاحقًا إلى مزيد من التاريخ أو الملفات، يمكنك جلبها أو ضبط sparse-checkout لتضمين مجلدات إضافية.
 
 ## تشغيل الشيفرة
 
-يقدّم هذا المقرر سلسلة من دفاتر Jupyter Notebook التي يمكنك تشغيلها للحصول على تجربة عملية لبناء وكلاء الذكاء الاصطناعي.
+تقدم هذه الدورة سلسلة من دفاتر Jupyter التي يمكنك تشغيلها للحصول على تجربة عملية في بناء وكلاء الذكاء الاصطناعي.
 
-تستخدم أمثلة الشيفرة إما:
+تستخدم عينات الشيفرة **Microsoft Agent Framework (MAF)** مع `AzureAIProjectAgentProvider`، الذي يتصل بـ **Azure AI Agent Service V2** (واجهة Responses API) عبر **Microsoft Foundry**.
 
-**يتطلب حساب GitHub - مجاني**:
-
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace. معنونة بـ (semantic-kernel.ipynb)
-2) AutoGen Framework + GitHub Models Marketplace. معنونة بـ (autogen.ipynb)
-
-**يتطلب اشتراك Azure**:
-3) Azure AI Foundry + Azure AI Agent Service. معنونة بـ (azureaiagent.ipynb)
-
-نشجعك على تجربة الأنواع الثلاثة من الأمثلة لمعرفة أيهما يعمل بشكل أفضل بالنسبة لك.
-
-أيا كان الخيار الذي تختاره، فسوف يحدد خطوات الإعداد التي تحتاج إلى اتباعها أدناه:
+كل دفاتر Python تحمل التصنيف `*-python-agent-framework.ipynb`.
 
 ## المتطلبات
 
 - Python 3.12+
-  - **ملاحظة**: إذا لم يكن لديك Python3.12 مثبتًا، فتأكد من تثبيته. ثم أنشئ venv الخاص بك باستخدام python3.12 لضمان تثبيت الإصدارات الصحيحة من ملف requirements.txt.
+  - **ملاحظة**: إذا لم تكن مثبتًا Python3.12، تأكد من تثبيته. ثم أنشئ بيئة venv باستخدام python3.12 لضمان تثبيت الإصدارات الصحيحة من ملف requirements.txt.
   
     >مثال
 
-    أنشئ دليل venv لبايثون:
+    أنشئ دليل Python venv:
 
     ```bash|powershell
     python -m venv venv
     ```
 
-    ثم فعّل بيئة venv من أجل:
+    ثم فعّل بيئة venv لـ:
 
     ```bash
     # zsh/باش
@@ -126,199 +116,203 @@ Remove-Item -Recurse -Force .git
     venv\Scripts\activate
     ```
 
-- .NET 10+: بالنسبة لأمثلة الشيفرة التي تستخدم .NET، تأكد من تثبيت [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو أحدث. ثم، تحقق من إصدار .NET SDK المثبت لديك:
+- .NET 10+: بالنسبة لأمثلة الشيفرة التي تستخدم .NET، تأكد من تثبيت [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) أو أحدث. ثم تحقق من إصدار .NET SDK المثبت:
 
     ```bash|powershell
     dotnet --list-sdks
     ```
 
-- حساب GitHub - للوصول إلى GitHub Models Marketplace
-- اشتراك Azure - للوصول إلى Microsoft Foundry
-- حساب Microsoft Foundry - للوصول إلى خدمة Azure AI Agent
+- **Azure CLI** — مطلوب للمصادقة. ثبّت من [aka.ms/installazurecli](https://aka.ms/installazurecli).
+- **اشتراك Azure** — للوصول إلى Microsoft Foundry وAzure AI Agent Service.
+- **مشروع Microsoft Foundry** — مشروع يحتوي على نموذج منشور (مثلاً `gpt-4o`). انظر [الخطوة 1](../../../00-course-setup) أدناه.
 
-لقد أدرجنا ملف `requirements.txt` في جذر هذا المستودع يحتوي على جميع حزم بايثون المطلوبة لتشغيل أمثلة الشيفرة.
+لقد أدرجنا ملف `requirements.txt` في جذر هذا المستودع والذي يحتوي على جميع حزم Python المطلوبة لتشغيل عينات الشيفرة.
 
-يمكنك تثبيتها بتشغيل الأمر التالي في الطرفية عند جذر المستودع:
+يمكنك تثبيتها بتشغيل الأمر التالي في الطرفية في جذر المستودع:
 
 ```bash|powershell
 pip install -r requirements.txt
 ```
 
-نوصي بإنشاء بيئة افتراضية لبايثون لتجنّب أي تعارضات ومشكلات.
+نوصي بإنشاء بيئة افتراضية Python لتجنب أي تعارضات ومشكلات.
 
 ## إعداد VSCode
 
-تأكد من أنك تستخدم إصدار بايثون الصحيح في VSCode.
+تأكد من أنك تستخدم إصدار Python الصحيح في VSCode.
 
-![صورة](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
+![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## الإعداد للأمثلة التي تستخدم نماذج GitHub
+## إعداد Microsoft Foundry وAzure AI Agent Service
 
-### الخطوة 1: استرجاع رمز الوصول الشخصي (PAT) الخاص بك على GitHub
+### الخطوة 1: إنشاء مشروع Microsoft Foundry
 
-يستخدم هذا المقرر سوق نماذج GitHub، مما يوفر وصولًا مجانيًا إلى نماذج اللغة الكبيرة (LLMs) التي ستستخدمها لبناء وكلاء الذكاء الاصطناعي.
+تحتاج إلى **hub** و**مشروع** في Azure AI Foundry مع نموذج منشور لتشغيل دفاتر الملاحظات.
 
-لاستخدام نماذج GitHub، ستحتاج إلى إنشاء [رمز وصول شخصي على GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+1. انتقل إلى [ai.azure.com](https://ai.azure.com) وقم بتسجيل الدخول بحساب Azure الخاص بك.
+2. أنشئ **hub** (أو استخدم واحدًا قائمًا). راجع: [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
+3. داخل الـ hub، أنشئ **مشروعًا**.
+4. انشر نموذجًا (مثلاً `gpt-4o`) من **Models + Endpoints** → **Deploy model**.
 
-يمكن القيام بذلك عن طريق الذهاب إلى إعدادات <a href="https://github.com/settings/personal-access-tokens" target="_blank">رموز الوصول الشخصية</a> في حساب GitHub الخاص بك.
+### الخطوة 2: استرداد نقطة نهاية مشروعك واسم نشر النموذج
 
-يرجى اتباع [مبدأ أقل الامتيازات](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) عند إنشاء رمزك. هذا يعني أنه يجب أن تمنح الرمز الأذونات التي يحتاجها فقط لتشغيل أمثلة الشيفرة في هذا المقرر.
+من مشروعك في بوابة Microsoft Foundry:
 
-1. حدد خيار `Fine-grained tokens` على الجانب الأيسر من شاشتك من خلال الانتقال إلى **إعدادات المطور**
+- **Project Endpoint** — انتقل إلى صفحة **Overview** ونسخ عنوان URL لنقطة النهاية.
 
-   ![إعدادات المطور](../../../translated_images/ar/profile_developer_settings.410a859fe749c755.webp)
+![Project Connection String](../../../translated_images/ar/project-endpoint.8cf04c9975bbfbf1.webp)
 
-   ثم حدد `Generate new token`.
+- **Model Deployment Name** — انتقل إلى **Models + Endpoints**، اختر النموذج المنشور، ودوّن **Deployment name** (مثلاً `gpt-4o`).
 
-   ![إنشاء رمز](../../../translated_images/ar/fga_new_token.1c1a234afe202ab3.webp)
+### الخطوة 3: تسجيل الدخول إلى Azure باستخدام `az login`
 
-2. أدخل اسمًا وصفيًا لرمزك يعكس الغرض منه، مما يسهل تحديده لاحقًا.
+تستخدم جميع دفاتر الملاحظات **`AzureCliCredential`** للمصادقة — لا مفاتيح API لإدارتها. هذا يتطلب أن تكون مسجلاً عبر Azure CLI.
 
-    🔐 توصية مدة الرمز
+1. **ثبّت Azure CLI** إذا لم تكن قد فعلت ذلك بالفعل: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
-    المدة الموصى بها: 30 يومًا
-    للحصول على نهج أكثر أمانًا، يمكنك اختيار فترة أقصر — مثل 7 أيام 🛡️
-    إنها طريقة رائعة لتحديد هدف شخصي وإكمال المقرر بينما يكون زخم تعلمك مرتفعًا 🚀.
+2. **سجّل الدخول** بتشغيل:
 
-    ![اسم الرمز وتاريخ الانقضاء](../../../translated_images/ar/token-name-expiry-date.a095fb0de6386864.webp)
+    ```bash|powershell
+    az login
+    ```
 
-3. قلل نطاق الرمز إلى فورك هذا المستودع الخاص بك.
+    أو إذا كنت في بيئة بعيدة/Codepace بدون متصفح:
 
-    ![تقييد النطاق للمستودع المفَرَّع](../../../translated_images/ar/token_repository_limit.924ade5e11d9d8bb.webp)
+    ```bash|powershell
+    az login --use-device-code
+    ```
 
-4. قيّد أذونات الرمز: تحت **الأذونات**، انقر على علامة التبويب **الحساب**، ثم انقر على زر "+ Add permissions". سيظهر قائمة منسدلة. يرجى البحث عن **النماذج** ووضع علامة في المربع الخاص بها.
+3. **اختر اشتراكك** إذا طُلب — اختر الاشتراك الذي يحتوي على مشروع Foundry الخاص بك.
 
-    ![إضافة إذن النماذج](../../../translated_images/ar/add_models_permissions.c0c44ed8b40fc143.webp)
+4. **تحقق** من أنك مسجّل الدخول:
 
-5. تحقق من الأذونات المطلوبة قبل إنشاء الرمز. ![التحقق من الأذونات](../../../translated_images/ar/verify_permissions.06bd9e43987a8b21.webp)
+    ```bash|powershell
+    az account show
+    ```
 
-6. قبل إنشاء الرمز، تأكد من أنك مستعد لتخزين الرمز في مكان آمن مثل خزانة مدير كلمات المرور، حيث لن يتم عرضه مرة أخرى بعد إنشائه. ![تخزين الرمز بأمان](../../../translated_images/ar/store_token_securely.08ee2274c6ad6caf.webp)
+> **لماذا `az login`؟** تقوم دفاتر الملاحظات بالمصادقة باستخدام `AzureCliCredential` من حزمة `azure-identity`. هذا يعني أن جلسة Azure CLI الخاصة بك توفر بيانات الاعتماد — لا مفاتيح API أو أسرار في ملف `.env` الخاص بك. هذه [أفضل ممارسة أمنية](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
 
-انسخ الرمز الجديد الذي أنشأته للتو. ستقوم الآن بإضافته إلى ملف `.env` المضمّن في هذا المقرر.
+### الخطوة 4: إنشاء ملف `.env` الخاص بك
 
-### الخطوة 2: أنشئ ملف `.env` الخاص بك
-
-لإنشاء ملف `.env`، شغل الأمر التالي في الطرفية.
+انسخ ملف المثال:
 
 ```bash
-# زد شل/باش
+# زي إس إتش/باش
 cp .env.example .env
 ```
 
 ```powershell
-# باورشيل
+# باورشل
 Copy-Item .env.example .env
 ```
 
-سيقوم هذا بنسخ ملف المثال وإنشاء `.env` في دليلك حيث تقوم بملء قيم متغيرات البيئة.
+افتح `.env` واملأ هاتين القيمتين:
 
-بعد نسخ الرمز الخاص بك، افتح ملف `.env` في محرر النصوص المفضل لديك والصق رمزك في حقل `GITHUB_TOKEN`.
+```env
+AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
+AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4o
+```
 
-![حقل رمز GitHub](../../../translated_images/ar/github_token_field.20491ed3224b5f4a.webp)
+| Variable | Where to find it |
+|----------|-----------------|
+| `AZURE_AI_PROJECT_ENDPOINT` | Foundry portal → your project → **Overview** page |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundry portal → **Models + Endpoints** → your deployed model's name |
 
-ينبغي أن تكون الآن قادرًا على تشغيل أمثلة الشيفرة في هذا المقرر.
+هذا كل شيء بالنسبة لمعظم الدروس! ستقوم دفاتر الملاحظات بالمصادقة تلقائيًا عبر جلسة `az login` الخاصة بك.
 
-## الإعداد للأمثلة التي تستخدم Microsoft Foundry وخدمة Azure AI Agent
+### الخطوة 5: تثبيت تبعيات Python
 
-### الخطوة 1: استرجاع نقطة نهاية مشروع Azure الخاص بك
+```bash|powershell
+pip install -r requirements.txt
+```
 
+نوصي بتشغيل هذا داخل البيئة الافتراضية التي أنشأتها سابقًا.
 
-اتبع الخطوات لإنشاء hub ومشروع في Azure AI Foundry الموجودة هنا: [نظرة عامة على موارد المحور](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
+## إعداد إضافي للدرس 5 (Agentic RAG)
 
+يستخدم الدرس 5 **Azure AI Search** للتوليد المعزز بالاستخراج. إذا كنت تخطط لتشغيل ذلك الدرس، أضف هذه المتغيرات إلى ملف `.env` الخاص بك:
 
-بمجرد إنشاء مشروعك، ستحتاج إلى استرجاع سلسلة الاتصال لمشروعك.
+| Variable | Where to find it |
+|----------|-----------------|
+| `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure portal → your **Azure AI Search** resource → **Overview** → URL |
+| `AZURE_SEARCH_API_KEY` | Azure portal → your **Azure AI Search** resource → **Settings** → **Keys** → primary admin key |
 
-يمكن القيام بذلك عن طريق الانتقال إلى صفحة **نظرة عامة** لمشروعك في بوابة Microsoft Foundry.
+## إعداد إضافي للدرس 6 والدرس 8 (نماذج GitHub)
 
-![سلسلة اتصال المشروع](../../../translated_images/ar/project-endpoint.8cf04c9975bbfbf1.webp)
+بعض دفاتر الملاحظات في الدرسين 6 و8 تستخدم **GitHub Models** بدلاً من Azure AI Foundry. إذا كنت تخطط لتشغيل هذه العينات، أضف هذه المتغيرات إلى ملف `.env` الخاص بك:
 
-### الخطوة 2: أنشئ ملف `.env` الخاص بك
+| Variable | Where to find it |
+|----------|-----------------|
+| `GITHUB_TOKEN` | GitHub → **Settings** → **Developer settings** → **Personal access tokens** |
+| `GITHUB_ENDPOINT` | Use `https://models.inference.ai.azure.com` (default value) |
+| `GITHUB_MODEL_ID` | Model name to use (e.g. `gpt-4o-mini`) |
 
-لإنشاء ملف `.env`، شغل الأمر التالي في الطرفية.
+## إعداد إضافي للدرس 8 (Bing Grounding Workflow)
+
+دفتر العمل ذو سير العمل الشرطي في الدرس 8 يستخدم **Bing grounding** عبر Azure AI Foundry. إذا كنت تخطط لتشغيل هذا المثال، أضف هذا المتغير إلى ملف `.env` الخاص بك:
+
+| Variable | Where to find it |
+|----------|-----------------|
+| `BING_CONNECTION_ID` | Azure AI Foundry portal → your project → **Management** → **Connected resources** → your Bing connection → copy the connection ID |
+
+## استكشاف الأخطاء وإصلاحها
+
+### أخطاء التحقق من شهادة SSL على macOS
+
+إذا كنت على macOS وصادفت خطأ مثل:
+
+```plaintext
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
+```
+
+هذه مشكلة معروفة مع Python على macOS حيث لا يتم الوثوق بشهادات SSL للنظام تلقائيًا. جرّب الحلول التالية بالترتيب:
+
+**الخيار 1: تشغيل سكريبت تثبيت الشهادات في Python (موصى به)**
 
 ```bash
-# زد شل/باش
-cp .env.example .env
+# استبدل 3.XX بإصدار بايثون المثبت لديك (مثلًا 3.12 أو 3.13):
+/Applications/Python\ 3.XX/Install\ Certificates.command
 ```
 
-```powershell
-# باورشيل
-Copy-Item .env.example .env
-```
+**الخيار 2: استخدم `connection_verify=False` في دفتر الملاحظات الخاص بك (لدفاتر نماذج GitHub فقط)**
 
-سيقوم هذا بنسخ ملف المثال وإنشاء `.env` في دليلك حيث تقوم بملء قيم متغيرات البيئة.
-
-بعد نسخ الرمز الخاص بك، افتح ملف `.env` في محرر النصوص المفضل لديك والصق رمزك في حقل `PROJECT_ENDPOINT`.
-
-### الخطوة 3: تسجيل الدخول إلى Azure
-
-كممارسة أمان جيدة، سنستخدم [المصادقة بدون مفاتيح](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) للمصادقة إلى Azure OpenAI باستخدام Microsoft Entra ID. 
-
-بعد ذلك، افتح طرفية وشغّل `az login --use-device-code` لتسجيل الدخول إلى حساب Azure الخاص بك.
-
-بمجرد تسجيل الدخول، اختر اشتراكك في الطرفية.
-
-## متغيرات بيئة إضافية - Azure Search و Azure OpenAI 
-
-بالنسبة لدرس Agentic RAG - الدرس 5 - توجد أمثلة تستخدم Azure Search و Azure OpenAI.
-
-إذا رغبت في تشغيل هذه الأمثلة، فستحتاج إلى إضافة متغيرات البيئة التالية إلى ملف `.env` الخاص بك:
-
-### صفحة نظرة عامة (المشروع)
-
-- `AZURE_SUBSCRIPTION_ID` - تحقق من **تفاصيل المشروع** في صفحة **نظرة عامة** لمشروعك.
-
-- `AZURE_AI_PROJECT_NAME` - انظر إلى أعلى صفحة **نظرة عامة** لمشروعك.
-
-- `AZURE_OPENAI_SERVICE` - اعثر على هذا في تبويب **القدرات المدرَجة** لخدمة **Azure OpenAI Service** في صفحة **نظرة عامة**.
-
-### مركز الإدارة
-
-- `AZURE_OPENAI_RESOURCE_GROUP` - اذهب إلى **خصائص المشروع** في صفحة **نظرة عامة** لمركز الإدارة.
-
-- `GLOBAL_LLM_SERVICE` - ضمن **الموارد المتصلة**، ابحث عن اسم الاتصال **Azure AI Services**. إذا لم يتم إدراجه، تحقق من **بوابة Azure** ضمن مجموعة الموارد الخاصة بك للحصول على اسم مورد AI Services.
-
-### صفحة النماذج + نقاط النهاية
-
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - اختر نموذج التضمين الخاص بك (مثلًا، `text-embedding-ada-002`) ولاحظ **اسم النشر** من تفاصيل النموذج.
-
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - اختر نموذج الدردشة الخاص بك (مثلًا، `gpt-4o-mini`) ولاحظ **اسم النشر** من تفاصيل النموذج.
-
-### بوابة Azure
-
-- `AZURE_OPENAI_ENDPOINT` - ابحث عن **Azure AI services**، انقر عليها، ثم اذهب إلى **إدارة الموارد**، **المفاتيح ونقطة النهاية**، مرّر لأسفل إلى "نقاط نهاية Azure OpenAI"، وانسخ تلك التي تقول "Language APIs".
-
-- `AZURE_OPENAI_API_KEY` - من نفس الشاشة، انسخ KEY 1 أو KEY 2.
-
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - اعثر على مورد **Azure AI Search** الخاص بك، انقر عليه، وراجع **نظرة عامة**.
-
-- `AZURE_SEARCH_API_KEY` - ثم اذهب إلى **الإعدادات** ثم **المفاتيح** لنسخ المفتاح الإداري الأساسي أو الثانوي.
-
-### صفحة ويب خارجية
-
-- `AZURE_OPENAI_API_VERSION` - زر صفحة [دورة حياة إصدار واجهة برمجة التطبيقات](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) ضمن **إصدار GA الأحدث لواجهة البرمجة**.
-
-### إعداد المصادقة بدون مفاتيح
-
-بدلاً من ترميز بيانات الاعتماد الخاصة بك، سنستخدم اتصالًا بدون مفاتيح مع Azure OpenAI. للقيام بذلك، سنستورد `DefaultAzureCredential` وبعد ذلك سنستدعي دالة `DefaultAzureCredential` للحصول على بيانات الاعتماد.
+في دفتر الملاحظات للدرس 6 (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`)، تم تضمين حل بديل معلق بالفعل. قم بإلغاء تعليق `connection_verify=False` عند إنشاء العميل:
 
 ```python
-# بايثون
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+client = ChatCompletionsClient(
+    endpoint=endpoint,
+    credential=AzureKeyCredential(token),
+    connection_verify=False,  # عطّل التحقق من SSL إذا واجهت أخطاء في الشهادة
+)
+```
+
+> **⚠️ تحذير:** تعطيل التحقق من SSL (`connection_verify=False`) يقلل من الأمان عن طريق تخطي التحقق من الشهادات. استخدم هذا كحل مؤقت فقط في بيئات التطوير، ولا تستخدمه في الإنتاج.
+
+**الخيار 3: تثبيت واستخدام `truststore`**
+
+```bash
+pip install truststore
+```
+
+ثم أضف ما يلي في أعلى دفتر الملاحظات أو السكربت قبل إجراء أي مكالمات شبكة:
+
+```python
+import truststore
+truststore.inject_into_ssl()
 ```
 
 ## عالق في مكان ما؟
-إذا واجهت أي مشاكل في تشغيل هذا الإعداد، فانضم إلى <a href="https://discord.gg/kzRShWzttr" target="_blank">قناة Discord لمجتمع Azure AI</a> أو <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">أنشئ مشكلة</a>.
+
+إذا واجهت أي مشكلات في تشغيل هذا الإعداد، انضم إلى <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> أو <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">أنشئ مشكلة</a>.
 
 ## الدرس التالي
 
-أنت الآن جاهز لتشغيل الشيفرة الخاصة بهذه الدورة. نتمنى لك رحلة تعلم ممتعة أثناء اكتشاف عالم وكلاء الذكاء الاصطناعي! 
+أنت الآن جاهز لتشغيل الشيفرة لهذه الدورة. تعلم سعيد أكثر عن عالم وكلاء الذكاء الاصطناعي!
 
-[مقدمة حول وكلاء الذكاء الاصطناعي وحالات استخدامهم](../01-intro-to-ai-agents/README.md)
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 إخلاء المسؤولية:
-تمت ترجمة هذا المستند باستخدام خدمة الترجمة الآلية [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى إلى الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو معلومات غير دقيقة. ينبغي اعتبار المستند الأصلي بلغته الأصلية هو المصدر المعتمد. للمعلومات الحساسة أو الهامة، يُنصح بالاستعانة بترجمة بشرية مهنية. لسنا مسؤولين عن أي سوء فهم أو تفسيرات خاطئة تنشأ عن استخدام هذه الترجمة.
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة الآلية [Co-op Translator](https://github.com/Azure/co-op-translator). وعلى الرغم من سعينا للدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو معلومات غير دقيقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر المعتمد. بالنسبة للمعلومات الحرجة، يُنصح باللجوء إلى ترجمة بشرية مهنية. لا نتحمل أي مسؤولية عن أي سوء فهم أو تفسير خاطئ ينجم عن استخدام هذه الترجمة.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

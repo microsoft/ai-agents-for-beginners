@@ -1,182 +1,182 @@
-# Using Agentic Protocols (MCP, A2A and NLWeb)
+# استخدام بروتوكولات الوكلاء (MCP, A2A وNLWeb)
 
 [![بروتوكولات الوكلاء](../../../translated_images/ar/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(انقر على الصورة أعلاه لمشاهدة فيديو هذا الدرس)_
 
-As the use of AI agents grows, so does the need for protocols that ensure standardization, security, and support open innovation. In this lesson, we will cover 3 protocols looking to meet this need - Model Context Protocol (MCP), Agent to Agent (A2A) and Natural Language Web (NLWeb).
+مع تزايد استخدام وكلاء الذكاء الاصطناعي، يزداد أيضاً الحاجة إلى بروتوكولات تضمن التوحيد والأمان ودعم الابتكار المفتوح. في هذا الدرس، سنغطي 3 بروتوكولات تسعى لتلبية هذه الحاجة - **بروتوكول سياق النموذج (MCP)**، **وكيل إلى وكيل (A2A)** و**الويب اللغوي الطبيعي (NLWeb)**.
 
-## Introduction
+## مقدمة
 
-In this lesson, we will cover:
+في هذا الدرس، سنغطي:
 
-• How **MCP** allows AI Agents to access external tools and data to complete user tasks.
+• كيف يتيح **MCP** لوكلاء الذكاء الاصطناعي الوصول إلى أدوات وبيانات خارجية لإتمام مهام المستخدم.
 
-•  How **A2A** enables communication and collaboration between different AI agents.
+• كيف يمكّن **A2A** التواصل والتعاون بين وكلاء الذكاء الاصطناعي المختلفين.
 
-• How **NLWeb** brings natural language interfaces to any website enabling AI Agents to discover and interact with the content.
+• كيف يجلب **NLWeb** واجهات باللغة الطبيعية إلى أي موقع ويب مما يتيح لوكلاء الذكاء الاصطناعي اكتشاف المحتوى والتفاعل معه.
 
-## Learning Goals
+## أهداف التعلم
 
-• **Identify** the core purpose and benefits of MCP, A2A, and NLWeb in the context of AI agents.
+• **تحديد** الغرض الأساسي وفوائد MCP وA2A وNLWeb في سياق وكلاء الذكاء الاصطناعي.
 
-• **Explain** how each protocol facilitates communication and interaction between LLMs, tools, and other agents.
+• **شرح** كيف يسهل كل بروتوكول التواصل والتفاعل بين نماذج اللغة الكبيرة (LLMs)، والأدوات، والوكلاء الآخرين.
 
-• **Recognize** the distinct roles each protocol plays in building complex agentic systems.
+• **التعرّف** على الأدوار المميزة التي يلعبها كل بروتوكول في بناء أنظمة وكيلية معقدة.
 
-## Model Context Protocol
+## بروتوكول سياق النموذج
 
-The **Model Context Protocol (MCP)** is an open standard that provides standardized way for applications to provide context and tools to LLMs. This enables a "universal adaptor" to different data sources and tools that AI Agents can connect to in a consistent way.
+The **بروتوكول سياق النموذج (MCP)** هو معيار مفتوح يوفر طريقة موحدة للتطبيقات لتقديم السياق والأدوات إلى نماذج اللغة الكبيرة. هذا يمكّن "محوّل عالمي" لمصادر البيانات والأدوات المختلفة التي يمكن لوكلاء الذكاء الاصطناعي الاتصال بها بشكل متسق.
 
-Let’s look at the components of MCP, the benefits compared to direct API usage, and an example of how AI agents might use an MCP server.
+لننظر إلى مكونات MCP، والفوائد مقارنة باستخدام واجهات برمجة التطبيقات المباشرة، ومثال لكيفية استخدام وكلاء الذكاء الاصطناعي لخادم MCP.
 
 ### MCP Core Components
 
-MCP operates on a **client-server architecture** and the core components are:
+MCP يعمل على **بنية عميل-خادم** والمكونات الأساسية هي:
 
-• **Hosts** are LLM applications (for example a code editor like VSCode) that start the connections to an MCP Server.
+• **Hosts** هي تطبيقات LLM (على سبيل المثال محرر شفرات مثل VSCode) التي تبدأ الاتصالات إلى خادم MCP.
 
-• **Clients** are components within the host application that maintain one-to-one connections with servers.
+• **Clients** هي مكونات داخل تطبيق المضيف التي تحافظ على اتصالات واحد لواحد مع الخوادم.
 
-• **Servers** are lightweight programs that expose specific capabilities.
+• **Servers** هي برامج خفيفة تعرض قدرات محددة.
 
-Included in the protocol are three core primitives which are the capabilities of an MCP Server:
+مدمجة في البروتوكول هي ثلاث بدائيات أساسية والتي تمثل قدرات خادم MCP:
 
-• **Tools**: These are discrete actions or functions an AI agent can call to perform an action. For example, a weather service might expose a "get weather" tool, or an e-commerce server might expose a "purchase product" tool. MCP servers advertise each tool's name, description, and input/output schema in their capabilities listing.
+• **Tools**: هي إجراءات أو وظائف منفصلة يمكن لوكيل الذكاء الاصطناعي استدعاؤها لأداء فعل ما. على سبيل المثال، قد يكشف خدمة الطقس عن أداة "get weather"، أو قد يكشف خادم التجارة الإلكترونية عن أداة "purchase product". تعلن خوادم MCP عن اسم كل أداة ووصفها ومخطط الإدخال/الإخراج في قائمة قدراتها.
 
-• **Resources**: These are read-only data items or documents that an MCP server can provide, and clients can retrieve them on demand. Examples include file contents, database records, or log files. Resources can be text (like code or JSON) or binary (like images or PDFs).
+• **Resources**: هي عناصر بيانات أو مستندات للقراءة فقط يمكن أن يوفرها خادم MCP، ويمكن للعملاء استرجاعها عند الطلب. أمثلة تشمل محتويات الملفات، سجلات قواعد البيانات، أو سجلات الأحداث. يمكن أن تكون الموارد نصية (مثل الشفرة أو JSON) أو ثنائية (مثل الصور أو ملفات PDF).
 
-• **Prompts**: These are predefined templates that provide suggested prompts, allowing for more complex workflows.
+• **Prompts**: هي قوالب محددة مسبقًا توفر اقتراحات للـ prompts، مما يسمح بسير عمل أكثر تعقيدًا.
 
-### Benefits of MCP
+### فوائد MCP
 
-MCP offers significant advantages for AI Agents:
+MCP يقدم مزايا كبيرة لوكلاء الذكاء الاصطناعي:
 
-• **Dynamic Tool Discovery**: Agents can dynamically receive a list of available tools from a server along with descriptions of what they do. This contrasts with traditional APIs, which often require static coding for integrations, meaning any API change necessitates code updates. MCP offers an "integrate once" approach, leading to greater adaptability.
+• **اكتشاف أدوات ديناميكي**: يمكن للوكلاء استقبال قائمة بالأدوات المتاحة من الخادم بشكل ديناميكي مع أوصاف لما تقوم به. هذا يتباين مع واجهات برمجة التطبيقات التقليدية، التي تتطلب غالبًا برمجة ثابتة للتكاملات، مما يعني أن أي تغيير في واجهة برمجة التطبيقات يستلزم تحديث الشفرة. يقدم MCP نهج "الدمج مرة واحدة"، مما يؤدي إلى قدرة تكيف أكبر.
 
-• **Interoperability Across LLMs**: MCP works across different LLMs, providing flexibility to switch core models to evaluate for better performance.
+• **التشغيل البيني عبر نماذج اللغة**: يعمل MCP عبر نماذج لغة مختلفة، مما يوفر المرونة لتغيير النماذج الأساسية لتقييم أداء أفضل.
 
-• **Standardized Security**: MCP includes a standard authentication method, improving scalability when adding access to additional MCP servers. This is simpler than managing different keys and authentication types for various traditional APIs.
+• **أمان موحد**: يتضمن MCP طريقة مصادقة قياسية، مما يحسّن القابلية للتوسع عند إضافة وصول إلى خوادم MCP إضافية. هذا أبسط من إدارة مفاتيح وأنواع مصادقة مختلفة لواجهات برمجة التطبيقات التقليدية المختلفة.
 
-### MCP Example
+### مثال MCP
 
 ![مخطط MCP](../../../translated_images/ar/mcp-diagram.e4ca1cbd551444a1.webp)
 
-Imagine a user wants to book a flight using an AI assistant powered by MCP.
+تخيل أن مستخدمًا يريد حجز رحلة جوية باستخدام مساعد ذكي يعمل بواسطة MCP.
 
-1. **Connection**: The AI assistant (the MCP client) connects to an MCP server provided by an airline.
+1. **الاتصال**: يتصل المساعد الذكي (عميل MCP) بخادم MCP الذي توفره شركة الطيران.
 
-2. **Tool Discovery**: The client asks the airline's MCP server, "What tools do you have available?" The server responds with tools like "search flights" and "book flights".
+2. **اكتشاف الأدوات**: يسأل العميل خادم MCP الخاص بشركة الطيران، "ما الأدوات المتاحة لديكم؟" يرد الخادم بأدوات مثل "search flights" و"book flights".
 
-3. **Tool Invocation**: You then ask the AI assistant, "Please search for a flight from Portland to Honolulu." The AI assistant, using its LLM, identifies that it needs to call the "search flights" tool and passes the relevant parameters (origin, destination) to the MCP server.
+3. **استدعاء الأداة**: ثم تطلب من المساعد الذكي، "يرجى البحث عن رحلة من بورتلاند إلى هونولولو." يحدد المساعد الذكي، باستخدام نموذج اللغة الخاص به، أنه يحتاج إلى استدعاء أداة "search flights" ويمرر المعاملات ذات الصلة (المغادرة، الوجهة) إلى خادم MCP.
 
-4. **Execution and Response**: The MCP server, acting as a wrapper, makes the actual call to the airline's internal booking API. It then receives the flight information (e.g., JSON data) and sends it back to the AI assistant.
+4. **التنفيذ والاستجابة**: يقوم خادم MCP، بصفته غلافًا، بإجراء الاستدعاء الفعلي إلى واجهة حجز شركة الطيران الداخلية. ثم يستلم معلومات الرحلة (مثل بيانات JSON) ويعيدها إلى المساعد الذكي.
 
-5. **Further Interaction**: The AI assistant presents the flight options. Once you select a flight, the assistant might invoke the "book flight" tool on the same MCP server, completing the booking.
+5. **تفاعل إضافي**: يعرض المساعد الذكي خيارات الرحلة. بمجرد اختيارك لرحلة، قد يستدعي المساعد أداة "book flight" على نفس خادم MCP، مكتملاً الحجز.
 
-## Agent-to-Agent Protocol (A2A)
+## بروتوكول وكيل إلى وكيل (A2A)
 
-While MCP focuses on connecting LLMs to tools, the **Agent-to-Agent (A2A) protocol** takes it a step further by enabling communication and collaboration between different AI agents.  A2A connects AI agents across different organizations, environments and tech stacks to complete a shared task.
+بينما يركز MCP على ربط نماذج اللغة بالأدوات، يأخذ **بروتوكول وكيل إلى وكيل (A2A)** الأمر خطوة أبعد بتمكين التواصل والتعاون بين وكلاء الذكاء الاصطناعي المختلفين. يربط A2A وكلاء الذكاء الاصطناعي عبر مؤسسات وبيئات وأطر تقنية مختلفة لإكمال مهمة مشتركة.
 
-We’ll examine the components and benefits of A2A, along with an example of how it could be applied in our travel application.
+سنفحص مكونات وفوائد A2A، إلى جانب مثال حول كيفية تطبيقه في تطبيق السفر الخاص بنا.
 
-### A2A Core Components
+### المكونات الأساسية لـA2A
 
-A2A focuses on enabling communication between agents and having them work together to complete a subtask of user. Each component of the protocol contributes to this:
+يركز A2A على تمكين التواصل بين الوكلاء وجعلهم يعملون معًا لإكمال جزء من مهمة المستخدم. تساهم كل مكوّن من مكونات البروتوكول في ذلك:
 
 #### Agent Card
 
-Similar to how an MCP server shares a list of tools, an Agent Card has:
+ممشابهاً لكيفية مشاركة خادم MCP لقائمة الأدوات، تحتوي بطاقة الوكيل على:
 - اسم الوكيل .
-- A **description of the general tasks** it completes.
-- A **list of specific skills** with descriptions to help other agents (or even human users) understand when and why they would want to call that agent.
-- The **current Endpoint URL** of the agent
-- The **version** and **capabilities** of the agent such as streaming responses and push notifications.
+- **وصف للمهام العامة** التي يكملها.
+- **قائمة بالمهارات المحددة** مع أوصاف لمساعدة الوكلاء الآخرين (أو حتى المستخدمين البشريين) على فهم متى ولماذا قد يرغبون في استدعاء ذلك الوكيل.
+- **current Endpoint URL** الخاص بالوكيل
+- **الإصدار** و**القدرات** للوكيل مثل الاستجابات المتدفقة والإشعارات الدفعية.
 
 #### Agent Executor
 
-The Agent Executor is responsible for **passing the context of the user chat to the remote agent**, the remote agent needs this to understand the task that needs to be completed. In an A2A server, an agent uses its own Large Language Model (LLM) to parse incoming requests and execute tasks using its own internal tools.
+المسؤول عن **تمرير سياق محادثة المستخدم إلى الوكيل البعيد**؛ يحتاج الوكيل البعيد هذا لفهم المهمة التي يجب إكمالها. في خادم A2A، يستخدم الوكيل نموذج اللغة الكبير الخاص به لتحليل الطلبات الواردة وتنفيذ المهام باستخدام أدواته الداخلية الخاصة.
 
 #### Artifact
 
-Once a remote agent has completed the requested task, its work product is created as an artifact.  An artifact **contains the result of the agent's work**, a **description of what was completed**, and the **text context** that is sent through the protocol. After the artifact is sent, the connection with the remote agent is closed until it is needed again.
+بمجرد أن يكمل الوكيل البعيد المهمة المطلوبة، يتم إنشاء منتجه العملي كأثر. يحتوي الأثر على **نتيجة عمل الوكيل**، و**وصف ما تم إنجازه**، و**السياق النصي** الذي يتم إرساله عبر البروتوكول. بعد إرسال الأثر، يتم إغلاق الاتصال مع الوكيل البعيد حتى يتم الحاجة إليه مرة أخرى.
 
 #### Event Queue
 
-This component is used for **handling updates and passing messages**. It is particularly important in production for agentic systems to prevent the connection between agents from being closed before a task is completed, especially when task completion times can take a longer time.
+يُستخدم هذا المكوّن **لمعالجة التحديثات وتمرير الرسائل**. يكون مهمًا بشكل خاص في الإنتاج لأنظمة الوكلاء لمنع إغلاق الاتصال بين الوكلاء قبل اكتمال المهمة، خاصة عندما قد تستغرق مدة إكمال المهام وقتًا أطول.
 
-### Benefits of A2A
+### فوائد A2A
 
-• **Enhanced Collaboration**: It enables agents from different vendors and platforms to interact, share context, and work together, facilitating seamless automation across traditionally disconnected systems.
+• **تعزيز التعاون**: يمكّن الوكلاء من بائعين ومنصات مختلفة من التفاعل، ومشاركة السياق، والعمل معًا، مما يسهل الأتمتة السلسة عبر أنظمة كانت متصلة تقليديًا بشكل منفصل.
 
-• **Model Selection Flexibility**: Each A2A agent can decide which LLM it uses to service its requests, allowing for optimized or fine-tuned models per agent, unlike a single LLM connection in some MCP scenarios.
+• **مرونة اختيار النموذج**: يمكن لكل وكيل A2A أن يقرر أي نموذج لغة كبير يستخدم لخدمة طلباته، مما يسمح بنماذج محسّنة أو مخصصة لكل وكيل، على عكس اتصال نموذج واحد في بعض سيناريوهات MCP.
 
-• **Built-in Authentication**: Authentication is integrated directly into the A2A protocol, providing a robust security framework for agent interactions.
+• **مصادقة مدمجة**: يتم دمج المصادقة مباشرة في بروتوكول A2A، مما يوفر إطار أمني قوي لتفاعلات الوكلاء.
 
-### A2A Example
+### مثال A2A
 
 ![مخطط A2A](../../../translated_images/ar/A2A-Diagram.8666928d648acc26.webp)
 
-Let's expand on our travel booking scenario, but this time using A2A.
+لنوسع سيناريو حجز السفر الخاص بنا، ولكن هذه المرة باستخدام A2A.
 
-1. **User Request to Multi-Agent**: A user interacts with a "Travel Agent" A2A client/agent, perhaps by saying, "Please book an entire trip to Honolulu for next week, including flights, a hotel, and a rental car".
+1. **طلب المستخدم إلى نظام متعدد الوكلاء**: يتفاعل المستخدم مع عميل/وكيل A2A "وكيل السفر"، ربما بقوله، "يرجى حجز رحلة كاملة إلى هونولولو للأسبوع المقبل، بما في ذلك الرحلات الجوية والفندق وسيارة للإيجار".
 
-2. **Orchestration by Travel Agent**: The Travel Agent receives this complex request. It uses its LLM to reason about the task and determine that it needs to interact with other specialized agents.
+2. **تنسيق بواسطة وكيل السفر**: يستلم وكيل السفر هذا الطلب المعقد. يستخدم نموذج اللغة الخاص به للتفكير في المهمة وتحديد أنه يحتاج للتفاعل مع وكلاء متخصصين آخرين.
 
-3. **Inter-Agent Communication**: The Travel Agent then uses the A2A protocol to connect to downstream agents, such as an "Airline Agent," a "Hotel Agent," and a "Car Rental Agent" that are created by different companies.
+3. **التواصل بين الوكلاء**: ثم يستخدم وكيل السفر بروتوكول A2A للاتصال بوكلاء تابعين، مثل "وكيل شركة الطيران"، و"وكيل الفندق"، و"وكيل تأجير السيارات" التي أنشأتها شركات مختلفة.
 
-4. **Delegated Task Execution**: The Travel Agent sends specific tasks to these specialized agents (e.g., "Find flights to Honolulu," "Book a hotel," "Rent a car"). Each of these specialized agents, running their own LLMs and utilizing their own tools (which could be MCP servers themselves), performs its specific part of the booking.
+4. **تفويض تنفيذ المهام**: يرسل وكيل السفر مهام محددة إلى هؤلاء الوكلاء المتخصصين (مثل "Find flights to Honolulu"، "Book a hotel"، "Rent a car"). كل من هؤلاء الوكلاء المتخصصين، الذين يشغلون نماذج اللغة الخاصة بهم ويستخدمون أدواتهم الخاصة (والتي قد تكون خوادم MCP بحد ذاتها)، ينفذ الجزء المحدد من الحجز.
 
-5. **Consolidated Response**: Once all downstream agents complete their tasks, the Travel Agent compiles the results (flight details, hotel confirmation, car rental booking) and sends a comprehensive, chat-style response back to the user.
+5. **الاستجابة المجمعة**: بمجرد أن تكمل جميع الوكلاء التابعين مهامهم، يجمع وكيل السفر النتائج (تفاصيل الرحلة، تأكيد الفندق، حجز السيارة) ويرسل استجابة شاملة بأسلوب المحادثة إلى المستخدم.
 
-## Natural Language Web (NLWeb)
+## الويب اللغوي الطبيعي (NLWeb)
 
-Websites have long been the primary way for users to access information and data across the internet.
+لطالما كانت مواقع الويب الوسيلة الأساسية للمستخدمين للوصول إلى المعلومات والبيانات عبر الإنترنت.
 
-Let us look at the different components of NLWeb, the benefits of NLWeb and an example how our NLWeb works by looking at our travel application.
+لننظر إلى المكونات المختلفة لـNLWeb، وفوائد NLWeb ومثال لكيفية عمل NLWeb في تطبيق السفر الخاص بنا.
 
-### Components of NLWeb
+### مكونات NLWeb
 
-- **NLWeb Application (Core Service Code)**: The system that processes natural language questions. It connects the different parts of the platform to create responses. You can think of it as the **engine that powers the natural language features** of a website.
+- **تطبيق NLWeb (كود الخدمة الأساسي)**: النظام الذي يعالج أسئلة اللغة الطبيعية. يربط الأجزاء المختلفة للمنصة لإنشاء الردود. يمكنك التفكير فيه كمحرك يُشغّل ميزات اللغة الطبيعية في الموقع.
 
-- **NLWeb Protocol**: This is a **basic set of rules for natural language interaction** with a website. It sends back responses in JSON format (often using Schema.org). Its purpose is to create a simple foundation for the “AI Web,” in the same way that HTML made it possible to share documents online.
+- **بروتوكول NLWeb**: هذه مجموعة أساسية من القواعد للتفاعل باللغة الطبيعية مع موقع ويب. يعيد الردود في شكل JSON (غالبًا باستخدام Schema.org). هدفه إنشاء أساس بسيط لـ "الويب الذكي" بنفس الطريقة التي جعل بها HTML من الممكن مشاركة المستندات عبر الإنترنت.
 
-- **MCP Server (Model Context Protocol Endpoint)**: Each NLWeb setup also works as an **MCP server**. This means it can **share tools (like an “ask” method) and data** with other AI systems. In practice, this makes the website’s content and abilities usable by AI agents, allowing the site to become part of the wider “agent ecosystem.”
+- **خادم MCP (نقطة نهاية بروتوكول سياق النموذج)**: يعمل كل إعداد NLWeb أيضًا كخادم **MCP**. هذا يعني أنه يمكنه **مشاركة الأدوات (مثل طريقة "ask") والبيانات** مع أنظمة ذكاء اصطناعي أخرى. عمليًا، يجعل ذلك محتوى وإمكانات الموقع قابلة للاستخدام من قبل وكلاء الذكاء الاصطناعي، مما يسمح للموقع بأن يصبح جزءًا من "نظام الوكلاء" الأوسع.
 
-- **Embedding Models**: These models are used to **convert website content into numerical representations called vectors** (embeddings). These vectors capture meaning in a way computers can compare and search. They are stored in a special database, and users can choose which embedding model they want to use.
+- **نماذج التضمين**: تُستخدم هذه النماذج **لتحويل محتوى الموقع إلى تمثيلات رقمية تُسمى متجهات** (التضمينات). تلتقط هذه المتجهات المعنى بطريقة يمكن لأجهزة الحاسوب مقارنتها والبحث فيها. تُخزن في قاعدة بيانات خاصة، ويمكن للمستخدمين اختيار نموذج التضمين الذي يرغبون في استخدامه.
 
-- **Vector Database (Retrieval Mechanism)**: This database **stores the embeddings of the website content**. When someone asks a question, NLWeb checks the vector database to quickly find the most relevant information. It gives a fast list of possible answers, ranked by similarity. NLWeb works with different vector storage systems such as Qdrant, Snowflake, Milvus, Azure AI Search, and Elasticsearch.
+- **قاعدة بيانات المتجهات (آلية الاسترجاع)**: تخزن هذه القاعدة **تضمينات محتوى الموقع**. عندما يطرح شخص ما سؤالاً، يفحص NLWeb قاعدة بيانات المتجهات للعثور بسرعة على أكثر المعلومات ملاءمة. تعطي قائمة سريعة بالإجابات المحتملة، مرتبة حسب التشابه. يعمل NLWeb مع أنظمة تخزين متجهات مختلفة مثل Qdrant وSnowflake وMilvus وAzure AI Search وElasticsearch.
 
-### NLWeb by Example
+### مثال NLWeb
 
-![NLWeb](../../../translated_images/ar/nlweb-diagram.c1e2390b310e5fe4.webp)
+![مخطط NLWeb](../../../translated_images/ar/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Consider our travel booking website again, but this time, it's powered by NLWeb.
+لنعد إلى موقع حجز السفر الخاص بنا، لكن هذه المرة يعمل بالاستناد إلى NLWeb.
 
-1. **Data Ingestion**: The travel website's existing product catalogs (e.g., flight listings, hotel descriptions, tour packages) are formatted using Schema.org or loaded via RSS feeds. NLWeb's tools ingest this structured data, create embeddings, and store them in a local or remote vector database.
+1. **استيعاب البيانات**: يتم تنسيق كتالوجات المنتجات الحالية لموقع السفر (مثل قوائم الرحلات، أوصاف الفنادق، حزم الجولات) باستخدام Schema.org أو تحميلها عبر خلاصات RSS. تقوم أدوات NLWeb باستيعاب هذه البيانات المهيكلة، وإنشاء التضمينات، وتخزينها في قاعدة بيانات متجهات محلية أو بعيدة.
 
-2. **Natural Language Query (Human)**: A user visits the website and, instead of navigating menus, types into a chat interface: "Find me a family-friendly hotel in Honolulu with a pool for next week".
+2. **استعلام باللغة الطبيعية (بشري)**: يزور المستخدم الموقع وبدلاً من التنقل عبر القوائم، يكتب في واجهة الدردشة: "ابحث لي عن فندق مناسب للعائلات في هونولولو مع مسبح للأسبوع المقبل".
 
-3. **NLWeb Processing**: The NLWeb application receives this query. It sends the query to an LLM for understanding and simultaneously searches its vector database for relevant hotel listings.
+3. **معالجة NLWeb**: يستقبل تطبيق NLWeb هذا الاستعلام. يرسله إلى نموذج اللغة لفهمه وفي الوقت ذاته يبحث في قاعدة بيانات المتجهات الخاصة به عن قوائم الفنادق ذات الصلة.
 
-4. **Accurate Results**: The LLM helps to interpret the search results from the database, identify the best matches based on "family-friendly," "pool," and "Honolulu" criteria, and then formats a natural language response. Crucially, the response refers to actual hotels from the website's catalog, avoiding made-up information.
+4. **نتائج دقيقة**: يساعد نموذج اللغة في تفسير نتائج البحث من قاعدة البيانات، وتحديد أفضل المطابقات بناءً على معايير "مناسب للعائلات"، "مسبح"، و"هونولولو"، ثم ينسق استجابة باللغة الطبيعية. والأهم أن الاستجابة تشير إلى فنادق فعلية من كتالوج الموقع، متجنبة المعلومات المُختلقة.
 
-5. **AI Agent Interaction**: Because NLWeb serves as an MCP server, an external AI travel agent could also connect to this website's NLWeb instance. The AI agent could then use the `ask("هل توجد أي مطاعم مناسبة للنباتيين في منطقة هونولولو يوصي بها الفندق؟")` MCP method to query the website directly. The NLWeb instance would process this, leveraging its database of restaurant information (if loaded), and return a structured JSON response.
+5. **تفاعل وكيل الذكاء الاصطناعي**: لأن NLWeb يعمل كخادم MCP، يمكن لوكيل سفر ذكي خارجي أيضًا الاتصال بنسخة NLWeb الخاصة بهذا الموقع. يمكن لوكيل الذكاء الاصطناعي بعد ذلك استخدام الدالة `ask("Are there any vegan-friendly restaurants in the Honolulu area recommended by the hotel?")`. ستقوم مثيبت NLWeb بمعالجة هذا، مستفيدة من قاعدة بيانات معلومات المطاعم (إذا تم تحميلها)، وإرجاع استجابة JSON منظمة.
 
-### Got More Questions about MCP/A2A/NLWeb?
+### هل لديك المزيد من الأسئلة حول MCP/A2A/NLWeb؟
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+انضم إلى [خادم Microsoft Foundry على Discord](https://aka.ms/ai-agents/discord) للالتقاء بمتعلمين آخرين، وحضور ساعات المكتب، والحصول على إجابات لأسئلة وكلاء الذكاء الاصطناعي الخاصة بك.
 
-## Resources
+## الموارد
 
-- [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
-- [MCP Documentation](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
-- [NLWeb Repo](https://github.com/nlweb-ai/NLWeb)
-- [Semantic Kernel Guides](https://learn.microsoft.com/semantic-kernel/)
+- [MCP للمبتدئين](https://aka.ms/mcp-for-beginners)  
+- [توثيق MCP](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
+- [مستودع NLWeb](https://github.com/nlweb-ai/NLWeb)
+- [إطار عمل الوكلاء من Microsoft](https://aka.ms/ai-agents-beginners/agent-framewrok)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-إخلاء المسؤولية:
-تمت ترجمة هذا المستند باستخدام خدمة الترجمة الآلية [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى للدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. ينبغي اعتبار المستند الأصلي بلغته الأصلية المصدر المرجعي الموثوق. بالنسبة للمعلومات الحساسة أو الحرجة، يُنصح بالاستعانة بترجمة بشرية محترفة. لا نتحمل أي مسؤولية عن أي سوء فهم أو تفسير ينشأ عن استخدام هذه الترجمة.
+**إخلاء المسؤولية**:
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة الآلية [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى إلى الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر المعتمد. بالنسبة للمعلومات الحرجة، يوصى بالاستعانة بترجمة بشرية محترفة. لا نتحمل أي مسؤولية عن أي سوء فهم أو تفسير قد ينشأ عن استخدام هذه الترجمة.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
