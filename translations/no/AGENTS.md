@@ -1,32 +1,31 @@
 # AGENTS.md
 
-## Project Overview
+## Prosjektoversikt
 
-Dette arkivet inneholder "AI Agents for Beginners" - et omfattende pedagogisk kurs som lærer alt som trengs for å bygge AI-agenter. Kurset består av 15+ leksjoner som dekker grunnprinsipper, designmønstre, rammeverk og produksjonsutrulling av AI-agenter.
+Dette repositoriet inneholder "AI Agents for Beginners" - et omfattende utdanningskurs som lærer alt som trengs for å bygge AI-agenter. Kurset består av 15+ leksjoner som dekker det grunnleggende, designmønstre, rammeverk og produksjonsutrulling av AI-agenter.
 
 **Nøkkelteknologier:**
 - Python 3.12+
-- Jupyter Notebooks for interaktiv læring
-- AI-rammeverk: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Azure AI-tjenester: Microsoft Foundry, Azure AI Agent Service
-- GitHub Models Marketplace (gratisnivå tilgjengelig)
+- Jupyter-notatbøker for interaktiv læring
+- AI-rammeverk: Microsoft Agent Framework (MAF)
+- Azure AI-tjenester: Microsoft Foundry, Azure AI Foundry Agent Service V2
 
 **Arkitektur:**
 - Leksjonsbasert struktur (00-15+ directories)
-- Hver leksjon inneholder: README-dokumentasjon, kodeeksempler (Jupyter-notatbøker) og bilder
+- Hver leksjon inneholder: README-dokumentasjon, kodeeksempler (Jupyter-notatbøker), og bilder
 - Flerspråklig støtte via automatisert oversettelsessystem
-- Flere rammeverksvalg per leksjon (Semantic Kernel, AutoGen, Azure AI Agent Service)
+- Én Python-notatbok per leksjon som bruker Microsoft Agent Framework
 
-## Setup Commands
+## Oppsettkommandoer
 
-### Prerequisites
-- Python 3.12 or higher
-- GitHub account (for GitHub Models - free tier)
-- Azure subscription (optional, for Azure AI services)
+### Forutsetninger
+- Python 3.12 eller høyere
+- Azure-abonnement (for Azure AI Foundry)
+- Azure CLI installert og autentisert (`az login`)
 
-### Initial Setup
+### Initialt oppsett
 
-1. **Clone or fork the repository:**
+1. **Klon eller fork depotet:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
    # ELLER
@@ -34,201 +33,181 @@ Dette arkivet inneholder "AI Agents for Beginners" - et omfattende pedagogisk ku
    cd ai-agents-for-beginners
    ```
 
-2. **Create and activate Python virtual environment:**
+2. **Opprett og aktiver Python-virtuelt miljø:**
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # På Windows: venv\Scripts\activate
    ```
 
-3. **Install dependencies:**
+3. **Installer avhengigheter:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Set up environment variables:**
+4. **Konfigurer miljøvariabler:**
    ```bash
    cp .env.example .env
    # Rediger .env med dine API-nøkler og endepunkter
    ```
 
-### Required Environment Variables
+### Nødvendige miljøvariabler
 
-For **GitHub Models (gratis)**:
-- `GITHUB_TOKEN` - Personlig tilgangstoken fra GitHub
+For **Azure AI Foundry** (påkrevd):
+- `AZURE_AI_PROJECT_ENDPOINT` - Azure AI Foundry prosjektendepunkt
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Navn på modellutrulling (f.eks. gpt-4o)
 
-For **Azure AI-tjenester** (valgfritt):
-- `PROJECT_ENDPOINT` - Microsoft Foundry prosjektendepunkt
-- `AZURE_OPENAI_API_KEY` - Azure OpenAI API-nøkkel
-- `AZURE_OPENAI_ENDPOINT` - Azure OpenAI endepunkt-URL
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Navn på distribusjon for chatmodell
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Navn på distribusjon for embedding-modellen
-- Additional Azure configuration as shown in `.env.example`
+For **Azure AI Search** (Leksjon 05 - RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search endepunkt
+- `AZURE_SEARCH_API_KEY` - Azure AI Search API-nøkkel
 
-## Development Workflow
+Autentisering: Kjør `az login` før du kjører notatbøkene (bruker `AzureCliCredential`).
 
-### Running Jupyter Notebooks
+## Utviklingsarbeidsflyt
 
-Hver leksjon inneholder flere Jupyter-notatbøker for forskjellige rammeverk:
+### Kjøre Jupyter-notatbøker
+
+Hver leksjon inneholder flere Jupyter-notatbøker for ulike rammeverk:
 
 1. **Start Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **Navigate to a lesson directory** (e.g., `01-intro-to-ai-agents/code_samples/`)
+2. **Naviger til en leksjonsmappe** (f.eks. `01-intro-to-ai-agents/code_samples/`)
 
-3. **Open and run notebooks:**
-   - `*-semantic-kernel.ipynb` - Bruke Semantic Kernel-rammeverket
-   - `*-autogen.ipynb` - Bruke AutoGen-rammeverket
+3. **Åpne og kjør notatbøker:**
    - `*-python-agent-framework.ipynb` - Bruke Microsoft Agent Framework (Python)
    - `*-dotnet-agent-framework.ipynb` - Bruke Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Bruke Azure AI Agent Service
 
-### Working with Different Frameworks
+### Arbeide med Microsoft Agent Framework
 
-**Semantic Kernel + GitHub Models:**
-- Gratisnivå tilgjengelig med GitHub-konto
-- Bra for læring og eksperimentering
-- Filnavnmønster: `*-semantic-kernel*.ipynb`
-
-**AutoGen + GitHub Models:**
-- Gratisnivå tilgjengelig med GitHub-konto
-- Multi-agent orkestreringsmuligheter
-- Filnavnmønster: `*-autogen.ipynb`
-
-**Microsoft Agent Framework (MAF):**
-- Nyeste rammeverk fra Microsoft
-- Tilgjengelig i Python og .NET
-- Filnavnmønster: `*-agent-framework.ipynb`
-
-**Azure AI Agent Service:**
+**Microsoft Agent Framework + Azure AI Foundry:**
 - Krever Azure-abonnement
-- Produksjonsklare funksjoner
-- Filnavnmønster: `*-azureaiagent.ipynb`
+- Bruker `AzureAIProjectAgentProvider` for Agent Service V2 (agenter synlige i Foundry-portalen)
+- Produksjonsklar med innebygd observabilitet
+- Filnavnmønster: `*-python-agent-framework.ipynb`
 
-## Testing Instructions
+## Testinstruksjoner
 
-Dette er et pedagogisk arkiv med eksempelkode snarere enn produksjonskode med automatiske tester. For å verifisere oppsettet og endringene dine:
+Dette er et utdanningsrepo med eksempel-kode fremfor produksjonskode med automatiserte tester. For å verifisere oppsettet og endringene dine:
 
-### Manual Testing
+### Manuell testing
 
-1. **Test Python environment:**
+1. **Test Python-miljøet:**
    ```bash
    python --version  # Bør være 3.12+
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Test notebook execution:**
+2. **Test kjøring av notatbøker:**
    ```bash
    # Konverter notatbok til skript og kjør (tester importene)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **Verify environment variables:**
+3. **Verifiser miljøvariabler:**
    ```bash
    python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
    ```
 
-### Running Individual Notebooks
+### Kjøre individuelle notatbøker
 
 Åpne notatbøker i Jupyter og kjør cellene sekvensielt. Hver notatbok er selvstendig og inkluderer:
-- Import-setninger
-- Konfigurasjonslasting
-- Eksempelimplementeringer av agenter
-- Forventede utskrifter i markdown-celler
+- Import-utsagn
+- Lasting av konfigurasjon
+- Eksempelimplementasjoner av agenter
+- Forventede utdata i markdown-celler
 
-## Code Style
+## Kodestil
 
-### Python Conventions
+### Python-konvensjoner
 
-- **Python Version**: 3.12+
-- **Code Style**: Følg standard Python PEP 8-konvensjoner
-- **Notebooks**: Bruk tydelige markdown-celler for å forklare konsepter
-- **Imports**: Gruppér etter standardbibliotek, tredjepart og lokale imports
+- **Python-versjon**: 3.12+
+- **Kodeformat**: Følg standard Python PEP 8-konvensjoner
+- **Notatbøker**: Bruk klare markdown-celler for å forklare konsepter
+- **Importer**: Gruppér etter standardbibliotek, tredjeparts- og lokale importer
 
-### Jupyter Notebook Conventions
+### Konvensjoner for Jupyter-notatbøker
 
 - Inkluder beskrivende markdown-celler før kodeceller
-- Legg til eksempler på utdata i notatbøkene for referanse
-- Bruk tydelige variabelnavn som matcher leksjonskonsepter
-- Hold notatbøkenes kjørerekkefølge lineær (celle 1 → 2 → 3...)
+- Legg til eksempelutdata i notatbøkene for referanse
+- Bruk tydelige variabelnavn som samsvarer med leksjonskonseptene
+- Hold kjørerekkefølgen i notatbøkene lineær (celle 1 → 2 → 3...)
 
-### File Organization
+### Filorganisering
 
 ```
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
-## Build and Deployment
+## Bygg og distribusjon
 
-### Building Documentation
+### Generering av dokumentasjon
 
-Dette arkivet bruker Markdown for dokumentasjon:
+Dette repositoriet bruker Markdown for dokumentasjon:
 - README.md-filer i hver leksjonsmappe
-- Hoved-README.md i repository root
+- Hoved README.md i repoets rot
 - Automatisert oversettelsessystem via GitHub Actions
 
-### CI/CD Pipeline
+### CI/CD-pipeline
 
 Ligger i `.github/workflows/`:
 
 1. **co-op-translator.yml** - Automatisk oversettelse til 50+ språk
-2. **welcome-issue.yml** - Ønsker nye issue-skaper velkommen
+2. **welcome-issue.yml** - Ønsker nye issue-opprettende velkommen
 3. **welcome-pr.yml** - Ønsker nye pull request-bidragsytere velkommen
 
-### Deployment
+### Distribusjon
 
-Dette er et pedagogisk arkiv - ingen distribusjonsprosess. Brukere:
-1. Fork eller klon arkivet
-2. Kjør notatbøkene lokalt eller i GitHub Codespaces
+Dette er et utdanningsrepo - ingen distribusjonsprosess. Brukere:
+1. Fork eller klon depotet
+2. Kjør notatbøker lokalt eller i GitHub Codespaces
 3. Lær ved å endre og eksperimentere med eksemplene
 
-## Pull Request Guidelines
+## Retningslinjer for pull requests
 
-### Before Submitting
+### Før innsending
 
-1. **Test your changes:**
-   - Kjør berørte notatbøker helt gjennom
-   - Bekreft at alle celler kjøres uten feil
+1. **Test endringene dine:**
+   - Kjør berørte notatbøker fullstendig
+   - Bekreft at alle celler kjører uten feil
    - Sjekk at utdataene er passende
 
-2. **Documentation updates:**
+2. **Oppdateringer i dokumentasjon:**
    - Oppdater README.md hvis du legger til nye konsepter
-   - Legg til kommentarer i notatbøker for kompleks kode
+   - Legg til kommentarer i notatbøkene for kompleks kode
    - Sørg for at markdown-celler forklarer formålet
 
-3. **File changes:**
-   - Unngå å commite `.env`-filer (bruk `.env.example`)
-   - Ikke commite `venv/` eller `__pycache__/` kataloger
+3. **Filendringer:**
+   - Unngå å comitte `.env`-filer (bruk `.env.example`)
+   - Ikke comitte `venv/` eller `__pycache__/`-mapper
    - Behold notatbokutdata når de demonstrerer konsepter
-   - Fjern midlertidige filer og sikkerhetskopierte notatbøker (`*-backup.ipynb`)
+   - Fjern midlertidige filer og backup-notatbøker (`*-backup.ipynb`)
 
-### PR Title Format
+### PR-tittelformat
 
 Bruk beskrivende titler:
-- `[Lesson-XX] Add new example for <concept>`
-- `[Fix] Correct typo in lesson-XX README`
-- `[Update] Improve code sample in lesson-XX`
-- `[Docs] Update setup instructions`
+- `[Lesson-XX] Legg til nytt eksempel for <concept>`
+- `[Fix] Korriger skrivefeil i lesson-XX README`
+- `[Update] Forbedre kodeeksempel i lesson-XX`
+- `[Docs] Oppdater oppsettsinstruksjoner`
 
-### Required Checks
+### Påkrevde sjekker
 
 - Notatbøker bør kjøre uten feil
-- README-filer bør være klare og korrekte
-- Følg eksisterende kode-mønstre i arkivet
+- README-filer bør være klare og nøyaktige
+- Følg eksisterende kodekonvensjoner i depotet
 - Oppretthold konsistens med andre leksjoner
 
-## Additional Notes
+## Ytterligere merknader
 
-### Common Gotchas
+### Vanlige fallgruver
 
 1. **Uoverensstemmelse i Python-versjon:**
    - Sørg for at Python 3.12+ brukes
@@ -237,105 +216,97 @@ Bruk beskrivende titler:
 
 2. **Miljøvariabler:**
    - Opprett alltid `.env` fra `.env.example`
-   - Ikke commite `.env`-filen (den er i `.gitignore`)
-   - GitHub-token trenger passende tillatelser
+   - Ikke comitte `.env`-filen (den er i `.gitignore`)
+   - GitHub-token trenger riktige tillatelser
 
-3. **Pakkekonflikter:**
+3. **Pakke-konflikter:**
    - Bruk et nytt virtuelt miljø
    - Installer fra `requirements.txt` i stedet for individuelle pakker
-   - Noen notatbøker kan kreve tilleggspakker nevnt i deres markdown-celler
+   - Noen notatbøker kan kreve ekstra pakker nevnt i deres markdown-celler
 
 4. **Azure-tjenester:**
    - Azure AI-tjenester krever aktivt abonnement
    - Noen funksjoner er regionsspesifikke
    - Begrensninger for gratisnivå gjelder for GitHub Models
 
-### Learning Path
+### Læringssti
 
 Anbefalt rekkefølge gjennom leksjonene:
-1. **00-course-setup** - Start her for miljøoppsett
-2. **01-intro-to-ai-agents** - Forstå grunnleggende om AI-agenter
+1. **00-course-setup** - Start her for oppsett av miljøet
+2. **01-intro-to-ai-agents** - Forstå grunnprinsippene for AI-agenter
 3. **02-explore-agentic-frameworks** - Lær om forskjellige rammeverk
 4. **03-agentic-design-patterns** - Kjerne designmønstre
-5. Fortsett gjennom de nummererte leksjonene sekvensielt
+5. Fortsett gjennom nummererte leksjoner i rekkefølge
 
-### Framework Selection
+### Valg av rammeverk
 
 Velg rammeverk basert på dine mål:
-- **Læring/Prototyping**: Semantic Kernel + GitHub Models (gratis)
-- **Multi-agent-systemer**: AutoGen
-- **Nyeste funksjoner**: Microsoft Agent Framework (MAF)
-- **Produksjonsutrulling**: Azure AI Agent Service
+- **Alle leksjoner**: Microsoft Agent Framework (MAF) med `AzureAIProjectAgentProvider`
+- **Agenter registreres på serversiden** i Azure AI Foundry Agent Service V2 og er synlige i Foundry-portalen
 
-### Getting Help
+### Få hjelp
 
 - Bli med i [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Gå gjennom leksjonens README-filer for spesifikk veiledning
-- Se hoved-[README.md](./README.md) for en oversikt over kurset
-- Referer til [Course Setup](./00-course-setup/README.md) for detaljerte oppsettinstruksjoner
+- Gå gjennom leksjons-README-filer for spesifikk veiledning
+- Sjekk hoved [README.md](./README.md) for kursoversikt
+- Se [Course Setup](./00-course-setup/README.md) for detaljerte oppsettsinstruksjoner
 
-### Contributing
+### Bidra
 
-Dette er et åpent pedagogisk prosjekt. Bidrag velkomne:
+Dette er et åpent utdanningsprosjekt. Bidrag ønskes:
 - Forbedre kodeeksempler
-- Rette skrivefeil eller feil
-- Legge til forklarende kommentarer
-- Foreslå nye leksjonstemaer
-- Oversette til flere språk
+- Rett opp skrivefeil eller feil
+- Legg til forklarende kommentarer
+- Foreslå nye leksjonsemner
+- Oversett til flere språk
 
 Se [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) for nåværende behov.
 
-## Project-Specific Context
+## Prosjektrelatert kontekst
 
-### Multi-Language Support
+### Flerspråklig støtte
 
-Dette arkivet bruker et automatisert oversettelsessystem:
-- 50+ språk støttet
-- Oversettelser i `/translations/<lang-code>/` kataloger
+Dette repositoriet bruker et automatisert oversettelsessystem:
+- Støtte for 50+ språk
+- Oversettelser i `/translations/<lang-code>/`-mapper
 - GitHub Actions workflow håndterer oversettelsesoppdateringer
-- Kildefiler er på engelsk i repoets rot
+- Kildefiler er på engelsk i repository-roten
 
-### Lesson Structure
+### Leksjonsstruktur
 
-Hver leksjon følger et konsistent mønster:
-1. Videominibilde med lenke
-2. Skriftlig leksjonsinnhold (README.md)
+Hver leksjon følger et konsekvent mønster:
+1. Videominiatyr med lenke
+2. Skrevet leksjonsinnhold (README.md)
 3. Kodeeksempler i flere rammeverk
 4. Læringsmål og forutsetninger
-5. Ekstra læringsressurser med lenker
+5. Ekstra læringsressurser lenket
 
-### Code Sample Naming
+### Navngivning av kodeeksempler
 
-Format: `<lesson-number>-<framework-name>.ipynb`
-- `04-semantic-kernel.ipynb` - Leksjon 4, Semantic Kernel
-- `07-autogen.ipynb` - Leksjon 7, AutoGen
-- `14-python-agent-framework.ipynb` - Leksjon 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Leksjon 14, MAF .NET
+Format: `<lesson-number>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Leksjon 1, MAF Python
+- `14-sequential.ipynb` - Leksjon 14, MAF avanserte mønstre
 
-### Special Directories
+### Spesielle kataloger
 
 - `translated_images/` - Lokaliserte bilder for oversettelser
 - `images/` - Originale bilder for engelsk innhold
-- `.devcontainer/` - VS Code development container configuration
+- `.devcontainer/` - VS Code development container-konfigurasjon
 - `.github/` - GitHub Actions workflows og maler
 
-### Dependencies
+### Avhengigheter
 
-Nøkkelpakker fra `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - AutoGen-rammeverket
-- `semantic-kernel` - Semantic Kernel-rammeverket
+Viktige pakker fra `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
+- `a2a-sdk` - Støtte for Agent-til-Agent-protokoll
 - `azure-ai-inference`, `azure-ai-projects` - Azure AI-tjenester
-- `azure-search-documents` - Azure AI Search-integrasjon
-- `chromadb` - Vektordatabasen for RAG-eksempler
-- `chainlit` - Chat UI-rammeverk
-- `browser_use` - Nettleserautomatisering for agenter
+- `azure-identity` - Azure-autentisering (`AzureCliCredential`)
+- `azure-search-documents` - Integrasjon med Azure AI Search
 - `mcp[cli]` - Støtte for Model Context Protocol
-- `mem0ai` - Hukommelseshåndtering for agenter
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 Ansvarsfraskrivelse:
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet i sitt originalspråk bør betraktes som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi tilstreber nøyaktighet, vennligst vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet i sitt opprinnelige språk skal anses som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som følge av bruk av denne oversettelsen.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

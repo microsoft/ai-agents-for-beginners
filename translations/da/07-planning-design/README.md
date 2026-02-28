@@ -1,6 +1,6 @@
 [![Planning Design Pattern](../../../translated_images/da/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(Klik på billedet ovenfor for at se videoen til denne lektion)_
+> _(Klik på billedet ovenfor for at se videoen af denne lektion)_
 
 # Planlægningsdesign
 
@@ -8,48 +8,48 @@
 
 Denne lektion vil dække
 
-* Definition af et klart overordnet mål og opdeling af en kompleks opgave i håndterbare delopgaver.
-* Udnyttelse af struktureret output for mere pålidelige og maskinlæsbare svar.
-* Anvendelse af en hændelsesdrevet tilgang til at håndtere dynamiske opgaver og uventede input.
+* At definere et klart overordnet mål og opdele en kompleks opgave i håndterbare opgaver.
+* At udnytte struktureret output for mere pålidelige og maskinlæselige svar.
+* At anvende en hændelsesdrevet tilgang til at håndtere dynamiske opgaver og uforudsete input.
 
 ## Læringsmål
 
 Efter at have gennemført denne lektion vil du have en forståelse af:
 
-* At identificere og sætte et overordnet mål for en AI-agent og sikre, at den klart ved, hvad der skal opnås.
-* At nedbryde en kompleks opgave i håndterbare delopgaver og organisere dem i en logisk rækkefølge.
-* At udstyre agenter med de rigtige værktøjer (f.eks. søgeværktøjer eller dataanalyseværktøjer), beslutte hvornår og hvordan de skal bruges, og håndtere uventede situationer, der opstår.
-* At evaluere delopgavens resultater, måle ydeevne og gentage handlinger for at forbedre det endelige output.
+* At identificere og sætte et overordnet mål for en AI-agent, og sikre at den klart ved, hvad der skal opnås.
+* At opdele en kompleks opgave i håndterbare delopgaver og organisere dem i en logisk rækkefølge.
+* At udstyre agenter med de rette værktøjer (f.eks. søgeværktøjer eller dataanalyseværktøjer), beslutte hvornår og hvordan de skal bruges, og håndtere uventede situationer, der opstår.
+* At evaluere delopgavernes resultater, måle ydeevne og gennemføre iterationer på handlinger for at forbedre det endelige output.
 
-## Definition af det overordnede mål og opdeling af en opgave
+## Definere det overordnede mål og opdele en opgave
 
-![Defining Goals and Tasks](../../../translated_images/da/defining-goals-tasks.d70439e19e37c47a.webp)
+![Definere mål og opgaver](../../../translated_images/da/defining-goals-tasks.d70439e19e37c47a.webp)
 
-De fleste opgaver i virkeligheden er for komplekse til at løses i ét enkelt trin. En AI-agent har brug for et præcist mål for at styre sin planlægning og sine handlinger. For eksempel, overvej målet:
+De fleste opgaver i den virkelige verden er for komplekse til at tackle i ét enkelt trin. En AI-agent har brug for et kortfattet mål for at kunne styre sin planlægning og handlinger. For eksempel overvej målet:
 
     "Generer en rejseplan for 3 dage."
 
-Selvom det er simpelt at formulere, kræver det stadig forfining. Jo klarere målet er, desto bedre kan agenten (og eventuelle menneskelige samarbejdspartnere) fokusere på at opnå det rette resultat, såsom at skabe en omfattende rejseplan med flymuligheder, hotelanbefalinger og aktivitetsforslag.
+Selvom det er enkelt at formulere, kræver det stadig forfining. Jo klarere målet er, desto bedre kan agenten (og eventuelle menneskelige samarbejdspartnere) fokusere på at opnå det rigtige resultat, såsom at skabe en omfattende rejseplan med flymuligheder, hotelanbefalinger og aktivitetsforslag.
 
-### Opdeling af opgaver
+### Opgaveopdeling
 
-Store eller indviklede opgaver bliver mere håndterbare, når de opdeles i mindre, målorienterede delopgaver.  
-For rejseplans-eksemplet kan du opdele målet i følgende:
+Store eller indviklede opgaver bliver lettere at håndtere, når de opdeles i mindre, målrettede delopgaver.
+For rejseplaneksemplet kan du opdele målet i:
 
-* Flybestilling  
-* Hotelbestilling  
-* Biludlejning  
+* Flybestilling
+* Hotelbestilling
+* Biludlejning
 * Personalisering
 
-Hver delopgave kan så tackles af dedikerede agenter eller processer. Én agent kan specialisere sig i at finde de bedste flytilbud, en anden fokuserer på hotelbookinger osv. En koordinerende eller "downstream" agent kan derefter samle disse resultater til én sammenhængende rejseplan til slutbrugeren.
+Hver delopgave kan derefter håndteres af dedikerede agenter eller processer. Én agent kan specialisere sig i at søge efter de bedste flytilbud, en anden fokuserer på hotelbestillinger osv. En koordinerende eller "nedstrøms" agent kan så samle disse resultater til én sammenhængende rejseplan til slutbrugeren.
 
-Denne modulære tilgang tillader også inkrementelle forbedringer. For eksempel kan du tilføje specialiserede agenter til madanbefalinger eller lokale aktivitetsforslag og løbende forfine rejseplanen.
+Denne modulære tilgang tillader også løbende forbedringer. For eksempel kan du tilføje specialiserede agenter til Madanbefalinger eller Lokale aktivitetsforslag og forbedre rejseplanen over tid.
 
 ### Struktureret output
 
-Store sprogmodeller (LLMs) kan generere struktureret output (f.eks. JSON), der er nemmere for downstream-agenter eller -tjenester at parse og bearbejde. Dette er særligt nyttigt i en multi-agent sammenhæng, hvor vi kan handle på disse opgaver efter modtagelsen af planlægningsoutputtet. Se denne <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">blogpost</a> for en hurtig oversigt.
+Store sprogmodeller (LLMs) kan generere struktureret output (f.eks. JSON), som er nemmere for nedstrømsagenter eller services at analysere og bearbejde. Dette er især nyttigt i en multi-agent kontekst, hvor vi kan iværksætte disse opgaver, efter planlægningsoutputtet er modtaget.
 
-Det følgende Python-udsnit demonstrerer en simpel planlægningsagent, der nedbryder et mål i delopgaver og genererer en struktureret plan:
+Følgende Python-udsnit viser en simpel planlægningsagent, der opdeler et mål i delopgaver og genererer en struktureret plan:
 
 ```python
 from pydantic import BaseModel
@@ -59,9 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -72,7 +71,7 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Rejse Underopgave Model
+# Rejse delopgave model
 class TravelSubTask(BaseModel):
     task_details: str
     assigned_agent: AgentEnum  # vi vil tildele opgaven til agenten
@@ -82,25 +81,12 @@ class TravelPlan(BaseModel):
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # For at godkende med modellen skal du generere en personlig adgangstoken (PAT) i dine GitHub-indstillinger.
-    # Opret din PAT-token ved at følge instruktionerne her: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 # Definer brugermeddelelsen
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -111,44 +97,27 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # Sørg for at svarindholdet er en gyldig JSON-streng, før det indlæses
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# if response_content is None:
-#     raise ValueError("Svarindholdet er ikke en gyldig JSON-streng")
-
-# # Udskriv svarindholdet efter at have indlæst det som JSON
-# pprint(json.loads(response_content))
-
-# Valider svarindholdet med MathReasoning-modellen
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
 ### Planlægningsagent med multi-agent orkestrering
 
 I dette eksempel modtager en Semantic Router Agent en brugerforespørgsel (f.eks. "Jeg har brug for en hotelplan til min rejse.").
 
-Planlæggeren gør derefter:
+Planlæggeren:
 
-* Modtager Hotelplanen: Planlæggeren tager brugerens besked og genererer baseret på et systemprompt (inklusive detaljer om tilgængelige agenter) en struktureret rejseplan.
-* Liste over agenter og deres værktøjer: Agentregistret indeholder en liste af agenter (f.eks. til fly, hotel, biludlejning og aktiviteter) sammen med de funktioner eller værktøjer, de tilbyder.
-* Sender planen til de respektive agenter: Afhængigt af antal delopgaver sender planlæggeren enten beskeden direkte til en dedikeret agent (for enkelopgave-scenarier) eller koordinerer via en gruppechat-manager for multi-agent samarbejde.
-* Opsummerer resultatet: Endelig opsummerer planlæggeren den genererede plan for klarhed.
-Følgende Python-kodeeksempel illustrerer disse trin:
+* Modtager hotelplanen: Planlæggeren tager brugerens besked og genererer baseret på et systemprompt (inklusive tilgængelige agentdetaljer) en struktureret rejseplan.
+* Oplister agenter og deres værktøjer: Agentregisteret indeholder en liste over agenter (f.eks. til fly, hotel, biludlejning og aktiviteter) sammen med funktioner eller værktøjer, de tilbyder.
+* Ruter planen til de respektive agenter: Afhængigt af antallet af delopgaver sender planlæggeren enten beskeden direkte til en dedikeret agent (ved én-opgave scenarier) eller koordinerer via en gruppechatmanager til multi-agent samarbejde.
+* Opsummerer resultatet: Til sidst opsummerer planlæggeren den genererede plan for klarhed.
+Følgende Python-kodesample illustrerer disse trin:
 
 ```python
 
@@ -166,7 +135,7 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Rejse underopgave model
+# Rejse delopgave model
 
 class TravelSubTask(BaseModel):
     task_details: str
@@ -180,25 +149,18 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# Opret klienten med typekontrollerede miljøvariabler
+# Opret klienten
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 from pprint import pprint
 
 # Definer brugermeddelelsen
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +168,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# Sørg for, at svarets indhold er en gyldig JSON-streng, inden det indlæses
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
-# Udskriv svarindholdet efter at det er indlæst som JSON
+# Udskriv svarindholdet efter indlæsning som JSON
 
 pprint(json.loads(response_content))
 ```
 
-Det følgende er outputtet fra den foregående kode, og du kan så bruge dette strukturerede output til at sende til `assigned_agent` og opsummere rejseplanen til slutbrugeren.
+Det følgende er outputtet fra den tidligere kode, og du kan derefter bruge dette strukturerede output til at rute til `assigned_agent` og opsummere rejseplanen for slutbrugeren.
 
 ```json
 {
@@ -254,21 +212,22 @@ Det følgende er outputtet fra den foregående kode, og du kan så bruge dette s
 }
 ```
 
-En eksempelnote bog med det foregående kodeeksempel er tilgængelig [her](07-autogen.ipynb).
+Et eksempel-notebook med den tidligere kode er tilgængeligt [her](07-python-agent-framework.ipynb).
 
 ### Iterativ planlægning
 
-Nogle opgaver kræver en frem og tilbage proces eller omplanlægning, hvor resultatet af en delopgave påvirker næste trin. For eksempel, hvis agenten opdager et uventet dataformat under flybogning, kan den være nødt til at tilpasse sin strategi, før den går videre til hotelbestilling.
+Nogle opgaver kræver frem og tilbage eller omplanlægning, hvor resultatet af én delopgave påvirker den næste. For eksempel, hvis agenten opdager et uventet dataformat under flybestilling, kan det være nødvendigt at tilpasse sin strategi, før der fortsættes med hotelbestillinger.
 
-Desuden kan brugertilbagemeldinger (f.eks. en person som ønsker en tidligere flyafgang) udløse en delvis omplanlægning. Denne dynamiske, iterative tilgang sikrer, at den endelige løsning stemmer overens med virkelighedens begrænsninger og brugernes skiftende præferencer.
+Derudover kan brugerfeedback (f.eks. en person, der beslutter, at de foretrækker et tidligere fly) udløse en delvis omplanlægning. Denne dynamiske, iterative tilgang sikrer, at den endelige løsning stemmer overens med virkelige begrænsninger og brugernes skiftende præferencer.
 
-f.eks. eksempel kode
+f.eks. eksempel på kode
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. det samme som tidligere kode og videregive brugerens historik, nuværende plan
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
+#.. det samme som forrige kode og overfør brugerens historik, nuværende plan
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,26 +235,31 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
-# .. omplanlæg og send opgaverne til de respektive agenter
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
+# .. planlæg igen og send opgaverne til de respektive agenter
 ```
 
 For mere omfattende planlægning kan du tjekke Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> for løsning af komplekse opgaver.
 
 ## Resumé
 
-I denne artikel har vi set et eksempel på, hvordan vi kan skabe en planlægger, der dynamisk kan vælge de tilgængelige agenter, der er defineret. Planlæggerens output nedbryder opgaverne og tildeler agenter, så de kan eksekveres. Det antages, at agenterne har adgang til de funktioner/værktøjer, der er nødvendige for at udføre opgaven. Ud over agenterne kan du inkludere andre mønstre som refleksion, opsummering og round robin chat for yderligere tilpasning.
+I denne artikel har vi set et eksempel på, hvordan vi kan skabe en planlægger, der dynamisk kan vælge de tilgængelige agenter, der er defineret. Outputtet fra planlæggeren opdeler opgaverne og tildeler agenter, så de kan udføres. Det forudsættes, at agenterne har adgang til de funktioner/værktøjer, der er nødvendige for at udføre opgaven. Udover agenterne kan du inkludere andre mønstre som refleksion, opsummering og round robin chat for yderligere tilpasning.
 
 ## Yderligere ressourcer
 
-AutoGen Magnetic One - Et generalistisk multi-agent system til løsning af komplekse opgaver, som har opnået imponerende resultater på flere udfordrende agentbaserede benchmarks. Reference: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. I denne implementering skaber orkestratoren opgavespecifikke planer og delegerer disse opgaver til de tilgængelige agenter. Ud over planlægning anvender orkestratoren også en sporingsmekanisme til at overvåge opgavens fremskridt og omplanlægger efter behov.
+Magnetic One - Et generalistisk multi-agent system til løsning af komplekse opgaver, som har opnået imponerende resultater på flere udfordrende agentiske benchmarks. Reference: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>. I denne implementering skaber orkestratoren opgavespecifikke planer og delegerer disse opgaver til de tilgængelige agenter. Ud over planlægning anvender orkestratoren også en sporingsmekanisme til at overvåge opgavens fremdrift og omplanlægger efter behov.
 
-### Har du flere spørgsmål om planlægningsdesignmønsteret?
+### Har du flere spørgsmål om Planlægningsdesignmønsteret?
 
-Deltag i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for at møde andre elever, deltage i kontortimer og få svar på dine spørgsmål om AI-agenter.
+Deltag i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for at møde andre lærende, deltage i kontortimer og få svar på dine AI-agent-spørgsmål.
 
 ## Forrige lektion
 
@@ -308,6 +272,6 @@ Deltag i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for at m�
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Ansvarsfraskrivelse**:  
-Dette dokument er oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi stræber efter nøjagtighed, bedes du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det oprindelige dokument på dets modersmål bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
+**Ansvarsfraskrivelse**:
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, bedes du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det oprindelige dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
