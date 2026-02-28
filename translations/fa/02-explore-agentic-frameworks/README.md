@@ -1,648 +1,290 @@
-[![کاوش در فریم‌ورک‌های عامل هوش مصنوعی](../../../translated_images/fa/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![کاوش چارچوب‌های عامل هوش مصنوعی](../../../translated_images/fa/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
-> _(برای مشاهده ویدیو این درس روی تصویر بالا کلیک کنید)_
+> _(برای تماشای ویدیو این درس روی تصویر بالا کلیک کنید)_
 
-# کاوش در فریم‌ورک‌های عامل هوش مصنوعی
+# کاوش چارچوب‌های عامل هوش مصنوعی
 
-فریم‌ورک‌های عامل هوش مصنوعی پلتفرم‌های نرم‌افزاری‌ای هستند که برای ساده‌سازی ایجاد، استقرار و مدیریت عامل‌های هوش مصنوعی طراحی شده‌اند. این فریم‌ورک‌ها به توسعه‌دهندگان مؤلفه‌ها، انتزاع‌ها و ابزارهای از پیش ساخته شده‌ای ارائه می‌دهند که توسعه سیستم‌های پیچیده هوش مصنوعی را سرعت می‌بخشند.
+چارچوب‌های عامل هوش مصنوعی پلتفرم‌های نرم‌افزاری‌ای هستند که برای ساده‌سازی ساخت، استقرار و مدیریت عامل‌های هوش مصنوعی طراحی شده‌اند. این چارچوب‌ها به توسعه‌دهندگان اجزای از پیش ساخته‌شده، انتزاع‌ها و ابزارهایی می‌دهند که توسعه سیستم‌های پیچیده هوش مصنوعی را تسهیل می‌کنند.
 
-این فریم‌ورک‌ها به توسعه‌دهندگان کمک می‌کنند تا با ارائه رویکردهای استاندارد برای چالش‌های رایج در توسعه عامل‌های هوش مصنوعی، روی جنبه‌های منحصربه‌فرد برنامه‌های خود تمرکز کنند. آن‌ها مقیاس‌پذیری، دسترسی‌پذیری و کارایی در ساخت سیستم‌های هوش مصنوعی را افزایش می‌دهند.
+این چارچوب‌ها به توسعه‌دهندگان کمک می‌کنند با فراهم کردن رویکردهای استاندارد برای چالش‌های رایج در توسعه عامل‌های هوش مصنوعی، بر جنبه‌های منحصربه‌فرد برنامه‌هایشان تمرکز کنند. آن‌ها مقیاس‌پذیری، دسترسی‌پذیری و کارایی در ساخت سیستم‌های هوش مصنوعی را افزایش می‌دهند.
 
 ## مقدمه 
 
-این درس شامل موارد زیر خواهد بود:
+این درس موارد زیر را پوشش خواهد داد:
 
-- فریم‌ورک‌های عامل هوش مصنوعی چیستند و به توسعه‌دهندگان چه چیزی امکان می‌دهند؟
-- تیم‌ها چگونه می‌توانند از این فریم‌ورک‌ها برای نمونه‌سازی سریع، تکرار و بهبود قابلیت‌های عامل خود استفاده کنند؟
-- تفاوت بین فریم‌ورک‌ها و ابزارهایی که مایکروسافت ایجاد کرده است مانند <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>، <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a> و <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a> چیست؟
+- چارچوب‌های عامل هوش مصنوعی چه هستند و چه چیزی به توسعه‌دهندگان امکان می‌دهند؟
+- تیم‌ها چگونه می‌توانند از این چارچوب‌ها برای ساخت نمونه اولیه سریع، تکرار و بهبود قابلیت‌های عامل خود استفاده کنند؟
+- تفاوت بین چارچوب‌ها و ابزارهای ساخته‌شده توسط مایکروسافت (<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">سرویس Azure AI Agent</a> و <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">چارچوب عامل مایکروسافت</a>) چیست؟
 - آیا می‌توانم ابزارهای موجود در اکوسیستم Azure خود را مستقیماً یکپارچه کنم، یا به راه‌حل‌های مستقل نیاز دارم؟
 - سرویس Azure AI Agents چیست و چگونه به من کمک می‌کند؟
 
 ## اهداف یادگیری
 
-اهداف این درس به شما کمک می‌کند تا موارد زیر را درک کنید:
+اهداف این درس به شما کمک می‌کند تا درک کنید:
 
-- نقش فریم‌ورک‌های عامل هوش مصنوعی در توسعه هوش مصنوعی.
-- چگونه از فریم‌ورک‌های عامل هوش مصنوعی برای ساخت عامل‌های هوشمند استفاده کنید.
-- قابلیت‌های کلیدی که توسط فریم‌ورک‌های عامل هوش مصنوعی فراهم می‌شود.
-- تفاوت‌ها بین AutoGen، Semantic Kernel و Azure AI Agent Service.
+- نقش چارچوب‌های عامل هوش مصنوعی در توسعه هوش مصنوعی.
+- چگونه از چارچوب‌های عامل هوش مصنوعی برای ساخت عامل‌های هوشمند استفاده کنید.
+- قابلیت‌های کلیدی که توسط چارچوب‌های عامل هوش مصنوعی فراهم می‌شود.
+- تفاوت‌ها بین چارچوب عامل مایکروسافت و سرویس Azure AI Agent.
 
-## فریم‌ورک‌های عامل هوش مصنوعی چه هستند و به توسعه‌دهندگان چه چیزی امکان می‌دهند؟
+## چارچوب‌های عامل هوش مصنوعی چه هستند و چه کاری به توسعه‌دهندگان امکان می‌دهند؟
 
-فریم‌ورک‌های سنتی هوش مصنوعی می‌توانند به شما کمک کنند هوش مصنوعی را در برنامه‌های خود ادغام کرده و این برنامه‌ها را به روش‌های زیر بهتر کنند:
+چارچوب‌های سنتی هوش مصنوعی می‌توانند به شما در یکپارچه‌سازی هوش مصنوعی در اپلیکیشن‌هایتان و بهبود این اپلیکیشن‌ها به روش‌های زیر کمک کنند:
 
 - **شخصی‌سازی**: هوش مصنوعی می‌تواند رفتار و ترجیحات کاربر را تحلیل کند تا پیشنهادات، محتوا و تجربه‌های شخصی‌سازی‌شده ارائه دهد.
-مثال: سرویس‌های پخش مانند Netflix از هوش مصنوعی برای پیشنهاد فیلم‌ها و برنامه‌ها بر اساس تاریخچه مشاهده استفاده می‌کنند که تعامل و رضایت کاربر را افزایش می‌دهد.
-- **اتوماسیون و کارایی**: هوش مصنوعی می‌تواند وظایف تکراری را خودکار کند، جریان‌های کاری را ساده‌سازی کند و کارایی عملیاتی را بهبود بخشد.
-مثال: اپلیکیشن‌های خدمات مشتری از چت‌بات‌های مجهز به هوش مصنوعی برای پاسخ به پرسش‌های رایج استفاده می‌کنند که زمان پاسخگویی را کاهش داده و نیروی انسانی را برای مسائل پیچیده‌تر آزاد می‌کند.
-- **بهبود تجربه کاربری**: هوش مصنوعی می‌تواند تجربه کلی کاربر را با ارائه ویژگی‌های هوشمند مانند تشخیص صوت، پردازش زبان طبیعی و تکمیل پیش‌بینی‌شده بهبود بخشد.
-مثال: دستیاران مجازی مانند Siri و Google Assistant از هوش مصنوعی برای درک و پاسخ به دستورات صوتی استفاده می‌کنند و تعامل با دستگاه‌ها را برای کاربران ساده‌تر می‌کنند.
+مثال: سرویس‌های پخش مانند Netflix از هوش مصنوعی برای پیشنهاد فیلم‌ها و برنامه‌ها بر اساس تاریخچه تماشا استفاده می‌کنند و مشارکت و رضایت کاربر را افزایش می‌دهند.
+- **اتوماسیون و کارایی**: هوش مصنوعی می‌تواند وظایف تکراری را خودکار کند، گردش‌کارها را ساده‌سازی کند و کارایی عملیاتی را بهبود بخشد.
+مثال: اپلیکیشن‌های خدمات مشتری از چت‌بات‌های مبتنی بر هوش مصنوعی برای رسیدگی به پرسش‌های رایج استفاده می‌کنند که زمان پاسخ را کاهش داده و نیروی انسانی را برای مسائل پیچیده‌تر آزاد می‌کند.
+- **بهبود تجربه کاربری**: هوش مصنوعی می‌تواند تجربه کاربری کلی را با ارائه ویژگی‌های هوشمند مانند تشخیص صوت، پردازش زبان طبیعی و نوشتن پیش‌بینی‌شده بهبود بخشد.
+مثال: دستیاران مجازی مانند Siri و Google Assistant از هوش مصنوعی برای درک و پاسخ به فرمان‌های صوتی استفاده می‌کنند و تعامل کاربران با دستگاه‌ها را ساده‌تر می‌کنند.
 
-### همه این‌ها عالی به نظر می‌رسد، پس چرا به فریم‌ورک عامل هوش مصنوعی نیاز داریم؟
+### همه این‌ها عالی به نظر می‌رسد، پس چرا به چارچوب عامل هوش مصنوعی نیاز داریم؟
 
-فریم‌ورک‌های عامل هوش مصنوعی بیش از صرفاً فریم‌ورک‌های هوش مصنوعی معمولی هستند. آن‌ها برای امکان‌پذیر ساختن ایجاد عامل‌های هوشمندی طراحی شده‌اند که می‌توانند با کاربران، سایر عامل‌ها و محیط تعامل کنند تا اهداف خاصی را محقق سازند. این عامل‌ها می‌توانند رفتار خودمختار نشان دهند، تصمیم بگیرند و خود را با شرایط متغیر وفق دهند. بیایید نگاهی به برخی از قابلیت‌های کلیدی که فریم‌ورک‌های عامل هوش مصنوعی فراهم می‌کنند، بیندازیم:
+چارچوب‌های عامل هوش مصنوعی چیزی فراتر از چارچوب‌های معمولی هوش مصنوعی هستند. آن‌ها برای امکان‌پذیر ساختن ایجاد عامل‌های هوشمندی طراحی شده‌اند که می‌توانند با کاربران، سایر عامل‌ها و محیط تعامل داشته باشند تا اهداف خاصی را محقق کنند. این عامل‌ها می‌توانند رفتار خودمختار نشان دهند، تصمیم‌گیری کنند و با شرایط متغیر سازگار شوند. بیایید نگاهی به برخی قابلیت‌های کلیدی که چارچوب‌های عامل فراهم می‌کنند بیندازیم:
 
-- **همکاری و هماهنگی عامل‌ها**: امکان ایجاد چندین عامل هوش مصنوعی را فراهم می‌کند که می‌توانند با هم کار کنند، ارتباط برقرار کنند و برای حل وظایف پیچیده هماهنگ شوند.
-- **اتوماسیون و مدیریت وظایف**: مکانیزم‌هایی برای خودکارسازی جریان‌های کاری چندمرحله‌ای، واگذاری وظایف و مدیریت پویا وظایف بین عامل‌ها فراهم می‌کند.
-- **درک متنی (زمینه‌ای) و تطبیق‌پذیری**: عامل‌ها را توانمند می‌سازد تا بتوانند زمینه را درک کنند، خود را با محیط‌های در حال تغییر وفق دهند و بر اساس اطلاعات لحظه‌ای تصمیم‌گیری کنند.
+- **همکاری و هماهنگی عامل‌ها**: امکان ایجاد چند عامل هوش مصنوعی که می‌توانند با هم کار کنند، ارتباط برقرار کنند و برای حل وظایف پیچیده هماهنگ شوند.
+- **اتوماسیون و مدیریت وظایف**: فراهم کردن مکانیزم‌هایی برای خودکارسازی جریان‌های کاری چندمرحله‌ای، واگذاری وظایف و مدیریت پویا وظایف بین عامل‌ها.
+- **درک زمینه‌ای و تطبیق‌پذیری**: تجهیز عامل‌ها با توانایی درک زمینه، سازگار شدن با محیط‌های در حال تغییر و تصمیم‌گیری بر اساس اطلاعات زمان‌واقعی.
 
-خلاصه اینکه عامل‌ها به شما امکان انجام کارهای بیشتر، بردن اتوماسیون به سطح بعدی و خلق سیستم‌های هوشمندتر که می‌توانند از محیط خود بیاموزند و تطبیق یابند را می‌دهند.
+در خلاصه، عامل‌ها به شما امکان می‌دهند کارهای بیشتری انجام دهید، اتوماسیون را به سطح بعدی ببرید و سیستم‌های هوشمندتری ایجاد کنید که می‌توانند از محیط خود یاد بگیرند و سازگار شوند.
 
-## چگونه می‌توان به‌سرعت قابلیت‌های عامل را نمونه‌سازی، تکرار و بهبود داد؟
+## چگونه به‌سرعت نمونه اولیه بسازیم، تکرار کنیم و قابلیت‌های عامل را بهبود دهیم؟
 
-این حوزه به‌سرعت در حال تحول است، اما برخی موارد مشترک بین اکثر فریم‌ورک‌های عامل هوش مصنوعی وجود دارد که می‌تواند به شما در نمونه‌سازی سریع و تکرار کمک کند؛ به‌ویژه مؤلفه‌های ماژولار، ابزارهای تعاملی تیمی و یادگیری بلادرنگ. بیایید به این موارد بپردازیم:
+این حوزه با سرعت حرکت می‌کند، اما چیزهایی وجود دارند که در بسیاری از چارچوب‌های عامل هوش مصنوعی مشترک هستند و می‌توانند به شما کمک کنند به‌سرعت نمونه اولیه بسازید و تکرار کنید؛ از جمله مؤلفه‌های ماژولار، ابزارهای همکاری و یادگیری زمان‌واقعی. بیایید به این موارد بپردازیم:
 
-- **استفاده از مؤلفه‌های ماژولار**: SDKهای هوش مصنوعی مؤلفه‌های از پیش ساخته مانند کانکتورهای هوش مصنوعی و حافظه، فراخوانی توابع با استفاده از زبان طبیعی یا افزونه‌های کد، قالب‌های پرامپت و غیره را ارائه می‌دهند.
-- **بهره‌گیری از ابزارهای تعاملی تیمی**: عامل‌ها را با نقش‌ها و وظایف مشخص طراحی کنید تا بتوانند جریان‌های کاری مشارکتی را آزمایش و پالایش کنند.
-- **یادگیری بلادرنگ**: حلقه‌های بازخوردی پیاده‌سازی کنید که در آن عامل‌ها از تعاملات بیاموزند و رفتار خود را به‌طور پویا تنظیم کنند.
+- **استفاده از مؤلفه‌های ماژولار**: SDKهای هوش مصنوعی مؤلفه‌های از پیش ساخته‌ای مانند اتصال‌دهنده‌های AI و حافظه، فراخوانی تابع با استفاده از زبان طبیعی یا افزونه‌های کد، قالب‌های prompt و غیره ارائه می‌دهند.
+- **بهره‌گیری از ابزارهای همکاری**: عامل‌ها را با نقش‌ها و وظایف مشخص طراحی کنید تا بتوانند گردش‌کارهای مشارکتی را آزمایش و اصلاح کنند.
+- **یادگیری در زمان واقعی**: حلقه‌های بازخوردی پیاده‌سازی کنید که در آن عامل‌ها از تعاملات یاد می‌گیرند و رفتار خود را به‌صورت پویا تنظیم می‌کنند.
 
 ### استفاده از مؤلفه‌های ماژولار
 
-SDKهایی مانند Microsoft Semantic Kernel و LangChain مؤلفه‌های از پیش ساخته‌ای مانند کانکتورهای هوش مصنوعی، قالب‌های پرامپت و مدیریت حافظه را ارائه می‌دهند.
+SDKهایی مانند چارچوب عامل مایکروسافت مؤلفه‌های از پیش ساخته‌ای مانند اتصال‌دهنده‌های هوش مصنوعی، تعریف ابزارها و مدیریت عامل را ارائه می‌دهند.
 
-**تیم‌ها چگونه می‌توانند از این موارد استفاده کنند**: تیم‌ها می‌توانند به‌سرعت این مؤلفه‌ها را کنار هم قرار دهند تا یک نمونه اولیه عملیاتی ایجاد کنند بدون اینکه از ابتدا همه چیز را بسازند، که این امکان را برای آزمایش و تکرار سریع فراهم می‌کند.
+**تیم‌ها چگونه می‌توانند از این‌ها استفاده کنند**: تیم‌ها می‌توانند به‌سرعت این مؤلفه‌ها را کنار هم قرار دهند تا یک نمونه اولیه کاربردی ایجاد کنند بدون اینکه از صفر شروع کنند، که این امکان را برای آزمایش و تکرار سریع فراهم می‌آورد.
 
-**عملکرد در عمل**: می‌توانید از یک تجزیه‌کننده از پیش ساخته برای استخراج اطلاعات از ورودی کاربر، یک ماژول حافظه برای ذخیره و بازیابی داده‌ها و یک تولیدکننده پرامپت برای تعامل با کاربران استفاده کنید، همگی بدون نیاز به ساخت این مؤلفه‌ها از صفر.
+**عملکرد در عمل چگونه است**: می‌توانید از یک پارسر از پیش ساخته برای استخراج اطلاعات از ورودی کاربر، یک ماژول حافظه برای ذخیره و بازیابی داده‌ها و یک تولیدکننده prompt برای تعامل با کاربران استفاده کنید، همه بدون نیاز به ساخت این مؤلفه‌ها از ابتدا.
 
-**نمونه کد**. بیایید نگاهی به نمونه‌هایی بیندازیم که چگونه می‌توانید از یک کانکتور هوش مصنوعی از پیش ساخته با Semantic Kernel در Python و .Net استفاده کنید که از فراخوانی خودکار تابع برای پاسخ مدل به ورودی کاربر بهره می‌برد:
+**کد نمونه**. بیایید نگاهی به نمونه‌ای بیندازیم که چگونه می‌توانید از چارچوب عامل مایکروسافت با `AzureAIProjectAgentProvider` استفاده کنید تا مدل به ورودی کاربر با فراخوانی ابزار پاسخ دهد:
 
 ``` python
-# مثال کد پایتون Semantic Kernel
+# مثال چارچوب عامل مایکروسافت با پایتون
 
 import asyncio
+import os
 from typing import Annotated
 
-from semantic_kernel.connectors.ai import FunctionChoiceBehavior
-from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion, AzureChatPromptExecutionSettings
-from semantic_kernel.contents import ChatHistory
-from semantic_kernel.functions import kernel_function
-from semantic_kernel.kernel import Kernel
-
-# تعریف یک شی ChatHistory برای نگهداری زمینه مکالمه
-chat_history = ChatHistory()
-chat_history.add_user_message("I'd like to go to New York on January 1, 2025")
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
 
-# تعریف افزونه نمونه‌ای که شامل تابع رزرو سفر است
-class BookTravelPlugin:
-    """A Sample Book Travel Plugin"""
-
-    @kernel_function(name="book_flight", description="Book travel given location and date")
-    async def book_flight(
-        self, date: Annotated[str, "The date of travel"], location: Annotated[str, "The location to travel to"]
-    ) -> str:
-        return f"Travel was booked to {location} on {date}"
-
-# ایجاد کرنل
-kernel = Kernel()
-
-# افزودن افزونه نمونه به شی کرنل
-kernel.add_plugin(BookTravelPlugin(), plugin_name="book_travel")
-
-# تعریف کانکتور هوش مصنوعی Azure OpenAI
-chat_service = AzureChatCompletion(
-    deployment_name="YOUR_DEPLOYMENT_NAME", 
-    api_key="YOUR_API_KEY", 
-    endpoint="https://<your-resource>.azure.openai.com/",
-)
-
-# تعریف تنظیمات درخواست برای پیکربندی مدل با فراخوانی خودکار تابع
-request_settings = AzureChatPromptExecutionSettings(function_choice_behavior=FunctionChoiceBehavior.Auto())
+# تعریف یک تابع نمونه ابزار برای رزرو سفر
+def book_flight(date: str, location: str) -> str:
+    """Book travel given location and date."""
+    return f"Travel was booked to {location} on {date}"
 
 
 async def main():
-    # ارسال درخواست به مدل با توجه به تاریخچه چت و تنظیمات درخواست
-    # کرنل شامل نمونه‌ای است که مدل درخواست فراخوانی آن را دارد
-    response = await chat_service.get_chat_message_content(
-        chat_history=chat_history, settings=request_settings, kernel=kernel
+    provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+    agent = await provider.create_agent(
+        name="travel_agent",
+        instructions="Help the user book travel. Use the book_flight tool when ready.",
+        tools=[book_flight],
     )
-    assert response is not None
 
-    """
-    Note: In the auto function calling process, the model determines it can invoke the 
-    `BookTravelPlugin` using the `book_flight` function, supplying the necessary arguments. 
-    
-    For example:
-
-    "tool_calls": [
-        {
-            "id": "call_abc123",
-            "type": "function",
-            "function": {
-                "name": "BookTravelPlugin-book_flight",
-                "arguments": "{'location': 'New York', 'date': '2025-01-01'}"
-            }
-        }
-    ]
-
-    Since the location and date arguments are required (as defined by the kernel function), if the 
-    model lacks either, it will prompt the user to provide them. For instance:
-
-    User: Book me a flight to New York.
-    Model: Sure, I'd love to help you book a flight. Could you please specify the date?
-    User: I want to travel on January 1, 2025.
-    Model: Your flight to New York on January 1, 2025, has been successfully booked. Safe travels!
-    """
-
-    print(f"`{response}`")
-    # پاسخ نمونه مدل هوش مصنوعی: «پرواز شما به نیویورک در اول ژانویه ۲۰۲۵ با موفقیت رزرو شد. سفر ایمن! ✈️🗽»
-
-    # افزودن پاسخ مدل به زمینه تاریخچه چت ما
-    chat_history.add_assistant_message(response.content)
+    response = await agent.run("I'd like to go to New York on January 1, 2025")
+    print(response)
+    # خروجی نمونه: پرواز شما به نیویورک در 1 ژانویه 2025 با موفقیت رزرو شد. سفر خوبی داشته باشید! ✈️🗽
 
 
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-```csharp
-// Semantic Kernel C# example
 
-using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.ChatCompletion;
-using System.ComponentModel;
-using Microsoft.SemanticKernel.Connectors.AzureOpenAI;
+آنچه از این مثال می‌بینید نشان می‌دهد چگونه می‌توانید از یک پارسر از پیش ساخته برای استخراج اطلاعات کلیدی از ورودی کاربر، مانند مبدا، مقصد و تاریخ یک درخواست رزرو پرواز استفاده کنید. این رویکرد ماژولار به شما امکان می‌دهد بر منطق سطح بالا تمرکز کنید.
 
-ChatHistory chatHistory = [];
-chatHistory.AddUserMessage("I'd like to go to New York on January 1, 2025");
+### بهره‌گیری از ابزارهای همکاری
 
-var kernelBuilder = Kernel.CreateBuilder();
-kernelBuilder.AddAzureOpenAIChatCompletion(
-    deploymentName: "NAME_OF_YOUR_DEPLOYMENT",
-    apiKey: "YOUR_API_KEY",
-    endpoint: "YOUR_AZURE_ENDPOINT"
-);
-kernelBuilder.Plugins.AddFromType<BookTravelPlugin>("BookTravel"); 
-var kernel = kernelBuilder.Build();
+چارچوب‌هایی مانند چارچوب عامل مایکروسافت ایجاد چند عامل که می‌توانند با هم همکاری کنند را تسهیل می‌کنند.
 
-var settings = new AzureOpenAIPromptExecutionSettings()
-{
-    FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
-};
+**تیم‌ها چگونه می‌توانند از این‌ها استفاده کنند**: تیم‌ها می‌توانند عامل‌هایی با نقش‌ها و وظایف مشخص طراحی کنند تا بتوانند گردش‌کارهای مشارکتی را آزمایش و اصلاح کرده و کارایی کلی سیستم را بهبود بخشند.
 
-var chatCompletion = kernel.GetRequiredService<IChatCompletionService>();
+**عملکرد در عمل چگونه است**: می‌توانید یک تیم عامل ایجاد کنید که هر عامل عملکرد تخصصی‌ای مانند بازیابی داده، تحلیل یا تصمیم‌گیری داشته باشد. این عامل‌ها می‌توانند ارتباط برقرار کنند و اطلاعات را به اشتراک بگذارند تا به هدف مشترکی مانند پاسخ به پرسش کاربر یا تکمیل یک وظیفه برسند.
 
-var response = await chatCompletion.GetChatMessageContentAsync(chatHistory, settings, kernel);
-
-/*
-Behind the scenes, the model recognizes the tool to call, what arguments it already has (location) and (date)
-{
-
-"tool_calls": [
-    {
-        "id": "call_abc123",
-        "type": "function",
-        "function": {
-            "name": "BookTravelPlugin-book_flight",
-            "arguments": "{'location': 'New York', 'date': '2025-01-01'}"
-        }
-    }
-]
-*/
-
-Console.WriteLine(response.Content);
-chatHistory.AddMessage(response!.Role, response!.Content!);
-
-// Example AI Model Response: Your flight to New York on January 1, 2025, has been successfully booked. Safe travels! ✈️🗽
-
-// Define a plugin that contains the function to book travel
-public class BookTravelPlugin
-{
-    [KernelFunction("book_flight")]
-    [Description("Book travel given location and date")]
-    public async Task<string> BookFlight(DateTime date, string location)
-    {
-        return await Task.FromResult( $"Travel was booked to {location} on {date}");
-    }
-}
-```
-
-آنچه از این مثال می‌بینید این است که چگونه می‌توانید از یک پارسر از پیش ساخته‌شده برای استخراج اطلاعات کلیدی از ورودی کاربر مانند مبدا، مقصد و تاریخ درخواست رزرو پرواز استفاده کنید. این رویکرد ماژولار به شما اجازه می‌دهد تا روی منطق سطح بالا تمرکز کنید.
-
-### بهره‌گیری از ابزارهای تعاملی تیمی
-
-فریم‌ورک‌هایی مانند CrewAI، Microsoft AutoGen و Semantic Kernel تسهیل‌کننده ایجاد چندین عامل هستند که می‌توانند با هم همکاری کنند.
-
-**تیم‌ها چگونه می‌توانند از این موارد استفاده کنند**: تیم‌ها می‌توانند عامل‌هایی با نقش‌ها و وظایف مشخص طراحی کنند تا بتوانند جریان‌های کاری مشارکتی را آزمایش و پالایش کرده و کارایی کلی سیستم را بهبود بخشند.
-
-**عملکرد در عمل**: می‌توانید یک تیم از عامل‌ها ایجاد کنید که هر عامل دارای عملکرد تخصصی مانند واکشی داده، تحلیل یا تصمیم‌گیری باشد. این عامل‌ها می‌توانند اطلاعات را منتقل و به اشتراک بگذارند تا به هدف مشترکی مانند پاسخ به پرسش کاربر یا تکمیل یک وظیفه برسند.
-
-**نمونه کد (AutoGen)**:
+**کد نمونه (چارچوب عامل مایکروسافت)**:
 
 ```python
-# ایجاد عامل‌ها، سپس ایجاد برنامه چرخشی که بتوانند با هم کار کنند، در این مورد به ترتیب
+# ایجاد چندین عامل که با هم با استفاده از چارچوب عامل مایکروسافت کار می‌کنند
 
-# عامل بازیابی داده
-# عامل تحلیل داده
-# عامل تصمیم‌گیری
+import os
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-agent_retrieve = AssistantAgent(
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+
+# عامل بازیابی داده‌ها
+agent_retrieve = await provider.create_agent(
     name="dataretrieval",
-    model_client=model_client,
+    instructions="Retrieve relevant data using available tools.",
     tools=[retrieve_tool],
-    system_message="Use tools to solve tasks."
 )
 
-agent_analyze = AssistantAgent(
+# عامل تحلیل داده‌ها
+agent_analyze = await provider.create_agent(
     name="dataanalysis",
-    model_client=model_client,
+    instructions="Analyze the retrieved data and provide insights.",
     tools=[analyze_tool],
-    system_message="Use tools to solve tasks."
 )
 
-# گفتگو زمانی پایان می‌یابد که کاربر بگوید "تایید"
-termination = TextMentionTermination("APPROVE")
-
-user_proxy = UserProxyAgent("user_proxy", input_func=input)
-
-team = RoundRobinGroupChat([agent_retrieve, agent_analyze, user_proxy], termination_condition=termination)
-
-stream = team.run_stream(task="Analyze data", max_turns=10)
-# هنگام اجرا در اسکریپت از asyncio.run(...) استفاده کنید.
-await Console(stream)
+# اجرای عوامل به صورت دنباله‌دار روی یک وظیفه
+retrieval_result = await agent_retrieve.run("Retrieve sales data for Q4")
+analysis_result = await agent_analyze.run(f"Analyze this data: {retrieval_result}")
+print(analysis_result)
 ```
 
-آنچه در کد قبلی می‌بینید نشان می‌دهد چگونه می‌توانید یک وظیفه ایجاد کنید که شامل چندین عامل است که با هم برای تحلیل داده‌ها کار می‌کنند. هر عامل یک وظیفه مشخص را انجام می‌دهد و وظیفه از طریق هماهنگی عامل‌ها برای رسیدن به نتیجه مطلوب اجرا می‌شود. با ایجاد عامل‌های اختصاصی با نقش‌های تخصصی، می‌توانید کارایی و عملکرد وظایف را بهبود بخشید.
+آنچه در کد قبلی می‌بینید نشان می‌دهد چگونه می‌توانید یک وظیفه ایجاد کنید که شامل چند عامل است که با هم برای تحلیل داده‌ها کار می‌کنند. هر عامل یک عملکرد خاص را انجام می‌دهد و وظیفه از طریق هماهنگی عامل‌ها اجرا می‌شود تا نتیجه موردنظر حاصل شود. با ایجاد عامل‌های اختصاصی با نقش‌های تخصصی، می‌توانید کارایی و عملکرد وظایف را بهبود بخشید.
 
-### یادگیری بلادرنگ
+### یادگیری در زمان واقعی
 
-فریم‌ورک‌های پیشرفته قابلیت‌هایی برای درک زمینه و تطبیق‌پذیری بلادرنگ فراهم می‌کنند.
+چارچوب‌های پیشرفته قابلیت‌هایی برای درک زمینه و تطبیق‌پذیری در زمان واقعی فراهم می‌کنند.
 
-**تیم‌ها چگونه می‌توانند از این موارد استفاده کنند**: تیم‌ها می‌توانند حلقه‌های بازخورد را پیاده‌سازی کنند که در آن عامل‌ها از تعاملات بیاموزند و رفتار خود را به‌طور پویا تنظیم کنند، که منجر به بهبود و پالایش مداوم قابلیت‌ها می‌شود.
+**تیم‌ها چگونه می‌توانند از این‌ها استفاده کنند**: تیم‌ها می‌توانند حلقه‌های بازخوردی پیاده‌سازی کنند که در آن عامل‌ها از تعاملات یاد می‌گیرند و رفتار خود را به‌طور پویا تنظیم می‌کنند، که منجر به بهبود مستمر و پالایش قابلیت‌ها می‌شود.
 
-**عملکرد در عمل**: عامل‌ها می‌توانند بازخورد کاربر، داده‌های محیطی و نتایج وظایف را تحلیل کنند تا پایگاه دانش خود را به‌روزرسانی کنند، الگوریتم‌های تصمیم‌گیری را تنظیم کنند و در طول زمان عملکرد را بهبود بخشند. این فرایند یادگیری تکراری به عامل‌ها اجازه می‌دهد تا خود را با شرایط و ترجیحات متغیر کاربران وفق دهند و اثربخشی کلی سیستم را افزایش دهند.
+**عملکرد در عمل چگونه است**: عامل‌ها می‌توانند بازخورد کاربران، داده‌های محیطی و نتایج وظایف را برای به‌روزرسانی پایگاه دانش خود، تنظیم الگوریتم‌های تصمیم‌گیری و افزایش عملکرد در طول زمان تجزیه و تحلیل کنند. این فرایند یادگیری تکراری به عامل‌ها اجازه می‌دهد با شرایط و ترجیحات کاربران سازگار شوند و اثربخشی کلی سیستم را افزایش دهند.
 
-## تفاوت بین فریم‌ورک‌های AutoGen، Semantic Kernel و Azure AI Agent Service چیست؟
+## تفاوت میان چارچوب عامل مایکروسافت و سرویس Azure AI Agent چیست؟
 
-راه‌های زیادی برای مقایسه این فریم‌ورک‌ها وجود دارد، اما بیایید به برخی تفاوت‌های کلیدی از نظر طراحی، قابلیت‌ها و موارد استفاده هدفمند نگاه کنیم:
+راه‌های زیادی برای مقایسه این رویکردها وجود دارد، اما بیایید به برخی تفاوت‌های کلیدی از نظر طراحی، قابلیت‌ها و موارد استفاده هدف‌گذاری‌شده نگاهی بیندازیم:
 
-## AutoGen
+## چارچوب عامل مایکروسافت (MAF)
 
-AutoGen یک فریم‌ورک متن‌باز است که توسط آزمایشگاه AI Frontiers در Microsoft Research توسعه یافته است. این فریم‌ورک بر برنامه‌های رویدادمحور توزیع‌شده و «عامل‌محور» تمرکز دارد و امکان استفاده از چندین LLM و SLM، ابزارها و الگوهای طراحی چندعامل پیشرفته را فراهم می‌کند.
+چارچوب عامل مایکروسافت یک SDK ساده‌شده برای ساخت عامل‌های هوش مصنوعی با استفاده از `AzureAIProjectAgentProvider` ارائه می‌دهد. این امکان را به توسعه‌دهندگان می‌دهد تا عامل‌هایی بسازند که از مدل‌های Azure OpenAI با فراخوانی ابزار داخلی، مدیریت مکالمه و امنیت سطح سازمانی از طریق هویت Azure بهره‌مند شوند.
 
-AutoGen حول مفهوم مرکزی عامل‌ها ساخته شده است؛ عامل‌هایی که موجودیت‌های خودمختاری هستند که می‌توانند محیط خود را درک کنند، تصمیم بگیرند و برای رسیدن به اهداف خاص اقدام کنند. عامل‌ها از طریق پیام‌های ناهمزمان با هم ارتباط برقرار می‌کنند که به آن‌ها اجازه می‌دهد مستقل و موازی کار کنند و مقیاس‌پذیری و پاسخ‌دهی سیستم را افزایش دهند.
+**موارد استفاده**: ساخت عامل‌های آماده برای تولید با استفاده از ابزارها، جریان‌های کاری چندمرحله‌ای و سناریوهای یکپارچه‌سازی سازمانی.
 
-<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">عامل‌ها بر اساس مدل بازیگر</a> هستند. بر اساس ویکی‌پدیا، یک بازیگر _بلوک ساختاری پایه محاسبات همزمان است. در پاسخ به پیامی که دریافت می‌کند، یک بازیگر می‌تواند: تصمیم‌های محلی بگیرد، بازیگرهای بیشتری ایجاد کند، پیام‌های بیشتری ارسال کند، و تعیین کند چگونه به پیام بعدی دریافتی پاسخ دهد_.
+در اینجا برخی مفاهیم اصلی چارچوب عامل مایکروسافت آمده است:
 
-**موارد استفاده**: خودکارسازی تولید کد، وظایف تحلیل داده و ساخت عامل‌های سفارشی برای عملکردهای برنامه‌ریزی و پژوهش.
+- **عامل‌ها**. یک عامل از طریق `AzureAIProjectAgentProvider` ایجاد می‌شود و با یک نام، دستورالعمل‌ها و ابزارها پیکربندی می‌گردد. عامل می‌تواند:
+  - **پیام‌های کاربر را پردازش کند** و با استفاده از مدل‌های Azure OpenAI پاسخ تولید کند.
+  - **ابزارها را فراخوانی کند** به‌طور خودکار بر اساس زمینه مکالمه.
+  - **وضعیت مکالمه را حفظ کند** در تعاملات متعدد.
 
-در اینجا برخی مفاهیم اصلی و مهم AutoGen آورده شده است:
-
-- **عامل‌ها**. یک عامل یک موجودیت نرم‌افزاری است که:
-  - **از طریق پیام‌ها ارتباط برقرار می‌کند**، این پیام‌ها می‌توانند همگام یا ناهمگام باشند.
-  - **وضعیت خودش را حفظ می‌کند**، که می‌تواند توسط پیام‌های ورودی تغییر کند.
-  - **اقدام انجام می‌دهد** در پاسخ به پیام‌های دریافتی یا تغییرات در وضعیت خود. این اقدامات ممکن است وضعیت عامل را تغییر دهند و اثرات خارجی ایجاد کنند، مانند به‌روزرسانی لاگ‌های پیام، ارسال پیام‌های جدید، اجرای کد یا فراخوانی API.
-    
-  در اینجا یک قطعه کد کوتاه دارید که در آن عامل خود را با قابلیت‌های چت ایجاد می‌کنید:
+  در اینجا یک قطعه کد نشان می‌دهد چگونه یک عامل ایجاد شود:
 
     ```python
-    from autogen_agentchat.agents import AssistantAgent
-    from autogen_agentchat.messages import TextMessage
-    from autogen_ext.models.openai import OpenAIChatCompletionClient
+    import os
+    from agent_framework.azure import AzureAIProjectAgentProvider
+    from azure.identity import AzureCliCredential
 
-
-    class MyAgent(RoutedAgent):
-        def __init__(self, name: str) -> None:
-            super().__init__(name)
-            model_client = OpenAIChatCompletionClient(model="gpt-4o")
-            self._delegate = AssistantAgent(name, model_client=model_client)
-    
-        @message_handler
-        async def handle_my_message_type(self, message: MyMessageType, ctx: MessageContext) -> None:
-            print(f"{self.id.type} received message: {message.content}")
-            response = await self._delegate.on_messages(
-                [TextMessage(content=message.content, source="user")], ctx.cancellation_token
-            )
-            print(f"{self.id.type} responded: {response.chat_message.content}")
-    ```
-    
-    در کد قبلی `MyAgent` ایجاد شده و از `RoutedAgent` ارث‌بری می‌کند. این عامل یک هندلر پیام دارد که محتوای پیام را چاپ می‌کند و سپس با استفاده از نماینده `AssistantAgent` پاسخی ارسال می‌کند. به‌ویژه توجه کنید که چگونه ما به `self._delegate` یک نمونه از `AssistantAgent` را اختصاص می‌دهیم که یک عامل از پیش ساخته است و می‌تواند تکمیل‌های چت را اداره کند.
-
-
-    بیایید به AutoGen اطلاع دهیم درباره این نوع عامل و برنامه را راه‌اندازی کنیم:
-
-    ```python
-    
-    # main.py
-    runtime = SingleThreadedAgentRuntime()
-    await MyAgent.register(runtime, "my_agent", lambda: MyAgent())
-
-    runtime.start()  # شروع پردازش پیام‌ها در پس‌زمینه.
-    await runtime.send_message(MyMessageType("Hello, World!"), AgentId("my_agent", "default"))
-    ```
-
-    در کد قبلی عامل‌ها با runtime ثبت شده‌اند و سپس پیامی به عامل ارسال می‌شود که منجر به خروجی زیر می‌شود:
-
-    ```text
-    # Output from the console:
-    my_agent received message: Hello, World!
-    my_assistant received message: Hello, World!
-    my_assistant responded: Hello! How can I assist you today?
-    ```
-
-- **چندعامل‌ها**. AutoGen از ایجاد چندین عامل که می‌توانند با هم برای دستیابی به وظایف پیچیده کار کنند پشتیبانی می‌کند. عامل‌ها می‌توانند ارتباط برقرار کنند، اطلاعات را به اشتراک بگذارند و اقدامات خود را هماهنگ کنند تا مشکلات را مؤثرتر حل کنند. برای ایجاد یک سیستم چندعامل، می‌توانید انواع مختلفی از عامل‌ها را با عملکردها و نقش‌های تخصصی تعریف کنید، مانند واکشی داده، تحلیل، تصمیم‌گیری و تعامل با کاربر. بیایید ببینیم چنین ایجاداتی چگونه به نظر می‌رسند تا درک بهتری از آن داشته باشیم:
-
-    ```python
-    editor_description = "Editor for planning and reviewing the content."
-
-    # نمونه‌ای از اعلام یک نماینده
-    editor_agent_type = await EditorAgent.register(
-    runtime,
-    editor_topic_type,  # استفاده از نوع موضوع به عنوان نوع نماینده.
-    lambda: EditorAgent(
-        description=editor_description,
-        group_chat_topic_type=group_chat_topic_type,
-        model_client=OpenAIChatCompletionClient(
-            model="gpt-4o-2024-08-06",
-            # api_key="YOUR_API_KEY"،
-        ),
-        ),
+    provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+    agent = await provider.create_agent(
+        name="my_agent",
+        instructions="You are a helpful assistant.",
     )
 
-    # بقیه اعلام‌ها برای اختصار کوتاه شده‌اند
+    response = await agent.run("Hello, World!")
+    print(response)
+    ```
 
-    # چت گروهی
-    group_chat_manager_type = await GroupChatManager.register(
-    runtime,
-    "group_chat_manager",
-    lambda: GroupChatManager(
-        participant_topic_types=[writer_topic_type, illustrator_topic_type, editor_topic_type, user_topic_type],
-        model_client=OpenAIChatCompletionClient(
-            model="gpt-4o-2024-08-06",
-            # api_key="YOUR_API_KEY"،
-        ),
-        participant_descriptions=[
-            writer_description, 
-            illustrator_description, 
-            editor_description, 
-            user_description
-        ],
-        ),
+- **ابزارها**. این چارچوب از تعریف ابزارها به‌عنوان توابع Python که عامل می‌تواند به‌طور خودکار فراخوانی کند، پشتیبانی می‌کند. ابزارها هنگام ایجاد عامل ثبت می‌شوند:
+
+    ```python
+    def get_weather(location: str) -> str:
+        """Get the current weather for a location."""
+        return f"The weather in {location} is sunny, 72\u00b0F."
+
+    agent = await provider.create_agent(
+        name="weather_agent",
+        instructions="Help users check the weather.",
+        tools=[get_weather],
     )
     ```
 
-    در کد قبلی ما یک `GroupChatManager` داریم که با runtime ثبت شده است. این مدیر مسئول هماهنگ‌سازی تعاملات بین انواع مختلف عامل‌ها مانند نویسنده‌ها، تصویرسازان، ویراستاران و کاربران است.
+- **هماهنگی چندعاملی**. می‌توانید چندین عامل با تخصص‌های مختلف ایجاد کنید و کار آن‌ها را هماهنگ نمایید:
 
-- **Runtime عامل**. فریم‌ورک یک محیط runtime فراهم می‌کند که امکان ارتباط بین عامل‌ها را می‌دهد، هویت‌ها و چرخه‌های عمر آن‌ها را مدیریت می‌کند و مرزهای امنیتی و حریم خصوصی را اعمال می‌کند. این بدان معناست که می‌توانید عامل‌های خود را در یک محیط ایمن و کنترل‌شده اجرا کنید تا اطمینان حاصل شود که آن‌ها می‌توانند به‌صورت ایمن و مؤثر تعامل کنند. دو runtime قابل توجه وجود دارد:
-  - **Runtime مستقل (Stand-alone runtime)**. این انتخاب خوبی برای برنامه‌های تک‌فرآیندی است که همه عامل‌ها در همان زبان برنامه‌نویسی پیاده‌سازی شده و در همان فرآیند اجرا می‌شوند. در اینجا تصویری از نحوه عملکرد آن آمده است:
-  
-    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">Runtime مستقل</a>   
-Application stack
-
-    *عامل‌ها از طریق runtime از طریق پیام‌ها ارتباط برقرار می‌کنند و runtime چرخه عمر عامل‌ها را مدیریت می‌کند*
-
-  - **Runtime توزیع‌شده عامل**، برای برنامه‌های چندفرآیندی مناسب است که در آن عامل‌ها ممکن است در زبان‌های برنامه‌نویسی مختلف پیاده‌سازی شده و روی ماشین‌های مختلف اجرا شوند. در اینجا تصویری از نحوه عملکرد آن آمده است:
-  
-    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-distributed.svg" target="_blank">Runtime توزیع‌شده</a>
-
-## Semantic Kernel + Agent Framework
-
-Semantic Kernel یک SDK ارکستراسیون هوش مصنوعی آماده برای سازمان‌ها است. این شامل کانکتورهای هوش مصنوعی و حافظه همراه با یک فریم‌ورک عامل است.
-
-ابتدا برخی مؤلفه‌های اصلی را بررسی کنیم:
-
-- **کانکتورهای هوش مصنوعی**: این یک رابط با سرویس‌ها و منابع داده هوش مصنوعی خارجی است که برای هر دو زبان Python و C# قابل استفاده است.
-
-  ```python
-  # هسته معنایی پایتون
-  from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
-  from semantic_kernel.kernel import Kernel
-
-  kernel = Kernel()
-  kernel.add_service(
-    AzureChatCompletion(
-        deployment_name="your-deployment-name",
-        api_key="your-api-key",
-        endpoint="your-endpoint",
+    ```python
+    planner = await provider.create_agent(
+        name="planner",
+        instructions="Break down complex tasks into steps.",
     )
-  )
-  ```  
 
-    ```csharp
-    // Semantic Kernel C#
-    using Microsoft.SemanticKernel;
+    executor = await provider.create_agent(
+        name="executor",
+        instructions="Execute the planned steps using available tools.",
+        tools=[execute_tool],
+    )
 
-    // Create kernel
-    var builder = Kernel.CreateBuilder();
-    
-    // Add a chat completion service:
-    builder.Services.AddAzureOpenAIChatCompletion(
-        "your-resource-name",
-        "your-endpoint",
-        "your-resource-key",
-        "deployment-model");
-    var kernel = builder.Build();
+    plan = await planner.run("Plan a trip to Paris")
+    result = await executor.run(f"Execute this plan: {plan}")
     ```
 
-    در اینجا یک مثال ساده از چگونگی ایجاد یک kernel و افزودن سرویس تکمیل چت دارید. Semantic Kernel یک اتصال به یک سرویس هوش مصنوعی خارجی ایجاد می‌کند، در این مورد، Azure OpenAI Chat Completion.
+- **یکپارچگی هویت Azure**. این چارچوب از `AzureCliCredential` (یا `DefaultAzureCredential`) برای احراز هویت امن و بدون کلید استفاده می‌کند و نیاز به مدیریت مستقیم کلیدهای API را از بین می‌برد.
 
-- **افزونه‌ها (Plugins)**: این‌ها توابعی را که یک برنامه می‌تواند استفاده کند کپسوله می‌کنند. هم افزونه‌های آماده و هم افزونه‌های سفارشی وجود دارد که می‌توانید ایجاد کنید. یک مفهوم مرتبط "توابع پرامپت" است. به‌جای ارائه سرنخ‌های زبان طبیعی برای فراخوانی تابع، شما توابع مشخصی را به مدل اعلام می‌کنید. بر اساس زمینه چت فعلی، مدل ممکن است یکی از این توابع را برای تکمیل یک درخواست یا پرس‌و‌جو انتخاب کند. در اینجا یک مثال آمده است:
+## سرویس Azure AI Agent
 
-  ```python
-  from semantic_kernel.connectors.ai.open_ai.services.azure_chat_completion import AzureChatCompletion
+سرویس Azure AI Agent یک افزوده نسبتاً جدید است که در Microsoft Ignite 2024 معرفی شد. این سرویس امکان توسعه و استقرار عامل‌های هوش مصنوعی را با مدل‌های انعطاف‌پذیرتر فراهم می‌کند، مانند فراخوانی مستقیم مدل‌های متن‌باز Llama 3، Mistral و Cohere.
 
+سرویس Azure AI Agent مکانیزم‌های امنیتی سازمانی قوی‌تر و روش‌های ذخیره‌سازی داده فراهم می‌کند که آن را برای برنامه‌های سازمانی مناسب می‌سازد.
 
-  async def main():
-      from semantic_kernel.functions import KernelFunctionFromPrompt
-      from semantic_kernel.kernel import Kernel
+این سرویس به‌صورت آماده با چارچوب عامل مایکروسافت کار می‌کند تا ساخت و استقرار عامل‌ها را تسهیل کند.
 
-      kernel = Kernel()
-      kernel.add_service(AzureChatCompletion())
+این سرویس در حال حاضر در Public Preview است و از Python و C# برای ساخت عامل‌ها پشتیبانی می‌کند.
 
-      user_input = input("User Input:> ")
-
-      kernel_function = KernelFunctionFromPrompt(
-          function_name="SummarizeText",
-          prompt="""
-          Summarize the provided unstructured text in a sentence that is easy to understand.
-          Text to summarize: {{$user_input}}
-          """,
-      )
-
-      response = await kernel_function.invoke(kernel=kernel, user_input=user_input)
-      print(f"Model Response: {response}")
-
-      """
-      Sample Console Output:
-
-      User Input:> I like dogs
-      Model Response: The text expresses a preference for dogs.
-      """
-
-
-  if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
-  ```
-
-    ```csharp
-    var userInput = Console.ReadLine();
-
-    // Define semantic function inline.
-    string skPrompt = @"Summarize the provided unstructured text in a sentence that is easy to understand.
-                        Text to summarize: {{$userInput}}";
-    
-    // create the function from the prompt
-    KernelFunction summarizeFunc = kernel.CreateFunctionFromPrompt(
-        promptTemplate: skPrompt,
-        functionName: "SummarizeText"
-    );
-
-    //then import into the current kernel
-    kernel.ImportPluginFromFunctions("SemanticFunctions", [summarizeFunc]);
-
-    ```
-
-    در اینجا ابتدا یک قالب پرامپت `skPrompt` دارید که جا برای ورودی کاربر، `$userInput`، باقی می‌گذارد. سپس تابع کرنلی `SummarizeText` را ایجاد کرده و آن را با نام افزونه `SemanticFunctions` وارد کرنل می‌کنید. به نام تابع توجه کنید که به Semantic Kernel کمک می‌کند تا بفهمد تابع چه کاری انجام می‌دهد و چه زمانی باید فراخوانی شود.
-
-- **تابع بومی (Native function)**: همچنین توابع بومی وجود دارد که فریم‌ورک می‌تواند مستقیماً برای انجام کار فراخوانی کند. در اینجا مثالی از چنین تابعی که محتوای یک فایل را بازیابی می‌کند آورده شده است:
-
-    ```csharp
-    public class NativeFunctions {
-
-        [SKFunction, Description("Retrieve content from local file")]
-        public async Task<string> RetrieveLocalFile(string fileName, int maxSize = 5000)
-        {
-            string content = await File.ReadAllTextAsync(fileName);
-            if (content.Length <= maxSize) return content;
-            return content.Substring(0, maxSize);
-        }
-    }
-    
-    //Import native function
-    string plugInName = "NativeFunction";
-    string functionName = "RetrieveLocalFile";
-
-   //To add the functions to a kernel use the following function
-    kernel.ImportPluginFromType<NativeFunctions>();
-
-    ```
-
-- **حافظه**: زمینه را برای برنامه‌های هوش مصنوعی انتزاعی و ساده‌سازی می‌کند. ایده حافظه این است که این چیزی است که LLM باید از آن آگاه باشد. شما می‌توانید این اطلاعات را در یک فروشگاه برداری ذخیره کنید که در نهایت به یک پایگاه داده در حافظه، یک پایگاه داده برداری یا مشابه آن تبدیل می‌شود. در اینجا مثالی از یک سناریوی بسیار ساده‌شده وجود دارد که در آن *حقایق* به حافظه اضافه می‌شوند:
-
-    ```csharp
-    var facts = new Dictionary<string,string>();
-    facts.Add(
-        "Azure Machine Learning; https://learn.microsoft.com/azure/machine-learning/",
-        @"Azure Machine Learning is a cloud service for accelerating and
-        managing the machine learning project lifecycle. Machine learning professionals,
-        data scientists, and engineers can use it in their day-to-day workflows"
-    );
-    
-    facts.Add(
-        "Azure SQL Service; https://learn.microsoft.com/azure/azure-sql/",
-        @"Azure SQL is a family of managed, secure, and intelligent products
-        that use the SQL Server database engine in the Azure cloud."
-    );
-    
-    string memoryCollectionName = "SummarizedAzureDocs";
-    
-    foreach (var fact in facts) {
-        await memoryBuilder.SaveReferenceAsync(
-            collection: memoryCollectionName,
-            description: fact.Key.Split(";")[1].Trim(),
-            text: fact.Value,
-            externalId: fact.Key.Split(";")[2].Trim(),
-            externalSourceName: "Azure Documentation"
-        );
-    }
-    ```
-
-    این حقایق سپس در مجموعه حافظه `SummarizedAzureDocs` ذخیره می‌شوند. این یک مثال بسیار ساده‌شده است، اما می‌توانید ببینید چگونه می‌توانید اطلاعات را در حافظه ذخیره کنید تا مدل زبانی بزرگ (LLM) از آن استفاده کند.
-
-پس این‌ها اصول پایه چارچوب Semantic Kernel بودند، حالا چارچوب Agent چه وضعیتی دارد؟
-
-## سرویس عامل Azure AI
-
-سرویس عامل Azure AI یک افزوده نسبتاً جدید است که در Microsoft Ignite 2024 معرفی شد. این سرویس امکان توسعه و استقرار عامل‌های هوش مصنوعی را با مدل‌های منعطف‌تر فراهم می‌کند، مانند فراخوانی مستقیم مدل‌های متن‌باز LLM مانند Llama 3، Mistral و Cohere.
-
-سرویس عامل Azure AI مکانیزم‌های امنیتی سازمانی و روش‌های ذخیره‌سازی داده قوی‌تری ارائه می‌دهد که آن را مناسب برنامه‌های سازمانی می‌کند.
-
-این سرویس به‌صورت آماده با چارچوب‌های ارکستراسیون چندعاملی مانند AutoGen و Semantic Kernel کار می‌کند.
-
-این سرویس در حال حاضر در حالت Public Preview قرار دارد و از Python و C# برای ساخت عامل‌ها پشتیبانی می‌کند.
-
-با استفاده از Semantic Kernel Python، می‌توانیم یک عامل Azure AI با افزونه‌ای تعریف‌شده توسط کاربر ایجاد کنیم:
+با استفاده از SDK پایتون سرویس Azure AI Agent، می‌توانیم یک عامل با یک ابزار تعریف‌شده توسط کاربر ایجاد کنیم:
 
 ```python
 import asyncio
-from typing import Annotated
+from azure.identity import DefaultAzureCredential
+from azure.ai.projects import AIProjectClient
 
-from azure.identity.aio import DefaultAzureCredential
+# تعریف توابع ابزار
+def get_specials() -> str:
+    """Provides a list of specials from the menu."""
+    return """
+    Special Soup: Clam Chowder
+    Special Salad: Cobb Salad
+    Special Drink: Chai Tea
+    """
 
-from semantic_kernel.agents import AzureAIAgent, AzureAIAgentSettings, AzureAIAgentThread
-from semantic_kernel.contents import ChatMessageContent
-from semantic_kernel.contents import AuthorRole
-from semantic_kernel.functions import kernel_function
-
-
-# تعریف یک افزونه نمونه برای نمونه
-class MenuPlugin:
-    """A sample Menu Plugin used for the concept sample."""
-
-    @kernel_function(description="Provides a list of specials from the menu.")
-    def get_specials(self) -> Annotated[str, "Returns the specials from the menu."]:
-        return """
-        Special Soup: Clam Chowder
-        Special Salad: Cobb Salad
-        Special Drink: Chai Tea
-        """
-
-    @kernel_function(description="Provides the price of the requested menu item.")
-    def get_item_price(
-        self, menu_item: Annotated[str, "The name of the menu item."]
-    ) -> Annotated[str, "Returns the price of the menu item."]:
-        return "$9.99"
+def get_item_price(menu_item: str) -> str:
+    """Provides the price of the requested menu item."""
+    return "$9.99"
 
 
 async def main() -> None:
-    ai_agent_settings = AzureAIAgentSettings.create()
+    credential = DefaultAzureCredential()
+    project_client = AIProjectClient.from_connection_string(
+        credential=credential,
+        conn_str="your-connection-string",
+    )
 
-    async with (
-        DefaultAzureCredential() as creds,
-        AzureAIAgent.create_client(
-            credential=creds,
-            conn_str=ai_agent_settings.project_connection_string.get_secret_value(),
-        ) as client,
-    ):
-        # ایجاد تعریف عامل
-        agent_definition = await client.agents.create_agent(
-            model=ai_agent_settings.model_deployment_name,
-            name="Host",
-            instructions="Answer questions about the menu.",
+    agent = project_client.agents.create_agent(
+        model="gpt-4o-mini",
+        name="Host",
+        instructions="Answer questions about the menu.",
+        tools=[get_specials, get_item_price],
+    )
+
+    thread = project_client.agents.create_thread()
+
+    user_inputs = [
+        "Hello",
+        "What is the special soup?",
+        "How much does that cost?",
+        "Thank you",
+    ]
+
+    for user_input in user_inputs:
+        print(f"# User: '{user_input}'")
+        message = project_client.agents.create_message(
+            thread_id=thread.id,
+            role="user",
+            content=user_input,
         )
-
-        # ایجاد عامل AzureAI با استفاده از مشتری تعریف‌شده و تعریف عامل
-        agent = AzureAIAgent(
-            client=client,
-            definition=agent_definition,
-            plugins=[MenuPlugin()],
+        run = project_client.agents.create_and_process_run(
+            thread_id=thread.id, agent_id=agent.id
         )
-
-        # ایجاد یک رشته برای نگه‌داشتن مکالمه
-        # اگر رشته‌ای ارائه نشود، یک رشته جدید
-        # ایجاد شده و همراه با پاسخ اولیه برگردانده می‌شود
-        thread: AzureAIAgentThread | None = None
-
-        user_inputs = [
-            "Hello",
-            "What is the special soup?",
-            "How much does that cost?",
-            "Thank you",
-        ]
-
-        try:
-            for user_input in user_inputs:
-                print(f"# User: '{user_input}'")
-                # فراخوانی عامل برای رشته مشخص شده
-                response = await agent.get_response(
-                    messages=user_input,
-                    thread_id=thread,
-                )
-                print(f"# {response.name}: {response.content}")
-                thread = response.thread
-        finally:
-            await thread.delete() if thread else None
-            await client.agents.delete_agent(agent.id)
+        messages = project_client.agents.list_messages(thread_id=thread.id)
+        print(f"# Agent: {messages.data[0].content[0].text.value}")
 
 
 if __name__ == "__main__":
@@ -651,9 +293,9 @@ if __name__ == "__main__":
 
 ### مفاهیم اصلی
 
-سرویس عامل Azure AI دارای مفاهیم اصلی زیر است:
+سرویس Azure AI Agent دارای مفاهیم اصلی زیر است:
 
-- **Agent**. سرویس عامل Azure AI با Microsoft Foundry یکپارچه است. در داخل AI Foundry، یک عامل هوش مصنوعی به‌عنوان یک میکروسرویس "هوشمند" عمل می‌کند که می‌تواند برای پاسخ به سوالات (RAG)، انجام اقدامات یا خودکارسازی کامل گردش‌کارها استفاده شود. این امر را با ترکیب قدرت مدل‌های مولد هوش مصنوعی با ابزارهایی که به آن اجازه دسترسی و تعامل با منابع داده دنیای واقعی را می‌دهند، محقق می‌سازد. در اینجا یک مثال از یک عامل آورده شده است:
+- **عامل**. سرویس Azure AI Agent با Microsoft Foundry یکپارچه می‌شود. در داخل AI Foundry، یک عامل هوش مصنوعی به‌عنوان یک «میکروسرویس» هوشمند عمل می‌کند که می‌تواند برای پاسخ‌دهی به سوالات (RAG)، انجام عملیات یا خودکارسازی کامل جریان‌های کاری استفاده شود. این امر را با ترکیب قدرت مدل‌های تولیدی AI با ابزارهایی که به آن اجازه می‌دهند به منابع داده واقعی دسترسی پیدا کند و با آن‌ها تعامل کند، تحقق می‌بخشد. در اینجا یک مثال از یک عامل آمده است:
 
     ```python
     agent = project_client.agents.create_agent(
@@ -665,9 +307,9 @@ if __name__ == "__main__":
     )
     ```
 
-    در این مثال، یک عامل با مدل `gpt-4o-mini`، نام `my-agent` و دستورالعمل‌ها `You are helpful agent` ایجاد شده است. این عامل مجهز به ابزارها و منابعی است تا وظایف تفسیر کد را انجام دهد.
+    در این مثال، یک عامل با مدل `gpt-4o-mini`، نام `my-agent` و دستورالعمل‌ها `You are helpful agent` ایجاد شده است. عامل با ابزارها و منابعی برای انجام وظایف تفسیر کد تجهیز شده است.
 
-- **Thread and messages**. ترد (Thread) یک مفهوم مهم دیگر است. ترد نمایانگر یک مکالمه یا تعامل بین یک عامل و یک کاربر است. از تردها می‌توان برای پیگیری پیشرفت یک مکالمه، ذخیره اطلاعات زمینه و مدیریت وضعیت تعامل استفاده کرد. در اینجا یک مثال از یک ترد آورده شده است:
+- **رشته و پیام‌ها**. رشته (thread) یک مفهوم مهم دیگر است. رشته نمایانگر یک مکالمه یا تعامل بین یک عامل و یک کاربر است. از رشته‌ها می‌توان برای پیگیری پیشرفت یک مکالمه، ذخیره اطلاعات زمینه و مدیریت وضعیت تعامل استفاده کرد. در اینجا یک مثال از یک رشته آمده است:
 
     ```python
     thread = project_client.agents.create_thread()
@@ -685,19 +327,18 @@ if __name__ == "__main__":
     print(f"Messages: {messages}")
     ```
 
-    در کد قبلی، یک ترد ایجاد شده است. سپس، یک پیام به ترد ارسال می‌شود. با فراخوانی `create_and_process_run` از عامل خواسته می‌شود روی ترد کار انجام دهد. در نهایت، پیام‌ها گرفته و لاگ می‌شوند تا پاسخ عامل دیده شود. پیام‌ها نشان‌دهنده پیشرفت مکالمه بین کاربر و عامل هستند. همچنین مهم است که بدانید پیام‌ها می‌توانند انواع مختلفی مانند متن، تصویر یا فایل داشته باشند؛ یعنی کار عامل ممکن است مثلاً تصویری یا پاسخی متنی تولید کند. به‌عنوان توسعه‌دهنده، سپس می‌توانید از این اطلاعات برای پردازش بیشتر پاسخ یا ارائه آن به کاربر استفاده کنید.
+    در کد قبلی، یک رشته ایجاد می‌شود. سپس پیامی به رشته ارسال می‌شود. با فراخوانی `create_and_process_run` از عامل خواسته می‌شود روی رشته کار انجام دهد. در نهایت، پیام‌ها واکشی و لاگ می‌شوند تا پاسخ عامل مشاهده شود. پیام‌ها نشان‌دهنده پیشرفت مکالمه بین کاربر و عامل هستند. همچنین مهم است که بدانید پیام‌ها می‌توانند از انواع مختلفی مانند متن، تصویر یا فایل باشند؛ یعنی کار عامل ممکن است به‌عنوان مثال منجر به یک تصویر یا یک پاسخ متنی شود. به‌عنوان توسعه‌دهنده، می‌توانید سپس از این اطلاعات برای پردازش بیشتر پاسخ یا نمایش آن به کاربر استفاده کنید.
 
-- **Integrates with other AI frameworks**. سرویس عامل Azure AI می‌تواند با چارچوب‌های دیگری مانند AutoGen و Semantic Kernel تعامل داشته باشد، که به این معنی است که می‌توانید بخشی از برنامه خود را در یکی از این چارچوب‌ها بسازید و مثلاً از سرویس عامل به‌عنوان ارکستراتور استفاده کنید یا همه چیز را در سرویس عامل بسازید.
+- **یکپارچگی با چارچوب عامل مایکروسافت**. سرویس Azure AI Agent به‌طور یکپارچه با چارچوب عامل مایکروسافت کار می‌کند، به این معنی که می‌توانید عامل‌ها را با استفاده از `AzureAIProjectAgentProvider` بسازید و آن‌ها را از طریق Agent Service برای سناریوهای تولیدی مستقر کنید.
 
-**Use Cases**: سرویس عامل Azure AI برای برنامه‌های سازمانی طراحی شده است که نیاز به استقرار عامل‌های هوش مصنوعی امن، مقیاس‌پذیر و منعطف دارند.
+**موارد استفاده**: سرویس Azure AI Agent برای برنامه‌های سازمانی طراحی شده که نیاز به استقرار عامل‌های هوش مصنوعی امن، مقیاس‌پذیر و انعطاف‌پذیر دارند.
 
-## تفاوت این چارچوب‌ها در چیست؟
+## تفاوت بین این رویکردها چیست؟
  
-به نظر می‌رسد که همپوشانی زیادی بین این چارچوب‌ها وجود دارد، اما تفاوت‌های کلیدی‌ای در طراحی، قابلیت‌ها و موارد هدف آن‌ها هست:
+به نظر می‌رسد همپوشانی وجود دارد، اما تفاوت‌های کلیدی‌ای در طراحی، قابلیت‌ها و موارد استفاده هدف وجود دارد:
  
-- **AutoGen**: یک چارچوب تجربه‌ای است که بر تحقیق پیشرو در سیستم‌های چندعاملی متمرکز است. این بهترین مکان برای آزمایش و نمونه‌سازی سیستم‌های چندعاملی پیچیده است.
-- **Semantic Kernel**: یک کتابخانه آماده تولید برای ساخت برنامه‌های عامل‌محور سازمانی است. بر برنامه‌های عامل‌محور رویدادمحور و توزیع‌شده تمرکز دارد و از چندین LLM و SLM، ابزارها و الگوهای طراحی تک‌عامل/چندعامل پشتیبانی می‌کند.
-- **Azure AI Agent Service**: یک پلتفرم و سرویس استقرار در Azure Foundry برای عامل‌ها است. اتصال به خدمات پشتیبانی‌شده توسط Azure Found مانند Azure OpenAI، Azure AI Search، Bing Search و اجرای کد را فراهم می‌کند.
+- **چارچوب عامل مایکروسافت (MAF)**: یک SDK آماده برای تولید برای ساخت عامل‌های هوش مصنوعی است. این SDK یک API ساده‌شده برای ایجاد عامل‌ها با فراخوانی ابزار، مدیریت مکالمه و یکپارچگی هویت Azure فراهم می‌کند.
+- **سرویس Azure AI Agent**: یک پلتفرم و سرویس استقرار در Azure Foundry برای عامل‌ها است. این سرویس اتصال داخلی به سرویس‌هایی مانند Azure OpenAI، Azure AI Search، Bing Search و اجرای کد را ارائه می‌دهد.
  
 هنوز مطمئن نیستید کدام را انتخاب کنید؟
 
@@ -705,69 +346,57 @@ if __name__ == "__main__":
  
 بیایید ببینیم آیا می‌توانیم با مرور برخی موارد استفاده رایج به شما کمک کنیم:
  
-> Q: I'm experimenting, learning and building proof-of-concept agent applications, and I want to be able to build and experiment quickly
+> Q: من در حال ساخت برنامه‌های عامل هوش مصنوعی تولیدی هستم و می‌خواهم سریع شروع کنم
 >
 
->A: AutoGen would be a good choice for this scenario, as it focuses on event-driven, distributed agentic applications and supports advanced multi-agent design patterns.
+> A: چارچوب عامل مایکروسافت انتخاب بسیار خوبی است. این چارچوب یک API پایتونیک ساده از طریق `AzureAIProjectAgentProvider` فراهم می‌کند که به شما اجازه می‌دهد عامل‌هایی با ابزارها و دستورالعمل‌ها را در فقط چند خط کد تعریف کنید.
 
-> Q: What makes AutoGen a better choice than Semantic Kernel and Azure AI Agent Service for this use case?
+>Q: من نیاز به استقرار در سطح سازمانی با یکپارچگی‌های Azure مانند Search و اجرای کد دارم
 >
-> A: AutoGen is specifically designed for event-driven, distributed agentic applications, making it well-suited for automating code generation and data analysis tasks. It provides the necessary tools and capabilities to build complex multi-agent systems efficiently.
-
->Q: Sounds like Azure AI Agent Service could work here too, it has tools for code generation and more?
-
->
-> A: Yes, Azure AI Agent Service is a platform service for agents and add built-in capabilities for multiple models, Azure AI Search, Bing Search and Azure Functions. It makes it easy to build your agents in the Foundry Portal and deploy them at scale.
+> A: سرویس Azure AI Agent بهترین گزینه است. این یک سرویس پلتفرمی است که قابلیت‌های داخلی برای مدل‌های متعدد، Azure AI Search، Bing Search و Azure Functions فراهم می‌کند. ساخت عامل‌ها در Foundry Portal و استقرار آن‌ها در مقیاس را آسان می‌سازد.
  
-> Q: I'm still confused just give me one option
+> Q: هنوز سردرگمم، فقط یک گزینه به من بده
 >
-> A: A great choice is to build your application in Semantic Kernel first and then use Azure AI Agent Service to deploy your agent. This approach allows you to easily persist your agents while leveraging the power to build multi-agent systems in Semantic Kernel. Additionally, Semantic Kernel has a connector in AutoGen, making it easy to use both frameworks together.
+> A: با چارچوب عامل مایکروسافت شروع کنید تا عامل‌های خود را بسازید، و سپس وقتی نیاز به استقرار و مقیاس‌دهی آن‌ها در تولید دارید از سرویس Azure AI Agent استفاده کنید. این رویکرد به شما اجازه می‌دهد سریع روی منطق عامل خود تکرار کنید در حالی که مسیر واضحی برای استقرار سازمانی دارید.
  
 بیایید تفاوت‌های کلیدی را در یک جدول خلاصه کنیم:
 
 | Framework | Focus | Core Concepts | Use Cases |
 | --- | --- | --- | --- |
-| AutoGen | برنامه‌های عاملی توزیع‌شده و رویدادمحور | عامل‌ها، پرسوناها، توابع، داده | تولید کد، وظایف تحلیل داده |
-| Semantic Kernel | درک و تولید محتوای متنی شبیه انسان | عامل‌ها، مؤلفه‌های ماژولار، همکاری | درک زبان طبیعی، تولید محتوا |
-| Azure AI Agent Service | مدل‌های انعطاف‌پذیر، امنیت سازمانی، تولید کد، فراخوانی ابزار | ماژولاریت، همکاری، ارکستراسیون فرآیند | استقرار امن، مقیاس‌پذیر و انعطاف‌پذیر عامل‌های هوش مصنوعی |
+| چارچوب عامل مایکروسافت | SDK ساده‌شده عامل با فراخوانی ابزار | عامل‌ها، ابزارها، هویت Azure | ساخت عامل‌های هوش مصنوعی، استفاده از ابزارها، گردش‌کارهای چندمرحله‌ای |
+| سرویس Azure AI Agent | مدل‌های انعطاف‌پذیر، امنیت سازمانی، تولید کد، فراخوانی ابزار | ماژولار بودن، همکاری، ارکستراسیون فرایند | استقرار امن، مقیاس‌پذیر و انعطاف‌پذیر عامل‌های هوش مصنوعی |
 
-چه مورد استفاده‌ای برای هر یک از این چارچوب‌ها ایده‌آل است؟
+## آیا می‌توانم ابزارهای موجود در اکوسیستم Azure خود را مستقیماً یکپارچه کنم، یا به راه‌حل‌های مستقل نیاز دارم؟
+پاسخ بله است — شما می‌توانید ابزارهای موجود در اکوسیستم Azure خود را مستقیماً با سرویس Azure AI Agent یکپارچه کنید، زیرا این سرویس طوری ساخته شده که به‌صورت یکپارچه با سایر سرویس‌های Azure کار کند. برای مثال می‌توانید Bing، Azure AI Search و Azure Functions را یکپارچه کنید. همچنین یک یکپارچگی عمیق با Microsoft Foundry وجود دارد.
 
-## آیا می‌توانم ابزارهای موجود در اکوسیستم Azure خود را مستقیماً یکپارچه کنم، یا نیاز به راه‌حل‌های مستقل دارم؟
-
-پاسخ بله است؛ می‌توانید ابزارهای موجود در اکوسیستم Azure خود را به‌طور مستقیم با سرویس عامل Azure AI ادغام کنید، به‌ویژه زیرا این سرویس طوری ساخته شده است که به‌صورت یکپارچه با دیگر خدمات Azure کار کند. به‌عنوان مثال می‌توانید Bing، Azure AI Search و Azure Functions را ادغام کنید. همچنین یک یکپارچگی عمیق با Microsoft Foundry وجود دارد.
-
-برای AutoGen و Semantic Kernel نیز می‌توانید با خدمات Azure ادغام کنید، اما ممکن است نیاز باشد که خدمات Azure را از کد خود فراخوانی کنید. روش دیگر برای ادغام استفاده از SDKهای Azure برای تعامل عامل‌ها با خدمات Azure است. علاوه بر این، همان‌طور که ذکر شد، می‌توانید از سرویس عامل Azure AI به‌عنوان ارکستراتور برای عامل‌هایی که در AutoGen یا Semantic Kernel ساخته‌اید استفاده کنید که دسترسی آسان به اکوسیستم Azure را فراهم می‌کند.
+Microsoft Agent Framework همچنین از طریق `AzureAIProjectAgentProvider` و هویت Azure با سرویس‌های Azure یکپارچه می‌شود و به شما امکان می‌دهد از ابزارهای عامل خود مستقیماً سرویس‌های Azure را فراخوانی کنید.
 
 ## نمونه کدها
 
 - Python: [چارچوب عامل](./code_samples/02-python-agent-framework.ipynb)
 - .NET: [چارچوب عامل](./code_samples/02-dotnet-agent-framework.md)
 
-## سوالات بیشتری درباره چارچوب‌های عامل هوش مصنوعی دارید؟
+## سؤال‌های بیشتری درباره چارچوب‌های عامل هوش مصنوعی دارید؟
 
-به [دیسکورد Microsoft Foundry](https://aka.ms/ai-agents/discord) بپیوندید تا با دیگر یادگیرندگان ملاقات کنید، در ساعات اداری شرکت کنید و سوالات خود درباره عامل‌های هوش مصنوعی را مطرح کنید.
+به [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) بپیوندید تا با سایر یادگیرندگان ملاقات کنید، در ساعات اداری شرکت کنید و پرسش‌های خود درباره AI Agents را مطرح و پاسخ بگیرید.
 
 ## منابع
 
-- <a href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-azure-ai-agent-service/4298357" target="_blank">سرویس عامل Azure</a>
-- <a href="https://devblogs.microsoft.com/semantic-kernel/microsofts-agentic-ai-frameworks-autogen-and-semantic-kernel/" target="_blank">Semantic Kernel و AutoGen</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-python" target="_blank">چارچوب عامل Semantic Kernel برای Python</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-csharp" target="_blank">چارچوب عامل Semantic Kernel برای .NET</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">سرویس عامل Azure AI</a>
-- <a href="https://techcommunity.microsoft.com/blog/educatordeveloperblog/using-azure-ai-agent-service-with-autogen--semantic-kernel-to-build-a-multi-agen/4363121" target="_blank">استفاده از Azure AI Agent Service با AutoGen / Semantic Kernel برای ساخت یک راه‌حل چندعاملی</a>
+- <a href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-azure-ai-agent-service/4298357" target="_blank">سرویس Azure Agent</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework - پاسخ‌های Azure OpenAI</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">سرویس Azure AI Agent</a>
 
 ## درس قبلی
 
-[معرفی عامل‌های هوش مصنوعی و موارد استفاده از عامل‌ها](../01-intro-to-ai-agents/README.md)
+[مقدمه‌ای بر عوامل هوش مصنوعی و موارد استفاده از آن‌ها](../01-intro-to-ai-agents/README.md)
 
 ## درس بعدی
 
-[درک الگوهای طراحی عاملیت](../03-agentic-design-patterns/README.md)
+[درک الگوهای طراحی عاملی](../03-agentic-design-patterns/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 سلب مسئولیت:
-این سند با استفاده از سرویس ترجمهٔ هوش مصنوعی [Co-op Translator](https://github.com/Azure/co-op-translator) ترجمه شده است. در حالی که ما در تلاش برای دقت هستیم، لطفاً توجه داشته باشید که ترجمه‌های خودکار ممکن است حاوی خطاها یا نادرستی‌هایی باشند. سند اصلی به زبان مادری‌اش باید به‌عنوان منبع معتبر در نظر گرفته شود. برای اطلاعات حساس یا حیاتی، ترجمهٔ حرفه‌ای و انسانی توصیه می‌شود. ما در قبال هرگونه سوءتفاهم یا تفسیر نادرست ناشی از استفاده از این ترجمه مسئولیتی نداریم.
+این سند با استفاده از سرویس ترجمهٔ هوش مصنوعی Co-op Translator (https://github.com/Azure/co-op-translator) ترجمه شده است. در حالی که ما در تلاش برای دقت هستیم، لطفاً توجه داشته باشید که ترجمه‌های خودکار ممکن است خطاها یا نادرستی‌هایی داشته باشند. سند اصلی به زبان مادری‌اش باید به‌عنوان منبع معتبر در نظر گرفته شود. برای اطلاعات حیاتی، توصیه می‌شود از ترجمهٔ حرفه‌ای انسانی استفاده شود. ما در قبال هرگونه سوءتفاهم یا تفسیر نادرست ناشی از استفاده از این ترجمه مسئولیتی نداریم.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
