@@ -1,36 +1,35 @@
-# Przykład serwera MCP na Githubie
+# Przykład serwera Github MCP
 
 ## Opis
 
-To demo zostało stworzone na potrzeby Hackathonu AI Agents organizowanego przez Microsoft Reactor.
+To była prezentacja stworzona na AI Agents Hackathon organizowany przez Microsoft Reactor.
 
-Narzędzie służy do rekomendowania projektów hackathonowych na podstawie repozytoriów użytkownika na Githubie. Proces ten przebiega w następujący sposób:
+Narzędzie służy do rekomendowania projektów hackathonowych na podstawie repozytoriów użytkownika na Github.
+Odbywa się to przez:
 
-1. **Github Agent** - Korzysta z serwera Github MCP, aby pobrać repozytoria i informacje o nich.
-2. **Hackathon Agent** - Wykorzystuje dane z Github Agent, aby zaproponować kreatywne pomysły na projekty hackathonowe, bazując na projektach, językach programowania używanych przez użytkownika oraz ścieżkach projektowych dla hackathonu AI Agents.
-3. **Events Agent** - Na podstawie sugestii Hackathon Agent, Events Agent rekomenduje odpowiednie wydarzenia z serii AI Agent Hackathon.
+1. **Github Agent** - Korzystając z serwera Github MCP, pobiera repozytoria i informacje o tych repozytoriach.
+2. **Hackathon Agent** - Bierze dane od Github Agenta i wymyśla kreatywne pomysły na projekty hackathonowe oparte na projektach, językach używanych przez użytkownika oraz ścieżkach projektów dla AI Agents hackathon.
+3. **Events Agent** - Na podstawie sugestii Hackathon Agenta, Events Agent rekomenduje odpowiednie wydarzenia z serii AI Agent Hackathon.
 
-## Uruchamianie kodu
+## Uruchamianie kodu 
 
 ### Zmienne środowiskowe
 
-To demo korzysta z Azure Open AI Service, Semantic Kernel, serwera Github MCP oraz Azure AI Search.
+Ta prezentacja używa Microsoft Agent Framework, Azure OpenAI Service, serwera Github MCP oraz Azure AI Search.
 
-Upewnij się, że masz odpowiednio ustawione zmienne środowiskowe, aby korzystać z tych narzędzi:
+Upewnij się, że masz odpowiednio ustawione zmienne środowiskowe do korzystania z tych narzędzi:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
+
 ## Uruchamianie serwera Chainlit
 
-Aby połączyć się z serwerem MCP, to demo wykorzystuje Chainlit jako interfejs czatu.
+Aby połączyć się z serwerem MCP, ta prezentacja używa Chainlit jako interfejsu czatu.
 
 Aby uruchomić serwer, użyj następującego polecenia w terminalu:
 
@@ -38,33 +37,37 @@ Aby uruchomić serwer, użyj następującego polecenia w terminalu:
 chainlit run app.py -w
 ```
 
-To powinno uruchomić serwer Chainlit na `localhost:8000` oraz wypełnić indeks wyszukiwania Azure AI treścią z pliku `event-descriptions.md`.
 
-## Łączenie się z serwerem MCP
+To powinno uruchomić twój serwer Chainlit na `localhost:8000` oraz załadować indeks wyszukiwania Azure AI Search zawierający zawartość `event-descriptions.md`.
 
-Aby połączyć się z serwerem Github MCP, kliknij ikonę „wtyczki” znajdującą się pod polem „Type your message here...” w oknie czatu:
+## Łączenie z serwerem MCP
+
+Aby połączyć się z serwerem Github MCP, wybierz ikonę "wtyczki" pod polem czatu "Type your message here..":
 
 ![MCP Connect](../../../../../translated_images/pl/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Następnie kliknij „Connect an MCP”, aby dodać polecenie łączenia z serwerem Github MCP:
+Następnie możesz kliknąć "Connect an MCP", aby dodać polecenie łączenia się z serwerem Github MCP:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Zastąp "[YOUR PERSONAL ACCESS TOKEN]" swoim rzeczywistym tokenem dostępu osobistego.
 
-Po połączeniu powinieneś zobaczyć (1) obok ikony wtyczki, co potwierdzi, że połączenie zostało nawiązane. Jeśli nie, spróbuj ponownie uruchomić serwer Chainlit za pomocą `chainlit run app.py -w`.
+Zamień "[YOUR PERSONAL ACCESS TOKEN]" na swój rzeczywisty Token Dostępu Osobistego.
 
-## Korzystanie z dema
+Po połączeniu, obok ikony wtyczki powinien pojawić się (1), co potwierdza połączenie. Jeśli nie, spróbuj ponownie uruchomić serwer chainlit poleceniem `chainlit run app.py -w`.
 
-Aby rozpocząć przepływ pracy agenta, który rekomenduje projekty hackathonowe, możesz wpisać wiadomość, na przykład:
+## Korzystanie z prezentacji
+
+Aby rozpocząć działanie agenta rekomendującego projekty hackathonowe, możesz wpisać wiadomość taką jak:
 
 "Recommend hackathon projects for the Github user koreyspace"
 
-Router Agent przeanalizuje Twoje zapytanie i określi, która kombinacja agentów (GitHub, Hackathon i Events) najlepiej nadaje się do obsługi Twojego zapytania. Agenci współpracują, aby dostarczyć kompleksowe rekomendacje na podstawie analizy repozytoriów Github, generowania pomysłów na projekty i odpowiednich wydarzeń technologicznych.
+Router Agent przeanalizuje twoje zapytanie i zdecyduje, która kombinacja agentów (GitHub, Hackathon i Events) najlepiej obsłuży twoje żądanie. Agenci współpracują, aby dostarczyć kompleksowe rekomendacje oparte na analizie repozytoriów Github, tworzeniu pomysłów na projekty oraz odpowiednich wydarzeniach technologicznych.
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Zastrzeżenie**:  
-Ten dokument został przetłumaczony za pomocą usługi tłumaczeniowej AI [Co-op Translator](https://github.com/Azure/co-op-translator). Chociaż dokładamy wszelkich starań, aby tłumaczenie było precyzyjne, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego rodzimym języku powinien być uznawany za wiarygodne źródło. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.
+Dokument ten został przetłumaczony przy użyciu usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mimo że dążymy do dokładności, proszę mieć na uwadze, że automatyczne tłumaczenia mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego języku pierwotnym należy uważać za źródło wiarygodne. W przypadku informacji krytycznych zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

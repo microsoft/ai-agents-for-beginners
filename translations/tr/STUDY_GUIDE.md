@@ -4,64 +4,63 @@ Bu rehber, "Yeni Başlayanlar için Yapay Zeka Ajanları" kursunun özetini suna
 
 ## 1. Yapay Zeka Ajanlarına Giriş
 
-**Yapay Zeka Ajanları nedir?**  
-Yapay Zeka Ajanları, Büyük Dil Modellerinin (LLM'ler) yeteneklerini **araçlar**, **bilgi** ve **hafıza** erişimi vererek genişleten sistemlerdir. Sadece eğitim verilerine dayanarak metin üreten standart bir LLM sohbet botundan farklı olarak, bir Yapay Zeka Ajanı:  
-- Çevresini **algılayabilir** (sensörler veya girdiler aracılığıyla).  
-- Bir problemi nasıl çözeceği konusunda **akıl yürütebilir**.  
-- Çevreyi değiştirmek için **harekete geçebilir** (eylem cihazları veya araç çalıştırma yoluyla).  
+**Yapay Zeka Ajanları Nedir?**
+Yapay Zeka Ajanları, Büyük Dil Modelleri'nin (LLM'ler) yeteneklerini **araçlar**, **bilgi** ve **hafıza** erişimi vererek genişleten sistemlerdir. Sadece eğitim verisine dayanarak metin üreten standart bir dil modeli sohbet botunun aksine, bir Yapay Zeka Ajanı:
+- Çevresini **algılayabilir** (sensörler veya girişler aracılığıyla).
+- Bir problemi çözmek için **akıl yürütebilir**.
+- Çevreyi değiştirmek için **eylemde bulunabilir** (aktüatörler veya araç çalıştırma yoluyla).
 
-**Bir Ajanın Temel Bileşenleri:**  
-- **Çevre**: Ajanın faaliyet gösterdiği alan (örneğin, bir rezervasyon sistemi).  
-- **Sensörler**: Bilgi toplama mekanizmaları (örneğin, bir API okumak).  
-- **Eylem Cihazları**: Eylem gerçekleştirme mekanizmaları (örneğin, e-posta göndermek).  
-- **Beyin (LLM)**: Hangi eylemlerin alınacağına karar veren ve planlama yapan akıl yürütme motoru.  
+**Bir Ajanın Temel Bileşenleri:**
+- **Çevre**: Ajanın faaliyet gösterdiği alan (örneğin bir rezervasyon sistemi).
+- **Sensörler**: Bilgi toplama mekanizmaları (örneğin bir API okuma).
+- **Aktüatörler**: Eylem gerçekleştirme mekanizmaları (örneğin e-posta gönderme).
+- **Beyin (LLM)**: Hangi eylemlerin yapılacağına karar veren planlama ve akıl yürütme motoru.
 
-## 2. Ajan Çerçeveleri
+## 2. Ajanik Çerçeveler
 
-Kurs, ajan oluşturmak için üç ana çerçeveyi kapsar:
+Kurs, ajanlar oluşturmak için **Microsoft Agent Framework (MAF)** ile **Azure AI Foundry Agent Service V2** kullanmaktadır:
 
-| Çerçeve | Odak | En İyi Kullanım Alanı |
-|---------|------|----------------------|
-| **Semantic Kernel** | .NET/Python için üretime hazır SDK | Kurumsal uygulamalar, yapay zekanın mevcut kodla entegrasyonu. |
-| **AutoGen** | Çok ajanlı iş birliği | Birbirleriyle konuşan birden fazla uzmanlaşmış ajanın gerektiği karmaşık senaryolar. |
-| **Azure AI Agent Service** | Yönetilen bulut hizmeti | Yerleşik durum yönetimi ile güvenli, ölçeklenebilir dağıtım. |
+| Bileşen | Odak Noktası | En Uygun Kullanım |
+|---------|--------------|-------------------|
+| **Microsoft Agent Framework** | Ajanlar, araçlar ve iş akışları için birleşik Python/C# SDK | Araçlar kullanarak ajan oluşturma, çoklu ajan iş akışları ve üretim kalıpları. |
+| **Azure AI Foundry Agent Service** | Yönetilen bulut çalışma zamanı | Yerleşik durum yönetimi, gözlemlenebilirlik ve güven ile güvenli, ölçeklenebilir dağıtım. |
 
-## 3. Ajan Tasarım Kalıpları
+## 3. Ajanik Tasarım Kalıpları
 
-Tasarım kalıpları, ajanların sorunları güvenilir şekilde çözmek için nasıl yapılandırılacağını gösterir.
+Tasarım kalıpları, ajanların sorunları güvenilir bir şekilde çözmek için nasıl çalıştığını yapılandırmaya yardımcı olur.
 
-### **Araç Kullanım Kalıbı** (Ders 4)  
-Bu kalıp, ajanların dış dünyayla etkileşim kurmasını sağlar.  
-- **Kavram**: Ajana "şema" (mevcut fonksiyonlar ve parametreleri listesi) sağlanır. LLM, kullanıcının isteğine dayanarak *hangi* aracı ve *hangi* argümanlarla çağıracağına karar verir.  
-- **Akış**: Kullanıcı İsteği -> LLM -> **Araç Seçimi** -> **Araç Çalıştırma** -> LLM (araç çıktısı ile) -> Nihai Yanıt.  
-- **Kullanım Alanları**: Gerçek zamanlı veri alma (hava durumu, hisse senedi fiyatları), hesaplamalar yapma, kod çalıştırma.  
+### **Araç Kullanım Kalıbı** (Ders 4)
+Bu kalıp, ajanların dış dünya ile etkileşime geçmesini sağlar.
+- **Kavram**: Ajana, kullanılabilir fonksiyonlar ve parametrelerin bir listesinden oluşan bir "şema" sağlanır. LLM, kullanıcının isteğine dayanarak *hangi* aracın *hangi* argümanlarla çağrılacağına karar verir.
+- **Akış**: Kullanıcı İsteği -> LLM -> **Araç Seçimi** -> **Araç Çalıştırma** -> LLM (araç çıktısı ile) -> Son Yanıt.
+- **Kullanım Alanları**: Gerçek zamanlı veri alma (hava durumu, hisse senedi fiyatları), hesaplamalar yapma, kod çalıştırma.
 
-### **Planlama Kalıbı** (Ders 7)  
-Bu kalıp, ajanların karmaşık, çok aşamalı görevleri çözmesini sağlar.  
-- **Kavram**: Ajan, yüksek seviyeli bir hedefi daha küçük alt görevlere ayırır.  
-- **Yaklaşımlar**:  
-  - **Görev Parçalama**: "Bir seyahat planla" görevini "Uçak bileti ayırt", "Otel ayırt", "Araba kirala" olarak bölmek.  
-  - **Yinelemeli Planlama**: Önceki adımların çıktısına göre planı yeniden değerlendirmek (örneğin, uçak doluysa farklı bir tarih seçmek).  
-- **Uygulama**: Genellikle yapılandırılmış bir plan (örneğin JSON) oluşturan bir "Planlayıcı" ajan içerir; bu plan diğer ajanlar tarafından uygulanır.  
+### **Planlama Kalıbı** (Ders 7)
+Bu kalıp, ajanların karmaşık, çok adımlı görevleri çözmesini sağlar.
+- **Kavram**: Ajan, yüksek seviyeli bir hedefi daha küçük alt görevlere böler.
+- **Yaklaşımlar**:
+  - **Görev Parçalama**: "Bir seyahat planla"yı "Uçak rezervasyonu", "Otel rezervasyonu", "Araba kiralama"ya bölme.
+  - **Yinelemeli Planlama**: Önceki adımların çıktısına göre planı tekrar değerlendirme (örneğin uçak doluysa farklı bir tarih seçme).
+- **Uygulama**: Genellikle yapılandırılmış plan (örneğin JSON) oluşturan bir "Planlayıcı" ajan içerir ve bu plan diğer ajanlar tarafından yürütülür.
 
 ## 4. Tasarım İlkeleri
 
-Ajan tasarlarken üç boyutu dikkate alın:  
-- **Mekan**: Ajanlar insanları ve bilgiyi bağlamalı, erişilebilir ama rahatsız edici olmamalıdır.  
-- **Zaman**: Ajanlar *Geçmiş*ten öğrenmeli, *Şimdi*de ilgili yönlendirmeler sağlamalı ve *Gelecek* için uyum sağlamalıdır.  
-- **Çekirdek**: Belirsizliği kabul edin ancak şeffaflık ve kullanıcı kontrolü ile güven oluşturun.  
+Ajan tasarlarken üç boyut göz önünde bulundurulur:
+- **Alan**: Ajanlar insanları ve bilgiyi birbirine bağlamalı, erişilebilir ama dikkat dağıtmayan olmalıdır.
+- **Zaman**: Ajanlar *Geçmiş*ten öğrenmeli, *Şimdi*de ilgili yönlendirmeler sağlamalı ve *Gelecek* için uyum sağlamalıdır.
+- **Çekirdek**: Belirsizliği kabul eder, ancak şeffaflık ve kullanıcı kontrolü yoluyla güven tesis eder.
 
 ## 5. Önemli Derslerin Özeti
 
-- **Ders 1**: Ajanlar sadece modeller değil, sistemlerdir. Algılar, akıl yürütür ve eylemde bulunurlar.  
-- **Ders 2**: Semantic Kernel ve AutoGen gibi çerçeveler, araç çağırma ve durum yönetimi karmaşasını soyutlar.  
-- **Ders 3**: Şeffaflık ve kullanıcı kontrolüyle tasarım yapın.  
-- **Ders 4**: Araçlar, ajanın "elleridir". Şema tanımı, LLM'nin nasıl kullanacağını anlaması için kritiktir.  
-- **Ders 7**: Planlama, ajanın karmaşık iş akışlarını yönetmesini sağlayan "yönetici fonksiyondur".
+- **Ders 1**: Ajanlar sadece modeller değil, sistemdir. Algılar, akıl yürütür ve eylemde bulunur.
+- **Ders 2**: Microsoft Agent Framework, araç çağırma ve durum yönetimini soyutlar.
+- **Ders 3**: Tasarımı şeffaflık ve kullanıcı kontrolü gözeterek yapın.
+- **Ders 4**: Araçlar ajanın "elleridir". LLM'in nasıl kullanacağını anlaması için şema tanımı kritik önemdedir.
+- **Ders 7**: Planlama, ajanın karmaşık iş akışlarını yönetmesini sağlayan "yönetici işlevidir".
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Feragatname**:
-Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba gösterilse de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi tavsiye edilir. Bu çevirinin kullanımı sonucu ortaya çıkabilecek yanlış anlamalar veya hatalı yorumlamalardan sorumlu tutulamayız.
+Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayınız. Orijinal belge, kendi ana dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı nedeniyle oluşabilecek herhangi bir yanlış anlama veya yanlış yorumlama için sorumluluk kabul edilmemektedir.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
