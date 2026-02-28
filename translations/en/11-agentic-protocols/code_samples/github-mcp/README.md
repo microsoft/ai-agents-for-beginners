@@ -2,69 +2,68 @@
 
 ## Description
 
-This is a demo created for the AI Agents Hackathon hosted by Microsoft Reactor.
+This was a demo created for the AI Agents Hackathon hosted through the Microsoft Reactor.
 
-The tool is designed to recommend hackathon projects based on a user's Github repositories. It works as follows:
+The tools is used to recommend hackathon projects based on a user's Github repos.
+This is done by:
 
-1. **Github Agent** - Uses the Github MCP Server to retrieve repositories and gather information about them.
-2. **Hackathon Agent** - Processes the data from the Github Agent to generate creative hackathon project ideas based on the user's projects, programming languages, and the project tracks for the AI Agents Hackathon.
-3. **Events Agent** - Based on the suggestions from the Hackathon Agent, the Events Agent recommends relevant events from the AI Agents Hackathon series.
-
+1. **Github Agent** - Using the Github MCP Server to retrieve repos and information about those repos.
+2. **Hackathon Agent** - Takes the data from the Github Agent and comes up with creative hackathon project ideas based on the projects, languages used by the user and the project tracks for the AI Agents hackathon.
+3. **Events Agent** - Based on the hackathon agents suggestion, the events agent will recommend relevant events from the AI Agent Hackathon series.
 ## Running the code 
 
 ### Environment Variables
 
-This demo utilizes Azure Open AI Service, Semantic Kernel, the Github MCP Server, and Azure AI Search.
+This demo uses Microsoft Agent Framework, Azure OpenAI Service, the Github MCP Server and Azure AI Search.
 
-Ensure that the appropriate environment variables are set to use these tools:
+Make sure that you have the proper environment variables set to use these tools:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
 ## Running the Chainlit Server
 
-To connect to the MCP server, this demo uses Chainlit as a chat interface.
+To connect to the MCP server, this demo use Chainlit as a chat interface. 
 
-To start the server, run the following command in your terminal:
+To run the server, use the following command in your terminal:
 
 ```bash
 chainlit run app.py -w
 ```
 
-This will launch your Chainlit server on `localhost:8000` and populate your Azure AI Search Index with the content from `event-descriptions.md`.
+This should start your Chainlit server on `localhost:8000` as well as populate your Azure AI Search Index with the `event-descriptions.md` content. 
 
 ## Connecting to the MCP Server
 
-To connect to the Github MCP Server, click the "plug" icon below the "Type your message here..." chat box:
+To connect to the Github MCP Server, select the "plug" icon underneath the "Type your message here.." chat box:
 
 ![MCP Connect](../../../../../translated_images/en/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-From there, click "Connect an MCP" to add the command for connecting to the Github MCP Server:
+From there you can click on the "Connect an MCP" to add the command to connect to the Github MCP Server:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Replace "[YOUR PERSONAL ACCESS TOKEN]" with your actual Personal Access Token.
+Replace "[YOUR PERSONAL ACCESS TOKEN]" with your actual Personal Access Token. 
 
-Once connected, you should see a (1) next to the plug icon, indicating a successful connection. If not, try restarting the Chainlit server using `chainlit run app.py -w`.
+After connecting, you should see a (1) next to the plug icon to confirm that its connected. If not, try restarting the chainlit server with `chainlit run app.py -w`.
 
 ## Using the Demo 
 
-To initiate the agent workflow for recommending hackathon projects, you can type a message like:
+To start the agent workflow of recommending hackathon projects, you can type a message like: 
 
 "Recommend hackathon projects for the Github user koreyspace"
 
-The Router Agent will evaluate your request and determine the best combination of agents (GitHub, Hackathon, and Events) to handle your query. These agents collaborate to provide detailed recommendations based on GitHub repository analysis, project ideation, and relevant tech events.
+The Router Agent will analyze your request and determine which combination of agents (GitHub, Hackathon, and Events) is best suited to handle your query. The agents work together to provide comprehensive recommendations based on GitHub repository analysis, project ideation, and relevant tech events.
 
 ---
 
-**Disclaimer**:  
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we aim for accuracy, please note that automated translations may include errors or inaccuracies. The original document in its native language should be regarded as the authoritative source. For critical information, professional human translation is advised. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+Disclaimer:
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

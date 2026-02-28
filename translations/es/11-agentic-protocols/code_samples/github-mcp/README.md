@@ -1,70 +1,70 @@
-# Ejemplo de Servidor MCP de Github
+# Ejemplo del servidor MCP de Github
 
 ## Descripción
 
-Esta es una demostración creada para el Hackathon de Agentes de IA organizado a través de Microsoft Reactor.
+Esta fue una demostración creada para el AI Agents Hackathon organizada por Microsoft Reactor.
 
-La herramienta se utiliza para recomendar proyectos de hackathon basados en los repositorios de Github de un usuario. Esto se logra mediante:
+La herramienta se utiliza para recomendar proyectos para hackathons basados en los repositorios de Github de un usuario.
+Esto se hace mediante:
 
-1. **Agente de Github** - Utiliza el Servidor MCP de Github para recuperar repositorios e información sobre esos repositorios.
-2. **Agente de Hackathon** - Toma los datos del Agente de Github y genera ideas creativas de proyectos de hackathon basadas en los proyectos, los lenguajes utilizados por el usuario y las categorías del hackathon de Agentes de IA.
-3. **Agente de Eventos** - Basándose en las sugerencias del agente de hackathon, el agente de eventos recomendará eventos relevantes de la serie de hackathons de Agentes de IA.
+1. **Github Agent** - Usando el Github MCP Server para recuperar repos y información sobre esos repos.
+2. **Hackathon Agent** - Toma los datos del Github Agent y propone ideas creativas de proyectos para hackathons basadas en los proyectos, los lenguajes usados por el usuario y las categorías del AI Agents hackathon.
+3. **Events Agent** - Basado en la sugerencia del hackathon agent, el events agent recomendará eventos relevantes de la serie AI Agent Hackathon.
 
-## Ejecutando el código 
+## Ejecutar el código 
 
 ### Variables de entorno
 
-Esta demostración utiliza Azure Open AI Service, Semantic Kernel, el Servidor MCP de Github y Azure AI Search.
+Esta demostración usa Microsoft Agent Framework, Azure OpenAI Service, el Github MCP Server y Azure AI Search.
 
-Asegúrate de tener configuradas las variables de entorno necesarias para usar estas herramientas:
+Asegúrate de tener las variables de entorno adecuadas configuradas para usar estas herramientas:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Ejecutando el Servidor Chainlit
+## Ejecutar el servidor Chainlit
 
-Para conectarse al servidor MCP, esta demostración utiliza Chainlit como interfaz de chat.
+Para conectarse al servidor MCP, esta demostración usa Chainlit como interfaz de chat. 
 
-Para ejecutar el servidor, utiliza el siguiente comando en tu terminal:
+Para ejecutar el servidor, usa el siguiente comando en tu terminal:
 
 ```bash
 chainlit run app.py -w
 ```
 
-Esto debería iniciar tu servidor Chainlit en `localhost:8000` y también poblar tu Índice de Búsqueda de Azure AI con el contenido de `event-descriptions.md`.
+Esto debería iniciar tu servidor Chainlit en `localhost:8000` así como poblar tu índice de Azure AI Search con el contenido de `event-descriptions.md`. 
 
-## Conectándose al Servidor MCP
+## Conectarse al MCP Server
 
-Para conectarte al Servidor MCP de Github, selecciona el ícono de "enchufe" debajo del cuadro de texto "Escribe tu mensaje aquí...":
+Para conectarte al Github MCP Server, selecciona el icono de "plug" debajo del cuadro de chat "Type your message here..":
 
-![Conexión MCP](../../../../../translated_images/es/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![Conectar MCP](../../../../../translated_images/es/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Desde allí, puedes hacer clic en "Conectar un MCP" para agregar el comando que conecta al Servidor MCP de Github:
+Desde allí puedes hacer clic en "Connect an MCP" para agregar el comando para conectar al Github MCP Server:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Sustituye "[YOUR PERSONAL ACCESS TOKEN]" por tu Token de Acceso Personal real.
+Reemplaza "[YOUR PERSONAL ACCESS TOKEN]" con tu Personal Access Token real. 
 
-Después de conectarte, deberías ver un (1) junto al ícono de enchufe para confirmar que está conectado. Si no, intenta reiniciar el servidor Chainlit con `chainlit run app.py -w`.
+Después de conectarte, deberías ver un (1) junto al icono del plug para confirmar que está conectado. Si no, intenta reiniciar el servidor chainlit con `chainlit run app.py -w`.
 
-## Usando la Demostración 
+## Uso de la demostración 
 
-Para iniciar el flujo de trabajo del agente para recomendar proyectos de hackathon, puedes escribir un mensaje como:
+Para iniciar el flujo de trabajo del agente para recomendar proyectos de hackathon, puedes escribir un mensaje como: 
 
-"Recomienda proyectos de hackathon para el usuario de Github koreyspace"
+"Recommend hackathon projects for the Github user koreyspace"
 
-El Agente Router analizará tu solicitud y determinará qué combinación de agentes (GitHub, Hackathon y Eventos) es la más adecuada para manejar tu consulta. Los agentes trabajan juntos para proporcionar recomendaciones completas basadas en el análisis de repositorios de Github, la ideación de proyectos y eventos tecnológicos relevantes.
+El Router Agent analizará tu solicitud y determinará qué combinación de agentes (GitHub, Hackathon y Events) es la más adecuada para manejar tu consulta. Los agentes trabajan juntos para proporcionar recomendaciones completas basadas en el análisis de repositorios de GitHub, la ideación de proyectos y eventos tecnológicos relevantes.
 
 ---
 
-**Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse como la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que puedan surgir del uso de esta traducción.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+Descargo de responsabilidad:
+Este documento ha sido traducido utilizando el servicio de traducción automática con IA [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por garantizar la exactitud, tenga en cuenta que las traducciones automatizadas pueden contener errores o inexactitudes. La versión original del documento en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por traductores humanos. No nos hacemos responsables de ningún malentendido o interpretación errónea que pueda surgir del uso de esta traducción.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
