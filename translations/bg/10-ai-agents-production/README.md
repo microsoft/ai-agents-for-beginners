@@ -15,7 +15,7 @@ After completing this lesson, you will know how to/understand:
 
 The goal is to equip you with the knowledge to transform your "black box" agents into transparent, manageable, and dependable systems.
 
-_**Забележка:** Важно е да внедрявате AI агрегати, които са сигурни и надеждни. Вижте и урока [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md)._
+_**Забележка:** Важно е да внедрявате AI агрегати, които са сигурни и надеждни. Вижте и урока [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)._
 
 ## Следи и спанове
 

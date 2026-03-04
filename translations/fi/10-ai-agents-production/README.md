@@ -15,7 +15,7 @@ Tämän oppitunnin jälkeen tiedät/ymmärrät:
 
 Tavoitteena on antaa sinulle tieto muuttaa "mustat laatikot" läpinäkyviksi, hallittaviksi ja luotettaviksi järjestelmiksi.
 
-_**Huom:** On tärkeää ottaa tuotantoon turvallisia ja luotettavia AI-agentteja. Tutustu myös oppituntiin [Luotettavien AI-agenttien rakentaminen](./06-building-trustworthy-agents/README.md)._
+_**Huom:** On tärkeää ottaa tuotantoon turvallisia ja luotettavia AI-agentteja. Tutustu myös oppituntiin [Luotettavien AI-agenttien rakentaminen](../06-building-trustworthy-agents/README.md)._
 
 ## Tracet ja spanit
 

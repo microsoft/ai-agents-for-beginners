@@ -15,7 +15,7 @@ Selepas menyelesaikan pelajaran ini, anda akan mengetahui cara untuk/faham:
 
 Matlamatnya adalah untuk membekalkan anda dengan pengetahuan untuk mengubah "kotak hitam" ejen anda menjadi sistem yang telus, boleh diurus dan boleh dipercayai.
 
-_**Nota:** Penting untuk menyebarkan Ejen AI yang selamat dan boleh dipercayai. Lihat juga pelajaran [Membina Ejen AI Boleh Dipercayai](./06-building-trustworthy-agents/README.md)._
+_**Nota:** Penting untuk menyebarkan Ejen AI yang selamat dan boleh dipercayai. Lihat juga pelajaran [Membina Ejen AI Boleh Dipercayai](../06-building-trustworthy-agents/README.md)._
 
 ## Jejak dan Rentang
 

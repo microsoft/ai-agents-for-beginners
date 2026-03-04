@@ -15,7 +15,7 @@ Po ukończeniu tej lekcji będziesz potrafił/zrozumiesz:
 
 Celem jest wyposażenie Cię w wiedzę pozwalającą przekształcić Twoich agentów „czarna skrzynka” w systemy przejrzyste, zarządzalne i niezawodne.
 
-_**Uwaga:** Ważne jest wdrażanie agentów AI, które są bezpieczne i godne zaufania. Sprawdź także lekcję [Budowanie godnych zaufania agentów AI](./06-building-trustworthy-agents/README.md)._
+_**Uwaga:** Ważne jest wdrażanie agentów AI, które są bezpieczne i godne zaufania. Sprawdź także lekcję [Budowanie godnych zaufania agentów AI](../06-building-trustworthy-agents/README.md)._
 
 ## Ślady i zakresy
 

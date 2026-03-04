@@ -15,7 +15,7 @@ Nach Abschluss dieser Lektion werden Sie wissen/verstanden haben:
 
 Das Ziel ist es, Sie mit dem Wissen auszustatten, Ihre „Blackbox“-Agenten in transparente, handhabbare und verlässliche Systeme zu verwandeln.
 
-_**Hinweis:** Es ist wichtig, KI-Agenten einzusetzen, die sicher und vertrauenswürdig sind. Sehen Sie sich auch die Lektion [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md) an._
+_**Hinweis:** Es ist wichtig, KI-Agenten einzusetzen, die sicher und vertrauenswürdig sind. Sehen Sie sich auch die Lektion [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md) an._
 
 ## Traces und Spans
 

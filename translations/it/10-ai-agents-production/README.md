@@ -15,7 +15,7 @@ Dopo aver completato questa lezione, saprai/avrai compreso:
 
 L'obiettivo è dotarti delle conoscenze per trasformare i tuoi agenti "scatola nera" in sistemi trasparenti, gestibili e affidabili.
 
-_**Nota:** È importante distribuire Agenti AI che siano sicuri e affidabili. Consulta anche la lezione [Costruire Agenti AI Affidabili](./06-building-trustworthy-agents/README.md)._
+_**Nota:** È importante distribuire Agenti AI che siano sicuri e affidabili. Consulta anche la lezione [Costruire Agenti AI Affidabili](../06-building-trustworthy-agents/README.md)._
 
 ## Tracce e Span
 

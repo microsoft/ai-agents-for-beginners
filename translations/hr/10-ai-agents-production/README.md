@@ -15,7 +15,7 @@ Nakon dovršetka ove lekcije znat ćete kako/razumjeti:
 
 Cilj je opremiti vas znanjem za pretvaranje vaših "crnih kutija" agenata u transparentne, upravljive i pouzdane sustave.
 
-_**Napomena:** važno je implementirati AI agente koji su sigurni i pouzdani. Pogledajte i lekciju [Izgradnja pouzdanih AI agenata](./06-building-trustworthy-agents/README.md)._
+_**Napomena:** važno je implementirati AI agente koji su sigurni i pouzdani. Pogledajte i lekciju [Izgradnja pouzdanih AI agenata](../06-building-trustworthy-agents/README.md)._
 
 ## Tragači i segmenti
 

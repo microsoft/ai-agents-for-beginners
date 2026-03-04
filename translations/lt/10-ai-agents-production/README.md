@@ -15,7 +15,7 @@ Baigę šią pamoką, jūs sužinosite / suprasite:
 
 Tikslas – suteikti jums žinių, kad paverstumėte savo „juodosios dėžės“ agentus skaidriais, valdomais ir patikimais sistemomis.
 
-_**Pastaba:** Svarbu diegti saugius ir patikimus DI agentus. Taip pat peržiūrėkite pamoką apie [Saugūs ir patikimi DI agentai](./06-building-trustworthy-agents/README.md)._
+_**Pastaba:** Svarbu diegti saugius ir patikimus DI agentus. Taip pat peržiūrėkite pamoką apie [Saugūs ir patikimi DI agentai](../06-building-trustworthy-agents/README.md)._
 
 ## Trasos ir span'ai
 

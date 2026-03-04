@@ -15,7 +15,7 @@ Efter at have gennemført denne lektion vil du vide, hvordan/forstå:
 
 Målet er at udstyre dig med viden til at omdanne dine "black box"-agenter til gennemsigtige, håndterbare og pålidelige systemer.
 
-_**Bemærk:** Det er vigtigt at udrulle AI-agenter, der er sikre og troværdige. Se også lektionen [Opbygning af pålidelige AI-agenter](./06-building-trustworthy-agents/README.md)._
+_**Bemærk:** Det er vigtigt at udrulle AI-agenter, der er sikre og troværdige. Se også lektionen [Opbygning af pålidelige AI-agenter](../06-building-trustworthy-agents/README.md)._
 
 ## Spor og spans
 

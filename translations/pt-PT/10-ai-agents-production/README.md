@@ -15,7 +15,7 @@ Após completar esta lição, irá saber fazer/compreender:
 
 O objetivo é equipá-lo com o conhecimento para transformar os seus agentes "caixa preta" em sistemas transparentes, geríveis e fiáveis.
 
-_**Nota:** É importante implementar Agentes de IA que sejam seguros e confiáveis. Consulte também a lição [Construção de Agentes de IA Confiáveis](./06-building-trustworthy-agents/README.md)._
+_**Nota:** É importante implementar Agentes de IA que sejam seguros e confiáveis. Consulte também a lição [Construção de Agentes de IA Confiáveis](../06-building-trustworthy-agents/README.md)._
 
 ## Rastreamentos e Spans
 

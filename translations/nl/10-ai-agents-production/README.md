@@ -15,7 +15,7 @@ Na het voltooien van deze les weet je hoe/begrijp je:
 
 Het doel is je uit te rusten met de kennis om je "black box" agents te transformeren naar transparante, beheersbare en betrouwbare systemen.
 
-_**Opmerking:** Het is belangrijk om AI-agents te implementeren die veilig en betrouwbaar zijn. Bekijk ook de les [Betrouwbare AI-agents bouwen](./06-building-trustworthy-agents/README.md)._
+_**Opmerking:** Het is belangrijk om AI-agents te implementeren die veilig en betrouwbaar zijn. Bekijk ook de les [Betrouwbare AI-agents bouwen](../06-building-trustworthy-agents/README.md)._
 
 ## Traces en Spans
 

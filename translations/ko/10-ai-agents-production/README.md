@@ -15,7 +15,7 @@ AI 에이전트가 실험적 프로토타입에서 실제 응용 프로그램으
 
 목표는 여러분의 "블랙 박스" 에이전트를 투명하고 관리 가능하며 신뢰할 수 있는 시스템으로 전환할 수 있는 지식을 제공하는 것입니다.
 
-_**참고:** 안전하고 신뢰할 수 있는 AI 에이전트 배포가 중요합니다. [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md) 레슨도 확인해 보세요._
+_**참고:** 안전하고 신뢰할 수 있는 AI 에이전트 배포가 중요합니다. [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md) 레슨도 확인해 보세요._
 
 ## Traces and Spans
 

@@ -15,7 +15,7 @@ Etter å ha fullført denne leksjonen vil du vite hvordan du kan/forstå:
 
 Målet er å gi deg kunnskapen til å forvandle dine "svarte bokser" til gjennomsiktige, håndterbare og pålitelige systemer.
 
-_**Merk:** Det er viktig å distribuere AI-agenter som er trygge og pålitelige. Sjekk også ut leksjonen [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md)._
+_**Merk:** Det er viktig å distribuere AI-agenter som er trygge og pålitelige. Sjekk også ut leksjonen [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)._
 
 ## Traces og Spans
 

@@ -15,7 +15,7 @@ Po dokončení tejto lekcie budete vedieť/rozumieť:
 
 Cieľom je vybaviť vás poznatkami, ktoré premenia vaše „čierne skrinky“ agentov na priehľadné, spravovateľné a spoľahlivé systémy.
 
-_**Poznámka:** Je dôležité nasadzovať AI agentov, ktorí sú bezpeční a dôveryhodní. Pozrite si tiež lekciu [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md)._
+_**Poznámka:** Je dôležité nasadzovať AI agentov, ktorí sú bezpeční a dôveryhodní. Pozrite si tiež lekciu [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)._
 
 ## Trasy (traces) a úseky (spans)
 

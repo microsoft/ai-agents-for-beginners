@@ -15,7 +15,7 @@
 
 目標是讓你具備將「黑盒」代理轉變為透明、可管理且可靠系統的知識。
 
-_**注意：** 部署安全且值得信賴的 AI 代理非常重要。也請參考 [建立值得信賴的 AI 代理](./06-building-trustworthy-agents/README.md) 這一課。_
+_**注意：** 部署安全且值得信賴的 AI 代理非常重要。也請參考 [建立值得信賴的 AI 代理](../06-building-trustworthy-agents/README.md) 這一課。_
 
 ## Traces and Spans
 

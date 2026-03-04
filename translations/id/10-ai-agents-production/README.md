@@ -15,7 +15,7 @@ Setelah menyelesaikan pelajaran ini, Anda akan tahu cara/memahami:
 
 Tujuannya adalah membekali Anda dengan pengetahuan untuk mengubah agen "kotak hitam" menjadi sistem yang transparan, dapat dikelola, dan dapat diandalkan.
 
-_**Catatan:** Penting untuk menerapkan Agen AI yang aman dan dapat dipercaya. Lihat juga pelajaran [Membangun Agen AI yang Dapat Dipercaya](./06-building-trustworthy-agents/README.md)._
+_**Catatan:** Penting untuk menerapkan Agen AI yang aman dan dapat dipercaya. Lihat juga pelajaran [Membangun Agen AI yang Dapat Dipercaya](../06-building-trustworthy-agents/README.md)._
 
 ## Traces and Spans
 

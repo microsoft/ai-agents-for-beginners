@@ -15,7 +15,7 @@ Efter att ha slutfört den här lektionen kommer du att veta hur du/förstå:
 
 Målet är att ge dig kunskapen för att omvandla dina "svarta låda"-agenter till transparenta, hanterbara och pålitliga system.
 
-_**Obs:** Det är viktigt att driftsätta AI-agenter som är säkra och pålitliga. Kolla också in lektionen [Bygga pålitliga AI-agenter](./06-building-trustworthy-agents/README.md)._
+_**Obs:** Det är viktigt att driftsätta AI-agenter som är säkra och pålitliga. Kolla också in lektionen [Bygga pålitliga AI-agenter](../06-building-trustworthy-agents/README.md)._
 
 ## Spår och spans
 

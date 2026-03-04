@@ -15,7 +15,7 @@ Bu dersi tamamladıktan sonra şunları bilecek/anlayacaksınız:
 
 Amaç, "kara kutu" ajanlarınızı şeffaf, yönetilebilir ve güvenilir sistemlere dönüştürmeniz için gerekli bilgiyle donatmaktır.
 
-_**Not:** Güvenli ve güvenilir Yapay Zeka Ajanları dağıtmak önemlidir. Ayrıca [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md) dersine göz atın._
+_**Not:** Güvenli ve güvenilir Yapay Zeka Ajanları dağıtmak önemlidir. Ayrıca [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md) dersine göz atın._
 
 ## İzler ve Span'lar
 

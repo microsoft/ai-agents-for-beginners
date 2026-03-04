@@ -15,7 +15,7 @@ Baada ya kumaliza somo hili, utakuwa umejua jinsi ya/kuelewa:
 
 Lengo ni kukupa maarifa ya kubadilisha wakala wako wa "sanduku jeusi" kuwa mifumo iliyo wazi, inayoweza kudhibitiwa, na kuaminika.
 
-_**Kumbuka:** Ni muhimu kupeleka Wakala za AI ambazo ni salama na za kuaminika. Angalia somo la [Kujenga Wakala wa AI wa Kuaminika](./06-building-trustworthy-agents/README.md) pia._
+_**Kumbuka:** Ni muhimu kupeleka Wakala za AI ambazo ni salama na za kuaminika. Angalia somo la [Kujenga Wakala wa AI wa Kuaminika](../06-building-trustworthy-agents/README.md) pia._
 
 ## Traces na Spans
 

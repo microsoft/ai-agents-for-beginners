@@ -15,7 +15,7 @@ Après avoir terminé cette leçon, vous saurez/comment comprendre :
 
 L'objectif est de vous équiper avec les connaissances nécessaires pour transformer vos agents "boîte noire" en systèmes transparents, gérables et fiables.
 
-_**Note :** Il est important de déployer des agents IA sûrs et dignes de confiance. Consultez également la leçon [Construire des Agents IA Dignes de Confiance](./06-building-trustworthy-agents/README.md)._
+_**Note :** Il est important de déployer des agents IA sûrs et dignes de confiance. Consultez également la leçon [Construire des Agents IA Dignes de Confiance](../06-building-trustworthy-agents/README.md)._
 
 ## Traces et Spans
 

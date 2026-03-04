@@ -15,7 +15,7 @@ AIエージェントが実験的プロトタイプから実際のアプリケー
 
 目的は、あなたの「ブラックボックス」的なエージェントを透明で管理可能、かつ信頼できるシステムに変える知識を提供することです。
 
-_**Note:** It is important to deploy AI Agents that are safe and trustworthy. Check out the [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md) lesson as well._
+_**Note:** It is important to deploy AI Agents that are safe and trustworthy. Check out the [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md) lesson as well._
 
 ## トレースとスパン
 

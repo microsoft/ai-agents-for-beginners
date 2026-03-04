@@ -15,7 +15,7 @@ After you don complete this lesson, you go sabi how to/understand:
 
 The goal na to give you the knowledge to transform your "black box" agents into transparent, manageable, and dependable systems.
 
-_**Note:** E important make you deploy AI Agents wey safe and trustworthy. Check out the [How to build AI Agents wey you fit trust](./06-building-trustworthy-agents/README.md) lesson as well._
+_**Note:** E important make you deploy AI Agents wey safe and trustworthy. Check out the [How to build AI Agents wey you fit trust](../06-building-trustworthy-agents/README.md) lesson as well._
 
 ## Traces and Spans
 

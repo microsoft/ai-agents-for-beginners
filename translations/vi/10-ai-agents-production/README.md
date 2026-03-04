@@ -15,7 +15,7 @@ Sau khi hoàn thành bài học này, bạn sẽ biết cách/hiểu:
 
 Mục tiêu là trang bị cho bạn kiến thức để biến các tác nhân "hộp đen" thành các hệ thống minh bạch, dễ quản lý và đáng tin cậy.
 
-_**Lưu ý:** Việc triển khai các Tác nhân AI an toàn và đáng tin cậy là rất quan trọng. Hãy xem thêm bài học [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md)._
+_**Lưu ý:** Việc triển khai các Tác nhân AI an toàn và đáng tin cậy là rất quan trọng. Hãy xem thêm bài học [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)._
 
 ## Traces and Spans
 

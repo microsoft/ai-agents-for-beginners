@@ -15,7 +15,7 @@
 
 目标是使你具备将“黑箱”代理转变为透明、可管理且可靠系统的知识。
 
-_**注意：** 部署安全且值得信赖的 AI 代理非常重要。也请查看 [构建值得信赖的 AI 代理](./06-building-trustworthy-agents/README.md) 课程。_
+_**注意：** 部署安全且值得信赖的 AI 代理非常重要。也请查看 [构建值得信赖的 AI 代理](../06-building-trustworthy-agents/README.md) 课程。_
 
 ## 跟踪（Trace）与跨度（Span）
 

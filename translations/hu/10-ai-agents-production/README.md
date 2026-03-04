@@ -15,7 +15,7 @@ A lecke elvégzése után tudni fogod / meg fogod érteni:
 
 A cél, hogy olyan tudással ruházzunk fel téged, amely átláthatóvá, kezelhetővé és megbízhatóvá teszi a „fekete dobozos” ügynökeidet.
 
-_**Megjegyzés:** Fontos, hogy biztonságos és megbízható AI ügynököket telepíts. Nézd meg a [Megbízható AI Ügynökök Építése](./06-building-trustworthy-agents/README.md) leckét is._
+_**Megjegyzés:** Fontos, hogy biztonságos és megbízható AI ügynököket telepíts. Nézd meg a [Megbízható AI Ügynökök Építése](../06-building-trustworthy-agents/README.md) leckét is._
 
 ## Trace-ek és Span-ek
 

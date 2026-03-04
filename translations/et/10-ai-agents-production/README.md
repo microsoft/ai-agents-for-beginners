@@ -15,7 +15,7 @@ Pärast selle tunni läbimist oskad/saad aru:
 
 Eesmärk on anda sulle teadmised, kuidas muuta sinu "must kast" agentidest läbipaistvad, hallatavad ja usaldusväärsed süsteemid.
 
-_**Märkus:** On oluline juurutada AI-agente, kes on turvalised ja usaldusväärsed. Vaata ka õppetundi [Usaldusväärsete AI-agentide loomine](./06-building-trustworthy-agents/README.md)._
+_**Märkus:** On oluline juurutada AI-agente, kes on turvalised ja usaldusväärsed. Vaata ka õppetundi [Usaldusväärsete AI-agentide loomine](../06-building-trustworthy-agents/README.md)._
 
 ## Jäljed ja kestad
 

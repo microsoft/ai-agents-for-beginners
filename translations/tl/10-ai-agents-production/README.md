@@ -15,7 +15,7 @@ Pagkatapos makumpleto ang araling ito, malalaman/mo mauunawaan mo:
 
 Ang layunin ay bigyan ka ng kaalaman para gawing transparent, madaling pamahalaan, at mapagkakatiwalaan ang iyong mga "black box" na agent.
 
-_**Tandaan:** Mahalaga na mag-deploy ng mga AI Agent na ligtas at mapagkakatiwalaan. Tingnan din ang araling [Pagbuo ng Mapagkakatiwalaang AI Agents](./06-building-trustworthy-agents/README.md)._
+_**Tandaan:** Mahalaga na mag-deploy ng mga AI Agent na ligtas at mapagkakatiwalaan. Tingnan din ang araling [Pagbuo ng Mapagkakatiwalaang AI Agents](../06-building-trustworthy-agents/README.md)._
 
 ## Traces and Spans
 

@@ -15,7 +15,7 @@ După finalizarea acestei lecții, vei ști cum să/vei înțelege:
 
 Scopul este să te echipezi cu cunoștințele necesare pentru a transforma agenții „cutie neagră” în sisteme transparente, gestionabile și de încredere.
 
-_**Notă:** Este important să implementezi agenți AI care sunt siguri și demni de încredere. Verifică și lecția [Construirea Agenților AI Demni de Încredere](./06-building-trustworthy-agents/README.md)._
+_**Notă:** Este important să implementezi agenți AI care sunt siguri și demni de încredere. Verifică și lecția [Construirea Agenților AI Demni de Încredere](../06-building-trustworthy-agents/README.md)._
 
 ## Urmăriri și Pași
 

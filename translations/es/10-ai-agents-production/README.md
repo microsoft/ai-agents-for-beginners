@@ -15,7 +15,7 @@ Después de completar esta lección, sabrás cómo/entenderás:
 
 El objetivo es equiparte con el conocimiento para transformar tus agentes "caja negra" en sistemas transparentes, manejables y fiables.
 
-_**Nota:** Es importante desplegar Agentes de IA que sean seguros y confiables. Consulta también la lección [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md)._
+_**Nota:** Es importante desplegar Agentes de IA que sean seguros y confiables. Consulta también la lección [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)._
 
 ## Trazas y spans
 

@@ -15,7 +15,7 @@ Po končani lekciji boste znali/razumeli:
 
 Cilj je, da vas opremimo z znanjem, kako spremeniti vaše "črne skrinjice" agente v pregledne, obvladljive in zanesljive sisteme.
 
-_**Opomba:** Pomembno je uvajati AI agente, ki so varni in zaupanja vredni. Oglejte si tudi lekcijo [Gradnja zaupanja vrednih AI agentov](./06-building-trustworthy-agents/README.md)._
+_**Opomba:** Pomembno je uvajati AI agente, ki so varni in zaupanja vredni. Oglejte si tudi lekcijo [Gradnja zaupanja vrednih AI agentov](../06-building-trustworthy-agents/README.md)._
 
 ## Sledi in spani
 

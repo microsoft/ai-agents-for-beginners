@@ -15,7 +15,7 @@ Po dokončení této lekce budete umět/porozumíte:
 
 Cílem je vybavit vás znalostmi, které přemění vaše „černé skříňky“ agentů na transparentní, spravovatelné a spolehlivé systémy.
 
-_**Poznámka:** Je důležité nasazovat AI agenty, kteří jsou bezpeční a důvěryhodní. Podívejte se také na lekci [Budování důvěryhodných AI agentů](./06-building-trustworthy-agents/README.md)._
+_**Poznámka:** Je důležité nasazovat AI agenty, kteří jsou bezpeční a důvěryhodní. Podívejte se také na lekci [Budování důvěryhodných AI agentů](../06-building-trustworthy-agents/README.md)._
 
 ## Sledy a úseky
 

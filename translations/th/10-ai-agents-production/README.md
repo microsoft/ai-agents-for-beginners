@@ -15,7 +15,7 @@
 
 เป้าหมายคือการมอบความรู้ให้คุณสามารถเปลี่ยน agents ที่เป็น "กล่องดำ" ให้กลายเป็นระบบโปร่งใส จัดการได้ และเชื่อถือได้
 
-_**หมายเหตุ:** การปรับใช้ AI Agents ที่ปลอดภัยและน่าเชื่อถือมีความสำคัญ ตรวจสอบบทเรียน [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md) ด้วย_
+_**หมายเหตุ:** การปรับใช้ AI Agents ที่ปลอดภัยและน่าเชื่อถือมีความสำคัญ ตรวจสอบบทเรียน [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md) ด้วย_
 
 ## Traces and Spans
 

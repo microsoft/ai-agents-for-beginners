@@ -15,7 +15,7 @@
 
 目標是讓您掌握將「黑盒子」代理人轉化為透明、可管理且可靠系統的知識。
 
-_**注意：** 部署安全且值得信賴的 AI 代理人非常重要。請參考[建立可信賴 AI 代理人](./06-building-trustworthy-agents/README.md)課程。_
+_**注意：** 部署安全且值得信賴的 AI 代理人非常重要。請參考[建立可信賴 AI 代理人](../06-building-trustworthy-agents/README.md)課程。_
 
 ## 跟蹤與跨度 (Traces and Spans)
 
