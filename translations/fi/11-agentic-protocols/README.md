@@ -1,182 +1,182 @@
 # Using Agentic Protocols (MCP, A2A and NLWeb)
 
-[![Agenttiprotokollat](../../../translated_images/fi/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
+[![Agenttiset protokollat](../../../translated_images/fi/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
-> _(Klikkaa yllä olevaa kuvaa katsellaksesi tämän oppitunnin videon)_
+> _(Klikkaa yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
 
-As the use of AI agents grows, so does the need for protocols that ensure standardization, security, and support open innovation. In this lesson, we will cover 3 protocols looking to meet this need - Model Context Protocol (MCP), Agent to Agent (A2A) and Natural Language Web (NLWeb).
+Kun tekoälyagenttien käyttö kasvaa, kasvaa myös tarve protokollille, jotka varmistavat standardisoinnin, turvallisuuden ja tukevat avointa innovointia. Tässä oppitunnissa käsittelemme kolmea protokollaa, jotka pyrkivät täyttämään tämän tarpeen - Model Context Protocol (MCP), Agent to Agent (A2A) ja Natural Language Web (NLWeb).
 
-## Introduction
+## Johdanto
 
-In this lesson, we will cover:
+Tässä oppitunnissa käsittelemme:
 
-• How **MCP** allows AI Agents to access external tools and data to complete user tasks.
+• Kuinka **MCP** antaa tekoälyagenteille pääsyn ulkoisiin työkaluihin ja tietoihin käyttäjän tehtävien suorittamiseksi.
 
-•  How **A2A** enables communication and collaboration between different AI agents.
+• Kuinka **A2A** mahdollistaa viestinnän ja yhteistyön eri tekoälyagenttien välillä.
 
-• How **NLWeb** brings natural language interfaces to any website enabling AI Agents to discover and interact with the content.
+• Kuinka **NLWeb** tuo luonnollisen kielen käyttöliittymät mille tahansa verkkosivustolle, mahdollistaen tekoälyagenttien löytää ja olla vuorovaikutuksessa sisällön kanssa.
 
-## Learning Goals
+## Oppimistavoitteet
 
-• **Identify** the core purpose and benefits of MCP, A2A, and NLWeb in the context of AI agents.
+• **Tunnistaa** MCP:n, A2A:n ja NLWebin keskeinen tarkoitus ja hyödyt tekoälyagenttien kontekstissa.
 
-• **Explain** how each protocol facilitates communication and interaction between LLMs, tools, and other agents.
+• **Selittää** miten kukin protokolla helpottaa viestintää ja vuorovaikutusta LLM:ien, työkalujen ja muiden agenttien välillä.
 
-• **Recognize** the distinct roles each protocol plays in building complex agentic systems.
+• **Tunnistaa** eri protokollien erilliset roolit monimutkaisten agenttijärjestelmien rakentamisessa.
 
 ## Model Context Protocol
 
-The **Model Context Protocol (MCP)** is an open standard that provides standardized way for applications to provide context and tools to LLMs. This enables a "universal adaptor" to different data sources and tools that AI Agents can connect to in a consistent way.
+**Model Context Protocol (MCP)** on avoin standardi, joka tarjoaa standardoidun tavan sovelluksille tarjota kontekstia ja työkaluja LLM:ille. Tämä mahdollistaa "universaalin sovittimen" eri tietolähteisiin ja työkaluihin, joihin tekoälyagentit voivat kytkeytyä johdonmukaisella tavalla.
 
-Let’s look at the components of MCP, the benefits compared to direct API usage, and an example of how AI agents might use an MCP server.
+Katsotaan MCP:n osia, etuja verrattuna suoraan API:n käyttöön, ja esimerkki siitä, miten tekoälyagentit voisivat käyttää MCP-palvelinta.
 
-### MCP Core Components
+### MCP:n ydinkomponentit
 
-MCP operates on a **client-server architecture** and the core components are:
+MCP toimii **asiakas-palvelin-arkkitehtuurilla** ja ydinosa-alueet ovat:
 
-• **Hosts** are LLM applications (for example a code editor like VSCode) that start the connections to an MCP Server.
+• **Hostit** ovat LLM-sovelluksia (esimerkiksi koodieditori kuten VSCode), jotka aloittavat yhteydet MCP-palvelimeen.
 
-• **Clients** are components within the host application that maintain one-to-one connections with servers.
+• **Clientit** ovat isäntäohjelman komponentteja, jotka ylläpitävät yksi-yhteen -yhteyksiä palvelimiin.
 
-• **Servers** are lightweight programs that expose specific capabilities.
+• **Palvelimet** ovat kevyitä ohjelmia, jotka tarjoavat tiettyjä kyvykkyyksiä.
 
-Included in the protocol are three core primitives which are the capabilities of an MCP Server:
+Protokollaan kuuluu kolme keskeistä primitiiviä, jotka ovat MCP-palvelimen kyvykkyydet:
 
-• **Tools**: These are discrete actions or functions an AI agent can call to perform an action. For example, a weather service might expose a "get weather" tool, or an e-commerce server might expose a "purchase product" tool. MCP servers advertise each tool's name, description, and input/output schema in their capabilities listing.
+• **Tools**: Nämä ovat erillisiä toimintoja tai funktioita, joita tekoälyagentti voi kutsua suorittaakseen tietyn tehtävän. Esimerkiksi sääpalvelu saattaa tarjota "hae sää" -työkalun, tai verkkokaupan palvelin saattaisi tarjota "osta tuote" -työkalun. MCP-palvelimet mainostavat kunkin työkalun nimeä, kuvausta ja syöte/tuotosskeemaa kyvykkyyslistauksessaan.
 
-• **Resources**: These are read-only data items or documents that an MCP server can provide, and clients can retrieve them on demand. Examples include file contents, database records, or log files. Resources can be text (like code or JSON) or binary (like images or PDFs).
+• **Resources**: Nämä ovat vain-luku -tietoelementtejä tai dokumentteja, joita MCP-palvelin voi tarjota, ja klientit voivat hakea niitä tarvittaessa. Esimerkkejä ovat tiedostojen sisällöt, tietokantarekisterit tai lokitiedostot. Resurssit voivat olla tekstiä (kuten koodi tai JSON) tai binäärimuotoisia (kuten kuvat tai PDF:t).
 
-• **Prompts**: These are predefined templates that provide suggested prompts, allowing for more complex workflows.
+• **Prompts**: Nämä ovat ennalta määritettyjä malleja, jotka tarjoavat ehdotettuja kehotteita, mahdollistaen monimutkaisempia työnkulkuja.
 
-### Benefits of MCP
+### MCP:n edut
 
-MCP offers significant advantages for AI Agents:
+MCP tarjoaa merkittäviä etuja tekoälyagenteille:
 
-• **Dynamic Tool Discovery**: Agents can dynamically receive a list of available tools from a server along with descriptions of what they do. This contrasts with traditional APIs, which often require static coding for integrations, meaning any API change necessitates code updates. MCP offers an "integrate once" approach, leading to greater adaptability.
+• **Dynaaminen työkalujen löytäminen**: Agentit voivat dynaamisesti vastaanottaa luettelon saatavilla olevista työkaluista palvelimelta sekä kuvaukset siitä, mitä ne tekevät. Tämä eroaa perinteisistä API:ista, jotka usein vaativat staattista koodausta integraatioita varten, mikä tarkoittaa, että API-muutos edellyttää koodimuutoksia. MCP tarjoaa "integroi kerran" -lähestymistavan, mikä johtaa suurempaan mukautuvuuteen.
 
-• **Interoperability Across LLMs**: MCP works across different LLMs, providing flexibility to switch core models to evaluate for better performance.
+• **Yhteentoimivuus eri LLM:ien välillä**: MCP toimii eri LLM:ien kanssa, tarjoten joustavuutta vaihtaa ydintä arvioidakseen parempaa suorituskykyä.
 
-• **Standardized Security**: MCP includes a standard authentication method, improving scalability when adding access to additional MCP servers. This is simpler than managing different keys and authentication types for various traditional APIs.
+• **Standardoitu tietoturva**: MCP sisältää standardoidun autentikointimenetelmän, mikä parantaa skaalautuvuutta lisättäessä pääsyä lisäisiin MCP-palvelimiin. Tämä on yksinkertaisempaa kuin eri avainten ja autentikointityyppien hallinta eri perinteisille API:ille.
 
-### MCP Example
+### MCP-esimerkki
 
 ![MCP-kaavio](../../../translated_images/fi/mcp-diagram.e4ca1cbd551444a1.webp)
 
-Imagine a user wants to book a flight using an AI assistant powered by MCP.
+Kuvitellaan, että käyttäjä haluaa varata lennon käyttämällä MCP:llä varustettua tekoälyavustajaa.
 
-1. **Connection**: The AI assistant (the MCP client) connects to an MCP server provided by an airline.
+1. **Yhteys**: Tekoälyavustaja (MCP-client) muodostaa yhteyden lentoyhtiön tarjoamaan MCP-palvelimeen.
 
-2. **Tool Discovery**: The client asks the airline's MCP server, "What tools do you have available?" The server responds with tools like "search flights" and "book flights".
+2. **Työkalujen löytäminen**: Client kysyy lentoyhtiön MCP-palvelimelta: "Mitä työkaluja teillä on käytettävissä?" Palvelin vastaa työkaluilla kuten "hae lentoja" ja "varaa lentoja".
 
-3. **Tool Invocation**: You then ask the AI assistant, "Please search for a flight from Portland to Honolulu." The AI assistant, using its LLM, identifies that it needs to call the "search flights" tool and passes the relevant parameters (origin, destination) to the MCP server.
+3. **Työkalun kutsuminen**: Sitten pyydät tekoälyavustajaa: "Etsi lento Portlandista Honoluluun." Tekoälyavustaja, käyttäen LLM:ään, tunnistaa, että sen täytyy kutsua "hae lentoja" -työkalua ja välittää MCP-palvelimelle tarvittavat parametrit (lähtöpaikka, määränpää).
 
-4. **Execution and Response**: The MCP server, acting as a wrapper, makes the actual call to the airline's internal booking API. It then receives the flight information (e.g., JSON data) and sends it back to the AI assistant.
+4. **Suoritus ja vastaus**: MCP-palvelin, toimien kääreenä, tekee varsinaisen kutsun lentoyhtiön sisäiseen varaus-API:iin. Se vastaanottaa lentotiedot (esim. JSON-dataa) ja lähettää ne takaisin tekoälyavustajalle.
 
-5. **Further Interaction**: The AI assistant presents the flight options. Once you select a flight, the assistant might invoke the "book flight" tool on the same MCP server, completing the booking.
+5. **Lisävuorovaikutus**: Tekoälyavustaja esittää lentovaihtoehdot. Kun valitset lennon, avustaja voi kutsua samaan MCP-palvelimeen kuuluvaa "varaa lento" -työkalua, jolloin varaus saadaan päätökseen.
 
-## Agent-to-Agent Protocol (A2A)
+## Agent-to-Agent -protokolla (A2A)
 
-While MCP focuses on connecting LLMs to tools, the **Agent-to-Agent (A2A) protocol** takes it a step further by enabling communication and collaboration between different AI agents.  A2A connects AI agents across different organizations, environments and tech stacks to complete a shared task.
+Kun MCP keskittyy LLM:ien yhdistämiseen työkaluihin, **Agent-to-Agent (A2A)** vie sen askeleen pidemmälle mahdollistamalla viestinnän ja yhteistyön eri tekoälyagenttien välillä. A2A yhdistää tekoälyagentteja eri organisaatioiden, ympäristöjen ja teknologiakantojen välillä suorittaakseen yhteisen tehtävän.
 
-We’ll examine the components and benefits of A2A, along with an example of how it could be applied in our travel application.
+Tutkimme A2A:n komponentteja ja etuja sekä esimerkkiä siitä, miten sitä voitaisiin soveltaa matkavarauksen sovelluksessamme.
 
-### A2A Core Components
+### A2A:n ydinkomponentit
 
-A2A focuses on enabling communication between agents and having them work together to complete a subtask of user. Each component of the protocol contributes to this:
+A2A keskittyy mahdollistamaan agenttien välisen viestinnän ja niiden yhteistyön käyttäjän alatehtävän suorittamiseksi. Jokainen protokollan komponentti vaikuttaa tähän:
 
-#### Agent Card
+#### Agenttikortti
 
-Similar to how an MCP server shares a list of tools, an Agent Card has:
+Samalla tavalla kuin MCP-palvelin jakaa luettelon työkaluista, Agenttikortti sisältää:
 - Agentin nimi .
-- A **kuvaus yleisistä tehtävistä**, joita se suorittaa.
-- A **luettelo erityistaidoista** kuvauksineen, jotka auttavat muita agentteja (tai ihmiskäyttäjiä) ymmärtämään, milloin ja miksi he haluaisivat kutsua kyseistä agenttia.
-- Agentin **nykyinen Endpoint-URL**
-- Agentin **versio** ja **ominaisuudet**, kuten suoratoistovastaukset ja push-ilmoitukset.
+- **Kuvaus yleisistä tehtävistä** joita se suorittaa.
+- **Luettelo erityisistä taidoista** kuvauksineen, jotka auttavat muita agenteja (tai jopa ihmiskäyttäjiä) ymmärtämään milloin ja miksi heidän kannattaa kutsua kyseistä agenttia.
+- Agentin **nykyinen Endpoint URL**
+- Agentin **versio** ja **ominaisuudet**, kuten striimaavat vastaukset ja push-ilmoitukset.
 
-#### Agent Executor
+#### Agentin suorittaja
 
-Agent Executor on vastuussa käyttäjäkeskustelun kontekstin **välittämisestä etäagentille**, koska etäagentti tarvitsee tämän ymmärtääkseen suoritettavan tehtävän. A2A-palvelimessa agentti käyttää omaa Large Language Modeliaan (LLM) saapuvien pyyntöjen jäsentämiseen ja suorittaa tehtäviä omilla sisäisillä työkaluillaan.
+Agentin suorittaja on vastuussa **käyttäjäkeskustelun kontekstin välittämisestä etäagentille**, etäagentti tarvitsee tätä ymmärtääkseen suorittettavan tehtävän. A2A-palvelimessa agentti käyttää omaa suurta kielimalliensa (LLM) versiota jäsentääkseen saapuvat pyynnöt ja suorittaakseen tehtäviä käyttämällä omia sisäisiä työkalujaan.
 
-#### Artifact
+#### Artefakti
 
-Kun etäagentti on suorittanut pyydetyn tehtävän, sen työ tuodaan esiin artefaktina. Artefakti **sisältää agentin työn tuloksen**, **kuvauksen siitä, mitä tehtiin**, sekä **tekstikontekstin**, joka lähetetään protokollan kautta. Kun artefakti on lähetetty, yhteys etäagenttiin suljetaan, kunnes sitä tarvitaan uudelleen.
+Kun etäagentti on suorittanut pyydetyn tehtävän, sen työn tulos luodaan artefaktina. Artefakti **sisältää agentin työn tuloksen**, **kuvauksen siitä, mitä tehtiin**, ja **tekstikontekstin**, joka lähetetään protokollan kautta. Kun artefakti on lähetetty, yhteys etäagenttiin suljetaan, kunnes sitä taas tarvitaan.
 
-#### Event Queue
+#### Tapahtumajono
 
-Tätä komponenttia käytetään **päivitysten käsittelyyn ja viestien välittämiseen**. Se on erityisen tärkeä tuotantoympäristössä agenttijärjestelmissä, jotta agenttien välinen yhteys ei katkea ennen tehtävän valmistumista, erityisesti kun tehtävien suorittamiseen voi mennä pidempi aika.
+Tätä komponenttia käytetään **päivitysten käsittelyyn ja viestien välittämiseen**. Se on erityisen tärkeä tuotannossa agenttijärjestelmille estämään agenttien välisen yhteyden sulkeutuminen ennen tehtävän valmistumista, etenkin kun tehtävien suorittamisaika voi olla pidempi.
 
-### Benefits of A2A
+### A2A:n edut
 
-• **Enhanced Collaboration**: It enables agents from different vendors and platforms to interact, share context, and work together, facilitating seamless automation across traditionally disconnected systems.
+• **Parantunut yhteistyö**: Se mahdollistaa eri toimittajien ja alustojen agenttien välisen vuorovaikutuksen, kontekstin jakamisen ja yhteistyön, mikä helpottaa saumattomia automaatioita perinteisesti erillisten järjestelmien välillä.
 
-• **Model Selection Flexibility**: Each A2A agent can decide which LLM it uses to service its requests, allowing for optimized or fine-tuned models per agent, unlike a single LLM connection in some MCP scenarios.
+• **Mallin valinnan joustavuus**: Jokainen A2A-agentti voi päättää, mitä LLM:iä se käyttää palvellakseen pyyntöjään, jolloin agenttikohtaisesti voidaan käyttää optimoituja tai hienosäädettyjä malleja, toisin kuin joissain MCP-skenaarioissa yhden LLM-yhteyden käyttö.
 
-• **Built-in Authentication**: Authentication is integrated directly into the A2A protocol, providing a robust security framework for agent interactions.
+• **Sisäänrakennettu todennus**: Todennus on integroitu suoraan A2A-protokollaan, mikä tarjoaa vankan tietoturvakokonaisuuden agenttien välisille vuorovaikutuksille.
 
-### A2A Example
+### A2A-esimerkki
 
 ![A2A-kaavio](../../../translated_images/fi/A2A-Diagram.8666928d648acc26.webp)
 
-Let's expand on our travel booking scenario, but this time using A2A.
+Laajennetaan matkavarausehdotustamme käyttäen nyt A2A:ta.
 
-1. **User Request to Multi-Agent**: A user interacts with a "Travel Agent" A2A client/agent, perhaps by saying, "Please book an entire trip to Honolulu for next week, including flights, a hotel, and a rental car".
+1. **Käyttäjän pyyntö moniantturiin**: Käyttäjä on vuorovaikutuksessa "Matka-agentin" A2A-client/agentin kanssa, esimerkiksi sanoen: "Varaa koko matka Honoluluun ensi viikoksi, mukaan lukien lennot, hotelli ja vuokra-auto".
 
-2. **Orchestration by Travel Agent**: The Travel Agent receives this complex request. It uses its LLM to reason about the task and determine that it needs to interact with other specialized agents.
+2. **Matka-agentin orkestrointi**: Matka-agentti vastaanottaa tämän monimutkaisen pyynnön. Se käyttää LLM:ään pohtiakseen tehtävää ja päättää, että sen täytyy olla yhteydessä muihin erikoistuneisiin agenteihin.
 
-3. **Inter-Agent Communication**: The Travel Agent then uses the A2A protocol to connect to downstream agents, such as an "Airline Agent," a "Hotel Agent," and a "Car Rental Agent" that are created by different companies.
+3. **Agenttien välinen viestintä**: Matka-agentti käyttää sitten A2A-protokollaa yhdistääkseen alavirran agenteihin, kuten "Lentoyhtiö-agenttiin", "Hotelli-agenttiin" ja "Autovuokra-agenttiin", jotka ovat eri yritysten tekemiä.
 
-4. **Delegated Task Execution**: The Travel Agent sends specific tasks to these specialized agents (e.g., "Find flights to Honolulu," "Book a hotel," "Rent a car"). Each of these specialized agents, running their own LLMs and utilizing their own tools (which could be MCP servers themselves), performs its specific part of the booking.
+4. **Tehtävän delegointi**: Matka-agentti lähettää näille erikoistuneille agenteille tarkat tehtävät (esim. "Etsi lennot Honoluluun", "Varaa hotelli", "Vuokraa auto"). Kukin näistä erikoistuneista agenteista, ajettaessa omilla LLM:illään ja käyttäen omia työkalujaan (joista osa voi olla MCP-palvelimia), suorittaa oman osansa varauksesta.
 
-5. **Consolidated Response**: Once all downstream agents complete their tasks, the Travel Agent compiles the results (flight details, hotel confirmation, car rental booking) and sends a comprehensive, chat-style response back to the user.
+5. **Koottu vastaus**: Kun kaikki alavirran agentit ovat suorittaneet tehtävänsä, Matka-agentti kokoaa tulokset (lentotiedot, hotellivahvistus, autovuokrausvaraus) ja lähettää käyttäjälle kattavan, keskustelutyylisen vastauksen.
 
 ## Natural Language Web (NLWeb)
 
-Websites have long been the primary way for users to access information and data across the internet.
+Verkkosivustot ovat pitkään olleet ensisijainen tapa, jolla käyttäjät pääsevät käsiksi tietoihin ja dataan internetissä.
 
-Let us look at the different components of NLWeb, the benefits of NLWeb and an example how our NLWeb works by looking at our travel application.
+Katsotaan NLWebin eri komponentteja, NLWebin etuja ja esimerkki siitä, miten NLWeb toimii matkavarauksen sovelluksessamme.
 
-### Components of NLWeb
+### NLWebin komponentit
 
-- **NLWeb Application (Core Service Code)**: The system that processes natural language questions. It connects the different parts of the platform to create responses. You can think of it as the **engine that powers the natural language features** of a website.
+- **NLWeb Application (Core Service Code)**: Järjestelmä, joka käsittelee luonnollisen kielen kysymyksiä. Se yhdistää alustan eri osat luodakseen vastauksia. Voit ajatella sitä verkkosivuston luonnollisen kielen ominaisuuksien **moottorina**.
 
-- **NLWeb Protocol**: This is a **basic set of rules for natural language interaction** with a website. It sends back responses in JSON format (often using Schema.org). Its purpose is to create a simple foundation for the “AI Web,” in the same way that HTML made it possible to share documents online.
+- **NLWeb Protocol**: Tämä on **perustava sääntöjoukko luonnollisen kielen vuorovaikutukselle** verkkosivuston kanssa. Se palauttaa vastauksia JSON-muodossa (usein käyttäen Schema.orgia). Tavoitteena on luoda yksinkertainen perusta "AI-webille" samalla tavalla kuin HTML teki mahdolliseksi dokumenttien jakamisen verkossa.
 
-- **MCP Server (Model Context Protocol Endpoint)**: Each NLWeb setup also works as an **MCP server**. This means it can **share tools (like an “ask” method) and data** with other AI systems. In practice, this makes the website’s content and abilities usable by AI agents, allowing the site to become part of the wider “agent ecosystem.”
+- **MCP Server (Model Context Protocol Endpoint)**: Jokainen NLWeb-asennus toimii myös **MCP-palvelimena**. Tämä tarkoittaa, että se voi **jakaa työkaluja (kuten "ask"-metodin) ja dataa** muiden AI-järjestelmien kanssa. Käytännössä tämä tekee sivuston sisällöstä ja toiminnoista käytettävissä olevia tekoälyagenteille, jolloin sivusto voi tulla osaksi laajempaa "agenttiekosysteemiä".
 
-- **Embedding Models**: These models are used to **convert website content into numerical representations called vectors** (embeddings). These vectors capture meaning in a way computers can compare and search. They are stored in a special database, and users can choose which embedding model they want to use.
+- **Embedding Models**: Näitä malleja käytetään **muuntamaan verkkosivuston sisältö numeerisiksi esityksiksi, niin kutsutuiksi vektoreiksi (upotuksiksi)**. Nämä vektorit kuvaavat merkitystä tavalla, jonka avulla tietokoneet voivat vertailla ja hakea niitä. Ne tallennetaan erikoistuneeseen tietokantaan, ja käyttäjät voivat valita, mitä upotusmallia he haluavat käyttää.
 
-- **Vector Database (Retrieval Mechanism)**: This database **stores the embeddings of the website content**. When someone asks a question, NLWeb checks the vector database to quickly find the most relevant information. It gives a fast list of possible answers, ranked by similarity. NLWeb works with different vector storage systems such as Qdrant, Snowflake, Milvus, Azure AI Search, and Elasticsearch.
+- **Vector Database (Retrieval Mechanism)**: Tämä tietokanta **tallentaa verkkosivuston sisällön upotukset**. Kun joku esittää kysymyksen, NLWeb tarkistaa vektoritietokannan löytääkseen nopeasti relevantin tiedon. Se palauttaa nopean listan mahdollisista vastauksista, lajiteltuna samankaltaisuuden mukaan. NLWeb toimii eri vektorivarastojärjestelmien kanssa, kuten Qdrant, Snowflake, Milvus, Azure AI Search ja Elasticsearch.
 
-### NLWeb by Example
+### NLWeb-esimerkki
 
 ![NLWeb-kaavio](../../../translated_images/fi/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Consider our travel booking website again, but this time, it's powered by NLWeb.
+Ajatellaan jälleen matkavarauksen verkkosivustoamme, mutta tällä kertaa se on käytössä NLWebin avulla.
 
-1. **Data Ingestion**: The travel website's existing product catalogs (e.g., flight listings, hotel descriptions, tour packages) are formatted using Schema.org or loaded via RSS feeds. NLWeb's tools ingest this structured data, create embeddings, and store them in a local or remote vector database.
+1. **Datan tuonti**: Matkailusivuston olemassa olevat tuotekatalogit (esim. lentoluettelot, hotellikuvaustekstit, retkipaketit) muotoillaan käyttämällä Schema.orgia tai tuodaan RSS-syötteiden kautta. NLWebin työkalut imevät tätä jäsenneltyä dataa, luovat upotuksia ja tallentavat ne paikalliseen tai etätallennukseen vektoripankkiin.
 
-2. **Natural Language Query (Human)**: A user visits the website and, instead of navigating menus, types into a chat interface: "Find me a family-friendly hotel in Honolulu with a pool for next week".
+2. **Luonnollisen kielen kysely (ihminen)**: Käyttäjä vierailee sivustolla ja sen sijaan, että selaisi valikoita, kirjoittaa keskusteluikkunaan: "Etsi perheystävällinen hotelli Honolulusta, jossa on uima-allas ensi viikoksi".
 
-3. **NLWeb Processing**: The NLWeb application receives this query. It sends the query to an LLM for understanding and simultaneously searches its vector database for relevant hotel listings.
+3. **NLWebin käsittely**: NLWeb-sovellus vastaanottaa tämän kyselyn. Se lähettää kyselyn ymmärtämistä varten LLM:lle ja samanaikaisesti hakee vektoritietokannastaan relevantteja hotellimerkintöjä.
 
-4. **Accurate Results**: The LLM helps to interpret the search results from the database, identify the best matches based on "family-friendly," "pool," and "Honolulu" criteria, and then formats a natural language response. Crucially, the response refers to actual hotels from the website's catalog, avoiding made-up information.
+4. **Tarkat tulokset**: LLM auttaa tulkitsemaan tietokannasta saadut hakutulokset, tunnistamaan parhaat osumat kriteerien "perheystävällinen", "uima-allas" ja "Honolulu" perusteella, ja muotoilemaan luonnollisenkielisen vastauksen. Oleellista on, että vastaus viittaa sivuston katalogista löytyviin todellisiin hotelleihin, välttäen keksittyä tietoa.
 
-5. **AI Agent Interaction**: Because NLWeb serves as an MCP server, an external AI travel agent could also connect to this website's NLWeb instance. The AI agent could then use the `ask("Are there any vegan-friendly restaurants in the Honolulu area recommended by the hotel?")`. The NLWeb instance would process this, leveraging its database of restaurant information (if loaded), and return a structured JSON response.
+5. **AI-agenttien vuorovaikutus**: Koska NLWeb toimii MCP-palvelimena, ulkoinen AI-matka-agentti voisi myös muodostaa yhteyden tämän sivuston NLWeb-instanssiin. AI-agentti voisi sitten käyttää `ask`-MCP-metodia kysyäkseen sivustolta suoraan: `ask("Are there any vegan-friendly restaurants in the Honolulu area recommended by the hotel?")`. NLWeb-instanssi käsittelisi tämän hyödyntäen omaa ravintolatietokantaansa (jos se on ladattu) ja palauttaisi jäsennellyn JSON-vastauksen.
 
-### Got More Questions about MCP/A2A/NLWeb?
+### Onko sinulla lisää kysymyksiä MCP/A2A/NLWeb?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Liity [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) tapaat muita oppijoita, osallistut toimistoaikoihin ja saat vastauksia AI-agenttikysymyksiisi.
 
-## Resources
+## Resurssit
 
 - [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
-- [MCP Documentation](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
+- [MCP Documentation](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
 - [NLWeb Repo](https://github.com/nlweb-ai/NLWeb)
-- [Semantic Kernel Guides](https://learn.microsoft.com/semantic-kernel/)
+- [Microsoft Agent Framework](https://aka.ms/ai-agents-beginners/agent-framewrok)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastuuvapauslauseke**:
-Tämä asiakirja on käännetty tekoälypohjaisella käännöspalvelulla [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäiskielellä on pidettävä määräävänä lähteenä. Kriittisten tietojen osalta suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tästä käännöksestä aiheutuvista väärinymmärryksistä tai virhetulkinnoista.
+Vastuuvapauslauseke:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua Co-op Translator (https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automatisoidut käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäisellä kielellä tulee pitää pätevänä lähteenä. Tärkeiden tietojen kohdalla suositellaan ammattimaisen ihmiskääntäjän tekemää käännöstä. Emme ole vastuussa mistään tämän käännöksen käytöstä johtuvista väärinymmärryksistä tai virheillisistä tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
