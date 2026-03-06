@@ -1,113 +1,113 @@
 [![Einführung in KI-Agenten](../../../translated_images/de/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Klicken Sie auf das obige Bild, um das Video zu dieser Lektion anzusehen)_
+> _(Klicken Sie auf das obige Bild, um das Video dieser Lektion anzusehen)_
 
 
-# Einführung in KI-Agenten und Anwendungsfälle für Agenten
+# Einführung in KI-Agenten und Anwendungsfälle von Agenten
 
-Willkommen zum Kurs "AI Agents for Beginners"! Dieser Kurs vermittelt grundlegendes Wissen und praxisnahe Beispiele zum Aufbau von KI-Agenten.
+Willkommen zum Kurs "KI-Agenten für Einsteiger"! Dieser Kurs vermittelt grundlegendes Wissen und praxisnahe Beispiele zum Erstellen von KI-Agenten.
 
-Treten Sie der <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord-Community</a> bei, um andere Lernende und Entwickler von KI-Agenten kennenzulernen und alle Fragen zu diesem Kurs zu stellen.
+Trete der <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord-Community</a> bei, um andere Lernende und KI-Agenten-Entwickler kennenzulernen und Fragen zu diesem Kurs zu stellen.
 
-Um diesen Kurs zu beginnen, beginnen wir damit, ein besseres Verständnis dafür zu bekommen, was KI-Agenten sind und wie wir sie in den Anwendungen und Workflows einsetzen können, die wir erstellen.
+Um diesen Kurs zu beginnen, starten wir damit, ein besseres Verständnis dafür zu bekommen, was KI-Agenten sind und wie wir sie in den Anwendungen und Workflows, die wir bauen, einsetzen können.
 
 ## Introduction
 
 Diese Lektion behandelt:
 
 - Was sind KI-Agenten und welche verschiedenen Agententypen gibt es?
-- Für welche Anwendungsfälle sind KI-Agenten am besten geeignet und wie können sie uns helfen?
-- Was sind einige der grundlegenden Bausteine beim Entwurf agentischer Lösungen?
+- Für welche Anwendungsfälle eignen sich KI-Agenten am besten und wie können sie uns helfen?
+- Was sind einige der grundlegenden Bausteine bei der Gestaltung agentischer Lösungen?
 
 ## Learning Goals
 Nach Abschluss dieser Lektion sollten Sie in der Lage sein:
 
 - Konzepte von KI-Agenten zu verstehen und wie sie sich von anderen KI-Lösungen unterscheiden.
-- KI-Agenten effizient anzuwenden.
-- Agentische Lösungen produktiv für sowohl Benutzer als auch Kunden zu entwerfen.
+- KI-Agenten am effizientesten anzuwenden.
+- Agentische Lösungen produktiv sowohl für Nutzer als auch für Kunden zu entwerfen.
 
 ## Defining AI Agents and Types of AI Agents
 
-### What are AI Agents?
+### Was sind KI-Agenten?
 
-KI-Agenten sind **Systeme**, die **Große Sprachmodelle(LLMs)** dazu befähigen, **Handlungen auszuführen**, indem sie ihre Fähigkeiten erweitern und den LLMs **Zugriff auf Werkzeuge** und **Wissen** gewähren.
+KI-Agenten sind **Systeme**, die **Große Sprachmodelle(LLMs)** befähigen, **Aktionen auszuführen**, indem sie ihre Fähigkeiten erweitern und den LLMs **Zugriff auf Werkzeuge** und **Wissen** gewähren.
 
-Lassen Sie uns diese Definition in kleinere Teile zerlegen:
+Lassen Sie uns diese Definition in kleinere Teile aufschlüsseln:
 
-- **System** - Es ist wichtig, Agenten nicht nur als einzelne Komponente zu betrachten, sondern als ein System aus vielen Komponenten. Auf grundlegender Ebene sind die Komponenten eines KI-Agenten:
-  - **Environment** - Der definierte Raum, in dem der KI-Agent arbeitet. Zum Beispiel könnte bei einem Reisebuchungs-KI-Agenten die Umgebung das Reisebuchungssystem sein, das der KI-Agent zur Erledigung von Aufgaben verwendet.
-  - **Sensors** - Umgebungen enthalten Informationen und liefern Rückmeldungen. KI-Agenten verwenden Sensoren, um diese Informationen über den aktuellen Zustand der Umgebung zu sammeln und zu interpretieren. Im Beispiel des Reisebuchungs-Agenten kann das Buchungssystem Informationen wie Hotelverfügbarkeit oder Flugpreise bereitstellen.
-  - **Actuators** - Sobald der KI-Agent den aktuellen Zustand der Umgebung erhalten hat, bestimmt der Agent für die aktuelle Aufgabe, welche Aktion ausgeführt werden soll, um die Umgebung zu verändern. Für den Reisebuchungs-Agenten könnte dies beispielsweise das Buchen eines verfügbaren Zimmers für den Benutzer sein.
+- **System** - Es ist wichtig, Agenten nicht nur als eine einzelne Komponente zu betrachten, sondern als ein System aus vielen Komponenten. Auf grundlegender Ebene sind die Komponenten eines KI-Agenten:
+  - **Umgebung** - Der definierte Raum, in dem der KI-Agent tätig ist. Zum Beispiel könnte bei einem Reisebuchungs-KI-Agenten die Umgebung das Reisebuchungssystem sein, das der KI-Agent zur Erledigung von Aufgaben nutzt.
+  - **Sensoren** - Umgebungen haben Informationen und liefern Rückmeldungen. KI-Agenten verwenden Sensoren, um diese Informationen über den aktuellen Zustand der Umgebung zu sammeln und zu interpretieren. Im Beispiel des Reisebuchungs-Agenten kann das Buchungssystem Informationen wie Hotelverfügbarkeiten oder Flugpreise bereitstellen.
+  - **Aktuatoren** - Sobald der KI-Agent den aktuellen Zustand der Umgebung erhalten hat, bestimmt der Agent für die aktuelle Aufgabe, welche Aktion ausgeführt werden soll, um die Umgebung zu verändern. Für den Reisebuchungs-Agenten könnte das beispielsweise das Buchen eines verfügbaren Zimmers für den Benutzer sein.
 
 ![Was sind KI-Agenten?](../../../translated_images/de/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-**Große Sprachmodelle** - Das Konzept von Agenten existierte bereits vor der Entstehung von LLMs. Der Vorteil des Aufbaus von KI-Agenten mit LLMs liegt in deren Fähigkeit, menschliche Sprache und Daten zu interpretieren. Diese Fähigkeit ermöglicht es LLMs, Informationen aus der Umgebung zu interpretieren und einen Plan zu definieren, um die Umgebung zu verändern.
+**Große Sprachmodelle** - Das Konzept von Agenten existierte bereits vor der Entstehung von LLMs. Der Vorteil, KI-Agenten mit LLMs zu bauen, liegt in ihrer Fähigkeit, menschliche Sprache und Daten zu interpretieren. Diese Fähigkeit ermöglicht es LLMs, Informationen aus der Umgebung zu interpretieren und einen Plan zu erstellen, um die Umgebung zu verändern.
 
-**Handlungen ausführen** - Außerhalb von KI-Agentensystemen sind LLMs auf Situationen beschränkt, in denen die Aktion darin besteht, Inhalte oder Informationen basierend auf einer Eingabe des Benutzers zu generieren. Innerhalb von KI-Agentensystemen können LLMs Aufgaben erfüllen, indem sie die Anfrage des Benutzers interpretieren und die ihnen in ihrer Umgebung zur Verfügung stehenden Werkzeuge nutzen.
+**Aktionen ausführen** - Außerhalb von KI-Agenten-Systemen sind LLMs auf Situationen beschränkt, in denen die Aktion darin besteht, Inhalte oder Informationen basierend auf einer Benutzereingabe zu erzeugen. Innerhalb von KI-Agenten-Systemen können LLMs Aufgaben erfüllen, indem sie die Anfrage des Benutzers interpretieren und die in ihrer Umgebung verfügbaren Werkzeuge nutzen.
 
-**Zugriff auf Werkzeuge** - Welche Werkzeuge dem LLM zur Verfügung stehen, wird definiert durch 1) die Umgebung, in der es operiert, und 2) den Entwickler des KI-Agenten. In unserem Reiseagenten-Beispiel sind die Werkzeuge des Agenten durch die im Buchungssystem verfügbaren Operationen begrenzt, und/oder der Entwickler kann den Werkzeugzugriff des Agenten auf Flüge beschränken.
+**Zugriff auf Werkzeuge** - Welche Werkzeuge dem LLM zur Verfügung stehen, wird bestimmt durch 1) die Umgebung, in der es operiert, und 2) den Entwickler des KI-Agenten. In unserem Reiseagenten-Beispiel sind die Werkzeuge des Agenten durch die im Buchungssystem verfügbaren Operationen begrenzt, und/oder der Entwickler kann den Werkzeugzugriff des Agenten auf Flüge einschränken.
 
-**Memory+Knowledge** - Speicher kann kurzfristig im Kontext der Konversation zwischen dem Benutzer und dem Agenten sein. Langfristig, außerhalb der Informationen, die die Umgebung bereitstellt, können KI-Agenten auch Wissen aus anderen Systemen, Diensten, Werkzeugen und sogar anderen Agenten abrufen. Im Reiseagenten-Beispiel könnten diese Kenntnisse Informationen über die Reisevorlieben des Nutzers sein, die in einer Kundendatenbank gespeichert sind.
+**Speicher+Wissen** - Der Speicher kann kurzfristig im Kontext der Konversation zwischen dem Benutzer und dem Agenten sein. Langfristig, außerhalb der vom Umfeld bereitgestellten Informationen, können KI-Agenten auch Wissen aus anderen Systemen, Diensten, Werkzeugen und sogar anderen Agenten abrufen. Im Reiseagenten-Beispiel könnten diese Kenntnisse Informationen zu den Reisepräferenzen des Nutzers sein, die in einer Kundendatenbank gespeichert sind.
 
-### The different types of agents
+### Die verschiedenen Agententypen
 
-Now that we have a general definition of AI Agents, let us look at some specific agent types and how they would be applied to a travel booking AI agent.
+Nachdem wir eine allgemeine Definition von KI-Agenten haben, schauen wir uns einige spezifische Agententypen an und wie sie auf einen Reisebuchungs-KI-Agenten angewendet würden.
 
-| **Agent Type**                | **Description**                                                                                                                       | **Example**                                                                                                                                                                                                                   |
+| **Agententyp**                | **Beschreibung**                                                                                                                       | **Beispiel**                                                                                                                                                                                                                   |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Simple Reflex Agents**      | Perform immediate actions based on predefined rules.                                                                                  | Travel agent interprets the context of the email and forwards travel complaints to customer service.                                                                                                                          |
-| **Model-Based Reflex Agents** | Perform actions based on a model of the world and changes to that model.                                                              | Travel agent prioritizes routes with significant price changes based on access to historical pricing data.                                                                                                             |
-| **Goal-Based Agents**         | Create plans to achieve specific goals by interpreting the goal and determining actions to reach it.                                  | Travel agent books a journey by determining necessary travel arrangements (car, public transit, flights) from the current location to the destination.                                                                                |
-| **Utility-Based Agents**      | Consider preferences and weigh tradeoffs numerically to determine how to achieve goals.                                               | Travel agent maximizes utility by weighing convenience vs. cost when booking travel.                                                                                                                                          |
-| **Learning Agents**           | Improve over time by responding to feedback and adjusting actions accordingly.                                                        | Travel agent improves by using customer feedback from post-trip surveys to make adjustments to future bookings.                                                                                                               |
-| **Hierarchical Agents**       | Feature multiple agents in a tiered system, with higher-level agents breaking tasks into subtasks for lower-level agents to complete. | Travel agent cancels a trip by dividing the task into subtasks (for example, canceling specific bookings) and having lower-level agents complete them, reporting back to the higher-level agent.                                     |
-| **Multi-Agent Systems (MAS)** | Agents complete tasks independently, either cooperatively or competitively.                                                           | Cooperative: Multiple agents book specific travel services such as hotels, flights, and entertainment. Competitive: Multiple agents manage and compete over a shared hotel booking calendar to book customers into the hotel. |
+| **Einfache Reflexagenten**      | Führen unmittelbare Aktionen basierend auf vordefinierten Regeln aus.                                                                                  | Der Reiseagent interpretiert den Kontext einer E-Mail und leitet Reisebeschwerden an den Kundenservice weiter.                                                                                                                          |
+| **Modellbasierte Reflexagenten** | Führen Aktionen basierend auf einem Modell der Welt und Änderungen dieses Modells aus.                                                              | Der Reiseagent priorisiert Strecken mit erheblichen Preisänderungen basierend auf dem Zugriff auf historische Preisdaten.                                                                                                             |
+| **Zielorientierte Agenten**         | Erstellen Pläne zur Erreichung spezifischer Ziele, indem sie das Ziel interpretieren und Aktionen bestimmen, um es zu erreichen.                                  | Der Reiseagent bucht eine Reise, indem er die notwendigen Reisevorkehrungen (Auto, öffentliche Verkehrsmittel, Flüge) vom aktuellen Standort zum Ziel bestimmt.                                                                                |
+| **Nutzenbasierte Agenten**      | Berücksichtigen Präferenzen und wägen Kompromisse numerisch ab, um zu bestimmen, wie Ziele erreicht werden.                                               | Der Reiseagent maximiert den Nutzen, indem er Komfort gegenüber Kosten beim Buchen von Reisen abwägt.                                                                                                                                          |
+| **Lernende Agenten**           | Verbessern sich im Laufe der Zeit, indem sie auf Feedback reagieren und ihre Aktionen entsprechend anpassen.                                                        | Der Reiseagent verbessert sich durch Nutzung von Kundenfeedback aus Nachreiseumfragen, um zukünftige Buchungen anzupassen.                                                                                                               |
+| **Hierarchische Agenten**       | Bestehen aus mehreren Agenten in einem gestuften System, wobei übergeordnete Agenten Aufgaben in Teilaufgaben aufteilen, die von untergeordneten Agenten ausgeführt werden. | Der Reiseagent storniert eine Reise, indem er die Aufgabe in Teilschritte (z. B. Stornierung einzelner Buchungen) aufteilt und untergeordnete Agenten diese ausführen lässt, die dann an den übergeordneten Agenten Bericht erstatten.                                     |
+| **Multi-Agenten-Systeme (MAS)** | Agenten erledigen Aufgaben unabhängig, entweder kooperativ oder wettbewerbsorientiert.                                                           | Kooperativ: Mehrere Agenten buchen spezifische Reisedienstleistungen wie Hotels, Flüge und Unterhaltung. Kompetitiv: Mehrere Agenten verwalten und konkurrieren um einen gemeinsamen Hotelbuchungskalender, um Kunden im Hotel unterzubringen. |
 
-## When to Use AI Agents
+## Wann man KI-Agenten einsetzen sollte
 
-In the earlier section, we used the Travel Agent use-case to explain how the different types of agents can be used in different scenarios of travel booking. We will continue to use this application throughout the course.
+Im vorherigen Abschnitt haben wir das Reiseagenten-Anwendungsbeispiel verwendet, um zu erklären, wie die verschiedenen Agententypen in unterschiedlichen Szenarien der Reisebuchung eingesetzt werden können. Wir werden diese Anwendung im Verlauf des Kurses weiter verwenden.
 
-Let's look at the types of use cases that AI Agents are best used for:
+Schauen wir uns die Arten von Anwendungsfällen an, für die KI-Agenten am besten geeignet sind:
 
-![When to use AI Agents?](../../../translated_images/de/when-to-use-ai-agents.54becb3bed74a479.webp)
+![Wann KI-Agenten einsetzen?](../../../translated_images/de/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 
-- **Open-Ended Problems** - allowing the LLM to determine needed steps to complete a task because it can't always be hardcoded into a workflow.
-- **Multi-Step Processes** - tasks that require a level of complexity in which the AI Agent needs to use tools or information over multiple turns instead of single shot retrieval.  
-- **Improvement Over Time** - tasks where the agent can improve over time by receiving feedback from either its environment or users in order to provide better utility.
+- **Offene Probleme** - dem LLM erlauben, die erforderlichen Schritte zur Erledigung einer Aufgabe zu bestimmen, weil diese nicht immer fest in einen Workflow programmiert werden können.
+- **Mehrstufige Prozesse** - Aufgaben, die ein Maß an Komplexität erfordern, bei dem der KI-Agent Werkzeuge oder Informationen über mehrere Schritte hinweg anstelle einer einmaligen Abfrage nutzen muss.  
+- **Verbesserung über die Zeit** - Aufgaben, bei denen sich der Agent im Laufe der Zeit durch Feedback aus seiner Umgebung oder von Nutzern verbessern kann, um einen besseren Nutzen zu bieten.
 
-We cover more considerations of using AI Agents in the Building Trustworthy AI Agents lesson.
+Wir behandeln weitere Überlegungen zur Verwendung von KI-Agenten in der Lektion "Vertrauenswürdige KI-Agenten erstellen".
 
 ## Basics of Agentic Solutions
 
 ### Agent Development
 
-The first step in designing an AI Agent system is to define the tools, actions, and behaviors. In this course, we focus on using the **Azure AI Agent Service** to define our Agents. It offers features like:
+Der erste Schritt bei der Gestaltung eines KI-Agenten-Systems besteht darin, die Werkzeuge, Aktionen und Verhaltensweisen zu definieren. In diesem Kurs konzentrieren wir uns auf die Verwendung des **Azure AI Agent Service**, um unsere Agenten zu definieren. Er bietet Funktionen wie:
 
-- Selection of Open Models such as OpenAI, Mistral, and Llama
-- Use of Licensed Data through providers such as Tripadvisor
-- Use of standardized OpenAPI 3.0 tools
+- Auswahl offener Modelle wie OpenAI, Mistral und Llama
+- Nutzung lizenzierter Daten über Anbieter wie Tripadvisor
+- Verwendung standardisierter OpenAPI 3.0-Tools
 
 ### Agentic Patterns
 
-Communication with LLMs is through prompts. Given the semi-autonomous nature of AI Agents, it isn't always possible or required to manually reprompt the LLM after a change in the environment. We use **Agentic Patterns** that allow us to prompt the LLM over multiple steps in a more scalable way.
+Die Kommunikation mit LLMs erfolgt über Prompts. Angesichts der halbautonomen Natur von KI-Agenten ist es nicht immer möglich oder erforderlich, das LLM nach einer Änderung in der Umgebung manuell erneut zu befragen. Wir verwenden **agentische Muster**, die es uns ermöglichen, das LLM über mehrere Schritte auf skalierbarere Weise anzusprechen.
 
-This course is divided into some of the current popular Agentic patterns.
+Dieser Kurs ist in einige der derzeit populären agentischen Muster unterteilt.
 
 ### Agentic Frameworks
 
-Agentic Frameworks allow developers to implement agentic patterns through code. These frameworks offer templates, plugins, and tools for better AI Agent collaboration. These benefits provide abilities for better observability and troubleshooting of AI Agent systems.
+Agentische Frameworks ermöglichen Entwicklern, agentische Muster durch Code zu implementieren. Diese Frameworks bieten Vorlagen, Plugins und Werkzeuge für eine bessere Zusammenarbeit von KI-Agenten. Diese Vorteile schaffen Möglichkeiten für bessere Beobachtbarkeit und Fehlerbehebung von KI-Agentensystemen.
 
-In this course, we will explore the research-driven AutoGen framework and the production-ready Agent framework from Semantic Kernel.
+In diesem Kurs werden wir das Microsoft Agent Framework (MAF) zur Erstellung produktionsreifer KI-Agenten erkunden.
 
 ## Sample Codes
 
-- Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
-- .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
+- Python: [Agenten-Framework](./code_samples/01-python-agent-framework.ipynb)
+- .NET: [Agenten-Framework](./code_samples/01-dotnet-agent-framework.md)
 
 ## Got More Questions about AI Agents?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Treten Sie dem [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) bei, um andere Lernende zu treffen, an Sprechstunden teilzunehmen und Antworten auf Ihre Fragen zu KI-Agenten zu erhalten.
 
 ## Previous Lesson
 
@@ -115,11 +115,11 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet w
 
 ## Next Lesson
 
-[Erkundung agentischer Frameworks](../02-explore-agentic-frameworks/README.md)
+[Agentische Frameworks erkunden](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Haftungsausschluss:
-Dieses Dokument wurde mit dem KI-Übersetzungsdienst Co-op Translator (https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ausgangssprache ist als maßgebliche Quelle zu betrachten. Für kritische Informationen empfehlen wir eine professionelle, menschliche Übersetzung. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die aus der Verwendung dieser Übersetzung entstehen.
+**Haftungsausschluss**:
+Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ursprungssprache ist als maßgebliche Quelle zu betrachten. Für kritische Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir haften nicht für Missverständnisse oder Fehlinterpretationen, die sich aus der Verwendung dieser Übersetzung ergeben.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
