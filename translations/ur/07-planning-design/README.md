@@ -1,55 +1,55 @@
-[![منصوبہ بندی ڈیزائن پیٹرن](../../../translated_images/ur/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![پلاننگ ڈیزائن پیٹرن](../../../translated_images/ur/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(ویڈیو دیکھنے کے لیے اوپر موجود تصویر پر کلک کریں)_
+> _(اوپر تصویر پر کلک کریں تاکہ اس سبق کی ویڈیو دیکھیں)_
 
-# منصوبہ بندی ڈیزائن
+# پلاننگ ڈیزائن
 
 ## تعارف
 
-یہ سبق درج ذیل موضوعات کا احاطہ کرے گا:
+یہ سبق درج ذیل موضوعات کا احاطہ کرے گا
 
-* ایک واضح مجموعی مقصد کی تعریف اور پیچیدہ کام کو قابلِ انتظام حصّوں میں تقسیم کرنا۔
-* مزید قابلِ اعتماد اور مشین-قابلِ مطالعہ جوابات کے لیے ساختہ آؤٹ پٹ کا استعمال۔
-* ڈائنامک کاموں اور غیر متوقع ان پٹس کو سنبھالنے کے لیے ایونٹ پر مبنی طریقہ کار کا اطلاق۔
+* ایک واضح مجموعی ہدف کی تعریف اور ایک پیچیدہ کام کو قابلِ منظم حصوں میں تقسیم کرنا۔
+* زیادہ قابلِ بھروسہ اور مشین-قابلِ مطالعہ جوابات کے لئے منظم آؤٹ پٹ کا فائدہ اٹھانا۔
+* متحرک کاموں اور غیر متوقع ان پٹس کو ہینڈل کرنے کے لیے ایونٹ-ڈرائیون طریقہ کار کا اطلاق۔
 
-## سیکھنے کے اہداف
+## سیکھنے کے مقاصد
 
-اس سبق کو مکمل کرنے کے بعد، آپ درج ذیل باتوں کا ادراک حاصل کریں گے:
+اس سبق کو مکمل کرنے کے بعد، آپ درج ذیل چیزوں کی سمجھ رکھتے ہوں گے:
 
-* AI ایجنٹ کے لیے ایک مجموعی مقصد کی شناخت اور تعین کریں، تاکہ اسے واضح طور پر معلوم ہو کہ کیا حاصل کرنا ہے۔
-* پیچیدہ کام کو قابلِ انتظام ذیلی کاموں میں تقسیم کریں اور انہیں منطقی ترتیب میں منظم کریں۔
-* ایجنٹس کو مناسب ٹولز (مثلاً تلاش کے ٹولز یا ڈیٹا اینالیٹکس ٹولز) سے لیس کریں، فیصلہ کریں کہ کب اور کیسے استعمال کیے جائیں، اور پیدا ہونے والی غیر متوقع صورتحال کو سنبھالیں۔
-* ذیلی کام کے نتائج کا جائزہ لیں، کارکردگی کی پیمائش کریں، اور حتمی نتیجہ بہتر بنانے کے لیے کارروائیوں میں تکرار کریں۔
+* AI ایجنٹ کے لیے ایک مجموعی ہدف کی شناخت اور تعین کرنا، تاکہ وہ واضح طور پر جان سکے کہ کیا حاصل کرنا ہے۔
+* ایک پیچیدہ کام کو قابلِ انتظام ذیلی کاموں میں توڑنا اور انہیں منطقی ترتیب میں منظم کرنا۔
+* ایجنٹس کو مناسب ٹولز (مثلاً سرچ ٹولز یا ڈیٹا اینالیٹکس ٹولز) سے لیس کرنا، یہ فیصلہ کرنا کہ کب اور کیسے استعمال کریں، اور جو غیر متوقع حالات پیش آئیں ان کو ہینڈل کرنا۔
+* ذیلی کاموں کے نتائج کا جائزہ لینا، کارکردگی کو ناپنا، اور حتمی آؤٹ پٹ کو بہتر بنانے کے لیے اقدامات پر نظرثانی کرنا۔
 
-## مجموعی مقصد کی تعریف اور کام کو تقسیم کرنا
+## مجموعی ہدف کی تعریف اور کام کو ٹکڑوں میں بانٹنا
 
-![مقاصد اور کاموں کی تعریف](../../../translated_images/ur/defining-goals-tasks.d70439e19e37c47a.webp)
+![اہداف اور کاموں کی تعریف](../../../translated_images/ur/defining-goals-tasks.d70439e19e37c47a.webp)
 
-زیادہ تر حقیقی دنیا کے کام ایک قدم میں حل کرنے کے لیے بہت پیچیدہ ہوتے ہیں۔ ایک AI ایجنٹ کو اپنی منصوبہ بندی اور اقدامات کی رہنمائی کے لیے ایک مختصر مقصد درکار ہوتا ہے۔ مثال کے طور پر، اس مقصد پر غور کریں:
+زیادہ تر حقیقی دنیا کے کام ایک قدم میں نمٹانے کے لیے بہت پیچیدہ ہوتے ہیں۔ ایک AI ایجنٹ کو اپنے منصوبہ بندی اور اقدامات کی رہنمائی کے لیے ایک جامع مقصد درکار ہوتا ہے۔ مثال کے طور پر، درج ذیل ہدف پر غور کریں:
 
-    "3 دن کا سفرنامہ تیار کریں۔"
+    "3 دن کا سفرنامہ تیار کریں."
 
-اگرچہ اسے بیان کرنا آسان ہے، پھر بھی اسے مزید وضاحت کی ضرورت ہے۔ جتنا واضح مقصد ہوگا، اتنے ہی بہتر طور پر ایجنٹ (اور کوئی بھی انسانی معاونین) درست نتیجہ حاصل کرنے پر توجہ مرکوز کر سکتے ہیں، مثال کے طور پر ایک جامع سفرنامہ تیار کرنا جس میں پرواز کے اختیارات، ہوٹل کی تجاویز، اور سرگرمیوں کی سفارشات شامل ہوں۔
+اگرچہ یہ بیان کرنا آسان ہے، پھر بھی اسے بہتر بنانے کی ضرورت ہے۔ جتنا واضح ہدف ہوگا، اتنا ہی بہتر ایجنٹ (اور کوئی بھی انسانی معاون) درست نتیجہ حاصل کرنے پر توجہ مرکوز کر سکتا ہے، جیسے کہ پرواز کے اختیارات، ہوٹل کی سفارشات، اور سرگرمیوں کی تجاویز کے ساتھ ایک جامع سفرنامہ تیار کرنا۔
 
-### ذیلی کاموں کی تقسیم
+### کاموں کی تقسیم
 
-بڑے یا پیچیدہ کام چھوٹے، مقصد-مرکوز ذیلی کاموں میں تقسیم ہونے پر زیادہ قابلِ انتظام بن جاتے ہیں۔
-سفرنامے کی مثال کے لیے، آپ مقصد کو درج ذیل ذیلی کاموں میں تقسیم کر سکتے ہیں:
+بڑے یا پیچیدہ کام چھوٹے، ہدف-مرکوز ذیلی کاموں میں تقسیم کرنے پر زیادہ قابلِ انتظام ہو جاتے ہیں۔
+سفرنامہ کی مثال کے لیے، آپ ہدف کو درج ذیل ذیلی کاموں میں تقسیم کر سکتے ہیں:
 
 * پرواز کی بکنگ
 * ہوٹل کی بکنگ
-* کار کرایہ پر لینا
-* شخصی ترتیب
+* کار کرایہ
+* شخصی سازی
 
-ہر ذیلی کام کو پھر مخصوص ایجنٹس یا عمل کے ذریعے نمٹایا جا سکتا ہے۔ ایک ایجنٹ بہترین پرواز ڈیلز تلاش کرنے میں مہارت رکھ سکتا ہے، دوسرا ہوٹل کی بکنگ پر توجہ مرکوز کر سکتا ہے، وغیرہ۔ ایک ہم آہنگ کرنے والا یا "ڈاؤن اسٹریم" ایجنٹ پھر ان نتائج کو ایک مربوط سفرنامے میں مرتب کر کے آخری صارف کو پیش کر سکتا ہے۔
+ہر ذیلی کام کو پھر مخصوص ایجنٹس یا عمل کے ذریعے نمٹایا جا سکتا ہے۔ ایک ایجنٹ بہترین پرواز کے سودے تلاش کرنے میں مہارت رکھ سکتا ہے، دوسرا ہوٹل بکنگ پر توجہ مرکوز کرتا ہے، وغیرہ۔ ایک کوآرڈینیٹنگ یا "ڈاؤن اسٹریم" ایجنٹ پھر ان نتائج کو یکجا کر کے ایک مربوط سفرنامہ صارف تک پہنچا سکتا ہے۔
 
-یہ ماڈیولر طریقہ کار بتدریج بہتری کی اجازت بھی دیتا ہے۔ مثال کے طور پر، آپ خوراک کی تجاویز یا مقامی سرگرمیوں کی تجاویز کے لیے مخصوص ایجنٹس شامل کر سکتے ہیں اور وقت کے ساتھ سفرنامے کو بہتر بنا سکتے ہیں۔
+یہ ماڈیولر طریقہ کار بتدریج بہتریوں کی بھی اجازت دیتا ہے۔ مثال کے طور پر، آپ فوڈ سفارشات یا مقامی سرگرمیوں کی تجاویز کے لیے مخصوص ایجنٹس شامل کر سکتے ہیں اور وقت کے ساتھ سفرنامہ کو بہتر بنا سکتے ہیں۔
 
-### ساختہ آؤٹ پٹ
+### Structured output
 
-بڑے لینگویج ماڈلز (LLMs) ساختہ آؤٹ پٹ (مثلاً JSON) تیار کر سکتے ہیں جو ڈاؤن اسٹریم ایجنٹس یا سروسز کے لیے پارس اور پروسیس کرنا آسان بناتا ہے۔ یہ خاص طور پر کثیر-ایجنٹ سیاق و سباق میں مفید ہے، جہاں ہم منصوبہ بندی کے آؤٹ پٹ موصول ہونے کے بعد ان کاموں پر عملدرآمد کر سکتے ہیں۔ ایک مختصر جائزے کے لیے اس <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">بلاگ پوسٹ</a> کا حوالہ لیں۔
+Large Language Models (LLMs) ساختہ آؤٹ پٹ (مثلاً JSON) تیار کر سکتے ہیں جو ڈاؤن اسٹریم ایجنٹس یا سروسز کے لیے پارس اور پراسیس کرنے میں آسان ہوتا ہے۔ یہ خاص طور پر کثیر-ایجنٹ منظرنامے میں مفید ہے، جہاں ہم پلاننگ آؤٹ پٹ موصول ہونے کے بعد ان کاموں پر عمل کر سکتے ہیں۔
 
-درج ذیل Python کوڈ کا ٹکڑا ایک سادہ پلاننگ ایجنٹ دکھاتا ہے جو ایک مقصد کو ذیلی کاموں میں تقسیم کرتا ہے اور ایک ساختہ منصوبہ تیار کرتا ہے:
+مندرجہ ذیل Python کا ٹکڑا ایک سادہ پلاننگ ایجنٹ دکھاتا ہے جو مقصد کو ذیلی کاموں میں تقسیم کرتا ہے اور ایک ساختہ منصوبہ تیار کرتا ہے:
 
 ```python
 from pydantic import BaseModel
@@ -59,9 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -72,35 +71,22 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# سفر کے ذیلی کام کا ماڈل
+# سفر کے ضمنی کام کا ماڈل
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # ہم یہ کام ایجنٹ کو تفویض کرنا چاہتے ہیں
+    assigned_agent: AgentEnum  # ہم چاہتے ہیں کہ یہ کام ایجنٹ کو تفویض کیا جائے
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # ماڈل کے ساتھ توثیق کرنے کے لیے آپ کو اپنی GitHub سیٹنگز میں ایک ذاتی رسائی ٹوکن (PAT) تیار کرنا ہوگا۔
-    # اپنا PAT ٹوکن بنانے کے لیے یہاں دی گئی ہدایات پر عمل کریں: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 # صارف کا پیغام متعین کریں
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -111,44 +97,27 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # لوڈ کرنے سے پہلے اس بات کو یقینی بنائیں کہ جواب کا مواد ایک درست JSON سٹرنگ ہے
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# if response_content is None:
-#     raise ValueError("Response content is not a valid JSON string")
-
-# # JSON کے طور پر لوڈ کرنے کے بعد جواب کے مواد کو پرنٹ کریں
-# pprint(json.loads(response_content))
-
-# جواب کے مواد کو MathReasoning ماڈل کے ساتھ تصدیق کریں
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### ملٹی-ایجنٹ آرکسٹریشن کے ساتھ پلاننگ ایجنٹ
+### پلاننگ ایجنٹ بمعہ ملٹی-ایجنٹ آرکسٹریکشن
 
-اس مثال میں، ایک سیمانٹک روٹر ایجنٹ صارف کی درخواست وصول کرتا ہے (مثلاً، "مجھے اپنی سفر کے لیے ہوٹل پلان چاہیے۔").
+اس مثال میں، ایک Semantic Router Agent ایک صارف کی درخواست وصول کرتا ہے (مثلاً، "I need a hotel plan for my trip.")۔
 
 پلانر پھر:
 
-* ہوٹل پلان وصول کرتا ہے: پلانر صارف کا پیغام لیتا ہے اور ایک سسٹم پرامپٹ کی بنیاد پر (جس میں دستیاب ایجنٹس کی تفصیلات شامل ہیں) ایک ساختہ سفری منصوبہ تیار کرتا ہے۔
-* ایجنٹس اور ان کے ٹولز کی فہرست بناتا ہے: ایجنٹ رجسٹری میں ایجنٹس کی فہرست ہوتی ہے (مثلاً پرواز، ہوٹل، کار کرایہ، اور سرگرمیوں کے لیے) اور وہ کون سے فنکشنز یا ٹولز فراہم کرتے ہیں۔
-* منصوبہ متعلقہ ایجنٹس تک بھیجتا ہے: ذیلی کاموں کی تعداد کے مطابق، پلانر پیغام کو یا تو براہِ راست ایک مخصوص ایجنٹ کو بھیجتا ہے (ایک ہی کام کے منظرنامے کے لیے) یا کثیر-ایجنٹ تعاون کے لیے گروپ چیٹ مینیجر کے ذریعے ہم آہنگی کرتا ہے۔
+* ہوٹل پلان وصول کرتا ہے: پلانر صارف کا پیغام لیتا ہے اور سسٹم پرامپٹ (جس میں دستیاب ایجنٹس کی تفصیلات شامل ہیں) کی بنیاد پر ایک ساختہ سفر منصوبہ تیار کرتا ہے۔
+* ایجنٹس اور ان کے ٹولز کی فہرست بناتا ہے: ایجنٹ رجسٹری میں ایجنٹس کی فہرست ہوتی ہے (مثلاً پرواز، ہوٹل، کار کرایہ، اور سرگرمیاں) ساتھ میں وہ فنکشنز یا ٹولز جو وہ پیش کرتے ہیں۔
+* منصوبہ متعلقہ ایجنٹس کو روٹ کرتا ہے: ذیلی کاموں کی تعداد کے لحاظ سے، پلانر یا تو پیغام براہِ راست مخصوص ایجنٹ کو بھیجتا ہے (سنگل-ٹاسک منظرناموں کے لیے) یا ملٹی-ایجنٹ تعاون کے لیے گروپ چیٹ مینیجر کے ذریعے ہم آہنگی کرتا ہے۔
 * نتیجہ کا خلاصہ کرتا ہے: آخر میں، پلانر وضاحت کے لیے تیار کردہ منصوبے کا خلاصہ کرتا ہے۔
-درج ذیل Python کوڈ نمونہ ان مراحل کی عکاسی کرتا ہے:
+مندرجہ ذیل Python کوڈ کا نمونہ ان مراحل کی وضاحت کرتا ہے:
 
 ```python
 
@@ -166,11 +135,11 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# سفر کا ذیلی کام ماڈل
+# سفر ذیلی کام ماڈل
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # ہم چاہتے ہیں کہ یہ کام ایجنٹ کو تفویض کیا جائے
+    assigned_agent: AgentEnum # ہم اس کام کو ایجنٹ کو تفویض کرنا چاہتے ہیں
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -180,25 +149,18 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# ٹائپ چیک کیے گئے ماحولیاتی متغیرات کے ساتھ کلائنٹ بنائیں
+# کلائنٹ بنائیں
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 from pprint import pprint
 
 # صارف کا پیغام متعین کریں
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +168,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# لوڈ کرنے سے پہلے جواب کے مواد کو ایک درست JSON سٹرنگ ہونا یقینی بنائیں
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
-# JSON کے طور پر لوڈ کرنے کے بعد جواب کے مواد کو پرنٹ کریں
+# جوابی مواد کو JSON کے طور پر لوڈ کرنے کے بعد پرنٹ کریں
 
 pprint(json.loads(response_content))
 ```
 
-جو کچھ ذیل میں ہے وہ پچھلے کوڈ کا آؤٹ پٹ ہے اور آپ اس ساختہ آؤٹ پٹ کو `assigned_agent` کی جانب بھیجنے اور اختتامی صارف کے لیے سفرنامہ کا خلاصہ تیار کرنے کے لیے استعمال کر سکتے ہیں۔
+What follows is the output from the previous code and you can then use this structured output to route to `assigned_agent` and summarize the travel plan to the end user.
 
 ```json
 {
@@ -254,21 +212,22 @@ pprint(json.loads(response_content))
 }
 ```
 
-پچھلے کوڈ نمونے کے ساتھ ایک مثال نوٹ بک [یہاں](07-autogen.ipynb) دستیاب ہے۔
+An example notebook with the previous code sample is available [یہاں](07-python-agent-framework.ipynb).
 
 ### تکراری منصوبہ بندی
 
-کچھ کاموں کے لیے باہمی رد و بدل یا دوبارہ منصوبہ بندی کی ضرورت ہوتی ہے، جہاں ایک ذیلی کام کا نتیجہ اگلے کو متاثر کرتا ہے۔ مثال کے طور پر، اگر ایجنٹ پروازیں بک کرتے ہوئے کوئی غیر متوقع ڈیٹا فارمیٹ دریافت کرتا ہے، تو ہوٹل بکنگ پر جانے سے پہلے اسے اپنی حکمتِ عملی میں تبدیلی کرنے کی ضرورت پڑ سکتی ہے۔
+کچھ کام بیک اینڈ فورتھ یا دوبارہ منصوبہ بندی کی ضرورت رکھتے ہیں، جہاں ایک ذیلی کام کا نتیجہ اگلے پر اثر انداز ہوتا ہے۔ مثال کے طور پر، اگر ایجنٹ پروازیں بک کرنے کے دوران غیر متوقع ڈیٹا فارمیٹ دریافت کرتا ہے، تو اسے ہوٹل بکیگز پر جانے سے پہلے اپنی حکمتِ عملی کو اپنانے کی ضرورت پڑ سکتی ہے۔
 
-مزید برآں، صارف کی رائے (مثلاً کوئی انسان یہ فیصلہ کرے کہ وہ جلدی والی پرواز کو ترجیح دیتے ہیں) جزوی دوبارہ منصوبہ بندی کو متحرک کر سکتی ہے۔ یہ متحرک، تکراری طریقہ کار یقینی بناتا ہے کہ حتمی حل حقیقی دنیا کی حدود اور ارتقائی صارف ترجیحات کے مطابق ہو۔
+مزید برآں، صارف کی رائے (مثلاً ایک انسان کا فیصلہ کہ وہ پہلے والی پرواز کو ترجیح دیتا ہے) جزوی دوبارہ منصوبہ بندی کو متحرک کر سکتی ہے۔ یہ متحرک، تکراری طریقہ کار یقینی بناتا ہے کہ حتمی حل حقیقی دنیا کی پابندیوں اور بدلتی ہوئی صارف ترجیحات کے مطابق ہو۔
 
-مثلاً نمونہ کوڈ
+مثال کے طور پر نمونہ کوڈ
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. پچھلے کوڈ کی طرح ہی اور صارف کی تاریخ، موجودہ منصوبہ آگے بھیجیں
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
+#.. پچھلے کوڈ کی طرح ہی اور صارف کی ہسٹری اور موجودہ منصوبہ منتقل کریں
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,38 +235,44 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
 # .. دوبارہ منصوبہ بندی کریں اور کام متعلقہ ایجنٹس کو بھیجیں
 ```
 
-مزید جامع منصوبہ بندی کے لیے پیچیدہ کام حل کرنے کے لیے Magentic One کی <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">بلاگ پوسٹ</a> دیکھیں۔
+مزید جامع منصوبہ بندی کے لیے پیچیدہ کام حل کرنے کے لیے Magnetic One کی <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">بلاگ پوسٹ</a> دیکھیں۔
 
 ## خلاصہ
 
-اس مضمون میں ہم نے ایک ایسے پلانر کی مثال دیکھی ہے جو متعین شدہ دستیاب ایجنٹس کو متحرک طور پر منتخب کر سکتا ہے۔ پلانر کا آؤٹ پٹ کاموں کو تقسیم کرتا ہے اور ایجنٹس کو اسائن کرتا ہے تاکہ وہ عملدرآمد کیے جا سکیں۔ یہ فرض کیا جاتا ہے کہ ایجنٹس کو وہ فنکشنز/ٹولز دستیاب ہیں جو کام انجام دینے کے لیے درکار ہیں۔ ایجنٹس کے علاوہ آپ مزید تخصیص کے لیے عکاسی، خلاصہ ساز، اور راؤنڈ رابن چیٹ جیسے دیگر پیٹرنز بھی شامل کر سکتے ہیں۔
+اس مضمون میں ہم نے ایک ایسے پلانر کی مثال دیکھی ہے جو متحرک طور پر دستیاب درج شدہ ایجنٹس کا انتخاب کر سکتا ہے۔ پلانر کا آؤٹ پٹ کاموں کو تقسیم کرتا ہے اور ایجنٹس کو تفویض کرتا ہے تاکہ وہ انجام دیے جا سکیں۔ فرض کیا جاتا ہے کہ ایجنٹس کے پاس وہ فنکشنز/ٹولز تک رسائی ہے جو کام انجام دینے کے لیے ضروری ہیں۔ ایجنٹس کے علاوہ آپ مزید حسبِ ضرورت نمونوں کو شامل کر سکتے ہیں جیسے reflection، summarizer، اور round robin chat۔
 
 ## اضافی وسائل
 
-AutoGen Magentic One - ایک جنرلِسٹ ملٹی-ایجنٹ سسٹم جو پیچیدہ کام حل کرنے کے لیے ہے اور متعدد چیلنجنگ ایجنٹک بینچ مارکس پر متاثر کن نتائج حاصل کر چکا ہے۔ حوالہ: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. اس امپلیمنٹیشن میں آرکسٹریٹر مخصوص کام کا منصوبہ بناتا ہے اور ان کاموں کو دستیاب ایجنٹس کو تفویض کرتا ہے۔ منصوبہ بندی کے علاوہ آرکسٹریٹر ایک ٹریکنگ میکانزم بھی استعمال کرتا ہے تاکہ کام کی پیش رفت کی نگرانی کی جا سکے اور ضرورت پڑنے پر دوبارہ منصوبہ بندی کی جا سکے۔
+Magentic One - A Generalist multi-agent system for solving complex tasks اور اس نے متعدد چیلنجنگ ایجینٹک بینچ مارکس پر متاثر کن نتائج حاصل کیے ہیں۔ حوالہ: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>۔ اس عمل کاری میں آرکسٹریٹر مخصوص منصوبے بناتا ہے اور ان کاموں کو دستیاب ایجنٹس کو سونپ دیتا ہے۔ منصوبہ بندی کے علاوہ آرکسٹریٹر ایک ٹریکنگ میکنزم بھی استعمال کرتا ہے تاکہ کام کی پیش رفت کی نگرانی کی جا سکے اور ضرورت کے مطابق دوبارہ منصوبہ بندی کی جا سکے۔
 
-### پلاننگ ڈیزائن پیٹرن کے بارے میں مزید سوالات؟
+### کیا آپ پلاننگ ڈیزائن پیٹرن کے بارے میں مزید سوالات رکھتے ہیں؟
 
-دیگر سیکھنے والوں سے ملنے، آفس آورز میں شرکت کرنے اور اپنے AI ایجنٹس کے سوالات کے جوابات حاصل کرنے کے لیے [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) میں شامل ہوں۔
+Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## پچھلا سبق
 
-[قابلِ اعتماد AI ایجنٹس بنانا](../06-building-trustworthy-agents/README.md)
+[قابل اعتماد AI ایجنٹس کی تعمیر](../06-building-trustworthy-agents/README.md)
 
 ## اگلا سبق
 
-[کثیر-ایجنٹ ڈیزائن پیٹرن](../08-multi-agent/README.md)
+[کثیر ایجنٹ ڈیزائن پیٹرن](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-دستبرداری:
-یہ دستاویز AI ترجمہ سروس Co-op Translator (https://github.com/Azure/co-op-translator) کے ذریعے ترجمہ کی گئی ہے۔ اگرچہ ہم درستگی کے لیے کوشاں ہیں، براہِ کرم نوٹ کریں کہ خودکار تراجم میں غلطیاں یا عدم مطابقت ہو سکتی ہے۔ اصل دستاویز اپنی مادری زبان میں مستند ماخذ سمجھی جائے گی۔ اہم معلومات کے لیے پیشہ ورانہ انسانی ترجمہ کی سفارش کی جاتی ہے۔ ہم اس ترجمے کے استعمال سے پیدا ہونے والی کسی بھی غلط فہمی یا غلط تعبیر کے لیے ذمہ دار نہیں ہیں۔
+ردِ ذمہ داری:
+
+یہ دستاویز مصنوعی ذہانت کی ترجمہ سروس Co‑op Translator (https://github.com/Azure/co-op-translator) کے ذریعے ترجمہ کی گئی ہے۔ اگرچہ ہم درستگی کے لیے کوشاں ہیں، براہِ کرم خیال رکھیں کہ خودکار تراجم میں غلطیاں یا غیر درستیاں ہو سکتی ہیں۔ اصل دستاویز کو اس کی مقامی زبان میں ہی معتبر ماخذ سمجھا جائے۔ اہم معلومات کے لیے پیشہ ور انسانی مترجم سے ترجمہ کروانا تجویز کیا جاتا ہے۔ اس ترجمے کے استعمال سے پیدا ہونے والی کسی بھی غلط فہمی یا غلط تعبیر کے لیے ہم ذمہ دار نہیں ہوں گے۔
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
