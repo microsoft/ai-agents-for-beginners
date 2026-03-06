@@ -1,55 +1,55 @@
-[![Vzorec načrtovanja](../../../translated_images/sl/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Načrtovalni vzorec](../../../translated_images/sl/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(Kliknite zgornjo sliko za ogled videoposnetka te lekcije)_
+> _(Kliknite na zgornjo sliko za ogled videa te lekcije)_
 
-# Načrtovanje
+# Načrtovanje zasnove
 
 ## Uvod
 
-V tej lekciji bomo obravnavali
+Ta lekcija bo zajemala
 
-* Določitev jasnega splošnega cilja in razčlenitev zapletene naloge na obvladljive naloge.
-* Uporabo strukturiranega izhoda za bolj zanesljive in strojno berljive odgovore.
-* Uporabo dogodkovno usmerjenega pristopa za obravnavo dinamičnih nalog in nepričakovanih vhodov.
+* Določitev jasnega splošnega cilja in razčlenitev zahtevne naloge na obvladljive podnaloge.
+* Izrabo strukturiranega izhoda za bolj zanesljive in z računalnikom berljive odgovore.
+* Uporabo pristopa, ki temelji na dogodkih za obravnavo dinamičnih nalog in nepričakovanih vhodov.
 
 ## Cilji učenja
 
 Po zaključku te lekcije boste razumeli:
 
-* Kako prepoznati in določiti splošni cilj za AI agenta, da jasno ve, kaj je treba doseči.
-* Kako razčleniti zapleteno nalogo na obvladljive podnaloge in jih organizirati v logičen zaporedje.
-* Kako opremiti agente z ustreznimi orodji (npr. orodja za iskanje ali orodja za analitiko podatkov), odločiti, kdaj in kako jih uporabljati ter obravnavati nepričakovane situacije.
-* Kako oceniti rezultate podnalog, meriti uspešnost in iterirati ukrepe za izboljšanje končnega izhoda.
+* Kako prepoznati in določiti splošni cilj za AI agenta, da bo jasno vedel, kaj je treba doseči.
+* Kako razčleniti zahtevno nalogo na obvladljive podnaloge in jih organizirati v logični zaporedju.
+* Kako opremiti agente z ustreznimi orodji (npr. iskalna orodja ali orodja za analitiko podatkov), kdaj in kako jih uporabljati ter kako se spopadati z nepričakovanimi situacijami.
+* Kako oceniti rezultate podnalog, meriti učinkovitost in ponavljati dejavnosti za izboljšanje končnega izhoda.
 
 ## Določitev splošnega cilja in razčlenitev naloge
 
 ![Določitev ciljev in nalog](../../../translated_images/sl/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Večina resničnih nalog je preveč zapletena, da bi jih rešili v enem koraku. AI agent potrebuje jedrnat cilj, ki vodi njegovo načrtovanje in ukrepe. Na primer, razmislimo o cilju:
+Večina nalog v resničnem svetu je preveč zapletena, da bi jih rešili v enem samem koraku. AI agent potrebuje jedrnat cilj, ki ga vodi pri načrtovanju in dejanjih. Na primer, razmislite o cilju:
 
-    "Ustvari 3-dnevni potovalni načrt."
+    "Ustvari tridnevni potovalni načrt."
 
-Čeprav je enostaven za zapis, še vedno potrebuje izpopolnitev. Bolj jasen kot je cilj, bolj se lahko agent (in morebitni človeški sodelavci) osredotoči na doseganje pravega rezultata, na primer na ustvarjanje celovitega načrta potovanja z možnostmi letov, priporočili hotelov in predlogi aktivnosti.
+Čeprav je enostaven za izražanje, ga je še vedno treba natančneje opredeliti. Bolj ko je cilj jasen, bolje se agent (in morebitni človeški sodelavci) lahko osredotoči na dosego pravilnega izida, kot je ustvarjanje celovitega načrta z možnostmi letov, priporočili za hotele in predlogi aktivnosti.
 
 ### Razčlenitev naloge
 
-Velike ali zapletene naloge postanejo bolj obvladljive, če jih razdelimo na manjše, ciljno usmerjene podnaloge.
+Velike ali zapletene naloge postanejo obvladljivejše, ko jih razdelimo na manjše, ciljno usmerjene podnaloge.
 Za primer potovalnega načrta bi lahko cilj razčlenili na:
 
-* Rezervacija letov
+* Rezervacija leta
 * Rezervacija hotela
 * Najem avtomobila
-* Personalizacija
+* Prilagajanje
 
-Vsako podnalogo lahko nato obvladujejo namenski agenti ali procesi. Eden agent je lahko specializiran za iskanje najboljših ponudb letov, drugi se osredotoča na rezervacije hotelov in tako dalje. Koordinacijski ali "nadaljnji" agent pa lahko združi te rezultate v enoten načrt za končnega uporabnika.
+Vsako podnalogo lahko nato obravnavajo namenski agenti ali procesi. Eden od agentov se morda specializira za iskanje najboljših ponudb letov, drugi se osredotoča na rezervacije hotelov itd. Koordinacijski ali »spodnji« agent lahko nato združi te rezultate v enoten načrt za končnega uporabnika.
 
-Ta modularni pristop omogoča tudi postopne izboljšave. Na primer, lahko dodate specializirane agente za Priporočila jedi ali Predloge lokalnih aktivnosti in skozi čas izpopolnite načrt.
+Ta modularni pristop omogoča tudi postopne izboljšave. Na primer, lahko dodate specializirane agente za priporočila hrane ali predloge lokalnih aktivnosti ter skozi čas natančneje prilagajate načrt.
 
 ### Strukturiran izhod
 
-Veliki jezikovni modeli (LLM) lahko ustvarjajo strukturiran izhod (npr. JSON), ki ga je lažje analizirati in obdelati posrednim agentom ali storitvam. To je še posebej koristno v kontekstu večagentnih sistemov, kjer lahko ukrepamo na teh nalogah po prejetju izhoda načrtovanja. Za hitri pregled glejte ta <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">blog</a>.
+Veliki jezikovni modeli (LLM) lahko generirajo strukturiran izhod (npr. JSON), ki ga je lažje razbrati in obdelati za spodnje agente ali storitve. To je še posebej uporabno v kontekstu več agentov, kjer lahko izvajamo te naloge po prejemu načrta.
 
-Naslednji Python prikaz prikazuje preprost načrtovalni agent, ki razčleni cilj na podnaloge in ustvari strukturiran načrt:
+Naslednji fragment kode v Pythonu prikazuje preprost načrtovalni agent, ki razčleni cilj v podnaloge in generira strukturiran načrt:
 
 ```python
 from pydantic import BaseModel
@@ -59,9 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -72,7 +71,7 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Model potovalne podnaloge
+# Model podnaloge za potovanje
 class TravelSubTask(BaseModel):
     task_details: str
     assigned_agent: AgentEnum  # želimo dodeliti nalogo agentu
@@ -82,25 +81,12 @@ class TravelPlan(BaseModel):
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # Za overjanje z modelom boste morali ustvariti osebni dostopni žeton (PAT) v nastavitvah GitHub.
-    # Ustvarite svoj PAT žeton tako, da sledite navodilom tukaj: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
-# Določite uporabniško sporočilo
-messages = [
-    SystemMessage(content="""You are an planner agent.
+# Določite sporočilo uporabnika
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -111,44 +97,27 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # Preverite, da je vsebina odgovora veljavna JSON niz preden jo naložite
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# če je response_content None:
-#     sproži ValueError("Vsebina odgovora ni veljaven JSON niz")
-
-# # Izpiši vsebino odgovora po nalaganju kot JSON
-# pprint(json.loads(response_content))
-
-# Preveri vsebino odgovora z modelom MathReasoning
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Načrtovalni agent z orkestracijo več agentov
+### Načrtovalni agent z večagentno orkestracijo
 
-V tem primeru prejme Semantic Router Agent uporabniški zahtevek (npr. "Potrebujem načrt hotela za svoje potovanje.").
+V tem primeru Semantic Router Agent prejme zahtevo uporabnika (npr. "Potrebujem načrt hotela za svoje potovanje.").
 
 Načrtovalec nato:
 
-* Prejme načrt hotela: Načrtovalec vzame sporočilo uporabnika in na podlagi sistemskega poziva (vključno z informacijami o razpoložljivih agentih) ustvari strukturiran potovalni načrt.
-* Našteje agente in njihova orodja: Registracija agentov vsebuje seznam agentov (npr. za lete, hotele, najem avtomobila in aktivnosti) skupaj s funkcijami ali orodji, ki jih ponujajo.
-* Usmeri načrt ustreznim agentom: Glede na število podnalog, načrtovalec sporočilo pošlje neposredno namenskemu agentu (za enonalogne scenarije) ali usklajuje prek upravitelja skupinskega klepeta za sodelovanje več agentov.
-* Povzame izid: Na koncu načrtovalec povzame ustvarjeni načrt za jasnost. 
-Naslednji Python primer kode ilustrira te korake:
+* Prejme načrt hotela: Načrtovalec vzame uporabnikovo sporočilo in na podlagi sistemskega poziva (vključno s podatki o razpoložljivih agentih) generira strukturiran potovalni načrt.
+* Navedbe agentov in njihovih orodij: Registar agentov vsebuje seznam agentov (npr. za let, hotel, najem avtomobila in aktivnosti) skupaj z funkcijami ali orodji, ki jih ponujajo.
+* Usmeri načrt pripadajočim agentom: Glede na število podnalog načrtovalec bodisi neposredno pošlje sporočilo namenskemu agentu (za enojne naloge) ali pa koordinira preko upravljalca skupinskega klepeta za sodelovanje več agentov.
+* Povzame izid: Nazadnje načrtovalec povzame ustvarjeni načrt za jasnost.
+Naslednji primer kode v Pythonu prikazuje te korake:
 
 ```python
 
@@ -180,25 +149,18 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# Ustvari odjemalca z okoljsko spremenljivko, preverjeno s tipom
+# Ustvari odjemalca
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 from pprint import pprint
 
 # Določi uporabnikovo sporočilo
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +168,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# Zagotovi, da je vsebina odgovora veljavna JSON nizek, preden jo naložiš
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
-# Izpiši vsebino odgovora po naložitvi kot JSON
+# Izpiši vsebino odgovora po nalaganju kot JSON
 
 pprint(json.loads(response_content))
 ```
 
-Spodaj je izhod iz prejšnje kode, ki ga lahko uporabite za usmerjanje k `assigned_agent` in povzemanje potovalnega načrta za končnega uporabnika.
+Kar sledi, je izhod iz prejšnje kode, ki ga lahko nato uporabite za usmerjanje k `assigned_agent` in povzemanje potovalnega načrta za končnega uporabnika.
 
 ```json
 {
@@ -254,21 +212,22 @@ Spodaj je izhod iz prejšnje kode, ki ga lahko uporabite za usmerjanje k `assign
 }
 ```
 
-Primer zvezka s prejšnjim vzorcem kode je na voljo [tukaj](07-autogen.ipynb).
+Primer zvezka s prej omenjeno kodo je na voljo [tukaj](07-python-agent-framework.ipynb).
 
 ### Iterativno načrtovanje
 
-Nekatere naloge zahtevajo nazaj-v-naprej ali ponovno načrtovanje, kjer izid ene podnaloge vpliva na naslednjo. Na primer, če agent med rezervacijo letov odkrije nepričakovano obliko podatkov, bo morda moral prilagoditi svojo strategijo, preden nadaljuje z rezervacijami hotelov.
+Nekatere naloge zahtevajo izmenjavo ali ponovni načrt, kjer izid ene podnaloge vpliva na naslednjo. Na primer, če agent med rezervacijo letov odkrije nepričakovan format podatkov, bo morda moral prilagoditi svojo strategijo, preden nadaljuje z rezervacijami hotelov.
 
-Poleg tega lahko povratne informacije uporabnika (npr. če se človek odloči za zgodnejši let) sprožijo delno ponovno načrtovanje. Ta dinamičen, iterativni pristop zagotavlja, da končna rešitev ustreza resničnim omejitvam in spreminjajočim se željam uporabnikov.
+Poleg tega lahko povratne informacije uporabnika (npr. če človek odloči, da bolj želi zgodnejši let) sprožijo delni ponovni načrt. Ta dinamični, iterativni pristop zagotavlja, da se končna rešitev uskladi z omejitvami resničnega sveta in spreminjajočimi se uporabniškimi preferencami.
 
-npr. primer kode
+npr. vzorčna koda
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. enako kot prej v kodi in posreduj zgodovino uporabnika, trenutni načrt
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
+#.. enako kot prejšnja koda in posreduj zgodovino uporabnika, trenutni načrt
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,38 +235,43 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
 # .. ponovno načrtuj in pošlji naloge ustreznim agentom
 ```
 
-Za obsežnejše načrtovanje si oglejte Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blog</a> za reševanje zapletenih nalog.
+Za bolj celovito načrtovanje si oglejte Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> za reševanje zapletenih nalog.
 
 ## Povzetek
 
-V tem članku smo si ogledali primer, kako ustvariti načrtovalca, ki lahko dinamično izbira razpoložljive agente, ki so definirani. Izhod načrtovalca razčleni naloge in dodeli agente, da jih lahko izvedejo. Predpostavljeno je, da imajo agenti dostop do funkcij/orodij, ki so potrebna za izvedbo naloge. Poleg agentov lahko vključite še druge vzorce, kot so refleksija, povzemanje in krožni klepet za dodatno prilagoditev.
+V tem prispevku smo si ogledali primer, kako lahko ustvarimo načrtovalca, ki lahko dinamično izbere razpoložljive agente. Izhod načrtovalca razčleni naloge in dodeli agente, da jih lahko izvedejo. Predpostavlja se, da imajo agenti dostop do funkcij/orodij, potrebnih za opravljanje naloge. Poleg agentov lahko vključite še druge vzorce, kot so refleksija, povzetek in rotacijski klepet, za nadaljnjo prilagoditev.
 
 ## Dodatni viri
 
-AutoGen Magnetic One - Splošni večagentni sistem za reševanje zapletenih nalog, ki je dosegel impresivne rezultate na več zahtevnih agentnih preizkusih. Referenca: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. V tej implementaciji orkestrator ustvarja načrt, specifičen za nalogo, in te naloge delegira razpoložljivim agentom. Poleg načrtovanja orkestrator uporablja tudi mehanizem spremljanja napredka naloge in po potrebi ponovno načrtuje.
+Magentic One - Generalni večagentni sistem za reševanje zapletenih nalog, ki je dosegel impresivne rezultate na več zahtevnih agentnih preverjanjih. Reference: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. V tej implementaciji orkestrator ustvarja nalogam specifične načrte in te naloge delegira razpoložljivim agentom. Poleg načrtovanja orkestrator uporablja tudi mehanizem sledenja za spremljanje napredka naloge in ob potrebi ponovno načrtuje.
 
-### Imate več vprašanj o vzorcu načrtovanja?
+### Imate več vprašanj o načrtovalnem vzorcu?
 
-Pridružite se [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kjer boste spoznali druge učence, se udeležili urnikov in dobili odgovore na vprašanja o AI agentih.
+Pridružite se [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), da se srečate z drugimi učenci, udeležite ur uradne podpore in dobite odgovore na vaša vprašanja o AI agentih.
 
-## Predhodna lekcija
+## Prejšnja lekcija
 
-[Gradnja zaupanja vrednih AI agentov](../06-building-trustworthy-agents/README.md)
+[Gradnja zanesljivih AI agentov](../06-building-trustworthy-agents/README.md)
 
 ## Naslednja lekcija
 
-[Vzorec večagentnega načrtovanja](../08-multi-agent/README.md)
+[Večagentni vzorec](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Omejitev odgovornosti**:
-Ta dokument je bil preveden z uporabo storitve za strojno prevajanje AI [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, upoštevajte, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku velja za uradni vir. Za kritične informacije priporočamo strokoven prevod, opravljen s strani človeka. Ne odgovarjamo za morebitne nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
+Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatski prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku se šteje za uradni vir. Za pomembne informacije priporočamo strokovni človeški prevod. Nismo odgovorni za morebitna nesporazuma ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
