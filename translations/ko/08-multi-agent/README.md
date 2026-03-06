@@ -1,193 +1,196 @@
-[![다중 에이전트 설계](../../../translated_images/ko/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![멀티 에이전트 설계](../../../translated_images/ko/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
-> _(위의 이미지를 클릭하면 이 수업의 동영상을 볼 수 있습니다)_
+> _(위의 이미지를 클릭하여 이 수업의 비디오를 보세요)_
 
-# 다중 에이전트 설계 패턴
+# 멀티 에이전트 디자인 패턴
 
-프로젝트에서 여러 에이전트를 다루기 시작하면 다중 에이전트 설계 패턴을 고려해야 합니다. 하지만 언제 다중 에이전트로 전환해야 하고 그 이점이 무엇인지 즉각적으로 명확하지 않을 수 있습니다.
+As soon as you start working on a project that involves multiple agents, you will need to consider the multi-agent design pattern. However, it might not be immediately clear when to switch to multi-agents and what the advantages are.
 
 ## 소개
 
-이 수업에서는 다음 질문들에 답하고자 합니다:
+In this lesson, we're looking to answer the following questions:
 
-- 다중 에이전트가 적용 가능한 시나리오는 무엇인가?
-- 여러 작업을 수행하는 단일 에이전트보다 다중 에이전트를 사용하는 장점은 무엇인가?
-- 다중 에이전트 설계 패턴을 구현하는 구성 요소는 무엇인가?
-- 여러 에이전트가 서로 어떻게 상호작용하는지 어떻게 가시성을 확보할 수 있는가?
+- What are the scenarios where multi-agents are applicable to?
+- What are the advantages of using multi-agents over just one singular agent doing multiple tasks?
+- What are the building blocks of implementing the multi-agent design pattern?
+- How do we have visibility to how the multiple agents are interacting with each other?
 
 ## 학습 목표
 
-이 수업을 마치면 다음을 할 수 있어야 합니다:
+After this lesson, you should be able to:
 
-- 다중 에이전트가 적용 가능한 시나리오를 식별할 수 있다
-- 단일 에이전트보다 다중 에이전트를 사용하는 장점을 인식할 수 있다
-- 다중 에이전트 설계 패턴을 구현하는 구성 요소를 이해할 수 있다
+- Identify scenarios where multi-agents are applicable
+- Recognize the advantages of using multi-agents over a singular agent.
+- Comprehend the building blocks of implementing the multi-agent design pattern.
 
-더 큰 그림은 무엇인가?
+What's the bigger picture?
 
-*다중 에이전트는 여러 에이전트가 공통의 목표를 달성하기 위해 함께 작동하도록 하는 설계 패턴입니다*.
+*멀티 에이전트는 여러 에이전트가 공동의 목표를 달성하기 위해 함께 작업할 수 있게 하는 디자인 패턴입니다*.
 
-이 패턴은 로보틱스, 자율 시스템, 분산 컴퓨팅을 포함한 다양한 분야에서 널리 사용됩니다.
+This pattern is widely used in various fields, including robotics, autonomous systems, and distributed computing.
 
-## 다중 에이전트가 적용 가능한 시나리오
+## 멀티 에이전트가 적용되는 시나리오
 
-그렇다면 어떤 시나리오가 다중 에이전트를 사용하는 좋은 사례일까요? 답은 특히 다음과 같은 경우에 다중 에이전트를 사용하는 것이 유리하다는 것입니다:
+So what scenarios are a good use case for using multi-agents? The answer is that there are many scenarios where employing multiple agents is beneficial especially in the following cases:
 
-- **대규모 작업 부담**: 대규모 작업 부담은 더 작은 작업으로 나누어 서로 다른 에이전트에 할당할 수 있어 병렬 처리와 더 빠른 완료가 가능합니다. 이의 예로는 대규모 데이터 처리 작업의 경우가 있습니다.
-- **복잡한 작업**: 복잡한 작업은 대규모 작업 부담처럼 더 작은 하위 작업으로 분해되어 각 작업의 특정 측면을 전문으로 하는 서로 다른 에이전트에 할당될 수 있습니다. 좋은 예로는 자율 주행 차량의 경우 서로 다른 에이전트가 내비게이션, 장애물 감지, 다른 차량과의 통신을 관리하는 경우가 있습니다.
-- **다양한 전문성**: 서로 다른 에이전트는 다양한 전문성을 가질 수 있어 단일 에이전트보다 특정 작업의 다양한 측면을 더 효과적으로 처리할 수 있습니다. 이 경우의 좋은 예는 의료 분야로, 에이전트들이 진단, 치료 계획, 환자 모니터링을 관리할 수 있습니다.
+- **Large workloads**: Large workloads can be divided into smaller tasks and assigned to different agents, allowing for parallel processing and faster completion. An example of this is in the case of a large data processing task.
+- **Complex tasks**: Complex tasks, like large workloads, can be broken down into smaller subtasks and assigned to different agents, each specializing in a specific aspect of the task. A good example of this is in the case of autonomous vehicles where different agents manage navigation, obstacle detection, and communication with other vehicles.
+- **Diverse expertise**: Different agents can have diverse expertise, allowing them to handle different aspects of a task more effectively than a single agent. For this case, a good example is in the case of healthcare where agents can manage diagnostics, treatment plans, and patient monitoring.
 
-## 단일 에이전트보다 다중 에이전트를 사용하는 장점
+## 단일 에이전트보다 멀티 에이전트를 사용하는 장점
 
-단일 에이전트 시스템은 단순한 작업에는 잘 작동할 수 있지만, 더 복잡한 작업에는 여러 에이전트를 사용하는 것이 여러 가지 장점을 제공할 수 있습니다:
+A single agent system could work well for simple tasks, but for more complex tasks, using multiple agents can provide several advantages:
 
-- **전문화**: 각 에이전트는 특정 작업에 전문화될 수 있습니다. 단일 에이전트에 전문화가 부족하면 모든 것을 할 수는 있지만 복잡한 작업에 직면했을 때 무엇을 해야 할지 혼란스러워질 수 있습니다. 예를 들어, 적합하지 않은 작업을 수행하게 될 수 있습니다.
-- **확장성**: 단일 에이전트에 과부하를 주는 것보다 더 많은 에이전트를 추가하여 시스템을 확장하는 것이 더 쉽습니다.
-- **내결함성**: 하나의 에이전트가 실패하더라도 다른 에이전트가 계속 작동할 수 있어 시스템 신뢰성을 보장할 수 있습니다.
+- **Specialization**: Each agent can be specialized for a specific task. Lack of specialization in a single agent means you have an agent that can do everything but might get confused on what to do when faced with a complex task. It might for example end up doing a task that it is not best suited for.
+- **Scalability**: It is easier to scale systems by adding more agents rather than overloading a single agent.
+- **Fault Tolerance**: If one agent fails, others can continue functioning, ensuring system reliability.
 
-예를 들어 사용자의 여행을 예약한다고 가정해 봅시다. 단일 에이전트 시스템은 항공편 검색부터 호텔과 렌터카 예약까지 여행 예약 프로세스의 모든 측면을 처리해야 합니다. 이를 단일 에이전트로 달성하려면 이 에이전트는 이러한 모든 작업을 처리할 도구를 가져야 합니다. 이는 유지 보수와 확장이 어려운 복잡하고 모놀리식한 시스템으로 이어질 수 있습니다. 반면 다중 에이전트 시스템은 항공편 검색, 호텔 예약, 렌터카 예약에 각각 전문화된 다른 에이전트를 가질 수 있습니다. 이렇게 하면 시스템이 더 모듈화되고 유지 보수하기 쉬우며 확장 가능해집니다.
+Let's take an example, let's book a trip for a user. A single agent system would have to handle all aspects of the trip booking process, from finding flights to booking hotels and rental cars. To achieve this with a single agent, the agent would need to have tools for handling all these tasks. This could lead to a complex and monolithic system that is difficult to maintain and scale. A multi-agent system, on the other hand, could have different agents specialized in finding flights, booking hotels, and rental cars. This would make the system more modular, easier to maintain, and scalable.
 
-이를 소규모 가족 운영 여행사와 프랜차이즈로 운영되는 여행사에 비유해 보세요. 소규모 가족 운영점은 여행 예약 프로세스의 모든 측면을 단일 에이전트가 처리하는 반면, 프랜차이즈는 여행 예약 프로세스의 서로 다른 측면을 서로 다른 에이전트가 처리합니다.
+Compare this to a travel bureau run as a mom-and-pop store versus a travel bureau run as a franchise. The mom-and-pop store would have a single agent handling all aspects of the trip booking process, while the franchise would have different agents handling different aspects of the trip booking process.
 
-## 다중 에이전트 설계 패턴 구현의 구성 요소
+## 멀티 에이전트 디자인 패턴 구현의 구성 요소
 
-다중 에이전트 설계 패턴을 구현하기 전에 패턴을 구성하는 구성 요소를 이해해야 합니다.
+Before you can implement the multi-agent design pattern, you need to understand the building blocks that make up the pattern.
 
-이를 사용자 여행 예약 예제로 다시 구체화해 보겠습니다. 이 경우 구성 요소에는 다음이 포함됩니다:
+Let's make this more concrete by again looking at the example of booking a trip for a user. In this case, the building blocks would include:
 
-- **에이전트 통신**: 항공편 검색, 호텔 예약, 렌터카 예약을 담당하는 에이전트는 사용자의 선호도와 제약 조건에 대한 정보를 공유하고 통신해야 합니다. 이를 위해 통신 프로토콜과 방식을 결정해야 합니다. 구체적으로는 항공편 검색 에이전트가 호텔 예약 에이전트와 같은 날짜로 호텔을 예약하도록 통신해야 한다는 의미입니다. 즉, 에이전트들이 사용자의 여행 날짜에 대한 정보를 공유해야 하므로 *어떤 에이전트가 정보를 공유하고 어떻게 공유하는지*를 결정해야 합니다.
-- **조정 메커니즘**: 에이전트는 사용자의 선호도와 제약 조건이 충족되도록 작업을 조정해야 합니다. 예를 들어 사용자의 선호도는 공항 근처의 호텔을 원할 수 있고 제약 조건은 렌터카가 공항에서만 이용 가능하다는 것일 수 있습니다. 이는 호텔 예약 에이전트가 렌터카 예약 에이전트와 조정하여 사용자의 선호도와 제약 조건이 충족되도록 해야 한다는 것을 의미합니다. 즉, *에이전트들이 어떻게 작업을 조정하는지*를 결정해야 합니다.
-- **에이전트 아키텍처**: 에이전트는 의사결정을 내리고 사용자와의 상호작용에서 학습할 수 있는 내부 구조를 가져야 합니다. 이는 항공편 검색 에이전트가 사용자에게 추천할 항공편을 결정할 수 있는 내부 구조를 가져야 한다는 것을 의미합니다. 즉, *에이전트들이 어떻게 의사결정을 내리고 사용자와의 상호작용에서 학습하는지*를 결정해야 합니다. 에이전트가 학습하고 개선되는 예로는 항공편 검색 에이전트가 사용자의 과거 선호도에 기반한 항공편을 추천하기 위해 머신러닝 모델을 사용할 수 있다는 점이 있습니다.
-- **다중 에이전트 상호작용에 대한 가시성**: 여러 에이전트가 서로 어떻게 상호작용하는지에 대한 가시성이 필요합니다. 이를 위해 에이전트 활동과 상호작용을 추적하기 위한 도구와 기술이 필요합니다. 이는 로깅 및 모니터링 도구, 시각화 도구, 성능 지표의 형태일 수 있습니다.
-- **다중 에이전트 패턴**: 중앙집중식, 분산식, 하이브리드 아키텍처와 같이 다중 에이전트 시스템을 구현하는 다양한 패턴이 있습니다. 사용 사례에 가장 적합한 패턴을 결정해야 합니다.
-- **사람이 개입하는 경우(Human in the loop)**: 대부분의 경우 사람의 개입이 있으며 언제 에이전트가 사람의 개입을 요청해야 하는지를 지시해야 합니다. 이는 사용자가 에이전트가 추천하지 않은 특정 호텔이나 항공편을 요청하거나 항공편이나 호텔 예약 전에 확인을 요청하는 형태일 수 있습니다.
+- **Agent Communication**: Agents for finding flights, booking hotels, and rental cars need to communicate and share information about the user's preferences and constraints. You need to decide on the protocols and methods for this communication. What this means concretely is that the agent for finding flights needs to communicate with the agent for booking hotels to ensure that the hotel is booked for the same dates as the flight. That means that the agents need to share information about the user's travel dates, meaning that you need to decide *which agents are sharing info and how they are sharing info*.
+- **Coordination Mechanisms**: Agents need to coordinate their actions to ensure that the user's preferences and constraints are met. A user preference could be that they want a hotel close to the airport whereas a constraint could be that rental cars are only available at the airport. This means that the agent for booking hotels needs to coordinate with the agent for booking rental cars to ensure that the user's preferences and constraints are met. This means that you need to decide *how the agents are coordinating their actions*.
+- **Agent Architecture**: Agents need to have the internal structure to make decisions and learn from their interactions with the user. This means that the agent for finding flights needs to have the internal structure to make decisions about which flights to recommend to the user. This means that you need to decide *how the agents are making decisions and learning from their interactions with the user*. Examples of how an agent learns and improves could be that the agent for finding flights could use a machine learning model to recommend flights to the user based on their past preferences.
+- **Visibility into Multi-Agent Interactions**: You need to have visibility into how the multiple agents are interacting with each other. This means that you need to have tools and techniques for tracking agent activities and interactions. This could be in the form of logging and monitoring tools, visualization tools, and performance metrics.
+- **Multi-Agent Patterns**: There are different patterns for implementing multi-agent systems, such as centralized, decentralized, and hybrid architectures. You need to decide on the pattern that best fits your use case.
+- **Human in the loop**: In most cases, you will have a human in the loop and you need to instruct the agents when to ask for human intervention. This could be in the form of a user asking for a specific hotel or flight that the agents have not recommended or asking for confirmation before booking a flight or hotel.
 
-## 다중 에이전트 상호작용에 대한 가시성
+## 멀티 에이전트 상호작용에 대한 가시성
 
-여러 에이전트가 서로 어떻게 상호작용하는지에 대한 가시성을 확보하는 것은 중요합니다. 이 가시성은 디버깅, 최적화 및 전체 시스템의 효과성을 보장하는 데 필수적입니다. 이를 위해 에이전트 활동과 상호작용을 추적하기 위한 도구와 기술이 필요합니다. 이는 로깅 및 모니터링 도구, 시각화 도구, 성능 지표의 형태일 수 있습니다.
+It's important that you have visibility into how the multiple agents are interacting with each other. This visibility is essential for debugging, optimizing, and ensuring the overall system's effectiveness. To achieve this, you need to have tools and techniques for tracking agent activities and interactions. This could be in the form of logging and monitoring tools, visualization tools, and performance metrics.
 
-예를 들어 사용자의 여행을 예약하는 경우 각 에이전트의 상태, 사용자의 선호도와 제약 조건, 에이전트 간 상호작용을 보여주는 대시보드를 가질 수 있습니다. 이 대시보드는 사용자의 여행 날짜, 항공편 에이전트가 추천한 항공편, 호텔 에이전트가 추천한 호텔, 렌터카 에이전트가 추천한 렌터카를 보여줄 수 있습니다. 이는 에이전트들이 서로 어떻게 상호작용하는지와 사용자의 선호도 및 제약 조건이 충족되고 있는지에 대한 명확한 시각을 제공할 것입니다.
+For example, in the case of booking a trip for a user, you could have a dashboard that shows the status of each agent, the user's preferences and constraints, and the interactions between agents. This dashboard could show the user's travel dates, the flights recommended by the flight agent, the hotels recommended by the hotel agent, and the rental cars recommended by the rental car agent. This would give you a clear view of how the agents are interacting with each other and whether the user's preferences and constraints are being met.
 
-이제 이러한 각 측면을 좀 더 자세히 살펴보겠습니다.
+Let's look at each of these aspects more in detail.
 
-- **로깅 및 모니터링 도구**: 각 에이전트가 수행한 모든 작업에 대해 로깅을 수행해야 합니다. 로그 항목에는 작업을 수행한 에이전트, 수행한 작업, 작업이 수행된 시간 및 작업 결과에 대한 정보가 저장될 수 있습니다. 이 정보는 디버깅, 최적화 등에 사용될 수 있습니다.
-- **시각화 도구**: 시각화 도구는 에이전트 간의 상호작용을 더 직관적으로 볼 수 있게 도와줍니다. 예를 들어 에이전트 간 정보 흐름을 보여주는 그래프를 가질 수 있습니다. 이는 시스템의 병목 현상, 비효율성 및 기타 문제를 식별하는 데 도움이 될 수 있습니다.
-- **성능 지표**: 성능 지표는 다중 에이전트 시스템의 효과성을 추적하는 데 도움이 됩니다. 예를 들어 작업 완료에 소요된 시간, 단위 시간당 완료된 작업 수, 에이전트가 제공한 추천의 정확도를 추적할 수 있습니다. 이 정보는 개선이 필요한 영역을 식별하고 시스템을 최적화하는 데 도움이 됩니다.
+- **Logging and Monitoring Tools**: You want to have logging done for each action taken by an agent. A log entry could store information on the agent that took the action, the action taken, the time the action was taken, and the outcome of the action. This information can then be used for debugging, optimizing and more.
 
-## 다중 에이전트 패턴
+- **Visualization Tools**: Visualization tools can help you see the interactions between agents in a more intuitive way. For example, you could have a graph that shows the flow of information between agents. This could help you identify bottlenecks, inefficiencies, and other issues in the system.
 
-다중 에이전트 앱을 만들 때 사용할 수 있는 몇 가지 구체적인 패턴을 살펴보겠습니다. 고려할 가치가 있는 흥미로운 패턴은 다음과 같습니다:
+- **Performance Metrics**: Performance metrics can help you track the effectiveness of the multi-agent system. For example, you could track the time taken to complete a task, the number of tasks completed per unit of time, and the accuracy of the recommendations made by the agents. This information can help you identify areas for improvement and optimize the system.
+
+## 멀티 에이전트 패턴
+
+Let's dive into some concrete patterns we can use to create multi-agent apps. Here are some interesting patterns worth considering:
 
 ### 그룹 채팅
 
-이 패턴은 여러 에이전트가 서로 통신할 수 있는 그룹 채팅 애플리케이션을 만들고자 할 때 유용합니다. 이 패턴의 전형적인 사용 사례에는 팀 협업, 고객 지원 및 소셜 네트워킹이 포함됩니다.
+This pattern is useful when you want to create a group chat application where multiple agents can communicate with each other. Typical use cases for this pattern include team collaboration, customer support, and social networking.
 
-이 패턴에서는 각 에이전트가 그룹 채팅의 사용자 하나를 나타내며, 메시지는 메시징 프로토콜을 사용하여 에이전트 간에 교환됩니다. 에이전트는 그룹 채팅에 메시지를 보내고, 그룹 채팅에서 메시지를 수신하며, 다른 에이전트의 메시지에 응답할 수 있습니다.
+In this pattern, each agent represents a user in the group chat, and messages are exchanged between agents using a messaging protocol. The agents can send messages to the group chat, receive messages from the group chat, and respond to messages from other agents.
 
-이 패턴은 모든 메시지가 중앙 서버를 통해 라우팅되는 중앙집중식 아키텍처 또는 메시지가 직접 교환되는 분산식 아키텍처를 사용하여 구현할 수 있습니다.
+This pattern can be implemented using a centralized architecture where all messages are routed through a central server, or a decentralized architecture where messages are exchanged directly.
 
 ![그룹 채팅](../../../translated_images/ko/multi-agent-group-chat.ec10f4cde556babd.webp)
 
-### 업무 인계
+### 핸드오프
 
-이 패턴은 여러 에이전트가 서로 작업을 인계할 수 있는 애플리케이션을 만들고자 할 때 유용합니다.
+This pattern is useful when you want to create an application where multiple agents can hand off tasks to each other.
 
-이 패턴의 전형적인 사용 사례에는 고객 지원, 작업 관리 및 워크플로 자동화가 포함됩니다.
+Typical use cases for this pattern include customer support, task management, and workflow automation.
 
-이 패턴에서는 각 에이전트가 작업 또는 워크플로의 단계를 나타내며, 에이전트는 미리 정의된 규칙에 따라 작업을 다른 에이전트에 인계할 수 있습니다.
+In this pattern, each agent represents a task or a step in a workflow, and agents can hand off tasks to other agents based on predefined rules.
 
-![Hand off](../../../translated_images/ko/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
+![핸드오프](../../../translated_images/ko/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### 협업 필터링
 
-이 패턴은 여러 에이전트가 협력하여 사용자에게 추천을 제공하는 애플리케이션을 만들고자 할 때 유용합니다.
+This pattern is useful when you want to create an application where multiple agents can collaborate to make recommendations to users.
 
-여러 에이전트가 협력해야 하는 이유는 각 에이전트가 서로 다른 전문성을 가지고 있어 추천 프로세스에 서로 다른 방식으로 기여할 수 있기 때문입니다.
+Why you would want multiple agents to collaborate is because each agent can have different expertise and can contribute to the recommendation process in different ways.
 
-예를 들어 사용자가 주식 시장에서 어떤 주식을 사야 할지 추천을 원한다고 가정해 보겠습니다.
+Let's take an example where a user wants a recommendation on the best stock to buy on the stock market.
 
-- **업계 전문가**: 한 에이전트는 특정 업계에 대한 전문가일 수 있습니다.
-- **기술적 분석**: 다른 에이전트는 기술적 분석의 전문가일 수 있습니다.
-- **기본적 분석**: 또 다른 에이전트는 기본적 분석의 전문가일 수 있습니다. 이들 에이전트가 협력함으로써 사용자에게 보다 포괄적인 추천을 제공할 수 있습니다.
+- **Industry expert**:. One agent could be an expert in a specific industry.
+- **Technical analysis**: Another agent could be an expert in technical analysis.
+- **Fundamental analysis**: and another agent could be an expert in fundamental analysis. By collaborating, these agents can provide a more comprehensive recommendation to the user.
 
 ![추천](../../../translated_images/ko/multi-agent-filtering.d959cb129dc9f608.webp)
 
-## 시나리오: 환불 처리
+## 시나리오: 환불 프로세스
 
-고객이 제품 환불을 요청하는 시나리오를 고려해 보십시오. 이 프로세스에는 상당히 많은 에이전트가 관여할 수 있지만, 여기서는 이 프로세스에 특정한 에이전트와 다른 프로세스에서도 사용될 수 있는 일반 에이전트로 나누어 보겠습니다.
+Consider a scenario where a customer is trying to get a refund for a product, there can be quite a few agents involved in this process but let's divide it up between agents specific for this process and general agents that can be used in other processes.
 
-**환불 프로세스에 특정한 에이전트**:
+**환불 프로세스에 특화된 에이전트**:
 
-다음은 환불 프로세스에 관여할 수 있는 몇 가지 에이전트입니다:
+Following are some agents that could be involved in the refund process:
 
-- **고객 에이전트**: 이 에이전트는 고객을 대표하며 환불 프로세스를 시작하는 역할을 담당합니다.
-- **판매자 에이전트**: 이 에이전트는 판매자를 대표하며 환불 처리를 담당합니다.
-- **결제 에이전트**: 이 에이전트는 결제 과정을 대표하며 고객의 결제를 환불하는 책임이 있습니다.
-- **해결 에이전트**: 이 에이전트는 문제 해결 과정을 대표하며 환불 프로세스 중에 발생하는 문제를 해결하는 책임이 있습니다.
-- **준수 에이전트**: 이 에이전트는 규정 준수 과정을 대표하며 환불 프로세스가 규정 및 정책을 준수하는지 확인하는 책임이 있습니다.
+- **Customer agent**: This agent represents the customer and is responsible for initiating the refund process.
+- **Seller agent**: This agent represents the seller and is responsible for processing the refund.
+- **Payment agent**: This agent represents the payment process and is responsible for refunding the customer's payment.
+- **Resolution agent**: This agent represents the resolution process and is responsible for resolving any issues that arise during the refund process.
+- **Compliance agent**: This agent represents the compliance process and is responsible for ensuring that the refund process complies with regulations and policies.
 
 **일반 에이전트**:
 
-이 에이전트들은 비즈니스의 다른 부분에서도 사용할 수 있습니다.
+These agents can be used by other parts of your business.
 
-- **배송 에이전트**: 이 에이전트는 배송 과정을 대표하며 제품을 판매자에게 반송하는 책임이 있습니다. 이 에이전트는 환불 프로세스와 제품 구매 시 일반 배송 모두에 사용될 수 있습니다.
-- **피드백 에이전트**: 이 에이전트는 피드백 과정을 대표하며 고객으로부터 피드백을 수집하는 책임이 있습니다. 피드백은 환불 프로세스 중뿐만 아니라 언제든지 수집될 수 있습니다.
-- **에스컬레이션 에이전트**: 이 에이전트는 에스컬레이션 과정을 대표하며 문제를 더 높은 수준의 지원으로 에스컬레이션하는 역할을 합니다. 이 유형의 에이전트는 문제를 에스컬레이션해야 하는 모든 프로세스에 사용할 수 있습니다.
-- **알림 에이전트**: 이 에이전트는 알림 과정을 대표하며 환불 프로세스의 다양한 단계에서 고객에게 알림을 보내는 역할을 합니다.
-- **분석 에이전트**: 이 에이전트는 분석 과정을 대표하며 환불 프로세스와 관련된 데이터를 분석하는 책임이 있습니다.
-- **감사 에이전트**: 이 에이전트는 감사 과정을 대표하며 환불 프로세스가 올바르게 수행되고 있는지 감사를 수행하는 책임이 있습니다.
-- **보고 에이전트**: 이 에이전트는 보고 과정을 대표하며 환불 프로세스에 대한 보고서를 생성하는 책임이 있습니다.
-- **지식 에이전트**: 이 에이전트는 지식 과정을 대표하며 환불 프로세스와 관련된 정보의 지식 기반을 유지하는 책임이 있습니다. 이 에이전트는 환불뿐만 아니라 비즈니스의 다른 부분에 대해서도 지식을 가질 수 있습니다.
-- **보안 에이전트**: 이 에이전트는 보안 과정을 대표하며 환불 프로세스의 보안을 보장하는 책임이 있습니다.
-- **품질 에이전트**: 이 에이전트는 품질 과정을 대표하며 환불 프로세스의 품질을 보장하는 책임이 있습니다.
+- **Shipping agent**: This agent represents the shipping process and is responsible for shipping the product back to the seller. This agent can be used both for the refund process and for general shipping of a product via a purchase for example.
+- **Feedback agent**: This agent represents the feedback process and is responsible for collecting feedback from the customer. Feedback could be had at any time and not just during the refund process.
+- **Escalation agent**: This agent represents the escalation process and is responsible for escalating issues to a higher level of support. You can use this type of agent for any process where you need to escalate an issue.
+- **Notification agent**: This agent represents the notification process and is responsible for sending notifications to the customer at various stages of the refund process.
+- **Analytics agent**: This agent represents the analytics process and is responsible for analyzing data related to the refund process.
+- **Audit agent**: This agent represents the audit process and is responsible for auditing the refund process to ensure that it is being carried out correctly.
+- **Reporting agent**: This agent represents the reporting process and is responsible for generating reports on the refund process.
+- **Knowledge agent**: This agent represents the knowledge process and is responsible for maintaining a knowledge base of information related to the refund process. This agent could be knowledgeable both on refunds and other parts of your business.
+- **Security agent**: This agent represents the security process and is responsible for ensuring the security of the refund process.
+- **Quality agent**: This agent represents the quality process and is responsible for ensuring the quality of the refund process.
 
-앞서 나열한 에이전트들은 환불 프로세스에 특정한 것들과 비즈니스의 다른 부분에서 사용할 수 있는 일반 에이전트들을 모두 포함하여 상당히 많습니다. 이는 다중 에이전트 시스템에서 어떤 에이전트를 사용할지 결정하는 데 대한 아이디어를 제공하기를 바랍니다.
+There's quite a few agents listed previously both for the specific refund process but also for the general agents that can be used in other parts of your business. Hopefully this gives you an idea on how you can decide on which agents to use in your multi-agent system.
 
 ## 과제
 
-고객 지원 프로세스를 위한 다중 에이전트 시스템을 설계하십시오. 프로세스에 관여하는 에이전트들, 그들의 역할과 책임, 그리고 그들이 서로 어떻게 상호작용하는지 식별하십시오. 고객 지원 프로세스에 특정한 에이전트와 비즈니스의 다른 부분에서도 사용할 수 있는 일반 에이전트 둘 다를 고려하십시오.
-> 다음 해결책을 읽기 전에 한 번 생각해 보세요. 생각보다 더 많은 에이전트가 필요할 수 있습니다.
-> 팁: 고객 지원 프로세스의 다양한 단계와 시스템에 필요한 에이전트도 고려하세요.
+Design a multi-agent system for a customer support process. Identify the agents involved in the process, their roles and responsibilities, and how they interact with each other. Consider both agents specific to the customer support process and general agents that can be used in other parts of your business.
+> 읽기 전에 잠시 생각해 보세요. 다음 해답을 읽기 전에, 생각보다 더 많은 에이전트가 필요할 수 있습니다.
 
-## 해결책
+> 팁: 고객 지원 프로세스의 다양한 단계와 시스템에 필요한 에이전트를 고려해 보세요.
 
-[해결책](./solution/solution.md)
+## 솔루션
+
+[솔루션](./solution/solution.md)
 
 ## 지식 점검
 
-질문: 멀티 에이전트를 언제 고려해야 하나요?
+Question: 멀티 에이전트를 언제 고려해야 하나요?
 
 - [ ] A1: 작업량이 적고 작업이 단순할 때.
 - [ ] A2: 작업량이 많을 때
 - [ ] A3: 작업이 단순할 때.
 
-[해결책 퀴즈](./solution/solution-quiz.md)
+[솔루션 퀴즈](./solution/solution-quiz.md)
 
 ## 요약
 
-이번 레슨에서는 멀티 에이전트 디자인 패턴을 살펴보았습니다. 멀티 에이전트가 적용되는 시나리오, 단일 에이전트보다 멀티 에이전트를 사용할 때의 장점, 멀티 에이전트 디자인 패턴을 구현하는 구성 요소들, 그리고 여러 에이전트가 서로 어떻게 상호작용하는지에 대한 가시성을 확보하는 방법을 다루었습니다.
+이 강의에서는 멀티-에이전트 설계 패턴을 살펴보았습니다. 멀티-에이전트가 적용되는 시나리오, 단일 에이전트보다 멀티-에이전트를 사용할 때의 이점, 멀티-에이전트 설계 패턴을 구현하는 구성 요소, 그리고 여러 에이전트가 서로 어떻게 상호작용하는지에 대한 가시성을 확보하는 방법을 다루었습니다.
 
-### 멀티 에이전트 디자인 패턴에 대해 더 궁금한 점이 있으신가요?
+### 멀티-에이전트 설계 패턴에 대해 더 궁금한 점이 있나요?
 
-다른 학습자들과 만나고, 오피스 아워에 참석하며 AI 에이전트 관련 질문에 대한 답을 얻으려면 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)에 참여하세요.
+다른 학습자들과 만나고, 오피스 아워에 참석하고, AI 에이전트 관련 질문에 답을 얻으려면 [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)에 참여하세요.
 
 ## 추가 자료
 
-- <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html" target="_blank">AutoGen 디자인 패턴</a>
-- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">에이전틱 디자인 패턴</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework 문서</a>
+- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">에이전틱 설계 패턴</a>
 
 
-## 이전 레슨
+## 이전 강의
 
-[기획 설계](../07-planning-design/README.md)
+[Planning Design](../07-planning-design/README.md)
 
-## 다음 레슨
+## 다음 강의
 
-[AI 에이전트의 메타인지](../09-metacognition/README.md)
+[Metacognition in AI Agents](../09-metacognition/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 면책사항:
-이 문서는 AI 번역 서비스 Co-op Translator(https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 노력하고 있으나 자동 번역에는 오류나 부정확성이 있을 수 있음을 유의해 주십시오. 원문(원어로 작성된 문서)이 권위 있는 출처로 간주되어야 합니다. 중요한 정보에 대해서는 전문 번역가의 번역을 권장합니다. 이 번역의 사용으로 인해 발생하는 오해나 잘못된 해석에 대해서는 책임을 지지 않습니다.
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 노력하고 있으나, 자동 번역에는 오류나 부정확성이 포함될 수 있음을 유의해 주십시오. 원문(원어로 된 문서)을 정본으로 간주해야 합니다. 중요한 정보의 경우 전문 번역가에 의한 번역을 권장합니다. 이 번역의 사용으로 인해 발생한 오해나 잘못된 해석에 대해서는 책임을 지지 않습니다.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
