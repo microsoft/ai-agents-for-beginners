@@ -1,55 +1,55 @@
-[![ప్లానింగ్ డిజైన్ ప్యాటర్న్](../../../translated_images/te/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/te/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(ఈ పాఠం వీడియోను చూడటానికి పై చిత్రంపై క్లిక్ చేయండి)_
+> _(ఈ పాఠం యొక్క వీడియోను చూడడానికి పై చిత్రాన్ని క్లిక్ చేయండి)_
 
 # ప్లానింగ్ డిజైన్
 
 ## పరిచయం
 
-ఈ పాఠంలో మీరు నేర్చుకునే విషయాలు:
+ఈ పాఠం కవర్ చేస్తుంది
 
-* స్పష్టమైన మొత్తం లక్ష్యాన్ని నిర్వచించడం మరియు క్లిష్టమైన పనిని నిర్వహించగల పనులుగా విభజించడం.
-* నిర్మిత అవుట్‌పుట్‌ను ఉపయోగించి మరింత నమ్మదగిన మరియు యంత్ర-పఠనీయ ప్రతిస్పందనలను పొందడం.
-* డైనమిక్ పనులు మరియు అనూహ్య ఇన్‌పుట్‌లను నిర్వహించడానికి ఈవెంట్-డ్రైవన్ విధానాన్ని అనుసరించడం.
+* స్పష్టమైన మొత్తం లక్ష్యాన్ని నిర్వచించడం మరియు క్లిష్టమైన పనిని నిర్వహించదగిన పనులుగా విభజించడం.
+* మరింత నమ్మదగిన మరియు యంత్రం పఠనీయమైన ప్రతిస్పందనలకు నిర్మాణాత్మక అవుట్పుట్ లను ఉపయోగించడం.
+* డైనమిక్ పనులను మరియు అనుకోని ఇన్‌పుట్‌లను నిర్వహించడానికి ఈవెంట్-ఆధారిత దృష్టికోణాన్ని వర్తించడం.
 
-## నేర్చుకునే లక్ష్యాలు
+## నేర్పుకునే లక్ష్యాలు
 
-ఈ పాఠం పూర్తిచేసిన తర్వాత, మీరు ఈ విషయాలను అర్థం చేసుకుంటారు:
+ఈ పాఠాన్ని పూర్తి చేసిన తరువాత, మీరు ఈ విషయాలను అర్థం చేసుకుంటారు:
 
-* AI ఏజెంట్ కోసం మొత్తం లక్ష్యాన్ని గుర్తించడం మరియు సెట్ చేయడం, అది సాధించాల్సినది స్పష్టంగా తెలుసుకోవడం.
-* క్లిష్టమైన పనిని నిర్వహించగల ఉపపనులుగా విభజించడం మరియు వాటిని తార్కిక క్రమంలో ఏర్పాటు చేయడం.
-* ఏజెంట్లకు సరైన సాధనాలను (ఉదా: సెర్చ్ టూల్స్ లేదా డేటా అనలిటిక్స్ టూల్స్) అందించడం, అవి ఎప్పుడు మరియు ఎలా ఉపయోగించాలో నిర్ణయించడం, మరియు ఎదురయ్యే అనూహ్య పరిస్థితులను నిర్వహించడం.
-* ఉపపనుల ఫలితాలను అంచనా వేయడం, పనితీరును కొలవడం, మరియు తుది అవుట్‌పుట్‌ను మెరుగుపరచడానికి చర్యలపై పునరావృతం చేయడం.
+* AI ఏజెంట్ కోసం ఒకందైన లక్ష్యాన్ని గుర్తించి, అర్థం చేసుకోవడం, అది ఏమి సాధించాలనుకుంటుంది అనేది స్పష్టంగా తెలుసుకోవడం.
+* క్లిష్టమైన పనిని నిర్వహించదగిన ఉపపనులకు విభజించి, వాటిని తార్కిక క్రమంలో సజావుగా ఏర్పాటు చేయడం.
+* ఏజెంట్లను సరైన ఉపకరణాలతో (ఉదా: శోధన ఉపకరణాలు లేదా డేటా విశ్లేషణ ఉపకరణాలు) సజ్జం చేయడం, ఎప్పుడు మరియు ఎలా ఉపయోగించాలో నిర్ణయించడం, మరియు అనుకోని పరిస్థితులను నిర్వహించడం.
+* ఉపపనుల ఫలితాలను మూల్యాంకనం చేయడం, పనితీరును కొలవడం మరియు తుది అవుట్పుట్ మెరుగుపరచడానికి చర్యలను పునరావృతం చేయడం.
 
 ## మొత్తం లక్ష్యాన్ని నిర్వచించడం మరియు పనిని విభజించడం
 
-![లక్ష్యాలు మరియు పనులను నిర్వచించడం](../../../translated_images/te/defining-goals-tasks.d70439e19e37c47a.webp)
+![Defining Goals and Tasks](../../../translated_images/te/defining-goals-tasks.d70439e19e37c47a.webp)
 
-చాలా రియల్-వరల్డ్ పనులు ఒకే దశలో పరిష్కరించడానికి చాలా క్లిష్టంగా ఉంటాయి. AI ఏజెంట్ తన ప్లానింగ్ మరియు చర్యలను మార్గనిర్దేశం చేయడానికి సంక్షిప్త లక్ష్యాన్ని అవసరం. ఉదాహరణకు, ఈ లక్ష్యాన్ని పరిగణించండి:
+చాలావిధంగా వాస్తవ ప్రపంచ పనులు ఒకే దశలో నిర్వహించడానికి చాలా క్లిష్టవుంటాయి. AI ఏజెంటుకు ఒక సంక్షిప్త లక్ష్యం అవసరం, అది ప్లానింగ్ మరియు చర్యలను మార్గదర్శనం చేస్తుంది. ఉదాహరణగా, లక్ష్యం:
 
-    "3-రోజుల ప్రయాణ షెడ్యూల్ రూపొందించండి."
+    "మూడు రోజుల ప్రయాణ పథకం తయారుచేయండి."
 
-ఇది చెప్పడం సులభం అయినప్పటికీ, ఇంకా మెరుగుదల అవసరం. లక్ష్యం ఎంత స్పష్టంగా ఉంటే, ఏజెంట్ (మరియు ఏదైనా మానవ సహకారులు) సరైన ఫలితాన్ని సాధించడంపై మరింత దృష్టి పెట్టగలరు, ఉదా: విమాన ఎంపికలు, హోటల్ సిఫారసులు, మరియు కార్యకలాపాల సూచనలతో సమగ్ర షెడ్యూల్ రూపొందించడం.
+ఇది మార్కుపంగా చెప్పడం సులభమైనప్పటికీ, దీనిని ఇంకా సవరించాల్సి ఉంటుంది. లక్ష్యం ఎంత స్పష్టంగా ఉంటే, ఏజెంట్ (మరియు ఏ మానవ సహకారులతోనైనా) సరైన ఫలితాన్ని సాధించడంపై మరింత కేంద్రీకరించవచ్చు, ఉదా: విమాన ప్రయాణ ఎంపికలు, హోటల్ సిఫార్సులు మరియు కార్యక్రమ సూచనలతో పూర్తి పథకం సృష్టించడం.
 
-### పనిని విభజించడం
+### పనుల విభజన
 
-పెద్ద లేదా క్లిష్టమైన పనులు చిన్న, లక్ష్య-ఆధారిత ఉపపనులుగా విభజించినప్పుడు నిర్వహించగలవు.
-ప్రయాణ షెడ్యూల్ ఉదాహరణకు, మీరు లక్ష్యాన్ని ఈ విధంగా విభజించవచ్చు:
+పెద్ద లేదా సంక్లిష్టమైన పనులు చిన్న, లక్ష్యానికి సంభందించిన ఉపపనులుగా విభజిస్తే నిర్వహించడానికి సులభమవుతాయి.
+ప్రయాణ పథకం ఉదాహరణలో, మీరు లక్ష్యాన్ని ఇలా విభజించవచ్చు:
 
-* విమాన బుకింగ్
-* హోటల్ బుకింగ్
-* కార్ రెంటల్
+* విమాన బుకింగ్  
+* హోటల్ బుకింగ్  
+* కారు అద్దెకుం  
 * వ్యక్తిగతీకరణ
 
-ప్రతి ఉపపనిని ప్రత్యేక ఏజెంట్లు లేదా ప్రక్రియలు నిర్వహించవచ్చు. ఒక ఏజెంట్ ఉత్తమ విమాన డీల్స్ కోసం శోధించడంలో ప్రత్యేకత కలిగి ఉండవచ్చు, మరొకటి హోటల్ బుకింగ్‌లపై దృష్టి పెట్టవచ్చు, మరియు తదితరాలు. ఒక సమన్వయ లేదా “డౌన్‌స్ట్రీమ్” ఏజెంట్ ఈ ఫలితాలను ఒక సమగ్ర షెడ్యూల్‌గా చివరి వినియోగదారుని కోసం సంకలనం చేయవచ్చు.
+ప్రతి ఉపపని ప్రత్యేక ఏజెంట్లు లేదా ప్రక్రియల ద్వారా నిర్వహించవచ్చు. ఒక ఏజెంట్ ఉత్తమ విమాన డీల్స్ కోసం శోధిస్తే, మరొకటి హోటల్ బుకింగ్‌లపై దృష్టిపెడుతుంది, అలాగే కొనసాగుతుంది. ఒక సమన్వయకర్త లేదా "డౌన్‌స్ట్రీమ్" ఏజెంట్ ఈ ఫలితాలను ఒక సమగ్ర పథకంగా చివరింటి వినియోగదారునికి సమకూర్చవచ్చు.
 
-ఈ మాడ్యులర్ విధానం క్రమంగా మెరుగుదలలను కూడా అనుమతిస్తుంది. ఉదాహరణకు, మీరు ఫుడ్ సిఫారసులు లేదా స్థానిక కార్యకలాపాల సూచనల కోసం ప్రత్యేక ఏజెంట్లను జోడించి, షెడ్యూల్‌ను కాలక్రమేణా మెరుగుపరచవచ్చు.
+ఈ మాడ్యూలర్ దృష్టికోణం కూడా పెరుగుదలకు అనుకూలంగా ఉంటుంది. ఉదాహరణకి, మీరు ఆహార సిఫారసులు లేదా స్థానిక కార్యాచరణ సూచనల కోసం ప్రత్యేక ఏజెంట్లను చేర్చవచ్చు మరియు పథకాన్ని కాలక్రమేణ మెరుగుపరచవచ్చు.
 
-### నిర్మిత అవుట్‌పుట్
+### నిర్మాణాత్మక అవుట్పుట్
 
-లార్జ్ లాంగ్వేజ్ మోడల్స్ (LLMs) నిర్మిత అవుట్‌పుట్ (ఉదా: JSON) రూపొందించగలవు, ఇది డౌన్‌స్ట్రీమ్ ఏజెంట్లు లేదా సేవలు పార్స్ చేయడానికి మరియు ప్రాసెస్ చేయడానికి సులభంగా ఉంటుంది. ఇది మల్టీ-ఏజెంట్ సందర్భంలో చాలా ఉపయోగకరంగా ఉంటుంది, అక్కడ ప్లానింగ్ అవుట్‌పుట్ అందుకున్న తర్వాత ఈ పనులను అమలు చేయవచ్చు. ఈ <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">బ్లాగ్‌పోస్ట్</a>ను త్వరగా అవగాహన కోసం చూడండి.
+లోయంగ్వేజ్ మోడల్స్ (LLMs) నిర్మాణాత్మక అవుట్పుట్ (ఉదా: JSON) తయారుచేయగలవు, ఇది డౌన్‌స్ట్రీమ్ ఏజెంట్లు లేదా సేవలు విశ్లేషించడానికి మరియు ప్రాసెస్ చేయడానికి సులభం. ఇది బహుళ ఏజెంట్ పరిసరంలో చాలా ఉపయోగకరం, ఇక్కడ ప్లానింగ్ అవుట్పుట్ అందుకున్న తర్వాత ఈ పనులను అమలు చేయవచ్చు.
 
-క్రింది Python కోడ్ స్నిపెట్ ఒక సాధారణ ప్లానింగ్ ఏజెంట్ లక్ష్యాన్ని ఉపపనులుగా విభజించి నిర్మిత ప్లాన్‌ను రూపొందించడం చూపిస్తుంది:
+క్రింది Python కోడ్ స్నిపెట్ సింపుల్ ప్లానింగ్ ఏజెంట్ ఒక లక్ష్యాన్ని ఉపపనులుగా విభజించి నిర్మాణాత్మక పథకాన్ని తయారుచేస్తున్నది చూపిస్తుంది:
 
 ```python
 from pydantic import BaseModel
@@ -59,9 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -72,35 +71,22 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# ట్రావెల్ సబ్‌టాస్క్ మోడల్
+# ప్రయాణ ఉపకార్యం నమూనా
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # మేము టాస్క్‌ను ఏజెంట్‌కు కేటాయించాలనుకుంటున్నాము
+    assigned_agent: AgentEnum  # మేము ఉద్యోగిని ఈ పని అప్పగించాలనుకుంటున్నాము
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # మోడల్‌తో ప్రామాణీకరించడానికి మీరు మీ GitHub సెట్టింగుల్లో వ్యక్తిగత యాక్సెస్ టోకెన్ (PAT)ని రూపొందించాలి.
-    # PAT టోకెన్‌ను రూపొందించడానికి ఇక్కడ ఇచ్చిన సూచనలను అనుసరించండి: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
-# యూజర్ సందేశాన్ని నిర్వచించండి
-messages = [
-    SystemMessage(content="""You are an planner agent.
+# వాడుకరి సందేశాన్ని నిర్వచించండి
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -111,43 +97,26 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # లోడ్ చేయడానికి ముందు ప్రతిస్పందన కంటెంట్ చెల్లుబాటు అయ్యే JSON స్ట్రింగ్ అని నిర్ధారించండి
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# response_content None అయితే:
-#     ValueError("Response content is not a valid JSON string")ని విసిరేయండి
-
-# # JSONగా లోడ్ చేసిన తర్వాత ప్రతిస్పందన కంటెంట్‌ను ప్రింట్ చేయండి
-# pprint(json.loads(response_content))
-
-# MathReasoning మోడల్‌తో ప్రతిస్పందన కంటెంట్‌ను ధృవీకరించండి
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### మల్టీ-ఏజెంట్ ఆర్కెస్ట్రేషన్‌తో ప్లానింగ్ ఏజెంట్
+### బహుళ ఏజెంట్ సమన్వయం తో ప్లానింగ్ ఏజెంట్
 
-ఈ ఉదాహరణలో, ఒక సెమాంటిక్ రౌటర్ ఏజెంట్ వినియోగదారు అభ్యర్థనను స్వీకరిస్తుంది (ఉదా: "నా ప్రయాణానికి హోటల్ ప్లాన్ కావాలి.").
+ఈ ఉదాహరణలో, సీమాంటిక్ రూటర్ ఏజెంట్ ఒక వాడుకరి అభ్యర్థన (ఉదా: "నా ప్రయాణానికి ఒక హోటల్ పథకం కావాలి.") అందుకుంటుంది.
 
-ప్లానర్ ఈ విధంగా చేస్తుంది:
+ప్లానర్ తరువాత:
 
-* హోటల్ ప్లాన్ స్వీకరించడం: ప్లానర్ వినియోగదారు సందేశాన్ని తీసుకుని, సిస్టమ్ ప్రాంప్ట్ (అందుబాటులో ఉన్న ఏజెంట్ వివరాలు సహా) ఆధారంగా నిర్మిత ప్రయాణ ప్లాన్‌ను రూపొందిస్తుంది.
-* ఏజెంట్లు మరియు వారి సాధనాలను జాబితా చేయడం: ఏజెంట్ రిజిస్ట్రీ ఏజెంట్ల జాబితాను (ఉదా: విమానం, హోటల్, కార్ రెంటల్, మరియు కార్యకలాపాలు) మరియు వారు అందించే ఫంక్షన్లు లేదా సాధనాలను కలిగి ఉంటుంది.
-* ప్లాన్‌ను సంబంధిత ఏజెంట్లకు రూట్ చేయడం: ఉపపనుల సంఖ్యపై ఆధారపడి, ప్లానర్ సందేశాన్ని ఒక ప్రత్యేక ఏజెంట్‌కు (ఒకే పనుల సందర్భాల్లో) నేరుగా పంపుతుంది లేదా మల్టీ-ఏజెంట్ సహకారం కోసం గ్రూప్ చాట్ మేనేజర్ ద్వారా సమన్వయం చేస్తుంది.
-* ఫలితాన్ని సారాంశం చేయడం: చివరగా, ప్లానర్ రూపొందించిన ప్లాన్‌ను స్పష్టత కోసం సారాంశం చేస్తుంది.
+* హోటల్ ప్లాన్ ను అందుకోవడం: ప్లానర్ వాడుకరి సందేశాన్ని తీసుకుని, సిస్టమ్ ప్రాంప్ట్ ఆధారంగా (అందుబాటులో ఉన్న ఏజెంట్ వివరాలతో సహా), నిర్మాణాత్మక ప్రయాణ పథకాన్ని సృష్టిస్తుంది.
+* ఏజెంట్లు మరియు అవి అందించే సాధనాలు/ఫంక్షన్ల జాబితాను ఇవ్వడం: ఏజెంట్ రిజిస్ట్రి విమాన, హోటల్, కారు అద్దెకుం మరియు కార్యకలాపాల కోసం సంబంధించిన ఏజెంట్లను మరియు వారి పనిముట్టాలను కలిగి ఉంటుంది.
+* పథకాన్ని సంబంధిత ఏజెంట్లకు పంపడం: ఉపపనుల సంఖ్యను బట్టి, ప్లానర్ సందేశాన్ని నేరుగా ఒక ప్రత్యేక ఏజెంట్ కు (ఒకటి పనికి) పంపవచ్చు లేదా బహుళ ఏజెంట్ సహకారానికి గ్రూప్ చాట్ మేనేజర్ ద్వారా సమన్వయం చేస్తుంది.
+* ఫలితాన్ని సారాంశం చేయడం: చివరగా, ప్లానర్ రూపొందించిన పథకాన్ని స్పష్టత కోసం సారాంశం చేస్తుంది.
 క్రింది Python కోడ్ ఉదాహరణ ఈ దశలను వివరంగా చూపిస్తుంది:
 
 ```python
@@ -166,11 +135,11 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# ప్రయాణ ఉపకార్య మోడల్
+# ప్రయాణ ఉపకార్యం మోడల్
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # మేము పనిని ఏజెంట్‌కు కేటాయించాలనుకుంటున్నాము
+    assigned_agent: AgentEnum # పనిని ఏజెంట్‌కు కేటాయించాలనుకుంటున్నాము
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -180,25 +149,18 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# రకాలు తనిఖీ చేయబడిన పర్యావరణ వేరియబుల్స్‌తో క్లయింట్‌ను సృష్టించండి
+# క్లయింట్‌ను సృష్టించండి
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 from pprint import pprint
 
-# వినియోగదారు సందేశాన్ని నిర్వచించండి
+# వాడుకరి సందేశాన్ని నిర్వచించండి
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +168,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# లోడ్ చేయడానికి ముందు ప్రతిస్పందన కంటెంట్ చెల్లుబాటు అయ్యే JSON స్ట్రింగ్ అని నిర్ధారించండి
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
-# JSON గా లోడ్ చేసిన తర్వాత ప్రతిస్పందన కంటెంట్‌ను ముద్రించండి
+# JSON గా లోడ్ చేసిన తర్వాత స్పందన కంటెంట్‌ను ముద్రించండి
 
 pprint(json.loads(response_content))
 ```
 
-మునుపటి కోడ్ అవుట్‌పుట్‌ను ఉపయోగించి `assigned_agent`కు రూట్ చేయవచ్చు మరియు చివరి వినియోగదారుని కోసం ప్రయాణ ప్లాన్‌ను సారాంశం చేయవచ్చు.
+క్రింది కోడ్ అవుట్పుట్ ను మీరు "assigned_agent" కు రూట్ చేసి, ప్రయాణ పథకాన్ని చివరి వినియోగదారునికి సారాంశం చేయవచ్చు.
 
 ```json
 {
@@ -254,21 +212,22 @@ pprint(json.loads(response_content))
 }
 ```
 
-మునుపటి కోడ్ ఉదాహరణతో ఒక నోట్‌బుక్ [ఇక్కడ](07-autogen.ipynb) అందుబాటులో ఉంది.
+ముందటి కోడ్ నమూనాతో కూడిన ఒక ఉదాహరణ నోట్‌బుక్ [ఇక్కడ](07-python-agent-framework.ipynb) అందుబాటులో ఉంది.
 
 ### పునరావృత ప్లానింగ్
 
-కొన్ని పనులు వెనుకకు-ముందుకు లేదా పునరావృత ప్లానింగ్ అవసరం, ఒక ఉపపన ఫలితం తదుపరి పనిని ప్రభావితం చేసే సందర్భంలో. ఉదాహరణకు, ఏజెంట్ విమానాలను బుక్ చేస్తూ అనూహ్య డేటా ఫార్మాట్‌ను కనుగొంటే, హోటల్ బుకింగ్‌లకు ముందుగా తన వ్యూహాన్ని అనుసరించాల్సి ఉంటుంది.
+కొన్ని పనులు వెనుకకు బయట పెట్టే లేదా పున: ప్లానింగ్ అవసరం, ఒక ఉపపని ఫలితం తరువాతి దశను ప్రభావితం చేస్తుంది. ఉదాహరణకి, ఏజెంట్ ఒక అనుకోని డేటా ఫార్మాట్ కనుగొనినప్పుడు విమాన బుకింగ్‌లో, హోటల్ బుకింగ్‌కు వెళ్లే ముందు పథకాన్ని మార్చుకోవాల్సి రావచ్చు.
 
-అదనంగా, వినియోగదారు అభిప్రాయం (ఉదా: ఒక మానవుడు ముందుగా విమానం కావాలని నిర్ణయించుకోవడం) ఒక భాగం పునరావృత ప్లాన్‌ను ప్రారంభించవచ్చు. ఈ డైనమిక్, పునరావృత విధానం తుది పరిష్కారం రియల్-వరల్డ్ పరిమితులు మరియు అభివృద్ధి చెందుతున్న వినియోగదారు ప్రాధాన్యతలకు అనుగుణంగా ఉండేలా చేస్తుంది.
+అంతేకాదు, వాడుకరుల అభిప్రాయం (ఉదా: ఒక మనిషి ముందుగా విమానం ఎంచుకునేందుకు నిర్ణయించుకోవడం) ఒక తాత్కాలిక పునరాయోజనాన్ని ప్రారంభించవచ్చు. ఈ డైనమిక్, పునరావృత దృష్టికోణం తుది పరిష్కారం వాస్తవ ప్రపంచ నిబంధనలు మరియు మార్పిడీయగల వినియోగదారు అభిరుచులతో సరిపోతుంది.
 
-ఉదా: నమూనా కోడ్
+ఉదా: కోడ్
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. గత కోడ్ మాదిరిగానే మరియు వినియోగదారుని చరిత్ర, ప్రస్తుత ప్రణాళికను పంపండి
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
+#.. మునుపటి కోడ్‌లాగే మరియు యూజర్ చరిత్ర, ప్రస్తుత ప్రణాళికను పంపండి
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,38 +235,43 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
-# .. పునః ప్రణాళిక చేసి పనులను సంబంధిత ఏజెంట్లకు పంపండి
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
+# .. మళ్లీ ప్రణాళిక సిద్ధం చేసి సంబంధిత ఏజెంట్లకు పనులని పంపండి
 ```
 
-మరింత సమగ్ర ప్లానింగ్ కోసం Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">బ్లాగ్‌పోస్ట్</a>ను చూడండి, ఇది క్లిష్టమైన పనులను పరిష్కరించడానికి ఉపయోగపడుతుంది.
+విస్తృతమైన ప్లానింగ్ కోసం Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">బ్లాగ్ పోస్ట్</a> చూడండి, ఇది క్లిష్టమైన పనులను పరిష్కరించడానికి.
 
 ## సారాంశం
 
-ఈ వ్యాసంలో, అందుబాటులో ఉన్న ఏజెంట్లను డైనమిక్‌గా ఎంచుకునే ప్లానర్‌ను ఎలా రూపొందించవచ్చో ఉదాహరణను చూశాము. ప్లానర్ అవుట్‌పుట్ పనులను విభజించి ఏజెంట్లకు కేటాయిస్తుంది, తద్వారా అవి అమలు చేయబడతాయి. ఏజెంట్లు పనిని నిర్వహించడానికి అవసరమైన ఫంక్షన్లు/సాధనాలకు ప్రాప్యత కలిగి ఉంటారని భావించబడుతుంది. ఏజెంట్లకు అదనంగా, మీరు రిఫ్లెక్షన్, సారాంశం, మరియు రౌండ్ రాబిన్ చాట్ వంటి ఇతర ప్యాటర్న్‌లను చేర్చవచ్చు.
+ఈ వ్యాసంలో, మేము ఎలానో ప్లానర్ రూపొందించవచ్చో చూశాము, ఇది డైనమిక్‌గా అందుబాటులో ఉన్న ఏజెంట్లను ఎంచుకుంటుంది. ప్లానర్ ప్లానింగ్ అవుట్పుట్ పనులను విభజించి, ఏజెంట్లకు కేటాయిస్తుంది, తద్వారా అవి అమలు చేయబడతాయి. ఏజెంట్లకు ఆ పనిని చేయడానికి అవసరమైన ఫంక్షన్లు/సాధనాలు లభ్యమవుతాయని అనుకుంటారు. ఏజెంట్లతో పాటు మీరు రిఫ్లెక్షన్, సమారాంతరం, రౌండ్ రాబిన్ చాట్ వంటి ఇతర నమూనాలను కూడా చేర్చవచ్చు మరింత అనుకరణ కోసం.
 
 ## అదనపు వనరులు
 
-AutoGen Magnetic One - క్లిష్టమైన పనులను పరిష్కరించడానికి జనరలిస్ట్ మల్టీ-ఏజెంట్ సిస్టమ్ మరియు అనేక సవాలుతో కూడిన ఏజెంటిక్ బెంచ్‌మార్క్‌లపై అద్భుతమైన ఫలితాలను సాధించింది. రిఫరెన్స్: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. ఈ అమలులో ఆర్కెస్ట్రేటర్ పనికి ప్రత్యేకమైన ప్లాన్‌ను రూపొందించి ఈ పనులను అందుబాటులో ఉన్న ఏజెంట్లకు కేటాయిస్తుంది. ప్లానింగ్‌కు అదనంగా, ఆర్కెస్ట్రేటర్ పనుల పురోగతిని పర్యవేక్షించడానికి ట్రాకింగ్ మెకానిజాన్ని కూడా ఉపయోగిస్తుంది మరియు అవసరమైతే పునరావృత ప్లాన్ చేస్తుంది.
+Magentic One - క్లిష్టమైన పనులను పరిష్కరించడానికి సాధారణ బహుళ ఏజెంట్ వ్యవస్థ, ఇది అనేక క్లిష్ట ఏజెంటిక్ బెంచ్‌మార్క్‌లలో అద్భుత ఫలితాలు సాధించింది. సూచన: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. ఈ అమలు లో ఆర్కెస్ట్రేటర్ పనికి సంబంధించిన ప్రత్యేక పథకాలను సృష్టించి అందుబాటులో ఉన్న ఏజెంట్లకు ఆ కాజీత్యాలు కేటాయిస్తుంది. ప్లానింగ్ తో పాటు ఆర్కెస్ట్రేటర్ ఒక ట్రాకింగ్ విధానాన్ని కూడా ఉపయోగించి పనితీరు పర్యవేక్షణ చేస్తుంది మరియు అవసరమైతే పున: ప్లాన్ చేస్తుంది.
 
-### ప్లానింగ్ డిజైన్ ప్యాటర్న్ గురించి మరిన్ని ప్రశ్నలున్నాయా?
+### ప్లానింగ్ డిజైన్ ప్యాటర్న్ గురించి మీకు ఇంకా سوالలు ఉన్నాయా?
 
-మరింత నేర్చుకునేందుకు, ఆఫీస్ అవర్స్‌లో పాల్గొనడానికి మరియు మీ AI ఏజెంట్ల ప్రశ్నలకు సమాధానం పొందడానికి [Azure AI Foundry Discord](https://aka.ms/ai-agents/discord)లో చేరండి.
+మరొకులు నేర్చుకుంటున్నారు, ఆఫీస్ అవర్స్ హాజరుకావచ్చు మరియు మీ AI ఏజెంట్ల ప్రశ్నలకు సమాధానం పొందటానికి [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) లో చేరండి.
 
-## మునుపటి పాఠం
+## గత పాఠం
 
-[నమ్మదగిన AI ఏజెంట్లను నిర్మించడం](../06-building-trustworthy-agents/README.md)
+[విశ్వసనీయ AI ఏజెంట్లను నిర్మించడం](../06-building-trustworthy-agents/README.md)
 
-## తదుపరి పాఠం
+## తర్వాత పాఠం
 
-[మల్టీ-ఏజెంట్ డిజైన్ ప్యాటర్న్](../08-multi-agent/README.md)
+[బహుళ ఏజెంట్ డిజైన్ ప్యాటర్న్](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**విమర్శ**:  
-ఈ పత్రాన్ని AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించారు. మేము ఖచ్చితత్వానికి ప్రయత్నిస్తున్నప్పటికీ, ఆటోమేటెడ్ అనువాదాలలో తప్పులు లేదా అసమానతలు ఉండవచ్చు. దయచేసి, మూల భాషలో ఉన్న అసలు పత్రాన్ని అధికారం కలిగిన మూలంగా పరిగణించండి. కీలకమైన సమాచారం కోసం, ప్రొఫెషనల్ మానవ అనువాదాన్ని సిఫారసు చేస్తాము. ఈ అనువాదాన్ని ఉపయోగించడం వల్ల కలిగే ఏవైనా అపార్థాలు లేదా తప్పుదారులు కోసం మేము బాధ్యత వహించము.
+**సేప్ట్ నోట్**:  
+ఈ పత్రాన్ని AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించాం. మేము ఖచ్చితత్వానికి ప్రయత్నిస్తామనుకుంటేనూ, ఆటోమేటెడ్ అనువాదాలలో తప్పులు లేదా అసమాధానతలు ఉండవచ్చు. తప్పనిసరి సమాచారం కోసం, అసలు భాషలోని దస్త్రాన్నే అధికారిక మూలం గా పరిగణించాలి. ముఖ్యమైన సమాచారానికి, ప్రొఫెషనల్ మానవ అనువాదాన్ని ఉపయోగించడం మంచిది. ఈ అనువాదం వాడుక వల్ల ఏర్పడే ఏదైనా అపవాదాలు లేదా తప్పుదారితీస్తే మేము బాధ్యులు కాదు.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
