@@ -1,125 +1,125 @@
 [![Intro to AI Agents](../../../translated_images/et/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_
+> _(Klõpsake ülal oleval pildil, et vaadata selle tunni videot)_
 
 
-# Sissejuhatus tehisintellekti agentidesse ja agendi kasutusjuhtudesse
+# Sissejuhatus AI agentidesse ja nende kasutusjuhtudesse
 
-Tere tulemast kursusele "Tehisintellekti Agendid Algajatele"! See kursus annab põhiteadmisi ja praktilisi näiteid tehisintellekti agentide ehitamiseks.
+Tere tulemast kursusele "AI agentide algajatele"! See kursus pakub põhilisi teadmisi ja rakendusnäiteid AI agentide loomiseks.
 
-Liitu <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discordi kogukonnaga</a>, et kohtuda teiste õppijate ja tehisintellekti agentide loojatega ning esitada selle kursuse kohta küsimusi.
+Liituge <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discordi kogukonnaga</a>, et kohtuda teiste õppijate ja AI agentide arendajatega ning esitada kõik oma küsimused selle kursuse kohta.
 
-Kursuse alustamiseks saame parema ülevaate, mis on tehisintellekti agendid ja kuidas me saame neid kasutada rakendustes ning töövoogudes, mida loome.
+Kursuse alustamiseks vaatleme esmalt paremini, mis on AI agendid ja kuidas me saame neid kasutada rakendustes ja töövoogudes, mida me loome.
 
 ## Sissejuhatus
 
-Selles õppetunnis käsitleme:
+See tund hõlmab:
 
-- Mis on tehisintellekti agendid ja millised on erinevad agentide tüübid?
-- Millised kasutusjuhud sobivad kõige paremini tehisintellekti agentidele ja kuidas nad meid aidata saavad?
-- Millised on mõned põhilised ehituskivid agentlahenduste kavandamisel?
+- Mis on AI agendid ja millised on erinevat tüüpi agendid?
+- Millised kasutusjuhtumid sobivad kõige paremini AI agentidele ja kuidas nad saavad meid aidata?
+- Millised on mõned põhilised ehitusplokid, kui disainime agentipõhiseid lahendusi?
 
 ## Õpieesmärgid
-Pärast selle õppetunni läbimist peaksid suutma:
+Pärast selle tunni lõpetamist peaksid oskama:
 
-- Mõista tehisintellekti agentide mõisteid ja kuidas need erinevad teistest tehisintellekti lahendustest.
-- Kasutada tehisintellekti agente kõige tõhusamalt.
-- Kavandada agentlahendusi produktiivselt nii kasutajatele kui ka klientidele.
+- Mõista AI agentide mõisteid ja seda, kuidas nad erinevad teistest AI lahendustest.
+- Rakendada AI agente kõige tõhusamalt.
+- Kujundada agentipõhiseid lahendusi produktiivselt nii kasutajate kui ka klientide jaoks.
 
-## Tehisintellekti agentide määratlus ja agentide tüübid
+## AI agentide määratlus ja agentide tüübid
 
-### Mis on tehisintellekti agendid?
+### Mis on AI agendid?
 
-Tehisintellekti agendid on **süsteemid**, mis võimaldavad **suurtel keelemudelitel (LLM-idel)** **sooritada tegevusi**, laiendades nende võimekust, andes LLM-idele **juurdepääsu tööriistadele** ja **teadmistele**.
+AI agendid on **süsteemid**, mis võimaldavad **suurtel keelemudelitel (LLM-del)** **tegevusi sooritada**, laiendades nende võimeid, andes LLM-idele **ligipääsu tööriistadele** ja **teadmistele**.
 
-Hajutame selle definitsiooni väiksemateks osadeks:
+Lahutame selle definitsiooni väiksemateks osadeks:
 
-- **Süsteem** – Oluline on mõelda agentidele mitte ainult kui üksikule komponendile, vaid kui paljude komponentide süsteemile. Põhitase, tehisintellekti agendi komponendid on:
-  - **Keskkond** – Määratletud ruum, kus tehisintellekti agent tegutseb. Näiteks kui meil oleks reisibroneerimise tehisintellekti agent, siis keskkonnaks võiks olla reisibroneerimise süsteem, mida agent kasutab ülesannete täitmiseks.
-  - **Sensorid** – Keskkonnad sisaldavad teavet ja annavad tagasisidet. Tehisintellekti agendid kasutavad sensoreid selle teabe kogumiseks ja tõlgendamiseks keskkonna praeguse seisundi kohta. Reisibroneerimise agendi näites võib süsteem anda infot nagu hotelli saadavus või lendude hinnad.
-  - **Aktiivaatorid** – Kui agent saab keskkonna praeguse oleku, otsustab ta hetkeülesande jaoks, millist tegevust seadistada, et keskkonda muuta. Reisibroneerimise agendi puhul võib see olla saadava toa broneerimine kasutajale.
+- **Süsteem** – oluline on mõista agente mitte ainult kui üht komponenti, vaid kui mitmest komponendist koosnevat süsteemi. Põhilisel tasemel on AI agendi komponendid:
+  - **Keskkond** – määratletud ruum, kus AI agent tegutseb. Näiteks kui meil oleks reisibroneerimise AI agent, oleks keskkond reisibroneerimissüsteem, mida AI agent kasutab ülesannete täitmiseks.
+  - **Sensorid** – keskkond omab informatsiooni ja annab tagasisidet. AI agendid kasutavad sensoreid selle teabe kogumiseks ja tõlgendamiseks keskkonna praeguse seisundi kohta. Reisibroneerimisagentide näites võib broneerimissüsteem anda infot näiteks hotellide saadavuse või lennuhindade kohta.
+  - **Aktuaatorid** – kui AI agent on saanud keskkonna hetkeseisundi, määrab agent ülesande raames, mis tegevus tuleb keskkonna muutmiseks sooritada. Reisibroneerimisagent võib näiteks broneerida kasutajale saadaoleva toa.
 
-![What Are AI Agents?](../../../translated_images/et/what-are-ai-agents.1ec8c4d548af601a.webp)
+![Mis on AI agendid?](../../../translated_images/et/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-**Suured Keelemudelid** – Agentide kontseptsioon eksisteeris juba enne LLM-ide loomist. AI agentide ehitamisel LLM-idega on eelis võimes tõlgendada inimkeelt ja andmeid. See võimaldab LLM-idel tõlgendada keskkonna teavet ja koostada plaani keskkonna muutmiseks.
+**Suured keelemudelid (LLM-id)** – agendi kontseptsioon eksisteeris juba enne LLM-ide loomist. LLM-idega AI agentide ehitamise eeliseks on nende võime tõlgendada inimkeelt ja andmeid. See võime võimaldab LLM-idel tõlgendada keskkonna teavet ja määratleda plaani keskkonna muutmiseks.
 
-**Tegevuste sooritamine** – Välja AI agentide süsteemidest on LLM-id piiratud olukordades, kus tegevus on kasutaja sisendi põhjal sisu või info genereerimine. AI agentide süsteemides suudavad LLM-id täita ülesandeid, tõlgendades kasutaja soovi ning kasutades keskkonnas kättesaadavaid tööriistu.
+**Tegevuste sooritamine** – väljaspool AI agendi süsteeme on LLM-id piiratud olukordadega, kus tegevus on sisu või info genereerimine kasutaja sisendi põhjal. AI agendi süsteemides saavad LLM-id täita ülesandeid, tõlgendades kasutaja päringut ja kasutades tööriistu, mis on nende keskkonnas saadaval.
 
-**Juurdepääs tööriistadele** – Millistele tööriistadele LLM-l on ligipääs, määrab 1) keskkond, kus ta tegutseb, ja 2) agendi arendaja. Reisiesindaja näites on agendi tööriistad piiratud broneerimissüsteemis saadaolevate toimingutega ja/või arendaja võib seada piiranguid agendi tööriistadele, näiteks lennupiletitele.
+**Ligipääs tööriistadele** – millistele tööriistadele LLM-il ligipääs on, määrab 1) keskkond, kus see tegutseb, ja 2) AI agendi arendaja. Meie reisibroneerimisagentide näites on agendi tööriistad piiratud broneerimissüsteemi funktsioonidega ning/ või saab arendaja piirata agendi tööriistade ligipääsu ainult lendudele.
 
-**Mälu + Teadmised** – Mälu võib olla lühiajaline, kasutaja ja agendi omavahelise vestluse kontekstis. Pikas perspektiivis, lisaks keskkonna poolt antud infole, saab AI agent ka teadmisi teiste süsteemide, teenuste, tööriistade ja isegi teiste agentide kaudu. Reisiesindaja näites võib see teadmine olla ülevaade kasutaja reiseerelistest eelistustest kliendi andmebaasis.
+**Mälu + Teadmised** – mälu võib olla lühiajaline kasutaja ja agendi vahelise vestluse kontekstis. Pikaajaline mälu, keskkonna poolt pakutava info kõrval, võimaldab AI agentidel ka teadmisi pärida teistest süsteemidest, teenustest, tööriistadest ja isegi teistest agentidest. Näiteks reisibroneerimisagent võib saada teadmisi kasutaja reisieelistuste kohta kliendibaasist.
 
-### Erinevad agenditüübid
+### Erinevad agentide tüübid
 
-Nüüd kui meil on üldine määratlus AI agentidele, vaatame mõne kindla agenditüübi näidet ja kuidas neid rakendatakse reisibroneerimise tehisintellekti agendi puhul.
+Nüüd, kui meil on üldine definitsioon AI agentidele, vaatleme mõningaid konkreetseid agentide tüüpe ja kuidas neid saaks rakendada reisibroneerimisagentide puhul.
 
-| **Agendi tüüp**               | **Kirjeldus**                                                                                                                        | **Näide**                                                                                                                                                                                                                     |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Lihtsad refleksagentid**   | Sooritavad viivitamatult tegevusi eelnevalt määratletud reeglite põhjal.                                                             | Reisiesindaja tõlgendab e-kirja konteksti ja suunab reisikaebused klienditeenindusse.                                                                                                                                          |
-| **Mudelpõhised refleksagentid** | Sooritavad tegevusi maailma mudeli ja selle muudatuste põhjal.                                                                      | Reisiesindaja eelistab marsruute, kus on olnud olulisi hinnamuutusi, tuginedes ajaloolistele hinnapõhjadele.                                                                                                                  |
-| **Eesmärgipõhised agentid**  | Koostavad plaane kindlate eesmärkide saavutamiseks, tõlgendades eesmärki ja määrates tegevusi selle saavutamiseks.                   | Reisiesindaja broneerib reisi, kindlustades vajaliku transpordi (auto, ühistransport, lennud) praegusest kohast sihtkohta.                                                                                                       |
-| **Kasulikkuspõhised agentid** | Võtavad arvesse eelistusi ja hindavad numbriliselt kompromisse eesmärkide saavutamiseks.                                            | Reisiesindaja maksimeerib kasulikkust, kaaludes mugavust ja hinda reisi broneerimisel.                                                                                                                                         |
-| **Õppivad agentid**           | Paranevad aja jooksul vastavalt tagasisidele ja korrigeerivad tegevusi.                                                             | Reisiesindaja parandab teenust, kasutades kliendi tagasisidet pärast reisi, et kohandada tulevasi broneeringuid.                                                                                                               |
-| **Hiearhilised agentid**      | Sisaldavad mitut agenti kihilise süsteemina, kus kõrgema taseme agent jagab ülesandeid alamagentidele, kes täidavad neid.          | Reisiesindaja tühistab reisi, jagades ülesande vajalike broneeringute tühistamiseks alamagentidele, kes teevad tööd ja annavad tagasisidet kõrgema taseme agendile.                                                               |
-| **Mitmeagendi süsteemid (MAS)** | Agendid täidavad ülesandeid iseseisvalt, kas koostöö või võistlemise korras.                                                         | Koostöö: Mitmed agendid broneerivad erinevaid reisi teenuseid nagu hotellid, lennud ja meelelahutus. Võistlus: Mitmed agendid haldavad ja võistlevad ühise hotelli broneerimiskalendri üle, et kliente hotellis majutada.         |
+| **Agendi tüüp**               | **Kirjeldus**                                                                                                                        | **Näide**                                                                                                                                                                                                                   |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Lihtsad refleksagentid**    | Teevad koheseid tegevusi eelmääratletud reeglite põhjal.                                                                              | Reisibroneerimisagent tõlgendab e-kirja konteksti ja suunab reisikaebused klienditeenindusse.                                                                                                                                   |
+| **Mudeli põhised refleksagentid** | Tegevused tuginevad maailma mudelil ja selle mudeli muutustel.                                                                       | Reisibroneerimisagent annab prioriteedi marsruutidele, kus on märkimisväärsed hinnamuutused, tuginedes ajaloolisele hinnainfole.                                                                                               |
+| **Eesmärgipõhised agentid**    | Koostavad plaane kindlate eesmärkide saavutamiseks, tõlgendades eesmärki ja määrates tegevusi selle täitmiseks.                     | Reisibroneerimisagent broneerib reisi, määrates vajalikud reisikorraldused (auto, ühistransport, lennud) praegusest asukohast sihtkohta.                                                                                      |
+| **Kasulikkuspõhised agentid**  | Võtavad arvesse eelistusi ja kaaluvad kompromisse numbriliselt, et määrata, kuidas eesmärke kõige paremini saavutada.               | Reisibroneerimisagent maksimeerib kasulikkust, kaaludes mugavust võrreldes kuludega reisi broneerimisel.                                                                                                                      |
+| **Õppivad agentid**            | Paranevad aja jooksul, reageerides tagasisidele ja kohandades tegevusi vastavalt.                                                    | Reisibroneerimisagent parendab oma toimimist, kasutades klientide tagasisidet reisijärgsest ankeetidest, et teha tulevaste broneeringute jaoks parandusi.                                                                    |
+| **Hierarhilised agentid**      | Sisaldavad mitut agenti kihilises süsteemis, kus kõrgemase taseme agendid jagavad ülesanded väiksemateks aluseks madalamatele agentidele. | Reisibroneerimisagent tühistab reisi, jagades ülesande alamosadeks (näiteks konkreetsete broneeringute tühistamine) ning madalamad agendid täidavad neid ja annavad tagasisidet kõrgema taseme agendile.                       |
+| **Mitmeagendilised süsteemid (MAS)** | Agendid täidavad ülesandeid iseseisvalt, kas koostööd tehes või konkurentsis olles.                                                  | Koostöös: Mitmed agendid broneerivad konkreetseid reisiteenuseid nagu hotellid, lennud ja meelelahutus. Konkurentsis: Mitmed agendid haldavad ja konkureerivad ühise hotelli broneerimiskalendri üle, et broneerida kliente hotelli. |
 
-## Millal kasutada tehisintellekti agente
+## Millal kasutada AI agente
 
-Varasemas osas kasutasime reisiesindaja näidet, et selgitada, kuidas erinevat tüüpi agente saab rakendada erinevates reisibroneerimise stsenaariumites. Jätkame selle rakendusega kogu kursuse vältel.
+Eelnevas osas kasutasime näitena reisibroneerimisagentuuri kasutusjuhtu, et selgitada, kuidas eri tüüpi agendid sobivad erinevatesse reisibroneerimise stsenaariumitesse. Jätkame selle rakenduse kasutamist kogu kursuse jooksul.
 
-Vaatleme kasutusjuhtude tüüpe, mille jaoks tehisintellekti agendid on kõige sobivamad:
+Vaatame, milliseid kasutusjuhtumeid AI agentide jaoks kõige paremini sobib:
 
 ![Millal kasutada AI agente?](../../../translated_images/et/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 
-- **Avatud probleemid** – LLM määrab vajadusel toimingud ülesande lõpuleviimiseks, kuna neid pole võimalik alati töövoogu kodeerida.
-- **Mitmeastmelised protsessid** – ülesanded, mis nõuavad keerukustaset, kus agent peab kasutama tööriistu või infot mitme sammuga, mitte ühe otsinguga.
-- **Ajutine parenemine** – ülesanded, mille puhul agent saab aja jooksul parandada vastavalt keskkonna või kasutajate tagasisidele, et pakkuda paremat kasulikkust.
+- **Avatud lõpp-päringud** – võimaldades LLM-il määrata vajalikud sammud ülesande täitmiseks, sest kõiki protsesse ei saa alati töösse kõvasti kodeerida.
+- **Mitmetasemelised protsessid** – ülesanded, mille puhul on vajalik teatud keerukuse tase, kus AI agent peab kasutama tööriistu või infot mitme sammuna, mitte ühekordse päringuga.  
+- **Aja jooksul parendamine** – ülesanded, kus agent saab aja jooksul parandada oma võimeid, saades tagasisidet kas oma keskkonnast või kasutajatelt, et pakkuda paremat kasulikkust.
 
-Täiendavaid kaalutlusi tehisintellekti agentide kasutamisel käsitleme usaldusväärsete AI agentide loomise õppetunnis.
+Me käsitleme täpsemaid kaalutlusi AI agentide kasutamisel usaldusväärsete AI agentide loomise tunnis.
 
-## Agentilahenduste põhitõed
+## Agentipõhiste lahenduste alused
 
-### Agendi arendus
+### Agendi arendamine
 
-Esimene samm AI agendi süsteemi kavandamisel on määratleda tööriistad, tegevused ja käitumismustrid. Selles kursuses keskendume **Azure AI Agent Service'i** kasutamisele agentide määratlemiseks. See pakub järgmisi võimalusi:
+Esimene samm AI agendi süsteemi kujundamisel on määratleda tööriistad, tegevused ja käitumised. Selles kursuses keskendume **Azure AI Agent Service** kasutamisele agentide määratlemiseks. See teenus pakub funktsioone nagu:
 
 - Valik avatud mudeleid nagu OpenAI, Mistral ja Llama
-- Litsentsitud andmete kasutamine teenusepakkujate kaudu nagu Tripadvisor
+- Litsentseeritud andmete kasutamine pakkujate kaudu nagu Tripadvisor
 - Standardiseeritud OpenAPI 3.0 tööriistade kasutamine
 
-### Agentmodellid
+### Agentipõhised mustrid
 
-Suhtlus LLM-idega toimub promptide abil. Arvestades AI agentide poolautonoomset loomust, pole alati võimalik või vajalik LLM-i käsitsi uuesti promptida pärast keskkonna muutust. Kasutame **agentmustreid**, mis võimaldavad LLM-i sessioone mitme sammu jooksul sujuvamalt hallata.
+Suhtlus LLM-idega toimub päringute kaudu. Arvestades AI agentide poolautonoomset olemust, ei ole alati võimalik ega vajalik käsitsi LLM-i uuesti pärida pärast keskkonna muutumist. Kasutame **agentipõhiseid mustreid**, mis võimaldavad LLM-i pärida mitme sammu jooksul skaleeritaval viisil.
 
-See kursus jaguneb mõnede populaarsete agentmuste vahel.
+Kursus on jagatud mõneks praegu populaarseks agentipõhiseks mustriks.
 
-### Agentraamistikud
+### Agentipõhised raamistikud
 
-Agentraamistikud võimaldavad arendajatel rakendada agentmustreid koodi kaudu. Need raamistikud pakuvad malle, pistikprogramme ja tööriistu parema koostöö jaoks AI agentide vahel. Need võimalused tagavad parema jälgitavuse ja vigade tuvastamise AI agentide süsteemides.
+Agentipõhised raamistikud võimaldavad arendajatel rakendada agentipõhiseid mustreid koodi kaudu. Need raamistikud pakuvad malle, pistikprogramme ja tööriistu parema AI agentide koostöö jaoks. Need eelised võimaldavad paremat jälgitavust ja tõrkeotsingut AI agendi süsteemides.
 
-Selles kursuses uurime teadusuuringutel põhinevat AutoGen raamistikku ning tootmises valmisolekus Semantic Kernel'i Agent raamistikku.
+Selles kursuses uurime Microsoft Agent Frameworki (MAF) põhitootmisvalmiste AI agentide loomiseks.
 
 ## Näidiskoodid
 
-- Python: [Agentraamistik](./code_samples/01-python-agent-framework.ipynb)
-- .NET: [Agentraamistik](./code_samples/01-dotnet-agent-framework.md)
+- Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
 
-## On veel küsimusi AI agentide kohta?
+## Kas sul on AI agentide kohta rohkem küsimusi?
 
-Liitu [Microsoft Foundry Discordiga](https://aka.ms/ai-agents/discord), et kohtuda teiste õppijatega, osaleda virtuaalsetel kontoritundidel ja saada vastused AI agentide küsimustele.
+Liitu [Microsoft Foundry Discordiga](https://aka.ms/ai-agents/discord), et kohtuda teiste õppijatega, osaleda konsultatsioonitundides ja saada vastused oma AI agentide küsimustele.
 
-## Eelmine õppetund
+## Eelmine tund
 
-[Course Setup](../00-course-setup/README.md)
+[Kursuse seadistus](../00-course-setup/README.md)
 
-## Järgmine õppetund
+## Järgmine tund
 
-[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)
+[Agentipõhiste raamistikute uurimine](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastutusest loobumine**:
-See dokument on tõlgitud kasutades tehisintellektil põhinevat tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüdleme täpsuse poole, palun arvestage, et automatiseeritud tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle emakeeles peaks olema autoriteetne allikas. Tähtsa teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tekkida võivate arusaamatuste või valesti mõistmiste eest.
+**Vastutusest loobumine**:  
+See dokument on tõlgitud kasutades tehisintellekti tõlke teenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüame tagada täpsust, palun pidage meeles, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle algkeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või väärtõlgenduste eest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
