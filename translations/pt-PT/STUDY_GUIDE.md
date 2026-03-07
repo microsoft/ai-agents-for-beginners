@@ -1,67 +1,66 @@
-# Agentes de IA para Iniciantes - Guia de Estudo & Resumo do Curso
+# Agentes de IA para Iniciantes - Guia de Estudo e Resumo do Curso
 
-Este guia fornece um resumo do curso "Agentes de IA para Iniciantes" e explica conceitos-chave, frameworks e padrões de design para construir Agentes de IA.
+This guide provides a summary of the "AI Agents for Beginners" course and explains key concepts, frameworks, and design patterns for building AI Agents.
 
-## 1. Introdução aos Agentes de IA
+## 1. Introduction to AI Agents
 
-**O que são Agentes de IA?**
-Agentes de IA são sistemas que estendem as capacidades dos Grandes Modelos de Linguagem (LLMs) ao dar-lhes acesso a **ferramentas**, **conhecimento** e **memória**. Ao contrário de um chatbot padrão de LLM que apenas gera texto com base nos dados de treino, um Agente de IA pode:
-- **Perspetivar** o seu ambiente (através de sensores ou entradas).
-- **Raciocinar** sobre como resolver um problema.
-- **Agir** para mudar o ambiente (através de atuadores ou execução de ferramentas).
+**What are AI Agents?**
+AI Agents are systems that extend the capabilities of Large Language Models (LLMs) by giving them access to **tools**, **knowledge**, and **memory**. Unlike a standard LLM chatbot that only generates text based on training data, an AI Agent can:
+- **Perceive** its environment (via sensors or inputs).
+- **Reason** about how to solve a problem.
+- **Act** to change the environment (via actuators or tool execution).
 
-**Componentes Chave de um Agente:**
-- **Ambiente**: O espaço onde o agente opera (ex. um sistema de reservas).
-- **Sensores**: Mecanismos para recolher informação (ex. ler uma API).
-- **Atuadores**: Mecanismos para realizar ações (ex. enviar um e-mail).
-- **Cérebro (LLM)**: O motor de raciocínio que planeia e decide quais ações tomar.
+**Key Components of an Agent:**
+- **Environment**: The space where the agent operates (e.g., a booking system).
+- **Sensors**: Mechanisms to gather information (e.g., reading an API).
+- **Actuators**: Mechanisms to perform actions (e.g., sending an email).
+- **Brain (LLM)**: The reasoning engine that plans and decides which actions to take.
 
-## 2. Frameworks Agenticos
+## 2. Agentic Frameworks
 
-O curso cobre três frameworks principais para construir agentes:
+The course uses **Microsoft Agent Framework (MAF)** with **Azure AI Foundry Agent Service V2** for building agents:
 
-| Framework | Foco | Melhor Para |
-|-----------|-------|-------------|
-| **Semantic Kernel** | SDK pronto para produção para .NET/Python | Aplicações empresariais, integração de IA com código existente. |
-| **AutoGen** | Colaboração multiagente | Cenários complexos que exigem agentes especializados a comunicarem entre si. |
-| **Azure AI Agent Service** | Serviço cloud gerido | Implementação segura e escalável com gestão de estado integrada. |
+| Component | Focus | Best For |
+|-----------|-------|----------|
+| **Microsoft Agent Framework** | Unified Python/C# SDK for agents, tools, and workflows | Building agents with tools, multi-agent workflows, and production patterns. |
+| **Azure AI Foundry Agent Service** | Managed cloud runtime | Secure, scalable deployment with built-in state management, observability, and trust. |
 
-## 3. Padrões de Design Agenticos
+## 3. Agentic Design Patterns
 
-Padrões de design ajudam a estruturar como os agentes operam para resolver problemas de forma fiável.
+Design patterns help structure how agents operate to solve problems reliably.
 
-### **Padrão de Utilização de Ferramentas** (Lição 4)
-Este padrão permite aos agentes interagir com o mundo exterior.
-- **Conceito**: O agente recebe um "esquema" (uma lista de funções disponíveis e seus parâmetros). O LLM decide *qual* ferramenta usar e com *quais* argumentos com base no pedido do utilizador.
-- **Fluxo**: Pedido do Utilizador -> LLM -> **Seleção da Ferramenta** -> **Execução da Ferramenta** -> LLM (com output da ferramenta) -> Resposta Final.
-- **Casos de Uso**: Obtenção de dados em tempo real (tempo, preços de ações), realização de cálculos, execução de código.
+### **Tool Use Pattern** (Lesson 4)
+This pattern enables agents to interact with the outside world.
+- **Concept**: The agent is provided with a "schema" (a list of available functions and their parameters). The LLM decides *which* tool to call and with *what* arguments based on the user's request.
+- **Flow**: User Request -> LLM -> **Tool Selection** -> **Tool Execution** -> LLM (with tool output) -> Final Response.
+- **Use Cases**: Retrieving real-time data (weather, stock prices), performing calculations, executing code.
 
-### **Padrão de Planeamento** (Lição 7)
-Este padrão permite aos agentes resolver tarefas complexas e multi-etapas.
-- **Conceito**: O agente divide um objetivo de alto nível numa sequência de subtarefas menores.
-- **Abordagens**:
-  - **Decomposição da Tarefa**: Dividir "Planear uma viagem" em "Reservar voo", "Reservar hotel", "Alugar carro".
-  - **Planeamento Iterativo**: Reavaliar o plano com base no resultado das etapas anteriores (ex. se o voo estiver lotado, escolher outra data).
-- **Implementação**: Frequentemente envolve um agente "Planeador" que gera um plano estruturado (ex. JSON) que é depois executado por outros agentes.
+### **Planning Pattern** (Lesson 7)
+This pattern enables agents to solve complex, multi-step tasks.
+- **Concept**: The agent breaks down a high-level goal into a sequence of smaller subtasks.
+- **Approaches**:
+  - **Task Decomposition**: Splitting "Plan a trip" into "Book flight", "Book hotel", "Rent car".
+  - **Iterative Planning**: Re-evaluating the plan based on the output of previous steps (e.g., if the flight is full, choose a different date).
+- **Implementation**: Often involves a "Planner" agent that generates a structured plan (e.g., JSON) which is then executed by other agents.
 
-## 4. Princípios de Design
+## 4. Design Principles
 
-Ao desenhar agentes, considere três dimensões:
-- **Espaço**: Os agentes devem ligar pessoas e conhecimento, ser acessíveis mas discretos.
-- **Tempo**: Os agentes devem aprender com o *Passado*, fornecer sugestões relevantes no *Presente* e adaptar-se para o *Futuro*.
-- **Núcleo**: Abraçar a incerteza mas estabelecer confiança através da transparência e controlo do utilizador.
+When designing agents, consider three dimensions:
+- **Space**: Agents should connect people and knowledge, be accessible but unobtrusive.
+- **Time**: Agents should learn from the *Past*, provide relevant nudges in the *Now*, and adapt for the *Future*.
+- **Core**: Embrace uncertainty but establish trust through transparency and user control.
 
-## 5. Resumo das Lições Principais
+## 5. Summary of Key Lessons
 
-- **Lição 1**: Agentes são sistemas, não apenas modelos. Eles percebem, raciocinam e agem.
-- **Lição 2**: Frameworks como Semantic Kernel e AutoGen abstraem a complexidade da chamada de ferramentas e gestão de estado.
-- **Lição 3**: Projetar com transparência e controlo do utilizador em mente.
-- **Lição 4**: Ferramentas são as "mãos" do agente. A definição do esquema é crucial para o LLM entender como usá-las.
-- **Lição 7**: O planeamento é a "função executiva" do agente, permitindo-lhe enfrentar fluxos de trabalho complexos.
+- **Lesson 1**: Agents are systems, not just models. They perceive, reason, and act.
+- **Lesson 2**: Microsoft Agent Framework abstracts the complexity of tool calling and state management.
+- **Lesson 3**: Design with transparency and user control in mind.
+- **Lesson 4**: Tools are the "hands" of the agent. Schema definition is crucial for the LLM to understand how to use them.
+- **Lesson 7**: Planning is the "executive function" of the agent, enabling it to tackle complex workflows.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Aviso Legal**:
-Este documento foi traduzido utilizando o serviço de tradução automática [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos pela precisão, por favor tenha em consideração que traduções automatizadas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte autorizada. Para informações críticas, recomenda-se tradução profissional feita por humanos. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações erradas decorrentes do uso desta tradução.
+**Isenção de responsabilidade**:
+Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos por garantir a precisão, por favor note que traduções automáticas podem conter erros ou imprecisões. O documento original na sua língua nativa deve ser considerado a fonte autorizada. Para informação crítica, recomenda-se uma tradução profissional feita por um tradutor humano. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações erradas resultantes da utilização desta tradução.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
