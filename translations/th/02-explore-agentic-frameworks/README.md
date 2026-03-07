@@ -1,648 +1,290 @@
-[![สำรวจ AI Agent Frameworks](../../../translated_images/th/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
+[![Exploring AI Agent Frameworks](../../../translated_images/th/lesson-2-thumbnail.c65f44c93b8558df.webp)](https://youtu.be/ODwF-EZo_O8?si=1xoy_B9RNQfrYdF7)
 
 > _(คลิกที่รูปภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 
-# สำรวจ AI Agent Frameworks
+# สำรวจเฟรมเวิร์กตัวแทน AI
 
-AI agent frameworks คือแพลตฟอร์มซอฟต์แวร์ที่ออกแบบมาเพื่อช่วยให้ง่ายต่อการสร้าง, นำไปใช้ และการจัดการ AI agents แพลตฟอร์มเหล่านี้มอบส่วนประกอบ, การสรุปความ และเครื่องมือที่สร้างไว้ล่วงหน้าให้กับนักพัฒนาเพื่อช่วยในการพัฒนาระบบ AI ที่ซับซ้อนอย่างมีประสิทธิภาพ
+เฟรมเวิร์กตัวแทน AI คือแพลตฟอร์มซอฟต์แวร์ที่ออกแบบมาเพื่อช่วยให้การสร้าง การใช้งาน และการจัดการตัวแทน AI ง่ายขึ้น เฟรมเวิร์กเหล่านี้ให้ส่วนประกอบสำเร็จรูป นามธรรม และเครื่องมือต่างๆ แก่นักพัฒนา เพื่ออำนวยความสะดวกในการพัฒนาระบบ AI ที่ซับซ้อน
 
-แพลตฟอร์มเหล่านี้ช่วยให้นักพัฒนาสามารถโฟกัสที่แง่มุมเฉพาะตัวของแอปพลิเคชันโดยใช้แนวทางมาตรฐานต่อความท้าทายทั่วไปในการพัฒนา AI agent พวกมันยังช่วยเพิ่มความสามารถในการขยาย, การเข้าถึง และประสิทธิภาพในการสร้างระบบ AI
+เฟรมเวิร์กเหล่านี้ช่วยให้นักพัฒนาสามารถมุ่งเน้นไปที่แง่มุมเฉพาะของแอปพลิเคชัน โดยให้แนวทางมาตรฐานสำหรับความท้าทายทั่วไปในการพัฒนาตัวแทน AI ช่วยเพิ่มความสามารถในการขยายการใช้งาน ความเข้าถึง และประสิทธิภาพในการสร้างระบบ AI
 
 ## บทนำ
 
 บทเรียนนี้จะครอบคลุม:
 
-- AI Agent Frameworks คืออะไร และช่วยให้นักพัฒนาทำอะไรได้บ้าง?
-- ทีมงานจะใช้แพลตฟอร์มเหล่านี้อย่างไรเพื่อสร้างต้นแบบอย่างรวดเร็ว, ทดลอง และปรับปรุงความสามารถของ agent ได้อย่างไร?
-- ความแตกต่างระหว่างแพลตฟอร์มและเครื่องมือที่สร้างโดย Microsoft <a href="https://aka.ms/ai-agents/autogen" target="_blank">AutoGen</a>, <a href="https://aka.ms/ai-agents-beginners/semantic-kernel" target="_blank">Semantic Kernel</a> และ <a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a> คืออะไร?
-- ฉันสามารถผสานรวมเครื่องมือในระบบ Azure ที่มีอยู่โดยตรงได้หรือไม่ หรือจำเป็นต้องใช้โซลูชันแยกต่างหาก?
-- Azure AI Agents service คืออะไร และช่วยฉันอย่างไร?
+- เฟรมเวิร์กตัวแทน AI คืออะไร และช่วยให้นักพัฒนาทำอะไรได้บ้าง?
+- ทีมงานสามารถใช้เฟรมเวิร์กเหล่านี้ในการสร้างต้นแบบได้อย่างรวดเร็ว ปรับปรุง และพัฒนาขีดความสามารถของตัวแทนได้อย่างไร?
+- ความแตกต่างระหว่างเฟรมเวิร์กและเครื่องมือที่สร้างโดย Microsoft (<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a> และ <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework</a>) คืออะไร?
+- ฉันสามารถใช้งานเครื่องมือในระบบนิเวศ Azure ที่มีอยู่แล้วโดยตรงได้ไหม หรือจำเป็นต้องใช้โซลูชันแยกต่างหาก?
+- บริการ Azure AI Agents คืออะไร และช่วยฉันได้อย่างไร?
 
 ## เป้าหมายการเรียนรู้
 
 เป้าหมายของบทเรียนนี้คือช่วยให้คุณเข้าใจ:
 
-- บทบาทของ AI Agent Frameworks ในการพัฒนา AI
-- วิธีใช้ AI Agent Frameworks เพื่อสร้างเอเย่นต์ที่ชาญฉลาด
-- ความสามารถหลักที่ AI Agent Frameworks เปิดใช้งาน
-- ความแตกต่างระหว่าง AutoGen, Semantic Kernel, และ Azure AI Agent Service
+- บทบาทของเฟรมเวิร์กตัวแทน AI ในการพัฒนา AI
+- วิธีใช้เฟรมเวิร์กตัวแทน AI เพื่อสร้างตัวแทนอัจฉริยะ
+- ความสามารถหลักที่เฟรมเวิร์กตัวแทน AI ช่วยให้เป็นไปได้
+- ความแตกต่างระหว่าง Microsoft Agent Framework กับ Azure AI Agent Service
 
-## AI Agent Frameworks คืออะไร และช่วยให้นักพัฒนาทำอะไรได้บ้าง?
+## เฟรมเวิร์กตัวแทน AI คืออะไร และช่วยให้นักพัฒนาทำอะไรได้บ้าง?
 
-AI Frameworks แบบดั้งเดิมช่วยให้คุณสามารถผสาน AI เข้ากับแอปของคุณและทำให้แอปดีขึ้นในแง่ต่อไปนี้:
+เฟรมเวิร์ก AI แบบดั้งเดิมสามารถช่วยคุณรวม AI เข้ากับแอปพลิเคชันของคุณและพัฒนาแอปเหล่านี้ได้ดังนี้:
 
-- **ปรับแต่งเฉพาะบุคคล**: AI สามารถวิเคราะห์พฤติกรรมและความชอบของผู้ใช้เพื่อเสนอคำแนะนำ, เนื้อหา และประสบการณ์ที่เหมาะกับแต่ละบุคคล  
-ตัวอย่าง: บริการสตรีมมิ่งอย่าง Netflix ใช้ AI เพื่อแนะนำภาพยนตร์และรายการตามประวัติการรับชม เพิ่มความผูกพันและความพึงพอใจของผู้ใช้  
-- **อัตโนมัติและประสิทธิภาพ**: AI สามารถทำงานซ้ำ ๆ อัตโนมัติ, ปรับปรุงกระบวนการทำงาน และเพิ่มประสิทธิภาพการทำงาน  
-ตัวอย่าง: แอปบริการลูกค้าใช้แชทบอทที่ขับเคลื่อนด้วย AI เพื่อจัดการคำถามทั่วไป ลดเวลาในการตอบและเพิ่มเวลาสำหรับเจ้าหน้าที่คนจริงจัดการเรื่องที่ซับซ้อนกว่า  
-- **ประสบการณ์ผู้ใช้ที่ดีขึ้น**: AI ช่วยปรับปรุงประสบการณ์ผู้ใช้โดยให้ฟีเจอร์อัจฉริยะ เช่น ระบบจดจำเสียง, การประมวลผลภาษาธรรมชาติ และข้อความทำนาย  
-ตัวอย่าง: ผู้ช่วยเสมือนอย่าง Siri และ Google Assistant ใช้ AI เพื่อเข้าใจและตอบคำสั่งเสียง ทำให้ผู้ใช้สื่อสารกับอุปกรณ์ได้ง่ายขึ้น
+- **การปรับแต่งเฉพาะบุคคล**: AI สามารถวิเคราะห์พฤติกรรมและความชอบของผู้ใช้ เพื่อเสนอคำแนะนำ เนื้อหา และประสบการณ์ที่ปรับให้เหมาะสมกับบุคคล
+ตัวอย่าง: บริการสตรีมมิ่งอย่าง Netflix ใช้ AI เพื่อแนะนำภาพยนตร์และรายการตามประวัติการรับชม ช่วยเพิ่มการมีส่วนร่วมและความพึงพอใจของผู้ใช้
+- **การทำงานอัตโนมัติและประสิทธิภาพ**: AI สามารถทำงานที่ซ้ำซ้อนโดยอัตโนมัติ ปรับปรุงกระบวนการทำงาน และเพิ่มประสิทธิภาพการดำเนินงาน
+ตัวอย่าง: แอปบริการลูกค้าใช้แชทบ็อตที่ขับเคลื่อนด้วย AI เพื่อจัดการคำถามทั่วไป ลดเวลาตอบกลับ และปล่อยให้เจ้าหน้าที่ดูแลปัญหาที่ซับซ้อนกว่า
+- **ประสบการณ์ผู้ใช้ที่ดีขึ้น**: AI สามารถเพิ่มประสบการณ์ผู้ใช้โดยรวมด้วยฟีเจอร์อัจฉริยะ เช่น การรู้จำเสียง การประมวลผลภาษาธรรมชาติ และการคาดเดาข้อความ
+ตัวอย่าง: ผู้ช่วยเสมือน เช่น Siri และ Google Assistant ใช้ AI เพื่อเข้าใจและตอบคำสั่งเสียง ทำให้ผู้ใช้โต้ตอบกับอุปกรณ์ได้ง่ายขึ้น
 
-### ทั้งหมดนี้ฟังดูดีใช่ไหม? แล้วทำไมเราต้องใช้ AI Agent Framework?
+### ฟังดูดีใช่ไหม แล้วทำไมเราจึงต้องใช้เฟรมเวิร์กตัวแทน AI?
 
-AI Agent Frameworks เป็นมากกว่าแค่ AI frameworks ทั่วไป พวกมันถูกออกแบบมาเพื่อสร้างเอเย่นต์ที่ชาญฉลาดซึ่งสามารถโต้ตอบกับผู้ใช้, เอเย่นต์อื่นๆ และสภาพแวดล้อมเพื่อบรรลุเป้าหมายเฉพาะ ตัวเอเย่นต์เหล่านี้สามารถแสดงพฤติกรรมอิสระ, ตัดสินใจ และปรับตัวกับสถานการณ์ที่เปลี่ยนแปลงได้ มาดูความสามารถหลักที่ AI Agent Frameworks เปิดใช้งาน:
+เฟรมเวิร์กตัวแทน AI ไม่ใช่แค่เฟรมเวิร์ก AI ธรรมดา แต่ถูกออกแบบมาเพื่อสร้างตัวแทนอัจฉริยะที่สามารถโต้ตอบกับผู้ใช้ ตัวแทนอื่น และสภาพแวดล้อม เพื่อบรรลุเป้าหมายเฉพาะ ตัวแทนเหล่านี้สามารถทำงานโดยอิสระ ตัดสินใจ และปรับตัวตามสภาพแวดล้อมที่เปลี่ยนแปลงได้ มาดูความสามารถหลักที่เฟรมเวิร์กตัวแทน AI ช่วยให้เกิดขึ้น:
 
-- **การร่วมมือและการประสานงานของ Agent**: ช่วยให้การสร้างหลายเอเย่นต์ที่ทำงานร่วมกัน, สื่อสาร และประสานงานเพื่อแก้ไขงานที่ซับซ้อนได้
-- **การอัตโนมัติและจัดการงาน**: มีวิธีจัดการกระบวนการทำงานหลายขั้นตอน, การมอบหมายงาน และการจัดการงานแบบไดนามิกระหว่างเอเย่นต์
-- **ความเข้าใจและการปรับตัวตามบริบท**: ให้อำนาจเอเย่นต์ในการเข้าใจบริบท, ปรับตัวกับสภาพแวดล้อมที่เปลี่ยนแปลง และตัดสินใจโดยอิงข้อมูลแบบเวลาจริง
+- **ความร่วมมือและการประสานงานของตัวแทน**: สร้างตัวแทน AI หลายตัวที่สามารถทำงานร่วมกัน สื่อสาร และประสานงานเพื่อแก้ปัญหาที่ซับซ้อนได้
+- **การทำงานอัตโนมัติและการจัดการงาน**: มีระบบการทำงานอัตโนมัติแบบหลายขั้นตอน การมอบหมายงาน และการจัดการงานแบบไดนามิกระหว่างตัวแทน
+- **ความเข้าใจบริบทและการปรับตัว**: เติมเต็มตัวแทนด้วยความสามารถในการเข้าใจบริบท ปรับตัวให้เข้ากับสภาพแวดล้อมที่เปลี่ยนแปลง และตัดสินใจตามข้อมูลเรียลไทม์
 
-สรุปคือ agent ช่วยให้คุณทำได้มากขึ้น, นำการอัตโนมัติไปอีกขั้น, สร้างระบบที่ชาญฉลาดขึ้นซึ่งสามารถปรับตัวและเรียนรู้จากสภาพแวดล้อมของตนได้
+สรุปก็คือตัวแทนช่วยให้คุณทำได้มากขึ้น ยกระดับงานอัตโนมัติ สร้างระบบอัจฉริยะที่สามารถปรับตัวและเรียนรู้จากสภาพแวดล้อมได้
 
-## วิธีการสร้างต้นแบบอย่างรวดเร็ว, ทดลอง และปรับปรุงความสามารถของ agent?
+## วิธีสร้างต้นแบบ ทดลอง และปรับปรุงขีดความสามารถของตัวแทนอย่างรวดเร็ว?
 
-นี่คือแวดล้อมที่เปลี่ยนแปลงอย่างรวดเร็ว แต่มีสิ่งพื้นฐานที่พบบ่อยใน AI Agent Frameworks ส่วนใหญ่ที่ช่วยให้คุณสามารถสร้างต้นแบบและทดลองอย่างรวดเร็ว ได้แก่ ส่วนประกอบแบบโมดูล, เครื่องมือร่วมมือ, และการเรียนรู้แบบเวลาจริง มาดูรายละเอียดเหล่านี้:
+สภาพแวดล้อมนี้เปลี่ยนแปลงอย่างรวดเร็ว แต่มีสิ่งที่เป็นแนวทางร่วมกันในเฟรมเวิร์กตัวแทน AI ส่วนใหญ่ที่ช่วยให้คุณสร้างต้นแบบและปรับปรุงได้อย่างรวดเร็ว ได้แก่ ส่วนประกอบโมดูล เครื่องมือร่วมมือ และการเรียนรู้แบบเรียลไทม์ มาดูรายละเอียด:
 
-- **ใช้ส่วนประกอบโมดูล**: SDK AI มีส่วนประกอบที่สร้างไว้ล่วงหน้า เช่น ตัวเชื่อมต่อ AI และหน่วยความจำ, การเรียกใช้ฟังก์ชันด้วยภาษาธรรมชาติหรือปลั๊กอินโค้ด, แม่แบบพรอมต์ และอื่นๆ
-- **ใช้ประโยชน์จากเครื่องมือร่วมมือ**: ออกแบบ agent ที่มีบทบาทและงานเฉพาะ เพื่อให้พวกเขาทดลองและพัฒนางานร่วมกันได้
-- **เรียนรู้แบบเรียลไทม์**: ใช้ระบบตอบกลับที่ทำให้ agent เรียนรู้จากปฏิสัมพันธ์และปรับพฤติกรรมแบบไดนามิก
+- **ใช้ส่วนประกอบโมดูล**: SDK AI มีส่วนประกอบสำเร็จรูป เช่น ตัวเชื่อม AI และหน่วยความจำ การเรียกฟังก์ชันด้วยภาษาธรรมชาติหรือปลั๊กอินโค้ด เทมเพลตคำสั่ง และอื่นๆ
+- **ใช้เครื่องมือร่วมมือ**: ออกแบบตัวแทนด้วยบทบาทและหน้าที่เฉพาะ เพื่อให้ทดสอบและปรับปรุงกระบวนการทำงานร่วมกันได้
+- **เรียนรู้แบบเรียลไทม์**: ใช้วงจรตอบรับที่ตัวแทนเรียนรู้จากการโต้ตอบและปรับพฤติกรรมอย่างไดนามิก
 
 ### ใช้ส่วนประกอบโมดูล
 
-SDK อย่าง Microsoft Semantic Kernel และ LangChain มีส่วนประกอบที่สร้างไว้ล่วงหน้า เช่น ตัวเชื่อมต่อ AI, แม่แบบพรอมต์, และการจัดการหน่วยความจำ
+SDK เช่น Microsoft Agent Framework มีส่วนประกอบสำเร็จรูป เช่น ตัวเชื่อม AI การกำหนดเครื่องมือ และการจัดการตัวแทน
 
-**ทีมงานใช้สิ่งเหล่านี้อย่างไร**: ทีมสามารถประกอบส่วนประกอบเหล่านี้ได้อย่างรวดเร็วเพื่อสร้างต้นแบบที่ทำงานได้โดยไม่ต้องเริ่มจากศูนย์ ช่วยให้ทดลองและปรับปรุงได้รวดเร็ว
+**ทีมสามารถใช้ได้อย่างไร**: ทีมสามารถประกอบส่วนประกอบเหล่านี้ได้อย่างรวดเร็วเพื่อสร้างต้นแบบที่ใช้งานได้ โดยไม่ต้องเริ่มจากศูนย์ ช่วยให้ทดลองและปรับปรุงได้เร็วขึ้น
 
-**วิธีการใช้งานจริง**: คุณสามารถใช้ตัวแยกวิเคราะห์ที่สร้างมาแล้วเพื่อดึงข้อมูลจากอินพุตผู้ใช้, โมดูลความจำเพื่อเก็บและเรียกข้อมูล, และตัวสร้างพรอมต์เพื่อโต้ตอบกับผู้ใช้ โดยไม่ต้องสร้างส่วนประกอบเหล่านี้เอง
+**การทำงานในทางปฏิบัติ**: คุณสามารถใช้ตัวแยกวิเคราะห์ที่สร้างไว้แล้วเพื่อดึงข้อมูลจากอินพุตของผู้ใช้ โมดูลหน่วยความจำเพื่อจัดเก็บและเรียกข้อมูล และตัวสร้างคำสั่งเพื่อโต้ตอบกับผู้ใช้ โดยไม่ต้องสร้างส่วนประกอบเหล่านี้ใหม่
 
-**ตัวอย่างโค้ด** มาดูตัวอย่างการใช้ AI Connector ที่สร้างไว้แล้วโดย Semantic Kernel Python และ .Net ซึ่งใช้การเรียกฟังก์ชันอัตโนมัติเพื่อให้โมเดลตอบสนองต่ออินพุตผู้ใช้:
+**ตัวอย่างโค้ด** มาดูตัวอย่างการใช้ Microsoft Agent Framework กับ `AzureAIProjectAgentProvider` เพื่อให้โมเดลตอบกลับการป้อนข้อมูลผู้ใช้ด้วยการเรียกเครื่องมือ:
 
 ``` python
-# ตัวอย่าง Semantic Kernel ใน Python
+# ตัวอย่าง Microsoft Agent Framework สำหรับ Python
 
 import asyncio
+import os
 from typing import Annotated
 
-from semantic_kernel.connectors.ai import FunctionChoiceBehavior
-from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion, AzureChatPromptExecutionSettings
-from semantic_kernel.contents import ChatHistory
-from semantic_kernel.functions import kernel_function
-from semantic_kernel.kernel import Kernel
-
-# กำหนดวัตถุ ChatHistory เพื่อเก็บบริบทของการสนทนา
-chat_history = ChatHistory()
-chat_history.add_user_message("I'd like to go to New York on January 1, 2025")
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
 
-# กำหนดปลั๊กอินตัวอย่างที่มีฟังก์ชันสำหรับจองการเดินทาง
-class BookTravelPlugin:
-    """A Sample Book Travel Plugin"""
-
-    @kernel_function(name="book_flight", description="Book travel given location and date")
-    async def book_flight(
-        self, date: Annotated[str, "The date of travel"], location: Annotated[str, "The location to travel to"]
-    ) -> str:
-        return f"Travel was booked to {location} on {date}"
-
-# สร้าง Kernel
-kernel = Kernel()
-
-# เพิ่มปลั๊กอินตัวอย่างเข้าไปในอ็อบเจ็กต์ Kernel
-kernel.add_plugin(BookTravelPlugin(), plugin_name="book_travel")
-
-# กำหนดตัวเชื่อมต่อ AI ของ Azure OpenAI
-chat_service = AzureChatCompletion(
-    deployment_name="YOUR_DEPLOYMENT_NAME", 
-    api_key="YOUR_API_KEY", 
-    endpoint="https://<your-resource>.azure.openai.com/",
-)
-
-# กำหนดการตั้งค่าการร้องขอเพื่อกำหนดค่าโมเดลให้เรียกใช้ฟังก์ชันโดยอัตโนมัติ
-request_settings = AzureChatPromptExecutionSettings(function_choice_behavior=FunctionChoiceBehavior.Auto())
+# กำหนดฟังก์ชันตัวอย่างเพื่อจองการเดินทาง
+def book_flight(date: str, location: str) -> str:
+    """Book travel given location and date."""
+    return f"Travel was booked to {location} on {date}"
 
 
 async def main():
-    # ส่งคำร้องไปยังโมเดลตามประวัติการแชทและการตั้งค่าการร้องขอที่กำหนด
-    # Kernel มีตัวอย่างที่โมเดลจะร้องขอให้เรียกใช้งาน
-    response = await chat_service.get_chat_message_content(
-        chat_history=chat_history, settings=request_settings, kernel=kernel
+    provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+    agent = await provider.create_agent(
+        name="travel_agent",
+        instructions="Help the user book travel. Use the book_flight tool when ready.",
+        tools=[book_flight],
     )
-    assert response is not None
 
-    """
-    Note: In the auto function calling process, the model determines it can invoke the 
-    `BookTravelPlugin` using the `book_flight` function, supplying the necessary arguments. 
-    
-    For example:
-
-    "tool_calls": [
-        {
-            "id": "call_abc123",
-            "type": "function",
-            "function": {
-                "name": "BookTravelPlugin-book_flight",
-                "arguments": "{'location': 'New York', 'date': '2025-01-01'}"
-            }
-        }
-    ]
-
-    Since the location and date arguments are required (as defined by the kernel function), if the 
-    model lacks either, it will prompt the user to provide them. For instance:
-
-    User: Book me a flight to New York.
-    Model: Sure, I'd love to help you book a flight. Could you please specify the date?
-    User: I want to travel on January 1, 2025.
-    Model: Your flight to New York on January 1, 2025, has been successfully booked. Safe travels!
-    """
-
-    print(f"`{response}`")
-    # ตัวอย่างการตอบของโมเดล AI: `เที่ยวบินของคุณไปนิวยอร์กในวันที่ 1 มกราคม 2025 ถูกจองเรียบร้อยแล้ว เดินทางปลอดภัย! ✈️🗽`
-
-    # เพิ่มการตอบของโมเดลลงในบริบทประวัติการแชทของเรา
-    chat_history.add_assistant_message(response.content)
+    response = await agent.run("I'd like to go to New York on January 1, 2025")
+    print(response)
+    # ตัวอย่างผลลัพธ์: เที่ยวบินของคุณไปยังนิวยอร์กในวันที่ 1 มกราคม 2025 ได้รับการจองเรียบร้อยแล้ว เดินทางปลอดภัย! ✈️🗽
 
 
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-```csharp
-// Semantic Kernel C# example
 
-using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.ChatCompletion;
-using System.ComponentModel;
-using Microsoft.SemanticKernel.Connectors.AzureOpenAI;
+สิ่งที่คุณเห็นจากตัวอย่างนี้คือวิธีใช้ตัวแยกวิเคราะห์สำเร็จรูปเพื่อดึงข้อมูลสำคัญจากอินพุตผู้ใช้ เช่น จุดต้นทาง จุดหมาย และวันที่ของคำขอจองเที่ยวบิน วิธีการแบบโมดูลนี้ช่วยให้คุณสามารถมุ่งเน้นที่ตรรกะในระดับสูงได้
 
-ChatHistory chatHistory = [];
-chatHistory.AddUserMessage("I'd like to go to New York on January 1, 2025");
+### ใช้เครื่องมือร่วมมือ
 
-var kernelBuilder = Kernel.CreateBuilder();
-kernelBuilder.AddAzureOpenAIChatCompletion(
-    deploymentName: "NAME_OF_YOUR_DEPLOYMENT",
-    apiKey: "YOUR_API_KEY",
-    endpoint: "YOUR_AZURE_ENDPOINT"
-);
-kernelBuilder.Plugins.AddFromType<BookTravelPlugin>("BookTravel"); 
-var kernel = kernelBuilder.Build();
+เฟรมเวิร์กอย่าง Microsoft Agent Framework อำนวยความสะดวกในการสร้างตัวแทนหลายตัวที่ทำงานร่วมกันได้
 
-var settings = new AzureOpenAIPromptExecutionSettings()
-{
-    FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
-};
+**ทีมสามารถใช้ได้อย่างไร**: ทีมสามารถออกแบบตัวแทนด้วยบทบาทและหน้าที่เฉพาะ เพื่อทดสอบและปรับปรุงกระบวนการทำงานร่วมกัน และเพิ่มประสิทธิภาพระบบโดยรวม
 
-var chatCompletion = kernel.GetRequiredService<IChatCompletionService>();
+**การทำงานในทางปฏิบัติ**: คุณสามารถสร้างทีมตัวแทนที่แต่ละตัวมีหน้าที่เฉพาะ เช่น การดึงข้อมูล การวิเคราะห์ หรือการตัดสินใจ ตัวแทนเหล่านี้สามารถสื่อสารและแชร์ข้อมูลเพื่อบรรลุเป้าหมายร่วม เช่น ตอบคำถามผู้ใช้หรือทำงานให้เสร็จ
 
-var response = await chatCompletion.GetChatMessageContentAsync(chatHistory, settings, kernel);
-
-/*
-Behind the scenes, the model recognizes the tool to call, what arguments it already has (location) and (date)
-{
-
-"tool_calls": [
-    {
-        "id": "call_abc123",
-        "type": "function",
-        "function": {
-            "name": "BookTravelPlugin-book_flight",
-            "arguments": "{'location': 'New York', 'date': '2025-01-01'}"
-        }
-    }
-]
-*/
-
-Console.WriteLine(response.Content);
-chatHistory.AddMessage(response!.Role, response!.Content!);
-
-// Example AI Model Response: Your flight to New York on January 1, 2025, has been successfully booked. Safe travels! ✈️🗽
-
-// Define a plugin that contains the function to book travel
-public class BookTravelPlugin
-{
-    [KernelFunction("book_flight")]
-    [Description("Book travel given location and date")]
-    public async Task<string> BookFlight(DateTime date, string location)
-    {
-        return await Task.FromResult( $"Travel was booked to {location} on {date}");
-    }
-}
-```
-
-สิ่งที่คุณเห็นจากตัวอย่างนี้คือการใช้ตัวแยกวิเคราะห์ที่สร้างไว้ล่วงหน้าเพื่อดึงข้อมูลสำคัญจากอินพุตผู้ใช้ เช่น ต้นทาง ปลายทาง และวันที่ของคำขอบิน วิธีการแบบโมดูลนี้ช่วยให้คุณโฟกัสที่ตรรกะระดับสูง
-
-### ใช้ประโยชน์จากเครื่องมือร่วมมือ
-
-แพลตฟอร์มเช่น CrewAI, Microsoft AutoGen และ Semantic Kernel ช่วยในการสร้างหลาย agent ที่ทำงานร่วมกัน
-
-**ทีมงานใช้สิ่งนี้อย่างไร**: ทีมสามารถออกแบบ agent ที่มีบทบาทและงานเฉพาะ เพื่อทดลองและปรับปรุงกระบวนการทำงานร่วมกันและเพิ่มประสิทธิภาพของระบบโดยรวม
-
-**วิธีการใช้งานจริง**: คุณสามารถสร้างทีม agent โดยแต่ละ agent มีหน้าที่เฉพาะ เช่น การดึงข้อมูล, การวิเคราะห์, หรือการตัดสินใจ Agent เหล่านี้สามารถสื่อสารและแลกเปลี่ยนข้อมูลร่วมกันเพื่อบรรลุเป้าหมาย เช่น ตอบคำถามผู้ใช้หรือดำเนินงานให้เสร็จสมบูรณ์
-
-**ตัวอย่างโค้ด (AutoGen)**:
+**ตัวอย่างโค้ด (Microsoft Agent Framework)**:
 
 ```python
-# สร้างเอเจนต์ แล้วสร้างตารางแบบวนรอบเพื่อให้พวกเขาทำงานร่วมกัน ในกรณีนี้ตามลำดับ
+# การสร้างเอเจนต์หลายตัวที่ทำงานร่วมกันโดยใช้ Microsoft Agent Framework
+
+import os
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
+
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 # เอเจนต์ดึงข้อมูล
-# เอเจนต์วิเคราะห์ข้อมูล
-# เอเจนต์ตัดสินใจ
-
-agent_retrieve = AssistantAgent(
+agent_retrieve = await provider.create_agent(
     name="dataretrieval",
-    model_client=model_client,
+    instructions="Retrieve relevant data using available tools.",
     tools=[retrieve_tool],
-    system_message="Use tools to solve tasks."
 )
 
-agent_analyze = AssistantAgent(
+# เอเจนต์วิเคราะห์ข้อมูล
+agent_analyze = await provider.create_agent(
     name="dataanalysis",
-    model_client=model_client,
+    instructions="Analyze the retrieved data and provide insights.",
     tools=[analyze_tool],
-    system_message="Use tools to solve tasks."
 )
 
-# การสนทนาจะสิ้นสุดเมื่อผู้ใช้พูดว่า "APPROVE"
-termination = TextMentionTermination("APPROVE")
-
-user_proxy = UserProxyAgent("user_proxy", input_func=input)
-
-team = RoundRobinGroupChat([agent_retrieve, agent_analyze, user_proxy], termination_condition=termination)
-
-stream = team.run_stream(task="Analyze data", max_turns=10)
-# ใช้ asyncio.run(...) เมื่อรันในสคริปต์.
-await Console(stream)
+# เรียกใช้งานเอเจนต์ตามลำดับสำหรับงาน
+retrieval_result = await agent_retrieve.run("Retrieve sales data for Q4")
+analysis_result = await agent_analyze.run(f"Analyze this data: {retrieval_result}")
+print(analysis_result)
 ```
 
-สิ่งที่คุณเห็นในโค้ดก่อนหน้านี้คือวิธีสร้างงานที่เกี่ยวข้องกับหลาย agent ที่ทำงานร่วมกันวิเคราะห์ข้อมูล แต่ละ agent รับผิดชอบฟังก์ชันเฉพาะ และงานจะดำเนินการโดยการประสานงานของ agent เพื่อให้ได้ผลลัพธ์ตามต้องการ การสร้าง agent เฉพาะหน้าที่ช่วยเพิ่มประสิทธิภาพและผลงานของงาน
+โค้ดก่อนหน้านี้แสดงวิธีสร้างงานที่เกี่ยวข้องกับตัวแทนหลายตัวทำงานร่วมกันเพื่อวิเคราะห์ข้อมูล ตัวแทนแต่ละตัวทำหน้าที่เฉพาะเจาะจง และงานจะถูกดำเนินการโดยการประสานงานตัวแทนเพื่อให้ได้ผลลัพธ์ตามต้องการ การสร้างตัวแทนเฉพาะที่มีบทบาทพิเศษช่วยเพิ่มประสิทธิภาพและประสิทธิผลของงาน
 
 ### เรียนรู้แบบเรียลไทม์
 
-แพลตฟอร์มขั้นสูงมีความสามารถในการเข้าใจบริบทและปรับตัวแบบเวลาจริง
+เฟรมเวิร์กขั้นสูงมีความสามารถในการเข้าใจบริบทแบบเรียลไทม์และปรับตัว
 
-**ทีมงานใช้สิ่งนี้อย่างไร**: ทีมสามารถสร้างวงจรตอบกลับที่ทำให้ agent เรียนรู้จากปฏิสัมพันธ์และปรับพฤติกรรมแบบไดนามิก ส่งผลให้มีการพัฒนาและปรับปรุงความสามารถอย่างต่อเนื่อง
+**ทีมสามารถใช้ได้อย่างไร**: ทีมสามารถติดตั้งวงจรตอบรับที่ตัวแทนเรียนรู้จากการโต้ตอบและปรับพฤติกรรมตามสถานการณ์แบบไดนามิก นำไปสู่การปรับปรุงและพัฒนาขีดความสามารถอย่างต่อเนื่อง
 
-**วิธีการใช้งานจริง**: agent สามารถวิเคราะห์คำติชมของผู้ใช้, ข้อมูลสภาพแวดล้อม และผลลัพธ์ของงานเพื่ออัปเดตฐานความรู้, ปรับอัลกอริทึมการตัดสินใจ และปรับปรุงผลงานเมื่อเวลาผ่านไป กระบวนการเรียนรู้นี้ช่วยให้ agent ปรับตัวกับสภาพแวดล้อมและความชอบของผู้ใช้ เพิ่มประสิทธิผลโดยรวมของระบบ
+**การทำงานในทางปฏิบัติ**: ตัวแทนสามารถวิเคราะห์คำติชมของผู้ใช้ ข้อมูลสภาพแวดล้อม และผลลัพธ์ของงาน เพื่ออัปเดตฐานความรู้ ปรับอัลกอริทึมการตัดสินใจ และเพิ่มประสิทธิภาพเมื่อเวลาผ่านไป กระบวนการเรียนรู้แบบทำซ้ำนี้ช่วยให้ตัวแทนปรับตัวตามเงื่อนไขที่เปลี่ยนและความชอบของผู้ใช้ เพิ่มประสิทธิผลโดยรวมของระบบ
 
-## ความแตกต่างระหว่าง AutoGen, Semantic Kernel และ Azure AI Agent Service คืออะไร?
+## ความแตกต่างระหว่าง Microsoft Agent Framework กับ Azure AI Agent Service คืออะไร?
 
-มีหลายวิธีในการเปรียบเทียบแพลตฟอร์มเหล่านี้ แต่เรามาดูความแตกต่างหลักในแง่ของการออกแบบ, ความสามารถ, และกรณีการใช้งานที่เหมาะสม:
+มีหลายวิธีในการเปรียบเทียบแนวทางเหล่านี้ แต่เราจะมาดูความแตกต่างสำคัญในด้านการออกแบบ ความสามารถ และกรณีการใช้งานเป้าหมายกัน:
 
-## AutoGen
+## Microsoft Agent Framework (MAF)
 
-AutoGen เป็นเฟรมเวิร์กโอเพนซอร์สที่พัฒนาโดย Microsoft Research’s AI Frontiers Lab เน้นที่แอปพลิเคชัน *agentic* แบบ event-driven และ distributed ที่รองรับ LLMs และ SLMs หลายตัว, เครื่องมือ และรูปแบบการออกแบบ multi-agent ขั้นสูง
+Microsoft Agent Framework เป็น SDK ที่ออกแบบมาอย่างเรียบง่ายสำหรับการสร้างตัวแทน AI ด้วย `AzureAIProjectAgentProvider` ช่วยให้นักพัฒนาสร้างตัวแทนที่ใช้โมเดล Azure OpenAI พร้อมฟีเจอร์เรียกใช้เครื่องมือในตัว การจัดการการสนทนา และความปลอดภัยระดับองค์กรผ่าน Azure identity
 
-AutoGen สร้างขึ้นโดยรอบแนวคิดของ agent ซึ่งเป็นนิติบุคคลอิสระที่สามารถรับรู้สภาพแวดล้อม, ตัดสินใจ และดำเนินการเพื่อบรรลุเป้าหมายเฉพาะ Agent สื่อสารผ่านข้อความแบบอะซิงโครนัส ทำให้พวกเขาทำงานโดยอิสระและขนานกัน เพิ่มความสามารถในการขยายและการรับรู้ของระบบ
+**กรณีการใช้งาน**: สร้างตัวแทน AI สำหรับใช้งานจริงที่มีการใช้เครื่องมือ กรณีงานหลายขั้นตอน และการผสานรวมในองค์กร
 
-<a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Agent อิงตาม actor model</a> ตามวิกิพีเดีย actor คือ _หน่วยพื้นฐานของการคำนวณพร้อมกัน โดยตอบสนองต่อข้อความที่ได้รับ actor สามารถ: ตัดสินใจภายใน, สร้าง actor ใหม่, ส่งข้อความเพิ่มเติม, และกำหนดวิธีตอบสนองต่อข้อความถัดไปที่ได้รับ_
+นี่คือแนวคิดหลักของ Microsoft Agent Framework:
 
-**กรณีใช้งาน**: อัตโนมัติการสร้างโค้ด, งานวิเคราะห์ข้อมูล, และสร้าง agent ที่ปรับแต่งสำหรับวางแผนและฟังก์ชันการวิจัย
+- **ตัวแทน (Agents)** ตัวแทนถูกสร้างผ่าน `AzureAIProjectAgentProvider` และตั้งค่าชื่อ คำแนะนำ และเครื่องมือต่างๆ ตัวแทนจะ:
+  - **ประมวลผลข้อความผู้ใช้** และสร้างคำตอบโดยใช้โมเดล Azure OpenAI
+  - **เรียกใช้เครื่องมือ** โดยอัตโนมัติ ตามบริบทการสนทนา
+  - **รักษาสถานะการสนทนา** ในหลายรอบโต้ตอบ
 
-นี่คือแนวคิดหลักที่สำคัญของ AutoGen:
-
-- **Agents** คือซอฟต์แวร์นิติบุคคลที่:
-  - **สื่อสารผ่านข้อความ** ข้อความเหล่านี้อาจเป็นแบบ synchronous หรือ asynchronous
-  - **รักษาสถานะของตนเอง** ซึ่งสามารถเปลี่ยนแปลงได้โดยข้อความที่เข้ามา
-  - **กระทำการ** เพื่อตอบสนองต่อข้อความที่ได้รับหรือเปลี่ยนแปลงสถานะ การกระทำเหล่านี้อาจเปลี่ยนสถานะ agent และสร้างผลกระทบภายนอก เช่น อัปเดตบันทึกข้อความ, ส่งข้อความใหม่, รันโค้ด หรือเรียก API
-    
-  นี่คือโค้ดตัวอย่างสั้น ๆ ที่สร้าง agent ของคุณเองที่มีความสามารถสนทนา:
+  นี่คือตัวอย่างโค้ดการสร้างตัวแทน:
 
     ```python
-    from autogen_agentchat.agents import AssistantAgent
-    from autogen_agentchat.messages import TextMessage
-    from autogen_ext.models.openai import OpenAIChatCompletionClient
+    import os
+    from agent_framework.azure import AzureAIProjectAgentProvider
+    from azure.identity import AzureCliCredential
 
-
-    class MyAgent(RoutedAgent):
-        def __init__(self, name: str) -> None:
-            super().__init__(name)
-            model_client = OpenAIChatCompletionClient(model="gpt-4o")
-            self._delegate = AssistantAgent(name, model_client=model_client)
-    
-        @message_handler
-        async def handle_my_message_type(self, message: MyMessageType, ctx: MessageContext) -> None:
-            print(f"{self.id.type} received message: {message.content}")
-            response = await self._delegate.on_messages(
-                [TextMessage(content=message.content, source="user")], ctx.cancellation_token
-            )
-            print(f"{self.id.type} responded: {response.chat_message.content}")
-    ```
-    
-    ในโค้ดก่อนหน้านี้, `MyAgent` ถูกสร้างและสืบทอดจาก `RoutedAgent` มีตัวจัดการข้อความที่พิมพ์เนื้อหาข้อความแล้วส่งคำตอบโดยใช้ตัวแทน `AssistantAgent` โปรดสังเกตวิธีที่เรากำหนดค่า `self._delegate` เป็นอินสแตนซ์ของ `AssistantAgent` ซึ่งเป็น agent ที่สร้างไว้ล่วงหน้าสำหรับจัดการการสนทนา
-
-    ต่อไปแจ้ง AutoGen ให้รู้จัก agent ประเภทนี้และเริ่มโปรแกรม:
-
-    ```python
-    
-    # main.py
-    runtime = SingleThreadedAgentRuntime()
-    await MyAgent.register(runtime, "my_agent", lambda: MyAgent())
-
-    runtime.start()  # เริ่มประมวลผลข้อความในพื้นหลัง.
-    await runtime.send_message(MyMessageType("Hello, World!"), AgentId("my_agent", "default"))
-    ```
-
-    ในโค้ดก่อนหน้านี้ agent ถูกลงทะเบียนกับ runtime แล้วส่งข้อความไปยัง agent ซึ่งทำให้ออกผลลัพธ์ดังนี้:
-
-    ```text
-    # Output from the console:
-    my_agent received message: Hello, World!
-    my_assistant received message: Hello, World!
-    my_assistant responded: Hello! How can I assist you today?
-    ```
-
-- **Multi agents** AutoGen รองรับการสร้างหลาย agent ที่ทำงานร่วมกันเพื่อแก้ไขงานที่ซับซ้อน Agent สามารถสื่อสาร แบ่งปันข้อมูล และประสานงานการกระทำเพื่อแก้ปัญหาได้อย่างมีประสิทธิภาพ เพื่อสร้างระบบ multi-agent คุณสามารถกำหนด agent ประเภทต่าง ๆ ที่มีฟังก์ชันและบทบาทเฉพาะ เช่น การดึงข้อมูล, การวิเคราะห์, การตัดสินใจ, และการโต้ตอบกับผู้ใช้ มาดูตัวอย่างการสร้างแบบนี้ให้เห็นภาพ:
-
-    ```python
-    editor_description = "Editor for planning and reviewing the content."
-
-    # ตัวอย่างการประกาศ Agent
-    editor_agent_type = await EditorAgent.register(
-    runtime,
-    editor_topic_type,  # ใช้ชนิด topic เป็นชนิดของ Agent.
-    lambda: EditorAgent(
-        description=editor_description,
-        group_chat_topic_type=group_chat_topic_type,
-        model_client=OpenAIChatCompletionClient(
-            model="gpt-4o-2024-08-06",
-            # api_key="YOUR_API_KEY",
-        ),
-        ),
+    provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+    agent = await provider.create_agent(
+        name="my_agent",
+        instructions="You are a helpful assistant.",
     )
 
-    # การประกาศที่เหลือถูกย่อเพื่อความกระชับ
+    response = await agent.run("Hello, World!")
+    print(response)
+    ```
 
-    # แชทกลุ่ม
-    group_chat_manager_type = await GroupChatManager.register(
-    runtime,
-    "group_chat_manager",
-    lambda: GroupChatManager(
-        participant_topic_types=[writer_topic_type, illustrator_topic_type, editor_topic_type, user_topic_type],
-        model_client=OpenAIChatCompletionClient(
-            model="gpt-4o-2024-08-06",
-            # api_key="YOUR_API_KEY",
-        ),
-        participant_descriptions=[
-            writer_description, 
-            illustrator_description, 
-            editor_description, 
-            user_description
-        ],
-        ),
+- **เครื่องมือ (Tools)** เฟรมเวิร์กรองรับการนิยามเครื่องมือเป็นฟังก์ชัน Python ที่ตัวแทนสามารถเรียกใช้ได้อัตโนมัติ เครื่องมือจะถูกลงทะเบียนเมื่อตอนสร้างตัวแทน:
+
+    ```python
+    def get_weather(location: str) -> str:
+        """Get the current weather for a location."""
+        return f"The weather in {location} is sunny, 72\u00b0F."
+
+    agent = await provider.create_agent(
+        name="weather_agent",
+        instructions="Help users check the weather.",
+        tools=[get_weather],
     )
     ```
 
-    ในโค้ดก่อนหน้านี้เรามี `GroupChatManager` ซึ่งลงทะเบียนกับ runtime ตัวจัดการนี้รับผิดชอบการประสานงานการติดต่อระหว่าง agent ประเภทต่าง ๆ เช่น นักเขียน, นักวาดภาพประกอบ, บรรณาธิการ และผู้ใช้
+- **การประสานงานหลายตัวแทน (Multi-Agent Coordination)** คุณสามารถสร้างตัวแทนหลายตัวที่มีความชำนาญต่างกัน และประสานงานงานของพวกเขา:
 
-- **Agent Runtime** แพลตฟอร์มมีสภาพแวดล้อม runtime ที่ทำให้ agent สื่อสารกัน, จัดการตัวตนและอายุของ agent และบังคับใช้ความปลอดภัยและความเป็นส่วนตัว คุณสามารถรัน agent ในสภาพแวดล้อมที่ปลอดภัยและควบคุมได้ มี runtime สองแบบที่น่าสนใจ:
-  - **Standalone runtime** เหมาะสำหรับแอปพลิเคชันแบบกระบวนการเดี่ยว ที่ agent ทั้งหมดพัฒนาในภาษาการเขียนโปรแกรมเดียวและรันในกระบวนการเดียว นี่คือภาพประกอบการทำงาน:
-  
-    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-standalone.svg" target="_blank">Standalone runtime</a>   
-Application stack
-
-    *agent สื่อสารผ่านข้อความผ่าน runtime, และ runtime จัดการอายุของ agent*
-
-  - **Distributed agent runtime** เหมาะสำหรับแอปพลิเคชันหลายกระบวนการ ที่ agent ถูกพัฒนาในภาษาต่างกันและรันบนเครื่องต่าง ๆ นี่คือภาพประกอบการทำงาน:
-  
-    <a href="https://microsoft.github.io/autogen/stable/_images/architecture-distributed.svg" target="_blank">Distributed runtime</a>
-
-## Semantic Kernel + Agent Framework
-
-Semantic Kernel คือ SDK การบริหารจัดการ AI สำหรับองค์กร ประกอบด้วยตัวเชื่อมต่อ AI และหน่วยความจำ รวมถึง Agent Framework
-
-มาดูส่วนประกอบหลักบางอย่างก่อน:
-
-- **AI Connectors**: อินเทอร์เฟซกับบริการ AI ภายนอกและแหล่งข้อมูลที่ใช้ได้กับทั้ง Python และ C#
-
-  ```python
-  # เคอร์เนลเชิงความหมาย สำหรับ Python
-  from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
-  from semantic_kernel.kernel import Kernel
-
-  kernel = Kernel()
-  kernel.add_service(
-    AzureChatCompletion(
-        deployment_name="your-deployment-name",
-        api_key="your-api-key",
-        endpoint="your-endpoint",
+    ```python
+    planner = await provider.create_agent(
+        name="planner",
+        instructions="Break down complex tasks into steps.",
     )
-  )
-  ```  
 
-    ```csharp
-    // Semantic Kernel C#
-    using Microsoft.SemanticKernel;
+    executor = await provider.create_agent(
+        name="executor",
+        instructions="Execute the planned steps using available tools.",
+        tools=[execute_tool],
+    )
 
-    // Create kernel
-    var builder = Kernel.CreateBuilder();
-    
-    // Add a chat completion service:
-    builder.Services.AddAzureOpenAIChatCompletion(
-        "your-resource-name",
-        "your-endpoint",
-        "your-resource-key",
-        "deployment-model");
-    var kernel = builder.Build();
+    plan = await planner.run("Plan a trip to Paris")
+    result = await executor.run(f"Execute this plan: {plan}")
     ```
 
-    นี่คือตัวอย่างง่าย ๆ ของการสร้าง kernel และเพิ่มบริการสนทนา Semantic Kernel สร้างการเชื่อมต่อกับบริการ AI ภายนอก ในกรณีนี้คือ Azure OpenAI Chat Completion
-
-- **Plugins**: รวมฟังก์ชันที่แอปพลิเคชันสามารถใช้ได้ มีทั้งปลั๊กอินที่สร้างไว้แล้วและปลั๊กอินที่คุณสร้างเอง แนวคิดที่เกี่ยวข้องคือ "prompt functions" แทนที่จะใช้สัญญาณภาษาธรรมชาติเพื่อเรียกฟังก์ชัน คุณจะประกาศฟังก์ชันบางอย่างต่อโมเดล ตามบริบทการสนทนาปัจจุบัน โมเดลอาจเลือกเรียกฟังก์ชันเหล่านี้เพื่อดำเนินการคำขอหรือคำถาม ดูตัวอย่างดังนี้:
-
-  ```python
-  from semantic_kernel.connectors.ai.open_ai.services.azure_chat_completion import AzureChatCompletion
-
-
-  async def main():
-      from semantic_kernel.functions import KernelFunctionFromPrompt
-      from semantic_kernel.kernel import Kernel
-
-      kernel = Kernel()
-      kernel.add_service(AzureChatCompletion())
-
-      user_input = input("User Input:> ")
-
-      kernel_function = KernelFunctionFromPrompt(
-          function_name="SummarizeText",
-          prompt="""
-          Summarize the provided unstructured text in a sentence that is easy to understand.
-          Text to summarize: {{$user_input}}
-          """,
-      )
-
-      response = await kernel_function.invoke(kernel=kernel, user_input=user_input)
-      print(f"Model Response: {response}")
-
-      """
-      Sample Console Output:
-
-      User Input:> I like dogs
-      Model Response: The text expresses a preference for dogs.
-      """
-
-
-  if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
-  ```
-
-    ```csharp
-    var userInput = Console.ReadLine();
-
-    // Define semantic function inline.
-    string skPrompt = @"Summarize the provided unstructured text in a sentence that is easy to understand.
-                        Text to summarize: {{$userInput}}";
-    
-    // create the function from the prompt
-    KernelFunction summarizeFunc = kernel.CreateFunctionFromPrompt(
-        promptTemplate: skPrompt,
-        functionName: "SummarizeText"
-    );
-
-    //then import into the current kernel
-    kernel.ImportPluginFromFunctions("SemanticFunctions", [summarizeFunc]);
-
-    ```
-
-    ที่นี่คุณมีแม่แบบพรอมต์ `skPrompt` ที่เปิดช่องให้ผู้ใช้ป้อนข้อความ `$userInput` จากนั้นสร้างฟังก์ชัน kernel `SummarizeText` และนำเข้าไปใน kernel โดยใช้ชื่อปลั๊กอิน `SemanticFunctions` โปรดสังเกตชื่อฟังก์ชันซึ่งช่วยให้ Semantic Kernel เข้าใจว่าฟังก์ชันทำอะไรและเมื่อใดควรเรียกใช้
-
-- **ฟังก์ชันเนทีฟ**: มีฟังก์ชันเนทีฟที่เฟรมเวิร์กสามารถเรียกใช้โดยตรงเพื่อดำเนินงาน ดูตัวอย่างฟังก์ชันกลับไปดึงเนื้อหาจากไฟล์:
-
-    ```csharp
-    public class NativeFunctions {
-
-        [SKFunction, Description("Retrieve content from local file")]
-        public async Task<string> RetrieveLocalFile(string fileName, int maxSize = 5000)
-        {
-            string content = await File.ReadAllTextAsync(fileName);
-            if (content.Length <= maxSize) return content;
-            return content.Substring(0, maxSize);
-        }
-    }
-    
-    //Import native function
-    string plugInName = "NativeFunction";
-    string functionName = "RetrieveLocalFile";
-
-   //To add the functions to a kernel use the following function
-    kernel.ImportPluginFromType<NativeFunctions>();
-
-    ```
-
-- **หน่วยความจำ**: ช่วยให้การจัดการบริบทสำหรับแอป AI เป็นเรื่องง่ายและนามธรรม ไอเดียคือตัว LLM ควรรับรู้ข้อมูลนี้ คุณสามารถเก็บข้อมูลนี้ใน vector store ซึ่งเปรียบเสมือนฐานข้อมูลในหน่วยความจำ หรือ vector database หรืออื่น ๆ ดูตัวอย่างสถานการณ์ง่าย ๆ ที่ *ข้อเท็จจริง* ถูกเพิ่มลงไปในหน่วยความจำ:
-
-    ```csharp
-    var facts = new Dictionary<string,string>();
-    facts.Add(
-        "Azure Machine Learning; https://learn.microsoft.com/azure/machine-learning/",
-        @"Azure Machine Learning is a cloud service for accelerating and
-        managing the machine learning project lifecycle. Machine learning professionals,
-        data scientists, and engineers can use it in their day-to-day workflows"
-    );
-    
-    facts.Add(
-        "Azure SQL Service; https://learn.microsoft.com/azure/azure-sql/",
-        @"Azure SQL is a family of managed, secure, and intelligent products
-        that use the SQL Server database engine in the Azure cloud."
-    );
-    
-    string memoryCollectionName = "SummarizedAzureDocs";
-    
-    foreach (var fact in facts) {
-        await memoryBuilder.SaveReferenceAsync(
-            collection: memoryCollectionName,
-            description: fact.Key.Split(";")[1].Trim(),
-            text: fact.Value,
-            externalId: fact.Key.Split(";")[2].Trim(),
-            externalSourceName: "Azure Documentation"
-        );
-    }
-    ```
-
-
-ข้อเท็จจริงเหล่านี้จะถูกจัดเก็บในคอลเลคชันหน่วยความจำ `SummarizedAzureDocs` นี่คือตัวอย่างที่ง่ายมาก แต่คุณจะเห็นได้ว่าคุณสามารถจัดเก็บข้อมูลในหน่วยความจำเพื่อให้ LLM ใช้งานได้อย่างไร
-
-ดังนั้นนี่คือพื้นฐานของกรอบงาน Semantic Kernel แล้วกรอบงาน Agent Framework ล่ะ?
+- **การผสาน Azure Identity** เฟรมเวิร์กใช้ `AzureCliCredential` (หรือ `DefaultAzureCredential`) สำหรับการตรวจสอบตัวตนแบบปลอดภัยโดยไม่ใช้กุญแจ API จึงไม่ต้องจัดการกุญแจเอง
 
 ## Azure AI Agent Service
 
-Azure AI Agent Service เป็นการเพิ่มเติมที่ใหม่กว่า ถูกแนะนำในงาน Microsoft Ignite 2024 ซึ่งช่วยให้การพัฒนาและการปรับใช้เอเจนต์ AI ที่มีโมเดลที่ยืดหยุ่นมากขึ้น เช่น การเรียกใช้ LLM โอเพนซอร์สโดยตรงอย่าง Llama 3, Mistral และ Cohere
+Azure AI Agent Service เป็นบริการใหม่ที่เปิดตัวในงาน Microsoft Ignite 2024 ช่วยให้พัฒนาและปรับใช้ตัวแทน AI ด้วยโมเดลที่ยืดหยุ่นมากขึ้น เช่น การเรียกใช้โมเดล LLM โอเพนซอร์สโดยตรง เช่น Llama 3, Mistral และ Cohere
 
-Azure AI Agent Service มีตัวบ่งชี้การรักษาความปลอดภัยระดับองค์กรที่แข็งแกร่งและวิธีการจัดเก็บข้อมูลที่เหมาะสม จึงเหมาะสำหรับแอปพลิเคชันองค์กร
+Azure AI Agent Service มีระบบความปลอดภัยระดับองค์กรและวิธีจัดเก็บข้อมูลที่แข็งแกร่ง ทำให้เหมาะสำหรับแอปพลิเคชันองค์กร
 
-มันทำงานได้ทันทีร่วมกับกรอบการประสานงานหลายเอเจนต์ เช่น AutoGen และ Semantic Kernel
+ทำงานร่วมกับ Microsoft Agent Framework อย่างราบรื่นสำหรับสร้างและปรับใช้ตัวแทน
 
-บริการนี้อยู่ในสถานะ Public Preview และรองรับการพัฒนาเอเจนต์ด้วยภาษา Python และ C#
+บริการนี้อยู่ในสถานะ Public Preview สนับสนุนภาษา Python และ C# สำหรับสร้างตัวแทน
 
-โดยใช้ Semantic Kernel Python เราสามารถสร้าง Azure AI Agent ด้วยปลั๊กอินที่กำหนดเองโดยผู้ใช้:
+โดยใช้ Azure AI Agent Service Python SDK เราสามารถสร้างตัวแทนพร้อมเครื่องมือที่ผู้ใช้กำหนดได้:
 
 ```python
 import asyncio
-from typing import Annotated
+from azure.identity import DefaultAzureCredential
+from azure.ai.projects import AIProjectClient
 
-from azure.identity.aio import DefaultAzureCredential
+# กำหนดฟังก์ชันของเครื่องมือ
+def get_specials() -> str:
+    """Provides a list of specials from the menu."""
+    return """
+    Special Soup: Clam Chowder
+    Special Salad: Cobb Salad
+    Special Drink: Chai Tea
+    """
 
-from semantic_kernel.agents import AzureAIAgent, AzureAIAgentSettings, AzureAIAgentThread
-from semantic_kernel.contents import ChatMessageContent
-from semantic_kernel.contents import AuthorRole
-from semantic_kernel.functions import kernel_function
-
-
-# กำหนดปลั๊กอินตัวอย่างสำหรับตัวอย่าง
-class MenuPlugin:
-    """A sample Menu Plugin used for the concept sample."""
-
-    @kernel_function(description="Provides a list of specials from the menu.")
-    def get_specials(self) -> Annotated[str, "Returns the specials from the menu."]:
-        return """
-        Special Soup: Clam Chowder
-        Special Salad: Cobb Salad
-        Special Drink: Chai Tea
-        """
-
-    @kernel_function(description="Provides the price of the requested menu item.")
-    def get_item_price(
-        self, menu_item: Annotated[str, "The name of the menu item."]
-    ) -> Annotated[str, "Returns the price of the menu item."]:
-        return "$9.99"
+def get_item_price(menu_item: str) -> str:
+    """Provides the price of the requested menu item."""
+    return "$9.99"
 
 
 async def main() -> None:
-    ai_agent_settings = AzureAIAgentSettings.create()
+    credential = DefaultAzureCredential()
+    project_client = AIProjectClient.from_connection_string(
+        credential=credential,
+        conn_str="your-connection-string",
+    )
 
-    async with (
-        DefaultAzureCredential() as creds,
-        AzureAIAgent.create_client(
-            credential=creds,
-            conn_str=ai_agent_settings.project_connection_string.get_secret_value(),
-        ) as client,
-    ):
-        # สร้างคำจำกัดความของเอเจนต์
-        agent_definition = await client.agents.create_agent(
-            model=ai_agent_settings.model_deployment_name,
-            name="Host",
-            instructions="Answer questions about the menu.",
+    agent = project_client.agents.create_agent(
+        model="gpt-4o-mini",
+        name="Host",
+        instructions="Answer questions about the menu.",
+        tools=[get_specials, get_item_price],
+    )
+
+    thread = project_client.agents.create_thread()
+
+    user_inputs = [
+        "Hello",
+        "What is the special soup?",
+        "How much does that cost?",
+        "Thank you",
+    ]
+
+    for user_input in user_inputs:
+        print(f"# User: '{user_input}'")
+        message = project_client.agents.create_message(
+            thread_id=thread.id,
+            role="user",
+            content=user_input,
         )
-
-        # สร้างเอเจนต์ AzureAI โดยใช้ไคลเอนต์และคำจำกัดความเอเจนต์ที่กำหนด
-        agent = AzureAIAgent(
-            client=client,
-            definition=agent_definition,
-            plugins=[MenuPlugin()],
+        run = project_client.agents.create_and_process_run(
+            thread_id=thread.id, agent_id=agent.id
         )
-
-        # สร้างเธรดเพื่อเก็บการสนทนา
-        # หากไม่ได้จัดเตรียมเธรดไว้ เธรดใหม่จะถูก
-        # สร้างขึ้นและส่งกลับพร้อมการตอบสนองเริ่มต้น
-        thread: AzureAIAgentThread | None = None
-
-        user_inputs = [
-            "Hello",
-            "What is the special soup?",
-            "How much does that cost?",
-            "Thank you",
-        ]
-
-        try:
-            for user_input in user_inputs:
-                print(f"# User: '{user_input}'")
-                # เรียกใช้งานเอเจนต์สำหรับเธรดที่ระบุ
-                response = await agent.get_response(
-                    messages=user_input,
-                    thread_id=thread,
-                )
-                print(f"# {response.name}: {response.content}")
-                thread = response.thread
-        finally:
-            await thread.delete() if thread else None
-            await client.agents.delete_agent(agent.id)
+        messages = project_client.agents.list_messages(thread_id=thread.id)
+        print(f"# Agent: {messages.data[0].content[0].text.value}")
 
 
 if __name__ == "__main__":
@@ -653,7 +295,7 @@ if __name__ == "__main__":
 
 Azure AI Agent Service มีแนวคิดหลักดังนี้:
 
-- **Agent**. Azure AI Agent Service ผสานรวมกับ Microsoft Foundry ภายใน AI Foundry, เอเจนต์ AI จะทำหน้าที่เป็นไมโครเซอร์วิส "อัจฉริยะ" ที่ใช้ตอบคำถาม (RAG), ดำเนินการทำงาน หรืออัตโนมัติกระบวนการทำงานโดยสมบูรณ์ โดยบรรลุผลนี้โดยการผสมผสานพลังของโมเดลปัญญาประดิษฐ์เชิงกำเนิดกับเครื่องมือที่ช่วยให้เข้าถึงและโต้ตอบกับแหล่งข้อมูลในโลกจริง ตัวอย่างของเอเจนต์คือ:
+- **ตัวแทน (Agent)** Azure AI Agent Service บูรณาการกับ Microsoft Foundry ภายใน AI Foundry ตัวแทน AI คือ "ไมโครเซอร์วิสอัจฉริยะ" ที่ใช้ตอบคำถาม (RAG) ทำงาน หรืออัตโนมัติเต็มรูปแบบของเวิร์กโฟลว์ โดยนำพลังจากโมเดล AI สร้างสรรค์มารวมกับเครื่องมือที่ให้เข้าถึงและโต้ตอบกับแหล่งข้อมูลจริง ตัวอย่างตัวแทน:
 
     ```python
     agent = project_client.agents.create_agent(
@@ -665,9 +307,9 @@ Azure AI Agent Service มีแนวคิดหลักดังนี้:
     )
     ```
 
-    ในตัวอย่างนี้ สร้างเอเจนต์ด้วยโมเดล `gpt-4o-mini` ชื่อ `my-agent` และคำสั่ง `You are helpful agent` เอเจนต์มีเครื่องมือและทรัพยากรสำหรับทำหน้าที่แปลความหมายโค้ด
+    ในตัวอย่างนี้ ตัวแทนถูกสร้างด้วยโมเดล `gpt-4o-mini` ชื่อ `my-agent` และคำสั่ง `You are helpful agent` ตัวแทนมีเครื่องมือและทรัพยากรสำหรับงานตีความโค้ด
 
-- **เธรดและข้อความ**. เธรดเป็นแนวคิดสำคัญอีกอย่าง มันแสดงถึงการสนทนาหรือการโต้ตอบระหว่างเอเจนต์และผู้ใช้ เธรดสามารถใช้ติดตามความก้าวหน้าของการสนทนา จัดเก็บข้อมูลบริบท และจัดการสถานะการโต้ตอบ ตัวอย่างเธรด:
+- **เธรดและข้อความ (Thread and messages)** เธรดเป็นแนวคิดสำคัญอีกอย่าง แสดงถึงการสนทนาหรือการโต้ตอบระหว่างตัวแทนกับผู้ใช้ เธรดใช้ติดตามความคืบหน้าการสนทนา เก็บข้อมูลบริบท และจัดการสถานะการโต้ตอบ ตัวอย่างเธรด:
 
     ```python
     thread = project_client.agents.create_thread()
@@ -685,76 +327,64 @@ Azure AI Agent Service มีแนวคิดหลักดังนี้:
     print(f"Messages: {messages}")
     ```
 
-    ในโค้ดก่อนหน้า มีการสร้างเธรด จากนั้นมีการส่งข้อความไปยังเธรด โดยการเรียก `create_and_process_run` จะขอให้เอเจนต์ทำงานในเธรด สุดท้ายดึงข้อความแล้วบันทึกเพื่อตรวจสอบคำตอบของเอเจนต์ ข้อความจะแสดงความก้าวหน้าของการสนทนาระหว่างผู้ใช้และเอเจนต์ สิ่งสำคัญคือต้องเข้าใจว่าข้อความอาจเป็นประเภทต่างๆ เช่น ข้อความ, รูปภาพ หรือไฟล์ นั่นหมายความว่างานของเอเจนต์อาจส่งผลลัพธ์เป็นรูปภาพหรือข้อความ ตัวอย่างเช่น ในฐานะนักพัฒนา คุณสามารถใช้ข้อมูลนี้เพื่อประมวลผลคำตอบต่อไปหรือนำเสนอแก่ผู้ใช้
+    ในโค้ดก่อนหน้า เธรดถูกสร้างขึ้น จากนั้นส่งข้อความเข้าเธรด ผ่าน `create_and_process_run` ขอให้ตัวแทนทำงานบนเธรด สุดท้ายดึงและบันทึกข้อความเพื่อดูคำตอบของตัวแทน ข้อความเหล่านี้แสดงความก้าวหน้าการสนทนาระหว่างผู้ใช้กับตัวแทน สำคัญที่ต้องเข้าใจว่า ข้อความอาจมีหลายประเภท เช่น ข้อความ รูปภาพ หรือไฟล์ ซึ่งเป็นผลลัพธ์จากงานของตัวแทน เช่น ภาพ หรือคำตอบข้อความ ในฐานะนักพัฒนา คุณสามารถใช้ข้อมูลนี้เพื่อต่อประมวลผลหรือนำเสนอแก่ผู้ใช้
 
-- **ผสานรวมกับกรอบงาน AI อื่นๆ**. บริการ Azure AI Agent สามารถโต้ตอบกับกรอบงานอื่นๆ เช่น AutoGen และ Semantic Kernel ซึ่งหมายความว่าคุณสามารถสร้างส่วนหนึ่งของแอปในกรอบงานเหล่านี้ แล้วใช้บริการ Agent เป็นตัวควบคุม หรือสร้างทุกส่วนในบริการ Agent
+- **การผสานกับ Microsoft Agent Framework** Azure AI Agent Service ทำงานร่วมกับ Microsoft Agent Framework ได้อย่างไร้รอยต่อ หมายความว่าคุณสามารถสร้างตัวแทนด้วย `AzureAIProjectAgentProvider` และปรับใช้ผ่าน Agent Service สำหรับการใช้งานจริง
 
-**กรณีการใช้งาน**: Azure AI Agent Service ออกแบบมาสำหรับแอปพลิเคชันองค์กรที่ต้องการการปรับใช้เอเจนต์ AI ที่ปลอดภัย, ขยายขนาดได้ และยืดหยุ่น
+**กรณีการใช้งาน**: Azure AI Agent Service เหมาะสำหรับแอปพลิเคชันองค์กรที่ต้องการการปรับใช้ตัวแทน AI ที่ปลอดภัย ขยายได้ และยืดหยุ่น
 
-## ความแตกต่างระหว่างกรอบงานเหล่านี้คืออะไร?
+## ความแตกต่างระหว่างแนวทางเหล่านี้คืออะไร?
 
-ดูเหมือนจะมีความซ้อนทับกันระหว่างกรอบงานเหล่านี้ แต่มีความแตกต่างสำคัญในด้านการออกแบบ ความสามารถ และกรณีการใช้งานเป้าหมาย:
+ดูเหมือนจะมีความทับซ้อน แต่มีความแตกต่างสำคัญในด้านการออกแบบ ความสามารถ และกรณีใช้งานเป้าหมาย:
 
-- **AutoGen**: เป็นกรอบงานสำหรับการทดลองเน้นการวิจัยขั้นสูงเกี่ยวกับระบบหลายเอเจนต์ เป็นที่เหมาะสำหรับการทดลองและต้นแบบระบบหลายเอเจนต์ที่ซับซ้อน
-- **Semantic Kernel**: เป็นไลบรารีเอเจนต์ที่พร้อมใช้งานจริงสำหรับการสร้างแอปพลิเคชันเอเจนต์ระดับองค์กร เน้นแอปพลิเคชันที่ขับเคลื่อนด้วยเหตุการณ์, ระบบเอเจนต์แบบกระจาย, รองรับ LLM และ SLM หลายตัว, เครื่องมือ และรูปแบบการออกแบบเอเจนต์แบบเดี่ยว/หลายตัว
-- **Azure AI Agent Service**: เป็นแพลตฟอร์มและบริการปรับใช้ใน Azure Foundry สำหรับเอเจนต์ มีความสามารถในการเชื่อมต่อกับบริการใน Azure Foundry เช่น Azure OpenAI, Azure AI Search, Bing Search และการรันโค้ด
+- **Microsoft Agent Framework (MAF)**: เป็น SDK สำหรับสร้างตัวแทน AI พร้อมใช้งานจริง มี API ที่เรียบง่ายสำหรับสร้างตัวแทนพร้อมฟีเจอร์เรียกเครื่องมือ การจัดการบทสนทนา และการเชื่อมต่อกับ Azure Identity
+- **Azure AI Agent Service**: เป็นแพลตฟอร์มและบริการปรับใช้ใน Azure Foundry สำหรับตัวแทน มีการเชื่อมต่อในตัวกับบริการต่างๆ เช่น Azure OpenAI, Azure AI Search, Bing Search และการรันโค้ด
 
-ยังไม่แน่ใจว่าจะเลือกอันไหน?
+ยังไม่แน่ใจว่าจะเลือกแบบไหน?
 
 ### กรณีการใช้งาน
 
-ลองมาดูกันว่าช่วยคุณได้หรือไม่ โดยผ่านกรณีการใช้งานทั่วไป:
+ลองดูว่าช่วยคุณได้ไหมจากกรณีทั่วไปต่อไปนี้:
 
-> Q: ฉันกำลังทดลองเรียนรู้และสร้างแอปเอเจนต์พิสูจน์แนวคิด และต้องการสร้างและทดลองได้อย่างรวดเร็ว
+> Q: ฉันกำลังสร้างแอปตัวแทน AI สำหรับใช้งานจริง และต้องการเริ่มต้นอย่างรวดเร็ว
 >
 
-> A: AutoGen เป็นตัวเลือกที่ดีสำหรับสถานการณ์นี้ เพราะเน้นแอปพลิเคชันเอเจนต์ขับเคลื่อนด้วยเหตุการณ์แบบกระจายและรองรับรูปแบบการออกแบบหลายเอเจนต์ที่ซับซ้อน
+>A: Microsoft Agent Framework เป็นตัวเลือกที่ยอดเยี่ยม มี API แบบ Python ง่ายๆ ผ่าน `AzureAIProjectAgentProvider` ที่ช่วยคุณกำหนดตัวแทนพร้อมเครื่องมือและคำสั่งเพียงไม่กี่บรรทัดโค้ด
 
-> Q: อะไรทำให้ AutoGen เป็นตัวเลือกที่ดีกว่า Semantic Kernel และ Azure AI Agent Service สำหรับกรณีนี้?
+>Q: ฉันต้องการปรับใช้ระดับองค์กร พร้อมการผสานกับ Azure เช่น Search และการรันโค้ด
 >
-> A: AutoGen ถูกออกแบบเพื่อแอปพลิเคชันเอเจนต์ขับเคลื่อนด้วยเหตุการณ์แบบกระจายโดยเฉพาะ จึงเหมาะสมสำหรับงานอัตโนมัติสร้างโค้ดและวิเคราะห์ข้อมูล มันมีเครื่องมือและความสามารถที่จำเป็นเพื่อสร้างระบบหลายเอเจนต์ที่ซับซ้อนได้อย่างมีประสิทธิภาพ
+> A: Azure AI Agent Service เหมาะที่สุด เป็นบริการแพลตฟอร์มที่มีฟีเจอร์ในตัวสำหรับโมเดลหลายตัว Azure AI Search, Bing Search และ Azure Functions สร้างตัวแทนได้ง่ายจาก Foundry Portal และปรับใช้ในระดับใหญ่
 
-> Q: ฟังดูเหมือน Azure AI Agent Service ก็เหมาะสำหรับที่นี่ด้วยนะ เพราะมีเครื่องมือสำหรับสร้างโค้ดและอื่นๆ?
+> Q: ฉันยังสับสน ขอแบบเลือกอย่างเดียว
 >
-> A: ใช่ บริการ Azure AI Agent Service เป็นแพลตฟอร์มสำหรับเอเจนต์ที่เพิ่มความสามารถในตัวสำหรับโมเดลหลายแบบ, Azure AI Search, Bing Search และ Azure Functions ทำให้ง่ายในการสร้างเอเจนต์ใน Foundry Portal และปรับใช้ในระดับขนาดใหญ่
-
-> Q: ฉันยังสับสน เลือกตัวเดียวเลยได้ไหม
->
-> A: ตัวเลือกที่ดีคือสร้างแอปใน Semantic Kernel ก่อน แล้วใช้ Azure AI Agent Service เพื่อปรับใช้เอเจนต์ วิธีนี้ช่วยให้คุณเก็บรักษาเอเจนต์ได้ง่าย ในขณะที่ใช้พลังของการสร้างระบบหลายเอเจนต์ใน Semantic Kernel นอกจากนี้ Semantic Kernel ยังมีตัวเชื่อมต่อใน AutoGen ทำให้ใช้งานสองกรอบงานร่วมกันได้ง่าย
+> A: เริ่มจาก Microsoft Agent Framework เพื่อสร้างตัวแทนก่อน จากนั้นใช้ Azure AI Agent Service เมื่อต้องการปรับใช้และขยายในสภาพแวดล้อมใช้งานจริง วิธีนี้ช่วยให้ทดลองและปรับปรุงตรรกะตัวแทนได้เร็ว พร้อมมีเส้นทางชัดเจนไปสู่การปรับใช้ในองค์กร
 
 สรุปความแตกต่างหลักในตาราง:
 
-| Framework | เน้น | แนวคิดหลัก | กรณีการใช้งาน |
+| Framework | จุดสนใจ | แนวคิดหลัก | กรณีใช้งาน |
 | --- | --- | --- | --- |
-| AutoGen | แอปพลิเคชันเอเจนต์ขับเคลื่อนด้วยเหตุการณ์แบบกระจาย | เอเจนต์, บุคลิกภาพ, ฟังก์ชัน, ข้อมูล | สร้างโค้ด, งานวิเคราะห์ข้อมูล |
-| Semantic Kernel | การเข้าใจและสร้างเนื้อหาข้อความที่เหมือนมนุษย์ | เอเจนต์, โมดูล, การทำงานร่วมกัน | การเข้าใจภาษาธรรมชาติ, การสร้างเนื้อหา |
-| Azure AI Agent Service | โมเดลที่ยืดหยุ่น, ความปลอดภัยระดับองค์กร, การสร้างโค้ด, เรียกใช้เครื่องมือ | โมดูล, การทำงานร่วมกัน, การประสานงานกระบวนการ | การปรับใช้เอเจนต์ AI ที่ปลอดภัย, ขยายขนาดได้ และยืดหยุ่น |
+| Microsoft Agent Framework | SDK ตัวแทนที่เรียบง่ายพร้อมฟีเจอร์เรียกเครื่องมือ | ตัวแทน, เครื่องมือ, Azure Identity | สร้างตัวแทน AI, ใช้เครื่องมือ, งานหลายขั้นตอน |
+| Azure AI Agent Service | โมเดลยืดหยุ่น, ความปลอดภัยองค์กร, การสร้างโค้ด, เรียกเครื่องมือ | ความโมดูล, ความร่วมมือ, การจัดการเวิร์กโฟลว์ | การปรับใช้ตัวแทน AI ที่ปลอดภัย ขยายได้ และยืดหยุ่น |
 
-กรณีการใช้งานที่เหมาะสำหรับแต่ละกรอบงานคืออะไร?
+## ฉันสามารถใช้งานเครื่องมือในระบบนิเวศ Azure ที่มีอยู่แล้วโดยตรงได้ไหม หรือจำเป็นต้องใช้โซลูชันแยกต่างหาก?
+คำตอบคือใช่ คุณสามารถผสานรวมเครื่องมือระบบนิเวศ Azure ที่มีอยู่ของคุณโดยตรงกับ Azure AI Agent Service ได้โดยเฉพาะอย่างยิ่ง เนื่องจากถูกสร้างขึ้นให้ทำงานร่วมกับบริการ Azure อื่น ๆ ได้อย่างราบรื่น ตัวอย่างเช่น คุณสามารถผสานรวม Bing, Azure AI Search และ Azure Functions ได้ นอกจากนี้ยังมีการผสานรวมอย่างลึกซึ้งกับ Microsoft Foundry
 
-## ฉันสามารถรวมเครื่องมือในระบบนิเวศ Azure ที่มีอยู่เข้าด้วยกันโดยตรงได้ไหม หรือฉันต้องใช้โซลูชันแยกต่างหาก?
+Microsoft Agent Framework ยังผสานรวมกับบริการของ Azure ผ่าน `AzureAIProjectAgentProvider` และ Azure identity ทำให้คุณสามารถเรียกใช้บริการ Azure ได้โดยตรงจากเครื่องมือ agent ของคุณ
 
-คำตอบคือ ได้ คุณสามารถรวมเครื่องมือในระบบนิเวศ Azure ที่มีอยู่เข้ากับ Azure AI Agent Service ได้โดยตรง โดยเฉพาะอย่างยิ่งเพราะถูกสร้างให้ทำงานร่วมกับบริการ Azure อื่นๆ ได้อย่างราบรื่น คุณสามารถรวม Bing, Azure AI Search และ Azure Functions ได้ นอกจากนี้ยังมีการผสานลึกกับ Microsoft Foundry
-
-สำหรับ AutoGen และ Semantic Kernel คุณก็สามารถรวมกับบริการ Azure ได้เช่นกัน แต่คุณอาจจะต้องเรียกบริการ Azure จากโค้ดของคุณ อีกวิธีหนึ่งคือใช้ Azure SDK เพื่อโต้ตอบกับบริการ Azure ผ่านเอเจนต์ของคุณ นอกจากนี้ อย่างที่กล่าวไว้ คุณสามารถใช้ Azure AI Agent Service เป็นตัวควบคุมสำหรับเอเจนต์ที่สร้างใน AutoGen หรือ Semantic Kernel ซึ่งจะช่วยให้เข้าถึงระบบนิเวศ Azure ได้ง่ายขึ้น
-
-## ตัวอย่างโค้ด
+## Sample Codes
 
 - Python: [Agent Framework](./code_samples/02-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/02-dotnet-agent-framework.md)
 
-## มีคำถามเพิ่มเติมเกี่ยวกับ AI Agent Frameworks ไหม?
+## มีคำถามเพิ่มเติมเกี่ยวกับ AI Agent Framework หรือไม่?
 
-เข้าร่วม [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) เพื่อพบปะผู้เรียนคนอื่น เข้าร่วม office hours และถามคำถามเกี่ยวกับ AI Agents ของคุณ
+เข้าร่วม [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) เพื่อพบปะกับผู้เรียนคนอื่น ๆ เข้าร่วม office hours และรับคำตอบสำหรับคำถามเกี่ยวกับ AI Agents ของคุณ
 
-## อ้างอิง
+## References
 
 - <a href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-azure-ai-agent-service/4298357" target="_blank">Azure Agent Service</a>
-- <a href="https://devblogs.microsoft.com/semantic-kernel/microsofts-agentic-ai-frameworks-autogen-and-semantic-kernel/" target="_blank">Semantic Kernel and AutoGen</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-python" target="_blank">Semantic Kernel Python Agent Framework</a>
-- <a href="https://learn.microsoft.com/semantic-kernel/frameworks/agent/?pivots=programming-language-csharp" target="_blank">Semantic Kernel .Net Agent Framework</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework - Azure OpenAI Responses</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent service</a>
-- <a href="https://techcommunity.microsoft.com/blog/educatordeveloperblog/using-azure-ai-agent-service-with-autogen--semantic-kernel-to-build-a-multi-agen/4363121" target="_blank">Using Azure AI Agent Service with AutoGen / Semantic Kernel to build a multi-agent's solution</a>
 
 ## บทเรียนก่อนหน้า
 
@@ -768,5 +398,5 @@ Azure AI Agent Service มีแนวคิดหลักดังนี้:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **ข้อจำกัดความรับผิดชอบ**:  
-เอกสารนี้ได้รับการแปลโดยใช้บริการแปลด้วย AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้เราจะพยายามให้ความถูกต้องสูงสุด แต่โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความคลาดเคลื่อน เอกสารฉบับต้นฉบับในภาษาต้นทางควรถือเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ ขอแนะนำให้ใช้บริการแปลโดยมนุษย์มืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดใดๆ ที่เกิดขึ้นจากการใช้การแปลนี้
+เอกสารฉบับนี้ได้รับการแปลโดยใช้บริการแปลภาษาอัตโนมัติ [Co-op Translator](https://github.com/Azure/co-op-translator) ขณะเรามุ่งมั่นเพื่อความถูกต้อง โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาต้นทางควรถูกพิจารณาเป็นแหล่งข้อมูลที่ถูกต้อง สำหรับข้อมูลที่สำคัญ ควรใช้บริการแปลภาษามนุษย์อย่างมืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความผิดใด ๆ ที่เกิดขึ้นจากการใช้การแปลนี้
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
