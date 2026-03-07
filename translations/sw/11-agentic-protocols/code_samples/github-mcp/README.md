@@ -1,70 +1,69 @@
-# Mfano wa Server ya Github MCP
+# Mfano wa Github MCP Server
 
 ## Maelezo
 
-Hii ni demo iliyotengenezwa kwa ajili ya Hackathon ya Mawakala wa AI iliyoandaliwa kupitia Microsoft Reactor.
+Hii ilikuwa demo iliyotengenezwa kwa ajili ya AI Agents Hackathon iliyoandaliwa kupitia Microsoft Reactor.
 
-Zana hii inatumika kupendekeza miradi ya hackathon kulingana na repos za mtumiaji wa Github. Hii inafanyika kwa:
+Zana hizi zinatumika kupendekeza miradi ya hackathon kulingana na repos za Github za mtumiaji.
+Hii inafanywa kwa njia zifuatazo:
 
-1. **Github Agent** - Kutumia Server ya Github MCP kupata repos na taarifa kuhusu repos hizo.
-2. **Hackathon Agent** - Inachukua data kutoka kwa Github Agent na kuja na mawazo ya ubunifu ya miradi ya hackathon kulingana na miradi, lugha zinazotumiwa na mtumiaji, na nyimbo za miradi kwa hackathon ya Mawakala wa AI.
-3. **Events Agent** - Kulingana na mapendekezo ya Hackathon Agent, Events Agent itapendekeza matukio yanayohusiana kutoka kwenye mfululizo wa Hackathon ya Mawakala wa AI.
-
-## Kuendesha Msimbo
+1. **Github Agent** - Kutumia Github MCP Server kupata repos na taarifa kuhusu repos hizo.
+2. **Hackathon Agent** - Huchukua data kutoka kwa Github Agent na kuja na mawazo ya ubunifu ya miradi ya hackathon kulingana na miradi, lugha ambazo mtumiaji ametumia, na njia za mradi za AI Agents hackathon.
+3. **Events Agent** - Kulingana na mapendekezo ya Hackathon Agent, Events Agent atapendekeza matukio yanayofaa kutoka katika mfululizo wa AI Agent Hackathon.
+## Kukimbia msimbo 
 
 ### Vigezo vya Mazingira
 
-Demo hii inatumia Azure Open AI Service, Semantic Kernel, Server ya Github MCP, na Azure AI Search.
+Demo hii inatumia Microsoft Agent Framework, Azure OpenAI Service, Github MCP Server na Azure AI Search.
 
-Hakikisha unaweka vigezo sahihi vya mazingira ili kutumia zana hizi:
+Hakikisha kwamba umeweka vigezo vya mazingira vinavyofaa ili kutumia zana hizi:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Kuendesha Server ya Chainlit
+## Kukimbia seva ya Chainlit
 
-Ili kuunganishwa na server ya MCP, demo hii inatumia Chainlit kama kiolesura cha mazungumzo.
+Ili kuungana na MCP server, demo hii inatumia Chainlit kama kiolesura cha mazungumzo. 
 
-Ili kuendesha server, tumia amri ifuatayo kwenye terminal yako:
+Ili kuendesha seva, tumia amri ifuatayo kwenye terminal yako:
 
 ```bash
 chainlit run app.py -w
 ```
 
-Hii inapaswa kuanzisha server yako ya Chainlit kwenye `localhost:8000` pamoja na kujaza Azure AI Search Index yako na maudhui ya `event-descriptions.md`.
+Hii inapaswa kuanza seva yako ya Chainlit kwenye `localhost:8000` pamoja na kujaza Index ya Azure AI Search na yaliyomo ya `event-descriptions.md`. 
 
-## Kuunganishwa na Server ya MCP
+## Kuungana na MCP Server
 
-Ili kuunganishwa na Server ya Github MCP, chagua ikoni ya "plug" chini ya kisanduku cha mazungumzo "Type your message here..":
+Ili kuungana na Github MCP Server, chagua ikoni ya "plug" chini ya kisanduku cha mazungumzo cha "Andika ujumbe wako hapa..":
 
-![MCP Connect](../../../../../translated_images/sw/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![Unganisha MCP](../../../../../translated_images/sw/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Kutoka hapo unaweza kubofya "Connect an MCP" ili kuongeza amri ya kuunganishwa na Server ya Github MCP:
+Kutoka hapo unaweza kubofya "Unganisha MCP" ili kuongeza amri ya kuunganishwa na Github MCP Server:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Badilisha "[YOUR PERSONAL ACCESS TOKEN]" na Token yako halisi ya Ufikiaji wa Kibinafsi.
+Replace "[YOUR PERSONAL ACCESS TOKEN]" with your actual Personal Access Token. 
 
-Baada ya kuunganishwa, unapaswa kuona (1) karibu na ikoni ya plug kuthibitisha kuwa imeunganishwa. Ikiwa sivyo, jaribu kuanzisha upya server ya Chainlit kwa `chainlit run app.py -w`.
+Baada ya kuunganisha, unapaswa kuona (1) karibu na ikoni ya plug kuthibitisha kuwa imeunganishwa. Ikiwa sivyo, jaribu kuzindua tena seva ya chainlit kwa kutumia `chainlit run app.py -w`.
 
-## Kutumia Demo
+## Kutumia Demo 
 
-Ili kuanza mtiririko wa wakala wa kupendekeza miradi ya hackathon, unaweza kuandika ujumbe kama:
+Ili kuanza mtiririko wa wakala wa kupendekeza miradi ya hackathon, unaweza kuandika ujumbe kama: 
 
 "Pendekeza miradi ya hackathon kwa mtumiaji wa Github koreyspace"
 
-Router Agent itachambua ombi lako na kuamua ni mchanganyiko gani wa mawakala (GitHub, Hackathon, na Events) unaofaa kushughulikia swali lako. Mawakala hufanya kazi pamoja kutoa mapendekezo ya kina kulingana na uchambuzi wa repos za Github, mawazo ya miradi, na matukio ya teknolojia yanayohusiana.
+Wakala wa Router atachambua ombi lako na kuamua ni mchanganyiko gani wa wakala (GitHub, Hackathon, na Events) unaofaa zaidi kushughulikia ombi lako. Wakala hao hufanya kazi pamoja kutoa mapendekezo ya kina yanayotokana na uchambuzi wa repos za GitHub, ubunifu wa miradi, na matukio ya teknolojia yanayofaa.
 
 ---
 
-**Kanusho**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya kutafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kuhakikisha usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati ya asili katika lugha yake ya awali inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatutawajibika kwa kutoelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Taarifa ya kutokuhusika**:
+Nyaraka hii imetafsiriwa kwa kutumia huduma ya kutafsiri inayotumia akili bandia [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kuwa sahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Nyaraka ya asili katika lugha yake inapaswa kuchukuliwa kama chanzo chenye mamlaka. Kwa taarifa muhimu, inapendekezwa kutumia huduma za mtafsiri mtaalamu wa kibinadamu. Hatuwajibiki kwa kutokuelewana au tafsiri potofu zinazotokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,70 +1,73 @@
-# Github MCP Server Példa
+# Github MCP Szerver Példa
 
 ## Leírás
 
-Ez egy demó, amelyet a Microsoft Reactor által szervezett AI Agents Hackathonra készítettek.
+Ez egy demó volt, amelyet az AI Agents Hackathonra készítettek, amelyet a Microsoft Reactor szervezett.
 
-Az eszköz célja, hogy hackathon projektek ajánlásával segítse a felhasználókat a Github repóik alapján. Ez a következőképpen működik:
+Az eszköz arra szolgál, hogy hackathon projekteket ajánljon egy felhasználó Github repozitóriumai alapján.
+Ez a következőképpen történik:
 
-1. **Github Agent** - A Github MCP Server segítségével lekéri a repókat és azok adatait.
-2. **Hackathon Agent** - A Github Agent által gyűjtött adatok alapján kreatív hackathon projektötleteket javasol, figyelembe véve a felhasználó projektjeit, használt programozási nyelveit és az AI Agents hackathon projektpályáit.
-3. **Events Agent** - A Hackathon Agent javaslatai alapján az Events Agent releváns eseményeket ajánl az AI Agents Hackathon sorozatból.
+1. **Github Ügynök** – A Github MCP Szerver használata a repozitóriumok és az azokkal kapcsolatos információk lekérésére.
+2. **Hackathon Ügynök** – Átveszi az adatokat a Github Ügynöktől, és kreatív hackathon projektötleteket dolgoz ki a projektek, a felhasználó által használt nyelvek és az AI Agents hackathon projektjei alapján.
+3. **Esemény Ügynök** – A hackathon ügynök javaslata alapján az esemény ügynök releváns eseményeket ajánl az AI Agent Hackathon sorozatból.
 
 ## A kód futtatása
 
 ### Környezeti változók
 
-Ez a demó az Azure Open AI Service-t, a Semantic Kernel-t, a Github MCP Server-t és az Azure AI Search-t használja.
+Ez a demó a Microsoft Agent Frameworköt, Azure OpenAI Szolgáltatást, a Github MCP Szervert és az Azure AI Keresést használja.
 
-Győződj meg róla, hogy a megfelelő környezeti változók be vannak állítva ezekhez az eszközökhöz:
+Győződj meg róla, hogy a megfelelő környezeti változók be vannak állítva ezen eszközök használatához:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## A Chainlit Server futtatása
 
-A MCP serverhez való csatlakozáshoz ez a demó a Chainlit-et használja chat interfészként.
+## A Chainlit Szerver futtatása
 
-A szerver futtatásához használd az alábbi parancsot a terminálban:
+Az MCP szerverhez való kapcsolódáshoz ez a demó a Chainlit chat felületet használja.
+
+A szerver futtatásához használd a következő parancsot a terminálodban:
 
 ```bash
 chainlit run app.py -w
 ```
 
-Ez elindítja a Chainlit szervert a `localhost:8000` címen, és feltölti az Azure AI Search Indexet az `event-descriptions.md` tartalmával.
 
-## Csatlakozás az MCP Serverhez
+Ez elindítja a Chainlit szerveredet a `localhost:8000` címen, valamint feltölti az Azure AI Keresési Indexedet az `event-descriptions.md` tartalommal.
 
-A Github MCP Serverhez való csatlakozáshoz kattints a "dugó" ikonra a "Írd be az üzeneted ide..." chat mező alatt:
+## Kapcsolódás az MCP Szerverhez
+
+A Github MCP Szerverhez való kapcsolódáshoz válaszd ki a „plug” ikont a „Type your message here..” chat mező alatt:
 
 ![MCP Connect](../../../../../translated_images/hu/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Ezután kattints a "Connect an MCP" gombra, hogy hozzáadd a parancsot a Github MCP Serverhez való csatlakozáshoz:
+Innen kattinthatsz a „Connect an MCP” gombra, hogy hozzáadd a parancsot a Github MCP Szerverhez való kapcsolódáshoz:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Cseréld le a "[YOUR PERSONAL ACCESS TOKEN]" szöveget a saját személyes hozzáférési tokenedre.
 
-A csatlakozás után egy (1) jelenik meg a dugó ikon mellett, jelezve, hogy sikeresen csatlakoztál. Ha nem, próbáld újraindítani a Chainlit szervert a `chainlit run app.py -w` parancs segítségével.
+Cseréld ki a "[YOUR PERSONAL ACCESS TOKEN]" szöveget a saját Személyes Hozzáférési Tokenedre.
+
+A kapcsolódás után a „plug” ikon mellett egy (1) jelenik meg, amely megerősíti a kapcsolatot. Ha nem látod, próbáld meg újraindítani a chainlit szervert a `chainlit run app.py -w` paranccsal.
 
 ## A demó használata
 
-A hackathon projektek ajánlására szolgáló agent workflow elindításához írhatsz egy üzenetet, például:
+A hackathon projektek ajánlását indító ügynök munkafolyamat elindításához írhatsz egy üzenetet, például:
 
-"Ajánlj hackathon projekteket a koreyspace Github felhasználónak"
+„Ajánlj hackathon projekteket a koreyspace Github felhasználónak”
 
-A Router Agent elemzi a kérésedet, és meghatározza, hogy melyik agentek kombinációja (GitHub, Hackathon és Events) a legalkalmasabb a kérdésed kezelésére. Az agentek együttműködve átfogó ajánlásokat nyújtanak a Github repók elemzése, projektötletek kidolgozása és releváns technológiai események alapján.
+A Router Ügynök elemezni fogja a kérésedet, és meghatározza, hogy az ügynökök (GitHub, Hackathon és Események) mely kombinációja a legalkalmasabb a lekérdezésed kezelésére. Az ügynökök együttműködve átfogó ajánlásokat nyújtanak a GitHub repozitórium elemzése, a projektötletelés és a releváns tech események alapján.
 
 ---
 
-**Felelősség kizárása**:  
-Ez a dokumentum az AI fordítási szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével lett lefordítva. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Kritikus információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely a fordítás használatából eredhet.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Jogi nyilatkozat**:
+Ezt a dokumentumot az AI fordító szolgáltatás [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével fordítottuk le. Bár a pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. A dokumentum eredeti nyelvű változata tekintendő hivatalos forrásnak. Kritikus információk esetén professzionális emberi fordítást javaslunk. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amelyek a fordítás használatából erednek.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

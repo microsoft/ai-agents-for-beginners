@@ -2,31 +2,31 @@
 
 ## Muhtasari wa Mradi
 
-Hili hifadhi lina "Maajenti wa AI kwa Waanzilishi" - kozi ya elimu kamili inayofundisha kila kitu kinachohitajika kujenga Maajenti wa AI. Kozi ina masomo 15+ yanayojumuisha misingi, mifano ya muundo, mifumo, na utoaji wa maajenti wa AI kwa uzalishaji.
+Hifadhi hii ina "Maajenti wa AI kwa Waanzilishi" - kozi ya kuelewa kwa kina inayofundisha kila kitu kinachohitajika kujenga Maajenti wa AI. Kozi ina masomo 15+ yanayojumuisha misingi, mifumo ya kubuni, fremu za kazi, na uzalishaji wa maajenti wa AI.
 
 **Teknolojia Muhimu:**
 - Python 3.12+
-- Daftari za Jupyter kwa kujifunza kwa mwingiliano
-- Mifumo ya AI: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Huduma za Azure AI: Microsoft Foundry, Azure AI Agent Service
-- Soko la Modeli la GitHub (kipindi cha bure kinapatikana)
+- Daftari za Jupyter kwa kujifunza kwa ushirikiano
+- Fremu za AI: Microsoft Agent Framework (MAF)
+- Huduma za Azure AI: Microsoft Foundry, Azure AI Foundry Agent Service V2
 
-**Usanifu:**
-- Muundo wa masomo (dira za 00-15+)
-- Kila somo lina: hati ya README, mifano ya msimbo (daftari za Jupyter), na picha
-- Msaada wa lugha nyingi kupitia mfumo wa tafsiri wa moja kwa moja
-- Chaguzi mbalimbali za mifumo kwa kila somo (Semantic Kernel, AutoGen, Azure AI Agent Service)
+**Majaribio ya Usanifu:**
+- Muundo wa msingi wa masomo (folda 00-15+)
+- Kila somo lina: kumbukumbu za README, sampuli za nambari (daftari za Jupyter), na picha
+- Msaada wa lugha nyingi kupitia mfumo wa utafsiri otomatiki
+- Daftari moja la Python kwa kila somo likitumia Microsoft Agent Framework
 
-## Amri za Kusanidi
+## Amri za Kuandaa Mazingira
 
-### Mahitaji ya Awali
-- Python 3.12 au juu zaidi
-- Akaunti ya GitHub (kwa Modeli za GitHub - kipindi cha bure)
-- Usajili wa Azure (hiari, kwa huduma za Azure AI)
+### Masharti ya Kabla
 
-### Kusanidi Awali
+- Python 3.12 au zaidi
+- Usajili wa Azure (kwa Azure AI Foundry)
+- Azure CLI imewekwa na kuthibitishwa (`az login`)
 
-1. **Nakili au vula hifadhi:**
+### Kuanzisha Mwanzo
+
+1. **Kokotoa au toa nakala ya hifadhi:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
    # AU
@@ -34,7 +34,7 @@ Hili hifadhi lina "Maajenti wa AI kwa Waanzilishi" - kozi ya elimu kamili inayof
    cd ai-agents-for-beginners
    ```
 
-2. **Tengeneza na wezesha mazingira ya virtual ya Python:**
+2. **Tengeneza na uanzishe mazingira ya Python ya mtando:**
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # Kwenye Windows: venv\Scripts\activate
@@ -45,113 +45,95 @@ Hili hifadhi lina "Maajenti wa AI kwa Waanzilishi" - kozi ya elimu kamili inayof
    pip install -r requirements.txt
    ```
 
-4. **Sanidi mabadiliko ya mazingira:**
+4. **Sanidi vigezo vya mazingira:**
    ```bash
    cp .env.example .env
-   # Hariri .env na funguo zako za API na maeneo ya mwisho
+   # Hariri .env kwa funguo zako za API na vyanzo vya data
    ```
 
-### Mabadiliko ya Mazingira Yanayohitajika
+### Vigezo Vinavyohitajika vya Mazingira
 
-Kwa **Modeli za GitHub (Bure)**:
-- `GITHUB_TOKEN` - Tokeni ya upatikanaji binafsi kutoka GitHub
+Kwa **Azure AI Foundry** (Inahitajika):
+- `AZURE_AI_PROJECT_ENDPOINT` - anuani ya mradi wa Azure AI Foundry
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - jina la usambazaji wa mfano (mfano, gpt-4o)
 
-Kwa **Huduma za Azure AI** (hiari):
-- `PROJECT_ENDPOINT` - Mwisho wa mradi wa Microsoft Foundry
-- `AZURE_OPENAI_API_KEY` - Kitufe cha API cha Azure OpenAI
-- `AZURE_OPENAI_ENDPOINT` - Anuani ya mwisho ya Azure OpenAI
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Jina la utekelezaji kwa mfano wa mazungumzo
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Jina la utekelezaji kwa maingizo
-- Mipangilio mingine ya Azure kama ilivyo kwenye `.env.example`
+Kwa **Azure AI Search** (Somo 05 - RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - anuani ya huduma ya Azure AI Search
+- `AZURE_SEARCH_API_KEY` - ufunguo wa API wa Azure AI Search
+
+Uthibitishaji: Endesha `az login` kabla ya kuendesha daftari (inatumia `AzureCliCredential`).
 
 ## Mtiririko wa Maendeleo
 
 ### Kuendesha Daftari za Jupyter
 
-Kila somo lina daftari nyingi za Jupyter kwa mifumo tofauti:
+Kila somo lina daftari nyingi za Jupyter kwa fremu tofauti:
 
 1. **Anzisha Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **Nenda kwenye dhairekteri ya somo** (mfano, `01-intro-to-ai-agents/code_samples/`)
+2. **Elekea kwenye folda ya somo** (mfano, `01-intro-to-ai-agents/code_samples/`)
 
 3. **Fungua na endesha daftari:**
-   - `*-semantic-kernel.ipynb` - Kutumia mfumo wa Semantic Kernel
-   - `*-autogen.ipynb` - Kutumia mfumo wa AutoGen
    - `*-python-agent-framework.ipynb` - Kutumia Microsoft Agent Framework (Python)
    - `*-dotnet-agent-framework.ipynb` - Kutumia Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Kutumia Azure AI Agent Service
 
-### Kufanya Kazi na Mifumo Tofauti
+### Kufanya Kazi na Microsoft Agent Framework
 
-**Semantic Kernel + Modeli za GitHub:**
-- Kipindi cha bure kinapatikana na akaunti ya GitHub
-- Nzuri kwa kujifunza na majaribio
-- Mfano wa faili: `*-semantic-kernel*.ipynb`
-
-**AutoGen + Modeli za GitHub:**
-- Kipindi cha bure kinapatikana na akaunti ya GitHub
-- Uwezo wa kuendeshana kwa maajenti wengi
-- Mfano wa faili: `*-autogen.ipynb`
-
-**Microsoft Agent Framework (MAF):**
-- Mfumo wa hivi karibuni kutoka Microsoft
-- Unapatikana kwa Python na .NET
-- Mfano wa faili: `*-agent-framework.ipynb`
-
-**Azure AI Agent Service:**
+**Microsoft Agent Framework + Azure AI Foundry:**
 - Inahitaji usajili wa Azure
-- Sifa za uzalishaji zimeandaliwa
-- Mfano wa faili: `*-azureaiagent.ipynb`
+- Inatumia `AzureAIProjectAgentProvider` kwa Agent Service V2 (maajenti yanaonekana kwenye lango la Foundry)
+- Tayari kwa uzalishaji na ufuatiliaji wa ndani
+- Mfano wa faili: `*-python-agent-framework.ipynb`
 
-## Maelekezo ya Upimaji
+## Maelekezo ya Kujaribu
 
-Hii ni hifadhi ya elimu yenye mifano ya msimbo badala ya msimbo wa uzalishaji wenye vipimo vya moja kwa moja. Ili kuthibitisha usanidi wako na mabadiliko:
+Hii ni hifadhi ya kielimu na nambari za mfano badala ya nambari ya uzalishaji yenye vipimo vya moja kwa moja. Ili kuthibitisha usanidi wako na mabadiliko:
 
-### Upimaji wa Mkono
+### Kujaribu Kwa Mkono
 
 1. **Jaribu mazingira ya Python:**
    ```bash
    python --version  # Inapaswa kuwa 3.12+
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
 2. **Jaribu utekelezaji wa daftari:**
    ```bash
-   # Badilisha daftari kuwa iwezekano na endesha (jaribu uingizaji)
+   # Geuza daftari kuwa skripti na uendeshe (inapima uingizaji)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **Hakiki mabadiliko ya mazingira:**
+3. **Thibitisha vigezo vya mazingira:**
    ```bash
    python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
    ```
 
-### Kuendesha Daftari Pamoja Pamoja
+### Kuendesha Daftari Binafsi
 
-Fungua daftari ndani ya Jupyter na endesha seli mfululizo. Kila daftari lina:
-- Kauli kuingiza
-- Kupakia mipangilio
+Fungua daftari katika Jupyter na endesha seli moja baada ya nyingine. Kila daftari lina vitu vyote ndani na linajumuisha:
+- Matamko ya kuingiza
+- Kupakia usanidi
 - Mifano ya utekelezaji wa maajenti
 - Matokeo yanayotarajiwa katika seli za markdown
 
-## Mtindo wa Msimbo
+## Mtindo wa Nambari
 
 ### Kanuni za Python
 
 - **Toleo la Python**: 3.12+
-- **Mtindo wa Msimbo**: Fuata kanuni za kawaida za Python PEP 8
-- **Daftari**: Tumia seli za markdown wazi kuelezea dhana
-- **Kuagiza**: Pangilia kwa maktaba ya kawaida, wa tatu, na wa kienyeji
+- **Mtindo wa Nambari**: Fuata kanuni za kawaida za Python PEP 8
+- **Daftari**: Tumia seli za markdown zilizo wazi kuelezea dhana
+- **Imports**: Pangilia kwa maktaba ya kawaida, wa tatu, na paikizi
 
-### Kanuni za Daftari la Jupyter
+### Kanuni za Daftari za Jupyter
 
-- Jumuisha seli za maelezo kabla ya seli za msimbo
-- Ongeza mifano ya matokeo katika daftari kwa marejeleo
-- Tumia majina ya mabadiliko yaliyo wazi yanayolingana na dhana za somo
-- Dumisha mfuatano wa utekelezaji wa daftari (seli 1 → 2 → 3...)
+- Jumuisha seli za markdown zenye maelezo kabla ya seli za nambari
+- Ongeza mifano ya matokeo ndani ya daftari kwa rejea
+- Tumia majina ya vigezo yaliyo wazi yanayolingana na dhana za somo
+- Weka mpangilio wa utekelezaji wa daftari kuwa wa mstari (seli 1 → 2 → 3...)
 
 ### Mpangilio wa Faili
 
@@ -159,183 +141,173 @@ Fungua daftari ndani ya Jupyter na endesha seli mfululizo. Kila daftari lina:
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
-## Ujenzi na Utoaji
+## Kujenga na Kusambaza
 
-### Ujenzi wa Hati
+### Kujenga Nyaraka
 
-Hifadhi hii hutumia Markdown kwa hati:
+Hifadhi hii inatumia Markdown kwa nyaraka:
 - Faili za README.md katika kila folda ya somo
 - README.md kuu kwenye mzizi wa hifadhi
-- Mfumo wa tafsiri wa moja kwa moja kupitia GitHub Actions
+- Mfumo wa utafsiri otomatiki kupitia GitHub Actions
 
-### Mlolongo wa CI/CD
+### Mchakato wa CI/CD
 
 Upo katika `.github/workflows/`:
 
-1. **co-op-translator.yml** - Tafsiri ya moja kwa moja kwa lugha 50+
-2. **welcome-issue.yml** - Kumkaribisha mtengenezaji wa masuala mapya
-3. **welcome-pr.yml** - Kumkaribisha mchangiaji wa maombi ya kuvuta
+1. **co-op-translator.yml** - Utafsiri otomatiki kwa lugha 50+
+2. **welcome-issue.yml** - Karibisha waandishi wa masuala mapya
+3. **welcome-pr.yml** - Karibisha wachangiaji wa maombi mapya ya pull
 
-### Utoaji
+### Usambazaji
 
-Hii ni hifadhi ya elimu - hakuna mchakato wa utoaji. Watumiaji:
-1. Fanya forokopi au nakili hifadhi
-2. Endesha daftari kwa mtaa au kwenye GitHub Codespaces
+Hii ni hifadhi ya kielimu - hakuna mchakato wa usambazaji. Watumiaji:
+1. Fanya fork au kokotoa hifadhi
+2. Endesha daftari kwa eneo au katika GitHub Codespaces
 3. Jifunze kwa kubadilisha na kujaribu mifano
 
-## Miongozo ya Maombi ya Kuvuta
+## Mwongozo wa Maombi ya Pull
 
-### Kabla ya Kusubmitia
+### Kabla ya Kuwasilisha
 
 1. **Jaribu mabadiliko yako:**
-   - Endesha daftari zilizoathirika kabisa
-   - Hakiki seli zote zinaendesha bila makosa
-   - Angalia matokeo ni sahihi
+   - Endesha daftari zilizoathirika kwa ukamilifu
+   - Thibitisha kwamba seli zote zinafanya kazi bila makosa
+   - Angalia matokeo yanafaa
 
-2. **Sasisha nyaraka:**
-   - Sasisha README.md ikiwa unatoa dhana mpya
-   - Ongeza maelezo katika daftari kwa msimbo mgumu
-   - Hakikisha seli za markdown zinaelezea madhumuni
+2. **Mabadiliko ya nyaraka:**
+   - Sasisha README.md ikiwa unaongeza dhana mpya
+   - Ongeza maoni katika daftari kwa nambari ngumu
+   - Hakikisha seli za markdown zinaelezea lengo
 
-3. **Mabadiliko ya faili:**
-   - Epuka kujituma `.env` faili (tumii `.env.example`)
-   - Usijitume dira za `venv/` au `__pycache__/`
-   - Dumisha matokeo ya daftari yanapoonyesha dhana
+3. **Mabadiliko ya Faili:**
+   - Epuka kuingiza faili `.env` (tumia `.env.example`)
+   - Usingize folda `venv/` au `__pycache__/`
+   - Hifadhi matokeo ya daftari wakati yanaonyesha dhana
    - Ondoa faili za muda na nakala za daftari (`*-backup.ipynb`)
 
 ### Muundo wa Kichwa cha PR
 
-Tumia vichwa vya kuelezea:
-- `[Lesson-XX] Ongeza mfano mpya kwa <concept>`
-- `[Fix] Rekebisha makosa ya tahajia katika lesson-XX README`
-- `[Update] Boreshaji la mfano wa msimbo katika lesson-XX`
+Tumia vichwa vinavyoelezea:
+- `[Lesson-XX] Ongeza mfano mpya kwa <dhana>`
+- `[Fix] Rekebisha typo katika README ya somo-XX`
+- `[Update] Boresha mfano wa nambari katika somo-XX`
 - `[Docs] Sasisha maelekezo ya usanidi`
 
 ### Ukaguzi Unaohitajika
 
 - Daftari zinapaswa kuendeshwa bila makosa
 - Faili za README ziwe wazi na sahihi
-- Fuata mifumo ya msimbo iliyopo kwenye hifadhi
-- Dumisha muafaka na masomo mengine
+- Fuata mifumo ya nambari iliyopo katika hifadhi
+- Kuhakikisha mfanano na masomo mengine
 
 ## Vidokezo Zaidi
 
-### Makosa Yanayojirudia
+### Mambo ya Kuepuka
 
 1. **Toleo la Python lisilolingana:**
    - Hakikisha unatumia Python 3.12+
-   - Baadhi ya vifurushi haviendani na matoleo ya kale
-   - Tumia `python3 -m venv` kuanzisha toleo la Python wazi
+   - Baadhi ya pakiti haziwezi kufanya kazi na matoleo ya zamani
+   - Tumia `python3 -m venv` kuainisha toleo la Python wazi
 
-2. **Mabadiliko ya mazingira:**
+2. **Vigezo vya mazingira:**
    - Daima tengeneza `.env` kutoka `.env.example`
-   - Usijitume faili `.env` (iko kwenye `.gitignore`)
+   - Usingize faili `.env` (ipo kwenye `.gitignore`)
    - Tokeni ya GitHub inahitaji ruhusa zinazofaa
 
-3. **Migongano ya kifurushi:**
-   - Tumia mazingira safi ya virtual
-   - Sakinisha kutoka `requirements.txt` badala ya vifurushi binafsi
-   - Baadhi ya daftari zinaweza kuhitaji vifurushi vya ziada vilivyotajwa kwenye seli za markdown
+3. **Migogoro ya pakiti:**
+   - Tumia mazingira ya mtando safi
+   - Sakinisha kutoka `requirements.txt` kuliko pakiti binafsi
+   - Baadhi ya daftari zinaweza kuhitaji pakiti za ziada zilizotajwa kwenye seli za markdown
 
 4. **Huduma za Azure:**
    - Huduma za Azure AI zinahitaji usajili hai
-   - Baadhi ya sifa ni maalum kwa mikoa fulani
-   - Vizingiti vya bure vinaweza kuathiri Modeli za GitHub
+   - Baadhi ya sifa ni za maeneo maalum
+   - Mipaka ya ngazi ya bure iko kwa GitHub Models
 
 ### Njia ya Kujifunza
 
-Ufuate msururu huu wa kuendelea kupitia masomo:
+Mwelekeo unaopendekezwa wa masomo:
 1. **00-course-setup** - Anza hapa kwa usanidi wa mazingira
-2. **01-intro-to-ai-agents** - Elewa misingi ya maajenti wa AI
-3. **02-explore-agentic-frameworks** - Jifunze kuhusu mifumo tofauti
-4. **03-agentic-design-patterns** - Mifano ya msingi ya muundo
-5. Endelea kupitia masomo yaliyopangwa kwa mfuatano
+2. **01-intro-to-ai-agents** - Fahamu misingi ya maajenti wa AI
+3. **02-explore-agentic-frameworks** - Jifunze kuhusu fremu tofauti
+4. **03-agentic-design-patterns** - Mifumo kuu ya kubuni
+5. Endelea na masomo yaliyo na namba kwa mpangilio
 
-### Uchaguaji wa Mfumo
+### Uchaguzi wa Fremu
 
-Chagua mfumo kulingana na malengo yako:
-- **Kujifunza/Kujaribu**: Semantic Kernel + Modeli za GitHub (bure)
-- **Mifumo ya maajenti wengi**: AutoGen
-- **Sifa za hivi karibuni**: Microsoft Agent Framework (MAF)
-- **Utoaji kwa uzalishaji**: Azure AI Agent Service
+Chagua fremu kulingana na malengo yako:
+- **Masomo yote**: Microsoft Agent Framework (MAF) na `AzureAIProjectAgentProvider`
+- **Maajenti hujisajili upande wa server** katika Azure AI Foundry Agent Service V2 na yanaonekana kwenye lango la Foundry
 
 ### Kupata Msaada
 
-- Jiunge na [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Angalia faili za README za masomo kwa mwongozo maalum
-- Angalia [README.md](./README.md) kuu kwa muhtasari wa kozi
-- Rejelea [Course Setup](./00-course-setup/README.md) kwa maelekezo ya kina
+- Jiunge na [Jumuiya ya Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)
+- Pitia faili za README za masomo kwa mwongozo maalum
+- Angalia [README.md Kuu](./README.md) kwa muhtasari wa kozi
+- Rejelea [Usanidi wa Kozi](./00-course-setup/README.md) kwa maelekezo ya kina
 
 ### Kuchangia
 
-Huu ni mradi wa elimu wa wazi. Mchango unakaribishwa:
-- Boreshaji mifano ya msimbo
-- Rekebisha makosa ya tahajia au makosa
-- Ongeza maelezo ya ufafanuzi
+Hii ni mradi wa wazi wa kielimu. Michango inakaribishwa:
+- Boresha mifano ya nambari
+- Rekebisha typos au makosa
+- Ongeza maoni ya kufafanua
 - Pendekeza mada mpya za masomo
-- Tafsiri kwenda lugha nyingine zaidi
+- Tafsiri kwa lugha zaidi
 
 Angalia [Masuala ya GitHub](https://github.com/microsoft/ai-agents-for-beginners/issues) kwa mahitaji ya sasa.
 
 ## Muktadha Maalum wa Mradi
 
-### Msaada wa Lugha nyingi
+### Msaada wa Lugha Nyingi
 
-Hifadhi hii hutumia mfumo wa tafsiri wa moja kwa moja:
-- Lugha 50+ zinasaidiwa
-- Tafsiri ziko katika dira `/translations/<lang-code>/`
-- Mlolongo wa GitHub Actions unashughulikia masasisho ya tafsiri
+Hifadhi hii inatumia mfumo wa utafsiri otomatiki:
+- Lugha 50+ zinahudumiwa
+- Tafsiri ziko katika `/translations/<lang-code>/` folda
+- Mtiririko wa GitHub Actions husimamia masasisho ya utafsiri
 - Faili za chanzo ziko kwa Kiingereza kwenye mzizi wa hifadhi
 
 ### Muundo wa Somo
 
-Kila somo lina muundo sawa:
-1. Picha ya video yenye kiungo
-2. Maudhui yaliyoandikwa ya somo (README.md)
-3. Mifano ya msimbo katika mifumo mingi
-4. Malengo ya kujifunza na mahitaji
-5. Rasilimali za ziada za kujifunza zilizoambatanishwa
+Kila somo hufuata muundo thabiti:
+1. Kipuzi cha video chenye kiungo
+2. Maandishi ya somo (README.md)
+3. Sampuli za nambari katika fremu mbalimbali
+4. Malengo ya kujifunza na masharti
+5. Vyanzo vya ziada vyenye viungo
 
-### Jina la Mfano wa Msimbo
+### Jina la Mfano wa Nambari
 
-Muundo: `<nambari-ya-somo>-<jina-la-mfumo>.ipynb`
-- `04-semantic-kernel.ipynb` - Somo 4, Semantic Kernel
-- `07-autogen.ipynb` - Somo 7, AutoGen
-- `14-python-agent-framework.ipynb` - Somo 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Somo 14, MAF .NET
+Muundo: `<nambari-ya-somo>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Somo 1, MAF Python
+- `14-sequential.ipynb` - Somo 14, mifumo ya juu ya MAF
 
-### Dira Maalum
+### Folda Maalum
 
-- `translated_images/` - Picha zilizotafsiriwa kwa lugha tofauti
-- `images/` - Picha za awali kwa maudhui ya Kiingereza
-- `.devcontainer/` - Mpangilio wa kontena ya maendeleo wa VS Code
-- `.github/` - Mlolongo wa GitHub Actions na mifano
+- `translated_images/` - Picha zilizo ya mtafsiri kwa lugha tofauti
+- `images/` - Picha za asili za maudhui ya Kiingereza
+- `.devcontainer/` - Usanidi wa kontena wa maendeleo wa VS Code
+- `.github/` - Mtiririko wa GitHub Actions na mitindo
 
-### Vitegemezi
+### Utegemezi
 
-Vifurushi muhimu kutoka `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - Mfumo wa AutoGen
-- `semantic-kernel` - Mfumo wa Semantic Kernel
+Pakiti kuu kutoka `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
+- `a2a-sdk` - Msaada wa Itifaki ya Agent kwa Agent
 - `azure-ai-inference`, `azure-ai-projects` - Huduma za Azure AI
-- `azure-search-documents` - Uunganisho wa Azure AI Search
-- `chromadb` - Hifadhi ya data ya vector kwa mifano ya RAG
-- `chainlit` - Mfumo wa UI wa mazungumzo
-- `browser_use` - Uendeshaji wa kivinjari kwa maajenti
-- `mcp[cli]` - Msaada wa Model Context Protocol
-- `mem0ai` - Usimamizi wa kumbukumbu kwa maajenti
+- `azure-identity` - Uthibitishaji wa Azure (AzureCliCredential)
+- `azure-search-documents` - Egyunganishi wa Azure AI Search
+- `mcp[cli]` - Msaada wa Itifaki ya Muktadha wa Mfano
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Kiarifu cha Kutohusika**:
-Hati hii imefasiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kuwa sahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati asili kwa lugha yake ya asili inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayotolewa na binadamu inashauriwa. Hatuna wajibu kwa kutoelewana au tafsiri potofu zitokanazo na matumizi ya tafsiri hii.
+**Onyo**:
+Nyaraka hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kuhakikisha usahihi, tafadhali fahamu kuwa tafsiri za moja kwa moja zinaweza kuwa na makosa au upotoshaji. Nyaraka asili katika lugha yake ya asili inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu kutoka kwa mtafsiri wa binadamu inashauriwa. Sisi hatuwajibiki kwawazi au tafsiri potofu zinazotokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

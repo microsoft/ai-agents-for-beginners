@@ -1,182 +1,182 @@
-# Using Agentic Protocols (MCP, A2A and NLWeb)
+# Kutumia Itifaki za Mawakala (MCP, A2A na NLWeb)
 
-[![Protokoli za Maajenti](../../../translated_images/sw/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
+[![Itifaki za Mawakala](../../../translated_images/sw/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Bonyeza picha hapo juu kutazama video ya somo hili)_
 
-As the use of AI agents grows, so does the need for protocols that ensure standardization, security, and support open innovation. In this lesson, we will cover 3 protocols looking to meet this need - Model Context Protocol (MCP), Agent to Agent (A2A) and Natural Language Web (NLWeb).
+Wakati matumizi ya mawakala wa AI yanavyoongezeka, ndivyo ilivyo haja ya itifaki zinazohakikisha upangaji wa kawaida, usalama, na kusaidia ubunifu wazi. Katika somo hili, tutashughulikia itifaki 3 zinazolenga kukidhi hitaji hili - Itifaki ya Muktadha wa Mfano (MCP), Mwakala kwa Mwakala (A2A) na Wavuti ya Lugha Asilia (NLWeb).
 
-## Introduction
+## Utangulizi
 
-In this lesson, we will cover:
+Katika somo hili, tutafunika:
 
-• How **MCP** allows AI Agents to access external tools and data to complete user tasks.
+• Jinsi **MCP** inavyomruhusu Mwakala wa AI kufikia zana za nje na data ili kukamilisha kazi za mtumiaji.
 
-•  How **A2A** enables communication and collaboration between different AI agents.
+• Jinsi **A2A** inavyowezesha mawasiliano na ushirikiano kati ya mawakala tofauti wa AI.
 
-• How **NLWeb** brings natural language interfaces to any website enabling AI Agents to discover and interact with the content.
+• Jinsi **NLWeb** inavyoleta miunganisho ya lugha asilia kwa tovuti yoyote, ikiwawezesha Mawakala wa AI kugundua na kuingiliana na yaliyomo.
 
-## Learning Goals
+## Malengo ya Kujifunza
 
-• **Identify** the core purpose and benefits of MCP, A2A, and NLWeb in the context of AI agents.
+• **Tambua** kusudi msingi na faida za MCP, A2A, na NLWeb katika muktadha wa mawakala wa AI.
 
-• **Explain** how each protocol facilitates communication and interaction between LLMs, tools, and other agents.
+• **Eleza** jinsi kila itifaki inavyorahisisha mawasiliano na mwingiliano kati ya LLMs, zana, na mawakala wengine.
 
-• **Recognize** the distinct roles each protocol plays in building complex agentic systems.
+• **Tambua** majukumu maalum ambayo kila itifaki inacheza katika kujenga mifumo tata ya mawakala.
 
-## Model Context Protocol
+## Itifaki ya Muktadha wa Mfano
 
-The **Model Context Protocol (MCP)** is an open standard that provides standardized way for applications to provide context and tools to LLMs. This enables a "universal adaptor" to different data sources and tools that AI Agents can connect to in a consistent way.
+Itifaki ya Muktadha wa Mfano (**MCP**) ni kiwango wazi kinachotoa njia iliyopangwa kwa programu kutoa muktadha na zana kwa LLMs. Hii inaruhusu "kiunganishi cha ulimwengu wote" kwa vyanzo tofauti vya data na zana ambazo Mawakala wa AI wanaweza kuunganishwa nazo kwa njia thabiti.
 
-Let’s look at the components of MCP, the benefits compared to direct API usage, and an example of how AI agents might use an MCP server.
+Tuchunguze vipengele vya MCP, faida ikilinganishwa na matumizi ya API moja kwa moja, na mfano wa jinsi mawakala wa AI wanavyoweza kutumia seva ya MCP.
 
-### MCP Core Components
+### Vipengele Vikuu vya MCP
 
-MCP operates on a **client-server architecture** and the core components are:
+MCP inafanya kazi kwa usanifu wa **mteja-seva** na vipengele vikuu ni:
 
-• **Hosts** are LLM applications (for example a code editor like VSCode) that start the connections to an MCP Server.
+• **Hosts** ni programu za LLM (kwa mfano mhariri wa msimbo kama VSCode) ambazo huanza muunganisho na Seva ya MCP.
 
-• **Clients** are components within the host application that maintain one-to-one connections with servers.
+• **Clients** ni vipengele ndani ya programu mwenyeji vinavyodumisha muunganisho wa mmoja kwa mmoja na seva.
 
-• **Servers** are lightweight programs that expose specific capabilities.
+• **Servers** ni programu nyepesi zinazofunua uwezo maalum.
 
-Included in the protocol are three core primitives which are the capabilities of an MCP Server:
+Imeingizwa katika itifaki ni mibobezi mitatu ya msingi ambayo ni uwezo wa Seva ya MCP:
 
-• **Tools**: These are discrete actions or functions an AI agent can call to perform an action. For example, a weather service might expose a "get weather" tool, or an e-commerce server might expose a "purchase product" tool. MCP servers advertise each tool's name, description, and input/output schema in their capabilities listing.
+• **Tools**: Hizi ni vitendo au kazi maalum ambazo Mwakala wa AI anaweza kuita ili kufanya kitendo. Kwa mfano, huduma ya hali ya hewa inaweza funua zana ya "pata hali ya hewa", au seva ya biashara ya mtandaoni inaweza funua zana ya "nunua bidhaa". Seva za MCP hutangaza jina la kila zana, maelezo, na skimu ya pembejeo/pembezaji katika orodha yao ya uwezo.
 
-• **Resources**: These are read-only data items or documents that an MCP server can provide, and clients can retrieve them on demand. Examples include file contents, database records, or log files. Resources can be text (like code or JSON) or binary (like images or PDFs).
+• **Resources**: Hizi ni vitu vya data au nyaraka zinazosomeka tu ambazo seva ya MCP inaweza kutoa, na wateja wanaweza kuzivuta wanapohitaji. Mifano ni pamoja na yaliyomo ya faili, rekodi za hifadhidata, au faili za kumbukumbu. Rasilimali zinaweza kuwa maandishi (kama msimbo au JSON) au bainari (kama picha au PDF).
 
-• **Prompts**: These are predefined templates that provide suggested prompts, allowing for more complex workflows.
+• **Prompts**: Hizi ni templeti zilizotanguliwa ambazo zinatoa mapendekezo ya maelekezo, kuruhusu mtiririko wa kazi wenye ugumu zaidi.
 
-### Benefits of MCP
+### Faida za MCP
 
-MCP offers significant advantages for AI Agents:
+MCP inatoa faida kubwa kwa Mawakala wa AI:
 
-• **Dynamic Tool Discovery**: Agents can dynamically receive a list of available tools from a server along with descriptions of what they do. This contrasts with traditional APIs, which often require static coding for integrations, meaning any API change necessitates code updates. MCP offers an "integrate once" approach, leading to greater adaptability.
+• **Ugunduzi wa Zana unaobadilika**: Mawakala wanaweza kwa nguvu kupokea orodha ya zana zinazopatikana kutoka seva pamoja na maelezo ya kile wanachofanya. Hii ni tofauti na API za jadi, ambazo mara nyingi zinahitaji ufungaji wa msimbo kwa miunganiko, ikimaanisha kubadilika kwa API yoyote kunahitaji masasisho ya msimbo. MCP inatoa mbinu ya "unganisha mara moja", ikileta urekebishaji mkubwa.
 
-• **Interoperability Across LLMs**: MCP works across different LLMs, providing flexibility to switch core models to evaluate for better performance.
+• **Utangamano kati ya LLMs**: MCP inafanya kazi kati ya LLMs tofauti, ikitoa uharibifu wa kubadilisha modeli za msingi ili kutathmini utendaji bora.
 
-• **Standardized Security**: MCP includes a standard authentication method, improving scalability when adding access to additional MCP servers. This is simpler than managing different keys and authentication types for various traditional APIs.
+• **Usalama Uliopangwa**: MCP inajumuisha njia ya kawaida ya uthibitishaji, ikibonyeza upanuzi wakati wa kuongeza ufikiaji kwa seva za MCP za ziada. Hii ni rahisi kuliko kusimamia funguo na aina tofauti za uthibitishaji kwa API za jadi mbalimbali.
 
-### MCP Example
+### Mfano wa MCP
 
 ![Mchoro wa MCP](../../../translated_images/sw/mcp-diagram.e4ca1cbd551444a1.webp)
 
-Imagine a user wants to book a flight using an AI assistant powered by MCP.
+Fikiria mtumiaji anayetaka kuweka tiketi ya ndege kwa kutumia msaidizi wa AI unaotumia MCP.
 
-1. **Connection**: The AI assistant (the MCP client) connects to an MCP server provided by an airline.
+1. **Connection**: Msaidizi wa AI (mteja wa MCP) anajenga muunganisho na seva ya MCP inayotolewa na shirika la ndege.
 
-2. **Tool Discovery**: The client asks the airline's MCP server, "What tools do you have available?" The server responds with tools like "search flights" and "book flights".
+2. **Tool Discovery**: Mteja huuliza seva ya MCP ya shirika la ndege, "Mna zana gani zinazopatikana?" Seva inajibu kwa zana kama "tafuta ndege" na "weka tiketi".
 
-3. **Tool Invocation**: You then ask the AI assistant, "Please search for a flight from Portland to Honolulu." The AI assistant, using its LLM, identifies that it needs to call the "search flights" tool and passes the relevant parameters (origin, destination) to the MCP server.
+3. **Tool Invocation**: Kisha unauliza msaidizi wa AI, "Tafadhali tafuta ndege kutoka Portland hadi Honolulu." Msaidizi wa AI, akitumia LLM yake, hutambua kwamba inahitaji kuita zana ya "tafuta ndege" na hupitisha vigezo vinavyofaa (asili, marudio) kwa seva ya MCP.
 
-4. **Execution and Response**: The MCP server, acting as a wrapper, makes the actual call to the airline's internal booking API. It then receives the flight information (e.g., JSON data) and sends it back to the AI assistant.
+4. **Execution and Response**: Seva ya MCP, ikitenda kama kiambatisho, inafanya wito halisi kwa API ya ndani ya uhifadhi ya shirika la ndege. Kisha inapokea taarifa za ndege (mfano, data ya JSON) na kuzirudisha kwa msaidizi wa AI.
 
-5. **Further Interaction**: The AI assistant presents the flight options. Once you select a flight, the assistant might invoke the "book flight" tool on the same MCP server, completing the booking.
+5. **Further Interaction**: Msaidizi wa AI huwasilisha chaguzi za ndege. Mara ukichagua ndege, msaidizi anaweza kuitisha zana ya "weka tiketi" kwenye seva moja hiyo ya MCP, kukamilisha uhifadhi.
 
-## Agent-to-Agent Protocol (A2A)
+## Itifaki ya Mwakala kwa Mwakala (A2A)
 
-While MCP focuses on connecting LLMs to tools, the **Agent-to-Agent (A2A) protocol** takes it a step further by enabling communication and collaboration between different AI agents.  A2A connects AI agents across different organizations, environments and tech stacks to complete a shared task.
+Wakati MCP inazingatia kuunganisha LLMs na zana, itifaki ya **Mwakala kwa Mwakala (A2A)** inaenda hatua zaidi kwa kuwezesha mawasiliano na ushirikiano kati ya mawakala tofauti wa AI. A2A inaunganisha mawakala wa AI kutoka taasisi, mazingira na mifumo tofauti ya kiteknolojia ili kukamilisha kazi iliyo gawanywa.
 
-We’ll examine the components and benefits of A2A, along with an example of how it could be applied in our travel application.
+Tutachunguza vipengele na faida za A2A, pamoja na mfano wa jinsi ingeweza kutumika katika programu yetu ya usafiri.
 
-### A2A Core Components
+### Vipengele Vikuu vya A2A
 
-A2A focuses on enabling communication between agents and having them work together to complete a subtask of user. Each component of the protocol contributes to this:
+A2A inalenga kuwaruhusu mawakala kuwasiliana na kufanya kazi pamoja kukamilisha sehemu ya kazi ya mtumiaji. Kila kipengele cha itifaki huchangia hili:
 
 #### Agent Card
 
-Similar to how an MCP server shares a list of tools, an Agent Card has:
-- The Name of the Agent .
-- A **description of the general tasks** it completes.
-- A **list of specific skills** with descriptions to help other agents (or even human users) understand when and why they would want to call that agent.
-- The **current Endpoint URL** of the agent
-- The **version** and **capabilities** of the agent such as streaming responses and push notifications.
+Sawa na jinsi seva ya MCP inavyoshare orodha ya zana, Kadi ya Mwakala ina:
+- Jina la Mwakala .  
+- Maelezo ya **kazi za jumla** anayofanya.
+- **orodha ya ujuzi maalum** na maelezo ili kusaidia mawakala wengine (au hata watumiaji wa kibinadamu) kuelewa wakati na kwanini wangependa kumuita wakala huyo.
+- **URL ya Endpoint ya sasa** ya wakala
+- **toleo** na **uwezo** wa wakala kama vile majibu ya kutiririka na arifa za push.
 
 #### Agent Executor
 
-The Agent Executor is responsible for **passing the context of the user chat to the remote agent**, the remote agent needs this to understand the task that needs to be completed. In an A2A server, an agent uses its own Large Language Model (LLM) to parse incoming requests and execute tasks using its own internal tools.
+Mtekelezaji wa Mwakala anawajibika kwa **kupitisha muktadha wa mazungumzo ya mtumiaji kwa wakala wa mbali**, wakala wa mbali anahitaji hili ili kuelewa kazi inayopaswa kukamilishwa. Katika seva ya A2A, wakala hutumia Mfano Wake Mkubwa wa Lugha (LLM) kutafsiri ombi zinazokuja na kutekeleza kazi kwa kutumia zana zake za ndani.
 
-#### Artifact
+#### Artefakti
 
-Once a remote agent has completed the requested task, its work product is created as an artifact.  An artifact **contains the result of the agent's work**, a **description of what was completed**, and the **text context** that is sent through the protocol. After the artifact is sent, the connection with the remote agent is closed until it is needed again.
+Mara wakala wa mbali anapokamilisha kazi iliyotakiwa, bidhaa yake ya kazi huundwa kama artefakti. Artefakti **ina matokeo ya kazi ya wakala**, **maelezo ya kile kilichokamilishwa**, na **muktadha wa maandishi** ambao unatumwa kupitia itifaki. Baada artefakti itakapotumwa, muunganisho na wakala wa mbali unafungwa hadi itakapohitajika tena.
 
-#### Event Queue
+#### Foleni ya Matukio
 
-This component is used for **handling updates and passing messages**. It is particularly important in production for agentic systems to prevent the connection between agents from being closed before a task is completed, especially when task completion times can take a longer time.
+Kipengele hiki kinatumika kwa **kusimamia masasisho na kupitisha ujumbe**. Ni muhimu hasa katika uzalishaji kwa mifumo ya mawakala ili kuzuia muunganisho kati ya mawakala kufunguliwa kabla ya kazi kukamilika, hasa wakati muda wa kukamilisha kazi unaweza kuchukua muda mrefu.
 
-### Benefits of A2A
+### Faida za A2A
 
-• **Enhanced Collaboration**: It enables agents from different vendors and platforms to interact, share context, and work together, facilitating seamless automation across traditionally disconnected systems.
+• **Ushirikiano Ulioimarishwa**: Inawawezesha mawakala kutoka kwa wauzaji na majukwaa tofauti kuingiliana, kushirikiana muktadha, na kufanya kazi pamoja, ikirahisisha automatisering bila mshono kati ya mifumo iliyokuwa imegawanywa.
 
-• **Model Selection Flexibility**: Each A2A agent can decide which LLM it uses to service its requests, allowing for optimized or fine-tuned models per agent, unlike a single LLM connection in some MCP scenarios.
+• **Ubunifu wa Uchaguzi wa Mfano**: Kila wakala wa A2A anaweza kuamua ni LLM gani atakayoiweka kwa huduma za ombi lake, ikiruhusu modeli zilizoboreshwa au zilizofanyiwa faini kwa kila wakala, tofauti na muunganisho wa LLM moja katika baadhi ya matukio ya MCP.
 
-• **Built-in Authentication**: Authentication is integrated directly into the A2A protocol, providing a robust security framework for agent interactions.
+• **Uthibitishaji Umejumuishwa**: Uthibitishaji umejengwa moja kwa moja ndani ya itifaki ya A2A, ukitoa mfumo thabiti wa usalama kwa mwingiliano wa mawakala.
 
-### A2A Example
+### Mfano wa A2A
 
 ![Mchoro wa A2A](../../../translated_images/sw/A2A-Diagram.8666928d648acc26.webp)
 
-Let's expand on our travel booking scenario, but this time using A2A.
+Tuchambue zaidi katika hadithi yetu ya uhifadhi wa safari, lakini mara hii tukitumia A2A.
 
-1. **User Request to Multi-Agent**: A user interacts with a "Travel Agent" A2A client/agent, perhaps by saying, "Please book an entire trip to Honolulu for next week, including flights, a hotel, and a rental car".
+1. **User Request to Multi-Agent**: Mtumiaji anaingiliana na "Mwakala wa Safari" mteja/mwakala wa A2A, labda kwa kusema, "Tafadhali andaa safari nzima kwenda Honolulu kwa wiki ijayo, ikijumuisha ndege, hoteli, na gari la kukodisha".
 
-2. **Orchestration by Travel Agent**: The Travel Agent receives this complex request. It uses its LLM to reason about the task and determine that it needs to interact with other specialized agents.
+2. **Orchestration by Travel Agent**: Mwakala wa Safari anapokea ombi hili tata. Anatumia LLM yake kutafakari juu ya kazi na kuamua kwamba anahitaji kuwasiliana na mawakala maalum wengine.
 
-3. **Inter-Agent Communication**: The Travel Agent then uses the A2A protocol to connect to downstream agents, such as an "Airline Agent," a "Hotel Agent," and a "Car Rental Agent" that are created by different companies.
+3. **Inter-Agent Communication**: Mwakala wa Safari kisha anatumia itifaki ya A2A kuungana na mawakala wa chini, kama "Mwakala wa Shirika la Ndege," "Mwakala wa Hoteli," na "Mwakala wa Kukodisha Gari" ambazo zimeundwa na kampuni tofauti.
 
-4. **Delegated Task Execution**: The Travel Agent sends specific tasks to these specialized agents (e.g., "Find flights to Honolulu," "Book a hotel," "Rent a car"). Each of these specialized agents, running their own LLMs and utilizing their own tools (which could be MCP servers themselves), performs its specific part of the booking.
+4. **Delegated Task Execution**: Mwakala wa Safari anatuma kazi maalum kwa mawakala maalum hayo (mfano, "Tafuta ndege kwenda Honolulu," "Weka hoteli," "Kodia gari"). Kila mmoja wa mawakala maalum, wakiruninga LLM zao wenyewe na kutumia zana zao za ndani (ambazo zinaweza kuwa seva za MCP wenyewe), hufanya sehemu yake ya uhifadhi.
 
-5. **Consolidated Response**: Once all downstream agents complete their tasks, the Travel Agent compiles the results (flight details, hotel confirmation, car rental booking) and sends a comprehensive, chat-style response back to the user.
+5. **Consolidated Response**: Mara mawakala wote wa chini wanapokamilisha kazi zao, Mwakala wa Safari anakusanya matokeo (maelezo ya ndege, uthibitisho wa hoteli, uhifadhi wa gari la kukodisha) na kutuma jibu kamili, la mtindo wa mazungumzo, kwa mtumiaji.
 
-## Natural Language Web (NLWeb)
+## Wavuti ya Lugha Asilia (NLWeb)
 
-Websites have long been the primary way for users to access information and data across the internet.
+Tovuti zimekuwa kwa muda mrefu njia kuu kwa watumiaji kupata habari na data kupitia intaneti.
 
-Let us look at the different components of NLWeb, the benefits of NLWeb and an example how our NLWeb works by looking at our travel application.
+Tuchunguze vipengele tofauti vya NLWeb, faida za NLWeb na mfano jinsi NLWeb inavyofanya kazi kwa kuangalia programu yetu ya usafiri.
 
-### Components of NLWeb
+### Vipengele vya NLWeb
 
-- **NLWeb Application (Core Service Code)**: The system that processes natural language questions. It connects the different parts of the platform to create responses. You can think of it as the **engine that powers the natural language features** of a website.
+- **NLWeb Application (Core Service Code)**: Mfumo unaoshughulikia maswali ya lugha asilia. Unaunganisha sehemu tofauti za jukwaa ili kuunda majibu. Unaweza kuifikiria kama **mashine inayoiendesha vipengele vya lugha asilia** vya tovuti.
 
-- **NLWeb Protocol**: This is a **basic set of rules for natural language interaction** with a website. It sends back responses in JSON format (often using Schema.org). Its purpose is to create a simple foundation for the “AI Web,” in the same way that HTML made it possible to share documents online.
+- **NLWeb Protocol**: Hii ni **seti ya msingi ya sheria za mwingiliano wa lugha asilia** na tovuti. Inarudisha majibu kwa muundo wa JSON (mara nyingi ikitumia Schema.org). Kusudi lake ni kuunda msingi rahisi kwa "Wavuti ya AI," kwa njia ile ile HTML ilivyofanya iwezekane kushiriki nyaraka mtandaoni.
 
-- **MCP Server (Model Context Protocol Endpoint)**: Each NLWeb setup also works as an **MCP server**. This means it can **share tools (like an “ask” method) and data** with other AI systems. In practice, this makes the website’s content and abilities usable by AI agents, allowing the site to become part of the wider “agent ecosystem.”
+- **MCP Server (Model Context Protocol Endpoint)**: Kila usanidi wa NLWeb pia hufanya kazi kama **seva ya MCP**. Hii inamaanisha inaweza **kushare zana (kama njia ya “ask”) na data** na mifumo mingine ya AI. Kwa vitendo, hili hufanya yaliyomo na uwezo wa tovuti kutumika na mawakala wa AI, kuruhusu tovuti kuwa sehemu ya "ekosistimu ya mawakala" pana.
 
-- **Embedding Models**: These models are used to **convert website content into numerical representations called vectors** (embeddings). These vectors capture meaning in a way computers can compare and search. They are stored in a special database, and users can choose which embedding model they want to use.
+- **Embedding Models**: Mifano hii hutumiwa **kugeuza yaliyomo ya tovuti kuwa uwakilishi nambari unaoitwa vekta (embeddings)**. Vekta hizi zinakamata maana kwa njia ambayo kompyuta zinaweza kulinganisha na kutafuta. Zinahifadhiwa katika hifadhidata maalum, na watumiaji wanaweza kuchagua ni mfano gani wa embedding wanayotaka kutumia.
 
-- **Vector Database (Retrieval Mechanism)**: This database **stores the embeddings of the website content**. When someone asks a question, NLWeb checks the vector database to quickly find the most relevant information. It gives a fast list of possible answers, ranked by similarity. NLWeb works with different vector storage systems such as Qdrant, Snowflake, Milvus, Azure AI Search, and Elasticsearch.
+- **Vector Database (Retrieval Mechanism)**: Hifadhidata hii **inahifadhi embeddings za yaliyomo ya tovuti**. Wakati mtu anauliza swali, NLWeb hutafuta katika hifadhidata ya vektor ili haraka kupata taarifa muhimu zaidi. Inatoa orodha ya majibu yanayowezekana, yaliyopangwa kwa kulingana na ufananisho. NLWeb inafanya kazi na mifumo tofauti ya uhifadhi wa vektor kama Qdrant, Snowflake, Milvus, Azure AI Search, na Elasticsearch.
 
-### NLWeb by Example
+### NLWeb kwa Mfano
 
 ![NLWeb](../../../translated_images/sw/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Consider our travel booking website again, but this time, it's powered by NLWeb.
+Fikiria tena tovuti yetu ya uhifadhi wa safari, lakini mara hii, inafanywa na NLWeb.
 
-1. **Data Ingestion**: The travel website's existing product catalogs (e.g., flight listings, hotel descriptions, tour packages) are formatted using Schema.org or loaded via RSS feeds. NLWeb's tools ingest this structured data, create embeddings, and store them in a local or remote vector database.
+1. **Data Ingestion**: Katalogi za bidhaa za tovuti ya usafiri zilizopo (mfano, orodha za ndege, maelezo ya hoteli, vifurushi vya ziara) zimepangwa kwa kutumia Schema.org au kupakiwa kupitia vyanzo vya RSS. Zana za NLWeb huzalisha data hii iliyopangwa, kuunda embeddings, na kuzihifadhi katika hifadhidata ya vektor ya ndani au ya mbali.
 
-2. **Natural Language Query (Human)**: A user visits the website and, instead of navigating menus, types into a chat interface: "Find me a family-friendly hotel in Honolulu with a pool for next week".
+2. **Natural Language Query (Human)**: Mtumiaji anatembelea tovuti na, badala ya kuvinjari menyu, anaandika kwenye kiolesura cha gumzo: "Nitafutie hoteli rafiki kwa familia huko Honolulu yenye bwawa kwa wiki ijayo".
 
-3. **NLWeb Processing**: The NLWeb application receives this query. It sends the query to an LLM for understanding and simultaneously searches its vector database for relevant hotel listings.
+3. **NLWeb Processing**: Programu ya NLWeb inapokea swali hili. Inatuma swali kwa LLM kwa kuelewa na kwa wakati mmoja inatafuta katika hifadhidata yake ya vektor kwa orodha za hoteli zinazofaa.
 
-4. **Accurate Results**: The LLM helps to interpret the search results from the database, identify the best matches based on "family-friendly," "pool," and "Honolulu" criteria, and then formats a natural language response. Crucially, the response refers to actual hotels from the website's catalog, avoiding made-up information.
+4. **Accurate Results**: LLM husaidia kutafsiri matokeo ya utafutaji kutoka kwenye hifadhidata, kutambua mechi bora kulingana na vigezo vya "rafiki kwa familia," "bwawa," na "Honolulu", kisha kuunda jibu la lugha asilia. Muhimu, jibu linahusu hoteli halisi kutoka kwa katalogi ya tovuti, likiepuka habari za kubuniwa.
 
-5. **AI Agent Interaction**: Because NLWeb serves as an MCP server, an external AI travel agent could also connect to this website's NLWeb instance. The AI agent could then use the `ask("Are there any vegan-friendly restaurants in the Honolulu area recommended by the hotel?")`. The NLWeb instance would process this, leveraging its database of restaurant information (if loaded), and return a structured JSON response.
+5. **AI Agent Interaction**: Kwa sababu NLWeb inatumikia kama seva ya MCP, wakala wa AI wa usafiri wa nje pia angeweza kuungana na mfano wa NLWeb wa tovuti hii. Wakala wa AI angeweza kisha kutumia njia ya MCP ya `ask` kuhoji tovuti moja kwa moja: `ask("Are there any vegan-friendly restaurants in the Honolulu area recommended by the hotel?")`. Mfano wa NLWeb ungechakata hili, akitumia hifadhidata yake ya taarifa za mikahawa (ikiwa imepakiwa), na kurudisha jibu lililopangwa kwa muundo wa JSON.
 
-### Got More Questions about MCP/A2A/NLWeb?
+### Je, Una Maswali Zaidi kuhusu MCP/A2A/NLWeb?
 
-Jiunge na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Jiunge na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) kukutana na wanafunzi wengine, kuhudhuria saa za ofisi na kupata majibu kwa maswali yako kuhusu Mawakala wa AI.
 
-## Resources
+## Rasilimali
 
-- [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
-- [MCP Documentation](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic-kernel/semantic_kernel/connectors/mcp)
-- [NLWeb Repo](https://github.com/nlweb-ai/NLWeb)
-- [Semantic Kernel Guides](https://learn.microsoft.com/semantic-kernel/)
+- [MCP kwa Waanzilishi](https://aka.ms/mcp-for-beginners)  
+- [MCP Documentation](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
+- [Repo ya NLWeb](https://github.com/nlweb-ai/NLWeb)
+- [Mfumo wa Mawakala wa Microsoft](https://aka.ms/ai-agents-beginners/agent-framewrok)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Taarifa ya kutokuwa na dhamana:
-Nyaraka hii imefasiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kufikia usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokukamilika. Nyaraka ya asili katika lugha yake ya asili inapaswa kuchukuliwa kama chanzo chenye mamlaka. Kwa taarifa muhimu, inapendekezwa kutumia tafsiri ya kitaalamu iliyo fanywa na mtaalamu wa binadamu. Hatutawajibika kwa kutokuelewana au tafsiri potofu zinazotokana na matumizi ya tafsiri hii.
+Kauli ya kutokuwa na dhamana:
+Dokumenti hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kuhakikisha usahihi, tafadhali fahamu kwamba tafsiri za kiautomatiki zinaweza kuwa na makosa au upotofu. Nakala ya awali katika lugha yake ya asili inapaswa kuchukuliwa kama chanzo chenye mamlaka. Kwa taarifa muhimu, inashauriwa kutumia tafsiri ya mtaalamu wa kibinadamu. Hatutawajibika kwa uelewa mbaya au tafsiri isiyo sahihi inayotokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

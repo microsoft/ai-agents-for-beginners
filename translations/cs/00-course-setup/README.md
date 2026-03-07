@@ -1,64 +1,64 @@
-# Nastavení kurzu
+# Course Setup
 
-## Úvod
+## Introduction
 
-Tato lekce pokryje, jak spouštět ukázky kódu tohoto kurzu.
+Tato lekce vysvětlí, jak spustit ukázkové kódy z tohoto kurzu.
 
-## Připojte se k ostatním studentům a získejte pomoc
+## Join Other Learners and Get Help
 
-Než začnete klonovat své repo, připojte se k [Discord kanálu AI Agents For Beginners](https://aka.ms/ai-agents/discord), abyste získali pomoc s nastavením, mohli zodpovědět dotazy ohledně kurzu nebo se spojit s ostatními studenty.
+Než začnete klonovat svůj repozitář, připojte se k [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord), kde můžete získat pomoc s nastavením, zeptat se na cokoliv ohledně kurzu nebo se spojit s ostatními studenty.
 
-## Klonování nebo vytvoření forku tohoto repozitáře
+## Clone or Fork this Repo
 
-Pro začátek prosím klonujte nebo vytvořte fork GitHub repozitáře. Tím získáte vlastní verzi materiálů kurzu, abyste mohli kód spouštět, testovat a upravovat!
+Pro začátek prosím naklonujte nebo vytvořte fork repozitáře na GitHubu. Tím získáte vlastní verzi materiálů kurzu, abyste mohli kód spouštět, testovat a upravovat!
 
-This can be done by clicking the link to <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">vytvořit fork repozitáře</a>
+To lze provést kliknutím na odkaz <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">vytvořit fork repozitáře</a>
 
-Nyní byste měli mít vlastní fork tohoto kurzu na následujícím odkazu:
+Nyní byste měli mít vlastní forkovanou verzi tohoto kurzu na následujícím odkazu:
 
-![Forkovaný repozitář](../../../translated_images/cs/forked-repo.33f27ca1901baa6a.webp)
+![Forked Repo](../../../translated_images/cs/forked-repo.33f27ca1901baa6a.webp)
 
-### Shallow Clone (doporučeno pro workshop / Codespaces)
+### Shallow Clone (recommended for workshop / Codespaces)
 
-  >Celý repozitář může být velký (~3 GB) když stáhnete celou historii a všechny soubory. Pokud se účastníte pouze workshopu nebo potřebujete jen několik složek lekcí, shallow clone (nebo sparse clone) se vyhne většině tohoto stahování tím, že ořízne historii a/nebo přeskočí bloby.
+  >Plné úložiště může být při stažení celé historie a všech souborů velké (~3 GB). Pokud se účastníte pouze workshopu nebo potřebujete jen několik složek s lekcemi, shallow clone (nebo sparse clone) vám ušetří většinu stahování zkrácením historie a/nebo přeskočením blobů.
 
-#### Rychlý shallow clone — minimální historie, všechny soubory
+#### Quick shallow clone — minimal history, all files
 
-Replace `<your-username>` in the below commands with your fork URL (or the upstream URL if you prefer).
+Nahraďte `<your-username>` v následujících příkazech URL svého forku (nebo upstream URL, pokud dáváte přednost tomu).
 
-To clone only the latest commit history (small download):
+Pro naklonování pouze posledního commitu (malé stahování):
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-To clone a specific branch:
+Pro naklonování konkrétní větve:
 
 ```bash|powershell
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Partial (sparse) clone — minimální bloby + pouze vybrané složky
+#### Partial (sparse) clone — minimal blobs + only selected folders
 
-This uses partial clone and sparse-checkout (requires Git 2.25+ and recommended modern Git with partial clone support):
+To využívá partial clone a sparse-checkout (vyžaduje Git 2.25+ a doporučujeme moderní Git s podporou partial clone):
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Traverse into the repo folder:
+Přejděte do složky repozitáře:
 
 ```bash|powershell
 cd ai-agents-for-beginners
 ```
 
-Then specify which folders you want (example below shows two folders):
+Poté určete, které složky chcete (příklad níže ukazuje dvě složky):
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-After cloning and verifying the files, if you only need files and want to free space (no git history), please delete the repository metadata (💀irreversible — you will lose all Git functionality: no commits, pulls, pushes, or history access).
+Po klonování a ověření souborů, pokud potřebujete jen soubory a chcete uvolnit místo (bez historie git), smažte metadata repozitáře (💀nevratné — ztratíte veškerou funkcionalitu Gitu: žádné commity, pull, push ani přístup k historii).
 
 ```bash
 # zsh/bash
@@ -70,51 +70,41 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### Používání GitHub Codespaces (doporučeno k vyhnutí se velkým lokálním stažením)
+#### Using GitHub Codespaces (recommended to avoid local large downloads)
 
-- Vytvořte nový Codespace pro tento repozitář přes [uživatelské rozhraní GitHubu](https://github.com/codespaces).  
+- Vytvořte nový Codespace pro tento repozitář přes [GitHub UI](https://github.com/codespaces).  
 
-- V terminálu nově vytvořeného codespace spusťte jeden z výše uvedených shallow/sparse clone příkazů, aby se do pracovního prostoru Codespace načetly pouze potřebné složky lekcí.
-- Volitelné: po klonování uvnitř Codespaces odstraňte .git pro uvolnění místa (viz příkazy pro odstranění výše).
-- Poznámka: Pokud preferujete otevřít repozitář přímo v Codespaces (bez dalšího klonování), mějte na paměti, že Codespaces sestaví devcontainer prostředí a může stále zprovoznit více, než potřebujete. Klonování shallow kopie uvnitř nového Codespace vám dává větší kontrolu nad využitím disku.
+- V terminálu nově vytvořeného Codespace spusťte jeden z výše uvedených shallow/sparse clone příkazů, aby se do pracovního prostoru Codespace dostaly jen potřebné složky s lekcemi.
+- Volitelné: po klonování uvnitř Codespaces odstraňte .git, abyste uvolnili místo (viz příkazy pro odstranění výše).
+- Poznámka: Pokud dáte přednost otevření repozitáře přímo v Codespaces (bez extra klonování), mějte na paměti, že Codespaces vytvoří devcontainer prostředí a může stále poskytnout více, než potřebujete. Naklonování shallow kopie uvnitř čerstvého Codespace vám dává lepší kontrolu nad využitím disku.
 
-#### Tipy
+#### Tips
 
-- Vždy nahraďte URL klonování URL vašeho forku, pokud chcete upravovat/commitovat.
-- Pokud budete později potřebovat více historie nebo souborů, můžete je stáhnout (fetch) nebo upravit sparse-checkout, aby zahrnoval další složky.
+- Vždy nahraďte URL klonování URL svého forku, pokud chcete upravovat/commitovat.
+- Pokud budete později potřebovat více historie nebo souborů, můžete je stáhnout nebo upravit sparse-checkout tak, aby zahrnoval další složky.
 
-## Spouštění kódu
+## Running the Code
 
-Tento kurz nabízí řadu Jupyter Notebooků, které můžete spustit, abyste získali praktické zkušenosti s vytvářením AI agentů.
+Tento kurz nabízí řadu Jupyter notebooků, které můžete spustit, abyste získali praktickou zkušenost s vytvářením AI agentů.
 
-The code samples use either:
+Ukázkové kódy používají **Microsoft Agent Framework (MAF)** s `AzureAIProjectAgentProvider`, který se připojuje k **Azure AI Agent Service V2** (Responses API) přes **Microsoft Foundry**.
 
-**Vyžaduje GitHub účet - Zdarma**:
+Všechny Python notebooky jsou označeny `*-python-agent-framework.ipynb`.
 
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Označeno jako (semantic-kernel.ipynb)
-2) AutoGen Framework + GitHub Models Marketplace. Označeno jako (autogen.ipynb)
-
-**Vyžaduje předplatné Azure**:
-3) Azure AI Foundry + Azure AI Agent Service. Označeno jako (azureaiagent.ipynb)
-
-Doporučujeme vyzkoušet všechny tři typy příkladů, abyste zjistili, který vám nejlépe vyhovuje.
-
-Kteroukoli možnost si vyberete, určí, které kroky nastavení níže budete muset následovat:
-
-## Požadavky
+## Requirements
 
 - Python 3.12+
-  - **POZNÁMKA**: Pokud nemáte nainstalovaný Python 3.12, nainstalujte jej. Poté vytvořte své venv pomocí python3.12, aby se zajistilo nainstalování správných verzí z requirements.txt souboru.
+  - **POZNÁMKA**: Pokud nemáte nainstalovaný Python3.12, nainstalujte ho. Poté vytvořte své virtuální prostředí pomocí python3.12, aby se nainstalovaly správné verze z requirements.txt.
   
     >Příklad
 
-    Create Python venv directory:
+    Vytvořte adresář pro Python venv:
 
     ```bash|powershell
     python -m venv venv
     ```
 
-    Then activate venv environment for:
+    Poté aktivujte virtuální prostředí pro:
 
     ```bash
     # zsh/bash
@@ -126,115 +116,84 @@ Kteroukoli možnost si vyberete, určí, které kroky nastavení níže budete m
     venv\Scripts\activate
     ```
 
-- .NET 10+: For the sample codes using .NET, ensure you install [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later. Then, check your installed .NET SDK version:
+- .NET 10+: Pro ukázkové kódy používající .NET si nainstalujte [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) nebo novější. Poté zkontrolujte verzi nainstalovaného .NET SDK:
 
     ```bash|powershell
     dotnet --list-sdks
     ```
 
-- A GitHub Account - For Access to the GitHub Models Marketplace
-- Azure Subscription - For Access to Microsoft Foundry
-- Microsoft Foundry Account - For Access to the Azure AI Agent Service
+- **Azure CLI** — Vyžadováno pro autentizaci. Nainstalujte z [aka.ms/installazurecli](https://aka.ms/installazurecli).
+- **Azure Subscription** — Pro přístup k Microsoft Foundry a Azure AI Agent Service.
+- **Microsoft Foundry Project** — Projekt s nasazeným modelem (např. `gpt-4o`). Viz [Krok 1](../../../00-course-setup) níže.
 
-Do kořenového adresáře tohoto repozitáře jsme zahrnuli soubor `requirements.txt`, který obsahuje všechny požadované Python balíčky pro spuštění ukázek kódu.
+V kořenovém adresáři tohoto repozitáře je soubor `requirements.txt`, který obsahuje všechny potřebné Python balíčky pro spuštění ukázkových kódů.
 
-Můžete je nainstalovat spuštěním následujícího příkazu v terminálu v kořenovém adresáři repozitáře:
+Nainstalujete je spuštěním následujícího příkazu v terminálu v kořeni repozitáře:
 
 ```bash|powershell
 pip install -r requirements.txt
 ```
 
-Doporučujeme vytvořit Python virtuální prostředí, aby se zabránilo konfliktům a problémům.
+Doporučujeme vytvořit Python virtuální prostředí, abyste se vyhnuli konfliktům a problémům.
 
-## Nastavení VSCode
+## Setup VSCode
 
 Ujistěte se, že ve VSCode používáte správnou verzi Pythonu.
 
 ![obrázek](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Nastavení pro ukázky používající GitHub Models 
+## Set Up Microsoft Foundry and Azure AI Agent Service
 
-### Krok 1: Získejte svůj GitHub Personal Access Token (PAT)
+### Step 1: Create a Microsoft Foundry Project
 
-Tento kurz využívá GitHub Models Marketplace, který poskytuje bezplatný přístup k velkým jazykovým modelům (LLM), které budete používat k vytváření AI agentů.
+Potřebujete hub a projekt v Azure AI Foundry s nasazeným modelem, abyste mohli spouštět notebooky.
 
-Pro použití GitHub Models budete muset vytvořit [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+1. Přejděte na [ai.azure.com](https://ai.azure.com) a přihlaste se svým Azure účtem.
+2. Vytvořte **hub** (nebo použijte existující). Viz: [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
+3. V rámci hubu vytvořte **project**.
+4. Nasadťe model (např. `gpt-4o`) přes **Models + Endpoints** → **Deploy model**.
 
-This can be done by going to your <a href="https://github.com/settings/personal-access-tokens" target="_blank">nastavení osobních přístupových tokenů</a> in your GitHub Account.
+### Step 2: Retrieve Your Project Endpoint and Model Deployment Name
 
-Dodržujte prosím [Principle of Least Privilege](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) při vytváření tokenu. To znamená, že token by měl mít pouze ta oprávnění, která potřebuje ke spuštění ukázek kódu v tomto kurzu.
+Z vašeho projektu v portálu Microsoft Foundry:
 
-1. Select the `Fine-grained tokens` option on the left side of your screen by traversing to the **Nastavení vývojáře**
-
-   ![Nastavení vývojáře](../../../translated_images/cs/profile_developer_settings.410a859fe749c755.webp)
-
-   Then select `Generate new token`.
-
-   ![Vygenerovat token](../../../translated_images/cs/fga_new_token.1c1a234afe202ab3.webp)
-
-2. Enter a descriptive name for your token that reflects its purpose, making it easy to identify later.
-
-    🔐 Doporučená doba platnosti tokenu
-
-    Doporučená doba: 30 dní
-    Pro větší bezpečnost můžete zvolit kratší období—například 7 dní 🛡️
-    Je to skvělý způsob, jak si nastavit osobní cíl a dokončit kurz, zatímco máte vysokou učební motivaci 🚀.
-
-    ![Název tokenu a vypršení platnosti](../../../translated_images/cs/token-name-expiry-date.a095fb0de6386864.webp)
-
-3. Limit the token's scope to your fork of this repository.
-
-    ![Omezit rozsah na fork repozitáře](../../../translated_images/cs/token_repository_limit.924ade5e11d9d8bb.webp)
-
-4. Restrict the token's permissions: Under **Permissions**, click **Account** tab, and click the "+ Add permissions" button. A dropdown will appear. Please search for **Models** and check the box for it.
-
-    ![Přidat oprávnění Models](../../../translated_images/cs/add_models_permissions.c0c44ed8b40fc143.webp)
-
-5. Verify the permissions required before generating the token. ![Ověřit oprávnění](../../../translated_images/cs/verify_permissions.06bd9e43987a8b21.webp)
-
-6. Before generating the token, ensure you are ready to store the token in a secure place like a password manager vault, as it will not be shown again after you create it. ![Uložit token zabezpečeně](../../../translated_images/cs/store_token_securely.08ee2274c6ad6caf.webp)
-
-Copy your new token that you have just created. You will now add this to your `.env` file included in this course.
-
-### Krok 2: Vytvořte soubor `.env`
-
-To create your `.env` file run the following command in your terminal.
-
-```bash
-# zsh/bash
-cp .env.example .env
-```
-
-```powershell
-# PowerShell
-Copy-Item .env.example .env
-```
-
-This will copy the example file and create a `.env` in your directory and where you fill in the values for the environment variables.
-
-With your token copied, open the `.env` file in your favorite text editor and paste your token into the `GITHUB_TOKEN` field.
-
-![Pole GitHub tokenu](../../../translated_images/cs/github_token_field.20491ed3224b5f4a.webp)
-
-You should now be able to run the code samples of this course.
-
-## Nastavení pro ukázky využívající Microsoft Foundry a Azure AI Agent Service
-
-### Krok 1: Získejte koncový bod (endpoint) vašeho Azure projektu
-
-
-Follow the steps to creating a hub and project in Azure AI Foundry found here: [Hub resources overview](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
-
-
-Once you have created your project, you will need to retrieve the connection string for your project.
-
-This can be done by going to the **Overview** page of your project in the Microsoft Foundry portal.
+- **Project Endpoint** — Přejděte na stránku **Overview** a zkopírujte URL endpointu.
 
 ![Připojovací řetězec projektu](../../../translated_images/cs/project-endpoint.8cf04c9975bbfbf1.webp)
 
-### Krok 2: Vytvořte soubor `.env`
+- **Model Deployment Name** — Přejděte na **Models + Endpoints**, vyberte nasazený model a poznamenjte si **Deployment name** (např. `gpt-4o`).
 
-To create your `.env` file run the following command in your terminal.
+### Step 3: Sign in to Azure with `az login`
+
+Všechny notebooky používají pro autentizaci **`AzureCliCredential`** — není potřeba spravovat API klíče. To vyžaduje, abyste byli přihlášeni přes Azure CLI.
+
+1. **Nainstalujte Azure CLI**, pokud jste tak ještě neučinili: [aka.ms/installazurecli](https://aka.ms/installazurecli)
+
+2. **Přihlaste se** spuštěním:
+
+    ```bash|powershell
+    az login
+    ```
+
+    Nebo pokud jste v remote/Codespace prostředí bez prohlížeče:
+
+    ```bash|powershell
+    az login --use-device-code
+    ```
+
+3. **Vyberte svůj subscription**, pokud budete vyzváni — zvolte ten, který obsahuje váš Foundry projekt.
+
+4. **Ověřte**, že jste přihlášeni:
+
+    ```bash|powershell
+    az account show
+    ```
+
+> **Proč `az login`?** Notebooky se autentizují pomocí `AzureCliCredential` z balíčku `azure-identity`. To znamená, že vaše relace v Azure CLI poskytuje pověření — žádné API klíče nebo tajné údaje v souboru `.env`. Toto je [bezpečnostní doporučení](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
+
+### Step 4: Create Your `.env` File
+
+Zkopírujte ukázkový soubor:
 
 ```bash
 # zsh/bash
@@ -246,79 +205,114 @@ cp .env.example .env
 Copy-Item .env.example .env
 ```
 
-This will copy the example file and create a `.env` in your directory and where you fill in the values for the environment variables.
+Otevřete `.env` a doplňte tyto dvě hodnoty:
 
-Po zkopírování připojovacího řetězce otevřete `.env` ve svém oblíbeném textovém editoru a vložte ho do pole `PROJECT_ENDPOINT`.
-
-### Krok 3: Přihlaste se do Azure
-
-Jako osvědčený bezpečnostní postup použijeme [keyless authentication](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) pro autentizaci do Azure OpenAI pomocí Microsoft Entra ID. 
-
-Next, open a terminal and run `az login --use-device-code` to sign in to your Azure account.
-
-Once you've logged in, select your subscription in the terminal.
-
-## Další proměnné prostředí - Azure Search a Azure OpenAI 
-
-For the Agentic RAG Lesson - Lesson 5 - there are samples that use Azure Search and Azure OpenAI.
-
-If you want to run these samples, you will need to add the following environment variables to your `.env` file:
-
-### Overview Page (Project)
-
-- `AZURE_SUBSCRIPTION_ID` - Check **Project details** on the **Overview** page of your project.
-
-- `AZURE_AI_PROJECT_NAME` - Look at the top of the **Overview** page for your project.
-
-- `AZURE_OPENAI_SERVICE` - Find this in the **Included capabilities** tab for **Azure OpenAI Service** on the **Overview** page.
-
-### Management Center
-
-- `AZURE_OPENAI_RESOURCE_GROUP` - Go to **Project properties** on the **Overview** page of the **Management Center**.
-
-- `GLOBAL_LLM_SERVICE` - Under **Connected resources**, find the **Azure AI Services** connection name. If not listed, check the **Azure portal** under your resource group for the AI Services resource name.
-
-### Models + Endpoints Page
-
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Select your embedding model (e.g., `text-embedding-ada-002`) and note the **Deployment name** from the model details.
-
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Select your chat model (e.g., `gpt-4o-mini`) and note the **Deployment name** from the model details.
-
-### Azure Portal
-
-- `AZURE_OPENAI_ENDPOINT` - Look for **Azure AI services**, click on it, then go to **Resource Management**, **Keys and Endpoint**, scroll down to the "Azure OpenAI endpoints", and copy the one that says "Language APIs".
-
-- `AZURE_OPENAI_API_KEY` - From the same screen, copy KEY 1 or KEY 2.
-
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - Find your **Azure AI Search** resource, click it, and see **Overview**.
-
-- `AZURE_SEARCH_API_KEY` - Then go to **Settings** and then **Keys** to copy the primary or secondary admin key.
-
-### External Webpage
-
-- `AZURE_OPENAI_API_VERSION` - Visit the [API version lifecycle](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) page under **Latest GA API release**.
-
-### Nastavení keyless autentizace
-
-Rather than hardcode your credentials, we'll use a keyless connection with Azure OpenAI. To do so, we'll import `DefaultAzureCredential` and later call the `DefaultAzureCredential` function to get the credential.
-
-```python
-# Python
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+```env
+AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
+AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4o
 ```
 
-## Zasekli jste se někde?
-Pokud máte při spuštění tohoto nastavení nějaké potíže, připojte se na náš <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord komunity Azure AI</a> nebo <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">nahlaste problém</a>.
+| Variable | Where to find it |
+|----------|-----------------|
+| `AZURE_AI_PROJECT_ENDPOINT` | Portál Foundry → váš projekt → stránka **Overview** |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Portál Foundry → **Models + Endpoints** → název vašeho nasazeného modelu |
 
-## Další lekce
+To je vše pro většinu lekcí! Notebooky se budou autentizovat automaticky pomocí vaší relace `az login`.
 
-Nyní jste připraveni spustit kód tohoto kurzu. Přejeme vám hodně zábavy při dalším objevování světa AI agentů! 
+### Step 5: Install Python Dependencies
 
-[Úvod do AI agentů a jejich případů použití](../01-intro-to-ai-agents/README.md)
+```bash|powershell
+pip install -r requirements.txt
+```
+
+Doporučujeme spouštět tento příkaz uvnitř virtuálního prostředí, které jste vytvořili dříve.
+
+## Additional Setup for Lesson 5 (Agentic RAG)
+
+Lekce 5 používá **Azure AI Search** pro retrieval-augmented generation. Pokud plánujete spouštět tuto lekci, přidejte do svého `.env` souboru tyto proměnné:
+
+| Variable | Where to find it |
+|----------|-----------------|
+| `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure portal → vaše **Azure AI Search** resource → **Overview** → URL |
+| `AZURE_SEARCH_API_KEY` | Azure portal → vaše **Azure AI Search** resource → **Settings** → **Keys** → primární admin klíč |
+
+## Additional Setup for Lesson 6 and Lesson 8 (GitHub Models)
+
+Některé notebooky v lekcích 6 a 8 používají místo Azure AI Foundry **GitHub Models**. Pokud plánujete spouštět tyto ukázky, přidejte do svého `.env` souboru tyto proměnné:
+
+| Variable | Where to find it |
+|----------|-----------------|
+| `GITHUB_TOKEN` | GitHub → **Settings** → **Developer settings** → **Personal access tokens** |
+| `GITHUB_ENDPOINT` | Použijte `https://models.inference.ai.azure.com` (výchozí hodnota) |
+| `GITHUB_MODEL_ID` | Název modelu k použití (např. `gpt-4o-mini`) |
+
+## Additional Setup for Lesson 8 (Bing Grounding Workflow)
+
+Podmíněný workflow notebook v lekci 8 používá **Bing grounding** přes Azure AI Foundry. Pokud plánujete spouštět tento příklad, přidejte do svého `.env` souboru tuto proměnnou:
+
+| Variable | Where to find it |
+|----------|-----------------|
+| `BING_CONNECTION_ID` | Portál Azure AI Foundry → váš projekt → **Management** → **Connected resources** → vaše Bing připojení → zkopírujte connection ID |
+
+## Troubleshooting
+
+### SSL Certificate Verification Errors on macOS
+
+Pokud používáte macOS a narazíte na chybu podobnou:
+
+```plaintext
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
+```
+
+Toto je známý problém s Pythonem na macOS, kde systémové SSL certifikáty nejsou automaticky důvěryhodné. Vyzkoušejte následující řešení v uvedeném pořadí:
+
+**Option 1: Run Python's Install Certificates script (recommended)**
+
+```bash
+# Nahraďte 3.XX verzí Pythonu, kterou máte nainstalovanou (např. 3.12 nebo 3.13):
+/Applications/Python\ 3.XX/Install\ Certificates.command
+```
+
+**Option 2: Use `connection_verify=False` in your notebook (for GitHub Models notebooks only)**
+
+V notebooku z Lekce 6 (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`) je již zahrnuto řešení jako zakomentovaný workaround. Odkomentujte `connection_verify=False` při vytváření klienta:
+
+```python
+client = ChatCompletionsClient(
+    endpoint=endpoint,
+    credential=AzureKeyCredential(token),
+    connection_verify=False,  # Vypněte ověřování SSL, pokud narazíte na chyby certifikátu
+)
+```
+
+> **⚠️ Upozornění:** Vypnutí ověřování SSL (`connection_verify=False`) snižuje bezpečnost tím, že přeskočí validaci certifikátů. Používejte to pouze jako dočasné řešení ve vývojovém prostředí, nikdy v produkci.
+
+**Option 3: Install and use `truststore`**
+
+```bash
+pip install truststore
+```
+
+Poté přidejte následující na začátek svého notebooku nebo skriptu před provedením jakýchkoli síťových volání:
+
+```python
+import truststore
+truststore.inject_into_ssl()
+```
+
+## Stuck Somewhere?
+
+Pokud budete mít nějaké problémy s tímto nastavením, připojte se na náš <a href="https://discord.gg/kzRShWzttr" target="_blank">komunitní Discord Azure AI</a> nebo <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">vytvořte issue</a>.
+
+## Next Lesson
+
+Nyní jste připraveni spustit kód pro tento kurz. Přejeme hodně zábavy při dalším objevování světa AI agentů! 
+
+[Úvod do AI agentů a jejich použití](../01-intro-to-ai-agents/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Prohlášení o vyloučení odpovědnosti:
-Tento dokument byl přeložen pomocí AI překladatelské služby Co-op Translator (https://github.com/Azure/co-op-translator). I když usilujeme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho mateřském jazyce by měl být považován za závazný zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za žádná nedorozumění nebo chybné výklady vyplývající z použití tohoto překladu.
+Vyloučení odpovědnosti:
+Tento dokument byl přeložen pomocí služby pro automatický překlad založené na umělé inteligenci Co-op Translator (https://github.com/Azure/co-op-translator). I když usilujeme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Za autoritativní zdroj je považován originální dokument v jeho původním jazyce. Pro zásadní informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za žádná nedorozumění nebo chybné výklady vzniklé použitím tohoto překladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
