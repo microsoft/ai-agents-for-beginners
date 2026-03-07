@@ -1,56 +1,56 @@
-# „Microsoft Agent Framework“ tyrinėjimas
+# Microsoft Agent Framework tyrinėjimas
 
 ![Agent Framework](../../../translated_images/lt/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Įvadas
 
-Ši pamoka apims:
+Šioje pamokoje bus aptariama:
 
-- „Microsoft Agent Framework“ supratimą: pagrindinės funkcijos ir vertė  
-- Pagrindinių „Microsoft Agent Framework“ sąvokų tyrinėjimą
-- MAF palyginimą su Semantic Kernel ir AutoGen: migracijos vadovas
+- Microsoft Agent Framework supratimas: pagrindinės savybės ir vertė  
+- Pagrindinių Microsoft Agent Framework sąvokų tyrinėjimas
+- Pažangūs MAF modeliai: darbų eiga, tarpinis programavimas ir atmintis
 
 ## Mokymosi tikslai
 
-Baigę šią pamoką, žinosite, kaip:
+Baigus šią pamoką, žinosite, kaip:
 
-- Kurti gamybai paruoštus AI agentus naudojant „Microsoft Agent Framework“
-- Taikyti pagrindines „Microsoft Agent Framework“ funkcijas savo agentinių naudojimo atvejuose
-- Migratuoti ir integruoti esamus agentinius pagrindus ir įrankius  
+- Kurti gamybai paruoštus DI agentus naudojant Microsoft Agent Framework
+- Taikyti pagrindines Microsoft Agent Framework funkcijas savo agentiniams naudojimo atvejams
+- Naudoti pažangius modelius, įskaitant darbų eigas, tarpinį programavimą ir stebėjimą
 
 ## Kodo pavyzdžiai 
 
-„Microsoft Agent Framework (MAF)“ kodo pavyzdžius rasite šiame saugykloje po failais `xx-python-agent-framework` ir `xx-dotnet-agent-framework`.
+Kodo pavyzdžius, skirtus [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok), rasite šiame saugykloje `xx-python-agent-framework` ir `xx-dotnet-agent-framework` failuose.
 
-## „Microsoft Agent Framework“ supratimas
+## Microsoft Agent Framework supratimas
 
 ![Framework Intro](../../../translated_images/lt/framework-intro.077af16617cf130c.webp)
 
-[„Microsoft Agent Framework (MAF)“](https://aka.ms/ai-agents-beginners/agent-framewrok) remiasi patirtimi ir žiniomis, gautomis iš Semantic Kernel ir AutoGen. Jis siūlo lankstumą spręsti įvairius agentinius naudojimo atvejus, matomus tiek gamyboje, tiek tyrimų aplinkoje, įskaitant:
+[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) yra Microsoft vieningas karkasas DI agentams kurti. Jis suteikia lankstumą spręsti įvairius agentinius naudojimo atvejus, pastebimus tiek gamybos, tiek tyrimų aplinkose, įskaitant:
 
-- **Sekvencinę agentų orkestraciją** scenarijuose, kai reikalingi žingsnis po žingsnio darbo procesai.
-- **Konkuruojančią orkestraciją** scenarijuose, kai agentai turi užduotis atlikti vienu metu.
-- **Grupinę pokalbių orkestraciją** scenarijuose, kai agentai gali bendradarbiauti vykdydami vieną užduotį.
-- **Perdavimų orkestraciją** scenarijuose, kai agentai perduoda užduotį vienas kitam, kaip uždaviniai yra užbaigiami.
-- **Magnetinę orkestraciją** scenarijuose, kai vadovaujantis agentas kuria ir keičia užduočių sąrašą ir koordinuoja pagalagentus užduoties įvykdymui.
+- **Sekvos agentų orkestracija** scenarijuose, kur reikia žingsnis po žingsnio darbų eigų.
+- **Konkuruojanti orkestracija** scenarijuose, kai agentai turi užbaigti užduotis vienu metu.
+- **Grupinio pokalbio orkestracija** scenarijuose, kai agentai gali bendradarbiauti spręsdami vieną užduotį.
+- **Perdavimų orkestracija** scenarijuose, kai agentai perduoda užduotį vieni kitiems užduočių metu.
+- **Magnetinė orkestracija** scenarijuose, kai valdymo agentas kuria ir keičia užduočių sąrašą bei koordinuoja pogrupius užduočiai užbaigti.
 
-Norėdamas pristatyti AI agentus gamyboje, MAF taip pat apima funkcijas:
+Kad būtų galima tiekti DI agentus gamyboje, MAF taip pat įtraukia funkcijas tokias kaip:
 
-- **Stebimumui** naudojant OpenTelemetry, kur kiekvienas AI agento veiksmas, įskaitant įrankių iškvietimus, orkestracijos žingsnius, samprotavimų srautus ir Microsoft Foundry prietaisų skydelio našumo stebėjimą.
-- **Saugumui** talpinant agentus natūraliai Microsoft Foundry aplinkoje, į kurią įeina saugumo kontrolės, tokios kaip prieigos valdymas pagal vaidmenis, privačių duomenų tvarkymas ir įmontuota turinio sauga.
-- **Patvarumui**, nes agentų gijos ir darbo procesai gali būti pristabdyti, atnaujinti ir atstatyti po klaidų, leidžiantys vykdyti ilgai trunkančius procesus.
-- **Kontrolei**, nes remiasi žmogumi grandinėje, kai užduotys žymimos kaip reikalaujančios žmogaus patvirtinimo.
+- **Stebimumas** naudojant OpenTelemetry, kur fiksuojamas kiekvienas DI agente atliekamas veiksmas įskaitant įrankių kvietimus, orkestracijos žingsnius, sprendimų srautus ir našumo stebėjimą Microsoft Foundry skydeliuose.
+- **Saugumas** talpinant agentus natively Microsoft Foundry, kuri apima saugumo valdymą kaip vaidmenimis pagrįstą prieigą, privačių duomenų tvarkymą ir integruotą turinio saugumą.
+- **Atsparumas** nes agentų gijos ir darbo eiga gali būti pristabdytos, tęsiamos ir atstatomos iš klaidų, leidžiant ilgesnį procesų vykdymą.
+- **Valdymas** nes palaikomi žmogaus stebimi darbo eigų procesai, kur užduotys žymimos kaip reikalaujančios žmogaus patvirtinimo.
 
-„Microsoft Agent Framework“ taip pat orientuotas į tarpoperabilumą:
+Microsoft Agent Framework taip pat orientuotas į interoperabilumą:
 
-- **Debesų nepriklausomumas** – agentai gali veikti konteineriuose, vietinėse aplinkose ir įvairiuose debesyse.
-- **Tiekėjų nepriklausomumas** – agentus galima kurti naudojant pageidaujamą SDK, įskaitant Azure OpenAI ir OpenAI.
-- **Atvirų standartų integracija** – agentai gali naudoti protokolus, tokius kaip Agent-to-Agent (A2A) ir Model Context Protocol (MCP), kad atrastų ir naudotų kitus agentus bei įrankius.
-- **Įskiepius ir jungtis** – galima jungtis prie duomenų ir atminties paslaugų, tokių kaip Microsoft Fabric, SharePoint, Pinecone ir Qdrant.
+- **Debesims nepriklausoma** – agentai gali veikti konteineriuose, vietoje ir per skirtingas debesų platformas.
+- **Tiekėjams nepriklausoma** – agentai gali būti kuriami naudojant jus dominančius SDK, įskaitant Azure OpenAI ir OpenAI.
+- **Atvirų standartų integracija** – agentai gali naudoti protokolus, kaip Agent-to-Agent(A2A) ir Model Context Protocol (MCP), kad atrastų ir naudotų kitus agentus bei įrankius.
+- **Papildiniai ir jungtys** – galima prisijungti prie duomenų ir atminties paslaugų, tokių kaip Microsoft Fabric, SharePoint, Pinecone ir Qdrant.
 
-Pažvelkime, kaip šios funkcijos taikomos pagrindinėms „Microsoft Agent Framework“ sąvokoms.
+Pažiūrėkime, kaip šios funkcijos taikomos kai kurioms pagrindinėms Microsoft Agent Framework sąvokoms.
 
-## „Microsoft Agent Framework“ pagrindinės sąvokos
+## Microsoft Agent Framework pagrindinės sąvokos
 
 ### Agentai
 
@@ -58,7 +58,8 @@ Pažvelkime, kaip šios funkcijos taikomos pagrindinėms „Microsoft Agent Fram
 
 **Agentų kūrimas**
 
-Agentų kūrimas vykdomas apibrėžiant išvados paslaugą (LLM tiekėją), instrukcijų rinkinį AI agentui sekti ir paskirtą `name`:
+Agentų kūrimas atliekamas apibrėžiant spėjimo paslaugą (LLM tiekėją), 
+instrukcijų rinkinį, kurį DI agentas turi vykdyti, ir priskirtą `pavadinimą`:
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
@@ -70,7 +71,7 @@ Aukščiau naudojamas `Azure OpenAI`, tačiau agentus galima kurti naudojant įv
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
 ```
 
-OpenAI `Responses`, `ChatCompletion` API metodai
+OpenAI `Responses`, `ChatCompletion` API
 
 ```python
 agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="You are a helpful weather assistant.", )
@@ -88,7 +89,7 @@ agent = A2AAgent( name=agent_card.name, description=agent_card.description, agen
 
 **Agentų paleidimas**
 
-Agentai paleidžiami naudojant `.run` arba `.run_stream` metodus, skirtus ne srautinėms arba srautinėms atsakomosioms reakcijoms.
+Agentai paleidžiami naudojant `.run` arba `.run_stream` metodus, priklausomai nuo to, ar reikia nepertraukiamos ar srautinės atsakymų transliacijos.
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
@@ -102,13 +103,13 @@ async for update in agent.run_stream("What are the good places to visit in Amste
 
 ```
 
-Kiekvienam agentui galima nustatyti pasirinkimus, kurie pritaiko tokius parametrus kaip `max_tokens`, kuriuos naudoja agentas, `tools`, kuriuos agentas gali iškviesti, ir net patį `model`, naudojamą agentui.
+Kiekvienam agentei paleidimui gali būti pateikiamos parinktys parametrų tinkinimui, pvz., `max_tokens`, kuriuos naudoja agentas, `tools`, kuriuos agentas gali kviesti, ar net pats `modelis`, naudojamas agentui.
 
-Tai naudinga atvejais, kai uždavinio įvykdymui reikalingi konkretūs modeliai ar įrankiai.
+Tai naudinga situacijose, kai konkrečios modeliai ar įrankiai yra būtini vartotojo užduočiai atlikti.
 
 **Įrankiai**
 
-Įrankiai gali būti apibrėžiami tiek kuriant agentą:
+Įrankiai gali būti apibrėžti tiek kuriant agentą:
 
 ```python
 def get_attractions( location: Annotated[str, Field(description="The location to get the top tourist attractions for")], ) -> str: """Get the top tourist attractions for a given location.""" return f"The top attractions for {location} are." 
@@ -124,53 +125,53 @@ tiek paleidžiant agentą:
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Įrankis skirtas naudoti tik šiame vykdyme )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Įrankis suteikiamas tik šiam paleidimui )
 ```
 
 **Agentų gijos**
 
-Agentų gijos naudojamos tvarkyti daugiaposūkiniams pokalbiams. Gijos gali būti sukuriamos:
+Agentų gijos naudojamos valdyti daugkartinius pokalbius. Gijos gali būti sukuriamos:
 
-- Naudojant `get_new_thread()`, kas leidžia giją išsaugoti laikui bėgant
-- Automatiškai sukuriant giją paleidžiant agentą, kuri egzistuoja tik dabartinio paleidimo metu.
+- naudojant `get_new_thread()`, kuri leidžia giją išsaugoti laikui bėgant
+- automatiškai sukuriant giją paleidžiant agentą, kuri egzistuos tik šio paleidimo metu.
 
 Gijos kūrimo kodas atrodo taip:
 
 ```python
 # Sukurkite naują giją.
-thread = agent.get_new_thread() # Paleiskite agentą su gija.
+thread = agent.get_new_thread() # Vykdykite agentą su gija.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
 
-Po to giją galima serializuoti, kad būtų išsaugota ateičiai:
+Tada giją galima serializuoti ir saugoti vėlesniam naudojimui:
 
 ```python
-# Sukurkite naują giją.
+# Sukurkite naują srautą.
 thread = agent.get_new_thread() 
 
-# Vykdykite agentą su gija.
+# Paleiskite agentą su srautu.
 
 response = await agent.run("Hello, how are you?", thread=thread) 
 
-# Serializuokite giją saugojimui.
+# Serializuokite srautą saugojimui.
 
 serialized_thread = await thread.serialize() 
 
-# Deserializuokite gijos būseną po įkėlimo iš saugyklos.
+# Deserializuokite srauto būseną po įkėlimo iš saugyklos.
 
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
 
-**Agentų tarpinės programos**
+**Agentų tarpinis programavimas**
 
-Agentai sąveikauja su įrankiais ir LLM, kad įvykdytų vartotojo užduotis. Tam tikrais atvejais norime vykdyti ar sekti veiksmus tarp šių sąveikų. Agentų tarpinės programos leidžia tai padaryti per:
+Agentai sąveikauja su įrankiais ir LLM, kad užbaigtų vartotojų užduotis. Tam tikromis situacijomis norime vykdyti arba stebėti veiksmus tarp šių sąveikų. Agentų tarpinis programavimas leidžia tai atlikti per:
 
-*Funkcinė tarpinė programa*
+*Funkcinį tarpinį programavimą*
 
-Ši tarpinė programa leidžia vykdyti veiksmą tarp agento ir funkcijos/įrankio, kurį agentas iškvies. Pavyzdys, kada ji naudojama, yra kai norime registruoti funkcijos iškvietimą.
+Šis tarpinis programavimas leidžia vykdyti veiksmą tarp agente ir funkcijos/įrankio, kurį jis kvies. Pavyzdys, kada tai naudinga – kai norite užfiksuoti funkcijos kvietimą.
 
-Žemiau pateiktame kode `next` apibrėžia, ar turi būti iškviečiama kita tarpinė programa, ar pati funkcija.
+Toliau pateiktame kode `next` nurodo, ar turi būti kviečiamas kitas tarpinis sluoksnis, ar pati funkcija.
 
 ```python
 async def logging_function_middleware(
@@ -178,21 +179,21 @@ async def logging_function_middleware(
     next: Callable[[FunctionInvocationContext], Awaitable[None]],
 ) -> None:
     """Function middleware that logs function execution."""
-    # Išankstinis apdorojimas: Įrašas prieš funkcijos vykdymą
+    # Išankstinis apdorojimas: registruoti prieš funkcijos vykdymą
     print(f"[Function] Calling {context.function.name}")
 
-    # Tęsti prie kito tarpinio programos arba funkcijos vykdymo
+    # Tęsti į kitą vidurinio sluoksnio komponentą arba funkcijos vykdymą
     await next(context)
 
-    # Po apdorojimo: Įrašas po funkcijos vykdymo
+    # Po apdorojimo: registruoti po funkcijos vykdymo
     print(f"[Function] {context.function.name} completed")
 ```
 
-*Pokalbių tarpinė programa*
+*Pokalybinis tarpinis programavimas*
 
-Ši tarpinė programa leidžia vykdyti arba registruoti veiksmą tarp agento ir pokalbių su LLM užklausų.
+Šis tarpinis programavimas leidžia vykdyti ar registruoti veiksmą tarp agente ir užklausų LLM.
 
-Čia yra svarbi informacija, pavyzdžiui, `messages`, kurie siunčiami į AI paslaugą.
+Jame svarbi informacija, tokia kaip `messages`, siunčiami į DI paslaugą.
 
 ```python
 async def logging_chat_middleware(
@@ -203,36 +204,36 @@ async def logging_chat_middleware(
     # Išankstinis apdorojimas: žurnalas prieš AI kvietimą
     print(f"[Chat] Sending {len(context.messages)} messages to AI")
 
-    # Tęsti kitam tarpinio programos sluoksnio arba AI paslaugos žingsniui
+    # Tęsti prie kito tarpinio serverio arba AI paslaugos
     await next(context)
 
-    # Galutinis apdorojimas: žurnalas po AI atsakymo
+    # Vėlesnis apdorojimas: žurnalas po AI atsakymo
     print("[Chat] AI response received")
 
 ```
 
 **Agentų atmintis**
 
-Kaip buvo aptarta pamokoje „Agentinė atmintis“, atmintis yra svarbi siekiant agentui veikti skirtinguose kontekstuose. MAF siūlo keletą skirtingų atminties tipų:
+Kaip aptarta pamokoje `Agentic Memory`, atmintis yra svarbus elementas leidžiantis agentui veikti per skirtingas kontekstus. MAF siūlo keletą skirtingų atminties tipų:
 
-*Operatyvioji atmintis*
+*Atmintinė operacijų metu*
 
-Tai atmintis saugoma gijų metu programos veikimo metu.
+Tai atmintis saugoma gijų metu programos vykdymo laiku.
 
 ```python
-# Sukurkite naują giją.
-thread = agent.get_new_thread() # Paleiskite agentą su šia gija.
+# Sukurti naują giją.
+thread = agent.get_new_thread() # Vykdyti agentą su gija.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 ```
 
-*Išliekamosios žinutės*
+*Nuolatiniai pranešimai*
 
-Ši atmintis naudojama saugant pokalbių istoriją per skirtingas sesijas. Ji apibrėžiama naudojant `chat_message_store_factory`:
+Ši atmintis naudojama pokalbių istorijai saugoti per skirtingas sesijas. Ji apibrėžiama naudojant `chat_message_store_factory`:
 
 ```python
 from agent_framework import ChatMessageStore
 
-# Sukurti pasirinktinių pranešimų saugyklą
+# Sukurkite pasirinktinių pranešimų saugyklą
 def create_message_store():
     return ChatMessageStore()
 
@@ -246,12 +247,12 @@ agent = ChatAgent(
 
 *Dinaminė atmintis*
 
-Ši atmintis pridedama prie konteksto prieš paleidžiant agentus. Šias atmintis galima saugoti išorinėse paslaugose, tokiose kaip mem0:
+Ši atmintis pridedama į kontekstą prieš paleidžiant agentus. Šia atmintį galima saugoti išorinėse paslaugose, tokiose kaip mem0:
 
 ```python
 from agent_framework.mem0 import Mem0Provider
 
-# Naudojama Mem0 pažangioms atminties funkcijoms
+# Naudojant Mem0 pažangioms atminties galimybėms
 memory_provider = Mem0Provider(
     api_key="your-mem0-api-key",
     user_id="user_123",
@@ -268,7 +269,7 @@ agent = ChatAgent(
 
 **Agentų stebimumas**
 
-Stebimumas svarbus kuriant patikimas ir prižiūrimas agentines sistemas. MAF integruojasi su OpenTelemetry, kad teiktų trasavimą ir matavimus geresniam stebimumui.
+Stebimumas yra svarbus patikimų ir prižiūrimų agentinių sistemų kūrimui. MAF integruoja OpenTelemetry, kad suteiktų atsekimą ir matuoklius geresniam stebimumui.
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -276,29 +277,29 @@ from agent_framework.observability import get_tracer, get_meter
 tracer = get_tracer()
 meter = get_meter()
 with tracer.start_as_current_span("my_custom_span"):
-    # daryti kažką
+    # padaryti kažką
     pass
 counter = meter.create_counter("my_custom_counter")
 counter.add(1, {"key": "value"})
 ```
 
-### Darbo procesai
+### Darbų eigos
 
-MAF siūlo darbo procesus, kurie yra iš anksto apibrėžti žingsniai užduočiai atlikti, ir apima AI agentus kaip šių žingsnių komponentus.
+MAF siūlo darbų eigas, tai iš anksto apibrėžti žingsniai užduočiai užbaigti, įtraukiantys DI agentus kaip komponentus šiuose žingsniuose.
 
-Darbo procesai susideda iš skirtingų komponentų, leidžiančių geresnį valdymą. Darbo procesai taip pat leidžia **multi-agentų orkestraciją** ir **žymių uždaviniams kaupimą** (checkpointing) darbų procesų būsenų išsaugojimui.
+Darbų eigas sudaro skirtingi komponentai, leidžiantys geriau valdyti srautą. Darbų eigos taip pat leidžia **daugiagentų orkestraciją** ir **atkarpų įrašymą**, siekiant išsaugoti darbo darbo eigos būsenas.
 
-Pagrindiniai darbo proceso komponentai yra:
+Pagrindiniai darbo eigos komponentai yra:
 
 **Vykdytojai**
 
-Vykdytojai gauna įvesties pranešimus, atlieka paskirtas užduotis ir kuria išvesties pranešimą. Tai leidžia procesui eiti į priekį link didesnės užduoties pabaigos. Vykdytojai gali būti AI agentai arba vartotojo logika.
+Vykdytojai gauna įvesties žinutes, atlieka priskirtus darbus ir tuomet generuoja išvesties žinutes. Tai leidžia darbų eigai judėti link pagrindinės užduoties įvykdymo. Vykdytojai gali būti tiek DI agentai, tiek vartotojų logika.
 
 **Kraštai**
 
-Kraštai naudojami apibrėžti pranešimų srautą darbo procese. Jie gali būti:
+Kraštai naudojami apibrėžti žinučių srautą darbo eigoje. Jie gali būti:
 
-*Tiesioginiai kraštai* – paprasti vienas prie vieno jungimai tarp vykdytojų:
+*Tiesioginiai kraštai* – paprasti vienas prie vieno ryšiai tarp vykdytojų:
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -309,78 +310,45 @@ builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
 
-*Sąlyginiai kraštai* – aktyvuojami, kai įvykdoma tam tikra sąlyga. Pavyzdžiui, kai viešbučių kambariai nepasiekiami, vykdytojas gali pasiūlyti kitas galimybes.
+*Sąlyginiai kraštai* – aktyvuojami, kai įvykdoma tam tikra sąlyga. Pavyzdžiui, kai viešbučių kambarių nėra, vykdytojas gali pasiūlyti kitus variantus.
 
-*Perjungimo (switch-case) kraštai* – nukreipia pranešimus skirtingiems vykdytojams pagal apibrėžtas sąlygas. Pavyzdžiui, jei kelionių klientas turi prioritetinę prieigą, jo užduotys bus tvarkomos kitu darbo procesu.
+*Perjungimo atvejo kraštai* – nukreipia žinutes skirtingiems vykdytojams pagal nustatytas sąlygas. Pavyzdžiui, jei kelionės klientas turi pirmenybinę prieigą, jo užduotys bus vykdomos kitoje darbo eigoje.
 
-*Išskirstymo (fan-out) kraštai* – siunčia vieną pranešimą keliems tikslams.
+*Išsišakojimo kraštai* – vieną žinutę siunčia keliems tikslams.
 
-*Surinkimo (fan-in) kraštai* – renka kelis pranešimus iš skirtingų vykdytojų ir siunčia vienam tikslui.
+*Susijungimo kraštai* – surenka kelias žinutes iš skirtingų vykdytojų ir siunčia vienam tikslui.
 
 **Įvykiai**
 
-Geram darbo procesų stebimumui MAF siūlo įmontuotus vykdymo įvykius kaip:
+Siekiant geresnio stebimumo darbų eigose, MAF siūlo integruotus vykdymo įvykius, įskaitant:
 
-- `WorkflowStartedEvent`  - prasideda darbo proceso vykdymas
-- `WorkflowOutputEvent` - darbo procesas pateikia išvestį
-- `WorkflowErrorEvent` - darbo procese įvyksta klaida
+- `WorkflowStartedEvent`  - prasideda darbo eigos vykdymas
+- `WorkflowOutputEvent` - darbo eiga generuoja išvestį
+- `WorkflowErrorEvent` - darbo eiga susiduria su klaida
 - `ExecutorInvokeEvent`  - vykdytojas pradeda apdorojimą
-- `ExecutorCompleteEvent`  -  vykdytojas užbaigia apdorojimą
-- `RequestInfoEvent` - įvykdoma užklausa
+- `ExecutorCompleteEvent`  -  vykdytojas baigia apdorojimą
+- `RequestInfoEvent` - vykdoma užklausa
 
-## Migracija iš kitų pagrindų (Semantic Kernel ir AutoGen)
+## Pažangūs MAF modeliai
 
-### Skirtumai tarp MAF ir Semantic Kernel
+Aukščiau aprašytos pagrindinės Microsoft Agent Framework sąvokos. Kuriant sudėtingesnius agentus, čia pateikiami kai kurie pažangūs modeliai, kuriuos verta apsvarstyti:
 
-**Agentų kūrimo supaprastinimas**
+- **Tarpinių sluoksnių sudėtis**: susieti kelis tarpinio programavimo tvarkyklius (registravimą, autentifikavimą, greičio ribojimą) naudojant funkcijų ir pokalbių tarpinį programavimą, kad būtų galima tiksliau valdyti agentų elgseną.
+- **Darbų eigų atkūrimas**: naudoti darbo eigos įvykius ir serializaciją ilgai trunkančioms agentų užduotims saugoti ir tęsti.
+- **Dinaminis įrankių atrinkimas**: derinti RAG pagal įrankių aprašymus su MAF įrankių registracija, kad būtų pateikti tik aktualūs įrankiai kiekvienam užklausai.
+- **Daugiagentų perdavimas**: naudoti darbo eigos kraštus ir sąlyginį maršrutavimą specializuotų agentų perdavimų orkestracijai.
 
-Semantic Kernel reikalauja sukurti Kernel egzempliorių kiekvienam agentui. MAF naudoja supaprastintą požiūrį, naudodama plėtinius pagrindiniams tiekėjams.
+## Kodo pavyzdžiai
 
-```python
-agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at reccomending trips to customers based on their preferences.", name="TripRecommender" )
-```
+Microsoft Agent Framework kodo pavyzdžius rasite šiame saugykloje `xx-python-agent-framework` ir `xx-dotnet-agent-framework` failuose.
 
-**Agentų gijų kūrimas**
+## Ar turite daugiau klausimų apie Microsoft Agent Framework?
 
-Semantic Kernel reikalauja gijas kurti rankiniu būdu. MAF agentui tiesiogiai priskiria giją.
-
-```python
-thread = agent.get_new_thread() # Paleiskite agentą su gija.
-```
-
-**Įrankių registracija**
-
-Semantic Kernel įrankiai registruojami Kernelyje, kuris perduodamas agentui. MAF įrankiai registruojami tiesiogiai agento kūrimo metu.
-
-```python
-agent = ChatAgent( chat_client=OpenAIChatClient(), instructions="You are a helpful assistant", tools=[get_attractions]
-```
-
-### Skirtumai tarp MAF ir AutoGen
-
-**Komandos prieš darbo procesus**
-
-„Teams“ yra AutoGen įvykių struktūra agentų įvykių veiklai. MAF naudoja „Workflows“, kurie nukreipia duomenis vykdytojams per grafų architektūrą.
-
-**Įrankių kūrimas**
-
-AutoGen naudoja `FunctionTool`, kad apvyniotų funkcijas agentų iškvietimui. MAF naudoja @ai_function, kuri veikia panašiai bet taip pat automatiškai nuspėja kiekvienos funkcijos schemas.
-
-**Agentų elgsena**
-
-Agentai pagal nutylėjimą AutoGen yra vienapotinkiniai, nebent `max_tool_iterations` nustatytas didesnis. MAF `ChatAgent` yra daugapotinkinis pagal nutylėjimą, reiškiantis, kad jis nuolat kviečia įrankius tol, kol vartotojo užduotis bus užbaigta.
-
-## Kodo pavyzdžiai 
-
-„Microsoft Agent Framework“ kodo pavyzdžius rasite šiame saugykloje po failais `xx-python-agent-framework` ir `xx-dotnet-agent-framework`.
-
-## Turite daugiau klausimų apie „Microsoft Agent Framework“?
-
-Prisijunkite prie [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kad susipažintumėte su kitais besimokančiais, dalyvautumėte biurų valandose ir gautumėte atsakymus į savo AI agentų klausimus.
+Prisijunkite prie [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kad susitiktumėte su kitais besimokančiais, dalyvautumėte valandose ir gautumėte atsakymus į savo DI agentų klausimus.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Atsakomybės apribojimas**:
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, atkreipkite dėmesį, kad automatizuoti vertimai gali turėti klaidų ar netikslumų. Pirminis dokumentas jo gimtąja kalba yra laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojamas profesionalus žmogaus atliktas vertimas. Mes neatsakome už bet kokius nesusipratimus ar klaidingus aiškinimus, kilusius dėl šio vertimo naudojimo.
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatizuoti vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama naudoti profesionalų žmogaus vertimą. Mes neatsakome už bet kokius nesusipratimus ar neteisingus interpretavimus, kilusius naudojantis šiuo vertimu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
