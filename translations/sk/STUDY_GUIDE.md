@@ -1,67 +1,66 @@
-# AI agenti pre začiatočníkov - študijný sprievodca a súhrn kurzu
+# AI Agenti pre Začiatočníkov - Študijný Sprievodca a Súhrn Kurzu
 
-Tento sprievodca poskytuje súhrn kurzu "AI agenti pre začiatočníkov" a vysvetľuje kľúčové koncepty, rámce a návrhové vzory pre budovanie AI agentov.
+Tento sprievodca poskytuje zhrnutie kurzu "AI Agenti pre Začiatočníkov" a vysvetľuje kľúčové koncepty, rámce a návrhové vzory na tvorbu AI Agentov.
 
-## 1. Úvod do AI agentov
+## 1. Úvod do AI Agentov
 
-**Čo sú AI agenti?**
-AI agenti sú systémy, ktoré rozširujú schopnosti veľkých jazykových modelov (LLM) tým, že im umožňujú prístup k **nástrojom**, **znalostiam** a **pamäti**. Na rozdiel od bežného chatbotu založeného na LLM, ktorý len generuje text na základe tréningových dát, AI agent dokáže:
-- **Vnímať** svoje prostredie (pomocou senzorov alebo vstupov).
-- **Rozmýšľať** nad tým, ako vyriešiť problém.
-- **Konať**, aby zmenil prostredie (pomocou akčných členov alebo vykonávania nástrojov).
+**Čo sú AI Agenti?**
+AI Agenti sú systémy, ktoré rozširujú schopnosti Veľkých Jazykových Modelov (LLM) tým, že im dávajú prístup k **nástrojom**, **vedomostiam** a **pamäti**. Na rozdiel od štandardného chatbotu založeného na LLM, ktorý iba generuje text na základe tréningových dát, AI Agent môže:
+- **Vnímať** svoje prostredie (cez senzory alebo vstupy).
+- **Rozmýšľať** o tom, ako vyriešiť problém.
+- **Konať** na zmenu prostredia (cez aktuátory alebo vykonávanie nástrojov).
 
 **Kľúčové komponenty agenta:**
 - **Prostredie**: Priestor, kde agent pôsobí (napr. rezervačný systém).
-- **Senzory**: Mechanizmy na zbieranie informácií (napr. čítanie API).
-- **Akčné členy**: Mechanizmy na vykonávanie akcií (napr. odosielanie e-mailu).
-- **Mozog (LLM)**: Rozhodovací motor, ktorý plánuje a rozhoduje, aké akcie vykonať.
+- **Senzory**: Mechanizmy na získavanie informácií (napr. čítanie API).
+- **Aktuátory**: Mechanizmy na vykonávanie akcií (napr. odoslanie emailu).
+- **Mozog (LLM)**: Rozhodovací engine, ktorý plánuje a rozhoduje, aké akcie vykonať.
 
-## 2. Agentné rámce
+## 2. Agentové Rámce
 
-Kurz pokrýva tri hlavné rámce na budovanie agentov:
+Kurz používa **Microsoft Agent Framework (MAF)** s **Azure AI Foundry Agent Service V2** na tvorbu agentov:
 
-| Rámec | Zameranie | Najvhodnejšie pre |
-|-----------|-------|----------|
-| **Semantic Kernel** | Produkčne pripravené SDK pre .NET/Python | Podnikové aplikácie, integrácia AI s existujúcim kódom. |
-| **AutoGen** | Spolupráca viacerých agentov | Zložité scenáre vyžadujúce viacerých špecializovaných agentov komunikujúcich medzi sebou. |
-| **Azure AI Agent Service** | Spravovaná cloud služba | Bezpečné, škálovateľné nasadenie so zabudovaným manažmentom stavu. |
+| Komponent | Zameranie | Najvhodnejšie pre |
+|-----------|-----------|-------------------|
+| **Microsoft Agent Framework** | Unified Python/C# SDK pre agentov, nástroje a workflowy | Tvorbu agentov s nástrojmi, multi-agentné workflowy a produkčné vzory. |
+| **Azure AI Foundry Agent Service** | Spravovaná cloudová runtime | Bezpečné, škálovateľné nasadenie s zabudovaným manažmentom stavu, observabilitou a dôverou. |
 
-## 3. Agentné návrhové vzory
+## 3. Agentové Návrhové Vzory
 
-Návrhové vzory pomáhajú štruktúrovať fungovanie agentov tak, aby spoľahlivo riešili problémy.
+Návrhové vzory pomáhajú štruktúrovať, ako agenti fungujú na spoľahlivé riešenie problémov.
 
-### **Návrhový vzor použitia nástrojov** (Lekcia 4)
-Tento vzor umožňuje agentom interagovať s vonkajším svetom.
-- **Koncept**: Agent dostane "schému" (zoznam dostupných funkcií a ich parametrov). LLM rozhoduje, *ktorý* nástroj použiť a s *akými* argumentmi na základe požiadavky používateľa.
-- **Tok**: Požiadavka používateľa -> LLM -> **Výber nástroja** -> **Vykonanie nástroja** -> LLM (s výstupom z nástroja) -> Konečná odpoveď.
-- **Použitie**: Získavanie aktuálnych dát (počasie, ceny akcií), vykonávanie výpočtov, spúšťanie kódu.
+### **Vzorec Použitia Nástroja** (Lekcia 4)
+Tento vzorec umožňuje agentom komunikovať s vonkajším svetom.
+- **Koncept**: Agent má k dispozícii "schému" (zoznam dostupných funkcií a ich parametrov). LLM sa rozhoduje, *ktorý* nástroj zavolať a *s akými* argumentami na základe požiadavky používateľa.
+- **Priebeh**: Požiadavka používateľa -> LLM -> **Výber nástroja** -> **Vykonanie nástroja** -> LLM (s výstupom nástroja) -> Konečná odpoveď.
+- **Použitia**: Získavanie reálnych dát (počasie, ceny akcií), vykonávanie výpočtov, spúšťanie kódu.
 
-### **Návrhový vzor plánovania** (Lekcia 7)
-Tento vzor umožňuje agentom riešiť zložité, viacstupňové úlohy.
-- **Koncept**: Agent rozkladá všeobecný cieľ na postupnosť menších podúloh.
+### **Vzorec Plánovania** (Lekcia 7)
+Tento vzorec umožňuje agentom riešiť komplexné, viacstupňové úlohy.
+- **Koncept**: Agent rozkladá vysokú úlohu na postupnosť menších podúloh.
 - **Prístupy**:
-  - **Dezaggregácia úlohy**: Rozdelenie "Naplánuj cestu" na "Rezervuj let", "Rezervuj hotel", "Požičiavka auta".
-  - **Iteratívne plánovanie**: Prehodnocovanie plánu na základe výstupov predchádzajúcich krokov (napr. ak je let plný, vybrať iný dátum).
-- **Implementácia**: Často zahŕňa "planner" agenta, ktorý generuje štruktúrovaný plán (napr. JSON), ktorý následne vykonávajú ostatní agenti.
+  - **Decompozícia úloh**: Rozdelenie "Naplánuj výlet" na "Zarezervuj let", "Zarezervuj hotel", "Požičiavanie auta".
+  - **Iteratívne plánovanie**: Prehodnocovanie plánu podľa výsledkov predchádzajúcich krokov (napr. ak je let plný, vybrať iný dátum).
+- **Implementácia**: Často zahŕňa "Planner" agenta, ktorý generuje štruktúrovaný plán (napr. JSON), ktorý je potom vykonaný inými agentmi.
 
 ## 4. Návrhové princípy
 
 Pri návrhu agentov zvážte tri dimenzie:
-- **Priestor**: Agenti by mali prepájať ľudí so znalosťami, byť prístupní, ale nenápadní.
-- **Čas**: Agenti by sa mali učiť z *minulosti*, poskytovať vhodné podnety *teraz* a prispôsobovať sa pre *budúcnosť*.
-- **Jadro**: Prijmite neistotu, ale vybudujte dôveru prostredníctvom transparentnosti a kontroly používateľa.
+- **Priestor**: Agenti by mali spájať ľudí a vedomosti, byť prístupní ale nenápadní.
+- **Čas**: Agenti by sa mali učiť z *minulosti*, poskytovať relevantné podnety *teraz* a prispôsobovať sa *budúcnosti*.
+- **Jadro**: Prijmite neistotu, ale budujte dôveru cez transparentnosť a kontrolu používateľa.
 
-## 5. Súhrn kľúčových lekcií
+## 5. Súhrn Kľúčových Lekcií
 
-- **Lekcia 1**: Agenti sú systémy, nielen modely. Vnímajú, rozmýšľajú a konajú.
-- **Lekcia 2**: Rámce ako Semantic Kernel a AutoGen zjednodušujú volanie nástrojov a manažment stavu.
-- **Lekcia 3**: Navrhujte s ohľadom na transparentnosť a kontrolu používateľa.
+- **Lekcia 1**: Agenti sú systémy, nie len modely. Vnímajú, rozmýšľajú a konajú.
+- **Lekcia 2**: Microsoft Agent Framework abstrahuje komplexnosť volania nástrojov a manažmentu stavu.
+- **Lekcia 3**: Navrhujte s transparentnosťou a kontrolou používateľa na mysli.
 - **Lekcia 4**: Nástroje sú "ruky" agenta. Definícia schémy je kľúčová, aby LLM vedel, ako ich používať.
-- **Lekcia 7**: Plánovanie je "výkonná funkcia" agenta, ktorá mu umožňuje riešiť zložité pracovné toky.
+- **Lekcia 7**: Plánovanie je "výkonná funkcia" agenta, ktorá mu umožňuje zvládať komplexné workflowy.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Zrieknutie sa zodpovednosti**:
-Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Aj keď sa snažíme o presnosť, berte prosím na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho rodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne výklady vyplývajúce z použitia tohto prekladu.
+**Upozornenie**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Aj keď sa snažíme o presnosť, prosím vezmite na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre dôležité informácie sa odporúča profesionálny ľudský preklad. Nezodpovedáme za žiadne nedorozumenia alebo nesprávne výklady vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

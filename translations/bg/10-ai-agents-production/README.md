@@ -1,83 +1,89 @@
-# AI Agents in Production: Observability & Evaluation
+# AI агенти в продукция: наблюдаемост и оценка
 
-[![AI агенти в производство](../../../translated_images/bg/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI агенти в продукция](../../../translated_images/bg/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-As AI agents move from experimental prototypes to real-world applications, the ability to understand their behavior, monitor their performance, and systematically evaluate their outputs becomes important.
+Когато AI агентите се преместват от експериментални прототипи към реални приложения, способността да се разбира тяхното поведение, да се наблюдава тяхната производителност и систематично да се оценяват техните изходи става важна.
 
-## Learning Goals
+## Учебни цели
 
-After completing this lesson, you will know how to/understand:
-- Core concepts of agent observability and evaluation
-- Techniques for improving the performance, costs, and effectiveness of agents
-- What and how to evaluate your AI agents systematically
-- How to control costs when deploying AI agents to production
-- How to instrument agents built with AutoGen
+След завършване на този урок ще знаете/разберете:
+- Основни концепции за наблюдаемостта и оценката на агенти
+- Техники за подобряване на производителността, разходите и ефективността на агентите
+- Какво и как да оценявате вашите AI агенти систематично
+- Как да контролирате разходите при внедряване на AI агенти в продукция
+- Как да инструментализирате агенти, изградени с Microsoft Agent Framework
 
-The goal is to equip you with the knowledge to transform your "black box" agents into transparent, manageable, and dependable systems.
+Целта е да ви предостави знанията, необходими да трансформирате вашите „черни кутии“ агенти в прозрачни, управляеми и надеждни системи.
 
-_**Забележка:** Важно е да внедрявате AI агрегати, които са сигурни и надеждни. Вижте и урока [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md)._
+_**Забележка:** Важно е да внедрявате AI агенти, които са безопасни и надеждни. Вижте и урока [Изграждане на надеждни AI агенти](./06-building-trustworthy-agents/README.md)._
 
-## Следи и спанове
+## Трейсове и спанове
 
-Observability tools such as [Langfuse](https://langfuse.com/) or [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) usually represent agent runs as traces and spans.
+Наблюдателни инструменти като [Langfuse](https://langfuse.com/) или [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) обикновено представят изпълненията на агента като трейсове и спанове.
 
-- **Trace** represents a complete agent task from start to finish (like handling a user query).
-- **Spans** are individual steps within the trace (like calling a language model or retrieving data).
+- **Трейс** представлява цяла задача на агента от началото до края (например обработка на потребителско запитване).
+- **Спанове** са отделни стъпки в трейса (например извикване на езиков модел или извличане на данни).
 
-![Дърво на следите в Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+![Дърво на проследяването в Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+<!-- Image URL retained for illustration purposes -->
 
-Without observability, an AI agent can feel like a "black box" - its internal state and reasoning are opaque, making it difficult to diagnose issues or optimize performance. With observability, agents become "glass boxes," offering transparency that is vital for building trust and ensuring they operate as intended. 
+Без наблюдаемост AI агентът може да се усеща като „черна кутия“ — неговото вътрешно състояние и разсъждения са непрозрачни, което затруднява диагностицирането на проблеми или оптимизацията на изпълнението. С наблюдаемост агентите се превръщат в „стъклени кутии“, предлагайки прозрачност, която е жизненоважна за изграждане на доверие и гарантиране, че те работят както се очаква.
 
-## Why Observability Matters in Production Environments
+## Защо наблюдаемостта има значение в продукционни среди
 
-Transitioning AI agents to production environments introduces a new set of challenges and requirements. Observability is no longer a "nice-to-have" but a critical capability:
+Преместването на AI агенти в продукция въвежда нов набор от предизвикателства и изисквания. Наблюдаемостта вече не е „удобство“, а критична способност:
 
-*   **Debugging and Root-Cause Analysis**: When an agent fails or produces an unexpected output, observability tools provide the traces needed to pinpoint the source of the error. This is especially important in complex agents that might involve multiple LLM calls, tool interactions, and conditional logic.
-*   **Latency and Cost Management**: AI agents often rely on LLMs and other external APIs that are billed per token or per call. Observability allows for precise tracking of these calls, helping to identify operations that are excessively slow or expensive. This enables teams to optimize prompts, select more efficient models, or redesign workflows to manage operational costs and ensure a good user experience.
-*   **Trust, Safety, and Compliance**: In many applications, it's important to ensure that agents behave safely and ethically. Observability provides an audit trail of agent actions and decisions. This can be used to detect and mitigate issues like prompt injection, the generation of harmful content, or the mishandling of personally identifiable information (PII). For example, you can review traces to understand why an agent provided a certain response or used a specific tool.
-*   **Continuous Improvement Loops**: Observability data is the foundation of an iterative development process. By monitoring how agents perform in the real world, teams can identify areas for improvement, gather data for fine-tuning models, and validate the impact of changes. This creates a feedback loop where production insights from online evaluation inform offline experimentation and refinement, leading to progressively better agent performance.
+*   **Отстраняване на грешки и анализ на коренната причина**: Когато агентът се провали или произведе неочакван изход, инструментите за наблюдаемост предоставят трейсовете, необходими за локализиране на източника на грешката. Това е особено важно при сложни агенти, които могат да включват множество извиквания на LLM, взаимодействия с инструменти и условна логика.
+*   **Управление на латентността и разходите**: AI агентите често разчитат на LLM и други външни API, които се таксуват на токен или на извикване. Наблюдаемостта позволява точно проследяване на тези извиквания, което помага да се идентифицират операции, които са прекалено бавни или скъпи. Това дава възможност на екипите да оптимизират подсказките, да изберат по-ефективни модели или да преразгледат работните потоци за управление на оперативните разходи и осигуряване на добро потребителско изживяване.
+*   **Доверие, безопасност и съответствие**: В много приложения е важно да се гарантира, че агентите се държат безопасно и етично. Наблюдаемостта предоставя одиторска следа на действията и решенията на агента. Тази следа може да се използва за откриване и смекчаване на проблеми като prompt injection, генериране на вредно съдържание или неправилно боравене с лично идентифицируема информация (PII). Например, можете да прегледате трейсове, за да разберете защо агентът е дал определен отговор или е използвал специфичен инструмент.
+*   **Цикли за непрекъснато подобряване**: Данните от наблюдаемостта са основата на итеративния процес на разработка. Чрез наблюдение на представянето на агентите в реалния свят, екипите могат да идентифицират области за подобрение, да съберат данни за донастройване на модели и да валидират въздействието на промените. Това създава обратна връзка, при която прозренията от онлайн оценка в продукция информират офлайн експериментирането и усъвършенстването, водейки до постепенно по-добро представяне на агентите.
 
-## Key Metrics to Track
+## Ключови метрики за проследяване
 
-To monitor and understand agent behavior, a range of metrics and signals should be tracked. While the specific metrics might vary based on the agent's purpose, some are universally important.
+За да наблюдавате и разберете поведението на агента, трябва да проследявате набор от метрики и сигнали. Докато специфичните метрики могат да варират в зависимост от предназначението на агента, някои са универсално важни.
 
-Here are some of the most common metrics that observability tools monitor:
+Ето някои от най-често срещаните метрики, които инструментите за наблюдаемост следят:
 
-**Latency:** How quickly does the agent respond? Long waiting times negatively impact user experience. You should measure latency for tasks and individual steps by tracing agent runs. For example, an agent that takes 20 seconds for all model calls could be accelerated by using a faster model or by running model calls in parallel.
+**Латентност:** Колко бързо отговаря агентът? Дългите времена на изчакване негативно влияят на потребителското изживяване. Трябва да измервате латентността за задачи и отделни стъпки чрез проследяване на изпълненията на агента. Например агент, който отнема 20 секунди за всички извиквания на модел, може да бъде ускорен чрез използване на по-бърз модел или чрез паралелно изпълнение на извикванията.
 
-**Costs:** What’s the expense per agent run? AI agents rely on LLM calls billed per token or external APIs. Frequent tool usage or multiple prompts can rapidly increase costs. For instance, if an agent calls an LLM five times for marginal quality improvement, you must assess if the cost is justified or if you could reduce the number of calls or use a cheaper model. Real-time monitoring can also help identify unexpected spikes (e.g., bugs causing excessive API loops).
+**Разходи:** Какъв е разходът на изпълнение на агента? AI агентите разчитат на извиквания на LLM, таксувани на токен, или външни API. Честата употреба на инструменти или множество подсказки може бързо да увеличи разходите. Например, ако агент извиква LLM пет пъти за минимално подобрение в качеството, трябва да оцените дали разходът е оправдан или можете да намалите броя на извикванията или да използвате по-евтин модел. Мониторинг в реално време може също да помогне да се идентифицират неочаквани скокове (напр. бъгове, причиняващи прекомерни API цикли).
 
-**Request Errors:** How many requests did the agent fail? This can include API errors or failed tool calls. To make your agent more robust against these in production, you can then set up fallbacks or retries. E.g. if LLM provider A is down, you switch to LLM provider B as backup.
+**Грешки при заявки:** Колко заявки са се провалили? Това може да включва грешки от API или неуспешни извиквания на инструменти. За да направите агента си по-устойчив в продукция, можете да добавите резервни варианти или повторни опити. Например ако доставчикът на LLM A е недостъпен, превключете на доставчик B като резервен.
 
-**User Feedback:** Implementing direct user evaluations provide valuable insights. This can include explicit ratings (👍палец нагоре/👎надолу, ⭐1-5 звезди) or textual comments. Consistent negative feedback should alert you as this is a sign that the agent is not working as expected. 
+**Обратна връзка от потребителите:** Имплементирането на директни потребителски оценки предоставя ценни прозрения. Това може да включва явни оценки (👍thumbs-up/👎down, ⭐1-5 звезди) или текстови коментари. Последователната негативна обратна връзка трябва да ви алармира, тъй като това е признак, че агентът не функционира както се очаква.
 
-**Implicit User Feedback:** User behaviors provide indirect feedback even without explicit ratings. This can include immediate question rephrasing, repeated queries or clicking a retry button. E.g. if you see that users repeatedly ask the same question, this is a sign that the agent is not working as expected.
+**Неявна обратна връзка от потребителите:** Поведението на потребителите дава индиректна обратна връзка дори без явни оценки. Това може да включва незабавно преформулиране на въпрос, повторни запитвания или натискане на бутон за опит отново. Например ако виждате, че потребителите повтарят един и същи въпрос, това е знак, че агентът не работи както се очаква.
 
-**Accuracy:** How frequently does the agent produce correct or desirable outputs? Accuracy definitions vary (e.g., problem-solving correctness, information retrieval accuracy, user satisfaction). The first step is to define what success looks like for your agent. You can track accuracy via automated checks, evaluation scores, or task completion labels. For example, marking traces as "succeeded" or "failed". 
+**Точност:** Колко често агентът произвежда правилни или желани резултати? Дефинициите за точност варират (например правилност при решаване на проблеми, точност при извличане на информация, удовлетвореност на потребителя). Първата стъпка е да дефинирате как изглежда успехът за вашия агент. Можете да проследявате точността чрез автоматизирани проверки, оценъчни резултати или маркиране на изпълнения като завършени задачи. Например маркиране на трейсове като "succeeded" или "failed".
 
-**Automated Evaluation Metrics:** You can also set up automated evals. For instance, you can use an LLM to score the output of the agent e.g. if it is helpful, accurate, or not. There are also several open source libraries that help you to score different aspects of the agent. E.g. [RAGAS](https://docs.ragas.io/) for RAG agents or [LLM Guard](https://llm-guard.com/) to detect harmful language or prompt injection. 
+**Автоматизирани метрики за оценка:** Можете също да настроите автоматизирани оценки. Например можете да използвате LLM за оценка на изхода на агента, напр. дали е полезен, точен или не. Съществуват и няколко отворени библиотеки с код с които можете да оцените различни аспекти на агента. Например [RAGAS](https://docs.ragas.io/) за RAG агенти или [LLM Guard](https://llm-guard.com/) за откриване на вреден език или prompt injection.
 
-In practice, a combination of these metrics gives the best coverage of an AI agent’s health. In this chapters [example notebook](./code_samples/10_autogen_evaluation.ipynb), we'll show you how these metrics looks in real examples but first, we'll learn how a typical evaluation workflow looks like.
+На практика комбинация от тези метрики дава най-добро покритие на здравето на AI агента. В [примерния бележник](./code_samples/10-expense_claim-demo.ipynb) от тази глава ще ви покажем как тези метрики изглеждат в реални примери, но първо ще научим как изглежда типичният работен процес за оценка.
 
-## Instrument your Agent
+## Инструментализирайте своя агент
 
-To gather tracing data, you’ll need to instrument your code. The goal is to instrument the agent code to emit traces and metrics that can be captured, processed, and visualized by an observability platform.
+За да събирате данни за проследяване, ще трябва да инструментализирате кода си. Целта е да инструментализирате кода на агента, така че да излъчва трейсове и метрики, които могат да бъдат улавяни, обработвани и визуализирани от платформа за наблюдаемост.
 
-**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) has emerged as an industry standard for LLM observability. It provides a set of APIs, SDKs, and tools for generating, collecting, and exporting telemetry data. 
+**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) се утвърди като индустриален стандарт за наблюдаемост на LLM. Той предоставя набор от API, SDK и инструменти за генериране, събиране и експортиране на телеметрични данни. 
 
-There are many instrumentation libraries that wrap existing agent frameworks and make it easy to export OpenTelemetry spans to an observability tool. Below is an example on instrumenting an AutoGen agent with the [OpenLit instrumentation library](https://github.com/openlit/openlit):
+Съществуват много библиотеки за инструментализация, които обгръщат съществуващи фреймуъркове за агенти и улесняват експортирането на OpenTelemetry спанове към инструмент за наблюдаемост. Microsoft Agent Framework се интегрира с OpenTelemetry нативно. По-долу е пример за инструментализиране на MAF агент:
 
 ```python
-import openlit
+from agent_framework.observability import get_tracer, get_meter
 
-openlit.init(tracer = langfuse._otel_tracer, disable_batch = True)
+tracer = get_tracer()
+meter = get_meter()
+
+with tracer.start_as_current_span("agent_run"):
+    # Изпълнението на агента се проследява автоматично
+    pass
 ```
 
-The [example notebook](./code_samples/10_autogen_evaluation.ipynb) in this chapter will demonstrate how to instrument your AutoGen agent.
+[примерният бележник](./code_samples/10-expense_claim-demo.ipynb) в тази глава ще демонстрира как да инструментализирате вашия MAF агент.
 
-**Manual Span Creation:** While instrumentation libraries provides a good baseline, there are often cases where more detailed or custom information is needed. You can manually create spans to add custom application logic. More importantly, they can enrich automatically or manually created spans with custom attributes (also known as tags or metadata). These attributes can include business-specific data, intermediate computations, or any context that might be useful for debugging or analysis, such as `user_id`, `session_id`, or `model_version`.
+**Ръчно създаване на спанове:** Въпреки че библиотеките за инструментализация предоставят добра основа, често има случаи, в които е необходима по-подробна или персонализирана информация. Можете ръчно да създавате спанове, за да добавите персонална бизнес логика. Още по-важно е, че те могат да обогатяват автоматично или ръчно създадените спанове с персонализирани атрибути (известни още като тагове или метаданни). Тези атрибути могат да включват данни, специфични за бизнеса, междинни изчисления или всеки контекст, който може да бъде полезен за отстраняване на грешки или анализ, като `user_id`, `session_id` или `model_version`.
 
-Example on creating traces and spans manually with the [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3): 
+Пример за ръчно създаване на трейсове и спанове с [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3): 
 
 ```python
 from langfuse import get_client
@@ -89,84 +95,84 @@ span = langfuse.start_span(name="my-span")
 span.end()
 ```
 
-## Agent Evaluation
+## Оценка на агента
 
-Observability gives us metrics, but evaluation is the process of analyzing that data (and performing tests) to determine how well an AI agent is performing and how it can be improved. In other words, once you have those traces and metrics, how do you use them to judge the agent and make decisions? 
+Наблюдаемостта ни дава метрики, но оценката е процесът на анализ на тези данни (и провеждане на тестове), за да се определи колко добре се представя AI агентът и как може да бъде подобрен. С други думи, след като разполагате с трейсовете и метриките, как ги използвате, за да прецените агента и да вземете решения?
 
-Regular evaluation is important because AI agents are often non-deterministic and can evolve (through updates or drifting model behavior) – without evaluation, you wouldn’t know if your “smart agent” is actually doing its job well or if it’s regressed.
+Редовната оценка е важна, защото AI агентите често са недетерминистични и могат да еволюират (чрез актуализации или дрейф в поведението на модела) – без оценка няма да знаете дали вашият „умен агент“ наистина върши работата си добре или е регресирал.
 
-There are two categories of evaluations for AI agents: **online evaluation** and **offline evaluation**. Both are valuable, and they complement each other. We usually begin with offline evaluation, as this is the minimum necessary step before deploying any agent.
+Има два типа оценки за AI агенти: **онлайн оценка** и **офлайн оценка**. И двете са ценни и се допълват взаимно. Обикновено започваме с офлайн оценка, тъй като това е минимумът, необходим преди внедряване на всеки агент.
 
-### Offline Evaluation
+### Офлайн оценка
 
 ![Елементи от набора данни в Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-This involves evaluating the agent in a controlled setting, typically using test datasets, not live user queries. You use curated datasets where you know what the expected output or correct behavior is, and then run your agent on those. 
+Това включва оценяване на агента в контролирана среда, обикновено използвайки тестови набори от данни, а не живи потребителски запитвания. Използвате курирани набори от данни, за които знаете какъв е очакваният изход или правилното поведение, и след това пускате агента върху тях.
 
-For instance, if you built a math word-problem agent, you might have a [test dataset](https://huggingface.co/datasets/gsm8k) of 100 problems with known answers. Offline evaluation is often done during development (and can be part of CI/CD pipelines) to check improvements or guard against regressions. The benefit is that it’s **repeatable and you can get clear accuracy metrics since you have ground truth**. You might also simulate user queries and measure the agent’s responses against ideal answers or use automated metrics as described above. 
+Например, ако сте изградили агент за решаване на математически задачи от думи, може да имате [тестов набор от данни](https://huggingface.co/datasets/gsm8k) от 100 задачи с известни отговори. Офлайн оценката често се прави по време на разработка (и може да бъде част от CI/CD процесите) за проверка на подобрения или за предпазване от регресии. Предимството е, че е **повторима и можете да получите ясни метрики за точност, тъй като имате ground truth**. Можете също да симулирате потребителски запитвания и да измерите отговорите на агента спрямо идеални отговори или да използвате автоматизирани метрики, описани по-горе.
 
-The key challenge with offline eval is ensuring your test dataset is comprehensive and stays relevant – the agent might perform well on a fixed test set but encounter very different queries in production. Therefore, you should keep test sets updated with new edge cases and examples that reflect real-world scenarios​. A mix of small “smoke test” cases and larger evaluation sets is useful: small sets for quick checks and larger ones for broader performance metrics​.
+Ключовото предизвикателство при офлайн оценката е да осигурите, че вашият тестов набор е пълен и остава релевантен – агентът може да се представя добре на фиксиран тестов набор, но да среща много различни запитвания в продукция. Следователно трябва да поддържате обновяване на тестовите множества с нови крайни случаи и примери, които отразяват реални сценарии. Смес от малки „smoke test“ случаи и по-големи оценъчни множества е полезна: малки множества за бързи проверки и по-големи за по-широки метрики за представяне.
 
-### Online Evaluation 
+### Онлайн оценка 
 
 ![Преглед на метриките за наблюдаемост](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-This refers to evaluating the agent in a live, real-world environment, i.e. during actual usage in production. Online evaluation involves monitoring the agent’s performance on real user interactions and analyzing outcomes continuously. 
+Това се отнася до оценяване на агента в жива, реална среда, т.е. по време на реална употреба в продукция. Онлайн оценката включва наблюдение на представянето на агента при реални потребителски взаимодействия и непрекъснат анализ на резултатите.
 
-For example, you might track success rates, user satisfaction scores, or other metrics on live traffic. The advantage of online evaluation is that it **captures things you might not anticipate in a lab setting** – you can observe model drift over time (if the agent’s effectiveness degrades as input patterns shift) and catch unexpected queries or situations that weren’t in your test data​. It provides a true picture of how the agent behaves in the wild. 
+Например можете да проследявате нива на успех, оценките за удовлетвореност на потребителите или други метрики на жив трафик. Предимството на онлайн оценката е, че тя **улавя неща, които може да не предвидите в лабораторна обстановка** – можете да наблюдавате дрейф на модела с течение на времето (ако ефективността на агента намалява, докато моделът среща различни входни модели) и да хванете неочаквани запитвания или ситуации, които не са били в тестовите ви данни. Тя предоставя истинска картина за това как агентът се държи в реални условия.
 
-Online evaluation often involves collecting implicit and explicit user feedback, as discussed, and possibly running shadow tests or A/B tests (where a new version of the agent runs in parallel to compare against the old). The challenge is that it can be tricky to get reliable labels or scores for live interactions – you might rely on user feedback or downstream metrics (like did the user click the result). 
+Онлайн оценката често включва събиране на неявна и явна потребителска обратна връзка, както бе обсъдено, и евентуално провеждане на shadow тестове или A/B тестове (където нова версия на агента работи паралелно за сравнение с предишната). Предизвикателството е, че може да бъде трудно да получите надеждни етикети или оценки за живи взаимодействия – може да разчитате на обратната връзка на потребителите или на производни метрики (например дали потребителят е кликнал резултата).
 
-### Combining the two
+### Комбиниране на двете
 
-Online and offline evaluations are not mutually exclusive; they are highly complementary. Insights from online monitoring (e.g., new types of user queries where the agent performs poorly) can be used to augment and improve offline test datasets. Conversely, agents that perform well in offline tests can then be more confidently deployed and monitored online. 
+Онлайн и офлайн оценките не са взаимно изключващи се; те се допълват взаимно. Прозренията от онлайн мониторинга (напр. нови типове потребителски запитвания, където агентът се представя слабо) могат да се използват за обогатяване и подобрение на офлайн тестовите множества. Обратно, агенти, които се представят добре в офлайн тестове, могат по-уверено да бъдат внедрени и следени онлайн.
 
-In fact, many teams adopt a loop: 
+Всъщност много екипи възприемат цикъл:
 
-_оценявайте офлайн -> внедрете -> наблюдавайте онлайн -> събирайте нови случаи на грешки -> добавяйте към офлайн набора -> усъвършенствайте агента -> повтаряйте_.
+_оценявайте офлайн -> внедрявайте -> наблюдавайте онлайн -> събирайте нови случаи на грешки -> добавяйте към офлайн набора -> усъвършенствайте агента -> повтаряйте_.
 
-## Common Issues
+## Общи проблеми
 
-As you deploy AI agents to production, you may encounter various challenges. Here are some common issues and their potential solutions:
+Когато внедрявате AI агенти в продукция, може да срещнете различни предизвикателства. Ето някои общи проблеми и техните потенциални решения:
 
-| **Проблема**    | **Възможно решение**   |
+| **Проблем**    | **Възможно решение**   |
 | ------------- | ------------------ |
-| AI Agent not performing tasks consistently | - Прецизирайте подсказката, дадена на AI агента; бъдете ясни относно целите.<br>- Идентифицирайте случаи, в които разделянето на задачите на подзадачи и обработката им от няколко агента може да помогне. |
-| AI Agent running into continuous loops  | - Уверете се, че имате ясни условия за прекратяване, така че агентът да знае кога да спре процеса.<br>- За сложни задачи, които изискват разсъждение и планиране, използвайте по-голям модел, специализиран за разсъждателни задачи. |
-| AI Agent tool calls are not performing well   | - Тествайте и валидирайте изхода на инструмента извън системата на агента.<br>- Прецизирайте дефинираните параметри, подсказките и имената на инструментите.  |
-| Multi-Agent system not performing consistently | - Прецизирайте подсказките за всеки агент, за да сте сигурни, че са специфични и различни помежду си.<br>- Изградете йерархична система, използвайки "routing" или контролиращ агент, за да определите кой агент е правилният. |
+| AI Agent not performing tasks consistently | - Прецизирайте подсказката, дадена на AI агента; бъдете ясни относно целите.<br>- Идентифицирайте къде разделянето на задачите на подзадачи и обработката им от няколко агента може да помогне. |
+| AI Agent running into continuous loops  | - Уверете се, че имате ясни условия за прекратяване, за да знае агентът кога да спре процеса.<br>- За сложни задачи, изискващи разсъждение и планиране, използвайте по-голям модел, специализиран за задачи с разсъждение. |
+| AI Agent tool calls are not performing well   | - Тествайте и валидирайте изхода на инструмента извън системата на агента.<br>- Прецизирайте дефинираните параметри, подсказките и именуването на инструментите.  |
+| Multi-Agent system not performing consistently | - Прецизирайте подсказките, дадени на всеки агент, за да сте сигурни, че са специфични и различни един от друг.<br>- Изградете йерархична система, използвайки „routing“ или контролиращ агент, за да определите кой агент е правилният. |
 
-Many of these issues can be identified more effectively with observability in place. The traces and metrics we discussed earlier help pinpoint exactly where in the agent workflow problems occur, making debugging and optimization much more efficient.
+Много от тези проблеми могат да бъдат идентифицирани по-ефективно с налична наблюдаемост. Трейсовете и метриките, които обсъдихме по-горе, помагат точно да се посочи къде в работния поток на агента възникват проблемите, което прави отстраняването на грешки и оптимизацията много по-ефективни.
 
-## Managing Costs
-Here are some strategies to manage the costs of deploying AI agents to production:
+## Управление на разходите
+Ето някои стратегии за управление на разходите при внедряване на AI агенти в продукция:
 
-**Използване на по-малки модели:** Малките езикови модели (SLMs) могат да се представят добре при определени агентни случаи на употреба и значително да намалят разходите. Както беше споменато по-рано, изграждането на система за оценка, която да определя и сравнява представянето спрямо по-големи модели, е най-добрият начин да разберете доколко добре ще се представи SLM във вашия случай на употреба. Помислете за използване на SLMs за по-прости задачи като класификация на намерението или извличане на параметри, като запазите по-големите модели за сложни разсъждения.
+**Използване на по-малки модели:** Малките езикови модели (SLMs) могат да работят добре при определени агентни случаи на употреба и значително да намалят разходите. Както беше споменато по-рано, изграждането на система за оценка, която да определя и сравнява представянето спрямо по-големите модели, е най-добрият начин да разберете колко добре SLM ще се представи за вашия случай на употреба. Помислете за използване на SLMs за по-прости задачи като класификация на намеренията или извличане на параметри, като запазите по-големите модели за сложни задачи за разсъждение.
 
-**Използване на маршрутизиращ модел:** Подобна стратегия е да използвате разнообразие от модели и размери. Можете да използвате LLM/SLM или безсървърна функция за маршрутизиране на заявките въз основа на сложността към най-подходящите модели. Това също ще помогне за намаляване на разходите и ще осигури представянето при правилните задачи. Например, маршрутизирайте прости заявки към по-малки, по-бързи модели и използвайте скъпите големи модели само за задачи със сложно разсъждение.
+**Използване на маршрутизиращ модел:** Подобна стратегия е да използвате разнообразие от модели и размери. Можете да използвате LLM/SLM или serverless функция, за да маршрутизирате заявките въз основа на сложността към най-подходящите модели. Това също ще помогне за намаляване на разходите, като същевременно гарантира представяне при правилните задачи. Например, маршрутизирайте простите заявки към по-малки и по-бързи модели, и използвайте скъпите големи модели само за сложни задачи за разсъждение.
 
-**Кеширане на отговорите:** Идентифицирането на често срещани заявки и задачи и предоставянето на отговорите преди те да преминат през вашата агентна система е добър начин за намаляване на обема на подобни заявки. Можете дори да имплементирате поток, който да определи колко подобна е една заявка на кешираните ви заявки, използвайки по-базови AI модели. Тази стратегия може значително да намали разходите за често задавани въпроси или общи работни потоци.
+**Кеширане на отговори:** Идентифицирането на често срещани заявки и задачи и предоставянето на отговорите преди те да преминат през вашата агентна система е добър начин за намаляване на обема на подобните заявки. Можете дори да имплементирате поток за определяне колко сходна е дадена заявка с кешираните ви заявки, използвайки по-прости AI модели. Тази стратегия може значително да намали разходите за често задавани въпроси или общи работни потоци.
 
 ## Нека видим как това работи на практика
 
-В [примерната тетрадка на този раздел](./code_samples/10_autogen_evaluation.ipynb) ще видим примери за това как можем да използваме инструменти за наблюдаемост, за да наблюдаваме и оценяваме нашия агент.
+В [примерния бележник от този раздел](./code_samples/10-expense_claim-demo.ipynb), ще видим примери за това как можем да използваме инструменти за наблюдаемост, за да наблюдаваме и оценяваме нашия агент.
 
 
-### Имате още въпроси относно AI агенти в производствена среда?
+### Имате ли още въпроси относно AI агенти в продукция?
 
-Присъединете се към [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), за да се срещнете с други учащи се, да посетите консултации и да получите отговори на въпросите си за AI агентите.
+Присъединете се към [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), за да се срещнете с други участници, да посещавате консултации и да получите отговори на въпросите си за AI агенти.
 
 ## Предишен урок
 
-[Дизайн шаблон за метакогниция](../09-metacognition/README.md)
+[Дизайнерски шаблон за метакогниция](../09-metacognition/README.md)
 
 ## Следващ урок
 
-[Протоколи за агенти](../11-agentic-protocols/README.md)
+[Агентни протоколи](../11-agentic-protocols/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Отказ от отговорност:
-Този документ е преведен с помощта на услуга за превод с изкуствен интелект [Co-op Translator] (https://github.com/Azure/co-op-translator). Въпреки че се стремим към точност, моля имайте предвид, че автоматизираните преводи могат да съдържат грешки или неточности. Оригиналният документ на оригиналния му език трябва да се счита за авторитетен източник. За критична информация се препоръчва професионален човешки превод. Не носим отговорност за каквито и да е недоразумения или неправилни тълкувания, произтичащи от използването на този превод.
+**Отказ от отговорност**:
+Този документ е преведен с помощта на AI преводаческа услуга [Co-op Translator](https://github.com/Azure/co-op-translator). Въпреки че се стремим към точност, имайте предвид, че автоматизираните преводи могат да съдържат грешки или неточности. Оригиналният документ на оригиналния език трябва да се счита за авторитетен източник. За критична информация се препоръчва професионален човешки превод. Не носим отговорност за каквито и да е недоразумения или погрешни тълкувания, произтичащи от използването на този превод.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
