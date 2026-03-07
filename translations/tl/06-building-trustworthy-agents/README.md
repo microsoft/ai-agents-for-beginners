@@ -1,42 +1,42 @@
 [![Trustworthy AI Agents](../../../translated_images/tl/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(I-click ang larawan sa itaas upang panoorin ang video ng araling ito)_
+> _(I-click ang larawan sa itaas upang mapanood ang video ng araling ito)_
 
-# Pagbuo ng Mapagkakatiwalaang AI Agents
+# Pagtatayo ng Mapagkakatiwalaang AI Agents
 
 ## Panimula
 
-Tatalakayin sa araling ito:
+Saklaw ng araling ito:
 
 - Paano bumuo at mag-deploy ng ligtas at epektibong AI Agents
-- Mahahalagang konsiderasyon sa seguridad kapag nagde-develop ng AI Agents
-- Paano mapanatili ang privacy ng data at gumagamit kapag nagde-develop ng AI Agents
+- Mahahalagang konsiderasyon sa seguridad kapag nagde-develop ng AI Agents.
+- Paano mapanatili ang data at privacy ng gumagamit kapag nagde-develop ng AI Agents.
 
-## Mga Layuning Matutunan
+## Mga Layunin sa Pagkatuto
 
 Pagkatapos makumpleto ang araling ito, malalaman mo kung paano:
 
-- Tukuyin at bawasan ang mga panganib kapag lumilikha ng AI Agents
-- Magpatupad ng mga hakbang sa seguridad upang matiyak na maayos ang pamamahala ng data at access
-- Gumawa ng AI Agents na nagpoprotekta sa privacy ng data at nagbibigay ng magandang karanasan sa gumagamit
+- Tukuyin at bawasan ang mga panganib kapag lumilikha ng AI Agents.
+- Magpatupad ng mga hakbang sa seguridad upang matiyak na maayos na pinamamahalaan ang data at access.
+- Lumikha ng mga AI Agents na nagpapanatili ng data privacy at nagbibigay ng kalidad na karanasan sa gumagamit.
 
 ## Kaligtasan
 
-Unang titingnan natin ang pagbuo ng ligtas na mga aplikasyon ng agentic. Ang kaligtasan ay nangangahulugan na ang AI agent ay gumagana ayon sa disenyo. Bilang mga tagabuo ng mga agentic na aplikasyon, mayroon tayong mga pamamaraan at kagamitan upang mapalaki ang kaligtasan:
+Una, tingnan muna natin ang paggawa ng ligtas na agentic applications. Ang kaligtasan ay nangangahulugan na ang AI agent ay gumagana ayon sa disenyo. Bilang mga tagabuo ng agentic applications, mayroon tayong mga pamamaraan at kasangkapan upang mapahusay ang kaligtasan:
 
-### Pagbuo ng System Message Framework
+### Pagtatayo ng isang System Message Framework
 
-Kung nakabuo ka na ng AI application gamit ang Large Language Models (LLMs), alam mo ang kahalagahan ng pagdisenyo ng matibay na system prompt o system message. Ang mga prompt na ito ang nagtatakda ng mga meta na patakaran, mga tagubilin, at gabay kung paano makikipag-ugnayan ang LLM sa gumagamit at data.
+Kung nakabuo ka na ng AI application gamit ang Large Language Models (LLMs), alam mo ang kahalagahan ng pagdidisenyo ng matibay na system prompt o system message. Ang mga prompt na ito ay nagtatakda ng mga meta rules, mga tagubilin, at mga patnubay kung paano makikipag-ugnayan ang LLM sa gumagamit at data.
 
-Para sa AI Agents, mas mahalaga ang system prompt dahil kailangan nilang magkaroon ng napaka-especific na mga tagubilin para magawa ang mga gawain na idinisenyo para sa kanila.
+Para sa AI Agents, mas mahalaga ang system prompt dahil kailangang magkaroon ang AI Agents ng napaka-tiyak na mga tagubilin upang matapos ang mga gawaing idinisenyo para sa kanila.
 
-Upang gumawa ng scalable na mga system prompt, maaari tayong gumamit ng system message framework para bumuo ng isa o higit pang mga agent sa ating aplikasyon:
+Upang makalikha ng scalable na mga system prompt, maaari nating gamitin ang isang system message framework para bumuo ng isa o higit pang mga agent sa ating aplikasyon:
 
 ![Building a System Message Framework](../../../translated_images/tl/system-message-framework.3a97368c92d11d68.webp)
 
-#### Hakbang 1: Gumawa ng Meta System Message
+#### Hakbang 1: Lumikha ng Meta System Message 
 
-Ang meta prompt ay gagamitin ng LLM upang lumikha ng mga system prompt para sa mga agent na gagawin natin. Dinisenyo natin ito bilang isang template upang maaari tayong gumawa ng maraming agent nang episyente kung kinakailangan.
+Ang meta prompt ay gagamitin ng isang LLM upang bumuo ng mga system prompts para sa mga agent na ating nilikha. Dinisenyo natin ito bilang template upang madali tayong makalikha ng maraming agent kung kinakailangan.
 
 Narito ang isang halimbawa ng meta system message na ibibigay natin sa LLM:
 
@@ -47,11 +47,11 @@ information that you will use to provide a system prompt for.
 To create the system prompt, be descriptive as possible and provide a structure that a system using an LLM can better understand the role and responsibilities of the AI assistant. 
 ```
 
-#### Hakbang 2: Gumawa ng basic prompt
+#### Hakbang 2: Lumikha ng pangunahing prompt
 
-Ang susunod na hakbang ay gumawa ng basic prompt upang ilarawan ang AI Agent. Dapat mong isama ang papel ng agent, ang mga gagawin nitong mga gawain, at anumang iba pang responsibilidad ng agent.
+Ang susunod na hakbang ay gumawa ng pangunahing prompt upang ilarawan ang AI Agent. Dapat mong isama ang papel ng agent, mga gawain na tatapusin ng agent, at iba pang mga responsibilidad ng agent.
 
-Narito ang isang halimbawa:
+Narito ang halimbawa:
 
 ```plaintext
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
@@ -59,9 +59,9 @@ You are a travel agent for Contoso Travel that is great at booking flights for c
 
 #### Hakbang 3: Ibigay ang Basic System Message sa LLM
 
-Ngayon maaari nating i-optimize ang sistemang ito ng mensahe sa pamamagitan ng pagbibigay ng meta system message bilang system message kasama ng ating basic system message.
+Ngayon ay maaari nating i-optimize ang system message na ito sa pamamagitan ng pagbibigay ng meta system message bilang system message at ang ating basic system message.
 
-Gagawa ito ng isang system message na mas mahusay na dinisenyo para gabayan ang ating AI agents:
+Ito ay magreresulta sa system message na mas mahusay na dinisenyo upang gabayan ang ating mga AI agents:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -113,13 +113,13 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### Hakbang 4: Paulit-ulit at Pagbutihin
+#### Hakbang 4: Ulitin at Pagbutihin
 
-Ang halaga ng system message framework na ito ay upang mapadali ang paggawa ng system messages mula sa maraming agent at pati na rin ang pagpapabuti ng iyong mga system message sa paglipas ng panahon. Bihira ang magkaroon ka ng system message na eksaktong gumagana sa unang pagkakataon para sa iyong buong kaso ng paggamit. Ang kakayahang gumawa ng maliliit na pagbabago at pagpapabuti sa pamamagitan ng pagbabago ng basic system message at pagpapatakbo nito sa system ay magpapahintulot sa iyo na ihambing at suriin ang mga resulta.
+Ang halaga ng system message framework na ito ay upang mas madaling mag-scale sa paggawa ng mga system message mula sa maraming agent pati na rin ang pagpapabuti ng iyong mga system message sa paglipas ng panahon. Bihira kang magkaroon ng system message na gumagana nang perpekto sa unang pagkakataon para sa iyong kumpletong kaso ng paggamit. Ang kakayahang gumawa ng maliliit na pag-aayos at pagpapahusay sa pamamagitan ng pagbabago ng basic system message at pagpapatakbo nito sa sistema ay magpapahintulot sa iyo na ihambing at suriin ang mga resulta.
 
 ## Pag-unawa sa mga Banta
 
-Upang makabuo ng mapagkakatiwalaang AI agents, mahalagang maunawaan at mabawasan ang mga panganib at banta sa iyong AI agent. Tingnan natin ang ilan lamang sa iba't ibang banta sa AI agents at kung paano ka makakapaghanda at makakapagplano para dito.
+Upang makabuo ng mapagkakatiwalaang AI agents, mahalagang maunawaan at mabawasan ang mga panganib at banta sa iyong AI agent. Tingnan natin ang ilan lamang sa iba't ibang mga banta sa AI agents at kung paano ka makakapaghanda at makakapagplano para dito.
 
 ![Understanding Threats](../../../translated_images/tl/understanding-threats.89edeada8a97fc0f.webp)
 
@@ -127,73 +127,78 @@ Upang makabuo ng mapagkakatiwalaang AI agents, mahalagang maunawaan at mabawasan
 
 **Paglalarawan:** Sinusubukan ng mga umaatake na baguhin ang mga tagubilin o layunin ng AI agent sa pamamagitan ng prompting o pagmamanipula ng mga input.
 
-**Bawasan**: Isagawa ang mga pagsusuri sa bisa at mga input filter upang tuklasin ang mga posibleng mapanganib na prompt bago ito iproseso ng AI Agent. Dahil ang mga atakeng ito ay karaniwang nangangailangan ng madalas na pakikisalamuha sa Agent, ang paglilimita sa bilang ng mga pag-ikot sa isang pag-uusap ay isa pang paraan upang maiwasan ang ganitong uri ng mga atake.
+**Pagbawas**: Magsagawa ng validation checks at input filters upang matukoy ang mga posibleng mapanganib na prompt bago ito maproseso ng AI Agent. Dahil kadalasan, ang mga atakeng ito ay nangangailangan ng madalas na interaksyon sa Agent, ang paglilimita sa bilang ng mga turn sa isang pag-uusap ay isa pang paraan upang maiwasan ang ganitong uri ng mga atake.
 
-### Access sa Mga Kritikal na Sistema
+### Access sa Mahahalagang Sistema
 
-**Paglalarawan**: Kung ang AI agent ay may access sa mga sistema at serbisyo na nag-iimbak ng sensitibong data, maaaring mapagsamantalahan ng mga umaatake ang komunikasyon sa pagitan ng agent at mga serbisyong ito. Maaari itong maging direktang mga atake o hindi direktang pagtatangka upang makakuha ng impormasyon tungkol sa mga sistemang ito sa pamamagitan ng agent.
+**Paglalarawan:** Kung ang AI agent ay may access sa mga sistema at serbisyo na nag-iimbak ng sensitibong data, maaaring sirain ng mga umaatake ang komunikasyon sa pagitan ng agent at ng mga serbisyong ito. Maaari itong maging direktang atake o di-direktang pagtatangkang makakuha ng impormasyon tungkol sa mga sistemang ito sa pamamagitan ng agent.
 
-**Bawasan**: Dapat mayroon lamang access ang AI agents sa mga sistema kung kinakailangan upang maiwasan ang ganitong uri ng mga atake. Dapat ding secure ang komunikasyon sa pagitan ng agent at sistema. Ang pagpapatupad ng authentication at access control ay isa pang paraan upang maprotektahan ang impormasyong ito.
+**Pagbawas:** Dapat limitado lamang ang access ng AI agents sa mga sistema batay sa pangangailangan upang maiwasan ang ganitong uri ng mga atake. Dapat din na secure ang komunikasyon sa pagitan ng agent at sistema. Ang pagpapatupad ng authentication at access control ay isa pang paraan upang protektahan ang impormasyong ito.
 
-### Sobra-sobrang Paggamit ng Mga Mapagkukunan at Serbisyo
+### Pag-overload ng Resource at Serbisyo
 
-**Paglalarawan:** Maaaring gumamit ang mga AI agents ng iba't ibang kasangkapan at serbisyo upang matapos ang mga gawain. Maaaring gamitin ito ng mga umaatake upang atakihin ang mga serbisyong ito sa pamamagitan ng pagpapadala ng mataas na dami ng mga kahilingan sa AI Agent, na maaaring magdulot ng pagkabigo ng sistema o mataas na gastos.
+**Paglalarawan:** Maaaring mag-access ang AI agents ng iba't ibang tools at serbisyo upang matapos ang mga gawain. Maaari itong gamitin ng mga umaatake upang atakihin ang mga serbisyong ito sa pamamagitan ng pagpapadala ng mataas na bilang ng mga request sa AI Agent, na maaaring magdulot ng pagkabigo ng sistema o mataas na gastos.
 
-**Bawasan:** Magpatupad ng mga polisiya upang limitahan ang bilang ng mga kahilingan na maaari gawin ng isang AI agent sa isang serbisyo. Ang paglilimita sa bilang ng mga pag-ikot sa pag-uusap at mga kahilingan sa iyong AI agent ay isa pang paraan upang maiwasan ang ganitong uri ng mga atake.
+**Pagbawas:** Magpatupad ng mga polisiya upang limitahan ang bilang ng mga request na maaaring gawin ng isang AI agent sa isang serbisyo. Ang paglilimita rin ng bilang ng pag-uusap at mga request sa iyong AI agent ay isa pang paraan upang maiwasan ang ganitong uri ng mga atake.
 
-### Pagkalason ng Knowledge Base
+### Pagkalason sa Knowledge Base
 
-**Paglalarawan:** Ang ganitong uri ng pag-atake ay hindi direktang tumatarget sa AI agent kundi sa knowledge base at iba pang serbisyo na gagamitin ng AI agent. Maaaring kabilang dito ang pagsira ng data o impormasyon na gagamitin ng AI agent upang tapusin ang isang gawain, na maaaring magresulta sa bias o hindi inaasahang mga tugon sa gumagamit.
+**Paglalarawan:** Ang uri ng atakeng ito ay hindi direktang tinatarget ang AI agent ngunit ang knowledge base at iba pang mga serbisyo na gagamitin ng AI agent. Maaaring kabilang dito ang paninira sa data o impormasyon na gagamitin ng AI agent upang matapos ang gawain, na nagreresulta sa biased o hindi inaasahang mga tugon sa gumagamit.
 
-**Bawasan:** Isagawa ang regular na beripikasyon ng data na gagamitin ng AI agent sa mga workflow nito. Tiyakin na ang access sa data na ito ay secure at tanging mga pinagkakatiwalaang indibidwal lamang ang makakabago upang iwasan ang ganitong uri ng pag-atake.
+**Pagbawas:** Regular na beripikahin ang data na gagamitin ng AI agent sa kanyang mga workflow. Siguraduhin na secure ang access sa data na ito at tanging mga pinagkakatiwalaang indibidwal lamang ang maaaring magbago nito upang maiwasan ang ganitong uri ng atake.
 
-### Sunod-sunod na Error
+### Sunud-sunod na Mga Error
 
-**Paglalarawan:** Nakakonekta ang AI agents sa iba't ibang kasangkapan at serbisyo upang matapos ang mga gawain. Ang mga error na sanhi ng mga umaatake ay maaaring magdulot ng kabiguan sa iba pang mga sistema na konektado sa AI agent, na nagpapalawak ng epekto ng atake at nagpapahirap sa pag-troubleshoot.
+**Paglalarawan:** Nag-a-access ang AI agents ng iba't ibang tools at serbisyo upang matapos ang mga gawain. Ang mga error na sanhi ng mga umaatake ay maaaring magdulot ng pagkabigo sa iba pang mga sistemang konektado sa AI agent, na nagpapalawak ng epekto ng atake at nagpapahirap sa pag-troubleshoot.
 
-**Bawasan**: Isang paraan upang maiwasan ito ay ang pagpapaandar sa AI Agent sa isang limitadong kapaligiran, tulad ng paggawa ng mga gawain sa Docker container, upang maiwasan ang direktang pag-atake sa sistema. Ang paglikha ng mga fallback mechanism at retry logic kapag tumugon ang ilang sistema ng error ay isa pang paraan upang maiwasan ang mas malaking kabiguan ng sistema.
+**Pagbawas:** Isang paraan upang maiwasan ito ay ang pagpapatakbo ng AI Agent sa isang limitadong kapaligiran, tulad ng pagsasagawa ng mga gawain sa isang Docker container, upang maiwasan ang direktang atake sa sistema. Ang paggawa ng mga fallback mechanisms at retry logic kapag may mga sistemang nagreresponde ng error ay isa pang paraan upang maiwasan ang mas malalaking pagkabigo sa sistema.
 
 ## Human-in-the-Loop
 
-Isa pang epektibong paraan upang bumuo ng mapagkakatiwalaang mga sistema ng AI Agent ay ang paggamit ng Human-in-the-loop. Lumilikha ito ng daloy kung saan maaaring magbigay ng feedback ang mga gumagamit sa mga Agent habang tumatakbo ang proseso. Ang mga gumagamit ay epektibong kumikilos bilang mga agent sa isang multi-agent system at nagbibigay ng pag-apruba o pagtigil sa proseso.
+Isa pang epektibong paraan upang makabuo ng mapagkakatiwalaang AI Agent system ay ang paggamit ng Human-in-the-loop. Lumilikha ito ng daloy kung saan ang mga gumagamit ay maaaring magbigay ng feedback sa mga Agent habang tumatakbo ang proseso. Ang mga gumagamit ay kumikilos bilang mga agent sa isang multi-agent system sa pamamagitan ng pagbibigay ng pag-apruba o pag-terminate ng tumatakbong proseso.
 
 ![Human in The Loop](../../../translated_images/tl/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Narito ang isang snippet ng code gamit ang AutoGen upang ipakita kung paano ipinatutupad ang konseptong ito:
+Narito ang isang code snippet gamit ang Microsoft Agent Framework upang ipakita kung paano ipinatutupad ang konseptong ito:
 
 ```python
+import os
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# Gumawa ng mga ahente.
-model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
-assistant = AssistantAgent("assistant", model_client=model_client)
-user_proxy = UserProxyAgent("user_proxy", input_func=input)  # Gumamit ng input() para kumuha ng input ng user mula sa console.
+# Lumikha ng provider na may aprub ng tao sa proseso
+provider = AzureAIProjectAgentProvider(
+    credential=AzureCliCredential(),
+)
 
-# Gumawa ng kondisyon ng pagtigil na magtatapos sa pag-uusap kapag sinabi ng user na "APPROVE".
-termination = TextMentionTermination("APPROVE")
+# Lumikha ng ahente na may hakbang ng aprub ng tao
+response = provider.create_response(
+    input="Write a 4-line poem about the ocean.",
+    instructions="You are a helpful assistant. Ask for user approval before finalizing.",
+)
 
-# Gumawa ng koponan.
-team = RoundRobinGroupChat([assistant, user_proxy], termination_condition=termination)
-
-# Patakbuhin ang pag-uusap at i-stream sa console.
-stream = team.run_stream(task="Write a 4-line poem about the ocean.")
-# Gumamit ng asyncio.run(...) kapag nagpapatakbo sa isang script.
-await Console(stream)
-
+# Maaaring suriin at aprubahan ng gumagamit ang tugon
+print(response.output_text)
+user_input = input("Do you approve? (APPROVE/REJECT): ")
+if user_input == "APPROVE":
+    print("Response approved.")
+else:
+    print("Response rejected. Revising...")
 ```
 
 ## Konklusyon
 
-Ang pagbuo ng mapagkakatiwalaang AI agents ay nangangailangan ng maingat na disenyo, matibay na mga hakbang sa seguridad, at tuloy-tuloy na pag-uulit. Sa pamamagitan ng pagsasagawa ng mga estrukturadong sistema ng meta prompting, pag-unawa sa mga potensyal na banta, at pagpapatupad ng mga estratehiya sa pag-iwas, maaaring gumawa ang mga developer ng AI agents na parehong ligtas at epektibo. Bukod dito, ang pagsasama ng human-in-the-loop na pamamaraan ay nagsisiguro na ang AI agents ay nananatiling nakaayon sa pangangailangan ng gumagamit habang pinapaliit ang mga panganib. Habang patuloy na umuunlad ang AI, ang pagpapanatili ng proaktibong pananaw sa seguridad, privacy, at mga etikal na konsiderasyon ay magiging susi upang mapalago ang tiwala at pagiging maaasahan sa mga AI-driven na sistema.
+Ang pagbubuo ng mapagkakatiwalaang AI agents ay nangangailangan ng maingat na disenyo, matibay na mga hakbang sa seguridad, at tuloy-tuloy na iterasyon. Sa pamamagitan ng pagpapatupad ng mga istrukturadong meta prompting system, pag-unawa sa mga posibleng banta, at paggamit ng mga estratehiya sa pagbawas, makakalikha ang mga developer ng AI agents na ligtas at epektibo. Bukod dito, ang pagsasama ng human-in-the-loop na pamamaraan ay nagsisiguro na ang mga AI agents ay nananatiling nakaayon sa mga pangangailangan ng gumagamit habang pinapaliit ang mga panganib. Habang patuloy na umuunlad ang AI, ang pagpapanatili ng isang maagap na posisyon sa seguridad, privacy, at mga etikal na konsiderasyon ay magiging susi sa pagtataguyod ng tiwala at pagiging maaasahan sa mga AI-driven na sistema.
 
-### May Karagdagang Mga Tanong tungkol sa Pagbuo ng Mapagkakatiwalaang AI Agents?
+### May Karagdagang Mga Tanong tungkol sa Pagtatayo ng Mapagkakatiwalaang AI Agents?
 
-Sumali sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) upang makipagkita sa ibang mga nag-aaral, dumalo sa office hours at sagutin ang iyong mga tanong tungkol sa AI Agents.
+Sumali sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) upang makipagkita sa iba pang mga nag-aaral, dumalo sa office hours, at masagot ang iyong mga tanong tungkol sa AI Agents.
 
 ## Karagdagang Mga Mapagkukunan
 
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Pangkalahatang-ideya ng Responsible AI</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Pagsusuri ng mga Generative AI Models at AI Applications</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Mga System Message para sa Kaligtasan</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Pagsusuri ng mga modelong generative AI at AI applications</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Mga safety system messages</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Template para sa Risk Assessment</a>
 
 ## Nakaraang Aralin
@@ -207,6 +212,6 @@ Sumali sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) upang ma
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Pagtatanging Paalala**:
-Ang dokumentong ito ay isinalin gamit ang serbisyong AI na pagsasalin na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagama't nagsusumikap kaming maging tumpak, pakatandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o di-katumpakan. Ang orihinal na dokumento sa wikang likas nito ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na nagmula sa paggamit ng pagsasaling ito.
+**Paalala**:
+Ang dokumentong ito ay isinalin gamit ang AI na serbisyo sa pagsasalin na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagaman nagsusumikap kami para sa kawastuhan, pakatandaan na ang awtomatikong pagsasalin ay maaaring maglaman ng mga error o di-tumpak na bahagi. Ang orihinal na dokumento sa kanyang orihinal na wika ang dapat ituring na pangunahing pinagmulan. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaintindihan o maling pagpapakahulugan na maaaring magmula sa paggamit ng pagsasaling ito.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

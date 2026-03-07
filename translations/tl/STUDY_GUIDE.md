@@ -1,67 +1,66 @@
-# Mga AI Agent para sa Mga Nagsisimula - Gabay sa Pag-aaral at Buod ng Kurso
+# Mga AI Agent para sa mga Nagsisimula - Gabay sa Pag-aaral at Buod ng Kurso
 
-Ang gabay na ito ay naglalaman ng buod ng kurso na "AI Agents for Beginners" at nagpapaliwanag ng mga pangunahing konsepto, framework, at disenyo ng pattern para sa pagbuo ng mga AI Agent.
+Ang gabay na ito ay nagbibigay ng buod ng kursong "AI Agents for Beginners" at nagpapaliwanag ng mga mahahalagang konsepto, mga balangkas, at mga disenyo ng pattern para sa paggawa ng mga AI Agent.
 
 ## 1. Panimula sa AI Agents
 
 **Ano ang AI Agents?**  
-Ang AI Agents ay mga sistema na nagpapalawak ng kakayahan ng Large Language Models (LLMs) sa pamamagitan ng pagbibigay sa kanila ng access sa **mga kasangkapan**, **kaalaman**, at **memorya**. Hindi tulad ng isang karaniwang LLM chatbot na gumagawa lamang ng teksto batay sa data ng pagsasanay, ang AI Agent ay kaya:  
-- **Makaramdam** sa kanyang kapaligiran (sa pamamagitan ng mga sensor o input).  
-- **Magsagawa ng pangangatwiran** kung paano lutasin ang isang problema.  
-- **Kumilos** upang baguhin ang kapaligiran (sa pamamagitan ng mga actuator o pagpapatupad ng kasangkapan).
+Ang mga AI Agent ay mga sistema na nagpapalawak ng kakayahan ng Large Language Models (LLMs) sa pamamagitan ng pagbibigay sa kanila ng access sa **mga kasangkapan**, **kaalaman**, at **memorya**. Hindi tulad ng karaniwang LLM chatbot na gumagawa lamang ng teksto base sa training data, ang isang AI Agent ay maaaring:  
+- **Makita** ang kanyang kapaligiran (sa pamamagitan ng sensors o inputs).  
+- **Mag-isip** kung paano lutasin ang isang problema.  
+- **Gumawa ng aksyon** upang baguhin ang kapaligiran (sa pamamagitan ng actuators o pagpapatakbo ng kasangkapan).
 
-**Pangunahing Bahagi ng isang Agent:**  
-- **Kapaligiran**: Ang espasyong pinaglilingkuran ng agent (hal., isang booking system).  
-- **Mga Sensor**: Mekanismo para kumuha ng impormasyon (hal., pagbabasa ng API).  
-- **Mga Actuator**: Mekanismo para magsagawa ng mga aksyon (hal., pagpapadala ng email).  
-- **Utak (LLM)**: Ang engine ng pangangatwiran na nagpaplano at nagpapasya kung anong mga aksyon ang gagawin.
+**Mga Pangunahing Bahagi ng isang Agent:**  
+- **Kapaligiran**: Ang lugar kung saan gumagana ang agent (hal., isang sistema ng booking).  
+- **Sensors**: Mekanismo para mangalap ng impormasyon (hal., pagbabasa ng API).  
+- **Actuators**: Mekanismo para magsagawa ng mga aksyon (hal., pagpapadala ng email).  
+- **Utak (LLM)**: Ang engine ng pangangatwiran na nagpaplano at nagdedesisyon kung anong mga aksyon ang gagawin.
 
 ## 2. Agentic Frameworks
 
-Tinutukoy sa kurso ang tatlong pangunahing framework para sa pagbuo ng mga agent:
+Ginagamit sa kurso ang **Microsoft Agent Framework (MAF)** kasama ang **Azure AI Foundry Agent Service V2** para sa paggawa ng mga agent:
 
-| Framework | Pokus | Pinakamainam Para sa |
-|-----------|-------|-----------------------|
-| **Semantic Kernel** | Produktion-ready SDK para sa .NET/Python | Mga enterprise na aplikasyon, pagsasama ng AI sa kasalukuyang code. |
-| **AutoGen** | Multi-agent collaboration | Masalimuot na senaryo na nangangailangan ng maraming espesyalistang agent na nag-uusap. |
-| **Azure AI Agent Service** | Managed cloud service | Ligtas, scalable na deployment na may built-in na pamamahala ng estado. |
+| Komponent | Pokus | Pinakamainam Para sa |
+|-----------|-------|----------------------|
+| **Microsoft Agent Framework** | Pinagsamang Python/C# SDK para sa mga agent, kasangkapan, at workflows | Paggawa ng mga agent na may kasangkapan, multi-agent workflows, at mga pattern sa produksyon. |
+| **Azure AI Foundry Agent Service** | Managed cloud runtime | Ligtas, scalable na deployment na may built-in na pamamahala ng estado, observability, at pagtitiwala. |
 
 ## 3. Agentic Design Patterns
 
-Ang mga design pattern ay tumutulong sa pag-istruktura kung paano tumatakbo ang mga agent para maayos na malutas ang mga problema.
+Tinutulungan ng mga disenyo ng pattern ang istraktura kung paano gumana ang mga agent upang maayos na malutas ang mga problema.
 
-### **Tool Use Pattern** (Lesson 4)  
-Pinapayagan ng pattern na ito ang mga agent na makipag-interact sa labas na mundo.  
-- **Konsepto**: Binibigyan ang agent ng "schema" (isang listahan ng mga magagamit na function at kanilang mga parameter). Ang LLM ang nagpapasya *alin* na kasangkapan ang tatawagin at *ano* ang mga argumento base sa kahilingan ng user.  
-- **Daloy**: Kahilingan ng User -> LLM -> **Pagpili ng Kasangkapan** -> **Pagpapatupad ng Kasangkapan** -> LLM (kasama ang output ng kasangkapan) -> Pangwakas na Tugon.  
-- **Mga Gamit**: Pagkuha ng data sa real-time (panahon, presyo ng stock), pagsasagawa ng kalkulasyon, pagpapatakbo ng code.
+### **Tool Use Pattern** (Aralin 4)  
+Pinapayagan ng pattern na ito ang mga agent na makipag-ugnayan sa labas ng mundo.  
+- **Konsepto**: Binibigyan ang agent ng "schema" (isang listahan ng mga available na function at ang kanilang mga parameter). Ang LLM ang nagdedesisyon *alin* na tool ang tatawagin at *anong* argumento ang gagamitin base sa hiling ng user.  
+- **Daloy**: User Request -> LLM -> **Pagpili ng Kasangkapan** -> **Pagsasagawa ng Kasangkapan** -> LLM (na may output ng kasangkapan) -> Pangwakas na Tugon.  
+- **Gamit**: Pagkuha ng real-time na data (panahon, presyo ng stock), paggawa ng kalkulasyon, pagpapatakbo ng code.
 
-### **Planning Pattern** (Lesson 7)  
-Pinapayagan ng pattern na ito ang mga agent na malutas ang masalimuot, maraming hakbang na gawain.  
-- **Konsepto**: Hinahati ng agent ang mataas na layunin sa isang sunud-sunod na mga mas maliit na subtasks.  
-- **Mga Pamamaraan**:  
-  - **Task Decomposition**: Hatiin ang "Planuhin ang paglalakbay" sa "Mag-book ng flight", "Mag-book ng hotel", "Mag-renta ng sasakyan".  
-  - **Iterative Planning**: Muling sinusuri ang plano base sa output ng mga naunang hakbang (hal., kung puno na ang flight, pumili ng ibang petsa).  
-- **Pagpapatupad**: Kadalasang ginagamit ang isang "Planner" agent na bumubuo ng nakaistrukturang plano (hal., JSON) na pagkatapos ay isinasagawa ng ibang mga agent.
+### **Planning Pattern** (Aralin 7)  
+Pinapayagan ng pattern na ito ang mga agent na malutas ang mga kumplikado, multi-step na gawain.  
+- **Konsepto**: Hinihiwa-hiwalay ng agent ang isang mataas na antas na layunin sa isang serye ng mas maliliit na subtask.  
+- **Pamamaraan**:  
+  - **Task Decomposition**: Hatiin ang "Planuhin ang trip" sa "Mag-book ng flight", "Mag-book ng hotel", "Umuupa ng sasakyan".  
+  - **Iterative Planning**: Muling suriin ang plano base sa output ng mga naunang hakbang (hal., kung puno ang flight, pumili ng ibang petsa).  
+- **Pagsasagawa**: Kadalasan ay may "Planner" agent na lumilikha ng istrakturadong plano (hal., JSON) na ipinatutupad ng ibang mga agent.
 
 ## 4. Mga Prinsipyo sa Disenyo
 
 Kapag nagdidisenyo ng mga agent, isaalang-alang ang tatlong dimensyon:  
-- **Espasyo**: Dapat magdugtong ang mga agent ng mga tao at kaalaman, maging madaling ma-access ngunit hindi nakakainis.  
-- **Oras**: Dapat matuto ang mga agent mula sa *Nakaraan*, magbigay ng makabuluhang pagtutok sa *Ngayon*, at mag-adapt para sa *Hinaharap*.  
-- **Puso (Core)**: Yakapin ang kawalang-katiyakan ngunit magtatag ng tiwala sa pamamagitan ng transparency at kontrol ng user.
+- **Space**: Dapat ikonekta ng mga agent ang mga tao at kaalaman, maging madaling lapitan ngunit hindi makagambala.  
+- **Time**: Dapat matuto ang mga agent mula sa *Nakaraan*, magbigay ng angkop na paalala sa *Ngayon*, at mag-adapt para sa *Hinaharap*.  
+- **Core**: Yakapin ang kawalang-katiyakan ngunit magtatag ng pagtitiwala sa pamamagitan ng transparency at kontrol ng user.
 
-## 5. Buod ng mga Pangunahing Aral
+## 5. Buod ng mga Mahahalagang Aralin
 
-- **Leksyon 1**: Ang mga agent ay mga sistema, hindi lang mga modelo. Nakakaramdam, nakapagpapangatuwiran, at kumikilos sila.  
-- **Leksyon 2**: Ang mga framework tulad ng Semantic Kernel at AutoGen ay nag-a-abstract ng pagiging kumplikado ng pagtawag sa kasangkapan at pamamahala ng estado.  
-- **Leksyon 3**: Disenyuhin nang may transparency at kontrol ng user sa isip.  
-- **Leksyon 4**: Ang mga kasangkapan ang "mga kamay" ng agent. Mahalagang maayos ang schema upang maunawaan ng LLM kung paano ito gagamitin.  
-- **Leksyon 7**: Ang pagpaplano ang "executive function" ng agent, na nagpapahintulot dito na harapin ang masalimuot na mga workflow.
+- **Aralin 1**: Ang mga agent ay mga sistema, hindi lang mga modelo. Nakakakita, nag-iisip, at kumikilos sila.  
+- **Aralin 2**: Pinapasimple ng Microsoft Agent Framework ang komplikasyon sa pagtawag ng kasangkapan at pamamahala ng estado.  
+- **Aralin 3**: Disenyuhin nang may transparency at kontrol ng user sa isip.  
+- **Aralin 4**: Ang mga kasangkapan ang "kamay" ng agent. Mahalaga ang depinisyon ng schema para maintindihan ng LLM kung paano gamitin ang mga ito.  
+- **Aralin 7**: Ang pagpaplano ang "executive function" ng agent, na nagbibigay-daan dito upang harapin ang mga kumplikadong workflows.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Paunawa**:
-Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat nagsusumikap kami para sa katumpakan, pakatandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na opisyal na sanggunian. Para sa mga mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasaling tao. Hindi kami mananagot sa anumang mga maling pagkaunawa o maling interpretasyon na maaaring magmula sa paggamit ng pagsasaling ito.
+**Pahayag ng Pagtanggi**:
+Ang dokumentong ito ay isinalin gamit ang AI na serbisyo sa pagsasalin na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat sinisikap naming maging tumpak, pakatandaan na ang automated na pagsasalin ay maaaring maglaman ng mga pagkakamali o di-tumpak na impormasyon. Ang orihinal na dokumento sa kanyang katutubong wika ang dapat ituring bilang pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasaling-tao. Hindi kami mananagot sa anumang pagkalito o maling pagkaunawa na maaaring magmula sa paggamit ng pagsasaling ito.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
