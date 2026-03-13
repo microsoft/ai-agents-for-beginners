@@ -181,11 +181,32 @@ async def main() -> None:
     print("🏨 HOTEL BOOKING CONDITIONAL WORKFLOW")
     print("=" * 80)
 
-    # GitHub Models or Azure OpenAI
-    openai_api_key = os.getenv("OPENAI_API_KEY")
+    # Provider selection: GitHub Models, OpenAI, or MiniMax
+    # The OpenAIChatClient works with any OpenAI-compatible API.
+    minimax_api_key = os.getenv("MINIMAX_API_KEY")
     github_token = os.getenv("GITHUB_TOKEN")
-    chat_client = OpenAIChatClient(base_url=os.environ.get(
-        "GITHUB_ENDPOINT"), api_key=os.environ.get("GITHUB_TOKEN"), model_id="gpt-4o")
+    openai_api_key = os.getenv("OPENAI_API_KEY")
+
+    if minimax_api_key:
+        # MiniMax: OpenAI-compatible API with large context window (up to 204K tokens)
+        chat_client = OpenAIChatClient(
+            base_url=os.environ.get("MINIMAX_BASE_URL", "https://api.minimax.io/v1"),
+            api_key=minimax_api_key,
+            model_id=os.environ.get("MINIMAX_MODEL_ID", "MiniMax-M2.5"),
+        )
+        print("Using MiniMax provider")
+    elif github_token:
+        # GitHub Models
+        chat_client = OpenAIChatClient(
+            base_url=os.environ.get("GITHUB_ENDPOINT"),
+            api_key=github_token,
+            model_id="gpt-4o",
+        )
+        print("Using GitHub Models provider")
+    else:
+        # Default: OpenAI
+        chat_client = OpenAIChatClient(model_id="gpt-4o")
+        print("Using OpenAI provider")
 
 
 
