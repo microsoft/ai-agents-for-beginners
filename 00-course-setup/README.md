@@ -246,6 +246,22 @@ Some notebooks in lessons 6 and 8 use **GitHub Models** instead of Azure AI Foun
 | `GITHUB_ENDPOINT` | Use `https://models.inference.ai.azure.com` (default value) |
 | `GITHUB_MODEL_ID` | Model name to use (e.g. `gpt-4o-mini`) |
 
+## Alternative Provider: MiniMax (OpenAI-Compatible)
+
+[MiniMax](https://platform.minimaxi.com/) provides large-context models (up to 204K tokens) through an OpenAI-compatible API. Since the Microsoft Agent Framework's `OpenAIChatClient` works with any OpenAI-compatible endpoint, you can use MiniMax as a drop-in alternative to GitHub Models or OpenAI.
+
+Add these variables to your `.env` file:
+
+| Variable | Where to find it |
+|----------|-----------------|
+| `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) → API Keys |
+| `MINIMAX_BASE_URL` | Use `https://api.minimax.io/v1` (default value) |
+| `MINIMAX_MODEL_ID` | Model name to use (e.g., `MiniMax-M2.5`) |
+
+**Available models**: `MiniMax-M2.5` (recommended), `MiniMax-M2.5-highspeed` (faster responses)
+
+The code samples that use `OpenAIChatClient` (e.g., Lesson 14 hotel booking workflow) will automatically detect and use your MiniMax configuration when `MINIMAX_API_KEY` is set.
+
 ## Additional Setup for Lesson 8 (Bing Grounding Workflow)
 
 The conditional workflow notebook in lesson 8 uses **Bing grounding** via Azure AI Foundry. If you plan to run that sample, add this variable to your `.env` file:
