@@ -74,6 +74,7 @@ This course uses the following AI Agent frameworks and services from Microsoft:
 - [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok)
 - [Azure AI Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
+Some code samples also support alternative OpenAI-compatible providers such as [MiniMax](https://platform.minimaxi.com/), which offers large-context models (up to 204K tokens). See the [Course Setup](./00-course-setup/README.md) for configuration details.
 
 For more information on running the code for this course, go to the [Course Setup](./00-course-setup/README.md).
 
