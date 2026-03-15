@@ -1,67 +1,66 @@
-# AI Agents for Beginners - คู่มือการศึกษาและสรุปหลักสูตร
+# ตัวแทน AI สำหรับผู้เริ่มต้น - คู่มือการศึกษา & สรุปคอร์ส
 
-คู่มือนี้สรุปหลักสูตร "AI Agents for Beginners" และอธิบายแนวคิด หลักการ และรูปแบบการออกแบบสำคัญสำหรับการสร้าง AI Agents
+This guide provides a summary of the "AI Agents for Beginners" course and explains key concepts, frameworks, and design patterns for building AI Agents.
 
-## 1. บทนำสู่ AI Agents
+## 1. บทนำสู่ตัวแทน AI
 
-**AI Agents คืออะไร?**  
-AI Agents คือระบบที่ขยายความสามารถของ Large Language Models (LLMs) โดยมอบการเข้าถึง **เครื่องมือ**, **ความรู้**, และ **หน่วยความจำ** แตกต่างจากแชทบอท LLM ธรรมดาที่สร้างข้อความจากข้อมูลฝึกอบรมเท่านั้น AI Agent สามารถ:  
-- **รับรู้** สภาพแวดล้อม (ผ่านเซนเซอร์หรือตัวป้อนข้อมูล)  
-- **ใช้เหตุผล** เพื่อแก้ปัญหา  
-- **กระทำ** เพื่อเปลี่ยนแปลงสภาพแวดล้อม (ผ่านตัวกระตุ้นหรือการใช้เครื่องมือ)
+**ตัวแทน AI คืออะไร?**
+AI Agents are systems that extend the capabilities of Large Language Models (LLMs) by giving them access to **tools**, **knowledge**, and **memory**. Unlike a standard LLM chatbot that only generates text based on training data, an AI Agent can:
+- **รับรู้** สภาพแวดล้อมของมัน (via sensors or inputs).
+- **คิดวิเคราะห์** เกี่ยวกับวิธีแก้ปัญหา.
+- **ลงมือ** เพื่อเปลี่ยนแปลงสภาพแวดล้อม (via actuators or tool execution).
 
-**ส่วนประกอบหลักของ Agent:**  
-- **สภาพแวดล้อม**: พื้นที่ที่ Agent ทำงาน (เช่น ระบบจอง)  
-- **เซนเซอร์**: กลไกรับข้อมูล (เช่น การอ่าน API)  
-- **ตัวกระตุ้น**: กลไกปฏิบัติการ (เช่น การส่งอีเมล)  
-- **สมอง (LLM)**: ระบบใช้เหตุผลที่วางแผนและตัดสินใจว่าจะกระทำอะไร
+**ส่วนประกอบสำคัญของตัวแทน:**
+- **สภาพแวดล้อม**: พื้นที่ที่ตัวแทนทำงาน (e.g., a booking system).
+- **เซ็นเซอร์**: กลไกในการรวบรวมข้อมูล (e.g., reading an API).
+- **ตัวกระตุ้น**: กลไกในการดำเนินการ (e.g., sending an email).
+- **สมอง (LLM)**: เอนจินการใช้เหตุผลที่วางแผนและตัดสินใจว่าจะดำเนินการใด
 
-## 2. Agentic Frameworks
+## 2. เฟรมเวิร์กสำหรับตัวแทน
 
-หลักสูตรครอบคลุมสามกรอบงานหลักสำหรับการสร้าง agents:
+The course uses **Microsoft Agent Framework (MAF)** with **Azure AI Foundry Agent Service V2** for building agents:
 
-| Framework | จุดสนใจ | เหมาะสำหรับ |
-|-----------|---------|-------------|
-| **Semantic Kernel** | SDK พร้อมใช้สำหรับ .NET/Python | แอปพลิเคชันองค์กร, การผสาน AI กับโค้ดที่มีอยู่ |
-| **AutoGen** | การทำงานร่วมกันของหลาย agent | สถานการณ์ซับซ้อนที่ต้องใช้ agent พิเศษหลายตัวคุยกัน |
-| **Azure AI Agent Service** | บริการคลาวด์ที่จัดการให้ | การปรับใช้ที่ปลอดภัยและปรับขนาดได้ พร้อมการจัดการสถานะในตัว |
+| องค์ประกอบ | เน้น | เหมาะสำหรับ |
+|-----------|-------|----------|
+| **Microsoft Agent Framework** | SDK แบบรวมสำหรับ Python/C# สำหรับตัวแทน, เครื่องมือ, และเวิร์กโฟลว์ | การสร้างตัวแทนที่มีเครื่องมือ, เวิร์กโฟลว์หลายตัวแทน, และรูปแบบการใช้งานในโปรดักชัน. |
+| **Azure AI Foundry Agent Service** | รันไทม์คลาวด์ที่จัดการให้ | การปรับใช้ที่ปลอดภัยและปรับขนาดได้ พร้อมการจัดการสถานะในตัว, การสังเกตการณ์, และความน่าเชื่อถือ. |
 
-## 3. Agentic Design Patterns
+## 3. รูปแบบการออกแบบเชิงตัวแทน
 
-รูปแบบการออกแบบช่วยโครงสร้างการทำงานของ agents เพื่อแก้ปัญหาอย่างน่าเชื่อถือ
+Design patterns help structure how agents operate to solve problems reliably.
 
-### **Tool Use Pattern** (บทเรียน 4)  
-รูปแบบนี้ช่วยให้ agent มีปฏิสัมพันธ์กับโลกภายนอก  
-- **แนวคิด**: agent ได้รับ "สกีมา" (รายการฟังก์ชันและพารามิเตอร์ที่มี) LLM จะตัดสินใจ *เลือก* เครื่องมือและ *อาร์กิวเมนต์* ตามคำขอของผู้ใช้  
-- **ลำดับขั้นตอน**: คำขอผู้ใช้ -> LLM -> **เลือกเครื่องมือ** -> **เรียกใช้เครื่องมือ** -> LLM (พร้อมข้อมูลเครื่องมือ) -> ตอบกลับสุดท้าย  
-- **กรณีใช้งาน**: ดึงข้อมูลเรียลไทม์ (สภาพอากาศ, ราคาหุ้น), คำนวณ, รันโค้ด
+### **รูปแบบการใช้เครื่องมือ** (Lesson 4)
+This pattern enables agents to interact with the outside world.
+- **Concept**: ตัวแทนได้รับ "schema" (a list of available functions and their parameters). The LLM decides *which* tool to call and with *what* arguments based on the user's request.
+- **Flow**: User Request -> LLM -> **การเลือกเครื่องมือ** -> **การเรียกใช้เครื่องมือ** -> LLM (with tool output) -> Final Response.
+- **Use Cases**: Retrieving real-time data (weather, stock prices), performing calculations, executing code.
 
-### **Planning Pattern** (บทเรียน 7)  
-รูปแบบนี้ช่วยให้ agents แก้งานซับซ้อนหลายขั้นตอน  
-- **แนวคิด**: agent แบ่งเป้าหมายระดับสูงเป็นชุดงานย่อยหลายขั้น  
-- **วิธีการ**:  
-  - **แยกงาน**: แยก "วางแผนเที่ยว" เป็น "จองเที่ยวบิน", "จองโรงแรม", "เช่ารถ"  
-  - **วางแผนแบบวนซ้ำ**: ประเมินแผนอีกครั้งตามผลลัพธ์ก่อนหน้า (เช่น ถ้าเที่ยวบินเต็ม เลือกวันอื่น)  
-- **การใช้งาน**: มักมี agent "Planner" สร้างแผนโครงสร้าง (เช่น JSON) แล้ว agent อื่นทำตาม
+### **รูปแบบการวางแผน** (Lesson 7)
+This pattern enables agents to solve complex, multi-step tasks.
+- **Concept**: The agent breaks down a high-level goal into a sequence of smaller subtasks.
+- **Approaches**:
+  - **Task Decomposition**: Splitting "Plan a trip" into "Book flight", "Book hotel", "Rent car".
+  - **Iterative Planning**: Re-evaluating the plan based on the output of previous steps (e.g., if the flight is full, choose a different date).
+- **Implementation**: Often involves a "Planner" agent that generates a structured plan (e.g., JSON) which is then executed by other agents.
 
 ## 4. หลักการออกแบบ
 
-เมื่อออกแบบ agents คำนึงถึงสามมิติ:  
-- **พื้นที่**: agent ควรเชื่อมผู้คนกับความรู้, เข้าถึงง่ายแต่ไม่รบกวน  
-- **เวลา**: agent เรียนรู้จาก *อดีต*, ให้คำแนะนำเหมาะสมใน *ปัจจุบัน*, และปรับตัวสำหรับ *อนาคต*  
-- **แกนหลัก**: ยอมรับความไม่แน่นอน แต่สร้างความไว้วางใจผ่านความโปร่งใสและการควบคุมของผู้ใช้
+When designing agents, consider three dimensions:
+- **Space**: Agents should connect people and knowledge, be accessible but unobtrusive.
+- **Time**: Agents should learn from the *Past*, provide relevant nudges in the *Now*, and adapt for the *Future*.
+- **Core**: Embrace uncertainty but establish trust through transparency and user control.
 
 ## 5. สรุปบทเรียนสำคัญ
 
-- **บทเรียน 1**: Agents คือระบบ ไม่ใช่แค่โมเดล พวกมันรับรู้, ใช้เหตุผล, และกระทำ  
-- **บทเรียน 2**: Frameworks เช่น Semantic Kernel และ AutoGen ช่วยลดความซับซ้อนในการเรียกเครื่องมือและจัดการสถานะ  
-- **บทเรียน 3**: ออกแบบโดยคำนึงถึงความโปร่งใสและการควบคุมของผู้ใช้  
-- **บทเรียน 4**: เครื่องมือคือ "มือ" ของ agent การกำหนดสกีมาเป็นสิ่งสำคัญที่ทำให้ LLM เข้าใจวิธีใช้เครื่องมือ  
-- **บทเรียน 7**: การวางแผนคือ "หน่วยบริหาร" ของ agent ช่วยแก้ปัญหางานกระบวนงานซับซ้อน
+- **Lesson 1**: Agents are systems, not just models. They perceive, reason, and act.
+- **Lesson 2**: Microsoft Agent Framework abstracts the complexity of tool calling and state management.
+- **Lesson 3**: Design with transparency and user control in mind.
+- **Lesson 4**: Tools are the "hands" of the agent. Schema definition is crucial for the LLM to understand how to use them.
+- **Lesson 7**: Planning is the "executive function" of the agent, enabling it to tackle complex workflows.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ข้อจำกัดความรับผิดชอบ**:  
-เอกสารฉบับนี้ได้รับการแปลโดยใช้บริการแปลด้วย AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้เราจะพยายามให้ความถูกต้องสูงสุด แต่โปรดทราบว่าการแปลอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่แม่นยำ เอกสารต้นฉบับในภาษาดั้งเดิมถือเป็นแหล่งข้อมูลที่มีอำนาจสูงสุด สำหรับข้อมูลที่สำคัญ ขอแนะนำให้ใช้บริการแปลโดยมนุษย์มืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดที่เกิดจากการใช้การแปลนี้
+ข้อจำกัดความรับผิดชอบ:
+เอกสารฉบับนี้ได้รับการแปลโดยใช้บริการแปลภาษาอัตโนมัติ AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้ว่าเราจะมุ่งมั่นเพื่อความถูกต้อง โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้องได้ เอกสารต้นฉบับในภาษาดั้งเดิมควรถือเป็นแหล่งข้อมูลอ้างอิงที่เชื่อถือได้ สำหรับข้อมูลที่มีความสำคัญ ขอแนะนำให้ใช้บริการแปลโดยนักแปลมืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดใด ๆ ที่เกิดขึ้นจากการใช้การแปลนี้
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

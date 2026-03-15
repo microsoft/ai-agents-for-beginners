@@ -1,341 +1,312 @@
 # AGENTS.md
 
-## Project Overview
+## Projekti ülevaade
 
-This repository contains "AI Agents for Beginners" - a comprehensive educational course teaching everything needed to build AI Agents. The course consists of 15+ lessons covering fundamentals, design patterns, frameworks, and production deployment of AI agents.
+See hoidla sisaldab "AI Agents for Beginners" - põhjalikku õppekurssi, mis õpetab kõike, mis on vajalik AI agentide loomiseks. Kursus koosneb 15+ õppetunnist, mis käsitlevad põhialuseid, disainimustreid, raamistikke ja AI agentide tootmisse juurutamist.
 
-**Key Technologies:**
+**Põhitehnoloogiad:**
 - Python 3.12+
-- Jupyter Notebooks for interactive learning
-- AI Frameworks: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Azure AI Services: Microsoft Foundry, Azure AI Agent Service
-- GitHub Models Marketplace (free tier available)
+- Jupyter Notebookid interaktiivseks õppimiseks
+- AI raamistikud: Microsoft Agent Framework (MAF)
+- Azure AI teenused: Microsoft Foundry, Azure AI Foundry Agent Service V2
 
-**Architecture:**
-- Lesson-based structure (00-15+ directories)
-- Each lesson contains: README documentation, code samples (Jupyter notebooks), and images
-- Multi-language support via automated translation system
-- Multiple framework options per lesson (Semantic Kernel, AutoGen, Azure AI Agent Service)
+**Arhitektuur:**
+- Loengupõhine struktuur (00–15+ directories)
+- Igas õppetunnis on: README dokumentatsioon, koodinäited (Jupyter notebookid) ja pildid
+- Mitmekeelsus automatiseeritud tõlkesüsteemi kaudu
+- Igas õppetunnis üks Python notebook, mis kasutab Microsoft Agent Frameworki
 
-## Setup Commands
+## Seadistamise käsud
 
-### Prerequisites
-- Python 3.12 or higher
-- GitHub account (for GitHub Models - free tier)
-- Azure subscription (optional, for Azure AI services)
+### Eeltingimused
+- Python 3.12 või uuem
+- Azure tellimus (Azure AI Foundry jaoks)
+- Azure CLI installitud ja autentitud (`az login`)
 
-### Initial Setup
+### Esialgne seadistus
 
-1. **Clone or fork the repository:**
+1. **Klooni või fork’i hoidla:**
    ```bash
    gh repo fork microsoft/ai-agents-for-beginners --clone
-   # või
+   # VÕI
    git clone https://github.com/microsoft/ai-agents-for-beginners.git
    cd ai-agents-for-beginners
    ```
 
-2. **Create and activate Python virtual environment:**
+2. **Loo ja aktiveeri Python virtuaalne keskkond:**
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # Windowsis: venv\Scripts\activate
    ```
 
-3. **Install dependencies:**
+3. **Paigalda sõltuvused:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Set up environment variables:**
+4. **Sea keskkonnamuutujad:**
    ```bash
    cp .env.example .env
-   # Redigeeri .env oma API-võtmete ja lõpp-punktidega
+   # Redigeeri .env-faili, sisestades oma API-võtmed ja lõpp-punktid.
    ```
 
-### Required Environment Variables
+### Nõutavad keskkonnamuutujad
 
-For **GitHub Models (Free)**:
-- `GITHUB_TOKEN` - Personal access token from GitHub
+For **Azure AI Foundry** (nõutav):
+- `AZURE_AI_PROJECT_ENDPOINT` - Azure AI Foundry projekti lõpp-punkt
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Mudeli juurutuse nimi (nt gpt-4o)
 
-For **Azure AI Services** (optional):
-- `PROJECT_ENDPOINT` - Microsoft Foundry project endpoint
-- `AZURE_OPENAI_API_KEY` - Azure OpenAI API key
-- `AZURE_OPENAI_ENDPOINT` - Azure OpenAI endpoint URL
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Deployment name for chat model
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Deployment name for embeddings
-- Additional Azure configuration as shown in `.env.example`
+For **Azure AI Search** (Lesson 05 - RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search lõpp-punkt
+- `AZURE_SEARCH_API_KEY` - Azure AI Search API-võti
 
-## Development Workflow
+Autentimine: Käivita `az login` enne notebookide käivitamist (kasutab `AzureCliCredential`).
 
-### Running Jupyter Notebooks
+## Arenduse töövoog
 
-Each lesson contains multiple Jupyter notebooks for different frameworks:
+### Jupyter notebookide käivitamine
 
-1. **Start Jupyter:**
+Igas õppetunnis on mitu Jupyter notebooki erinevate raamistike jaoks:
+
+1. **Käivita Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **Navigate to a lesson directory** (e.g., `01-intro-to-ai-agents/code_samples/`)
+2. **Liigu õppetunni kataloogi** (nt `01-intro-to-ai-agents/code_samples/`)
 
-3. **Open and run notebooks:**
-   - `*-semantic-kernel.ipynb` - Using Semantic Kernel framework
-   - `*-autogen.ipynb` - Using AutoGen framework
-   - `*-python-agent-framework.ipynb` - Using Microsoft Agent Framework (Python)
-   - `*-dotnet-agent-framework.ipynb` - Using Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Using Azure AI Agent Service
+3. **Ava ja käivita notebookid:**
+   - `*-python-agent-framework.ipynb` - Kasutab Microsoft Agent Frameworki (Python)
+   - `*-dotnet-agent-framework.ipynb` - Kasutab Microsoft Agent Frameworki (.NET)
 
-### Working with Different Frameworks
+### Töötamine Microsoft Agent Frameworkiga
 
-**Semantic Kernel + GitHub Models:**
-- Free tier available with GitHub account
-- Good for learning and experimentation
-- File pattern: `*-semantic-kernel*.ipynb`
+**Microsoft Agent Framework + Azure AI Foundry:**
+- Nõuab Azure tellimust
+- Kasutab `AzureAIProjectAgentProvider` Agent Service V2 jaoks (agendid nähtavad Foundry portaalis)
+- Tootmiskõlbulik, sisseehitatud jälgitavusega
+- Failimuster: `*-python-agent-framework.ipynb`
 
-**AutoGen + GitHub Models:**
-- Free tier available with GitHub account
-- Multi-agent orchestration capabilities
-- File pattern: `*-autogen.ipynb`
+## Testimise juhised
 
-**Microsoft Agent Framework (MAF):**
-- Latest framework from Microsoft
-- Available in Python and .NET
-- File pattern: `*-agent-framework.ipynb`
+See on õppehoidla koos näidiskoodiga, mitte tootmiskood automatiseeritud testidega. Oma seadistuse ja muudatuste kontrollimiseks:
 
-**Azure AI Agent Service:**
-- Requires Azure subscription
-- Production-ready features
-- File pattern: `*-azureaiagent.ipynb`
+### Käsitsi testimine
 
-## Testing Instructions
-
-This is an educational repository with example code rather than production code with automated tests. To verify your setup and changes:
-
-### Manual Testing
-
-1. **Test Python environment:**
+1. **Testi Python keskkonda:**
    ```bash
    python --version  # Peaks olema 3.12 või uuem
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Test notebook execution:**
+2. **Testi notebookide täitmist:**
    ```bash
    # Muuda märkmik skriptiks ja käivita (testide impordid)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **Verify environment variables:**
+3. **Kontrolli keskkonnamuutujaid:**
    ```bash
    python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
    ```
 
-### Running Individual Notebooks
+### Üksikute notebookide käivitamine
 
-Open notebooks in Jupyter and execute cells sequentially. Each notebook is self-contained and includes:
-- Import statements
-- Configuration loading
-- Example agent implementations
-- Expected outputs in markdown cells
+Ava notebookid Jupyteri keskkonnas ja täida lahtrid järjestikku. Iga notebook on iseseisev ja sisaldab:
+- Impordiavaldisi
+- Konfiguratsiooni laadimist
+- Näidissagentide implementeeringuid
+- Oodatud väljundit markdown-lahtrites
 
-## Code Style
+## Koodistiil
 
-### Python Conventions
+### Python konventsioonid
 
-- **Python Version**: 3.12+
-- **Code Style**: Follow standard Python PEP 8 conventions
-- **Notebooks**: Use clear markdown cells to explain concepts
-- **Imports**: Group by standard library, third-party, local imports
+- **Pythoni versioon**: 3.12+
+- **Koodi stiil**: Järgi standardseid Python PEP 8 konventsioone
+- **Notebookid**: Kasuta selgeid markdown-lahtrid kontseptsioonide selgitamiseks
+- **Impordid**: Rühmitada standardraamatukogu, kolmanda osapoole ja lokaalsed impordid
 
-### Jupyter Notebook Conventions
+### Jupyteri notebooki konventsioonid
 
-- Include descriptive markdown cells before code cells
-- Add output examples in notebooks for reference
-- Use clear variable names that match lesson concepts
-- Keep notebook execution order linear (cell 1 → 2 → 3...)
+- Lisa kirjeldavad markdown-lahtrid enne koodilahtrid
+- Lisa notebookidesse väljundinäited viitamiseks
+- Kasuta selgeid muutujanimetusi, mis vastavad õppetunni kontseptsioonidele
+- Hoia notebooki täitmise järjekord lineaarsena (lahter 1 → 2 → 3...)
 
-### File Organization
+### Failide korraldus
 
 ```
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
-## Build and Deployment
+## Koostamine ja juurutamine
 
-### Building Documentation
+### Dokumentatsiooni koostamine
 
-This repository uses Markdown for documentation:
-- README.md files in each lesson folder
-- Main README.md at repository root
-- Automated translation system via GitHub Actions
+See hoidla kasutab dokumentatsiooni jaoks Markdowni:
+- README.md failid igas õppetunni kaustas
+- Peamine README.md hoidla juures
+- Automaatne tõlkesüsteem GitHub Actionsi kaudu
 
-### CI/CD Pipeline
+### CI/CD töövoog
 
-Located in `.github/workflows/`:
+Asub kataloogis `.github/workflows/`:
 
-1. **co-op-translator.yml** - Automatic translation to 50+ languages
-2. **welcome-issue.yml** - Welcomes new issue creators
-3. **welcome-pr.yml** - Welcomes new pull request contributors
+1. **co-op-translator.yml** - Automaatne tõlge 50+ keelde
+2. **welcome-issue.yml** - Tervitab uusi issue loojaid
+3. **welcome-pr.yml** - Tervitab uusi pull requesti kaasautoreid
 
-### Deployment
+### Juurutamine
 
-This is an educational repository - no deployment process. Users:
-1. Fork or clone the repository
-2. Run notebooks locally or in GitHub Codespaces
-3. Learn by modifying and experimenting with examples
+See on õppehoidla - puudub juurutusprotsess. Kasutajad:
+1. Forki või klooni hoidla
+2. Käivita notebookid lokaalselt või GitHub Codespaces'is
+3. Õpi, muutes ja katsetades näiteid
 
-## Pull Request Guidelines
+## Pull Requesti juhised
 
-### Before Submitting
+### Enne esitamist
 
-1. **Test your changes:**
-   - Run affected notebooks completely
-   - Verify all cells execute without errors
-   - Check that outputs are appropriate
+1. **Testi oma muudatusi:**
+   - Käivita mõjutatud notebookid täielikult
+   - Kontrolli, et kõik lahtrid täituvad ilma vigadeta
+   - Kontrolli, et väljundid on sobivad
 
-2. **Documentation updates:**
-   - Update README.md if adding new concepts
-   - Add comments in notebooks for complex code
-   - Ensure markdown cells explain the purpose
+2. **Dokumentatsiooni uuendused:**
+   - Uuenda README.md, kui lisad uusi kontseptsioone
+   - Lisa notebookidesse kommentaare keeruka koodi jaoks
+   - Veendu, et markdown-lahtrid seletavad eesmärki
 
-3. **File changes:**
-   - Avoid committing `.env` files (use `.env.example`)
-   - Don't commit `venv/` or `__pycache__/` directories
-   - Keep notebook outputs when they demonstrate concepts
-   - Remove temporary files and backup notebooks (`*-backup.ipynb`)
+3. **Faili muudatused:**
+   - Väldi `.env` failide commitimist (kasuta `.env.example`)
+   - Ära commiti `venv/` ega `__pycache__/` katalooge
+   - Hoia notebooki väljundeid, kui need demonstreerivad kontseptsioone
+   - Eemalda ajutised failid ja varukoopia notebookid (`*-backup.ipynb`)
 
-### PR Title Format
+### PR pealkirja formaat
 
-Use descriptive titles:
+Kasuta kirjeldavaid pealkirju:
 - `[Lesson-XX] Add new example for <concept>`
 - `[Fix] Correct typo in lesson-XX README`
 - `[Update] Improve code sample in lesson-XX`
 - `[Docs] Update setup instructions`
 
-### Required Checks
+### Nõutud kontrollid
 
-- Notebooks should execute without errors
-- README files should be clear and accurate
-- Follow existing code patterns in the repository
-- Maintain consistency with other lessons
+- Notebookid peaksid täituma ilma vigadeta
+- README failid peaksid olema selged ja täpsed
+- Järgi olemasolevaid koodimustreid hoidlas
+- Säilita järjepidevus teiste õppetundidega
 
-## Additional Notes
+## Lisamärkused
 
-### Common Gotchas
+### Sageli esinevad probleemid
 
-1. **Python version mismatch:**
-   - Ensure Python 3.12+ is used
-   - Some packages may not work with older versions
-   - Use `python3 -m venv` to specify Python version explicitly
+1. **Pythoni versiooni mittevastavus:**
+   - Veendu, et kasutatakse Python 3.12+ versiooni
+   - Mõned paketid ei pruugi vanemate versioonidega töötada
+   - Kasuta `python3 -m venv`, et määrata Python versioon selgelt
 
-2. **Environment variables:**
-   - Always create `.env` from `.env.example`
-   - Don't commit `.env` file (it's in `.gitignore`)
-   - GitHub token needs appropriate permissions
+2. **Keskkonnamuutujad:**
+   - Loo alati `.env` fail `.env.example` põhjal
+   - Ära commiti `.env` faili (see on `.gitignore`-is)
+   - GitHubi token vajab sobivaid õigusi
 
-3. **Package conflicts:**
-   - Use a fresh virtual environment
-   - Install from `requirements.txt` rather than individual packages
-   - Some notebooks may require additional packages mentioned in their markdown cells
+3. **Pakkide konfliktid:**
+   - Kasuta värsket virtuaalkeskkonda
+   - Paigalda `requirements.txt` alusel, mitte üksikute pakettidena
+   - Mõned notebookid võivad vajada täiendavaid pakette, mis on mainitud nende markdown-lahtrites
 
-4. **Azure services:**
-   - Azure AI services require active subscription
-   - Some features are region-specific
-   - Free tier limitations apply to GitHub Models
+4. **Azure teenused:**
+   - Azure AI teenused nõuavad aktiivset tellimust
+   - Mõned funktsioonid on regioonispetsiifilised
+   - Tasuta taseme piirangud kehtivad GitHub Models'i puhul
 
-### Learning Path
+### Õppimise rada
 
-Recommended progression through lessons:
-1. **00-course-setup** - Start here for environment setup
-2. **01-intro-to-ai-agents** - Understand AI agent fundamentals
-3. **02-explore-agentic-frameworks** - Learn about different frameworks
-4. **03-agentic-design-patterns** - Core design patterns
-5. Continue through numbered lessons sequentially
+Soovitatav järjekord õppetundide läbimiseks:
+1. **00-course-setup** - Alusta siit keskkonna seadistamiseks
+2. **01-intro-to-ai-agents** - Mõista AI agentide põhialuseid
+3. **02-explore-agentic-frameworks** - Õpi erinevaid raamistikke
+4. **03-agentic-design-patterns** - Põhilised disainimustrid
+5. Jätka nummerdatud õppetundide järjekorras
 
-### Framework Selection
+### Raamistiku valik
 
-Choose framework based on your goals:
-- **Learning/Prototyping**: Semantic Kernel + GitHub Models (free)
-- **Multi-agent systems**: AutoGen
-- **Latest features**: Microsoft Agent Framework (MAF)
-- **Production deployment**: Azure AI Agent Service
+Vali raamistik vastavalt oma eesmärkidele:
+- **Kõik õppetunnid**: Microsoft Agent Framework (MAF) koos `AzureAIProjectAgentProvider`-ga
+- **Agendid registreeritakse serveris** Azure AI Foundry Agent Service V2-s ja need on nähtavad Foundry portaalis
 
-### Getting Help
+### Abi saamine
 
-- Join the [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Review lesson README files for specific guidance
-- Check the main [README.md](./README.md) for course overview
-- Refer to [Course Setup](./00-course-setup/README.md) for detailed setup instructions
+- Liitu [Microsoft Foundry kogukonna Discordiga](https://aka.ms/ai-agents/discord)
+- Vaata õppetunni README-faile konkreetse juhendamise jaoks
+- Vaata peamist [README.md](./README.md) kursuse ülevaate saamiseks
+- Viita lehele [Kursuse seadistus](./00-course-setup/README.md) üksikasjalike seadistusjuhiste jaoks
 
-### Contributing
+### Panustamine
 
-This is an open educational project. Contributions welcome:
-- Improve code examples
-- Fix typos or errors
-- Add clarifying comments
-- Suggest new lesson topics
-- Translate to additional languages
+See on avatud õppeprojekt. Panused on teretulnud:
+- Paranda koodinäiteid
+- Paranda trükivead või vead
+- Lisa täpsustavaid kommentaare
+- Paku uusi õppetundide teemasid
+- Tõlgi täiendavatesse keeltesse
 
 See [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) for current needs.
 
-## Project-Specific Context
+## Projekti-spetsiifiline kontekst
 
-### Multi-Language Support
+### Mitmekeelsuse tugi
 
-This repository uses an automated translation system:
-- 50+ languages supported
-- Translations in `/translations/<lang-code>/` directories
-- GitHub Actions workflow handles translation updates
-- Source files are in English at repository root
+See hoidla kasutab automatiseeritud tõlkesüsteemi:
+- Toetatud 50+ keelt
+- Tõlked asuvad kataloogides `/translations/<lang-code>/`
+- GitHub Actionsi töövoog haldab tõlkeuuendusi
+- Allikafailid on inglise keeles hoidla juures
 
-### Lesson Structure
+### Õppetunni struktuur
 
-Each lesson follows a consistent pattern:
-1. Video thumbnail with link
-2. Written lesson content (README.md)
-3. Code samples in multiple frameworks
-4. Learning objectives and prerequisites
-5. Extra learning resources linked
+Iga õppetund järgib järjepidevat mustrit:
+1. Video pisipilt koos lingiga
+2. Kirjalik õppetunni sisu (README.md)
+3. Koodinäited mitmes raamistikus
+4. Õpieesmärgid ja eeltingimused
+5. Täiendavad õppematerjalid lingitult
 
-### Code Sample Naming
+### Koodinäidete nimetamine
 
-Format: `<lesson-number>-<framework-name>.ipynb`
-- `04-semantic-kernel.ipynb` - Lesson 4, Semantic Kernel
-- `07-autogen.ipynb` - Lesson 7, AutoGen
-- `14-python-agent-framework.ipynb` - Lesson 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Lesson 14, MAF .NET
+Format: `<lesson-number>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Õppetund 1, MAF Python
+- `14-sequential.ipynb` - Õppetund 14, MAF edasijõudnud mustrid
 
-### Special Directories
+### Spetsiaalsed kataloogid
 
-- `translated_images/` - Localized images for translations
-- `images/` - Original images for English content
-- `.devcontainer/` - VS Code development container configuration
-- `.github/` - GitHub Actions workflows and templates
+- `translated_images/` - Lokaliseeritud pildid tõlgete jaoks
+- `images/` - Originaalpildid ingliskeelse sisu jaoks
+- `.devcontainer/` - VS Code arenduskonteineri konfiguratsioon
+- `.github/` - GitHub Actions töövood ja mallid
 
-### Dependencies
+### Sõltuvused
 
-Key packages from `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - AutoGen framework
-- `semantic-kernel` - Semantic Kernel framework
+Peamised paketid failist `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
-- `azure-ai-inference`, `azure-ai-projects` - Azure AI services
-- `azure-search-documents` - Azure AI Search integration
-- `chromadb` - Vector database for RAG examples
-- `chainlit` - Chat UI framework
-- `browser_use` - Browser automation for agents
-- `mcp[cli]` - Model Context Protocol support
-- `mem0ai` - Memory management for agents
+- `a2a-sdk` - Agent-to-agent protokolli tugi
+- `azure-ai-inference`, `azure-ai-projects` - Azure AI teenused
+- `azure-identity` - Azure autentimine (AzureCliCredential)
+- `azure-search-documents` - Azure AI Search integratsioon
+- `mcp[cli]` - Model Context Protocol tugi
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Vastutusest loobumine:
-See dokument on tõlgitud tehisintellekti tõlketeenuse Co-op Translator (https://github.com/Azure/co-op-translator) abil. Kuigi me püüame tagada täpsust, pidage palun meeles, et automatiseeritud tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle algses keeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta ühegi arusaamatuse ega valesti tõlgendamise eest, mis võib tuleneda selle tõlke kasutamisest.
+Lahtiütlus:
+See dokument on tõlgitud tehisintellektil põhineva tõlketeenuse Co-op Translator (https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palun pange tähele, et automatiseeritud tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta ühegi arusaamatuse ega väärtõlgenduse eest, mis tuleneb selle tõlke kasutamisest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

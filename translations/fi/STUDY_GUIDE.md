@@ -1,67 +1,66 @@
-# AI-agentit aloittelijoille - Opas ja kurssin yhteenveto
+# AI-agentit aloittelijoille - Opas ja kurssiyhteenveto
 
-Tämä opas tarjoaa yhteenvetona "AI Agents for Beginners" -kurssin ja selittää keskeiset käsitteet, kehykset ja suunnittelumallit AI-agenttien rakentamiseen.
+Tämä opas tarjoaa yhteenvedon "AI Agents for Beginners" -kurssista ja selittää keskeiset käsitteet, kehykset ja suunnittelumallit AI-agenttien rakentamiseen.
 
-## 1. Johdanto AI-agentteihin
+## 1. Johdatus AI-agentteihin
 
 **Mitä AI-agentit ovat?**  
-AI-agentit ovat järjestelmiä, jotka laajentavat suurten kielimallien (LLM) kykyjä antamalla niille pääsyn **työkaluihin**, **tietoon** ja **muistiin**. Toisin kuin tavallinen LLM-pohjainen chatbot, joka vain tuottaa tekstiä koulutusdatan perusteella, AI-agentti voi:  
-- **Havaita** ympäristönsä (sensoreiden tai syötteiden kautta).  
-- **Päättää** miten ratkaista ongelma.  
-- **Toimia** ympäristön muuttamiseksi (toimilaitteiden tai työkalujen suorittamisen kautta).  
+AI-agentit ovat järjestelmiä, jotka laajentavat suurten kielimallien (LLM) kykyjä antamalla niille pääsyn **työkaluihin**, **tietoon** ja **muistiin**. Toisin kuin tavallinen LLM-chatbot, joka tuottaa tekstiä vain koulutusdatan perusteella, AI-agentti voi:  
+- **Havaita** ympäristönsä (antureiden tai syötteiden kautta).  
+- **Päättellä**, miten ongelma ratkaistaan.  
+- **Toimia** muutoksen aikaansaamiseksi ympäristössä (toimilaitteiden tai työkalujen avulla).
 
 **Agentin keskeiset osat:**  
-- **Ympäristö**: tila, jossa agentti toimii (esim. varausjärjestelmä).  
-- **Sensorit**: mekanismit tiedon keräämiseen (esim. API-kutsun lukeminen).  
-- **Toimilaitteet**: mekanismit toimien suorittamiseen (esim. sähköpostin lähettäminen).  
-- **Aivot (LLM)**: päättelymoottori, joka suunnittelee ja päättää toiminnoista.
+- **Ympäristö**: Tilatila, jossa agentti toimii (esim. varausjärjestelmä).  
+- **Anturit**: Tiedonkeruumenetelmät (esim. API-kutsun lukeminen).  
+- **Toimilaitteet**: Toimintojen suorittamisen menetelmät (esim. sähköpostin lähetys).  
+- **Aivot (LLM)**: Päättelymoottori, joka suunnittelee ja päättää toimenpiteistä.
 
 ## 2. Agenttikehykset
 
-Kurssilla käsitellään kolmea pääkehystä agenttien rakentamiseen:
+Kurssilla käytetään **Microsoft Agent Framework (MAF)** -kehystä ja **Azure AI Foundry Agent Service V2** -palvelua agenttien rakentamiseen:
 
-| Kehys | Keskittyminen | Paras käyttötarkoitus |
-|-------|---------------|----------------------|
-| **Semantic Kernel** | Tuotantovalmis SDK .NET/Python-käyttöön | Yrityssovellukset, tekoälyn integrointi olemassa olevaan koodiin. |
-| **AutoGen** | Moni-agenttiyhteistyö | Monimutkaiset tilanteet, joissa useat erikoistuneet agentit kommunikoivat keskenään. |
-| **Azure AI Agent Service** | Hallittu pilvipalvelu | Turvallinen, skaalautuva käyttöönotto sisäänrakennetulla tilanhallinnalla. |
+| Komponentti | Keskittyminen | Paras käyttö |
+|-------------|---------------|--------------|
+| **Microsoft Agent Framework** | Yhtenäinen Python/C#-SDK agenteille, työkaluissa ja työnkuluissa | Agenttien rakentaminen työkaluilla, moniagenttityönkulut ja tuotantokuvioissa. |
+| **Azure AI Foundry Agent Service** | Hallittu pilviajoaika | Turvallinen, skaalautuva käyttöönotto sisäänrakennetulla tilanhallinnalla, valvonnalla ja luottamuksella. |
 
-## 3. Agenttien suunnittelumallit
+## 3. Agenttisuunnittelumallit
 
-Suunnittelumallit auttavat jäsentämään, miten agentit toimivat luotettavasti ongelmanratkaisussa.
+Suunnittelumallit auttavat jäsentämään, miten agentit toimivat luotettavasti ongelmien ratkaisemiseksi.
 
-### **Työkalujen käyttö -malli** (Luku 4)  
+### **Työkalujen käyttömalli** (Luento 4)  
 Tämä malli mahdollistaa agenttien vuorovaikutuksen ulkomaailman kanssa.  
-- **Käsite**: Agentille annetaan "skeema" (lista käytettävissä olevista funktioista ja niiden parametreistä). LLM päättää *minkä* työkalun kutsuu ja *millä* argumenteilla käyttäjän pyynnön perusteella.  
-- **Virtaus**: Käyttäjän pyyntö -> LLM -> **Työkalun valinta** -> **Työkalun suoritus** -> LLM (työkalun tuloksella) -> Loppuvastaus.  
-- **Käyttötapaukset**: Reaaliaikaisen datan hakeminen (sää, osakekurssit), laskelmien tekeminen, koodin suoritus.
+- **Käsite**: Agentille annetaan "skeema" (lista käytettävissä olevista funktioista ja niiden parametreista). LLM päättää, *minkä* työkalun kutsuu ja *millä* argumenteilla käyttäjän pyynnön perusteella.  
+- **Kulku**: Käyttäjän pyyntö -> LLM -> **Työkalun valinta** -> **Työkalun suoritus** -> LLM (työkalun tuloksilla) -> Lopullinen vastaus.  
+- **Käyttötapaukset**: Reaaliaikaisen datan hakeminen (sää, osakekurssit), laskentojen tekeminen, koodin suoritus.
 
-### **Suunnittelumalli** (Luku 7)  
-Tämä malli mahdollistaa agenttien ratkaista monimutkaisia, vaiheittaisia tehtäviä.  
-- **Käsite**: Agentti pilkkoo korkean tason tavoitteen useisiin pienempiin alatehtäviin.  
+### **Suunnittelumalli** (Luento 7)  
+Tämä malli mahdollistaa agenttien monivaiheisten, monimutkaisten tehtävien ratkaisun.  
+- **Käsite**: Agentti jakaa korkean tason tavoitteen pienempiin osatehtäviin.  
 - **Lähestymistavat**:  
-  - **Tehtävien pilkkominen**: "Suunnittele matka" jaetaan "Varaa lento", "Varaa hotelli", "Vuokraa auto".  
-  - **Iteratiivinen suunnittelu**: Suunnitelman arviointi uudelleen aiempien vaiheiden tulosten perusteella (esim. jos lento on täynnä, valitaan toinen päivä).  
-- **Toteutus**: Usein "Suunnittelija"-agentti luo rakenteellisen suunnitelman (esim. JSON-muodossa), jonka muut agentit toteuttavat.
+  - **Tehtävien pilkkominen**: Esim. "Suunnittele matka" pilkotaan "Varaa lento", "Varaa hotelli", "Vuokraa auto" -osiksi.  
+  - **Iteratiivinen suunnittelu**: Suunnitelman uudelleenarviointi aiempien vaiheiden tulosten perusteella (esim. jos lento on täynnä, valitaan eri päivä).  
+- **Toteutus**: Usein "Suunnittelija"-agentti generoi rakenteellisen suunnitelman (esim. JSON), jonka muut agentit toteuttavat.
 
 ## 4. Suunnitteluperiaatteet
 
 Agentteja suunniteltaessa on otettava huomioon kolme ulottuvuutta:  
-- **Tila**: Agenttien tulee yhdistää ihmiset ja tieto, olla saavutettavia mutta huomaamattomia.  
-- **Aika**: Agenttien tulee oppia *menneisyydestä*, tarjota olennaisia vihjeitä *nyt* ja sopeutua *tulevaisuutta* varten.  
-- **Ydin**: Hyväksy epävarmuus mutta luo luottamus avoimuuden ja käyttäjän hallinnan avulla.
+- **Tila**: Agenttien tulisi yhdistää ihmiset ja tieto, olla saavutettavissa mutta huomaamattomia.  
+- **Aika**: Agenttien tulisi oppia *menneestä*, tarjota merkityksellisiä vihjeitä *nykyhetkessä* ja sopeutua *tulevaan*.  
+- **Ydin**: Hyväksy epävarmuus mutta rakenna luottamus avoimuuden ja käyttäjän ohjauksen kautta.
 
-## 5. Keskeisten oppien yhteenveto
+## 5. Keskeiset oppitunnit lyhyesti
 
-- **Luku 1**: Agentit ovat järjestelmiä, eivät pelkästään malleja. Ne havaitsevat, päättävät ja toimivat.  
-- **Luku 2**: Kehykset kuten Semantic Kernel ja AutoGen abstrahoivat työkalupyyntöjen ja tilanhallinnan monimutkaisuutta.  
-- **Luku 3**: Suunnittele avoimuus ja käyttäjän hallinta mielessä.  
-- **Luku 4**: Työkalut ovat agentin "kädet". Skeeman määrittely on ratkaisevaa, jotta LLM ymmärtää työkalujen käytön.  
-- **Luku 7**: Suunnittelu on agentin "toiminnanjohto", joka mahdollistaa monimutkaisten prosessien hallinnan.
+- **Luento 1**: Agentit ovat järjestelmiä, eivät pelkästään malleja. Ne havaitsevat, päättävät ja toimivat.  
+- **Luento 2**: Microsoft Agent Framework abstrahoi työkalukutsujen ja tilanhallinnan monimutkaisuuden.  
+- **Luento 3**: Suunnittele avoimuutta ja käyttäjän hallintaa ajatellen.  
+- **Luento 4**: Työkalut ovat agentin "kädet". Skeeman määrittely on ratkaisevaa, jotta LLM ymmärtää niiden käytön.  
+- **Luento 7**: Suunnittelu on agentin "johtotoiminto", joka mahdollistaa monimutkaisten työnkulkujen hallinnan.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty tekoälypohjaisella käännöspalvelulla [Co-op Translator](https://github.com/Azure/co-op-translator). Pyrimme tarkkuuteen, mutta ole hyvä ja huomioi, että automaattikäännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on ratkaiseva lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä johtuvista väärinymmärryksistä tai virheellisistä tulkinnoista.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Pyrimme tarkkuuteen, mutta ota huomioon, että automaattikäännöksissä voi esiintyä virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäiskielellä tulee pitää auktoritatiivisena lähteenä. Tärkeissä tiedoissa suosittelemme ammattimaisen kääntäjän käyttöä. Emme ole vastuussa tämän käännöksen käytöstä johtuvista väärinkäsityksistä tai virhetulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

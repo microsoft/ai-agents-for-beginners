@@ -98,7 +98,7 @@ This course is divided into some of the current popular Agentic patterns.
 
 Agentic Frameworks allow developers to implement agentic patterns through code. These frameworks offer templates, plugins, and tools for better AI Agent collaboration. These benefits provide abilities for better observability and troubleshooting of AI Agent systems.
 
-In this course, we will explore the research-driven AutoGen framework and the production-ready Agent framework from Semantic Kernel.
+In this course, we will explore the Microsoft Agent Framework (MAF) for building production-ready AI agents.
 
 ## Sample Codes
 
@@ -121,5 +121,5 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet w
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 Disclaimer:
-This document has been translated using the AI translation service Co-op Translator (https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

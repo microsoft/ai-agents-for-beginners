@@ -1,42 +1,42 @@
-[![Agentes de IA Confiáveis](../../../translated_images/pt-PT/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Agentes de IA Fiáveis](../../../translated_images/pt-PT/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Clique na imagem acima para ver o vídeo desta lição)_
+> _(Clique na imagem acima para ver o vídeo desta aula)_
 
-# Construir Agentes de IA Confiáveis
+# Construir Agentes de IA Fiáveis
 
 ## Introdução
 
-Esta lição cobrirá:
+Esta aula vai cobrir:
 
-- Como criar e implementar Agentes de IA seguros e eficazes
+- Como construir e implementar Agentes de IA seguros e eficazes
 - Considerações importantes de segurança ao desenvolver Agentes de IA.
 - Como manter a privacidade dos dados e dos utilizadores ao desenvolver Agentes de IA.
 
 ## Objetivos de Aprendizagem
 
-Após completar esta lição, saberá como:
+Após completar esta aula, saberá como:
 
 - Identificar e mitigar riscos ao criar Agentes de IA.
 - Implementar medidas de segurança para garantir que os dados e o acesso são geridos corretamente.
-- Criar Agentes de IA que mantenham a privacidade dos dados e proporcionem uma experiência de utilizador de qualidade.
+- Criar Agentes de IA que mantenham a privacidade dos dados e ofereçam uma experiência de utilizador de qualidade.
 
 ## Segurança
 
-Vamos primeiro olhar para a construção de aplicações agentivas seguras. Segurança significa que o agente de IA atua conforme o planeado. Como construtores de aplicações agentivas, temos métodos e ferramentas para maximizar a segurança:
+Vamos primeiro olhar para a construção de aplicações agentivas seguras. Segurança significa que o agente de IA atua conforme o concebido. Como construtores de aplicações agentivas, temos métodos e ferramentas para maximizar a segurança:
 
-### Construir uma Estrutura de Mensagens do Sistema
+### Construir uma Estrutura de Mensagem do Sistema
 
-Se alguma vez construiu uma aplicação de IA usando Modelos de Linguagem de Grande Dimensão (LLMs), sabe da importância de desenhar um prompt de sistema robusto ou mensagem de sistema. Estes prompts estabelecem as regras meta, instruções e diretrizes para como o LLM irá interagir com o utilizador e os dados.
+Se alguma vez construiu uma aplicação de IA usando Large Language Models (LLMs), sabe a importância de conceber um prompt de sistema robusto ou mensagem de sistema. Estes prompts estabelecem as meta-regras, instruções e orientações sobre como o LLM irá interagir com o utilizador e os dados.
 
-Para Agentes de IA, o prompt de sistema é ainda mais importante, pois os Agentes de IA vão necessitar de instruções altamente específicas para completar as tarefas que desenhámos para eles.
+Para Agentes de IA, o prompt de sistema é ainda mais importante, pois os Agentes de IA vão precisar de instruções altamente específicas para completar as tarefas que desenhámos para eles.
 
 Para criar prompts de sistema escaláveis, podemos usar uma estrutura de mensagem de sistema para construir um ou mais agentes na nossa aplicação:
 
-![Criar uma Estrutura de Mensagens do Sistema](../../../translated_images/pt-PT/system-message-framework.3a97368c92d11d68.webp)
+![Construir uma Estrutura de Mensagem do Sistema](../../../translated_images/pt-PT/system-message-framework.3a97368c92d11d68.webp)
 
 #### Passo 1: Criar uma Mensagem Meta do Sistema 
 
-O meta prompt será usado por um LLM para gerar os prompts de sistema para os agentes que criamos. Desenhamos-no como um template para que possamos criar eficazmente múltiplos agentes, se necessário.
+O prompt meta será usado por um LLM para gerar os prompts de sistema para os agentes que criamos. Projetamo-lo como um template para que possamos criar eficientemente múltiplos agentes, se necessário.
 
 Aqui está um exemplo de uma mensagem meta do sistema que daríamos ao LLM:
 
@@ -61,7 +61,7 @@ You are a travel agent for Contoso Travel that is great at booking flights for c
 
 Agora podemos otimizar esta mensagem de sistema fornecendo a mensagem meta do sistema como a mensagem de sistema e a nossa mensagem de sistema básica.
 
-Isto produzirá uma mensagem de sistema melhor desenhada para orientar os nossos Agentes de IA:
+Isto irá produzir uma mensagem de sistema melhor concebida para orientar os nossos Agentes de IA:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -115,98 +115,103 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 #### Passo 4: Iterar e Melhorar
 
-O valor desta estrutura de mensagens do sistema é ser capaz de escalar a criação de mensagens de sistema para múltiplos agentes mais facilmente, bem como melhorar as suas mensagens de sistema ao longo do tempo. É raro ter uma mensagem de sistema que funcione na primeira tentativa para o seu caso de uso completo. Ser capaz de fazer pequenos ajustes e melhorias alterando a mensagem de sistema básica e executando-a através do sistema permitirá comparar e avaliar resultados.
+O valor desta estrutura de mensagem de sistema é conseguir escalar a criação de mensagens de sistema de múltiplos agentes mais facilmente, bem como melhorar as suas mensagens de sistema ao longo do tempo. É raro que tenha uma mensagem de sistema que funcione à primeira para o seu caso de utilização completo. Ser capaz de fazer pequenos ajustes e melhorias ao alterar a mensagem de sistema básica e executá-la através do sistema permitirá que compare e avalie os resultados.
 
 ## Compreender Ameaças
 
-Para construir agentes de IA confiáveis, é importante compreender e mitigar os riscos e ameaças ao seu agente de IA. Vamos ver apenas algumas das diferentes ameaças aos agentes de IA e como pode planear e preparar-se melhor para elas.
+Para construir agentes de IA fiáveis, é importante compreender e mitigar os riscos e as ameaças ao seu agente de IA. Vamos ver apenas algumas das diferentes ameaças aos agentes de IA e como pode planear e preparar-se melhor para elas.
 
 ![Compreender Ameaças](../../../translated_images/pt-PT/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Tarefa e Instrução
 
-**Descrição:** Os atacantes tentam alterar as instruções ou objetivos do agente de IA através de prompting ou manipulando entradas.
+**Descrição:** Os atacantes tentam alterar as instruções ou os objetivos do agente de IA através de prompting ou manipulando entradas.
 
-**Mitigação**: Execute verificações de validação e filtros de entrada para detectar prompts potencialmente perigosos antes de serem processados pelo Agente de IA. Como estes ataques tipicamente requerem interação frequente com o Agente, limitar o número de turnos numa conversa é outra forma de evitar este tipo de ataques.
+**Mitigação**: Execute verificações de validação e filtros de entrada para detetar prompts potencialmente perigosos antes de serem processados pelo Agente de IA. Como estes ataques normalmente requerem interação frequente com o Agente, limitar o número de turnos numa conversação é outra forma de prevenir este tipo de ataques.
 
 ### Acesso a Sistemas Críticos
 
-**Descrição**: Se um agente de IA tiver acesso a sistemas e serviços que armazenam dados sensíveis, os atacantes podem comprometer a comunicação entre o agente e esses serviços. Estes podem ser ataques diretos ou tentativas indiretas de obter informação sobre esses sistemas através do agente.
+**Descrição**: Se um agente de IA tiver acesso a sistemas e serviços que armazenam dados sensíveis, os atacantes podem comprometer a comunicação entre o agente e esses serviços. Podem ser ataques diretos ou tentativas indiretas de obter informação sobre esses sistemas através do agente.
 
-**Mitigação**: Os agentes de IA devem ter acesso a sistemas com base no princípio do mínimo privilégio para prevenir este tipo de ataques. A comunicação entre o agente e o sistema também deve ser segura. Implementar autenticação e controle de acesso é outra forma de proteger esta informação.
+**Mitigação**: Os agentes de IA devem ter acesso a sistemas com base na necessidade apenas para prevenir este tipo de ataques. A comunicação entre o agente e o sistema também deve ser segura. Implementar autenticação e controlo de acesso é outra forma de proteger esta informação.
 
 ### Sobrecarga de Recursos e Serviços
 
-**Descrição:** Os agentes de IA podem aceder a diferentes ferramentas e serviços para completar tarefas. Os atacantes podem usar esta capacidade para atacar esses serviços enviando um grande volume de pedidos através do Agente de IA, o que pode resultar em falhas do sistema ou custos elevados.
+**Descrição:** Os agentes de IA podem aceder a diferentes ferramentas e serviços para completar tarefas. Os atacantes podem usar esta capacidade para atacar esses serviços, enviando um grande volume de pedidos através do Agente de IA, o que pode resultar em falhas do sistema ou custos elevados.
 
-**Mitigação:** Implemente políticas para limitar o número de pedidos que um agente de IA pode fazer a um serviço. Limitar o número de turnos de conversa e pedidos ao seu agente de IA é outra forma de prevenir este tipo de ataques.
+**Mitigação:** Implemente políticas para limitar o número de pedidos que um agente de IA pode fazer a um serviço. Limitar o número de turnos de conversação e pedidos ao seu agente de IA é outra forma de prevenir este tipo de ataques.
 
-### Envenenamento da Base de Conhecimento
+### Contaminação da Base de Conhecimento
 
-**Descrição:** Este tipo de ataque não visa o agente de IA diretamente, mas sim a base de conhecimento e outros serviços que o agente de IA irá usar. Isto pode envolver corromper os dados ou informação que o agente de IA utilizará para completar uma tarefa, levando a respostas tendenciosas ou não intencionais ao utilizador.
+**Descrição:** Este tipo de ataque não tem como alvo o agente de IA diretamente, mas sim a base de conhecimento e outros serviços que o agente de IA irá usar. Isto pode envolver a corromper os dados ou a informação que o agente de IA irá usar para completar uma tarefa, levando a respostas tendenciosas ou não intencionais ao utilizador.
 
-**Mitigação:** Realize verificações regulares dos dados que o agente de IA utilizará nos seus fluxos de trabalho. Assegure que o acesso a estes dados é seguro e só é alterado por indivíduos de confiança para evitar este tipo de ataque.
+**Mitigação:** Realize verificações regulares dos dados que o agente de IA irá utilizar nos seus fluxos de trabalho. Assegure que o acesso a estes dados é seguro e só pode ser alterado por indivíduos de confiança para evitar este tipo de ataque.
 
 ### Erros em Cascata
 
 **Descrição:** Os agentes de IA acedem a várias ferramentas e serviços para completar tarefas. Erros causados por atacantes podem levar a falhas noutros sistemas aos quais o agente de IA está ligado, fazendo com que o ataque se torne mais generalizado e mais difícil de diagnosticar.
 
-**Mitigação**: Um método para evitar isto é fazer o Agente de IA operar num ambiente limitado, como executar tarefas num contentor Docker, para prevenir ataques diretos ao sistema. Criar mecanismos de fallback e lógica de re-tentativa quando certos sistemas respondem com um erro é outra forma de prevenir falhas maiores do sistema.
+**Mitigação**: Um método para evitar isto é fazer com que o Agente de IA opere num ambiente limitado, como executar tarefas numa container Docker, para prevenir ataques diretos ao sistema. Criar mecanismos de fallback e lógica de retentativa quando certos sistemas respondem com um erro é outra forma de prevenir falhas mais amplas do sistema.
 
-## Intervenção Humana
+## Humano no Ciclo
 
-Outra forma eficaz de construir sistemas de Agentes de IA confiáveis é usar a intervenção humana no processo. Isto cria um fluxo onde os utilizadores conseguem fornecer feedback aos Agentes durante a execução. Os utilizadores atuam essencialmente como agentes num sistema multi-agente e fornecem aprovação ou encerramento do processo em execução.
+Outra forma eficaz de construir sistemas de Agentes de IA fiáveis é usar um Humano no Ciclo. Isto cria um fluxo onde os utilizadores conseguem fornecer feedback aos Agentes durante a execução. Os utilizadores atuam essencialmente como agentes num sistema multiagente, aprovando ou terminando o processo em execução.
 
-![Intervenção Humana](../../../translated_images/pt-PT/human-in-the-loop.5f0068a678f62f4f.webp)
+![Humano no Ciclo](../../../translated_images/pt-PT/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Aqui está um snippet de código usando AutoGen para mostrar como este conceito é implementado:
+Aqui está um snippet de código a usar o Microsoft Agent Framework para mostrar como este conceito é implementado:
 
 ```python
+import os
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# Crie os agentes.
-model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
-assistant = AssistantAgent("assistant", model_client=model_client)
-user_proxy = UserProxyAgent("user_proxy", input_func=input)  # Use input() para obter a entrada do utilizador a partir da consola.
+# Criar o fornecedor com intervenção humana para aprovação
+provider = AzureAIProjectAgentProvider(
+    credential=AzureCliCredential(),
+)
 
-# Crie a condição de terminação que terminará a conversa quando o utilizador disser "APPROVE".
-termination = TextMentionTermination("APPROVE")
+# Criar o agente com uma etapa de aprovação humana
+response = provider.create_response(
+    input="Write a 4-line poem about the ocean.",
+    instructions="You are a helpful assistant. Ask for user approval before finalizing.",
+)
 
-# Crie a equipa.
-team = RoundRobinGroupChat([assistant, user_proxy], termination_condition=termination)
-
-# Execute a conversa e transmita para a consola.
-stream = team.run_stream(task="Write a 4-line poem about the ocean.")
-# Use asyncio.run(...) ao executar num script.
-await Console(stream)
-
+# O utilizador pode rever e aprovar a resposta
+print(response.output_text)
+user_input = input("Do you approve? (APPROVE/REJECT): ")
+if user_input == "APPROVE":
+    print("Response approved.")
+else:
+    print("Response rejected. Revising...")
 ```
 
 ## Conclusão
 
-Construir agentes de IA confiáveis requer um desenho cuidadoso, medidas de segurança robustas e iteração contínua. Ao implementar sistemas estruturados de meta-prompting, compreender ameaças potenciais e aplicar estratégias de mitigação, os desenvolvedores podem criar agentes de IA que são ao mesmo tempo seguros e eficazes. Além disso, incorporar uma abordagem com intervenção humana assegura que os agentes de IA permanecem alinhados com as necessidades dos utilizadores enquanto minimiza os riscos. À medida que a IA continua a evoluir, manter uma postura pró-ativa em relação à segurança, privacidade e considerações éticas será fundamental para fomentar confiança e fiabilidade em sistemas impulsionados por IA.
+Construir agentes de IA fiáveis requer um desenho cuidadoso, medidas de segurança robustas e iteração contínua. Ao implementar sistemas estruturados de prompts meta, compreender potenciais ameaças e aplicar estratégias de mitigação, os desenvolvedores podem criar agentes de IA que sejam tanto seguros como eficazes. Adicionalmente, incorporar uma abordagem com humano no ciclo garante que os agentes de IA se mantenham alinhados com as necessidades dos utilizadores enquanto minimizam riscos. À medida que a IA continua a evoluir, manter uma postura proativa em relação à segurança, privacidade e considerações éticas será fundamental para fomentar confiança e fiabilidade em sistemas impulsionados por IA.
 
-### Tem mais perguntas sobre a construção de agentes de IA confiáveis?
+### Tem mais perguntas sobre Construir Agentes de IA Fiáveis?
 
-Junte-se ao [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) para conhecer outros aprendizes, participar nas horas de atendimento e obter respostas às suas perguntas sobre Agentes de IA.
+Junte-se ao [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) para conhecer outros aprendizes, participar em horas de atendimento e obter respostas às suas perguntas sobre Agentes de IA.
 
 ## Recursos Adicionais
 
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Visão geral da IA responsável</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Visão geral de IA responsável</a>
 - <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Avaliação de modelos de IA generativa e aplicações de IA</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Mensagens de sistema de segurança</a>
-- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Modelo de Avaliação de Risco</a>
+- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Modelo de Avaliação de Riscos</a>
 
-## Lição Anterior
+## Aula Anterior
 
 [Agentic RAG](../05-agentic-rag/README.md)
 
-## Próxima Lição
+## Próxima Aula
 
 [Padrão de Planeamento](../07-planning-design/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Isenção de responsabilidade:
-Este documento foi traduzido utilizando o serviço de tradução por IA [Co-op Translator](https://github.com/Azure/co-op-translator). Embora nos esforcemos por garantir a precisão, tenha em conta que traduções automatizadas podem conter erros ou imprecisões. O documento original no seu idioma de origem deve ser considerado a versão autorizada. Para informações críticas, recomenda-se a tradução profissional por um tradutor humano. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações erradas decorrentes da utilização desta tradução.
+Aviso legal:
+Este documento foi traduzido utilizando o serviço de tradução por IA Co-op Translator (https://github.com/Azure/co-op-translator). Embora nos esforcemos por garantir a precisão, esteja ciente de que as traduções automáticas podem conter erros ou imprecisões. O documento original no seu idioma nativo deve ser considerado a fonte autoritativa. Para informação crítica, recomenda-se uma tradução profissional feita por um tradutor humano. Não nos responsabilizamos por quaisquer mal-entendidos ou interpretações incorretas resultantes da utilização desta tradução.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

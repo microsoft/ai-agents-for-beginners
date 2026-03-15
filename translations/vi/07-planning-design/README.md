@@ -2,54 +2,54 @@
 
 > _(Nhấp vào hình trên để xem video bài học này)_
 
-# Lập Kế Hoạch Thiết Kế
+# Thiết Kế Lập Kế Hoạch
 
 ## Giới thiệu
 
-Bài học này sẽ đề cập đến
+Bài học này sẽ bao gồm
 
-* Xác định một mục tiêu tổng thể rõ ràng và chia nhỏ một nhiệm vụ phức tạp thành các nhiệm vụ dễ quản lý.
-* Tận dụng đầu ra có cấu trúc để có các phản hồi đáng tin cậy và dễ đọc máy hơn.
+* Xác định mục tiêu tổng thể rõ ràng và chia nhỏ một nhiệm vụ phức tạp thành các nhiệm vụ dễ quản lý.
+* Tận dụng đầu ra có cấu trúc để có các phản hồi đáng tin cậy hơn và dễ đọc bởi máy.
 * Áp dụng phương pháp tiếp cận dựa trên sự kiện để xử lý các nhiệm vụ động và các đầu vào bất ngờ.
 
 ## Mục Tiêu Học Tập
 
 Sau khi hoàn thành bài học này, bạn sẽ hiểu về:
 
-* Xác định và đặt mục tiêu tổng thể cho một tác nhân AI, đảm bảo nó biết rõ điều gì cần đạt được.
-* Phân rã một nhiệm vụ phức tạp thành các nhiệm vụ con có thể quản lý và sắp xếp chúng theo một trình tự logic.
-* Trang bị cho các tác nhân các công cụ phù hợp (ví dụ: công cụ tìm kiếm hoặc công cụ phân tích dữ liệu), quyết định khi nào và cách sử dụng, đồng thời xử lý các tình huống bất ngờ phát sinh.
-* Đánh giá kết quả của các nhiệm vụ con, đo lường hiệu suất và lặp lại các hành động để cải thiện đầu ra cuối cùng.
+* Xác định và thiết lập mục tiêu tổng thể cho một tác nhân AI, đảm bảo nó rõ ràng biết cần đạt được điều gì.
+* Phân tách một nhiệm vụ phức tạp thành các nhiệm vụ nhỏ hơn và tổ chức chúng theo trình tự hợp lý.
+* Trang bị cho các tác nhân các công cụ phù hợp (ví dụ: công cụ tìm kiếm hoặc công cụ phân tích dữ liệu), quyết định khi nào và cách sử dụng chúng, đồng thời xử lý các tình huống bất ngờ phát sinh.
+* Đánh giá kết quả của các nhiệm vụ phụ, đo lường hiệu suất và lặp lại các hành động để cải thiện đầu ra cuối cùng.
 
-## Xác định Mục Tiêu Tổng Thể và Phân Chia Nhiệm Vụ
+## Xác Định Mục Tiêu Tổng Thể và Phân Chia Nhiệm Vụ
 
 ![Defining Goals and Tasks](../../../translated_images/vi/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Hầu hết các nhiệm vụ trong thế giới thực đều quá phức tạp để giải quyết trong một bước duy nhất. Một tác nhân AI cần một mục tiêu ngắn gọn để hướng dẫn việc lập kế hoạch và hành động của nó. Ví dụ, xem xét mục tiêu:
+Hầu hết các nhiệm vụ trong thế giới thực đều quá phức tạp để xử lý trong một bước duy nhất. Một tác nhân AI cần một mục tiêu súc tích để hướng dẫn việc lập kế hoạch và hành động của nó. Ví dụ, hãy xem xét mục tiêu:
 
     "Tạo một lịch trình du lịch 3 ngày."
 
-Mặc dù dễ nói, nó vẫn cần được tinh chỉnh. Mục tiêu càng rõ ràng thì tác nhân (và bất kỳ cộng tác viên con người nào) càng tập trung tốt hơn vào việc đạt được kết quả phù hợp, như tạo ra một lịch trình chi tiết với các tùy chọn bay, khuyến nghị khách sạn và gợi ý hoạt động.
+Mặc dù nó đơn giản để phát biểu, nhưng vẫn cần được tinh chỉnh. Mục tiêu càng rõ ràng, tác nhân (và bất kỳ cộng tác viên con người nào) càng có thể tập trung đạt được kết quả đúng đắn, chẳng hạn như tạo một lịch trình đầy đủ với các lựa chọn chuyến bay, đề xuất khách sạn và các hoạt động gợi ý.
 
-### Phân Chia Nhiệm Vụ
+### Phân Tách Nhiệm Vụ
 
-Các nhiệm vụ lớn hoặc phức tạp trở nên dễ quản lý hơn khi được chia thành các nhiệm vụ con hướng đến mục tiêu.
-Ví dụ lịch trình du lịch, bạn có thể phân chia mục tiêu thành:
+Các nhiệm vụ lớn hoặc phức tạp trở nên dễ quản lý hơn khi được chia thành các nhiệm vụ nhỏ hơn, có mục tiêu rõ ràng.
+Đối với ví dụ về lịch trình du lịch, bạn có thể phân chia mục tiêu thành:
 
-* Đặt Vé Máy Bay
-* Đặt Khách Sạn
-* Thuê Xe
-* Cá Nhân Hóa
+* Đặt vé máy bay
+* Đặt khách sạn
+* Thuê xe
+* Cá nhân hóa
 
-Mỗi nhiệm vụ con sau đó có thể được xử lý bởi các tác nhân hoặc quy trình chuyên biệt. Một tác nhân có thể chuyên tìm kiếm các ưu đãi vé máy bay tốt nhất, tác nhân khác tập trung vào đặt khách sạn, v.v. Một tác nhân điều phối hoặc "hậu đoạn" có thể tổng hợp các kết quả này thành một lịch trình liền mạch cho người dùng cuối.
+Mỗi nhiệm vụ phụ sau đó có thể được xử lý bởi các tác nhân hoặc quy trình chuyên biệt. Một tác nhân có thể chuyên về tìm kiếm các ưu đãi chuyến bay tốt nhất, một tác nhân khác tập trung vào đặt khách sạn, v.v. Một tác nhân điều phối hoặc "tác nhân hạ nguồn" có thể tổng hợp các kết quả này thành một lịch trình liền mạch cho người dùng cuối.
 
-Cách tiếp cận mô-đun này cũng cho phép cải tiến dần dần. Ví dụ, bạn có thể thêm các tác nhân chuyên biệt cho Gợi Ý Ăn Uống hoặc Hoạt Động Địa Phương và dần hoàn thiện lịch trình theo thời gian.
+Cách tiếp cận mô-đun này cũng cho phép nâng cấp dần dần. Ví dụ, bạn có thể thêm các tác nhân chuyên biệt cho Đề xuất Ẩm thực hoặc Gợi ý Hoạt động Địa phương và tinh chỉnh lịch trình theo thời gian.
 
-### Đầu Ra Cấu Trúc
+### Đầu ra có cấu trúc
 
-Mô Hình Ngôn Ngữ Lớn (LLMs) có thể tạo ra đầu ra có cấu trúc (ví dụ JSON) giúp các tác nhân hoặc dịch vụ phía sau dễ dàng phân tích và xử lý hơn. Điều này đặc biệt hữu ích trong bối cảnh đa tác nhân, nơi chúng ta có thể hành động dựa trên các nhiệm vụ sau khi nhận được đầu ra lập kế hoạch. Tham khảo bài <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">blogpost</a> này để có cái nhìn nhanh.
+Các Mô Hình Ngôn Ngữ Lớn (LLM) có thể tạo ra đầu ra có cấu trúc (ví dụ: JSON) mà các tác nhân hoặc dịch vụ hạ nguồn có thể dễ dàng phân tích và xử lý. Điều này đặc biệt hữu ích trong bối cảnh đa tác nhân, nơi chúng ta có thể thực thi các nhiệm vụ này sau khi nhận được kết quả lập kế hoạch.
 
-Đoạn mã Python sau minh họa một tác nhân lập kế hoạch đơn giản phân chia mục tiêu thành các nhiệm vụ con và tạo ra kế hoạch có cấu trúc:
+Đoạn mã Python dưới đây minh họa một tác nhân lập kế hoạch đơn giản phân tách mục tiêu thành các nhiệm vụ phụ và tạo ra một kế hoạch có cấu trúc:
 
 ```python
 from pydantic import BaseModel
@@ -59,9 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -75,32 +74,19 @@ class AgentEnum(str, Enum):
 # Mô hình nhiệm vụ phụ du lịch
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # chúng ta muốn giao nhiệm vụ cho đại lý
+    assigned_agent: AgentEnum  # chúng tôi muốn phân công nhiệm vụ cho đại lý
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # Để xác thực với mô hình, bạn cần tạo một token truy cập cá nhân (PAT) trong cài đặt GitHub của bạn.
-    # Tạo token PAT của bạn bằng cách làm theo hướng dẫn tại đây: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 # Định nghĩa tin nhắn người dùng
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -111,44 +97,27 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # Đảm bảo nội dung phản hồi là một chuỗi JSON hợp lệ trước khi tải nó
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# nếu response_content là None:
-#     raise ValueError("Nội dung phản hồi không phải là chuỗi JSON hợp lệ")
-
-# # In nội dung phản hồi sau khi tải nó dưới dạng JSON
-# pprint(json.loads(response_content))
-
-# Xác thực nội dung phản hồi với mô hình MathReasoning
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Tác nhân Lập Kế Hoạch với Tổ Chức Đa Tác Nhân
+### Tác nhân Lập kế hoạch với Điều phối Đa tác nhân
 
-Trong ví dụ này, một Tác Nhân Bộ Định Tuyến Ngữ Nghĩa nhận yêu cầu của người dùng (ví dụ, "Tôi cần một kế hoạch khách sạn cho chuyến đi của mình.").
+Trong ví dụ này, một Tác nhân Bộ Điều Hướng Ngữ nghĩa nhận một yêu cầu từ người dùng (ví dụ, "Tôi cần một kế hoạch khách sạn cho chuyến đi của tôi.").
 
-Người lập kế hoạch sau đó:
+Người lập kế hoạch sau đó sẽ:
 
-* Nhận Kế Hoạch Khách Sạn: Người lập kế hoạch lấy tin nhắn của người dùng và dựa trên lời nhắc hệ thống (bao gồm chi tiết các tác nhân có sẵn), tạo ra một kế hoạch du lịch có cấu trúc.
-* Liệt Kê Các Tác Nhân và Công Cụ của Họ: Đăng ký tác nhân chứa danh sách các tác nhân (ví dụ cho vé máy bay, khách sạn, thuê xe và hoạt động) cùng với các chức năng hoặc công cụ họ cung cấp.
-* Định Tuyến Kế Hoạch Đến Các Tác Nhân Tương Ứng: Tùy theo số lượng nhiệm vụ con, người lập kế hoạch hoặc gửi tin nhắn trực tiếp đến tác nhân chuyên biệt (trong trường hợp nhiệm vụ đơn lẻ) hoặc phối hợp qua quản lý nhóm chat cho cộng tác đa tác nhân.
-* Tóm Tắt Kết Quả: Cuối cùng, người lập kế hoạch tóm tắt kế hoạch được tạo để rõ ràng.
-Mẫu mã Python sau minh họa các bước này:
+* Nhận Kế hoạch Khách sạn: Người lập kế hoạch lấy tin nhắn của người dùng và, dựa trên lời nhắc hệ thống (bao gồm thông tin các tác nhân có sẵn), tạo ra một kế hoạch du lịch có cấu trúc.
+* Liệt kê Tác nhân và Công cụ của họ: Đăng ký tác nhân chứa danh sách các tác nhân (ví dụ: cho chuyến bay, khách sạn, thuê xe và hoạt động) cùng với các chức năng hoặc công cụ mà họ cung cấp.
+* Điều phối Kế hoạch đến các Tác nhân Tương ứng: Tùy thuộc vào số lượng nhiệm vụ phụ, người lập kế hoạch hoặc gửi trực tiếp thông điệp đến tác nhân chuyên biệt (cho các trường hợp làm việc đơn nhiệm vụ) hoặc điều phối qua quản lý nhóm trò chuyện để hợp tác đa tác nhân.
+* Tóm tắt Kết quả: Cuối cùng, người lập kế hoạch tóm tắt kế hoạch đã tạo để rõ ràng.
+Đoạn mã Python dưới đây minh họa các bước này:
 
 ```python
 
@@ -166,11 +135,11 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Mô hình Nhiệm vụ con Du lịch
+# Mô hình Công việc phụ Du lịch
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # chúng tôi muốn giao nhiệm vụ cho đại lý
+    assigned_agent: AgentEnum # chúng tôi muốn giao công việc cho đại lý
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -180,25 +149,18 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# Tạo khách hàng với biến môi trường đã kiểm tra kiểu
+# Tạo khách hàng
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 from pprint import pprint
 
 # Định nghĩa tin nhắn người dùng
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +168,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# Đảm bảo nội dung phản hồi là chuỗi JSON hợp lệ trước khi tải nó
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
 # In nội dung phản hồi sau khi tải nó dưới dạng JSON
 
 pprint(json.loads(response_content))
 ```
 
-Phần tiếp theo là đầu ra từ mã trước đó và bạn sau đó có thể sử dụng đầu ra có cấu trúc này để định tuyến tới `assigned_agent` và tóm tắt kế hoạch du lịch cho người dùng cuối.
+Phần tiếp theo là đầu ra từ đoạn mã trước đó và bạn có thể sử dụng đầu ra có cấu trúc này để điều phối đến `assigned_agent` và tóm tắt kế hoạch du lịch cho người dùng cuối.
 
 ```json
 {
@@ -254,21 +212,22 @@ Phần tiếp theo là đầu ra từ mã trước đó và bạn sau đó có t
 }
 ```
 
-Một notebook ví dụ với mẫu mã trước đây có sẵn [ở đây](07-autogen.ipynb).
+Một notebook ví dụ với đoạn mã trên có sẵn [tại đây](07-python-agent-framework.ipynb).
 
-### Lập Kế Hoạch Lặp Đi Lặp Lại
+### Lập kế hoạch Lặp lại
 
-Một số nhiệm vụ đòi hỏi trao đổi qua lại hoặc tái lập kế hoạch, trong đó kết quả của một nhiệm vụ con ảnh hưởng đến nhiệm vụ tiếp theo. Ví dụ, nếu tác nhân phát hiện định dạng dữ liệu bất ngờ khi đặt vé máy bay, nó có thể cần điều chỉnh chiến lược trước khi tiếp tục đặt khách sạn.
+Một số nhiệm vụ đòi hỏi trao đổi qua lại hoặc lập kế hoạch lại, nơi kết quả của một nhiệm vụ phụ ảnh hưởng đến nhiệm vụ tiếp theo. Ví dụ, nếu tác nhân phát hiện định dạng dữ liệu không mong đợi khi đặt chuyến bay, nó có thể cần điều chỉnh chiến lược trước khi tiếp tục đặt khách sạn.
 
-Thêm vào đó, phản hồi của người dùng (ví dụ như một người quyết định họ muốn chuyến bay sớm hơn) có thể kích hoạt việc lập kế hoạch lại một phần. Cách tiếp cận động và lặp đi lặp lại này đảm bảo rằng giải pháp cuối cùng phù hợp với các ràng buộc thực tế và sở thích người dùng đang phát triển.
+Ngoài ra, phản hồi của người dùng (ví dụ: một người dùng quyết định muốn chuyến bay sớm hơn) có thể kích hoạt việc lập kế hoạch lại một phần. Cách tiếp cận động, lặp lại này đảm bảo rằng giải pháp cuối cùng phù hợp với các giới hạn thực tế và sở thích người dùng thay đổi theo thời gian.
 
 ví dụ mã
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. giống như mã trước và truyền lịch sử người dùng, kế hoạch hiện tại
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
+#.. giống như mã trước và chuyển tiếp lịch sử người dùng, kế hoạch hiện tại
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,38 +235,43 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
-# .. lập kế hoạch lại và gửi các nhiệm vụ đến các đại lý tương ứng
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
+# .. lập lại kế hoạch và gửi các nhiệm vụ đến các đại lý tương ứng
 ```
 
-Để lập kế hoạch toàn diện hơn, hãy xem <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost Magnetic One</a> về giải quyết các nhiệm vụ phức tạp.
+Để lập kế hoạch toàn diện hơn, hãy xem bài <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost Magnetic One</a> về giải quyết các nhiệm vụ phức tạp.
 
-## Tóm Tắt
+## Tóm tắt
 
-Trong bài viết này, chúng ta đã xem xét ví dụ về cách tạo ra một bộ lập kế hoạch có thể chọn động các tác nhân sẵn có được định nghĩa. Đầu ra của Bộ lập kế hoạch phân chia nhiệm vụ và giao cho các tác nhân để thực thi. Giả định các tác nhân có quyền truy cập vào các chức năng/công cụ cần thiết để thực hiện nhiệm vụ. Ngoài các tác nhân, bạn còn có thể bao gồm các mẫu khác như phản chiếu, tóm tắt và luân phiên trò chuyện để tùy chỉnh thêm.
+Trong bài viết này, chúng ta đã xem xét ví dụ về cách tạo một bộ lập kế hoạch có thể chọn động các tác nhân có sẵn được định nghĩa. Đầu ra của Bộ lập kế hoạch phân tách các nhiệm vụ và phân công các tác nhân để có thể thực hiện. Giả định rằng các tác nhân có quyền truy cập vào các chức năng/công cụ cần thiết để thực hiện nhiệm vụ. Bên cạnh các tác nhân, bạn có thể bao gồm các mẫu thiết kế khác như phản chiếu, tóm tắt và quản lý trò chuyện theo vòng để tùy biến thêm.
 
-## Tài Nguyên Bổ Sung
+## Tài nguyên bổ sung
 
-AutoGen Magentic One - Hệ thống đa tác nhân tổng quát để giải quyết các nhiệm vụ phức tạp và đã đạt kết quả ấn tượng trên nhiều tiêu chuẩn agentic thách thức. Tham khảo: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. Trong cài đặt này, bộ điều phối tạo kế hoạch nhiệm vụ cụ thể và ủy thác các nhiệm vụ này cho các tác nhân sẵn có. Ngoài việc lập kế hoạch, bộ điều phối còn sử dụng cơ chế theo dõi để giám sát tiến trình nhiệm vụ và lập kế hoạch lại khi cần.
+Magentic One - Hệ thống đa tác nhân tổng quát để giải quyết các nhiệm vụ phức tạp và đã đạt được kết quả ấn tượng trên nhiều tiêu chuẩn đánh giá tác nhân thử thách. Tham khảo: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. Trong triển khai này, bộ điều phối tạo kế hoạch chi tiết từng nhiệm vụ và giao những nhiệm vụ này cho các tác nhân có sẵn. Bên cạnh việc lập kế hoạch, bộ điều phối cũng sử dụng cơ chế theo dõi tiến độ nhiệm vụ và lập kế hoạch lại khi cần.
 
-### Có Thêm Câu Hỏi về Mẫu Thiết Kế Lập Kế Hoạch?
+### Có thêm câu hỏi về Mẫu Thiết kế Lập kế hoạch?
 
-Tham gia [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) để gặp gỡ những người học khác, tham dự giờ làm việc và được giải đáp các câu hỏi về Tác Nhân AI.
+Tham gia [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) để gặp gỡ những người học khác, tham dự giờ văn phòng và được giải đáp các câu hỏi về Tác nhân AI.
 
-## Bài Học Trước
+## Bài học trước
 
-[Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)
+[Xây dựng Tác nhân AI Đáng Tin Cậy](../06-building-trustworthy-agents/README.md)
 
-## Bài Học Tiếp Theo
+## Bài học tiếp theo
 
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+[Mẫu Thiết kế Đa tác nhân](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Tuyên bố miễn trừ trách nhiệm**:  
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ nguyên bản nên được coi là nguồn tham khảo chính xác nhất. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp của con người. Chúng tôi không chịu trách nhiệm về bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
+**Tuyên bố từ chối trách nhiệm**:  
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn thông tin chính xác nhất. Đối với các thông tin quan trọng, khuyến nghị sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm đối với bất kỳ sự hiểu lầm hay diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

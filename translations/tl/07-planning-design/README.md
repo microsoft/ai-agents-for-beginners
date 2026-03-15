@@ -1,55 +1,55 @@
 [![Planning Design Pattern](../../../translated_images/tl/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(I-click ang larawan sa itaas para panoorin ang video ng leksyon na ito)_
+> _(I-click ang larawan sa itaas upang panoorin ang video ng leksyong ito)_
 
 # Planning Design
 
 ## Panimula
 
-Sasaklawin ng leksyon na ito ang
+Saklawin ng leksyong ito ang
 
-* Pagpapaliwanag ng malinaw na pangkalahatang layunin at paghahati ng isang komplikadong gawain sa mga kayang pamahalaang bahagi.
-* Paggamit ng nakaayos na output para sa mas maaasahan at makinang nababasang mga tugon.
-* Paglalapat ng event-driven na pamamaraan upang hawakan ang mga dinamikong gawain at mga hindi inaasahang input.
+* Paglilinaw ng isang malinaw na pangkalahatang layunin at paghahati ng isang kumplikadong gawain sa mga magagawang pamamahalang gawain.
+* Paggamit ng istrukturadong output para sa mas maaasahan at makina-nababasang mga tugon.
+* Pagpapatupad ng isang event-driven na pamamaraan upang hawakan ang mga dinamikong gawain at hindi inaasahang mga input.
 
-## Mga Layunin sa Pagkatuto
+## Mga Layunin ng Pagkatuto
 
-Pagkatapos tapusin ang leksyon na ito, magkakaroon ka ng pag-unawa tungkol sa:
+Pagkatapos makumpleto ang leksyong ito, magkakaroon ka ng pang-unawa sa:
 
-* Tukuyin at itakda ang isang pangkalahatang layunin para sa isang AI agent, na tinitiyak na malinaw nitong alam kung ano ang kailangang makamit.
-* Hatiin ang isang komplikadong gawain sa mga kayang pamahalaang sub-gawain at ayusin ang mga ito sa isang lohikal na pagkakasunod-sunod.
-* Lagyan ng kagamitan ang mga agent ng tamang mga tool (hal., mga search tool o mga data analytics tool), magpasya kung kailan at paano sila gagamitin, at hawakan ang mga hindi inaasahang sitwasyon na lumilitaw.
-* Suriin ang mga resulta ng sub-gawain, sukatin ang performance, at ulitin ang mga aksyon upang mapabuti ang panghuling output.
+* Tukuyin at itakda ang isang pangkalahatang layunin para sa isang AI agent, tinitiyak na malinaw nitong alam kung ano ang kailangang makamit.
+* Hatiin ang isang kumplikadong gawain sa mga pamamahalaang subtasks at ayusin ang mga ito sa isang lohikal na pagkakasunod-sunod.
+* Bigyan ang mga ahente ng tamang mga kasangkapan (hal., mga search tool o data analytics tool), magpasya kung kailan at paano sila gagamitin, at harapin ang mga hindi inaasahang sitwasyon na lumitaw.
+* Suriin ang mga kinalabasan ng subtask, sukatin ang pagganap, at ulitin ang mga aksyon upang mapabuti ang panghuling output.
 
-## Pagbibigay Kahulugan sa Pangunahing Layunin at Paghahati ng Gawain
+## Paglilinaw ng Pangkalahatang Layunin at Paghahati ng Gawain
 
 ![Defining Goals and Tasks](../../../translated_images/tl/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Karamihan sa mga gawain sa totoong mundo ay masyadong komplikado upang harapin sa isang hakbang lamang. Nangangailangan ang isang AI agent ng maikling layunin upang gabayan ang kanyang pagpa-plano at mga aksyon. Halimbawa, isipin ang layunin:
+Karamihan sa mga gawain sa totoong mundo ay masyadong kumplikado upang harapin sa isang hakbang lamang. Nangangailangan ang AI agent ng maikling layunin upang gabayan ang kanyang pagpaplano at mga aksyon. Halimbawa, isaalang-alang ang layunin:
 
-    "Gumawa ng 3-araw na travel itinerary."
+    "Gumawa ng 3-araw na itineraryo sa paglalakbay."
 
-Bagama't madali itong sabihin, kailangan pa rin itong linawin. Mas malinaw ang layunin, mas maganda ang pokus ng agent (at ng anumang katuwang na tao) sa pagtamo ng tamang resulta, tulad ng paggawa ng kumpletong itinerary na may mga opsyon sa flight, rekomendasyon sa hotel, at mga suhestiyon sa aktibidad.
+Bagaman ito ay simple sabihin, kailangan pa rin itong linawin. Mas malinaw ang layunin, mas maganda ang pokus ng agent (at ng mga taong kasama nito) sa pag-abot ng tamang resulta, tulad ng paggawa ng komprehensibong itineraryo na may mga opsyon sa flight, mga rekomendasyon sa hotel, at mga suhestiyon sa gawain.
 
-### Paghahati ng Gawain
+### Pagbabahagi ng Gawain
 
-Ang malalaki o masalimuot na gawain ay nagiging mas kayang pamahalaan kapag hinati sa mas maliliit na sub-gawain na nakatuon sa layunin.  
-Para sa halimbawang travel itinerary, maari mong hatiin ang layunin sa:
+Ang malalaki o masalimuot na mga gawain ay nagiging mas madaling pamahalaan kapag hinati sa mga mas maliliit, layuning nakatuon na subtasks.
+Para sa halimbawa ng itineraryo sa paglalakbay, maaari mong hatiin ang layunin sa:
 
 * Pag-book ng Flight
 * Pag-book ng Hotel
-* Pag-abang ng Sasakyan
+* Pag-renta ng Sasakyan
 * Personalization
 
-Ang bawat sub-gawain ay maaaring asikasuhin ng mga dedikadong agent o proseso. Maaaring may isang agent na dalubhasa sa paghahanap ng pinakamahusay na flight deals, isa naman ang nakatuon sa booking ng hotel, atbp. Ang isang coordinating o “downstream” agent ang magtitipon ng mga resulta na ito upang makabuo ng isang pinag-isang itinerary para sa end user.
+Bawat subtask ay maaaring harapin ng mga espesyal na ahente o proseso. Ang isang ahente ay maaaring espesyalisado sa paghahanap ng pinakamagandang flight deals, ang isa naman ay sa pag-book ng hotel, at iba pa. Ang isang tagapag-ugnay o “downstream” na ahente ay maaaring pagsamahin ang mga resultang ito sa isang magkakaugnay na itineraryo para sa end user.
 
-Pinapahintulutan din ng modular na pamamaraan na ito ang unti-unting mga pagpapahusay. Halimbawa, maaari kang magdagdag ng mga espesyalisadong agent para sa Food Recommendations o Local Activity Suggestions at pinuhin ang itinerary nang habang panahon.
+Pinapahintulutan din ng modular na metodong ito ang mga incremental na pagpapahusay. Halimbawa, maaari kang magdagdag ng mga espesyal na ahente para sa Mga Rekomendasyon sa Pagkain o Mga Lokal na Suhestiyon ng Aktibidad at pinuhin ang itineraryo sa paglipas ng panahon.
 
-### Nakaayos na Output
+### Istrukturadong output
 
-Makakagawa ang Large Language Models (LLMs) ng nakaayos na output (hal., JSON) na mas madaling i-parse at iproseso ng mga downstream agent o serbisyo. Mahalaga ito lalo na sa konteksto ng multi-agent, kung saan maaari nating isakilos ang mga gawain pagkatapos matanggap ang planning output. Tingnan ang <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">blogpost</a> para sa mabilisang pangkalahatang ideya.
+Ang mga Large Language Models (LLMs) ay maaaring gumawa ng istrukturadong output (hal., JSON) na mas madali para sa mga downstream agent o serbisyo na iparse at iproseso. Ito ay lalong kapaki-pakinabang sa konteksto ng multi-agent, kung saan maaari nating isagawa ang mga gawain pagkatapos matanggap ang output ng plano.
 
-Ipinapakita ng sumusunod na piraso ng Python ang isang simpleng planning agent na naghahati ng layunin sa mga sub-gawain at gumagawa ng nakaayos na plano:
+Ang sumusunod na snippet ng Python ay nagpapakita ng isang simpleng planning agent na naghahati ng layunin sa mga subtasks at lumilikha ng istrukturadong plano:
 
 ```python
 from pydantic import BaseModel
@@ -59,9 +59,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -75,32 +74,19 @@ class AgentEnum(str, Enum):
 # Modelo ng Travel SubTask
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # nais naming i-assign ang gawain sa ahente
+    assigned_agent: AgentEnum  # nais naming i-assign ang task sa ahente
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # Upang makapag-authenticate gamit ang modelo, kailangan mong gumawa ng personal access token (PAT) sa iyong mga setting sa GitHub.
-    # Gumawa ng iyong PAT token sa pagsunod sa mga tagubilin dito: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
-# I-defina ang mensahe ng user
-messages = [
-    SystemMessage(content="""You are an planner agent.
+# Tukuyin ang mensahe ng user
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -111,44 +97,27 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # Siguraduhing ang sagot na nilalaman ay isang valid na JSON string bago ito i-load
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# kung ang response_content ay None:
-#     magtapon ng ValueError("Ang nilalaman ng sagot ay hindi isang valid na JSON string")
-
-# # I-print ang nilalaman ng sagot pagkatapos itong i-load bilang JSON
-# pprint(json.loads(response_content))
-
-# I-validate ang nilalaman ng sagot gamit ang MathReasoning model
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
 ### Planning Agent na may Multi-Agent Orchestration
 
-Sa halimbawa na ito, isang Semantic Router Agent ang tumatanggap ng kahilingan ng user (hal., "Kailangan ko ng plano ng hotel para sa aking biyahe.").
+Sa halimbawang ito, isang Semantic Router Agent ang tumatanggap ng kahilingan ng user (hal., "Kailangan ko ng hotel plan para sa aking biyahe.").
 
 Ang planner ay:
 
-* Tumatanggap ng Plano ng Hotel: Kinukuha ng planner ang mensahe ng user at, base sa system prompt (kasama ang detalye ng mga agent na available), gumagawa ng nakaayos na travel plan.  
-* Nagtatala ng Mga Agent at Kanilang Mga Tool: Ang rehistro ng agent ay naglalaman ng listahan ng mga agent (hal., para sa flight, hotel, car rental, at mga aktibidad) kasama ang mga function o tool na kanilang inaalok.  
-* Inaabot ang Plano sa Mga Nararapat na Agent: Depende sa dami ng sub-gawain, ang planner ay nagse-send ng mensahe direkta sa isang dedikadong agent (para sa sitwasyong single-task) o nakikipagkoordina sa pamamagitan ng group chat manager para sa multi-agent na pagsasama-sama.  
-* Nilalagom ang Resulta: Sa huli, nilalagom ng planner ang nabuo na plano para sa kalinawan.  
-Ipinapakita ng sumusunod na Python na sample code ang mga hakbang na ito:
+* Tumanggap ng Hotel Plan: Kinuha ng planner ang mensahe ng user at, batay sa isang system prompt (kabilang ang detalye ng mga magagamit na agent), nilikha ang isang istrukturadong plano sa paglalakbay.
+* Naglista ng Mga Ahente at Kanilang mga Kasangkapan: Ang agent registry ay naglalaman ng listahan ng mga ahente (hal., para sa flight, hotel, pag-renta ng sasakyan, at mga aktibidad) kasama ang mga function o kasangkapang inaalok nila.
+* Ipinapadala ang Plano sa Mga Tiyak na Ahente: Depende sa bilang ng mga subtasks, ang planner ay direktang nagpapadala ng mensahe sa dedikadong ahente (para sa mga single-task na sitwasyon) o nakikipag-coordinate sa pamamagitan ng group chat manager para sa multi-agent na kolaborasyon.
+* Ipinapaliwanag ang Kinalabasan: Sa huli, pinagsasama ng planner ang ulat ng nilikhang plano para sa kalinawan.
+Ang sumusunod na sample ng code sa Python ay nagpapakita ng mga hakbang na ito:
 
 ```python
 
@@ -166,11 +135,11 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Modelo ng SubTask ng Paglalakbay
+# Modelo ng Travel SubTask
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # Nais naming i-assign ang gawain sa ahente
+    assigned_agent: AgentEnum # nais naming i-assign ang task sa ahente
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -180,25 +149,18 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# Gumawa ng kliyente gamit ang type-checked na environment variables
+# Gumawa ng kliyente
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 from pprint import pprint
 
 # Tukuyin ang mensahe ng user
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +168,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# Tiyakin na ang nilalaman ng tugon ay isang valid na JSON string bago ito i-load
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
 # I-print ang nilalaman ng tugon pagkatapos itong i-load bilang JSON
 
 pprint(json.loads(response_content))
 ```
 
-Ang susunod ay ang output mula sa naunang code at maaari mong gamitin ang nakaayos na output na ito upang i-route sa `assigned_agent` at lagumin ang travel plan para sa end user.
+Ang sumusunod ay output mula sa naunang code at maaari mong gamitin ang istrukturadong output na ito upang i-route sa `assigned_agent` at ibuod ang plano ng paglalakbay para sa end user.
 
 ```json
 {
@@ -254,21 +212,22 @@ Ang susunod ay ang output mula sa naunang code at maaari mong gamitin ang nakaay
 }
 ```
 
-Isang halimbawa ng notebook na may naunang sample code ay makukuha [dito](07-autogen.ipynb).
+May isang halimbawa ng notebook gamit ang naunang sample na code na makikita [dito](07-python-agent-framework.ipynb).
 
-### Paulit-ulit na Pagpaplano
+### Iterative Planning
 
-Ang ilang gawain ay nangangailangan ng paurong at pasulong na proseso o muling pagpaplano, kung saan ang resulta ng isang sub-gawain ay nakakaapekto sa susunod. Halimbawa, kung matuklasan ng agent ang isang hindi inaasahang format ng data habang nagbo-book ng mga flight, maaaring kailanganin nitong baguhin ang estratehiya bago sumunod sa pag-book ng hotel.
+Ang ilang mga gawain ay nangangailangan ng pasulput-sulpot o muling pagpaplano, kung saan ang resulta ng isang subtask ay nakakaapekto sa susunod. Halimbawa, kung ang ahente ay makakakita ng isang hindi inaasahang format ng data habang nagbu-book ng mga flight, maaaring kailanganin nitong baguhin ang estratehiya bago magpatuloy sa pag-book ng hotel.
 
-Dagdag pa rito, ang feedback ng user (hal. isang tao na nagpapasya na gusto nila ng mas maagang flight) ay maaaring mag-trigger ng bahagyang muling pagpaplano. Ang dinamikong, paulit-ulit na pamamaraan na ito ay nagsisiguro na ang panghuling solusyon ay naaayon sa mga totoong pagsasaalang-alang at nagbabagong kagustuhan ng user.
+Bukod dito, ang feedback ng user (hal., kapag pinili ng tao na mas gusto nila ang mas maagang flight) ay maaaring mag-trigger ng partial na muling pagpaplano. Ang dinamikong, iterative na metodong ito ay nagsisigurong ang panghuling solusyon ay naaayon sa mga totoong limitasyon at nagbabagong kagustuhan ng user.
 
-hal. sample code
+halimbawa ng code
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. pareho ng nakaraang code at ipasa ang kasaysayan ng user, kasalukuyang plano
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
+#.. pareho sa naunang code at ipasa ang kasaysayan ng gumagamit, kasalukuyang plano
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,38 +235,43 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
-# .. muling magplano at ipadala ang mga gawain sa kani-kanilang mga ahente
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
+# .. muling planuhin at ipadala ang mga gawain sa mga kaukulang ahente
 ```
 
-Para sa mas komprehensibong pagpaplano, tingnan ang Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> para sa paglutas ng mas komplikadong mga gawain.
+Para sa mas komprehensibong pagpaplano, tingnan ang Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> para sa paglutas ng mga kumplikadong gawain.
 
 ## Buod
 
-Sa artikulong ito tiningnan natin ang halimbawa kung paano tayo makakagawa ng planner na maaaring pabago-bagong pumili ng mga available na agent na na-define. Ang output ng Planner ay naghahati sa mga gawain at nag-aassign ng mga agent upang maipatupad ang mga ito. Pinapalagay na may access ang mga agent sa mga function/tool na kinakailangan upang gawin ang gawain. Bilang karagdagan sa mga agent, maaari mong isama ang iba pang mga pattern tulad ng reflection, summarizer, at round robin chat para higit pang i-customize.
+Sa artikulong ito, tiningnan natin ang isang halimbawa kung paano tayo maaaring gumawa ng isang planner na maaaring dinamiko na pumili ng mga magagamit na agent na nakasaad. Ang output ng Planner ay naghahati sa mga gawain at nagtatalaga sa mga ahente upang maisagawa ang mga ito. Inaasahan na may access ang mga ahente sa mga kinakailangang function/casangkapan para isagawa ang gawain. Bilang karagdagan sa mga ahente, maaari mong isama ang iba pang mga pattern tulad ng reflection, summarizer, at round robin chat para sa karagdagang pag-customize.
 
-## Karagdagang mga Mapagkukunan
+## Karagdagang Mga Mapagkukunan
 
-AutoGen Magentic One - Isang Generalist na multi-agent system sa paglutas ng komplikadong gawain at nakamit ang kahanga-hangang resulta sa iba't ibang mahihirap na benchmark ng agentic. Sanggunian: <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>. Sa implementasyong ito, ang orchestrator ay gumagawa ng task-specific plan at nagtatalaga ng mga gawain sa mga available na agent. Bukod sa pagpaplano, gumagamit din ang orchestrator ng tracking mechanism upang subaybayan ang progreso ng gawain at mag-replan kung kinakailangan.
+Magentic One - Isang Generalist multi-agent system para sa paglutas ng mga kumplikadong gawain at nakakamit ng kahanga-hangang mga resulta sa maraming mahihirap na agentic benchmarks. Sanggunian: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. Sa implementasyong ito, ang orchestrator ay lumilikha ng mga task-specific na plano at itinalaga ang mga gawaing ito sa mga magagamit na ahente. Bukod sa pagpaplano, gumagamit din ang orchestrator ng mekanismo ng pagsubaybay upang bantayan ang progreso ng gawain at muling magplano kung kinakailangan.
 
-### May Karagdagang Tanong tungkol sa Planning Design Pattern?
+### May Mga Karagdagang Tanong tungkol sa Planning Design Pattern?
 
-Sumali sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) para makipagkita sa ibang mga nag-aaral, dumalo sa office hours, at masagot ang iyong mga tanong tungkol sa AI Agents.
+Sumali sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) upang makipagkita sa ibang mga nag-aaral, dumalo sa office hours, at masagot ang iyong mga tanong tungkol sa AI Agents.
 
-## Nakaraang Leksiyon
+## Nakaraang Aralin
 
 [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)
 
-## Susunod na Leksiyon
+## Susunod na Aralin
 
 [Multi-Agent Design Pattern](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Paunawa**:  
-Ang dokumentong ito ay isinalin gamit ang AI na serbisyo sa pagsasalin na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagaman nagsusumikap kami para sa katumpakan, pakatandaan na maaaring may mga pagkakamali o hindi tumpak na bahagi ang awtomatikong pagsasalin. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasaling-tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring magmula sa paggamit ng pagsasaling ito.
+**Pahayag ng Paunawa**:
+Ang dokumentong ito ay isinalin gamit ang serbisyong AI na pagsasalin na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat nagsisikap kami na maging tumpak, pakatandaan na ang awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o kamalian. Ang orihinal na dokumento sa likas nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, ipinapayo ang propesyonal na pagsasaling pantao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring magmula sa paggamit ng pagsasaling ito.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -2,70 +2,68 @@
 
 ## Popis
 
-Toto je demo vytvorené pre AI Agents Hackathon organizovaný prostredníctvom Microsoft Reactor.
+Toto bolo demo vytvorené pre AI Agents Hackathon, ktorý organizoval Microsoft Reactor.
 
-Nástroj slúži na odporúčanie projektov na hackathon na základe Github repozitárov používateľa.
-Toto sa dosahuje pomocou:
+Nástroj sa používa na odporúčanie hackathonových projektov na základe Github repozitárov používateľa.
+To sa robí takto:
 
 1. **Github Agent** - Používa Github MCP Server na získanie repozitárov a informácií o týchto repozitároch.
-2. **Hackathon Agent** - Spracováva údaje z Github Agenta a navrhuje kreatívne nápady na hackathon projekty na základe projektov, jazykov používaných používateľom a tém hackathonu AI Agents.
-3. **Events Agent** - Na základe návrhov Hackathon Agenta odporúča relevantné podujatia zo série AI Agent Hackathon.
+2. **Hackathon Agent** - Berie údaje od Github Agenta a prichádza s kreatívnymi nápadmi na hackathonové projekty na základe projektov, jazykov, ktoré používateľ používa, a tém projektov pre AI Agents hackathon.
+3. **Events Agent** - Na základe návrhov Hackathon Agenta odporučí Events Agent relevantné podujatia zo série AI Agent Hackathon.
+## Running the code 
 
-## Spustenie kódu 
+### Environment Variables
 
-### Environmentálne premenné
+This demo uses Microsoft Agent Framework, Azure OpenAI Service, the Github MCP Server and Azure AI Search.
 
-Toto demo používa Azure Open AI Service, Semantic Kernel, Github MCP Server a Azure AI Search.
-
-Uistite sa, že máte správne nastavené environmentálne premenné na používanie týchto nástrojov:
+Make sure that you have the proper environment variables set to use these tools:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Spustenie Chainlit Servera
+## Running the Chainlit Server
 
-Na pripojenie k MCP serveru toto demo používa Chainlit ako chatovacie rozhranie.
+To connect to the MCP server, this demo use Chainlit as a chat interface. 
 
-Na spustenie servera použite nasledujúci príkaz vo vašom termináli:
+To run the server, use the following command in your terminal:
 
 ```bash
 chainlit run app.py -w
 ```
 
-Týmto by sa mal spustiť váš Chainlit server na `localhost:8000` a zároveň naplniť váš Azure AI Search Index obsahom súboru `event-descriptions.md`.
+This should start your Chainlit server on `localhost:8000` as well as populate your Azure AI Search Index with the `event-descriptions.md` content. 
 
-## Pripojenie k MCP Serveru
+## Connecting to the MCP Server
 
-Na pripojenie k Github MCP Serveru kliknite na ikonu "plug" pod chatovacím boxom "Type your message here..":
+Na pripojenie k Github MCP Serveru vyberte ikonu "plug" pod chatovacím políčkom "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/sk/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![Pripojenie MCP](../../../../../translated_images/sk/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Odtiaľ môžete kliknúť na "Connect an MCP" a pridať príkaz na pripojenie k Github MCP Serveru:
+Odtiaľ môžete kliknúť na tlačidlo "Connect an MCP" na pridanie príkazu na pripojenie k Github MCP Serveru:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Nahraďte "[YOUR PERSONAL ACCESS TOKEN]" vaším skutočným Personal Access Token.
+Replace "[YOUR PERSONAL ACCESS TOKEN]" with your actual Personal Access Token. 
 
-Po pripojení by ste mali vidieť (1) vedľa ikony plug, čo potvrdzuje, že ste pripojení. Ak nie, skúste reštartovať Chainlit server príkazom `chainlit run app.py -w`.
+After connecting, you should see a (1) next to the plug icon to confirm that its connected. If not, try restarting the chainlit server with `chainlit run app.py -w`.
 
-## Používanie dema 
+## Using the Demo 
 
-Na spustenie pracovného postupu agenta na odporúčanie projektov na hackathon môžete napísať správu ako:
+To start the agent workflow of recommending hackathon projects, you can type a message like: 
 
-"Odporuč hackathon projekty pre Github používateľa koreyspace"
+"Recommend hackathon projects for the Github user koreyspace"
 
-Router Agent analyzuje vašu požiadavku a určí, ktorá kombinácia agentov (GitHub, Hackathon a Events) je najvhodnejšia na spracovanie vášho dotazu. Agenti spolupracujú, aby poskytli komplexné odporúčania na základe analýzy Github repozitárov, generovania nápadov na projekty a relevantných technologických podujatí.
+The Router Agent will analyze your request and determine which combination of agents (GitHub, Hackathon, and Events) is best suited to handle your query. The agents work together to provide comprehensive recommendations based on GitHub repository analysis, project ideation, and relevant tech events.
 
 ---
 
-**Upozornenie**:  
-Tento dokument bol preložený pomocou služby AI prekladu [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, prosím, berte na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za akékoľvek nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Vylúčenie zodpovednosti**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Aj keď sa snažíme o presnosť, majte prosím na pamäti, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne výklady vyplývajúce z použitia tohto prekladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

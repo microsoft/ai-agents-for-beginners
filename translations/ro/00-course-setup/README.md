@@ -1,64 +1,64 @@
-# Configurarea Cursului
+# Configurare Curs
 
 ## Introducere
 
-Această lecție va acoperi cum să rulați exemplele de cod ale acestui curs.
+Această lecție va acoperi cum să rulezi exemplele de cod din acest curs.
 
-## Alăturați-vă altor cursanți și primiți ajutor
+## Alătură-te Altora care Învăță și Primește Ajutor
 
-Înainte de a începe să clonați repo-ul, alăturați-vă [canalului Discord AI Agents For Beginners](https://aka.ms/ai-agents/discord) pentru a primi orice ajutor legat de configurare, întrebări despre curs sau pentru a vă conecta cu alți cursanți.
+Înainte să începi clonarea repo-ului tău, alătură-te canalului [AI Agents For Beginners Discord](https://aka.ms/ai-agents/discord) pentru a primi ajutor cu configurarea, orice întrebări legate de curs sau pentru a te conecta cu alți cursanți.
 
-## Clonați sau Faceți Fork la acest Repo
+## Clonează sau Fă Fork la acest Repo
 
-Pentru a începe, vă rog să clonați sau să faceți fork la Repositorul GitHub. Aceasta va crea propria dvs. versiune a materialului de curs astfel încât să puteți rula, testa și modifica codul!
+Pentru a începe, te rugăm să clonezi sau să faci fork la Repositorul GitHub. Astfel vei avea propria versiune a materialului cursului pentru a putea rula, testa și modifica codul!
 
-Acest lucru se poate face făcând clic pe linkul <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">faceți fork la repo</a>
+Acest lucru poate fi făcut făcând clic pe link-ul <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">fork the repo</a>.
 
-Acum ar trebui să aveți propria versiune fork-uită a acestui curs la linkul următor:
+Acum ar trebui să ai propria ta versiune forcată a acestui curs la următorul link:
 
 ![Forked Repo](../../../translated_images/ro/forked-repo.33f27ca1901baa6a.webp)
 
-### Clonare superficială (recomandată pentru workshop / Codespaces)
+### Shallow Clone (recomandat pentru workshop / Codespaces)
 
-  > Repositorul complet poate fi mare (~3 GB) când descărcați istoricul complet și toate fișierele. Dacă participați doar la workshop sau aveți nevoie doar de câteva foldere cu lecții, o clonare superficială (sau clonare rară) evită majoritatea acestei descărcări prin trunchierea istoricului și/sau sărind peste blobs.
+  > Repositorul complet poate fi mare (~3 GB) când descarci întreaga istorie și toate fișierele. Dacă participi doar la workshop sau ai nevoie doar de câteva directoare din lecții, un shallow clone (sau sparse clone) evită majoritatea descărcării prin trunchierea istoriei și/sau omiterea blob-urilor.
 
-#### Clonare superficială rapidă — istoric minim, toate fișierele
+#### Clonare superficială rapidă — istorie minimă, toate fișierele
 
-Înlocuiți `<your-username>` în comenzile de mai jos cu URL-ul fork-ului dvs. (sau URL-ul upstream dacă preferați).
+Înlocuiește `<your-username>` din comenzile de mai jos cu URL-ul fork-ului tău (sau URL-ul upstream dacă preferi).
 
-Pentru a clona doar istoricul ultimului commit (descărcare mică):
+Pentru a clona doar istoria ultimului commit (descărcare mică):
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Pentru a clona o anumită ramură:
+Pentru a clona o ramură specifică:
 
 ```bash|powershell
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Clonare parțială (rară) — blobs minime + doar foldere selectate
+#### Clonare parțială (sparse) — blob-uri minime + doar directoarele selectate
 
-Aceasta folosește clonarea parțială și sparse-checkout (necesită Git 2.25+ și este recomandat Git modern cu suport pentru clonare parțială):
+Aceasta folosește clonare parțială și sparse-checkout (necesită Git 2.25+ și Git modern recomandat cu suport pentru clonare parțială):
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Intrați în folderul repo:
+Intră în folderul repo-ului:
 
 ```bash|powershell
 cd ai-agents-for-beginners
 ```
 
-Apoi specificați ce foldere doriți (exemplul de mai jos arată două foldere):
+Apoi specifică ce foldere dorești (exemplul de mai jos arată două foldere):
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-După clonare și verificarea fișierelor, dacă aveți nevoie doar de fișiere și vreți să eliberați spațiu (fără istoric git), vă rugăm să ștergeți meta-datele repository-ului (💀 ireversibil — veți pierde toată funcționalitatea Git: nu veți mai putea face commituri, pull-uri, push-uri sau acces istoricul).
+După clonare și verificarea fișierelor, dacă ai nevoie doar de fișiere și vrei să eliberezi spațiu (fără istorie git), te rugăm să ștergi meta-datele repository-ului (💀 ireversibil — vei pierde toate funcționalitățile Git: fără commit-uri, pull, push sau acces la istoric).
 
 ```bash
 # zsh/bash
@@ -70,51 +70,41 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### Folosind GitHub Codespaces (recomandat pentru a evita descărcări mari locale)
+#### Folosirea GitHub Codespaces (recomandat pentru a evita descărcările locale mari)
 
-- Creați un nou Codespace pentru acest repo prin [interfața GitHub UI](https://github.com/codespaces).  
+- Creează un nou Codespace pentru acest repo prin intermediul [GitHub UI](https://github.com/codespaces).  
 
-- În terminalul noului codespace creat, rulați una dintre comenzile shallow/sparse clone de mai sus pentru a aduce doar folderele lecțiilor de care aveți nevoie în spațiul de lucru Codespace.
-- Opțional: după clonare în Codespaces, eliminați folderul .git pentru a recupera spațiu suplimentar (vedeți comenzile de ștergere de mai sus).
-- Notă: Dacă preferați să deschideți repo-ul direct în Codespaces (fără clonare suplimentară), fiți conștienți că Codespaces va construi mediul devcontainer și poate provisiona mai mult decât aveți nevoie. Clonarea unei copii superficiale într-un Codespace nou vă oferă mai mult control asupra utilizării discului.
+- În terminalul codespace-ului nou creat, rulează una dintre comenzile de clonare superficială/sparse de mai sus pentru a aduce doar directoarele lecțiilor de care ai nevoie în spațiul de lucru Codespace.
+- Opțional: după clonare în Codespaces, elimină .git pentru a recâștiga spațiu suplimentar (vezi comenzile de ștergere de mai sus).
+- Notă: Dacă preferi să deschizi repo direct în Codespaces (fără clonare suplimentară), fii conștient că Codespaces va construi mediul devcontainer și poate mai provisiona mai mult decât ai nevoie. Clonarea unei copii superficiale într-un Codespace proaspăt îți oferă mai mult control asupra utilizării discului.
 
 #### Sfaturi
 
-- Înlocuiți întotdeauna URL-ul de clonare cu fork-ul dvs. dacă doriți să editați/commitați.
-- Dacă aveți nevoie mai târziu de mai mult istoric sau fișiere, puteți să le recuperați sau să ajustați sparse-checkout pentru a include foldere suplimentare.
+- Înlocuiește întotdeauna URL-ul de clonare cu fork-ul tău dacă vrei să editezi/commit-ezi.
+- Dacă mai târziu ai nevoie de mai multă istorie sau fișiere, le poți recupera sau ajusta sparse-checkout pentru a include foldere suplimentare.
 
 ## Rularea Codului
 
-Acest curs oferă o serie de Jupyter Notebooks pe care le puteți rula pentru a obține experiență practică în construirea de Agenți AI.
+Acest curs oferă o serie de Jupyter Notebooks pe care le poți rula pentru a avea experiență practică în construirea de Agenți AI.
 
-Exemplele de cod folosesc fie:
+Exemplele de cod folosesc **Microsoft Agent Framework (MAF)** cu `AzureAIProjectAgentProvider`, care se conectează la **Azure AI Agent Service V2** (API pentru răspunsuri) prin **Microsoft Foundry**.
 
-**Necesită cont GitHub - Gratuit**:
-
-1) Framework Semantic Kernel Agent + GitHub Models Marketplace. Etichetat ca (semantic-kernel.ipynb)
-2) Framework AutoGen + GitHub Models Marketplace. Etichetat ca (autogen.ipynb)
-
-**Necesită abonament Azure**:
-3) Azure AI Foundry + Azure AI Agent Service. Etichetat ca (azureaiagent.ipynb)
-
-Vă încurajăm să încercați toate cele trei tipuri de exemple pentru a vedea care funcționează cel mai bine pentru dvs.
-
-Oricare opțiune alegeți, aceasta va determina pașii de configurare pe care trebuie să-i urmați mai jos:
+Toate notebook-urile Python sunt etichetate `*-python-agent-framework.ipynb`.
 
 ## Cerințe
 
 - Python 3.12+
-  - **NOTĂ**: Dacă nu aveți instalat Python3.12, asigurați-vă că îl instalați. Apoi creați mediul virtual folosind python3.12 pentru a vă asigura că versiunea corectă este instalată din fișierul requirements.txt.
+  - **NOTĂ**: Dacă nu ai instalat Python3.12, asigură-te că îl instalezi. Apoi creează-ți mediul virtual folosind python3.12 pentru a garanta instalarea versiunilor corecte din fișierul requirements.txt.
   
-    >Exemplu
+    > Exemplar
 
-    Creați directorul pentru mediul virtual Python:
+    Creează director pentru venv Python:
 
     ```bash|powershell
     python -m venv venv
     ```
 
-    Apoi activați mediul virtual pentru:
+    Apoi activează mediul venv pentru:
 
     ```bash
     # zsh/bash
@@ -126,115 +116,84 @@ Oricare opțiune alegeți, aceasta va determina pașii de configurare pe care tr
     venv\Scripts\activate
     ```
 
-- .NET 10+: Pentru codurile de exemplu care folosesc .NET, asigurați-vă că instalați [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) sau o versiune mai recentă. Apoi verificați versiunea SDK .NET instalată:
+- .NET 10+: Pentru codurile exemplu care folosesc .NET, asigură-te că ai instalat [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) sau o versiune ulterioară. Apoi verifică versiunea SDK .NET instalată:
 
     ```bash|powershell
     dotnet --list-sdks
     ```
 
-- Un cont GitHub - Pentru acces la GitHub Models Marketplace
-- Un abonament Azure - Pentru acces la Microsoft Foundry
-- Cont Microsoft Foundry - Pentru acces la Azure AI Agent Service
+- **Azure CLI** — Necesită autentificare. Instalează de la [aka.ms/installazurecli](https://aka.ms/installazurecli).
+- **Abonament Azure** — Pentru acces la Microsoft Foundry și Azure AI Agent Service.
+- **Proiect Microsoft Foundry** — Un proiect cu un model implementat (ex. `gpt-4o`). Vezi [Pasul 1](../../../00-course-setup) mai jos.
 
 Am inclus un fișier `requirements.txt` în rădăcina acestui repository care conține toate pachetele Python necesare pentru a rula exemplele de cod.
 
-Le puteți instala rulând comanda următoare în terminal, în rădăcina repository-ului:
+Le poți instala rulând următoarea comandă în terminalul tău, în rădăcina repository-ului:
 
 ```bash|powershell
 pip install -r requirements.txt
 ```
 
-Recomandăm crearea unui mediu virtual Python pentru a evita conflicte și probleme.
+Recomandăm crearea unui mediu virtual Python pentru a evita conflictele și problemele.
 
 ## Configurarea VSCode
 
-Asigurați-vă că folosiți versiunea corectă de Python în VSCode.
+Asigură-te că folosești versiunea corectă de Python în VSCode.
 
 ![image](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Configurarea pentru Exemplele care folosesc GitHub Models 
+## Configurarea Microsoft Foundry și Azure AI Agent Service
 
-### Pasul 1: Obțineți Token-ul Personal de Acces GitHub (PAT)
+### Pasul 1: Crearea unui Proiect Microsoft Foundry
 
-Acest curs folosește GitHub Models Marketplace, oferind acces gratuit la Large Language Models (LLMs) pe care le veți folosi pentru a construi Agenți AI.
+Ai nevoie de un **hub** și un **proiect** Azure AI Foundry cu un model implementat pentru a rula notebook-urile.
 
-Pentru a folosi GitHub Models, va trebui să creați un [Token Personal de Acces GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+1. Accesează [ai.azure.com](https://ai.azure.com) și autentifică-te cu contul tău Azure.
+2. Creează un **hub** (sau folosește unul existent). Vezi: [Prezentare generală a resurselor hub](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
+3. În interiorul hub-ului, creează un **proiect**.
+4. Implementează un model (ex. `gpt-4o`) din **Models + Endpoints** → **Deploy model**.
 
-Acest lucru se face accesând <a href="https://github.com/settings/personal-access-tokens" target="_blank">setările Token-urilor Personale de Acces</a> în contul dvs. GitHub.
+### Pasul 2: Obține Endpoint-ul Proiectului și Numele Implementării Modelului
 
-Vă rugăm să urmați [Principiul cel mai mic privilegiu](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) când creați token-ul. Aceasta înseamnă că ar trebui să acordați token-ului doar permisiunile necesare pentru rularea exemplelor de cod din acest curs.
+Din proiectul tău în portalul Microsoft Foundry:
 
-1. Selectați opțiunea `Fine-grained tokens` pe partea stângă a ecranului accesând **Developer settings**
-
-   ![Developer settings](../../../translated_images/ro/profile_developer_settings.410a859fe749c755.webp)
-
-   Apoi selectați `Generate new token`.
-
-   ![Generate Token](../../../translated_images/ro/fga_new_token.1c1a234afe202ab3.webp)
-
-2. Introduceți un nume descriptiv pentru token-ul dvs. care să reflecte scopul său, pentru a-l putea identifica ușor ulterior.
-
-    🔐 Recomandare Durată Token
-
-    Durată recomandată: 30 zile
-    Pentru o poziție mai sigură, puteți opta pentru o perioadă mai scurtă — cum ar fi 7 zile 🛡️
-    Este o metodă excelentă pentru a vă seta un obiectiv personal și a finaliza cursul în timp ce sunteți motivați 🚀.
-
-    ![Token Name and Expiration](../../../translated_images/ro/token-name-expiry-date.a095fb0de6386864.webp)
-
-3. Limitați domeniul token-ului la fork-ul acestui repository.
-
-    ![Limit scope to fork repository](../../../translated_images/ro/token_repository_limit.924ade5e11d9d8bb.webp)
-
-4. Restricționați permisiunile token-ului: Sub **Permissions**, faceți clic pe fila **Account** și apăsați butonul "+ Add permissions". Va apărea un meniu dropdown. Căutați **Models** și bifați caseta.
-
-    ![Add Models Permission](../../../translated_images/ro/add_models_permissions.c0c44ed8b40fc143.webp)
-
-5. Verificați permisiunile necesare înainte de generarea token-ului. ![Verify Permissions](../../../translated_images/ro/verify_permissions.06bd9e43987a8b21.webp)
-
-6. Înainte de generarea token-ului asigurați-vă că sunteți pregătit să îl depozitați într-un loc sigur, cum ar fi un manager de parole, deoarece acesta nu va mai fi afișat după crearea sa. ![Store Token Securely](../../../translated_images/ro/store_token_securely.08ee2274c6ad6caf.webp)
-
-Copiați token-ul nou creat. Acum îl veți adăuga în fișierul `.env` inclus în acest curs.
-
-### Pasul 2: Creați fișierul `.env`
-
-Pentru a crea fișierul `.env`, rulați comanda următoare în terminal:
-
-```bash
-# zsh/bash
-cp .env.example .env
-```
-
-```powershell
-# PowerShell
-Copy-Item .env.example .env
-```
-
-Aceasta va copia fișierul exemplu și va crea un `.env` în directorul dvs. unde veți completa valorile variabilelor de mediu.
-
-Cu token-ul copiat, deschideți fișierul `.env` în editorul dvs. preferat și lipiți token-ul în câmpul `GITHUB_TOKEN`.
-
-![GitHub Token Field](../../../translated_images/ro/github_token_field.20491ed3224b5f4a.webp)
-
-Ar trebui acum să puteți rula exemplele de cod ale acestui curs.
-
-## Configurarea pentru Exemplele care folosesc Microsoft Foundry și Azure AI Agent Service
-
-### Pasul 1: Obțineți Endpoint-ul Proiectului Azure
-
-
-Urmăriți pașii pentru crearea unui hub și a unui proiect în Azure AI Foundry descriși aici: [Prezentare generală resurse hub](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
-
-
-Odată ce ați creat proiectul, va trebui să obțineți string-ul de conexiune pentru proiectul dvs.
-
-Acest lucru se face accesând pagina **Overview** (Prezentare generală) a proiectului dvs. în portalul Microsoft Foundry.
+- **Project Endpoint** — Mergi la pagina **Overview** și copiază URL-ul endpoint-ului.
 
 ![Project Connection String](../../../translated_images/ro/project-endpoint.8cf04c9975bbfbf1.webp)
 
-### Pasul 2: Creați fișierul `.env`
+- **Model Deployment Name** — Mergi la **Models + Endpoints**, selectează modelul implementat și notează **Deployment name** (ex. `gpt-4o`).
 
-Pentru a crea fișierul `.env`, rulați comanda următoare în terminal:
+### Pasul 3: Autentificare în Azure cu `az login`
+
+Toate notebook-urile folosesc **`AzureCliCredential`** pentru autentificare — nu se gestionează chei API. Aceasta necesită să fii autentificat prin Azure CLI.
+
+1. **Instalează Azure CLI** dacă nu l-ai instalat deja: [aka.ms/installazurecli](https://aka.ms/installazurecli)
+
+2. **Autentifică-te** rulând:
+
+    ```bash|powershell
+    az login
+    ```
+
+    Sau dacă te afli într-un mediu remote/Codespace fără browser:
+
+    ```bash|powershell
+    az login --use-device-code
+    ```
+
+3. **Selectează abonamentul tău** dacă ți se cere — alege cel care conține proiectul Foundry.
+
+4. **Verifică** dacă ești conectat:
+
+    ```bash|powershell
+    az account show
+    ```
+
+> **De ce `az login`?** Notebook-urile se autentifică folosind `AzureCliCredential` din pachetul `azure-identity`. Aceasta înseamnă că sesiunea ta Azure CLI furnizează credențialele — fără chei API sau secrete în fișierul tău `.env`. Aceasta este o [practică recomandată de securitate](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
+
+### Pasul 4: Crearea fișierului tău `.env`
+
+Copiază fișierul exemplu:
 
 ```bash
 # zsh/bash
@@ -246,79 +205,114 @@ cp .env.example .env
 Copy-Item .env.example .env
 ```
 
-Aceasta va copia fișierul exemplu și va crea un `.env` în directorul dvs. unde veți completa valorile variabilelor de mediu.
+Deschide `.env` și completează aceste două valori:
 
-Cu token-ul copiat, deschideți fișierul `.env` în editorul dvs. preferat și lipiți token-ul în câmpul `PROJECT_ENDPOINT`.
-
-### Pasul 3: Autentificați-vă în Azure
-
-Ca o practică recomandată de securitate, vom folosi [autentificare fără cheie](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) pentru autentificarea la Azure OpenAI cu Microsoft Entra ID.
-
-Apoi, deschideți un terminal și rulați `az login --use-device-code` pentru a vă conecta la contul dvs. Azure.
-
-După autentificare, selectați abonamentul în terminal.
-
-## Variabile de Mediu Suplimentare - Azure Search și Azure OpenAI
-
-Pentru Lecția Agentic RAG - Lecția 5 - există exemple care folosesc Azure Search și Azure OpenAI.
-
-Dacă doriți să rulați aceste exemple, va trebui să adăugați următoarele variabile de mediu în fișierul `.env`:
-
-### Pagina Overview (Proiect)
-
-- `AZURE_SUBSCRIPTION_ID` - Verificați **Detalii proiect** pe pagina **Overview** a proiectului dvs.
-
-- `AZURE_AI_PROJECT_NAME` - Uitați-vă în partea de sus a paginii **Overview** a proiectului.
-
-- `AZURE_OPENAI_SERVICE` - Găsiți în fila **Capabilități incluse** pentru **Azure OpenAI Service** pe pagina **Overview**.
-
-### Centrul de Management
-
-- `AZURE_OPENAI_RESOURCE_GROUP` - Accesați **Proprietăți proiect** pe pagina **Overview** a **Management Center**.
-
-- `GLOBAL_LLM_SERVICE` - Sub **Resurse conectate**, găsiți numele conexiunii **Azure AI Services**. Dacă nu este listat, verificați în **portalul Azure** în grupul dvs. de resurse pentru numele resursei AI Services.
-
-### Pagina Modele + Endpoint-uri
-
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Selectați modelul embedding (ex. `text-embedding-ada-002`) și notați **Numele implementării** din detaliile modelului.
-
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Selectați modelul chat (ex. `gpt-4o-mini`) și notați **Numele implementării** din detaliile modelului.
-
-### Portal Azure
-
-- `AZURE_OPENAI_ENDPOINT` - Căutați **Azure AI services**, faceți clic pe el, apoi mergeți la **Resource Management**, **Chei și Endpoint**, derulați până la "endpoint-urile Azure OpenAI" și copiați cel care spune "Language APIs".
-
-- `AZURE_OPENAI_API_KEY` - Din aceeași pagină, copiați CHEIA 1 sau CHEIA 2.
-
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - Găsiți resursa **Azure AI Search**, faceți clic pe ea și vedeți **Overview**.
-
-- `AZURE_SEARCH_API_KEY` - Apoi mergeți la **Settings** și apoi **Keys** pentru a copia cheia principală sau secundară de administrator.
-
-### Pagină web externă
-
-- `AZURE_OPENAI_API_VERSION` - Vizitați pagina [ciclului de viață al versiunii API](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) la secțiunea **Cea mai recentă versiune GA a API-ului**.
-
-### Configurarea autentificării fără cheie
-
-În loc să hardcodați acreditările, vom folosi o conexiune fără cheie cu Azure OpenAI. Pentru aceasta vom importa `DefaultAzureCredential` și mai târziu vom apela funcția `DefaultAzureCredential` pentru a obține acreditările.
-
-```python
-# Python
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+```env
+AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
+AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4o
 ```
 
-## Blocare Undeva?
-Dacă întâmpinați probleme la rularea acestei configurații, intrați în <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord-ul Comunității Azure AI</a> sau <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">creați un issue</a>.
+| Variabilă | Unde o găsești |
+|----------|-----------------|
+| `AZURE_AI_PROJECT_ENDPOINT` | Portal Foundry → proiectul tău → pagina **Overview** |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Portal Foundry → **Models + Endpoints** → numele modelului implementat |
 
-## Lecția următoare
+Asta este tot pentru majoritatea lecțiilor! Notebook-urile se vor autentifica automat prin sesiunea ta `az login`.
 
-Acum sunteți gata să rulați codul pentru acest curs. Spor la învățat mai multe despre lumea Agenților AI!
+### Pasul 5: Instalarea Dependențelor Python
 
-[Introducere în Agenții AI și Cazurile de Utilizare ale Agenților](../01-intro-to-ai-agents/README.md)
+```bash|powershell
+pip install -r requirements.txt
+```
+
+Recomandăm să rulezi aceasta în mediul virtual creat anterior.
+
+## Configurare suplimentară pentru Lecția 5 (Agentic RAG)
+
+Lecția 5 folosește **Azure AI Search** pentru generare augmentată prin căutare. Dacă plănuiești să rulezi această lecție, adaugă aceste variabile în fișierul tău `.env`:
+
+| Variabilă | Unde o găsești |
+|----------|-----------------|
+| `AZURE_SEARCH_SERVICE_ENDPOINT` | Portal Azure → resursa ta **Azure AI Search** → **Overview** → URL |
+| `AZURE_SEARCH_API_KEY` | Portal Azure → resursa ta **Azure AI Search** → **Settings** → **Keys** → cheia principală admin |
+
+## Configurare suplimentară pentru Lecțiile 6 și 8 (Modele GitHub)
+
+Unele notebook-uri din lecțiile 6 și 8 folosesc **GitHub Models** în loc de Azure AI Foundry. Dacă plănuiești să rulezi acele exemple, adaugă aceste variabile în fișierul tău `.env`:
+
+| Variabilă | Unde o găsești |
+|----------|-----------------|
+| `GITHUB_TOKEN` | GitHub → **Settings** → **Developer settings** → **Personal access tokens** |
+| `GITHUB_ENDPOINT` | Folosește `https://models.inference.ai.azure.com` (valoare implicită) |
+| `GITHUB_MODEL_ID` | Numele modelului de utilizat (ex. `gpt-4o-mini`) |
+
+## Configurare suplimentară pentru Lecția 8 (Flux de lucru Bing Grounding)
+
+Notebook-ul de flux condiționat din lecția 8 folosește **Bing grounding** prin Azure AI Foundry. Dacă plănuiești să rulezi acel exemplu, adaugă această variabilă în `.env`:
+
+| Variabilă | Unde o găsești |
+|----------|-----------------|
+| `BING_CONNECTION_ID` | Portal Azure AI Foundry → proiectul tău → **Management** → **Connected resources** → conexiunea ta Bing → copiază ID-ul conexiunii |
+
+## Soluționare Probleme
+
+### Erori de Verificare SSL pe macOS
+
+Dacă ești pe macOS și întâmpini o eroare de genul:
+
+```plaintext
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
+```
+
+Aceasta este o problemă cunoscută cu Python pe macOS unde certificatele SSL ale sistemului nu sunt automat certificate ca fiind de încredere. Încearcă următoarele soluții în ordine:
+
+**Opțiunea 1: Rulează scriptul Install Certificates al Python (recomandat)**
+
+```bash
+# Înlocuiește 3.XX cu versiunea ta instalată de Python (de exemplu, 3.12 sau 3.13):
+/Applications/Python\ 3.XX/Install\ Certificates.command
+```
+
+**Opțiunea 2: Folosește `connection_verify=False` în notebook-ul tău (doar pentru notebook-urile GitHub Models)**
+
+În notebook-ul lecției 6 (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`), există deja un workaround comentat. Deblochează `connection_verify=False` când creezi clientul:
+
+```python
+client = ChatCompletionsClient(
+    endpoint=endpoint,
+    credential=AzureKeyCredential(token),
+    connection_verify=False,  # Dezactivați verificarea SSL dacă întâmpinați erori de certificat
+)
+```
+
+> **⚠️ Atenție:** Dezactivarea verificării SSL (`connection_verify=False`) reduce securitatea sărind validarea certificatului. Folosește această opțiune doar temporar în mediile de dezvoltare, niciodată în producție.
+
+**Opțiunea 3: Instalează și folosește `truststore`**
+
+```bash
+pip install truststore
+```
+
+Apoi adaugă următoarea linie în partea de sus a notebook-ului sau scriptului înainte de orice apeluri de rețea:
+
+```python
+import truststore
+truststore.inject_into_ssl()
+```
+
+## Blocat Undeva?
+
+Dacă întâmpini probleme cu această configurare, intră în <a href="https://discord.gg/kzRShWzttr" target="_blank">comunitatea Azure AI pe Discord</a> sau <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">crează un issue</a>.
+
+## Lecția Următoare
+
+Acum ești gata să rulezi codul pentru acest curs. Spor la învățat mai multe despre lumea Agenților AI!
+
+[Introducere în Agenți AI și Cazuri de Utilizare a Agenților](../01-intro-to-ai-agents/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Declinare de responsabilitate**:  
-Acest document a fost tradus folosind serviciul de traducere automată AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original, în limba sa nativă, trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un specialist uman. Nu ne asumăm răspunderea pentru orice neînțelegeri sau interpretări greșite ce pot rezulta din utilizarea acestei traduceri.
+Acest document a fost tradus folosind serviciul de traducere automată AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, este recomandată traducerea profesională realizată de un specialist uman. Nu ne asumăm răspunderea pentru eventualele neînțelegeri sau interpretări greșite rezultate din utilizarea acestei traduceri.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -7,22 +7,21 @@ This repository contains "AI Agents for Beginners" - a comprehensive educational
 **Key Technologies:**
 - Python 3.12+
 - Jupyter Notebooks for interactive learning
-- AI Frameworks: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Azure AI Services: Microsoft Foundry, Azure AI Agent Service
-- GitHub Models Marketplace (free tier available)
+- AI Frameworks: Microsoft Agent Framework (MAF)
+- Azure AI Services: Microsoft Foundry, Azure AI Foundry Agent Service V2
 
 **Architecture:**
 - Lesson-based structure (00-15+ directories)
 - Each lesson contains: README documentation, code samples (Jupyter notebooks), and images
 - Multi-language support via automated translation system
-- Multiple framework options per lesson (Semantic Kernel, AutoGen, Azure AI Agent Service)
+- One Python notebook per lesson using Microsoft Agent Framework
 
 ## Setup Commands
 
 ### Prerequisites
 - Python 3.12 or higher
-- GitHub account (for GitHub Models - free tier)
-- Azure subscription (optional, for Azure AI services)
+- Azure subscription (for Azure AI Foundry)
+- Azure CLI installed and authenticated (`az login`)
 
 ### Initial Setup
 
@@ -48,21 +47,20 @@ This repository contains "AI Agents for Beginners" - a comprehensive educational
 4. **Set up environment variables:**
    ```bash
    cp .env.example .env
-   # .env मध्ये तुमच्या API की आणि एंडपॉइंट्स संपादित करा
+   # आपल्या API की आणि एंडपॉइंट्ससह .env संपादित करा
    ```
 
 ### Required Environment Variables
 
-For **GitHub Models (Free)**:
-- `GITHUB_TOKEN` - Personal access token from GitHub
+For **Azure AI Foundry** (Required):
+- `AZURE_AI_PROJECT_ENDPOINT` - Azure AI Foundry प्रोजेक्ट एंडपॉइंट
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - मॉडेल डिप्लॉयमेंट नाव (उदा., gpt-4o)
 
-For **Azure AI Services** (optional):
-- `PROJECT_ENDPOINT` - Microsoft Foundry project endpoint
-- `AZURE_OPENAI_API_KEY` - Azure OpenAI API key
-- `AZURE_OPENAI_ENDPOINT` - Azure OpenAI endpoint URL
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Deployment name for chat model
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Deployment name for embeddings
-- Additional Azure configuration as shown in `.env.example`
+For **Azure AI Search** (Lesson 05 - RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search एंडपॉइंट
+- `AZURE_SEARCH_API_KEY` - Azure AI Search API की
+
+Authentication: Run `az login` before running notebooks (uses `AzureCliCredential`).
 
 ## Development Workflow
 
@@ -78,33 +76,16 @@ Each lesson contains multiple Jupyter notebooks for different frameworks:
 2. **Navigate to a lesson directory** (e.g., `01-intro-to-ai-agents/code_samples/`)
 
 3. **Open and run notebooks:**
-   - `*-semantic-kernel.ipynb` - Using Semantic Kernel framework
-   - `*-autogen.ipynb` - Using AutoGen framework
    - `*-python-agent-framework.ipynb` - Using Microsoft Agent Framework (Python)
    - `*-dotnet-agent-framework.ipynb` - Using Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Using Azure AI Agent Service
 
-### Working with Different Frameworks
+### Working with Microsoft Agent Framework
 
-**Semantic Kernel + GitHub Models:**
-- Free tier available with GitHub account
-- Good for learning and experimentation
-- File pattern: `*-semantic-kernel*.ipynb`
-
-**AutoGen + GitHub Models:**
-- Free tier available with GitHub account
-- Multi-agent orchestration capabilities
-- File pattern: `*-autogen.ipynb`
-
-**Microsoft Agent Framework (MAF):**
-- Latest framework from Microsoft
-- Available in Python and .NET
-- File pattern: `*-agent-framework.ipynb`
-
-**Azure AI Agent Service:**
+**Microsoft Agent Framework + Azure AI Foundry:**
 - Requires Azure subscription
-- Production-ready features
-- File pattern: `*-azureaiagent.ipynb`
+- Uses `AzureAIProjectAgentProvider` for Agent Service V2 (agents visible in Foundry portal)
+- Production-ready with built-in observability
+- File pattern: `*-python-agent-framework.ipynb`
 
 ## Testing Instructions
 
@@ -115,12 +96,12 @@ This is an educational repository with example code rather than production code 
 1. **Test Python environment:**
    ```bash
    python --version  # 3.12+ असावे
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
 2. **Test notebook execution:**
    ```bash
-   # नोटबुक स्क्रिप्टमध्ये रूपांतरित करा आणि चालवा (टेस्ट्सची आयात)
+   # नोटबुक स्क्रिप्टमध्ये रूपांतर करा आणि चालवा (आयातांची चाचणी)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
@@ -159,10 +140,8 @@ Open notebooks in Jupyter and execute cells sequentially. Each notebook is self-
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
@@ -262,10 +241,8 @@ Recommended progression through lessons:
 ### Framework Selection
 
 Choose framework based on your goals:
-- **Learning/Prototyping**: Semantic Kernel + GitHub Models (free)
-- **Multi-agent systems**: AutoGen
-- **Latest features**: Microsoft Agent Framework (MAF)
-- **Production deployment**: Azure AI Agent Service
+- **All lessons**: Microsoft Agent Framework (MAF) with `AzureAIProjectAgentProvider`
+- **Agents register server-side** in Azure AI Foundry Agent Service V2 and are visible in the Foundry portal
 
 ### Getting Help
 
@@ -291,7 +268,7 @@ See [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues)
 
 This repository uses an automated translation system:
 - 50+ languages supported
-- Translations in `/translations/<lang-code>/` directories
+- Translations in /translations/<lang-code>/ directories
 - GitHub Actions workflow handles translation updates
 - Source files are in English at repository root
 
@@ -306,11 +283,9 @@ Each lesson follows a consistent pattern:
 
 ### Code Sample Naming
 
-Format: `<lesson-number>-<framework-name>.ipynb`
-- `04-semantic-kernel.ipynb` - Lesson 4, Semantic Kernel
-- `07-autogen.ipynb` - Lesson 7, AutoGen
-- `14-python-agent-framework.ipynb` - Lesson 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Lesson 14, MAF .NET
+Format: `<lesson-number>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Lesson 1, MAF Python
+- `14-sequential.ipynb` - Lesson 14, MAF advanced patterns
 
 ### Special Directories
 
@@ -322,20 +297,16 @@ Format: `<lesson-number>-<framework-name>.ipynb`
 ### Dependencies
 
 Key packages from `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - AutoGen framework
-- `semantic-kernel` - Semantic Kernel framework
 - `agent-framework` - Microsoft Agent Framework
+- `a2a-sdk` - Agent-to-Agent protocol support
 - `azure-ai-inference`, `azure-ai-projects` - Azure AI services
+- `azure-identity` - Azure authentication (AzureCliCredential)
 - `azure-search-documents` - Azure AI Search integration
-- `chromadb` - Vector database for RAG examples
-- `chainlit` - Chat UI framework
-- `browser_use` - Browser automation for agents
 - `mcp[cli]` - Model Context Protocol support
-- `mem0ai` - Memory management for agents
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 अस्वीकरण:
-हा दस्तऐवज AI अनुवादीय सेव्हिस (Co-op Translator: https://github.com/Azure/co-op-translator) वापरून अनुवादित करण्यात आला आहे. आम्ही अचूकतेसाठी प्रयत्न करतो, परंतु कृपया लक्षात घ्या की स्वयंचलित अनुवादांमध्ये चुका किंवा अचूकतेची त्रुटी असू शकते. मूळ दस्तऐवज त्याच्या स्थानिक भाषेत अधिकृत स्रोत समजावा. महत्त्वाच्या माहितीच्या बाबतीत व्यावसायिक मानवी अनुवाद शिफारसीय आहे. या अनुवादाच्या वापरामुळे उद्भवणाऱ्या कोणत्याही गैरसमज किंवा चुकीच्या अर्थलागीसाठी आम्ही जबाबदार नाही.
+हा दस्तऐवज AI अनुवाद सेवा Co-op Translator (https://github.com/Azure/co-op-translator) वापरून अनुवादित केला गेला आहे. आम्ही अचूकतेसाठी प्रयत्न करतो, परंतु कृपया लक्षात घ्या की स्वयंचलित अनुवादांमध्ये चुका किंवा अचूकतेतील त्रुटी असू शकतात. मूळ दस्तऐवज त्याच्या मूळ भाषेत अधिकृत स्रोत मानला जावा. महत्त्वाच्या माहितीसाठी व्यावसायिक मानवी अनुवाद करण्याची शिफारस केली जाते. या अनुवादाच्या वापरामुळे उद्भवलेल्या कोणत्याही गैरसमजुती किंवा चुकीच्या अर्थनिरुपणाबद्दल आम्ही जबाबदार नाही.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,28 +1,28 @@
-# Подешавање курса
+# Course Setup
 
-## Увод
+## Introduction
 
-Ова лекција ће објаснити како покренути примере кода из овог курса.
+This lesson will cover how to run the code samples of this course.
 
-## Придружите се другим учесницима и потражите помоћ
+## Join Other Learners and Get Help
 
-Пре него што почнете да клонирате ваш репо, придружите се [Discord каналу AI агената за почетнике](https://aka.ms/ai-agents/discord) да бисте добили помоћ око подешавања, поставили питања у вези курса или повезали се са другим ученицима.
+Before you begin cloning your repo, join the [AI Agents For Beginners Discord channel](https://aka.ms/ai-agents/discord) to get any help with setup, any questions about the course, or to connect with other learners.
 
-## Клонирајте или форкујте овај репозиторијум
+## Clone or Fork this Repo
 
-Да бисте започели, молимо вас да клонирате или форкујете GitHub репозиторијум. Ово ће креирати вашу верзију материјала курса тако да можете да покрећете, тестирате и подешавате код!
+To begin, please clone or fork the GitHub Repository. This will make your own version of the course material so that you can run, test, and tweak the code!
 
-This can be done by clicking the link to <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">форкуј репозиторијум</a>
+This can be done by clicking the link to <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">форкујте репозиторијум</a>
 
 You should now have your own forked version of this course in the following link:
 
-![Форкирани репозиторијум](../../../translated_images/sr/forked-repo.33f27ca1901baa6a.webp)
+![Форковани репо](../../../translated_images/sr/forked-repo.33f27ca1901baa6a.webp)
 
-### Плитко клонирање (препоручено за радионицу / Codespaces)
+### Shallow Clone (recommended for workshop / Codespaces)
 
-  >Пун репозиторијум може бити велик (~3 GB) када преузмете пуну историју и све фајлове. Ако похађате само радионицу или вам требају само неки фолдери из лекција, плитко клонирање (или делимично клонирање) избегава већину тог преузимања тако што скраћује историју и/или прескаче blob-ове.
+  >The full repository can be large (~3 GB) when you download full history and all files. If you're only attending the workshop or only need a few lesson folders, a shallow clone (or a sparse clone) avoids most of that download by truncating history and/or skipping blobs.
 
-#### Брзо плитко клонирање — минимална историја, све датотеке
+#### Quick shallow clone — minimal history, all files
 
 Replace `<your-username>` in the below commands with your fork URL (or the upstream URL if you prefer).
 
@@ -38,7 +38,7 @@ To clone a specific branch:
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Делимично (sparse) клонирање — минимални blob-ови + само изабрани фолдери
+#### Partial (sparse) clone — minimal blobs + only selected folders
 
 This uses partial clone and sparse-checkout (requires Git 2.25+ and recommended modern Git with partial clone support):
 
@@ -66,45 +66,35 @@ rm -rf .git
 ```
 
 ```powershell
-# Пауершел
+# ПоверШел
 Remove-Item -Recurse -Force .git
 ```
 
-#### Korišćenje GitHub Codespaces (preporučено да избегнете велика локална преузимања)
+#### Using GitHub Codespaces (recommended to avoid local large downloads)
 
 - Create a new Codespace for this repo via the [GitHub UI](https://github.com/codespaces).  
 
-- U терминалу ново креираног Codespace-а, покрените једну од горе наведених shallow/sparse clone команда да бисте у workspace Codespace-а донели само фолдере лекција које вам требају.
-- Опционо: након клонирања унутар Codespaces, уклоните .git да бисте повратили додатни простор (видите команде за уклањање горе).
-- Напомена: Ако више волите да отворите репо директно у Codespaces-у (без додатног клонирања), имајте у виду да ће Codespaces конструисати devcontainer окружење и можда и даље прикупити више него што вам је потребно. Клонирање плитке копије унутар новог Codespace-а даје вам већу контролу над употребом диска.
+- In the terminal of the newly created codespace, run one of the shallow/sparse clone commands above to bring only the lesson folders you need into the Codespace workspace.
+- Optional: after cloning inside Codespaces, remove .git to reclaim extra space (see removal commands above).
+- Note: If you prefer to open the repo directly in Codespaces (without an extra clone), be aware Codespaces will construct the devcontainer environment and may still provision more than you need. Cloning a shallow copy inside a fresh Codespace gives you more control over disk usage.
 
-#### Савети
+#### Tips
 
-- Увек замените clone URL са URL-ом вашег форка ако желите да мењате/комитујете.
-- Ако вам касније затреба више историје или фајлова, можете их дохватити (fetch) или прилагодити sparse-checkout да укључи додатне фолдере.
+- Always replace the clone URL with your fork if you want to edit/commit.
+- If you later need more history or files, you can fetch them or adjust sparse-checkout to include additional folders.
 
-## Покретање кода
+## Running the Code
 
-Овај курс нуди низ Jupyter Notebooks које можете покренути да бисте стекли практично искуство у изградњи AI агената.
+This course offers a series of Jupyter Notebooks that you can run with to get hands-on experience building AI Agents.
 
-The code samples use either:
+The code samples use **Microsoft Agent Framework (MAF)** with the `AzureAIProjectAgentProvider`, which connects to **Azure AI Agent Service V2** (the Responses API) through **Microsoft Foundry**.
 
-**Захтева GitHub налог - бесплатно**:
+All Python notebooks are labelled `*-python-agent-framework.ipynb`.
 
-1) Semantic Kernel Agent Framework + GitHub Models Marketplace. Labelled as (semantic-kernel.ipynb)
-2) AutoGen Framework + GitHub Models Marketplace. Labeled as (autogen.ipynb)
-
-**Захтева Azure претплату**:
-3) Azure AI Foundry + Azure AI Agent Service. Labelled as (azureaiagent.ipynb)
-
-Похацијемо вас да испробате све три врсте примера да бисте видели која вам највише одговара.
-
-Коју год опцију да изаберете, она ће одредити које кораке за подешавање треба да пратите испод:
-
-## Захтеви
+## Requirements
 
 - Python 3.12+
-  - **NOTE**: Ако немате инсталиран Python3.12, побрините се да га инсталирате. Затим креирајте ваш venv користећи python3.12 да бисте били сигурни да ће тачне верзије бити инсталиране из requirements.txt фајла.
+  - **НАПОМЕНА**: If you don't have Python3.12 installed, ensure you install it.  Then create your venv using python3.12 to ensure the correct versions are installed from the requirements.txt file.
   
     >Пример
 
@@ -126,15 +116,15 @@ The code samples use either:
     venv\Scripts\activate
     ```
 
-- .NET 10+: За примерe кода који користе .NET, обезбедите инсталацију [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или новије верзије. Затим, проверите инсталирану верзију .NET SDK-а:
+- .NET 10+: For the sample codes using .NET, ensure you install [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later. Then, check your installed .NET SDK version:
 
     ```bash|powershell
     dotnet --list-sdks
     ```
 
-- A GitHub Account - For Access to the GitHub Models Marketplace
-- Azure Subscription - For Access to Microsoft Foundry
-- Microsoft Foundry Account - For Access to the Azure AI Agent Service
+- **Azure CLI** — Required for authentication. Install from [aka.ms/installazurecli](https://aka.ms/installazurecli).
+- **Azure Subscription** — For access to Microsoft Foundry and Azure AI Agent Service.
+- **Microsoft Foundry Project** — A project with a deployed model (e.g., `gpt-4o`). See [Step 1](../../../00-course-setup) below.
 
 We have included a `requirements.txt` file in the root of this repository that contains all the required Python packages to run the code samples.
 
@@ -146,95 +136,64 @@ pip install -r requirements.txt
 
 We recommend creating a Python virtual environment to avoid any conflicts and issues.
 
-## Подешавање VSCode
+## Setup VSCode
 
-Побрините се да користите исправну верзију Pythona у VSCode-у.
+Make sure that you are using the right version of Python in VSCode.
 
 ![слика](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
-## Подешавање примера који користе GitHub моделе
+## Set Up Microsoft Foundry and Azure AI Agent Service
 
-### Корак 1: Преузмите свој GitHub лични приступни токен (PAT)
+### Step 1: Create a Microsoft Foundry Project
 
-Овај курс користи GitHub Models Marketplace, који пружа бесплатан приступ великим језичким моделима (LLMs) које ћете користити за изградњу AI агената.
+You need an Azure AI Foundry **hub** and **project** with a deployed model to run the notebooks.
 
-Да бисте користили GitHub моделе, биће вам потребно да креирате [GitHub лични приступни токен](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+1. Go to [ai.azure.com](https://ai.azure.com) and sign in with your Azure account.
+2. Create a **hub** (or use an existing one). See: [Hub resources overview](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
+3. Inside the hub, create a **project**.
+4. Deploy a model (e.g., `gpt-4o`) from **Models + Endpoints** → **Deploy model**.
 
-Ово можете урадити тако што ћете отићи на вашу <a href="https://github.com/settings/personal-access-tokens" target="_blank">Подешавања личних приступних токена</a> у вашем GitHub налогу.
+### Step 2: Retrieve Your Project Endpoint and Model Deployment Name
 
-Молимо вас да следите [Принцип најмањих привилегија](https://docs.github.com/en/get-started/learning-to-code/storing-your-secrets-safely) када креирате ваш токен. То значи да треба да дате токену само дозволе које су му потребне за покретање примера кода из овог курса.
+From your project in the Microsoft Foundry portal:
 
-1. На левој страни екрана, у одељку **Developer settings**, одаберите опцију `Fine-grained tokens`
+- **Project Endpoint** — Go to the **Overview** page and copy the endpoint URL.
 
-   ![Подешавања програмера](../../../translated_images/sr/profile_developer_settings.410a859fe749c755.webp)
+![Project Connection String](../../../translated_images/sr/project-endpoint.8cf04c9975bbfbf1.webp)
 
-   Then select `Generate new token`.
+- **Model Deployment Name** — Go to **Models + Endpoints**, select your deployed model, and note the **Deployment name** (e.g., `gpt-4o`).
 
-   ![Генериши нови токен](../../../translated_images/sr/fga_new_token.1c1a234afe202ab3.webp)
+### Step 3: Sign in to Azure with `az login`
 
-2. Унесите описан назив за ваш токен који одражава његову сврху, како би га било лако касније препознати.
+All notebooks use **`AzureCliCredential`** for authentication — no API keys to manage. This requires you to be signed in via the Azure CLI.
 
-    🔐 Рекомендација за трајање токена
+1. **Install the Azure CLI** if you haven't already: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
-    Препоручено трајање: 30 дана
-    За већу безбедност, можете одабрати краћи период — на пример 7 дана 🛡️
-    То је одличан начин да поставите лични рок и завршите курс док је ваш замах учења висок 🚀.
+2. **Sign in** by running:
 
-    ![Име токена и истек](../../../translated_images/sr/token-name-expiry-date.a095fb0de6386864.webp)
+    ```bash|powershell
+    az login
+    ```
 
-3. Ограничите опсег токена на ваш форк овог репозиторијума.
+    Or if you're in a remote/Codespace environment without a browser:
 
-    ![Ограничи опсег на форк репозиторијум](../../../translated_images/sr/token_repository_limit.924ade5e11d9d8bb.webp)
+    ```bash|powershell
+    az login --use-device-code
+    ```
 
-4. Ограничите дозволе токена: У оквиру **Permissions**, кликните на таб **Account**, и кликните на дугме "+ Add permissions". Пojaviће се падајући мени. Потражите **Models** и означите поље поред ње.
+3. **Select your subscription** if prompted — choose the one containing your Foundry project.
 
-    ![Додај дозволу за Models](../../../translated_images/sr/add_models_permissions.c0c44ed8b40fc143.webp)
+4. **Verify** you're signed in:
 
-5. Проверите потребне дозволе пре генерисања токена. ![Проверите дозволе](../../../translated_images/sr/verify_permissions.06bd9e43987a8b21.webp)
+    ```bash|powershell
+    az account show
+    ```
 
-6. Пре него што генеришете токен, уверите се да сте спремни да сачувате токен на безбедном месту попут password manager vault-а, јер он неће бити поново приказан након креирања. ![Сачувајте токен безбедно](../../../translated_images/sr/store_token_securely.08ee2274c6ad6caf.webp)
+> **Why `az login`?** The notebooks authenticate using `AzureCliCredential` from the `azure-identity` package. This means your Azure CLI session provides the credentials — no API keys or secrets in your `.env` file. This is a [security best practice](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
 
-Копирајте ваш нови токен који сте управо креирали. Сада ћете га додати у ваш `.env` фајл који је укључен у овај курс.
+### Step 4: Create Your `.env` File
 
-### Корак 2: Направите ваш `.env` фајл
-
-Да бисте креирали ваш `.env` фајл покрените следећу команду у вашем терминалу.
-
-```bash
-# zsh/bash
-cp .env.example .env
-```
-
-```powershell
-# ПауерШел
-Copy-Item .env.example .env
-```
-
-Ово ће копирати примерни фајл и креирати `.env` у вашем директоријуму где ћете попунити вредности за променљиве окружења.
-
-Копирањем вашег токена, отворите `.env` фајл у вашем омиљеном уређивачу текста и налепите ваш токен у поље `GITHUB_TOKEN`.
-
-![Поље за GitHub токен](../../../translated_images/sr/github_token_field.20491ed3224b5f4a.webp)
-
-Сада би требало да можете да покренете примерe кода из овог курса.
-
-## Подешавање примера који користе Microsoft Foundry и Azure AI Agent Service
-
-### Корак 1: Преузмите Endpoint вашег Azure пројекта
-
-
-Пратите кораке за креирање хаба и пројекта у Azure AI Foundry описане овде: [Преглед ресурса хаба](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/ai-resources)
-
-
-Када креирате ваш пројекат, биће вам потребно да преузмете конекцијски низ за ваш пројекат.
-
-Ово можете урадити тако што ћете отићи на страницу **Overview** вашег пројекта у Microsoft Foundry порталу.
-
-![Конекцијски низ пројекта](../../../translated_images/sr/project-endpoint.8cf04c9975bbfbf1.webp)
-
-### Корак 2: Направите ваш `.env` фајл
-
-Да бисте креирали ваш `.env` фајл покрените следећу команду у вашем терминалу.
+Copy the example file:
 
 ```bash
 # zsh/bash
@@ -242,83 +201,118 @@ cp .env.example .env
 ```
 
 ```powershell
-# ПауерШел
+# ПоверШел
 Copy-Item .env.example .env
 ```
 
-Ово ће копирати примерни фајл и креирати `.env` у вашем директоријуму где ћете попунити вредности за променљиве окружења.
+Open `.env` and fill in these two values:
 
-Копирањем вашег токена, отворите `.env` фајл у вашем омиљеном уређивачу текста и налепите ваш токен у поље `PROJECT_ENDPOINT`.
+```env
+AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
+AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4o
+```
 
-### Корак 3: Пријавите се у Azure
+| Variable | Where to find it |
+|----------|-----------------|
+| `AZURE_AI_PROJECT_ENDPOINT` | Foundry portal → your project → **Overview** page |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundry portal → **Models + Endpoints** → your deployed model's name |
 
-Као најбоља пракса за безбедност, користићемо [аутентификацију без кључева](https://learn.microsoft.com/azure/developer/ai/keyless-connections?tabs=csharp%2Cazure-cli?WT.mc_id=academic-105485-koreyst) да бисмо аутентификовали Azure OpenAI помоћу Microsoft Entra ID.
+That's it for most lessons! The notebooks will authenticate automatically through your `az login` session.
 
-Затим отворите терминал и покрените `az login --use-device-code` да бисте се пријавили на ваш Azure налог.
+### Step 5: Install Python Dependencies
 
-Када се пријавите, у терминалу изаберите вашу претплату.
+```bash|powershell
+pip install -r requirements.txt
+```
 
-## Додатне променљиве окружења - Azure Search и Azure OpenAI 
+We recommend running this inside the virtual environment you created earlier.
 
-За лекцију Agentic RAG - Лекција 5 - постоје примери који користе Azure Search и Azure OpenAI.
+## Additional Setup for Lesson 5 (Agentic RAG)
 
-Ако желите да покренете ове примере, мораћете да додате следеће променљиве окружења у ваш `.env` фајл:
+Lesson 5 uses **Azure AI Search** for retrieval-augmented generation. If you plan to run that lesson, add these variables to your `.env` file:
 
-### Overview Page (Project)
+| Variable | Where to find it |
+|----------|-----------------|
+| `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure portal → your **Azure AI Search** resource → **Overview** → URL |
+| `AZURE_SEARCH_API_KEY` | Azure portal → your **Azure AI Search** resource → **Settings** → **Keys** → primary admin key |
 
-- `AZURE_SUBSCRIPTION_ID` - Проверите **Project details** на **Overview** страници вашег пројекта.
+## Additional Setup for Lesson 6 and Lesson 8 (GitHub Models)
 
-- `AZURE_AI_PROJECT_NAME` - Погледајте на врху **Overview** странице вашег пројекта.
+Some notebooks in lessons 6 and 8 use **GitHub Models** instead of Azure AI Foundry. If you plan to run those samples, add these variables to your `.env` file:
 
-- `AZURE_OPENAI_SERVICE` - Нађите ово у картици **Included capabilities** за **Azure OpenAI Service** на **Overview** страници.
+| Variable | Where to find it |
+|----------|-----------------|
+| `GITHUB_TOKEN` | GitHub → **Settings** → **Developer settings** → **Personal access tokens** |
+| `GITHUB_ENDPOINT` | Use `https://models.inference.ai.azure.com` (default value) |
+| `GITHUB_MODEL_ID` | Model name to use (e.g. `gpt-4o-mini`) |
 
-### Management Center
+## Additional Setup for Lesson 8 (Bing Grounding Workflow)
 
-- `AZURE_OPENAI_RESOURCE_GROUP` - Идите на **Project properties** на **Overview** страници **Management Center**-а.
+The conditional workflow notebook in lesson 8 uses **Bing grounding** via Azure AI Foundry. If you plan to run that sample, add this variable to your `.env` file:
 
-- `GLOBAL_LLM_SERVICE` - У оквиру **Connected resources**, пронађите име конекције **Azure AI Services**. Ако није наведено, проверите у **Azure порталу** унутар ваше групе ресурса за име AI Services ресурса.
+| Variable | Where to find it |
+|----------|-----------------|
+| `BING_CONNECTION_ID` | Azure AI Foundry portal → your project → **Management** → **Connected resources** → your Bing connection → copy the connection ID |
 
-### Models + Endpoints Page
+## Troubleshooting
 
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Одаберите ваш embedding модел (нпр. `text-embedding-ada-002`) и запамтите **Deployment name** из детаља модела.
+### SSL Certificate Verification Errors on macOS
 
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Одаберите ваш chat модел (нпр. `gpt-4o-mini`) и запамтите **Deployment name** из детаља модела.
+If you are on macOS and encounter an error like:
 
-### Azure Portal
+```plaintext
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
+```
 
-- `AZURE_OPENAI_ENDPOINT` - Пронађите **Azure AI services**, кликните на њега, затим идите на **Resource Management**, **Keys and Endpoint**, скролујте до "Azure OpenAI endpoints", и копирајте онај који каже "Language APIs".
+This is a known issue with Python on macOS where the system SSL certificates are not automatically trusted. Try the following solutions in order:
 
-- `AZURE_OPENAI_API_KEY` - Са истог екрана, копирајте KEY 1 или KEY 2.
+**Option 1: Run Python's Install Certificates script (recommended)**
 
-- `AZURE_SEARCH_SERVICE_ENDPOINT` - Пронађите ваш **Azure AI Search** ресурс, кликните га и погледајте **Overview**.
+```bash
+# Замените 3.XX са вашом инсталираном верзијом Питона (нпр. 3.12 или 3.13):
+/Applications/Python\ 3.XX/Install\ Certificates.command
+```
 
-- `AZURE_SEARCH_API_KEY` - Затим идите на **Settings** а потом **Keys** да бисте копирали примарни или секундарни admin key.
+**Option 2: Use `connection_verify=False` in your notebook (for GitHub Models notebooks only)**
 
-### External Webpage
-
-- `AZURE_OPENAI_API_VERSION` - Посетите страницу [животни циклус верзија API-ја](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation#latest-ga-api-release) под **Latest GA API release**.
-
-### Подешавање аутентификације без кључева
-
-Уместо да украјичено убацујете ваше креденцијале, користићемо везу без кључа са Azure OpenAI. Да бисмо то урадили, импортираћемо `DefaultAzureCredential` и касније позвати функцију `DefaultAzureCredential` да бисмо добили креденцијал.
+In the Lesson 6 notebook (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`), a commented-out workaround is already included. Uncomment `connection_verify=False` when creating the client:
 
 ```python
-# Пајтон
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+client = ChatCompletionsClient(
+    endpoint=endpoint,
+    credential=AzureKeyCredential(token),
+    connection_verify=False,  # Онемогућите верификацију SSL-а ако наиђете на грешке сертификата
+)
 ```
 
-## Заглавили сте негде?
-Ако имате било каквих проблема приликом покретања ове поставке, придружите се нашем <a href="https://discord.gg/kzRShWzttr" target="_blank">Discord за Azure AI заједницу</a> или <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">отворите issue</a>.
+> **⚠️ Упозорење:** Disabling SSL verification (`connection_verify=False`) reduces security by skipping certificate validation. Use this only as a temporary workaround in development environments, never in production.
 
-## Следећа лекција
+**Option 3: Install and use `truststore`**
 
-Сада сте спремни да покренете код за овај курс. Срећно у даљем учењу о свету AI агената! 
+```bash
+pip install truststore
+```
 
-[Увод у AI агенте и примере употребе агената](../01-intro-to-ai-agents/README.md)
+Then add the following at the top of your notebook or script before making any network calls:
+
+```python
+import truststore
+truststore.inject_into_ssl()
+```
+
+## Stuck Somewhere?
+
+If you have any issues running this setup, hop into our <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> or <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">направите issue</a>.
+
+## Next Lesson
+
+You are now ready to run the code for this course. Happy learning more about the world of AI Agents! 
+
+[Introduction to AI Agents and Agent Use Cases](../01-intro-to-ai-agents/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 Изјава о одрицању одговорности:
-Овај документ је преведен помоћу услуге за превођење на бази вештачке интелигенције [Co-op Translator](https://github.com/Azure/co-op-translator). Иако се трудимо да будемо прецизни, имајте у виду да аутоматски преводи могу садржати грешке или нетачности. Изворни документ на свом оригиналном језику треба сматрати званичним извором. За критичне информације препоручује се професионални превод који обави квалификовани преводилац. Не сносимо одговорност за било каква недоразумевања или погрешна тумачења која произилазе из употребе овог превода.
+Овај документ је преведен уз помоћ услуге за превођење вештачком интелигенцијом Co-op Translator (https://github.com/Azure/co-op-translator). Иако настојимо да обезбедимо тачност, молимо имајте у виду да аутоматизовани преводи могу садржати грешке или нетачности. Изворни документ на његовом оригиналном језику треба сматрати ауторитетним извором. За критичне информације препоручује се професионални превод који обавља стручни преводилац. Не сносимо одговорност за било какве неспоразуме или погрешне тумачења која проистекну из коришћења овог превода.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

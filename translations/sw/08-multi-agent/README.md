@@ -1,194 +1,196 @@
-[![Muundo wa Wakala Wengi](../../../translated_images/sw/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Multi-Agent Design](../../../translated_images/sw/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
-> _(Bonyeza picha hapo juu kutazama video ya somo hili)_
+> _(Bofya picha hapo juu kutazama video ya somo hili)_
 
-# Mienendo ya muundo wa wakala wengi
+# Mifumo ya muundo wa mawakala wengi
 
-Mara tu unapochukua kazi kwenye mradi unaohusisha mawakala wengi, utahitaji kuzingatia mienendo ya muundo wa wakala wengi. Hata hivyo, huenda isiwe wazi mara moja lini kubadili kwa wakala wengi na faida zake ni zipi.
+Mara tu unapoinzia kazi kwenye mradi unaohusisha mawakala wengi, utahitaji kuzingatia mtindo wa muundo wa mawakala wengi. Hata hivyo, huenda si rahisi mara moja kuelewa lini kubadili kuwa mawakala wengi na ni faida gani zilizopo.
 
 ## Utangulizi
 
-Katika somo hili, tunatafuta kujibu maswali yafuatayo:
+Katika somo hili, tunatazamia kujibu maswali yafuatayo:
 
-- Ni hali gani ambapo wakala wengi wanafaa kutumika?
+- Ni hali gani ambapo mawakala wengi yanatumika?
 - Ni faida gani za kutumia mawakala wengi badala ya wakala mmoja anayefanya kazi nyingi?
-- Ni vipengele gani vinavyounda utekelezaji wa mienendo ya muundo wa wakala wengi?
-- Tunawezaje kuona jinsi mawakala wengi wanavyoshirikiana?
+- Ni vipengele gani vya msingi vya kutekeleza mtindo wa muundo wa mawakala wengi?
+- Tunawezaje kupata mwonekano wa jinsi mawakala wengi wanavyoshirikiana?
 
 ## Malengo ya Kujifunza
 
 Baada ya somo hili, unapaswa kuwa na uwezo wa:
 
-- Kubaini hali ambapo wakala wengi wanafaa kutumika
-- Kutambua faida za kutumia wakala wengi badala ya wakala mmoja.
-- Kuelewa vipengele vinavyounda utekelezaji wa mienendo ya muundo wa wakala wengi.
+- Kutambua hali ambapo mawakala wengi yanatumika
+- Kutambua faida za kutumia mawakala wengi badala ya wakala mmoja.
+- Kuelewa vipengele vya msingi vya kutekeleza mtindo wa muundo wa mawakala wengi.
 
 Picha kubwa ni ipi?
 
-*Mawakala wengi ni mwenendo wa muundo unaoruhusu mawakala wengi kufanya kazi pamoja kufikia lengo la pamoja*.
+*Mawakala wengi ni mtindo wa muundo unaoruhusu mawakala mbalimbali kufanya kazi pamoja kufikia malengo makubwa*.
 
-Mwenendo huu hutumika sana katika nyanja mbalimbali, ikiwa ni pamoja na roboti, mifumo ya kujiendesha, na kompyuta iliyogawanyika.
+Mtindo huu unatumika sana katika nyanja mbalimbali, ikiwemo roboti, mifumo ya kujitegemea, na kompyuta za kugawanyika.
 
-## Hali Ambapo Mawakala Wengi Wanafaa Kutumika
+## Hali Ambapo Mawakala Wengi Yanatumika
 
-Basi, ni hali gani ambazo ni matumizi mazuri ya wakala wengi? Jibu ni kwamba kuna hali nyingi ambapo kutumia mawakala wengi ni faida hasa katika matukio yafuatayo:
+Kwa hivyo ni hali gani ambazo ni matumizi mazuri ya mawakala wengi? Jibu ni kwamba kuna hali nyingi ambapo kutumia mawakala wengi ni faida hasa katika kesi zifuatazo:
 
-- **Mizigo mikubwa ya kazi**: Mizigo mikubwa ya kazi inaweza kugawanywa kuwa kazi ndogo na kupeanwa kwa mawakala tofauti, kuwaruhusu kufanya kazi sambamba na kukamilika haraka. Mfano wa hili ni katika hali ya kazi kubwa ya usindikaji data.
-- **Kazi tata**: Kazi tata, kama mizigo mikubwa ya kazi, zinaweza kugawanywa kuwa kazi ndogo ndogo na kupeanwa kwa mawakala tofauti, kila mmoja akibobea katika sehemu fulani ya kazi. Mfano mzuri wa hili ni katika magari ya kujiendesha ambapo mawakala tofauti hushughulikia urambazaji, kugundua vikwazo, na mawasiliano na magari mengine.
-- **Utaalam tofauti**: Mawakala tofauti wanaweza kuwa na utaalam tofauti, kuwafanya kushughulikia sehemu tofauti za kazi kwa ufanisi zaidi kuliko wakala mmoja tu. Kwa mfano, katika huduma za afya ambapo mawakala wanaweza kushughulikia uchunguzi wa magonjwa, mipango ya matibabu, na ufuatiliaji wa mgonjwa.
+- **Mizigo mikubwa ya kazi**: Mizigo mikubwa ya kazi inaweza kugawanywa katika kazi ndogo ndogo na kupewa mawakala tofauti, kuruhusu usindikaji sambamba na kukamilika kwa kasi zaidi. Mfano wa hili ni katika kazi kubwa ya usindikaji wa data.
+- **Kazi ngumu**: Kazi ngumu, kama mizigo mikubwa ya kazi, inaweza kubebwa katika kazi ndogo ndogo na kupewa mawakala tofauti, kila mmoja akibobea katika sehemu maalum ya kazi. Mfano mzuri ni katika magari ya kujitegemea ambapo mawakala tofauti huchukua jukumu la uratibu wa navigesheni, kugundua vikwazo, na mawasiliano na magari mengine.
+- **Utaalamu mbalimbali**: Mawakala tofauti wanaweza kuwa na utaalamu tofauti, juu ya kushughulikia maeneo tofauti ya kazi kwa ufanisi zaidi kuliko wakala mmoja. Kwa kesi hii, mfano mzuri ni katika huduma za afya ambapo mawakala wanaweza kusimamia utambuzi, mipango ya matibabu, na ufuatiliaji wa mgonjwa.
 
 ## Faida za Kutumia Mawakala Wengi Badala ya Wakala Mmoja
 
-Mfumo wa wakala mmoja unaweza kufaa kwa kazi rahisi, lakini kwa kazi tata, matumizi ya mawakala wengi yana faida kadhaa:
+Mfumo wa wakala mmoja unaweza kufanya kazi vizuri kwa kazi rahisi, lakini kwa kazi ngumu zaidi, kutumia mawakala wengi kunaweza kutoa faida kadhaa:
 
-- **Ubobeaji**: Kila wakala anaweza kuwa mtaalamu katika kazi maalum. Kukosekana kwa ubobeaji kwa wakala mmoja kunamaanisha una wakala anayejua kufanya kila kitu lakini anaweza kuchanganyikiwa juu ya nini cha kufanya anapokumbwa na kazi tata. Anaweza kwa mfano kufanya kazi ambayo si yake vizuri.
-- **Kupanuka kwa Mfumo**: Ni rahisi kupanua mifumo kwa kuongeza mawakala zaidi badala ya kumwaga mzigo kwa wakala mmoja.
-- **Uvumilivu wa Hitilafu**: Ikiwa wakala mmoja atashindwa, wengine wanaweza kuendelea kufanya kazi, kuhakikisha uaminifu wa mfumo.
+- **Utaalamu maalum**: Kila wakala anaweza kuwa na utaalamu maalum kwa kazi fulani. Kukosekana kwa utaalamu maalum katika wakala mmoja inamaanisha kuwa una wakala anayeweza kufanya kila kitu lakini anaweza kuchanganyikiwa kile cha kufanya anapokumbana na kazi ngumu. Kwa mfano, anaweza kumaliza kufanya kazi ambayo yeye si mtaalamu hasa.
+- **Kuweza kupanuka**: Ni rahisi kupanua mifumo kwa kuongeza mawakala zaidi badala ya kumlazimisha wakala mmoja.
+- **Uvumilivu wa hitilafu**: Ikiwa wakala mmoja anashindwa, wengine wanaweza kuendelea kufanya kazi, kuhakikisha mfumo unaendelea kuaminika.
 
-Tuchukulie mfano, tufanye uhifadhi wa safari kwa mtumiaji. Mfumo wa wakala mmoja ungehitaji kushughulikia kila sehemu ya mchakato wa uhifadhi wa safari, kuanzia kupata ndege hadi kuhifadhi hoteli na magari ya kupanga. Ili kufanikisha hili kwa wakala mmoja, wakala huyo angenahitaji kuwa na zana za kushughulikia kazi zote hizi. Hii inaweza kusababisha mfumo mgumu na mkubwa ambao ni mgumu kudumisha na kupanua. Mfumo wa mawakala wengi, kwa upande mwingine, unaweza kuwa na mawakala tofauti wakiwa maalum katika kupata ndege, kuhifadhi hoteli, na magari ya kupanga. Hii ingefanya mfumo kuwa rahisi, rahisi kudumisha, na unaoweza kupanuka.
+Tuchukulie mfano, tuchukue safari kwa mtumiaji. Mfumo wa wakala mmoja ungetakiwa kushughulikia nyanja zote za mchakato wa kuweka safari, kutoka kutafuta ndege hadi kuhifadhi hoteli na magari ya kukodisha. Ili kufanikisha hili kwa wakala mmoja, wakala angenahitaji kuwa na zana za kushughulikia kazi zote hizi. Hii inaweza kusababisha mfumo mgumu na mkubwa ambao ni mgumu kudumisha na kupanua. Mfumo wa mawakala wengi, kwa upande mwingine, unaweza kuwa na mawakala tofauti waliobobea katika kutafuta ndege, kuhifadhi hoteli, na magari ya kukodisha. Hii ingefanya mfumo kuwa wa moduli, rahisi kudumisha, na wenye uwezo wa kupanuka.
 
-Linganisho hii na ofisi ya usafiri inayoendesha kama duka la mama na baba dhidi ya ofisi ya usafiri inayofanya kazi kama tawi la mnyororo. Duka la mama na baba lingeweza kuwa na wakala mmoja anayeshughulikia kila sehemu ya mchakato wa uhifadhi wa safari, wakati tawi la mnyororo lina mawakala tofauti wanashughulikia sehemu tofauti za mchakato wa uhifadhi wa safari.
+Linganisheni hili na ofisi ya usafiri inayendeshwa kama duka la familia dhidi ya ofisi ya usafiri inayendeshwa kama shirika kubwa. Duka la familia litaacha wakala mmoja akishughulikia nyanja zote za mchakato wa kuweka safari, wakati shirika kubwa litakuwa na mawakala tofauti wakishughulikia nyanja tofauti za mchakato wa kuweka safari.
 
-## Vipengele Vinavyounda Utekelezaji wa Mwenendo wa Muundo wa Wakala Wengi
+## Vipengele vya Msingi vya Kutekeleza Mtindo wa Muundo wa Mawakala Wengi
 
-Kabla hujaiweka mienendo ya muundo wa wakala wengi, unahitaji kuelewa vipengele vinavyounda mwenendo huo.
+Kabla hujatekeleza mtindo wa muundo wa mawakala wengi, unahitaji kuelewa vipengele vya msingi vinavyojumuisha mtindo huu.
 
-Tufanye hili kuwa halisi tena kwa kuangalia mfano wa kuhifadhi safari kwa mtumiaji. Katika kesi hii, vipengele vinajumuisha:
+Tufanye hili kuwa halisi tena kwa kuangalia mfano wa kuweka safari kwa mtumiaji. Katika kesi hii, vipengele vya msingi ni pamoja na:
 
-- **Mawasiliano ya Wakala**: Mawakala wa kupata ndege, kuhifadhi hoteli, na magari ya kupanga wanahitaji kuwasiliana na kushirikiana habari kuhusu vipaumbele na vikwazo vya mtumiaji. Unahitaji kuamua itifaki na mbinu za mawasiliano haya. Hii inamaanisha kwa ukamilifu kwamba wakala wa kupata ndege anahitaji kuwasiliana na wakala wa kuhifadhi hoteli ili kuhakikisha hoteli imethibitishwa kwa tarehe zile zile kama ndege. Hii inamaanisha kwamba mawakala wanapaswa kushirikiana habari kuhusu tarehe za kusafiri za mtumiaji, na unahitaji kuamua *mawakala gani wanasambaza habari na jinsi wanavyoshirikiana habari*.
-- **Mekanismo za Ubunifu**: Mawakala wanahitaji kuratibu hatua zao ili kuhakikisha vipaumbele na vikwazo vya mtumiaji vinafuatwa. Kipaumbele cha mtumiaji kinaweza kuwa kwa mfano wanataka hoteli i karibu na uwanja wa ndege wakati kifungo kinaweza kuwa magari ya kupanga yanapatikana tu uwanja wa ndege. Hii inamaanisha wakala wa kuhifadhi hoteli anahitaji kuratibu na wakala wa kuhifadhi magari ili kuhakikisha vipaumbele na vikwazo vinafuatwa. Hii inamaanisha unapaswa kuamua *jinsi mawakala wanavyoratibisha vitendo vyao*.
-- **Mimariko ya Wakala**: Mawakala wanahitaji kuwa na muundo wa ndani wa kufanya maamuzi na kujifunza kutokana na mwingiliano wao na mtumiaji. Hii inamaanisha wakala wa kupata ndege anahitaji muundo wa ndani wa kufanya maamuzi kuhusu ndege gani kupendekeza kwa mtumiaji. Hii inamaanisha unapaswa kuamua *jinsi mawakala wanavyofanya maamuzi na kujifunza kutokana na mwingiliano na mtumiaji*. Mifano ya jinsi wakala anavyojifunza na kuboresha ni kwamba wakala wa kupata ndege anaweza kutumia mfano wa kujifunza mashine kupendekeza ndege kulingana na vipaumbele vya awali vya mtumiaji.
-- **Uonekano wa Mwingiliano wa Wakala Wengi**: Unahitaji kuwa na uonekano wa jinsi mawakala wengi wanavyoshirikiana. Hii inamaanisha unahitaji vyombo na mbinu za kufuatilia shughuli na mwingiliano ya mawakala. Hii inaweza kuwa katika namna ya vyombo vya kuandika kumbukumbu na kufuatilia, vyombo vya kuona, na vipimo vya utendaji.
-- **Mienendo ya Wakala Wengi**: Kuna mienendo tofauti ya kutekeleza mifumo ya wakala wengi, kama vile muundo wa katikati, usambazaji, na mchanganyiko. Unahitaji kuamua mwenendo unaofaa zaidi kwa matumizi yako.
-- **Binadamu katika mzunguko**: Katika hali nyingi, utakuwa na binadamu katika mzunguko na unahitaji kuamuru mawakala lini kuomba usaidizi wa binadamu. Hii inaweza kuwa katika njia ya mtumiaji kuomba hoteli au ndege maalum ambayo mawakala hayajapendekeza au kuomba uthibitisho kabla ya kuhifadhi ndege au hoteli.
+- **Mawasiliano ya Wakala**: Mawakala wa kutafuta ndege, kuhifadhi hoteli, na magari ya kukodisha wanahitaji kuwasiliana na kushirikiana habari kuhusu mapendeleo na vizingiti vya mtumiaji. Unahitaji kuamua itifaki na mbinu za mawasiliano haya. Hii ina maana dhahiri ni kuwa wakala wa kutafuta ndege anahitaji kuwasiliana na wakala wa kuhifadhi hoteli kuhakikisha hoteli imeshirikiwa kwa tarehe zilezile kama ndege. Hii ina maana mawakala wanapaswa kushirikiana habari kuhusu tarehe za safari za mtumiaji, yaani unahitaji kuamua *ni mawakala gani wanashirikiana habari na wanavyoshirikiana*.
+- **Mbinu za Kuratibu**: Mawakala wanahitaji kuratibu vitendo vyao kuhakikisha mapendeleo na vizingiti vya mtumiaji vinazingatiwa. Mapendeleo ya mtumiaji yanaweza kuwa wanataka hoteli karibu na uwanja wa ndege wakati kizuizi kinaweza kuwa magari ya kukodisha yanapatikana tu uwanjani. Hii ina maana wakala wa kuhifadhi hoteli anahitaji kuratibu na wakala wa kuhifadhi magari ili kuhakikisha mapendeleo na vizingiti vinazingatiwa. Hii ina maana unahitaji kuamua *wanavyoratibu vitendo vyao*.
+- **Miundo ya Wakala**: Mawakala wanahitaji kuwa na muundo wa ndani wa kufanya maamuzi na kujifunza kutokana na mwingiliano na mtumiaji. Hii ina maana wakala wa kutafuta ndege anahitaji kuwa na muundo unaowawezesha kufanya maamuzi ya ndege gani kupendekeza mtumiaji. Hii ina maana unahitaji kuamua *wanavyofanya maamuzi na kujifunza kutokana na mwingiliano na mtumiaji*. Mifano ya jinsi wakala anavyojifunza na kuboresha inaweza kuwa wakala wa kutafuta ndege anaweza kutumia mfano wa kujifunza kwa mashine kupendekeza ndege kulingana na mapendeleo ya mtumiaji ya zamani.
+- **Mwonekano wa Mwingiliano wa Mawakala Wengi**: Unahitaji kuwa na mwonekano wa jinsi mawakala wengi wanavyoshirikiana. Hii ina maana unahitaji zana na mbinu za kufuatilia shughuli na mwingiliano wa wakala. Hii inaweza kuwa katika mfumo wa zana za kurekodi na kufuatilia, zana za kuona kwa picha, na vipimo vya utendaji.
+- **Mifumo ya Mawakala Wengi**: Kuna mifumo tofauti ya kutekeleza mifumo ya wakala wengi, kama vile miundo ya katikati, isiyo katikati, na mchanganyiko. Unahitaji kuamua mfumo unaofaa zaidi kwa matumizi yako.
+- **Mtu katika mzunguko**: Katika hali nyingi, utakuwa na mtu katika mzunguko na unahitaji kuamuru mawakala lini waombe msaada wa mtu. Hii inaweza kuwa katika mfumo wa mtumiaji kuomba hoteli maalum au ndege ambayo mawakala hayajapendekeza au kuomba uthibitisho kabla ya kuhifadhi ndege au hoteli.
 
-## Uonekano wa Mwingiliano wa Wakala Wengi
+## Mwonekano wa Mwingiliano wa Mawakala Wengi
 
-Ni muhimu kuwa na uonekano wa jinsi mawakala wengi wanavyoshirikiana. Uonekano huu ni muhimu kwa ajili ya kupima makosa, kuboresha, na kuhakikisha ufanisi wa mfumo kwa ujumla. Ili kufanikisha hii, unahitaji vyombo na mbinu za kufuatilia shughuli na mwingiliano wa wakala. Hii inaweza kuwa katika namna ya vyombo vya kuandika kumbukumbu na kufuatilia, vyombo vya kuona, na vipimo vya utendaji.
+Ni muhimu kuwa na mwonekano wa jinsi mawakala wengi wanavyoshirikiana. Mwonekano huu ni muhimu kwa ajili ya kutatua matatizo, kuboresha, na kuhakikisha ufanisi wa jumla wa mfumo. Ili kufanikisha hili, unahitaji zana na mbinu za kufuatilia shughuli na mwingiliano wa wakala. Hii inaweza kuwa katika mfumo wa zana za kurekodi na kufuatilia, zana za kuona kwa picha, na vipimo vya utendaji.
 
-Kwa mfano, katika kesi ya kuhifadhi safari kwa mtumiaji, unaweza kuwa na dashibodi inayoonyesha hali ya kila wakala, vipaumbele na vikwazo vya mtumiaji, na mwingiliano kati ya mawakala. Dashibodi hii inaweza kuonyesha tarehe za safari za mtumiaji, ndege zilizopendekezwa na wakala wa ndege, hoteli zilizopendekezwa na wakala wa hoteli, na magari ya kupanga yaliyopendekezwa na wakala wa magari ya kupanga. Hii itakupa muonekano dhahiri wa jinsi mawakala wanavyoshirikiana na kama vipaumbele na vikwazo vya mtumiaji vinafuatwa.
+Kwa mfano, katika kesi ya kuweka safari kwa mtumiaji, unaweza kuwa na dashibodi inayonyesha hali ya kila wakala, mapendeleo na vizingiti vya mtumiaji, na mwingiliano kati ya mawakala. Dashibodi hii inaweza kuonyesha tarehe za safari za mtumiaji, ndege zilizopendekezwa na wakala wa ndege, hoteli zilizopendekezwa na wakala wa hoteli, na magari ya kukodisha yaliyopendekezwa na wakala wa magari. Hii ingekupa muonekano wazi wa jinsi mawakala wanavyoshirikiana na kama mapendeleo na vizingiti vya mtumiaji vinafuatwa.
 
-Tuchunguze kila moja ya vipengele hivi kwa undani zaidi.
+Tuchunguze kila moja ya haya kwa undani zaidi.
 
-- **Vyombo vya Kurekodi na Kufuatilia**: Unataka kurekodi kila hatua inayochukuliwa na wakala. Kumbukumbu inaweza kuhifadhi taarifa kuhusu wakala aliyefanya hatua, hatua iliyochukuliwa, wakati wa hatua, na matokeo ya hatua. Taarifa hizi zinaweza kutumika kwa ukaguzi wa makosa, kuboresha na zaidi.
-- **Vyombo vya Kuona**: Vyombo vya kuona vinaweza kusaidia kuona mwingiliano kati ya mawakala kwa njia ya kueleweka zaidi. Kwa mfano, unaweza kuwa na grafu inaonyesha mtiririko wa habari kati ya mawakala. Hii inaweza kusaidia kubaini vizuizi, ufanisi mdogo, na matatizo mengine katika mfumo.
-- **Vipimo vya Utendaji**: Vipimo vya utendaji vinaweza kusaidia kufuatilia ufanisi wa mfumo wa wakala wengi. Kwa mfano, unaweza kufuatilia muda wa kukamilisha kazi, idadi ya kazi zilizomalizika kwa wakati fulani, na usahihi wa mapendekezo yaliyotolewa na mawakala. Taarifa hizi zinaweza kusaidia kubaini maeneo ya kuboresha na kuongeza ufanisi wa mfumo.
+- **Zana za Kurekodi na Kufuatilia**: Unataka kurekodi kila hatua inayochukuliwa na wakala. Kuingia kwa logi kunaweza kuhifadhi taarifa kuhusu wakala aliyefanya hatua, hatua iliyofanywa, muda wa hatua, na matokeo ya hatua. Taarifa hizi zinaweza kutumika kutatua matatizo, kuboresha na zaidi.
+- **Zana za Kuonyesha kwa Picha**: Zana za kuonyesha kwa picha zinaweza kukusaidia kuona mwingiliano kati ya mawakala kwa njia inayosisimua zaidi. Kwa mfano, unaweza kuwa na grafu inayoonyesha mtiririko wa taarifa kati ya mawakala. Hii inaweza kusaidia kutambua vikwazo, ufanisi mdogo, na matatizo mengine katika mfumo.
+- **Vipimo vya Utendaji**: Vipimo vya utendaji vinaweza kusaidia kufuatilia ufanisi wa mfumo wa mawakala wengi. Kwa mfano, unaweza kufuatilia muda uliotumika kumaliza kazi, idadi ya kazi zilizokamilika kwa muda fulani, na usahihi wa mapendekezo ya mawakala. Taarifa hizi zinaweza kusaidia kutambua maeneo ya kuboresha na kuboresha mfumo.
 
-## Mienendo ya Wakala Wengi
+## Mifumo ya Mawakala Wengi
 
-Tujumuishe mienendo halisi tunayoweza kutumia kuunda programu za wakala wengi. Hapa kuna mienendo kadhaa ya kuvutia yenye kuzingatiwa:
+Tuingie katika mifumo halisi tunayotumia kuunda programu za mawakala wengi. Hapa kuna mifumo kadhaa ya kuvutia inayostahili kuzingatiwa:
 
-### Mazungumzo ya Kikundi
+### Gumzo la kikundi
 
-Mwenendo huu ni muhimu unapotaka kuunda programu ya mazungumzo ya kikundi ambapo mawakala wengi wanaweza kuwasiliana kwa kila mmoja. Matumizi ya kawaida ya mwenendo huu ni ushirikiano wa timu, msaada wa wateja, na mitandao ya kijamii.
+Mfumo huu ni muhimu unapotaka kuunda programu ya gumzo la kikundi ambapo mawakala wengi wanaweza kuwasiliana.
 
-Katika mwenendo huu, kila wakala anawakilisha mtumiaji katika mazungumzo ya kikundi, na ujumbe hukimbizwa kati ya mawakala kwa kutumia itifaki ya ujumbe. Mawakala wanaweza kutuma ujumbe kwa mazungumzo ya kikundi, kupokea ujumbe kutoka kwa mazungumzo ya kikundi, na kujibu ujumbe kutoka kwa mawakala wengine.
+Matumizi ya kawaida ya mfumo huu ni ushirikiano wa timu, msaada wa wateja, na mtandao wa kijamii.
 
-Mwenendo huu unaweza kutekelezwa kwa kutumia muundo wa katikati ambapo ujumbe wote hupitia seva kuu, au muundo usio na katikati ambapo ujumbe hubadilishana moja kwa moja.
+Katika mfumo huu, kila wakala anawakilisha mtumiaji katika gumzo la kikundi, na ujumbe hubadilishana kati ya mawakala kwa kutumia protokoli ya ujumbe. Mawakala wanaweza kutuma ujumbe kwa gumzo la kikundi, kupokea ujumbe kutoka kwa gumzo la kikundi, na kujibu ujumbe kutoka kwa mawakala wengine.
 
-![Mazungumzo ya Kikundi](../../../translated_images/sw/multi-agent-group-chat.ec10f4cde556babd.webp)
+Mfumo huu unaweza kutekelezwa kwa kutumia muundo wa katikati ambapo ujumbe wote hupitishwa kupitia seva kuu, au muundo usio wa katikati ambapo ujumbe hubadilishana moja kwa moja.
 
-### Kubadilishana Kazi
+![Group chat](../../../translated_images/sw/multi-agent-group-chat.ec10f4cde556babd.webp)
 
-Mwenendo huu ni muhimu unapotaka kuunda programu ambapo mawakala wengi wanaweza kuhamishiana kazi moja kwa nyingine.
+### Kuperuzi kazi
 
-Matumizi ya kawaida ya mwenendo huu ni msaada wa wateja, usimamizi wa kazi, na utaratibu wa kazi.
+Mfumo huu ni muhimu unapotaka kuunda programu ambapo mawakala wengi wanaweza kupa kazi kwa kila mmoja.
 
-Katika mwenendo huu, kila wakala anawakilisha kazi au hatua katika mchakato, na mawakala wanaweza kuhamishiana kazi kwa mawakala wengine kulingana na sheria zilizowekwa.
+Matumizi ya kawaida ya mfumo huu ni msaada wa wateja, usimamizi wa kazi, na otomatiki wa mtiririko wa kazi.
 
-![Kubadilishana Kazi](../../../translated_images/sw/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
+Katika mfumo huu, kila wakala anawakilisha kazi au hatua katika mtiririko wa kazi, na mawakala wanaweza kupeana kazi kwa mawakala wengine kulingana na sheria zilizowekwa.
 
-### Kuchuja kwa Ushirikiano
+![Hand off](../../../translated_images/sw/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
-Mwenendo huu ni muhimu unapotaka kuunda programu ambapo mawakala wengi wanaweza kushirikiana kutoa mapendekezo kwa watumiaji.
+### Kuchuja kwa kushirikiana
 
-Sababu ya kuwa na mawakala wengi kushirikiana ni kwa sababu kila wakala anaweza kuwa na utaalam tofauti na unaweza kuchangia katika mchakato wa mapendekezo kwa njia tofauti.
+Mfumo huu ni muhimu unapotaka kuunda programu ambapo mawakala wengi wanaweza kushirikiana kutoa mapendekezo kwa watumiaji.
 
-Tuchukulie mfano ambapo mtumiaji anataka pendekezo juu ya hisa bora ya kununua kwenye soko la hisa.
+Sababu ya kutumia mawakala wengi kushirikiana ni kwamba kila wakala ana utaalamu tofauti na anaweza kuchangia katika mchakato wa mapendekezo kwa njia tofauti.
 
-- **Mtaalamu wa sekta**: Wakala mmoja anaweza kuwa mtaalamu wa sekta fulani.
+Tuchukulie mfano ambapo mtumiaji anataka mapendekezo ya hisa bora kununua kwenye soko la hisa.
+
+- **Mtaalamu wa sekta**: Wakala mmoja anaweza kuwa mtaalamu wa sekta maalum.
 - **Uchambuzi wa kiufundi**: Wakala mwingine anaweza kuwa mtaalamu wa uchambuzi wa kiufundi.
-- **Uchambuzi wa msingi**: na wakala mwingine anaweza kuwa mtaalamu wa uchambuzi wa msingi. Kwa kushirikiana, mawakala hawa wanaweza kutoa pendekezo la kina zaidi kwa mtumiaji.
+- **Uchambuzi wa msingi**: na wakala mwingine anaweza kuwa mtaalamu wa uchambuzi wa msingi. Kwa kushirikiana, mawakala hawa wanaweza kutoa mapendekezo ya kina zaidi kwa mtumiaji.
 
-![Pendekezo](../../../translated_images/sw/multi-agent-filtering.d959cb129dc9f608.webp)
+![Recommendation](../../../translated_images/sw/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Mfano: Mchakato wa Marejesho
 
-Fikiria hali ambapo mteja anajaribu kupata marejesho ya bidhaa, kunaweza kuwa na mawakala kadhaa wanaohusika katika mchakato huu lakini tugawe kati ya mawakala maalum kwa mchakato huu na mawakala wa jumla yanayoweza kutumika katika michakato mingine.
+Fikiria hali ambapo mteja anajaribu kupata marejesho ya bidhaa, kunaweza kuwa na mawakala wengi wanaohusika katika mchakato huu lakini tuyaane kwa mawakala maalum kwa mchakato huu na mawakala wa jumla wanaoweza kutumika katika michakato mingine.
 
 **Mawakala maalum kwa mchakato wa marejesho**:
 
-Hapa kuna mawakala yanayoweza kushirikiana katika mchakato wa marejesho:
+Hapa ni baadhi ya mawakala yanayoweza kuwa sehemu ya mchakato wa marejesho:
 
-- **Mwakala wa mteja**: Mwakala huyu anawakilisha mteja na anahusika kuanzisha mchakato wa marejesho.
-- **Mwakala wa muuzaji**: Mwakala huyu anawakilisha muuzaji na anahusika kusindika marejesho.
-- **Mwakala wa malipo**: Mwakala huyu anawakilisha mchakato wa malipo na anahusika kurudisha malipo kwa mteja.
-- **Mwakala wa utatuzi**: Mwakala huyu anawakilisha mchakato wa utatuzi na anahusika kutatua matatizo yoyote yanayotokea katika mchakato wa marejesho.
-- **Mwakala wa ulinganifu**: Mwakala huyu anawakilisha mchakato wa ulinganifu na anahakikisha kwamba mchakato wa marejesho unazingatia kanuni na sera.
+- **Wakala wa mteja**: Wakala huyu anamwakilisha mteja na anahusika kuanzisha mchakato wa marejesho.
+- **Wakala wa muuzaji**: Wakala huyu anamwakilisha muuzaji na anahusika kushughulikia marejesho.
+- **Wakala wa malipo**: Wakala huyu anamwakilisha mchakato wa malipo na anahusika kurudisha malipo ya mteja.
+- **Wakala wa utatuzi**: Wakala huyu anamwakilisha mchakato wa utatuzi na anahusika kutatua matatizo yoyote yanayotokea wakati wa mchakato wa marejesho.
+- **Wakala wa utii**: Wakala huyu anamwakilisha mchakato wa utii na anahakikisha mchakato wa marejesho unazingatia kanuni na sera.
 
 **Mawakala wa jumla**:
 
 Mawakala hawa wanaweza kutumika katika sehemu nyingine za biashara yako.
 
-- **Mwakala wa usafirishaji**: Mwakala huyu anawakilisha mchakato wa usafirishaji na anahusika kusafirisha bidhaa kurudi kwa muuzaji. Mwakala huyu anaweza kutumika kwa mchakato wa marejesho na kwa usafirishaji wa jumla wa bidhaa kupitia manunuzi kwa mfano.
-- **Mwakala wa mrejesho**: Mwakala huyu anawakilisha mchakato wa kukusanya mrejesho kutoka kwa mteja. Mrejesho unaweza kupatikana wakati wowote na siyo wakati wa mchakato wa marejesho tu.
-- **Mwakala wa kuongezeka**: Mwakala huyu anawakilisha mchakato wa kuongezeka na anahusika kupeleka matatizo kwa ngazi ya juu ya msaada. Unaweza kutumia aina hii ya wakala kwa mchakato wowote ambapo unahitaji kupeleka tatizo.
-- **Mwakala wa taarifa**: Mwakala huyu anawakilisha mchakato wa taarifa na anahusika kutuma taarifa kwa mteja katika hatua mbalimbali za mchakato wa marejesho.
-- **Mwakala wa uchambuzi**: Mwakala huyu anawakilisha mchakato wa uchambuzi na anahusika kuchambua data zinazohusiana na mchakato wa marejesho.
-- **Mwakala wa ukaguzi**: Mwakala huyu anawakilisha mchakato wa ukaguzi na anahusika kukagua mchakato wa marejesho kuhakikisha unatekelezwa ipasavyo.
-- **Mwakala wa ripoti**: Mwakala huyu anawakilisha mchakato wa kutoa ripoti na anahusika kutengeneza ripoti kuhusu mchakato wa marejesho.
-- **Mwakala wa maarifa**: Mwakala huyu anawakilisha mchakato wa maarifa na anahusika kudumisha hifadhidata ya taarifa zinazohusiana na mchakato wa marejesho. Mwakala huyu anaweza kuwa na maarifa kuhusu marejesho na sehemu nyingine za biashara yako.
-- **Mwakala wa usalama**: Mwakala huyu anawakilisha mchakato wa usalama na anahakikisha usalama wa mchakato wa marejesho.
-- **Mwakala wa ubora**: Mwakala huyu anawakilisha mchakato wa ubora na anahakikisha ubora wa mchakato wa marejesho.
+- **Wakala wa usafirishaji**: Wakala huyu anamwakilisha mchakato wa usafirishaji na anahusika kusafirisha bidhaa kurudi kwa muuzaji. Wakala huyu anaweza kutumika kwa mchakato wa marejesho na kwa usafirishaji wa kawaida wa bidhaa kwa mfano kupitia ununuzi.
+- **Wakala wa maoni**: Wakala huyu anamwakilisha mchakato wa ukusanyaji maoni na anahusika kukusanya maoni kutoka kwa mteja. Maoni yanaweza kukusanywa wakati wowote na si wakati wa mchakato wa marejesho tu.
+- **Wakala wa kupandisha ngazi**: Wakala huyu anamwakilisha mchakato wa kupandisha ngazi na anahusika kupandisha ngazi matatizo kwa ngazi ya msaada ya juu. Unaweza kutumia aina hii ya wakala kwa mchakato wowote ambapo unahitaji kupandisha ngazi ya tatizo.
+- **Wakala wa taarifa**: Wakala huyu anamwakilisha mchakato wa taarifa na anahusika kutuma taarifa kwa mteja katika hatua mbalimbali za mchakato wa marejesho.
+- **Wakala wa uchambuzi**: Wakala huyu anamwakilisha mchakato wa uchambuzi na anahusika kuchambua data inayohusiana na mchakato wa marejesho.
+- **Wakala wa ukaguzi**: Wakala huyu anamwakilisha mchakato wa ukaguzi na anahusika kuhakiki mchakato wa marejesho kuhakikisha unafanywa kwa usahihi.
+- **Wakala wa utoaji ripoti**: Wakala huyu anamwakilisha mchakato wa utoaji ripoti na anahusika kuandaa ripoti kuhusu mchakato wa marejesho.
+- **Wakala wa maarifa**: Wakala huyu anamwakilisha mchakato wa maarifa na anahusika kudumisha hifadhidata ya taarifa zinazohusiana na mchakato wa marejesho. Wakala huyu anaweza kuwa na maarifa kuhusu marejesho na sehemu nyingine za biashara yako.
+- **Wakala wa usalama**: Wakala huyu anamwakilisha mchakato wa usalama na anahakikisha usalama wa mchakato wa marejesho.
+- **Wakala wa ubora**: Wakala huyu anamwakilisha mchakato wa ubora na anahakikisha ubora wa mchakato wa marejesho.
 
-Kuna mawakala mengi yaliyotajwa hapo awali, kwa mchakato maalum wa marejesho na pia kwa mawakala wa jumla yanayoweza kutumika sehemu nyingine za biashara yako. Natumaini hili linakupa wazo la jinsi unaweza kuamua mawakala gani kutumia katika mfumo wako wa wakala wengi.
+Kuna mawakala wengi waliotajwa hapo juu kwa ajili ya mchakato maalum wa marejesho na kwa mawakala wa jumla wanaoweza kutumika katika sehemu nyingine za biashara yako. Natumai hii inakupa wazo la jinsi unavyoweza kuamua ni mawakala gani utatumia katika mfumo wako wa mawakala wengi.
 
-## Kazi ya Nyumbani
+## Ziada
 
-Tengeneza mfumo wa wakala wengi kwa ajili ya mchakato wa msaada kwa wateja. Tambua mawakala yanayohusiana na mchakato, majukumu na wajibu wao, na jinsi wanavyoshirikiana. Zingatia mawakala maalum kwa mchakato wa msaada kwa wateja na mawakala wa jumla yanayoweza kutumika sehemu nyingine za biashara yako.
-> Fikiria kabla ya kusoma suluhisho lifuatalo, huenda ukahitaji maajenti zaidi kuliko unavyodhani.
+Tengeneza mfumo wa mawakala wengi kwa mchakato wa msaada kwa mteja. Tambua mawakala wanaohusika katika mchakato, majukumu na wajibu wao, na jinsi wanavyoshirikiana. Fikiria mawakala maalum kwa mchakato wa msaada kwa mteja na mawakala wa jumla wanaoweza kutumika sehemu nyingine za biashara yako.
+> Fikiria kabla hujasoma suluhisho lifuatalo, huenda ukahitaji mawakala zaidi kuliko unavyodhani.
 
-> TIP: Fikiria hatua tofauti za mchakato wa msaada kwa wateja na pia zingatia maajenti yanayohitajika kwa mfumo wowote.
+> HINT: Fikiria kuhusu hatua tofauti za mchakato wa msaada kwa wateja na pia zingatia mawakala wanaohitajika kwa mfumo wowote.
 
 ## Suluhisho
 
-[Suluhisho](./solution/solution.md)
+[Solution](./solution/solution.md)
 
-## Vipimo vya maarifa
+## Vipimo vya Maarifa
 
-Swali: Ni lini unapaswa kuzingatia kutumia maajenti wengi?
+Swali: Ni lini unapaswa kuzingatia kutumia mawakala wengi?
 
 - [ ] A1: Unapokuwa na mzigo mdogo wa kazi na kazi rahisi.
 - [ ] A2: Unapokuwa na mzigo mkubwa wa kazi
 - [ ] A3: Unapokuwa na kazi rahisi.
 
-[Jaribio la Suluhisho](./solution/solution-quiz.md)
+[Solution quiz](./solution/solution-quiz.md)
 
 ## Muhtasari
 
-Katika somo hili, tumeangalia muundo wa maajenti wengi, pamoja na mifano inayotumika maajenti wengi, faida za kutumia maajenti wengi badala ya ajenti mmoja, vipengele vya kutekeleza muundo wa maajenti wengi, na jinsi ya kuona jinsi maajenti wengi wanavyoingiliana kati yao.
+Katika somo hili, tumeangalia muundo wa mawakala wengi, ikijumuisha hali ambapo mawakala wengi yanatumika, faida za kutumia mawakala wengi badala ya wakala mmoja, sehemu za msingi za kutekeleza muundo wa mawakala wengi, na jinsi ya kuwa na mwonekano wa jinsi mawakala wengi wanavyoshirikiana.
 
-### Una Maswali Zaidi kuhusu Muundo wa Maajenti Wengi?
+### Una Maswali Zaidi kuhusu Muundo wa Mawakala Wengi?
 
-Jiunge na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) kukutana na wanafunzi wengine, kuhudhuria saa za ofisi na kupata majibu kwa maswali yako kuhusu Maajenti wa AI.
+Jiunge na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) ili kukutana na wanafunzi wengine, kuhudhuria masaa ya ofisi na kupata majibu ya maswali yako kuhusu Mawakala wa AI.
 
-## Rasilimali za Ziada
+## Rasilimali Zaidi
 
-- <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html" target="_blank">Mifumo ya muundo ya AutoGen</a>
-- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">Mifumo ya muundo ya Agentic</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Nyaraka za Mfumo wa Mawakala wa Microsoft</a>
+- <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">Miundo ya muundo wa kijumla ya mawakala</a>
 
 
-## Somo lililotangulia
+## Somo Lililopita
 
-[Mpangilio wa Muundo](../07-planning-design/README.md)
+[Mpango wa Ubunifu](../07-planning-design/README.md)
 
-## Somo linalofuata
+## Somo Linalofuata
 
-[Metacognition katika Maajenti wa AI](../09-metacognition/README.md)
+[Meta-ufahamu katika Mawakala wa AI](../09-metacognition/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Angalizo**:  
-Nyaraka hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kuhakikisha usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Nyaraka ya asili katika lugha yake ya asili inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, inashauriwa kutumia tafsiri ya mtaalamu wa binadamu. Hatutawajibika kwa uelewa mbaya au tafsiri potofu zitokanazo na matumizi ya tafsiri hii.
+**Tangazo la Kukataa**:
+Nyaraka hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za moja kwa moja zinaweza kuwa na makosa au upungufu. Nyaraka asilia katika lugha yake ya asili inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya mtaalamu wa binadamu inapendekezwa. Hatubeba dhamana yoyote kwa maelewano au tafsiri potofu zinazotokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

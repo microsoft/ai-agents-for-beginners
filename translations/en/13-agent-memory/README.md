@@ -19,7 +19,7 @@ This lesson will cover:
 
 This lesson includes two comprehensive notebook tutorials:
 
-• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implements memory using Mem0 and Azure AI Search with Semantic Kernel framework
+• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implements memory using Mem0 and Azure AI Search with Microsoft Agent Framework
 
 • **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implements structured memory using Cognee, automatically building knowledge graph backed by embeddings, visualizing graph, and intelligent retrieval
 
@@ -29,7 +29,7 @@ After completing this lesson, you will know how to:
 
 • **Differentiate between various types of AI agent memory**, including working, short-term, and long-term memory, as well as specialized forms like persona and episodic memory.
 
-• **Implement and manage short-term and long-term memory for AI agents** using the Semantic Kernel framework, leveraging tools like Mem0, Cognee, Whiteboard memory, and integrating with Azure AI Search.
+• **Implement and manage short-term and long-term memory for AI agents** using Microsoft Agent Framework, leveraging tools like Mem0, Cognee, Whiteboard memory, and integrating with Azure AI Search.
 
 • **Understand the principles behind self-improving AI agents** and how robust memory management systems contribute to continuous learning and adaptation.
 
