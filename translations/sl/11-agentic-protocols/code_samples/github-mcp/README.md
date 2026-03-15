@@ -1,36 +1,33 @@
-# Github MCP Server Primer
+# Primer Github MCP strežnika
 
 ## Opis
 
-To je bil demo, ustvarjen za Hackathon AI Agents, ki ga je gostil Microsoft Reactor.
+To je bila predstavitvena različica ustvarjena za AI Agents Hackathon, ki ga je gostil Microsoft Reactor.
 
-Orodje se uporablja za priporočanje hackathon projektov na podlagi uporabnikovih Github repozitorijev. To se doseže z:
+Orodje se uporablja za priporočanje projektov za hackathon glede na uporabnikove Github repozitorije.
+To se izvaja z:
 
-1. **Github Agent** - Uporablja Github MCP Server za pridobivanje repozitorijev in informacij o teh repozitorijih.
-2. **Hackathon Agent** - Uporablja podatke iz Github Agenta in predlaga kreativne ideje za hackathon projekte na podlagi projektov, uporabljenih programskih jezikov in tematskih sklopov za hackathon AI Agents.
-3. **Events Agent** - Na podlagi predlogov Hackathon Agenta Events Agent priporoča ustrezne dogodke iz serije hackathonov AI Agents.
-
-## Zagon kode
+1. **Github Agent** - Uporaba Github MCP Serverja za pridobivanje repozitorijev in informacij o teh repozitorijih.
+2. **Hackathon Agent** - Prevzame podatke od Github Agenta in iz njih ustvari ustvarjalne ideje za hackathon projekte glede na projekte, jezike, ki jih uporablja uporabnik, in projektne smernice za AI Agents hackathon.
+3. **Events Agent** - Na podlagi predlogov hackathon agenta, events agent priporoči ustrezne dogodke iz serije AI Agent Hackathon.
+## Zagon kode 
 
 ### Spremenljivke okolja
 
-Ta demo uporablja Azure Open AI Service, Semantic Kernel, Github MCP Server in Azure AI Search.
+Ta demo uporablja Microsoft Agent Framework, Azure OpenAI Service, Github MCP Server in Azure AI Search.
 
-Prepričajte se, da imate pravilno nastavljene spremenljivke okolja za uporabo teh orodij:
+Prepričajte se, da imate nastavljene ustrezne spremenljivke okolja za uporabo teh orodij:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
 ## Zagon Chainlit strežnika
 
-Za povezavo z MCP strežnikom ta demo uporablja Chainlit kot vmesnik za klepet.
+Za povezavo s MCP strežnikom ta demo uporablja Chainlit kot klepetalni vmesnik. 
 
 Za zagon strežnika uporabite naslednji ukaz v terminalu:
 
@@ -38,13 +35,13 @@ Za zagon strežnika uporabite naslednji ukaz v terminalu:
 chainlit run app.py -w
 ```
 
-To bi moralo zagnati vaš Chainlit strežnik na `localhost:8000` in napolniti vaš Azure AI Search Index z vsebino iz `event-descriptions.md`.
+To bi moralo zagnati vaš Chainlit strežnik na `localhost:8000` in tudi napolniti vaš Azure AI Search Index z vsebino `event-descriptions.md`. 
 
-## Povezava z MCP strežnikom
+## Povezava s MCP strežnikom
 
-Za povezavo z Github MCP Serverjem kliknite na ikono "vtič" pod poljem za klepet "Type your message here..":
+Za povezavo s Github MCP Serverjem izberite ikono "vtič" pod vnosnim poljem za klepet "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/sl/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![Povezava MCP](../../../../../translated_images/sl/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
 Od tam lahko kliknete na "Connect an MCP", da dodate ukaz za povezavo z Github MCP Serverjem:
 
@@ -52,19 +49,21 @@ Od tam lahko kliknete na "Connect an MCP", da dodate ukaz za povezavo z Github M
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Zamenjajte "[YOUR PERSONAL ACCESS TOKEN]" z vašim dejanskim osebnim dostopnim žetonom.
+Zamenjajte "[YOUR PERSONAL ACCESS TOKEN]" z vašim dejanskim Personal Access Tokenom. 
 
-Ko se povežete, bi morali videti (1) poleg ikone vtiča, kar potrjuje, da je povezava vzpostavljena. Če ne, poskusite znova zagnati Chainlit strežnik z `chainlit run app.py -w`.
+Po povezavi bi morali poleg ikone vtiča videti (1), kar potrjuje, da je povezava vzpostavljena. Če ne, poskusite znova zagnati chainlit strežnik z `chainlit run app.py -w`.
 
-## Uporaba Dema
+## Uporaba demoja 
 
-Za začetek delovnega toka agenta, ki priporoča hackathon projekte, lahko vnesete sporočilo, kot je:
+Za zagon delovnega toka agentov, ki priporočajo hackathon projekte, lahko vnesete sporočilo, kot na primer: 
 
-"Priporoči hackathon projekte za Github uporabnika koreyspace"
+"Recommend hackathon projects for the Github user koreyspace"
 
-Router Agent bo analiziral vašo zahtevo in določil, katera kombinacija agentov (GitHub, Hackathon in Events) je najbolj primerna za obravnavo vaše poizvedbe. Agenti sodelujejo, da zagotovijo celovita priporočila na podlagi analize Github repozitorijev, idej za projekte in ustreznih tehnoloških dogodkov.
+Router Agent bo analiziral vašo zahtevo in določil, katera kombinacija agentov (GitHub, Hackathon in Events) je najbolj primerna za obravnavo vaše poizvedbe. Agenti sodelujejo, da zagotovijo obsežna priporočila na osnovi analize GitHub repozitorijev, idej za projekte in ustreznih tehnoloških dogodkov.
 
 ---
 
-**Omejitev odgovornosti**:  
-Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem maternem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitna napačna razumevanja ali napačne interpretacije, ki bi nastale zaradi uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+Izjava o omejitvi odgovornosti:
+Ta dokument je bil preveden s pomočjo storitve za prevajanje z uporabo umetne inteligence Co-op Translator (https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, upoštevajte, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v izvirnem jeziku velja za avtoritativni vir. Za kritične informacije priporočamo strokovni človeški prevod. Ne odgovarjamo za kakršnekoli nesporazume ali napačne interpretacije, ki bi izhajale iz uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

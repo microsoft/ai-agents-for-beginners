@@ -1,125 +1,125 @@
-[![Panimula sa Mga Ahente ng AI](../../../translated_images/tl/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Panimula sa mga AI Agent](../../../translated_images/tl/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
 > _(I-click ang larawan sa itaas upang panoorin ang video ng araling ito)_
 
 
-# Panimula sa Mga Ahente ng AI at Mga Kaso ng Paggamit
+# Panimula sa mga AI Agent at Mga Gamit ng Ahente
 
-Maligayang pagdating sa kursong "Mga Ahente ng AI para sa mga Nagsisimula"! Ang kursong ito ay nagbibigay ng mga pangunahing kaalaman at mga halimbawang praktikal para sa pagbuo ng Mga Ahente ng AI.
+Maligayang pagdating sa kursong "AI Agents for Beginners"! Nagbibigay ang kursong ito ng pangunahing kaalaman at mga halimbawa ng aplikasyon para sa pagbuo ng mga AI Agent.
 
-Sumali sa <a href="https://discord.gg/kzRShWzttr" target="_blank">Komunidad ng Azure AI sa Discord</a> upang makilala ang ibang mga nag-aaral at mga Tagabuo ng Mga Ahente ng AI at magtanong tungkol sa kursong ito.
+Sumali sa <a href="https://discord.gg/kzRShWzttr" target="_blank">Komunidad ng Azure AI sa Discord</a> upang makilala ang iba pang mga nag-aaral at mga Tagabuo ng AI Agent at magtanong ng anumang mga katanungan na mayroon ka tungkol sa kursong ito.
 
-Upang simulan ang kursong ito, sisimulan natin sa pag-unawa nang mas mabuti kung ano ang Mga Ahente ng AI at kung paano natin sila magagamit sa mga aplikasyon at mga workflow na ating binubuo.
+Upang simulan ang kursong ito, sisimulan natin sa pagkuha ng mas mabuting pag-unawa sa kung ano ang mga AI Agent at kung paano natin sila magagamit sa mga aplikasyon at workflow na binubuo natin.
 
 ## Panimula
 
-Saklaw ng araling ito:
+Tinalakay sa araling ito:
 
-- Ano ang Mga Ahente ng AI at ano ang iba't ibang uri ng mga ahente?
-- Aling mga kaso ng paggamit ang pinakaangkop para sa Mga Ahente ng AI at paano nila tayo matutulungan?
-- Ano ang ilan sa mga pangunahing bahagi kapag nagdidisenyo ng mga Agentic na Solusyon?
+- Ano ang mga AI Agent at ano ang iba't ibang uri ng mga ahente?
+- Anong mga use case ang pinakaangkop para sa mga AI Agent at paano sila makakatulong sa atin?
+- Ano ang ilan sa mga pangunahing sangkap kapag nagdidisenyo ng Mga Solusyong Ahente?
 
 ## Mga Layunin sa Pagkatuto
-Pagkatapos makumpleto ang araling ito, dapat mong magawa ang mga sumusunod:
+Matapos makumpleto ang araling ito, dapat mong magawa ang mga sumusunod:
 
-- Maunawaan ang mga konsepto ng Mga Ahente ng AI at kung paano sila naiiba mula sa ibang mga solusyon ng AI.
-- Gamitin ang Mga Ahente ng AI nang pinakaepektibo.
-- Disenyuhin ang mga Agentic na solusyon nang produktibo para sa parehong mga gumagamit at mga customer.
+- Maunawaan ang mga konsepto ng AI Agent at kung paano sila naiiba mula sa ibang mga solusyon ng AI.
+- Magamit ang mga AI Agent nang pinakaepektibo.
+- Magdisenyo ng mga solusyon na ahente nang produktibo para sa parehong mga gumagamit at mga customer.
 
-## Pagpapakahulugan sa Mga Ahente ng AI at Mga Uri ng Mga Ahente ng AI
+## Paglilinaw sa AI Agent at Mga Uri ng AI Agent
 
-### Ano ang Mga Ahente ng AI?
+### Ano ang mga AI Agent?
 
-Ang Mga Ahente ng AI ay **mga sistema** na nagpapahintulot sa **Malalaking Modelong Pangwika(LLMs)** na **gumawa ng mga aksyon** sa pamamagitan ng pagpapalawak ng kanilang mga kakayahan sa pamamagitan ng pagbibigay sa LLMs ng **access sa mga tool** at **kaalaman**.
+Ang mga AI Agent ay **mga sistema** na nagpapahintulot sa **Malalaking Modelong Pangwika(LLMs)** na **magsagawa ng mga aksyon** sa pamamagitan ng pagpapalawak ng kanilang kakayahan sa pagbibigay sa mga LLM ng **access sa mga kasangkapan** at **kaalaman**.
 
 Hatiin natin ang depinisyon na ito sa mas maliliit na bahagi:
 
-- **Sistema** - Mahalaga na isipin ang mga ahente hindi bilang isang solong bahagi lamang kundi bilang isang sistema ng maraming bahagi. Sa pangunahing antas, ang mga bahagi ng isang Ahente ng AI ay:
-  - **Kapaligiran** - Ang tinukoy na espasyo kung saan gumagana ang Ahente ng AI. Halimbawa, kung mayroon tayong ahenteng AI para sa pagreserba ng paglalakbay, ang kapaligiran ay maaaring ang sistema ng pagreserba ng paglalakbay na ginagamit ng Ahente ng AI upang kumpletuhin ang mga gawain.
-  - **Mga Sensor** - May impormasyon ang mga kapaligiran at nagbibigay ng feedback. Ginagamit ng mga Ahente ng AI ang mga sensor upang mangalap at mag-interpret ng impormasyong ito tungkol sa kasalukuyang estado ng kapaligiran. Sa halimbawa ng Ahente ng Pagreserba ng Paglalakbay, maaaring magbigay ang sistema ng pagreserba ng impormasyon tulad ng availability ng hotel o mga presyo ng flight.
-  - **Mga Aktuwador** - Kapag natanggap ng Ahente ng AI ang kasalukuyang estado ng kapaligiran, para sa kasalukuyang gawain tinutukoy ng ahente kung anong aksyon ang gagawin upang baguhin ang kapaligiran. Para sa ahente ng pagreserba ng paglalakbay, maaaring ito ay magpareserba ng magagamit na kuwarto para sa gumagamit.
+- **Sistema** - Mahalaga na isipin ang mga ahente hindi lamang bilang isang component kundi bilang isang sistema ng maraming bahagi. Sa pinakamababang antas, ang mga bahagi ng isang AI Agent ay:
+  - **Kapaligiran** - Ang tinukoy na espasyo kung saan gumagana ang AI Agent. Halimbawa, kung mayroon tayong isang travel booking AI Agent, ang kapaligiran ay maaaring ang travel booking system na ginagamit ng AI Agent upang kumpletuhin ang mga gawain.
+  - **Sensor** - Ang mga kapaligiran ay may impormasyon at nagbibigay ng feedback. Ginagamit ng mga AI Agent ang mga sensor upang mangalap at mag-interpret ng impormasyong ito tungkol sa kasalukuyang estado ng kapaligiran. Sa halimbawa ng Travel Booking Agent, ang travel booking system ay maaaring magbigay ng impormasyon tulad ng availability ng hotel o presyo ng mga flight.
+  - **Actuator** - Kapag natanggap na ng AI Agent ang kasalukuyang estado ng kapaligiran, para sa kasalukuyang gawain tinutukoy ng agent kung anong aksyon ang gagawin upang baguhin ang kapaligiran. Para sa travel booking agent, maaaring ito ay mag-book ng isang available na kwarto para sa gumagamit.
 
-![Ano ang Mga Ahente ng AI?](../../../translated_images/tl/what-are-ai-agents.1ec8c4d548af601a.webp)
+![Ano ang mga AI Agent?](../../../translated_images/tl/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-**Malalaking Modelong Pangwika** - Umiiral na ang konsepto ng mga ahente bago pa malikha ang LLMs. Ang bentahe ng pagbuo ng Mga Ahente ng AI gamit ang LLMs ay ang kanilang kakayahang mag-interpret ng wikang pantao at datos. Pinapahintulutan ng kakayahang ito ang LLMs na i-interpret ang impormasyon ng kapaligiran at magtukoy ng plano upang baguhin ang kapaligiran.
+**Malalaking Modelong Pangwika** - Umiiral na ang konsepto ng mga ahente bago pa malikha ang mga LLM. Ang bentahe ng pagbuo ng mga AI Agent gamit ang LLMs ay ang kanilang kakayahang mag-interpret ng wikang pantao at datos. Ang kakayahang ito ay nagpapahintulot sa mga LLM na mag-interpret ng impormasyon ng kapaligiran at magtakda ng plano upang baguhin ang kapaligiran.
 
-**Gumawa ng mga Aksyon** - Sa labas ng mga sistema ng Ahente ng AI, limitado ang LLMs sa mga sitwasyon kung saan ang aksyon ay ang paggawa ng nilalaman o impormasyon batay sa prompt ng gumagamit. Sa loob ng mga sistema ng Ahente ng AI, makakamit ng LLMs ang mga gawain sa pamamagitan ng pag-interpret ng kahilingan ng gumagamit at paggamit ng mga tool na magagamit sa kanilang kapaligiran.
+**Magsagawa ng Mga Aksyon** - Sa labas ng mga sistema ng AI Agent, limitado ang mga LLM sa mga sitwasyon kung saan ang aksyon ay ang pagbuo ng nilalaman o impormasyon batay sa prompt ng gumagamit. Sa loob ng mga sistema ng AI Agent, maaaring makamit ng mga LLM ang mga gawain sa pamamagitan ng pag-interpret ng kahilingan ng gumagamit at paggamit ng mga kasangkapan na magagamit sa kanilang kapaligiran.
 
-**Pag-access sa Mga Tool** - Ang mga tool na naa-access ng LLM ay tinutukoy ng 1) ang kapaligirang kinatatakbuhan nito at 2) ang developer ng Ahente ng AI. Para sa halimbawa ng aming travel agent, limitado ang mga tool ng ahente ng mga operasyon na available sa sistema ng pagreserba, at/o maaaring limitahan ng developer ang pag-access ng ahente sa mga tool para sa mga flight.
+**Access sa Mga Kasangkapan** - Ang mga kasangkapang maa-access ng LLM ay tinutukoy ng 1) ang kapaligiran kung saan ito gumagana at 2) ang developer ng AI Agent. Para sa halimbawa ng travel agent namin, ang mga kasangkapan ng agent ay limitado ng mga operasyon na magagamit sa booking system, at/o maaaring limitahan ng developer ang access ng agent sa mga kasangkapan para sa mga flight.
 
-**Memory+Kaalaman** - Ang memorya ay maaaring panandalian sa konteksto ng pag-uusap sa pagitan ng gumagamit at ng ahente. Pangmatagalan, bukod sa impormasyong ibinibigay ng kapaligiran, maaaring kumuha rin ang Mga Ahente ng AI ng kaalaman mula sa ibang mga sistema, serbisyo, tool, at maging mula sa ibang mga ahente. Sa halimbawa ng travel agent, ang kaalamang ito ay maaaring maging impormasyon tungkol sa mga kagustuhan sa paglalakbay ng gumagamit na matatagpuan sa isang customer database.
+**Memorya+Kaalaman** - Ang memorya ay maaaring panandalian sa konteksto ng usapan sa pagitan ng gumagamit at ng agent. Pangmatagalan, sa labas ng impormasyong ibinigay ng kapaligiran, maaari ding kumuha ang mga AI Agent ng kaalaman mula sa ibang mga sistema, serbisyo, kasangkapan, at maging mula sa ibang mga ahente. Sa halimbawa ng travel agent, ang kaalamang ito ay maaaring ang impormasyon tungkol sa mga kagustuhan sa paglalakbay ng gumagamit na nasa isang customer database.
 
 ### Iba't ibang uri ng mga ahente
 
-Ngayon na mayroon tayong pangkalahatang depinisyon ng Mga Ahente ng AI, tingnan natin ang ilang tiyak na uri ng ahente at kung paano ito iaaplay sa isang AI agent para sa pagreserba ng paglalakbay.
+Ngayon na mayroon tayong pangkalahatang depinisyon ng AI Agent, tingnan natin ang ilang mga partikular na uri ng ahente at kung paano sila iaaplay sa isang travel booking AI agent.
 
-| **Uri ng Ahente**             | **Paglalarawan**                                                                                                                      | **Halimbawa**                                                                                                                                                                                                                 |
+| **Agent Type**                | **Description**                                                                                                                       | **Example**                                                                                                                                                                                                                   |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Simpleng Reflex na Ahente**      | Gumagawa ng agarang aksyon batay sa mga paunang itinakdang patakaran.                                                                 | Binibigyang-kahulugan ng ahente ng paglalakbay ang konteksto ng email at ipinapasa ang mga reklamo tungkol sa paglalakbay sa customer service.                                                                                   |
-| **Model-Based Reflex na Ahente** | Gumagawa ng mga aksyon batay sa isang modelo ng mundo at mga pagbabago sa modelong iyon.                                              | Pinaprioritize ng ahente ng paglalakbay ang mga ruta na may makabuluhang pagbabago sa presyo batay sa pag-access sa makasaysayang datos ng pagpepresyo.                                                                                 |
-| **Goal-Based na Ahente**         | Lumilikha ng mga plano upang maabot ang mga tiyak na layunin sa pamamagitan ng pag-interpret ng layunin at pagtukoy ng mga aksyon upang makamit ito. | Nagre-reserba ang ahente ng paglalakbay ng isang paglalakbay sa pamamagitan ng pagtukoy ng kinakailangang mga ayos sa paglalakbay (kotse, pampublikong transportasyon, mga flight) mula sa kasalukuyang lokasyon papunta sa destinasyon. |
-| **Utility-Based na Ahente**      | Isinasaalang-alang ang mga kagustuhan at binabalanse ang mga tradeoff sa numerikal na paraan upang matukoy kung paano makakamit ang mga layunin.    | Pinapakinabangan ng ahente ng paglalakbay ang kapakinabangan sa pamamagitan ng pagbibigay-halaga sa kaginhawahan kumpara sa gastos kapag nagre-reserba ng paglalakbay.                                                              |
-| **Mga Ahenteng Nag-aaral**           | Humuhusay sa paglipas ng panahon sa pamamagitan ng pagtugon sa feedback at pag-aayos ng mga aksyon ayon dito.                                                        | Humuhusay ang ahente ng paglalakbay sa pamamagitan ng paggamit ng feedback ng customer mula sa mga post-trip survey upang gumawa ng mga pagbabago sa mga susunod na booking.                                                      |
-| **Hierarchical na Ahente**       | Naglalaman ng maraming ahente sa isang patong-patong na sistema, kung saan hinahati ng mga ahenteng nasa mas mataas na antas ang mga gawain sa mas maiikling subtasks para kumpletuhin ng mga ahente sa mas mababang antas. | Kinakansela ng ahente ng paglalakbay ang isang paglalakbay sa pamamagitan ng paghahati ng gawain sa mga subtasks (halimbawa, pagkansela ng mga partikular na booking) at pagpapatupad nito ng mga ahente sa mas mababang antas, na nag-uulat pabalik sa ahente sa mas mataas na antas. |
-| **Multi-Agent Systems (MAS)** | Nagkukumpleto ang mga ahente ng mga gawain nang independiyente, alinman nang magkatuwang o may kompetisyon.                                                           | Kooperatiba: Maraming ahente ang nagre-reserba ng partikular na serbisyo sa paglalakbay tulad ng mga hotel, flight, at libangan. Kompetitibo: Maraming ahente ang nagmamanage at nakikipagkompetensya sa isang ibinahaging kalendaryo ng pagreserba ng hotel upang magpareserba ng mga customer sa hotel. |
+| **Simple Reflex Agents**      | Perform immediate actions based on predefined rules.                                                                                  | Travel agent interprets the context of the email and forwards travel complaints to customer service.                                                                                                                          |
+| **Model-Based Reflex Agents** | Perform actions based on a model of the world and changes to that model.                                                              | Travel agent prioritizes routes with significant price changes based on access to historical pricing data.                                                                                                             |
+| **Goal-Based Agents**         | Create plans to achieve specific goals by interpreting the goal and determining actions to reach it.                                  | Travel agent books a journey by determining necessary travel arrangements (car, public transit, flights) from the current location to the destination.                                                                                |
+| **Utility-Based Agents**      | Consider preferences and weigh tradeoffs numerically to determine how to achieve goals.                                               | Travel agent maximizes utility by weighing convenience vs. cost when booking travel.                                                                                                                                          |
+| **Learning Agents**           | Improve over time by responding to feedback and adjusting actions accordingly.                                                        | Travel agent improves by using customer feedback from post-trip surveys to make adjustments to future bookings.                                                                                                               |
+| **Hierarchical Agents**       | Feature multiple agents in a tiered system, with higher-level agents breaking tasks into subtasks for lower-level agents to complete. | Travel agent cancels a trip by dividing the task into subtasks (for example, canceling specific bookings) and having lower-level agents complete them, reporting back to the higher-level agent.                                     |
+| **Multi-Agent Systems (MAS)** | Agents complete tasks independently, either cooperatively or competitively.                                                           | Cooperative: Multiple agents book specific travel services such as hotels, flights, and entertainment. Competitive: Multiple agents manage and compete over a shared hotel booking calendar to book customers into the hotel. |
 
-## Kailan Gamitin ang Mga Ahente ng AI
+## Kailan Gagamitin ang mga AI Agent
 
-Sa naunang seksyon, ginamit namin ang kaso ng paggamit ng Ahente ng Paglalakbay upang ipaliwanag kung paano magagamit ang iba't ibang uri ng mga ahente sa iba't ibang senaryo ng pagreserba ng paglalakbay. Patuloy nating gagamitin ang aplikasyon na ito sa buong kurso.
+Sa naunang seksyon, ginamit namin ang use-case ng Travel Agent upang ipaliwanag kung paano magagamit ang iba't ibang uri ng mga ahente sa iba't ibang senaryo ng travel booking. Patuloy nating gagamitin ang aplikasyon na ito sa buong kurso.
 
-Tingnan natin ang mga uri ng kaso ng paggamit na pinakamainam para sa Mga Ahente ng AI:
+Tingnan natin ang mga uri ng use case na pinakaangkop sa paggamit ng mga AI Agent:
 
-![Kailan Gamitin ang Mga Ahente ng AI?](../../../translated_images/tl/when-to-use-ai-agents.54becb3bed74a479.webp)
+![Kailan gagamitin ang mga AI Agent?](../../../translated_images/tl/when-to-use-ai-agents.54becb3bed74a479.webp)
 
 
-- **Mga Problemang Bukas ang Saklaw** - pinapayagan ang LLM na tukuyin ang mga kinakailangang hakbang upang makumpleto ang isang gawain dahil hindi ito palaging maaaring i-hardcode sa isang workflow.
-- **Mga Proseso na Maraming Hakbang** - mga gawain na nangangailangan ng antas ng kompleksidad kung saan kailangang gumamit ang Ahente ng AI ng mga tool o impormasyon sa maraming pag-ikot sa halip na isang beses na pagkuha.  
-- **Pagpapabuti sa Paglipas ng Panahon** - mga gawain kung saan maaaring humusay ang ahente sa paglipas ng panahon sa pamamagitan ng pagtanggap ng feedback mula sa kapaligiran nito o mga gumagamit upang makapagbigay ng mas mataas na kapakinabangan.
+- **Mga Bukas na Problema** - pinapahintulutan ang LLM na tukuyin ang mga kinakailangang hakbang upang kumpletuhin ang isang gawain dahil hindi palaging maaaring i-hardcode ang mga ito sa isang workflow.
+- **Mga Proseso na May Maramihang Hakbang** - mga gawain na nangangailangan ng antas ng komplikasyon kung saan kailangang gumamit ang AI Agent ng mga kasangkapan o impormasyon sa maraming pag-ikot sa halip na isang beses na retrieval.  
+- **Pagbuti sa Paglipas ng Panahon** - mga gawain kung saan maaaring mag-improve ang agent sa paglipas ng panahon sa pamamagitan ng pagtanggap ng feedback mula sa kapaligiran o mga gumagamit upang magbigay ng mas mahusay na utility.
 
-Tinatalakay namin ang higit pang mga konsiderasyon sa paggamit ng Mga Ahente ng AI sa araling Pagbuo ng Maaasahang Mga Ahente ng AI.
+Tinutukoy namin ang higit pang mga konsiderasyon sa paggamit ng mga AI Agent sa araling Building Trustworthy AI Agents.
 
-## Mga Pangunahing Kaalaman ng Agentic na Solusyon
+## Mga Pangunahing Kaalaman sa Mga Solusyong Ahente
 
 ### Pagbuo ng Ahente
 
-Ang unang hakbang sa pagdidisenyo ng isang sistema ng Ahente ng AI ay tukuyin ang mga tool, aksyon, at mga pag-uugali. Sa kursong ito, nakatuon kami sa paggamit ng **Azure AI Agent Service** upang tukuyin ang aming mga Ahente. Nag-aalok ito ng mga katangian tulad ng:
+Ang unang hakbang sa pagdidisenyo ng isang sistema ng AI Agent ay tukuyin ang mga kasangkapan, aksyon, at mga pag-uugali. Sa kursong ito, nakatuon kami sa paggamit ng **Azure AI Agent Service** upang tukuyin ang aming mga Ahente. Nag-aalok ito ng mga tampok tulad ng:
 
-- Pagpili ng mga Bukas na Modelo tulad ng OpenAI, Mistral, at Llama
-- Paggamit ng Lisensiyadong Data sa pamamagitan ng mga provider tulad ng Tripadvisor
-- Paggamit ng standardized na OpenAPI 3.0 na mga tool
+- Selection of Open Models such as OpenAI, Mistral, and Llama
+- Use of Licensed Data through providers such as Tripadvisor
+- Use of standardized OpenAPI 3.0 tools
 
-### Mga Pattern ng Agentic
+### Mga Pattern ng Ahente
 
-Ang komunikasyon sa mga LLM ay sa pamamagitan ng prompts. Dahil sa semi-autonomous na katangian ng Mga Ahente ng AI, hindi palaging posible o kinakailangan na mano-manong i-reprompt ang LLM pagkatapos ng pagbabago sa kapaligiran. Gumagamit kami ng **Agentic Patterns** na nagpapahintulot sa amin na i-prompt ang LLM sa maraming hakbang sa mas masuskalang paraan.
+Ang komunikasyon sa mga LLM ay sa pamamagitan ng prompts. Dahil sa semi-autonomous na katangian ng mga AI Agent, hindi palaging posible o kinakailangan na manu-manong i-reprompt ang LLM pagkatapos ng pagbabago sa kapaligiran. Gumagamit tayo ng **Mga Pattern ng Ahente** na nagpapahintulot sa atin na i-prompt ang LLM sa maraming hakbang sa isang mas scalable na paraan.
 
-Ang kursong ito ay nahahati sa ilang kasalukuyang sikat na Agentic na pattern.
+Hinirati ang kursong ito sa ilang mga kasalukuyang popular na Mga Pattern ng Ahente.
 
-### Mga Framework ng Agentic
+### Mga Balangkas ng Ahente
 
-Pinapayagan ng Mga Framework ng Agentic ang mga developer na i-implementa ang mga agentic na pattern sa pamamagitan ng code. Nag-aalok ang mga framework na ito ng mga template, plugin, at tool para sa mas mahusay na kolaborasyon ng Mga Ahente ng AI. Nagbibigay din ang mga benepisyo na ito ng mga kakayahan para sa mas mahusay na pagmamasid at paglutas ng problema ng mga sistema ng Mga Ahente ng AI.
+Pinahihintulutan ng Mga Balangkas ng Ahente ang mga developer na ipatupad ang mga pattern ng ahente sa pamamagitan ng code. Nag-aalok ang mga balangkas na ito ng mga template, plugin, at mga kasangkapan para sa mas mahusay na kolaborasyon ng AI Agent. Ang mga benepisyo na ito ay nagbibigay ng kakayahan para sa mas mahusay na observability at troubleshooting ng mga sistema ng AI Agent.
 
-Sa kursong ito, susuriin natin ang research-driven na AutoGen framework at ang production-ready na Agent framework mula sa Semantic Kernel.
+Sa kursong ito, susuriin natin ang Microsoft Agent Framework (MAF) para sa pagbuo ng mga production-ready na AI agent.
 
-## Mga Halimbawang Code
+## Mga Halimbawang Kodigo
 
-- Python: [Framework ng Ahente](./code_samples/01-python-agent-framework.ipynb)
-- .NET: [Framework ng Ahente](./code_samples/01-dotnet-agent-framework.md)
+- Python: [Balangkas ng Ahente](./code_samples/01-python-agent-framework.ipynb)
+- .NET: [Balangkas ng Ahente](./code_samples/01-dotnet-agent-framework.md)
 
-## May Iba Ka Pang Mga Tanong tungkol sa Mga Ahente ng AI?
+## May Karagdagang Tanong tungkol sa mga AI Agent?
 
-Sumali sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) upang makipagkita sa ibang mga nag-aaral, dumalo sa oras ng opisina at masagot ang iyong mga tanong tungkol sa Mga Ahente ng AI.
+Sumali sa [Discord ng Microsoft Foundry](https://aka.ms/ai-agents/discord) upang makipagkita sa ibang mga nag-aaral, dumalo sa office hours at masagot ang iyong mga tanong tungkol sa mga AI Agent.
 
-## Naunang Aralin
+## Nakaraang Aralin
 
-[Pag-setup ng Kurso](../00-course-setup/README.md)
+[Pagsasaayos ng Kurso](../00-course-setup/README.md)
 
 ## Susunod na Aralin
 
-[Pagsusuri sa Mga Framework ng Agentic](../02-explore-agentic-frameworks/README.md)
+[Pagtuklas sa Mga Balangkas ng Ahente](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Paunawa**:
-Isinalin ang dokumentong ito gamit ang serbisyong pagsasalin na pinapagana ng AI na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagaman nagsusumikap kami para sa katumpakan, pakitandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi tumpak na impormasyon. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na awtoritatibong sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasaling‑tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na magmumula sa paggamit ng pagsasaling ito.
+Paunawa:
+Ang dokumentong ito ay isinalin gamit ang serbisyong pagsasalin na pinapagana ng AI na Co-op Translator (https://github.com/Azure/co-op-translator). Bagaman nagsusumikap kami para sa katumpakan, pakitandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatumpak. Dapat ituring na awtoritatibong pinagmulan ang orihinal na dokumento sa orihinal nitong wika. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng isang tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na nagmumula sa paggamit ng pagsasaling ito.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

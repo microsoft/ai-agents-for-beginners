@@ -1,36 +1,33 @@
-# Github MCP Server Example
+# Contoh Server MCP Github
 
 ## Deskripsi
 
-Ini adalah demo yang dibuat untuk AI Agents Hackathon yang diselenggarakan oleh Microsoft Reactor.
+Ini adalah demo yang dibuat untuk AI Agents Hackathon yang diselenggarakan melalui Microsoft Reactor.
 
-Alat ini digunakan untuk merekomendasikan proyek hackathon berdasarkan repositori Github pengguna. Prosesnya dilakukan dengan cara:
+Alat ini digunakan untuk merekomendasikan proyek hackathon berdasarkan repositori Github pengguna.
+Ini dilakukan dengan cara:
 
 1. **Github Agent** - Menggunakan Github MCP Server untuk mengambil repositori dan informasi tentang repositori tersebut.
-2. **Hackathon Agent** - Menggunakan data dari Github Agent untuk menghasilkan ide proyek hackathon yang kreatif berdasarkan proyek, bahasa pemrograman yang digunakan oleh pengguna, dan jalur proyek untuk AI Agents hackathon.
+2. **Hackathon Agent** - Mengambil data dari Github Agent dan menghasilkan ide proyek hackathon kreatif berdasarkan proyek-proyek tersebut, bahasa yang digunakan oleh pengguna, dan jalur proyek untuk AI Agents hackathon.
 3. **Events Agent** - Berdasarkan saran dari hackathon agent, events agent akan merekomendasikan acara yang relevan dari seri AI Agent Hackathon.
-
-## Menjalankan Kode 
+## Menjalankan kode 
 
 ### Variabel Lingkungan
 
-Demo ini menggunakan Azure Open AI Service, Semantic Kernel, Github MCP Server, dan Azure AI Search.
+Demo ini menggunakan Microsoft Agent Framework, Azure OpenAI Service, the Github MCP Server and Azure AI Search.
 
-Pastikan Anda telah mengatur variabel lingkungan yang sesuai untuk menggunakan alat-alat ini:
+Pastikan bahwa Anda memiliki variabel lingkungan yang tepat diatur untuk menggunakan alat-alat ini:
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## Menjalankan Chainlit Server
+## Menjalankan Server Chainlit
 
-Untuk terhubung ke MCP server, demo ini menggunakan Chainlit sebagai antarmuka chat.
+Untuk terhubung ke server MCP, demo ini menggunakan Chainlit sebagai antarmuka obrolan. 
 
 Untuk menjalankan server, gunakan perintah berikut di terminal Anda:
 
@@ -38,33 +35,35 @@ Untuk menjalankan server, gunakan perintah berikut di terminal Anda:
 chainlit run app.py -w
 ```
 
-Ini akan memulai Chainlit server Anda di `localhost:8000` serta mengisi Azure AI Search Index dengan konten dari `event-descriptions.md`.
+Ini akan memulai server Chainlit Anda di `localhost:8000` serta mengisi Indeks Pencarian Azure AI Anda dengan konten `event-descriptions.md`. 
 
-## Menghubungkan ke MCP Server
+## Menghubungkan ke Server MCP
 
-Untuk terhubung ke Github MCP Server, pilih ikon "plug" di bawah kotak chat "Type your message here..":
+Untuk terhubung ke Github MCP Server, pilih ikon "plug" di bawah kotak obrolan "Type your message here..":
 
-![MCP Connect](../../../../../translated_images/id/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![Sambungkan MCP](../../../../../translated_images/id/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-Dari sana, Anda dapat mengklik "Connect an MCP" untuk menambahkan perintah guna terhubung ke Github MCP Server:
+Dari sana Anda dapat mengklik "Sambungkan MCP" untuk menambahkan perintah guna menghubungkan ke Github MCP Server:
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-Ganti "[YOUR PERSONAL ACCESS TOKEN]" dengan Personal Access Token Anda yang sebenarnya.
+Gantilah "[YOUR PERSONAL ACCESS TOKEN]" dengan Personal Access Token Anda yang sebenarnya. 
 
-Setelah terhubung, Anda akan melihat angka (1) di sebelah ikon plug untuk mengonfirmasi bahwa koneksi berhasil. Jika tidak, coba mulai ulang Chainlit server dengan `chainlit run app.py -w`.
+Setelah terhubung, Anda seharusnya melihat (1) di sebelah ikon plug untuk mengonfirmasi bahwa terhubung. Jika tidak, coba mulai ulang server chainlit dengan `chainlit run app.py -w`.
 
 ## Menggunakan Demo 
 
-Untuk memulai alur kerja agen dalam merekomendasikan proyek hackathon, Anda dapat mengetik pesan seperti:
+Untuk memulai alur kerja agen dalam merekomendasikan proyek hackathon, Anda dapat mengetik pesan seperti: 
 
 "Rekomendasikan proyek hackathon untuk pengguna Github koreyspace"
 
-Router Agent akan menganalisis permintaan Anda dan menentukan kombinasi agen (GitHub, Hackathon, dan Events) yang paling cocok untuk menangani permintaan Anda. Agen-agen tersebut akan bekerja sama untuk memberikan rekomendasi yang komprehensif berdasarkan analisis repositori Github, ide proyek, dan acara teknologi yang relevan.
+Router Agent akan menganalisis permintaan Anda dan menentukan kombinasi agen mana (GitHub, Hackathon, dan Events) yang paling sesuai untuk menangani kueri Anda. Para agen bekerja sama untuk memberikan rekomendasi komprehensif berdasarkan analisis repositori GitHub, ide proyek, dan acara teknologi yang relevan.
 
 ---
 
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan penerjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berusaha untuk memberikan hasil yang akurat, harap diingat bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang otoritatif. Untuk informasi yang bersifat kritis, disarankan menggunakan jasa penerjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+Penafian:
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk akurat, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang otoritatif. Untuk informasi yang bersifat kritis, disarankan menggunakan terjemahan profesional oleh penerjemah manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau salah tafsir yang timbul dari penggunaan terjemahan ini.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

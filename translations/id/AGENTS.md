@@ -2,27 +2,26 @@
 
 ## Gambaran Proyek
 
-Repositori ini berisi "AI Agents untuk Pemula" - kursus edukasi komprehensif yang mengajarkan segala yang dibutuhkan untuk membangun AI Agents. Kursus ini terdiri dari lebih dari 15 pelajaran yang mencakup dasar-dasar, pola desain, framework, dan penerapan produksi dari AI agents.
+Repositori ini berisi "AI Agents untuk Pemula" - sebuah kursus pendidikan komprehensif yang mengajarkan segala sesuatu yang diperlukan untuk membangun AI Agents. Kursus ini terdiri dari lebih dari 15 pelajaran yang mencakup dasar-dasar, pola desain, kerangka kerja, dan penerapan produksi AI agents.
 
 **Teknologi Utama:**
 - Python 3.12+
 - Jupyter Notebooks untuk pembelajaran interaktif
-- Framework AI: Semantic Kernel, AutoGen, Microsoft Agent Framework (MAF)
-- Layanan Azure AI: Microsoft Foundry, Azure AI Agent Service
-- GitHub Models Marketplace (tingkat gratis tersedia)
+- Kerangka AI: Microsoft Agent Framework (MAF)
+- Layanan Azure AI: Microsoft Foundry, Azure AI Foundry Agent Service V2
 
 **Arsitektur:**
 - Struktur berbasis pelajaran (direktori 00-15+)
-- Setiap pelajaran berisi: dokumentasi README, contoh kode (notebook Jupyter), dan gambar
+- Setiap pelajaran berisi: dokumentasi README, contoh kode (Jupyter notebooks), dan gambar
 - Dukungan multi-bahasa melalui sistem terjemahan otomatis
-- Beberapa opsi framework per pelajaran (Semantic Kernel, AutoGen, Azure AI Agent Service)
+- Satu notebook Python per pelajaran menggunakan Microsoft Agent Framework
 
 ## Perintah Setup
 
 ### Prasyarat
 - Python 3.12 atau lebih tinggi
-- Akun GitHub (untuk GitHub Models - tingkat gratis)
-- Langganan Azure (opsional, untuk layanan Azure AI)
+- Langganan Azure (untuk Azure AI Foundry)
+- Azure CLI terinstal dan terautentikasi (`az login`)
 
 ### Setup Awal
 
@@ -34,13 +33,13 @@ Repositori ini berisi "AI Agents untuk Pemula" - kursus edukasi komprehensif yan
    cd ai-agents-for-beginners
    ```
 
-2. **Buat dan aktifkan virtual environment Python:**
+2. **Buat dan aktifkan lingkungan virtual Python:**
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # Di Windows: venv\Scripts\activate
    ```
 
-3. **Instal dependensi:**
+3. **Pasang ketergantungan:**
    ```bash
    pip install -r requirements.txt
    ```
@@ -48,79 +47,61 @@ Repositori ini berisi "AI Agents untuk Pemula" - kursus edukasi komprehensif yan
 4. **Atur variabel lingkungan:**
    ```bash
    cp .env.example .env
-   # Edit .env dengan kunci API dan titik akhir Anda
+   # Edit .env dengan kunci API dan endpoint Anda
    ```
 
 ### Variabel Lingkungan yang Diperlukan
 
-Untuk **GitHub Models (Gratis)**:
-- `GITHUB_TOKEN` - Token akses personal dari GitHub
+Untuk **Azure AI Foundry** (Diperlukan):
+- `AZURE_AI_PROJECT_ENDPOINT` - endpoint proyek Azure AI Foundry
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - nama penerapan model (misal: gpt-4o)
 
-Untuk **Layanan Azure AI** (opsional):
-- `PROJECT_ENDPOINT` - Endpoint proyek Microsoft Foundry
-- `AZURE_OPENAI_API_KEY` - Kunci API Azure OpenAI
-- `AZURE_OPENAI_ENDPOINT` - URL endpoint Azure OpenAI
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` - Nama deployment model chat
-- `AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` - Nama deployment embeddings
-- Konfigurasi Azure tambahan seperti yang ditunjukkan di `.env.example`
+Untuk **Azure AI Search** (Pelajaran 05 - RAG):
+- `AZURE_SEARCH_SERVICE_ENDPOINT` - endpoint Azure AI Search
+- `AZURE_SEARCH_API_KEY` - kunci API Azure AI Search
+
+Otentikasi: Jalankan `az login` sebelum menjalankan notebook (menggunakan `AzureCliCredential`).
 
 ## Alur Kerja Pengembangan
 
 ### Menjalankan Jupyter Notebooks
 
-Setiap pelajaran berisi beberapa notebook Jupyter untuk framework berbeda:
+Setiap pelajaran berisi beberapa notebook Jupyter untuk berbagai kerangka kerja:
 
 1. **Mulai Jupyter:**
    ```bash
    jupyter notebook
    ```
 
-2. **Masuk ke direktori pelajaran** (misal, `01-intro-to-ai-agents/code_samples/`)
+2. **Navigasi ke direktori pelajaran** (misal `01-intro-to-ai-agents/code_samples/`)
 
 3. **Buka dan jalankan notebook:**
-   - `*-semantic-kernel.ipynb` - Menggunakan framework Semantic Kernel
-   - `*-autogen.ipynb` - Menggunakan framework AutoGen
    - `*-python-agent-framework.ipynb` - Menggunakan Microsoft Agent Framework (Python)
    - `*-dotnet-agent-framework.ipynb` - Menggunakan Microsoft Agent Framework (.NET)
-   - `*-azureaiagent.ipynb` - Menggunakan Azure AI Agent Service
 
-### Bekerja dengan Berbagai Framework
+### Bekerja dengan Microsoft Agent Framework
 
-**Semantic Kernel + GitHub Models:**
-- Tingkat gratis tersedia dengan akun GitHub
-- Baik untuk pembelajaran dan eksperimen
-- Pola file: `*-semantic-kernel*.ipynb`
-
-**AutoGen + GitHub Models:**
-- Tingkat gratis tersedia dengan akun GitHub
-- Kemampuan orkestrasi multi-agent
-- Pola file: `*-autogen.ipynb`
-
-**Microsoft Agent Framework (MAF):**
-- Framework terbaru dari Microsoft
-- Tersedia di Python dan .NET
-- Pola file: `*-agent-framework.ipynb`
-
-**Azure AI Agent Service:**
+**Microsoft Agent Framework + Azure AI Foundry:**
 - Membutuhkan langganan Azure
-- Fitur siap produksi
-- Pola file: `*-azureaiagent.ipynb`
+- Menggunakan `AzureAIProjectAgentProvider` untuk Agent Service V2 (agen terlihat di portal Foundry)
+- Siap produksi dengan observabilitas bawaan
+- Pola file: `*-python-agent-framework.ipynb`
 
 ## Instruksi Pengujian
 
-Ini adalah repositori edukasi dengan contoh kode bukan kode produksi dengan pengujian otomatis. Untuk memverifikasi setup dan perubahan Anda:
+Ini adalah repositori edukasi dengan kode contoh, bukan kode produksi dengan pengujian otomatis. Untuk memverifikasi setup dan perubahan Anda:
 
 ### Pengujian Manual
 
 1. **Uji lingkungan Python:**
    ```bash
    python --version  # Harus 3.12+
-   pip list | grep -E "(autogen|semantic-kernel|azure-ai)"
+   pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
 2. **Uji eksekusi notebook:**
    ```bash
-   # Konversi notebook ke skrip dan jalankan (mengujikan impor)
+   # Ubah notebook menjadi skrip dan jalankan (menguji impor)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
@@ -134,7 +115,7 @@ Ini adalah repositori edukasi dengan contoh kode bukan kode produksi dengan peng
 Buka notebook di Jupyter dan jalankan sel secara berurutan. Setiap notebook bersifat mandiri dan mencakup:
 - Pernyataan impor
 - Pemuatan konfigurasi
-- Implementasi contoh agent
+- Implementasi contoh agen
 - Output yang diharapkan dalam sel markdown
 
 ## Gaya Kode
@@ -143,50 +124,48 @@ Buka notebook di Jupyter dan jalankan sel secara berurutan. Setiap notebook bers
 
 - **Versi Python**: 3.12+
 - **Gaya Kode**: Ikuti konvensi standar Python PEP 8
-- **Notebook**: Gunakan sel markdown yang jelas untuk menjelaskan konsep
+- **Notebooks**: Gunakan sel markdown yang jelas untuk menjelaskan konsep
 - **Impor**: Kelompokkan berdasarkan pustaka standar, pihak ketiga, lokal
 
 ### Konvensi Jupyter Notebook
 
 - Sertakan sel markdown deskriptif sebelum sel kode
-- Tambahkan contoh output dalam notebook untuk referensi
+- Tambahkan contoh output di notebook sebagai referensi
 - Gunakan nama variabel yang jelas dan sesuai konsep pelajaran
-- Jaga urutan eksekusi notebook secara linear (sel 1 → 2 → 3…)
+- Jaga urutan eksekusi notebook linier (sel 1 → 2 → 3...)
 
-### Organisasi Berkas
+### Organisasi File
 
 ```
 <lesson-number>-<lesson-name>/
 ├── README.md                     # Lesson documentation
 ├── code_samples/
-│   ├── <number>-semantic-kernel.ipynb
-│   ├── <number>-autogen.ipynb
 │   ├── <number>-python-agent-framework.ipynb
-│   └── <number>-azureaiagent.ipynb
+│   └── <number>-dotnet-agent-framework.ipynb  (optional)
 └── images/
     └── *.png
 ```
 
-## Build dan Deployment
+## Bangun dan Penyebaran
 
-### Membuat Dokumentasi
+### Membangun Dokumentasi
 
 Repositori ini menggunakan Markdown untuk dokumentasi:
-- Berkas README.md di setiap folder pelajaran
+- File README.md di setiap folder pelajaran
 - README.md utama di root repositori
-- Sistem terjemahan otomatis via GitHub Actions
+- Sistem terjemahan otomatis melalui GitHub Actions
 
 ### Pipeline CI/CD
 
 Terletak di `.github/workflows/`:
 
 1. **co-op-translator.yml** - Terjemahan otomatis ke 50+ bahasa
-2. **welcome-issue.yml** - Menyambut pembuat issue baru
+2. **welcome-issue.yml** - Menyambut pembuat isu baru
 3. **welcome-pr.yml** - Menyambut kontributor pull request baru
 
-### Deployment
+### Penyebaran
 
-Ini adalah repositori edukasi - tidak ada proses deployment. Pengguna:
+Ini adalah repositori edukasi - tidak ada proses penyebaran. Pengguna:
 1. Fork atau clone repositori
 2. Jalankan notebook secara lokal atau di GitHub Codespaces
 3. Belajar dengan memodifikasi dan bereksperimen dengan contoh
@@ -196,91 +175,89 @@ Ini adalah repositori edukasi - tidak ada proses deployment. Pengguna:
 ### Sebelum Mengirim
 
 1. **Uji perubahan Anda:**
-   - Jalankan notebook yang terpengaruh secara lengkap
+   - Jalankan notebook yang terdampak secara lengkap
    - Pastikan semua sel berjalan tanpa error
-   - Cek bahwa output sesuai
+   - Periksa apakah output sudah sesuai
 
-2. **Perubahan dokumentasi:**
-   - Perbarui README.md jika menambah konsep baru
-   - Tambahkan komentar di notebook untuk kode kompleks
-   - Pastikan sel markdown menjelaskan maksud
+2. **Pembaruan dokumentasi:**
+   - Perbarui README.md jika menambahkan konsep baru
+   - Tambahkan komentar di notebook untuk kode yang kompleks
+   - Pastikan sel markdown menjelaskan tujuannya
 
-3. **Perubahan berkas:**
-   - Hindari commit berkas `.env` (gunakan `.env.example`)
+3. **Perubahan file:**
+   - Hindari commit file `.env` (gunakan `.env.example`)
    - Jangan commit direktori `venv/` atau `__pycache__/`
-   - Pertahankan output notebook saat menunjukkan konsep
-   - Hapus berkas sementara dan backup notebook (`*-backup.ipynb`)
+   - Simpan output notebook jika menunjukkan konsep
+   - Hapus file sementara dan notebook cadangan (`*-backup.ipynb`)
 
 ### Format Judul PR
 
 Gunakan judul deskriptif:
 - `[Lesson-XX] Tambah contoh baru untuk <konsep>`
-- `[Fix] Perbaiki typo di lesson-XX README`
-- `[Update] Tingkatkan contoh kode di lesson-XX`
+- `[Fix] Koreksi typo di lesson-XX README`
+- `[Update] Perbaiki contoh kode di lesson-XX`
 - `[Docs] Perbarui instruksi setup`
 
-### Pemeriksaan yang Diperlukan
+### Pengecekan Wajib
 
-- Notebook harus berjalan tanpa error
-- Berkas README harus jelas dan akurat
-- Ikuti pola kode yang sudah ada di repositori
+- Notebook harus dapat dijalankan tanpa error
+- File README harus jelas dan akurat
+- Ikuti pola kode yang ada dalam repositori
 - Jaga konsistensi dengan pelajaran lain
 
 ## Catatan Tambahan
 
-### Hal Umum yang Perlu Diperhatikan
+### Kesalahan Umum
 
-1. **Versi Python tidak sesuai:**
-   - Pastikan gunakan Python 3.12+
-   - Beberapa paket mungkin tidak kompatibel dengan versi lama
+1. **Versi Python tidak cocok:**
+   - Pastikan menggunakan Python 3.12+
+   - Beberapa paket mungkin tidak berfungsi dengan versi lama
    - Gunakan `python3 -m venv` untuk menentukan versi Python secara eksplisit
 
 2. **Variabel lingkungan:**
    - Selalu buat `.env` dari `.env.example`
-   - Jangan commit berkas `.env` (sudah ada di `.gitignore`)
-   - Token GitHub memerlukan izin yang tepat
+   - Jangan commit file `.env` (sudah di `.gitignore`)
+   - Token GitHub perlu izin yang tepat
 
 3. **Konflik paket:**
-   - Gunakan virtual environment baru
-   - Instal dari `requirements.txt` daripada paket individual
-   - Beberapa notebook mungkin butuh paket tambahan yang disebutkan dalam sel markdown mereka
+   - Gunakan lingkungan virtual baru
+   - Pasang dari `requirements.txt` bukan paket satu per satu
+   - Beberapa notebook mungkin perlu paket tambahan yang disebutkan di sel markdown mereka
 
 4. **Layanan Azure:**
    - Layanan Azure AI memerlukan langganan aktif
-   - Beberapa fitur spesifik wilayah
-   - Batasan tingkat gratis berlaku untuk GitHub Models
+   - Beberapa fitur terbatas per wilayah
+   - Batas gratis berlaku untuk GitHub Models
 
 ### Jalur Pembelajaran
 
-Rekomendasi urutan pelajaran:
+Rekomendasi progresi pelajaran:
 1. **00-course-setup** - Mulai di sini untuk setup lingkungan
 2. **01-intro-to-ai-agents** - Pahami dasar agent AI
-3. **02-explore-agentic-frameworks** - Pelajari berbagai framework
+3. **02-explore-agentic-frameworks** - Pelajari berbagai kerangka kerja
 4. **03-agentic-design-patterns** - Pola desain inti
-5. Lanjutkan pelajaran bernomor secara berurutan
+5. Lanjutkan pelajaran berurutan berdasarkan nomor
 
-### Pemilihan Framework
+### Pemilihan Kerangka Kerja
 
-Pilih framework sesuai tujuan Anda:
-- **Pembelajaran/Prototyping**: Semantic Kernel + GitHub Models (gratis)
-- **Sistem multi-agent**: AutoGen
-- **Fitur terbaru**: Microsoft Agent Framework (MAF)
-- **Deployment produksi**: Azure AI Agent Service
+Pilih kerangka kerja berdasarkan tujuan Anda:
+- **Semua pelajaran**: Microsoft Agent Framework (MAF) dengan `AzureAIProjectAgentProvider`
+- **Agen mendaftar server-side** di Azure AI Foundry Agent Service V2 dan terlihat di portal Foundry
 
 ### Mendapatkan Bantuan
 
 - Bergabung dengan [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Tinjau berkas README pelajaran untuk panduan spesifik
-- Cek [README.md](./README.md) utama untuk gambaran kursus
-- Lihat [Course Setup](./00-course-setup/README.md) untuk instruksi setup rinci
+- Tinjau file README pelajaran untuk panduan khusus
+- Cek [README.md utama](./README.md) untuk gambaran kursus
+- Rujuk [Course Setup](./00-course-setup/README.md) untuk instruksi setup detail
 
 ### Kontribusi
 
-Ini adalah proyek edukasi terbuka. Kontribusi disambut:
+Ini adalah proyek edukasi terbuka. Kontribusi dipersilakan:
 - Tingkatkan contoh kode
 - Perbaiki typo atau kesalahan
-- Tambahkan komentar penjelas
-- Sarankan topik pelajaran baru
+- Tambahkan komentar yang memperjelas
+- Usulkan topik pelajaran baru
 - Terjemahkan ke bahasa lain
 
 Lihat [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) untuk kebutuhan saat ini.
@@ -290,52 +267,46 @@ Lihat [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issue
 ### Dukungan Multi-Bahasa
 
 Repositori ini menggunakan sistem terjemahan otomatis:
-- Mendukung lebih dari 50 bahasa
-- Terjemahan ada di direktori `/translations/<kode-bahasa>/`
+- Mendukung 50+ bahasa
+- Terjemahan di direktori `/translations/<kode-bahasa>/`
 - Workflow GitHub Actions menangani pembaruan terjemahan
-- Berkas sumber dalam bahasa Inggris di root repositori
+- File sumber berbahasa Inggris di root repositori
 
 ### Struktur Pelajaran
 
 Setiap pelajaran mengikuti pola konsisten:
 1. Thumbnail video dengan tautan
-2. Konten pelajaran tertulis (README.md)
-3. Contoh kode dalam beberapa framework
+2. Isi pelajaran tertulis (README.md)
+3. Contoh kode di berbagai kerangka kerja
 4. Tujuan pembelajaran dan prasyarat
-5. Sumber belajar tambahan yang ditautkan
+5. Sumber belajar tambahan tertaut
 
 ### Penamaan Contoh Kode
 
-Format: `<nomor-pelajaran>-<nama-framework>.ipynb`
-- `04-semantic-kernel.ipynb` - Pelajaran 4, Semantic Kernel
-- `07-autogen.ipynb` - Pelajaran 7, AutoGen
-- `14-python-agent-framework.ipynb` - Pelajaran 14, MAF Python
-- `14-dotnet-agent-framework.ipynb` - Pelajaran 14, MAF .NET
+Format: `<nomor-pelajaran>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - Pelajaran 1, MAF Python
+- `14-sequential.ipynb` - Pelajaran 14, pola lanjutan MAF
 
-### Direktori Khusus
+### Direktori Spesial
 
-- `translated_images/` - Gambar yang sudah dilokalisasi untuk terjemahan
+- `translated_images/` - Gambar yang sudah diterjemahkan
 - `images/` - Gambar asli untuk konten bahasa Inggris
 - `.devcontainer/` - Konfigurasi container pengembangan VS Code
 - `.github/` - Workflow dan template GitHub Actions
 
-### Dependensi
+### Ketergantungan
 
 Paket utama dari `requirements.txt`:
-- `autogen-agentchat`, `autogen-core`, `autogen-ext` - framework AutoGen
-- `semantic-kernel` - framework Semantic Kernel
 - `agent-framework` - Microsoft Agent Framework
-- `azure-ai-inference`, `azure-ai-projects` - layanan Azure AI
-- `azure-search-documents` - integrasi Azure AI Search
-- `chromadb` - basis data vektor untuk contoh RAG
-- `chainlit` - framework UI chat
-- `browser_use` - otomasi browser untuk agents
-- `mcp[cli]` - dukungan Model Context Protocol
-- `mem0ai` - manajemen memori untuk agents
+- `a2a-sdk` - Dukungan protokol Agent-to-Agent
+- `azure-ai-inference`, `azure-ai-projects` - Layanan Azure AI
+- `azure-identity` - Otentikasi Azure (AzureCliCredential)
+- `azure-search-documents` - Integrasi Azure AI Search
+- `mcp[cli]` - Dukungan Model Context Protocol
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk keakuratan, harap diperhatikan bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidaktepatan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang berwenang. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang salah yang timbul dari penggunaan terjemahan ini.
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk akurasi, harap diingat bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sahih. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang salah yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

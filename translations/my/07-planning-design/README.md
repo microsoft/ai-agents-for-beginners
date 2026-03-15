@@ -1,55 +1,54 @@
 [![Planning Design Pattern](../../../translated_images/my/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(ဤသင်ခန်းစာ၏ ဗီဒီယိုကို ကြည့်ရန် ပုံကို နှိပ်ပါ)_
+> _(ဤသင်ခန်းစာရဲ့ ဗွီဒီယိုကို ကြည့်ရန် အပေါ်မှာရှိသော ပုံကို နှိပ်ပါ)_
 
-# အစီအစဉ်ရေးဆွဲခြင်းဒီဇိုင်း
+# Planning Design
 
-## နိဒါန်း
+## မိတ်ဆက်ခြင်း
 
-ဤသင်ခန်းစာတွင် ပါဝင်သည်
+ဤသင်ခန်းစာတွင် ၎င်းဖြစ်မည်မှာ
 
-* ပန်းတိုင်ရှင်းလင်းစွာ သတ်မှတ်ခြင်းနှင့် ပြင်းပြမှုရှိသော လုပ်ငန်းတစ်ခုကို ကိုင်တွယ်နိုင်သော အလုပ်ခွဲခွဲခြမ်းခြမ်းများ သို့ ခွဲခြမ်းခြင်း။
-* ပိုမိုယုံကြည်ရစေသော၊ စက်ကတ်လမ်းမတွင်ဖတ်ရှုနိုင်သော တုံ့ပြန်မှုများအတွက် ဖွဲ့စည်းတည်ဆောက်ထားသော ထွက်ရှိစေနိုင်မှုကို အသုံးချခြင်း။
-* ဖြစ်ရပ်အခြေပြု နည်းလမ်းကိုအသုံးပြုပြီး ဒိုင်နမစ်လုပ်ငန်းများနှင့် မမျှော်လင့်ရသည့် အချက်အလက်များကို ကိုင်တွယ်ဆောင်ရွက်ခြင်း။
+* ရှင်းလင်းသေချာသော စီးပွါးလုံးရည်မှန်းချက် တစ်ခု သတ်မှတ်ခြင်းနှင့် ရှုပ်ထွေးသော လုပ်ငန်းတစ်ခုကို စီမံခန့်ခွဲနိုင်သော လုပ်ငန်းများသို့ ခွဲခြားခြင်း။
+* ပိုမိုယုံကြည်စိတ်ချရပြီး စက်နည်းပညာနဲ့ဖတ်ရှုနိုင်သော တုံ့ပြန်ချက်များအတွက် ဖွဲ့စည်းထားသော ထွက်လာမှုကို အသုံးချခြင်း။
+* ဖြစ်ရပ်-စွန်းဖြစ်ပေါ်မှုအခြေခံ နည်းလမ်းကို အသုံးပြုကာ လွယ်ကူစွာဆောင်ရွက်နိုင်သော လုပ်ငန်းများနှင့် မမျှော်လင့်ထားသော ထည့်သွင်းချက်များကို ကိုင်တွယ်ခြင်း။
 
-## သင်ယူရမည့် ရည်မှန်းချက်များ
+## သင်ယူရမည့် ရည်ရွယ်ချက်များ
 
-ဤသင်ခန်းစာအား အပြီးသတ်ပြီးနောက် သင်သည် နားလည်မှု ရရှိပါမည်။
+ဤသင်ခန်းစာကိုပြီးမြောက်လျှင် သင်မှာဒီအရာများကို နားလည်ထားမည်ဖြစ်သည်-
 
-* AI ကုန်သည်တစ်ဦးအတွက် စုစုပေါင်း ရည်မှန်းချက်ကို သတ်မှတ်၍ ထိုရည်မှန်းချက် အကျိုးသက်ရောက်မှုကို သေချာ ကျွမ်းကျင်စွာ သိရှိထားရန်။
-* ပြင်းပြမှုရှိသော လုပ်ငန်းတစ်ခုကို ကိုင်တွယ်နိုင်သည့် အလုပ်ခွဲခွဲခြမ်းခြမ်းများသို့ ခွဲခြားပြီး ရောထားမှုအဆင့်လိုက်စနစ်တကျ စီစဉ်ခြင်း။
-* ကိုင်တွယ်ရမည့် ကိရိယာများ (ဥပမာ- ရှာဖွေရေးကိရိယာများ သို့မဟုတ် ဒေတာသုံးသပ်မှုကိရိယာများ) နှင့် ၎င်းတို့ကို မည်သည့်အချိန်တွင်၊ မည်သို့ အသုံးပြုမည့်ကို ဆုံးဖြတ်ခြင်းနှင့် မမျှော်လင့်ရသည့် ဒုက္ခအခြေအနေများကို ကိုင်တွယ်နိုင်ခြင်း။
-* ခွဲခြမ်းလုပ်ငန်းရလဒ်များကို သုံးသပ်ခြင်း၊ စွမ်းဆောင်ရည်တိုင်းတာခြင်းနှင့် လုပ်ဆောင်ချက်များကို ထပ်မံပြုပြင်တိုးတက်အောင် ဆောင်ရွက်ခြင်း။
+* AI အေးဂျင့်တစ်ဦးအနေဖြင့်၊ ဘာသာရပ်တစ်ခုအတွက် စီးပွါးလုံးရည်မှန်းချက်တစ်ခု သတ်မှတ်ခြင်း၊ ထိုရည်မှန်းချက်ကို ကြည်လင်ရှင်းလင်းစွာ သိရှိမှုရှိစေရန်။
+* ရှုပ်ထွေးသော လုပ်ငန်းတစ်ခုကို စီမံနိုင်သော အလုပ်ခွဲများသို့ ခွဲခြားပြီး အဆင့်လိုက် စီမံခြင်း။
+* အေးဂျင့်များကို တိကျသော ကိရိယာများဖြင့် ပြည့်စုံစေခြင်း (ဥပမာ- ရှာဖွေမှု ကိရိယာများ သို့မဟုတ် ဒေတာလေ့လာမှု ကိရိယာများ), နေရာအချိန်နှင့် ကိရိယာအသုံးပြုမှုကို ဆုံးဖြတ်ခြင်း နှင့် မမျှော်လင့်ထားသော အခြေအနေများကို ကိုင်တွယ်နိုင်ရေး။
+* အလုပ်ခွဲရလဒ်များကို အကဲဖြတ်ခြင်း, စွမ်းဆောင်ရည်တိုင်းတာခြင်းနှင့် နောက်ဆုံး ထွက်ရှိမှု တိုးတက်အောင် လုပ်ဆောင်ချက်များကို ပြန်လည် တိုးတက်ပြောင်းလဲခြင်း။
 
-## စုစုပေါင်း ရည်မှန်းချက်သတ်မှတ်ခြင်းနှင့် လုပ်ငန်းခွဲခြမ်းခြင်း
+## စီးပွါးလုံးရည်မှန်းချက် သတ်မှတ်ခြင်းနှင့် လုပ်ငန်းခွဲခြားခြင်း
 
 ![Defining Goals and Tasks](../../../translated_images/my/defining-goals-tasks.d70439e19e37c47a.webp)
 
-အများစုသော လက်တွေ့လုပ်ငန်းများကို တစ်ချက်တည်းတွင် ကိုင်တွယ်ဖို့ခက်ခဲပါသည်။ AI ကုန်သည်တစ်ဦးသည် ၎င်း၏အစီအစဉ်ရေးဆွဲခြင်းနှင့် အလုပ်ဆောင်ရွက်မှုတို့အတွက် ရည်ရွယ်ချက်ကျစ်လစ်သော အိမ်မက်တစ်ခု လိုအပ်ပါသည်။ ဥပမာအားဖြင့်၊ ရည်မှန်းချက်မှာ
+နောက်ခံ လုပ်ငန်းများသည် တစ်ဆင့်နဲ့ ပြီးစီးရန် မလွယ်ကူပေ။ AI အေးဂျင့်တစ်ခုအနေနဲ့ ၎င်း၏ စီမံခန့်ခြဲမှုများနှင့် လုပ်ဆောင်ချက်များကို ဦးတည်ပြုရန် သေချာရှင်းလင်းသော ရည်မှန်းချက်သည် လိုအပ်သည်။ ဥပမာအားဖြင့် -
 
-    "၃ ရက်ကြာ ခရီးသွားအစီအစဉ် တည်ဆောက်ပါ။"
+    "၃ ရက်ခရီးစဉ်အစီအစဉ် တစ်ခု ဖန်တီးပါ။"
 
-ဆိုသည်မှာ ရိုးရှင်းသော်လည်း မိမိ၏ရည်ရွယ်ချက်ကို ပိုမိုရှင်းလင်းစွာ ပေးရန် လိုအပ်သည်။ ရည်ရွယ်ချက် တောက်ပြောင်မှ AI ကုန်သည် (သို့မဟုတ် လူကြီးများ) အတွက် မိမိတို့ လုပ်ဆောင်ရန်လိုသော ရလဒ်မှန်ကို ထိရောက်စွာ ရောက်ရှိနိုင်စေပါမည်။ ဥပမာအားဖြင့် လေယာဉ်ခရီးစဉ်များ၊ ဟိုတယ်အကြံပြုချက်များ နှင့် လှုပ်ရှားမှုအကြံပြုချက်များ ပါသည့် ပြည့်စုံသော ခရီးအစီအစဉ်တစ်ခု ဖန်တီးခြင်း။
+ဒါဟာ ရိုးရှင်းသည့် ကြေညာချက်ဖြစ်ပေမယ့် ပိုမိုတိကျစေရန် လိုအပ်သည်။ ရည်မှန်းချက်ရှင်းလင်းသောက်ရှိရန်၊ အေးဂျင့် (နောက်ထပ် လူတွေပါ)၊ မှန်ကန်သော ရလဒ်ရရှိရန် အာရုံစိုက်နိုင်စေပါသည်။ ဥပမာ  လေကြောင်းလက်မှတ် ရွေးချယ်မှုများ၊ ဟိုတယ် အကြံပြုချက်များ နှင့် လှုပ်ရှားမှု အကြံပြုချက်များ ပါဝင်သော ပြည့်စုံသော ခရီးစဉ်အစီအစဉ် တစ်ခု ဖန်တီးပေးခြင်း ကဲ့သို့။
 
-### လုပ်ငန်းခွဲခြမ်းခြင်း
+### လုပ်ငန်းခွဲခြားမှု
 
-ကြီးမား သို့မဟုတ် ရှုပ်ထွေးသော လုပ်ငန်းများကို အစိတ်အပိုင်း သေးသေးလေးများအဖြစ် ခွဲ၍ ရည်ရွယ်ချက်အလားတူ လုပ်ငန်းခွဲစားရန် ပိုမို လွယ်ကူသည်။
-ခရီးသွားအစီအစဉ်၏ ဥပမာအဖြစ် ရည်မှန်းချက်အား ခွဲခြမ်းနိုင်သည်။
+အလုပ်ကြီး သို့မဟုတ် ရှုပ်ထွေးသော လုပ်ငန်းများသည် ပိုမို လုပ်ဆောင်ရလွယ်ကူစေရန် အလုပ်ခွဲငယ်ငယ်များသို့ ခွဲဆောင်ရသည်။ ခရီးစဉ်အစီအစဉ် ဥပမာအတွက် ရည်မှန်းချက်ခွဲခြားမှုသည် -
 
-* လေယာဉ်လက်မှတ်ဘွတ်ကင်ခြင်း
-* ဟိုတယ်ဘွတ်ကင်ခြင်း
-* ကားငှားရန်
-* ကိုယ်ပိုင်စိတ်ကြိုက်ခြင်း
+* လေကြောင်း ကမ်းလှမ်းခြင်း
+* ဟိုတယ်စာရင်းသွင်းခြင်း
+* ကားငွားခြင်း
+* ကိုယ်ပိုင်ပြင်ဆင်ခြင်း
 
-အလုပ်ခွဲတိုင်းကို စိတ်တိုင်းကျ လုပ်ဆောင်ရန် ကိုယ်တိုင် အကျွမ်းတဝင် ခန့်ထားသော ကုန်သည်များ သို့မဟုတ် လုပ်ငန်းစဉ်များအား သီးခြား ထားနိုင်ပါသည်။ တစ်ဦးတည်းသော ကုန်သည်သည် မိမိ၏ အကောင်းဆုံး လေယာဉ်ခရီးစဉ် ရှာဖွေရေးတွင် အထူးပြုနိုင်သလို၊ အခြားတစ်ဦးသည် ဟိုတယ်ဘွတ်ကင်ရေးတွင် အဆင်ပြေကောင်းစေရန် အထူးပြုနိုင်ပါသည်။ ပြီးလျှင် ညွှန်ကြား၍ သက်ဆိုင်ရာ အလုပ်ခွဲများအား စုပေါင်း၍ အသုံးပြုသူထံ ခရီးစဉ်တစ်ခုအဖြစ် ပေးပို့နိုင်ပါသည်။
+အလုအယက်တစ်ခုချင်းစီကို တာ၀န်ရှိသော အေးဂျင့်များ သို့မဟုတ် လုပ်ငန်းစဉ်များက ကျင်းပနိုင်သည်။ တစ်ဦးသည် အကောင်းဆုံး လေကြောင်းကမ်းလှမ်းချက်များ ရှာဖွေရေးကို အထူးပြု၊ တစ်ဦးဟာ ဟိုတယ်စာရင်းသွင်းခြင်းရဲ့ အကျယ်အဝန်းကို ဂရုစိုက်၊ စသည်ဖြင့်။ ထိုအချင်းချင်း လက်တွဲလက်တွဲ အေးဂျင့်တစ်ဦးက ဤရလဒ်များအား ချိတ်ဆက်ပြီး အသုံးပြုရှင်ဆီသို့ ပြည့်စုံသော ခရီးစဉ်တစ်ခု ပေးစွမ်းနိုင်သည်။
 
-ဤမော်ဂျူးဗေဒနည်းလမ်းက ပိုမိုတိုးတက်မှုများအတွက်လည်း အသုံးဝင်သည်။ ဥပမာအားဖြင့် အစားအစာ အကြံပြုကိရိယာများ သို့မဟုတ် ဒေသဆိုင်ရာ လှုပ်ရှားမှု အကြံပြုချက်များအတွက် အထူးပြု ကုန်သည်များ ထည့်သွင်းပြီး အချိန်ကြာမြင့်ခြင်းနှင့်အမျှ အစီအစဉ်အတည်ပြုချက်များ ပြုပြင်တိုးတက်သွားနိုင်သည်။
+ဤပိုင်းခွဲတစ်ရပ်သည် တိုးတက်တိုးချဲ့မှု အပိုများ တိုးမြှင့်ထားနိုင်စေရန်လည်း အဆင်ပြေပါသည်။ ဥပမာ Food Recommendations သို့မဟုတ် ဒေသခံ လှုပ်ရှားမှု အကြံပြုမှုများ အတွက် အထူးပြု အေးဂျင့်များ ထပ်မံ ထည့်သွင်းကာ ခရီးအစီအစဉ်ကို အချိန်ကြာလာဆွဲခြင်း။
 
-### ဖွဲ့စည်းတည်ဆောက်ထားသော ထွက်ရှိမှု
+### ဖွဲ့စည်းထားသော ထွက်လာမှု
 
-ကြီးမားသောဘာသာစကားပုံစံများ (LLMs) သည် downstream ကုန်သည်များ (သို့မဟုတ်) ဝန်ဆောင်မှုများ အတွက် ပိုမိုလွယ်ကူစွာ ဖတ်ရှု နိုင်ရန် JSON ကဲ့သို့ ဖွဲ့စည်းထားသော ထွက်ရှိမှုများကို ထုတ်ပေးနိုင်သည်။ ၎င်းသည် များပြားသော အလုပ်ခွဲများပါသော ကွန်တက်စ် အတွက် အထူးအသုံးဝင်သည်၊ ဤအလုပ်များအား စီမံအစီအစဉ်ထဲမှ ထွက်ရှိမှုရယူပြီးနောက် ဆောင်ရွက်နိုင်ပါသည်။ အမြန်သုံးသပ်ရန်အတွက် <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/cookbook/structured-output-agent.html" target="_blank">ဘလော့ဂ်ပို့စ်</a> ကို ကြည့်ပါ။
+ကြီးမားသော ဘာသာစကား မော်ဒယ်များ (LLMs) သည် downstream အေးဂျင့်များ သို့မဟုတ် ဝန်ဆောင်မှုများ ဖတ်ရှုခြင်းနှင့် ပြုလုပ်ခြင်းပိုမို လွယ်ကူစေရန် ဖွဲ့စည်းထားသော ထွက်လာမှု (ဥပမာ JSON) ကို ဖန်တီးနိုင်သည်။ ၎င်းသည် မျိုးစုံအေးဂျင့် စနစ်တွင် အထူးအသုံးဝင်ပြီး ကိုယ်တိုင် စီမံချက် ထွက်လာမှုရရှိလာပြီးနောက် ထိုလုပ်ငန်းများကို အကောင်အထည်ဖော်နိုင်သည်။
 
-အောက်ပါ Python ကုဒ်အပိုင်းတွင် ရည်မှန်းချက်တစ်ခုကို အလုပ်ခွဲခွဲခြမ်းခြမ်းများသို့ ခွဲ၍ ဖွဲ့စည်းတည်ဆောက်ထားသော စီမံအစီအစဉ် တစ်ခု ထုတ်ပေးသည်။
+အောက်ပါ Python ကုဒ်နမူနာသည် ရည်မှန်းချက်ကို အလုပ်ခွဲများသို့ ခွဲခြားပြီး ဖွဲ့စည်းထားသော စီမံချက်တစ်ခု ဖန်တီးနေသည့် planning agent တစ်ဦးကို ပြသသည်-
 
 ```python
 from pydantic import BaseModel
@@ -59,9 +58,8 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.azure import AzureAIChatCompletionClient
-from azure.core.credentials import AzureKeyCredential
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
     FlightBooking = "flight_booking"
@@ -72,35 +70,22 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# ခရီးသွားအတွင်း လုပ်ငန်းအပိုင်း မော်ဒယ်
+# ခရီးသွားငွေခကြေးရအနည်းငယ်နမူနာ
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # အေးဂျင့်ထံ လုပ်ငန်းကိုတာဝန်ပေးလိုသည်
+    assigned_agent: AgentEnum  # အလုပ်ကို đạiေ့လိုက်စေချင်ပါတယ်
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-client = AzureAIChatCompletionClient(
-    model="gpt-4o-mini",
-    endpoint="https://models.inference.ai.azure.com",
-    # မော်ဒယ်နှင့် အတည်ပြုရန် GitHub ဆက်တင်များတွင် ကိုယ်ပိုင် access token (PAT) ထုတ်လုပ်ရမည်ဖြစ်သည်။
-    # ဒီနေရာမှာ လမ်းညွှန်ချက်များကိုလိုက်နာပြီး PAT token ကို ဖန်တီးပါ: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-    credential=AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
-    model_info={
-        "json_output": False,
-        "function_calling": True,
-        "vision": True,
-        "family": "unknown",
-    },
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
-# အသုံးပြုသူ၏ စာတိုေ်းကို သတ်မှတ်ပါ
-messages = [
-    SystemMessage(content="""You are an planner agent.
+# အသုံးပြုသူ၏မက်ဆေ့ခ်ျကိုသတ်မှတ်ပါ
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
-                      Provide your response in JSON format with the following structure:
+    Provide your response in JSON format with the following structure:
 {'main_task': 'Plan a family trip from Singapore to Melbourne.',
  'subtasks': [{'assigned_agent': 'flight_booking',
                'task_details': 'Book round-trip flights from Singapore to '
@@ -111,44 +96,27 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(
-        content="Create a travel plan for a family of 2 kids from Singapore to Melboune", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": 'json_object'})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-response_content: Optional[str] = response.content if isinstance(
-    response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string" )
+response = client.create_response(input=user_message, instructions=system_prompt)
 
+response_content = response.output_text
 pprint(json.loads(response_content))
-
-# # JSON စာကြောင်းတစ်ခုအဖြစ် ဖြေကြားချက်ပါဝင်မှု အတည်ပြုရန်
-# response_content: Optional[str] = response.content if isinstance(
-#     response.content, str) else None
-# if response_content is None:
-#     raise ValueError("ဖြေကြားချက်သည် မှန်ကန်သော JSON စာကြောင်းမဟုတ်ပါ")
-
-# # JSON အဖြစ် တင်ပြီးဖြင့် ဖြေကြားချက်အကြောင်းအရာကို ပုံနှိပ်ပါ
-# pprint(json.loads(response_content))
-
-# MathReasoning မော်ဒယ်ဖြင့် ဖြေကြားချက်အကြောင်းအရာကို စစ်ဆေးပါ
-# TravelPlan.model_validate(json.loads(response_content))
 ```
 
-### Multi-Agent စီမံကြပ်ကြာမှုပါ Planning Agent
+### Multi-Agent စီမံခန့်ခွဲမှုဖြင့် Planning Agent
 
-ဤဥပမာတွင် Semantic Router Agent သည် အသုံးပြုသူ တောင်းဆိုမှု (ဥပမာ- "ခရီးသွားဟိုတယ်အစီအစဉ်လိုတယ်။") ကို လက်ခံပါသည်။
+ဤဥပမာတွင် Semantic Router Agent သည် အသုံးပြုသူ ဖော်ပြချက်တစ်ခု (ဥပမာ "ကျွန်တော့်ခရီးအတွက် ဟိုတယ်အစီအစဉ် တစ်ခု လိုတယ်။") လက်ခံသည်။
 
-Planner သည်
+Planner သည် -
 
-* ဟိုတယ်အစီအစဉ်ကို လက်ခံသည်: စနစ် prompt နှင့် ရနိုင်သော ကုန်သည်အသေးစိတ်များ အခြေခံ၍ အသုံးပြုသူ၏ မက်ဆေ့ခ််ကို ရယူပြီး ဖွဲ့စည်းထားသော ခရီးအစီအစဉ်ကို ပေးဆောင်သည်။
-* ကုန်သည်များနှင့် ၎င်းတို့၏ ကိရိယာများစာရင်း ထားရှိသည်: ကုန်သည်မှတ်ပုံတင်သည် လေယာဉ်၊ ဟိုတယ်၊ ကားငှားခြင်းနှင့် လှုပ်ရှားမှုများအတွက် ကိရိယာများ သို့မဟုတ် လုပ်ဆောင်ချက်များနှင့် ရှိသည့် ကုန်သည်စာရင်းကို ထိန်းသိမ်းသည်။
-* အစီအစဉ်ကို သက်ဆိုင်ရာ ကုန်သည်များအား ပို့သည်: အလုပ်ခွဲအရေအတွက်ပေါ်မူတည်၍ Planner သည် ပစ္စည်းတစ်ခုစီများအတွက် တိတိကျကျ သီးခြား ကုန်သည်ထံ မက်ဆေ့ခ််ကို ပေးပို့သည် (တစ်ခုတည်းသော အလုပ်ခွဲအခြေအနေများတွင်) သို့မဟုတ် မျိုးစုံကုန်သည်ပူးပေါင်းဆောင်ရွက်မှုအတွက် group chat စီမံခန့်ခွဲသူအား ပြင်ဆင်ဆောင်ရွက်သည်။
-* ရလဒ်ကို အကျဉ်းချုပ်ဖော်ပြသည်: နောက်ဆုံးတွင် Planner သည် ဖန်တီးထားသော အစီအစဉ်ကို ပေါ်လွင်ရှင်းလင်းစေရန် အကျဉ်းချုပ်ပြုလုပ်သည်။
-အောက်တွင် Python ကုဒ်နမူနာသည် ဤအဆင့်များကို ဖော်ပြသည်။
+* ဟိုတယ်အစီအစဉ် လက်ခံခြင်း: စီမံသူသည် အသုံးပြုသူ၏ မက်ဆေ့ခ်ျကို ယူပြီး၊ စနစ်ဗဟိုကိရိယာအချက်အလက်အပါအဝင် prompt အပေါ်မူတည်၍ ဖွဲ့စည်းကောင်းမွန်သော ခရီးစဉ်အစီအစဉ် တစ်ခုထုတ်လုပ်သည်။
+* အေးဂျင့်များနှင့် ၎င်းတို့၏ ကိရိယာများကိုစာရင်းပြုစုခြင်း: အေးဂျင့် မှတ်တမ်းတွင် လေကြောင်း၊ ဟိုတယ်၊ ကားငွားခြင်းနှင့် လှုပ်ရှားမှု အတွက် အေးဂျင့်များနှင့် ၎င်းတို့၏ လုပ်ငန်းတာဝန်/ ကိရိယာများကို သိမ်းဆည်းထားသည်။
+* စီမံချက်ကို သတ်မှတ်ထားသော အေးဂျင့်များထံ ပို့ဆောင်ခြင်း: အလုပ်ခွဲ အရေအတွက်အရ planner သည် တစ်လမ်းတည်း အလုပ်အတွက် တိုက်ရိုက် သာမန်အေးဂျင့်သို့ ပို့ခြင်း (တစ်ခုတည်း အလုပ်ခွဲခြင်းအခြေအနေ) သို့မဟုတ် အစုလိုက် အေးဂျင့် စနစ်ဖြင့် ကော်မတီ စီမံခန့်ခွဲသူမှ ကြားဖြတ် ပို့ဆောင်ခြင်း။
+* အကျိုးသက်ရောက်မှုအား ကောက်ချက်ချခြင်း: နောက်ဆုံးတွင် ဖန်တီးထားသော စီမံချက်အတွက် မျှောသာသာ ရှင်းပြချက် ထုတ်ပေးသည်။
+အောက်မှာ ကုဒ်နမူနာများ တင်ထားသည်-
 
 ```python
 
@@ -166,11 +134,11 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# ခရီးသွား အလုပ်ငယ် မော်ဒယ်
+# ခရီးသွားအောက်အလုပ်ဆောင် မော်ဒယ်
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # ကိုယ်တိုင်ကိုယ်ကျ အလုပ်ကို တာဝန်ပေးချင်ပါတယ်
+    assigned_agent: AgentEnum # တာဝန်ကို ကိုယ်စားလှယ်ထံ ပေးလိုသည်
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -180,25 +148,18 @@ import json
 import os
 from typing import Optional
 
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# အမျိုးအစားစစ်ဆေးထားသော ပတ်ဝန်းကျင် ပြောင်းလဲစေမှုများဖြင့် client ကို ဖန်တီးပါ
+# ဖောက်သည်ကို ဖန်တီးပါ
 
-client = AzureOpenAIChatCompletionClient(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-)
+provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 from pprint import pprint
 
-# အသုံးပြုသူ စာတိုက်အကြောင်းအရာကို သတ်မှတ်ပါ
+# အသုံးပြုသူစာသားကို သတ်မှတ်ပါ
 
-messages = [
-    SystemMessage(content="""You are an planner agent.
+system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -206,24 +167,20 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-]
+    - DefaultAgent: For handling general requests"""
 
-response = await client.create(messages=messages, extra_create_args={"response_format": TravelPlan})
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
 
-# တုံ့ပြန်မှု အကြောင်းအရာသည် မှန်ကန်သော JSON string ဖြစ်ကြောင်း သေချာစွာ သတ်မှတ်ပြီး ရယူပါ
+response = client.create_response(input=user_message, instructions=system_prompt)
 
-response_content: Optional[str] = response.content if isinstance(response.content, str) else None
-if response_content is None:
-    raise ValueError("Response content is not a valid JSON string")
+response_content = response.output_text
 
-# JSON အဖြစ် loading ပြီးနောက် တုံ့ပြန်မှု အကြောင်းအရာကို ထုတ်ပေးပါ
+# JSON အနေနဲ့ဖတ်ပြီးနောက် ပြန်ကြားချက် အကြောင်းအရာကို ပုံနှိပ်ပါ
 
 pprint(json.loads(response_content))
 ```
 
-အောက်တွင် ယခင်ကုဒ်ထဲ မှ ထွက်ရှိမှုဖြစ်ပြီး ၎င်းဖွဲ့စည်းတည်ဆောက်မှု ထွက်ရှိမှုကို `assigned_agent` သို့ ပို့ခြင်းနှင့် ခရီးအစီအစဉ်ကို အသုံးပြုသူထံ အကျဉ်းချုပ် ဖော်ပြနိုင်ပါသည်။
+နောက်ထပ်အရာမှာ ရှေ့က ကုဒ်မှ ထွက်ရှိလာပြီးသော ထွက်နောက်ဆုံးဖြစ်ပြီး ၎င်းဖွဲ့စည်းထားသော ထွက်မှာ `assigned_agent` သို့ ဦးတည် ပို့ဆောင်ပြီး ခရီးအစီအစဉ်ကို အသုံးပြုသူဆီ အကျဉ်းချုပ်ပေးနိုင်သည်။
 
 ```json
 {
@@ -254,21 +211,22 @@ pprint(json.loads(response_content))
 }
 ```
 
-ယခင်ကုဒ်နမူနာပါ notebook ကို [ဒီမှာ](07-autogen.ipynb) ရယူနိုင်ပါသည်။
+အပေါ်က နမူနာကုဒ်နှင့်အတူ သင်ယူ Notebook ကို [ဒီမှာ](07-python-agent-framework.ipynb) တွေ့နိုင်သည်။
 
-### မကြာခဏပြန်လည်အလွှာစီမံခြင်း
+### ပြန်လည်စီမံခြင်း
 
-အချို့သော လုပ်ငန်းများအတွက် အပြန်အလှန် သို့မဟုတ် ပြန်လည်အစီအစဉ်ရေးဆွဲမှုများ လိုအပ်သည်၊ အလုပ်ခွဲတစ်ခု၏ ရလဒ်သည် နောက်တစ်ခုအား အကျိုးသက်ရောက်နိုင်သည်။ ဥပမာအားဖြင့် ကုန်သည်သည် လေယာဉ်လက်မှတ်ဘွတ်ကင်စဉ်တွင် မမျှော်လင့်ထားသော ဒေတာဖောင်မတ်ကို တွေ့ရှိခဲ့လျှင် ဟိုတယ်ဘွတ်ကင်ခြင်းသို့ ရောက်ရှိရန်မတိုင်မီ မဟာဗျူဟာကို ပြင်ဆင်ရန် လိုပြီး ဖြစ်နိုင်သည်။
+အလုပ်အချို့တွင် တစ်ဆင့်ပြီးတစ်ဆင့် ပြန်လည်စီမံ/ ပြင်ဆင်ရန်လိုအပ်သည်၊ မတူသော အလုပ်ခွဲရလဒ်သည် နောက်တစ်ခုအပေါ် အကျိုးသက်ရောက်မှုရှိနိုင်သည်။ ဥပမာ လေကြောင်း အတည်ပြုစဉ် မမျှော်လင့်ထားသော ဒေတာပုံစံကို တွေ့လျှင် ဟိုတယ်စာရင်းသွင်းမှု မတိုင်ခင် မိမိ မဟာဗျူဟာကို ပြင်ဆင်ရန် လိုတာ ဖြစ်နိုင်သည်။
 
-ထို့ပြင် အသုံးပြုသူ ထောက်ခံချက် (ဥပမာ- လူ့အသုံးပြုသူက ဦးလွန်သော လေယာဉ်ကို မကြိုက်ပါက) သည် မျှဝေမှုတစ်စိတ်တစ်ပိုင်း ပြန်လည်အစီအစဉ်ရေးဆွဲရန် ဖြစ်စေသည်။ ဤဒိုင်နမစ် ပြန်လည်အစီအစဉ်ရေးဆွဲမှုသည် နောက်ဆုံးဖြေရှင်းချက်သည် လက်တွေ့ကန့်သတ်ချက်များနှင့် အသုံးပြုသူ၏ စိတ်ကြိုက်များနှင့် ကိုက်ညီစေရန် အာမခံပေးသည်။
+ထို့ပြင် အသုံးပြုသူအကြံပြုချက် (ဥပမာ အစောပိုင်း လေကြောင်း လက်မှတ်ကို နှစ်သက်သည်ဟု လူကြီးပြောဆိုခြင်း) အပိုင်းအလိုက် ပြန်လည် စီမံခန့်ခွဲမှုကို ဖျားစီးနိုင်သည်။ ဤ dynamic, iterative နည်းလမ်းသည် နောက်ဆုံး ဖြေရှင်းချက်ကို အမှန်တကယ် ဖြစ်ပေါ်လာသော အခြေအနေများနှင့် အသုံးပြုသူကသဘောတူမှုများနှင့် ကိုက်ညီစေသည်။
 
 ဥပမာကုဒ်
 
 ```python
-from autogen_core.models import UserMessage, SystemMessage, AssistantMessage
-#.. ယခင်ကုဒ်နှင့်တူပြီး အသုံးပြုသူမှတ်တမ်း၊ လက်ရှိအစီအမံကိုပေးပို့ပါ
-messages = [
-    SystemMessage(content="""You are a planner agent to optimize the
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
+#.. ယခင်ကုဒ်နှင့်တူပြီး အသုံးပြုသူသမိုင်းကြောင်း၊ လက်ရှိအစီအစဉ်ကိုပို့ပေးသည်
+
+system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
     Below are the available agents specialized in different tasks:
     - FlightBooking: For booking flights and providing flight information
@@ -276,38 +234,43 @@ messages = [
     - CarRental: For booking cars and providing car rental information
     - ActivitiesBooking: For booking activities and providing activity information
     - DestinationInfo: For providing information about destinations
-    - DefaultAgent: For handling general requests""", source="system"),
-    UserMessage(content="Create a travel plan for a family of 2 kids from Singapore to Melbourne", source="user"),
-    AssistantMessage(content=f"Previous travel plan - {TravelPlan}", source="assistant")
-]
-# .. ပြန်လည်စီမံပြီး တာဝန်များကို သက်ဆိုင်ရာအေးဂျင့်များအား ပေးပို့ပါ
+    - DefaultAgent: For handling general requests"""
+
+user_message = "Create a travel plan for a family of 2 kids from Singapore to Melbourne"
+
+response = client.create_response(
+    input=user_message,
+    instructions=system_prompt,
+    context=f"Previous travel plan - {TravelPlan}",
+)
+# .. ပြန်လည်အစီအစဉ်ချပြီး တာဝန်များကို သက်ဆိုင်ရာအေးဂျင့်များသို့ ပို့သည်
 ```
 
-ပိုမိုကျယ်ပြန့်သော စီမံခန့်ခွဲမှုများအတွက် Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> ကို ကြည့်ရှုပါ။
+ပိုမိုကျယ်ပြန့်သော စီမံခန့်ခွဲမှုများအတွက် Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">ဘလော့ဂ်ပို့စ်</a> ကိုကြည့်ရှုပါ။
 
-## စာတမ်းအကျဉ်းချုပ်
+## အကျဉ်းချုပ်
 
-ဤဆောင်းပါးတွင် ကျွန်ုပ်တို့သည် သတ်မှတ်ထားသော ရနိုင်သော ကုန်သည်များကို ဒိုင်နမစ်ရွေးချယ်နိုင်သော စီမံရေးဆွဲသူတစ်ဦးကို ဘယ်လိုဖန်တီးနိုင်သည်ကို ဥပမာအပေါ်တွင် လေ့လာခဲ့သည်။ Planner ၏ထွက်ရှိမှုမှာ အလုပ်ခွဲများကို ခွဲခြမ်းပြီး ကုန်သည်များအားတာဝန်ပေးထားသည်သဖြင့် ၎င်းတို့ကို ဆောင်ရွက်နိုင်သည်။ ကုန်သည်များသည် လုပ်ငန်းကို ဆောင်ရွက်ရန် လိုအပ်သော လုပ်ဆောင်ချက်များ/ကိရိယာများကို လက်လှမ်းရနိုင်ကြောင်း ကိုယ်စားပြုထားသည်။ ကုန်သည်များအပြင် reflection, summarizer နှင့် round robin chat ကဲ့သို့ အခြားပုံစံများကိုလည်း ထည့်သွင်းနိုင်ပြီး ပိုမိုစိတ်ကြိုက် ပြုလုပ်နိုင်သည်။
+ဤဆောင်းပါးတွင် ရရှိသည့် နမူနာအရ သိမ်းဆည်းထားသော agent များကို dynamic နည်းဖြင့် ရွေးချယ်ပေးသော planner တစ်ခု ဖန်တီးနည်းကို ကြည့်ရူခဲ့သည်။ Planner ထွက်ရှိမှုသည် အလုပ်ခွဲများကို ခွဲ၍ agent များအား ခန့်အပ်ပေးပြီး လုပ်ဆောင်စေရန် ဖြစ်သည်။ agent များတွင် လိုအပ်သော function / tool များအသုံးပြုခွင့် ရှိကြောင်း သတိပြုထားသည်။ agent များအပြင် reflection, summarizer နှင့် round robin chat ကဲ့သို့သော ပုံစံများကို ထပ်ထည့်၍ စိတ်ကြိုက်ပြုလုပ်နိုင်သည်။
 
-## အပိုဆောင်း အရင်းအမြစ်များ
+## နောက်ထပ် ရင်းမြစ်များ
 
-AutoGen Magentic One - ရှုပ်ထွေးသော လုပ်ငန်းများကို ဖြေရှင်းရန် ဂျင်န်နယ်လစ်စီ multi-agent စနစ် ဖြစ်ပြီး ခက်ခဲသော agentic ဖောက်ပြန်မှုများတွင် ထူးခြားသော ရလဒ်များ ရရှိထားသည်။ ကိုးကားချက် - <a href="https://github.com/microsoft/autogen/tree/main/python/packages/autogen-magentic-one" target="_blank">autogen-magentic-one</a>။ ဤအကောင်အထည်ဖော်မှုတွင် orchestrator သည် အလုပ်အပိုင်းဆိုင်ရာအစီအစဉ်များ ဖန်တီးပြီး ၎င်းအား ရနိုင်သော ကုန်သည်များသို့ ခွဲဝေသည်။ စီမံရေးဆွဲခြင်းအပြင် orchestrator သည် လုပ်ငန်းတိုးတက်မှုကို မျှတစွာ ကြည့်ရှုကာ လိုအပ်ပါက ပြန်လည်အစီအစဉ်ရေးဆွဲမှုလုပ်သည်။
+Magentic One - ရှုပ်ထွေးသော လုပ်ငန်းများကို ဖြေရှင်းနိုင်သော Generalist multi-agent စနစ်ဖြစ်ပြီး နောက်ဆက်တွဲ စိန်ခေါ်မှုများရှိသော agentic benchmark များတွင် ထူးချွန်သော ရလဒ်များ ရရှိထားသည်။ အသုံးပြုမှုနှင့်ဆိုင်းငံ့ချက်များကို ကြည့်ရန် <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>။ ဤ အသုံးပြုမှုတွင် orchestrator သည် အလုပ်အား သီးသန့် စီမံချက်များ ဖန်တီးပြီး ရရှိရှိ agent များအား တာဝန်ပေးသည်။ စီမံခြင်းအပြင် orchestrator သည် တိုးတက်မှုကို သေချာစေရန် နောက်တိုးများ ပြုလုပ်ခြင်းနှင့် ချုပ်ချယ်သိမ်းဆည်းမှုများ ပြုလုပ်သည်။
 
-### Planning Design Pattern နှင့် ပတ်သက်ပြီး မေးခွန်းများရွိပါသလား?
+### Planning Design Pattern အကြောင်း နောက်ထပ် မေးခွန်းများ ရှိပါသလား?
 
-[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) တွင် ဝင်ရောက် ဆွေးနွေးလိုက်ပါ၊ သင်ယူလေ့လာနေသူများနှင့် တွေ့ဆုံ၊ ရုံးချိန်တက်ရောက်ပြီး AI Agents မေးခွန်းများကို ဖြေကြားပေးမှု ဝင်စားပါ။
+[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) တွင် ပါဝင်ပြီး သင်တန်းကျောင်းသားများနှင့် မိတ်ဆက်၊ ရုံးချိန်များ တက်ရောက်ပြီး AI Agents နှင့်ပတ်သက်သော မေးခွန်းများဖြေကြားချက် ရယူပါ။
 
-## ယခင်သင်ခန်းစာ
+## မီပြီး သင်ခန်းစာ
 
-[ယုံကြည်စိတ်ချရသော AI ကုန်သည်များ တည်ဆောက်ခြင်း](../06-building-trustworthy-agents/README.md)
+[ယုံကြည်စိတ်ချရသော AI Agent များ တည်ဆောက်ခြင်း](../06-building-trustworthy-agents/README.md)
 
-## နောက်တစ်ကြိမ် သင်ခန်းစာ
+## နောက်တစ်ခု သင်ခန်းစာ
 
 [Multi-Agent Design Pattern](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**အတည်မပြုချက်**  
-ယခုစာတမ်းကို AI ဘာသာပြန်ခြင်းဝန်ဆောင်မှုဖြစ်သည့် [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးစားသည်အခါမှပင် မိမိတို့ ဘာသာပြန်ချက်အလိုက် အမှားများ သို့မဟုတ် မှန်ကန်မှုမရှိမှုများ ဖြစ်ပေါ်နိုင်ကြောင်း သတိပြုရန် လိုအပ်ပါသည်။ မူရင်းစာတမ်းကို ဖတ်ရှုရန် နိုင်ငံခြားဘာသာစကားဖြင့်ရေးသားထားသည့် မူရင်းစာတမ်းကိုသာ ယုံကြည်စိတ်ချရသော အရင်းအမြစ်အဖြစ်သတ်မှတ်သင့်ပါသည်။ အရေးကြီးသော သတင်းအချက်အလက်များအတွက် ဒါရိုက်တာလူသားဘာသာပြန်ခြင်းကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်နိုင်သော မသေချာမှုများ သို့မဟုတ် မှားယွင်းသောနားလည်မှုများတွင် ကျွန်ုပ်တို့သည် တာဝန်မကျေမှုရှိပါသောကြောင့် သတိပြုပါရန် ဖိတ်ခေါ်အပ်ပါသည်။
+**အကြောင်းကြားချက်**  
+ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုကို ကြိုးပမ်းဆောင်ရွက်ပေမယ့် အလိုအလျောက် ဘာသာပြန်ချက်များတွင် အမှားအယွင်းများ ဖြစ်ပေါ်နိုင်သည်ကို သတိပြုပါရန် အကြောင်းကြားအပ်ပါသည်။ မူလစာရွက်စာတမ်းသည် မူလဘာသာဖြင့် တရားဝင်အရင်းအမြစ်အဖြစ် သတ်မှတ်ချက်ရပါသည်။ အရေးကြီးသောအချက်အလက်များအတွက် လူ့ပညာရှင်တစ်ဦးက ဘာသာပြန်ချက်အား အသုံးပြုရန် အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုမှုကြောင့် ဖြစ်ပေါ်လာနိုင်သည့် မမှန်ကန်မှုများ သို့မဟုတ် မှားယွင်းသော သဘောထားပိုင်းဆိုင်ရာ တိမ်မွေ့မှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

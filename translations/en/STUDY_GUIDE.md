@@ -18,13 +18,12 @@ AI Agents are systems that extend the capabilities of Large Language Models (LLM
 
 ## 2. Agentic Frameworks
 
-The course covers three primary frameworks for building agents:
+The course uses **Microsoft Agent Framework (MAF)** with **Azure AI Foundry Agent Service V2** for building agents:
 
-| Framework | Focus | Best For |
+| Component | Focus | Best For |
 |-----------|-------|----------|
-| **Semantic Kernel** | Production-ready SDK for .NET/Python | Enterprise applications, integrating AI with existing code. |
-| **AutoGen** | Multi-agent collaboration | Complex scenarios requiring multiple specialized agents talking to each other. |
-| **Azure AI Agent Service** | Managed cloud service | Secure, scalable deployment with built-in state management. |
+| **Microsoft Agent Framework** | Unified Python/C# SDK for agents, tools, and workflows | Building agents with tools, multi-agent workflows, and production patterns. |
+| **Azure AI Foundry Agent Service** | Managed cloud runtime | Secure, scalable deployment with built-in state management, observability, and trust. |
 
 ## 3. Agentic Design Patterns
 
@@ -54,7 +53,7 @@ When designing agents, consider three dimensions:
 ## 5. Summary of Key Lessons
 
 - **Lesson 1**: Agents are systems, not just models. They perceive, reason, and act.
-- **Lesson 2**: Frameworks like Semantic Kernel and AutoGen abstract the complexity of tool calling and state management.
+- **Lesson 2**: Microsoft Agent Framework abstracts the complexity of tool calling and state management.
 - **Lesson 3**: Design with transparency and user control in mind.
 - **Lesson 4**: Tools are the "hands" of the agent. Schema definition is crucial for the LLM to understand how to use them.
 - **Lesson 7**: Planning is the "executive function" of the agent, enabling it to tackle complex workflows.
@@ -63,5 +62,5 @@ When designing agents, consider three dimensions:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

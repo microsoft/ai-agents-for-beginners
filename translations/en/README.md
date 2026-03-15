@@ -65,17 +65,14 @@ If you get stuck or have any questions about building AI Agents, join our dedica
 
 Each lesson in this course includes code examples, which can be found in the code_samples folder. You can [fork this repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to create your own copy.  
 
-The code example in these exercises, utilize Microsoft Foundry and GitHub Model Catalogs for interacting with Language Models:
+The code examples in these exercises utilize Microsoft Agent Framework with Azure AI Foundry Agent Service V2:
 
-- [Github Models](https://aka.ms/ai-agents-beginners/github-models) - Free / Limited
 - [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure Account Required
 
-This course also uses the following AI Agent frameworks and services from Microsoft:
+This course uses the following AI Agent frameworks and services from Microsoft:
 
-- [Microsoft Agent Framework (MAF) - New!](https://aka.ms/ai-agents-beginners/agent-framewrok)
-- [Azure AI Agent Service](https://aka.ms/ai-agents-beginners/ai-agent-service)
-- [Semantic Kernel](https://aka.ms/ai-agents-beginners/semantic-kernel)
-- [AutoGen](https://aka.ms/ai-agents/autogen)
+- [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok)
+- [Azure AI Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
 
 For more information on running the code for this course, go to the [Course Setup](./00-course-setup/README.md).
@@ -89,7 +86,7 @@ Do you have suggestions or found spelling or code errors? [Raise an issue](https
 ## 📂 Each lesson includes
 
 - A written lesson located in the README and a short video
-- Python code samples supporting Microsoft Foundry and Github Models (Free)
+- Python code samples using Microsoft Agent Framework with Azure AI Foundry
 - Links to extra resources to continue your learning
 
 

@@ -1,8 +1,8 @@
 [![Trustworthy AI Agents](../../../translated_images/pcm/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Klik di pikcha wey dey for on top make you fit watch dis lesson video)_
+> _(Click di piksha we dey above to watch video of dis lesson)_
 
-# How to Build Trustworthy AI Agents
+# Building Trustworthy AI Agents
 
 ## Introduction
 
@@ -10,35 +10,35 @@ Dis lesson go cover:
 
 - How to build and deploy safe and effective AI Agents
 - Important security considerations wen you dey develop AI Agents.
-- How to keep data and user privacy safe wen you dey develop AI Agents.
+- How to maintain data and user privacy wen you dey develop AI Agents.
 
 ## Learning Goals
 
-After you finish dis lesson, you go sabi how to:
+After you don finish dis lesson, you go sabi how to:
 
-- Identify and stop dangers wen you dey create AI Agents.
-- Put security measures make sure say data and access dey well managed.
-- Create AI Agents wey go keep data privacy and give better user experience.
+- Identify and reduce risks wen you dey create AI Agents.
+- Implement security measures to make sure say data and access dem dey properly managed.
+- Create AI Agents wey go maintain data privacy and give beta user experience.
 
 ## Safety
 
-Make we first check how to build safe agentic applications. Safety mean say di AI agent dey work as e suppose. As people wey dey build agentic applications, we get ways and tools to make safety better:
+Make we first look how to build safe agentic applications. Safety mean say di AI agent go perform as dem design am. As people wey dey build agentic applications, we get methods and tools to maximize safety:
 
-### How to Build System Message Framework
+### Building a System Message Framework
 
-If you don ever build AI application with Large Language Models (LLMs), you know how e important to design strong system prompt or system message. These prompts na di meta rules, instructions, and guidelines wey dey tell how LLM go interact with user and data.
+If you don ever build AI application wey dey use Large Language Models (LLMs), you know how e important to design strong system prompt or system message. Dem prompts na dem wey set di meta rules, instructions, and guidelines on how di LLM go take interact with user and data.
 
-For AI Agents, system prompt dey even more important because AI Agents go need specific instructions to fit complete the tasks wey we don design for dem.
+For AI Agents, di system prompt important pass as AI Agents go need very specific instructions to complete di tasks we design for dem.
 
-To create system prompts wey fit grow well, we fit use system message framework to build one or more agents inside our application:
+To create scalable system prompts, we fit use system message framework to build one or more agents for our application:
 
 ![Building a System Message Framework](../../../translated_images/pcm/system-message-framework.3a97368c92d11d68.webp)
 
-#### Step 1: Create Meta System Message 
+#### Step 1: Create a Meta System Message 
 
-Di meta prompt go make LLM generate system prompts for di agents wey we go create. We go design am as template so we fit quickly create many agents if we need.
+Di meta prompt go dey used by LLM to generate di system prompts for di agents wey we create. We go design am as template so dat we fit create multiple agents quick quick if we need am.
 
-Here na example of meta system message wey we fit give the LLM:
+Dis na example of meta system message we go give LLM:
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -47,11 +47,11 @@ information that you will use to provide a system prompt for.
 To create the system prompt, be descriptive as possible and provide a structure that a system using an LLM can better understand the role and responsibilities of the AI assistant. 
 ```
 
-#### Step 2: Create basic prompt
+#### Step 2: Create a basic prompt
 
-Next step na to create basic prompt wey go describe the AI Agent. You suppose put the role of agent, the tasks wey di agent go do, and other responsibilities of the agent.
+Di next step na to create basic prompt wey go describe di AI Agent. You suppose put for am di role of di agent, di tasks wey di agent go complete, and any other responsibilities of di agent.
 
-Here na example:
+Dis na example:
 
 ```plaintext
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
@@ -59,9 +59,9 @@ You are a travel agent for Contoso Travel that is great at booking flights for c
 
 #### Step 3: Provide Basic System Message to LLM
 
-Now we fit optimize dis system message by giving the meta system message as system message and our basic system message together.
+Now we fit optimize dis system message by giving di meta system message as system message plus our basic system message.
 
-Dis one go produce system message wey better to guide our AI agents:
+Dis one go produce system message wey go beta for guiding our AI agents:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -115,79 +115,84 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 #### Step 4: Iterate and Improve
 
-Di koko of dis system message framework na say e fit make system messages from many agents easily and as you dey improve your system messages over time. E no common say you go get system message wey go work well di first time for your full use case. To fit do small changes and improvements by changing di basic system message and run am again through the system go allow you compare and check results.
+Di value of dis system message framework na say e go fit scale to create system messages for plenty agents easy plus e go help improve your system messages as time dey go. E nko dey common to get system message wey go work perfectly di first time for your complete use case. To fit make small changes and improve by changing di basic system message and run am through di system go allow you to compare and judge results well well.
 
 ## Understanding Threats
 
-To build trustworthy AI agents, e important to sabi and stop di risks and threats wey fit affect your AI agent. Make we look some of di different threats to AI agents and how you fit plan and prepare better for dem.
+To build trustworthy AI agents, e important to understand and reduce di risks and threats to your AI agent. Make we look some of di different threats wey dey AI agents and how you fit better plan and prepare for dem.
 
 ![Understanding Threats](../../../translated_images/pcm/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Task and Instruction
 
-**Description:** Attackers fit try change di instructions or goals of AI agent through prompting or manipulating inputs.
+**Description:** Attackers dey try to change instructions or goals of di AI agent through prompt or by manipulating inputs.
 
-**Mitigation**: Make sure say you dey run validation checks and input filters to find dangerous prompts before AI Agent process them. Because dis kain attacks dey need frequent interaction with Agent, to limit number of turns for di conversation na another way to stop these attacks.
+**Mitigation**: Make you do validation checks and input filters to detect any dangerous prompts before di AI Agent fit process dem. Because dis kain attacks for the most part require frequent interaction with di Agent, to limit how many turns conversation fit happen na another way to stop dis kind attack.
 
 ### Access to Critical Systems
 
-**Description**: If AI agent get access to systems and services wey store sensitive data, attackers fit spoil communication between agent and those systems. These attacks fit be direct or indirect to gain info about systems through di agent.
+**Description**: If AI agent get access to systems and services wey dey store sensitive data, attackers fit compromise di communication between di agent and dem services. Dis fit be direct attacks or indirect attempts to gather info about di systems through di agent.
 
-**Mitigation**: AI agents suppose get access to systems only if dem need am to stop these attacks. Communication between agent and system suppose secure. To do authentication and control access na another way to protect dis info.
+**Mitigation**: AI agents no suppose get access to systems unless e really necessary to prevent dis kind attacks. Di communication between di agent and system gats secure too. To put authentication and access control na another way to protect dis information.
 
 ### Resource and Service Overloading
 
-**Description:** AI agents fit use different tools and services to complete tasks. Attackers fit use this power to attack these services by sending plenty requests through AI Agent, wey fit cause system failure or high cost.
+**Description:** AI agents fit access different tools and services to complete tasks. Attackers fit use dis ability to attack those services by sending plenty requests dem through di AI Agent, which fit cause system failure or high costs.
 
-**Mitigation:** Put policies wey go limit amount of requests AI agent fit send to service. Limit number of conversation turns and requests go help prevent these attacks.
+**Mitigation:** Make you put rules to limit how many requests AI agent fit make to any service. Limit how many conversation turns and requests you fit send to AI agent na another way to stop dis kind attacks.
 
 ### Knowledge Base Poisoning
 
-**Description:** Dis kain attack no dey target AI agent directly but e dey target knowledge base and other services wey AI agent go use. E fit mean to spoil data or info wey AI agent go use for task, wey fit cause biased or wrong answers to person wey dey use am.
+**Description:** Dis type attack no target AI agent directly but e target di knowledge base and other services wey AI agent go use. Dis one fit involve corrupting di data or info wey AI agent go use to complete task, wey fit lead to biased or wrong responses to user.
 
-**Mitigation:** Dey check data wey AI agent dey use often. Make sure say only trusted people get access to change this data to stop this kind attack.
+**Mitigation:** Make you regularly check di data wey AI agent dey use for im workflows. Make sure say access to dis data dey secure and only trusted people fit change am to avoid dis kind attack.
 
 ### Cascading Errors
 
-**Description:** AI agents dey use various tools and services to finish task. If attackers cause error, e fit affect other systems wey AI agent connect to, making di attack spread and e go hard to solve.
+**Description:** AI agents dey access different tools and services to complete tasks. Errors caused by attackers fit cause other connected systems to fail, causing di attack to spread and e go hard to fix.
 
-**Mitigation**: One way to stop na to make AI Agent dey work for limited environment like Docker container to avoid direct system attack. Also, to build fallback options and retry logic when certain system give error na way to avoid bigger system failure.
+**Mitigation**: One way to avoid dis na to make AI Agent work for limited environment, like inside Docker container, to prevent direct system attacks. To create fallback mechanisms and retry logic when some systems respond with error na another way to avoid big system failures.
 
 ## Human-in-the-Loop
 
-Another good way to build trustworthy AI Agent system na to use Human-in-the-loop. Dis one create flow where users fit give feedback to Agents while dem dey run. Users dey act like agents in multi-agent system by giving ok or stopping di running process.
+Another better way to build trustworthy AI Agent systems na to use Human-in-the-loop. Dis one create flow where users fit give feedback to Agents during im run. Users dey act like agents for multi-agent system by approving or stopping di running process.
 
 ![Human in The Loop](../../../translated_images/pcm/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Here na code snippet wey use AutoGen to show how dis idea dey work:
+Dis na code snippet wey dey use Microsoft Agent Framework to show how dem implement dis idea:
 
 ```python
+import os
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# Make di agents dem.
-model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
-assistant = AssistantAgent("assistant", model_client=model_client)
-user_proxy = UserProxyAgent("user_proxy", input_func=input)  # Use input() to collect user talk from di console.
+# Make di provider wit human-in-the-loop approval
+provider = AzureAIProjectAgentProvider(
+    credential=AzureCliCredential(),
+)
 
-# Make di stop condition wey go end di conversation when di user talk "APPROVE".
-termination = TextMentionTermination("APPROVE")
+# Make di agent wit human approval step
+response = provider.create_response(
+    input="Write a 4-line poem about the ocean.",
+    instructions="You are a helpful assistant. Ask for user approval before finalizing.",
+)
 
-# Make di team.
-team = RoundRobinGroupChat([assistant, user_proxy], termination_condition=termination)
-
-# Run di conversation and shine am for di console.
-stream = team.run_stream(task="Write a 4-line poem about the ocean.")
-# Use asyncio.run(...) when you dey run am for script.
-await Console(stream)
-
+# Di user fit check and approve di response
+print(response.output_text)
+user_input = input("Do you approve? (APPROVE/REJECT): ")
+if user_input == "APPROVE":
+    print("Response approved.")
+else:
+    print("Response rejected. Revising...")
 ```
 
 ## Conclusion
 
-To build trustworthy AI agents, you need careful design, strong security measures, and continuous improve. By putting structured meta prompting systems, understanding threats, and applying better measures, developers fit create AI agents wey safe and effective. Plus, using human-in-the-loop approach go make sure AI agents dey align with user needs and reduce risks. As AI dey grow, to dey proactive about security, privacy, and ethics go key to build trust and reliability for AI-driven systems.
+To build trustworthy AI agents, you go need carefull design, strong security measures, and continuous iteration. By use structured meta prompting systems, understanding potential threats and using mitigation strategies, developers fit create AI agents wey safe and effective. Plus, to add human-in-the-loop approach go make sure AI agents dey follow user needs well while e dey reduce risks. As AI dey grow, to maintain good security, privacy and ethical considerations go be key to build trust and reliability for AI-driven systems.
 
-### You Get More Questions About Building Trustworthy AI Agents?
+### You Get More Questions about Building Trustworthy AI Agents?
 
-Join [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) make you fit meet other learners, attend office hours and get answers to your AI Agents questions.
+Join [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet other learners, attend office hours and get your AI Agents questions answered.
 
 ## Additional Resources
 
@@ -208,5 +213,5 @@ Join [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) make you fit 
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-Dis document don translate wit AI translation service wey dem dey call [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we dey try make e correct, abeg make you sabi say automated translation fit get some errors or wahala. Di original document wey e dey for im own language na di correct one wey you suppose trust. If na important information, e better make professional human translator do am. We no go responsible for any misunderstanding or wrong meaning wey fit show from dis translation.
+Dis document dem translate am wit AI translation service wey dem dey call [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we try make am correct, abeg sabi say automatic translation fit get mistake or no too clear. The original document wey dem write for im own language na im correct one. If na serious matter, make you use professional human translator. We no go answer if pesin misunderstand or take am wrong because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

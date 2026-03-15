@@ -1,44 +1,44 @@
 [![Güvenilir AI Ajanları](../../../translated_images/tr/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Bu dersin videosunu görüntülemek için yukarıdaki resme tıklayın)_
+> _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 
 # Güvenilir AI Ajanları Oluşturma
 
 ## Giriş
 
-Bu ders şunları kapsayacaktır:
+Bu ders şu konuları kapsayacaktır:
 
 - Güvenli ve etkili AI Ajanları nasıl oluşturulur ve dağıtılır
-- AI Ajanları geliştirirken önemli güvenlik hususları
-- AI Ajanları geliştirirken veri ve kullanıcı gizliliğinin nasıl korunacağı
+- AI Ajanları geliştirilirken önemli güvenlik hususları
+- AI Ajanları geliştirilirken veri ve kullanıcı gizliliğinin nasıl korunacağı
 
 ## Öğrenme Hedefleri
 
-Bu dersi tamamladıktan sonra şunları bileceksiniz:
+Bu dersi tamamladıktan sonra, şunları bileceksiniz:
 
-- AI Ajanları oluştururken riskleri tanımlamak ve azaltmak
-- Verilerin ve erişimin düzgün yönetilmesini sağlamak için güvenlik önlemleri uygulamak
-- Veri gizliliğini koruyan ve kaliteli bir kullanıcı deneyimi sunan AI Ajanları oluşturmak
+- AI Ajanları oluştururken risklerin nasıl tanımlanacağı ve azaltılacağı
+- Veri ve erişimin uygun şekilde yönetilmesini sağlamak için güvenlik önlemlerinin nasıl uygulanacağı
+- Veri gizliliğini koruyan ve kaliteli kullanıcı deneyimi sunan AI Ajanları oluşturma
 
 ## Güvenlik
 
-Öncelikle güvenli ajanik uygulamalar oluşturmayı inceleyelim. Güvenlik, AI ajanının tasarlandığı gibi çalışması demektir. Ajanik uygulamaların geliştiricileri olarak, güvenliği en üst düzeye çıkarmak için yöntem ve araçlara sahibiz:
+Öncelikle güvenli ajan uygulamaları oluşturmayı inceleyelim. Güvenlik, AI ajanının tasarlandığı şekilde çalışması demektir. Ajan uygulamaları geliştirenler olarak, güvenliği en üst düzeye çıkarmak için metotlar ve araçlar kullanırız:
 
-### Bir Sistem Mesajı Çerçevesi Oluşturma
+### Bir Sistem Mesaj Çerçevesi Oluşturmak
 
-Eğer daha önce Büyük Dil Modelleri (LLM'ler) kullanarak bir AI uygulaması oluşturduysanız, sağlam bir sistem istemi ya da sistem mesajı tasarlamanın önemini biliriniz. Bu istemler, LLM'nin kullanıcı ve veriyle nasıl etkileşime gireceğine dair üst kuralları, talimatları ve yönergeleri belirler.
+Eğer bir AI uygulaması oluştururken Büyük Dil Modelleri (LLM) kullandıysanız, sağlam bir sistem istemi veya sistem mesajı tasarlamanın önemini bilirsiniz. Bu istemler, LLM'nin kullanıcı ve veriyle nasıl etkileşime gireceğine dair meta kurallar, talimatlar ve yönergeleri belirler.
 
-AI Ajanları için, sistem istemi daha da önemlidir çünkü AI Ajanları, onlara tasarladığımız görevleri tamamlamak için çok özel talimatlara ihtiyaç duyacaktır.
+AI Ajanları için sistem istemi daha da önemlidir çünkü AI Ajanlarının, onlara tasarladığımız görevleri tamamlamak için çok spesifik talimatlara ihtiyacı olacaktır.
 
-Ölçeklenebilir sistem istemleri oluşturmak için, uygulamamızda bir veya daha fazla ajan oluşturmak üzere bir sistem mesajı çerçevesi kullanabiliriz:
+Ölçeklenebilir sistem istemleri oluşturmak için, uygulamamızda bir veya daha fazla ajan oluşturmak üzere bir sistem mesaj çerçevesi kullanabiliriz:
 
-![Bir Sistem Mesajı Çerçevesi Oluşturma](../../../translated_images/tr/system-message-framework.3a97368c92d11d68.webp)
+![Bir Sistem Mesaj Çerçevesi Oluşturmak](../../../translated_images/tr/system-message-framework.3a97368c92d11d68.webp)
 
 #### Adım 1: Bir Meta Sistem Mesajı Oluşturun
 
-Meta istem, oluşturduğumuz ajanlar için sistem istemlerini üretmek üzere bir LLM tarafından kullanılacaktır. İhtiyaç halinde birden fazla ajanı verimli bir şekilde oluşturabilmek için bunu bir şablon olarak tasarlarız.
+Meta istem, oluşturduğumuz ajanlar için sistem istemlerini oluşturmak üzere bir LLM tarafından kullanılacaktır. Bunu, ihtiyaç duyulursa birden fazla ajanı verimli şekilde oluşturabileceğimiz bir şablon olarak tasarlarız.
 
-İşte LLM'ye vereceğimiz bir meta sistem mesajı örneği:
+İşte LLM’ye vereceğimiz bir meta sistem mesajına örnek:
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -49,7 +49,7 @@ To create the system prompt, be descriptive as possible and provide a structure 
 
 #### Adım 2: Temel bir istem oluşturun
 
-Sonraki adım, AI Ajanını tanımlayan temel bir istem oluşturmaktır. Ajanın rolünü, tamamlayacağı görevleri ve diğer sorumluluklarını dahil etmelisiniz.
+Sonraki adım, AI Ajanını tanımlayan temel bir istem yaratmaktır. Ajanın rolünü, tamamlayacağı görevleri ve ajanla ilgili diğer sorumlulukları dahil etmelisiniz.
 
 İşte bir örnek:
 
@@ -57,11 +57,11 @@ Sonraki adım, AI Ajanını tanımlayan temel bir istem oluşturmaktır. Ajanın
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### Adım 3: Temel Sistem Mesajını LLM'ye Sağlayın
+#### Adım 3: Temel Sistem Mesajını LLM'ye sağlayın
 
-Şimdi, bu sistem mesajını meta sistem mesajını sistem mesajı ve temel sistem mesajımız olarak sağlayarak optimize edebiliriz.
+Şimdi bu sistem mesajını, meta sistem mesajını sistem mesajı olarak ve temel sistem mesajımızı sağlayarak optimize edebiliriz.
 
-Bu, AI ajanlarımızı yönlendirmek için daha iyi tasarlanmış bir sistem mesajı üretir:
+Bu, AI ajanlarımızı yönlendirmek için daha iyi tasarlanmış bir sistem mesajı üretecektir:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -115,84 +115,89 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 #### Adım 4: Yineleyin ve İyileştirin
 
-Bu sistem mesajı çerçevesinin değeri, birden fazla ajandan sistem mesajları oluşturmayı kolayca ölçeklendirmek ve zaman içinde sistem mesajlarınızı iyileştirmektir. Tam kullanım durumunuz için sistem mesajınızın ilk seferde işe yaraması nadirdir. Temel sistem mesajını küçük değişikliklerle düzenleyip sistemden geçirerek sonuçları karşılaştırıp değerlendirebilme imkanı sağlar.
+Bu sistem mesaj çerçevesinin değeri, birden çok ajan için sistem mesajları oluşturmayı daha kolay ölçekleyebilmek ve zaman içinde sistem mesajlarınızı geliştirebilmektir. Tam kullanım durumunuz için ilk seferde çalışan bir sistem mesajına sahip olmak nadirdir. Temel sistem mesajında küçük değişiklikler yapıp sistemden geçirerek sonuçları karşılaştırmak ve değerlendirmek mümkün olacaktır.
 
-## Tehditleri Anlama
+## Tehditleri Anlamak
 
-Güvenilir AI ajanları oluşturmak için, AI ajanınıza yönelik riskleri ve tehditleri anlamak ve azaltmak önemlidir. AI ajanlarına yönelik bazı farklı tehditlere ve bunlara nasıl daha iyi hazırlanabileceğinize bakalım.
+Güvenilir AI ajanları oluşturmak için, AI ajanınıza yönelik riskleri ve tehditleri anlamanız ve azaltmanız önemlidir. AI ajanlarına yönelik bazı farklı tehditlere ve bunlarla daha iyi nasıl planlama yapıp hazırlık yapılacağına bakalım.
 
-![Tehditleri Anlama](../../../translated_images/tr/understanding-threats.89edeada8a97fc0f.webp)
+![Tehditleri Anlamak](../../../translated_images/tr/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Görev ve Talimat
 
-**Açıklama:** Saldırganlar, istem veya girdileri manipüle ederek AI ajanının talimatlarını veya hedeflerini değiştirmeye çalışır.
+**Açıklama:** Saldırganlar, istem veya girdi manipülasyonu yoluyla AI ajanının talimatlarını veya hedeflerini değiştirmeye çalışır.
 
-**Azaltma:** Potansiyel tehlikeli istemleri AI Ajanı işlemden önce tespit etmek için doğrulama kontrolleri ve girdi filtreleri uygulayın. Bu saldırılar genellikle ajanla sık etkileşim gerektirdiğinden, sohbetteki tur sayısını sınırlamak bu tür saldırıları önlemenin diğer bir yoludur.
+**Azaltma:** Potansiyel tehlikeli istemleri AI Ajan işlenmeden önce tespit etmek için doğrulama kontrolleri ve girdi filtreleri uygulayın. Bu tür saldırılar genellikle ajanın sık etkileşim gerektirdiği için, konuşmadaki tur sayısını sınırlamak bu tür saldırıları önlemenin başka bir yoludur.
 
 ### Kritik Sistemlere Erişim
 
-**Açıklama:** AI ajanı, hassas veriler tutan sistemlere ve hizmetlere erişim sağlıyorsa, saldırganlar ajan ile bu hizmetler arasındaki iletişimi ele geçirebilir. Bunlar doğrudan saldırılar veya ajan aracılığıyla bu sistemler hakkında bilgi edinme girişimleri olabilir.
+**Açıklama:** Bir AI ajanı, hassas verileri depolayan sistemlere ve hizmetlere erişime sahipse, saldırganlar ajan ile bu hizmetler arasındaki iletişimi tehlikeye atabilir. Bu doğrudan saldırılar veya ajan üzerinden bu sistemler hakkında bilgi edinme girişimleri olabilir.
 
-**Azaltma:** AI ajanlarının bu tür saldırıları önlemek için sistemlere sadece ihtiyaç duydukça erişimi olmalıdır. Ajan ile sistem arasındaki iletişim de güvenli olmalıdır. Kimlik doğrulama ve erişim kontrolünün uygulanması, bu bilgiyi korumanın başka bir yoludur.
+**Azaltma:** Bu tür saldırıları önlemek için AI ajanlarının sistemlere sadece ihtiyaç bazında erişimi olmalıdır. Ajan ile sistem arasındaki iletişim de güvenli olmalıdır. Kimlik doğrulama ve erişim kontrolü uygulamak bu bilgileri korumanın başka bir yoludur.
 
 ### Kaynak ve Hizmet Aşırı Yüklenmesi
 
-**Açıklama:** AI ajanları görevleri tamamlamak için farklı araçlar ve hizmetlere erişebilir. Saldırganlar, AI Ajanı üzerinden yüksek hacimli istekler göndererek bu hizmetlere saldırabilir, bu da sistem arızalarına veya yüksek maliyetlere yol açabilir.
+**Açıklama:** AI ajanları, görevleri yerine getirmek için farklı araçlara ve hizmetlere erişebilir. Saldırganlar, yüksek sayıda isteği AI Ajan aracılığıyla göndererek bu hizmetlere saldırabilir, bu da sistem arızalarına veya yüksek maliyetlere yol açabilir.
 
-**Azaltma:** AI ajanının bir hizmete yapabileceği istek sayısını sınırlayan politikalar uygulayın. Sohbet dönüş sayılarını ve AI ajanına yapılan istekleri sınırlandırmak bu tür saldırıları önlemenin diğer bir yoludur.
+**Azaltma:** Bir AI ajanının bir hizmete yapabileceği istek sayısını sınırlayan politikalar uygulayın. Konuşma turu ve istek sayısını sınırlamak, bu tür saldırıları önlemenin başka bir yoludur.
 
-### Bilgi Tabanı Zehirlenmesi
+### Bilgi Tabanının Zehirlenmesi
 
-**Açıklama:** Bu saldırı türü AI ajanını doğrudan hedef almaz, ancak AI ajanının kullanacağı bilgi tabanı ve diğer hizmetleri hedefler. Bu, AI ajanının bir görevi tamamlamak için kullanacağı verilerin veya bilgilerin bozulmasını içerebilir; bu da kullanıcılara taraflı veya istenmeyen yanıtlar verilmesine yol açabilir.
+**Açıklama:** Bu tür saldırı, AI ajanını doğrudan hedef almaz, ancak AI ajanının kullanacağı bilgi tabanı ve diğer hizmetleri hedefler. Bu, AI ajanının görev tamamlamak için kullanacağı veri veya bilgiyi bozmak anlamına gelir, bu da kullanıcılara taraflı veya beklenmedik yanıtlar verilmesine yol açabilir.
 
-**Azaltma:** AI ajanının iş akışlarında kullanacağı verileri düzenli olarak doğrulayın. Bu verilere erişimin güvenli olduğundan ve yalnızca güvenilen kişiler tarafından değiştirildiğinden emin olun.
+**Azaltma:** AI ajanının iş akışlarında kullanılacak verinin düzenli olarak doğrulanmasını sağlayın. Bu verilere erişimin güvenli olduğundan ve sadece güvenilen kişilerce değiştirilebildiğinden emin olun, böylece bu tür saldırılardan kaçınılır.
 
 ### Zincirleme Hatalar
 
-**Açıklama:** AI ajanları görevleri tamamlamak için çeşitli araçlara ve hizmetlere erişir. Saldırganların neden olduğu hatalar, AI ajanının bağlı olduğu diğer sistemlerin arızalanmasına sebep olabilir; bu da saldırının daha yaygınlaşmasına ve sorun gidermesinin zorlaşmasına yol açar.
+**Açıklama:** AI ajanları görevleri yerine getirmek için çeşitli araçlar ve hizmetlere erişir. Saldırganların neden olduğu hatalar, AI ajanının bağlı olduğu diğer sistemlerin arızalarına yol açabilir ve saldırının yaygınlaşmasına ve sorun çözümünün zorlaşmasına neden olur.
 
-**Azaltma:** Bunu önlemenin bir yolu, AI Ajanını, örneğin bir Docker konteynerinde görevleri yerine getirerek, sınırlı bir ortamda çalıştırmaktır; böylece doğrudan sistem saldırıları önlenir. Belirli sistemler hata verdiğinde devreye giren yedekleme mekanizmaları ve yeniden deneme mantığı oluşturmak da daha büyük sistem hatalarını önlemenin diğer bir yoludur.
+**Azaltma:** Bunu önlemek için AI Ajanının Docker konteyneri gibi izole bir ortamda çalıştırılması sağlanabilir ve doğrudan sistem saldırılarından korunabilir. Belirli sistemler hata verdiğinde devreye giren yedek mekanizmalar ve yeniden deneme mantığı oluşturmak, daha büyük sistem arızalarını önlemenin başka bir yoludur.
 
-## İnsan Döngüde (Human-in-the-Loop)
+## İnsan-Döngüde
 
-Güvenilir AI Ajan sistemleri oluşturmanın bir diğer etkili yolu ise İnsan Döngüde yaklaşımıdır. Bu, kullanıcıların çalışma sırasında Ajanlara geri bildirim sağlayabildiği bir akış oluşturur. Kullanıcılar temelde çok ajanlı bir sistemde ajanlar gibi hareket eder ve çalışan sürecin onaylanması veya sonlandırılması görevini üstlenir.
+Güvenilir AI Ajan sistemleri oluşturmanın bir diğer etkili yolu İnsan-döngüde yaklaşımını kullanmaktır. Bu, kullanıcıların çalışma sırasında ajanlara geri bildirim verebildiği bir akış oluşturur. Kullanıcılar çok ajanlı sistemde birer ajan gibi davranarak çalışmayı onaylayabilir veya durdurabilir.
 
 ![Döngüde İnsan](../../../translated_images/tr/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Bu kavramın nasıl uygulandığını göstermek için AutoGen kullanan bir kod örneği:
+Bu kavramın nasıl uygulandığını göstermek için Microsoft Agent Framework kullanılarak bir kod örneği:
 
 ```python
+import os
+from agent_framework.azure import AzureAIProjectAgentProvider
+from azure.identity import AzureCliCredential
 
-# Ajanları oluşturun.
-model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
-assistant = AssistantAgent("assistant", model_client=model_client)
-user_proxy = UserProxyAgent("user_proxy", input_func=input)  # Kullanıcı girdisini konsoldan almak için input() kullanın.
+# İnsan onaylı bir sağlayıcı oluştur
+provider = AzureAIProjectAgentProvider(
+    credential=AzureCliCredential(),
+)
 
-# Kullanıcı "ONAYLA" dediğinde sohbeti sonlandıracak bitiş koşulunu oluşturun.
-termination = TextMentionTermination("APPROVE")
+# İnsan onay adımı ile ajan oluştur
+response = provider.create_response(
+    input="Write a 4-line poem about the ocean.",
+    instructions="You are a helpful assistant. Ask for user approval before finalizing.",
+)
 
-# Takımı oluşturun.
-team = RoundRobinGroupChat([assistant, user_proxy], termination_condition=termination)
-
-# Sohbeti çalıştırın ve konsola aktarın.
-stream = team.run_stream(task="Write a 4-line poem about the ocean.")
-# Bir betikte çalıştırılırken asyncio.run(...) kullanın.
-await Console(stream)
-
+# Kullanıcı yanıtı gözden geçirip onaylayabilir
+print(response.output_text)
+user_input = input("Do you approve? (APPROVE/REJECT): ")
+if user_input == "APPROVE":
+    print("Response approved.")
+else:
+    print("Response rejected. Revising...")
 ```
 
 ## Sonuç
 
-Güvenilir AI ajanları oluşturmak dikkatli tasarım, sağlam güvenlik önlemleri ve sürekli yineleme gerektirir. Yapılandırılmış meta istem sistemleri uygulayarak, potansiyel tehditleri anlayarak ve azaltma stratejileri uygulayarak, geliştiriciler hem güvenli hem de etkili AI ajanlar yaratabilir. Ayrıca insan döngüde yaklaşımını entegre etmek, AI ajanlarının kullanıcı ihtiyaçlarıyla uyumlu kalmasını sağlarken riskleri minimize eder. AI geliştikçe, güvenlik, gizlilik ve etik hususlarda proaktif bir duruş sürdürmek, AI ile çalışan sistemlerde güven ve güvenilirliği artırmanın anahtarı olacaktır.
+Güvenilir AI ajanları oluşturmak özenli tasarım, sağlam güvenlik önlemleri ve sürekli yineleme gerektirir. Yapılandırılmış meta istem sistemleri uygulayarak, potansiyel tehditleri anlayarak ve azaltma stratejileri uygulayarak geliştiriciler hem güvenli hem de etkili AI ajanları yaratabilir. Ayrıca, insan-döngüde yaklaşımını dahil etmek, AI ajanlarının kullanıcı ihtiyaçlarıyla uyumlu kalmasını ve risklerin minimize edilmesini sağlar. AI gelişmeye devam ederken, güvenlik, gizlilik ve etik hususlara proaktif yaklaşım sürdürmek, AI-merkezli sistemlerde güven oluşturmanın anahtarı olacaktır.
 
-### Güvenilir AI Ajanları Oluşturma ile İlgili Daha Fazla Sorunuz mu Var?
+### Güvenilir AI Ajanları Oluşturma hakkında Daha Fazla Sorunuz mu Var?
 
-Diğer öğrenenlerle tanışmak, danışma saatlerine katılmak ve AI Ajanları ile ilgili sorularınızı sormak için [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)’a katılın.
+Diğer öğrenenlerle tanışmak, ofis saatlerine katılmak ve AI Ajanlar sorularınızı yanıtlatmak için [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) topluluğuna katılabilirsiniz.
 
 ## Ek Kaynaklar
 
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Sorumlu AI genel bakışı</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Jeneratif AI modelleri ve AI uygulamalarının değerlendirilmesi</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Üretken AI modelleri ve AI uygulamalarının değerlendirilmesi</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Güvenlik sistem mesajları</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Risk Değerlendirme Şablonu</a>
 
@@ -208,5 +213,5 @@ Diğer öğrenenlerle tanışmak, danışma saatlerine katılmak ve AI Ajanları
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Feragatname**:
-Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayınız. Orijinal belge, kendi diliyle yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu oluşabilecek yanlış anlamalar veya yorum hatalarından sorumlu değiliz.
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucunda oluşabilecek yanlış anlamalar veya yorum hatalarından sorumlu tutulamayız.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

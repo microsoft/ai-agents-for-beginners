@@ -1,70 +1,69 @@
 # Github MCP Server 範例
 
-## 描述
+## Description
 
-這是一個為 AI Agents Hackathon 所創建的示範，活動由 Microsoft Reactor 主辦。
+這是一個為 Microsoft Reactor 主辦的 AI Agents Hackathon 所建立的示範。
 
-此工具用於根據使用者的 Github 儲存庫推薦黑客松項目。其運作方式如下：
+這些工具用來根據使用者的 Github 倉庫推薦黑客松專案。這是透過以下方式完成的：
 
-1. **Github Agent** - 使用 Github MCP Server 來檢索儲存庫及其相關資訊。
-2. **Hackathon Agent** - 根據 Github Agent 提供的資料，結合使用者的項目、使用的程式語言以及 AI Agents Hackathon 的項目主題，提出創意的黑客松項目建議。
-3. **Events Agent** - 根據 Hackathon Agent 的建議，Events Agent 會推薦 AI Agents Hackathon 系列中相關的活動。
+1. **Github Agent** - 使用 Github MCP Server 來檢索倉庫及其相關資訊。
+2. **Hackathon Agent** - 根據 Github Agent 提供的資料，根據專案、使用語言與 AI Agents 黑客松的賽道提出創意黑客松專案點子。
+3. **Events Agent** - 根據 hackathon agent 的建議，events agent 將推薦 AI Agent Hackathon 系列的相關活動。
 
-## 執行程式碼
+## Running the code 
 
-### 環境變數
+### Environment Variables
 
-此示範使用 Azure Open AI Service、Semantic Kernel、Github MCP Server 和 Azure AI Search。
+此示範使用 Microsoft Agent Framework、Azure OpenAI Service、Github MCP Server 與 Azure AI Search。
 
-請確保已正確設置環境變數以使用這些工具：
+請確保已設定正確的環境變數以使用這些工具：
 
 ```python
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=""
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=""
-AZURE_OPENAI_ENDPOINT=""
-AZURE_OPENAI_API_KEY=""
-AZURE_OPENAI_API_VERSION=""
+AZURE_AI_PROJECT_ENDPOINT=""
+AZURE_AI_MODEL_DEPLOYMENT_NAME=""
 AZURE_SEARCH_SERVICE_ENDPOINT=""
 AZURE_SEARCH_API_KEY=""
 ``` 
 
-## 執行 Chainlit Server
+## Running the Chainlit Server
 
-為了連接 MCP Server，此示範使用 Chainlit 作為聊天介面。
+要連線到 MCP server，這個示範使用 Chainlit 作為聊天介面。 
 
-要啟動伺服器，請在終端機中使用以下指令：
+要啟動伺服器，請在終端機中使用下列指令：
 
 ```bash
 chainlit run app.py -w
 ```
 
-此指令將啟動您的 Chainlit 伺服器，位於 `localhost:8000`，並將 `event-descriptions.md` 的內容填入 Azure AI Search Index。
+這應該會在 `localhost:8000` 上啟動你的 Chainlit 伺服器，並將 `event-descriptions.md` 的內容填入你的 Azure AI Search Index。 
 
-## 連接 MCP Server
+## Connecting to the MCP Server
 
-要連接 Github MCP Server，請點選 "Type your message here.." 聊天框下方的 "plug" 圖示：
+要連線到 Github MCP Server，請在 "Type your message here.." 聊天框下方選取 "plug" 圖示：
 
-![MCP Connect](../../../../../translated_images/zh-TW/mcp-chainlit-1.7ed66d648e3cfb28.webp)
+![MCP 連線](../../../../../translated_images/zh-TW/mcp-chainlit-1.7ed66d648e3cfb28.webp)
 
-接著，您可以點選 "Connect an MCP" 來新增指令以連接 Github MCP Server：
+接著你可以點擊 "Connect an MCP" 以新增連線到 Github MCP Server 的指令：
 
 ```bash
 npx -y @modelcontextprotocol/server-github --env GITHUB_PERSONAL_ACCESS_TOKEN=[YOUR PERSONAL ACCESS TOKEN]
 ```
 
-將 "[YOUR PERSONAL ACCESS TOKEN]" 替換為您的實際個人存取權杖。
+請將 "[YOUR PERSONAL ACCESS TOKEN]" 替換為你實際的 Personal Access Token。 
 
-連接成功後，您應該會看到 plug 圖示旁出現 (1)，表示已連接。如果未顯示，請嘗試使用 `chainlit run app.py -w` 重新啟動 Chainlit 伺服器。
+連線後，你應該會在插頭圖示旁看到 (1) 以確認已連線。如果沒有，試著以 `chainlit run app.py -w` 重新啟動 chainlit 伺服器。
 
-## 使用示範
+## Using the Demo 
 
-要啟動推薦黑客松項目的代理工作流程，您可以輸入類似以下的訊息：
+要啟動推薦黑客松專案的 agent 工作流程，你可以輸入類似的訊息：
 
-"Recommend hackathon projects for the Github user koreyspace"
+"為 Github 使用者 koreyspace 推薦黑客松專案"
 
-Router Agent 會分析您的請求，並決定哪種代理組合（GitHub、Hackathon 和 Events）最適合處理您的查詢。這些代理會協同合作，根據 Github 儲存庫分析、項目創意以及相關技術活動提供全面的建議。
+Router Agent 會分析你的請求並判斷哪種 agent 組合（GitHub, Hackathon, and Events）最適合處理你的查詢。這些 agents 協同工作，根據 GitHub 倉庫分析、專案構想，以及相關技術活動，提供完整的推薦。
 
 ---
 
-**免責聲明**：  
-本文件使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。儘管我們致力於提供準確的翻譯，請注意自動翻譯可能包含錯誤或不精確之處。原始文件的母語版本應被視為權威來源。對於關鍵資訊，建議尋求專業人工翻譯。我們對因使用此翻譯而引起的任何誤解或錯誤解釋不承擔責任。
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+免責聲明：
+本文件係使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 所翻譯。雖然我們努力追求準確性，但請注意自動翻譯可能包含錯誤或不準確之處。原始語言版本的文件應視為具權威性的依據。對於重要資訊，建議委託專業人工翻譯。我們不對因使用本翻譯而導致的任何誤解或誤譯負責。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

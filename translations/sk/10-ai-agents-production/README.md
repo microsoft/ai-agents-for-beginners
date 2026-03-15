@@ -1,83 +1,89 @@
-# AI agenti v produkcii: Pozorovateľnosť a hodnotenie
+# AI Agents in Production: Observability & Evaluation
 
 [![AI agenti v produkcii](../../../translated_images/sk/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-Keď sa AI agenti presúvajú z experimentálnych prototypov do reálnych aplikácií, schopnosť porozumieť ich správaniu, monitorovať ich výkon a systematicky hodnotiť ich výstupy sa stáva dôležitou.
+Keď sa AI agenti presúvajú z experimentálnych prototypov do reálnych aplikácií, schopnosť porozumieť ich správaniu, sledovať ich výkon a systematicky vyhodnocovať ich výstupy sa stáva dôležitou.
 
-## Ciele učenia
+## Learning Goals
 
 Po dokončení tejto lekcie budete vedieť/rozumieť:
-- Základné pojmy pozorovateľnosti a hodnotenia agentov
-- Techniky na zlepšenie výkonu, nákladov a efektívnosti agentov
-- Čo a ako systematicky hodnotiť vašich AI agentov
+- Základným konceptom observability a vyhodnocovania agentov
+- Techníkam na zlepšenie výkonu, nákladov a efektívnosti agentov
+- Čomu a ako systematicky vyhodnocovať vašich AI agentov
 - Ako kontrolovať náklady pri nasadzovaní AI agentov do produkcie
-- Ako instrumentovať agentov vytvorených pomocou AutoGen
+- Ako instrumentovať agentov postavených pomocou Microsoft Agent Framework
 
-Cieľom je vybaviť vás poznatkami, ktoré premenia vaše „čierne skrinky“ agentov na priehľadné, spravovateľné a spoľahlivé systémy.
+Cieľom je vybaviť vás poznatkami, ktoré premenia vaše „čierne skrinky“ agentov na transparentné, spravovateľné a spoľahlivé systémy.
 
-_**Poznámka:** Je dôležité nasadzovať AI agentov, ktorí sú bezpeční a dôveryhodní. Pozrite si tiež lekciu [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md)._
+_**Poznámka:** Je dôležité nasadzovať AI agentov, ktorí sú bezpeční a dôveryhodní. Pozrite si aj lekciu [Budovanie dôveryhodných AI agentov](./06-building-trustworthy-agents/README.md)._
 
-## Trasy (traces) a úseky (spans)
+## Traces and Spans
 
-Nástroje pre pozorovateľnosť, ako napr. [Langfuse](https://langfuse.com/) alebo [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry), zvyčajne reprezentujú behy agentov ako trasy (traces) a úseky (spans).
+Observability nástroje ako [Langfuse](https://langfuse.com/) alebo [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) zvyčajne reprezentujú behy agenta ako traces a spans.
 
-- **Trasa (Trace)** reprezentuje kompletnú úlohu agenta od začiatku do konca (napr. spracovanie používateľského dopytu).
-- **Úseky (Spans)** sú jednotlivé kroky v trase (napr. volanie jazykového modelu alebo získavanie dát).
+- **Trace** predstavuje kompletnú úlohu agenta od začiatku do konca (napríklad spracovanie užívateľského dopytu).
+- **Spans** sú jednotlivé kroky v trace (napríklad volanie jazykového modelu alebo načítanie dát).
 
-![Strom trasy v Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+![Trace tree in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+<!-- Image URL retained for illustration purposes -->
 
-Bez pozorovateľnosti môže AI agent pôsobiť ako „čierna skrinka“ – jeho vnútorný stav a uvažovanie sú nepriehľadné, čo sťažuje diagnostiku problémov alebo optimalizáciu výkonu. S pozorovateľnosťou sa agenti stávajú „sklenenými skrinkami“, ktoré poskytujú priehľadnosť nevyhnutnú na budovanie dôvery a zaistenie správnej činnosti.
+Bez observability môže AI agent pôsobiť ako „čierna skrinka“ — jeho vnútorný stav a uvažovanie sú nepriehľadné, čo sťažuje diagnostiku problémov alebo optimalizáciu výkonu. S observabilitou sa agenti menia na „sklenené krabičky“, ktoré ponúkajú transparentnosť nevyhnutnú na budovanie dôvery a zabezpečenie, že fungujú podľa očakávaní. 
 
-## Prečo je pozorovateľnosť dôležitá v produkčnom prostredí
+## Prečo je observabilita dôležitá v produkčnom prostredí
 
-Prechod AI agentov do produkčných prostredí prináša novú sadu výziev a požiadaviek. Pozorovateľnosť už nie je „príjemným doplnkom“, ale kritickou schopnosťou:
+Presun AI agentov do produkcie prináša novú sadu výziev a požiadaviek. Observabilita už nie je „príjemný doplnok“, ale kritická schopnosť:
 
-*   **Ladenie a analýza koreňových príčin**: Keď agent zlyhá alebo vygeneruje neočakávaný výstup, nástroje pre pozorovateľnosť poskytnú trasy potrebné na určenie zdroja chyby. To je obzvlášť dôležité pri zložitých agentoch, ktoré môžu zahŕňať viacero volaní LLM, interakcie s nástrojmi a podmienenú logiku.
-*   **Riadenie latencie a nákladov**: AI agenti často závisia od LLM a iných externých API, ktoré sa účtujú za token alebo za volanie. Pozorovateľnosť umožňuje presné sledovanie týchto volaní a pomáha identifikovať operácie, ktoré sú nadmerne pomalé alebo nákladné. To umožňuje tímom optimalizovať promptovanie, vybrať efektívnejšie modely alebo prerobiť pracovné toky tak, aby sa riadili prevádzkové náklady a zabezpečila dobrá používateľská skúsenosť.
-*   **Dôvera, bezpečnosť a súlad**: V mnohých aplikáciách je dôležité zabezpečiť, aby sa agenti správali bezpečne a eticky. Pozorovateľnosť poskytuje auditnú stopu akcií a rozhodnutí agenta. Túto stopu je možné využiť na detekciu a zmiernenie problémov, ako sú prompt injection, generovanie škodlivého obsahu alebo nesprávne zaobchádzanie s osobnými údajmi (PII). Napríklad môžete preskúmať trasy, aby ste pochopili, prečo agent poskytol určitú odpoveď alebo použil konkrétny nástroj.
-*   **Cykly kontinuálneho zlepšovania**: Dáta z pozorovateľnosti sú základom iteratívneho vývojového procesu. Monitorovaním, ako sa agenti správajú v reálnom svete, tím môže identifikovať oblasti na zlepšenie, zbierať dáta pre doladenie modelov a overovať dopad zmien. To vytvára spätnú väzbu, kde produkčné poznatky z online hodnotenia informujú offline experimentovanie a zdokonaľovanie, čo vedie k postupnému zlepšovaniu výkonu agenta.
+*   **Ladenie a analýza koreňovej príčiny**: Keď agent zlyhá alebo vygeneruje neočakávaný výstup, observability nástroje poskytujú trace potrebné na presné určenie zdroja chyby. To je obzvlášť dôležité v zložitých agentoch, ktoré môžu zahŕňať viaceré volania LLM, interakcie s nástrojmi a podmienenú logiku.
+*   **Riadenie latencie a nákladov**: AI agenti často využívajú LLM a iné externé API, ktoré sú účtované za token alebo za volanie. Observabilita umožňuje presné sledovanie týchto volaní a pomáha identifikovať operácie, ktoré sú príliš pomalé alebo drahé. Tím tak môže optimalizovať promptovanie, vybrať efektívnejší model alebo prerobiť pracovné toky tak, aby zvládal prevádzkové náklady a zabezpečil dobrý používateľský zážitok.
+*   **Dôvera, bezpečnosť a súlad s predpismi**: V mnohých aplikáciách je dôležité zabezpečiť, aby agenti konali bezpečne a eticky. Observabilita poskytuje auditnú stopu akcií a rozhodnutí agenta. Táto stopa sa dá využiť na detekciu a zmiernenie problémov, ako je prompt injection, generovanie škodlivého obsahu alebo nesprávne zaobchádzanie s osobne identifikovateľnými informáciami (PII). Napríklad môžete prehliadnuť trace, aby ste pochopili, prečo agent poskytol určitú odpoveď alebo použil konkrétny nástroj.
+*   **Cykly kontinuálneho zlepšovania**: Observability dáta sú základom iteratívneho vývoja. Monitorovaním výkonu agentov v reálnom svete tímy dokážu identifikovať oblasti na zlepšenie, zhromažďovať dáta na doladenie modelov a overovať dopad zmien. To vytvára spätnú väzbu, kde produkčné poznatky z online vyhodnocovania informujú offline experimentovanie a vylepšovanie, čo vedie k postupnému zlepšovaniu výkonu agenta.
 
 ## Kľúčové metriky na sledovanie
 
-Na monitorovanie a pochopenie správania agenta by sa mala sledovať rada metrík a signálov. Konkrétne metriky sa môžu líšiť podľa účelu agenta, ale niektoré sú univerzálne dôležité.
+Na sledovanie a pochopenie správania agenta by sa mala zaznamenávať škála metrík a signálov. Konkrétne metriky sa môžu líšiť v závislosti od účelu agenta, niektoré sú však univerzálne dôležité.
 
-Tu sú niektoré z najbežnejších metrík, ktoré nástroje pre pozorovateľnosť sledujú:
+Tu sú niektoré z najbežnejších metrík, ktoré observability nástroje sledujú:
 
-**Latencia:** Ako rýchlo agent odpovedá? Dlhé čakanie negatívne ovplyvňuje používateľskú skúsenosť. Mali by ste merať latenciu pre úlohy a jednotlivé kroky sledovaním trás behov agenta. Napr. agent, ktorý potrebuje 20 sekúnd pre všetky volania modelu, by sa dal zrýchliť použitím rýchlejšieho modelu alebo spustením volaní modelu paralelne.
+**Latency:** Ako rýchlo agent odpovedá? Dlhé čakanie negatívne vplýva na používateľský zážitok. Mali by ste merať latenciu pre úlohy a jednotlivé kroky sledovaním runov agenta. Napríklad agent, ktorý potrebuje 20 sekúnd na všetky volania modelu, sa dá zrýchliť použitím rýchlejšieho modelu alebo paralelným spustením volaní modelu.
 
-**Náklady:** Aké sú náklady na jeden beh agenta? AI agenti závisia na volaniach LLM účtovaných za token alebo na externých API. Časté používanie nástrojov alebo viacero promptov môže rýchlo zvýšiť náklady. Napr. ak agent volá LLM päťkrát pre marginálne zlepšenie kvality, musíte zvážiť, či sú náklady oprávnené alebo či môžete znížiť počet volaní alebo použiť lacnejší model. Monitorovanie v reálnom čase tiež môže pomôcť identifikovať neočakávané výkyvy (napr. chyby spôsobujúce nadmerné opakované volania API).
+**Costs:** Aké sú náklady na jeden beh agenta? AI agenti sa spoliehajú na volania LLM účtované za token alebo externé API. Časté používanie nástrojov alebo viaceré promptovania môžu náklady rýchlo zvýšiť. Napríklad ak agent volá LLM päťkrát pre marginálne zlepšenie kvality, musíte zvážiť, či sú náklady odôvodnené, alebo či by ste nemohli znížiť počet volaní alebo použiť lacnejší model. Monitorovanie v reálnom čase tiež pomôže identifikovať neočakávané nárasty (napr. chyby spôsobujúce nadmerné API slučky).
 
-**Chyby požiadaviek:** Koľko požiadaviek agent zlyhal? To môže zahŕňať chyby API alebo zlyhané volania nástrojov. Aby bol agent v produkcii robustnejší voči týmto chybám, môžete nastaviť fallback mechanizmy alebo opakovania. Napr. ak poskytovateľ LLM A je nedostupný, prepnite na poskytovateľa B ako zálohu.
+**Request Errors:** Koľko požiadaviek agent zlyhal? To môže zahŕňať chyby API alebo neúspešné volania nástrojov. Aby ste zvýšili odolnosť agenta v produkcii, môžete nasadiť fallbacky alebo opakovania (retries). Napr. ak LLM poskytovateľ A je nedostupný, prepnite na LLM poskytovateľa B ako záložný.
 
-**Spätná väzba od používateľov:** Implementácia priameho hodnotenia používateľmi poskytuje cenné informácie. Môže to zahŕňať explicitné hodnotenia (👍palec hore/👎dole, ⭐1–5 hviezdičiek) alebo textové komentáre. Konzistentne negatívna spätná väzba by vás mala upozorniť, pretože je to znak, že agent nefunguje podľa očakávania.
+**User Feedback:** Implementovanie priameho hodnotenia používateľmi poskytuje cenné informácie. Môže ísť o explicitné hodnotenia (👍palec hore/👎palec dole, ⭐1-5 hviezdičiek) alebo textové komentáre. Konzistentne negatívna spätná väzba by vás mala upozorniť, pretože je to znak, že agent nefunguje podľa očakávaní.
 
-**Implicitná spätná väzba od používateľov:** Správanie používateľov poskytuje nepriamu spätnú väzbu aj bez explicitného hodnotenia. Môže to zahŕňať okamžité preformulovanie otázky, opakované dopyty alebo kliknutie na tlačidlo opakovania. Napr. ak vidíte, že používatelia opakovane kladú rovnakú otázku, je to znak, že agent nefunguje očakávane.
+**Implicit User Feedback:** Správanie používateľov poskytuje nepriamu spätnú väzbu aj bez explicitných hodnotení. Môže ísť o okamžité preformulovanie otázky, opakované dotazy alebo kliknutie na tlačidlo opakovať. Napr. ak vidíte, že používatelia opakovane kladú rovnakú otázku, je to znak, že agent nefunguje podľa očakávaní.
 
-**Presnosť:** Ako často agent generuje správne alebo požadované výstupy? Definície presnosti sa líšia (napr. správnosť riešenia úloh, presnosť vyhľadávania informácií, spokojnosť používateľa). Prvým krokom je definovať, ako vyzerá úspech pre vášho agenta. Presnosť môžete sledovať cez automatizované kontroly, evaluačné skóre alebo označenia dokončenia úloh. Napr. označovanie trás ako „succeeded“ alebo „failed“.
+**Accuracy:** Ako často agent generuje správne alebo žiaduce výstupy? Definície presnosti sa líšia (napr. správnosť riešenia, presnosť vyhľadávania informácií, spokojnosť používateľa). Prvým krokom je definovať, ako vyzerá úspech pre vášho agenta. Presnosť môžete sledovať cez automatizované kontroly, skóre vyhodnotenia alebo označenia dokončenia úlohy. Napríklad označovanie trace ako „succeeded“ alebo „failed“.
 
-**Automatizované metriky hodnotenia:** Môžete tiež nastaviť automatizované hodnotenia. Napr. môžete použiť LLM na ohodnotenie výstupu agenta, či je užitočný, presný alebo nie. Existuje aj niekoľko open-source knižníc, ktoré pomáhajú skórovať rôzne aspekty agenta, napr. [RAGAS](https://docs.ragas.io/) pre RAG agentov alebo [LLM Guard](https://llm-guard.com/) na detekciu škodlivého jazyka alebo prompt injection.
+**Automated Evaluation Metrics:** Môžete tiež nastaviť automatizované vyhodnotenia. Napríklad môžete použiť LLM na skórovanie výstupu agenta, či je užitočný, presný alebo nie. Existuje aj niekoľko open source knižníc, ktoré vám pomôžu skórovať rôzne aspekty agenta. Napr. [RAGAS](https://docs.ragas.io/) pre RAG agentov alebo [LLM Guard](https://llm-guard.com/) na detekciu škodlivého jazyka alebo prompt injection.
 
-V praxi kombinácia týchto metrík poskytuje najlepšie pokrytie zdravia AI agenta. V tomto kapitole v [ukážkovom notebooku](./code_samples/10_autogen_evaluation.ipynb) vám ukážeme, ako tieto metriky vyzerajú na reálnych príkladoch, ale najprv sa naučíme, ako vyzerá typický evaluačný pracovný tok.
+V praxi kombinácia týchto metrík poskytuje najlepšie pokrytie zdravia AI agenta. V tomto kapitole [príkladnom notebooku](./code_samples/10-expense_claim-demo.ipynb) vám ukážeme, ako tieto metriky vyzerajú v reálnych príkladoch, ale najprv sa naučíme, ako vyzerá typický pracovný postup vyhodnocovania.
 
-## Instrumentujte svojho agenta
+## Instrument your Agent
 
-Na zhromažďovanie sledovacích dát budete musieť instrumentovať svoj kód. Cieľom je instrumentovať kód agenta tak, aby emitoval trasy a metriky, ktoré môže zachytiť, spracovať a vizualizovať platforma pre pozorovateľnosť.
+Aby ste zhromažďovali trace dáta, budete musieť instrumentovať svoj kód. Cieľom je instrumentovať kód agenta tak, aby emitoval traces a metriky, ktoré môže zachytávať, spracúvať a vizualizovať platforma na observabilitu.
 
-**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) sa etabloval ako priemyselný štandard pre pozorovateľnosť LLM. Poskytuje sadu API, SDK a nástrojov na generovanie, zber a export telemetrických dát.
+**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) sa etabloval ako priemyselný štandard pre observabilitu LLM. Poskytuje súbor API, SDK a nástrojov na generovanie, zhromažďovanie a export telemetrických dát.
 
-Existuje mnoho instrumentačných knižníc, ktoré obalia existujúce rámce agentov a uľahčujú export OpenTelemetry spanov do nástroja pre pozorovateľnosť. Nižšie je príklad instrumentácie AutoGen agenta s použitím knižnice [OpenLit instrumentation](https://github.com/openlit/openlit):
+Existuje mnoho instrumentačných knižníc, ktoré zabalujú existujúce agentné frameworky a uľahčujú export OpenTelemetry spanov do observability nástroja. Microsoft Agent Framework sa natívne integruje s OpenTelemetry. Nižšie je príklad instrumentácie MAF agenta:
 
 ```python
-import openlit
+from agent_framework.observability import get_tracer, get_meter
 
-openlit.init(tracer = langfuse._otel_tracer, disable_batch = True)
+tracer = get_tracer()
+meter = get_meter()
+
+with tracer.start_as_current_span("agent_run"):
+    # Vykonávanie agenta sa automaticky sleduje.
+    pass
 ```
 
-V [ukážkovom notebooku](./code_samples/10_autogen_evaluation.ipynb) v tejto kapitole vám ukážeme, ako instrumentovať váš AutoGen agent.
+V [príkladnom notebooku](./code_samples/10-expense_claim-demo.ipynb) v tejto kapitole vám ukážeme, ako instrumentovať váš MAF agent.
 
-**Manuálne vytváranie spanov:** Hoci instrumentačné knižnice poskytujú dobrý východiskový bod, často sú prípady, kde potrebujete detailnejšie alebo vlastné informácie. Môžete manuálne vytvárať spany na pridanie vlastnej aplikačnej logiky. Dôležitejšie je, že môžu obohatiť automaticky alebo manuálne vytvorené spany o vlastné atribúty (známe tiež ako tagy alebo metadata). Tieto atribúty môžu obsahovať obchodne špecifické dáta, medzivýpočty alebo akýkoľvek kontext, ktorý môže byť užitočný pri ladení alebo analýze, napr. `user_id`, `session_id` alebo `model_version`.
+**Manuálne vytváranie spanov:** Hoci instrumentačné knižnice poskytujú dobrý základ, často sú prípady, kde je potrebné podrobnejšie alebo vlastné informácie. Môžete manuálne vytvárať span-y a pridať vlastnú aplikačnú logiku. Dôležité je, že môžu obohatiť automaticky alebo manuálne vytvorené span-y o vlastné atribúty (tiež známe ako tagy alebo metadata). Tieto atribúty môžu obsahovať obchodné špecifické dáta, medzipočty alebo akýkoľvek kontext užitočný pri ladení alebo analýze, napr. `user_id`, `session_id` alebo `model_version`.
 
-Príklad manuálneho vytvorenia trás a spanov s [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3):
+Príklad manuálneho vytvárania traces a span-ov pomocou [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3):
 
 ```python
 from langfuse import get_client
@@ -89,41 +95,41 @@ span = langfuse.start_span(name="my-span")
 span.end()
 ```
 
-## Hodnotenie agenta
+## Agent Evaluation
 
-Pozorovateľnosť nám poskytuje metriky, ale hodnotenie je proces analýzy týchto dát (a vykonávania testov) s cieľom určiť, ako dobre AI agent funguje a ako ho možno zlepšiť. Inými slovami, keď máte tieto trasy a metriky, ako ich používate na zhodnotenie agenta a prijímanie rozhodnutí?
+Observabilita nám poskytuje metriky, ale vyhodnocovanie je proces analýzy týchto dát (a vykonávania testov), aby sa určilo, ako dobre AI agent funguje a ako ho možno zlepšiť. Inými slovami, keď už máte trace a metriky, ako ich použijete na posúdenie agenta a prijímanie rozhodnutí?
 
-Pravidelné hodnotenie je dôležité, pretože AI agenti často nie sú deterministickí a môžu sa vyvíjať (cez aktualizácie alebo driftovanie správania modelu) – bez hodnotenia by ste nevedeli, či váš „inteligentný agent“ skutočne plní svoje úlohy dobre alebo či nedošlo k regresii.
+Pravidelné vyhodnocovanie je dôležité, pretože AI agenti sú často nedeterministickí a môžu sa vyvíjať (prostredníctvom aktualizácií alebo driftu správania modelu) – bez vyhodnocovania by ste nevedeli, či váš „chytrý agent“ skutočne vykonáva svoju úlohu dobre alebo či došlo k regresii.
 
-Existujú dve kategórie hodnotení AI agentov: **online hodnotenie** a **offline hodnotenie**. Obe sú cenné a dopĺňajú sa navzájom. Zvyčajne začíname offline hodnotením, keďže je to minimálny potrebný krok pred nasadením akéhokoľvek agenta.
+Existujú dve kategórie vyhodnocovania AI agentov: **online vyhodnocovanie** a **offline vyhodnocovanie**. Obe sú hodnotné a dopĺňajú sa. Zvyčajne začíname offline vyhodnocovaním, pretože je to minimálny potrebný krok pred nasadením agenta.
 
-### Offline hodnotenie
+### Offline vyhodnocovanie
 
-![Položky datasetu v Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
+![Dataset items in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-To zahŕňa hodnotenie agenta v kontrolovanom prostredí, typicky s použitím testovacích datasetov, nie s živými používateľskými dopytmi. Používate kurátorské datasety, kde viete, aký očakávaný výstup alebo správne správanie má byť, a potom na nich spustíte agenta.
+To zahŕňa hodnotenie agenta v kontrolovanom prostredí, typicky pomocou testovacích datasetov, nie živých používateľských dopytov. Používate kurátorské dataset-y, kde viete, aký je očakávaný výstup alebo správne správanie, a potom spustíte svojho agenta na nich.
 
-Napríklad, ak ste vytvorili agenta na riešenie slovných úloh z matematiky, môžete mať [testovací dataset](https://huggingface.co/datasets/gsm8k) 100 problémov so známymi odpoveďami. Offline hodnotenie sa často vykonáva počas vývoja (a môže byť súčasťou CI/CD) na overenie zlepšení alebo ochrany pred regresiami. Výhodou je, že je **opakovateľné a môžete získať jasné metriky presnosti, pretože máte ground truth**. Môžete tiež simulovať používateľské dopyty a merať odpovede agenta oproti ideálnym odpovediam alebo použiť automatizované metriky, ako boli popísané vyššie.
+Napríklad, ak ste vytvorili agenta na riešenie slovných úloh z matematiky, môžete mať [testovací dataset](https://huggingface.co/datasets/gsm8k) 100 problémov so známymi odpoveďami. Offline vyhodnocovanie sa často vykonáva počas vývoja (a môže byť súčasťou CI/CD pipeline) na kontrolu zlepšení alebo ochranu pred regresiami. Výhodou je, že je to **opakované a môžete získať jasné metriky presnosti, pretože máte ground truth**. Môžete tiež simulovať používateľské dopyty a merať odpovede agenta voči ideálnym odpovediam alebo použiť automatizované metriky, ako je popísané vyššie.
 
-Kľúčovou výzvou offline hodnotenia je zabezpečiť, že váš testovací dataset je komplexný a zostáva relevantný – agent môže dobre prechádzať fixným testom, no v produkcii sa stretnúť s veľmi odlišnými dopytmi. Preto by ste mali udržiavať testovacie sady aktualizované o nové hraničné prípady a príklady, ktoré odrážajú reálne scenáre​. Užitočná je kombinácia malých „smoke testov“ a väčších evaluačných sád: malé sú na rýchle kontroly, veľké na širšie metriky výkonu​.
+Hlavnou výzvou offline vyhodnocovania je zabezpečiť, aby bol váš testovací dataset komplexný a zostal relevantný – agent sa môže správať dobre na pevnom testovacom sete, ale v produkcii narážať na veľmi odlišné dopyty. Preto by ste testovacie sety mali priebežne aktualizovať o nové hraničné prípady a príklady, ktoré odrážajú reálne scenáre. Užitočná je zmes malých „smoke testov“ a väčších evaluačných setov: malé sety na rýchle kontroly a väčšie na širšie metriky výkonu.
 
-### Online hodnotenie
+### Online vyhodnocovanie 
 
-![Prehľad metrík pozorovateľnosti](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
+![Observability metrics overview](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-To sa týka hodnotenia agenta v živom, reálnom prostredí, t.j. počas skutočného používania v produkcii. Online hodnotenie zahŕňa monitorovanie výkonu agenta pri reálnych používateľských interakciách a kontinuálnu analýzu výsledkov.
+Toto sa týka hodnotenia agenta v živom, reálnom prostredí, teda počas skutočného používania v produkcii. Online vyhodnocovanie zahŕňa sledovanie výkonu agenta na reálnych používateľských interakciách a nepretržitú analýzu výsledkov.
 
-Napríklad môžete sledovať mieru úspešnosti, skóre spokojnosti používateľov alebo iné metriky na živej prevádzke. Výhodou online hodnotenia je, že **zachytáva veci, ktoré v laboratórnom prostredí možno neočakávate** – môžete pozorovať drift modelu v čase (ak efektívnosť agenta klesá, keď sa menia vstupné vzorce) a zachytiť neočakávané dopyty alebo situácie, ktoré neboli v testovacích dátach​. Poskytuje skutočný obraz o tom, ako sa agent správa v teréne.
+Napríklad môžete sledovať mieru úspešnosti, skóre spokojnosti používateľov alebo iné metriky na živom trafficu. Výhodou online vyhodnocovania je, že **zachytáva veci, ktoré by ste v laboratórnom nastavení nemuseli očakávať** – môžete pozorovať drift modelu v čase (ak účinnosť agenta klesá pri zmene vstupných vzorcov) a zachytiť neočakávané dopyty alebo situácie, ktoré neboli v testovacích dátach. Poskytuje skutočný obraz o tom, ako sa agent správa v teréne.
 
-Online hodnotenie často zahŕňa zber implicitnej a explicitnej spätnej väzby od používateľov, ako už bolo diskutované, a prípadne spúšťanie shadow testov alebo A/B testov (kde nová verzia agenta beží paralelne pre porovnanie so starou). Výzvou je získať spoľahlivé štítky alebo skóre pre živé interakcie – možno budete spoliehať na spätnú väzbu používateľov alebo downstream metriky (napr. či používateľ klikol na výsledok).
+Online vyhodnocovanie často zahŕňa zhromažďovanie implicitnej a explicitnej spätnej väzby od používateľov, ako bolo diskutované, a prípadne spúšťanie shadow testov alebo A/B testov (kde nová verzia agenta beží paralelne, aby sa porovnala so starou). Výzvou je, že môže byť zložité získať spoľahlivé štítky alebo skóre pre živé interakcie – môžete sa spoliehať na spätnú väzbu používateľov alebo downstream metriky (napr. či používateľ klikol na výsledok).
 
-### Kombinácia oboch
+### Kombinovanie oboch
 
-Online a offline hodnotenia sa nevylučujú; sú veľmi komplementárne. Poznatky z online monitorovania (napr. nové typy používateľských dopytov, kde agent nepracuje dobre) môžu byť použité na rozšírenie a zlepšenie offline testovacích datasetov. Naopak, agenti, ktorí dobre prechádzajú offline testami, môžu byť následne so väčšou istotou nasadení a monitorovaní online.
+Online a offline vyhodnocovania sa nevylučujú; sú vysoko komplementárne. Poznatky z online monitoringu (napr. nové typy používateľských dopytov, kde agent nefunguje dobre) sa dajú použiť na rozšírenie a vylepšenie offline testovacích datasetov. Naopak, agenti, ktorí sa dobre správajú na offline testoch, môžu byť s väčšou istotou nasadení a monitorovaní online.
 
-V skutočnosti mnoho tímov prijíma cyklus:
+Mnohé tímy zavádzajú cyklus:
 
-_vyhodnotiť offline -> nasadiť -> monitorovať online -> zhromaždiť nové chybné prípady -> pridať do offline datasetu -> vylepšiť agenta -> opakovať_.
+_evaluate offline -> deploy -> monitor online -> collect new failure cases -> add to offline dataset -> refine agent -> repeat_.
 
 ## Bežné problémy
 
@@ -131,30 +137,30 @@ Pri nasadzovaní AI agentov do produkcie môžete naraziť na rôzne výzvy. Tu 
 
 | **Problém**    | **Možné riešenie**   |
 | ------------- | ------------------ |
-| AI agent nevykonáva úlohy konzistentne | - Zlepšite prompt (výzvu) poskytnutú AI agentovi; buďte jasní v cieľoch.<br>- Identifikujte, kde môže pomôcť rozdeliť úlohy na podúlohy a priradiť ich viacerým agentom. |
-| AI agent sa dostáva do nekonečných slučiek  | - Uistite sa, že máte jasné podmienky ukončenia, aby agent vedel, kedy proces ukončiť.<br>- Pre komplexné úlohy, ktoré vyžadujú uvažovanie a plánovanie, použite väčší model špecializovaný na rozumové úlohy. |
-| Volania nástrojov AI agenta nefungujú dobre   | - Otestujte a overte výstup nástroja mimo systému agenta.<br>- Vylepšite definované parametre, prompty a pomenovanie nástrojov.  |
-| Systém viacerých agentov nefunguje konzistentne | - Vylepšite prompty pre každého agenta tak, aby boli špecifické a odlišné medzi sebou.<br>- Vytvorte hierarchický systém pomocou „routing“ alebo kontrolného agenta na určenie, ktorý agent je správny. |
+| AI agent nevykonáva úlohy konzistentne | - Upresnite prompt, ktorý dávate AI agentovi; buďte jasní na cieľoch.<br>- Identifikujte, kde môže pomôcť rozdelenie úloh na podúlohy a ich spracovanie viacerými agentmi. |
+| AI agent sa dostáva do nekonečných slučiek  | - Uistite sa, že máte jasné terminačné podmienky, aby agent vedel, kedy proces ukončiť.<br>- Pre zložité úlohy vyžadujúce uvažovanie a plánovanie použite väčší model špecializovaný na rozumové úlohy. |
+| Volania nástrojov agenta nefungujú dobre   | - Testujte a validujte výstup nástroja mimo agenta.<br>- Upresnite definované parametre, promptovanie a pomenovanie nástrojov.  |
+| Multi-agentný systém nefunguje konzistentne | - Upresnite prompty pre každého agenta, aby boli špecifické a odlíšené od seba.<br>- Vytvorte hierarchický systém pomocou „routing“ alebo kontrolného agenta, ktorý určí, ktorý agent je správny. |
 
-Mnohé z týchto problémov možno efektívnejšie identifikovať s implementovanou pozorovateľnosťou. Trasy a metriky, o ktorých sme hovorili, pomáhajú presne určiť, kde v pracovnom toku agenta sa problémy vyskytujú, čo výrazne zefektívňuje ladenie a optimalizáciu.
+Mnohé z týchto problémov sa dajú efektívnejšie identifikovať, ak máte nasadenú observabilitu. Trace a metriky, o ktorých sme hovorili, pomáhajú presne určiť, kde v pracovnom toku agenta problémy vznikajú, čo výrazne zefektívňuje ladenie a optimalizáciu.
 
 ## Riadenie nákladov
-Tu sú niektoré stratégie na riadenie nákladov pri nasadzovaní AI agentov do produkcie:
+Here are some strategies to manage the costs of deploying AI agents to production:
 
-**Používanie menších modelov:** Malé jazykové modely (SLMs) môžu dobre fungovať v niektorých scenároch s agentmi a výrazne znížia náklady. Ako už bolo spomenuté, najlepší spôsob, ako pochopiť, ako dobre bude SLM fungovať pre váš prípad použitia, je vybudovať hodnotiaci systém na určenie a porovnanie výkonu oproti väčším modelom. Zvážte použitie SLM pre jednoduchšie úlohy, ako je klasifikácia zámeru alebo extrakcia parametrov, a väčšie modely si nechajte na komplexné uvažovanie.
+**Using Smaller Models:** Small Language Models (SLMs) can perform well on certain agentic use-cases and will reduce costs significantly. As mentioned earlier, building an evaluation system to determine and compare performance vs larger models is the best way to understand how well an SLM will perform on your use case. Consider using SLMs for simpler tasks like intent classification or parameter extraction, while reserving larger models for complex reasoning.
 
-**Používanie smerovacieho modelu:** Podobnou stratégiou je používať rôznorodé modely a veľkosti. Môžete použiť LLM/SLM alebo bezserverovú funkciu na presmerovanie požiadaviek podľa ich zložitosti na najvhodnejšie modely. To tiež pomôže znížiť náklady a zároveň zabezpečiť výkon pri správnych úlohách. Napríklad presmerujte jednoduché dotazy na menšie, rýchlejšie modely a nákladné veľké modely používajte len na úlohy vyžadujúce komplexné uvažovanie.
+**Using a Router Model:** A similar strategy is to use a diversity of models and sizes. You can use an LLM/SLM or serverless function to route requests based on complexity to the best fit models. This will also help reduce costs while also ensuring performance on the right tasks. For example, route simple queries to smaller, faster models, and only use expensive large models for complex reasoning tasks.
 
-**Kešovanie odpovedí:** Identifikovanie bežných požiadaviek a úloh a poskytovanie odpovedí ešte predtým, než prejdú vaším agentným systémom, je dobrý spôsob, ako znížiť objem podobných požiadaviek. Dokonca môžete implementovať tok na zistenie, ako veľmi je požiadavka podobná vašim uloženým požiadavkám s využitím jednoduchších AI modelov. Táto stratégia môže výrazne znížiť náklady pri často kladených otázkach alebo bežných pracovných postupoch.
+**Caching Responses:** Identifying common requests and tasks and providing the responses before they go through your agentic system is a good way to reduce the volume of similar requests. You can even implement a flow to identify how similar a request is to your cached requests using more basic AI models. This strategy can significantly reduce costs for frequently asked questions or common workflows.
 
-## Pozrime sa, ako to funguje v praxi
+## Poďme sa pozrieť, ako to funguje v praxi
 
-V [ukážkovom notebooku tejto sekcie](./code_samples/10_autogen_evaluation.ipynb) uvidíme príklady toho, ako môžeme použiť nástroje na pozorovateľnosť na monitorovanie a hodnotenie nášho agenta.
+In the [ukážkový notebook tejto sekcie](./code_samples/10-expense_claim-demo.ipynb), we’ll see examples of how we can use observability tools to monitor and evaluate our agent.
 
 
 ### Máte ďalšie otázky o AI agentoch v produkcii?
 
-Pridajte sa na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), aby ste sa stretli s ďalšími študentmi, zúčastnili sa konzultačných hodín a získali odpovede na svoje otázky o AI agentoch.
+Pripojte sa na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) aby ste sa stretli s ďalšími študentmi, zúčastnili sa konzultačných hodín a získali odpovede na svoje otázky o AI agentoch.
 
 ## Predchádzajúca lekcia
 
@@ -162,11 +168,11 @@ Pridajte sa na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), ab
 
 ## Nasledujúca lekcia
 
-[Agentné protokoly](../11-agentic-protocols/README.md)
+[Agentické protokoly](../11-agentic-protocols/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Upozornenie:
-Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa usilujeme o presnosť, majte prosím na pamäti, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho originálnom jazyku by sa mal považovať za záväzný zdroj. Pri kritických informáciách sa odporúča profesionálny ľudský preklad. Neberieme zodpovednosť za akékoľvek nedorozumenia alebo nesprávne výklady vyplývajúce z použitia tohto prekladu.
+Vylúčenie zodpovednosti:
+Tento dokument bol preložený pomocou služby prekladu založenej na AI [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho pôvodnom jazyku by sa mal považovať za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo mylné výklady vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

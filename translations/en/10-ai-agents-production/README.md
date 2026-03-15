@@ -11,7 +11,7 @@ After completing this lesson, you will know how to/understand:
 - Techniques for improving the performance, costs, and effectiveness of agents
 - What and how to evaluate your AI agents systematically
 - How to control costs when deploying AI agents to production
-- How to instrument agents built with AutoGen
+- How to instrument agents built with Microsoft Agent Framework
 
 The goal is to equip you with the knowledge to transform your "black box" agents into transparent, manageable, and dependable systems.
 
@@ -25,6 +25,7 @@ Observability tools such as [Langfuse](https://langfuse.com/) or [Microsoft Foun
 - **Spans** are individual steps within the trace (like calling a language model or retrieving data).
 
 ![Trace tree in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+<!-- Image URL retained for illustration purposes -->
 
 Without observability, an AI agent can feel like a "black box" - its internal state and reasoning are opaque, making it difficult to diagnose issues or optimize performance. With observability, agents become "glass boxes," offering transparency that is vital for building trust and ensuring they operate as intended. 
 
@@ -57,7 +58,7 @@ Here are some of the most common metrics that observability tools monitor:
 
 **Automated Evaluation Metrics:** You can also set up automated evals. For instance, you can use an LLM to score the output of the agent e.g. if it is helpful, accurate, or not. There are also several open source libraries that help you to score different aspects of the agent. E.g. [RAGAS](https://docs.ragas.io/) for RAG agents or [LLM Guard](https://llm-guard.com/) to detect harmful language or prompt injection. 
 
-In practice, a combination of these metrics gives the best coverage of an AI agent’s health. In this chapters [example notebook](./code_samples/10_autogen_evaluation.ipynb), we'll show you how these metrics looks in real examples but first, we'll learn how a typical evaluation workflow looks like.
+In practice, a combination of these metrics gives the best coverage of an AI agent’s health. In this chapters [example notebook](./code_samples/10-expense_claim-demo.ipynb), we'll show you how these metrics looks in real examples but first, we'll learn how a typical evaluation workflow looks like.
 
 ## Instrument your Agent
 
@@ -65,15 +66,20 @@ To gather tracing data, you’ll need to instrument your code. The goal is to in
 
 **OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) has emerged as an industry standard for LLM observability. It provides a set of APIs, SDKs, and tools for generating, collecting, and exporting telemetry data. 
 
-There are many instrumentation libraries that wrap existing agent frameworks and make it easy to export OpenTelemetry spans to an observability tool. Below is an example on instrumenting an AutoGen agent with the [OpenLit instrumentation library](https://github.com/openlit/openlit):
+There are many instrumentation libraries that wrap existing agent frameworks and make it easy to export OpenTelemetry spans to an observability tool. Microsoft Agent Framework integrates with OpenTelemetry natively. Below is an example on instrumenting a MAF agent:
 
 ```python
-import openlit
+from agent_framework.observability import get_tracer, get_meter
 
-openlit.init(tracer = langfuse._otel_tracer, disable_batch = True)
+tracer = get_tracer()
+meter = get_meter()
+
+with tracer.start_as_current_span("agent_run"):
+    # Agent execution is traced automatically
+    pass
 ```
 
-The [example notebook](./code_samples/10_autogen_evaluation.ipynb) in this chapter will demonstrate how to instrument your AutoGen agent.
+The [example notebook](./code_samples/10-expense_claim-demo.ipynb) in this chapter will demonstrate how to instrument your MAF agent.
 
 **Manual Span Creation:** While instrumentation libraries provides a good baseline, there are often cases where more detailed or custom information is needed. You can manually create spans to add custom application logic. More importantly, they can enrich automatically or manually created spans with custom attributes (also known as tags or metadata). These attributes can include business-specific data, intermediate computations, or any context that might be useful for debugging or analysis, such as `user_id`, `session_id`, or `model_version`.
 
@@ -149,7 +155,7 @@ Here are some strategies to manage the costs of deploying AI agents to productio
 
 ## Lets see how this works in practice
 
-In the [example notebook of this section](./code_samples/10_autogen_evaluation.ipynb), we’ll see examples of how we can use observability tools to monitor and evaluate our agent.
+In the [example notebook of this section](./code_samples/10-expense_claim-demo.ipynb), we’ll see examples of how we can use observability tools to monitor and evaluate our agent.
 
 
 ### Got More Questions about AI Agents in Production?
@@ -168,5 +174,5 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet w
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 Disclaimer:
-This document has been translated using the AI translation service Co-op Translator (https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+This document was translated using the AI translation service Co-op Translator (https://github.com/Azure/co-op-translator). While we strive for accuracy, automated translations may contain errors or inaccuracies. The original document in its native language is the authoritative source. For critical information, a professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations resulting from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
