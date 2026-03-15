@@ -12,9 +12,9 @@
 
 開始するには、GitHub リポジトリをクローンまたはフォークしてください。これにより、コードを実行、テスト、調整できる自分専用のコース教材のバージョンが作成されます！
 
-This can be done by clicking the link to <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">リポジトリをフォークする</a>
+これは、<a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">リポジトリをフォークする</a>ためのリンクをクリックすることで実行できます。
 
-You should now have your own forked version of this course in the following link:
+以下のリンクから、このコースのフォーク版を入手できます。
 
 ![フォークしたリポジトリ](../../../translated_images/ja/forked-repo.33f27ca1901baa6a.webp)
 
@@ -24,15 +24,15 @@ You should now have your own forked version of this course in the following link
 
 #### クイック浅いクローン — 最小の履歴、すべてのファイル
 
-Replace `<your-username>` in the below commands with your fork URL (or the upstream URL if you prefer).
+以下のコマンドの`<your-username>`を、フォークのURL（または必要に応じてアップストリームのURL）に置き換えてください。
 
-To clone only the latest commit history (small download):
+最新のコミット履歴のみをクローンするには（ダウンロードサイズは小さいです）：
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-To clone a specific branch:
+特定のブランチをクローンするには：
 
 ```bash|powershell
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
@@ -40,25 +40,25 @@ git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai
 
 #### 部分（スパース）クローン — 最小の blob + 選択したフォルダのみ
 
-This uses partial clone and sparse-checkout (requires Git 2.25+ and recommended modern Git with partial clone support):
+これは部分クローンとスパースチェックアウトを使用します（Git 2.25以降が必要で、部分クローンをサポートする最新のGitを推奨します）。
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Traverse into the repo folder:
+リポジトリフォルダに移動します。
 
 ```bash|powershell
 cd ai-agents-for-beginners
 ```
 
-Then specify which folders you want (example below shows two folders):
+次に、必要なフォルダを指定します（以下の例では2つのフォルダを示しています）。
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-After cloning and verifying the files, if you only need files and want to free space (no git history), please delete the repository metadata (💀irreversible — you will lose all Git functionality: no commits, pulls, pushes, or history access).
+ファイルのクローンと検証後、ファイルのみが必要で空き容量を確保したい場合（Git の履歴は不要）、リポジトリのメタデータを削除してください（💀元に戻せません。コミット、プル、プッシュ、履歴へのアクセスなど、すべての Git 機能が失われます）。
 
 ```bash
 # zsh または bash
@@ -72,24 +72,23 @@ Remove-Item -Recurse -Force .git
 
 #### GitHub Codespaces の使用（ローカルでの大きなダウンロードを回避するために推奨）
 
-- Create a new Codespace for this repo via the [GitHub の UI](https://github.com/codespaces).  
-
-- In the terminal of the newly created codespace, run one of the shallow/sparse clone commands above to bring only the lesson folders you need into the Codespace workspace.
-- Optional: after cloning inside Codespaces, remove .git to reclaim extra space (see removal commands above).
-- Note: If you prefer to open the repo directly in Codespaces (without an extra clone), be aware Codespaces will construct the devcontainer environment and may still provision more than you need. Cloning a shallow copy inside a fresh Codespace gives you more control over disk usage.
+- [GitHub の UI](https://github.com/codespaces)を使って、このリポジトリ用の新しいCodespaceを作成してください。 
+- 新しく作成したコードスペースのターミナルで、上記のシャロークローン/スパースクローンコマンドのいずれかを実行し、必要なレッスンフォルダのみをコードスペースワークスペースにコピーします。
+- オプション：コードスペース内でクローンした後、.git を削除して余分なディスク容量を解放します（上記の削除コマンドを参照）。
+- 注意：リポジトリをコードスペース内で直接開く場合（追加のクローンを行わない場合）、コードスペースは開発コンテナ環境を構築し、必要以上のリソースをプロビジョニングする可能性があることに注意してください。新しいコードスペース内にシャローコピーをクローンすることで、ディスク使用量をより細かく制御できます。
 
 #### ヒント
 
-- Always replace the clone URL with your fork if you want to edit/commit.
-- If you later need more history or files, you can fetch them or adjust sparse-checkout to include additional folders.
+- 編集やコミットを行う場合は、必ずクローンURLをフォークしたURLに置き換えてください。
+- 後でさらに履歴やファイルが必要になった場合は、それらを取得するか、sparse-checkoutの設定を調整して追加のフォルダを含めることができます。
 
 ## コードの実行
 
-This course offers a series of Jupyter Notebooks that you can run with to get hands-on experience building AI Agents.
+このコースでは、AIエージェントの構築を実践的に体験できる一連のJupyter Notebookを提供します。
 
-The code samples use **Microsoft Agent Framework (MAF)** with the `AzureAIProjectAgentProvider`, which connects to **Azure AI Agent Service V2** (the Responses API) through **Microsoft Foundry**.
+コードサンプルでは、​​**Microsoft Agent Framework (MAF)**と`AzureAIProjectAgentProvider`を使用し、**Microsoft Foundry**を介して**Azure AI Agent Service V2**（Responses API）に接続します。
 
-All Python notebooks are labelled `*-python-agent-framework.ipynb`.
+すべてのPythonノートブックは`*-python-agent-framework.ipynb`という名前です。
 
 ## 要件
 
@@ -98,13 +97,13 @@ All Python notebooks are labelled `*-python-agent-framework.ipynb`.
   
     > 例
 
-    Create Python venv directory:
+    Pythonのvenvディレクトリを作成します。
 
     ```bash|powershell
     python -m venv venv
     ```
 
-    Then activate venv environment for:
+    次に、venv環境をアクティブ化します。
 
     ```bash
     # zsh/bash
@@ -116,7 +115,7 @@ All Python notebooks are labelled `*-python-agent-framework.ipynb`.
     venv\Scripts\activate
     ```
 
-- .NET 10+: For the sample codes using .NET, ensure you install [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later. Then, check your installed .NET SDK version:
+- NET 10 以降: .NET を使用するサンプル コードについては、[.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) 以降がインストールされていることを確認してください。次に、インストールされている .NET SDK のバージョンを確認してください。
 
     ```bash|powershell
     dotnet --list-sdks
@@ -126,19 +125,19 @@ All Python notebooks are labelled `*-python-agent-framework.ipynb`.
 - **Azure Subscription** — Microsoft Foundry と Azure AI Agent Service へのアクセスに必要です。
 - **Microsoft Foundry Project** — デプロイされたモデル（例: `gpt-4o`）を持つプロジェクト。以下の [Step 1](../../../00-course-setup) を参照してください。
 
-We have included a `requirements.txt` file in the root of this repository that contains all the required Python packages to run the code samples.
+このリポジトリのルートディレクトリに、コードサンプルを実行するために必要なすべてのPythonパッケージを記述した`requirements.txt`ファイルを用意しました。
 
-You can install them by running the following command in your terminal at the root of the repository:
+リポジトリのルートディレクトリでターミナルを開き、以下のコマンドを実行することで、これらのパッケージをインストールできます。
 
 ```bash|powershell
 pip install -r requirements.txt
 ```
 
-We recommend creating a Python virtual environment to avoid any conflicts and issues.
+競合や問題を回避するため、Pythonの仮想環境を作成することをお勧めします。
 
 ## VSCode のセットアップ
 
-Make sure that you are using the right version of Python in VSCode.
+VS Codeで正しいバージョンのPythonを使用していることを確認してください。
 
 ![画像](https://github.com/user-attachments/assets/a85e776c-2edb-4331-ae5b-6bfdfb98ee0e)
 
@@ -165,7 +164,7 @@ Microsoft Foundry ポータルのプロジェクトから:
 
 ### ステップ 3: `az login` で Azure にサインインする
 
-All notebooks use **`AzureCliCredential`** for authentication — no API keys to manage. This requires you to be signed in via the Azure CLI.
+すべてのノートブックは認証に**`AzureCliCredential`**を使用するため、APIキーを管理する必要はありません。これにはAzure CLI経由でサインインする必要があります。
 
 1. **Azure CLI をインストール** していない場合はインストールしてください: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
@@ -205,7 +204,7 @@ cp .env.example .env
 Copy-Item .env.example .env
 ```
 
-Open `.env` and fill in these two values:
+`.env`ファイルを開き、以下の2つの値を入力してください。
 
 ```env
 AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/projects/<your-project-id>
@@ -302,11 +301,11 @@ truststore.inject_into_ssl()
 
 ## 困ったときは？
 
-If you have any issues running this setup, hop into our <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI コミュニティ Discord</a> or <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">Issue を作成する</a>.
+このセットアップの実行中に問題が発生した場合は、<a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI コミュニティ Discord</a> に参加するか、<a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">問題を作成</a>してください。
 
 ## 次のレッスン
 
-You are now ready to run the code for this course. Happy learning more about the world of AI Agents! 
+これで、このコースのコードを実行する準備が整いました。AIエージェントの世界について、楽しく学びましょう！
 
 [AI エージェントの紹介とユースケース](../01-intro-to-ai-agents/README.md)
 
@@ -314,5 +313,5 @@ You are now ready to run the code for this course. Happy learning more about the
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 免責事項:
-この文書は AI 翻訳サービス「Co-op Translator」（https://github.com/Azure/co-op-translator）を使用して翻訳されました。正確性には努めておりますが、自動翻訳には誤りや不正確な表現が含まれる可能性があります。原文（原言語で作成された文書）が正式な情報源とみなされます。重要な内容については、専門の翻訳者による人間翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や解釈の相違についても責任を負いかねます。
+この文書は AI 翻訳サービス「[Co-op Translator](https://github.com/Azure/co-op-translator)」を使用して翻訳されました。正確性には努めておりますが、自動翻訳には誤りや不正確な表現が含まれる可能性があります。原文（原言語で作成された文書）が正式な情報源とみなされます。重要な内容については、専門の翻訳者による人間翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や解釈の相違についても責任を負いかねます。
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
