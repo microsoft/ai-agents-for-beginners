@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Face Swap</string>
-    <string name="subtitle">Pick two photos, then swap their faces</string>
+    <string name="app_name">AI Face Swap</string>
+    <string name="subtitle">Pick two photos and swap their faces with AI</string>
 
     <!-- Labels -->
     <string name="label_source">Source Face</string>
