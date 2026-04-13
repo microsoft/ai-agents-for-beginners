@@ -9,5 +9,5 @@
 .cxx
 local.properties
 
-# Gradle wrapper jar (binary – generate with `gradle wrapper`)
-gradle/wrapper/gradle-wrapper.jar
+# Generated build artefacts
+.gradle/

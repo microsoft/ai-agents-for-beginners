@@ -177,8 +177,8 @@ object FaceSwapEngine {
         canvas.save()
         canvas.clipPath(path)
         canvas.drawRect(
-            (box.left  - r).toInt().toFloat(), (box.top  - r).toInt().toFloat(),
-            (box.right + r).toInt().toFloat(), (box.bottom + r).toInt().toFloat(),
+            box.left  - r, box.top  - r,
+            box.right + r, box.bottom + r,
             Paint(Paint.ANTI_ALIAS_FLAG).apply {
                 shader = gradient
                 xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP)

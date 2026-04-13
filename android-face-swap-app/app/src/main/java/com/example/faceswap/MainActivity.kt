@@ -126,18 +126,21 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             try {
+                // Fetch strings on Main before jumping to Default
+                val errSource  = getString(R.string.error_no_face_source)
+                val errTarget  = getString(R.string.error_no_face_target)
+                val txtSwapping = getString(R.string.status_swapping)
+
                 val swapped = withContext(Dispatchers.Default) {
                     val srcFaces = detector.detectFaces(src)
                     val tgtFaces = detector.detectFaces(tgt)
 
                     when {
-                        srcFaces.isEmpty() ->
-                            error(getString(R.string.error_no_face_source))
-                        tgtFaces.isEmpty() ->
-                            error(getString(R.string.error_no_face_target))
+                        srcFaces.isEmpty() -> error(errSource)
+                        tgtFaces.isEmpty() -> error(errTarget)
                         else -> {
                             withContext(Dispatchers.Main) {
-                                binding.tvStatus.text = getString(R.string.status_swapping)
+                                binding.tvStatus.text = txtSwapping
                             }
                             FaceSwapEngine.swapFaces(src, tgt, srcFaces[0], tgtFaces[0])
                         }
