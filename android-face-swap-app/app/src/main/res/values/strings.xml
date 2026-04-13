@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Face Swap</string>
+    <string name="subtitle">Pick two photos, then swap their faces</string>
+
+    <!-- Labels -->
+    <string name="label_source">Source Face</string>
+    <string name="label_target">Target Face</string>
+    <string name="label_result">Result</string>
+    <string name="label_ready">Image ready</string>
+
+    <!-- Hints -->
+    <string name="hint_tap_select">Tap below to select</string>
+
+    <!-- Buttons -->
+    <string name="btn_pick_photo">Pick Photo</string>
+    <string name="btn_swap">Swap Faces</string>
+    <string name="btn_save">Save to Gallery</string>
+    <string name="btn_reset">Reset</string>
+
+    <!-- Status messages -->
+    <string name="status_detecting">Detecting faces…</string>
+    <string name="status_swapping">Swapping faces…</string>
+    <string name="status_done">Done! Scroll down to see the result.</string>
+
+    <!-- Error messages -->
+    <string name="error_no_face_source">No face detected in the source image. Try a clearer, front-facing photo.</string>
+    <string name="error_no_face_target">No face detected in the target image. Try a clearer, front-facing photo.</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_no_result">No result image available. Perform a swap first.</string>
+    <string name="error_save">Failed to save image</string>
+
+    <!-- Success -->
+    <string name="saved_to_gallery">Image saved to gallery!</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_source_image">Source face image</string>
+    <string name="cd_target_image">Target face image</string>
+    <string name="cd_result_image">Face swap result</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Face + swap arrows icon used as the adaptive launcher icon foreground -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Face circle outline -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,22 C40.74,22 30,32.74 30,46 C30,54.14 34.1,61.31 40.34,65.82 L40.34,78 L67.66,78 L67.66,65.82 C73.9,61.31 78,54.14 78,46 C78,32.74 67.26,22 54,22 Z" />
+
+    <!-- Left eye -->
+    <path
+        android:fillColor="#7C4DFF"
+        android:pathData="M46,44 C46,46.21 44.21,48 42,48 C39.79,48 38,46.21 38,44 C38,41.79 39.79,40 42,40 C44.21,40 46,41.79 46,44 Z" />
+
+    <!-- Right eye -->
+    <path
+        android:fillColor="#7C4DFF"
+        android:pathData="M70,44 C70,46.21 68.21,48 66,48 C63.79,48 62,46.21 62,44 C62,41.79 63.79,40 66,40 C68.21,40 70,41.79 70,44 Z" />
+
+    <!-- Smile arc -->
+    <path
+        android:strokeColor="#7C4DFF"
+        android:strokeWidth="2.5"
+        android:fillColor="#00000000"
+        android:pathData="M44,58 Q54,68 64,58" />
+
+    <!-- Swap arrows (bottom) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M34,84 L28,90 L34,96 L34,92 L46,92 L46,88 L34,88 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M74,84 L80,90 L74,96 L74,92 L62,92 L62,88 L74,88 Z" />
+</vector>
