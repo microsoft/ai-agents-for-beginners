@@ -9,7 +9,9 @@ It supports long-running tasks that can be resumed after client disconnection.
 import argparse
 import asyncio
 import logging
+import os
 import re
+import secrets
 from turtle import st
 from typing import Optional
 
@@ -17,6 +19,8 @@ import anyio
 import uvicorn
 from pydantic import AnyUrl
 from starlette.applications import Starlette
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.responses import Response
 from starlette.routing import Mount
 from pydantic import BaseModel, Field
 from mcp.server import Server
@@ -292,6 +296,18 @@ class ResumableServer(Server):
                 raise ValueError(f"Unknown tool: {name}")
 
 
+class _APIKeyMiddleware(BaseHTTPMiddleware):
+    """Middleware to enforce API key authentication when MCP_API_KEY is set."""
+
+    async def dispatch(self, request, call_next):
+        api_key = os.environ.get("MCP_API_KEY")
+        if api_key:
+            request_key = request.headers.get("X-API-Key", "")
+            if not secrets.compare_digest(request_key, api_key):
+                return Response("Unauthorized", status_code=401)
+        return await call_next(request)
+
+
 def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
     """Create the Starlette application with resumable MCP server."""
     # Create server instance
@@ -313,12 +329,14 @@ def create_server_app(event_store: Optional[EventStore] = None) -> Starlette:
 
     # Create ASGI application
     app = Starlette(
-        debug=True,
+        debug=False,
         routes=[
             Mount("/mcp", app=session_manager.handle_request),
         ],
         lifespan=lambda app: session_manager.run(),
     )
+
+    app.add_middleware(_APIKeyMiddleware)
 
     return app
 
