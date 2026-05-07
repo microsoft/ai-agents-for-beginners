@@ -71,7 +71,7 @@ The code examples in these exercises utilize Microsoft Agent Framework with Azur
 
 This course uses the following AI Agent frameworks and services from Microsoft:
 
-- [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok)
+- [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework)
 - [Azure AI Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
 Some code samples also support alternative OpenAI-compatible providers such as [MiniMax](https://platform.minimaxi.com/), which offers large-context models (up to 204K tokens). See the [Course Setup](./00-course-setup/README.md) for configuration details.
@@ -112,7 +112,7 @@ Do you have suggestions or found spelling or code errors? [Raise an issue](https
 | Building Computer Use Agents (CUA)           | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
 | Deploying Scalable Agents                    | Coming Soon                            |                                                            |                                                                                        |
 | Creating Local AI Agents                     | Coming Soon                               |                                                            |                                                                                        |
-| Securing AI Agents                           | Coming Soon                               |                                                            |                                                                                        |
+| Securing AI Agents                           | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
 ## 🎒 Other Courses
 

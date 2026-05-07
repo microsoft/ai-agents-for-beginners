@@ -1,125 +1,148 @@
-[![AI ఏజెంట్లు ఏమిటి?](../../../translated_images/te/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](../../../translated_images/te/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(ఈ పాఠంలోని వీడియోను చూడటానికి పై చిత్రం క్లిక్ చేయండి)_
+> _(ఈ పాఠం కోసం వీడియో చూడటానికి పై చిత్రాన్ని క్లిక్ చేయండి)_
 
+# AI ఏజెంట్ల పరిచయం మరియు ఏజెంట్ వినియోగ కేసులు
 
-# AI ఏజెంట్లు మరియు ఏజెంట్ వినియోగ సందర్భాల పరిచయం
+**AI ఏజెంట్స్ ఫర్ బిగినర్స్** కోర్సుకు స్వాగతం! ఈ కోर्स్ మీకు ప్రాథమిక జ్ఞానం మరియు నిజమైన పని కోడ్‌ను అందిస్తుంది — ప్రారంభం నుంచి AI ఏజెంట్లను నిర్మించటం ప్రారంభించడానికి.
 
-Welcome to the "AI Agents for Beginners" course! This course provides fundamental knowledge and applied samples for building AI Agents.
+<a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a> లో హాయ్ చెప్పండి — ఇది అభ్యసనులు మరియు AI నిర్మాణకర్తలతో నిండినది, వారు ప్రశ్నలకు సంతోషంగా సమాధానం ఇస్తారు.
 
-Join the <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord కమ్యూనిటీ</a> to meet other learners and AI Agent Builders and ask any questions you have about this course.
+నిర్మాణం ప్రారంభించే ముందు, AI ఏజెంట్ *ఏమిటి* అనే విషయం మరియు ఎప్పుడు దానిని ఉపయోగించడం బాగుంటుందో అందంగా అర్థం చేసుకుందాం.
 
-To start this course, we begin by getting a better understanding of what AI Agents are and how we can use them in the applications and workflows we build.
+---
 
-## Introduction
+## పరిచయం
 
-This lesson covers:
+ఈ పాఠం కవర్ చేస్తుంది:
 
-- AI ఏజెంట్లు ఏమిటి మరియు ఏవే వేరు రకాల ఏజెంట్లు ఉన్నాయో?
-- ఏ వినియోగ సందర్భాలు AI ఏజెంట్లకు ఉత్తమంగా అనుకూలమవుతాయి మరియు అవి మనకు ఎలా సహాయపడతాయి?
-- ఏజెంటిక్ పరిష్కారాలను డిజైన్ చేసినప్పుడు కొన్ని ప్రాథమిక నిర్మాణ భాగాలు ఏమిటి?
+- AI ఏజెంట్స్ అంటే ఏమిటి, మరియు వేర్వేరు రకాల ఏమిటి
+- ఏ పనులకు AI ఏజెంట్స్ గొప్పగా సరిపోతాయి
+- ఏజెంటిక్ పరిష్కారాన్ని రూపకల్పన చేసే సమయంలో మీరు ఉపయోగించే మూల భాగాలు
 
-## Learning Goals
-After completing this lesson, you should be able to:
+## నేర్చుకోవాల్సిన లక్ష్యాలు
 
-- AI ఏజెంట్ సంకల్పనలను మరియు అవి ఇతర AI పరిష్కారాల నుండి ఎలా భిన్నమవుతాయో అర్థం చేసుకోవడం.
-- AI ఏజెంట్లను అత్యంత సమర్థవంతంగా అప్లై చేయడం.
-- వినియోగదారులకు మరియు ఖాతాదారులకు ఉత్పాదకంగా ఏజెంటిక్ పరిష్కారాలను డిజైన్ చేయడం.
+ఈ పాఠం ముగిసినప్పుడు, మీరు చేయగలుగుతారు:
 
-## Defining AI Agents and Types of AI Agents
+- AI ఏజెంట్ ఏమిటి మరియు సాధారణ AI పరిష్కారంతో తేడా ఏమిటి వివరించగలగాలి
+- ఎప్పుడు AI ఏజెంట్ కోసం చేరుకోవాలి (మరియు ఎప్పుడు కాదు) తెలిసి ఉండాలి
+- వాస్తవ ప్రపంచ సమస్యకు ఒక ప్రాథమిక ఏజెంటిక్ పరిష్కార రూపకల్పన రేఖాచిత్రం తయారు చేయగలగాలి
 
-### What are AI Agents?
+---
 
-AI Agents are **systems** that enable **Large Language Models(LLMs)** to **perform actions** by extending their capabilities by giving LLMs **access to tools** and **knowledge**.
+## AI ఏజెంట్ల నిర్వచనం మరియు వేర్వేరు రకాల AI ఏజెంట్స్
 
-Let's break this definition into smaller parts:
+### AI ఏజెంట్లు ఏమిటి?
 
-- **System** - It's important to think about agents not as just a single component but as a system of many components. At the basic level, the components of an AI Agent are:
-  - **Environment** - The defined space where the AI Agent is operating. For example, if we had a travel booking AI Agent, the environment could be the travel booking system that the AI Agent uses to complete tasks.
-  - **Sensors** - Environments have information and provide feedback. AI Agents use sensors to gather and interpret this information about the current state of the environment. In the Travel Booking Agent example, the travel booking system can provide information such as hotel availability or flight prices.
-  - **Actuators** - Once the AI Agent receives the current state of the environment, for the current task the agent determines what action to perform to change the environment. For the travel booking agent, it might be to book an available room for the user.
+ఇది అర్థం చేసుకోవడానికి ఒక సులభమైన విధానం:
 
-![AI ఏజెంట్లు ఏమిటి?](../../../translated_images/te/what-are-ai-agents.1ec8c4d548af601a.webp)
+> **AI ఏజెంట్లు అనేవి పెద్ద భాషా నమూనాలు (LLMs) నిజంగా *చేయడాన్ని* అనుమతించే వ్యవస్థలు — ప్రాంప్ట్‌లకు జవాబులు మాత్రమే కాదు, ప్రపంచంపై ప్రవర్తించడానికి టూల్స్ మరియు జ్ఞానాన్ని ఇచ్చి.**
 
-**Large Language Models** - The concept of agents existed before the creation of LLMs. The advantage of building AI Agents with LLMs is their ability to interpret human language and data. This ability enables LLMs to interpret environmental information and define a plan to change the environment.
+కొంచెం పేర్చుకుందాం:
 
-**Perform Actions** - Outside of AI Agent systems, LLMs are limited to situations where the action is generating content or information based on a user's prompt. Inside AI Agent systems, LLMs can accomplish tasks by interpreting the user's request and using tools that are available in their environment.
+- **వ్యవస్థ** — AI ఏజెంట్ ఒకటి మాత్రమే కాదు. ఇది అంశాల సమాహారం. ప్రతి ఏజెంట్ కింద మూడు భాగాలు ఉంటాయి:
+  - **పరిసరాల వాతావరణం** — ఏజెంట్ పనిచేస్తున్న స్థలం. ప్రయాణ బుకింగ్ ఏజెంట్ కు అది బుకింగ్ వేదికే.
+  - **సెన్సార్లు** — ఏజెంట్ తన స్థితి చదవటానికి. మన ప్రయాణ ఏజెంట్ హోటల్ లభ్యత లేదా విమాన ధరలు చెక్ చేయవచ్చు.
+  - **కార్యాచరణలు** — ఏజెంట్ చేసే చర్యలు. ప్రివాణి ఏజెంట్ గది బుక్ చేయటం, ధృవీకరణ పంపటం లేదా బుకింగ్ రద్దు చేయటం చేయవచ్చు.
 
-**Access To Tools** - What tools the LLM has access to is defined by 1) the environment it's operating in and 2) the developer of the AI Agent. For our travel agent example, the agent's tools are limited by the operations available in the booking system, and/or the developer can limit the agent's tool access to flights.
+![What Are AI Agents?](../../../translated_images/te/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-**Memory+Knowledge** - Memory can be short-term in the context of the conversation between the user and the agent. Long-term, outside of the information provided by the environment, AI Agents can also retrieve knowledge from other systems, services, tools, and even other agents. In the travel agent example, this knowledge could be the information on the user's travel preferences located in a customer database.
+- **పెద్ద భాషా నమూనాలు** — ఏజెంట్లు LLMs కంటే ముందే ఉన్నాయి, కానీ LLMs ఆధునిక ఏజెంట్లకు చాలా శక్తివంతంగా చేస్తాయి. అవి సహజ భాషను అర్ధం చేసుకోగలవు, సੰਦਰభాన్ని తరిగిపారవచ్చు, మరియు కర్దములు సూచించే అజ్ఞాత అభ్యర్థనను స్పష్టమైన కార్యాచరణ ప్రణాళికగా మార్చగలవు.
 
-### The different types of agents
+- **చర్యలు చేయడం** — ఏజెంట్ వ్యవస్థ లేకుండా, LLM కేవలం టెక్స్ట్ రూపొందిస్తుంది. ఏజెంట్ వ్యవస్థలో LLM నిజంగా *నేర్పే* క్రమాలను అమలు చేయవచ్చు — డేటాబేస్ శోధన, API పిలుపు, సందేశ పంపడం.
 
-Now that we have a general definition of AI Agents, let us look at some specific agent types and how they would be applied to a travel booking AI agent.
+- **సాధనాల ప్రాప్యత** — ఏజెంట్ ఉపయోగించే టూల్స్ వాస్తవ పరిస్థితి (environment) మరియు అభివృద్ధిదారు ఇచ్చిన దానిపై ఆధారపడి ఉంటుంది. ప్రయాణ ఏజెంట్ విమానాలను శోధించవచ్చు కానీ కస్టమర్ రికార్డులను మార్చలేరు — మీరు కనెక్ట్ చేసినదానిపై అన్నీ ఆధారపడి ఉంటుంది.
 
-| **ఏజెంట్ రకం**                | **వివరణ**                                                                                                                       | **ఉదాహరణ**                                                                                                                                                                                                                   |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **సింపుల రిఫ్లెక్స్ ఏజెంట్లు**      | పూర్వనిర్ధారిత నియమాల ఆధారంగా తక్షణ చర్యలు చేపడతాయి.                                                                                  | ప్రయాణ ఏజెంట్ ఇమెయిల్ సందర్భాన్ని అర్థం చేసుకుని ప్రయాణ సంబంధిత ఫిర్యాదులను కస్టమర్ సర్వీస్‌కి ఫార్వర్డ్ చేస్తుంది.                                                                                                                          |
-| **మోడల్-ఆధారిత రిఫ్లెక్స్ ఏజెంట్లు** | ప్రపంచ మోడల్ మరియు ఆ మోడల్‌లో మార్పుల ఆధారంగా చర్యలు చేపడతాయి.                                                              | చరిత్రాత్మక ధర డేటాకు ప్రాప్తి ఆధారంగా గణనీయ ధర మార్పులున్న రూట్లకు ప్రయాణ ఏజెంట్ ప్రాధాన్యత ఇస్తుంది.                                                                                                             |
-| **లక్ష్య-ఆధారిత ఏజెంట్లు**         | లక్ష్యాన్ని అర్థం చేసుకొని దానిని చేరుకోవడానికి అవసరమైన చర్యలను నిర్ణయించి ప్రణాళికలు తయారు చేస్తాయి.                                  | ప్రస్తుత స్థలం నుంచి గమ్యస్థానం చేరేందుకు అవసరమైన ప్రయాణ ఏర్పాట్లు (కారు, ప్రజా రవాణా, విమానాలు) నిర్ణయించి ప్రయాణం బుక్ చేస్తుంది.                                                                                |
-| **యుటిలిటీ-ఆధారిత ఏజెంట్లు**      | ప్రాధాన్యాలను పరిగణలోకి తీసుకుని ట్రేడ్-ఆఫ్లను లెక్కలుగా మూల్యాంకనం చేసి లక్ష్యాలను ఎలా సాధించాలో నిర్ణయిస్తాయి.                                               | ప్రయాణ బుకింగ్ సమయంలో సౌకర్యం మరియు ఖర్చు మధ్య తులన చేసి ప్రయోజనాన్ని గరిష్ట పరిమితికి తీసుకెళ్తుంది.                                                                                                                                          |
-| **లెర్నింగ్ ఏజెంట్లు**           | ఫీడ్‌బ్యాక్‌కు స్పందించి చర్యలను సర్దుబాటు చేయడం ద్వారా సమయానికొచ్చే మెరుగుదల చూపుతాయి.                                                        | పోస్ట్‑ట్రిప్ సర్వేల నుండి వచ్చిన కస్టమర్ ఫీడ్‌బ్యాక్‌ను ఉపయోగించి భవిష్యత్తు బుకింగ్‌లలో సవరణలు చేయడం ద్వారా ప్రయాణ ఏజెంట్ మెరుగవుతుంది.                                                                                                               |
-| **హైరార్కికల్ ఏజెంట్లు**       | పటములో అనేక ఏజెంట్లు ఉండి, ఉన్నత-స్థాయి ఏజెంట్లు పనులను ఉప‑పనులుగా విభజించి తక్కువ-స్థాయి ఏజెంట్లు పూర్తి చేస్తాయి. | ప్రయాణ ఏజెంట్ ఒక ప్రయాణాన్ని రద్దు చేయడానికి పనిని ఉప‑పనులుగా విభజించి (ఉదాహరణకు, నిర్దిష్ట బుకింగ్‌లను రద్దు చేయడం) తక్కువ‑స్థాయి ఏజెంట్లు వాటిని పూర్తి చేసి ఉన్నత‑స్థాయి ఏజెంట్‌కు నివేదిక ఇస్తాయి.                                     |
-| **బహుళ ఏజెంట్ సిస్టమ్స్ (MAS)** | ఏజెంట్లు స్వతంత్రంగా, సహకారంగా లేదా పోటీగా పనులను పూర్తి చేస్తాయి.                                                           | సహకారాత్మక: అనేక ఏజెంట్లు హోటల్లు, విమానాలు, వినోదం వంటి నిర్దిష్ట ప్రయాణ సేవలను బుక్ చేస్తాయి. పోటీదారుల: అనేక ఏజెంట్లు భాగస్వామ్య హోటల్ బుకింగ్ కాలెండర్‌పై నిర్వహణ చేసి కస్టమర్లను బుక్ చేయడంలో పోటీ పడతాయి. |
+- **స్మృతి + జ్ఞానం** — ఏజెంట్లు తాత్కాలిక స్మృతి (ప్రస్తుత సంభాషణ) మరియు దీర్ఘకాలిక స్మృతి (కస్టమర్ డేటాబేసు, గత పరిచయాలు) కలిగి ఉండవచ్చు. ప్రయాణ ఏజెంట్ మీరు విండో సీట్స్ ఇష్టపడుతారని "గుర్తుంచుకోగలదు".
 
-## When to Use AI Agents
+---
 
-In the earlier section, we used the Travel Agent use-case to explain how the different types of agents can be used in different scenarios of travel booking. We will continue to use this application throughout the course.
+### వేర్వేరు రకాల AI ఏజెంట్లు
 
-Let's look at the types of use cases that AI Agents are best used for:
+ప్రతి ఏజెంట్ ఒకేలా ఉండరు. ప్రయాణ బుకింగ్ ఏజెంట్ ఉదాహరణగా తీసుకుని ప్రధాన రకాలను వివరిద్దాం:
 
-![ఎప్పుడు AI ఏజెంట్లను ఉపయోగించాలి?](../../../translated_images/te/when-to-use-ai-agents.54becb3bed74a479.webp)
+| **ఏజెంట్ రకం** | **అది ఏమి చేస్తుంది** | **ప్రయాణ ఏజెంట్ ఉదాహరణ** |
+|---|---|---|
+| **సింపుల్ రిఫ్లెక్స్ ఏజెంట్లు** | కఠిన నియమాలను అనుసరిస్తాయి — స్మృతి లేదు, ప్రణాళిక లేదు. | అందుకున్న ఫిర్యాదు ఇమెయిల్ → కస్టమర్ సర్వీస్ కి పంపుతుంది. అంతే. |
+| **మోడల్-బేస్డ్ రిఫ్లెక్స్ ఏజెంట్లు** | లోపలి ప్రపంచ మోడల్ ఉంచి మార్పులెప్పుడు అప్డేట్ చేస్తాయి. | చరిత్రాత్మక విమాన ధరలను ట్రాక్ చేసి, ఆకస్మికంగా ఎక్కువ ధర ఉన్న రూట్లను గుర్తిస్తుంది. |
+| **గోల్-బేస్డ్ ఏజెంట్లు** | లక్ష్యాన్ని గుర్తించి దాన్ని దశల వారీగా చేరుకోవడమే. | మీరు ఉన్న ప్రస్తుత స్థలం నుండి గమ్యస్థానానికి పూర్తి ట్రిప్ (విమానాలు, కారు, హోటల్) బుక్ చేస్తుంది. |
+| **యుటిలిటీ-బేస్డ్ ఏజెంట్లు** | కేవలం ఏదైనా పరిష్కారం కాదు — ఉత్తమ పరిష్కారాన్ని వెతుకుతాయి, ప్రత్యామ్నాయాలను బరువు వేసి. | ఖర్చు మరియు సౌకర్యం మధ్య సంతులనం చేసి మీరు ఇష్టపడే ప్రయాణాన్ని కనుగొంటుంది. |
+| **లెర్నింగ్ ఏజెంట్లు** | అభ్యాసంతో సమయంతో మెరుగుపడతాయి. | ట్రిప్ తర్వాత సర్వే ఫలితాల ఆధారంగా భవిష్యత్తు బుకింగ్ సిఫార్సులు సర్దుబాటు చేస్తుంది. |
+| **హైకరార్చికల్ ఏజెంట్లు** | ఉన్నత స్థాయి ఏజెంట్ పని ను ఉప-పనులుగా విభజించి తక్కువ స్థాయి ఏజెంట్లకు అప్పగిస్తుంది. | "ట్రిప్ రద్దు" అభ్యర్థన ను: విమానం రద్దు, హోటల్ రద్దు, కారు అద్దె రద్దు — ప్రతి ఏజెంట్ ఉత్తరం వ్యవహరిస్తుంది. |
+| **మల్టీ-ఏజెంట్ సిస్టమ్‌లు (MAS)** | అనేక స్వతంత్ర ఏజెంట్లు కలిసి పని (లేదా పోటీ) చేస్తాయి. | సహకారం: వేర్వేరు ఏజెంట్లు హోటల్స్, విమానాలు, వినోదం నిర్వహిస్తాయి. పోటీ: ఎక్కువ ఏజెంట్లు హోటల్ రూమ్లకు ఉత్తమ ధర కోసం పోటీ చేస్తాయి. |
 
+---
 
-- **Open-Ended Problems** - LLM కు టాస్క్ పూర్తి చేయడానికి అవసరమైన దశలను నిర్ణయించేందుకు అనుమతించడం, ఎందుకంటే అవి ఎప్పుడూ వర్క్‌ఫ్లోలో హార్డ్‑కోడ్ చేయలేవు.
-- **Multi-Step Processes** - పలు దశల్లో టూల్స్ లేదా సమాచారాన్ని ఉపయోగించడం అవసరమయ్యే స్థాయి సంక్లిష్టత ఉన్న పనులు, ఒకే సారి పొందే రిట్రీవల్ కు బదులు పలుకు మార్గాల్లో పనిచేసే అవసరం ఉంటుంది.  
-- **Improvement Over Time** - ఏజెంట్ తన పరిసరంనుండి లేదా వినియోగదారుల నుండి ఫీడ్‌బ్యాక్ పొందుతూ కాలక్రమేణా మెరుగుపడే విధంగా ఉండే పనులు, తద్వారా మెరుగైన ప్రయోజనాన్ని అందించగలవు.
+## ఎప్పుడు AI ఏజెంట్లను ఉపయోగించాలి
 
-We cover more considerations of using AI Agents in the Building Trustworthy AI Agents lesson.
+మీకు AI ఏజెంట్ ఉపయోగించగలిగినా, మీరు ఎప్పుడూ ఉపయోగించాలి అనుగాకపోవచ్చు. ఏ సన్నివేశాలలో ఏజెంట్లు నిజంగా మెరుగ్గా పనిచేస్తాయో ఇవి:
 
-## Basics of Agentic Solutions
+![When to use AI Agents?](../../../translated_images/te/when-to-use-ai-agents.54becb3bed74a479.webp)
 
-### Agent Development
+- **ఓపెన్-ఎండెడ్ సమస్యలు** — పరిష్కారం దశలను ముందుగానే ప్రోగ్రామ్ చేయలేని సందర్భాలు. LLM దారిని డైనమిక్ గా కనుగొనాలి.
+- **బహుళ దశల ప్రక్రియలు** — ఒకే శరీరం lookup లేకే ఉత్పత్తి కాకుండా అనేక దశలలో టూల్స్ ఉపయోగిస్తే.
+- **సమయంతో మెరుగుదల** — వినియోగదారు స్పందన లేదా వాతావరణ సంకేతాల ఆధారంగా వ్యవస్థ మెరుగవ్వాలి.
 
-The first step in designing an AI Agent system is to define the tools, actions, and behaviors. In this course, we focus on using the **Azure AI Agent Service** to define our Agents. It offers features like:
+ఇదే AI ఏజెంట్లను ఎప్పుడు (మరి ఎప్పుడూ కాదు) ఉపయోగించాలి అని మనం ఈ కోర్సులో **బిల్డింగ్ ట్రస్ట్వర్థి AI ఏజెంట్స్** పాఠంలో మరింత లోతుగా చూడబోతున్నాం.
 
-- Selection of Open Models such as OpenAI, Mistral, and Llama
-- Use of Licensed Data through providers such as Tripadvisor
-- Use of standardized OpenAPI 3.0 tools
+---
 
-### Agentic Patterns
+## ఏజెంటిక్ పరిష్కారాల ప్రాథమికాలు
 
-Communication with LLMs is through prompts. Given the semi-autonomous nature of AI Agents, it isn't always possible or required to manually reprompt the LLM after a change in the environment. We use **Agentic Patterns** that allow us to prompt the LLM over multiple steps in a more scalable way.
+### ఏజెంట్ అభివృద్ధి
 
-This course is divided into some of the current popular Agentic patterns.
+ఏజెంట్ తయారులో మొదట మీరు చేస్తే, అది చేస్తునది ఏమిటి (అంటే, దాని టూల్స్, చర్యలు, ప్రవర్తనలు) నిర్వచించడం.
+
+ఈ కోర్సులో, మనం **Azure AI ఏజెంట్ సేవ** ని ప్రధాన వేదికగా ఉపయోగిస్తాము. ఇది మద్దతిస్తుంది:
+
+- OpenAI, Mistral, Llama వంటి ఓపెన్ మోడల్స్
+- Tripadvisor వంటి ప్రొవైడర్ల నుండి లైసెన్స్ పొందిన డేటా
+- సులభీకృత OpenAPI 3.0 టూల్ నిర్వచనలు
+
+### ఏజెంటిక్ నమూనాలు
+
+మీరు LLM లతో ప్రాంప్ట్ ల ద్వారా సంభాషిస్తారు. ఏజెంట్లలో ప్రతి ప్రాంప్ట్‌ను చేతితో తయారు చేయలేరు — ఏజెంట్ అనేక దశలలో చర్య తీసుకోవాల్సి ఉంటుంది. ఇక్కడే **Agentic Patterns** సహాయపడతాయి. ఇవి LLM లను ప్రాంప్ట్ చేయడం మరియు నిర్వహణ కోసం మళ్ళీ ఉపయోగించుకునే వ్యూహాలు.
+
+ఈ కోర్సు సాధారణ మరియు ఉపయోగకరమైన ఏజెంటిక్ నమూనాల చుట్టూ నిర్మించబడింది.
 
 ### Agentic Frameworks
 
-Agentic Frameworks allow developers to implement agentic patterns through code. These frameworks offer templates, plugins, and tools for better AI Agent collaboration. These benefits provide abilities for better observability and troubleshooting of AI Agent systems.
+Agentic Frameworks అభివృద్ధిదారులకు సాదారణ టెంప్లేట్లు, టూల్స్ మరియు వసతులు ఇస్తాయి. ఇవి సులభతరం చేస్తాయ్:
 
-In this course, we will explore the Microsoft Agent Framework (MAF) for building production-ready AI agents.
+- టూల్స్ మరియు సామర్ధ్యాలను కనెక్ట్ చేయడం
+- ఏజెంట్ చేస్తున్నదానిని గమనించడం (పొరపాట్లు దొర్లితే ఓ వైపు చూడటం)
+- అనేక ఏజెంట్ల మధ్య సహకారం
 
-## Sample Codes
+ఈ కోర్సులో, మైక్రోసాఫ్ట్ ఏజెంట్ Framework (MAF) పై ఫోకస్ చేస్తాం, ఇది ప్రొడక్షన్-రెడీ ఏజెంట్‌ల నిర్మాణానికి ఉపయోగపడుతుంది.
 
-- Python: [ఏజెంట్ ఫ్రేమ్‌వర్క్](./code_samples/01-python-agent-framework.ipynb)
-- .NET: [ఏజెంట్ ఫ్రేమ్‌వర్క్](./code_samples/01-dotnet-agent-framework.md)
+---
 
-## Got More Questions about AI Agents?
+## కోడ్ నమూనాలు
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+చర్యలో చూడడానికి సిద్ధమా? ఈ పాఠం కోసం కోడ్ నమూనాలు:
 
-## Previous Lesson
+- 🐍 Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
+- 🔷 .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
 
-[కోర్సు సెటప్](../00-course-setup/README.md)
+---
 
-## Next Lesson
+## ప్రశ్నలు ఉన్నాయా?
 
-[Agentic ఫ్రేమ్‌వర్క్‌లను అన్వేషించడం](../02-explore-agentic-frameworks/README.md)
+[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) లో చేరండి – ఇతర అభ్యాసనులతో যোগাযোগం, కార్యాలయ సమయాల్లో పాల్గొనడం, మరియు మీ AI ఏజెంట్ ప్రశ్నలకు సమాధానాలు పొందండిఅందిం.
+
+---
+
+## గత పాఠం
+
+[Course Setup](../00-course-setup/README.md)
+
+## తదుపరి పాఠం
+
+[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-నిరాకరణ:
-ఈ పత్రాన్ని AI అనువాద సేవ Co-op Translator (https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించబడింది. మేము ఖచ్చితత్వానికి యత్నించినప్పటికీ, ఆటోమేటెడ్ అనువాదాలలో తప్పులు లేదా లోపాలు ఉండవచ్చు. మూల భాషలో ఉన్న అసలు పత్రాన్ని ప్రామాణిక మూలంగా పరిగణించండి. కీలకమైన సమాచారానికి వృత్తిపరమైన మానవ అనువాదాన్ని సూచిస్తాము. ఈ అనువాదాన్ని ఉపయోగించడం వలన ఏర్పడే ఏవైనా అపార్థాలు లేదా తప్పుగా అర్థం చేసుకోవడాల‌కు మేము బాధ్యులు కాదని దయచేసి గమనించండి.
+**ఇంక్యత**:  
+ఈ డాక్యుమెంట్‌ని AI అనువাদ సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించబడింది. మనము ఖచ్చితత్వానికి ప్రయత్నించినా, ఆటోమేటెడ్ అనువాదాల్లో లోపాలు లేదా అపార్థాలు ఉండవచ్చు. మూల డాక్యుమెంట్ దాని స్వదేశీ భాషలో అధికారిక మూలంగా పరిగణించబడాలి. అత్యవసరం సమాచారానికి, ప్రొఫెషనల్ మానవ అనువాదం సిఫార్సు చేయబడుతుంది. ఈ అనువాద ఉపయోగంతో ఉత్పన్నమయ్యే ఏదైనా పొరపాటు లేదా అపార్థం గురించి మేము బాధ్యులు కాదు.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

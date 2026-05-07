@@ -285,8 +285,7 @@ fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
 # Initialize Code Interpreter tool and adding it to the toolset. 
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
     model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 

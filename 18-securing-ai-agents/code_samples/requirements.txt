@@ -1,0 +1,11 @@
+# Lesson 18 — Securing AI Agents with Cryptographic Receipts
+#
+# These three packages are sufficient for the entire lesson.
+# All have permissive licenses (Apache-2.0 / MIT / BSD).
+
+pynacl>=1.5.0       # Ed25519 signing and verification (libsodium binding)
+jcs>=0.2.1          # RFC 8785 JSON Canonicalization Scheme
+
+# The "ipykernel" package is required to run the Jupyter notebook
+# in environments that do not have it installed by default.
+ipykernel>=6.0.0

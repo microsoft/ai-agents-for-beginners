@@ -1,125 +1,148 @@
-[![Įvadas į DI agentus](../../../translated_images/lt/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Pristatymas apie AI agentus](../../../translated_images/lt/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Spustelėkite aukščiau esantį paveikslėlį, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
+> _(Spustelkite aukščiau esančią nuotrauką, kad peržiūrėtumėte šio pamokos vaizdo įrašą)_
 
+# Įvadas į AI agentus ir jų panaudojimo atvejus
 
-# Įvadas į DI agentus ir agentų naudojimo atvejus
+Sveiki atvykę į **AI agentų pradedantiesiems** kursą! Šis kursas suteikia jums pagrindines žinias — ir dirbančio kodo pavyzdžius — kad galėtumėte pradėti kurti AI agentus nuo nulio.
 
-Sveiki atvykę į kursą "AI Agents for Beginners"! Šis kursas suteikia pagrindines žinias ir praktinius pavyzdžius DI agentų kūrimui.
+Ateikite pasisveikinti <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord bendruomenėje</a> — joje pilna mokinių ir AI kūrėjų, kurie mielai atsakys į jūsų klausimus.
 
-Prisijunkite prie <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a>, kad susipažintumėte su kitais besimokančiaisiais ir DI agentų kūrėjais bei užduotumėte bet kokius klausimus apie šį kursą.
+Prieš pradėdami kurti, įsitikinkime, kad iš tiesų suprantame, kas yra AI agentas ir kada verta juo naudotis.
 
-Norėdami pradėti šį kursą, pradėsime nuo geresnio supratimo, kas yra DI agentai ir kaip juos galime naudoti kuriamuose taikymuose ir darbo srautuose.
+---
 
-## Įžanga
+## Įvadas
 
-Ši pamoka apima:
+Šioje pamokoje aptarsime:
 
-- Kas yra DI agentai ir kokie yra skirtingi agentų tipai?
-- Kokie naudojimo atvejai yra tinkamiausi DI agentams ir kaip jie gali mums padėti?
-- Kokie yra pagrindiniai komponentai projektuojant agentinius sprendimus?
+- Kas yra AI agentai ir kokie jų tipai egzistuoja
+- Kokiems uždaviniams AI agentai tinka geriausiai
+- Pagrindines dalis, kurias naudosite projektuodami agentinį sprendimą
 
 ## Mokymosi tikslai
-Baigę šią pamoką, turėtumėte sugebėti:
 
-- Suprasti DI agentų koncepcijas ir kaip jos skiriasi nuo kitų DI sprendimų.
-- Efektyviai taikyti DI agentus.
-- Produktiškai projektuoti agentinius sprendimus tiek vartotojams, tiek klientams.
+Baigę šią pamoką galėsite:
 
-## DI agentų apibrėžimas ir DI agentų tipai
+- Paaiškinti, kas yra AI agentas ir kuo jis skiriasi nuo įprasto AI sprendimo
+- Suprasti, kada verta naudoti AI agentą (ir kada ne)
+- Apibrėžti paprastą agentinio sprendimo projektą realiam pasaulio uždaviniui
 
-### Kas yra DI agentai?
+---
 
-DI agentai yra **sistemos**, kurios leidžia **Dideliems kalbos modeliams(LLMs)** **atlikti veiksmus**, išplečiant jų galimybes suteikiant LLMs **prieigą prie įrankių** ir **žinių**.
+## AI agentų apibrėžimas ir tipai
 
-Suskaldykime šį apibrėžimą į mažesnes dalis:
+### Kas yra AI agentai?
 
-- **Sistema** - Svarbu galvoti apie agentus ne tik kaip apie vieną komponentą, bet kaip apie daugelio komponentų sistemą. Pagrindiniu lygiu DI agente komponentai yra:
-  - **Aplinka** - Apibrėžta erdvė, kurioje veikia DI agentas. Pavyzdžiui, jei turėtume kelionių rezervavimo DI agentą, aplinka galėtų būti kelionių rezervavimo sistema, kurią agentas naudoja užduotims atlikti.
-  - **Jutikliai** - Aplinkoje yra informacija ir ji teikia atsiliepimus. DI agentai naudoja jutiklius rinkti ir interpretuoti informaciją apie dabartinę aplinkos būseną. Kelionių rezervavimo agente, rezervavimo sistema gali suteikti duomenis, tokius kaip viešbučio prieinamumas arba skrydžių kainos.
-  - **Aktuatorių** - Kai DI agentas gauna dabartinę aplinkos būseną, už konkrečią užduotį agentas nustato, kokį veiksmą atlikti, kad pakeistų aplinką. Kelionių rezervavimo agentui tai gali būti prieinamo kambario rezervavimas vartotojui.
+Štai paprastas paaiškinimas:
 
-![Kas yra DI agentai?](../../../translated_images/lt/what-are-ai-agents.1ec8c4d548af601a.webp)
+> **AI agentai yra sistemos, kurios leidžia Didiesiems kalbos modeliams (LLM) iš tiesų *daryti veiksmus* — suteikiant jiems įrankių ir žinių veikti pasaulyje, ne tik atsakyti į užklausas.**
 
-**Dideli kalbos modeliai** - Agentų koncepcija egzistavo dar prieš sukuriant LLM. Privalumas kuriant DI agentus su LLM yra jų gebėjimas interpretuoti žmogaus kalbą ir duomenis. Šis gebėjimas leidžia LLM interpretuoti aplinkos informaciją ir suformuluoti planą aplinkos pakeitimui.
+Išsamiau apie tai:
 
-**Veiksmų atlikimas** - Už agentinių sistemų ribų LLM yra riboti situacijose, kai veiksmas yra turinio ar informacijos generavimas pagal vartotojo užklausą. Agentinių sistemų viduje LLM gali įvykdyti užduotis interpretuodami vartotojo prašymą ir naudodami aplinkoje prieinamus įrankius.
+- **Sistema** — AI agentas nėra vienas dalykas. Tai dalių rinkinys, veikiančios kartu. Kiekvienas agentas iš esmės turi tris dalis:
+  - **Aplinka** — erdvė, kurioje agentas veikia. Kelionių užsakymo agentui tai būtų pati užsakymo platforma.
+  - **Jutikliai** — kaip agentas skaito esamą aplinkos būseną. Mūsų kelionių agentas gali tikrinti viešbučių užimtumą ar skrydžių kainas.
+  - **Veiksmo įtaisai** — kaip agentas imasi veiksmų. Kelionių agentas gali užsakyti kambarį, siųsti patvirtinimą arba atšaukti rezervaciją.
 
-**Prieiga prie įrankių** - Kokius įrankius LLM turi, nusako 1) aplinka, kurioje jis veikia, ir 2) DI agento kūrėjas. Mūsų kelionių agente, agento įrankiai yra ribojami rezervavimo sistemoje prieinamų operacijų, ir/arba kūrėjas gali apriboti agento prieigą prie konkrečių skrydžių.
+![Kas yra AI agentai?](../../../translated_images/lt/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-**Atmintis + Žinios** - Atmintis gali būti trumpalaikė vartotojo ir agente vykstančios pokalbio kontekste. Ilgalaikėje perspektyvoje, nepriklausomai nuo aplinkos pateiktos informacijos, DI agentai taip pat gali gauti žinių iš kitų sistemų, paslaugų, įrankių ir net kitų agentų. Kelionių agente šiomis žiniomis gali būti vartotojo kelionių pageidavimų informacija, saugoma klientų duomenų bazėje.
+- **Didieji kalbos modeliai** — Agentai egzistavo ir be LLM, bet LLM daro šiuolaikinius agentus tokiais galingais. Jie supranta natūralią kalbą, gali spręsti kontekstą ir paversti neaiškų naudotojo prašymą konkrečiu veiksmų planu.
 
-### Skirtingi agentų tipai
+- **Vykdo veiksmus** — be agento sistemos LLM tiesiog generuoja tekstą. Agentų sistemoje LLM gali iš tikrųjų *vykdyti* veiksmus — ieškoti duomenų bazėje, kviesti API, siųsti žinutę.
 
-Dabar, kai turime bendrą DI agentų apibrėžimą, pažvelkime į konkrečius agentų tipus ir kaip jie būtų pritaikyti kelionių rezervavimo DI agentui.
+- **Priėjimas prie įrankių** — kokius įrankius agentas gali naudoti, priklauso nuo (1) aplinkos, kurioje jis veikia, ir (2) ką kūrėjas jam suteikė. Kelionių agentas gali ieškoti skrydžių, bet negali redaguoti klientų įrašų — svarbu kokius sujungiate įrankius.
 
-| **Agento tipas**                | **Aprašymas**                                                                                                                       | **Pavyzdys**                                                                                                                                                                                                                   |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Paprasti refleksiniai agentai**      | Atlieka tiesioginius veiksmus pagal iš anksto apibrėžtas taisykles.                                                                                  | Kelionių agentas interpretuoja el. laiško kontekstą ir persiunčia kelionių skundus klientų aptarnavimo skyriui.                                                                                                                          |
-| **Modeliuoti refleksiniai agentai** | Atlieka veiksmus remdamiesi pasaulio modeliu ir pokyčiais tame modelyje.                                                              | Kelionių agentas prioritetizuoja maršrutus su reikšmingais kainų pokyčiais, remdamasis prieiga prie istorinės kainų informacijos.                                                                                                             |
-| **Tiksliniai agentai**         | Sudaro planus, kaip pasiekti konkrečius tikslus, interpretuodami tikslą ir nustatydami veiksmus jam pasiekti.                                  | Kelionių agentas rezervuoja kelionę nustatydamas reikalingus kelionės organizavimo veiksmus (automobilis, viešasis transportas, skrydžiai) iš dabartinės vietos iki kelionės tikslo.                                                                                |
-| **Agentai, pagrįsti naudingumu**      | Apsvarsto nuostatas ir skaičiuoja kompromisus, kad nustatytų, kaip geriausiai pasiekti tikslus.                                               | Kelionių agentas maksimizuoja naudingumą, sverdamas patogumą prieš kainą rezervuodamas kelionę.                                                                                                                                          |
-| **Mokymosi agentai**           | Tobulėja laikui bėgant reaguodami į atsiliepimus ir atitinkamai koreguodami veiksmus.                                                        | Kelionių agentas tobulėja naudodamas klientų atsiliepimus po kelionės iš apklausų, kad atliktų pakeitimus būsimose rezervacijose.                                                                                                               |
-| **Hierarchiniai agentai**       | Turi kelis agentus sluoksniuotoje sistemoje, kur aukštesnio lygio agentai suskaido užduotis į potaskes, kurias vykdo žemesnio lygio agentai. | Kelionių agentas atšaukia kelionę suskaidydamas užduotį į potaskes (pavyzdžiui, atšaukti konkrečias rezervacijas) ir leisdamas žemesnio lygio agentams jas įvykdyti bei ataskaitą grąžinti aukštesnio lygio agentui.                                     |
-| **Daugelio agentų sistemos (MAS)** | Agentai atlieka užduotis nepriklausomai, bendradarbiaudami arba konkuruodami.                                                           | Bendradarbiavimas: keli agentai rezervuoja konkrečias kelionės paslaugas, tokias kaip viešbučiai, skrydžiai ir pramogos. Konkurencija: keli agentai valdo ir konkuruoja dėl bendros viešbučio rezervacijų kalendoriaus, kad priskirtų klientus viešbučiui. |
+- **Atmintis ir žinios** — Agentai gali turėti trumpalaikę atmintį (esamą pokalbį) ir ilgalaikę atmintį (klientų duomenų bazę, ankstesnius sąveikas). Kelionių agentas gali „prisiminti“, kad jums patinka vietos prie lango.
 
-## Kada naudoti DI agentus
+---
 
-Ankstesniame skyriuje mes naudojome kelionių agento naudojimo atvejį, kad paaiškintume, kaip skirtingi agentų tipai gali būti taikomi skirtinguose kelionių rezervavimo scenarijuose. Šį taikymą naudosime ir toliau per visą kursą.
+### Skirtingi AI agentų tipai
 
-Pažiūrėkime, kokiems naudojimo atvejams DI agentai tinka labiausiai:
+Ne visi agentai kuriami vienodai. Štai pagrindinių tipų apžvalga, naudojant kelionių užsakymo agentą kaip pavyzdį:
 
-![Kada naudoti DI agentus?](../../../translated_images/lt/when-to-use-ai-agents.54becb3bed74a479.webp)
+| **Agentų tipas** | **Ką jie daro** | **Kelionių agento pavyzdys** |
+|---|---|---|
+| **Paprasti refleksiniai agentai** | Laikosi griežtai užkoduotų taisyklių — neturi atminties, neplanuoja. | Pamato skundo el. laišką → persiunčia klientų aptarnavimui. Viskas. |
+| **Modelio pagrindu veikiantys refleksiniai agentai** | Laiko vidaus pasaulio modelį ir atnaujina jį keičiantis situacijai. | Stebi istorinės skrydžių kainos ir pažymi staigiai pabrangusias kryptis. |
+| **Tikslą turintys agentai** | Turi tikslą ir žingsnis po žingsnio planuoja, kaip jį pasiekti. | Užsako visą kelionę (skrydžius, automobilį, viešbutį) nuo jūsų vietos iki tikslo. |
+| **Naudingumo pagrindu veikiantys agentai** | Ne tik randa *bet kokį* sprendimą — ieško *geriausio* svarstydami kompromisus. | Balansuoja kainą ir patogumą, kad rastų geriausiai jūsų pageidavimus atitinkančią kelionę. |
+| **Mokymosi agentai** | Tobulėja laikui bėgant mokydamiesi iš atsiliepimų. | Tolių rekomendacijas koreguoja pagal apklausas po kelionės. |
+| **Hierarchiniai agentai** | Aukšto lygio agentas suskaido darbą į potaskius ir paskirsto juos žemesnio lygio agentams. | „Atšaukti kelionę“ užklausa suskirstoma: atšaukti skrydį, atšaukti viešbutį, atšaukti automobilių nuomą — kiekvieną atlieka potagentas. |
+| **Daugiagentinės sistemos (MAS)** | Keli nepriklausomi agentai dirba kartu (arba konkuruoja). | Bendradarbiaujantys: atskiri agentai rūpinasi viešbučiais, skrydžiais ir pramogomis. Konkuruojantys: keli agentai varžosi užpildyti viešbučių kambarius už geriausią kainą. |
 
+---
 
-- **Atviros problemos** - leidžiant LLM nustatyti reikalingus žingsnius užduočiai atlikti, nes tai ne visada galima pilnai užkodinti į darbo srautą.
-- **Daugiapakopiai procesai** - užduotys, reikalaujančios tam tikro sudėtingumo, kai DI agentui reikia naudoti įrankius arba informaciją per kelis etapus, o ne vienkartinį gavimą.  
-- **Tobulėjimas laikui bėgant** - užduotys, kur agentas gali tobulėti laiko eigoje gaudamas atsiliepimus iš aplinkos ar vartotojų, kad suteiktų didesnę naudą.
+## Kada naudoti AI agentus
 
-Daugiau svarstymų apie DI agentų naudojimą aptariame pamokoje "Kuriant patikimus DI agentus".
+Ne visada, kai galite naudoti AI agentą, verta tai daryti. Štai situacijos, kai agentai iš tikrųjų pranašauja:
+
+![Kada naudoti AI agentus?](../../../translated_images/lt/when-to-use-ai-agents.54becb3bed74a479.webp)
+
+- **Atviri problemų sprendimai** — kai problemos sprendimo žingsnių neįmanoma iš anksto užprogramuoti. LLM turi dinamiškai nustatyti kelią.
+- **Daugiažingsniai procesai** — užduotys, kur reikia naudoti įrankius per kelis etapus, ne tik vienkartinį duomenų ieškojimą ar generavimą.
+- **Tobulėjimas laikui bėgant** — kai sistema turi tapti protingesnė pagal naudotojo atsiliepimus ar aplinkos signalus.
+
+Išsamiau nagrinėsime, kada (ir kada *ne*) vertėtų naudoti AI agentus pamokoje **Patikimų AI agentų kūrimas** vėlesniuose kurso moduliuose.
+
+---
 
 ## Agentinių sprendimų pagrindai
 
 ### Agentų kūrimas
 
-Pirmasis žingsnis projektuojant DI agentų sistemą yra apibrėžti įrankius, veiksmus ir elgesį. Šiame kurse mes sutelkiame dėmesį į **Azure AI Agent Service** naudojimą agentų apibrėžimui. Jis siūlo funkcijas, tokias kaip:
+Pirmas žingsnis kuriant agentą yra apibrėžti *ką jis gali daryti* — jo įrankius, veiksmus ir elgesį.
 
-- Atvirų modelių pasirinkimas, tokių kaip OpenAI, Mistral ir Llama
-- Licencijuotų duomenų naudojimas per tiekėjus, tokius kaip Tripadvisor
-- Standartizuotų OpenAPI 3.0 įrankių naudojimas
+Šiame kurse pagrindine platforma naudojame **Azure AI Agent Service**. Ji palaiko:
 
-### Agentiniai šablonai
+- Atvirus modelius kaip OpenAI, Mistral ir Llama
+- Licencijuotus duomenis iš tiekėjų kaip Tripadvisor
+- Standartizuotus OpenAPI 3.0 įrankių aprašymus
 
-Bendravimas su LLM vyksta per užklausas (prompts). Atsižvelgiant į pusiau autonominę DI agentų prigimtį, ne visada yra įmanoma ar būtina rankiniu būdu pakartotinai užduoti užklausą LLM po aplinkos pasikeitimo. Naudojame **agentinius šablonus**, leidžiančius užklausti LLM per kelis etapus labiau išplečiamu būdu.
+### Agentinės schemos
 
-Šis kursas padalintas į kai kuriuos šiuo metu populiarius agentinius šablonus.
+Bendravimas su LLM vyksta per užklausas (promptus). Su agentais ne visuomet įmanoma rankiniu būdu parengti kiekvieną užklausą — agentas turi imtis veiksmų daugelyje žingsnių. Štai kur pasitelkiamos **agentinės schemos**. Tai pakartotinai naudojamos strategijos LLM paskatinimui ir koordinavimui, leidžiančios kurti patikimesnius ir lengviau plečiamus sprendimus.
 
-### Agentiniai karkasai
+Šis kursas sukurtas remiantis dažniausiai naudojamomis ir naudingiausiomis agentinėmis schemomis.
 
-Agentiniai karkasai leidžia kūrėjams įgyvendinti agentinius šablonus per kodą. Šie karkasai siūlo šablonus, papildinius ir įrankius geresniam DI agentų bendradarbiavimui. Šios naudos suteikia galimybes geresnei stebėsenai ir trikčių šalinimui DI agentų sistemose.
+### Agentinės sistemos karkasai
 
-Šiame kurse mes nagrinėsime Microsoft Agent Framework (MAF) skirtą produkcijai paruoštų DI agentų kūrimui.
+Agentinės sistemos karkasai suteikia kūrėjams paruoštus šablonus, įrankius ir infrastruktūrą agentų kūrimui. Jie palengvina:
+
+- Įrankių ir funkcijų sujungimą
+- Stebėjimą, ką agentas daro (ir gedimų diagnozę)
+- Dalyvavimą keliems agentams kartu dirbant
+
+Šiame kurse daugiausia dėmesio skiriama **Microsoft Agent Framework (MAF)**, skirtam pramonės standartų agentų kūrimui.
+
+---
 
 ## Kodo pavyzdžiai
 
-- Python: [Agentų karkasas](./code_samples/01-python-agent-framework.ipynb)
-- .NET: [Agentų karkasas](./code_samples/01-dotnet-agent-framework.md)
+Norite pamatyti veikimą? Štai šios pamokos kodo pavyzdžiai:
 
-## Turite daugiau klausimų apie DI agentus?
+- 🐍 Python: [Agent framework](./code_samples/01-python-agent-framework.ipynb)
+- 🔷 .NET: [Agent framework](./code_samples/01-dotnet-agent-framework.md)
 
-Prisijunkite prie [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kad susitikti su kitais besimokančiaisiais, dalyvautumėte konsultacijose ir gautumėte atsakymus į klausimus apie DI agentus.
+---
+
+## Turite klausimų?
+
+Prisijunkite prie [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), bendraukite su kitais mokiniais, dalyvaukite konsultacijose ir gaukite atsakymus apie AI agentus iš bendruomenės.
+
+---
 
 ## Ankstesnė pamoka
 
-[Kurso nustatymai](../00-course-setup/README.md)
+[Kurso pradžia](../00-course-setup/README.md)
 
-## Kita pamoka
+## Kitas pamoka
 
-[Agentinių karkasų tyrinėjimas](../02-explore-agentic-frameworks/README.md)
+[Agentinių sistemų apžvalga](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Atsakomybės apribojimas:
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, atkreipkite dėmesį, kad automatizuoti vertimai gali turėti klaidų ar netikslumų. Pirminis dokumentas savo originalia kalba turėtų būti laikomas autoritetingu šaltiniu. Dėl kritinės svarbos informacijos rekomenduojamas profesionalus žmogaus vertimas. Mes neatsakome už jokius nesusipratimus ar neteisingas interpretacijas, atsiradusias dėl šio vertimo naudojimo.
+**Atsakomybės apribojimas**:  
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatizuoti vertimai gali turėti klaidų ar netikslumų. Pirminis dokumentas gimtąja kalba laikomas autoritetingu šaltiniu. Kritiniais atvejais rekomenduojamas profesionalus žmogaus atliktas vertimas. Mes neatsakome už jokius nesusipratimus ar neteisingus aiškinimus, atsiradusius naudojantis šiuo vertimu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,125 +1,148 @@
-[![AI Ajanlarına Giriş](../../../translated_images/tr/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](../../../translated_images/tr/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Üstteki resme tıklayarak bu dersin videosunu izleyin)_
+> _(Bu dersin videosunu izlemek için yukarıdaki görsele tıklayın)_
 
+# AI Ajanlara ve Ajan Kullanım Senaryolarına Giriş
 
-# Yapay Zeka Ajanlarına Giriş ve Ajan Kullanım Alanları
+**Yeni Başlayanlar için AI Ajanları** kursuna hoş geldiniz! Bu kurs, sıfırdan AI Ajanları oluşturmak için temel bilgileri — ve gerçek çalışan kodları — sunar.
 
-"AI Agents for Beginners" (Yeni Başlayanlar için Yapay Zeka Ajanları) kursuna hoş geldiniz! Bu kurs, Yapay Zeka Ajanları oluşturmak için temel bilgileri ve uygulamalı örnekleri sağlar.
+Sorularınızı yanıtlamaktan memnun olan öğrenenler ve AI geliştiricileri ile dolu olan <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Topluluğu</a>'nda selam vermeye gelin.
 
-Diğer öğrenenlerle ve Yapay Zeka Ajanı Oluşturucularıyla tanışmak ve bu kursla ilgili sorularınızı sormak için <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Topluluğu</a>'na katılın.
+Yapmaya başlamadan önce, AI Ajanın *nedir* ve ne zaman kullanmanın mantıklı olduğunu gerçekten anladığımızdan emin olalım.
 
-Bu kursa başlamak için, Yapay Zeka Ajanlarının ne olduğunu ve onları oluşturduğumuz uygulamalarda ve iş akışlarında nasıl kullanabileceğimizi daha iyi anlamakla başlıyoruz.
+---
 
 ## Giriş
 
 Bu ders şunları kapsar:
 
-- Yapay Zeka Ajanları nedir ve farklı ajan türleri nelerdir?
-- Hangi kullanım senaryoları Yapay Zeka Ajanları için daha uygundur ve bize nasıl yardımcı olurlar?
-- Ajanik çözümler tasarlarken bazı temel yapı taşları nelerdir?
+- AI Ajanların ne olduğu ve var olan farklı türleri
+- Hangi tür görevlerin AI Ajanlar için en uygun olduğu
+- Bir Ajanik çözüm tasarlarken kullanacağınız temel yapı taşları
 
 ## Öğrenme Hedefleri
-Bu dersi tamamladıktan sonra şunları yapabiliyor olmalısınız:
 
-- Yapay Zeka Ajanı kavramlarını ve bunların diğer AI çözümlerinden nasıl farklılaştığını anlamak.
-- Yapay Zeka Ajanlarını en verimli şekilde uygulamak.
-- Hem kullanıcılar hem de müşteriler için ajanik çözümler üretken şekilde tasarlamak.
+Bu dersin sonunda şunları yapabilmelisiniz:
 
-## Yapay Zeka Ajanlarını Tanımlama ve Ajan Türleri
+- Bir AI Ajanın ne olduğunu ve sıradan AI çözümlerinden nasıl farklı olduğunu açıklayabilmek
+- Ne zaman bir AI Ajana başvurmanız (ve ne zaman başvurmamanız) gerektiğini bilmek
+- Gerçek dünya problemleri için temel bir Ajanik çözüm taslağı çizebilmek
 
-### Yapay Zeka Ajanları nedir?
+---
 
-Yapay Zeka Ajanları, Büyük Dil Modelleri(LLMs)'nin yeteneklerini genişleterek LLM'lere araçlara ve bilgiye erişim sağlayarak eylem gerçekleştirmelerini mümkün kılan sistemlerdir.
+## AI Ajanları Tanımlama ve AI Ajan Türleri
 
-Bu tanımı daha küçük parçalara ayıracak olalım:
+### AI Ajanlar nedir?
 
-- Sistem - Ajanları sadece tek bir bileşen olarak değil, birçok bileşenden oluşan bir sistem olarak düşünmek önemlidir. Temel düzeyde, bir Yapay Zeka Ajanının bileşenleri şunlardır:
-  - Çevre - Yapay Zeka Ajanının çalıştığı tanımlı alan. Örneğin, bir seyahat rezervasyon ajanımız olsaydı, çevre ajanın görevleri tamamlamak için kullandığı seyahat rezervasyon sistemi olabilir.
-  - Sensörler - Çevreler bilgiye sahiptir ve geri bildirim sağlar. Yapay Zeka Ajanları, çevrenin mevcut durumu hakkındaki bu bilgileri toplamak ve yorumlamak için sensörleri kullanır. Seyahat Rezervasyon Ajanı örneğinde, rezervasyon sistemi otel müsaitliği veya uçuş fiyatları gibi bilgiler sağlayabilir.
-  - Aktüatörler - Yapay Zeka Ajanı çevrenin mevcut durumunu aldıktan sonra, mevcut görev için çevreyi değiştirmek adına hangi eylemi gerçekleştireceğine karar verir. Seyahat rezervasyon ajanı için bu, kullanıcı adına müsait bir odayı rezerve etmek olabilir.
+Bunu anlamanın basit bir yolu şöyle:
 
-![Ajanlar Nedir?](../../../translated_images/tr/what-are-ai-agents.1ec8c4d548af601a.webp)
+> **AI Ajanlar, Büyük Dil Modellerinin (LLM) yalnızca istemlere yanıt vermekle kalmayıp — araçlar ve bilgi vererek dünyada *işler yapmasına* olanak tanıyan sistemlerdir.**
 
-**Büyük Dil Modelleri** - Ajan kavramı LLM'lerin ortaya çıkışından önce de vardı. LLM'lerle Yapay Zeka Ajanları oluşturmanın avantajı, insan dilini ve veriyi yorumlama yetenekleridir. Bu yetenek, LLM'lerin çevresel bilgileri yorumlamasını ve çevreyi değiştirmek için bir plan tanımlamasını sağlar.
+Bunu biraz açalım:
 
-**Eylem Gerçekleştirme** - Yapay Zeka Ajanı sistemleri dışında, LLM'ler eylem olarak genellikle kullanıcının istemine dayanarak içerik veya bilgi üretmekle sınırlıdır. Ajan sistemleri içinde, LLM'ler kullanıcının isteğini yorumlayarak ve çevrelerinde mevcut olan araçları kullanarak görevleri yerine getirebilirler.
+- **Sistem** — Bir AI Ajan tek başına bir şey değildir. Bir arada çalışan parçalar koleksiyonudur. Her ajan temelde üç parçaya sahiptir:
+  - **Çevre** — Ajanın çalıştığı alan. Bir seyahat rezervasyon ajanı için bu, rezervasyon platformunun kendisi olur.
+  - **Sensörler** — Ajanın çevresinin mevcut durumunu okuma yöntemi. Seyahat ajanımız otel müsaitliğini veya uçuş fiyatlarını kontrol edebilir.
+  - **Aktüatörler** — Ajanın eylemde bulunma şekli. Seyahat ajanı bir oda ayırtabilir, onay gönderir veya rezervasyonu iptal edebilir.
 
-**Araçlara Erişim** - LLM'nin hangi araçlara erişebileceği 1) çalıştığı çevre ve 2) ajanı geliştiren geliştirici tarafından tanımlanır. Seyahat ajanı örneğimizde, ajanın araçları rezervasyon sisteminde bulunan işlemlerle sınırlıdır ve/veya geliştirici ajanın uçuşlara erişimini kısıtlayabilir.
+![What Are AI Agents?](../../../translated_images/tr/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-**Bellek+Bilgi** - Bellek, kullanıcı ile ajan arasındaki konuşma bağlamında kısa süreli olabilir. Uzun vadede, çevrenin sağladığı bilginin dışında Yapay Zeka Ajanları diğer sistemlerden, servislerden, araçlardan ve hatta diğer ajanlardan bilgi alabilir. Seyahat ajanı örneğinde, bu bilgi kullanıcıya ait seyahat tercihleri bilgisi olabilir ve müşteri veritabanında bulunabilir.
+- **Büyük Dil Modelleri** — Ajanlar LLM’lerden önce vardı ancak LLM’ler modern ajanları bu kadar güçlü kılan şeydir. Doğal dili anlayabilir, bağlam hakkında mantık yürütebilir ve belirsiz kullanıcı isteğini somut bir eylem planına dönüştürebilirler.
 
-### Ajan türleri
+- **Eylemde Bulunma** — Bir ajan sistemi olmadan LLM sadece metin üretir. Bir ajan sistemi içinde, LLM gerçekten adımlar *yürütür* — bir veritabanında arama yapar, API çağırır, mesaj gönderir.
 
-Artık Yapay Zeka Ajanlarının genel bir tanımına sahip olduğumuza göre, bazı özel ajan türlerine ve bunların bir seyahat rezervasyon ajanına nasıl uygulanabileceğine bakalım.
+- **Araçlara Erişim** — Ajanın kullanabileceği araçlar şuna bağlıdır: (1) çalıştığı ortam ve (2) geliştiricinin ajana verdiği seçenekler. Bir seyahat ajanı uçuşları arayabilir ancak müşteri kayıtlarını düzenleyemez — tamamen kurduğunuz ağ ile ilgilidir.
 
-| **Ajan Türü**                | **Açıklama**                                                                                                                       | **Örnek**                                                                                                                                                                                                                   |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Basit Refleks Ajanlar**      | Önceden tanımlanmış kurallara dayalı olarak anında eylemler gerçekleştirir.                                                                                  | Seyahat acentesi e-postanın bağlamını yorumlar ve seyahat şikayetlerini müşteri hizmetlerine yönlendirir.                                                                                                                          |
-| **Model Tabanlı Refleks Ajanlar** | Dünya modeline ve bu modeldeki değişikliklere dayalı eylemler gerçekleştirir.                                                              | Seyahat acentesi, geçmiş fiyat verilerine erişim sayesinde önemli fiyat değişikliklerine sahip rotaları önceliklendirir.                                                                                                             |
-| **Hedef Tabanlı Ajanlar**         | Belirli hedeflere ulaşmak için hedefi yorumlayarak ve hedefe ulaşmak için eylemleri belirleyerek planlar oluşturur.                                  | Seyahat acentesi, mevcut konumdan varış noktasına gerekli seyahat düzenlemelerini (araba, toplu taşıma, uçuşlar) belirleyerek yolculuğu rezerve eder.                                                                                |
-| **Fayda Tabanlı Ajanlar**      | Tercihleri göz önünde bulundurarak takasları sayısal olarak değerlendirir ve hedeflere nasıl ulaşılacağını belirler.                                               | Seyahat acentesi, seyahati rezerve ederken rahatlık ile maliyet arasındaki dengeyi tartarak faydayı maksimize eder.                                                                                                                                          |
-| **Öğrenen Ajanlar**           | Geri bildirimlere yanıt vererek ve eylemleri buna göre ayarlayarak zaman içinde gelişir.                                                        | Seyahat acentesi, gezi sonrası anketlerden gelen müşteri geri bildirimlerini kullanarak gelecekteki rezervasyonlarda iyileştirmeler yapar.                                                                                                               |
-| **Hiyerarşik Ajanlar**       | Çok seviyeli bir sistemde birden fazla ajan içerir; üst düzey ajanlar görevleri daha düşük düzey ajanların tamamlaması için alt görevlere böler. | Seyahat acentesi, bir seyahati iptal ederken görevi alt görevlere bölerek (örneğin belirli rezervasyonları iptal etme) alt düzey ajanların bunları tamamlamasını sağlar ve üst düzey ajana raporlar.                                     |
-| **Çok Ajanlı Sistemler (MAS)** | Ajanlar görevleri bağımsız olarak, işbirlikçi veya rekabetçi şekilde tamamlar.                                                           | İşbirlikçi: Birden fazla ajan oteller, uçuşlar ve eğlence gibi belirli seyahat hizmetlerini rezerve eder. Rekabetçi: Birden fazla ajan paylaşılan bir otel rezervasyon takvimi üzerinde müşterileri otelde yerleştirmek için yarışır. |
+- **Bellek + Bilgi** — Ajanların kısa süreli belleği (şimdiki konuşma) ve uzun süreli belleği (müşteri veritabanı, geçmiş etkileşimler) olabilir. Seyahat ajanı, pencere kenarı koltuğu tercih ettiğinizi "hatırlayabilir".
 
-## Ne Zaman Yapay Zeka Ajanları Kullanılmalı
+---
 
-Önceki bölümde, farklı ajan türlerinin seyahat rezervasyonunun farklı senaryolarında nasıl kullanılabileceğini açıklamak için Seyahat Acentesi kullanım durumunu kullandık. Kurs boyunca bu uygulamayı kullanmaya devam edeceğiz.
+### AI Ajanların Farklı Türleri
 
-Yapay Zeka Ajanlarının en iyi kullanıldığı kullanım durumlarına bakalım:
+Tüm ajanlar aynı şekilde inşa edilmemiştir. İşte ana türlerin bir dökümü, seyahat rezervasyon ajanını örnek alarak:
 
-![Yapay Zeka Ajanları ne zaman kullanılmalı?](../../../translated_images/tr/when-to-use-ai-agents.54becb3bed74a479.webp)
+| **Ajan Türü** | **Ne Yapar** | **Seyahat Ajanı Örneği** |
+|---|---|---|
+| **Basit Refleks Ajanlar** | Sert kodlanmış kuralları takip eder — hafıza veya planlama yok. | Şikayet e-postası görür → bunu müşteri hizmetlerine yönlendirir. Hepsi bu. |
+| **Model Tabanlı Refleks Ajanlar** | Dünyanın içsel bir modelini tutar ve değişikliklere göre günceller. | Tarihsel uçuş fiyatlarını takip eder ve aniden pahalı olan güzergahları işaretler. |
+| **Hedef Tabanlı Ajanlar** | Akılda bir hedef vardır ve adım adım nasıl ulaşılacağını bulur. | Mevcut konumunuzdan varış noktanıza kadar tüm seyahati (uçuş, araba, otel) ayırtır. |
+| **Fayda Tabanlı Ajanlar** | Sadece bir çözüm bulmaz — tercihleriniz için en yüksek puanı alan en iyi çözümü bulur. | Maliyet ile kolaylığı dengeler ve tercihlerinize en uygun seyahati önerir. |
+| **Öğrenen Ajanlar** | Geri bildirimlerden öğrenerek zaman içinde gelişir. | Gelecekteki rezervasyon önerilerini, yolculuk sonrası anket sonuçlarına göre ayarlar. |
+| **Hiyerarşik Ajanlar** | Üst düzey bir ajan işi alt görevlerle böler ve bunları alt ajanlara devreder. | "Seyahat iptal" talebi; uçuş iptali, otel iptali, araba kiralama iptali olarak alt ajanlara ayrılır. |
+| **Çoklu Ajan Sistemleri (MAS)** | Birbirinden bağımsız birden çok ajan birlikte (ya da rekabet halinde) çalışır. | İşbirlikçi: oteller, uçuşlar ve eğlence ayrı ajanlar tarafından yönetilir. Rekabetçi: çeşitli ajanlar en iyi fiyata otel odası doldurmak için yarışır. |
 
+---
 
-- **Açık Uçlu Problemler** - LLM'nin bir görevi tamamlamak için gereken adımları belirlemesine izin verilir çünkü her zaman bir iş akışına sert kodlanamaz.
-- **Çok Adımlı Süreçler** - AI Ajanının araçları veya bilgileri tek seferlik bir sorgulama yerine birden fazla tur boyunca kullanması gereken bir karmaşıklık seviyesini gerektiren görevler.
-- **Zaman İçinde İyileşme** - Ajanın çevresinden veya kullanıcılardan gelen geri bildirimleri alarak zaman içinde iyileşebileceği görevler, daha iyi fayda sağlamak için.
+## AI Ajanlar Ne Zaman Kullanılır
 
-Yapay Zeka Ajanları kullanmaya ilişkin daha fazla hususu Güvenilir AI Ajanları Oluşturma dersinde ele alıyoruz.
+Sadece bir AI Ajan *kullanabilmeniz*, her zaman *kullanmanız gerektiği* anlamına gelmez. İşte ajanların gerçekten parladığı durumlar:
+
+![When to use AI Agents?](../../../translated_images/tr/when-to-use-ai-agents.54becb3bed74a479.webp)
+
+- **Açık Uçlu Problemler** — Sorunu çözmek için adımlar önceden programlanamaz. LLM’in yolu dinamik olarak kendisinin çözmesi gerekir.
+- **Çok Adımlı Süreçler** — Tek bir sorgulu veya üretimli işlemden fazlasını gerektiren, birden çok turda araç kullanmayı içeren görevler.
+- **Zamanla İyileşme** — Sistem, kullanıcı geri bildirimi veya çevresel sinyallere dayanarak daha akıllı hale gelmeli ise.
+
+Kursun ilerleyen dersinde, **Güvenilir AI Ajanlar Oluşturma** dersinde, AI Ajanların ne zaman (ve ne zaman *kullanılmaması* gerektiği) konusuna daha derinlemesine bakacağız.
+
+---
 
 ## Ajanik Çözümlerin Temelleri
 
 ### Ajan Geliştirme
 
-Bir Yapay Zeka Ajanı sistemi tasarlamanın ilk adımı araçları, eylemleri ve davranışları tanımlamaktır. Bu kursta, Ajanlarımızı tanımlamak için **Azure AI Agent Service** kullanmaya odaklanıyoruz. Aşağıdaki özellikleri sunar:
+Bir ajan oluştururken yaptığınız ilk şey, *ne yapabileceğini* tanımlamaktır — araçları, eylemleri ve davranışları.
 
-- OpenAI, Mistral ve Llama gibi Açık Modellerin seçimi
-- Tripadvisor gibi sağlayıcılar aracılığıyla Lisanslı Verilerin kullanımı
-- Standartlaştırılmış OpenAPI 3.0 araçlarının kullanımı
+Bu kursta, ana platform olarak **Azure AI Agent Service**’i kullanıyoruz. Şunları destekler:
+
+- OpenAI, Mistral ve Llama gibi açık modeller
+- Tripadvisor gibi sağlayıcılardan lisanslı veriler
+- Standardize edilmiş OpenAPI 3.0 araç tanımları
 
 ### Ajanik Desenler
 
-LLM'lerle iletişim istemler (prompts) aracılığıyla olur. Yarı otonom doğası nedeniyle, çevredeki bir değişiklikten sonra LLM'yi manuel olarak yeniden istemlememiz her zaman mümkün veya gerekli değildir. LLM'yi daha ölçeklenebilir bir şekilde birden fazla adım boyunca istemlemek için bize olanak sağlayan **Ajanik Desenler** kullanırız.
+LLM’lerle, istemler aracılığıyla iletişim kurarsınız. Ajanlarda her zaman her istemi elle yazamazsınız — ajan, çok sayıda adımda eylemde bulunmalı. İşte burada **Ajanik Desenler** devreye girer. Bunlar, LLM’leri daha ölçeklenebilir, güvenilir şekilde yönlendirme ve düzenleme için tekrar kullanılabilir stratejilerdir.
 
-Bu kurs, şu anda popüler olan bazı ajanik desenlere ayrılmıştır.
+Bu kurs, en yaygın ve faydalı ajanik desenler etrafında yapılandırılmıştır.
 
 ### Ajanik Çerçeveler
 
-Ajanik Çerçeveler, geliştiricilerin kod aracılığıyla ajanik desenleri uygulamalarına olanak tanır. Bu çerçeveler, daha iyi AI Ajanı iş birliği için şablonlar, eklentiler ve araçlar sunar. Bu faydalar, AI Ajanı sistemleri için daha iyi gözlemlenebilirlik ve sorun giderme yetenekleri sağlar.
+Ajanik Çerçeveler, geliştiricilere hazır şablonlar, araçlar ve altyapı sağlar. Ajan inşasını kolaylaştırır:
 
-Bu kursta, üretime hazır Yapay Zeka ajanları oluşturmak için Microsoft Agent Framework (MAF)'ı inceleyeceğiz.
+- Araçları ve yetenekleri bağlamak
+- Ajanın ne yaptığını izlemek (ve hata ayıklamak)
+- Birden çok ajan arasında işbirliği yapmak
 
-## Örnek Kodlar
+Bu kursta, üretime hazır ajanlar oluşturmak için **Microsoft Agent Framework (MAF)** üzerinde yoğunlaşıyoruz.
 
-- Python: [Ajan Çerçevesi](./code_samples/01-python-agent-framework.ipynb)
-- .NET: [Ajan Çerçevesi](./code_samples/01-dotnet-agent-framework.md)
+---
 
-## Yapay Zeka Ajanları Hakkında Daha Fazla Sorunuz mu Var?
+## Kod Örnekleri
 
-Diğer öğrenenlerle buluşmak, ofis saatlerine katılmak ve Yapay Zeka Ajanları sorularınıza cevap almak için [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)'a katılın.
+Uygulamada görmek ister misiniz? İşte bu dersin kod örnekleri:
+
+- 🐍 Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
+- 🔷 .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
+
+---
+
+## Sorularınız mı Var?
+
+Diğer öğrenenlerle bağlantı kurmak, ofis saatlerine katılmak ve topluluktan AI Ajan sorularınıza cevap almak için [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)’a katılın.
+
+---
 
 ## Önceki Ders
 
-[Kurs Kurulumu](../00-course-setup/README.md)
+[Course Setup](../00-course-setup/README.md)
 
 ## Sonraki Ders
 
-[Ajanik Çerçeveleri Keşfetmek](../02-explore-agentic-frameworks/README.md)
+[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Feragatname**:
-Bu belge, yapay zeka çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için özen göstermemize rağmen, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belge, kendi dilindeki metin, yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından kaynaklanan herhangi bir yanlış anlama veya yanlış yorumlama nedeniyle sorumluluk kabul etmiyoruz.
+Bu belge, [Co-op Translator](https://github.com/Azure/co-op-translator) adlı AI çeviri hizmeti kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayın. Orijinal belge, ana dilindeki haliyle yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu oluşabilecek herhangi bir yanlış anlaşılma veya yanlış yorumdan sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

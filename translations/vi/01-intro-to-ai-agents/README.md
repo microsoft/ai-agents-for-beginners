@@ -1,125 +1,148 @@
-[![Giới thiệu về Tác nhân AI](../../../translated_images/vi/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](../../../translated_images/vi/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Nhấp vào hình ảnh phía trên để xem video của bài học này)_
+> _(Nhấp vào hình ảnh trên để xem video cho bài học này)_
 
+# Giới thiệu về AI Agents và Các trường hợp sử dụng Agent
 
-# Giới thiệu về Tác nhân AI và Các Trường hợp Sử dụng Tác nhân
+Chào mừng bạn đến với khóa học **AI Agents dành cho người mới bắt đầu**! Khóa học này cung cấp cho bạn kiến thức nền tảng — và mã thực thi thực tế — để bắt đầu xây dựng AI Agents từ đầu.
 
-Chào mừng đến với khóa học "AI Agents for Beginners"! Khóa học này cung cấp kiến thức cơ bản và các ví dụ ứng dụng để xây dựng Tác nhân AI.
+Hãy chào hỏi trong <a href="https://discord.gg/kzRShWzttr" target="_blank">Cộng đồng Azure AI Discord</a> — nơi hội tụ các học viên và người xây dựng AI luôn sẵn sàng trả lời các câu hỏi.
 
-Tham gia <a href="https://discord.gg/kzRShWzttr" target="_blank">Cộng đồng Azure AI trên Discord</a> để gặp gỡ những người học khác và những người xây dựng Tác nhân AI, và đặt bất kỳ câu hỏi nào bạn có về khóa học này.
+Trước khi bắt tay vào xây dựng, hãy đảm bảo chúng ta thực sự hiểu AI Agent *là gì* và khi nào nên sử dụng nó.
 
-Để bắt đầu khóa học này, chúng ta sẽ bắt đầu bằng cách hiểu rõ hơn Tác nhân AI là gì và cách chúng ta có thể sử dụng chúng trong các ứng dụng và quy trình làm việc mà chúng ta xây dựng.
+---
 
 ## Giới thiệu
 
 Bài học này bao gồm:
 
-- Tác nhân AI là gì và có những loại tác nhân nào?
-- Những trường hợp sử dụng nào phù hợp nhất cho Tác nhân AI và chúng có thể giúp gì cho chúng ta?
-- Một số khối xây dựng cơ bản khi thiết kế các Giải pháp Tác nhân là gì?
+- AI Agents là gì, và các loại khác nhau tồn tại
+- Những loại nhiệm vụ nào AI Agents thích hợp nhất để giải quyết
+- Các thành phần cốt lõi bạn sẽ sử dụng khi thiết kế một giải pháp Agentic
 
 ## Mục tiêu học tập
-Sau khi hoàn thành bài học này, bạn sẽ có thể:
 
-- Hiểu các khái niệm về Tác nhân AI và cách chúng khác với các giải pháp AI khác.
-- Áp dụng Tác nhân AI một cách hiệu quả nhất.
-- Thiết kế các giải pháp tác nhân một cách hữu ích cho cả người dùng và khách hàng.
+Sau bài học này, bạn sẽ có thể:
 
-## Định nghĩa Tác nhân AI và Các loại Tác nhân AI
+- Giải thích AI Agent là gì và điểm khác biệt so với giải pháp AI thông thường
+- Biết khi nào nên sử dụng AI Agent (và khi nào không nên)
+- Phác thảo thiết kế cơ bản của một giải pháp Agentic cho một vấn đề thực tế
 
-### Tác nhân AI là gì?
+---
 
-Tác nhân AI là **hệ thống** cho phép **Large Language Models(LLMs)** **thực hiện hành động** bằng cách mở rộng khả năng của chúng thông qua việc cung cấp cho LLMs **quyền truy cập vào công cụ** và **kiến thức**.
+## Định nghĩa AI Agents và các loại AI Agents
 
-Hãy chia định nghĩa này thành các phần nhỏ hơn:
+### AI Agents là gì?
 
-- **System** - Điều quan trọng là nên nghĩ về tác nhân không chỉ là một thành phần đơn lẻ mà là một hệ thống gồm nhiều thành phần. Ở mức cơ bản, các thành phần của một Tác nhân AI là:
-  - **Environment** - Không gian được xác định nơi tác nhân AI hoạt động. Ví dụ, nếu chúng ta có một tác nhân đặt vé du lịch, môi trường có thể là hệ thống đặt chỗ mà tác nhân AI sử dụng để hoàn thành nhiệm vụ.
-  - **Sensors** - Môi trường có thông tin và cung cấp phản hồi. Tác nhân AI sử dụng cảm biến để thu thập và diễn giải thông tin này về trạng thái hiện tại của môi trường. Trong ví dụ Tác nhân Đặt Vé Du Lịch, hệ thống đặt chỗ có thể cung cấp thông tin như tình trạng phòng khách sạn hoặc giá vé máy bay.
-  - **Actuators** - Khi Tác nhân AI nhận được trạng thái hiện tại của môi trường, đối với nhiệm vụ hiện tại tác nhân xác định hành động nào cần thực hiện để thay đổi môi trường. Đối với tác nhân đặt chỗ du lịch, hành động đó có thể là đặt một phòng có sẵn cho người dùng.
+Đây là cách đơn giản để nghĩ về nó:
 
-![Tác nhân AI là gì?](../../../translated_images/vi/what-are-ai-agents.1ec8c4d548af601a.webp)
+> **AI Agents là hệ thống cho phép Mô hình Ngôn ngữ Lớn (LLMs) thực sự *làm việc* — bằng cách cung cấp cho chúng công cụ và kiến thức để tác động lên thế giới, không chỉ phản hồi các yêu cầu.**
 
-**Large Language Models** - Khái niệm về tác nhân tồn tại trước khi có các LLMs. Lợi thế của việc xây dựng Tác nhân AI với LLMs là khả năng diễn giải ngôn ngữ con người và dữ liệu. Khả năng này cho phép LLMs diễn giải thông tin môi trường và xác định một kế hoạch để thay đổi môi trường.
+Hãy phân tích thêm một chút:
 
-**Perform Actions** - Bên ngoài hệ thống Tác nhân AI, LLMs bị giới hạn ở các tình huống mà hành động là tạo nội dung hoặc thông tin dựa trên lời nhắc của người dùng. Bên trong hệ thống Tác nhân AI, LLMs có thể hoàn thành nhiệm vụ bằng cách diễn giải yêu cầu của người dùng và sử dụng các công cụ có sẵn trong môi trường của chúng.
+- **Hệ thống** — AI Agent không chỉ là một thành phần đơn lẻ. Nó là tập hợp các phần làm việc cùng nhau. Về cơ bản, mỗi agent đều có ba phần:
+  - **Môi trường** — Không gian mà agent hoạt động. Với agent đặt vé du lịch, đây chính là nền tảng đặt chỗ.
+  - **Cảm biến** — Cách agent đọc trạng thái hiện tại của môi trường. Agent du lịch có thể kiểm tra tình trạng phòng khách sạn hoặc giá vé máy bay.
+  - **Bộ chấp hành** — Cách agent thực hiện hành động. Agent du lịch có thể đặt phòng, gửi xác nhận hoặc hủy đặt chỗ.
 
-**Access To Tools** - Những công cụ mà LLM có thể truy cập được xác định bởi 1) môi trường mà nó đang hoạt động và 2) nhà phát triển của Tác nhân AI. Ví dụ tác nhân du lịch của chúng ta, các công cụ của tác nhân bị giới hạn bởi các thao tác có sẵn trong hệ thống đặt chỗ, và/hoặc nhà phát triển có thể giới hạn quyền truy cập công cụ của tác nhân đối với vé máy bay.
+![What Are AI Agents?](../../../translated_images/vi/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-**Memory+Knowledge** - Bộ nhớ có thể là ngắn hạn trong ngữ cảnh cuộc hội thoại giữa người dùng và tác nhân. Về lâu dài, ngoài thông tin do môi trường cung cấp, Tác nhân AI cũng có thể truy xuất kiến thức từ các hệ thống, dịch vụ, công cụ khác, thậm chí từ các tác nhân khác. Trong ví dụ tác nhân du lịch, kiến thức này có thể là thông tin về sở thích du lịch của người dùng được lưu trong cơ sở dữ liệu khách hàng.
+- **Mô hình ngôn ngữ lớn** — Agents đã tồn tại trước khi có LLMs, nhưng chính LLMs là yếu tố giúp agent hiện đại trở nên mạnh mẽ. Chúng có thể hiểu ngôn ngữ tự nhiên, lý giải về ngữ cảnh và biến yêu cầu mơ hồ của người dùng thành kế hoạch hành động cụ thể.
 
-### Các loại tác nhân khác nhau
+- **Thực hiện hành động** — Nếu không có hệ thống agent, LLM chỉ tạo ra văn bản. Trong hệ thống agent, LLM có thể *thực thi* các bước — tìm kiếm cơ sở dữ liệu, gọi API, gửi tin nhắn.
 
-Bây giờ chúng ta đã có định nghĩa chung về Tác nhân AI, hãy xem một số loại tác nhân cụ thể và cách chúng sẽ được áp dụng cho một tác nhân đặt chuyến du lịch.
+- **Truy cập công cụ** — Công cụ mà agent có thể sử dụng phụ thuộc vào (1) môi trường nó hoạt động và (2) nhà phát triển cho phép. Agent du lịch có thể tìm kiếm chuyến bay nhưng không chỉnh sửa hồ sơ khách hàng — tất cả tuỳ thuộc vào những gì bạn cấu hình.
 
-| **Loại Tác nhân**            | **Mô tả**                                                                                                                            | **Ví dụ**                                                                                                                                                                                                                     |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tác nhân phản xạ đơn giản** | Thực hiện các hành động ngay lập tức dựa trên các quy tắc đã định trước.                                                            | Tác nhân du lịch diễn giải ngữ cảnh của email và chuyển tiếp các khiếu nại về du lịch tới bộ phận chăm sóc khách hàng.                                                                                                       |
-| **Tác nhân phản xạ dựa trên mô hình** | Thực hiện hành động dựa trên một mô hình về thế giới và các thay đổi đối với mô hình đó.                                              | Tác nhân du lịch ưu tiên các tuyến có thay đổi giá đáng kể dựa trên quyền truy cập dữ liệu giá lịch sử.                                                                                                                     |
-| **Tác nhân dựa trên mục tiêu** | Tạo kế hoạch để đạt được các mục tiêu cụ thể bằng cách diễn giải mục tiêu và xác định các hành động để đạt được nó.                  | Tác nhân du lịch đặt một chuyến đi bằng cách xác định các sắp xếp cần thiết (xe, phương tiện công cộng, chuyến bay) từ vị trí hiện tại đến điểm đến.                                                                                    |
-| **Tác nhân dựa trên tiện ích** | Xem xét sở thích và cân nhắc các đánh đổi một cách số học để xác định cách đạt được mục tiêu.                                         | Tác nhân du lịch tối đa hóa tiện ích bằng cách cân nhắc sự tiện lợi so với chi phí khi đặt chuyến đi.                                                                                                                       |
-| **Tác nhân học hỏi**          | Cải thiện theo thời gian bằng cách phản hồi và điều chỉnh hành động cho phù hợp.                                                     | Tác nhân du lịch cải thiện bằng cách sử dụng phản hồi khách hàng từ khảo sát sau chuyến đi để điều chỉnh các đặt chỗ trong tương lai.                                                                                       |
-| **Tác nhân phân cấp**         | Có nhiều tác nhân trong một hệ thống phân tầng, với các tác nhân cấp cao hơn chia nhiệm vụ thành các nhiệm vụ con để các tác nhân cấp thấp hoàn thành. | Tác nhân du lịch hủy một chuyến đi bằng cách chia nhiệm vụ thành các nhiệm vụ con (ví dụ, hủy các đặt chỗ cụ thể) và để các tác nhân cấp thấp hoàn thành chúng, báo cáo lại cho tác nhân cấp cao hơn.                        |
-| **Hệ thống nhiều tác nhân (MAS)** | Các tác nhân hoàn thành nhiệm vụ độc lập, có thể hợp tác hoặc cạnh tranh.                                                              | Hợp tác: Nhiều tác nhân đặt các dịch vụ du lịch cụ thể như khách sạn, chuyến bay và giải trí. Cạnh tranh: Nhiều tác nhân quản lý và cạnh tranh trên một lịch đặt phòng khách sạn dùng chung để đặt khách vào khách sạn. |
+- **Bộ nhớ + Kiến thức** — Agents có thể có bộ nhớ ngắn hạn (cuộc hội thoại hiện tại) và bộ nhớ dài hạn (cơ sở dữ liệu khách hàng, các tương tác trước đó). Agent du lịch có thể "nhớ" rằng bạn thích chỗ ngồi gần cửa sổ.
 
-## Khi nào sử dụng Tác nhân AI
+---
 
-Trong phần trước, chúng ta đã sử dụng trường hợp sử dụng Tác nhân Du lịch để giải thích cách các loại tác nhân khác nhau có thể được sử dụng trong các kịch bản đặt chuyến khác nhau. Chúng ta sẽ tiếp tục sử dụng ứng dụng này trong suốt khóa học.
+### Các loại AI Agents khác nhau
 
-Hãy xem các loại trường hợp sử dụng mà Tác nhân AI phù hợp nhất:
+Không phải tất cả các agent đều được xây dựng giống nhau. Dưới đây là phân loại chính, lấy agent đặt vé du lịch làm ví dụ:
 
-![Khi nào sử dụng Tác nhân AI?](../../../translated_images/vi/when-to-use-ai-agents.54becb3bed74a479.webp)
+| **Loại Agent** | **Chức năng** | **Ví dụ Agent Du lịch** |
+|---|---|---|
+| **Simple Reflex Agents** | Tuân thủ các quy tắc cứng nhắc — không có bộ nhớ, không lên kế hoạch. | Thấy email khiếu nại → chuyển tiếp cho bộ phận chăm sóc khách hàng. Chỉ vậy thôi. |
+| **Model-Based Reflex Agents** | Giữ mô hình nội bộ về thế giới và cập nhật khi có thay đổi. | Theo dõi giá vé máy bay lịch sử và đánh dấu các chuyến bay tăng giá đột ngột. |
+| **Goal-Based Agents** | Có mục tiêu rõ ràng và tìm cách đạt được mục tiêu từng bước một. | Đặt một chuyến đi đầy đủ (chuyến bay, xe, khách sạn) từ vị trí hiện tại đến điểm đến. |
+| **Utility-Based Agents** | Không chỉ tìm *một* giải pháp — tìm giải pháp *tốt nhất* bằng cách cân nhắc các lựa chọn. | Cân bằng chi phí và tiện lợi để tìm chuyến đi phù hợp nhất với sở thích của bạn. |
+| **Learning Agents** | Cải thiện theo thời gian dựa trên phản hồi. | Điều chỉnh gợi ý đặt phòng tương lai dựa trên khảo sát sau chuyến đi. |
+| **Hierarchical Agents** | Agent cấp cao phân công công việc thành các nhiệm vụ nhỏ và giao cho agent cấp thấp hơn. | Yêu cầu "hủy chuyến đi" chia thành: hủy vé máy bay, hủy khách sạn, hủy thuê xe — mỗi phần do một sub-agent xử lý. |
+| **Multi-Agent Systems (MAS)** | Nhiều agent độc lập hợp tác (hoặc cạnh tranh). | Hợp tác: các agent riêng biệt xử lý khách sạn, chuyến bay, và giải trí. Cạnh tranh: nhiều agent cạnh tranh để bán phòng khách sạn với giá tốt nhất. |
 
+---
 
-- **Vấn đề mở** - cho phép LLM xác định các bước cần thiết để hoàn thành một nhiệm vụ vì nó không thể luôn được mã hóa cứng vào một quy trình làm việc.
-- **Quy trình nhiều bước** - các nhiệm vụ yêu cầu mức độ phức tạp trong đó Tác nhân AI cần sử dụng công cụ hoặc thông tin qua nhiều lượt thay vì lấy thông tin một lần.  
-- **Cải thiện theo thời gian** - các nhiệm vụ mà tác nhân có thể cải thiện theo thời gian bằng cách nhận phản hồi từ môi trường hoặc người dùng để cung cấp tiện ích tốt hơn.
+## Khi nào nên dùng AI Agents
 
-Chúng tôi trình bày thêm các cân nhắc khi sử dụng Tác nhân AI trong bài học Xây dựng Tác nhân AI Đáng tin cậy.
+Không phải vì bạn *có thể* dùng AI Agent là bạn lúc nào cũng *nên*. Dưới đây là những tình huống agent thực sự phát huy hiệu quả:
 
-## Những điều cơ bản về Giải pháp Tác nhân
+![When to use AI Agents?](../../../translated_images/vi/when-to-use-ai-agents.54becb3bed74a479.webp)
 
-### Phát triển Tác nhân
+- **Vấn đề mở** — Khi các bước giải quyết không thể lập trình sẵn. Bạn cần LLM tự động xác định con đường.
+- **Quy trình nhiều bước** — Nhiệm vụ yêu cầu sử dụng công cụ nhiều lượt, không chỉ tra cứu hoặc tạo dữ liệu một lần.
+- **Cải thiện theo thời gian** — Khi bạn muốn hệ thống trở nên thông minh hơn dựa trên phản hồi của người dùng hoặc tín hiệu môi trường.
 
-Bước đầu tiên trong việc thiết kế một hệ thống Tác nhân AI là xác định công cụ, hành động và hành vi. Trong khóa học này, chúng tôi tập trung vào việc sử dụng **Azure AI Agent Service** để định nghĩa các Tác nhân của chúng tôi. Nó cung cấp các tính năng như:
+Chúng ta sẽ đi sâu hơn về khi nào (và khi nào *không*) nên dùng AI Agents trong bài học **Xây dựng AI Agents đáng tin cậy** sau trong khóa học.
 
-- Lựa chọn các Mô hình Mở như OpenAI, Mistral và Llama
-- Sử dụng Dữ liệu được cấp phép thông qua các nhà cung cấp như Tripadvisor
-- Sử dụng các công cụ OpenAPI 3.0 tiêu chuẩn
+---
 
-### Mẫu tác nhân
+## Những điều cơ bản của giải pháp Agentic
 
-Giao tiếp với LLM thông qua các prompt. Do tính chất bán tự chủ của Tác nhân AI, không phải lúc nào cũng có thể hoặc cần thiết để yêu cầu LLM bằng tay sau khi có thay đổi trong môi trường. Chúng tôi sử dụng các **Mẫu tác nhân** cho phép chúng ta prompt LLM qua nhiều bước theo cách có thể mở rộng hơn.
+### Phát triển Agent
 
-Khóa học này được chia thành một số mẫu tác nhân phổ biến hiện nay.
+Điều đầu tiên bạn làm khi xây dựng agent là xác định *nó có thể làm gì* — các công cụ, hành động và hành vi.
 
-### Khung tác nhân
+Trong khóa học này, chúng ta dùng **Azure AI Agent Service** làm nền tảng chính. Nó hỗ trợ:
 
-Khung tác nhân cho phép các nhà phát triển triển khai các mẫu tác nhân thông qua mã. Các khung này cung cấp các mẫu, plugin và công cụ để hợp tác Tác nhân AI tốt hơn. Những lợi ích này cung cấp khả năng quan sát và khắc phục sự cố tốt hơn cho hệ thống Tác nhân AI.
+- Các mô hình mở như OpenAI, Mistral, và Llama
+- Dữ liệu có bản quyền từ các nhà cung cấp như Tripadvisor
+- Định nghĩa công cụ chuẩn OpenAPI 3.0
 
-Trong khóa học này, chúng ta sẽ khám phá Microsoft Agent Framework (MAF) để xây dựng các tác nhân AI sẵn sàng cho môi trường sản xuất.
+### Mẫu Agentic
 
-## Mã mẫu
+Bạn giao tiếp với LLM thông qua các prompt. Với agent, bạn không thể tự tay tạo từng prompt cho mọi bước — agent cần hành động qua nhiều bước. Đó là lý do có **Mẫu Agentic**. Đây là các chiến lược tái sử dụng để prompt và điều phối LLM theo cách mở rộng và đáng tin cậy hơn.
 
-- Python: [Khung tác nhân](./code_samples/01-python-agent-framework.ipynb)
-- .NET: [Khung tác nhân](./code_samples/01-dotnet-agent-framework.md)
+Khóa học này được xây dựng dựa trên các mẫu agentic phổ biến và hữu ích nhất.
 
-## Bạn còn câu hỏi nào về Tác nhân AI không?
+### Framework Agentic
 
-Tham gia [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) để gặp gỡ những người học khác, tham dự giờ hỗ trợ và có các câu hỏi về Tác nhân AI của bạn được giải đáp.
+Framework Agentic cung cấp cho nhà phát triển các mẫu sẵn, công cụ và cơ sở hạ tầng để xây dựng agent. Chúng giúp:
 
-## Previous Lesson
+- Kết nối công cụ và khả năng
+- Giám sát hoạt động agent (và gỡ lỗi khi có sự cố)
+- Hợp tác giữa nhiều agent
 
-[Thiết lập Khóa học](../00-course-setup/README.md)
+Trong khóa học này, chúng ta tập trung vào **Microsoft Agent Framework (MAF)** để xây dựng các agent sẵn sàng dùng trong sản xuất.
 
-## Next Lesson
+---
 
-[Khám phá Khung tác nhân](../02-explore-agentic-frameworks/README.md)
+## Mẫu mã
+
+Sẵn sàng xem nó hoạt động chưa? Dưới đây là các mẫu mã cho bài học này:
+
+- 🐍 Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
+- 🔷 .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
+
+---
+
+## Có câu hỏi?
+
+Tham gia [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) để kết nối với các học viên khác, tham dự giờ làm việc và nhận được câu trả lời cho các câu hỏi về AI Agent từ cộng đồng.
+
+---
+
+## Bài học trước
+
+[Course Setup](../00-course-setup/README.md)
+
+## Bài học tiếp theo
+
+[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Miễn trừ trách nhiệm:
-Tài liệu này đã được dịch bằng dịch vụ dịch máy AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi nỗ lực để đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn chính thức. Đối với các thông tin quan trọng, khuyến nghị sử dụng dịch vụ dịch thuật chuyên nghiệp do con người thực hiện. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu nhầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
+**Tuyên bố từ chối trách nhiệm**:
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn chính xác và có thẩm quyền. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp do con người thực hiện. Chúng tôi không chịu trách nhiệm cho bất kỳ hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
