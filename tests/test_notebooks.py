@@ -52,14 +52,14 @@ class TestNotebooks:
         for notebook_path in notebook_paths:
             # Skip certain notebooks that require external services
             if any(skip in str(notebook_path) for skip in ['05-agentic-rag', '11-agentic-protocols']):
-                pytest.skip(f"Skipping {notebook_path} - requires external services")
+                continue
             
             with open(notebook_path, 'r', encoding='utf-8') as f:
                 nb = nbformat.read(f, as_version=4)
             
             try:
                 # Execute notebook
-                ep.preprocess(nb, {'metadata': {'path': str(notebook_path.parent)})
+                ep.preprocess(nb, {'metadata': {'path': str(notebook_path.parent)}})
             except CellExecutionError as e:
                 pytest.fail(f"Execution error in {notebook_path}: {e}")
             except Exception as e:
