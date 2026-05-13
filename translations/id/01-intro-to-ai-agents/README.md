@@ -2,13 +2,13 @@
 
 > _(Klik gambar di atas untuk menonton video pelajaran ini)_
 
-# Pengenalan ke AI Agents dan Kasus Penggunaan Agen
+# Pengenalan Agen AI dan Kasus Penggunaan Agen
 
-Selamat datang di kursus **AI Agents untuk Pemula**! Kursus ini memberikan Anda pengetahuan dasar — dan kode kerja nyata — untuk mulai membangun AI Agents dari awal.
+Selamat datang di kursus **Agen AI untuk Pemula**! Kursus ini memberikan Anda pengetahuan dasar — dan kode kerja nyata — untuk mulai membangun Agen AI dari nol.
 
-Mari sapa di <a href="https://discord.gg/kzRShWzttr" target="_blank">Komunitas Discord Azure AI</a> — penuh dengan pelajar dan pembangun AI yang senang menjawab pertanyaan.
+Mari sapa di <a href="https://discord.gg/kzRShWzttr" target="_blank">Komunitas Discord Azure AI</a> — penuh dengan pembelajar dan pembangun AI yang senang menjawab pertanyaan.
 
-Sebelum kita mulai membangun, mari pastikan kita benar-benar mengerti apa itu AI Agent dan kapan masuk akal untuk menggunakannya.
+Sebelum kita mulai membangun, mari pastikan kita benar-benar memahami apa itu Agen AI *dan* kapan masuk akal untuk menggunakannya.
 
 ---
 
@@ -16,133 +16,133 @@ Sebelum kita mulai membangun, mari pastikan kita benar-benar mengerti apa itu AI
 
 Pelajaran ini mencakup:
 
-- Apa itu AI Agents, dan berbagai jenis yang ada
-- Jenis-jenis tugas yang paling cocok untuk AI Agents
-- Komponen inti yang akan Anda gunakan saat merancang solusi Agentic
+- Apa itu Agen AI, dan berbagai jenis yang ada
+- Jenis tugas apa yang paling cocok untuk Agen AI
+- Blok bangunan inti yang akan Anda gunakan saat merancang solusi Agen
 
 ## Tujuan Pembelajaran
 
-Di akhir pelajaran ini, Anda harus dapat:
+Pada akhir pelajaran ini, Anda seharusnya dapat:
 
-- Menjelaskan apa itu AI Agent dan bagaimana bedanya dengan solusi AI biasa
-- Mengetahui kapan harus menggunakan AI Agent (dan kapan tidak)
-- Membuat sketsa desain solusi Agentic dasar untuk masalah dunia nyata
+- Menjelaskan apa itu Agen AI dan bagaimana bedanya dari solusi AI biasa
+- Mengetahui kapan harus menggunakan Agen AI (dan kapan tidak)
+- Membuat sketsa desain solusi Agen dasar untuk masalah dunia nyata
 
 ---
 
-## Mendefinisikan AI Agents dan Jenis AI Agents
+## Mendefinisikan Agen AI dan Jenis-Jenis Agen AI
 
-### Apa itu AI Agents?
+### Apa itu Agen AI?
 
-Ini cara sederhana untuk memikirkannya:
+Berikut cara sederhana untuk memikirkannya:
 
-> **AI Agents adalah sistem yang memungkinkan Large Language Models (LLM) benar-benar *melakukan sesuatu* — dengan memberi mereka alat dan pengetahuan untuk bertindak di dunia, bukan hanya merespons prompt.**
+> **Agen AI adalah sistem yang membiarkan Large Language Models (LLMs) *melakukan sesuatu* — dengan memberi mereka alat dan pengetahuan untuk bertindak di dunia, bukan hanya merespons perintah.**
 
 Mari uraikan sedikit:
 
-- **Sistem** — AI Agent bukan hanya satu hal. Ini kumpulan bagian yang bekerja bersama. Di inti, setiap agen memiliki tiga bagian:
+- **Sistem** — Agen AI bukan hanya satu hal. Ini adalah kumpulan bagian yang bekerja bersama. Pada intinya, setiap agen memiliki tiga bagian:
   - **Lingkungan** — Ruang tempat agen bekerja. Untuk agen pemesanan perjalanan, ini adalah platform pemesanan itu sendiri.
-  - **Sensor** — Bagaimana agen membaca keadaan lingkungan saat ini. Agen perjalanan kita mungkin memeriksa ketersediaan hotel atau harga penerbangan.
-  - **Aktuator** — Bagaimana agen mengambil tindakan. Agen perjalanan bisa memesan kamar, mengirim konfirmasi, atau membatalkan reservasi.
+  - **Sensor** — Cara agen membaca kondisi lingkungan saat ini. Agen perjalanan kita mungkin memeriksa ketersediaan hotel atau harga penerbangan.
+  - **Aktuator** — Cara agen mengambil tindakan. Agen perjalanan bisa memesan kamar, mengirim konfirmasi, atau membatalkan reservasi.
 
-![Apa Itu AI Agents?](../../../translated_images/id/what-are-ai-agents.1ec8c4d548af601a.webp)
+![What Are AI Agents?](../../../translated_images/id/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-- **Large Language Models** — Agen sudah ada sebelum LLM, tapi LLM-lah yang membuat agen modern sangat kuat. Mereka dapat memahami bahasa alami, menalar konteks, dan mengubah permintaan pengguna yang samar menjadi rencana tindakan konkret.
+- **Large Language Models** — Agen sudah ada sebelum LLM, tapi LLMlah yang membuat agen modern sangat kuat. Mereka bisa memahami bahasa alami, memikirkan konteks, dan mengubah permintaan pengguna yang samar menjadi rencana tindakan yang konkret.
 
-- **Melakukan Tindakan** — Tanpa sistem agen, LLM hanya menghasilkan teks. Dalam sistem agen, LLM bisa benar-benar *menjalankan* langkah-langkah — mencari di database, memanggil API, mengirim pesan.
+- **Melakukan Tindakan** — Tanpa sistem agen, LLM hanya menghasilkan teks. Dalam sistem agen, LLM benar-benar bisa *menjalankan* langkah-langkah — mencari database, memanggil API, mengirim pesan.
 
-- **Akses ke Alat** — Alat apa yang bisa digunakan agen tergantung pada (1) lingkungan tempat ia dijalankan dan (2) apa yang dipilih pengembang untuk diberikan. Agen perjalanan mungkin bisa mencari penerbangan tapi tidak mengedit catatan pelanggan — semuanya tergantung bagaimana Anda menghubungkannya.
+- **Akses ke Alat** — Alat apa yang bisa digunakan agen tergantung pada (1) lingkungan tempat ia berjalan dan (2) apa yang diberikan pengembang. Agen perjalanan mungkin bisa mencari penerbangan tapi tidak bisa mengedit data pelanggan — semuanya tergantung apa yang Anda sambungkan.
 
-- **Memori + Pengetahuan** — Agen bisa punya memori jangka pendek (percakapan saat ini) dan memori jangka panjang (database pelanggan, interaksi sebelumnya). Agen perjalanan bisa "mengingat" Anda lebih suka kursi di dekat jendela.
+- **Memori + Pengetahuan** — Agen bisa punya memori jangka pendek (percakapan saat ini) dan memori jangka panjang (database pelanggan, interaksi sebelumnya). Agen perjalanan mungkin "mengingat" Anda lebih suka kursi jendela.
 
 ---
 
-### Jenis-jenis AI Agents
+### Jenis-Jenis Agen AI
 
-Tidak semua agen dibuat sama. Berikut ini adalah rincian jenis utama, menggunakan agen pemesanan perjalanan sebagai contoh:
+Tidak semua agen dibuat sama. Berikut rincian jenis utama, menggunakan agen pemesanan perjalanan sebagai contoh:
 
 | **Jenis Agen** | **Apa yang Dilakukan** | **Contoh Agen Perjalanan** |
 |---|---|---|
-| **Simple Reflex Agents** | Mengikuti aturan keras— tanpa memori, tanpa perencanaan. | Melihat email keluhan → meneruskannya ke layanan pelanggan. Itu saja. |
-| **Model-Based Reflex Agents** | Memiliki model internal dunia dan memperbaruinya saat ada perubahan. | Melacak harga penerbangan historis dan menandai jalur yang tiba-tiba mahal. |
-| **Goal-Based Agents** | Memiliki tujuan dan mencari cara mencapainya langkah demi langkah. | Memesan perjalanan lengkap (penerbangan, mobil, hotel) dari posisi Anda sekarang hingga tujuan Anda. |
-| **Utility-Based Agents** | Tidak hanya menemukan *sebuah* solusi — mencari yang *terbaik* dengan mempertimbangkan trade-off. | Menyeimbangkan biaya vs. kenyamanan untuk menemukan perjalanan yang terbaik sesuai preferensi Anda. |
-| **Learning Agents** | Menjadi lebih baik seiring waktu dengan belajar dari umpan balik. | Menyesuaikan rekomendasi pemesanan di masa depan berdasarkan hasil survei setelah perjalanan. |
-| **Hierarchical Agents** | Agen tingkat tinggi memecah pekerjaan menjadi subtugas dan mendelegasikan ke agen tingkat rendah. | Permintaan "batalkan perjalanan" dipecah menjadi: batalkan penerbangan, batalkan hotel, batalkan sewa mobil — masing-masing ditangani oleh sub-agen. |
-| **Multi-Agent Systems (MAS)** | Beberapa agen independen bekerja sama (atau bersaing). | Kooperatif: agen terpisah mengelola hotel, penerbangan, dan hiburan. Kompetitif: beberapa agen bersaing untuk mengisi kamar hotel dengan harga terbaik. |
+| **Agen Refleks Sederhana** | Mengikuti aturan yang sudah diprogram — tanpa memori, tanpa perencanaan. | Melihat email keluhan → meneruskannya ke layanan pelanggan. Itu saja. |
+| **Agen Refleks Berbasis Model** | Memiliki model internal dunia dan memperbaruinya saat ada perubahan. | Melacak harga penerbangan historis dan memberi tanda rute yang tiba-tiba mahal. |
+| **Agen Berbasis Tujuan** | Punya tujuan dan mencari cara mencapainya langkah demi langkah. | Memesan perjalanan lengkap (penerbangan, mobil, hotel) dari lokasi Anda sekarang ke tujuan. |
+| **Agen Berbasis Utilitas** | Tidak hanya mencari *satu* solusi — tapi yang *terbaik* dengan menimbang kelebihan dan kekurangan. | Menyeimbangkan biaya vs. kenyamanan untuk menemukan perjalanan yang paling sesuai preferensi Anda. |
+| **Agen Pembelajar** | Menjadi lebih baik seiring waktu dengan belajar dari umpan balik. | Menyesuaikan rekomendasi pemesanan berikutnya berdasarkan hasil survei pasca-perjalanan. |
+| **Agen Hierarkis** | Agen tingkat tinggi membagi kerja menjadi subtugas dan mendelegasikan ke agen tingkat rendah. | Permintaan "batalkan perjalanan" dibagi menjadi: batalkan penerbangan, batalkan hotel, batalkan sewa mobil — masing-masing dikerjakan sub-agen. |
+| **Sistem Multi-Agen (MAS)** | Beberapa agen independen bekerja sama (atau bersaing). | Kerjasama: agen terpisah mengelola hotel, penerbangan, dan hiburan. Kompetitif: agen bersaing mengisi kamar hotel dengan harga terbaik. |
 
 ---
 
-## Kapan Menggunakan AI Agents
+## Kapan Menggunakan Agen AI
 
-Hanya karena Anda *bisa* menggunakan AI Agent bukan berarti Anda *selalu harus* menggunakannya. Berikut situasi dimana agen sangat berguna:
+Hanya karena Anda *bisa* menggunakan Agen AI tidak berarti Anda harus selalu menggunakannya. Berikut situasi di mana agen sangat efektif:
 
-![Kapan menggunakan AI Agents?](../../../translated_images/id/when-to-use-ai-agents.54becb3bed74a479.webp)
+![When to use AI Agents?](../../../translated_images/id/when-to-use-ai-agents.54becb3bed74a479.webp)
 
-- **Masalah Terbuka** — Ketika langkah untuk menyelesaikan masalah tidak bisa diprogram sebelumnya. Anda perlu agar LLM menemukan jalur secara dinamis.
-- **Proses Multi-Langkah** — Tugas yang perlu menggunakan alat di beberapa langkah, bukan hanya lookup atau generasi tunggal.
-- **Perbaikan Seiring Waktu** — Saat Anda ingin sistem menjadi lebih pintar berdasarkan umpan balik pengguna atau sinyal lingkungan.
+- **Masalah Terbuka** — Ketika langkah untuk menyelesaikan masalah tidak bisa diprogram sebelumnya. Anda membutuhkan LLM untuk mencari jalannya secara dinamis.
+- **Proses Multi-Langkah** — Tugas yang memerlukan penggunaan alat di beberapa tahap, tidak cuma sekali lihat atau buat.
+- **Peningkatan Seiring Waktu** — Ketika Anda ingin sistem menjadi lebih pintar berdasarkan masukan pengguna atau sinyal lingkungan.
 
-Kita akan membahas lebih dalam kapan (dan kapan *tidak*) menggunakan AI Agents di pelajaran **Membangun AI Agents yang Dapat Dipercaya** nanti di kursus ini.
+Kita akan mendalami kapan (dan kapan *tidak*) menggunakan Agen AI di pelajaran **Membangun Agen AI yang Dapat Dipercaya** nanti di kursus ini.
 
 ---
 
-## Dasar-dasar Solusi Agentic
+## Dasar-Dasar Solusi Agen
 
 ### Pengembangan Agen
 
-Hal pertama yang Anda lakukan saat membangun agen adalah mendefinisikan *apa yang bisa dilakukan* — alat, aksi, dan perilakunya.
+Hal pertama yang dilakukan saat membangun agen adalah mendefinisikan *apa yang bisa dilakukannya* — alat, tindakan, dan perilakunya.
 
-Dalam kursus ini, kami menggunakan **Azure AI Agent Service** sebagai platform utama. Layanan ini mendukung:
+Di kursus ini, kita menggunakan **Azure AI Agent Service** sebagai platform utama. Ini mendukung:
 
-- Model terbuka seperti OpenAI, Mistral, dan Llama
+- Model dari penyedia seperti OpenAI, Mistral, dan Meta (Llama)
 - Data berlisensi dari penyedia seperti Tripadvisor
-- Definisi alat OpenAPI 3.0 yang standar
+- Definisi alat standar OpenAPI 3.0
 
-### Pola Agentic
+### Pola Agen
 
-Anda berkomunikasi dengan LLM melalui prompt. Dengan agen, Anda tidak selalu dapat membuat setiap prompt secara manual — agen perlu mengambil tindakan dalam banyak langkah. Di sinilah **Pola Agentic** berguna. Mereka adalah strategi yang dapat digunakan ulang untuk memberi prompt dan mengatur LLM dengan cara yang lebih skalabel dan dapat diandalkan.
+Anda berkomunikasi dengan LLM melalui prompt. Dengan agen, Anda tidak selalu bisa membuat tiap prompt secara manual — agen harus bertindak dalam banyak langkah. Di sinilah **Pola Agen** berperan. Ini adalah strategi yang bisa digunakan ulang untuk memanggil dan mengorkestrasi LLM dengan cara yang lebih skalabel dan andal.
 
-Kursus ini disusun berdasarkan pola agentic yang paling umum dan berguna.
+Kursus ini disusun berdasarkan pola agen yang paling umum dan berguna.
 
-### Kerangka Agentic
+### Kerangka Agen
 
-Kerangka Agentic memberi pengembang templat, alat, dan infrastruktur yang siap pakai untuk membangun agen. Mereka memudahkan:
+Kerangka Agen memberikan pengembang template, alat, dan infrastruktur siap pakai untuk membangun agen. Ini memudahkan untuk:
 
 - Menghubungkan alat dan kapabilitas
-- Memantau apa yang dilakukan agen (dan debugging saat terjadi kesalahan)
-- Berkolaborasi antar banyak agen
+- Mengamati apa yang dilakukan agen (dan memperbaiki saat terjadi masalah)
+- Bekerja sama antar banyak agen
 
-Dalam kursus ini, kami fokus pada **Microsoft Agent Framework (MAF)** untuk membangun agen siap produksi.
+Di kursus ini, kita fokus pada **Microsoft Agent Framework (MAF)** untuk membangun agen yang siap produksi.
 
 ---
 
 ## Contoh Kode
 
-Siap melihatnya langsung? Berikut contoh kode untuk pelajaran ini:
+Siap melihatnya secara langsung? Berikut contoh kode untuk pelajaran ini:
 
 - 🐍 Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
 - 🔷 .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
 
 ---
 
-## Ada Pertanyaan?
+## Punya Pertanyaan?
 
-Bergabunglah dengan [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk terhubung dengan pelajar lain, menghadiri sesi tanya jawab, dan mendapatkan jawaban atas pertanyaan AI Agent Anda dari komunitas.
+Bergabunglah di [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk terhubung dengan pembelajar lain, menghadiri sesi office hours, dan mendapatkan jawaban atas pertanyaan Agen AI Anda dari komunitas.
 
 ---
 
 ## Pelajaran Sebelumnya
 
-[Pengaturan Kursus](../00-course-setup/README.md)
+[Course Setup](../00-course-setup/README.md)
 
-## Pelajaran Selanjutnya
+## Pelajaran Berikutnya
 
-[Mengeksplorasi Kerangka Agentic](../02-explore-agentic-frameworks/README.md)
+[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berusaha untuk keakuratan, harap diingat bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber otoritatif. Untuk informasi yang penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau salah tafsir yang timbul dari penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sah. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
