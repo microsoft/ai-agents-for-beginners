@@ -60,8 +60,8 @@
     "language_code": "km"
   },
   "01-intro-to-ai-agents/README.md": {
-    "original_hash": "46877a8b5d92ee5602fcd4b4f306d2f6",
-    "translation_date": "2026-04-20T17:15:47+00:00",
+    "original_hash": "2bca3003abfa1c0899e6a493203ca60e",
+    "translation_date": "2026-05-13T12:25:29+00:00",
     "source_file": "01-intro-to-ai-agents/README.md",
     "language_code": "km"
   },
@@ -276,8 +276,8 @@
     "language_code": "km"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb": {
-    "original_hash": "cbd4f70767f6a13113c883234f9a06e4",
-    "translation_date": "2026-04-06T19:33:47+00:00",
+    "original_hash": "4018bb524f52d151123b3def47a333ec",
+    "translation_date": "2026-05-13T12:22:28+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb",
     "language_code": "km"
   },
@@ -444,8 +444,8 @@
     "language_code": "km"
   },
   "14-microsoft-agent-framework/code-samples/14-handoff.ipynb": {
-    "original_hash": "3e8d796c48e375c708624d0f5c6b91e9",
-    "translation_date": "2026-04-06T20:09:12+00:00",
+    "original_hash": "6a369c12f5960e9c2ef0cbd94b61c007",
+    "translation_date": "2026-05-13T12:23:02+00:00",
     "source_file": "14-microsoft-agent-framework/code-samples/14-handoff.ipynb",
     "language_code": "km"
   },
@@ -479,6 +479,24 @@
     "source_file": "15-browser-use/README.md",
     "language_code": "km"
   },
+  "18-securing-ai-agents/README.md": {
+    "original_hash": "1affed2e38a672919f4339694f14d33b",
+    "translation_date": "2026-05-13T12:28:10+00:00",
+    "source_file": "18-securing-ai-agents/README.md",
+    "language_code": "km"
+  },
+  "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb": {
+    "original_hash": "7f736b9f19dfaa31fe162f3ef65c8ea9",
+    "translation_date": "2026-05-13T12:29:51+00:00",
+    "source_file": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
+    "language_code": "km"
+  },
+  "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
+    "original_hash": "259f4c2f1b978af641a0aaf40bcb7445",
+    "translation_date": "2026-05-13T12:28:22+00:00",
+    "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
+    "language_code": "km"
+  },
   "AGENTS.md": {
     "original_hash": "fe5d316ebb95ae2ce5f7e17c28fdb537",
     "translation_date": "2026-04-06T16:13:44+00:00",
@@ -492,8 +510,8 @@
     "language_code": "km"
   },
   "README.md": {
-    "original_hash": "3d6e1634c7be9aefbe9d706bbb1ab268",
-    "translation_date": "2026-04-24T11:01:26+00:00",
+    "original_hash": "d276700eaa7e9851431ce062d6538afb",
+    "translation_date": "2026-05-13T12:24:43+00:00",
     "source_file": "README.md",
     "language_code": "km"
   },
