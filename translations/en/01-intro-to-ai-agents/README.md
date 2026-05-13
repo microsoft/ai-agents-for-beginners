@@ -95,7 +95,7 @@ The first thing you do when building an agent is define *what it can do* — its
 
 In this course, we use the **Azure AI Agent Service** as our main platform. It supports:
 
-- Open models like OpenAI, Mistral, and Llama
+- Models from providers like OpenAI, Mistral, and Meta (Llama)
 - Licensed data from providers like Tripadvisor
 - Standardized OpenAPI 3.0 tool definitions
 
@@ -143,6 +143,6 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to connec
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
+**Disclaimer**:
 This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
