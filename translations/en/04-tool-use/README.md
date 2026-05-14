@@ -280,13 +280,12 @@ project_client = AIProjectClient.from_connection_string(
 # Initialize toolset
 toolset = ToolSet()
 
-# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and add it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Initialize Code Interpreter tool and adding it to the toolset.
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+# Initialize Code Interpreter tool and add it to the toolset.
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
     model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
@@ -320,12 +319,11 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet w
 [Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
 
 ## Next Lesson
-
 [Agentic RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -2,78 +2,78 @@
 
 > _(Klikněte na obrázek výše pro zobrazení videa této lekce)_
 
-# Vzorec návrhu využití nástrojů
+# Návrhový vzor použití nástrojů
 
-Nástroje jsou zajímavé, protože umožňují AI agentům mít širší škálu schopností. Místo toho, aby agent měl omezenou sadu akcí, které může provádět, přidáním nástroje může agent nyní vykonávat širokou škálu akcí. V této kapitole si prohlédneme vzorec návrhu využití nástrojů, který popisuje, jak AI agenti mohou používat specifické nástroje k dosažení svých cílů.
+Nástroje jsou zajímavé, protože umožňují AI agentům mít širší škálu schopností. Místo toho, aby agent měl omezenou sadu akcí, které může provádět, může nyní agent pomocí přidání nástroje vykonávat širokou škálu činností. V této kapitole se podíváme na návrhový vzor použití nástrojů, který popisuje, jak mohou AI agenti využívat konkrétní nástroje k dosažení svých cílů.
 
 ## Úvod
 
-V této lekci se pokusíme odpovědět na následující otázky:
+V této lekci se zaměříme na zodpovězení následujících otázek:
 
-- Co je vzorec návrhu využití nástrojů?
-- Pro jaké případy použití lze tento vzorec aplikovat?
-- Jaké prvky/stavební bloky jsou potřeba k implementaci vzorce návrhu?
-- Jaká jsou zvláštní opatření pro použití vzorce návrhu využití nástrojů pro budování důvěryhodných AI agentů?
+- Co je návrhový vzor použití nástrojů?
+- Na jaké případy použití lze tento vzor aplikovat?
+- Jaké jsou prvky/stavební kameny potřebné k implementaci návrhového vzoru?
+- Jaká jsou zvláštní opatření při použití návrhového vzoru použití nástrojů k vytváření důvěryhodných AI agentů?
 
 ## Výukové cíle
 
 Po dokončení této lekce budete schopni:
 
-- Definovat vzorec návrhu využití nástrojů a jeho účel.
-- Identifikovat případy použití, kde je vzorec využití nástrojů aplikovatelný.
-- Pochopit klíčové prvky potřebné k implementaci vzorce návrhu.
-- Rozpoznat úvahy pro zajištění důvěryhodnosti AI agentů využívajících tento vzorec návrhu.
+- Definovat návrhový vzor použití nástrojů a jeho účel.
+- Identifikovat případy použití, kde je návrhový vzor použití nástrojů aplikovatelný.
+- Pochopit klíčové prvky potřebné k implementaci návrhového vzoru.
+- Rozpoznat úvahy pro zajištění důvěryhodnosti AI agentů používajících tento návrhový vzor.
 
-## Co je vzorec návrhu využití nástrojů?
+## Co je návrhový vzor použití nástrojů?
 
-**Vzorec návrhu využití nástrojů** se zaměřuje na to, aby LLM (velké jazykové modely) měly schopnost interagovat s externími nástroji k dosažení specifických cílů. Nástroje jsou kód, který může agent spustit, aby provedl akce. Nástroj může být jednoduchá funkce, například kalkulačka, nebo volání API na službu třetí strany, jako je vyhledání ceny akcií nebo předpověď počasí. V kontextu AI agentů jsou nástroje navrženy tak, aby byly spouštěny agenty jako odpověď na **funkční volání generovaná modelem**.
+**Návrhový vzor použití nástrojů** se zaměřuje na poskytnutí schopnosti LLM interagovat s externími nástroji za účelem dosažení konkrétních cílů. Nástroje jsou kód, který může agent spustit k provedení akcí. Nástroj může být jednoduchá funkce, například kalkulačka, nebo volání API ke službě třetí strany, například vyhledávání ceny akcií nebo předpověď počasí. V kontextu AI agentů jsou nástroje navrženy tak, aby byly spouštěny agenty v reakci na **funkční volání generovaná modelem**.
 
-## Pro jaké případy použití lze tento vzorec aplikovat?
+## Na jaké případy použití lze tento vzor aplikovat?
 
-AI agenti mohou využívat nástroje k dokončení složitých úkolů, získávání informací nebo přijímání rozhodnutí. Vzorec využití nástrojů se často používá v situacích vyžadujících dynamickou interakci s externími systémy, jako jsou databáze, webové služby nebo interpretory kódu. Tato schopnost je užitečná pro řadu různých případů použití včetně:
+AI agenti mohou využívat nástroje k dokončení složitých úkolů, získávání informací nebo přijímání rozhodnutí. Návrhový vzor použití nástrojů se často používá v scénářích vyžadujících dynamickou interakci s externími systémy, jako jsou databáze, webové služby nebo interprety kódu. Tato schopnost je užitečná pro řadu různých případů použití, včetně:
 
-- **Dynamické získávání informací:** Agenti mohou dotazovat externí API nebo databáze pro získání aktuálních dat (například dotazování SQLite databáze pro analýzu dat, získávání cen akcií nebo informací o počasí).
-- **Spouštění a interpretace kódu:** Agenti mohou spouštět kód nebo skripty pro řešení matematických problémů, generování reportů nebo provádění simulací.
-- **Automatizace pracovních toků:** Automatizace opakujících se nebo vícestupňových pracovních procesů integrací nástrojů jako plánovačů úkolů, e-mailových služeb nebo datových proudů.
-- **Zákaznická podpora:** Agenti mohou interagovat s CRM systémy, platformami pro správu tiketů nebo znalostními databázemi pro vyřešení uživatelských dotazů.
-- **Generování a úprava obsahu:** Agenti mohou využívat nástroje jako kontrolory gramatiky, souhrn textu nebo hodnotitele bezpečnosti obsahu pro podporu tvůrčích úkolů.
+- **Dynamické získávání informací:** Agenti mohou dotazovat externí API nebo databáze pro získání aktuálních dat (např. dotazování SQLite databáze pro analýzu dat, získání cen akcií nebo informací o počasí).
+- **Spouštění a interpretace kódu:** Agenti mohou vykonávat kód nebo skripty pro řešení matematických problémů, generování zpráv nebo simulací.
+- **Automatizace pracovních postupů:** Automatizace opakujících se nebo vícestupňových úloh integrací nástrojů, jako jsou plánovače úkolů, e-mailové služby nebo datové toky.
+- **Zákaznická podpora:** Agenti mohou komunikovat se systémy CRM, platformami pro správu tiketů nebo znalostními databázemi k řešení uživatelských dotazů.
+- **Generování a úprava obsahu:** Agenti mohou využívat nástroje jako kontrolu gramatiky, shrnovače textu nebo hodnotitele bezpečnosti obsahu pro asistenci při tvorbě obsahu.
 
-## Jaké prvky/stavební bloky jsou potřeba k implementaci vzorce návrhu využití nástrojů?
+## Jaké jsou prvky/stavební kameny potřebné k implementaci návrhového vzoru použití nástrojů?
 
-Tyto stavební bloky umožňují AI agentovi provádět širokou škálu úkolů. Pojďme se podívat na klíčové prvky potřebné k implementaci vzorce návrhu využití nástrojů:
+Tyto stavební kameny umožňují AI agentovi vykonávat širokou škálu úkolů. Podívejme se na klíčové prvky potřebné k implementaci návrhového vzoru použití nástrojů:
 
-- **Schémata funkcí/nástrojů**: Podrobné definice dostupných nástrojů, včetně názvu funkce, účelu, požadovaných parametrů a očekávaných výstupů. Tato schémata umožňují LLM pochopit, jaké nástroje jsou dostupné a jak sestavit platné požadavky.
+- **Schémata funkcí/nástrojů:** Podrobné definice dostupných nástrojů, zahrnující název funkce, účel, požadované parametry a očekávané výstupy. Tato schémata umožňují LLM porozumět dostupným nástrojům a jak správně sestavit platné požadavky.
 
-- **Logika spouštění funkcí**: Řídí, jak a kdy jsou nástroje vyvolávány na základě záměru uživatele a kontextu konverzace. Může zahrnovat plánovací moduly, směrovací mechanismy nebo podmíněné toky, které dynamicky určují použití nástroje.
+- **Logika spouštění funkcí:** Řídí, jak a kdy jsou nástroje volány na základě uživatelova záměru a kontextu konverzace. Může zahrnovat plánovací moduly, směrovací mechanizmy nebo podmíněné toky určující dynamické používání nástrojů.
 
-- **Systém zpracování zpráv**: Komponenty, které spravují tok konverzace mezi uživatelskými vstupy, odpověďmi LLM, voláním nástrojů a výstupy nástrojů.
+- **Systém zpracování zpráv:** Komponenty, které spravují tok konverzace mezi vstupy uživatele, odpověďmi LLM, voláními nástrojů a výstupy nástrojů.
 
-- **Rámec integrace nástrojů**: Infrastruktura, která propojuje agenta s různými nástroji, ať už jde o jednoduché funkce nebo složité externí služby.
+- **Rámec integrace nástrojů:** Infrastruktura, která propojuje agenta s různými nástroji, ať už jsou to jednoduché funkce nebo složité externí služby.
 
-- **Zpracování chyb a validace**: Mechanismy pro řešení selhání při spouštění nástrojů, ověřování parametrů a správu neočekávaných odpovědí.
+- **Zpracování chyb a validace:** Mechanismy pro zvládání selhání při spouštění nástrojů, ověřování parametrů a řízení neočekávaných odpovědí.
 
-- **Správa stavu**: Sleduje kontext konverzace, předchozí interakce s nástroji a perzistentní data pro zajištění konzistence napříč víceturnovými interakcemi.
+- **Správa stavu:** Sleduje kontext konverzace, předchozí interakce s nástroji a perzistentní data, aby zajistila konzistenci v průběhu vícekrokových interakcí.
 
-Nyní si podrobněji prohlédneme funkční volání.
+Dále se podíváme podrobněji na Funkční volání.
 
-### Funkční/volání nástrojů
+### Funkční/Volání nástrojů
 
-Volání funkcí je primární způsob, jak umožnit velkým jazykovým modelům (LLM) interakci s nástroji. Často uvidíte, že "funkce" a "nástroj" se používají zaměnitelně, protože "funkce" (bloky znovupoužitelného kódu) jsou "nástroje", které agenti používají k provádění úkolů. Aby mohl být kód funkce vyvolán, musí LLM porovnat požadavek uživatele s popisem funkce. K tomu se LLM posílá schéma obsahující popisy všech dostupných funkcí. LLM pak vybere nejvhodnější funkci pro daný úkol a vrátí její název a argumenty. Vybraná funkce je spuštěna, její odpověď je zaslána zpět LLM, které využije informace k odpovědi na požadavek uživatele.
+Volání funkcí je primární způsob, jak umožňujeme rozsáhlým jazykovým modelům (LLM) interakci s nástroji. Často uvidíte, že 'Funkce' a 'Nástroj' jsou použity zaměnitelně, protože 'funkce' (bloky znovupoužitelného kódu) jsou 'nástroje', které agenti používají k vykonávání úkolů. Aby mohl být kód funkce spuštěn, musí LLM porovnat požadavek uživatele s popisem funkcí. Za tímto účelem je do LLM zasláno schéma obsahující popisy všech dostupných funkcí. LLM pak vybere nejvhodnější funkci pro daný úkol a vrátí její název a argumenty. Vybraná funkce je spuštěna, její odpověď je zaslána zpět do LLM, který využije informace k odpovědi na uživatelův požadavek.
 
-Pro vývojáře, kteří chtějí implementovat volání funkcí pro agenty, je potřeba:
+Pro vývojáře, kteří chtějí implementovat funkční volání pro agenty, budete potřebovat:
 
-1. LLM model, který podporuje volání funkcí
+1. LLM model podporující funkční volání
 2. Schéma obsahující popisy funkcí
 3. Kód pro každou popsanou funkci
 
-Jako příklad použijme získání aktuálního času ve městě:
+Použijme příklad získání aktuálního času ve městě:
 
-1. **Inicializujte LLM, který podporuje volání funkcí:**
+1. **Inicializujte LLM podporující funkční volání:**
 
-    Ne všechny modely podporují volání funkcí, proto je důležité ověřit, zda váš LLM tuto funkci má. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> volání funkcí podporuje. Můžeme začít inicializací klienta Azure OpenAI.
+    Ne všechny modely podporují funkční volání, proto je důležité ověřit, že používaný LLM to podporuje. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> funkční volání podporuje. Můžeme začít inicializací klienta Azure OpenAI.
 
     ```python
-    # Inicializujte klienta Azure OpenAI
+    # Inicializovat klienta Azure OpenAI
     client = AzureOpenAI(
         azure_endpoint = os.getenv("AZURE_AI_PROJECT_ENDPOINT"), 
         api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
@@ -81,13 +81,13 @@ Jako příklad použijme získání aktuálního času ve městě:
     )
     ```
 
-1. **Vytvořte schéma funkce**:
+1. **Vytvořte funkční schéma:**
 
-    Následně definujeme JSON schéma obsahující název funkce, popis toho, co funkce dělá, a názvy a popisy parametrů funkce.
-    Toto schéma pak předáme dříve vytvořenému klientu spolu s uživatelským požadavkem na zjištění času v San Franciscu. Důležité je poznamenat, že se vrací **volání nástroje**, **nikoli** konečná odpověď na otázku. Jak již bylo zmíněno, LLM vrací název funkce, kterou vybral pro úkol, a argumenty předávané této funkci.
+    Následně definujeme JSON schéma, které obsahuje název funkce, popis, co funkce dělá, a názvy a popisy parametrů funkce.
+    Toto schéma pak předáme klientovi, vytvořenému výše, spolu s uživatelovým požadavkem na čas v San Franciscu. Důležité je poznamenat, že je vráceno **volání nástroje**, **nikoli** konečná odpověď na otázku. Jak bylo zmíněno, LLM vrací název zvolené funkce a argumenty, které jí budou předány.
 
     ```python
-    # Popis funkce pro model k přečtení
+    # Popis funkce pro načtení modelu
     tools = [
         {
             "type": "function",
@@ -114,7 +114,7 @@ Jako příklad použijme získání aktuálního času ve městě:
     # Počáteční uživatelská zpráva
     messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
   
-    # První volání API: Požádej model, aby použil funkci
+    # První volání API: Požádejte model, aby použil funkci
       response = client.chat.completions.create(
           model=deployment_name,
           messages=messages,
@@ -122,7 +122,7 @@ Jako příklad použijme získání aktuálního času ve městě:
           tool_choice="auto",
       )
   
-      # Zpracuj odpověď modelu
+      # Zpracovat odpověď modelu
       response_message = response.choices[0].message
       messages.append(response_message)
   
@@ -139,8 +139,8 @@ Jako příklad použijme získání aktuálního času ve městě:
   
 1. **Kód funkce potřebný k vykonání úkolu:**
 
-    Nyní, když LLM vybralo, která funkce má být spuštěna, je potřeba implementovat a spustit kód, který úkol provede.
-    Můžeme implementovat kód pro získání aktuálního času v Pythonu. Rovněž bude potřeba napsat kód pro získání názvu a argumentů z response_message pro získání konečného výsledku.
+    Jakmile LLM vybere, která funkce má být spuštěna, musí být kód funkce implementován a vykonán.
+    Kód získání aktuálního času můžeme implementovat v Pythonu. Také musíme napsat kód na extrakci názvu a argumentů z response_message, abychom získali konečný výsledek.
 
     ```python
       def get_current_time(location):
@@ -197,22 +197,22 @@ Jako příklad použijme získání aktuálního času ve městě:
       The current time in San Francisco is 09:24 AM.
      ```
 
-Volání funkcí je jádrem většiny, ne-li všech, návrhů využití nástrojů agentů, implementace však může být někdy náročná.
-Jak jsme se dozvěděli v [Lekci 2](../../../02-explore-agentic-frameworks), agentní frameworky nám poskytují předpřipravené stavební bloky pro implementaci využití nástrojů.
+Volání funkcí je jádrem většiny, ne-li všech návrhových vzorů použití nástrojů agentů, avšak jeho implementace od základů může být někdy náročná.
+Jak jsme se naučili v [Lekci 2](../../../02-explore-agentic-frameworks), agentní rámce nám poskytují předpřipravené stavební kameny pro implementaci použití nástrojů.
  
-## Příklady využití nástrojů s agentními frameworky
+## Příklady použití nástrojů s agentními rámci
 
-Zde jsou některé příklady, jak můžete implementovat vzorec návrhu využití nástrojů pomocí různých agentních frameworků:
+Zde jsou některé příklady, jak můžete implementovat návrhový vzor použití nástrojů pomocí různých agentních rámců:
 
 ### Microsoft Agent Framework
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> je open-source AI framework pro tvorbu AI agentů. Zjednodušuje proces využití volání funkcí tím, že umožňuje definovat nástroje jako Python funkce s dekorátorem `@tool`. Framework zajišťuje komunikaci mezi modelem a vaším kódem. Také poskytuje přístup k předpřipraveným nástrojům, jako jsou File Search a Code Interpreter přes `AzureAIProjectAgentProvider`.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> je open-source AI rámec pro vytváření AI agentů. Zjednodušuje proces používání funkčního volání tím, že umožňuje definovat nástroje jako Python funkce s dekorátorem `@tool`. Rámec zajišťuje zpětnou komunikaci mezi modelem a vaším kódem. Také poskytuje přístup k předpřipraveným nástrojům jako je vyhledávání souborů a interpretr kódu prostřednictvím `AzureAIProjectAgentProvider`.
 
-Následující diagram znázorňuje proces volání funkcí v Microsoft Agent Framework:
+Následující diagram znázorňuje proces funkčního volání s Microsoft Agent Framework:
 
-![function calling](../../../translated_images/cs/functioncalling-diagram.a84006fc287f6014.webp)
+![volání funkcí](../../../translated_images/cs/functioncalling-diagram.a84006fc287f6014.webp)
 
-V Microsoft Agent Framework jsou nástroje definovány jako dekorované funkce. Můžeme převést funkci `get_current_time`, kterou jsme viděli dříve, na nástroj pomocí dekorátoru `@tool`. Framework automaticky serializuje funkci a její parametry a vytvoří schéma k odeslání LLM.
+V Microsoft Agent Framework jsou nástroje definovány jako dekorované funkce. Můžeme převést funkci `get_current_time`, kterou jsme viděli dříve, na nástroj použitím dekorátoru `@tool`. Rámec automaticky serializuje funkci a její parametry, vytváří schéma k odeslání do LLM.
 
 ```python
 from agent_framework import tool
@@ -227,43 +227,43 @@ def get_current_time(location: str) -> str:
 # Vytvořte klienta
 provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
-# Vytvořte agenta a spusťte ho s nástrojem
+# Vytvořte agenta a spusťte nástroj
 agent = await provider.create_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
 response = await agent.run("What time is it?")
 ```
   
 ### Azure AI Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> je novější agentní framework navržený tak, aby umožnil vývojářům bezpečně vytvářet, nasazovat a škálovat vysoce kvalitní a rozšiřitelné AI agenty bez nutnosti spravovat základní výpočetní a úložné zdroje. Je obzvláště užitečný pro podnikovou sféru, protože jde o plně spravovanou službu s bezpečností na podnikové úrovni.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> je novější agentní rámec navržený tak, aby vývojářům umožnil bezpečně vytvářet, nasazovat a škálovat kvalitní a rozšiřitelné AI agenty bez nutnosti správy základních výpočetních a úložných zdrojů. Je obzvlášť užitečný pro podnikové aplikace, protože je to plně spravovaná služba s podnikové úrovně zabezpečením.
 
-Ve srovnání s vývojem přímo pomocí LLM API přináší Azure AI Agent Service některé výhody, včetně:
+Ve srovnání s přímým vývojem pomocí API LLM poskytuje Azure AI Agent Service několik výhod, včetně:
 
-- Automatické volání nástrojů – není třeba analyzovat volání nástroje, spouštět nástroj a zpracovávat odpověď; vše je nyní řešeno na straně serveru
-- Bezpečně spravovaná data – místo správy vlastní historie konverzace můžete spoléhat na vlákna (threads), která uchovávají všechny potřebné informace
-- Nástroje připravené k použití – nástroje pro interakci s datovými zdroji, jako jsou Bing, Azure AI Search a Azure Functions.
+- Automatické volání nástrojů – není třeba analyzovat volání nástroje, spouštět nástroj a zpracovávat odpověď; vše se nyní děje na straně serveru
+- Bezpečně spravovaná data – místo správy vlastního stavu konverzace můžete spoléhat na vlákna, která uchovávají všechny potřebné informace
+- Nástroje připravené k použití – nástroje, které můžete použít k interakci se zdroji dat, jako Bing, Azure AI Search a Azure Functions.
 
 Nástroje dostupné v Azure AI Agent Service lze rozdělit do dvou kategorií:
 
-1. Nástroje pro znalosti:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Propojení s Bing Search</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">File Search</a>
+1. Nástroje znalostí:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Vazba na Bing Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Vyhledávání souborů</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
 
-2. Nástroje pro akce:
+2. Nástroje akcí:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Volání funkcí</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Code Interpreter</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">Nástroje definované OpenAPI</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Interpretr kódu</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">Nástroje definované pomocí OpenAPI</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agent Service nám umožňuje používat tyto nástroje společně jako `nástroje` (toolset). Také využívá `vlákna` (threads), která sledují historii zpráv z konkrétní konverzace.
+Agent Service nám umožňuje používat tyto nástroje společně jako `toolset`. Také využívá `vlákna`, která sledují historii zpráv z konkrétní konverzace.
 
-Představte si, že jste obchodní agent ve firmě Contoso. Chcete vyvinout konverzační agenta, který dokáže odpovídat na otázky týkající se vašich prodejních dat.
+Představte si, že jste obchodním zástupcem ve firmě nazvané Contoso. Chcete vyvinout konverzačního agenta, který dokáže odpovídat na dotazy týkající se vašich prodejních dat.
 
-Následující obrázek ukazuje, jak můžete Azure AI Agent Service využít k analýze vašich prodejních dat:
+Následující obrázek znázorňuje, jak byste mohli použít Azure AI Agent Service k analýze vašich prodejních dat:
 
-![Agentic Service In Action](../../../translated_images/cs/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentní služba v akci](../../../translated_images/cs/agent-service-in-action.34fb465c9a84659e.webp)
 
-Pro použití jakéhokoliv z těchto nástrojů se službou můžeme vytvořit klienta a definovat nástroj nebo sadu nástrojů. Praktická implementace může vypadat následovně v Pythonu. LLM bude moci nahlédnout do sady nástrojů a rozhodnout, zda použije uživatelem vytvořenou funkci `fetch_sales_data_using_sqlite_query`, nebo předem připravený Code Interpreter v závislosti na požadavku uživatele.
+Chcete-li použít některý z těchto nástrojů se službou, můžeme vytvořit klienta a definovat nástroj nebo sadu nástrojů. Pro praktickou implementaci můžeme použít následující Python kód. LLM bude moci nahlédnout do sady nástrojů a rozhodnout, zda použít uživatelem vytvořenou funkci `fetch_sales_data_using_sqlite_query` nebo předpřipravený Interpretr kódu podle uživatelského požadavku.
 
 ```python 
 import os
@@ -280,13 +280,12 @@ project_client = AIProjectClient.from_connection_string(
 # Inicializovat sadu nástrojů
 toolset = ToolSet()
 
-# Inicializovat agenta volání funkcí s funkcí fetch_sales_data_using_sqlite_query a přidat ji do sady nástrojů
+# Inicializovat agenta volajícího funkce s funkcí fetch_sales_data_using_sqlite_query a přidat ji do sady nástrojů
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
 # Inicializovat nástroj Code Interpreter a přidat jej do sady nástrojů.
-code_interpreter = code_interpreter = CodeInterpreterTool()
-toolset.add(code_interpreter)
+code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
     model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
@@ -294,37 +293,37 @@ agent = project_client.agents.create_agent(
 )
 ```
 
-## Jaká jsou zvláštní opatření pro použití vzorce návrhu využití nástrojů při budování důvěryhodných AI agentů?
+## Jaká jsou zvláštní opatření při použití návrhového vzoru použití nástrojů k vytváření důvěryhodných AI agentů?
 
-Častou obavou u dynamicky generovaného SQL pomocí LLM je bezpečnost, zejména riziko SQL injection nebo škodlivých akcí, například odstranění nebo poškození databáze. Tyto obavy jsou oprávněné, avšak lze je efektivně zmírnit správnou konfigurací přístupových oprávnění k databázi. U většiny databází to znamená konfiguraci databáze jako jen pro čtení. U databázových služeb jako PostgreSQL nebo Azure SQL by měla být aplikaci přiřazena role pouze pro čtení (SELECT).
+Běžným problémem u SQL dynamicky generovaného LLM je bezpečnost, zejména riziko SQL injekce nebo škodlivých akcí, jako je mazání nebo manipulace s databází. Přestože jsou tyto obavy oprávněné, lze je efektivně zmírnit správnou konfigurací přístupových oprávnění k databázi. U většiny databází to znamená nakonfigurovat databázi jako pouze pro čtení. U databázových služeb jako PostgreSQL nebo Azure SQL by aplikace měla mít přiřazenou roli pouze pro čtení (SELECT).
 
-Provozování aplikace v bezpečném prostředí dále zvyšuje ochranu. V podnikových scénářích jsou data obvykle extrahována a transformována z provozních systémů do databáze nebo datového skladu pouze pro čtení s uživatelsky přívětivým schématem. Tento přístup zajišťuje, že data jsou bezpečná, optimalizovaná pro výkon a přístupnost, a že aplikace má omezený, pouze čtecí přístup.
+Provoz aplikace v zabezpečeném prostředí dále zvyšuje ochranu. V podnikovém prostředí jsou data obvykle extrahována a transformována z provozních systémů do databáze s přístupem pouze pro čtení nebo do datového skladu s uživatelsky přívětivým schématem. Tento přístup zajišťuje, že data jsou bezpečná, optimalizovaná pro výkon a přístupnost a že aplikace má omezený přístup pouze pro čtení.
 
 ## Ukázkové kódy
 
 - Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-## Máte další otázky ohledně vzorce návrhu využití nástrojů?
+## Máte další otázky ohledně návrhových vzorů použití nástrojů?
 
-Připojte se k [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kde můžete potkat další studenty, zúčastnit se konzultací a získat odpovědi na vaše otázky týkající se AI agentů.
+Připojte se k [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kde můžete setkat další studenty, zúčastnit se konzultačních hodin a získat odpovědi na otázky týkající se AI agentů.
 
 ## Další zdroje
 
 - <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Workshop Azure AI Agents Service</a>
-- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Workshop Contoso Creative Writer Multi-Agent</a>
+- <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Multi-Agent Workshop</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Přehled Microsoft Agent Framework</a>
 
 ## Předchozí lekce
 
-[Porozumění agentním vzorcům návrhu](../03-agentic-design-patterns/README.md)
+[Porozumění agentním návrhovým vzorům](../03-agentic-design-patterns/README.md)
 
-## Další lekce
+## Následující lekce
 [Agentní RAG](../05-agentic-rag/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Prohlášení o vyloučení odpovědnosti**:
-Tento dokument byl přeložen pomocí automatické překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho původním jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědni za jakékoliv nedorozumění nebo chybné výklady vyplývající z užití tohoto překladu.
+**Prohlášení o omezení odpovědnosti**:
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o co největší přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo nesprávné interpretace vzniklé použitím tohoto překladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
