@@ -60,8 +60,8 @@
     "language_code": "zh-CN"
   },
   "01-intro-to-ai-agents/README.md": {
-    "original_hash": "46877a8b5d92ee5602fcd4b4f306d2f6",
-    "translation_date": "2026-04-20T17:22:09+00:00",
+    "original_hash": "2bca3003abfa1c0899e6a493203ca60e",
+    "translation_date": "2026-05-13T11:04:41+00:00",
     "source_file": "01-intro-to-ai-agents/README.md",
     "language_code": "zh-CN"
   },
@@ -275,6 +275,12 @@
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/04.dotnet-agent-framework-workflow-aifoundry-condition.md",
     "language_code": "zh-CN"
   },
+  "08-multi-agent/code_samples/workflows-agent-framework/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb": {
+    "original_hash": "4018bb524f52d151123b3def47a333ec",
+    "translation_date": "2026-05-13T10:58:57+00:00",
+    "source_file": "08-multi-agent/code_samples/workflows-agent-framework/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb",
+    "language_code": "zh-CN"
+  },
   "08-multi-agent/code_samples/workflows-agent-framework/python/04.python-agent-framework-workflow-aifoundry-condition.ipynb": {
     "original_hash": "ab181e3d8a4bf47aff77b877b7204f78",
     "translation_date": "2026-03-06T13:49:07+00:00",
@@ -438,8 +444,8 @@
     "language_code": "zh-CN"
   },
   "14-microsoft-agent-framework/code-samples/14-handoff.ipynb": {
-    "original_hash": "3e8d796c48e375c708624d0f5c6b91e9",
-    "translation_date": "2026-02-19T04:29:53+00:00",
+    "original_hash": "6a369c12f5960e9c2ef0cbd94b61c007",
+    "translation_date": "2026-05-13T10:59:19+00:00",
     "source_file": "14-microsoft-agent-framework/code-samples/14-handoff.ipynb",
     "language_code": "zh-CN"
   },
@@ -455,6 +461,24 @@
     "source_file": "15-browser-use/README.md",
     "language_code": "zh-CN"
   },
+  "18-securing-ai-agents/README.md": {
+    "original_hash": "1affed2e38a672919f4339694f14d33b",
+    "translation_date": "2026-05-13T11:09:02+00:00",
+    "source_file": "18-securing-ai-agents/README.md",
+    "language_code": "zh-CN"
+  },
+  "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb": {
+    "original_hash": "7f736b9f19dfaa31fe162f3ef65c8ea9",
+    "translation_date": "2026-05-13T11:12:22+00:00",
+    "source_file": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
+    "language_code": "zh-CN"
+  },
+  "18-securing-ai-agents/code_samples/sample_receipts/README.md": {
+    "original_hash": "259f4c2f1b978af641a0aaf40bcb7445",
+    "translation_date": "2026-05-13T11:09:31+00:00",
+    "source_file": "18-securing-ai-agents/code_samples/sample_receipts/README.md",
+    "language_code": "zh-CN"
+  },
   "AGENTS.md": {
     "original_hash": "fe5d316ebb95ae2ce5f7e17c28fdb537",
     "translation_date": "2026-03-06T14:40:46+00:00",
@@ -468,8 +492,8 @@
     "language_code": "zh-CN"
   },
   "README.md": {
-    "original_hash": "3d6e1634c7be9aefbe9d706bbb1ab268",
-    "translation_date": "2026-04-24T10:52:47+00:00",
+    "original_hash": "d276700eaa7e9851431ce062d6538afb",
+    "translation_date": "2026-05-13T11:04:17+00:00",
     "source_file": "README.md",
     "language_code": "zh-CN"
   },

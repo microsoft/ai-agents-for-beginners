@@ -1,14 +1,14 @@
-[![Introductie tot AI-Agenten](../../../translated_images/nl/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
+[![Intro to AI Agents](../../../translated_images/nl/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Klik op de afbeelding hierboven om de video van deze les te bekijken)_
+> _(Klik op de afbeelding hierboven om de video voor deze les te bekijken)_
 
-# Introductie tot AI-Agenten en Gebruikscasussen van Agenten
+# Introductie tot AI Agents en gebruikssituaties voor Agents
 
-Welkom bij de cursus **AI-Agenten voor Beginners**! Deze cursus geeft je de basiskennis — en echte werkende code — om AI-Agenten vanaf nul te bouwen.
+Welkom bij de cursus **AI Agents voor Beginners**! Deze cursus geeft je de basiskennis — en werkende code — om AI Agents vanaf nul te bouwen.
 
-Kom hallo zeggen in de <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a> — deze zit vol met leerders en AI-bouwers die graag vragen beantwoorden.
+Zeg hoi in de <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a> — deze zit vol met leerlingen en AI-bouwers die graag vragen beantwoorden.
 
-Voordat we aan de slag gaan met bouwen, laten we eerst zeker weten dat we begrijpen wat een AI-Agent *is* en wanneer het zinvol is er een te gebruiken.
+Voordat we beginnen met bouwen, laten we eerst begrijpen wat een AI Agent *is* en wanneer het zinvol is er een te gebruiken.
 
 ---
 
@@ -16,108 +16,108 @@ Voordat we aan de slag gaan met bouwen, laten we eerst zeker weten dat we begrij
 
 Deze les behandelt:
 
-- Wat AI-Agenten zijn, en de verschillende typen die bestaan
-- Voor welke soorten taken AI-Agenten het meest geschikt zijn
-- De kernbouwstenen die je gebruikt bij het ontwerpen van een Agent-oplossing
+- Wat AI Agents zijn, en de verschillende typen die bestaan
+- Voor welke soorten taken AI Agents het beste geschikt zijn
+- De kernbouwstenen die je zult gebruiken bij het ontwerpen van een agent-gebaseerde oplossing
 
 ## Leerdoelen
 
-Aan het einde van deze les moet je in staat zijn:
+Aan het einde van deze les kun je:
 
-- Uit te leggen wat een AI-Agent is en hoe het verschilt van een gewone AI-oplossing
-- Te weten wanneer je een AI-Agent moet inzetten (en wanneer niet)
-- Een basisontwerp te schetsen voor een Agent-oplossing voor een probleem uit de praktijk
+- Uitleggen wat een AI Agent is en hoe deze verschilt van een reguliere AI-oplossing
+- Weten wanneer je een AI Agent moet inzetten (en wanneer niet)
+- Een basisontwerp schetsen van een agent-gebaseerde oplossing voor een probleem uit de praktijk
 
 ---
 
-## Definiëren van AI-Agenten en Typen AI-Agenten
+## Definiëren van AI Agents en typen AI Agents
 
-### Wat zijn AI-Agenten?
+### Wat zijn AI Agents?
 
 Hier is een eenvoudige manier om erover na te denken:
 
-> **AI-Agenten zijn systemen die Large Language Models (LLM's) echt *laten handelen* — door ze tools en kennis te geven om op de wereld in te grijpen, niet alleen om op prompts te reageren.**
+> **AI Agents zijn systemen die Large Language Models (LLM's) daadwerkelijk *dingen laten doen* — door hen gereedschappen en kennis te geven om op de wereld te handelen, en niet alleen te reageren op prompts.**
 
-Laten we dat wat verder uitleggen:
+Laten we dat wat nader bekijken:
 
-- **Systeem** — Een AI-Agent is niet zomaar één ding. Het is een verzameling onderdelen die samenwerken. In de kern heeft elke agent drie onderdelen:
-  - **Omgeving** — De ruimte waarin de agent werkt. Voor een reisboekingsagent zou dat het boekingsplatform zelf zijn.
-  - **Sensoren** — Hoe de agent de huidige staat van zijn omgeving leest. Onze reisagent kan bijvoorbeeld hotelbeschikbaarheid of vluchtprijzen checken.
-  - **Actuatoren** — Hoe de agent actie onderneemt. De reisagent kan een kamer boeken, een bevestiging sturen, of een reservering annuleren.
+- **Systeem** — Een AI Agent is niet zomaar één ding. Het is een verzameling onderdelen die samenwerken. In de kern heeft elke agent drie onderdelen:
+  - **Omgeving** — De ruimte waarin de agent werkt. Voor een reisboekingsagent is dit het boekingsplatform zelf.
+  - **Sensoren** — Hoe de agent de huidige staat van zijn omgeving leest. Onze reisagent controleert bijvoorbeeld hotelbeschikbaarheid of vluchtprijzen.
+  - **Actuatoren** — Hoe de agent actie onderneemt. De reisagent boekt misschien een kamer, stuurt een bevestiging of annuleert een reservering.
 
-![Wat Zijn AI-Agenten?](../../../translated_images/nl/what-are-ai-agents.1ec8c4d548af601a.webp)
+![What Are AI Agents?](../../../translated_images/nl/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-- **Large Language Models** — Agenten bestonden al vóór LLM's, maar LLM's maken moderne agenten zo krachtig. Zij kunnen natuurlijke taal begrijpen, context doorgronden en een vage gebruikersvraag omzetten in een concreet actieplan.
+- **Large Language Models** — Agents bestonden al voor LLM's, maar LLM's maken moderne agents zo krachtig. Ze begrijpen natuurlijke taal, redeneren over context, en zetten een vage gebruikersvraag om in een concreet actieplan.
 
-- **Acties Uitvoeren** — Zonder een agentsysteem genereert een LLM alleen tekst. Binnen een agentsysteem kan de LLM daadwerkelijk *stappen uitvoeren* — een database doorzoeken, een API aanroepen, een bericht sturen.
+- **Acties uitvoeren** — Zonder een agentsysteem genereert een LLM alleen tekst. Binnen een agentsysteem kan de LLM daadwerkelijk *stappen uitvoeren* — een database doorzoeken, een API aanroepen, een bericht versturen.
 
-- **Toegang tot Tools** — Welke tools de agent kan gebruiken, hangt af van (1) de omgeving waarin hij draait en (2) wat de ontwikkelaar hem geeft. Een reisagent kan bijvoorbeeld vluchtzoekopdrachten uitvoeren maar geen klantgegevens bewerken — het hangt allemaal af van wat je aansluit.
+- **Toegang tot gereedschappen** — Welke gereedschappen de agent kan gebruiken hangt af van (1) de omgeving waarin hij draait en (2) wat de ontwikkelaar hem heeft gegeven. Een reisagent kan vluchten zoeken maar misschien geen klantgegevens wijzigen — het hangt ervan af wat je koppelt.
 
-- **Geheugen + Kennis** — Agenten kunnen kortetermijngeheugen hebben (het huidige gesprek) en langetermijngeheugen (een klantenbestand, eerdere interacties). De reisagent kan zich "herinneren" dat je bij voorkeur een raamstoel kiest.
+- **Geheugen + Kennis** — Agents kunnen een kortetermijngeheugen hebben (het huidige gesprek) en langetermijngeheugen (een klantenbestand, eerdere interacties). De reisagent "herinnert" zich bijvoorbeeld dat je de voorkeur geeft aan een stoel bij het raam.
 
 ---
 
-### De Verschillende Typen AI-Agenten
+### De verschillende typen AI Agents
 
-Niet alle agenten zijn op dezelfde manier gebouwd. Hier is een overzicht van de belangrijkste typen, met een reisboekingsagent als voorbeeld:
+Niet alle agents zijn hetzelfde gebouwd. Hier is een indeling van de belangrijkste types, met een reisboekingsagent als voorbeeld:
 
-| **Agentyype** | **Wat het doet** | **Reisagentvoorbeeld** |
+| **Type Agent** | **Wat het doet** | **Voorbeeld Reisagent** |
 |---|---|---|
-| **Eenvoudige Reflexagenten** | Volgen vaste regels — geen geheugen, geen planning. | Ziet een klachtmail → stuurt deze door naar klantenservice. Dat is alles. |
-| **Modelgebaseerde Reflexagenten** | Houdt een intern model van de wereld bij en werkt dit bij als dingen veranderen. | Houdt historische vluchtprijzen bij en markeert routes die plotseling duur zijn. |
-| **Doelgebaseerde Agenten** | Heeft een doel voor ogen en bedenkt stap voor stap hoe dat te bereiken. | Boekt een volledige reis (vluchten, auto, hotel) vanaf jouw huidige locatie om je naar de bestemming te brengen. |
-| **Nutgebaseerde Agenten** | Zoekt niet zomaar een *oplossing*, maar de *beste* door afwegingen te maken. | Weegt kosten tegen gemak af om de reis te vinden die het beste bij je voorkeuren past. |
-| **Leerende Agenten** | Worden beter in de tijd door te leren van feedback. | Past toekomstige boekingsaanbevelingen aan op basis van enquêteresultaten na de reis. |
-| **Hiërarchische Agenten** | Een topniveau-agent verdeelt taken in subtaken en delegeert aan lagere niveau agenten. | Een "annuleer reis"-verzoek wordt opgesplitst in: vlucht annuleren, hotel annuleren, auto annuleren — elk afgehandeld door een sub-agent. |
-| **Multi-Agent Systemen (MAS)** | Meerdere onafhankelijke agenten werken samen (of concurreren). | Samenwerkend: verschillende agenten verzorgen hotels, vluchten en entertainment. Concurrerend: meerdere agenten concurreren om hotelkamers tegen de beste prijs te vullen. |
+| **Eenvoudige reflexagents** | Volgen harde regels — geen geheugen, geen planning. | Ziet een klacht-email → stuurt door naar klantenservice. Dat is het. |
+| **Modelgebaseerde reflexagents** | Houdt een intern model van de wereld bij en werkt dit bij als dingen veranderen. | Houdt historische vluchtprijzen bij en markeert routes die plots duur zijn. |
+| **Doelgerichte agents** | Heeft een doel en bedenkt stap voor stap hoe dat te bereiken. | Boekt een hele reis (vluchten, auto, hotel) vanaf je huidige locatie naar je bestemming. |
+| **Nut-gebaseerde agents** | Zoekt niet zomaar *een* oplossing — maar de *beste* door afwegingen te maken. | Weegt kosten tegen gemak om de reis te vinden die het beste aansluit op je voorkeuren. |
+| **Leeragents** | Wordt beter in de loop van de tijd door te leren van feedback. | Past toekomstige boekingsaanbevelingen aan op basis van enquêteresultaten na de reis. |
+| **Hiërarchische agents** | Een agent op hoog niveau verdeelt het werk in deelopdrachten en geeft die door aan lagere agents. | Een verzoek "reis annuleren" wordt opgesplitst in: vlucht annuleren, hotel annuleren, autohuur annuleren — elk afgehandeld door een deelagent. |
+| **Multi-agent Systemen (MAS)** | Meerdere onafhankelijke agents werken samen (of concurreren). | Samenwerkend: aparte agents regelen hotels, vluchten en entertainment. Competitief: meerdere agents concurreren om hotelkamers tegen de beste prijs te vullen. |
 
 ---
 
-## Wanneer AI-Agenten gebruiken
+## Wanneer AI Agents gebruiken
 
-Alleen omdat je een AI-Agent *kunt* gebruiken, betekent niet dat je dat altijd *moet* doen. Hier zijn situaties waarin agenten echt uitblinken:
+Alleen omdat je een AI Agent *kan* gebruiken, betekent dat niet altijd dat je dat ook *moet* doen. Dit zijn de situaties waarin agents echt uitblinken:
 
-![Wanneer AI-Agenten gebruiken?](../../../translated_images/nl/when-to-use-ai-agents.54becb3bed74a479.webp)
+![When to use AI Agents?](../../../translated_images/nl/when-to-use-ai-agents.54becb3bed74a479.webp)
 
-- **Open Einde Problemen** — Wanneer de stappen om een probleem op te lossen niet vooraf geprogrammeerd kunnen worden. De LLM moet het pad dynamisch uitzoeken.
-- **Meerdere Stappen Processen** — Taken die gereedschappen over meerdere beurten vereisen, niet slechts één enkele opzoeking of generatie.
-- **Verbetering in de Tijd** — Wanneer je wilt dat het systeem slimmer wordt op basis van gebruikersfeedback of signalen uit de omgeving.
+- **Open-eind problemen** — Wanneer de stappen om een probleem op te lossen niet vooraf geprogrammeerd kunnen worden. Je hebt de LLM nodig om het pad dynamisch uit te zoeken.
+- **Meer-staps processen** — Taken die vereisen dat je tools meerdere keren achter elkaar gebruikt, niet slechts één enkele opvraging of generatie.
+- **Verbetering in de tijd** — Wanneer je wilt dat het systeem slimmer wordt op basis van gebruikersfeedback of omgevingssignalen.
 
-We gaan later in de cursus dieper in op wanneer (en wanneer juist *niet*) AI-Agenten te gebruiken in de les **Betrouwbare AI-Agenten Bouwen**.
+We gaan dieper in op wanneer (en wanneer *niet*) AI Agents te gebruiken in de les **Betrouwbare AI Agents bouwen**, later in de cursus.
 
 ---
 
-## Basisprincipes van Agentoplossingen
+## Basisprincipes van agent-gebaseerde oplossingen
 
 ### Agentontwikkeling
 
-Het eerste wat je doet bij het bouwen van een agent is definiëren *wat hij kan* — de tools, acties en gedragingen.
+Het eerste wat je doet bij het bouwen van een agent is definiëren *wat deze kan doen* — zijn gereedschappen, acties en gedrag.
 
-In deze cursus gebruiken we de **Azure AI Agent Service** als ons platform. Deze ondersteunt:
+In deze cursus gebruiken we de **Azure AI Agent Service** als ons hoofdplatform. Deze ondersteunt:
 
-- Open modellen zoals OpenAI, Mistral en Llama
+- Modellen van aanbieders zoals OpenAI, Mistral en Meta (Llama)
 - Gelicentieerde data van aanbieders zoals Tripadvisor
 - Gestandaardiseerde OpenAPI 3.0 tooldefinities
 
-### Agentpatronen
+### Agent-gebaseerde patronen
 
-Je communiceert met LLM's via prompts. Bij agenten kun je niet altijd elke prompt handmatig samenstellen — de agent moet over meerdere stappen actie ondernemen. Daar komen **Agentpatronen** om de hoek kijken. Dat zijn herbruikbare strategieën om LLM's op een schaalbare en betrouwbare manier aan te sturen en te coördineren.
+Je communiceert met LLM's via prompts. Bij agents kun je niet altijd elke prompt handmatig maken — de agent moet acties kunnen ondernemen over meerdere stappen. Daarom zijn er **agent-gebaseerde patronen**. Dit zijn herbruikbare strategieën om LLM's op een schaalbaardere en betrouwbaardere manier aan te sturen en te orkestreren.
 
-Deze cursus is opgebouwd rond de meest voorkomende en nuttige agentpatronen.
+Deze cursus is opgebouwd rond de meest voorkomende en nuttige agent-gebaseerde patronen.
 
-### Agentframeworks
+### Agent-Frameworks
 
-Agentframeworks bieden ontwikkelaars kant-en-klare sjablonen, tools en infrastructuur om agenten te bouwen. Ze maken het makkelijker om:
+Agent-Frameworks bieden ontwikkelaars kant-en-klare sjablonen, gereedschappen en infrastructuur om agents te bouwen. Ze maken het eenvoudiger om:
 
-- Tools en mogelijkheden aan te sluiten
-- Te observeren wat de agent doet (en te debuggen als het misgaat)
-- Samen te werken tussen meerdere agenten
+- Gereedschappen en functies te koppelen
+- Te observeren wat de agent doet (en te debuggen als iets misgaat)
+- Samen te werken tussen meerdere agents
 
-In deze cursus richten we ons op het **Microsoft Agent Framework (MAF)** voor het bouwen van productieklare agenten.
+In deze cursus richten we ons op het **Microsoft Agent Framework (MAF)** voor het bouwen van productieklare agents.
 
 ---
 
-## Codevoorbeelden
+## Code Voorbeelden
 
 Klaar om het in actie te zien? Hier zijn de codevoorbeelden voor deze les:
 
@@ -128,21 +128,21 @@ Klaar om het in actie te zien? Hier zijn de codevoorbeelden voor deze les:
 
 ## Vragen?
 
-Sluit je aan bij de [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) om in contact te komen met andere leerders, bij spreekuren te zijn, en je AI-Agent vragen te laten beantwoorden door de community.
+Doe mee met de [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) om in contact te komen met andere leerlingen, aanwezig te zijn bij spreekuren, en je AI Agent-vragen door de community beantwoord te krijgen.
 
 ---
 
-## Vorige Les
+## Vorige les
 
 [Cursus Setup](../00-course-setup/README.md)
 
-## Volgende Les
+## Volgende les
 
-[Agentframeworks Verkennen](../02-explore-agentic-frameworks/README.md)
+[Agent Frameworks verkennen](../02-explore-agentic-frameworks/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-Dit document is vertaald met behulp van de AI-vertalingsdienst [Co-op Translator](https://github.com/Azure/co-op-translator). Terwijl we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet als de gezaghebbende bron worden beschouwd. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor enige misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
