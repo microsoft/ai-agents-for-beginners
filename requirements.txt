@@ -23,3 +23,7 @@ pandas
 pillow
 python-dotenv
 uvicorn
+
+# Lesson 18 - Securing AI Agents with cryptographic receipts
+jcs
+pynacl
