@@ -276,9 +276,21 @@
     "language_code": "ta"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb": {
-    "original_hash": "4018bb524f52d151123b3def47a333ec",
-    "translation_date": "2026-05-13T15:52:06+00:00",
+    "original_hash": "05ea71c50b4a98dec49c4ca32156f04e",
+    "translation_date": "2026-05-22T10:21:10+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb",
+    "language_code": "ta"
+  },
+  "08-multi-agent/code_samples/workflows-agent-framework/python/02.python-agent-framework-workflow-ghmodel-sequential.ipynb": {
+    "original_hash": "a30eafa6a0c16dd9d9554ce2800af836",
+    "translation_date": "2026-05-22T10:20:49+00:00",
+    "source_file": "08-multi-agent/code_samples/workflows-agent-framework/python/02.python-agent-framework-workflow-ghmodel-sequential.ipynb",
+    "language_code": "ta"
+  },
+  "08-multi-agent/code_samples/workflows-agent-framework/python/03.python-agent-framework-workflow-ghmodel-concurrent.ipynb": {
+    "original_hash": "6ae61bebd9c407279b6821f720a1d001",
+    "translation_date": "2026-05-22T10:21:39+00:00",
+    "source_file": "08-multi-agent/code_samples/workflows-agent-framework/python/03.python-agent-framework-workflow-ghmodel-concurrent.ipynb",
     "language_code": "ta"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/python/04.python-agent-framework-workflow-aifoundry-condition.ipynb": {
@@ -318,8 +330,8 @@
     "language_code": "ta"
   },
   "10-ai-agents-production/code_samples/10-expense_claim-demo.ipynb": {
-    "original_hash": "6fef6b109d307c1e60c6bd2a7472fa79",
-    "translation_date": "2026-03-07T15:39:20+00:00",
+    "original_hash": "37196d478f2b6f25b15f09de740727ce",
+    "translation_date": "2026-05-22T10:20:35+00:00",
     "source_file": "10-ai-agents-production/code_samples/10-expense_claim-demo.ipynb",
     "language_code": "ta"
   },
@@ -432,14 +444,14 @@
     "language_code": "ta"
   },
   "14-microsoft-agent-framework/code-samples/14-concurrent.ipynb": {
-    "original_hash": "02976f053742465875ee47e53f1f1d75",
-    "translation_date": "2026-02-20T04:42:08+00:00",
+    "original_hash": "cb74a88b4c85d904e7964d33f3cf9c03",
+    "translation_date": "2026-05-22T10:23:16+00:00",
     "source_file": "14-microsoft-agent-framework/code-samples/14-concurrent.ipynb",
     "language_code": "ta"
   },
   "14-microsoft-agent-framework/code-samples/14-conditional-workflow.ipynb": {
-    "original_hash": "19c66f60c644243b3a0be6fa2101fa44",
-    "translation_date": "2026-02-20T04:42:51+00:00",
+    "original_hash": "98bf6f59fe42b113a8b7434cfc11478f",
+    "translation_date": "2026-05-22T10:24:26+00:00",
     "source_file": "14-microsoft-agent-framework/code-samples/14-conditional-workflow.ipynb",
     "language_code": "ta"
   },
@@ -450,9 +462,15 @@
     "language_code": "ta"
   },
   "14-microsoft-agent-framework/code-samples/14-middleware.ipynb": {
-    "original_hash": "b55027876f226b09148f531043169da4",
-    "translation_date": "2026-02-20T04:41:19+00:00",
+    "original_hash": "6d2c6a709c12bf914bb32d9fbcdc45e3",
+    "translation_date": "2026-05-22T10:22:47+00:00",
     "source_file": "14-microsoft-agent-framework/code-samples/14-middleware.ipynb",
+    "language_code": "ta"
+  },
+  "14-microsoft-agent-framework/code-samples/14-sequential.ipynb": {
+    "original_hash": "96cf8f9aa84ee6c34814f8a26e382204",
+    "translation_date": "2026-05-22T10:23:36+00:00",
+    "source_file": "14-microsoft-agent-framework/code-samples/14-sequential.ipynb",
     "language_code": "ta"
   },
   "15-browser-use/README.md": {
