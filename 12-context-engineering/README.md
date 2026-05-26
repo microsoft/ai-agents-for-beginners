@@ -94,7 +94,7 @@ While some information will be added to the context window automatically, contex
  6. **Runtime State Objects**
    This is done by creating containers of information to manage situations when the Agent needs to have access to certain information. For a complex task, this would enable an Agent to store the results of each subtask step by step, allowing the context to remain connected only to that specific subtask.
 
-### Inspecting Context
+#### Inspecting Context
 
 After you apply one of these strategies, it is worth checking what the next model call actually received. A useful debugging question is:
 
