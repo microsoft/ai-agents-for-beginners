@@ -192,7 +192,7 @@ async def main() -> None:
         chat_client = OpenAIChatClient(
             base_url=os.environ.get("MINIMAX_BASE_URL", "https://api.minimax.io/v1"),
             api_key=minimax_api_key,
-            model_id=os.environ.get("MINIMAX_MODEL_ID", "MiniMax-M2.7"),
+            model_id=os.environ.get("MINIMAX_MODEL_ID", "MiniMax-M3"),
         )
         print("Using MiniMax provider")
     elif github_token:

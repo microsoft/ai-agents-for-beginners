@@ -256,9 +256,9 @@ Add these variables to your `.env` file:
 |----------|-----------------|
 | `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) → API Keys |
 | `MINIMAX_BASE_URL` | Use `https://api.minimax.io/v1` (default value) |
-| `MINIMAX_MODEL_ID` | Model name to use (e.g., `MiniMax-M2.7`) |
+| `MINIMAX_MODEL_ID` | Model name to use (e.g., `MiniMax-M3`) |
 
-**Available models**: `MiniMax-M2.7` (recommended), `MiniMax-M2.7-highspeed` (faster responses)
+**Available models**: `MiniMax-M3` (recommended), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (faster responses)
 
 The code samples that use `OpenAIChatClient` (e.g., Lesson 14 hotel booking workflow) will automatically detect and use your MiniMax configuration when `MINIMAX_API_KEY` is set.
 
