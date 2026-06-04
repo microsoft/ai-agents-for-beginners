@@ -262,6 +262,7 @@ The Python code in this lesson is intentionally minimal so you can read every li
    - The receipt format used in this lesson follows an IETF Internet-Draft (`draft-farley-acta-signed-receipts`) currently in the standards process.
    - The Microsoft Agent Governance Toolkit composes receipts with Cedar-based policy decisions; see Tutorial 33 in that repository for an end-to-end example.
    - The `protect-mcp` (npm) and `@veritasacta/verify` (npm) packages provide a Node-based implementation of receipt signing and offline verification, intended for wrapping any MCP server with a tamper-evident audit trail.
+   - The **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) provides the same pattern in Python with LangChain and CrewAI integrations, cross-validated test vectors (4/4 byte-identical across Python and TypeScript), and an OWASP-merged compliance mapping for EU AI Act Article 12, SOC 2, and HIPAA (see [PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210), merged June 2026).
 
 The decision between rolling your own and using a library mirrors the decision between writing your own JWT library and using a tested one: both are reasonable; the library saves time and reduces audit surface; the from-scratch approach forces you to understand every primitive. This lesson teaches the from-scratch path so you have the foundation for either choice.
 
