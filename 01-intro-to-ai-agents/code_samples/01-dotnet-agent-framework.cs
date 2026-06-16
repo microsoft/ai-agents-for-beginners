@@ -11,7 +11,6 @@ using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
 using OpenAI;
-using OpenAI.Chat;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -70,6 +69,7 @@ var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOp
 // The agent can now plan trips using the GetRandomDestination function
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
+    .AsIChatClient()
     .AsAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
