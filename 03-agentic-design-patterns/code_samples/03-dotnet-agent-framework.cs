@@ -127,7 +127,7 @@ AIAgent agent = openAIClient
         ]
     );
 
-// Create Conversation Thread for Context Management
+// Create Conversation Session for Context Management
 AgentSession session = await agent.CreateSessionAsync();
 
 // ============================================================================
