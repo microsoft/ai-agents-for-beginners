@@ -11,6 +11,7 @@ using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
 using OpenAI;
+using OpenAI.Chat;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
