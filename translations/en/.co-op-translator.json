@@ -186,9 +186,15 @@
     "language_code": "en"
   },
   "06-building-trustworthy-agents/README.md": {
-    "original_hash": "0efee7e91baf1145ad83c7131408122b",
-    "translation_date": "2026-03-06T11:01:03+00:00",
+    "original_hash": "ca935a2e26268061e963f0c447cb2fcd",
+    "translation_date": "2026-06-18T11:12:05+00:00",
     "source_file": "06-building-trustworthy-agents/README.md",
+    "language_code": "en"
+  },
+  "06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb": {
+    "original_hash": "ac9534d6955b963296bb08d218c09189",
+    "translation_date": "2026-06-18T11:15:22+00:00",
+    "source_file": "06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb",
     "language_code": "en"
   },
   "06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb": {
@@ -432,8 +438,8 @@
     "language_code": "en"
   },
   "13-agent-memory/README.md": {
-    "original_hash": "a6d2bb8982a4e1fb34ad1f1433728b25",
-    "translation_date": "2026-03-06T11:06:16+00:00",
+    "original_hash": "75856d48c47a6b8a5079fa7b5cd27afa",
+    "translation_date": "2026-06-18T11:11:40+00:00",
     "source_file": "13-agent-memory/README.md",
     "language_code": "en"
   },
