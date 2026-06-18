@@ -93,7 +93,23 @@ While some information will be added to the context window automatically, contex
   
  6. **Runtime State Objects**
    This is done by creating containers of information to manage situations when the Agent needs to have access to certain information. For a complex task, this would enable an Agent to store the results of each subtask step by step, allowing the context to remain connected only to that specific subtask.
-  
+
+#### Inspecting Context
+
+After you apply one of these strategies, it is worth checking what the next model call actually received. A useful debugging question is:
+
+> Did the agent load too much context, the wrong context, or miss context it needed?
+
+You do not need to log raw prompts, tool outputs, or memory contents to answer that question. In production, prefer small context inspection records that capture counts, ids, hashes, and policy labels:
+
+- **Selection:** Track how many candidate chunks, tools, or memories were considered, how many were selected, and which rule or score caused the others to be filtered out.
+- **Compression:** Record the source range or trace id, the summary id, an estimated token count before and after compression, and whether the raw content was excluded from the next call.
+- **Isolation:** Note which subtask ran in a separate agent, session, or sandbox, what bounded summary was returned, and whether large tool output stayed outside the parent agent context.
+- **Memory and RAG:** Store retrieval document ids, memory ids, scores, selected ids, and redaction status instead of full retrieved text.
+- **Safety and privacy:** Prefer hashes, ids, token buckets, and policy labels over sensitive prompt text, tool arguments, tool results, or user memory bodies.
+
+The goal is not to keep more context. It is to leave enough evidence that a developer can tell which context strategy ran and whether it changed the next model call in the intended way.
+
 ### Example of Context Engineering
 
 Let's say we want an AI agent to **"Book me a trip to Paris."**
