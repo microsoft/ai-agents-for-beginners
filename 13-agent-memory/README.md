@@ -69,6 +69,8 @@ In a travel booking agent, working memory might capture the user's current reque
 
 This type of memory retains information for the duration of a single conversation or session. It's the context of the current chat, allowing the agent to refer back to previous turns in the dialogue.
 
+In the [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) Python SDK samples, this maps to `AgentSession`, created with `agent.create_session()`. The session is the framework's built-in short-term memory: it keeps conversation context available while that same session is reused, but that context is not persisted when the session ends or the application restarts. Use long-term memory for facts and preferences that need to survive across sessions, typically through a database, vector index, or another persistent store.
+
 **Short Term Memory Example**
 
 If a user asks, "How much would a flight to Paris cost?" and then follows up with "What about accommodation there?", short-term memory ensures the agent knows "there" refers to "Paris" within the same conversation.
