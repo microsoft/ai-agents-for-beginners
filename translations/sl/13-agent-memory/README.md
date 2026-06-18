@@ -1,170 +1,173 @@
-# Pomnilnik za AI agente 
-[![Pomnilnik agenta](../../../translated_images/sl/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+# Spomin za AI agente  
+[![Agent Memory](../../../translated_images/sl/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-Ko govorimo o edinstvenih prednostih ustvarjanja AI agentov, se predvsem izpostavljata dve stvari: možnost klicanja orodij za izvajanje nalog in sposobnost izboljševanja skozi čas. Pomnilnik je temelj ustvarjanja samoizboljšujočega se agenta, ki lahko ustvari boljše izkušnje za naše uporabnike.
+Pri razpravi o edinstvenih koristih ustvarjanja AI agentov se največkrat omenjata dve stvari: možnost klica orodij za dokončanje nalog in zmožnost izboljševanja skozi čas. Spomin je temelj ustvarjanja samopoboljšujočih se agentov, ki lahko ustvarijo boljše izkušnje za naše uporabnike.
 
-V tej lekciji bomo pogledali, kaj je pomnilnik za AI agente in kako ga lahko upravljamo ter uporabljamo v prid našim aplikacijam.
+V tej lekciji si bomo ogledali, kaj je spomin za AI agente in kako ga lahko upravljamo ter uporabljamo v korist naših aplikacij.
 
 ## Uvod
 
-Ta lekcija bo zajemala:
+Ta lekcija zajema:
 
-• **Razumevanje pomnilnika AI agentov**: Kaj je pomnilnik in zakaj je pomemben za agente.
+• **Razumevanje spomina AI agentov**: Kaj je spomin in zakaj je bistven za agente.
 
-• **Implementacija in shranjevanje pomnilnika**: Praktične metode za dodajanje sposobnosti pomnilnika vašim AI agentom, s poudarkom na kratkoročnem in dolgoročnem pomnilniku.
+• **Implementacija in shranjevanje spomina**: Praktične metode za dodajanje sposobnosti spomina vašim AI agentom, s poudarkom na kratkoročnem in dolgoročnem spominu.
 
-• **Kako narediti AI agente samoizboljšujoče**: Kako pomnilnik omogoča agentom, da se učijo iz preteklih interakcij in se skozi čas izboljšujejo.
+• **Samopoboljševanje AI agentov**: Kako spomin omogoča agentom učenje iz preteklih interakcij in izboljševanje skozi čas.
 
 ## Razpoložljive implementacije
 
-Ta lekcija vključuje dva obsežna vajinska zvezka:
+Ta lekcija vključuje dva celovita vodnika v zvezkih:
 
-• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implementira pomnilnik z Mem0 in Azure AI Search v Microsoft Agent Framework
+• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implementacija spomina z uporabo Mem0 in Azure AI Search z Microsoft Agent Framework
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implementira strukturiran pomnilnik z uporabo Cognee, samodejno gradi znanstveni graf podprt z vgrajenimi predstavitvami (embeddings), vizualizira graf in omogoča inteligentno pridobivanje
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implementacija strukturiranega spomina s Cognee, ki samodejno gradi znanstveni graf, podprt z ugnezditvami, vizualizira graf in omogoča inteligentno pridobivanje
 
 ## Cilji učenja
 
-Po zaključku te lekcije boste znali:
+Po končani tej lekciji boste znali:
 
-• **Razločiti med različnimi vrstami pomnilnika AI agentov**, vključno z delovnim, kratkoročnim in dolgoročnim pomnilnikom, pa tudi specializiranimi oblikami, kot sta persona in epizodični pomnilnik.
+• **Razločevati med različnimi vrstami spomina AI agentov**, vključno z delovnim, kratkoročnim in dolgoročnim spominom ter specializiranimi oblikami, kot sta persona in epizodični spomin.
 
-• **Implementirati in upravljati kratkoročni in dolgoročni pomnilnik za AI agente** z uporabo Microsoft Agent Framework, izkoriščati orodja, kot so Mem0, Cognee, Whiteboard memory, in integrirati z Azure AI Search.
+• **Implementirati in upravljati kratkoročni in dolgoročni spomin za AI agente** z uporabo Microsoft Agent Framework, kjer izkoriščate orodja, kot so Mem0, Cognee, Whiteboard spomin in integracijo z Azure AI Search.
 
-• **Razumeti načela samopopravljajočih se AI agentov** in kako robustni sistemi upravljanja pomnilnika prispevajo k stalnemu učenju in prilagajanju.
+• **Razumeti načela za samopoboljšanje AI agentov** in kako robustni sistemi upravljanja spomina pripomorejo k neprekinjenemu učenju in prilagajanju.
 
-## Razumevanje pomnilnika AI agentov
+## Razumevanje spomina AI agentov
 
-V svoji jedri, **pomnilnik za AI agente se nanaša na mehanizme, ki jim omogočajo, da ohranijo in prikličejo informacije**. Te informacije so lahko specifični podatki o pogovoru, uporabniške preference, pretekla dejanja ali celo naučeni vzorci.
+V bistvu se **spomin za AI agente nanaša na mehanizme, ki jim omogočajo hranjenje in priklic informacij**. Te informacije so lahko specifični podatki o pogovoru, uporabniške preference, pretekla dejanja ali celo naučeni vzorci.
 
-Brez pomnilnika so AI aplikacije pogosto brezstanje (stateless), kar pomeni, da se vsaka interakcija začne znova. To vodi v ponavljajočo se in frustrirajočo uporabniško izkušnjo, kjer agent "pozabi" prejšnji kontekst ali preference.
+Brez spomina so AI aplikacije pogosto brezstanje, kar pomeni, da se vsaka interakcija začne na novo. To vodi v ponavljajočo in frustrirajočo uporabniško izkušnjo, kjer agent "pozabi" prejšnji kontekst ali preference.
 
-### Zakaj je pomnilnik pomemben?
+### Zakaj je spomin pomemben?
 
-inteligenca agenta je močno povezana z njegovo sposobnostjo priklica in uporabe preteklih informacij. Pomnilnik agentom omogoča, da so:
+Inteligenca agenta je globoko povezana z njegovo sposobnostjo priklica in uporabe preteklih informacij. Spomin omogoča agentom, da so:
 
-• **Reflektivni**: Učijo se iz preteklih dejanj in izidov.
+• **Reflektivni**: Učenje iz preteklih dejanj in rezultatov.
 
-• **Interaktivni**: Ohranjajo kontekst skozi tekoč pogovor.
+• **Interaktivni**: Ohranitev konteksta med tekočim pogovorom.
 
-• **Proaktivni in reaktivni**: Predvidevajo potrebe ali ustrezno odgovarjajo na podlagi zgodovinskih podatkov.
+• **Proaktivni in reaktivni**: Predvidevanje potreb ali primerno odzivanje na podlagi zgodovinskih podatkov.
 
-• **Avtonomni**: Delujejo bolj samostojno z oslanjanjem na shranjeno znanje.
+• **Avtonomni**: Delovanje bolj neodvisno s pomočjo shranjenega znanja.
 
-Cilj implementacije pomnilnika je narediti agente bolj **zanesljive in sposobne**.
+Cilj implementacije spomina je narediti agente bolj **zanesljive in sposobne**.
 
-### Vrste pomnilnika
+### Vrste spomina
 
-#### Delovni pomnilnik
+#### Delovni spomin
 
-Mislite na to kot kos beležke, ki jo agent uporablja med eno, tekočo nalogo ali miselnim procesom. Vsebuje takojšnje informacije, potrebne za izračun naslednjega koraka.
+To si predstavljajte kot list papirja za zapiske, ki ga agent uporablja med posamezno nalogo ali miselnim procesom. Vsebuje takojšnjo informacijo, potrebno za izračun naslednjega koraka.
 
-Za AI agente delovni pomnilnik pogosto zajema najbolj relevantne informacije iz pogovora, tudi če je celotna zgodovina chata dolga ali skrajšana. Osredotoča se na izluščevanje ključnih elementov, kot so zahteve, predlogi, odločitve in dejanja.
+Pri AI agentih delovni spomin pogosto zajame najbolj relevantne informacije iz pogovora, tudi če je celotna zgodovina dolga ali prirejena. Osredotoča se na izločanje ključnih elementov, kot so zahteve, predlogi, odločitve in dejanja.
 
-**Primer delovnega pomnilnika**
+**Primer delovnega spomina**
 
-Pri agentu za rezervacijo potovanj bi delovni pomnilnik lahko zajel uporabnikovo trenutno zahtevo, na primer "Želim rezervirati potovanje v Pariz". Ta specifična zahteva se hrani v takojšnjem kontekstu agenta, da vodi trenutno interakcijo.
+Pri agentu za rezervacijo potovanja lahko delovni spomin zajame trenutno zahtevo uporabnika, na primer "Želim rezervirati potovanje v Pariz". Ta specifična zahteva se hrani v neposrednem kontekstu agenta za usmerjanje trenutne interakcije.
 
-#### Kratkoročni pomnilnik
+#### Kratkoročni spomin
 
-Ta vrsta pomnilnika obdrži informacije za čas trajanja enega pogovora ali seje. To je kontekst trenutnega chata, ki agentu omogoča, da se sklicuje na prejšnje kroge v dialogu.
+Ta vrsta spomina hrani informacije skozi trajanje enega pogovora ali seje. Je kontekst trenutnega klepeta, ki agentu omogoča sklicevanje na prejšnje izmenjave v dialogu.
 
-**Primer kratkoročnega pomnilnika**
+V [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) Python SDK vzorcih to ustreza `AgentSession`, ustvarjenemu z `agent.create_session()`. Seja je vgrajeni kratkoročni spomin okvira: hranilnik konteksta pogovora je na voljo, dokler se seja uporablja, vendar se ta kontekst ne ohrani, ko seja konča ali se aplikacija ponovno zažene. Za dejstva in preference, ki morajo preživeti med sejami, uporabite dolgoročni spomin, običajno prek baze podatkov, vektorskega indeksa ali drugega trajnega shranjevanja.
 
-Če uporabnik vpraša: "Koliko bi stal let v Pariz?" in nato nadaljuje z "Kaj pa nastanitev tam?", kratkoročni pomnilnik zagotovi, da agent ve, da "tam" v istem pogovoru pomeni "Pariz".
+**Primer kratkoročnega spomina**
 
-#### Dolgoročni pomnilnik
+Če uporabnik vpraša: "Koliko bi stala letalska karta do Pariza?" in nato nadaljuje z "Kaj pa nastanitev tam?", kratkoročni spomin zagotovi, da agent razume, da se "tam" nanaša na "Pariz" v istem pogovoru.
 
-To so informacije, ki vztrajajo skozi več pogovorov ali sej. Omogoča agentom, da si zapomnijo uporabniške preference, zgodovinske interakcije ali splošno znanje skozi daljše časovno obdobje. To je pomembno za personalizacijo.
+#### Dolgoročni spomin
 
-**Primer dolgoročnega pomnilnika**
+To je informacija, ki vztraja skozi več pogovorov ali sej. Omogoča agentom, da si zapomnijo uporabniške preference, pretekle interakcije ali splošno znanje skozi daljše časovno obdobje. To je pomembno za personalizacijo.
 
-Dolgoročni pomnilnik bi lahko shranil, da "Ben uživa v smučanju in zunanjih aktivnostih, ima rad kavo z razgledom na gore in želi izogibati se zahtevnim smučarskim progam zaradi pretekle poškodbe". Te informacije, pridobljene iz prejšnjih interakcij, vplivajo na priporočila v prihodnjih sejah načrtovanja potovanj in jih močno personalizirajo.
+**Primer dolgoročnega spomina**
 
-#### Persona pomnilnik
+Dolgoročni spomin lahko shrani, da "Ben uživa v smučanju in dejavnostih na prostem, rad pije kavo z razgledom na gore in želi preprečiti zahtevne smučarske proge zaradi pretekle poškodbe". Te informacije, pridobljene iz prejšnjih interakcij, vplivajo na priporočila v prihodnjih načrtih potovanj in jih naredijo zelo personalizirane.
 
-Ta specializirana vrsta pomnilnika pomaga agentu razviti konsistentno "osebnost" ali "persono". Agentu omogoča, da si zapomni podrobnosti o sebi ali svoji predvideni vlogi, zaradi česar so interakcije bolj tekoče in osredotočene.
+#### Persona spomin
 
-**Primer persona pomnilnika**
-Če je agent za potovanja zasnovan kot "strokovnjak za smučanje", bi persona pomnilnik lahko okrepil to vlogo in vplival na njegove odgovore, da se ujemajo s tonom in znanjem strokovnjaka.
+Ta specializirana vrsta spomina agentu pomaga razviti dosledno "osebnost" ali "persono". Omogoča, da agent zapomni podrobnosti o samem sebi ali svoji vlogi, kar naredi interakcije bolj tekoče in osredotočene.
 
-#### Delovni/epizodični pomnilnik
+**Primer persona spomina**
 
-Ta pomnilnik hrani zaporedje korakov, ki jih agent izvede med kompleksno nalogo, vključno s uspehi in napakami. To je kot zapisovanje specifičnih "epizod" ali preteklih izkušenj, da se iz njih uči.
+Če je agent za potovanja zasnovan kot "strokovnjak za načrtovanje smučanja," persona spomin lahko okrepi to vlogo, kar vpliva na njegove odzive, da so skladni s tonom in znanjem strokovnjaka.
 
-**Primer epizodičnega pomnilnika**
+#### Spomin delovnega toka / epizodični spomin
 
-Če je agent poskušal rezervirati določen let, a je uspelo zaradi nedosegljivosti, bi epizodični pomnilnik lahko zabeležil ta neuspeh, kar bi agentu omogočilo poskus alternativnih letov ali bolj informirano obvestilo uporabniku o težavi pri naslednjem poskusu.
+Ta spomin hrani zaporedje korakov, ki jih agent izvede pri kompleksni nalogi, vključno z uspehi in neuspehi. Podobno kot zapomniti si specifične "epizode" ali pretekle izkušnje za učenje iz njih.
 
-#### Entitetni pomnilnik
+**Primer epizodičnega spomina**
 
-To vključuje izluščevanje in zapomnitev specifičnih entitet (kot so ljudje, kraji ali stvari) in dogodkov iz pogovorov. Omogoča agentu gradnjo strukturiranega razumevanja ključnih elementov razprave.
+Če je agent poskušal rezervirati določen let, ki pa je zaradi nedosegljivosti ni uspel izvesti, lahko epizodični spomin zabeleži ta neuspeh, kar agentu omogoči, da preizkusi alternativne lete ali uporabnika obvesti o težavi na bolj informiran način ob naslednjem poskusu.
 
-**Primer entitetnega pomnilnika**
+#### Spomin entitet
 
-Iz pogovora o preteklem potovanju bi agent lahko izluščil "Pariz", "Eifflov stolp" in "večerja v restavraciji Le Chat Noir" kot entitete. V prihodnji interakciji bi agent lahko priklical "Le Chat Noir" in ponudil, da tam znova rezervira mizo.
+Vključuje izluščanje in hranjenje specifičnih entitet (kot so ljudje, kraji ali stvari) in dogodkov iz pogovorov. Agentu omogoča gradnjo strukturiranega razumevanja ključnih elementov, o katerih se razpravlja.
+
+**Primer spomina entitet**
+
+Iz pogovora o preteklem potovanju bi agent lahko izluščil "Pariz", "Eifflov stolp" in "večerjo v restavraciji Le Chat Noir" kot entitete. Pri prihodnji interakciji bi agent lahko priklical "Le Chat Noir" in ponudil, da tam naredi novo rezervacijo.
 
 #### Strukturiran RAG (Retrieval Augmented Generation)
 
-Medtem ko je RAG širša tehnika, je "Strukturiran RAG" izpostavljen kot močna tehnologija pomnilnika. Izlušči goste, strukturirane informacije iz različnih virov (pogovori, e-pošta, slike) in jih uporablja za izboljšanje natančnosti, priklica in hitrosti odgovorov. V nasprotju s klasičnim RAG, ki se zanaša zgolj na semantično podobnost, Strukturiran RAG deluje z inherentno strukturo informacij.
+Čeprav je RAG širša tehnika, je "Strukturiran RAG" izpostavljen kot zmogljiva tehnologija spomina. Izlušči gosto, strukturirano informacijo iz različnih virov (pogovori, e-pošta, slike) in jo uporablja za povečanje natančnosti, priklica in hitrosti odgovorov. V nasprotju s klasičnim RAG, ki temelji samo na semantični podobnosti, Strukturiran RAG deluje z inherentno strukturo informacij.
 
-**Primer Strukturiranega RAG**
+**Primer strukturiranega RAG**
 
-Namesto le ujemanja ključnih besed, bi Strukturiran RAG lahko iz e-pošte razčlenil podatke leta (destinacija, datum, ura, letalska družba) in jih shranil na strukturiran način. To omogoča natančna poizvedovanja, kot je "Kateri let sem rezerviral v Pariz v torek?"
+Namesto da samo ujame ključne besede, bi Strukturiran RAG lahko razčlenil podrobnosti lete (destinacija, datum, čas, letalska družba) iz e-pošte in jih shranil strukturirano. To omogoča natančna vprašanja kot na primer "Kateri let sem rezerviral za Pariz v torek?"
 
-## Implementacija in shranjevanje pomnilnika
+## Implementacija in shranjevanje spomina
 
-Implementacija pomnilnika za AI agente vključuje sistematičen proces **upravljanja pomnilnika**, ki vključuje generiranje, shranjevanje, pridobivanje, integracijo, posodabljanje in celo "pozabljanje" (ali brisanje) informacij. Pridobivanje je še posebej ključno.
+Implementacija spomina za AI agente vključuje sistematičen proces **upravljanja spomina**, ki zajema ustvarjanje, shranjevanje, pridobivanje, integracijo, posodabljanje in celo "pozabljanje" (ali brisanje) informacij. Pridobivanje je še posebej ključni vidik.
 
-### Specializirana orodja za pomnilnik
+### Specializirana orodja za spomin
 
 #### Mem0
 
-En način za shranjevanje in upravljanje pomnilnika agenta je uporaba specializiranih orodij, kot je Mem0. Mem0 deluje kot trajna plast pomnilnika, ki agentom omogoča priklic relevantnih interakcij, shranjevanje uporabniških preferenc in dejanskega konteksta ter učenje iz uspehov in neuspehov skozi čas. Ideja je, da se brezstanjskim agentom omogoči, da postanejo s stanjem.
+Eden od načinov za shranjevanje in upravljanje spomina agenta je uporaba specializiranih orodij, kot je Mem0. Mem0 deluje kot trajna plast spomina, ki agentom omogoča priklic relevantnih interakcij, shranjevanje uporabniških preferenc in dejanskega konteksta ter učenje iz uspehov in neuspehov skozi čas. Ideja je, da se brezstanje agenti spremenijo v stanje ohranjajoče.
 
-Deluje skozi **dvofazni pomnilniški cevovod: ekstrakcija in posodobitev**. Najprej so sporočila, dodana v nit agenta, poslana storitvi Mem0, ki uporablja velik jezikovni model (LLM) za povzetek zgodovine pogovora in izluščitev novih spominov. Nato faza posodobitve, vodena z LLM, odloči, ali dodati, spremeniti ali izbrisati te spomine in jih shrani v hibridno podatkovno skladišče, ki lahko vključuje vektorsko, grafično in ključ-vrednost bazo. Ta sistem podpira tudi različne vrste pomnilnika in lahko vključi grafični pomnilnik za upravljanje odnosov med entitetami.
+Deluje prek **dvostopenjskega memorijskega tokokroga: ekstrakcija in posodobitev**. Najprej se sporočila, dodana nitim agenta, pošljejo Mem0 storitvi, ki uporablja velik jezikovni model (LLM) za povzetek zgodovine pogovora in izluščitev novih spominov. Nato LLM-ji v posodobitveni fazi določijo, ali dodati, spremeniti ali izbrisati te spomine, ki se shranijo v hibridno podatkovno skladišče, ki lahko vključuje vektorsko, grafično in ključ-vrednost bazo. Sistem podpira tudi različne vrste spomina in lahko vključuje grafični spomin za upravljanje odnosov med entitetami.
 
 #### Cognee
 
-Druga zmogljiva pristop je uporaba **Cognee**, odprtokodnega semantičnega pomnilnika za AI agente, ki pretvori strukturirane in nestrukturirane podatke v poizvedljiv znanstveni graf, podprt z embeddings. Cognee nudi **dvo-skladiščno arhitekturo**, ki združuje iskanje po vektorski podobnosti z grafičnimi povezavami, kar agentom omogoča razumevanje ne le kaj je podobno, ampak kako so pojmi med seboj povezani.
+Drug močan pristop je uporaba **Cognee**, odprtokodnega semantičnega spomina za AI agente, ki pretvori strukturirane in nestrukturirane podatke v poizvedljive grafe znanja, podprte z ugnezditvami. Cognee nudi **dvohranilno arhitekturo**, ki združuje iskanje po vektorski podobnosti z grafičnimi povezavami, kar agentom omogoča razumevanje ne samo podobnosti informacij, temveč tudi medsebojnih odnosov med koncepti.
 
-Izstopa pri **hibridnem pridobivanju**, ki združuje vektorsko podobnost, grafično strukturo in LLM-razmišljanje - od preprostega iskanja kosov do vprašanj, ki upoštevajo graf. Sistem vzdržuje **živi pomnilnik**, ki se razvija in raste, pri čemer ostaja poizvedljivo kot en povezan graf, podpira tako kratkoročni kontekst seje kot dolgoročni trajni pomnilnik.
+Odlikuje se pri **hibridnem pridobivanju**, ki združuje vektorsko podobnost, grafično strukturo in LLM sklepanje – od iskanja po surovih delih do grafom ozaveščenega odgovarjanja na vprašanja. Sistem ohranja **živi spomin**, ki se razvija in raste, medtem ko ostaja poizvedljiv kot ena povezana grafična struktura ter podpira tako kratkoročni kontekst seje kot dolgoročni trajni spomin.
 
-Vadbena beležnica Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) prikazuje gradnjo te združene plasti pomnilnika, s praktičnimi primeri vnosa raznolikih virov podatkov, vizualizacijo znanstvenega grafa in poizvedovanje z različnimi iskalnimi strategijami, prilagojenimi specifičnim potrebam agenta.
+Vodnik po Cognee zvezku ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) prikazuje gradnjo te enotne memorijske plasti z praktičnimi primeri zajema različnih virov podatkov, vizualizacijo grafa znanja in poizvedovanje z različnimi iskalnimi strategijami, prilagojenimi specifičnim potrebam agenta.
 
-### Shranjevanje pomnilnika z RAG
+### Shranjevanje spomina z RAG
 
-Poleg specializiranih orodij za pomnilnik, kot je mem0 , lahko izkoristite robustne iskalne storitve, kot je **Azure AI Search**, kot back-end za shranjevanje in pridobivanje spominov, še posebej za strukturiran RAG.
+Poleg specializiranih orodij za spomin, kot je Mem0, lahko izkoristite robustne iskalne storitve, kot je **Azure AI Search kot ozadje za shranjevanje in pridobivanje spominov**, še posebej za strukturiran RAG.
 
-To omogoča, da svoje agentove odgovore utemeljite z lastnimi podatki, kar zagotavlja bolj relevantne in natančne odgovore. Azure AI Search lahko uporablja za shranjevanje uporabniško specifičnih spominov potovanj, katalogov izdelkov ali katerega koli drugega domeno-specifičnega znanja.
+To vam omogoča, da svoje agentove odgovore podkrepite z vašimi lastnimi podatki, kar zagotavlja bolj relevantne in natančne odgovore. Azure AI Search lahko uporablja za shranjevanje uporabniških potovalnih spominov, kataloga izdelkov ali kakršnega koli drugega specifičnega znanja s področja.
 
-Azure AI Search podpira zmogljivosti, kot je **Strukturiran RAG**, ki je odlična pri izluščevanju in pridobivanju gostih, strukturiranih informacij iz velikih podatkovnih zbirk, kot so zgodovine pogovorov, e-pošta ali celo slike. To ponuja "nadčloveško natančnost in priklic" v primerjavi s tradicionalnimi pristopi razrezovanja besedila in embeddings.
+Azure AI Search podpira zmogljivosti, kot je **Strukturiran RAG**, ki se odlikuje pri izluščitvi in pridobivanju gostih, strukturiranih informacij iz velikih podatkovnih zbirk, kot so zgodovine pogovorov, e-pošte ali celo slike. To zagotavlja "človeško nadpovprečno natančnost in priklic" v primerjavi s tradicionalnimi pristopi razrezovanja besedila in ugnezditve.
 
-## Kako narediti AI agente samoizboljšujoče
+## Samopoboljšanje AI agentov
 
-Pogost vzorec za samoizboljšujoče agente vključuje uvedbo **"agenta za znanje"**. Ta ločen agent opazuje glavni pogovor med uporabnikom in primarnim agentom. Njegova vloga je:
+Pogost vzorec za samopoboljšujoče agente vključuje uvedbo **"agenta znanja"**. Ta ločeni agent opazuje glavni pogovor med uporabnikom in primarnim agentom. Njegova vloga je:
 
-1. **Prepoznati dragoceno informacijo**: Ugotoviti, ali je del pogovora vreden shranitve kot splošno znanje ali specifična uporabniška preference.
+1. **Prepoznati dragocene informacije**: Ugotoviti, ali je del pogovora vreden shranitve kot splošno znanje ali specifična uporabniška preference.
 
-2. **Izluščiti in povzeti**: Destilirati bistveno učno vsebino ali preference iz pogovora.
+2. **Izluščiti in povzeti**: Izločiti bistveno učenje ali preference iz pogovora.
 
-3. **Shranjevanje v bazo znanja**: Utrditi to izluščeno informacijo, pogosto v vektorsko bazo podatkov, da jo je mogoče kasneje pridobiti.
+3. **Shranjeno v bazo znanja**: Ta izluščena informacija se pogosto shrani v vektorsko bazo podatkov, da se lahko pozneje pridobi.
 
-4. **Ojačati prihodnje poizvedbe**: Ko uporabnik začne novo poizvedbo, agent za znanje pridobi relevantne shranjene informacije in jih pripne k uporabnikovemu pozivu, s čimer zagotovi ključen kontekst primarnemu agentu (podobno kot RAG).
+4. **Podpreti prihodnje poizvedbe**: Ko uporabnik sproži novo poizvedbo, agent znanja pridobi relevantne shranjene informacije in jih priloži uporabnikovemu pozivu, kar zagotavlja ključni kontekst primarnemu agentu (na podoben način kot RAG).
 
-### Optimizacije za pomnilnik
+### Optimizacije za spomin
 
-• **Upravljanje latence**: Da se prepreči upočasnitev uporabniških interakcij, je lahko sprva uporabljen cenejši, hitrejši model za hitro preverjanje, ali je informacija vredna shranjevanja ali pridobivanja, in le po potrebi se sproži bolj kompleksen postopek ekstrakcije/pridobivanja.
+• **Upravljanje latence**: Da se ne upočasni uporabniška izmenjava, se lahko sprva uporabi cenejši, hitrejši model, ki hitro preveri, ali so informacije vredne shraniti ali pridobiti, in se kompleksnejši postopek ekstrakcije/pridobivanja sproži le, če je to potrebno.
 
-• **Vzdrževanje baze znanja**: Za rastočo bazo znanja se lahko manj pogosto uporabljene informacije premaknejo v "hladno skladišče", da se obvladujejo stroški.
+• **Vzdrževanje baze znanja**: Za rastočo bazo znanja se manj pogosto uporabljene informacije lahko premaknejo v "hladno shrambo" za upravljanje stroškov.
 
-## Imate še vprašanja o pomnilniku agentov?
+## Imate več vprašanj o spominu agentov?
 
-Pridružite se [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) in se povežite z drugimi učenci, udeležite ur za vprašanja ter dobite odgovore na vaša vprašanja o AI agentih.
+Pridružite se [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), da se srečate z drugimi učenci, udeležite uradnih ur in dobite odgovore na vaša vprašanja o AI agentih.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Izjava o omejitvi odgovornosti:
-Ta dokument je bil preveden z uporabo storitve prevajanja z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, upoštevajte, da lahko avtomatski prevodi vsebujejo napake ali netočnosti. Izvirni dokument v izvirnem jeziku naj se šteje za avtoritativni vir. Za kritične informacije priporočamo strokovni prevod, opravljen s strani človeka. Ne odgovarjamo za morebitna nerazumevanja ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
+**Omejitev odgovornosti**:
+Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da avtomatizirani prevodi lahko vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za kritične informacije je priporočljiv strokovni človeški prevod. Ne odgovarjamo za morebitna nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
