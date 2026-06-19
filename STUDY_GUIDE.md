@@ -1,104 +1,210 @@
 # AI Agents for Beginners - Study Guide
 
-This guide is a quick companion to the course. Use it to choose where to start,
-what to review before each lesson, and how the lessons fit together.
+Use this guide as a practical companion while you move through the course. It is
+not meant to replace the lessons. It helps you decide where to start, what to
+look for in each lesson, and how to connect the ideas into a small working agent
+demo.
 
-## What This Course Builds Toward
+If this is your first time here, start simple:
 
-AI agents extend language models with the ability to use tools, keep useful
-context, coordinate work, and operate with guardrails. A useful agent system
-usually combines several parts:
+1. Read the [Course Setup](./00-course-setup/README.md).
+2. Complete Lessons 01-06 in order.
+3. Keep one small demo idea in mind as you learn.
+4. After each lesson, ask: "What can my agent do now that it could not do
+   before?"
 
-- **Model reasoning:** The language model interprets goals, plans next steps,
-  and turns tool results into useful responses.
-- **Tools:** Functions, APIs, files, browsers, and services that let the agent
-  act outside the model.
-- **Knowledge:** Retrieved documents, data stores, search indexes, or domain
-  facts used to ground responses.
-- **Memory and context:** Short-term conversation state, longer-term user or
-  task memory, and context engineering strategies that decide what reaches the
-  next model call.
-- **Orchestration:** Planning, routing, handoffs, multi-agent workflows, and
-  protocol integrations.
-- **Operations and trust:** Evaluation, observability, security controls, and
-  audit trails for production use.
+## A Simple Demo To Keep In Mind
 
-## Recommended Learning Paths
+A good way to learn agents is to follow one demo idea through the course.
 
-If you are new to agents, follow the lessons in order through Lesson 6 before
-jumping into specific patterns. Those early lessons establish the mental model
-for agents, frameworks, design principles, tools, RAG, and trustworthy behavior.
+Example demo: **a course helper agent**.
 
-| Goal | Suggested lessons |
-|------|-------------------|
-| Understand the basics | 01, 02, 03, 04 |
-| Build agents that use data and tools | 04, 05, 07 |
-| Design multi-step or multi-agent workflows | 07, 08, 09, 14 |
-| Prepare for production | 06, 10, 12, 13, 18 |
-| Explore protocols and browser automation | 11, 15 |
+The user asks:
 
-## Lesson Map
+> "I want to learn how agents use tools. Find the right lessons, summarize what
+> I should read first, and give me a short practice task."
 
-| Lesson | Main idea | Review when you need to |
-|--------|-----------|-------------------------|
-| 01 - Intro to AI Agents | Agents are systems that reason, use context, and take actions through tools. | Explain what makes an agent different from a chatbot. |
-| 02 - Agentic Frameworks | Frameworks provide structure for model access, tools, state, and agent workflows. | Choose the right framework/runtime for a sample. |
-| 03 - Agentic Design Principles | Good agent design starts with transparency, user control, and consistent experiences. | Turn a use case into a user-centered agent design. |
-| 04 - Tool Use | Tools let agents retrieve information, call APIs, calculate, or update external systems. | Define tool schemas and decide when a tool should be called. |
-| 05 - Agentic RAG | RAG grounds agent responses in retrieved knowledge and can be part of the agent loop. | Connect search or documents to agent responses. |
-| 06 - Trustworthy Agents | Trustworthy agents need guardrails, safe system messages, human oversight, and threat awareness. | Add safety checks before an agent takes action. |
-| 07 - Planning Design | Planning decomposes larger goals into smaller tasks that can be routed and executed. | Build or debug a multi-step agent workflow. |
-| 08 - Multi-Agent Design | Multi-agent systems split work across specialized agents and coordinate their outputs. | Decide whether one agent is enough or a team of agents is clearer. |
-| 09 - Metacognition | Metacognition helps agents inspect, critique, and improve their own work. | Add reflection or quality checks to agent output. |
-| 10 - AI Agents in Production | Production agents need observability, evaluation, cost control, and operational feedback loops. | Move from a notebook demo to a monitored application. |
-| 11 - Agentic Protocols | Protocols such as MCP and A2A help agents connect to tools and other agents in standard ways. | Integrate agents with external tool servers or agent-to-agent workflows. |
-| 12 - Context Engineering | Context engineering controls what information is written, selected, compressed, or isolated. | Debug missing, stale, excessive, or conflicting context. |
-| 13 - Agent Memory | Memory lets agents retain useful information across turns, sessions, or longer-term stores. | Decide what should be remembered and how it should be retrieved. |
-| 14 - Microsoft Agent Framework | Microsoft Agent Framework provides agent, workflow, and orchestration building blocks. | Learn the framework-specific primitives used across samples. |
-| 15 - Computer Use Agents | Computer use agents interact with browsers and UI surfaces to complete tasks. | Build or reason about browser-based automation. |
-| 18 - Securing AI Agents | Cryptographic receipts create verifiable records of agent tool calls and action history. | Add auditability or tamper-evidence to higher-risk agent actions. |
+A regular chatbot can answer from what it already knows. An agent can do more:
 
-## Key Concepts To Revisit
+1. **Read or search course files** to find the right lessons.
+2. **Use tools** to retrieve lesson links, examples, or supporting material.
+3. **Plan** a short learning path instead of giving one long answer.
+4. **Use context** from the current conversation to stay focused on the learner's
+   goal.
+5. **Remember useful preferences** if the application supports memory.
+6. **Show traces, citations, or logs** so the user can understand what happened.
+7. **Apply guardrails** before taking risky actions or using sensitive data.
+
+As you study each lesson, come back to this demo and ask: what new capability
+would this lesson add?
+
+## What You Are Building Toward
+
+By the end of the course, you should be able to explain and build agent systems
+that combine these parts:
+
+| Part | Plain-language meaning | In the demo |
+|------|------------------------|-------------|
+| Model | The reasoning engine that interprets the user's request | Understands that the learner wants lessons about tool use |
+| Tools | Functions, APIs, files, browsers, or services the agent can use | Searches the repo or retrieves lesson content |
+| Knowledge | Documents or data used to ground the answer | Course README files and lesson material |
+| Context | Information included in the next model call | The user's goal and the tool results |
+| Memory | Information saved for later use | The learner prefers hands-on Python examples |
+| Planning | Breaking a larger goal into smaller steps | Find lessons, summarize them, suggest practice |
+| Orchestration | Routing work across tools, steps, or agents | A planner calls a search tool, then a summarizer |
+| Trust | Safety, security, evaluation, and observability | Logs tool calls and asks before high-impact actions |
+
+## Choose Your Learning Path
+
+You can take the full course in order, or jump to a path based on what you want
+to build.
+
+| If your goal is to... | Start with | Then study |
+|-----------------------|------------|------------|
+| Understand what agents are | 01, 02, 03 | 04, 05, 06 |
+| Build an agent that uses tools | 04 | 05, 07, 14 |
+| Build a RAG-based agent | 05 | 04, 06, 12 |
+| Design multi-step workflows | 07 | 08, 09, 14 |
+| Understand multi-agent systems | 08 | 07, 09, 11 |
+| Prepare agents for production | 06, 10 | 12, 13, 18 |
+| Explore protocols and browser automation | 11, 15 | 10, 18 |
+
+Tip: if you are new to agents, do not skip Lessons 01-06. They give you the
+vocabulary you will need for the rest of the course.
+
+## Lesson-by-Lesson Guide
+
+| Lesson | What you learn | Try this after the lesson |
+|--------|----------------|---------------------------|
+| [01 - Intro to AI Agents](./01-intro-to-ai-agents/README.md) | What makes an agent different from a basic chatbot. | Explain your demo idea as an agent, not just a chat app. |
+| [02 - Agentic Frameworks](./02-explore-agentic-frameworks/README.md) | How frameworks help with models, tools, state, and workflows. | Identify which parts of your demo a framework would manage. |
+| [03 - Agentic Design Patterns](./03-agentic-design-patterns/README.md) | Common patterns for designing agent behavior. | Sketch the user journey before writing code. |
+| [04 - Tool Use](./04-tool-use/README.md) | How agents call tools to get data or take action. | Define one tool your demo agent would need. |
+| [05 - Agentic RAG](./05-agentic-rag/README.md) | How retrieval grounds agent answers in documents or data. | Decide what knowledge source your demo should search. |
+| [06 - Trustworthy Agents](./06-building-trustworthy-agents/README.md) | How to add guardrails, oversight, and safer behavior. | Add one rule for when the agent should ask the user first. |
+| [07 - Planning Design](./07-planning-design/README.md) | How agents break larger goals into smaller steps. | Write a three-step plan for your demo request. |
+| [08 - Multi-Agent Design](./08-multi-agent/README.md) | When to split work across specialized agents. | Decide whether your demo needs one agent or several. |
+| [09 - Metacognition](./09-metacognition/README.md) | How agents can review and improve their own output. | Add a final self-check before the agent responds. |
+| [10 - AI Agents in Production](./10-ai-agents-production/README.md) | What changes when an agent moves from demo to production. | List what you would monitor: quality, cost, latency, failures. |
+| [11 - Agentic Protocols](./11-agentic-protocols/README.md) | How protocols connect agents to tools and other agents. | Identify where a standard protocol could simplify integration. |
+| [12 - Context Engineering](./12-context-engineering/README.md) | How to select, trim, isolate, and manage context. | Decide what belongs in the prompt and what should stay out. |
+| [13 - Agent Memory](./13-agent-memory/README.md) | How agents can save useful information across interactions. | Choose one safe preference your demo could remember. |
+| [14 - Microsoft Agent Framework](./14-microsoft-agent-framework/README.md) | Framework-specific building blocks for agents and workflows. | Map your demo steps to framework concepts. |
+| [15 - Computer Use Agents](./15-browser-use/README.md) | How agents can interact with browser or UI surfaces. | Pick one browser task that should still require user confirmation. |
+| [18 - Securing AI Agents](./18-securing-ai-agents/README.md) | How to make agent actions more auditable and tamper-evident. | Decide what actions in your demo should be logged or receipted. |
+
+Lessons 16 and 17 are listed in the main README as coming soon. Add them to your
+study plan when lesson content is available.
+
+## Key Ideas In Beginner-Friendly Terms
 
 ### Tools
 
-Tools are the main way agents act. A good tool definition should have a clear
-name, narrow purpose, typed inputs, predictable output, and safe failure modes.
-If the model chooses the wrong tool, inspect the tool names, descriptions, and
-the amount of tool context loaded into the prompt.
+A tool is something the agent can call to do work outside the model. A good tool
+has a clear name, a narrow job, typed inputs, predictable output, and a safe way
+to fail.
 
-### Planning and Orchestration
+For the course helper demo, a tool might be:
 
-Planning is useful when a task has dependencies, checkpoints, or separate areas
-of expertise. Keep plans small enough to inspect. When using several agents,
-make the handoff format explicit so each agent knows what it received and what
-it must return.
+- `search_lessons(query)`
+- `read_lesson(path)`
+- `create_practice_task(topic)`
 
-### Context and Memory
+### RAG and Knowledge
 
-Context is the working set for the next model call. Memory is information saved
-for later use. Before adding memory, decide whether the information is accurate,
-useful beyond the current turn, safe to store, and easy to delete or update.
+RAG helps the agent answer from source material instead of guessing. In this
+course, that source material could be lesson READMEs, code samples, or external
+resources linked from the lessons.
+
+Use RAG when the answer should be grounded in documents, data, or current
+project files.
+
+### Planning
+
+Planning is useful when the request has more than one step. Keep plans short and
+visible enough for a developer or user to inspect.
+
+For the demo, a plan might be:
+
+1. Find lessons related to tool use.
+2. Summarize the most relevant lessons.
+3. Recommend one practice task.
+
+### Context
+
+Context is what the model sees right now. Too little context can make the agent
+miss important details. Too much context can make the agent slower, more costly,
+or easier to confuse.
+
+Good context engineering means choosing the right information for the next model
+call.
+
+### Memory
+
+Memory is information saved for later. Do not save everything. Save information
+only when it is useful, safe, and easy to update or delete.
+
+For example, remembering "the learner prefers Python examples" may be useful.
+Remembering sensitive personal data usually is not.
 
 ### Evaluation and Observability
 
-Agent quality should be measured with repeatable examples, traces, feedback, and
-cost/latency data. In production, the question is not only "did it answer?" but
-"which model, tools, context, and decisions produced this answer?"
+Evaluation asks: did the agent do the right thing?
+
+Observability asks: can we see how it happened?
+
+For production agents, keep track of model calls, tool calls, retrieved context,
+latency, cost, failures, and user feedback.
 
 ### Trust and Security
 
-Trustworthy agents need more than a helpful prompt. Use guardrails, least
-privilege tools, human approval for high-impact actions, redaction for sensitive
-data, and receipts or logs when actions need to be audited later.
+Trustworthy agents need more than a helpful prompt. Use least-privilege tools,
+human approval for high-impact actions, data redaction where needed, and logs or
+receipts for actions that must be audited.
+
+## A 15-Minute Review Routine
+
+Use this routine after each lesson:
+
+1. **Summarize the lesson in one sentence.**
+2. **Name the new agent capability.** For example: tool use, retrieval,
+   planning, memory, observability, or security.
+3. **Add it to the course helper demo.** What changes in the demo now?
+4. **Find the risk.** What could go wrong if this capability is misused?
+5. **Write one test question.** How would you check that the agent behaves well?
 
 ## Quick Self-Check
 
-Before you finish a lesson, try answering these questions:
+Before moving on, try answering these questions:
 
-1. What decision did the agent make that a normal chatbot could not make alone?
-2. What tools, knowledge, or memory did the agent depend on?
-3. What could go wrong if the tool returned bad data or the context was stale?
-4. How would you observe, evaluate, or audit the agent behavior?
-5. What user control or human review would be needed before using this pattern
-   in a real application?
+1. What can an agent do that a regular chatbot cannot do by itself?
+2. What tool would your agent need first, and why?
+3. What knowledge source should ground the agent's answer?
+4. What context should be included in the next model call?
+5. What should the agent remember, and what should it avoid storing?
+6. When should the agent ask for human approval?
+7. What logs, traces, or receipts would help you debug or audit the agent later?
+
+## Suggested Capstone Exercise
+
+At the end of the course, build a small agent that helps a learner navigate this
+repository.
+
+Minimum version:
+
+- Accept a topic from the user.
+- Find the most relevant lessons.
+- Summarize what to read first.
+- Suggest one hands-on practice task.
+- Show which lesson files or links were used.
+
+Stretch version:
+
+- Remember the learner's preferred programming language.
+- Use a simple plan before answering.
+- Add a self-check step before the final response.
+- Log tool calls and retrieved sources.
+- Ask for confirmation before opening browser or UI automation tasks.
+
+This gives you a small but realistic way to practice tools, RAG, planning,
+context, memory, observability, and trust in one project.
