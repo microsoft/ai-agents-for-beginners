@@ -219,11 +219,20 @@ public class DraftExecutor : ReflectingExecutor<DraftExecutor>, IMessageHandler<
         
         Console.WriteLine($"DraftExecutor response: {response.Text}");
         
-        ContentResult contentResult = new ContentResult { DraftContent = Convert.ToString(response) ?? "" };
+        // The agent may wrap its JSON result in a Markdown code block (```json ... ```),
+        // so extract the JSON object before deserializing it into a ContentResult.
+        var contentResult = JsonSerializer.Deserialize<ContentResult>(ExtractJson(response.Text));
         
         Console.WriteLine($"DraftExecutor generated content: {contentResult.DraftContent}");
         
         return contentResult;
+    }
+    
+    private static string ExtractJson(string text)
+    {
+        var start = text.IndexOf('{');
+        var end = text.LastIndexOf('}');
+        return start >= 0 && end > start ? text.Substring(start, end - start + 1) : text;
     }
 }
 
