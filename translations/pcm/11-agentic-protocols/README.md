@@ -178,5 +178,5 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet w
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 Disclaimer:
-Dis document don translate by AI translation service [Co-op Translator] (https://github.com/Azure/co-op-translator). Even though we dey try make am correct, abeg sabi say automated translations fit get mistakes or no too accurate. The original document for im original language na the correct source wey you suppose follow. If na important matter, make professional human translator do am. We no go responsible for any misunderstanding or wrong interpretation wey fit come from using this translation.
+Dis document don translate by AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we dey try make am correct, abeg sabi say automated translations fit get mistakes or no too accurate. The original document for im original language na the correct source wey you suppose follow. If na important matter, make professional human translator do am. We no go responsible for any misunderstanding or wrong interpretation wey fit come from using this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
