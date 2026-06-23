@@ -128,7 +128,7 @@ AIAgent agent = openAIClient
     );
 
 // Create Conversation Session for Context Management
-AgentSession session = await agent.CreateSessionAsync();
+await using var session = await agent.CreateSessionAsync();
 
 // ============================================================================
 // DEMONSTRATION: Start with "Hello" to trigger the greeting (Issue #402 fix)
