@@ -1,67 +1,67 @@
-[Vaadake õppetunni videot: AI agentide turvamine krüptograafiliste kviitungitega](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Vaata õppetunni videot: AI agentide turvamine krüptograafiliste tõenditega](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Õppetunni video ja pisipilt lisab Microsofti sisutiim pärast liitmist, vastavalt õppetunni 14 / 15 mustrile.)_
+> _(Õppetunni video ja pisipilt lisatakse pärast liitmist Microsofti sisutiimi poolt, vastavalt õppetunni 14 / 15 mustrile.)_
 
-# AI agentide turvamine krüptograafiliste kviitungitega
+# AI Agentide turvamine krüptograafiliste tõenditega
 
 ## Sissejuhatus
 
 Selles õppetunnis käsitletakse:
 
-- Miks on AI agentide auditeerimisteed olulised vastavuse, silumise ja usalduse jaoks.
-- Mis on krüptograafiline kviitung ja kuidas see erineb allkirjastamata logireast.
-- Kuidas toota agenti tööriistakutse jaoks allkirjastatud kviitungit tavalises Pythonis.
-- Kuidas kontrollida kviitungit võrguühenduseta ja tuvastada muutmisi.
-- Kuidas aheldada kviitungeid nii, et ühe eemaldamine või ümberjärjestamine katkestab ahela.
-- Mida kviitungid tõendavad ja mida need selgesõnaliselt ei tõenda.
+- Miks on AI agentide auditeerimislogid olulised vastavuse, silumise ja usalduse jaoks.
+- Mis on krüptograafiline tõend ja kuidas see erineb allkirjastamata logireast.
+- Kuidas toota allkirjastatud tõendit agendi tööriistakutse jaoks tavalises Pythoni keeles.
+- Kuidas tõendit võrrelda võrguühenduseta ja tuvastada muutmisi.
+- Kuidas tõendeid ahelasse siduda nii, et ühe eemaldamine või järjekorra muutmine katkestab ahela.
+- Mida tõendid tõendavad ja mida need otseselt ei tõenda.
 
 ## Õpieesmärgid
 
 Pärast selle õppetunni läbimist oskad:
 
-- Tuvastada ebaõnnestumise mustreid, mis motiveerivad agentide tegevuste krüptograafilist jälgitavust.
-- Toota Ed25519 allkirjastatud kviitungit kanonilise JSON-maketi üle.
-- Kinnitust iseseisvalt kontrollida, kasutades ainult allkirjastaja avalikku võtit.
-- Tuvastada muutmisi, tehes kontrolli muudetud kviitungiga uuesti.
-- Luua räsi-ahelaga järjestatud kviitungite jada ja selgitada, miks see ahel on oluline.
-- Eraldada, mida kviitungid tõendavad (atributsioon, terviklikkus, järjestus) ja mida need ei tõenda (tegevuse õigsus, poliitika paikapidavus).
+- Tuvastada ebaõnnestumistemaatikat, mis motiveerib krüptograafilist päritolutõendust agendi tegevuste puhul.
+- Toota Ed25519 allkirjastatud tõendit kanonilise JSON-payload'i üle.
+- Kontrollida tõendit iseseisvalt ainult allkirjastaja avaliku võtmega.
+- Tuvastada mahasõidu katset, käivitades muutunud tõendi korral uuesti kontrolli.
+- Koostada räsi-ahelaga järjestatud tõendite jada ja selgitada, miks ahel on oluline.
+- Eristada, mida tõendid tõendavad (autentimine, terviklikkus, järjekord) ja mida mitte (tegevuse õigsus, poliitika korrektne järgimine).
 
-## Probleem: Sinu agendi auditeerimise rada
+## Probleem: Sinu agendi auditeerimislogi
 
-Kujuta ette, et oled juurutanud AI agendi Contoso Travel jaoks. Agent loeb kliendi päringuid, kutsub lennupiletite API-d valikute leidmiseks ja broneerib kohad kliendi nimel. Eelmisel kvartalil töötles agent 50 000 broneeringut.
+Kujuta ette, et oled juurutanud AI agendi Contoso Travelile. Agent loeb kliendi päringuid, kutsub lennupileti API-t valikute leidmiseks ning broneerib kohad kliendi eest. Eelmisel kvartalil töötles agent 50 000 broneeringut.
 
-Täna tuleb auditeerija. Ta esitab lihtsa küsimuse: "Näidake, mida teie agent tegi."
+Täna tuleb audiitor. Ta esitab lihtsa küsimuse: "Näita, mida sinu agent tegi."
 
-Sa annad üle oma logifailid. Auditeerija vaatab neid ja küsib keerulisemat küsimust: "Kuidas ma tean, et neid logisid ei ole muudetud?"
+Sa annad üle logifailid. Audiitor vaatab need üle ja esitab keerulisema küsimuse: "Kuidas ma tean, et neid logisid ei ole muudetud?"
 
-See on auditeerimise tee probleem. Enamus agentide juurutusi tänapäeval tuginevad:
+See on auditeerimislogi probleem. Enamik tänapäevaseid agentide juurutusi toetub:
 
-- **Rakenduste logid**: mida agent ise kirjutab, kuid mida saab muuta ükskõik kes, kellel on failisüsteemi juurdepääs.
-- **Pilvelogimise teenused**: muudatuste tuvastamine platvormitasemel, aga ainult siis, kui auditeerija usaldab platvormi haldajat.
-- **Andmebaasi tehingulogid**: sobivad hästi andmebaasi muudatuste jaoks, kuid mitte meelevaldsete tööriistakutsete jaoks.
+- **Rakenduse logidele**: mida agent ise kirjutab, mida saab muuta kõigil, kellel on failisüsteemile ligipääs.
+- **Pilvelogimis teenustele**: platvormil vigadele avatud, kuid ainult juhul, kui audiitor usaldab platvormi haldajat.
+- **Andmebaasi tehingulogidele**: sobivad andmebaasi muudatuste jaoks, aga mitte suvaliste tööriistakutsete jaoks.
 
-Ükski neist ei suuda auditeerija küsimust vastata ilma, et auditeerija peaks kedagi usaldama (sind, sinu pilvepakkujat või andmebaasi müüjat). Sisemiseks kasutuseks on see usaldus sageli vastuvõetav. Reguleeritud koormuste (finantsid, tervishoid, midagi EL AI määruse all) puhul mitte.
+Ükski neist ei suuda audiitori küsimusele vastata ilma audiitori usaldust nõudmata (sind, sinu pilveteenuse pakkujat, andmebaasipakkujat). Sisemise kasutuse puhul on see sageli vastuvõetav. Reguleeritud töökoormuste puhul (finants, tervishoid, kõik Euroopa Liidu AI seaduse alusel) mitte.
 
-Krüptograafilised kviitungid lahendavad selle, muutes iga agendi tegevuse iseseisvalt kinnitatavaks. Auditeerija ei pea sind usaldama. Tal on vaja ainult sinu avalikku võtit ja kviitungit ennast.
+Krüptograafilised tõendid lahendavad selle, muutes iga agendi tegevuse iseseisvalt kontrollitavaks. Audiitor ei pea sind usaldama. Vajalik on ainult sinu avalik võti ja tõend ise.
 
-## Mis on krüptograafiline kviitung?
+## Mis on krüptograafiline tõend?
 
-Kviitung on JSON-objekt, mis salvestab, mida agent tegi, allkirjastatud digitaalallkirjaga.
+Tõend on JSON-objekt, mis salvestab, mida agent tegi, ning on allkirjastatud digitaalse allkirjaga.
 
 ```mermaid
 flowchart LR
-    A[Agent kutsub tööriista] --> B[Koosta kviitungi koormus]
+    A[Agent kutsub tööriista esile] --> B[Ehitada kviitungi koormus]
     B --> C[JSON RFC 8785 kanoniseerimine]
     C --> D[SHA-256 räsi]
-    D --> E[Ed25519 allkirjastamine]
+    D --> E[Ed25519 allkiri]
     E --> F[Kviitung allkirjaga]
-    F --> G[Audiitor kontrollib offline'is]
-    G --> H{Allkiri kehtib?}
-    H -- jah --> I[Manipulatsioonikindel tõend]
-    H -- ei --> J[Kviitung lükati tagasi]
+    F --> G[Audiitor kontrollib võrguühenduseta]
+    G --> H{Kas allkiri kehtib?}
+    H -- jah --> I[Rikkumiskindel tõend]
+    H -- ei --> J[Kviitung tagasi lükatud]
 ```
 
-Minimaalne kviitung näeb välja nii:
+Minimaalne tõend näeb välja selline:
 
 ```json
 {
@@ -82,32 +82,32 @@ Minimaalne kviitung näeb välja nii:
 }
 ```
 
-Tööd teevad kolm omadust:
+Kolm omadust teevad töö:
 
-1. **Allkiri**. Kviitung on allkirjastatud agendi värava poolt, kasutades Ed25519 privaatvõtit. Keegi, kellel on vastav avalik võti, saab allkirja võrguühenduseta kontrollida. Väärtuse muutmine tühistab allkirja kehtivuse.
+1. **Allkiri**. Tõendi allkirjastab agendi värav Ed25519 privaatvõtmega. Igaüks, kellel on vastav avalik võti, saab allkirja võrguühenduseta kontrollida. Väljade muutmine teeb allkirja kehtetuks.
 
-2. **Kanoniline kodeerimine**. Enne allkirjastamist serialiseeritakse kviitung JSON Kanoniseerimise skeemi (JCS, RFC 8785) abil. See tagab, et kaks implementatsiooni, mis genereerivad sama loogilise sisu, annavad bait-baidilt identsed väljundid. Ilma kanoniseerimiseta toodaks sama sisu jaoks erineva allkirja erinevate JSON-serialiseerijatega.
+2. **Kanoniline kodeerimine**. Enne allkirjastamist serialiseeritakse tõend JSON Kanoniseerimise Skeemi (JCS, RFC 8785) abil. See tagab, et kaks poolt toodetud sama loogilise tõendi implementatsiooni annavad täpselt samad baitide jadad. Ilma kanoniseerimiseta toodaksid erinevad JSON serialisaatorid sama sisu jaoks erinevaid allkirju.
 
-3. **Räsi-ahel**. Väli `previous_receipt_hash` seob iga kviitungi eelmisega. Kviitungi eemaldamine või ümberpaigutamine katkestab kõik pärast seda tulevad kviitungid. Muutmine muutub nähtavaks terviku ahela tasandil isegi siis, kui individuaalseid allkirju suudetakse mööda hiilida.
+3. **Räsi-ahel**. `previous_receipt_hash` väli seob iga tõendi eelmisega. Tõendi eemaldamine või järjekorra muutmine katkestab kõik hiljem omavahel seotud tõendid. Muutmised muutuvad nähtavaks ahela tasandil isegi siis, kui ühekaupa allkirju ignoreerida.
 
-Need kolm omadust annavad kolm garantiid:
+Koos tagavad need omadused kolm garantiid:
 
-- **Atributsioon**: see võti allkirjastas selle sisu.
-- **Terviklikkus**: sisu pole allkirjastamisest alates muutunud.
-- **Järjestus**: see kviitung tuli selle ahela sees pärast eelmist kviitungit.
+- **Autentimine**: see võti allkirjastas selle sisu.
+- **Terviklikkus**: sisu ei ole pärast allkirjastamist muutunud.
+- **Järjestus**: see tõend tuli ahelas pärast eelmist tõendit.
 
-## Kviitungi tootmine Pythoni abil
+## Tõendi tootmine Pythoni keeles
 
-Kviitungi tootmiseks pole vaja eraldi teeki. Krüptograafilised põhimõisted on laialt kättesaadavad ja loogika on mõnes kümnes realses Pythonis.
+Tõendi tootmiseks ei ole vaja spetsiaalset teeki. Krüptograafilised primitiivid on laialdaselt kättesaadavad ja loogika on mõnisada rida Pythonit.
 
-Praktilised harjutused failis `code_samples/18-signed-receipts.ipynb` selgitavad kogu protsessi. Kokkuvõte:
+Käed-külge harjutused failis `code_samples/18-signed-receipts.ipynb` läbivad kogu protsessi. Kokkuvõte:
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # RFC 8785 kanooniline JSON
+from jcs import canonicalize  # RFC 8785 kanoniline JSON
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -116,11 +116,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Genereeri või laadi allkirjastamise võti (tootmises hoia võtmehoidlasse)
+# Genereeri või laadi allkirjastamise võti (tootmises salvesta võtmekeldrisse)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Koosta tšeki andmepakett (eespool allkirja pole)
+# Koosta kviitungi andmepakett (veel allkirjata)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -136,12 +136,12 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Kanooniline, räsi, allkirjasta.
+# Kanoniseeri, räsi, allkirjasta.
 canonical_bytes = canonicalize(payload)
 message_hash = hashlib.sha256(canonical_bytes).digest()
 signature_bytes = signing_key.sign(message_hash).signature
 
-# Lisa struktureeritud allkirja objekt.
+# Lisa struktureeritud allkirjaobjekt.
 receipt = {
     **payload,
     "signature": {
@@ -152,11 +152,11 @@ receipt = {
 }
 ```
 
-See on kogu allkirjastamise torujuhe. Märkmete harjutused lähevad iga sammu läbi.
+See on kogu allkirjastamise töövoog. Märkmikus selgitatakse iga sammu.
 
-## Kviitungi kontrollimine ja muutmise tuvastamine
+## Tõendi kontrollimine ja manipulatsiooni tuvastamine
 
-Kontrollimine on vastupidine protsess:
+Kontroll on vastupidine protsess:
 
 ```python
 import base64
@@ -175,7 +175,7 @@ def verify_receipt(receipt: dict) -> bool:
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # Rekonstrueeri laad, mis tegelikult allkirjastati (kõik peale allkirja).
+    # Taasta tegelikult allkirjastatud sisu (kõik peale allkirja).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
@@ -189,23 +189,23 @@ def verify_receipt(receipt: dict) -> bool:
         return False
 ```
 
-See funktsioon võtab kviitungi ja tagastab `True`, kui allkiri on kehtiv, muul juhul `False`. Puudub võrgukõne, teenuse sõltuvus ega vajadus usaldada kolmandat osapoolt.
+See funktsioon võtab tõendi ja tagastab `True`, kui allkiri on kehtiv, vastasel juhul `False`. Mitte ühtki võrguühendust, mitte ühtegi teenuse sõltuvust, ei ole vaja kolmanda osapoole usaldamiseks.
 
-Muudatuste tuvastust demonstreerimiseks teeb märkmik:
+Manipulatsiooni tuvastamiseks teeb märkmik järgmist:
 
-1. Toob välja kehtiva kviitungi ja kinnitab selle tõesuse.
-2. Muudab välja `tool_args_hash` ühe baiti.
-3. Jookseb kontrolli uuesti ja näeb, et see ebaõnnestub.
+1. Tootab kehtiva tõendi ja kinnitab selle kontrollimist.
+2. Muudab `tool_args_hash` välja ühe baiti.
+3. Käivitab uuesti kontrolli ja näeb, et see ebaõnnestub.
 
-See on praktiline näide, et kviitungid on muutmiskindlad: iga muutus, olgu kui väike tahes, katkestab allkirja.
+See on praktiline näide, et tõendid on muutmise suhtes nähtavad: iga muutus, ükskõik kui väike, rikub allkirja.
 
-## Kviitungite aheldamine mitmeastmeliste agentide jaoks
+## Mitmeastmeliste agentide tõendite ahelaks sidumine
 
-Üks allkirjastatud kviitung kaitseb ühte tegevust. Kviitungite ahel kaitseb järjestust.
+Üks allkirjastatud tõend kaitseb ühte tegevust. Tõendite ahel kaitseb järjestust.
 
 ```mermaid
 flowchart LR
-    R0[Kviitung 0<br/>algus] --> R1[Kviitung 1]
+    R0[Kviitung 0<br/>algne] --> R1[Kviitung 1]
     R1 --> R2[Kviitung 2]
     R2 --> R3[Kviitung 3]
     R1 -. previous_receipt_hash .-> R0
@@ -213,171 +213,172 @@ flowchart LR
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Iga kviitung salvestab eelmise kviitungi räsi. Kui ründaja tahaks vaikides eemaldada kviitungi nr 2, peaks ta kas:
+Iga tõend salvestab eelmise tõendi räsi. Kui ründaja tahab vaikselt eemaldada teise tõendi, peab ta kas:
 
-- Muutma kviitungi 3 välja `previous_receipt_hash` (katkestab kviitungi 3 allkirja), VÕI
-- Võltsima uue allkirja muudetud kviitungile 3 (nõuab agendi privaatvõtit).
+- Muutma tõendi 3 `previous_receipt_hash` välja (lõhub tõendi 3 allkirja), VÕI
+- Võltsima uue allkirja muudetud tõendile 3 (vajab agendi privaatvõtit).
 
-Kui privaatvõti on riistvaralises võtmehoidlas ja avalikku võtit avaldatakse iga kviitungiga, ei ole kumbki rünnak avastamata teostatav.
+Kui privaatvõti on riistvaralises võtmehoidlas ja avaliku võtme avalikustamine toimub iga tõendiga, ei ole kumbki rünnak võimalik ilma avastamata.
 
-Märkmik läbib:
+Märkmik demonstreerib:
 
-1. Kolme kviitungi ahela loomise.
-2. Kontrollib, et iga kviitungi `previous_receipt_hash` vastab eelmise kviitungi tegelikule räsidele.
-3. Muudab keskmist kviitungit ja näeb, et ahel katkeb täpselt seal.
+1. Kuidas luua kolmekohaline tõendite ahel.
+2. Kontrollida, kas iga tõendi `previous_receipt_hash` vastab tegeliku eelneva tõendi räsidele.
+3. Muutmist ahela keskel ja näeb, kuidas ahel täpselt seal katkeb.
 
-See on viis, kuidas luua auditeerimistee, mida väline auditeerija saab kontrollida ilma sind usaldamata.
+See on viis, kuidas luua auditeerimislogi, mida väline audiitor saab kontrollida ilma sind usaldamata.
 
-## Mida kviitungid tõendavad (ja mida mitte)
+## Mida tõendid tõendavad (ja mida mitte)
 
-See on õppetunni kõige olulisem osa. Kviitungid on võimsad, kuid nende võimekus on piiratud.
+See on õppetunni kõige olulisem osa. Tõendid on võimsad, kuid nende võimsus on piiratud.
 
-**Kviitungid tõendavad kolme asja:**
+**Tõendid tõendavad kolme asja:**
 
-1. **Atributsioon**: konkreetne võti allkirjastas konkreetse maketi.
-2. **Terviklikkus**: sisu pole allkirjastamisest peale muutunud.
-3. **Järjestus**: see kviitung tuli pärast eelmist kviitungit ahelas.
+1. **Autentimine**: konkreetne võti allkirjastas konkreetse sisu.
+2. **Terviklikkus**: sisu ei ole allkirjastamise järel muutunud.
+3. **Järjestus**: see tõend tuli pärast eelmise tõendi ahelas.
 
-**Kviitungid EI tõenda:**
+**Tõendid EI tõenda:**
 
-1. **Õigsust**: et agendi tegevus oli õige valik. Kviitung saab allkirjastada sama selgelt nii valede kui ka õiget vastustest.
-2. **Poliitikajärgimist**: et `policy_id` viidatud poliitikat hinnati või et see oleks selle tegevuse lubanud, kui seda kontrolliti. Kviitung salvestab, mida väideti, mitte mida rakendati.
-3. **Isikut peale võtme**: kviitung ütleb "see võti allkirjastas selle sisu." See ei ütle "see inimene volitas." Võtme sidumine isiku või organisatsiooniga vajab eraldi identiteedi infrastruktuuri (kaust, avalike võtmete register jms).
-4. **Sisendite tõesust**: kui agent saab manipuleeritud juhise ja toimib selle põhjal, siis kviitung salvestab tegevuse truult. Kviitung on sisendite valideerimise järgses etapis, mitte selle asendaja.
+1. **Õigsust**: et agendi tegevus oli õige tegevus. Tõendit saab allkirjastada sama puhtalt nii valede kui ka õige vastuse jaoks.
+2. **Poliitika järgimist**: et väljal `policy_id` märgitud poliitikat tegelikult hinnati või et see oleks tegevuse heaks kiitnud. Tõend salvestab väite, mitte jõustamist.
+3. **Isikut väljaspool võtit**: tõend ütleb "see võti allkirjastas selle sisu." See ei ütle, et "see inimene volitas selle." Võtme sidumine isiku või organisatsiooniga vajab eraldi identiteeditaristut (kataloog, avalike võtmete register jms).
+4. **Sisendite tõepärasust**: kui agent saab manipuleeritud sisendi ja tegutseb selle põhjal, salvestab tõend tegevuse truult. Tõendid on allikas sisendite valideerimisele, mitte asenduseks.
 
-See piir on oluline kahe põhjusel:
+See piir on oluline kahes mõttes:
 
-- See ütleb, milleks kviitungid kasulikud on: muuta agendi käitumine auditeeritavaks ja muutmiskindlaks, isegi organisatsioonide vahel.
-- See ütleb, milliseid lisakihtide vajadusi sul endiselt on: sisendi valideerimine (õppetund 6), poliitika rakendamine (allpool lühidalt), ja identiteedi infrastruktuur (selle õppetunni piiridest väljas).
+- See ütleb, milleks tõendid kasulikud on: muuta agentide käitumine auditeeritavaks ja manipuleerimiskindlaks, isegi organisatsioonide vahel.
+- See ütleb, milliseid lisakihte on veel vaja: sisendi valideerimine (õppetund 6), poliitika jõustamine (allpool veidi puudutatud) ja identiteeditaristu (väljas selle õppetunni ulatusest).
 
-Tavaline viga on arvata, et "meil on kviitungid" tähendab "meil on juhtimine." Ei tähenda. Kviitungid on alus. Juhtimine on süsteem, mille sa sellele peale ehitad.
+Levinud viga on arvata, et "meil on tõendid" tähendab "me juhime." Ei tähenda. Tõendid on alus. Juhimine on süsteem, mille ehitad selle peale.
 
 ## Tootmisviited
 
-Selles õppetunnis on Python-kood meelega minimaalne, et saaksid iga rea läbi lugeda ja täielikult mõista. Tootmiskeskkonnas on sul kaks valikut:
+Selles õppetunnis on Python kood teadlikult minimaalne, et saaksid lugeda iga rea ja mõista täpselt, mis toimub. Tootmiskasutuses on sul kaks võimalust:
 
-1. **Ehita otse krüptograafiliste primitiivide peale.** Ülal näidatud 50 rida on paljude kasutusjuhtumite jaoks piisav. PyNaCl (Ed25519) ja `jcs` pakett (kanoniline JSON) on hästi hooldatud ja auditeeritud teegid.
+1. **Tee otsene töö krüptograafiliste primitiividega.** Ülal nähtud 50 rida sobivad paljudele kasutusjuhtumitele. PyNaCl (Ed25519) ja `jcs` pakett (kanoniline JSON) on hästi hooldatud ja auditeeritud teegid.
 
-2. **Kasuta tootmiskõlblikku kviitungite teeki.** Mitmed avatud lähtekoodiga projektid rakendavad sama mustrit lisafunktsioonidega (võtme pööramine, partii kontroll, JWK komplekti jaotamine, integreerimine poliitikamasinatesse):
-   - Selle õppetunni kviitungi formaat järgib IETF Internet-Draft’i (`draft-farley-acta-signed-receipts`), mis on hetkel standardimisprotsessis.
-   - Microsoft Agent Governance Toolkit ühendab kviitungeid Cedar-põhiste poliitikakäikudega; vt selle hoidla juhendit 33 lõplikuks näidiseks.
-   - Paketid `protect-mcp` (npm) ja `@veritasacta/verify` (npm) pakuvad Node-põhist lahendust kviitunge allkirjastamiseks ja võrguühenduseta kontrolliks, mõeldud mis tahes MCP serveri ümber pakkimiseks muutmiskindla auditeerimisteega.
+2. **Kasuta tootmistõendite teeki.** Mitmed avatud lähtekoodiga projektid rakendavad sama mustrit lisafunktsioonidega (võtme rotatsioon, paketitud kontroll, JWK komplekti levitus, poliitikamootoritega integratsioon):
+   - Selles õppetunnis kasutatav tõendi formaat järgib IETF Internet-Draft'i (`draft-farley-acta-signed-receipts`), mis on hetkel standardite protsessis.
+   - Microsoft Agent Governance Toolkit seob tõendid Cedar-põhiste poliitikakokkulepetega; vaata näidisena juhendit 33 vastavas repositooriumis.
+   - `protect-mcp` (npm) ja `@veritasacta/verify` (npm) pakuvad Node rakenduse tõendite allkirjastamiseks ja võrguühenduseta kontrollimiseks, et pakkida iga MCP server manipuleerimise kindla auditeerimislogiga.
+   - **[nobulex](https://github.com/arian-gogani/nobulex)** Pythoni SDK (`pip install nobulex`) pakub sama Ed25519 + JCS allkirjastamise mustrit Pythonis koos LangChain ja CrewAI integratsioonidega, sisaldades avaldatud ristkontrollveskektorid ja vastavuskaardi panuse läbi [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
-Otsus, kas ehitada ise või kasutada teeki, sarnaneb otsusele kirjutada oma JWT teek või kasutada testitud teeki: mõlemad on mõistlikud; teek säästab aega ja vähendab auditeerimise pinda; algusest peale kirjutamine sunnib mõistma iga primitiivi. See õppetund õpetab algusest, et sul oleks alus ükskõik kumma valiku jaoks.
+Otsus kirjutada oma teek vs kasutada olemasolevat on võrreldav otsusega kirjutada oma JWT raamatukogu versus kasutada testitud raamatukogu: mõlemad on mõistlikud; teek säästab aega ja vähendab auditeerimispinda; nullist ülesehitus sunnib mõistma iga primitiivi. See õppetund õpetab nullist lähenemist, et sul oleks alus mõlema valiku jaoks.
 
-## Teadmistest
+## Teadmiste kontroll
 
-Testi oma arusaamist enne praktilisse harjutusse minekut.
+Testi oma arusaamist enne praktikat.
 
-**1. Kviitung on allkirjastatud agendi privaat-ed25519 võtmega. Auditeerijal on ainult avalik võti. Kas auditeerija saab kviitungit võrguühenduseta kontrollida?**
-
-<details>
-<summary>Vastus</summary>
-
-Jah. Ed25519 kontrollimiseks on vaja ainult avalikku võtit ja allkirjastatud baite. Puudub võrgukõne ja teenuse sõltuvus. See omadus teeb kviitungid kasulikuks võrguühenduseta, mitme organisatsiooni või madala usaldusastmega auditeerimistel.
-</details>
-
-**2. Ründaja muudab kviitungi välja `policy_id`, väites, et seda valitses lubavam poliitika. Allkiri oli tehtud originaalse maketi üle. Mis juhtub kontrollimise käigus?**
+**1. Tõend on allkirjastatud agendi privaatse Ed25519 võtmega. Audiitoril on ainult avalik võti. Kas audiitor saab tõendi võrguühenduseta kontrollida?**
 
 <details>
 <summary>Vastus</summary>
 
-Kontroll ebaõnnestub. Allkiri arvutati originaalse kanonilise maketi baidide üle; iga välja muutmine muudab kanonilisi baite, mis muudab SHA-256 räsi ja tühistab allkirja kehtivuse. Ründaja peaks olema privaatvõti, et toota uus kehtiv allkiri, mida tal ei ole.
+Jah. Ed25519 kontrolliks on vaja ainult avalikku võtit ja allkirjastatud baite. Ei mingit võrguühendust, teenus- ega kolmandate osapoolte usaldust. See omadus muudab tõendid kasulikuks õhuldistega, mitme organisatsiooni või madala usaldustasemega auditeerimiskeskkondades.
 </details>
 
-**3. Miks kviitung sisaldab `tool_args_hash` ja `result_hash` selle asemel, et katta otse argumendid ja tulemuse?**
+**2. Ründaja muudab tõendi `policy_id` välja, väites, et seda valitses lubavam poliitika. Allkiri oli tehtud algse payload'i peal. Mis kontrolli käigus juhtub?**
 
 <details>
 <summary>Vastus</summary>
 
-Kaks põhjusel. Esiteks võib kviitungit arhiveerida või edasi saata keskkondades, kus tühja sisu lekkimine (isikukaitseandmed, ärisaladused) on probleem. Räsi hoiab kviitungi väikse ja sisu privaatse; auditeerija kontrollib, et räsi vastab eraldi hoitava originaalse sisuga. Teiseks on räsi fikseeritud suurusega; kviitung, mis sisaldab räsi, on suuruse piiratud olenemata sisendi ja väljundi mahust.
+Kontroll ebaõnnestub. Allkiri arvutati kanoniliste baitide peal originaalsetest andmetest; iga välja muutmine muudab kanonilisi baite, mis muudab SHA-256 räsi ning teeb allkirja kehtetuks. Ründajal oleks vaja privaatvõtit, et luua uus kehtiv allkiri, mida tal pole.
 </details>
 
-**4. Väli `previous_receipt_hash` seob iga kviitungi eelmisega. Kui ründaja vaikides kustutab ühe kviitungi ahela keskelt, mis muutub kehtetuks?**
+**3. Miks sisaldab tõend `tool_args_hash` ja `result_hash`, mitte otse argumente ja tulemust?**
 
 <details>
 <summary>Vastus</summary>
 
-Kõik kviitungid, mis tulid pärast kustutatud kviitungit. Nende `previous_receipt_hash` väljad ei vasta enam tegelikule ahelale (kuna viidatav kviitung puudub või ahel viitab nüüd teisele eelkäijale). Kustutuse varjamiseks peaks ründaja uuesti allkirjastama kõik hilisemad kviitungid, mis nõuab privaatvõtit.
+Kahe põhjusel. Esiteks, tõend võidakse arhiveerida või edastada keskkondades, kus otse sisu lekkimine (isiklik info, ärimäärangud) on probleem. Räsi hoiab tõendi väiksemana ja sisu privaatsemana; audiitor kontrollib räsiväärtust eraldi hoitud tegeliku sisuga. Teiseks, räside pikkus on fikseeritud, mistõttu on tõendi maht piiratud sõltumata sisendi ja väljundi suurusest.
 </details>
 
-**5. Kviitung kontrollib korrektselt. Kas see tõendab, et agendi tegevus oli õige, loogiline või poliitikaga kooskõlas?**
+**4. `previous_receipt_hash` ühendab iga tõendi eelkäijaga. Kui ründaja kustutab ahelas ühe tõendi vaikselt, mis lakkab kehtimast?**
 
 <details>
 <summary>Vastus</summary>
 
-Ei. Kehtiv kviitung tõendab kolme asja: atributsiooni (see võti allkirjastas selle sisu), terviklikkust (sisu pole muutunud) ja järjestust (see kviitung tuli pärast eelmist). See EI tõenda, et tegevus oli õige, et poliitika `policy_id` hinnati või et agent järgnes kõikidele reeglitele. Kviitungid teevad agendi käitumise auditeeritavaks, mitte ilmtingimata õigeks. See on õppetunni kõige olulisem piir.
+Iga hiljem jõudev tõend. Nende `previous_receipt_hash` väljad ei vasta enam ahelale (kuna viidatavat tõendit enam ei ole või ahel osutab nüüd teisele eelkäijale). Kustutuse varjamiseks peaks ründaja allkirjastama uuesti kõik hilisemad tõendid, mis nõuab privaatvõtit.
 </details>
 
-## Praktiline harjutus
+**5. Tõend on kenasti kontrollitud. Kas see tõendab, et agendi tegevus oli õige, asjakohane või poliitikale vastav?**
+
+<details>
+<summary>Vastus</summary>
+
+Ei. Kehtiv tõend tõendab kolme asja: autentimist (see võti allkirjastas selle sisu), terviklikkust (sisu ei ole muutunud) ja järjekorda (see tõend tuli pärast eelmist). See EI tõenda, et tegevus oli õige, et `policy_id` märgitud poliitikat hinnati või et agent järgis kõiki reegleid. Tõendid muudavad agentide käitumise auditeeritavaks, mitte tingimata õigeks. See on õppetunni kõige olulisem piir.
+</details>
+
+## Praktiline ülesanne
 
 Ava `code_samples/18-signed-receipts.ipynb` ja lõpeta kõik neli osa:
 
-1. **1. osa**: Allkirjasta oma esimene kviitung ja kontrolli seda.
-2. **2. osa**: Muuda kviitungit ja jälgi, kuidas kontroll ebaõnnestub.
-3. **3. osa**: Koosta kolme kviitungi ahel ja kontrolli selle terviklikkust.
-4. **4. osa**: Rakenda see muster Microsoft Agent Frameworkiga ehitatud agendi tööriistakutses: paki tööriistakutse ümber kviitungi allkirjastamisega, seejärel kontrolli kviitungit iseseisvalt.
+1. **I osa**: Allkirjasta esimene tõend ja kontrolli seda.
+2. **II osa**: Muuda tõendit ja vaata, kuidas kontroll nurjub.
+3. **III osa**: Loo kolme tõendi ahel ja kontrolli ahela terviklikkust.
+4. **IV osa**: Rakenda mustrit Microsoft Agent Frameworkiga loodud agendile: paki tööriistakutse tõendi allkirjastamisse ja seejärel kontrolli tõendit iseseisvalt.
+**Pikendusväljakutse 1:** laiendada kviitungi skeemi omal valikul täiendava väljadega (näiteks jälgimise taotlus-ID), uuendada kantselpärastamise allkirjastamise loogikat, et see hõlmaks seda välja, ja kinnitada, et kviitung läbib ikka verifitseerimise. Seejärel muuta väli pärast allkirjastamist ja kinnitada, et verifitseerimine ebaõnnestub. See sunnib teid mõistma, kuidas iga bait kantselpärastatud kodeeringus allkirjale kaasa aitab.
 
-**Lisaväljakutse 1:** laienda kviitungi skeemi omavalitud lisaväljaga (näiteks päringu ID jälgimiseks), uuenda kanonilise allkirjastamise loogikat, et see sisaldaks seda, ja kinnita, et kviitung läbib kontrolli hästi. Seejärel muuda välja pärast allkirjastamist ja kinnita, et kontroll ebaõnnestub. See sunnib mõistma, kuidas iga bait kanonilises kodeeringus allkirjale kaasa aitab.
-**Väljakutse 2:** SHA-256-tehke kahe oma tšeki räsi kokku (ühendades nende kanonilised baidid deterministlikus järjekorras) ja lisage saadud digesto kolmanda tšeki uue väljana enne selle allkirjastamist. Kontrollige, et kõik kolm tšeki ikka ümberringi käivad. Olete just loonud üheastmelise kaasamise tõendi: igaüks, kellel on kolmas tšekk, suudab tõestada, et kaks esimest eksisteerisid selle allkirjastamise ajal, ilma nende sisu avaldamata. See on mustrit, mida kasutatakse selektiivse avalikustamise tšekkidel suuremas mahus (Merkle kohustused, RFC 6962).
+**Pikendusväljakutse 2:** SHA-256 räsi kahest teie kviitungist ühendatult (ühendades nende kantselpärastatud baidid määratletud järjekorras) ja manustada saadud räsi kolmanda kviitungi uue väljana enne selle allkirjastamist. Kinnitage, et kõik kolm kviitungit läbivad ikka verifitseerimise. Olete äsja loonud ühetasandilise kaasamise tõendi: keegi, kellel on kolmas kviitung, saab tõestada, et esimesed kaks eksisteerisid selle allkirjastamise ajal ilma nende sisu avaldamata. See on mustrit, mida selektiivseid avalikustavaid kviitungeid kasutatakse suurel hulgal (Merkle kohustused, RFC 6962).
 
 ## Kokkuvõte
 
-Krüptograafilised tšekid annavad tehisintellekti agentidele auditeerimise jälje, mis on:
+Krüptograafilised kviitungid annavad tehisintellekti agentidele auditeerimisraja, mis on:
 
-- **Iseseisvalt kontrollitav:** iga osapool, kellel on avalik võti, saab kontrollida, teenusest sõltumatult.
-- **Muutmiskindel:** kõik muudatused rikuvad allkirja.
-- **Portatiivne:** tšekk on väike JSON-fail; seda saab arhiveerida, edastada ja kinnitada ükskõik kus.
-- **Standarditele vastav:** põhineb Ed25519-l (RFC 8032), JCS-il (RFC 8785) ja SHA-256-l, kõik laialdaselt kasutatavad primitiivid.
+- **Iseseisvalt verifitseeritav**: iga osapool, kellel on avalik võti, saab verifitseerida, ei ole teenusesõltuvust.
+- **Muutmiskindel**: iga muudatus tühistab allkirja.
+- **Portatiivne**: kviitung on väike JSON-fail; seda saab arhiveerida, edastada ja verifitseerida igal pool.
+- **Standarditega kooskõlas**: ehitatud Ed25519 (RFC 8032), JCS (RFC 8785) ja SHA-256 peale, mis kõik on laialdaselt kasutusel olevad primitiivid.
 
-Need ei asenda sisendi valideerimist, poliitika täitmist ega identiteedistruktuuri. Nad on nende kihtide alus. Kui rakendate agente reguleeritud töökoormatesse, mitmeorganisatsioonilistesse töövoogudesse või igasse keskkonda, kus tulevikus auditeerijat ei saa eeldada teid usaldavat, siis tšekid on see, kuidas muuta auditeerimise jälg ausaks.
+Need ei asenda sisendi valideerimist, poliitikate rakendamist ega identiteedi infrastruktuuri. Need on aluseks neile kihtidele. Kui paigaldate agente reguleeritud töökoormatesse, mitme organisatsiooni töövoogudesse või olukordadesse, kus tulevast audiitorit ei saa eeldada teid usaldavaks, on kviitungid viis ausa auditeerimisraja loomiseks.
 
-Kõige olulisem järeldus: tšekid tõestavad, kes ütles mida ja millal. Need ei tõesta, et öeldu oli tõene või õige. Hoidke seda erinevust kindlalt. See on ausa päritolusüsteemi ja eksitava vahel vahe.
+Kõige olulisem arusaam: kviitungid tõestavad, kes ütles mida ja millal. Need ei tõesta, et öeldud oli tõene või õige. Hoidke seda vahet selgelt. See on erinevus ausa päritolussüsteemi ja eksitava vahel.
 
-## Tootmiskontrollnimekiri
+## Tootmise kontrollnimekiri
 
-Kui olete valmis sellest tunnist edasi minema ja rakendama tšekkidega signeeritud agente reaalses keskkonnas:
+Kui olete valmis sellest õppetunnist edasi minema ja juurutama kviitungi allkirjastusega agente päris keskkonnas:
 
-- [ ] **Eemaldage allkirjastamise võti arendaja sülearvutist.** Kasutage Azure Key Vaulti, AWS KMS-i või riistvaralist turvamoodulit. Privaatvõti, millega oma tšekke allkirjastate, ei tohi kunagi elada lähtekoodi halduses ega tekstitöötlejana rakenduse masinatel.
-- [ ] **Avaldage verifitseerimise avalik võti.** Auditeerijad vajavad seda võrguühenduseta kontrollimiseks. Standardne muster on JWK-komplekt tuntud URL-il (RFC 7517), näiteks `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Ankurige ahel väliselt.** Kirjutage perioodiliselt ahela viimase tipu räsi läbipaistvuslogisse (Sigstore Rekor, RFC 3161 ajatemplivolinik või teine sisevõrk), et välisosapool saaks kinnitada „see ahel eksisteeris sellel ajal“.
-- [ ] **Salvestage tšekid muutumatult.** Ainult lisatav blobisalvestus (Azure Storage koos muutumatuse poliitikaga, AWS S3 objekt lukustus) takistab sisemist juhti ajaloo ümberkirjutamisel salvestuskihil.
-- [ ] **Otsustage säilitamisperioodi üle.** Paljud nõuete raamistikud nõuavad mitmeaastast säilitust. Planeerige tšekkide kasv (iga tšekk on umbes 500 baiti; agent, kes teeb päevas 10 000 kõnet, toodab ~1,8 GB aastas).
-- [ ] **Dokumenteerige, mida tšekid ei hõlma.** Tšekid tõestavad atribuuti, terviklikkust ja järjestust. Teie protseduuri käsiraamat peaks selgesõnaliselt loetlema, millised lisakontrollid (sisendi valideerimine, poliitika rakendamine, kiirusepiirang, identiteedistruktuur) on tšekkide kõrval teie juhtimises.
+- [ ] **Liigutage allkirjastamisvõti arendaja sülearvutist eemale.** Kasutage Azure Key Vaulti, AWS KMS-i või riistvaralist turvemoodulit. Eravõti, millega teie kviitungeid allkirjastatakse, ei tohi kunagi olla lähtekoodihalduses ega selges tekstis rakenduse masinates.
+- [ ] **Avalikustage verifitseerimise avalik võti.** Audiitoritel on seda vaja võrguühenduseta verifitseerimiseks. Standardne muster on JWK komplekt tuntud URL-il (RFC 7517), nt `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Ankurdatakse ahel väliselt.** Kirjutage perioodiliselt viimase ahela tipu räsi läbipaistvuslogisse (Sigstore Rekor, RFC 3161 ajatempli asutus või teine sisemine süsteem), et väline osapool saaks kinnitada "see ahel eksisteeris sellel ajal."
+- [ ] **Salvestage kviitungid muutumatult.** Lisaainult plokkide hoiustamine (Azure Storage immuutsuspoliitikate, AWS S3 Objektploki abil) takistab siseisikut lugude ümberkirjutamisel hoiustamiskihil.
+- [ ] **Otsustage säilitamisperiood.** Paljud nõuetele vastavuse režiimid nõuavad mitmeaastast säilitust. Planeerige kviitungite mahu kasvu (iga kviitung on ~500 baiti; agent, kes teeb 10 000 kutset päevas, toodab ~1,8 GB aastas).
+- [ ] **Dokumenteerige, mida kviitungid ei kata.** Kviitungid tõestavad atribuutivust, terviklikkust ja järjekorda. Teie tööprotsessi dokument peaks selgelt loetlema, millised lisakontrollid (sisendi valideerimine, poliitikate rakendamine, kiiruse piiramine, identiteedi infrastruktuur) töötavad koos kviitungitega teie juhtimisseisundis.
 
-### Kas teil on rohkem küsimusi AI agentide turvamise kohta?
+### Rohkem küsimusi AI agentide turvamise kohta?
 
-Liituge [Microsoft Foundry Discordiga](https://aka.ms/ai-agents/discord), et kohtuda teiste õppijatega, osaleda töötubades ja saada oma AI agentide küsimustele vastused.
+Liituge [Microsoft Foundry Discordiga](https://aka.ms/ai-agents/discord), et kohtuda teiste õppijatega, osaleda konsultatsiooni tundides ja saada vastuseid AI agentide küsimustele.
 
-## Selle tunni järel
+## Edasi sellest õppetunnist
 
-See tund käsitleb ühe tšeki allkirjastamist ja räsi-ahelaga järjestusi. Samad primitiivid koonduvad mitmeks keerukamaks mustriks, millega võite kokku puutuda, kui teie juhtimispraktika areneb:
+See õppetund hõlmab ühe kviitungi allkirjastamist ja räsi ahela järjestusi. Samad primitiivid koosnevad mitmesugusteks arenenumateks mustriteks, millega võite kokku puutuda, kui teie juhtimispoliitika areneb:
 
-- **Selektiivne avalikustamine.** Kui tšeki väljad on iseseisvalt kohustatud (RFC 6962-laadne Merkle-puu), saate konkreetseid välju konkreetsetele auditeerijatele avaldada ja tõestada, et ülejäänud väljad on muutumatud, ilma neid paljastamata. Kasulik, kui sama tšekk peab rahuldama nii põhjalikku auditit (mis soovib täielikkust) kui ka andmekaitse regulatsioone nagu GDPR (mis soovivad, et audiitor näeks nii vähe kui võimalik).
-- **Tšekivõltsimise tühistamine.** Kui allkirjastamise võti on ohustatud, vajate võimalust märkida kõik selle võtmega allkirjastatud tšekid pärast kindlat aega usaldamatuks. Standardmustrid: lühiajalised allkirjastamise võtmed ja avaldatud tühistamisnimekiri või läbipaistvuslogi tühistamiskirjetega.
-- **Kahepoolsed / jagatud allkirjaga tšekid.** Mõnes rakenduses jagatakse allkirjastatud koorem enne täitmist (`authorization_*`) ja pärast täitmist (`result_*`) sõltumatuteks osadeks, mõlemas oma allkirjaga, mis sobib olukordades, kus volituse otsus ja täidetud tulemus on tehtud erinevate osapoolte või erineval ajal. See kombineerub lisaks selle tunni tšekiivormingule.
-- **Koorimiskoormuse kooskomponeerimine.** Tšekk lukustab mis tahes baidid, mille panete `result_hash`-i. Reaalmaailma koormused on sageli rikkalikumad kui ühe tööriista kõne tulemus: eelloogika (mudeli prognoos, kaalutud valikud, tõendid ja nende täielikkus, riskipositsioon, vastutusahela otsus) võib kõik elada koormuses, mida lukustab üks tšekk. See hoiab tšeki formaadi minimaalsena ja võimaldab koormuse skeemidel areneda domeen järgi.
-- **Ristrakenduse kooskõla.** Mitmed iseseisvad rakendused sama tšekivormingu jaoks (Python, TypeScript, Rust, Go) kontrollivad ühiselt jagatud testvektoreid. Kui ehitate oma rakenduse, kinnitab avaldatud vektorite valideerimine ülesannete kokkusobivuse.
-- **Kvantarvutite eest kaitsmise migratsioon.** Ed25519 on tänapäeval laialdaselt kasutusel, kuid ei ole kvantarvutitele vastupidav. Tšekivorming on algoritmide kohanduv: väli `signature.alg` võib kanda `ML-DSA-65` (NISTi postkvantallkirjastandard), kui on tarvis migratsiooni. Planeerige üleminiperiood, kus tšekid on kaheahelalised.
+- **Selektiivne avalikustamine.** Kui kviitungi väljad on iseseisvalt kohustatud (RFC 6962 stiilis Merkle puu), saate avaldada spetsiifilisi välju kindlatele audiitoritele ja tõestada, et ülejäänud on muutumatud ilma neid paljastamata. Kasulik, kui sama kviitung peab rahuldama nii põhjalikku auditit (mis soovib täielikkust) kui ka andmete minimaalset avalikustamist reglemente nagu GDPR (mis soovib audiitoril näha nii vähe kui võimalik).
+- **Kviitungite tühistamine.** Kui allkirja võti on kompromiteeritud, peate suutma märkida kõik selle võtmega allkirjastatud kviitungid alates teatud ajast ebausaldust väärivateks. Standardmustrid: lühiajalised allkirjavõtmed koos avaldatud tühistusloendiga või läbipaistvuslogi tühistuskirjetega.
+- **Kahepoolsed / jagatud allkirja kviitungid.** Mõned implementatsioonid jagavad allkirjastatud andmepaki eel- ja järgneva täitmise osadeks (vastavalt `authorization_*` ja `result_*`) sõltumatute allkirjadega, kasulik, kui autoriseerimisotsus ja täheldatud tulemus tulevad erinevatelt osapooltelt või eri aegadel. See lisandub selle õppetunni kviitungivormingule.
+- **Andmepaki koosseis.** Kviitung tihendab ükskõik millised baidid, mis on paigutatud `result_hash` sisse. Reaalmaailma andmepakid on sageli rikkalikumad kui ühe tööriistakutse tulemus: otsuse-eelne põhjendus (mudeli prognoos, kaalutud valikud, tõendid ja nende täielikkus, riskipositsioon, vastutusahel, otsuse tulemus) võib kõik elada andmepakis, mis on ühtse kviitungiga tihendatud. See hoiab kviitungi vormingu minimaalsena, võimaldades samal ajal domeenipõhist skeemi arengut.
+- **Rist-implementatsioonide vastavus.** Mitmed sõltumatud sama kviitungivormingu teostused (Python, TypeScript, Rust, Go) verifitseerivad üksteist jagatud testvektoritega. Kui ehitate oma teostuse, kinnitab avaldatud vektorite valideerimine ühilduvuse.
+- **Pärast kvantajastu migratsioon.** Ed25519 on tänapäeval laialdaselt kasutusel, kuid see ei ole kvantajastu vastupidav. Kviitungivorming on algoritmide paindlik: `signature.alg` väli võib kanda `ML-DSA-65` (NIST-i postkvantajastu allkirjastamise standard), kui tuleb migratsiooni teha. Planeerige üleminekuperiood, kus kviitungeid allkirjastatakse topelt.
 
 ## Lisamaterjalid
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Interneti eelnõu: Masinatevahelise juurdepääsu kontrolli allkirjastatud otsusetšekid</a>
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Masinatevahelise juurdepääsu kontrolli allkirjastatud otsuse kviitungid</a>
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Vastutustundliku tehisintellekti ülevaade (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-kõvera digiallkirjastusalgoritm (EdDSA)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON Kanoniseerimise skeem (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Sertifikaatide läbipaistvus</a> (Merkle-puu ehitus, mida kasutavad selektiivse avalikustamise tšekid)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsofti agentide juhtimisvahendite komplekt, juhend 33: võrguühenduseta tõendatavad otsusetšekid</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Ristrakenduse kooskõla testvektorid</a> selle tunni tšekivormingu jaoks (Apache-2.0)
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwardsi kõver- digiallkirja algoritm (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON kanoniseerimise skeem (JCS)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Sertifikaadi läbipaistvus</a> (Merkle puu konstruktsioon, mida kasutavad selektiivsed avalikustavad kviitungid)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, õppeprogramm 33: võrguühenduseta verifitseeritavad otsuse kviitungid</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Rist-implementatsiooni vastavuse testvektorid</a> selle õppetunni kviitungivormingu jaoks (Apache-2.0)
 - <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl dokumentatsioon</a> (Ed25519 Pythonis)
 
-## Eelmine tund
+## Eelmine õppetund
 
 [Arvutikasutusagentide loomine (CUA)](../15-browser-use/README.md)
 
-## Järgmine tund
+## Järgmine õppetund
 
-_(Määrab õppekava haldur)_
+_(Määrab väljaõppe korraldajad)_
 
 ---
 

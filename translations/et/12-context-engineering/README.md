@@ -1,166 +1,179 @@
-# Konteksti inseneritehnika tehisintellekti agentidele
+# Konteksti insenerteadus tehisintellekti agentide jaoks
 
-[![Context Engineering](../../../translated_images/et/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
+[![Konteksti insenerteadus](../../../translated_images/et/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
-> _(Vaata selle õppetunni videot, klõpsates ülaltoodud pildil)_
+> _(Klõpsa ülaloleval pildil selle õppetunni video vaatamiseks)_
 
-On oluline mõista selle rakenduse keerukust, mille jaoks ehitad tehisintellekti agenti, et luua usaldusväärne agent. Me peame ehitama tehisintellekti agente, kes haldavad teavet tõhusalt, et lahendada keerukaid vajadusi, mis ületavad ainult promptide inseneritehnika.
+Tehisintellekti agendi ehitatava rakenduse keerukuse mõistmine on oluline usaldusväärse agenti loomisel. Me peame ehitama AI agente, kes tõhusalt haldavad informatsiooni, et lahendada keerukaid vajadusi, mis ületavad lihtsalt promptide loomist.
 
-Selles õppetunnis vaatleme, mis on konteksti inseneritehnika ja milline on selle roll tehisintellekti agentide loomisel.
+Selles õppetunnis vaatleme, mis on konteksti insenerteadus ja selle roll AI agentide loomisel.
 
 ## Sissejuhatus
 
-See õppetund käsitleb:
+Selles õppetunnis käsitleme:
 
-• **Mis on konteksti inseneritehnika** ja miks see erineb promptide inseneritehnikast.
+• **Mis on konteksti insenerteadus** ja miks see erineb promptide insenerteadusest.
 
-• **Tõhusad strateegiad konteksti inseneritehnikaks**, sealhulgas kuidas kirjutada, valida, tihendada ja eraldada teavet.
+• **Tõhusad strateegiad konteksti insenerteaduseks**, sh kuidas kirjutada, valida, tihendada ja isoleerida informatsiooni.
 
-• **Levinud kontekstid puudused**, mis võivad sinu tehisintellekti agenti häirida, ning kuidas neid parandada.
+• **Levinud konteksti ebaõnnestumised**, mis võivad AI agenti takistada, ja nende parandamise võimalused.
 
 ## Õpieesmärgid
 
-Pärast selle õppetunni läbimist tead, kuidas:
+Pärast selle õppetunni lõpetamist oskad:
 
-• **Määratleda konteksti inseneritehnika** ja eristada seda promptide inseneritehnikast.
+• **Määratleda konteksti insenerteadus** ja eristada seda promptide insenerteadusest.
 
-• **Tuvastada kontekstis olulised komponendid** suurte keelemudelite (LLM) rakendustes.
+• **Tuvastada peamised konteksti komponendid** suurte keelemudelite (LLM) rakendustes.
 
-• **Rakendada strateegiaid konteksti kirjutamiseks, valimiseks, tihendamiseks ja eraldamiseks**, et parandada agendi toimivust.
+• **Rakendada strateegiaid konteksti kirjutamiseks, valimiseks, tihendamiseks ja isoleerimiseks**, et parandada agendi jõudlust.
 
-• **Tunnustada levinud konteksti ebaõnnestumisi** nagu mürgitamine, tähelepanu hajumine, segadus ja konflikt ning rakendada leevendusmeetmeid.
+• **Tunda ära tavalisi konteksti tõrkeid** nagu mürgitamine, tähelepanu hajumine, segadus ja vastuolu ning kasutada leevendusmeetodeid.
 
-## Mis on konteksti inseneritehnika?
+## Mis on konteksti insenerteadus?
 
-Tehisintellekti agentide jaoks juhib kontekst agendi planeerimist teatud tegevuste elluviimiseks. Konteksti inseneritehnika on tava tagada, et tehisintellekti agendil oleks järgmise ülesande sammu tegemiseks õige teave. Kontekstiaken on piiratud suurusega, seega peame agendi ehitajatena looma süsteemid ja protsessid, mis haldavad teabe lisamist, eemaldamist ja kokkusurumist kontekstiaknas.
+AI agentide jaoks ajendab kontekst AI agendi kavandamist tegema kindlaid tegevusi. Konteksti insenerteadus on praktika, et tagada AI agendil õige info järgmise ülesande sammu täitmiseks. Kontekstiaken on piiratud suurusega, seega peame agendiehitajatena looma süsteeme ja protsesse, mis haldavad teabe lisamist, eemaldamist ja kokkusurumist kontekstiaknas.
 
-### Promptide inseneritehnika vs konteksti inseneritehnika
+### Promptide insenerteadus vs konteksti insenerteadus
 
-Promptide inseneritehnika keskendub ühele staatilisele juhiste komplektile, mis juhib tehisintellekti agente tõhusalt reeglite komplektiga. Konteksti inseneritehnika käsitleb dünaamilise teabehaldusega tegelemist, sealhulgas algset prompti, et tagada tehisintellekti agendi pidev vajaliku teabe olemasolu. Peamine idee konteksti inseneritehnika juures on muuta see protsess korduvaks ja usaldusväärseks.
+Promptide insenerteadus keskendub ühele staatilisele juhiste komplektile, et tõhusalt suunata AI agente reeglite abil. Konteksti insenerteadus haldab dünaamilist informatsioonikomplekti, sh algset promti, tagamaks, et AI agentil on aja jooksul vajalik info olemas. Peamine idee konteksti insenerteaduses on selle protsessi korratavus ja usaldusväärsus.
 
-### Konteksti tüübid
+### Konteksti liigid
 
-[![Types of Context](../../../translated_images/et/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
+[![Konteksti liigid](../../../translated_images/et/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
-Oluline on meeles pidada, et kontekst ei ole lihtsalt üks asi. Teave, mida tehisintellekti agent vajab, võib pärineda erinevatest allikatest ja meie ülesanne on tagada agendi juurdepääs neile allikatele:
+Oluline on meeles pidada, et kontekst ei ole ainult üks asi. AI agendi vajaminev info võib pärineda mitmesugustest allikatest ja meie ülesanne on tagada agendi juurdepääs neile allikatele:
 
-Konteksti tüübid, mida tehisintellekti agent võib hallata, hõlmavad:
+Konteksti liigid, mida AI agent võib vajada:
 
-• **Juhised:** Need on nagu agendi "reeglid" – promptid, süsteemiteated, mõned näited (mis näitavad tehisintellektile, kuidas midagi teha) ja tööriistade kirjeldused, mida agent saab kasutada. Siin põimub promptide inseneritehnika fookus konteksti inseneritehnikaga.
+• **Juhised:** Need on nagu agendi "reeglid" – promptid, süsteemisõnumid, vähesed näited (mis näitavad AI-le, kuidas midagi teha), ja tööriistade kirjelduse, mida ta kasutada saab. Siin kohtuvad promptide ja konteksti insenerteadus.
 
-• **Teadmised:** See hõlmab fakte, andmebaasidest pärinevat teavet või agendi kogutud pikaajalisi mälestusi. See hõlmab ka Retrieval Augmented Generation (RAG) süsteemi integreerimist, kui agendil on vaja juurdepääsu erinevatele teadmisteallikatele ja andmebaasidele.
+• **Teadmised:** Faktid, andmebaasidest pärinev info või agendi kogutud pikaajalised mälestused. See hõlmab ka RAG (Retrieval Augmented Generation) süsteemi integreerimist, kui agent vajab ligipääsu erinevatele teadmiste hoidlatele ja andmebaasidele.
 
-• **Tööriistad:** Need on väliste funktsioonide, API-de ja MCP serverite definitsioonid, mida agent saab kutsuda koos tagasisidega (tulemustega), mida ta nende kasutamisel saab.
+• **Tööriistad:** Väliste funktsioonide, API-de ja MCP serverite definitsioonid, mida agent saab kutsuda, koos tagasisidega (tulemused), mille ta nende kasutamisest saab.
 
-• **Vestluse ajalugu:** Kasutajaga käiv järjepidev dialoog. Aja jooksul muutuvad need vestlused pikemaks ja keerukamaks, mis tähendab, et need võtavad kontekstiaknas ruumi.
+• **Vestluste ajalugu:** Käimasolev dialoog kasutajaga. Aja möödudes muutuvad need vestlused pikemaks ja keerulisemaks ning võtavad konteksti aknas ruumi.
 
-• **Kasutaja eelistused:** Teave, mida on aja jooksul õpitud kasutaja eelistuste või mitte-eelistuste kohta. Neid võib salvestada ja kasutada oluliste otsuste tegemisel, et kasutajat aidata.
+• **Kasutaja eelistused:** Informatsioon kasutaja eelistustest või mitte-meeldimistest aja jooksul. Neid võib talletada ja kasutada otsuste tegemisel, et kasutajat aidata.
 
-## Tõhusad strateegiad konteksti inseneritehnikaks
+## Tõhusate konteksti insenerteaduse strateegiad
 
 ### Planeerimisstrateegiad
 
-[![Context Engineering Best Practices](../../../translated_images/et/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
+[![Konteksti insenerteaduse head tavad](../../../translated_images/et/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
-Hea konteksti inseneritehnika algab heast planeerimisest. Siin on lähenemine, mis aitab sul hakata mõtlema, kuidas rakendada konteksti inseneritehnika mõistet:
+Hea konteksti insenerteadus algab heast planeerimisest. Siin on lähenemine, mis aitab alustada mõtlemist konteksti insenerteaduse rakendamisest:
 
-1. **Määra selged tulemused** – ülesannete tulemused, mida tehisintellekti agentidele määratakse, peaksid olema selgelt määratletud. Vastake küsimusele – "Milline näeb maailm välja pärast seda, kui tehisintellekti agent on oma ülesandega lõpetanud?" Teisisõnu, millist muutust, teavet või vastust kasutaja pärast agendiga suhtlemist saab.
-
-2. **Kaardista kontekst** – kui oled määratlenud tehisintellekti agendi tulemused, pead vastama küsimusele "Millist teavet tehisintellekti agent vajab selle ülesande täitmiseks?". Nii saad hakata konteksti kaardistama ja otsima, kust seda teavet leida võib.
-
-3. **Loo kontekstitorud** – nüüd, kui tead, kust teavet saada, on vaja vastata küsimusele "Kuidas agent selle teabe saab?". Seda saab teha mitmel viisil, sealhulgas RAG, MCP serverite ja teiste tööriistade kasutamise kaudu.
+1. **Määra selged tulemused** – Tegevuste tulemused, mida AI agentidele määratakse, peaksid olema selgelt määratletud. Vastake küsimusele: "Milline maailm välja näeb, kui AI agent oma ülesande lõpetab?" Teisisõnu, milline muudatus, info või vastus peaks kasutajal olema pärast interaktsiooni AI agentiga.
+2. **Kaardista kontekst** – Kui oled tulemused määratlenud, pead vastama küsimusele "Millist informatsiooni AI agent vajab, et selle ülesande täita?" Nii saad hakata kaardistama, kust see info leitav on.
+3. **Loo konteksti torujuhtmed** – Nüüd, kui tead, kust info pärineb, pead vastama küsimusele: "Kuidas agent selle info saab?" Seda saab teha mitmel moel, sh RAG kasutamine, MCP serverid ja muud tööriistad.
 
 ### Praktilised strateegiad
 
-Planeerimine on oluline, kuid kui teave hakkab voolama meie agendi kontekstiakna kaudu, peame rakendama praktilisi strateegiaid selle haldamiseks:
+Planeerimine on oluline, kuid kui info hakkab agendi kontekstiaknast voolama, vajad praktilisi strateegiaid selle haldamiseks:
 
 #### Konteksti haldamine
 
-Kuigi osa teabest lisatakse kontekstiaknasse automaatselt, seisneb konteksti inseneritehnika selles, et võtta selles teabes aktiivsem roll, mida saab teha mitme strateegia abil:
+Kuigi osa info lisatakse konteksti aknasse automaatselt, seisneb konteksti insenerteadus selles, et võtta sellest infost aktiivsem osa, mida saab teha mitme strateegiaga:
 
-1. **Agendi märkmeleht (Agent Scratchpad)**  
-See võimaldab tehisintellekti agendil teha märkmeid olulise teabe kohta praeguste ülesannete ja kasutajaga suhtlemise kohta ühe seansi jooksul. See peaks asuma kontekstiaknast väljaspool failis või jooksva objekti sees, mida agent saab hiljem selles seansis vajadusel tagasi otsida.
+1. **Agendi märkmeleht**  
+See võimaldab AI agendil teha märkmeid asjakohase info kohta praeguse sessiooni ülesannete ja kasutaja interaktsioonide kohta. See peaks paiknema konteksti aknast väljaspool failis või tööaja objektis, mida agent saaks vajadusel sellel sessioonil hiljem kasutada.
 
-2. **Mälestused**  
-Märkmelehed sobivad ühe seansi konteksti aknast väljaspool teabe haldamiseks. Mälestused võimaldavad agentidel salvestada ja taastada olulist teavet mitmete seansside vahel. See võib hõlmata kokkuvõtteid, kasutaja eelistusi ja tagasisidet tulevaste parenduste jaoks.
+2. **Mälud**  
+Märkmelehed on head ühe sessiooni konteksti aknast väljaspool info haldamiseks. Mälud võimaldavad agentidel salvestada ja taastada asjakohast infot mitme sessiooni jooksul. See võib hõlmata kokkuvõtteid, kasutaja eelistusi ja tagasisidet tulevikus paranduste tegemiseks.
 
 3. **Konteksti tihendamine**  
-Kui kontekstiaken suureneb ja läheneb oma piirile, saab kasutada selliseid tehnikaid nagu kokkuvõtete tegemine ja kärpimine. See tähendab kas ainult kõige olulisema teabe hoidmist või vanemate teadete eemaldamist.
+Kui kontekstiaken kasvab ja läheneb piirile, saab kasutada tehnikaid nagu kokkuvõtete tegemine ja kärpimine. See tähendab kas hoida ainult kõige olulisemat infot või eemaldada vanemaid sõnumeid.
 
 4. **Mitme agendi süsteemid**  
-Mitme agendi süsteemi arendamine on konteksti inseneritehnika vorm, sest iga agent omab oma kontekstiakent. Kuidas seda konteksti jagatakse ja edastatakse eri agentidele, on veel üks aspekt, mida nende süsteemide loomisel planeerida.
+Mitme agendi süsteemi arendamine on konteksti insenerteaduse vorm, sest iga agendil on oma kontekstiaken. Kuidas seda konteksti jagada ja edasi anda erinevatele agentidele, on veel üks asi, mida tuleb nende süsteemide loomisel planeerida.
 
-5. **Harkukeskkonnad (Sandbox Environments)**  
-Kui agent peab jooksutama mõnda koodi või töötlema suures koguses teavet dokumendis, võib see nõuda palju tokeneid tulemuste töötlemiseks. Selle asemel, et see kõik salvestada kontekstiaknas, saab agent kasutada harkukeskkonda, mis võimaldab käivitada koodi ja lugeda ainult tulemusi ning muud asjakohast teavet.
+5. **Liivakasti keskkonnad**  
+Kui agent peab käivitama koodi või töötlema suurt hulka infot dokumendis, võib see võtta palju token’eid tulemuste töötlemiseks. Selle asemel, et hoida seda kogu infot konteksti aknas, võib agent kasutada liivakasti keskkonda, mis suudab selle koodi käivitada ja lugeda ainult tulemusi ning muud asjakohast infot.
 
-6. **Jooksva oleku objektid (Runtime State Objects)**  
-Selleks luuakse infot sisaldavad konteinerid, et hallata olukordi, kus agent peab pääsema ligi kindlale teabele. Keeruka ülesande puhul võimaldab see agentidel salvestada iga alamosa tulemid samm-sammult, võimaldades kontekstist jääda ainult sellele konkreetsele alamosale seotud.
+6. **Tööaja oleku objektid**  
+See toimub info konteinerite loomisega, et hallata olukordi, kus agent peab teatud infole ligi pääsema. Keeruka ülesande puhul võimaldab see agentidel salvestada iga alamosa samm-sammult tulemusi, võimaldades kontekstil jätkuvalt olla seotud ainult selle konkreetse alamosaga.
 
-### Näide konteksti inseneritehnikast
+#### Konteksti kontrollimine
 
-Oletame, et tahame, et tehisintellekti agent **"broneeriks mulle reisi Pariisi."**
+Pärast ühe sellise strateegia rakendamist on kasulik kontrollida, mida järgmine mudelikõne tegelikult sai. Kasulik silumiseks küsimus on:
 
-• Lihtne agent, kes kasutab ainult promptide inseneritehnikat, võiks lihtsalt vastata: **"Olgu, millal sa sooviksid Pariisi minna?"** See töötles vaid kasutaja otsest küsimust sel hetkel.
+> Kas agent laadis liiga palju konteksti, vale konteksti või jäi vajaliku konteksti puudus?
 
-• Agent, kes kasutab siinmainitud konteksti inseneritehnika strateegiaid, teeks palju rohkem. Enne vastamist võiks tema süsteem:
+Selle küsimuse jaoks ei pea logima tooreid promte, tööriistade väljundeid ega mälusisu. Tootmises eelistada väikseid konteksti kontrolli kirjeid, mis salvestavad arved, id-d, räsi ja poliitikamärgiseid:
 
-  ◦ **Kontrollida su kalendrit** saadavate kuupäevade jaoks (reaalajas andmete päring).
+- **Valik:** Jälgi, kui palju kandidaatosalõike, tööriistu või mälusid kaaluti, mitu neist valiti ja milline reegel või skoor põhjustas teised filtreerimise.
+- **Tihendamine:** Salvestada allika ulatus või jälitus-id, kokkuvõtte id, hinnanguline tokenite arv enne ja pärast tihendamist ning kas toores sisaldus oli järgmise kõne jaoks välja jäetud.
+- **Isolatsioon:** Märgi, milline alamosa jookse eraldi agendis, sessioonis või liivakastis, milline piiratud kokkuvõte tagastati ja kas suured tööriista väljundid jäid emotsiooni kontekstist välja.
+- **Mälud ja RAG:** Salvestada otsitud dokumentide id-d, mälude id-d, skoorid, valitud id-d ja tsenseerimise olek täisteksti asemel.
+- **Turvalisus ja privaatsus:** Eelistada räsi, id-sid, tokenite mahuteid ja poliitikamärgiseid tundlike promptide, tööriista argumentide, tulemuste või kasutaja mälusisude asemel.
 
-  ◦ **Märgata varasemaid reisipreferentse** (pikaajaline mälu), näiteks eelistatud lennufirma, eelarve või otse lendude eelistuse kohta.
+Eesmärk ei ole hoida rohkem konteksti, vaid jätta piisavalt tõendeid, et arendaja saaks öelda, milline konteksti strateegia toimus ja kas see mõjutas järgmise mudelikõnet soovitud moel.
 
-  ◦ **Tuvastada saadavalolevaid tööriistu** lendude ja hotellide broneerimiseks.
+### Näide konteksti insenerteadusest
 
-- Seejärel võiks vastus olla näiteks: "Hei [Sinu nimi]! Näen, et oled vaba oktoobri esimesel nädalal. Kas otsin otse lende Pariisi [Eelistatud lennufirma] ning tavapärase eelarve [Eelarve] piires?" See rikkalik, kontekstiteadlik vastus demonstreerib konteksti inseneritehnika võimsust.
+Oletame, et tahame AI agendi, kes **"Broneerib mulle reisi Pariisi."**
+
+• Lihtne agent, kes kasutab ainult promptide insenerteadust, vastaks lihtsalt: **"Olgu, millal soovite Pariisi minna?**". See töötles ainult teie otsest küsimust hetkel, kui kasutaja seda esitas.
+
+• Agent, kes kasutab siin käsitletud konteksti insenerteaduse strateegiaid, teeb palju rohkem. Enne vastamist võib tema süsteem:
+
+  ◦ **Kontrollida sinu kalendrit** vabad kuupäevad (taasesitus reaalajas).
+
+ ◦ **Mälestada varasemaid reisieelistusi** (pikaajaline mälu), nagu eelistatud lennufirma, eelarve või kas eelistad otse lende.
+
+ ◦ **Tuua välja saadaolevad tööriistad** lennu- ja hotellikinnituseks.
+
+- Siis võiks näidisvastus olla: "Hei [Sinu nimi]! Näen, et oled vaba oktoobri esimesel nädalal. Kas ma otsin otse lende Pariisi [Eelistatud lennufirma] piires sinu tavapärases eelarves [Eelarve]?" See rikkalik, konteksti teadvustav vastus demonstreerib konteksti insenerteaduse jõudu.
 
 ## Levinud konteksti ebaõnnestumised
 
 ### Konteksti mürgitamine
 
-**Mis see on:** Kui LLM genereeritud hallutsinatsioon (valeteave) või viga satub konteksti ja sellele viidatakse korduvalt, põhjustades agendi võimatute eesmärkide püüdlemist või jaburates strateegiates kinni jäämist.
+**Mis see on:** Kui hallutsinatsioon (valet informatsiooni genereerib LLM) või viga satub konteksti ja sellele viidatakse korduvalt, põhjustades agendi võimatute eesmärkide jälitamist või mõttetuid strateegiaid.
 
-**Mida teha:** Rakendada **konteksti valideerimist** ja **karantiini**. Kontrolli teavet enne, kui see lisatakse pikaajalisse mällu. Kui võimalik mürgitus tuvastatakse, alusta uut konteksti ahelat, et takistada halva info levikut.
+**Mida teha:** Rakenda **konteksti valideerimine** ja **karantiin**. Kontrolli infot enne selle lisamist pikaajalisse mällu. Kui tuvastatakse võimalik mürgitamine, alusta uusi konteksti lõimesid, et takistada halva info levikut.
 
-**Reisibroneerimise näide:** Sinu agent hallutsineerib **otse lennu väikestelt kohalikelt lennujaamadelt kaugele rahvusvahelisse linna**, mis tegelikult rahvusvahelisi lende ei paku. See olemasolemata lennuinfo salvestatakse konteksti. Hiljem, kui palud agenti broneerida, otsib ta pidevalt pileteid sellele võimatule marsruudile, põhjustades korduvaid vigu.
+**Reisibroneerimise näide:** Sinu agent hallutsineerib **otse lendu väiksemaa kohaliku lennujaama ja kauge rahvusvahelise linna vahel**, mida tegelikult rahvusvahelised lennud ei paku. See mitteolev lennu info salvestatakse konteksti. Hiljem, kui palud agendil broneerida, üritab ta ikka ja jälle neid pileteid sellel võimatul marsruudil leida, mis põhjustab korduvaid tõrkeid.
 
-**Lahendus:** Rakenda samm, mis **valideerib lennu olemasolu ja marsruute reaalajas API abil** _enne_ lennu detailide lisamist agendi töökonteksti. Kui valideerimine ebaõnnestub, paigutatakse valeinfo "karantiini" ega kasutata edaspidi.
+**Lahendus:** Rakenda samm, mis **valideerib lennu olemasolu ja marsruudid reaalajas API abil** _enne_ lennu info lisamist agendi töötavasse konteksti. Kui valideerimine ebaõnnestub, pannakse valeinfo "karantiini" ja seda ei kasutata edasi.
 
 ### Konteksti tähelepanu hajumine
 
-**Mis see on:** Kui kontekst muutub nii suureks, et mudel keskendub liiga palju kogunenud ajaloo peale, mitte enam koolitusandmetest õpitule, põhjustades korduvaid või kasutu tegevuse. Mudelid võivad hakata vigu tegema ennegi, kui kontekstiaken on täielik.
+**Mis see on:** Kui kontekst muutub nii suureks, et mudel keskendub liiga palju kogunenud ajaloole, mitte koolitusel õpitud infole, mis viib korduvate või ebaotstarbekate tegevusteni. Mudelid võivad tegema hakata vigu isegi enne kontekstiakna täitumist.
 
-**Mida teha:** Kasuta **konteksti kokkuvõtete tegemist**. Aeg-ajalt kokkusuru kogutud teave lühemateks kokkuvõteteks, säilitades olulisi detaile ja eemaldades liigse ajaloo. See aitab "fookust lähtestada".
+**Mida teha:** Kasuta **konteksti kokkuvõtete tegemist**. Aeg-ajalt tihenda kogunenud info lühemateks kokkuvõteteks, hoides olulised detailid, eemaldades üleliigse ajaloo. See aitab "taastada" keskendumist.
 
-**Reisibroneerimise näide:** Oled pikka aega arutanud unistuste sihtkohti, sealhulgas põhjalikke kirjeldusi oma kahe aasta tagusest matkareisist. Kui lõpuks palud **"leiada mulle odav lend järgmiseks kuuks"**, takerdub agent vanadesse, ebaolulistesse detailidesse ja küsib pidevalt sinu matkavarustuse või mineviku marsruutide kohta, unustades su praeguse soovi.
+**Reisibroneerimise näide:** Oled pikalt arutanud erinevaid unistuste reisisihtkohti, sealhulgas üksikasjalikku tagasivaadet oma matkareisile kaks aastat tagasi. Kui sa lõpuks küsid **"Leia mulle odav lend järgmise kuu jaoks,"** siis agent jääb kinni vanadesse, asjakohatutesse detailidesse ning küsib jätkuvalt su seljakotireisivarustuse või varasemate marsruutide kohta, unustades su praeguse taotluse.
 
-**Lahendus:** Pärast kindlat arvu vestlusvahetusi või kui kontekst liiga suur, peaks agent **kokku võtma vestluse viimasemad ja olulisemad osad** – keskendudes su praegustele reisikuupäevadele ja sihtkohale – ja kasutama seda kokkusurutud kokkuvõtet järgmises LLM kõnes, visates välja vähemolulise ajaloolise vestluse.
+**Lahendus:** Pärast kindlat ringide arvu või kui kontekst muutub liiga suureks, peaks agent **kokku võtma viimased ja asjakohasemad vestlusosad** – keskendudes su praegustele reisikuupäevadele ja sihtkohale – ning kasutama seda kokkusurutud kokkuvõtet järgmise LLM kõne jaoks, jättes vähem asjakohase ajaloolise vestluse kõrvale.
 
 ### Konteksti segadus
 
-**Mis see on:** Kui kontekstis on liiga palju mittevajalikke elemente, sageli liiga palju saadavalolevaid tööriistu, siis genereerib mudel halbu vastuseid või kutsub valesid tööriistu. Väiksemad mudelid on eriti sellest haaratud.
+**Mis see on:** Kui liigne kontekst, sageli liiga paljude saadaolevate tööriistade näol, põhjustab mudeli halbu vastuseid või kutsub esile ebaolulisi tööriistu. Väiksemad mudelid on eriti sellele vastuvõtlikud.
 
-**Mida teha:** Rakendada **tööriistade valiku haldamist** RAG tehnikate abil. Säilita tööriistade kirjeldused vektori andmebaasis ja vali _ainult_ kõige olulisemad tööriistad konkreetse ülesande jaoks. Uuringud näitavad, et tööriistade valik tuleks piirata alla 30.
+**Mida teha:** Rakenda **tööriistade laadihaldusega** RAG tehnikaid. Salvesta tööriistade kirjeldused vektorandmebaasi ning vali _ainult_ kõige asjakohasemad tööriistad konkreetse ülesande jaoks. Uuringud näitavad, et tööriistade arvu piiramine alla 30 on soovitatav.
 
-**Reisibroneerimise näide:** Sinu agendil on ligipääs tosinatele tööriistadele: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations` jne. Küsimusele **"Mis on parim viis Pariisis ringi liikumiseks?"** segadusse ajab paljude tööriistade olemasolu; agent üritab kutsuda `book_flight` Pariisi sees või `rent_car`, kuigi eelistad ühistransporti, sest tööriistade kirjeldused võivad kattuda või ta lihtsalt ei oska parimat valida.
+**Reisibroneerimise näide:** Su agendil on juurdepääs kümnetele tööriistadele: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations` jpt. Sa küsid: **"Mis on parim viis Pariisis ringiliikumiseks?"** Tööriistade tohutu hulgaga segaduses agent proovib kutsuda `book_flight` _Pariisis sees_ või `rent_car` hoolimata sellest, et eelistad ühistransporti, sest tööriistade kirjeldused võivad kattuda või ta lihtsalt ei suuda parimat eristada.
 
-**Lahendus:** Kasuta **RAG lähenemist tööriistakirjelduste üle**. Kui pärid Pariisis liikumist, käivitab süsteem dünaamiliselt ainult kõige asjakohasemad tööriistad nagu `rent_car` või `public_transport_info` vastavalt su päringule, esitades LLM-ile keskse tööriistakogumi.
+**Lahendus:** Kasuta **RAG tööriistade kirjelduste üle**. Kui sa küsid Pariisis ringiliikumisest, toob süsteem dünaamiliselt välja _ainult_ asjakohasemad tööriistad, nagu `rent_car` või `public_transport_info` vastavalt su päringule, esitades LLM-ile keskendunud tööriistade komplekti.
 
-### Konteksti konflikt
+### Konteksti vastuolu
 
-**Mis see on:** Kui kontekstis esineb vastuolulist teavet, mis viib ebaühtlase mõtlemise või halbade lõppvastusteni. See tekib tihti, kui info saabub etappide kaupa ja varasemad valed oletused jäävad konteksti.
+**Mis see on:** Kui konteksti sees on vastuolulist infot, mis viib ebajärjekindla mõtlemiseni või halbade lõpptulemusteni. See juhtub sageli, kui info jõuab mitmes faasis ja varasemad valeeeldused jäävad konteksti.
 
-**Mida teha:** Kasutada **konteksti kärpimist** ja **andmete väljaviimist**. Kärpimine tähendab vananenud või vastuolulise teabe eemaldamist uusi detaile saabudes. Andmete väljaviimine annab mudelile eraldi "märkmiku", kus töödelda infot ilma peamist konteksti segamata.
+**Mida teha:** Kasuta **konteksti kärpimist** ja **mahalaadimist**. Kärpimine tähendab aegunud või vastuolulise info eemaldamist uute detailide saabudes. Mahalaadimine annab mudelile eraldi "märkmik" ruumi info töötlemiseks ilma põhikonteksti segamata.
+**Reisibroneerimise näide:** Alguses ütlete oma agendile: **„Ma tahan lennata majandusklassis.“** Hiljem vestluses muudate meelt ja ütlete: **„Tegelikult, selle reisi jaoks valime äriklassi.“** Kui mõlemad juhised kontekstis alles jäävad, võib agent saada vastuolulisi otsingutulemusi või segadusse sattuda, millist eelistust eelistada.
 
-**Reisibroneerimise näide:** Alguses ütled agentile: **"Soovin lennata turista klassis."** Vestluse käigus muutub meeleolu ja ütled: **"Aga tegelikult läheme sel reisil äriklassis."** Kui mõlemad juhised on kontekstis, võib agent saada vastuolulisi otsingutulemusi või segadusse sattuda, kumba eelistust järgida.
+**Lahendus:** Rakendage **konteksti kärpimist**. Kui uus juhis on vana vastuolus, eemaldatakse vanem juhis või antakse see kontekstis selgelt üle. Teise võimalusena võib agent kasutada **märkmeteraamatut**, et lahendada vastuolulisi eelistusi enne otsuse tegemist, tagades, et ainult lõplik ja ühtne juhis juhib tema tegevust.
 
-**Lahendus:** Rakenda **konteksti kärpimist**. Kui uus juhis on vana vastuolus, eemaldatakse vana juhis või selgelt asendatakse kontekstis. Alternatiivselt võib agent kasutada **märkmikku**, et ühitada vastuolulised eelistused enne otsuse tegemist, tagades, et ainult lõplik ja järjepidev juhis juhib tema tegevust.
+## Kas sul on kontekstiinseneri kohta veel küsimusi?
 
-## Kas sul on veel küsimusi konteksti inseneritehnika kohta?
-
-Liitu [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) serveriga, et kohtuda teiste õppijatega, osaleda kontorite tundides ja saada vastuseid oma tehisintellekti agentide küsimustele.
+Liitu [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) kogukonnaga ning kohtuge teiste õppuritega, osalege konsultatsioonitundides ja saate vastused oma AI agentide küsimustele.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastutusest vabastamine**:
-See dokument on tõlgitud kasutades tehisintellekti tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, tuleb arvestada, et automatiseeritud tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul on soovitatav kasutada professionaalset inimtõlget. Me ei vastuta ühegi arusaamatuse või valesti mõistmise eest, mis võib tekkida selle tõlke kasutamisest.
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
