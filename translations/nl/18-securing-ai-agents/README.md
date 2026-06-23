@@ -1,67 +1,67 @@
-[Bekijk de lesvideo: AI-agents beveiligen met cryptografische ontvangstbewijzen](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Bekijk de lesvideo: AI-agenten beveiligen met cryptografische kwitanties](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Lesvideo en thumbnail worden na samenvoeging toegevoegd door het Microsoft contentteam, passend bij het patroon van les 14 / 15.)_
+> _(Lesvideo en thumbnail worden na samenvoeging toegevoegd door het Microsoft-contentteam, passend bij het patroon van les 14 / 15.)_
 
-# AI-agents beveiligen met cryptografische ontvangstbewijzen
+# AI-agenten beveiligen met cryptografische kwitanties
 
 ## Introductie
 
 Deze les behandelt:
 
-- Waarom audit trails voor AI-agents belangrijk zijn voor compliance, debugging en vertrouwen.
-- Wat een cryptografisch ontvangstbewijs is en hoe dat verschilt van een niet-ondertekende logregel.
-- Hoe je in plain Python een ondertekend ontvangstbewijs maakt voor een tool-aanroep van een agent.
-- Hoe je een ontvangstbewijs offline verifieert en manipulatie detecteert.
-- Hoe je ontvangstbewijzen aan elkaar ketent zodat het verwijderen of herschikken de keten verbreekt.
-- Wat ontvangstbewijzen bewijzen en wat ze expliciet niet bewijzen.
+- Waarom audit-trails voor AI-agenten belangrijk zijn voor compliance, debugging en vertrouwen.
+- Wat een cryptografische kwitantie is en hoe dit verschilt van een niet-ondertekende loglijn.
+- Hoe je in gewone Python een ondertekende kwitantie produceert voor een tool-aanroep van een agent.
+- Hoe je een kwitantie offline verifieert en manipulatie detecteert.
+- Hoe je kwitanties aan elkaar ketent zodat het verwijderen of herschikken ervan de keten breekt.
+- Wat kwitanties bewijzen en wat ze expliciet niet bewijzen.
 
 ## Leerdoelen
 
-Na het voltooien van deze les kun je:
+Na het voltooien van deze les weet je hoe je:
 
-- De faalwijzen herkennen die cryptografische herkomst van agentacties motiveren.
-- Een Ed25519-ondertekend ontvangstbewijs produceren over een canonieke JSON-payload.
-- Een ontvangstbewijs onafhankelijk verifiëren met alleen de publieke sleutel van de ondertekenaar.
-- Manipulatie detecteren door verificatie opnieuw uit te voeren op een aangepast ontvangstbewijs.
-- Een hash-geketende reeks ontvangstbewijzen bouwen en uitleggen waarom de keten belangrijk is.
-- Het grensvlak herkennen tussen wat ontvangstbewijzen bewijzen (attribuering, integriteit, volgorde) en wat ze niet bewijzen (correctheid van de actie, juistheid van het beleid).
+- De faalmodi identificeert die aanleiding geven tot cryptografische herkomst voor agentacties.
+- Een Ed25519-ondertekende kwitantie produceert op een canonieke JSON-payload.
+- Een kwitantie onafhankelijk verifieert met alleen de publieke sleutel van de ondertekenaar.
+- Manipulatie detecteert door verificatie opnieuw uit te voeren op een gewijzigde kwitantie.
+- Een hash-geketende reeks kwitanties bouwt en uitlegt waarom de keten ertoe doet.
+- De grens herkent tussen wat kwitanties bewijzen (toeschrijving, integriteit, ordening) en wat ze niet bewijzen (correctheid van de actie, deugdelijkheid van het beleid).
 
-## Het probleem: de audit trail van je agent
+## Het probleem: de audit-trail van je agent
 
-Stel, je hebt een AI-agent ingezet voor Contoso Travel. De agent leest klantverzoeken, roept een vlucht-API aan om opties op te zoeken en boekt namens de klant stoelen. Vorig kwartaal verwerkte de agent 50.000 boekingen.
+Stel je voor dat je een AI-agent hebt ingezet voor Contoso Travel. De agent leest klantverzoeken, roept een vluchten-API aan om opties op te zoeken en boekt stoelen namens de klant. In het afgelopen kwartaal verwerkte de agent 50.000 boekingen.
 
-Vandaag komt een auditor. Hij stelt een simpele vraag: "Laat me zien wat je agent gedaan heeft."
+Vandaag komt een auditor binnen. Hij stelt een eenvoudige vraag: "Laat me zien wat je agent heeft gedaan."
 
-Je overhandigt je logbestanden. De auditor bekijkt ze en stelt de lastigere vraag: "Hoe weet ik dat deze logs niet zijn aangepast?"
+Je overhandigt je logbestanden. De auditor bekijkt ze en stelt een moeilijkere vraag: "Hoe weet ik dat deze logs niet zijn aangepast?"
 
-Dit is het audit-trail-probleem. De meeste agentimplementaties vertrouwen tegenwoordig op:
+Dit is het audit-trailprobleem. De meeste agent-implementaties gebruiken tegenwoordig:
 
-- **Applicatielogs**: geschreven door de agent zelf, aanpasbaar door iedereen met bestandssysteemtoegang.
-- **Cloud loggingdiensten**: platformniveau is manipulatie-bestendig, maar alleen als de auditor de platformbeheerder vertrouwt.
-- **Databasetransactielogs**: goed geschikt voor databasewijzigingen maar niet voor willekeurige tool-aanroepen.
+- **Applicatielogs**: geschreven door de agent zelf, bewerkbaar door iedereen met toegang tot het bestandssysteem.
+- **Cloud-loggingdiensten**: platform-niveau tamper-evident, maar alleen als de auditor de platformbeheerder vertrouwt.
+- **Database-transactielogs**: goed geschikt voor databasewijzigingen, maar niet voor willekeurige tool-aanroepen.
 
-Geen van deze kan de vraag van de auditor beantwoorden zonder dat die iemand moet vertrouwen (jou, je cloudprovider, je databaseleverancier). Voor intern gebruik is dat vertrouwen vaak acceptabel. Voor gereguleerde workloads (financiën, gezondheidszorg, alles onder de EU AI Act) niet.
+Geen van deze kan de vraag van de auditor beantwoorden zonder dat de auditor iemand moet vertrouwen (jou, je cloudprovider, je databaseleverancier). Voor intern gebruik is dat vaak acceptabel. Voor gereguleerde workloads (financiën, gezondheidszorg, alles onder de EU AI-wet) is dat niet zo.
 
-Cryptografische ontvangstbewijzen lossen dit op door elke agentactie onafhankelijk verifieerbaar te maken. De auditor hoeft jou niet te vertrouwen. Hij heeft alleen jouw publieke sleutel en het ontvangstbewijs zelf nodig.
+Cryptografische kwitanties lossen dit op door elke agentactie onafhankelijk verifieerbaar te maken. De auditor hoeft jou niet te vertrouwen. Alleen jouw publieke sleutel en de kwitantie zelf zijn nodig.
 
-## Wat is een cryptografisch ontvangstbewijs?
+## Wat is een cryptografische kwitantie?
 
-Een ontvangstbewijs is een JSON-object dat vastlegt wat een agent gedaan heeft, ondertekend met een digitale handtekening.
+Een kwitantie is een JSON-object dat vastlegt wat een agent deed, ondertekend met een digitale handtekening.
 
 ```mermaid
 flowchart LR
-    A[Agent roept een hulpmiddel aan] --> B[Opbouw ontvangstgegevens]
-    B --> C[Canonicaliseer JSON RFC 8785]
+    A[Agent roept een tool aan] --> B[Ontvangstpayload opbouwen]
+    B --> C[JSON canonicaliseren RFC 8785]
     C --> D[SHA-256 hash]
-    D --> E[Ed25519 ondertekening]
+    D --> E[Ed25519 tekenen]
     E --> F[Ontvangst met handtekening]
     F --> G[Auditor verifieert offline]
     G --> H{Handtekening geldig?}
-    H -- ja --> I[Manipulatiebestendig bewijs]
-    H -- nee --> J[Ontvangst afgewezen]
+    H -- yes --> I[Bewijs van manipulatiebestendigheid]
+    H -- no --> J[Ontvangst geweigerd]
 ```
 
-Een minimaal ontvangstbewijs ziet er zo uit:
+Een minimale kwitantie ziet er als volgt uit:
 
 ```json
 {
@@ -84,23 +84,23 @@ Een minimaal ontvangstbewijs ziet er zo uit:
 
 Drie eigenschappen doen het werk:
 
-1. **De handtekening**. Het ontvangstbewijs is ondertekend door de gateway van de agent met een Ed25519 private key. Iedereen met de bijbehorende publieke sleutel kan de handtekening offline verifiëren. Manipulatie van elk veld maakt de handtekening ongeldig.
+1. **De handtekening**. De kwitantie is ondertekend door de gateway van de agent met een Ed25519-private sleutel. Iedereen met de corresponderende publieke sleutel kan de handtekening offline verifiëren. Manipulatie van een veld maakt de handtekening ongeldig.
 
-2. **Canonieke codering**. Voor het ondertekenen wordt het ontvangstbewijs geserialiseerd met de JSON Canonicalization Scheme (JCS, RFC 8785). Dit zorgt ervoor dat twee implementaties die hetzelfde logische ontvangstbewijs produceren, exact byte-identieke output geven. Zonder canoniek maken zouden verschillende JSON-serializers verschillende handtekeningen geven voor dezelfde inhoud.
+2. **Canonieke codering**. Voor het ondertekenen wordt de kwitantie geserialiseerd volgens het JSON Canonicalization Scheme (JCS, RFC 8785). Dit zorgt ervoor dat twee implementaties die dezelfde logische kwitantie produceren, exact identieke bytes genereren. Zonder canonieke codering zouden verschillende JSON-serializers verschillende handtekeningen genereren voor dezelfde inhoud.
 
-3. **Hash-keten**. Het veld `previous_receipt_hash` verbindt elk ontvangstbewijs met het voorgaande. Het verwijderen of herschikken van een ontvangstbewijs breekt elk daaropvolgend ontvangstbewijs. Manipulatie wordt dus zichtbaar op ketenniveau, zelfs als individuele handtekeningen worden omzeild.
+3. **Hash-keten**. Het veld `previous_receipt_hash` koppelt elke kwitantie aan de voorgaande. Het verwijderen of herschikken van een kwitantie breekt elke daaropvolgende kwitantie. Manipulatie wordt zichtbaar op ketenniveau, ook als individuele handtekeningen worden omzeild.
 
 Samen bieden deze eigenschappen drie garanties:
 
-- **Attribuering**: deze sleutel heeft deze inhoud ondertekend.
-- **Integriteit**: de inhoud is sinds ondertekening niet veranderd.
-- **Volgorde**: dit ontvangstbewijs kwam na dat ontvangstbewijs in de keten.
+- **Toeschrijving**: deze sleutel ondertekende deze inhoud.
+- **Integriteit**: de inhoud is niet gewijzigd sinds ondertekening.
+- **Ordening**: deze kwitantie kwam na die kwitantie in de keten.
 
-## Een ontvangstbewijs maken in Python
+## Een kwitantie produceren in Python
 
-Je hebt geen speciale bibliotheek nodig om een ontvangstbewijs te maken. De cryptografische primitieve zijn breed beschikbaar en de logica is een paar dozijn regels Python.
+Je hebt geen speciale bibliotheek nodig om een kwitantie te produceren. De cryptografische primitieven zijn breed beschikbaar en de logica is een paar tientallen regels Python.
 
-De praktische oefeningen in `code_samples/18-signed-receipts.ipynb` doorlopen de volledige workflow. De samenvatting:
+De praktische oefeningen in `code_samples/18-signed-receipts.ipynb` lopen de volledige flow door. De samenvatting:
 
 ```python
 import json
@@ -116,11 +116,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Genereer of laad een ondertekeningssleutel (in productie, opslaan in een sleutelkluis)
+# Genereer of laad een ondertekeningssleutel (in productie, sla op in een sleutelkluis)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Bouw de ontvangstgegevens op (nog geen handtekening)
+# Bouw de ontvangstgegevens (nog geen handtekening)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -136,7 +136,7 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Canoniseren, hashen, ondertekenen.
+# Canonicaliseer, hash, onderteken.
 canonical_bytes = canonicalize(payload)
 message_hash = hashlib.sha256(canonical_bytes).digest()
 signature_bytes = signing_key.sign(message_hash).signature
@@ -152,11 +152,11 @@ receipt = {
 }
 ```
 
-Dat is de hele ondertekeningspijplijn. De oefeningen in de notebook leggen elke stap uit.
+Dit is de volledige ondertekeningspijplijn. De oefeningen in het notebook lopen elke stap door.
 
-## Een ontvangstbewijs verifiëren en manipulatie detecteren
+## Een kwitantie verifiëren en manipulatie detecteren
 
-Verificatie is de inverse operatie:
+Verificatie is de omgekeerde bewerking:
 
 ```python
 import base64
@@ -175,7 +175,7 @@ def verify_receipt(receipt: dict) -> bool:
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # Reconstrueer de payload die daadwerkelijk werd ondertekend (alles behalve de handtekening).
+    # Reconstrueer de payload die daadwerkelijk is ondertekend (alles behalve de handtekening).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
@@ -189,195 +189,196 @@ def verify_receipt(receipt: dict) -> bool:
         return False
 ```
 
-Deze functie neemt een ontvangstbewijs en geeft `True` terug als de handtekening geldig is, anders `False`. Geen netwerkverzoek, geen service-afhankelijkheid, geen vertrouwen in derde partijen vereist.
+Deze functie neemt een kwitantie en geeft `True` terug als de handtekening geldig is, anders `False`. Geen netwerkverzoek, geen dienstafhankelijkheid, geen vertrouwen in derden nodig.
 
-Om manipulatie detectie in actie te zien, doorloopt de notebook:
+Om manipulatie-detectie te zien, laat het notebook zien:
 
-1. Een geldig ontvangstbewijs maken en bevestigen dat het verifieert.
-2. Eén byte van het veld `tool_args_hash` aanpassen.
-3. Verificatie opnieuw uitvoeren en zien dat het faalt.
+1. Een geldige kwitantie produceren en bevestigen dat deze geverifieerd wordt.
+2. Eén byte wijzigen in het veld `tool_args_hash`.
+3. De verificatie opnieuw uitvoeren en zien dat het mislukt.
 
-Dit is de praktische demonstratie dat ontvangstbewijzen manipulatie-bestendig zijn: elke wijziging, hoe klein ook, verbreekt de handtekening.
+Dit is de praktische demonstratie dat kwitanties tamper-evident zijn: elke wijziging, hoe klein ook, breekt de handtekening.
 
-## Ontvangstbewijzen aan elkaar ketenen voor multi-stap agents
+## Kwitanties aan elkaar ketenen voor multi-stap agents
 
-Een enkel ondertekend ontvangstbewijs beschermt één actie. Een keten van ontvangstbewijzen beschermt een reeks.
+Een enkele ondertekende kwitantie beschermt één actie. Een keten van kwitanties beschermt een reeks acties.
 
 ```mermaid
 flowchart LR
-    R0[Bon 0<br/>genesis] --> R1[Bon 1]
-    R1 --> R2[Bon 2]
-    R2 --> R3[Bon 3]
+    R0[Ontvangst 0<br/>genesis] --> R1[Ontvangst 1]
+    R1 --> R2[Ontvangst 2]
+    R2 --> R3[Ontvangst 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Elk ontvangstbewijs registreert de hash van het voorgaande ontvangstbewijs. Om ontvangstbewijs 2 stilletjes te verwijderen zou een aanvaller óf:
+Elke kwitantie legt de hash vast van de voorgaande kwitantie. Om kwitantie 2 stilletjes te verwijderen, zou een aanvaller moeten:
 
-- Het `previous_receipt_hash`-veld van ontvangstbewijs 3 aanpassen (maakt de handtekening van ontvangstbewijs 3 ongeldig), OF
-- Een nieuwe handtekening vervalsen op een aangepast ontvangstbewijs 3 (vereist de private key van de agent).
+- Het veld `previous_receipt_hash` van kwitantie 3 aanpassen (breekt de handtekening van kwitantie 3), OF
+- Een nieuwe handtekening forgeren op een gewijzigde kwitantie 3 (vereist de private sleutel van de agent).
 
-Als de private key in een hardware key vault zit en je publiceert de publieke sleutel bij elk ontvangstbewijs, is geen van beide aanvallen haalbaar zonder detectie.
+Als de private sleutel in een hardware key vault zit en je publiceert de publieke sleutel bij elke kwitantie, is geen van deze aanvallen mogelijk zonder detectie.
 
-De notebook doorloopt:
+Het notebook laat zien:
 
-1. Het bouwen van een keten van drie ontvangstbewijzen.
-2. Verifiëren dat elk `previous_receipt_hash` overeenkomt met de actuele hash van het voorgaande ontvangstbewijs.
-3. Manipuleren van een ontvangstbewijs in het midden en zien dat de keten precies op dat punt breekt.
+1. Een keten van drie kwitanties bouwen.
+2. Verifiëren dat het `previous_receipt_hash` van elke kwitantie overeenkomt met de daadwerkelijke hash van de vorige kwitantie.
+3. Manipuleren van één kwitantie in het midden en zien dat de keten precies daar breekt.
 
-Dit is hoe je een audit trail produceert die een externe auditor kan verifiëren zonder jou te hoeven vertrouwen.
+Zo produceer je een audit-trail die een externe auditor kan verifiëren zonder jou te vertrouwen.
 
-## Wat ontvangstbewijzen bewijzen (en wat niet)
+## Wat kwitanties bewijzen (en wat niet)
 
-Dit is het belangrijkste deel van deze les. Ontvangstbewijzen zijn krachtig, maar hun kracht is begrensd.
+Dit is het belangrijkste deel van deze les. Kwitanties zijn krachtig, maar hun kracht is begrensd.
 
-**Ontvangstbewijzen bewijzen drie dingen:**
+**Kwitanties bewijzen drie dingen:**
 
-1. **Attribuering**: een specifieke sleutel heeft een specifieke payload ondertekend.
-2. **Integriteit**: de payload is sinds ondertekening niet veranderd.
-3. **Volgorde**: dit ontvangstbewijs kwam na dat ontvangstbewijs in de hash-keten.
+1. **Toeschrijving**: een specifieke sleutel ondertekende een specifieke payload.
+2. **Integriteit**: de payload is niet veranderd sinds ondertekening.
+3. **Ordening**: deze kwitantie kwam na die kwitantie in de hash-keten.
 
-**Ontvangstbewijzen bewijzen NIET:**
+**Kwitanties bewijzen NIET:**
 
-1. **Correctheid**: dat de actie van de agent de juiste actie was. Een ontvangstbewijs kan net zo goed voor een fout antwoord getekend zijn als voor een goed antwoord.
-2. **Beleidsnaleving**: dat het beleid genoemd in `policy_id` daadwerkelijk is geëvalueerd, of dat het deze actie zou hebben toegestaan als het zou zijn gecontroleerd. Het ontvangstbewijs legt vast wat werd beweerd, niet wat werd afgedwongen.
-3. **Identiteit voorbij de sleutel**: het ontvangstbewijs zegt "deze sleutel tekende deze inhoud." Het zegt niet "deze persoon heeft dit goedgekeurd." Een sleutel aan een persoon of organisatie koppelen vereist aparte identiteit-infrastructuur (een directory, een openbaar sleutelregister, enz.).
-4. **Waarheidsgetrouwheid van inputs**: als de agent een gemanipuleerde prompt ontvangt en daarop reageert, registreert het ontvangstbewijs de actie nauwkeurig. Ontvangstbewijzen zijn downstream van inputvalidatie, geen vervanging daarvan.
+1. **Correctheid**: dat de actie van de agent de juiste actie was. Een kwitantie kan net zo goed ondertekend worden voor een verkeerd antwoord als voor een juist antwoord.
+2. **Beleidsnaleving**: dat het beleid waarnaar verwezen wordt in `policy_id` daadwerkelijk werd geëvalueerd, of dat het deze actie zou hebben toegestaan als dat gecontroleerd was. De kwitantie registreert wat beweerd is, niet wat afgedwongen is.
+3. **Identiteit voorbij de sleutel**: de kwitantie zegt "deze sleutel ondertekende deze inhoud." Het zegt niet "deze persoon keurde dit goed." Het koppelen van een sleutel aan een persoon of organisatie vereist aparte identiteitsinfrastructuur (zoals een directory, een publieke sleutelregistratie, enzovoort).
+4. **Waarheidsgetrouwheid van inputs**: als de agent een gemanipuleerde prompt ontvangt en daarop reageert, registreert de kwitantie de actie trouw. Kwitanties zijn downstream van inputvalidatie, niet een vervanging daarvan.
 
-Deze grens is belangrijk om twee redenen:
+Deze grenzen zijn belangrijk om twee redenen:
 
-- Het vertelt waarvoor ontvangstbewijzen nuttig zijn: het gedrag van een agent auditabel en manipulatieresistent maken, ook over organisatiegrenzen heen.
-- Het vertelt welke extra lagen je nog nodig hebt: inputvalidatie (Les 6), beleidsafdwinging (kort hieronder behandeld), en identiteit-infrastructuur (buiten scope van deze les).
+- Ze vertellen waarvoor kwitanties nuttig zijn: het auditbaar en tamper-evident maken van agentgedrag, zelfs over organisatorische grenzen heen.
+- Ze vertellen welke aanvullende lagen je nog nodig hebt: inputvalidatie (Les 6), handhaving van beleid (kort besproken hieronder), en identiteitsinfrastructuur (buiten de scope van deze les).
 
-Een veelgemaakte fout is aannemen dat “we hebben ontvangstbewijzen” betekent “we hebben governance.” Dat is niet zo. Ontvangstbewijzen zijn een fundament. Governance is het systeem dat je erop bouwt.
+Een veelgemaakte fout is aannemen dat "we hebben kwitanties" betekent "we worden bestuurd." Dat is niet zo. Kwitanties zijn een fundament. Bestuur is het systeem dat je erop bouwt.
 
 ## Productiereferenties
 
-De Python-code in deze les is bewust minimalistisch zodat je elke regel kunt lezen en precies begrijpt wat er gebeurt. In productie heb je twee opties:
+De Python-code in deze les is bewust minimaal zodat je elke regel kunt lezen en precies begrijpt wat er gebeurt. In productie heb je twee opties:
 
-1. **Direct bouwen op cryptografische primitieve.** De 50 regels hierboven zijn voldoende voor veel use cases. PyNaCl (Ed25519) en het `jcs`-pakket (canonieke JSON) zijn goed onderhouden en gecontroleerde bibliotheken.
+1. **Direct bouwen op de cryptografische primitieve.** De 50 regels die je hierboven zag zijn voldoende voor veel use cases. PyNaCl (Ed25519) en het `jcs`-pakket (canonieke JSON) zijn goed onderhouden en gecontroleerde bibliotheken.
 
-2. **Een productiebibliotheek voor ontvangstbewijzen gebruiken.** Verschillende open-source projecten implementeren hetzelfde patroon met extra functies (sleutelrotatie, batchverificatie, JWK Set distributie, integratie met beleidsengines):
-   - Het gebruikte ontvangstbewijsformaat in deze les volgt een IETF Internet-Draft (`draft-farley-acta-signed-receipts`) die momenteel in het standaardisatieproces zit.
-   - De Microsoft Agent Governance Toolkit combineert ontvangstbewijzen met Cedar-gebaseerde beleidsbeslissingen; zie Tutorial 33 in die repository voor een end-to-end voorbeeld.
-   - De packages `protect-mcp` (npm) en `@veritasacta/verify` (npm) bieden een Node-implementatie van ontvangstbewijs ondertekening en offline verificatie, bedoeld om elke MCP-server te omhullen met een manipulatie-bestendige audit trail.
+2. **Gebruik een productiebibliotheek voor kwitanties.** Verschillende open-source projecten implementeren hetzelfde patroon met extra functies (sleutelrotatie, batch-verificatie, JWK Set-distributie, integratie met policies):
+   - Het kwitantieformaat in deze les volgt een IETF Internet-Draft (`draft-farley-acta-signed-receipts`) die momenteel in het standaardiseringsproces zit.
+   - De Microsoft Agent Governance Toolkit combineert kwitanties met Cedar-gebaseerde beleidsbeslissingen; zie Tutorial 33 in die repository voor een end-to-end voorbeeld.
+   - De pakketten `protect-mcp` (npm) en `@veritasacta/verify` (npm) bieden een Node-gebaseerde implementatie van kwitantieondertekening en offline verificatie, bedoeld om elke MCP-server te omhullen met een tamper-evidente audit-trail.
+   - De **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) biedt hetzelfde Ed25519 + JCS ondertekeningspatroon in Python met LangChain- en CrewAI-integraties, inclusief gepubliceerde cross-validatie testvectoren en een compliance mapping via [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
-De keuze tussen zelf bouwen en een bibliotheek gebruiken lijkt op het kiezen tussen zelf een JWT-bibliotheek schrijven of een geteste bibliotheek gebruiken: beide zijn acceptabel; de bibliotheek bespaart tijd en vermindert het audit-oppervlak; zelf bouwen dwingt je alle primitieve te begrijpen. Deze les leert de zelfbouw zodat je de basis voor beide opties hebt.
+De keuze tussen zelf bouwen en een bibliotheek gebruiken is vergelijkbaar met de keuze tussen zelf je JWT-bibliotheek schrijven of een geteste gebruiken: beide zijn redelijk; de bibliotheek bespaart tijd en vermindert het auditoppervlak; de from-scratch aanpak dwingt je elke primitive te begrijpen. Deze les leert de from-scratch aanpak zodat je de basis hebt voor beide keuzes.
 
 ## Kenniscontrole
 
 Test je begrip voordat je doorgaat naar de praktijkopdracht.
 
-**1. Een ontvangstbewijs is ondertekend met de private Ed25519-sleutel van de agent. De auditor heeft alleen de publieke sleutel. Kan de auditor het ontvangstbewijs offline verifiëren?**
+**1. Een kwitantie wordt ondertekend met de private Ed25519-sleutel van de agent. De auditor heeft alleen de publieke sleutel. Kan de auditor de kwitantie offline verifiëren?**
 
 <details>
 <summary>Antwoord</summary>
 
-Ja. Ed25519-verificatie vereist alleen de publieke sleutel en de ondertekende bytes. Geen netwerkverzoek, geen service-afhankelijkheid. Dit is de eigenschap waardoor ontvangstbewijzen nuttig zijn in gesloten netwerken, multi-organisatie of lage-vertrouwen auditomgevingen.
+Ja. Ed25519-verificatie vereist alleen de publieke sleutel en de ondertekende bytes. Geen netwerkverzoek, geen dienstafhankelijkheid. Dit is de eigenschap die kwitanties bruikbaar maakt in luchtvaartkabine-, multi-organisatie- of low-trust auditomgevingen.
 </details>
 
-**2. Een aanvaller past het veld `policy_id` van een ontvangstbewijs aan om te beweren dat een vrijgeviger beleid van toepassing was. De handtekening was over de originele payload. Wat gebeurt er bij verificatie?**
+**2. Een aanvaller wijzigt het veld `policy_id` van een kwitantie om te beweren dat het door een meer permissief beleid werd beheerst. De handtekening was over de originele payload. Wat gebeurt er tijdens verificatie?**
 
 <details>
 <summary>Antwoord</summary>
 
-Verificatie faalt. De handtekening werd berekend over de canonieke bytes van de originele payload; het aanpassen van een veld verandert de canonieke bytes, wat de SHA-256 hash verandert, waardoor de handtekening ongeldig wordt. De aanvaller zou de private key nodig hebben om een nieuwe geldige handtekening te maken, die hij niet heeft.
+De verificatie mislukt. De handtekening is berekend over de canonieke bytes van de originele payload; het wijzigen van enig veld verandert de canonieke bytes, verandert de SHA-256 hash, en maakt de handtekening ongeldig. De aanvaller zou de private sleutel nodig hebben om een geldige nieuwe handtekening te maken, die hij niet heeft.
 </details>
 
-**3. Waarom bevat het ontvangstbewijs een `tool_args_hash` en `result_hash` in plaats van de ruwe argumenten en resultaten?**
+**3. Waarom bevat de kwitantie een `tool_args_hash` en `result_hash` in plaats van de ruwe argumenten en het resultaat?**
 
 <details>
 <summary>Antwoord</summary>
 
-Twee redenen. Ten eerste moet een ontvangstbewijs mogelijk gearchiveerd of verzonden worden in omgevingen waar het lekken van ruwe inhoud (PII, zakelijke data) een probleem is. Hashing houdt het ontvangstbewijs klein en de inhoud prive; de auditor verifieert dat de hash klopt met een elders opgeslagen kopie van de echte inhoud. Ten tweede hebben hashes een vaste grootte; een ontvangstbewijs met hashes is beperkt in grootte, ongeacht hoe groot de inputs en outputs waren.
+Twee redenen. Ten eerste moet de kwitantie mogelijk gearchiveerd of verzonden worden in omgevingen waar het lekken van ruwe inhoud (PII, bedrijfsdata) een probleem is. Hashing houdt de kwitantie klein en de inhoud privé; de auditor verifieert dat de hash overeenkomt met een apart opgeslagen kopie van de feitelijke inhoud. Ten tweede hebben hashes een vaste grootte; een kwitantie met hashes heeft een beperkte grootte ongeacht de grootte van input en output.
 </details>
 
-**4. Het veld `previous_receipt_hash` verbindt elk ontvangstbewijs met zijn voorganger. Als een aanvaller stilletjes een ontvangstbewijs uit het midden van een keten verwijdert, wat wordt dan ongeldig?**
+**4. Het veld `previous_receipt_hash` koppelt elke kwitantie aan zijn voorganger. Als een aanvaller stilletjes een kwitantie uit het midden van een keten verwijdert, wat wordt dan ongeldig?**
 
 <details>
 <summary>Antwoord</summary>
 
-Elk ontvangstbewijs dat na het verwijderde komt. Hun velden `previous_receipt_hash` komen niet meer overeen met de keten (omdat het ontvangstbewijs waarnaar wordt verwezen niet meer bestaat, of de keten nu naar een andere voorganger wijst). Om de verwijdering te verbergen zou de aanvaller elke volgend ontvangstbewijs opnieuw moeten ondertekenen, wat de private key vereist.
+Elke kwitantie die na de verwijderde kwam. Hun `previous_receipt_hash`-velden komen niet meer overeen met de feitelijke keten (omdat de kwitantie waarnaar verwezen werd niet meer bestaat, of de keten nu naar een andere voorganger wijst). Om de verwijdering te verbergen, zou de aanvaller alle latere kwitanties opnieuw moeten ondertekenen, wat de private sleutel vereist.
 </details>
 
-**5. Een ontvangstbewijs verifieert schoon. Bewijst dit dat de actie van de agent correct, juist, of beleidsconform was?**
+**5. Een kwitantie wordt schoon geverifieerd. Bewijst dat dat de actie van de agent correct, deugdelijk of voldoet aan het beleid was?**
 
 <details>
 <summary>Antwoord</summary>
 
-Nee. Een geldig ontvangstbewijs bewijst drie dingen: attribuering (deze sleutel tekende deze inhoud), integriteit (de inhoud is niet veranderd), en volgorde (dit ontvangstbewijs kwam na dat). Het bewijst NIET dat de actie correct was, dat het beleid genoemd in `policy_id` echt is geëvalueerd, of dat de agent elke regel gevolgd heeft. Ontvangstbewijzen maken gedrag auditabel, niet per se correct. Dit is de belangrijkste grens in de les.
+Nee. Een geldige kwitantie bewijst drie dingen: toeschrijving (deze sleutel ondertekende deze inhoud), integriteit (de inhoud is niet veranderd), en ordening (deze kwitantie kwam na die kwitantie). Het bewijst NIET dat de actie correct was, dat het beleid in `policy_id` daadwerkelijk werd geëvalueerd, of dat de agent elke regel opvolgde. Kwitanties maken agentgedrag auditbaar, niet per se correct. Dit is de belangrijkste grens in de les.
 </details>
 
 ## Praktijkopdracht
 
-Open `code_samples/18-signed-receipts.ipynb` en voltooi alle vier secties:
+Open `code_samples/18-signed-receipts.ipynb` en voltooi alle vier de secties:
 
-1. **Sectie 1**: Onderteken je eerste ontvangstbewijs en verifieer het.
-2. **Sectie 2**: Manipuleer het ontvangstbewijs en zie de verificatie mislukken.
-3. **Sectie 3**: Bouw een keten van drie ontvangstbewijzen en verifieer de ketenintegriteit.
-4. **Sectie 4**: Pas het patroon toe op een agent gebouwd met het Microsoft Agent Framework: wikkel een tool-aanroep in ontvangstbewijs-ondertekening en verifieer het ontvangstbewijs onafhankelijk.
+1. **Sectie 1**: Onderteken je eerste kwitantie en verifieer deze.
+2. **Sectie 2**: Manipuleer de kwitantie en zie dat verificatie mislukt.
+3. **Sectie 3**: Bouw een keten van drie kwitanties en verifieer de ketenintegriteit.
+4. **Sectie 4**: Pas het patroon toe op een agent gebouwd met het Microsoft Agent Framework: wikkel een tool-aanroep in kwitantieondertekening en verifieer daarna de kwitantie onafhankelijk.
+**Stretch-uitdaging 1:** breid het ontvangstbewijs-schema uit met een extra veld naar keuze (bijvoorbeeld een verzoek-ID voor tracering), werk de canonieke ondertekeningslogica bij om dit op te nemen, en bevestig dat het ontvangstbewijs nog steeds correct wordt geverifieerd. Wijzig daarna het veld na ondertekening en bevestig dat de verificatie mislukt. Dit dwingt je om te begrijpen hoe elk byte van de canonieke codering bijdraagt aan de handtekening.
 
-**Extra uitdaging 1:** breid het ontvangstbewijs-schema uit met een extra veld naar keuze (bijvoorbeeld een request-ID voor tracing), werk de canonieke ondertekenlogica bij om dit op te nemen, en bevestig dat het ontvangstbewijs nog steeds correct door verificatie komt. Pas het veld vervolgens aan na ondertekening en bevestig dat verificatie faalt. Dit dwingt je te begrijpen hoe iedere byte van de canonieke codering bijdraagt aan de handtekening.
-**Stretch-uitdaging 2:** SHA-256-hash twee van je bonnen samen (concateneer hun canonieke bytes in een deterministische volgorde) en voeg de resulterende digest toe als een nieuw veld op een derde bon voordat je deze ondertekent. Verifieer dat alle drie de bonnen nog steeds correct kunnen worden teruggelezen. Je hebt zojuist een éénstaps-inclusiebewijs gebouwd: iedereen met de derde bon kan bewijzen dat de eerste twee bestonden op het moment dat deze werden ondertekend, zonder de inhoud ervan te hoeven onthullen. Dit is het patroon dat selectief openbaar gemaakte bonnen op grote schaal gebruiken (Merkle-commits, RFC 6962).
+**Stretch-uitdaging 2:** SHA-256-hash twee van je ontvangstbewijzen samen (concateneer hun canonieke bytes in een deterministische volgorde) en voeg de resulterende digest toe als een nieuw veld aan een derde ontvangstbewijs voordat je dit ondertekent. Verifieer dat alle drie de ontvangstbewijzen nog steeds correct worden geverifieerd. Je hebt net een eenstaps inclusie-bewijs gebouwd: iedereen die het derde ontvangstbewijs bezit kan bewijzen dat de eerste twee bestonden op het moment dat het werd ondertekend, zonder hun inhoud te hoeven onthullen. Dit is het patroon dat selective-disclosure ontvangstbewijzen op schaal gebruiken (Merkle commitments, RFC 6962).
 
 ## Conclusie
 
-Cryptografische bonnen geven AI-agenten een audittrail die:
+Cryptografische ontvangstbewijzen geven AI-agenten een audit trail die:
 
-- **Onafhankelijk verifieerbaar** is: elke partij met de publieke sleutel kan verifiëren, zonder afhankelijkheid van een service.
-- **Manipulatie zichtbaar maakt**: elke wijziging maakt de handtekening ongeldig.
-- **Draagbaar** is: een bon is een klein JSON-bestand; het kan worden gearchiveerd, verzonden en overal worden geverifieerd.
-- **Standaardaligned** is: gebouwd op Ed25519 (RFC 8032), JCS (RFC 8785) en SHA-256, allemaal breed gebruikte primitieve vormen.
+- **Onafhankelijk verifieerbaar** is: elke partij met de publieke sleutel kan verifiëren, geen afhankelijkheid van een dienst.
+- **Bewijzend tegen manipulatie** is: elke wijziging invalideert de handtekening.
+- **Draagbaar** is: een ontvangstbewijs is een klein JSON-bestand; het kan worden gearchiveerd, verzonden en overal worden geverifieerd.
+- **Conform standaarden** is: gebouwd op Ed25519 (RFC 8032), JCS (RFC 8785) en SHA-256, allemaal algemeen gebruikte primitieve functies.
 
-Ze zijn geen vervanging voor invoervalidatie, beleidsafhandeling of identiteitsinfrastructuur. Ze zijn een fundament voor die lagen. Wanneer je agenten inzet in gereguleerde workloads, multi-organisatie workflows, of elke omgeving waar een toekomstige auditor niet zomaar vertrouwen kan worden gegeven, zijn bonnen hoe je de audittrail eerlijk maakt.
+Ze zijn geen vervanging voor invoervalidatie, beleidsuitvoering of identiteitinfrastructuur. Ze vormen een fundament voor die lagen. Wanneer je agenten inzet in gereguleerde workloads, multi-organisatie workflows, of elke omgeving waar je niet mag veronderstellen dat een toekomstige auditor jou vertrouwt, zijn ontvangstbewijzen hoe je de audit trail eerlijk maakt.
 
-De belangrijkste conclusie: bonnen bewijzen wie wat zei en wanneer. Ze bewijzen niet dat wat gezegd werd waar of correct was. Houd dat onderscheid strak vast. Het is het verschil tussen een eerlijk provenance-systeem en een misleidend systeem.
+De belangrijkste les: ontvangstbewijzen bewijzen wie wat zei en wanneer. Ze bewijzen niet dat wat gezegd werd waar of correct was. Houd dat onderscheid strak. Het is het verschil tussen een eerlijk provenance-systeem en een misleidend systeem.
 
-## Productie-checklist
+## Productiechecklist
 
-Wanneer je klaar bent om van deze les over te stappen naar het implementeren van met bonnen ondertekende agenten in een echte omgeving:
+Wanneer je klaar bent om van deze les over te gaan naar het inzetten van ontvangstbewijs-ondertekende agenten in een echte omgeving:
 
-- [ ] **Verplaats de ondertekeningssleutel van de ontwikkelaarslaptop.** Gebruik Azure Key Vault, AWS KMS, of een hardware-beveiligingsmodule. De privésleutel die je bonnen ondertekent mag nooit in source control of in platte tekst op applicatiemachines worden opgeslagen.
-- [ ] **Publiceer de verificatie publieke sleutel.** Auditors hebben deze nodig voor offline verificatie. Het standaardpatroon is een JWK Set op een bekende URL (RFC 7517), bijvoorbeeld `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Veranker de keten extern.** Schrijf periodiek de laatste ketenhoofd-hash naar een transparantielogboek (Sigstore Rekor, RFC 3161 timestamp authority, of een tweede intern systeem) zodat een externe partij kan bevestigen "deze keten bestond op dit moment."
-- [ ] **Sla bonnen onveranderlijk op.** Append-only blob storage (Azure Storage met onveranderbaarheidspolicies, AWS S3 Object Lock) voorkomt dat een insider de geschiedenis herschrijft op het opslagniveau.
-- [ ] **Bepaal de bewaartermijn.** Veel nalevingsregels vereisen meerdere jaren behoud. Plan voor groei van de bonnen (elke bon is ~500 bytes; een agent die 10K calls per dag maakt produceert ~1,8 GB per jaar).
-- [ ] **Documenteer wat bonnen niet afdekken.** Bonnen bewijzen toeschrijving, integriteit en ordening. Je runbook moet expliciet benoemen welke aanvullende controles (invoervalidatie, beleidsuitvoering, rate limiting, identiteitsinfrastructuur) naast bonnen in je governance-positie bestaan.
+- [ ] **Verplaats de ondertekeningssleutel van de ontwikkelaarslaptop.** Gebruik Azure Key Vault, AWS KMS of een hardware security module. De privésleutel die je ontvangstbewijzen ondertekent mag nooit in broncodebeheer of als platte tekst op applicatiemachines voorkomen.
+- [ ] **Publiceer de publieke verificatiesleutel.** Auditors hebben deze nodig om offline te verifiëren. Het standaardpatroon is een JWK Set op een bekende URL (RFC 7517), bijvoorbeeld `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Veranker de keten extern.** Schrijf periodiek de nieuwste keten-hoofdhash naar een transparantielog (Sigstore Rekor, RFC 3161 timestamp authority, of een tweede intern systeem) zodat een externe partij kan bevestigen "deze keten bestond op dit moment."
+- [ ] **Bewaar ontvangstbewijzen onveranderlijk.** Append-only blobopslag (Azure Storage met onveranderbaarheidsbeleid, AWS S3 Object Lock) voorkomt dat een insider de geschiedenis op opslagniveau herschrijft.
+- [ ] **Bepaal bewaartermijnen.** Veel compliance-regimes vereisen meervoudige jaren van bewaring. Plan voor groei van ontvangstbewijzen (elk ontvangstbewijs is ~500 bytes; een agent met 10.000 oproepen per dag produceert ~1,8 GB per jaar).
+- [ ] **Documenteer wat ontvangstbewijzen niet dekken.** Ontvangstbewijzen bewijzen toeschrijving, integriteit en ordening. Je runbook moet expliciet vermelden welke aanvullende controles (invoervalidatie, beleidsuitvoering, rate limiting, identiteitinfrastructuur) naast ontvangstbewijzen in je governance-houding vallen.
 
 ### Meer vragen over het beveiligen van AI-agenten?
 
-Word lid van de [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) om andere leerlingen te ontmoeten, kantooruren bij te wonen en je AI-agentenvragen beantwoord te krijgen.
+Word lid van de [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) om andere deelnemers te ontmoeten, naar spreekuren te gaan en je AI Agents-vragen beantwoord te krijgen.
 
-## Verder dan deze les
+## Voorbij deze les
 
-Deze les behandelt enkelvoudig bonondertekening en hash-gekoppelde reeksen. Dezelfde primitieve vormen componeren in meerdere geavanceerdere patronen die je kunt tegenkomen naarmate je governance-positie volwassen wordt:
+Deze les behandelt enkelvoudige ontvangstbewijzen ondertekenen en hash-gekoppelde reeksen. Dezelfde primitieve functies vormen samen diverse geavanceerdere patronen die je kunt tegenkomen naarmate je governance-houding volwassen wordt:
 
-- **Selectieve openbaarmaking.** Wanneer de velden van een bon onafhankelijk worden vastgelegd (RFC 6962-stijl Merkle-boom), kun je specifieke velden aan specifieke auditors onthullen en bewijzen dat de rest ongewijzigd is zonder ze bloot te stellen. Handig als dezelfde bon zowel een uitgebreide audit moet doorstaan (die volledigheid wil) als dataminimalisatie-regelgeving zoals GDPR (die wil dat de auditor zo min mogelijk ziet).
-- **Intrekking van bonnen.** Als een ondertekeningssleutel gecompromitteerd is, heb je een manier nodig om alle bonnen ondertekend met die sleutel als onbetrouwbaar te markeren vanaf een bepaald moment. Standaardpatronen: kortdurende ondertekeningssleutels plus een gepubliceerde intrekkingslijst, of een transparantielog met intrekkingsvermeldingen.
-- **Bilateral / gesplitste ondertekening van bonnen.** Sommige implementaties splitsen de ondertekende payload in een pre-executie (`authorization_*`) en post-executie (`result_*`) helft met onafhankelijke handtekeningen, nuttig wanneer het autorisatiebesluit en het geobserveerde resultaat door verschillende actoren of op verschillende tijden worden geproduceerd. Dit bouwt voort op het bonformaat dat in deze les is geleerd.
-- **Payloadcompositie.** Een bon verzegelt welke bytes je ook in `result_hash` zet. Payloads uit de praktijk zijn vaak rijker dan een enkele tool call resultaat: pre-decisie redenering (modelvoorspelling, overwogen opties, bewijs en de volledigheid ervan, risicohouding, verantwoordingsketen, poortresultaat) kan allemaal in de payload zitten, verzegeld door één enkele bon. Dit houdt het bonformaat minimaal terwijl payloadschema’s domein-per-domein kunnen evolueren.
-- **Conformiteit tussen implementaties.** Meerdere onafhankelijke implementaties van hetzelfde bonformaat (Python, TypeScript, Rust, Go) verifieren elkaar met gedeelde testvectoren. Bouw je een eigen implementatie, dan bevestigt validatie tegen gepubliceerde vectoren de compatibiliteit op het netwerkniveau.
-- **Post-quantum migratie.** Ed25519 is vandaag breed ingezet maar is niet quantum-bestendig. Het bonformaat is algoritme-agnostisch: het veld `signature.alg` kan `ML-DSA-65` dragen (de NIST post-quantum ondertekeningsstandaard) wanneer je moet migreren. Plan een overgangsperiode waarin bonnen dubbelondertekend zijn.
+- **Selectieve onthulling.** Wanneer de velden van een ontvangstbewijs onafhankelijk vastgelegd zijn (RFC 6962-stijl Merkle-boom), kun je specifieke velden onthullen aan specifieke auditors en bewijzen dat de rest ongewijzigd blijft zonder ze bloot te geven. Handig als hetzelfde ontvangstbewijs moet voldoen aan een uitgebreide audit (die volledigheid eist) en dataminimalisatie-regels zoals de AVG (die willen dat de auditor zo min mogelijk ziet).
+- **Intrekking van ontvangstbewijzen.** Als een ondertekeningssleutel wordt gecompromitteerd, moet je een manier hebben om alle door die sleutel ondertekende ontvangstbewijzen als onbetrouwbaar te markeren vanaf een bepaald moment. Standaardpatronen: kortlevende ondertekeningssleutels plus een gepubliceerde intrekkingslijst, of een transparantielog met intrekkingsvermeldingen.
+- **Bilaterale / gesplitste handtekening-ontvangstbewijzen.** Sommige implementaties splitsen de ondertekende payload in een pre-uitvoeringshelft (`authorization_*`) en een post-uitvoeringshelft (`result_*`) met onafhankelijke handtekeningen, handig wanneer de autorisatiebeslissing en het geobserveerde resultaat door verschillende actoren of op verschillende tijden worden geproduceerd. Dit kan aanvullend bovenop het ontvangstbewijsformaat in deze les worden toegepast.
+- **Samenstelling van payloads.** Een ontvangstbewijs verzegelt de bytes die je in `result_hash` plaatst. Payloads in de praktijk zijn vaak rijker dan een enkel tool-oproepresultaat: redenatie voorafgaand aan de beslissing (modelvoorspelling, overwogen opties, bewijs en volledigheid, risicohouding, verantwoordingsketen, poortresultaat) kunnen allemaal in de payload leven, verzegeld door één ontvangstbewijs. Dit houdt het formaat minimaal terwijl payload-schema’s per domein kunnen evolueren.
+- **Conformiteit tussen implementaties.** Meerdere onafhankelijke implementaties van hetzelfde ontvangstbewijsformaat (Python, TypeScript, Rust, Go) verifiëren elkaar aan de hand van gedeelde testvectoren. Bouw je je eigen implementatie, dan bevestigt validatie tegen gepubliceerde vectoren compatibiliteit op het draadniveau.
+- **Post-quantum migratie.** Ed25519 wordt vandaag veel gebruikt maar is niet kwantumbestendig. Het ontvangstbewijsformaat is algoritme-agile: het `signature.alg` veld kan `ML-DSA-65` bevatten (de NIST post-quantum handtekeningstandaard) als je moet migreren. Plan een overgangsperiode waarin ontvangstbewijzen dubbel worden ondertekend.
 
 ## Aanvullende bronnen
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Ondertekende beslissingsbonnen voor machine-tot-machine toegangscontrole</a>
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Signed Decision Receipts for Machine-to-Machine Access Control</a>
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Verantwoord gebruik van AI overzicht (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-Curve Digitale Handtekeningalgoritme (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-Curve Digital Signature Algorithm (EdDSA)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON Canonicalization Scheme (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Certificaattransparantie</a> (Merkle-boomconstructie gebruikt door selectief openbaar gemaakte bonnen)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Offline verifieerbare beslissingsbonnen</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Conformiteit testvectoren tussen implementaties</a> voor het in deze les gebruikte bonformaat (Apache-2.0)
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Certificate Transparency</a> (Merkle-boomconstructie gebruikt door selective-disclosure ontvangstbewijzen)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Offline-Verifieerbare Beslissingsontvangstbewijzen</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Conformiteitstestvectoren tussen implementaties</a> voor het ontvangstbewijsformaat gebruikt in deze les (Apache-2.0)
 - <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl documentatie</a> (Ed25519 in Python)
 
-## Vorige les
+## Vorige Les
 
-[Computer Use Agents bouwen (CUA)](../15-browser-use/README.md)
+[Computer Use Agents (CUA) bouwen](../15-browser-use/README.md)
 
-## Volgende les
+## Volgende Les
 
-_(Wordt bepaald door de curriculumbeheerders)_
+_(Wordt bepaald door curriculumbeheerders)_
 
 ---
 
