@@ -72,8 +72,8 @@
     "language_code": "cs"
   },
   "01-intro-to-ai-agents/code_samples/01-python-agent-framework.ipynb": {
-    "original_hash": "cd4c23ca3a899d94eb2288aa3bce6e8e",
-    "translation_date": "2026-03-07T09:19:46+00:00",
+    "original_hash": "c7b8bc3e9d70ffef506c61c2f29a1c7a",
+    "translation_date": "2026-06-23T13:13:51+00:00",
     "source_file": "01-intro-to-ai-agents/code_samples/01-python-agent-framework.ipynb",
     "language_code": "cs"
   },
@@ -126,8 +126,8 @@
     "language_code": "cs"
   },
   "03-agentic-design-patterns/code_samples/03-python-agent-framework.ipynb": {
-    "original_hash": "b3e83df7e5ac4ab5b586cea90a8acbf4",
-    "translation_date": "2026-03-07T09:20:11+00:00",
+    "original_hash": "372953ebca8ec512208baa8887da4560",
+    "translation_date": "2026-06-23T13:13:33+00:00",
     "source_file": "03-agentic-design-patterns/code_samples/03-python-agent-framework.ipynb",
     "language_code": "cs"
   },
@@ -144,8 +144,8 @@
     "language_code": "cs"
   },
   "04-tool-use/code_samples/04-python-agent-framework.ipynb": {
-    "original_hash": "8cd9087d9fd6e0db79c44e664fb1d8d2",
-    "translation_date": "2026-03-07T09:16:58+00:00",
+    "original_hash": "bb4294f85f9e2c8949f8692494739cb3",
+    "translation_date": "2026-06-23T13:11:55+00:00",
     "source_file": "04-tool-use/code_samples/04-python-agent-framework.ipynb",
     "language_code": "cs"
   },
@@ -174,8 +174,8 @@
     "language_code": "cs"
   },
   "05-agentic-rag/code_samples/05-python-agent-framework.ipynb": {
-    "original_hash": "ff8cd59719f34990a711b79db1f66a68",
-    "translation_date": "2026-03-07T09:17:23+00:00",
+    "original_hash": "54a79c922158e57a5aef41813bba48da",
+    "translation_date": "2026-06-23T13:12:19+00:00",
     "source_file": "05-agentic-rag/code_samples/05-python-agent-framework.ipynb",
     "language_code": "cs"
   },
@@ -336,14 +336,14 @@
     "language_code": "cs"
   },
   "10-ai-agents-production/code_samples/10-expense_claim-demo.ipynb": {
-    "original_hash": "37196d478f2b6f25b15f09de740727ce",
-    "translation_date": "2026-05-22T10:59:50+00:00",
+    "original_hash": "73f95f5fe5989c9b55f88eaedd35b122",
+    "translation_date": "2026-06-23T13:13:14+00:00",
     "source_file": "10-ai-agents-production/code_samples/10-expense_claim-demo.ipynb",
     "language_code": "cs"
   },
   "10-ai-agents-production/code_samples/10-python-agent-framework.ipynb": {
-    "original_hash": "4d31bc71ce0ffcf4c23e8a6cebaf4521",
-    "translation_date": "2026-03-07T10:42:17+00:00",
+    "original_hash": "f745a080166831a8d360814331608e0f",
+    "translation_date": "2026-06-23T13:12:44+00:00",
     "source_file": "10-ai-agents-production/code_samples/10-python-agent-framework.ipynb",
     "language_code": "cs"
   },
@@ -408,8 +408,8 @@
     "language_code": "cs"
   },
   "12-context-engineering/README.md": {
-    "original_hash": "316b73490c1683db4e5b487230ee7d7d",
-    "translation_date": "2026-02-19T16:16:47+00:00",
+    "original_hash": "8853c3fd96b0518090a804dc75ab80bc",
+    "translation_date": "2026-06-23T13:22:30+00:00",
     "source_file": "12-context-engineering/README.md",
     "language_code": "cs"
   },
@@ -486,8 +486,8 @@
     "language_code": "cs"
   },
   "18-securing-ai-agents/README.md": {
-    "original_hash": "1affed2e38a672919f4339694f14d33b",
-    "translation_date": "2026-05-13T14:01:54+00:00",
+    "original_hash": "5cf863ca9160cbc02a8e06f4cf506b63",
+    "translation_date": "2026-06-23T13:21:28+00:00",
     "source_file": "18-securing-ai-agents/README.md",
     "language_code": "cs"
   },
