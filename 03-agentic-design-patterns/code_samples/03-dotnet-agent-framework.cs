@@ -118,7 +118,7 @@ What kind of trip would you like me to help you plan today?"
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .AsIChatClient()
-    .CreateAIAgent(
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [
@@ -127,8 +127,8 @@ AIAgent agent = openAIClient
         ]
     );
 
-// Create Conversation Thread for Context Management
-AgentThread thread = agent.GetNewThread();
+// Create Conversation Session for Context Management
+await using var session = await agent.CreateSessionAsync();
 
 // ============================================================================
 // DEMONSTRATION: Start with "Hello" to trigger the greeting (Issue #402 fix)
@@ -137,7 +137,7 @@ Console.WriteLine("=== Demonstrating Agentic Design Principles ===\n");
 Console.WriteLine("User: Hello\n");
 Console.WriteLine("Agent Response:");
 
-await foreach (var update in agent.RunStreamingAsync("Hello", thread))
+await foreach (var update in agent.RunStreamingAsync("Hello", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -152,7 +152,7 @@ Console.WriteLine("---");
 Console.WriteLine("User: I prefer luxury travel and cultural experiences.\n");
 Console.WriteLine("Agent Response:");
 
-await foreach (var update in agent.RunStreamingAsync("I prefer luxury travel and cultural experiences.", thread))
+await foreach (var update in agent.RunStreamingAsync("I prefer luxury travel and cultural experiences.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -167,7 +167,7 @@ Console.WriteLine("---");
 Console.WriteLine("User: Suggest a destination for me.\n");
 Console.WriteLine("Agent Response:");
 
-await foreach (var update in agent.RunStreamingAsync("Suggest a destination for me.", thread))
+await foreach (var update in agent.RunStreamingAsync("Suggest a destination for me.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
