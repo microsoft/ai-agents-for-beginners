@@ -188,11 +188,13 @@ async def main() -> None:
     openai_api_key = os.getenv("OPENAI_API_KEY")
 
     if minimax_api_key:
-        # MiniMax: OpenAI-compatible API with large context window (up to 204K tokens)
+        # MiniMax: OpenAI-compatible API with large context window (up to 204K tokens).
+        # Defaults to MiniMax-M3; override MINIMAX_MODEL_ID if your account/region
+        # doesn't have access to it (e.g. set it to MiniMax-M2.7).
         chat_client = OpenAIChatClient(
             base_url=os.environ.get("MINIMAX_BASE_URL", "https://api.minimax.io/v1"),
             api_key=minimax_api_key,
-            model_id=os.environ.get("MINIMAX_MODEL_ID", "MiniMax-M2.7"),
+            model_id=os.environ.get("MINIMAX_MODEL_ID", "MiniMax-M3"),
         )
         print("Using MiniMax provider")
     elif github_token:
