@@ -1,8 +1,1 @@
-{
-    "chat.tools.terminal.autoApprove": {
-        "/^\\$patterns = @\\('멀티 에이전트','디자인 패턴','관찰성','인간 개입'\\); \\$files = Get-ChildItem translations/ko -Recurse -File -Filter \\*\\.md; foreach\\(\\$p in \\$patterns\\)\\{ Write-Output \"=== \\$p ===\"; Select-String -Path \\$files\\.FullName -Pattern \\$p -SimpleMatch \\| ForEach-Object \\{ \"\\{0\\}:\\{1\\}: \\{2\\}\" -f \\$_\\.Path, \\$_\\.LineNumber, \\$_\\.Line\\.Trim\\(\\) \\} \\}$/": {
-            "approve": true,
-            "matchCommandLine": true
-        }
-    }
-}
+{}
