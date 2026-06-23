@@ -1,8 +1,8 @@
-# AI Agents for Beginners - A Course
+# AI Agents for Beginners - One Kɔs
 
 ![AI Agents for Beginners](../../translated_images/pcm/repo-thumbnailv2.06f4a48036fde647.webp)
 
-## A course wey dey teach everything wey you need to sabi to start to build AI Agents
+## One kɔs we go teach you everything wey you need sabi to start build AI Agents
 
 [![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
 [![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
@@ -10,16 +10,16 @@
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
-### 🌐 Multi-Language Support
+### 🌐 Support for Many Languages
 
-#### Supported via GitHub Action (Automated & Always Up-to-Date)
+#### Support dey from GitHub Action (E dey automatic & e dey always update)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](./README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 
-> **You prefer to Clone Locally?**
+> **You Dey Prefer Make You Clone For Your Machine?**
 >
-> Dis repository get 50+ language translations wey go make di download big. To clone without translations, use sparse checkout:
+> This repository get over 50 language translations wey go make the download big well well. If you wan clone without di translations, use sparse checkout:
 >
 > **Bash / macOS / Linux:**
 > ```bash
@@ -35,10 +35,10 @@
 > git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
 > ```
 >
-> Dis one go give you everything you need to complete di course with download wey fast well-well.
+> Dis one go give you everything wey you need quick quick to finish di kɔs.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**If you wan make dem add more translations, di list of supported languages dey [here](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**If you want make dem put more translation languages, dem dey listed [here](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md).**
 
 [![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
@@ -49,46 +49,46 @@
 
 ## 🌱 How to Start
 
-Dis course get lessons wey dey cover di foundation of how to build AI Agents. Each lesson get e own topic so start for anywhere wey you like!
+Dis kɔs get lessons wey cover the fundamentals of how to build AI Agents. Each lesson get him own topic so you fit start from anywhere wey you like!
 
-We get support for many languages for dis course. Go our [languages wey dey available here](#-multi-language-support). 
+This kɔs get multi-language support. Go our [available languages here](#-multi-language-support). 
 
-If na your first time to build with Generative AI models, check our [Generative AI For Beginners](https://aka.ms/genai-beginners) course, wey get 21 lessons about how to build with GenAI.
+If na your first time to build with Generative AI models, check our [Generative AI For Beginners](https://aka.ms/genai-beginners) kɔs, wey get 21 lessons on how to build with GenAI.
 
-No forget to [star (🌟) dis repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) and [fork dis repo](https://github.com/microsoft/ai-agents-for-beginners/fork) so you fit run di code.
+No forget to [star (🌟) dis repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) and [fork dis repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to fit run the code.
 
 ### Meet Other Learners, Get Your Questions Answered
 
-If you jam problem or you get any question about building AI Agents, join our special Discord Channel for the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+If you jam any wahala or you get questions about how to build AI Agents, join our special Discord Channel for inside the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
-### Wetin You Need 
+### Wetin You Need
 
-Each lesson for dis course get code examples, wey you fit find for the code_samples folder. You fit [fork dis repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to create your own copy.  
+Each lesson for this kɔs get code examples, wey dey for inside the code_samples folder. You fit [fork dis repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to make your own copy.  
 
-Dem code examples for these exercises dey use Microsoft Agent Framework with Azure AI Foundry Agent Service V2:
+The code examples for these exercises dey use Microsoft Agent Framework with Azure AI Foundry Agent Service V2:
 
 - [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - You need Azure Account
 
-Dis course dey use dis AI Agent frameworks and services from Microsoft:
+This kɔs dey use these AI Agent frameworks and services from Microsoft:
 
 - [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework)
 - [Azure AI Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
-Some code samples fit still support other OpenAI-compatible providers like [MiniMax](https://platform.minimaxi.com/), wey get big-context models (up to 204K tokens). Check the [Course Setup](./00-course-setup/README.md) for how to set am.
+Some code samples still fit use other OpenAI-compatible providers like [MiniMax](https://platform.minimaxi.com/), wey get large-context models (up to 204K tokens). Make you check the [Course Setup](./00-course-setup/README.md) for how to set am up.
 
-For more information on how to run di code for dis course, go the [Course Setup](./00-course-setup/README.md).
+For more information about how to run the code for dis kɔs, waka go the [Course Setup](./00-course-setup/README.md).
 
-## 🙏 You Wan Help?
+## 🙏 You Want Help?
 
-You get any suggestion or you find any spelling or code mistake? [Raise an issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) or [Create pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+You get any suggestions or you see any spelling or code mistakes? [Raise an issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) or [Create a pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
-## 📂 Wetin each lesson get
+## 📂 Wetin dey inside each lesson
 
-- One written lesson for the README and short video
-- Python code samples using Microsoft Agent Framework with Azure AI Foundry
-- Links to more resources to continue to learn
+- One written lesson wey dey for the README plus one short video
+- Python code samples wey dey use Microsoft Agent Framework with Azure AI Foundry
+- Links to extra resources to help you continue to learn
 
 
 ## 🗃️ Lessons
@@ -106,17 +106,17 @@ You get any suggestion or you find any spelling or code mistake? [Raise an issue
 | Metacognition Design Pattern                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI Agents for Production                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Using Agentic Protocols (MCP, A2A and NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Context Engineering for AI Agents             | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Managing Agentic Memory                        | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| Context Engineering for AI Agents            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Managing Agentic Memory                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Exploring Microsoft Agent Framework                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
 | Building Computer Use Agents (CUA)           | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
 | Deploying Scalable Agents                    | Coming Soon                            |                                                            |                                                                                        |
 | Creating Local AI Agents                     | Coming Soon                               |                                                            |                                                                                        |
 | Securing AI Agents                           | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
-## 🎒 Odá Courses Dem
+## 🎒 Ada oda Courses
 
-Our team dey produce oda courses dem! Make you check out:
+Our team dey produce oda courses! Check am out:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### LangChain
@@ -158,33 +158,38 @@ Our team dey produce oda courses dem! Make you check out:
 [![Copilot Adventure](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
-## 🌟 Community Tenk Yu
+## 🌟 Community Thanks
 
-Tenk yu to [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) for to give important code samples wey dey show how Agentic RAG work. 
+Tenk yu to [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) for to help wit important code samples wey show Agentic RAG. 
 
-## How to Contribute
+## Contributing
 
-Dis project dey welcome contributions and suggestions. Most contributions go need make you agree to one Contributor License Agreement (CLA) wey talk say you get di rights, and you really dey give us permission make we use your contribution. If you wan see details, waka go <https://cla.opensource.microsoft.com>.
+Dis project dey welcome contributions and suggestions. Most contributions dem require say you gree wit
+Contributor License Agreement (CLA) wey talk say you get di right, and truly, you dey give us
+di rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.
 
-If you submit pull request, CLA bot go check automatically if you need provide CLA and e go put correct decoration for PR (like status check, comment). Just follow the instructions wey di bot give. You go only need do dis once for all repos wey dey use our CLA.
+When you submit pull request, CLA bot go automatically sabi if you need provide CLA and mark di PR (like status check or comment). Just follow wetin di bot talk. You go do dis one time for all repos wey use our CLA.
 
-Dis project don adopt di [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-If you want know more, see di [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) if you get any extra questions or comments.
+Dis project don adopt [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more info, see [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) if you get more questions or comments.
 
 ## Trademarks
 
-Dis project fit get trademarks or logos for projects, products, or services. To use Microsoft trademarks or logos authorized, you must follow
+Dis project fit get trademarks or logos for projects, products, or services. To use Microsoft
+trademarks or logos, you need follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Use Microsoft trademarks or logos for modified versions of dis project no suppose cause confusion or make people think say Microsoft dey sponsor am.
-Any use of third-party trademarks or logos go follow those third-parties own policies.
+If you change dem small and use dem, e no suppose cause wahala or make people think Microsoft dey sponsor am.
+Any use of third-party trademarks or logos get to follow di third-parties policies.
 
-## How to Get Help
+## Getting Help
 
-If you jam wahala or get any question about to build AI apps, join:
+
+If you jam problem or get any question about building AI apps, join:
 
 [![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-If you get product feedback or bugs wey happen while you dey build, visit:
+If you get product feedback or errors while you dey build, visit:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

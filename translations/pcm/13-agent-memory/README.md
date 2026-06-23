@@ -1,170 +1,173 @@
-# Memori for AI Agents 
-[![Agent Memori](../../../translated_images/pcm/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+# Memory for AI Agents 
+[![Agent Memory](../../../translated_images/pcm/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-Wen we dey tok about wetin make e special to create AI Agents, two main tins de usually come up: di ability to call tools make dem complete tasks and di ability to improve with time. Memori na di foundation wey dey make self-improving agents fit give better experience to our users.
+When we dey talk about di unique beta wey AI Agents fit bring, two tins be di main tins wey dem dey discuss: di ability to use tools to finish work and di ability to improve over time. Memory na wetin dey foundation of creating self-improving agent wey fit create beta experiences for our users.
 
-For dis lesson, we go look wetin memori mean for AI Agents and how we fit manage am and use am make our applications benefit.
+For dis lesson, we go look wetin memory mean for AI Agents and how we fit manage am and use am make e benefit our applications.
 
 ## Introduction
 
 Dis lesson go cover:
 
-• **Understandin di AI Agent Memori**: Wetin memori be and why e important for agents.
+• **Understanding AI Agent Memory**: Wetin memory be and why e important for agents.
 
-• **Implementin and Storin Memori**: Practical ways to add memori capability to your AI agents, wey go focus on short-term and long-term memori.
+• **Implementing and Storing Memory**: How to take add memory capabilities to your AI agents, focus on short-term and long-term memory.
 
-• **Make AI Agents Self-Improvin**: How memori dey enable agents learn from past interactions and improve with time.
+• **Making AI Agents Self-Improving**: How memory dey enable agents to learn from past interactions and improve over time.
 
 ## Available Implementations
 
-Dis lesson get two complete notebook tutorials:
+Dis lesson get two full notebook tutorials:
 
-• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implements memori using Mem0 and Azure AI Search with Microsoft Agent Framework
+• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implements memory using Mem0 and Azure AI Search with Microsoft Agent Framework
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implements structured memori using Cognee, wey dey automatically build knowledge graph backed by embeddings, dey visualize di graph, and sabi do intelligent retrieval
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implements structured memory using Cognee, automatically dey build knowledge graph backed by embeddings, dey show graph, plus intelligent retrieval
 
 ## Learning Goals
 
 After you finish dis lesson, you go sabi how to:
 
-• **Differentiate between various types of AI agent memori**, including working, short-term, and long-term memori, plus special forms like persona and episodic memori.
+• **Differentiate between different AI agent memory types**, including working, short-term, and long-term memory, plus special kinds like persona and episodic memory.
 
-• **Implement and manage short-term and long-term memori for AI agents** using Microsoft Agent Framework, and use tools like Mem0, Cognee, Whiteboard memory, and integrate with Azure AI Search.
+• **Implement and manage short-term and long-term memory for AI agents** using Microsoft Agent Framework, use tools like Mem0, Cognee, Whiteboard memory, plus integrate with Azure AI Search.
 
-• **Understand di principles behind self-improving AI agents** and how proper memori management systems dey help continuous learning and adaptation.
+• **Understand how self-improving AI agents work** and how strong memory management systems dey help continuous learning and adaptation.
 
 ## Understanding AI Agent Memory
 
-For im root, **memori for AI agents mean di mechanisms wey make dem fit retain and recall information**. Dis information fit be specific details about one conversation, user preferences, past actions, or even learned patterns.
+Basically, **memory for AI agents na di way wey dem fit keep and recall info**. Dis info fit be specific detail about conversation, user preference, past actions, or learned patterns.
 
-Without memori, AI apps dey often stateless, wey mean say every interaction go start from scratch. Dis one dey cause repetitive and frustrating user experience where di agent "go forget" previous context or preferences.
+Without memory, AI apps go be like stateless, meaning every time interaction go start from zero. Dis one go cause repetitive and frustrating user experience where di agent go "forgets" old context or preference.
 
-### Why is Memory Important?
+### Why Memory Important?
 
-Di intelligence of an agent dey strongly connected to im ability to recall and use past information. Memori make agents fit:
+An agent intelligence dey strongly based on how e fit recall and use past info. Memory make agents:
 
-• **Reflective**: Learn from past actions and outcomes.
+• **Reflective**: Learn from past actions and results.
 
-• **Interactive**: Keep context across ongoing conversation.
+• **Interactive**: Hold context during ongoing talk.
 
-• **Proactive and Reactive**: Anticipate needs or respond well based on historical data.
+• **Proactive and Reactive**: Fit predict needs or react well based on past data.
 
-• **Autonomous**: Work more independently by drawing on saved knowledge.
+• **Autonomous**: Dey work more independently by using stored knowledge.
 
-Di goal of implementing memori na to make agents more **reliable and capable**.
+Di aim of implementing memory na to make agents more **reliable and capable**.
 
 ### Types of Memory
 
 #### Working Memory
 
-Think am like scratch paper wey agent dey use during one single, ongoing task or thought process. E hold immediate information wey agent need to compute di next step.
+Think am like scratch paper wey agent go use during one task or thought process wey e dey do. E hold di info wey e need immediately to do next step.
 
-For AI agents, working memori dey often capture di most relevant information from one conversation, even if di full chat history long or truncated. E dey focus on extracting key elements like requirements, proposals, decisions, and actions.
+For AI agents, working memory dey capture di most important info from conversation, even if di full chat history long or cut. E dey focus on di key things like requirements, proposals, decisions, and actions.
 
 **Working Memory Example**
 
-For one travel booking agent, working memori fit capture wetin user dey request now, like "I want to book a trip to Paris". Dis specific requirement go remain for agent immediate context to guide di current interaction.
+For travel booking agent, working memory fit hold di user's current request, like "I want to book trip go Paris". Dis specific request dey inside agent immediate context to guide di current talk.
 
 #### Short Term Memory
 
-Dis kain memori dey keep information for di duration of one conversation or session. Na di context of di current chat, wey allow di agent refer back to previous turns for di dialogue.
+Dis kind memory dey hold info for one conversation or session duration. Na di context of current chat, wey allow agent to refer back to previous dialogue turns.
+
+For [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) Python SDK samples, e be like `AgentSession`, wey dem create with `agent.create_session()`. Di session na di framework built-in short-term memory: e hold conversation context while di same session dey used, but di context no dey keep after session end or app restart. Use long-term memory for facts or preferences wey suppose last through sessions, normally through database, vector index, or other persistent store.
 
 **Short Term Memory Example**
 
-If user ask, "How much would a flight to Paris cost?" and then follow with "What about accommodation there?", short-term memori go make sure say di agent sabi say "there" mean "Paris" inside di same conversation.
+If user ask, "How much flight to Paris go cost?" then follow up with "What about accommodation there?", short-term memory go make sure agent sabi "there" mean "Paris" inside dat conversation.
 
 #### Long Term Memory
 
-Dis one na information wey dey persist across many conversations or sessions. E allow agents remember user preferences, past interactions, or general knowledge for long time. Dis one dey important for personalization.
+Dis one be info wey last across multiple conversations or sessions. E allow agents remember user preferences, past interactions, or general knowledge for longer time. E important for personal touch.
 
 **Long Term Memory Example**
 
-Long-term memori fit store say "Ben enjoys skiing and outdoor activities, likes coffee with a mountain view, and wants to avoid advanced ski slopes due to a past injury". Dis kind information wey agent learn from previous interactions go influence recommendations for future travel planning, make dem very personalized.
+Long-term memory fit keep say "Ben like skiing and outdoor activities, like coffee with mountain view, and e no like advanced ski slopes because injury before". Dis info, wey e learn from past chats, go help make future travel sessions them personalized.
 
 #### Persona Memory
 
-Dis specialized memori help agent develop one consistent "personality" or "persona". E allow di agent remember details about itself or im intended role, make interactions more smooth and focused.
+Dis kind special memory dey help agent get steady "personality" or "persona". E allow agent remember tins about itself or e role, make interactions smooth and focused.
 
 **Persona Memory Example**
-If di travel agent design to be "expert ski planner," persona memori fit reinforce dis role, make im responses follow an expert tone and knowledge.
+
+If travel agent suppose be "expert ski planner," persona memory go firm up that role, affect how e respond with expert tone and knowledge.
 
 #### Workflow/Episodic Memory
 
-Dis memori dey store di sequence of steps an agent take during complex task, including successes and failures. E be like remembering specific "episodes" or past experiences to learn from them.
+Dis memory dey keep track of steps wey agent do for complex task, including wetin succeed and wetin fail. E be like remembering specific "episodes" or old experiences to learn from dem.
 
 **Episodic Memory Example**
 
-If di agent try book one flight but e fail because e no available, episodic memori fit record dis failure, so that agent fit try alternative flights or tell di user about di issue in a better way next time.
+If agent try book flight but fail because no availability, episodic memory fit record dis, make agent fit try different flights or tell user better info later.
 
 #### Entity Memory
 
-Dis one involve extracting and remembering specific entities (like people, places, or things) and events from conversations. E allow di agent build structured understanding of di key elements wey dem discuss.
+Dis one involve to extract and remember specific entities (people, places, or tins) plus events from conversation. E let agent build structured understanding of important things discussed.
 
 **Entity Memory Example**
 
-From one conversation about past trip, di agent fit extract "Paris," "Eiffel Tower," and "dinner at Le Chat Noir restaurant" as entities. For future interaction, di agent fit recall "Le Chat Noir" and offer to make new reservation there.
+From conversation about past trip, agent fit pull out "Paris," "Eiffel Tower," and "dinner at Le Chat Noir restaurant" as entities. For future talk, agent fit remember "Le Chat Noir" and offer to book new reservation there.
 
 #### Structured RAG (Retrieval Augmented Generation)
 
-Even though RAG na broader technique, "Structured RAG" dey highlighted as powerful memori technology. E dey extract dense, structured information from different sources (conversations, emails, images) and use am to improve precision, recall, and speed for responses. Different from classic RAG wey only rely on semantic similarity, Structured RAG dey work with di inherent structure of information.
+Even though RAG na big technique, "Structured RAG" na powerful memory technology. E dey extract detailed, structured info from different sources (talks, emails, pictures) to improve accuracy, recall, and fast response. Unlike normal RAG wey only dey use semantic similarity, Structured RAG dey use info structure.
 
 **Structured RAG Example**
 
-Instead of just matching keywords, Structured RAG fit parse flight details (destination, date, time, airline) from one email and store dem in structured way. Dis one allow precise queries like "What flight did I book to Paris on Tuesday?"
+Instead of just match keywords, Structured RAG fit parse flight details (destination, date, time, airline) from email and store am structured. Dis one fit handle exact questions like "Which flight I book to Paris on Tuesday?"
 
 ## Implementing and Storing Memory
 
-To implement memori for AI agents, you go follow systematic process of **memori management**, wey include generating, storing, retrieving, integrating, updating, and even "forgetting" (or deleting) information. Retrieval na one very important part.
+To implement memory for AI agents, you go need proper process for **memory management**: generate, store, retrieve, integrate, update, and even "forget" (or delete) info. Retrieval na very important part.
 
 ### Specialized Memory Tools
 
 #### Mem0
 
-One way to store and manage agent memori na to use specialized tools like Mem0. Mem0 dey work as persistent memori layer, wey make agents fit recall relevant interactions, store user preferences and factual context, and learn from successes and failures over time. Di idea na make stateless agents turn stateful.
+One way to store and manage agent memory na to use special tools like Mem0. Mem0 works as persistent memory layer, so agents fit remember relevant talks, keep user preferences and factual context, plus learn from wins and fails over time. The idea be say stateless agents go turn stateful.
 
-E dey work through **two-phase memori pipeline: extraction and update**. First, messages wey add to agent thread dey send go Mem0 service, wey dey use Large Language Model (LLM) to summarize conversation history and extract new memories. Afterwards, one LLM-driven update phase go decide whether to add, modify, or delete these memories, then store dem in hybrid data store wey fit include vector, graph, and key-value databases. Dis system still support different memory types and fit include graph memory to manage relationships between entities.
+E work with **two-phase memory pipeline: extraction and update**. First, messages added to agent thread dey send to Mem0 service, wey use Large Language Model (LLM) to summarize chat history and extract new memories. Next, LLM-driven update phase go decide whether to add, change, or delete memories, store them for hybrid data store wey fit get vector, graph, and key-value databases. Dis system sabi many memory types and fit use graph memory to manage relationships between entities.
 
 #### Cognee
 
-Another strong approach na to use **Cognee**, one open-source semantic memori for AI agents wey dey transform structured and unstructured data into queryable knowledge graphs backed by embeddings. Cognee get **dual-store architecture** wey combine vector similarity search with graph relationships, so agents fit understand not just wetin similar be, but how concepts relate to each other.
+Another strong way na to use **Cognee**, open-source semantic memory for AI agents wey fit turn structured and unstructured data into queryable knowledge graphs wey get embeddings backing am. Cognee get **dual-store architecture** wey join vector similarity search plus graph relationships, so agents fit sabi not only wetin info similar, but also how different concepts relate.
 
-E strong for **hybrid retrieval** wey blend vector similarity, graph structure, and LLM reasoning - from raw chunk lookup to graph-aware question answering. Di system maintain **living memory** wey dey evolve and grow but still dey queryable as one connected graph, supporting both short-term session context and long-term persistent memori.
+E sabi **hybrid retrieval** wey mix vector similarity, graph structure, and LLM reasoning - from raw chunk lookup to graph-aware question answer. System dey keep **living memory** wey grow and change but still dey queryable as one connected graph, support short-term session context and long-term persistent memory.
 
-Di Cognee notebook tutorial ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) dey show how to build this unified memori layer, with practical examples of ingesting different data sources, visualizing di knowledge graph, and querying with different search strategies wey fit specific agent needs.
+Cognee notebook tutorial ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) dey show how to build dis single memory layer, with practical examples of ingesting different data sources, showing knowledge graph, and querying with different search styles fit for agent needs.
 
 ### Storing Memory with RAG
 
-Apart from specialized memori tools like mem0, you fit use strong search services like **Azure AI Search as a backend for storing and retrieving memories**, especially for structured RAG.
+Besides special tools like mem0 , you fit use strong search services like **Azure AI Search as backend to store and retrieve memories**, especially for structured RAG.
 
-Dis one allow you ground your agent responses with your own data, to make answers more relevant and accurate. Azure AI Search fit store user-specific travel memories, product catalogs, or any domain-specific knowledge.
+Dis one allow you ground your agent responses with your own data, make answers more relevant and correct. Azure AI Search fit hold user-specific travel memories, product catalogs, or any other special knowledge.
 
-Azure AI Search get capabilities like **Structured RAG**, wey dey excel for extracting and retrieving dense, structured information from big datasets like conversation histories, emails, or even images. Dis one dey give "superhuman precision and recall" compared to traditional text chunking and embedding approaches.
+Azure AI Search support things like **Structured RAG**, wey dey good at extracting and retrieving dense, structured info from huge datasets like chat histories, emails, or pictures. E give "superhuman precision and recall" compared to normal text chunking and embedding ways.
 
 ## Making AI Agents Self-Improve
 
-One common pattern for self-improving agents na to introduce a **"knowledge agent"**. Dis separate agent dey observe di main conversation between di user and di primary agent. Im role na to:
+Common way for self-improving agents na to make **"knowledge agent"**. Dis one separate agent go watch main conversation between user and main agent. E role na to:
 
-1. **Identify valuable information**: Decide if any part of di conversation worth saving as general knowledge or as specific user preference.
+1. **Identify valuable information**: Decide if any part of conversation worth to save as general knowledge or specific user preference.
 
-2. **Extract and summarize**: Distill di important learning or preference from di conversation.
+2. **Extract and summarize**: Take important learning or preference from conversation.
 
-3. **Store in a knowledge base**: Save dis extracted information, many times for vector database, so e fit retrieve am later.
+3. **Store inside knowledge base**: Keep extracted info, normally for vector database, so e fit be retrieved later.
 
-4. **Augment future queries**: When user start new query, di knowledge agent go retrieve relevant stored info and attach am to user prompt, give important context to di primary agent (similar to RAG).
+4. **Add context for future queries**: When user start new query, knowledge agent go bring relevant stored info join user prompt, give important context to main agent (similar to RAG).
 
 ### Optimizations for Memory
 
-• **Latency Management**: To avoid slow down user interactions, you fit use cheaper, faster model first to quickly check if information worth to store or retrieve, then only call the more complex extraction/retrieval process when necessary.
+• **Latency Management**: To prevent slow user experience, cheaper and faster model fit dey used first to quickly check if info worth to store or retrieve, then call complex extraction/retrieval only if needed.
 
-• **Knowledge Base Maintenance**: For growing knowledge base, less-used information fit move go "cold storage" to manage costs.
+• **Knowledge Base Maintenance**: For growing knowledge base, less used info fit move go "cold storage" to reduce costs.
 
 ## Got More Questions About Agent Memory?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet other learners, attend office hours and make your AI Agents questions clear.
+Join di [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet other learners, attend office hours, and get your AI Agents questions answered.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Disclaimer:
-Dis document don translate with AI translation service [Co-op Translator] (https://github.com/Azure/co-op-translator). Even though we dey try make am correct, abeg note say automatic translations fit get mistakes or no too accurate. Make you treat the original document wey dey inside im native language as the main/authoritative source. If na important information, better make professional human translator do the translation. We no go responsible for any misunderstanding or wrong interpretation wey fit come from using this translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

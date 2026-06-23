@@ -108,8 +108,8 @@
     "language_code": "mr"
   },
   "02-explore-agentic-frameworks/code_samples/02-semantic-kernel.ipynb": {
-    "original_hash": "b038784e42753b957df2b1b883038bae",
-    "translation_date": "2026-03-07T07:29:05+00:00",
+    "original_hash": "e8a0d83d4edbc1ce34736c39df8edfc3",
+    "translation_date": "2026-05-25T15:57:40+00:00",
     "source_file": "02-explore-agentic-frameworks/code_samples/02-semantic-kernel.ipynb",
     "language_code": "mr"
   },
@@ -186,14 +186,20 @@
     "language_code": "mr"
   },
   "06-building-trustworthy-agents/README.md": {
-    "original_hash": "0efee7e91baf1145ad83c7131408122b",
-    "translation_date": "2026-03-07T08:06:55+00:00",
+    "original_hash": "ca935a2e26268061e963f0c447cb2fcd",
+    "translation_date": "2026-06-18T12:45:48+00:00",
     "source_file": "06-building-trustworthy-agents/README.md",
     "language_code": "mr"
   },
+  "06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb": {
+    "original_hash": "ac9534d6955b963296bb08d218c09189",
+    "translation_date": "2026-06-18T12:48:50+00:00",
+    "source_file": "06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb",
+    "language_code": "mr"
+  },
   "06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb": {
-    "original_hash": "39dfd22818a45f8dcab689b630db7f74",
-    "translation_date": "2026-03-07T07:28:46+00:00",
+    "original_hash": "702e3e48d692a4990353d4cb118e3e2f",
+    "translation_date": "2026-05-25T15:57:40+00:00",
     "source_file": "06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb",
     "language_code": "mr"
   },
@@ -432,8 +438,8 @@
     "language_code": "mr"
   },
   "13-agent-memory/README.md": {
-    "original_hash": "a6d2bb8982a4e1fb34ad1f1433728b25",
-    "translation_date": "2026-03-07T08:17:02+00:00",
+    "original_hash": "75856d48c47a6b8a5079fa7b5cd27afa",
+    "translation_date": "2026-06-18T12:45:04+00:00",
     "source_file": "13-agent-memory/README.md",
     "language_code": "mr"
   },
@@ -510,8 +516,8 @@
     "language_code": "mr"
   },
   "README.md": {
-    "original_hash": "d276700eaa7e9851431ce062d6538afb",
-    "translation_date": "2026-05-13T12:36:41+00:00",
+    "original_hash": "81c0392b95e4aea5802489ecb8411c2e",
+    "translation_date": "2026-05-25T16:00:38+00:00",
     "source_file": "README.md",
     "language_code": "mr"
   },
