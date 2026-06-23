@@ -1,6 +1,6 @@
 [Žiūrėkite pamokos vaizdo įrašą: AI agentų apsauga su kriptografiniais kvitais](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Pamokos vaizdo įrašą ir miniatiūrą po sujungimo pridės Microsoft turinio komanda, atitinkant pamokų 14 / 15 modelį.)_
+> _(Pamokos vaizdo įrašas ir miniatiūra bus pridėti Microsoft turinio komandos po susijungimo, pagal pamokų 14 / 15 modelį.)_
 
 # AI agentų apsauga su kriptografiniais kvitais
 
@@ -8,57 +8,57 @@
 
 Šioje pamokoje aptarsime:
 
-- Kodėl AI agentų audito takelio svarba atitikties, derinimo ir pasitikėjimo prasme.
-- Kas yra kriptografinis kvitas ir kuo jis skiriasi nuo nepasirašyto žurnalo įrašo.
-- Kaip gauti pasirašytą kvitą už agento įrankio iškvietimą paprastame Python.
+- Kodėl AI agentų audito žurnalai yra svarbūs atitikčiai, klaidų taisymui ir pasitikėjimui.
+- Kas yra kriptografinis kvitas ir kuo jis skiriasi nuo pasirašymo neturinčios žurnalo eilutės.
+- Kaip sukurti pasirašytą kvitą agento įrankio iškvietimui naudojant paprastą Python.
 - Kaip patikrinti kvitą neprisijungus ir aptikti klastojimą.
-- Kaip sujungti kvitus grandine taip, kad ištrinant ar keičiant eiliškumą grandinė būtų sulaužyta.
-- Ką kvitai įrodo ir ką aiškiai neįrodo.
+- Kaip susieti kvitus grandine taip, kad pašalinus ar pakeitus jų tvarką grandinė nutraukta.
+- Ką kvitai įrodo ir ką jie aiškiai neįrodo.
 
 ## Mokymosi tikslai
 
-Baigę šią pamoką žinosite, kaip:
+Baigę šią pamoką jūs žinosite, kaip:
 
-- Nustatyti gedimų modelius, kurie skatina kriptografinę agento veiksmų kilmės patikrą.
-- Sukurti Ed25519 pasirašytą kvitą pagal kanoninį JSON užklausą.
-- Nepriklausomai patikrinti kvitą naudodami tik pasirašiusiojo viešą raktą.
-- Aptikti klastojimą iš naujo atlikus patikrą modifikuotam kvitui.
-- Sukurti hash grandinę iš kvitų ir paaiškinti, kodėl grandinė yra svarbi.
-- Atpažinti ribą tarp to, ką kvitai įrodo (priskyrimą, vientisumą, eiliškumą) ir ko neįrodo (veiksmo teisingumo, politikos tvirtumo).
+- Nustatyti gedimo atvejus, dėl kurių reikalinga kriptografinė agento veiksmų kilmės patikra.
+- Sukurti Ed25519 pasirašytą kvitą su kanoniniu JSON duomenų formatu.
+- Nepriklausomai patikrinti kvitą naudojant tik pasirašiusiojo viešąjį raktą.
+- Aptikti klastojimą perkraunant patikrą su pakeistu kvitu.
+- Sukurti kvitų grandinę su maišos ryšiu ir paaiškinti, kodėl tai svarbu.
+- Atpažinti ribą tarp to, ką kvitai įrodo (priskyrimą, vientisumą, eiliškumą) ir ko jie neįrodo (veiksmo teisingumas, taisyklių laikymasis).
 
-## Problema: Jūsų agento audito takelis
+## Problema: jūsų agento audito žurnalas
 
-Įsivaizduokite, kad įdiegėte AI agentą Contoso Travel. Agentas skaito kliento užklausas, iškviečia skrydžių API, kad surastų variantus, ir rezervuoja vietas kliento vardu. Praėjusį ketvirtį agentas apdorodavo 50 000 rezervacijų.
+Įsivaizduokite, kad įdiegėte AI agentą Contoso Travel. Agentas skaito klientų užklausas, kviečia skrydžių API ieškoti variantų ir užsako vietas kliento vardu. Praėjusį ketvirtį agentas apdorodavo 50 000 užsakymų.
 
-Šiandien atvyksta auditorius. Jis užduoda paprastą klausimą: „Parodykite, ką darė jūsų agentas.“
+Šiandien atvyksta auditas. Paklausia paprasto klausimo: „Parodykite, ką jūsų agentas darė.“
 
-Jūs perduodate žurnalo failus. Auditoriui tikrinant, jis užduoda sunkesnį klausimą: „Kaip žinau, kad šie žurnalai nebuvo redaguoti?“
+Jūs pateikiate savo žurnalo failus. Auditorius juos peržiūri ir užduoda sunkesnį klausimą: „Kaip žinau, kad šie žurnalai nebuvo redaguoti?“
 
-Tai yra audito takelio problema. Šiandien dauguma agentų diegimų pasikliauja:
+Tai yra audito žurnalo problema. Dauguma agentų diegimo šiandien remiasi:
 
-- **Programos žurnalais**: juos rašo pats agentas, bet juos gali redaguoti bet kas, turintis prieigą prie failų sistemos.
-- **Debesų žurnalų paslaugomis**: platformos lygiu klastojimą aptinkantiems, bet tik jei auditorius pasitiki platformos operatoriumi.
-- **Duomenų bazės transakcijų žurnalais**: tinkami duomenų bazės pokyčiams fiksuoti, bet ne atsitiktiniams įrankių iškvietimams.
+- **Programų žurnalais**: rašomais pačio agento, kuriuos gali redaguoti bet kas turintis prieigą prie failų sistemos.
+- **Debesų žurnalo paslaugomis**: klastojimą aptinkančiomis platformos lygmeniu, bet auditorius turi pasitikėti platformos operatoriumi.
+- **Duomenų bazės transakcijų žurnalais**: tinka duomenų bazės pakeitimams, bet ne bet kokių įrankių iškvietimams.
 
-Joks iš jų negali atsakyti į auditoriaus klausimą be būtinybės pasitikėti kažkuo (jumis, jūsų debesų tiekėju ar duomenų bazės pardavėju). Vidaus naudojimui toks pasitikėjimas dažnai priimtinas. Tačiau reglamentuojamoms veikloms (finansai, sveikatos priežiūra, viskas, kas yra dėl ES AI reglamento) jis nepriimtinas.
+Nė viena iš šių galimybių neatsako auditoriaus klausimo nepasikliaujant trečiąja šalimi (jumis, jūsų debesų tiekėju ar duomenų bazės tiekėju). Vidiniam naudojimui toks pasitikėjimas dažnai priimtinas, tačiau reglamentuojamoms apkrovoms (finansai, sveikatos priežiūra, bet kas pagal ES AI reglamentą) ne.
 
-Kriptografiniai kvitai išsprendžia šią problemą leisdami nepriklausomai patikrinti kiekvieną agento veiksmą. Auditorius neprivalo jums pasitikėti. Jam reikia tik jūsų viešo rakto ir paties kvito.
+Kriptografiniai kvitai išsprendžia šią problemą, nes kiekvienas agento veiksmas yra nepriklausomai patikrinamas. Auditorius jums neturi pasitikėti. Jam reikia tik jūsų viešojo rakto ir paties kvito.
 
 ## Kas yra kriptografinis kvitas?
 
-Kvitas yra JSON objektas, kuris registruoja, ką agentas padarė, pasirašytas skaitmeniniu parašu.
+Kvitas yra JSON objektas, kuris įrašo, ką agentas padarė, pasirašytas skaitmeniniu parašu.
 
 ```mermaid
 flowchart LR
-    A[Agentas iškviečia įrankį] --> B[Sukurkite kvito paketą]
-    B --> C[Kanonizuokite JSON RFC 8785]
+    A[Agentas iškviečia įrankį] --> B[Sukurkite kvito duomenis]
+    B --> C[Canonizuokite JSON RFC 8785]
     C --> D[SHA-256 maišos funkcija]
     D --> E[Ed25519 parašas]
     E --> F[Kvitas su parašu]
-    F --> G[Auditorius tikrina offline režimu]
-    G --> H{Ar parašas galiojantis?}
-    H -- yes --> I[Įrodymas be klastojimo pėdsakų]
-    H -- no --> J[Kvitas atmestas]
+    F --> G[Auditorius tikrina neprisijungęs]
+    G --> H{Parašas galioja?}
+    H -- taip --> I[Pakeitimams atspari įrodymas]
+    H -- ne --> J[Kvitas atmestas]
 ```
 
 Minimalus kvitas atrodo taip:
@@ -82,25 +82,25 @@ Minimalus kvitas atrodo taip:
 }
 ```
 
-Trys savybės atlieka darbą:
+Trys savybės atlieka pagrindinį darbą:
 
-1. **Parašas**. Kvitas pasirašomas agento vartų naudotu Ed25519 privačiu raktu. Bet kas, turintis atitinkamą viešąjį raktą, gali neprisijungęs patikrinti parašą. Bet koks lauko pakeitimas anuliuoja parašą.
+1. **Parašas**. Kvitas yra pasirašytas agento vartų naudojant Ed25519 privačią raktą. Bet kas su atitinkamu viešuoju raktu gali patvirtinti parašą neprisijungus. Bet koks lauko pakeitimas paneigia parašą.
 
-2. **Kanoniškas kodavimas**. Prieš pasirašant kvitas seralizuojamas JSON kanoniškumo schemos (JCS, RFC 8785) būdu. Tai užtikrina, kad dvi skirtingos įgyvendinimo versijos, generuojančios tą pačią logišką kvito reikšmę, gaus vienodus baitų rezultatus. Be kanoniškumo, skirtingi JSON seralizatoriai būtų sugeneravę skirtingus parašus tam pačiam turiniui.
+2. **Kanoninis kodavimas**. Prieš pasirašant kvitas serializuojamas pagal JSON Kanonizavimo Schemos (JCS, RFC 8785) taisykles. Tai užtikrina, kad dvi skirtingos įgyvendinimo versijos, kurios generuoja tą patį loginį kvitą, duoda bitų identišką rezultatą. Be kanonizavimo, skirtingi JSON serializatoriai sukurtų skirtingus parašus tiems patiems duomenims.
 
-3. **Hash grandinimas**. Laukas `previous_receipt_hash` susieja kiekvieną kvitą su ankstesniu. Kvito pašalinimas ar permaina sulaužo visus vėliau einančius kvitus. Klastojimas tampa matomas grandinės lygyje net jei atskiri parašai pralaužiami.
+3. **Maišos grandinė**. Laukas `previous_receipt_hash` sujungia kiekvieną kvitą su prieš tai buvusiu. Pašalinus ar pakeitus kvitą sugriūva visi sekančių kvitų parašai. Klastojimas tampa matomas pačioje grandinėje net jei atskiri parašai būtų apeinami.
 
-Kartu šios savybės suteikia tris garantijas:
+Kartu šios savybės užtikrina tris garantijas:
 
-- **Priskyrimą**: šis raktas pasirašė šį turinį.
-- **Vientisumą**: turinys nuo pasirašymo nepasikeitė.
-- **Eiliškumą**: šis kvitas įvyko po to kvito grandinėje.
+- **Priskyrimas**: šis raktas pasirašė šį turinį.
+- **Vientisumas**: turinys nuo pasirašymo nepasikeitė.
+- **Tvarka**: šis kvitas grandinėje yra po to kvito.
 
-## Kvito kūrimas Python kalba
+## Kvito kūrimas Python'e
 
-Kvito kūrimui nereikia specialios bibliotekos. Kriptografiniai primityvai plačiai prieinami, o logika – vos keliasdešimt Python eilučių.
+Jums nereikia specialios bibliotekos kvito kūrimui. Kriptografiniai primityvai plačiai prieinami, o logika – keliolika eilučių Python kalba.
 
-Praktinės užduotys faile `code_samples/18-signed-receipts.ipynb` išsamiai paaiškina visą procesą. Santrauka:
+Praktinės užduotys faile `code_samples/18-signed-receipts.ipynb` žingsnis po žingsnio veda per visą procesą. Santraukos versija:
 
 ```python
 import json
@@ -116,11 +116,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Generuoti arba įkelti pasirašymo raktą (gamyboje saugoti raktų saugykloje)
+# Sugeneruokite arba įkelkite pasirašymo raktą (produktyvioje aplinkoje saugokite rakto saugykloje)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Sudaryti kvito duomenis (dar be parašo)
+# Sukurkite kvito duomenų paketą (kol kas be parašo)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -136,12 +136,12 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Kanonizuoti, išmaišyti, pasirašyti.
+# Kanonizuokite, sukurkite maišą, pasirašykite.
 canonical_bytes = canonicalize(payload)
 message_hash = hashlib.sha256(canonical_bytes).digest()
 signature_bytes = signing_key.sign(message_hash).signature
 
-# Prisegti struktūrizuotą parašo objektą.
+# Pridėkite struktūrizuotą parašo objektą.
 receipt = {
     **payload,
     "signature": {
@@ -152,11 +152,11 @@ receipt = {
 }
 ```
 
-Tai visas pasirašymo srautas. Užduotys knygoje išsamiai aprašo kiekvieną žingsnį.
+Tai visas pasirašymo procesas. Užduotys užrašuose aprašo kiekvieną žingsnį.
 
 ## Kvito tikrinimas ir klastojimo aptikimas
 
-Tikrinimas yra priešingas procesas:
+Patikrinimas yra atvirkštinė operacija:
 
 ```python
 import base64
@@ -175,7 +175,7 @@ def verify_receipt(receipt: dict) -> bool:
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # Atkurkite naudotą užrašyti krovinių duomenis (viską išskyrus parašą).
+    # Atstatykite naudą, kuri iš tikrųjų buvo pasirašyta (viską išskyrus parašą).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
@@ -189,195 +189,196 @@ def verify_receipt(receipt: dict) -> bool:
         return False
 ```
 
-Ši funkcija paima kvitą ir grąžina `True`, jei parašas galioja, arba `False` kitu atveju. Nereikia jokių tinklo kvietimų, paslaugų priklausomybių ar trečiųjų šalių pasitikėjimo.
+Ši funkcija priima kvitą ir grąžina `True`, jei parašas galiojantis, arba `False` kitu atveju. Be jokių tinklo užklausų, be paslaugų priklausomybės, be trečiųjų šalių pasitikėjimo.
 
-Norint pamatyti klastojimo aptikimą praktikoje, knyga aprašo:
+Norėdami pamatyti klastojimo aptikimą veiksmo metu, užrašų knyga demonstruoja:
 
-1. Galiojančio kvito kūrimą ir patikrinimą.
-2. Vieno baito modifikavimą lauke `tool_args_hash`.
-3. Pakartotinį patikrinimą ir nesėkmę.
+1. Galiojančio kvito kūrimą ir patvirtinimą.
+2. Vieno baito pakeitimą lauke `tool_args_hash`.
+3. Pakartotinį patikrinimą, kuris jau nepavyksta.
 
-Tai praktinis įrodymas, kad kvitai rodo klastojimą: bet koks pakeitimas, net mažas, sulaužo parašą.
+Tai praktinis pavyzdys, kad kvitai yra klastojimui atsparūs: bet koks, net menkiausias pakeitimas paneigia parašo galiojimą.
 
-## Kvito grandinimas daugiasluoksniams agentams
+## Kvitų grandinės sudarymas daugiažingsniams agentams
 
-Vienas pasirašytas kvitas saugo vieną veiksmą. Kvito grandinė saugo veiksmų seką.
+Viena pasirašyta kvito apsaugo vieną veiksmą. Kvitų grandinė apsaugo veiksmų seką.
 
 ```mermaid
 flowchart LR
-    R0[Gavimas 0<br/>pradine] --> R1[Gavimas 1]
-    R1 --> R2[Gavimas 2]
-    R2 --> R3[Gavimas 3]
+    R0[Kvitas 0<br/>genesis] --> R1[Kvitas 1]
+    R1 --> R2[Kvitas 2]
+    R2 --> R3[Kvitas 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Kiekvienas kvitas įrašo prieš tai buvusio kvito hash reikšmę. Norint tyliai pašalinti 2 kvitą, užpuolėjas turėtų:
+Kiekvienas kvitas įrašo prieš tai buvusio kvito hash reikšmę. Norint tyliai pašalinti 2 kvitą, užpuolikas turėtų arba:
 
-- Pakeisti 3 kvito `previous_receipt_hash` lauką (sulaužytų 3 kvito parašą), ARBA
-- Sužymėti naują parašą modifikuotam 3 kvitui (reikalingas agento privatus raktas).
+- Pakeisti kvito 3 lauką `previous_receipt_hash` (tuo pažeidžiant kvito 3 parašą), ARBA
+- Suklastoti naują parašą pakeistam kvitui 3 (reikalingas agento privatus raktas).
 
-Jei privatus raktas saugomas aparatinėje saugykloje, o viešasis raktas skelbiamas kartu su kiekvienu kvitu, nei viena iš šių atakų negalima nepastebėta.
+Jei privatus raktas laikomas aparatinėje raktų saugykloje ir jūs skelbiate viešąjį raktą kartu su kiekvienu kvitu, nė viena ataka nėra įmanoma nepastebėta.
 
-Knyga parodo, kaip:
+Užrašų knyga demonstruoja:
 
-1. Sukurti trijų kvitų grandinę.
-2. Patikrinti, ar kiekvieno kvito `previous_receipt_hash` atitinka tikrą ankstesnio kvito hash.
-3. Modifikuoti vieną kvitą grandinės viduryje ir pažiūrėti, kaip grandinė sulūžta būtent toje vietoje.
+1. Tryjų kvitų grandinės kūrimą.
+2. Patikrinimą, ar kiekvieno kvito `previous_receipt_hash` atitinka realų ankstesnio kvito hash.
+3. Klastojimą viename viduriniame kvite ir matymą, kaip grandinė nutrūksta būtent tą vietą.
 
-Tai leidžia sukurti audito takelį, kurį išorinis auditas gali patikrinti be pasitikėjimo jumis.
+Taip sukuriamas audito žurnalas, kurį gali patikrinti išorinis auditas nepasitikėdamas jumis.
 
-## Ką kvitai įrodo (ir ko neįrodo)
+## Ką kvitai įrodo (ir ko ne)
 
-Tai svarbiausia pamokos dalis. Kvitas yra galingas, bet jo galia yra ribota.
+Tai svarbiausia pamokos dalis. Kvitei yra galingi, bet jų galia ribota.
 
 **Kvitai įrodo tris dalykus:**
 
 1. **Priskyrimą**: konkretus raktas pasirašė konkretų turinį.
-2. **Vientisumą**: turinys nuo pasirašymo nepasikeitė.
-3. **Eiliškumą**: šis kvitas yra po kito kvito hash grandinėje.
+2. **Vientisumą**: turinys nuo pasirašymo nepakito.
+3. **Tvarką**: šis kvitas sekė po to kvito hash grandinėje.
 
 **Kvitai neįrodo:**
 
-1. **Veiksmo teisingumo**: kad agento veiksmas buvo teisingas. Kvitas gali būti pasirašytas tiek už neteisingą, tiek už teisingą atsakymą.
-2. **Politikos laikymosi**: kad `policy_id` nurodyta politika buvo tikrai įvertinta arba kad ji būtų leista, jei būtų tikrinta. Kvitas registruoja tai, kas buvo teigiama, ne tai, kas buvo vykdoma.
-3. **Tapatybę už rakto ribų**: kvitas sako „šis raktas pasirašė šį turinį“. Ne „šis žmogus tai patvirtino“. Raktą su žmogumi ar organizacija susieti reikia atskiros tapatybės infrastruktūros (adresyno, viešo rakto registro ir pan.).
-4. **Įvesties teisingumą**: jei agentas gauna manipuliuotą užklausą ir veikia pagal ją, kvitas ištikimai registruoja veiksmą. Kvitas yra po įvesties patikros ir nėra jos pakaitalas.
+1. **Teisingumo**: kad agento veiksmas buvo tinkamas. Kvitas gali būti pasirašytas ir už neteisingą atsakymą taip pat aiškiai kaip ir už teisingą.
+2. **Politikos laikymosi**: kad `policy_id` nurodyta politika buvo iš tiesų įvertinta arba leisdama šį veiksmą. Kvitas įrašo, kas buvo teigiama, o ne kas buvo vykdyta.
+3. **Identiteto už rakto ribų**: kvitas sako „šis raktas pasirašė šį turinį“. Ne „šis asmuo patvirtino“. Raktą susieti su žmogumi ar organizacija reikia kitų tapatybės infrastruktūros įrankių (adresaro, viešųjų raktų registro ir pan.).
+4. **Įėjimų tikrumo**: jei agentas gauna pakeistą užklausą ir veikia pagal ją, kvitas tiksliai įrašo veiksmą. Kvitai yra žemiau įėjimų tikrinimo lygyje, o ne jo pakaitalas.
 
 Ši riba svarbi dėl dviejų priežasčių:
 
-- Ji parodo, kam kvitai yra naudingi: agento elgesio audito ir klastojimo aptikimui, net per organizacijų ribas.
-- Ji parodo, kokių papildomų sluoksnių jums dar reikia: įvesties patikra (Pamoka 6), politikos vykdymas (trumpai aprašyta žemiau) ir tapatybės infrastruktūra (ne ši pamoka).
+- Ji parodo, kam kvitai yra naudingi: darant agento elgseną auditui prieinamą ir klastojimui atsparią, net tarp skirtingų organizacijų.
+- Ji rodo, kokius papildomus sluoksnius vis dar reikia: įėjimų tikrinimą (pamoka 6), taisyklių vykdymą (žemiau trumpai apžvelgiama) ir identiteto infrastruktūrą (už šios pamokos ribų).
 
-Dažna klaida yra manyti, kad „turėdami kvitus“ jau „valdome procesą“. Ne. Kvitai yra pamatas. Valdymas – tai sistema, kurią jūs statote ant jų.
+Dažna klaida manyti, kad „turime kvitus“ reiškia „esame reguliuojami“. Ne. Kvitai yra pamatas. Reguliavimas yra sistema, kurią statote ant šio pamato.
 
-## Gamybos nuorodos
+## Gamybiniai šaltiniai
 
-Šios pamokos Python kodas sąmoningai minimalus, kad galėtumėte perskaityti kiekvieną eilutę ir suprasti, kas vyksta. Gamyboje turite dvi galimybes:
+Šios pamokos Python kodas yra sąmoningai minimalus, kad galėtumėte perskaityti kiekvieną eilutę ir suprasti, kas vyksta. Gamyboje turite dvi pasirinkimo galimybes:
 
-1. **Dirbti tiesiogiai su kriptografiniais primityvais.** Minėtos 50 eilučių pakanka daugeliui panėkų. PyNaCl (Ed25519) ir `jcs` paketas (kanoninis JSON) yra gerai palaikomos ir patikrintos bibliotekos.
+1. **Kurti tiesiogiai ant kriptografinių primityvų.** 50 eilučių iš ankstesnių pavyzdžių pakanka daugeliui atvejų. PyNaCl (Ed25519) ir `jcs` paketas (kanoninis JSON) yra gerai prižiūrimos ir patikrintos bibliotekos.
 
-2. **Naudoti gamybos kvitų biblioteką.** Keli atviro kodo projektai įgyvendina tą patį modelį su papildomomis savybėmis (raktų rotacija, masinė patikra, JWK rinkinio platinimas, integracija su politikos varikliais):
-   - Šioje pamokoje naudotas kvito formatas atitinka IETF interneto projektą (`draft-farley-acta-signed-receipts`), kuris yra standartų procese.
-   - Microsoft Agent Governance Toolkit generuoja kvitus kartu su Cedar pagrindu veikiant politika; žiūrėkite vadovėlį 33 toje saugykloje pilnam pavyzdžiui.
-   - Paketiniai sprendimai `protect-mcp` (npm) ir `@veritasacta/verify` (npm) pateikia Node pagrindo kvitų pasirašymo ir neprisijungus vykdomo tikrinimo įgyvendinimą, skirtą bet kokiam MCP serveriui aprišti nepriekaištingu audito takeliu.
+2. **Naudoti gamybines kvitų biblioteka.** Keletas atviro kodo projektų įgyvendina tą patį modelį su papildomomis funkcijomis (raktų rotacija, masinė patikra, JWK rinkinių platinimas, integracija su politikos varikliais):
+   - Pamokoje naudojamas kvitų formatas paremtas IETF Internet-Draft (`draft-farley-acta-signed-receipts`), šiuo metu standartų procese.
+   - Microsoft Agent Governance Toolkit jungia kvitus su Ceder pagrindu sukurtais politikos sprendimais; žr. 33 pamoką toje saugykloje dėl pilno pavyzdžio.
+   - Paketo `protect-mcp` (npm) ir `@veritasacta/verify` (npm) Node implementacijos skirtos kvito pasirašymui ir neprisijungus tikrinimui, skirtos apsaugoti MCP serverį klastojimui atspariu audito taku.
+   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) siūlo tą patį Ed25519 + JCS pasirašymo modelį su LangChain ir CrewAI integracijomis, įskaitant paskelbtus kryžminius patikros testus ir atitikties žemėlapį, prisidėtą per [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
-Pasirinkimas tarp savo sprendimo ir bibliotekos primena sprendimą tarp savo JWT bibliotekos rašymo ir išbandytos bibliotekos naudojimo: abi prasmingos; biblioteka taupo laiką ir mažina audito paviršių; savarankiškas kūrimas priverčia suprasti kiekvieną primityvą. Ši pamoka moko savarankiško kelio, kad turėtumėte pagrindą bet kuriam pasirinkimui.
+Sprendimas tarp „pasidaryk pats“ ir bibliotekos panaudojimo panašus kaip rašant savo JWT biblioteką ar naudojant patikrintą: abu galimi; biblioteka taupo laiką ir mažina auditavimo plotą; „nuo nulio“ būdas priverčia geriau suprasti primityvus. Ši pamoka moko nuo nulio, kad turėtum pagrindą abiem pasirinkimams.
 
-## Žinių patikra
+## Žinių patikrinimas
 
-Patikrinkite savo supratimą prieš pradedant praktikos užduotį.
+Patikrinkite savo supratimą prieš pereidami prie praktikos.
 
-**1. Kvitas pasirašytas agento privačiu Ed25519 raktu. Auditorius turi tik viešąjį raktą. Ar auditorius gali neprisijungęs patikrinti kvitą?**
-
-<details>
-<summary>Atsakymas</summary>
-
-Taip. Ed25519 patikra reikalauja tik viešojo rakto ir pasirašytų baitų. Nereikia tinklo kvietimų ar paslaugų priklausomybių. Tai savybė, kuri daro kvitus naudingus oro tarpuose, daugiaorganizaciniuose ar mažo pasitikėjimo audituose.
-</details>
-
-**2. Užpuolėjas pakeičia kvito `policy_id` lauką, kad tvirtintų, jog buvo taikoma lepesnė politika. Parašas buvo sudarytas originaliam turiniui. Kas nutinka tikrinimo metu?**
+**1. Kvitas pasirašytas agento privatų Ed25519 raktu. Auditorius turi tik viešąjį raktą. Ar auditorius gali patikrinti kvitą neprisijungęs?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Tikrinimas nepavyksta. Parašas buvo skaičiuotas pagal kanoniškus originalaus turinio baitus; kiekvienas lauko pakeitimas keičia baitus, o tai keičia SHA-256 hash reikšmę, todėl parašas tampa nebegaliojantis. Užpuolėjui reikėtų privataus rakto, kad pagamintų naują galiojantį parašą, kurio jis neturi.
+Taip. Ed25519 patikra reikalauja tik viešojo rakto ir pasirašytų baitų. Be jokių tinklo užklausų ar paslaugų priklausomybės. Tai garantuoja, kad kvitai naudingi „oro tarpine“ (air-gap), tarp kelių organizacijų ar mažo pasitikėjimo audito aplinkose.
 </details>
 
-**3. Kodėl kvitas įrašo `tool_args_hash` ir `result_hash`, o ne žalius argumentus ir rezultatus?**
+**2. Užpuolikas pakeitė kvito lauką `policy_id` teigdamas, kad jis valdomas lepesnės politikos. Parašas yra virš originalaus duomenų rinkinio. Kas nutinka patikros metu?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Dvi priežastys. Pirma, kvitas gali būti archyvuojamas arba perduodamas aplinkoje, kur nepageidaujama paviešinti žalią turinį (asmens duomenys, verslo informacija). Heshavimas sumažina kvito dydį ir apsaugo turinį; auditorius patikrina, ar hash sutampa su atskirai saugoma tikrąja turinio kopija. Antra, hash turi fiksuotą dydį; kvito su hash dydis yra apribotas nesvarbu, kaip dideli buvo įėjimai ir išėjimai.
+Patikra nepavyksta. Parašas apskaičiuotas virš kanoninių originalaus turinio baitų; kiekvienas lauko pakeitimas keičia baitus, keičia SHA-256 hash, todėl parašas tampa negaliojantis. Užpuolikas turėtų privatų raktą, kad sukurtų naują galiojantį parašą, kurio neturi.
 </details>
 
-**4. Laukas `previous_receipt_hash` sujungia kiekvieną kvitą su ankstesniu. Jei užpuolėjas tyliai ištrina vieną kvitą grandinės viduryje, kas tampa negaliojančiu?**
+**3. Kodėl kvite yra `tool_args_hash` ir `result_hash` vietoje žaliųjų argumentų ir rezultato?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Kiekvienas kvitas, kuris vyko po ištrinto. Jų `previous_receipt_hash` laukai nebebaigtų atitikti tikros grandinės (nes kvitas, į kurį jie nurodė, nebeegzistuoja arba grandinė dabar rodo į kitą pirmtaką). Norėdamas paslėpti ištrynimą, užpuolėjas turėtų iš naujo pasirašyti kiekvieną vėlesnį kvitą, tam reikalingas privatus raktas.
+Dvi priežastys. Pirma, kvitas gali būti archyvuojamas ar perduodamas aplinkose, kur suoriginalaus turinio (asmens duomenų, verslo informacijos) nutekėjimas yra problema. Maišos laiko kvitą mažą ir turinį privatų; auditorius patikrina, ar maiša atitinka atskirai saugomą kopiją. Antra, maišos dydis fiksuotas; kvito dydis ribotas nepriklausomai nuo įėjimų ir išėjimų dydžio.
 </details>
 
-**5. Kvitas patikrinamas sėkmingai. Ar tai įrodo, kad agento veiksmas buvo teisingas, patikimas ar atitiko politiką?**
+**4. Laukas `previous_receipt_hash` sujungia kvitus su ankstesniais. Jei užpuolikas tyliai pašalina vieną kvitą iš grandinės vidurio, kas tampa negaliojančiu?**
 
 <details>
 <summary>Atsakymas</summary>
 
-Ne. Galiojantis kvitas įrodo tris dalykus: priskyrimą (šis raktas pasirašė šį turinį), vientisumą (turinys nepasikeitė) ir eiliškumą (šis kvitas buvo po kito). Jis neįrodo, kad veiksmas buvo teisingas, kad politika `policy_id` tikrai buvo įvertinta arba kad agentas laikėsi visų taisyklių. Kvitai padaro agento elgesį auditabiliu, bet ne visada teisingu. Tai svarbiausia pamokos riba.
+Kiekvienas kvitas po ištrinto tampa negaliojantis. Jų `previous_receipt_hash` laukai nebeatsako grandinės, nes įrašo, kurį jie nurodė, nebėra arba grandinė dabar rodo kitą pirmtaką. Kad paslėptų ištrynimą, užpuolikas turėtų perpasirašyti visus vėlesnius kvitus, o tam reikalingas privatus raktas.
 </details>
 
-## Praktikos užduotis
+**5. Kvitas tikrinasi sėkmingai. Ar tai įrodo, kad agento veiksmas buvo teisingas, pagrįstas ar atitiko politiką?**
+
+<details>
+<summary>Atsakymas</summary>
+
+Ne. Galiojantis kvitas įrodo tris dalykus: priskyrimą (šis raktas pasirašė šį turinį), vientisumą (turinys nepakito) ir tvarką (šis kvitas buvo po kito). Jis neįrodo, kad veiksmas buvo teisingas, kad politika iš `policy_id` tikrai buvo įvertinta ar kad agentas vykdė taisykles. Kvitai daro agento elgseną audituojamą, ne būtinai teisingą. Tai svarbiausia pamokos riba.
+</details>
+
+## Praktinė užduotis
 
 Atidarykite `code_samples/18-signed-receipts.ipynb` ir atlikite visas keturias dalis:
 
-1. **1 dalis**: pasirašykite pirmąjį kvitą ir patikrinkite jį.
-2. **2 dalis**: klastokite kvitą ir stebėkite, kaip patikrinimas nepavyksta.
-3. **3 dalis**: sukurkite trijų kvitų grandinę ir patikrinkite jos vientisumą.
-4. **4 dalis**: pritaikykite modelį agentui, sukurtam su Microsoft Agent Framework: apvyniokite įrankio iškvietimą kvito pasirašymu, tada patikrinkite kvitą nepriklausomai.
+1. **1 dalis**: Pasirašykite pirmą kvitą ir patikrinkite jį.
+2. **2 dalis**: Apklastokite kvitą ir stebėkite patikros nesėkmę.
+3. **3 dalis**: Sukurkite trijų kvitų grandinę ir patikrinkite grandinės vientisumą.
+4. **4 dalis**: Prie Microsoft Agent Framework sukurto agento pritaikykite modelį: apvyniokite įrankio kvietimą kvito pasirašymu, tada nepriklausomai patikrinkite kvitą.
+**Išplėstinis iššūkis 1:** išplėskite kvito schemą papildomu pasirinktiniu lauku (pavyzdžiui, užklausos ID sekimui), atnaujinkite kanoninį pasirašymo logiką, kad jį įtrauktumėte, ir patvirtinkite, kad kvitas vis dar sėkmingai tikrinamas. Tada pakeiskite šį lauką po pasirašymo ir patvirtinkite, kad tikrinimas nepavyksta. Tai priverčia jus suprasti, kaip kiekvienas kanoninio kodavimo baitas prisideda prie parašo.
 
-**Iššūkis 1:** išplėskite kvito schemą pridėdami papildomą pasirinktą lauką (pavyzdžiui, užklausos ID sekimui), atnaujinkite kanoninį pasirašymo logiką, kad jį įtrauktumėte ir įsitikinkite, jog kvitas vis dar teisingai patikrinamas. Tada pakeiskite tą lauką po pasirašymo ir patikrinkite, kad patikrinimas nepavyktų. Tai verčia suprasti, kaip kiekvienas kanoninės koduotės baitas prisideda prie parašo.
-**Iššūkis 2:** SHA-256 maišos du iš jūsų kvitų kartu (sujunkite jų kanoninę baitų seką nulemtoje tvarkoje) ir įterpkite gautą maišo reikšmę kaip naują lauką trečiajame kvite prieš pasirašant jį. Patikrinkite, ar visi trys kvitai vis dar grįžta į pradinę būseną. Jūs ką tik sukūrėte vieno žingsnio įtraukimo įrodymą: bet kas turintis trečiąjį kvitą gali įrodyti, kad pirmieji du egzistavo tuo metu, kai buvo pasirašytas, nereikalaujant atskleisti jų turinio. Tai yra modelis, kurį naudoja selektyvaus atskleidimo kvitai dideliu mastu (Merkle įsipareigojimai, RFC 6962).
+**Išplėstinis iššūkis 2:** SHA-256 maišykite du savo kvitus kartu (naudodami jų kanoninius baitus sudėdami juos deterministine tvarka) ir įterpkite gautą mišinį kaip naują lauką trečiame kvite prieš jį pasirašydami. Patikrinkite, kad visi trys kvitai vis dar sėkmingai tikrinami. Jūs ką tik sukūrėte vieno žingsnio įtraukimo įrodymą: bet kas, turintis trečiąjį kvitą, gali įrodyti, kad pirmieji du egzistavo tuo metu, kai jis buvo pasirašytas, nesireikalaudamas atskleisti jų turinio. Tai yra modelis, kurį naudoja pažangių duomenų viešinimo kvitai (Merkle įsipareigojimai, RFC 6962).
 
 ## Išvada
 
-Kryptografiniai kvitai suteikia AI agentams audito takelį, kuris yra:
+Kriptografiniai kvitai suteikia DI agentams audito grandinę, kuri yra:
 
-- **Nepriklausomai patikrinamas**: bet kuri šalis, turinti viešąjį raktą, gali patikrinti, be paslaugos priklausomybės.
-- **Nepakitusio atskleidimo**: bet koks pakeitimas anuliuoja parašą.
-- **Perkeliamas**: kvitas yra mažas JSON failas; jį galima archyvuoti, perduoti ir patikrinti bet kur.
-- **Atitinkantis standartus**: sukurtas pagal Ed25519 (RFC 8032), JCS (RFC 8785) ir SHA-256, visus plačiai naudojamus primityvus.
+- **Nepriklausomai patikrinama**: bet kas, turintis viešąjį raktą, gali patikrinti, nereikia jokių paslaugų.
+- **Sutrikimų atskleidžiama**: bet koks pakeitimas nebegalioja parašo.
+- **Nešiojama**: kvitas yra nedidelis JSON failas; jį galima archyvuoti, perduoti ir tikrinti bet kur.
+- **Standartų atitinkanti**: paremta Ed25519 (RFC 8032), JCS (RFC 8785) ir SHA-256, visomis plačiai naudojamomis priemonėmis.
 
-Jie nėra įvesties validacijos, politikos vykdymo ar tapatybės infrastruktūros pakaitalas. Jie yra pagrindas toms sluoksniams. Kai diegiate agentus reguliuojamose darbo aplinkose, daugiainstituciniuose darbo procesuose arba bet kokioje situacijoje, kuriai būsimam auditorui negalima aklai pasitikėti, kvitai užtikrina sąžiningą audito takelį.
+Tai nėra pakaitalas įvesties tikrinimui, politikos vykdymui ar tapatybės infrastruktūrai. Tai yra pagrindas tiems sluoksniams. Kai diegiate agentus reglamentuojamose darbo apkrovose, tarporganizaciniuose srautuose ar bet kurioje aplinkoje, kurioje būsimam auditoriams negalima tikėti tiesiog jūsų, kvitai užtikrina, kad audito grandinė bus sąžininga.
 
-Svarbiausia išvada: kvitai įrodo, kas ką pasakė, kada. Jie neįrodo, kad pasakyta buvo teisinga ar teisinga. Laikykite šią skirtį griežtą. Tai skirtumas tarp sąžiningos kilmės sistemos ir klaidinančios.
+Svarbiausia išvada: kvitai įrodo, kas ką sakė ir kada. Jie neįrodo, kad tai, kas pasakyta, buvo teisinga ar tiesa. Laikykite šį skirtumą tvirtai. Tai skirtumas tarp sąžiningos kilmės sistemos ir klaidinančios.
 
 ## Produkcijos kontrolinis sąrašas
 
 Kai būsite pasiruošę pereiti nuo šios pamokos prie kvitu pasirašytų agentų diegimo tikroje aplinkoje:
 
-- [ ] **Perkelkite parašo raktą iš kūrėjo nešiojamojo kompiuterio.** Naudokite Azure Key Vault, AWS KMS arba aparatinį saugumo modulį. Privatus raktas, pasirašantis jūsų kvitus, niekada neturėtų būti saugomas šaltinio valdymo sistemoje ar atviro teksto pavidalu taikomųjų programų mašinose.
-- [ ] **Publikuokite viešąjį patikrinimo raktą.** Auditoriams jo reikia offline patikrinimui. Standartinis modelis yra JWK rinkinys žinomu URL (RFC 7517), pvz., `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Užfiksuokite grandinės galvutę išorėje.** Periodiškai įrašykite naujausios grandinės galvutės maišą į skaidrumo žurnalą (Sigstore Rekor, RFC 3161 laiko žymos tarnybą ar antrą vidinę sistemą), kad išorinė šalis galėtų patvirtinti "ši grandinė egzistavo tuo metu."
-- [ ] **Laikykite kvitus nekeičiamos formos.** Tik pridėjimui skirta duomenų saugykla (Azure Storage su nepakeičiamumo politika, AWS S3 Object Lock) neleidžia vidiniam asmeniui keisti istorijos saugyklos sluoksnyje.
-- [ ] **Nuspręskite dėl saugojimo termino.** Daugelis atitikties režimų reikalauja daugiamečio saugojimo. Planuokite kvitų augimą (kiekvienas kvitas ~500 baitų; agentas, darantis 10 tūkst. kvietimų per dieną, gamina ~1,8 GB per metus).
-- [ ] **Dokumentuokite, ko kvitai neapima.** Kvitai įrodo priskyrimą, vientisumą ir užsakymą. Jūsų veiklos vadove turėtų būti aiškiai išvardyti papildomi kontrolės mechanizmai (įvesties validacija, politikos vykdymas, normų ribojimas, tapatybės infrastruktūra), kurie kartu su kvitais sudaro jūsų valdymo strategiją.
+- [ ] **Perkelkite pasirašymo raktą nuo kūrėjo nešiojamojo kompiuterio.** Naudokite Azure Key Vault, AWS KMS arba aparatinį saugumo modulį. Privatus raktas, kurį naudojate kvitų pasirašymui, negali būti laikomas versijų valdyme ar paprasto teksto pavidalu programos mašinose.
+- [ ] **Paskelbkite viešąjį tikrinimo raktą.** Auditoriams jo reikia, kad patikrintų neprisijungus. Standartinis modelis – JWK rinkinys žinomame URL (RFC 7517), pvz., `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Išorėje įtvirtinkite grandinę.** Periodiškai įrašykite naujausio grandinės viršūnės maišą į skaidrumo žurnalą (Sigstore Rekor, RFC 3161 laiko žymos institucija ar antra vidinė sistema), kad išorinė šalis galėtų patvirtinti „ši grandinė egzistavo tuo metu“.
+- [ ] **Laikykite kvitus nekeičiamai.** Tik pridėjimui skirta blob saugykla (Azure Storage su nekeičiamumo politika, AWS S3 Object Lock) neleidžia vidiniams asmenims pakartotinai redaguoti istorijos saugyklos lygmenyje.
+- [ ] **Nustatykite saugojimo trukmę.** Daugelis atitikties sistemų reikalauja daugiamečio saugojimo. Planuokite kvitų augimą (kiekvienas kvitas ~500 baitų; agentas, vykdantis 10 tūkst. užklausų per dieną, sukurs apie 1,8 GB per metus).
+- [ ] **Dokumentuokite, ką kvitai neapima.** Kvitai įrodo priskyrimą, vientisumą ir tvarką. Jūsų vykdymo gide aiškiai nurodykite, kokios papildomos kontrolės (įvesties patvirtinimas, politikos vykdymas, dažnio ribojimas, tapatybės infrastruktūra) gyvena šalia kvitų jūsų valdymo požiūryje.
 
-### Turite daugiau klausimų apie AI agentų saugumą?
+### Norite daugiau sužinoti apie DI agentų saugumą?
 
-Prisijunkite prie [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), susitikite su kitais besimokančiais, dalyvaukite darbo valandose ir gaukite atsakymus į AI agentų klausimus.
+Prisijunkite prie [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kad susitikti su kitais mokiniais, dalyvauti konsultacijose ir gauti atsakymus į DI agentų klausimus.
 
 ## Toliau po šios pamokos
 
-Ši pamoka apima vieno kvito pasirašymą ir maišos grandinės sekas. Tie patys primityvai sudaro keletą pažangesnių modeliavimo būdų, su kuriais galite susidurti stiprinant savo valdymo politiką:
+Ši pamoka apima vieno kvito pasirašymą ir maišais susietas sekas. Tos pačios priemonės sudaro kelis pažangesnius modelius, su kuriais galite susidurti tobulėjant valdymo požiūriui:
 
-- **Selektinis atskleidimas.** Kai kvito laukai yra nepriklausomai įsipareigojami (RFC 6962 stiliaus Merkle medis), galite atskleisti konkrečius laukus konkretiems auditoriams ir įrodyti, kad likusieji nepasikeitė, jų neatskleidžiant. Tai naudinga, kai tas pats kvitas turi atitikti tiek išsamų auditą (kuris nori pilnumo), tiek duomenų minimalizavimo reglamentus, tokius kaip GDPR (kurie nori, kad auditorius matytų kuo mažiau).
-- **Kvitų atšaukimas.** Jei parašo raktas kompromituojamas, reikia būdo pažymėti visus tuo raktu pasirašytus kvitus kaip nepatikimus nuo tam tikro laiko. Standartiniai modeliai: trumpalaikiai parašo raktai kartu su paskelbtu atšaukimo sąrašu arba skaidrumo žurnalas su atšaukimo įrašais.
-- **Dvipusiai / suskirstyti parašo kvitai.** Kai kurios įgyvendinimo versijos dalija pasirašytą turinį į priešvykdymo (`authorization_*`) ir povykdymo (`result_*`) puses su nepriklausomais parašais, naudingomis, kai autorizavimo sprendimą ir stebėtą rezultatą kuria skirtingi asmenys ar skirtingu laiku. Tai papildomai suderinama su šios pamokos kvito formatu.
-- **Turinio sudėtis.** Kvitas uždaro bet kokius baitus, kuriuos įdedate į `result_hash`. Tikrojo pasaulio turinys dažnai yra turtingesnis nei vienas įrankio kvietimo rezultatas: prieš sprendimą pagrindimas (modelio prognozė, svarstytos galimybės, įrodymai ir jų pilnumas, rizikos padėtis, atsakomybės grandinė, sprendimo rezultatas) gali gyventi viduje, užantspauduotas vienu kvitu. Tai padeda išlaikyti kvito formatą minimalų, leidžiant turinio schemoms evoliucionuoti pagal sritis.
-- **Kryžminis įgyvendinimo suderinamumas.** Keli nepriklausomi tos pačios kvito formato įgyvendinimai (Python, TypeScript, Rust, Go) patikrina tarpusavyje pagal bendrus testų vektorius. Jei kuriate savo įgyvendinimą, patikrinimas pagal publikuotus vektorius patvirtina suderinamumą.
-- **Po kvantinę migracija.** Ed25519 šiandien plačiai naudojamas, bet nėra atsparus kvantinės eros iššūkiams. Kvito formatas yra algoritmiškai lankstus: `signature.alg` laukas gali turėti `ML-DSA-65` (NIST postkvantinis parašo standartas), kai reikalinga migracija. Planuokite pereinamąjį laikotarpį, kai kvitai yra dvigubai pasirašyti.
+- **Pasirenkamas atskleidimas.** Kai kvito laukai yra nepriklausomai patvirtinti (RFC 6962 stiliaus Merkle medis), galite atskleisti konkrečius laukus konkretiems auditoriams ir įrodyti, kad likę nepakeisti, neatskleisdami jų turinio. Tai naudinga, kai tas pats kvitas turi atitikti tiek išsamų auditą (reikalaujantį visiškumo), tiek duomenų mažinimo reglamentus kaip GDPR (kuriuose auditorius turi matyti kuo mažiau).
+- **Kvito atšaukimas.** Jei pasirašymo raktas kompromituotas, reikia būdo pažymėti visus to rakto pasirašytus kvitus kaip nepatikimus nuo tam tikro laiko taško. Standartiniai modeliai: trumpalaikiai pasirašymo raktai ir paskelbta atšaukimo sąrašas arba skaidrumo žurnalas su atšaukimo įrašais.
+- **Dvipusiai / padalyti pasirašymo kvitai.** Kai kurios įgyvendinimo priemonės padalina pasirašytą failą į vykdymo priešį (`authorization_*`) ir vykdymo poį (`result_*`) dalis su nepriklausomais parašais, naudinga, kai autorizacijos sprendimą ir stebimą rezultatą priima skirtingi veiksniai ar skirtingu metu. Tai pridedama papildomai prie šios pamokos mokomo kvito formato.
+- **Tarnybinis sudarymas.** Kvitas uždaro bet kokius baitus, kuriuos įdedate į `result_hash`. Tikro gyvenimo užduotys dažnai yra turtingesnės nei vieno įrankio rezultatas: sprendimo priešistorė (modelio numatymas, svarstyti variantai, įrodymai ir jų pilnumas, rizikos lygis, atsakomybės grandinė, vartų rezultatas) gali būti kvito duomenų dalyje, uždarytoje vienu kvitu. Tai leidžia išlaikyti kvito formatą minimalų, kartu leidžiant srities duomenų schemas vystytis atskirai.
+- **Tarpinės įgyvendinimų atitikties patikra.** Keli nepriklausomi to paties kvito formato įgyvendinimai (Python, TypeScript, Rust, Go) tikrina vienas kitą su bendrais testų pavyzdžiais. Jei kuriate savo įgyvendinimą, tikrinimas su paskelbtais vektoriais patvirtina suderinamumą tinkle.
+- **Postkvantinė migracija.** Ed25519 šiandien yra plačiai naudojamas, bet nėra kvantinį saugumą užtikrinantis. Kvito formatas yra algoritmiškai lankstus: laukas `signature.alg` gali turėti `ML-DSA-65` (NIST postkvantinis parašo standartas), kai reikia pereiti. Planuokite pereinamuoju laikotarpiu, kai kvitai yra dvigubai pasirašomi.
 
-## Papildomi ištekliai
+## Papildomi šaltiniai
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet Draft: Pasirašyti sprendimų kvitai mašininiam prieigos valdymui</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Atsakingas AI apžvalga (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards kreivės skaitmeninio parašo algoritmas (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-dokumentas: Pasirašyti sprendimų kvitai mašinų tarpusavio prieigos kontrolei</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Atsakingo DI apžvalga (Azure AI)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edvardso kreivės skaitmeninio parašo algoritmas (EdDSA)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON kanonizavimo schema (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Sertifikatų skaidrumas</a> (Merkle medžio konstrukcija, naudojama selektyvaus atskleidimo kvituose)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Pamoka 33: Offline patikrinami sprendimų kvitai</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Kryžminio įgyvendinimo testų vektoriai</a> naudojamam kvito formatui (Apache-2.0)
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Sertifikatų skaidrumas</a> (Merkle medžio konstrukcija, naudojama pasirenkamo atskleidimo kvituose)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, pamoka 33: neprisijungus tikrinami sprendimų kvitai</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Įgyvendinimų atitikties testų vektoriai</a> kvito formatui, naudotam šioje pamokoje (Apache-2.0)
 - <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl dokumentacija</a> (Ed25519 Python kalboje)
 
 ## Ankstesnė pamoka
 
 [Kompiuterio naudojimo agentų kūrimas (CUA)](../15-browser-use/README.md)
 
-## Kita pamoka
+## Kitoji pamoka
 
-_(Nustatys mokymosi programos administracija)_
+_(Nustatys programos sudarytojai)_
 
 ---
 
