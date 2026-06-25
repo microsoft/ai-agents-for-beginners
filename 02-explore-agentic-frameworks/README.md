@@ -379,7 +379,7 @@ The Microsoft Agent Framework also integrates with Azure services through `Azure
 
 ## Got More Questions about AI Agent Frameworks?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## References
 
