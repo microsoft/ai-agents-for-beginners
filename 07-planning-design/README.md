@@ -259,7 +259,7 @@ Magentic One - A Generalist multi-agent system for solving complex tasks and has
 
 ### Got More Questions about the Planning Design Pattern?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Previous Lesson
 

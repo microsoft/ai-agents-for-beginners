@@ -128,7 +128,8 @@ Ready to see it in action? Here are the code samples for this lesson:
 
 ## Got Questions?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to connect with other learners, attend office hours, and get your AI Agent questions answered by the community.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to connect with other learners, attend office hours, and get your AI Agent questions answered by the community.
+
 
 ---
 

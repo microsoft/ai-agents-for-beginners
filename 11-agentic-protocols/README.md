@@ -165,11 +165,11 @@ Consider our travel booking website again, but this time, it's powered by NLWeb.
 
 ### Got More Questions about MCP/A2A/NLWeb?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Resources
 
 - [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
 - [MCP Documentation](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
 - [NLWeb Repo](https://github.com/nlweb-ai/NLWeb)
-- [Microsoft Agent Framework](https://aka.ms/ai-agents-beginners/agent-framewrok)
+- [Microsoft Agent Framework](https://aka.ms/ai-agents-beginners/agent-framework)

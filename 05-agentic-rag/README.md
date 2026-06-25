@@ -116,7 +116,7 @@ Agentic RAG represents a natural evolution in how AI systems handle complex, dat
 
 ### Got More Questions about Agentic RAG?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Additional Resources
 
