@@ -1,6 +1,6 @@
 [Watch the lesson video: Securing AI Agents with Cryptographic Receipts](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Lesson video and thumbnail go add by Microsoft content team after dem combine am, e go follow the lesson 14 / 15 pattern.)_
+> _(Lesson video and thumbnail to be added by the Microsoft content team post-merge, matching the lesson 14 / 15 pattern.)_
 
 # Securing AI Agents with Cryptographic Receipts
 
@@ -8,45 +8,45 @@
 
 Dis lesson go cover:
 
-- Why audit trails for AI agents matter for compliance, debugging, and trust.
-- Wetin be cryptographic receipt and how e different from unsigned log line.
-- How to produce signed receipt for agent tool call for plain Python.
-- How to verify receipt offline and detect if person tamper.
-- How to chain receipts so say if you comot or rearrange one, e go break the chain.
-- Wetin receipts dey prove and wetin dem no prove at all.
+- Why audit trails for AI agents na important for compliance, debugging, and trust.
+- Wetin cryptographic receipt be and how e different from unsigned log line.
+- How to make signed receipt for agent tool call for plain Python.
+- How to verify receipt offline and detect if person tamper am.
+- How to chain receipts so if you remove or reorder one, e go break the chain.
+- Wetin receipts fit prove and wetin dem no fit prove.
 
 ## Learning Goals
 
 After you finish dis lesson, you go sabi how to:
 
-- Identify the failure modes weh dey make people use cryptographic provenance for agent actions.
+- Identify failure modes wey dey make cryptographic provenance for agent actions important.
 - Produce Ed25519-signed receipt over canonical JSON payload.
-- Verify receipt by yourself only using signer public key.
-- Detect tampering by re-run verification on receipt wey dem modify.
-- Build hash-chained sequence of receipts and explain why chain dey important.
-- Understand the difference between wetin receipts prove (attribution, integrity, ordering) and wetin dem no prove (correctness of action, soundness of policy).
+- Verify receipt alone using only the public key of the signer.
+- Detect tampering by re-run verification on modified receipt.
+- Build hash-chained sequence of receipts and explain why the chain matter.
+- Recognize the boundary between wetin receipts prove (attribution, integrity, ordering) and wetin dem no prove (correctness of action, soundness of policy).
 
 ## The Problem: Your Agent's Audit Trail
 
-Imagine say you don deploy AI agent for Contoso Travel. Agent dey read customer request, call flights API to find options, and book seat for customer. For last quarter, agent process 50,000 bookings.
+Imagine say you don deploy AI agent for Contoso Travel. The agent dey read customer requests, dey call flights API to find options, then e dey book seat for customer side. Last quarter, agent process 50,000 bookings.
 
-Today auditor show. Dem ask simple question: "Make you show me wetin your agent do."
+Today auditor show. Dem ask simple question: "Show me wetin your agent do."
 
-You give dem your log files. Auditor look am, then dem ask harder question: "How I know say dem no edit the log?"
+You give dem your log files. Auditor look dem then ask harder question: "How I know say dis logs no get edit?"
 
-Na so audit-trail problem be. Today, most agent deployment rely on:
+Na dis audit-trail problem be that. Most agent deployment today dey rely on:
 
-- **Application logs**: wey agent itself write, fit edit by anybody wey get file-system access.
-- **Cloud logging services**: tamper-evident for platform level but only if auditor trust platform owner.
-- **Database transaction logs**: good for database changes but no too fit for any tool call.
+- **Application logs**: wey agent write by itself, and anybody wey get file-system access fit edit am.
+- **Cloud logging services**: platform-level tamper-evident but only if auditor trust the platform operator.
+- **Database transaction logs**: good for database changes but no good for arbitrary tool calls.
 
-None of these fit answer auditor question without auditor trusting somebody (you, your cloud provider, your database vendor). For internal use, dat trust fit make sense. For regulated workload dem (finance, healthcare, anything wey EU AI Act concern), e no fit.
+None of dem fit answer auditor question without make auditor trust somebody (you, your cloud provider, your database vendor). For internal use, dat trust fit okay. But for regulated work (finance, healthcare, anything under EU AI Act), e no okay.
 
-Cryptographic receipts solve am because dem make each agent action fit verify on im own. Auditor no need trust you. Dem only need your public key and receipt itself.
+Cryptographic receipts solve dis problem by making each agent action fit verify on im own. Auditor no need trust you. Dem only need your public key and di receipt.
 
 ## What is a Cryptographic Receipt?
 
-Receipt na JSON object wey record wetin agent do, and e dey sign with digital signature.
+Receipt na JSON object wey record wetin agent do, and e get digital signature.
 
 ```mermaid
 flowchart LR
@@ -55,12 +55,12 @@ flowchart LR
     C --> D[SHA-256 hash]
     D --> E[Ed25519 sign]
     E --> F[Receipt wey get signature]
-    F --> G[Auditor dey check offline]
-    G --> H{Signature correct?}
-    H -- yes --> I[Tamper-proof evidence]
-    H -- no --> J[Receipt no clear]
+    F --> G[Auditor dey check am offline]
+    G --> H{Signature valid?}
+    H -- yes --> I[Tamper-evident proof]
+    H -- no --> J[Receipt reject]
 ```
-
+  
 Minimal receipt look like dis:
 
 ```json
@@ -81,26 +81,26 @@ Minimal receipt look like dis:
   }
 }
 ```
+  
+Three properties dey do dis work:
 
-Three properties dey do the work:
+1. **The signature**. The receipt sign by agent gateway with Ed25519 private key. Anybody get corresponding public key fit verify signature offline. Any tampering for field go make signature invalid.
 
-1. **Signature**. Receipt na agent gateway dey sign am with Ed25519 private key. Anybody wey get public key fit verify signature offline. If tamper any field, signature no go valid again.
+2. **Canonical encoding**. Before signing, the receipt serialize using JSON Canonicalization Scheme (JCS, RFC 8785). Dis guarantee say two implementations wey produce same logical receipt go get byte-identical output. Without this, different JSON serializers go give different signatures for same content.
 
-2. **Canonical encoding**. Before sign, receipt go serialize with JSON Canonicalization Scheme (JCS, RFC 8785). Dis go make sure say two different implementation wey produce same logical receipt go produce byte-identical output. Without this canonicalization, different JSON serializers fit give different signatures for same content.
+3. **Hash chaining**. The `previous_receipt_hash` field link each receipt with the one before am. If person remove or reorder receipt, e go break all receipts after am. Tampering go show for chain level even if individual signatures bypass.
 
-3. **Hash chaining**. The `previous_receipt_hash` field link one receipt to receipt before am. If you comot or rearrange receipt, you go break every receipt wen come after am. Even if person bypass individual signature, tampering go dey obvious for chain level.
+Together dis properties dey give three guarantees:
 
-Dem three properties together dey give dis three guarantee:
-
-- **Attribution**: na dis key sign this content.
-- **Integrity**: content no change after dem sign am.
-- **Ordering**: dis receipt come after dat receipt for chain.
+- **Attribution**: dis key sign this content.
+- **Integrity**: content never change since dem sign am.
+- **Ordering**: dis receipt come after that one for the chain.
 
 ## Producing a Receipt in Python
 
-You no need special library to produce receipt. Cryptographic primitives dey for everywhere and the logic na just small Python lines.
+You no need special library to make receipt. Cryptographic primitives dey everywhere and the logic na small few dozen lines Python code.
 
-The hand-on exercises for `code_samples/18-signed-receipts.ipynb` go show you full flow. Summary version be:
+The hands-on exercises for `code_samples/18-signed-receipts.ipynb` go show full flow. Summary version:
 
 ```python
 import json
@@ -116,11 +116,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Make or load one signing key (for production, keep am for one key vault)
+# Make or find one signing key (for real work, keep am for key vault)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Build the receipt payload (no signature yet)
+# Build di receipt payload (no signature yet)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -136,7 +136,7 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Canonicalize, hash, sign.
+# Make am canonical, hash am, sign am.
 canonical_bytes = canonicalize(payload)
 message_hash = hashlib.sha256(canonical_bytes).digest()
 signature_bytes = signing_key.sign(message_hash).signature
@@ -151,12 +151,12 @@ receipt = {
     },
 }
 ```
-
-Na so d whole signing pipeline be. Exercises for notebook go show each step.
+  
+Dat na the entire signing pipeline. Exercises for notebook go explain step by step.
 
 ## Verifying a Receipt and Detecting Tampering
 
-Verification na opposite process:
+Verification na reverse process:
 
 ```python
 import base64
@@ -170,12 +170,12 @@ def b64url_decode(s: str) -> bytes:
     return base64.urlsafe_b64decode(s + padding)
 
 def verify_receipt(receipt: dict) -> bool:
-    # Di signature na structured object: {"alg", "sig", "public_key"}.
+    # Di signature na one structured object: {"alg", "sig", "public_key"}.
     sig_obj = receipt.get("signature")
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # Make back di payload we dem really sign (everything but di signature).
+    # Make back di payload wey dem really sign (everything except di signature).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
@@ -188,20 +188,20 @@ def verify_receipt(receipt: dict) -> bool:
     except BadSignatureError:
         return False
 ```
+  
+Dis function go take receipt return `True` if signature valid, if no, e go return `False`. No network call, no service dependancy, no need trust third party.
 
-This function go take receipt come give you `True` if signature valid, `False` if no valid. No network request, no service depend, no trust in anybody third party.
+To see tampering detection in action, the notebook go show:
 
-To see tampering detection, notebook go:
-
-1. Produce valid receipt and confirm say e verify.
+1. Make valid receipt and confirm say e verify.
 2. Change one byte for `tool_args_hash` field.
-3. Re-run verification and see e fail.
+3. Re-run verification and see say e fail.
 
-Dis na practical demonstration say receipt dey tamper-evident: any small modification fit break signature.
+Dis na practical demo say receipts na tamper-evident: any small change go break signature.
 
 ## Chaining Receipts for Multi-Step Agents
 
-One signed receipt protect one action. Chain of receipts protect sequence.
+One signed receipt protect one action. Chain of receipts protect sequence of actions.
 
 ```mermaid
 flowchart LR
@@ -212,153 +212,154 @@ flowchart LR
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
 ```
+  
+Each receipt record hash of previous receipt. To remove receipt 2 without show, attacker go need to either:
 
-Each receipt record hash of receipt before am. To comot receipt 2 quietly, attacker go need either:
+- Change receipt 3's `previous_receipt_hash` field (go break receipt 3 signature), OR  
+- Forge new signature for modified receipt 3 (need agent private key).
 
-- Change receipt 3 `previous_receipt_hash` field (go break receipt 3 signature), OR
-- Fake new signature on modified receipt 3 (need agent private key).
+If private key dey hardware key vault and you publish public key with every receipt, attacker no fit do these without detection.
 
-If private key dey hardware key vault and you dey publish public key with each receipt, neither attack go possible without detection.
-
-Notebook go:
+Notebook go show:
 
 1. Build chain of three receipts.
-2. Verify each receipt `previous_receipt_hash` match actual hash of previous receipt.
-3. Tamper with one receipt for middle and see chain break for that point.
+2. Verify say every receipt `previous_receipt_hash` match actual hash of previous receipt.
+3. Tamper one receipt for middle and see chain break right there.
 
-Na so you produce audit trail wey external auditor fit verify without trust you.
+Dis na how you fit produce audit trail wey external auditor fit verify without trust you.
 
 ## What Receipts Prove (and What They Do Not)
 
-Dis na most important part for dis lesson. Receipts strong but dem get limit.
+Dis na most important section for dis lesson. Receipts get power but their power get limit.
 
-**Receipts dey prove three things:**
+**Receipts prove three things:**
 
-1. **Attribution**: one specific key sign specific payload.
-2. **Integrity**: payload never change since dem sign am.
-3. **Ordering**: dis receipt come after dat receipt for hash chain.
+1. **Attribution**: specific key sign specific payload.
+2. **Integrity**: payload never change since sign.
+3. **Ordering**: dis receipt come after that receipt for hash chain.
 
-**Receipts no dey prove:**
+**Receipts no prove:**
 
-1. **Correctness**: say the agent action be the right action. Receipt fit sign wrong answer as clean as correct answer.
-2. **Policy compliance**: say policy wey dem put for `policy_id` really evaluate, or say e for allow dis action if dem check am. Receipt record wetin dem claim, no be wetin dem enforce.
-3. **Identity beyond key**: receipt talk "dis key sign dis content." E no talk "dis human authorize dis." To connect key to person need separate identity system (directory, public key registry, etc).
-4. **Truthfulness of inputs**: If agent get manipulated prompt and act on am, receipt go record action faithfully. Receipts dey downstream of input validation, no be replacement.
+1. **Correctness**: say agent action na correct one. Receipt fit sign even for wrong answer as clean as for right answer.
+2. **Policy compliance**: say policy inside `policy_id` really evaluate, or dat e go allow action if check done. Receipt dey record wetin dem claim, no wetin e enforce.
+3. **Identity beyond key**: receipt talk "dis key sign dis content." E no talk "dis person authorize dis." To connect key to person or org, you need separate identity infrastructure (directory, public key registry, etc.).
+4. **Truthfulness of inputs**: if agent receive manipulated prompt and act on am, receipt go record action faithfully. Receipts dey downstream of input validation, no replace am.
 
-Dis boundary important for two reasons:
+Dis boundary matter for two main reasons:
 
-- E tell you wetin receipts dey useful for: make agent behaviour dey auditable and tamper-evident, even across organizational boundaries.
-- E show wetin you still need: input validation (Lesson 6), policy enforcement (briefly cover below), and identity infrastructure (no include for dis lesson).
+- E tell you wetin receipts fit do: make agent behavior auditable and tamper-evident, even across organizations.
+- E show wetin layers you still need: input validation (Lesson 6), policy enforcement (briefly cover below), identity infrastructure (no cover here).
 
-Common mistake be say people think "we get receipts" mean "we dey governed." Na lie. Receipts na foundation. Governance na system you build on top.
+Common mistake be to think say "we get receipts" mean "we dey governed." Na lie. Receipts na foundation. Governance na system wey you build on top.
 
 ## Production References
 
-Python code for dis lesson minimal so you fit read every line and understand wetin dey happen. For production, you get two options:
+Python code for dis lesson simple so you fit read every line and understand wetin dey happen. For production, you get two options:
 
-1. **Build directly on cryptographic primitives.** The 50 lines wey you see on top enough for many use cases. PyNaCl (Ed25519) and `jcs` package (canonical JSON) na well maintained and audited library.
+1. **Build directly on cryptographic primitives.** The 50 lines you see above enough for many use cases. PyNaCl (Ed25519) and `jcs` package (canonical JSON) na well-maintained and audited libraries.
 
-2. **Use production receipt library.** Some open-source projects dey do same pattern with extra features (key rotation, batch verification, JWK Set distribution, integration with policy engines):
-   - Receipt format for dis lesson follow IETF Internet-Draft (`draft-farley-acta-signed-receipts`) wey dey standard process.
-   - Microsoft Agent Governance Toolkit dey combine receipts with Cedar-based policy decisions; see Tutorial 33 for repository for full example.
-   - `protect-mcp` (npm) and `@veritasacta/verify` (npm) packages provide Node-based receipt signing and offline verification, to wrap MCP server with tamper-evident audit trail.
+2. **Use production receipt library.** Some open-source projects implement same pattern with extra features (key rotation, batch verification, JWK Set distribution, integration with policy engines):
+   - The receipt format wey dis lesson use dey follow IETF Internet-Draft (`draft-farley-acta-signed-receipts`) wey dey standards process now.
+   - Microsoft Agent Governance Toolkit dey compose receipts with Cedar-based policy decisions; see Tutorial 33 for that repo for end-to-end example.
+   - `protect-mcp` (npm) and `@veritasacta/verify` (npm) packages dey provide Node-based implementation of receipt signing and offline verification, to wrap any MCP server with tamper-evident audit trail.
+   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) dey provide same Ed25519 + JCS signing pattern for Python with LangChain and CrewAI integrations, including published cross-validation test vectors and compliance mapping through [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
-The choice between making your own and using library na like choice between writing your own JWT library and use tested one: both dey okay; library save time and reduce audit surface; from-scratch make you sabi every primitive. Dis lesson teach from-scratch so you get foundation for any choice.
+Deciding between write your own or use library like how you decide to write your own JWT library or use tested one: both good; library save time and reduce audit surface; write from scratch make you understand every primitive well well. Dis lesson teach from scratch path so you get foundation for both choice.
 
 ## Knowledge Check
 
-Test your understanding before you move to practice exercise.
+Test your understanding before you start practice exercise.
 
 **1. Receipt sign with agent private Ed25519 key. Auditor only get public key. Auditor fit verify receipt offline?**
 
 <details>
 <summary>Answer</summary>
 
-Yes. Ed25519 verification need only public key and signed bytes. No network request, no service dependency. Na why receipt dey useful for air-gapped, multi-org, or low-trust audit setting.
+Yes. Ed25519 verification need only public key and signed bytes. No network call, no service dependency. Na wetin make receipts useful for air-gapped, multi-org, or low-trust audit settings.
 </details>
 
-**2. Attacker modify `policy_id` field to claim policy na more permissive one. Signature na original payload. Wetin go happen during verification?**
+**2. Attacker modify `policy_id` field of receipt claim say e under more permissive policy. Signature still over original payload. Wetin happen for verification?**
 
 <details>
 <summary>Answer</summary>
 
-Verification go fail. Signature compute from canonical bytes for original payload; change any field change canonical bytes, change SHA-256 hash, make signature invalid. Attacker need private key to produce fresh valid signature, wey dem no get.
+Verification fail. Signature compute on canonical bytes of original payload; any change for field change canonical bytes, change SHA-256 hash, make signature invalid. Attacker need private key to make fresh valid signature, which dem no get.
 </details>
 
-**3. Why receipt dey include `tool_args_hash` and `result_hash` instead of raw arguments and result?**
+**3. Why receipt get `tool_args_hash` and `result_hash` instead of raw arguments and result?**
 
 <details>
 <summary>Answer</summary>
 
-Two reasons. First, receipt fit need archive or transmit for environment wey leaking raw content (PII, business data) no good. Hash keep receipt small and content private; auditor verify hash match separate stored copy of content. Second, hashes get fixed size; receipt with hashes no dey too big no matter how large input and output be.
+Two reasons. First, receipt fit dey archived or transmitted where leaking raw content (PII, business data) no good. Hash keep receipt small, content private; auditor verify hash match separate actual content copy. Second, hashes get fixed size; receipt with hashes get bounded size no matter how big input/output be.
 </details>
 
-**4. `previous_receipt_hash` field link each receipt to predecessor. If attacker silently delete one receipt from middle of chain, wetin go become invalid?**
+**4. `previous_receipt_hash` field link each receipt to predecessor. If attacker silently delete one receipt from middle chain, wetin no go valid?**
 
 <details>
 <summary>Answer</summary>
 
-Every receipt after the deleted one. Their `previous_receipt_hash` no go match actual chain (because the receipt dem reference no dey, or chain this time link different one). To hide deletion, attacker go need re-sign every later receipt, wey need private key.
+Every receipt after deleted one. Their `previous_receipt_hash` fields no go match actual chain again (because referenced receipt no dey, or chain point to different predecessor). To hide deletion, attacker go need re-sign every later receipt, which need private key.
 </details>
 
-**5. Receipt verify clean. E prove say agent action correct, sound, or follow policy?**
+**5. Receipt verify clean. That mean say agent action correct, sound, or policy compliant?**
 
 <details>
 <summary>Answer</summary>
 
-No. Valid receipt prove three things: attribution (dis key sign this content), integrity (content no change), ordering (receipt come after another). E no prove say action correct, policy for `policy_id` actually evaluate, or say agent follow every rule. Receipts make agent behaviour auditable, not necessarily correct. Na most important lesson boundary.
+No. Valid receipt prove three things: attribution (this key sign content), integrity (content no change), ordering (receipt follow order). E no prove say action correct, policy evaluated, or agent follow all rules. Receipts make agent behavior auditable, no mean say correct. Dis na most important boundary for lesson.
 </details>
 
 ## Practice Exercise
 
-Open `code_samples/18-signed-receipts.ipynb` and complete all four sections:
+Open `code_samples/18-signed-receipts.ipynb` and finish all four parts:
 
 1. **Section 1**: Sign your first receipt and verify am.
-2. **Section 2**: Tamper receipt and see verification fail.
+2. **Section 2**: Tamper receipt and watch verification fail.
 3. **Section 3**: Build three-receipt chain and verify chain integrity.
-4. **Section 4**: Use pattern for agent built with Microsoft Agent Framework: wrap tool call in receipt-signing, then verify receipt independently.
+4. **Section 4**: Apply dis pattern to agent built with Microsoft Agent Framework: wrap tool call inside receipt-signing, then verify receipt independently.
+**Stretch challenge 1:** extend di receipt schema wit one more field wey you choose (exampul fit be request ID for tracing), update di canonical signing logic to include am, and confirm say di receipt still fit round-trip through verification. Den change di field after you don sign and confirm say verification no go pass. Dis go make you sabi how every byte for di canonical encoding dey add to di signature.
 
-**Stretch challenge 1:** expand receipt schema with extra field of your choice (for example, request ID for tracing), update canonical signing logic to include am, and check say receipt still fit verify. Then change field after signing and confirm verification fail. Dis one go make you understand how every byte for canonical encoding dey affect signature.
-**Stretch challenge 2:** SHA-256-hash two of your receipts together (concatenate their canonical bytes in a deterministic order) and embed the resulting digest as a new field on a third receipt before signing it. Verify say all three receipts still dey round-trip. You don just build one-step inclusion proof: anybody wey get the third receipt fit prove say the first two dey exist at the time e sign am, without needing to show their contents. Na di pattern wey selective-disclosure receipts dey use for large scale (Merkle commitments, RFC 6962).
+**Stretch challenge 2:** SHA-256-hash two of your receipts together (join dia canonical bytes for one fixed order) and put di resulting digest as new field for one third receipt before you sign am. Check say all three receipts still fit round-trip. You don just build one-step inclusion proof: anybody wey get di third receipt fit show say di first two dey when e sign am, without to show dia content. Na di pattern wey selective-disclosure receipts dey use well-well (Merkle commitments, RFC 6962).
 
 ## Conclusion
 
 Cryptographic receipts dey give AI agents audit trail wey be:
 
-- **Independently verifiable**: any person wey get di public key fit verify am, no need any service.
-- **Tamper-evident**: any change go spoil the signature.
+- **Independently verifiable**: anybody wey get di public key fit verify, no need any service.
+- **Tamper-evident**: any change for di receipt go spoil di signature.
 - **Portable**: receipt na small JSON file; e fit dey archived, transmitted, and verified anywhere.
-- **Standards-aligned**: e build on Ed25519 (RFC 8032), JCS (RFC 8785), and SHA-256, all of dem na widely used primitives.
+- **Standards-aligned**: dem build am on top Ed25519 (RFC 8032), JCS (RFC 8785), and SHA-256, all na widely-used primitives.
 
-Dem no be replacement for input validation, policy enforcement, or identity infrastructure. Dem be foundation for those layers. When you dey deploy agents into regulated workloads, multi-organization workflows, or any place wey future auditor no go fit just trust you, receipts na how you fit keep audit trail honest.
+Dem no be replacement for input validation, policy enforcement, or identity infrastructure. Dem be di foundation for all those layers. When you dey deploy agents for regulated workloads, multi-organization workflows, or any place where future auditor fit no trust you, na receipts go make sure say di audit trail honest.
 
-The most important thing: receipts prove who talk wetin, when. Dem no dey prove say wetin dem talk na true or correct. Make you hold dat difference tight. Na the difference between honest provenance system and one wey go mislead.
+Di most important takeaway: receipts dey prove who talk wetin, and when. Dem no dey prove say wetin dem talk na true or correct. Hold dat distinction tight. Na difference between honest provenance system and one wey fit mislead.
 
 ## Production Checklist
 
-When you ready to graduate from dis lesson to deploy receipt-signed agents for real environment:
+When you don ready to waka from dis lesson go deploy receipt-signed agents for real environment:
 
-- [ ] **Move di signing key from developer laptop.** Use Azure Key Vault, AWS KMS, or hardware security module. The private key wey dey sign your receipts no suppose ever dey for source control or in plaintext for application machines.
-- [ ] **Publish di verification public key.** Auditors go need am for verify offline. Standard pattern na JWK Set for well-known URL (RFC 7517), example: `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Anchor di chain externally.** Periodically write latest chain head hash to transparency log (Sigstore Rekor, RFC 3161 timestamp authority, or second internal system) so external party fit confirm "dis chain dey for dis time."
-- [ ] **Store receipts immutably.** Append-only blob storage (Azure Storage wey get immutability policies, AWS S3 Object Lock) go stop insider from rewriting history for storage layer.
-- [ ] **Decide retention.** Plenty compliance regime dey require multi-year retention. Plan for receipt growth (every receipt be ~500 bytes; agent wey dey make 10K calls per day fit produce ~1.8 GB per year).
-- [ ] **Document wetin receipts no cover.** Receipts dey prove attribution, integrity, and ordering. Your runbook suppose list explicit the additional controls (input validation, policy enforcement, rate limiting, identity infrastructure) wey dey alongside receipts for your governance.
+- [ ] **Move di signing key comot for developer laptop.** Use Azure Key Vault, AWS KMS, or hardware security module. Private key wey dey sign your receipts no suppose ever dey for source control or as plaintext for app machines.
+- [ ] **Publish di verification public key.** Auditors need am to verify offline. Di normal pattern na JWK Set for one well-known URL (RFC 7517), eg, `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Anchor di chain outside.** Sometimes write di latest chain head hash to transparency log (Sigstore Rekor, RFC 3161 timestamp authority, or second internal system) so outside person fit confirm "dis chain dey this time."
+- [ ] **Store receipts so dem no fit change.** Use append-only blob storage (Azure Storage wit immutability policies, AWS S3 Object Lock) to stop insider from rewriting history for storage layer.
+- [ ] **Decide how long to keep receipts.** Many compliance regimes require multi-year retention. Plan for receipt growth (receipt na about 500 bytes; agent wey make 10K calls per day go produce about 1.8 GB per year).
+- [ ] **Write down wetin receipts no cover.** Receipts dey prove attribution, integrity, and ordering. Your runbook suppose list other controls (input validation, policy enforcement, rate limiting, identity infrastructure) wey dey combined wit receipts for your governance.
 
-### You Get More Questions About Securing AI Agents?
+### Get More Questions About Securing AI Agents?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours, and get your AI Agents questions answered.
+Join [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet other learners, attend office hours, and get your AI Agents questions answered.
 
 ## Beyond This Lesson
 
-This lesson cover single-receipt signing and hash-chained sequences. The same primitives fit form plenty advanced patterns wey you fit see as your governance matures:
+Dis lesson dey cover single-receipt signing and hash-chained sequences. Same primitives dey fit join make more advanced patterns wey you fit see as your governance style grow:
 
-- **Selective disclosure.** When receipt fields dey independently committed (RFC 6962-style Merkle tree), you fit show specific fields to specific auditors and prove others no change without exposing dem. Useful when same receipt suppose satisfy both comprehensive audit (wey want completeness) and data-minimization regulations like GDPR (wey want auditor to see as small as e possible).
-- **Receipt revocation.** If signing key compromise, you need way to mark all receipts signed by dat key as untrusted from some time. Standard patterns: short-lived signing keys plus published revocation list, or transparency log with revocation entries.
-- **Bilateral / split-signature receipts.** Some implementations split signed payload into pre-execution (`authorization_*`) and post-execution (`result_*`) halves with independent signatures, useful when authorization decision and observed result come from different actors or at different times. This dey add on top of receipt format wey this lesson teach.
-- **Payload composition.** Receipt seal wetin you put inside `result_hash`. Real-world payloads dey often rich pass single tool call result: pre-decision reasoning (model prediction, options considered, evidence and completeness, risk posture, accountability chain, gate outcome) fit dey inside payload, sealed by one receipt. This keep receipt format small while allowing payload schemas grow domain-by-domain.
-- **Cross-implementation conformance.** Plenty independent implementations of same receipt format (Python, TypeScript, Rust, Go) dey cross-verify against shared test vectors. If you build your own, validating against published vectors confirm say wire fit work together.
-- **Post-quantum migration.** Ed25519 dey widely deployed now but no quantum-resistant. Receipt format get algorithm-agile: `signature.alg` field fit carry `ML-DSA-65` (NIST post-quantum signature standard) when you need migrate. Plan transition period wey receipts go dey dual-signed.
+- **Selective disclosure.** When receipt fields dem get own independent commitment (RFC 6962 style Merkle tree), you fit show specific fields to specific auditors and prove say di others no change without show dem. E good when same receipt suppose satisfy full audit (wey want completeness) and data-minimization laws like GDPR (wey want auditor see just small).
+- **Receipt revocation.** If anyone leak signing key, you need way to mark all receipts signed with am as no trust from certain time. Normal ways: short-lived signing keys plus published revocation list, or transparency log with revocation entries.
+- **Bilateral / split-signature receipts.** Some system divide signed payload into pre-execution (`authorization_*`) and post-execution (`result_*`) halves with different signatures, good when authorization and result na different people or time. E fit work together wit receipt format taught here.
+- **Payload composition.** Receipt dey seal whatever bytes you put for `result_hash`. Real payloads fit get more info than one tool call result: pre-decision thinking (model prediction, options, evidence and how complete, risk posture, accountability, gate result) all fit dey inside payload sealed by one receipt. E keep receipt format small while payload schemas fit grow by domain.
+- **Cross-implementation conformance.** Multiple independent implementations for same receipt format (Python, TypeScript, Rust, Go) fit verify against same test vectors. If you build your own, validating with published vectors confirm wire compatibility.
+- **Post-quantum migration.** Ed25519 dey widely used now but no fit handle quantum well. Receipt format dey algorithm-agile: `signature.alg` field fit carry `ML-DSA-65` (NIST post-quantum signature standard) when you wan migrate. Plan transition period where receipts get dual-sign.
 
 ## Additional Resources
 
@@ -368,7 +369,7 @@ This lesson cover single-receipt signing and hash-chained sequences. The same pr
 - <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON Canonicalization Scheme (JCS)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Certificate Transparency</a> (Merkle-tree construction wey selective-disclosure receipts dey use)
 - <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Offline-Verifiable Decision Receipts</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Cross-implementation conformance test vectors</a> for receipt format wey this lesson use (Apache-2.0)
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Cross-implementation conformance test vectors</a> for receipt format used here (Apache-2.0)
 - <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl documentation</a> (Ed25519 for Python)
 
 ## Previous Lesson
