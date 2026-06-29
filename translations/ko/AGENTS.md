@@ -84,7 +84,7 @@
 **Microsoft Agent Framework + Azure AI Foundry:**
 - Azure 구독 필요
 - Agent Service V2용 `AzureAIProjectAgentProvider` 사용(Foundry 포털에서 에이전트 확인 가능)
-- 내장 관찰성으로 프로덕션 준비됨
+- 내장 관찰 가능성으로 프로덕션 준비됨
 - 파일 패턴: `*-python-agent-framework.ipynb`
 
 ## 테스트 지침
