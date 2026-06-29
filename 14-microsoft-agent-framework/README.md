@@ -84,7 +84,7 @@ agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="
 or [MiniMax](https://platform.minimaxi.com/), which provides an OpenAI-compatible API with large context windows (up to 204K tokens):
 
 ```python
-agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M2.7").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
+agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
 or remote agents using the A2A protocol:
