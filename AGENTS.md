@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This repository contains "AI Agents for Beginners" - a comprehensive educational course teaching everything needed to build AI Agents. The course consists of 15+ lessons covering fundamentals, design patterns, frameworks, and production deployment of AI agents.
+This repository contains "AI Agents for Beginners" - a comprehensive educational course teaching everything needed to build AI Agents. The course consists of 18 lessons covering fundamentals, design patterns, frameworks, and production deployment of AI agents.
 
 **Key Technologies:**
 - Python 3.12+
