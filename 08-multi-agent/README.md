@@ -159,11 +159,21 @@ Design a multi-agent system for a customer support process. Identify the agents 
 
 ## Knowledge checks
 
-Question: When should you consider using multi-agents?
+### Question 1
 
-- [ ] A1: When you have a small workload and a simple task.
-- [ ] A2: When you have a large workload
-- [ ] A3: When you have a simple task.
+Which scenario is the strongest fit for a multi-agent system?
+
+- [ ] A1: A support bot answers common questions using one knowledge base and a small set of tools.
+- [ ] A2: A refund workflow needs separate fraud, payment, and compliance roles, each with its own tools, and their results must be coordinated.
+- [ ] A3: The same simple classification request arrives thousands of times per hour.
+
+### Question 2
+
+When is a single agent usually the better choice?
+
+- [ ] A1: The task can be handled with one set of instructions and tools, without specialist handoffs.
+- [ ] A2: The agent has access to more than one tool.
+- [ ] A3: The workflow requires separate roles with different permissions and independent audit trails.
 
 [Solution quiz](./solution/solution-quiz.md)
 
