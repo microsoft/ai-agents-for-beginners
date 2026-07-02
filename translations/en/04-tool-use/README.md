@@ -227,7 +227,7 @@ def get_current_time(location: str) -> str:
 # Create the client
 provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
-# Create an agent and run with the tool
+# Create an agent and run it with the tool
 agent = await provider.create_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
 response = await agent.run("What time is it?")
 ```
@@ -280,11 +280,11 @@ project_client = AIProjectClient.from_connection_string(
 # Initialize toolset
 toolset = ToolSet()
 
-# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and add it to the toolset
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Initialize Code Interpreter tool and add it to the toolset.
+# Initialize Code Interpreter tool and adding it to the toolset.
 code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
@@ -306,7 +306,7 @@ Running the app in a secure environment further enhances protection. In enterpri
 
 ## Got More Questions about the Tool Use Design Patterns?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Additional Resources
 

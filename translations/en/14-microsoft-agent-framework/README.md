@@ -20,13 +20,13 @@ After completing this lesson, you will know how to:
 
 ## Code Samples 
 
-Code samples for [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) can be found in this repository under `xx-python-agent-framework` and `xx-dotnet-agent-framework` files.
+Code samples for [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) can be found in this repository under `xx-python-agent-framework` and `xx-dotnet-agent-framework` files.
 
 ## Understanding Microsoft Agent Framework
 
 ![Framework Intro](../../../translated_images/en/framework-intro.077af16617cf130c.webp)
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) is Microsoft's unified framework for building AI agents. It offers the flexibility to address the wide variety of agentic use cases seen in both production and research environments including:
+[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) is Microsoft's unified framework for building AI agents. It offers the flexibility to address the wide variety of agentic use cases seen in both production and research environments including:
 
 - **Sequential Agent orchestration** in scenarios where step-by-step workflows are needed.
 - **Concurrent orchestration** in scenarios where agents need to complete tasks at the same time.
@@ -84,7 +84,7 @@ agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="
 or [MiniMax](https://platform.minimaxi.com/), which provides an OpenAI-compatible API with large context windows (up to 204K tokens):
 
 ```python
-agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M2.7").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
+agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
 or remote agents using the A2A protocol:
@@ -144,8 +144,8 @@ Agent Threads are used to handle multi-turn conversations. Threads can be create
 To create a thread, the code looks like this:
 
 ```python
-# Créer un nouveau thread.
-thread = agent.get_new_thread() # Exécuter l'agent avec le thread.
+# Create a new thread.
+thread = agent.get_new_thread() # Run the agent with the thread.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
@@ -171,7 +171,7 @@ resumed_thread = await agent.deserialize_thread(serialized_thread)
 
 **Agent Middleware**
 
-Agents interact with tools and LLMs to complete user's tasks. In certain scenarios, we want to execute or track in between these interactions. Agent middleware enables us to do this through:
+Agents interact with tools and LLMs to complete user's tasks. In certain scenarios, we want to execute or track in between these it interactions. Agent middleware enables us to do this through:
 
 *Function Middleware*
 
@@ -350,11 +350,11 @@ Code samples for Microsoft Agent Framework can be found in this repository under
 
 ## Got More Questions About Microsoft Agent Framework?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
+**Disclaimer**:
 This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

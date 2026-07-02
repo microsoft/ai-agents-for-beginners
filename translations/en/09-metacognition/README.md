@@ -902,8 +902,6 @@ Let's take Travel Agent as an example to see how searching with intent can be im
    ```
 
 3. **Context Awareness**
-
-
    ```python
    def analyze_context(query, user_history):
        # Combine current query with user history to understand context
@@ -1091,7 +1089,7 @@ In this example, we'll design a code generating agent, Travel Agent, to assist u
 
    ```python
    def adjust_based_on_feedback(feedback, preferences):
-       # Ajustar preferencias según la retroalimentación del usuario
+       # Adjust preferences based on user feedback
        if "liked" in feedback:
            preferences["favorites"] = feedback["liked"]
        if "disliked" in feedback:
@@ -1101,7 +1099,7 @@ In this example, we'll design a code generating agent, Travel Agent, to assist u
    feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
    updated_preferences = adjust_based_on_feedback(feedback, preferences)
    
-   # Regenerar y ejecutar el código con las preferencias actualizadas
+   # Regenerate and execute code with updated preferences
    updated_flight_code = generate_code_to_fetch_data(updated_preferences)
    updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
    
@@ -1423,7 +1421,7 @@ Metacognition is a powerful tool that can significantly enhance the capabilities
 
 ### Got More Questions about the Metacognition Design Pattern?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Previous Lesson
 
@@ -1437,5 +1435,5 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet w
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please note that automated translations may contain errors or inaccuracies. The original document in its original language should be regarded as the authoritative source. For critical information, professional human translation is recommended. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

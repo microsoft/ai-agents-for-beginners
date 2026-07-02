@@ -256,9 +256,9 @@ Add these variables to your `.env` file:
 |----------|-----------------|
 | `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) → API Keys |
 | `MINIMAX_BASE_URL` | Use `https://api.minimax.io/v1` (default value) |
-| `MINIMAX_MODEL_ID` | Model name to use (e.g., `MiniMax-M2.7`) |
+| `MINIMAX_MODEL_ID` | Model name to use (e.g., `MiniMax-M3`) |
 
-**Available models**: `MiniMax-M2.7` (recommended), `MiniMax-M2.7-highspeed` (faster responses)
+**Example models**: `MiniMax-M3` (recommended), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (faster responses). Model names and availability can change over time, and access to a given model may depend on your account or region — check the [MiniMax Platform](https://platform.minimaxi.com/) for the current list. If `MiniMax-M3` isn't available to your account, set `MINIMAX_MODEL_ID` to a model you have access to (e.g. `MiniMax-M2.7`).
 
 The code samples that use `OpenAIChatClient` (e.g., Lesson 14 hotel booking workflow) will automatically detect and use your MiniMax configuration when `MINIMAX_API_KEY` is set.
 
@@ -319,7 +319,6 @@ truststore.inject_into_ssl()
 ## Stuck Somewhere?
 
 If you have any issues running this setup, hop into our <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discord</a> or <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">create an issue</a>.
-
 ## Next Lesson
 
 You are now ready to run the code for this course. Happy learning more about the world of AI Agents! 
@@ -329,6 +328,6 @@ You are now ready to run the code for this course. Happy learning more about the
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
+**Disclaimer**:
 This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

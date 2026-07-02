@@ -376,10 +376,6 @@ This lesson covers single-receipt signing and hash-chained sequences. The same p
 
 [Building Computer Use Agents (CUA)](../15-browser-use/README.md)
 
-## Next Lesson
-
-_(To be determined by curriculum maintainers)_
-
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->

@@ -1,168 +1,169 @@
-# Mémoire pour les agents IA  
+# Mémoire pour les Agents IA  
 [![Agent Memory](../../../translated_images/fr/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-Lorsque l'on parle des avantages uniques de la création d'agents IA, deux choses sont principalement abordées : la capacité à utiliser des outils pour accomplir des tâches et la capacité à s'améliorer au fil du temps. La mémoire est à la base de la création d’agents auto-améliorants capables d’offrir de meilleures expériences à nos utilisateurs.
+Lorsqu'on discute des avantages uniques de la création d'agents IA, deux choses sont principalement mises en avant : la capacité à utiliser des outils pour accomplir des tâches et la capacité à s'améliorer au fil du temps. La mémoire est à la base de la création d'agents auto-améliorants capables d'offrir de meilleures expériences à nos utilisateurs.
 
-Dans cette leçon, nous examinerons ce qu’est la mémoire pour les agents IA et comment nous pouvons la gérer et l’utiliser au bénéfice de nos applications.
+Dans cette leçon, nous allons examiner ce qu’est la mémoire pour les agents IA et comment nous pouvons la gérer et l’utiliser au bénéfice de nos applications.
 
 ## Introduction
 
 Cette leçon couvrira :
 
-• **Comprendre la mémoire des agents IA** : Qu’est-ce que la mémoire et pourquoi elle est essentielle pour les agents.
+• **Comprendre la mémoire des agents IA** : Ce qu’est la mémoire et pourquoi elle est essentielle pour les agents.
 
-• **Implémenter et stocker la mémoire** : Méthodes pratiques pour ajouter des capacités de mémoire à vos agents IA, en mettant l’accent sur la mémoire à court terme et à long terme.
+• **Implémenter et stocker la mémoire** : Méthodes pratiques pour ajouter des capacités de mémoire à vos agents IA, en se concentrant sur la mémoire à court terme et à long terme.
 
-• **Rendre les agents IA auto-améliorants** : Comment la mémoire permet aux agents d’apprendre des interactions passées et de s’améliorer au fil du temps.
+• **Rendre les agents IA auto-améliorants** : Comment la mémoire permet aux agents d’apprendre des interactions passées et de s’améliorer avec le temps.
 
-## Implémentations disponibles
+## Implémentations Disponibles
 
-Cette leçon comprend deux tutoriels complets au format notebook :
+Cette leçon inclut deux tutoriels complets sous forme de notebooks :
 
-• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)** : Implémente la mémoire en utilisant Mem0 et Azure AI Search avec Microsoft Agent Framework
+• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)** : Implémente la mémoire avec Mem0 et Azure AI Search via Microsoft Agent Framework
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)** : Implémente la mémoire structurée avec Cognee, construisant automatiquement un graphe de connaissances soutenu par des embeddings, visualisant le graphe et réalisant une récupération intelligente
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)** : Implémente une mémoire structurée avec Cognee, construisant automatiquement un graphe de connaissances supporté par des embeddings, visualisant le graphe, et facilitant la récupération intelligente
 
-## Objectifs d’apprentissage
+## Objectifs d’Apprentissage
 
-Après avoir terminé cette leçon, vous saurez :
+Après avoir complété cette leçon, vous serez capable de :
 
-• **Différencier entre les différents types de mémoire des agents IA**, incluant la mémoire de travail, la mémoire à court terme et à long terme, ainsi que des formes spécialisées comme la mémoire de persona et la mémoire épisodique.
+• **Différencier les différents types de mémoire des agents IA**, y compris la mémoire de travail, à court terme et à long terme, ainsi que des formes spécialisées comme la mémoire de persona et épisodique.
 
-• **Implémenter et gérer la mémoire à court terme et à long terme pour les agents IA** en utilisant Microsoft Agent Framework, en tirant parti d’outils comme Mem0, Cognee, la mémoire Whiteboard et l’intégration avec Azure AI Search.
+• **Implémenter et gérer la mémoire à court terme et à long terme pour les agents IA** en utilisant Microsoft Agent Framework, en tirant parti d’outils comme Mem0, Cognee, Whiteboard memory, et en intégrant Azure AI Search.
 
-• **Comprendre les principes derrière les agents IA auto-améliorants** et comment des systèmes de gestion de mémoire robustes contribuent à l’apprentissage continu et à l’adaptation.
+• **Comprendre les principes derrière les agents IA auto-améliorants** et comment des systèmes robustes de gestion de mémoire contribuent à l’apprentissage et l’adaptation continus.
 
-## Comprendre la mémoire des agents IA
+## Comprendre la Mémoire des Agents IA
 
-Au fond, **la mémoire pour les agents IA désigne les mécanismes qui leur permettent de retenir et de rappeler des informations**. Ces informations peuvent être des détails spécifiques sur une conversation, les préférences d’un utilisateur, des actions passées, ou même des schémas appris.
+Au cœur du sujet, **la mémoire pour les agents IA désigne les mécanismes qui leur permettent de retenir et de rappeler des informations**. Ces informations peuvent être des détails spécifiques d’une conversation, des préférences utilisateur, des actions passées, voire des schémas appris.
 
-Sans mémoire, les applications IA sont souvent sans état, ce qui signifie que chaque interaction recommence à zéro. Cela conduit à une expérience utilisateur répétitive et frustrante où l’agent « oublie » le contexte ou les préférences précédentes.
+Sans mémoire, les applications IA sont souvent sans état (stateless), ce qui signifie que chaque interaction commence à zéro. Cela conduit à une expérience utilisateur répétitive et frustrante où l’agent "oublie" le contexte ou les préférences précédentes.
 
-### Pourquoi la mémoire est-elle importante ?
+### Pourquoi la Mémoire est-elle Importante ?
 
-L’intelligence d’un agent est profondément liée à sa capacité à rappeler et utiliser des informations passées. La mémoire permet aux agents d’être :
+L’intelligence d’un agent est étroitement liée à sa capacité à se souvenir et à utiliser des informations passées. La mémoire permet aux agents d’être :
 
-• **Réfléchis** : Apprendre des actions passées et de leurs résultats.
+• **Réfléchis** : Apprendre des actions et résultats passés.
 
-• **Interatifs** : Maintenir le contexte au cours d’une conversation en cours.
+• **Interactifs** : Maintenir le contexte pendant une conversation en cours.
 
-• **Proactifs et réactifs** : Anticiper les besoins ou répondre de manière appropriée en se basant sur des données historiques.
+• **Proactifs et Réactifs** : Anticiper les besoins ou répondre adéquatement en fonction des données historiques.
 
 • **Autonomes** : Fonctionner plus indépendamment en s’appuyant sur des connaissances stockées.
 
-L’objectif de l’implémentation de la mémoire est de rendre les agents plus **fiables et performants**.
+Le but de l’implémentation de la mémoire est de rendre les agents plus **fiables et compétents**.
 
-### Types de mémoire
+### Types de Mémoire
 
-#### Mémoire de travail
+#### Mémoire de Travail
 
-Pensez à cela comme une feuille de brouillon qu’un agent utilise pendant une tâche unique et en cours ou un processus de réflexion. Elle contient les informations immédiates nécessaires pour calculer l’étape suivante.
+Pensez à cela comme un brouillon qu’un agent utilise pendant une tâche ou un processus de réflexion en cours. Elle contient l’information immédiate nécessaire pour calculer l’étape suivante.
 
-Pour les agents IA, la mémoire de travail capture souvent les informations les plus pertinentes d’une conversation, même si l’historique complet du chat est long ou tronqué. Elle se concentre sur l’extraction d’éléments clés comme les exigences, les propositions, les décisions et les actions.
+Pour les agents IA, la mémoire de travail capture souvent les informations les plus pertinentes d’une conversation, même si l’historique complet est long ou tronqué. Elle se concentre sur l’extraction d’éléments clés comme exigences, propositions, décisions et actions.
 
-**Exemple de mémoire de travail**
+**Exemple de Mémoire de Travail**
 
-Dans un agent de réservation de voyage, la mémoire de travail pourrait capturer la demande actuelle de l’utilisateur, par exemple « Je veux réserver un voyage à Paris ». Cette exigence spécifique est maintenue dans le contexte immédiat de l’agent pour guider l’interaction en cours.
+Dans un agent de réservation de voyage, la mémoire de travail pourrait capturer la demande actuelle de l’utilisateur, comme "Je veux réserver un voyage à Paris". Cette exigence spécifique est retenue dans le contexte immédiat de l’agent pour guider l’interaction en cours.
 
-#### Mémoire à court terme
+#### Mémoire à Court Terme
 
-Ce type de mémoire conserve l’information pendant une seule conversation ou session. C’est le contexte du chat actuel, permettant à l’agent de se référer aux tours précédents du dialogue.
+Ce type de mémoire conserve l’information pendant la durée d’une seule conversation ou session. C’est le contexte du chat actuel, permettant à l’agent de se référer aux tours précédents du dialogue.
 
-Dans les exemples du SDK Python [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), cela correspond à `AgentSession`, créé avec `agent.create_session()`. La session est la mémoire à court terme intégrée du framework : elle garde le contexte de la conversation disponible tant que la session est réutilisée, mais ce contexte n’est pas conservé lorsque la session se termine ou que l’application redémarre. Utilisez la mémoire à long terme pour les faits et préférences devant survivre aux sessions, typiquement via une base de données, un index vectoriel, ou un autre stockage persistant.
+Dans les exemples du SDK Python de [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), cela correspond à `AgentSession`, créé avec `agent.create_session()`. La session est la mémoire à court terme intégrée au framework : elle garde le contexte disponible tant que la même session est réutilisée, mais ce contexte n’est pas conservé quand la session se termine ou que l’application redémarre. Utilisez la mémoire à long terme pour les faits et préférences devant persister entre les sessions, typiquement via une base de données, un index vectoriel, ou un autre stockage persistant.
 
-**Exemple de mémoire à court terme**
+**Exemple de Mémoire à Court Terme**
 
-Si un utilisateur demande « Combien coûterait un vol pour Paris ? » puis enchaîne avec « Qu’en est-il de l’hébergement là-bas ? », la mémoire à court terme permet à l’agent de savoir que « là-bas » fait référence à « Paris » dans la même conversation.
+Si un utilisateur demande "Combien coûte un vol pour Paris ?" puis enchaîne avec "Et pour l’hébergement là-bas ?", la mémoire à court terme assure que l’agent sait que "là-bas" fait référence à "Paris" dans la même conversation.
 
-#### Mémoire à long terme
+#### Mémoire à Long Terme
 
-Il s’agit d’informations qui persistent sur plusieurs conversations ou sessions. Elle permet aux agents de se souvenir des préférences utilisateur, des interactions historiques ou de connaissances générales sur de longues périodes. Cette mémoire est importante pour la personnalisation.
+C’est l’information qui persiste à travers plusieurs conversations ou sessions. Elle permet aux agents de se souvenir des préférences utilisateur, interactions historiques ou connaissances générales sur le long terme. Ceci est important pour la personnalisation.
 
-**Exemple de mémoire à long terme**
+**Exemple de Mémoire à Long Terme**
 
-Une mémoire à long terme pourrait stocker que « Ben aime le ski et les activités en plein air, préfère le café avec vue sur la montagne, et veut éviter les pistes de ski avancées à cause d’une blessure passée ». Cette information, apprise lors d’interactions précédentes, influence les recommandations lors de futures sessions de planification de voyage, les rendant très personnalisées.
+Une mémoire à long terme pourrait enregistrer que "Ben aime le ski et les activités en plein air, apprécie le café avec vue sur la montagne, et veut éviter les pistes de ski avancées à cause d’une blessure passée". Cette information, apprise lors d’interactions précédentes, influence les recommandations lors de futures sessions de planification de voyage, les rendant hautement personnalisées.
 
-#### Mémoire de persona
+#### Mémoire de Persona
 
-Ce type de mémoire spécialisé aide un agent à développer une « personnalité » ou un « persona » cohérent. Il permet à l’agent de se souvenir de détails sur lui-même ou son rôle prévu, rendant les interactions plus fluides et ciblées.
+Ce type de mémoire spécialisé aide un agent à développer une "personnalité" ou un "persona" cohérent. Il permet à l’agent de se souvenir de détails sur lui-même ou son rôle prévu, rendant les interactions plus fluides et ciblées.
 
-**Exemple de mémoire de persona**  
-Si l’agent de voyage est conçu pour être un « expert en planification de ski », la mémoire de persona pourrait renforcer ce rôle, influençant ses réponses pour s’aligner sur le ton et les connaissances d’un expert.
+**Exemple de Mémoire de Persona**
 
-#### Mémoire de workflow/épisodique
+Si l’agent de voyage est conçu pour être un "expert en planification de ski," la mémoire de persona peut renforcer ce rôle, influençant ses réponses pour qu’elles correspondent au ton et aux connaissances d’un expert.
 
-Cette mémoire stocke la séquence d’étapes qu’un agent suit pendant une tâche complexe, incluant les succès et les échecs. C’est comme se rappeler d’« épisodes » ou d’expériences passées pour en tirer des enseignements.
+#### Mémoire de Workflow/Épisodique
 
-**Exemple de mémoire épisodique**
+Cette mémoire stocke la séquence des étapes qu’un agent suit durant une tâche complexe, incluant succès et échecs. C’est comme se rappeler des "épisodes" ou expériences passées pour en tirer des leçons.
 
-Si l’agent a tenté de réserver un vol spécifique mais a échoué en raison d’une indisponibilité, la mémoire épisodique pourrait enregistrer cet échec, permettant à l’agent d’essayer des vols alternatifs ou d’informer l’utilisateur du problème de manière plus avisée lors d’une tentative ultérieure.
+**Exemple de Mémoire Épisodique**
 
-#### Mémoire d’entités
+Si l’agent a tenté de réserver un vol spécifique mais a échoué à cause d’une indisponibilité, la mémoire épisodique pourrait enregistrer cet échec, permettant à l’agent de proposer des alternatives ou d’informer l’utilisateur de manière plus avisée lors d’une tentative ultérieure.
 
-Cela consiste à extraire et retenir des entités spécifiques (comme des personnes, lieux ou objets) et des événements à partir des conversations. Cela permet à l’agent de construire une compréhension structurée des éléments clés discutés.
+#### Mémoire d’Entité
 
-**Exemple de mémoire d’entités**
+Cela consiste à extraire et retenir des entités spécifiques (personnes, lieux, choses) et des événements des conversations. Cela permet à l’agent de construire une compréhension structurée des éléments clés discutés.
 
-Dans une conversation à propos d’un voyage passé, l’agent pourrait extraire « Paris », « Tour Eiffel » et « dîner au restaurant Le Chat Noir » comme entités. Lors d’une interaction future, l’agent pourrait se souvenir de « Le Chat Noir » et proposer d’y faire une nouvelle réservation.
+**Exemple de Mémoire d’Entité**
 
-#### RAG structuré (Retrieval Augmented Generation structuré)
+À partir d’une conversation sur un voyage passé, l’agent pourrait extraire "Paris", "Tour Eiffel" et "dîner au restaurant Le Chat Noir" en tant qu’entités. Lors d’une interaction future, l’agent pourrait se souvenir de "Le Chat Noir" et proposer de faire une nouvelle réservation.
 
-Bien que RAG soit une technique plus large, le « RAG structuré » est mis en avant comme une technologie puissante de mémoire. Il extrait des informations denses et structurées à partir de diverses sources (conversations, emails, images) et les utilise pour améliorer la précision, le rappel et la rapidité des réponses. Contrairement au RAG classique qui repose uniquement sur la similarité sémantique, le RAG structuré exploite la structure inhérente des informations.
+#### RAG Structuré (Retrieval Augmented Generation)
 
-**Exemple de RAG structuré**
+Alors que RAG est une technique plus large, le "RAG Structuré" est mis en avant comme une technologie de mémoire puissante. Il extrait des informations denses et structurées de différentes sources (conversations, e-mails, images) et les utilise pour améliorer la précision, le rappel et la rapidité des réponses. Contrairement au RAG classique qui se base uniquement sur la similarité sémantique, le RAG Structuré exploite la structure inhérente de l’information.
 
-Au lieu de simplement faire correspondre des mots-clés, le RAG structuré pourrait analyser les détails d’un vol (destination, date, heure, compagnie) à partir d’un email et les stocker de manière structurée. Cela permet des requêtes précises comme « Quel vol ai-je réservé pour Paris mardi ? »
+**Exemple de RAG Structuré**
 
-## Implémenter et stocker la mémoire
+Plutôt que de faire correspondre simplement des mots-clés, le RAG Structuré pourrait analyser les détails d’un vol (destination, date, heure, compagnie aérienne) depuis un e-mail et les stocker de manière structurée. Cela permet des requêtes précises comme : "Quel vol ai-je réservé pour Paris mardi ?"
 
-Implémenter la mémoire pour les agents IA implique un processus systématique de **gestion de la mémoire**, qui comprend la génération, le stockage, la récupération, l’intégration, la mise à jour et même l’« oubli » (ou suppression) d’informations. La récupération est un aspect particulièrement crucial.
+## Implémenter et Stocker la Mémoire
 
-### Outils mémoire spécialisés
+Implémenter la mémoire pour les agents IA implique un processus systématique de **gestion de la mémoire**, qui comprend la génération, le stockage, la récupération, l’intégration, la mise à jour et même l’"oubli" (ou suppression) des informations. La récupération est un aspect particulièrement crucial.
+
+### Outils Spécialisés pour la Mémoire
 
 #### Mem0
 
-Une façon de stocker et gérer la mémoire des agents consiste à utiliser des outils spécialisés comme Mem0. Mem0 fonctionne comme une couche de mémoire persistante, permettant aux agents de rappeler des interactions pertinentes, stocker les préférences utilisateur et le contexte factuel, et apprendre des succès et des échecs au fil du temps. L’idée est que des agents sans état deviennent des agents avec état.
+Une manière de stocker et gérer la mémoire des agents est d’utiliser des outils spécialisés comme Mem0. Mem0 fonctionne comme une couche de mémoire persistante, permettant aux agents de rappeler des interactions pertinentes, stocker des préférences utilisateur et un contexte factuel, et apprendre des succès et échecs au fil du temps. L’idée est ici que les agents sans état deviennent des agents avec état.
 
-Cela fonctionne via un **pipeline mémoire en deux phases : extraction et mise à jour**. D’abord, les messages ajoutés au fil d’un agent sont envoyés au service Mem0, qui utilise un modèle de langue large (LLM) pour résumer l’historique de la conversation et extraire de nouveaux souvenirs. Ensuite, une phase de mise à jour pilotée par LLM détermine s’il faut ajouter, modifier ou supprimer ces souvenirs, les stockant dans un magasin de données hybride pouvant inclure des bases vectorielles, des graphes et des bases clé-valeur. Ce système supporte aussi plusieurs types de mémoire et peut incorporer une mémoire graphique pour gérer les relations entre entités.
+Le système fonctionne selon un **pipeline mémoire en deux phases : extraction et mise à jour**. D’abord, les messages ajoutés au fil de conversation d’un agent sont envoyés au service Mem0, qui utilise un grand modèle de langage (LLM) pour résumer l’historique de conversation et extraire de nouvelles mémoires. Ensuite, une phase de mise à jour pilotée par LLM détermine s’il faut ajouter, modifier ou supprimer ces mémoires, qui sont stockées dans un système hybride pouvant inclure des bases de données vectorielles, graphiques et clé-valeur. Ce système supporte aussi plusieurs types de mémoire et peut intégrer une mémoire graphique pour gérer les relations entre entités.
 
 #### Cognee
 
-Une autre approche puissante est d’utiliser **Cognee**, une mémoire sémantique open source pour agents IA qui transforme données structurées et non structurées en graphes de connaissances interrogeables soutenus par des embeddings. Cognee fournit une **architecture double magasin** combinant recherche de similarité vectorielle et relations graphiques, permettant aux agents de comprendre non seulement quelles informations sont similaires, mais aussi comment les concepts se relient entre eux.
+Une autre approche puissante est l’utilisation de **Cognee**, une mémoire sémantique open-source pour agents IA qui transforme des données structurées et non structurées en graphes de connaissances interrogeables supportés par des embeddings. Cognee propose une **architecture à double stockage** combinant recherche de similarité vectorielle et relations graphiques, permettant aux agents de comprendre non seulement quelles informations sont similaires mais aussi comment les concepts sont liés.
 
-Il excelle dans la **récupération hybride** qui mêle similarité vectorielle, structure graphique et raisonnement LLM — depuis la recherche brute dans les morceaux jusqu’à la réponse aux questions consciente du graphe. Le système maintient une **mémoire vivante** qui évolue et grossit tout en restant interrogeable comme un graphe connecté, supportant à la fois le contexte de session à court terme et la mémoire persistante à long terme.
+Il excelle dans la **récupération hybride** qui mélange similarité vectorielle, structure graphique et raisonnement LLM – de la recherche brute de fragments à la réponse aux questions avec compréhension du graphe. Le système maintient une **mémoire vivante** qui évolue et grandit tout en restant interrogeable comme un graphe connecté, supportant aussi bien le contexte de session à court terme que la mémoire persistante à long terme.
 
-Le tutoriel notebook Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) montre comment construire cette couche mémoire unifiée, avec des exemples pratiques d’ingestion de sources de données diverses, de visualisation du graphe de connaissances, et de requêtes avec différentes stratégies de recherche adaptées aux besoins spécifiques des agents.
+Le tutoriel notebook Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) montre comment construire cette couche mémoire unifiée, avec des exemples pratiques d’ingestion de sources de données variées, de visualisation du graphe de connaissances, et d’interrogation avec différentes stratégies adaptées aux besoins spécifiques des agents.
 
-### Stocker la mémoire avec RAG
+### Stocker la Mémoire avec RAG
 
-Au-delà d’outils mémoire spécialisés comme mem0, vous pouvez exploiter des services de recherche robustes comme **Azure AI Search comme backend pour stocker et récupérer les mémoires**, surtout pour le RAG structuré.
+Au-delà des outils spécialisés comme Mem0, vous pouvez exploiter des services de recherche robustes comme **Azure AI Search comme backend pour stocker et récupérer la mémoire**, notamment pour le RAG structuré.
 
-Cela vous permet d’ancrer les réponses de votre agent avec vos propres données, assurant des réponses plus pertinentes et précises. Azure AI Search peut être utilisé pour stocker les mémoires spécifiques aux voyages utilisateur, les catalogues produits, ou tout autre domaine de connaissance spécifique.
+Cela vous permet d’ancrer les réponses de votre agent dans vos propres données, garantissant des réponses plus pertinentes et précises. Azure AI Search peut être utilisé pour stocker des mémoires de voyage spécifiques à un utilisateur, des catalogues de produits, ou toute autre connaissance métier.
 
-Azure AI Search prend en charge des capacités comme le **RAG structuré**, qui excelle à extraire et récupérer des informations denses, structurées à partir de grands ensembles de données comme l’historique de conversations, les emails, voire les images. Cela offre une « précision et un rappel surhumains » comparé aux approches classiques de découpage de texte et d’embeddings.
+Azure AI Search supporte des capacités comme le **RAG Structuré**, qui excelle à extraire et récupérer des informations denses et structurées depuis de grands ensembles de données comme des historiques de conversation, des e-mails ou même des images. Cela offre une "précision et un rappel surhumains" comparé aux approches classiques de découpage de texte et d’embeddings.
 
-## Rendre les agents IA auto-améliorants
+## Rendre les Agents IA Auto-Améliorants
 
-Un modèle courant pour les agents auto-améliorants consiste à introduire un **« agent de connaissance »**. Cet agent distinct observe la conversation principale entre l’utilisateur et l’agent principal. Son rôle est de :
+Un schéma courant pour les agents auto-améliorants consiste à introduire un **« agent de connaissance »**. Cet agent séparé observe la conversation principale entre l’utilisateur et l’agent principal. Son rôle est de :
 
-1. **Identifier les informations précieuses** : Déterminer si une partie de la conversation mérite d’être sauvegardée comme savoir général ou préférence spécifique utilisateur.
+1. **Identifier les informations précieuses** : Détecter si une partie de la conversation mérite d’être sauvegardée comme connaissance générale ou préférence utilisateur spécifique.
 
-2. **Extraire et résumer** : Dégager l’apprentissage ou la préférence essentielle issue de la conversation.
+2. **Extraire et résumer** : Dégager l’apprentissage essentiel ou la préférence depuis la conversation.
 
-3. **Stocker dans une base de connaissances** : Persister cette information extraite, souvent dans une base vectorielle, pour pouvoir la récupérer ultérieurement.
+3. **Stocker dans une base de connaissances** : Persister cette information extraite, souvent dans une base de données vectorielle, pour une récupération ultérieure.
 
-4. **Augmenter les requêtes futures** : Lorsque l’utilisateur initie une nouvelle requête, l’agent de connaissance récupère les informations stockées pertinentes et les ajoute à la consigne de l’utilisateur, fournissant un contexte crucial à l’agent principal (similaire au RAG).
+4. **Augmenter les futures requêtes** : Quand l’utilisateur initie une nouvelle requête, l’agent de connaissance récupère les informations pertinentes stockées et les ajoute à l’invite de l’utilisateur, fournissant un contexte crucial à l’agent principal (similaire au RAG).
 
-### Optimisations pour la mémoire
+### Optimisations pour la Mémoire
 
-• **Gestion de la latence** : Pour éviter de ralentir les interactions utilisateur, un modèle moins coûteux et plus rapide peut être utilisé initialement pour vérifier rapidement si une information vaut la peine d’être stockée ou récupérée, activant seulement le processus d’extraction/récupération plus complexe si nécessaire.
+• **Gestion de la Latence** : Pour éviter de ralentir les interactions utilisateur, un modèle plus simple et rapide peut être utilisé initialement pour vérifier rapidement si une information mérite d’être stockée ou récupérée, en ne faisant appel au processus plus complexe que lorsque c’est nécessaire.
 
-• **Maintenance de la base de connaissances** : Pour une base de connaissances qui grandit, les informations moins utilisées peuvent être déplacées vers un « stockage froid » pour gérer les coûts.
+• **Maintenance de la Base de Connaissances** : Pour une base de connaissances en croissance, les informations moins utilisées peuvent être déplacées en "stockage froid" pour gérer les coûts.
 
-## Vous avez d’autres questions sur la mémoire des agents ?
+## Vous Avez Plus de Questions sur la Mémoire des Agents ?
 
-Rejoignez le [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) pour rencontrer d’autres apprenants, assister aux heures de bureau et obtenir des réponses à vos questions sur les agents IA.
+Rejoignez le [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) pour rencontrer d’autres apprenants, assister aux heures de bureau et obtenir des réponses à vos questions sur les Agents IA.
 
 ---
 
