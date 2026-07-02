@@ -1,6 +1,6 @@
 [![Luotettavat tekoälyagentit](../../../translated_images/fi/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Napsauta yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
+> _(Napsauta yllä olevaa kuvaa katsellaksesi tämän oppitunnin videota)_
 
 # Luotettavien tekoälyagenttien rakentaminen
 
@@ -10,35 +10,35 @@ Tässä oppitunnissa käsitellään:
 
 - Kuinka rakentaa ja ottaa käyttöön turvallisia ja tehokkaita tekoälyagentteja
 - Tärkeitä turvallisuusnäkökohtia tekoälyagenttien kehittämisessä
-- Kuinka ylläpitää tietojen ja käyttäjän yksityisyyttä tekoälyagentteja kehitettäessä
+- Kuinka ylläpitää tietojen ja käyttäjien yksityisyyttä tekoälyagentteja kehittäessä
 
 ## Oppimistavoitteet
 
-Oppitunnin suorittamisen jälkeen osaat:
+Tämän oppitunnin suorittamisen jälkeen osaat:
 
-- Tunnistaa ja lieventää riskejä tekoälyagentteja luodessa
-- Toteuttaa turvallisuustoimia varmistaaksesi, että tiedot ja pääsy on asianmukaisesti hallittu
+- Tunnistaa ja vähentää riskejä tekoälyagentteja luodessa
+- Toteuttaa turvallisuustoimenpiteitä varmistaaksesi, että tiedot ja pääsy hallitaan asianmukaisesti
 - Luoda tekoälyagentteja, jotka ylläpitävät tietosuojaa ja tarjoavat laadukkaan käyttäjäkokemuksen
 
 ## Turvallisuus
 
-Katsotaan ensin, kuinka rakennetaan turvallisia agenttipohjaisia sovelluksia. Turvallisuus tarkoittaa, että tekoälyagentti toimii suunnitellulla tavalla. Agenttipohjaisten sovellusten rakentajina meillä on menetelmiä ja työkaluja turvallisuuden maksimoimiseksi:
+Katsotaan ensin, miten rakennetaan turvallisia agenttipohjaisia sovelluksia. Turvallisuus tarkoittaa, että tekoälyagentti toimii suunnitellusti. Agenttisovellusten rakentajina meillä on menetelmiä ja työkaluja turvallisuuden maksimoimiseksi:
 
 ### Järjestelmäviestikehyksen rakentaminen
 
-Jos olet joskus rakentanut tekoälysovelluksen käyttämällä suuria kielimalleja (LLM), tiedät, kuinka tärkeää on suunnitella vakaa järjestelmäkehotus tai järjestelmäviesti. Nämä kehotteet määrittelevät meta-säännöt, ohjeet ja suuntaviivat siihen, miten LLM toimii käyttäjän ja tietojen kanssa.
+Jos olet joskus rakentanut tekoälysovelluksen käyttäen suuria kielimalleja (LLM), tiedät vahvan järjestelmäkehotteen tai järjestelmäviestin suunnittelun tärkeyden. Nämä kehotteet määrittelevät metansa säännöt, ohjeet ja suuntaviivat sille, miten LLM on vuorovaikutuksessa käyttäjän ja tietojen kanssa.
 
-Tekoälyagenteille järjestelmäkehotus on vielä tärkeämpi, koska tekoälyagenttien tarvitsee saada erittäin tarkat ohjeet suorittaakseen niille suunnittelemamme tehtävät.
+Tekoälyagenttien kohdalla järjestelmäkehotus on vielä tärkeämpi, sillä tekoälyagentit tarvitsevat erittäin tarkkoja ohjeita suorittaakseen niille suunnittelemamme tehtävät.
 
-Laajennettavien järjestelmäkehotteiden luomiseksi voimme käyttää järjestelmäviestikehystä, jolla rakennetaan yksi tai useampi agentti sovelluksessamme:
+Skaalautuvien järjestelmäkehotteiden luomiseen voimme käyttää järjestelmäviestikehystä rakentaaksemme yhden tai useamman agentin sovellukseemme:
 
 ![Järjestelmäviestikehyksen rakentaminen](../../../translated_images/fi/system-message-framework.3a97368c92d11d68.webp)
 
 #### Vaihe 1: Luo meta-järjestelmäviesti
 
-Meta-kehotusta käytetään LLM:llä generoimaan järjestelmäviestit luomillemme agenteille. Suunnittelemme sen mallipohjaksi, jotta voimme tehokkaasti luoda useita agentteja tarvittaessa.
+Meta-kehotetta käyttää LLM tuottaakseen agenttiemme järjestelmäviestit. Suunnittelemme sen malliksi, jotta voimme tehokkaasti luoda useita agentteja tarpeen mukaan.
 
-Tässä esimerkki meta-järjestelmäviestistä, jonka antaisimme LLM:lle:
+Tässä on esimerkki meta-järjestelmäviestistä, jonka antaisimme LLM:lle:
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -49,7 +49,7 @@ To create the system prompt, be descriptive as possible and provide a structure 
 
 #### Vaihe 2: Luo peruskehotus
 
-Seuraava vaihe on luoda peruskehotus tekoälyagentin kuvaamiseksi. Siihen tulisi sisällyttää agentin rooli, tehtävät, jotka agentti suorittaa, ja muut agentin vastuut.
+Seuraavaksi luodaan peruskehotus tekoälyagentin kuvaamiseksi. Siihen tulisi sisällyttää agentin rooli, tehtävät, jotka agentti suorittaa, sekä muut agentin vastuut.
 
 Tässä esimerkki:
 
@@ -57,11 +57,11 @@ Tässä esimerkki:
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### Vaihe 3: Anna perusjärjestelmäviesti LLM:lle
+#### Vaihe 3: Toimita perusjärjestelmäviesti LLM:lle
 
-Nyt voimme optimoida tämän järjestelmäviestin antamalla meta-järjestelmäviestin järjestelmäviestinä ja perusjärjestelmäviestimme.
+Nyt voimme optimoida tämän järjestelmäviestin antamalla meta-järjestelmäviestin järjestelmäviestiksi ja perusjärjestelmäviestimme.
 
-Tämä tuottaa paremmin suunnitellun järjestelmäviestin, joka ohjaa tekoälyagenttejamme:
+Tämä tuottaa järjestelmäviestin, joka on paremmin suunniteltu ohjaamaan tekoälyagenttejamme:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -115,69 +115,69 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 #### Vaihe 4: Iteroi ja paranna
 
-Tämän järjestelmäviestikehyksen arvo on siinä, että voimme laajentaa järjestelmäviestien luomista useilta agenteilta helpommin sekä parantaa viestejäsi ajan kuluessa. On harvinaista, että sinulla on järjestelmäviesti, joka toimii täydellisesti ensimmäisellä kerralla koko käyttötapauksessasi. Pienten hienosäätöjen tekeminen vaihtamalla perusjärjestelmäviestiä ja ajamalla se järjestelmän läpi antaa mahdollisuuden vertailla ja arvioida tuloksia.
+Tämän järjestelmäviestikehyksen arvo on siinä, että useiden agenttien järjestelmäviestien luominen skaalautuu helpommin ja että voit parantaa viestejä ajan kuluessa. On harvinaista, että järjestelmäviesti toimii täydellisesti ensimmäisellä käyttökerralla. Pienten säätöjen ja parannusten tekeminen perusjärjestelmäviestin muuttamisen ja sen ajamisen läpi järjestelmän avulla antaa sinulle mahdollisuuden vertailla ja arvioida tuloksia.
 
 ## Uhkat ja niiden ymmärtäminen
 
-Luotettavien tekoälyagenttien rakentamiseksi on tärkeää ymmärtää ja lieventää tekoälyagenttiin kohdistuvia riskejä ja uhkia. Katsotaan joitakin erilaisia uhkia tekoälyagenteille ja kuinka voit paremmin suunnitella ja valmistautua niihin.
+Luotettavien tekoälyagenttien rakentamiseksi on tärkeää ymmärtää ja vähentää tekoälyagenttisi riskejä ja uhkia. Tarkastellaan vain joitain erilaisista uhkista tekoälyagenteille ja kuinka voit paremmin suunnitella ja varautua niihin.
 
 ![Uhkat ja niiden ymmärtäminen](../../../translated_images/fi/understanding-threats.89edeada8a97fc0f.webp)
 
-### Tehtävän ja ohjeiden muokkaus
+### Tehtävät ja ohjeet
 
-**Kuvaus:** Hyökkääjät pyrkivät muuttamaan tekoälyagentin ohjeita tai tavoitteita kehotteiden avulla tai manipuloimalla syötteitä.
+**Kuvaus:** Hyökkääjät yrittävät muuttaa tekoälyagentin ohjeita tai tavoitteita kehotteilla tai manipuloimalla syötteitä.
 
-**Lieventäminen:** Suorita validointitarkastuksia ja syötteiden suodatusta tunnistaaksesi mahdollisesti vaaralliset kehotteet ennen kuin tekoälyagentti käsittelee ne. Koska nämä hyökkäykset vaativat tyypillisesti toistuvaa vuorovaikutusta agentin kanssa, keskustelukierrosten rajoittaminen on toinen tapa estää tämän tyyppisiä hyökkäyksiä.
+**Vähennys:** Suorita validointitarkastuksia ja syötesuodattimia havaitaksesi mahdollisesti vaaralliset kehotteet ennen kuin tekoälyagentti käsittelee niitä. Koska nämä hyökkäykset vaativat yleensä usein vuorovaikutusta agentin kanssa, keskustelun vuorojen rajoittaminen on toinen keino estää tällaiset hyökkäykset.
 
 ### Pääsy kriittisiin järjestelmiin
 
-**Kuvaus:** Jos tekoälyagentilla on pääsy järjestelmiin ja palveluihin, jotka tallentavat arkaluonteisia tietoja, hyökkääjät voivat kompromettoida agentin ja näiden palveluiden välisen viestinnän. Näitä voivat olla suorat hyökkäykset tai epäsuorat yritykset saada tietoa näistä järjestelmistä agentin kautta.
+**Kuvaus:** Jos tekoälyagentilla on pääsy järjestelmiin ja palveluihin, joissa säilytetään arkaluontoisia tietoja, hyökkääjät voivat vaarantaa viestinnän agentin ja näiden palveluiden välillä. Nämä voivat olla suoria hyökkäyksiä tai epäsuoria yrityksiä saada tietoa järjestelmistä agentin kautta.
 
-**Lieventäminen:** Tekoälyagenttien tulisi saada pääsy järjestelmiin vain tarpeen mukaan estääkseen tämän tyyppiset hyökkäykset. Viestinnän agentin ja järjestelmän välillä tulisi myös olla turvallista. Tunnistautumisen ja pääsynhallinnan toteuttaminen on toinen tapa suojata nämä tiedot.
+**Vähennys:** Tekoälyagenttien tulisi saada pääsy järjestelmiin vain tarpeen mukaan tällaisen hyökkäyksen estämiseksi. Agentin ja järjestelmän välinen viestintä tulisi myös suojata. Todennuksen ja pääsynhallinnan käyttöönotto on toinen tapa suojata tätä tietoa.
 
-### Resurssien ja palvelujen ylikuormitus
+### Resurssien ja palveluiden ylikuormitus
 
-**Kuvaus:** Tekoälyagentit voivat käyttää erilaisia työkaluja ja palveluja tehtävien suorittamiseen. Hyökkääjät voivat hyödyntää tätä kykyä hyökkäämällä näihin palveluihin lähettämällä suuren määrän pyyntöjä tekoälyagentin kautta, mikä voi johtaa järjestelmän toimintahäiriöihin tai suuriin kustannuksiin.
+**Kuvaus:** Tekoälyagentit voivat käyttää erilaisia työkaluja ja palveluita tehtävien suorittamiseen. Hyökkääjät voivat käyttää tätä kykyä hyökkäyksissään lähettämällä suuren määrän pyyntöjä tekoälyagentin kautta, mikä voi johtaa järjestelmävirheisiin tai korkeisiin kustannuksiin.
 
-**Lieventäminen:** Toteuta käytäntöjä, jotka rajoittavat pyyntöjen määrää, joita tekoälyagentti voi tehdä palvelulle. Keskustelukierrosten ja pyyntöjen määrän rajoittaminen agentille on toinen tapa estää tämän tyyppisiä hyökkäyksiä.
+**Vähennys:** Ota käyttöön käytännöt, jotka rajoittavat tekoälyagentin pyyntöjen määrää palvelulle. Keskusteluvuorojen ja pyyntöjen rajoittaminen tekoälyagentillesi on toinen keino estää tällaisia hyökkäyksiä.
 
-### Tietopohjan myrkyttäminen
+### Tietokannan myrkyttäminen
 
-**Kuvaus:** Tämä hyökkäystyyppi ei kohdistu suoraan tekoälyagenttiin, vaan tietopohjaan ja muihin palveluihin, joita agentti käyttää. Tämä voi tarkoittaa tietojen tai informaation turmelemista, jota agentti käyttää tehtävän suorittamiseen, mikä johtaa vinoutuneisiin tai ei-toivottuihin vastauksiin käyttäjälle.
+**Kuvaus:** Tämä hyökkäystyyppi ei kohdistu suoraan tekoälyagenttiin, vaan tietokantaan ja muihin palveluihin, joita tekoälyagentti käyttää. Se voi sisältää sen datan tai tiedon turmelemista, jota agentti käyttää tehtävän suorittamiseen, johtamalla puolueellisiin tai ei-toivottuihin vastauksiin käyttäjälle.
 
-**Lieventäminen:** Suorita säännöllinen datan varmennus, jota tekoälyagentti käyttää työprosesseissaan. Varmista, että pääsy tähän dataan on turvallista eikä sitä muuta kuin luotetut henkilöt, jotta tämän tyyppinen hyökkäys vältetään.
+**Vähennys:** Suorita säännöllisiä tarkistuksia datalle, jota tekoälyagentti käyttää työnkuluissaan. Varmista, että tämän datan käyttö on turvattua ja että siihen pääsevät käsiksi vain luotetut henkilöt tämän hyökkäytyypin välttämiseksi.
 
-### Ketjureaktiovirheet
+### Virheiden ketjureaktiot
 
-**Kuvaus:** Tekoälyagentit käyttävät erilaisia työkaluja ja palveluja tehtävien suorittamiseen. Hyökkääjän aiheuttamat virheet voivat johtaa muiden järjestelmien, joihin agentti on yhteydessä, toimintahäiriöihin, mikä laajentaa hyökkäystä ja vaikeuttaa ongelman selvittämistä.
+**Kuvaus:** Tekoälyagentit käyttävät erilaisia työkaluja ja palveluita tehtävien suorittamiseen. Hyökkääjien aiheuttamat virheet voivat johtaa muiden agenttiin liitettyjen järjestelmien epäonnistumisiin, jolloin hyökkäyksestä tulee laajempi ja vaikeammin korjattava.
 
-**Lieventäminen:** Yksi tapa välttää tämä on saada tekoälyagentti toimimaan rajoitetussa ympäristössä, kuten suoriutumaan tehtävistä Docker-kontissa, mikä estää suorat järjestelmähyökkäykset. Varajärjestelmien ja uudelleenyrittämisen käyttöönotto, kun tietyt järjestelmät ilmoittavat virheestä, on toinen tapa estää laajempia järjestelmäongelmia.
+**Vähennys:** Yksi tapa välttää tämä on saada tekoälyagentti toimimaan rajatussa ympäristössä, kuten suorittamalla tehtävät Docker-kontissa, estämään suorat hyökkäykset järjestelmään. Varmuuskopiointimekanismien ja uudelleenyrityksen logiikan luominen, kun tietyt järjestelmät vastaavat virheellä, on toinen keino estää laajemmat järjestelmävirheet.
 
-## Ihminen mukaan prosessiin (Human-in-the-Loop)
+## Ihminen prosessissa (Human-in-the-Loop)
 
-Toinen tehokas tapa rakentaa luotettavia tekoälyagenttijärjestelmiä on käyttää ihmistä prosessissa mukana. Tämä luo virtauksen, jossa käyttäjät voivat antaa palautetta agenteille suorituksen aikana. Käyttäjät toimivat ikään kuin agenteina monen agentin järjestelmässä ja voivat antaa hyväksynnän tai lopettaa käynnissä olevan prosessin.
+Toinen tehokas tapa rakentaa luotettavia tekoälyagenttijärjestelmiä on käyttää ihmistä prosessissa (human-in-the-loop). Tämä luo työnkulun, jossa käyttäjät voivat antaa palautetta agenteille prosessin aikana. Käyttäjät toimivat ikään kuin agenteina monen agentin järjestelmässä hyväksymällä tai keskeyttämällä käynnissä olevan prosessin.
 
-![Ihminen prosessissa mukana](../../../translated_images/fi/human-in-the-loop.5f0068a678f62f4f.webp)
+![Ihminen prosessissa](../../../translated_images/fi/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Tässä esimerkki Microsoft Agent Frameworkin koodinpätkästä, jolla tämä konsepti toteutetaan:
+Tässä on koodiesimerkki Microsoft Agent Frameworkin avulla, joka näyttää, miten tämä konsepti toteutetaan:
 
 ```python
 import os
 from agent_framework.azure import AzureAIProjectAgentProvider
 from azure.identity import AzureCliCredential
 
-# Luo tarjoaja ihmisvasteisen hyväksynnän kanssa
+# Luo tarjoaja, jossa on ihmisen hyväksyntä vaihe
 provider = AzureAIProjectAgentProvider(
     credential=AzureCliCredential(),
 )
 
-# Luo toimija ihmisen hyväksymisvaiheella
+# Luo agentti, jossa on ihmisen hyväksymisvaihe
 response = provider.create_response(
     input="Write a 4-line poem about the ocean.",
     instructions="You are a helpful assistant. Ask for user approval before finalizing.",
 )
 
-# Käyttäjä voi tarkastella ja hyväksyä vastauksen
+# Käyttäjä voi tarkistaa ja hyväksyä vastauksen
 print(response.output_text)
 user_input = input("Do you approve? (APPROVE/REJECT): ")
 if user_input == "APPROVE":
@@ -188,31 +188,31 @@ else:
 
 ## Yhteenveto
 
-Luotettavien tekoälyagenttien rakentaminen vaatii huolellista suunnittelua, vahvoja turvallisuustoimia ja jatkuvaa parantamista. Rakentamalla rakenteellisia meta-kehotusjärjestelmiä, ymmärtämällä potentiaaliset uhat ja soveltamalla lieventämisstrategioita kehittäjät voivat luoda tekoälyagentteja, jotka ovat sekä turvallisia että tehokkaita. Lisäksi ihmisen mukaan ottaminen prosessiin varmistaa, että tekoälyagentit pysyvät käyttäjien tarpeiden mukaisina riskejä minimoiden. Kun tekoäly kehittyy, ennakoivaa otetta turvallisuuden, yksityisyyden ja eettisten näkökohtien suhteen tarvitaan luottamuksen ja luotettavuuden edistämiseksi tekoälypohjaisissa järjestelmissä.
+Luotettavien tekoälyagenttien rakentaminen vaatii huolellista suunnittelua, vahvoja turvallisuustoimenpiteitä ja jatkuvaa kehitystä. Rakentamalla rakenteellisia meta-kehotejärjestelmiä, ymmärtämällä mahdolliset uhat ja käyttämällä riskienvähennyskeinoja kehittäjät voivat luoda tekoälyagentteja, jotka ovat sekä turvallisia että tehokkaita. Lisäksi ihmisen prosessiin ottaminen varmistaa, että tekoälyagentit pysyvät käyttäjien tarpeiden mukaisina minimoiden riskejä. Tekoälyn kehittyessä jatkuva aktiivinen suhtautuminen turvallisuuteen, yksityisyyteen ja eettisiin näkökulmiin on avain luottamuksen ja luotettavuuden rakentamiseen tekoälypohjaisissa järjestelmissä.
 
-## Koodiesimerkit
+## Koodinäytteet
 
-- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Askeltainen esitys meta-kehotusjärjestelmäviestikehyksestä.
-- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Ennakkohyväksyntäportit, riskiluokitus ja auditointiloki luotettaville agenteille.
+- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Askeltainen esitys meta-kehotepohjaisesta järjestelmäviestikehyksestä.
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Toiminnan esihyväksynnän portit, riskiluokittelu ja auditointilokit luotettaville agenteille.
 
-### Onko sinulla lisäkysymyksiä luotettavien tekoälyagenttien rakentamisesta?
+### Lisää kysymyksiä luotettavien tekoälyagenttien rakentamisesta?
 
-Liity [Microsoft Foundry Discord -kanavalle](https://aka.ms/ai-agents/discord) tavata muita oppijoita, osallistua toimistoaikoihin ja saada vastauksia tekoälyagenttikysymyksiisi.
+Liity [Microsoft Foundry Discordiin](https://discord.com/invite/ATgtXmAS5D) tapaamaan muita oppijoita, osallistumaan ohjaustunteihin ja saamaan vastauksia tekoälyagenttikysymyksiisi.
 
 ## Lisäresurssit
 
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Vastuullisen tekoälyn yleiskatsaus</a>
 - <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Generatiivisten tekoälymallien ja tekoälysovellusten arviointi</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Turvallisuusjärjestelmäviestit</a>
-- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Riskinarviointimalli</a>
+- <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Riskien arviointilomake</a>
 
 ## Edellinen oppitunti
 
-[Agenttipohjainen RAG](../05-agentic-rag/README.md)
+[Agenttinen RAG](../05-agentic-rag/README.md)
 
 ## Seuraava oppitunti
 
-[Suunnittelumallin suunnittelu](../07-planning-design/README.md)
+[Suunnittelumalli](../07-planning-design/README.md)
 
 ---
 

@@ -1,55 +1,55 @@
 [![Planning Design Pattern](../../../translated_images/fi/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(Klikkaa yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
+> _(Napsauta yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
 
 # Suunnittelumalli
 
 ## Johdanto
 
-Tässä oppitunnissa käsitellään
+Tämä oppitunti kattaa
 
-* Yhtenäisen tavoitteen määrittäminen ja monimutkaisen tehtävän jakaminen hallittaviin osiin.
-* Rakenteellisen tulosteen hyödyntäminen luotettavampien ja koneellisesti luettavien vastausten aikaansaamiseksi.
-* Tapahtumalähtöisen lähestymistavan soveltaminen dynaamisten tehtävien ja odottamattomien syötteiden käsittelyyn.
+* Selkeän yleistavoitteen määrittämisen ja monimutkaisen tehtävän jakamisen hallittaviin osatehtäviin.
+* Rakenteellisen tuotoksen hyödyntämisen luotettavampien ja koneellisesti luettavien vastausten saamiseksi.
+* Tapahtumapohjaisen lähestymistavan soveltamisen dynaamisten tehtävien ja odottamattomien syötteiden käsittelemiseksi.
 
 ## Oppimistavoitteet
 
-Oppitunnin suoritettuasi ymmärrät:
+Oppitunnin suorittamisen jälkeen ymmärrät:
 
-* Tunnistaa ja asettaa tekoälyagentille kokonaisvaltainen tavoite varmistaen, että se tietää selkeästi, mitä pitää saavuttaa.
-* Hajottaa monimutkainen tehtävä hallittaviin alatehtäviin ja järjestää ne loogiseksi kokonaisuudeksi.
-* Varustaa agentit oikeilla työkaluilla (esim. hakutyökalut tai data-analytiikkatyökalut), päättää milloin ja miten niitä käytetään sekä käsitellä odottamattomia tilanteita.
-* Arvioida alatehtävien tuloksia, mitata suorituskykyä ja iteratiivisesti parantaa lopputulosta.
+* Miten tunnistaa ja asettaa yleistavoite tekoälyagentille, varmistaen, että se tietää selkeästi, mitä pitää saavuttaa.
+* Miten hajottaa monimutkainen tehtävä hallittaviksi osatehtäviksi ja järjestää ne loogiseen järjestykseen.
+* Miten varustaa agentit oikeilla työkaluilla (esim. hakutyökalut tai data-analytiikkatyökalut), päättää milloin ja miten niitä käytetään sekä käsitellä odottamattomia tilanteita.
+* Miten arvioida osatehtävien tuloksia, mitata suorituskykyä ja toistaa toimenpiteitä lopputuloksen parantamiseksi.
 
-## Kokonaisvaltaisen tavoitteen määrittäminen ja tehtävän pilkkominen
+## Yleistavoitteen määrittäminen ja tehtävän pilkkominen
 
 ![Defining Goals and Tasks](../../../translated_images/fi/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Useimmat todellisen elämän tehtävät ovat liian monimutkaisia ratkaistavaksi yhdellä askeleella. Tekoälyagentilla tulee olla ytimekäs tavoite, joka ohjaa sen suunnittelua ja toimia. Esimerkiksi tavoite:
+Useimmat todellisen maailman tehtävät ovat liian monimutkaisia toteutettavaksi yhdellä askeleella. Tekoälyagentilla on tarve tiiviille tavoitteelle, joka ohjaa sen suunnittelua ja toimia. Esimerkiksi tavoite:
 
-    "Laadi 3 päivän matkaohjelma."
+    "Laadi 3 päivän matkasuunnitelma."
 
-Vaikka se on yksinkertainen ilmaista, se vaatii silti tarkennusta. Mitä selkeämpi tavoite on, sitä paremmin agentti (ja mahdolliset ihmiskumppanit) voivat keskittyä saavuttamaan oikean lopputuloksen, kuten kattavan reittisuunnitelman lentovaihtoehtoineen, hotellisuosituksineen ja aktiviteettiehdotuksineen.
+Vaikka se on yksinkertainen ilmaista, se tarvitsee silti tarkennusta. Mitä selkeämpi tavoite on, sitä paremmin agentti (ja mahdolliset ihmiskumppanit) voivat keskittyä saavuttamaan oikean lopputuloksen, kuten luoda kattava matkasuunnitelma lentovaihtoehdoilla, hotellisuosituksilla ja aktiviteettiehdotuksilla.
 
-### Tehtävän hajottaminen
+### Tehtävän jakaminen osatehtäviin
 
-Suurista tai monimutkaisista tehtävistä tulee hallittavampia, kun ne jaetaan pienempiin, tavoitesuuntautuneisiin alatehtäviin.
-Matkaohjelman esimerkin tapauksessa tavoite voidaan jakaa seuraaviin osiin:
+Suuret tai monimutkaiset tehtävät muuttuvat hallittavammiksi, kun ne jaetaan pienempiin, tavoitelähtöisiin osatehtäviin.  
+Matkasuunnitelman esimerkissä tavoitteen voisi pilkkoa seuraaviin:
 
-* Lentojen varaaminen
-* Hotellin varaaminen
-* Auton vuokraus
+* Lentovaraukset
+* Hotellivaraukset
+* Autonvuokraus
 * Personalisointi
 
-Jokainen alatehtävä voidaan käsitellä omistautuneiden agenttien tai prosessien toimesta. Yksi agentti voi erikoistua parhaiden lentotarjousten etsimiseen, toinen hotellivarauksiin, ja niin edelleen. Koordinoiva tai "alemman tason" agentti voi sitten koota nämä tulokset yhdeksi johdonmukaiseksi matkasuunnitelmaksi käyttäjälle.
+Jokainen osatehtävä voidaan sitten osoittaa erillisille agenteille tai prosesseille. Yksi agentti voi erikoistua hakemaan parhaat lentotarjoukset, toinen keskittyy hotellivarauksiin ja niin edelleen. Koordinoiva tai "alavirran" agentti voi koota nämä tulokset yhdeksi yhtenäiseksi matkasuunnitelmaksi loppukäyttäjälle.
 
-Tämä modulaarinen lähestymistapa myös mahdollistaa asteittaiset parannukset. Esimerkiksi voit lisätä erikoistuneita agentteja ruoka- tai paikallisten aktiviteettien suosituksiin ja hioa reissusuunnitelmaa ajan myötä.
+Tämä modulaarinen lähestymistapa mahdollistaa myös asteittaiset parannukset. Esimerkiksi voit lisätä erikoistuneita agenteja ruoka- tai paikallisten aktiviteettien suosituksiin ja kehittää suunnitelmaa ajan myötä.
 
-### Rakenteellinen tuloste
+### Rakenteellinen tulostus
 
-Suuret kielimallit (LLM:t) voivat tuottaa rakenteellista tulostetta (esim. JSON), joka on helpompi käsitellä ja jäsentää alempitasoisissa agenteissa tai palveluissa. Tämä on erityisen hyödyllistä monen agentin tilanteissa, joissa voimme suorittaa tehtävät suunnittelun tuottaman tuloksen jälkeen.
+Laajamittaiset kielimallit (LLM:t) voivat tuottaa rakenteellista tulostetta (esim. JSON), jota alavirran agentit tai palvelut voivat helpommin jäsentää ja käsitellä. Tämä on erityisen hyödyllistä moniagenttiympäristössä, jossa nämä tehtävät voidaan toteuttaa suunnittelutuloksen vastaanoton jälkeen.
 
-Seuraava Python-koodikatkelma havainnollistaa yksinkertaista suunnitteluagenttia, joka pilkkoo tavoitteen alatehtäviin ja tuottaa rakenteellisen suunnitelman:
+Seuraava Python-koodinäyte demonstroi yksinkertaista suunnitteluagenttia, joka pilkkoo tavoitteen osatehtäviin ja luo rakenteellisen suunnitelman:
 
 ```python
 from pydantic import BaseModel
@@ -71,10 +71,10 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Matkan osatehtävämalli
+# Matkan AlaTehtävä Malli
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # haluamme antaa tehtävän agentille
+    assigned_agent: AgentEnum  # haluamme määrittää tehtävän agentille
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -83,7 +83,7 @@ class TravelPlan(BaseModel):
 
 provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
-# Määrittele käyttäjän viesti
+# Määritä käyttäjän viesti
 system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
     Provide your response in JSON format with the following structure:
@@ -107,17 +107,17 @@ response_content = response.output_text
 pprint(json.loads(response_content))
 ```
 
-### Suunnitteluagentti monen agentin orkestroinnilla
+### Suunnitteluagentti moniagenttien orkestroinnilla
 
-Tässä esimerkissä Semanttinen Reititin -agentti vastaanottaa käyttäjän pyynnön (esim. "Tarvitsen hotellisuunnitelman matkalleni.").
+Tässä esimerkissä Semanttinen Reititin Agentti vastaanottaa käyttäjän pyynnön (esim. "Tarvitsen hotellisuunnitelman matkalleni").
 
 Suunnittelija sitten:
 
-* Vastaanottaa hotellisuunnitelman: Suunnittelija ottaa käyttäjän viestin ja järjestelmän promptin (sisältäen saatavilla olevat agentin tiedot) perusteella tuottaa rakenteellisen matkasuunnitelman.
-* Listaa agentit ja niiden työkalut: Agenttirekisterissä on lista agenteista (esim. lento, hotelli, autonvuokraus ja aktiviteetit) sekä niille tarjottavista toiminnoista tai työkaluista.
-* Reitittää suunnitelman asianmukaisille agenteille: Alatehtävien määrän perusteella suunnittelija joko lähettää viestin suoraan omistautuneelle agentille (yksittäistehtävissä) tai koordinoi ryhmäkeskustelun kautta monen agentin yhteistyötä varten.
-* Tiivistää lopputuloksen: Lopuksi suunnittelija tiivistää luodun suunnitelman selkeyden vuoksi.
-Seuraava Python-koodiesimerkki havainnollistaa nämä vaiheet:
+* Vastaanottaa Hotellisuunnitelman: Suunnittelija ottaa käyttäjän viestin ja järjestelmäkehotteen (sisältäen käytettävissä olevien agenttien tiedot) perusteella luo rakenteellisen matkasuunnitelman.
+* Listaa Agentit ja Niiden Työkalut: Agenttirekisteri sisältää listan agenteista (esim. lento, hotelli, autonvuokraus ja aktiviteetit) ja niiden tarjoamista toiminnoista tai työkaluista.
+* Reitittää Suunnitelman Vastaaville Agenteille: Osatehtävien määrän mukaan suunnittelija joko lähettää viestin suoraan omistetulle agentille (yksittäisten tehtävien tapauksissa) tai koordinoi ryhmäkeskustelun kautta moniagenttisen yhteistyön.
+* Yhteenveto Lopputuloksesta: Lopuksi suunnittelija tiivistää luodun suunnitelman selkeyden vuoksi.  
+Seuraava Python-koodiesimerkki havainnollistaa näitä vaiheita:
 
 ```python
 
@@ -135,11 +135,11 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Matkan alitehtävän malli
+# Matkustus osatehtävä malli
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # haluamme osoittaa tehtävän agentille
+    assigned_agent: AgentEnum # haluamme antaa tehtävän agentille
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -158,7 +158,7 @@ provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
 from pprint import pprint
 
-# Määritä käyttäjän viesti
+# Määrittele käyttäjän viesti
 
 system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
@@ -176,12 +176,12 @@ response = client.create_response(input=user_message, instructions=system_prompt
 
 response_content = response.output_text
 
-# Tulosta vastaussisältö ladattuaan se JSON-muodossa
+# Tulosta vastaussisältö ladattua JSON-muodossa
 
 pprint(json.loads(response_content))
 ```
 
-Seuraava on edellisen koodin tuotos, ja voit käyttää tätä rakenteellista tulostetta reitittääksesi viestit `assigned_agent` -kohteeseen ja tiivistääksesi matkasuunnitelman käyttäjälle.
+Seuraavaksi esitetään edellisen koodin tuotos, ja tätä rakenteellista tulostetta voit käyttää reitittämiseen `assigned_agent` -kenttään ja matkasuunnitelman yhteenvetoon loppukäyttäjälle.
 
 ```json
 {
@@ -212,15 +212,15 @@ Seuraava on edellisen koodin tuotos, ja voit käyttää tätä rakenteellista tu
 }
 ```
 
-Esimerkkimateriaali yllä olevaan koodiin löytyy [täältä](07-python-agent-framework.ipynb).
+Esimerkkinotebook edelliseen koodiesimerkkiin on saatavilla [täällä](07-python-agent-framework.ipynb).
 
 ### Iteratiivinen suunnittelu
 
-Joissakin tehtävissä tarvitaan edestakaista kommunikaatiota tai uudelleensuunnittelua, jossa yhden alatehtävän tulos vaikuttaa seuraavaan. Esimerkiksi, jos agentti havaitsee odottamattoman tiedostomuodon lentovarauksia tehdessään, se voi joutua mukauttamaan strategiaansa ennen hotellivarauksia.
+Jotkin tehtävät vaativat edestakaista vuorovaikutusta tai uudelleensuunnittelua, jossa yhden osatehtävän tulos vaikuttaa seuraavaan. Esimerkiksi jos agentti kohtaa odottamattoman tietomuodon lentovarauksia tehdessään, sen täytyy ehkä mukauttaa strategiaansa ennen hotellivarauksiin siirtymistä.
 
-Lisäksi käyttäjän palaute (esim. ihmisen päätös haluta aikaisempi lento) voi käynnistää osittaisen uudelleensuunnittelun. Tämä dynaaminen, iteratiivinen lähestymistapa varmistaa, että lopullinen ratkaisu vastaa todellisen maailman rajoitteita ja käyttäjän muuttuvia mieltymyksiä.
+Lisäksi käyttäjäpalaute (esim. ihmisen päätös valita aikaisempi lento) voi laukaista osittaisen uudelleensuunnittelun. Tämä dynaaminen ja iteratiivinen lähestymistapa varmistaa, että lopullinen ratkaisu vastaa todellisen maailman vaatimuksia ja muuttuvia käyttäjätoiveita.
 
-esim. koodia
+esim. koodinäyte
 
 ```python
 from agent_framework.azure import AzureAIProjectAgentProvider
@@ -244,34 +244,34 @@ response = client.create_response(
     instructions=system_prompt,
     context=f"Previous travel plan - {TravelPlan}",
 )
-# .. tee uusi suunnitelma ja lähetä tehtävät vastaaville agenteille
+# .. suunnittele uudelleen ja lähetä tehtävät asianomaisille agenteille
 ```
 
-Laajempaan suunnitteluun tutustu Magnetic One - <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">blogikirjoitukseen</a> monimutkaisten tehtävien ratkaisemiseksi.
+Laajempaa suunnittelua varten tutustu Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogipostaukseen</a>, joka käsittelee monimutkaisten tehtävien ratkaisemista.
 
 ## Yhteenveto
 
-Tässä artikkelissa olemme tarkastelleet esimerkkiä siitä, miten suunnittelija pystyy dynaamisesti valitsemaan määritellyt saatavilla olevat agentit. Suunnittelijan tuotos hajottaa tehtävät ja määrittää agentit, jotta ne voidaan suorittaa. Oletetaan, että agenteilla on pääsy tehtävän suorittamiseen vaadittuihin toimintoihin/työkaluihin. Agenttien lisäksi voit sisällyttää myös muita malleja, kuten reflektoinnin, tiivistäjän ja pyörivän keskustelun mukauttamaan prosessia lisää.
+Tässä artikkelissa olemme tarkastelleet esimerkkiä siitä, miten luoda suunnittelija, joka voi dynaamisesti valita määritellyt agentit. Suunnittelijan tuotos pilkkoo tehtävät ja osoittaa agenteille suorittaakseen ne. Oletetaan, että agenteilla on pääsy tarvittaviin toimintoihin/työkaluihin tehtävän suorittamiseksi. Agenttien lisäksi voit sisällyttää muita malleja, kuten reflektiota, yhteenvetotyökaluja ja pyöröchat-systeemiä mukautuksen parantamiseksi.
 
 ## Lisäresurssit
 
-Magentic One - Yleiskäyttöinen monien agenttien järjestelmä monimutkaisten tehtävien ratkaisuun, joka on saavuttanut vaikuttavia tuloksia useissa haastavissa agenttiparametreissa. Lähde: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. Tässä toteutuksessa orkestroija laatii tehtäväkohtaiset suunnitelmat ja delegoi ne saatavilla oleville agenteille. Suunnittelun lisäksi orkestroija käyttää myös seurantamekanismia tehtävän etenemisen tarkkailuun ja tarvittaessa uudelleensuunnitteluun.
+Magnetic One - Yleiskäyttöinen moniagenttijärjestelmä monimutkaisten tehtävien ratkaisuun ja se on saavuttanut vaikuttavia tuloksia useilla haastavilla agenttitutkimusvertailuilla. Viite: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>. Tässä toteutuksessa orkestroija luo tehtäväkohtaiset suunnitelmat ja delegoi ne käytettävissä oleville agenteille. Suunnittelun lisäksi orkestroija käyttää seurantamekanismia tehtävän etenemisen valvomiseksi ja uudelleensuunnittelee tarvittaessa.
 
-### Lisää kysymyksiä Suunnittelumallista?
+### Onko sinulla lisäkysymyksiä Suunnittelumallista?
 
-Liity [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) -kanavalle tavata muita oppijoita, osallistua työaikoihin ja saada vastauksia AI-agenttikysymyksiisi.
+Liity [Microsoft Foundry Discordiin](https://discord.com/invite/ATgtXmAS5D) tavata muita oppijoita, osallistua toimistoaikoihin ja saada vastauksia AI-agenttikysymyksiisi.
 
 ## Edellinen oppitunti
 
-[Luotettavien AI-agenttien rakentaminen](../06-building-trustworthy-agents/README.md)
+[Luotettavien tekoälyagenttien rakentaminen](../06-building-trustworthy-agents/README.md)
 
 ## Seuraava oppitunti
 
-[Moni-agentin suunnittelumalli](../08-multi-agent/README.md)
+[Moniagenttisuunnittelumalli](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Vastuuvapauslauseke**:
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Pyrimme tarkkuuteen, mutta automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäiskielellä tulisi pitää virallisena lähteenä. Tärkeissä asioissa suositellaan ammattilaisen tekemää ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä johtuvista väärinymmärryksistä tai tulkinnoista.
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

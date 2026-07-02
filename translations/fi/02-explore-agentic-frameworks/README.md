@@ -4,19 +4,19 @@
 
 # Tutustu tekoälyagenttikehyksiin
 
-Tekoälyagenttikehykset ovat ohjelmistoalustoja, jotka on suunniteltu yksinkertaistamaan tekoälyagenttien luomista, käyttöönottoa ja hallintaa. Nämä kehykset tarjoavat kehittäjille valmiita komponentteja, abstraktioita ja työkaluja, jotka sujuvoittavat monimutkaisten tekoälyjärjestelmien kehitystä.
+Tekoälyagenttikehykset ovat ohjelmistoalustoja, jotka on suunniteltu helpottamaan tekoälyagenttien luomista, käyttöönottoa ja hallintaa. Nämä kehykset tarjoavat kehittäjille valmiita komponentteja, abstraktioita ja työkaluja, jotka virtaviivaistavat monimutkaisten tekoälyjärjestelmien kehittämistä.
 
-Nämä kehykset auttavat kehittäjiä keskittymään sovellustensa ainutlaatuisiin puoliin tarjoamalla standardoituja lähestymistapoja yleisiin haasteisiin tekoälyagenttien kehityksessä. Ne parantavat skaalautuvuutta, saavutettavuutta ja tehokkuutta tekoälyjärjestelmien rakentamisessa.
+Nämä kehykset auttavat kehittäjiä keskittymään sovellustensa ainutlaatuisiin osiin tarjoamalla standardoituja lähestymistapoja tekoälyagenttien kehittämisen yleisiin haasteisiin. Ne parantavat skaalautuvuutta, saavutettavuutta ja tehokkuutta tekoälyjärjestelmien rakentamisessa.
 
-## Johdanto 
+## Johdanto
 
 Tässä oppitunnissa käsitellään:
 
 - Mitä tekoälyagenttikehykset ovat ja mitä ne mahdollistavat kehittäjille?
-- Miten tiimit voivat käyttää näitä nopeasti prototypointiin, iterointiin ja agentin kyvykkyyksien parantamiseen?
-- Mitkä ovat erot Microsoftin luomien kehysten ja työkalujen välillä (<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a> ja <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework</a>)?
-- Voinko integroida olemassa olevat Azure-ekosysteemin työkaluni suoraan, vai tarvitaanko erillisiä ratkaisuja?
-- Mikä on Azure AI Agents -palvelu ja miten se auttaa minua?
+- Kuinka tiimit voivat käyttää näitä nopeasti prototypointiin, iterointiin ja agentin kyvykkyyksien parantamiseen?
+- Mitkä ovat Microsoftin (<a href="https://aka.ms/ai-agents-beginners/ai-agent-service" target="_blank">Azure AI Agent Service</a> ja <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/responses" target="_blank">Microsoft Agent Framework</a>) kehittämien kehysten ja työkalujen erot?
+- Voinko integroida olemassa olevat Azure-ekosysteemityökaluni suoraan, vai tarvitsenko itsenäisiä ratkaisuja?
+- Mikä on Azure AI Agents -palvelu ja kuinka se auttaa minua?
 
 ## Oppimistavoitteet
 
@@ -25,46 +25,46 @@ Tämän oppitunnin tavoitteena on auttaa sinua ymmärtämään:
 - Tekoälyagenttikehysten rooli tekoälyn kehityksessä.
 - Kuinka hyödyntää tekoälyagenttikehyksiä älykkäiden agenttien rakentamisessa.
 - Tekoälyagenttikehysten mahdollistamat keskeiset kyvykkyydet.
-- Erot Microsoft Agent Frameworkin ja Azure AI Agent Servicen välillä.
+- Microsoft Agent Frameworkin ja Azure AI Agent Servicen erot.
 
 ## Mitä tekoälyagenttikehykset ovat ja mitä ne mahdollistavat kehittäjille?
 
-Perinteiset tekoälykehykset voivat auttaa sinua integroimaan tekoälyä sovelluksiisi ja parantamaan näitä sovelluksia seuraavilla tavoilla:
+Perinteiset tekoälykehykset voivat auttaa sinua integroimaan tekoälyä sovelluksiisi ja parantamaan näitä sovelluksia seuraavin tavoin:
 
-- **Personalisointi**: Tekoäly voi analysoida käyttäjän käyttäytymistä ja mieltymyksiä tarjotakseen personoituja suosituksia, sisältöä ja käyttökokemuksia.
-Esimerkki: Suoratoistopalvelut kuten Netflix käyttävät tekoälyä ehdottamaan elokuvia ja sarjoja katseluhistorian perusteella, mikä lisää käyttäjien sitoutumista ja tyytyväisyyttä.
-- **Automaatio ja tehokkuus**: Tekoäly voi automatisoida toistuvia tehtäviä, virtaviivaistaa työnkulkuja ja parantaa operatiivista tehokkuutta.
-Esimerkki: Asiakaspalvelusovellukset käyttävät tekoälypohjaisia chatboteja käsittelemään yleisiä kyselyjä, mikä lyhentää vasteaikoja ja vapauttaa ihmistyöntekijöitä monimutkaisempiin tehtäviin.
-- **Parannettu käyttäjäkokemus**: Tekoäly voi parantaa kokonaiskäyttäjäkokemusta tarjoamalla älykkäitä ominaisuuksia, kuten puheentunnistusta, luonnollisen kielen käsittelyä ja ennustavaa tekstiä.
-Esimerkki: Virtuaaliassistentit kuten Siri ja Google Assistant käyttävät tekoälyä ymmärtääkseen ja vastatakseen puhekäskyihin, jolloin laitteiden käyttäminen on helpompaa.
+- **Personalisointi**: Tekoäly voi analysoida käyttäjän käyttäytymistä ja mieltymyksiä tarjotakseen räätälöityjä suosituksia, sisältöä ja kokemuksia.  
+Esimerkki: Suoratoistopalvelut kuten Netflix käyttävät tekoälyä ehdottaakseen elokuvia ja sarjoja katseluhistorian perusteella, mikä lisää käyttäjien sitoutumista ja tyytyväisyyttä.  
+- **Automaatio ja tehokkuus**: Tekoäly voi automatisoida toistuvia tehtäviä, virtaviivaistaa työnkulkuja ja parantaa toimintatehokkuutta.  
+Esimerkki: Asiakaspalvelusovellukset käyttävät tekoälypohjaisia chatbotteja hoitamaan yleisiä kyselyitä, mikä lyhentää vastausaikoja ja vapauttaa ihmiskollegoita monimutkaisempiin tehtäviin.  
+- **Parannettu käyttökokemus**: Tekoäly voi parantaa kokonaiskäyttökokemusta tarjoamalla älykkäitä ominaisuuksia, kuten puheentunnistusta, luonnollisen kielen käsittelyä ja ennakoivaa tekstiä.  
+Esimerkki: Virtuaaliassistentit kuten Siri ja Google Assistant käyttävät tekoälyä ymmärtääkseen ja vastatakseen puhekomentoihin, mikä helpottaa käyttäjien vuorovaikutusta laitteidensa kanssa.
 
-### Kuulostaa hyvältä, mutta miksi tarvitsemme tekoälyagenttikehystä?
+### Kuulostaa hyvältä, mutta miksi tarvitsemme tekoälyagenttikehyksen?
 
-Tekoälyagenttikehykset edustavat enemmän kuin pelkkiä tekoälykehyksiä. Ne on suunniteltu mahdollistamaan älykkäiden agenttien luominen, jotka voivat olla vuorovaikutuksessa käyttäjien, muiden agenttien ja ympäristön kanssa saavuttaakseen tiettyjä tavoitteita. Nämä agentit voivat osoittaa autonomista käyttäytymistä, tehdä päätöksiä ja sopeutua muuttuviin olosuhteisiin. Tarkastellaan joitakin keskeisiä kyvykkyyksiä, joita tekoälyagenttikehykset mahdollistavat:
+Tekoälyagenttikehykset ovat enemmän kuin pelkkiä tekoälykehyksiä. Ne on suunniteltu mahdollistamaan älykkäiden agenttien luominen, jotka voivat olla vuorovaikutuksessa käyttäjien, muiden agenttien ja ympäristön kanssa saavuttaakseen erityisiä tavoitteita. Nämä agentit voivat osoittaa autonomista käyttäytymistä, tehdä päätöksiä ja mukautua muuttuviin olosuhteisiin. Tarkastellaan joitakin tekoälyagenttikehysten keskeisiä kyvykkyyksiä:
 
-- **Agenttien yhteistyö ja koordinointi**: Mahdollistaa useiden tekoälyagenttien luomisen, jotka voivat työskennellä yhdessä, kommunikoida ja koordinoitua ratkaistakseen monimutkaisia tehtäviä.
-- **Tehtävien automaatio ja hallinta**: Tarjoaa mekanismeja monivaiheisten työnkulkujen automatisointiin, tehtävien delegointiin ja dynaamiseen tehtävien hallintaan agenttien kesken.
-- **Kontekstuaalinen ymmärrys ja sopeutuminen**: Varustaa agentit kyvyllä ymmärtää kontekstia, sopeutua muuttuviin ympäristöihin ja tehdä päätöksiä reaaliaikaisen tiedon perusteella.
+- **Agenttien yhteistyö ja koordinointi**: Mahdollistaa useiden tekoälyagenttien luomisen, jotka voivat tehdä yhteistyötä, kommunikoida ja koordinoida monimutkaisten tehtävien ratkaisemiseksi.  
+- **Tehtävien automaatio ja hallinta**: Tarjoaa mekanismeja monivaiheisten työnkulkujen automatisointiin, tehtävien delegointiin ja dynaamiseen tehtävien hallintaan agenttien kesken.  
+- **Kontekstuaalinen ymmärrys ja sopeutuminen**: Varustaa agentit kyvyllä ymmärtää konteksti, sopeutua muuttuviin ympäristöihin ja tehdä päätöksiä reaaliaikaisen tiedon perusteella.
 
-Yhteenvetona agentit antavat sinun tehdä enemmän: viedä automaation seuraavalle tasolle ja luoda älykkäämpiä järjestelmiä, jotka voivat sopeutua ja oppia ympäristöstään.
+Yhteenvetona agentit antavat sinulle mahdollisuuden saavuttaa enemmän, viedä automaatiota seuraavalle tasolle ja luoda älykkäämpiä järjestelmiä, jotka voivat oppia ja sopeutua ympäristöönsä.
 
-## Kuinka nopeasti prototypoida, iteroi ja parantaa agentin kyvykkyyksiä?
+## Kuinka nopeasti prototyypittää, iterroida ja parantaa agenttien kyvykkyyksiä?
 
-Tämä alue kehittyy nopeasti, mutta useimmissa tekoälyagenttikehyksissä on yhteisiä elementtejä, jotka auttavat sinua prototypoimaan ja iteratiivisesti kehittämään agentteja nopeasti: modulaariset komponentit, yhteistyövälineet ja reaaliaikainen oppiminen. Syvennytään näihin:
+Tämä ala kehittyy nopeasti, mutta useimmissa tekoälyagenttikehyksissä on yhteisiä piirteitä, jotka auttavat sinua nopeasti prototyypittämään ja iteromaan, nimittäin modulaariset komponentit, yhteistyövälineet ja reaaliaikainen oppiminen. Tutustutaan näihin:
 
-- **Käytä modulaarisia komponentteja**: AI-SDK:t tarjoavat valmiita komponentteja, kuten AI- ja Muistiyhteyksiä, funktiokutsuja luonnollisella kielellä tai koodilaajennuksilla, kehotepohjia ja paljon muuta.
-- **Hyödynnä yhteistyövälineitä**: Suunnittele agentteja tietyillä rooleilla ja tehtävillä, jolloin ne voivat testata ja hioa yhteistyötyönkulkuja.
-- **Opiskele reaaliajassa**: Toteuta palautesilmukoita, joissa agentit oppivat vuorovaikutuksista ja säätävät käyttäytymistään dynaamisesti.
+- **Käytä modulaarisia komponentteja**: Tekoäly-SDK:t tarjoavat valmiita komponentteja, kuten tekoäly- ja muistikytkimiä, toimintokutsuja luonnollisella kielellä tai koodiplugineilla, kehotemalleja ja muuta.  
+- **Hyödynnä yhteistyövälineitä**: Suunnittele agentteja tiettyihin rooleihin ja tehtäviin, jolloin ne voivat testata ja kehittää yhteistyön työnkulkuja.  
+- **Opiskele reaaliajassa**: Toteuta palautemekanismeja, joissa agentit oppivat vuorovaikutuksista ja säätävät käyttäytymistään dynaamisesti.
 
 ### Käytä modulaarisia komponentteja
 
-SDK:t, kuten Microsoft Agent Framework, tarjoavat valmiita komponentteja, kuten AI-yhdyskäytävät, työkalumäärittelyt ja agenttien hallinnan.
+SDK:t kuten Microsoft Agent Framework tarjoavat valmiita komponentteja, kuten tekoälykytkimiä, työkalumääritelmiä ja agenttien hallintaa.
 
-**Miten tiimit voivat käyttää näitä**: Tiimit voivat nopeasti koota nämä komponentit toimivaksi prototyypiksi ilman, että kaikkea tarvitsee rakentaa alusta alkaen, mikä mahdollistaa nopean kokeilun ja iteroinnin.
+**Kuinka tiimit voivat käyttää näitä**: Tiimit voivat nopeasti koota nämä komponentit toimivaksi prototyypiksi ilman, että aloittavat alusta, mikä mahdollistaa nopean kokeilun ja iteroinnin.
 
-**Miten se toimii käytännössä**: Voit käyttää valmista jäsentä (parser) tietojen poimimiseen käyttäjän syötteestä, muistimoduulia tietojen tallentamiseen ja noutamiseen sekä kehotegeneraattoria vuorovaikutukseen käyttäjän kanssa — kaikki ilman, että sinun tarvitsee rakentaa näitä komponentteja tyhjästä.
+**Miten se toimii käytännössä**: Voit käyttää valmista jäsentä (parseriä) tietojen poimimiseen käyttäjän syötteestä, muistikomponenttia tietojen tallentamiseen ja hakemiseen sekä kehotegeneraattoria käyttäjien vuorovaikutukseen, kaikki ilman että sinun tarvitsee rakentaa näitä alusta alkaen.
 
-**Esimerkkikoodi**. Tarkastellaan esimerkkiä siitä, miten voit käyttää Microsoft Agent Frameworkia `AzureAIProjectAgentProvider`-komponentin kanssa, jotta malli vastaa käyttäjän syötteeseen työkalukutsujen avulla:
+**Esimerkkikoodi**. Tarkastellaan esimerkkiä, jossa käytät Microsoft Agent Frameworkia `AzureAIProjectAgentProvider`-luokan kanssa, jotta malli vastaa käyttäjän syötteisiin työkalukutsuilla:
 
 ``` python
 # Microsoft Agent Framework Python -esimerkki
@@ -77,7 +77,7 @@ from agent_framework.azure import AzureAIProjectAgentProvider
 from azure.identity import AzureCliCredential
 
 
-# Määrittele esimerkkityökalufunktio matkavarauksen tekemiseen
+# Määrittele esimerkkityökalu matkan varaamiseen
 def book_flight(date: str, location: str) -> str:
     """Book travel given location and date."""
     return f"Travel was booked to {location} on {date}"
@@ -99,16 +99,16 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-
-Tästä esimerkistä näet, miten voit hyödyntää valmista jäsentä poimiaksesi keskeisiä tietoja käyttäjän syötteestä, kuten lähtöpaikan, määränpään ja päivämäärän lentovarauksen pyynnöstä. Tämä modulaarinen lähestymistapa antaa sinun keskittyä korkean tason logiikkaan.
+  
+Tässä esimerkissä näet, miten voit hyödyntää valmista jäsentä poimiaksesi keskeisiä tietoja käyttäjän syötteestä, kuten lennon lähtöpaikan, määränpään ja päivän varaustoiveesta. Tämä modulaarinen lähestymistapa antaa sinun keskittyä korkeamman tason logiikkaan.
 
 ### Hyödynnä yhteistyövälineitä
 
-Kehykset kuten Microsoft Agent Framework helpottavat useiden agenttien luomista, jotka voivat työskennellä yhdessä.
+Kehykset, kuten Microsoft Agent Framework, helpottavat useiden agenttien luomista, jotka voivat tehdä yhteistyötä.
 
-**Miten tiimit voivat käyttää näitä**: Tiimit voivat suunnitella agentteja tiettyihin rooleihin ja tehtäviin, jolloin ne voivat testata ja hioa yhteistyötyönkulkuja ja parantaa järjestelmän kokonaistoimivuutta.
+**Kuinka tiimit voivat käyttää näitä**: Tiimit voivat suunnitella agentteja tiettyihin rooleihin ja tehtäviin, jotta ne voivat testata ja parantaa yhteistyön työnkulkuja sekä tehostaa järjestelmän kokonaisuutta.
 
-**Miten se toimii käytännössä**: Voit luoda agenttitiimin, jossa jokaisella agentilla on erikoistunut tehtävä, kuten tietojen haku, analyysi tai päätöksenteko. Nämä agentit voivat kommunikoida ja jakaa tietoa saavuttaakseen yhteisen tavoitteen, kuten vastaamalla käyttäjän kyselyyn tai suorittamalla tehtävän.
+**Miten se toimii käytännössä**: Voit luoda agenttitiimin, jossa jokaisella agentilla on erikoistunut tehtävä, kuten tiedonhaku, analyysi tai päätöksenteko. Nämä agentit voivat kommunikoida ja jakaa tietoa saavuttaakseen yhteisen tavoitteen, kuten vastaamaan käyttäjän kyselyyn tai suorittamaan tehtävän.
 
 **Esimerkkikoodi (Microsoft Agent Framework)**:
 
@@ -121,54 +121,54 @@ from azure.identity import AzureCliCredential
 
 provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
 
-# Datanhakija-agentti
+# Tietojen hakemiseen erikoistunut agentti
 agent_retrieve = await provider.create_agent(
     name="dataretrieval",
     instructions="Retrieve relevant data using available tools.",
     tools=[retrieve_tool],
 )
 
-# Datanalyysi-agentti
+# Tietojen analysointiin erikoistunut agentti
 agent_analyze = await provider.create_agent(
     name="dataanalysis",
     instructions="Analyze the retrieved data and provide insights.",
     tools=[analyze_tool],
 )
 
-# Suorita agentit tehtävässä peräkkäin
+# Agenttien suorittaminen tehtävän peräkkäin
 retrieval_result = await agent_retrieve.run("Retrieve sales data for Q4")
 analysis_result = await agent_analyze.run(f"Analyze this data: {retrieval_result}")
 print(analysis_result)
 ```
-
-Edellisessä koodissa näet, miten voit luoda tehtävän, joka vaatii useiden agenttien yhteistyötä datan analysoimiseksi. Kukin agentti suorittaa yhden erikoistuneen toiminnon, ja tehtävä toteutetaan koordinoimalla agenttien työtä halutun lopputuloksen saavuttamiseksi. Luomalla omistautuneita agentteja erikoisrooleilla voi parantaa tehtävien tehokkuutta ja suorituskykyä.
+  
+Edellisessä koodissa näet, miten luodaan tehtävä, joka sisältää useiden agenttien yhteistyön datan analysoimiseksi. Jokainen agentti suorittaa tietyn toiminnon, ja tehtävä toteutetaan koordinoimalla agenttien työskentelyä tavoitteen saavuttamiseksi. Määrittelemällä agentteja omiin erikoisrooleihinsa voit parantaa tehtävien tehokkuutta ja suorituskykyä.
 
 ### Opiskele reaaliajassa
 
-Edistyneet kehykset tarjoavat kyvykkyyksiä reaaliaikaiseen kontekstin ymmärrykseen ja sopeutumiseen.
+Edistyneet kehykset tarjoavat kyvykkyyksiä reaaliaikaiseen kontekstin ymmärtämiseen ja sopeutumiseen.
 
-**Miten tiimit voivat käyttää näitä**: Tiimit voivat toteuttaa palautesilmukoita, joissa agentit oppivat vuorovaikutuksista ja säätävät käyttäytymistään dynaamisesti, mikä johtaa jatkuvaan parantamiseen ja kyvykkyyksien hienosäätöön.
+**Kuinka tiimit voivat käyttää näitä**: Tiimit voivat ottaa käyttöön palautesilmukoita, joissa agentit oppivat vuorovaikutuksista ja mukauttavat käyttäytymistään dynaamisesti, mikä johtaa jatkuvaan parantamiseen ja kyvykkyyksien hienosäätöön.
 
-**Miten se toimii käytännössä**: Agentit voivat analysoida käyttäjäpalautetta, ympäristötietoja ja tehtävien tuloksia päivittääkseen tietopohjaansa, säätääkseen päätöksentekoalgoritmejaan ja parantaakseen suoritustaan ajan myötä. Tämä iteratiivinen oppimisprosessi mahdollistaa agenttien sopeutumisen muuttuviin olosuhteisiin ja käyttäjäpreferensseihin, parantaen järjestelmän kokonaistehokkuutta.
+**Miten se toimii käytännössä**: Agentit voivat analysoida käyttäjäpalautetta, ympäristötietoja ja tehtävien tuloksia päivittääkseen tietokantaansa, säätääkseen päätöksentekoalgoritmeja ja parantaakseen suorituskykyä ajan myötä. Tämä iteratiivinen oppimisprosessi mahdollistaa agenttien sopeutumisen muuttuviin olosuhteisiin ja käyttäjäpreferensseihin, parantaen järjestelmän tehokkuutta kokonaisuudessaan.
 
-## Mitkä ovat erot Microsoft Agent Frameworkin ja Azure AI Agent Servicen välillä?
+## Mitkä ovat Microsoft Agent Frameworkin ja Azure AI Agent Servicen erot?
 
-Näitä lähestymistapoja voi verrata monin tavoin, mutta tarkastellaan joitakin keskeisiä eroja suunnittelun, kyvykkyyksien ja kohdekäyttötapausten näkökulmasta:
+Näitä lähestymistapoja voi vertailla monin tavoin, mutta katsotaan joitakin keskeisiä eroja niiden suunnittelun, kyvykkyyksien ja käyttötarkoitusten osalta:
 
 ## Microsoft Agent Framework (MAF)
 
-Microsoft Agent Framework tarjoaa virtaviivaisen SDK:n tekoälyagenttien rakentamiseen käyttäen `AzureAIProjectAgentProvider`-komponenttia. Se mahdollistaa agenttien luomisen, jotka hyödyntävät Azure OpenAI -malleja sisäänrakennetulla työkalukutsutoiminnallisuudella, keskustelunhallinnalla ja yritystason tietoturvalla Azure-identiteetin kautta.
+Microsoft Agent Framework tarjoaa virtaviivaistetun SDK:n tekoälyagenttien rakentamiseen `AzureAIProjectAgentProvider`-luokan avulla. Se mahdollistaa agenttien luomisen, jotka hyödyntävät Azure OpenAI -malleja sisäänrakennetulla työkalukutsulla, keskustelun hallinnalla ja yritystason tietoturvalla Azure-tunnistuksen kautta.
 
-**Käyttötapaukset**: Tuotantovalmiiden tekoälyagenttien rakentaminen, jotka käyttävät työkaluja, monivaiheisia työnkulkuja ja yritysintegraatioskenaarioita.
+**Käyttötapaukset**: Valmiiden tuotantokelpoisten tekoälyagenttien rakentaminen, jotka käyttävät työkaluja, monivaiheisia työnkulkuja ja yritysintegraatioskenaarioita.
 
-Tässä joitakin Microsoft Agent Frameworkin keskeisiä käsitteitä:
+Seuraavassa on joitakin Microsoft Agent Frameworkin keskeisiä käsitteitä:
 
-- **Agents**. Agentti luodaan `AzureAIProjectAgentProvider`-komponentin kautta ja konfiguroidaan nimellä, ohjeilla ja työkaluilla. Agentti voi:
-  - **Käsitellä käyttäjäviestejä** ja tuottaa vastauksia Azure OpenAI -malleja käyttäen.
-  - **Kutsua työkaluja** automaattisesti keskustelukontekstiin perustuen.
-  - **Ylläpitää keskustelutilaa** useiden vuorovaikutusten ajan.
+- **Agentit**. Agentti luodaan `AzureAIProjectAgentProvider`-luokan kautta ja määritellään nimi, ohjeet ja työkalut. Agentti voi:
+  - **Käsitellä käyttäjän viestejä** ja luoda vastauksia käyttämällä Azure OpenAI -malleja.
+  - **Kutsua työkaluja** automaattisesti keskustelun kontekstin perusteella.
+  - **Ylläpitää keskustelun tilaa** useiden vuorovaikutusten aikana.
 
-  Tässä on koodikatkelma, joka näyttää miten agentti luodaan:
+  Tässä on koodikatkelma agentin luomisesta:
 
     ```python
     import os
@@ -184,8 +184,8 @@ Tässä joitakin Microsoft Agent Frameworkin keskeisiä käsitteitä:
     response = await agent.run("Hello, World!")
     print(response)
     ```
-
-- **Tools**. Kehys tukee työkalujen määrittelyä Python-funktioina, joita agentti voi kutsua automaattisesti. Työkalut rekisteröidään agenttia luodessa:
+  
+- **Työkalut**. Kehys tukee työkalujen määrittelyä Python-funktioina, joita agentti voi kutsua automaattisesti. Työkalut rekisteröidään agenttia luotaessa:
 
     ```python
     def get_weather(location: str) -> str:
@@ -198,8 +198,8 @@ Tässä joitakin Microsoft Agent Frameworkin keskeisiä käsitteitä:
         tools=[get_weather],
     )
     ```
-
-- **Moni-agenttien koordinointi**. Voit luoda useita agentteja eri erikoistumisilla ja koordinoida niiden toimintaa:
+  
+- **Moniagenttien koordinointi**. Voit luoda useita agenteja eri erikoisaloilla ja koordinoida heidän työtään:
 
     ```python
     planner = await provider.create_agent(
@@ -216,20 +216,20 @@ Tässä joitakin Microsoft Agent Frameworkin keskeisiä käsitteitä:
     plan = await planner.run("Plan a trip to Paris")
     result = await executor.run(f"Execute this plan: {plan}")
     ```
-
-- **Azure Identity -integraatio**. Kehys käyttää `AzureCliCredential`- (tai `DefaultAzureCredential`) -todennusta turvalliseen, avaimettomaan autentikointiin, mikä poistaa tarpeen hallita API-avaimia suoraan.
+  
+- **Azure-tunnistusintegraatio**. Kehys käyttää `AzureCliCredential`- tai `DefaultAzureCredential`-autentikointia turvallisesti ilman avainten hallintaa.
 
 ## Azure AI Agent Service
 
-Azure AI Agent Service on uudempi lisäys, esitelty Microsoft Ignite 2024 -tapahtumassa. Se mahdollistaa tekoälyagenttien kehittämisen ja käyttöönoton joustavampien mallien kanssa, kuten suoran kutsun avaimeen lähdekoodiin perustuviin LLM-malleihin kuten Llama 3, Mistral ja Cohere.
+Azure AI Agent Service on uudempi lisäys, esitelty Microsoft Ignite 2024 -tapahtumassa. Se mahdollistaa tekoälyagenttien kehittämisen ja käyttöönoton joustavammilla malleilla, kuten avoimen lähdekoodin LLM-mallien (Llama 3, Mistral, Cohere) kutsumisella.
 
-Azure AI Agent Service tarjoaa vahvempia yritystason tietoturvamekanismeja ja tiedonvarastointimenetelmiä, mikä tekee siitä sopivan yrityssovelluksiin.
+Azure AI Agent Service tarjoaa vahvempia yritystason tietoturvamekanismeja ja tietovarastointimenetelmiä, mikä tekee siitä sopivan yrityssovelluksiin.
 
-Se toimii heti yhteensopivasti Microsoft Agent Frameworkin kanssa agenttien rakentamiseen ja käyttöönottoon.
+Se toimii suoraan yhteistyössä Microsoft Agent Frameworkin kanssa agenttien rakentamiseen ja käyttöönottoon.
 
-Tämä palvelu on tällä hetkellä Public Preview -vaiheessa ja tukee agenttien rakentamista Pythonilla ja C#:lla.
+Palvelu on tällä hetkellä julkisessa esikatselussa ja tukee agenttien rakentamista Pythonilla ja C#:lla.
 
-Using the Azure AI Agent Service Python SDK, we can create an agent with a user-defined tool:
+Azure AI Agent Service Python SDK:lla voimme luoda agentin käyttäjän määrittelemällä työkalulla:
 
 ```python
 import asyncio
@@ -290,12 +290,12 @@ async def main() -> None:
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-
+  
 ### Keskeiset käsitteet
 
-Azure AI Agent Service sisältää seuraavat keskeiset käsitteet:
+Azure AI Agent Servicellä on seuraavat keskeiset käsitteet:
 
-- **Agent**. Azure AI Agent Service integroituu Microsoft Foundryyn. AI Foundryn sisällä AI Agent toimii "älykkäänä" mikropalveluna, jota voidaan käyttää kysymyksiin vastaamiseen (RAG), toimien suorittamiseen tai työnkulkujen täydelliseen automatisointiin. Se saavuttaa tämän yhdistämällä generatiivisten mallien voiman työkaluihin, jotka antavat agentille pääsyn ja mahdollisuuden olla vuorovaikutuksessa reaalimaailman tietolähteiden kanssa. Tässä on esimerkki agentista:
+- **Agentti**. Azure AI Agent Service integroituu Microsoft Foundryyn. AI Foundryssä agentti toimii "älykkäänä" mikropalveluna, jota voidaan käyttää kysymyksiin vastaamiseen (RAG), toimien suorittamiseen tai työnkulkujen täysin automatisointiin. Tämä saavutetaan yhdistämällä generatiivisten tekoälymallien voima työkaluihin, jotka mahdollistavat pääsyn todellisiin tietolähteisiin ja vuorovaikutuksen niiden kanssa. Tässä esimerkki agentista:
 
     ```python
     agent = project_client.agents.create_agent(
@@ -306,10 +306,10 @@ Azure AI Agent Service sisältää seuraavat keskeiset käsitteet:
         tool_resources=code_interpreter.resources,
     )
     ```
+  
+   Tässä esimerkissä agentti luodaan mallilla `gpt-4o-mini`, nimellä `my-agent` ja ohjeella `You are helpful agent`. Agentti on varustettu työkaluilla ja resursseilla suorittamaan koodin tulkintatehtäviä.
 
-    Tässä esimerkissä agentti luodaan mallilla `gpt-4o-mini`, nimellä `my-agent` ja ohjeella `You are helpful agent`. Agentilla on käytössään työkaluja ja resursseja suoritettavaksi koodin tulkinta -tehtäviä.
-
-- **Keskustelu ja viestit**. Lankaketju (thread) on toinen tärkeä käsite. Se edustaa keskustelua tai vuorovaikutusta agentin ja käyttäjän välillä. Lankoja voidaan käyttää keskustelun etenemisen seuraamiseen, kontekstin tallentamiseen ja vuorovaikutuksen tilan hallintaan. Tässä on esimerkki lankaketjusta:
+- **Ketju ja viestit**. Ketju on toinen tärkeä käsite. Se edustaa keskustelua tai vuorovaikutusta agentin ja käyttäjän välillä. Ketjuja voidaan käyttää seuraamaan keskustelun etenemistä, tallentamaan kontekstitietoja ja hallitsemaan vuorovaikutuksen tilaa. Tässä ketju esimerkkinä:
 
     ```python
     thread = project_client.agents.create_thread()
@@ -319,56 +319,59 @@ Azure AI Agent Service sisältää seuraavat keskeiset käsitteet:
         content="Could you please create a bar chart for the operating profit using the following data and provide the file to me? Company A: $1.2 million, Company B: $2.5 million, Company C: $3.0 million, Company D: $1.8 million",
     )
     
-    # Ask the agent to perform work on the thread
+    # Pyydä agenttia suorittamaan työtä ketjussa
     run = project_client.agents.create_and_process_run(thread_id=thread.id, agent_id=agent.id)
     
-    # Fetch and log all messages to see the agent's response
+    # Hae ja kirjaa kaikki viestit nähdäksesi agentin vastauksen
     messages = project_client.agents.list_messages(thread_id=thread.id)
     print(f"Messages: {messages}")
     ```
+  
+   Edellisessä koodissa luodaan ketju. Sen jälkeen ketjuun lähetetään viesti. Kutsumalla `create_and_process_run` pyydetään agenttia suorittamaan työ ketjulla. Lopuksi viestit haetaan ja kirjataan nähdäksesi agentin vastauksen. Viestit kuvaavat keskustelun etenemistä käyttäjän ja agentin välillä. On myös tärkeää ymmärtää, että viestit voivat olla eri tyyppejä, kuten tekstiä, kuvaa tai tiedostoa, eli agentin työ voi tuloksena olla esimerkiksi kuva tai tekstivastaus. Kehittäjänä voit sitten käyttää tätä tietoa jatkokäsittelyyn tai esittää vastauksen käyttäjälle.
 
-    Edellisessä koodissa luodaan lankaketju. Tämän jälkeen lankaan lähetetään viesti. Kutsumalla `create_and_process_run` pyydetään agenttia suorittamaan työtä lankaketjulle. Lopuksi viestit haetaan ja kirjataan nähdäksesi agentin vastauksen. Viestit osoittavat keskustelun etenemisen käyttäjän ja agentin välillä. On myös tärkeää ymmärtää, että viestit voivat olla eri tyyppejä, kuten tekstiä, kuva tai tiedosto — eli agentin työ on voinut esimerkiksi tuottaa kuvan tai tekstivastauksen. Kehittäjänä voit sitten käyttää tätä tietoa vastauksen jatkokäsittelyyn tai sen esittämiseen käyttäjälle.
-
-- **Integroituu Microsoft Agent Frameworkin kanssa**. Azure AI Agent Service toimii saumattomasti Microsoft Agent Frameworkin kanssa, mikä tarkoittaa, että voit rakentaa agentteja käyttäen `AzureAIProjectAgentProvider`-komponenttia ja ottaa ne käyttöön Agent Service -palvelun kautta tuotantoympäristöihin.
+- **Integrointi Microsoft Agent Frameworkin kanssa**. Azure AI Agent Service toimii saumattomasti yhdessä Microsoft Agent Frameworkin kanssa, joten voit rakentaa agentteja käyttäen `AzureAIProjectAgentProvider`-luokkaa ja ottaa ne tuotantokäyttöön Agent Servicen kautta.
 
 **Käyttötapaukset**: Azure AI Agent Service on suunniteltu yrityssovelluksiin, jotka vaativat turvallista, skaalautuvaa ja joustavaa tekoälyagenttien käyttöönottoa.
 
-## Mikä on ero näiden lähestymistapojen välillä?
- 
-Näyttäisi siltä, että päällekkäisyyttä on, mutta suunnittelun, kyvykkyyksien ja kohdekäyttötapausten osalta on joitakin keskeisiä eroja:
- 
-- **Microsoft Agent Framework (MAF)**: On tuotantovalmiiksi tarkoitettu SDK tekoälyagenttien rakentamiseen. Se tarjoaa virtaviivaisen API:n agenttien luomiseen työkaluilla, keskustelunhallinnalla ja Azure-identiteetin integraatiolla.
-- **Azure AI Agent Service**: On alusta ja käyttöönotopalvelu Azure Foundryssa agentteja varten. Se tarjoaa sisäänrakennetun yhteyden palveluihin, kuten Azure OpenAI, Azure AI Search, Bing Search ja koodin suoritus.
- 
-Et ole vielä varma, kumpi valita?
+## Mikä ero näillä lähestymistavoilla on?
+
+Vaikka ne kuulostavat päällekkäisiltä, on niiden suunnittelussa, kyvykkyyksissä ja käyttötarkoituksissa keskeisiä eroja:
+
+- **Microsoft Agent Framework (MAF)**: On tuotantovalmiiksi kehitetty SDK tekoälyagenttien rakentamiseen. Se tarjoaa yksinkertaistetun API:n agenttien luomiseen, työkalukutsuihin, keskustelun hallintaan ja Azure-identiteetti-integraatioon.  
+- **Azure AI Agent Service**: On alusta ja käyttöönottopalvelu Azure Foundryssä agenttien kehittämiseen. Se tarjoaa valmiit liitännät palveluihin kuten Azure OpenAI, Azure AI Search, Bing Search ja koodin suoritus.  
+
+Etkö ole varma kumpi sopii?
 
 ### Käyttötapaukset
- 
-Käydään läpi joitakin yleisiä käyttötapauksia, jotka voivat auttaa päätöksenteossa:
- 
-> Q: Rakennan tuotantoon meneviä tekoälyagenttisovelluksia ja haluan päästä nopeasti alkuun
->
-> A: Microsoft Agent Framework on erinomainen valinta. Se tarjoaa yksinkertaisen, Python-tyyppisen API:n `AzureAIProjectAgentProvider`-komponentin kautta, jonka avulla voit määritellä agentteja työkaluilla ja ohjeilla vain muutamalla koodirivillä.
- 
-> Q: Tarvitsen yritystason käyttöönoton Azure-integraatioilla, kuten Search ja koodin suoritus
->
-> A: Azure AI Agent Service on paras valinta. Se on alusta, joka tarjoaa sisäänrakennetut kyvykkyydet monille malleille, Azure AI Searchille, Bing Searchille ja Azure Functionsille. Sen avulla agenttien rakentaminen Foundry-portaalissa ja niiden käyttöönotto laajassa mittakaavassa on helppoa.
- 
-> Q: Olen vielä epävarma, anna yksi vaihtoehto
->
-> A: Aloita Microsoft Agent Frameworkilla agenttien rakentamiseen, ja käytä Azure AI Agent Servicea, kun tarvitset käyttöönottoa ja skaalausta tuotannossa. Tämä lähestymistapa antaa sinulle mahdollisuuden iteroda nopeasti agenttilogiikkaa samalla kun sinulla on selkeä polku yritystason käyttöönottoon.
- 
-Yhteenvetona keskeiset erot taulukossa:
 
-| Framework | Focus | Core Concepts | Use Cases |
+Käydään läpi joitakin yleisiä käyttötapauksia:
+
+> K: Rakennan tuotantokelpoisia tekoälyagenttisovelluksia ja haluan aloittaa nopeasti  
+>
+
+>V: Microsoft Agent Framework on erinomainen valinta. Se tarjoaa yksinkertaisen, Python-tyyppisen API:n `AzureAIProjectAgentProvider`-luokan kautta, jonka avulla voit määritellä agentteja työkaluilla ja ohjeilla vain muutamalla koodirivillä.
+
+> K: Tarvitsen yritystason käyttöönoton Azure-integraatioilla kuten Search ja koodin suoritus  
+>
+
+> V: Azure AI Agent Service sopii parhaiten tähän. Se on alusta, joka tarjoaa valmiit kyvykkyydet monille malleille, kuten Azure AI Search, Bing Search ja Azure Functions. Sen avulla voit helposti rakentaa agentteja Foundry-portaalissa ja ottaa ne käyttöön suuressa mittakaavassa.
+
+> K: Olen edelleen hämmentynyt, anna minulle yksi vaihtoehto  
+>
+
+> V: Aloita Microsoft Agent Frameworkista agenttien rakentamiseen ja käytä Azure AI Agent Serviceä, kun tarvitset tuotantokäyttöönottamista ja skaalautuvuutta. Tämä lähestymistapa antaa sinulle mahdollisuuden iteratiiviseen agenttilogiikkaan yhdistettynä selkeään polkuun yrityskäyttöön.
+
+Tiivistetään keskeiset erot taulukkoon:
+
+| Kehys | Painopiste | Keskeiset käsitteet | Käyttötapaukset |
 | --- | --- | --- | --- |
-| Microsoft Agent Framework | Streamlined agent SDK with tool calling | Agents, Tools, Azure Identity | Building AI agents, tool use, multi-step workflows |
-| Azure AI Agent Service | Flexible models, enterprise security, Code generation, Tool calling | Modularity, Collaboration, Process Orchestration | Secure, scalable, and flexible AI agent deployment |
+| Microsoft Agent Framework | Virtaviivainen agentti-SDK työkalukutsuin | Agentit, Työkalut, Azure-identiteetti | Tekoälyagenttien rakentaminen, työkalujen käyttö, monivaiheiset työnkulut |
+| Azure AI Agent Service | Joustavat mallit, yritysturvallisuus, koodin generointi, työkalukutsut | Modulaarisuus, Yhteistyö, Prosessien orkestrointi | Turvallinen, skaalautuva ja joustava tekoälyagenttien käyttöönotto |
 
-## Voinko integroida olemassa olevat Azure-ekosysteemin työkaluni suoraan, vai tarvitaanko erillisiä ratkaisuja?
-Vastaus on kyllä: voit integroida olemassa olevat Azure-ekosysteemisi työkalut suoraan erityisesti Azure AI Agent Serviceen, koska se on rakennettu toimimaan saumattomasti muiden Azure-palveluiden kanssa. Voit esimerkiksi integroida Bingin, Azure AI Searchin ja Azure Functionsin. Microsoft Foundryn kanssa on myös syvä integraatio.
+## Voinko integroida olemassa olevat Azure-ekosysteemityökaluni suoraan, vai tarvitsenko itsenäisiä ratkaisuja?
+Vastaus on kyllä, voit integroida olemassa olevat Azure-ekosysteemisi työkalut suoraan Azure AI Agent Serviceen, erityisesti koska se on rakennettu toimimaan saumattomasti muiden Azure-palveluiden kanssa. Voisit esimerkiksi integroida Bingin, Azure AI Searchin ja Azure Functionsit. Microsoft Foundryn kanssa on myös syvä integraatio.
 
-Microsoft Agent Framework integroituu myös Azure-palveluihin `AzureAIProjectAgentProvider`-komponentin ja Azure-identiteetin kautta, jolloin voit kutsua Azure-palveluita suoraan agenttityökaluistasi.
+Microsoft Agent Framework integroituu myös Azure-palveluihin `AzureAIProjectAgentProvider`-komponentin ja Azure-tunnistautumisen kautta, jolloin voit kutsua Azure-palveluita suoraan agenttityökaluistasi.
 
 ## Sample Codes
 
@@ -377,7 +380,7 @@ Microsoft Agent Framework integroituu myös Azure-palveluihin `AzureAIProjectAge
 
 ## Got More Questions about AI Agent Frameworks?
 
-Liity [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) tapaamaan muita oppijoita, osallistumaan vastaanottoaikoihin ja saadaksesi vastauksia AI-agentteja koskeviin kysymyksiisi.
+Liity [Microsoft Foundry Discordiin](https://discord.com/invite/ATgtXmAS5D) tavata muita oppijoita, osallistua office hours -tapahtumiin ja saada vastauksia AI-agentteihin liittyviin kysymyksiisi.
 
 ## References
 
@@ -396,6 +399,6 @@ Liity [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) tapaamaan mu
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Vastuuvapauslauseke:
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua Co-op Translator (https://github.com/Azure/co-op-translator). Pyrimme tarkkuuteen, mutta huomaathan, että automatisoiduissa käännöksissä voi esiintyä virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäiskielellä tulee pitää määräysvallassa olevana lähteenä. Kriittisten tietojen osalta suositellaan ammattimaisen ihmiskääntäjän käyttöä. Emme ole vastuussa tästä käännöksestä aiheutuvista väärinymmärryksistä tai virhetulkinnoista.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -4,61 +4,61 @@
 
 Tässä oppitunnissa käsitellään, kuinka suorittaa tämän kurssin koodiesimerkit.
 
-## Liity muiden oppijoiden seuraan ja saat apua
+## Liity muiden oppijoiden seuraan ja saa apua
 
-Ennen kuin alat kloonata omaa repositoriotasi, liity [AI Agents For Beginners Discord -kanavalle](https://aka.ms/ai-agents/discord) saadaksesi apua asennuksessa, kysymyksiä kurssista tai yhdistääksesi muihin oppijoihin.
+Ennen kuin alat kloonata repositoriotasi, liity [AI Agents For Beginners Discord -kanavalle](https://aka.ms/ai-agents/discord) saadaksesi apua asennuksessa, kysymyksiä kurssista tai yhdistyäksesi muiden oppijoiden kanssa.
 
 ## Kloonaa tai haarauta tämä repo
 
-Aloittaaksesi, kloonaa tai haarauta GitHub-repositorio. Tämä luo sinulle oman version kurssimateriaalista, jotta voit suorittaa, testata ja muokata koodia!
+Aloittaaksesi kloonaa tai haarauta GitHub-repositorio. Tämä luo sinulle oman version kurssin materiaalista, jotta voit suorittaa, testata ja muokata koodia!
 
-Tämä onnistuu klikkaamalla linkkiä <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">haarauta repo</a>
+Tämä onnistuu klikkaamalla linkkiä <a href="https://github.com/microsoft/ai-agents-for-beginners/fork" target="_blank">haarauta repositorio</a>
 
-Sinulla pitäisi nyt olla oma haarautettu versiosi tästä kurssista seuraavasta linkistä:
+Sinulla pitäisi nyt olla oma haarautettu versiosi tästä kurssista seuraavassa linkissä:
 
-![Haarautettu Repo](../../../translated_images/fi/forked-repo.33f27ca1901baa6a.webp)
+![Forked Repo](../../../translated_images/fi/forked-repo.33f27ca1901baa6a.webp)
 
-### Shallow Clone (suositeltu työpajoihin / Codespaces)
+### Shallow Clone (suositellaan työpajalle / Codespacesille)
 
-  >Koko repositorio voi olla suuri (~3 GB) kun lataat koko historian ja kaikki tiedostot. Jos osallistut vain työpajaan tai tarvitset vain muutaman oppituntikansion, shallow clone (tai sparse clone) välttää suurimman osan latauksesta katkaisemalla historian ja/tai ohittamalla blobit.
+> Koko repositorio voi olla suuri (~3 GB), kun lataat koko historian ja kaikki tiedostot. Jos osallistut vain työpajaan tai tarvitset vain muutaman oppituntikansion, shallow clone (tai sparse clone) välttää suurimman osan latauksesta rajoittamalla historian ja/tai ohittamalla blobit.
 
 #### Nopea shallow clone — minimaalinen historia, kaikki tiedostot
 
-Korvaa `<your-username>` alla komennoissa haarautetun URL:llä (tai upstream-URL:llä jos haluat).
+Korvaa `<your-username>` alla komennoissa haarautuneen URL-osoitteellasi (tai upstream URL:lla, jos haluat).
 
-Kloonaa vain viimeisin commit-historia (pieni lataus):
+Ladkaa vain viimeisin commit-historia (pieni lataus):
 
 ```bash|powershell
 git clone --depth 1 https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Kloonaa tietty haara:
+Ladkaa tietty haara:
 
 ```bash|powershell
 git clone --depth 1 --branch <branch-name> https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-#### Osittainen (sparse) kloonaus — minimaalinen blobit + vain valitut kansiot
+#### Osittainen (sparse) clone — minimaalinen blobien määrä + vain valitut kansiot
 
-Tämä käyttää osittaista kopiointia ja sparse-checkoutia (vaatii Git 2.25+ ja suositeltavaa modernia Gitiä jossa osittainen kloonaus):
+Tämä käyttää osittaista kloonausta ja sparse-checkoutia (vaatii Git 2.25+ ja suositellaan modernia Gitiä, jossa on osittainen kloonaustuki):
 
 ```bash|powershell
 git clone --depth 1 --filter=blob:none --sparse https://github.com/<your-username>/ai-agents-for-beginners.git
 ```
 
-Siirry repo-kansioon:
+Siirry repositoriokansioon:
 
 ```bash|powershell
 cd ai-agents-for-beginners
 ```
 
-Määritä sitten haluamasi kansiot (alla esimerkissä kaksi kansiota):
+Sitten määritä, mitkä kansiot haluat (esimerkissä kaksi kansiota):
 
 ```bash|powershell
 git sparse-checkout set 00-course-setup 01-intro-to-ai-agents
 ```
 
-Kloonaamisen ja tiedostojen tarkistamisen jälkeen, jos tarvitset vain tiedostoja ja haluat vapauttaa tilaa (ei git historiota), poista repositorion metatiedot (💀 peruuttamaton — menetät kaiken Git-toiminnallisuuden: ei committeja, päivityksiä, työnsiä tai historiatietoja).
+Kloonaamisen ja tiedostojen varmistamisen jälkeen, jos tarvitset vain tiedostot etkä Git-historiaa, poista repositorion metatiedot (💀peruuttamaton — menetät kaiken Git-toiminnallisuuden: ei committeja, pullauksia, pushauksia tai historiatietoja).
 
 ```bash
 # zsh/bash
@@ -70,41 +70,41 @@ rm -rf .git
 Remove-Item -Recurse -Force .git
 ```
 
-#### GitHub Codespacesin käyttäminen (suositellaan suurten paikallisten latauksien välttämiseksi)
+#### GitHub Codespacesin käyttäminen (suositellaan paikallisten suurien latausten välttämiseksi)
 
-- Luo uusi Codespace tälle repositoriolle [GitHubin UI:n](https://github.com/codespaces) kautta.  
+- Luo uusi Codespace tälle repositoriolle [GitHub UI:n kautta](https://github.com/codespaces).
 
-- Uuden codespacen terminaalissa suorita jokin yllä olevista shallow/sparse clone komennoista tuodaksesi vain tarvitsemasi oppituntikansiot Codespace-työtilaan.
+- Uuden luodun Codespacen terminaalissa suorita yksi yllä mainituista shallow/sparse clone -komennoista tuodaksesi vain tarvitsemasi oppituntikansiot Codespace-työtilaan.
 - Valinnainen: kloonauksen jälkeen Codespacesissa poista .git vapauttaaksesi tilaa (katso poistokäskyt yllä).
-- Huom: Jos haluat avata repositorion suoraan Codespacesissa (ilman lisäkloonausta), niin huomioi että Codespaces rakentaa devcontainer-ympäristön ja saattaa provisionoida enemmän kuin tarvitset. Shallow kloonaus tuoreeseen Codespaceen antaa paremman hallinnan levykäyttöön.
+- Huomaa: Jos haluat avata repositorion suoraan Codespacesissa (ilman lisäkloonausta), ole tietoinen, että Codespaces rakentaa devcontainer-ympäristön ja saattaa silti varata enemmän kuin tarvitset. Shallow kloonaus uuden Codespacen sisällä antaa enemmän hallintaa levytilan käytöstä.
 
 #### Vinkkejä
 
-- Korvaa aina kloonaus-URL omallasi, jos haluat muokata/commitoida.
-- Jos myöhemmin tarvitset lisää historiaa tai tiedostoja, voit hakea niitä tai muuttaa sparse-checkoutia lisätäksesi kansioita.
+- Korvaa aina kloonaus-URL haarallasi, jos haluat muokata/commitata.
+- Jos myöhemmin tarvitset enemmän historiaa tai tiedostoja, voit hakea ne tai säätää sparse-checkoutia sisältämään lisää kansioita.
 
 ## Koodin suorittaminen
 
-Tämä kurssi tarjoaa joukon Jupyter Notebook -tiedostoja, joita voit suorittaa saadaksesi käytännön kokemusta AI-agenttien rakentamisesta.
+Tämä kurssi tarjoaa joukon Jupyter-muisteja, joita voit suorittaa saadaksesi käytännön kokemusta AI-agenttien rakentamisesta.
 
-Koodiesimerkit käyttävät **Microsoft Agent Frameworkia (MAF)** `AzureAIProjectAgentProvider`-moduulilla, joka yhdistää **Azure AI Agent Service V2** (Responses API) kautta **Microsoft Foundryyn**.
+Koodiesimerkit käyttävät **Microsoft Agent Frameworkia (MAF)** `AzureAIProjectAgentProvider`-rajapinnalla, joka yhdistää **Azure AI Agent Service V2**:een (Responses API) **Microsoft Foundryn** kautta.
 
-Kaikki Python-notebookit on nimetty `*-python-agent-framework.ipynb`.
+Kaikki Python-muistikirjat ovat nimetty muodossa `*-python-agent-framework.ipynb`.
 
 ## Vaatimukset
 
 - Python 3.12+
-  - **HUOM**: Jos sinulla ei ole Python 3.12 asennettuna, varmista että asennat sen. Luo sen jälkeen venv käyttämällä python3.12 varmistaaksesi, että oikeat versiot asennetaan requirements.txt-tiedostosta.
+  - **HUOM:** Jos sinulla ei ole Python 3.12:tä asennettuna, varmista että asennat sen. Luo sitten virtuaaliympäristö python3.12:lla varmistaaksesi, että oikeat versiot asennetaan requirements.txt-tiedostosta.
   
     >Esimerkki
 
-    Luo Python-venv-kansio:
+    Luo Python-virtuaaliympäristön hakemisto:
 
     ```bash|powershell
     python -m venv venv
     ```
 
-    Aktivoi sitten venv-ympäristö:
+    Aktivoi sitten virtuaaliympäristö seuraavasti:
 
     ```bash
     # zsh/bash
@@ -116,27 +116,27 @@ Kaikki Python-notebookit on nimetty `*-python-agent-framework.ipynb`.
     venv\Scripts\activate
     ```
 
-- .NET 10+: Näytteitä varten, joissa käytetään .NET:iä, varmista että asennat [.NET 10 SDK:n](https://dotnet.microsoft.com/download/dotnet/10.0) tai uudemman. Tarkista asennettu .NET SDK versio:
+- .NET 10+: Esimerkkikoodien .NET-versio, varmista että asennat [.NET 10 SDK:n](https://dotnet.microsoft.com/download/dotnet/10.0) tai myöhemmän version. Tarkista asennettu .NET SDK -versio:
 
     ```bash|powershell
     dotnet --list-sdks
     ```
 
-- **Azure CLI** — vaaditaan tunnistukseen. Asenna osoitteesta [aka.ms/installazurecli](https://aka.ms/installazurecli).
-- **Azure-tilaus** — käyttöoikeus Microsoft Foundryyn ja Azure AI Agent Serviceen.
-- **Microsoft Foundry -projekti** — projekti, jossa on otettu käyttöön malli (esim. `gpt-4o`). Katso [Vaihe 1](#vaihe-1-luo-microsoft-foundry-projekti) alla.
+- **Azure CLI** — Tarvitaan todennukseen. Asenna osoitteesta [aka.ms/installazurecli](https://aka.ms/installazurecli).
+- **Azure-tilaus** — Pääsy Microsoft Foundryyn ja Azure AI Agent Serviceen.
+- **Microsoft Foundry -projekti** — Projekti, jossa on käytössä mallin lähetetty versio (esim. `gpt-4o`). Katso [Vaihe 1](#vaihe-1-luo-microsoft-foundry-projekti) alla.
 
-Olemme lisänneet juureen `requirements.txt`-tiedoston, joka sisältää kaikki tarvittavat Python-kirjastot koodiesimerkkien suorittamiseen.
+Tämä repositorio sisältää `requirements.txt`-tiedoston juurihakemistossa, jossa on kaikki vaaditut Python-kirjastot koodiesimerkkien suorittamiseen.
 
-Voit asentaa ne suorittamalla seuraavan komennon terminaalissasi repositorion juuressa:
+Voit asentaa ne ajamalla seuraavan komennon terminaalissasi repositorion juuressa:
 
 ```bash|powershell
 pip install -r requirements.txt
 ```
 
-Suosittelemme Python-virtuaaliympäristön luomista mahdollisten konfliktien ja ongelmien välttämiseksi.
+Suosittelemme Python-virtuaaliympäristön luomista ristiriitojen ja ongelmien välttämiseksi.
 
-## VSCode-asetus
+## VSCode:n asennus
 
 Varmista, että käytät oikeaa Python-versiota VSCodessa.
 
@@ -146,30 +146,30 @@ Varmista, että käytät oikeaa Python-versiota VSCodessa.
 
 ### Vaihe 1: Luo Microsoft Foundry -projekti
 
-Tarvitset Azure AI Foundryn **hubin** ja **projektin**, jossa on otettu käyttöön malli suorittaaksesi notebookeja.
+Tarvitset Azure AI Foundry **hubin** ja **projektin**, jossa on käytössä mallin deploy-versio, jotta voit ajaa muistikirjoja.
 
 1. Mene osoitteeseen [ai.azure.com](https://ai.azure.com) ja kirjaudu sisään Azure-tililläsi.
-2. Luo **hub** (tai käytä olemassa olevaa). Katso: [Hubin resurssien yleiskatsaus](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
-3. Hubin sisällä luo **projekti**.
-4. Ota malli käyttöön (esim. `gpt-4o`) kohdasta **Models + Endpoints** → **Deploy model**.
+2. Luo **hub** (tai käytä olemassa olevaa). Katso: [Hub resurssien yleiskatsaus](https://learn.microsoft.com/azure/ai-foundry/concepts/ai-resources).
+3. Luo hubin sisällä **projekti**.
+4. Lähetä malli (esim. `gpt-4o`) valitsemalla **Models + Endpoints** → **Deploy model**.
 
-### Vaihe 2: Hae projektin endpoint ja mallin käyttöönoton nimi
+### Vaihe 2: Hanki projektisi päätepiste ja mallin deploy-nimi
 
-Microsoft Foundryn portaalista projektistasi:
+Microsoft Foundry -portaalista projektissasi:
 
-- **Projektin päätepiste** — Mene **Overview**-sivulle ja kopioi endpointin URL-osoite.
+- **Projektin päätepiste** — Mene **Overview**-sivulle ja kopioi päätepisteen URL-osoite.
 
-![Projektin Connection String](../../../translated_images/fi/project-endpoint.8cf04c9975bbfbf1.webp)
+![Project Connection String](../../../translated_images/fi/project-endpoint.8cf04c9975bbfbf1.webp)
 
-- **Mallin käyttöönoton nimi** — Mene kohtaan **Models + Endpoints**, valitse mallisi ja muistiinpanoksi **Deployment name** (esim. `gpt-4o`).
+- **Mallin deploy-nimi** — Mene **Models + Endpoints** -kohtaan, valitse mallisi ja huomaa **Deployment name** (esim. `gpt-4o`).
 
-### Vaihe 3: Kirjaudu sisään Azureen komennolla `az login`
+### Vaihe 3: Kirjaudu Azureen `az login` -komennolla
 
-Kaikki notebookit käyttävät tunnistamiseen **`AzureCliCredential`** — ei API-avaimia hallittavaksi. Tämä vaatii kirjautumisen Azure CLI:n kautta.
+Kaikki muistikirjat käyttävät todennukseen **`AzureCliCredential`** — ei API-avaimia hallittavaksi. Tämä edellyttää sisäänkirjautumista Azure CLI:n kautta.
 
-1. **Asenna Azure CLI** jos se ei ole valmiiksi asennettuna: [aka.ms/installazurecli](https://aka.ms/installazurecli)
+1. **Asenna Azure CLI**, jos sitä ei ole vielä asennettu: [aka.ms/installazurecli](https://aka.ms/installazurecli)
 
-2. **Kirjaudu sisään** suorittamalla:
+2. **Kirjaudu sisään** ajamalla:
 
     ```bash|powershell
     az login
@@ -181,17 +181,17 @@ Kaikki notebookit käyttävät tunnistamiseen **`AzureCliCredential`** — ei AP
     az login --use-device-code
     ```
 
-3. **Valitse tilauksesi** jos sinulta pyydetään — valitse sellainen joka sisältää Foundry-projektisi.
+3. **Valitse tilauksesi**, jos sinulta kysytään — valitse se, jossa Foundry-projektisi sijaitsee.
 
-4. **Varmista** että olet kirjautunut sisään:
+4. **Varmista**, että olet kirjautunut sisään:
 
     ```bash|powershell
     az account show
     ```
 
-> **Miksi `az login`?** Notebookit hyväksyvät tunnistuksen `AzureCliCredential`-luokan kautta `azure-identity`-kirjastosta. Tämä tarkoittaa että Azure CLI -istuntosi antaa tarvittavat tunnukset — ei API-avaimia tai salaisuuksia `.env` tiedostossasi. Tämä on [turvallisuuskäytäntöjen mukainen menetelmä](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
+> **Miksi `az login`?** Muistikirjat todennetaan `AzureCliCredential`-tunnisteella `azure-identity`-paketin kautta. Tämä tarkoittaa, että Azure CLI -istuntosi tarjoaa tunnistetiedot — ei API-avaimia tai salaisuuksia `.env`-tiedostossasi. Tämä on [turvallisuuden paras käytäntö](https://learn.microsoft.com/azure/developer/ai/keyless-connections).
 
-### Vaihe 4: Luo oma `.env` tiedostosi
+### Vaihe 4: Luo `.env`-tiedosto
 
 Kopioi esimerkkitiedosto:
 
@@ -212,12 +212,12 @@ AZURE_AI_PROJECT_ENDPOINT=https://<your-project>.services.ai.azure.com/api/proje
 AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4o
 ```
 
-| Muuttuja | Missä se löytyy |
-|----------|-----------------|
-| `AZURE_AI_PROJECT_ENDPOINT` | Foundryn portaali → projektisi → **Overview**-sivu |
-| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundryn portaali → **Models + Endpoints** → valitse käyttöönotettu malli |
+| Muuttuja | Mistä löytää |
+|----------|--------------|
+| `AZURE_AI_PROJECT_ENDPOINT` | Foundry-portaali → projektisi → **Overview** -sivu |
+| `AZURE_AI_MODEL_DEPLOYMENT_NAME` | Foundry-portaali → **Models + Endpoints** → käytössä olevan mallin nimi |
 
-Se on siinä useimmille oppitunneille! Notebookit autentikoituvat automaattisesti az login -istuntosi kautta.
+Se on suurin osa oppitunneista! Muistikirjat todennetaan automaattisesti `az login` -sesiosi kautta.
 
 ### Vaihe 5: Asenna Python-riippuvuudet
 
@@ -225,73 +225,73 @@ Se on siinä useimmille oppitunneille! Notebookit autentikoituvat automaattisest
 pip install -r requirements.txt
 ```
 
-Suosittelemme suorittamaan tämän aiemmin luomasi virtuaaliympäristön sisällä.
+Suosittelemme suorittamaan tämän juuri aikaisemmin luodussa virtuaaliympäristössä.
 
-## Lisäasetukset Oppituntiin 5 (Agentic RAG)
+## Lisäasetukset Oppitunnille 5 (Agentic RAG)
 
-Oppitunti 5 käyttää **Azure AI Searchia** hakuperustaisen sisällöntuoton tekemiseen. Jos aiot suorittaa tämän oppitunnin, lisää seuraavat muuttujat `.env` tiedostoosi:
+Oppitunti 5 käyttää **Azure AI Searchia** retrieval-augmented generationiin. Jos aiot suorittaa tämän oppitunnin, lisää nämä muuttujat `.env`-tiedostoosi:
 
-| Muuttuja | Missä se löytyy |
-|----------|-----------------|
-| `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure-portaali → Azure AI Search -resurssisi → **Overview** → URL |
-| `AZURE_SEARCH_API_KEY` | Azure-portaali → Azure AI Search -resurssisi → **Settings** → **Keys** → ensisijainen ylläpitäjän avain |
+| Muuttuja | Mistä löytää |
+|----------|--------------|
+| `AZURE_SEARCH_SERVICE_ENDPOINT` | Azure-portaali → **Azure AI Search** -resurssisi → **Overview** → URL |
+| `AZURE_SEARCH_API_KEY` | Azure-portaali → **Azure AI Search** -resurssisi → **Settings** → **Keys** → pääavaimen |
 
-## Lisäasetukset Oppituntiin 6 ja Oppituntiin 8 (GitHub-mallit)
+## Lisäasetukset oppitunneille 6 ja 8 (GitHub-mallit)
 
-Jotkin oppituntien 6 ja 8 notebookeista käyttävät **GitHub-malleja** Azure AI Foundryn sijaan. Jos aiot suorittaa nämä näytteet, lisää seuraavat muuttujat `.env` tiedostoosi:
+Jotkut muistikirjat oppitunneissa 6 ja 8 käyttävät **GitHub-malleja** Azure AI Foundryn sijaan. Jos aiot suorittaa nämä esimerkit, lisää nämä muuttujat `.env`-tiedostoosi:
 
-| Muuttuja | Missä se löytyy |
-|----------|-----------------|
+| Muuttuja | Mistä löytää |
+|----------|--------------|
 | `GITHUB_TOKEN` | GitHub → **Settings** → **Developer settings** → **Personal access tokens** |
-| `GITHUB_ENDPOINT` | Käytä arvoa `https://models.inference.ai.azure.com` (oletusarvo) |
-| `GITHUB_MODEL_ID` | Mallin nimi käytettäväksi (esim. `gpt-4o-mini`) |
+| `GITHUB_ENDPOINT` | Käytä `https://models.inference.ai.azure.com` (oletusarvo) |
+| `GITHUB_MODEL_ID` | Käytettävän mallin nimi (esim. `gpt-4o-mini`) |
 
-## Vaihtoehtoinen toimittaja: MiniMax (OpenAI-yhteensopiva)
+## Vaihtoehtoinen tarjoaja: MiniMax (OpenAI-yhteensopiva)
 
-[MiniMax](https://platform.minimaxi.com/) tarjoaa laajakontekstisia malleja (jopa 204K tokenia) OpenAI-yhteensopivan API:n kautta. Koska Microsoft Agent Frameworkin `OpenAIChatClient` toimii minkä tahansa OpenAI-yhteensopivan päätepisteen kanssa, voit käyttää MiniMaxia vaihtoehtona GitHub-malleille tai OpenAI:lle.
+[MiniMax](https://platform.minimaxi.com/) tarjoaa laajakontekstisia malleja (jopa 204K tokenia) OpenAI-yhteensopivan API:n kautta. Koska Microsoft Agent Frameworkin `OpenAIChatClient` toimii minkä tahansa OpenAI-yhteensopivan päätepisteen kanssa, voit käyttää MiniMaxia gitHub-mallien tai OpenAI:n tilalla.
 
-Lisää nämä muuttujat `.env` tiedostoosi:
+Lisää nämä muuttujat `.env`-tiedostoosi:
 
-| Muuttuja | Missä se löytyy |
-|----------|-----------------|
-| `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) → API Keys |
-| `MINIMAX_BASE_URL` | Käytä arvoa `https://api.minimax.io/v1` (oletusarvo) |
-| `MINIMAX_MODEL_ID` | Mallin nimi käytettäväksi (esim. `MiniMax-M2.7`) |
+| Muuttuja | Mistä löytää |
+|----------|--------------|
+| `MINIMAX_API_KEY` | [MiniMax Platform](https://platform.minimaxi.com/) → API-avaimet |
+| `MINIMAX_BASE_URL` | Käytä `https://api.minimax.io/v1` (oletusarvo) |
+| `MINIMAX_MODEL_ID` | Käytettävän mallin nimi (esim. `MiniMax-M3`) |
 
-**Saatavilla olevat mallit**: `MiniMax-M2.7` (suositeltu), `MiniMax-M2.7-highspeed` (nopeammat vastaukset)
+**Esimerkkimallit**: `MiniMax-M3` (suositeltu), `MiniMax-M2.7`, `MiniMax-M2.7-highspeed` (nopeammat vastaukset). Mallin nimet ja saatavuus voivat muuttua ajan myötä, ja tiettyyn malliin pääsy saattaa riippua tilistäsi tai alueestasi — tarkista [MiniMax Platformista](https://platform.minimaxi.com/) ajantasainen lista. Jos `MiniMax-M3` ei ole tililläsi, aseta `MINIMAX_MODEL_ID` malliin, johon sinulla on pääsy (esim. `MiniMax-M2.7`).
 
-Koodiesimerkit, jotka käyttävät `OpenAIChatClient`-asiakasta (esim. Oppitunti 14 hotellivarauksen työnkulku), tunnistavat ja käyttävät automaattisesti MiniMax-konfiguraatiotasi, kun `MINIMAX_API_KEY` on asetettu.
+Koodiesimerkit, jotka käyttävät `OpenAIChatClient`-luokkaa (esim. Oppitunti 14 hotellin varaus -työnkulku), havaitsevat ja käyttävät automaattisesti MiniMax-asetuksiasi, kun `MINIMAX_API_KEY` on asetettu.
 
-## Lisäasetukset Oppituntiin 8 (Bing Grounding Workflow)
+## Lisäasetukset oppitunnille 8 (Bing Grounding Workflow)
 
-Oppitunnin 8 ehdollinen työnkulku käyttää **Bing groundingia** Azure AI Foundryn kautta. Jos aiot suorittaa tämän näytteen, lisää tämä muuttuja `.env` tiedostoosi:
+Oppitunnin 8 ehtoinen työnkulku käyttää **Bing grounding** -toimintoa Azure AI Foundryn kautta. Jos aiot suorittaa tämän esimerkin, lisää tämä muuttuja `.env`-tiedostoosi:
 
-| Muuttuja | Missä se löytyy |
-|----------|-----------------|
-| `BING_CONNECTION_ID` | Azure AI Foundry -portaali → projektisi → **Management** → **Connected resources** → Bing-yhteytesi → kopioi yhteyden ID |
+| Muuttuja | Mistä löytää |
+|----------|--------------|
+| `BING_CONNECTION_ID` | Azure AI Foundry -portaali → projektisi → **Management** → **Connected resources** → Bing-yhteytesi → kopioi connection ID |
 
-## Vianmääritys
+## Vianetsintä
 
-### SSL-sertifikaattien varmistusvirheet macOS:ssä
+### SSL-varmenteen vahvistusvirheet macOS:llä
 
-Jos käytät macOS:ää ja saat virheen kuten:
+Jos käytät macOS:ää ja kohtaat virheen kuten:
 
 ```plaintext
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain
 ```
 
-Tämä on tunnettu ongelma macOS:n Pythonissa, jossa järjestelmän SSL-sertifikaatteja ei automaattisesti luoteta. Kokeile seuraavia ratkaisuja tässä järjestyksessä:
+Tämä on tunnettu ongelma Pythonissa macOS:llä, jossa järjestelmän SSL-varmenteita ei automaattisesti luoteta. Kokeile seuraavia ratkaisuja tässä järjestyksessä:
 
 **Vaihtoehto 1: Suorita Pythonin Install Certificates -skripti (suositeltu)**
 
 ```bash
-# Korvaa 3.XX asennetulla Python-versiollasi (esim. 3.12 tai 3.13):
+# Korvaa 3.XX asentamallasi Python-versiolla (esim. 3.12 tai 3.13):
 /Applications/Python\ 3.XX/Install\ Certificates.command
 ```
 
-**Vaihtoehto 2: Käytä `connection_verify=False` notebookissasi (vain GitHub Models -notebookeille)**
+**Vaihtoehto 2: Käytä `connection_verify=False` muistikirjassa (vain GitHub Models -muistikirjoille)**
 
-Oppitunnin 6 notebookissa (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`) on jo kommentoitu kiertotie mukana. Poista kommenttimerkki `connection_verify=False` käytettäessä klienttiä:
+Oppitunnin 6 muistikirjassa (`06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb`) on kommentiksi jätetty kiertotapa jo valmiina. Ota pois kommenttimerkinnät `connection_verify=False` -kohdalta, kun luot clientin:
 
 ```python
 client = ChatCompletionsClient(
@@ -301,7 +301,7 @@ client = ChatCompletionsClient(
 )
 ```
 
-> **⚠️ Varoitus:** SSL-tarkistuksen poiskytkeminen (`connection_verify=False`) heikentää turvallisuutta ohittamalla sertifikaattien tarkastuksen. Käytä tätä vain väliaikaisena kiertotienä kehitysympäristöissä, ei koskaan tuotannossa.
+> **⚠️ Varoitus:** SSL-varmennuksen poistaminen (`connection_verify=False`) heikentää turvallisuutta ohittamalla sertifikaatin tarkistuksen. Käytä tätä vain tilapäisenä ratkaisuna kehitysympäristöissä, ei koskaan tuotannossa.
 
 **Vaihtoehto 3: Asenna ja käytä `truststore`-kirjastoa**
 
@@ -309,26 +309,25 @@ client = ChatCompletionsClient(
 pip install truststore
 ```
 
-Lisää sitten seuraava rivu notebookisi tai skriptisi alkuun ennen kuin teet verkkopyyntöjä:
+Lisää sitten seuraava koodi muistikirjasi tai skriptisi alkuun ennen verkkokutsuja:
 
 ```python
 import truststore
 truststore.inject_into_ssl()
 ```
 
-## Jäikö jumiin?
+## Jumiuduitko johonkin?
 
-Jos sinulla on ongelmia tämän asennuksen kanssa, hyppää mukaan <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discordiin</a> tai <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">luo issue</a>.
-
+Jos sinulla on ongelmia tämän asennuksen kanssa, tule käymään <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Community Discordissa</a> tai <a href="https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst" target="_blank">luo issue</a>.
 ## Seuraava oppitunti
 
-Olet nyt valmis suorittamaan tämän kurssin koodia. Onnea ja menestystä AI-agenttien maailmaan tutustumisessa!
+Olet nyt valmis suorittamaan tämän kurssin koodin. Hyvää oppimista lisää tekoälyagenttien maailmasta!
 
-[Johdanto AI Agentteihin ja agenttien käyttötapauksiin](../01-intro-to-ai-agents/README.md)
+[Johdatus tekoälyagentteihin ja agenttien käyttötapauksiin](../01-intro-to-ai-agents/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Vastuuvapauslauseke**:
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattisissa käännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäinen asiakirja omalla kielellään on pidettävä auktoritatiivisena lähteenä. Tärkeissä tiedoissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä johtuvista väärinymmärryksistä tai virhetulkinnoista.
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

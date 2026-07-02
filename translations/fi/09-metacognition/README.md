@@ -1,95 +1,95 @@
-[![Multi-agenttisuunnittelu](../../../translated_images/fi/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/fi/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
-> _(Napsauta yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
+> _(Klikkaa yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
 # Metakognitio tekoälyagenteissa
 
 ## Johdanto
 
-Tervetuloa oppitunnille tekoälyagenttien metakognitiosta! Tämä luku on suunnattu aloittelijoille, jotka ovat kiinnostuneita siitä, miten tekoälyagentit voivat pohtia omia ajatteluprosessejaan. Oppitunnin lopussa ymmärrät keskeiset käsitteet ja saat käytännön esimerkkejä metakognition soveltamisesta tekoälyagenttien suunnittelussa.
+Tervetuloa oppitunnille tekoälyagenttien metakognitiosta! Tämä luku on suunnattu aloittelijoille, jotka ovat kiinnostuneita siitä, miten tekoälyagentit voivat ajatella omia ajatteluprosessejaan. Oppitunnin lopuksi ymmärrät keskeiset käsitteet ja sinulla on käytännön esimerkkejä metakognition soveltamisesta tekoälyagenttien suunnittelussa.
 
 ## Oppimistavoitteet
 
 Oppitunnin suorittamisen jälkeen osaat:
 
-1. Ymmärtää päättelysilmukoiden merkityksen agenttien määrittelyissä.
-2. Käyttää suunnittelu- ja arviointitekniikoita itsekorjautuvien agenttien tukemiseksi.
-3. Luoda omia agenteja, jotka kykenevät manipuloimaan koodia tehtävien suorittamiseksi.
+1. Ymmärtää päättelysilmukkien vaikutukset agenttien määrittelyssä.
+2. Käyttää suunnittelu- ja arviointitekniikoita itsensä korjaavien agenttien tukemiseksi.
+3. Luoda omia agentteja, jotka pystyvät käsittelemään koodia tehtävien suorittamiseksi.
 
-## Johdatus metakognitioon
+## Metakognition esittely
 
-Metakognitio viittaa korkeamman tason kognitiivisiin prosesseihin, jotka sisältävät ajattelun omasta ajattelusta. Tekoälyagenttien kohdalla tämä tarkoittaa kykyä arvioida ja säätää toimintaansa itseymmärryksen ja aiempien kokemusten perusteella. Metakognitio, eli "ajattelu ajattelusta", on tärkeä käsite agenttiperustaisten tekoälyjärjestelmien kehityksessä. Siihen kuuluu tekoälyjärjestelmien tietoisuus omista sisäisistä prosesseistaan sekä kyky valvoa, säädellä ja mukauttaa käyttäytymistään vastaavasti. Samalla tavalla kuin teemme, kun tulkitsemme tilannetta tai tarkastelemme ongelmaa. Tämä itseymmärrys voi auttaa tekoälyjärjestelmiä tekemään parempia päätöksiä, tunnistamaan virheitä ja parantamaan suoritustaan ajan myötä – jälleen yhdistäen Turingin testiin ja keskusteluun siitä, ottaako tekoäly vallan.
+Metakognitio viittaa korkeampiin kognitiivisiin prosesseihin, jotka tarkoittavat oman ajattelun pohtimista. Tekoälyagenteille tämä tarkoittaa kykyä arvioida ja mukauttaa toimintaansa itsearvioinnin ja aiempien kokemusten perusteella. Metakognitio, eli "ajattelu ajattelemisesta", on tärkeä käsite agenttipohjaisten tekoälyjärjestelmien kehityksessä. Se tarkoittaa, että tekoälyjärjestelmät ovat tietoisia omista sisäisistä prosesseistaan ja pystyvät valvomaan, säätelemään ja sopeuttamaan käyttäytymistään sen mukaisesti. Aivan kuten me teemme, kun luemme tilannetta tai tarkastelemme ongelmaa. Tämä itseymmärrys voi auttaa tekoälyjärjestelmiä tekemään parempia päätöksiä, tunnistamaan virheitä ja parantamaan suoritustaan ajan myötä – jälleen viitaten Turingin testiin ja keskusteluun siitä, tuleeko tekoäly valtaamaan.
 
-Agenttiperustaisissa tekoälyjärjestelmissä metakognitio voi auttaa ratkaisemaan useita haasteita, kuten:
+Agenttipohjaisen tekoälyn kontekstissa metakognitio voi auttaa ratkaisemaan useita haasteita, kuten:
 - Läpinäkyvyys: Varmistaa, että tekoälyjärjestelmät voivat selittää päättelynsä ja päätöksensä.
-- Päättely: Parantaa tekoälyjärjestelmien kykyä yhdistää tietoa ja tehdä perusteltuja päätöksiä.
-- Sopeutuminen: Mahdollistaa tekoälyjärjestelmien mukautumisen uusiin ympäristöihin ja muuttuviin oloihin.
-- Havainto: Parantaa tekoälyjärjestelmien tarkkuutta ympäristöstään kerätyn datan tunnistamisessa ja tulkinnassa.
+- Päättely: Parantaa tekoälyjärjestelmien kykyä yhdistellä tietoa ja tehdä perusteltuja päätöksiä.
+- Sopeutuminen: Mahdollistaa tekoälyjärjestelmien mukautumisen uusiin ympäristöihin ja muuttuviin olosuhteisiin.
+- Havainnointi: Parantaa tekoälyjärjestelmien tarkkuutta ympäristöstä kerätyn datan tunnistamisessa ja tulkinnassa.
 
-### Mitä metakognitio on?
+### Mikä on metakognitio?
 
-Metakognitio, eli "ajattelu ajattelusta", on korkeamman tason kognitiivinen prosessi, joka sisältää itseymmärryksen ja oman kognitioprosessien itseohjauksen. Tekoälyn alalla metakognitio antaa agenteille kyvyn arvioida ja mukauttaa strategioitaan ja toimintaansa, mikä johtaa parempiin ongelmanratkaisu- ja päätöksentekokykyihin. Ymmärtämällä metakognition voit suunnitella tekoälyagentteja, jotka eivät ole ainoastaan älykkäämpiä vaan myös joustavampia ja tehokkaampia. Aidossa metakognitiossa tekoäly perustelee nimenomaan omaa päättelyään.
+Metakognitio, eli "ajattelu ajattelemisesta", on korkeampi kognitiivinen prosessi, johon kuuluu itseymmärrys ja kognitiivisten prosessien itseohjautuvuus. Tekoälyn alalla metakognitio antaa agenteille kyvyn arvioida ja mukauttaa strategioitaan ja toimiaan, mikä johtaa parantuneisiin ongelmanratkaisu- ja päätöksentekokykyihin. Ymmärtämällä metakognition voit suunnitella tekoälyagentteja, jotka eivät ole pelkästään älykkäämpiä vaan myös mukautuvampia ja tehokkaampia. Todellisessa metakognitiossa tekoäly perustelee eksplisiittisesti omaa päättelyään.
 
-Esimerkki: ”Priorisoin edullisempia lentoja, koska… Voi olla, että jätän huomiotta suorat lennot, joten tarkistan sen uudelleen.”.
-Seuraa kuinka tai miksi se valitsi tietyn reitin.
-- Huomaa tehneensä virheitä, koska se luotti liikaa käyttäjän viimekertaisiin mieltymyksiin, ja muokkaa päätöksentekostrategiaansa, ei vain lopullista suositusta.
-- Tunnistaa kaavoja kuten: ”Aina kun kuulen käyttäjän mainitsevan ’liian ruuhkaista’, minun ei pitäisi ainoastaan poistaa tiettyjä nähtävyyksiä, vaan myös pohtia, että tapani valita ’parhaat nähtävyydet’ on virheellinen, jos arvotan aina suosituimpien mukaan.”
+Esimerkki: ”Asetin halvimmat lennot etusijalle, koska… saatan menettää suorien lentojen mahdollisuuden, joten tarkistan uudelleen.”.
+Seuraa miten tai miksi agentti valitsi tietyn reitin.
+- Huomaa, että se teki virheitä, koska luotti liikaa käyttäjän viime kerralla antamiin mieltymyksiin, joten se muuttaa päätöksentekostrategiaansa, ei vain lopullista suositusta.
+- Tunnistaa malleja kuten: ”aina kun käyttäjä mainitsee ’liian ruuhkaista’, en pelkästään poista tiettyjä nähtävyyksiä vaan myös pohdin, että ’parhaiden nähtävyyksien’ valintamenetelmäni on virheellinen, jos aina sijoitan suosion mukaan.”
 
 ### Metakognition merkitys tekoälyagenteissa
 
-Metakognitiolla on tärkeä rooli tekoälyagenttien suunnittelussa monesta syystä:
+Metakognitiolla on keskeinen rooli tekoälyagenttien suunnittelussa useista syistä:
 
-![Metakognition merkitys](../../../translated_images/fi/importance-of-metacognition.b381afe9aae352f7.webp)
+![Importance of Metacognition](../../../translated_images/fi/importance-of-metacognition.b381afe9aae352f7.webp)
 
-- Itsetutkiskelu: Agentit voivat arvioida omaa suoritustaan ja tunnistaa kehityskohteita.
+- Itsetutkiskelu: Agentit voivat arvioida omaa suoriutumistaan ja tunnistaa parannuskohteita.
 - Sopeutumiskyky: Agentit voivat muuttaa strategioitaan aiempien kokemusten ja muuttuvien olosuhteiden perusteella.
 - Virheiden korjaus: Agentit voivat havaita ja korjata virheitä itsenäisesti, mikä johtaa tarkempiin tuloksiin.
 - Resurssien hallinta: Agentit voivat optimoida resurssien, kuten ajan ja laskentatehon, käyttöä suunnittelemalla ja arvioimalla toimintaansa.
 
 ## Tekoälyagentin osat
 
-Ennen kuin sukelletaan metakognitiivisiin prosesseihin, on tärkeää ymmärtää tekoälyagentin perusosat. Tekoälyagentti koostuu tyypillisesti:
+Ennen metakognitiivisiin prosesseihin syventymistä on tärkeää ymmärtää tekoälyagentin perusosat. Tekoälyagentti koostuu tyypillisesti seuraavista:
 
-- Persona: Agentin persoonallisuus ja ominaisuudet, jotka määrittävät, miten se kommunikoi käyttäjien kanssa.
-- Työkalut: Agentin käytettävissä olevat kyvyt ja toiminnot.
-- Taidot: Agentin hallussa oleva tieto ja asiantuntemus.
+- Persoona: Agentin persoonallisuus ja ominaisuudet, jotka määrittävät sen vuorovaikutuksen käyttäjien kanssa.
+- Työkalut: Agentin suorittamat kyvyt ja toiminnot.
+- Taidot: Agentin omistama tietämys ja asiantuntemus.
 
-Nämä osat toimivat yhdessä muodostaen "asiantuntijayksikön", joka pystyy suorittamaan erityisiä tehtäviä.
+Nämä osat toimivat yhdessä muodostaen "asiantuntijayksikön", joka voi suorittaa tiettyjä tehtäviä.
 
 **Esimerkki**:
-Ajatellaan matkanjärjestäjää, agenttipalvelua, joka ei pelkästään suunnittele lomasi, vaan myös mukauttaa reittiään reaaliaikaisten tietojen ja aiempien asiakkaiden matkaelämyksien perusteella.
+Ajattele matkanjärjestäjää, joka ei ainoastaan suunnittele lomasi, vaan myös säätää reittiään reaaliaikaisen datan ja aiempien asiakaskokemusten perusteella.
 
 ### Esimerkki: Metakognitio matkanjärjestäjäpalvelussa
 
-Kuvittele, että suunnittelet tekoälyllä toimivaa matkanjärjestäjäpalvelua. Tämä agentti, "Matkanjärjestäjä", auttaa käyttäjiä lomien suunnittelussa. Metakognition ottamiseksi mukaan Matkanjärjestäjän täytyy arvioida ja säätää toimintaansa itseymmärryksen ja aiempien kokemusten pohjalta. Näin metakognitio voisi näkyä:
+Kuvittele, että suunnittelet tekoälypohjaista matkanjärjestäjäpalvelua. Tämä agentti, "Matkanjärjestäjä", auttaa käyttäjiä lomamatkojen suunnittelussa. Sisällyttääksesi metakognition, Matkanjärjestäjän tulee arvioida ja säätää toimintaansa itsearvioinnin ja aiempien kokemusten pohjalta. Näin metakognitio voisi toimia:
 
 #### Nykyinen tehtävä
 
-Tehtävänä on auttaa käyttäjää suunnittelemaan matka Pariisiin.
+Auttaa käyttäjää suunnittelemaan matka Pariisiin.
 
-#### Askeleet tehtävän suorittamiseen
+#### Tehtävän suorittamisen vaiheet
 
-1. **Käyttäjän mieltymysten kerääminen**: Kysy käyttäjältä matkustuspäivät, budjetti, kiinnostuksenkohteet (esim. museot, ruoka, shoppailu) ja mahdolliset erityisvaatimukset.
-2. **Tietojen hakeminen**: Etsi lentoja, majoituksia, nähtävyyksiä ja ravintoloita, jotka vastaavat käyttäjän mieltymyksiä.
-3. **Suositusten luominen**: Tarjoa henkilökohtainen matkasuunnitelma lentotiedoilla, hotellivarauksilla ja ehdotetuilla aktiviteeteilla.
-4. **Säädä palautteen perusteella**: Pyydä käyttäjältä palautetta suosituksista ja tee tarvittavat muutokset.
+1. **Kerää käyttäjän mieltymykset**: Kysy käyttäjältä matkustuspäivät, budjetti, kiinnostuksenkohteet (esim. museot, ruoka, ostokset) ja erityisvaatimukset.
+2. **Hanki tietoa**: Etsi lentoja, majoituksia, nähtävyyksiä ja ravintoloita käyttäjän mieltymysten mukaan.
+3. **Luo suositukset**: Tarjoa henkilökohtainen matkasuunnitelma lentotiedoilla, hotellivarauksilla ja ehdotetuilla aktiviteeteilla.
+4. **Säädä palautteen perusteella**: Kysy käyttäjältä palautetta suosituksista ja tee tarvittavat muutokset.
 
 #### Tarvittavat resurssit
 
-- Pääsy lento- ja hotellivaraukset tietokantoihin.
-- Tiedot Pariisin nähtävyyksistä ja ravintoloista.
-- Käyttäjäpalautteet aiemmista vuorovaikutuksista.
+- Pääsy lento- ja hotellivarauksien tietokantoihin.
+- Tietoa Pariisin nähtävyyksistä ja ravintoloista.
+- Käyttäjäpalautedata aiemmista vuorovaikutuksista.
 
 #### Kokemus ja itsetutkiskelu
 
-Matkanjärjestäjä käyttää metakognitiota arvioidakseen suoritustaan ja oppiakseen aiemmista kokemuksista. Esimerkiksi:
+Matkanjärjestäjä käyttää metakognitiota arvioidakseen suoriutumistaan ja oppiakseen aiemmista kokemuksista. Esimerkiksi:
 
-1. **Käyttäjäpalautteen analysointi**: Matkanjärjestäjä tarkastelee käyttäjäpalautteita selvittääkseen, mitkä suositukset onnistuivat ja mitkä eivät. Se säätää tulevia ehdotuksiaan niiden perusteella.
-2. **Sopeutumiskyky**: Jos käyttäjä on aiemmin maininnut välttelevänsä ruuhkaisia paikkoja, Matkanjärjestäjä välttää suosittelemasta suosittuja turistinähtävyyksiä ruuhka-aikoina jatkossa.
-3. **Virheiden korjaus**: Jos Matkanjärjestäjä teki aiemmassa varauksessa virheen, kuten ehdotti täysin varattua hotellia, se oppii tarkistamaan saatavuuden perusteellisemmin ennen suositusten tekemistä.
+1. **Analysoi käyttäjäpalautetta**: Matkanjärjestäjä tarkastelee palautetta määrittääkseen, mitkä suositukset otettiin hyvin vastaan ja mitkä eivät. Se säätää tulevia ehdotuksiaan tämän perusteella.
+2. **Sopeutumiskyky**: Jos käyttäjä on aiemmin maininnut, ettei pidä ruuhkaisista paikoista, Matkanjärjestäjä välttää suosittelemasta suosittuja turistinähtävyyksiä ruuhka-aikoina jatkossa.
+3. **Virheiden korjaus**: Jos Matkanjärjestäjä teki virheen aiemmassa varauksessa, esimerkiksi ehdottamalla täysin varattua hotellia, se oppii tarkistamaan saatavuuden huolellisemmin ennen suositusten tekemistä.
 
 #### Käytännön kehittäjäesimerkki
 
-Tässä on yksinkertaistettu esimerkki siitä, miltä Matkanjärjestäjän koodi voisi näyttää metakognition sisällyttämisen yhteydessä:
+Tässä on yksinkertaistettu esimerkki Matkanjärjestäjän koodista, jossa metakognitio on sisällytetty:
 
 ```python
 class Travel_Agent:
@@ -101,7 +101,7 @@ class Travel_Agent:
         self.user_preferences = preferences
 
     def retrieve_information(self):
-        # Etsi lentoja, hotelleja ja nähtävyyksiä mieltymysten perusteella
+        # Hae lentoja, hotelleja ja nähtävyyksiä mieltymysten perusteella
         flights = search_flights(self.user_preferences)
         hotels = search_hotels(self.user_preferences)
         attractions = search_attractions(self.user_preferences)
@@ -134,68 +134,68 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 #### Miksi metakognitio on tärkeää
 
-- **Itsetutkiskelu**: Agentit voivat analysoida suoritustaan ja löytää parannuskohteita.
+- **Itsetutkiskelu**: Agentit voivat analysoida suorituskykyään ja tunnistaa kehityskohteita.
 - **Sopeutumiskyky**: Agentit voivat muuttaa strategioitaan palautteen ja muuttuvien olosuhteiden perusteella.
-- **Virheiden korjaus**: Agentit voivat havaita ja korjata virheitä itsenäisesti.
-- **Resurssien hallinta**: Agentit voivat optimoida resurssien käyttöä, kuten aikaa ja laskentatehoa.
+- **Virheiden korjaus**: Agentit voivat itsenäisesti havaita ja korjata virheitä.
+- **Resurssien hallinta**: Agentit voivat optimoida resurssien käyttöä, kuten ajan ja laskentatehon hyödyntämistä.
 
-Metakognition avulla Matkanjärjestäjä pystyy tarjoamaan käyttäjälle entistä henkilökohtaisempia ja täsmällisempiä matkasuosituksia, parantaen näin kokonaiskäyttäjäkokemusta.
+Sisällyttämällä metakognition Matkanjärjestäjä voi tarjota henkilökohtaisempia ja tarkempia matkasuosituksia, parantaen käyttäjäkokemusta.
 
 ---
 
 ## 2. Suunnittelu agenteissa
 
-Suunnittelu on keskeinen osa tekoälyagentin käyttäytymistä. Se tarkoittaa tarvittavien askelten hahmottamista tavoitteen saavuttamiseksi ottaen huomioon nykytila, resurssit ja mahdolliset esteet.
+Suunnittelu on olennainen osa tekoälyagenttien käyttäytymistä. Siihen kuuluu tarvittavien toimenpiteiden hahmottaminen tavoitteen saavuttamiseksi ottaen huomioon nykyinen tila, resurssit ja mahdolliset esteet.
 
-### Suunnittelun osat
+### Suunnittelun elementit
 
-- **Nykyinen tehtävä**: Määritä tehtävä selkeästi.
-- **Tehtävän suorittamisen askeleet**: Pilko tehtävä hallittaviin osiin.
-- **Tarvittavat resurssit**: Tunnista vaaditut resurssit.
+- **Nykyinen tehtävä**: Määrittele tehtävä selkeästi.
+- **Tehtävän vaiheet**: Pilko tehtävä hallittaviin vaiheisiin.
+- **Tarvittavat resurssit**: Tunnista tarvittavat resurssit.
 - **Kokemus**: Hyödynnä aiempia kokemuksia suunnittelun tukena.
 
 **Esimerkki**:
-Tässä ovat askeleet, jotka Matkanjärjestäjän täytyy ottaa auttaakseen käyttäjää suunnittelemaan matkansa tehokkaasti:
+Tässä ovat askelmat, jotka Matkanjärjestäjän tulee suorittaa auttaakseen käyttäjää suunnittelemaan matka tehokkaasti:
 
-### Askeleet Matkanjärjestäjälle
+### Matkanjärjestäjän vaiheet
 
-1. **Käyttäjän mieltymysten kerääminen**
-   - Kysy käyttäjältä tietoja matkustuspäivistä, budjetista, kiinnostuksenkohteista ja mahdollisista erityisvaatimuksista.
-   - Esimerkkejä: "Milloin aiot matkustaa?" "Mikä on budjettisi?" "Mitkä aktiviteetit kiinnostavat lomallasi?"
+1. **Kerää käyttäjän mieltymykset**
+   - Kysy käyttäjältä tietoja matkustuspäivistä, budjetista, kiinnostuksenkohteista ja erityisvaatimuksista.
+   - Esimerkkejä: "Milloin aiot matkustaa?" "Mikä on budjettisi?" "Mitä aktiviteetteja tykkäät tehdä lomalla?"
 
-2. **Tietojen hakeminen**
-   - Etsi käyttäjän mieltymyksiin sopivia matkavaihtoehtoja.
-   - **Lennot**: Etsi käyttäjän budjetin ja aikataulun mukaisia lentoja.
-   - **Majoitus**: Löydä hotellit tai vuokra-asunnot, jotka vastaavat käyttäjän toivomia sijainteja, hintoja ja palveluita.
-   - **Nähtävyydet ja ravintolat**: Tunnista suosittuja nähtävyyksiä, aktiviteetteja ja ruokailupaikkoja, jotka sopivat käyttäjän kiinnostuksiin.
+2. **Hae tietoja**
+   - Etsi sopivia matkustusvaihtoehtoja käyttäjän mieltymysten perusteella.
+   - **Lennot**: Etsi käyttäjän budjetin ja matkustuspäivien puitteissa saatavilla olevia lentoja.
+   - **Majoitus**: Löydä hotellit tai vuokra-asunnot, jotka vastaavat käyttäjän sijainti-, hinta- ja mukavuustoiveita.
+   - **Nähtävyydet ja ravintolat**: Tunnista suositut nähtävyydet, aktiviteetit ja ruokailuvaihtoehdot, jotka sopivat käyttäjän kiinnostuksenkohteisiin.
 
-3. **Suositusten laatiminen**
-   - Kokoa haetut tiedot henkilökohtaiseksi matkasuunnitelmaksi.
-   - Tarjoa yksityiskohtia lentovaihtoehdoista, hotellivarauksista ja ehdotetuista aktiviteeteista, räätälöiden suositukset käyttäjän mieltymysten mukaan.
+3. **Tee suositukset**
+   - Koosta kerätyistä tiedoista henkilökohtainen matkasuunnitelma.
+   - Tarjoa tiedot, kuten lentovaihtoehdot, hotellivaraukset ja ehdotetut aktiviteetit, sovittaen ne käyttäjän mieltymyksiin.
 
-4. **Matkasuunnitelman esittely käyttäjälle**
+4. **Esitä matkasuunnitelma käyttäjälle**
    - Jaa ehdotettu matkasuunnitelma käyttäjän tarkasteltavaksi.
-   - Esimerkki: "Tässä on ehdotus matkasuunnitelmaksi Pariisiin. Se sisältää lentotiedot, hotellivaraukset sekä listan suositelluista aktiviteeteista ja ravintoloista. Kerro ajatuksesi!"
+   - Esimerkki: "Tässä on ehdotus matkasuunnitelmaksi Pariisiin. Siinä on lentotiedot, hotellivaraukset sekä lista suositelluista aktiviteeteista ja ravintoloista. Kerro mitä mieltä olet!"
 
-5. **Palautteen kerääminen**
-   - Kysy käyttäjän mielipidettä ehdotuksesta.
-   - Esimerkkejä: "Pidätkö lentovaihtoehdoista?" "Sopiiko hotelli tarpeisiisi?" "Haluatko lisätä tai poistaa aktiviteetteja?"
+5. **Kerää palautetta**
+   - Kysy käyttäjältä palautetta ehdotetusta matkasuunnitelmasta.
+   - Esimerkkejä: "Pidätkö lentovaihtoehdoista?" "Onko hotelli sopiva tarpeisiisi?" "Haluatko lisätä tai poistaa aktiviteetteja?"
 
-6. **Suunnitelman säätäminen palautteen perusteella**
-   - Muokkaa matkasuunnitelmaa käyttäjän antaman palautteen mukaisesti.
-   - Tee tarvittavat muutokset lentoihin, majoitukseen ja aktiviteetteihin käyttäjän mieltymysten paremmaksi vastaamiseksi.
+6. **Säädä palautteen perusteella**
+   - Tee matkasuunnitelmaan muutoksia käyttäjän palautteen perusteella.
+   - Muuta tarvittaessa lento-, majoitus- ja aktiviteettisuosituksia paremmin käyttäjän mieltymyksiä vastaaviksi.
 
 7. **Lopullinen vahvistus**
-   - Esitä päivitetty matkasuunnitelma käyttäjälle lopullista vahvistusta varten.
-   - Esimerkki: "Olen tehnyt muutokset palautteesi perusteella. Tässä päivitetty suunnitelma. Näyttääkö kaikki hyvältä?"
+   - Esitä päivitetty matkasuunnitelma käyttäjälle lopulliseksi vahvistukseksi.
+   - Esimerkki: "Tein muutokset palautteesi mukaan. Tässä päivitetty matkasuunnitelma. Näyttääkö kaikki sinusta hyvältä?"
 
-8. **Varausten tekeminen ja vahvistaminen**
-   - Kun käyttäjä hyväksyy suunnitelman, tee varaukset lennoista, majoituksista ja mahdollisista valmiiksi varatuista aktiviteeteista.
+8. **Varaa ja vahvista varaukset**
+   - Kun käyttäjä hyväksyy suunnitelman, varaa lennot, majoitukset ja valmiiksi suunnitellut aktiviteetit.
    - Lähetä vahvistustiedot käyttäjälle.
 
-9. **Jatkuva tuki**
-   - Ole käytettävissä auttamaan käyttäjää muutosten tai lisäpyyntöjen kanssa ennen matkaa ja sen aikana.
-   - Esimerkki: "Jos tarvitset lisäapua matkasi aikana, ota rohkeasti yhteyttä milloin tahansa!"
+9. **Tarjoa jatkuvaa tukea**
+   - Ole käytettävissä auttamaan käyttäjää muutoksissa tai lisäpyynnöissä ennen matkaa ja sen aikana.
+   - Esimerkki: "Jos tarvitset apua matkan aikana, ota yhteyttä milloin tahansa!"
 
 ### Esimerkkikeskustelu
 
@@ -223,7 +223,7 @@ class Travel_Agent:
         self.experience_data.append(feedback)
         self.user_preferences = adjust_preferences(self.user_preferences, feedback)
 
-# Esimerkki käytöstä buukkauksessa pyynnön sisällä
+# Esimerkkikäyttö buukkauksen pyynnössä
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -240,46 +240,46 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 ## 3. Korjaava RAG-järjestelmä
 
-Aloitetaan ensin ymmärtämällä ero RAG-työkalun ja ennakoivan kontekstin latauksen välillä.
+Aloitetaan ymmärtämällä ero RAG-työkalun ja ennakoivan kontekstin lataamisen välillä
 
-![RAG vs Kontextin lataus](../../../translated_images/fi/rag-vs-context.9eae588520c00921.webp)
+![RAG vs Context Loading](../../../translated_images/fi/rag-vs-context.9eae588520c00921.webp)
 
-### Retrieval-Augmented Generation (RAG)
+### Hakuun perustuva generointi (RAG)
 
-RAG yhdistää haun ja generatiivisen mallin. Kun pyyntö tehdään, hakujärjestelmä hakee asiaankuuluvia dokumentteja tai tietoja ulkoisesta lähteestä, ja tätä haettua tietoa käytetään generatiivisen mallin syötteen täydentämiseen. Tämä auttaa mallia tuottamaan tarkempia ja kontekstuaalisesti relevantteja vastauksia.
+RAG yhdistää hakujärjestelmän ja generatiivisen mallin. Kun kysely tehdään, hakujärjestelmä noutaa ulkoisesta lähteestä asiaankuuluvia asiakirjoja tai tietoja, ja näitä tietoja käytetään täydentämään generatiivisen mallin syötettä. Tämä auttaa mallia muodostamaan tarkempia ja kontekstuaalisesti relevantteja vastauksia.
 
-RAG-järjestelmässä agentti hakee relevantteja tietoja tietovarastosta ja käyttää niitä luodakseen sopivia vastauksia tai toimia.
+RAG-järjestelmässä agentti hakee relevanttia tietoa tietokannasta ja käyttää sitä sopivien vastausten tai toimintojen luomiseen.
 
 ### Korjaava RAG-lähestymistapa
 
-Korjaava RAG-lähestymistapa keskittyy käyttämään RAG-tekniikoita virheiden korjaamiseen ja tekoälyagenttien tarkkuuden parantamiseen. Tämä sisältää:
+Korjaava RAG keskittyy RAG-tekniikoiden käyttämiseen virheiden korjaamiseksi ja tekoälyagenttien tarkkuuden parantamiseksi. Tämä sisältää:
 
-1. **Kehote-tekniikka**: Käytetään erityisiä kehotteita ohjaamaan agenttia hakemaan olennaista tietoa.
-2. **Työkalu**: Toteutetaan algoritmeja ja mekanismeja, jotka mahdollistavat agentin arvioida haetun tiedon olennaisuuden ja luoda tarkkoja vastauksia.
-3. **Arviointi**: Jatkuvasti arvioida agentin suoritusta ja tehdä säätöjä tarkan ja tehokkaan toiminnan varmistamiseksi.
+1. **Kehote-tekniikka**: Käytetään tiettyjä kehotteita ohjaamaan agenttia hakemaan asiaankuuluvaa tietoa.
+2. **Työkalu**: Toteutetaan algoritmeja ja mekanismeja, joiden avulla agentti arvioi haetun tiedon relevanssia ja luo tarkkoja vastauksia.
+3. **Arviointi**: Arvioidaan jatkuvasti agentin suorituskykyä ja tehdään säätöjä sen tarkkuuden ja tehokkuuden parantamiseksi.
 
-#### Esimerkki: Korjaava RAG hakuprosessissa
+#### Esimerkki: Korjaava RAG hakukoneagentissa
 
-Harkitaan hakutoimintaista agenttia, joka hakee tietoa verkosta vastatakseen käyttäjän kysymyksiin. Korjaava RAG-lähestymistapa voisi sisältää:
+Ajatellaan hakukoneagenttia, joka hakee tietoa verkosta vastatakseen käyttäjän kyselyihin. Korjaava RAG saattaa sisältää:
 
-1. **Kehote-tekniikka**: Muodostaa hakukyselyjä käyttäjän antaman syötteen perusteella.
-2. **Työkalu**: Käyttää luonnollisen kielen käsittelyä ja koneoppimisen algoritmeja hakutulosten arviointiin ja suodattamiseen.
-3. **Arviointi**: Analysoi käyttäjäpalautetta tunnistaakseen ja korjatakseen epätarkkuuksia haetussa tiedossa.
+1. **Kehote-tekniikka**: Hakukyselyiden muodostaminen käyttäjän syötteen perusteella.
+2. **Työkalu**: Luonnollisen kielen käsittelyn ja koneoppimisalgoritmien käyttö hakutulosten lajitteluun ja suodattamiseen.
+3. **Arviointi**: Käyttäjäpalautteen analysointi virheiden tunnistamiseksi ja korjaamiseksi haetussa tiedossa.
 
-### Korjaava RAG Matkanjärjestäjän tapauksessa
+### Korjaava RAG Matkanjärjestäjässä
 
-Korjaava RAG (Retrieval-Augmented Generation) parantaa tekoälyn kykyä hakea ja luoda tietoa samalla korjaten epätarkkuuksia. Katsotaan, miten Matkanjärjestäjä voi käyttää korjaavaa RAG-lähestymistapaa antaakseen tarkempia ja osuvampia matkasuosituksia.
+Korjaava RAG (retrieval-augmented generation) parantaa tekoälyn kykyä hakea ja luoda tietoa samalla korjaten mahdolliset epätarkkuudet. Katsotaan, miten Matkanjärjestäjä voi käyttää korjaavaa RAG-lähestymistapaa tarjotakseen tarkempia ja relevantimpia matkasuosituksia.
 
-Se sisältää:
+Tämä sisältää:
 
-- **Kehote-tekniikka:** Käytetään erityisiä kehotteita ohjaamaan agenttia hakemaan asiallista tietoa.
-- **Työkalu:** Toteutetaan algoritmeja, jotka arvioivat haetun tiedon olennaisuuden ja vastaavat tarkasti.
-- **Arviointi:** Jatkuvasti arvioida agentin suoritusta ja tehdä tarvittavia säätöjä parantaakseen tarkkuutta ja tehokkuutta.
+- **Kehote-tekniikka:** Käytetään erityisiä kehotteita ohjaamaan agenttia hakemaan relevanttia tietoa.
+- **Työkalu:** Toteutetaan algoritmeja ja mekanismeja, joiden avulla agentti arvioi haetun tiedon relevanssia ja luo tarkkoja vastauksia.
+- **Arviointi:** Arvioidaan jatkuvasti agentin suoriutumista ja tehdään säätöjä sen tarkkuuden ja tehokkuuden parantamiseksi.
 
-#### Vaiheet korjaavan RAG:n toteuttamiseksi Matkanjärjestäjällä
+#### Korjaavan RAG:n toteutus Matkanjärjestäjässä
 
 1. **Alkuperäinen käyttäjävuorovaikutus**
-   - Matkanjärjestäjä kerää käyttäjän alkuperäiset mieltymykset, kuten kohde, matkustuspäivät, budjetti ja kiinnostuksenkohteet.
+   - Matkanjärjestäjä kerää käyttäjän aloitusmieltymykset, kuten kohde, matkustuspäivät, budjetti ja kiinnostuksen kohteet.
    - Esimerkki:
 
      ```python
@@ -291,7 +291,7 @@ Se sisältää:
      }
      ```
 
-2. **Tietojen haku**
+2. **Tiedon haku**
    - Matkanjärjestäjä hakee tietoa lennoista, majoituksista, nähtävyyksistä ja ravintoloista käyttäjän mieltymysten perusteella.
    - Esimerkki:
 
@@ -302,7 +302,7 @@ Se sisältää:
      ```
 
 3. **Alkuperäisten suositusten luominen**
-   - Matkanjärjestäjä käyttää haettua tietoa laatiakseen henkilökohtaisen matkasuunnitelman.
+   - Matkanjärjestäjä käyttää haettua tietoa luodakseen henkilökohtaisen matkasuunnitelman.
    - Esimerkki:
 
      ```python
@@ -322,7 +322,7 @@ Se sisältää:
      ```
 
 5. **Korjaava RAG-prosessi**
-   - **Kehote-tekniikka**: Matkanjärjestäjä muodostaa uusia hakukyselyjä käyttäjäpalautteen perusteella.
+   - **Kehote-tekniikka**: Matkanjärjestäjä muodostaa uusia hakukyselyitä käyttäjäpalautteen perusteella.
      - Esimerkki:
 
        ```python
@@ -330,7 +330,7 @@ Se sisältää:
            preferences["avoid"] = feedback["disliked"]
        ```
 
-   - **Työkalu**: Matkanjärjestäjä käyttää algoritmeja lajitellakseen ja suodatakseen uusia hakutuloksia, korostaen relevanssia käyttäjäpalautteen pohjalta.
+   - **Työkalu**: Matkanjärjestäjä käyttää algoritmeja lajitellakseen ja suodatakseen uusia hakutuloksia, painottaen käyttäjäpalautteen perusteella relevantteja tuloksia.
      - Esimerkki:
 
        ```python
@@ -339,7 +339,7 @@ Se sisältää:
        print("Updated Itinerary:", new_itinerary)
        ```
 
-   - **Arviointi**: Matkanjärjestäjä arvioi jatkuvasti suositustensa relevanssia ja tarkkuutta analysoimalla käyttäjäpalautetta ja tekemällä tarvittavia muutoksia.
+   - **Arviointi**: Matkanjärjestäjä arvioi jatkuvasti suositustensa relevanssia ja tarkkuutta analysoimalla käyttäjäpalautetta ja tekemällä tarvittavia säätöjä.
      - Esimerkki:
 
        ```python
@@ -355,7 +355,7 @@ Se sisältää:
 
 #### Käytännön esimerkki
 
-Tässä on yksinkertaistettu Python-koodi, joka sisältää korjaavan RAG-lähestymistavan Matkanjärjestäjällä:
+Tässä on yksinkertaistettu Python-koodiesimerkki, jossa korjaava RAG-lähestymistapa on sisällytetty Matkanjärjestäjään:
 
 ```python
 class Travel_Agent:
@@ -383,7 +383,7 @@ class Travel_Agent:
         new_itinerary = self.generate_recommendations()
         return new_itinerary
 
-# Esimerkki käyttö
+# Esimerkki käyttöstä
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -400,14 +400,14 @@ print("Updated Itinerary:", new_itinerary)
 ```
 
 ### Ennakoiva kontekstin lataus
-Ennakko-ominaisen kontekstin lataaminen tarkoittaa olennaisen kontekstin tai taustatiedon lataamista malliin ennen kyselyn käsittelyä. Tämä tarkoittaa, että malli pääsee käsiksi tähän tietoon alusta alkaen, mikä voi auttaa sitä tuottamaan paremmin informoituja vastauksia ilman, että tietoja tarvitsee hakea lisää prosessin aikana.
+Etukäteen kontekstin lataaminen tarkoittaa olennaisen kontekstin tai taustatiedon lataamista malliin ennen kyselyn käsittelyä. Tämä tarkoittaa, että mallilla on pääsy tähän tietoon alusta lähtien, mikä voi auttaa sitä tuottamaan paremmin informoituja vastauksia ilman, että sen tarvitsee hakea lisätietoja prosessin aikana.
 
-Tässä on yksinkertaistettu esimerkki siitä, miltä ennakko-ominaisen kontekstin lataus voisi näyttää matkanjärjestäjän sovelluksessa Pythonilla:
+Tässä on yksinkertaistettu esimerkki siitä, miltä etukäteen kontekstin lataus voisi näyttää matkatoimiston sovellukselle Pythonissa:
 
 ```python
 class TravelAgent:
     def __init__(self):
-        # Lataa suosittuja matkakohteita ja niiden tiedot etukäteen
+        # Lataa suositut kohteet ja niiden tiedot etukäteen
         self.context = {
             "Paris": {"country": "France", "currency": "Euro", "language": "French", "attractions": ["Eiffel Tower", "Louvre Museum"]},
             "Tokyo": {"country": "Japan", "currency": "Yen", "language": "Japanese", "attractions": ["Tokyo Tower", "Shibuya Crossing"]},
@@ -416,7 +416,7 @@ class TravelAgent:
         }
 
     def get_destination_info(self, destination):
-        # Hae matkakohteen tiedot esiladatuista konteksteista
+        # Hae kohdetiedot esiladatusta kontekstista
         info = self.context.get(destination)
         if info:
             return f"{destination}:\nCountry: {info['country']}\nCurrency: {info['currency']}\nLanguage: {info['language']}\nAttractions: {', '.join(info['attractions'])}"
@@ -431,27 +431,27 @@ print(travel_agent.get_destination_info("Tokyo"))
 
 #### Selitys
 
-1. **Alustus (`__init__`-metodi)**: `TravelAgent`-luokka esilataa sanakirjan, joka sisältää tietoa suosituista matkakohteista kuten Pariisi, Tokio, New York ja Sydney. Tämä sanakirja sisältää yksityiskohtia kuten maan, valuutan, kielen ja tärkeimmät nähtävyydet kullekin kohteelle.
+1. **Alustus (`__init__`-metodi)**: `TravelAgent`-luokka lataa etukäteen sanakirjan, joka sisältää tietoja suosituista matkakohteista, kuten Pariisi, Tokio, New York ja Sydney. Tämä sanakirja sisältää tietoja kuten maa, valuutta, kieli ja tärkeimmät nähtävyydet kutakin kohdetta varten.
 
-2. **Tiedon hakeminen (`get_destination_info`-metodi)**: Kun käyttäjä kysyy tietoa tietystä matkakohteesta, `get_destination_info`-metodi hakee asiaankuuluvat tiedot ennalta ladatusta kontekstisanakirjasta.
+2. **Tiedon hakeminen (`get_destination_info`-metodi)**: Kun käyttäjä kysyy tietoa tietystä kohteesta, `get_destination_info`-metodi hakee asiaankuuluvan tiedon etukäteen ladatusta kontekstisanakirjasta.
 
-Ennakkoon ladatun kontekstin avulla matkanjärjestäjän sovellus voi vastata nopeasti käyttäjän kyselyihin ilman, että sen tarvitsee hakea tätä tietoa ulkoisesta lähteestä reaaliajassa. Tämä tekee sovelluksesta tehokkaamman ja reagoivamman.
+Lataamalla kontekstin etukäteen matkatoimiston sovellus voi nopeasti vastata käyttäjän kyselyihin ilman, että sen tarvitsee hakea tätä tietoa ulkoisesta lähteestä reaaliajassa. Tämä tekee sovelluksesta tehokkaamman ja reagoivamman.
 
-### Suunnitelman aloittaminen tavoitteella ennen iteraatiota
+### Suunnitelman käynnistäminen tavoitteen avulla ennen iteraatiota
 
-Suunnitelman aloittaminen tavoitteella tarkoittaa aloittamista selkeällä päämäärällä tai halutulla lopputuloksella mielessä. Määrittelemällä tavoite etukäteen, malli voi käyttää sitä ohjenuorana koko iteroivan prosessin ajan. Tämä auttaa varmistamaan, että jokainen iteraatio vie lähemmäs haluttua lopputulosta, mikä tekee prosessista tehokkaamman ja kohdennetumman.
+Suunnitelman käynnistäminen tavoitteen avulla tarkoittaa selkeän päämäärän tai tavoitteen asettamista alussa. Määrittelemällä tämän tavoitteen etukäteen malli voi käyttää sitä ohjenuorana koko iteraatioprosessin ajan. Tämä auttaa varmistamaan, että jokainen iteraatio vie kohti haluttua lopputulosta, tehden prosessista tehokkaamman ja fokusoituneemman.
 
-Tässä on esimerkki siitä, miten voit aloittaa matkasuunnitelman tavoitteella ennen iteraatiota matkanjärjestäjälle Pythonilla:
+Tässä on esimerkki siitä, miten matkasuunnitelma voidaan käynnistää tavoitteella ennen iteraatiota matkatoimiston sovelluksessa Pythonilla:
 
-### Tilanne
+### Tilannekuvaus
 
-Matkanjärjestäjä haluaa suunnitella räätälöidyn loman asiakkaalleen. Tavoitteena on luoda matkaohjelma, joka maksimoi asiakkaan tyytyväisyyden ottaen huomioon hänen mieltymyksensä ja budjettinsa.
+Matkatoimisto haluaa suunnitella räätälöidyn loman asiakkaalle. Tavoitteena on luoda matkareitti, joka maksimoi asiakkaan tyytyväisyyden heidän mieltymystensä ja budjettinsa perusteella.
 
-### Vaiheet
+### Askeleet
 
-1. Määritä asiakkaan mieltymykset ja budjetti.
-2. Aloita alkuperäinen suunnitelma näiden mieltymysten pohjalta.
-3. Iteroi suunnitelmaa parantaen sitä asiakkaan tyytyväisyyttä optimoiden.
+1. Määrittele asiakkaan mieltymykset ja budjetti.
+2. Käynnistä alkuperäinen suunnitelma näiden mieltymysten perusteella.
+3. Iteroi suunnitelmaa tarkentaen, optimoiden asiakkaan tyytyväisyyttä.
 
 #### Python-koodi
 
@@ -488,7 +488,7 @@ class TravelAgent:
     def calculate_cost(self, plan, new_destination):
         return sum(destination['cost'] for destination in plan) + new_destination['cost']
 
-# Esimerkki käyttö
+# Esimerkkikäyttö
 destinations = [
     {"name": "Paris", "cost": 1000, "activity": "sightseeing"},
     {"name": "Tokyo", "cost": 1200, "activity": "shopping"},
@@ -509,48 +509,48 @@ print("Refined Plan:", refined_plan)
 
 #### Koodin selitys
 
-1. **Alustus (`__init__`-metodi)**: `TravelAgent`-luokka alustetaan listalla mahdollisista matkakohteista, joilla on ominaisuuksia kuten nimi, hinta ja aktiviteettityyppi.
+1. **Alustus (`__init__`-metodi)**: `TravelAgent`-luokka alustetaan mahdollisten matkakohteiden listalla, joilla on ominaisuuksia kuten nimi, kustannus ja aktiviteettityyppi.
 
-2. **Suunnitelman aloittaminen (`bootstrap_plan`-metodi)**: Tämä metodi luo alkuperäisen matkasuunnitelman asiakkaan mieltymysten ja budjetin perusteella. Se käy läpi kohdelistan ja lisää kohteita suunnitelmaan, jos ne vastaavat asiakkaan mieltymyksiä ja mahtuvat budjettiin.
+2. **Suunnitelman käynnistäminen (`bootstrap_plan`-metodi)**: Tämä metodi luo alkuperäisen matkasuunnitelman asiakkaan mieltymysten ja budjetin perusteella. Se käy läpi kohdelistan ja lisää kohteita suunnitelmaan, jos ne vastaavat asiakkaan mieltymyksiä ja mahtuvat budjettiin.
 
-3. **Mieltymysten vertailu (`match_preferences`-metodi)**: Tämä metodi tarkistaa, vastaako kohde asiakkaan mieltymyksiä.
+3. **Mieltymysten vastaavuus (`match_preferences`-metodi)**: Tämä metodi tarkistaa, vastaako kohde asiakkaan mieltymyksiä.
 
-4. **Suunnitelman iterointi (`iterate_plan`-metodi)**: Tämä metodi tarkentaa alkuperäistä suunnitelmaa yrittämällä korvata kunkin kohteen suunnitelmassa paremmalla vaihtoehdolla asiakkaan mieltymykset ja budjettirajoitteet huomioiden.
+4. **Suunnitelman iteraatio (`iterate_plan`-metodi)**: Tämä metodi tarkentaa alkuperäistä suunnitelmaa yrittämällä korvata jokainen kohde paremmalla vaihtoehdolla ottaen huomioon asiakkaan mieltymykset ja budjettirajoitukset.
 
-5. **Kustannusten laskenta (`calculate_cost`-metodi)**: Tämä metodi laskee nykyisen suunnitelman kokonaiskustannukset, mukaan lukien mahdollinen uusi kohde.
+5. **Kustannusten laskenta (`calculate_cost`-metodi)**: Tämä metodi laskee nykyisen suunnitelman kokonaiskustannukset, mukaan lukien mahdollisen uuden kohteen.
 
-#### Esimerkkikäyttö
+#### Esimerkin käyttö
 
-- **Alkuperäinen suunnitelma**: Matkanjärjestäjä luo alkuperäisen suunnitelman ottaen huomioon asiakkaan kiinnostuksen nähtävyyksiin ja $2000 budjetin.
-- **Tarkennettu suunnitelma**: Matkanjärjestäjä iteroi suunnitelmaa optimoiden asiakkaan mieltymyksiä ja budjettia.
+- **Alkuperäinen suunnitelma**: Matkatoimisto luo alkuperäisen suunnitelman asiakkaan mieltymysten mukaan, esimerkiksi nähtävyyksien katselu ja budjetti 2000 dollaria.
+- **Tarkennettu suunnitelma**: Matkatoimisto iteroi suunnitelmaa, optimoiden asiakkaan mieltymyksiä ja budjettia.
 
-Aloittamalla suunnitelma selkeällä tavoitteella (esim. asiakkaan tyytyväisyyden maksimointi) ja iteratiivisesti tarkentamalla sitä, matkanjärjestäjä pystyy luomaan asiakkaalle räätälöidyn ja optimoidun matkaohjelman. Tämä lähestymistapa varmistaa, että suunnitelma vastaa asiakkaan mieltymyksiä ja budjettia alusta alkaen ja paranee jokaisen iteraation myötä.
+Käynnistämällä suunnitelma selkeällä tavoitteella (esim. asiakkaan tyytyväisyyden maksimointi) ja iteroimalla suunnitelmaa tarkentaen, matkatoimisto voi luoda asiakkaalle räätälöidyn ja optimoidun matkareitin. Tämä lähestymistapa varmistaa, että suunnitelma vastaa asiakkaan mieltymyksiä ja budjettia alusta lähtien ja paranee jokaisen iteraation myötä.
 
-### LLM:n hyödyntäminen uudelleenjärjestämiseen ja pisteyttämiseen
+### LLM:n hyödyntäminen uudelleenjärjestelyssä ja pisteytyksessä
 
-Suuria kielimalleja (LLM) voidaan käyttää uudelleenjärjestämiseen ja pisteyttämiseen arvioimalla haettujen dokumenttien tai tuotettujen vastausten relevanttiutta ja laatua. Näin se toimii:
+Suuria kielimalleja (LLM) voidaan käyttää uudelleenjärjestelyyn ja pisteytykseen arvioimalla haettujen dokumenttien tai tuotettujen vastausten relevanssia ja laatua. Näin se toimii:
 
-**Haku:** Alkuperäinen hakuvaihe noutaa joukon ehdokasdokumentteja tai vastauksia kyselyn perusteella.
+**Haku:** Alkuperäinen hakuvaihe hakee joukon ehdokasasiakirjoja tai vastauksia kyselyn perusteella.
 
-**Uudelleenjärjestäminen:** LLM arvioi nämä ehdokkaat ja uudelleenjärjestää ne niiden relevanssin ja laadun perusteella. Tämä vaihe varmistaa, että olennaisin ja laadukkain tieto esitetään ensin.
+**Uudelleenjärjestely:** LLM arvioi nämä ehdokkaat ja järjestää ne uudelleen niiden relevanssin ja laadun perusteella. Tämä vaihe varmistaa, että kaikkein relevantin ja korkealaatuisin tieto esitetään ensin.
 
-**Pisteytys:** LLM antaa pisteet jokaiselle ehdokkaalle, jotka heijastavat niiden relevanssia ja laatua. Tämä auttaa valitsemaan parhaan vastauksen tai dokumentin käyttäjälle.
+**Pisteytys:** LLM antaa pisteet jokaiselle ehdokkaalle, heijastaen niiden relevanssia ja laatua. Tämä auttaa valitsemaan parhaan vastauksen tai asiakirjan käyttäjälle.
 
-Hyödyntämällä LLM:iä uudelleenjärjestämiseen ja pisteyttämiseen järjestelmä pystyy tarjoamaan tarkempaa ja kontekstuaalisesti relevantimpaa tietoa, mikä parantaa käyttäjäkokemusta.
+Hyödyntämällä LLM:ää uudelleenjärjestelyyn ja pisteytykseen järjestelmä voi tarjota tarkempaa ja kontekstuaalisesti merkityksellisempää tietoa, parantaen käyttäjäkokemusta.
 
-Tässä on esimerkki siitä, miten matkanjärjestäjä voisi käyttää suurta kielimallia (LLM) matkakohteiden uudelleenjärjestämiseen ja pisteyttämiseen käyttäjän mieltymysten perusteella Pythonissa:
+Tässä on esimerkki siitä, miten matkatoimisto voisi käyttää suurta kielimallia (LLM) uudelleenjärjestelyyn ja pisteytykseen matkakohteiden suosituksissa käyttäjän mieltymysten perusteella Pythonilla:
 
-#### Tilanne - Matkailu mieltymysten perusteella
+#### Tilannekuvaus - Matkustaminen mieltymysten perusteella
 
-Matkanjärjestäjä haluaa suositella parhaita matkakohteita asiakkaalleen hänen mieltymystensä perusteella. LLM auttaa uudelleenjärjestämään ja pisteyttämään kohteet, jotta esitetään oleellisimmat vaihtoehdot.
+Matkatoimisto haluaa suositella parhaita matkakohteita asiakkaalle tämän mieltymysten perusteella. LLM auttaa uudelleenjärjestelyssä ja pisteytyksessä varmistaen, että kaikkein relevantimmat vaihtoehdot esitetään.
 
-#### Vaiheet:
+#### Askeleet:
 
 1. Kerää käyttäjän mieltymykset.
 2. Hae lista mahdollisista matkakohteista.
-3. Käytä LLM:ää uudelleenjärjestämään ja pisteyttämään kohteet käyttäjän mieltymysten mukaan.
+3. Käytä LLM:ää uudelleenjärjestelyyn ja pisteytykseen matkakohteiden osalta käyttäjän mieltymysten perusteella.
 
-Tässä on, miten voit päivittää edellisen esimerkin käyttämään Azure OpenAI -palveluita:
+Tässä on esimerkki siitä, miten voit päivittää edellisen esimerkin käyttämään Azure OpenAI -palveluita:
 
 #### Vaatimukset
 
@@ -568,10 +568,10 @@ class TravelAgent:
         self.destinations = destinations
 
     def get_recommendations(self, preferences, api_key, endpoint):
-        # Luo kehotus Azure OpenAI:lle
+        # Luo pyyntö Azure OpenAI:lle
         prompt = self.generate_prompt(preferences)
         
-        # Määritä pyynnön otsikot ja sisältö
+        # Määritä otsikot ja pyyntödata
         headers = {
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {api_key}'
@@ -582,7 +582,7 @@ class TravelAgent:
             "temperature": 0.7
         }
         
-        # Kutsu Azure OpenAI -APIa saadaksesi uudelleenarvioidut ja pisteytetyt kohteet
+        # Kutsu Azure OpenAI API:a saadaksesi uudelleenjärjestetyt ja pisteytetyt kohteet
         response = requests.post(endpoint, headers=headers, json=payload)
         response_data = response.json()
         
@@ -599,7 +599,7 @@ class TravelAgent:
             prompt += f"- {destination['name']}: {destination['description']}\n"
         return prompt
 
-# Esimerkin käyttö
+# Esimerkkikäyttö
 destinations = [
     {"name": "Paris", "description": "City of lights, known for its art, fashion, and culture."},
     {"name": "Tokyo", "description": "Vibrant city, famous for its modernity and traditional temples."},
@@ -618,71 +618,71 @@ for rec in recommendations:
     print(rec)
 ```
 
-#### Koodin selitys - Preference Booker
+#### Koodin selitys - Preferences Booker
 
 1. **Alustus**: `TravelAgent`-luokka alustetaan listalla mahdollisia matkakohteita, joilla on ominaisuuksia kuten nimi ja kuvaus.
 
-2. **Suositusten hakeminen (`get_recommendations`-metodi)**: Tämä metodi luo kehotteen Azure OpenAI -palvelua varten käyttäjän mieltymysten perusteella ja tekee HTTP POST -pyynnön Azure OpenAI API:lle saadakseen uudelleenjärjestetyt ja pisteytetyt kohteet.
+2. **Suositusten hakeminen (`get_recommendations`-metodi)**: Tämä metodi generoi kehotteen (promptin) Azure OpenAI -palvelulle käyttäjän mieltymysten perusteella ja lähettää HTTP POST -pyynnön Azure OpenAI API:lle saadakseen uudelleenjärjestellyt ja pisteytetyt matkakohteet.
 
-3. **Kehotteen luominen (`generate_prompt`-metodi)**: Tämä metodi rakentaa kehotteen Azure OpenAI:lle, joka sisältää käyttäjän mieltymykset ja listan kohteista. Kehote ohjaa mallia uudelleenjärjestämään ja pisteyttämään kohteet annettujen mieltymysten mukaisesti.
+3. **Kehotteen generointi (`generate_prompt`-metodi)**: Tämä metodi rakentaa kehotteen Azure OpenAI:lle sisältäen käyttäjän mieltymykset ja listan matkakohteista. Kehote ohjaa mallia uudelleenjärjestelemään ja pisteyttämään kohteet annettujen mieltymysten perusteella.
 
-4. **API-kutsu**: `requests`-kirjastoa käytetään tekemään HTTP POST -pyyntö Azure OpenAI API -päätepisteeseen. Vastauksessa on uudelleenjärjestetyt ja pisteytetyt kohteet.
+4. **API-kutsu**: `requests`-kirjastoa käytetään tekemään HTTP POST -pyyntö Azure OpenAI API -päätepisteeseen. Vastauksessa olevat tiedot sisältävät uudelleenjärjestellyt ja pisteytetyt matkakohteet.
 
-5. **Esimerkkikäyttö**: Matkanjärjestäjä kerää käyttäjän mieltymyksiä (esim. kiinnostus nähtävyyksiin ja monipuoliseen kulttuuriin) ja käyttää Azure OpenAI -palvelua saadakseen uudelleenjärjestetyt ja pisteytetyt suositukset matkakohteista.
+5. **Esimerkin käyttö**: Matkatoimisto kerää käyttäjän mieltymykset (esim. kiinnostus nähtävyyksiin ja monipuoliseen kulttuuriin) ja käyttää Azure OpenAI -palvelua saadakseen uudelleenjärjestellyt ja pisteytetyt suositukset matkakohteista.
 
-Muista korvata `your_azure_openai_api_key` omalla Azure OpenAI API -avaimellasi ja `https://your-endpoint.com/...` todellisella Azure OpenAI -päätepisteen URL-osoitteella.
+Muista korvata `your_azure_openai_api_key` omalla Azure OpenAI API -avaimellasi ja `https://your-endpoint.com/...` Azure OpenAI -käyttöönoton todellisella päätepisteen URL-osoitteella.
 
-Hyödyntämällä LLM:ää uudelleenjärjestämiseen ja pisteyttämiseen matkanjärjestäjä voi tarjota asiakkaille henkilökohtaisempia ja relevantimpia matkasuosituksia, parantaen heidän kokonaiskokemustaan.
+Hyödyntämällä LLM:ää uudelleenjärjestelyssä ja pisteytyksessä matkatoimisto voi tarjota asiakkailleen henkilökohtaisempia ja relevantimpia matkasuosituksia, parantaen heidän kokonaiskokemustaan.
 
 ### RAG: Kehotekniikka vs Työkalu
 
-Retrieval-Augmented Generation (RAG) voi olla sekä kehotekniikka että työkalu tekoälyagenttien kehityksessä. Erottelun ymmärtäminen voi auttaa sinua hyödyntämään RAG:ia tehokkaammin projekteissasi.
+Retrieval-Augmented Generation (RAG) voi olla sekä kehotekniikka että työkalu AI-agenttien kehityksessä. Erojen ymmärtäminen auttaa käyttämään RAG:ia tehokkaammin projekteissa.
 
 #### RAG kehotekniikkana
 
 **Mikä se on?**
 
-- Kehotekniikkana RAG tarkoittaa erityisten kyselyjen tai kehotteiden muotoilua, jotka ohjaavat oleellisen tiedon hakua suuresta tietoaineistosta tai tietokannasta. Tätä tietoa käytetään sitten vastausten tai toimintojen tuottamiseen.
+- Kehotekniikkana RAG tarkoittaa erityisten kyselyiden tai kehotteiden muodostamista, joilla ohjataan olennaisen tiedon hakua suuresta korpuksesta tai tietokannasta. Tätä tietoa käytetään vastausten tai toimintojen generointiin.
 
-**Miten se toimii:**
+**Miten se toimii?**
 
-1. **Kehotteen luominen**: Laadi hyvin jäsenneltyjä kehotteita tai kyselyjä tehtävän tai käyttäjän syötteen perusteella.
-2. **Tiedon haku**: Käytä kehotteita etsimään olennaista tietoa olemassa olevasta tietokannasta tai aineistosta.
-3. **Vasteen tuottaminen**: Yhdistä haettu tieto generatiivisiin tekoälymalleihin kattavan ja johdonmukaisen vastauksen tuottamiseksi.
+1. **Kehotteen muodostaminen**: Luo hyvin strukturoidut kehotteet tai kyselyt tehtävän tai käyttäjän syötteen perusteella.
+2. **Tietojen haku**: Käytä kehotteita hakeaksesi olennaista dataa olemassa olevasta tietopohjasta tai datasta.
+3. **Vastauksen generointi**: Yhdistä haettu tieto generatiivisiin tekoälymalleihin luodaksesi kattavan ja johdonmukaisen vastauksen.
 
-**Esimerkki matkanjärjestäjässä**:
+**Esimerkki matkatoimistossa**:
 
-- Käyttäjän syöte: ”Haluan käydä museoissa Pariisissa.”
-- Kehote: ”Löydä Pariisin parhaat museot.”
-- Haettu tieto: Tietoa Louvre-museosta, Musée d’Orsaysta jne.
-- Tuotettu vastaus: ”Tässä on joitakin Pariisin parhaista museoista: Louvre, Musée d’Orsay ja Centre Pompidou.”
+- Käyttäjän syöte: "Haluan käydä museoissa Pariisissa."
+- Kehote: "Etsi Pariisin parhaat museot."
+- Haettu tieto: Tietoja Louvre-museosta, Musée d'Orsaysta jne.
+- Generoitu vastaus: "Tässä on joitain Pariisin parhaita museoita: Louvre-museo, Musée d'Orsay ja Centre Pompidou."
 
 #### RAG työkaluna
 
 **Mikä se on?**
 
-- Työkaluna RAG on integroitunut järjestelmä, joka automatisoi haun ja generoinnin prosessit, helpottaen kehittäjiä toteuttamaan monimutkaisia tekoälytoimintoja ilman, että jokaista kyselyä varten tarvitsee manuaalisesti laatia kehotteita.
+- Työkaluna RAG on integroitu järjestelmä, joka automatisoi haku- ja generointiprosessit, tehden kehittäjien työstä helpompaa toteuttaa monimutkaisia tekoälyominaisuuksia ilman, että jokaiselle kyselylle tarvitsee käsin laatia kehotteita.
 
-**Miten se toimii:**
+**Miten se toimii?**
 
-1. **Integraatio**: Upota RAG tekoälyagentin arkkitehtuuriin, jolloin se hoitaa haun ja generoinnin automaattisesti.
-2. **Automaatio**: Työkalu hallinnoi koko prosessia, käyttäjän syötteen vastaanottamisesta loppuvastauksen tuottamiseen ilman erillisiä kehotteita.
-3. **Tehokkuus**: Parantaa agentin suorituskykyä virtaviivaistamalla haun ja generoinnin, mahdollistaen nopeammat ja tarkemmat vastaukset.
+1. **Integrointi**: Upota RAG AI-agentin arkkitehtuuriin, jolloin se hoitaa automaattisesti haku- ja generointitehtävät.
+2. **Automaatio**: Työkalu hallinnoi koko prosessia käyttäjän syötteen vastaanottamisesta lopullisen vastauksen tuottamiseen ilman selkeitä kehotteita joka vaiheessa.
+3. **Tehokkuus**: Parantaa agentin suorituskykyä virtaviivaistamalla haku- ja generointiprosessit, mahdollistaen nopeammat ja tarkemmat vastaukset.
 
-**Esimerkki matkanjärjestäjässä**:
+**Esimerkki matkatoimistossa**:
 
-- Käyttäjän syöte: ”Haluan käydä museoissa Pariisissa.”
-- RAG-työkalu: Hakee automaattisesti tietoa museoista ja tuottaa vastauksen.
-- Tuotettu vastaus: ”Tässä on joitakin Pariisin parhaista museoista: Louvre, Musée d’Orsay ja Centre Pompidou.”
+- Käyttäjän syöte: "Haluan käydä museoissa Pariisissa."
+- RAG-työkalu: Hakee automaattisesti tietoa museoista ja generoi vastauksen.
+- Generoitu vastaus: "Tässä on joitain Pariisin parhaita museoita: Louvre-museo, Musée d'Orsay ja Centre Pompidou."
 
 ### Vertailu
 
-| Ominaisuus             | Kehotekniikka                                      | Työkalu                                              |
-|------------------------|---------------------------------------------------|-----------------------------------------------------|
-| **Manuaalinen vs Automaattinen** | Manuaalinen kehotteiden laatiminen jokaiselle kyselylle. | Automaattinen prosessi haulle ja generoinnille.     |
-| **Kontrolli**           | Tarjoaa enemmän kontrollia hakuprosessiin.        | Virtaviivaistaa ja automatisoi haun sekä generoinnin. |
-| **Joustavuus**          | Mahdollistaa räätälöidyt kehotteet erityistarpeisiin. | Tehokkaampi suurille toteutuksille.                  |
-| **Monimutkaisuus**      | Vaatii kehotteiden laatimista ja hienosäätöä.     | Helppo integroida tekoälyagentin arkkitehtuuriin.   |
+| Näkökulma                | Kehotekniikka                                             | Työkalu                                                 |
+|--------------------------|------------------------------------------------------------|---------------------------------------------------------|
+| **Manuaalinen vs Automaattinen**| Manuaalinen kehotteiden laatiminen jokaiselle kyselylle. | Automaattinen prosessi haulle ja generoinnille.         |
+| **Kontrolli**            | Tarjoaa enemmän kontrollia hakuprosessin yli.              | Virtaviivaistaa ja automatisoi haku- ja generointiprosessit. |
+| **Joustavuus**           | Mahdollistaa räätälöidyt kehotteet erityistarpeisiin.      | Tehokkaampi laajamittaisissa toteutuksissa.              |
+| **Monimutkaisuus**       | Vaattee kehotteiden laatimista ja hienosäätöä.             | Helpompi integroida AI-agentin arkkitehtuuriin.          |
 
 ### Käytännön esimerkit
 
@@ -715,32 +715,32 @@ museums = travel_agent.get_museums_in_paris()
 print("Top Museums in Paris:", museums)
 ```
 
-### Relevanttiuden arviointi
+### Relevanssin arviointi
 
-Relevanttiuden arviointi on keskeinen osa tekoälyagentin suorituskykyä. Se varmistaa, että agentin hakema ja tuottama tieto on käyttäjälle sopivaa, tarkkaa ja hyödyllistä. Tarkastellaan, miten arvioida relevanttiutta tekoälyagenteissa käytännön esimerkkien ja menetelmien avulla.
+Relevanssin arviointi on keskeinen osa AI-agenttien suorituskykyä. Se varmistaa, että agentin hakema ja tuottama tieto on sopivaa, tarkkaa ja hyödyllistä käyttäjälle. Tarkastellaan, miten relevanssia voi arvioida AI-agenteissa, mukaan lukien käytännön esimerkit ja tekniikat.
 
-#### Keskeiset käsitteet relevanttiuden arvioinnissa
+#### Keskeiset käsitteet relevanssin arvioinnissa
 
-1. **Kontekstitietoisuus**:
-   - Agentin täytyy ymmärtää käyttäjän kyselyn konteksti hakiakseen ja tuottaakseen relevanttia tietoa.
-   - Esimerkki: Jos käyttäjä kysyy ”parhaat ravintolat Pariisissa”, agentin tulisi ottaa huomioon käyttäjän mieltymykset, kuten ruokalaji ja budjetti.
+1. **Kontekstin ymmärtäminen**:
+   - Agentin tulee ymmärtää käyttäjän kyselyn konteksti saadakseen ja tuottaakseen relevanttia tietoa.
+   - Esimerkki: Jos käyttäjä kysyy "Parhaat ravintolat Pariisissa," agentin pitää ottaa huomioon käyttäjän mieltymykset kuten ruokalaji ja budjetti.
 
 2. **Tarkkuus**:
-   - Agentin antaman tiedon tulee olla faktuaalisesti oikeaa ja ajantasaista.
-   - Esimerkki: Suositella tällä hetkellä avoimia ravintoloita, joilla on hyvät arvostelut, ei vanhentuneita tai suljettuja vaihtoehtoja.
+   - Agentin antaman tiedon tulee olla faktuaalisesti oikein ja ajan tasalla.
+   - Esimerkki: Suositellaan parhaillaan avoinna olevia ravintoloita, joilla on hyvät arvostelut, ei vanhentuneita tai suljettuja vaihtoehtoja.
 
-3. **Käyttäjän aikomus**:
-   - Agentin tulee päätellä käyttäjän tarkoitus kyselyn takana tarjotakseen osuvimman tiedon.
-   - Esimerkki: Jos käyttäjä kysyy ”budjettiystävälliset hotellit”, agentin tulee priorisoida edulliset vaihtoehdot.
+3. **Käyttäjän tarkoitus**:
+   - Agentin tulee tulkita käyttäjän taustalla oleva tarkoitus tarjotakseen kaikkein relevantinta tietoa.
+   - Esimerkki: Jos käyttäjä etsii "budjettiystävällisiä hotelleja," agentin tulisi painottaa edullisia vaihtoehtoja.
 
 4. **Palautejärjestelmä**:
-   - Jatkuva käyttäjäpalautteen kerääminen ja analysointi auttaa agenttia parantamaan relevanttiuden arviointia.
-   - Esimerkki: Käyttäjäarvioiden ja palautteen hyödyntäminen aiemmista suosituksista parantaa tulevia vastauksia.
+   - Jatkuva käyttäjäpalautteen kerääminen ja analysointi auttaa agenttia parantamaan relevanssin arviointia.
+   - Esimerkki: Aiempien suositusten käyttäjäarvioiden ja palautteen hyödyntäminen tulevissa vastauksissa.
 
-#### Käytännön menetelmät relevanttiuden arviointiin
+#### Käytännön tekniikat relevanssin arvioimiseen
 
-1. **Relevanttiuspisteytys**:
-   - Annetaaan relevanttiuspiste jokaiselle haetulle kohteelle sen perusteella, kuinka hyvin se vastaa käyttäjän kyselyä ja mieltymyksiä.
+1. **Relevanssipisteytys**:
+   - Määritä relevanssipisteet jokaiselle haetulle kohteelle sen perusteella, miten hyvin se vastaa käyttäjän kyselyä ja mieltymyksiä.
    - Esimerkki:
 
      ```python
@@ -755,29 +755,29 @@ Relevanttiuden arviointi on keskeinen osa tekoälyagentin suorituskykyä. Se var
          return score
      ```
 
-2. **Suodatus ja järjestäminen**:
-   - Suodatetaan pois epäolennaiset kohteet ja järjestetään jäljelle jääneet relevanttiuspisteiden mukaan.
+2. **Suodatus ja järjestely**:
+   - Suodata pois epäolennainen materiaali ja järjestä jäljelle jääneet relevanssipisteiden mukaan.
    - Esimerkki:
 
      ```python
      def filter_and_rank(items, query):
          ranked_items = sorted(items, key=lambda item: relevance_score(item, query), reverse=True)
-         return ranked_items[:10]  # Palauta 10 parasta asiaankuuluvaa kohdetta
+         return ranked_items[:10]  # Palauta 10 tärkeintä asiaankuuluvaa kohdetta
      ```
 
 3. **Luonnollisen kielen käsittely (NLP)**:
-   - Käytetään NLP-tekniikoita käyttäjän kyselyn ymmärtämiseen ja relevantin tiedon hakemiseen.
+   - Käytä NLP-tekniikoita käyttäjän kyselyn ymmärtämiseen ja relevantin tiedon hakemiseen.
    - Esimerkki:
 
      ```python
      def process_query(query):
-         # Käytä NLP:tä käyttäjän kyselyn avaintietojen poimimiseen
+         # Käytä NLP:tä käyttäjän kyselyn keskeisten tietojen poimimiseen
          processed_query = nlp(query)
          return processed_query
      ```
 
 4. **Käyttäjäpalautteen integrointi**:
-   - Kerätään käyttäjäpalautetta annetuista suosituksista ja hyödynnetään sitä tulevissa relevanttiusarvioinneissa.
+   - Kerää palautetta annetuista suosituksista ja käytä sitä parantamaan tulevaa relevanssin arviointia.
    - Esimerkki:
 
      ```python
@@ -790,9 +790,9 @@ Relevanttiuden arviointi on keskeinen osa tekoälyagentin suorituskykyä. Se var
          return items
      ```
 
-#### Esimerkki: Relevanttiuden arviointi matkanjärjestäjässä
+#### Esimerkki: Relevanssin arviointi matkatoimistossa
 
-Tässä on käytännön esimerkki siitä, miten Travel Agent arvioi matkasuositusten relevanttiutta:
+Tässä on käytännön esimerkki siitä, miten Travel Agent voi arvioida matkasuositusten relevanssia:
 
 ```python
 class Travel_Agent:
@@ -853,30 +853,30 @@ updated_items = travel_agent.adjust_based_on_feedback(feedback, itinerary['hotel
 print("Updated Itinerary with Feedback:", updated_items)
 ```
 
-### Hakeminen käyttäjän aikomuksen mukaan
+### Hakeminen tarkoituksen mukaan
 
-Hakeminen käyttäjän aikomuksen mukaan tarkoittaa käyttäjän kyselyn taustalla olevan tarkoituksen tai tavoitteen ymmärtämistä ja tulkitsemista, jotta voidaan löytää ja tuottaa mahdollisimman relevanttia ja hyödyllistä tietoa. Tämä lähestymistapa ylittää pelkän avainsanojen vastaavuuden ja keskittyy käyttäjän todellisten tarpeiden ja kontekstin ymmärtämiseen.
+Hakeminen tarkoituksen mukaan tarkoittaa käyttäjän kyselyn taustalla olevan tarkoituksen ymmärtämistä ja tulkitsemista niin, että haku ja generointi tuottaa mahdollisimman relevanttia ja hyödyllistä tietoa. Tämä lähestymistapa menee pelkkien avainsanojen vastaavuuden yli ja keskittyy käyttäjän todellisten tarpeiden ja kontekstin käsittämiseen.
 
-#### Keskeiset käsitteet hakemisessa käyttäjän aikomuksen mukaan
+#### Keskeiset käsitteet haussa tarkoituksen mukaan
 
-1. **Käyttäjän aikomuksen ymmärtäminen**:
-   - Käyttäjän aikomus voidaan jakaa kolmeen päätyyppiin: informatiivinen, navigoiva ja transaktionaalinen.
-     - **Informatiivinen aikomus**: Käyttäjä etsii tietoa aiheesta (esim. ”Mitä ovat Pariisin parhaat museot?”).
-     - **Navigoiva aikomus**: Käyttäjä haluaa siirtyä tietylle verkkosivulle tai sivulle (esim. ”Louvre-museon virallinen sivusto”).
-     - **Transaktionaalinen aikomus**: Käyttäjä aikoo suorittaa toimenpiteen, kuten varata lennon tai tehdä ostoksen (esim. ”Varaa lento Pariisiin”).
+1. **Käyttäjän tarkoituksen ymmärtäminen**:
+   - Käyttäjän tarkoitus voidaan jaotella kolmeen päätyyppiin: informatiivinen, navigointiin liittyvä ja transaktionaalinen.
+     - **Informatiivinen tarkoitus**: käyttäjä etsii tietoa aiheesta (esim. "Mitkä ovat parhaat museot Pariisissa?").
+     - **Navigointitarkoitus**: käyttäjä haluaa siirtyä tietylle verkkosivulle tai sivulle (esim. "Louvre-museon virallinen sivusto").
+     - **Transaktionaalinen tarkoitus**: käyttäjä haluaa suorittaa jonkin toimenpiteen, kuten varata lennon tai ostaa jotakin (esim. "Varaa lento Pariisiin").
 
-2. **Kontekstitietoisuus**:
-   - Käyttäjän kyselyn kontekstin analysoiminen auttaa tunnistamaan aikomuksen tarkasti. Tämä sisältää aiemmat vuorovaikutukset, käyttäjän mieltymykset ja nykyisen kyselyn yksityiskohdat.
+2. **Kontekstin ymmärtäminen**:
+   - Käyttäjän kyselyn kontekstin analyysi auttaa tunnistamaan tarkasti käyttäjän tarkoituksen. Tämä sisältää aiemmat vuorovaikutukset, käyttäjän mieltymykset ja kyselyn erityistiedot.
 
 3. **Luonnollisen kielen käsittely (NLP)**:
-   - NLP-tekniikoita käytetään ymmärtämään ja tulkitsemaan käyttäjän luonnolliskielisiä kyselyjä. Tämä sisältää tehtäviä kuten entiteettien tunnistus, sentimenttianalyysi ja kyselyn jäsentäminen.
+   - NLP-tekniikoita käytetään ymmärtämään ja tulkitsemaan käyttäjien luonnollisia kielen syötteitä, kuten entiteettien tunnistusta, tunnesävyjen analyysia ja kyselyn jäsentelyä.
 
 4. **Personalisointi**:
-   - Hakutulosten personointi käyttäjän historian, mieltymysten ja palautteen perusteella parantaa haettujen tietojen relevanttiutta.
+   - Hakutulosten personointi käyttäjän historian, mieltymysten ja palautteen perusteella parantaa haun relevanssia.
 
-#### Käytännön esimerkki: Hakeminen käyttäjän aikomuksen mukaan matkanjärjestäjässä
+#### Käytännön esimerkki: Hakeminen tarkoituksen mukaan matkatoimistossa
 
-Otetaan esimerkkinä Travel Agent ja katsotaan, miten hakeminen käyttäjän aikomuksen mukaan voidaan toteuttaa.
+Tarkastellaan Travel Agent -esimerkkiä, miten haun tarkoituksen mukaan voi toteuttaa.
 
 1. **Käyttäjän mieltymysten kerääminen**
 
@@ -889,7 +889,7 @@ Otetaan esimerkkinä Travel Agent ja katsotaan, miten hakeminen käyttäjän aik
            self.user_preferences = preferences
    ```
 
-2. **Käyttäjän aikomuksen ymmärtäminen**
+2. **Käyttäjän tarkoituksen ymmärtäminen**
 
    ```python
    def identify_intent(query):
@@ -901,10 +901,10 @@ Otetaan esimerkkinä Travel Agent ja katsotaan, miten hakeminen käyttäjän aik
            return "informational"
    ```
 
-3. **Kontekstitietoisuus**
+3. **Kontekstin huomioon ottaminen**
    ```python
    def analyze_context(query, user_history):
-       # Yhdistä nykyinen haku käyttäjän historiaan ymmärtääksesi kontekstin
+       # Yhdistä nykyinen kysely käyttäjän historialliseen tietoon kontekstin ymmärtämiseksi
        context = {
            "current_query": query,
            "user_history": user_history
@@ -912,7 +912,7 @@ Otetaan esimerkkinä Travel Agent ja katsotaan, miten hakeminen käyttäjän aik
        return context
    ```
 
-4. **Hae ja personoi tuloksia**
+4. **Hae ja personoi tulokset**
 
    ```python
    def search_with_intent(query, preferences, user_history):
@@ -928,27 +928,27 @@ Otetaan esimerkkinä Travel Agent ja katsotaan, miten hakeminen käyttäjän aik
        return personalized_results
 
    def search_information(query, preferences):
-       # Esimerkkihakulogiikka tiedonhakuun
+       # Esimerkki hakulogiikasta tiedonetsintäaikomukselle
        results = search_web(f"best {preferences['interests']} in {preferences['destination']}")
        return results
 
    def search_navigation(query):
-       # Esimerkkihakulogiikka navigointiin
+       # Esimerkki hakulogiikasta navigaatio-aikomukselle
        results = search_web(query)
        return results
 
    def search_transaction(query, preferences):
-       # Esimerkkihakulogiikka kaupalliseen hakuun
+       # Esimerkki hakulogiikasta kaupalliselle aikeelle
        results = search_web(f"book {query} to {preferences['destination']}")
        return results
 
    def personalize_results(results, user_history):
-       # Esimerkki personointilogiikka
+       # Esimerkki personointilogiikasta
        personalized = [result for result in results if result not in user_history]
        return personalized[:10]  # Palauta 10 parasta personoitua tulosta
    ```
 
-5. **Esimerkki käytöstä**
+5. **Esimerkkikäyttö**
 
    ```python
    travel_agent = Travel_Agent()
@@ -971,42 +971,42 @@ Koodia generoivat agentit käyttävät tekoälymalleja kirjoittaakseen ja suorit
 
 ### Koodia generoivat agentit
 
-Koodia generoivat agentit hyödyntävät generatiivisia tekoälymalleja kirjoittaakseen ja suorittaakseen koodia. Nämä agentit voivat ratkaista monimutkaisia ongelmia, automatisoida tehtäviä ja tarjota arvokkaita oivalluksia generoimalla ja suorittamalla koodia monilla ohjelmointikielillä.
+Koodia generoivat agentit käyttävät generatiivisia tekoälymalleja kirjoittamaan ja suorittamaan koodia. Nämä agentit voivat ratkaista monimutkaisia ongelmia, automatisoida tehtäviä ja tarjota arvokkaita oivalluksia generoimalla ja suorittamalla koodia eri ohjelmointikielillä.
 
 #### Käytännön sovellukset
 
-1. **Automaattinen koodin generointi**: Luo koodinpätkiä tiettyihin tehtäviin, kuten data-analyysiin, web-scrapingiin tai koneoppimiseen.
-2. **SQL RAG:nä**: Käytä SQL-kyselyjä tietojen hakemiseen ja muokkaamiseen tietokannoista.
-3. **Ongelmanratkaisu**: Luo ja suorita koodia ratkaistaksesi erityisiä ongelmia, kuten algoritmien optimointia tai datan analysointia.
+1. **Automaattinen koodin generointi**: Luo koodinpätkiä tiettyihin tehtäviin, kuten data-analyysiin, web-scrapaukseen tai koneoppimiseen.
+2. **SQL RAG-menetelmänä**: Käytä SQL-kyselyjä tietokantojen tietojen hakemiseen ja käsittelyyn.
+3. **Ongelmanratkaisu**: Luo ja suorita koodia ratkaistaksesi tiettyjä ongelmia, kuten algoritmien optimointia tai datan analysointia.
 
 #### Esimerkki: Koodia generoiva agentti data-analyysiin
 
-Kuvittele, että suunnittelet koodia generoivaa agenttia. Näin se voisi toimia:
+Kuvittele suunnittelevasi koodia generoivaa agenttia. Näin se voisi toimia:
 
-1. **Tehtävä**: Analysoi datasetti tunnistaaksesi trendejä ja malleja.
+1. **Tehtävä**: Analysoida datasetti trendien ja kaavojen tunnistamiseksi.
 2. **Vaiheet**:
    - Lataa datasetti data-analyysityökaluun.
-   - Generoi SQL-kyselyt datan suodattamiseen ja ryhmittelyyn.
+   - Generoi SQL-kyselyjä datan suodattamiseen ja aggregointiin.
    - Suorita kyselyt ja hae tulokset.
    - Käytä tuloksia visualisointien ja oivallusten luomiseen.
-3. **Tarvittavat resurssit**: Pääsy datasettiin, data-analyysityökalut ja SQL-ominaisuudet.
+3. **Tarvittavat resurssit**: Pääsy datasettiin, data-analyysityökalut ja SQL-osaaminen.
 4. **Kokemus**: Käytä aiempia analyysituloksia parantaaksesi tulevien analyysien tarkkuutta ja merkityksellisyyttä.
 
-### Esimerkki: Koodia generoiva agentti matkanjärjestäjälle
+### Esimerkki: Koodia generoiva agentti matkatoimistolle
 
-Tässä esimerkissä suunnittelemme koodia generoivan agentin, Matkanjärjestäjän, auttamaan käyttäjiä matkasuunnitelmien laatimisessa generoimalla ja suorittamalla koodia. Tämä agentti pystyy hoitamaan tehtäviä, kuten matkaoptioiden hakemista, tulosten suodattamista ja reittisuunnitelman kokoamista generatiivista tekoälyä hyödyntäen.
+Tässä esimerkissä suunnittelemme koodia generoivan agentin, Matkatoimiston, auttamaan käyttäjiä matkasuunnitelmien laatimisessa generatiivisen tekoälyn avulla. Tämä agentti voi hoitaa tehtäviä, kuten matkavaihtoehtojen hakemista, tulosten suodattamista ja matkasuunnitelman kokoamista.
 
-#### Koodia generoivan agentin yleiskatsaus
+#### Koodia generoivan agentin yleiskuvaus
 
-1. **Käyttäjän mieltymysten kerääminen**: Kerää käyttäjän syötteet, kuten kohde, matkustuspäivät, budjetti ja kiinnostuksen kohteet.
-2. **Koodin generointi tiedon hakemiseksi**: Luo koodinpätkiä lentojen, hotellien ja nähtävyyksien tietojen hakua varten.
-3. **Generoidun koodin suoritus**: Käynnistää generoidun koodin hakemaan reaaliaikaisia tietoja.
-4. **Matkaohjelman luominen**: Kokoa haetut tiedot henkilökohtaiseksi matkasuunnitelmaksi.
-5. **Palautteen perusteella mukauttaminen**: Vastaanottaa käyttäjäpalautetta ja generoi tarvittaessa uuden koodin tulosten parantamiseksi.
+1. **Käyttäjäpreferenssien kerääminen**: Kerää käyttäjän syötteitä, kuten matkakohde, matkustusajat, budjetti ja kiinnostuksen kohteet.
+2. **Koodin generointi tiedon hakemiseksi**: Luo koodinpätkiä lentojen, hotellien ja nähtävyyksien tiedon hakemiseen.
+3. **Generoidun koodin suorittaminen**: Suorita generoitu koodi reaaliaikaisen tiedon hakemiseksi.
+4. **Matkasuunnitelman luominen**: Kokoa haetut tiedot henkilökohtaiseksi matkasuunnitelmaksi.
+5. **Mukauttaminen palautteen perusteella**: Vastaanota käyttäjäpalautetta ja generoi koodi tarvittaessa uudelleen parantaaksesi tuloksia.
 
 #### Vaiheittainen toteutus
 
-1. **Käyttäjän mieltymysten kerääminen**
+1. **Käyttäjäpreferenssien kerääminen**
 
    ```python
    class Travel_Agent:
@@ -1021,7 +1021,7 @@ Tässä esimerkissä suunnittelemme koodia generoivan agentin, Matkanjärjestäj
 
    ```python
    def generate_code_to_fetch_data(preferences):
-       # Esimerkki: Luo koodi lentojen etsimiseen käyttäjän mieltymysten perusteella
+       # Esimerkki: Luo koodi lentojen hakemiseen käyttäjän mieltymysten perusteella
        code = f"""
        def search_flights():
            import requests
@@ -1031,7 +1031,7 @@ Tässä esimerkissä suunnittelemme koodia generoivan agentin, Matkanjärjestäj
        return code
 
    def generate_code_to_fetch_hotels(preferences):
-       # Esimerkki: Luo koodi hotellien etsimiseen
+       # Esimerkki: Luo koodi hotellien hakemiseen
        code = f"""
        def search_hotels():
            import requests
@@ -1041,11 +1041,11 @@ Tässä esimerkissä suunnittelemme koodia generoivan agentin, Matkanjärjestäj
        return code
    ```
 
-3. **Generoidun koodin suoritus**
+3. **Generoidun koodin suorittaminen**
 
    ```python
    def execute_code(code):
-       # Suorita generoitu koodi käyttäen exec-funktiota
+       # Suorita generoitu koodi käyttäen execiä
        exec(code)
        result = locals()
        return result
@@ -1069,7 +1069,7 @@ Tässä esimerkissä suunnittelemme koodia generoivan agentin, Matkanjärjestäj
    print("Hotel Options:", hotels)
    ```
 
-4. **Matkaohjelman luominen**
+4. **Matkasuunnitelman generointi**
 
    ```python
    def generate_itinerary(flights, hotels, attractions):
@@ -1085,11 +1085,11 @@ Tässä esimerkissä suunnittelemme koodia generoivan agentin, Matkanjärjestäj
    print("Suggested Itinerary:", itinerary)
    ```
 
-5. **Palautteen perusteella mukauttaminen**
+5. **Mukauttaminen palautteen perusteella**
 
    ```python
    def adjust_based_on_feedback(feedback, preferences):
-       # Säädä asetuksia käyttäjien palautteen perusteella
+       # Säädä mieltymyksiä käyttäjäpalautteen perusteella
        if "liked" in feedback:
            preferences["favorites"] = feedback["liked"]
        if "disliked" in feedback:
@@ -1099,7 +1099,7 @@ Tässä esimerkissä suunnittelemme koodia generoivan agentin, Matkanjärjestäj
    feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
    updated_preferences = adjust_based_on_feedback(feedback, preferences)
    
-   # Luo koodi uudelleen ja suorita se päivitettyjen asetusten kanssa
+   # Luo ja suorita koodi uudelleen päivitettyjen mieltymysten mukaisesti
    updated_flight_code = generate_code_to_fetch_data(updated_preferences)
    updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
    
@@ -1112,15 +1112,15 @@ Tässä esimerkissä suunnittelemme koodia generoivan agentin, Matkanjärjestäj
 
 ### Ympäristötietoisuuden ja päättelyn hyödyntäminen
 
-Taulun skeeman hyödyntäminen voi todellakin parantaa kyselyjen generointiprosessia hyödyntämällä ympäristötietoisuutta ja päättelyä.
+Taulun skeeman perusteella voidaan parantaa kyselyjen generointiprosessia hyödyntämällä ympäristötietoisuutta ja päättelyä.
 
-Tässä esimerkki, miten tämä voidaan tehdä:
+Tässä on esimerkki siitä, miten tämä voidaan toteuttaa:
 
-1. **Skeeman ymmärtäminen**: Järjestelmä ymmärtää taulun skeeman ja käyttää tätä tietoa kyselyjen jalkauttamiseen.
-2. **Palautteen perusteella mukauttaminen**: Järjestelmä mukauttaa käyttäjän mieltymyksiä palautteen perusteella ja päättää, mitkä skeeman kentät tarvitsevat päivitystä.
-3. **Kyselyjen generointi ja suoritus**: Järjestelmä generoi ja suorittaa kyselyjä, joilla haetaan päivitettyjä lento- ja hotellitietoja uusien mieltymysten mukaisesti.
+1. **Skeeman ymmärtäminen**: Järjestelmä ymmärtää taulun skeeman ja käyttää tätä tietoa kyselyjen generoinnin pohjana.
+2. **Mukauttaminen palautteen perusteella**: Järjestelmä säätää käyttäjäpreferenssejä palautteen perusteella ja päättää, mitä kenttiä skeemassa tulee päivittää.
+3. **Kyselyjen generointi ja suorittaminen**: Järjestelmä generoi ja suorittaa kyselyitä hakeakseen päivitettyjä lento- ja hotellitietoja uusien preferenssien pohjalta.
 
-Tässä päivitetty Python-esimerkki, joka sisältää nämä käsitteet:
+Tässä on päivitetty Python-esimerkki, joka sisältää nämä käsitteet:
 
 ```python
 def adjust_based_on_feedback(feedback, preferences, schema):
@@ -1136,7 +1136,7 @@ def adjust_based_on_feedback(feedback, preferences, schema):
     return preferences
 
 def adjust_based_on_environment(feedback, field, schema):
-    # Mukautettu logiikka asetusten säätämiseksi skeeman ja palautteen perusteella
+    # Räätälöity logiikka asetusten säätämiseksi skeeman ja palautteen perusteella
     if field in feedback["liked"]:
         return schema[field]["positive_adjustment"]
     elif field in feedback["disliked"]:
@@ -1144,33 +1144,33 @@ def adjust_based_on_environment(feedback, field, schema):
     return schema[field]["default"]
 
 def generate_code_to_fetch_data(preferences):
-    # Luo koodi lentotietojen hakemiseen päivitettyjen asetusten perusteella
+    # Luo koodi lentotietojen hakemiseksi päivitettyjen asetusten perusteella
     return f"fetch_flights(preferences={preferences})"
 
 def generate_code_to_fetch_hotels(preferences):
-    # Luo koodi hotellitietojen hakemiseen päivitettyjen asetusten perusteella
+    # Luo koodi hotellitietojen hakemiseksi päivitettyjen asetusten perusteella
     return f"fetch_hotels(preferences={preferences})"
 
 def execute_code(code):
-    # Simuloi koodin suoritus ja palauta esimerkkitietoja
+    # Simuloi koodin suoritus ja palauta esimerkkidata
     return {"data": f"Executed: {code}"}
 
 def generate_itinerary(flights, hotels, attractions):
     # Luo matkasuunnitelma lentojen, hotellien ja nähtävyyksien perusteella
     return {"flights": flights, "hotels": hotels, "attractions": attractions}
 
-# Esimerkkiskeema
+# Esimerkkiskaema
 schema = {
     "favorites": {"positive_adjustment": "increase", "negative_adjustment": "decrease", "default": "neutral"},
     "avoid": {"positive_adjustment": "decrease", "negative_adjustment": "increase", "default": "neutral"}
 }
 
-# Esimerkin käyttö
+# Esimerkkikäyttö
 preferences = {"favorites": "sightseeing", "avoid": "crowded places"}
 feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
 updated_preferences = adjust_based_on_feedback(feedback, preferences, schema)
 
-# Luo uudelleen ja suorita koodi päivitettyjen asetusten kanssa
+# Luo ja suorita koodi uudelleen päivitettyjen asetusten kanssa
 updated_flight_code = generate_code_to_fetch_data(updated_preferences)
 updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
 
@@ -1181,55 +1181,55 @@ updated_itinerary = generate_itinerary(updated_flights, updated_hotels, feedback
 print("Updated Itinerary:", updated_itinerary)
 ```
 
-#### Selitys - Varaus palautteen perusteella
+#### Selitys – Varaus palautteen perusteella
 
-1. **Skeematietoisuus**: `schema`-sanakirja määrittelee, miten mieltymyksiä tulee mukauttaa palautteen perusteella. Se sisältää kenttiä kuten `favorites` ja `avoid` vastaavine mukautuksineen.
-2. **Mieltymysten mukauttaminen (`adjust_based_on_feedback`-metodi)**: Tämä metodi mukauttaa mieltymyksiä käyttäjäpalautteen ja skeeman perusteella.
-3. **Ympäristöperusteiset mukautukset (`adjust_based_on_environment`-metodi)**: Tämä metodi räätälöi mukautuksia skeeman ja palautteen pohjalta.
-4. **Kyselyjen generointi ja suoritus**: Järjestelmä generoi koodin päivitettyjen lento- ja hotellitietojen hakemiseksi perustuen mukautettuihin mieltymyksiin ja simuloi näiden kyselyjen suorittamista.
-5. **Matkaohjelman generointi**: Järjestelmä luo päivitetyn matkasuunnitelman uusien lento-, hotelli- ja nähtävyystietojen pohjalta.
+1. **Skeematietoisuus**: `schema`-sanakirja määrittelee, miten preferenssejä säädetään palautteen perusteella. Se sisältää kenttiä kuten `favorites` ja `avoid` sekä niihin liittyvät säädöt.
+2. **Preferenssien säätäminen (`adjust_based_on_feedback`-metodi)**: Tämä metodi säätää preferenssejä käyttäjäpalautteen ja skeeman perusteella.
+3. **Ympäristöön perustuvat säädöt (`adjust_based_on_environment`-metodi)**: Tämä metodi muokkaa säätöjä skeeman ja palautteen perusteella.
+4. **Kyselyjen generointi ja suorittaminen**: Järjestelmä generoi koodia hakeakseen päivitettyjä lento- ja hotellitietoja säädettyjen preferenssien pohjalta ja simuloi näiden kyselyjen suorittamista.
+5. **Matkasuunnitelman luominen**: Järjestelmä luo päivitetyn matkasuunnitelman uusien lento-, hotelli- ja nähtävyystietojen perusteella.
 
-Tekemällä järjestelmästä ympäristötietoisen ja perustellen skeeman mukaan se pystyy generoimaan tarkempia ja merkityksellisempiä kyselyjä, mikä johtaa parempiin matkasuosituksiin ja henkilökohtaisempaan käyttäjäkokemukseen.
+Tekemällä järjestelmästä ympäristötietoisen ja hyödyntämällä skeemaan perustuvaa päättelyä, se voi generoi tarkempia ja merkityksellisempiä kyselyjä, mikä johtaa parempiin matkasuosituksiin ja henkilökohtaisempaan käyttäjäkokemukseen.
 
-### SQL:n käyttäminen Retrieval-Augmented Generation (RAG) -menetelmänä
+### SQL:n käyttäminen Retrieval-Augmented Generation (RAG) -tekniikkana
 
-SQL (Structured Query Language) on tehokas työkalu tietokantojen käsittelyyn. Kun sitä käytetään osana Retrieval-Augmented Generation (RAG) -lähestymistapaa, SQL voi hakea asiaankuuluvaa dataa tietokannoista tekoälyagenttien vastausten tai toimintojen tueksi. Tutkitaan, miten SQL:ää voi käyttää RAG-tekniikkana Matkanjärjestäjän yhteydessä.
+SQL (Structured Query Language) on tehokas työkalu tietokantojen käsittelyyn. Kun sitä käytetään Retrieval-Augmented Generation (RAG) -menetelmän osana, SQL voi hakea relevanttia dataa tietokannoista vastausten tai toimintojen luomiseksi tekoälyagenteissa. Tutkitaan, miten SQL:ää voidaan käyttää RAG-tekniikkana Travel Agent -agentin yhteydessä.
 
 #### Keskeiset käsitteet
 
-1. **Tietokantayhteydet**:
-   - SQL:ää käytetään tietokantojen kyselyihin, relevantin tiedon hakemiseen ja datan käsittelyyn.
-   - Esimerkki: Lentotietojen, hotellitietojen ja nähtävyyksien hakeminen matkailutietokannasta.
+1. **Tietokantayhteys**:
+   - SQL:llä tehdään tietokantakyselyitä, haetaan relevanttia tietoa ja muokataan dataa.
+   - Esimerkki: Lentojen, hotellien ja nähtävyyksien tietojen hakeminen matkailutietokannasta.
 
-2. **Integraatio RAG:n kanssa**:
-   - SQL-kyselyt luodaan käyttäjän syötteen ja mieltymysten pohjalta.
-   - Haettuja tietoja hyödynnetään personoitujen suositusten tai toimintojen luomiseen.
+2. **Integrointi RAG:n kanssa**:
+   - SQL-kyselyt generoidaan käyttäjän syötteen ja preferenssien perusteella.
+   - Haettua dataa käytetään personoitujen suositusten tai toimien generointiin.
 
 3. **Dynaaminen kyselyjen generointi**:
-   - Tekoälyagentti luo dynaamisia SQL-kyselyjä kontekstin ja käyttäjän tarpeiden mukaan.
-   - Esimerkki: SQL-kyselyjä muokataan suodattaakseen tuloksia budjetin, päivämäärien ja kiinnostuksen kohteiden perusteella.
+   - Tekoälyagentti generoi dynaamisia SQL-kyselyjä kontekstin ja käyttäjävaatimusten mukaan.
+   - Esimerkki: SQL-kyselyiden räätälöinti suodattamaan tuloksia budjetin, päivämäärien ja kiinnostuksen kohteiden mukaan.
 
 #### Sovellukset
 
 - **Automaattinen koodin generointi**: Luo koodinpätkiä tiettyihin tehtäviin.
-- **SQL RAG:nä**: Käytä SQL-kyselyjä datan käsittelyyn.
+- **SQL RAG-menetelmänä**: Käytä SQL-kyselyjä datan käsittelyyn.
 - **Ongelmanratkaisu**: Luo ja suorita koodia ongelmien ratkaisemiseksi.
 
 **Esimerkki**:
-Data-analyysiin soveltuva agentti:
+Data-analyysiagentti:
 
-1. **Tehtävä**: Analysoi datasetti löytääksesi trendejä.
+1. **Tehtävä**: Analysoida datasetti trendien löytämiseksi.
 2. **Vaiheet**:
    - Lataa datasetti.
-   - Generoi SQL-kyselyjä datan suodattamiseen.
+   - Generoi SQL-kyselyjä datan suodattamiseksi.
    - Suorita kyselyt ja hae tulokset.
    - Luo visualisointeja ja oivalluksia.
-3. **Resurssit**: Datasetin pääsy, SQL-kyvykkyydet.
-4. **Kokemus**: Käytä aiempia tuloksia parantaaksesi tulevia analyysejä.
+3. **Resurssit**: Pääsy datasettiin, SQL-osaaminen.
+4. **Kokemus**: Käytä aiempia tuloksia tulevien analyysien parantamiseen.
 
-#### Käytännön esimerkki: SQL:n käyttö Matkanjärjestäjässä
+#### Käytännön esimerkki: SQL Travel Agent -agentissa
 
-1. **Käyttäjän mieltymysten kerääminen**
+1. **Käyttäjäpreferenssien kerääminen**
 
    ```python
    class Travel_Agent:
@@ -1252,7 +1252,7 @@ Data-analyysiin soveltuva agentti:
        return query
    ```
 
-3. **SQL-kyselyjen suoritus**
+3. **SQL-kyselyjen suorittaminen**
 
    ```python
    import sqlite3
@@ -1266,7 +1266,7 @@ Data-analyysiin soveltuva agentti:
        return results
    ```
 
-4. **Suositusten luominen**
+4. **Suositusten generointi**
 
    ```python
    def generate_recommendations(preferences):
@@ -1297,7 +1297,7 @@ Data-analyysiin soveltuva agentti:
    print("Suggested Itinerary:", itinerary)
    ```
 
-#### Esimerkkejä SQL-kyselyistä
+#### Esimerkki SQL-kyselyistä
 
 1. **Lentokysely**
 
@@ -1317,21 +1317,21 @@ Data-analyysiin soveltuva agentti:
    SELECT * FROM attractions WHERE destination='Paris' AND interests='museums, cuisine';
    ```
 
-Hyödyntämällä SQL:ää osana Retrieval-Augmented Generation (RAG) -tekniikkaa, tekoälyagentit kuten Matkanjärjestäjä voivat dynaamisesti hakea ja käyttää asiaankuuluvaa dataa tarjoten tarkkoja ja yksilöllisiä suosituksia.
+Hyödyntämällä SQL:ää osana Retrieval-Augmented Generation (RAG) -tekniikkaa, tekoälyagentit kuten Travel Agent voivat dynaamisesti hakea ja käyttää relevanttia dataa tarjotakseen tarkkoja ja henkilökohtaisia suosituksia.
 
-### Esimerkki metakognition toteutuksesta
+### Metakognition esimerkki
 
-Näytetäänpä metakognition toteutus luomalla yksinkertainen agentti, joka *heijastelee omaa päätöksentekoprosessiaan* ongelman ratkaisemisen aikana. Tässä esimerkissä rakennamme järjestelmän, jossa agentti yrittää optimoida hotellivalintansa, mutta arvioi sitten omaa päättelyään ja säätää strategiaansa virheiden tai heikkolaatuisten valintojen jälkeen.
+Demonstroidaksemme metakognition toteutusta, luodaan yksinkertainen agentti, joka *reflektoi päätöksentekoprosessiaan* ongelmaa ratkaistessaan. Tässä esimerkissä rakennamme järjestelmän, jossa agentti yrittää optimoida hotellivalintaa, mutta arvioi sitten omaa päättelyään ja säätää strategiaansa virheiden tai ei-optimaalisten valintojen ilmetessä.
 
-Simuloimme tätä perusesimerkillä, jossa agentti valitsee hotellit hinnan ja laadun yhdistelmän perusteella, mutta "heijastelee" päätöksiään ja säätää niitä sen mukaan.
+Simuloimme tätä perustapauksella, jossa agentti valitsee hotellin hinnan ja laadun yhdistelmän perusteella, mutta "reflektoi" päätöksiään ja mukautuu sen mukaan.
 
 #### Miten tämä havainnollistaa metakognitiota:
 
-1. **Alkuperäinen päätös**: Agentti valitsee halvimmman hotellin ymmärtämättä laatutekijän vaikutusta.
-2. **Heijastelu ja arviointi**: Ensimmäisen valinnan jälkeen agentti tarkistaa käyttäjäpalautteen avulla, oliko hotelli "huono" valinta. Jos laatu oli liian heikko, agentti heijastelee päättelyään.
-3. **Strategian säätö**: Agentti muuttaa strategiaansa heijastelun perusteella vaihtamalla "halvin" vaihtoehtoon "korkein laatu", parantaen päätöksentekoa tulevilla kerroilla.
+1. **Alkuperäinen päätös**: Agentti valitsee halvimman hotellin ymmärtämättä laadun vaikutusta.
+2. **Reflektointi ja arviointi**: Ensimmäisen valinnan jälkeen agentti tarkistaa, oliko hotelli "huono" valinta käyttäjäpalautteen perusteella. Jos hotellin laatu oli liian heikko, agentti reflektoi päättelyään.
+3. **Strategian säätö**: Agentti muuttaa strategiansa reflektiosta seuraavasti: vaihtaa "halvin" valinnasta "korkealaatuisin" valintaan parantaakseen päätöksentekoa tulevissa kierroksissa.
 
-Tässä esimerkki:
+Tässä esimerkissä:
 
 ```python
 class HotelRecommendationAgent:
@@ -1394,7 +1394,7 @@ hotels = [
 # Luo agentti
 agent = HotelRecommendationAgent()
 
-# Vaihe 1: Agentti suosittelee hotellia "halvin" strategian avulla
+# Vaihe 1: Agentti suosittelee hotellia "halvin" -strategian avulla
 recommended_hotel = agent.recommend_hotel(hotels, 'cheapest')
 print(f"Recommended hotel (cheapest): {recommended_hotel['name']}")
 
@@ -1407,33 +1407,33 @@ adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
 
-#### Agenttien metakognitiiviset kyvyt
+#### Agentin metakognition kyvyt
 
-Keskeistä tässä on agentin kyky:
-- Arvioida aiempia valintojaan ja päätöksentekoprosessiaan.
-- Säätää strategiaansa tämän heijastelun perusteella eli metakognitiota käytännössä.
+Avainasemassa on agentin kyky:
+- Arvioida aiemmat valintansa ja päätöksentekoprosessinsa.
+- Säätää strategiaansa tämän reflektion perusteella eli metakognitio käytännössä.
 
-Tämä on yksinkertainen muoto metakognitiosta, jossa järjestelmä pystyy mukauttamaan päättelyään sisäisen palautteen perusteella.
+Tämä on yksinkertainen metakognition muoto, jossa järjestelmä pystyy mukauttamaan päättelyprosessiaan sisäisen palautteen mukaan.
 
 ### Yhteenveto
 
-Metakognitio on tehokas työkalu, joka voi merkittävästi parantaa tekoälyagenttien kyvykkyyksiä. Ottamalla mukaan metakognitiiviset prosessit voi suunnitella agentteja, jotka ovat älykkäämpiä, sopeutuvampia ja tehokkaampia. Käytä lisäresursseja tutkiaksesi syvemmin metakognition kiehtovaa maailmaa tekoälyagenteissa.
+Metakognitio on voimakas työkalu, joka voi merkittävästi parantaa tekoälyagenttien kykyjä. Sisällyttämällä metakognitiiviset prosessit voit suunnitella agentteja, jotka ovat älykkäämpiä, sopeutuvampia ja tehokkaampia. Käytä lisäresursseja tutkiaksesi metakognition kiehtovaa maailmaa tekoälyagenteissa.
 
 ### Onko sinulla lisää kysymyksiä metakognition suunnittelumallista?
 
-Liity [Microsoft Foundry Discord -kanavalle](https://aka.ms/ai-agents/discord) tavata muita oppijoita, osallistua toimistoaikoihin ja saada vastauksia AI-agentti-kysymyksiisi.
+Liity [Microsoft Foundry Discordiin](https://discord.com/invite/ATgtXmAS5D) tavata muita oppijoita, osallistua avoimiin tuntiin ja saada vastauksia AI Agents -kysymyksiisi.
 
 ## Edellinen oppitunti
 
-[Moni-agenttisuunnittelumalli](../08-multi-agent/README.md)
+[Multi-Agent Design Pattern](../08-multi-agent/README.md)
 
 ## Seuraava oppitunti
 
-[AI-agentit tuotannossa](../10-ai-agents-production/README.md)
+[AI Agents in Production](../10-ai-agents-production/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Vastuuvapauslauseke**:
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattikäännöksissä voi esiintyä virheitä tai epätarkkuuksia. Alkuperäinen asiakirja omalla kielellään on aina virallinen lähde. Tärkeissä asioissa suositellaan ammattilaisen tekemää ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai virhetulkinnoista.
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
