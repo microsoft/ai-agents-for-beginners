@@ -220,7 +220,15 @@ public class DraftExecutor : ReflectingExecutor<DraftExecutor>, IMessageHandler<
 
         // The agent may wrap its JSON result in a Markdown fenced code block,
         // so extract the JSON object before deserializing it into a ContentResult.
-        var contentResult = JsonSerializer.Deserialize<ContentResult>(ExtractJson(responseText)) ?? new ContentResult { DraftContent = responseText };
+        ContentResult contentResult;
+        try
+        {
+            contentResult = JsonSerializer.Deserialize<ContentResult>(ExtractJson(responseText)) ?? new ContentResult { DraftContent = responseText };
+        }
+        catch (JsonException)
+        {
+            contentResult = new ContentResult { DraftContent = responseText };
+        }
 
         Console.WriteLine($"DraftExecutor generated content length: {contentResult.DraftContent?.Length ?? 0} characters");
         
