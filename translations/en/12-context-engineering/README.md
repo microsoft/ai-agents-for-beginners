@@ -93,7 +93,23 @@ While some information will be added to the context window automatically, contex
   
  6. **Runtime State Objects**
    This is done by creating containers of information to manage situations when the Agent needs to have access to certain information. For a complex task, this would enable an Agent to store the results of each subtask step by step, allowing the context to remain connected only to that specific subtask.
-  
+
+#### Inspecting Context
+
+After you apply one of these strategies, it is worth checking what the next model call actually received. A useful debugging question is:
+
+> Did the agent load too much context, the wrong context, or miss context it needed?
+
+You do not need to log raw prompts, tool outputs, or memory contents to answer that question. In production, prefer small context inspection records that capture counts, ids, hashes, and policy labels:
+
+- **Selection:** Track how many candidate chunks, tools, or memories were considered, how many were selected, and which rule or score caused the others to be filtered out.
+- **Compression:** Record the source range or trace id, the summary id, an estimated token count before and after compression, and whether the raw content was excluded from the next call.
+- **Isolation:** Note which subtask ran in a separate agent, session, or sandbox, what bounded summary was returned, and whether large tool output stayed outside the parent agent context.
+- **Memory and RAG:** Store retrieval document ids, memory ids, scores, selected ids, and redaction status instead of full retrieved text.
+- **Safety and privacy:** Prefer hashes, ids, token buckets, and policy labels over sensitive prompt text, tool arguments, tool results, or user memory bodies.
+
+The goal is not to keep more context. It is to leave enough evidence that a developer can tell which context strategy ran and whether it changed the next model call in the intended way.
+
 ### Example of Context Engineering
 
 Let's say we want an AI agent to **"Book me a trip to Paris."**
@@ -104,9 +120,9 @@ Let's say we want an AI agent to **"Book me a trip to Paris."**
 
   ◦ **Check your calendar** for available dates (retrieving real-time data).
 
-  ◦ **Recall past travel preferences** (from long-term memory) like your preferred airline, budget, or whether you prefer direct flights.
+ ◦ **Recall past travel preferences** (from long-term memory) like your preferred airline, budget, or whether you prefer direct flights.
 
-  ◦ **Identify available tools** for flight and hotel booking.
+ ◦ **Identify available tools** for flight and hotel booking.
 
 - Then, an example response could be:  "Hey [Your Name]! I see you're free the first week of October. Shall I look for direct flights to Paris on [Preferred Airline] within your usual budget of [Budget]?". This richer, context-aware response demonstrates the power of context engineering.
 
@@ -147,7 +163,6 @@ Let's say we want an AI agent to **"Book me a trip to Paris."**
 **What it is:** When conflicting information exists within the context, leading to inconsistent reasoning or bad final responses. This often happens when information arrives in stages, and early, incorrect assumptions remain in the context.
 
 **What to do:** Use **context pruning** and **offloading**. Pruning means removing outdated or conflicting information as new details arrive. Offloading gives the model a separate "scratchpad" workspace to process information without cluttering the main context.
-
 **Travel Booking Example:** You initially tell your agent, **"I want to fly economy class."** Later in the conversation, you change your mind and say, **"Actually, for this trip, let's go business class."** If both instructions remain in the context, the agent might receive conflicting search results or get confused about which preference to prioritize.
 
 **Solution:** Implement **context pruning**. When a new instruction contradicts an old one, the older instruction is removed or explicitly overridden in the context. Alternatively, the agent can use a **scratchpad** to reconcile conflicting preferences before deciding, ensuring only the final, consistent instruction guides its actions.
@@ -159,6 +174,6 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Disclaimer:
-This document was translated using the AI translation service Co-op Translator (https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, a professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+**Disclaimer**:
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

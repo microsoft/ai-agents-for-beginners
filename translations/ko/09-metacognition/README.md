@@ -1,4 +1,4 @@
-[![멀티 에이전트 디자인](../../../translated_images/ko/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![다중 에이전트 디자인](../../../translated_images/ko/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(위 이미지를 클릭하면 이 수업의 비디오를 볼 수 있습니다)_
 # AI 에이전트의 메타인지
@@ -1421,7 +1421,7 @@ print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendatio
 
 ## 이전 강의
 
-[멀티 에이전트 설계 패턴](../08-multi-agent/README.md)
+[다중 에이전트 설계 패턴](../08-multi-agent/README.md)
 
 ## 다음 강의
 
@@ -1433,3 +1433,4 @@ print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendatio
 면책 고지:
 이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있으나 자동 번역에는 오류나 부정확성이 포함될 수 있음을 유의해 주십시오. 원문(원래 언어로 된 문서)이 권위 있는 출처로 간주되어야 합니다. 중요한 정보의 경우에는 전문 번역가에 의한 번역을 권장합니다. 이 번역의 사용으로 인해 발생하는 오해나 잘못된 해석에 대해서는 당사가 책임을 지지 않습니다.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
+

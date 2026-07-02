@@ -1,8 +1,8 @@
-# AI Agenti pre Začiatočníkov - Kurz
+# AI Agentov pre Začiatočníkov - Kurz
 
-![AI Agents for Beginners](../../translated_images/sk/repo-thumbnailv2.06f4a48036fde647.webp)
+![AI Agentov pre Začiatočníkov](../../translated_images/sk/repo-thumbnailv2.06f4a48036fde647.webp)
 
-## Kurz, ktorý vás naučí všetko, čo potrebujete vedieť na začatie tvorby AI Agentov
+## Kurz, ktorý vás naučí všetko potrebné na začatie tvorby AI Agentov
 
 [![GitHub licencia](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
 [![GitHub prispievatelia](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
@@ -12,14 +12,14 @@
 
 ### 🌐 Podpora viacerých jazykov
 
-#### Podporované cez GitHub Action (automatizované a vždy aktuálne)
+#### Podporované cez GitHub Akciu (automatizované & vždy aktuálne)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](./README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+[Arabčina](../ar/README.md) | [Bengálčina](../bn/README.md) | [Bulharčina](../bg/README.md) | [Barmský (Myanmar)](../my/README.md) | [Čínština (zjednodušená)](../zh-CN/README.md) | [Čínština (tradičná, Hongkong)](../zh-HK/README.md) | [Čínština (tradičná, Macau)](../zh-MO/README.md) | [Čínština (tradičná, Taiwan)](../zh-TW/README.md) | [Chorvátčina](../hr/README.md) | [Čeština](../cs/README.md) | [Dánčina](../da/README.md) | [Holandčina](../nl/README.md) | [Estónčina](../et/README.md) | [Fínčina](../fi/README.md) | [Francúzština](../fr/README.md) | [Nemčina](../de/README.md) | [Gréčtina](../el/README.md) | [Hebrejčina](../he/README.md) | [Hindčina](../hi/README.md) | [Maďarčina](../hu/README.md) | [Indonézština](../id/README.md) | [Taliančina](../it/README.md) | [Japončina](../ja/README.md) | [Kannada](../kn/README.md) | [Khmerčina](../km/README.md) | [Kórejčina](../ko/README.md) | [Litovčina](../lt/README.md) | [Malajčina](../ms/README.md) | [Malajálamčina](../ml/README.md) | [Maráthčina](../mr/README.md) | [Nepálčina](../ne/README.md) | [Nigerijská pidžinčina](../pcm/README.md) | [Nórčina](../no/README.md) | [Perzština (Farsi)](../fa/README.md) | [Poľština](../pl/README.md) | [Portugalčina (Brazília)](../pt-BR/README.md) | [Portugalčina (Portugalsko)](../pt-PT/README.md) | [Pandžábčina (Gurmukhi)](../pa/README.md) | [Rumunčina](../ro/README.md) | [Ruština](../ru/README.md) | [Srbčina (cyrilika)](../sr/README.md) | [Slovenčina](./README.md) | [Slovinčina](../sl/README.md) | [Španielčina](../es/README.md) | [Swahilčina](../sw/README.md) | [Švédčina](../sv/README.md) | [Tagalog (Filipínčina)](../tl/README.md) | [Tamilčina](../ta/README.md) | [Telugčina](../te/README.md) | [Thajčina](../th/README.md) | [Turečtina](../tr/README.md) | [Ukrajinčina](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamčina](../vi/README.md)
 
-> **Radšej klonovať lokálne?**
+> **Radšej chcete klonovať lokálne?**
 >
-> Tento repozitár obsahuje viac než 50 jazykových prekladov, čo výrazne zvyšuje veľkosť sťahovania. Ak chcete klonovať bez prekladov, použite sparse checkout:
+> Tento repozitár obsahuje viac ako 50 jazykových prekladov, čo výrazne zvyšuje veľkosť sťahovania. Ak chcete klonovať bez prekladov, použite sparse checkout:
 >
 > **Bash / macOS / Linux:**
 > ```bash
@@ -35,88 +35,88 @@
 > git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
 > ```
 >
-> Toto vám poskytne všetko potrebné na dokončenie kurzu s výrazne rýchlejším sťahovaním.
+> Toto vám poskytne všetko potrebné na dokončenie kurzu s oveľa rýchlejším sťahovaním.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**Ak si želáte podporu ďalších jazykov, sú uvedené [tu](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**Ak chcete podporu ďalších jazykov pre preklady, sú uvedené [tu](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md).**
 
 [![GitHub sledovatelia](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub forky](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub hviezdičky](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub rozvetvenia](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![GitHub hviezdy](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
 
 ## 🌱 Začíname
 
-Tento kurz obsahuje lekcie pokrývajúce základy tvorby AI Agentov. Každá lekcia pokrýva vlastnú tému, tak začnite kdekoľvek chcete!
+Tento kurz obsahuje lekcie pokrývajúce základy tvorby AI Agentov. Každá lekcia sa venuje svojmu vlastnému tématu, takže začnite kde chcete!
 
-Kurz podporuje viaceré jazyky. Pozrite si naše [dostupné jazyky tu](#-multi-language-support).
+Tento kurz podporuje viac jazykov. Pozrite si naše [dostupné jazyky tu](#-multi-language-support). 
 
-Ak je toto váš prvý raz pri práci s Generatívnymi AI modelmi, pozrite si náš kurz [Generatívne AI pre Začiatočníkov](https://aka.ms/genai-beginners), ktorý obsahuje 21 lekcií o tvorbe s GenAI.
+Ak je to váš prvýkrát, čo pracujete s generatívnymi AI modelmi, vyskúšajte náš kurz [Generative AI For Beginners](https://aka.ms/genai-beginners), ktorý obsahuje 21 lekcií na tvorbu s GenAI.
 
-Nezabudnite [dať repo hviezdičku (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) a [forknúť toto repo](https://github.com/microsoft/ai-agents-for-beginners/fork), aby ste mohli spustiť kód.
+Nezabudnite [pridať hviezdu (🌟) tomuto repozitáru](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) a [rozvetviť tento repozitár (fork)](https://github.com/microsoft/ai-agents-for-beginners/fork), aby ste mohli spúšťať kód.
 
-### Spoznajte ďalších študentov, získajte odpovede na vaše otázky
+### Spoznajte iných študentov, získajte odpovede na svoje otázky
 
-Ak sa zaseknete alebo máte otázky ohľadom tvorby AI Agentov, pripojte sa do nášho špeciálneho Discord kanála v [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
+Ak sa zaseknete alebo máte otázky ohľadom tvorby AI Agentov, pripojte sa k nášmu vyhradenému Discord kanálu v [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
 ### Čo potrebujete
 
-Každá lekcia v tomto kurze obsahuje príklady kódu, ktoré nájdete v priečinku code_samples. Môžete si [forknúť toto repo](https://github.com/microsoft/ai-agents-for-beginners/fork) a vytvoriť si vlastnú kópiu.
+Každá lekcia v tomto kurze obsahuje príklady kódu, ktoré nájdete v priečinku code_samples. Môžete si [rozvetviť (fork) tento repozitár](https://github.com/microsoft/ai-agents-for-beginners/fork) pre vytvorenie vlastnej kópie.  
 
-Príklady kódu v týchto cvičeniach využívajú Microsoft Agent Framework so službou Azure AI Foundry Agent Service V2:
+Príklady kódu v týchto cvičeniach využívajú Microsoft Agent Framework a Azure AI Foundry Agent Service V2:
 
-- [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - vyžaduje Azure účet
+- [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Vyžaduje Azure účet
 
-Tento kurz využíva nasledujúce AI Agent Frameworky a služby od Microsoftu:
+Tento kurz používa tieto AI Agent frameworky a služby od Microsoftu:
 
 - [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework)
 - [Azure AI Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
-Niektoré príklady kódu tiež podporujú alternatívnych poskytovateľov kompatibilných s OpenAI, ako je [MiniMax](https://platform.minimaxi.com/), ktorý ponúka veľkokontextové modely (až do 204K tokenov). Detaily konfigurácie nájdete v [Nastavení kurzu](./00-course-setup/README.md).
+Niektoré príklady kódu taktiež podporujú alternatívnych poskytovateľov kompatibilných s OpenAI, ako je [MiniMax](https://platform.minimaxi.com/), ktorý ponúka modely s veľkým kontextom (až 204K tokenov). Podrobnosti konfigurácie nájdete v [Course Setup](./00-course-setup/README.md).
 
-Pre viac informácií o spustení kódu pre tento kurz navštívte [Nastavenie kurzu](./00-course-setup/README.md).
+Pre viac informácií o spustení kódu ku kurzu navštívte [Course Setup](./00-course-setup/README.md).
 
 ## 🙏 Chcete pomôcť?
 
-Máte návrhy alebo ste našli pravopisné či kódové chyby? [Otvorte issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) alebo [vytvorte pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Máte návrhy alebo ste našli preklepy či chyby v kóde? [Vytvorte issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) alebo [vytvorte pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst).
 
 
 
 ## 📂 Každá lekcia obsahuje
 
-- Písanú lekciu umiestnenú v README a krátke video
-- Príklady Python kódu využívajúce Microsoft Agent Framework so službou Azure AI Foundry
+- Písomnú lekciu v README a krátke video
+- Ukážky kódu v Pythone používajúce Microsoft Agent Framework s Azure AI Foundry
 - Odkazy na ďalšie zdroje pre pokračovanie vo vzdelávaní
 
 
 ## 🗃️ Lekcie
 
-| **Lekcia**                                   | **Text & Kód**                                    | **Video**                                                  | **Ďalšie vzdelávanie**                                                                     |
-|---------------------------------------------|--------------------------------------------------|------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-| Úvod do AI Agentov a prípadov použitia agentov | [Link](./01-intro-to-ai-agents/README.md)        | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)     |
-| Preskúmanie Frameworkov AI Agenta            | [Link](./02-explore-agentic-frameworks/README.md)| [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)     |
-| Porozumenie návrhovým vzorom AI Agenta       | [Link](./03-agentic-design-patterns/README.md)   | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)     |
-| Návrhový vzor používania nástrojov           | [Link](./04-tool-use/README.md)                   | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)     |
-| Agentic RAG                                  | [Link](./05-agentic-rag/README.md)                | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)     |
-| Budovanie dôveryhodných AI Agentov           | [Link](./06-building-trustworthy-agents/README.md)| [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)     |
-| Návrhový vzor plánovania                      | [Link](./07-planning-design/README.md)            | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)     |
-| Návrhový vzor multi-agentov                   | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst)     |
-| Metakognitívny dizajnový vzor                | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI agenti vo výrobe                          | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Používanie agentných protokolov (MCP, A2A a NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Kontextové inžinierstvo pre AI agentov      | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Správa agentnej pamäte                       | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| Preskúmanie Microsoft Agent Framework       | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Budovanie agentov na používanie počítača (CUA) | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
-| Nasadzovanie škálovateľných agentov         | Čoskoro                               |                                                            |                                                                                        |
-| Vytváranie lokálnych AI agentov             | Čoskoro                               |                                                            |                                                                                        |
-| Zabezpečenie AI agentov                      | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| **Lekcia**                                    | **Text & Kód**                                     | **Video**                                                  | **Ďalšie vzdelávanie**                                                              |
+|----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| Úvod do AI Agentov a prípadov použitia Agenta | [Odkaz](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Preskúmavanie agentových frameworkov          | [Odkaz](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Pochopenie AI agentových dizajnových vzorov   | [Odkaz](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Dizajnový vzor použitia nástrojov             | [Odkaz](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agentic RAG                                  | [Odkaz](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Vývoj dôveryhodných AI Agentov                 | [Odkaz](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Dizajnový vzor plánovania                      | [Odkaz](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Dizajnový vzor viacerých agentov                | [Odkaz](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Vzor dizajnu metakognície                  | [Odkaz](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| AI agenti v prevádzke                       | [Odkaz](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Používanie agentických protokolov (MCP, A2A a NLWeb) | [Odkaz](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Inžinierstvo kontextu pre AI agentov        | [Odkaz](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Správa agentickej pamäte                    | [Odkaz](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| Skúmanie Microsoft Agent Framework                         | [Odkaz](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| Vytváranie agentov na používanie počítača (CUA)           | [Odkaz](./15-browser-use/README.md)     |                                                            | [Odkaz](https://docs.browser-use.com/examples/templates/playwright-integration)         |
+| Nasadzovanie škálovateľných agentov                    | Čoskoro k dispozícii                            |                                                            |                                                                                        |
+| Vytváranie lokálnych AI agentov                     | Čoskoro k dispozícii                               |                                                            |                                                                                        |
+| Zabezpečovanie AI agentov                           | [Odkaz](./18-securing-ai-agents/README.md)  |                                                            | [Odkaz](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
 ## 🎒 Ďalšie kurzy
 
-Náš tím pripravuje aj ďalšie kurzy! Pozrite si:
+Náš tím produkuje ďalšie kurzy! Pozrite si:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### LangChain
@@ -133,7 +133,7 @@ Náš tím pripravuje aj ďalšie kurzy! Pozrite si:
 
 ---
  
-### Generatívna AI séria
+### Séria generatívnej AI
 [![Generatívna AI pre začiatočníkov](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Generatívna AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
 [![Generatívna AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
@@ -143,49 +143,50 @@ Náš tím pripravuje aj ďalšie kurzy! Pozrite si:
  
 ### Základné učenie
 [![ML pre začiatočníkov](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
-[![Data Science pre začiatočníkov](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
+[![Dátová veda pre začiatočníkov](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
 [![AI pre začiatočníkov](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
-[![Kybernetická bezpečnosť pre začiatočníkov](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
-[![Webový vývoj pre začiatočníkov](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
+[![Kyberbezpečnosť pre začiatočníkov](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
+[![Webvývoj pre začiatočníkov](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
 [![IoT pre začiatočníkov](https://img.shields.io/badge/IoT%20for%20Beginners-14B8A6?style=for-the-badge&labelColor=E5E7EB&color=14B8A6)](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
-[![Vývoj XR pre začiatočníkov](https://img.shields.io/badge/XR%20Development%20for%20Beginners-38BDF8?style=for-the-badge&labelColor=E5E7EB&color=38BDF8)](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![XR vývoj pre začiatočníkov](https://img.shields.io/badge/XR%20Development%20for%20Beginners-38BDF8?style=for-the-badge&labelColor=E5E7EB&color=38BDF8)](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
 
 ---
  
 ### Séria Copilot
 [![Copilot pre AI párované programovanie](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
 [![Copilot pre C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
-[![Copilot Dobrodružstvo](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
+[![Copilot dobrodružstvo](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
 ## 🌟 Poďakovanie komunite
 
-Ďakujeme [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) za príspevok dôležitých príkladov kódu demonštrujúcich Agentic RAG.
+Ďakujeme [Shivam Goyalovi](https://www.linkedin.com/in/shivam2003/) za príspevok dôležitých ukážok kódu demonštrujúcich Agentic RAG.
 
-## Príspevky
+## Prispievanie
 
-Tento projekt víta príspevky a návrhy. Väčšina príspevkov vyžaduje, aby ste súhlasili s
-Dohodou o licencii prispievateľa (CLA) prehlasujúcou, že máte právo a skutočne nám poskytujete
-práva na použitie vášho príspevku. Pre viac informácií navštívte <https://cla.opensource.microsoft.com>.
+Tento projekt vítá príspevky a návrhy. Väčšina príspevkov vyžaduje, aby ste súhlasili s
+Licenčnou zmluvou prispievateľa (CLA), ktorá potvrdzuje, že máte právo, a skutočne udeľujete nám
+práva na použitie vášho príspevku. Podrobnosti nájdete na <https://cla.opensource.microsoft.com>.
 
-Keď podáte pull request, CLA bot automaticky určí, či je potrebné poskytnúť
-CLA a primerane označí PR (napr. kontrola stavu, komentár). Jednoducho postupujte podľa inštrukcií
-poskytnutých botom. Toto budete musieť urobiť iba raz pre všetky repozitáre používajúce našu CLA.
+Keď odošlete žiadosť o zlúčenie, bot CLA automaticky zistí, či potrebujete poskytnúť
+CLA a príslušne označí PR (napr. kontrola stavu, komentár). Jednoducho dodržiavajte inštrukcie,
+ktoré poskytne bot. Toto bude potrebné urobiť iba raz vo všetkých repozitároch, ktoré používajú našu CLA.
 
 Tento projekt prijal [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-Pre viac informácií pozrite si [Často kladené otázky o Kódexe správania](https://opensource.microsoft.com/codeofconduct/faq/) alebo
-kontaktujte [opencode@microsoft.com](mailto:opencode@microsoft.com) s akýmikoľvek ďalšími otázkami alebo pripomienkami.
+Ďalšie informácie nájdete v [FAQ k Code of Conduct](https://opensource.microsoft.com/codeofconduct/faq/) alebo
+kontaktujte [opencode@microsoft.com](mailto:opencode@microsoft.com) s ďalšími otázkami alebo pripomienkami.
 
 ## Ochranné známky
 
-Tento projekt môže obsahovať ochranné známky alebo logá projektov, produktov alebo služieb. Autorizované používanie ochranných známok alebo log Microsoft podlieha a musí sa riadiť
-[Pokynmi pre ochranné známky a značky spoločnosti Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Použitie ochranných známok alebo log Microsoft v upravených verziách tohto projektu nesmie spôsobovať zmätok ani naznačovať sponzorovanie spoločnosťou Microsoft.
-Akékoľvek použitie ochranných známok alebo log tretích strán je predmetom pravidiel týchto tretích strán.
+Tento projekt môže obsahovať ochranné známky alebo logá projektov, produktov alebo služieb. Povolené používanie ochranných známok alebo log spoločnosti Microsoft
+podlieha a musí dodržiavať
+[Zásady pre ochranné známky a značky spoločnosti Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+Používanie ochranných známok alebo log spoločnosti Microsoft v upravených verziách tohto projektu nesmie viesť k zmätku ani naznačovať sponzorstvo spoločnosťou Microsoft.
+Akékoľvek používanie ochranných známok alebo log tretích strán podlieha pravidlám týchto tretích strán.
 
-## Pomoc
+## Získanie pomoci
 
-Ak sa zaseknete alebo máte akékoľvek otázky ohľadom vytvárania AI aplikácií, pripojte sa:
+Ak sa zaseknete alebo máte otázky o vývoji AI aplikácií, pridajte sa k:
 
 [![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 

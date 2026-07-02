@@ -1,56 +1,56 @@
 [Guarda il video della lezione: Proteggere gli agenti AI con ricevute crittografiche](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Il team di contenuti Microsoft aggiungerà il video della lezione e la miniatura dopo la fusione, seguendo il modello della lezione 14 / 15.)_
+> _(Video della lezione e miniatura da aggiungere dal team contenuti Microsoft dopo la fusione, seguendo il modello delle lezioni 14 / 15.)_
 
 # Proteggere gli agenti AI con ricevute crittografiche
 
 ## Introduzione
 
-Questa lezione tratterà:
+Questa lezione coprirà:
 
-- Perché le tracce di controllo per gli agenti AI sono importanti per la conformità, il debug e la fiducia.
-- Cos’è una ricevuta crittografica e in cosa differisce da una linea di log non firmata.
-- Come produrre una ricevuta firmata per la chiamata a uno strumento di un agente in puro Python.
+- Perché le tracce di audit per gli agenti AI sono importanti per conformità, debug e fiducia.
+- Cos’è una ricevuta crittografica e come differisce da una semplice riga di log non firmata.
+- Come produrre una ricevuta firmata per una chiamata a uno strumento dell’agente in Python semplice.
 - Come verificare una ricevuta offline e rilevare manomissioni.
-- Come concatenare le ricevute in modo che rimuovere o riordinare una le rompa.
-- Cosa dimostrano le ricevute e cosa esplicitamente non dimostrano.
+- Come concatenare le ricevute in modo che la rimozione o la riorganizzazione di una interrompa la catena.
+- Cosa provano le ricevute e cosa esplicitamente non provano.
 
 ## Obiettivi di apprendimento
 
 Dopo aver completato questa lezione, saprai come:
 
-- Identificare i modi in cui possono verificarsi errori che motivano la provenienza crittografica per le azioni dell’agente.
+- Identificare i modi in cui i guasti motivano la provenienza crittografica per le azioni degli agenti.
 - Produrre una ricevuta firmata Ed25519 su un payload JSON canonico.
-- Verificare una ricevuta in modo indipendente usando solo la chiave pubblica del firmatario.
+- Verificare una ricevuta indipendentemente usando solo la chiave pubblica del firmatario.
 - Rilevare manomissioni rieseguendo la verifica su una ricevuta modificata.
 - Costruire una sequenza di ricevute concatenata tramite hash e spiegare perché la catena è importante.
-- Riconoscere il confine tra ciò che le ricevute dimostrano (attribuzione, integrità, ordinamento) e ciò che non dimostrano (correttezza dell’azione, validità della politica).
+- Riconoscere il confine tra cosa le ricevute provano (attribuzione, integrità, ordinamento) e cosa non provano (correttezza dell’azione, fondatezza della politica).
 
-## Il problema: la traccia di controllo del tuo agente
+## Il problema: la traccia di audit del tuo agente
 
-Immagina di aver distribuito un agente AI per Contoso Travel. L’agente legge le richieste dei clienti, chiama un’API per voli per cercare opzioni e prenota i posti per conto del cliente. Lo scorso trimestre, l’agente ha gestito 50.000 prenotazioni.
+Immagina di aver distribuito un agente AI per Contoso Travel. L’agente legge le richieste dei clienti, chiama un’API di voli per cercare opzioni e prenota posti per conto del cliente. Lo scorso trimestre, l’agente ha elaborato 50.000 prenotazioni.
 
 Oggi arriva un revisore. Fa una domanda semplice: "Mostrami cosa ha fatto il tuo agente."
 
-Gli consegni i tuoi file di log. Il revisore li guarda e fa una domanda più difficile: "Come faccio a sapere che questi log non sono stati modificati?"
+Gli consegni i file di log. Il revisore li guarda e pone una domanda più difficile: "Come faccio a sapere che questi log non sono stati modificati?"
 
-Questo è il problema della traccia di controllo. La maggior parte delle distribuzioni di agenti oggi si basa su:
+Questo è il problema della traccia di audit. La maggior parte delle implementazioni di agenti oggi si basa su:
 
-- **Log applicativi**: scritti dallo stesso agente, modificabili da chiunque abbia accesso al file system.
-- **Servizi di logging cloud**: evidenziano le manomissioni a livello di piattaforma ma solo se il revisore si fida dell’operatore della piattaforma.
-- **Log delle transazioni di database**: adatti per i cambiamenti del database ma non per chiamate arbitrari a strumenti.
+- **Log delle applicazioni**: scritti dallo stesso agente, modificabili da chiunque abbia accesso al file system.
+- **Servizi di logging cloud**: evidenziano manomissioni a livello di piattaforma ma solo se il revisore si fida dell’operatore della piattaforma.
+- **Log delle transazioni del database**: adatti ai cambiamenti nel database ma non per chiamate arbitrarie a strumenti.
 
-Nessuno di questi può rispondere alla domanda del revisore senza che il revisore debba fidarsi di qualcuno (te, il tuo provider cloud, il tuo fornitore di database). Per uso interno, questa fiducia è spesso accettabile. Per carichi di lavoro regolamentati (finanza, sanità, qualsiasi cosa soggetta all’AI Act dell’UE), non lo è.
+Nessuno di questi può rispondere alla domanda del revisore senza farlo dipendere da qualcuno (te, il tuo provider cloud, il fornitore del database). Per uso interno, quella fiducia è spesso accettabile. Per workload regolamentati (finanza, sanità, qualsiasi cosa soggetta all’EU AI Act), non lo è.
 
-Le ricevute crittografiche risolvono questo problema rendendo ogni azione dell’agente indipendentemente verificabile. Il revisore non deve fidarsi di te. Ha bisogno solo della tua chiave pubblica e della stessa ricevuta.
+Le ricevute crittografiche risolvono questo problema rendendo ogni azione dell’agente verificabile indipendentemente. Il revisore non deve fidarsi di te. Gli basta la tua chiave pubblica e la ricevuta stessa.
 
 ## Cos’è una ricevuta crittografica?
 
-Una ricevuta è un oggetto JSON che registra ciò che un agente ha fatto, firmato con una firma digitale.
+Una ricevuta è un oggetto JSON che registra cosa ha fatto un agente, firmato con una firma digitale.
 
 ```mermaid
 flowchart LR
-    A[Agente invoca uno strumento] --> B[Costruisci il payload della ricevuta]
+    A[Agente invoca uno strumento] --> B[Costruisci payload della ricevuta]
     B --> C[Canonicalizza JSON RFC 8785]
     C --> D[Hash SHA-256]
     D --> E[Firma Ed25519]
@@ -84,23 +84,23 @@ Una ricevuta minima appare così:
 
 Tre proprietà fanno il lavoro:
 
-1. **La firma**. La ricevuta è firmata dal gateway dell’agente usando una chiave privata Ed25519. Chiunque abbia la corrispondente chiave pubblica può verificare la firma offline. La manomissione di qualsiasi campo invalida la firma.
+1. **La firma**. La ricevuta è firmata dal gateway dell’agente usando una chiave privata Ed25519. Chiunque abbia la chiave pubblica corrispondente può verificarla offline. Manomettere un campo invalida la firma.
 
-2. **Codifica canonica**. Prima di firmare, la ricevuta viene serializzata usando lo JSON Canonicalization Scheme (JCS, RFC 8785). Questo assicura che due implementazioni che producono la stessa ricevuta logica producano un output identico byte per byte. Senza la canonicalizzazione, diversi serializer JSON produrrebbero firme diverse per lo stesso contenuto.
+2. **Codifica canonica**. Prima della firma, la ricevuta viene serializzata usando lo JSON Canonicalization Scheme (JCS, RFC 8785). Questo assicura che due implementazioni che producono la stessa ricevuta logica producano un output byte-identico. Senza la canonizzazione, diversi serializer JSON produrrebbero firme differenti per lo stesso contenuto.
 
-3. **Catena di hash**. Il campo `previous_receipt_hash` collega ogni ricevuta a quella precedente. Rimuovere o riordinare una ricevuta rompe tutte le ricevute successive. Le manomissioni diventano visibili a livello di catena anche se le firme individuali vengono aggirate.
+3. **Concatenamento tramite hash**. Il campo `previous_receipt_hash` collega ogni ricevuta a quella precedente. Rimuovere o riorganizzare una ricevuta invalida tutte quelle successive. La manomissione diventa visibile a livello di catena anche se le singole firme venissero aggirate.
 
-Insieme queste proprietà forniscono tre garanzie:
+Queste proprietà insieme offrono tre garanzie:
 
 - **Attribuzione**: questa chiave ha firmato questo contenuto.
-- **Integrità**: il contenuto non è cambiato dalla firma.
-- **Ordinamento**: questa ricevuta è venuta dopo quella nella catena.
+- **Integrità**: il contenuto non è cambiato dopo la firma.
+- **Ordinamento**: questa ricevuta è successiva a quella catena.
 
 ## Produrre una ricevuta in Python
 
-Non serve una libreria speciale per produrre una ricevuta. Le primitive crittografiche sono ampiamente disponibili e la logica è di poche decine di righe di Python.
+Non serve una libreria speciale per produrre una ricevuta. Le primitive crittografiche sono ampiamente disponibili e la logica è poche decine di righe di Python.
 
-Gli esercizi pratici in `code_samples/18-signed-receipts.ipynb` illustrano l’intero flusso. La versione riassunta:
+Gli esercizi pratici in `code_samples/18-signed-receipts.ipynb` guidano l’intero flusso. La versione riassunta:
 
 ```python
 import json
@@ -116,7 +116,7 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Genera o carica una chiave di firma (in produzione, conserva in un portachiavi)
+# Genera o carica una chiave di firma (in produzione, memorizzala in un caveau di chiavi)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
@@ -136,7 +136,7 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Canonicalizza, esegui hash, firma.
+# Canonicalizza, hash, firma.
 canonical_bytes = canonicalize(payload)
 message_hash = hashlib.sha256(canonical_bytes).digest()
 signature_bytes = signing_key.sign(message_hash).signature
@@ -152,7 +152,7 @@ receipt = {
 }
 ```
 
-Questa è tutta la pipeline di firma. Gli esercizi nel notebook spiegano ogni passaggio.
+Questo è l’intero flusso di firma. Gli esercizi nel notebook spiegano ogni passaggio.
 
 ## Verificare una ricevuta e rilevare manomissioni
 
@@ -175,7 +175,7 @@ def verify_receipt(receipt: dict) -> bool:
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # Ricostruisci il payload che è stato effettivamente firmato (tutto tranne la firma).
+    # Ricostruire il payload che è stato effettivamente firmato (tutto tranne la firma).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
@@ -189,15 +189,15 @@ def verify_receipt(receipt: dict) -> bool:
         return False
 ```
 
-Questa funzione prende una ricevuta e restituisce `True` se la firma è valida, `False` altrimenti. Nessuna chiamata di rete, nessuna dipendenza da servizi, nessuna fiducia richiesta in terzi.
+Questa funzione prende una ricevuta e restituisce `True` se la firma è valida, `False` altrimenti. Nessuna chiamata di rete, nessuna dipendenza da servizi, nessuna fiducia in terze parti.
 
-Per vedere in azione il rilevamento della manomissione, il notebook illustra:
+Per vedere come funziona il rilevamento di manomissioni, il notebook spiega:
 
 1. Produrre una ricevuta valida e confermare che verifica correttamente.
 2. Modificare un byte del campo `tool_args_hash`.
-3. Eseguire di nuovo la verifica e vedere il fallimento.
+3. Rieseguire la verifica e osservare il fallimento.
 
-Questa è la dimostrazione pratica che le ricevute evidenziano la manomissione: qualsiasi modifica, anche minima, rompe la firma.
+Questa è la dimostrazione pratica che le ricevute evidenziano le manomissioni: qualsiasi modifica, per quanto piccola, invalida la firma.
 
 ## Concatenare le ricevute per agenti multi-step
 
@@ -213,57 +213,58 @@ flowchart LR
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Ogni ricevuta registra l’hash della ricevuta precedente. Per rimuovere silenziosamente la ricevuta 2, un attaccante dovrebbe:
+Ogni ricevuta registra l’hash della ricevuta precedente. Per rimuovere silenziosamente la ricevuta 2, un attaccante dovrebbe o:
 
-- Modificare il campo `previous_receipt_hash` della ricevuta 3 (rompe la firma della ricevuta 3), OPPURE
+- Modificare il campo `previous_receipt_hash` della ricevuta 3 (invalida la firma della ricevuta 3), O
 - Falsificare una nuova firma sulla ricevuta 3 modificata (serve la chiave privata dell’agente).
 
-Se la chiave privata è in un hardware key vault e pubblichi la chiave pubblica con ogni ricevuta, nessun attacco è fattibile senza essere scoperto.
+Se la chiave privata è custodita in un hardware key vault e pubblichi la chiave pubblica con ogni ricevuta, nessun attacco è fattibile senza essere scoperto.
 
-Il notebook mostra:
+Il notebook guida attraverso:
 
 1. Costruire una catena di tre ricevute.
-2. Verificare che il `previous_receipt_hash` di ogni ricevuta corrisponda all’hash reale della ricevuta precedente.
-3. Manomettere una ricevuta nel mezzo e vedere la catena rompersi esattamente in quel punto.
+2. Verificare che `previous_receipt_hash` di ogni ricevuta corrisponda all’effettivo hash della ricevuta precedente.
+3. Manomettere una ricevuta in mezzo e vedere la catena rompersi in quel punto esatto.
 
-Così si produce una traccia di controllo che un revisore esterno può verificare senza dover fidarsi di te.
+Così produci una traccia di audit che un revisore esterno può verificare senza doversi fidare di te.
 
-## Cosa dimostrano le ricevute (e cosa non dimostrano)
+## Cosa provano (e cosa non provano) le ricevute
 
-Questa è la sezione più importante di questa lezione. Le ricevute sono potenti ma il loro potere ha un limite.
+Questa è la parte più importante della lezione. Le ricevute sono potenti ma i loro poteri sono limitati.
 
-**Le ricevute dimostrano tre cose:**
+**Le ricevute provano tre cose:**
 
 1. **Attribuzione**: una chiave specifica ha firmato un payload specifico.
-2. **Integrità**: il payload non è cambiato dalla firma.
-3. **Ordinamento**: questa ricevuta è venuta dopo quella nella catena di hash.
+2. **Integrità**: il payload non è cambiato dopo la firma.
+3. **Ordinamento**: questa ricevuta è successiva a quella catena.
 
-**Le ricevute NON dimostrano:**
+**Le ricevute NON provano:**
 
-1. **Correttezza**: che l’azione dell’agente fosse quella giusta. Una ricevuta può essere firmata per una risposta sbagliata con la stessa facilità di una risposta corretta.
-2. **Conformità alla policy**: che la policy indicata in `policy_id` sia stata realmente valutata, o che avrebbe permesso quell’azione se verificata. La ricevuta registra ciò che è stato affermato, non ciò che è stato effettivamente applicato.
-3. **Identità oltre la chiave**: la ricevuta dice "questa chiave ha firmato questo contenuto." Non dice "questa persona ha autorizzato questo." Collegare una chiave a una persona o organizzazione richiede un’infrastruttura di identità separata (un directory, un registro di chiavi pubbliche, ecc.).
-4. **Veridicità degli input**: se l’agente riceve un prompt manipolato e agisce di conseguenza, la ricevuta registra fedelmente l’azione. Le ricevute sono downstream dalla validazione degli input, non un suo sostituto.
+1. **Correttezza**: che l’azione dell’agente fosse quella giusta. Una ricevuta può essere firmata per una risposta sbagliata tanto facilmente quanto per una giusta.
+2. **Conformità alla politica**: che la politica indicata in `policy_id` sia stata effettivamente valutata, o che avrebbe permesso quell’azione se controllata. La ricevuta registra ciò che è stato dichiarato, non ciò che è stato applicato.
+3. **Identità oltre la chiave**: la ricevuta dice "questa chiave ha firmato questo contenuto." Non dice "questa persona ha autorizzato." Collegare una chiave a una persona o organizzazione richiede un’infrastruttura di identità separata (direttorio, registro chiavi pubbliche, ecc.).
+4. **Veridicità degli input**: se l’agente riceve un prompt manipolato e agisce di conseguenza, la ricevuta registra fedelmente l’azione. Le ricevute sono a valle della validazione degli input, non un suo sostituto.
 
 Questo confine è importante per due motivi:
 
-- Ti dice a cosa servono le ricevute: rendere il comportamento degli agenti verificabile e resistente alle manomissioni, anche attraverso i confini organizzativi.
-- Ti dice quali ulteriori strati servono ancora: validazione degli input (Lezione 6), applicazione delle policy (brevemente trattata sotto), e infrastrutture di identità (fuori dallo scope di questa lezione).
+- Dice a cosa servono le ricevute: rendere il comportamento dell’agente verificabile e rilevare manomissioni, anche oltre i confini organizzativi.
+- Dice quali livelli aggiuntivi servono ancora: validazione degli input (Lezione 6), applicazione delle politiche (coperta brevemente più avanti), infrastruttura di identità (fuori dallo scopo di questa lezione).
 
-Un errore comune è assumere che "abbiamo le ricevute" significhi "siamo sotto controllo." Non è così. Le ricevute sono una base. Il controllo è il sistema che costruisci sopra.
+Un errore comune è assumere che "avere ricevute" significhi "essere governati." Non è così. Le ricevute sono la base. Il governo è il sistema che costruisci sopra.
 
-## Riferimenti per produzione
+## Riferimenti per la produzione
 
-Il codice Python in questa lezione è volutamente minimale, così puoi leggere ogni riga e capire esattamente cosa succede. In produzione, hai due opzioni:
+Il codice Python di questa lezione è volutamente minimale per farti leggere ogni riga e capire esattamente cosa succede. In produzione hai due opzioni:
 
-1. **Costruire direttamente sulle primitive crittografiche.** Le 50 righe viste sopra sono sufficienti per molti casi d’uso. PyNaCl (Ed25519) e il pacchetto `jcs` (JSON canonico) sono librerie ben mantenute e controllate.
+1. **Costruire direttamente sulle primitive crittografiche.** Le 50 righe viste sopra sono sufficienti per molti casi d’uso. PyNaCl (Ed25519) e il pacchetto `jcs` (JSON canonico) sono librerie ben mantenute e revisionate.
 
-2. **Usare una libreria di ricevute in produzione.** Diversi progetti open-source implementano lo stesso schema con funzionalità aggiuntive (rotazione delle chiavi, verifica batch, distribuzione JWK Set, integrazione con motori di policy):
-   - Il formato della ricevuta usato in questa lezione segue un Internet-Draft IETF (`draft-farley-acta-signed-receipts`) attualmente in fase di standardizzazione.
-   - Il Microsoft Agent Governance Toolkit compone ricevute con decisioni policy basate su Cedar; vedi il Tutorial 33 in quel repository per un esempio completo.
-   - I pacchetti `protect-mcp` (npm) e `@veritasacta/verify` (npm) forniscono un’implementazione Node per la firma di ricevute e la verifica offline, pensati per avvolgere qualunque server MCP con una traccia di controllo resistente alle manomissioni.
+2. **Usare una libreria di ricevute per la produzione.** Vari progetti open source implementano lo stesso schema con funzionalità aggiuntive (rotazione chiavi, verifica batch, distribuzione JWK Set, integrazione con motori di policy):
+   - Il formato delle ricevute usato in questa lezione segue un Internet-Draft IETF (`draft-farley-acta-signed-receipts`) attualmente in fase di standardizzazione.
+   - Il Microsoft Agent Governance Toolkit compone ricevute con decisioni di policy basate su Cedar; vedi il Tutorial 33 in quel repository per un esempio end-to-end.
+   - I pacchetti `protect-mcp` (npm) e `@veritasacta/verify` (npm) offrono un’implementazione Node per firmare e verificare ricevute offline, pensata per avvolgere qualsiasi server MCP con una traccia di audit tamper-evident.
+   - L’**[SDK Python nobulex](https://github.com/arian-gogani/nobulex)** (`pip install nobulex`) fornisce lo stesso schema di firma Ed25519 + JCS in Python con integrazioni LangChain e CrewAI, includendo vettori di test di cross-validazione pubblicati e una mappatura di conformità contribuita via [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
-La scelta tra scrivere il proprio codice e usare una libreria rispecchia la scelta tra scrivere una libreria JWT da zero e usarne una testata: entrambe valide; la libreria fa risparmiare tempo e riduce la superficie di audit; la scrittura da zero ti costringe a comprendere ogni primitiva. Questa lezione insegna la strada da zero così hai la base per entrambe le scelte.
+La scelta tra implementare da zero e usare una libreria è come scegliere tra scrivere la propria libreria JWT o usarne una già collaudata: entrambe valide; la libreria risparmia tempo e riduce la superficie di audit; l’approccio da zero ti costringe a capire ogni primitiva. Questa lezione insegna il percorso da zero così da darti basi per entrambe le scelte.
 
 ## Verifica della conoscenza
 
@@ -274,39 +275,39 @@ Metti alla prova la tua comprensione prima di passare all’esercizio pratico.
 <details>
 <summary>Risposta</summary>
 
-Sì. La verifica Ed25519 richiede solo la chiave pubblica e i byte firmati. Nessuna chiamata di rete, nessuna dipendenza da servizi. Questa è la proprietà che rende le ricevute utili in ambienti isolati, multi-organizzazione o a bassa fiducia.
+Sì. La verifica Ed25519 richiede solo la chiave pubblica e i byte firmati. Nessuna chiamata di rete, nessuna dipendenza da servizi. Questo è il motivo per cui le ricevute sono utili in contesti isolati, multi-organizzazione o a bassa fiducia.
 </details>
 
-**2. Un attaccante modifica il campo `policy_id` di una ricevuta per affermare che era governata da una policy più permissiva. La firma era sul payload originale. Cosa succede durante la verifica?**
+**2. Un attaccante modifica il campo `policy_id` di una ricevuta per affermare che fosse governata da una politica più permissiva. La firma copriva il payload originale. Cosa succede durante la verifica?**
 
 <details>
 <summary>Risposta</summary>
 
-La verifica fallisce. La firma è calcolata sui byte canonici del payload originale; modificare qualsiasi campo cambia i byte canonici, modifica l’hash SHA-256, rendendo la firma invalida. L’attaccante dovrebbe avere la chiave privata per produrre una nuova firma valida, cosa che non ha.
+La verifica fallisce. La firma è calcolata sui byte canonici del payload originale; modificare anche un campo cambia i byte canonici, cambia l’hash SHA-256 e rende la firma invalida. L’attaccante dovrebbe avere la chiave privata per produrre una nuova firma valida, che non ha.
 </details>
 
-**3. Perché la ricevuta include un `tool_args_hash` e un `result_hash` invece degli argomenti e risultati grezzi?**
+**3. Perché la ricevuta include un `tool_args_hash` e `result_hash` invece degli argomenti e risultati in chiaro?**
 
 <details>
 <summary>Risposta</summary>
 
-Per due ragioni. Primo, la ricevuta potrebbe dover essere archiviata o trasmessa in ambienti dove perdere il contenuto grezzo (dati personali, dati aziendali) è un problema. Gli hash mantengono la ricevuta piccola e il contenuto privato; il revisore verifica che l’hash corrisponda a una copia separatamente archiviata del contenuto reale. Secondo, gli hash hanno una dimensione fissa; una ricevuta con hash ha una dimensione limitata indipendentemente da quanto sono grandi input e output.
+Per due motivi. Primo, la ricevuta può dover essere archiviata o trasmessa in ambienti dove trapelare il contenuto in chiaro (PII, dati aziendali) è un problema. L’hashing mantiene la ricevuta piccola e il contenuto privato; il revisore verifica che l’hash corrisponda a una copia del contenuto conservata separatamente. Secondo, gli hash hanno dimensione fissa; una ricevuta con hash ha dimensione limitata indipendentemente dalla grandezza degli input/output.
 </details>
 
-**4. Il campo `previous_receipt_hash` collega ogni ricevuta alla sua predecessore. Se un attaccante elimina silenziosamente una ricevuta nel mezzo di una catena, cosa diventa invalido?**
+**4. Il campo `previous_receipt_hash` collega ogni ricevuta al suo predecessore. Se un attaccante cancella silenziosamente una ricevuta in mezzo alla catena, cosa diventa invalido?**
 
 <details>
 <summary>Risposta</summary>
 
-Ogni ricevuta che viene dopo quella eliminata. I loro campi `previous_receipt_hash` non corrispondono più alla catena reale (perché la ricevuta di riferimento non esiste più, o la catena punta ora a un predecessore diverso). Per nascondere l’eliminazione, l’attaccante dovrebbe rifirmare tutte le ricevute successive, cosa che richiede la chiave privata.
+Ogni ricevuta che segue quella cancellata. I loro campi `previous_receipt_hash` non corrispondono più alla catena reale (perché la ricevuta referenziata non esiste più o perché la catena ora punta a un predecessore diverso). Per nascondere la cancellazione, l’attaccante dovrebbe rifirmare tutte le ricevute successive, cosa che richiede la chiave privata.
 </details>
 
-**5. Una ricevuta verifica correttamente. Questo dimostra che l’azione dell’agente era corretta, valida o conforme alla policy?**
+**5. Una ricevuta verifica correttamente. Ciò prova che l’azione dell’agente era corretta, fondata o conforme alla politica?**
 
 <details>
 <summary>Risposta</summary>
 
-No. Una ricevuta valida dimostra tre cose: attribuzione (questa chiave ha firmato questo contenuto), integrità (il contenuto non è cambiato), e ordinamento (questa ricevuta viene dopo quella). Non dimostra che l’azione fosse corretta, che la policy nominata in `policy_id` sia stata realmente valutata, o che l’agente abbia rispettato ogni regola. Le ricevute rendono il comportamento dell’agente verificabile, non necessariamente corretto. Questo è il confine più importante della lezione.
+No. Una ricevuta valida prova tre cose: attribuzione (questa chiave ha firmato questo contenuto), integrità (il contenuto non è cambiato), e ordinamento (questa ricevuta viene dopo quell’altra). Non prova che l’azione fosse corretta, che la politica in `policy_id` sia stata effettivamente valutata, o che l’agente abbia seguito ogni regola. Le ricevute rendono il comportamento dell’agente oggetto di audit, non necessariamente corretto. Questo è il confine più importante della lezione.
 </details>
 
 ## Esercizio pratico
@@ -314,70 +315,70 @@ No. Una ricevuta valida dimostra tre cose: attribuzione (questa chiave ha firmat
 Apri `code_samples/18-signed-receipts.ipynb` e completa tutte e quattro le sezioni:
 
 1. **Sezione 1**: Firma la tua prima ricevuta e verifica.
-2. **Sezione 2**: Modifica la ricevuta e osserva il fallimento della verifica.
+2. **Sezione 2**: Manometti la ricevuta e osserva il fallimento della verifica.
 3. **Sezione 3**: Costruisci una catena di tre ricevute e verifica l’integrità della catena.
 4. **Sezione 4**: Applica il modello a un agente costruito con Microsoft Agent Framework: avvolgi una chiamata a uno strumento nella firma della ricevuta, quindi verifica la ricevuta indipendentemente.
+**Sfida aggiuntiva 1:** estendi lo schema della ricevuta con un campo aggiuntivo a tua scelta (ad esempio, un ID richiesta per il tracciamento), aggiorna la logica di firma canonica per includerlo e conferma che la ricevuta passi comunque attraverso la verifica. Poi modifica il campo dopo la firma e conferma che la verifica fallisce. Questo ti obbliga a capire come ogni byte dell’encoding canonico contribuisce alla firma.
 
-**Sfida extra 1:** estendi lo schema della ricevuta con un campo aggiuntivo a tua scelta (ad esempio un ID richiesta per il tracciamento), aggiorna la logica di firma canonica per includerlo, e conferma che la ricevuta passi la verifica. Poi modifica il campo dopo la firma e conferma che la verifica fallisca. Questo ti costringe a capire come ogni byte della codifica canonica contribuisca alla firma.
-**Sfida avanzata 2:** Calcola l'hash SHA-256 di due delle tue ricevute insieme (concatenando i loro byte canonici in un ordine deterministico) e integra il digest risultante come un nuovo campo su una terza ricevuta prima di firmarla. Verifica che tutte e tre le ricevute possano ancora essere convertite avanti e indietro senza problemi. Hai appena costruito una prova di inclusione in un solo passaggio: chiunque possieda la terza ricevuta può dimostrare che le prime due esistevano al momento della sua firma, senza dover rivelare il loro contenuto. Questo è il pattern che le ricevute a divulgazione selettiva utilizzano su larga scala (impegni Merkle, RFC 6962).
+**Sfida aggiuntiva 2:** crea un hash SHA-256 di due tue ricevute insieme (concatena i loro byte canonici in ordine deterministico) e incorpora il digest risultante come un nuovo campo in una terza ricevuta prima di firmarla. Verifica che tutte e tre le ricevute si verifichino correttamente. Hai appena costruito una prova di inclusione a un passaggio: chiunque abbia la terza ricevuta può dimostrare che le prime due esistevano al momento della firma, senza bisogno di rivelarne il contenuto. Questo è il modello usato dai ricevute a divulgazione selettiva su larga scala (impegni Merkle, RFC 6962).
 
 ## Conclusione
 
-Le ricevute crittografiche danno agli agenti AI una traccia di controllo che è:
+Le ricevute crittografiche forniscono agli agenti AI una traccia di audit che è:
 
-- **Verificabile indipendentemente**: qualsiasi parte con la chiave pubblica può verificare, senza dipendenze da servizi.
-- **Evidente di manomissione**: ogni modifica invalida la firma.
-- **Portatile**: una ricevuta è un piccolo file JSON; può essere archiviata, trasmessa e verificata ovunque.
-- **Allineata agli standard**: basata su Ed25519 (RFC 8032), JCS (RFC 8785) e SHA-256, tutti primitivi ampiamente impiegati.
+- **Verificabile indipendentemente:** qualsiasi soggetto con la chiave pubblica può verificare, senza dipendenze da servizi.
+- **Evidente a manomissioni:** ogni modifica invalida la firma.
+- **Portatile:** una ricevuta è un piccolo file JSON; può essere archiviata, trasmessa e verificata ovunque.
+- **Allineata agli standard:** basata su Ed25519 (RFC 8032), JCS (RFC 8785) e SHA-256, tutte primitive ampiamente utilizzate.
 
-Non sono un sostituto per la validazione degli input, l’applicazione di policy o l’infrastruttura di identità. Sono una base per questi livelli. Quando distribuisci agenti in carichi di lavoro regolamentati, flussi di lavoro multi-organizzazione o in qualsiasi contesto in cui non si possa presupporre che un revisore futuro ti sia affidabile, le ricevute sono il modo per rendere onesta la traccia di audit.
+Non sono un sostituto per la validazione degli input, l’applicazione delle policy o l’infrastruttura di identità. Sono una base per quegli strati. Quando distribuisci agenti in carichi di lavoro regolamentati, flussi di lavoro multi-organizzazione o qualsiasi ambiente in cui un futuro revisore non può essere dato per scontato che ti fidi, le ricevute sono il modo per rendere onesta la traccia di audit.
 
-Il punto più importante: le ricevute provano chi ha detto cosa e quando. Non provano che ciò che è stato detto fosse vero o giusto. Mantieni saldamente questa distinzione. È la differenza tra un sistema di provenienza onesto e uno fuorviante.
+Il messaggio più importante: le ricevute provano chi ha detto cosa e quando. Non provano che ciò che è stato detto fosse vero o giusto. Tieni ben chiara questa distinzione. È la differenza tra un sistema di provenienza onesto e uno ingannevole.
 
-## Lista di Controllo per la Produzione
+## Checklist per la Produzione
 
-Quando sarai pronto a passare da questa lezione a distribuire agenti firmati con ricevute in un ambiente reale:
+Quando sei pronto a passare da questa lezione a distribuire agenti firmati da ricevute in un ambiente reale:
 
-- [ ] **Sposta la chiave di firma fuori dal laptop dello sviluppatore.** Usa Azure Key Vault, AWS KMS o un modulo hardware di sicurezza. La chiave privata che firma le tue ricevute non deve mai vivere nel controllo del codice sorgente o in chiaro sulle macchine applicative.
-- [ ] **Pubblica la chiave pubblica di verifica.** Gli auditor ne hanno bisogno per verificare offline. Il pattern standard è un JWK Set a un URL ben noto (RFC 7517), es. `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Ancorare la catena esternamente.** Scrivi periodicamente l’hash della testa della catena più recente su un registro di trasparenza (Sigstore Rekor, autorità di timestamp RFC 3161, o un secondo sistema interno) così una parte esterna può confermare "questa catena esisteva a questo momento."
-- [ ] **Conserva le ricevute in modo immutabile.** Lo storage blob append-only (Azure Storage con policy di immutabilità, AWS S3 Object Lock) impedisce a un insider di riscrivere la storia a livello di archiviazione.
-- [ ] **Decidi in merito alla conservazione.** Molti regimi di conformità richiedono conservazione pluriennale. Pianifica la crescita delle ricevute (ogni ricevuta è ~500 byte; un agente che fa 10.000 chiamate al giorno produce ~1,8 GB all’anno).
-- [ ] **Documenta cosa le ricevute non coprono.** Le ricevute provano attribuzione, integrità e ordinamento. Il tuo runbook dovrebbe elencare esplicitamente quali controlli aggiuntivi (validazione input, applicazione policy, limitazione rate, infrastruttura identità) stanno accanto alle ricevute nel tuo modello di governance.
+- [ ] **Sposta la chiave di firma fuori dal laptop dello sviluppatore.** Usa Azure Key Vault, AWS KMS o un modulo hardware di sicurezza. La chiave privata con cui firmi le tue ricevute non deve mai vivere nel controllo del codice sorgente o in chiaro sulle macchine applicative.
+- [ ] **Pubblica la chiave pubblica di verifica.** I revisori ne hanno bisogno per verificare offline. Il modello standard è un JWK Set a un URL noto (RFC 7517), es., `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Ancora la catena esternamente.** Periodicamente scrivi l’hash dell’ultimo capo catena in un registro di trasparenza (Sigstore Rekor, autorità timestamp RFC 3161 o un secondo sistema interno) così un soggetto esterno può confermare "questa catena esisteva a questo momento."
+- [ ] **Conserva le ricevute in modo immutabile.** Lo storage append-only (Azure Storage con policy di immutabilità, AWS S3 Object Lock) impedisce a un insider di riscrivere la storia a livello di storage.
+- [ ] **Decidi la retention.** Molti regimi di conformità richiedono la conservazione pluriennale. Pianifica la crescita delle ricevute (una ricevuta è ~500 byte; un agente che esegue 10K chiamate al giorno produce ~1.8 GB all’anno).
+- [ ] **Documenta cosa le ricevute non coprono.** Le ricevute dimostrano attribuzione, integrità e ordine. Il tuo runbook dovrebbe elencare esplicitamente quali controlli aggiuntivi (validazione input, applicazione policy, limitazione rate, infrastruttura d’identità) si affiancano alle ricevute nella tua postura di governance.
 
-### Hai altre domande sulla sicurezza degli agenti AI?
+### Hai altre domande su come mettere in sicurezza gli agenti AI?
 
-Iscriviti al [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) per incontrare altri studenti, partecipare a ore di ufficio e ricevere risposte alle tue domande sugli Agenti AI.
+Unisciti al [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) per incontrare altri studenti, partecipare agli orari di ufficio e ottenere risposte alle tue domande sugli agenti AI.
 
 ## Oltre Questa Lezione
 
-Questa lezione copre la firma di una singola ricevuta e le sequenze concatenate tramite hash. Gli stessi primitivi si combinano in diversi pattern più avanzati che potresti incontrare man mano che matura la tua postura di governance:
+Questa lezione copre la firma di singole ricevute e sequenze concatenate tramite hash. Le stesse primitive compongono diversi modelli più avanzati che potresti incontrare man mano che la tua postura di governance matura:
 
-- **Divulgazione selettiva.** Quando i campi di una ricevuta sono impegnati indipendentemente (albero Merkle stile RFC 6962), puoi rivelare specifici campi a determinati auditor e dimostrare che gli altri non sono cambiati senza esporli. Utile quando la stessa ricevuta deve soddisfare sia un audit completo (che richiede completezza) che regolamenti di minimizzazione dati come GDPR (che vogliono che l’auditor veda il minimo indispensabile).
-- **Revoca di ricevute.** Se una chiave di firma è compromessa, serve un modo per segnare tutte le ricevute firmate da quella chiave come non attendibili da un certo momento in avanti. Pattern standard: chiavi di firma a vita breve più una lista di revoca pubblicata, o un registro di trasparenza con voci di revoca.
-- **Ricevute con firma bilaterale / divisa.** Alcune implementazioni suddividono il payload firmato in metà pre-esecuzione (`authorization_*`) e metà post-esecuzione (`result_*`) con firme indipendenti, utile quando la decisione di autorizzazione e il risultato osservato sono prodotti da attori o tempi differenti. Questo si sovrappone al formato ricevuta insegnato in questa lezione.
-- **Composizione del payload.** Una ricevuta sigilla i byte che metti in `result_hash`. I payload reali sono spesso più ricchi di un singolo risultato di chiamata strumento: ragionamenti pre-decisione (predizione modello, opzioni considerate, prove e loro completezza, posizione di rischio, catena di responsabilità, esito di una gate) possono vivere dentro al payload, sigillati da una singola ricevuta. Mantiene il formato della ricevuta minimale permettendo agli schemi di payload di evolvere dominio-per-dominio.
-- **Conformità cross-implementazione.** Diverse implementazioni indipendenti dello stesso formato di ricevuta (Python, TypeScript, Rust, Go) si verificano incrociando vettori di prova condivisi. Se costruisci la tua implementazione, validare contro vettori pubblicati conferma la compatibilità wire.
-- **Migrazione post-quantistica.** Ed25519 è oggi ampiamente adottato ma non resistente al quantum. Il formato ricevuta è agile rispetto all’algoritmo: il campo `signature.alg` può contenere `ML-DSA-65` (lo standard NIST per firme post-quantistiche) quando serve migrare. Prevedi un periodo di transizione in cui le ricevute sono firmate doppiamente.
+- **Divulgazione selettiva.** Quando i campi di una ricevuta sono impegnati indipendentemente (albero Merkle in stile RFC 6962), puoi rivelare campi specifici a revisori specifici e provare che il resto non è cambiato senza esporlo. Utile quando la stessa ricevuta deve soddisfare sia un audit completo (che richiede completezza) sia regolamenti sulla minimizzazione dei dati come il GDPR (che vogliono che il revisore veda il minimo necessario).
+- **Revoca delle ricevute.** Se una chiave di firma viene compromessa, serve un modo per segnare come non affidabili tutte le ricevute firmate da quella chiave da un certo momento in poi. Modelli standard: chiavi di firma a breve durata più una lista di revoca pubblicata, o un registro di trasparenza con voci di revoca.
+- **Ricevute bilaterali / con firma divisa.** Alcune implementazioni suddividono il payload firmato in una metà pre-esecuzione (`authorization_*`) e una metà post-esecuzione (`result_*`) con firme indipendenti, utile quando la decisione di autorizzazione e il risultato osservato sono prodotti da attori diversi o in tempi diversi. Questo si aggiunge in modo compositivo al formato di ricevuta insegnato in questa lezione.
+- **Composizione del payload.** Una ricevuta sigilla i byte messi in `result_hash`. I payload reali sono spesso più completi di un singolo risultato di chiamata: il ragionamento pre-decisione (predizione del modello, opzioni considerate, evidenze e loro completezza, postura di rischio, catena di responsabilità, esito di gate) può vivere tutto nel payload, sigillato da una singola ricevuta. Questo mantiene minimalista il formato della ricevuta lasciando evolvere gli schemi dei payload dominio per dominio.
+- **Conformità cross-implementazione.** Più implementazioni indipendenti dello stesso formato di ricevuta (Python, TypeScript, Rust, Go) si verificano incrociando vettori di test condivisi. Se costruisci la tua implementazione, validare contro vettori pubblicati conferma la compatibilità a livello wire.
+- **Migrazione post-quantistica.** Ed25519 è oggi ampiamente usato ma non resistente al quantum. Il formato di ricevuta è agile rispetto all’algoritmo: il campo `signature.alg` può portare `ML-DSA-65` (lo standard NIST di firma post-quantistica) quando serve migrare. Prevedi un periodo di transizione in cui le ricevute sono firmate doppiamente.
 
-## Risorse Addizionali
+## Risorse Aggiuntive
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Ricevute di Decisione Firmate per il Controllo Accessi Macchina-a-Macchina</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Panoramica sull’AI Responsabile (Azure AI)</a>
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Ricevute Firmate di Decisione per il Controllo Accesso Machine-to-Machine</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Panoramica Responsible AI (Azure AI)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Algoritmo di Firma Digitale a Curva Edwards (EdDSA)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: Schema di Canonicalizzazione JSON (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Trasparenza dei Certificati</a> (costruzione ad albero Merkle usata da ricevute a divulgazione selettiva)
+- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON Canonicalization Scheme (JCS)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Trasparenza dei Certificati</a> (costruzione ad albero Merkle usata dalle ricevute a divulgazione selettiva)
 - <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Ricevute di Decisione Verificabili Offline</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Vettori di test per la conformità cross-implementazione</a> per il formato di ricevuta usato in questa lezione (Apache-2.0)
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Vettori di test cross-implementazione</a> per il formato di ricevuta usato in questa lezione (Apache-2.0)
 - <a href="https://pynacl.readthedocs.io/" target="_blank">Documentazione PyNaCl</a> (Ed25519 in Python)
 
 ## Lezione Precedente
 
-[Costruire Agenti per l'Uso del Computer (CUA)](../15-browser-use/README.md)
+[Costruire Agenti per l’Uso del Computer (CUA)](../15-browser-use/README.md)
 
 ## Prossima Lezione
 
-_(Da determinare dagli amministratori del curriculum)_
+_(Da determinare dai mantenitori del curriculum)_
 
 ---
 

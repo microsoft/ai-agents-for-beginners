@@ -69,6 +69,7 @@ var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOp
 // The agent can now plan trips using the GetRandomDestination function
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
+    .AsIChatClient()
     .AsAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]

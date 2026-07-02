@@ -41,7 +41,7 @@ Without memory, AI applications are often stateless, meaning each interaction st
 
 ### Why is Memory Important?
 
-an agent's intelligence is deeply tied to its ability to recall and utilize past information. Memory allows agents to be:
+An agent's intelligence is deeply tied to its ability to recall and utilize past information. Memory allows agents to be:
 
 • **Reflective**: Learning from past actions and outcomes.
 
@@ -68,6 +68,8 @@ In a travel booking agent, working memory might capture the user's current reque
 #### Short Term Memory
 
 This type of memory retains information for the duration of a single conversation or session. It's the context of the current chat, allowing the agent to refer back to previous turns in the dialogue.
+
+In the [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) Python SDK samples, this maps to `AgentSession`, created with `agent.create_session()`. The session is the framework's built-in short-term memory: it keeps conversation context available while that same session is reused, but that context is not persisted when the session ends or the application restarts. Use long-term memory for facts and preferences that need to survive across sessions, typically through a database, vector index, or another persistent store.
 
 **Short Term Memory Example**
 
@@ -165,6 +167,6 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Disclaimer:
-This document has been translated using the AI translation service Co-op Translator (https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+**Disclaimer**:
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

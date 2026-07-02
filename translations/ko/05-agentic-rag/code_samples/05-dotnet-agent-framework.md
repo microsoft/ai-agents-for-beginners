@@ -172,7 +172,7 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 
 ## 🚀 프로덕션 배포
 
-### 모니터링 및 관찰성
+### 모니터링 및 관찰 가능성
 - **Application Insights**: 상세한 원격 분석 및 성능 모니터링
 - **사용자 정의 지표**: 비즈니스별 KPI 추적 및 경고
 - **분산 추적**: 서비스 간 요청의 종단 간 추적

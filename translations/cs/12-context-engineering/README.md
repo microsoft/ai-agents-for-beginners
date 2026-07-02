@@ -1,164 +1,179 @@
-# Inženýrství kontextu pro AI agenty
+# Kontextové inženýrství pro AI agenty
 
-[![Inženýrství kontextu](../../../translated_images/cs/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
+[![Kontextové inženýrství](../../../translated_images/cs/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
-> _(Klikněte na obrázek výše pro zhlédnutí videa této lekce)_
+> _(Klikněte na obrázek výše pro shlédnutí videa této lekce)_
 
-Pochopení složitosti aplikace, pro kterou vytváříte AI agenta, je důležité pro vytvoření spolehlivého agenta. Potřebujeme vytvářet AI agenty, kteří efektivně spravují informace, aby řešili komplexní potřeby dál než jen prompt engineering.
+Pochopení složitosti aplikace, pro kterou budujete AI agenta, je důležité pro vytvoření spolehlivého agenta. Potřebujeme vytvářet AI agenty, kteří efektivně spravují informace, aby uspokojili komplexní potřeby přesahující samotné prompt inženýrství.
 
-V této lekci se podíváme na to, co je inženýrství kontextu a jakou hraje roli při budování AI agentů.
+V této lekci se podíváme na to, co je to kontextové inženýrství a jakou má roli při budování AI agentů.
 
 ## Úvod
 
 Tato lekce pokryje:
 
-• **Co je inženýrství kontextu** a proč se liší od prompt engineeringu.
+• **Co je kontextové inženýrství** a proč se liší od prompt inženýrství.
 
-• **Strategie pro efektivní inženýrství kontextu**, včetně toho, jak psát, vybírat, komprimovat a izolovat informace.
+• **Strategie pro efektivní kontextové inženýrství**, včetně způsobů, jak psát, vybírat, komprimovat a izolovat informace.
 
-• **Běžné selhání kontextu**, které mohou vašeho AI agenta zhatit, a jak je opravit.
+• **Běžné chyby v kontextu**, které mohou narušit funkčnost AI agenta, a jak je opravit.
 
-## Cíle učení
+## Výukové cíle
 
-Po dokončení této lekce budete rozumět a umět:
+Po dokončení této lekce budete umět:
 
-• **Definovat inženýrství kontextu** a odlišit ho od prompt engineeringu.
+• **Definovat kontextové inženýrství** a odlišit ho od prompt inženýrství.
 
-• **Identifikovat klíčové komponenty kontextu** v aplikacích založených na velkých jazykových modelech (LLM).
+• **Identifikovat klíčové komponenty kontextu** v aplikacích s velkými jazykovými modely (LLM).
 
-• **Aplikovat strategie pro psaní, výběr, kompresi a izolaci kontextu**, aby se zlepšil výkon agenta.
+• **Aplikovat strategie psaní, výběru, komprimace a izolace kontextu** pro zlepšení výkonu agentů.
 
-• **Rozpoznat běžná selhání kontextu**, jako je otrava, rozptylení, zmatek a střet, a zavést techniky zmírnění.
+• **Rozpoznat běžné chyby v kontextu** jako otrava, rozptýlení, zmatení a kolize, a zavést techniky k jejich zmírnění.
 
-## Co je inženýrství kontextu?
+## Co je kontextové inženýrství?
 
-Pro AI agenty je kontext tím, co řídí plánování agenta, aby provedl určité akce. Inženýrství kontextu je praxe zajištění, že AI agent má správné informace k dokončení dalšího kroku úkolu. Okno kontextu má omezenou velikost, takže jako tvůrci agentů musíme vytvářet systémy a procesy pro přidávání, odebírání a zhušťování informací v okně kontextu.
+Pro AI agenty je kontext tím, co řídí plánování agenta k provedení určitých akcí. Kontextové inženýrství je praxe zajištění toho, aby AI agent měl správné informace k dokončení dalšího kroku úkolu. Kontextové okno má omezenou velikost, a proto musíme jako stavitelé agentů vytvářet systémy a procesy pro přidávání, odebírání a kondenzaci informací v kontextovém okně.
 
-### Prompt engineering vs inženýrství kontextu
+### Prompt inženýrství vs Kontextové inženýrství
 
-Prompt engineering se zaměřuje na jednorázový soubor statických instrukcí pro efektivní nasměrování AI agentů pomocí sady pravidel. Inženýrství kontextu řeší, jak spravovat dynamickou sadu informací, včetně počátečního promptu, aby AI agent měl to, co potřebuje v průběhu času. Hlavní myšlenka inženýrství kontextu je učinit tento proces opakovatelným a spolehlivým.
+Prompt inženýrství se zaměřuje na jednorázovou sadu statických instrukcí, které efektivně vedou AI agenty pomocí pravidel. Kontextové inženýrství pak spravuje dynamický soubor informací, včetně počátečního promptu, aby zajistilo, že AI agent má v průběhu času to, co potřebuje. Hlavní myšlenkou kontextového inženýrství je, aby tento proces byl opakovatelný a spolehlivý.
 
 ### Typy kontextu
 
-[![Types of Context](../../../translated_images/cs/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
+[![Typy kontextu](../../../translated_images/cs/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
-Je důležité si pamatovat, že kontext není jen jedna věc. Informace, které AI agent potřebuje, mohou pocházet z různých zdrojů a je na nás zajistit, aby agent měl k těmto zdrojům přístup:
+Je důležité si pamatovat, že kontext není jen jedna věc. Informace, které AI agent potřebuje, mohou pocházet z různých zdrojů a je na nás, abychom zajistili agentovi přístup k těmto zdrojům:
 
 Typy kontextu, které může AI agent potřebovat spravovat, zahrnují:
 
-• **Instrukce:** To jsou jako „pravidla“ agenta – prompty, systémové zprávy, few-shot příklady (ukazující AI, jak něco udělat) a popisy nástrojů, které může použít. Zde se propojuje zaměření prompt engineeringu s inženýrstvím kontextu.
+• **Instrukce:** Jsou jako pravidla agenta – prompty, systémové zprávy, few-shot příklady (ukazující AI, jak něco dělat) a popisy nástrojů, které může použít. Zde se spojuje zaměření prompt inženýrství s kontextovým inženýrstvím.
 
-• **Znalosti:** Pokrývá fakta, informace získané z databází nebo dlouhodobé vzpomínky, které si agent uložil. To zahrnuje integraci systému Retrieval Augmented Generation (RAG), pokud agent potřebuje přístup k různým úložištím znalostí a databázím.
+• **Znání:** Pokrývá fakta, informace získané z databází nebo dlouhodobé vzpomínky, které agent nashromáždil. Zahrnuje také integraci systému Retrieval Augmented Generation (RAG), pokud agent potřebuje přístup k různým úložištím znalostí a databázím.
 
-• **Nástroje:** To jsou definice externích funkcí, API a MCP serverů, které může agent volat, spolu se zpětnou vazbou (výsledky), kterou získá jejich použitím.
+• **Nástroje:** Jsou to definice externích funkcí, API a MCP serverů, které agent může volat, spolu s výsledky (zpětnou vazbou) použití.
 
-• **Historie konverzace:** Probíhající dialog s uživatelem. Jak čas plyne, tyto konverzace se prodlužují a stávají se složitějšími, což znamená, že zabírají místo v okně kontextu.
+• **Historie konverzací:** Probíhající dialog s uživatelem. Jak čas plyne, konverzace se prodlužují a komplikují, což zabírá místo v kontextovém okně.
 
-• **Preference uživatele:** Informace naučené o uživatelových oblibách nebo nelibostech v průběhu času. Ty mohou být uloženy a vyvolány při rozhodování, aby se uživateli pomohlo.
+• **Preference uživatele:** Informace získané o preferencích uživatele v průběhu času. Ty lze uložit a využít při klíčových rozhodnutích, aby se uživateli pomohlo.
 
-## Strategie pro efektivní inženýrství kontextu
+## Strategie pro efektivní kontextové inženýrství
 
-### Strategické plánování
+### Plánovací strategie
 
-[![Context Engineering Best Practices](../../../translated_images/cs/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
+[![Nejlepší praktiky kontextového inženýrství](../../../translated_images/cs/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
-Dobré inženýrství kontextu začíná dobrým plánováním. Zde je přístup, který vám pomůže začít přemýšlet o tom, jak aplikovat koncept inženýrství kontextu:
+Dobré kontextové inženýrství začíná dobrým plánováním. Zde je přístup, který vám pomůže začít přemýšlet o aplikaci konceptu kontextového inženýrství:
 
-1. **Definujte jasné výsledky** - Výsledky úkolů, které budou AI agenti vykonávat, by měly být jasně definovány. Odpovězte na otázku – „Jak bude vypadat svět, až AI agent dokončí svůj úkol?“ Jinými slovy, jaká změna, informace nebo odpověď by měl uživatel mít po interakci s AI agentem.
-2. **Namapujte kontext** - Jakmile máte definované výsledky AI agenta, musíte odpovědět na otázku „Jaké informace agent potřebuje k dokončení tohoto úkolu?“. Tímto způsobem můžete začít mapovat kontext, kde lze tyto informace nalézt.
-3. **Vytvořte kontextové pipeline** - Teď, když víte, kde jsou informace, musíte odpovědět na otázku „Jak agent tyto informace získá?“. To lze udělat různými způsoby včetně RAG, použití MCP serverů a dalších nástrojů.
+1. **Definujte jasné výsledky** – výsledky úkolů, které budou AI agenti vykonávat, by měly být jasně definovány. Odpovězte na otázku – „Jak bude vypadat svět, když AI agent dokončí svůj úkol?“ Jinými slovy, jaká změna, informace nebo odpověď by měl uživatel mít po interakci s AI agentem.
+2. **Zmapujte kontext** – jakmile máte definované výsledky AI agenta, musíte odpovědět na otázku „Jaké informace AI agent potřebuje, aby tento úkol dokončil?“. Tím můžete začít mapovat kontext, kde lze tyto informace nalézt.
+3. **Vytvořte kontextové pipeline** – nyní, když víte, kde jsou informace, potřebujete odpovědět na otázku „Jak agent získá tyto informace?“. To lze provést různými způsoby včetně RAG, použití MCP serverů a dalších nástrojů.
 
 ### Praktické strategie
 
-Plánování je důležité, ale jakmile se informace začnou dostávat do okna kontextu našeho agenta, potřebujeme praktické strategie, jak je řídit:
+Plánování je důležité, ale jakmile začnou informace proudit do kontextového okna agenta, je potřeba mít praktické strategie na jejich správu:
 
 #### Správa kontextu
 
-Zatímco některé informace budou automaticky přidávány do okna kontextu, inženýrství kontextu znamená aktivnější řízení této informace, což lze provést několika strategiemi:
+Zatímco některé informace budou do kontextového okna přidávány automaticky, kontextové inženýrství znamená převzít aktivnější roli s těmito informacemi pomocí několika strategií:
 
- 1. **Agent Scratchpad**
- Tento umožňuje AI agentovi dělat si poznámky o relevantních informacích týkajících se aktuálních úkolů a uživatelských interakcí během jedné relace. To by mělo existovat mimo okno kontextu v souboru nebo běhovém objektu, který si agent může později během této relace vyžádat, pokud to bude potřeba.
+1. **Agentův poznámkový blok (scratchpad)**  
+  Umožňuje AI agentovi dělat poznámky o relevantních informacích o aktuálních úkolech a interakcích s uživatelem během jedné relace. Tento poznámkový blok by měl existovat mimo kontextové okno v souboru nebo běhovém objektu, který si agent může během relace později vyvolat, pokud je to potřeba.
 
- 2. **Vzpomínky**
- Scratchpady jsou dobré pro správu informací mimo kontextové okno jedné relace. Vzpomínky umožňují agentům ukládat a vybavovat si relevantní informace napříč více relacemi. To může zahrnovat shrnutí, preference uživatele a zpětnou vazbu pro zlepšení v budoucnu.
+2. **Vzpomínky**  
+  Scratchpady jsou vhodné pro správu informací mimo kontextové okno jedné relace. Vzpomínky umožňují agentům ukládat a vyvolávat relevantní informace napříč více relacemi. To může zahrnovat shrnutí, preference uživatele a zpětnou vazbu pro budoucí zlepšení.
 
- 3. **Kompresování kontextu**
-  Jakmile okno kontextu roste a blíží se svému limitu, lze použít techniky jako shrnutí a ořezávání. To zahrnuje buď ponechání pouze nejrelevantnějších informací, nebo odstranění starších zpráv.
-  
- 4. **Multi-agentní systémy**
-  Vývoj multi-agentních systémů je formou inženýrství kontextu, protože každý agent má své vlastní okno kontextu. Jak je tento kontext sdílen a předáván různým agentům je další věc, kterou je třeba naplánovat při budování těchto systémů.
-  
- 5. **Sandbox prostředí**
-  Pokud agent potřebuje spustit nějaký kód nebo zpracovat velké množství informací v dokumentu, může to vyžadovat velké množství tokenů k zpracování výsledků. Místo toho, aby bylo vše uloženo v okně kontextu, agent může použít sandbox prostředí, které dokáže tento kód spustit a číst jen výsledky a další relevantní informace.
-  
- 6. **Běhové stavové objekty**
-   To se provádí vytvořením kontejnerů informací pro řízení situací, kdy agent potřebuje mít přístup k určitým informacím. U složitého úkolu by to umožnilo agentovi ukládat výsledky jednotlivých dílčích úkolů krok za krokem, což umožní, aby kontext zůstal napojený pouze na konkrétní dílčí úkol.
-  
-### Příklad inženýrství kontextu
+3. **Komprimace kontextu**  
+  Jak kontextové okno roste a blíží se svému limitu, lze použít techniky jako shrnutí a ořezávání. To zahrnuje buď uchování pouze nejrelevantnějších informací, nebo odstranění starších zpráv.
 
-Řekněme, že chceme, aby AI agent **„Rezervoval mi cestu do Paříže.“**
+4. **Víceagentní systémy**  
+  Vývoj víceagentních systémů je formou kontextového inženýrství, protože každý agent má své vlastní kontextové okno. Způsob, jakým se tento kontext sdílí a předává různým agentům, je další aspekt, který je potřeba plánovat při tvorbě těchto systémů.
 
-• Jednoduchý agent používající pouze prompt engineering by mohl jednoduše odpovědět: **„Dobře, kdy byste chtěli jet do Paříže?“**. Zpracoval pouze vaši přímou otázku v okamžiku, kdy ji uživatel položil.
+5. **Sandbox prostředí**  
+  Pokud agent potřebuje spustit nějaký kód nebo zpracovat velké množství informací v dokumentu, může to zabrat velké množství tokenů na zpracování výsledků. Místo ukládání všeho do kontextového okna může agent použít sandbox prostředí, které je schopné kód spustit a přečíst pouze výsledky a další relevantní informace.
 
-• Agent používající strategie inženýrství kontextu, které jsme pokryli, by udělal mnohem více. Jeho systém by mohl ještě před odpovědí:
+6. **Objekty běhového stavu**  
+  Toto se provádí vytvářením kontejnerů informací, aby se spravovaly situace, kdy agent potřebuje mít přístup k určitým informacím. U složitého úkolu to umožní agentovi ukládat výsledky jednotlivých podúkolů krok za krokem, což umožní, aby kontext zůstal propojen pouze s tím konkrétním podúkolem.
 
-  ◦ **Zkontrolovat váš kalendář** pro volné termíny (získání dat v reálném čase).
+#### Kontrola kontextu
 
-  ◦ **Připomenout si minulé cestovní preference** (z dlouhodobé paměti) jako vaši preferovanou leteckou společnost, rozpočet nebo zda preferujete přímé lety.
+Po aplikaci některé z těchto strategií stojí za to zkontrolovat, co vlastně další volání modelu obdrželo. Užitečná otázka pro debugování je:
 
-  ◦ **Identifikovat dostupné nástroje** pro rezervaci letů a hotelů.
+> Načítal agent příliš mnoho kontextu, špatný kontext, nebo mu chyběl kontext, který potřeboval?
 
-- Pak by příklad odpovědi mohl být:  "Ahoj [Your Name]! Vidím, že máte volno první týden v říjnu. Mám hledat přímé lety do Paříže na [Preferred Airline] v rámci vašeho obvyklého rozpočtu [Budget]?" Tato bohatší, kontextem ovlivněná odpověď demonstruje sílu inženýrství kontextu.
+Pro odpověď na tuto otázku není potřeba logovat surové prompty, výstupy nástrojů nebo obsah vzpomínek. Pro produkci je lepší malé záznamy kontroly kontextu, které zachycují počty, ID, hashe a štítky politiky:
 
-## Běžná selhání kontextu
+- **Výběr:** Sledujte, kolik kandidátních částí (chunks), nástrojů nebo vzpomínek bylo zváženo, kolik bylo vybráno a které pravidlo nebo skóre způsobilo vyloučení ostatních.
+- **Komprimace:** Zaznamenejte zdrojový rozsah nebo trasovací ID, ID shrnutí, odhadovaný počet tokenů před a po komprimaci a zda byl surový obsah vyloučen z dalšího volání.
+- **Izolace:** Poznamenejte, který podúkol probíhal v samostatném agentovi, relaci nebo sandboxu, jaké ohraničené shrnutí bylo vráceno a zda velký výstup nástroje zůstal mimo kontext rodičovského agenta.
+- **Paměť a RAG:** Ukládejte ID dokumentů pro vyhledávání, ID vzpomínek, skóre, vybraná ID a stav cenzury místo plného získaného textu.
+- **Bezpečnost a soukromí:** Preferujte hashe, ID, tokenové kvóty a štítky politiky před citlivým textem promptu, argumenty nástrojů, výsledky nástrojů nebo tělem uživatelských vzpomínek.
 
-### Otrava kontextu
+Cílem není uchovávat více kontextu, ale nechat dostatek důkazů, aby vývojář mohl říct, která strategie kontextu byla použita a zda to změnilo další volání modelu zamýšleným způsobem.
 
-**Co to je:** Když se do kontextu dostane halucinace (nepravdivá informace generovaná LLM) nebo chyba a je opakovaně odkazována, což způsobí, že agent sleduje nemožné cíle nebo vyvíjí nesmyslné strategie.
+### Příklad kontextového inženýrství
 
-**Co dělat:** Implementujte **validaci kontextu** a **karanténu**. Ověřujte informace před jejich přidáním do dlouhodobé paměti. Pokud je zjištěna potenciální otrava, zahajte nové vlákno kontextu, aby se zabránilo šíření špatných informací.
+Řekněme, že chceme, aby AI agent **„Rezervoval mi výlet do Paříže.“**
 
-**Příklad rezervace cestování:** Váš agent vymyslí (zhalucinuje) **přímý let z malého místního letiště do vzdáleného mezinárodního města**, které ve skutečnosti mezinárodní lety nenabízí. Tento neexistující údaj o letu se uloží do kontextu. Později, když požádáte agenta o rezervaci, stále se snaží najít letenky pro tuto nemožnou trasu, což vede k opakovaným chybám.
+• Jednoduchý agent používající pouze prompt inženýrství by mohl jednoduše odpovědět: **„Dobře, kdy byste chtěli jet do Paříže?“** Zpracoval pouze vaši přímou otázku v okamžiku, kdy ji uživatel položil.
 
-**Řešení:** Zaveďte krok, který **ověří existenci letu a trasy pomocí API v reálném čase** _předtím_, než se detail letu přidá do pracovního kontextu agenta. Pokud ověření selže, chybná informace je „zkaranténována“ a dále se nepoužívá.
+• Agent využívající strategie kontextového inženýrství, které jsme pokryli, by udělal mnohem víc. Jeho systém by před odpovědí mohl:
 
-### Rozptylování kontextu
+  ◦ **Zkontrolovat váš kalendář** pro dostupné termíny (vyhledání aktuálních dat).
 
-**Co to je:** Když se kontext stane tak velkým, že model se příliš zaměří na nahromaděnou historii místo využití toho, co se naučil během tréninku, což vede k opakovaným nebo neužitečným akcím. Modely mohou začít dělat chyby ještě před tím, než je okno kontextu plné.
+ ◦ **Vzpomenout si na předchozí preference cestování** (z dlouhodobé paměti) jako preferovaná letecká společnost, rozpočet nebo zda preferujete přímé lety.
 
-**Co dělat:** Použijte **shrnutí kontextu**. Pravidelně komprimujte nahromaděné informace do kratších shrnutí, zachovávající důležité detaily a odstraňující redundantní historii. To pomáhá „resetovat“ fokus.
+ ◦ **Identifikovat dostupné nástroje** pro rezervaci letu a hotelu.
 
-**Příklad rezervace cestování:** Diskutovali jste o různých vysněných cestovních destinacích dlouhou dobu, včetně podrobného vyprávění o vašem batohovém výletě před dvěma lety. Když nakonec požádáte najít **levný let na příští měsíc**, agent se zasekne ve starých, irelevantních detailech a stále se ptá na vaše batohové vybavení nebo minulý itinerář, opomíjejíc vaši aktuální žádost.
+- Pak by mohl například odpovědět: „Ahoj [Vaše jméno]! Vidím, že máte volno první týden v říjnu. Mám hledat přímé lety do Paříže na [Preferovaná letecká společnost] ve vašem obvyklém rozpočtu [Rozpočet]?“. Tato bohatší a kontextově uvědomělá odpověď demonstruje sílu kontextového inženýrství.
 
-**Řešení:** Po určitém počtu tahů nebo když kontext příliš roste, by agent měl **shrnout nejnovější a nejrelevantnější části konverzace** – zaměřit se na vaše aktuální cestovní data a destinaci – a použít tento zhuštěný souhrn pro další volání LLM, přičemž méně relevantní historii zahodí.
+## Běžné chyby v kontextu
 
-### Zmatek kontextu
+### Otrava kontextu (Context Poisoning)
 
-**Co to je:** Když zbytečný kontext, často ve formě příliš mnoha dostupných nástrojů, způsobí, že model generuje špatné odpovědi nebo volá irelevantní nástroje. Menší modely jsou zvláště náchylné k tomuto.
+**Co to je:** Když do kontextu vstoupí halucinace (nepravdivá informace vytvořená LLM) nebo chyba, která je opakovaně zmiňována, čímž agent sleduje nemožné cíle nebo rozvíjí nesmyslné strategie.
 
-**Co dělat:** Implementujte **správu nástrojů** pomocí technik RAG. Ukládejte popisy nástrojů ve vektorové databázi a vybírejte _pouze_ nejrelevantnější nástroje pro každý konkrétní úkol. Výzkumy ukazují, že je vhodné omezit výběr nástrojů na méně než 30.
+**Co dělat:** Zavést **validaci kontextu** a **karanténu**. Validujte informace před přidáním do dlouhodobé paměti. Pokud je detekována možná otrava, zahajte nové vlákna kontextu, aby se zabránilo šíření špatných informací.
 
-**Příklad rezervace cestování:** Váš agent má přístup k desítkám nástrojů: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations` atd. Zeptáte se: **„Jak se nejlépe pohybovat po Paříži?“** Kvůli obrovskému množství nástrojů se agent změní v zmatek a pokusí se volat `book_flight` _v rámci_ Paříže, nebo `rent_car`, i když preferujete veřejnou dopravu, protože popisy nástrojů se mohou překrývat nebo prostě nedokáže rozlišit ten nejlepší.
+**Příklad rezervace cestování:** Váš agent halucinuje **přímý let z malého místního letiště do vzdáleného mezinárodního města**, kde ve skutečnosti nejsou mezinárodní lety. Tento neexistující let se uloží do kontextu. Později, když požádáte agenta o rezervaci, neustále se snaží najít letenky na této nemožné trase, což vede k opakovaným chybám.
 
-**Řešení:** Použijte **RAG nad popisy nástrojů**. Když se zeptáte na pohyb po Paříži, systém dynamicky vyhledá _pouze_ nejrelevantnější nástroje jako `rent_car` nebo `public_transport_info` na základě vašeho dotazu a představí LLM zaměřený „loadout“ nástrojů.
+**Řešení:** Zaveďte krok, který **ověřuje existenci letu a trasy pomocí API v reálném čase** _před_ přidáním detaily letu do pracovního kontextu agenta. Pokud validace selže, chybná informace je „karanténována“ a dál nepoužívána.
 
-### Střet kontextu
+### Rozptýlení kontextu (Context Distraction)
 
-**Co to je:** Když v kontextu existují protichůdné informace, což vede k nekonzistentnímu uvažování nebo špatným konečným odpovědím. To se často stává, když informace přicházejí postupně a rané, nesprávné předpoklady zůstanou v kontextu.
+**Co to je:** Když kontext naroste natolik, že model se příliš soustředí na nahromaděnou historii namísto toho, co se naučil během tréninku, což vede k opakujícím se nebo neúplným akcím. Modely mohou začít chybovat ještě před naplněním kontextového okna.
 
-**Co dělat:** Použijte **prořezávání kontextu** a **odkládání**. Prořezávání znamená odstraňování zastaralých nebo protichůdných informací, jak přicházejí nové detaily. Odkládání dává modelu samostatné „scratchpad“ pracovní místo pro zpracování informací bez zahlcení hlavního kontextu.
+**Co dělat:** Použít **shrnutí kontextu**. Pravidelně komprimujte nahromaděné informace do kratších shrnutí, přičemž zachovávejte důležité detaily a odstraňujte nadbytečnou historii. To pomáhá „resetovat“ fokus.
 
-**Příklad rezervace cestování:** Nejprve agentovi řeknete: **„Chci letět v ekonomické třídě.“** Později v konverzaci změníte názor a řeknete: **„Vlastně pro tuto cestu pojďme business třídu.“** Pokud obě instrukce zůstanou v kontextu, agent může dostávat protichůdné výsledky vyhledávání nebo se zmást, kterou preferenci upřednostnit.
+**Příklad rezervace cestování:** Dlouho diskutujete o různých vysněných destinacích včetně detailního vyprávění o batůžkářském výletu před dvěma lety. Když konečně požádáte **„najdi mi levný let na další měsíc,“** agent je zahlcen starými irelevantními detaily a stále se ptá na vybavení a předchozí itineráře, zatímco ignoruje vaši aktuální žádost.
 
-**Řešení:** Implementujte **prořezávání kontextu**. Když nová instrukce odporuje staré, starší instrukce je odstraněna nebo výslovně přepsána v kontextu. Alternativně může agent použít **scratchpad** k vyrovnání protichůdných preferencí před rozhodnutím, čímž zajistí, že pouze konečná, konzistentní instrukce budou řídit jeho akce.
+**Řešení:** Po určitém počtu výměn nebo když kontext překročí velikost, by měl agent **shrnout nejnovější a nejrelevantnější části konverzace** – zaměřit se na aktuální data a destinaci – a toto zhuštěné shrnutí použít pro další volání LLM, přičemž méně relevantní historickou konverzaci zahodit.
 
-## Máte další otázky o inženýrství kontextu?
+### Zmatení v kontextu (Context Confusion)
 
-Připojte se k [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) a setkejte se s ostatními studenty, navštěvujte konzultační hodiny a získejte odpovědi na vaše otázky ohledně AI agentů.
+**Co to je:** Když zbytečný kontext, často ve formě příliš mnoha dostupných nástrojů, způsobuje, že model generuje špatné odpovědi nebo volá nerelevantní nástroje. Menší modely jsou k tomu zvláště náchylné.
+
+**Co dělat:** Zavést **správu nástrojů** pomocí RAG technik. Ukládejte popisy nástrojů ve vektorové databázi a vybírejte _pouze_ nejrelevantnější nástroje pro konkrétní úkol. Výzkum ukazuje, že je vhodné omezit počet nástrojů na méně než 30.
+
+**Příklad rezervace cestování:** Váš agent má přístup k desítkám nástrojů: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations` atd. Ptáte se: **„Jak se nejlépe pohybovat po Paříži?“** Kvůli velkému množství nástrojů se agent zmateně pokouší zavolat `book_flight` _v rámci_ Paříže nebo `rent_car`, i když preferujete veřejnou dopravu, protože popisy nástrojů mohou překrývat funkce nebo jednoduše nedokáže vybrat ten nejlepší.
+
+**Řešení:** Použijte **RAG nad popisy nástrojů**. Když se ptáte na pohyb po Paříži, systém dynamicky načte _pouze_ nejrelevantnější nástroje jako `rent_car` nebo `public_transport_info` podle dotazu, a představí LLM zaměřenou „sadu“ nástrojů.
+
+### Kolize v kontextu (Context Clash)
+
+**Co to je:** Když v kontextu existují protichůdné informace, vede to k nekonzistentnímu uvažování nebo špatným závěrečným odpovědím. Často k tomu dochází, když informace přicházejí postupně a rané chybné předpoklady zůstávají v kontextu.
+
+**Co dělat:** Použijte **prořezávání kontextu** a **odkládání (offloading)**. Prořezávání znamená odstranit zastaralé nebo konfliktující informace, jak přicházejí nové podrobnosti. Odkládání poskytuje modelu samostatný „scratchpad“ pracovní prostor pro zpracování informací bez zahlcování hlavního kontextu.
+**Příklad rezervace cesty:** Nejprve svému agentovi řeknete, **„Chci letět v ekonomické třídě.“** Později v rozhovoru svůj názor změníte a řeknete, **„Vlastně na tuto cestu pojďme v business třídě.“** Pokud obě instrukce zůstanou v kontextu, agent může obdržet protichůdné výsledky vyhledávání nebo se může zmást, kterou preferenci upřednostnit.
+
+**Řešení:** Implementujte **prořezávání kontextu**. Když nová instrukce odporuje staré, starší instrukce je z kontextu odstraněna nebo explicitně přepsána. Alternativně může agent použít **poznámkový blok**, aby smířil protichůdné preference před rozhodnutím, čímž zajistí, že pouze konečná, konzistentní instrukce bude řídit jeho činnost.
+
+## Máte další otázky ohledně inženýrství kontextu?
+
+Připojte se k [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kde se můžete setkat s jinými studenty, zúčastnit se konzultačních hodin a získat odpovědi na své otázky ohledně AI agentů.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Vyloučení odpovědnosti:
-Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). I když usilujeme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. U kritických informací se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakákoli nedorozumění nebo mylné výklady vyplývající z použití tohoto překladu.
+**Prohlášení o omezení odpovědnosti**:
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o co největší přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo nesprávné interpretace vzniklé použitím tohoto překladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

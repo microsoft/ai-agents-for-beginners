@@ -38,7 +38,7 @@
 > This gives you everything you need to complete the course with a much faster download.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**If you wish to have additional translations languages supported are listed [here](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**If you wish to have additional translation languages supported, they are listed [here](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md).**
 
 [![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)

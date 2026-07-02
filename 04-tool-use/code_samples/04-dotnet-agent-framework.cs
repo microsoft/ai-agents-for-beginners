@@ -224,7 +224,7 @@ Always mention which tools you used so users understand the agent's capabilities
 AIAgent agent = openAIClient
     .GetChatClient(github_model_id)
     .AsIChatClient()
-    .CreateAIAgent(
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [
@@ -235,8 +235,9 @@ AIAgent agent = openAIClient
         ]
     );
 
-// Create Conversation Thread
-AgentThread thread = agent.GetNewThread();
+// Create Conversation Session
+AgentSession session = await agent.CreateSessionAsync();
+
 
 // ============================================================================
 // DEMONSTRATION 1: Tool Selection - Agent picks the right tool
@@ -246,7 +247,7 @@ Console.WriteLine("--- Demo 1: Tool Selection ---");
 Console.WriteLine("User: What's the weather like in Tokyo?\n");
 Console.WriteLine("Agent Response:");
 
-await foreach (var update in agent.RunStreamingAsync("What's the weather like in Tokyo?", thread))
+await foreach (var update in agent.RunStreamingAsync("What's the weather like in Tokyo?", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -261,7 +262,7 @@ Console.WriteLine("--- Demo 2: Parameterized Tool with Multiple Parameters ---")
 Console.WriteLine("User: How much would a 5-day luxury trip to Rome cost?\n");
 Console.WriteLine("Agent Response:");
 
-await foreach (var update in agent.RunStreamingAsync("How much would a 5-day luxury trip to Rome cost?", thread))
+await foreach (var update in agent.RunStreamingAsync("How much would a 5-day luxury trip to Rome cost?", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -278,7 +279,7 @@ Console.WriteLine("Agent Response:");
 
 await foreach (var update in agent.RunStreamingAsync(
     "Plan me a complete trip - suggest a destination and give me all the details including weather and costs for a 3-day moderate budget trip.", 
-    thread))
+    session))
 {
     await Task.Delay(10);
     Console.Write(update);

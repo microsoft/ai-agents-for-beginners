@@ -2,7 +2,7 @@
 
 ![AI Agents for Beginners](../../translated_images/da/repo-thumbnailv2.06f4a48036fde647.webp)
 
-## Et kursus der lærer dig alt, hvad du skal vide for at begynde at bygge AI-agenter
+## Et kursus der lærer dig alt, hvad du behøver at vide for at begynde at bygge AI-agenter
 
 [![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
 [![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
@@ -10,16 +10,16 @@
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
-### 🌐 Støtte for flere sprog
+### 🌐 Understøttelse af flere sprog
 
-#### Understøttet via GitHub Action (Automatiseret og altid opdateret)
+#### Understøttet via GitHub Action (Automatiseret & Altid Opdateret)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](./README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 
 > **Foretrækker du at klone lokalt?**
 >
-> Dette repository indeholder 50+ sprogoversættelser, hvilket øger downloadstørrelsen betydeligt. For at klone uden oversættelser, brug sparse checkout:
+> Dette repository indeholder oversættelser til 50+ sprog, hvilket øger download-størrelsen betydeligt. For at klone uden oversættelser, brug sparse checkout:
 >
 > **Bash / macOS / Linux:**
 > ```bash
@@ -38,7 +38,7 @@
 > Dette giver dig alt, hvad du behøver for at gennemføre kurset med en meget hurtigere download.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**Hvis du ønsker at få support til yderligere oversættelsessprog, er de angivet [her](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md)**
+**Hvis du ønsker understøttelse af flere oversættelsessprog, er de listet [her](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md).**
 
 [![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
 [![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
@@ -49,74 +49,74 @@
 
 ## 🌱 Kom godt i gang
 
-Dette kursus har lektioner, der dækker grundlæggende aspekter af at bygge AI-agenter. Hver lektion dækker sit eget emne, så start hvor du vil!
+Dette kursus har lektioner, der dækker grundlæggende principper for at bygge AI-agenter. Hver lektion dækker sit eget emne, så start hvor du vil!
 
-Der er flersprogssupport til dette kursus. Se vores [tilgængelige sprog her](#-multi-language-support).
+Der er understøttelse af flere sprog for dette kursus. Se vores [tilgængelige sprog her](#-multi-language-support).
 
-Hvis det er første gang, du arbejder med generative AI-modeller, kan du tjekke vores [Generative AI for Beginners](https://aka.ms/genai-beginners) kursus, som inkluderer 21 lektioner om at bygge med GenAI.
+Hvis det er din første gang, du bygger med Generative AI-modeller, kan du tjekke vores kursus [Generative AI For Beginners](https://aka.ms/genai-beginners), som indeholder 21 lektioner om at bygge med GenAI.
 
-Glem ikke at [starte (🌟) dette repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) og [forke dette repo](https://github.com/microsoft/ai-agents-for-beginners/fork) for at køre koden.
+Glem ikke at [stjerne (🌟) dette repo](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) og [fork dette repo](https://github.com/microsoft/ai-agents-for-beginners/fork) for at køre koden.
 
-### Mød andre lærende, få svar på dine spørgsmål
+### Mød andre elever, få svar på dine spørgsmål
 
 Hvis du sidder fast eller har spørgsmål om at bygge AI-agenter, så deltag i vores dedikerede Discord-kanal i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
-### Det du skal bruge
+### Hvad du behøver
 
-Hver lektion i dette kursus indeholder kodeeksempler, som findes i mappen code_samples. Du kan [forke dette repo](https://github.com/microsoft/ai-agents-for-beginners/fork) for at lave din egen kopi.
+Hver lektion i dette kursus indeholder kodeeksempler, som kan findes i mappen code_samples. Du kan [forke dette repo](https://github.com/microsoft/ai-agents-for-beginners/fork) for at lave din egen kopi.
 
 Kodeeksemplerne i disse øvelser anvender Microsoft Agent Framework med Azure AI Foundry Agent Service V2:
 
 - [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure-konto påkrævet
 
-Dette kursus bruger følgende AI-agent-rammer og tjenester fra Microsoft:
+Dette kursus bruger følgende AI-agentrammer og -tjenester fra Microsoft:
 
 - [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework)
 - [Azure AI Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
-Nogle kodeeksempler understøtter også alternative OpenAI-kompatible udbydere som [MiniMax](https://platform.minimaxi.com/), der tilbyder store kontekstmodeller (op til 204K tokens). Se [Course Setup](./00-course-setup/README.md) for konfigurationsdetaljer.
+Nogle kodeeksempler understøtter også alternative OpenAI-kompatible udbydere såsom [MiniMax](https://platform.minimaxi.com/), som tilbyder store-kontekst modeller (op til 204K tokens). Se [Kursusopsætning](./00-course-setup/README.md) for konfigurationsdetaljer.
 
-For mere information om, hvordan du kører koden til dette kursus, se [Course Setup](./00-course-setup/README.md).
+For mere information om at køre koden til dette kursus, gå til [Kursusopsætning](./00-course-setup/README.md).
 
 ## 🙏 Vil du hjælpe?
 
-Har du forslag eller har du fundet stave- eller kodefejl? [Opret et issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) eller [opret en pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Har du forslag eller fundet stavefejl eller kodefejl? [Opret en issue](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) eller [Lav en pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
 ## 📂 Hver lektion indeholder
 
 - En skreven lektion placeret i README og en kort video
-- Python kodeeksempler, der bruger Microsoft Agent Framework med Azure AI Foundry
+- Python kodeeksempler med Microsoft Agent Framework og Azure AI Foundry
 - Links til ekstra ressourcer for at fortsætte din læring
 
 
 ## 🗃️ Lektioner
 
-| **Lektion**                                  | **Tekst & kode**                                   | **Video**                                                  | **Ekstra læring**                                                                     |
-|----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Introduktion til AI-agenter og agent-brugstilfælde | [Link](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Udforskning af AI-agentrammer                 | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Forståelse af AI-agentdesignmønstre           | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Værktøjsbrugsdesignmønster                   | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentic RAG                                  | [Link](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Opbygning af troværdige AI-agenter           | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Planlægningsdesignmønster                     | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Multi-agent designmønster                      | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Metakognitionsdesignmønster                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| **Lektion**                                   | **Tekst & Kode**                                  | **Video**                                                  | **Ekstra læring**                                                                      |
+|----------------------------------------------|--------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| Introduktion til AI-agenter og Agent Use Cases | [Link](./01-intro-to-ai-agents/README.md)        | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Udforskning af AI Agentiske Frameworks       | [Link](./02-explore-agentic-frameworks/README.md)| [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Forståelse af AI Agentiske Designmønstre    | [Link](./03-agentic-design-patterns/README.md)   | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Designmønster for brug af værktøjer          | [Link](./04-tool-use/README.md)                   | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agentic RAG                                   | [Link](./05-agentic-rag/README.md)                | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Bygning af troværdige AI-agenter              | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Designmønster for planlægning                  | [Link](./07-planning-design/README.md)            | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Multi-agent designmønster                      | [Link](./08-multi-agent/README.md)                | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Metakognition Designmønster                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | AI-agenter i produktion                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Brug af agentbaserede protokoller (MCP, A2A og NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Kontekstdesign til AI-agenter                | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Kontekstudvikling for AI-agenter            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Håndtering af agentisk hukommelse            | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| Udforskning af Microsoft Agent Framework     | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Opbygning af computerebrugeragenter (CUA)    | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
+| Udforskning af Microsoft Agent Framework    | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| Bygning af Computer Use Agents (CUA)         | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
 | Udrulning af skalerbare agenter              | Kommer snart                            |                                                            |                                                                                        |
-| Oprettelse af lokale AI-agenter               | Kommer snart                               |                                                            |                                                                                        |
-| Sikring af AI-agenter                        | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Oprettelse af lokale AI-agenter              | Kommer snart                               |                                                            |                                                                                        |
+| Sikring af AI-agenter                         | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
 ## 🎒 Andre kurser
 
-Vores team producerer også andre kurser! Se nærmere på:
+Vores team producerer andre kurser! Tjek dem ud:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### LangChain
@@ -141,7 +141,7 @@ Vores team producerer også andre kurser! Se nærmere på:
 
 ---
  
-### Grundlæggende læring
+### Kerne-læring
 [![ML for Beginners](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
 [![Data Science for Beginners](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
 [![AI for Beginners](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
@@ -164,19 +164,25 @@ Tak til [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) for at bidrage m
 
 ## Bidrag
 
-Dette projekt byder bidrag og forslag velkommen. De fleste bidrag kræver, at du accepterer en Contributor License Agreement (CLA), som erklærer, at du har ret til – og faktisk giver os retten til – at bruge dit bidrag. For detaljer, se <https://cla.opensource.microsoft.com>.
+Dette projekt modtager gerne bidrag og forslag. De fleste bidrag kræver, at du accepterer en
+Contributor License Agreement (CLA), hvor du erklærer, at du har ret til, og faktisk giver os
+rettighederne til at bruge dit bidrag. For detaljer, se <https://cla.opensource.microsoft.com>.
 
-Når du sender en pull request, vil en CLA-bot automatisk afgøre, om du skal give en CLA og tilføje passende markering til PR’en (f.eks. statuskontrol, kommentar). Følg blot instruktionerne fra botten. Du skal kun gøre dette én gang på tværs af alle repos, der bruger vores CLA.
+Når du indsender en pull request, vil en CLA-bot automatisk afgøre, om du skal tilvejebringe
+en CLA og dekorere PR'en passende (f.eks. statuscheck, kommentar). Følg blot instruktionerne
+fra botten. Du skal kun gøre dette én gang på tværs af alle repos, der bruger vores CLA.
 
 Dette projekt har vedtaget [Microsofts Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For mere information se [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) eller kontakt [opencode@microsoft.com](mailto:opencode@microsoft.com) med spørgsmål eller kommentarer.
+For mere information se [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) eller
+kontakt [opencode@microsoft.com](mailto:opencode@microsoft.com) med yderligere spørgsmål eller kommentarer.
 
 ## Varemærker
 
-Dette projekt kan indeholde varemærker eller logoer for projekter, produkter eller tjenester. Autoriseret brug af Microsofts varemærker eller logoer er underlagt og skal følge
-[Microsofts retningslinjer for varemærker & brand](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Brug af Microsofts varemærker eller logoer i modificerede versioner af dette projekt må ikke skabe forvirring eller antyde Microsoft-sponsorering.
-Enhver brug af tredjepartsvaremærker eller logoer er underlagt disse tredjeparters politikker.
+Dette projekt kan indeholde varemærker eller logoer for projekter, produkter eller tjenester. Autoriseret brug af Microsofts
+varemærker eller logoer er underlagt og skal følge
+[Microsofts varemærke- og brandretningslinjer](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+Brug af Microsofts varemærker eller logoer i ændrede versioner af dette projekt må ikke skabe forvirring eller antyde Microsoft-sponsorat.
+Enhver brug af tredjepartsvaremærker eller logoer følger disse tredjeparts politikker.
 
 ## Få hjælp
 

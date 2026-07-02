@@ -1,22 +1,22 @@
-# Kontekstisuunnittelu tekoälyagenteille
+# Kontekstisuunnittelu tekoälyagentteja varten
 
 [![Kontekstisuunnittelu](../../../translated_images/fi/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
-> _(Napsauta yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
+> _(Klikkaa yllä olevaa kuvaa nähdäksesi tämän oppitunnin videon)_
 
-Kontekstin monimutkaisuuden ymmärtäminen sovelluksessa, jota rakennat tekoälyagentille, on tärkeää luotettavan agentin tekemiseksi. Meidän täytyy rakentaa tekoälyagentteja, jotka hallitsevat tietoa tehokkaasti käsittelemään monimutkaisempia tarpeita kuin pelkkä kehotteiden suunnittelu.
+On tärkeää ymmärtää sen sovelluksen monimutkaisuus, jota varten rakennat tekoälyagenttia, jotta voit tehdä luotettavan sellaisen. Meidän täytyy rakentaa tekoälyagentteja, jotka hallitsevat tietoa tehokkaasti vastatakseen monimutkaisiin tarpeisiin kehittyneempänä kuin pelkkä kehotteiden suunnittelu.
 
-Tässä oppitunnissa tarkastelemme, mitä kontekstisuunnittelu on ja mikä rooli sillä on tekoälyagenttien rakentamisessa.
+Tässä oppitunnissa tarkastelemme, mitä kontekstisuunnittelu on ja mikä sen rooli on tekoälyagenttien rakentamisessa.
 
 ## Johdanto
 
-Tässä oppitunnissa käsitellään:
+Tämä oppitunti kattaa:
 
-• **Mitä kontekstisuunnittelu on** ja miksi se eroaa kehotteiden suunnittelusta.
+• **Mikä on kontekstisuunnittelu** ja miksi se eroaa kehotteiden suunnittelusta.
 
-• **Tehokkaan kontekstisuunnittelun strategiat**, mukaan lukien kuinka kirjoittaa, valita, tiivistää ja eristää tietoa.
+• **Tehokkaan kontekstisuunnittelun strategiat**, mukaan lukien miten kirjoittaa, valita, pakata ja eristää tietoa.
 
-• **Yleiset kontekstivirheet**, jotka voivat sabotoida tekoälyagenttisi, ja miten korjata ne.
+• **Yleiset kontekstiin liittyvät virheet**, jotka voivat haitata tekoälyagenttiasi, ja miten ne korjataan.
 
 ## Oppimistavoitteet
 
@@ -26,35 +26,35 @@ Tämän oppitunnin suorittamisen jälkeen osaat:
 
 • **Tunnistaa kontekstin keskeiset osat** suurten kielimallien (LLM) sovelluksissa.
 
-• **Soveltaa strategioita kontekstin kirjoittamiseen, valintaan, tiivistämiseen ja eristämiseen** agentin suorituskyvyn parantamiseksi.
+• **Soveltaa strategioita kontekstin kirjoittamiseen, valitsemiseen, pakkaamiseen ja eristämiseen** parantaaksesi agentin suorituskykyä.
 
-• **Tunnistaa yleiset kontekstivirheet** kuten saastuminen, häiriö, sekaannus ja ristiriita, sekä ottaa käyttöön lieventämistekniikoita.
+• **Tunnistaa yleiset kontekstivirheet**, kuten myrkytys, häirintä, sekaannus ja ristiriita, sekä ottaa käyttöön lieventämistekniikoita.
 
 ## Mikä on kontekstisuunnittelu?
 
-Konteksti on se, mikä ohjaa tekoälyagentin suunnittelua suorittamaan tiettyjä toimia. Kontekstisuunnittelu on käytäntö, jossa varmistetaan, että tekoälyagentilla on oikeat tiedot tehtävän seuraavan vaiheen suorittamiseksi. Kontekstivyöhyke on kooltaan rajallinen, joten agenttien rakentajina meidän on luotava järjestelmiä ja prosesseja, jotka hallitsevat tiedon lisäämistä, poistamista ja tiivistämistä kontekstivyöhykkeessä.
+Tekoälyagenteille konteksti on se, mikä ohjaa tekoälyagentin suunnittelua tiettyjen toimien suorittamiseen. Kontekstisuunnittelu tarkoittaa käytäntöä, jossa varmistetaan, että tekoälyagentilla on oikea tieto seuraavan tehtävävaiheen suorittamiseen. Konteksti-ikkuna on kooltaan rajoitettu, joten agenttien rakentajina meidän täytyy kehittää järjestelmiä ja prosesseja tiedon lisäämisen, poistamisen ja tiivistämisen hallintaan konteksti-ikkunassa.
 
-### Kehotteen suunnittelu vs kontekstisuunnittelu
+### Kehote- ja kontekstisuunnittelu
 
-Kehotteen suunnittelu keskittyy yhteen joukkoon staattisia ohjeita, jotka ohjaavat tekoälyagentteja säännöstön avulla. Kontekstisuunnittelu puolestaan käsittelee dynaamisen tietokokonaisuuden hallintaa, mukaan lukien alkuperäinen kehotteen sisältö, varmistaen että tekoälyagentilla on tarvittavat tiedot ajan myötä. Keskeinen ajatus kontekstisuunnittelussa on tehdä tästä prosessista toistettava ja luotettava.
+Kehotesuunnittelu keskittyy yhteen staattiseen ohjeistukseen, joka ohjaa tehokkaasti tekoälyagentteja sääntöjen avulla. Kontekstisuunnittelu puolestaan tarkoittaa dynaamisen tietokokonaisuuden hallintaa, mukaan lukien alkuperäinen kehotte, jotta tekoälyagentilla on tarpeellinen tieto ajan mittaan. Kontekstisuunnittelun pääidea on tehdä tästä prosessista toistettava ja luotettava.
 
-### Kontekstin tyypit
+### Kontextin tyypit
 
 [![Kontekstin tyypit](../../../translated_images/fi/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
-On tärkeää muistaa, että konteksti ei ole vain yksi asia. Tieto  jota tekoälyagentti tarvitsee voi tulla monista eri lähteistä, ja meidän vastuullamme on varmistaa, että agentilla on pääsy näihin lähteisiin:
+On tärkeää muistaa, että konteksti ei ole vain yksi asia. Tekoälyagentin tarvitsemat tiedot voivat tulla monista eri lähteistä, ja meidän tehtävämme on varmistaa, että agentilla on pääsy näihin lähteisiin:
 
-Kontekstin tyypit, joita tekoälyagentin pitää hallita, sisältävät:
+Kontekstityypit, joita tekoälyagentin täytyy hallita, sisältävät:
 
-• **Ohjeet:** Nämä ovat kuin agentin "säännöt" – kehotteet, järjestelmäviestit, few-shot-esimerkit (näyttäen tekoälylle, miten tehdä jotain) ja kuvaukset työkaluista, joita se voi käyttää. Tässä kehotteiden suunnittelun ja kontekstisuunnittelun painopisteet yhdistyvät.
+• **Ohjeet:** Nämä ovat agentin "sääntöjä" – kehotteita, järjestelmäviestejä, muutama esimerkki (jotka näyttävät tekoälylle, miten tehdä jotakin) ja työkalujen kuvauksia, joita se voi käyttää. Tässä kehotteiden suunnittelu ja kontekstisuunnittelu yhdistyvät.
 
-• **Tietämys:** Tämä kattaa faktat, tietokannoista haetun tiedon tai agentin keräämät pitkäaikaiset muistot. Tämä voi sisältää Retrieval Augmented Generation (RAG) -järjestelmän integroinnin, jos agentin täytyy päästä eri tietovarastoihin ja tietokantoihin.
+• **Tietämys:** Tämä kattaa faktat, tietokannoista haetun tiedon tai agentin kertyneet pitkäaikaiset muistot. Tämä sisältää Retrieval Augmented Generation (RAG) -järjestelmän integroinnin, jos agentin tarvitsee päästä eri tietovarastoihin ja tietokantoihin.
 
-• **Työkalut:** Nämä ovat ulkoisten funktioiden, API:en ja MCP Servers -palvelimien määritelmiä, joita agentti voi kutsua, sekä palaute (tulokset), jonka se saa niiden käytöstä.
+• **Työkalut:** Nämä ovat ulkoisten toimintojen, sovellusliittymien (API) ja MCP-palvelimien määritelmiä, joita agentti voi kutsua, sekä saamaansa palautetta (tuloksia).
 
-• **Keskusteluhistoria:** Käyttäjän kanssa käytävä jatkuva vuoropuhelu. Ajan kuluessa nämä keskustelut pitenevät ja monimutkaistuvat, mikä vie tilaa kontekstivyöhykkeeltä.
+• **Keskusteluhistoria:** Käyttäjän kanssa jatkuva vuoropuhelu. Ajan myötä nämä keskustelut pitenevät ja monimutkaistuvat, mikä vie tilaa konteksti-ikkunassa.
 
-• **Käyttäjän mieltymykset:** Tietoja käyttäjän mieltymyksistä tai epämiellyttävyydestä ajan myötä. Näitä voidaan tallentaa ja kutsua esiin tehdessä keskeisiä päätöksiä käyttäjän auttamiseksi.
+• **Käyttäjän mieltymykset:** Tietoa käyttäjän mieltymyksistä tai inhoista ajan mittaan. Näitä voidaan tallentaa ja käyttää päätöksenteossa käyttäjän auttamiseksi.
 
 ## Tehokkaan kontekstisuunnittelun strategiat
 
@@ -62,103 +62,120 @@ Kontekstin tyypit, joita tekoälyagentin pitää hallita, sisältävät:
 
 [![Kontekstisuunnittelun parhaat käytännöt](../../../translated_images/fi/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
-Hyvä kontekstisuunnittelu alkaa hyvästä suunnittelusta. Tässä lähestymistapa, joka auttaa sinua miettimään, miten soveltaa kontekstisuunnittelun käsitettä:
+Hyvä kontekstisuunnittelu alkaa hyvästä suunnittelusta. Tässä lähestymistapa, joka auttaa sinua ajattelemaan, miten soveltaa kontekstisuunnittelun konseptia:
 
-1. **Määrittele selkeät tulokset** - Ne tehtävän tulokset, jotka tekoälyagenteille annetaan, tulisi määritellä selkeästi. Vastaa kysymykseen - "Miltä maailma näyttää, kun tekoälyagentti on suorittanut tehtävänsä?" Toisin sanoen, mikä muutos, tieto tai vastaus käyttäjälle tulisi jäädä vuorovaikutuksen jälkeen.
-2. **Kartoitus kontekstista** - Kun olet määritellyt tekoälyagentin tulokset, sinun pitää vastata kysymykseen "Mitä tietoja tekoälyagentti tarvitsee tämän tehtävän suorittamiseksi?". Näin voit alkaa kartoittaa, mistä nämä tiedot löytyvät.
-3. **Luo kontekstiputkistot** - Kun tiedät, mistä tieto löytyy, sinun on vastattava kysymykseen "Miten agentti saa nämä tiedot?". Tämä voidaan tehdä monin tavoin, mukaan lukien RAG, MCP-palvelimien ja muiden työkalujen käyttö.
+1. **Määritä selkeät tulokset** – Tehtävien, jotka tekoälyagenteille annetaan, tulokset tulisi määritellä selkeästi. Vastaa kysymykseen - "Miltä maailma näyttää, kun tekoälyagentti on suorittanut tehtävänsä?" Toisin sanoen, mikä muutos, tieto tai vastaus käyttäjällä tulisi olla vuorovaikutuksen jälkeen.
+
+2. **Kartoitus kontekstista** – Kun olet määrittänyt tekoälyagentin tulokset, sinun tulee vastata kysymykseen "Mitä tietoja tekoälyagentti tarvitsee tämän tehtävän suorittamiseen?". Näin voit alkaa kartoittaa, mistä nämä tiedot löytyvät.
+
+3. **Luo kontekstiputket** – Kun tiedät, mistä tieto löytyy, pitää vastata kysymykseen "Miten agentti saa tämän tiedon?". Tämä voidaan tehdä monella tavalla, kuten RAG, MCP-palvelinten ja muiden työkalujen käytöllä.
 
 ### Käytännön strategiat
 
-Suunnittelu on tärkeää, mutta kun tieto alkaa virrata agentin kontekstivyöhykkeelle, tarvitsemme käytännön strategioita sen hallintaan:
+Suunnittelu on tärkeää, mutta kun tieto alkaa virrata agenttisi konteksti-ikkunaan, tarvitsemme käytännön strategioita sen hallintaan:
 
-#### Kontekstin hallinta
+#### Kontextin hallinta
 
-Vaikka osa tiedoista lisätään kontekstivyöhykkeelle automaattisesti, kontekstisuunnittelu tarkoittaa aktiiviisempaa roolia tämän tiedon hallinnassa, mikä voidaan toteuttaa muutamilla strategioilla:
+Vaikka osa tiedoista lisätään konteksti-ikkunaan automaattisesti, kontekstisuunnittelu tarkoittaa aktiivisempaa roolia tiedon hallinnassa, joka voidaan tehdä seuraavilla strategioilla:
 
- 1. **Agentin muistilehtiö**
- Tämä mahdollistaa tekoälyagentin ottaa muistiinpanoja tehtävien ja käyttäjävuorovaikutusten kannalta merkityksellisistä tiedoista yhden istunnon aikana. Tämän tulisi sijaita kontekstivyöhykkeen ulkopuolella tiedostossa tai ajonaikaisessa objektissa, jonka agentti voi myöhemmin noutaa tämän istunnon aikana tarvittaessa.
+ 1. **Agentin muistilappu**  
+ Tämä antaa tekoälyagentille mahdollisuuden tehdä muistiinpanoja tämänhetkisistä tehtävistä ja käyttäjän vuorovaikutuksista yhden istunnon aikana. Sen tulisi olla erillään konteksti-ikkunasta tiedostona tai suoritusajankohteen objektina, jonka agentti voi myöhemmin tarvittaessa hakea tällä istunnolla.
 
- 2. **Muistot**
- Muistilehtiöt ovat hyviä hallitsemaan tietoa yhden istunnon kontekstivyöhykkeen ulkopuolella. Muistot mahdollistavat agenttien tallentaa ja hakea merkityksellistä tietoa useiden istuntojen yli. Tämä voi sisältää tiivistelmiä, käyttäjäpreferenssejä ja palautetta tulevia parannuksia varten.
+ 2. **Muistot**  
+ Muistilaput sopivat yhden istunnon ulkopuolisen tiedon hallintaan. Muistot mahdollistavat agentin tallentaa ja hakea merkityksellistä tietoa useiden istuntojen yli. Tämä voi sisältää tiivistelmiä, käyttäjän mieltymyksiä ja palautetta tulevaa parantamista varten.
 
- 3. **Kontekstin tiivistäminen**
-  Kun kontekstivyöhyke kasvaa ja on lähellä rajaa, voidaan käyttää tekniikoita kuten tiivistämistä ja karsimista. Tämä sisältää joko vain olennaisimpien tietojen säilyttämisen tai vanhempien viestien poistamisen.
-  
- 4. **Moniagenttijärjestelmät**
-  Moniagenttijärjestelmän kehittäminen on eräänlaista kontekstisuunnittelua, koska jokaisella agentilla on oma kontekstivyöhykkeensä. Miten tuo konteksti jaetaan ja välitetään eri agenteille on toinen asia, joka on suunniteltava näitä järjestelmiä rakennettaessa.
-  
- 5. **Hiekkalaatikkoympäristöt**
-  Jos agentin pitää suorittaa koodia tai käsitellä suuria määriä tietoa dokumentissa, tulosten käsittely voi vaatia paljon tokeneita. Sen sijaan, että kaikki tallennettaisiin kontekstivyöhykkeelle, agentti voi käyttää hiekkalaatikkoympäristöä, joka pystyy ajamaan koodin ja lukemaan vain tulokset ja muun relevantin tiedon.
-  
- 6. **Suoritusajan tilaobjektit**
-   Tämä toteutetaan luomalla tietosisältöjen säiliöitä hallitsemaan tilanteita, joissa agentin pitää päästä tiettyihin tietoihin käsiksi. Monimutkaisessa tehtävässä tämä mahdollistaisi agentin tallentaa kunkin alitehtävän tulokset vaiheittain, jolloin konteksti pysyy yhteydessä vain kyseiseen alitehtävään.
+ 3. **Kontekstin pakkaaminen**  
+ Kun konteksti-ikkuna kasvaa ja lähestyy rajaansa, voidaan käyttää tekniikoita kuten tiivistämistä ja karsimista. Tämä voi tarkoittaa joko säilyttämällä vain kaikkein oleellisimmat tiedot tai poistamalla vanhempia viestejä.
+
+ 4. **Moni-agenttijärjestelmät**  
+ Moni-agenttijärjestelmien kehittäminen on eräänlaista kontekstisuunnittelua, koska jokaisella agentilla on oma konteksti-ikkunansa. Miten tämä konteksti jaetaan ja siirretään eri agenteille on toinen suunnittelun kohde näitä järjestelmiä rakentamalla.
+
+ 5. **Hiekkalaatikkoympäristöt**  
+ Jos agentin täytyy ajaa koodia tai käsitellä suuria tietomääriä dokumentissa, se voi vaatia paljon tokeneita tulosten prosessointiin. Sen sijaan, että kaikki tallennettaisiin konteksti-ikkunaan, agentti voi käyttää hiekkalaatikkoympäristöä, joka kykenee suorittamaan koodin ja lukemaan vain tulokset ja muut olennaiset tiedot.
+
+ 6. **Suoritustilan objektit**  
+ Tämä tehdään luomalla tietokontteja hallitsemaan tilanteita, joissa agentin täytyy päästä käsiksi tiettyihin tietoihin. Monimutkaisessa tehtävässä tämä mahdollistaa agentin tallentaa jokaisen alatehtävän tulokset vaiheittain, jolloin konteksti pysyy yhteydessä vain kyseiseen alatehtävään.
+
+#### Kontextin tarkastus
+
+Kun olet soveltanut jotakin näistä strategioista, kannattaa tarkistaa, mitä seuraava mallikutsu todella sai. Hyvä vianetsintäkysymys on:
+
+> Lataiko agentti liikaa kontekstia, väärää kontekstia vai jäi puuttumaan konteksti, jota se tarvitsi?
+
+Tähän kysymykseen ei tarvitse kirjata raakakehotteita, työkalujen tuloksia tai muistosisältöjä. Tuotannossa suositaan pieniä kontekstin tarkastuslokeja, jotka tallentavat laskemat, tunnisteet, hajautukset ja politiikan tarrat:
+
+- **Valinta:** Seuraa, kuinka monta ehdokasta, työkalua tai muistoa harkittiin, kuinka monta valittiin ja mikä sääntö tai pisteytys aiheutti muiden suodattamisen pois.
+- **Pakkaus:** Tallenna lähdealue tai jäljitystunnus, tiivistelmän tunnus, arvioitu tokenimäärä ennen ja jälkeen pakkauksen, ja oliko raakasisältö pois seuraavasta kutsusta.
+- **Eristys:** Merkitse, mikä alatehtävä suoritettiin erillisessä agentissa, istunnossa tai hiekkalaatikossa, mikä rajattu tiivistelmä palautettiin ja pysyikö suuri työkalutulos emäagentin kontekstin ulkopuolella.
+- **Muisti ja RAG:** Tallenna haettujen dokumenttien tunnukset, muistotunnukset, pisteet, valitut tunnukset ja punaisuustilanne kokonaisen haetun tekstin sijaan.
+- **Turvallisuus ja yksityisyys:** Suosi hajautuksia, tunnuksia, token-ämpäreitä ja politiikan tarroja arkaluonteisen kehotetekstin, työkalujen argumenttien, tulosten tai käyttäjän muistosisältöjen sijaan.
+
+Tavoitteena ei ole säilyttää enemmän kontekstia, vaan jättää tarpeeksi todisteita, jotta kehittäjä voi tietää, mikä kontekstistrategia toimi ja muutti seuraavan mallikutsun tarkoitetulla tavalla.
 
 ### Esimerkki kontekstisuunnittelusta
 
-Let's say we want an AI agent to **"Varaa minulle matka Pariisiin."**
+Sanotaan, että haluamme tekoälyagentin suorittavan **"Varaa minulle matka Pariisiin."**
 
-• A simple  agent using only prompt engineering might just respond: **"Selvä, milloin haluaisit matkustaa Pariisiin?**". Se käsitteli vain suoraa kysymystäsi sillä hetkellä, kun käyttäjä esitti sen.
+• Yksinkertainen agentti, joka käyttää vain kehotteiden suunnittelua, vastaisi vain: **"Okei, milloin haluaisit mennä Pariisiin?"** Se käsitteli vain käyttäjän suoraa kysymystä siinä hetkessä.
 
-• An agent using  the context engineering strategies covered would do much more. Before even responding, its system might:
+• Agentti, joka käyttää edellä kuvatun kaltaisia kontekstisuunnittelun strategioita, tekisi paljon enemmän. Ennen vastaamista sen järjestelmä voisi:
 
-  ◦ **Tarkistaa kalenterisi** saatavilla olevien päivämäärien varalta (haettaessa reaaliaikaista dataa).
+  ◦ **Tarkistaa kalenterisi** vapaiden päivien osalta (hakien reaaliaikaista tietoa).
 
-  ◦ **Muistaa aiemmat matkailumieltymyksesi** (pitkäaikaisesta muistista), kuten suosikkilentoyhtiösi, budjetin tai pidätkö suorista lennoista.
+ ◦ **Muistaa aiemmat matkatoiveesi** (pitkäaikaisesta muistista) kuten suosiman lentoyhtiön, budjetin tai halun suoriin lentoihin.
 
-  ◦ **Tunnistaa käytettävissä olevat työkalut** lento- ja hotellivarauksia varten.
+ ◦ **Tunnistaa käytettävissä olevat työkalut** lentojen ja hotellivarauksen tekemiseen.
 
-- Then, an example response could be:  "Hei [Your Name]! Näen, että olet vapaa lokakuun ensimmäisellä viikolla. Haluatko, että etsin suoria lentoja Pariisiin [Preferred Airline] -yhtiöltä tavanomaisessa budjetissasi [Budget]?". Tämä rikkaampi, kontekstia hyödyntävä vastaus havainnollistaa kontekstisuunnittelun voimaa.
+- Sitten esimerkkivastaus voisi olla: "Hei [Nimesi]! Näen, että olet vapaana lokakuun ensimmäisellä viikolla. Haluatko, että etsin suoria lentoja Pariisiin [Suositeltu lentoyhtiö] käytössäsi olevalla budjetilla [Budjetti]?" Tämä rikkaampi, kontekstitietoinen vastaus osoittaa kontekstisuunnittelun voiman.
 
-## Yleiset kontekstivirheet
+## Yleiset kontekstiin liittyvät virheet
 
-### Kontekstin saastuminen
+### Kontekstin myrkytys
 
-**Mitä se on:** Kun hallusinaatio (LLM:n tuottama virheellinen tieto) tai virhe pääsee kontekstiin ja siihen viitataan jatkuvasti, agentti saattaa pyrkiä mahdottomiin tavoitteisiin tai kehittää järjettömiä strategioita.
+**Mitä se on:** Kun harha (LLM:n generoima virhetieto) tai virhe pääsee kontekstiin ja sitä toistuvasti viitataan, aiheuttaen agentin pyrkivän mahdottomiin tavoitteisiin tai kehittävän järjettömiä strategioita.
 
-**Mitä tehdä:** Ota käyttöön **kontekstin validointi** ja **eristäminen**. Vahvista tieto ennen sen lisäämistä pitkäaikaiseen muistiin. Jos mahdollinen saastuminen havaitaan, aloita uudesta kontekstisäikeestä estääksesi virheellisen tiedon leviämisen.
+**Mitä tehdä:** Ota käyttöön **kontekstin validointi** ja **eristys**. Tarkista tiedot ennen kuin ne lisätään pitkäaikaiseen muistiin. Jos mahdollinen myrkytys havaitaan, aloita uudet kontekstiketjut estämään huonon tiedon leviämistä.
 
-**Matkanvarausesimerkki:** Agenttisi havainnoi hallusinaationa **suoran lennon pieneltä paikalliselta lentokentältä kaukana olevaan kansainväliseen kaupunkiin**, joka ei todellisuudessa tarjoa kansainvälisiä lentoja. Tämä olematon lentotieto tallennetaan kontekstiin. Myöhemmin, kun pyydät agenttia varaamaan, se jatkaa mahdottoman reitin lippujen etsimistä, mikä johtaa toistuviin virheisiin.
+**Matkanvarausesimerkki:** Agenttisi hakee harhakuvitelman **suorasta lennosta pieneltä paikalliselta lentokentältä kaukaiseen kansainväliseen kaupunkiin**, jonne ei oikeasti ole kansainvälisiä lentoja. Tämä olematon lentotieto tallentuu kontekstiin. Myöhemmin kun pyydät agenttia varaamaan, se yrittää yhä etsiä lippuja tälle mahdottomalle reitille, aiheuttaen toistuvia virheitä.
 
-**Ratkaisu:** Ota käyttöön vaihe, joka **vahvistaa lennon olemassaolon ja reitit reaaliaikaisen API:n avulla** _ennen_ lennon yksityiskohtien lisäämistä agentin työskentelykontekstiin. Jos validointi epäonnistuu, virheellinen tieto "eristetään" eikä sitä käytetä jatkossa.
+**Ratkaisu:** Toteuta vaihe, jossa **tarkistetaan lennon olemassaolo ja reitit reaaliaikaisella API:lla** _ennen_ lentotiedon lisäämistä agentin työskentelykontekstiin. Jos tarkistus epäonnistuu, virheelliset tiedot "eristetään" eikä niitä käytetä enää.
 
-### Kontekstihäiriö
+### Kontekstin häirintä
 
-**Mitä se on:** Kun konteksti kasvaa niin suureksi, että malli keskittyy liikaa kertynyttä historiaa kohtaan sen sijaan, että käyttäisi koulutuksessa oppimiaan asioita, mikä johtaa toistuviin tai hyödyttömiin toimintoihin. Mallit saattavat alkaa tehdä virheitä jo ennen kuin kontekstivyöhyke on täynnä.
+**Mitä se on:** Kun konteksti kasvaa niin suureksi, että malli keskittyy liikaa kertynyttä historiaa käyttäen sitä enemmän kuin koulutuksessa oppimaansa, mikä johtaa toistuviin tai turhiin toimintoihin. Mallit saattavat alkaa tehdä virheitä jo ennen konteksti-ikkunan täyttymistä.
 
-**Mitä tehdä:** Käytä **kontekstin tiivistämistä**. Purista kertyneet tiedot säännöllisesti lyhyemmiksi tiivistelmiksi, säilyttäen tärkeät yksityiskohdat ja poistaen toistuvan historian. Tämä auttaa "nollaamaan" fokuksen.
+**Mitä tehdä:** Käytä **kontekstin tiivistämistä**. Pakkaa ajoittain kertyneet tiedot lyhyemmiksi tiivistelmiksi, säilyttäen tärkeät yksityiskohdat ja poistamalla päällekkäistä historiaa. Tämä auttaa "nollaamaan" tarkennuksen.
 
-**Matkanvarausesimerkki:** Olet keskustellut pitkään erilaisista unelmakohteista, mukaan lukien yksityiskohtainen kertomus rinkka- matkasta kaksi vuotta sitten. Kun lopulta pyydät ****"etsi minulle edullinen lento** **ensi kuukaudelle****,"** agentti jumittuu vanhoihin, epäolennaisiin yksityiskohtiin ja jatkaa kyselyjä rinkkavarusteistasi tai aiemmista reitityksistä, laiminlyöden nykyisen pyyntösi.
+**Matkanvarausesimerkki:** Olet keskustellut pitkään erilaisista unelmakohteista ja todennut yksityiskohtaisesti reppureissusi kahden vuoden takaa. Kun lopulta pyydät **"etsi minulle halpa lento ensi kuuksi",** agentti jumittuu vanhoihin merkityksettömiin yksityiskohtiin ja kysyy jatkuvasti reppureissusi varusteista tai menneistä matkaohjelmista laiminlyöden nykyisen pyynnön.
 
-**Ratkaisu:** Tietyn määrän vuorovaikutusten jälkeen tai kun konteksti kasvaa liian suureksi, agentin tulisi **tiivistää keskustelun viimeisimmät ja olennaisimmat osat** – keskittyen nykyisiin matkustuspäivämääriin ja määränpäähän – ja käyttää tätä tiivistettyä yhteenvetoa seuraavaa LLM-kutsua varten ja hylätä vähemmän relevantti historiallinen keskustelu.
+**Ratkaisu:** Tietyn kierrosmäärän jälkeen tai kun konteksti kasvaa liian suureksi, agentin tulisi **tiivistää keskustelun viimeisimmät ja oleellisimmat osat** – keskittyen nykyisiin matkapäiviisi ja kohteeseen – ja käyttää tätä tiivistettyä yhteenvetoa seuraavassa LLM-kutsussa hyläten vähemmän relevantin keskusteluhistorian.
 
 ### Kontekstin sekaannus
 
-**Mitä se on:** Kun tarpeeton konteksti, usein monien käytettävissä olevien työkalujen muodossa, saa mallin tuottamaan huonoja vastauksia tai kutsumaan epäolennaisia työkaluja. Pienemmät mallit ovat erityisen alttiita tälle.
+**Mitä se on:** Kun tarpeeton konteksti, usein liian monien käytettävissä olevien työkalujen muodossa, saa mallin tuottamaan huonoja vastauksia tai kutsumaan asiaankuulumattomia työkaluja. Pienemmät mallit ovat erityisen alttiita tälle.
 
-**Mitä tehdä:** Toteuta **työkalujen kuormanhallinta** RAG-tekniikoita käyttäen. Tallenna työkalujen kuvaukset vektoritietokantaan ja valitse _vain_ tehtävään kaikkein relevantimmat työkalut. Tutkimukset osoittavat, että työkalujen valinnan rajoittaminen alle 30:een on hyödyllistä.
+**Mitä tehdä:** Ota käyttöön **työkalujen valikon hallinta** käyttämällä RAG-tekniikoita. Tallenna työkalujen kuvaukset vektoritietokantaan ja valitse _ainoastaan_ tehtävään relevantit työkalut kullekin tehtävälle. Tutkimukset osoittavat, että työkaluvalintojen rajoittaminen alle 30:een on tehokasta.
 
-**Matkanvarausesimerkki:** Agentillasi on pääsy kymmeniintuhansiin työkaluihin: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations`, etc. Kysyt: **"Mikä on paras tapa liikkua Pariisissa?"** Työkalujen lukumäärän vuoksi agentti hämmentyy ja yrittää kutsua `book_flight` _Pariisin sisällä_, tai `rent_car` vaikka suosisit julkista liikennettä, koska työkalukuvaukset saattavat olla päällekkäisiä tai se ei yksinkertaisesti pysty erottamaan parasta vaihtoehtoa.
+**Matkanvarausesimerkki:** Agentillasi on käytettävissään kymmeniä työkaluja: `book_flight` (lennon varaus), `book_hotel` (hotellin varaus), `rent_car` (autonvuokraus), `find_tours` (retket), `currency_converter` (valuutanmuunnin), `weather_forecast` (sääennuste), `restaurant_reservations` (ravintolavaraukset) jne. Kysyt, **"Mikä on paras tapa liikkua Pariisissa?"** Tän suuren työkalujen määrän vuoksi agentti hämmentyy ja yrittää varata `book_flight` -työkalun _Pariisin sisäisiin matkoihin_ tai vuokrata auton, vaikka suosisit julkista liikennettä, koska työkalujen kuvaukset saattavat olla päällekkäisiä tai agentti ei pysty erottelemaan parasta työkalua.
 
-**Ratkaisu:** Käytä **RAG:ia työkalukuvausten yli**. Kun kysyt liikkumismahdollisuuksista Pariisissa, järjestelmä hakee dynaamisesti _vain_ relevantit työkalut kuten `rent_car` tai `public_transport_info` kyselysi perusteella ja esittää LLM:lle fokusoidun työkalukuormituksen.
+**Ratkaisu:** Käytä **RAG:ia työkalukuvausten päällä**. Kun kysyt liikkumistapaa Pariisissa, järjestelmä hakee dynaamisesti _ainoastaan_ relevantteja työkaluja kuten `rent_car` tai `public_transport_info` käyttäjän kyselyn perusteella, esitellen kohdennetun työkalurepertuaarin LLM:lle.
 
-### Kontekstin ristiriita
+### Kontekstiristiriita
 
-**Mitä se on:** Kun kontekstissa on ristiriitaista tietoa, mikä johtaa epäjohdonmukaiseen päättelyyn tai huonoihin lopullisiin vastauksiin. Tämä tapahtuu usein, kun tieto saapuu vaiheittain ja aikaisemmat, virheelliset oletukset pysyvät kontekstissa.
+**Mitä se on:** Kun kontekstissa on ristiriitaista tietoa, mikä johtaa epäjohdonmukaiseen päättelyyn tai huonoihin lopullisiin vastauksiin. Tämä tapahtuu usein, kun tiedot saapuvat vaiheittain ja aikaiset virheelliset olettamukset säilyvät kontekstissa.
 
-**Mitä tehdä:** Käytä **kontekstin karsintaa** ja **ulkoistamista**. Karsinta tarkoittaa vanhentuneen tai ristiriitaisen tiedon poistamista uusien tietojen saapuessa. Ulkoistaminen tarkoittaa, että mallille annetaan erillinen "muistilehtiö"-työtila käsitellä tietoja ilman, että se sotkee pääkontekstia.
+**Mitä tehdä:** Käytä **kontekstin karsintaa** ja **siirtämistä**. Karsinta tarkoittaa vanhentuneen tai ristiriitaisen tiedon poistamista uusien tietojen saapuessa. Siirtäminen antaa mallille erillisen "muistilapun" työtilan, jossa tieto voidaan käsitellä ilman, että pääkontekstiin kertyy sekavuutta.
+**Matkanvarausesimerkki:** Aluksi kerrot agentillesi, **"Haluan lentää turistiluokassa."** Keskustelun edetessä muutat mielesi ja sanot, **"Itse asiassa tällä matkalla mennään bisnesluokassa."** Jos molemmat ohjeet jäävät kontekstiin, agentti saattaa saada ristiriitaisia hakutuloksia tai sekoittaa, kumpaa mieltymystä pitäisi asettaa etusijalle.
 
-**Matkanvarausesimerkki:** Alkuun kerrot agentillesi, **"Haluan lentää economy-luokassa."** Myöhemmin keskustelussa muutat mielesi ja sanot, **"Itse asiassa tälle matkalle mennään business-luokkaan."** Jos molemmat ohjeet säilyvät kontekstissa, agentti saattaa saada ristiriitaisia hakutuloksia tai hämmentyä siitä, kumman mieltymyksen asettaa etusijalle.
+**Ratkaisu:** Ota käyttöön **kontekstin karsiminen**. Kun uusi ohje on ristiriidassa vanhan kanssa, vanha ohje poistetaan tai korvataan selkeästi kontekstissa. Vaihtoehtoisesti agentti voi käyttää **muistiinpanovälinettä** ristiriitaisten mieltymysten sovittamiseen ennen päätöksen tekemistä, varmistaen, että vain lopullinen ja johdonmukainen ohje ohjaa sen toimintaa.
 
-**Ratkaisu:** Toteuta **kontekstin karsinta**. Kun uusi ohje on ristiriidassa vanhan kanssa, vanha ohje poistetaan tai korvataan eksplisiittisesti kontekstissa. Vaihtoehtoisesti agentti voi käyttää **muistilehtiötä** sovitellakseen ristiriitaisia mieltymyksiä ennen päätöksentekoa, varmistaen että vain lopullinen, yhtenäinen ohje ohjaa sen toimintaa.
+## Lisää kysymyksiä kontekstisuunnittelusta?
 
-## Haluatko lisää kysymyksiä kontekstisuunnittelusta?
-
-Liity [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) tapaamaan muita oppijoita, osallistumaan toimistoaikoihin ja saamaan vastauksia tekoälyagentteihisi liittyviin kysymyksiin.
+Liity [Microsoft Foundry Discordiin](https://aka.ms/ai-agents/discord) tavata muiden oppijoiden kanssa, osallistua toimistoaikoihin ja saada vastaukset AI-agentteihin liittyviin kysymyksiisi.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Vastuuvapauslauseke:
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua Co-op Translator (https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, ota huomioon, että automaattisissa käännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäisellä kielellä tulee pitää pätevänä lähteenä. Kriittisten tietojen osalta suositellaan ammattikääntäjän tekemää käännöstä. Emme ole vastuussa mistään väärinymmärryksistä tai virhetulkinnoista, jotka johtuvat tämän käännöksen käytöstä.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
