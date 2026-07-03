@@ -1,7 +1,7 @@
-# Memoria pentru Agenții AI 
+# Memorie pentru Agenții AI 
 [![Agent Memory](../../../translated_images/ro/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-Când discutăm despre beneficiile unice ale creării Agenților AI, două lucruri sunt principale: capacitatea de a apela unelte pentru a finaliza sarcini și capacitatea de a se îmbunătăți în timp. Memoria stă la baza creării agenților care se pot auto-îmbunătăți și pot crea experiențe mai bune pentru utilizatorii noștri.
+Când discutăm beneficiile unice ale creării Agenților AI, două aspecte sunt în principal dezbătute: capacitatea de a apela instrumente pentru a îndeplini sarcini și capacitatea de a se îmbunătăți în timp. Memoria este la baza creării unui agent auto-îmbunătățitor care poate crea experiențe mai bune pentru utilizatorii noștri.
 
 În această lecție, vom analiza ce este memoria pentru Agenții AI și cum o putem gestiona și folosi în beneficiul aplicațiilor noastre.
 
@@ -11,158 +11,159 @@ Această lecție va acoperi:
 
 • **Înțelegerea Memoriei Agenților AI**: Ce este memoria și de ce este esențială pentru agenți.
 
-• **Implementarea și Stocarea Memoriei**: Metode practice pentru adăugarea capabilităților de memorie agenților AI, concentrându-ne pe memoria pe termen scurt și lung.
+• **Implementarea și Stocarea Memoriei**: Metode practice pentru adăugarea capacităților de memorie agenților tăi AI, cu accent pe memoria pe termen scurt și lung.
 
-• **Transformarea Agenților AI în Agenți Auto-Îmbunătățitori**: Cum memoria permite agenților să învețe din interacțiunile trecute și să se îmbunătățească în timp.
+• **Facerea Agenților AI Auto-Îmbunătățitori**: Cum permite memoria agenților să învețe din interacțiunile anterioare și să se îmbunătățească în timp.
 
 ## Implementări Disponibile
 
-Această lecție include două tutoriale cu notebook-uri cuprinzătoare:
+Această lecție include două tutoriale complete în notebook-uri:
 
 • **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implementează memoria folosind Mem0 și Azure AI Search cu Microsoft Agent Framework
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implementează memoria structurată folosind Cognee, construind automat un grafic al cunoștințelor susținut de embeddings, vizualizând graficul și făcând recuperarea inteligentă
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implementează memoria structurată folosind Cognee, construind automat un grafic de cunoștințe susținut de embeddings, vizualizând graficul și realizând recuperare inteligentă
 
 ## Obiective de Învățare
 
-După parcurgerea acestei lecții, veți ști să:
+După parcurgerea acestei lecții, vei ști să:
 
-• **Faceți diferența între diverse tipuri de memorie ale agenților AI**, inclusiv memoria de lucru, pe termen scurt și lung, precum și forme specializate precum memoria de persoană și memoria episodică.
+• **Diferențiezi între diverse tipuri de memorie ale agenților AI**, inclusiv memoria de lucru, pe termen scurt și pe termen lung, precum și forme specializate precum memoria de persoană și episodică.
 
-• **Implementați și gestionați memoria pe termen scurt și lung pentru agenții AI** folosind Microsoft Agent Framework, utilizând unelte precum Mem0, Cognee, memoria Whiteboard și integrând cu Azure AI Search.
+• **Implementezi și gestionezi memoria pe termen scurt și lung pentru agenții AI** folosind Microsoft Agent Framework, valorificând instrumente precum Mem0, Cognee, memoria Whiteboard și integrându-le cu Azure AI Search.
 
-• **Înțelegeți principiile din spatele agenților AI auto-îmbunătățitori** și cum sistemele robuste de gestionare a memoriei contribuie la învățarea și adaptarea continuă.
+• **Înțelegi principiile din spatele agenților AI auto-îmbunătățitori** și cum contribuie sistemele robuste de gestionare a memoriei la învățarea și adaptarea continuă.
 
 ## Înțelegerea Memoriei Agenților AI
 
-În esență, **memoria pentru agenții AI se referă la mecanismele care le permit să rețină și să reamintească informații**. Aceste informații pot fi detalii specifice despre o conversație, preferințele utilizatorului, acțiuni precedente sau chiar tipare învățate.
+La bază, **memoria pentru agenții AI se referă la mecanismele care le permit să rețină și să reamintească informații**. Aceste informații pot fi detalii specifice despre o conversație, preferințele utilizatorului, acțiuni trecute sau chiar modele învățate.
 
-Fără memorie, aplicațiile AI sunt adesea fără stare, ceea ce înseamnă că fiecare interacțiune începe de la zero. Acest lucru duce la o experiență utilizator repetitivă și frustrantă, unde agentul „uită” contextul sau preferințele anterioare.
+Fără memorie, aplicațiile AI sunt adesea stateless, adică fiecare interacțiune începe de la zero. Aceasta duce la o experiență repetitivă și frustrantă în care agentul „uita” contextul sau preferințele anterioare.
 
 ### De ce este Importantă Memoria?
 
-Inteligența unui agent este strâns legată de capacitatea sa de a reaminti și de a utiliza informațiile trecute. Memoria permite agenților să fie:
+Inteligența unui agent este profund legată de capacitatea sa de a reaminti și utiliza informații din trecut. Memoria permite agenților să fie:
 
-• **Reflectivi**: Învățând din acțiunile și rezultatele trecute.
+• **Reflectivi**: să învețe din acțiunile și rezultatele anterioare.
 
-• **Interactivi**: Menținând contextul pe durata unei conversații continue.
+• **Interactivi**: să mențină contextul pe durata unei conversații în desfășurare.
 
-• **Proactivi și Reacționari**: Anticipând nevoile sau răspunzând adecvat pe baza datelor istorice.
+• **Proactivi și Reactivi**: să anticipeze nevoi sau să răspundă adecvat bazat pe date istorice.
 
-• **Autonomi**: Operând mai independent prin accesarea cunoștințelor stocate.
+• **Autonomi**: să opereze mai independent trăgând din cunoștințele stocate.
 
-Scopul implementării memoriei este de a face agenții mai **de încredere și capabili**.
+Scopul implementării memoriei este să facă agenții mai **de încredere și capabili**.
 
 ### Tipuri de Memorie
 
-#### Memoria de Lucru
+#### Memorie de Lucru
 
-Gândiți-vă la aceasta ca la o bucată de hârtie scratch pe care un agent o folosește în timpul unei sarcini sau a unui proces de gândire în desfășurare. Ea deține informații imediate necesare pentru a calcula următorul pas.
+Gândește-te la aceasta ca la o bucată de hârtie de schiță pe care un agent o folosește pe durata unei singure sarcini sau a unui proces de gândire în desfășurare. Reține informațiile imediate necesare pentru a calcula pasul următor.
 
-Pentru agenții AI, memoria de lucru captează adesea cele mai relevante informații dintr-o conversație, chiar dacă istoricul complet al chatului este lung sau truncat. Se concentrează pe extragerea elementelor cheie precum cerințe, propuneri, decizii și acțiuni.
+Pentru agenții AI, memoria de lucru capturează adesea cele mai relevante informații dintr-o conversație, chiar dacă istoricul complet al chat-ului este lung sau trunchiat. Se concentrează pe extragerea elementelor cheie precum cerințe, propuneri, decizii și acțiuni.
 
-**Exemplu Memorie de Lucru**
+**Exemplu de Memorie de Lucru**
 
-La un agent de rezervări de călătorie, memoria de lucru ar putea captura cererea curentă a utilizatorului, cum ar fi „Vreau să rezerv o călătorie la Paris”. Această cerință specifică este ținută în contextul imediat al agentului pentru a ghida interacțiunea curentă.
+În cazul unui agent de rezervări de călătorii, memoria de lucru poate reține cererea curentă a utilizatorului, cum ar fi „Vreau să rezerv o călătorie la Paris”. Această cerință specifică este ținută în contextul imediat al agentului pentru a ghida interacțiunea curentă.
 
-#### Memoria pe Termen Scurt
+#### Memorie pe Termen Scurt
 
-Acest tip de memorie reține informații pentru durata unei singure conversații sau sesiuni. Ea este contextul chatului curent, permițând agentului să se refere la schimbările anterioare din dialog.
+Acest tip de memorie reține informații pe durata unei singure conversații sau sesiuni. Este contextul chat-ului curent, permițând agentului să se refere la repetițiile anterioare din dialog.
 
-În exemplele Python SDK din [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), aceasta corespunde lui `AgentSession`, creat cu `agent.create_session()`. Sesiunea este memoria pe termen scurt integrată în framework: păstrează contextul conversației disponibil cât timp aceeași sesiune este reutilizată, dar acel context nu este păstrat când sesiunea se termină sau aplicația este repornită. Folosiți memoria pe termen lung pentru fapte și preferințe care trebuie să supraviețuiască peste sesiuni, de obicei printr-o bază de date, index vectorial sau alt depozit persistent.
+În exemplele din SDK-ul Python al [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), acest lucru corespunde cu `AgentSession`, creat cu `agent.create_session()`. Sesiunea este memoria pe termen scurt construită în framework: păstrează contextul conversației disponibil atâta timp cât aceeași sesiune este reutilizată, dar contextul nu este păstrat când sesiunea se încheie sau aplicația este repornită. Folosește memoria pe termen lung pentru fapte și preferințe care trebuie să supraviețuiască peste sesiuni, de obicei printr-o bază de date, index vectorial sau alt depozit persistent.
 
-**Exemplu Memorie pe Termen Scurt**
+**Exemplu de Memorie pe Termen Scurt**
 
-Dacă un utilizator întreabă „Cât costă un zbor către Paris?” și apoi continuă cu „Dar ce zboruri sunt disponibile?”, memoria pe termen scurt asigură că agentul știe că „aici” se referă la „Paris” în aceeași conversație.
+Dacă un utilizator întreabă „Cât ar costa un zbor către Paris?” și apoi continuă cu „Dar cazarea acolo?”, memoria pe termen scurt asigură că agentul știe că „acolo” se referă la „Paris” în cadrul aceleiași conversații.
 
-#### Memoria pe Termen Lung
+#### Memorie pe Termen Lung
 
-Aceasta este informația care persistă peste multiple conversații sau sesiuni. Permite agenților să-și amintească preferințele utilizatorului, interacțiunile istorice sau cunoștințe generale pe perioade extinse. Acest lucru este important pentru personalizare.
+Aceasta este informația care persistă peste mai multe conversații sau sesiuni. Permite agenților să-și amintească preferințele utilizatorilor, interacțiunile istorice sau cunoștințele generale pe perioade extinse. Este importantă pentru personalizare.
 
-**Exemplu Memorie pe Termen Lung**
+**Exemplu de Memorie pe Termen Lung**
 
-O memorie pe termen lung ar putea stoca că „Ben se bucură de schi și activități în aer liber, îi place cafeaua cu vedere la munte și dorește să evite pârtiile dificile din cauza unei accidentări anterioare”. Aceste informații, învățate din interacțiunile anterioare, influențează recomandările în sesiunile viitoare de planificare a călătoriilor, făcându-le foarte personalizate.
+O memorie pe termen lung poate stoca că „Ben se bucură de schi și activități în aer liber, îi place cafeaua cu vedere la munte și dorește să evite pârtiile avansate de schi din cauza unei accidentări anterioare”. Această informație, învățată din interacțiunile anterioare, influențează recomandările în sesiunile viitoare de planificare a călătoriilor, făcându-le foarte personalizate.
 
-#### Memoria de Persoană
+#### Memoria de Persoană (Persona Memory)
 
-Acest tip specializat de memorie ajută un agent să dezvolte o „personalitate” sau „persoană” consistentă. Permite agentului să-și amintească detalii despre sine sau rolul său intenționat, făcând interacțiunile mai fluente și concentrate.
+Acest tip specializat de memorie ajută un agent să dezvolte o „personalitate” sau „persoană” consistentă. Permite agentului să-și amintească detalii despre sine sau rolul său intenționat, făcând interacțiunile mai fluide și concentrate.
 
-**Exemplu Memorie de Persoană**
-Dacă agentul de călătorie este conceput să fie un „expert în planificarea schiului”, memoria de persoană ar putea consolida acest rol, influențând răspunsurile pentru a corespunde tonului și cunoștințelor unui expert.
+**Exemplu de Memorie de Persoană**
 
-#### Memoria pentru Flux de Lucru / Episodică
+Dacă agentul de călătorii este proiectat să fie un „expert în planificarea schiului”, memoria de persoană poate consolida acest rol, influențând răspunsurile să se alinieze cu tonul și cunoștințele unui expert.
 
-Această memorie stochează succesiunea pașilor pe care un agent îi face în timpul unei sarcini complexe, inclusiv succesele și eșecurile. Este ca și cum ar păstra în memorie „episoade” sau experiențe trecute pentru a învăța din ele.
+#### Memoria de Workflow/Episodică
 
-**Exemplu Memorie Episodică**
+Această memorie stochează secvența de pași pe care un agent îi parcurge în timpul unei sarcini complexe, inclusiv succese și eșecuri. Este ca o amintire a unor „episoade” sau experiențe trecute pentru a învăța din ele.
 
-Dacă agentul a încercat să rezerve un zbor specific dar a eșuat din cauza indisponibilității, memoria episodică ar putea înregistra acest eșec, permițând agentului să încerce zboruri alternative sau să informeze utilizatorul despre problemă într-un mod mai bine informat la o încercare ulterioară.
+**Exemplu de Memorie Episodică**
 
-#### Memoria Entitate
+Dacă agentul a încercat să rezerve un zbor specific, dar acesta a eșuat din cauza indisponibilității, memoria episodică poate înregistra acest eșec, permițând agentului să încerce zboruri alternative sau să informeze utilizatorul despre problemă într-un mod mai informat la o încercare ulterioară.
 
-Aceasta implică extragerea și memorarea entităților specifice (precum persoane, locuri sau lucruri) și evenimente din conversații. Permite agentului să construiască o înțelegere structurată a elementelor cheie discutate.
+#### Memoria de Entități
 
-**Exemplu Memorie Entitate**
+Aceasta implică extragerea și memorarea entităților specifice (cum ar fi persoane, locuri sau obiecte) și a evenimentelor din conversații. Permite agentului să construiască o înțelegere structurată a elementelor cheie discutate.
 
-Dintr-o conversație despre o călătorie trecută, agentul ar putea extrage „Paris,” „Turnul Eiffel” și „cină la restaurantul Le Chat Noir” ca entități. Într-o viitoare interacțiune, agentul ar putea reaminti „Le Chat Noir” și oferi să facă o nouă rezervare acolo.
+**Exemplu de Memorie de Entități**
 
-#### Structured RAG (Generare Îmbunătățită prin Recuperare Structurată)
+Dintr-o conversație despre o călătorie anterioară, agentul poate extrage „Paris”, „Turnul Eiffel” și „cină la restaurantul Le Chat Noir” ca entități. Într-o interacțiune viitoare, agentul ar putea să-și amintească de „Le Chat Noir” și să ofere să facă o nouă rezervare acolo.
 
-Deși RAG este o tehnică mai amplă, „Structured RAG” este evidențiată ca o tehnologie puternică de memorie. Ea extrage informații dense, structurate din diverse surse (conversații, emailuri, imagini) și le folosește pentru a îmbunătăți precizia, capacitatea de recuperare și viteza răspunsurilor. Spre deosebire de RAG clasic care se bazează numai pe similitudinea semantică, Structured RAG lucrează cu structura inerentă a informației.
+#### RAG Structurat (Retrieval Augmented Generation)
 
-**Exemplu Structured RAG**
+Deși RAG este o tehnică mai largă, „RAG Structurat” este evidențiată ca o tehnologie puternică de memorie. Aceasta extrage informații dense, structurate din diverse surse (conversații, emailuri, imagini) și le folosește pentru a îmbunătăți precizia, recuperarea și viteza răspunsurilor. Spre deosebire de RAG clasic care se bazează numai pe similaritatea semantică, RAG Structurat lucrează cu structura inerentă a informației.
 
-În loc să potrivească doar cuvinte-cheie, Structured RAG ar putea analiza detalii de zbor (destinație, dată, oră, aeroliană) dintr-un email și să le stocheze într-un mod structurat. Aceasta permite interogări precise precum „Ce zbor am rezervat către Paris marți?”
+**Exemplu de RAG Structurat**
+
+În loc să potrivească doar cuvinte-cheie, RAG Structurat poate analiza detalii de zbor (destinație, dată, oră, companie aeriană) dintr-un email și să le stocheze într-un mod structurat. Aceasta permite întrebări precise precum „Ce zbor am rezervat către Paris marți?”
 
 ## Implementarea și Stocarea Memoriei
 
-Implementarea memoriei pentru agenții AI implică un proces sistematic de **gestionare a memoriei**, care include generarea, stocarea, recuperarea, integrarea, actualizarea și chiar „uitarea” (sau ștergerea) informațiilor. Recuperarea este un aspect deosebit de important.
+Implementarea memoriei pentru agenții AI implică un proces sistematic de **gestionare a memoriei**, care include generarea, stocarea, recuperarea, integrarea, actualizarea și chiar „uitarea” (sau ștergerea) informației. Recuperarea este un aspect deosebit de crucial.
 
 ### Instrumente Specializate de Memorie
 
 #### Mem0
 
-O modalitate de a stoca și gestiona memoria agentului este folosind unelte specializate precum Mem0. Mem0 funcționează ca un strat persistent de memorie, permițând agenților să reamintească interacțiuni relevante, să stocheze preferințe de utilizator și context factual și să învețe din succese și insuccese în timp. Ideea este că agenții stateless devin stateful.
+Un mod de a stoca și gestiona memoria agenților este folosind instrumente specializate precum Mem0. Mem0 funcționează ca un strat de memorie persistentă, permițând agenților să-și amintească interacțiuni relevante, să stocheze preferințele utilizatorilor și contextul factual, și să învețe din succese și eșecuri în timp. Ideea este ca agenții stateless să devină stateful.
 
-Funcționează printr-un **proces în două faze de memorie: extragere și actualizare**. Mai întâi, mesajele adăugate într-un fir al agentului sunt trimise către serviciul Mem0, care folosește un Model de Limbaj Mare (LLM) pentru a rezuma istoricul conversației și pentru a extrage noi amintiri. Ulterior, o fază de actualizare condusă de LLM determină dacă să adauge, modifice sau șteargă aceste memorii, stocându-le într-un depozit hibrid de date ce poate include baze de date vectoriale, grafice și de tip cheie-valoare. Acest sistem susține de asemenea diverse tipuri de memorie și poate integra memoria grafică pentru gestionarea relațiilor dintre entități.
+Funcționează printr-un **proces în două faze: extragere și actualizare**. Mai întâi, mesajele adăugate la un fir al agentului sunt trimise serviciului Mem0, care folosește un Large Language Model (LLM) pentru a rezuma istoricul conversației și a extrage noi memorii. Ulterior, o fază de actualizare condusă de LLM determină dacă să adauge, modifice sau șteargă aceste memorii, stocându-le într-un depozit de date hibrid care poate include baze de date vectoriale, grafice și key-value. Acest sistem suportă diverse tipuri de memorie și poate încorpora memoria grafică pentru gestionarea relațiilor între entități.
 
 #### Cognee
 
-O altă abordare puternică este utilizarea **Cognee**, o memorie semantică open-source pentru agenții AI care transformă date structurate și nestructurate în grafice de cunoștințe interogabile susținute de embeddings. Cognee oferă o **arhitectură cu două depozite** combinând căutarea prin similitudine vectorială cu relațiile grafice, permițând agenților să înțeleagă nu doar ce informație este similară, ci și cum conceptele sunt legate între ele.
+O altă abordare puternică este folosirea **Cognee**, o memorie semantică open-source pentru agenții AI care transformă datele structurate și nestructurate în grafice de cunoștințe interogabile, susținute de embeddings. Cognee oferă o **arhitectură duală** ce combină căutarea vectorială pe baza similarității cu relațiile grafice, permițând agenților să înțeleagă nu doar ce informație este similară, ci cum conceptele se relaționează între ele.
 
-Se remarcă în **recuperarea hibridă** care combină similitudinea vectorială, structura graficului și raționamentul LLM — de la căutarea simplă a fragmentelor la răspunsuri bazate pe graf. Sistemul menține o **memorie vie** care evoluează și crește în timp ce rămâne interogabilă ca un grafic conectat, susținând atât contextul de sesiune pe termen scurt cât și memoria persistentă pe termen lung.
+Excelează în **recuperare hibridă** care combină similaritatea vectorială, structura grafică și raționamentul LLM - de la căutarea simplă de bucăți brute la răspunsuri la întrebări conștiente de graf. Sistemul menține o **memorie vie** care evoluează și crește, rămânând interogabilă ca un graf conectat, susținând atât contextul pe termen scurt în sesiuni, cât și memoria persistentă pe termen lung.
 
-Tutorialul cu notebook-ul Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) demonstrează construirea acestui strat unificat de memorie, cu exemple practice de ingestie a surselor diverse de date, vizualizarea graficului de cunoștințe și interogarea cu strategii diferite adaptate nevoilor specifice ale agenților.
+Tutorialul din notebook-ul Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) demonstrează construirea acestui strat unificat de memorie, cu exemple practice de ingestie a diverselor surse de date, vizualizarea graficului de cunoștințe și interogarea cu diferite strategii de căutare adaptate nevoilor specifice ale agentului.
 
 ### Stocarea Memoriei cu RAG
 
-Dincolo de uneltele specializate de memorie precum mem0 , puteți folosi servicii robuste de căutare precum **Azure AI Search ca backend pentru stocarea și recuperarea memoriilor**, în special pentru RAG structurat.
+Dincolo de instrumentele specializate precum Mem0, poți valorifica servicii robuste de căutare precum **Azure AI Search ca backend pentru stocarea și recuperarea memoriilor**, în special pentru RAG structurat.
 
-Aceasta vă permite să ancorezi răspunsurile agentului în propriile date, asigurând răspunsuri mai relevante și precise. Azure AI Search poate fi folosit pentru a stoca amintiri specifice utilizatorilor legate de călătorii, cataloage de produse sau orice alt domeniu specific de cunoștințe.
+Aceasta îți permite să ancorezi răspunsurile agentului în propriile tale date, asigurând răspunsuri mai relevante și precise. Azure AI Search poate fi folosit pentru a stoca amintirile de călătorie specifice utilizatorilor, cataloage de produse sau orice altă cunoaștere specifică domeniului.
 
-Azure AI Search suportă capabilități precum **Structured RAG**, care excelează în extragerea și recuperarea informațiilor dense, structurate din seturi mari de date, precum istoricul conversațiilor, emailuri sau chiar imagini. Aceasta oferă „precizie și rechemare supra-umană” comparativ cu abordările tradiționale de segmentare a textului și embedding.
+Azure AI Search suportă facilități precum **RAG Structurat**, care excellează în extragerea și recuperarea informației dense, structurate din seturi mari de date, cum ar fi istoricul conversațiilor, emailuri sau chiar imagini. Aceasta oferă „precizie și capacitate de recuperare supraumană” comparativ cu metodele tradiționale de fragmentare și embedding text.
 
-## Transformarea Agenților AI în Agenți Auto-Îmbunătățitori
+## Transformarea Agenților AI în Auto-Îmbunătățitori
 
-Un model comun pentru agenții care se auto-îmbunătățesc implică introducerea unui **„agent de cunoștințe”**. Acest agent separat observă conversația principală dintre utilizator și agentul primar. Rolul său este să:
+Un model comun pentru agenții auto-îmbunătățitori implică introducerea unui **„agent al cunoștințelor”**. Acest agent separat observă conversația principală dintre utilizator și agentul principal. Rolul său este să:
 
-1. **Identifice informații valoroase**: Să determine dacă vreo parte a conversației merită salvată ca cunoștințe generale sau o preferință specifică utilizatorului.
+1. **Identifice informații valoroase**: Să determine dacă vreo parte a conversației merită salvată ca cunoaștere generală sau preferință specifică a utilizatorului.
 
-2. **Extrage și rezumă**: Să distileze învățătura esențială sau preferința din conversație.
+2. **Extraga și rezume**: Să distileze învățătura esențială sau preferința din conversație.
 
-3. **Stocheze în baza de cunoștințe**: Să păstreze această informație extrasă, adesea într-o bază de date vectorială, pentru a putea fi recuperată ulterior.
+3. **Stocheze într-o bază de cunoștințe**: Să păstreze această informație extrasă, adesea într-o bază de date vectorială, pentru a fi recuperată mai târziu.
 
-4. **Completeze interogările viitoare**: Când utilizatorul inițiază o nouă interogare, agentul de cunoștințe recuperează informațiile relevante stocate și le atașează la promptul utilizatorului, oferind context crucial agentului primar (similar cu RAG).
+4. **Completeze interogările viitoare**: Când utilizatorul inițiază o nouă interogare, agentul cunoștințelor recuperează informațiile stocate relevante și le adaugă în promptul utilizatorului, oferind un context crucial agentului principal (asemănător RAG).
 
 ### Optimizări pentru Memorie
 
-• **Gestionarea Întârzierii**: Pentru a evita încetinirea interacțiunilor utilizatorului, se poate folosi inițial un model mai ieftin și mai rapid pentru a verifica rapid dacă informația merită salvată sau recuperată, invocând procesul mai complex de extragere/recuperare doar când este necesar.
+• **Gestionarea latenței**: Pentru a evita încetinirea interacțiunilor cu utilizatorul, se poate folosi inițial un model mai ieftin și mai rapid pentru a verifica rapid dacă informația merită stocată sau recuperată, invocând procesul mai complex de extragere/recuperare doar când este necesar.
 
-• **Întreținerea Bazei de Cunoștințe**: Pentru o bază de cunoștințe în creștere, informațiile mai puțin folosite pot fi mutate într-un „depozit rece” pentru a gestiona costurile.
+• **Întreținerea bazei de cunoștințe**: Pentru o bază de cunoștințe în creștere, informațiile mai puțin folosite frecvent pot fi mutate în „stocare la rece” pentru a gestiona costurile.
 
-## Aveți Mai Multe Întrebări Despre Memoria Agenților?
+## Ai Mai Multe Întrebări Despre Memoria Agenților?
 
-Alăturați-vă [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) pentru a vă întâlni cu alți cursanți, a participa la sesiuni de tip office hours și a primi răspunsuri la întrebările despre Agenții AI.
+Alătură-te comunității [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) pentru a întâlni alți cursanți, a participa la sesiuni de consultanță și a primi răspunsuri la întrebările tale despre Agenții AI.
 
 ---
 

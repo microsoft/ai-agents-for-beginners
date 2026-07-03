@@ -1,44 +1,44 @@
-[![Agenți AI de încredere](../../../translated_images/ro/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Trustworthy AI Agents](../../../translated_images/ro/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
 > _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
-# Construirea agenților AI de încredere
+# Construirea Agenților AI de Încredere
 
 ## Introducere
 
 Această lecție va acoperi:
 
-- Cum să construim și să implementăm agenți AI siguri și eficienți
+- Cum să construiești și să implementezi agenți AI siguri și eficienți
 - Considerații importante de securitate în dezvoltarea agenților AI.
-- Cum să menținem confidențialitatea datelor și a utilizatorilor în dezvoltarea agenților AI.
+- Cum să menții confidențialitatea datelor și a utilizatorilor în dezvoltarea agenților AI.
 
-## Obiectivele de învățare
+## Obiective de Învățare
 
-După finalizarea acestei lecții, veți ști cum să:
+După finalizarea acestei lecții, vei ști cum să:
 
-- Identificați și să atenuați riscurile la crearea agenților AI.
-- Implementați măsuri de securitate pentru a asigura gestionarea corectă a datelor și accesului.
-- Creați agenți AI care mențin confidențialitatea datelor și oferă o experiență de utilizare de calitate.
+- Identifici și să atenuezi riscurile când creezi agenți AI.
+- Implementezi măsuri de securitate pentru a asigura gestionarea corectă a datelor și accesului.
+- Creezi agenți AI care să mențină confidențialitatea datelor și să ofere o experiență calitativă utilizatorului.
 
 ## Siguranță
 
-Să începem prin a analiza construirea aplicațiilor agentice sigure. Siguranța înseamnă că agentul AI funcționează conform proiectului. Ca dezvoltatori de aplicații agentice, avem metode și instrumente pentru a maximiza siguranța:
+Mai întâi să ne uităm la construirea aplicațiilor agentice sigure. Siguranța înseamnă că agentul AI funcționează conform designului. Ca dezvoltatori ai aplicațiilor agentice, avem metode și instrumente pentru a maximiza siguranța:
 
 ### Construirea unui Cadru pentru Mesaje de Sistem
 
-Dacă ați construit vreodată o aplicație AI folosind Modele Mari de Limbaj (LLM-uri), știți cât de important este să proiectați un prompt robust de sistem sau un mesaj de sistem. Aceste prompturi stabilesc regulile meta, instrucțiunile și ghidurile privind modul în care LLM-ul va interacționa cu utilizatorul și datele.
+Dacă ai construit vreodată o aplicație AI folosind Modele Mari de Limbaj (LLM), știi importanța proiectării unui prompt sau mesaj de sistem robust. Aceste prompturi stabilesc regulile meta, instrucțiunile și ghidurile pentru modul în care LLM va interacționa cu utilizatorul și datele.
 
-Pentru Agenții AI, promptul de sistem este și mai important deoarece agenții AI vor avea nevoie de instrucțiuni foarte specifice pentru a îndeplini sarcinile pe care le-am proiectat pentru ei.
+Pentru agenții AI, promptul de sistem este și mai important deoarece agenții AI vor avea nevoie de instrucțiuni extrem de specifice pentru a îndeplini sarcinile pe care le-am conceput pentru ei.
 
-Pentru a crea prompturi de sistem scalabile, putem folosi un cadru de mesaje de sistem pentru construirea unuia sau mai multor agenți în aplicația noastră:
+Pentru a crea prompturi de sistem scalabile, putem utiliza un cadru de mesaje de sistem pentru construirea unuia sau mai mulți agenți în aplicația noastră:
 
-![Construirea unui Cadru pentru Mesaje de Sistem](../../../translated_images/ro/system-message-framework.3a97368c92d11d68.webp)
+![Building a System Message Framework](../../../translated_images/ro/system-message-framework.3a97368c92d11d68.webp)
 
-#### Pasul 1: Crearea unui Mesaj Meta de Sistem 
+#### Pasul 1: Creează un Mesaj Meta de Sistem
 
-Promptul meta va fi utilizat de un LLM pentru a genera prompturile de sistem pentru agenții pe care îi creăm. Îl proiectăm ca un șablon pentru a putea crea eficient mai mulți agenți, dacă este necesar.
+Promptul meta va fi folosit de un LLM pentru a genera prompturile de sistem pentru agenții pe care îi creăm. Îl proiectăm ca un șablon astfel încât să putem crea eficient mai mulți agenți dacă este nevoie.
 
-Iată un exemplu de mesaj meta de sistem pe care l-am oferi LLM-ului:
+Iată un exemplu de mesaj meta de sistem pe care l-am da LLM-ului:
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -47,9 +47,9 @@ information that you will use to provide a system prompt for.
 To create the system prompt, be descriptive as possible and provide a structure that a system using an LLM can better understand the role and responsibilities of the AI assistant. 
 ```
 
-#### Pasul 2: Crearea unui prompt de bază
+#### Pasul 2: Creează un prompt de bază
 
-Următorul pas este să creați un prompt de bază pentru a descrie agentul AI. Trebuie să includeți rolul agentului, sarcinile pe care le va îndeplini agentul și orice alte responsabilități ale acestuia.
+Următorul pas este să creezi un prompt de bază pentru a descrie agentul AI. Ar trebui să incluzi rolul agentului, sarcinile pe care agentul le va îndeplini și orice alte responsabilități ale agentului.
 
 Iată un exemplu:
 
@@ -57,11 +57,11 @@ Iată un exemplu:
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### Pasul 3: Furnizarea mesajului de sistem de bază către LLM
+#### Pasul 3: Furnizează Mesajul de Sistem de Bază către LLM
 
-Acum putem optimiza acest mesaj de sistem oferind mesajul meta de sistem ca mesaj de sistem și mesajul nostru de sistem de bază.
+Acum putem optimiza acest mesaj de sistem oferind mesajul meta ca mesaj de sistem și mesajul nostru de sistem de bază.
 
-Aceasta va genera un mesaj de sistem mai bine conceput pentru a ghida agenții AI:
+Aceasta va produce un mesaj de sistem mai bine conceput pentru a ghida agenții noștri AI:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -113,51 +113,51 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### Pasul 4: Iterare și îmbunătățire
+#### Pasul 4: Iterează și îmbunătățește
 
-Valoarea acestui cadru de mesaje de sistem este posibilitatea de a scala mai ușor crearea mesajelor de sistem pentru mai mulți agenți, precum și de a vă îmbunătăți mesajele de sistem în timp. Este rar să aveți un mesaj de sistem care să funcționeze perfect din prima pentru cazul complet de utilizare. Posibilitatea de a face mici ajustări și îmbunătățiri schimbând mesajul de bază și rulându-l prin sistem vă va permite să comparați și să evaluați rezultatele.
+Valoarea acestui cadru de mesaje de sistem este să putem scala crearea mesajelor de sistem pentru mai mulți agenți mai ușor, precum și să ne îmbunătățim mesajele de sistem în timp. Este rar ca un mesaj de sistem să funcționeze perfect de prima dată pentru cazul tău complet de utilizare. Posibilitatea de a face ajustări mici și îmbunătățiri schimbând mesajul de sistem de bază și rulându-l prin sistem îți va permite să compari și să evaluezi rezultatele.
 
-## Înțelegerea amenințărilor
+## Înțelegerea Amenințărilor
 
-Pentru a construi agenți AI de încredere, este important să înțelegeți și să atenuați riscurile și amenințările la adresa agentului AI. Să analizăm doar câteva dintre diferitele amenințări pentru agenții AI și cum vă puteți planifica și pregăti mai bine pentru ele.
+Pentru a construi agenți AI de încredere, este important să înțelegem și să atenuăm riscurile și amenințările față de agentul AI. Să vedem doar câteva dintre diferitele amenințări la adresa agenților AI și cum poți planifica și pregăti mai bine pentru ele.
 
-![Înțelegerea amenințărilor](../../../translated_images/ro/understanding-threats.89edeada8a97fc0f.webp)
+![Understanding Threats](../../../translated_images/ro/understanding-threats.89edeada8a97fc0f.webp)
 
-### Sarcină și Instrucțiune
+### Sarcină și Instrucțiuni
 
-**Descriere:** Atacanții încearcă să modifice instrucțiunile sau obiectivele agentului AI prin prompting sau manipularea intrărilor.
+**Descriere:** Atacatorii încearcă să schimbe instrucțiunile sau obiectivele agentului AI prin prompturi sau manipularea intrărilor.
 
-**Atenuare**: Efectuați verificări de validare și filtre de intrare pentru a detecta prompturi potențial periculoase înainte ca acestea să fie procesate de agentul AI. Deoarece aceste atacuri implică, de obicei, interacțiuni frecvente cu agentul, limitarea numărului de schimburi într-o conversație este o altă modalitate de a preveni acest tip de atacuri.
+**Atenuare:** Efectuarea verificărilor de validare și a filtrelor de intrare pentru a detecta prompturi potențial periculoase înainte ca acestea să fie procesate de agentul AI. Deoarece astfel de atacuri necesită de obicei interacțiune frecventă cu agentul, limitarea numărului de ture într-o conversație este o altă metodă de a preveni acest tip de atacuri.
 
 ### Acces la Sisteme Critice
 
-**Descriere:** Dacă un agent AI are acces la sisteme și servicii care stochează date sensibile, atacatorii pot compromite comunicația dintre agent și aceste servicii. Acestea pot fi atacuri directe sau încercări indirecte de a obține informații despre aceste sisteme prin agent.
+**Descriere:** Dacă un agent AI are acces la sisteme și servicii care stochează date sensibile, atacatorii pot compromite comunicația dintre agent și aceste servicii. Acestea pot fi atacuri directe sau tentative indirecte de a obține informații despre aceste sisteme prin agent.
 
-**Atenuare:** Agenții AI ar trebui să aibă acces la sisteme doar pe bază de necesitate pentru a preveni acest tip de atacuri. Comunicația dintre agent și sistem trebuie să fie, de asemenea, securizată. Implementarea autentificării și controlului accesului este o altă metodă de a proteja aceste informații.
+**Atenuare:** Agenții AI ar trebui să aibă acces la sisteme doar pe bază de necesitate pentru a preveni astfel de atacuri. De asemenea, comunicația dintre agent și sistem ar trebui să fie securizată. Implementarea autentificării și controlului accesului este o altă modalitate de a proteja aceste informații.
 
 ### Supraîncărcarea Resurselor și Serviciilor
 
-**Descriere:** Agenții AI pot accesa diverse instrumente și servicii pentru a îndeplini sarcini. Atacatorii pot utiliza această abilitate pentru a ataca aceste servicii prin trimiterea unui volum mare de cereri prin agentul AI, ceea ce poate duce la defectarea sistemului sau costuri ridicate.
+**Descriere:** Agenții AI pot accesa diferite unelte și servicii pentru a îndeplini sarcini. Atacatorii pot folosi această capacitate pentru a ataca aceste servicii prin trimiterea unui volum mare de solicitări prin agentul AI, ceea ce poate duce la întreruperi de sistem sau costuri ridicate.
 
-**Atenuare:** Implementați politici pentru a limita numărul de cereri pe care un agent AI le poate face către un serviciu. Limitarea numărului de schimburi în conversație și a cererilor către agentul AI este o altă modalitate de a preveni acest tip de atacuri.
+**Atenuare:** Implementarea politicilor pentru a limita numărul de solicitări pe care un agent AI le poate face unui serviciu. Limitarea numărului de ture de conversație și cereri către agentul AI este o altă metodă de a preveni astfel de atacuri.
 
-### Otrăvirea bazei de cunoștințe
+### Otravirea Bazei de Cunoștințe
 
-**Descriere:** Acest tip de atac nu vizează direct agentul AI, ci țintește baza de cunoștințe și alte servicii pe care agentul AI le va utiliza. Acesta poate implica coruperea datelor sau informațiilor pe care agentul AI le va folosi pentru a îndeplini o sarcină, conducând la răspunsuri părtinitoare sau neintenționate către utilizator.
+**Descriere:** Acest tip de atac nu vizează direct agentul AI, ci baza de cunoștințe și alte servicii pe care agentul AI le va utiliza. Aceasta poate implica coruperea datelor sau informațiilor cu care agentul AI va lucra pentru a îndeplini o sarcină, conducând la răspunsuri părtinitoare sau neintenționate către utilizator.
 
-**Atenuare:** Efectuați verificări regulate ale datelor pe care agentul AI le va utiliza în fluxurile de lucru. Asigurați-vă că accesul la aceste date este securizat și modificat doar de persoane de încredere pentru a evita acest tip de atacuri.
+**Atenuare:** Efectuează verificări regulate ale datelor pe care agentul AI le folosește în fluxurile de lucru. Asigură-te că accesul la aceste date este securizat și că poate fi modificat doar de persoane de încredere pentru a evita acest tip de atac.
 
-### Erori în cascadă
+### Erori în Cascadă
 
-**Descriere:** Agenții AI accesează diverse instrumente și servicii pentru a finaliza sarcini. Erorile cauzate de atacatori pot duce la defectarea altor sisteme la care agentul AI este conectat, făcând atacul mai răspândit și mai dificil de diagnosticat.
+**Descriere:** Agenții AI accesează diverse unelte și servicii pentru a îndeplini sarcini. Erorile cauzate de atacatori pot conduce la defecțiuni a altor sisteme la care agentul AI este conectat, făcând ca atacul să se extindă și să fie mai greu de diagnosticat.
 
-**Atenuare**: O metodă de a evita acest lucru este ca agentul AI să opereze într-un mediu limitat, cum ar fi executarea sarcinilor într-un container Docker, pentru a preveni atacurile directe asupra sistemului. Crearea unor mecanisme de rezervă și logică de reîncercare atunci când anumite sisteme răspund cu o eroare reprezintă o altă modalitate de a preveni defecțiuni mai mari ale sistemului.
+**Atenuare:** Un mod de a evita acest lucru este ca agentul AI să opereze într-un mediu limitat, cum ar fi efectuarea sarcinilor într-un container Docker, pentru a preveni atacurile directe asupra sistemului. Crearea mecanismelor de fallback și a logicii de retry când anumite sisteme răspund cu eroare este o altă metodă de prevenire a defecțiunilor majore.
 
-## Omul în buclă
+## Om în Buclă (Human-in-the-Loop)
 
-O altă modalitate eficientă de a construi sisteme de agenți AI de încredere este folosirea unui Om în buclă (Human-in-the-loop). Aceasta creează un flux unde utilizatorii pot oferi feedback agenților în timpul execuției. Utilizatorii acționează practic ca agenți într-un sistem multi-agent, oferind aprobări sau întreruperea procesului în derulare.
+O altă metodă eficientă de a construi sisteme de agenți AI de încredere este utilizarea unui sistem cu om în buclă. Aceasta creează un flux în care utilizatorii pot oferi feedback agenților în timpul desfășurării procesului. Utilizatorii acționează practic ca agenți într-un sistem multi-agent, oferind aprobare sau întreruperea procesului în curs.
 
-![Omul în buclă](../../../translated_images/ro/human-in-the-loop.5f0068a678f62f4f.webp)
+![Human in The Loop](../../../translated_images/ro/human-in-the-loop.5f0068a678f62f4f.webp)
 
 Iată un fragment de cod folosind Microsoft Agent Framework pentru a arăta cum este implementat acest concept:
 
@@ -166,12 +166,12 @@ import os
 from agent_framework.azure import AzureAIProjectAgentProvider
 from azure.identity import AzureCliCredential
 
-# Creați furnizorul cu aprobare umană în buclă
+# Creează furnizorul cu aprobare umană interactivă
 provider = AzureAIProjectAgentProvider(
     credential=AzureCliCredential(),
 )
 
-# Creați agentul cu un pas de aprobare umană
+# Creează agentul cu o etapă de aprobare umană
 response = provider.create_response(
     input="Write a 4-line poem about the ocean.",
     instructions="You are a helpful assistant. Ask for user approval before finalizing.",
@@ -188,31 +188,31 @@ else:
 
 ## Concluzie
 
-Construirea agenților AI de încredere necesită un design atent, măsuri robuste de securitate și iterații continue. Prin implementarea sistemelor structurate de meta prompting, înțelegerea amenințărilor potențiale și aplicarea strategiilor de atenuare, dezvoltatorii pot crea agenți AI care sunt atât siguri, cât și eficienți. În plus, încorporarea unei abordări cu omul în buclă asigură că agenții AI rămân aliniați la nevoile utilizatorilor, minimizând în același timp riscurile. Pe măsură ce AI-ul continuă să evolueze, menținerea unei poziții proactive privind securitatea, confidențialitatea și considerentele etice va fi cheia pentru a promova încrederea și fiabilitatea sistemelor bazate pe AI.
+Construirea agenților AI de încredere necesită o proiectare atentă, măsuri robuste de securitate și iterații continue. Prin implementarea sistemelor structurate de meta-prompturi, înțelegerea amenințărilor potențiale și aplicarea strategiilor de atenuare, dezvoltatorii pot crea agenți AI care sunt atât siguri, cât și eficienți. În plus, încorporarea unei abordări cu om în buclă asigură că agenții AI rămân aliniați la nevoile utilizatorilor, reducând riscurile. Pe măsură ce AI continuă să evolueze, menținerea unei poziții proactive în ceea ce privește securitatea, confidențialitatea și considerațiile etice va fi cheia pentru a cultiva încredere și fiabilitate în sistemele bazate pe AI.
 
-## Exemple de cod
+## Exemple de Cod
 
-- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Demonstrație pas cu pas a cadrului sistemului de mesaje meta-prompt.
-- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Porți de aprobare pre-acțiune, clasificarea riscurilor și înregistrarea auditurilor pentru agenți de încredere.
+- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Demonstrație pas cu pas a cadrului de mesaje de sistem meta-prompt.
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Porți de aprobare pre-acțiune, ierarhizarea riscurilor și auditul log-urilor pentru agenți de încredere.
 
-### Aveți mai multe întrebări despre construirea agenților AI de încredere?
+### Mai Ai Întrebări despre Construirea Agenților AI de Încredere?
 
-Alăturați-vă [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) pentru a întâlni alți participanți, a participa la ore de consultanță și a primi răspunsuri la întrebările despre agenții AI.
+Alătură-te [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) pentru a întâlni alți cursanți, a participa la ore de birou și a primi răspunsuri la întrebările tale despre Agenții AI.
 
-## Resurse suplimentare
+## Resurse Suplimentare
 
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Prezentare generală AI responsabil</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Evaluarea modelelor și aplicațiilor AI generative</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Evaluarea modelelor generative AI și aplicațiilor AI</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Mesaje de sistem pentru siguranță</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Șablon de evaluare a riscurilor</a>
 
-## Lecția anterioară
+## Lecția Anterioară
 
 [Agentic RAG](../05-agentic-rag/README.md)
 
-## Lecția următoare
+## Lecția Următoare
 
-[Modelul de proiectare Planning](../07-planning-design/README.md)
+[Design Pattern pentru Planificare](../07-planning-design/README.md)
 
 ---
 
