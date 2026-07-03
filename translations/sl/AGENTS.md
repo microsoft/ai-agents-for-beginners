@@ -2,28 +2,28 @@
 
 ## Pregled projekta
 
-Ta repozitorij vsebuje "AI Agente za začetnike" - celovit izobraževalni tečaj, ki poučuje vse, kar je potrebno za izdelavo AI agentov. Tečaj vsebuje več kot 15 lekcij, ki zajemajo osnove, vzorce načrtovanja, ogrodja in produkcijsko nameščanje AI agentov.
+Ta repozitorij vsebuje "AI Agentov za začetnike" - celovit izobraževalni tečaj, ki uči vse, kar je potrebno za izdelavo AI agentov. Tečaj obsega 18 lekcij, ki pokrivajo osnove, dizajnerske vzorce, ogrodja in produkcijsko uvajanje AI agentov.
 
 **Ključne tehnologije:**
 - Python 3.12+
-- Jupyter zapiski za interaktivno učenje
+- Jupyter zvezki za interaktivno učenje
 - AI ogrodja: Microsoft Agent Framework (MAF)
 - Azure AI storitve: Microsoft Foundry, Azure AI Foundry Agent Service V2
 
 **Arhitektura:**
 - Struktura na osnovi lekcij (imeniki 00-15+)
-- Vsaka lekcija vsebuje: README dokumentacijo, vzorce kode (Jupyter zvezke) in slike
-- Večjezikovna podpora prek avtomatiziranega sistema prevajanja
-- Ena Python zvezka na lekcijo, ki uporablja Microsoft Agent Framework
+- Vsaka lekcija vsebuje: dokumentacijo README, primere kode (Jupyter zvezke) in slike
+- Podpora za več jezikov preko avtomatskega sistema prevajanja
+- Ena Python zvezek na lekcijo, ki uporablja Microsoft Agent Framework
 
-## Ukazi za namestitev
+## Ukazi za nastavitev
 
 ### Zahteve
 - Python 3.12 ali novejši
 - Azure naročnina (za Azure AI Foundry)
 - Azure CLI nameščen in prijavljen (`az login`)
 
-### Začetna namestitev
+### Začetna nastavitev
 
 1. **Klonirajte ali forknite repozitorij:**
    ```bash
@@ -33,7 +33,7 @@ Ta repozitorij vsebuje "AI Agente za začetnike" - celovit izobraževalni tečaj
    cd ai-agents-for-beginners
    ```
 
-2. **Ustvarite in aktivirajte Python virtualno okolje:**
+2. **Ustvarite in aktivirajte virtualno okolje za Python:**
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # Na Windows: venv\Scripts\activate
@@ -44,15 +44,15 @@ Ta repozitorij vsebuje "AI Agente za začetnike" - celovit izobraževalni tečaj
    pip install -r requirements.txt
    ```
 
-4. **Nastavite okoljske spremenljivke:**
+4. **Nastavite spremenljivke okolja:**
    ```bash
    cp .env.example .env
    # Uredite .env z vašimi API ključi in končnimi točkami
    ```
 
-### Potrebne okoljske spremenljivke
+### Zahtevane spremenljivke okolja
 
-Za **Azure AI Foundry** (obvezno):
+Za **Azure AI Foundry** (zahtevano):
 - `AZURE_AI_PROJECT_ENDPOINT` - končna točka projekta Azure AI Foundry
 - `AZURE_AI_MODEL_DEPLOYMENT_NAME` - ime uvajanja modela (npr. gpt-4o)
 
@@ -60,7 +60,7 @@ Za **Azure AI Search** (Lekcija 05 - RAG):
 - `AZURE_SEARCH_SERVICE_ENDPOINT` - končna točka Azure AI Search
 - `AZURE_SEARCH_API_KEY` - ključ API za Azure AI Search
 
-Avtentikacija: Zaženite `az login` pred zagonom zvezkov (uporablja `AzureCliCredential`).
+Avtentikacija: Pred zagonom zvezkov izvedite `az login` (uporablja `AzureCliCredential`).
 
 ## Razvojni potek dela
 
@@ -73,7 +73,7 @@ Vsaka lekcija vsebuje več Jupyter zvezkov za različna ogrodja:
    jupyter notebook
    ```
 
-2. **Pojdite v imenik lekcije** (npr. `01-intro-to-ai-agents/code_samples/`)
+2. **Pomaknite se do imenika lekcije** (npr. `01-intro-to-ai-agents/code_samples/`)
 
 3. **Odprite in zaženite zvezke:**
    - `*-python-agent-framework.ipynb` - uporaba Microsoft Agent Framework (Python)
@@ -83,56 +83,56 @@ Vsaka lekcija vsebuje več Jupyter zvezkov za različna ogrodja:
 
 **Microsoft Agent Framework + Azure AI Foundry:**
 - Zahteva Azure naročnino
-- Uporablja `AzureAIProjectAgentProvider` za Agent Service V2 (agenti vidni v Foundry portalu)
+- Uporablja `AzureAIProjectAgentProvider` za Agent Service V2 (agenti vidni na portalu Foundry)
 - Pripravljen za produkcijo z vgrajeno opaznostjo
-- Vzorec imen datotek: `*-python-agent-framework.ipynb`
+- Vzorec datotek: `*-python-agent-framework.ipynb`
 
 ## Navodila za testiranje
 
-To je izobraževalni repozitorij z vzorčno kodo, ne produkcijska koda z avtomatiziranimi testi. Za preverjanje nastavitve in sprememb:
+To je izobraževalni repozitorij z vzorčno kodo in ne produkcijska koda z avtomatiziranimi testi. Za preverjanje nastavitve in sprememb:
 
 ### Ročno testiranje
 
-1. **Testirajte Python okolje:**
+1. **Testiranje Python okolja:**
    ```bash
    python --version  # Mora biti 3.12+
    pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Testirajte zagon zvezkov:**
+2. **Test izvajanja zvezka:**
    ```bash
    # Pretvori zvezek v skripto in zaženi (preizkusi uvoze)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
-3. **Preverite okoljske spremenljivke:**
+3. **Preverite spremenljivke okolja:**
    ```bash
    python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
    ```
 
 ### Zagon posameznih zvezkov
 
-Odprite zvezke v Jupyterju in izvršite celice zaporedoma. Vsak zvezek je samostojen ter vsebuje:
-- Ukaze za uvoz
-- Naložitev konfiguracije
+Odprite zvezke v Jupyterju in izvajajte celice zaporedno. Vsak zvezek je samostojen in vsebuje:
+- Izjave o uvozu
+- Nalaganje konfiguracije
 - Primeri implementacije agentov
-- Pričakovani izhod v markdown celicah
+- Pričakovane izhode v markdown celicah
 
-## Slog kode
+## Stil kode
 
 ### Python konvencije
 
-- **Python različica**: 3.12+
-- **Slog kode**: Sledite standardnim Python PEP 8 konvencijam
-- **Zvezki**: Uporabljajte jasne markdown celice za razlago pojmov
-- **Uvozi**: Združite standardno knjižnico, tretje osebe in lokalne uvoze
+- **Različica Pythona**: 3.12+
+- **Stil kode**: Sledite standardnim Python PEP 8 konvencijam
+- **Zvezki**: Uporabljajte jasne markdown celice za razlago konceptov
+- **Uvozi**: Združujte po standardni knjižnici, tretjih straneh, lokalnih uvozih
 
 ### Konvencije za Jupyter zvezke
 
-- Vključite opisne markdown celice pred kodnimi celicami
-- Dodajte primere izhoda v zvezkih za referenco
-- Uporabljajte jasna imena spremenljivk, ki ustrezajo konceptom lekcije
-- Ohranite linearni vrstni red izvrševanja zvezka (celica 1 → 2 → 3...)
+- Vključite opisne markdown celice pred kode
+- Dodajte primere izhodov v zvezkih za referenco
+- Uporabljajte jasna imena spremenljivk, ki ustrezajo lekcijam
+- Ohranjajte linearni vrstni red izvajanja zvezka (celica 1 → 2 → 3...)
 
 ### Organizacija datotek
 
@@ -146,130 +146,130 @@ Odprite zvezke v Jupyterju in izvršite celice zaporedoma. Vsak zvezek je samost
     └── *.png
 ```
 
-## Gradnja in nameščanje
+## Gradnja in uvajanje
 
 ### Gradnja dokumentacije
 
 Ta repozitorij uporablja Markdown za dokumentacijo:
-- README.md datoteke v vsakem imeniku lekcije
+- Datoteke README.md v vsakem imeniku lekcije
 - Glavni README.md v korenu repozitorija
-- Avtomatiziran sistem prevajanja preko GitHub Actions
+- Avtomatski sistem prevajanja preko GitHub Actions
 
 ### CI/CD cevovod
 
 Nahaja se v `.github/workflows/`:
 
-1. **co-op-translator.yml** - Samodejno prevajanje v več kot 50 jezikov
-2. **welcome-issue.yml** - Pozdravlja nove ustvarjalce težav
-3. **welcome-pr.yml** - Pozdravlja nove sodelujoče pri pull zahtevah
+1. **co-op-translator.yml** - samodejni prevod v 50+ jezikov
+2. **welcome-issue.yml** - pozdravlja ustvarjalce novih težav
+3. **welcome-pr.yml** - pozdravlja nove prispevke pull requestov
 
-### Nameščanje
+### Uvajanje
 
-To je izobraževalni repozitorij - brez postopka nameščanja. Uporabniki:
-1. Forlkajo ali klonirajo repozitorij
-2. Zaženejo zvezke lokalno ali v GitHub Codespaces
-3. Se učijo z modificiranjem in eksperimentiranjem z vzorci
+To je izobraževalni repozitorij - brez procesa uvajanja. Uporabniki:
+1. Fork ali klonirajo repozitorij
+2. Zagnajo zvezke lokalno ali v GitHub Codespaces
+3. Se učijo z modificiranjem in preizkušanjem primerov
 
-## Smernice za pull zahteve
+## Smernice za pull requeste
 
 ### Pred oddajo
 
-1. **Testirajte svoje spremembe:**
-   - Celovito zaženite prizadete zvezke
-   - Preverite, da se vse celice izvršijo brez napak
-   - Preverite, ali so izhodi ustrezni
+1. **Preizkusite spremembe:**
+   - Popolnoma zaženite zvezke, ki jih spremembe vplivajo
+   - Preverite, da vse celice tečejo brez napak
+   - Preverite, ali so izhodi primerni
 
 2. **Posodobitve dokumentacije:**
    - Posodobite README.md, če dodajate nove koncepte
-   - Dodajte komentarje v zvezke za kompleksno kodo
-   - Prepričajte se, da markdown celice pojasnjujejo namen
+   - Dodajte komentarje v zvezkih za kompleksno kodo
+   - Zagotovite, da markdown celice razlagajo namen
 
 3. **Spremembe datotek:**
-   - Ne dodajajte `.env` datotek (uporabite `.env.example`)
-   - Ne vlagajte imenikov `venv/` ali `__pycache__/`
-   - Ohranite izhode zvezkov, če prikazujejo koncepte
+   - Izogibajte se commitanju `.env` datotek (uporabite `.env.example`)
+   - Ne commajte imenikov `venv/` ali `__pycache__/`
+   - Ohranjajte izhode zvezkov, če prikazujejo koncepte
    - Odstranite začasne datoteke in varnostne kopije zvezkov (`*-backup.ipynb`)
 
-### Format naslova PR
+### Oblika naslova PR
 
 Uporabljajte opisne naslove:
 - `[Lesson-XX] Dodaj nov primer za <koncept>`
-- `[Fix] Popravi napako v lesson-XX README`
-- `[Update] Izboljšaj vzorec kode v lesson-XX`
-- `[Docs] Posodobi namestitvena navodila`
+- `[Fix] Popravi tipkarsko napako v README lekcije-XX`
+- `[Update] Izboljšaj primer kode v lekciji-XX`
+- `[Docs] Posodobi navodila za nastavitev`
 
-### Potrebne kontrole
+### Zahtevane kontrole
 
-- Zvezki se morajo izvršiti brez napak
+- Zvezki morajo teči brez napak
 - README datoteke morajo biti jasne in natančne
 - Sledite obstoječim vzorcem kode v repozitoriju
-- Ohranjajte skladnost z ostalimi lekcijami
+- Ohranjajte skladnost z drugimi lekcijami
 
 ## Dodatne opombe
 
 ### Pogoste težave
 
-1. **Neujemanje verzije Python:**
-   - Prepričajte se, da uporabljate Python 3.12+
-   - Nekateri paketi ne delujejo z starejšimi verzijami
-   - Za eksplicitno določitev verzije uporabite `python3 -m venv`
+1. **Neujemanje različice Pythona:**
+   - Poskrbite, da uporabljate Python 3.12+
+   - Nekateri paketi morda ne delujejo z starejšimi različicami
+   - Uporabite `python3 -m venv` za eksplicitno določitev različice
 
-2. **Okoljske spremenljivke:**
+2. **Spremenljivke okolja:**
    - Vedno ustvarite `.env` iz `.env.example`
-   - Ne vlagajte `.env` datoteke (je v `.gitignore`)
-   - GitHub token zahteva ustrezna dovoljenja
+   - Ne commajte `.env` datoteke (vključeno v `.gitignore`)
+   - GitHub žeton potrebuje primerna dovoljenja
 
 3. **Konflikti paketov:**
-   - Uporabite novo virtualno okolje
-   - Namestite pakete iz `requirements.txt`, ne posameznih
-   - Nekateri zvezki potrebujejo dodatne pakete, omenjene v markdown celicah
+   - Uporabite sveže virtualno okolje
+   - Namestite iz `requirements.txt`, ne posamičnih paketov
+   - Nekateri zvezki lahko zahtevajo dodatne pakete, navedene v markdown celicah
 
 4. **Azure storitve:**
-   - Za Azure AI storitve je potrebna aktivna naročnina
-   - Nekatere funkcije so omejene na določene regije
-   - Brezplačni nivo ima omejitve za GitHub modele
+   - Azure AI storitve zahtevajo aktivno naročnino
+   - Nekatere funkcije so regionalno omejene
+   - Omejitve brezplačnega nivoja veljajo za GitHub modele
 
 ### Pot učenja
 
-Priporočeno vrstno učenje preko lekcij:
-1. **00-course-setup** - Začnite tukaj s pripravo okolja
-2. **01-intro-to-ai-agents** - Spoznajte osnove AI agentov
+Priporočeni napredek skozi lekcije:
+1. **00-course-setup** - Začetek za nastavitev okolja
+2. **01-intro-to-ai-agents** - Razumevanje osnov AI agentov
 3. **02-explore-agentic-frameworks** - Spoznajte različna ogrodja
-4. **03-agentic-design-patterns** - Osnovni vzorci načrtovanja
-5. Nadaljujte zaporedno s številčenimi lekcijami
+4. **03-agentic-design-patterns** - Ključni dizajnerski vzorci
+5. Nadaljujte skozi oštevilčene lekcije zaporedno
 
 ### Izbira ogrodja
 
 Izberite ogrodje glede na cilje:
 - **Vse lekcije**: Microsoft Agent Framework (MAF) z `AzureAIProjectAgentProvider`
-- **Agenti se registrirajo na strežniški strani** v Azure AI Foundry Agent Service V2 in so vidni v Foundry portalu
+- **Agenti se registrirajo strežniško** v Azure AI Foundry Agent Service V2 in so vidni na portalu Foundry
 
 ### Kako dobiti pomoč
 
 - Pridružite se [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Preverite README datoteke lekcij za posebna navodila
-- Oglejte si glavni [README.md](./README.md) za pregled tečaja
-- Raziščite [Course Setup](./00-course-setup/README.md) za podrobna namestitvena navodila
+- Preberite README datoteke lekcij za specifična navodila
+- Preverite glavni [README.md](./README.md) za pregled tečaja
+- Oglejte si [Course Setup](./00-course-setup/README.md) za podrobna navodila
 
 ### Prispevanje
 
 To je odprt izobraževalni projekt. Prispevki so dobrodošli:
-- Izboljšajte primere kode
-- Popravite pravopisne napake ali napake
-- Dodajte pojasnjujoče komentarje
-- Predlagajte nove teme lekcij
-- Prevedite v dodatne jezike
+- Izboljšanje primerov kode
+- Popravljanje tipkarskih napak ali drugih napak
+- Dodajanje pojasnjevalnih komentarjev
+- Predlaganje novih tem za lekcije
+- Prevajanje v dodatne jezike
 
-Oglejte si [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) za trenutne potrebe.
+Trenutne potrebe so navedene na [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues).
 
-## Kontekst specifičen za projekt
+## Posebni kontekst projekta
 
-### Večjezikovna podpora
+### Podpora za več jezikov
 
-Ta repozitorij uporablja avtomatiziran sistem prevajanja:
-- Podpora za več kot 50 jezikov
-- Prevedene datoteke v imenikih `/translations/<lang-code>/`
-- GitHub Actions workflow upravlja posodobitve prevodov
+Ta repozitorij uporablja avtomatski prevajalski sistem:
+- Podpira več kot 50 jezikov
+- Prevodi so v imenikih `/translations/<lang-code>/`
+- GitHub Actions skripta skrbi za posodobitve prevodov
 - Izvorne datoteke so v angleščini v korenu repozitorija
 
 ### Struktura lekcij
@@ -277,36 +277,36 @@ Ta repozitorij uporablja avtomatiziran sistem prevajanja:
 Vsaka lekcija sledi doslednemu vzorcu:
 1. Sličica videa s povezavo
 2. Pisna vsebina lekcije (README.md)
-3. Vzorci kode v več ogrodjih
-4. Cilji učenja in predpogoji
-5. Dodatni učni viri s povezavami
+3. Primeri kode v več ogrodjih
+4. Cilji učenja in zahtevana predznanja
+5. Dodatni viri za učenje z povezavami
 
-### Imena vzorcev kode
+### Imenovanje primerov kode
 
-Format: `<lesson-number>-python-agent-framework.ipynb`
-- `01-python-agent-framework.ipynb` - Lekcija 1, MAF Python
-- `14-sequential.ipynb` - Lekcija 14, MAF napredni vzorci
+Format: `<številka-lekcije>-python-agent-framework.ipynb`
+- `01-python-agent-framework.ipynb` - lekcija 1, MAF Python
+- `14-sequential.ipynb` - lekcija 14, napredni vzorci MAF
 
 ### Posebni imeniki
 
-- `translated_images/` - Lokalizirane slike za prevode
-- `images/` - Izvirne slike za angleško vsebino
-- `.devcontainer/` - Konfiguracija razvojnega kontejnerja za VS Code
-- `.github/` - GitHub Actions workflow-i in predloge
+- `translated_images/` - lokalizirane slike za prevode
+- `images/` - originalne slike za angleško vsebino
+- `.devcontainer/` - konfiguracija razvojnega kontejnerja za VS Code
+- `.github/` - GitHub Actions workflowi in predloge
 
 ### Odvisnosti
 
-Ključni paketi iz `requirements.txt`:
+Glavni paketi iz `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
-- `a2a-sdk` - Podpora za Agent-to-Agent protokol
+- `a2a-sdk` - podpora za protokol Agent-to-Agent
 - `azure-ai-inference`, `azure-ai-projects` - Azure AI storitve
 - `azure-identity` - Azure avtentikacija (AzureCliCredential)
-- `azure-search-documents` - Integracija Azure AI Search
-- `mcp[cli]` - Podpora za Model Context Protocol
+- `azure-search-documents` - integracija Azure AI Search
+- `mcp[cli]` - podpora za Model Context Protocol
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Opozorilo**:
-Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas opozarjamo, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvorni jezik je treba upoštevati kot avtoritativni vir. Za kritične informacije priporočamo strokovni prevod s strani človeškega prevajalca. Nismo odgovorni za morebitne napačne interpretacije ali nesporazume, ki izhajajo iz uporabe tega prevoda.
+**Omejitev odgovornosti**:
+Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da avtomatizirani prevodi lahko vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za kritične informacije je priporočljiv strokovni človeški prevod. Ne odgovarjamo za morebitna nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

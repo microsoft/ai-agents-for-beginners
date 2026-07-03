@@ -1,118 +1,118 @@
 [![Kako oblikovati dobre AI agente](../../../translated_images/sl/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
-> _(Kliknite zgornjo sliko za ogled videoposnetka te lekcije)_
-# Načela agentne zasnove AI
+> _(Kliknite zgornjo sliko za ogled videa te lekcije)_
+# Principi AI agentnega oblikovanja
 
 ## Uvod
 
-Obstaja veliko načinov za razmišljanje o gradnji agentnih AI sistemov. Glede na to, da je dvoumnost pri zasnovi Generativne AI pogosto funkcija in ne napaka, inženirjem včasih težko ugotoviti, kje sploh začeti. Ustvarili smo nabor uporabniško usmerjenih UX načel za oblikovanje, ki razvijalcem omogočajo gradnjo sistemov, osredotočenih na stranko, za reševanje njihovih poslovnih potreb. Ta načela oblikovanja niso predpisana arhitektura, temveč izhodišče za ekipe, ki opredeljujejo in razvijajo agentne izkušnje.
+Obstaja veliko načinov razmišljanja o gradnji AI agentnih sistemov. Glede na to, da je nesigurnost značilnost in ne napaka v zasnovi generativne AI, je inženirjem včasih težko ugotoviti, kje sploh začeti. Ustvarili smo nabor uporabniško usmerjenih principov UX oblikovanja, da razvijalcem omogočimo gradnjo strankam osredotočenih agentnih sistemov za reševanje njihovih poslovnih potreb. Ti principi oblikovanja niso predpisana arhitektura, ampak izhodišče za ekipe, ki opredeljujejo in razvijajo agentne izkušnje.
 
-Na splošno bi morali agenti:
+Na splošno bi agenti morali:
 
-- Razširiti in povečati človeške zmožnosti (generiranje idej, reševanje problemov, avtomatizacija itd.)
-- Zapolniti vrzeli v znanju (seznaniti me z domenami znanja, prevodi itd.)
-- Omogočati in podpirati sodelovanje na načine, ki jih kot posamezniki raje uporabljamo pri delu z drugimi
-- Narediti nas boljše različice sebe (npr. življenjski trener/nadzornik nalog, pomoč pri učenju čustvenega uravnavanja in veščin čuječnosti, gradnja odpornosti itd.)
+- Razširjati in povečevati človeške sposobnosti (zamisliti ideje, reševanje problemov, avtomatizacija itd.)
+- Zapolnjevati vrzeli v znanju (hitro me seznaniti z določenimi področji znanja, prevajanje itd.)
+- Omogočiti in podpirati sodelovanje na načine, ki jih kot posamezniki raje uporabljamo pri sodelovanju z drugimi
+- Narediti nas boljše različice samih sebe (npr. življenjski trener/obvladovalec nalog, pomoč pri učenju čustvene regulacije in pozornosti, grajenje odpornosti itd.)
 
-## Ta lekcija bo zajemala
+## Ta lekcija bo pokrivala
 
-- Kaj so načela agentne zasnove
-- Katere smernice upoštevati pri izvajanju teh načel
-- Nekaj primerov uporabe teh načel
+- Kaj so agentni principi oblikovanja
+- Nekaj smernic, ki jih je treba upoštevati pri izvajanju teh principov oblikovanja
+- Nekaj primerov uporabe principov oblikovanja
 
 ## Cilji učenja
 
-Po končani tej lekciji boste lahko:
+Po končani lekciji boste lahko:
 
-1. Pojasnite, kaj so načela agentne zasnove
-2. Pojasnite smernice za uporabo načel agentne zasnove
-3. Razumete, kako zgraditi agenta z uporabo načel agentne zasnove
+1. Pojasnili, kaj so agentni principi oblikovanja
+2. Pojasnili smernice za uporabo agentnih principov oblikovanja
+3. Razumeli, kako zgraditi agenta z uporabo agentnih principov oblikovanja
 
-## Načela agentne zasnove
+## Agentni principi oblikovanja
 
-![Načela agentne zasnove](../../../translated_images/sl/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
+![Agentni principi oblikovanja](../../../translated_images/sl/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
-### Agent (Prostor)
+### Agent (prostor)
 
-To je okolje, v katerem agent deluje. Ta načela informirajo, kako oblikujemo agente za delovanje v fizičnih in digitalnih svetovih.
+To je okolje, v katerem agent deluje. Ti principi informirajo, kako oblikujemo agente za delovanje v fizičnih in digitalnih svetovih.
 
-- **Povezovanje, ne zlivanje** – pomagajte povezovati ljudi z drugimi ljudmi, dogodki in uporabnim znanjem za omogočanje sodelovanja in povezanosti.
+- **Povezovanje, ne zruševanje** – pomagati povezati ljudi z drugimi ljudmi, dogodki in uporabnim znanjem, da omogočimo sodelovanje in povezovanje.
 - Agenti pomagajo povezovati dogodke, znanje in ljudi.
-- Agenti približujejo ljudi. Niso zasnovani, da bi ljudi nadomestili ali omalovaževali.
-- **Enostavno dostopni, a občasno nevidni** – agent večinoma deluje v ozadju in nas spodbuja le, ko je to relevantno in primerno.
-  - Agent je enostavno odkritljiv in dostopen za pooblaščene uporabnike na katerikoli napravi ali platformi.
-  - Agent podpira multimodalne vhode in izhode (zvok, glas, besedilo itd.).
-  - Agent se lahko brezhibno preklaplja med ospredjem in ozadjem; med proaktivnim in reaktivnim načinom delovanja glede na zaznavanje uporabnikovih potreb.
-  - Agent lahko deluje v nevidni obliki, vendar sta njegova pot procesov v ozadju in sodelovanje z drugimi Agenti pregledna in nadzorovana s strani uporabnika.
+- Agenti ljudi približajo skupaj. Niso zasnovani, da bi nadomestili ali manjvrednotili ljudi.
+- **Enostavno dostopni, a občasno nevidni** – agent pretežno deluje v ozadju in nas opomni le, ko je to relevantno in primerno.
+  - Agent je enostavno odkritljiv in dostopen pooblaščenim uporabnikom na kateri koli napravi ali platformi.
+  - Agent podpira večmodalne vnose in izhode (zvok, glas, besedilo itd.).
+  - Agent lahko brez težav prehaja med sprednjim in ozadnim načinom; med proaktivnim in reaktivnim, glede na zaznavanje uporabniških potreb.
+  - Agent lahko deluje v nevidni obliki, a je njegova ozadna procesna pot in sodelovanje z drugimi agenti uporabniku pregledno in obvladljivo.
 
-### Agent (Čas)
+### Agent (čas)
 
-To je, kako agent deluje skozi čas. Ta načela informirajo, kako oblikujemo agente, ki delujejo skozi preteklost, sedanjost in prihodnost.
+Tako agent deluje skozi čas. Ti principi informirajo, kako oblikujemo agente, ki delujejo skozi preteklost, sedanjost in prihodnost.
 
-- **Preteklost**: Razmislek o zgodovini, ki vključuje tako stanje kot kontekst.
-  - Agent zagotavlja bolj relevantne rezultate na podlagi analize bogatejших zgodovinskih podatkov, ne le posameznega dogodka, ljudi ali stanj.
-  - Agent ustvarja povezave iz preteklih dogodkov in aktivno reflektira spomin za odzivanje v trenutnih situacijah.
+- **Preteklost**: Razmišljanje o zgodovini, ki vključuje tako stanje kot kontekst.
+  - Agent zagotavlja bolj relevantne rezultate na podlagi analize bogatejših zgodovinskih podatkov, ki presegajo le dogodek, ljudi ali stanja.
+  - Agent ustvarja povezave iz preteklih dogodkov in aktivno reflektira spomin za ukvarjanje s trenutnimi situacijami.
 - **Zdaj**: Spodbujanje bolj kot obveščanje.
-  - Agent uteleša celosten pristop k interakciji z ljudmi. Ko se dogodek zgodi, gre agent onkraj statičnega obvestila ali druge statične formalnosti. Agent lahko poenostavi tokove ali dinamično ustvari namige za usmerjanje uporabnikove pozornosti v pravem trenutku.
-  - Agent zagotavlja informacije na podlagi kontekstualnega okolja, družbenih in kulturnih sprememb ter prilagojeno uporabnikovi nameri.
-  - Interakcija z agentom je lahko postopna, z rastjo/razvijanjem v kompleksnosti, da dolgoročno opolnomoči uporabnike.
+  - Agent predstavlja celosten pristop k interakciji z ljudmi. Ko se dogodek zgodi, agent presega statično obvestilo ali drugo statično formalnost. Agent lahko poenostavi procese ali dinamično ustvarja namige za usmerjanje pozornosti uporabnika ob pravem trenutku.
+  - Agent posreduje informacije glede na kontekst okolja, družbene in kulturne spremembe ter prilagojeno uporabniškemu namenu.
+  - Interakcija z agentom je lahko postopna, razvijajoča se/rastoča v kompleksnosti, da dolgoročno opolnomoči uporabnike.
 - **Prihodnost**: Prilagajanje in razvoj.
   - Agent se prilagaja različnim napravam, platformam in modalitetam.
-  - Agent se prilagaja uporabnikovemu vedenju, potrebam po dostopnosti in je prosto prilagodljiv.
-  - Agent je oblikovan in se razvija skozi neprekinjeno interakcijo z uporabniki.
+  - Agent se prilagaja uporabniškemu vedenju, potrebam dostopnosti in je poljubno prilagodljiv.
+  - Agent oblikuje in razvija skozi neprekinjeno interakcijo z uporabnikom.
 
-### Agent (Jedro)
+### Agent (jedro)
 
-To so ključni elementi v jedru zasnove agenta.
+To so ključni elementi v jedru oblikovanja agenta.
 
 - **Sprejmi negotovost, a vzpostavi zaupanje**.
-  - Pričakovano je določeno stopnjo negotovosti agenta. Negotovost je ključni element oblikovanja agenta.
-  - Zaupanje in preglednost so temeljne plasti zasnove agenta.
-  - Ljudje nadzorujejo, kdaj je agent vklopljen/izklopljen, in stanje agenta je ves čas jasno vidno.
+  - Pričakuje se določena stopnja negotovosti agenta. Negotovost je ključen element agentnega oblikovanja.
+  - Zaupanje in preglednost sta temeljni plasti agentnega oblikovanja.
+  - Ljudje nadzorujejo, kdaj je agent vklopljen/izklopljen in status agenta je ves čas jasno viden.
 
-## Smernice za uresničevanje teh načel
+## Smernice za izvajanje teh principov
 
-Ko uporabljate zgornja načela oblikovanja, uporabite naslednje smernice:
+Ko uporabljate prejšnje principe oblikovanja, uporabite naslednje smernice:
 
-1. **Transparentnost**: Obvestite uporabnika, da je vpletena AI, kako deluje (vključno s preteklimi dejanji) in kako podati povratne informacije ter spremeniti sistem.
-2. **Nadzor**: Omogočite uporabniku prilagajanje, določanje preferenc in personalizacijo ter nadzor nad sistemom in njegovimi atributi (vključno z možnostjo pozabe).
-3. **Doslednost**: Stremite k doslednim, večmodalnim izkušnjam na različnih napravah in končnih točkah. Uporabite znane elemente UI/UX, kjer je mogoče (npr. ikona mikrofona za glasovno interakcijo) in zmanjšajte kognitivno obremenitev stranke kolikor je mogoče (npr. stremite k jedrnatim odgovorom, vizualnim pripomočkom in vsebini »Izvedi več«).
+1. **Preglednost**: Obvestite uporabnika, da je vključen AI, kako deluje (vključno s preteklimi dejanji) in kako dati povratne informacije ter spremeniti sistem.
+2. **Nadzor**: Omogočite uporabniku, da prilagodi, določi preference in personalizira ter ima nadzor nad sistemom in njegovimi značilnostmi (vključno z možnostjo pozabe).
+3. **Doslednost**: Ciljajte na dosledne, večmodalne izkušnje na napravah in končnih točkah. Uporabite znane UI/UX elemente, kjer je mogoče (npr. ikona mikrofona za glasovno interakcijo) in zmanjšajte kognitivno obremenitev kupca čim bolj (npr. ciljajte na jedrnate odgovore, vizualna pomagala in vsebino "Več o tem").
 
-## Kako zasnovati potovalnega agenta z uporabo teh načel in smernic
+## Kako oblikovati potovalnega agenta z uporabo teh principov in smernic
 
-Predstavljajte si, da oblikujete potovalnega agenta, tukaj je, kako lahko razmišljate o uporabi načel in smernic:
+Predstavljajte si, da oblikujete potovalnega agenta, tukaj je, kako bi lahko razmišljali o uporabi principov oblikovanja in smernic:
 
-1. **Transparentnost** – Povejte uporabniku, da je potovalni agent AI-omogočen. Navedite nekaj osnovnih navodil, kako začeti (npr. sporočilo "Pozdravljeni", primeri pozivov). To jasno dokumentirajte na strani izdelka. Pokažite seznam pozivov, ki jih je uporabnik vprašal v preteklosti. Jasno razložite, kako dati povratne informacije (palec gor in dol, gumb Send Feedback itd.). Jasno navedite, če ima agent omejitve uporabe ali teme.
-2. **Nadzor** – Poskrbite, da je jasno, kako lahko uporabnik spremeni agenta po njegovi vzpostavitvi z elementi, kot je System Prompt. Omogočite uporabniku izbiro, kako obširen naj bo agent, njegov slog pisanja in morebitna opozorila o tem, o čem agent ne sme govoriti. Uporabniku dovolite ogled in izbris vseh povezanih datotek ali podatkov, pozivov in preteklih pogovorov.
-3. **Doslednost** – Poskrbite, da so ikone za Share Prompt, dodajanje datoteke ali fotografije in označevanje nekoga ali nečesa standardne in prepoznavne. Uporabite ikono spenjača za označitev nalaganja/deljenja datotek z agentom in ikono slike za označitev nalaganja grafike.
+1. **Preglednost** – Dajte uporabniku vedeti, da je potovalni agent AI-omogočen agent. Zagotovite nekaj osnovnih navodil, kako začeti (npr. pozdravno sporočilo, vzorčni pozivi). To jasno dokumentirajte na strani izdelka. Prikažite seznam pozivov, ki jih je uporabnik v preteklosti uporabil. Jasno razložite, kako dati povratne informacije (palec gor/dol, gumb Pošlji povratne informacije itd.). Jasno navedite, če ima agent omejitve glede uporabe ali tem.
+2. **Nadzor** – Poskrbite, da je jasno, kako lahko uporabnik spremeni agenta po njegovi ustvaritvi z orodji, kot je sistemski poziv. Omogočite uporabniku, da izbere, kako obširen je agent, njegov slog pisanja, in morebitne opozorilne okoliščine o tem, o čem agent naj ne bi govoril. Dovolite uporabniku, da si ogleda in izbriše povezane datoteke ali podatke, pozive in pretekle pogovore.
+3. **Doslednost** – Poskrbite, da so ikone za deljenje poziva, dodajanje datoteke ali fotografije ter označevanje nekoga ali nečesa standardne in prepoznavne. Uporabite ikono sponke za nalaganje/deljenje datotek z agentom in ikono slike za nalaganje grafike.
 
-## Vzorčne kode
+## Primeri kode
 
 - Python: [Agent Framework](./code_samples/03-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/03-dotnet-agent-framework.md)
 
 
-## Imate več vprašanj o vzorcih agentne zasnove AI?
+## Imate več vprašanj o vzorcih AI agentnega oblikovanja?
 
-Pridružite se [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) za srečanje z drugimi udeleženci, udeležbo na urah za vprašanja in pridobitev odgovorov na vaša vprašanja o AI agentih.
+Pridružite se [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), kjer se lahko srečate z drugimi učenci, udeležite ur svetovanja in dobite odgovore na vaša vprašanja o AI agentih.
 
 ## Dodatni viri
 
 - <a href="https://openai.com" target="_blank">Prakse za upravljanje agentnih AI sistemov | OpenAI</a>
 - <a href="https://microsoft.com" target="_blank">Projekt HAX Toolkit - Microsoft Research</a>
-- <a href="https://responsibleaitoolbox.ai" target="_blank">Orodja za odgovorno AI</a>
+- <a href="https://responsibleaitoolbox.ai" target="_blank">Orodjarna za odgovorno AI</a>
 
 ## Prejšnja lekcija
 
-[Raziskovanje agentnih okvirov](../02-explore-agentic-frameworks/README.md)
+[Raziskovanje agentnih okvirjev](../02-explore-agentic-frameworks/README.md)
 
 ## Naslednja lekcija
 
-[Vzorec uporabe orodij](../04-tool-use/README.md)
+[Vzorec uporabe orodja](../04-tool-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Izjava o omejitvi odgovornosti:
-Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, upoštevajte, da lahko samodejni prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvor‑nem jeziku naj se šteje za avtoritativni vir. Za kritične informacije priporočamo profesionalen človeški prevod. Ne odgovarjamo za morebitne nesporazume ali napačne razlage, ki izhajajo iz uporabe tega prevoda.
+**Omejitev odgovornosti**:
+Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da avtomatizirani prevodi lahko vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za kritične informacije je priporočljiv strokovni človeški prevod. Ne odgovarjamo za morebitna nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
