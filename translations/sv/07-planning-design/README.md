@@ -8,48 +8,48 @@
 
 Denna lektion kommer att täcka
 
-* Att definiera ett tydligt övergripande mål och dela upp en komplex uppgift i hanterbara delar.
-* Att utnyttja strukturerad output för mer tillförlitliga och maskinläsbara svar.
+* Att definiera ett tydligt övergripande mål och dela upp en komplex uppgift i hanterbara deluppgifter.
+* Att använda strukturerad utdata för mer pålitliga och maskinläsbara svar.
 * Att tillämpa en händelsestyrd metod för att hantera dynamiska uppgifter och oväntade indata.
 
 ## Lärandemål
 
-Efter att ha slutfört denna lektion kommer du att ha en förståelse för:
+Efter att ha genomfört denna lektion kommer du att ha förståelse för:
 
-* Identifiera och sätta ett övergripande mål för en AI-agent, för att säkerställa att den tydligt vet vad som behöver uppnås.
-* Bryta ned en komplex uppgift i hanterbara deluppgifter och organisera dem i en logisk ordning.
-* Utrusta agenter med rätt verktyg (t.ex. sökverktyg eller dataanalysverktyg), bestämma när och hur de ska användas, och hantera oväntade situationer som uppstår.
+* Identifiera och sätta ett övergripande mål för en AI-agent, så att den tydligt vet vad som behöver uppnås.
+* Dela upp en komplex uppgift i hanterbara deluppgifter och organisera dem i en logisk ordning.
+* Utrusta agenter med rätt verktyg (t.ex. sökverktyg eller dataanalysverktyg), bestämma när och hur de ska användas, samt hantera oväntade situationer som uppstår.
 * Utvärdera resultat från deluppgifter, mäta prestanda och iterera på åtgärder för att förbättra slutresultatet.
 
-## Definiera det övergripande målet och bryta ned en uppgift
+## Definiera det övergripande målet och bryt ner en uppgift
 
-![Definiera mål och uppgifter](../../../translated_images/sv/defining-goals-tasks.d70439e19e37c47a.webp)
+![Defining Goals and Tasks](../../../translated_images/sv/defining-goals-tasks.d70439e19e37c47a.webp)
 
-De flesta verkliga uppgifter är för komplexa för att hanteras i ett enda steg. En AI-agent behöver ett koncist mål för att vägleda dess planering och handlingar. Till exempel, betrakta målet:
+De flesta verkliga uppgifter är för komplexa för att hanteras i ett enda steg. En AI-agent behöver ett koncist mål för att vägleda sin planering och sina handlingar. Till exempel, betrakta målet:
 
-    "Skapa en 3-dagars reseplan."
+    "Generera en 3-dagars reseplan."
 
-Även om det är enkelt att ange, behöver det ändå förfinas. Ju tydligare målet är, desto bättre kan agenten (och eventuella mänskliga medarbetare) fokusera på att uppnå rätt resultat, såsom att skapa en omfattande resplan med flygalternativ, hotellrekommendationer och aktivitetstips.
+Även om det är enkelt att formulera, behöver det ändå förfinas. Ju tydligare målet är, desto bättre kan agenten (och eventuella mänskliga medarbetare) fokusera på att uppnå rätt resultat, som att skapa en heltäckande resplan med flygalternativ, hotellrekommendationer och aktivitetsförslag.
 
 ### Uppgiftsnedbrytning
 
-Stora eller komplexa uppgifter blir mer hanterbara när de delas upp i mindre, målorienterade deluppgifter.
-För exemplet med reseplanen kan du bryta ned målet i:
+Stora eller invecklade uppgifter blir mer hanterbara när de delas upp i mindre, målorienterade deluppgifter.
+För exemplet med reseplanen kan du dela upp målet i:
 
 * Flygbokning
 * Hotellbokning
 * Biluthyrning
 * Personalisering
 
-Varje deluppgift kan sedan hanteras av dedikerade agenter eller processer. En agent kan specialisera sig på att söka efter bästa flygerbjudandena, en annan fokuserar på hotellbokningar och så vidare. En koordinerande eller "nedströms" agent kan sedan sammanställa dessa resultat till en sammanhållen resplan för slutanvändaren.
+Varje deluppgift kan sedan hanteras av dedikerade agenter eller processer. En agent kan specialisera sig på att söka efter bästa flygerbjudandena, en annan fokuserar på hotellbokningar, och så vidare. En koordinerande eller ”nedströms” agent kan sedan sammanställa dessa resultat till en sammanhängande resplan för slutanvändaren.
 
-Denna modulära metod möjliggör också stegvisa förbättringar. Till exempel kan du lägga till specialiserade agenter för matrekommendationer eller lokala aktivitetstips och förfina resplanen över tid.
+Detta modulära tillvägagångssätt möjliggör också gradvisa förbättringar. Till exempel kan du lägga till specialiserade agenter för Matrekommendationer eller Lokala aktivitetsförslag och förfina resplanen över tid.
 
-### Strukturerad output
+### Strukturerad utdata
 
-Stora språkmodeller (LLM) kan generera strukturerad output (t.ex. JSON) som är enklare för nedströmsagenter eller tjänster att tolka och bearbeta. Detta är särskilt användbart i en multi-agent-kontext, där vi kan genomföra dessa uppgifter efter att planeringsoutputen tagits emot.
+Stora språkmodeller (LLMs) kan generera strukturerad utdata (t.ex. JSON) som är enklare för nedströmsagenter eller tjänster att tolka och bearbeta. Detta är särskilt användbart i ett multi-agent-sammanhang, där vi kan agera på dessa uppgifter efter att planeringsutdata mottagits.
 
-Följande Python-snippet demonsterar en enkel planeringsagent som bryter ned ett mål i deluppgifter och genererar en strukturerad plan:
+Följande Python-exempel visar en enkel planeringsagent som delar upp ett mål i deluppgifter och genererar en strukturerad plan:
 
 ```python
 from pydantic import BaseModel
@@ -59,7 +59,7 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
@@ -71,7 +71,7 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# Resa Underuppgiftsmodell
+# Resa Deluppgiftsmodell
 class TravelSubTask(BaseModel):
     task_details: str
     assigned_agent: AgentEnum  # vi vill tilldela uppgiften till agenten
@@ -81,7 +81,11 @@ class TravelPlan(BaseModel):
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 # Definiera användarmeddelandet
 system_prompt = """You are a planner agent.
@@ -107,15 +111,15 @@ response_content = response.output_text
 pprint(json.loads(response_content))
 ```
 
-### Planeringsagent med multi-agent-orkestrering
+### Planeringsagent med multi-agentorkestrering
 
-I detta exempel tar en Semantic Router Agent emot en användarförfrågan (t.ex. "Jag behöver en hotellplan för min resa.").
+I detta exempel får en Semantic Router Agent en användarförfrågan (t.ex. "Jag behöver en hotellplan för min resa.").
 
 Planeraren gör sedan följande:
 
-* Tar emot hotellplanen: Planeraren tar användarens meddelande och, baserat på en system-prompt (inklusive tillgängliga agentdetaljer), genererar en strukturerad reseplan.
-* Listar agenter och deras verktyg: Agentregistret innehåller en lista över agenter (t.ex. för flyg, hotell, biluthyrning och aktiviteter) tillsammans med funktioner eller verktyg de erbjuder.
-* Dirigerar planen till respektive agenter: Beroende på antalet deluppgifter skickar planeraren antingen meddelandet direkt till en dedikerad agent (vid enkeluppgiftsfall) eller koordinerar via en gruppchatt-chef för multi-agent-samarbete.
+* Tar emot hotellplanen: Planeraren tar användarens meddelande och genererar, baserat på en systemprompt (inklusive tillgängliga agentdetaljer), en strukturerad reseplan.
+* Listar agenter och deras verktyg: Agentregistret håller en lista över agenter (t.ex. för flyg, hotell, biluthyrning och aktiviteter) tillsammans med funktioner eller verktyg de erbjuder.
+* Rutterar planen till respektive agenter: Beroende på antalet deluppgifter skickar planeraren antingen meddelandet direkt till en dedikerad agent (för enkla uppgifter) eller koordinerar via en gruppchatthanterare för samarbete mellan flera agenter.
 * Sammanfattar resultatet: Slutligen sammanfattar planeraren den genererade planen för tydlighet.
 Följande Python-kodexempel illustrerar dessa steg:
 
@@ -149,12 +153,16 @@ import json
 import os
 from typing import Optional
 
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 # Skapa klienten
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 from pprint import pprint
 
@@ -176,12 +184,12 @@ response = client.create_response(input=user_message, instructions=system_prompt
 
 response_content = response.output_text
 
-# Skriv ut svarets innehåll efter att ha laddat det som JSON
+# Skriv ut svarsinnehållet efter att ha laddat det som JSON
 
 pprint(json.loads(response_content))
 ```
 
-Det som följer är output från föregående kod och du kan sedan använda denna strukturerade output för att dirigera till `assigned_agent` och sammanfatta reseplanen för slutanvändaren.
+Det som följer är utdata från tidigare kod och du kan sedan använda denna strukturerade utdata för att ruttera till `assigned_agent` och sammanfatta reseplanen för slutanvändaren.
 
 ```json
 {
@@ -212,20 +220,21 @@ Det som följer är output från föregående kod och du kan sedan använda denn
 }
 ```
 
-Ett exempel-notebook med föregående kodexempel finns tillgängligt [här](07-python-agent-framework.ipynb).
+Ett exempelnotebook med ovanstående kodexempel finns tillgängligt [här](./code_samples/07-python-agent-framework.ipynb).
 
 ### Iterativ planering
 
-Vissa uppgifter kräver fram-och-tillbaka eller omplanering, där resultatet av en deluppgift påverkar nästa. Till exempel, om agenten upptäcker ett oväntat dataformat vid flygbokning, kan det behövas anpassa strategin innan hotellbokningen påbörjas.
+Vissa uppgifter kräver fram-och-tillbaka eller omplanering, där resultatet av en deluppgift påverkar nästa. Till exempel, om agenten upptäcker ett oväntat dataformat när flygbokningar görs, kan den behöva anpassa sin strategi innan den går vidare till hotellbokningar.
 
-Dessutom kan användarfeedback (t.ex. en människa som bestämmer sig för att föredra ett tidigare flyg) utlösa en partiell omplanering. Denna dynamiska, iterativa metod säkerställer att den slutliga lösningen stämmer överens med verkliga begränsningar och föränderliga användarpreferenser.
+Dessutom kan användarfeedback (t.ex. en människa som bestämmer att de föredrar ett tidigare flyg) trigga en partiell omplanering. Denna dynamiska, iterativa metod säkerställer att slutlösningen är anpassad efter verkliga begränsningar och föränderliga användarpreferenser.
 
 t.ex. exempel på kod
 
 ```python
-from agent_framework.azure import AzureAIProjectAgentProvider
+import os
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
-#.. samma som föregående kod och vidarebefordra användarhistoriken, nuvarande plan
+#.. samma som tidigare kod och skicka vidare användarhistoriken, nuvarande plan
 
 system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
@@ -244,22 +253,22 @@ response = client.create_response(
     instructions=system_prompt,
     context=f"Previous travel plan - {TravelPlan}",
 )
-# .. gör om planen och skicka uppgifterna till respektive agenter
+# .. planera om och skicka uppgifterna till respektive agenter
 ```
 
-För mer omfattande planering, kolla in Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Bloggpost</a> för lösningar på komplexa uppgifter.
+För mer omfattande planering, kolla in Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Bloggpost</a> för att lösa komplexa uppgifter.
 
 ## Sammanfattning
 
-I denna artikel har vi tittat på ett exempel på hur vi kan skapa en planerare som dynamiskt kan välja tillgängliga agentdefinitioner. Planerarens output bryter ned uppgifterna och tilldelar agenter så att de kan exekveras. Det antas att agenter har tillgång till de funktioner/verktyg som krävs för att utföra uppgiften. Utöver agenterna kan du inkludera andra mönster som reflection, summarizer och round robin chat för att ytterligare anpassa.
+I denna artikel har vi tittat på ett exempel på hur vi kan skapa en planerare som dynamiskt kan välja tillgängliga agenter som definierats. Utdata från Planeraren delar upp uppgifterna och tilldelar agenterna så att de kan utföras. Det antas att agenterna har tillgång till de funktioner/verktyg som krävs för att utföra uppgiften. Utöver agenter kan du inkludera andra mönster som reflektion, sammanfattare och round robin-chat för att ytterligare anpassa.
 
 ## Ytterligare resurser
 
-Magnetic One – Ett generalistiskt multi-agent-system för att lösa komplexa uppgifter och har uppnått imponerande resultat på flera utmanande agentiska benchmark. Referens: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>. I denna implementation skapar orkestratorn uppgiftsspecifika planer och delegerar dessa uppgifter till tillgängliga agenter. Förutom planeringen använder orkestratorn också en spårningsmekanism för att övervaka uppgiftens framsteg och gör omplanering vid behov.
+Magnetic One - Ett generalistmässigt multi-agent-system för att lösa komplexa uppgifter som har uppnått imponerande resultat på flera utmanande agentbenchmarks. Referens: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>. I denna implementation skapar orkestratorn uppgiftsspecifika planer och delegerar dessa till de tillgängliga agenterna. Utöver planering använder orkestratorn även en spårningsmekanism för att följa uppgifternas framsteg och omplanerar vid behov.
 
 ### Har du fler frågor om Planning Design Pattern?
 
-Gå med i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) för att träffa andra lärande, delta i kontorstid och få svar på dina frågor om AI-agenter.
+Gå med i [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) för att träffa andra lärande, delta i kontorstid och få svar på dina frågor om AI-agenter.
 
 ## Föregående lektion
 
@@ -273,5 +282,5 @@ Gå med i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) för att
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Ansvarsfriskrivning**:
-Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, var vänlig observera att automatiska översättningar kan innehålla fel eller brister. Det ursprungliga dokumentet på dess modersmål ska betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för några missförstånd eller feltolkningar som uppstår vid användning av denna översättning.
+Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, var vänlig notera att automatiska översättningar kan innehålla fel eller brister. Det ursprungliga dokumentet på dess modersmål bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för några missförstånd eller feltolkningar som uppstår till följd av användningen av denna översättning.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

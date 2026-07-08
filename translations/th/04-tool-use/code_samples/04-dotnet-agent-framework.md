@@ -1,101 +1,104 @@
-# 🛠️ การใช้งานเครื่องมือขั้นสูงกับ GitHub Models (.NET)
+# 🛠️ การใช้เครื่องมือขั้นสูงกับ Azure OpenAI (Responses API) (.NET)
 
 ## 📋 วัตถุประสงค์การเรียนรู้
 
-โน้ตบุ๊กนี้แสดงรูปแบบการผสานรวมเครื่องมือระดับองค์กรโดยใช้ Microsoft Agent Framework ใน .NET กับ GitHub Models คุณจะได้เรียนรู้การสร้างเอเจนต์ที่ซับซ้อนด้วยเครื่องมือเฉพาะทางหลายตัว โดยใช้ประโยชน์จากการพิมพ์ที่แข็งแกร่งของ C# และคุณสมบัติระดับองค์กรของ .NET
+สมุดบันทึกนี้สาธิตรูปแบบการผสานรวมเครื่องมือระดับองค์กรโดยใช้ Microsoft Agent Framework ใน .NET กับ Azure OpenAI (Responses API) คุณจะได้เรียนรู้การสร้างเอเย่นต์ที่ซับซ้อนด้วยหลายเครื่องมือเฉพาะทาง โดยใช้ประโยชน์จากการพิมพ์ข้อมูลแบบเข้มงวดของ C# และฟีเจอร์ระดับองค์กรของ .NET
 
-### ความสามารถของเครื่องมือขั้นสูงที่คุณจะเชี่ยวชาญ
+### ความสามารถขั้นสูงของเครื่องมือที่คุณจะเชี่ยวชาญ
 
-- 🔧 **สถาปัตยกรรมหลายเครื่องมือ**: การสร้างเอเจนต์ที่มีความสามารถเฉพาะทางหลายอย่าง
-- 🎯 **การดำเนินการเครื่องมือที่ปลอดภัยต่อประเภท**: ใช้ประโยชน์จากการตรวจสอบในช่วงคอมไพล์ของ C#
-- 📊 **รูปแบบเครื่องมือระดับองค์กร**: การออกแบบเครื่องมือที่พร้อมใช้งานในระดับการผลิตและการจัดการข้อผิดพลาด
-- 🔗 **การผสมผสานเครื่องมือ**: การรวมเครื่องมือเพื่อเวิร์กโฟลว์ทางธุรกิจที่ซับซ้อน
+- 🔧 **สถาปัตยกรรมหลายเครื่องมือ**: การสร้างเอเย่นต์ด้วยความสามารถเฉพาะทางหลายอย่าง
+- 🎯 **การรันเครื่องมือแบบปลอดภัยจากชนิดข้อมูล**: ใช้ประโยชน์จากการตรวจสอบเวลาคอมไพล์ของ C#
+- 📊 **รูปแบบเครื่องมือสำหรับองค์กร**: การออกแบบเครื่องมือที่พร้อมผลิตและการจัดการข้อผิดพลาด
+- 🔗 **การประกอบเครื่องมือ**: การรวมเครื่องมือสำหรับเวิร์กโฟลว์ธุรกิจที่ซับซ้อน
 
 ## 🎯 ประโยชน์ของสถาปัตยกรรมเครื่องมือ .NET
 
-### คุณสมบัติเครื่องมือระดับองค์กร
+### ฟีเจอร์เครื่องมือระดับองค์กร
 
-- **การตรวจสอบในช่วงคอมไพล์**: การพิมพ์ที่แข็งแกร่งช่วยให้มั่นใจถึงความถูกต้องของพารามิเตอร์เครื่องมือ
-- **Dependency Injection**: การผสานรวม IoC container สำหรับการจัดการเครื่องมือ
-- **รูปแบบ Async/Await**: การดำเนินการเครื่องมือแบบไม่บล็อกด้วยการจัดการทรัพยากรที่เหมาะสม
-- **การบันทึกแบบมีโครงสร้าง**: การผสานรวมการบันทึกในตัวสำหรับการติดตามการดำเนินการเครื่องมือ
+- **การตรวจสอบเวลาคอมไพล์**: การพิมพ์ข้อมูลแบบเข้มงวดเพื่อความถูกต้องของพารามิเตอร์เครื่องมือ
+- **การฉีดพึ่งพิง**: การผสาน IoC container สำหรับการจัดการเครื่องมือ
+- **รูปแบบ Async/Await**: การรันเครื่องมือโดยไม่บล็อกพร้อมการจัดการทรัพยากรอย่างเหมาะสม
+- **การบันทึกแบบมีโครงสร้าง**: การผสานรวมระบบบันทึกข้อมูลเพื่อเฝ้าติดตามการรันเครื่องมือ
 
-### รูปแบบที่พร้อมใช้งานในระดับการผลิต
+### รูปแบบที่พร้อมสำหรับการผลิต
 
-- **การจัดการข้อยกเว้น**: การจัดการข้อผิดพลาดที่ครอบคลุมด้วยข้อยกเว้นที่พิมพ์
-- **การจัดการทรัพยากร**: รูปแบบการกำจัดที่เหมาะสมและการจัดการหน่วยความจำ
-- **การตรวจสอบประสิทธิภาพ**: เมตริกในตัวและตัวนับประสิทธิภาพ
-- **การจัดการการกำหนดค่า**: การกำหนดค่าที่ปลอดภัยต่อประเภทพร้อมการตรวจสอบ
+- **การจัดการข้อยกเว้น**: การจัดการข้อผิดพลาดอย่างครอบคลุมด้วยข้อยกเว้นที่มีชนิดข้อมูล
+- **การจัดการทรัพยากร**: รูปแบบการปล่อยทรัพยากรและการจัดการหน่วยความจำที่ถูกต้อง
+- **การตรวจสอบประสิทธิภาพ**: เมตริกและเคาน์เตอร์ประสิทธิภาพที่รวมมาให้
+- **การจัดการการตั้งค่า**: การตั้งค่าที่ปลอดภัยจากชนิดข้อมูลพร้อมการตรวจสอบ
 
 ## 🔧 สถาปัตยกรรมทางเทคนิค
 
 ### ส่วนประกอบเครื่องมือหลักของ .NET
 
-- **Microsoft.Extensions.AI**: ชั้นนามธรรมของเครื่องมือแบบรวม
-- **Microsoft.Agents.AI**: การจัดการเครื่องมือระดับองค์กร
-- **การผสานรวม GitHub Models**: ไคลเอนต์ API ประสิทธิภาพสูงพร้อมการจัดการการเชื่อมต่อ
+- **Microsoft.Extensions.AI**: ชั้นนามธรรมเครื่องมือแบบรวมเดียว
+- **Microsoft.Agents.AI**: การประสานเครื่องมือระดับองค์กร
+- **Azure OpenAI (Responses API)**: ลูกค้า API ประสิทธิภาพสูงพร้อมการจัดการพูลการเชื่อมต่อ
 
-### ท่อการดำเนินการเครื่องมือ
+### แนวทางการรันเครื่องมือ
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[คำขอของผู้ใช้] --> B[การวิเคราะห์ของตัวแทน]
+    B --> C[การเลือกเครื่องมือ]
+    C --> D[การตรวจสอบชนิด]
+    B --> E[การผูกพารามิเตอร์]
+    E --> F[การดำเนินการเครื่องมือ]
     C --> F
-    F --> G[Result Processing]
+    F --> G[การประมวลผลผลลัพธ์]
     D --> G
-    G --> H[Response]
+    G --> H[การตอบกลับ]
 ```
 
-## 🛠️ หมวดหมู่และรูปแบบของเครื่องมือ
+## 🛠️ ประเภท & รูปแบบของเครื่องมือ
 
 ### 1. **เครื่องมือประมวลผลข้อมูล**
 
-- **การตรวจสอบอินพุต**: การพิมพ์ที่แข็งแกร่งด้วยคำอธิบายประกอบข้อมูล
-- **การดำเนินการแปลง**: การแปลงและการจัดรูปแบบข้อมูลที่ปลอดภัยต่อประเภท
+- **การตรวจสอบข้อมูลเข้า**: การพิมพ์ข้อมูลแบบเข้มงวดด้วยคำอธิบายข้อมูล
+- **การแปลงข้อมูล**: การแปลงและจัดรูปแบบข้อมูลแบบปลอดภัยจากชนิดข้อมูล
 - **ตรรกะทางธุรกิจ**: เครื่องมือคำนวณและวิเคราะห์เฉพาะโดเมน
-- **การจัดรูปแบบผลลัพธ์**: การสร้างการตอบสนองที่มีโครงสร้าง
+- **การจัดรูปแบบข้อมูลออก**: การสร้างผลลัพธ์ที่มีโครงสร้าง
 
-### 2. **เครื่องมือการผสานรวม**
+### 2. **เครื่องมือผสานรวม**
 
-- **ตัวเชื่อมต่อ API**: การผสานรวมบริการ RESTful ด้วย HttpClient
-- **เครื่องมือฐานข้อมูล**: การผสานรวม Entity Framework สำหรับการเข้าถึงข้อมูล
-- **การดำเนินการไฟล์**: การดำเนินการระบบไฟล์ที่ปลอดภัยพร้อมการตรวจสอบ
-- **บริการภายนอก**: รูปแบบการผสานรวมบริการของบุคคลที่สาม
+- **ตัวเชื่อม API**: การผสานรวมบริการ RESTful ด้วย HttpClient
+- **เครื่องมือฐานข้อมูล**: การผสาน Entity Framework สำหรับการเข้าถึงข้อมูล
+- **การดำเนินการไฟล์**: การดำเนินการระบบไฟล์อย่างปลอดภัยพร้อมการตรวจสอบ
+- **บริการภายนอก**: รูปแบบการผสานรวมบริการจากบุคคลที่สาม
 
-### 3. **เครื่องมืออรรถประโยชน์**
+### 3. **เครื่องมือสาธารณูปโภค**
 
-- **การประมวลผลข้อความ**: การจัดการและการจัดรูปแบบสตริง
-- **การดำเนินการวันที่/เวลา**: การคำนวณวันที่/เวลาที่คำนึงถึงวัฒนธรรม
-- **เครื่องมือคณิตศาสตร์**: การคำนวณที่แม่นยำและการดำเนินการทางสถิติ
-- **เครื่องมือตรวจสอบ**: การตรวจสอบกฎทางธุรกิจและการยืนยันข้อมูล
+- **การประมวลผลข้อความ**: เครื่องมือจัดการและจัดรูปแบบสตริง
+- **การดำเนินการวัน/เวลา**: การคำนวณวัน/เวลาที่รับรู้วัฒนธรรม
+- **เครื่องมือทางคณิตศาสตร์**: การคำนวณความแม่นยำและการดำเนินการทางสถิติ
+- **เครื่องมือการตรวจสอบ**: การตรวจสอบกฎธุรกิจและการยืนยันข้อมูล
 
-พร้อมที่จะสร้างเอเจนต์ระดับองค์กรด้วยความสามารถของเครื่องมือที่ทรงพลังและปลอดภัยต่อประเภทใน .NET แล้วหรือยัง? มาออกแบบโซลูชันระดับมืออาชีพกันเถอะ! 🏢⚡
+พร้อมที่จะสร้างเอเย่นต์ระดับองค์กรด้วยความสามารถเครื่องมือที่ปลอดภัยจากชนิดข้อมูลและทรงพลังใน .NET หรือยัง? มาสร้างโซลูชันระดับมืออาชีพกันเถอะ! 🏢⚡
 
 ## 🚀 เริ่มต้นใช้งาน
 
-### ข้อกำหนดเบื้องต้น
+### สิ่งที่ต้องเตรียม
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) หรือสูงกว่า
-- [โทเค็นการเข้าถึง GitHub Models API](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Azure subscription](https://azure.microsoft.com/free/) ที่มีทรัพยากร Azure OpenAI และการปรับใช้โมเดล
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — เข้าสู่ระบบด้วย `az login`
 
 ### ตัวแปรสภาพแวดล้อมที่จำเป็น
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# จากนั้นเข้าสู่ระบบเพื่อให้ AzureCliCredential สามารถรับโทเค็นได้
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# จากนั้นลงชื่อเข้าใช้เพื่อให้ AzureCliCredential สามารถรับโทเค็นได้
+az login
 ```
 
 ### ตัวอย่างโค้ด
@@ -121,14 +124,16 @@ dotnet run ./04-dotnet-agent-framework.cs
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ข้อจำกัดความรับผิดชอบ**:  
-เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้ว่าเราจะพยายามให้การแปลมีความถูกต้อง แต่โปรดทราบว่าการแปลอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาต้นทางควรถือเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ แนะนำให้ใช้บริการแปลภาษามนุษย์ที่เป็นมืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความผิดที่เกิดจากการใช้การแปลนี้
+**ปฏิเสธความรับผิดชอบ**:
+เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) ขณะที่เราพยายามให้ความถูกต้อง โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาต้นทางควรถูกพิจารณาเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ แนะนำให้ใช้การแปลโดยมนุษย์มืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดที่เกิดขึ้นจากการใช้การแปลนี้
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

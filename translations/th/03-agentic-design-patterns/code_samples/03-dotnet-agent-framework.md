@@ -1,145 +1,148 @@
-# 🎨 รูปแบบการออกแบบเชิงตัวแทนกับ GitHub Models (.NET)
+# 🎨 รูปแบบการออกแบบ Agentic กับ Azure OpenAI (Responses API) (.NET)
 
 ## 📋 วัตถุประสงค์การเรียนรู้
 
-ตัวอย่างนี้แสดงรูปแบบการออกแบบระดับองค์กรสำหรับการสร้างตัวแทนอัจฉริยะโดยใช้ Microsoft Agent Framework ใน .NET พร้อมการผสานรวม GitHub Models คุณจะได้เรียนรู้รูปแบบการออกแบบและแนวทางสถาปัตยกรรมที่ทำให้ตัวแทนพร้อมใช้งานในระดับการผลิต ดูแลรักษาได้ และขยายขนาดได้
+ตัวอย่างนี้แสดงรูปแบบการออกแบบระดับองค์กรสำหรับการสร้างเอเจนต์อัจฉริยะโดยใช้ Microsoft Agent Framework ใน .NET พร้อมการผนวก Azure OpenAI (Responses API) คุณจะได้เรียนรู้รูปแบบและแนวทางสถาปัตยกรรมระดับมืออาชีพที่ทำให้เอเจนต์พร้อมสำหรับผลิต, ดูแลรักษาง่าย และขยายตัวได้
 
 ### รูปแบบการออกแบบระดับองค์กร
 
-- 🏭 **Factory Pattern**: การสร้างตัวแทนที่เป็นมาตรฐานด้วย dependency injection
-- 🔧 **Builder Pattern**: การตั้งค่าและกำหนดค่าตัวแทนแบบ fluent
-- 🧵 **Thread-Safe Patterns**: การจัดการการสนทนาแบบพร้อมกัน
-- 📋 **Repository Pattern**: การจัดการเครื่องมือและความสามารถอย่างเป็นระเบียบ
+- 🏭 **รูปแบบโรงงาน (Factory Pattern)**: การสร้างเอเจนต์ที่มาตรฐานพร้อมการฉีดพึ่งพิง
+- 🔧 **รูปแบบผู้สร้าง (Builder Pattern)**: การกำหนดค่าและการตั้งค่าเอเจนต์แบบลื่นไหล
+- 🧵 **รูปแบบปลอดภัยต่อเธรด**: การจัดการการสนทนาแบบพร้อมกัน
+- 📋 **รูปแบบรีโพซิทอรี (Repository Pattern)**: การจัดการเครื่องมือและขีดความสามารถอย่างเป็นระเบียบ
 
-## 🎯 ประโยชน์ทางสถาปัตยกรรมเฉพาะ .NET
+## 🎯 ข้อดีด้านสถาปัตยกรรมเฉพาะ .NET
 
-### คุณสมบัติระดับองค์กร
+### ฟีเจอร์ระดับองค์กร
 
-- **Strong Typing**: การตรวจสอบความถูกต้องในขณะคอมไพล์และการสนับสนุน IntelliSense
-- **Dependency Injection**: การผสานรวม DI container ในตัว
-- **Configuration Management**: รูปแบบ IConfiguration และ Options
-- **Async/Await**: การสนับสนุนการเขียนโปรแกรมแบบ asynchronous ระดับสูง
+- **การพิมพ์อย่างเข้มงวด (Strong Typing)**: การตรวจสอบตอนคอมไพล์และการสนับสนุน IntelliSense
+- **การฉีดพึ่งพิง (Dependency Injection)**: การผนวกคอนเทนเนอร์ DI ในตัว
+- **การจัดการการกำหนดค่า**: รูปแบบ IConfiguration และ Options
+- **Async/Await**: สนับสนุนการเขียนโปรแกรมแบบอะซิงโครนัสระดับหนึ่ง
 
-### รูปแบบที่พร้อมใช้งานในระดับการผลิต
+### รูปแบบที่พร้อมสำหรับการผลิต
 
-- **Logging Integration**: การสนับสนุน ILogger และ structured logging
-- **Health Checks**: การตรวจสอบและวินิจฉัยในตัว
-- **Configuration Validation**: การพิมพ์ที่แข็งแกร่งด้วย data annotations
-- **Error Handling**: การจัดการข้อยกเว้นที่มีโครงสร้าง
+- **การผนวกการล็อก (Logging Integration)**: สนับสนุน ILogger และการล็อกแบบมีโครงสร้าง
+- **การตรวจสอบสุขภาพ (Health Checks)**: การตรวจสอบและวินิจฉัยในตัว
+- **การตรวจสอบการกำหนดค่า**: การพิมพ์อย่างเข้มงวดพร้อมการกำกับข้อมูล
+- **การจัดการข้อผิดพลาด (Error Handling)**: การบริหารข้อยกเว้นแบบมีโครงสร้าง
 
-## 🔧 สถาปัตยกรรมทางเทคนิค
+## 🔧 สถาปัตยกรรมเทคนิค
 
-### ส่วนประกอบหลักของ .NET
+### คอมโพเนนต์หลักของ .NET
 
-- **Microsoft.Extensions.AI**: การย่อส่วนบริการ AI แบบรวม
-- **Microsoft.Agents.AI**: เฟรมเวิร์กการจัดการตัวแทนระดับองค์กร
-- **GitHub Models Integration**: รูปแบบ API client ที่มีประสิทธิภาพสูง
-- **Configuration System**: การผสานรวม appsettings.json และ environment
+- **Microsoft.Extensions.AI**: นามธรรมบริการ AI แบบรวม
+- **Microsoft.Agents.AI**: เฟรมเวิร์กการประสานงานเอเจนต์ระดับองค์กร
+- **Azure OpenAI (Responses API)**: รูปแบบไคลเอนต์ API ประสิทธิภาพสูง
+- **ระบบกำหนดค่า**: appsettings.json และการผนวกสภาพแวดล้อม
 
 ### การนำรูปแบบการออกแบบไปใช้
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[ผู้สร้างตัวแทน]
+    B --> C[การกำหนดค่า]
+    C --> D[ทะเบียนเครื่องมือ]
+    D --> E[ตัวแทน AI]
 ```
 
-## 🏗️ รูปแบบระดับองค์กรที่แสดงให้เห็น
+## 🏗️ รูปแบบระดับองค์กรที่แสดง
 
-### 1. **Creational Patterns**
+### 1. **รูปแบบการสร้าง (Creational Patterns)**
 
-- **Agent Factory**: การสร้างตัวแทนแบบรวมศูนย์ด้วยการกำหนดค่าที่สอดคล้องกัน
-- **Builder Pattern**: API แบบ fluent สำหรับการกำหนดค่าตัวแทนที่ซับซ้อน
-- **Singleton Pattern**: การจัดการทรัพยากรและการกำหนดค่าที่ใช้ร่วมกัน
-- **Dependency Injection**: การเชื่อมโยงที่หลวมและการทดสอบได้
+- **Agent Factory**: การสร้างเอเจนต์แบบศูนย์กลางพร้อมการกำหนดค่าที่สอดคล้องกัน
+- **Builder Pattern**: API แบบลื่นไหลสำหรับการกำหนดค่าเอเจนต์ที่ซับซ้อน
+- **Singleton Pattern**: การแชร์ทรัพยากรและการจัดการการกำหนดค่า
+- **Dependency Injection**: การผูกมัดอย่างหลวมและการทดสอบได้
 
-### 2. **Behavioral Patterns**
+### 2. **รูปแบบพฤติกรรม (Behavioral Patterns)**
 
-- **Strategy Pattern**: กลยุทธ์การดำเนินการเครื่องมือที่เปลี่ยนแปลงได้
-- **Command Pattern**: การดำเนินการตัวแทนที่ถูกห่อหุ้มด้วย undo/redo
-- **Observer Pattern**: การจัดการวงจรชีวิตตัวแทนแบบขับเคลื่อนด้วยเหตุการณ์
-- **Template Method**: เวิร์กโฟลว์การดำเนินการตัวแทนที่เป็นมาตรฐาน
+- **Strategy Pattern**: กลยุทธ์การดำเนินการเครื่องมือที่เปลี่ยนได้
+- **Command Pattern**: การดำเนินการเอเจนต์ที่ห่อหุ้มพร้อม undo/redo
+- **Observer Pattern**: การจัดการวงจรชีวิตของเอเจนต์แบบขับเคลื่อนด้วยเหตุการณ์
+- **Template Method**: เวิร์กโฟลว์การดำเนินการเอเจนต์ที่ได้มาตรฐาน
 
-### 3. **Structural Patterns**
+### 3. **รูปแบบโครงสร้าง (Structural Patterns)**
 
-- **Adapter Pattern**: ชั้นการผสานรวม API ของ GitHub Models
-- **Decorator Pattern**: การเพิ่มความสามารถของตัวแทน
-- **Facade Pattern**: อินเทอร์เฟซการโต้ตอบตัวแทนที่ง่ายขึ้น
-- **Proxy Pattern**: การโหลดแบบ lazy และการแคชเพื่อประสิทธิภาพ
+- **Adapter Pattern**: เลเยอร์ผนวก Azure OpenAI (Responses API)
+- **Decorator Pattern**: การเพิ่มขีดความสามารถของเอเจนต์
+- **Facade Pattern**: อินเทอร์เฟซการโต้ตอบเอเจนต์ที่เรียบง่าย
+- **Proxy Pattern**: การโหลดแบบขี้เกียจและแคชเพื่อประสิทธิภาพ
 
 ## 📚 หลักการออกแบบ .NET
 
 ### หลักการ SOLID
 
-- **Single Responsibility**: แต่ละส่วนประกอบมีวัตถุประสงค์ที่ชัดเจน
+- **Single Responsibility**: คอมโพเนนต์แต่ละตัวมีวัตถุประสงค์เดียวชัดเจน
 - **Open/Closed**: ขยายได้โดยไม่ต้องแก้ไข
-- **Liskov Substitution**: การใช้งานเครื่องมือที่ใช้พื้นฐานจากอินเทอร์เฟซ
-- **Interface Segregation**: อินเทอร์เฟซที่มุ่งเน้นและสอดคล้อง
-- **Dependency Inversion**: พึ่งพาการย่อส่วน ไม่ใช่การใช้งานจริง
+- **Liskov Substitution**: การใช้อินเทอร์เฟซสำหรับการใช้งานเครื่องมือ
+- **Interface Segregation**: อินเทอร์เฟซที่เน้นและเกาะกลุ่มกัน
+- **Dependency Inversion**: ขึ้นอยู่กับนามธรรม ไม่ใช่รายละเอียด
 
-### สถาปัตยกรรมที่สะอาด
+### สถาปัตยกรรมสะอาด (Clean Architecture)
 
-- **Domain Layer**: การย่อส่วนตัวแทนและเครื่องมือหลัก
-- **Application Layer**: การจัดการตัวแทนและเวิร์กโฟลว์
-- **Infrastructure Layer**: การผสานรวม GitHub Models และบริการภายนอก
-- **Presentation Layer**: การโต้ตอบกับผู้ใช้และการจัดรูปแบบการตอบสนอง
+- **Domain Layer**: นามธรรมเอเจนต์และเครื่องมือหลัก
+- **Application Layer**: การประสานงานเอเจนต์และเวิร์กโฟลว์
+- **Infrastructure Layer**: การผนวก Azure OpenAI (Responses API) และบริการภายนอก
+- **Presentation Layer**: การโต้ตอบผู้ใช้และการจัดรูปแบบการตอบกลับ
 
-## 🔒 ข้อควรพิจารณาระดับองค์กร
+## 🔒 ข้อพิจารณาระดับองค์กร
 
 ### ความปลอดภัย
 
-- **Credential Management**: การจัดการ API key อย่างปลอดภัยด้วย IConfiguration
-- **Input Validation**: การพิมพ์ที่แข็งแกร่งและการตรวจสอบด้วย data annotation
-- **Output Sanitization**: การประมวลผลและกรองการตอบสนองอย่างปลอดภัย
-- **Audit Logging**: การติดตามการดำเนินการอย่างครอบคลุม
+- **การจัดการข้อมูลรับรอง**: การจัดการคีย์ API อย่างปลอดภัยด้วย IConfiguration
+- **การตรวจสอบข้อมูลนำเข้า**: การพิมพ์อย่างเข้มงวดและการตรวจสอบด้วยการกำกับข้อมูล
+- **การทำความสะอาดข้อมูลส่งออก**: การประมวลผลและกรองการตอบกลับอย่างปลอดภัย
+- **การบันทึกการตรวจสอบ**: การติดตามการดำเนินงานอย่างครบถ้วน
 
 ### ประสิทธิภาพ
 
-- **Async Patterns**: การดำเนินการ I/O แบบไม่บล็อก
-- **Connection Pooling**: การจัดการ HTTP client อย่างมีประสิทธิภาพ
-- **Caching**: การแคชการตอบสนองเพื่อปรับปรุงประสิทธิภาพ
-- **Resource Management**: รูปแบบการกำจัดและการทำความสะอาดที่เหมาะสม
+- **รูปแบบอะซิงโครนัส**: การดำเนินการ I/O แบบไม่บล็อก
+- **การจัดกลุ่มการเชื่อมต่อ**: การจัดการไคลเอนต์ HTTP อย่างมีประสิทธิภาพ
+- **การแคช**: การแคชการตอบกลับเพื่อประสิทธิภาพที่ดีขึ้น
+- **การจัดการทรัพยากร**: รูปแบบการกำจัดและทำความสะอาดที่เหมาะสม
 
-### การขยายขนาด
+### ความสามารถในการขยาย
 
-- **Thread Safety**: การสนับสนุนการดำเนินการตัวแทนแบบพร้อมกัน
-- **Resource Pooling**: การใช้ทรัพยากรอย่างมีประสิทธิภาพ
-- **Load Management**: การจำกัดอัตราและการจัดการ backpressure
-- **Monitoring**: เมตริกประสิทธิภาพและการตรวจสอบสุขภาพ
+- **ความปลอดภัยของเธรด**: สนับสนุนการดำเนินการเอเจนต์พร้อมกัน
+- **การจัดกลุ่มทรัพยากร**: การใช้ทรัพยากรอย่างมีประสิทธิภาพ
+- **การจัดการโหลด**: การจำกัดอัตราและการจัดการแรงกดดันกลับ
+- **การตรวจสอบ**: ตัวชี้วัดประสิทธิภาพและการตรวจสอบสุขภาพ
 
-## 🚀 การปรับใช้ในระดับการผลิต
+## 🚀 การนำไปใช้จริง
 
-- **Configuration Management**: การตั้งค่าที่เฉพาะเจาะจงสำหรับ environment
-- **Logging Strategy**: การบันทึกแบบมีโครงสร้างพร้อม ID การเชื่อมโยง
-- **Error Handling**: การจัดการข้อยกเว้นทั่วโลกพร้อมการกู้คืนที่เหมาะสม
-- **Monitoring**: Application insights และตัวนับประสิทธิภาพ
-- **Testing**: รูปแบบการทดสอบหน่วย การทดสอบการผสานรวม และการทดสอบโหลด
+- **การจัดการการกำหนดค่า**: การตั้งค่าสภาพแวดล้อมเฉพาะ
+- **กลยุทธ์การล็อก**: การล็อกแบบมีโครงสร้างพร้อมรหัสเชื่อมโยง
+- **การจัดการข้อผิดพลาด**: การจัดการข้อยกเว้นทั่วโลกพร้อมการกู้คืนอย่างเหมาะสม
+- **การตรวจสอบ**: Application Insights และตัวนับประสิทธิภาพ
+- **การทดสอบ**: รูปแบบการทดสอบหน่วย, การทดสอบแบบผสาน และการทดสอบโหลด
 
-พร้อมที่จะสร้างตัวแทนอัจฉริยะระดับองค์กรด้วย .NET แล้วหรือยัง? มาสร้างสิ่งที่แข็งแกร่งกันเถอะ! 🏢✨
+พร้อมที่จะสร้างเอเจนต์อัจฉริยะระดับองค์กรด้วย .NET แล้วหรือยัง? มาออกแบบสิ่งที่แข็งแกร่งกันเลย! 🏢✨
 
 ## 🚀 เริ่มต้นใช้งาน
 
 ### ข้อกำหนดเบื้องต้น
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) หรือสูงกว่า
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [บัญชี Azure](https://azure.microsoft.com/free/) ที่มีทรัพยากร Azure OpenAI และการนำแบบจำลองไปใช้
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — เข้าสู่ระบบด้วย `az login`
 
 ### ตัวแปรสภาพแวดล้อมที่จำเป็น
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# จากนั้นเข้าสู่ระบบเพื่อให้ AzureCliCredential สามารถรับโทเค็นได้
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# จากนั้นเข้าสู่ระบบเพื่อให้ AzureCliCredential สามารถรับโทเค็นได้
+az login
 ```
 
 ### ตัวอย่างโค้ด
@@ -158,21 +161,23 @@ chmod +x ./03-dotnet-agent-framework.cs
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-ดู [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) สำหรับโค้ดทั้งหมด
+ดู [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) สำหรับโค้ดเต็ม
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,11 +240,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ข้อจำกัดความรับผิดชอบ**:  
-เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้ว่าเราจะพยายามให้การแปลมีความถูกต้อง แต่โปรดทราบว่าการแปลอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาดั้งเดิมควรถือเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ ขอแนะนำให้ใช้บริการแปลภาษามืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความผิดที่เกิดจากการใช้การแปลนี้
+**ปฏิเสธความรับผิดชอบ**:
+เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) ขณะที่เราพยายามให้ความถูกต้อง โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาต้นทางควรถูกพิจารณาเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ แนะนำให้ใช้การแปลโดยมนุษย์มืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดที่เกิดขึ้นจากการใช้การแปลนี้
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

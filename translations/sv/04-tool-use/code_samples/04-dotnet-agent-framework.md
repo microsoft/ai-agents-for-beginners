@@ -1,101 +1,104 @@
-# 🛠️ Avancerad Verktygsanvändning med GitHub-modeller (.NET)
+# 🛠️ Avancerad verktygsanvändning med Azure OpenAI (Responses API) (.NET)
 
-## 📋 Inlärningsmål
+## 📋 Lärandemål
 
-Den här notebooken visar integrationsmönster för verktyg på företagsnivå med hjälp av Microsoft Agent Framework i .NET tillsammans med GitHub-modeller. Du kommer att lära dig att bygga sofistikerade agenter med flera specialiserade verktyg, och dra nytta av C#'s starka typning och .NET:s företagsfunktioner.
+Denna anteckningsbok visar företagsklassade verktygsintegrationsmönster med Microsoft Agent Framework i .NET med Azure OpenAI (Responses API). Du kommer att lära dig att bygga sofistikerade agenter med flera specialiserade verktyg, där du utnyttjar C#:s starka typning och .NET:s företagsfunktioner.
 
-### Avancerade Verktygsfunktioner Du Kommer Behärska
+### Avancerade verktygsegenskaper du kommer att behärska
 
-- 🔧 **Multi-verktygsarkitektur**: Bygga agenter med flera specialiserade funktioner
-- 🎯 **Typ-säker verktygsanvändning**: Utnyttja C#'s validering vid kompilering
-- 📊 **Företagsmönster för verktyg**: Produktionsklara verktygsdesign och felhantering
-- 🔗 **Verktygskomposition**: Kombinera verktyg för komplexa affärsarbetsflöden
+- 🔧 **Arkitektur med flera verktyg**: Bygga agenter med flera specialiserade kapabiliteter
+- 🎯 **Typ-säker verktygsutförande**: Utnyttja C#:s kompileringstidvalidering
+- 📊 **Företagsverktygsmönster**: Produktionsfärdig verktygsdesign och felhantering
+- 🔗 **Verktygskomposition**: Kombinera verktyg för komplexa affärsflöden
 
-## 🎯 Fördelar med .NET Verktygsarkitektur
+## 🎯 Fördelar med .NET verktygsarkitektur
 
-### Funktioner för Företagsverktyg
+### Företagsverktygsegenskaper
 
-- **Validering vid kompilering**: Stark typning säkerställer korrekthet i verktygsparametrar
-- **Dependency Injection**: IoC-containerintegration för verktygshantering
-- **Async/Await-mönster**: Icke-blockerande verktygsanvändning med korrekt resursförvaltning
-- **Strukturerad loggning**: Inbyggd loggningsintegration för övervakning av verktygsanvändning
+- **Kompileringstidvalidering**: Stark typning säkerställer verktygsparametrars korrekthet
+- **Dependency Injection**: IoC-kontainerintegration för verktygshantering
+- **Async/Await-mönster**: Icke-blockerande verktygsutförande med korrekt resurshantering
+- **Strukturerad loggning**: Inbyggd loggningsintegration för övervakning av verktygsutförande
 
-### Produktionsklara Mönster
+### Produktionsfärdiga mönster
 
-- **Felhantering**: Omfattande felhantering med typade undantag
-- **Resurshantering**: Korrekt hantering av resurser och minnesförvaltning
+- **Undantagshantering**: Omfattande felhantering med typade undantag
+- **Resurshantering**: Korrekt destruktionsmönster och minneshantering
 - **Prestandaövervakning**: Inbyggda mätvärden och prestandaräknare
 - **Konfigurationshantering**: Typ-säker konfiguration med validering
 
-## 🔧 Teknisk Arkitektur
+## 🔧 Teknisk arkitektur
 
-### Kärnkomponenter i .NET Verktyg
+### Kärnkomponenter för .NET-verktyg
 
-- **Microsoft.Extensions.AI**: Enhetligt abstraktionslager för verktyg
-- **Microsoft.Agents.AI**: Verktygsorkestrering på företagsnivå
-- **GitHub-modeller Integration**: Högpresterande API-klient med anslutningspoolning
+- **Microsoft.Extensions.AI**: Enhetligt verktygsabstraktionslager
+- **Microsoft.Agents.AI**: Företagsklassad verktygsorkestrering
+- **Azure OpenAI (Responses API)**: Höghastighets API-klient med anslutningspoolning
 
-### Verktygsanvändningspipeline
+### Verktygsutförandepipeline
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Användarförfrågan] --> B[Agentanalys]
+    B --> C[Verktygsval]
+    C --> D[Typvalidering]
+    B --> E[Parameterbindning]
+    E --> F[Verktygsutförande]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Resultatbehandling]
     D --> G
-    G --> H[Response]
+    G --> H[Svar]
 ```
 
-## 🛠️ Verktygskategorier & Mönster
+## 🛠️ Verktygskategorier & mönster
 
-### 1. **Databehandlingsverktyg**
+### 1. **Datahanteringsverktyg**
 
-- **Inmatningsvalidering**: Stark typning med dataannoteringar
+- **Indatavalidering**: Stark typning med dataanpassningar
 - **Transformationsoperationer**: Typ-säker datakonvertering och formatering
-- **Affärslogik**: Domänspecifika beräkningar och analysverktyg
-- **Utdataformatering**: Generering av strukturerade svar
+- **Affärslogik**: Domänspecifika beräknings- och analysverktyg
+- **Utdataformatering**: Strukturerad svarsgenerering
 
 ### 2. **Integrationsverktyg**
 
-- **API-anslutningar**: RESTful-tjänsteintegration med HttpClient
-- **Databasverktyg**: Entity Framework-integration för dataåtkomst
-- **Filoperationer**: Säker filsystemhantering med validering
-- **Externa tjänster**: Mönster för integration av tredjepartstjänster
+- **API-anslutare**: RESTful tjänsteintegration med HttpClient
+- **Databasverktyg**: Entity Framework-integrering för dataåtkomst
+- **Filoperationer**: Säkra filsystemoperationer med validering
+- **Externa tjänster**: Integrationsmönster för tredjepartstjänster
 
-### 3. **Hjälpverktyg**
+### 3. **Verktygsverktyg**
 
-- **Textbehandling**: Strängmanipulation och formateringsverktyg
-- **Datum/tidsoperationer**: Kulturmedvetna datum/tidsberäkningar
-- **Matematiska verktyg**: Precisionsberäkningar och statistiska operationer
-- **Valideringsverktyg**: Validering av affärsregler och dataverifiering
+- **Textbearbetning**: Strängmanipulations- och formateringsverktyg
+- **Datum-/Tidsoperationer**: Kulturkänsliga datum-/tidberäkningar
+- **Matematiska verktyg**: Precis beräkningar och statistiska operationer
+- **Valideringsverktyg**: Affärsregelvalidering och dataverifiering
 
-Redo att bygga agenter på företagsnivå med kraftfulla, typ-säkra verktygsfunktioner i .NET? Låt oss skapa professionella lösningar! 🏢⚡
+Redo att bygga företagsklassade agenter med kraftfulla, typ-säkra verktygsegenskaper i .NET? Låt oss arkitektera professionella lösningar! 🏢⚡
 
-## 🚀 Kom igång
+## 🚀 Komma igång
 
 ### Förutsättningar
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) eller senare
-- [GitHub Models API åtkomsttoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) eller högre
+- En [Azure-prenumeration](https://azure.microsoft.com/free/) med en Azure OpenAI-resurs och en modelldistribution
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — logga in med `az login`
 
-### Nödvändiga Miljövariabler
+### Nödvändiga miljövariabler
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Logga in sedan så att AzureCliCredential kan hämta en token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Logga in så att AzureCliCredential kan hämta en token
+az login
 ```
 
 ### Exempelkod
@@ -108,27 +111,29 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Eller med hjälp av dotnet CLI:
+Eller med dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Se [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) för den kompletta koden.
+Se [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) för hela koden.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Ansvarsfriskrivning**:  
-Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, bör du vara medveten om att automatiserade översättningar kan innehålla fel eller felaktigheter. Det ursprungliga dokumentet på dess modersmål bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för eventuella missförstånd eller feltolkningar som uppstår vid användning av denna översättning.
+**Ansvarsfriskrivning**:
+Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, var vänlig notera att automatiska översättningar kan innehålla fel eller brister. Det ursprungliga dokumentet på dess modersmål bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för några missförstånd eller feltolkningar som uppstår till följd av användningen av denna översättning.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

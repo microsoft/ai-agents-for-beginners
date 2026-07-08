@@ -1,39 +1,40 @@
-# 🎯 Planering och designmönster med GitHub-modeller (.NET)
+# 🎯 Planering och designmönster med Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Lärandemål
 
-Den här notebooken demonstrerar företagsklassade planerings- och designmönster för att bygga intelligenta agenter med Microsoft Agent Framework i .NET med GitHub-modeller. Du kommer att lära dig att skapa agenter som kan bryta ner komplexa problem, planera lösningar i flera steg och utföra sofistikerade arbetsflöden med .NET:s företagsfunktioner.
+Detta anteckningsbok visar företagsklassade planerings- och designmönster för att bygga intelligenta agenter med Microsoft Agent Framework i .NET med Azure OpenAI (Responses API). Du lär dig att skapa agenter som kan dela upp komplexa problem, planera flerstegs-lösningar och utföra sofistikerade arbetsflöden med .NET:s företagsfunktioner.
 
 ## ⚙️ Förutsättningar och installation
 
 **Utvecklingsmiljö:**
-- .NET 9.0 SDK eller högre
+- .NET 9.0 SDK eller senare
 - Visual Studio 2022 eller VS Code med C#-tillägg
-- Åtkomst till GitHub Models API
+- En Azure-prenumeration med en Azure OpenAI-resurs och en modelldistribution
+- Azure CLI — logga in med `az login`
 
 **Nödvändiga beroenden:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **Miljökonfiguration (.env-fil):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
 ```
 
 ## Köra koden
 
-Den här lektionen inkluderar en .NET Single File App-implementation. För att köra den:
+Denna lektion inkluderar en .NET Single File App-implementation. För att köra den:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Gör filen körbar (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Kör applikationen
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -45,19 +46,19 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## Kodimplementation
 
-Den kompletta implementationen finns i `07-dotnet-agent-framework.cs`, som demonstrerar:
+Den kompletta implementeringen finns i `07-dotnet-agent-framework.cs`, som demonstrerar:
 
 - Laddning av miljökonfiguration med DotNetEnv
-- Konfigurering av OpenAI-klient för GitHub-modeller
+- Konfigurering av Azure OpenAI-klienten för Responses API
 - Definiering av strukturerade datamodeller (Plan och TravelPlan) med JSON-serialisering
-- Skapande av en AI-agent med strukturerad output med hjälp av JSON-schema
+- Skapande av en AI-agent med strukturerad output med JSON-schema
 - Utförande av planeringsförfrågningar med typ-säkra svar
 
-## Viktiga koncept
+## Nyckelkoncept
 
 ### Strukturerad planering med typ-säkra modeller
 
-Agenten använder C#-klasser för att definiera strukturen på planeringsutdata:
+Agenten använder C#-klasser för att definiera strukturen för planeringsutdata:
 
 ```csharp
 public class Plan
@@ -79,9 +80,9 @@ public class TravelPlan
 }
 ```
 
-### JSON-schema för strukturerade utdata
+### JSON-schema för strukturerad output
 
-Agenten är konfigurerad att returnera svar som matchar TravelPlan-schemat:
+Agenten är konfigurerad att returnera svar som överensstämmer med TravelPlan-schemat:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
@@ -100,18 +101,20 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 
 Agenten fungerar som en koordinator och delegerar uppgifter till specialiserade underagenter:
 
-- FlightBooking: För att boka flyg och tillhandahålla flyginformation
-- HotelBooking: För att boka hotell och tillhandahålla hotellinformation
-- CarRental: För att boka bilar och tillhandahålla biluthyrningsinformation
-- ActivitiesBooking: För att boka aktiviteter och tillhandahålla aktivitetsinformation
+- FlightBooking: För bokning av flyg och tillhandahållande av flyginformation
+- HotelBooking: För bokning av hotell och tillhandahållande av hotellinformation
+- CarRental: För bokning av bilar och tillhandahållande av biluthyrningsinformation
+- ActivitiesBooking: För bokning av aktiviteter och tillhandahållande av aktivitetsinformation
 - DestinationInfo: För att tillhandahålla information om destinationer
 - DefaultAgent: För att hantera allmänna förfrågningar
 
 ## Förväntad output
 
-När du kör agenten med en reseplaneringsförfrågan kommer den att analysera förfrågan och generera en strukturerad plan med lämpliga uppgiftsfördelningar till specialiserade agenter, formaterad som JSON som följer TravelPlan-schemat.
+När du kör agenten med en reseplaneringsförfrågan kommer den att analysera förfrågan och generera en strukturerad plan med lämpliga uppgiftsfördelningar till specialiserade agenter, formaterad som JSON i enlighet med TravelPlan-schemat.
 
 ---
 
-**Ansvarsfriskrivning**:  
-Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, bör det noteras att automatiserade översättningar kan innehålla fel eller felaktigheter. Det ursprungliga dokumentet på dess ursprungliga språk bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för eventuella missförstånd eller feltolkningar som uppstår vid användning av denna översättning.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Ansvarsfriskrivning**:
+Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, var vänlig notera att automatiska översättningar kan innehålla fel eller brister. Det ursprungliga dokumentet på dess modersmål bör betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för några missförstånd eller feltolkningar som uppstår till följd av användningen av denna översättning.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

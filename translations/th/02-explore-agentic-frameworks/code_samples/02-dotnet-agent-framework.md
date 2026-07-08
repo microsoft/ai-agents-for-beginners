@@ -1,83 +1,85 @@
-# 🔍 สำรวจ Microsoft Agent Framework - Basic Agent (.NET)
+# 🔍 การสำรวจ Microsoft Agent Framework - ตัวแทนพื้นฐาน (.NET)
 
 ## 📋 วัตถุประสงค์การเรียนรู้
 
-ตัวอย่างนี้จะช่วยให้คุณเข้าใจแนวคิดพื้นฐานของ Microsoft Agent Framework ผ่านการสร้างตัวแทน (Agent) แบบง่ายใน .NET คุณจะได้เรียนรู้รูปแบบการทำงานของตัวแทนและเข้าใจวิธีการทำงานของตัวแทนอัจฉริยะในเบื้องหลังโดยใช้ C# และระบบนิเวศ .NET
+ตัวอย่างนี้สำรวจแนวคิดพื้นฐานของ Microsoft Agent Framework ผ่านการใช้งานตัวแทนพื้นฐานใน .NET คุณจะได้เรียนรู้รูปแบบตัวแทนหลักและเข้าใจวิธีที่ตัวแทนอัจฉริยะทำงานภายใต้พื้นผิวโดยใช้ C# และระบบนิเวศ .NET
 
-### สิ่งที่คุณจะได้เรียนรู้
+### สิ่งที่คุณจะค้นพบ
 
-- 🏗️ **สถาปัตยกรรมตัวแทน**: เข้าใจโครงสร้างพื้นฐานของตัวแทน AI ใน .NET  
-- 🛠️ **การรวมเครื่องมือ**: วิธีที่ตัวแทนใช้ฟังก์ชันภายนอกเพื่อเพิ่มความสามารถ  
-- 💬 **การไหลของการสนทนา**: การจัดการการสนทนาแบบหลายรอบและบริบทด้วยการจัดการเธรด  
-- 🔧 **รูปแบบการตั้งค่า**: แนวทางปฏิบัติที่ดีที่สุดสำหรับการตั้งค่าและการจัดการตัวแทนใน .NET  
+- 🏗️ **สถาปัตยกรรมตัวแทน**: การเข้าใจโครงสร้างพื้นฐานของตัวแทน AI ใน .NET  
+- 🛠️ **การผสานเครื่องมือ**: วิธีที่ตัวแทนใช้ฟังก์ชันภายนอกเพื่อขยายความสามารถ  
+- 💬 **การไหลของการสนทนา**: การจัดการการสนทนาหลายรอบและบริบทด้วยการจัดการเธรด  
+- 🔧 **รูปแบบการกำหนดค่า**: แนวทางปฏิบัติที่ดีที่สุดสำหรับการตั้งค่าและจัดการตัวแทนใน .NET  
 
-## 🎯 แนวคิดสำคัญที่ครอบคลุม
+## 🎯 แนวคิดหลักที่ครอบคลุม
 
 ### หลักการของ Agentic Framework
 
-- **ความเป็นอิสระ**: วิธีที่ตัวแทนตัดสินใจด้วยตัวเองโดยใช้การสรุป AI ใน .NET  
-- **การตอบสนอง**: การตอบสนองต่อการเปลี่ยนแปลงในสิ่งแวดล้อมและการป้อนข้อมูลจากผู้ใช้  
-- **การริเริ่ม**: การดำเนินการตามเป้าหมายและบริบท  
-- **ความสามารถทางสังคม**: การโต้ตอบผ่านภาษาธรรมชาติด้วยเธรดการสนทนา  
+- **อิสระ**: วิธีที่ตัวแทนตัดสินใจอย่างอิสระโดยใช้การนามธรรม AI ของ .NET  
+- **การตอบสนอง**: การตอบสนองต่อการเปลี่ยนแปลงของสภาพแวดล้อมและข้อมูลผู้ใช้  
+- **เชิงรุก**: การริเริ่มตามเป้าหมายและบริบท  
+- **ความสามารถทางสังคม**: การโต้ตอบผ่านภาษาธรรมชาติกับเธรดการสนทนา  
 
 ### ส่วนประกอบทางเทคนิค
 
-- **AIAgent**: การจัดการตัวแทนหลักและการสนทนา (.NET)  
-- **ฟังก์ชันเครื่องมือ**: เพิ่มความสามารถของตัวแทนด้วยวิธีการและแอตทริบิวต์ใน C#  
-- **การรวม OpenAI**: ใช้โมเดลภาษาโดยผ่าน API มาตรฐานของ .NET  
-- **การตั้งค่าที่ปลอดภัย**: การจัดการคีย์ API ตามสิ่งแวดล้อม  
+- **AIAgent**: การประสานงานหลักของตัวแทนและการจัดการการสนทนา (.NET)  
+- **ฟังก์ชันเครื่องมือ**: ขยายความสามารถของตัวแทนด้วยวิธีการและแอตทริบิวต์ C#  
+- **การผสาน Azure OpenAI**: ใช้ประโยชน์จากโมเดลภาษาโดยผ่าน Azure OpenAI Responses API  
+- **การกำหนดค่าที่ปลอดภัย**: การจัดการจุดสิ้นสุดตามสภาพแวดล้อม  
 
-## 🔧 เทคโนโลยีที่ใช้
+## 🔧 เทคโนโลยีทางเทคนิค
 
 ### เทคโนโลยีหลัก
 
 - Microsoft Agent Framework (.NET)  
-- การรวม API ของ GitHub Models  
-- รูปแบบไคลเอนต์ที่เข้ากันได้กับ OpenAI  
-- การตั้งค่าตามสิ่งแวดล้อมด้วย DotNetEnv  
+- การผสาน Azure OpenAI (Responses API)  
+- รูปแบบไคลเอนต์ Azure.AI.OpenAI  
+- การกำหนดค่าตามสภาพแวดล้อมด้วย DotNetEnv  
 
 ### ความสามารถของตัวแทน
 
 - ความเข้าใจและการสร้างภาษาธรรมชาติ  
-- การเรียกฟังก์ชันและการใช้เครื่องมือด้วยแอตทริบิวต์ใน C#  
-- การตอบสนองที่คำนึงถึงบริบทด้วยเธรดการสนทนา  
-- สถาปัตยกรรมที่ขยายได้ด้วยรูปแบบการฉีดพึ่งพา  
+- การเรียกใช้ฟังก์ชันและการใช้เครื่องมือด้วยแอตทริบิวต์ C#  
+- การตอบสนองที่ตระหนักถึงบริบทด้วยเธรดการสนทนา  
+- สถาปัตยกรรมที่สามารถขยายได้ด้วยรูปแบบการฉีดพึ่งพิง  
 
 ## 📚 การเปรียบเทียบ Framework
 
-ตัวอย่างนี้แสดงให้เห็นถึงวิธีการของ Microsoft Agent Framework เมื่อเปรียบเทียบกับ Framework ตัวแทนอื่น ๆ:
+ตัวอย่างนี้แสดงวิธีการของ Microsoft Agent Framework เทียบกับเฟรมเวิร์กตัวแทนอื่น ๆ:
 
-| คุณสมบัติ | Microsoft Agent Framework | Framework อื่น ๆ |
-|-----------|---------------------------|------------------|
-| **การรวมระบบ** | ระบบนิเวศของ Microsoft โดยตรง | ความเข้ากันได้หลากหลาย |
+| คุณลักษณะ | Microsoft Agent Framework | เฟรมเวิร์กอื่น ๆ |
+|---------|-------------------------|------------------|
+| **การผสานรวม** | ระบบนิเวศ Microsoft โดยตรง | ความเข้ากันได้หลากหลาย |
 | **ความเรียบง่าย** | API ที่สะอาดและเข้าใจง่าย | การตั้งค่าที่ซับซ้อนบ่อยครั้ง |
-| **การขยายตัว** | การรวมเครื่องมือที่ง่าย | ขึ้นอยู่กับ Framework |
-| **พร้อมสำหรับองค์กร** | สร้างเพื่อการใช้งานจริง | แตกต่างกันตาม Framework |
+| **การขยายตัว** | การผสานเครื่องมือที่ง่าย | ขึ้นอยู่กับเฟรมเวิร์ก |
+| **พร้อมสำหรับองค์กร** | สร้างขึ้นสำหรับการผลิต | แตกต่างตามเฟรมเวิร์ก |
 
 ## 🚀 เริ่มต้นใช้งาน
 
-### สิ่งที่ต้องเตรียม
+### ความต้องการเบื้องต้น
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) หรือเวอร์ชันที่สูงกว่า  
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) หรือสูงกว่า  
+- บัญชี [Azure subscription](https://azure.microsoft.com/free/) ที่มีทรัพยากร Azure OpenAI และการปรับใช้โมเดล  
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — ลงชื่อเข้าใช้ด้วย `az login`  
 
-### ตัวแปรสิ่งแวดล้อมที่จำเป็น
+### ตัวแปรสภาพแวดล้อมที่ต้องการ
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# จากนั้นลงชื่อเข้าใช้เพื่อให้ AzureCliCredential สามารถรับโทเค็นได้
+az login
 ```
   
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# จากนั้นลงชื่อเข้าใช้เพื่อให้ AzureCliCredential สามารถรับโทเค็นได้
+az login
 ```
   
-
 ### ตัวอย่างโค้ด
 
 เพื่อรันตัวอย่างโค้ด,
@@ -94,21 +96,23 @@ chmod +x ./02-dotnet-agent-framework.cs
 dotnet run ./02-dotnet-agent-framework.cs
 ```
   
-ดู [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) สำหรับโค้ดทั้งหมด  
+ดู [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) สำหรับโค้ดฉบับสมบูรณ์
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,11 +175,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -225,25 +215,24 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 }
 ```
   
+## 🎓 ประเด็นสำคัญที่ควรจดจำ
 
-## 🎓 สิ่งที่ควรจดจำ
-
-1. **สถาปัตยกรรมตัวแทน**: Microsoft Agent Framework ให้วิธีการที่สะอาดและปลอดภัยในการสร้างตัวแทน AI ใน .NET  
-2. **การรวมเครื่องมือ**: ฟังก์ชันที่ตกแต่งด้วยแอตทริบิวต์ `[Description]` จะกลายเป็นเครื่องมือที่ตัวแทนสามารถใช้ได้  
-3. **บริบทการสนทนา**: การจัดการเธรดช่วยให้การสนทนาแบบหลายรอบมีการรับรู้บริบทอย่างเต็มที่  
-4. **การจัดการการตั้งค่า**: ตัวแปรสิ่งแวดล้อมและการจัดการข้อมูลรับรองที่ปลอดภัยตามแนวทางปฏิบัติที่ดีที่สุดของ .NET  
-5. **ความเข้ากันได้กับ OpenAI**: การรวม GitHub Models ทำงานได้อย่างราบรื่นผ่าน API ที่เข้ากันได้กับ OpenAI  
+1. **สถาปัตยกรรมตัวแทน**: Microsoft Agent Framework มอบแนวทางที่สะอาดและปลอดภัยในเชิงประเภทสำหรับการสร้างตัวแทน AI ใน .NET  
+2. **การผสานเครื่องมือ**: ฟังก์ชันที่ติดแอตทริบิวต์ `[Description]` จะกลายเป็นเครื่องมือที่ตัวแทนใช้ได้  
+3. **บริบทการสนทนา**: การจัดการเธรดรองรับการสนทนาหลายรอบพร้อมการรับรู้บริบทเต็มรูปแบบ  
+4. **การจัดการการกำหนดค่า**: ตัวแปรสภาพแวดล้อมและการจัดการข้อมูลรับรองอย่างปลอดภัยปฏิบัติตามแนวทางปฏิบัติที่ดีที่สุดของ .NET  
+5. **Azure OpenAI Responses API**: ตัวแทนใช้ Azure OpenAI Responses API ผ่าน SDK ของ Azure.AI.OpenAI  
 
 ## 🔗 แหล่งข้อมูลเพิ่มเติม
 
-- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)  
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
+- [เอกสาร Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)  
+- [Azure OpenAI ใน Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)  
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ข้อจำกัดความรับผิดชอบ**:  
-เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้ว่าเราจะพยายามให้การแปลมีความถูกต้อง แต่โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาดั้งเดิมควรถือเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ ขอแนะนำให้ใช้บริการแปลภาษามืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความผิดที่เกิดจากการใช้การแปลนี้
+**ปฏิเสธความรับผิดชอบ**:
+เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) ขณะที่เราพยายามให้ความถูกต้อง โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาต้นทางควรถูกพิจารณาเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ แนะนำให้ใช้การแปลโดยมนุษย์มืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดที่เกิดขึ้นจากการใช้การแปลนี้
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

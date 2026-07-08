@@ -1,55 +1,55 @@
-[![รูปแบบการวางแผน](../../../translated_images/th/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planning Design Pattern](../../../translated_images/th/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(คลิกที่รูปภาพด้านบนเพื่อดูวิดีโอของบทเรียนนี้)_
 
-# การออกแบบการวางแผน
+# การวางแผนการออกแบบ
 
-## เกริ่นนำ
+## บทนำ
 
 บทเรียนนี้จะครอบคลุม
 
-* การกำหนดเป้าหมายโดยรวมที่ชัดเจนและการแยกงานที่ซับซ้อนออกเป็นงานย่อยที่จัดการได้
-* การใช้ผลลัพธ์ที่มีโครงสร้างเพื่อให้ได้คำตอบที่เชื่อถือได้และอ่านโดยเครื่องได้ง่ายขึ้น
-* การนำแนวทางขับเคลื่อนด้วยเหตุการณ์มาใช้เพื่อจัดการงานที่เปลี่ยนแปลงได้และข้อมูลนำเข้าที่ไม่คาดคิด
+* การกำหนดเป้าหมายโดยรวมที่ชัดเจนและแบ่งงานที่ซับซ้อนออกเป็นงานที่จัดการได้
+* การใช้ผลลัพธ์ที่มีโครงสร้างเพื่อให้ได้การตอบสนองที่เชื่อถือได้และเครื่องสามารถอ่านได้มากขึ้น
+* การใช้แนวทางตามเหตุการณ์เพื่อจัดการกับงานที่เปลี่ยนแปลงและข้อมูลเข้าอย่างไม่คาดคิด
 
-## จุดมุ่งหมายการเรียนรู้
+## เป้าหมายการเรียนรู้
 
-หลังจากเรียนบทเรียนนี้ คุณจะเข้าใจเกี่ยวกับ:
+หลังจากจบบทเรียนนี้ คุณจะมีความเข้าใจเกี่ยวกับ:
 
-* ระบุและตั้งเป้าหมายโดยรวมสำหรับเอเยนต์ AI เพื่อให้แน่ใจว่าเข้าใจอย่างชัดเจนว่าต้องบรรลุอะไร
-* แยกงานที่ซับซ้อนออกเป็นงานย่อยที่จัดการได้และจัดเรียงเป็นลำดับเชิงตรรกะ
-* เตรียมเครื่องมือที่เหมาะสมให้กับเอเยนต์ (เช่น เครื่องมือค้นหา หรือเครื่องมือวิเคราะห์ข้อมูล) ตัดสินใจว่าจะใช้เมื่อใดและอย่างไร และจัดการกับสถานการณ์ที่ไม่คาดคิดที่เกิดขึ้น
-* ประเมินผลลัพธ์ของงานย่อย วัดประสิทธิภาพ และปรับวนการกระทำเพื่อปรับปรุงผลลัพธ์สุดท้าย
+* การระบุและตั้งเป้าหมายโดยรวมสำหรับตัวแทน AI เพื่อให้แน่ใจว่ารู้ชัดเจนว่าสิ่งใดที่ต้องบรรลุ
+* การแยกงานที่ซับซ้อนออกเป็นงานย่อยที่จัดการได้และจัดระเบียบให้อยู่ในลำดับตรรกะ
+* การจัดเตรียมเครื่องมือที่เหมาะสมให้กับตัวแทน (เช่น เครื่องมือค้นหาหรือเครื่องมือวิเคราะห์ข้อมูล) ตัดสินใจว่าจะใช้เมื่อใดและอย่างไร และจัดการกับสถานการณ์ที่ไม่คาดคิดที่เกิดขึ้น
+* การประเมินผลลัพธ์ของงานย่อย วัดประสิทธิภาพ และปรับปรุงการดำเนินการเพื่อพัฒนาผลลัพธ์สุดท้าย
 
-## การกำหนดเป้าหมายโดยรวมและการแยกงานออกเป็นส่วนย่อย
+## การกำหนดเป้าหมายโดยรวมและการแบ่งงาน
 
-![การกำหนดเป้าหมายและงาน](../../../translated_images/th/defining-goals-tasks.d70439e19e37c47a.webp)
+![Defining Goals and Tasks](../../../translated_images/th/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Most real-world tasks are too complex to tackle in a single step. An AI agent needs a concise objective to guide its planning and actions. For example, consider the goal:
+งานส่วนใหญ่ในโลกจริงซับซ้อนเกินกว่าจะทำได้ในขั้นตอนเดียว ตัวแทน AI จำเป็นต้องมีเป้าหมายที่กระชับเพื่อชี้นำการวางแผนและการดำเนินงาน เช่น พิจารณาเป้าหมาย:
 
     "สร้างแผนการเดินทาง 3 วัน"
 
-While it is simple to state, it still needs refinement. The clearer the goal, the better the agent (and any human collaborators) can focus on achieving the right outcome, such as creating a comprehensive itinerary with flight options, hotel recommendations, and activity suggestions.
+แม้จะเป็นการระบุที่ง่าย แต่ก็ยังต้องการการปรับปรุงให้ชัดเจนมากขึ้น เป้าหมายที่ชัดเจนยิ่งขึ้น ตัวแทน (และผู้ร่วมงานคนอื่น ๆ) จะสามารถมุ่งเน้นไปที่การบรรลุผลลัพธ์ที่ถูกต้องได้ดีขึ้น เช่น การสร้างแผนการเดินทางที่ครอบคลุมรวมถึงตัวเลือกเที่ยวบิน คำแนะนำโรงแรม และข้อเสนอแนะกิจกรรมต่าง ๆ
 
-### การแยกงานออกเป็นส่วนย่อย
+### การแบ่งงาน
 
-Large or intricate tasks become more manageable when split into smaller, goal-oriented subtasks.
-For the travel itinerary example, you could decompose the goal into:
+งานที่ใหญ่หรือซับซ้อนจะแบ่งเป็นงานย่อยที่มีเป้าหมายชัดเจนได้ง่ายขึ้น
+สำหรับตัวอย่างแผนการเดินทาง คุณอาจแบ่งเป้าหมายออกเป็น:
 
 * การจองเที่ยวบิน
 * การจองโรงแรม
 * การเช่ารถ
-* การปรับแต่งส่วนบุคคล
+* การปรับแต่งตามบุคคล
 
-Each subtask can then be tackled by dedicated agents or processes. One agent might specialize in searching for the best flight deals, another focuses on hotel bookings, and so on. A coordinating or “downstream” agent can then compile these results into one cohesive itinerary to the end user.
+แต่ละงานย่อยสามารถจัดการโดยตัวแทนหรือกระบวนการเฉพาะ ตัวแทนหนึ่งอาจเชี่ยวชาญในการค้นหาโปรไฟล์เที่ยวบินที่ดีที่สุด อีกตัวแทนอาจเน้นไปที่การจองโรงแรม และอื่น ๆ ตัวแทนที่ประสานงานหรือตัวแทน "ปลายน้ำ" สามารถรวบรวมผลลัพธ์เหล่านี้ให้เป็นแผนการเดินทางที่สมบูรณ์สำหรับผู้ใช้ปลายทาง
 
-This modular approach also allows for incremental enhancements. For instance, you could add specialized agents for Food Recommendations or Local Activity Suggestions and refine the itinerary over time.
+แนวทางแบบโมดูลาร์นี้ยังช่วยให้มีการปรับปรุงทีละน้อย เช่น เพิ่มตัวแทนเฉพาะด้านคำแนะนำอาหารหรือข้อเสนอแนะกิจกรรมท้องถิ่น และปรับแผนการเดินทางให้ดีขึ้นเมื่อเวลาผ่านไป
 
 ### ผลลัพธ์ที่มีโครงสร้าง
 
-Large Language Models (LLMs) can generate structured output (e.g. JSON) that is easier for downstream agents or services to parse and process. This is especially useful in a multi-agent context, where we can action these tasks after the planning output is received.
+โมเดลภาษาขนาดใหญ่ (LLMs) สามารถสร้างผลลัพธ์ที่มีโครงสร้าง (เช่น JSON) ซึ่งง่ายต่อการแยกวิเคราะห์และประมวลผลโดยตัวแทนหรือบริการปลายน้ำ สิ่งนี้มีประโยชน์อย่างยิ่งในบริบทของหลายตัวแทน ที่ซึ่งเราสามารถดำเนินงานตามงานเหล่านี้หลังจากได้รับผลลัพธ์จากการวางแผน
 
-The following Python snippet demonstrates a simple planning agent decomposing a goal into subtasks and generating a structured plan:
+ตัวอย่างโค้ด Python ด้านล่างแสดงตัวแทนวางแผนอย่างง่ายที่แบ่งเป้าหมายออกเป็นงานย่อยและสร้างแผนที่มีโครงสร้าง:
 
 ```python
 from pydantic import BaseModel
@@ -59,7 +59,7 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
@@ -71,17 +71,21 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# โมเดลงานย่อยการเดินทาง
+# แบบจำลองงานย่อยการเดินทาง
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # เราต้องการมอบหมายงานให้ตัวแทน
+    assigned_agent: AgentEnum  # เราต้องการมอบหมายงานให้กับตัวแทน
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 # กำหนดข้อความของผู้ใช้
 system_prompt = """You are a planner agent.
@@ -107,17 +111,18 @@ response_content = response.output_text
 pprint(json.loads(response_content))
 ```
 
-### เอเยนต์วางแผนกับการประสานงานแบบหลายเอเยนต์
+### ตัวแทนวางแผนที่มีการประสานงานตัวแทนหลายตัว
 
-In this example, a Semantic Router Agent receives a user request (e.g., "ฉันต้องการแผนโรงแรมสำหรับการเดินทางของฉัน.").
+ในตัวอย่างนี้ Semantic Router Agent รับคำขอจากผู้ใช้ (เช่น "ฉันต้องการแผนโรงแรมสำหรับทริปของฉัน")
 
-The planner then:
+ผู้วางแผนจะ:
 
-* รับแผนโรงแรม: ตัววางแผนจะรับข้อความของผู้ใช้และโดยอาศัย system prompt (รวมถึงรายละเอียดเอเยนต์ที่มีอยู่) จะสร้างแผนการเดินทางที่มีโครงสร้าง
-* แสดงรายการเอเยนต์และเครื่องมือที่พวกเขามี: registry ของเอเยนต์จะเก็บรายการเอเยนต์ (เช่น สำหรับเที่ยวบิน โรงแรม การเช่ารถ และกิจกรรม) พร้อมกับฟังก์ชันหรือเครื่องมือที่พวกเขานำเสนอ
-* ส่งแผนไปยังเอเยนต์ที่เกี่ยวข้อง: ขึ้นอยู่กับจำนวนงานย่อย ตัววางแผนอาจส่งข้อความไปยังเอเยนต์เฉพาะโดยตรง (สำหรับกรณีงานเดียว) หรือประสานงานผ่านผู้จัดการแชทกลุ่มสำหรับการทำงานร่วมกันแบบหลายเอเยนต์
-* สรุปผลลัพธ์: สุดท้าย ตัววางแผนจะสรุปแผนที่สร้างขึ้นเพื่อความชัดเจน
-The following Python code sample illustrates these steps:
+* รับแผนโรงแรม: ผู้วางแผนจะนำข้อความของผู้ใช้และใช้คำสั่งระบบ (รวมรายละเอียดของตัวแทนที่มี) เพื่อสร้างแผนการเดินทางที่มีโครงสร้าง
+* แสดงรายชื่อตัวแทนและเครื่องมือที่ตัวแทนมี: บัญชีรายชื่อตัวแทนจะเก็บรายชื่อพร้อมฟังก์ชันหรือเครื่องมือที่มีของแต่ละตัวแทน (เช่น สำหรับเที่ยวบิน โรงแรม การเช่ารถ และกิจกรรม)
+* ส่งแผนไปยังตัวแทนที่เกี่ยวข้อง: ขึ้นอยู่กับจำนวนงานย่อย ผู้วางแผนอาจส่งข้อความไปยังตัวแทนเฉพาะโดยตรง (สำหรับสถานการณ์งานเดียว) หรือประสานงานผ่านผู้จัดการแชทกลุ่มสำหรับความร่วมมือหลายตัวแทน
+* สรุปผลลัพธ์: สุดท้าย ผู้วางแผนจะสรุปแผนที่สร้างขึ้นเพื่อความชัดเจน
+
+ตัวอย่างโค้ด Python ด้านล่างแสดงขั้นตอนเหล่านี้:
 
 ```python
 
@@ -135,11 +140,11 @@ class AgentEnum(str, Enum):
     DefaultAgent = "default_agent"
     GroupChatManager = "group_chat_manager"
 
-# โมเดลงานย่อยการเดินทาง
+# แบบจำลองงานย่อยการเดินทาง
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # เราต้องการมอบหมายงานให้กับเอเจนต์
+    assigned_agent: AgentEnum # เราต้องการมอบหมายงานให้กับตัวแทน
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -149,12 +154,16 @@ import json
 import os
 from typing import Optional
 
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 # สร้างไคลเอนต์
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 from pprint import pprint
 
@@ -176,12 +185,12 @@ response = client.create_response(input=user_message, instructions=system_prompt
 
 response_content = response.output_text
 
-# พิมพ์เนื้อหาการตอบกลับหลังจากโหลดเป็น JSON
+# พิมพ์เนื้อหาการตอบกลับหลังจากโหลดเป็น JSON แล้ว
 
 pprint(json.loads(response_content))
 ```
 
-What follows is the output from the previous code and you can then use this structured output to route to `assigned_agent` and summarize the travel plan to the end user.
+ต่อไปนี้เป็นผลลัพธ์จากโค้ดก่อนหน้า และคุณสามารถใช้ผลลัพธ์ที่มีโครงสร้างนี้เพื่อส่งไปยัง `assigned_agent` และสรุปแผนการเดินทางให้ผู้ใช้ปลายทาง
 
 ```json
 {
@@ -212,20 +221,21 @@ What follows is the output from the previous code and you can then use this stru
 }
 ```
 
-An example notebook with the previous code sample is available [ที่นี่](07-python-agent-framework.ipynb).
+สมุดบันทึกตัวอย่างที่มีโค้ดก่อนหน้านี้สามารถดูได้ [ที่นี่](./code_samples/07-python-agent-framework.ipynb)
 
-### การวางแผนแบบวนซ้ำ
+### การวางแผนแบบทำซ้ำ
 
-Some tasks require a back-and-forth or re-planning, where the outcome of one subtask influences the next. For example, if the agent discovers an unexpected data format while booking flights, it might need to adapt its strategy before moving on to hotel bookings.
+งานบางอย่างต้องการการทำซ้ำหรือวางแผนใหม่ โดยผลลัพธ์ของงานย่อยหนึ่งมีผลกระทบต่อต่อไป เช่น หากตัวแทนค้นพบรูปแบบข้อมูลที่ไม่คาดคิดในขณะจองเที่ยวบิน อาจต้องปรับกลยุทธ์ก่อนที่จะไปจองโรงแรม
 
-Additionally, user feedback (e.g. a human deciding they prefer an earlier flight) can trigger a partial re-plan. This dynamic, iterative approach ensures that the final solution aligns with real-world constraints and evolving user preferences.
+นอกจากนี้ ความคิดเห็นของผู้ใช้ (เช่น มนุษย์ตัดสินใจว่าอยากได้เที่ยวบินที่เร็วขึ้น) สามารถกระตุ้นให้วางแผนใหม่บางส่วน วิธีแบบไดนามิกและทำซ้ำนี้ช่วยให้แนวทางสุดท้ายสอดคล้องกับข้อจำกัดในโลกจริงและความชอบของผู้ใช้ที่เปลี่ยนแปลง
 
-ตัวอย่างโค้ด เช่น
+เช่น ตัวอย่างโค้ด
 
 ```python
-from agent_framework.azure import AzureAIProjectAgentProvider
+import os
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
-#.. เช่นเดียวกับโค้ดก่อนหน้าและส่งต่อประวัติผู้ใช้และแผนปัจจุบัน
+#.. เหมือนกับโค้ดก่อนหน้าและส่งต่อประวัติผู้ใช้ แผนปัจจุบัน
 
 system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
@@ -244,34 +254,34 @@ response = client.create_response(
     instructions=system_prompt,
     context=f"Previous travel plan - {TravelPlan}",
 )
-# .. วางแผนใหม่และส่งงานไปยังเอเจนต์ที่เกี่ยวข้อง
+# .. วางแผนใหม่และส่งงานไปยังตัวแทนที่เกี่ยวข้อง
 ```
 
-For more comprehensive planning do checkout Magentic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">บล็อกโพสต์</a> for solving complex tasks.
+สำหรับการวางแผนที่ครอบคลุมยิ่งขึ้น โปรดดูที่ Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">บทความบล็อก</a> สำหรับการแก้ไขงานซับซ้อน
 
 ## สรุป
 
-In this article we have looked at an example of how we can create a planner that can dynamically select the available agents defined. The output of the Planner decomposes the tasks and assigns the agents so they can be executed. It is assumed the agents have access to the functions/tools that are required to perform the task. In addition to the agents you can include other patterns like reflection, summarizer, and round robin chat to further customize.
+ในบทความนี้เราได้ดูตัวอย่างวิธีการสร้างตัววางแผนที่สามารถเลือกตัวแทนที่พร้อมใช้งานได้อย่างไดนามิก ผลลัพธ์จากผู้วางแผนจะแบ่งงานและมอบหมายตัวแทนเพื่อให้สามารถดำเนินการได้ โดยสมมติว่าตัวแทนเหล่านั้นเข้าถึงฟังก์ชัน/เครื่องมือที่จำเป็นสำหรับการทำงานได้ นอกจากนี้ยังสามารถรวมแพตเทิร์นอื่น ๆ เช่น การสะท้อนความคิด การสรุป และการจัดการแชทรอบโรบินเพื่อปรับแต่งเพิ่มเติมได้
 
 ## แหล่งข้อมูลเพิ่มเติม
 
-Magentic One - A Generalist multi-agent system for solving complex tasks and has achieved impressive results on multiple challenging agentic benchmarks. Reference: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. In this implementation the orchestrator creates task specific plans and delegates these tasks to the available agents. In addition to planning the orchestrator also employs a tracking mechanism to monitor the progress of the task and re-plans as required.
+Magentic One - ระบบตัวแทนหลายตัวทั่วไปสำหรับแก้ไขงานที่ซับซ้อนและได้ผลลัพธ์ที่น่าประทับใจในหลายมาตรฐานตัวแทนที่ท้าทาย อ้างอิง: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a> ในการใช้งานนี้ ตัวประสานงานจะสร้างแผนงานเฉพาะและมอบหมายงานเหล่านั้นให้ตัวแทนที่มีอยู่ นอกจากการวางแผน ตัวประสานงานยังใช้กลไกติดตามความคืบหน้าและวางแผนใหม่เมื่อจำเป็น
 
-### มีคำถามเพิ่มเติมเกี่ยวกับรูปแบบการออกแบบการวางแผนไหม?
+### มีคำถามเพิ่มเติมเกี่ยวกับแบบแผนการวางแผนไหม?
 
-เข้าร่วม the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) เพื่อพบกับผู้เรียนคนอื่น ๆ เข้าร่วมชั่วโมงตอบคำถาม และให้คำถามเกี่ยวกับ AI Agents ของคุณได้รับการตอบ
+เข้าร่วม [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) เพื่อพบปะกับผู้เรียนคนอื่น ๆ เข้าร่วมช่วงเวลาทำงาน และรับคำตอบสำหรับคำถามเกี่ยวกับ AI Agents ของคุณ
 
 ## บทเรียนก่อนหน้า
 
-[การสร้างเอเยนต์ AI ที่เชื่อถือได้](../06-building-trustworthy-agents/README.md)
+[การสร้างตัวแทน AI ที่เชื่อถือได้](../06-building-trustworthy-agents/README.md)
 
 ## บทเรียนถัดไป
 
-[รูปแบบการออกแบบหลายเอเยนต์](../08-multi-agent/README.md)
+[แบบแผนการออกแบบตัวแทนหลายตัว](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-คำปฏิเสธความรับผิด:
-เอกสารฉบับนี้ถูกแปลโดยใช้บริการแปลภาษา AI Co-op Translator (https://github.com/Azure/co-op-translator) แม้เราจะพยายามให้การแปลมีความถูกต้อง โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความคลาดเคลื่อนได้ ควรถือว่าเอกสารต้นฉบับเป็นแหล่งข้อมูลที่มีอำนาจและเชื่อถือได้ สำหรับข้อมูลที่มีความสำคัญ ขอแนะนำให้ใช้การแปลโดยนักแปลมืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดใด ๆ ที่เกิดจากการใช้การแปลฉบับนี้
+**ปฏิเสธความรับผิดชอบ**:
+เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) ขณะที่เราพยายามให้ความถูกต้อง โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาต้นทางควรถูกพิจารณาเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ แนะนำให้ใช้การแปลโดยมนุษย์มืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดที่เกิดขึ้นจากการใช้การแปลนี้
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

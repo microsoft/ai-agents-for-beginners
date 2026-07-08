@@ -1,66 +1,66 @@
-# การสร้างแอปพลิเคชันหลายตัวแทนด้วย Microsoft Agent Framework Workflow
+# การสร้างแอปพลิเคชันหลายเอเจนต์ด้วย Microsoft Agent Framework Workflow
 
-บทเรียนนี้จะช่วยให้คุณเข้าใจและสร้างแอปพลิเคชันหลายตัวแทนโดยใช้ Microsoft Agent Framework เราจะสำรวจแนวคิดหลักของระบบหลายตัวแทน เจาะลึกสถาปัตยกรรมของส่วน Workflow ในเฟรมเวิร์ก และดูตัวอย่างการใช้งานจริงใน Python และ .NET สำหรับรูปแบบ Workflow ต่างๆ
+บทช่วยสอนนี้จะแนะนำคุณเกี่ยวกับการทำความเข้าใจและการสร้างแอปพลิเคชันหลายเอเจนต์โดยใช้ Microsoft Agent Framework เราจะสำรวจแนวคิดหลักของระบบหลายเอเจนต์ ดำดิ่งสู่สถาปัตยกรรมของส่วนประกอบ Workflow ของเฟรมเวิร์ก และเดินผ่านตัวอย่างใช้งานจริงในทั้ง Python และ .NET สำหรับรูปแบบโฟลว์งานที่แตกต่างกัน
 
-## 1\. การทำความเข้าใจระบบหลายตัวแทน
+## 1\. ความเข้าใจระบบหลายเอเจนต์
 
-AI Agent คือระบบที่มีความสามารถเกินกว่าระบบ Large Language Model (LLM) ทั่วไป มันสามารถรับรู้สภาพแวดล้อม ตัดสินใจ และดำเนินการเพื่อบรรลุเป้าหมายเฉพาะ ระบบหลายตัวแทนเกี่ยวข้องกับตัวแทนหลายตัวที่ทำงานร่วมกันเพื่อแก้ปัญหาที่ตัวแทนตัวเดียวอาจไม่สามารถจัดการได้
+AI Agent คือระบบที่ก้าวข้ามความสามารถของโมเดลภาษาขนาดใหญ่ (LLM) ทั่วไป มันสามารถรับรู้สภาพแวดล้อม ตัดสินใจ และดำเนินการเพื่อบรรลุเป้าหมายเฉพาะ ระบบหลายเอเจนต์เกี่ยวข้องกับเอเจนต์หลายตัวที่ทำงานร่วมกันเพื่อแก้ปัญหาที่จะเป็นเรื่องยากหรือเป็นไปไม่ได้ที่เอเจนต์ตัวเดียวจะจัดการได้
 
 ### สถานการณ์การใช้งานทั่วไป
 
-  * **การแก้ปัญหาที่ซับซ้อน**: การแบ่งงานขนาดใหญ่ (เช่น การวางแผนงานระดับบริษัท) ออกเป็นงานย่อยที่จัดการโดยตัวแทนเฉพาะทาง (เช่น ตัวแทนงบประมาณ ตัวแทนโลจิสติกส์ ตัวแทนการตลาด)
-  * **ผู้ช่วยเสมือน**: ตัวแทนผู้ช่วยหลักที่มอบหมายงาน เช่น การจัดตาราง การค้นคว้า และการจอง ให้กับตัวแทนเฉพาะทางอื่นๆ
-  * **การสร้างเนื้อหาอัตโนมัติ**: Workflow ที่ตัวแทนหนึ่งร่างเนื้อหา ตัวแทนอีกตัวตรวจสอบความถูกต้องและโทนเสียง และตัวแทนที่สามเผยแพร่เนื้อหา
+  * **การแก้ปัญหาที่ซับซ้อน**: การแบ่งงานขนาดใหญ่ (เช่น การวางแผนกิจกรรมทั่วทั้งบริษัท) เป็นงานย่อยที่จัดการโดยเอเจนต์เฉพาะทาง (เช่น เอเจนต์งบประมาณ, เอเจนต์โลจิสติกส์, เอเจนต์การตลาด)
+  * **ผู้ช่วยเสมือน**: เอเจนต์ผู้ช่วยหลักที่มอบหมายงานอย่างการนัดหมาย, การวิจัย และการจอง ให้แก่อเจนต์เฉพาะทางอื่นๆ
+  * **การสร้างเนื้อหาแบบอัตโนมัติ**: โฟลว์งานที่เอเจนต์หนึ่งร่างเนื้อหา, อีกเอเจนต์ตรวจสอบความถูกต้องและโทนเสียง และเอเจนต์ที่สามเผยแพร่เนื้อหา
 
-### รูปแบบระบบหลายตัวแทน
+### รูปแบบหลายเอเจนต์
 
-ระบบหลายตัวแทนสามารถจัดระเบียบในรูปแบบต่างๆ ซึ่งกำหนดวิธีการที่พวกเขาโต้ตอบกัน:
+ระบบหลายเอเจนต์สามารถจัดระเบียบในหลายรูปแบบ ซึ่งกำหนดวิธีที่พวกเขาสื่อสารกัน:
 
-  * **แบบลำดับ**: ตัวแทนทำงานตามลำดับที่กำหนดไว้ เช่น สายการผลิต ผลลัพธ์ของตัวแทนหนึ่งจะกลายเป็นข้อมูลนำเข้าของตัวแทนถัดไป
-  * **แบบคู่ขนาน**: ตัวแทนทำงานพร้อมกันในส่วนต่างๆ ของงาน และผลลัพธ์จะถูกรวมกันในตอนท้าย
-  * **แบบมีเงื่อนไข**: Workflow จะดำเนินไปตามเส้นทางต่างๆ ตามผลลัพธ์ของตัวแทน คล้ายกับคำสั่ง if-then-else
+  * **แบบทวนลำดับ**: เอเจนต์ทำงานตามลำดับที่กำหนดไว้ เช่น สายการผลิต ผลลัพธ์ของเอเจนต์หนึ่งจะกลายเป็นข้อมูลนำเข้าของเอเจนต์ถัดไป
+  * **แบบพร้อมกัน**: เอเจนต์ทำงานพร้อมกันในส่วนต่างๆ ของงาน และผลลัพธ์ของพวกเขาจะถูกรวมในตอนท้าย
+  * **แบบมีเงื่อนไข**: โฟลว์งานดำเนินไปตามเส้นทางต่างๆ ขึ้นอยู่กับผลลัพธ์ของเอเจนต์ คล้ายกับคำสั่ง if-then-else
 
-## 2\. สถาปัตยกรรม Workflow ของ Microsoft Agent Framework
+## 2\. สถาปัตยกรรม Microsoft Agent Framework Workflow
 
-ระบบ Workflow ของ Agent Framework เป็นเครื่องมือจัดการขั้นสูงที่ออกแบบมาเพื่อจัดการการโต้ตอบที่ซับซ้อนระหว่างตัวแทนหลายตัว มันถูกสร้างขึ้นบนสถาปัตยกรรมแบบกราฟที่ใช้ [Pregel-style execution model](https://kowshik.github.io/JPregel/pregel_paper.pdf) ซึ่งการประมวลผลเกิดขึ้นในขั้นตอนที่ซิงโครไนซ์เรียกว่า "supersteps"
+ระบบโฟลว์งานของ Agent Framework คือเครื่องมือออร์เคสตราที่ทันสมัยออกแบบมาเพื่อจัดการปฏิสัมพันธ์ที่ซับซ้อนระหว่างหลายเอเจนต์ มันถูกรวมบนสถาปัตยกรรมแบบกราฟที่ใช้ [รูปแบบการประมวลผลแบบ Pregel](https://kowshik.github.io/JPregel/pregel_paper.pdf) ซึ่งกระบวนการเกิดขึ้นในขั้นตอนที่ซิงโครไนซ์เรียกว่า "supersteps"
 
 ### ส่วนประกอบหลัก
 
 สถาปัตยกรรมประกอบด้วยสามส่วนหลัก:
 
-1.  **Executors**: หน่วยประมวลผลพื้นฐาน ในตัวอย่างของเรา `Agent` เป็นประเภทของ executor แต่ละ executor สามารถมีตัวจัดการข้อความหลายตัวที่ถูกเรียกใช้อัตโนมัติตามประเภทของข้อความที่ได้รับ
-2.  **Edges**: กำหนดเส้นทางที่ข้อความเดินทางระหว่าง executors Edges สามารถมีเงื่อนไข ทำให้สามารถกำหนดเส้นทางข้อมูลแบบไดนามิกผ่านกราฟ Workflow
-3.  **Workflow**: ส่วนนี้จัดการกระบวนการทั้งหมด ดูแล executors, edges และการไหลของการดำเนินการโดยรวม มันรับรองว่าข้อความถูกประมวลผลตามลำดับที่ถูกต้องและสตรีมเหตุการณ์เพื่อการสังเกตการณ์
+1.  **Executors**: เป็นหน่วยประมวลผลพื้นฐาน ในตัวอย่างของเรา `Agent` คือประเภทของ executor หนึ่ง executor แต่ละตัวสามารถมีตัวจัดการข้อความหลายตัวที่ถูกเรียกใช้โดยอัตโนมัติตามประเภทของข้อความที่ได้รับ
+2.  **Edges**: กำหนดเส้นทางที่ข้อความเคลื่อนที่ระหว่าง executor อาจมีเงื่อนไขที่อนุญาตให้ข้อมูลผ่านกราฟโฟลว์งานได้แบบไดนามิก
+3.  **Workflow**: ส่วนประกอบนี้เป็นตัวจัดการทั้งกระบวนการ ควบคุม executors, edges และการไหลโดยรวมของการทำงาน มันรับประกันว่าข้อความถูกประมวลผลตามลำดับที่ถูกต้องและสตรีมเหตุการณ์เพื่อการสังเกตการณ์
 
-*แผนภาพแสดงส่วนประกอบหลักของระบบ Workflow*
+*แผนภาพที่แสดงส่วนประกอบหลักของระบบโฟลว์งาน*
 
-โครงสร้างนี้ช่วยให้สามารถสร้างแอปพลิเคชันที่แข็งแกร่งและขยายได้โดยใช้รูปแบบพื้นฐาน เช่น การเชื่อมโยงแบบลำดับ การประมวลผลแบบคู่ขนาน และตรรกะแบบ switch-case สำหรับการไหลแบบมีเงื่อนไข
+โครงสร้างนี้ช่วยให้สร้างแอปพลิเคชันที่ทนทานและปรับขนาดได้โดยใช้รูปแบบพื้นฐานเช่น ลำดับสาย, fan-out/fan-in สำหรับประมวลผลคู่ขนาน และตรรกะ switch-case สำหรับการไหลที่มีเงื่อนไข
 
-## 3\. ตัวอย่างการใช้งานจริงและการวิเคราะห์โค้ด
+## 3\. ตัวอย่างใช้งานจริงและวิเคราะห์โค้ด
 
-ตอนนี้เรามาดูวิธีการใช้งานรูปแบบ Workflow ต่างๆ โดยใช้เฟรมเวิร์ก เราจะดูโค้ดทั้งใน Python และ .NET สำหรับแต่ละตัวอย่าง
+ตอนนี้มาดูกันว่าเราจะนำรูปแบบโฟลว์งานต่างๆ ไปใช้งานโดยใช้เฟรมเวิร์กนี้ได้อย่างไร เราจะดูทั้งโค้ด Python และ .NET ในแต่ละตัวอย่าง
 
-### กรณีที่ 1: Workflow แบบลำดับพื้นฐาน
+### กรณีที่ 1: โฟลว์งานแบบทวนลำดับพื้นฐาน
 
-นี่เป็นรูปแบบที่ง่ายที่สุด ซึ่งผลลัพธ์ของตัวแทนหนึ่งจะถูกส่งต่อไปยังตัวแทนถัดไปโดยตรง สถานการณ์ของเราคือ `FrontDesk` ตัวแทนโรงแรมที่แนะนำการเดินทาง ซึ่งจะถูกตรวจสอบโดย `Concierge` ตัวแทน
+นี่คือรูปแบบที่ง่ายที่สุด ที่เอเจนต์ตัวหนึ่งส่งออกผลไปยังเอเจนต์อีกตัวโดยตรง สถานการณ์ของเราคือเอเจนต์ `FrontDesk` โรงแรมที่แนะนำการเดินทาง และได้รับการตรวจสอบโดยเอเจนต์ `Concierge`
 
-*แผนภาพของ Workflow FrontDesk -> Concierge แบบพื้นฐาน*
+*แผนภาพโฟลว์งานพื้นฐาน FrontDesk -> Concierge*
 
-#### ภูมิหลังของสถานการณ์
+#### เบื้องหลังสถานการณ์
 
-นักเดินทางขอคำแนะนำในปารีส
+นักเดินทางขอคำแนะนำในกรุงปารีส
 
-1.  ตัวแทน `FrontDesk` ซึ่งออกแบบมาให้ตอบสั้นๆ แนะนำให้ไปเยี่ยมชมพิพิธภัณฑ์ลูฟวร์
-2.  ตัวแทน `Concierge` ซึ่งให้ความสำคัญกับประสบการณ์ที่แท้จริง รับคำแนะนำนี้และตรวจสอบ โดยแนะนำทางเลือกที่เป็นท้องถิ่นและไม่ใช่แหล่งท่องเที่ยวมากนัก
+1.  เอเจนต์ `FrontDesk` ออกแบบมาให้กระชับ แนะนำให้ไปเยี่ยมชมพิพิธภัณฑ์ลูฟวร์
+2.  เอเจนต์ `Concierge` ซึ่งให้ความสำคัญกับประสบการณ์แท้จริง รับการแนะนำนี้ ตรวจสอบคำแนะนำ และให้ข้อเสนอแนะ แนะนำทางเลือกที่เป็นท้องถิ่นมากขึ้นและไม่ใช่สถานที่ท่องเที่ยวมากเกินไป
 
-#### การวิเคราะห์การใช้งานใน Python
+#### วิเคราะห์การใช้งาน Python
 
-ในตัวอย่าง Python เราเริ่มต้นด้วยการกำหนดและสร้างตัวแทนสองตัว แต่ละตัวมีคำแนะนำเฉพาะ
+ในตัวอย่าง Python ก่อนอื่นเราจะนิยามและสร้างสองเอเจนต์ โดยแต่ละตัวมีคำแนะนำเฉพาะ
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# กำหนดบทบาทและคำแนะนำของเอเจนต์
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
     You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
@@ -71,41 +71,41 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# สร้างอินสแตนซ์ของเอเจนต์
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-จากนั้นใช้ `WorkflowBuilder` เพื่อสร้างกราฟ โดยตั้งค่า `front_desk_agent` เป็นจุดเริ่มต้น และสร้าง edge เพื่อเชื่อมต่อผลลัพธ์ของมันกับ `reviewer_agent`
+ถัดไปใช้ `WorkflowBuilder` เพื่อสร้างกราฟ กำหนด `front_desk_agent` เป็นจุดเริ่มต้น และสร้าง edge เพื่อเชื่อมผลลัพธ์ของมันกับ `reviewer_agent`
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-สุดท้าย Workflow จะถูกดำเนินการด้วยคำถามเริ่มต้นของผู้ใช้
+สุดท้ายรัน workflow ด้วยคำพูดเริ่มต้นของผู้ใช้
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run ดำเนินการ workflow; get_outputs() คืนค่าผลลัพธ์ของตัวดำเนินการผลลัพธ์.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### การวิเคราะห์การใช้งานใน .NET (C#)
+#### วิเคราะห์การใช้งาน .NET (C\#)
 
-การใช้งานใน .NET มีตรรกะที่คล้ายกันมาก เริ่มต้นด้วยการกำหนดค่าคงที่สำหรับชื่อและคำแนะนำของตัวแทน
+เวอร์ชัน .NET ใช้ตรรกะที่คล้ายกันมาก ก่อนอื่นกำหนดค่าคงที่สำหรับชื่อและคำแนะนำของเอเจนต์
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
@@ -119,15 +119,15 @@ const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-ตัวแทนถูกสร้างขึ้นโดยใช้ `OpenAIClient` จากนั้น `WorkflowBuilder` กำหนดการไหลแบบลำดับโดยเพิ่ม edge จาก `frontDeskAgent` ไปยัง `reviewerAgent`
+สร้างเอเจนต์โดยใช้ `AzureOpenAIClient` (Responses API) จากนั้น `WorkflowBuilder` กำหนดการไหลแบบทวนลำดับโดยเพิ่ม edge จาก `frontDeskAgent` ไปยัง `reviewerAgent`
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Workflow จะถูกดำเนินการด้วยข้อความของผู้ใช้ และผลลัพธ์จะถูกสตรีมกลับมา
+จากนั้นรัน workflow ด้วยข้อความของผู้ใช้ และผลลัพธ์จะถูกสตรีมกลับมา
 
-### กรณีที่ 2: Workflow แบบลำดับหลายขั้นตอน
+### กรณีที่ 2: โฟลว์งานแบบทวนลำดับหลายขั้นตอน
 
-รูปแบบนี้ขยายลำดับพื้นฐานเพื่อรวมตัวแทนเพิ่มเติม เหมาะสำหรับกระบวนการที่ต้องการการปรับปรุงหรือการแปลงหลายขั้นตอน
+รูปแบบนี้ขยายลำดับพื้นฐานเพื่อรวมเอเจนต์มากขึ้น เหมาะสำหรับกระบวนการที่ต้องการหลายขั้นตอนของการปรับปรุงหรือแปลงข้อมูล
 
-#### ภูมิหลังของสถานการณ์
+#### เบื้องหลังสถานการณ์
 
-ผู้ใช้ให้ภาพห้องนั่งเล่นและขอใบเสนอราคาสำหรับเฟอร์นิเจอร์
+ผู้ใช้ให้ภาพของห้องนั่งเล่นและขอใบเสนอราคาสำหรับเฟอร์นิเจอร์
 
 1.  **Sales-Agent**: ระบุรายการเฟอร์นิเจอร์ในภาพและสร้างรายการ
-2.  **Price-Agent**: ใช้รายการเฟอร์นิเจอร์และให้รายละเอียดราคาสำหรับตัวเลือกงบประมาณ ระดับกลาง และระดับพรีเมียม
-3.  **Quote-Agent**: รับรายการราคาที่จัดทำและจัดรูปแบบเป็นเอกสารใบเสนอราคาใน Markdown
+2.  **Price-Agent**: รับรายการสินค้าและให้รายละเอียดราคาพร้อมงบประมาณ ตัวเลือกระดับกลาง และระดับพรีเมียม
+3.  **Quote-Agent**: รับรายการราคาที่ได้รับและจัดฟอร์แมตเป็นเอกสารใบเสนอราคาในรูปแบบ Markdown
 
-*แผนภาพของ Workflow Sales -> Price -> Quote*
+*แผนภาพโฟลว์งาน Sales -> Price -> Quote*
 
-#### การวิเคราะห์การใช้งานใน Python
+#### วิเคราะห์การใช้งาน Python
 
-ตัวแทนสามตัวถูกกำหนด แต่ละตัวมีบทบาทเฉพาะ Workflow ถูกสร้างขึ้นโดยใช้ `add_edge` เพื่อสร้างลำดับ: `sales_agent` -> `price_agent` -> `quote_agent`
+กำหนดเอเจนต์สามตัว โดยแต่ละตัวมีบทบาทเฉพาะ workflow ถูกสร้างโดยใช้ `add_edge` เพื่อสร้างลำดับ: `sales_agent` -> `price_agent` -> `quote_agent`
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# สร้างตัวแทนเฉพาะทางสามตัว
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# สร้างลำดับการทำงานแบบต่อเนื่อง
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-ข้อมูลนำเข้าเป็น `ChatMessage` ที่รวมข้อความและ URI ของภาพ Framework จะจัดการการส่งผลลัพธ์ของแต่ละตัวแทนไปยังตัวแทนถัดไปในลำดับจนกระทั่งใบเสนอราคาสุดท้ายถูกสร้างขึ้น
+ข้อมูลนำเข้าเป็น `ChatMessage` ที่รวมข้อความและ URI รูปภาพ เฟรมเวิร์กจัดการการส่งต่อผลลัพธ์ของเอเจนต์แต่ละตัวไปยังถัดไปในลำดับจนได้ใบเสนอราคาสุดท้าย
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# ข้อความของผู้ใช้มีทั้งข้อความและรูปภาพ
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# รันเวิร์กโฟลว์
+events = await workflow.run(message)
 ```
 
-#### การวิเคราะห์การใช้งานใน .NET (C#)
+#### วิเคราะห์การใช้งาน .NET (C\#)
 
-ตัวอย่างใน .NET สะท้อนเวอร์ชัน Python ตัวแทนสามตัว (`salesagent`, `priceagent`, `quoteagent`) ถูกสร้างขึ้น `WorkflowBuilder` เชื่อมโยงพวกเขาในลำดับ
+ตัวอย่าง .NET สะท้อนเวอร์ชัน Python สร้างเอเจนต์สามตัว (`salesagent`, `priceagent`, `quoteagent`) `WorkflowBuilder` เชื่อมโยงพวกเขาแบบทวนลำดับ
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent priceagent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent quoteagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-ข้อความของผู้ใช้ถูกสร้างขึ้นพร้อมข้อมูลภาพ (ในรูปแบบ bytes) และข้อความ Framework ใช้ `InProcessExecution.StreamAsync` เพื่อเริ่ม Workflow และผลลัพธ์สุดท้ายจะถูกจับจาก stream
+ข้อความของผู้ใช้สร้างด้วยข้อมูลภาพ (ในรูปแบบไบต์) และข้อความคำสั่ง รันโดย `InProcessExecution.StreamAsync` และจับผลลัพธ์สุดท้ายจากสตรีม
 
-### กรณีที่ 3: Workflow แบบคู่ขนาน
+### กรณีที่ 3: โฟลว์งานแบบพร้อมกัน
 
-รูปแบบนี้ใช้เมื่อสามารถดำเนินงานพร้อมกันเพื่อประหยัดเวลา มันเกี่ยวข้องกับ "fan-out" ไปยังตัวแทนหลายตัวและ "fan-in" เพื่อรวบรวมผลลัพธ์
+รูปแบบนี้ใช้เมื่อภารกิจสามารถทำพร้อมกันเพื่อลดเวลา โดยเป็นการ "แฟนเอาท์" ไปยังหลายเอเจนต์ และ "แฟนอิน" เพื่อรวบรวมผลลัพธ์
 
-#### ภูมิหลังของสถานการณ์
+#### เบื้องหลังสถานการณ์
 
-ผู้ใช้ขอให้วางแผนการเดินทางไปซีแอตเทิล
+ผู้ใช้ขอวางแผนทริปไปซีแอตเทิล
 
-1.  **Dispatcher (Fan-Out)**: คำขอของผู้ใช้ถูกส่งไปยังตัวแทนสองตัวพร้อมกัน
-2.  **Researcher-Agent**: ค้นคว้าสถานที่ท่องเที่ยว สภาพอากาศ และข้อควรพิจารณาสำคัญสำหรับการเดินทางไปซีแอตเทิลในเดือนธันวาคม
-3.  **Plan-Agent**: สร้างแผนการเดินทางแบบวันต่อวันอย่างละเอียดโดยอิสระ
-4.  **Aggregator (Fan-In)**: ผลลัพธ์จากทั้ง researcher และ planner จะถูกรวบรวมและนำเสนอเป็นผลลัพธ์สุดท้าย
+1.  **Dispatcher (Fan-Out)**: คำขอของผู้ใช้ถูกส่งไปยังสองเอเจนต์พร้อมกัน
+2.  **Researcher-Agent**: วิจัยสถานที่ท่องเที่ยว สภาพอากาศ และข้อควรระวังของทริปในฤดูธันวาคมที่ซีแอตเทิล
+3.  **Plan-Agent**: สร้างแผนการเดินทางละเอียดตามวันอย่างอิสระ
+4.  **Aggregator (Fan-In)**: รวบรวมผลลัพธ์จากทั้งนักวิจัยและนักวางแผน และนำเสนอเป็นผลลัพธ์สุดท้าย
 
-*แผนภาพของ Workflow Researcher และ Planner แบบคู่ขนาน*
+*แผนภาพโฟลว์งาน concurrent ของ Researcher และ Planner*
 
-#### การวิเคราะห์การใช้งานใน Python
+#### วิเคราะห์การใช้งาน Python
 
-`ConcurrentBuilder` ช่วยให้การสร้างรูปแบบนี้ง่ายขึ้น เพียงแค่ระบุรายชื่อตัวแทนที่เข้าร่วม และ builder จะสร้างตรรกะ fan-out และ fan-in โดยอัตโนมัติ
+`ConcurrentBuilder` ช่วยให้ง่ายต่อการสร้างรูปแบบนี้ แค่ระบุรายชื่อเอเจนต์ที่เข้าร่วม และบิลเดอร์จะสร้างแฟนเอาท์และแฟนอินโดยอัตโนมัติ
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder จัดการตรรกะการกระจายและรวบรวม
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# รันเวิร์กโฟลว์
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Framework รับรองว่า `research_agent` และ `plan_agent` ดำเนินการพร้อมกัน และผลลัพธ์สุดท้ายจะถูกรวบรวมเป็นรายการ
+เฟรมเวิร์กรับประกันว่า `research_agent` และ `plan_agent` ทำงานพร้อมกัน และรวบรวมผลลัพธ์สุดท้ายลงในรายการ
 
-#### การวิเคราะห์การใช้งานใน .NET (C#)
+#### วิเคราะห์การใช้งาน .NET (C\#)
 
-ใน .NET รูปแบบนี้ต้องการการกำหนดที่ชัดเจนมากขึ้น Executors แบบกำหนดเอง (`ConcurrentStartExecutor` และ `ConcurrentAggregationExecutor`) ถูกสร้างขึ้นเพื่อจัดการตรรกะ fan-out และ fan-in
+ใน .NET รูปแบบนี้ต้องมีการกำหนดชัดเจนมากขึ้น สร้าง custom executors (`ConcurrentStartExecutor` และ `ConcurrentAggregationExecutor`) เพื่อจัดการแฟนเอาท์และแฟนอิน
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` ใช้ `AddFanOutEdge` และ `AddFanInEdge` เพื่อสร้างกราฟด้วย executors แบบกำหนดเองและตัวแทน
+`WorkflowBuilder` ใช้ `AddFanOutEdge` และ `AddFanInEdge` เพื่อสร้างกราฟพร้อมกับ executors และเอเจนต์เหล่านี้
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### กรณีที่ 4: Workflow แบบมีเงื่อนไข
+### กรณีที่ 4: โฟลว์งานแบบมีเงื่อนไข
 
-Workflow แบบมีเงื่อนไขแนะนำตรรกะแบบ branching logic ทำให้ระบบสามารถดำเนินไปตามเส้นทางต่างๆ ตามผลลัพธ์ระหว่างทาง
+โฟลว์งานแบบมีเงื่อนไขเพิ่มตรรกะการแยกทางเลือก ช่วยให้ระบบดำเนินไปตามเส้นทางต่างกันขึ้นอยู่กับผลลัพธ์ระหว่างกลาง
 
-#### ภูมิหลังของสถานการณ์
+#### เบื้องหลังสถานการณ์
 
-Workflow นี้ทำให้การสร้างและเผยแพร่บทเรียนทางเทคนิคเป็นอัตโนมัติ
+โฟลว์งานนี้อัตโนมัติการสร้างและการเผยแพร่บทเรียนเชิงเทคนิค
 
 1.  **Evangelist-Agent**: เขียนร่างบทเรียนตามโครงร่างและ URL ที่ให้มา
-2.  **ContentReviewer-Agent**: ตรวจสอบร่าง ตรวจสอบว่าจำนวนคำเกิน 200 คำหรือไม่
-3.  **เงื่อนไข**:
-      * **ถ้าอนุมัติ (`Yes`)**: Workflow ดำเนินต่อไปยัง `Publisher-Agent`
-      * **ถ้าปฏิเสธ (`No`)**: Workflow หยุดและแสดงเหตุผลของการปฏิเสธ
-4.  **Publisher-Agent**: หากร่างได้รับการอนุมัติ ตัวแทนนี้จะบันทึกเนื้อหาเป็นไฟล์ Markdown
+2.  **ContentReviewer-Agent**: ตรวจสอบร่าง โดยตรวจว่าจำนวนคำเกิน 200 คำหรือไม่
+3.  **สาขาเงื่อนไข**:
+      * **อนุมัติ (`Yes`)**: โปรแกรมดำเนินไปยัง `Publisher-Agent`
+      * **ปฏิเสธ (`No`)**: โฟลว์งานหยุดและแสดงเหตุผลการปฏิเสธ
+4.  **Publisher-Agent**: ถ้าร่างได้รับการอนุมัติ เอเจนต์นี้บันทึกเนื้อหาเป็นไฟล์ Markdown
 
-#### การวิเคราะห์การใช้งานใน Python
+#### วิเคราะห์การใช้งาน Python
 
-ตัวอย่างนี้ใช้ฟังก์ชันกำหนดเอง `select_targets` เพื่อใช้งานตรรกะแบบมีเงื่อนไข ฟังก์ชันนี้ถูกส่งไปยัง `add_multi_selection_edge_group` และกำหนด Workflow ตามฟิลด์ `review_result` จากผลลัพธ์ของ reviewer
+ตัวอย่างนี้ใช้ฟังก์ชันกำหนดเอง `select_targets` เพื่อใช้ตรรกะมีเงื่อนไข ส่งฟังก์ชันนี้ให้กับ `add_multi_selection_edge_group` และกำหนดโฟลว์งานตามฟิลด์ `review_result` จากผลลัพธ์ของผู้ตรวจสอบ
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# ฟังก์ชันนี้ใช้กำหนดขั้นตอนถัดไปตามผลการตรวจสอบ
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # หากได้รับการอนุมัติ ให้ดำเนินการต่อไปยังตัวดำเนินการ 'save_draft'
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # หากถูกปฏิเสธ ให้ดำเนินการต่อไปยังตัวดำเนินการ 'handle_review' เพื่อรายงานความล้มเหลว
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# ตัวสร้างเวิร์กโฟลว์ใช้ฟังก์ชันการเลือกสำหรับการกำหนดเส้นทาง
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # ขอบเขตการเลือกหลายรายการเป็นการใช้งานตรรกะเงื่อนไข
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Executors แบบกำหนดเอง เช่น `to_reviewer_result` ถูกใช้เพื่อแปลง JSON output จากตัวแทนให้เป็นออบเจ็กต์ที่มีประเภทชัดเจนซึ่งฟังก์ชัน selection สามารถตรวจสอบได้
+ใช้ custom executors เช่น `to_reviewer_result` เพื่อแปลงผล JSON จากเอเจนต์เป็นอ็อบเจกต์ชนิดเข้มงวดที่ฟังก์ชันเลือกตรวจสอบ
 
-#### การวิเคราะห์การใช้งานใน .NET (C#)
+#### วิเคราะห์การใช้งาน .NET (C\#)
 
-เวอร์ชัน .NET ใช้แนวทางที่คล้ายกันโดยมีฟังก์ชันเงื่อนไข `Func<object?, bool>` ที่กำหนดเพื่อตรวจสอบคุณสมบัติ `Result` ของออบเจ็กต์ `ReviewResult`
+เวอร์ชัน .NET ใช้วิธีคล้ายกันกับฟังก์ชันเงื่อนไข กำหนด `Func<object?, bool>` เพื่อตรวจสอบคุณสมบัติ `Result` ของอ็อบเจกต์ `ReviewResult`
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-พารามิเตอร์ `condition` ของเมธอด `AddEdge` ช่วยให้ `WorkflowBuilder` สร้างเส้นทาง branching Workflow จะตาม edge ไปยัง `publishExecutor` ก็ต่อเมื่อเงื่อนไข `GetCondition(expectedResult: "Yes")` คืนค่า true มิฉะนั้นจะตามเส้นทางไปยัง `sendReviewerExecutor`
+พารามิเตอร์ `condition` ของเมธอด `AddEdge` ช่วยให้ `WorkflowBuilder` สร้างเส้นทางแยกทาง เลือกโฟลว์ไปยัง `publishExecutor` เมื่อตรงตามเงื่อนไข `GetCondition(expectedResult: "Yes")` เท่านั้น มิฉะนั้นจะเลือกเส้นทางไปยัง `sendReviewerExecutor`
 
 ## สรุป
 
-Microsoft Agent Framework Workflow ให้พื้นฐานที่แข็งแกร่งและยืดหยุ่นสำหรับการจัดการระบบหลายตัวแทนที่ซับซ้อน ด้วยการใช้สถาปัตยกรรมแบบกราฟและส่วนประกอบหลัก นักพัฒนาสามารถออกแบบและใช้งาน Workflow ที่ซับซ้อนใน Python และ .NET ไม่ว่าคุณจะต้องการการประมวลผลแบบลำดับง่ายๆ การดำเนินการแบบคู่ขนาน หรือตรรกะแบบมีเงื่อนไข Framework นี้มีเครื่องมือที่ช่วยสร้างโซลูชัน AI ที่ทรงพลัง ขยายได้ และปลอดภัย
+Microsoft Agent Framework Workflow ให้รากฐานที่แข็งแกร่งและยืดหยุ่นสำหรับการออร์เคสตราระบบหลายเอเจนต์ที่ซับซ้อน ด้วยการใช้สถาปัตยกรรมกราฟและส่วนประกอบหลักของมัน นักพัฒนาสามารถออกแบบและใช้งานโฟลว์งานขั้นสูงในทั้ง Python และ .NET ไม่ว่าคุณจะต้องการเพียงการประมวลผลแบบทวนลำดับธรรมดา, การประมวลผลคู่ขนาน หรือระบบที่มีตรรกะมีเงื่อนไขไดนามิก เฟรมเวิร์กนี้ก็พร้อมให้เครื่องมือในการสร้างโซลูชัน AI ที่ทรงพลัง ขยายขนาดได้ และปลอดภัยในเชิงชนิดข้อมูล
 
 ---
 
-**ข้อจำกัดความรับผิดชอบ**:  
-เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) แม้ว่าเราจะพยายามให้การแปลมีความถูกต้อง แต่โปรดทราบว่าการแปลอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาดั้งเดิมควรถือเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ ขอแนะนำให้ใช้บริการแปลภาษามนุษย์มืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความผิดที่เกิดจากการใช้การแปลนี้
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**ปฏิเสธความรับผิดชอบ**:
+เอกสารนี้ได้รับการแปลโดยใช้บริการแปลภาษา AI [Co-op Translator](https://github.com/Azure/co-op-translator) ขณะที่เราพยายามให้ความถูกต้อง โปรดทราบว่าการแปลโดยอัตโนมัติอาจมีข้อผิดพลาดหรือความไม่ถูกต้อง เอกสารต้นฉบับในภาษาต้นทางควรถูกพิจารณาเป็นแหล่งข้อมูลที่เชื่อถือได้ สำหรับข้อมูลที่สำคัญ แนะนำให้ใช้การแปลโดยมนุษย์มืออาชีพ เราไม่รับผิดชอบต่อความเข้าใจผิดหรือการตีความที่ผิดพลาดที่เกิดขึ้นจากการใช้การแปลนี้
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
