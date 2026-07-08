@@ -1,77 +1,77 @@
-[![Desain Multi-Agen](../../../translated_images/id/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/id/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
-> _(Klik gambar di atas untuk menonton video pelajaran ini)_
-# Metakognisi dalam Agen AI
+> _(Klik gambar di atas untuk melihat video dari pelajaran ini)_
+# Metakognisi pada Agen AI
 
 ## Pendahuluan
 
-Selamat datang di pelajaran tentang metakognisi dalam agen AI! Bab ini dirancang untuk pemula yang ingin tahu bagaimana agen AI dapat memikirkan proses berpikir mereka sendiri. Pada akhir pelajaran ini, Anda akan memahami konsep kunci dan dilengkapi dengan contoh praktis untuk menerapkan metakognisi dalam desain agen AI.
+Selamat datang di pelajaran tentang metakognisi pada agen AI! Bab ini dirancang untuk pemula yang ingin tahu bagaimana agen AI dapat berpikir tentang proses berpikir mereka sendiri. Di akhir pelajaran ini, Anda akan memahami konsep-konsep kunci dan dibekali dengan contoh praktis untuk menerapkan metakognisi dalam desain agen AI.
 
 ## Tujuan Pembelajaran
 
 Setelah menyelesaikan pelajaran ini, Anda akan dapat:
 
 1. Memahami implikasi dari loop penalaran dalam definisi agen.
-2. Menggunakan teknik perencanaan dan evaluasi untuk membantu agen yang dapat mengoreksi diri.
+2. Menggunakan teknik perencanaan dan evaluasi untuk membantu agen yang dapat memperbaiki diri sendiri.
 3. Membuat agen Anda sendiri yang mampu memanipulasi kode untuk menyelesaikan tugas.
 
-## Pengenalan Metakognisi
+## Pengenalan tentang Metakognisi
 
-Metakognisi mengacu pada proses kognitif tingkat tinggi yang melibatkan pemikiran tentang pemikiran sendiri. Untuk agen AI, ini berarti mampu mengevaluasi dan menyesuaikan tindakan mereka berdasarkan kesadaran diri dan pengalaman masa lalu. Metakognisi, atau "berpikir tentang berpikir," adalah konsep penting dalam pengembangan sistem AI agentik. Ini melibatkan sistem AI yang sadar akan proses internal mereka sendiri dan mampu memantau, mengatur, dan menyesuaikan perilaku mereka sesuai kebutuhan. Mirip seperti yang kita lakukan saat membaca situasi atau menghadapi sebuah masalah. Kesadaran diri ini dapat membantu sistem AI membuat keputusan lebih baik, mengidentifikasi kesalahan, dan meningkatkan kinerja mereka dari waktu ke waktu—kembali menghubungkan ke tes Turing dan perdebatan apakah AI akan mengambil alih.
+Metakognisi merujuk pada proses kognitif tingkat tinggi yang melibatkan pemikiran tentang proses berpikir sendiri. Untuk agen AI, ini berarti mampu mengevaluasi dan menyesuaikan tindakan mereka berdasarkan kesadaran diri dan pengalaman masa lalu. Metakognisi, atau "berpikir tentang berpikir," adalah konsep penting dalam pengembangan sistem AI yang agen. Ini melibatkan sistem AI yang sadar akan proses internalnya sendiri dan mampu memantau, mengatur, serta menyesuaikan perilakunya sesuai. Sama seperti yang kita lakukan ketika kita membaca situasi atau melihat sebuah masalah. Kesadaran diri ini dapat membantu sistem AI membuat keputusan yang lebih baik, mengidentifikasi kesalahan, dan meningkatkan kinerjanya dari waktu ke waktu — sekali lagi menghubungkan kembali ke tes Turing dan perdebatan apakah AI akan mengambil alih.
 
-Dalam konteks sistem AI agentik, metakognisi dapat membantu mengatasi beberapa tantangan, seperti:
-- Transparansi: Memastikan sistem AI dapat menjelaskan penalaran dan keputusannya.
+Dalam konteks sistem AI agen, metakognisi dapat membantu mengatasi beberapa tantangan, seperti:
+- Transparansi: Memastikan bahwa sistem AI dapat menjelaskan penalaran dan keputusan mereka.
 - Penalaran: Meningkatkan kemampuan sistem AI untuk mensintesis informasi dan membuat keputusan yang tepat.
 - Adaptasi: Memungkinkan sistem AI menyesuaikan diri dengan lingkungan baru dan kondisi yang berubah.
-- Persepsi: Meningkatkan akurasi sistem AI dalam mengenali dan menginterpretasi data dari lingkungannya.
+- Persepsi: Meningkatkan akurasi sistem AI dalam mengenali dan menginterpretasikan data dari lingkungannya.
 
 ### Apa itu Metakognisi?
 
-Metakognisi, atau "berpikir tentang berpikir," adalah proses kognitif tingkat tinggi yang melibatkan kesadaran diri dan pengaturan diri terhadap proses kognitif seseorang. Dalam ranah AI, metakognisi memberdayakan agen untuk mengevaluasi dan menyesuaikan strategi serta tindakannya, yang mengarah pada peningkatan kemampuan memecahkan masalah dan pengambilan keputusan. Dengan memahami metakognisi, Anda dapat merancang agen AI yang tidak hanya lebih cerdas tapi juga lebih adaptif dan efisien. Dalam metakognisi sejati, Anda akan melihat AI secara eksplisit melakukan penalaran tentang penalarannya sendiri.
+Metakognisi, atau "berpikir tentang berpikir," adalah proses kognitif tingkat tinggi yang melibatkan kesadaran diri dan pengaturan diri dari proses kognitif seseorang. Dalam ranah AI, metakognisi memberdayakan agen untuk menilai dan menyesuaikan strategi serta tindakannya, yang mengarah pada kemampuan pemecahan masalah dan pengambilan keputusan yang lebih baik. Dengan memahami metakognisi, Anda dapat merancang agen AI yang tidak hanya lebih cerdas tetapi juga lebih adaptif dan efisien. Dalam metakognisi sejati, Anda akan melihat AI secara eksplisit menalar tentang penalarannya sendiri.
 
-Contoh: “Saya memprioritaskan penerbangan lebih murah karena… Saya mungkin melewatkan penerbangan langsung, jadi saya akan memeriksa ulang.”
-Melacak bagaimana atau mengapa ia memilih rute tertentu.
-- Mencatat bahwa ia membuat kesalahan karena terlalu mengandalkan preferensi pengguna dari kali sebelumnya, sehingga ia memodifikasi strategi pengambilan keputusan, bukan hanya rekomendasi akhir.
-- Mendiagnosis pola seperti, “Setiap kali saya melihat pengguna menyebut ‘terlalu ramai,’ saya tidak hanya harus menghapus beberapa atraksi tapi juga merefleksikan bahwa metode saya memilih 'atraksi teratas' salah jika saya selalu mengurutkan berdasarkan popularitas.”
+Contoh: “Saya memprioritaskan penerbangan yang lebih murah karena… Saya mungkin melewatkan penerbangan langsung, jadi saya akan memeriksa ulang.”.
+Melacak bagaimana atau mengapa memilih rute tertentu.
+- Menyadari bahwa telah membuat kesalahan karena terlalu bergantung pada preferensi pengguna dari waktu sebelumnya, sehingga mengubah strategi pengambilan keputusannya, bukan hanya rekomendasi akhir.
+- Mendiagnosis pola seperti, “Setiap kali saya melihat pengguna menyebut 'terlalu ramai,' saya tidak hanya harus menghapus beberapa atraksi tetapi juga merefleksikan bahwa metode saya memilih 'atraksi teratas' salah jika saya selalu memberi peringkat berdasarkan popularitas.”
 
-### Pentingnya Metakognisi dalam Agen AI
+### Pentingnya Metakognisi pada Agen AI
 
 Metakognisi memainkan peran penting dalam desain agen AI karena beberapa alasan:
 
-![Pentingnya Metakognisi](../../../translated_images/id/importance-of-metacognition.b381afe9aae352f7.webp)
+![Importance of Metacognition](../../../translated_images/id/importance-of-metacognition.b381afe9aae352f7.webp)
 
-- Refleksi Diri: Agen dapat menilai kinerjanya sendiri dan mengidentifikasi area untuk perbaikan.
-- Adaptabilitas: Agen dapat memodifikasi strateginya berdasarkan pengalaman masa lalu dan lingkungan yang berubah.
+- Refleksi Diri: Agen dapat menilai kinerjanya sendiri dan mengidentifikasi area yang perlu diperbaiki.
+- Adaptabilitas: Agen dapat mengubah strategi berdasarkan pengalaman dan lingkungan yang berubah.
 - Koreksi Kesalahan: Agen dapat mendeteksi dan memperbaiki kesalahan secara mandiri, menghasilkan hasil yang lebih akurat.
-- Manajemen Sumber Daya: Agen dapat mengoptimalkan penggunaan sumber daya, seperti waktu dan daya komputasi, dengan merencanakan dan mengevaluasi tindakan mereka.
+- Manajemen Sumber Daya: Agen dapat mengoptimalkan penggunaan sumber daya, seperti waktu dan daya komputasi, dengan merencanakan dan mengevaluasi tindakannya.
 
 ## Komponen Agen AI
 
-Sebelum menyelami proses metakognitif, penting untuk memahami komponen dasar agen AI. Agen AI umumnya terdiri dari:
+Sebelum menyelami proses metakognitif, penting untuk memahami komponen dasar dari agen AI. Biasanya agen AI terdiri dari:
 
 - Persona: Kepribadian dan karakteristik agen, yang menentukan bagaimana ia berinteraksi dengan pengguna.
 - Alat: Kapabilitas dan fungsi yang dapat dilakukan agen.
 - Keterampilan: Pengetahuan dan keahlian yang dimiliki agen.
 
-Komponen-komponen ini bekerja sama untuk menciptakan "unit keahlian" yang dapat melakukan tugas-tugas tertentu.
+Komponen-komponen ini bekerja bersama untuk menciptakan "unit keahlian" yang dapat melakukan tugas-tugas tertentu.
 
 **Contoh**:
-Bayangkan agen perjalanan, layanan agen yang tidak hanya merencanakan liburan Anda tetapi juga menyesuaikan jalurnya berdasarkan data waktu nyata dan pengalaman perjalanan pelanggan sebelumnya.
+Pertimbangkan agen perjalanan, layanan agen yang tidak hanya merencanakan liburan Anda tetapi juga menyesuaikan jalur berdasarkan data waktu nyata dan pengalaman perjalanan pelanggan sebelumnya.
 
 ### Contoh: Metakognisi dalam Layanan Agen Perjalanan
 
-Bayangkan Anda merancang layanan agen perjalanan yang didukung oleh AI. Agen ini, "Travel Agent," membantu pengguna merencanakan liburan mereka. Untuk memasukkan metakognisi, Travel Agent perlu mengevaluasi dan menyesuaikan tindakannya berdasarkan kesadaran diri dan pengalaman masa lalu. Berikut bagaimana metakognisi dapat berperan:
+Bayangkan Anda merancang layanan agen perjalanan yang didukung AI. Agen ini, "Travel Agent," membantu pengguna merencanakan liburan mereka. Untuk menggabungkan metakognisi, Travel Agent perlu mengevaluasi dan menyesuaikan tindakannya berdasarkan kesadaran diri dan pengalaman masa lalu. Berikut cara metakognisi dapat berperan:
 
 #### Tugas Saat Ini
 
 Tugas saat ini adalah membantu pengguna merencanakan perjalanan ke Paris.
 
-#### Langkah-Langkah Menyelesaikan Tugas
+#### Langkah-langkah Menyelesaikan Tugas
 
-1. **Kumpulkan Preferensi Pengguna**: Tanyakan kepada pengguna tentang tanggal perjalanan, anggaran, minat (misalnya, museum, kuliner, belanja), dan kebutuhan khusus.
+1. **Kumpulkan Preferensi Pengguna**: Tanyakan kepada pengguna tentang tanggal perjalanan, anggaran, minat (misalnya, museum, kuliner, belanja), dan persyaratan khusus.
 2. **Ambil Informasi**: Cari opsi penerbangan, akomodasi, atraksi, dan restoran yang sesuai dengan preferensi pengguna.
-3. **Buat Rekomendasi**: Berikan itinerary yang dipersonalisasi dengan detail penerbangan, reservasi hotel, dan aktivitas yang disarankan.
-4. **Sesuaikan Berdasarkan Umpan Balik**: Tanyakan umpan balik pengguna tentang rekomendasi dan lakukan penyesuaian yang diperlukan.
+3. **Buat Rekomendasi**: Sediakan rencana perjalanan yang dipersonalisasi dengan detail penerbangan, reservasi hotel, dan aktivitas yang disarankan.
+4. **Sesuaikan Berdasarkan Umpan Balik**: Minta umpan balik pengguna atas rekomendasi dan lakukan penyesuaian yang diperlukan.
 
 #### Sumber Daya yang Dibutuhkan
 
@@ -81,15 +81,15 @@ Tugas saat ini adalah membantu pengguna merencanakan perjalanan ke Paris.
 
 #### Pengalaman dan Refleksi Diri
 
-Travel Agent menggunakan metakognisi untuk mengevaluasi kinerjanya dan belajar dari pengalaman masa lalu. Contohnya:
+Travel Agent menggunakan metakognisi untuk mengevaluasi kinerjanya dan belajar dari pengalaman sebelumnya. Contohnya:
 
-1. **Menganalisis Umpan Balik Pengguna**: Travel Agent meninjau umpan balik pengguna untuk menentukan rekomendasi mana yang diterima baik dan mana yang tidak. Ia menyesuaikan saran di masa depan sesuai dengan itu.
-2. **Adaptabilitas**: Jika pengguna sebelumnya menyebutkan ketidaksukaan akan tempat ramai, Travel Agent akan menghindari merekomendasikan tempat wisata populer saat jam sibuk di masa mendatang.
-3. **Koreksi Kesalahan**: Jika Travel Agent pernah membuat kesalahan dalam pemesanan sebelumnya, seperti menyarankan hotel yang sudah penuh, ia belajar untuk memeriksa ketersediaan dengan lebih teliti sebelum membuat rekomendasi.
+1. **Menganalisis Umpan Balik Pengguna**: Travel Agent meninjau umpan balik pengguna untuk mengetahui rekomendasi mana yang disukai dan mana yang tidak. Ia menyesuaikan saran masa depannya sesuai.
+2. **Adaptabilitas**: Jika pengguna sebelumnya menyebut tidak suka tempat yang ramai, Travel Agent akan menghindari merekomendasikan tempat wisata populer pada jam sibuk di masa depan.
+3. **Koreksi Kesalahan**: Jika Travel Agent pernah melakukan kesalahan dalam pemesanan sebelumnya, seperti menyarankan hotel yang penuh, ia belajar untuk memeriksa ketersediaan dengan lebih teliti sebelum memberikan rekomendasi.
 
 #### Contoh Praktis untuk Pengembang
 
-Berikut contoh kode sederhana bagaimana Travel Agent mungkin mengintegrasikan metakognisi:
+Berikut contoh kode sederhana bagaimana kode Travel Agent mungkin terlihat saat menggabungkan metakognisi:
 
 ```python
 class Travel_Agent:
@@ -134,68 +134,68 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 #### Mengapa Metakognisi Penting
 
-- **Refleksi Diri**: Agen dapat menganalisis kinerjanya dan mengidentifikasi area yang perlu diperbaiki.
-- **Adaptabilitas**: Agen dapat memodifikasi strategi berdasarkan umpan balik dan perubahan kondisi.
+- **Refleksi Diri**: Agen dapat menganalisis kinerjanya dan mengidentifikasi area yang perlu ditingkatkan.
+- **Adaptabilitas**: Agen dapat mengubah strategi berdasarkan umpan balik dan kondisi yang berubah.
 - **Koreksi Kesalahan**: Agen dapat mendeteksi dan memperbaiki kesalahan secara mandiri.
 - **Manajemen Sumber Daya**: Agen dapat mengoptimalkan penggunaan sumber daya, seperti waktu dan daya komputasi.
 
-Dengan mengintegrasikan metakognisi, Travel Agent dapat memberikan rekomendasi perjalanan yang lebih personal dan akurat, meningkatkan pengalaman pengguna secara keseluruhan.
+Dengan menggabungkan metakognisi, Travel Agent dapat memberikan rekomendasi perjalanan yang lebih personal dan akurat, sehingga meningkatkan pengalaman pengguna secara keseluruhan.
 
 ---
 
-## 2. Perencanaan dalam Agen
+## 2. Perencanaan pada Agen
 
-Perencanaan adalah komponen penting dari perilaku agen AI. Ini melibatkan merinci langkah-langkah yang diperlukan untuk mencapai tujuan, dengan mempertimbangkan keadaan saat ini, sumber daya, dan kemungkinan hambatan.
+Perencanaan adalah komponen penting dari perilaku agen AI. Ini melibatkan merinci langkah-langkah yang diperlukan untuk mencapai tujuan, mempertimbangkan keadaan saat ini, sumber daya, dan kemungkinan hambatan.
 
 ### Elemen-elemen Perencanaan
 
-- **Tugas Saat Ini**: Definisikan tugas dengan jelas.
-- **Langkah-Langkah untuk Menyelesaikan Tugas**: Pecah tugas menjadi langkah-langkah yang dapat dikelola.
+- **Tugas Saat Ini**: Definisikan tugas secara jelas.
+- **Langkah-langkah Menyelesaikan Tugas**: Pecah tugas menjadi langkah-langkah yang dapat dikelola.
 - **Sumber Daya yang Dibutuhkan**: Identifikasi sumber daya yang diperlukan.
-- **Pengalaman**: Manfaatkan pengalaman masa lalu untuk menginformasikan perencanaan.
+- **Pengalaman**: Manfaatkan pengalaman masa lalu untuk membantu perencanaan.
 
 **Contoh**:
-Berikut langkah-langkah yang harus dilakukan Travel Agent untuk membantu pengguna merencanakan perjalanan secara efektif:
+Berikut adalah langkah-langkah yang perlu dilakukan Travel Agent untuk membantu pengguna merencanakan perjalanan secara efektif:
 
-### Langkah-Langkah untuk Travel Agent
+### Langkah-langkah untuk Travel Agent
 
 1. **Kumpulkan Preferensi Pengguna**
-   - Tanyakan pada pengguna detail tentang tanggal perjalanan, anggaran, minat, dan kebutuhan khusus.
+   - Tanyakan kepada pengguna tentang tanggal perjalanan, anggaran, minat, dan persyaratan khusus.
    - Contoh: "Kapan Anda berencana bepergian?" "Berapa kisaran anggaran Anda?" "Aktivitas apa yang Anda sukai saat liburan?"
 
 2. **Ambil Informasi**
    - Cari opsi perjalanan yang relevan berdasarkan preferensi pengguna.
-   - **Penerbangan**: Cari penerbangan yang tersedia sesuai anggaran dan tanggal pilihan pengguna.
-   - **Akomodasi**: Temukan hotel atau properti sewa yang cocok berdasarkan lokasi, harga, dan fasilitas yang diinginkan.
-   - **Atraksi dan Restoran**: Identifikasi atraksi populer, aktivitas, dan pilihan makan yang sesuai dengan minat pengguna.
+   - **Penerbangan**: Cari penerbangan yang tersedia sesuai anggaran dan tanggal perjalanan pengguna.
+   - **Akomodasi**: Temukan hotel atau properti sewa yang cocok dengan preferensi lokasi, harga, dan fasilitas pengguna.
+   - **Atraksi dan Restoran**: Identifikasi atraksi, aktivitas, dan pilihan bersantap yang populer dan sesuai dengan minat pengguna.
 
 3. **Buat Rekomendasi**
-   - Kompilasi informasi yang diambil menjadi itinerary yang personal.
-   - Berikan detail seperti opsi penerbangan, reservasi hotel, dan aktivitas yang disarankan, dengan penyesuaian sesuai preferensi pengguna.
+   - Susun informasi yang diperoleh menjadi rencana perjalanan yang dipersonalisasi.
+   - Berikan detail seperti opsi penerbangan, reservasi hotel, dan aktivitas yang disarankan, dengan memastikan rekomendasi sesuai dengan preferensi pengguna.
 
 4. **Tampilkan Itinerary ke Pengguna**
-   - Bagikan itinerary yang diajukan untuk tinjauan pengguna.
-   - Contoh: "Ini itinerary yang saya sarankan untuk perjalanan Anda ke Paris. Ada detail penerbangan, pemesanan hotel, dan daftar aktivitas serta restoran yang direkomendasikan. Silakan beri tahu pendapat Anda!"
+   - Bagikan rencana perjalanan yang diusulkan kepada pengguna untuk ditinjau.
+   - Contoh: "Ini adalah itinerary yang disarankan untuk perjalanan Anda ke Paris. Termasuk detail penerbangan, pemesanan hotel, dan daftar aktivitas serta restoran yang direkomendasikan. Beritahu saya pendapat Anda!"
 
 5. **Kumpulkan Umpan Balik**
-   - Tanyakan pada pengguna mengenai pendapatnya terhadap itinerary yang diusulkan.
-   - Contoh: "Apakah Anda suka opsi penerbangan ini?" "Apakah hotel ini cocok untuk kebutuhan Anda?" "Apakah ada aktivitas yang ingin Anda tambahkan atau hapus?"
+   - Tanyakan umpan balik pengguna tentang itinerary yang diusulkan.
+   - Contoh: "Apakah Anda suka pilihan penerbangan ini?" "Apakah hotel ini sesuai kebutuhan Anda?" "Apakah ada aktivitas yang ingin Anda tambahkan atau hapus?"
 
 6. **Sesuaikan Berdasarkan Umpan Balik**
-   - Modifikasi itinerary berdasarkan masukan pengguna.
+   - Modifikasi itinerary berdasarkan umpan balik pengguna.
    - Lakukan perubahan yang diperlukan pada rekomendasi penerbangan, akomodasi, dan aktivitas agar lebih sesuai dengan preferensi pengguna.
 
 7. **Konfirmasi Akhir**
-   - Tampilkan kembali itinerary yang telah diperbarui untuk konfirmasi akhir pengguna.
-   - Contoh: "Saya sudah melakukan penyesuaian berdasarkan umpan balik Anda. Ini itinerary terbaru. Apakah semuanya sudah sesuai?"
+   - Tampilkan ulang itinerary yang telah diperbarui kepada pengguna untuk konfirmasi akhir.
+   - Contoh: "Saya telah melakukan penyesuaian berdasarkan umpan balik Anda. Ini adalah itinerary yang diperbarui. Apakah semuanya sudah sesuai?"
 
 8. **Pesan dan Konfirmasi Reservasi**
-   - Setelah pengguna menyetujui itinerary, lanjutkan dengan pemesanan penerbangan, akomodasi, dan aktivitas yang sudah terencana.
-   - Kirimkan detail konfirmasi ke pengguna.
+   - Setelah pengguna menyetujui itinerary, lanjutkan dengan pemesanan penerbangan, akomodasi, dan aktivitas yang telah direncanakan.
+   - Kirimkan detail konfirmasi kepada pengguna.
 
 9. **Berikan Dukungan Berkelanjutan**
-   - Tetap tersedia untuk membantu pengguna dengan perubahan atau permintaan tambahan sebelum dan selama perjalanan.
-   - Contoh: "Jika Anda membutuhkan bantuan selama perjalanan, jangan ragu menghubungi saya kapan saja!"
+   - Tetap tersedia untuk membantu pengguna dengan perubahan atau permintaan tambahan sebelum dan selama perjalanan mereka.
+   - Contoh: "Jika Anda membutuhkan bantuan lebih lanjut selama perjalanan, jangan ragu menghubungi saya kapan saja!"
 
 ### Contoh Interaksi
 
@@ -240,43 +240,43 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 ## 3. Sistem RAG Korektif
 
-Pertama-tama mari kita mulai dengan memahami perbedaan antara Alat RAG dan Pemuatan Konteks Pranala
+Pertama-tama mari kita mulai dengan memahami perbedaan antara Alat RAG dan Pemuatan Konteks Pre-emptive
 
 ![RAG vs Context Loading](../../../translated_images/id/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 
-RAG menggabungkan sistem pengambilan dengan model generatif. Saat sebuah kueri dibuat, sistem pengambilan mengambil dokumen atau data relevan dari sumber eksternal, dan informasi yang diambil ini digunakan untuk memperkaya input ke model generatif. Ini membantu model menghasilkan respons yang lebih akurat dan relevan secara kontekstual.
+RAG menggabungkan sistem pengambilan dengan model generatif. Ketika sebuah kueri dibuat, sistem pengambilan mengambil dokumen atau data relevan dari sumber eksternal, dan informasi yang diambil ini digunakan untuk memperkuat input ke model generatif. Ini membantu model menghasilkan respons yang lebih akurat dan relevan secara kontekstual.
 
 Dalam sistem RAG, agen mengambil informasi relevan dari basis pengetahuan dan menggunakannya untuk menghasilkan respons atau tindakan yang sesuai.
 
 ### Pendekatan RAG Korektif
 
-Pendekatan RAG Korektif berfokus pada penggunaan teknik RAG untuk memperbaiki kesalahan dan meningkatkan akurasi agen AI. Ini melibatkan:
+Pendekatan RAG Korektif fokus pada penggunaan teknik RAG untuk memperbaiki kesalahan dan meningkatkan akurasi agen AI. Ini melibatkan:
 
-1. **Teknik Prompting**: Menggunakan prompt spesifik untuk membimbing agen mengambil informasi yang relevan.
+1. **Teknik Prompting**: Menggunakan prompt spesifik untuk membimbing agen dalam mengambil informasi relevan.
 2. **Alat**: Menerapkan algoritma dan mekanisme yang memungkinkan agen mengevaluasi relevansi informasi yang diambil dan menghasilkan respons yang akurat.
 3. **Evaluasi**: Secara terus-menerus menilai kinerja agen dan melakukan penyesuaian untuk meningkatkan akurasi dan efisiensi.
 
-#### Contoh: RAG Korektif pada Agen Pencari
+#### Contoh: RAG Korektif di Agen Pencari
 
-Pertimbangkan agen pencari yang mengambil informasi dari web untuk menjawab kueri pengguna. Pendekatan RAG Korektif mungkin melibatkan:
+Pertimbangkan agen pencari yang mengambil informasi dari web untuk menjawab pertanyaan pengguna. Pendekatan RAG Korektif mungkin melibatkan:
 
-1. **Teknik Prompting**: Membentuk kueri pencarian berdasarkan input pengguna.
+1. **Teknik Prompting**: Membuat kueri pencarian berdasarkan input pengguna.
 2. **Alat**: Menggunakan pemrosesan bahasa alami dan algoritma pembelajaran mesin untuk memberi peringkat dan memfilter hasil pencarian.
 3. **Evaluasi**: Menganalisis umpan balik pengguna untuk mengidentifikasi dan memperbaiki ketidakakuratan dalam informasi yang diambil.
 
 ### RAG Korektif dalam Travel Agent
 
-RAG Korektif (Retrieval-Augmented Generation) meningkatkan kemampuan AI untuk mengambil dan menggenerasi informasi sekaligus memperbaiki ketidakakuratan yang ada. Mari lihat bagaimana Travel Agent dapat menggunakan pendekatan RAG Korektif untuk memberikan rekomendasi perjalanan yang lebih akurat dan relevan.
+RAG Korektif (Retrieval-Augmented Generation) meningkatkan kemampuan AI dalam mengambil dan menghasilkan informasi sekaligus memperbaiki ketidakakuratan. Mari lihat bagaimana Travel Agent dapat menggunakan pendekatan RAG Korektif untuk memberikan rekomendasi perjalanan yang lebih akurat dan relevan.
 
 Ini melibatkan:
 
-- **Teknik Prompting:** Menggunakan prompt spesifik untuk membimbing agen mengambil informasi yang relevan.
+- **Teknik Prompting:** Menggunakan prompt spesifik untuk membimbing agen dalam mengambil informasi relevan.
 - **Alat:** Menerapkan algoritma dan mekanisme yang memungkinkan agen mengevaluasi relevansi informasi yang diambil dan menghasilkan respons yang akurat.
-- **Evaluasi:** Terus-menerus menilai kinerja agen dan membuat penyesuaian untuk meningkatkan akurasi dan efisiensi.
+- **Evaluasi:** Secara terus-menerus menilai kinerja agen dan melakukan penyesuaian untuk meningkatkan akurasi dan efisiensi.
 
-#### Langkah-Langkah Implementasi RAG Korektif dalam Travel Agent
+#### Langkah-langkah Mengimplementasikan RAG Korektif pada Travel Agent
 
 1. **Interaksi Awal dengan Pengguna**
    - Travel Agent mengumpulkan preferensi awal dari pengguna, seperti tujuan, tanggal perjalanan, anggaran, dan minat.
@@ -301,7 +301,7 @@ Ini melibatkan:
      attractions = search_attractions(preferences)
      ```
 
-3. **Menghasilkan Rekomendasi Awal**
+3. **Membuat Rekomendasi Awal**
    - Travel Agent menggunakan informasi yang diambil untuk membuat itinerary yang dipersonalisasi.
    - Contoh:
 
@@ -311,7 +311,7 @@ Ini melibatkan:
      ```
 
 4. **Mengumpulkan Umpan Balik Pengguna**
-   - Travel Agent meminta umpan balik pengguna terhadap rekomendasi awal.
+   - Travel Agent meminta umpan balik pengguna atas rekomendasi awal.
    - Contoh:
 
      ```python
@@ -339,7 +339,7 @@ Ini melibatkan:
        print("Updated Itinerary:", new_itinerary)
        ```
 
-   - **Evaluasi**: Travel Agent terus menilai relevansi dan akurasi rekomendasinya dengan menganalisis umpan balik pengguna dan melakukan penyesuaian yang diperlukan.
+   - **Evaluasi**: Travel Agent secara berkelanjutan menilai relevansi dan akurasi rekomendasinya dengan menganalisis umpan balik pengguna dan melakukan penyesuaian yang diperlukan.
      - Contoh:
 
        ```python
@@ -355,7 +355,7 @@ Ini melibatkan:
 
 #### Contoh Praktis
 
-Berikut contoh kode Python sederhana yang menggabungkan pendekatan RAG Korektif dalam Travel Agent:
+Berikut adalah contoh kode Python sederhana yang menggabungkan pendekatan RAG Korektif dalam Travel Agent:
 
 ```python
 class Travel_Agent:
@@ -399,15 +399,17 @@ new_itinerary = travel_agent.adjust_based_on_feedback(feedback)
 print("Updated Itinerary:", new_itinerary)
 ```
 
-### Pemuatan Konteks Pranala Pendahuluan
-Pre-emptive Context Load melibatkan pemuatan konteks atau informasi latar belakang yang relevan ke dalam model sebelum memproses kueri. Ini berarti model memiliki akses ke informasi ini sejak awal, yang dapat membantunya menghasilkan respons yang lebih berpengetahuan tanpa perlu mengambil data tambahan selama proses berlangsung.
+### Pemuatan Konteks Pre-emptive
 
-Berikut adalah contoh sederhana bagaimana pre-emptive context load dapat terlihat untuk aplikasi agen perjalanan dalam Python:
+
+Pre-emptive Context Load melibatkan pemuatan konteks atau informasi latar belakang yang relevan ke dalam model sebelum memproses sebuah query. Ini berarti model memiliki akses ke informasi ini dari awal, yang dapat membantunya menghasilkan respons yang lebih terinformasi tanpa perlu mengambil data tambahan selama proses berlangsung.
+
+Berikut adalah contoh sederhana tentang bagaimana pre-emptive context load mungkin terlihat untuk aplikasi agen perjalanan dalam Python:
 
 ```python
 class TravelAgent:
     def __init__(self):
-        # Memuat terlebih dahulu destinasi populer dan informasinya
+        # Muat terlebih dahulu destinasi populer dan informasinya
         self.context = {
             "Paris": {"country": "France", "currency": "Euro", "language": "French", "attractions": ["Eiffel Tower", "Louvre Museum"]},
             "Tokyo": {"country": "Japan", "currency": "Yen", "language": "Japanese", "attractions": ["Tokyo Tower", "Shibuya Crossing"]},
@@ -416,7 +418,7 @@ class TravelAgent:
         }
 
     def get_destination_info(self, destination):
-        # Mengambil informasi destinasi dari konteks yang telah dimuat sebelumnya
+        # Ambil informasi destinasi dari konteks yang telah dimuat sebelumnya
         info = self.context.get(destination)
         if info:
             return f"{destination}:\nCountry: {info['country']}\nCurrency: {info['currency']}\nLanguage: {info['language']}\nAttractions: {', '.join(info['attractions'])}"
@@ -433,25 +435,25 @@ print(travel_agent.get_destination_info("Tokyo"))
 
 1. **Inisialisasi (metode `__init__`)**: Kelas `TravelAgent` memuat sebelumnya sebuah kamus yang berisi informasi tentang destinasi populer seperti Paris, Tokyo, New York, dan Sydney. Kamus ini mencakup detail seperti negara, mata uang, bahasa, dan atraksi utama untuk setiap destinasi.
 
-2. **Mengambil Informasi (metode `get_destination_info`)**: Ketika pengguna menanyakan mengenai destinasi tertentu, metode `get_destination_info` mengambil informasi relevan dari kamus konteks yang telah dimuat sebelumnya.
+2. **Mengambil Informasi (metode `get_destination_info`)**: Ketika pengguna menanyakan tentang destinasi tertentu, metode `get_destination_info` mengambil informasi yang relevan dari kamus konteks yang telah dimuat sebelumnya.
 
-Dengan memuat konteks terlebih dahulu, aplikasi agen perjalanan dapat merespons kueri pengguna dengan cepat tanpa harus mengambil informasi dari sumber eksternal secara real-time. Ini membuat aplikasi menjadi lebih efisien dan responsif.
+Dengan memuat konteks terlebih dahulu, aplikasi agen perjalanan dapat merespons cepat pertanyaan pengguna tanpa harus mengambil informasi ini dari sumber eksternal secara real-time. Ini membuat aplikasi menjadi lebih efisien dan responsif.
 
-### Bootstrapping Rencana dengan Tujuan Sebelum Melakukan Iterasi
+### Membuat Rencana dengan Tujuan Sebelum Iterasi
 
-Bootstrapping rencana dengan tujuan melibatkan memulai dengan tujuan yang jelas atau hasil yang diinginkan. Dengan menetapkan tujuan ini di awal, model dapat menggunakannya sebagai prinsip panduan sepanjang proses iterasi. Ini membantu memastikan setiap iterasi bergerak lebih dekat untuk mencapai hasil yang diinginkan, menjadikan proses lebih efisien dan terfokus.
+Membuat rencana dengan tujuan melibatkan memulai dengan tujuan atau hasil target yang jelas. Dengan mendefinisikan tujuan ini di awal, model dapat menggunakannya sebagai prinsip panduan sepanjang proses iterasi. Ini membantu memastikan setiap iterasi semakin mendekati pencapaian hasil yang diinginkan, membuat proses menjadi lebih efisien dan terfokus.
 
-Berikut contoh bagaimana Anda dapat melakukan bootstrap rencana perjalanan dengan tujuan sebelum iterasi untuk agen perjalanan dalam Python:
+Berikut adalah contoh bagaimana Anda dapat membuat rencana perjalanan dengan tujuan sebelum iterasi untuk agen perjalanan dalam Python:
 
 ### Skenario
 
-Seorang agen perjalanan ingin merencanakan liburan yang disesuaikan untuk klien. Tujuannya adalah membuat jadwal perjalanan yang memaksimalkan kepuasan klien berdasarkan preferensi dan anggarannya.
+Seorang agen perjalanan ingin merencanakan liburan yang disesuaikan untuk klien. Tujuannya adalah membuat itinerary perjalanan yang memaksimalkan kepuasan klien berdasarkan preferensi dan anggaran mereka.
 
 ### Langkah-langkah
 
-1. Tentukan preferensi dan anggaran klien.
-2. Bootstrapping rencana awal berdasarkan preferensi tersebut.
-3. Iterasi untuk menyempurnakan rencana, mengoptimalkan kepuasan klien.
+1. Mendefinisikan preferensi dan anggaran klien.
+2. Membuat rencana awal berdasarkan preferensi ini.
+3. Melakukan iterasi untuk menyempurnakan rencana, mengoptimalkan kepuasan klien.
 
 #### Kode Python
 
@@ -511,51 +513,51 @@ print("Refined Plan:", refined_plan)
 
 1. **Inisialisasi (metode `__init__`)**: Kelas `TravelAgent` diinisialisasi dengan daftar destinasi potensial, masing-masing memiliki atribut seperti nama, biaya, dan jenis aktivitas.
 
-2. **Bootstrapping Rencana (metode `bootstrap_plan`)**: Metode ini membuat rencana perjalanan awal berdasarkan preferensi dan anggaran klien. Metode ini mengiterasi daftar destinasi dan menambahkannya ke rencana jika sesuai dengan preferensi klien dan masuk dalam batas anggaran.
+2. **Membuat Rencana Awal (metode `bootstrap_plan`)**: Metode ini membuat rencana perjalanan awal berdasarkan preferensi dan anggaran klien. Rencana dibuat dengan mengiterasi daftar destinasi dan menambahkannya ke rencana jika sesuai dengan preferensi dan muat dalam anggaran.
 
-3. **Mencocokkan Preferensi (metode `match_preferences`)**: Metode ini memeriksa apakah destinasi cocok dengan preferensi klien.
+3. **Memeriksa Kesesuaian Preferensi (metode `match_preferences`)**: Metode ini memeriksa apakah sebuah destinasi sesuai dengan preferensi klien.
 
-4. **Iterasi Rencana (metode `iterate_plan`)**: Metode ini menyempurnakan rencana awal dengan mencoba mengganti setiap destinasi dalam rencana dengan opsi yang lebih baik, mempertimbangkan preferensi dan batas anggaran klien.
+4. **Melakukan Iterasi Rencana (metode `iterate_plan`)**: Metode ini menyempurnakan rencana awal dengan mencoba mengganti setiap destinasi dalam rencana dengan pilihan yang lebih sesuai, memperhatikan preferensi dan batasan anggaran klien.
 
-5. **Menghitung Biaya (metode `calculate_cost`)**: Metode ini menghitung total biaya rencana saat ini, termasuk destinasi baru yang potensial.
+5. **Menghitung Biaya (metode `calculate_cost`)**: Metode ini menghitung total biaya rencana saat ini, termasuk destinasi baru yang mungkin ditambahkan.
 
 #### Contoh Penggunaan
 
-- **Rencana Awal**: Agen perjalanan membuat rencana awal berdasarkan preferensi klien untuk melihat-lihat dan anggaran $2000.
-- **Rencana Disempurnakan**: Agen perjalanan mengiterasi rencana, mengoptimalkan sesuai preferensi dan anggaran klien.
+- **Rencana Awal**: Agen perjalanan membuat rencana awal berdasarkan preferensi klien untuk wisata dan anggaran $2000.
+- **Rencana yang Disempurnakan**: Agen perjalanan mengiterasi rencana, mengoptimalkan untuk preferensi dan anggaran klien.
 
-Dengan melakukan bootstrapping rencana dengan tujuan yang jelas (misalnya memaksimalkan kepuasan klien) dan iterasi untuk menyempurnakan rencana, agen perjalanan dapat membuat jadwal perjalanan yang disesuaikan dan optimal untuk klien. Pendekatan ini memastikan rencana perjalanan sesuai dengan preferensi dan anggaran klien sejak awal dan semakin baik di setiap iterasi.
+Dengan membuat rencana berdasarkan tujuan yang jelas (misalnya, memaksimalkan kepuasan klien) dan melakukan iterasi untuk menyempurnakan rencana, agen perjalanan dapat membuat itinerary yang disesuaikan dan optimal bagi klien. Pendekatan ini memastikan rencana perjalanan selaras dengan preferensi dan anggaran klien sejak awal dan meningkat setiap iterasi.
 
 ### Memanfaatkan LLM untuk Re-ranking dan Scoring
 
-Model Bahasa Besar (LLM) dapat digunakan untuk re-ranking dan scoring dengan mengevaluasi relevansi dan kualitas dokumen yang diambil atau respons yang dihasilkan. Berikut cara kerjanya:
+Large Language Models (LLM) dapat digunakan untuk re-ranking dan scoring dengan menilai relevansi dan kualitas dokumen yang diambil atau respons yang dihasilkan. Berikut caranya:
 
-**Pengambilan**: Langkah awal mengambil sekumpulan dokumen kandidat atau respons berdasarkan kueri.
+**Pengambilan:** Langkah pengambilan awal mengumpulkan kumpulan dokumen calon atau respons berdasarkan query.
 
-**Re-ranking**: LLM mengevaluasi kandidat tersebut dan mengatur ulang peringkatnya berdasarkan relevansi dan kualitas. Langkah ini memastikan informasi paling relevan dan berkualitas tinggi disajikan terlebih dahulu.
+**Re-ranking:** LLM menilai kandidat ini dan mengurutkannya ulang berdasarkan relevansi dan kualitasnya. Langkah ini memastikan informasi yang paling relevan dan berkualitas tinggi ditampilkan pertama.
 
-**Scoring**: LLM memberikan skor pada setiap kandidat yang mencerminkan relevansi dan kualitasnya. Ini membantu memilih respons atau dokumen terbaik untuk pengguna.
+**Scoring:** LLM memberikan skor untuk setiap kandidat, mencerminkan relevansi dan kualitasnya. Ini membantu memilih respons atau dokumen terbaik untuk pengguna.
 
 Dengan memanfaatkan LLM untuk re-ranking dan scoring, sistem dapat memberikan informasi yang lebih akurat dan relevan secara kontekstual, meningkatkan pengalaman pengguna secara keseluruhan.
 
-Berikut contoh bagaimana agen perjalanan dapat menggunakan Model Bahasa Besar (LLM) untuk re-ranking dan scoring destinasi perjalanan berdasarkan preferensi pengguna dalam Python:
+Berikut adalah contoh bagaimana agen perjalanan dapat menggunakan Large Language Model (LLM) untuk re-ranking dan scoring destinasi perjalanan berdasarkan preferensi pengguna dalam Python:
 
 #### Skenario - Perjalanan berdasarkan Preferensi
 
-Seorang agen perjalanan ingin merekomendasikan destinasi terbaik kepada klien berdasarkan preferensi mereka. LLM akan membantu re-ranking dan scoring destinasi untuk memastikan opsi yang paling relevan disajikan.
+Seorang agen perjalanan ingin merekomendasikan destinasi perjalanan terbaik kepada klien berdasarkan preferensi mereka. LLM akan membantu melakukan re-ranking dan scoring destinasi untuk memastikan opsi yang paling relevan disajikan.
 
 #### Langkah-langkah:
 
-1. Kumpulkan preferensi pengguna.
-2. Ambil daftar destinasi perjalanan potensial.
-3. Gunakan LLM untuk re-ranking dan scoring destinasi berdasarkan preferensi pengguna.
+1. Mengumpulkan preferensi pengguna.
+2. Mengambil daftar destinasi perjalanan potensial.
+3. Menggunakan LLM untuk melakukan re-ranking dan scoring destinasi berdasarkan preferensi pengguna.
 
 Berikut cara memperbarui contoh sebelumnya untuk menggunakan Azure OpenAI Services:
 
 #### Persyaratan
 
 1. Anda harus memiliki langganan Azure.
-2. Buat sumber daya Azure OpenAI dan dapatkan kunci API Anda.
+2. Membuat sumber daya Azure OpenAI dan mendapatkan kunci API Anda.
 
 #### Contoh Kode Python
 
@@ -622,35 +624,35 @@ for rec in recommendations:
 
 1. **Inisialisasi**: Kelas `TravelAgent` diinisialisasi dengan daftar destinasi perjalanan potensial, masing-masing memiliki atribut seperti nama dan deskripsi.
 
-2. **Mendapatkan Rekomendasi (metode `get_recommendations`)**: Metode ini membuat prompt untuk layanan Azure OpenAI berdasarkan preferensi pengguna dan melakukan permintaan POST HTTP ke API Azure OpenAI untuk mendapatkan destinasi yang di-re-rank dan diberi skor.
+2. **Mendapatkan Rekomendasi (metode `get_recommendations`)**: Metode ini membuat prompt untuk layanan Azure OpenAI berdasarkan preferensi pengguna dan melakukan permintaan HTTP POST ke API Azure OpenAI untuk mendapatkan destinasi yang diurutkan ulang dan diberi skor.
 
-3. **Menghasilkan Prompt (metode `generate_prompt`)**: Metode ini menyusun prompt untuk Azure OpenAI, mencakup preferensi pengguna dan daftar destinasi. Prompt ini mengarahkan model untuk re-ranking dan scoring destinasi berdasarkan preferensi yang diberikan.
+3. **Membuat Prompt (metode `generate_prompt`)**: Metode ini membangun prompt untuk Azure OpenAI, termasuk preferensi pengguna dan daftar destinasi. Prompt ini mengarahkan model untuk mere-rank dan memberi skor destinasi berdasarkan preferensi yang diberikan.
 
-4. **Panggilan API**: Library `requests` digunakan untuk melakukan permintaan POST HTTP ke endpoint API Azure OpenAI. Respons berisi destinasi yang di-re-rank dan diberi skor.
+4. **Panggilan API**: Library `requests` digunakan untuk membuat permintaan HTTP POST ke endpoint API Azure OpenAI. Respons berisi destinasi yang sudah di-ranking ulang dan diberi skor.
 
-5. **Contoh Penggunaan**: Agen perjalanan mengumpulkan preferensi pengguna (misalnya, minat pada wisata dan budaya beragam) dan menggunakan layanan Azure OpenAI untuk mendapatkan rekomendasi destinasi yang di-re-rank dan diberi skor.
+5. **Contoh Penggunaan**: Agen perjalanan mengumpulkan preferensi pengguna (misalnya, minat pada wisata dan budaya beragam) dan menggunakan layanan Azure OpenAI untuk mendapatkan rekomendasi destinasi perjalanan yang di-ranking ulang dan diberi skor.
 
-Pastikan mengganti `your_azure_openai_api_key` dengan kunci API Azure OpenAI Anda yang sebenarnya dan `https://your-endpoint.com/...` dengan URL endpoint sebenarnya dari deployment Azure OpenAI Anda.
+Pastikan mengganti `your_azure_openai_api_key` dengan kunci API Azure OpenAI Anda yang sebenarnya dan `https://your-endpoint.com/...` dengan URL endpoint aktual dari penyebaran Azure OpenAI Anda.
 
 Dengan memanfaatkan LLM untuk re-ranking dan scoring, agen perjalanan dapat memberikan rekomendasi perjalanan yang lebih personal dan relevan kepada klien, meningkatkan pengalaman mereka secara keseluruhan.
 
 ### RAG: Teknik Prompting vs Alat
 
-Retrieval-Augmented Generation (RAG) bisa menjadi teknik prompting maupun alat dalam pengembangan agen AI. Memahami perbedaan keduanya dapat membantu Anda memanfaatkan RAG dengan lebih efektif dalam proyek Anda.
+Retrieval-Augmented Generation (RAG) bisa menjadi teknik prompting sekaligus alat dalam pengembangan agen AI. Memahami perbedaan keduanya dapat membantu Anda memanfaatkan RAG secara lebih efektif dalam proyek Anda.
 
 #### RAG sebagai Teknik Prompting
 
 **Apa itu?**
 
-- Sebagai teknik prompting, RAG melibatkan merumuskan kueri atau prompt khusus untuk memandu pengambilan informasi relevan dari kumpulan data besar atau basis data. Informasi ini kemudian digunakan untuk menghasilkan respons atau tindakan.
+- Sebagai teknik prompting, RAG melibatkan formulasi query atau prompt spesifik untuk mengarahkan pengambilan informasi relevan dari korpus besar atau basis data. Informasi ini kemudian digunakan untuk memproduksi respons atau tindakan.
 
 **Cara kerjanya:**
 
-1. **Merumuskan Prompt**: Buat prompt atau kueri yang terstruktur dengan baik berdasarkan tugas atau input pengguna.
-2. **Mengambil Informasi**: Gunakan prompt untuk mencari data relevan dari basis pengetahuan atau dataset yang sudah ada.
-3. **Menghasilkan Respons**: Gabungkan informasi yang diambil dengan model AI generatif untuk menghasilkan respons komprehensif dan koheren.
+1. **Membuat Prompt:** Buat prompt atau query yang terstruktur dengan baik berdasarkan tugas yang harus dilakukan atau input pengguna.
+2. **Mengambil Informasi:** Gunakan prompt untuk mencari data relevan dari basis pengetahuan atau dataset yang sudah ada.
+3. **Menghasilkan Respons:** Gabungkan informasi yang diambil dengan model AI generatif untuk menghasilkan respons yang komprehensif dan koheren.
 
-**Contoh dalam Agen Perjalanan**:
+**Contoh di Agen Perjalanan**:
 
 - Input Pengguna: "Saya ingin mengunjungi museum di Paris."
 - Prompt: "Temukan museum terbaik di Paris."
@@ -661,15 +663,15 @@ Retrieval-Augmented Generation (RAG) bisa menjadi teknik prompting maupun alat d
 
 **Apa itu?**
 
-- Sebagai alat, RAG adalah sistem terpadu yang mengotomatiskan proses pengambilan dan generasi, memudahkan pengembang menerapkan fungsi AI kompleks tanpa harus membuat prompt secara manual untuk setiap kueri.
+- Sebagai alat, RAG adalah sistem terintegrasi yang mengotomatisasi proses pengambilan dan generasi, memudahkan pengembang menerapkan fungsi AI kompleks tanpa perlu membuat prompt secara manual untuk setiap query.
 
 **Cara kerjanya:**
 
-1. **Integrasi**: Sematkan RAG dalam arsitektur agen AI, memungkinkan proses pengambilan dan generasi berjalan otomatis.
-2. **Otomatisasi**: Alat ini mengelola seluruh proses, dari menerima input pengguna hingga menghasilkan respons akhir, tanpa membutuhkan prompt eksplisit setiap langkah.
-3. **Efisiensi**: Meningkatkan performa agen dengan menyederhanakan proses pengambilan dan generasi, memungkinkan respons yang lebih cepat dan akurat.
+1. **Integrasi:** Menanamkan RAG ke dalam arsitektur agen AI, memungkinkan agen secara otomatis menangani tugas pengambilan dan generasi.
+2. **Otomatisasi:** Alat ini mengelola seluruh proses, mulai dari menerima input pengguna hingga menghasilkan respons akhir, tanpa perlu prompt eksplisit untuk setiap langkah.
+3. **Efisiensi:** Meningkatkan performa agen dengan menyederhanakan proses pengambilan dan generasi, memungkinkan respons yang lebih cepat dan akurat.
 
-**Contoh dalam Agen Perjalanan**:
+**Contoh di Agen Perjalanan**:
 
 - Input Pengguna: "Saya ingin mengunjungi museum di Paris."
 - Alat RAG: Secara otomatis mengambil informasi tentang museum dan menghasilkan respons.
@@ -677,12 +679,12 @@ Retrieval-Augmented Generation (RAG) bisa menjadi teknik prompting maupun alat d
 
 ### Perbandingan
 
-| Aspek                  | Teknik Prompting                                         | Alat                                                    |
-|------------------------|----------------------------------------------------------|---------------------------------------------------------|
-| **Manual vs Otomatis** | Perumusan prompt secara manual untuk tiap kueri.         | Proses otomatis untuk pengambilan dan generasi.         |
-| **Kontrol**            | Memberikan kontrol lebih atas proses pengambilan.        | Menyederhanakan dan mengotomatiskan pengambilan dan generasi. |
-| **Fleksibilitas**      | Memungkinkan prompt yang disesuaikan berdasarkan kebutuhan spesifik. | Lebih efisien untuk implementasi berskala besar.         |
-| **Kompleksitas**       | Membutuhkan perumusan dan penyempurnaan prompt.          | Lebih mudah diintegrasikan dalam arsitektur agen AI.     |
+| Aspek                  | Teknik Prompting                                          | Alat                                                 |
+|------------------------|-----------------------------------------------------------|------------------------------------------------------|
+| **Manual vs Otomatis** | Formulasi prompt manual untuk setiap query.               | Proses otomatis untuk pengambilan dan generasi.       |
+| **Kontrol**            | Memberikan kontrol lebih atas proses pengambilan.         | Menyederhanakan dan mengotomatisasi pengambilan dan generasi.|
+| **Fleksibilitas**      | Mengizinkan prompt yang disesuaikan berdasarkan kebutuhan.| Lebih efisien untuk implementasi berskala besar.      |
+| **Kompleksitas**       | Memerlukan penyusunan dan penyesuaian prompt.             | Lebih mudah diintegrasikan dalam arsitektur agen AI.   |
 
 ### Contoh Praktis
 
@@ -717,30 +719,30 @@ print("Top Museums in Paris:", museums)
 
 ### Mengevaluasi Relevansi
 
-Mengevaluasi relevansi merupakan aspek penting dalam performa agen AI. Hal ini memastikan informasi yang diambil dan dihasilkan oleh agen sesuai, akurat, dan berguna bagi pengguna. Mari kita jelajahi cara mengevaluasi relevansi dalam agen AI, termasuk contoh praktis dan tekniknya.
+Mengevaluasi relevansi adalah aspek penting dari performa agen AI. Ini memastikan informasi yang diambil dan dihasilkan agen sesuai, akurat, dan berguna bagi pengguna. Mari kita jelajahi cara mengevaluasi relevansi dalam agen AI, termasuk contoh praktis dan tekniknya.
 
 #### Konsep Kunci dalam Mengevaluasi Relevansi
 
 1. **Kesadaran Konteks**:
-   - Agen harus memahami konteks kueri pengguna untuk mengambil dan menghasilkan informasi yang relevan.
-   - Contoh: Jika pengguna meminta "restoran terbaik di Paris," agen sebaiknya mempertimbangkan preferensi pengguna seperti jenis masakan dan anggaran.
+   - Agen harus memahami konteks dari query pengguna untuk mengambil dan menghasilkan informasi yang relevan.
+   - Contoh: Jika pengguna bertanya "restoran terbaik di Paris," agen harus mempertimbangkan preferensi pengguna, seperti jenis masakan dan anggaran.
 
 2. **Akurasi**:
-   - Informasi yang diberikan agen harus benar secara faktual dan terkini.
-   - Contoh: Merekomendasikan restoran yang saat ini buka dengan ulasan baik, bukan opsi yang sudah tutup atau usang.
+   - Informasi yang diberikan agen harus benar secara faktual dan terbaru.
+   - Contoh: Merekomendasikan restoran yang saat ini buka dengan ulasan baik daripada opsi yang sudah usang atau tutup.
 
 3. **Niat Pengguna**:
-   - Agen harus menginterpretasikan niat pengguna di balik kueri untuk menyediakan informasi paling relevan.
-   - Contoh: Jika pengguna meminta "hotel dengan harga terjangkau," agen harus memprioritaskan opsi murah.
+   - Agen harus menafsirkan niat pengguna di balik query untuk memberikan informasi yang paling relevan.
+   - Contoh: Jika pengguna meminta "hotel ramah anggaran," agen harus memprioritaskan opsi yang terjangkau.
 
-4. **Loop Umpan Balik**:
-   - Mengumpulkan dan menganalisis umpan balik pengguna secara terus-menerus membantu agen menyempurnakan proses evaluasi relevansi.
-   - Contoh: Memasukkan rating dan umpan balik pengguna atas rekomendasi sebelumnya untuk memperbaiki respons ke depan.
+4. **Umpan Balik Berkelanjutan**:
+   - Mengumpulkan dan menganalisis umpan balik pengguna secara berkelanjutan membantu agen menyempurnakan proses evaluasi relevansi.
+   - Contoh: Menggabungkan rating dan feedback pengguna pada rekomendasi sebelumnya untuk memperbaiki respons di masa depan.
 
 #### Teknik Praktis untuk Mengevaluasi Relevansi
 
-1. **Pemeringkatan Relevansi**:
-   - Memberikan skor relevansi pada setiap item yang diambil berdasarkan seberapa baik item tersebut cocok dengan kueri dan preferensi pengguna.
+1. **Pemberian Skor Relevansi**:
+   - Memberikan skor relevansi untuk setiap item yang diambil berdasarkan seberapa baik item tersebut cocok dengan query dan preferensi pengguna.
    - Contoh:
 
      ```python
@@ -755,18 +757,18 @@ Mengevaluasi relevansi merupakan aspek penting dalam performa agen AI. Hal ini m
          return score
      ```
 
-2. **Penyaringan dan Peringkat**:
-   - Memfilter item yang tidak relevan dan mengurutkan sisanya berdasarkan skor relevansi.
+2. **Penyaringan dan Pengurutan**:
+   - Menyaring item yang tidak relevan dan mengurutkan sisanya berdasarkan skor relevansi.
    - Contoh:
 
      ```python
      def filter_and_rank(items, query):
          ranked_items = sorted(items, key=lambda item: relevance_score(item, query), reverse=True)
-         return ranked_items[:10]  # Mengembalikan 10 item relevan teratas
+         return ranked_items[:10]  # Kembalikan 10 item relevan teratas
      ```
 
-3. **Pengolahan Bahasa Alami (NLP)**:
-   - Menggunakan teknik NLP untuk memahami kueri pengguna dan mengambil informasi relevan.
+3. **Pemrosesan Bahasa Alami (NLP)**:
+   - Menggunakan teknik NLP untuk memahami query pengguna dan mengambil informasi yang relevan.
    - Contoh:
 
      ```python
@@ -777,7 +779,7 @@ Mengevaluasi relevansi merupakan aspek penting dalam performa agen AI. Hal ini m
      ```
 
 4. **Integrasi Umpan Balik Pengguna**:
-   - Mengumpulkan umpan balik pengguna terhadap rekomendasi yang diberikan dan menggunakannya untuk menyesuaikan evaluasi relevansi di masa depan.
+   - Mengumpulkan umpan balik pengguna tentang rekomendasi yang diberikan dan menggunakannya untuk menyesuaikan evaluasi relevansi di masa depan.
    - Contoh:
 
      ```python
@@ -792,7 +794,7 @@ Mengevaluasi relevansi merupakan aspek penting dalam performa agen AI. Hal ini m
 
 #### Contoh: Mengevaluasi Relevansi di Agen Perjalanan
 
-Berikut contoh praktis bagaimana Agen Perjalanan dapat mengevaluasi relevansi rekomendasi perjalanan:
+Berikut adalah contoh praktis bagaimana Travel Agent dapat mengevaluasi relevansi rekomendasi perjalanan:
 
 ```python
 class Travel_Agent:
@@ -853,30 +855,30 @@ updated_items = travel_agent.adjust_based_on_feedback(feedback, itinerary['hotel
 print("Updated Itinerary with Feedback:", updated_items)
 ```
 
-### Mencari dengan Niat
+### Pencarian dengan Niat
 
-Mencari dengan niat melibatkan memahami dan menginterpretasi tujuan atau sasaran di balik kueri pengguna untuk mengambil dan menghasilkan informasi yang paling relevan dan berguna. Pendekatan ini melampaui pencocokan kata kunci, fokus pada memahami kebutuhan dan konteks sebenarnya pengguna.
+Pencarian dengan niat melibatkan memahami dan menafsirkan tujuan atau maksud di balik query pengguna untuk mengambil dan menghasilkan informasi yang paling relevan dan berguna. Pendekatan ini melampaui sekadar mencocokkan kata kunci dan fokus pada menangkap kebutuhan dan konteks sebenarnya dari pengguna.
 
-#### Konsep Kunci dalam Mencari dengan Niat
+#### Konsep Kunci dalam Pencarian dengan Niat
 
 1. **Memahami Niat Pengguna**:
-   - Niat pengguna dapat dikategorikan menjadi tiga jenis utama: informasional, navigasi, dan transaksional.
+   - Niat pengguna dapat dikategorikan menjadi tiga tipe utama: informasional, navigasi, dan transaksional.
      - **Niat Informasional**: Pengguna mencari informasi tentang suatu topik (misalnya, "Apa museum terbaik di Paris?").
-     - **Niat Navigasi**: Pengguna ingin menuju situs atau halaman tertentu (misalnya, "Situs resmi Museum Louvre").
-     - **Niat Transaksional**: Pengguna berniat melakukan transaksi, seperti memesan tiket atau melakukan pembelian (misalnya, "Pesan tiket pesawat ke Paris").
+     - **Niat Navigasi**: Pengguna ingin menavigasi ke situs web atau halaman tertentu (misalnya, "Situs resmi Museum Louvre").
+     - **Niat Transaksional**: Pengguna ingin melakukan transaksi, seperti memesan penerbangan atau melakukan pembelian (misalnya, "Pesan penerbangan ke Paris").
 
 2. **Kesadaran Konteks**:
-   - Menganalisis konteks kueri pengguna membantu mengidentifikasi niat dengan tepat. Ini meliputi mempertimbangkan interaksi sebelumnya, preferensi pengguna, dan detail spesifik kueri saat ini.
+   - Menganalisis konteks query pengguna membantu mengidentifikasi niat mereka secara akurat. Ini termasuk mempertimbangkan interaksi sebelumnya, preferensi pengguna, dan detail spesifik dari query saat ini.
 
-3. **Pengolahan Bahasa Alami (NLP)**:
-   - Teknik NLP digunakan untuk memahami dan menginterpretasi kueri dalam bahasa alami dari pengguna. Ini termasuk tugas seperti pengenalan entitas, analisis sentimen, dan parsing kueri.
+3. **Pemrosesan Bahasa Alami (NLP)**:
+   - Teknik NLP digunakan untuk memahami dan menafsirkan query bahasa alami yang diberikan pengguna. Ini melibatkan tugas seperti pengenalan entitas, analisis sentimen, dan parsing query.
 
 4. **Personalisasi**:
    - Mempersonalisasi hasil pencarian berdasarkan riwayat, preferensi, dan umpan balik pengguna meningkatkan relevansi informasi yang diambil.
 
-#### Contoh Praktis: Mencari dengan Niat di Agen Perjalanan
+#### Contoh Praktis: Pencarian dengan Niat di Agen Perjalanan
 
-Mari kita ambil Agen Perjalanan sebagai contoh untuk melihat bagaimana mencari dengan niat dapat diimplementasikan.
+Mari kita ambil Travel Agent sebagai contoh untuk melihat bagaimana pencarian dengan niat dapat diimplementasikan.
 
 1. **Mengumpulkan Preferensi Pengguna**
 
@@ -902,6 +904,8 @@ Mari kita ambil Agen Perjalanan sebagai contoh untuk melihat bagaimana mencari d
    ```
 
 3. **Kesadaran Konteks**
+
+
    ```python
    def analyze_context(query, user_history):
        # Gabungkan kueri saat ini dengan riwayat pengguna untuk memahami konteks
@@ -933,7 +937,7 @@ Mari kita ambil Agen Perjalanan sebagai contoh untuk melihat bagaimana mencari d
        return results
 
    def search_navigation(query):
-       # Contoh logika pencarian untuk intent navigasional
+       # Contoh logika pencarian untuk intent navigasi
        results = search_web(query)
        return results
 
@@ -945,7 +949,7 @@ Mari kita ambil Agen Perjalanan sebagai contoh untuk melihat bagaimana mencari d
    def personalize_results(results, user_history):
        # Contoh logika personalisasi
        personalized = [result for result in results if result not in user_history]
-       return personalized[:10]  # Mengembalikan 10 hasil teratas yang dipersonalisasi
+       return personalized[:10]  # Mengembalikan 10 hasil personalisasi teratas
    ```
 
 5. **Contoh Penggunaan**
@@ -967,36 +971,36 @@ Mari kita ambil Agen Perjalanan sebagai contoh untuk melihat bagaimana mencari d
 
 ## 4. Menghasilkan Kode sebagai Alat
 
-Agen pembuat kode menggunakan model AI untuk menulis dan menjalankan kode, memecahkan masalah kompleks dan mengotomatisasi tugas.
+Agen penghasil kode menggunakan model AI untuk menulis dan menjalankan kode, memecahkan masalah kompleks dan mengotomatiskan tugas.
 
-### Agen Pembuat Kode
+### Agen Penghasil Kode
 
-Agen pembuat kode menggunakan model AI generatif untuk menulis dan menjalankan kode. Agen ini dapat memecahkan masalah kompleks, mengotomatisasi tugas, dan memberikan wawasan berharga dengan menghasilkan dan menjalankan kode dalam berbagai bahasa pemrograman.
+Agen penghasil kode menggunakan model AI generatif untuk menulis dan menjalankan kode. Agen ini dapat memecahkan masalah kompleks, mengotomatiskan tugas, dan memberikan wawasan berharga dengan menghasilkan dan menjalankan kode dalam berbagai bahasa pemrograman.
 
 #### Aplikasi Praktis
 
-1. **Pembuatan Kode Otomatis**: Menghasilkan potongan kode untuk tugas tertentu, seperti analisis data, scraping web, atau pembelajaran mesin.
-2. **SQL sebagai RAG**: Menggunakan kueri SQL untuk mengambil dan memanipulasi data dari basis data.
+1. **Generasi Kode Otomatis**: Menghasilkan potongan kode untuk tugas tertentu, seperti analisis data, web scraping, atau pembelajaran mesin.
+2. **SQL sebagai RAG**: Menggunakan query SQL untuk mengambil dan memanipulasi data dari basis data.
 3. **Pemecahan Masalah**: Membuat dan menjalankan kode untuk memecahkan masalah tertentu, seperti mengoptimalkan algoritma atau menganalisis data.
 
-#### Contoh: Agen Pembuat Kode untuk Analisis Data
+#### Contoh: Agen Penghasil Kode untuk Analisis Data
 
-Bayangkan Anda merancang agen pembuat kode. Berikut cara kerjanya:
+Bayangkan Anda sedang merancang agen penghasil kode. Berikut cara kerjanya:
 
 1. **Tugas**: Menganalisis dataset untuk mengidentifikasi tren dan pola.
 2. **Langkah-langkah**:
    - Memuat dataset ke dalam alat analisis data.
-   - Menghasilkan kueri SQL untuk memfilter dan mengagregasi data.
-   - Menjalankan kueri dan mengambil hasilnya.
+   - Menghasilkan query SQL untuk memfilter dan mengagregasi data.
+   - Menjalankan query dan mengambil hasilnya.
    - Menggunakan hasil untuk menghasilkan visualisasi dan wawasan.
 3. **Sumber Daya yang Dibutuhkan**: Akses ke dataset, alat analisis data, dan kemampuan SQL.
-4. **Pengalaman**: Menggunakan hasil analisis sebelumnya untuk meningkatkan akurasi dan relevansi analisis selanjutnya.
+4. **Pengalaman**: Menggunakan hasil analisis sebelumnya untuk meningkatkan akurasi dan relevansi analisis berikutnya.
 
-### Contoh: Agen Pembuat Kode untuk Agen Perjalanan
+### Contoh: Agen Penghasil Kode untuk Agen Perjalanan
 
-Dalam contoh ini, kita akan merancang agen pembuat kode, Agen Perjalanan, untuk membantu pengguna merencanakan perjalanan mereka dengan menghasilkan dan menjalankan kode. Agen ini dapat menangani tugas seperti mengambil opsi perjalanan, memfilter hasil, dan menyusun jadwal menggunakan AI generatif.
+Dalam contoh ini, kita akan merancang agen penghasil kode, Agen Perjalanan, untuk membantu pengguna merencanakan perjalanan mereka dengan menghasilkan dan menjalankan kode. Agen ini dapat menangani tugas seperti mengambil opsi perjalanan, memfilter hasil, dan menyusun itinerary menggunakan AI generatif.
 
-#### Gambaran Umum Agen Pembuat Kode
+#### Gambaran Umum Agen Penghasil Kode
 
 1. **Mengumpulkan Preferensi Pengguna**: Mengumpulkan input pengguna seperti tujuan, tanggal perjalanan, anggaran, dan minat.
 2. **Menghasilkan Kode untuk Mengambil Data**: Menghasilkan potongan kode untuk mengambil data tentang penerbangan, hotel, dan atraksi.
@@ -1021,7 +1025,7 @@ Dalam contoh ini, kita akan merancang agen pembuat kode, Agen Perjalanan, untuk 
 
    ```python
    def generate_code_to_fetch_data(preferences):
-       # Contoh: Menghasilkan kode untuk mencari penerbangan berdasarkan preferensi pengguna
+       # Contoh: Buat kode untuk mencari penerbangan berdasarkan preferensi pengguna
        code = f"""
        def search_flights():
            import requests
@@ -1031,7 +1035,7 @@ Dalam contoh ini, kita akan merancang agen pembuat kode, Agen Perjalanan, untuk 
        return code
 
    def generate_code_to_fetch_hotels(preferences):
-       # Contoh: Menghasilkan kode untuk mencari hotel
+       # Contoh: Buat kode untuk mencari hotel
        code = f"""
        def search_hotels():
            import requests
@@ -1112,13 +1116,13 @@ Dalam contoh ini, kita akan merancang agen pembuat kode, Agen Perjalanan, untuk 
 
 ### Memanfaatkan kesadaran lingkungan dan penalaran
 
-Berdasarkan skema tabel memang dapat meningkatkan proses pembuatan kueri dengan memanfaatkan kesadaran lingkungan dan penalaran.
+Berdasarkan skema tabel memang dapat meningkatkan proses pembuatan query dengan memanfaatkan kesadaran lingkungan dan penalaran.
 
-Berikut contoh cara melakukannya:
+Berikut ini contoh bagaimana hal tersebut dapat dilakukan:
 
-1. **Memahami Skema**: Sistem akan memahami skema tabel dan menggunakan informasi ini untuk mendasari pembuatan kueri.
-2. **Menyesuaikan Berdasarkan Umpan Balik**: Sistem akan menyesuaikan preferensi pengguna berdasarkan umpan balik dan mempertimbangkan bidang mana di skema yang perlu diperbarui.
-3. **Menghasilkan dan Menjalankan Kueri**: Sistem akan menghasilkan dan menjalankan kueri untuk mengambil data penerbangan dan hotel yang diperbarui berdasarkan preferensi baru.
+1. **Memahami Skema**: Sistem akan memahami skema tabel dan menggunakan informasi ini untuk mendasari pembuatan query.
+2. **Menyesuaikan Berdasarkan Umpan Balik**: Sistem akan menyesuaikan preferensi pengguna berdasarkan umpan balik dan menalar mengenai bidang apa dalam skema yang perlu diperbarui.
+3. **Menghasilkan dan Menjalankan Query**: Sistem akan menghasilkan dan menjalankan query untuk mengambil data penerbangan dan hotel yang diperbarui berdasarkan preferensi baru.
 
 Berikut contoh kode Python yang diperbarui yang menggabungkan konsep-konsep ini:
 
@@ -1144,11 +1148,11 @@ def adjust_based_on_environment(feedback, field, schema):
     return schema[field]["default"]
 
 def generate_code_to_fetch_data(preferences):
-    # Hasilkan kode untuk mengambil data penerbangan berdasarkan preferensi yang diperbarui
+    # Buat kode untuk mengambil data penerbangan berdasarkan preferensi yang diperbarui
     return f"fetch_flights(preferences={preferences})"
 
 def generate_code_to_fetch_hotels(preferences):
-    # Hasilkan kode untuk mengambil data hotel berdasarkan preferensi yang diperbarui
+    # Buat kode untuk mengambil data hotel berdasarkan preferensi yang diperbarui
     return f"fetch_hotels(preferences={preferences})"
 
 def execute_code(code):
@@ -1156,7 +1160,7 @@ def execute_code(code):
     return {"data": f"Executed: {code}"}
 
 def generate_itinerary(flights, hotels, attractions):
-    # Hasilkan rencana perjalanan berdasarkan penerbangan, hotel, dan atraksi
+    # Buat jadwal perjalanan berdasarkan penerbangan, hotel, dan atraksi
     return {"flights": flights, "hotels": hotels, "attractions": attractions}
 
 # Contoh skema
@@ -1170,7 +1174,7 @@ preferences = {"favorites": "sightseeing", "avoid": "crowded places"}
 feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
 updated_preferences = adjust_based_on_feedback(feedback, preferences, schema)
 
-# Regenerasi dan eksekusi kode dengan preferensi yang diperbarui
+# Hasilkan ulang dan jalankan kode dengan preferensi yang diperbarui
 updated_flight_code = generate_code_to_fetch_data(updated_preferences)
 updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
 
@@ -1183,37 +1187,37 @@ print("Updated Itinerary:", updated_itinerary)
 
 #### Penjelasan - Pemesanan Berdasarkan Umpan Balik
 
-1. **Kesadaran Skema**: Kamus `schema` mendefinisikan bagaimana preferensi harus disesuaikan berdasarkan umpan balik. Ini mencakup bidang seperti `favorites` dan `avoid`, dengan penyesuaian terkait.
+1. **Kesadaran Skema**: Kamus `schema` mendefinisikan bagaimana preferensi harus disesuaikan berdasarkan umpan balik. Ini mencakup bidang seperti `favorites` dan `avoid`, dengan penyesuaian yang sesuai.
 2. **Menyesuaikan Preferensi (metode `adjust_based_on_feedback`)**: Metode ini menyesuaikan preferensi berdasarkan umpan balik pengguna dan skema.
-3. **Penyesuaian Berdasarkan Lingkungan (metode `adjust_based_on_environment`)**: Metode ini menyesuaikan penyesuaian berdasarkan skema dan umpan balik.
-4. **Menghasilkan dan Menjalankan Kueri**: Sistem menghasilkan kode untuk mengambil data penerbangan dan hotel yang diperbarui berdasarkan preferensi yang disesuaikan dan mensimulasikan pelaksanaan kueri tersebut.
+3. **Penyesuaian Berbasis Lingkungan (metode `adjust_based_on_environment`)**: Metode ini menyesuaikan penyesuaian berdasarkan skema dan umpan balik.
+4. **Menghasilkan dan Menjalankan Query**: Sistem menghasilkan kode untuk mengambil data penerbangan dan hotel yang diperbarui berdasarkan preferensi yang disesuaikan dan mensimulasikan eksekusi query ini.
 5. **Menghasilkan Itinerary**: Sistem membuat itinerary yang diperbarui berdasarkan data penerbangan, hotel, dan atraksi yang baru.
 
-Dengan membuat sistem sadar lingkungan dan berdasar penalaran berdasarkan skema, ia dapat menghasilkan kueri yang lebih akurat dan relevan, menghasilkan rekomendasi perjalanan yang lebih baik dan pengalaman pengguna yang lebih personal.
+Dengan membuat sistem sadar lingkungan dan bernalar berdasarkan skema, sistem dapat menghasilkan query yang lebih akurat dan relevan, menghasilkan rekomendasi perjalanan yang lebih baik dan pengalaman pengguna yang lebih dipersonalisasi.
 
 ### Menggunakan SQL sebagai Teknik Retrieval-Augmented Generation (RAG)
 
-SQL (Structured Query Language) adalah alat yang kuat untuk berinteraksi dengan basis data. Saat digunakan sebagai bagian dari pendekatan Retrieval-Augmented Generation (RAG), SQL dapat mengambil data relevan dari basis data untuk menginformasikan dan menghasilkan respons atau tindakan dalam agen AI. Mari kita jelajahi bagaimana SQL dapat digunakan sebagai teknik RAG dalam konteks Agen Perjalanan.
+SQL (Structured Query Language) adalah alat yang kuat untuk berinteraksi dengan basis data. Ketika digunakan sebagai bagian dari pendekatan Retrieval-Augmented Generation (RAG), SQL dapat mengambil data relevan dari basis data untuk menginformasikan dan menghasilkan respons atau tindakan dalam agen AI. Mari kita eksplorasi bagaimana SQL dapat digunakan sebagai teknik RAG dalam konteks Agen Perjalanan.
 
 #### Konsep Utama
 
 1. **Interaksi Basis Data**:
-   - SQL digunakan untuk mengkueri basis data, mengambil informasi relevan, dan memanipulasi data.
+   - SQL digunakan untuk query basis data, mengambil informasi relevan, dan memanipulasi data.
    - Contoh: Mengambil detail penerbangan, informasi hotel, dan atraksi dari basis data perjalanan.
 
 2. **Integrasi dengan RAG**:
-   - Kueri SQL dihasilkan berdasarkan input dan preferensi pengguna.
+   - Query SQL dihasilkan berdasarkan input dan preferensi pengguna.
    - Data yang diambil kemudian digunakan untuk menghasilkan rekomendasi atau tindakan yang dipersonalisasi.
 
-3. **Pembuatan Kueri Dinamis**:
-   - Agen AI menghasilkan kueri SQL dinamis berdasarkan konteks dan kebutuhan pengguna.
-   - Contoh: Menyesuaikan kueri SQL untuk memfilter hasil berdasarkan anggaran, tanggal, dan minat.
+3. **Pembuatan Query Dinamis**:
+   - Agen AI menghasilkan query SQL dinamis berdasarkan konteks dan kebutuhan pengguna.
+   - Contoh: Menyesuaikan query SQL untuk memfilter hasil berdasarkan anggaran, tanggal, dan minat.
 
 #### Aplikasi
 
-- **Pembuatan Kode Otomatis**: Menghasilkan potongan kode untuk tugas tertentu.
-- **SQL sebagai RAG**: Menggunakan kueri SQL untuk memanipulasi data.
-- **Pemecahan Masalah**: Membuat dan menjalankan kode untuk menyelesaikan masalah.
+- **Generasi Kode Otomatis**: Menghasilkan potongan kode untuk tugas tertentu.
+- **SQL sebagai RAG**: Menggunakan query SQL untuk memanipulasi data.
+- **Pemecahan Masalah**: Membuat dan menjalankan kode untuk memecahkan masalah.
 
 **Contoh**:
 Agen analisis data:
@@ -1221,13 +1225,13 @@ Agen analisis data:
 1. **Tugas**: Menganalisis dataset untuk menemukan tren.
 2. **Langkah-langkah**:
    - Memuat dataset.
-   - Menghasilkan kueri SQL untuk memfilter data.
-   - Menjalankan kueri dan mengambil hasil.
+   - Menghasilkan query SQL untuk memfilter data.
+   - Menjalankan query dan mengambil hasil.
    - Menghasilkan visualisasi dan wawasan.
 3. **Sumber Daya**: Akses dataset, kemampuan SQL.
-4. **Pengalaman**: Menggunakan hasil sebelumnya untuk meningkatkan analisis selanjutnya.
+4. **Pengalaman**: Menggunakan hasil sebelumnya untuk meningkatkan analisis berikutnya.
 
-#### Contoh Praktis: Menggunakan SQL dalam Agen Perjalanan
+#### Contoh Praktis: Menggunakan SQL di Agen Perjalanan
 
 1. **Mengumpulkan Preferensi Pengguna**
 
@@ -1240,7 +1244,7 @@ Agen analisis data:
            self.user_preferences = preferences
    ```
 
-2. **Menghasilkan Kueri SQL**
+2. **Menghasilkan Query SQL**
 
    ```python
    def generate_sql_query(table, preferences):
@@ -1252,7 +1256,7 @@ Agen analisis data:
        return query
    ```
 
-3. **Menjalankan Kueri SQL**
+3. **Menjalankan Query SQL**
 
    ```python
    import sqlite3
@@ -1297,21 +1301,21 @@ Agen analisis data:
    print("Suggested Itinerary:", itinerary)
    ```
 
-#### Contoh Kueri SQL
+#### Contoh Query SQL
 
-1. **Kueri Penerbangan**
+1. **Query Penerbangan**
 
    ```sql
    SELECT * FROM flights WHERE destination='Paris' AND dates='2025-04-01 to 2025-04-10' AND budget='moderate';
    ```
 
-2. **Kueri Hotel**
+2. **Query Hotel**
 
    ```sql
    SELECT * FROM hotels WHERE destination='Paris' AND budget='moderate';
    ```
 
-3. **Kueri Atraksi**
+3. **Query Atraksi**
 
    ```sql
    SELECT * FROM attractions WHERE destination='Paris' AND interests='museums, cuisine';
@@ -1321,15 +1325,15 @@ Dengan memanfaatkan SQL sebagai bagian dari teknik Retrieval-Augmented Generatio
 
 ### Contoh Metakognisi
 
-Untuk mendemonstrasikan implementasi metakognisi, mari buat agen sederhana yang *merenungkan proses pengambilan keputusannya* saat menyelesaikan sebuah masalah. Untuk contoh ini, kita akan membangun sistem dimana agen mencoba mengoptimalkan pilihan hotel, namun kemudian mengevaluasi penalarannya sendiri dan menyesuaikan strateginya saat melakukan kesalahan atau pilihan yang kurang optimal.
+Jadi untuk mendemonstrasikan implementasi metakognisi, mari buat agen sederhana yang *merefleksikan proses pengambilan keputusannya* saat memecahkan masalah. Untuk contoh ini, kita akan membangun sistem di mana agen mencoba mengoptimalkan pilihan hotel, tetapi kemudian mengevaluasi penalarannya sendiri dan menyesuaikan strateginya ketika membuat kesalahan atau pilihan yang kurang optimal.
 
-Kita akan mensimulasikan ini dengan contoh dasar dimana agen memilih hotel berdasarkan kombinasi harga dan kualitas, namun akan "merenungkan" keputusan dan menyesuaikan sesuai kebutuhan.
+Kita akan mensimulasikan ini menggunakan contoh dasar di mana agen memilih hotel berdasarkan kombinasi harga dan kualitas, tetapi akan "merefleksikan" keputusannya dan menyesuaikan sesuai.
 
 #### Bagaimana ini menggambarkan metakognisi:
 
-1. **Keputusan Awal**: Agen memilih hotel termurah, tanpa memahami dampak kualitas.
-2. **Refleksi dan Evaluasi**: Setelah pilihan awal, agen memeriksa apakah hotel tersebut adalah pilihan "buruk" menggunakan umpan balik pengguna. Jika ditemukan kualitas hotel terlalu rendah, agen merenungkan penalarannya.
-3. **Menyesuaikan Strategi**: Agen menyesuaikan strateginya berdasarkan refleksi dan beralih dari "termurah" ke "kualitas_tertinggi", sehingga memperbaiki proses pengambilan keputusan di iterasi berikutnya.
+1. **Keputusan Awal**: Agen akan memilih hotel termurah, tanpa memahami pengaruh kualitas.
+2. **Refleksi dan Evaluasi**: Setelah pilihan awal, agen akan memeriksa apakah hotel tersebut merupakan pilihan "buruk" menggunakan umpan balik pengguna. Jika menemukan bahwa kualitas hotel terlalu rendah, ia akan merefleksikan penalarannya.
+3. **Menyesuaikan Strategi**: Agen menyesuaikan strateginya berdasarkan refleksi tersebut, beralih dari "termurah" ke "kualitas_tertinggi", sehingga meningkatkan proses pengambilan keputusan di iterasi berikutnya.
 
 Berikut contohnya:
 
@@ -1337,7 +1341,7 @@ Berikut contohnya:
 class HotelRecommendationAgent:
     def __init__(self):
         self.previous_choices = []  # Menyimpan hotel yang dipilih sebelumnya
-        self.corrected_choices = []  # Menyimpan pilihan yang sudah diperbaiki
+        self.corrected_choices = []  # Menyimpan pilihan yang telah diperbaiki
         self.recommendation_strategies = ['cheapest', 'highest_quality']  # Strategi yang tersedia
 
     def recommend_hotel(self, hotels, strategy):
@@ -1363,7 +1367,7 @@ class HotelRecommendationAgent:
             return "No choices made yet."
 
         last_choice_strategy, last_choice = self.previous_choices[-1]
-        # Misalkan kita memiliki umpan balik pengguna yang memberi tahu apakah pilihan terakhir itu baik atau tidak
+        # Mari kita asumsikan kita memiliki umpan balik pengguna yang memberitahu apakah pilihan terakhir bagus atau tidak
         user_feedback = self.get_user_feedback(last_choice)
 
         if user_feedback == "bad":
@@ -1398,11 +1402,11 @@ agent = HotelRecommendationAgent()
 recommended_hotel = agent.recommend_hotel(hotels, 'cheapest')
 print(f"Recommended hotel (cheapest): {recommended_hotel['name']}")
 
-# Langkah 2: Agen merenungkan pilihan dan menyesuaikan strategi jika perlu
+# Langkah 2: Agen merefleksikan pilihan dan menyesuaikan strategi jika perlu
 reflection_result = agent.reflect_on_choice()
 print(reflection_result)
 
-# Langkah 3: Agen merekomendasikan lagi, kali ini menggunakan strategi yang sudah disesuaikan
+# Langkah 3: Agen merekomendasikan lagi, kali ini menggunakan strategi yang telah disesuaikan
 adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
@@ -1410,30 +1414,30 @@ print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendatio
 #### Kemampuan Metakognisi Agen
 
 Kunci di sini adalah kemampuan agen untuk:
-- Mengevaluasi pilihan dan proses pengambilan keputusan sebelumnya.
-- Menyesuaikan strategi berdasarkan refleksi tersebut, yaitu metakognisi dalam tindakan.
+- Mengevaluasi pilihan sebelumnya dan proses pengambilan keputusannya.
+- Menyesuaikan strateginya berdasarkan refleksi tersebut yaitu metakognisi dalam aksi.
 
-Ini adalah bentuk sederhana dari metakognisi dimana sistem mampu menyesuaikan proses penalarannya berdasarkan umpan balik internal.
+Ini adalah bentuk sederhana metakognisi di mana sistem mampu menyesuaikan proses penalarannya berdasarkan umpan balik internal.
 
 ### Kesimpulan
 
-Metakognisi adalah alat yang kuat yang dapat secara signifikan meningkatkan kemampuan agen AI. Dengan menggabungkan proses metakognitif, Anda dapat merancang agen yang lebih cerdas, mudah beradaptasi, dan efisien. Gunakan sumber daya tambahan untuk mengeksplorasi lebih jauh dunia metakognisi yang menarik dalam agen AI.
+Metakognisi adalah alat yang kuat yang dapat secara signifikan meningkatkan kemampuan agen AI. Dengan menggabungkan proses metakognitif, Anda dapat merancang agen yang lebih cerdas, adaptif, dan efisien. Gunakan sumber daya tambahan untuk lebih mengeksplorasi dunia menarik metakognisi dalam agen AI.
 
 ### Punya Pertanyaan Lebih Lanjut tentang Pola Desain Metakognisi?
 
-Bergabunglah di [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk bertemu dengan pembelajar lain, menghadiri jam kantor, dan mendapatkan jawaban atas pertanyaan AI Agents Anda.
+Bergabunglah dengan [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu dengan pelajar lain, menghadiri jam kantor, dan mendapatkan jawaban atas pertanyaan Agen AI Anda.
 
 ## Pelajaran Sebelumnya
 
-[Multi-Agent Design Pattern](../08-multi-agent/README.md)
+[Pola Desain Multi-Agen](../08-multi-agent/README.md)
 
-## Pelajaran Selanjutnya
+## Pelajaran Berikutnya
 
-[AI Agents in Production](../10-ai-agents-production/README.md)
+[Agen AI dalam Produksi](../10-ai-agents-production/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk memberikan terjemahan yang akurat, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang berwenang. Untuk informasi yang penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau kesalahan interpretasi yang timbul akibat penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sah. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau penafsiran yang keliru yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

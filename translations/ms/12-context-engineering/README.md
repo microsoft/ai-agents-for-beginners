@@ -4,7 +4,7 @@
 
 > _(Klik imej di atas untuk menonton video pelajaran ini)_
 
-Memahami kerumitan aplikasi yang anda bina ejen AI adalah penting untuk menghasilkan satu yang boleh dipercayai. Kita perlu membina Ejen AI yang mengurus maklumat dengan berkesan untuk menangani keperluan kompleks melebihi kejuruteraan arahan.
+Memahami kerumitan aplikasi yang anda bina untuk ejen AI adalah penting untuk menghasilkan yang boleh dipercayai. Kita perlu membina Ejen AI yang menguruskan maklumat dengan berkesan untuk memenuhi keperluan kompleks yang melangkaui kejuruteraan prompt.
 
 Dalam pelajaran ini, kita akan melihat apa itu kejuruteraan konteks dan peranannya dalam membina ejen AI.
 
@@ -12,49 +12,49 @@ Dalam pelajaran ini, kita akan melihat apa itu kejuruteraan konteks dan peranann
 
 Pelajaran ini akan merangkumi:
 
-• **Apakah Kejuruteraan Konteks** dan mengapa ia berbeza daripada kejuruteraan arahan.
+• **Apa itu Kejuruteraan Konteks** dan mengapa ia berbeza daripada kejuruteraan prompt.
 
-• **Strategi untuk Kejuruteraan Konteks yang Berkesan**, termasuk cara menulis, memilih, memampatkan, dan mengasingkan maklumat.
+• **Strategi untuk Kejuruteraan Konteks yang berkesan**, termasuk cara menulis, memilih, memampatkan, dan mengasingkan maklumat.
 
-• **Kegagalan Konteks Biasa** yang boleh menggagalkan ejen AI anda dan bagaimana untuk membaikinya.
+• **Kegagalan Konteks yang Biasa** yang boleh menggagalkan ejen AI anda dan cara membaikinya.
 
 ## Matlamat Pembelajaran
 
-Selepas menamatkan pelajaran ini, anda akan memahami bagaimana untuk:
+Selepas melengkapkan pelajaran ini, anda akan faham bagaimana untuk:
 
-• **Mendefinisikan kejuruteraan konteks** dan membezakannya dengan kejuruteraan arahan.
+• **Mentakrif kejuruteraan konteks** dan membezakannya daripada kejuruteraan prompt.
 
 • **Mengenal pasti komponen utama konteks** dalam aplikasi Model Bahasa Besar (LLM).
 
-• **Mengaplikasi strategi untuk menulis, memilih, memampat, dan mengasingkan konteks** untuk meningkatkan prestasi ejen.
+• **Mengaplikasi strategi untuk menulis, memilih, memampatkan, dan mengasingkan konteks** bagi meningkatkan prestasi ejen.
 
 • **Mengenal pasti kegagalan konteks biasa** seperti pencemaran, gangguan, kekeliruan, dan pertentangan, serta melaksanakan teknik mitigasi.
 
 ## Apa itu Kejuruteraan Konteks?
 
-Bagi Ejen AI, konteks adalah apa yang memacu perancangan Ejen AI untuk mengambil tindakan tertentu. Kejuruteraan Konteks adalah amalan memastikan Ejen AI mempunyai maklumat yang betul untuk menyelesaikan langkah seterusnya dalam tugasan. Tingkap konteks adalah terhad saiznya, jadi sebagai pembina ejen, kita perlu membina sistem dan proses untuk mengurus menambah, membuang, dan memadatkan maklumat dalam tingkap konteks.
+Untuk Ejen AI, konteks adalah apa yang mendorong perancangan Ejen AI untuk mengambil tindakan tertentu. Kejuruteraan Konteks adalah amalan memastikan Ejen AI mempunyai maklumat yang betul untuk menyelesaikan langkah seterusnya dalam tugasan. Tetingkap konteks adalah terhad saiznya, jadi sebagai pembina agen kita perlu membina sistem dan proses untuk mengurus menambah, mengeluarkan, dan memampatkan maklumat dalam tetingkap konteks.
 
-### Kejuruteraan Arahan vs Kejuruteraan Konteks
+### Kejuruteraan Prompt vs Kejuruteraan Konteks
 
-Kejuruteraan arahan tertumpu kepada satu set arahan statik untuk membimbing Ejen AI dengan sekumpulan peraturan. Kejuruteraan konteks pula adalah cara mengurus set maklumat dinamik, termasuk arahan awal, untuk memastikan Ejen AI mempunyai apa yang diperlukan dari masa ke masa. Idea utama di sebalik kejuruteraan konteks adalah menjadikan proses ini boleh diulang dan boleh dipercayai.
+Kejuruteraan prompt memfokuskan pada satu set arahan statik untuk membimbing Ejen AI dengan sekumpulan peraturan yang berkesan. Kejuruteraan konteks adalah bagaimana menguruskan set maklumat dinamik, termasuk prompt awal, untuk memastikan Ejen AI mempunyai apa yang diperlukan sepanjang masa. Idea utama kejuruteraan konteks adalah menjadikan proses ini berulang dan boleh dipercayai.
 
-### Jenis Konteks
+### Jenis-jenis Konteks
 
 [![Jenis Konteks](../../../translated_images/ms/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
-Penting untuk diingat bahawa konteks bukan hanya satu perkara sahaja. Maklumat yang diperlukan Ejen AI boleh datang dari pelbagai sumber berlainan dan terpulang kepada kita untuk memastikan ejen mempunyai akses ke sumber ini:
+Penting untuk diingat bahawa konteks bukan hanya satu perkara. Maklumat yang diperlukan oleh Ejen AI boleh datang dari pelbagai sumber dan terpulang kepada kita untuk memastikan ejen mempunyai akses kepada sumber-sumber ini:
 
-Jenis konteks yang mungkin perlu diurus oleh ejen AI termasuk:
+Jenis-jenis konteks yang mungkin perlu diurus oleh ejen AI termasuk:
 
-• **Arahan:** Ini adalah seperti "peraturan" ejen – arahan, mesej sistem, contoh few-shot (menunjukkan cara melakukan sesuatu kepada AI), dan penerangan alat yang boleh digunakannya. Di sinilah fokus kejuruteraan arahan bergabung dengan kejuruteraan konteks.
+• **Arahan:** Ini seperti "peraturan" ejen – prompt, mesej sistem, contoh few-shot (menunjukkan cara AI melakukan sesuatu), dan penerangan alat yang boleh digunakannya. Ini adalah tempat tumpuan kejuruteraan prompt digabung dengan kejuruteraan konteks.
 
-• **Pengetahuan:** Meliputi fakta, maklumat yang diperoleh dari pangkalan data, atau memori jangka panjang yang telah dikumpulkan oleh ejen. Ini termasuk mengintegrasikan sistem Retrieval Augmented Generation (RAG) jika ejen memerlukan akses ke pelbagai pangkalan pengetahuan dan pangkalan data.
+• **Pengetahuan:** Ini merangkumi fakta, maklumat yang diambil dari pangkalan data, atau memori jangka panjang yang telah dikumpulkan oleh ejen. Ini termasuk integrasi sistem Retrieval Augmented Generation (RAG) jika ejen perlu mengakses stor pengetahuan dan pangkalan data yang berbeza.
 
-• **Alat:** Ini adalah definisi fungsi luaran, API dan Server MCP yang boleh dipanggil oleh ejen, bersama dengan maklum balas (hasil) yang diperoleh dari penggunaannya.
+• **Alat:** Ini adalah definisi fungsi luaran, API dan MCP Server yang ejen boleh panggil, bersama dengan maklum balas (hasil) yang diperolehi daripada menggunakannya.
 
-• **Sejarah Perbualan:** Dialog yang sedang berlangsung dengan pengguna. Seiring masa berlalu, perbualan ini menjadi lebih panjang dan kompleks yang bermakna ia mengambil ruang dalam tingkap konteks.
+• **Sejarah Perbualan:** Dialog yang sedang berlangsung dengan pengguna. Apabila masa berlalu, perbualan ini menjadi lebih panjang dan kompleks yang bermaksud ia mengambil ruang dalam tetingkap konteks.
 
-• **Keutamaan Pengguna:** Maklumat yang dipelajari mengenai suka atau tidak suka pengguna dari masa ke masa. Ia boleh disimpan dan dipanggil apabila membuat keputusan penting untuk membantu pengguna.
+• **Keutamaan Pengguna:** Maklumat yang dipelajari tentang kesukaan atau ketidaksukaan pengguna dari masa ke masa. Ini boleh disimpan dan dipanggil semasa membuat keputusan utama untuk membantu pengguna.
 
 ## Strategi untuk Kejuruteraan Konteks yang Berkesan
 
@@ -62,114 +62,116 @@ Jenis konteks yang mungkin perlu diurus oleh ejen AI termasuk:
 
 [![Amalan Terbaik Kejuruteraan Konteks](../../../translated_images/ms/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
-Kejuruteraan konteks yang baik bermula dengan perancangan yang baik. Berikut adalah pendekatan yang akan membantu anda mula berfikir bagaimana untuk mengaplikasikan konsep kejuruteraan konteks:
+Kejuruteraan konteks yang baik bermula dengan perancangan yang baik. Berikut adalah pendekatan yang akan membantu anda mula memikirkan cara menggunakan konsep kejuruteraan konteks:
 
-1. **Tentukan Hasil yang Jelas** - Hasil tugasan yang akan diberikan kepada Ejen AI harus didefinisikan dengan jelas. Jawab soalan - "Bagaimanakah dunia akan kelihatan apabila Ejen AI selesai dengan tugasan itu?" Dengan kata lain, apa perubahan, maklumat, atau respons yang pengguna harus terima selepas berinteraksi dengan Ejen AI.
-2. **Peta Konteks** - Setelah anda mendefinisikan hasil Ejen AI, anda perlu menjawab soalan "Apakah maklumat yang Ejen AI perlukan untuk menyelesaikan tugasan ini?". Dengan cara ini anda boleh mula memetakan konteks di mana maklumat itu boleh ditemui.
-3. **Bina Saluran Konteks** - Sekarang anda tahu di mana maklumat itu berada, anda perlu menjawab soalan "Bagaimanakah Ejen akan mendapat maklumat ini?". Ini boleh dilakukan dalam pelbagai cara termasuk RAG, penggunaan server MCP dan alat-alat lain.
+1. **Tentukan Keputusan yang Jelas** - Keputusan tugasan yang akan diberikan kepada Ejen AI haruslah ditakrifkan dengan jelas. Jawab soalan - "Bagaimana dunia akan kelihatan apabila Ejen AI selesai dengan tugasan?" Dengan kata lain, apakah perubahan, maklumat, atau respons yang pengguna akan terima selepas berinteraksi dengan Ejen AI.
+2. **Peta Konteks** - Setelah anda mentakrif keputusan Ejen AI, anda perlu menjawab soalan "Apakah maklumat yang diperlukan oleh Ejen AI untuk melengkapkan tugasan ini?". Dengan cara ini anda boleh mula memetakan konteks di mana maklumat itu boleh ditemui.
+3. **Cipta Saluran Konteks** - Setelah anda tahu di mana maklumat itu, anda perlu menjawab soalan "Bagaimana Ejen akan mendapatkan maklumat ini?". Ini boleh dilakukan dalam pelbagai cara termasuk RAG, penggunaan pelayan MCP dan alat lain.
 
 ### Strategi Praktikal
 
-Perancangan penting tetapi setelah maklumat mula masuk ke dalam tingkap konteks ejen kita, kita perlu mempunyai strategi praktikal untuk mengurusnya:
+Perancangan adalah penting tetapi setelah maklumat mula mengalir ke dalam tetingkap konteks ejen kita, kita perlu mempunyai strategi praktikal untuk mengurusnya:
 
-#### Mengurus Konteks
+#### Menguruskan Konteks
 
-Walaupun sesetengah maklumat akan ditambah ke tingkap konteks secara automatik, kejuruteraan konteks adalah tentang mengambil peranan lebih aktif terhadap maklumat ini yang boleh dilakukan melalui beberapa strategi:
+Walaupun beberapa maklumat akan ditambah ke tetingkap konteks secara automatik, kejuruteraan konteks adalah tentang mengambil peranan yang lebih aktif terhadap maklumat ini yang boleh dilakukan dengan beberapa strategi:
 
- 1. **Scratchpad Ejen**  
- Ini membolehkan Ejen AI mengambil nota tentang maklumat berkaitan dengan tugasan semasa dan interaksi pengguna dalam satu sesi. Ini harus wujud di luar tingkap konteks dalam fail atau objek runtime yang boleh dipanggil semula oleh ejen sepanjang sesi ini jika perlu.
+ 1. **Notebook Ejen**
+ Ini membolehkan Ejen AI mencatat nota tentang maklumat yang relevan mengenai tugasan dan interaksi pengguna semasa satu sesi sahaja. Ini harus wujud di luar tetingkap konteks dalam fail atau objek runtime yang ejen boleh dapatkan semula semasa sesi itu jika perlu.
 
- 2. **Memori**  
- Scratchpad bagus untuk mengurus maklumat di luar tingkap konteks bagi satu sesi. Memori membolehkan ejen menyimpan dan mengambil maklumat berkaitan merentasi pelbagai sesi. Ini boleh termasuk ringkasan, keutamaan pengguna dan maklum balas untuk penambahbaikan masa depan.
+ 2. **Memori**
+ Notebook sesuai untuk mengurus maklumat di luar tetingkap konteks sesi tunggal. Memori membolehkan ejen menyimpan dan mendapatkan semula maklumat relevan merentas beberapa sesi. Ini boleh termasuk ringkasan, keutamaan pengguna dan maklum balas untuk penambahbaikan masa depan.
 
- 3. **Memampatkan Konteks**  
-  Apabila tingkap konteks membesar dan hampir mencapai hadnya, teknik seperti meringkaskan dan memangkas boleh digunakan. Ini termasuk sama ada menyimpan hanya maklumat yang paling relevan atau membuang mesej lama.
+ 3. **Memampatkan Konteks**
+  Setelah tetingkap konteks membesar dan hampir mencapai hadnya, teknik seperti merumus dan memangkas boleh digunakan. Ini termasuk mengekalkan hanya maklumat paling relevan atau menghapuskan mesej lama.
   
- 4. **Sistem Multi-Ejen**  
-  Membangun sistem multi-ejen adalah satu bentuk kejuruteraan konteks kerana setiap ejen mempunyai tingkap konteks sendiri. Bagaimana konteks itu dikongsi dan disampaikan kepada ejen yang berbeza adalah satu lagi perkara yang perlu dirancang ketika membina sistem ini.
+ 4. **Sistem Multi-Ejen**
+  Membangunkan sistem multi-ejen adalah satu bentuk kejuruteraan konteks kerana setiap ejen mempunyai tetingkap konteksnya sendiri. Bagaimana konteks itu dikongsi dan disalurkan kepada ejen berlainan adalah satu lagi perkara yang perlu dirancang apabila membina sistem ini.
   
- 5. **Persekitaran Sandbox**  
-  Jika ejen perlu menjalankan sesetengah kod atau memproses sejumlah besar maklumat dalam dokumen, ini boleh mengambil banyak token untuk memproses hasilnya. Daripada menyimpan semua ini dalam tingkap konteks, ejen boleh menggunakan persekitaran sandbox yang boleh menjalankan kod ini dan hanya membaca hasil dan maklumat relevan lain.
+ 5. **Persekitaran Sandbox**
+  Jika ejen perlu menjalankan beberapa kod atau memproses sejumlah besar maklumat dalam dokumen, ini boleh mengambil banyak token untuk memproses hasilnya. Daripada menyimpan semuanya dalam tetingkap konteks, ejen boleh menggunakan persekitaran sandbox yang dapat menjalankan kod ini dan hanya membaca hasil dan maklumat relevan lain.
   
- 6. **Objek Keadaan Runtime**  
-   Ini dilakukan dengan mencipta bekas maklumat untuk mengurus situasi apabila Ejen perlu mempunyai akses kepada maklumat tertentu. Untuk tugasan yang kompleks, ini membolehkan Ejen menyimpan hasil setiap sub-tugasan satu demi satu, membolehkan konteks kekal dihubungkan hanya kepada sub-tugasan tersebut.
+ 6. **Objek Status Runtime**
+   Ini dilakukan dengan mencipta bekas maklumat untuk mengurus situasi apabila Ejen perlu mendapat akses kepada maklumat tertentu. Untuk tugasan kompleks, ini membolehkan Ejen menyimpan hasil setiap subtugas langkah demi langkah, membolehkan konteks kekal terhubung hanya dengan subtugas tersebut.
 
 #### Memeriksa Konteks
 
-Selepas anda menggunakan salah satu strategi ini, adalah berbaloi untuk menyemak apa yang sebenarnya diterima panggilan model seterusnya. Soalan debugging yang berguna adalah:
+Selepas anda menggunakan salah satu strategi ini, adalah berbaloi untuk menyemak apa yang sebenarnya diterima oleh panggilan model seterusnya. Soalan debugging yang berguna ialah:
 
-> Adakah ejen memuatkan terlalu banyak konteks, konteks yang salah, atau terlepas konteks yang diperlukan?
+> Adakah ejen memuatkan konteks terlalu banyak, konteks yang salah, atau terlepas konteks yang ia perlukan?
 
-Anda tidak perlu merekodkan arahan mentah, output alat, atau kandungan memori untuk menjawab soalan itu. Dalam pengeluaran, utamakan rekod pemeriksaan konteks kecil yang menangkap kiraan, ID, hash, dan label polisi:
+Anda tidak perlu merekod prompt mentah, output alat, atau kandungan memori untuk menjawab soalan itu. Dalam pengeluaran, lebih baik menggunakan rekod pemeriksaan konteks kecil yang menangkap bilangan, ID, hash, dan label polisi:
 
-- **Pemilihan:** Jejaki berapa banyak kepingan calon, alat, atau memori yang dipertimbangkan, berapa banyak yang dipilih, dan peraturan atau skor mana yang menyebabkan yang lain ditapis.
-- **Pemampatan:** Rekodkan jangka sumber atau ID jejak, ID ringkasan, anggaran kiraan token sebelum dan selepas pemampatan, dan sama ada kandungan mentah dikecualikan dari panggilan seterusnya.
-- **Pengasingan:** Catatkan sub-tugasan mana yang dijalankan dalam ejen, sesi, atau sandbox berasingan, ringkasan berikat yang dikembalikan, dan sama ada output alat besar kekal di luar konteks utama ejen induk.
-- **Memori dan RAG:** Simpan ID dokumen pengambilan, ID memori, skor, ID yang dipilih, dan status pengeditan dan bukannya teks penuh yang diambil.
-- **Keselamatan dan privasi:** Utamakan hash, ID, baldi token, dan label polisi berbanding teks arahan sensitif, argumen alat, hasil alat, atau badan memori pengguna.
+- **Pemilihan:** Jejak berapa banyak bahagian calon, alat, atau memori dipertimbangkan, berapa banyak dipilih, dan peraturan atau skor mana yang menyebabkan yang lain ditapis keluar.
+- **Pemampatan:** Rekod jangkauan sumber atau ID jejak, ID ringkasan, anggaran bilangan token sebelum dan selepas pemampatan, dan sama ada kandungan mentah dikecualikan daripada panggilan seterusnya.
+- **Pengasingan:** Catat subtugas mana yang dijalankan dalam ejen berasingan, sesi, atau sandbox, ringkasan terhad apa yang dikembalikan, dan sama ada output alat besar kekal di luar konteks ejen induk.
+- **Memori dan RAG:** Simpan ID dokumen pengambilan, ID memori, skor, ID terpilih, dan status redaksi dan bukannya teks penuh yang diperoleh semula.
+- **Keselamatan dan privasi:** Gunakan hash, ID, baldi token, dan label polisi sebagai ganti teks prompt sensitif, argumen alat, hasil alat, atau kandungan memori pengguna.
 
-Matlamatnya bukan untuk menyimpan lebih banyak konteks. Ia adalah untuk meninggalkan bukti yang cukup supaya pembangun dapat memberitahu strategi konteks mana yang dijalankan dan sama ada ia mengubah panggilan model seterusnya dengan cara yang dimaksudkan.
+Matlamatnya bukan untuk menyimpan lebih banyak konteks. Matlamatnya adalah untuk meninggalkan cukup bukti supaya pembangun dapat mengetahui strategi konteks mana yang dijalankan dan sama ada ia mengubah panggilan model seterusnya dengan cara yang dimaksudkan.
 
 ### Contoh Kejuruteraan Konteks
 
 Katakan kita mahu ejen AI untuk **"Tempahkan saya perjalanan ke Paris."**
 
-• Ejen mudah yang hanya menggunakan kejuruteraan arahan mungkin hanya memberi jawapan: **"Baik, bila anda ingin pergi ke Paris?**". Ia hanya memproses soalan langsung anda pada masa pengguna bertanya.
+• Ejen mudah menggunakan hanya kejuruteraan prompt mungkin hanya membalas: **"Baik, bila anda mahu pergi ke Paris?"** Ia hanya memproses soalan langsung anda pada masa pengguna bertanya.
 
-• Ejen yang menggunakan strategi kejuruteraan konteks yang dibincangkan akan melakukan lebih banyak lagi. Sebelum menjawab, sistemnya mungkin:
+• Ejen yang menggunakan strategi kejuruteraan konteks yang dibincangkan akan melakukan lebih banyak. Sebelum menjawab, sistemnya mungkin:
 
-  ◦ **Semak kalendar anda** untuk tarikh yang ada (mengambil data masa nyata).
+  ◦ **Semak kalendar anda** untuk tarikh yang tersedia (mengambil data masa nyata).
 
- ◦ **Kenang keutamaan perjalanan lalu** (dari memori jangka panjang) seperti syarikat penerbangan kegemaran, bajet, atau sama ada anda lebih suka penerbangan terus.
+ ◦ **Kenang keutamaan perjalanan lalu** (dari memori jangka panjang) seperti syarikat penerbangan pilihan anda, bajet, atau sama ada anda lebih suka penerbangan terus.
 
  ◦ **Kenal pasti alat yang tersedia** untuk tempahan penerbangan dan hotel.
 
-- Kemudian, contoh jawapan mungkin:  "Hai [Nama Anda]! Saya lihat anda bebas pada minggu pertama Oktober. Perlukah saya cari penerbangan terus ke Paris dengan [Syarikat Penerbangan Pilihan] dalam bajet biasa anda [Bajet]?". Respons yang lebih kaya dan sedar konteks ini menunjukkan kuasa kejuruteraan konteks.
+- Kemudian, contoh respons boleh jadi: "Hai [Nama Anda]! Saya lihat anda lapang pada minggu pertama Oktober. Mahu saya cari penerbangan terus ke Paris dengan [Syarikat Penerbangan Pilihan] dalam anggaran bajet biasa anda [Bajet]?" Respons yang lebih kaya dan sedar konteks ini menunjukkan kuasa kejuruteraan konteks.
 
-## Kegagalan Konteks Biasa
+## Kegagalan Konteks yang Biasa
 
 ### Pencemaran Konteks
 
-**Apa itu:** Apabila halusinasi (maklumat palsu yang dijana oleh LLM) atau kesilapan memasuki konteks dan dirujuk berulang kali, menyebabkan ejen mengejar matlamat yang mustahil atau membangunkan strategi yang tidak masuk akal.
+**Apa itu:** Apabila halusinasi (maklumat palsu yang dihasilkan oleh LLM) atau ralat memasuki konteks dan dirujuk berulang kali, menyebabkan ejen mengejar matlamat yang mustahil atau membangunkan strategi yang tidak masuk akal.
 
-**Apa yang perlu dibuat:** Laksanakan **pengesahan konteks** dan **kuarantin**. Sahkan maklumat sebelum dimasukkan ke dalam memori jangka panjang. Jika potensi pencemaran dikesan, mulakan benang konteks baru untuk mengelakkan maklumat buruk merebak.
+**Apa yang perlu dilakukan:** Laksanakan **pengesahan konteks** dan **kuarantin**. Sahkan maklumat sebelum ditambah ke memori jangka panjang. Jika pencemaran berpotensi dikesan, mulakan benang konteks baru untuk menghalang maklumat buruk merebak.
 
-**Contoh Tempahan Perjalanan:** Ejen anda berhalusinasi tentang **penerbangan terus dari lapangan terbang tempatan kecil ke bandar antarabangsa jauh** yang sebenarnya tidak menawarkan penerbangan antarabangsa. Butiran penerbangan yang tidak wujud ini disimpan dalam konteks. Kemudian, apabila anda minta ejen tempah, ia terus cuba mencari tiket untuk laluan mustahil ini, mengakibatkan kesilapan berulang.
+**Contoh Tempahan Perjalanan:** Ejen anda berhalusinasi tentang **penerbangan terus dari lapangan terbang kecil tempatan ke bandar antarabangsa jauh** yang sebenarnya tidak menawarkan penerbangan antarabangsa. Perincian penerbangan yang tidak wujud ini disimpan dalam konteks. Kemudian, apabila anda meminta ejen untuk menempah, ia terus cuba mencari tiket untuk laluan mustahil ini, menyebabkan ralat berulang.
 
-**Penyelesaian:** Laksanakan langkah yang **mengesahkan kewujudan dan laluan penerbangan dengan API masa nyata** _sebelum_ menambah butiran penerbangan ke konteks kerja ejen. Jika pengesahan gagal, maklumat salah itu "dikarantin" dan tidak digunakan lagi.
+**Penyelesaian:** Laksanakan langkah yang **mengesahkan kewujudan penerbangan dan laluan dengan API masa nyata** _sebelum_ menambah perincian penerbangan ke konteks kerja ejen. Jika pengesahan gagal, maklumat salah itu "dikuarantin" dan tidak digunakan lebih lanjut.
 
 ### Gangguan Konteks
 
-**Apa itu:** Apabila konteks menjadi sangat besar sehingga model terlalu fokus pada sejarah terkumpul dan bukannya menggunakan apa yang dipelajari semasa latihan, menyebabkan tindakan berulang atau tidak membantu. Model mungkin mula membuat kesilapan walaupun sebelum tingkap konteks penuh.
+**Apa itu:** Apabila konteks menjadi terlalu besar sehingga model terlalu memfokuskan pada sejarah terkumpul berbanding menggunakan apa yang dipelajarinya semasa latihan, menyebabkan tindakan berulang atau tidak membantu. Model mungkin mula membuat kesilapan walaupun sebelum tetingkap konteks penuh.
 
-**Apa yang perlu dibuat:** Gunakan **peringkasan konteks**. Secara berkala mampatkan maklumat yang terkumpul ke dalam ringkasan lebih pendek, menyimpan butiran penting sambil menghapus sejarah berulang. Ini membantu "reset" fokus.
+**Apa yang perlu dilakukan:** Gunakan **peringkasan konteks**. Secara berkala mampatkan maklumat terkumpul ke dalam ringkasan yang lebih pendek, mengekalkan butiran penting sambil membuang sejarah berulang. Ini membantu "menetapkan semula" fokus.
 
-**Contoh Tempahan Perjalanan:** Anda telah berbincang tentang pelbagai destinasi impian untuk jangka masa yang lama, termasuk kisah terperinci tentang pengembaraan backpacking dua tahun lalu. Apabila akhirnya anda minta **"cari penerbangan murah untuk bulan hadapan,"** ejen terperangkap dengan butiran lama yang tidak relevan dan terus bertanya tentang peralatan backpacking anda atau jadual perjalanan lama, mengabaikan permintaan semasa anda.
+**Contoh Tempahan Perjalanan:** Anda telah berbincang tentang destinasi impian selama lama, termasuk penceritaan terperinci tentang perjalanan backpacking dua tahun lalu. Apabila anda akhirnya minta **"carikan saya penerbangan murah untuk bulan depan,"** ejen terbeban dengan butiran lama yang tidak relevan dan terus bertanya tentang peralatan backpacking atau jadual lama, mengabaikan permintaan semasa anda.
 
-**Penyelesaian:** Selepas beberapa pusingan atau apabila konteks membesar terlalu besar, ejen harus **meringkaskan bahagian perbualan yang paling terkini dan relevan** – memfokuskan pada tarikh dan destinasi perjalanan anda sekarang – dan menggunakan ringkasan dipadatkan itu untuk panggilan LLM seterusnya, membuang sembang sejarah yang kurang relevan.
+**Penyelesaian:** Selepas beberapa pusingan atau apabila konteks menjadi terlalu besar, ejen harus **meringkaskan bahagian perbualan terbaru dan relevan** – memfokus pada tarikh perjalanan dan destinasi anda yang sekarang – dan menggunakan ringkasan padat itu untuk panggilan LLM berikutnya, membuang sembang sejarah yang kurang relevan.
 
 ### Kekeliruan Konteks
 
-**Apa itu:** Apabila konteks yang tidak perlu, sering dalam bentuk terlalu banyak alat tersedia, menyebabkan model menjana respon yang buruk atau memanggil alat yang tidak relevan. Model yang lebih kecil terutamanya mudah terdedah kepada ini.
+**Apa itu:** Apabila konteks yang tidak perlu, selalunya dalam bentuk terlalu banyak alat tersedia, menyebabkan model menghasilkan respons buruk atau memanggil alat yang tidak relevan. Model yang lebih kecil terutamanya cenderung kepada ini.
 
-**Apa yang perlu dibuat:** Laksanakan **pengurusan pemilihan alat** menggunakan teknik RAG. Simpan penerangan alat dalam pangkalan data vektor dan pilih _hanya_ alat yang paling relevan untuk setiap tugasan khusus. Kajian menunjukkan mengehadkan pilihan alat kepada kurang dari 30.
+**Apa yang perlu dilakukan:** Laksanakan **pengurusan beban alat** menggunakan teknik RAG. Simpan penerangan alat dalam pangkalan data vektor dan pilih _hanya_ alat paling relevan untuk setiap tugasan tertentu. Kajian menunjukkan mengehadkan pilihan alat kepada kurang dari 30.
 
-**Contoh Tempahan Perjalanan:** Ejen anda mempunyai akses ke puluhan alat: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations`, dan lain-lain. Anda bertanya, **"Apakah cara terbaik untuk bergerak sekitar Paris?"** Disebabkan terlalu banyak alat, ejen menjadi keliru dan cuba memanggil `book_flight` _dalam_ Paris, atau `rent_car` walaupun anda lebih suka pengangkutan awam, kerana penerangan alat mungkin bertindih atau ia tidak dapat membezakan yang terbaik.
+**Contoh Tempahan Perjalanan:** Ejen anda mempunyai akses kepada puluhan alat: `tempah_penerbangan`, `tempah_hotel`, `sewa_kereta`, `cari_tur`, `penukar_mata_wang`, `ramalan_cuaca`, `tempahan_restoran`, dan lain-lain. Anda bertanya, **"Apa cara terbaik untuk bergerak sekitar Paris?"** Disebabkan jumlah alat yang banyak, ejen keliru dan cuba memanggil `tempah_penerbangan` _di dalam_ Paris, atau `sewa_kereta` walaupun anda lebih suka pengangkutan awam, kerana penerangan alat mungkin bertindih atau ia tidak dapat membezakan mana yang terbaik.
 
-**Penyelesaian:** Gunakan **RAG ke atas penerangan alat**. Apabila anda bertanya tentang cara bergerak sekitar Paris, sistem secara dinamik mengambil _hanya_ alat yang paling relevan seperti `rent_car` atau `public_transport_info` berdasarkan pertanyaan anda, membentangkan "bekalan" alat yang fokus kepada LLM.
+**Penyelesaian:** Gunakan **RAG atas penerangan alat**. Apabila anda bertanya tentang cara bergerak di Paris, sistem secara dinamik mengambil _hanya_ alat paling relevan seperti `sewa_kereta` atau `info_pengangkutan_awam` berdasarkan pertanyaan anda, mempersembahkan "beban" alat fokus kepada LLM.
 
 ### Pertentangan Konteks
 
-**Apa itu:** Apabila maklumat yang bertentangan wujud dalam konteks, menyebabkan penalaran tidak konsisten atau respon akhir yang buruk. Ini sering terjadi apabila maklumat tiba secara berperingkat, dan andaian awal yang salah kekal dalam konteks.
+**Apa itu:** Apabila maklumat bertentangan wujud dalam konteks, menyebabkan penalaran tidak konsisten atau respons akhir yang buruk. Ini sering berlaku apabila maklumat sampai secara berperingkat, dan andaian awal yang salah kekal dalam konteks.
 
-**Apa yang perlu dibuat:** Gunakan **pemangkasan konteks** dan **pemindahan beban**. Pemangkasan bermaksud membuang maklumat lama atau bertentangan apabila butiran baru tiba. Pemindahan beban memberikan model ruang kerja "scratchpad" berasingan untuk memproses maklumat tanpa mengacau konteks utama.
-**Contoh Tempahan Perjalanan:** Anda pada mulanya memberitahu ejen anda, **"Saya mahu terbang kelas ekonomi."** Kemudian dalam perbualan, anda berubah fikiran dan berkata, **"Sebenarnya, untuk perjalanan ini, mari pilih kelas perniagaan."** Jika kedua arahan tersebut kekal dalam konteks, ejen mungkin menerima hasil carian yang bertentangan atau keliru tentang keutamaan yang mana hendak diutamakan.
+**Apa yang perlu dilakukan:** Gunakan **pemangkasan konteks** dan **pemindahan keluar**. Pemangkasan bermaksud mengeluarkan maklumat yang lapuk atau bertentangan apabila maklumat baru tiba. Pemindahan keluar memberikan model ruang kerja "notebook" berasingan untuk memproses maklumat tanpa mengacau konteks utama.
 
-**Penyelesaian:** Laksanakan **pemangkasan konteks**. Apabila arahan baru bertentangan dengan yang lama, arahan lama itu dikeluarkan atau secara jelas digantikan dalam konteks. Sebagai alternatif, ejen boleh menggunakan **scratchpad** untuk menyelaraskan keutamaan yang bertentangan sebelum membuat keputusan, memastikan hanya arahan akhir yang konsisten digunakan untuk membimbing tindakannya.
+
+**Contoh Tempahan Perjalanan:** Pada mulanya anda memberitahu ejen anda, **"Saya mahu terbang kelas ekonomi."** Kemudian dalam perbualan, anda berubah fikiran dan berkata, **"Sebenarnya, untuk perjalanan ini, kita pergi kelas perniagaan."** Jika kedua-dua arahan kekal dalam konteks, ejen mungkin menerima keputusan carian yang bercanggah atau keliru tentang keutamaan yang harus diutamakan.
+
+**Penyelesaian:** Laksanakan **pemangkasan konteks**. Apabila arahan baru bertentangan dengan arahan lama, arahan lama itu dibuang atau secara eksplisit digantikan dalam konteks. Sebagai alternatif, ejen boleh menggunakan **scratchpad** untuk menyelesaikan pertentangan keutamaan sebelum membuat keputusan, memastikan hanya arahan akhir yang konsisten membimbing tindakannya.
 
 ## Ada Lagi Soalan Tentang Kejuruteraan Konteks?
 
-Sertai [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk bertemu dengan pelajar lain, menghadiri waktu pejabat dan mendapatkan jawapan untuk soalan AI Agents anda.
+Sertai [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk berjumpa dengan pelajar lain, menghadiri waktu pejabat dan dapatkan soalan Agen AI anda dijawab.
 
 ---
 

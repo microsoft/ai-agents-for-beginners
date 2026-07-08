@@ -1,42 +1,42 @@
-# Pembangunan Perkhidmatan Ejen Azure AI
+# Pembangunan Perkhidmatan Ejen Microsoft Foundry
 
-Dalam latihan ini, anda menggunakan alat perkhidmatan Ejen Azure AI di [portal Microsoft Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) untuk membuat ejen bagi Tempahan Penerbangan. Ejen ini akan dapat berinteraksi dengan pengguna dan memberikan maklumat tentang penerbangan.
+Dalam latihan ini, anda menggunakan alat Perkhidmatan Ejen Microsoft Foundry dalam [portal Microsoft Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) untuk mencipta ejen untuk Tempahan Penerbangan. Ejen ini akan dapat berinteraksi dengan pengguna dan memberikan maklumat tentang penerbangan.
 
 ## Prasyarat
 
-Untuk melengkapkan latihan ini, anda memerlukan yang berikut:
-1. Akaun Azure dengan langganan aktif. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. Anda memerlukan kebenaran untuk membuat hub Microsoft Foundry atau mempunyai satu yang dibuat untuk anda.
-    - Jika peranan anda adalah Contributor atau Owner, anda boleh mengikuti langkah dalam tutorial ini.
+Untuk menyelesaikan latihan ini, anda memerlukan:
+1. Akaun Azure dengan langganan aktif. [Cipta akaun secara percuma](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
+2. Anda perlu kebenaran untuk mencipta hab Microsoft Foundry atau mempunyai satu yang dicipta untuk anda.
+    - Jika peranan anda adalah Penyumbang atau Pemilik, anda boleh mengikuti langkah dalam tutorial ini.
 
-## Buat hub Microsoft Foundry
+## Cipta hab Microsoft Foundry
 
-> **Nota:** Microsoft Foundry dahulunya dikenali sebagai Azure AI Studio.
+> **Nota:** Microsoft Foundry dahulu dikenali sebagai Azure AI Studio.
 
-1. Ikuti garis panduan daripada catatan blog [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ini untuk membuat hub Microsoft Foundry.
-2. Apabila projek anda telah dibuat, tutup sebarang petua yang dipaparkan dan semak halaman projek di portal Microsoft Foundry, yang sepatutnya kelihatan serupa dengan imej berikut:
+1. Ikuti panduan dari [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) catatan blog untuk mencipta hab Microsoft Foundry.
+2. Apabila projek anda dicipta, tutup sebarang tip yang dipaparkan dan semak halaman projek dalam portal Microsoft Foundry, yang sepatutnya kelihatan seperti gambar berikut:
 
     ![Projek Microsoft Foundry](../../../translated_images/ms/azure-ai-foundry.88d0c35298348c2f.webp)
 
-## Menyebarkan model
+## Lancarkan model
 
-1. Dalam panel di kiri untuk projek anda, di seksyen **My assets**, pilih halaman **Models + endpoints**.
-2. Dalam halaman **Models + endpoints**, di tab **Model deployments**, dalam menu **+ Deploy model**, pilih **Deploy base model**.
+1. Dalam panel di sebelah kiri untuk projek anda, di bahagian **Aset Saya**, pilih halaman **Model + titik hujung**.
+2. Dalam halaman **Model + titik hujung**, di tab **Penempatan Model**, dalam menu **+ Lancarkan model**, pilih **Lancarkan model asas**.
 3. Cari model `gpt-4o-mini` dalam senarai, kemudian pilih dan sahkan ia.
 
     > **Nota**: Mengurangkan TPM membantu mengelakkan penggunaan kuota yang berlebihan dalam langganan yang anda gunakan.
 
-    ![Model Ditempatkan](../../../translated_images/ms/model-deployment.3749c53fb81e18fd.webp)
+    ![Model Dilancar](../../../translated_images/ms/model-deployment.3749c53fb81e18fd.webp)
 
 ## Cipta ejen
 
-Sekarang anda telah menyebarkan model, anda boleh mencipta ejen. Ejen adalah model AI perbualan yang boleh digunakan untuk berinteraksi dengan pengguna.
+Sekarang anda telah melancarkan model, anda boleh mencipta ejen. Ejen adalah model AI perbualan yang boleh digunakan untuk berinteraksi dengan pengguna.
 
-1. Dalam panel di kiri untuk projek anda, di bahagian **Build & Customize**, pilih halaman **Agents**.
-2. Klik **+ Create agent** untuk mencipta ejen baru. Di bawah kotak dialog **Agent Setup**:
+1. Dalam panel di sebelah kiri untuk projek anda, di bahagian **Bina & Sesuaikan**, pilih halaman **Ejen**.
+2. Klik **+ Cipta ejen** untuk mencipta ejen baru. Dalam kotak dialog **Persediaan Ejen**:
     - Masukkan nama untuk ejen, seperti `FlightAgent`.
-    - Pastikan bahawa penyebaran model `gpt-4o-mini` yang anda buat sebelum ini dipilih
-    - Tetapkan **Instructions** mengikut prompt yang anda mahu ejen ikuti. Berikut adalah contoh:
+    - Pastikan pelancaran model `gpt-4o-mini` yang anda cipta sebelum ini dipilih
+    - Tetapkan **Arahan** mengikut prompt yang anda mahu ejen ikut. Berikut adalah contoh:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -64,45 +64,46 @@ Sekarang anda telah menyebarkan model, anda boleh mencipta ejen. Ejen adalah mod
     
     ```
 > [!NOTE]
-> Untuk prompt yang lebih terperinci, anda boleh semak [repositori ini](https://github.com/ShivamGoyal03/RoamMind) untuk maklumat lanjut.
+> Untuk prompt yang terperinci, anda boleh melihat [repositori ini](https://github.com/ShivamGoyal03/RoamMind) untuk maklumat lanjut.
     
-> Selain itu, anda boleh menambah **Knowledge Base** dan **Actions** untuk meningkatkan keupayaan ejen bagi menyediakan lebih banyak maklumat dan melaksanakan tugas automatik berdasarkan permintaan pengguna. Untuk latihan ini, anda boleh langkau langkah-langkah ini.
+> Selain itu, anda boleh menambah **Pangkalan Pengetahuan** dan **Tindakan** untuk meningkatkan kebolehan ejen menyediakan lebih maklumat dan melakukan tugas automatik berdasarkan permintaan pengguna. Untuk latihan ini, anda boleh langkau langkah ini.
     
 ![Persediaan Ejen](../../../translated_images/ms/agent-setup.9bbb8755bf5df672.webp)
 
-3. Untuk membuat ejen multi-AI baru, cuma klik **New Agent**. Ejen yang baru dibuat kemudian akan dipaparkan pada halaman Agents.
+3. Untuk mencipta ejen AI berbilang baru, hanya klik **Ejen Baru**. Ejen yang baru dicipta akan dipaparkan di halaman Ejen.
+
 
 ## Uji ejen
 
-Selepas mencipta ejen, anda boleh mengujinya untuk melihat bagaimana ia memberi respons kepada pertanyaan pengguna di playground portal Microsoft Foundry.
+Selepas mencipta ejen, anda boleh mengujinya untuk melihat bagaimana ia bertindak balas terhadap pertanyaan pengguna dalam ruang bermain portal Microsoft Foundry.
 
-1. Di bahagian atas panel **Setup** untuk ejen anda, pilih **Try in playground**.
-2. Dalam panel **Playground**, anda boleh berinteraksi dengan ejen dengan menaip pertanyaan di tetingkap sembang. Sebagai contoh, anda boleh meminta ejen mencari penerbangan dari Seattle ke New York pada 28.
+1. Di bahagian atas panel **Persediaan** untuk ejen anda, pilih **Cuba dalam ruang bermain**.
+2. Dalam panel **Ruang Bermain**, anda boleh berinteraksi dengan ejen dengan menaip pertanyaan dalam tetingkap sembang. Contohnya, anda boleh meminta ejen mencari penerbangan dari Seattle ke New York pada 28.
 
-    > **Nota**: Ejen mungkin tidak memberikan respons yang tepat, kerana tiada data masa nyata digunakan dalam latihan ini. Tujuannya adalah untuk menguji kebolehan ejen memahami dan memberi respons kepada pertanyaan pengguna berdasarkan arahan yang diberikan.
+    > **Nota**: Ejen mungkin tidak memberikan tindak balas yang tepat, kerana tiada data masa sebenar digunakan dalam latihan ini. Tujuannya adalah untuk menguji kebolehan ejen memahami dan bertindak balas kepada pertanyaan pengguna berdasarkan arahan yang diberikan.
 
-    ![Playground Ejen](../../../translated_images/ms/agent-playground.dc146586de715010.webp)
+    ![Ruang Bermain Ejen](../../../translated_images/ms/agent-playground.dc146586de715010.webp)
 
-3. Selepas menguji ejen, anda boleh menyesuaikannya lagi dengan menambah lebih banyak niat, data latihan, dan tindakan untuk meningkatkan keupayaannya.
+3. Selepas menguji ejen, anda boleh menyesuaikannya lebih lanjut dengan menambah lebih banyak niat, data latihan, dan tindakan untuk meningkatkan kebolehannya.
 
 ## Bersihkan sumber
 
-Apabila anda telah selesai menguji ejen, anda boleh memadamkannya untuk mengelakkan kos tambahan.
-1. Buka [Azure portal](https://portal.azure.com) dan lihat kandungan kumpulan sumber di mana anda menyebarkan sumber hub yang digunakan dalam latihan ini.
-2. Pada bar alat, pilih **Delete resource group**.
-3. Masukkan nama kumpulan sumber dan sahkan bahawa anda mahu memadamkannya.
+Apabila anda telah selesai menguji ejen, anda boleh memadamnya untuk mengelakkan kos tambahan.
+1. Buka [portal Azure](https://portal.azure.com) dan lihat kandungan kumpulan sumber di mana anda melancarkan sumber hab yang digunakan dalam latihan ini.
+2. Pada bar alat, pilih **Padam kumpulan sumber**.
+3. Masukkan nama kumpulan sumber dan sahkan bahawa anda mahu memadamnya.
 
 ## Sumber
 
 - [Dokumentasi Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Portal Microsoft Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
-- [Panduan Mula dengan Azure AI Studio](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
-- [Asas ejen AI di Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
+- [Memulakan dengan Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [Asas agen AI di Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Penafian:
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi ralat atau ketidaktepatan. Dokumen asal dalam bahasa asalnya hendaklah dianggap sebagai sumber yang sah. Untuk maklumat penting, terjemahan profesional oleh penterjemah manusia adalah disyorkan. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+**Penafian**:
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang sahih. Untuk maklumat penting, terjemahan oleh manusia profesional adalah disyorkan. Kami tidak bertanggungjawab terhadap sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

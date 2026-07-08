@@ -1,9 +1,9 @@
-# Memori untuk Ejen AI 
+# Memori untuk Ejen AI
 [![Agent Memory](../../../translated_images/ms/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-Apabila membincangkan faedah unik mencipta Ejen AI, dua perkara utama dibincangkan: keupayaan untuk memanggil alat untuk menyiapkan tugasan dan keupayaan untuk memperbaiki diri dari semasa ke semasa. Memori adalah asas untuk mencipta ejen yang memperbaiki diri yang boleh menghasilkan pengalaman yang lebih baik untuk pengguna kita.
+Apabila membincangkan manfaat unik dalam mencipta Ejen AI, dua perkara utama dibincangkan: keupayaan untuk memanggil alat bagi menyelesaikan tugasan dan keupayaan untuk meningkatkan diri dari masa ke masa. Memori adalah asas dalam mencipta ejen yang boleh memperbaiki diri sendiri yang dapat menghasilkan pengalaman yang lebih baik untuk pengguna kami.
 
-Dalam pelajaran ini, kita akan melihat apa itu memori untuk Ejen AI dan bagaimana kita dapat mengurus serta menggunakannya demi manfaat aplikasi kita.
+Dalam pelajaran ini, kita akan melihat apa itu memori untuk Ejen AI dan bagaimana kita boleh mengurus serta menggunakannya demi kebaikan aplikasi kita.
 
 ## Pengenalan
 
@@ -11,17 +11,17 @@ Pelajaran ini akan merangkumi:
 
 • **Memahami Memori Ejen AI**: Apa itu memori dan mengapa ia penting untuk ejen.
 
-• **Melaksanakan dan Menyimpan Memori**: Kaedah praktikal untuk menambah ciri memori pada ejen AI anda, dengan fokus pada memori jangka pendek dan jangka panjang.
+• **Melaksanakan dan Menyimpan Memori**: Kaedah praktikal untuk menambah kemampuan memori ke dalam ejen AI anda, dengan tumpuan pada memori jangka pendek dan jangka panjang.
 
-• **Menjadikan Ejen AI Memperbaiki Diri**: Bagaimana memori membolehkan ejen belajar daripada interaksi lalu dan bertambah baik dari masa ke masa.
+• **Menjadikan Ejen AI Memperbaiki Diri**: Bagaimana memori membolehkan ejen belajar daripada interaksi lalu dan memperbaiki diri dari masa ke masa.
 
-## Pelaksanaan yang Tersedia
+## Pelaksanaan Tersedia
 
-Pelajaran ini merangkumi dua tutorial buku nota komprehensif:
+Pelajaran ini termasuk dua tutorial notebook yang menyeluruh:
 
 • **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Melaksanakan memori menggunakan Mem0 dan Azure AI Search dengan Microsoft Agent Framework
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Melaksanakan memori berstruktur menggunakan Cognee, membina graf pengetahuan secara automatik yang disokong oleh embeddings, memvisualisasikan graf, dan pengambilan pintar
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Melaksanakan memori berstruktur menggunakan Cognee, secara automatik membina graf pengetahuan yang disokong oleh embeddings, memvisualisasikan graf, dan pengambilan pintar
 
 ## Matlamat Pembelajaran
 
@@ -31,138 +31,138 @@ Selepas menamatkan pelajaran ini, anda akan tahu bagaimana untuk:
 
 • **Melaksanakan dan mengurus memori jangka pendek dan jangka panjang untuk ejen AI** menggunakan Microsoft Agent Framework, memanfaatkan alat seperti Mem0, Cognee, memori Whiteboard, dan mengintegrasi dengan Azure AI Search.
 
-• **Memahami prinsip di sebalik ejen AI yang memperbaiki diri** dan bagaimana sistem pengurusan memori yang kukuh menyumbang kepada pembelajaran dan penyesuaian berterusan.
+• **Memahami prinsip di sebalik ejen AI yang memperbaiki diri sendiri** dan bagaimana sistem pengurusan memori yang kukuh menyumbang kepada pembelajaran dan penyesuaian berterusan.
 
 ## Memahami Memori Ejen AI
 
-Pada intinya, **memori untuk ejen AI merujuk kepada mekanisme yang membolehkan mereka mengekalkan dan mengimbas maklumat**. Maklumat ini boleh berupa butiran spesifik mengenai perbualan, keutamaan pengguna, tindakan lalu, atau bahkan corak yang dipelajari.
+Pada dasarnya, **memori untuk ejen AI merujuk kepada mekanisme yang membolehkan mereka mengekalkan dan mengingati maklumat**. Maklumat ini boleh jadi butiran khusus mengenai perbualan, keutamaan pengguna, tindakan lalu, atau pola yang telah dipelajari.
 
-Tanpa memori, aplikasi AI sering kali tidak berstatus, bermakna setiap interaksi bermula dari kosong. Ini menyebabkan pengalaman pengguna yang berulang dan mengecewakan di mana ejen "lupa" konteks atau keutamaan sebelumnya.
+Tanpa memori, aplikasi AI biasanya adalah tanpa status, bermakna setiap interaksi bermula dari awal. Ini membawa kepada pengalaman pengguna yang berulang dan mengecewakan di mana ejen "lupa" konteks atau keutamaan sebelumnya.
 
-### Kenapa Memori Penting?
+### Mengapa Memori Penting?
 
-Kecerdasan ejen sangat berkait rapat dengan keupayaannya untuk mengimbas dan menggunakan maklumat lalu. Memori membolehkan ejen untuk:
+Kecerdasan ejen sangat berkait rapat dengan keupayaannya untuk mengingati dan menggunakan maklumat lalu. Memori membolehkan ejen menjadi:
 
-• **Reflektif**: Belajar daripada tindakan dan hasil lalu.
+• **Reflektif**: Belajar dari tindakan dan hasil lalu.
 
-• **Interaktif**: Mengekalkan konteks sepanjang perbualan yang sedang berlangsung.
+• **Interaktif**: Mengekalkan konteks sepanjang perbualan yang sedang berjalan.
 
-• **Proaktif dan Reaktif**: Menjangkakan keperluan atau bertindak balas dengan sesuai berdasarkan data sejarah.
+• **Proaktif dan Reaktif**: Meramalkan keperluan atau bertindak balas dengan sesuai berdasarkan data sejarah.
 
-• **Autonomi**: Beroperasi lebih berdikari dengan merujuk pengetahuan yang disimpan.
+• **Autonomi**: Beroperasi dengan lebih berdikari dengan merujuk kepada pengetahuan yang disimpan.
 
-Matlamat melaksanakan memori adalah menjadikan ejen lebih **boleh dipercayai dan berupaya**.
+Matlamat melaksanakan memori adalah untuk menjadikan ejen lebih **boleh dipercayai dan berkeupayaan**.
 
-### Jenis-Jenis Memori
+### Jenis Memori
 
 #### Memori Kerja
 
-Fikirkan ini sebagai sehelai kertas coretan yang digunakan oleh ejen semasa tugasan atau proses pemikiran yang sedang berlangsung. Ia menyimpan maklumat segera yang diperlukan untuk mengira langkah seterusnya.
+Fikirkan ini sebagai sekeping kertas draf yang digunakan oleh ejen semasa tugasan atau proses pemikiran yang sedang berjalan. Ia memegang maklumat segera yang diperlukan untuk mengira langkah seterusnya.
 
-Untuk ejen AI, memori kerja biasanya menangkap maklumat paling relevan daripada perbualan, walaupun sejarah sembang penuh panjang atau dipendekkan. Ia memfokuskan pada pengambilan elemen penting seperti keperluan, cadangan, keputusan, dan tindakan.
+Untuk ejen AI, memori kerja sering menangkap maklumat paling relevan dari perbualan, walaupun sejarah perbualan penuh panjang atau dipotong. Ia memberi tumpuan kepada mengekstrak elemen utama seperti keperluan, cadangan, keputusan, dan tindakan.
 
 **Contoh Memori Kerja**
 
-Dalam ejen tempahan perjalanan, memori kerja mungkin menangkap permintaan semasa pengguna, seperti "Saya mahu menempah perjalanan ke Paris". Keperluan khusus ini disimpan dalam konteks segera ejen untuk membimbing interaksi semasa.
+Dalam ejen tempahan perjalanan, memori kerja mungkin menangkap permintaan semasa pengguna, seperti "Saya mahu menempah perjalanan ke Paris". Keperluan khusus ini dipegang dalam konteks segera ejen untuk membimbing interaksi kini.
 
 #### Memori Jangka Pendek
 
-Jenis memori ini menyimpan maklumat untuk tempoh satu perbualan atau sesi sahaja. Ia adalah konteks sembang semasa, membolehkan ejen merujuk kembali kepada giliran sebelumnya dalam dialog.
+Jenis memori ini mengekalkan maklumat untuk tempoh perbualan atau sesi tunggal. Ia adalah konteks sembang semasa, membenarkan ejen merujuk kembali kepada giliran perbualan sebelumnya.
 
-Dalam sampel SDK Python [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), ini dipetakan kepada `AgentSession`, yang diwujudkan dengan `agent.create_session()`. Sesi ini adalah memori jangka pendek terbina dalam framework: ia menyimpan konteks perbualan yang tersedia selagi sesi yang sama digunakan semula, tetapi konteks itu tidak disimpan apabila sesi berakhir atau aplikasi dimulakan semula. Gunakan memori jangka panjang untuk fakta dan keutamaan yang perlu kekal merentasi sesi, biasanya melalui pangkalan data, indeks vektor atau penyimpanan kekal lain.
+Dalam contoh SDK Python [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), ini dipadankan dengan `AgentSession`, yang dibuat dengan `agent.create_session()`. Sesi adalah memori jangka pendek terbina dalam rangka kerja: ia mengekalkan konteks perbualan semasa sesi yang sama digunakan, tetapi konteks tersebut tidak disimpan apabila sesi berakhir atau aplikasi dimulakan semula. Gunakan memori jangka panjang untuk fakta dan keutamaan yang perlu bertahan merentasi sesi, biasanya melalui pangkalan data, indeks vektor, atau stor kekal lain.
 
 **Contoh Memori Jangka Pendek**
 
-Jika pengguna bertanya, "Berapa kos penerbangan ke Paris?" dan kemudian mengikut dengan "Bagaimana pula dengan penginapan di sana?", memori jangka pendek memastikan ejen tahu "di sana" merujuk kepada "Paris" dalam perbualan yang sama.
+Jika pengguna bertanya, "Berapa harga penerbangan ke Paris?" dan kemudian menyusuli dengan "Bagaimana pula dengan tempat penginapan di sana?", memori jangka pendek memastikan ejen tahu "sana" merujuk kepada "Paris" dalam perbualan yang sama.
 
 #### Memori Jangka Panjang
 
-Ini adalah maklumat yang kekal merentasi pelbagai perbualan atau sesi. Ia membolehkan ejen mengingati keutamaan pengguna, interaksi sejarah, atau pengetahuan umum dalam jangka masa panjang. Ini penting untuk personalisasi.
+Ini adalah maklumat yang bertahan merentasi beberapa perbualan atau sesi. Ia membolehkan ejen mengingati keutamaan pengguna, interaksi sejarah, atau pengetahuan umum sepanjang tempoh yang panjang. Ini penting untuk pemperibadian.
 
 **Contoh Memori Jangka Panjang**
 
-Memori jangka panjang mungkin menyimpan bahawa "Ben suka bermain ski dan aktiviti luar, gemar kopi dengan pemandangan gunung, dan mahu mengelak cerun ski lanjutan kerana kecederaan lalu". Maklumat ini, yang dipelajari dari interaksi sebelum ini, mempengaruhi cadangan dalam sesi perancangan perjalanan akan datang, menjadikannya sangat diperibadikan.
+Memori jangka panjang mungkin menyimpan bahawa "Ben gemar bermain ski dan aktiviti luar, suka kopi dengan pemandangan gunung, dan mahu mengelakkan lereng ski lanjutan kerana kecederaan masa lalu". Maklumat ini, yang dipelajari dari interaksi sebelumnya, mempengaruhi cadangan dalam sesi perancangan perjalanan masa depan, menjadikannya sangat peribadi.
 
 #### Memori Persona
 
-Jenis memori khusus ini membantu ejen membangunkan "personaliti" atau "persona" yang konsisten. Ia membolehkan ejen mengingati butiran tentang dirinya atau peranan yang dimaksudkan, menjadikan interaksi lebih lancar dan fokus.
+Jenis memori khusus ini membantu ejen membentuk "personaliti" atau "persona" yang konsisten. Ia membolehkan ejen mengingati butiran tentang dirinya atau peranan yang dimaksudkan, menjadikan interaksi lebih lancar dan fokus.
 
-**Contoh Memori Persona**  
-Jika ejen perjalanan direka sebagai "perancang ski pakar," memori persona boleh menguatkan peranan ini, mempengaruhi jawapan yang selaras dengan nada dan pengetahuan seorang pakar.
+**Contoh Memori Persona**
+Jika ejen perjalanan direka sebagai "perancang ski pakar," memori persona mungkin menguatkan peranan ini, mempengaruhi responsnya agar selaras dengan nada dan pengetahuan seorang pakar.
 
 #### Memori Aliran Kerja/Episodik
 
-Memori ini menyimpan urutan langkah yang diambil ejen semasa tugasan kompleks, termasuk kejayaan dan kegagalan. Ia seperti mengingati "episod" atau pengalaman lalu khusus untuk belajar daripadanya.
+Memori ini menyimpan urutan langkah yang diambil ejen semasa tugasan kompleks, termasuk kejayaan dan kegagalan. Ia seperti mengingati "episod" atau pengalaman lalu untuk belajar daripadanya.
 
 **Contoh Memori Episodik**
 
-Jika ejen cuba menempah penerbangan tertentu tetapi gagal kerana ketidaktersediaan, memori episodik boleh merekodkan kegagalan ini, membolehkan ejen mencuba penerbangan alternatif atau memberitahu pengguna tentang isu tersebut dengan lebih berinformasi dalam cubaan berikutnya.
+Jika ejen cuba menempah penerbangan tertentu tetapi gagal kerana ketidaktersediaan, memori episodik boleh merekodkan kegagalan ini, membolehkan ejen mencuba penerbangan alternatif atau memaklumkan pengguna tentang isu tersebut dengan lebih bermaklumat pada cubaan berikutnya.
 
 #### Memori Entiti
 
-Ini melibatkan pengekstrakan dan mengingati entiti tertentu (seperti orang, tempat, atau benda) dan peristiwa dari perbualan. Ia membolehkan ejen membina pemahaman berstruktur mengenai elemen penting yang dibincangkan.
+Ini melibatkan pengekstrakan dan mengingati entiti khusus (seperti orang, tempat, atau benda) dan peristiwa dari perbualan. Ia membolehkan ejen membina pemahaman berstruktur tentang elemen utama yang dibincangkan.
 
 **Contoh Memori Entiti**
 
-Daripada perbualan mengenai perjalanan lalu, ejen mungkin mengekstrak "Paris," "Menara Eiffel," dan "makan malam di restoran Le Chat Noir" sebagai entiti. Dalam interaksi akan datang, ejen boleh mengingati "Le Chat Noir" dan menawarkan untuk membuat tempahan baru di sana.
+Dari perbualan mengenai perjalanan lalu, ejen mungkin mengekstrak "Paris," "Menara Eiffel," dan "makan malam di restoran Le Chat Noir" sebagai entiti. Dalam interaksi masa depan, ejen boleh mengingati "Le Chat Noir" dan menawarkan untuk membuat tempahan baru di sana.
 
 #### RAG Berstruktur (Retrieval Augmented Generation)
 
-Walaupun RAG adalah teknik yang lebih luas, "RAG Berstruktur" diketengahkan sebagai teknologi memori yang kuat. Ia mengekstrak maklumat padat dan berstruktur dari pelbagai sumber (perbualan, emel, gambar) dan menggunakannya untuk meningkatkan ketepatan, keupayaan ingatan, dan kelajuan dalam respons. Berbeza dengan RAG klasik yang bergantung sepenuhnya pada kesamaan semantik, RAG Berstruktur beroperasi dengan struktur maklumat yang ada.
+Walaupun RAG adalah teknik yang lebih luas, "RAG Berstruktur" diketengahkan sebagai teknologi memori yang kuat. Ia mengekstrak maklumat berstruktur padat dari pelbagai sumber (perbualan, e-mel, imej) dan menggunakannya untuk meningkatkan ketepatan, pengingatan, dan kelajuan dalam respons. Tidak seperti RAG klasik yang bergantung semata-mata pada kesamaan semantik, RAG Berstruktur berfungsi dengan struktur maklumat yang sedia ada.
 
 **Contoh RAG Berstruktur**
 
-Daripada hanya memadankan kata kunci, RAG Berstruktur boleh menguraikan butiran penerbangan (destinasi, tarikh, masa, syarikat penerbangan) daripada emel dan menyimpannya secara berstruktur. Ini membolehkan pertanyaan tepat seperti "Penerbangan apa yang saya tempah ke Paris pada hari Selasa?"
+Daripada hanya memadankan kata kunci, RAG Berstruktur boleh menguraikan butiran penerbangan (destinasi, tarikh, masa, syarikat penerbangan) dari e-mel dan menyimpannya secara berstruktur. Ini membolehkan pertanyaan tepat seperti "Penerbangan mana yang saya tempah ke Paris pada hari Selasa?"
 
 ## Melaksanakan dan Menyimpan Memori
 
-Melaksanakan memori untuk ejen AI melibatkan proses sistematik **pengurusan memori**, yang merangkumi menjana, menyimpan, mengambil, mengintegrasi, mengemaskini, dan bahkan "melupakan" (atau memadam) maklumat. Pengambilan maklumat adalah aspek yang sangat penting.
+Melaksanakan memori untuk ejen AI melibatkan proses sistematik pengurusan memori, yang merangkumi menjana, menyimpan, mengambil semula, mengintegrasi, mengemas kini, dan malah "melupakan" (atau memadam) maklumat. Pengambilan semula adalah aspek yang amat penting.
 
 ### Alat Memori Khusus
 
 #### Mem0
 
-Salah satu cara untuk menyimpan dan mengurus memori ejen adalah menggunakan alat khusus seperti Mem0. Mem0 berfungsi sebagai lapisan memori kekal, membolehkan ejen mengingati interaksi relevan, menyimpan keutamaan pengguna dan konteks fakta, serta belajar daripada kejayaan dan kegagalan dari masa ke masa. Idea di sini ialah ejen tanpa status berubah menjadi ejen berstatus.
+Salah satu cara untuk menyimpan dan mengurus memori ejen adalah dengan menggunakan alat khusus seperti Mem0. Mem0 berfungsi sebagai lapisan memori kekal, membolehkan ejen mengingati interaksi relevan, menyimpan keutamaan pengguna dan konteks fakta, serta belajar daripada kejayaan dan kegagalan dari masa ke masa. Idea di sini ialah ejen tanpa status menjadi ejen berstatus.
 
-Ia beroperasi melalui **saluran memori dua fasa: ekstraksi dan kemaskini**. Pertama, mesej yang ditambah ke thread ejen dihantar ke perkhidmatan Mem0, yang menggunakan Model Bahasa Besar (LLM) untuk meringkaskan sejarah perbualan dan mengekstrak memori baru. Kemudian, fasa kemaskini yang dikawal LLM menentukan sama ada untuk menambah, mengubah, atau memadam memori tersebut, menyimpannya dalam stor data hibrid yang boleh merangkumi pangkalan data vektor, graf, dan kunci-nilai. Sistem ini juga menyokong pelbagai jenis memori dan boleh menggabungkan memori graf untuk mengurus hubungan antara entiti.
+Ia berfungsi melalui **saluran memori dua fasa: pengekstrakan dan kemas kini**. Pertama, mesej yang ditambah ke benang ejen dihantar ke perkhidmatan Mem0, yang menggunakan Model Bahasa Besar (LLM) untuk meringkaskan sejarah perbualan dan mengekstrak memori baru. Kemudian, fasa kemas kini yang dikendalikan oleh LLM menentukan sama ada untuk menambah, mengubah, atau memadamkan memori ini, menyimpannya dalam stor data hibrid yang boleh merangkumi pangkalan data vektor, graf, dan pasangan kunci-nilai. Sistem ini juga menyokong pelbagai jenis memori dan boleh menggabungkan memori graf untuk mengurus hubungan antara entiti.
 
 #### Cognee
 
-Pendekatan berkuasa lain ialah menggunakan **Cognee**, memori semantik sumber terbuka untuk ejen AI yang menukar data berstruktur dan tidak berstruktur kepada graf pengetahuan yang boleh ditanya yang disokong oleh embeddings. Cognee menyediakan **arsitektur stor dua** yang menggabungkan carian kesamaan vektor dengan hubungan graf, membolehkan ejen memahami bukan sahaja apa maklumat yang serupa, tetapi bagaimana konsep berkait antara satu sama lain.
+Pendekatan kuat lain adalah menggunakan **Cognee**, memori semantik sumber terbuka untuk ejen AI yang menukar data berstruktur dan tidak berstruktur menjadi graf pengetahuan yang boleh dipertanyakan disokong oleh embeddings. Cognee menyediakan **senibina dua simpanan** yang menggabungkan carian kesamaan vektor dengan hubungan graf, membolehkan ejen memahami bukan hanya maklumat yang serupa, tetapi bagaimana konsep berkaitan antara satu sama lain.
 
-Ia cemerlang dalam **pengambilan hibrid** yang menggabungkan kesamaan vektor, struktur graf, dan penalaran LLM - dari carian kepingan mentah hingga menjawab soalan yang sedar graf. Sistem mengekalkan **memori hidup** yang berkembang dan bertambah sambil kekal boleh ditanya sebagai satu graf yang bersambung, menyokong konteks sesi jangka pendek dan memori jangka panjang yang kekal.
+Ia cemerlang dalam **pengambilan hibrid** yang menggabungkan kesamaan vektor, struktur graf, dan penalaran LLM - dari carian chunk mentah kepada menjawab soalan berdasarkan graf. Sistem ini mengekalkan **memori hidup** yang berkembang sambil kekal boleh dipertanyakan sebagai satu graf bersambung, menyokong konteks sesi jangka pendek dan memori kekal jangka panjang.
 
-Tutorial buku nota Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) menunjukkan cara membina lapisan memori bersatu ini, dengan contoh praktikal mengimport pelbagai sumber data, memvisualisasikan graf pengetahuan, dan bertanya dengan strategi carian berlainan yang disesuaikan kepada keperluan ejen tertentu.
+Tutorial notebook Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) menunjukkan pembinaan lapisan memori bersatu ini, dengan contoh praktikal memasukkan pelbagai sumber data, memvisualisasikan graf pengetahuan, dan bertanya dengan strategi carian berbeza yang disesuaikan dengan keperluan ejen khusus.
 
 ### Menyimpan Memori dengan RAG
 
-Selain alat memori khusus seperti mem0, anda boleh menggunakan perkhidmatan carian kukuh seperti **Azure AI Search sebagai backend untuk menyimpan dan mendapatkan semula memori**, terutamanya untuk RAG berstruktur.
+Selain alat memori khusus seperti Mem0, anda boleh memanfaatkan perkhidmatan carian kukuh seperti **Azure AI Search sebagai backend untuk menyimpan dan mengambil memori**, terutamanya bagi RAG berstruktur.
 
-Ini membolehkan anda memberi asas kepada jawapan ejen dengan data anda sendiri, memastikan jawapan yang lebih relevan dan tepat. Azure AI Search boleh digunakan untuk menyimpan memori perjalanan khusus pengguna, katalog produk, atau apa-apa pengetahuan khusus domain lain.
+Ini membolehkan anda menambat respons ejen anda dengan data anda sendiri, memastikan jawapan lebih relevan dan tepat. Azure AI Search boleh digunakan untuk menyimpan memori perjalanan khusus pengguna, katalog produk, atau pengetahuan domain lain.
 
-Azure AI Search menyokong kebolehan seperti **RAG Berstruktur**, yang cemerlang dalam mengekstrak dan mengambil semula maklumat padat dan berstruktur daripada set data besar seperti sejarah perbualan, emel, atau malahan gambar. Ini menyediakan "ketepatan dan capaian super manusia" berbanding pendekatan pengekodan dan pemecahan teks tradisional.
+Azure AI Search menyokong keupayaan seperti **RAG Berstruktur**, yang cemerlang dalam mengekstrak dan mengambil maklumat berstruktur padat dari set data besar seperti sejarah perbualan, e-mel, atau bahkan imej. Ini menyediakan "ketepatan dan pengingatan supermanusia" berbanding pendekatan pemecahan teks dan embedding tradisional.
 
-## Membuat Ejen AI Memperbaiki Diri Sendiri
+## Menjadikan Ejen AI Memperbaiki Diri
 
-Corak biasa untuk ejen yang memperbaiki diri melibatkan memperkenalkan **"ejen pengetahuan"**. Ejen berasingan ini memerhati perbualan utama antara pengguna dan ejen utama. Peranannya adalah untuk:
+Pola umum untuk ejen yang memperbaiki diri melibatkan pengenalan **"ejen pengetahuan"**. Ejen berasingan ini memerhati perbualan utama antara pengguna dan ejen utama. Peranannya adalah untuk:
 
-1. **Kenal pasti maklumat bernilai**: Tentukan jika mana-mana bahagian perbualan berbaloi disimpan sebagai pengetahuan am atau keutamaan pengguna khusus.
+1. **Kenal pasti maklumat berharga**: Tentukan jika mana-mana bahagian perbualan berbaloi disimpan sebagai pengetahuan umum atau keutamaan pengguna tertentu.
 
-2. **Ekstrak dan ringkaskan**: Meringkaskan pembelajaran penting atau keutamaan daripada perbualan.
+2. **Ekstrak dan ringkaskan**: Memadatkan pembelajaran atau keutamaan penting dari perbualan.
 
-3. **Simpan dalam pangkalan pengetahuan**: Menyimpan maklumat yang diekstrak ini, biasanya dalam pangkalan data vektor, supaya boleh diperoleh semula kemudian.
+3. **Menyimpan dalam pangkalan pengetahuan**: Simpan maklumat yang diekstrak ini, kerap dalam pangkalan data vektor, supaya boleh diambil semula kemudian.
 
-4. **Tambahkan pada pertanyaan masa depan**: Apabila pengguna memulakan pertanyaan baru, ejen pengetahuan mengambil maklumat tersimpan yang relevan dan menambahkannya pada arahan pengguna, menyediakan konteks penting kepada ejen utama (serupa dengan RAG).
+4. **Melengkapkan pertanyaan masa depan**: Apabila pengguna memulakan pertanyaan baru, ejen pengetahuan mengambil maklumat yang relevan disimpan dan menambahkannya kepada petikan pengguna, menyediakan konteks penting kepada ejen utama (serupa dengan RAG).
 
 ### Pengoptimuman untuk Memori
 
-• **Pengurusan Latensi**: Untuk mengelakkan memperlahankan interaksi pengguna, model yang lebih murah dan cepat boleh digunakan terlebih dahulu untuk pantas memeriksa sama ada maklumat berbaloi disimpan atau diambil, hanya mengaktifkan proses ekstraksi/pengambilan yang lebih kompleks bila perlu.
+• **Pengurusan Latensi**: Untuk mengelakkan memperlahankan interaksi pengguna, model yang lebih murah dan cepat boleh digunakan pada mulanya untuk cepat memeriksa jika maklumat berbaloi disimpan atau diambil, hanya menggunakan proses ekstrak/pengambilan yang lebih kompleks apabila perlu.
 
-• **Penyelenggaraan Pangkalan Pengetahuan**: Untuk pangkalan pengetahuan yang semakin besar, maklumat yang kurang kerap digunakan boleh dipindahkan ke "stor sejuk" untuk mengurus kos.
+• **Penyelenggaraan Pangkalan Pengetahuan**: Untuk pangkalan pengetahuan yang berkembang, maklumat yang kurang kerap digunakan boleh dipindahkan ke "stor sejuk" untuk mengurus kos.
 
-## Ada Soalan Lagi Tentang Memori Ejen?
+## Ada Lagi Soalan Tentang Memori Ejen?
 
-Sertai [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) untuk bertemu dengan pembelajar lain, menghadiri sesi kaunseling dan mendapatkan jawapan bagi soalan Anda tentang Ejen AI.
+Sertai [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) untuk bertemu dengan pelajar lain, menghadiri waktu pejabat dan dapatkan jawapan untuk soalan-soalan anda tentang Ejen AI.
 
 ---
 

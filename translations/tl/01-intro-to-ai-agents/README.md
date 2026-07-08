@@ -1,14 +1,14 @@
 [![Intro to AI Agents](../../../translated_images/tl/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(I-click ang larawan sa itaas para panoorin ang video para sa araling ito)_
+> _(I-click ang larawang nasa itaas upang mapanood ang video para sa araling ito)_
 
-# Panimula sa AI Agents at Mga Gamit ng Agent
+# Panimula sa mga AI Agent at Mga Gamit ng Agent
 
-Maligayang pagdating sa kursong **AI Agents para sa Mga Baguhan**! Ang kursong ito ay nagbibigay sa iyo ng pundamental na kaalaman — at totoong gumaganang code — upang makapagsimula kang bumuo ng AI Agents mula sa simula.
+Maligayang pagdating sa kursong **AI Agents para sa mga Baguhan**! Ang kursong ito ay nagbibigay sa iyo ng pundamental na kaalaman — at totoong gumaganang code — upang makapagsimula kang bumuo ng AI Agents mula sa simula.
 
-Halina't mag-sabi ng hi sa <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a> — puno ito ng mga nag-aaral at mga tagabuo ng AI na masayang sumagot sa mga tanong.
+Halika at kumustahin sa <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord Community</a> — puno ito ng mga nag-aaral at mga tagabuo ng AI na masayang sumasagot ng mga tanong.
 
-Bago tayo tumalon sa pagbuo, siguraduhing naiintindihan natin kung ano talaga ang isang AI Agent *at* kailan makatuwiran gamitin ito.
+Bago tayo sumabak sa paggawa, tiyakin muna nating nauunawaan natin kung ano ba talaga ang isang AI Agent at kailan ito angkop gamitin.
 
 ---
 
@@ -16,119 +16,120 @@ Bago tayo tumalon sa pagbuo, siguraduhing naiintindihan natin kung ano talaga an
 
 Saklaw ng araling ito:
 
-- Ano ang AI Agents, at ang iba't ibang uri nito
-- Anong mga uri ng gawain ang pinakanaaangkop para sa AI Agents
-- Ang mga pangunahing sangkap na gagamitin mo sa pagdidisenyo ng isang Agentic na solusyon
+- Ano ang mga AI Agent, at ang iba't ibang uri na umiiral
+- Anong mga uri ng gawain ang pinakaangkop para sa mga AI Agent
+- Ang mga pangunahing bahagi na gagamitin mo sa pagdisenyo ng isang solusyong Agentic
 
 ## Mga Layunin sa Pagkatuto
 
-Pagkatapos ng araling ito, dapat ay kaya mong:
+Sa pagtatapos ng araling ito, dapat ay kaya mong:
 
-- Ipaliwanag kung ano ang AI Agent at paano ito naiiba sa isang karaniwang AI solution
-- Malaman kung kailan dapat gumamit ng AI Agent (at kung kailan hindi)
-- Gumuhit ng isang pangunahing disenyo ng Agentic na solusyon para sa isang tunay na problema
+- Ipaliwanag kung ano ang isang AI Agent at kung paano ito naiiba sa isang karaniwang solusyong AI
+- Malaman kung kailan dapat gumamit ng isang AI Agent (at kung kailan hindi)
+- Gumuhit ng isang pangunahing disenyo ng solusyong Agentic para sa isang tunay na problema
 
 ---
 
-## Pagpapakahulugan sa AI Agents at Mga Uri ng AI Agents
+## Pagpapakahulugan sa mga AI Agent at Uri ng mga AI Agent
 
-### Ano ang AI Agents?
+### Ano ang mga AI Agent?
 
-Ganito ang simpleng paraan upang tingnan ito:
+Narito ang isang simpleng paraan ng pag-iisip tungkol dito:
 
-> **Ang AI Agents ay mga sistema na nagpapahintulot sa Large Language Models (LLMs) na talagang *gawin ang mga bagay* — sa pamamagitan ng pagbibigay sa kanila ng mga kasangkapan at kaalaman upang kumilos sa mundo, hindi lang basta tumugon sa mga prompt.**
+> **Ang mga AI Agent ay mga sistema na nagpapahintulot sa Malalaking Modelong Wika (LLMs) na talagang *gumawa ng mga bagay* — sa pamamagitan ng pagbibigay sa kanila ng mga kasangkapan at kaalaman upang kumilos sa mundo, hindi lamang tumugon sa mga prompt.**
 
-Paliwanag pa ito ng kaunti:
+Tingnan natin ito nang mas detalyado:
 
-- **Sistema** — Ang AI Agent ay hindi lang isang bagay. Ito ay isang koleksyon ng mga bahagi na nagtutulungan. Sa pinakapuso nito, bawat agent ay may tatlong bahagi:
-  - **Kapaligiran** — Ang espasyo kung saan gumagana ang agent. Para sa isang travel booking agent, ito ay ang mismong booking platform.
-  - **Sensors** — Paano nababasa ng agent ang kasalukuyang kalagayan ng kapaligiran. Maaaring tignan ng travel agent ang availability ng hotel o presyo ng flight.
-  - **Actuators** — Paano kumikilos ang agent. Maaaring mag-book ng kwarto, magpadala ng kumpirmasyon, o mag-cancel ng reservation ang travel agent.
+- **Sistema** — Ang isang AI Agent ay hindi lang isang bagay. Ito ay koleksyon ng mga bahagi na nagtutulungan. Sa pinakapuso nito, ang bawat agent ay may tatlong bahagi:
+  - **Kapaligiran** — Ang lugar kung saan nagtatrabaho ang agent. Para sa isang ahente sa pag-book ng paglalakbay, ito ang mismong platform ng booking.
+  - **Mga Sensor** — Kung paano binabasa ng agent ang kasalukuyang kalagayan ng kapaligiran. Ang aming travel agent ay maaaring suriin ang availability ng hotel o presyo ng flight.
+  - **Mga Aktwator** — Kung paano kumikilos ang agent. Ang travel agent ay maaaring mag-book ng kuwarto, magpadala ng kumpirmasyon, o mag-cancel ng reservation.
 
 ![What Are AI Agents?](../../../translated_images/tl/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-- **Large Language Models** — Umiiral ang mga agents bago pa man ang LLMs, ngunit ang LLMs ang nagpapalakas sa mga modernong agent. Kaya nilang intindihin ang natural na wika, mag-isip ayon sa konteksto, at gawing konkretong plano ang malabong kahilingan ng gumagamit.
+- **Malalaking Modelong Wika** — Umiiral na ang mga agent bago pa ang LLM, ngunit ang LLM ang nagpapalakas sa mga modernong agent. Naiintindihan nila ang natural na wika, nakakaunawa ng konteksto, at nagagawa nilang gawing kongkretong plano ang isang malabo na hiling ng gumagamit.
 
-- **Pagsasagawa ng Aksyon** — Kung walang agent system, ang LLM ay gumagawa lamang ng teksto. Sa loob ng agent system, kaya ng LLM na talagang *isagawa* ang mga hakbang — maghanap sa database, tumawag ng API, magpadala ng mensahe.
+- **Pagsasagawa ng Mga Aksyon** — Kung walang sistema ng agent, ang LLM ay gumagawa lang ng teksto. Sa loob ng systema ng agent, ang LLM ay kayang *isagawa* ang mga hakbang — maghanap sa database, tumawag ng API, magpadala ng mensahe.
 
-- **Pag-access sa mga Kasangkapan** — Depende sa (1) kapaligiran kung saan tumatakbo ang agent at (2) sa pinili ng developer na ibigay dito kung ano ang mga kasangkapang magagamit. Maaaring makahanap ng flights ang travel agent ngunit hindi maka-edit ng record ng customer — depende ito sa naka-wire up.
+- **Access sa Mga Kasangkapan** — Ang mga kasangkapan na maaaring gamitin ng agent ay depende sa (1) kapaligiran kung saan ito tumatakbo at (2) kung ano ang pinili ng developer na ibigay dito. Ang isang travel agent ay maaaring makapaghanap ng mga flight pero hindi makapag-edit ng mga rekord ng customer — nakasalalay ito sa iyong pag-wire.
 
-- **Memorya + Kaalaman** — Maaaring magkaroon ang agents ng panandaliang memorya (ang kasalukuyang pag-uusap) at pangmatagalang memorya (database ng customer, nakaraang interaksyon). Maaaring "maalala" ng travel agent na mas gusto mo ang mga window seats.
+- **Memorya + Kaalaman** — Ang mga agent ay maaaring magkaroon ng panandaliang memorya (ang kasalukuyang pag-uusap) at pangmatagalang memorya (database ng customer, mga nakaraang interaksyon). Ang travel agent ay maaaring "maalala" na mas gusto mo ang mga window seat.
 
 ---
 
-### Mga Iba't Ibang Uri ng AI Agents
+### Iba't Ibang Uri ng AI Agent
 
-Hindi lahat ng agents ay pareho ang pagkakagawa. Narito ang talaan ng mga pangunahing uri, gamit ang travel booking agent bilang halimbawa:
+Hindi lahat ng agent ay pareho ang pagkakagawa. Narito ang pag-uuri ng pangunahing mga uri, gamit ang isang halimbawa ng travel booking agent:
 
-| **Uri ng Agent** | **Ano ang Ginagawa** | **Halimbawa ng Travel Agent** |
+| **Uri ng Agent** | **Ano ang Ginagawa Nito** | **Halimbawa ng Travel Agent** |
 |---|---|---|
-| **Simple Reflex Agents** | Sumusunod sa mga mahigpit na patakaran — walang memorya, walang plano. | Nakakita ng reklamo sa email → ipinapasa sa customer service. 'Yan lang. |
-| **Model-Based Reflex Agents** | Nagpapanatili ng panloob na modelo ng mundo at ina-update ito habang nagbabago ang mga bagay. | Tinututukan ang kasaysayan ng presyo ng flight at pinapansin ang sobrang mahal na ruta. |
-| **Goal-Based Agents** | May layunin at unti-unting iniisip kung paano ito mararating. | Nagbu-book ng buong trip (flights, kotse, hotel) mula sa kasalukuyan mong lokasyon para makarating ka sa destinasyon. |
-| **Utility-Based Agents** | Hindi lang naghahanap ng *isang* solusyon — hinahanap ang *pinakamainam* sa pamamagitan ng pagtimbang ng mga kalakihan at kahinaan. | Binabalanse ang gastos laban sa kaginhawaan para mahanap ang trip na pinakaangkop sa iyong mga kagustuhan. |
-| **Learning Agents** | Yumayabong sa paglipas ng panahon sa pamamagitan ng pagkatuto mula sa feedback. | Inaayos ang mga rekomendasyon sa booking batay sa mga resulta ng survey pagkatapos ng trip. |
-| **Hierarchical Agents** | Isang mataas na antas na agent ang naghahati ng gawain sa mga subtask at nagtatalaga sa mas mababang antas ng mga agent. | Ang kahilingan na "i-cancel ang trip" ay hinahati sa: cancel flight, cancel hotel, cancel rental ng kotse — bawat isa ay hawak ng sub-agent. |
-| **Multi-Agent Systems (MAS)** | Maramihang independiyenteng agents na nagtutulungan (o nakikipagkompetensya). | Sama-samang nagtatrabaho: mga hiwalay na agent para sa hotels, flights, at entertainment. Kompetisyon: iba't ibang agents ang nakikipagkarera para mapunan ang mga silid ng hotel sa pinakamahusay na presyo. |
+| **Simpleng Reflex Agents** | Sumusunod sa mga hard-coded na patakaran — walang memorya, walang pagpaplano. | Nakakakita ng reklamo sa email → ipinapasa ito sa serbisyo sa customer. Iyon lang. |
+| **Model-Based Reflex Agents** | May internal na modelo ng mundo at ina-update ito habang nagbabago ang mga bagay. | Sinusubaybayan ang kasaysayan ng presyo ng mga flight at nagfa-flag ng mga ruta na biglang mahal. |
+| **Goal-Based Agents** | May layunin sa isip at inaayos kung paano ito mararating hakbang-hakbang. | Nagbu-book ng buong trip (mga flight, kotse, hotel) simula sa iyong kasalukuyang lokasyon para makarating ka sa destinasyon mo. |
+| **Utility-Based Agents** | Hindi lang basta naghahanap ng *isang* solusyon — hinahanap ang *pinakamainam* sa pamamagitan ng pagtimbang ng mga tradeoff. | Binabalanse ang gastos laban sa kaginhawahan para mahanap ang trip na pinakamataas ang iskor para sa iyong kagustuhan. |
+| **Learning Agents** | Lalong gumaganda sa paglipas ng panahon sa pamamagitan ng pagkatuto mula sa feedback. | Inaayos ang mga rekomendasyon sa booking sa hinaharap base sa mga survey matapos ang trip. |
+| **Hierarchical Agents** | Isang mataas-na-level na agent ang naghahati ng trabaho sa mga subtasks at ipinapasa sa mga lower-level agents. | Ang kahilingan na "kanselahin ang trip" ay hinahati sa: kanselahin ang flight, kanselahin ang hotel, kanselahin ang pag-upa ng kotse — bawat isa ay hinawakan ng isang sub-agent. |
+| **Multi-Agent Systems (MAS)** | Maraming independenteng agents na nagtutulungan (o nagtutunggali). | Kooperatiba: magkaibang mga agent ang humahandle sa mga hotel, flight, at aliw. Kompetisyon: maraming agent ang nagtutunggali para mapuno ang mga kwarto ng hotel sa pinakamababang presyo. |
 
 ---
 
-## Kailan Gagamit ng AI Agents
+## Kailan Gamitin ang AI Agents
 
-Hindi dahil kaya mong gumamit ng AI Agent ay palaging dapat mong gawin ito. Narito ang mga sitwasyon kung kailan talagang nagiging kapaki-pakinabang ang mga agents:
+Hindi dahil kaya mong gumamit ng AI Agent ay ibig sabihin palagi mo dapat gamitin. Narito ang mga sitwasyon kung kailan talaga nangingibabaw ang mga agent:
 
 ![When to use AI Agents?](../../../translated_images/tl/when-to-use-ai-agents.54becb3bed74a479.webp)
 
-- **Mga Problema na Walang Tiyak na Sagot** — Kapag ang mga hakbang para lutasin ang problema ay hindi maaaring i-program nang bago. Kailangan ng LLM na tuklasin ang landas nang dinamiko.
-- **Mga Proseso na Maraming Hakbang** — Gawain na nangangailangan ng paggamit ng mga kasangkapan sa maraming ulit, hindi lang isang tingin o paggawa.
-- **Pagbuti sa Paglipas ng Panahon** — Kapag gusto mong gumaling ang sistema batay sa feedback ng gumagamit o mga signal mula sa kapaligiran.
+- **Mga Problema na Walang Tiyak na Sagot** — Kapag ang mga hakbang para lutasin ang problema ay hindi pwedeng i-pre-program. Kailangan ng LLM na alamin ang daan ng dinamiko.
+- **Maramihang Hakbang na Proseso** — Mga gawain na nangangailangan ng paggamit ng mga kasangkapan sa maraming hakbang, hindi lang isang lookup o generation.
+- **Pagbuti sa Pagdaan ng Panahon** — Kapag gusto mong maging mas matalino ang sistema batay sa feedback ng gumagamit o mga signal mula sa kapaligiran.
 
-Mas pag-aaralan natin nang mabuti ang kung kailan (at kailan *hindi*) gagamit ng AI Agents sa leksyong **Pagtatayo ng Mapagkakatiwalaang AI Agents** sa susunod na bahagi ng kurso.
+Tatalakayin namin nang mas malaliman kung kailan (at kailan *hindi*) gagamit ng AI Agents sa araling **Pagbuo ng Mapagkakatiwalaang AI Agents** sa bandang huli ng kurso.
 
 ---
 
-## Mga Pangunahing Kaalaman sa Agentic na mga Solusyon
+## Mga Pangunahing Kaalaman sa Mga Solusyong Agentic
 
 ### Pagbuo ng Agent
 
-Ang unang gagawin kapag bumubuo ng agent ay tukuyin *kung ano ang kaya nitong gawin* — ang mga kasangkapan, aksyon, at asal nito.
+Ang unang gagawin kapag bumubuo ng agent ay tukuyin *kung ano ang kaya nitong gawin* — ang mga kasangkapan, aksyon, at kilos nito.
 
-Sa kursong ito, ginagamit natin ang **Azure AI Agent Service** bilang pangunahing platform. Sinusuportahan nito ang:
+Sa kursong ito, ginagamit namin ang **Microsoft Foundry Agent Service** bilang pangunahing platform. Sinusuportahan nito:
 
 - Mga modelo mula sa mga provider tulad ng OpenAI, Mistral, at Meta (Llama)
 - Lisensyadong data mula sa mga provider tulad ng Tripadvisor
-- Standardized OpenAPI 3.0 na mga depinisyon ng kasangkapan
+- Standardized na mga depinisyon ng kasangkapan gamit ang OpenAPI 3.0
 
-### Mga Agentic Patterns
+### Mga Agentic Pattern
 
-Nakikipag-usap ka sa LLMs sa pamamagitan ng mga prompt. Sa mga agents, hindi laging pwede mano-manong gawin ang bawat prompt — kailangan ng agent na kumilos sa maraming hakbang. Dito pumapasok ang **Agentic Patterns**. Ito ay mga reusable na estratehiya para sa prompting at pag-ayos ng LLMs sa mas scalable at maaasahang paraan.
+Nakikipag-usap ka sa LLMs sa pamamagitan ng mga prompt. Sa mga agent, hindi palaging manu-mano mong magagawa ang bawat prompt — kailangang kumilos ang agent sa maraming hakbang. Dito pumapasok ang **Agentic Patterns**. Ito ay mga reusable na estratehiya para sa prompting at pag-orchestrate ng LLMs sa mas scalable at maaasahang paraan.
 
-Nakabatay ang kursong ito sa mga pinaka-karaniwan at kapaki-pakinabang na agentic patterns.
+Ang kursong ito ay nakaayos batay sa mga pinaka-karaniwan at kapaki-pakinabang na mga pattern ng agentic.
 
-### Mga Agentic Frameworks
+### Mga Agentic Framework
 
-Ang Agentic Frameworks ay nagbibigay sa mga developer ng mga template, kasangkapan, at imprastraktura para sa pagpapadali ng paggawa ng mga agent. Pinapadali nila ang:
+Ang mga Agentic Framework ay nagbibigay sa mga developer ng mga handang template, kasangkapan, at imprastruktura para sa pagbuo ng mga agent. Pinapadali nito ang:
 
-- Pagsasama ng mga kasangkapan at kakayahan
-- Pagsubaybay sa ginagawa ng agent (at pag-debug kapag may mali)
+- Pag-wire ng mga kasangkapan at kakayahan
+- Pagmamasid sa ginagawa ng agent (at pag-debug kung may mali)
 - Pakikipagtulungan sa maraming agent
 
-Sa kursong ito, nakatuon tayo sa **Microsoft Agent Framework (MAF)** para sa paggawa ng mga agent na handa na sa produksyon.
+Sa kursong ito, naka-focus kami sa **Microsoft Agent Framework (MAF)** para makabuo ng mga production-ready na agent.
 
 ---
 
 ## Mga Halimbawang Code
 
-Handa ka na bang makita ito sa aksyon? Narito ang mga halimbawang code para sa araling ito:
+Handa ka na bang makita ito sa aksyon? Narito ang mga code na halimbawa para sa araling ito:
 
 - 🐍 Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
 - 🔷 .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
 
 ---
 
-## May Mga Tanong?
+## May mga Tanong?
 
-Sumali sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) para makipag-ugnayan sa iba pang mga nag-aaral, dumalo sa office hours, at makakuha ng sagot sa iyong mga tanong tungkol sa AI Agent mula sa komunidad.
+Sumali sa [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) upang makipag-ugnay sa iba pang nag-aaral, dumalo sa office hours, at makakuha ng sagot sa iyong mga tanong tungkol sa AI Agent mula sa komunidad.
+
 
 ---
 

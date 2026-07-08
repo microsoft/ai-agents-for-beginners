@@ -1,64 +1,64 @@
-[Watch the lesson video: Securing AI Agents with Cryptographic Receipts](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Panoorin ang video ng aralin: Pag-secure ng mga AI Agent gamit ang mga Cryptographic Receipts](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Lesson video and thumbnail to be added by the Microsoft content team post-merge, matching the lesson 14 / 15 pattern.)_
+> _(Ang video ng aralin at thumbnail ay idadagdag ng Microsoft content team pagkatapos ng pagsasama, na sumusunod sa pattern ng aralin 14 / 15.)_
 
-# Securing AI Agents with Cryptographic Receipts
+# Pag-secure ng mga AI Agent gamit ang mga Cryptographic Receipts
 
 ## Panimula
 
-Tatalakayin sa leksyong ito ang:
+Tatalakayin sa araling ito ang mga sumusunod:
 
-- Bakit mahalaga ang audit trails para sa mga AI agent sa pagsunod sa batas, pag-debug, at pagtitiwala.
-- Ano ang cryptographic receipt at paano ito naiiba sa isang unsigned na log line.
-- Paano gumawa ng signed receipt para sa pagtawag ng tool ng agent gamit ang plain Python.
-- Paano i-verify ang isang receipt nang offline at matukoy ang pagbabago o panlilinlang.
-- Paano gumawa ng chain ng mga receipt para kapag may tinanggal o inayos na isa ay masira ang chain.
-- Ano ang pinatutunayan ng mga receipt at ano ang hindi nila pinatutunayan nang hayagan.
+- Bakit mahalaga ang audit trails para sa mga AI agent sa pagsunod sa regulasyon, pag-debug, at pagtitiwala.
+- Ano ang cryptographic receipt at kung paano ito naiiba sa isang unsigned log line.
+- Paano gumawa ng isang signed receipt para sa pagtawag ng tool ng isang agent gamit ang plain Python.
+- Paano i-verify ang isang receipt offline at makita kung may pandaraya.
+- Paano i-chain ang mga receipt para ang pagtanggal o pag-reorder ay makakasira sa chain.
+- Ano ang mga pinapatunayan ng mga receipt at ano ang hindi nila pinapatunayan.
 
 ## Mga Layunin sa Pagkatuto
 
-Pagkatapos ng leksyong ito, malalaman mo kung paano:
+Pagkatapos makumpleto ang araling ito, malalaman mo kung paano:
 
 - Tukuyin ang mga failure mode na nagtutulak sa cryptographic provenance para sa mga aksyon ng agent.
-- Gumawa ng Ed25519-signed na receipt gamit ang canonical JSON payload.
-- I-verify nang independent ang receipt gamit lamang ang public key ng nag-sign.
-- Matukoy ang panlilinlang sa pamamagitan ng muling pag-verify sa binagong receipt.
-- Bumuo ng hash-chained na sunod-sunod na mga receipt at ipaliwanag kung bakit mahalaga ang chain.
-- Kilalanin ang hangganan ng pinatutunayan ng mga receipt (attribution, integridad, pagkakasunod) at ng hindi nila pinatutunayan (katumpakan ng aksyon, katibayan ng polisiya).
+- Gumawa ng Ed25519-signed receipt gamit ang canonical JSON payload.
+- I-verify ang receipt nang independente gamit lang ang pampublikong susi ng signer.
+- Matuklasan ang pandaraya sa pamamagitan ng muling pag-verify sa isang binagong receipt.
+- Bumuo ng hash-chained sequence ng mga receipt at ipaliwanag kung bakit mahalaga ang chain.
+- Kilalanin ang hangganan ng mga pinapatunayan ng mga receipt (atribusyon, integridad, pagkakasunud-sunod) at ang mga hindi nito pinapatunayan (katumpakan ng aksyon, pagiging makatwiran ng polisiya).
 
-## Ang Problema: Audit Trail ng Iyong Agent
+## Ang Problema: Ang Audit Trail ng Iyong Agent
 
-Isipin na nag-deploy ka ng AI agent para sa Contoso Travel. Binabasa ng agent ang mga kahilingan ng customer, tumatawag sa flights API para maghanap ng mga opsyon, at nagbubook ng mga upuan para sa customer. Noong nakaraang quarter, nakaproseso ang agent ng 50,000 bookings.
+Isipin na nag-deploy ka ng AI agent para sa Contoso Travel. Binabasa ng agent ang mga kahilingan ng customer, tumatawag sa flights API para maghanap ng mga pagpipilian, at nagbu-book ng mga upuan para sa customer. Noong nakaraang quarter, naproseso ng agent ang 50,000 booking.
 
-Ngayon, dumating ang auditor. Tinanong nila nang simple: "Ipakita mo sa akin ang ginawa ng iyong agent."
+Ngayon ay dumating ang isang auditor. Nagtanong siya ng isang simpleng tanong: "Ipakita mo sa akin ang ginawa ng iyong agent."
 
-Ibinigay mo ang mga log files. Tiningnan ito ng auditor at tinanong ang mas mahirap na tanong: "Paano ko malalaman na hindi binago ang mga log na ito?"
+Ibinigay mo ang mga log file mo. Tiningnan ito ng auditor at tinanong ang mas mahirap na tanong: "Paano ko malalaman na hindi na-edit ang mga log na ito?"
 
-Ito ang problema ng audit trail. Karamihan sa mga deployment ngayon ay umaasa sa:
+Ito ang problema sa audit trail. Karamihan sa mga deployment ng agent ngayon ay umaasa sa:
 
-- **Application logs**: isinulat ng mismong agent, maaaring i-edit ng sinumang may access sa file system.
-- **Cloud logging services**: may tamper-evident sa platform level pero kailangan magtiwala ang auditor sa operator ng platform.
-- **Database transaction logs**: angkop para sa mga pagbabago sa database pero hindi para sa arbitrary tool calls.
+- **Application logs**: isinulat mismo ng agent, ngunit maaaring i-edit ng sinuman na may access sa file system.
+- **Cloud logging services**: may tamper-evident na katangian sa platform level ngunit kailangan ng tiwala sa operator ng platform ng auditor.
+- **Database transaction logs**: angkop para sa mga pagbabago sa database ngunit hindi para sa arbitrary tool calls.
 
-Walang isa man dito ang makakasagot ng tanong ng auditor nang hindi kailangan magtiwala sa isang tao (sino ka man, cloud provider mo, o vendor ng database mo). Para sa internal na gamit, madalas tanggap ang pagtitiwala na ito. Para sa mga regulated workloads (pananalapi, pangangalagang pangkalusugan, anumang sakop ng EU AI Act), hindi ito katanggap-tanggap.
+Wala sa mga ito ang makakasagot sa tanong ng auditor nang hindi kinakailangang magtiwala ang auditor sa sinuman (sa iyo, sa cloud provider mo, o sa vendor ng database). Para sa internal na gamit, madalas tanggap ang tiwalang iyon. Para sa mga regulated na workload (finance, healthcare, o anumang sakop ng EU AI Act), hindi.
 
-Nilulutas ng cryptographic receipts ito sa pamamagitan ng paggawa ng bawat aksyon ng agent na maaaring i-verify nang independent. Hindi kailangang magtiwala ang auditor sa iyo. Kailangan lang nila ang iyong public key at ang receipt mismo.
+Nilulutas ng cryptographic receipts ito sa pamamagitan ng paggawa ng bawat aksyon ng agent na independently verifiable. Hindi kailangan ng auditor na magtiwala sa iyo. Kailangan lang nila ang iyong public key at ang receipt mismo.
 
 ## Ano ang Cryptographic Receipt?
 
-Ang receipt ay isang JSON na bagay na nagrerekord ng ginawa ng agent, na nilagdaan gamit ang digital signature.
+Ang receipt ay isang JSON object na nagrerecord ng ginawa ng agent, na pinirmahan gamit ang digital signature.
 
 ```mermaid
 flowchart LR
-    A[Ang ahente ay nag-activate ng isang kasangkapan] --> B[Buuhin ang resibo na payload]
-    B --> C[Isalin ang JSON ayon sa RFC 8785]
+    A[Nagpapatakbo ang ahente ng isang kasangkapan] --> B[Bumuo ng payload ng resibo]
+    B --> C[Canonicalize JSON RFC 8785]
     C --> D[SHA-256 hash]
     D --> E[Ed25519 lagdaan]
     E --> F[Resibo na may lagda]
     F --> G[Sinusuri ng auditor offline]
-    G --> H{Valid ba ang lagda?}
-    H -- oo --> I[Katibayan na hindi nabago]
-    H -- hindi --> J[Tinatanggihan ang resibo]
+    G --> H{Wasto ba ang lagda?}
+    H -- yes --> I[Patunay na kapansin-pansin ang pagbabago]
+    H -- no --> J[Tinanggihan ang resibo]
 ```
 
 Ang isang minimal na receipt ay ganito:
@@ -82,32 +82,32 @@ Ang isang minimal na receipt ay ganito:
 }
 ```
 
-Tatlong katangian ang gumagana:
+Tatlong properties ang gumagawa ng trabaho:
 
-1. **Ang lagda**. Nilagdaan ang receipt ng gateway ng agent gamit ang Ed25519 private key. Sinumang may kaukulang public key ay maaaring i-verify ang lagda nang offline. Ang pagbabago ng kahit anong field ay magpapawalang-bisa sa lagda.
+1. **Ang pirma**. Pinipirmahan ang receipt ng gateway ng agent gamit ang Ed25519 private key. Sinumang may katumbas na public key ay maaaring mag-verify ng pirma offline. Ang anumang pakikialam sa alinmang field ay nagpapawalang bisa sa pirma.
 
-2. **Canonical encoding**. Bago paglagdaan, isinerializa ang receipt gamit ang JSON Canonicalization Scheme (JCS, RFC 8785). Tinitiyak nito na ang dalawang implementasyon na gumagawa ng parehong lohikal na receipt ay maglalabas ng eksaktong kaparehong bytes. Kung wala ito, iba’t ibang JSON serializers ang magbibigay ng ibang lagda para sa parehong nilalaman.
+2. **Canonical encoding**. Bago pumirma, ang receipt ay isinasalin gamit ang JSON Canonicalization Scheme (JCS, RFC 8785). Ito’y nagsisiguro na ang dalawang implementasyon na gumagawa ng parehong lohikal na receipt ay gumagawa ng byte-identical na output. Kung wala ang canonicalization, magkakaiba ang mga serializer ng JSON sa paggawa ng pirma para sa parehong nilalaman.
 
-3. **Hash chaining**. Ang field na `previous_receipt_hash` ay nag-uugnay sa bawat receipt sa naunang receipt. Kapag tinanggal o inayos ang isang receipt, nasisira ang lahat ng kasunod na receipt. Nagiging visible ang panlilinlang sa antas ng chain kahit na malampasan ang indibidwal na mga lagda.
+3. **Hash chaining**. Ang field na `previous_receipt_hash` ay nag-uugnay ng bawat receipt sa naunang receipt. Ang pagtanggal o pag-reorder ng isang receipt ay nagpapasira sa bawat receipt na sumusunod dito. Nakikita ang pandaraya sa antas ng chain kahit na malagpasan ang individual signatures.
 
-Sama-sama, ang mga katangiang ito ay nagbibigay ng tatlong garantiya:
+Sama-sama, nagbibigay ang mga properties na ito ng tatlong garantiya:
 
-- **Attribution**: ang susi na ito ang pumirma sa nilalamang ito.
-- **Integridad**: hindi nagbago ang nilalaman mula nang pirmahan.
-- **Pagkakasunod**: ang receipt na ito ay nauna pagkatapos ng tinukoy na receipt sa chain.
+- **Atribusyon**: pinirmahan ng susi na ito ang nilalaman na ito.
+- **Integridad**: hindi nagbago ang nilalaman mula nang pumirma.
+- **Pagkakasunud-sunod**: ang receipt na ito ay dumating pagkatapos ng receipt na iyon sa chain.
 
 ## Paggawa ng Receipt sa Python
 
-Hindi mo kailangan ng espesyal na library para gumawa ng receipt. Malawak na available ang mga cryptographic primitive at ang lohika ay ilang dosenang linya lang ng Python.
+Hindi mo kailangan ng espesyal na library para gumawa ng receipt. Malawak ang pagkakaroon ng cryptographic primitives at ilan lamang ang linya ng Python ng lohika.
 
-Ang hands-on exercises sa `code_samples/18-signed-receipts.ipynb` ay naglalakad sa buong proseso. Ang buod:
+Ang hands-on na mga pagsasanay sa `code_samples/18-signed-receipts.ipynb` ay nagpapakita ng buong prosesong ito. Ang buod na bersyon:
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # RFC 8785 na canonical JSON
+from jcs import canonicalize  # RFC 8785 canonical JSON
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -120,7 +120,7 @@ def sha256_canonical(obj) -> str:
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Buuhin ang receipt payload (walang lagda pa)
+# Buoin ang payload ng resibo (walang pirma pa)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -136,12 +136,12 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Canonicalize, hash, lagdaan.
+# I-canonicalize, i-hash, pirmahan.
 canonical_bytes = canonicalize(payload)
 message_hash = hashlib.sha256(canonical_bytes).digest()
 signature_bytes = signing_key.sign(message_hash).signature
 
-# Idikit ang isang structured na signature object.
+# Idikit ang isang nakaayos na signature object.
 receipt = {
     **payload,
     "signature": {
@@ -152,11 +152,11 @@ receipt = {
 }
 ```
 
-Iyan ang buong signing pipeline. Tinuturuan ng exercises sa notebook ang bawat hakbang.
+Iyon ang buong pipeline sa pagpirma. Pinapaliwanag ng mga pagsasanay sa notebook ang bawat hakbang.
 
-## Pag-verify ng Receipt at Pagtuklas ng Panlilinlang
+## Pag-verify ng Receipt at Pagtuklas ng Pandaraya
 
-Ang pag-verify ay ang kabaligtarang operasyon:
+Ang pag-verify ay ang inverse na operasyon:
 
 ```python
 import base64
@@ -170,12 +170,12 @@ def b64url_decode(s: str) -> bytes:
     return base64.urlsafe_b64decode(s + padding)
 
 def verify_receipt(receipt: dict) -> bool:
-    # Ang pirma ay isang istrukturadong bagay: {"alg", "sig", "public_key"}.
+    # Ang pirma ay isang nakaayos na bagay: {"alg", "sig", "public_key"}.
     sig_obj = receipt.get("signature")
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # I-rekonstruksyon ang payload na talaga namang pinirmahan (lahat maliban sa pirma).
+    # Ibalik ang payload na aktwal na nilagdaan (lahat maliban sa pirma).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
@@ -189,19 +189,19 @@ def verify_receipt(receipt: dict) -> bool:
         return False
 ```
 
-Tumatanggap ang function na ito ng receipt at nagbabalik ng `True` kung valid ang lagda, `False` kung hindi. Walang network call, walang dependency sa serbisyo, at walang kailangang pagtitiwala sa sinumang third party.
+Ang function na ito ay tumatanggap ng receipt at nagbabalik ng `True` kung wasto ang pirma, `False` kung hindi. Walang tawag sa network, walang dependency sa serbisyo, at walang kailangang tiwala sa anumang third party.
 
-Para makita ang pagtuklas ng panlilinlang sa aksyon, tinuturo ng notebook ang sumusunod:
+Upang makita ang pagtuklas ng pandaraya sa aksyon, pinapaliwanag sa notebook ang mga sumusunod:
 
-1. Gumawa ng valid na receipt at kumpirmahing ito ay nare-verify.
-2. Baguhin ang isang byte ng `tool_args_hash` field.
-3. Muling patakbuhin ang verification at makita itong bumagsak.
+1. Paggawa ng wastong receipt at pagtitiyak na ito ay na-verify.
+2. Pagbabago ng isang byte sa `tool_args_hash` na field.
+3. Muling pag-verify at pagkadiskubre ng pagkabigo.
 
-Ito ang praktikal na demonstasyon na ang mga receipt ay tamper-evident: anumang pagbabago, gaano man kaliit, ay sumisira sa lagda.
+Ito ang praktikal na demonstrasyon na ang mga receipt ay tamper-evident: anumang pagbabago, gaano man kaliit, ay nagpapasira sa pirma.
 
-## Paggawa ng Chain ng mga Receipt para sa Mga Multi-Step na Agent
+## Pag-chain ng Mga Receipt para sa Multi-Step na mga Agent
 
-Isang signed receipt ang nagpoprotekta sa isang aksyon. Ang chain ng mga receipt ay nagpoprotekta sa sunod-sunod na mga aksyon.
+Isang signed receipt ang pumoprotekta sa isang aksyon. Ang chain ng mga receipt ay pumoprotekta sa isang sunod-sunod na gawain.
 
 ```mermaid
 flowchart LR
@@ -213,172 +213,170 @@ flowchart LR
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Itinatala ng bawat receipt ang hash ng naunang receipt. Para tahimik na tanggalin ang receipt 2, kailangang gawin ng attacker ang alinman sa:
+Nire-record ng bawat receipt ang hash ng naunang receipt. Upang tahimik na tanggalin ang receipt 2, kailangang gawin ng attacker ang isa sa mga ito:
 
-- Baguhin ang `previous_receipt_hash` field ng receipt 3 (magpapa-invalid sa lagda ng receipt 3), O
-- Gumawa ng bagong lagda sa binagong receipt 3 (kailangan ang private key ng agent).
+- Baguhin ang `previous_receipt_hash` ng receipt 3 (sumisira sa pirma ng receipt 3), O
+- Gumawa ng bagong pirma sa binagong receipt 3 (kailangan ng private key ng agent).
 
-Kung ang private key ay nasa hardware key vault at inilalathala mo ang public key kasama ng bawat receipt, hindi praktikal ang alin mang pag-atake nang hindi natutuklasan.
+Kung ang private key ay nasa hardware key vault at ikaw ay naglalathala ng public key sa bawat receipt, wala sa mga atakeng ito ang maaaring gawin nang hindi nadedetect.
 
-Pinapakita ng notebook ang:
+Pinapaliwanag ng notebook ang:
 
 1. Pagbuo ng chain ng tatlong receipt.
 2. Pag-verify na ang `previous_receipt_hash` ng bawat receipt ay tumutugma sa aktwal na hash ng naunang receipt.
-3. Pagbabago ng isang receipt sa gitna at pagtingin kung paano nasisira ang chain sa puntong iyon.
+3. Pandaraya sa isang receipt sa gitna at pagtingin sa pagkasira ng chain sa eksaktong puntong iyon.
 
-Ganito mo magagawa ang audit trail na maaaring i-verify ng external auditor nang hindi kailangan magtiwala sa iyo.
+Ganito ka gumagawa ng audit trail na maaaring i-verify ng external auditor nang hindi na kailangang magtiwala sa iyo.
 
-## Ano ang Pinapakita ng Mga Receipt (At Ano ang Hindi)
+## Ano ang Pinapatunayan ng Mga Receipt (at Ano ang Hindi)
 
-Ito ang pinakaimportanteng bahagi ng leksyong ito. Malakas ang kapangyarihan ng mga receipt pero may hangganan ito.
+Ito ang pinakamahalagang bahagi ng araling ito. Makapangyarihan ang mga receipt ngunit may hangganan ang kanilang lakas.
 
-**Pinapatunayan ng mga receipt ang tatlong bagay:**
+**Tatlong bagay ang pinapatunayan ng mga receipt:**
 
-1. **Attribution**: isang partikular na key ang pumirma sa isang partikular na payload.
-2. **Integridad**: hindi nagbago ang payload mula nang pirmahan.
-3. **Pagkakasunod**: ang receipt na ito ay sumunod sa receipt na ito sa hash chain.
+1. **Atribusyon**: isang partikular na susi ang pumirma sa isang partikular na payload.
+2. **Integridad**: ang payload ay hindi nagbago mula nang pumirma.
+3. **Pagkakasunud-sunod**: ang receipt na ito ay dumating pagkatapos ng receipt na iyon sa hash chain.
 
-**Hindi pinatutunayan ng mga receipt:**
+**Hindi pinapatunayan ng mga receipt:**
 
-1. **Katumpakan**: na ang aksyon ng agent ay tama. Maaari ring pipirmahan ang receipt para sa maling sagot nang kasing linis ng tamang sagot.
-2. **Pagsunod sa polisiya**: na ang polisiya na tinukoy sa `policy_id` ay totoong na-evaluate, o na papayagan nito ang aksyon kung susuriin. Itinatala ng receipt ang inangkin, hindi ang ipinatupad.
-3. **Pagkakakilanlan lampas sa key**: sinasabi ng receipt na "ang key na ito ang pumirma sa nilalaman." Hindi nito sinasabi na "ang taong ito ang nag-authorize." Nangangailangan ng hiwalay na identity infrastructure (directory, public key registry, atbp.) para iugnay ang key sa tao o organisasyon.
-4. **Katotohanan ng mga input**: kung nakatanggap ang agent ng manipulado o binagong prompt at kumilos base dito, tapat na itinatala ng receipt ang aksyon. Downstream ang mga receipt sa input validation, hindi kapalit nito.
+1. **Katumpakan**: na ang ginawa ng agent ay ang tamang aksyon. Maaaring mapirmahan ang receipt para sa maling sagot nang kasing dali ng para sa tamang sagot.
+2. **Pagsunod sa polisiya**: na ang polisiya na tinutukoy sa `policy_id` ay aktuwal na na-evaluate, o na papayagan nito ang aksyon kung sinuri. Ang receipt ay nagrerecord ng sinabing ginawa, hindi ang naipatupad.
+3. **Pagkakakilanlan lampas sa susi**: sinasabi ng receipt na "pinirmahan ng susi na ito ang nilalaman na ito." Hindi nito sinasabi "pinahintulutan ito ng tao." Ang pagkonekta ng susi sa tao o organisasyon ay nangangailangan ng hiwalay na identity infrastructure (directory, public key registry, atbp.).
+4. **Katotohanan ng mga input**: kung nakatanggap ang agent ng na-manipulang prompt at kumilos base dito, tapat na rerekord ng receipt ang aksyon. Ang mga receipt ay nasa downstream ng input validation, hindi kapalit nito.
 
-Mahalaga ang hangganan na ito dahil:
+Mahalaga ang hangganang ito para sa dalawang dahilan:
 
-- Sinasabi nito kung saan kapaki-pakinabang ang mga receipt: gawing auditableng behavior ng agent at notices ang panlilinlang, kahit sa mga organisasyong magkakaiba.
-- Sinasabi rin nito kung ano ang mga dagdag na layer na kailangan mo pa: input validation (Lesson 6), pagpapatupad ng polisiya (pinaikling tinalakay sa ibaba), at identity infrastructure (hindi saklaw ng araling ito).
+- Sinabi nito kung para saan kapaki-pakinabang ang mga receipt: paggawa ng agent behavior na ma-audit at tamper-evident, kahit na across organizational boundaries.
+- Sinabi nito kung anong dagdag na layer pa ang kailangan mo: input validation (Aralin 6), pagpapatupad ng polisiya (pansamantalang tatalakayin sa ibaba), at identity infrastructure (hindi saklaw ng araling ito).
 
-Karaniwang maling palagay ang akalaing kapag "may mga receipt tayo" ay ibig sabihin "nasa ilalim na tayo ng pamamahala." Hindi. Ang mga receipt ay pundasyon. Ang pamamahala ay ang sistemang itinatayo pagkatapos nito.
+Isang karaniwang pagkakamali ang isipin na "meron tayo ng mga receipt" ay nangangahulugang "nai-gobernahan tayo." Hindi iyon totoo. Ang mga receipt ay pundasyon. Ang governance ay sistemang itinatayo mo sa ibabaw nito.
 
-## Mga Sanggunian sa Produksyon
+## Mga Sanggunian para sa Produksyon
 
-Ang Python code sa leksyong ito ay sinadyang minimal upang mabasa mo ang bawat linya at maintindihan nang eksakto kung ano ang nangyayari. Sa produksyon, may dalawang opsyon ka:
+Ang Python code sa araling ito ay sadyang minimal para mabasa mo ang bawat linya at maintindihan nang eksakto ang nangyayari. Sa produksyon, may dalawang opsyon ka:
 
-1. **Gumawa nang diretso mula sa cryptographic primitives.** Ang 50 linya na nakita mo sa itaas ay sapat para sa maraming gamit. Ang PyNaCl (Ed25519) at ang `jcs` package (canonical JSON) ay mga mahusay at na-audit na libraries.
+1. **Mag-build nang diretso gamit ang cryptographic primitives.** Ang 50 linya na nakita mo sa itaas ay sapat sa maraming kaso. Ang PyNaCl (Ed25519) at ang `jcs` package (canonical JSON) ay mahusay na na-mementina at na-audit na mga library.
 
-2. **Gumamit ng production receipt library.** May ilang open-source na proyekto na nag-iimplementa ng parehong pattern na may dagdag na features (key rotation, batch verification, JWK Set distribution, integration sa policy engines):
-   - Ang format ng receipt na ginamit sa leksyong ito ay sumusunod sa IETF Internet-Draft (`draft-farley-acta-signed-receipts`) na kasalukuyang nasa proseso ng pag-standardize.
-   - Ang Microsoft Agent Governance Toolkit ay nagko-compose ng mga receipt sa cedar-based policy decisions; tingnan ang Tutorial 33 sa repository na iyon para sa end-to-end na halimbawa.
-   - Ang `protect-mcp` (npm) at `@veritasacta/verify` (npm) packages ay may Node-based na implementasyon ng receipt signing at offline verification, na dinisenyo para balutin ang anumang MCP server na may tamper-evident audit trail.
-   - Ang **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) ay nagbibigay ng parehong Ed25519 + JCS signing pattern sa Python na may LangChain at CrewAI integration, kabilang ang inilathalang cross-validation test vectors at compliance mapping na ambag ng [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+2. **Gumamit ng production receipt library.** May ilang open-source projects na nag-iimplementa ng parehong pattern na may dagdag na features (key rotation, batch verification, pamamahagi ng JWK Set, integrasyon sa mga policy engine):
+   - Ang format ng receipt na ginamit sa araling ito ay sumusunod sa IETF Internet-Draft (`draft-farley-acta-signed-receipts`) na kasalukuyang nasa proseso ng pamantayan.
+   - Ang Microsoft Agent Governance Toolkit ay nagsasama ng receipts sa mga desisyon sa polisiya gamit ang Cedar; tingnan ang Tutorial 33 sa repositori na iyon para sa isang end-to-end na halimbawa.
+   - Ang `protect-mcp` (npm) at `@veritasacta/verify` (npm) packages ay nagbibigay ng Node-based implementation ng receipt signing at offline verification, na nilayon para balutin ang anumang MCP server ng tamper-evident audit trail.
+   - Ang **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) ay nagbibigay ng parehong Ed25519 + JCS signing pattern sa Python na may LangChain at CrewAI integrations, kasama ang published cross-validation test vectors at compliance mapping na inambag sa pamamagitan ng [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
-Ang pagpili sa pagitan ng paggawa ng sarili at paggamit ng library ay katulad ng pagpili sa pagitan ng pagsusulat ng sariling JWT library at paggamit ng isang nasubok na library: parehong makatwiran; nakakatipid ng oras at bumabawasan ang audit surface ang library; pinipilit kang maintindihan ang bawat primitive ang paraan na gawa mula sa simula. Itinuturo ng leksyong ito ang paggawa mula sa simula para may pundasyon ka kahit alin ang piliin.
+Ang desisyon sa pagitan ng sarili mong paggawa at paggamit ng library ay kahalintulad ng pagpili sa pagitan ng pagsusulat ng sarili mong JWT library at paggamit ng isang nasubok na isa: pareho ay makatwiran; nakakatipid ng oras at nagpapababa ng audit surface ang library; pinipilit kang maintindihan ang bawat primitive ang sariling paggawa. Itinuturo ng araling ito ang sarili mong pagbuo para magkaroon ka ng pundasyon para sa alinman sa mga pagpipilian.
 
-## Knowledge Check
+## Pagsusulit sa Kaalaman
 
-Subukan ang iyong pag-unawa bago lumipat sa practice exercise.
+Subukan ang iyong pagkaunawa bago pumunta sa practice exercise.
 
-**1. Ang isang receipt ay nilagdaan gamit ang private Ed25519 key ng agent. Ang auditor ay may public key lamang. Maaari bang i-verify ng auditor ang receipt nang offline?**
+**1. Ang isang receipt ay pinirmahan gamit ang private Ed25519 key ng agent. Ang auditor ay may pampublikong susi lamang. Maaari bang ma-verify ng auditor ang receipt offline?**
 
 <details>
 <summary>Sagot</summary>
 
-Oo. Ang Ed25519 verification ay nangangailangan lamang ng public key at ng signed bytes. Walang network call, walang dependency sa serbisyo. Ito ang katangian na nagpapagamit ng mga receipt sa mga air-gapped, multi-organization, o low-trust audit na setup.
+Oo. Ang Ed25519 verification ay nangangailangan lamang ng pampublikong susi at ang pinirmang bytes. Walang tawag sa network, walang serbisyo na kinakailangan. Ito ang property na nagpapakinabang sa mga receipt sa air-gapped, multi-organisasyon, o mababang-trust na mga audit settings.
 </details>
 
-**2. Binago ng attacker ang `policy_id` field sa isang receipt upang igiit na mas permissive ang polisiya. Ang lagda ay ginawa sa orihinal na payload. Ano ang nangyayari sa verification?**
+**2. Binago ng attacker ang `policy_id` field ng isang receipt para ipakitang ito ay sakop ng mas maluwag na polisiya. Ang pirma ay ginawa sa orihinal na payload. Ano ang nangyayari sa panahon ng verification?**
 
 <details>
 <summary>Sagot</summary>
 
-Bumagsak ang verification. Ang lagda ay kinompyut sa canonical bytes ng orihinal na payload; ang pagbabago ng kahit anong field ay nagbabago ng canonical bytes, na nagbabago sa SHA-256 na hash, at nagpapawalang-bisa ng lagda. Kailangan ng attacker ang private key para makagawa ng bagong valid na lagda, na wala siya.
+Nabigo ang verification. Ang pirma ay ginawa sa canonical bytes ng orihinal na payload; ang pagbago ng kahit anong field ay nagbabago ng canonical bytes, na nagbabago ng SHA-256 hash, na nagpapawalang-bisa sa pirma. Kailangan ng private key ang attacker para makagawa ng valid na bagong pirma, na wala sila.
 </details>
 
-**3. Bakit kasama sa receipt ang `tool_args_hash` at `result_hash` sa halip na ang raw arguments at resulta?**
+**3. Bakit may `tool_args_hash` at `result_hash` ang receipt sa halip na raw na mga argumento at resulta?**
 
 <details>
 <summary>Sagot</summary>
 
-Dalawang dahilan. Una, maaaring kailanganin i-archive o i-transmit ang receipt sa mga environment kung saan problema ang pag-leak ng raw na nilalaman (PII, business data). Pinananatiling maliit at pribado ng pag-hash ang receipt; kino-confirm ng auditor na tugma ang hash sa hiwalay na nakaimbak na kopya ng aktwal na nilalaman. Pangalawa, ang mga hash ay may fixed size; ang receipt na may hash ay may limitadong laki kahit gaano kalaki ang inputs at outputs.
+Dalawang dahilan. Una, maaaring kailanganin ang receipt na i-archive o ipadala sa mga kapaligiran kung saan problema ang pag-leak ng raw content (PII, data ng negosyo). Pinananatiling maliit at pribado ng pag-hash ang receipt; tine-verify ng auditor na tumutugma ang hash sa hiwalay na naka-store na kopya ng aktwal na content. Pangalawa, may fixed size ang mga hash; ang receipt na may hash ay may limitadong laki kahit gaano kalaki ang inputs at outputs.
 </details>
 
-**4. Ang `previous_receipt_hash` field ay nag-uugnay sa bawat receipt sa naunang receipt. Kung tahimik na tinanggal ng attacker ang isang receipt sa gitna ng chain, ano ang magiging invalid?**
+**4. Ang field na `previous_receipt_hash` ay nag-uugnay ng bawat receipt sa nauna nito. Kung tahimik na tinanggal ng attacker ang isang receipt mula sa gitna ng chain, ano ang magiging invalid?**
 
 <details>
 <summary>Sagot</summary>
 
-Lahat ng receipt na sumunod sa tinanggal ay nagiging invalid. Hindi na tumutugma ang kanilang `previous_receipt_hash` sa aktwal na chain (dahil ang receipt na tinutukoy ay wala na, o nagbago ang chain na tumutukoy sa ibang predecessor). Para itago ang pagtanggal, kailangang i-re-sign ng attacker ang lahat ng susunod na receipt, na nangangailangan ng private key.
+Lahat ng mga receipt na sumunod sa tinanggal. Hindi na tumutugma ang kanilang mga `previous_receipt_hash` sa aktwal na chain (dahil wala na ang receipt na tinukoy nila o iba na ang itinuro ng chain na nauna). Upang itago ang pagtanggal, kailangang muling pirmahan ng attacker ang lahat ng sumunod na receipt, na nangangailangan ng private key.
 </details>
 
-**5. Ang isang receipt ay malinis na na-verify. Ipinapakita ba nito na tama, matibay, o sumusunod sa polisiya ang aksyon ng agent?**
+**5. Maging valid man ang pag-verify ng receipt, pinapatunayan ba nito na tama, makatwiran, o sumusunod sa polisiya ang aksyon ng agent?**
 
 <details>
 <summary>Sagot</summary>
 
-Hindi. Ang valid na receipt ay nagpapatunay ng tatlong bagay: attribution (ang key na ito ang pumirma), integridad (hindi nagbago ang nilalaman), at pagkakasunod (ang receipt ay sumunod sa isa pa). Hindi nito pinatutunayan na ang aksyon ay tama, na ang polisiya sa `policy_id` ay tunay na in-evaluate, o na sinunod ng agent ang bawat patakaran. Ginagawa ng mga receipt na auditableng tumugon ang agent, hindi kailangan na tama. Ito ang pinakaimportanteng hangganan sa leksyon.
+Hindi. Ang valid na receipt ay nagpapatunay ng tatlong bagay: atribusyon (pinirmahan ng key na ito ang content na ito), integridad (hindi nagbago ang content), at pagkakasunud-sunod (ang receipt na ito ay sumunod sa receipt na iyon). Hindi nito pinapatunayan na tama ang aksyon, na ang polisiya sa `policy_id` ay na-evaluate, o na sinunod ng agent ang lahat ng patakaran. Ginagawa ng mga receipt ang ugali ng agent na ma-audit, hindi ni kinakailangang maging tama. Ito ang pinakamahalagang hangganan sa aralin.
 </details>
 
 ## Practice Exercise
 
-Buksan ang `code_samples/18-signed-receipts.ipynb` at kumpletuhin ang apat na seksyon:
+Buksan ang `code_samples/18-signed-receipts.ipynb` at kumpletuhin ang lahat ng apat na seksyon:
 
-1. **Seksyon 1**: Lagdaan ang iyong unang receipt at i-verify ito.
-2. **Seksyon 2**: Baguhin ang receipt at obserbahan ang pagkabigo sa verification.
+1. **Seksyon 1**: Pirmahan ang iyong unang receipt at i-verify ito.
+2. **Seksyon 2**: Pasadya ang receipt at obserbahan ang pagkabigo sa verification.
 3. **Seksyon 3**: Bumuo ng chain ng tatlong receipt at i-verify ang integridad ng chain.
-4. **Seksyon 4**: I-apply ang pattern sa isang agent na ginawa gamit ang Microsoft Agent Framework: balutin ang pagtawag ng tool sa receipt-signing, pagkatapos ay i-verify ang receipt nang independent.
-**Stretch challenge 1:** palawakin ang receipt schema gamit ang karagdagang field na pinili mo (halimbawa, isang request ID para sa pagsubaybay), i-update ang canonical signing logic para isama ito, at tiyaking ang receipt ay dumadaan pa rin sa verification. Pagkatapos ay baguhin ang field matapos ang pag-sign at tiyaking nabibigo ang verification. Pinipilit ka nitong unawain kung paanong ang bawat byte ng canonical encoding ay nakakatulong sa signature.
+4. **Seksyon 4**: I-apply ang pattern sa isang agent na ginawa gamit ang Microsoft Agent Framework: balutin ang pagtawag ng tool sa pagpirma ng receipt, pagkatapos i-verify ang receipt nang independente.
 
-**Stretch challenge 2:** i-SHA-256 hash ang dalawang receipts mo nang magkasama (pagdikitin ang kanilang canonical bytes sa isang deterministic na pagkakasunod) at ipaloob ang nagresultang digest bilang bagong field sa isang pangatlong receipt bago ito pirmahan. Patunayan na ang lahat ng tatlong receipts ay dumadaan pa rin sa round-trip. Nakagawa ka lang ng one-step inclusion proof: sinumang may hawak ng pangatlong receipt ay maaaring patunayan na ang unang dalawang receipts ay umiiral noong pinirmahan ito, nang hindi kinakailangang ibunyag ang kanilang mga nilalaman. Ito ang pattern na ginagamit ng selective-disclosure receipts sa malawakang sukat (Merkle commitments, RFC 6962).
+
+**Hamong Pang-extend 1:** palawakin ang schema ng resibo gamit ang karagdagang larangan na iyong pipiliin (halimbawa, isang request ID para sa pagsubaybay), i-update ang canonical signing na lohika upang isama ito, at tiyakin na ang resibo ay maaari pa ring dumaan sa verification. Pagkatapos, baguhin ang larangan pagkatapos ng paglagda at tiyakin na mabibigo ang verification. Pinipilit ka nitong maintindihan kung paano ang bawat byte ng canonical encoding ay nakakatulong sa lagda.
+
+**Hamong Pang-extend 2:** i-SHA-256-hash ang dalawang resibo mo nang magkakasama (i-concatenate ang kanilang canonical bytes sa isang deterministic na pagkakasunod) at ilagay ang resulting digest bilang bagong larangan sa ikatlong resibo bago ito lagdaan. I-verify na ang lahat ng tatlong resibo ay maaari pa ring dumaan sa round-trip. Kagawa ka lang ng isang one-step inclusion proof: sinumang may hawak ng ikatlong resibo ay maaaring patunayan na ang unang dalawa ay umiiral noong oras ng paglagda, nang hindi kailangan ibunyag ang nilalaman nito. Ito ang pattern na ginagamit ng selective-disclosure receipts sa malawakang sukatan (Merkle commitments, RFC 6962).
 
 ## Konklusyon
 
-Ang cryptographic receipts ay nagbibigay sa mga AI agent ng audit trail na:
+Ang mga cryptographic na resibo ay nagbibigay sa mga AI agent ng audit trail na:
 
-- **Independently verifiable**: kahit sinong partido na may public key ay maaaring mag-verify, walang dependency sa serbisyo.
-- **Tamper-evident**: anumang pagbabago ay nagpapawalang-bisa sa signature.
-- **Portable**: ang receipt ay isang maliit na JSON file; maaari itong i-archive, ipadala, at i-verify saanman.
-- **Standards-aligned**: binuo gamit ang Ed25519 (RFC 8032), JCS (RFC 8785), at SHA-256, lahat ay malawakang ginagamit na primitives.
+- **Maaaring beripikahin nang independyente**: sinumang may pampublikong susi ay maaaring mag-verify, walang kailangan na serbisyo.
+- **Nagpapakita kung may pagbabago**: anumang pagbabago ay nagpapawalang bisa ng lagda.
+- **Nadadala**: ang resibo ay isang maliit na JSON file; maaaring i-archive, ipadala, at i-verify kahit saan.
+- **Alinsunod sa mga pamantayan**: nakabatay sa Ed25519 (RFC 8032), JCS (RFC 8785), at SHA-256, lahat ay malawakang gamit na mga primitives.
 
-Hindi ito pamalit sa input validation, pagpapatupad ng patakaran, o identity infrastructure. Ito ay pundasyon para sa mga layer na iyon. Kung magde-deploy ka ng mga agent sa regulated workloads, multi-organization workflows, o anumang sitwasyong hindi maaaring asahan na pagkakatiwalaan ng isang future auditor, ang receipts ang paraan upang gawing tapat ang audit trail.
+Hindi ito kapalit ng input validation, pagpapatupad ng polisiya, o identity infrastructure. Ito ay pundasyon para sa mga patong na iyon. Kapag nagde-deploy ka ng mga agent sa mga reguladong trabaho, workflows na may maramihang organisasyon, o anumang lugar kung saan hindi pwedeng asahan ng isang hinaharap na auditor na pagkakatiwalaan ka, ang mga resibo ang paraan para gawing tapat ang audit trail.
 
-Ang pinakamahalagang takeaway: pinatutunayan ng receipts kung sino ang nagsabi ng ano, kailan. Hindi nito pinatutunayan na ang sinabi ay totoo o tama. Mahigpit na hawakan ang pagkakaibang iyon. Ito ang pagkakaiba sa pagitan ng isang tapat na provenance system at isang mapanlinlang.
+Ang pinakamahalagang aral: pinatutunayan ng mga resibo kung sino ang nagsabi ng ano, kailan. Hindi nito pinatutunayan na ang sinabi ay totoo o tama. Hawakan nang mahigpit ang pagkakaibang iyon. Ito ang pagkakaiba sa pagitan ng isang tapat na provenance system at isang mapanlinlang.
 
-## Production Checklist
+## Checklist para sa Produksyon
 
-Kapag handa ka nang lumipat mula sa araling ito patungo sa pagde-deploy ng receipt-signed agents sa totoong kapaligiran:
+Kapag handa ka nang lumipat mula sa leksyon na ito papunta sa pag-deploy ng mga agent na may lagdang resibo sa totoong kapaligiran:
 
-- [ ] **Ilagay ang signing key sa labas ng developer laptop.** Gamitin ang Azure Key Vault, AWS KMS, o hardware security module. Ang private key na pumipirma sa iyong mga receipts ay hindi dapat nanirahan sa source control o sa plaintext sa mga application machine.
-- [ ] **I-publish ang verification public key.** Kailangan ito ng mga auditor para mag-verify offline. Ang karaniwang pattern ay JWK Set sa isang kilalang URL (RFC 7517), hal., `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **I-anchor ang chain externally.** Paminsan-minsan isulat ang pinakabagong chain head hash sa isang transparency log (Sigstore Rekor, RFC 3161 timestamp authority, o isang pangalawang internal na sistema) upang makumpirma ng isang external party na "ang chain na ito ay umiiral sa panahong ito."
-- [ ] **I-store ang mga receipts nang hindi nababago.** Ang append-only blob storage (Azure Storage na may immutability policies, AWS S3 Object Lock) ay pumipigil sa insider mula sa muling pagsusulat ng kasaysayan sa layer ng storage.
-- [ ] **Magdesisyon tungkol sa retention.** Maraming compliance regimes ang nangangailangan ng multi-taong retention. Magplano para sa paglago ng receipt (ang bawat receipt ay ~500 bytes; isang agent na gumagawa ng 10K calls kada araw ay nakakagawa ng ~1.8 GB kada taon).
-- [ ] **Idokumento kung ano ang hindi saklaw ng receipts.** Pinatutunayan ng receipts ang attribution, integrity, at ordering. Dapat malinaw sa iyong runbook kung anong karagdagang kontrol (input validation, policy enforcement, rate limiting, identity infrastructure) ang kasama sa receipts sa iyong governance posture.
+- [ ] **Ilipat ang signing key mula sa developer laptop.** Gamitin ang Azure Key Vault, AWS KMS, o hardware security module. Ang pribadong susi na lumalagda sa iyong mga resibo ay hindi dapat kailanman mapunta sa source control o sa plaintext sa mga application machine.
+- [ ] **I-publish ang pampublikong susi para sa verification.** Kailangan ito ng mga auditor para mag-verify nang offline. Ang karaniwang pattern ay isang JWK Set sa isang kilalang URL (RFC 7517), hal., `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **I-angkla ang chain sa labas.** Panandaliang isulat ang pinakabagong hash ng chain head sa isang transparency log (Sigstore Rekor, RFC 3161 timestamp authority, o pangalawang internal na sistema) upang makumpirma ng panlabas na partido na "umiral ang chain na ito sa oras na ito."
+- [ ] **Itago ang mga resibo nang hindi nababago.** Ang append-only blob storage (Azure Storage na may immutability policies, AWS S3 Object Lock) ay pumipigil sa isang insider na i-rewrite ang kasaysayan sa storage layer.
+- [ ] **Magplano ng retention.** Maraming compliance regime ang nangangailangan ng multi-taong retention. Maghanda para sa paglago ng mga resibo (ang bawat resibo ay humigit-kumulang 500 bytes; isang agent na gumagawa ng 10K call kada araw ay magbubunga ng ~1.8 GB kada taon).
+- [ ] **I-dokumento kung ano ang hindi sakop ng mga resibo.** Pinapatunayan ng mga resibo ang attribution, integridad, at pagkakasunod-sunod. Dapat ay malinaw sa iyong runbook kung ano pang kontrol (input validation, pagpapatupad ng polisiya, rate limiting, identity infrastructure) ang kasama kasama ng mga resibo sa iyong patakaran sa pamamahala.
 
-### May Ibang Tanong tungkol sa Pag-seguro ng AI Agents?
+### Marami Ka Pang Tanong tungkol sa Pag-secure ng AI Agents?
 
-Sumali sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) upang makipagkita sa iba pang mga nag-aaral, dumalo sa office hours, at masagot ang iyong mga tanong tungkol sa AI Agents.
+Sumali sa [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) para makipagkita sa iba pang nag-aaral, dumalo sa office hours, at makuha ang sagot sa iyong mga tanong tungkol sa AI Agents.
 
-## Lampas sa Araling Ito
+## Higit Pa sa Leksiyong Ito
 
-Saklaw ng araling ito ang single-receipt signing at hash-chained sequences. Ang parehong mga primitives ay bumubuo ng ilang mas advanced na pattern na maaari mong matugunan habang lumalalim ang iyong governance posture:
+Tinatalakay ng leksiyong ito ang single-receipt signing at hash-chained sequences. Ang parehong mga primitives ay bumubuo sa ilang mas advanced na mga pattern na maaari mong matagpuan habang lumalago ang iyong patakaran sa pamamahala:
 
-- **Selective disclosure.** Kapag ang mga field ng receipt ay independently committed (RFC 6962-style Merkle tree), maaari mong ipakita ang tiyak na mga field sa tiyak na mga auditor at patunayan na ang iba ay hindi nabago nang hindi inilalantad ang mga ito. Kapaki-pakinabang kapag kailangang masiyahan ng parehong isang comprehensive audit (na gusto ang completeness) at mga regulasyon sa data-minimization tulad ng GDPR (na gusto na makita ng auditor ang kaunti lang).
-- **Receipt revocation.** Kung na-kompromiso ang signing key, kailangan mo ng paraan para markahan lahat ng mga receipt na pinirmahan ng key na iyon bilang hindi mapagkakatiwalaan mula sa isang punto ng oras pasulong. Karaniwang pattern: short-lived signing keys kasama ng published revocation list, o transparency log na may revocation entries.
-- **Bilateral / split-signature receipts.** Ang ilang implementasyon ay naghahati sa signed payload sa pre-execution (`authorization_*`) at post-execution (`result_*`) na kalahati na may independent signatures, kapaki-pakinabang kapag ang decision ng authorization at ang naobserbahang resulta ay galing sa magkaibang actors o sa magkaibang oras. Ito ay idinadagdag sa ibabaw ng receipt format na itinuro sa araling ito.
-- **Payload composition.** Isang receipt ang sumuselyo sa anumang bytes na inilalagay mo sa `result_hash`. Sa totoong mundo, madalas mas mayaman ang payload kaysa sa isang simpleng resulta ng tool call: pre-decision reasoning (model prediction, mga opsyon na kinonsidera, ebidensya at pagiging kumpleto nito, risk posture, accountability chain, resulta ng gate) ay maaaring nasa loob ng payload, na selyado ng isang receipt. Pinananatiling minimal ang format habang pinapayagan ang pag-evolve ng mga payload schema ayon sa domain.
-- **Cross-implementation conformance.** Maraming independent na implementasyon ng parehong receipt format (Python, TypeScript, Rust, Go) ang nagko-cross-verify gamit ang shared test vectors. Kung ikaw mismo ay gagawa ng implementasyon, ang pag-validate laban sa mga published vectors ay nagpapatunay ng wire compatibility.
-- **Post-quantum migration.** Ang Ed25519 ay malawakang ginagamit ngayon pero hindi ito quantum-resistant. Ang format ng receipt ay algorithm-agile: ang `signature.alg` na field ay maaaring magdala ng `ML-DSA-65` (ang NIST post-quantum signature standard) kapag kailangan mong mag-migrate. Magplano para sa transition period kung saan naka-dual-sign ang mga receipt.
+- **Selective disclosure.** Kapag ang mga larangan ng resibo ay independyenteng nakatalaga (RFC 6962-style Merkle tree), maaari mong ipakita ang partikular na mga larangan sa mga tiyak na auditor at patunayan na ang iba ay hindi nabago nang hindi inilalantad ang mga ito. Kapaki-pakinabang kapag ang parehong resibo ay kailangang sumunod sa parehong komprehensibong audit (na gusto ng kumpletong data) at regulasyon sa data-minimization tulad ng GDPR (na gusto ng auditor na makita ang kaunti lamang na kinakailangan).
+- **Receipt revocation.** Kung ang signing key ay naapektuhan, kailangan mong may paraan na markahan lahat ng resibo na nilagdaan ng susi na iyon bilang hindi mapagkakatiwalaan mula sa isang tiyak na oras pasulong. Karaniwang pattern: mga panandaliang signing key kasama ang publiko na listahan ng revocation, o isang transparency log na may mga entry ng revocation.
+- **Bilateral / split-signature receipts.** Ang ilang implementasyon ay naghahati sa nilagdang payload sa pre-execution (`authorization_*`) at post-execution (`result_*`) na mga bahagi na may sariling lagda, kapaki-pakinabang kapag ang desisyon sa awtorisasyon at ang nasuring resulta ay ginawa ng magkaibang aktor o sa magkaibang oras. Ito ay dagdag na komposisyon sa format ng resibo na itinuro sa leksiyong ito.
+- **Pagbuo ng payload.** Pinipirmahan ng resibo ang mga byte na inilagay mo sa `result_hash`. Ang mga tunay na payload ay kadalasan ay mas kumpleto kaysa sa isang resulta lang ng tool call: maaaring kabilang dito ang pre-decision reasoning (model prediction, mga opisyong isinasaalang-alang, ebidensiya at ang kabuuan nito, risk posture, kadena ng pananagutan, resulta ng gate) na maaaring nasa loob ng payload, na pinipirmahan ng iisang resibo. Pinananatili nitong minimal ang format ng resibo habang pinapayagan ang schema ng payload na umunlad ayon sa domain.
+- **Conformance sa iba't ibang implementasyon.** Maraming independiyenteng implementasyon ng parehong format ng resibo (Python, TypeScript, Rust, Go) ang nagko-cross-verify gamit ang mga shared test vector. Kung gagawa ka ng sarili mong implementasyon, ang pag-validate laban sa mga publisadong vector ay nagpapatunay ng compatibility sa wire.
+- **Post-quantum migration.** Ang Ed25519 ay malawakang ginagamit ngayon ngunit hindi quantum-resistant. Ang format ng resibo ay algorithm-agile: ang `signature.alg` na larangan ay maaaring maglaman ng `ML-DSA-65` (ang NIST post-quantum signature standard) kapag kinakailangan ng migration. Magplano para sa panahon ng transition kung saan ang mga resibo ay dual-signed.
 
-## Karagdagang Sanggunian
+## Karagdagang Mga Resources
 
 - <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Signed Decision Receipts for Machine-to-Machine Access Control</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Responsible AI overview (Azure AI)</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Pananagutang Paggamit ng AI (Azure AI)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-Curve Digital Signature Algorithm (EdDSA)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON Canonicalization Scheme (JCS)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Certificate Transparency</a> (Merkle-tree construction na ginagamit ng selective-disclosure receipts)
 - <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Offline-Verifiable Decision Receipts</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Cross-implementation conformance test vectors</a> para sa receipt format na ginamit sa araling ito (Apache-2.0)
-- <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl documentation</a> (Ed25519 sa Python)
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Test vector para sa cross-implementation conformance</a> ng format ng resibo na ginamit sa leksiyong ito (Apache-2.0)
+- <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl dokumentasyon</a> (Ed25519 sa Python)
 
-## Nakaraang Aralin
+## Nakaraang Leksiyon
 
-[Building Computer Use Agents (CUA)](../15-browser-use/README.md)
-
-## Susunod na Aralin
-
-_(Itatakda ng mga tagapangasiwa ng kurikulum)_
+[Paggawa ng Computer Use Agents (CUA)](../15-browser-use/README.md)
 
 ---
 
