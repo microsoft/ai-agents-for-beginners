@@ -1,70 +1,70 @@
-# 🔍 Enterprise RAG met Azure AI Foundry (.NET)
+# 🔍 Enterprise RAG met Microsoft Foundry (.NET)
 
 ## 📋 Leerdoelen
 
-Deze notebook laat zien hoe je enterprise-grade Retrieval-Augmented Generation (RAG)-systemen kunt bouwen met het Microsoft Agent Framework in .NET en Azure AI Foundry. Je leert productieklare agents te maken die door documenten kunnen zoeken en nauwkeurige, contextbewuste antwoorden kunnen geven met enterprise-beveiliging en schaalbaarheid.
+Deze notebook laat zien hoe je enterprise-grade Retrieval-Augmented Generation (RAG) systemen bouwt met behulp van het Microsoft Agent Framework in .NET met Microsoft Foundry. Je leert hoe je productieklare agenten maakt die door documenten kunnen zoeken en nauwkeurige, contextbewuste antwoorden bieden met enterprise-beveiliging en schaalbaarheid.
 
 **Enterprise RAG-mogelijkheden die je zult bouwen:**
-- 📚 **Documentintelligentie**: Geavanceerde documentverwerking met Azure AI-services
-- 🔍 **Semantisch zoeken**: Hoogwaardige vectorzoekfunctie met enterprise-functionaliteiten
-- 🛡️ **Beveiligingsintegratie**: Rolgebaseerde toegang en patronen voor gegevensbescherming
+- 📚 **Documentintelligentie**: Geavanceerde documentverwerking met Azure AI-diensten
+- 🔍 **Semantisch zoeken**: Hoogpresterende vectorzoekopdrachten met enterprise-functies
+- 🛡️ **Beveiligingsintegratie**: Rollen-gebaseerde toegang en databeschermingspatronen
 - 🏢 **Schaalbare architectuur**: Productieklare RAG-systemen met monitoring
 
-## 🎯 Enterprise RAG-architectuur
+## 🎯 Enterprise RAG Architectuur
 
-### Kerncomponenten voor ondernemingen
-- **Azure AI Foundry**: Beheerd enterprise AI-platform met beveiliging en compliance
-- **Persistente agents**: Stateful agents met gespreksgeschiedenis en contextbeheer
-- **Vector Store Management**: Enterprise-grade documentindexering en -opvraging
-- **Identiteitsintegratie**: Azure AD-authenticatie en rolgebaseerde toegangscontrole
+### Kern Enterprise Componenten
+- **Microsoft Foundry**: Beheerd enterprise AI-platform met beveiliging en compliance
+- **Persistente agenten**: Stateful agenten met gespreksgeschiedenis en contextbeheer
+- **Vector Store Management**: Enterprise-grade documentindexering en -ophalen
+- **Identiteitsintegratie**: Azure AD-authenticatie en rollen-gebaseerde toegangscontrole
 
-### Voordelen van .NET voor ondernemingen
-- **Typeveiligheid**: Validatie tijdens compilatie voor RAG-bewerkingen en datastructuren
-- **Async-prestaties**: Niet-blokkerende documentverwerking en zoekbewerkingen
-- **Geheugenbeheer**: Efficiënt gebruik van resources voor grote documentcollecties
-- **Integratiepatronen**: Native integratie van Azure-services met dependency injection
+### .NET Enterprise Voordelen
+- **Typeveiligheid**: Compileertijdvalidatie voor RAG-operaties en datastructuren
+- **Async-prestaties**: Niet-blokkerende documentverwerking en zoekoperaties
+- **Geheugenbeheer**: Efficiënt gebruik van bronnen voor grote documentcollecties
+- **Integratiepatronen**: Native Azure-service-integratie met dependency injection
 
-## 🏗️ Technische architectuur
+## 🏗️ Technische Architectuur
 
-### Enterprise RAG-pijplijn
+### Enterprise RAG Pipeline
 ```
 Document Upload → Security Validation → Vector Processing → Index Creation
                       ↓                    ↓                  ↓
 User Query → Authentication → Semantic Search → Context Ranking → AI Response
 ```
 
-### Kerncomponenten van .NET
-- **Azure.AI.Agents.Persistent**: Beheer van enterprise agents met statuspersistentie
-- **Azure.Identity**: Geïntegreerde authenticatie voor veilige toegang tot Azure-services
-- **Microsoft.Agents.AI.AzureAI**: Azure-geoptimaliseerde implementatie van het agentframework
-- **System.Linq.Async**: Hoogwaardige asynchrone LINQ-bewerkingen
+### Kern .NET Componenten
+- **Azure.AI.Agents.Persistent**: Enterprise agentbeheer met staatspersistentie
+- **Azure.Identity**: Geïntegreerde authenticatie voor veilige Azure-service toegang
+- **Microsoft.Agents.AI.AzureAI**: Azure-geoptimaliseerde agentframeworkimplementatie
+- **System.Linq.Async**: Hoogpresterende asynchrone LINQ-operaties
 
-## 🔧 Enterprise-functies en voordelen
+## 🔧 Enterprise Functies & Voordelen
 
-### Beveiliging en compliance
-- **Azure AD-integratie**: Enterprise-identiteitsbeheer en authenticatie
-- **Rolgebaseerde toegang**: Fijnmazige machtigingen voor documenttoegang en -bewerkingen
-- **Gegevensbescherming**: Versleuteling in rust en tijdens transport voor gevoelige documenten
-- **Auditlogging**: Uitgebreide activiteitstracking voor compliancevereisten
+### Beveiliging & Compliance
+- **Azure AD-integratie**: Enterprise identiteitsbeheer en authenticatie
+- **Rollen-gebaseerde toegang**: Fijnmazige machtigingen voor documenttoegang en -bewerkingen
+- **Databescherming**: Versleuteling in rust en tijdens transport voor gevoelige documenten
+- **Auditlogging**: Uitgebreide activiteitentracking voor compliance-eisen
 
-### Prestaties en schaalbaarheid
-- **Connection pooling**: Efficiënt beheer van Azure-serviceverbindingen
-- **Async-verwerking**: Niet-blokkerende bewerkingen voor scenario's met hoge doorvoer
-- **Cachingstrategieën**: Slimme caching voor vaak geraadpleegde documenten
-- **Load balancing**: Gedistribueerde verwerking voor grootschalige implementaties
+### Prestaties & Schaalbaarheid
+- **Connection Pooling**: Efficiënt beheer van Azure-serviceverbindingen
+- **Async-verwerking**: Niet-blokkerende operaties voor scenario's met hoge doorvoer
+- **Caching-strategieën**: Intelligente caching voor vaak geraadpleegde documenten
+- **Load Balancing**: Gedistribueerde verwerking voor grootschalige implementaties
 
-### Beheer en monitoring
-- **Gezondheidscontroles**: Ingebouwde monitoring voor RAG-systeemcomponenten
-- **Prestatiestatistieken**: Gedetailleerde analyses van zoekkwaliteit en responstijden
-- **Foutafhandeling**: Uitgebreid uitzonderingsbeheer met retry-beleid
+### Beheer & Monitoring
+- **Health Checks**: Ingebouwde monitoring voor RAG-systeemcomponenten
+- **Prestatiemaatstaven**: Gedetailleerde analyses over zoekkwaliteit en reactietijden
+- **Foutafhandeling**: Uitgebreid exception management met retry-beleid
 - **Configuratiebeheer**: Omgevingsspecifieke instellingen met validatie
 
-## ⚙️ Vereisten en installatie
+## ⚙️ Vereisten & Setup
 
 **Ontwikkelomgeving:**
 - .NET 9.0 SDK of hoger
-- Visual Studio 2022 of VS Code met C#-extensie
-- Azure-abonnement met toegang tot AI Foundry
+- Visual Studio 2022 of VS Code met C# extensie
+- Azure-abonnement met toegang tot Microsoft Foundry
 
 **Vereiste NuGet-pakketten:**
 ```xml
@@ -75,40 +75,40 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Azure-authenticatie instellen:**
+**Azure authenticatie instellingen:**
 ```bash
-# Install Azure CLI and authenticate
+# Installeer Azure CLI en authenticatie
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Omgevingsconfiguratie:**
-* Configuratie van Azure AI Foundry (automatisch afgehandeld via Azure CLI)
-* Zorg ervoor dat je bent geauthenticeerd bij het juiste Azure-abonnement
+* Microsoft Foundry-configuratie (automatisch afgehandeld via Azure CLI)
+* Zorg dat je geauthenticeerd bent bij het juiste Azure-abonnement
 
 ## 📊 Enterprise RAG-patronen
 
-### Documentbeheerpatronen
+### Documentbeheerspatronen
 - **Bulk upload**: Efficiënte verwerking van grote documentcollecties
-- **Incrementele updates**: Realtime toevoeging en wijziging van documenten
-- **Versiebeheer**: Versiebeheer en wijzigingsregistratie van documenten
-- **Metadatabeheer**: Rijke documentattributen en taxonomie
+- **Incrementele updates**: Real-time toevoeging en wijziging van documenten
+- **Versiebeheer**: Documentversies en wijzigingsbeheer
+- **Metadata beheer**: Rijke documentattributen en taxonomie
 
 ### Zoek- en opvraagpatronen
-- **Hybride zoeken**: Combinatie van semantisch en trefwoord zoeken voor optimale resultaten
-- **Gefacetteerd zoeken**: Multidimensionale filtering en categorisatie
-- **Relevantieafstemming**: Aangepaste scoringsalgoritmen voor domeinspecifieke behoeften
-- **Resultaatrangschikking**: Geavanceerde rangschikking met integratie van bedrijfslogica
+- **Hybride zoeken**: Combinatie van semantisch en trefwoordzoeken voor optimale resultaten
+- **Gefacetteerd zoeken**: Multi-dimensionale filtering en categorisatie
+- **Relevantie-afstemming**: Aangepaste score-algoritmen voor domeinspecifieke behoeften
+- **Resultaatsrangschikking**: Geavanceerde rangschikking met integratie van bedrijfslogica
 
 ### Beveiligingspatronen
 - **Documentniveau beveiliging**: Fijnmazige toegangscontrole per document
-- **Gegevensclassificatie**: Automatische gevoeligheidslabeling en bescherming
-- **Audit trails**: Uitgebreide logging van alle RAG-bewerkingen
-- **Privacybescherming**: Detectie en redactie van PII (persoonlijk identificeerbare informatie)
+- **Dataclassificatie**: Automatische gevoeligheidslabeling en bescherming
+- **Audit trails**: Uitgebreide logging van alle RAG-operaties
+- **Privacybescherming**: Detectie en redactie van PII
 
-## 🔒 Enterprise beveiligingsfuncties
+## 🔒 Enterprise Beveiligingsfuncties
 
-### Authenticatie en autorisatie
+### Authenticatie & Autorisatie
 ```csharp
 // Azure AD integrated authentication
 var credential = new AzureCliCredential();
@@ -121,15 +121,15 @@ if (!await ValidateUserPermissions(user, documentId))
 }
 ```
 
-### Gegevensbescherming
-- **Versleuteling**: End-to-end versleuteling voor documenten en zoekindexen
-- **Toegangscontrole**: Integratie met Azure AD voor gebruikers- en groepsmachtigingen
-- **Gegevenslocatie**: Geografische gegevenslocatiecontrole voor compliance
-- **Back-up en herstel**: Geautomatiseerde back-up en herstelmogelijkheden
+### Databescherming
+- **Encryptie**: End-to-end encryptie voor documenten en zoekindices
+- **Toegangscontroles**: Integratie met Azure AD voor gebruikers- en groepsmachtigingen
+- **Dataresidentie**: Geografische controle van datalocatie voor compliance
+- **Backup & Herstel**: Geautomatiseerde backup- en disaster recovery-mogelijkheden
 
 ## 📈 Prestatieoptimalisatie
 
-### Async-verwerkingspatronen
+### Async Verwerkingspatronen
 ```csharp
 // Efficient async document processing
 await foreach (var document in documentStream.AsAsyncEnumerable())
@@ -139,68 +139,68 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Geheugenbeheer
-- **Streamingverwerking**: Grote documenten verwerken zonder geheugenproblemen
+- **Streaming verwerking**: Verwerking van grote documenten zonder geheugenproblemen
 - **Resource pooling**: Efficiënt hergebruik van dure resources
-- **Garbage collection**: Geoptimaliseerde patronen voor geheugentoewijzing
-- **Verbindingsbeheer**: Correcte levenscyclus van Azure-serviceverbindingen
+- **Garbage collection**: Geoptimaliseerde geheugenallocatiepatronen
+- **Connectiebeheer**: Juiste levenscyclusbeheer van Azure-serviceverbindingen
 
-### Cachingstrategieën
+### Caching-strategieën
 - **Query caching**: Cache vaak uitgevoerde zoekopdrachten
-- **Document caching**: In-memory caching voor veelgebruikte documenten
-- **Index caching**: Geoptimaliseerde vectorindex caching
-- **Resultaat caching**: Intelligente caching van gegenereerde antwoorden
+- **Documentcaching**: In-memory caching voor veelgebruikte documenten
+- **Indexcaching**: Geoptimaliseerde caching van vectorindexen
+- **Resultaatcaching**: Intelligente caching van gegenereerde antwoorden
 
-## 📊 Enterprise-toepassingen
+## 📊 Enterprise Use Cases
 
 ### Kennisbeheer
-- **Bedrijfswiki**: Slim zoeken in bedrijfskennisbanken
-- **Beleid en procedures**: Geautomatiseerde compliance- en procedurebegeleiding
-- **Trainingsmateriaal**: Intelligente ondersteuning bij leren en ontwikkelen
-- **Onderzoeksdatabases**: Analyse van academische en onderzoeksdocumenten
+- **Corporate Wiki**: Intelligente zoekopdrachten door bedrijfskennisbases
+- **Beleid & Procedures**: Geautomatiseerde compliance en procedurele begeleiding
+- **Trainingsmaterialen**: Intelligente leer- en ontwikkelingsondersteuning
+- **Onderzoeksdatabases**: Academische en onderzoeksartikel-analyse systemen
 
-### Klantenservice
-- **Support kennisbank**: Geautomatiseerde klantenservice-antwoorden
-- **Productdocumentatie**: Slimme informatieopvraging over producten
+### Klantenondersteuning
+- **Support Knowledge Base**: Geautomatiseerde klantondersteuningsantwoorden
+- **Productdocumentatie**: Intelligente productinformatie-ophaling
 - **Probleemoplossingsgidsen**: Contextuele hulp bij probleemoplossing
-- **FAQ-systemen**: Dynamische FAQ-generatie uit documentcollecties
+- **FAQ Systemen**: Dynamische FAQ-generatie vanuit documentcollecties
 
-### Regelgevingscompliance
-- **Analyse van juridische documenten**: Intelligentie voor contracten en juridische documenten
-- **Compliance monitoring**: Geautomatiseerde controle op naleving van regelgeving
+### Regelgevingsnaleving
+- **Juridische documentanalyse**: Contract- en juridische documentintelligentie
+- **Compliance monitoring**: Geautomatiseerde nalevingscontrole
 - **Risicobeoordeling**: Documentgebaseerde risicoanalyse en rapportage
-- **Auditondersteuning**: Slimme documentontdekking voor audits
+- **Auditondersteuning**: Intelligente documentontdekking voor audits
 
 ## 🚀 Productie-implementatie
 
-### Monitoring en observatie
+### Monitoring & Observability
 - **Application Insights**: Gedetailleerde telemetrie en prestatiemonitoring
-- **Aangepaste statistieken**: KPI-tracking en waarschuwingen specifiek voor het bedrijf
-- **Gedistribueerde tracing**: End-to-end tracking van verzoeken over services
-- **Gezondheidsdashboards**: Realtime visualisatie van systeemgezondheid en prestaties
+- **Aangepaste statistieken**: Bedrijfsspecifieke KPI-tracking en waarschuwingen
+- **Distributed Tracing**: End-to-end verzoekvolging over services
+- **Health Dashboards**: Real-time visualisatie van systeemsstatus en prestaties
 
-### Schaalbaarheid en betrouwbaarheid
-- **Auto-scaling**: Automatische schaalvergroting op basis van belasting en prestatiedata
-- **Hoge beschikbaarheid**: Multi-regio implementatie met failovermogelijkheden
+### Schaalbaarheid & Betrouwbaarheid
+- **Auto-scaling**: Automatische schaalvergroting op basis van belasting en prestatiestatistieken
+- **Hoge beschikbaarheid**: Multi-regio-implementatie met failover-mogelijkheden
 - **Load testing**: Prestatievalidatie onder enterprise-belastingcondities
-- **Disaster recovery**: Geautomatiseerde back-up en herstelprocedures
+- **Disaster recovery**: Geautomatiseerde backup- en herstelprocedures
 
-Klaar om enterprise-grade RAG-systemen te bouwen die gevoelige documenten op schaal kunnen verwerken? Laten we intelligente kennissystemen voor ondernemingen ontwerpen! 🏢📖✨
+Klaar om enterprise-grade RAG-systemen te bouwen die gevoelige documenten op schaal kunnen verwerken? Laten we intelligente kennissystemen voor de enterprise ontwerpen! 🏢📖✨
 
 ## Code-implementatie
 
-De volledige werkende codevoorbeeld voor deze les is beschikbaar in `05-dotnet-agent-framework.cs`. 
+De volledige werkende codevoorbeeld voor deze les is beschikbaar in `05-dotnet-agent-framework.cs`.
 
 Om het voorbeeld uit te voeren:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Maak het script uitvoerbaar (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Voer de .NET Single File App uit
 ./05-dotnet-agent-framework.cs
 ```
 
-Of gebruik `dotnet run` direct:
+Of gebruik direct `dotnet run`:
 
 ```bash
 dotnet run 05-dotnet-agent-framework.cs
@@ -208,14 +208,16 @@ dotnet run 05-dotnet-agent-framework.cs
 
 De code demonstreert:
 
-1. **Pakketinstallatie**: Installeren van vereiste NuGet-pakketten voor Azure AI Agents
-2. **Omgevingsconfiguratie**: Laden van Azure AI Foundry-eindpunt en modelinstellingen
-3. **Documentupload**: Uploaden van een document voor RAG-verwerking
-4. **Vector Store-creatie**: Creëren van een vector store voor semantisch zoeken
-5. **Agentconfiguratie**: Instellen van een AI-agent met zoekmogelijkheden in bestanden
-6. **Query-uitvoering**: Uitvoeren van zoekopdrachten op het geüploade document
+1. **Pakketinstallatie**: Vereiste NuGet-pakketten installeren voor Azure AI Agents
+2. **Omgevingsconfiguratie**: Laden van Microsoft Foundry endpoint- en modelinstellingen
+3. **Documentupload**: Een document uploaden voor RAG-verwerking
+4. **Vector Store-creatie**: Een vector store creëren voor semantisch zoeken
+5. **Agentconfiguratie**: Een AI-agent opzetten met bestandszoekmogelijkheden
+6. **Query-uitvoering**: Queries uitvoeren op het geüploade document
 
 ---
 
-**Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Disclaimer**:
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

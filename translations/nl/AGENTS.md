@@ -2,26 +2,26 @@
 
 ## Projectoverzicht
 
-Deze repository bevat "AI Agents voor Beginners" - een uitgebreide educatieve cursus die alles leert wat nodig is om AI-agents te bouwen. De cursus bestaat uit meer dan 15 lessen die de fundamenten, ontwerp patronen, frameworks en productie-implementatie van AI-agents behandelen.
+Deze repository bevat "AI Agents voor Beginners" - een uitgebreide educatieve cursus die alles leert wat nodig is om AI Agents te bouwen. De cursus bestaat uit 18 lessen die de basisprincipes, ontwerp patronen, frameworks en productie-implementatie van AI-agents behandelen.
 
 **Belangrijke technologieën:**
 - Python 3.12+
-- Jupyter Notebooks voor interactieve leerervaring
+- Jupyter Notebooks voor interactief leren
 - AI Frameworks: Microsoft Agent Framework (MAF)
-- Azure AI Services: Microsoft Foundry, Azure AI Foundry Agent Service V2
+- Azure AI-services: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
 **Architectuur:**
 - Les-gebaseerde structuur (00-15+ mappen)
-- Elke les bevat: README-documentatie, codevoorbeelden (Jupyter notebooks), en afbeeldingen
-- Meertalige ondersteuning via geautomatiseerd vertalingssysteem
-- Eén Python-notebook per les die Microsoft Agent Framework gebruikt
+- Elke les bevat: README-documentatie, codevoorbeelden (Jupyter notebooks) en afbeeldingen
+- Meertalige ondersteuning via geautomatiseerd vertaalsysteem
+- Eén Python-notebook per les met Microsoft Agent Framework
 
 ## Setup Commando's
 
 ### Vereisten
 - Python 3.12 of hoger
-- Azure-abonnement (voor Azure AI Foundry)
-- Azure CLI geïnstalleerd en geauthenticeerd (`az login`)
+- Azure-abonnement (voor Microsoft Foundry)
+- Azure CLI geïnstalleerd en geverifieerd (`az login`)
 
 ### Initiële Setup
 
@@ -39,7 +39,7 @@ Deze repository bevat "AI Agents voor Beginners" - een uitgebreide educatieve cu
    source venv/bin/activate  # Op Windows: venv\Scripts\activate
    ```
 
-3. **Installeer afhankelijkheden:**
+3. **Installeer de afhankelijkheden:**
    ```bash
    pip install -r requirements.txt
    ```
@@ -50,17 +50,17 @@ Deze repository bevat "AI Agents voor Beginners" - een uitgebreide educatieve cu
    # Bewerk .env met uw API-sleutels en eindpunten
    ```
 
-### Vereiste Omgevingsvariabelen
+### Benodigde Omgevingsvariabelen
 
-Voor **Azure AI Foundry** (vereist):
-- `AZURE_AI_PROJECT_ENDPOINT` - Azure AI Foundry project endpoint
-- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Naam van model deployment (bijv. gpt-4o)
+Voor **Microsoft Foundry** (Vereist):
+- `AZURE_AI_PROJECT_ENDPOINT` - Microsoft Foundry project endpoint
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Naam van model-implementatie (bijv. gpt-4o)
 
 Voor **Azure AI Search** (Les 05 - RAG):
 - `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search endpoint
 - `AZURE_SEARCH_API_KEY` - Azure AI Search API sleutel
 
-Authenticatie: Voer `az login` uit vóór het starten van notebooks (gebruikt `AzureCliCredential`).
+Authenticatie: Voer `az login` uit voordat je de notebooks draait (gebruikt `AzureCliCredential`).
 
 ## Ontwikkelingsworkflow
 
@@ -81,58 +81,58 @@ Elke les bevat meerdere Jupyter notebooks voor verschillende frameworks:
 
 ### Werken met Microsoft Agent Framework
 
-**Microsoft Agent Framework + Azure AI Foundry:**
+**Microsoft Agent Framework + Microsoft Foundry:**
 - Vereist Azure-abonnement
-- Gebruikt `AzureAIProjectAgentProvider` voor Agent Service V2 (agents zichtbaar in Foundry portaal)
-- Productieklaar met ingebouwde observability
-- Bestandsnaam patroon: `*-python-agent-framework.ipynb`
+- Gebruikt `FoundryChatClient` voor Agent Service V2 (agents zichtbaar in Foundry-portal)
+- Productieklaar met ingebouwde observeerbaarheid
+- Bestands patroon: `*-python-agent-framework.ipynb`
 
 ## Testinstructies
 
-Dit is een educatieve repository met voorbeeldcode in plaats van productiecode met geautomatiseerde tests. Om je setup en aanpassingen te verifiëren:
+Dit is een educatieve repository met voorbeeldcode in plaats van productcode met geautomatiseerde tests. Om je setup en wijzigingen te verifiëren:
 
-### Handmatig Testen
+### Handmatig testen
 
-1. **Test Python-omgeving:**
+1. **Test de Python-omgeving:**
    ```bash
    python --version  # Moet 3.12+ zijn
    pip list | grep -E "(agent-framework|azure-ai|azure-identity)"
    ```
 
-2. **Test uitvoering notebook:**
+2. **Test notebook-uitvoering:**
    ```bash
-   # Converteer notebook naar script en voer uit (test importeringen)
+   # Converteer notebook naar script en voer uit (test import)
    jupyter nbconvert --to script <lesson-folder>/code_samples/<notebook>.ipynb --stdout | python
    ```
 
 3. **Verifieer omgevingsvariabelen:**
    ```bash
-   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
+   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ AZURE_AI_PROJECT_ENDPOINT' if os.getenv('AZURE_AI_PROJECT_ENDPOINT') else '✗ AZURE_AI_PROJECT_ENDPOINT missing')"
    ```
 
-### Individuele Notebooks uitvoeren
+### Individuele notebooks draaien
 
-Open notebooks in Jupyter en voer cellen sequentieel uit. Elke notebook is op zichzelf staand en bevat:
+Open notebooks in Jupyter en voer cellen sequentieel uit. Elke notebook is zelfvoorzienend en bevat:
 - Import statements
 - Configuratie laden
-- Voorbeeld agent implementaties
+- Voorbeeld agent-implementaties
 - Verwachte outputs in markdown cellen
 
 ## Code Stijl
 
-### Python Conventies
+### Python-conventies
 
-- **Python versie**: 3.12+
+- **Python-versie**: 3.12+
 - **Code stijl**: Volg standaard Python PEP 8 conventies
-- **Notebooks**: Gebruik duidelijke markdown cellen om concepten uit te leggen
+- **Notebooks**: Gebruik duidelijke markdown cellen voor uitleg van concepten
 - **Imports**: Groepeer op standaardbibliotheek, derde partij en lokale imports
 
-### Jupyter Notebook Conventies
+### Jupyter Notebook-conventies
 
-- Voeg beschrijvende markdown cellen toe vóór codecellen
-- Voeg uitvoeringsvoorbeelden toe in notebooks ter referentie
-- Gebruik duidelijke variabelenamen die passen bij lesconcepten
-- Houd de volgorde van notebook uitvoering lineair (cel 1 → 2 → 3…)
+- Voeg beschrijvende markdown cellen toe voor codecellen
+- Voeg uitvoervoorbeelden toe in notebooks als referentie
+- Gebruik duidelijke variabelenamen die overeenkomen met lesconcepten
+- Houd de uitvoeringsvolgorde van notebooks lineair (cel 1 → 2 → 3...)
 
 ### Bestandsorganisatie
 
@@ -146,110 +146,110 @@ Open notebooks in Jupyter en voer cellen sequentieel uit. Elke notebook is op zi
     └── *.png
 ```
 
-## Build en Deploy
+## Bouw en Deployment
 
 ### Documentatie bouwen
 
 Deze repository gebruikt Markdown voor documentatie:
-- README.md bestanden in elke lesmap
-- Hoofd README.md in de repository root
+- README.md-bestanden in elke lesmap
+- Hoofd README.md in de hoofdmap van de repository
 - Geautomatiseerd vertaalsysteem via GitHub Actions
 
 ### CI/CD Pipeline
 
-Te vinden in `.github/workflows/`:
+Gelegen in `.github/workflows/`:
 
-1. **co-op-translator.yml** - Automatische vertaling naar meer dan 50 talen
+1. **co-op-translator.yml** - Automatische vertaling naar 50+ talen
 2. **welcome-issue.yml** - Verwelkomt nieuwe issue makers
 3. **welcome-pr.yml** - Verwelkomt nieuwe pull request bijdragers
 
 ### Deployment
 
-Dit is een educatieve repository - geen deployment proces. Gebruikers:
+Dit is een educatieve repository - er is geen deployment proces. Gebruikers:
 1. Forken of clonen de repository
 2. Runnen notebooks lokaal of in GitHub Codespaces
-3. Leren door voorbeelden aan te passen en te experimenteren
+3. Leren door voorbeelden te wijzigen en mee te experimenteren
 
-## Pull Request Richtlijnen
+## Richtlijnen voor Pull Requests
 
 ### Voor het indienen
 
-1. **Test je veranderingen:**
-   - Run de getroffen notebooks volledig
-   - Verifieer dat alle cellen zonder fouten worden uitgevoerd
-   - Controleer of outputs passend zijn
+1. **Test je wijzigingen:**
+   - Voer de betreffende notebooks helemaal uit
+   - Controleer dat alle cellen uitgevoerd worden zonder fouten
+   - Controleer dat uitvoer passend is
 
-2. **Documentatie updates:**
-   - Update README.md bij toevoeging van nieuwe concepten
+2. **Documentatie-updates:**
+   - Werk README.md bij als er nieuwe concepten bijkomen
    - Voeg commentaar toe in notebooks bij complexe code
    - Zorg dat markdown cellen het doel uitleggen
 
 3. **Bestandswijzigingen:**
-   - Vermijd het committen van `.env` bestanden (gebruik `.env.example`)
+   - Vermijd het committen van `.env`-bestanden (gebruik `.env.example`)
    - Commit geen `venv/` of `__pycache__/` mappen
-   - Houd notebook outputs als ze concepten demonstreren
+   - Behoud notebook-uitvoer als die concepten aantoont
    - Verwijder tijdelijke bestanden en backup notebooks (`*-backup.ipynb`)
 
-### PR Titel Formaat
+### PR Titelformaat
 
 Gebruik beschrijvende titels:
 - `[Lesson-XX] Voeg nieuw voorbeeld toe voor <concept>`
 - `[Fix] Corrigeer typefout in lesson-XX README`
 - `[Update] Verbeter codevoorbeeld in lesson-XX`
-- `[Docs] Update setup instructies`
+- `[Docs] Update setup-instructies`
 
-### Vereiste Checks
+### Verplichte controles
 
 - Notebooks moeten foutloos uitvoeren
-- README bestanden moeten duidelijk en correct zijn
+- README-bestanden moeten duidelijk en accuraat zijn
 - Volg bestaande codepatronen in de repository
-- Houd consistentie met andere lessen
+- Zorg voor consistentie met andere lessen
 
-## Aanvullende Notities
+## Aanvullende Aantekeningen
 
 ### Veelvoorkomende valkuilen
 
-1. **Python versie mismatch:**
+1. **Python versie niet overeenkomend:**
    - Zorg dat Python 3.12+ wordt gebruikt
-   - Sommige packages werken niet met oudere versies
-   - Gebruik `python3 -m venv` om expliciet Python versie te specificeren
+   - Sommige pakketten werken mogelijk niet met oudere versies
+   - Gebruik `python3 -m venv` om Python-versie expliciet te specificeren
 
 2. **Omgevingsvariabelen:**
-   - Maak altijd `.env` aan van `.env.example`
-   - Commit geen `.env` bestand (staat in `.gitignore`)
-   - GitHub token vereist juiste permissies
+   - Maak altijd `.env` aan vanuit `.env.example`
+   - Commit het `.env` bestand niet (staat in `.gitignore`)
+   - Log in met `az login` voor sleutelvrije Entra ID-authenticatie
 
-3. **Package conflicten:**
+3. **Pakketconflicten:**
    - Gebruik een verse virtuele omgeving
-   - Installeer vanaf `requirements.txt` in plaats van losse pakketten
-   - Sommige notebooks vereisen extra packages genoemd in hun markdown cellen
+   - Installeer via `requirements.txt` in plaats van afzonderlijke pakketten
+   - Sommige notebooks hebben extra pakketten nodig die vermeld staan in hun markdown cellen
 
-4. **Azure services:**
-   - Azure AI diensten vereisen een actief abonnement
+4. **Azure-services:**
+   - Azure AI-services vereisen een actief abonnement
    - Sommige functies zijn regio-specifiek
-   - Gratis tier beperkingen gelden voor GitHub Models
+   - Zorg dat je Azure OpenAI model-implementatie de Responses API ondersteunt
 
-### Leertraject
+### Leerroute
 
-Aanbevolen volgorde van lessen:
-1. **00-course-setup** - Begin hier voor omgeving setup
-2. **01-intro-to-ai-agents** - Begrijp AI agent fundamenten
-3. **02-explore-agentic-frameworks** - Leer verschillende frameworks kennen
-4. **03-agentic-design-patterns** - Kern ontwerp patronen
-5. Volg daarna de genummerde lessen op volgorde
+Aanbevolen volgorde voor lessen:
+1. **00-course-setup** - Begin hier voor de omgeving setup
+2. **01-intro-to-ai-agents** - Begrijp fundamentele AI-agentconcepten
+3. **02-explore-agentic-frameworks** - Leer over verschillende frameworks
+4. **03-agentic-design-patterns** - Kernontwerppatronen
+5. Ga door met de genummerde lessen in volgorde
 
-### Framework Keuze
+### Framework selectie
 
-Kies framework afhankelijk van je doelen:
-- **Alle lessen**: Microsoft Agent Framework (MAF) met `AzureAIProjectAgentProvider`
-- **Agents registreren server-side** in Azure AI Foundry Agent Service V2 en zijn zichtbaar in Foundry portaal
+Kies het framework op basis van je doelen:
+- **Alle lessen**: Microsoft Agent Framework (MAF) met `FoundryChatClient`
+- **Agents registreren server-side** in Microsoft Foundry Agent Service V2 en zijn zichtbaar in de Foundry-portal
 
 ### Hulp krijgen
 
 - Word lid van de [Microsoft Foundry Community Discord](https://aka.ms/ai-agents/discord)
-- Bekijk de README-bestanden van de lessen voor specifieke begeleiding
-- Raadpleeg de hoofd [README.md](./README.md) voor cursusoverzicht
-- Zie [Course Setup](./00-course-setup/README.md) voor gedetailleerde setup instructies
+- Bekijk de README-bestanden van de lessen voor specifieke richtlijnen
+- Check de hoofd [README.md](./README.md) voor cursusoverzicht
+- Raadpleeg [Course Setup](./00-course-setup/README.md) voor gedetailleerde setup-instructies
 
 ### Bijdragen
 
@@ -262,51 +262,51 @@ Dit is een open educatief project. Bijdragen zijn welkom:
 
 Zie [GitHub Issues](https://github.com/microsoft/ai-agents-for-beginners/issues) voor huidige behoeften.
 
-## Projectspecifieke Context
+## Project-specifieke context
 
-### Meertalige Ondersteuning
+### Meertalige ondersteuning
 
 Deze repository gebruikt een geautomatiseerd vertaalsysteem:
-- Meer dan 50 talen ondersteund
+- 50+ talen ondersteund
 - Vertalingen in `/translations/<lang-code>/` mappen
-- GitHub Actions workflow verzorgt vertaalupdates
-- Brondocumenten zijn in het Engels in de root van de repository
+- GitHub Actions workflow beheert vertalingsupdates
+- Brondocumenten zijn in het Engels in de hoofdmap van de repository
 
 ### Lesstructuur
 
 Elke les volgt een consistent patroon:
-1. Videominiatuur met link
+1. Video thumbnail met link
 2. Geschreven lesinhoud (README.md)
 3. Codevoorbeelden in meerdere frameworks
 4. Leerdoelen en vereisten
 5. Extra leerbronnen gelinkt
 
-### Naamgeving Codevoorbeelden
+### Naamgeving van codevoorbeelden
 
 Formaat: `<lesson-number>-python-agent-framework.ipynb`
 - `01-python-agent-framework.ipynb` - Les 1, MAF Python
 - `14-sequential.ipynb` - Les 14, MAF geavanceerde patronen
 
-### Speciale Mappen
+### Speciale mappen
 
 - `translated_images/` - Gelokaliseerde afbeeldingen voor vertalingen
 - `images/` - Originele afbeeldingen voor Engelse inhoud
-- `.devcontainer/` - VS Code development container configuratie
-- `.github/` - GitHub Actions workflows en templates
+- `.devcontainer/` - VS Code ontwikkelingscontainer configuratie
+- `.github/` - GitHub Actions workflows en sjablonen
 
 ### Afhankelijkheden
 
 Belangrijke pakketten uit `requirements.txt`:
 - `agent-framework` - Microsoft Agent Framework
-- `a2a-sdk` - Agent-to-Agent protocol ondersteuning
-- `azure-ai-inference`, `azure-ai-projects` - Azure AI diensten
+- `a2a-sdk` - Ondersteuning voor Agent-to-Agent protocol
+- `azure-ai-inference`, `azure-ai-projects` - Azure AI-diensten
 - `azure-identity` - Azure authenticatie (AzureCliCredential)
-- `azure-search-documents` - Azure AI Search integratie
+- `azure-search-documents` - Azure AI Search-integratie
 - `mcp[cli]` - Model Context Protocol ondersteuning
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel wij streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het oorspronkelijke document in de oorspronkelijke taal moet als de gezaghebbende bron worden beschouwd. Voor cruciale informatie wordt een professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

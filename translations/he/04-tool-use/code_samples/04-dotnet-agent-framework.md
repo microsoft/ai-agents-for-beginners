@@ -1,134 +1,139 @@
-# 🛠️ שימוש מתקדם בכלים עם מודלים של GitHub (.NET)
+# 🛠️ שימוש מתקדם בכלים עם Azure OpenAI (Responses API) (.NET)
 
-## 📋 מטרות למידה
+## 📋 יעדי הלמידה
 
-מחברת זו מציגה דפוסי אינטגרציה ברמה ארגונית באמצעות Microsoft Agent Framework ב-.NET עם מודלים של GitHub. תלמדו לבנות סוכנים מתקדמים עם כלים מתמחים מרובים, תוך ניצול ההקלדה החזקה של C# ותכונות הארגון של .NET.
+פנקס רשימות זה מציג דפוסי אינטגרציה של כלים ברמת ארגון באמצעות Microsoft Agent Framework ב-.NET עם Azure OpenAI (Responses API). תלמד כיצד לבנות סוכנים מתוחכמים עם כלים מתמחים מרובים, תוך ניצול טיפוס חזק של C# ותכונות ארגוניות של .NET.
 
-### יכולות מתקדמות של כלים שתשלוט בהן
+### יכולות כלים מתקדמות שתשלוט בהן
 
-- 🔧 **ארכיטקטורת כלים מרובה**: בניית סוכנים עם יכולות מתמחות מרובות  
-- 🎯 **ביצוע כלים בטוח-הקלדה**: ניצול אימות בזמן קומפילציה של C#  
-- 📊 **דפוסי כלים ארגוניים**: עיצוב כלים מוכן לייצור וטיפול בשגיאות  
-- 🔗 **הרכבת כלים**: שילוב כלים לזרימות עבודה עסקיות מורכבות  
+- 🔧 **ארכיטקטורת כלים מרובה**: בניית סוכנים עם יכולות מתמחות מרובות
+- 🎯 **הרצת כלים בטוחה טיפוסית**: ניצול אימות בזמן הקומפילציה של C#
+- 📊 **דפוסי כלים ארגוניים**: עיצוב כלים מוכנים לייצור וטיפול בשגיאות
+- 🔗 **קומפוזיציית כלים**: שילוב כלים עבור זרימות עבודה עסקיות מורכבות
 
 ## 🎯 יתרונות ארכיטקטורת כלים ב-.NET
 
-### תכונות כלים ארגוניים
+### תכונות כלים ארגוניות
 
-- **אימות בזמן קומפילציה**: הקלדה חזקה מבטיחה נכונות פרמטרים של כלים  
-- **הזרקת תלות**: אינטגרציה של IoC לניהול כלים  
-- **דפוסי Async/Await**: ביצוע כלים לא חוסם עם ניהול משאבים נכון  
-- **לוג מובנה**: אינטגרציה מובנית לניטור ביצוע כלים  
+- **אימות בזמן הקומפילציה**: טיפוס חזק מבטיח נכונות פרמטרים של הכלים
+- **הזרקת תלות**: אינטגרציה עם מיכל IoC לניהול כלים
+- **דפוסי Async/Await**: הרצת כלים לא חוסמת עם ניהול נכון של משאבים
+- **רישום מובנה**: אינטגרציה מובנית לרישום ניטור הרצת הכלים
 
 ### דפוסים מוכנים לייצור
 
-- **טיפול בשגיאות**: ניהול שגיאות מקיף עם חריגים מוקלדים  
-- **ניהול משאבים**: דפוסי סילוק נכונים וניהול זיכרון  
-- **ניטור ביצועים**: מדדים מובנים ומוני ביצועים  
-- **ניהול תצורה**: תצורה בטוחה-הקלדה עם אימות  
+- **טיפול בשגיאות**: ניהול שגיאות מקיף עם חריגות טיפוסיות
+- **ניהול משאבים**: דפוסי פסילה נכונים וניהול זיכרון
+- **ניטור ביצועים**: מדדים וספירות ביצועים מובנים
+- **ניהול תצורה**: תצורה בטוחה טיפוסית עם אימות
 
 ## 🔧 ארכיטקטורה טכנית
 
 ### רכיבי כלים מרכזיים ב-.NET
 
-- **Microsoft.Extensions.AI**: שכבת הפשטה מאוחדת לכלים  
-- **Microsoft.Agents.AI**: אורקסטרציה של כלים ברמה ארגונית  
-- **אינטגרציה עם מודלים של GitHub**: לקוח API בעל ביצועים גבוהים עם ניהול חיבורים  
+- **Microsoft.Extensions.AI**: שכבת הפשטה מאוחדת לכלים
+- **Microsoft.Agents.AI**: תזמור כלים ברמת ארגון
+- **Azure OpenAI (Responses API)**: לקוח API בעל ביצועים גבוהים עם איסוף חיבורים
 
-### צינור ביצוע כלים
+### קו צינור הרצת כלים
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[בקשת משתמש] --> B[ניתוח סוכן]
+    B --> C[בחירת כלי]
+    C --> D[אימות סוג]
+    B --> E[קשר פרמטרים]
+    E --> F[ביצוע כלי]
     C --> F
-    F --> G[Result Processing]
+    F --> G[עיבוד תוצאה]
     D --> G
-    G --> H[Response]
+    G --> H[תגובה]
 ```
-  
-## 🛠️ קטגוריות ודפוסי כלים
+
+## 🛠️ קטגוריות וכלים ודפוסים
 
 ### 1. **כלי עיבוד נתונים**
 
-- **אימות קלט**: הקלדה חזקה עם הערות נתונים  
-- **פעולות טרנספורמציה**: המרת נתונים ועיצוב בטוח-הקלדה  
-- **לוגיקה עסקית**: כלים לחישוב וניתוח ספציפיים לתחום  
-- **עיצוב פלט**: יצירת תגובות מובנות  
+- **אימות קלט**: טיפוס חזק עם הערות נתונים
+- **פעולות טרנספורמציה**: המרת נתונים ועיצוב בטוח טיפוסית
+- **לוגיקת עסק**: כלים לחישוב וניתוח ספציפיים לתחום
+- **עיצוב פלט**: יצירת תגובות מובנות
 
 ### 2. **כלי אינטגרציה**
 
-- **מחברי API**: אינטגרציה עם שירותי RESTful באמצעות HttpClient  
-- **כלי בסיסי נתונים**: אינטגרציה עם Entity Framework לגישה לנתונים  
-- **פעולות קבצים**: פעולות מערכת קבצים מאובטחות עם אימות  
-- **שירותים חיצוניים**: דפוסי אינטגרציה עם שירותי צד שלישי  
+- **מחברי API**: אינטגרציית שירות RESTful עם HttpClient
+- **כלי מסד נתונים**: אינטגרציית Entity Framework לגישה לנתונים
+- **פעולות קבצים**: פעולות מערכת קבצים מאובטחות עם אימות
+- **שירותים חיצוניים**: דפוסי אינטגרציה עם שירותים צד שלישי
 
 ### 3. **כלי עזר**
 
-- **עיבוד טקסט**: כלי עיצוב ומניפולציה של מחרוזות  
-- **פעולות תאריך/שעה**: חישובי תאריך/שעה מותאמים לתרבות  
-- **כלים מתמטיים**: חישובים מדויקים ופעולות סטטיסטיות  
-- **כלי אימות**: אימות כללי עסקי ובדיקת נתונים  
+- **עיבוד טקסט**: כלי עיבוד מחרוזות ועיצוב
+- **פעולות תאריך/זמן**: חישובי תאריך/זמן מודעים לתרבות
+- **כלים מתמטיים**: חישובים מדויקים ופעולות סטטיסטיות
+- **כלי אימות**: אימות כללי עסק ואימות נתונים
 
-מוכנים לבנות סוכנים ברמה ארגונית עם יכולות כלים חזקים ובטוחים-הקלדה ב-.NET? בואו נבנה פתרונות מקצועיים! 🏢⚡  
+מוכן לבנות סוכנים ברמת ארגון עם יכולות כלים חזקות ובטוחות טיפוס ב-.NET? בוא נעצב פתרונות מקצועיים! 🏢⚡
 
-## 🚀 תחילת העבודה
+## 🚀 התחלה מהירה
 
 ### דרישות מוקדמות
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) או גרסה גבוהה יותר  
-- [אסימון גישה ל-API של מודלים של GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) או גרסה גבוהה יותר
+- מינוי [Azure](https://azure.microsoft.com/free/) עם משאב Azure OpenAI ופריסת מודל
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — התחבר עם `az login`
 
 ### משתני סביבה נדרשים
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# לאחר מכן התחבר כך ש-AzureCliCredential יוכל לקבל אסימון
+az login
 ```
-  
+
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# לאחר מכן התחבר כדי ש-AzureCliCredential יוכל לקבל אסימון
+az login
 ```
-  
+
 ### דוגמת קוד
 
-כדי להריץ את דוגמת הקוד,
+להריץ את דוגמת הקוד,
 
 ```bash
-# zsh/bash
+# זש/באש
 chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
-  
-או באמצעות CLI של dotnet:
+
+או באמצעות dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
-  
-ראו [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) עבור הקוד המלא.
+
+עיין ב-[`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) לקבלת הקוד המלא.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -243,11 +234,11 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
     await Task.Delay(10);
     Console.Write(update);
 }
-```  
+```
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**כתב ויתור**:  
-מסמך זה תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון שתרגומים אוטומטיים עשויים להכיל שגיאות או אי-דיוקים. המסמך המקורי בשפתו המקורית צריך להיחשב כמקור הסמכותי. למידע קריטי, מומלץ להשתמש בתרגום מקצועי על ידי בני אדם. איננו אחראים לאי-הבנות או לפרשנויות שגויות הנובעות משימוש בתרגום זה.
+**כתב ויתור**:
+מסמך זה תורגם באמצעות שירות תרגום אוטומטי [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון שתרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. יש להחשיב את המסמך המקורי בשפתו הטבעית כמקור הסמכות. למידע קריטי מומלץ להשתמש בתרגום מקצועי על ידי מתרגם אדם. אנו לא אחראים לכל אי-הבנה או פירוש שגוי הנובע מהשימוש בתרגום זה.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,82 +1,84 @@
-# 🔍 Verkennen van Microsoft Agent Framework - Basisagent (.NET)
+# 🔍 Verkenning van het Microsoft Agent Framework - Basisagent (.NET)
 
 ## 📋 Leerdoelen
 
-Dit voorbeeld verkent de fundamentele concepten van het Microsoft Agent Framework door middel van een basisimplementatie van een agent in .NET. Je leert de kernpatronen van agenten en begrijpt hoe intelligente agenten werken onder de motorkap met behulp van C# en het .NET-ecosysteem.
+Dit voorbeeld onderzoekt de fundamentele concepten van het Microsoft Agent Framework via een basisagent-implementatie in .NET. Je leert kernpatronen van agenten en begrijpt hoe intelligente agenten onder de motorkap werken met C# en het .NET-ecosysteem.
 
 ### Wat je zult ontdekken
 
-- 🏗️ **Agentarchitectuur**: Begrip van de basisstructuur van AI-agenten in .NET  
-- 🛠️ **Toolintegratie**: Hoe agenten externe functies gebruiken om hun mogelijkheden uit te breiden  
-- 💬 **Gespreksstroom**: Beheer van meerstapsgesprekken en context met threadbeheer  
-- 🔧 **Configuratiepatronen**: Best practices voor het opzetten en beheren van agenten in .NET  
+- 🏗️ **Agentarchitectuur**: Inzicht in de basisstructuur van AI-agenten in .NET
+- 🛠️ **Toolintegratie**: Hoe agenten externe functies gebruiken om mogelijkheden uit te breiden  
+- 💬 **Gespreksstroom**: Beheer van meerstapsconversaties en context met threadbeheer
+- 🔧 **Configuratiepatronen**: Best practices voor agentinstelling en beheer in .NET
 
-## 🎯 Belangrijke concepten
+## 🎯 Belangrijke Concepten Behandeld
 
 ### Principes van het Agent Framework
 
-- **Autonomie**: Hoe agenten onafhankelijke beslissingen nemen met behulp van .NET AI-abstracties  
-- **Reactiviteit**: Reageren op veranderingen in de omgeving en gebruikersinvoer  
-- **Proactiviteit**: Initiatief nemen op basis van doelen en context  
-- **Sociale vaardigheid**: Interactie via natuurlijke taal met gespreksdraadbeheer  
+- **Autonomie**: Hoe agenten onafhankelijke beslissingen nemen met .NET AI-abstraheringen
+- **Reactiviteit**: Reageren op veranderingen in de omgeving en gebruikersinput
+- **Proactiviteit**: Het nemen van initiatief op basis van doelen en context
+- **Sociale Vaardigheid**: Interactie via natuurlijke taal met gespreksthreads
 
-### Technische componenten
+### Technische Componenten
 
-- **AIAgent**: Kernorkestratie van agenten en gespreksbeheer (.NET)  
-- **Toolfuncties**: Uitbreiden van agentmogelijkheden met C#-methoden en attributen  
-- **OpenAI-integratie**: Gebruik van taalmodellen via gestandaardiseerde .NET API's  
-- **Veilige configuratie**: API-sleutelbeheer op basis van omgevingsvariabelen  
+- **AIAgent**: Kernbeheer van agent en conversatie (.NET)
+- **Toolfuncties**: Uitbreiden van agentmogelijkheden met C# methoden en attributen
+- **Azure OpenAI Integratie**: Gebruik maken van taalmodellen via de Azure OpenAI Responses API
+- **Veilige Configuratie**: Endpointbeheer op basis van de omgeving
 
-## 🔧 Technische stack
+## 🔧 Technische Stack
 
 ### Kerntechnologieën
 
-- Microsoft Agent Framework (.NET)  
-- GitHub Models API-integratie  
-- OpenAI-compatibele clientpatronen  
-- Configuratie op basis van omgevingsvariabelen met DotNetEnv  
+- Microsoft Agent Framework (.NET)
+- Azure OpenAI (Responses API) integratie
+- Azure.AI.OpenAI clientpatronen
+- Configuratie op basis van de omgeving met DotNetEnv
 
-### Mogelijkheden van de agent
+### Agentmogelijkheden
 
-- Begrip en generatie van natuurlijke taal  
-- Functieaanroepen en toolgebruik met C#-attributen  
-- Contextbewuste reacties met gespreksdraadbeheer  
-- Uitbreidbare architectuur met dependency injection-patronen  
+- Begrip en generatie van natuurlijke taal
+- Functie-aanroepen en toolgebruik met C# attributen
+- Contextbewuste reacties met gespreksthreads
+- Uitbreidbare architectuur met dependency injection-patronen
 
-## 📚 Vergelijking van frameworks
+## 📚 Frameworkvergelijking
 
-Dit voorbeeld laat de aanpak van het Microsoft Agent Framework zien in vergelijking met andere agentframeworks:
+Dit voorbeeld toont de Microsoft Agent Framework-benadering vergeleken met andere agentische frameworks:
 
-| Kenmerk | Microsoft Agent Framework | Andere frameworks |
-|---------|---------------------------|-------------------|
-| **Integratie** | Native Microsoft-ecosysteem | Variabele compatibiliteit |
+| Kenmerk | Microsoft Agent Framework | Andere Frameworks |
+|---------|-------------------------|------------------|
+| **Integratie** | Native Microsoft-ecosysteem | Diverse compatibiliteit |
 | **Eenvoud** | Schone, intuïtieve API | Vaak complexe setup |
-| **Uitbreidbaarheid** | Eenvoudige toolintegratie | Afhankelijk van framework |
-| **Enterprise-klaar** | Gebouwd voor productie | Verschilt per framework |
+| **Uitbreidbaarheid** | Gemakkelijke toolintegratie | Afhankelijk van framework |
+| **Enterprise Klaar** | Gebouwd voor productie | Varieert per framework |
 
 ## 🚀 Aan de slag
 
 ### Vereisten
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) of hoger  
-- [GitHub Models API-toegangstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) of hoger
+- Een [Azure-abonnement](https://azure.microsoft.com/free/) met een Azure OpenAI-resource en een modelimplementatie
+- De [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — inloggen met `az login`
 
-### Vereiste omgevingsvariabelen
+### Vereiste Omgevingsvariabelen
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Meld je dan aan zodat AzureCliCredential een token kan krijgen
+az login
 ```
-  
+
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Log dan in zodat AzureCliCredential een token kan krijgen
+az login
 ```
-  
 
 ### Voorbeeldcode
 
@@ -87,13 +89,13 @@ Om het codevoorbeeld uit te voeren,
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-  
-Of gebruik de dotnet CLI:
+
+Of met behulp van de dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
-  
+
 Zie [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) voor de volledige code.
 
 ```csharp
@@ -101,14 +103,16 @@ Zie [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/c
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,11 +175,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -224,26 +214,25 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
     Console.Write(update);
 }
 ```
-  
 
-## 🎓 Belangrijke inzichten
+## 🎓 Belangrijkste Leerpunten
 
-1. **Agentarchitectuur**: Het Microsoft Agent Framework biedt een schone, typeveilige aanpak voor het bouwen van AI-agenten in .NET  
-2. **Toolintegratie**: Functies met het `[Description]`-attribuut worden beschikbaar als tools voor de agent  
-3. **Gesprekscontext**: Threadbeheer maakt meerstapsgesprekken mogelijk met volledige contextbewustzijn  
-4. **Configuratiebeheer**: Omgevingsvariabelen en veilig omgaan met referenties volgen de beste praktijken van .NET  
-5. **OpenAI-compatibiliteit**: GitHub Models-integratie werkt naadloos via OpenAI-compatibele API's  
+1. **Agentarchitectuur**: Het Microsoft Agent Framework biedt een schone, type-veilige aanpak voor het bouwen van AI-agenten in .NET
+2. **Toolintegratie**: Functies met `[Description]` attributen worden beschikbare tools voor de agent
+3. **Gesprekscontext**: Threadbeheer maakt meerstapsconversaties met volledige contextbewustzijn mogelijk
+4. **Configuratiebeheer**: Omgevingsvariabelen en veilige credentie-afhandeling volgen .NET best practices
+5. **Azure OpenAI Responses API**: De agent gebruikt de Azure OpenAI Responses API via de Azure.AI.OpenAI SDK
 
-## 🔗 Aanvullende bronnen
+## 🔗 Aanvullende Bronnen
 
-- [Microsoft Agent Framework Documentatie](https://learn.microsoft.com/agent-framework)  
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Microsoft Agent Framework Documentatie](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI in Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in zijn oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+**Disclaimer**:
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

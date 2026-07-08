@@ -1,44 +1,44 @@
-[![Trustworthy AI Agents](../../../translated_images/vi/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Đại lý AI Đáng Tin Cậy](../../../translated_images/vi/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Nhấp vào hình ảnh trên để xem video bài học này)_
+> _(Bấm vào hình ảnh trên để xem video bài học này)_
 
-# Xây dựng Các Đại lý AI Đáng Tin Cậy
+# Xây Dựng Đại Lý AI Đáng Tin Cậy
 
-## Giới thiệu
+## Giới Thiệu
 
 Bài học này sẽ bao gồm:
 
 - Cách xây dựng và triển khai các Đại lý AI an toàn và hiệu quả
-- Những cân nhắc quan trọng về bảo mật khi phát triển các Đại lý AI
-- Cách duy trì bảo mật dữ liệu và quyền riêng tư người dùng khi phát triển các Đại lý AI
+- Những cân nhắc quan trọng về bảo mật khi phát triển Đại lý AI.
+- Cách duy trì bảo mật dữ liệu và quyền riêng tư của người dùng khi phát triển Đại lý AI.
 
-## Mục tiêu học tập
+## Mục Tiêu Học Tập
 
 Sau khi hoàn thành bài học này, bạn sẽ biết cách:
 
-- Xác định và giảm thiểu rủi ro khi tạo các Đại lý AI
-- Thực hiện các biện pháp bảo mật để đảm bảo dữ liệu và quyền truy cập được quản lý đúng cách
-- Tạo các Đại lý AI duy trì quyền riêng tư dữ liệu và mang lại trải nghiệm người dùng chất lượng
+- Nhận diện và giảm thiểu rủi ro khi tạo Đại lý AI.
+- Thực hiện các biện pháp bảo mật để đảm bảo dữ liệu và quyền truy cập được quản lý đúng cách.
+- Tạo ra các Đại lý AI duy trì bảo mật dữ liệu và cung cấp trải nghiệm người dùng chất lượng.
 
-## An toàn
+## An Toàn
 
-Trước tiên, hãy xem xét xây dựng các ứng dụng có tính đại lý an toàn. An toàn có nghĩa là đại lý AI hoạt động theo thiết kế. Là người xây dựng ứng dụng có tính đại lý, chúng ta có các phương pháp và công cụ để tối đa hóa an toàn:
+Trước tiên hãy xem xét việc xây dựng các ứng dụng đại lý an toàn. An toàn có nghĩa là đại lý AI thực hiện đúng như thiết kế. Là người xây dựng các ứng dụng đại lý, chúng ta có các phương pháp và công cụ để tối đa hóa sự an toàn:
 
-### Xây dựng Khung Tin nhắn Hệ thống
+### Xây Dựng Khung Tin Nhắn Hệ Thống
 
-Nếu bạn từng xây dựng ứng dụng AI sử dụng Mô hình Ngôn ngữ Lớn (LLMs), bạn sẽ hiểu tầm quan trọng của việc thiết kế lời nhắc hệ thống hoặc tin nhắn hệ thống vững chắc. Những lời nhắc này thiết lập các quy tắc meta, hướng dẫn và quy định về cách LLM tương tác với người dùng và dữ liệu.
+Nếu bạn từng xây dựng một ứng dụng AI sử dụng Mô Hình Ngôn Ngữ Lớn (LLM), bạn sẽ hiểu tầm quan trọng của việc thiết kế một lời nhắc hệ thống hoặc tin nhắn hệ thống vững chắc. Những lời nhắc này xác lập các quy tắc meta, hướng dẫn và chỉ dẫn cho cách mà LLM sẽ tương tác với người dùng và dữ liệu.
 
-Đối với các Đại lý AI, lời nhắc hệ thống còn quan trọng hơn vì các Đại lý AI cần các chỉ dẫn rất cụ thể để hoàn thành các nhiệm vụ mà chúng ta thiết kế cho chúng.
+Đối với Đại lý AI, lời nhắc hệ thống càng quan trọng hơn vì các Đại lý AI cần các chỉ dẫn cụ thể cao để hoàn thành các nhiệm vụ mà chúng ta thiết kế.
 
-Để tạo lời nhắc hệ thống có thể mở rộng, chúng ta có thể sử dụng khung tin nhắn hệ thống để xây dựng một hoặc nhiều đại lý trong ứng dụng của mình:
+Để tạo lời nhắc hệ thống có thể mở rộng, chúng ta có thể sử dụng một khung tin nhắn hệ thống để xây dựng một hoặc nhiều đại lý trong ứng dụng của mình:
 
-![Building a System Message Framework](../../../translated_images/vi/system-message-framework.3a97368c92d11d68.webp)
+![Xây Dựng Khung Tin Nhắn Hệ Thống](../../../translated_images/vi/system-message-framework.3a97368c92d11d68.webp)
 
-#### Bước 1: Tạo Tin nhắn Meta Hệ thống
+#### Bước 1: Tạo Tin Nhắn Hệ Thống Meta
 
-Lời nhắc meta sẽ được LLM sử dụng để tạo ra các lời nhắc hệ thống cho các đại lý mà chúng ta tạo. Chúng ta thiết kế nó dưới dạng mẫu để có thể tạo nhiều đại lý một cách hiệu quả nếu cần.
+Lời nhắc meta sẽ được sử dụng bởi LLM để tạo ra các lời nhắc hệ thống cho các đại lý mà chúng ta tạo ra. Chúng ta thiết kế nó dưới dạng mẫu để có thể tạo nhiều đại lý một cách hiệu quả nếu cần.
 
-Dưới đây là ví dụ về tin nhắn meta hệ thống mà chúng ta cung cấp cho LLM:
+Dưới đây là ví dụ về một tin nhắn hệ thống meta mà chúng ta sẽ gửi cho LLM:
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -51,15 +51,15 @@ To create the system prompt, be descriptive as possible and provide a structure 
 
 Bước tiếp theo là tạo một lời nhắc cơ bản để mô tả Đại lý AI. Bạn nên bao gồm vai trò của đại lý, các nhiệm vụ mà đại lý sẽ hoàn thành, và bất kỳ trách nhiệm nào khác của đại lý.
 
-Dưới đây là ví dụ:
+Dưới đây là một ví dụ:
 
 ```plaintext
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### Bước 3: Cung cấp Tin nhắn Hệ thống Cơ bản cho LLM
+#### Bước 3: Cung cấp Tin Nhắn Hệ Thống Cơ Bản cho LLM
 
-Giờ chúng ta có thể tối ưu tin nhắn hệ thống này bằng cách cung cấp tin nhắn meta hệ thống làm tin nhắn hệ thống cùng với tin nhắn hệ thống cơ bản của chúng ta.
+Bây giờ chúng ta có thể tối ưu hóa tin nhắn hệ thống này bằng cách cung cấp tin nhắn hệ thống meta làm tin nhắn hệ thống và tin nhắn hệ thống cơ bản của chúng ta.
 
 Điều này sẽ tạo ra một tin nhắn hệ thống được thiết kế tốt hơn để hướng dẫn các đại lý AI của chúng ta:
 
@@ -115,69 +115,71 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 #### Bước 4: Lặp lại và Cải thiện
 
-Giá trị của khung tin nhắn hệ thống này là giúp dễ dàng mở rộng việc tạo tin nhắn hệ thống từ nhiều đại lý cũng như cải thiện tin nhắn hệ thống của bạn theo thời gian. Hiếm khi bạn có một tin nhắn hệ thống hoàn hảo ngay lần đầu tiên cho toàn bộ trường hợp sử dụng. Khả năng thực hiện các điều chỉnh nhỏ và cải tiến bằng cách thay đổi tin nhắn hệ thống cơ bản và chạy nó qua hệ thống cho phép bạn so sánh và đánh giá kết quả.
+Giá trị của khung tin nhắn hệ thống này là giúp dễ dàng mở rộng việc tạo các tin nhắn hệ thống từ nhiều đại lý cũng như cải thiện các tin nhắn hệ thống theo thời gian. Hiếm khi bạn có một tin nhắn hệ thống phù hợp ngay lần đầu cho toàn bộ trường hợp sử dụng của mình. Khả năng điều chỉnh nhỏ và cải tiến bằng cách thay đổi tin nhắn hệ thống cơ bản và chạy nó qua hệ thống sẽ cho phép bạn so sánh và đánh giá kết quả.
 
-## Hiểu về Các Mối đe dọa
+## Hiểu Biết Về Các Mối Đe Dọa
 
-Để xây dựng các đại lý AI đáng tin cậy, rất quan trọng phải hiểu và giảm thiểu các rủi ro và mối đe dọa đối với đại lý AI của bạn. Hãy xem một số mối đe dọa khác nhau đối với các đại lý AI và cách bạn có thể lập kế hoạch và chuẩn bị tốt hơn để đối phó với chúng.
+Để xây dựng các đại lý AI đáng tin cậy, điều quan trọng là hiểu và giảm thiểu các rủi ro và mối đe dọa đối với đại lý AI của bạn. Hãy cùng xem một số mối đe dọa khác nhau đối với đại lý AI và cách bạn có thể lập kế hoạch và chuẩn bị tốt hơn cho chúng.
 
-![Understanding Threats](../../../translated_images/vi/understanding-threats.89edeada8a97fc0f.webp)
+![Hiểu Biết Về Các Mối Đe Dọa](../../../translated_images/vi/understanding-threats.89edeada8a97fc0f.webp)
 
-### Nhiệm vụ và Hướng dẫn
+### Nhiệm Vụ và Hướng Dẫn
 
-**Mô tả:** Kẻ tấn công cố gắng thay đổi hướng dẫn hoặc mục tiêu của đại lý AI thông qua việc nhắc hoặc thao túng đầu vào.
+**Mô tả:** Kẻ tấn công cố gắng thay đổi các hướng dẫn hoặc mục tiêu của đại lý AI thông qua việc gợi ý hoặc thao túng đầu vào.
 
-**Giảm thiểu:** Thực hiện kiểm tra xác thực và bộ lọc đầu vào để phát hiện các lời nhắc có thể nguy hiểm trước khi chúng được đại lý AI xử lý. Vì các cuộc tấn công này thường yêu cầu tương tác thường xuyên với đại lý, giới hạn số lượt trong cuộc trò chuyện cũng là cách để ngăn ngừa kiểu tấn công này.
+**Biện pháp giảm thiểu**: Thực hiện các kiểm tra xác thực và bộ lọc đầu vào để phát hiện những lời nhắc có thể gây nguy hiểm trước khi chúng được đại lý AI xử lý. Vì các cuộc tấn công này thường yêu cầu tương tác liên tục với Đại lý, giới hạn số lượt trong một cuộc trò chuyện cũng là một cách để ngăn chặn các loại tấn công này.
 
-### Truy cập vào Hệ thống Quan trọng
+### Truy Cập Hệ Thống Quan Trọng
 
-**Mô tả:** Nếu đại lý AI có quyền truy cập vào các hệ thống và dịch vụ lưu trữ dữ liệu nhạy cảm, kẻ tấn công có thể làm tổn hại đến giao tiếp giữa đại lý và các dịch vụ này. Đây có thể là tấn công trực tiếp hoặc cố gắng gián tiếp thu thập thông tin về các hệ thống này qua đại lý.
+**Mô tả:** Nếu đại lý AI có quyền truy cập vào các hệ thống và dịch vụ lưu trữ dữ liệu nhạy cảm, kẻ tấn công có thể xâm phạm giao tiếp giữa đại lý và các dịch vụ này. Đây có thể là tấn công trực tiếp hoặc cố gắng gián tiếp lấy thông tin về các hệ thống này thông qua đại lý.
 
-**Giảm thiểu:** Các đại lý AI chỉ nên được phép truy cập các hệ thống khi cần thiết nhằm ngăn ngừa các loại tấn công này. Giao tiếp giữa đại lý và hệ thống cũng cần được bảo mật. Thực hiện xác thực và kiểm soát truy cập là một cách khác để bảo vệ thông tin này.
+**Biện pháp giảm thiểu:** Đại lý AI chỉ nên được cấp quyền truy cập hệ thống khi thật sự cần thiết để ngăn chặn các loại tấn công này. Giao tiếp giữa đại lý và hệ thống cũng cần được bảo mật. Triển khai xác thực và kiểm soát truy cập là cách khác để bảo vệ thông tin này.
 
-### Quá tải Tài nguyên và Dịch vụ
+### Quá Tải Tài Nguyên và Dịch Vụ
 
-**Mô tả:** Đại lý AI có thể truy cập các công cụ và dịch vụ khác nhau để hoàn thành nhiệm vụ. Kẻ tấn công có thể tận dụng khả năng này để tấn công các dịch vụ đó bằng cách gửi lượng lớn yêu cầu qua Đại lý AI, có thể dẫn đến lỗi hệ thống hoặc chi phí cao.
+**Mô tả:** Đại lý AI có thể truy cập các công cụ và dịch vụ khác nhau để hoàn thành các nhiệm vụ. Kẻ tấn công có thể sử dụng khả năng này để gửi một lượng lớn yêu cầu qua Đại lý AI, dẫn đến việc hệ thống bị lỗi hoặc chi phí tăng cao.
 
-**Giảm thiểu:** Triển khai các chính sách giới hạn số lượng yêu cầu mà đại lý AI được phép gửi đến một dịch vụ. Giới hạn số lượt trò chuyện và yêu cầu tới đại lý AI của bạn cũng là một cách khác để ngăn chặn các kiểu tấn công này.
+**Biện pháp giảm thiểu:** Thực hiện các chính sách giới hạn số lượng yêu cầu mà đại lý AI có thể gửi tới một dịch vụ. Giới hạn số lượt trò chuyện và số yêu cầu đến đại lý AI cũng là một cách khác để ngăn chặn các loại tấn công này.
 
-### Đầu độc Cơ sở Kiến thức
+### Đầu Độc Cơ Sở Kiến Thức
 
-**Mô tả:** Loại tấn công này không trực tiếp nhắm vào đại lý AI mà là nhắm tới cơ sở kiến thức và các dịch vụ khác mà đại lý AI sử dụng. Điều này có thể bao gồm làm hỏng dữ liệu hoặc thông tin mà đại lý AI sẽ dùng để hoàn thành nhiệm vụ, dẫn đến các phản hồi thiên lệch hoặc không như ý muốn đối với người dùng.
+**Mô tả:** Loại tấn công này không nhắm vào trực tiếp đại lý AI mà nhắm vào cơ sở kiến thức và các dịch vụ khác mà đại lý sử dụng. Điều này có thể liên quan đến việc làm hỏng dữ liệu hoặc thông tin mà đại lý AI sẽ sử dụng để hoàn thành nhiệm vụ, dẫn đến các phản hồi sai lệch hoặc không mong muốn với người dùng.
 
-**Giảm thiểu:** Thực hiện kiểm tra định kỳ dữ liệu mà đại lý AI sử dụng trong các quy trình làm việc. Đảm bảo quyền truy cập vào dữ liệu này được bảo mật và chỉ có những người đáng tin cậy mới được thay đổi để tránh kiểu tấn công này.
+**Biện pháp giảm thiểu:** Thường xuyên kiểm tra xác minh dữ liệu mà đại lý AI sẽ sử dụng trong quy trình làm việc. Đảm bảo rằng quyền truy cập vào dữ liệu này được bảo mật và chỉ được thay đổi bởi những người đáng tin cậy để tránh các loại tấn công này.
 
-### Lỗi Kéo theo
+### Lỗi Lan Tràn
 
-**Mô tả:** Đại lý AI truy cập nhiều công cụ và dịch vụ khác nhau để hoàn thành nhiệm vụ. Các lỗi do kẻ tấn công gây ra có thể làm hỏng các hệ thống khác mà đại lý AI kết nối, khiến cuộc tấn công trở nên lan rộng hơn và khó xử lý hơn.
+**Mô tả:** Đại lý AI truy cập các công cụ và dịch vụ khác nhau để hoàn thành nhiệm vụ. Lỗi do kẻ tấn công gây ra có thể dẫn đến sự cố của các hệ thống khác mà đại lý kết nối, khiến cuộc tấn công lan rộng và khó khắc phục hơn.
 
-**Giảm thiểu:** Một phương pháp để tránh điều này là để đại lý AI hoạt động trong môi trường giới hạn, ví dụ như thực hiện nhiệm vụ trong một container Docker, nhằm ngăn ngừa tấn công hệ thống trực tiếp. Tạo các cơ chế dự phòng và logic thử lại khi một số hệ thống phản hồi lỗi cũng là cách khác để ngăn ngừa lỗi hệ thống lớn hơn.
+**Biện pháp giảm thiểu:** Một phương pháp để tránh điều này là cho đại lý AI hoạt động trong môi trường giới hạn, ví dụ như thực thi các nhiệm vụ trong container Docker, để ngăn chặn các cuộc tấn công trực tiếp vào hệ thống. Tạo cơ chế dự phòng và logic thử lại khi một số hệ thống phản hồi lỗi cũng là cách khác để ngăn ngừa sự cố hệ thống lớn hơn.
 
-## Con Người Trong Vòng Lặp
+## Người Điều Khiển Trung Gian
 
-Một cách hiệu quả khác để xây dựng các hệ thống đại lý AI đáng tin cậy là sử dụng con người trong vòng lặp (Human-in-the-loop). Điều này tạo ra một luồng mà người dùng có thể cung cấp phản hồi cho các Đại lý trong quá trình chạy. Người dùng về cơ bản đóng vai trò như các đại lý trong hệ thống đa đại lý và cung cấp sự chấp thuận hoặc ngừng quá trình đang chạy.
+Một cách hiệu quả khác để xây dựng hệ thống đại lý AI đáng tin cậy là sử dụng Người Điều Khiển Trung Gian (Human-in-the-loop). Điều này tạo ra một luồng trong đó người dùng có thể cung cấp phản hồi cho các đại lý trong quá trình chạy. Người dùng về cơ bản đóng vai trò như các đại lý trong hệ thống đa đại lý và bằng cách cung cấp sự chấp thuận hoặc kết thúc quá trình đang chạy.
 
-![Human in The Loop](../../../translated_images/vi/human-in-the-loop.5f0068a678f62f4f.webp)
+![Người Điều Khiển Trung Gian](../../../translated_images/vi/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Dưới đây là đoạn mã sử dụng Microsoft Agent Framework để minh họa cách triển khai khái niệm này:
+Dưới đây là đoạn mã sử dụng Microsoft Agent Framework để minh họa cách khái niệm này được triển khai:
 
 ```python
 import os
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-# Tạo nhà cung cấp với sự phê duyệt có sự tham gia của con người
-provider = AzureAIProjectAgentProvider(
+# Tạo nhà cung cấp với sự phê duyệt có người kiểm duyệt
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
     credential=AzureCliCredential(),
 )
 
-# Tạo đại lý với bước phê duyệt của con người
+# Tạo tác nhân với bước phê duyệt của con người
 response = provider.create_response(
     input="Write a 4-line poem about the ocean.",
     instructions="You are a helpful assistant. Ask for user approval before finalizing.",
 )
 
-# Người dùng có thể xem xét và phê duyệt phản hồi
+# Người dùng có thể xem lại và phê duyệt phản hồi
 print(response.output_text)
 user_input = input("Do you approve? (APPROVE/REJECT): ")
 if user_input == "APPROVE":
@@ -186,33 +188,33 @@ else:
     print("Response rejected. Revising...")
 ```
 
-## Kết luận
+## Kết Luận
 
-Xây dựng các đại lý AI đáng tin cậy đòi hỏi thiết kế cẩn thận, biện pháp bảo mật vững chắc và quá trình lặp lại liên tục. Bằng cách triển khai hệ thống meta prompt có cấu trúc, hiểu rõ các mối đe dọa tiềm ẩn và áp dụng các chiến lược giảm thiểu, các nhà phát triển có thể tạo ra các đại lý AI vừa an toàn vừa hiệu quả. Ngoài ra, kết hợp phương pháp con người trong vòng lặp đảm bảo các đại lý AI luôn phù hợp với nhu cầu người dùng đồng thời giảm thiểu rủi ro. Khi AI tiếp tục phát triển, duy trì thái độ chủ động trong bảo mật, quyền riêng tư và các cân nhắc đạo đức sẽ là chìa khóa để xây dựng niềm tin và độ tin cậy trong các hệ thống dựa trên AI.
+Xây dựng các đại lý AI đáng tin cậy yêu cầu thiết kế cẩn thận, các biện pháp bảo mật chắc chắn và sự lặp lại liên tục. Bằng cách triển khai các hệ thống meta prompting có cấu trúc, hiểu các mối đe dọa tiềm tàng và áp dụng các chiến lược giảm thiểu, các nhà phát triển có thể tạo ra các đại lý AI vừa an toàn vừa hiệu quả. Thêm vào đó, kết hợp phương pháp người điều khiển trung gian đảm bảo các đại lý AI luôn phù hợp với nhu cầu người dùng đồng thời giảm thiểu rủi ro. Khi AI tiếp tục phát triển, duy trì một lập trường chủ động về bảo mật, quyền riêng tư và các cân nhắc đạo đức sẽ là chìa khóa để xây dựng sự tin tưởng và độ tin cậy trong các hệ thống dựa trên AI.
 
-## Mẫu mã lập trình
+## Mẫu Mã
 
-- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Minh họa từng bước về khung hệ thống lời nhắc meta.
-- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Cổng phê duyệt trước hành động, phân loại rủi ro, và ghi nhật ký kiểm toán cho các đại lý đáng tin cậy.
+- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Minh họa từng bước khung hệ thống meta-prompting.
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Các cổng phê duyệt trước hành động, phân tầng rủi ro và ghi nhật ký kiểm toán cho các đại lý đáng tin cậy.
 
-### Có nhiều câu hỏi hơn về Xây dựng Đại lý AI Đáng Tin Cậy?
+### Còn Thắc Mắc Gì về Việc Xây Dựng Đại Lý AI Đáng Tin Cậy?
 
-Tham gia [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) để gặp gỡ những người học khác, tham dự giờ làm việc và nhận câu trả lời cho các câu hỏi về Đại lý AI của bạn.
+Tham gia [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) để gặp gỡ những người học khác, tham dự giờ làm việc và nhận giải đáp các câu hỏi về Đại lý AI của bạn.
 
-## Tài nguyên bổ sung
+## Tài Nguyên Bổ Sung
 
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Tổng quan AI có Trách nhiệm</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Đánh giá các mô hình AI tạo sinh và ứng dụng AI</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Tổng quan về AI có trách nhiệm</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Đánh giá các mô hình AI sinh tạo và ứng dụng AI</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Tin nhắn hệ thống an toàn</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Mẫu Đánh giá Rủi ro</a>
 
-## Bài học trước
+## Bài Học Trước
 
 [Agentic RAG](../05-agentic-rag/README.md)
 
-## Bài học tiếp theo
+## Bài Học Tiếp Theo
 
-[Planning Design Pattern](../07-planning-design/README.md)
+[Mẫu Thiết Kế Lập Kế Hoạch](../07-planning-design/README.md)
 
 ---
 

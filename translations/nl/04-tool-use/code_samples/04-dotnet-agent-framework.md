@@ -1,101 +1,104 @@
-# 🛠️ Geavanceerd gebruik van tools met GitHub-modellen (.NET)
+# 🛠️ Geavanceerd gebruik van tools met Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Leerdoelen
 
-Deze notebook demonstreert integratiepatronen van enterprise-niveau met behulp van het Microsoft Agent Framework in .NET en GitHub-modellen. Je leert geavanceerde agents bouwen met meerdere gespecialiseerde tools, waarbij je gebruik maakt van de sterke typificatie van C# en de enterprise-functionaliteiten van .NET.
+Dit notitieboek demonstreert bedrijfsniveau-integratiepatronen voor tools met het Microsoft Agent Framework in .NET met Azure OpenAI (Responses API). Je leert geavanceerde agenten bouwen met meerdere gespecialiseerde tools, waarbij je gebruikmaakt van de sterke typisering van C# en de enterprise-functies van .NET.
 
-### Geavanceerde toolmogelijkheden die je zult beheersen
+### Geavanceerde toolmogelijkheden die je beheerst
 
-- 🔧 **Multi-Tool Architectuur**: Agents bouwen met meerdere gespecialiseerde mogelijkheden
-- 🎯 **Type-Safe Tool Uitvoering**: Gebruik maken van C#'s compile-time validatie
-- 📊 **Enterprise Tool Patronen**: Productieklaar toolontwerp en foutafhandeling
-- 🔗 **Toolcompositie**: Tools combineren voor complexe bedrijfsworkflows
+- 🔧 **Multi-Tool Architectuur**: Agenten bouwen met meerdere gespecialiseerde mogelijkheden
+- 🎯 **Type-veilige tooluitvoering**: Gebruik maken van compile-time validatie in C#
+- 📊 **Enterprise-toolpatronen**: Productieklaar ontwerp en foutafhandeling van tools
+- 🔗 **Toolcompositie**: Tools combineren voor complexe zakelijke workflows
 
-## 🎯 Voordelen van .NET Tool Architectuur
+## 🎯 Voordelen van .NET-toolarchitectuur
 
-### Enterprise Tool Functionaliteiten
+### Enterprise-toolkenmerken
 
-- **Compile-Time Validatie**: Sterke typificatie zorgt voor correcte toolparameters
-- **Dependency Injection**: IoC-containerintegratie voor toolbeheer
-- **Async/Await Patronen**: Niet-blokkerende tooluitvoering met goed resourcebeheer
-- **Gestructureerd Loggen**: Ingebouwde loggingintegratie voor monitoring van tooluitvoering
+- **Compile-time validatie**: Sterke typisering garandeert correctheid van toolparameters
+- **Dependency Injection**: Integratie met IoC-container voor toolbeheer
+- **Async/Await-patronen**: Niet-blokkerende tooluitvoering met correct beheer van bronnen
+- **Gestructureerde logging**: Ingebouwde loggingintegratie voor monitoring van tooluitvoering
 
-### Productieklare Patronen
+### Productieklaar patronen
 
-- **Foutafhandeling**: Uitgebreid foutbeheer met getypeerde uitzonderingen
-- **Resourcebeheer**: Correcte dispositiepatronen en geheugenbeheer
+- **Exceptieafhandeling**: Uitgebreid foutbeheer met getypte uitzonderingen
+- **Bronbeheer**: Correcte disposal-patronen en geheugenbeheer
 - **Prestatiemonitoring**: Ingebouwde metrics en prestatiecounters
 - **Configuratiebeheer**: Type-veilige configuratie met validatie
 
-## 🔧 Technische Architectuur
+## 🔧 Technische architectuur
 
-### Kerncomponenten van .NET Tools
+### Kerncomponenten van .NET-tools
 
-- **Microsoft.Extensions.AI**: Geünificeerde abstractielaag voor tools
-- **Microsoft.Agents.AI**: Enterprise-grade toolorkestratie
-- **GitHub Models Integratie**: Hoogpresterende API-client met connection pooling
+- **Microsoft.Extensions.AI**: Geünificeerde tool-abstraction laag
+- **Microsoft.Agents.AI**: Enterprise-niveau toolorchestratie
+- **Azure OpenAI (Responses API)**: Hoge-performance API-client met connection pooling
 
-### Tooluitvoeringspipeline
+### Tooluitvoerpipeline
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Gebruikersverzoek] --> B[Agentanalyse]
+    B --> C[Gereedschapsselectie]
+    C --> D[Typevalidatie]
+    B --> E[Parameterbinding]
+    E --> F[Gereedschapsuitvoering]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Resultaatverwerking]
     D --> G
-    G --> H[Response]
+    G --> H[Reactie]
 ```
 
-## 🛠️ Toolcategorieën & Patronen
+## 🛠️ Toolcategorieën & patronen
 
 ### 1. **Dataverwerkingstools**
 
-- **Inputvalidatie**: Sterke typificatie met data-annotaties
+- **Inputvalidatie**: Sterke typisering met data-annotaties
 - **Transformatieoperaties**: Type-veilige dataconversie en formattering
-- **Bedrijfslogica**: Domeinspecifieke berekening en analysetools
-- **Outputformatteringen**: Gestructureerde responsgeneratie
+- **Businesslogica**: Domeinspecifieke berekeningen en analysetools
+- **Outputformatteren**: Gestructureerde antwoordgeneratie
 
 ### 2. **Integratietools**
 
-- **API Connectors**: RESTful service-integratie met HttpClient
-- **Databasetools**: Entity Framework-integratie voor data-toegang
-- **Bestandsoperaties**: Veilige bestandssysteemoperaties met validatie
-- **Externe diensten**: Integratiepatronen voor derde partijen
+- **API-connectoren**: RESTful service-integratie met HttpClient
+- **Database-tools**: Entity Framework-integratie voor data toegang
+- **Bestandoperaties**: Veilige bestandssysteemoperaties met validatie
+- **Externe services**: Patronen voor integratie van externe diensten
 
-### 3. **Hulpprogramma's**
+### 3. **Utility-tools**
 
-- **Tekstverwerking**: Hulpmiddelen voor stringmanipulatie en formattering
-- **Datum/tijd operaties**: Cultuurgevoelige berekeningen met datum/tijd
-- **Wiskundige tools**: Nauwkeurige berekeningen en statistische operaties
-- **Validatietools**: Validatie van bedrijfsregels en gegevensverificatie
+- **Tekstverwerking**: Stringmanipulatie en formatteringshulpmiddelen
+- **Datum-/tijdoperaties**: Cultuurbewuste datum-/tijdberekeningen
+- **Wiskundige tools**: Precisieberekeningen en statistische operaties
+- **Validatietools**: Validering van zakelijke regels en gegevensverificatie
 
-Klaar om enterprise-grade agents te bouwen met krachtige, type-veilige toolmogelijkheden in .NET? Laten we professionele oplossingen ontwerpen! 🏢⚡
+Klaar om bedrijfsniveau-agenten te bouwen met krachtige, type-veilige toolmogelijkheden in .NET? Laten we enkele professionele oplossingen ontwerpen! 🏢⚡
 
 ## 🚀 Aan de slag
 
 ### Vereisten
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) of hoger
-- [GitHub Models API toegangstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Een [Azure-abonnement](https://azure.microsoft.com/free/) met een Azure OpenAI-resource en een model-implementatie
+- De [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — inloggen met `az login`
 
-### Vereiste Omgevingsvariabelen
+### Vereiste omgevingsvariabelen
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Meld je dan aan zodat AzureCliCredential een token kan verkrijgen
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Meld u vervolgens aan zodat AzureCliCredential een token kan verkrijgen
+az login
 ```
 
 ### Voorbeeldcode
@@ -108,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Of gebruik de dotnet CLI:
+Of met de dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -121,14 +124,16 @@ Zie [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dot
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+**Disclaimer**:
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,72 +1,72 @@
-# 🔍 RAG Doanh Nghiệp với Azure AI Foundry (.NET)
+# 🔍 Enterprise RAG với Microsoft Foundry (.NET)
 
-## 📋 Mục Tiêu Học Tập
+## 📋 Mục tiêu học tập
 
-Notebook này hướng dẫn cách xây dựng hệ thống Retrieval-Augmented Generation (RAG) cấp doanh nghiệp bằng Microsoft Agent Framework trong .NET với Azure AI Foundry. Bạn sẽ học cách tạo các agent sẵn sàng cho sản xuất, có khả năng tìm kiếm tài liệu và cung cấp câu trả lời chính xác, phù hợp với ngữ cảnh, đồng thời đảm bảo bảo mật và khả năng mở rộng cho doanh nghiệp.
+Notebook này trình bày cách xây dựng các hệ thống Retrieval-Augmented Generation (RAG) cấp doanh nghiệp sử dụng Microsoft Agent Framework trong .NET với Microsoft Foundry. Bạn sẽ học cách tạo các agent sẵn sàng cho sản xuất có thể tìm kiếm tài liệu và cung cấp câu trả lời chính xác, nhận biết ngữ cảnh với bảo mật và khả năng mở rộng cấp doanh nghiệp.
 
-**Các Tính Năng RAG Doanh Nghiệp Bạn Sẽ Xây Dựng:**
-- 📚 **Trí Tuệ Tài Liệu**: Xử lý tài liệu nâng cao với dịch vụ Azure AI
-- 🔍 **Tìm Kiếm Ngữ Nghĩa**: Tìm kiếm vector hiệu suất cao với các tính năng doanh nghiệp
-- 🛡️ **Tích Hợp Bảo Mật**: Kiểm soát truy cập dựa trên vai trò và các mẫu bảo vệ dữ liệu
-- 🏢 **Kiến Trúc Có Khả Năng Mở Rộng**: Hệ thống RAG sẵn sàng cho sản xuất với khả năng giám sát
+**Các khả năng RAG doanh nghiệp bạn sẽ xây dựng:**
+- 📚 **Trí tuệ Tài liệu**: Xử lý tài liệu nâng cao với dịch vụ AI Azure
+- 🔍 **Tìm kiếm Ngữ nghĩa**: Tìm kiếm vector hiệu năng cao với các tính năng doanh nghiệp
+- 🛡️ **Tích hợp Bảo mật**: Kiểm soát truy cập theo vai trò và mẫu bảo vệ dữ liệu
+- 🏢 **Kiến trúc Có thể mở rộng**: Hệ thống RAG sẵn sàng cho sản xuất với giám sát
 
-## 🎯 Kiến Trúc RAG Doanh Nghiệp
+## 🎯 Kiến trúc RAG Doanh nghiệp
 
-### Các Thành Phần Cốt Lõi Doanh Nghiệp
-- **Azure AI Foundry**: Nền tảng AI doanh nghiệp được quản lý với bảo mật và tuân thủ
-- **Persistent Agents**: Các agent có trạng thái với lịch sử hội thoại và quản lý ngữ cảnh
-- **Quản Lý Vector Store**: Lập chỉ mục và truy xuất tài liệu cấp doanh nghiệp
-- **Tích Hợp Danh Tính**: Xác thực Azure AD và kiểm soát truy cập dựa trên vai trò
+### Các Thành phần Doanh nghiệp Cốt lõi
+- **Microsoft Foundry**: Nền tảng AI doanh nghiệp được quản lý với bảo mật và tuân thủ
+- **Persistent Agents**: Agent có trạng thái với lịch sử hội thoại và quản lý ngữ cảnh
+- **Quản lý Vector Store**: Lập chỉ mục và truy xuất tài liệu cấp doanh nghiệp
+- **Tích hợp Định danh**: Xác thực Azure AD và kiểm soát truy cập theo vai trò
 
-### Lợi Ích .NET Doanh Nghiệp
-- **Kiểm Tra Kiểu**: Xác thực tại thời điểm biên dịch cho các hoạt động RAG và cấu trúc dữ liệu
-- **Hiệu Suất Async**: Xử lý tài liệu và tìm kiếm không chặn
-- **Quản Lý Bộ Nhớ**: Sử dụng tài nguyên hiệu quả cho các bộ sưu tập tài liệu lớn
-- **Mẫu Tích Hợp**: Tích hợp dịch vụ Azure gốc với dependency injection
+### Lợi ích .NET Doanh nghiệp
+- **An toàn kiểu dữ liệu**: Xác thực lúc biên dịch cho các thao tác RAG và cấu trúc dữ liệu
+- **Hiệu năng Async**: Xử lý tài liệu và tìm kiếm không chặn
+- **Quản lý Bộ nhớ**: Sử dụng tài nguyên hiệu quả cho bộ sưu tập tài liệu lớn
+- **Mẫu Tích hợp**: Tích hợp dịch vụ Azure gốc với dependency injection
 
-## 🏗️ Kiến Trúc Kỹ Thuật
+## 🏗️ Kiến trúc Kỹ thuật
 
-### Pipeline RAG Doanh Nghiệp
+### Pipeline RAG Doanh nghiệp
 ```
 Document Upload → Security Validation → Vector Processing → Index Creation
                       ↓                    ↓                  ↓
 User Query → Authentication → Semantic Search → Context Ranking → AI Response
 ```
 
-### Các Thành Phần Cốt Lõi .NET
-- **Azure.AI.Agents.Persistent**: Quản lý agent doanh nghiệp với trạng thái được lưu trữ
-- **Azure.Identity**: Xác thực tích hợp để truy cập dịch vụ Azure an toàn
-- **Microsoft.Agents.AI.AzureAI**: Triển khai framework agent tối ưu hóa cho Azure
-- **System.Linq.Async**: Các hoạt động LINQ không đồng bộ hiệu suất cao
+### Các Thành phần .NET Cốt lõi
+- **Azure.AI.Agents.Persistent**: Quản lý agent doanh nghiệp với trạng thái bền vững
+- **Azure.Identity**: Xác thực tích hợp cho truy cập dịch vụ Azure an toàn
+- **Microsoft.Agents.AI.AzureAI**: Triển khai khung agent tối ưu cho Azure
+- **System.Linq.Async**: Thao tác LINQ bất đồng bộ hiệu năng cao
 
-## 🔧 Tính Năng & Lợi Ích Doanh Nghiệp
+## 🔧 Tính năng & Lợi ích Doanh nghiệp
 
-### Bảo Mật & Tuân Thủ
-- **Tích Hợp Azure AD**: Quản lý danh tính doanh nghiệp và xác thực
-- **Truy Cập Dựa Trên Vai Trò**: Quyền chi tiết cho truy cập tài liệu và hoạt động
-- **Bảo Vệ Dữ Liệu**: Mã hóa khi lưu trữ và truyền tải cho các tài liệu nhạy cảm
-- **Ghi Nhật Ký Kiểm Toán**: Theo dõi hoạt động toàn diện để đáp ứng yêu cầu tuân thủ
+### Bảo mật & Tuân thủ
+- **Tích hợp Azure AD**: Quản lý định danh và xác thực doanh nghiệp
+- **Truy cập theo Vai trò**: Quyền truy cập chi tiết cho tài liệu và thao tác
+- **Bảo vệ Dữ liệu**: Mã hóa lúc lưu và truyền cho tài liệu nhạy cảm
+- **Ghi nhật ký Kiểm toán**: Theo dõi hoạt động toàn diện cho yêu cầu tuân thủ
 
-### Hiệu Suất & Khả Năng Mở Rộng
-- **Connection Pooling**: Quản lý kết nối dịch vụ Azure hiệu quả
-- **Xử Lý Async**: Các hoạt động không chặn cho các kịch bản thông lượng cao
-- **Chiến Lược Caching**: Bộ nhớ đệm thông minh cho các tài liệu được truy cập thường xuyên
-- **Cân Bằng Tải**: Xử lý phân tán cho các triển khai quy mô lớn
+### Hiệu năng & Khả năng mở rộng
+- **Pooling Kết nối**: Quản lý kết nối dịch vụ Azure hiệu quả
+- **Xử lý Async**: Thao tác không chặn cho các kịch bản thông lượng cao
+- **Chiến lược Caching**: Bộ nhớ đệm thông minh cho tài liệu truy cập thường xuyên
+- **Cân bằng Tải**: Xử lý phân tán cho triển khai quy mô lớn
 
-### Quản Lý & Giám Sát
-- **Kiểm Tra Sức Khỏe**: Giám sát tích hợp cho các thành phần hệ thống RAG
-- **Chỉ Số Hiệu Suất**: Phân tích chi tiết về chất lượng tìm kiếm và thời gian phản hồi
-- **Xử Lý Lỗi**: Quản lý ngoại lệ toàn diện với các chính sách retry
-- **Quản Lý Cấu Hình**: Cài đặt cụ thể theo môi trường với xác thực
+### Quản lý & Giám sát
+- **Kiểm tra Sức khỏe**: Giám sát tích hợp cho các thành phần hệ thống RAG
+- **Chỉ số Hiệu năng**: Phân tích chi tiết về chất lượng tìm kiếm và thời gian phản hồi
+- **Xử lý Lỗi**: Quản lý ngoại lệ toàn diện với chính sách thử lại
+- **Quản lý Cấu hình**: Cấu hình riêng môi trường với xác thực
 
-## ⚙️ Yêu Cầu & Cài Đặt
+## ⚙️ Yêu cầu & Thiết lập
 
-**Môi Trường Phát Triển:**
-- .NET 9.0 SDK hoặc cao hơn
-- Visual Studio 2022 hoặc VS Code với extension C#
-- Tài khoản Azure với quyền truy cập AI Foundry
+**Môi trường Phát triển:**
+- SDK .NET 9.0 hoặc cao hơn
+- Visual Studio 2022 hoặc VS Code với phần mở rộng C#
+- Đăng ký Azure với quyền truy cập Microsoft Foundry
 
-**Các Gói NuGet Yêu Cầu:**
+**Gói NuGet Cần thiết:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
 <PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.5" />
@@ -75,40 +75,40 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Cài Đặt Xác Thực Azure:**
+**Thiết lập Xác thực Azure:**
 ```bash
-# Install Azure CLI and authenticate
+# Cài đặt Azure CLI và xác thực
 az login
 az account set --subscription "your-subscription-id"
 ```
 
-**Cấu Hình Môi Trường:**
-* Cấu hình Azure AI Foundry (được xử lý tự động qua Azure CLI)
-* Đảm bảo bạn đã xác thực vào tài khoản Azure chính xác
+**Cấu hình Môi trường:**
+* Cấu hình Microsoft Foundry (được xử lý tự động qua Azure CLI)
+* Đảm bảo bạn đã đăng nhập đúng đăng ký Azure
 
-## 📊 Mẫu RAG Doanh Nghiệp
+## 📊 Mẫu RAG Doanh nghiệp
 
-### Mẫu Quản Lý Tài Liệu
-- **Tải Lên Hàng Loạt**: Xử lý hiệu quả các bộ sưu tập tài liệu lớn
-- **Cập Nhật Từng Phần**: Thêm và sửa đổi tài liệu theo thời gian thực
-- **Kiểm Soát Phiên Bản**: Quản lý phiên bản tài liệu và theo dõi thay đổi
-- **Quản Lý Metadata**: Thuộc tính tài liệu phong phú và phân loại
+### Mẫu Quản lý Tài liệu
+- **Tải lên Hàng loạt**: Xử lý hiệu quả bộ sưu tập tài liệu lớn
+- **Cập nhật Tăng dần**: Thêm và sửa đổi tài liệu theo thời gian thực
+- **Kiểm soát Phiên bản**: Phiên bản hóa tài liệu và theo dõi thay đổi
+- **Quản lý Metadata**: Thuộc tính tài liệu phong phú và phân loại
 
-### Mẫu Tìm Kiếm & Truy Xuất
-- **Tìm Kiếm Kết Hợp**: Kết hợp tìm kiếm ngữ nghĩa và từ khóa để đạt kết quả tối ưu
-- **Tìm Kiếm Theo Khía Cạnh**: Lọc và phân loại đa chiều
-- **Điều Chỉnh Độ Liên Quan**: Thuật toán chấm điểm tùy chỉnh cho nhu cầu cụ thể của lĩnh vực
-- **Xếp Hạng Kết Quả**: Xếp hạng nâng cao với tích hợp logic kinh doanh
+### Mẫu Tìm kiếm & Truy xuất
+- **Tìm kiếm Lai**: Kết hợp tìm kiếm ngữ nghĩa và từ khóa để kết quả tối ưu
+- **Tìm kiếm Có Phân đoạn**: Lọc đa chiều và phân loại
+- **Điều chỉnh Độ liên quan**: Thuật toán điểm tùy chỉnh cho nhu cầu theo lĩnh vực
+- **Xếp hạng Kết quả**: Xếp hạng nâng cao với tích hợp logic kinh doanh
 
-### Mẫu Bảo Mật
-- **Bảo Mật Cấp Tài Liệu**: Kiểm soát truy cập chi tiết theo từng tài liệu
-- **Phân Loại Dữ Liệu**: Gắn nhãn nhạy cảm tự động và bảo vệ
-- **Dấu Vết Kiểm Toán**: Ghi nhật ký toàn diện cho tất cả các hoạt động RAG
-- **Bảo Vệ Quyền Riêng Tư**: Phát hiện và che giấu thông tin cá nhân (PII)
+### Mẫu Bảo mật
+- **Bảo mật ở Mức Tài liệu**: Kiểm soát truy cập chi tiết theo từng tài liệu
+- **Phân loại Dữ liệu**: Gán nhãn độ nhạy và bảo vệ tự động
+- **Theo dõi Kiểm toán**: Ghi nhật ký toàn diện các thao tác RAG
+- **Bảo vệ Quyền riêng tư**: Phát hiện và che dấu thông tin nhận dạng cá nhân (PII)
 
-## 🔒 Tính Năng Bảo Mật Doanh Nghiệp
+## 🔒 Tính năng Bảo mật Doanh nghiệp
 
-### Xác Thực & Ủy Quyền
+### Xác thực & Ủy quyền
 ```csharp
 // Azure AD integrated authentication
 var credential = new AzureCliCredential();
@@ -121,15 +121,15 @@ if (!await ValidateUserPermissions(user, documentId))
 }
 ```
 
-### Bảo Vệ Dữ Liệu
-- **Mã Hóa**: Mã hóa đầu cuối cho tài liệu và chỉ mục tìm kiếm
-- **Kiểm Soát Truy Cập**: Tích hợp với Azure AD cho quyền người dùng và nhóm
-- **Vị Trí Dữ Liệu**: Kiểm soát vị trí địa lý của dữ liệu để tuân thủ
-- **Sao Lưu & Phục Hồi**: Khả năng sao lưu và phục hồi tự động
+### Bảo vệ Dữ liệu
+- **Mã hóa**: Mã hóa đầu cuối cho tài liệu và chỉ mục tìm kiếm
+- **Kiểm soát Truy cập**: Tích hợp với Azure AD cho quyền người dùng và nhóm
+- **Lưu trú Dữ liệu**: Kiểm soát vị trí địa lý dữ liệu để tuân thủ
+- **Sao lưu & Phục hồi**: Khả năng sao lưu tự động và phục hồi thảm họa
 
-## 📈 Tối Ưu Hiệu Suất
+## 📈 Tối ưu Hiệu năng
 
-### Mẫu Xử Lý Async
+### Mẫu Xử lý Bất đồng bộ
 ```csharp
 // Efficient async document processing
 await foreach (var document in documentStream.AsAsyncEnumerable())
@@ -138,84 +138,86 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 }
 ```
 
-### Quản Lý Bộ Nhớ
-- **Xử Lý Streaming**: Xử lý tài liệu lớn mà không gặp vấn đề về bộ nhớ
-- **Tái Sử Dụng Tài Nguyên**: Sử dụng hiệu quả các tài nguyên đắt đỏ
-- **Thu Gom Rác**: Mẫu phân bổ bộ nhớ tối ưu
-- **Quản Lý Kết Nối**: Vòng đời kết nối dịch vụ Azure hợp lý
+### Quản lý Bộ nhớ
+- **Xử lý Phát trực tiếp**: Xử lý tài liệu lớn không gây vấn đề bộ nhớ
+- **Pooling Tài nguyên**: Tái sử dụng tài nguyên tốn kém hiệu quả
+- **Thu gom Rác**: Mẫu cấp phát bộ nhớ tối ưu
+- **Quản lý Kết nối**: Vòng đời kết nối dịch vụ Azure đúng cách
 
-### Chiến Lược Caching
-- **Caching Truy Vấn**: Bộ nhớ đệm cho các tìm kiếm được thực hiện thường xuyên
-- **Caching Tài Liệu**: Bộ nhớ đệm trong bộ nhớ cho các tài liệu nóng
-- **Caching Chỉ Mục**: Bộ nhớ đệm chỉ mục vector tối ưu
-- **Caching Kết Quả**: Bộ nhớ đệm thông minh cho các câu trả lời được tạo
+### Chiến lược Caching
+- **Caching Truy vấn**: Lưu bộ nhớ đệm cho các tìm kiếm thực thi thường xuyên
+- **Caching Tài liệu**: Bộ nhớ đệm trong bộ nhớ cho tài liệu nóng
+- **Caching Chỉ mục**: Bộ nhớ đệm tối ưu cho chỉ mục vector
+- **Caching Kết quả**: Bộ nhớ đệm thông minh cho các phản hồi được tạo
 
-## 📊 Các Trường Hợp Sử Dụng Doanh Nghiệp
+## 📊 Trường hợp Sử dụng Doanh nghiệp
 
-### Quản Lý Kiến Thức
-- **Wiki Công Ty**: Tìm kiếm thông minh trong cơ sở kiến thức của công ty
-- **Chính Sách & Quy Trình**: Hướng dẫn tuân thủ và quy trình tự động
-- **Tài Liệu Đào Tạo**: Hỗ trợ học tập và phát triển thông minh
-- **Cơ Sở Dữ Liệu Nghiên Cứu**: Hệ thống phân tích bài báo học thuật và nghiên cứu
+### Quản lý Kiến thức
+- **Wiki Doanh nghiệp**: Tìm kiếm thông minh qua cơ sở kiến thức công ty
+- **Chính sách & Thủ tục**: Hướng dẫn tự động tuân thủ và quy trình
+- **Tài liệu Đào tạo**: Hỗ trợ học tập và phát triển thông minh
+- **Cơ sở Dữ liệu Nghiên cứu**: Hệ thống phân tích bài nghiên cứu và học thuật
 
-### Hỗ Trợ Khách Hàng
-- **Cơ Sở Kiến Thức Hỗ Trợ**: Phản hồi dịch vụ khách hàng tự động
-- **Tài Liệu Sản Phẩm**: Truy xuất thông tin sản phẩm thông minh
-- **Hướng Dẫn Khắc Phục Sự Cố**: Hỗ trợ giải quyết vấn đề theo ngữ cảnh
-- **Hệ Thống FAQ**: Tạo FAQ động từ các bộ sưu tập tài liệu
+### Hỗ trợ Khách hàng
+- **Cơ sở Kiến thức Hỗ trợ**: Phản hồi dịch vụ khách hàng tự động
+- **Tài liệu Sản phẩm**: Truy xuất thông tin sản phẩm thông minh
+- **Hướng dẫn Khắc phục Sự cố**: Hỗ trợ giải quyết vấn đề theo ngữ cảnh
+- **Hệ thống FAQ**: Tạo FAQ động từ bộ sưu tập tài liệu
 
-### Tuân Thủ Quy Định
-- **Phân Tích Tài Liệu Pháp Lý**: Trí tuệ hợp đồng và tài liệu pháp lý
-- **Giám Sát Tuân Thủ**: Kiểm tra tuân thủ quy định tự động
-- **Đánh Giá Rủi Ro**: Phân tích và báo cáo rủi ro dựa trên tài liệu
-- **Hỗ Trợ Kiểm Toán**: Khám phá tài liệu thông minh cho kiểm toán
+### Tuân thủ Quy định
+- **Phân tích Tài liệu Pháp lý**: Trí tuệ hợp đồng và tài liệu pháp lý
+- **Giám sát Tuân thủ**: Kiểm tra tuân thủ quy định tự động
+- **Đánh giá Rủi ro**: Phân tích và báo cáo rủi ro dựa trên tài liệu
+- **Hỗ trợ Kiểm toán**: Khám phá tài liệu thông minh cho kiểm toán
 
-## 🚀 Triển Khai Sản Xuất
+## 🚀 Triển khai Sản xuất
 
-### Giám Sát & Khả Năng Quan Sát
-- **Application Insights**: Giám sát chi tiết về hiệu suất và telemetry
-- **Chỉ Số Tùy Chỉnh**: Theo dõi KPI cụ thể của doanh nghiệp và cảnh báo
-- **Tracing Phân Tán**: Theo dõi yêu cầu từ đầu đến cuối qua các dịch vụ
-- **Bảng Điều Khiển Sức Khỏe**: Hình ảnh hóa sức khỏe và hiệu suất hệ thống theo thời gian thực
+### Giám sát & Quan sát
+- **Application Insights**: Giám sát chi tiết điện tử và hiệu năng
+- **Chỉ số Tùy chỉnh**: Theo dõi KPI và cảnh báo theo doanh nghiệp
+- **Truy vết Phân tán**: Theo dõi yêu cầu đầu cuối qua các dịch vụ
+- **Bảng điều khiển Sức khỏe**: Trực quan sức khỏe hệ thống và hiệu năng theo thời gian thực
 
-### Khả Năng Mở Rộng & Độ Tin Cậy
-- **Tự Động Mở Rộng**: Mở rộng tự động dựa trên tải và chỉ số hiệu suất
-- **Khả Năng Sẵn Sàng Cao**: Triển khai đa vùng với khả năng chuyển đổi dự phòng
-- **Kiểm Tra Tải**: Xác thực hiệu suất dưới điều kiện tải doanh nghiệp
-- **Phục Hồi Thảm Họa**: Quy trình sao lưu và phục hồi tự động
+### Khả năng mở rộng & Độ tin cậy
+- **Tự động Mở rộng**: Tự động điều chỉnh quy mô dựa trên tải và chỉ số hiệu năng
+- **Độ sẵn sàng cao**: Triển khai đa vùng với khả năng chuyển đổi dự phòng
+- **Kiểm tra Tải**: Xác thực hiệu năng dưới điều kiện tải doanh nghiệp
+- **Phục hồi Thảm họa**: Quy trình sao lưu và phục hồi tự động
 
-Sẵn sàng xây dựng hệ thống RAG cấp doanh nghiệp có thể xử lý tài liệu nhạy cảm ở quy mô lớn? Hãy cùng kiến trúc hệ thống kiến thức thông minh cho doanh nghiệp! 🏢📖✨
+Sẵn sàng xây dựng hệ thống RAG cấp doanh nghiệp có khả năng xử lý tài liệu nhạy cảm ở quy mô lớn? Hãy cùng kiến trúc các hệ thống kiến thức thông minh cho doanh nghiệp! 🏢📖✨
 
-## Triển Khai Mã
+## Triển khai Code
 
-Mẫu mã hoàn chỉnh cho bài học này có sẵn trong `05-dotnet-agent-framework.cs`. 
+Mẫu code hoạt động hoàn chỉnh cho bài học này có trong `05-dotnet-agent-framework.cs`.
 
 Để chạy ví dụ:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Làm cho script có thể thực thi được (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Chạy ứng dụng .NET Single File
 ./05-dotnet-agent-framework.cs
 ```
 
-Hoặc sử dụng `dotnet run` trực tiếp:
+Hoặc chạy trực tiếp bằng `dotnet run`:
 
 ```bash
 dotnet run 05-dotnet-agent-framework.cs
 ```
 
-Mã này minh họa:
+Code trình bày:
 
-1. **Cài Đặt Gói**: Cài đặt các gói NuGet cần thiết cho Azure AI Agents
-2. **Cấu Hình Môi Trường**: Tải điểm cuối Azure AI Foundry và cài đặt mô hình
-3. **Tải Lên Tài Liệu**: Tải lên tài liệu để xử lý RAG
-4. **Tạo Vector Store**: Tạo vector store cho tìm kiếm ngữ nghĩa
-5. **Cấu Hình Agent**: Thiết lập agent AI với khả năng tìm kiếm tài liệu
-6. **Thực Thi Truy Vấn**: Chạy truy vấn trên tài liệu đã tải lên
+1. **Cài đặt Gói**: Cài đặt các gói NuGet cần thiết cho Azure AI Agents
+2. **Cấu hình Môi trường**: Tải cấu hình endpoint Microsoft Foundry và mô hình
+3. **Tải Tài liệu Lên**: Tải tài liệu để xử lý RAG
+4. **Tạo Vector Store**: Tạo kho vector cho tìm kiếm ngữ nghĩa
+5. **Cấu hình Agent**: Thiết lập agent AI với khả năng tìm file
+6. **Thực thi Truy vấn**: Thực hiện truy vấn trên tài liệu đã tải lên
 
 ---
 
-**Tuyên bố miễn trừ trách nhiệm**:  
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ bản địa nên được coi là nguồn thông tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp của con người. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Tuyên bố miễn trừ trách nhiệm**:
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng bản dịch tự động có thể chứa lỗi hoặc sai sót. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm về bất kỳ hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

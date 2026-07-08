@@ -1,42 +1,42 @@
-# Azure AI Agent Service-ontwikkeling
+# Microsoft Foundry Agent Service Ontwikkeling
 
-In deze oefening gebruikt u de Azure AI Agent service-tools in het [Microsoft Foundry-portaal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) om een agent voor het boeken van vluchten te maken. De agent kan met gebruikers communiceren en informatie geven over vluchten.
+In deze oefening gebruik je de Microsoft Foundry Agent Service tools in de [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) om een agent te maken voor Vluchtreservering. De agent zal in staat zijn om met gebruikers te communiceren en informatie over vluchten te verschaffen.
 
 ## Vereisten
 
-Om deze oefening te voltooien, heeft u het volgende nodig:
+Om deze oefening te voltooien, heb je het volgende nodig:
 1. Een Azure-account met een actieve abonnement. [Maak gratis een account aan](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. U heeft toestemming nodig om een Microsoft Foundry-hub aan te maken of er een voor u te laten aanmaken.
-    - Als uw rol Contributor of Owner is, kunt u de stappen in deze handleiding volgen.
+2. Je hebt toestemming nodig om een Microsoft Foundry-hub te maken of er moet er een voor jou gemaakt worden.
+    - Als je rol Contributor of Owner is, kun je de stappen in deze tutorial volgen.
 
-## Maak een Microsoft Foundry-hub aan
+## Maak een Microsoft Foundry-hub
 
-> **Opmerking:** Microsoft Foundry heette voorheen Azure AI Studio.
+> **Opmerking:** Microsoft Foundry stond voorheen bekend als Azure AI Studio.
 
-1. Volg deze richtlijnen uit de [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blogpost om een Microsoft Foundry-hub aan te maken.
-2.  Wanneer uw project is aangemaakt, sluit dan eventuele getoonde tips en bekijk de projectpagina in het Microsoft Foundry-portaal, die er ongeveer zo uit zou moeten zien:
+1. Volg deze richtlijnen uit het [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blogbericht voor het maken van een Microsoft Foundry-hub.
+2. Wanneer je project is gemaakt, sluit je eventuele tips die worden weergegeven en bekijk je de projectpagina in de Microsoft Foundry portal, die er ongeveer zo uit zou moeten zien als de volgende afbeelding:
 
     ![Microsoft Foundry Project](../../../translated_images/nl/azure-ai-foundry.88d0c35298348c2f.webp)
 
-## Implementeer een model
+## Een model implementeren
 
-1. Klik in het linkerpaneel van uw project in de sectie **My assets** op de pagina **Models + endpoints**.
-2. Op de pagina **Models + endpoints**, op het tabblad **Model deployments**, kiest u in het menu **+ Deploy model** voor **Deploy base model**.
-3. Zoek in de lijst naar het model `gpt-4o-mini` en selecteer en bevestig dit.
+1. In het linkerpaneel van je project, selecteer je in de sectie **Mijn middelen** de pagina **Modellen + eindpunten**.
+2. Op de pagina **Modellen + eindpunten**, in het tabblad **Modelimplementaties**, selecteer je in het menu **+ Model implementeren** de optie **Basis model implementeren**.
+3. Zoek het `gpt-4o-mini` model in de lijst, selecteer het en bevestig.
 
-    > **Opmerking**: Het verlagen van de TPM helpt overmatig gebruik van de quota in het abonnement dat u gebruikt te voorkomen.
+    > **Opmerking**: Het verlagen van de TPM helpt overmatig gebruik van de beschikbare quota in je abonnement te vermijden.
 
     ![Model Deployed](../../../translated_images/nl/model-deployment.3749c53fb81e18fd.webp)
 
-## Maak een agent aan
+## Maak een agent
 
-Nu u een model hebt geïmplementeerd, kunt u een agent maken. Een agent is een conversatiemodel dat kan worden gebruikt om met gebruikers te communiceren.
+Nu je een model hebt geïmplementeerd, kun je een agent maken. Een agent is een conversatie AI-model dat gebruikt kan worden om met gebruikers te communiceren.
 
-1. Klik in het linkerpaneel van uw project in de sectie **Build & Customize** op de pagina **Agents**.
-2. Klik op **+ Create agent** om een nieuwe agent te maken. In het dialoogvenster **Agent Setup**:
-    - Voer een naam in voor de agent, bijvoorbeeld `FlightAgent`.
-    - Zorg ervoor dat de eerder aangemaakte model-implementatie `gpt-4o-mini` is geselecteerd.
-    - Stel de **Instructions** in volgens de instructies die u wilt dat de agent volgt. Hier is een voorbeeld:
+1. In het linkerpaneel van je project, selecteer je in de sectie **Bouwen & Aanpassen** de pagina **Agents**.
+2. Klik op **+ Agent maken** om een nieuwe agent te creëren. In het dialoogvenster **Agentinstellingen**:
+    - Voer een naam in voor de agent, zoals `FlightAgent`.
+    - Zorg ervoor dat de eerder gecreëerde `gpt-4o-mini` modelimplementatie geselecteerd is.
+    - Stel de **Instructies** in volgens de prompt die je wilt dat de agent volgt. Hier is een voorbeeld:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -64,40 +64,40 @@ Nu u een model hebt geïmplementeerd, kunt u een agent maken. Een agent is een c
     
     ```
 > [!NOTE]
-> Voor een gedetailleerde prompt kunt u kijken in [deze repository](https://github.com/ShivamGoyal03/RoamMind) voor meer informatie.
+> Voor een gedetailleerde prompt kun je deze [repository](https://github.com/ShivamGoyal03/RoamMind) bekijken voor meer informatie.
     
-> Bovendien kunt u **Knowledge Base** en **Actions** toevoegen om de mogelijkheden van de agent uit te breiden zodat hij meer informatie kan geven en geautomatiseerde taken kan uitvoeren op basis van gebruikersverzoeken. Voor deze oefening kunt u deze stappen overslaan.
+> Bovendien kun je **Kennisbasis** en **Acties** toevoegen om de mogelijkheden van de agent uit te breiden om meer informatie te geven en geautomatiseerde taken uit te voeren op basis van gebruikersverzoeken. Voor deze oefening kun je deze stappen overslaan.
     
 ![Agent Setup](../../../translated_images/nl/agent-setup.9bbb8755bf5df672.webp)
 
-3. Om een nieuwe multi-AI-agent te maken, klikt u gewoon op **New Agent**. De nieuw aangemaakte agent wordt dan weergegeven op de Agents-pagina.
+3. Om een nieuwe multi-AI agent te maken, klik je eenvoudig op **Nieuwe Agent**. De nieuw gemaakte agent zal vervolgens op de Agents-pagina worden weergegeven.
 
 
 ## Test de agent
 
-Na het maken van de agent kunt u deze testen om te zien hoe hij reageert op gebruikersvragen in het Microsoft Foundry-portaal speelveld.
+Nadat je de agent hebt gemaakt, kun je deze testen om te zien hoe hij reageert op gebruikersvragen in de Microsoft Foundry portal speelomgeving.
 
-1. Selecteer bovenaan het paneel **Setup** voor uw agent de optie **Try in playground**.
-2. In het paneel **Playground** kunt u met de agent communiceren door vragen te typen in het chatvenster. U kunt de agent bijvoorbeeld vragen om te zoeken naar vluchten van Seattle naar New York op de 28e.
+1. Selecteer bovenaan het **Instellingen** paneel van je agent de optie **Probeer in speelomgeving**.
+2. In het **Speelomgeving** paneel kun je met de agent communiceren door vragen te typen in het chatvenster. Bijvoorbeeld, je kunt de agent vragen om vluchten te zoeken van Seattle naar New York op de 28ste.
 
-    > **Opmerking**: De agent geeft mogelijk geen accurate antwoorden, omdat er in deze oefening geen realtime gegevens worden gebruikt. Het doel is om de vaardigheid van de agent te testen om gebruikersvragen te begrijpen en erop te reageren op basis van de gegeven instructies.
+    > **Opmerking**: De agent geeft mogelijk geen accurate antwoorden, omdat er geen real-time data wordt gebruikt in deze oefening. Het doel is om de mogelijkheid van de agent te testen om gebruikersvragen te begrijpen en erop te reageren op basis van de gegeven instructies.
 
     ![Agent Playground](../../../translated_images/nl/agent-playground.dc146586de715010.webp)
 
-3. Na het testen van de agent kunt u deze verder aanpassen door meer intenties, trainingsgegevens en acties toe te voegen om de mogelijkheden te verbeteren.
+3. Na het testen van de agent kun je deze verder aanpassen door meer intenties, trainingsgegevens en acties toe te voegen om de mogelijkheden te verbeteren.
 
 ## Opruimen van resources
 
-Als u klaar bent met het testen van de agent, kunt u deze verwijderen om extra kosten te voorkomen.
-1. Open het [Azure-portaal](https://portal.azure.com) en bekijk de inhoud van de resourcegroep waar u de hub resources hebt geïmplementeerd die in deze oefening zijn gebruikt.
-2. Klik op de werkbalk op **Delete resource group**.
-3. Voer de naam van de resourcegroep in en bevestig dat u deze wilt verwijderen.
+Wanneer je klaar bent met het testen van de agent, kun je deze verwijderen om extra kosten te voorkomen.
+1. Open de [Azure portal](https://portal.azure.com) en bekijk de inhoud van de resourcegroep waarin je de hub-resources hebt gedeployed die in deze oefening zijn gebruikt.
+2. Selecteer in de werkbalk **Resourcegroep verwijderen**.
+3. Voer de naam van de resourcegroep in en bevestig dat je deze wilt verwijderen.
 
 ## Bronnen
 
-- [Microsoft Foundry-documentatie](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
-- [Microsoft Foundry-portaal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
-- [Aan de slag met Azure AI Studio](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [Microsoft Foundry documentatie](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
+- [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
+- [Aan de slag met Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
 - [Basisprincipes van AI-agenten op Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
@@ -105,5 +105,5 @@ Als u klaar bent met het testen van de agent, kunt u deze verwijderen om extra k
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-Dit document is vertaald met behulp van de AI-vertalingsdienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat automatische vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het oorspronkelijke document in de originele taal dient als de gezaghebbende bron te worden beschouwd. Voor belangrijke informatie wordt een professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

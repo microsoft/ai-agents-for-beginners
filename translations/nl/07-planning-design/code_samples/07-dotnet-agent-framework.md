@@ -1,63 +1,64 @@
-# 🎯 Planning & Ontwerppatronen met GitHub-modellen (.NET)
+# 🎯 Planning & Ontwerppatronen met Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Leerdoelen
 
-Dit notebook demonstreert planning en ontwerppatronen van ondernemingsniveau voor het bouwen van intelligente agenten met behulp van het Microsoft Agent Framework in .NET met GitHub-modellen. Je leert agenten te maken die complexe problemen kunnen ontleden, oplossingen in meerdere stappen kunnen plannen en geavanceerde workflows kunnen uitvoeren met de enterprise-functies van .NET.
+Deze notebook toont enterprise-grade planning- en ontwerppatronen voor het bouwen van intelligente agenten met het Microsoft Agent Framework in .NET met Azure OpenAI (Responses API). Je leert agenten te creëren die complexe problemen kunnen ontleden, meerstapsoplossingen kunnen plannen en geavanceerde workflows kunnen uitvoeren met de enterprise-functies van .NET.
 
 ## ⚙️ Vereisten & Setup
 
 **Ontwikkelomgeving:**
 - .NET 9.0 SDK of hoger
-- Visual Studio 2022 of VS Code met C#-extensie
-- Toegang tot GitHub Models API
+- Visual Studio 2022 of VS Code met C# extensie
+- Een Azure-abonnement met een Azure OpenAI-resource en een modeldeployement
+- De Azure CLI — aanmelden met `az login`
 
-**Benodigde afhankelijkheden:**
+**Vereiste Afhankelijkheden:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Omgevingsconfiguratie (.env-bestand):**
+**Omgevingsconfiguratie (.env bestand):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
 ```
 
-## Code uitvoeren
+## Code Uitvoeren
 
-Deze les bevat een implementatie van een .NET Single File App. Om deze uit te voeren:
+Deze les bevat een .NET Single File App implementatie. Om deze uit te voeren:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Maak het bestand uitvoerbaar (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Voer de applicatie uit
 ./07-dotnet-agent-framework.cs
 ```
 
-Of gebruik de dotnet run-opdracht:
+Of gebruik de dotnet run opdracht:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Code-implementatie
+## Code Implementatie
 
 De volledige implementatie is beschikbaar in `07-dotnet-agent-framework.cs`, waarin wordt gedemonstreerd:
 
 - Het laden van omgevingsconfiguratie met DotNetEnv
-- Het configureren van de OpenAI-client voor GitHub-modellen
+- Het configureren van de Azure OpenAI client voor de Responses API
 - Het definiëren van gestructureerde datamodellen (Plan en TravelPlan) met JSON-serialisatie
 - Het creëren van een AI-agent met gestructureerde output via JSON-schema
-- Het uitvoeren van planningsverzoeken met type-veilige reacties
+- Het uitvoeren van planningsaanvragen met typeveilige antwoorden
 
-## Belangrijke concepten
+## Kernconcepten
 
-### Gestructureerd plannen met type-veilige modellen
+### Gestructureerde Planning met Typeveilige Modellen
 
-De agent gebruikt C#-klassen om de structuur van planningsoutputs te definiëren:
+De agent gebruikt C#-klassen om de structuur van planningsuitkomsten te definiëren:
 
 ```csharp
 public class Plan
@@ -79,9 +80,9 @@ public class TravelPlan
 }
 ```
 
-### JSON-schema voor gestructureerde outputs
+### JSON Schema voor Gestructureerde Outputs
 
-De agent is geconfigureerd om reacties te retourneren die overeenkomen met het TravelPlan-schema:
+De agent is geconfigureerd om antwoorden terug te geven die overeenkomen met het TravelPlan-schema:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
@@ -96,22 +97,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Instructies voor de planningsagent
+### Planning Agent Instructies
 
-De agent fungeert als coördinator en delegeert taken aan gespecialiseerde sub-agenten:
+De agent fungeert als coördinator, die taken delegeert aan gespecialiseerde subagenten:
 
-- FlightBooking: Voor het boeken van vluchten en het verstrekken van vluchtinformatie
-- HotelBooking: Voor het boeken van hotels en het verstrekken van hotelinformatie
-- CarRental: Voor het boeken van auto's en het verstrekken van autoverhuurinformatie
-- ActivitiesBooking: Voor het boeken van activiteiten en het verstrekken van informatie over activiteiten
-- DestinationInfo: Voor het verstrekken van informatie over bestemmingen
+- FlightBooking: Voor het boeken van vluchten en geven van vluchtinformatie
+- HotelBooking: Voor het boeken van hotels en geven van hotelinformatie
+- CarRental: Voor het boeken van auto's en geven van autoverhuurinformatie
+- ActivitiesBooking: Voor het boeken van activiteiten en geven van activiteitinformatie
+- DestinationInfo: Voor het geven van informatie over bestemmingen
 - DefaultAgent: Voor het afhandelen van algemene verzoeken
 
-## Verwachte output
+## Verwachte Output
 
-Wanneer je de agent uitvoert met een reisplanningsverzoek, zal deze het verzoek analyseren en een gestructureerd plan genereren met passende taaktoewijzingen aan gespecialiseerde agenten, geformatteerd als JSON dat voldoet aan het TravelPlan-schema.
+Wanneer je de agent uitvoert met een reisplanningsverzoek, zal deze het verzoek analyseren en een gestructureerd plan genereren met passende taaktoewijzingen aan gespecialiseerde agenten, geformatteerd als JSON volgens het TravelPlan-schema.
 
 ---
 
-**Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsservice [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u zich ervan bewust te zijn dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Disclaimer**:
+Dit document is vertaald met behulp van de AI vertaaldienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritieke informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor eventuele misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

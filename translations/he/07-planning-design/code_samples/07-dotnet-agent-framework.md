@@ -1,63 +1,64 @@
-# 🎯 תכנון ותבניות עיצוב עם מודלים של GitHub (.NET)
+# 🎯 תבניות תכנון ועיצוב עם Azure OpenAI (Responses API) (.NET)
 
-## 📋 מטרות למידה
+## 📋 מטרות הלמידה
 
-מחברת זו מציגה תכנון ותבניות עיצוב ברמה ארגונית לבניית סוכנים חכמים באמצעות Microsoft Agent Framework ב-.NET עם מודלים של GitHub. תלמדו ליצור סוכנים שיכולים לפרק בעיות מורכבות, לתכנן פתרונות רב-שלביים ולהפעיל תהליכי עבודה מתקדמים עם תכונות ארגוניות של .NET.
+המחברת הזו ממחישה תבניות תכנון ועיצוב ברמת ארגונית לבניית סוכנים אינטיליגנטיים באמצעות Microsoft Agent Framework ב-.NET עם Azure OpenAI (Responses API). תלמדו ליצור סוכנים היכולים לפרק בעיות מורכבות, לתכנן פתרונות מרובי שלבים, ולבצע זרימות עבודה מתוחכמות עם תכונות ארגוניות של .NET.
 
-## ⚙️ דרישות מוקדמות והגדרות
+## ⚙️ דרישות מוקדמות והגדרה
 
 **סביבת פיתוח:**
-- .NET 9.0 SDK או גרסה גבוהה יותר
-- Visual Studio 2022 או VS Code עם הרחבת C#
-- גישה ל-API של מודלים של GitHub
+- .NET 9.0 SDK או גבוה יותר
+- Visual Studio 2022 או VS Code עם תוסף C#
+- מנוי Azure עם משאב Azure OpenAI ופריסת דגם
+- ממשק שורת הפקודה של Azure — התחבר עם `az login`
 
 **תלויות נדרשות:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**הגדרת סביבה (קובץ .env):**
+**קונפיגורציית סביבה (קובץ .env):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
 ```
 
 ## הפעלת הקוד
 
-שיעור זה כולל יישום של אפליקציה בודדת ב-.NET. להפעלתה:
+שיעור זה כולל יישום אפליקציית קובץ יחיד ב-.NET. להריץ אותו:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# להפוך את הקובץ להרצה (לינוקס/מק)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# להריץ את היישום
 ./07-dotnet-agent-framework.cs
 ```
 
-או השתמשו בפקודת dotnet run:
+או השתמש בפקודת dotnet run:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## יישום קוד
+## יישום הקוד
 
-היישום המלא זמין בקובץ `07-dotnet-agent-framework.cs`, שמדגים:
+היישום המלא זמין ב-`07-dotnet-agent-framework.cs`, ומדגים:
 
-- טעינת הגדרות סביבה עם DotNetEnv
-- הגדרת לקוח OpenAI עבור מודלים של GitHub
-- הגדרת מודלים של נתונים מובנים (Plan ו-TravelPlan) עם סריאליזציה ל-JSON
-- יצירת סוכן AI עם פלט מובנה באמצעות JSON schema
-- ביצוע בקשות תכנון עם תגובות בטוחות מסוג
+- טעינת קונפיגורציית סביבה עם DotNetEnv
+- הגדרת לקוח Azure OpenAI עבור Responses API
+- הגדרת מודלי נתונים מובנים (Plan ו-TravelPlan) עם סריאליזציה ל-JSON
+- יצירת סוכן AI עם פלט מובנה באמצעות סכמת JSON
+- ביצוע בקשות תכנון עם תגובות בטוחות טיפוס
 
 ## מושגים מרכזיים
 
-### תכנון מובנה עם מודלים בטוחים מסוג
+### תכנון מובנה עם מודלים בטוחים טיפוס
 
-הסוכן משתמש במחלקות C# כדי להגדיר את מבנה פלטי התכנון:
+הסוכן משתמש במחלקות C# להגדרת מבנה פלט של התכנון:
 
 ```csharp
 public class Plan
@@ -79,9 +80,9 @@ public class TravelPlan
 }
 ```
 
-### JSON Schema לפלטים מובנים
+### סכמת JSON לפלט מובנה
 
-הסוכן מוגדר להחזיר תגובות התואמות את הסכמה של TravelPlan:
+הסוכן מוגדר להחזיר תגובות התואמות לסכמת TravelPlan:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
@@ -96,22 +97,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### הוראות לסוכן תכנון
+### הנחיות לסוכן התכנון
 
-הסוכן פועל כמתאם, ומאציל משימות לסוכנים תת-מומחים:
+הסוכן מתפקד כמנתב, המפנה משימות לתת-סוכנים מומחים:
 
-- FlightBooking: להזמנת טיסות ומתן מידע על טיסות
-- HotelBooking: להזמנת מלונות ומתן מידע על מלונות
-- CarRental: להזמנת רכבים ומתן מידע על השכרת רכבים
-- ActivitiesBooking: להזמנת פעילויות ומתן מידע על פעילויות
-- DestinationInfo: למתן מידע על יעדים
+- FlightBooking: להזמנת טיסות וספק מידע על טיסות
+- HotelBooking: להזמנת מלונות וספק מידע על מלונות
+- CarRental: להשכרת רכב וספק מידע על השכרה
+- ActivitiesBooking: להזמנת פעילויות וספק מידע על פעילויות
+- DestinationInfo: לספק מידע על יעדים
 - DefaultAgent: לטיפול בבקשות כלליות
 
 ## פלט צפוי
 
-כאשר תפעילו את הסוכן עם בקשת תכנון נסיעה, הוא ינתח את הבקשה וייצור תוכנית מובנית עם הקצאת משימות מתאימה לסוכנים תת-מומחים, בפורמט JSON התואם את הסכמה של TravelPlan.
+כאשר מפעילים את הסוכן עם בקשת תכנון טיול, הוא ינתח את הבקשה וייצור תוכנית מובנית עם הקצאת משימות מתאימות לסוכנים ספציאליים, במבנה JSON התואם לסכמת TravelPlan.
 
 ---
 
-**כתב ויתור**:  
-מסמך זה תורגם באמצעות שירות תרגום AI [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש להיות מודעים לכך שתרגומים אוטומטיים עשויים להכיל שגיאות או אי דיוקים. המסמך המקורי בשפתו המקורית צריך להיחשב כמקור סמכותי. עבור מידע קריטי, מומלץ להשתמש בתרגום מקצועי אנושי. איננו אחראים לאי הבנות או לפרשנויות שגויות הנובעות משימוש בתרגום זה.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**כתב ויתור**:
+מסמך זה תורגם באמצעות שירות תרגום אוטומטי [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון שתרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. יש להחשיב את המסמך המקורי בשפתו הטבעית כמקור הסמכות. למידע קריטי מומלץ להשתמש בתרגום מקצועי על ידי מתרגם אדם. אנו לא אחראים לכל אי-הבנה או פירוש שגוי הנובע מהשימוש בתרגום זה.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

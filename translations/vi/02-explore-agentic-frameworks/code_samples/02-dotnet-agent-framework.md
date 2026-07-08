@@ -1,85 +1,88 @@
-# 🔍 Khám phá Microsoft Agent Framework - Agent cơ bản (.NET)
+# 🔍 Khám Phá Microsoft Agent Framework - Đại Lý Cơ Bản (.NET)
 
-## 📋 Mục tiêu học tập
+## 📋 Mục Tiêu Học Tập
 
-Ví dụ này khám phá các khái niệm cơ bản của Microsoft Agent Framework thông qua việc triển khai một agent cơ bản trong .NET. Bạn sẽ học các mẫu thiết kế cốt lõi của agent và hiểu cách các agent thông minh hoạt động bên trong bằng cách sử dụng C# và hệ sinh thái .NET.
+Ví dụ này khám phá các khái niệm cơ bản của Microsoft Agent Framework thông qua một triển khai đại lý cơ bản trong .NET. Bạn sẽ học các mẫu đại lý cốt lõi và hiểu cách các đại lý thông minh hoạt động bên trong sử dụng C# và hệ sinh thái .NET.
 
-### Những gì bạn sẽ khám phá
+### Những Gì Bạn Sẽ Khám Phá
 
-- 🏗️ **Kiến trúc Agent**: Hiểu cấu trúc cơ bản của các agent AI trong .NET  
-- 🛠️ **Tích hợp công cụ**: Cách các agent sử dụng các hàm bên ngoài để mở rộng khả năng  
-- 💬 **Luồng hội thoại**: Quản lý các cuộc hội thoại nhiều lượt và ngữ cảnh với quản lý luồng  
-- 🔧 **Mẫu cấu hình**: Các phương pháp tốt nhất để thiết lập và quản lý agent trong .NET  
+- 🏗️ **Kiến Trúc Đại Lý**: Hiểu cấu trúc cơ bản của các đại lý AI trong .NET
+- 🛠️ **Tích Hợp Công Cụ**: Làm thế nào các đại lý sử dụng các chức năng bên ngoài để mở rộng khả năng  
+- 💬 **Luồng Hội Thoại**: Quản lý các cuộc trò chuyện đa lượt và ngữ cảnh với quản lý luồng
+- 🔧 **Mẫu Cấu Hình**: Thực tiễn tốt nhất cho việc thiết lập và quản lý đại lý trong .NET
 
-## 🎯 Các khái niệm chính được đề cập
+## 🎯 Các Khái Niệm Chính Được Đề Cập
 
-### Nguyên tắc của Agentic Framework
+### Nguyên Tắc Framework Đại Lý
 
-- **Tự chủ**: Cách các agent đưa ra quyết định độc lập bằng cách sử dụng các trừu tượng AI của .NET  
-- **Phản ứng**: Đáp ứng các thay đổi từ môi trường và đầu vào của người dùng  
-- **Chủ động**: Chủ động hành động dựa trên mục tiêu và ngữ cảnh  
-- **Khả năng xã hội**: Tương tác thông qua ngôn ngữ tự nhiên với các luồng hội thoại  
+- **Tự Chủ**: Cách các đại lý đưa ra quyết định độc lập sử dụng trừu tượng AI của .NET
+- **Phản Ứng**: Phản hồi sự thay đổi môi trường và đầu vào của người dùng
+- **Chủ Động**: Chủ động dựa trên mục tiêu và ngữ cảnh
+- **Khả Năng Xã Hội**: Tương tác qua ngôn ngữ tự nhiên với các luồng hội thoại
 
-### Các thành phần kỹ thuật
+### Thành Phần Kỹ Thuật
 
-- **AIAgent**: Điều phối agent cốt lõi và quản lý hội thoại (.NET)  
-- **Hàm công cụ**: Mở rộng khả năng của agent với các phương thức và thuộc tính C#  
-- **Tích hợp OpenAI**: Tận dụng các mô hình ngôn ngữ thông qua các API chuẩn hóa của .NET  
-- **Cấu hình bảo mật**: Quản lý khóa API dựa trên môi trường  
+- **AIAgent**: Thành phần điều phối đại lý cốt lõi và quản lý hội thoại (.NET)
+- **Chức Năng Công Cụ**: Mở rộng khả năng đại lý với các phương thức và thuộc tính C#
+- **Tích Hợp Azure OpenAI**: Tận dụng các mô hình ngôn ngữ qua Azure OpenAI Responses API
+- **Cấu Hình Bảo Mật**: Quản lý điểm cuối dựa trên môi trường
 
-## 🔧 Công nghệ kỹ thuật
+## 🔧 Ngăn Xếp Kỹ Thuật
 
-### Công nghệ cốt lõi
+### Công Nghệ Cốt Lõi
 
-- Microsoft Agent Framework (.NET)  
-- Tích hợp API GitHub Models  
-- Các mẫu client tương thích với OpenAI  
-- Cấu hình dựa trên môi trường với DotNetEnv  
+- Microsoft Agent Framework (.NET)
+- Tích hợp Azure OpenAI (Responses API)
+- Mẫu khách Azure.AI.OpenAI
+- Cấu hình dựa trên môi trường với DotNetEnv
 
-### Khả năng của Agent
+### Khả Năng Đại Lý
 
-- Hiểu và tạo ngôn ngữ tự nhiên  
-- Gọi hàm và sử dụng công cụ với các thuộc tính C#  
-- Phản hồi theo ngữ cảnh với các luồng hội thoại  
-- Kiến trúc mở rộng với các mẫu tiêm phụ thuộc  
+- Hiểu và tạo ngôn ngữ tự nhiên
+- Gọi hàm và sử dụng công cụ với thuộc tính C#
+- Phản hồi dựa trên ngữ cảnh với các luồng hội thoại
+- Kiến trúc mở rộng với các mẫu tiêm phụ thuộc
 
-## 📚 So sánh Framework
+## 📚 So Sánh Framework
 
-Ví dụ này minh họa cách tiếp cận của Microsoft Agent Framework so với các framework agentic khác:
+Ví dụ này thể hiện cách tiếp cận của Microsoft Agent Framework so với các framework đại lý khác:
 
-| Tính năng | Microsoft Agent Framework | Các Framework khác |
-|-----------|---------------------------|--------------------|
-| **Tích hợp** | Hệ sinh thái Microsoft gốc | Tương thích đa dạng |
-| **Đơn giản** | API sạch, trực quan | Thường thiết lập phức tạp |
-| **Mở rộng** | Tích hợp công cụ dễ dàng | Phụ thuộc vào framework |
-| **Sẵn sàng cho doanh nghiệp** | Xây dựng cho sản xuất | Tùy thuộc vào framework |
+| Tính Năng | Microsoft Agent Framework | Framework Khác |
+|---------|-------------------------|------------------|
+| **Tích Hợp** | Hệ sinh thái Microsoft gốc | Tương thích đa dạng |
+| **Đơn Giản** | API gọn, trực quan | Thường phức tạp khi thiết lập |
+| **Khả Năng Mở Rộng** | Dễ tích hợp công cụ | Phụ thuộc vào framework |
+| **Sẵn Sàng Doanh Nghiệp** | Xây dựng cho môi trường sản xuất | Thay đổi theo framework |
 
-## 🚀 Bắt đầu
+## 🚀 Bắt Đầu
 
-### Yêu cầu trước
+### Yêu Cầu
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) hoặc cao hơn  
-- [Mã truy cập API GitHub Models](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) hoặc phiên bản cao hơn
+- Một [đăng ký Azure](https://azure.microsoft.com/free/) với tài nguyên Azure OpenAI và triển khai mô hình
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — đăng nhập với `az login`
 
-### Các biến môi trường cần thiết
+### Biến Môi Trường Cần Thiết
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Sau đó đăng nhập để AzureCliCredential có thể lấy token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Sau đó đăng nhập để AzureCliCredential có thể lấy token
+az login
 ```
 
-### Mã mẫu
+### Mã Mẫu
 
-Để chạy ví dụ mã,  
+Để chạy ví dụ mã,
 
 ```bash
 # zsh/bash
@@ -87,27 +90,29 @@ chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
 
-Hoặc sử dụng dotnet CLI:  
+Hoặc sử dụng dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
 
-Xem [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) để có mã đầy đủ.  
+Xem [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) để biết mã đầy đủ.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -139,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -184,11 +175,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -224,24 +215,24 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 }
 ```
 
-## 🎓 Những điểm chính cần nhớ
+## 🎓 Những Điểm Quan Trọng
 
-1. **Kiến trúc Agent**: Microsoft Agent Framework cung cấp một cách tiếp cận sạch sẽ, an toàn kiểu dữ liệu để xây dựng các agent AI trong .NET  
-2. **Tích hợp công cụ**: Các hàm được trang trí với thuộc tính `[Description]` trở thành các công cụ có sẵn cho agent  
-3. **Ngữ cảnh hội thoại**: Quản lý luồng cho phép các cuộc hội thoại nhiều lượt với nhận thức đầy đủ về ngữ cảnh  
-4. **Quản lý cấu hình**: Các biến môi trường và xử lý thông tin xác thực an toàn tuân theo các phương pháp tốt nhất của .NET  
-5. **Tương thích OpenAI**: Tích hợp GitHub Models hoạt động liền mạch thông qua các API tương thích với OpenAI  
+1. **Kiến Trúc Đại Lý**: Microsoft Agent Framework cung cấp cách tiếp cận rõ ràng, an toàn kiểu để xây dựng đại lý AI trong .NET
+2. **Tích Hợp Công Cụ**: Các hàm được trang trí với thuộc tính `[Description]` trở thành công cụ có sẵn cho đại lý
+3. **Ngữ Cảnh Hội Thoại**: Quản lý luồng cho phép hội thoại đa lượt với nhận thức đầy đủ về ngữ cảnh
+4. **Quản Lý Cấu Hình**: Biến môi trường và xử lý thông tin xác thực an toàn theo thực tiễn tốt nhất của .NET
+5. **Azure OpenAI Responses API**: Đại lý sử dụng Azure OpenAI Responses API thông qua SDK Azure.AI.OpenAI
 
-## 🔗 Tài nguyên bổ sung
+## 🔗 Tài Nguyên Bổ Sung
 
-- [Tài liệu Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)  
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Tài liệu Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI trong Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [Ứng dụng đơn file .NET](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Tuyên bố miễn trừ trách nhiệm**:  
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ bản địa nên được coi là nguồn thông tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
+**Tuyên bố miễn trừ trách nhiệm**:
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng bản dịch tự động có thể chứa lỗi hoặc sai sót. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm về bất kỳ hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
