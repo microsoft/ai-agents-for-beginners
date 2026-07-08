@@ -1,72 +1,72 @@
-# AI-agenter i produktion: Observabilitet & evaluering
+# AI-agenter i produktion: Observabilitet & Evaluering
 
-[![AI-agenter i produktion](../../../translated_images/da/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![AI Agents in Production](../../../translated_images/da/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-Efterhånden som AI-agenter bevæger sig fra eksperimentelle prototyper til virkelige anvendelser, bliver evnen til at forstå deres adfærd, overvåge deres ydeevne og systematisk evaluere deres output vigtig.
+Når AI-agenter går fra eksperimentelle prototyper til virkelige anvendelser, bliver evnen til at forstå deres adfærd, overvåge deres ydeevne og systematisk evaluere deres output vigtig.
 
 ## Læringsmål
 
-Efter at have gennemført denne lektion vil du vide hvordan/forstå:
-- Grundlæggende koncepter inden for agent-observabilitet og evaluering
+Efter at have gennemført denne lektion vil du vide, hvordan man/forstår:
+- Kernekoncepter inden for agentobservabilitet og evaluering
 - Teknikker til forbedring af agenters ydeevne, omkostninger og effektivitet
-- Hvad og hvordan du systematisk evaluerer dine AI-agenter
-- Hvordan du styrer omkostninger ved udrulning af AI-agenter i produktion
-- Hvordan du instrumenterer agenter bygget med Microsoft Agent Framework
+- Hvad og hvordan man systematisk evaluerer dine AI-agenter
+- Hvordan man kontrollerer omkostninger ved implementering af AI-agenter i produktion
+- Hvordan man instrumenterer agenter bygget med Microsoft Agent Framework
 
-Målet er at udstyre dig med den viden, der skal til for at omdanne dine "black box"-agenter til gennemskuelige, håndterbare og pålidelige systemer.
+Målet er at udstyre dig med viden til at forvandle dine "black box"-agenter til gennemsigtige, håndterbare og pålidelige systemer.
 
-_**Bemærk:** Det er vigtigt at udrulle AI-agenter, der er sikre og troværdige. Se også lektionen [Opbygning af troværdige AI-agenter](./06-building-trustworthy-agents/README.md)._
+_**Note:** Det er vigtigt at implementere AI-agenter, der er sikre og pålidelige. Se også lektionen [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md)._
 
-## Traces and Spans
+## Traces og Spans
 
 Observabilitetsværktøjer såsom [Langfuse](https://langfuse.com/) eller [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) repræsenterer normalt agentkørsler som traces og spans.
 
-- **Trace** repræsenterer en komplet agentopgave fra start til slut (som f.eks. håndtering af en brugerforespørgsel).
-- **Spans** er individuelle trin inden for trace (som f.eks. kald til et sprogmodel-API eller hentning af data).
+- **Trace** repræsenterer en komplet agentopgave fra start til slut (som at håndtere en brugerforespørgsel).
+- **Spans** er individuelle trin inden for trace (som at kalde en sprogmodel eller hente data).
 
-![Trace-træ i Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+![Trace tree in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
 <!-- Image URL retained for illustration purposes -->
 
-Uden observabilitet kan en AI-agent føles som en "black box" - dens interne tilstand og ræsonnement er uigennemsigtige, hvilket gør det svært at diagnosticere problemer eller optimere ydeevnen. Med observabilitet bliver agenterne til "glass boxes", der tilbyder gennemsigtighed, hvilket er afgørende for at opbygge tillid og sikre, at de fungerer som forventet. 
+Uden observabilitet kan en AI-agent føles som en "black box" – dens interne tilstand og ræsonnement er uigennemsigtige, hvilket gør det vanskeligt at diagnosticere problemer eller optimere ydeevnen. Med observabilitet bliver agenter til "glasbokse", der tilbyder gennemsigtighed, som er afgørende for at opbygge tillid og sikre, at de fungerer som tilsigtet. 
 
 ## Hvorfor observabilitet er vigtigt i produktionsmiljøer
 
-Overgangen af AI-agenter til produktionsmiljøer introducerer et nyt sæt udfordringer og krav. Observabilitet er ikke længere et "nice-to-have", men en kritisk kapabilitet:
+Overgangen af AI-agenter til produktionsmiljøer introducerer et nyt sæt udfordringer og krav. Observabilitet er ikke længere "nice-to-have", men en kritisk kapabilitet:
 
-*   **Debugging og root-cause-analyse**: Når en agent fejler eller producerer et uventet output, leverer observabilitetsværktøjer de traces, der er nødvendige for at identificere årsagen til fejlen. Dette er især vigtigt i komplekse agenter, der kan involvere flere LLM-kald, værktøjsinteraktioner og betinget logik.
-*   **Latens- og omkostningsstyring**: AI-agenter er ofte afhængige af LLM'er og andre eksterne API'er, der faktureres per token eller per kald. Observabilitet muliggør præcis sporing af disse kald og hjælper med at identificere operationer, der er unødigt langsomme eller dyre. Dette gør det muligt for teams at optimere prompts, vælge mere effektive modeller eller redesigne arbejdsflows for at styre driftsomkostninger og sikre en god brugeroplevelse.
-*   **Tillid, sikkerhed og compliance**: I mange anvendelser er det vigtigt at sikre, at agenter opfører sig sikkert og etisk. Observabilitet giver et revisionsspor af agenthandlinger og beslutninger. Dette kan bruges til at opdage og afbøde problemer som prompt-injektion, generering af skadeligt indhold eller forkert håndtering af personligt identificerbare oplysninger (PII). For eksempel kan du gennemgå traces for at forstå, hvorfor en agent gav et bestemt svar eller brugte et specifikt værktøj.
-*   **Kontinuerlige forbedringssløjfer**: Observabilitetsdata er fundamentet for en iterativ udviklingsproces. Ved at overvåge, hvordan agenter præsterer i den virkelige verden, kan teams identificere forbedringsområder, indsamle data til finjustering af modeller og validere effekten af ændringer. Dette skaber en feedbacksløjfe, hvor produktionsindsigter fra online-evaluering informerer offline-eksperimenter og forfinelser, hvilket fører til gradvist bedre agentpræstation.
+*   **Fejlfinding og årsagsanalyse**: Når en agent fejler eller producerer en uventet output, giver observabilitetsværktøjer de traces, der er nødvendige for at lokalisere fejlkilden. Dette er især vigtigt i komplekse agenter, der kan involvere flere LLM-kald, værktøjsinteraktioner og betinget logik.
+*   **Latens og omkostningsstyring**: AI-agenter er ofte afhængige af LLM'er og andre eksterne API'er, som faktureres per token eller per kald. Observabilitet tillader præcis sporing af disse kald, hvilket hjælper med at identificere operationer, der er for langsomme eller dyre. Dette gør det muligt for teams at optimere prompts, vælge mere effektive modeller eller redesigne arbejdsgange til at styre driftsomkostninger og sikre en god brugeroplevelse.
+*   **Tillid, sikkerhed og overholdelse**: I mange anvendelser er det vigtigt at sikre, at agenter opfører sig sikkert og etisk. Observabilitet giver et revisionsspor for agenthandlinger og beslutninger. Dette kan bruges til at opdage og afbøde problemer som promptinjektion, fremstilling af skadeligt indhold eller dårlig håndtering af personhenførbare oplysninger (PII). For eksempel kan du gennemgå traces for at forstå, hvorfor en agent gav et bestemt svar eller brugte et specifikt værktøj.
+*   **Kontinuerlige forbedringssløjfer**: Observabilitetsdata er grundlaget for en iterativ udviklingsproces. Ved at overvåge agenters ydeevne i den virkelige verden kan teams identificere forbedringsområder, indsamle data til finjustering af modeller og validere effekten af ændringer. Dette skaber en feedbacksløjfe, hvor produktionsindsigt fra online-evaluering informerer offline-eksperimenter og -forbedring, hvilket fører til gradvist bedre agentydelse.
 
-## Nøglemetrikker at tracke
+## Centrale metrics at følge
 
-For at overvåge og forstå agentadfærd bør en række metrikker og signaler spores. Selvom de specifikke metrikker kan variere baseret på agentens formål, er nogle universelt vigtige.
+For at overvåge og forstå agentadfærd bør en række metrics og signaler følges. Selvom de specifikke metrics kan variere baseret på agentens formål, er nogle universelt vigtige.
 
-Her er nogle af de mest almindelige metrikker, som observabilitetsværktøjer overvåger:
+Her er nogle af de mest almindelige metrics, som observabilitetsværktøjer overvåger:
 
-**Latens:** Hvor hurtigt reagerer agenten? Lange ventetider påvirker brugeroplevelsen negativt. Du bør måle latens for opgaver og individuelle trin ved at trace agentkørsler. For eksempel kan en agent, der bruger 20 sekunder på alle modelkald, accelereres ved at bruge en hurtigere model eller ved at køre modelkald parallelt.
+**Latens:** Hvor hurtigt responderer agenten? Lange ventetider påvirker brugeroplevelsen negativt. Du bør måle latens for opgaver og individuelle trin ved at spore agentkørsler. For eksempel kan en agent, der tager 20 sekunder for alle modelkald, accelereres ved at bruge en hurtigere model eller ved at køre modelkald parallelt.
 
-**Omkostninger:** Hvad koster en agentkørsel? AI-agenter er afhængige af LLM-kald, der faktureres per token, eller eksterne API'er. Hyppig brug af værktøjer eller multiple prompts kan hurtigt øge omkostningerne. For eksempel, hvis en agent kalder en LLM fem gange for marginal forbedring af kvaliteten, skal du vurdere, om omkostningen er berettiget, eller om du kunne reducere antallet af kald eller bruge en billigere model. Realtidsovervågning kan også hjælpe med at identificere uventede spidser (f.eks. fejl, der forårsager overdrevne API-løkker).
+**Omkostninger:** Hvad koster en agentkørsel? AI-agenter er afhængige af LLM-kald, der faktureres per token eller eksterne API'er. Hyppig brug af værktøjer eller mange prompts kan hurtigt øge omkostningerne. For eksempel, hvis en agent kalder en LLM fem gange for en marginal kvalitetsforbedring, skal du vurdere, om omkostningen er berettiget, eller om du kan reducere antallet af kald eller bruge en billigere model. Overvågning i realtid kan også hjælpe med at identificere uventede spidser (f.eks. fejl, der forårsager overdreven API-loop).
 
-**Request-fejl:** Hvor mange forespørgsler fejlede agenten i? Dette kan inkludere API-fejl eller mislykkede værktøjsopkald. For at gøre din agent mere robust over for disse i produktion kan du opsætte fallback-mekanismer eller retries. F.eks. hvis LLM-udbyder A er nede, kan du skifte til LLM-udbyder B som backup.
+**Forespørgselsfejl:** Hvor mange forespørgsler fejlede agenten? Dette kan inkludere API-fejl eller mislykkede værktøjskald. For at gøre agenten mere robust mod disse i produktion kan du sætte fallback-mekanismer eller forsøg igen op. Fx hvis LLM-udbyder A er nede, skifter du til LLM-udbyder B som backup.
 
-**Brugerfeedback:** Implementering af direkte brugerevalueringer giver værdifuld indsigt. Dette kan inkludere eksplicitte ratings (👍thumbs-up/👎down, ⭐1-5 stjerner) eller tekstkommentarer. Konsistent negativ feedback bør alarmere dig, da det er et tegn på, at agenten ikke fungerer som forventet. 
+**Brugerfeedback:** Implementering af direkte brugervurderinger giver værdifuld indsigt. Dette kan inkludere eksplicitte bedømmelser (👍tommel-op/👎ned, ⭐1-5 stjerner) eller tekstkommentarer. Konsistent negativ feedback skal advare dig, da det er et tegn på, at agenten ikke fungerer som forventet. 
 
-**Implicit brugerfeedback:** Brugeradfærd giver indirekte feedback selv uden eksplicitte ratings. Dette kan inkludere øjeblikkelig omformulering af spørgsmål, gentagne forespørgsler eller klik på en retry-knap. F.eks. hvis du ser, at brugere gentagne gange stiller det samme spørgsmål, er det et tegn på, at agenten ikke fungerer som forventet.
+**Implicit brugerfeedback:** Brugeradfærd tilbyder indirekte feedback, selv uden eksplicitte bedømmelser. Dette kan inkludere øjeblikkelig omformulering af spørgsmål, gentagne forespørgsler eller klik på en prøv igen-knap. Fx hvis du ser, at brugere gentagne gange stiller det samme spørgsmål, er det et tegn på, at agenten ikke fungerer som forventet.
 
-**Nøjagtighed:** Hvor ofte producerer agenten korrekte eller ønskværdige outputs? Definitionen af nøjagtighed varierer (f.eks. korrekt problemløsning, nøjagtighed af informationssøgning, brugertilfredshed). Det første skridt er at definere, hvad succes ser ud som for din agent. Du kan spore nøjagtighed via automatiserede checks, evalueringsscore eller opgaveafslutningsmærkater. For eksempel at markere traces som "succeeded" eller "failed". 
+**Nøjagtighed:** Hvor ofte producerer agenten korrekte eller ønskværdige output? Definitionen af nøjagtighed varierer (f.eks. korrekt problemløsning, informationspræcision, brugertilfredshed). Det første trin er at definere, hvad succes ser ud for din agent. Du kan spore nøjagtighed via automatiserede kontroller, evalueringspoint eller opgavestatusmærker. For eksempel mærkning af traces som "succeeded" eller "failed".
 
-**Automatiserede evalueringsmetrikker:** Du kan også opsætte automatiserede evalueringer. For eksempel kan du bruge en LLM til at score agentens output, fx om det er hjælpsomt eller korrekt. Der findes også flere open source-biblioteker, der hjælper med at score forskellige aspekter af agenten, f.eks. [RAGAS](https://docs.ragas.io/) for RAG-agenter eller [LLM Guard](https://llm-guard.com/) til at opdage skadeligt sprog eller prompt-injektion. 
+**Automatiserede evalueringsmetrics:** Du kan også opsætte automatiserede evalueringer. For eksempel kan du bruge en LLM til at score agentens output, fx om det er hjælpsomt, korrekt eller ej. Der findes også flere open source-biblioteker, der hjælper med at score forskellige aspekter af agenten. Fx [RAGAS](https://docs.ragas.io/) for RAG-agenter eller [LLM Guard](https://llm-guard.com/) til at opdage skadelig sprogbrug eller promptinjektion.
 
-I praksis giver en kombination af disse metrikker den bedste dækning af en AI-agents helbred. I dette kapitels [eksempel-notebook](./code_samples/10-expense_claim-demo.ipynb) vil vi vise, hvordan disse metrikker ser ud i virkelige eksempler, men først lærer vi, hvordan en typisk evalueringsworkflow ser ud.
+I praksis giver en kombination af disse metrics den bedste dækning af en AI-agents helbred. I dette kapitel [eksempelnotebook](./code_samples/10-expense_claim-demo.ipynb) vil vi vise dig, hvordan disse metrics ser ud i virkelige eksempler, men først lærer vi, hvordan en typisk evalueringsarbejdsgang ser ud.
 
-## Instrumenter din agent
+## Instrumentér din Agent
 
-For at indsamle tracing-data skal du instrumentere din kode. Målet er at instrumentere agentkoden til at udsende traces og metrikker, som kan indfanges, behandles og visualiseres af en observabilitetsplatform.
+For at indsamle trace-data skal du instrumentere din kode. Målet er at instrumentere agentkoden til at udsende traces og metrics, som kan indfanges, behandles og visualiseres af en observabilitetsplatform.
 
-**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) er blevet en industristandard for LLM-observabilitet. Det giver et sæt API'er, SDK'er og værktøjer til at generere, indsamle og eksportere telemetridata. 
+**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) er blevet en industristandard for LLM-observabilitet. Det tilbyder et sæt API'er, SDK'er og værktøjer til generering, indsamling og eksport af telemetridata.
 
-Der findes mange instrumenteringsbiblioteker, der pakker eksisterende agent-rammeværk ind og gør det nemt at eksportere OpenTelemetry-spans til et observabilitetsværktøj. Microsoft Agent Framework integrerer med OpenTelemetry indbygget. Nedenfor er et eksempel på instrumentering af en MAF-agent:
+Der findes mange instrumenteringsbiblioteker, der omslutter eksisterende agentframeworks og gør det nemt at eksportere OpenTelemetry-spans til et observabilitetsværktøj. Microsoft Agent Framework integrerer nativt med OpenTelemetry. Nedenfor er et eksempel på, hvordan man instrumenterer en MAF-agent:
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -75,15 +75,15 @@ tracer = get_tracer()
 meter = get_meter()
 
 with tracer.start_as_current_span("agent_run"):
-    # Agentens udførelse spores automatisk
+    # Agentudførelse spores automatisk
     pass
 ```
 
-The [example notebook](./code_samples/10-expense_claim-demo.ipynb) in this chapter will demonstrate how to instrument your MAF agent.
+Eksempelnotebooken i dette kapitel ([example notebook](./code_samples/10-expense_claim-demo.ipynb)) vil demonstrere, hvordan du instrumenterer din MAF-agent.
 
-**Manuel span-oprettelse:** Mens instrumenteringsbiblioteker giver en god baseline, er der ofte tilfælde, hvor mere detaljeret eller tilpasset information er nødvendig. Du kan manuelt oprette spans for at tilføje brugerdefineret applikationslogik. Endnu vigtigere kan de berige automatisk eller manuelt oprettede spans med brugerdefinerede attributter (også kendt som tags eller metadata). Disse attributter kan inkludere forretningsspecifikke data, mellemliggende beregninger eller enhver kontekst, der kan være nyttig til debugging eller analyse, såsom `user_id`, `session_id` eller `model_version`.
+**Manuel Span-oprettelse:** Mens instrumenteringsbiblioteker giver et godt udgangspunkt, er der ofte tilfælde, hvor mere detaljeret eller brugerdefineret information er nødvendig. Du kan manuelt oprette spans for at tilføje brugerdefineret applikationslogik. Endnu vigtigere, de kan berige automatisk eller manuelt oprettede spans med brugerdefinerede attributter (også kendt som tags eller metadata). Disse attributter kan inkludere forretningsspecifikke data, mellemliggende beregninger eller enhver kontekst, der kan være nyttig til fejlfinding eller analyse, såsom `user_id`, `session_id` eller `model_version`.
 
-Eksempel på at oprette traces og spans manuelt med [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3): 
+Eksempel på manuel oprettelse af traces og spans med [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3):
 
 ```python
 from langfuse import get_client
@@ -95,76 +95,78 @@ span = langfuse.start_span(name="my-span")
 span.end()
 ```
 
-## Agent-evaluering
+## Agent Evaluering
 
-Observabilitet giver os metrikker, men evaluering er processen med at analysere disse data (og udføre tests) for at afgøre, hvor godt en AI-agent præsterer, og hvordan den kan forbedres. Med andre ord, når du har de traces og metrikker, hvordan bruger du dem til at bedømme agenten og træffe beslutninger?
+Observabilitet giver os metrics, men evaluering er processen med at analysere disse data (og udføre tests) for at afgøre, hvor godt en AI-agent præsterer, og hvordan den kan forbedres. Med andre ord, når du har disse traces og metrics, hvordan bruger du dem til at vurdere agenten og træffe beslutninger?
 
-Regelmæssig evaluering er vigtig, fordi AI-agenter ofte er ikke-deterministiske og kan udvikle sig (gennem opdateringer eller drifting af modeladfærd) – uden evaluering ville du ikke vide, om din "smarte agent" faktisk udfører sit job godt, eller om den er gået tilbage i ydeevne.
+Regelmæssig evaluering er vigtig, fordi AI-agenter ofte er ikke-deterministiske og kan udvikle sig (gennem opdateringer eller forskydende modeladfærd) – uden evaluering ville du ikke vide, om din ”smarte agent” faktisk gør sit job godt, eller om den er forværret.
 
-Der er to kategorier af evalueringer for AI-agenter: **online-evaluering** og **offline-evaluering**. Begge er værdifulde og komplementerer hinanden. Vi starter normalt med offline-evaluering, da dette er det minimale nødvendige trin, inden man deployerer en agent.
+Der findes to kategorier af evalueringer for AI-agenter: **online evaluering** og **offline evaluering**. Begge er værdifulde og komplementerer hinanden. Vi begynder normalt med offline evaluering, da det er det minimale nødvendige trin, før en agent implementeres.
 
-### Offline-evaluering
+### Offline Evaluering
 
-![Datasætposter i Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
+![Dataset items in Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-Dette involverer evaluering af agenten i et kontrolleret miljø, typisk ved brug af testdatasets, ikke live brugerspørgsmål. Du bruger kuraterede datasæt, hvor du ved, hvad det forventede output eller korrekt adfærd er, og derefter kører din agent på disse.
+Dette involverer at evaluere agenten i et kontrolleret miljø, typisk ved hjælp af testdatasæt, ikke live brugerforespørgsler. Du bruger kuraterede datasæt, hvor du kender det forventede output eller korrekt adfærd, og derefter kører din agent på dem.
 
-For eksempel, hvis du har bygget en agent til matematikordopgaver, kan du have et [testdatasæt](https://huggingface.co/datasets/gsm8k) på 100 opgaver med kendte svar. Offline-evaluering udføres ofte under udvikling (og kan være en del af CI/CD-pipelines) for at kontrollere forbedringer eller forhindre regressionsfejl. Fordelen er, at det er **gentageligt, og du kan få klare nøjagtighedsmetrikker, da du har ground truth**. Du kan også simulere brugerforespørgsler og måle agentens svar imod ideelle svar eller bruge automatiserede metrikker som beskrevet ovenfor.
+For eksempel, hvis du har bygget en agent til matematiske tekstproblemer, kan du have et [testdatasæt](https://huggingface.co/datasets/gsm8k) med 100 problemer med kendte svar. Offline evaluering udføres ofte under udvikling (og kan være en del af CI/CD-pipelines) for at tjekke forbedringer eller forhindre regresioner. Fordelen er, at det er **gentageligt, og du får klare nøjagtighedsmetrics, da du har sandhedsværdier**. Du kan også simulere brugerforespørgsler og måle agentens svar mod ideelle svar eller bruge automatiserede metrics som beskrevet ovenfor.
 
-Den centrale udfordring ved offline-eval er at sikre, at dit testdatasæt er omfattende og forbliver relevant – agenten kan klare sig godt på et fast testset, men støde på meget forskellige forespørgsler i produktion. Derfor bør du holde testset opdateret med nye edge cases og eksempler, der afspejler virkelige scenarier. En blanding af små "smoke test"-cases og større evalueringssæt er nyttig: små sæt til hurtige checks og større sæt til bredere præstationsmålinger.
+Den største udfordring ved offline evaluering er at sikre, at dit testdatasæt er omfattende og forbliver relevant – agenten kan klare sig godt på et fast testdatasæt, men møde meget forskellige forespørgsler i produktion. Derfor bør du holde testdatasæt opdaterede med nye edge cases og eksempler, der afspejler virkelige scenarier. En blanding af små ”røgringningstest” og større evalueringssæt er nyttig: små sæt til hurtige tjek og større til bredere ydeevnemetrics.
 
-### Online-evaluering
+### Online Evaluering
 
-![Oversigt over observabilitetsmålinger](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
+![Observability metrics overview](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-Dette refererer til evaluering af agenten i et live, virkeligt miljø, dvs. under faktisk brug i produktion. Online-evaluering involverer overvågning af agentens ydeevne på rigtige brugerinteraktioner og løbende analyse af resultater.
+Dette henviser til evaluering af agenten i et live, virkeligt miljø, dvs. under faktisk brug i produktionen. Online evaluering involverer overvågning af agentens præstation på rigtige brugerinteraktioner og løbende analyse af resultater.
 
-For eksempel kan du spore succesrater, brugertilfredsheds-score eller andre metrikker på live-trafik. Fordelen ved online-evaluering er, at den **fanger ting, du måske ikke forudser i et laboratorium** – du kan observere model-drift over tid (hvis agentens effektivitet nedbrydes, efterhånden som input-mønstre ændrer sig) og fange uventede forespørgsler eller situationer, der ikke var i dit testdata. Det giver et sandt billede af, hvordan agenten opfører sig "i det fri".
+For eksempel kan du spore succesrater, brugertilfredshedsscores eller andre metrics på live trafik. Fordelen ved online evaluering er, at den **fanger ting, du måske ikke kan forudse i laboratoriemiljø** – du kan observere modeldrift over tid (hvis agentens effektivitet forringes, som inputmønstre ændrer sig) og opdage uventede forespørgsler eller situationer, der ikke var i dine testdata. Den giver et sandt billede af, hvordan agenten opfører sig i felten.
 
-Online-evaluering involverer ofte indsamling af implicit og eksplicit brugerfeedback, som diskuteret, og eventuelt kørsel af shadow-tests eller A/B-tests (hvor en ny version af agenten kører parallelt for at sammenligne med den gamle). Udfordringen er, at det kan være svært at få pålidelige labels eller scores for live-interaktioner – du kan være nødt til at stole på brugerfeedback eller downstream-metrics (f.eks. om brugeren klikkede på resultatet).
+Online evaluering involverer ofte indsamling af implicit og eksplicit brugerfeedback, som tidligere diskuteret, samt muligvis kørsel af shadow tests eller A/B-tests (hvor en ny version af agenten kører parallelt for at sammenligne med den gamle). Udfordringen er, at det kan være svært at få pålidelige labels eller scores for live interaktioner – du må måske stole på brugerfeedback eller downstream metrics (som om brugeren klikkede på resultatet).
 
 ### Kombination af de to
 
-Online- og offline-evaluering er ikke gensidigt udelukkende; de supplerer hinanden kraftigt. Indsigter fra online-overvågning (f.eks. nye typer brugerspørgsmål, hvor agenten klarer sig dårligt) kan bruges til at udvide og forbedre offline-testdatasæt. Omvendt kan agenter, der klarer sig godt i offline-tests, derefter deployeres med større tillid og overvåges online.
+Online og offline evalueringer er ikke gensidigt udelukkende; de supplerer hinanden meget. Indsigter fra online overvågning (f.eks. nye typer brugerforespørgsler, hvor agenten præsterer dårligt) kan bruges til at forbedre offline testdatasæt. Omvendt kan agenter, der klarer sig godt i offline tests, med større tillid implementeres og overvåges online.
 
-Faktisk adopterer mange teams en løkke:
+Faktisk anvender mange teams en sløjfe:
 
-_evaluer offline -> deployer -> overvåg online -> indsamle nye fejlcases -> tilføj til offline-datasæt -> forfin agent -> gentag_.
+_evaluer offline -> implementer -> overvåg online -> indsamle nye fejlsager -> tilføj til offline datasæt -> forfin agent -> gentag_.
 
 ## Almindelige problemer
 
-Når du udruller AI-agenter i produktion, kan du støde på forskellige udfordringer. Her er nogle almindelige problemer og deres mulige løsninger:
+Når du implementerer AI-agenter i produktion, kan du møde forskellige udfordringer. Her er nogle almindelige problemer og mulige løsninger:
 
-| **Problem**    | **Potentiel løsning**   |
+| **Problem**    | **Mulig løsning**   |
 | ------------- | ------------------ |
-| AI-agenten udfører ikke opgaver konsekvent | - Forfin prompten givet til AI-agenten; vær klar i målsætninger.<br>- Identificer hvor opdelingen af opgaver i delopgaver og håndtering af dem af flere agenter kan hjælpe. |
-| AI-agenten kører ind i kontinuerlige løkker  | - Sørg for, at du har klare termineringsbetingelser, så agenten ved, hvornår den skal stoppe processen.<br>- For komplekse opgaver, der kræver ræsonnement og planlægning, brug en større model, der er specialiseret i ræsonnement. |
-| AI-agentens værktøjskald fungerer ikke godt   | - Test og valider værktøjets output uden for agentsystemet.<br>- Forfin de definerede parametre, prompts og navngivning af værktøjer.  |
-| Multi-agent systemet fungerer ikke konsekvent | - Forfin prompts givet til hver agent for at sikre, at de er specifikke og forskellige fra hinanden.<br>- Byg et hierarkisk system ved hjælp af en "routing" eller controller-agent til at bestemme, hvilken agent der er den korrekte. |
+| AI-agent udfører ikke opgaver konsekvent | - Forfin prompten, der gives til AI-agenten; vær klar på målene.<br>- Identificer hvor opgaver kan opdeles i delopgaver og håndteres af flere agenter. |
+| AI-agent kører i kontinuerlige loops | - Sørg for klare afslutningsbetingelser, så agenten ved, hvornår processen skal stoppes.<br>- For komplekse opgaver, der kræver ræsonnering og planlægning, brug en større model, der er specialiseret i ræsonneringsopgaver. |
+| AI-agentens værktøjskald fungerer ikke godt | - Test og valider værktøjets output uden for agentsystemet.<br>- Forfin definerede parametre, prompts og navngivning af værktøjerne. |
+| Multi-agent system præsterer ikke konsekvent | - Forfin prompts givet til hver agent for at sikre, at de er specifikke og adskilte fra hinanden.<br>- Byg et hierarkisk system med en "routing"- eller controller-agent til at bestemme, hvilken agent der er den korrekte. |
 
-Mange af disse problemer kan identificeres mere effektivt med observabilitet på plads. De traces og metrikker, vi diskuterede tidligere, hjælper med præcist at påpege, hvor i agent-workflowet problemer opstår, hvilket gør debugging og optimering meget mere effektivt.
+Mange af disse problemer kan identificeres mere effektivt, når observabilitet er implementeret. De traces og metrics, vi har diskuteret tidligere, hjælper med præcist at identificere, hvor i agentens arbejdsgang problemer opstår, hvilket gør fejlfinding og optimering langt mere effektiv.
 
-## Håndtering af omkostninger
-Her er nogle strategier til at håndtere omkostningerne ved at sætte AI-agenter i produktion:
+## Styring af omkostninger
 
-**Using Smaller Models:** Small Language Models (SLMs) kan præstere godt i visse agentiske anvendelsestilfælde og vil reducere omkostningerne betydeligt. Som nævnt tidligere er det bedste middel til at forstå, hvor godt en SLM vil klare sig i dit brugstilfælde, at opbygge et evalueringssystem til at fastslå og sammenligne ydeevnen i forhold til større modeller. Overvej at bruge SLMs til enklere opgaver som intentionklassificering eller parameterudtrækning, mens du reserverer større modeller til kompleks ræsonnering.
 
-**Using a Router Model:** En lignende strategi er at anvende modeller i forskellige størrelser. Du kan bruge en LLM/SLM eller en serverløs funktion til at rute forespørgsler baseret på kompleksitet til de bedst egnede modeller. Dette hjælper også med at reducere omkostningerne samtidig med, at det sikrer ydeevne på de rette opgaver. For eksempel kan du rute simple forespørgsler til mindre, hurtigere modeller og kun bruge dyre, store modeller til komplekse ræsonneringsopgaver.
+Her er nogle strategier til at håndtere omkostningerne ved at implementere AI-agenter i produktion:
 
-**Caching Responses:** At identificere almindelige forespørgsler og opgaver og levere svarene, før de kommer igennem dit agentiske system, er en god måde at reducere mængden af lignende forespørgsler på. Du kan endda implementere et flow til at identificere, hvor lignende en forespørgsel er i forhold til dine cachede forespørgsler ved hjælp af mere simple AI-modeller. Denne strategi kan reducere omkostningerne betydeligt for ofte stillede spørgsmål eller almindelige arbejdsgange.
+**Brug af mindre modeller:** Små sprogmodeller (SLM'er) kan præstere godt på visse agentbaserede anvendelsestilfælde og vil reducere omkostningerne betydeligt. Som nævnt tidligere er det bedste at bygge et evalueringssystem for at bestemme og sammenligne ydelsen i forhold til større modeller for at forstå, hvor godt en SLM vil præstere i dit anvendelsestilfælde. Overvej at bruge SLM'er til enklere opgaver som hensigtsklassificering eller parameterudtræk, mens du reserverer større modeller til kompleks ræsonnering.
+
+**Brug af en routermodel:** En lignende strategi er at bruge en diversitet af modeller og størrelser. Du kan bruge en LLM/SLM eller en serverløs funktion til at dirigere forespørgsler baseret på kompleksitet til de bedst egnede modeller. Dette vil også hjælpe med at reducere omkostningerne samtidig med at sikre ydeevne på de rette opgaver. For eksempel kan du dirigere simple forespørgsler til mindre, hurtigere modeller og kun bruge dyre store modeller til komplekse ræsonneringsopgaver.
+
+**Cache-respons:** Identificering af almindelige forespørgsler og opgaver og levering af svarene, inden de går gennem dit agentbaserede system, er en god måde at reducere volumet af lignende forespørgsler på. Du kan endda implementere et flow til at identificere, hvor lig en forespørgsel er i forhold til dine cachede forespørgsler ved hjælp af mere basale AI-modeller. Denne strategi kan markant reducere omkostningerne ved ofte stillede spørgsmål eller almindelige arbejdsgange.
 
 ## Lad os se, hvordan dette fungerer i praksis
 
-I [eksempelnotebooket i denne sektion](./code_samples/10-expense_claim-demo.ipynb) vil vi se eksempler på, hvordan vi kan bruge observabilitetsværktøjer til at overvåge og evaluere vores agent.
+I [eksempelkoden til denne sektion](./code_samples/10-expense_claim-demo.ipynb) vil vi se eksempler på, hvordan vi kan bruge observabilitetsværktøjer til at overvåge og evaluere vores agent.
 
 
 ### Har du flere spørgsmål om AI-agenter i produktion?
 
-Deltag i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for at møde andre deltagere, deltage i kontortimer og få besvaret dine spørgsmål om AI-agenter.
+Deltag i [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) for at møde andre lærende, deltage i kontortimer og få svar på dine spørgsmål om AI-agenter.
 
 ## Forrige lektion
 
-[Metakognition Designmønster](../09-metacognition/README.md)
+[Metakognition designmønster](../09-metacognition/README.md)
 
 ## Næste lektion
 
@@ -174,5 +176,5 @@ Deltag i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for at m�
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Ansvarsfraskrivelse**:
-Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi stræber efter nøjagtighed, bedes du være opmærksom på, at automatiske oversættelser kan indeholde fejl eller unøjagtigheder. Det oprindelige dokument på originalsproget bør betragtes som den autoritative kilde. Til kritisk information anbefales professionel menneskelig oversættelse. Vi er ikke ansvarlige for eventuelle misforståelser eller fejltolkninger som følge af brugen af denne oversættelse.
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

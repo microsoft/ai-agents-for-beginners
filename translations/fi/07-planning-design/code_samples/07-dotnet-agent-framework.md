@@ -1,43 +1,44 @@
-# 🎯 Suunnittelu ja suunnittelumallit GitHub-mallien kanssa (.NET)
+# 🎯 Suunnittelu ja suunnittelumallit Azure OpenAI:n (Responses API) kanssa (.NET)
 
 ## 📋 Oppimistavoitteet
 
-Tämä muistikirja esittelee yritystason suunnittelu- ja suunnittelumalleja älykkäiden agenttien rakentamiseen Microsoft Agent Frameworkin avulla .NET:ssä GitHub-mallien kanssa. Opit luomaan agentteja, jotka voivat purkaa monimutkaisia ongelmia, suunnitella monivaiheisia ratkaisuja ja toteuttaa kehittyneitä työnkulkuja .NET:n yritysominaisuuksilla.
+Tämä muistikirja esittelee yritystason suunnittelu- ja suunnittelumallit älykkäiden agenttien rakentamiseksi Microsoft Agent Frameworkilla .NET:ssä Azure OpenAI:n (Responses API) avulla. Opit luomaan agentteja, jotka pystyvät purkamaan monimutkaisia ongelmia, suunnittelemaan monivaiheisia ratkaisuja ja suorittamaan kehittyneitä työnkulkuja .NET:n yritysominaisuuksilla.
 
-## ⚙️ Esivaatimukset ja asennus
+## ⚙️ Vaatimukset ja asennus
 
 **Kehitysympäristö:**
 - .NET 9.0 SDK tai uudempi
 - Visual Studio 2022 tai VS Code C#-laajennuksella
-- GitHub Models API -pääsy
+- Azure-tilaus, jossa on Azure OpenAI -resurssi ja mallin käyttöönotto
+- Azure CLI — kirjaudu sisään komennolla `az login`
 
 **Vaaditut riippuvuudet:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Ympäristön konfigurointi (.env-tiedosto):**
+**Ympäristöasetukset (.env-tiedosto):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
 ```
 
 ## Koodin suorittaminen
 
-Tämä oppitunti sisältää .NET Single File App -toteutuksen. Suorita se seuraavasti:
+Tämä opetus sisältää .NET-single file -sovelluksen toteutuksen. Suorita se näin:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Tee tiedostosta suoritettava (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Suorita sovellus
 ./07-dotnet-agent-framework.cs
 ```
 
-Tai käytä dotnet run -komentoa:
+Tai käytä komentoa dotnet run:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
@@ -45,19 +46,19 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## Koodin toteutus
 
-Täydellinen toteutus löytyy tiedostosta `07-dotnet-agent-framework.cs`, joka esittelee:
+Täydellinen toteutus on tiedostossa `07-dotnet-agent-framework.cs`, joka sisältää:
 
-- Ympäristön konfiguroinnin lataamisen DotNetEnv:n avulla
-- OpenAI-asiakkaan konfiguroinnin GitHub-malleille
-- Rakenteellisten tietomallien (Plan ja TravelPlan) määrittelyn JSON-sarjallistuksella
-- AI-agentin luomisen rakenteellisella ulostulolla JSON-skeeman avulla
+- Ympäristöasetusten lataamisen DotNetEnv:llä
+- Azure OpenAI -asiakkaan konfiguroinnin Responses API:lle
+- Rakenteellisten tietomallien (Plan ja TravelPlan) määrittelyn JSON-serialisoinnilla
+- AI-agentin luomisen rakenteellisella ulostulolla JSON-skeemalla
 - Suunnittelupyyntöjen suorittamisen tyyppiturvallisilla vastauksilla
 
 ## Keskeiset käsitteet
 
 ### Rakenteellinen suunnittelu tyyppiturvallisilla malleilla
 
-Agentti käyttää C#-luokkia määrittääkseen suunnittelun ulostulon rakenteen:
+Agentti käyttää C#-luokkia määrittämään suunnittelun tulosten rakenteen:
 
 ```csharp
 public class Plan
@@ -79,9 +80,9 @@ public class TravelPlan
 }
 ```
 
-### JSON-skeema rakenteellisille ulostuloille
+### JSON-skeema rakenteellisille vastauksille
 
-Agentti on konfiguroitu palauttamaan vastaukset, jotka vastaavat TravelPlan-skeemaa:
+Agentti on konfiguroitu palauttamaan vastauksia, jotka vastaavat TravelPlan-skeemaa:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
@@ -98,20 +99,22 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 
 ### Suunnitteluagentin ohjeet
 
-Agentti toimii koordinaattorina, delegoiden tehtäviä erikoistuneille alihankkija-agenteille:
+Agentti toimii koordinaattorina, ohjaten tehtäviä erikoistuneille ala-agenteille:
 
-- FlightBooking: Lentojen varaamiseen ja lentotietojen tarjoamiseen
-- HotelBooking: Hotellien varaamiseen ja hotellitietojen tarjoamiseen
-- CarRental: Autojen varaamiseen ja autonvuokraustietojen tarjoamiseen
-- ActivitiesBooking: Aktiviteettien varaamiseen ja aktiviteettitietojen tarjoamiseen
+- FlightBooking: Lentojen varaukseen ja lentoihin liittyvän tiedon tarjoamiseen
+- HotelBooking: Hotellien varaukseen ja hotellitietoihin
+- CarRental: Autonvuokraukseen ja autonvuokraustietoihin
+- ActivitiesBooking: Aktiviteettien varaukseen ja aktiviteettitietoihin
 - DestinationInfo: Kohdetietojen tarjoamiseen
 - DefaultAgent: Yleisten pyyntöjen käsittelyyn
 
-## Odotettu ulostulo
+## Odotettu tulos
 
-Kun suoritat agentin matkasuunnittelupyynnöllä, se analysoi pyynnön ja tuottaa rakenteellisen suunnitelman, jossa tehtävät jaetaan sopiville erikoistuneille agenteille. Ulostulo on muotoiltu JSON-muotoon, joka vastaa TravelPlan-skeemaa.
+Kun suoritat agentin matkasuunnittelupyynnöllä, se analysoi pyynnön ja luo rakenteellisen suunnitelman sopivin tehtäväjaoin erikoistuneille agenteille, muodossa JSON, joka noudattaa TravelPlan-skeemaa.
 
 ---
 
-**Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäisellä kielellä tulisi pitää ensisijaisena lähteenä. Kriittisen tiedon osalta suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa väärinkäsityksistä tai virhetulkinnoista, jotka johtuvat tämän käännöksen käytöstä.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

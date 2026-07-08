@@ -1,175 +1,177 @@
-# Kontekstingeniørarbeid for AI-agenter
+# Kontekstteknikk for AI-agenter
 
-[![Kontekstingeniørarbeid](../../../translated_images/no/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering](../../../translated_images/no/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
-> _(Klikk på bildet over for å se video av denne leksjonen)_
+> _(Klikk på bildet ovenfor for å se video av denne leksjonen)_
 
-Å forstå kompleksiteten i applikasjonen du bygger en AI-agent for er viktig for å lage en pålitelig en. Vi må bygge AI-agenter som effektivt håndterer informasjon for å løse komplekse behov utover promptingeniørarbeid.
+Å forstå kompleksiteten i applikasjonen du bygger en AI-agent for, er viktig for å lage en pålitelig en. Vi må bygge AI-agenter som effektivt håndterer informasjon for å møte komplekse behov utover prompt engineering.
 
-I denne leksjonen skal vi se på hva kontekstingeniørarbeid er og hvilken rolle det har i bygging av AI-agenter.
+I denne leksjonen skal vi se på hva kontekstteknikk er og hvilken rolle den spiller i utviklingen av AI-agenter.
 
 ## Introduksjon
 
 Denne leksjonen vil dekke:
 
-• **Hva kontekstingeniørarbeid er** og hvorfor det er forskjellig fra promptingeniørarbeid.
+• **Hva kontekstteknikk er** og hvorfor det skiller seg fra prompt engineering.
 
-• **Strategier for effektivt kontekstingeniørarbeid**, inkludert hvordan man skriver, velger, komprimerer og isolerer informasjon.
+• **Strategier for effektiv kontekstteknikk**, inkludert hvordan man skriver, velger, komprimerer og isolerer informasjon.
 
-• **Vanlige kontekstfeil** som kan ødelegge AI-agenten din og hvordan fikse dem.
+• **Vanlige kontekstsfeil** som kan sette AI-agenten ut av spill og hvordan man kan fikse dem.
 
 ## Læringsmål
 
-Etter å ha fullført denne leksjonen vil du forstå hvordan du kan:
+Etter å ha fullført denne leksjonen vil du forstå hvordan du:
 
-• **Definere kontekstingeniørarbeid** og skille det fra promptingeniørarbeid.
+• **Definerer kontekstteknikk** og skiller det fra prompt engineering.
 
-• **Identifisere nøkkelkomponentene i kontekst** i applikasjoner med store språkmodeller (LLM).
+• **Identifiserer nøkkelkomponentene i kontekst** i Large Language Model (LLM) applikasjoner.
 
-• **Anvende strategier for skriving, valg, komprimering og isolering av kontekst** for å forbedre agentens ytelse.
+• **Anvender strategier for å skrive, velge, komprimere og isolere kontekst** for å forbedre agentens ytelse.
 
-• **Gjenkjenne vanlige kontekstfeil** som forgiftning, distraksjon, forvirring og konflikt, og implementere tiltak for å unngå dem.
+• **Gjenkjenner vanlige kontekstsfeil** som forgiftning, distraksjon, forvirring og sammenstøt, og implementerer tiltak for å redusere dem.
 
-## Hva er kontekstingeniørarbeid?
+## Hva er kontekstteknikk?
 
-For AI-agenter er kontekst det som driver planleggingen av en AI-agent til å ta bestemte handlinger. Kontekstingeniørarbeid er praksisen med å sørge for at AI-agenten har riktig informasjon for å fullføre neste steg i oppgaven. Kontekstvinduet er begrenset i størrelse, så som agentbyggere må vi lage systemer og prosesser for å håndtere å legge til, fjerne og kondensere informasjonen i kontekstvinduet.
+For AI-agenter er kontekst det som driver planleggingen for at agenten skal ta visse handlinger. Kontekstteknikk er praksisen med å sørge for at AI-agenten har riktig informasjon for å fullføre neste steg av oppgaven. Kontekstvinduet er begrenset i størrelse, så som agentutviklere må vi lage systemer og prosesser for å håndtere å legge til, fjerne og kondensere informasjonen i kontekstvinduet.
 
-### Promptingeniørarbeid vs kontekstingeniørarbeid
+### Prompt Engineering vs Kontekstteknikk
 
-Promptingeniørarbeid fokuserer på et statisk sett med instruksjoner for effektivt å veilede AI-agentene med et sett regler. Kontekstingeniørarbeid handler om hvordan man håndterer et dynamisk sett med informasjon, inkludert den initielle prompten, for å sikre at AI-agenten har det den trenger over tid. Hovedideen rundt kontekstingeniørarbeid er å gjøre denne prosessen repeterbar og pålitelig.
+Prompt engineering fokuserer på et enkelt sett med statiske instruksjoner for å effektivt styre AI-agentene med et sett regler. Kontekstteknikk handler om å håndtere et dynamisk sett av informasjon, inkludert den initielle prompten, for å sikre at AI-agenten har det den trenger over tid. Hovedideen med kontekstteknikk er å gjøre denne prosessen repeterbar og pålitelig.
 
 ### Typer kontekst
 
-[![Typer kontekst](../../../translated_images/no/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
+[![Types of Context](../../../translated_images/no/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
-Det er viktig å huske at kontekst ikke bare er én ting. Informasjonen som AI-agenten trenger kan komme fra en rekke forskjellige kilder, og det er opp til oss å sørge for at agenten har tilgang til disse kildene:
+Det er viktig å huske at kontekst ikke bare er én ting. Informasjonen som AI-agenten trenger kan komme fra flere ulike kilder, og det er opp til oss å sørge for at agenten har tilgang til disse kildene:
 
 Typene kontekst en AI-agent kan trenge å håndtere inkluderer:
 
-• **Instruksjoner:** Disse er som agentens "regler" – prompts, systemmeldinger, få-eksempel (few-shot) eksempler (som viser AI hvordan man gjør noe), og beskrivelser av verktøy den kan bruke. Her kombineres fokus fra promptingeniørarbeid med kontekstingeniørarbeid.
+• **Instruksjoner:** Dette er som agentens "regler" – prompts, systemmeldinger, eksempel med få skudd (few-shot) som viser AI hvordan gjøre noe, og beskrivelser av verktøy den kan bruke. Her kombineres fokuset til prompt engineering med kontekstteknikk.
 
-• **Kunnskap:** Dette dekker fakta, informasjon hentet fra databaser, eller langtidsminner agenten har akkumulert. Dette inkluderer å integrere et Retrieval Augmented Generation (RAG) system hvis en agent trenger tilgang til forskjellige kunnskapsbaser og databaser.
+• **Kunnskap:** Dette dekker fakta, informasjon hentet fra databaser, eller langtidshukommelse agenten har samlet. Dette inkluderer integrering av Retrieval Augmented Generation (RAG) system hvis en agent trenger tilgang til ulike kunnskapslager og databaser.
 
-• **Verktøy:** Dette er definisjoner av eksterne funksjoner, APIer og MCP-servere som agenten kan kalle, sammen med tilbakemeldinger (resultater) den får fra å bruke dem.
+• **Verktøy:** Definisjoner av eksterne funksjoner, API-er og MCP-servere som agenten kan kalle, sammen med tilbakemeldinger (resultater) den får ved å bruke dem.
 
-• **Samtalehistorikk:** Den pågående dialogen med en bruker. Over tid blir disse samtalene lengre og mer komplekse, som betyr at de tar opp plass i kontekstvinduet.
+• **Samtalehistorikk:** Den pågående dialogen med en bruker. Over tid blir disse samtalene lengre og mer komplekse, noe som tar plass i kontekstvinduet.
 
-• **Brukerpreferanser:** Informasjon man lærer om en brukers liker eller misliker over tid. Disse kan lagres og hentes fram når viktige beslutninger skal tas for å hjelpe brukeren.
+• **Brukerpreferanser:** Informasjon lært om en brukers liker eller misliker over tid. Dette kan lagres og brukes når viktige beslutninger skal tas for å hjelpe brukeren.
 
-## Strategier for effektivt kontekstingeniørarbeid
+## Strategier for effektiv kontekstteknikk
 
 ### Planleggingsstrategier
 
-[![Beste praksis for kontekstingeniørarbeid](../../../translated_images/no/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
+[![Context Engineering Best Practices](../../../translated_images/no/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
-Godt kontekstingeniørarbeid starter med god planlegging. Her er en tilnærming som vil hjelpe deg med å begynne å tenke på hvordan du kan anvende konseptet kontekstingeniørarbeid:
+God kontekstteknikk starter med god planlegging. Her er en tilnærming som vil hjelpe deg å begynne å tenke på hvordan du kan anvende konseptet med kontekstteknikk:
 
-1. **Definer klare resultater** – Resultatene av oppgavene som AI-agentene skal utføre bør defineres tydelig. Svar på spørsmålet – "Hvordan vil verden se ut når AI-agenten er ferdig med sin oppgave?" Med andre ord, hvilken endring, informasjon eller respons skal brukeren ha etter samspill med AI-agenten.
-2. **Kartlegg konteksten** – Når du har definert resultatene til AI-agenten, må du svare på spørsmålet "Hvilken informasjon trenger AI-agenten for å fullføre denne oppgaven?". På den måten kan du begynne å kartlegge hvor informasjonen kan finnes.
-3. **Lag kontekstpipelines** – Nå som du vet hvor informasjonen er, må du svare på spørsmålet "Hvordan vil agenten hente denne informasjonen?". Dette kan gjøres på forskjellige måter, inkludert RAG, bruk av MCP-servere og andre verktøy.
+1. **Definer klare resultater** - Resultatene for oppgavene som AI-agentene skal utføre, bør være klart definert. Svar på spørsmålet - "Hvordan vil verden se ut når AI-agenten er ferdig med oppgaven sin?" Med andre ord, hvilken endring, informasjon eller respons skal brukeren ha etter å ha interagert med AI-agenten.
+2. **Kartlegg konteksten** - Når du har definert resultatene for AI-agenten, må du svare på spørsmålet "Hvilken informasjon trenger AI-agenten for å fullføre denne oppgaven?". På denne måten kan du begynne å kartlegge hvor denne informasjonen kan finnes.
+3. **Lag kontekst-pipelines** - Nå som du vet hvor informasjonen er, må du svare på spørsmålet "Hvordan vil agenten hente denne informasjonen?". Dette kan gjøres på ulike måter, inkludert RAG, bruk av MCP-servere og andre verktøy.
 
 ### Praktiske strategier
 
-Planlegging er viktig, men når informasjonen begynner å strømme inn i agentens kontekstvindu, trenger vi praktiske strategier for å håndtere den:
+Planlegging er viktig, men når informasjonen begynner å strømme inn i agentens kontekstvindu, må vi ha praktiske strategier for å håndtere det:
 
 #### Håndtering av kontekst
 
-Mens noe informasjon vil bli lagt til kontekstvinduet automatisk, handler kontekstingeniørarbeid om å ta en mer aktiv rolle i denne informasjonen, noe som kan gjøres med noen strategier:
+Selv om noe informasjon legges til kontekstvinduet automatisk, handler kontekstteknikk om å ta en mer aktiv rolle i denne informasjonen, noe som kan gjøres ved hjelp av noen strategier:
 
- 1. **Agentens notatblokk**
- Dette lar en AI-agent føre notater om relevant informasjon om gjeldende oppgaver og brukerinteraksjoner i løpet av en enkelt økt. Dette bør eksistere utenfor kontekstvinduet i en fil eller kjøretid-objekt som agenten senere kan hente under økten om nødvendig.
+ 1. **Agentens kladdebok**
+ Dette gjør det mulig for en AI-agent å ta notater om relevant informasjon om nåværende oppgaver og brukerinteraksjoner i løpet av en enkelt økt. Dette bør eksistere utenfor kontekstvinduet i en fil eller runtime-objekt som agenten kan hente senere i denne økten om nødvendig.
 
- 2. **Minner**
- Notatblokker er fine for å håndtere informasjon utenfor kontekstvinduet til en enkelt økt. Minner gjør det mulig for agenter å lagre og hente relevant informasjon over flere økter. Dette kan inkludere sammendrag, brukerpreferanser og tilbakemeldinger for forbedringer i fremtiden.
+ 2. **Hukommelse**
+ Kladdebøker er gode for å håndtere informasjon utenfor kontekstvinduet i en enkelt økt. Hukommelse gjør at agenter kan lagre og hente relevant informasjon på tvers av flere økter. Dette kan inkludere sammendrag, brukerpreferanser og tilbakemeldinger for forbedringer i fremtiden.
 
- 3. **Kompimering av kontekst**
-  Når kontekstvinduet vokser og nærmer seg grensen, kan teknikker som oppsummering og trimming brukes. Dette inkluderer enten å beholde bare den mest relevante informasjonen eller å fjerne eldre meldinger.
+ 3. **Komprimering av kontekst**
+  Når kontekstvinduet vokser og nærmer seg grensen, kan teknikker som oppsummering og trimming brukes. Dette inkluderer enten å beholde bare den mest relevante informasjonen eller fjerne eldre meldinger.
   
- 4. **Multi-agent-systemer**
-  Utvikling av multi-agent-systemer er en form for kontekstingeniørarbeid fordi hver agent har sitt eget kontekstvindu. Hvordan denne konteksten deles og overføres til forskjellige agenter er noe annet man må planlegge når man bygger disse systemene.
+ 4. **Multi-agent systemer**
+  Utvikling av multi-agent systemer er en form for kontekstteknikk fordi hver agent har sitt eget kontekstvindu. Hvordan den konteksten deles og overføres til ulike agenter er noe annet å planlegge når man bygger disse systemene.
   
- 5. **Sandkassemiljøer**
-  Hvis en agent trenger å kjøre noe kode eller behandle store mengder informasjon i et dokument, kan dette kreve mye tokens å prosessere resultatene. I stedet for å lagre alt i kontekstvinduet, kan agenten bruke et sandkassemiljø som kan kjøre denne koden og bare lese resultatene og annen relevant informasjon.
+ 5. **Sandbox-miljøer**
+  Hvis en agent trenger å kjøre noe kode eller behandle store mengder informasjon i et dokument, kan dette bruke et stort antall tokens for å prosessere resultatene. I stedet for å ha alt dette lagret i kontekstvinduet, kan agenten bruke et sandbox-miljø som kan kjøre denne koden og kun lese resultatene og annen relevant informasjon.
   
- 6. **Kjøretidsstatus-objekter**
-   Dette gjøres ved å opprette beholdere med informasjon for å håndtere situasjoner hvor agenten trenger tilgang til bestemt informasjon. For en kompleks oppgave vil dette gjøre det mulig for agenten å lagre resultatene av hvert deloppgave steg for steg, slik at konteksten forblir knyttet til akkurat den spesifikke deloppgaven.
+ 6. **Runtime-tilstandobjekter**
+   Dette gjøres ved å lage informasjonsbeholdere for å håndtere situasjoner når agenten må ha tilgang til bestemt informasjon. For en kompleks oppgave vil dette gjøre det mulig for agenten å lagre resultatene av hver deloppgave steg for steg, slik at konteksten kun forblir koblet til den spesifikke deloppgaven.
 
-#### Inspisere kontekst
+#### Undersøke kontekst
 
-Etter at du har anvendt en av disse strategiene, er det verdt å sjekke hva det neste modellkallet faktisk mottok. Et nyttig feilsøkingsspørsmål er:
+Etter at du har brukt en av disse strategiene, er det verdt å sjekke hva neste modellkall faktisk mottok. Et nyttig spørsmål for feilsøking er:
 
-> Lastet agenten inn for mye kontekst, feil kontekst, eller manglet den kontekst den trengte?
+> Lastet agenten for mye kontekst, feil kontekst, eller manglet den nødvendig kontekst?
 
-Du trenger ikke logge rå-prompter, verktøyutdata, eller minneinnhold for å svare på det spørsmålet. I produksjon, foretrekk små kontekstinspeksjonslogger som fanger opp antall, ID-er, hasher og policyetiketter:
+Du trenger ikke logge rå prompts, verktøyresultater eller innhold i hukommelsen for å svare på det spørsmålet. I produksjon foretrekk små inspeksjonslogger over kontekst som fanger opp tellinger, ID-er, hasher og policyetiketter:
 
-- **Utvalg:** Følg med på hvor mange kandidatbiter, verktøy eller minner som ble vurdert, hvor mange som ble valgt, og hvilken regel eller poengsum som gjorde at de andre ble filtrert bort.
-- **Komprimering:** Registrer kildeområde eller sporfane-ID, sammendrags-ID, estimert token-telling før og etter komprimering, og om råinnholdet ble utelatt fra neste kall.
-- **Isolering:** Noter hvilken deloppgave som ble kjørt i en egen agent, økt eller sandkasse, hvilket avgrenset sammendrag som ble returnert, og om store verktøyutdata holdt seg utenfor hovedagentens kontekst.
-- **Minne og RAG:** Lagre gjenfinningsdokument-ID-er, minne-ID-er, poengsum, valgte ID-er og redigeringsstatus i stedet for full hentet tekst.
-- **Sikkerhet og personvern:** Foretrekk hasher, ID-er, token-bøtter og policyetiketter fremfor sensitiv prompttekst, verktøyargumenter, verktøyresultater eller brukerminnekropper.
+- **Utvalg:** Følg med på hvor mange kandidatchunks, verktøy eller minner som ble vurdert, hvor mange som ble valgt, og hvilken regel eller poengsum som gjorde at andre ble filtrert ut.
+- **Komprimering:** Registrer kildeområde eller sporfølge-ID, sammendrags-ID, en estimert token-telling før og etter komprimering, og om råinnholdet ble ekskludert fra neste kall.
+- **Isolasjon:** Noter hvilken deloppgave som kjørte i en egen agent, økt eller sandbox, hvilket begrenset sammendrag som ble returnert, og om stor verktøyoutput holdt seg utenfor hovedagentens kontekst.
+- **Hukommelse og RAG:** Lagre dokument-ID-er for oppslag, hukommelses-ID-er, poengsummer, valgte ID-er og redaksjonsstatus i stedet for fullstendig hentet tekst.
+- **Sikkerhet og personvern:** Foretrekk hasher, ID-er, token-bøtter og policyetiketter fremfor sensitiv prompt-tekst, verktøy-argumenter, verktøyresultater eller brukerens hukommelsesinnhold.
 
-Målet er ikke å beholde mer kontekst. Det er å etterlate nok bevis slik at en utvikler kan se hvilken kontekststrategi som kjørte og om den endret neste modellkall på den tiltenkte måten.
+Målet er ikke å beholde mer kontekst. Det er å etterlate nok bevis til at en utvikler kan se hvilken kontekststrategi som ble kjørt og om det endret neste modellkall på forventet måte.
 
-### Eksempel på kontekstingeniørarbeid
+### Eksempel på kontekstteknikk
 
-La oss si at vi vil ha en AI-agent til å **"Bestille en tur til Paris for meg."**
+La oss si vi vil at en AI-agent skal **"Bestille meg en reise til Paris."**
 
-• En enkel agent som bare bruker promptingeniørarbeid kan bare svare: **"Ok, når vil du reise til Paris?"** Den behandlet bare ditt direkte spørsmål på det tidspunktet brukeren spurte.
+• En enkel agent som bare bruker prompt engineering kan bare svare: **"Ok, når ønsker du å reise til Paris?"**. Den behandlet kun ditt direkte spørsmål på det tidspunktet brukeren spurte.
 
-• En agent som bruker kontekstingeniørarbeidsstrategiene som ble dekket, ville gjøre mye mer. Før den i det hele tatt svarer, kan systemet:
+• En agent som bruker kontekstteknikkstrategiene som er dekket her, ville gjøre mye mer. Før den i det hele tatt svarer, kan systemet:
 
-  ◦ **Sjekke kalenderen din** for ledige datoer (hente sanntidsdata).
+  ◦ **Sjekke kalenderen din** for tilgjengelige datoer (henter sanntidsdata).
 
- ◦ **Hente frem tidligere reisepreferanser** (fra langtidsminne) som ditt foretrukne flyselskap, budsjett eller om du foretrekker direktefly.
+ ◦ **Huske tidligere reisepreferanser** (fra langtidshukommelsen) som ditt foretrukne flyselskap, budsjett eller om du foretrekker direktefly.
 
  ◦ **Identifisere tilgjengelige verktøy** for fly- og hotellbestilling.
 
-- Så kan et eksempel på svar være:  "Hei [Ditt navn]! Jeg ser at du er ledig første uke i oktober. Skal jeg se etter direktefly til Paris med [Foretrukket flyselskap] innenfor ditt vanlige budsjett på [Budsjett]?" Dette rikere, kontekstbevisste svaret demonstrerer kraften i kontekstingeniørarbeid.
+- Da kan et eksempel på svar være: "Hei [Ditt navn]! Jeg ser at du er ledig første uke i oktober. Skal jeg se etter direktefly til Paris på [Foretrukket flyselskap] innenfor ditt vanlige budsjett på [Budsjett]?" Dette rikere, kontekstbevisste svaret viser kraften i kontekstteknikk.
 
 ## Vanlige kontekstfeil
 
 ### Kontekstforgiftning
 
-**Hva det er:** Når en hallusinasjon (falsk informasjon generert av LLM) eller en feil kommer inn i konteksten og blir referert til gjentatte ganger, noe som får agenten til å følge umulige mål eller utvikle nonsens-strategier.
+**Hva det er:** Når en hallusinasjon (falsk informasjon generert av LLM) eller en feil kommer inn i konteksten og gjentatte ganger refereres til, noe som får agenten til å forfølge umulige mål eller utvikle meningsløse strategier.
 
-**Hva man gjør:** Implementer **kontekstvalidering** og **karantene**. Valider informasjon før det legges til i langtidsminnet. Hvis potensiell forgiftning oppdages, start nye konteksttråder for å forhindre at den dårlige informasjonen sprer seg.
+**Hva du bør gjøre:** Implementer **kontekstvalidering** og **karantene**. Verifiser informasjon før den legges til langtidshukommelsen. Hvis potensiell forgiftning oppdages, start nye friske konteksttråder for å hindre at den dårlige informasjonen sprer seg.
 
-**Eksempel på reisebestilling:** Agenten din hallusinerer en **direkteflyvning fra en liten lokal flyplass til en fjern internasjonal by** som faktisk ikke har internasjonale flyvninger. Denne ikke-eksisterende flyvningsdetaljen lagres i konteksten. Senere, når du ber agenten bestille, prøver den gjentatte ganger å finne billetter for denne umulige ruten, noe som fører til gjentatte feil.
+**Reisebestillingseksempel:** Agenten din hallusinerer en **direkteflyvning fra en liten lokal flyplass til en fjern internasjonal by** som faktisk ikke tilbyr internasjonale flyvninger. Denne ikke-eksisterende flydetaljen lagres i konteksten. Senere, når du ber agenten bestille, prøver den stadig å finne billetter for denne umulige ruten, noe som fører til gjentatte feil.
 
-**Løsning:** Implementer et steg som **validerer flyets eksistens og ruter med en sanntids-API** _før_ flydetaljen legges til agentens arbeidskontekst. Hvis valideringen feiler, settes den feilaktige informasjonen i "karantene" og brukes ikke videre.
+**Løsning:** Implementer et steg som **validerer flyvningens eksistens og ruter med et sanntids-API** _før_ flydetaljen legges til agentens arbeidskontekst. Hvis valideringen feiler, blir feilinformasjonen "karantenisert" og ikke brukt videre.
 
 ### Kontekstdistraksjon
 
-**Hva det er:** Når konteksten blir så stor at modellen fokuserer for mye på den akkumulerte historikken i stedet for å bruke det den lærte under trening, noe som fører til repeterende eller lite hjelpsomme handlinger. Modeller kan begynne å gjøre feil selv før kontekstvinduet er fullt.
+**Hva det er:** Når konteksten blir så stor at modellen fokuserer for mye på den akkumulerte historien i stedet for å bruke det den lærte under treningen, noe som fører til repeterende eller ubrukelige handlinger. Modeller kan begynne å gjøre feil selv før kontekstvinduet er fullt.
 
-**Hva man gjør:** Bruk **kontekstoppsummering**. Periodisk komprimer akkumulerte informasjon til kortere sammendrag, behold viktige detaljer mens du fjerner overflødig historikk. Dette hjelper til å "nullstille" fokuset.
+**Hva du bør gjøre:** Bruk **kontekstsammendrag**. Komprimer periodisk akkumulert informasjon til kortere sammendrag, behold viktige detaljer samtidig som overflødig historie fjernes. Dette hjelper å "resette" fokuset.
 
-**Eksempel på reisebestilling:** Du har diskutert ulike drømmereisedestinasjoner over lang tid, inkludert en detaljert gjenfortelling av din ryggsekktur for to år siden. Når du endelig ber om å **"finne en billig flybillett for neste måned,"** blir agenten overveldet av gamle og irrelevante detaljer og fortsetter å spørre om ryggsekken din eller tidligere reiseruter, og overser din nåværende forespørsel.
+**Reisebestillingseksempel:** Du har diskutert ulike drømmereisedestinasjoner lenge, inkludert en detaljert gjengivelse av ryggsekkreisen din fra to år siden. Når du endelig ber om en **"billig flyreise neste måned,"** blir agenten forsømt av de gamle, irrelevante detaljene og fortsetter å spørre om ryggsekkutstyr eller tidligere reiseruter, og ignorerer den nåværende forespørselen.
 
-**Løsning:** Etter et visst antall turer eller når konteksten vokser for mye, bør agenten **oppsummere de siste og mest relevante delene av samtalen** – med fokus på dine nåværende reisedatoer og destinasjon – og bruke den kondenserte oppsummeringen for neste LLM-kall, og forkaste mindre relevante historiske chat.
+**Løsning:** Etter et visst antall turer eller når konteksten blir for stor, bør agenten **sammendrage de nyeste og mest relevante delene av samtalen** – fokusere på dine nåværende reisedatoer og destinasjon – og bruke dette kondenserte sammendraget for neste LLM-kall, og forkaste mindre relevante historiske meldinger.
 
 ### Konfunderende kontekst
 
-**Hva det er:** Når unødvendig kontekst, ofte i form av for mange tilgjengelige verktøy, får modellen til å generere dårlige svar eller kalle irrelevante verktøy. Mindre modeller er spesielt utsatt.
+**Hva det er:** Når unødvendig kontekst, ofte i form av for mange tilgjengelige verktøy, får modellen til å generere dårlige svar eller kalle irrelevante verktøy. Mindre modeller er spesielt utsatt for dette.
 
-**Hva man gjør:** Implementer **verktøyhåndtering** med RAG-teknikker. Lagre verktøybeskrivelser i en vektordatabase og velg _kun_ de mest relevante verktøyene for hver spesifikke oppgave. Forskning viser at man bør begrense utvalget til under 30.
+**Hva du bør gjøre:** Implementer **verktøylastforvaltning** med RAG-teknikker. Lagre verktøybeskrivelser i en vektordatabase og velg _kun_ de mest relevante verktøyene for hver spesifikke oppgave. Forskning viser at begrense valg til under 30 verktøy er best.
 
-**Eksempel på reisebestilling:** Agenten din har tilgang til dusinvis av verktøy: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations` osv. Du spør, **"Hva er den beste måten å komme seg rundt i Paris?"** På grunn av det store antallet verktøy blir agenten forvirret og prøver å kalle `book_flight` _inne i_ Paris, eller `rent_car` selv om du foretrekker kollektivtransport, fordi verktøybeskrivelsene kan overlappe eller den rett og slett ikke kan avgjøre hvilket som er best.
+**Reisebestillingseksempel:** Agenten din har tilgang til dusinvis av verktøy: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations`, osv. Du spør, **"Hva er den beste måten å komme seg rundt i Paris på?"** På grunn av det store antall verktøy blir agenten forvirret og prøver å kalle `book_flight` _inne i_ Paris, eller `rent_car` selv om du foretrekker offentlig transport, fordi verktøybeskrivelsene kan overlappe eller den ikke klarer å skille det beste.
 
-**Løsning:** Bruk **RAG over verktøybeskrivelser**. Når du spør om hvordan man kommer seg rundt i Paris, henter systemet dynamisk _kun_ de mest relevante verktøyene som `rent_car` eller `public_transport_info` basert på forespørselen din, og presenterer en fokusert "belastning" av verktøy til LLM.
+**Løsning:** Bruk **RAG over verktøybeskrivelser**. Når du spør om å komme seg rundt i Paris, henter systemet dynamisk _kun_ de mest relevante verktøyene som `rent_car` eller `public_transport_info` basert på forespørselen din, og presenterer en fokusert "lastprofil" av verktøy til LLM.
 
 ### Kontekstkonflikt
 
-**Hva det er:** Når motstridende informasjon finnes i konteksten, noe som fører til inkonsekvent resonnering eller dårlige sluttresultater. Dette skjer ofte når informasjon kommer i etapper, og tidlige, feilaktige antakelser forblir i konteksten.
+**Hva det er:** Når motstridende informasjon finnes i konteksten, noe som fører til inkonsekvent resonnering eller dårlige endelige svar. Dette skjer ofte når informasjon kommer i etapper, og tidlige, feilaktige antakelser forblir i konteksten.
 
-**Hva man gjør:** Bruk **kontekstkapping** og **avlastning**. Kapping betyr å fjerne utdatert eller motstridende informasjon etter hvert som nye detaljer kommer til. Avlastning gir modellen et separat "notatblokk"-arbeidsområde for å bearbeide informasjon uten å rotte til hovedkonteksten.
-**Eksempel på reisebestilling:** Du forteller opprinnelig agenten din, **"Jeg vil fly økonomiklasse."** Senere i samtalen ombestemmer du deg og sier, **"Egentlig, for denne turen, la oss velge businessklasse."** Hvis begge instruksjonene forblir i konteksten, kan agenten motta motstridende søk eller bli forvirret om hvilken preferanse som skal prioriteres.
+**Hva du bør gjøre:** Bruk **kontekstbeskjæring** og **utlasting**. Beskjæring betyr å fjerne foreldet eller motstridende informasjon etter hvert som nye detaljer kommer inn. Utlasting gir modellen et eget "kladdebok"-arbeidsområde for å bearbeide informasjon uten å rotete hovedkonteksten.
 
-**Løsning:** Implementer **kontekstbeskjæring**. Når en ny instruksjon motsier en gammel, fjernes den eldre instruksjonen eller overstyres eksplisitt i konteksten. Alternativt kan agenten bruke en **kladd** for å forene motstridende preferanser før en beslutning tas, slik at kun den endelige, konsistente instruksjonen styrer handlingene.
 
-## Har du flere spørsmål om konsteknikk?
+**Eksempel på reisebestilling:** Du forteller først agenten din, **"Jeg vil fly økonomiklasse."** Senere i samtalen ombestemmer du deg og sier, **"Egentlig, for denne turen, la oss ta businessklasse."** Hvis begge instruksjoner fortsatt finnes i konteksten, kan agenten få motstridende søkeresultater eller bli forvirret om hvilken preferanse som skal prioriteres.
 
-Bli med i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for å møte andre elever, delta på kontortid og få svar på dine spørsmål om AI-agenter.
+**Løsning:** Implementer **kontekstuering**. Når en ny instruksjon motsetter en gammel, fjernes den eldre instruksjonen eller blir eksplisitt overstyrt i konteksten. Alternativt kan agenten bruke en **notatblokk** for å forene motstridende preferanser før beslutning, og sikre at kun den endelige, konsistente instruksjonen styrer handlingene.
+
+## Har du flere spørsmål om kontekstuering?
+
+Bli med i [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) for å møte andre elever, delta på kontortid og få svar på dine spørsmål om AI-agenter.
 
 ---
 

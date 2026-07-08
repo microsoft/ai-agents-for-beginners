@@ -1,66 +1,66 @@
-# Moniagenttisovellusten rakentaminen Microsoft Agent Framework Workflow'n avulla
+# Moni-agenttisovellusten rakentaminen Microsoft Agent Framework Workflow'lla
 
-Tämä opas auttaa sinua ymmärtämään ja rakentamaan moniagenttisovelluksia Microsoft Agent Frameworkin avulla. Käymme läpi moniagenttijärjestelmien keskeiset käsitteet, tutustumme frameworkin Workflow-komponentin arkkitehtuuriin ja tarkastelemme käytännön esimerkkejä Pythonilla ja .NET:llä eri työnkulkujen malleista.
+Tämä opas ohjaa sinua ymmärtämään ja rakentamaan moni-agenttisovelluksia käyttäen Microsoft Agent Frameworkia. Tutkimme moni-agenttijärjestelmien keskeiset käsitteet, sukellamme frameworkin Workflow-komponentin arkkitehtuuriin ja käymme läpi käytännön esimerkkejä sekä Pythonilla että .NETillä eri työnkulkujen malleista.
 
-## 1\. Moniagenttijärjestelmien ymmärtäminen
+## 1\. Moni-agenttijärjestelmien ymmärtäminen
 
-AI-agentti on järjestelmä, joka ylittää tavallisen suuren kielimallin (LLM) kyvyt. Se voi havainnoida ympäristöään, tehdä päätöksiä ja toimia saavuttaakseen tiettyjä tavoitteita. Moniagenttijärjestelmässä useat agentit tekevät yhteistyötä ratkaistakseen ongelman, joka olisi vaikea tai mahdoton yksittäisen agentin käsitellä.
+AI-agentti on järjestelmä, joka ylittää tavallisen suuren kielimallin (LLM) kyvyt. Se voi havaita ympäristönsä, tehdä päätöksiä ja toimia saavuttaakseen tiettyjä tavoitteita. Moni-agenttijärjestelmä sisältää useita tällaisia agentteja, jotka tekevät yhteistyötä ratkaistakseen ongelman, joka olisi vaikea tai mahdoton yhdelle agentille yksin.
 
 ### Yleiset sovellusskenaariot
 
-  * **Monimutkaisten ongelmien ratkaisu**: Suuren tehtävän (esim. yrityksen laajuisen tapahtuman suunnittelu) jakaminen pienempiin osatehtäviin, joita hoitavat erikoistuneet agentit (esim. budjettiagentti, logistiikka-agentti, markkinointiagentti).
-  * **Virtuaaliassistentit**: Pääassistenttiagentti delegoi tehtäviä, kuten aikataulutusta, tutkimusta ja varaamista, muille erikoistuneille agenteille.
-  * **Automaattinen sisällöntuotanto**: Työnkulku, jossa yksi agentti luonnostelee sisällön, toinen tarkistaa sen tarkkuuden ja sävyn, ja kolmas julkaisee sen.
+  * **Monimutkaisten ongelmien ratkaisu**: Suuren tehtävän (esim. yrityksen laajuisen tapahtuman suunnittelu) pilkkominen pienempiin osatehtäviin, joita käsittelevät erikoistuneet agentit (esim. budjettiasiantuntija, logistiikka-agentti, markkinointiasiantuntija).
+  * **Virtuaaliassistentit**: Pääavustaja-agentti delegoi tehtäviä kuten aikataulutus, tutkimus ja varaukset muille erikoistuneille agenteille.
+  * **Automaattinen sisällöntuotanto**: Työnkulku, jossa yksi agentti luonnostelee sisällön, toinen tarkistaa tarkkuuden ja sävyn, ja kolmas julkaisee sen.
 
-### Moniagenttimallit
+### Moni-agenttimallit
 
-Moniagenttijärjestelmät voidaan järjestää useisiin malleihin, jotka määrittävät niiden vuorovaikutustavat:
+Moni-agenttijärjestelmät voidaan järjestää useissa malleissa, jotka määräävät niiden vuorovaikutuksen tavan:
 
-  * **Peräkkäinen**: Agentit toimivat ennalta määritetyssä järjestyksessä, kuten kokoonpanolinjalla. Yhden agentin tuotos siirtyy seuraavan agentin syötteeksi.
-  * **Rinnakkainen**: Agentit työskentelevät samanaikaisesti eri osatehtävien parissa, ja niiden tulokset yhdistetään lopuksi.
-  * **Ehdollinen**: Työnkulku seuraa eri polkuja agentin tuottaman tuloksen perusteella, kuten if-then-else-lauseessa.
+  * **Peräkkäinen**: Agentit toimivat ennalta määrätyssä järjestyksessä, kuten kokoonpanolinjalla. Yhden agentin tulos toimii seuraavan agentin syötteenä.
+  * **Samaan aikaan**: Agentit työskentelevät rinnakkain eri osissa tehtävää, ja niiden tulokset yhdistetään lopussa.
+  * **Ehtoperusteinen**: Työnkulku seuraa eri polkuja agentin tuloksen perusteella, kuten if-then-else-rakenteessa.
 
 ## 2\. Microsoft Agent Framework Workflow -arkkitehtuuri
 
-Agent Frameworkin työnkulkujärjestelmä on edistynyt orkestrointimoottori, joka on suunniteltu hallitsemaan monimutkaisia vuorovaikutuksia useiden agenttien välillä. Se perustuu graafipohjaiseen arkkitehtuuriin, joka käyttää [Pregel-tyylistä suoritusmallia](https://kowshik.github.io/JPregel/pregel_paper.pdf), jossa käsittely tapahtuu synkronoiduissa vaiheissa, joita kutsutaan "superstepiksi".
+Agent Frameworkin työnkulkujärjestelmä on edistynyt orkestrointimoottori, joka hallinnoi monimutkaisia vuorovaikutuksia useiden agenttien välillä. Se on rakennettu grafiikkapohjaisen arkkitehtuurin varaan, joka käyttää [Pregel-tyylistä suoritustapaa](https://kowshik.github.io/JPregel/pregel_paper.pdf), jossa käsittely tapahtuu synkronoiduissa vaiheissa, joita kutsutaan "supersteps".
 
 ### Keskeiset komponentit
 
 Arkkitehtuuri koostuu kolmesta pääosasta:
 
-1.  **Suorittimet**: Nämä ovat perustason käsittelyyksiköitä. Esimerkeissämme `Agent` on suorittimen tyyppi. Jokaisella suorittimella voi olla useita viestinkäsittelijöitä, jotka aktivoituvat automaattisesti vastaanotetun viestin tyypin perusteella.
-2.  **Reunat**: Nämä määrittävät polun, jota viestit kulkevat suorittimien välillä. Reunoilla voi olla ehtoja, jotka mahdollistavat tiedon dynaamisen reitityksen työnkulun graafissa.
-3.  **Työnkulku**: Tämä komponentti orkestroi koko prosessin, hallitsee suorittimia, reunoja ja koko suoritusvirtaa. Se varmistaa, että viestit käsitellään oikeassa järjestyksessä ja lähettää tapahtumia havainnointia varten.
+1.  **Suorittajat**: Nämä ovat perusyksiköitä prosessoinnissa. Esimerkeissämme `Agent` on yksi suorittajatyyppi. Jokaisella suorittajalla voi olla useita viestinkäsittelijöitä, jotka kutsutaan automaattisesti vastaanotetun viestin tyypin mukaan.
+2.  **Kaaret**: Määrittelevät viestien kulkureitin suorittajien välillä. Kaariin voi liittyä ehtoja, jotka mahdollistavat dynaamisen tiedon reitityksen työnkulkuverkossa.
+3.  **Työnkulku**: Tämä komponentti orkestroi koko prosessin, halliten suorittajia, kaaria ja koko suorituksen virtausta. Se varmistaa, että viestit käsitellään oikeassa järjestyksessä ja lähettää tapahtumia tarkkailtavuuteen.
 
 *Kaavio, joka havainnollistaa työnkulkujärjestelmän keskeisiä komponentteja.*
 
-Tämä rakenne mahdollistaa vankkojen ja skaalautuvien sovellusten rakentamisen perusmallien, kuten peräkkäisten ketjujen, rinnakkaisen käsittelyn fan-out/fan-in-mallien ja ehdollisten virtojen switch-case-logiikan avulla.
+Tämä rakenne mahdollistaa vankkojen ja skaalautuvien sovellusten rakentamisen käyttämällä perusmalleja kuten peräkkäiset ketjut, fan-out/fan-in rinnakkaiskäsittely ja switch-case-logiikka ehdollisiin polkuihin.
 
 ## 3\. Käytännön esimerkit ja koodianalyysi
 
-Tarkastellaan nyt, kuinka eri työnkulun malleja toteutetaan frameworkin avulla. Käymme läpi Python- ja .NET-koodia jokaisessa esimerkissä.
+Tarkastellaan nyt, miten eri työnkulkunäytteitä toteutetaan käyttämällä frameworkia. Käymme läpi sekä Python- että .NET-koodin jokaista esimerkkiä varten.
 
 ### Tapaus 1: Perus peräkkäinen työnkulku
 
-Tämä on yksinkertaisin malli, jossa yhden agentin tuotos siirtyy suoraan toiselle. Skenaariomme sisältää hotellin `FrontDesk`-agentin, joka tekee matkasuosituksen, jonka `Concierge`-agentti tarkistaa.
+Tämä on kaikkein yksinkertaisin malli, jossa yhden agentin tulos siirretään suoraan toiselle. Skenaariossamme hotellin `FrontDesk`-agentti antaa matkasuosituksen, joka sitten tarkistetaan `Concierge`-agentin toimesta.
 
-*Kaavio perus FrontDesk -> Concierge -työnkulusta.*
+*Kaavio perustason FrontDesk -> Concierge -työnkulusta.*
 
 #### Skenaarion tausta
 
 Matkustaja pyytää suositusta Pariisissa.
 
-1.  `FrontDesk`-agentti, joka keskittyy ytimekkyyteen, ehdottaa vierailua Louvren museossa.
-2.  `Concierge`-agentti, joka arvostaa autenttisia kokemuksia, vastaanottaa ehdotuksen. Se tarkistaa suosituksen ja antaa palautetta, ehdottaen paikallisempaa ja vähemmän turistista vaihtoehtoa.
+1.  `FrontDesk`-agentti, joka on suunniteltu olosuhteiden mukaan tiiviiksi, ehdottaa vierailua Louvren museoon.
+2.  `Concierge`-agentti, joka arvostaa aitoja kokemuksia, vastaanottaa ehdotuksen. Se arvioi suosituksen ja antaa palautetta, ehdottaen paikallisempaa ja vähemmän turistista vaihtoehtoa.
 
 #### Python-toteutuksen analyysi
 
-Python-esimerkissä määritellään ja luodaan kaksi agenttia, joilla on erityiset ohjeet.
+Python-esimerkissä määrittelemme ensin kaksi agenttia, joista jokaisella on omat ohjeistuksensa.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Määrittele agenttien roolit ja ohjeet
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
     You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
@@ -71,41 +71,41 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Luo agenttien instanssit
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Seuraavaksi `WorkflowBuilder`-työkalua käytetään graafin rakentamiseen. `front_desk_agent` asetetaan aloituspisteeksi, ja sen tuotos yhdistetään `reviewer_agent`-agenttiin.
+Seuraavaksi käytämme `WorkflowBuilder`ia rakentaaksemme verkon. `front_desk_agent` asetetaan aloituspisteeksi ja sen tuotoksen ja `reviewer_agent`-agentin välillä luodaan kaari.
 
 ```python
-# 01.python-agent-framework-workflow-ghmodel-basic.ipynb
+# 01.python-agent-framework-työnkulku-ghmalli-perus.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-Lopuksi työnkulku suoritetaan käyttäjän alkuperäisellä kehotteella.
+Lopuksi työnkulku suoritetaan alkuperäisellä käyttäjän kehotteella.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run suorittaa työnkulun; get_outputs() palauttaa ulostuloa suorittavan osan tuloksen.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C#) -toteutuksen analyysi
+#### .NET (C\#) -toteutuksen analyysi
 
-.NET-toteutus noudattaa hyvin samanlaista logiikkaa. Ensin määritellään agenttien nimet ja ohjeet.
+.NET-toteutus noudattaa hyvin samanlaista logiikkaa. Ensin määritellään vakioita agenttien nimille ja ohjeille.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
@@ -119,15 +119,15 @@ const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Agentit luodaan `OpenAIClient`-työkalulla, ja sitten `WorkflowBuilder` määrittää peräkkäisen virran lisäämällä reunan `frontDeskAgent`-agentista `reviewerAgent`-agenttiin.
+Agentit luodaan käyttämällä `AzureOpenAIClient`ia (Vastaus-API), ja sitten `WorkflowBuilder` määrittää peräkkäisen työnkulun lisäämällä kaaren `frontDeskAgent`in ja `reviewerAgent`in välille.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Työnkulku suoritetaan käyttäjän viestillä, ja tulokset striimataan takaisin.
+Työnkulku käynnistetään käyttäjän viestillä, ja tulokset striimataan takaisin.
 
 ### Tapaus 2: Monivaiheinen peräkkäinen työnkulku
 
-Tämä malli laajentaa perusjärjestystä sisältämään enemmän agentteja. Se sopii prosesseihin, jotka vaativat useita tarkennus- tai muunnosvaiheita.
+Tämä malli laajentaa perussekvenssiä sisältämään enemmän agentteja. Se sopii prosesseihin, jotka tarvitsevat useita tarkastus- tai muuntovaiheita.
 
 #### Skenaarion tausta
 
-Käyttäjä antaa kuvan olohuoneesta ja pyytää huonekalutarjousta.
+Käyttäjä antaa kuvan olohuoneesta ja pyytää kalustehintaa.
 
-1.  **Sales-Agent**: Tunnistaa kuvassa olevat huonekalut ja luo listan.
-2.  **Price-Agent**: Ottaa huonekalulistan ja antaa yksityiskohtaisen hintajaon, mukaan lukien budjetti-, keskitason ja premium-vaihtoehdot.
-3.  **Quote-Agent**: Saa hinnoitellun listan ja muotoilee sen viralliseksi tarjousdokumentiksi Markdown-muodossa.
+1.  **Myynti-agentti**: Tunnistaa kuvan kalusteet ja luo listan.
+2.  **Hinta-agentti**: Ottaa listan ja antaa yksityiskohtaisen hintajaon, sisältäen edulliset, keskitason ja premium-vaihtoehdot.
+3.  **Tarjous-agentti**: Vastaanottaa hinnoitellun listan ja muotoilee sen viralliseksi tarjousdokumentiksi Markdown-muodossa.
 
-*Kaavio Sales -> Price -> Quote -työnkulusta.*
+*Kaavio Myynti -> Hinta -> Tarjous -työnkulusta.*
 
 #### Python-toteutuksen analyysi
 
-Kolme agenttia määritellään, jokaisella on erikoistunut rooli. Työnkulku rakennetaan `add_edge`-toiminnolla luomaan ketju: `sales_agent` -> `price_agent` -> `quote_agent`.
+Kolme agenttia määritellään, jokaisella erikoistunut rooli. Työnkulku rakennetaan käyttämällä `add_edge`-metodia ketjuttaen: `sales_agent` -> `price_agent` -> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Luo kolme erikoistunutta agenttia
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Rakenna peräkkäinen työnkulku
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Syöte on `ChatMessage`, joka sisältää sekä tekstin että kuvan URI:n. Framework huolehtii siitä, että jokaisen agentin tuotos siirtyy seuraavalle ketjussa, kunnes lopullinen tarjous on luotu.
+Syöte on `ChatMessage`, joka sisältää sekä tekstin että kuvan URI:n. Framework huolehtii siitä, että kunkin agentin tuotos välitetään seuraavalle peräkkäisesti, kunnes lopullinen tarjous on luotu.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Käyttäjän viesti sisältää sekä tekstiä että kuvan
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Suorita työnkulku
+events = await workflow.run(message)
 ```
 
-#### .NET (C#) -toteutuksen analyysi
+#### .NET (C\#) -toteutuksen analyysi
 
-.NET-esimerkki peilaa Python-versiota. Kolme agenttia (`salesagent`, `priceagent`, `quoteagent`) luodaan. `WorkflowBuilder` yhdistää ne peräkkäin.
+.NET-esimerkki vastaa Python-versiota. Kolme agenttia (`salesagent`, `priceagent`, `quoteagent`) luodaan. `WorkflowBuilder` linkittää ne peräkkäin.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent priceagent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent quoteagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Käyttäjän viesti koostuu sekä kuvadataa (tavuina) että tekstikehotteesta. `InProcessExecution.StreamAsync`-metodi käynnistää työnkulun, ja lopullinen tulos otetaan talteen striimistä.
+Käyttäjän viesti sisältää sekä kuvatiedot (tavujoukkoina) että tekstikehotteen. `InProcessExecution.StreamAsync`-menetelmä käynnistää työnkulun, ja lopputulos kaapataan striimistä.
 
 ### Tapaus 3: Rinnakkainen työnkulku
 
-Tätä mallia käytetään, kun tehtävät voidaan suorittaa samanaikaisesti ajan säästämiseksi. Se sisältää "fan-out"-vaiheen useille agenteille ja "fan-in"-vaiheen tulosten yhdistämiseksi.
+Tätä mallia käytetään, kun tehtäviä voidaan suorittaa samanaikaisesti ajan säästämiseksi. Se sisältää useaan agenttiin haarautumisen ("fan-out") ja tulosten kokoamisen yhteen ("fan-in").
 
 #### Skenaarion tausta
 
 Käyttäjä pyytää suunnittelemaan matkan Seattleen.
 
-1.  **Dispatcher (Fan-Out)**: Käyttäjän pyyntö lähetetään samanaikaisesti kahdelle agentille.
-2.  **Researcher-Agent**: Tutkii nähtävyyksiä, säätä ja keskeisiä huomioita matkaa varten Seattleen joulukuussa.
-3.  **Plan-Agent**: Laatii itsenäisesti yksityiskohtaisen päiväkohtaisen matkasuunnitelman.
-4.  **Aggregator (Fan-In)**: Tutkijan ja suunnittelijan tuotokset kerätään ja esitetään yhdessä lopullisena tuloksena.
+1.  **Lähettäjä (Fan-Out)**: Käyttäjän pyyntö lähetetään kahdelle agentille samaan aikaan.
+2.  **Tutkija-agentti**: Tutkii nähtävyyksiä, säätä ja keskeisiä matkavinkkejä Seattlessa joulukuussa.
+3.  **Suunnittelija-agentti**: Laatii yksityiskohtaisen päiväkohtaisten matkaohjelmien suunnitelman itsenäisesti.
+4.  **Kokoaja (Fan-In)**: Molempien agenttien tuotokset kerätään ja esitetään yhdessä lopputuloksena.
 
-*Kaavio rinnakkaisesta Researcher ja Planner -työnkulusta.*
+*Kaavio rinnakkaisesta Tutkija- ja Suunnittelijatyönkulusta.*
 
 #### Python-toteutuksen analyysi
 
-`ConcurrentBuilder` yksinkertaistaa tämän mallin luomista. Luettelo osallistuvista agenteista annetaan, ja builder luo automaattisesti tarvittavan fan-out- ja fan-in-logiikan.
+`ConcurrentBuilder` yksinkertaistaa tämän mallin luontia. Luettelet vain osallistuvat agentit, ja rakentaja luo automaattisesti tarvittavan fan-out ja fan-in-logiikan.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder käsittelee fan-out/fan-in-logiikan
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Suorita työnkulku
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Framework varmistaa, että `research_agent` ja `plan_agent` suorittavat tehtävänsä rinnakkain, ja niiden lopulliset tuotokset kerätään listaksi.
+Framework varmistaa, että `research_agent` ja `plan_agent` suoritetaan rinnakkain, ja niiden lopulliset tulokset kerätään listaan.
 
-#### .NET (C#) -toteutuksen analyysi
+#### .NET (C\#) -toteutuksen analyysi
 
-.NET:ssä tämä malli vaatii tarkemman määrittelyn. Mukautetut suorittimet (`ConcurrentStartExecutor` ja `ConcurrentAggregationExecutor`) luodaan käsittelemään fan-out- ja fan-in-logiikkaa.
+.NETissä tämä malli vaatii eksplisiittisemmän määrittelyn. Räätälöityjä suorittajia (`ConcurrentStartExecutor` ja `ConcurrentAggregationExecutor`) luodaan käsittelemään fan-out ja fan-in-logiikkaa.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` käyttää `AddFanOutEdge`- ja `AddFanInEdge`-toimintoja graafin rakentamiseen näillä mukautetuilla suorittimilla ja agenteilla.
+`WorkflowBuilder` käyttää sitten `AddFanOutEdge` ja `AddFanInEdge` -metodeja rakentaakseen verkon näiden räätälöityjen suorittajien ja agenttien avulla.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Tapaus 4: Ehdollinen työnkulku
+### Tapaus 4: Ehtoinen työnkulku
 
-Ehdolliset työnkulut tuovat mukaan haarautumislogiikan, joka mahdollistaa eri polkujen seuraamisen välitulosten perusteella.
+Ehtoisissa työnkuluissa on haarautuva logiikka, mikä antaa järjestelmälle mahdollisuuden valita eri polkuja väliarvioiden perusteella.
 
 #### Skenaarion tausta
 
-Tämä työnkulku automatisoi teknisen oppaan luomisen ja julkaisemisen.
+Tämä työnkulku automatisoi teknisen opastuksen luonnin ja julkaisun.
 
-1.  **Evangelist-Agent**: Kirjoittaa oppaan luonnoksen annetun hahmotelman ja URL-osoitteiden perusteella.
-2.  **ContentReviewer-Agent**: Tarkistaa luonnoksen. Se tarkistaa, onko sanamäärä yli 200 sanaa.
-3.  **Ehdollinen haara**:
-      * **Jos hyväksytty (`Yes`)**: Työnkulku etenee `Publisher-Agent`-agenttiin.
-      * **Jos hylätty (`No`)**: Työnkulku pysähtyy ja antaa hylkäyksen syyn.
-4.  **Publisher-Agent**: Jos luonnos hyväksytään, tämä agentti tallentaa sisällön Markdown-tiedostoon.
+1.  **Evankelista-agentti**: Kirjoittaa opastuksen luonnoksen annetun rungon ja URL-osoitteiden perusteella.
+2.  **Sisällön tarkastaja -agentti**: Tarkistaa luonnoksen. Se tarkistaa onko sanamäärä yli 200 sanaa.
+3.  **Ehtoharautus**:
+      * **Jos hyväksytään (`Kyllä`)**: Työnkulku jatkuu `Publisher-Agent`ille.
+      * **Jos hylätään (`Ei`)**: Työnkulku pysähtyy ja palauttaa hylkäyksen syyn.
+4.  **Julkaisija-agentti**: Jos luonnos hyväksytään, tämä agentti tallentaa sisällön Markdown-tiedostoon.
 
 #### Python-toteutuksen analyysi
 
-Tässä esimerkissä käytetään mukautettua funktiota, `select_targets`, ehdollisen logiikan toteuttamiseen. Tämä funktio annetaan `add_multi_selection_edge_group`-toiminnolle ja ohjaa työnkulun `review_result`-kentän perusteella, joka saadaan tarkistajan tuotoksesta.
+Tämä esimerkki käyttää räätälöityä funktiota `select_targets` toteuttamaan ehdollisen logiikan. Tämä funktio annetaan `add_multi_selection_edge_group`-metodille ja ohjaa työnkulkua arvion `review_result`-kentän perusteella.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Tämä funktio päättää seuraavan vaiheen arviointituloksen perusteella
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Jos hyväksytään, siirry 'save_draft' suorittajaan
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Jos hylätään, siirry 'handle_review' suorittajaan raportoimaan epäonnistuminen
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# Työnkulun rakentaja käyttää valintafunktiota reititykseen
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Monivalintareuna toteuttaa ehdollisen logiikan
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Mukautettuja suorittimia, kuten `to_reviewer_result`, käytetään JSON-tuloksen jäsentämiseen agenteilta ja sen muuntamiseen vahvasti tyypitetyiksi objekteiksi, joita valintafunktio voi tarkastella.
+Räätälöityjä suorittajia kuten `to_reviewer_result` käytetään jäsentämään JSON-tulokset agenteilta ja muuntamaan ne vahvasti tyypitetyiksi objekteiksi, joita valintafunktio voi tarkastella.
 
-#### .NET (C#) -toteutuksen analyysi
+#### .NET (C\#) -toteutuksen analyysi
 
-.NET-versio käyttää samanlaista lähestymistapaa ehtofunktion kanssa. `Func<object?, bool>` määritellään tarkistamaan `ReviewResult`-objektin `Result`-ominaisuus.
+.NET-versio käyttää samankaltaista lähestymistapaa ehtofunktion kanssa. `Func<object?, bool>` määritellään tarkistamaan `ReviewResult`-objektin `Result`-ominaisuus.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-`AddEdge`-metodin `condition`-parametri mahdollistaa `WorkflowBuilder`-työkalun luomaan haarautuvan polun. Työnkulku seuraa reunaa `publishExecutor`-suorittimeen vain, jos ehto `GetCondition(expectedResult: "Yes")` palauttaa true. Muussa tapauksessa se seuraa polkua `sendReviewerExecutor`-suorittimeen.
+`AddEdge`-metodin `condition`-parametri sallii `WorkflowBuilder`in luoda haarautuvan polun. Työnkulku seuraa kaarta `publishExecutor`iin vain, jos ehto `GetCondition(expectedResult: "Yes")` palauttaa tosi; muuten se seuraa polkua `sendReviewerExecutor`ille.
 
 ## Yhteenveto
 
-Microsoft Agent Framework Workflow tarjoaa vankan ja joustavan perustan monimutkaisten moniagenttijärjestelmien orkestrointiin. Sen graafipohjaisen arkkitehtuurin ja keskeisten komponenttien avulla kehittäjät voivat suunnitella ja toteuttaa kehittyneitä työnkulkuja sekä Pythonilla että .NET:llä. Olipa sovelluksesi tarpeena yksinkertainen peräkkäinen käsittely, rinnakkainen suoritus tai dynaaminen ehdollinen logiikka, framework tarjoaa työkalut tehokkaiden, skaalautuvien ja tyyppiturvallisten tekoälyratkaisujen rakentamiseen.
+Microsoft Agent Framework Workflow tarjoaa vahvan ja joustavan perustan monimutkaisten moni-agenttijärjestelmien orkestrointiin. Hyödyntämällä sen grafiikkapohjaista arkkitehtuuria ja keskeisiä komponentteja, kehittäjät voivat suunnitella ja toteuttaa kehittyneitä työnkulkuja sekä Pythonilla että .NETillä. Oli sovelluksesi tarpeena yksinkertainen peräkkäinen käsittely, rinnakkainen suoritus tai dynaaminen ehdollinen logiikka, framework tarjoaa työkalut rakentaa tehokkaita, skaalautuvia ja tyyppiturvallisia AI-pohjaisia ratkaisuja.
 
 ---
 
-**Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäisellä kielellä tulisi pitää ensisijaisena lähteenä. Kriittisen tiedon osalta suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa väärinkäsityksistä tai virhetulkinnoista, jotka johtuvat tämän käännöksen käytöstä.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

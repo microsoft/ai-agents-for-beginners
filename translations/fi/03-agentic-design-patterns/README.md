@@ -1,90 +1,90 @@
-[![Kuinka suunnitella hyviä tekoälyagentteja](../../../translated_images/fi/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Kuinka Suunnitella Hyviä AI-agentteja](../../../translated_images/fi/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
-> _(Napsauta ylläolevaa kuvaa katsoaksesi tämän oppitunnin videon)_
+> _(Napsauta yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
 # AI-agenttien suunnitteluperiaatteet
 
 ## Johdanto
 
-On monia tapoja ajatella agenttisten tekoälyjärjestelmien rakentamista. Koska epäselvyys on ominaisuus eikä virhe generatiivisen tekoälyn suunnittelussa, insinööreille voi joskus olla vaikeaa tietää, mistä edes aloittaa. Olemme luoneet joukko ihmiskeskeisiä käyttökokemuksen suunnitteluperiaatteita, jotka mahdollistavat kehittäjien rakentaa asiakaskeskeisiä agenttijärjestelmiä liiketoimintatarpeidensa ratkaisemiseksi. Nämä suunnitteluperiaatteet eivät ole määräilevä arkkitehtuuri, vaan lähtökohta tiimeille, jotka määrittelevät ja rakentavat agenttikokemuksia.
+AI-agenttijärjestelmien rakentamisesta on monia tapoja ajatella. Koska epäselvyys on ominaisuus eikä virhe Generative AI -suunnittelussa, insinöörien on joskus vaikea edes tietää, mistä aloittaa. Olemme luoneet joukon ihmiskeskeisiä UX-suunnitteluperiaatteita, joiden avulla kehittäjät voivat rakentaa asiakaskeskeisiä agenttipohjaisia järjestelmiä ratkaistakseen liiketoimintatarpeitaan. Nämä suunnitteluperiaatteet eivät ole määräävä arkkitehtuuri, vaan lähtöpiste tiimeille, jotka määrittelevät ja rakentavat agenttikokemuksia.
 
-Yleisesti ottaen agenttien pitäisi:
+Yleisesti ottaen agenttien tulisi:
 
-- Laajentaa ja skaalata inhimillisiä kykyjä (ideointi, ongelmanratkaisu, automaatio jne.)
-- Täyttää tietovajeita (tuoda minut ajan tasalle tietämysalueilla, käännökset jne.)
-- Mahdollistaa ja tukea yhteistyötä tavoilla, joilla yksilöinä haluamme työskennellä muiden kanssa
-- Tehdä meistä parempia versioita itsestämme (esim. elämänohjaaja/tehtävien käskijä, auttaen oppimaan tunnesäätelyn ja tietoisuustaitoja, rakentamaan resilienssiä jne.)
+- Laajentaa ja skaalata ihmisten kykyjä (ideointi, ongelmanratkaisu, automaatio jne.)
+- Täyttää tiedon aukkoja (auttaa minua perehtymään tieteenaloihin, kääntämään jne.)
+- Helpottaa ja tukea yhteistyötä tavoilla, joilla yksilöt mieluiten työskentelevät toisten kanssa
+- Tehdä meistä parempia versioita itsestämme (esim. elämänvalmentajina/tehtävien esimiehinä, auttaen meitä oppimaan tunnevälittelyä ja tietoisen läsnäolon taitoja, kestävyyden rakentamisessa jne.)
 
-## Tämä oppitunti käsittelee
+## Tämä Oppitunti Käsittelee
 
-- Mitä agenttisen suunnittelun periaatteet ovat
+- Mitä agenttien suunnitteluperiaatteet ovat
 - Mitä ohjeita noudattaa näitä suunnitteluperiaatteita toteutettaessa
-- Joitakin esimerkkejä suunnitteluperiaatteiden käytöstä
+- Joitain esimerkkejä suunnitteluperiaatteiden käytöstä
 
 ## Oppimistavoitteet
 
-Oppitunnin suorittamisen jälkeen osaat:
+Tämän oppitunnin jälkeen osaat:
 
-1. Selittää, mitä agenttisen suunnittelun periaatteet ovat
-2. Selittää ohjeet agenttisen suunnittelun periaatteiden käyttämiseen
-3. Ymmärtää, miten rakentaa agentti käyttäen agenttisen suunnittelun periaatteita
+1. Selittää, mitä agenttien suunnitteluperiaatteet ovat
+2. Selittää ohjeet agenttien suunnitteluperiaatteiden käytöstä
+3. Ymmärtää, miten agentti rakennetaan agenttien suunnitteluperiaatteiden avulla
 
-## Agenttisen suunnittelun periaatteet
+## Agenttien suunnitteluperiaatteet
 
-![Agenttisen suunnittelun periaatteet](../../../translated_images/fi/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
+![Agenttien suunnitteluperiaatteet](../../../translated_images/fi/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agentti (tila)
 
-Tämä on ympäristö, jossa agentti toimii. Nämä periaatteet ohjaavat, miten suunnittelemme agentteja osallistumaan fyysisiin ja digitaalisiin maailmoihin.
+Tämä on ympäristö, jossa agentti toimii. Nämä periaatteet ohjaavat, miten suunnittelemme agentteja toimimaan fyysisissä ja digitaalisissa maailmoissa.
 
-- **Yhdistäminen, ei korvaaminen** – auta yhdistämään ihmiset toisiin ihmisiin, tapahtumiin ja toiminnalliseen tietoon yhteistyön ja yhteyksien mahdollistamiseksi.
+- **Yhdistäminen, ei sulautuminen** – autta agentteja yhdistämään ihmisiä toisiin ihmisiin, tapahtumiin ja toimintakelpoiseen tietoon yhteistyön ja yhteyden luomiseksi.
 - Agentit auttavat yhdistämään tapahtumia, tietoa ja ihmisiä.
-- Agentit tuovat ihmisiä lähemmäs toisiaan. Niitä ei ole suunniteltu korvaamaan tai vähättelemään ihmisiä.
-- **Helposti saatavilla mutta ajoittain näkymätön** – agentti toimii suurelta osin taustalla ja huomauttaa meitä vain silloin, kun se on merkityksellistä ja sopivaa.
-  - Agentti on helposti löydettävissä ja saatavilla valtuutetuille käyttäjille millä tahansa laitteella tai alustalla.
-  - Agentti tukee multimodaalisia syötteitä ja tulosteita (ääni, puhe, teksti jne.).
-  - Agentti voi saumattomasti siirtyä etualan ja taustakäytön välillä; proaktiivisen ja reaktiivisen välillä riippuen sen havaitsemista käyttäjän tarpeista.
-  - Agentti voi toimia näkymättömässä muodossa, mutta sen taustaprosessin polku ja yhteistyö muiden agenttien kanssa ovat käyttäjän kannalta läpinäkyviä ja hallittavissa.
+- Agentit tuovat ihmiset lähemmäs toisiaan. Niitä ei ole suunniteltu korvaamaan tai halventamaan ihmisiä.
+- **Helposti saavutettavissa mutta toisinaan näkymättömissä** – agentti toimii pääosin taustalla ja puuttuu peliin vain sopivasti ja merkityksellisesti.
+  - Agentti on helposti löydettävissä ja saavutettavissa valtuutetuille käyttäjille millä tahansa laitteella tai alustalla.
+  - Agentti tukee monimuotoisia syötteitä ja tulosteita (ääni, puhe, teksti jne.).
+  - Agentti voi saumattomasti siirtyä etualan ja taustan välillä; proaktiivisen ja reaktiivisen tilan välillä, käyttäjän tarpeiden mukaan.
+  - Agentti voi toimia näkymättömässä muodossa, mutta sen taustaprosessit ja yhteistyö muiden agenttien kanssa ovat käyttäjän nähtävissä ja hallittavissa.
 
 ### Agentti (aika)
 
-Tämä kuvaa, miten agentti toimii ajan kuluessa. Nämä periaatteet ohjaavat agenttien suunnittelua, jotka vuorovaikuttavat menneisyyden, nykyisyyden ja tulevaisuuden kanssa.
+Tämä kertoo, miten agentti toimii ajan kuluessa. Nämä periaatteet ohjaavat agenttien suunnittelua, jotka toimivat menneisyyden, nykyisyyden ja tulevaisuuden vuorovaikutuksessa.
 
-- **Menneisyys**: Heijastelua historiasta, joka sisältää sekä tilan että kontekstin.
-  - Agentti tarjoaa relevantimpia tuloksia analysoimalla rikkaampia historiallisia tietoja pelkän tapahtuman, ihmisten tai tilojen sijaan.
-  - Agentti luo yhteyksiä menneistä tapahtumista ja peilaa muistia aktiivisesti osallistuakseen nykytilanteisiin.
-- **Nyt**: Kehoittaa enemmän kuin ilmoittaa.
-  - Agentti edustaa kokonaisvaltaista lähestymistapaa ihmisten kanssa vuorovaikutukseen. Kun tapahtuma tapahtuu, agentti ylittää staattisen ilmoituksen tai muun muodollisuuden. Agentti voi yksinkertaistaa kulkuja tai dynaamisesti luoda vihjeitä ohjatakseen käyttäjän huomion oikeaan aikaan.
-  - Agentti toimittaa tietoa kontekstuaalisen ympäristön, sosiaalisten ja kulttuuristen muutosten sekä käyttäjän tarkoituksen mukaisesti.
-  - Agentin vuorovaikutus voi olla asteittaista, kehittyvää/monimutkaistuvaa voimaannuttaakseen käyttäjiä pitkällä aikavälillä.
+- **Menneisyys**: Historian tarkastelu, joka sisältää sekä tilan että kontekstin.
+  - Agentti tarjoaa relevantimpia tuloksia analysoimalla laajempaa historiallista dataa kuin vain tapahtumat, ihmiset tai tilat.
+  - Agentti luo yhteyksiä menneisiin tapahtumiin ja reflektoi aktiivisesti muistoja nykytilanteiden ymmärtämiseksi.
+- **Nykyhetki**: Kehottaa enemmän kuin ilmoittaa.
+  - Agentti ilmentää kokonaisvaltaista lähestymistapaa ihmisten kanssa vuorovaikutukseen. Kun tapahtuma tapahtuu, agentti menee pelkän staattisen ilmoituksen tai muun muodollisuuden ohi. Agentti voi yksinkertaistaa prosesseja tai dynaamisesti ohjata käyttäjän huomion oikeaan aikaan.
+  - Agentti tarjoaa tietoa kontekstuaalisen ympäristön, sosiaalisten ja kulttuuristen muutosten sekä käyttäjän tarkoituksen mukaan räätälöitynä.
+  - Agentin vuorovaikutus voi olla asteittaista, kehittyen ja monimutkaistuen käyttäjiä voimaannuttaen pitkällä aikavälillä.
 - **Tulevaisuus**: Sopeutuminen ja kehittyminen.
-  - Agentti sopeutuu erilaisiin laitteisiin, alustoihin ja modaliteetteihin.
+  - Agentti mukautuu eri laitteisiin, alustoihin ja modaliteetteihin.
   - Agentti mukautuu käyttäjän käyttäytymiseen, saavutettavuustarpeisiin ja on vapaasti muokattavissa.
   - Agentti muotoutuu ja kehittyy jatkuvan käyttäjävuorovaikutuksen kautta.
 
 ### Agentti (ydin)
 
-Nämä ovat agentin suunnittelun ydinosa-alueita.
+Nämä ovat keskeiset elementit agentin suunnittelun ytimessä.
 
-- **Hyväksy epävarmuus mutta rakenna luottamus**.
-  - Tietty epävarmuuden taso agentissa on odotettavissa. Epävarmuus on keskeinen osa agentin suunnittelua.
+- **Hyväksy epävarmuus mutta luo luottamus**.
+  - Tietyn tason epävarmuus agentissa on odotettua. Epävarmuus on keskeinen osa agenttien suunnittelua.
   - Luottamus ja läpinäkyvyys ovat agentin suunnittelun perustavia kerroksia.
-  - Ihmiset hallitsevat, milloin agentti on päällä/pois, ja agentin tila on selvästi nähtävissä koko ajan.
+  - Ihmiset hallitsevat, milloin agentti on päällä/pois päältä, ja agentin tila on aina selvästi näkyvissä.
 
-## Ohjeet näiden periaatteiden toteuttamiseksi
+## Ohjeet näiden periaatteiden toteuttamiseen
 
-Kun käytät edellä mainittuja suunnitteluperiaatteita, noudata seuraavia ohjeita:
+Kun käytät edellä olevia suunnitteluperiaatteita, käytä seuraavia ohjeita:
 
-1. **Läpinäkyvyys**: Ilmoita käyttäjälle, että tekoäly on mukana, miten se toimii (mukaan lukien aiemmat toimet) ja miten antaa palautetta ja muokata järjestelmää.
-2. **Hallinta**: Mahdollista käyttäjän mukauttaa, määrittää mieltymyksiä ja personoida sekä hallita järjestelmää ja sen ominaisuuksia (mukaan lukien mahdollisuus unohtaa).
-3. **Johdonmukaisuus**: Tavoittele johdonmukaisia, monimodaalisia kokemuksia laitteiden ja päätelaitteiden välillä. Käytä mahdollisuuksien mukaan tuttuja UI/UX-elementtejä (esim. mikrofonikuvake puhevuorovaikutusta varten) ja vähennä asiakkaan kognitiivista kuormitusta mahdollisimman paljon (esim. pyri ytimekkäisiin vastauksiin, visuaalisiin apuihin ja Lisätietoja-sisältöön).
+1. **Läpinäkyvyys**: Ilmoita käyttäjälle, että tekoäly on mukana, miten se toimii (mukaan lukien aiemmat toimet) ja miten antaa palautetta sekä muokata järjestelmää.
+2. **Hallinta**: Mahdollista käyttäjän räätälöidä, määrittää mieltymyksiä, personoida ja hallita järjestelmää ja sen ominaisuuksia (mukaan lukien unohtamisen mahdollisuus).
+3. **Johdonmukaisuus**: Pyri johdonmukaisiin, monimuotoisiin kokemuksiin eri laitteilla ja käyttöliittymissä. Käytä tuttuja UI/UX-elementtejä, missä mahdollista (esim. mikrofonikuvake äänivuorovaikutukseen) ja vähennä asiakkaan kognitiivista kuormitusta mahdollisimman paljon (esim. tiiviit vastaukset, visuaaliset apuvälineet ja 'Lue lisää' -sisältö).
 
-## Miten suunnitella matkatoimistoagentti käyttäen näitä periaatteita ja ohjeita
+## Kuinka suunnitella matkailuagentti näiden periaatteiden ja ohjeiden avulla
 
-Kuvittele, että suunnittelet Matka-agenttia; näin voit ajatella suunnitteluperiaatteiden ja ohjeiden soveltamista:
+Kuvittele suunnittelevasi matkailuagenttia; tässä on, miten voisit ajatella suunnitteluperiaatteiden ja ohjeiden käyttöä:
 
-1. **Läpinäkyvyys** – Kerro käyttäjälle, että Matka-agentti on tekoälyllä varustettu agentti. Tarjoa perustason ohjeet aloittamiseen (esim. tervehdysviesti, esimerkkikehotteita). Dokumentoi tämä selkeästi tuotesivulla. Näytä luettelo kehotteista, joita käyttäjä on pyytänyt aiemmin. Kerro selkeästi, miten antaa palautetta (peukku ylös ja alas, Send Feedback -painike jne.). Ilmoita selkeästi, onko agentilla käytön tai aiheiden rajoituksia.
-2. **Hallinta** – Varmista, että on selvää, miten käyttäjä voi muokata agenttia sen luomisen jälkeen esimerkiksi System Promptin kaltaisilla asetuksilla. Mahdollista käyttäjän valita, kuinka sanallinen agentin tulee olla, sen kirjoitustyyli ja mitkäkin rajoitukset siitä, mistä agentti ei saa keskustella. Salli käyttäjän tarkastella ja poistaa kaikki siihen liittyvät tiedostot tai tiedot, kehotteet ja aiemmat keskustelut.
-3. **Johdonmukaisuus** – Varmista, että kuvakkeet kuten Share Prompt, tiedoston tai valokuvan lisääminen sekä jonkun merkitseminen ovat standardoituja ja tunnistettavia. Käytä paperiliitin-kuvaketta ilmaistaaksesi tiedoston latauksen/jakamisen agentin kanssa ja kuva-kuvaketta ilmaistaaksesi grafiikan latauksen.
+1. **Läpinäkyvyys** – Kerro käyttäjälle, että matkailuagentti on tekoälyllä varustettu agentti. Anna perustiedot aloittamisesta (esim. “Hei”-viesti, esimerkkipyyntöjä). Dokumentoi tämä selkeästi tuotteen sivulla. Näytä luettelo pyynnöistä, joita käyttäjä on aiemmin tehnyt. Tee selväksi, miten antaa palautetta (peukut ylös ja alas, Lähetä palaute -painike jne.). Kerro selkeästi, onko agentilla käyttö- tai aiherajoituksia.
+2. **Hallinta** – Varmista, että on selvää, miten käyttäjä voi muokata agenttia sen luomisen jälkeen esimerkiksi järjestelmän kehotteella. Mahdollista käyttäjän valita, kuinka laaja-alainen agentti on, sen kirjoitustyyli ja mitkä aiheet ovat kiellettyjä. Anna käyttäjän nähdä ja poistaa siihen liittyvät tiedostot tai tiedot, pyynnöt ja aiemmat keskustelut.
+3. **Johdonmukaisuus** – Varmista, että kuvakkeet, kuten Jaa kehotteet, tiedoston tai kuvan lisääminen ja jonkun tai jonkin merkitseminen, ovat standardoituja ja tunnistettavia. Käytä paperiliitin-kuvaketta tiedoston latausten/jakamisen osoittamiseen agentin kanssa ja kuvan kuvaketta grafiikan lataamiseksi.
 
 ## Esimerkkikoodit
 
@@ -92,27 +92,27 @@ Kuvittele, että suunnittelet Matka-agenttia; näin voit ajatella suunnitteluper
 - .NET: [Agent Framework](./code_samples/03-dotnet-agent-framework.md)
 
 
-## Onko sinulla lisää kysymyksiä AI-agenttien suunnittelumalleista?
+## Lisää kysymyksiä AI-agenttien suunnittelumalleista?
 
-Liity [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) -kanavalle tapaamaan muita oppijoita, osallistumaan office hourseihin ja saamaan vastauksia AI-agentteja koskeviin kysymyksiisi.
+Liity [Microsoft Foundry Discordiin](https://discord.com/invite/ATgtXmAS5D) tavata muita oppijoita, osallistua toimistoaikoihin ja saada vastauksia AI-agentteja koskeviin kysymyksiisi.
 
 ## Lisäresurssit
 
-- <a href="https://openai.com" target="_blank">Agenttisten tekoälyjärjestelmien hallinnan käytännöt | OpenAI</a>
-- <a href="https://microsoft.com" target="_blank">HAX Toolkit Project - Microsoft Research</a>
+- <a href="https://openai.com" target="_blank">Agenttipohjaisten AI-järjestelmien hallinnan käytännöt | OpenAI</a>
+- <a href="https://microsoft.com" target="_blank">HAX Toolkit -projekti - Microsoft Research</a>
 - <a href="https://responsibleaitoolbox.ai" target="_blank">Responsible AI Toolbox</a>
 
 ## Edellinen oppitunti
 
-[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)
+[Agenttikehysten tutkiminen](../02-explore-agentic-frameworks/README.md)
 
 ## Seuraava oppitunti
 
-[Tool Use Design Pattern](../04-tool-use/README.md)
+[Työkalujen käyttö -suunnittelumalli](../04-tool-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Vastuuvapauslauseke:
-Tämä asiakirja on käännetty käyttämällä tekoälykäännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Pyrimme tarkkuuteen, mutta huomioithan, että automaattikäännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja alkuperäisellä kielellään on pidettävä ensisijaisena lähteenä. Kriittisten tietojen osalta suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä johtuvista väärinymmärryksistä tai virheellisistä tulkinnoista.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

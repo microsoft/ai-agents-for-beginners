@@ -1,30 +1,30 @@
-# 🎨 Agentiske designmønstre med GitHub-modeller (.NET)
+# 🎨 Agentiske designmønstre med Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Læringsmål
 
-Dette eksempelet viser designmønstre på bedriftsnivå for å bygge intelligente agenter ved hjelp av Microsoft Agent Framework i .NET med integrasjon av GitHub-modeller. Du vil lære profesjonelle mønstre og arkitektoniske tilnærminger som gjør agenter klare for produksjon, vedlikeholdbare og skalerbare.
+Dette eksemplet demonstrerer virksomhetsklassede designmønstre for å bygge intelligente agenter ved bruk av Microsoft Agent Framework i .NET med integrasjon av Azure OpenAI (Responses API). Du vil lære profesjonelle mønstre og arkitekturtilnærminger som gjør agenter produksjonsklare, vedlikeholdbare og skalerbare.
 
-### Designmønstre for bedrifter
+### Virksomhetsdesignmønstre
 
-- 🏭 **Fabrikkmønster**: Standardisert agentopprettelse med avhengighetsinjeksjon
-- 🔧 **Byggemønster**: Flytende agentkonfigurasjon og oppsett
-- 🧵 **Trådsikre mønstre**: Håndtering av samtidige samtaler
-- 📋 **Repositormønster**: Organisert verktøy- og kapabilitetshåndtering
+- 🏭 **Factory Pattern**: Standardisert agentopprettelse med avhengighetsinjeksjon
+- 🔧 **Builder Pattern**: Flytende agentkonfigurasjon og oppsett
+- 🧵 **Trådsikre mønstre**: Samtidig samtalestyring
+- 📋 **Repository Pattern**: Organisert verktøy- og kapabilitetsstyring
 
-## 🎯 Arkitektoniske fordeler med .NET
+## 🎯 .NET-spesifikke arkitekturfordeler
 
-### Funksjoner for bedrifter
+### Virksomhetsfunksjoner
 
-- **Sterk typisering**: Validering under kompilering og IntelliSense-støtte
-- **Avhengighetsinjeksjon**: Innebygd DI-containerintegrasjon
-- **Konfigurasjonsstyring**: IConfiguration og Options-mønstre
-- **Async/Await**: Førsteklasses støtte for asynkron programmering
+- **Sterk typing**: Kompileringstid-validering og IntelliSense-støtte
+- **Avhengighetsinjeksjon**: Innebygd DI-container-integrasjon
+- **Konfigurasjonsstyring**: IConfiguration- og Options-mønstre
+- **Async/Await**: Førsteklasses asynkron programmeringsstøtte
 
 ### Produksjonsklare mønstre
 
-- **Loggintegrasjon**: ILogger og støtte for strukturert logging
-- **Helsesjekker**: Innebygd overvåking og diagnostikk
-- **Konfigurasjonsvalidering**: Sterk typisering med dataannotasjoner
+- **Loggintegrasjon**: ILogger og strukturert logg-støtte
+- **Helsesjekker**: Innebygd overvåkning og diagnostikk
+- **Konfigurasjonsvalidering**: Sterk typing med dataanmerkninger
 - **Feilhåndtering**: Strukturert unntakshåndtering
 
 ## 🔧 Teknisk arkitektur
@@ -32,114 +32,117 @@ Dette eksempelet viser designmønstre på bedriftsnivå for å bygge intelligent
 ### Kjernekomponenter i .NET
 
 - **Microsoft.Extensions.AI**: Enhetlige AI-tjenesteabstraksjoner
-- **Microsoft.Agents.AI**: Rammeverk for agentorkestrering på bedriftsnivå
-- **GitHub-modellintegrasjon**: API-klientmønstre med høy ytelse
+- **Microsoft.Agents.AI**: Virksomhetsrammeverk for agentorchestrering
+- **Azure OpenAI (Responses API)**: Høyytelses API-klientmønstre
 - **Konfigurasjonssystem**: appsettings.json og miljøintegrasjon
 
 ### Implementering av designmønstre
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
+    A[IServiceCollection] --> B[Agent Bygger]
+    B --> C[Konfigurasjon]
+    C --> D[Verktøyregister]
     D --> E[AI Agent]
 ```
 
-## 🏗️ Demonstrerte mønstre for bedrifter
+## 🏗️ Virksomhetsmønstre demonstrert
 
 ### 1. **Opprettelsesmønstre**
 
 - **Agentfabrikk**: Sentralisert agentopprettelse med konsistent konfigurasjon
-- **Byggemønster**: Flytende API for kompleks agentkonfigurasjon
-- **Singleton-mønster**: Delt ressurs- og konfigurasjonsstyring
+- **Builder Pattern**: Flytende API for kompleks agentkonfigurasjon
+- **Singleton Pattern**: Delte ressurser og konfigurasjonsstyring
 - **Avhengighetsinjeksjon**: Løs kobling og testbarhet
 
 ### 2. **Atferdsmønstre**
 
 - **Strategimønster**: Utskiftbare strategier for verktøykjøring
-- **Kommandomønster**: Innkapslede agentoperasjoner med angre/gjenta
-- **Observatørmønster**: Hendelsesdrevet agentlivssyklusadministrasjon
-- **Templatmetode**: Standardiserte arbeidsflyter for agentutførelse
+- **Kommandomønster**: Innpakkede agentoperasjoner med angre/gjøre om
+- **Observatørmønster**: Hendelsesdrevet agentlivssyklusstyring
+- **Template Method**: Standardiserte agentutførelsesflyter
 
 ### 3. **Strukturelle mønstre**
 
-- **Adaptermønster**: Integrasjonslag for GitHub-modeller API
+- **Adaptermønster**: Azure OpenAI (Responses API) integrasjonslag
 - **Dekoratørmønster**: Forbedring av agentkapabiliteter
-- **Fasademønster**: Forenklede grensesnitt for agentinteraksjon
-- **Proksymønster**: Lazy loading og caching for ytelse
+- **Fasadene**: Forenklede grensesnitt for agentinteraksjon
+- **Proxy-mønster**: Forsinket lasting og caching for ytelse
 
-## 📚 Designprinsipper i .NET
+## 📚 .NET designprinsipper
 
 ### SOLID-prinsipper
 
 - **Enkelt ansvar**: Hver komponent har ett klart formål
 - **Åpen/lukket**: Utvidbar uten modifikasjon
-- **Liskovs substitusjonsprinsipp**: Verktøyimplementasjoner basert på grensesnitt
-- **Grensesnittsegregering**: Fokuserte, sammenhengende grensesnitt
-- **Avhengighetsinversjon**: Avheng av abstraksjoner, ikke konkrete implementasjoner
+- **Liskov substitusjon**: Grensesnittbaserte verktøyimplementasjoner
+- **Grensesnitt-segregering**: Fokusert, sammenhengende grensesnitt
+- **Avhengighetsinversjon**: Avheng av abstraksjoner, ikke konkrete
 
 ### Ren arkitektur
 
-- **Domenelag**: Kjerneabstraksjoner for agenter og verktøy
-- **Applikasjonslag**: Agentorkestrering og arbeidsflyter
-- **Infrastrukturlag**: GitHub-modellintegrasjon og eksterne tjenester
+- **Domene-lag**: Kjerneabstraksjoner for agent og verktøy
+- **Applikasjonslag**: Agentorchestrering og arbeidsflyter
+- **Infrastrukturlag**: Azure OpenAI (Responses API) integrasjon og eksterne tjenester
 - **Presentasjonslag**: Brukerinteraksjon og responsformatering
 
-## 🔒 Betraktninger for bedrifter
+## 🔒 Virksomhetshensyn
 
 ### Sikkerhet
 
 - **Håndtering av legitimasjon**: Sikker håndtering av API-nøkler med IConfiguration
-- **Inputvalidering**: Sterk typisering og validering med dataannotasjoner
-- **Outputsanitering**: Sikker behandling og filtrering av responser
-- **Revisjonslogging**: Omfattende sporing av operasjoner
+- **Inndata-validering**: Sterk typing og validering med dataanmerkninger
+- **Utdata-rensing**: Sikker responsbehandling og filtrering
+- **Revisjonslogging**: Omfattende operasjonssporing
 
 ### Ytelse
 
 - **Asynkrone mønstre**: Ikke-blokkerende I/O-operasjoner
-- **Tilkoblingspooling**: Effektiv håndtering av HTTP-klienter
+- **Tilkoblingspooling**: Effektiv HTTP-klienthåndtering
 - **Caching**: Responscaching for forbedret ytelse
-- **Ressursstyring**: Riktig disponering og oppryddingsmønstre
+- **Ressurshåndtering**: Korrekte avhendings- og oppryddingsmønstre
 
 ### Skalerbarhet
 
-- **Trådsikkerhet**: Støtte for samtidige agentutførelser
+- **Trådsikkerhet**: Samtidig agentutførelsesstøtte
 - **Ressurspooling**: Effektiv ressursutnyttelse
-- **Laststyring**: Ratebegrensning og håndtering av tilbakeslag
-- **Overvåking**: Ytelsesmetrikker og helsesjekker
+- **Laststyring**: Hastighetsbegrensning og backpress-håndtering
+- **Overvåkning**: Ytelsesmetrikker og helsesjekker
 
-## 🚀 Produksjonsutrulling
+## 🚀 Produksjonsdistribusjon
 
 - **Konfigurasjonsstyring**: Miljøspesifikke innstillinger
-- **Loggstrategi**: Strukturert logging med korrelasjons-ID-er
-- **Feilhåndtering**: Global unntakshåndtering med riktig gjenoppretting
-- **Overvåking**: Application Insights og ytelsestellere
-- **Testing**: Enhetstester, integrasjonstester og lasttestmønstre
+- **Loggstrategi**: Strukturert logging med korrelasjons-IDer
+- **Feilhåndtering**: Global unntakshåndtering med korrekt gjenoppretting
+- **Overvåkning**: Application Insights og ytelsestellere
+- **Testing**: Enhetstester, integrasjonstester og lastetestmønstre
 
-Klar til å bygge intelligente agenter på bedriftsnivå med .NET? La oss arkitektere noe robust! 🏢✨
+Klar til å bygge virksomhetsklassede intelligente agenter med .NET? La oss arkitektere noe robust! 🏢✨
 
-## 🚀 Kom i gang
+## 🚀 Komme i gang
 
 ### Forutsetninger
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) eller nyere
-- [GitHub Models API-tilgangstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) eller høyere
+- Et [Azure-abonnement](https://azure.microsoft.com/free/) med en Azure OpenAI-ressurs og en modellutrulling
+- Azure CLI ([Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)) — logg inn med `az login`
 
 ### Påkrevde miljøvariabler
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Logg deretter inn slik at AzureCliCredential kan hente en token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Logg inn så AzureCliCredential kan hente en token
+az login
 ```
 
 ### Eksempelkode
@@ -152,27 +155,29 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Eller ved å bruke dotnet CLI:
+Eller ved bruk av dotnet CLI:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-Se [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) for fullstendig kode.
+Se [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) for komplett kode.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,11 +240,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Ansvarsfraskrivelse**:  
-Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi tilstreber nøyaktighet, vennligst vær oppmerksom på at automatiserte oversettelser kan inneholde feil eller unøyaktigheter. Det originale dokumentet på sitt opprinnelige språk bør betraktes som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
+**Ansvarsfraskrivelse**:
+Dette dokumentet er oversatt ved hjelp av AI-oversettelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selv om vi streber etter nøyaktighet, vær oppmerksom på at automatiske oversettelser kan inneholde feil eller unøyaktigheter. Det opprinnelige dokumentet på originalspråket skal betraktes som den autoritative kilden. For kritisk informasjon anbefales profesjonell menneskelig oversettelse. Vi er ikke ansvarlige for eventuelle misforståelser eller feiltolkninger som oppstår ved bruk av denne oversettelsen.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

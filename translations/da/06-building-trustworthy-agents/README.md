@@ -1,44 +1,44 @@
-[![Pålidelige AI-agenter](../../../translated_images/da/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
+[![Troværdige AI-agenter](../../../translated_images/da/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Klik på billedet ovenfor for at se videoen af denne lektion)_
+> _(Klik på billedet ovenfor for at se videoen til denne lektion)_
 
-# Bygning af pålidelige AI-agenter
+# Opbygning af troværdige AI-agenter
 
 ## Introduktion
 
 Denne lektion vil dække:
 
 - Hvordan man bygger og implementerer sikre og effektive AI-agenter
-- Vigtige sikkerhedsovervejelser ved udvikling af AI-agenter.
-- Hvordan man opretholder data- og brugerprivathed ved udvikling af AI-agenter.
+- Vigtige sikkerhedshensyn ved udvikling af AI-agenter.
+- Hvordan man opretholder data- og brugernes privatliv ved udvikling af AI-agenter.
 
 ## Læringsmål
 
 Efter at have gennemført denne lektion vil du vide, hvordan du:
 
-- Identificerer og mindsker risici ved oprettelse af AI-agenter.
+- Identificerer og afbøder risici ved oprettelse af AI-agenter.
 - Implementerer sikkerhedsforanstaltninger for at sikre, at data og adgang håndteres korrekt.
-- Skaber AI-agenter, der opretholder dataprivathed og leverer en kvalitetsbrugeroplevelse.
+- Opretter AI-agenter, der opretholder dataprivatliv og leverer en kvalitetsbrugeroplevelse.
 
 ## Sikkerhed
 
-Lad os først se på at bygge sikre agentiske applikationer. Sikkerhed betyder, at AI-agenten fungerer som designet. Som udviklere af agentiske applikationer har vi metoder og værktøjer til at maksimere sikkerheden:
+Lad os først se på opbygning af sikre agentbaserede applikationer. Sikkerhed betyder, at AI-agenten fungerer som designet. Som udviklere af agentbaserede applikationer har vi metoder og værktøjer til at maksimere sikkerheden:
 
-### Opbygning af et systemmeddelelsesframework
+### Opbygning af en systembesked-ramme
 
-Hvis du nogensinde har bygget en AI-applikation ved hjælp af store sprogmodeller (LLMs), ved du, hvor vigtigt det er at designe en robust systemprompt eller systemmeddelelse. Disse prompts fastlægger metareglene, instruktionerne og retningslinjerne for, hvordan LLM’en vil interagere med brugeren og dataene.
+Hvis du nogensinde har bygget en AI-applikation ved hjælp af Large Language Models (LLMs), ved du, hvor vigtigt det er at designe en robust systemprompt eller systembesked. Disse prompts fastlægger metaregler, instruktioner og retningslinjer for, hvordan LLM’en skal interagere med brugeren og data.
 
-For AI-agenter er systemprompten endnu vigtigere, da AI-agenterne vil have brug for meget specifikke instruktioner for at fuldføre de opgaver, vi har designet til dem.
+For AI-agenter er systemprompten endnu vigtigere, da AI-agenter skal have meget specifikke instruktioner for at kunne udføre de opgaver, vi har designet til dem.
 
-For at skabe skalerbare systemprompts kan vi bruge et systemmeddelelsesframework til at opbygge en eller flere agenter i vores applikation:
+For at skabe skalerbare systemprompts kan vi bruge en systembesked-ramme til at bygge en eller flere agenter i vores applikation:
 
-![Opbygning af et systemmeddelelsesframework](../../../translated_images/da/system-message-framework.3a97368c92d11d68.webp)
+![Opbygning af en systembesked-ramme](../../../translated_images/da/system-message-framework.3a97368c92d11d68.webp)
 
-#### Trin 1: Opret en meta systemmeddelelse
+#### Trin 1: Opret en meta systembesked
 
 Meta-prompten vil blive brugt af en LLM til at generere systemprompter for de agenter, vi opretter. Vi designer den som en skabelon, så vi effektivt kan skabe flere agenter, hvis det er nødvendigt.
 
-Her er et eksempel på en meta systemmeddelelse, vi ville give til LLM’en:
+Her er et eksempel på en meta systembesked, vi ville give til LLM'en:
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -49,7 +49,7 @@ To create the system prompt, be descriptive as possible and provide a structure 
 
 #### Trin 2: Opret en grundlæggende prompt
 
-Det næste trin er at oprette en grundlæggende prompt for at beskrive AI-agenten. Du bør inkludere agentens rolle, de opgaver agenten skal udføre, og eventuelle andre ansvarsområder for agenten.
+Næste trin er at oprette en grundlæggende prompt til at beskrive AI-agenten. Du bør inkludere agentens rolle, de opgaver, agenten vil udføre, og eventuelle andre ansvarsområder for agenten.
 
 Her er et eksempel:
 
@@ -57,11 +57,11 @@ Her er et eksempel:
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### Trin 3: Lever grundlæggende systemmeddelelse til LLM
+#### Trin 3: Giv grundlæggende systembesked til LLM
 
-Nu kan vi optimere denne systemmeddelelse ved at give meta systemmeddelelsen som systemmeddelelse og vores grundlæggende systemmeddelelse.
+Nu kan vi optimere denne systembesked ved at give meta systembeskeden som systembesked sammen med vores grundlæggende systembesked.
 
-Dette vil producere en systemmeddelelse, der er bedre designet til at styre vores AI-agenter:
+Dette vil producere en systembesked, der er bedre designet til at guide vores AI-agenter:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -113,71 +113,73 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### Trin 4: Iterér og forbedr
+#### Trin 4: Iterer og forbedr
 
-Værdien af dette systemmeddelelsesframework er at kunne skalere oprettelsen af systemmeddelelser for flere agenter lettere samt forbedre dine systemmeddelelser over tid. Det er sjældent, at du har en systemmeddelelse, der fungerer første gang for dit komplette brugsscenarie. At kunne lave små justeringer og forbedringer ved at ændre den grundlæggende systemmeddelelse og køre den gennem systemet vil give dig mulighed for at sammenligne og evaluere resultater.
+Værdien af denne systembesked-ramme er, at du kan skalere oprettelsen af systembeskeder fra flere agenter lettere samt forbedre dine systembeskeder over tid. Det er sjældent, at du har en systembesked, der fungerer perfekt første gang for hele din brugssag. At kunne foretage små justeringer og forbedringer ved at ændre den grundlæggende systembesked og køre den gennem systemet giver dig mulighed for at sammenligne og evaluere resultater.
 
 ## Forståelse af trusler
 
-For at bygge pålidelige AI-agenter er det vigtigt at forstå og afbøde risici og trusler mod din AI-agent. Lad os se på nogle af de forskellige trusler mod AI-agenter og hvordan du bedre kan planlægge og forberede dig på dem.
+For at bygge troværdige AI-agenter er det vigtigt at forstå og afbøde risiciene og truslerne mod din AI-agent. Lad os se på nogle få af de forskellige trusler mod AI-agenter, og hvordan du bedre kan planlægge og forberede dig på dem.
 
 ![Forståelse af trusler](../../../translated_images/da/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Opgave og instruktion
 
-**Beskrivelse:** Angribere forsøger at ændre AI-agentens instruktioner eller mål gennem prompting eller manipulation af input.
+**Beskrivelse:** Angribere forsøger at ændre instruktionerne eller målene for AI-agenten via prompting eller manipulation af input.
 
-**Afhjælpning**: Udfør valideringskontroller og inputfiltre for at opdage potentielt farlige prompts, før de behandles af AI-agenten. Da disse angreb typisk kræver hyppig interaktion med agenten, er det en anden måde at forhindre disse angreb på at begrænse antallet af tur i en samtale.
+**Afbødning**: Udfør valideringstjek og inputfiltre for at opdage potentielt farlige prompts, før de behandles af AI-agenten. Da disse angreb typisk kræver hyppig interaktion med agenten, er det en anden måde at forhindre denne type angreb på at begrænse antallet af samtaleture.
 
 ### Adgang til kritiske systemer
 
-**Beskrivelse**: Hvis en AI-agent har adgang til systemer og tjenester, der gemmer følsomme data, kan angribere kompromittere kommunikationen mellem agenten og disse tjenester. Det kan være direkte angreb eller indirekte forsøg på at opnå information om disse systemer gennem agenten.
+**Beskrivelse**: Hvis en AI-agent har adgang til systemer og tjenester, der gemmer følsomme data, kan angribere kompromittere kommunikationen mellem agenten og disse tjenester. Dette kan være direkte angreb eller indirekte forsøg på at opnå information om disse systemer gennem agenten.
 
-**Afhjælpning**: AI-agenter bør have adgang til systemer efter behov for kun at forhindre denne type angreb. Kommunikation mellem agenten og systemet skal også være sikker. Implementering af autentificering og adgangskontrol er en anden måde at beskytte denne information på.
+**Afbødning**: AI-agenter bør have adgang til systemer efter behov for at forhindre denne type angreb. Kommunikation mellem agenten og systemet bør også være sikker. Implementering af autentificering og adgangskontrol er en anden måde at beskytte denne information på.
 
-### Ressource- og serviceoverbelastning
+### Ressource- og tjenestebelastning
 
-**Beskrivelse:** AI-agenter kan tilgå forskellige værktøjer og tjenester for at udføre opgaver. Angribere kan udnytte denne evne til at angribe disse tjenester ved at sende et stort antal forespørgsler gennem AI-agenten, hvilket kan resultere i systemfejl eller høje omkostninger.
+**Beskrivelse:** AI-agenter kan tilgå forskellige værktøjer og tjenester for at udføre opgaver. Angribere kan misbruge denne evne til at angribe disse tjenester ved at sende et stort antal anmodninger gennem AI-agenten, hvilket kan resultere i systemfejl eller høje omkostninger.
 
-**Afhjælpning:** Implementer politikker for at begrænse antallet af forespørgsler, en AI-agent kan lave til en service. At begrænse antallet af samtaleturs og forespørgsler til din AI-agent er en anden måde at forhindre denne type angreb på.
+**Afbødning:** Implementer politikker for at begrænse antallet af anmodninger, en AI-agent kan sende til en tjeneste. At begrænse antallet af samtaleture og anmodninger til din AI-agent er en anden måde at forhindre denne type angreb på.
 
 ### Forgiftning af vidensbase
 
-**Beskrivelse:** Denne type angreb retter sig ikke direkte mod AI-agenten, men mod vidensbasen og andre tjenester, som AI-agenten vil bruge. Det kan involvere korrupte data eller information, som AI-agenten skal bruge for at fuldføre en opgave, hvilket fører til forudindtagede eller utilsigtede svar til brugeren.
+**Beskrivelse:** Denne type angreb går ikke direkte efter AI-agenten, men mod vidensbasen og andre tjenester, som AI-agenten vil bruge. Dette kan involvere korrumpering af data eller information, som AI-agenten bruger til at udføre en opgave, hvilket fører til biased eller utilsigtede svar til brugeren.
 
-**Afhjælpning:** Udfør regelmæssig verifikation af de data, som AI-agenten vil bruge i sine arbejdsgange. Sørg for, at adgangen til disse data er sikker og kun kan ændres af betroede personer for at undgå denne type angreb.
+**Afbødning:** Udfør regelmæssige verifikationer af data, som AI-agenten bruger i sine arbejdsprocesser. Sikr, at adgangen til disse data er sikker og kun ændres af betroede personer for at undgå denne type angreb.
 
 ### Kaskaderende fejl
 
-**Beskrivelse:** AI-agenter tilgår forskellige værktøjer og tjenester for at fuldføre opgaver. Fejl forårsaget af angribere kan føre til nedbrud i andre systemer, som AI-agenten er tilknyttet, hvilket gør angrebet mere udbredt og vanskeligere at fejlfinde.
+**Beskrivelse:** AI-agenter tilgår forskellige værktøjer og tjenester for at udføre opgaver. Fejl forårsaget af angribere kan føre til svigt i andre systemer, som AI-agenten er tilsluttet, hvilket får angrebet til at sprede sig bredere og gøre det sværere at fejlfinde.
 
-**Afhjælpning**: En metode til at undgå dette er at få AI-agenten til at arbejde i et begrænset miljø, som for eksempel at udføre opgaver i en Docker-container, for at forhindre direkte systemangreb. At skabe fallback-mekanismer og retry-logik, når visse systemer svarer med en fejl, er en anden måde at forhindre større systemnedbrud på.
+**Afbødning**: En metode for at undgå dette er at lade AI-agenten operere i et begrænset miljø, såsom at udføre opgaver i en Docker-container, for at forhindre direkte systemangreb. At oprette fallback-mekanismer og retry-logik, når visse systemer svarer med en fejl, er en anden måde at forhindre større systemfejl på.
 
-## Human-in-the-Loop
+## Menneske-i-loop
 
-En anden effektiv måde at bygge pålidelige AI-agent systemer på er ved at bruge en Human-in-the-loop. Det skaber et flow, hvor brugerne kan give feedback til agenten under kørslen. Brugerne fungerer i praksis som agenter i et multi-agent system ved at give godkendelse eller stoppe den kørende proces.
+En anden effektiv måde at opbygge troværdige AI-agent systemer på er ved at bruge en menneske-i-loop. Dette skaber en proces, hvor brugerne kan give feedback til agenterne under kørslen. Brugerne fungerer grundlæggende som agenter i et multi-agent system ved at give godkendelse eller afslutning af den kørende proces.
 
-![Human in The Loop](../../../translated_images/da/human-in-the-loop.5f0068a678f62f4f.webp)
+![Menneske i loop](../../../translated_images/da/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Her er en kodeeksempel, der bruger Microsoft Agent Framework til at vise, hvordan dette koncept implementeres:
+Her er et kodeeksempel, der bruger Microsoft Agent Framework til at vise, hvordan dette koncept implementeres:
 
 ```python
 import os
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-# Opret udbyderen med menneskelig godkendelse i processen
-provider = AzureAIProjectAgentProvider(
+# Opret udbyderen med menneskelig godkendelse
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
     credential=AzureCliCredential(),
 )
 
-# Opret agenten med et trin til menneskelig godkendelse
+# Opret agenten med et trin for menneskelig godkendelse
 response = provider.create_response(
     input="Write a 4-line poem about the ocean.",
     instructions="You are a helpful assistant. Ask for user approval before finalizing.",
 )
 
-# Brugeren kan gennemse og godkende svaret
+# Brugeren kan gennemgå og godkende svaret
 print(response.output_text)
 user_input = input("Do you approve? (APPROVE/REJECT): ")
 if user_input == "APPROVE":
@@ -188,22 +190,22 @@ else:
 
 ## Konklusion
 
-At bygge pålidelige AI-agenter kræver omhyggeligt design, robuste sikkerhedsforanstaltninger og kontinuerlig iteration. Ved at implementere strukturerede meta-promptingsystemer, forstå potentielle trusler og anvende afbødende strategier kan udviklere skabe AI-agenter, der både er sikre og effektive. Desuden sikrer integration af en human-in-the-loop tilgang, at AI-agenter forbliver tilpasset brugerens behov, samtidig med at risici minimeres. Efterhånden som AI fortsætter med at udvikle sig, vil det være afgørende at opretholde en proaktiv tilgang til sikkerhed, privatliv og etiske overvejelser for at fremme tillid og pålidelighed i AI-drevne systemer.
+At bygge troværdige AI-agenter kræver omhyggeligt design, robuste sikkerhedsforanstaltninger og kontinuerlig iteration. Ved at implementere strukturerede meta-prompt-systemer, forstå potentielle trusler og anvende afbødningsstrategier kan udviklere skabe AI-agenter, der både er sikre og effektive. Derudover sikrer inddragelse af en menneske-i-loop tilgang, at AI-agenter forbliver i overensstemmelse med brugernes behov, samtidig med at risici minimeres. Efterhånden som AI fortsætter med at udvikle sig, vil en proaktiv holdning til sikkerhed, privatliv og etiske overvejelser være nøglen til at fremme tillid og pålidelighed i AI-drevne systemer.
 
 ## Kodeeksempler
 
-- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Trin-for-trin demonstration af meta-prompt systemmeddelelsesframeworket.
-- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Forhåndsgodkendelsesporte, risikoklassificering og revisionslogning for pålidelige agenter.
+- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Trin-for-trin demonstration af meta-prompt systembesked-rammen.
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Forhåndsgodkendelsesporte, risikoklassificering og revisionslog for troværdige agenter.
 
-### Har du flere spørgsmål om at bygge pålidelige AI-agenter?
+### Har du flere spørgsmål om opbygning af troværdige AI-agenter?
 
-Deltag i [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) for at møde andre lærende, deltage i kontortimer og få svar på dine spørgsmål om AI-agenter.
+Deltag i [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) for at møde andre lærende, deltage i kontortimer og få dine spørgsmål om AI-agenter besvaret.
 
 ## Yderligere ressourcer
 
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Overblik over ansvarlig AI</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Oversigt over ansvarlig AI</a>
 - <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Evaluering af generative AI-modeller og AI-applikationer</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Sikkerhedssystemmeddelelser</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Sikkerhedssystembeskeder</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Skabelon til risikovurdering</a>
 
 ## Forrige lektion

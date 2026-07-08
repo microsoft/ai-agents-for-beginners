@@ -1,32 +1,32 @@
-# 🔍 Enterprise RAG Azure AI Foundrylla (.NET)
+# 🔍 Enterprise RAG Microsoft Foundryn (.NET) kanssa
 
 ## 📋 Oppimistavoitteet
 
-Tämä notebook näyttää, kuinka rakentaa yritystason Retrieval-Augmented Generation (RAG) -järjestelmiä Microsoft Agent Frameworkin avulla .NET:ssä ja Azure AI Foundryssa. Opit luomaan tuotantovalmiita agentteja, jotka voivat etsiä dokumenteista ja tarjota tarkkoja, kontekstitietoisia vastauksia yritystason turvallisuudella ja skaalautuvuudella.
+Tämä muistikirja osoittaa, kuinka rakentaa yritysluokan Retrieval-Augmented Generation (RAG) -järjestelmiä käyttämällä Microsoft Agent Frameworkia .NET:ssä Microsoft Foundryn kanssa. Opit luomaan tuotantovalmiita agenteja, jotka voivat hakea asiakirjoja ja tarjota tarkkoja, kontekstintajuisia vastauksia yritysturvallisuudella ja -skaalautuvuudella.
 
-**Rakennettavat yritystason RAG-ominaisuudet:**
-- 📚 **Dokumenttien älykkyys**: Kehittynyt dokumenttien käsittely Azure AI -palveluilla
-- 🔍 **Semanttinen haku**: Suorituskykyinen vektorihaku yritysominaisuuksilla
-- 🛡️ **Turvallisuusintegraatio**: Roolipohjainen pääsy ja tietosuojamallit
+**Yritysluokan RAG-ominaisuudet, jotka rakennat:**
+- 📚 **Asiakirjaälykkyys**: Kehittynyt asiakirjojen käsittely Azure AI -palveluilla
+- 🔍 **Semanttinen haku**: Korkean suorituskyvyn vektorihaku yritysominaisuuksilla
+- 🛡️ **Turvaintegraatio**: Roolipohjainen pääsy ja datan suojausmallit
 - 🏢 **Skaalautuva arkkitehtuuri**: Tuotantovalmiit RAG-järjestelmät valvonnalla
 
-## 🎯 Yritystason RAG-arkkitehtuuri
+## 🎯 Yritysluokan RAG-arkkitehtuuri
 
 ### Keskeiset yrityskomponentit
-- **Azure AI Foundry**: Hallinnoitu yritys-AI-alusta turvallisuudella ja vaatimustenmukaisuudella
+- **Microsoft Foundry**: Hallittu yritys-AI-alusta turvallisuudella ja vaatimustenmukaisuudella
 - **Pysyvät agentit**: Tilalliset agentit keskusteluhistorialla ja kontekstinhallinnalla
-- **Vektorivaraston hallinta**: Yritystason dokumenttien indeksointi ja haku
-- **Identiteetti-integraatio**: Azure AD -autentikointi ja roolipohjainen pääsynhallinta
+- **Vektorivaraston hallinta**: Yritysluokan asiakirjojen indeksointi ja haku
+- **Identiteetin integrointi**: Azure AD:n todennus ja roolipohjainen pääsynhallinta
 
-### .NET-yrityshyödyt
-- **Tyyppiturvallisuus**: Kääntöaikainen validointi RAG-toiminnoille ja tietorakenteille
-- **Asynkroninen suorituskyky**: Ei-blokkaava dokumenttien käsittely ja hakutoiminnot
-- **Muistinhallinta**: Tehokas resurssien käyttö suurille dokumenttikokoelmille
-- **Integraatiomallit**: Natiivien Azure-palveluiden integrointi riippuvuuksien injektiolla
+### .NET-yritysedut
+- **Tyyppiturvallisuus**: Käännösaikainen validointi RAG-toiminnoille ja tietorakenteille
+- **Asynkroninen suorituskyky**: Estämätön asiakirjojen käsittely ja hakutoiminnot
+- **Muistinhallinta**: Tehokas resurssien käyttö suurissa asiakirjakokoelmissa
+- **Integroidut mallit**: Natiivin Azure-palvelun integrointi riippuvuussyötöllä
 
 ## 🏗️ Tekninen arkkitehtuuri
 
-### Yritystason RAG-putki
+### Yritysluokan RAG-putki
 ```
 Document Upload → Security Validation → Vector Processing → Index Creation
                       ↓                    ↓                  ↓
@@ -34,29 +34,29 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 ```
 
 ### Keskeiset .NET-komponentit
-- **Azure.AI.Agents.Persistent**: Yritysagenttien hallinta tilan pysyvyydellä
-- **Azure.Identity**: Integroitu autentikointi turvalliseen Azure-palveluiden käyttöön
-- **Microsoft.Agents.AI.AzureAI**: Azure-optimoitu agenttikehys
-- **System.Linq.Async**: Suorituskykyiset asynkroniset LINQ-toiminnot
+- **Azure.AI.Agents.Persistent**: Yritysagenttien hallinta tilapysyvyyden kanssa
+- **Azure.Identity**: Integroitu todennus turvalliseen Azure-palvelujen käyttöön
+- **Microsoft.Agents.AI.AzureAI**: Azuren optimoitu agenttikehysimplementaatio
+- **System.Linq.Async**: Korkean suorituskyvyn asynkroniset LINQ-toiminnot
 
-## 🔧 Yritysominaisuudet ja -hyödyt
+## 🔧 Yritysominaisuudet ja edut
 
 ### Turvallisuus ja vaatimustenmukaisuus
-- **Azure AD -integraatio**: Yrityksen identiteetinhallinta ja autentikointi
-- **Roolipohjainen pääsy**: Tarkat käyttöoikeudet dokumenttien käyttöön ja toimintoihin
-- **Tietosuoja**: Salaus levossa ja siirrossa arkaluontoisille dokumenteille
-- **Auditointilokit**: Kattava toiminnan seuranta vaatimustenmukaisuuden varmistamiseksi
+- **Azure AD -integraatio**: Yrityksen identiteetin hallinta ja todennus
+- **Roolipohjainen pääsy**: Tarkat käyttöoikeudet asiakirjojen käyttöön ja toimintoihin
+- **Datan suojaus**: Salaus levossa ja siirrossa arkaluontoisille asiakirjoille
+- **Auditointilokit**: Laaja toiminnan seuranta vaatimustenmukaisuuden takaamiseksi
 
 ### Suorituskyky ja skaalautuvuus
-- **Yhteyspoolaus**: Tehokas Azure-palveluiden yhteyksien hallinta
-- **Asynkroninen käsittely**: Ei-blokkaavat toiminnot korkean läpimenon skenaarioihin
-- **Välimuististrategiat**: Älykäs välimuisti usein käytetyille dokumenteille
-- **Kuormantasapainotus**: Hajautettu käsittely suurten järjestelmien käyttöönottoon
+- **Yhteyspoolin hallinta**: Tehokas Azure-palveluyhteyksien hallinta
+- **Asynkroninen käsittely**: Estämättömät toiminnot suurikuormitustilanteissa
+- **Välimuististrategiat**: Älykäs välimuistitus usein haetuille asiakirjoille
+- **Kuormantasapainotus**: Hajautettu käsittely suurissa käyttöönotossa
 
 ### Hallinta ja valvonta
-- **Terveystarkistukset**: Sisäänrakennettu valvonta RAG-järjestelmän komponenteille
-- **Suorituskykymittarit**: Yksityiskohtainen analytiikka hakujen laadusta ja vasteajoista
-- **Virheenkäsittely**: Kattava poikkeusten hallinta ja uudelleenyrittämiskäytännöt
+- **Kunnon tarkistukset**: Sisäänrakennettu valvonta RAG-järjestelmän komponenteille
+- **Suorituskykymittarit**: Yksityiskohtaiset analyysit haun laadusta ja vasteajoista
+- **Virheenkäsittely**: Laaja poikkeusten hallinta uudelleenyrittämiskäytännöillä
 - **Konfiguraation hallinta**: Ympäristökohtaiset asetukset validoinnilla
 
 ## ⚙️ Esivaatimukset ja asennus
@@ -64,7 +64,7 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 **Kehitysympäristö:**
 - .NET 9.0 SDK tai uudempi
 - Visual Studio 2022 tai VS Code C#-laajennuksella
-- Azure-tilaus AI Foundry -pääsyllä
+- Azure-tilaus Microsoft Foundryn käyttöoikeudella
 
 **Vaaditut NuGet-paketit:**
 ```xml
@@ -75,40 +75,40 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Azure-autentikoinnin asennus:**
+**Azure-todennuksen asennus:**
 ```bash
-# Install Azure CLI and authenticate
+# Asenna Azure CLI ja todenna käyttäjä
 az login
 az account set --subscription "your-subscription-id"
 ```
 
-**Ympäristön konfiguraatio:**
-* Azure AI Foundry -konfiguraatio (automaattisesti Azure CLI:n kautta)
-* Varmista, että olet autentikoitunut oikeaan Azure-tilaukseen
+**Ympäristön konfigurointi:**
+* Microsoft Foundryn konfigurointi (hoidetaan automaattisesti Azure CLI:n kautta)
+* Varmista, että olet kirjautunut oikeaan Azure-tilaukseen
 
-## 📊 Yritystason RAG-mallit
+## 📊 Yritysluokan RAG-mallit
 
-### Dokumenttien hallintamallit
-- **Massalataus**: Tehokas suurten dokumenttikokoelmien käsittely
-- **Inkrementaaliset päivitykset**: Reaaliaikainen dokumenttien lisäys ja muokkaus
-- **Versiohallinta**: Dokumenttien versiointi ja muutosten seuranta
-- **Metatietojen hallinta**: Rikkaat dokumenttiattribuutit ja taksonomia
+### Asiakirjahallinnan mallit
+- **Massalähetys**: Tehokas suurten asiakirjakokoelmien käsittely
+- **Inkrementaaliset päivitykset**: Reaaliaikainen asiakirjojen lisääminen ja muokkaus
+- **Versionhallinta**: Asiakirjojen versiointi ja muutosten seuranta
+- **Metatietojen hallinta**: Rikkaat asiakirjaominaisuudet ja taksonomia
 
-### Haku- ja hakumallit
-- **Hybridihaku**: Semanttisen ja avainsanahaun yhdistäminen optimaalisiin tuloksiin
-- **Fasettihaku**: Moniulotteinen suodatus ja kategorisointi
-- **Relevanssin säätö**: Mukautetut pisteytysalgoritmit alakohtaisiin tarpeisiin
-- **Tulosten järjestäminen**: Kehittynyt järjestäminen liiketoimintalogiikan integroinnilla
+### Haku- ja palautusmallit
+- **Hybridi-haku**: Semanttisen ja hakusana-haun yhdistäminen parhaan tuloksen saamiseksi
+- **Moniulotteinen haku**: Monidimensioinen suodatus ja luokittelu
+- **Merkityksen hienosäätö**: Räätälöidyt pisteytysalgoritmit alakohtaisiin tarpeisiin
+- **Tulosten lajittelu**: Kehittynyt lajittelu liiketoimintalogiikan integraatiolla
 
-### Turvallisuusmallit
-- **Dokumenttikohtainen turvallisuus**: Tarkka käyttöoikeuksien hallinta dokumenttikohtaisesti
-- **Tietoluokittelu**: Automaattinen arkaluontoisuuden luokittelu ja suojaus
-- **Auditointijäljet**: Kattava lokitus kaikista RAG-toiminnoista
-- **Yksityisyyden suoja**: PII-tunnistus ja peittokyky
+### Turvamallit
+- **Asiakirjatasoinen turvallisuus**: Tarkka pääsynhallinta asiakirjakohtaisesti
+- **Datan luokittelu**: Automaattinen herkkyystason merkitseminen ja suojaus
+- **Auditointijäljet**: Laaja lokitus kaikista RAG-toiminnoista
+- **Yksityisyyden suojaus**: Henkilötietojen tunnistus ja poistamiskyvyt
 
-## 🔒 Yritystason turvallisuusominaisuudet
+## 🔒 Yritysturvallisuusominaisuudet
 
-### Autentikointi ja valtuutus
+### Todennus ja valtuutus
 ```csharp
 // Azure AD integrated authentication
 var credential = new AzureCliCredential();
@@ -121,11 +121,11 @@ if (!await ValidateUserPermissions(user, documentId))
 }
 ```
 
-### Tietosuoja
-- **Salaus**: Päästä päähän -salaus dokumenteille ja hakemistoille
-- **Pääsynhallinta**: Integraatio Azure AD:n kanssa käyttäjä- ja ryhmäoikeuksille
-- **Tietojen sijainti**: Maantieteelliset tietojen sijaintikontrollit vaatimustenmukaisuutta varten
-- **Varmuuskopiointi ja palautus**: Automaattiset varmuuskopiointi- ja katastrofipalautuskäytännöt
+### Datan suojaus
+- **Salaus**: Päätä päähän -salauksen asiakirjoille ja hakemistoille
+- **Pääsynhallinta**: Integrointi Azure AD:n kanssa käyttäjä- ja ryhmäkohtaisille oikeuksille
+- **Datakeskuksen sijainti**: Maantieteelliset datapaikannussäädökset vaatimusten täyttämiseksi
+- **Varmuuskopiointi ja palautus**: Automaattiset varmuuskopiointi- ja katastrofipalautusominaisuudet
 
 ## 📈 Suorituskyvyn optimointi
 
@@ -139,83 +139,85 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Muistinhallinta
-- **Suoratoistokäsittely**: Suurten dokumenttien käsittely ilman muistiongelmia
-- **Resurssien poolaus**: Kalliiden resurssien tehokas uudelleenkäyttö
-- **Roskankeräys**: Optimoidut muistiallokointimallit
-- **Yhteyksien hallinta**: Oikea Azure-palveluiden yhteyksien elinkaaren hallinta
+- **Suoratoistokäsittely**: Käsittele suuria asiakirjoja ilman muistiin liittyviä ongelmia
+- **Resurssien poolaus**: Tehokas kalliiden resurssien uudelleenkäyttö
+- **Roskapostin keruu**: Optimoidut muistinhallintamallit
+- **Yhteyksien hallinta**: Azure-palveluyhteyksien elinkaaren oikea hallinta
 
 ### Välimuististrategiat
-- **Hakuvälimuisti**: Välimuisti usein suoritetuille hauille
-- **Dokumenttivälimuisti**: Muistivälimuisti suosituimmille dokumenteille
-- **Indeksivälimuisti**: Optimoitu vektorihakemiston välimuisti
-- **Tulosten välimuisti**: Älykäs välimuisti generoituja vastauksia varten
+- **Hakuvälimuisti**: Välimuisti usein suoritettaville hauille
+- **Asiakirjojen välimuisti**: Muistivälimuisti kuumille asiakirjoille
+- **Indeksin välimuisti**: Optimoitu vektori-indeksin välimuisti
+- **Tulosten välimuisti**: Älykäs generoitujen vastausten välimuisti
 
 ## 📊 Yrityskäyttötapaukset
 
 ### Tiedonhallinta
-- **Yrityksen wiki**: Älykäs haku yrityksen tietokannoista
-- **Politiikat ja menettelytavat**: Automaattinen vaatimustenmukaisuus ja menettelyohjeistus
+- **Yrityksen Wiki**: Älykäs haku yrityksen tietokannoissa
+- **Politiikka ja menettelyt**: Automaattinen vaatimustenmukaisuus ja ohjeistus
 - **Koulutusmateriaalit**: Älykäs oppimisen ja kehityksen tuki
-- **Tutkimustietokannat**: Akateemisten ja tutkimuspapereiden analysointijärjestelmät
+- **Tutkimustietokannat**: Akateemisten ja tutkimuspapereiden analyysijärjestelmät
 
 ### Asiakastuki
 - **Tukitietokanta**: Automaattiset asiakaspalveluvastaukset
-- **Tuotedokumentaatio**: Älykäs tuotetiedon haku
-- **Vianetsintäoppaat**: Kontekstuaalinen ongelmanratkaisun tuki
-- **FAQ-järjestelmät**: Dynaaminen FAQ-luonti dokumenttikokoelmista
+- **Tuotedokumentaatio**: Älykäs tuotetiedon hakeminen
+- **Vianmääritysohjeet**: Kontekstuaalinen ongelmanratkaisuapu
+- **UKK-järjestelmät**: Dynaaminen UKK:n generointi asiakirjakokoelmista
 
 ### Sääntelyn noudattaminen
-- **Oikeudellisten dokumenttien analyysi**: Sopimusten ja oikeudellisten dokumenttien älykäs käsittely
-- **Vaatimustenmukaisuuden seuranta**: Automaattinen sääntelyn noudattamisen tarkistus
-- **Riskien arviointi**: Dokumenttipohjainen riskianalyysi ja raportointi
-- **Auditointituki**: Älykäs dokumenttien etsintä auditointeja varten
+- **Laillisten asiakirjojen analyysi**: Sopimus- ja oikeudellinen asiakirjaälykkyys
+- **Vaatimustenmukaisuuden seuranta**: Automaattinen sääntelyvaatimusten tarkastus
+- **Riskinarviointi**: Asiakirjoihin perustuva riskiarvio ja raportointi
+- **Auditointituki**: Älykäs asiakirjojen löytäminen auditointeja varten
 
 ## 🚀 Tuotantokäyttöönotto
 
-### Valvonta ja näkyvyys
+### Valvonta ja havainnointi
 - **Application Insights**: Yksityiskohtainen telemetria ja suorituskyvyn valvonta
-- **Mukautetut mittarit**: Liiketoimintakohtainen KPI-seuranta ja hälytykset
-- **Hajautettu jäljitys**: Pyyntöjen päästä päähän -seuranta palveluiden välillä
-- **Terveysnäkymät**: Reaaliaikainen järjestelmän terveys ja suorituskyvyn visualisointi
+- **Mukautetut mittarit**: Liiketoimintaspecifisten KPI:en seuranta ja hälytys
+- **Hajautettu jäljitys**: Pyyntöjen kokonaisvaltainen seuranta palveluissa
+- **Kunnon hallintapaneelit**: Reaaliaikainen järjestelmän terveyden ja suorituskyvyn visualisointi
 
 ### Skaalautuvuus ja luotettavuus
-- **Automaattinen skaalautuminen**: Automaattinen skaalautuminen kuormituksen ja suorituskykymittareiden perusteella
-- **Korkea käytettävyys**: Monialueinen käyttöönotto varajärjestelyillä
-- **Kuormitustestaus**: Suorituskyvyn validointi yritystason kuormitustilanteissa
-- **Katastrofipalautus**: Automaattiset varmuuskopiointi- ja palautuskäytännöt
+- **Automaattinen skaalaus**: Kuorman ja suorituskykymittareiden mukainen automaattinen skaalaus
+- **Korkea käytettävyys**: Monialueellinen käyttöönotto vikatilanteiden varalta
+- **Kuormitustestaus**: Suorituskyvyn validointi yrityskuormitustilanteissa
+- **Katastrofipalautus**: Automaattiset varmuuskopiointi- ja palautusprosessit
 
-Valmiina rakentamaan yritystason RAG-järjestelmiä, jotka voivat käsitellä arkaluontoisia dokumentteja skaalautuvasti? Suunnitellaan älykkäitä tietojärjestelmiä yrityksille! 🏢📖✨
+Valmiina rakentamaan yritysluokan RAG-järjestelmiä, jotka pystyvät käsittelemään arkaluonteisia asiakirjoja suuressa mittakaavassa? Rakennetaan yhdessä älykkäitä tietojärjestelmiä yrityksille! 🏢📖✨
 
 ## Koodin toteutus
 
-Täydellinen toimiva koodiesimerkki tästä oppitunnista löytyy tiedostosta `05-dotnet-agent-framework.cs`. 
+Tämän oppitunnin täydellinen toimiva koodiesimerkki löytyy tiedostosta `05-dotnet-agent-framework.cs`. 
 
-Esimerkin suorittamiseksi:
+Suorittaaksesi esimerkin:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Tee skriptistä suoritettava (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Suorita .NET-yksittäistiedostosovellus
 ./05-dotnet-agent-framework.cs
 ```
 
-Tai käytä suoraan `dotnet run`:
+Tai käytä suoraan `dotnet run` -komentoa:
 
 ```bash
 dotnet run 05-dotnet-agent-framework.cs
 ```
 
-Koodi näyttää:
+Koodi demonstroi:
 
-1. **Pakettien asennus**: Vaadittujen NuGet-pakettien asennus Azure AI Agentsille
-2. **Ympäristön konfiguraatio**: Azure AI Foundry -päätepisteen ja malliasetusten lataus
-3. **Dokumenttien lataus**: Dokumentin lataus RAG-käsittelyä varten
-4. **Vektorivaraston luonti**: Vektorivaraston luonti semanttista hakua varten
-5. **Agentin konfiguraatio**: AI-agentin asennus tiedostohakutoiminnoilla
-6. **Hakujen suorittaminen**: Hakujen suorittaminen ladattua dokumenttia vastaan
+1. **Paketin asennus**: Tarvittavien NuGet-pakettien asennus Azure AI Agentsia varten
+2. **Ympäristön konfigurointi**: Microsoft Foundryn päätepisteen ja malliasetusten lataaminen
+3. **Asiakirjan lähetys**: Asiakirjan lataaminen RAG-käsittelyä varten
+4. **Vektorivaraston luonti**: Vektorivaraston luominen semanttista hakua varten
+5. **Agentin konfigurointi**: AI-agentin määrittely tiedostohakuominaisuuksilla
+6. **Kyselyjen suoritus**: Kyselyiden ajaminen ladattua asiakirjaa vastaan
 
 ---
 
-**Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäisellä kielellä tulisi pitää ensisijaisena lähteenä. Kriittisen tiedon osalta suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa väärinkäsityksistä tai virhetulkinnoista, jotka johtuvat tämän käännöksen käytöstä.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

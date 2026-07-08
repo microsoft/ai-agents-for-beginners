@@ -1,183 +1,196 @@
-[![Moni-agenttisuunnittelumallit](../../../translated_images/fi/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
+[![Moniagenttisuunnittelumallit](../../../translated_images/fi/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
-> _(Klikkaa yllä olevaa kuvaa katsoaksesi tämän oppitunnin videon)_
+> _(Klikkaa kuvaa yllä nähdäksesi videon tästä oppitunnista)_
 
-# Moni-agenttisuunnittelumallit
+# Moniagenttisuunnittelumallit
 
-Heti kun alat työstää projektia, joka sisältää useita agenteja, sinun tulee ottaa huomioon moni-agenttisuunnittelumalli. Ei kuitenkaan välttämättä ole heti selvää, milloin siirtyä moni-agenteihin ja mitkä ovat niiden edut.
+Heti kun alat työskennellä projektin parissa, johon liittyy useita agentteja, sinun on harkittava moniagenttisuunnittelumallia. Ei kuitenkaan välttämättä ole heti selvää, milloin siirtyä moniagentteihin ja mitkä ovat edut.
 
 ## Johdanto
 
 Tässä oppitunnissa pyrimme vastaamaan seuraaviin kysymyksiin:
 
-- Missä tilanteissa moni-agentteja voi soveltaa?
-- Mitkä ovat moni-agenttien käytön edut verrattuna yhteen agenttiin, joka tekee useita tehtäviä?
-- Mitkä ovat moni-agenttisuunnittelumallin toteuttamisen rakennuspalikat?
-- Miten näemme, miten moni agentti on vuorovaikutuksessa keskenään?
+- Missä tilanteissa moniagentteja voidaan soveltaa?
+- Mitkä ovat moniagenttien käytön edut verrattuna siihen, että yksi agentti hoitaa useita tehtäviä?
+- Mitkä ovat moniagenttisuunnittelumallin toteutuksen peruselementit?
+- Miten voimme saada näkyvyyttä siihen, miten monet agentit ovat vuorovaikutuksessa keskenään?
 
 ## Oppimistavoitteet
 
-Tämän oppitunnin jälkeen sinun tulisi osata:
+Tämän oppitunnin jälkeen sinun pitäisi osata:
 
-- Tunnistaa tilanteet, joissa moni-agentteja voi käyttää
-- Tunnistaa moni-agenttien edut yksittäiseen agenttiin verrattuna
-- Ymmärtää moni-agenttisuunnittelumallin toteuttamisen rakennuspalikat
+- Tunnistaa tilanteet, joissa moniagentit soveltuvat
+- Tunnistaa moniagenttien käytön edut verrattuna yksittäiseen agenttiin.
+- Ymmärtää moniagenttisuunnittelumallin toteutuksen peruselementit.
 
-Mikä on laajempi kokonaiskuva?
+Mikä on laajempi näkymä?
 
-*Moni agentti on suunnittelumalli, joka mahdollistaa useiden agenttien työskentelyn yhdessä yhteisen tavoitteen saavuttamiseksi*.
+*Moniagentit ovat suunnittelumalli, joka mahdollistaa useiden agenttien työskentelyn yhdessä yhteisen tavoitteen saavuttamiseksi.*
 
-Tätä mallia käytetään laajasti eri aloilla, mukaan lukien robotiikka, autonomiset järjestelmät ja hajautettu laskenta.
+Tätä mallia käytetään laajalti erilaisilla aloilla, mukaan lukien robotiikka, itsenäiset järjestelmät ja hajautettu laskenta.
 
-## Tilanteet, joissa moni-agentteja voi soveltaa
+## Tilanteet, joissa moniagentit soveltuvat
 
-Missä tilanteissa moni-agentit ovat hyvä valinta? Vastaus on, että on monia tilanteita, joissa useiden agenttien käyttö on hyödyllistä, erityisesti seuraavissa tapauksissa:
+Mitkä tilanteet ovat hyvän koti käytön moniagenttien käytölle? Vastaus on, että moniagenttien käyttö on hyödyllistä monissa tilanteissa, erityisesti seuraavissa:
 
-- **Suuret työkuormat**: Suuret työmäärät voidaan jakaa pienempiin tehtäviin ja jakaa eri agenteille, mikä mahdollistaa rinnakkaiskäsittelyn ja nopeamman valmistumisen. Esimerkiksi suuri datankäsittelytehtävä.
-- **Monimutkaiset tehtävät**: Kuten suurissa työkuormissa, monimutkaiset tehtävät voidaan pilkkoa pienempiin osatehtäviin ja jakaa eri agenteille, joista kukin erikoistuu tiettyyn tehtävän osa-alueeseen. Hyvä esimerkki on autonomisissa ajoneuvoissa, joissa erilaiset agentit hallitsevat navigointia, esteiden havaitsemista ja viestintää muiden ajoneuvojen kanssa.
-- **Monimuotoinen asiantuntijuus**: Eri agenteilla voi olla erilaista asiantuntijuutta, mikä mahdollistaa erilaisten tehtävän osa-alueiden tehokkaamman hoitamisen kuin yksittäisagentti. Tässä tapauksessa hyvä esimerkki on terveydenhuolto, jossa agentit voivat hallita diagnostiikkaa, hoitosuunnitelmia ja potilasseurantaa.
+- **Suurit työkuormat**: Suuret työkuormat voidaan jakaa pienempiin tehtäviin ja kohdistaa eri agenteille, mikä mahdollistaa rinnakkaisen käsittelyn ja nopeamman valmistumisen. Esimerkkinä tästä on suuri tietojenkäsittelytehtävä.
+- **Monimutkaiset tehtävät**: Monimutkaiset tehtävät, kuten suuret työkuormat, voidaan jakaa pienempiin alatehtäviin ja antaa eri agenteille, jotka erikoistuvat tiettyyn osaan tehtävää. Hyvä esimerkki tästä on autonomiset ajoneuvot, joissa eri agentit huolehtivat navigoinnista, esteiden havaitsemisesta ja viestinnästä muiden ajoneuvojen kanssa.
+- **Monipuolinen asiantuntemus**: Eri agenteilla voi olla erilaisia asiantuntemuksia, mikä mahdollistaa eri tehtävien käsittelyn tehokkaammin kuin yhdellä agentilla. Tässä tapauksessa hyvä esimerkki on terveydenhuolto, jossa agentit voivat hoitaa diagnostiikkaa, hoitosuunnitelmia ja potilasseurantaa.
 
-## Moni-agenttien käytön edut yksittäiseen agenttiin verrattuna
+## Moniagenttien käytön edut yksittäiseen agenttiin verrattuna
 
-Yksittäinen agenttijärjestelmä voi toimia hyvin yksinkertaisissa tehtävissä, mutta monimutkaisemmissa tehtävissä moni-agenttien käyttö voi tarjota useita etuja:
+Yksittäinen agenttijärjestelmä voi toimia hyvin yksinkertaisissa tehtävissä, mutta monimutkaisemmissa tehtävissä useiden agenttien käyttö voi tarjota useita etuja:
 
-- **Erikoistuminen**: Jokainen agentti voi erikoistua tiettyyn tehtävään. Yksittäisessä agentissa erikoistumisen puute tarkoittaa, että agentti voi tehdä kaikkea, mutta saattaa hämmentyä monimutkaisesta tehtävästä. Se voisi esimerkiksi päätyä tekemään tehtävän, johon se ei ole parhaiten soveltuva.
-- **Skaalautuvuus**: Järjestelmiä on helpompi skaalata lisäämällä uusia agentteja kuin ylikuormittamalla yksittäistä agenttia.
-- **Vikankestävyys**: Jos yksi agentti epäonnistuu, toiset voivat jatkaa toimintaansa, mikä takaa järjestelmän luotettavuuden.
+- **Erikoistuminen**: Jokainen agentti voi olla erikoistunut tiettyyn tehtävään. Yksittäisen agentin erikoistumattomuus tarkoittaa, että agentti voi tehdä kaikkea, mutta saattaa hämmentyä monimutkaisen tehtävän edessä ja päätyä tekemään tehtävää, johon se ei ole parhaiten soveltuva.
+- **Skaalautuvuus**: Järjestelmää on helpompi skaalata lisäämällä agentteja kuin kuormittamalla yksittäistä agenttia liikaa.
+- **Vikasietoisuus**: Jos yksi agentti epäonnistuu, muut voivat jatkaa toimintaa, mikä varmistaa järjestelmän luotettavuuden.
 
-Otetaan esimerkki: varataan käyttäjälle matka. Yksittäinen agenttijärjestelmä joutuisi hoitamaan kaikki matkanvarausprosessin osa-alueet, lentojen löytämisestä hotellien ja vuokra-autojen varaamiseen. Tämän saavuttamiseksi agentilla pitäisi olla työkaluja kaikkien näiden tehtävien hoitamiseen. Tämä voisi johtaa monimutkaiseen ja monoliittiseen järjestelmään, jota on vaikea ylläpitää ja skaalata. Moni-agenttijärjestelmässä voi olla eri agentteja, jotka ovat erikoistuneet löytämään lentoja, varaamaan hotelleja ja vuokra-autoja. Tämä tekisi järjestelmästä modulaarisemman, helpommin ylläpidettävän ja skaalautuvan.
+Otetaan esimerkki, varataan matka käyttäjälle. Yksittäinen agenttijärjestelmä joutuisi hoitamaan kaikki matkanvarausprosessin vaiheet, lennon etsimisestä hotellien ja vuokra-autojen varaamiseen. Tämän saavuttamiseksi yhdellä agentilla pitäisi olla työkalut kaikkien näiden tehtävien hoitamiseen, mikä voisi johtaa monimutkaiseen ja monoliittiseen järjestelmään, jota on vaikea ylläpitää ja skaalata. Moniagenttijärjestelmässä eri agentit erikoistuvat lentojen etsimiseen, hotellien varaamiseen ja vuokra-autojen varaamiseen. Tämä tekee järjestelmästä modulaarisemman, helpommin ylläpidettävän ja skaalautuvan.
 
-Vertaa tätä matkatoimistoon, joka toimii pienenä perheyrityksenä verrattuna matkatoimistoon, joka toimii franchising-periaatteella. Perheyrityksessä yksi agentti hoitaisi kaikki matkanvarauksen osa-alueet, kun taas franchisingissa eri agentit hoitaisivat eri osa-alueita.
+Vertaa tätä äitiys- ja isämyymälöissä toimivaan matkatoimistoon verrattuna matkatoimistoon, joka toimii franchising-periaatteella. Äitiys- ja isämyymälässä yksi agentti hoitaisi kaikki matkanvarausprosessin vaiheet, kun taas franchisingissa eri agentit hoitaisivat eri vaiheet.
 
-## Moni-agenttisuunnittelumallin toteuttamisen rakennuspalikat
+## Moniagenttisuunnittelumallin toteutuksen peruselementit
 
-Ennen kuin voit toteuttaa moni-agenttisuunnittelumallin, sinun tulee ymmärtää, mitkä ovat mallin rakennuspalikat.
+Ennen kuin voit toteuttaa moniagenttisuunnittelumallin, sinun on ymmärrettävä mallin peruselementit.
 
-Tehdään tästä konkreettisempaa katsomalla uudelleen esimerkkiä käyttäjän matkan varaamisesta. Tässä tapauksessa rakennuspalikat sisältäisivät:
+Tehdään tämä konkreettisemmaksi tarkastelemalla uudelleen esimerkkiä käyttäjän matkan varaamisesta. Tässä tapauksessa peruselementteihin kuuluvat:
 
-- **Agenttien välinen viestintä**: Lentojen etsintään, hotellien ja vuokra-autojen varaamiseen liittyvien agenttien tulee viestiä ja jakaa tietoa käyttäjän mieltymyksistä ja rajoitteista. Sinun täytyy päättää, mitä protokollia ja menetelmiä käytetään tähän viestintään. Konkreettisesti tämä tarkoittaa, että lentojen etsintäagentin pitää viestiä hotellivarausagentin kanssa varmistaakseen, että hotelli on varattu samoille päivämäärille kuin lento. Tämä tarkoittaa, että agenttien täytyy jakaa tietoa käyttäjän matka-ajankohdista, eli sinun täytyy päättää *mitkä agentit jakavat tietoa ja miten tietoa jaetaan*.
-- **Koordinointimekanismit**: Agenttien on koordinoitava toimintaansa varmistaakseen, että käyttäjän mieltymykset ja rajoitukset täyttyvät. Käyttäjän mieltymys voi olla esimerkiksi hotelli lähellä lentokenttää, kun taas rajoitus voi olla vuokra-autojen saatavuus vain lentokentällä. Tämä tarkoittaa, että hotellivarausagentin on koordinoitava vuokra-autoagentin kanssa käyttäjän mieltymysten ja rajoitteiden täyttämiseksi. Sinun täytyy siis päättää *miten agentit koordinoivat toimintaansa*.
-- **Agenttirakenne**: Agenteilla täytyy olla sisäinen rakenne, jolla ne tekevät päätöksiä ja oppivat vuorovaikutuksistaan käyttäjän kanssa. Tämä tarkoittaa, että lentojen etsintäagentin on oltava rakennettu siten, että se voi tehdä päätöksiä suositeltavista lennoista käyttäjälle. Sinun täytyy päättää *miten agentit tekevät päätöksiä ja oppivat vuorovaikutuksistaan käyttäjän kanssa*. Esimerkki agentin oppimisesta voi olla se, että lentojen etsintäagentti käyttää koneoppimismallia suositellakseen lentoja käyttäjän aiempien mieltymysten perusteella.
-- **Näkyvyys moni-agenttien vuorovaikutukseen**: Sinun on nähtävä, miten useat agentit ovat vuorovaikutuksessa keskenään. Tämä tarkoittaa, että tarvitset työkaluja ja tekniikoita agenttien toiminnan ja vuorovaikutusten seuraamiseen. Tämä voi olla esimerkiksi lokitus- ja valvontatyökaluja, visualisointityökaluja ja suorituskykymittareita.
-- **Moni-agenttimallit**: On eri malleja moni-agenttijärjestelmien toteuttamiseen, kuten keskitetyt, hajautetut ja hybridirakenteet. Sinun pitää valita malli, joka parhaiten sopii käyttötarkoitukseesi.
-- **Ihminen mukana prosessissa**: Useimmissa tapauksissa ihminen on mukana prosessissa, ja agentteja pitää ohjeistaa, milloin pyytää ihmisen väliintuloa. Tämä voi olla esimerkiksi käyttäjä pyytämässä tiettyä hotellia tai lentoa, jota agentit eivät ole suositelleet, tai pyytäessä varmistusta ennen lennon tai hotellin varaamista.
+- **Agenttien välinen viestintä**: Lentojen etsimiseen, hotellien varaamiseen ja vuokra-autoihin erikoistuneiden agenttien on kommunikoitava ja jaettava tietoja käyttäjän mieltymyksistä ja rajoitteista. Sinun on päätettävä viestinnän protokollista ja metodeista. Konkreettisesti tämä tarkoittaa, että lentojen etsintään erikoistunut agentti viestii hotellien varausagentin kanssa varmistaakseen, että hotelli varataan samoille päiville kuin lento. Tämä tarkoittaa, että agenttien on jaettava tietoja käyttäjän matkustuspäivistä, eli sinun on päätettävä *mitkä agentit jakavat tietoa ja miten ne jakavat sitä*.
+- **Koordinointimekanismit**: Agenttien täytyy koordinoida toimiaan varmistaakseen, että käyttäjän mieltymykset ja rajoitteet täyttyvät. Käyttäjän mieltymys voisi olla hotelli lähellä lentokenttää, ja rajoite se, että vuokra-autot ovat saatavilla vain lentokentällä. Tämä tarkoittaa, että hotellien varausagentin on koordinoitava toimintaa vuokra-autojen varausagentin kanssa varmistaakseen mieltymysten ja rajoitteiden täyttymisen. Sinun tarvitsee päättää *miten agentit koordinoivat toimintaansa*.
+- **Agenttien arkkitehtuuri**: Agenttien on oltava sisäisesti rakenteellisia päätöksenteolle ja oppimiselle käyttäjän kanssa käydyn vuorovaikutuksen perusteella. Tämä tarkoittaa, että lentojen etsintään tarkoitettujen agenttien on päätettävä, mitä lentoja käyttäjälle suositellaan. Sinun on siis päätettävä *miten agentit tekevät päätöksiä ja oppivat vuorovaikutuksesta käyttäjän kanssa*. Esimerkiksi lentojen etsintään erikoistunut agentti voisi käyttää koneoppimismallia suositellakseen lentoja käyttäjän aiempien mieltymysten perusteella.
+- **Näkyvyys moniagenttien vuorovaikutuksiin**: Sinun on saatava näkyvyys siihen, miten useat agentit ovat vuorovaikutuksessa keskenään. Tämä vaatii työkaluja ja tekniikoita agenttien toimintojen ja vuorovaikutusten seuraamiseen. Tämä voi olla kirjaus- ja valvontatyökaluja, visualisointityökaluja ja suorituskykymittareita.
+- **Moniagenttimallit**: On olemassa eri malleja moniagenttijärjestelmien toteuttamiseen, kuten keskitetty, hajautettu ja hybridiarkkitehtuurit. Sinun on päätettävä, mikä malli sopii parhaiten käyttötapaukseesi.
+- **Ihminen ketjussa**: Useimmissa tapauksissa ihmisen on oltava mukana ja sinun on ohjattava agentteja, milloin pyytää ihmisen väliintuloa. Tämä voi olla esimerkiksi käyttäjän pyyntö saada tietty hotelli tai lento, jota agentit eivät ole suositelleet, tai pyyntö varmistuksesta ennen lennon tai hotellin varaamista.
 
-## Näkyvyys moni-agenttien vuorovaikutukseen
+## Näkyvyys moniagenttien vuorovaikutuksiin
 
-On tärkeää, että näet, miten useat agentit ovat vuorovaikutuksessa keskenään. Tämä näkyvyys on olennaista virheenkorjauksessa, optimoinnissa ja koko järjestelmän toimivuuden varmistamisessa. Tämän saavuttamiseksi tarvitset työkaluja ja tekniikoita agenttien toimintojen ja vuorovaikutusten seuraamiseen. Tämä voi olla esimerkiksi lokitus- ja valvontatyökaluja, visualisointityökaluja ja suorituskykymittareita.
+On tärkeää, että sinulla on näkyvyys siihen, miten useat agentit ovat vuorovaikutuksessa keskenään. Tämä näkyvyys on välttämätöntä virheiden korjaamiseksi, optimoinniksi ja koko järjestelmän toimivuuden varmistamiseksi. Saavuttaaksesi tämän, tarvitset työkaluja ja tekniikoita agenttien toimintojen ja vuorovaikutusten seuraamiseen. Tämä voi olla kirjaus- ja valvontatyökaluja, visualisointityökaluja ja suorituskykymittareita.
 
-Esimerkiksi käyttäjän matkan varaamisen tapauksessa voit käyttää kojelautaa, joka näyttää kunkin agentin tilan, käyttäjän mieltymykset ja rajoitteet sekä agenttien väliset vuorovaikutukset. Tämä kojelauta voisi näyttää käyttäjän matkapäivät, lentojen suositukset lentoagentilta, hotellien suositukset hotelliagentilta ja vuokra-autojen suositukset vuokra-autoagentilta. Tämä antaisi selkeän näkymän siitä, miten agentit ovat vuorovaikutuksessa ja täyttyvätkö käyttäjän mieltymykset ja rajoitteet.
+Esimerkiksi käyttäjän matkanvarauksen tapauksessa sinulla voisi olla hallintapaneeli, joka näyttää kunkin agentin tilan, käyttäjän mieltymykset ja rajoitteet sekä agenttien väliset vuorovaikutukset. Tämä hallintapaneeli voisi näyttää käyttäjän matkustuspäivät, lentojen suositukset lentojen etsintään erikoistuneelta agentilta, hotellien suositukset hotellien varausagentilta ja vuokra-autojen suositukset vuokra-autojen varausagentilta. Näin saisit selkeän kuvan siitä, miten agentit ovat vuorovaikutuksessa keskenään ja toteutuvatko käyttäjän mieltymykset ja rajoitteet.
 
-Katsotaanpa näitä osa-alueita tarkemmin:
+Katsotaanpa näitä näkökulmia tarkemmin.
 
-- **Lokitus- ja valvontatyökalut**: Haluat kirjata muistiin jokaisen agentin tekemän toiminnon. Lokiaineisto voi sisältää tiedot agentista, joka toimi, tehdyistä toimista, toiminta-ajankohdasta ja toiminnon tuloksesta. Näitä voidaan käyttää virheiden korjaukseen, optimointiin ja muihin tarkoituksiin.
+- **Kirjaus- ja valvontatyökalut**: Halutset kirjausten tekevän jokaisesta agentin suorittamasta toiminnasta. Kirjausmerkintä voisi tallentaa tietoja agentista, joka suoritti toiminnon, suoritetusta toimenpiteestä, hetkestä, jolloin toiminto tehtiin, ja toiminnon tuloksesta. Näitä tietoja voidaan käyttää virheiden korjaukseen, optimointiin ja muuhun.
 
-- **Visualisointityökalut**: Visualisointityökalut auttavat näkemään agenttien väliset vuorovaikutukset intuitiivisemmalla tavalla. Esimerkiksi voit käyttää graafia, joka näyttää informaation kulun agenttien välillä. Tämä voi auttaa tunnistamaan pullonkauloja, tehottomuuksia ja muita järjestelmän ongelmia.
+- **Visualisointityökalut**: Visualisointityökalut voivat auttaa sinua näkemään agenttien välisen vuorovaikutuksen intuitiivisemmalla tavalla. Esimerkiksi voit käyttää graafia, joka näyttää tiedon kulun agenttien välillä. Tämä voi auttaa tunnistamaan pullonkauloja, tehottomuuksia ja muita järjestelmän ongelmia.
 
-- **Suorituskykymittarit**: Suorituskykymittarit auttavat seuraamaan moni-agenttijärjestelmän tehokkuutta. Esimerkiksi voit mitata tehtävän suorittamiseen kulunutta aikaa, valmiiden tehtävien määrää aikayksikköä kohden sekä agenttien antamien suositusten tarkkuutta. Tämä tieto auttaa löytämään parannuskohteita ja optimoimaan järjestelmää.
+- **Suorituskykymittarit**: Suorituskykymittarit auttavat seuraamaan moniagenttijärjestelmän tehokkuutta. Esimerkiksi voit mitata tehtävän suorittamiseen käytettyä aikaa, suoritetun tehtävien määrää aikayksikköä kohti ja agenttien tekemiä suosituksia koskevaa tarkkuutta. Tämä tieto voi auttaa tunnistamaan parannuskohteita ja optimoimaan järjestelmää.
 
-## Moni-agenttimallit
+## Moniagenttimallit
 
-Tutustutaan muutamiin konkreettisiin malleihin, joita voimme käyttää moni-agenttisovelluksissa. Tässä muutamia mielenkiintoisia malleja harkittavaksi:
+Tutustutaan konkreettisiin malleihin, joita voimme käyttää moniagenttisovellusten luomiseen. Tässä on mielenkiintoisia malleja, joita kannattaa harkita:
 
 ### Ryhmäkeskustelu
 
-Tämä malli sopii, kun haluat luoda ryhmäkeskustelusovelluksen, jossa useat agentit voivat viestiä keskenään. Tyypillisiä käyttötapauksia ovat tiimityö, asiakastuki ja sosiaalinen verkostoituminen.
+Tämä malli on hyödyllinen, kun haluat luoda ryhmäkeskustelusovelluksen, jossa useat agentit voivat viestiä keskenään. Tyypillisiä käyttötapauksia ovat tiimiyhteistyö, asiakastuki ja sosiaalinen verkostoituminen.
 
-Tässä mallissa jokainen agentti edustaa käyttäjää ryhmäkeskustelussa, ja viestit vaihdetaan agenttien välillä viestintäprotokollan avulla. Agentit voivat lähettää viestejä ryhmäkeskusteluun, vastaanottaa niistä viestejä ja vastata muiden agenttien viesteihin.
+Tässä mallissa kukin agentti edustaa käyttäjää ryhmäkeskustelussa, ja viestejä vaihdetaan agenttien kesken viestintäprotokollan avulla. Agentit voivat lähettää viestejä ryhmäkeskusteluun, vastaanottaa ryhmäkeskustelun viestejä ja vastata muiden agenttien viesteihin.
 
-Tätä mallia voidaan toteuttaa keskitetyn arkkitehtuurin avulla, jossa kaikki viestit kulkevat keskuspalvelimen kautta, tai hajautetun arkkitehtuurin avulla, jossa viestit vaihdetaan suoraan.
+Tämä malli voidaan toteuttaa keskitettynä arkkitehtuurina, jossa kaikki viestit kulkevat keskuspalvelimen kautta, tai hajautettuna arkkitehtuurina, jossa viestit vaihdetaan suoraan.
 
 ![Ryhmäkeskustelu](../../../translated_images/fi/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Tehtävien siirto
 
-Tämä malli soveltuu sovelluksiin, joissa useat agentit voivat siirtää tehtäviä toisilleen.
+Tämä malli on hyödyllinen, kun haluat luoda sovelluksen, jossa useat agentit voivat siirtää tehtäviä toisilleen.
 
-Tyypillisiä käyttötapauksia ovat asiakastuki, tehtävien hallinta ja työnkulun automaatio.
+Tyypillisiä käyttötapauksia ovat asiakastuki, tehtävien hallinta ja työnkulkujen automaatio.
 
-Tässä mallissa jokainen agentti edustaa tehtävää tai vaihetta työnkulussa, ja agentit voivat siirtää tehtäviä eteenpäin ennalta määriteltyjen sääntöjen mukaisesti.
+Tässä mallissa kukin agentti edustaa tehtävää tai työvaihetta työnkulussa, ja agentit voivat siirtää tehtäviä muille agenteille ennalta määriteltyjen sääntöjen perusteella.
 
 ![Tehtävien siirto](../../../translated_images/fi/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Yhteistyö suodatus
 
-Tämä malli soveltuu sovelluksiin, joissa useat agentit tekevät yhteistyötä käyttäjille tehtävien suositusten tekemisessä.
+Tämä malli on hyödyllinen, kun haluat luoda sovelluksen, jossa useat agentit voivat tehdä yhteistyötä antaakseen suosituksia käyttäjille.
 
-Miksi haluamme useiden agenttien tekevän yhteistyötä? Koska jokaisella agentilla voi olla erilainen asiantuntijuus, ja he voivat osallistua suositusprosessiin eri tavoilla.
+Miksi haluaisit monien agenttien tekevän yhteistyötä, johtuu siitä, että jokainen agentti voi omaa erilaista asiantuntemusta ja voi osallistua suositusprosessiin eri tavoin.
 
-Otetaan esimerkki, jossa käyttäjä haluaa suosituksen parhaasta osakkeesta osakemarkkinoilla.
+Otetaan esimerkki, jossa käyttäjä haluaa suosituksen parhaiten ostettavasta osakkeesta pörssissä.
 
-- **Toimiala-asiantuntija**: Yksi agentti voi olla asiantuntija tietyllä toimialalla.
-- **Tekninen analyysi**: Toinen agentti voi olla asiantuntija teknisessä analyysissä.
-- **Perusanalyysi**: Kolmas agentti voi olla asiantuntija perusanalyysissä. Näiden agenttien yhteistyöllä käyttäjälle voidaan tarjota kattavampi suositus.
+- **Toimialan asiantuntija**: Yksi agentti voisi olla asiantuntija tietyllä toimialalla.
+- **Tekninen analyysi**: Toinen agentti voisi olla asiantuntija teknisessä analyysissä.
+- **Perusanalyysi**: Ja kolmas agentti voisi olla asiantuntija perusanalyysissä. Yhteistyöllä näistä agenteista voidaan tarjota käyttäjälle kattavampi suositus.
 
 ![Suositus](../../../translated_images/fi/multi-agent-filtering.d959cb129dc9f608.webp)
 
-## Tapaus: Hyvityksen käsittelyprosessi
+## Tilanne: Hyvityksen käsittely
 
-Kuvitellaan tilanne, jossa asiakas pyrkii saamaan hyvitystä tuotteesta. Tässä prosessissa voi olla mukana useita agentteja, mutta jaetaan ne prosessiin erikoistuneisiin agenteihin ja yleisiin agenteihin, joita voidaan käyttää muuallakin liiketoiminnassa.
+Harkitaan tilannetta, jossa asiakas yrittää saada hyvityksen tuotteesta. Tässä prosessissa voi olla mukana melko monta agenttia, mutta jaetaan ne hyvitykseen erikoistuneisiin agentteihin ja yleisiin agentteihin, joita voidaan käyttää muissakin prosesseissa.
 
 **Hyvitykseen erikoistuneet agentit**:
 
-Seuraavat agentit voivat olla osallisina hyvitysprosessissa:
+Seuraavat agentit voivat olla mukana hyvityksen käsittelyssä:
 
-- **Asiakasagentti**: Edustaa asiakasta ja vastaa hyvitysprosessin aloittamisesta.
-- **Myyjäagentti**: Edustaa myyjää ja vastaa hyvityksen käsittelystä.
-- **Maksuagentti**: Vastaa asiakkaan maksun hyvittämisestä.
-- **Ratkaisijaagentti**: Vastaa prosessin aikana mahdollisesti ilmenneiden ongelmien ratkaisemisesta.
-- **Sääntöjen noudattamisen agentti**: Vastaa siitä, että hyvitysprosessi noudattaa sääntöjä ja politiikkoja.
+- **Asiakasagentti**: Tämä agentti edustaa asiakasta ja on vastuussa hyvitysprosessin aloittamisesta.
+- **Myyjäagentti**: Tämä agentti edustaa myyjää ja vastaa hyvityksen käsittelystä.
+- **Maksuagentti**: Tämä agentti edustaa maksuprosessia ja vastaa asiakkaan maksun hyvittämisestä.
+- **Ratkaisuprosessiantti**: Tämä agentti vastaa hyvitysprosessin aikana esiintyvien ongelmien ratkaisemisesta.
+- **Säädöstenmukaisuusagentti**: Tämä agentti vastaa siitä, että hyvitysprosessi noudattaa säädöksiä ja yrityksen käytäntöjä.
 
 **Yleiset agentit**:
 
-Näitä agentteja voidaan käyttää yrityksen muissa osissa.
+Näitä agentteja voi käyttää liiketoimintasi muut osat.
 
-- **Toimitusagentti**: Vastaa tuotteen palauttamisesta myyjälle. Tätä agenttia voi käyttää sekä hyvitysprosessissa että yleisessä tuotteiden toimituksessa esimerkiksi ostotapahtuman yhteydessä.
-- **Palautteenantaja-agentti**: Vastaa asiakkaan palautteen keräämisestä. Palaute voidaan ottaa vastaan milloin tahansa, ei pelkästään hyvitysprosessin aikana.
-- **Eskalointiagentti**: Vastaa ongelmien eskaloinnista korkeammalle tukitasolle. Tätä agenttia voi käyttää missä tahansa prosessissa, jossa ongelmia tarvitsee eskaloida.
-- **Ilmoitusagentti**: Vastaa ilmoitusten lähettämisestä asiakkaalle hyvitysprosessin eri vaiheissa.
-- **Analytiikka-agentti**: Vastaa hyvitysprosessiin liittyvän datan analysoinnista.
-- **Auditointiantti**: Vastaa hyvitysprosessin tarkastamisesta ja varmistaa, että se toteutetaan oikein.
-- **Raportointiagentti**: Vastaa hyvitysprosessista tehtävien raporttien laatimisesta.
-- **Tietoagentti**: Vastaa hyvitysprosessia koskevan tietämyksen ylläpidosta. Tämä agentti voi tuntea sekä hyvitykset että yrityksen muut osa-alueet.
-- **Turva-agentti**: Vastaa hyvitysprosessin tietoturvasta.
-- **Laatuagentti**: Vastaa siitä, että hyvitysprosessi täyttää laatuvaatimukset.
+- **Kuljetusagentti**: Tämä agentti vastaa tuotteen palauttamisesta myyjälle. Tätä agenttia voidaan käyttää sekä hyvitysprosessissa että tuotteiden yleisessä kuljetuksessa esimerkiksi ostojen yhteydessä.
+- **Palauteagentti**: Tämä agentti vastaa asiakkaan palautteen keräämisestä. Palautetta voidaan kerätä milloin tahansa, ei pelkästään hyvitysprosessin aikana.
+- **Eskalaatioagentti**: Tämä agentti vastaa asioiden eskaloinnista korkeammalle tukitasolle. Tätä agenttia voi käyttää missä tahansa prosessissa, jossa tarvitaan ongelman eskalaatiota.
+- **Ilmoitusagentti**: Tämä agentti vastaa ilmoitusten lähettämisestä asiakkaalle hyvitysprosessin eri vaiheissa.
+- **Analytiikkaagentti**: Tämä agentti vastaa hyvitysprosessiin liittyvien tietojen analysoinnista.
+- **Tarkastusagentti**: Tämä agentti vastaa hyvitysprosessin auditoinnista varmistaen, että prosessi suoritetaan oikein.
+- **Raportointiantti**: Tämä agentti vastaa hyvitysprosessin raporttien laatimisesta.
+- **Tietämysagentti**: Tämä agentti ylläpitää hyvitysprosessiin liittyvää tietopohjaa. Tämä agentti voi olla perehtynyt sekä hyvityksiin että muihin liiketoiminnan osa-alueisiin.
+- **Turvaagentti**: Tämä agentti vastaa hyvitysprosessin turvallisuuden varmistamisesta.
+- **Laatuagentti**: Tämä agentti vastaa hyvitysprosessin laadun varmistamisesta.
 
-Edellä on lueteltu melko paljon agentteja sekä hyvitysprosessiin erikoistuneita että yleisiä agentteja, joita voidaan käyttää liiketoiminnan eri osissa. Toivottavasti tämä antaa sinulle käsityksen siitä, miten voit valita agentit moni-agenttijärjestelmääsi.
+Edellä luetellut agentit kattavat sekä hyvitykseen erikoistuneet että liiketoiminnan muut osat palvelevat yleiset agentit. Toivottavasti tämä antaa sinulle käsityksen siitä, miten voit päättää, mitä agenteita käyttää moniagenttijärjestelmässäsi.
 
 ## Tehtävä
 
-Suunnittele moni-agenttijärjestelmä asiakastukiprosessille. Tunnista prosessiin liittyvät agentit, heidän roolinsa ja vastuunsa sekä miten he ovat vuorovaikutuksessa keskenään. Huomioi sekä asiakastukiprosessiin erikoistuneet agentit että yleiset agentit, joita voidaan käyttää yrityksesi muissa osissa.
-> Mieti hetki ennen kuin luet seuraavan ratkaisun, saatat tarvita enemmän agentteja kuin uskotkaan.
+Suunnittele moniagenttijärjestelmä asiakastukiprosessille. Tunnista prosessiin osallistuvat agentit, heidän roolinsa ja vastuunsa sekä miten he ovat vuorovaikutuksessa keskenään. Harkitse sekä asiakastukeen erikoistuneita agenteita että yleisiä agentteja, joita voidaan käyttää liiketoiminnan muissa osissa.
 
-> VINKKI: Pohdi asiakastukiprosessin eri vaiheita ja ota myös huomioon järjestelmää varten tarvittavat agentit.
+
+> Mieti hetki ennen seuraavan ratkaisun lukemista, saatat tarvita enemmän agentteja kuin luulet.
+
+> VINKKI: Ajattele asiakastuen eri vaiheita ja ota myös huomioon järjestelmään tarvittavat agentit.
 
 ## Ratkaisu
 
 [Ratkaisu](./solution/solution.md)
 
-## Tietämyksen tarkistukset
+## Tietokyselyt
 
-Kysymys: Milloin sinun tulisi harkita monen agentin käyttöä?
+### Kysymys 1
 
-- [ ] A1: Kun sinulla on pieni työkuorma ja yksinkertainen tehtävä.
-- [ ] A2: Kun sinulla on suuri työkuorma
-- [ ] A3: Kun sinulla on yksinkertainen tehtävä.
+Mikä tilanne sopii parhaiten monen agentin järjestelmälle?
+
+- [ ] A1: Tukibotti vastaa yleisiin kysymyksiin käyttäen yhtä tietokantaa ja pientä työkalupakettia.
+- [ ] A2: Hyvityksen käsittelyprosessi tarvitsee erilliset roolit petosten torjuntaan, maksuihin ja vaatimustenmukaisuuteen, jokaisella omat työkalunsa, ja tulokset on koordinoitava.
+- [ ] A3: Sama yksinkertainen luokituspyyntö saapuu tuhansia kertoja tunnissa.
+
+### Kysymys 2
+
+Milloin yksi agentti on yleensä parempi valinta?
+
+- [ ] A1: Tehtävä voidaan hoitaa yhdellä ohjeiden ja työkalujen sarjalla, ilman erikoisasiantuntijoiden kierrätystä.
+- [ ] A2: Agentilla on käytössään useampi työkalu.
+- [ ] A3: Työnkulku vaatii erilliset roolit, joilla on eri käyttöoikeudet ja itsenäiset auditointilokit.
 
 [Ratkaisukysely](./solution/solution-quiz.md)
 
 ## Yhteenveto
 
-Tässä oppitunnissa olemme tarkastelleet monen agentin suunnittelukaavaa, mukaan lukien tilanteet, joissa monien agenttien käyttö on sovellettavissa, monien agenttien käytön edut yhden agentin sijaan, monen agentin suunnittelukaavan toteuttamisen rakennuspalikat sekä miten saada näkyvyyttä siihen, miten useat agentit ovat vuorovaikutuksessa keskenään.
+Tässä oppitunnissa olemme tarkastelleet monen agentin suunnittelumallia, mukaan lukien tilanteet, joissa monen agentin käyttö on sopivaa, monen agentin käytön edut verrattuna yhteen agenttiin, monen agentin suunnittelumallin toteuttamisen rakennuspalikat sekä miten saada näkyvyys siihen, miten useat agentit ovat vuorovaikutuksessa keskenään.
 
-### Onko sinulla lisää kysymyksiä monen agentin suunnittelukaavasta?
+### Onko sinulla lisää kysymyksiä monen agentin suunnittelumallista?
 
-Liity [Microsoft Foundry Discordiin](https://aka.ms/ai-agents/discord) tapaamaan muita oppijoita, osallistumaan työaikoihin ja saamaan vastauksia tekoälyagenttien kysymyksiisi.
+Liity [Microsoft Foundry Discordiin](https://discord.com/invite/ATgtXmAS5D) tavata muita oppijoita, osallistua toimistoaikoihin ja saada vastauksia tekoälyagentteja koskeviin kysymyksiisi.
 
 ## Lisäresurssit
 
 - <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework -dokumentaatio</a>
 - <a href="https://www.analyticsvidhya.com/blog/2024/10/agentic-design-patterns/" target="_blank">Agenttisuunnittelumallit</a>
+
 
 ## Edellinen oppitunti
 
@@ -190,6 +203,6 @@ Liity [Microsoft Foundry Discordiin](https://aka.ms/ai-agents/discord) tapaamaan
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty tekoälypohjaisella käännöspalvelulla [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, ota huomioon, että automaattikäännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ota vastuuta tämän käännöksen käytöstä johtuvista väärinkäsityksistä tai tulkinnoista.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

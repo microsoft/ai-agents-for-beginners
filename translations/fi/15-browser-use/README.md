@@ -1,40 +1,40 @@
 # Tietokoneen käyttöagenttien (CUA) rakentaminen
 
-Tietokoneen käyttöagentit voivat olla vuorovaikutuksessa verkkosivustojen kanssa samalla tavalla kuin ihminen: avaamalla selaimen, tutkimalla sivua ja valitsemalla seuraavan parhaan toimenpiteen sen perusteella, mitä ne näkevät. Tässä oppitunnissa rakennat selaimen automaatioagentin, joka hakee Airbnb:stä, poimii jäsenneltyjä ilmoitustietoja ja tunnistaa edullisimman majoituksen Tukholmassa.
+Tietokoneen käyttöagentit voivat olla vuorovaikutuksessa verkkosivustojen kanssa samalla tavalla kuin ihmiset: avaamalla selaimen, tarkastelemalla sivua ja tekemällä seuraavan parhaan toimenpiteen havaintojensa perusteella. Tässä oppitunnissa rakennat selainautomaattisen agentin, joka hakee Airbnb:stä, poimii jäsenneltyä tietoa listauksista ja tunnistaa Tukholman halvimman majoituksen.
 
-Oppitunti yhdistää Browser-Use:n AI-ohjattuun navigointiin, Playwrightin ja Chrome DevTools Protocolin (CDP) selaimen ohjaukseen, Azure OpenAI:n näkökykyyn perustuvaan päättelyyn ja Pydanticin rakenteelliseen poimintaan.
+Oppitunti yhdistää Browser-Use:n tekoälypohjaiseen navigointiin, Playwrightin ja Chrome DevTools Protocolin (CDP) selainohjaukseen, Azure OpenAI:n näkökykyyn perustuvaan päättelyyn sekä Pydanticin jäsenneltyyn tiedonpoimintaan.
 
 ## Johdanto
 
-Tässä oppitunnissa käsitellään:
+Tässä oppitunnissa käydään läpi:
 
 - Milloin tietokoneen käyttöagentit sopivat paremmin kuin pelkkä API-automaatio
-- Browser-Use:n yhdistäminen Playwrightiin ja CDP:hen luotettavaa selaimen elinkaaren hallintaa varten
-- Azure OpenAI:n näkökyvyn ja rakenteellisen Pydantic-tulosteen käyttö ilmoitustietojen poimimiseen dynaamisilta verkkosivuilta
-- Päätöksenteko siitä, milloin käyttää agenttipohjaista, toimijapohjaista tai hybridi-selaimen automaatiotyönkulkua
+- Browser-Use:n yhdistäminen Playwrightiin ja CDP:hen luotettavan selainelinkaaren hallintaan
+- Azure OpenAI:n näkökyvyn ja jäsennellyn Pydantic-vastauksen käyttäminen listatietojen poimintaan dynaamisilta verkkosivuilta
+- Päätöksenteko agentti-, toimija- tai hybridi selainautomaatiotyönkulun välillä
 
 ## Oppimistavoitteet
 
-Oppitunnin suorittamisen jälkeen osaat:
+Oppitunnin jälkeen osaat:
 
 - Määrittää Browser-Use:n Azure OpenAI:n ja Playwrightin kanssa
-- Rakentaa selaimen automaatiotyönkulun, joka navigoi todellisella verkkosivustolla ja käsittelee dynaamisia käyttöliittymäelementtejä
-- Poimia tyypitetyt tulokset näkyvästä sivusisällöstä ja muuttaa ne myöhempään liiketoimintalogiikkaan
-- Valita agentti- ja toimijakuvioiden välillä sen mukaan, kuinka ennustettavissa selaimen tehtävä on
+- Rakentaa selainautomaatiotyönkulun, joka navigoi aidolla verkkosivustolla ja käsittelee dynaamisia käyttöliittymäelementtejä
+- Poimia tyypitettyjä tuloksia näkyvistä sivusisällöistä ja käyttää niitä jatkotoimissa
+- Valita agentti- ja toimijamallit selaintehtävän ennustettavuuden perusteella
 
 ## Koodiesimerkki
 
-Tässä oppitunnissa on yksi muistikirjaopastus:
+Tämä oppitunti sisältää yhden muistikirjatutoriaalin:
 
-- [15-browser-user.ipynb](./15-browser-user.ipynb): Käynnistää Chrome-istunnon CDP:n kautta, hakee Airbnb:stä Tukholman ilmoituksia, poimii hinnat Browser-Use:n näkökyvyn avulla ja palauttaa halvimman vaihtoehdon rakenteellisena tietona.
+- [15-browser-user.ipynb](./15-browser-user.ipynb): Käynnistää Chrome-istunnon CDP:n kautta, hakee Airbnb:stä Tukholman listauksia, poimii hinnat Browser-Use:n näkökyvyllä ja palauttaa halvimman vaihtoehdon jäsenneltynä datana.
 
-## Ennen aloittamista
+## Esivaatimukset
 
 - Python 3.12+
-- Azure OpenAI -käyttöönotto määritetty ympäristössäsi
+- Azure OpenAI -käyttöönotto ympäristössäsi määritettynä
 - Chrome tai Chromium asennettuna paikallisesti
-- Playwright-riippuvuudet asennettuna
-- Perustiedot asynkronisesta Pythonista
+- Playwright-riippuvuudet asennettuina
+- Perustason tutustuminen asynkroniseen Pythoniin
 
 ## Asennus
 
@@ -51,61 +51,84 @@ Aseta muistikirjan käyttämät Azure OpenAI -ympäristömuuttujat:
 AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_API_KEY=...
 AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=...
-# Valinnainen: oletuksena käytetään uusinta API-versiota, jos jätetään pois
+# Valinnainen: oletuksena käytetään uusinta API-versiota, jos se jätetään pois
 AZURE_OPENAI_API_VERSION=...
 ```
 
-## Arkkitehtuurin yleiskuva
+## Arkkitehtuurin yleiskatsaus
 
-Muistikirja esittelee hybridi-selaimen automaatiotyönkulun:
+Muistikirja havainnollistaa hybridi selainautomaatiotyönkulkua:
 
-1. Chrome käynnistyy CDP käytössä, jotta sekä Playwright että Browser-Use voivat jakaa saman selainistunnon.
-2. Browser-Use-agentti käsittelee avoimen navigoinnin tehtäviä, kuten Airbnb:n avaamista, ponnahdusikkunoiden sulkemista ja Tukholman hakua.
-3. Aktiivinen sivu tutkitaan rakenteellisen Pydantic-skeeman avulla poimien ilmoitusten otsikot, hintayöt, arvostelut ja URL-osoitteet.
-4. Python-logiikka vertailee poimittuja ilmoituksia ja korostaa halvimman tuloksen.
+1. Chrome käynnistyy CDP-yhteydellä, jotta sekä Playwright että Browser-Use voivat jakaa saman selainistunnon.
+2. Browser-Use-agentti hoitaa avoimia navigointitehtäviä, kuten Airbnb:n avaamisen, ponnahdusikkunoiden sulkemisen ja Tukholman haun.
+3. Aktiivinen sivu tarkastetaan jäsennellyn Pydantic-skeeman avulla, jotta listauksen otsikot, yökohtaiset hinnat, arvostelut ja URL-osoitteet voidaan poimia.
+4. Python-logiikka vertaa poimittuja listauksia ja korostaa halvimman vaihtoehdon.
 
-Tämä lähestymistapa säilyttää Browser-Use:n joustavan, näkökykyyn perustuvan päättelyn ja tarjoaa samalla määrityksellisen selaimen hallinnan, kun sitä tarvitaan.
+Tämä lähestymistapa säilyttää Browser-Use:n joustavuuden näkökykyyn perustuvan päättelyn osalta samalla, kun se tarjoaa määrityksellisen selainohjauksen tarpeen mukaan.
 
-## Tärkeimmät opit ja parhaat käytännöt
+## Keskeiset opit ja parhaat käytännöt
 
 ### Milloin käyttää agenttia vs. toimijaa
 
 | Tilanne | Käytä agenttia | Käytä toimijaa |
-|---------|---------------|---------------|
-| Dynaamiset asettelut | Kyllä, tekoäly sopeutuu sivun muutoksiin | Ei, hauraat valitsimet voivat rikkoutua |
+|----------|-----------|-----------|
+| Dynaamiset asettelut | Kyllä, tekoäly mukautuu sivun muutoksiin | Ei, hauraita valitsimia voi rikkoutua |
 | Tunnettu rakenne | Ei, agentti on hitaampi kuin suora ohjaus | Kyllä, nopea ja tarkka |
-| Elementtien löytäminen | Kyllä, luonnollinen kieli toimii hyvin | Ei, tarvitaan eksakteja valitsimia |
-| Ajanhallinta | Ei, vähemmän ennustettavissa | Kyllä, täysi hallinta odotuksista ja toistoista |
-| Monimutkaiset työnkulut | Kyllä, käsittelee odottamattomia käyttöliittymätiloja | Ei, vaatii eksplisiittisiä haaroja |
+| Elementtien löytäminen | Kyllä, luonnollinen kieli toimii hyvin | Ei, tarkat valitsimet vaaditaan |
+| Ajanhallinta | Ei, vähemmän ennustettava | Kyllä, täydellinen hallinta odotuksissa ja uudelleenyrityksissä |
+| Monimutkaiset työnkulut | Kyllä, käsittelee odottamattomia UI-tiloja | Ei, vaatii eksplisiittistä haarautumista |
 
 ### Browser-Use:n parhaat käytännöt
 
-1. Aloita agentilla tutkimista ja dynaamista navigointia varten.
-2. Vaihda suoraan sivun ohjaukseen, kun vuorovaikutus muuttuu ennustettavaksi.
-3. Käytä rakenteellisia tulostemalleja, jotta poimittu data on validoitua ja tyyppiturvallista.
-4. Lisää viiveitä strategisesti toimintojen jälkeen, jotka laukaisevat näkyvät käyttöliittymän muutokset.
-5. Tallenna kuvakaappauksia iteroinnin aikana, jotta virheiden jäljitys on helpompaa.
-6. Varaudu verkkosivustojen muutoksiin ja suunnittele varasuunnitelmat ponnahdusikkunoille ja asettelun muutoksille.
-7. Yhdistä agentti- ja toimijakuvioita saadaksesi sekä joustavuutta että tarkkuutta.
+1. Aloita agentilla tutkimiseen ja dynaamiseen navigointiin.
+2. Vaihda suoraan sivun ohjaukseen, kun vuorovaikutuksesta tulee ennustettavaa.
+3. Käytä jäsenneltyjä tulosmalleja, jotta poimittu data validoidaan ja tyypitetään turvallisesti.
+4. Lisää viiveitä strategisesti toimintojen jälkeen, jotka laukaisevat näkyviä käyttöliittymän muutoksia.
+5. Ota kuvakaappauksia toistettaessa, jotta virheiden jäljittäminen helpottuu.
+6. Odota verkkosivujen muutoksia ja suunnittele varasuunnitelmat ponnahdusikkunoille sekä asettelun vaihteluille.
+7. Yhdistä agentti- ja toimijamallit saadaksesi sekä joustavuutta että tarkkuutta.
 
 ### Käytännön sovellukset
 
 - Matkavaraukset ja hintaseuranta
-- Verkkokaupan hintavertailu ja saatavuustarkistukset
-- Rakenteellinen poiminta dynaamisilta verkkosivuilta
-- Näkökykyyn perustuva käyttöliittymän testaus ja varmennus
-- Verkkosivuston seuranta ja hälytykset
-- Älykäs lomakkeiden täyttö monivaiheisissa työnkuluissa
+- Verkkokaupan hintavertailut ja saatavuustarkistukset
+- Jäsennelty tiedon poiminta dynaamisilta verkkosivuilta
+- Näkökykyä hyödyntävä käyttöliittymän testaus ja varmennus
+- Verkkosivujen seuranta ja hälytykset
+- Älykäs lomakkeiden täyttäminen monivaiheisissa prosesseissa
+
+## Käytännön esimerkki: Microsoft Project Opal
+
+Tässä oppitunnissa rakentamasi agentti on pieni paikallinen versio **tietokoneen käyttöagentista (CUA)** — ohjelmasta, joka ohjaa selainta kuten ihminen. Microsoft tuo saman idean yrityskäyttöön **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)**, Microsoft 365 Copilotin ominaisuuteen.
+
+Project Opalin avulla kuvailet tehtävän, ja agentti toimii puolestasi käyttäen **tietokoneen käyttöä suojatussa Windows 365 Cloud PC:ssä**, toimiden organisaatiosi selauspohjaisissa sovelluksissa, sivustoissa ja tiedoissa. Se toimii **asynkronisesti taustalla**, ja voit ohjata työtä tai ottaa hallinnan milloin tahansa. Esimerkkitehtäviä ovat:
+
+- Turvaryhmäjäsenyyspyynnöt
+- Tarkastusnäyttöjen kerääminen ja validointi vaatimustenmukaisuuden tarkastuksia varten
+- IT-ongelmien lajittelu (lipputilan päivitys, vastuuhenkilöiden määritys, duplikaattien sulkeminen)
+- Excel-datan kokoaminen talouden sulkukansioksi
+
+Opal on hyödyllinen referenssi siitä, millainen **tuotantotason, luotettava** tietokoneen käyttöagentti on — ja se vahvistaa aiemmissa oppitunneissa esitettyjä konsepteja:
+
+| Kurssin käsite | Miten Project Opal soveltaa sitä |
+|------------------------|-----------------------------|
+| **Ihminen mukana prosessissa** (Oppitunti 06) | Opal pysähtyy kirjautumistietoja, arkaluontoista dataa tai epämääräisiä ohjeita varten, eikä koskaan syötä salasanoja tai lähetä lomakkeita vahvistuksen ilman. Voit *ottaa hallinnan* ja *palauttaa hallinnan* kesken tehtävän. |
+| **Luotettavat ja turvalliset agentit** (Oppitunnit 06 & 18) | Toimii eristetyssä Windows 365 Cloud PC:ssä, on oletuksena selaimella käytettävä (muu tietokoneen käyttö estetty Intunen avulla), käyttää *sinun* identiteettiäsi, joten pääsee vain sinulle sallittuihin resursseihin ja kirjaa kaikki toimet auditointia varten. |
+| **Suunnittelu & metakognitio** (Oppitunnit 07 & 09) | Opal laatii ensin suunnitelman tehtävään, valvoo päättelyään jokaisessa vaiheessa ja pysähtyy epäilyttävien toimintojen havaitessaan. |
+| **Uudelleenkäytettävät taidot / työkalut** (Oppitunti 04) | **Skills** antaa mahdollisuuden kirjoittaa toistuvien tehtävien ohjeet (tuodaan `.md`-tiedostosta tai luodaan Opalilla) ja käyttää niitä uudelleen keskusteluissa. |
+
+> **Saatavuus:** Project Opal on tällä hetkellä käytettävissä [Frontier early access program -ohjelmaan](https://adoption.microsoft.com/copilot/frontier-program/) osallistuvilla Microsoft 365 Copilot -tilaajilla, ja järjestelmänvalvojan tulee suorittaa asennus. Koska se on kokeellinen Frontier-ominaisuus, ominaisuudet voivat muuttua ajan myötä.
 
 ## Lisäresurssit
 
-- [Browser-Use Playwright -integraatiopohja](https://docs.browser-use.com/examples/templates/playwright-integration)
-- [Browser-Use toimijaparametrit ja sisällön poiminta](https://docs.browser-use.com/customize/actor/all-parameters)
-- [Kurssin aloitus](../00-course-setup/README.md)
+- [Aloita Project Opalin (Frontier) käyttö](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)
+- [Browser-Use:n Playwright-integraatiomalli](https://docs.browser-use.com/examples/templates/playwright-integration)
+- [Browser-Use toimijan parametrit ja sisällön poiminta](https://docs.browser-use.com/customize/actor/all-parameters)
+- [Kurssin asennus](../00-course-setup/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäiskielellä tulee pitää auktoritatiivisena lähteenä. Tärkeissä tiedoissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä johtuvista väärinymmärryksistä tai virhetulkinnoista.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

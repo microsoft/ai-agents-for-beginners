@@ -1,101 +1,104 @@
-# 🛠️ Edistynyt työkalujen käyttö GitHub-mallien kanssa (.NET)
+# 🛠️ Edistynyt työkalujen käyttö Azure OpenAI:n kanssa (Responses API) (.NET)
 
 ## 📋 Oppimistavoitteet
 
-Tämä muistikirja esittelee yritystason työkalujen integrointimalleja käyttäen Microsoft Agent Frameworkia .NET-ympäristössä GitHub-mallien kanssa. Opit rakentamaan kehittyneitä agentteja, joissa on useita erikoistuneita työkaluja, hyödyntäen C#:n vahvaa tyypitystä ja .NET:n yritysominaisuuksia.
+Tässä muistikirjassa havainnollistetaan yritystason työkalujen integrointimalleja Microsoft Agent Frameworkin avulla .NET:ssä Azure OpenAI:n (Responses API) kanssa. Opit rakentamaan monimutkaisia agenteja, joissa on useita erikoistuneita työkaluja, hyödyntäen C#:n vahvaa tyyppitarkistusta ja .NET:in yritysominaisuuksia.
 
-### Edistyneet työkalukyvyt, jotka hallitset
+### Hallitsemasi edistyneet työkalutoiminnot
 
-- 🔧 **Monityökaluarkkitehtuuri**: Agenttien rakentaminen useilla erikoistuneilla ominaisuuksilla
-- 🎯 **Tyypiturvallinen työkalujen suoritus**: C#:n kääntöaikainen validointi
-- 📊 **Yritystason työkalumallit**: Tuotantovalmiiden työkalujen suunnittelu ja virheenkäsittely
-- 🔗 **Työkalujen yhdistäminen**: Työkalujen yhdistäminen monimutkaisiin liiketoimintatyönkulkuihin
+- 🔧 **Monityökalurakenne**: Rakentamalla agenteja, joilla on useita erikoisominaisuuksia
+- 🎯 **Tyyppiturvallinen työkalujen suoritus**: Hyödyntämällä C#:n käännösaikaiset tarkistukset
+- 📊 **Yritystason työkalumallit**: Tuotantovalmiin työkalun suunnittelu ja virheenkäsittely
+- 🔗 **Työkalujen yhdistäminen**: Työkalujen yhdistäminen monimutkaisiin liiketoimintaprosesseihin
 
-## 🎯 .NET-työkaluarkkitehtuurin edut
+## 🎯 .NET-työkalurakenteen edut
 
-### Yritystason työkalujen ominaisuudet
+### Yritystason työkalutoiminnot
 
-- **Kääntöaikainen validointi**: Vahva tyypitys varmistaa työkalujen parametrien oikeellisuuden
-- **Riippuvuuksien injektio**: IoC-kontainerin integrointi työkalujen hallintaan
-- **Async/Await-mallit**: Ei-blokkaava työkalujen suoritus ja asianmukainen resurssien hallinta
-- **Rakenteellinen lokitus**: Sisäänrakennettu lokitus työkalujen suorituksen seurantaan
+- **Käännösaikainen validointi**: Vahva tyyppitarkistus varmistaa työkalun parametrien oikeellisuuden
+- **Riippuvuuksien injektointi**: IoC-konttainerin integrointi työkalujen hallintaan
+- **Async/Await-mallit**: Ei-estävä työkalun suoritus oikealla resurssien hallinnalla
+- **Rakennekirjautuminen**: Sisäänrakennettu lokitus integroituna työkalun suorituksen valvontaan
 
 ### Tuotantovalmiit mallit
 
-- **Poikkeusten käsittely**: Kattava virheiden hallinta tyypitettyjen poikkeusten avulla
-- **Resurssien hallinta**: Asianmukaiset hävitysmallit ja muistinhallinta
-- **Suorituskyvyn seuranta**: Sisäänrakennetut mittarit ja suorituskykylaskurit
-- **Konfiguraation hallinta**: Tyypiturvallinen konfiguraatio validoinnilla
+- **Poikkeusten käsittely**: Laaja virheenkäsittely tyypitettyjen poikkeusten avulla
+- **Resurssien hallinta**: Oikeat vapautusmallit ja muistin hallinta
+- **Suorituskyvyn seuranta**: Sisäänrakennetut mittarit ja suorituskykymittarit
+- **Konfiguraation hallinta**: Tyyppiturvallinen konfiguraatio validoinnilla
 
 ## 🔧 Tekninen arkkitehtuuri
 
 ### Keskeiset .NET-työkalukomponentit
 
-- **Microsoft.Extensions.AI**: Yhtenäinen työkalujen abstraktiokerros
+- **Microsoft.Extensions.AI**: Yhtenäistetty työkalujen abstraktiokerros
 - **Microsoft.Agents.AI**: Yritystason työkalujen orkestrointi
-- **GitHub-mallien integrointi**: Suorituskykyinen API-asiakas yhteyspoolauksella
+- **Azure OpenAI (Responses API)**: Korkean suorituskyvyn API-asiakas yhteyksien hallinnalla
 
 ### Työkalujen suoritusputki
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Käyttäjän pyyntö] --> B[Agentin analyysi]
+    B --> C[Työkalun valinta]
+    C --> D[Tyyppivarmistus]
+    B --> E[Parametrin sitominen]
+    E --> F[Työkalun suoritus]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Tuloksen käsittely]
     D --> G
-    G --> H[Response]
+    G --> H[Vastaus]
 ```
 
-## 🛠️ Työkalukategoriat ja mallit
+## 🛠️ Työkalujen kategoriat ja mallit
 
-### 1. **Datankäsittelytyökalut**
+### 1. **Tietojen käsittelytyökalut**
 
-- **Syötteen validointi**: Vahva tyypitys ja data-annotaatiot
-- **Muunnostoiminnot**: Tyypiturvallinen datan muuntaminen ja muotoilu
+- **Syötteen validointi**: Vahva tyyppitarkistus datankoristeiden avulla
+- **Muunnostoiminnot**: Tyyppiturvallinen datan muuntaminen ja muotoilu
 - **Liiketoimintalogiikka**: Alakohtaiset laskenta- ja analyysityökalut
-- **Tulosten muotoilu**: Rakenteellinen vastausten generointi
+- **Tulostuksen muotoilu**: Rakenteellinen vastausten generointi
 
-### 2. **Integrointityökalut**
+### 2. **Integraatiotyökalut**
 
-- **API-liittimet**: RESTful-palveluiden integrointi HttpClientin avulla
-- **Tietokantatyökalut**: Entity Framework -integraatio datan käsittelyyn
-- **Tiedosto-operaatiot**: Turvalliset tiedostojärjestelmäoperaatiot validoinnilla
-- **Ulkoiset palvelut**: Kolmannen osapuolen palveluiden integrointimallit
+- **API-liittimet**: REST-palveluiden integrointi HttpClientilla
+- **Tietokantatyökalut**: Entity Framework -integraatio tietojen käsittelyyn
+- **Tiedostotoiminnot**: Turvalliset tiedostojärjestelmän toiminnot validoinnilla
+- **Ulkoiset palvelut**: Kolmannen osapuolen palveluintegrointimallit
 
-### 3. **Apuvälineet**
+### 3. **Aputyökalut**
 
-- **Tekstinkäsittely**: Merkkijonojen manipulointi ja muotoilutyökalut
-- **Päivämäärä/aika-operaatiot**: Kulttuuritietoiset päivämäärä/aikalaskelmat
-- **Matemaattiset työkalut**: Tarkat laskelmat ja tilastolliset operaatiot
-- **Validointityökalut**: Liiketoimintasääntöjen validointi ja datan tarkistus
+- **Tekstinkäsittely**: Merkkijonojen käsittely- ja muotoilutyökalut
+- **Päiväys-/Aikatoiminnot**: Kulttuuritietoiset päiväys/aika-laskelmat
+- **Matemaattiset työkalut**: Tarkkuuslaskennat ja tilastolliset toiminnot
+- **Validointityökalut**: Liiketoimintasääntöjen validointi ja datan tarkastus
 
-Valmis rakentamaan yritystason agentteja tehokkailla, tyypiturvallisilla työkaluominaisuuksilla .NET-ympäristössä? Suunnitellaan ammattimaisia ratkaisuja! 🏢⚡
+Valmiina rakentamaan yritystason agenteja tehokkailla, tyyppiturvallisilla työkalutoiminnoilla .NET:ssä? Luodaanpa ammattimaisia ratkaisuja! 🏢⚡
 
 ## 🚀 Aloittaminen
 
 ### Esivaatimukset
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) tai uudempi
-- [GitHub Models API -pääsytunnus](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Azure-tilaus](https://azure.microsoft.com/free/), jossa on Azure OpenAI -resurssi ja mallin käyttöönotto
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — kirjaudu sisään komennolla `az login`
 
-### Vaaditut ympäristömuuttujat
+### Vaatimuksena olevat ympäristömuuttujat
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Kirjaudu sitten sisään, jotta AzureCliCredential voi saada tokenin
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Kirjaudu sitten sisään, jotta AzureCliCredential voi hakea tunnuksen
+az login
 ```
 
 ### Esimerkkikoodi
@@ -108,27 +111,29 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Tai käyttämällä dotnet CLI:tä:
+Tai dotnet CLI -työkalua käyttäen:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Katso [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) täydellinen koodi.
+Katso kokonainen koodi tiedostosta [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs).
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäisellä kielellä tulisi pitää ensisijaisena lähteenä. Kriittisen tiedon osalta suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa väärinkäsityksistä tai virhetulkinnoista, jotka johtuvat tämän käännöksen käytöstä.
+**Vastuuvapauslauseke**:
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattiset käännökset saattavat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä on virallinen lähde. Tärkeissä asioissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
