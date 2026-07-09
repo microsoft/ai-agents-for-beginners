@@ -1,148 +1,144 @@
-[![Kuidas disainida head AI agente](../../../translated_images/et/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
+[![Kuidas kujundada häid tehisintellekti agende](../../../translated_images/et/lesson-4-thumbnail.546162853cb3daff.webp)](https://youtu.be/vieRiPRx-gI?si=cEZ8ApnT6Sus9rhn)
 
-> _(Klõpsa ülaloleval pildil, et vaadata selle tunni videot)_
+> _(Klõpsake ülaloleval pildil, et vaadata selle tunni videot)_
 
 # Tööriistade kasutamise disainimuster
 
-Tööriistad on huvitavad, sest need võimaldavad AI agentidel omada laiemat võimekust. Selle asemel, et agendil oleks piiratud hulk teostatavaid tegevusi, saab tööriista lisamisega agent nüüd teha paljusid erinevaid toiminguid. Selles peatükis vaatleme tööriistade kasutamise disainimustrit, mis kirjeldab, kuidas AI agendid saavad kasutada konkreetseid tööriistu oma eesmärkide saavutamiseks.
+Tööriistad on huvitavad, sest need võimaldavad tehisintellekti agentidel omada laiemat võimekust. Selle asemel, et agendil oleks piiratud tegevuste komplekt, mida ta saab teha, võimaldab tööriista lisamine agendil nüüd teha väga erinevaid tegevusi. Selles peatükis vaatleme tööriistade kasutamise disainimustrit, mis kirjeldab, kuidas tehisintellekti agendid saavad kasutada konkreetseid tööriistu oma eesmärkide saavutamiseks.
 
 ## Sissejuhatus
 
-Selles õppetükis püüame vastata järgmistele küsimustele:
+Selles tunnis püüame vastata järgmistele küsimustele:
 
 - Mis on tööriistade kasutamise disainimuster?
 - Millistes kasutusjuhtumites seda saab rakendada?
-- Millised elemendid/ehitusplokid on vajalikud disainimustri rakendamiseks?
-- Millised on tööriistade kasutamise disainimustri kasutamise erikohad usaldusväärsete AI agentide loomiseks?
+- Millised elemendid/ehitusplokid on disainimustri rakendamiseks vajalikud?
+- Millised on erilised kaalutlused tööriistade kasutamise disainimustri rakendamisel usaldusväärsete tehisintellekti agentide loomiseks?
 
 ## Õpieesmärgid
 
-Pärast selle õppetüki läbimist suudad:
+Pärast selle tunni läbimist suudate:
 
-- Määratleda tööriistade kasutamise disainimustri ja selle eesmärgi.
-- Tuvastada kasutusjuhud, kus tööriistade kasutamise disainimuster on rakendatav.
-- Mõista disainimustri rakendamiseks vajalikke põhireaktsioone.
-- Tunnustada kaalutlusi usaldusväärsuse tagamiseks AI agentidel, kes kasutavad seda disainimustrit.
+- Defineerida tööriistade kasutamise disainimustri ja selle eesmärgi.
+- Tuvastada kasutusjuhtumid, kus tööriistade kasutamise disainimuster on rakendatav.
+- Mõista põhielemente, mis on vajaliku disainimustri rakendamiseks.
+- Tunnustada kaalutlusi, mis tagavad selle disainimustri kasutavate tehisintellekti agentide usaldusväärsuse.
 
 ## Mis on tööriistade kasutamise disainimuster?
 
-**Tööriistade kasutamise disainimuster** keskendub LLM-ide võimele suhelda väliste tööriistadega spetsiifiliste eesmärkide saavutamiseks. Tööriistad on kood, mida agent saab käivitada tegevuste sooritamiseks. Tööriist võib olla lihtne funktsioon, näiteks kalkulaator, või API-kõne kolmanda osapoole teenusele, nagu aktsiahindade otsing või ilmateade. AI agentide kontekstis on tööriistad loodud täitmiseks agentide poolt vastuseks **mudelipõhistele funktsioonikõnedele**.
+**Tööriistade kasutamise disainimuster** keskendub LLMide võimele suhelda väliste tööriistadega, et saavutada spetsiifilisi eesmärke. Tööriistad on kood, mida agent saab käivitada tegevuste sooritamiseks. Tööriist võib olla lihtne funktsioon nagu kalkulaator või kolmanda osapoole teenuse API-kõne, näiteks aktsiahindade päring või ilmaprognoos. Tehisintellekti agentide kontekstis on tööriistad kujundatud nii, et agendid saavad neid täita **mudeli genereeritud funktsioonikõnede** kaudu.
 
 ## Millistes kasutusjuhtumites seda saab rakendada?
 
-AI agendid saavad tööriistu kasutada keerukate ülesannete täitmiseks, info otsimiseks või otsuste tegemiseks. Tööriistade kasutamise disainimustrit kasutatakse sageli olukordades, kus on vaja dünaamiliselt suhelda väliste süsteemidega, näiteks andmebaaside, veebiteenuste või kooditõlgendajatega. See võime on kasulik mitmetes kasutusjuhtumites, sealhulgas:
+Tehisintellekti agendid saavad kasutada tööriistu keeruliste ülesannete täitmiseks, teabe hankimiseks või otsuste tegemiseks. Tööriistade kasutamise disainimustrit kasutatakse sageli olukordades, mis nõuavad dünaamilist suhtlust väliste süsteemidega, nagu andmebaasid, veebiteenused või koodi tõlgendajad. See võimekus on kasulik mitmetes erinevates kasutusjuhtumites, sealhulgas:
 
-- **Dünaamiline info päring:** Agendid saavad väliseid API-sid või andmebaase pärida, et saada ajakohast teavet (nt SQLite andmebaasist andmeanalüüsiks andmete päring, aktsiahindade või ilmaandmete toomine).
-- **Koodi täitmine ja tõlgendamine:** Agendid saavad käivitada koodi või skripte matemaatiliste probleemide lahendamiseks, aruannete koostamiseks või simulatsioonide tegemiseks.
-- **Töövoo automatiseerimine:** Korduvate või mitmeastmeliste töövoogude automatiseerimine, ühendades tööriistu nagu ülesannete ajastajad, meiliteenused või andmepipelines.
-- **Klienditugi:** Agendid saavad suhelda kliendihaldussüsteemide, piletisüsteemide või teadmistebaasidega kasutajaküsimuste lahendamiseks.
-- **Sisu loomine ja redigeerimine:** Agendid saavad kasutada tööriistu nagu grammatikakontrollijad, tekstisummariseerijad või sisuturvalisuse hindajad, et abistada sisuloome ülesannetes.
+- **Dünaamiline info hankimine:** Agendid saavad pärida väliseid APIsid või andmebaase, et saada ajakohast andmestikku (nt SQLite andmebaasi päring andmeanalüüsiks, aktsiahindade või ilmateabe pärimine).
+- **Koodi täitmine ja tõlgendamine:** Agendid saavad täita koodi või skripte, et lahendada matemaatilisi probleeme, koostada aruandeid või teha simulatsioone.
+- **Töövoo automatiseerimine:** Korduvate või mitmeastmeliste töövoogude automatiseerimine, integreerides tööriistu nagu ülesannete ajakava, e-posti teenused või andmepipelining.
+- **Klienditugi:** Agendid saavad suhelda CRM-süsteemide, piletiplatvormide või teadmistebaasidega kasutajapäringute lahendamiseks.
+- **Sisu loomine ja redigeerimine:** Agendid saavad kasutada tööriistu, nagu grammatika kontrollijad, tekstikokkuvõtjad või sisu turvalisuse hindajad, et toetada sisuloome ülesandeid.
 
-## Millised elemendid/ehitusplokid on vajalikud tööriistade kasutamise disainimustri rakendamiseks?
+## Millised elemendid/ehitusplokid on tööriistade kasutamise disainimustri rakendamiseks vajalikud?
 
-Need ehitusplokid võimaldavad AI agendil täita palju erinevaid ülesandeid. Vaatame põhilisi elemente, mis on vajalikud tööriistade kasutamise disainimustri rakendamiseks:
+Need ehitusplokid võimaldavad AI agendil täita laias valikus ülesandeid. Vaatame tööriistade kasutamise disainimustri rakendamiseks vajalikke põhielemente:
 
-- **Funktsiooni/tööriista skeemid**: Detailne definitsioonid saadaval olevatest tööriistadest, sisaldades funktsioonide nimesid, eesmärke, vajalikke parameetreid ja oodatavaid tulemusi. Need skeemid võimaldavad LLM-il mõista, millised tööriistad on saadaval ja kuidas koostada korrektseid päringuid.
+- **Funktsiooni/tööriista skeemid**: Üksikasjalikud määratlused saadaolevate tööriistade kohta, sh funktsiooni nimi, eesmärk, vajalikud parameetrid ja ootuspärased väljundid. Need skeemid võimaldavad LLMil mõista, millised tööriistad on olemas ja kuidas koostada kehtivaid päringuid.
 
-- **Funktsiooni täitmise loogika**: Käsitleb, kuidas ja millal tööriistu kutsutakse vastavalt kasutaja kavatsusele ja vestluse kontekstile. See võib hõlmata planeerijaid, marsruutimismehhanisme või tingimusvooge, mis dünaamiliselt määravad tööriistade kasutuse.
+- **Funktsiooni täitmise loogika**: Määrab, kuidas ja millal tööriistu kutsutakse, lähtudes kasutaja kavatsusest ja vestluse kontekstist. See võib hõlmata planeerimismooduleid, marsruutimise mehhanisme või tingimuslikke vooge, mis dünaamiliselt määravad tööriista kasutamise.
 
-- **Sõnumikäitluse süsteem**: Komponendid, mis haldavad vestlusevoogu kasutajasisendite, LLM vastuste, tööriistakutsete ja tööriistade väljundite vahel.
+- **Sõnumite haldussüsteem**: Komponendid, mis haldavad vestluse kulgu kasutaja sisendite, LLMi vastuste, tööriistakõnede ja tööriistade väljundite vahel.
 
 - **Tööriistade integratsiooniraamistik**: Infrastruktuur, mis ühendab agendi erinevate tööriistadega, olgu need lihtsad funktsioonid või keerukad välised teenused.
 
-- **Veakäsitlus ja valideerimine**: Mehhanismid tööriistatäitmise vigade käsitlemiseks, parameetrite valideerimiseks ja ootamatute vastuste haldamiseks.
+- **Vea käsitlemine ja valideerimine**: Mehhanismid tööriistade täitmise ebaõnnestumiste käsitlemiseks, parameetrite valideerimiseks ja ootamatute vastuste haldamiseks.
 
-- **Seisundihaldus**: Jälgib vestluse konteksti, eelnevaid tööriistakõnesid ja püsivaid andmeid, tagamaks järjepidevuse mitme sammu pikkustes interaktsioonides.
+- **Oleku haldamine**: Jälgib vestluse konteksti, varasemaid tööriistakõnesid ja püsivaid andmeid, et tagada järjepidevus mitme pöörde pikkuses suhtluses.
 
-Järgmisena vaatleme funktsioonide/tööriistade kutsumist üksikasjalikumalt.
-
+Järgmisena vaatleme lähemalt funktsioonide/tööriistade kutsumist.
+ 
 ### Funktsioonide/tööriistade kutsumine
 
-Funktsioonikutsumine on peamine viis, kuidas võimaldame suurte keelemudelite (LLM) suhelda tööriistadega. Sageli kasutatakse sõnu "funktsioon" ja "tööriist" vaheldumisi, sest "funktsioonid" (taaskasutatava koodilõigud) on just agentide kasutatavad tööriistad ülesannete täitmiseks. Selleks, et funktsiooni koodi kutsuda, peab LLM võrdlema kasutaja päringut funktsiooni kirjeldusega. Selleks saadetakse LLM-ile skeem, mis sisaldab kõigi saadaolevate funktsioonide kirjelduseid. LLM valib kõige sobivama funktsiooni ülesande jaoks ning tagastab selle nime ja argumendid. Valitud funktsioon käivitatakse, selle vastus saadetakse LLM-ile, mis kasutab seda teavet, et vastata kasutaja päringule.
+Funktsioonide kutsumine on peamine viis, kuidas võimaldame suurel keelemudelil (LLM) suhelda tööriistadega. Tihti kasutatakse termineid 'funktsioon' ja 'tööriist' vaheldumisi, sest 'funktsioonid' (taaskasutatavad koodiblokid) on need 'tööriistad', mida agendid kasutavad ülesannete täitmiseks. Selleks, et funktsiooni koodi kutsuda, peab LLM võrdlema kasutaja päringut funktsiooni kirjeldusega. Selleks saadetakse LLMile skeem, mis sisaldab kõigi saadaolevate funktsioonide kirjeldusi. LLM valib seejärel ülesande jaoks kõige sobivama funktsiooni ning tagastab selle nime ja argumendid. Valitud funktsioon kutsutakse välja, selle vastus saadetakse tagasi LLMile, mis kasutab infot kasutaja päringule vastamiseks.
 
-Arendajatel, kes soovivad agentide funktsioonikutsumist rakendada, on vaja:
+Arendajatel, kes soovivad agentide funktsioonide kutsumist rakendada, on vaja:
 
-1. LLM-i mudelit, mis toetab funktsioonikutsumist
+1. LLM mudelit, mis toetab funktsioonide kutsumist
 2. Skeemi, mis sisaldab funktsioonide kirjeldusi
-3. Koodi iga funktsiooni kohta
+3. Koodi iga kirjeldatud funktsiooni jaoks
 
-Vaatame näidet, kus saame praeguse aja linnas välja küsida:
+Kasutame illustreerimiseks näidet, kuidas saada linnas kehtiv kellaaeg:
 
-1. **Alusta LLM-iga, mis toetab funktsioonikutsumist:**
+1. **Algatage funktsioonide kutsumist toetav LLM:**
 
-    Mitte kõik mudelid ei toeta funktsioonikutsumist, seega on oluline kontrollida, kas sinu kasutatav LLM seda teeb. <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> toetab funktsioonikutsumist. Saame alustada Azure OpenAI kliendi initsialiseerimisega.
+    Kõik mudelid ei toeta funktsioonide kutsumist, seega on oluline kontrollida, et teie kasutatav LLM seda teeb.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> toetab funktsioonide kutsumist. Saame alustada OpenAI kliendi käivitamisest Azure OpenAI **Vastuste API** vastu (stabiilne `/openai/v1/` lõpp-punkt — ei ole vaja `api_version`-i). 
 
     ```python
-    # Initsialiseeri Azure OpenAI klient
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_AI_PROJECT_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Algatage OpenAI klient Azure OpenAI jaoks (Responses API, v1 lõpp-punkt)
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
-
 
 1. **Loo funktsiooni skeem**:
 
-    Seejärel defineerime JSON skeemi, mis sisaldab funktsiooni nime, kirjelduse, mida funktsioon teeb, ja funktsiooni parameetrite nimesid ning kirjeldusi.
-    Seda skeemi edastame eelnevalt loodud kliendile koos kasutaja päringuga, mis küsib aega San Franciscos. Oluline on märkida, et tagastatakse **tööriistakutse**, **mitte** lõplik vastus küsimusele. Nagu juba mainitud, tagastab LLM selle funktsiooni nime, mille ta ülesande jaoks valis, ja argumendid, mida talle antakse.
+    Järgmisena määratleme JSON skeemi, mis sisaldab funktsiooni nime, funktsiooni toimingu kirjelduse ja funktsiooni parameetrite nimed ning kirjeldused.
+    Selle skeemi annab seejärel varem loodud kliendile koos kasutaja päringuga, mis küsib San Francisco kellaaja leidmist. Oluline on märkida, et tagastatakse **tööriistakõne**, **mitte** küsimuse lõplik vastus. Nagu mainitud, tagastab LLM ülesande jaoks valitud funktsiooni nime ja argumendid.
 
     ```python
-    # Funktsiooni kirjeldus mudeli lugemiseks
+    # Funktsiooni kirjeldus mudeli lugemiseks (Responses API lame tööriista formaat)
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
    
     ```python
   
-    # Esialgne kasutajateade
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # Esimene API kõne: Palu mudelil kasutada funktsiooni
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # Töötle mudeli vastust
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    # Esialgne kasutaja sõnum
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # Esimene API kõne: Kutsu mudelit funktsiooni kasutama
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # Vastuste API tagastab tööriista kutsed kui function_call üksused response.output väljale.
+    # Lisa need vestlusse, et mudelil oleks järgmises pöördes täielik kontekst.
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
-
 1. **Funktsiooni kood ülesande täitmiseks:**
 
-    Nüüd, kui LLM on valinud, millist funktsiooni käivitada, on vaja see kood realiseerida ja täita.
-    Saame implementerida koodi praeguse aja saamiseks Pythonis. Samuti tuleb kirjutada kood, mis võtab response_message-st välja nime ja argumendid, et saada lõplik tulemus.
+    Pärast seda, kui LLM on valinud, millist funktsiooni tuleks käivitada, tuleb see kood rakendada ja täita.
+    Koodi, mis tagab praeguse kellaaja saamise Pythonis, saab rakendada. Samuti tuleb kirjutada kood, mis väljavõtab `response_message`-ist nime ja argumendid, et saada lõplik tulemus.
 
     ```python
       def get_current_time(location):
@@ -164,33 +160,36 @@ Vaatame näidet, kus saame praeguse aja linnas välja küsida:
     ```
 
      ```python
-     # Töötle funktsioonikõnesid
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # Teine API kõne: Hangi mudelist lõplik vastus
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # Töötle funktsioonikõnesid
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # Tagasta tööriista tulemus kui function_call_output element
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # Teine API kõne: Saa mudelilt lõplik vastus
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -199,81 +198,84 @@ Vaatame näidet, kus saame praeguse aja linnas välja küsida:
       The current time in San Francisco is 09:24 AM.
      ```
 
+Funktsioonide kutsumine on enamiku, kui mitte kõigi agentide tööriistade kasutamise disainimustrite keskmes, kuid selle nullist rakendamine võib mõnikord olla keeruline.
+Nagu õppisime [Tunnis 2](../../../02-explore-agentic-frameworks) pakuvad agentur Raamistikud meile eelvalmis ehitusplokke tööriistade kasutamise rakendamiseks.
+ 
+## Tööriistade kasutamise näited Agentic Frameworkidega
 
-Funktsioonide kutsumine on enamiku, kui mitte kõigi, agente tööriistade kasutamise disainikujunduste keskmes, kuid selle nullist rakendamine võib olla keeruline.
-Nagu õpitud [tunnis 2](../../../02-explore-agentic-frameworks), pakuvad agentpõhised raamistikud ette ehitatud plokke tööriistade kasutamiseks.
-
-## Tööriistade kasutamise näited agentpõhiste raamistikudega
-
-Siin on mõned näited, kuidas kasutada tööriistade kasutamise disainimustrit erinevate agentpõhiste raamistikudega:
+Siin on mõned näited, kuidas tööriistade kasutamise disainimustrit rakendada erinevate agentur raamistikute abil:
 
 ### Microsoft Agent Framework
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> on avatud lähtekoodiga AI raamistik AI agentide loomiseks. See lihtsustab funktsioonikutsumise kasutamist, võimaldades määratleda tööriistad Python funktsioonidena, kasutades `@tool` dekoratsiooni. Raamistik haldab mudeli ja koodi vahelist suhtlust. Lisaks on saadaval valmis tööriistad nagu Failide otsing ja Koodi tõlgendaja, mida saab kasutada `AzureAIProjectAgentProvider` kaudu.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> on avatud lähtekoodiga tehisintellekti raamistik agentide loomiseks. See lihtsustab funktsioonide kutsumise protsessi, võimaldades määratleda tööriistad Python’i funktsioonidena, kasutades `@tool` dekoratsiooni. Raamistik haldab mudeli ja teie koodi vahelist suhtlust. Samuti pakub pääsu eelvalmistatud tööriistadele, nagu Faili Otsing ja Koodi Tõlgendaja, läbi `FoundryChatClient`.
 
-Järgmine diagramm illustreerib funktsioonide kutsumise protsessi Microsoft Agent Framework abil:
+Järgmine diagramm illustreerib funktsioonide kutsumise protsessi Microsoft Agent Frameworkiga:
 
-![function calling](../../../translated_images/et/functioncalling-diagram.a84006fc287f6014.webp)
+![funktioni kutsumine](../../../translated_images/et/functioncalling-diagram.a84006fc287f6014.webp)
 
-Microsoft Agent Frameworkis on tööriistad määratletud dekoratsiooniga funktsioonidena. Saame senise `get_current_time` funktsiooni muuta tööriistaks, kasutades `@tool` dekoratsiooni. Raamistik serialiseerib funktsiooni ja selle parameetrid automaatselt ning loob skeemi, mida edastada LLM-ile.
+Microsoft Agent Frameworkis määratletakse tööriistad dekoreeritud funktsioonidena. Saame `get_current_time` funktsiooni, mida nägime varem, konverteerida tööriistaks, kasutades `@tool` dekoratsiooni. Raamistik serialiseerib automaatselt funktsiooni ja selle parameetrid, luues skeemi LLMile saatmiseks.
 
 ```python
+import os
 from agent_framework import tool
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-@tool
+@tool(approval_mode="never_require")
 def get_current_time(location: str) -> str:
     """Get the current time for a given location"""
     ...
 
 # Loo klient
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
-# Loo agent ja käivita tööriistaga
-agent = await provider.create_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+# Loo agent ja tööta tööriistaga
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
 response = await agent.run("What time is it?")
 ```
   
+### Microsoft Foundry Agent Service
 
-### Azure AI Agent Service
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> on uuem agentúra raamistik, mis on mõeldud arendajatele võimaldamaks turvaliselt luua, juurutada ja skaleerida kõrgekvaliteedilisi ning laiendatavaid tehisintellekti agente ilma, et peaks hallama aluseks olevaid arvutus- ja salvestusressursse. See on eriti kasulik ettevõtete rakendustes, kuna on täielikult hallatav teenus ettevõtte astme turvalisusega.
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> on uuem agentpõhine raamistik, mis võimaldab arendajatel turvaliselt luua, juurutada ja skaleerida kvaliteetseid ning laiendatavaid AI agente ilma alusressursside haldamiseta. See sobib eriti hästi ettevõtete rakendusteks, kuna on täisautomaatne teenus ettevõttele vajaliku turvalisusega.
+Võrreldes otsese arendusega LLM API abil, pakub Microsoft Foundry Agent Service mõningaid eeliseid, sealhulgas:
 
-Võrreldes LLM API-ga otse arendamisega pakub Azure AI Agent Service mõningaid eeliseid:
+- Automaatne tööriistakutsumine – ei ole vaja tööriistakõnet eraldi parsida, tööriista kutsuda ja vastuseid hallata; kõik toimub nüüd serveripoolselt
+- Turvaliselt hallatud andmed – asemel, et hallata enda vestluse olekut, saab tugineda 'threads'-idele, mis salvestavad kogu vajaliku info
+- Valmis tööriistad – tööriistad, mida saate kasutada oma andmeallikatega suhtlemiseks, nagu Bing, Azure AI Search ja Azure Functions.
 
-- Automaatne tööriistakutsumine – ei pea ise tööriistakutset tõlgendama, tööriista käivitama ega vastuseid haldama; kõik toimub serveripoolselt
-- Turvaliselt hallatud andmed – vestluse seisundi hoidmise asemel saab tugineda thread-idele, mis salvestavad kogu vajaliku info
-- Valmis tööriistad – tööriistad, mida saab kasutada andmeallikatega suhtlemiseks, nt Bing, Azure AI Search ja Azure Functions.
-
-Azure AI Agent Service-s olevad tööriistad jagunevad kaheks kategooriaks:
+Microsoft Foundry Agent Service’s saadaolevad tööriistad jagunevad kaheks kategooriaks:
 
 1. Teadmiste tööriistad:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Ühendamine Bing Searchiga</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Bing otsingu kasutamine taustainfoks</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview" target="_blank">Failide otsing</a>
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI Search</a>
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search?tabs=azurecli%2Cpython&pivots=overview-azure-ai-search" target="_blank">Azure AI otsing</a>
 
-2. Tegevuse tööriistad:
-    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Funktsioonikutsumine</a>
+2. Tegevustööriistad:
+    - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?tabs=python&pivots=overview" target="_blank">Funktsioonide kutsumine</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?tabs=python&pivots=overview" target="_blank">Koodi tõlgendaja</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview" target="_blank">OpenAPI määratletud tööriistad</a>
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-functions?pivots=overview" target="_blank">Azure Functions</a>
 
-Agent Service võimaldab neid tööriistu kasutada ühiselt kui `toolset`-i. Samuti kasutatakse `threads`eid, mis hoiavad konkreetse vestluse sõnumite ajalugu.
+Agent Service võimaldab meil neid tööriistu kasutada koos kui `toolset`-ina. Samuti kasutab see `threads`-e, mis hoiavad konkreetse vestluse sõnumite ajaloo.
 
-Kujutagem ette, et oled müügiesindaja ettevõttes Contoso. Soovid arendada vestlusagenti, mis vastab müügiandmete küsimustele.
+Kujutage ette, et olete müügiesindaja ettevõttes nimega Contoso. Soovite arendada vestlusagenti, kes suudab vastata küsimustele teie müügiandmete kohta.
 
-Järgmine pilt illustreerib, kuidas saaks Azure AI Agent Service abil analüüsida müügiandmeid:
+Järgmine pilt illustreerib, kuidas võiksite Microsoft Foundry Agent Service’it kasutada oma müügiandmete analüüsimiseks:
 
-![Agentic Service In Action](../../../translated_images/et/agent-service-in-action.34fb465c9a84659e.webp)
+![Agentservice tegevuses](../../../translated_images/et/agent-service-in-action.34fb465c9a84659e.webp)
 
-Neid tööriistu teenusega kasutamiseks saame luua kliendi ning määratleda tööriista või tööriistakomplekti. Praktiliseks rakenduseks võime kasutada järgmist Pythoni koodi. LLM saab vaadata toolset-i ning otsustada, kas kasutada kasutaja loodud funktsiooni `fetch_sales_data_using_sqlite_query` või eelnevalt ehitatud Koodi tõlgendajat, olenevalt kasutaja päringust.
+Nende tööriistade kasutamiseks teenusega saame luua kliendi ja määratleda tööriista või tööriistakomplekti. Praktilise rakendamisena võime kasutada järgmist Python koodi. LLM suudab tööriistakogust vaadata ning otsustada, kas kasutada kasutaja loodud funktsiooni `fetch_sales_data_using_sqlite_query` või eelvalmistatud Koodi Tõlgendajat sõltuvalt kasutaja päringust.
 
 ```python 
 import os
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
-from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query funktsioon, mida leidub failis fetch_sales_data_functions.py.
+from fetch_sales_data_functions import fetch_sales_data_using_sqlite_query # fetch_sales_data_using_sqlite_query funktsioon, mida saab leida failist fetch_sales_data_functions.py.
 from azure.ai.projects.models import ToolSet, FunctionTool, CodeInterpreterTool
 
 project_client = AIProjectClient.from_connection_string(
@@ -281,14 +283,14 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-# Tööriistakomplekti algatamine
+# Tööriistakomplekti initsialiseerimine
 toolset = ToolSet()
 
-# Funktsiooni kutsumise agendi algatamine fetch_sales_data_using_sqlite_query funktsiooniga ja selle lisamine tööriistakomplekti
+# Funktsioonikõne agendi initsialiseerimine kasutades fetch_sales_data_using_sqlite_query funktsiooni ja selle lisamine tööriistakomplekti
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Koodi interpreteerija tööriista algatamine ja selle lisamine tööriistakomplekti.
+# Koodi interpreter tööriista initsialiseerimine ja selle lisamine tööriistakomplekti.
 code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
@@ -297,34 +299,35 @@ agent = project_client.agents.create_agent(
 )
 ```
 
+## Millised on erilised kaalutlused tööriistade kasutamise disainimustri rakendamisel usaldusväärsete tehisintellekti agentide loomiseks?
 
-## Millised on tööriistade kasutamise disainimustri eripärased kaalutlused usaldusväärsete AI agentide loomiseks?
+Tavaline mure LLMide dünaamiliselt genereeritud SQL-i puhul on turvalisus, eriti oht SQL süstimise või pahatahtlike tegude, nagu andmebaasi kustutamise või manipuleerimise suhtes. Kuigi need mured on põhjendatud, saab neid tõhusalt leevendada, konfigureerides andmebaasi juurdepääsuõigused korrektselt. Enamiku andmebaaside puhul tähendab see andmebaasi seadistamist ainult lugemiseks. Andmebaasiteenuste nagu PostgreSQL või Azure SQL puhul peaks rakendusele määrama vaid lugemisõigusega (SELECT) rolli.
 
-Levinud mure SQL-i dünaamiliselt LLM-ide poolt genereeritud päringute puhul on turvalisus, eelkõige SQL süstimise või pahatahtlike toimingute oht, nagu andmebaasi kustutamine või rikkumine. Kuigi need mured on põhjendatud, saab neid tõhusalt vähendada andmebaasi ligipääsuõiguste nõuetekohase seadistamisega. Enamikes andmebaasides tähendab see andmebaasi seadistamist ainult lugemisõigusega. Andmebaasiteenuste puhul nagu PostgreSQL või Azure SQL tuleks rakendusele määrata ainult lugemisõigused (SELECT roll).
-
-Rakenduse käitamine turvalises keskkonnas tugevdab kaitset veelgi. Ettevõtete kasutusjuhtudel ekstraktitakse ja muundatakse andmed operatiivsetest süsteemidest lugemisõigusega andmebaasi või andmeletti struktureeritud skeemaga. Selline lähenemine tagab andmete turvalisuse, optimeerib jõudlust ja ligipääsetavust ning piirab rakenduse juurdepääsu ainult lugemiseks.
+Rakenduse käitamine turvalises keskkonnas suurendab täiendavalt kaitset. Ettevõtete olukordades ekstraktitakse ja muudetakse andmeid tavaliselt operatsioonisüsteemidest lugemiseks mõeldud andmebaasiks või andmelaoks kasutajasõbraliku skeemiga. See tagab, et andmed on turvalised, optimeeritud jõudluse ja ligipääsetavuse osas ning et rakendusel on piiratud, vaid lugemisõigus.
 
 ## Näidiskoodid
 
 - Python: [Agent Framework](./code_samples/04-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/04-dotnet-agent-framework.md)
 
-## Kas Sul on veel küsimusi tööriistade kasutamise disainimustrite kohta?
+## Kas teil on rohkem küsimusi tööriistade kasutamise disainimustri kohta?
 
-Liitu [Microsoft Foundry Discordiga](https://aka.ms/ai-agents/discord), et kohtuda teiste õppijatega, osaleda lahtistes tundides ja saada vastuseid AI agentide küsimustele.
+Liituge [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) kanaliga, et kohtuda teiste õppijatega, osaleda kontorite tundides ja saada vastuseid oma tehisintellekti agentide küsimustele.
 
-## Lisamaterjalid
+## Täiendavad ressursid
 
-- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agentide teenuse töötuba</a>
+- <a href="https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/" target="_blank">Azure AI Agent Service töötuba</a>
 - <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer mitme agendi töötuba</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework ülevaade</a>
 
-## Eelmine tund
 
-[Agentpõhiste disainimustrite mõistmine](../03-agentic-design-patterns/README.md)
+## Eelmine õppetund
 
-## Järgmine tund
-[Agentlik RAG](../05-agentic-rag/README.md)
+[Agentsete disainimustrite mõistmine](../03-agentic-design-patterns/README.md)
+
+## Järgmine õppetund
+
+[Agentne RAG](../05-agentic-rag/README.md)
 
 ---
 

@@ -1,106 +1,109 @@
-# 🛠️ GitHub மாடல்களுடன் மேம்பட்ட கருவி பயன்பாடு (.NET)
+# 🛠️ Azure OpenAI (Responses API) (.NET) உடன் முன்னேற்றப்பட்ட கருவி பயன்பாடு
 
 ## 📋 கற்றல் நோக்கங்கள்
 
-இந்த நோட்புக் Microsoft Agent Framework-ஐ .NET-இல் GitHub மாடல்களுடன் பயன்படுத்தி நிறுவன தரமான கருவி ஒருங்கிணைப்பு முறைகளை விளக்குகிறது. பல சிறப்பு கருவிகளுடன் மேம்பட்ட முகவர்களை உருவாக்குவது, C#-இன் வலுவான டைப் மற்றும் .NET-இன் நிறுவன அம்சங்களை பயன்படுத்துவது எப்படி என்பதை நீங்கள் கற்றுக்கொள்வீர்கள்.
+இந்த நோட்புக் Microsoft Agent Framework-ஐ .NET உடன் Azure OpenAI (Responses API) பயன்படுத்தி நிறுவன நிலை கருவி ஒருங்கிணைப்பு மாதிரிகளை காட்டுகிறது. பல நிபுணத்துவ கருவிகளுடன் ஆழமான முகவரிகளை உருவாக்கும் விதத்தில், C# இன் வலுவான வகுப்பீடு மற்றும் .NET இன் நிறுவன அம்சங்களை பயன்படுத்த கற்றுக்கொள்வீர்கள்.
 
-### நீங்கள் கற்றுக்கொள்ளும் மேம்பட்ட கருவி திறன்கள்
+### நீங்கள் ஆளவையாகக் கற்றுக்கொள்ளும் முன்னேற்றப்பட்ட கருவி திறன்கள்
 
-- 🔧 **பல கருவி கட்டமைப்பு**: பல சிறப்பு திறன்களுடன் முகவர்களை உருவாக்குதல்
-- 🎯 **வகை-பாதுகாப்பான கருவி செயல்பாடு**: C#-இன் தொகுப்பு நேர சரிபார்ப்பை பயன்படுத்துதல்
-- 📊 **நிறுவன கருவி முறைகள்**: உற்பத்தி-தயார் கருவி வடிவமைப்பு மற்றும் பிழை கையாளுதல்
-- 🔗 **கருவி இணைப்பு**: சிக்கலான வணிக வேலைப்பாடுகளுக்கான கருவிகளை இணைத்தல்
+- 🔧 **பல-கருவி கட்டமைப்பு**: பல நிபுணத்துவ திறன்களுடன் முகவரிகளை உருவாக்குதல்
+- 🎯 **வகைப்பிடிப்புக்கான கருவி நிறைவேற்று**: C# இன் தொகுப்புத்தன்மை காலச் சரிபார்ப்பைப் பயன்படுத்துதல்
+- 📊 **நிறுவன கருவி மாதிரிகள்**: தயாரிப்பு-தயார் கருவி வடிவமைப்பு மற்றும் பிழை கையாளுதல்
+- 🔗 **கருவி சேர்க்கை**: சிக்கலான வணிக வேலைவழிகளுக்கான கருவிகள் ஒன்றிணைக்கல்
 
-## 🎯 .NET கருவி கட்டமைப்பின் நன்மைகள்
+## 🎯 .NET கருவி கட்டமைப்பு நன்மைகள்
 
 ### நிறுவன கருவி அம்சங்கள்
 
-- **தொகுப்பு நேர சரிபார்ப்பு**: வலுவான டைப்பிங் கருவி அளவுரு சரியானதை உறுதிப்படுத்துகிறது
-- **இணைப்பு சார்பு ஊர்ஜிதம்**: IoC கொண்டெய்னர் ஒருங்கிணைப்பு கருவி மேலாண்மைக்காக
-- **அசிங்க/காத்திருப்பு முறைகள்**: சரியான வள மேலாண்மையுடன் தடை இல்லாத கருவி செயல்பாடு
-- **கட்டமைக்கப்பட்ட பதிவு**: கருவி செயல்பாட்டு கண்காணிப்புக்கான உள்ளமைக்கப்பட்ட பதிவு ஒருங்கிணைப்பு
+- **தொகுப்புத்தன்மை காலச் சரிபார்ப்பு**: கருவி அளவுரு துல்லியத்தை உறுதி செய்யும் வலுவான வகுப்பீடு
+- **இணைவு ஊட்டம்**: கருவி மேலாட்சிக்கான IoC கன்டெய்னர் ஒருங்கிணைப்பு
+- **Async/Await மாதிரிகள்**: வளங்களைச் சரியாக நிர்வகித்து தடைசெய்யாத கருவி நிறைவேற்று
+- **கட்டமைக்கப்பட்ட பதிவேற்றம்**: கருவி செயல்பாட்டை கண்காணிக்க கட்டமைக்கப்பட்ட பதிவு ஒருங்கிணைப்பு
 
-### உற்பத்தி-தயார் முறைகள்
+### தயாரிப்பு-தயார் மாதிரிகள்
 
-- **விலக்கு கையாளுதல்**: வகைப்படுத்தப்பட்ட விலக்குகளுடன் விரிவான பிழை மேலாண்மை
-- **வள மேலாண்மை**: சரியான அகற்றல் முறைகள் மற்றும் நினைவக மேலாண்மை
-- **செயல்திறன் கண்காணிப்பு**: உள்ளமைக்கப்பட்ட அளவீடுகள் மற்றும் செயல்திறன் கவுண்டர்கள்
-- **கட்டமைப்பு மேலாண்மை**: சரிபார்ப்புடன் வகை-பாதுகாப்பான கட்டமைப்பு
+- **விரிவான பிழை கையாளுதல்**: வகைப்பிடிக்கப்பட்ட வன்முறை தவறுகளுடன் முழுமையான பிழை மேலாண்மை
+- **வள மேலாண்மை**: சரியான அழிப்பு மாதிரிகள் மற்றும் நினைவக நிர்வாகம்
+- **செயல்திறன் கண்காணிப்பு**: கட்டமைக்கப்பட்ட அளவுகோல்கள் மற்றும் செயல்திறன் கண்கணிப்புகள்
+- **கட்டமைப்பு மேலாண்மை**: சரிபார்ப்புடன் வகைப்பிடிக்கும் கட்டமைப்பு
 
 ## 🔧 தொழில்நுட்ப கட்டமைப்பு
 
 ### முக்கிய .NET கருவி கூறுகள்
 
-- **Microsoft.Extensions.AI**: ஒருங்கிணைந்த கருவி சுருக்கலான அடுக்கு
-- **Microsoft.Agents.AI**: நிறுவன தரமான கருவி ஒருங்கிணைப்பு
-- **GitHub மாடல்கள் ஒருங்கிணைப்பு**: உயர் செயல்திறன் API கிளையன்ட் இணைப்பு குளம்
+- **Microsoft.Extensions.AI**: ஒருங்கிணைந்த கருவி சுருக்கம் பரப்பு
+- **Microsoft.Agents.AI**: நிறுவன நிலை கருவி ஒருங்கிணைப்பு
+- **Azure OpenAI (Responses API)**: இணைப்பு பூலிங்குடன் கூடிய உயர் செயல்திறன் API கிளையண்ட்
 
-### கருவி செயல்பாட்டு குழாய்
+### கருவி நிறைவேற்று குழாய்
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[பயனர் கோரிக்கை] --> B[முகவர் பகுப்பு]
+    B --> C[கருவி தேர்வு]
+    C --> D[வகை சரிபார்ப்பு]
+    B --> E[அளவுரு பிணைப்பு]
+    E --> F[கருவி செயற்படுத்தல்]
     C --> F
-    F --> G[Result Processing]
+    F --> G[முடிவு செயலாக்கம்]
     D --> G
-    G --> H[Response]
+    G --> H[பதில்]
 ```
 
-## 🛠️ கருவி வகைகள் மற்றும் முறைகள்
+## 🛠️ கருவி வகைகள் மற்றும் மாதிரிகள்
 
 ### 1. **தரவு செயலாக்க கருவிகள்**
 
-- **உள்ளீடு சரிபார்ப்பு**: தரவுக் குறிப்புகளுடன் வலுவான டைப்பிங்
-- **மாற்று செயல்பாடுகள்**: வகை-பாதுகாப்பான தரவு மாற்றம் மற்றும் வடிவமைப்பு
-- **வணிக தர்க்கம்**: துறை சார்ந்த கணக்கீடு மற்றும் பகுப்பாய்வு கருவிகள்
+- **உள்ளீடு சரிபார்ப்பு**: தரவு குறியீடுகளுடன் வலுவான வகுப்பீடு
+- **மாற்றல் செயல்பாடுகள்**: வகை-பாதுகாப்பு தரவு மாற்றம் மற்றும் வடிவமைப்பு
+- **வணிக தர்க்கம்**: பிராந்திய சூழலுக்கான கணக்கீடு மற்றும் பகுப்பாய்வு கருவிகள்
 - **வெளியீடு வடிவமைப்பு**: கட்டமைக்கப்பட்ட பதில் உருவாக்கம்
 
 ### 2. **ஒருங்கிணைப்பு கருவிகள்**
 
-- **API இணைப்பாளர்கள்**: RESTful சேவை ஒருங்கிணைப்பு HttpClient உடன்
-- **தரவுத்தளம் கருவிகள்**: Entity Framework ஒருங்கிணைப்பு தரவினை அணுக
+- **API இணைப்பாளர்கள்**: HttpClient மூலம் RESTful சேவை ஒருங்கிணைப்பு
+- **தரவுத்தளம் கருவிகள்**: தரவையறிதல் க்கான Entity Framework ஒருங்கிணைப்பு
 - **கோப்பு செயல்பாடுகள்**: சரிபார்ப்புடன் பாதுகாப்பான கோப்பு அமைப்பு செயல்பாடுகள்
-- **வெளியக சேவைகள்**: மூன்றாம் தரப்பு சேவை ஒருங்கிணைப்பு முறைகள்
+- **வெளியுறை சேவைகள்**: முப்பரிமாண சேவை ஒருங்கிணைப்பு மாதிரிகள்
 
-### 3. **உதவிக்கருவிகள்**
+### 3. **பயன்பாட்டுக் கருவிகள்**
 
-- **உரை செயலாக்கம்**: சரம் மாற்றம் மற்றும் வடிவமைப்பு உதவிகள்
-- **தேதி/நேர செயல்பாடுகள்**: கலாச்சாரம்-அறிந்த தேதி/நேர கணக்கீடுகள்
-- **கணித கருவிகள்**: துல்லியமான கணக்கீடுகள் மற்றும் புள்ளியியல் செயல்பாடுகள்
-- **சரிபார்ப்பு கருவிகள்**: வணிக விதி சரிபார்ப்பு மற்றும் தரவுச் சரிபார்ப்பு
+- **உரை செயலாக்கம்**: சரமாக்கல் மற்றும் வடிவமைக்கும் நீர் மாற்றம்
+- **தேதி/நேர செயல்பாடுகள்**: கலாச்சாரம் சார்ந்த தேதி/நேர கணக்குகள்
+- **கணித கருவிகள்**: துல்லியமான கணக்குகள் மற்றும் புள்ளியியல் செயல்பாடுகள்
+- **சரிபார்ப்பு கருவிகள்**: வணிக விதி சரிபார்ப்பு மற்றும் தரவு உறுதிப்படுத்தல்
 
-நிறுவன தரமான முகவர்களை வலுவான, வகை-பாதுகாப்பான கருவி திறன்களுடன் .NET-இல் உருவாக்க தயாரா? சில தொழில்முறை தரமான தீர்வுகளை வடிவமைப்போம்! 🏢⚡
+வலுவான, வகைப்பிடிப்புக்கான செயல்பாடுகளுடன் .NET இல் நிறுவன நிலை முகவரிகளை உருவாக்க தயாரா? சில தொழில்முறை நிலை தீர்வுகளை கட்டமைப்போம்! 🏢⚡
 
-## 🚀 தொடங்குதல்
+## 🚀 தொடக்கம்
 
-### முன் தேவைகள்
+### தேவைகள்
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) அல்லது அதற்கு மேல்
-- [GitHub மாடல்கள் API அணுகல் டோக்கன்](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Azure OpenAI வளம் மற்றும் ஒரு மாதிரி இடைமுக கொண்ட ஒரு [Azure சந்தா](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` உடன் உள்நுழைவு
 
-### தேவையான சூழல் மாறிகள்
+### அவசியமான சுற்றுச்சூழல் மாறிகள்
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# பிறகு AzureCliCredential ஒரு டோக்கனைப் பெற சைன் இன் செய்யவும்
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# பிறகு AzureCliCredential ஒரு டோக்கன் பெற கையொப்பமிடவும்
+az login
 ```
 
-### மாதிரி குறியீடு
+### எடுத்துக்காட்டு குறியீடு
 
-குறியீடு எடுத்துக்காட்டை இயக்க,
+குறியீட்டைக் இயக்க,
 
 ```bash
 # zsh/bash
@@ -108,27 +111,29 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-அல்லது dotnet CLI-ஐப் பயன்படுத்தி:
+அல்லது dotnet CLI பயன்படுத்தி:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-முழு குறியீட்டிற்கான [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) ஐப் பார்க்கவும்.
+முழு குறியீட்டு விவரத்துக்கு [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) காண்க.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**குறிப்பு**:  
-இந்த ஆவணம் AI மொழிபெயர்ப்பு சேவை [Co-op Translator](https://github.com/Azure/co-op-translator) பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சிக்கிறோம், ஆனால் தானியங்கி மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறுகள் இருக்கக்கூடும் என்பதை கவனத்தில் கொள்ளவும். அதன் தாய்மொழியில் உள்ள மூல ஆவணம் அதிகாரப்பூர்வ ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்முறை மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்த தவறான புரிதல்கள் அல்லது தவறான விளக்கங்களுக்கு நாங்கள் பொறுப்பல்ல.
+**மறுப்பு**:
+இந்த ஆவணம் AI மொழிபெயர்ப்பு சேவை [Co-op Translator](https://github.com/Azure/co-op-translator) பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சி செய்துள்ளோம், ஆனால் தானாக செய்யப்படும் மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறுகள் இருக்கலாம் என்பதை கவனத்தில் கொள்ளவும். அசல் ஆவணம் அதன் தாய்மொழியில் அதிகாரப்பூர்வ ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்நுட்பமான மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்த தவறான புரிதல்கள் அல்லது தவறான விளக்கத்திற்கும் நாங்கள் பொறுப்பில்வில்லை.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,25 +1,25 @@
-# AI-agendid algajatele - kursus
+# Tehisintellekti agendid algajatele - kursus
 
-![AI-agendid algajatele](../../translated_images/et/repo-thumbnailv2.06f4a48036fde647.webp)
+![AI Agents for Beginners](../../translated_images/et/repo-thumbnailv2.06f4a48036fde647.webp)
 
-## Kursus, mis õpetab kõike, mida vajad AI-agentide loomise alustamiseks
+## Kursus, mis õpetab kõike, mida vajad, et alustada tehisintellekti agentide loomist
 
-[![GitHub litsents](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub panustajad](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![GitHub probleemid](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub tõmbepäringud](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PR-d on teretulnud](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
+[![GitHub license](https://img.shields.io/github/license/microsoft/ai-agents-for-beginners.svg)](https://github.com/microsoft/ai-agents-for-beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
+[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
+[![GitHub issues](https://img.shields.io/github/issues/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/issues/?WT.mc_id=academic-105485-koreyst)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/ai-agents-for-beginners.svg)](https://GitHub.com/microsoft/ai-agents-for-beginners/pulls/?WT.mc_id=academic-105485-koreyst)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
 
 ### 🌐 Mitmekeelne tugi
 
-#### Toetatud GitHub Actioni kaudu (automatiseeritud ja alati ajakohane)
+#### Toetatud GitHub Actioni abil (Automaatne ja alati ajakohane)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Araabia](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgaaria](../bg/README.md) | [Birma (Myanmar)](../my/README.md) | [Hiina (lihtsustatud)](../zh-CN/README.md) | [Hiina (traditsiooniline, Hongkong)](../zh-HK/README.md) | [Hiina (traditsiooniline, Macau)](../zh-MO/README.md) | [Hiina (traditsiooniline, Taiwan)](../zh-TW/README.md) | [Horvaadi](../hr/README.md) | [Tšehhi](../cs/README.md) | [Taani](../da/README.md) | [Hollandi](../nl/README.md) | [Eesti](./README.md) | [Soome](../fi/README.md) | [Prantsuse](../fr/README.md) | [Saksa](../de/README.md) | [Kreeka](../el/README.md) | [Heebrea](../he/README.md) | [Hindi](../hi/README.md) | [Ungari](../hu/README.md) | [Indoneesia](../id/README.md) | [Itaalia](../it/README.md) | [Jaapani](../ja/README.md) | [Kannada](../kn/README.md) | [Khmeri](../km/README.md) | [Korea](../ko/README.md) | [Leedu](../lt/README.md) | [Malai](../ms/README.md) | [Malajalami](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigeeria pidžin](../pcm/README.md) | [Norra](../no/README.md) | [Pärsia (Farsi)](../fa/README.md) | [Poola](../pl/README.md) | [Portugali (Brasiilia)](../pt-BR/README.md) | [Portugali (Portugal)](../pt-PT/README.md) | [Pandžabi (Gurmukhi)](../pa/README.md) | [Rumeenia](../ro/README.md) | [Vene](../ru/README.md) | [Serbia (kirilitsas)](../sr/README.md) | [Slovaki](../sk/README.md) | [Sloveeni](../sl/README.md) | [Hispaania](../es/README.md) | [Suahiili](../sw/README.md) | [Rootsi](../sv/README.md) | [Tagalogi (filipino)](../tl/README.md) | [Tamili](../ta/README.md) | [Telugu](../te/README.md) | [Tai](../th/README.md) | [Türgi](../tr/README.md) | [Ukraina](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnam](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](./README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 
-> **Eelistate kloneerimist lokaalselt?**
+> **Eelistad kloonida lokaalselt?**
 >
-> See hoidla sisaldab üle 50 keele tõlkeid, mis suurendab oluliselt allalaadimise suurust. Tõlgete ilma kloneerimiseks kasutage käsitsi valimise funktsiooni:
+> See hoidla sisaldab üle 50 keele tõlkeid, mis suurendab allalaadimismahtu märkimisväärselt. Selleks, et kloonida ilma tõlgeteta, kasuta osalist (sparse) ülevaatamist:
 >
 > **Bash / macOS / Linux:**
 > ```bash
@@ -35,88 +35,89 @@
 > git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
 > ```
 >
-> See annab sulle kõik vajaliku kursuse lõpetamiseks kiirema allalaadimisega.
+> See annab sulle kõik vajaliku kursuse läbimiseks palju kiiremalt.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-**Kui soovid toetada täiendavaid tõlkekeeli, on need loetletud [siin](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md).**
+**Kui soovid, et toetataks täiendavaid tõlkekeeli, siis need on loetletud [siin](https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.md).**
 
-[![GitHub jälgijad](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub kahvlid](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub tähed](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/ai-agents-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/ai-agents-for-beginners/watchers/?WT.mc_id=academic-105485-koreyst)
+[![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
+[![GitHub stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
-[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
+[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/ATgtXmAS5D)](https://discord.com/invite/ATgtXmAS5D)
 
 
 ## 🌱 Alustamine
 
-See kursus sisaldab tunde, mis käsitlevad AI-agentide loomise põhialuseid. Iga tund annab ülevaate oma teemast, nii et alusta sealt, kus soovid!
+See kursus sisaldab õppetunde, mis käsitlevad tehisintellekti agentide loomise aluseid. Iga õppetund käsitleb oma teemat, nii et alusta just sealt, kus soovid!
 
-Sellel kursusel on mitmekeelne tugi. Vaata meie [saadavalolevaid keeli siit](#-multi-language-support).
+Sellel kursusel on mitmekeelne tugi. Vaata saadaolevaid keeli [siit](#-multi-language-support). 
 
-Kui see on sinu esimene kord generatiivsete AI mudelitega töötamisel, vaata meie [Generatiivse AI kursust algajatele](https://aka.ms/genai-beginners), mis sisaldab 21 tundi GenAI-ga töötamise kohta.
+Kui see on sinu esimene kord kasutada generatiivseid tehisintellekti mudeleid, vaata meie kursust [Generatiivne AI algajatele](https://aka.ms/genai-beginners), mis sisaldab 21 õppetundi GenAI kasutusest.
 
-Ära unusta [anda sellele hoidlaile täht (🌟)](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ja [kahvli teha](https://github.com/microsoft/ai-agents-for-beginners/fork), et saaksid koodi käivitada.
+Ära unusta [märgista täht(🌟) see hoidla](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars?WT.mc_id=academic-105485-koreyst) ja [hargne see hoidla](https://github.com/microsoft/ai-agents-for-beginners/fork), et koodi jooksutada.
 
-### Kohtuge teiste õppuritega, saa oma küsimustele vastused
+### Kohtuge teiste õppijatega, saage vastuseid oma küsimustele
 
-Kui jään seisma või sul on küsimusi AI-agentide loomise kohta, liitu meie spetsiaalse Discordi kanaliga [Microsoft Foundry Discord'is](https://aka.ms/ai-agents/discord).
+Kui jääd hätta või sul on küsimusi tehisintellekti agentide loomise kohta, liitu meie eraldi Discordi kanaliga [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord).
 
-### Mida vajad
+### Mida vajad 
 
-Igas selle kursuse õppetükis on koodinäited, mis asuvad kaustas code_samples. Sa saad [teha sellele hoidlatele kahvli](https://github.com/microsoft/ai-agents-for-beginners/fork) ja luua oma koopia.
+Iga kursuse õppetund sisaldab koodinäiteid, mis asuvad kaustas code_samples. Võid [hargneda selle hoidla](https://github.com/microsoft/ai-agents-for-beginners/fork), et luua oma koopia.  
 
-Nende harjutustes kasutatavad koodinäited kasutavad Microsoft Agent Frameworki koos Azure AI Foundry Agent Service V2-ga:
+Nendes harjutustes kasutatav kood põhineb Microsoft Agent Frameworkil koos Microsoft Foundry Agent Service V2-ga:
 
-- [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - vajadus Azure konto järele
+- [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - nõutav Azure konto
 
 See kursus kasutab järgmisi Microsofti AI agentide raamistikke ja teenuseid:
 
 - [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework)
-- [Azure AI Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
+- [Microsoft Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
-Mõned koodinäited toetavad ka alternatiivseid OpenAI-ühilduvaid pakkujaid, nagu [MiniMax](https://platform.minimaxi.com/), mis pakub suuri kontekstimudeleid (kuni 204K token'it). Vaata täpsemat konfiguratsiooniteavet [kursuse seadistamisest](./00-course-setup/README.md).
+Mõned koodinäited toetavad ka alternatiivseid OpenAI ühilduvaid pakkujaid nagu [MiniMax](https://platform.minimaxi.com/), mis pakub suure kontekstiga mudeleid (kuni 204K märki). Vaata konfiguratsiooni üksikasju [Kursuse seadistamine](./00-course-setup/README.md) alt.
 
-Täiendava info saamiseks selle kursuse koodi käivitamise kohta vaata [kursuse seadistamist](./00-course-setup/README.md).
+Lisateabe saamiseks selle kursuse koodi jooksutamise kohta vaata [Kursuse seadistamine](./00-course-setup/README.md).
 
 ## 🙏 Tahad aidata?
 
-Kas sul on ettepanekuid või oled leidnud õigekirja- või koodivigu? [Esita probleem](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) või [loo tõmbepäring](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
+Kas sul on ettepanekuid või oled leidnud kirjavigu või koodivigu? [Esita probleem](https://github.com/microsoft/ai-agents-for-beginners/issues?WT.mc_id=academic-105485-koreyst) või [Loo pull request](https://github.com/microsoft/ai-agents-for-beginners/pulls?WT.mc_id=academic-105485-koreyst)
 
 
 
-## 📂 Igas tunnis on
+## 📂 Iga õppetund sisaldab
 
-- Kirjalik tund README failis ja lühike video
-- Python koodinäited, kasutades Microsoft Agent Frameworki koos Azure AI Foundry'ga
-- Lingid lisamaterjalidele õppimise jätkamiseks
+- Kirjaliku õppetunni, mis asub README-s ning lühikest videot
+- Pythoni koodinäiteid, mis kasutavad Microsoft Agent Frameworki koos Microsoft Foundryga
+- Lingid lisamaterjalidele, et jätkata õppimist
 
 
 ## 🗃️ Õppetunnid
 
-| **Tund**                                    | **Tekst & kood**                                  | **Video**                                                  | **Lisamaterjalid**                                                                     |
+| **Õppetund**                                  | **Tekst ja kood**                                   | **Video**                                                  | **Lisaõpe**                                                                            |
 |----------------------------------------------|----------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Sissejuhatus AI agentidesse ja kasutusjuhtumitesse | [Link](./01-intro-to-ai-agents/README.md)          | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI agentide raamistike uurimine              | [Link](./02-explore-agentic-frameworks/README.md)  | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| AI agentide disainimustrite mõistmine        | [Link](./03-agentic-design-patterns/README.md)     | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Tööriistade kasutamise disainimuster         | [Link](./04-tool-use/README.md)                    | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentic RAG                                  | [Link](./05-agentic-rag/README.md)                 | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Usaldusväärsete AI-agentide loomine           | [Link](./06-building-trustworthy-agents/README.md) | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Planeerimise disainimuster                     | [Link](./07-planning-design/README.md)             | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Mitme agentsuse disainimuster                 | [Link](./08-multi-agent/README.md)                 | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Sissejuhatus tehisintellekti agentidesse ja agentide kasutusjuhtumid | [Link](./01-intro-to-ai-agents/README.md)           | [Video](https://youtu.be/3zgm60bXmQk?si=z8QygFvYQv-9WtO1)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Tehisintellekti agentide raamistikude uurimine                | [Link](./02-explore-agentic-frameworks/README.md)   | [Video](https://youtu.be/ODwF-EZo_O8?si=Vawth4hzVaHv-u0H)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Tehisintellekti agentide disainimustrite mõistmine              | [Link](./03-agentic-design-patterns/README.md)      | [Video](https://youtu.be/m9lM8qqoOEA?si=BIzHwzstTPL8o9GF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Vahendite kasutamise disainimuster                             | [Link](./04-tool-use/README.md)                     | [Video](https://youtu.be/vieRiPRx-gI?si=2z6O2Xu2cu_Jz46N)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agentic RAG                                                | [Link](./05-agentic-rag/README.md)                  | [Video](https://youtu.be/WcjAARvdL7I?si=gKPWsQpKiIlDH9A3)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Usaldusväärsete tehisintellekti agentide loomine                | [Link](./06-building-trustworthy-agents/README.md)  | [Video](https://youtu.be/iZKkMEGBCUQ?si=jZjpiMnGFOE9L8OK ) | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Planeerimise disainimuster                                   | [Link](./07-planning-design/README.md)              | [Video](https://youtu.be/kPfJ2BrBCMY?si=6SC_iv_E5-mzucnC)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Mitme agendi disainimuster                                | [Link](./08-multi-agent/README.md)                  | [Video](https://youtu.be/V6HpE9hZEx0?si=rMgDhEu7wXo2uo6g)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+
 | Metakognitsiooni disainimuster                 | [Link](./09-metacognition/README.md)               | [Video](https://youtu.be/His9R6gw6Ec?si=8gck6vvdSNCt6OcF)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Tehisintellekti agendid tootmises                      | [Link](./10-ai-agents-production/README.md)        | [Video](https://youtu.be/l4TP6IyJxmQ?si=31dnhexRo6yLRJDl)  | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentlike protokollide kasutamine (MCP, A2A ja NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
+| Agenti protokollide kasutamine (MCP, A2A ja NLWeb) | [Link](./11-agentic-protocols/README.md)           | [Video](https://youtu.be/X-Dh9R3Opn8)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 | Konteksti inseneritöö AI agentidele            | [Link](./12-context-engineering/README.md)         | [Video](https://youtu.be/F5zqRV7gEag)                                 | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
-| Agentlike mälude haldamine                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
-| Microsofti agendiraamistiku uurimine                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
-| Arvutikasutusagentide ehitamine (CUA)           | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
-| Skaalautuvate agentide juurutamine                    | Tulekul                            |                                                            |                                                                                        |
-| Kohalike AI agentide loomine                     | Tulekul                               |                                                            |                                                                                        |
+| Agentmälu haldamine                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
+| Microsoft Agent raamistiku uurimine                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
+| Arvuti kasutamise agentide loomine (CUA)           | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
+| Skaalautuvate agentide juurutamine                    | Peatselt                      |                                                            |                                                                                        |
+| Kohalike AI agentide loomine                     | Peatselt                               |                                                            |                                                                                        |
 | AI agentide turvamine                           | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
 ## 🎒 Teised kursused
 
-Meie meeskond toodab ka teisi kursuseid! Vaata lähemalt:
+Meie meeskond loob ka teisi kursuseid! Vaata:
 
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
 ### LangChain
@@ -129,11 +130,11 @@ Meie meeskond toodab ka teisi kursuseid! Vaata lähemalt:
 [![AZD algajatele](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Edge AI algajatele](https://img.shields.io/badge/Edge%20AI%20for%20Beginners-00B8E4?style=for-the-badge&labelColor=E5E7EB&color=00B8E4)](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![MCP algajatele](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI agentide algajatele](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
+[![AI agendid algajatele](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
 
 ---
  
-### Generatiivse AI sari
+### Generatiivse AI seeria
 [![Generatiivne AI algajatele](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
 [![Generatiivne AI (.NET)](https://img.shields.io/badge/Generative%20AI%20(.NET)-9333EA?style=for-the-badge&labelColor=E5E7EB&color=9333EA)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
 [![Generatiivne AI (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
@@ -144,53 +145,54 @@ Meie meeskond toodab ka teisi kursuseid! Vaata lähemalt:
 ### Põhjalik õppimine
 [![Masinõpe algajatele](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
 [![Andmeteadus algajatele](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
-[![AI algajatele](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
-[![Küberjulgeolek algajatele](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
+[![Tehisintellekt algajatele](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
+[![Küberturvalisus algajatele](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
 [![Veebiarendus algajatele](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
 [![IoT algajatele](https://img.shields.io/badge/IoT%20for%20Beginners-14B8A6?style=for-the-badge&labelColor=E5E7EB&color=14B8A6)](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
 [![XR arendus algajatele](https://img.shields.io/badge/XR%20Development%20for%20Beginners-38BDF8?style=for-the-badge&labelColor=E5E7EB&color=38BDF8)](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
 
 ---
  
-### Copilot sari
-[![Copilot AI paarisarenduseks](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+### Copiloti seeria
+[![Copilot tehisintellekti paarprogrammeerimiseks](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
 [![Copilot C#/.NET jaoks](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
-[![Copilot seiklus](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
+[![Copiloti seiklused](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
-## 🌟 Kogukonna tänud
+## 🌟 Tänu kogukonnale
 
-Täname [Shivam Goyalit](https://www.linkedin.com/in/shivam2003/), kes andis olulisi näiteid Agentlike RAG näidiskoodist.
+Täname [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) oluliste koodinäidete panustamise eest, mis demonstreerivad Agentic RAG-i. 
 
 ## Panustamine
 
-See projekt ootab panuseid ja ettepanekuid. Enamik panuseid nõuab, et nõustute
-Panustaja litsentsilepinguga (CLA), mis kinnitab, et teil on õigus ja te annate tegelikult meile
-õigused kasutada teie panust. Lisateabe saamiseks külastage <https://cla.opensource.microsoft.com>.
+See projekt tervitab panuseid ja ettepanekuid. Enamik panuseid nõuab, et nõustuksite
+Kaastööleppega (Contributor License Agreement, CLA), millega kinnitate, et teil on õigus ja te tegelikult annate meile
+õigused teie panust kasutada. Lisateavet leiate aadressilt <https://cla.opensource.microsoft.com>.
 
-Kui esitades tõmbepäringu, määrab CLA bot automaatselt, kas peate esitama
-CLA ja märgistab PR-i asjakohaselt (nt olekukontroll, kommentaar). Järgige lihtsalt boti juhiseid.
-Te peate seda tegema ainult ühe korra kõigi meie CLA-le alluvate hoidlate puhul.
+Kui esitate pull-päringu, tuvastab CLA robot automaatselt, kas peate esitama CLA ja lisab vastava märgi PR-le (nt staatuskontroll, kommentaar). Lihtsalt järgige roboti juhiseid. Seda tuleb teha ainult üks kord kõigi meie CLA kasutavate hoidlate jaoks.
 
-See projekt on vastu võtnud [Microsofti avatud lähtekoodi käitumisjuhise](https://opensource.microsoft.com/codeofconduct/).
-Lisateabe saamiseks vaadake [Käitumisjuhise KKK-d](https://opensource.microsoft.com/codeofconduct/faq/) või
-võtke ühendust aadressil [opencode@microsoft.com](mailto:opencode@microsoft.com), kui teil on lisaküsimusi või kommentaare.
+
+
+See projekt on vastu võtnud [Microsofti avatud lähtekoodiga käitumisreeglid](https://opensource.microsoft.com/codeofconduct/).
+Lisateabe saamiseks vaadake [käitumisreeglite korduma kippuvad küsimused](https://opensource.microsoft.com/codeofconduct/faq/) või
+võtke ühendust aadressil [opencode@microsoft.com](mailto:opencode@microsoft.com) lisaküsimuste või kommentaaride jaoks.
 
 ## Kaubamärgid
 
-See projekt võib sisaldada projekte, tooteid või teenuseid tähistavaid kaubamärke või logosi.
-Microsofti kaubamärkide või logode volitatud kasutamine allub ja peab järgima
-[Microsofti kaubamärkide ja brändi juhiseid](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Microsofti kaubamärkide või logode kasutamine selle projekti muudetud versioonides ei tohi tekitada segadust ega viidata Microsofti sponsorlusele.
-Kolmandate osapoolte kaubamärkide või logode kasutamine allub nende kolmandate osapoolte poliitikatele.
+See projekt võib sisaldada kaubamärke või logosid seotud projektide, toodete või teenuste kohta. Microsofti
+kaubamärkide või logode autoriseeritud kasutamine peab toimuma vastavalt
+[Microsofti kaubamärgi- ja brändijuhistele](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
+Microsofti kaubamärkide või logode kasutamine selle projekti muudetud versioonides ei tohi põhjustada segadust ega viidata Microsofti sponsorlusele.
+Kolmandate osapoolte kaubamärkide või logode kasutamine allub nende osapoolte poliitikatele.
 
 ## Abi saamine
 
-Kui midagi jääb segaseks või teil on küsimusi AI rakenduste loomisel, liituge:
+
+Kui jääte hätta või teil on küsimusi AI-rakenduste loomise kohta, liituge:
 
 [![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-Kui teil on toote tagasisidet või ehitamisel esineb vigu, külastage:
+Kui teil on tootearenduse tagasisidet või vigasid rakenduse ehitamisel, külastage:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 

@@ -1,28 +1,28 @@
-# 🔍 Ettevõtte RAG Azure AI Foundryga (.NET)
+# 🔍 Ettevõtte RAG Microsoft Foundry (.NET) abil
 
 ## 📋 Õpieesmärgid
 
-See märkmik näitab, kuidas luua ettevõtte tasemel Retrieval-Augmented Generation (RAG) süsteeme, kasutades Microsoft Agent Frameworki .NET-is koos Azure AI Foundryga. Õpid looma tootmisvalmis agente, kes suudavad dokumente otsida ja pakkuda täpseid, kontekstitundlikke vastuseid koos ettevõtte turvalisuse ja skaleeritavusega.
+See märkmik näitab, kuidas ehitada ettevõtte tasemel Retrieval-Augmented Generation (RAG) süsteeme Microsoft Agent Frameworki abil .NET-is Microsoft Foundry abil. Õpid looma tootmisele valmis agente, kes suudavad dokumente otsida ja pakkuda täpseid ning kontekstiteadlikke vastuseid koos ettevõtte turvalisuse ja skaleeritavusega.
 
-**Ettevõtte RAG võimekused, mida ehitad:**
-- 📚 **Dokumendiluure**: Täiustatud dokumenditöötlus Azure AI teenustega
-- 🔍 **Semantiline otsing**: Kõrge jõudlusega vektorotsing koos ettevõtte funktsioonidega
-- 🛡️ **Turvalisuse integreerimine**: Rollipõhine juurdepääs ja andmekaitse mustrid
-- 🏢 **Skaleeritav arhitektuur**: Tootmisvalmis RAG süsteemid koos jälgimisega
+**Ettevõtte RAG võimekused, mida sa ehitad:**
+- 📚 **Dokumendiintelligentsus**: Täiustatud dokumentide töötlemine Azure AI teenustega
+- 🔍 **Sisemõtteline otsing**: Kõrge jõudlusega vektorotsing ettevõtte funktsioonidega
+- 🛡️ **Turbeintegratsioon**: Rollipõhine ligipääsu- ja andmekaitse mustrid
+- 🏢 **Skaleeritav arhitektuur**: Tootmisele valmis RAG süsteemid jälgimisega
 
 ## 🎯 Ettevõtte RAG arhitektuur
 
 ### Põhilised ettevõtte komponendid
-- **Azure AI Foundry**: Hallatud ettevõtte AI platvorm turvalisuse ja vastavusega
-- **Püsivad agendid**: Oleku säilitamisega agendid, kes haldavad vestluste ajalugu ja konteksti
-- **Vektorite haldamine**: Ettevõtte tasemel dokumentide indekseerimine ja otsing
-- **Identiteedi integreerimine**: Azure AD autentimine ja rollipõhine juurdepääsukontroll
+- **Microsoft Foundry**: Hallatud ettevõtte AI platvorm koos turbe ja vastavusega
+- **Püsivad agendid**: Oleku säilitava vestlusajaloo ja konteksti haldamisega agendid
+- **Vektoriaalse poe haldus**: Ettevõtte tasemel dokumentide indekseerimine ja otsing
+- **Identiteedi integratsioon**: Azure AD autentimine ja rollipõhine ligipääsukontroll
 
-### .NET-i ettevõtte eelised
-- **Tüübi turvalisus**: Kompileerimise ajal valideerimine RAG operatsioonide ja andmestruktuuride jaoks
-- **Asünkroonne jõudlus**: Mitteblokeeriv dokumenditöötlus ja otsinguprotsessid
-- **Mälu haldamine**: Tõhus ressursside kasutamine suurte dokumendikogude jaoks
-- **Integreerimismustrid**: Natiivne Azure teenuste integreerimine sõltuvuste süstimisega
+### .NET ettevõtte eelised
+- **Tüübikindlus**: Kokkupandud ajal toimuv valideerimine RAG operatsioonide ja andmestruktuuride jaoks
+- **Asünkroonne jõudlus**: Mitteblokeeriv dokumentide töötlemine ja otsing
+- **Mälu haldus**: Tõhus ressursside kasutus suurte dokumentide kogumite jaoks
+- **Integratsioonimustrid**: Native Azure teenuste integreerimine sõltuvussüstimisega
 
 ## 🏗️ Tehniline arhitektuur
 
@@ -34,37 +34,37 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 ```
 
 ### Põhilised .NET komponendid
-- **Azure.AI.Agents.Persistent**: Ettevõtte agentide haldamine oleku säilitamisega
-- **Azure.Identity**: Integreeritud autentimine turvaliseks Azure teenuste kasutamiseks
-- **Microsoft.Agents.AI.AzureAI**: Azure'ile optimeeritud agentide raamistik
+- **Azure.AI.Agents.Persistent**: Ettevõtte agendi haldus koos oleku säilitamisega
+- **Azure.Identity**: Integreeritud autentimine turvaliseks Azure teenustele ligipääsuks
+- **Microsoft.Agents.AI.AzureAI**: Azure jaoks optimeeritud agendi raamistik
 - **System.Linq.Async**: Kõrge jõudlusega asünkroonsed LINQ operatsioonid
 
 ## 🔧 Ettevõtte funktsioonid ja eelised
 
-### Turvalisus ja vastavus
-- **Azure AD integreerimine**: Ettevõtte identiteedihaldus ja autentimine
-- **Rollipõhine juurdepääs**: Täpne õiguste haldamine dokumentide ja operatsioonide jaoks
-- **Andmekaitse**: Krüpteerimine nii salvestamisel kui edastamisel tundlike dokumentide jaoks
-- **Auditilogid**: Ulatuslik tegevuste jälgimine vastavusnõuete täitmiseks
+### Turve ja vastavus
+- **Azure AD integratsioon**: Ettevõtte identiteedi haldus ja autentimine
+- **Rollipõhine ligipääs**: Peenhäälestatud load dokumentidele ligipääsuks ja toiminguteks
+- **Andmekaitse**: Krüpteerimine puhkeolekus ja andmete edastamisel tundlike dokumentide jaoks
+- **Auditilogimine**: Töötlemistegevuse põhjalik jälgimine vastavusnõuete täitmiseks
 
 ### Jõudlus ja skaleeritavus
-- **Ühenduste haldamine**: Tõhus Azure teenuste ühenduste haldamine
-- **Asünkroonne töötlemine**: Mitteblokeerivad operatsioonid suure läbilaskevõimega stsenaariumide jaoks
-- **Vahemälu strateegiad**: Nutikas vahemälu sageli kasutatavate dokumentide jaoks
-- **Koormuse tasakaalustamine**: Hajutatud töötlemine suurte juurutuste jaoks
+- **Ühenduste puhvrid**: Tõhus Azure teenuste ühenduste haldamine
+- **Asünkroonne töötlemine**: Mitteblokeerivad operatsioonid suure läbilaskevõime jaoks
+- **Vahemälustrateegiad**: Intelligentsed vahemälud tihti kasutatavatele dokumentidele
+- **Koormuse tasakaalustamine**: Hajutatud töötlemine suuremahuliste paigalduste jaoks
 
-### Haldamine ja jälgimine
+### Halduse ja jälgimise võimalused
 - **Tervisekontrollid**: Sisseehitatud jälgimine RAG süsteemi komponentide jaoks
-- **Jõudlusmõõdikud**: Üksikasjalik analüüs otsingukvaliteedi ja vastuseaegade kohta
-- **Vigade käsitlemine**: Ulatuslik erandite haldamine koos korduspoliitikatega
-- **Konfiguratsiooni haldamine**: Keskkonnaspetsiifilised seaded valideerimisega
+- **Tulemuslikkuse mõõdikud**: Üksikasjalik analüüs otsingu kvaliteedi ja vastuseaja kohta
+- **Vigade käsitlemine**: Põhjalik erandite haldus koos taastepoliitikatega
+- **Konfiguratsiooni haldus**: Keskkonnaspetsiifilised seaded koos valideerimisega
 
-## ⚙️ Eeltingimused ja seadistamine
+## ⚙️ Eeldused ja seadistamine
 
 **Arenduskeskkond:**
 - .NET 9.0 SDK või uuem
 - Visual Studio 2022 või VS Code koos C# laiendusega
-- Azure tellimus koos AI Foundry juurdepääsuga
+- Azure tellimus Microsoft Foundry ligipääsuga
 
 **Nõutavad NuGet paketid:**
 ```xml
@@ -75,38 +75,38 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Azure autentimise seadistamine:**
+**Azure autentimise seadistus:**
 ```bash
-# Install Azure CLI and authenticate
+# Installi Azure CLI ja autentimine
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Keskkonna konfiguratsioon:**
-* Azure AI Foundry konfiguratsioon (automaatselt hallatud Azure CLI kaudu)
-* Veendu, et oled autentitud õige Azure tellimusega
+* Microsoft Foundry konfiguratsioon (Azure CLI abil automaatselt hallatud)
+* Veendu, et oled autentitud õigele Azure tellimusele
 
 ## 📊 Ettevõtte RAG mustrid
 
-### Dokumendihalduse mustrid
-- **Massiline üleslaadimine**: Tõhus suurte dokumendikogude töötlemine
-- **Järkjärguline uuendamine**: Reaalajas dokumentide lisamine ja muutmine
+### Dokumentide haldamise mustrid
+- **Emaltõst**: Suurte dokumentide kogumite tõhus töötlemine
+- **Tõusvad uuendused**: Reaalajas dokumentide lisamine ja muutmine
 - **Versioonihaldus**: Dokumentide versioonimine ja muudatuste jälgimine
-- **Metaandmete haldamine**: Rikkalikud dokumendi atribuudid ja taksonoomia
+- **Metaandmete haldus**: Rikkalikud dokumendi atribuudid ja taksonoomia
 
-### Otsingu ja leidmise mustrid
-- **Hübriidotsing**: Semantilise ja märksõnaotsingu kombineerimine parimate tulemuste saavutamiseks
-- **Faktoriotsing**: Mitmemõõtmeline filtreerimine ja kategoriseerimine
-- **Asjakohasuse häälestamine**: Kohandatud skoorimisalgoritmid valdkonnapõhiste vajaduste jaoks
+### Otsingu ja andmete päringu mustrid
+- **Hübriidotsing**: Semantilise ja märksõnapõhise otsingu ühendamine optimaalse tulemuse jaoks
+- **Fasetiseeritud otsing**: Mitmemõõtmeline filtreerimine ja kategooriseerimine
+- **Asjakohasuse häälestamine**: Kohandatud hindamisalgoritmid domeenispetsiifiliste vajaduste jaoks
 - **Tulemuste järjestamine**: Täiustatud järjestamine äriloogika integreerimisega
 
-### Turvalisuse mustrid
-- **Dokumenditasandi turvalisus**: Täpne juurdepääsukontroll iga dokumendi jaoks
+### Turbe mustrid
+- **Dokumendipõhine turve**: Peenhäälestatud ligipääsukontroll iga dokumendi kohta
 - **Andmete klassifitseerimine**: Automaatne tundlikkuse märgistamine ja kaitse
-- **Auditilogid**: Kõigi RAG operatsioonide ulatuslik logimine
-- **Privaatsuse kaitse**: PII tuvastamine ja eemaldamine
+- **Auditirajad**: Kõigi RAG operatsioonide põhjalik logimine
+- **Privaatsuse kaitse**: PII tuvastamise ja maskeerimise võimekused
 
-## 🔒 Ettevõtte turvafunktsioonid
+## 🔒 Ettevõtte turbefunktsioonid
 
 ### Autentimine ja autoriseerimine
 ```csharp
@@ -122,14 +122,14 @@ if (!await ValidateUserPermissions(user, documentId))
 ```
 
 ### Andmekaitse
-- **Krüpteerimine**: Lõpuni krüpteerimine dokumentide ja otsinguindeksite jaoks
-- **Juurdepääsukontrollid**: Integreerimine Azure AD-ga kasutaja- ja grupilubade jaoks
-- **Andmete asukoht**: Geograafiline andmete asukoha kontroll vastavuse jaoks
-- **Varundamine ja taastamine**: Automaatne varundamine ja katastroofide taastamise võimalused
+- **Krüpteerimine**: Lõpp-lõpuni krüpteerimine dokumentidele ja otsingu indeksitele
+- **Ligipääsukontrollid**: Azure AD integratsioon kasutaja- ja grupilubade halduseks
+- **Andmete paiknemine**: Andmete geograafiline asukohakontroll vastavuse tagamiseks
+- **Varundamine ja taastamine**: Automaatne varundus ja katastroofitaastamise võimalused
 
-## 📈 Jõudluse optimeerimine
+## 📈 Tulemuste optimeerimine
 
-### Asünkroonsed töötlemismustrid
+### Asünkroonsed töötlemise mustrid
 ```csharp
 // Efficient async document processing
 await foreach (var document in documentStream.AsAsyncEnumerable())
@@ -138,84 +138,86 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 }
 ```
 
-### Mälu haldamine
-- **Voogtöötlus**: Suurte dokumentide töötlemine ilma mäluprobleemideta
-- **Ressursside jagamine**: Kallite ressursside tõhus taaskasutus
-- **Prügikoristus**: Optimeeritud mälukasutuse mustrid
-- **Ühenduste haldamine**: Õige Azure teenuste ühenduste elutsükkel
+### Mälu haldus
+- **Striimingutöötlus**: Suurte dokumentide töötlemine ilma mäluprobleemideta
+- **Resursside puhverdus**: Kallite ressursside tõhus taaskasutus
+- **Jäätmekoristus**: Optimeeritud mälu jaotamise mustrid
+- **Ühenduste haldus**: Azure teenuste ühenduste elutsükli korrektne haldamine
 
 ### Vahemälu strateegiad
-- **Päringute vahemälu**: Sageli teostatavate otsingute vahemällu salvestamine
-- **Dokumentide vahemälu**: Kuumade dokumentide vahemällu salvestamine
-- **Indeksi vahemälu**: Optimeeritud vektorindeksi vahemällu salvestamine
-- **Tulemuste vahemälu**: Nutikas genereeritud vastuste vahemällu salvestamine
+- **Päringu vahemälu**: Tihti kasutatavate otsingute vahemällu salvestamine
+- **Dokumendi vahemälu**: Mälus hoitav kuumade dokumentide vahemälu
+- **Indeksi vahemälu**: Optimeeritud vektori indeksi vahemällu salvestamine
+- **Tulemuste vahemälu**: Intelligentsed genereeritud vastuste vahemälud
 
 ## 📊 Ettevõtte kasutusjuhtumid
 
-### Teadmiste haldamine
-- **Ettevõtte Wiki**: Intelligentsed otsingud ettevõtte teadmistebaasides
-- **Poliitikad ja protseduurid**: Automaatne vastavus ja protseduuride juhendamine
-- **Koolitusmaterjalid**: Intelligentsed õppimise ja arendamise abivahendid
-- **Uurimisandmebaasid**: Akadeemiliste ja teaduslike artiklite analüüsi süsteemid
+### Teadmiste haldus
+- **Ettevõtte vikiraamat**: Intelligentsed otsingud ettevõtte teadmistebaasides
+- **Poliitika ja protseduurid**: Automatiseeritud vastavuse ja protseduuride juhendamine
+- **Koolitusmaterjalid**: Intelligentsed õppimise ja arengu abivahendid
+- **Uurimiste andmebaasid**: Akadeemiliste ja teadustööde analüüsi süsteemid
 
 ### Klienditugi
-- **Tugiteenuste teadmistebaas**: Automaatne klienditeeninduse vastamine
-- **Tootedokumentatsioon**: Intelligentsed tooteteabe otsingud
-- **Tõrkeotsingu juhendid**: Kontekstipõhine probleemide lahendamise abi
-- **KKK süsteemid**: Dünaamiline KKK genereerimine dokumendikogudest
+- **Toetus teadmiste baas**: Automatiseeritud klienditeeninduse vastused
+- **Toote dokumentatsioon**: Intelligentsed tooteinfo päringud
+- **Tõrkeotsingu juhendid**: Kontekstitundlik probleemilahenduse abi
+- **KKK süsteemid**: Dünaamiline KKK loomine dokumentide kogumitest
 
 ### Regulatiivne vastavus
-- **Õigusdokumentide analüüs**: Lepingute ja õigusdokumentide intelligentsus
-- **Vastavuse jälgimine**: Automaatne regulatiivse vastavuse kontroll
-- **Riskihindamine**: Dokumentide põhine riskianalüüs ja aruandlus
-- **Auditi tugi**: Intelligentsed dokumentide avastamise võimalused auditite jaoks
+- **Õigusdokumentide analüüs**: Lepingute ja juriidiliste dokumentide intelligentsus
+- **Vastavuse jälgimine**: Automatiseeritud regulatiivse vastavuse kontroll
+- **Riskihindamine**: Dokumentide põhine riskianalüüs ja raporteerimine
+- **Auditi tugi**: Intelligentsed dokumentide leidmise võimalused audititeks
 
-## 🚀 Tootmise juurutamine
+## 🚀 Tootmisesse juurutamine
 
-### Jälgimine ja nähtavus
+### Jälgimine ja vaadeldavus
 - **Application Insights**: Üksikasjalik telemeetria ja jõudluse jälgimine
-- **Kohandatud mõõdikud**: Äri-spetsiifiliste KPI-de jälgimine ja hoiatused
-- **Hajutatud jälgimine**: Päringute jälgimine teenuste vahel
-- **Tervise juhtpaneelid**: Reaalajas süsteemi tervise ja jõudluse visualiseerimine
+- **Kohandatud mõõdikud**: Ärispetsiifiline KPI jälgimine ja hoiatused
+- **Hajutatud jälgimine**: Taotlustevoolu jälgimine kõigi teenuste vahel
+- **Tervise juhtpaneelid**: Reaalaegne süsteemi tervise ja jõudluse visualiseerimine
 
 ### Skaleeritavus ja töökindlus
-- **Automaatne skaleerimine**: Automaatne skaleerimine koormuse ja jõudlusmõõdikute alusel
-- **Kõrge kättesaadavus**: Mitme piirkonna juurutamine koos tõrkesiirde võimalustega
-- **Koormustestimine**: Jõudluse valideerimine ettevõtte koormustingimustes
-- **Katastroofide taastamine**: Automaatne varundamine ja taastamisprotseduurid
+- **Automaatne skaaleerimine**: Automaatne skaleerimine koormuse ja mõõdikute põhjal
+- **Kõrge kättesaadavus**: Mitteregiooniline juurutus varukoopia võimalustega
+- **Koormustestimine**: Jõudluse valideerimine ettevõtte koormuse tingimustes
+- **Katastroofitaastamine**: Automaatne varundus ja taastamise protseduurid
 
-Valmis looma ettevõtte tasemel RAG süsteeme, mis suudavad hallata tundlikke dokumente suurel skaalal? Kujundame intelligentsed teadmiste süsteemid ettevõtetele! 🏢📖✨
+Kas oled valmis ehitama ettevõtte tasemel RAG süsteeme, mis suudavad käsitleda tundlikke dokumente suures mahus? Loome koos arukad teadmiste süsteemid ettevõttele! 🏢📖✨
 
-## Koodi rakendamine
+## Koodi rakendus
 
 Selle õppetunni täielik töötav koodinäide on saadaval failis `05-dotnet-agent-framework.cs`. 
 
-Näite käivitamiseks:
+Näidise käivitamiseks:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Tee skript täidetavaks (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Käivita .NET ühefaililine rakendus
 ./05-dotnet-agent-framework.cs
 ```
 
-Või kasuta otse `dotnet run`:
+Või kasuta otse käsku `dotnet run`:
 
 ```bash
 dotnet run 05-dotnet-agent-framework.cs
 ```
 
-Kood näitab:
+Kood demonstreerib:
 
-1. **Pakettide paigaldamine**: Nõutavate NuGet pakettide paigaldamine Azure AI agentide jaoks
-2. **Keskkonna konfiguratsioon**: Azure AI Foundry lõpp-punkti ja mudeli seadete laadimine
+1. **Paketi paigaldus**: Nõutavate NuGet pakettide paigaldamine Azure AI Agentide jaoks
+2. **Keskkonna konfiguratsioon**: Microsoft Foundry lõpp-punkti ja mudeli seadete laadimine
 3. **Dokumendi üleslaadimine**: Dokumendi üleslaadimine RAG töötlemiseks
-4. **Vektorite loomine**: Vektorite loomine semantilise otsingu jaoks
-5. **Agendi konfiguratsioon**: AI agendi seadistamine failide otsinguvõimekusega
-6. **Päringute täitmine**: Päringute käivitamine üleslaetud dokumendi vastu
+4. **Vektoriaalse poe loomine**: Vektoriaalse poe loomine semantilise otsingu jaoks
+5. **Agendi konfiguratsioon**: AI agendi seadistamine failide otsingu võimekusega
+6. **Päringute täitmine**: Päringute jooksutamine üleslaaditud dokumendi vastu
 
 ---
 
-**Lahtiütlus**:  
-See dokument on tõlgitud AI tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palun arvestage, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle algses keeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta arusaamatuste või valesti tõlgenduste eest, mis võivad tekkida selle tõlke kasutamisest.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

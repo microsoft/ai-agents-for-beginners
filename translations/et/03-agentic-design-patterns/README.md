@@ -1,118 +1,118 @@
 [![Kuidas kujundada häid tehisintellekti agente](../../../translated_images/et/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
-> _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_
-# Tehisintellekti agentide kujundamise põhimõtted
+> _(Videotunni vaatamiseks klõpsake ülaloleval pildil)_
+# AI agentide kujundamise põhimõtted
 
 ## Sissejuhatus
 
-On palju viise, kuidas mõelda AI agentsete süsteemide loomisele. Arvestades, et ebamäärasus on Generatiivse AI disaini puhul omadus, mitte viga, on inseneridel mõnikord raske aru saada, kust üldse alustada. Oleme loonud inimkeskse kasutajakogemuse (UX) disainipõhimõtete kogumi, mis võimaldab arendajatel ehitada kliendikeskseid agentseid süsteeme, et lahendada oma ärivajadusi. Need disainipõhimõtted ei ole käsitletav arhitektuur, vaid pigem lähtepunkt meeskondadele, kes määratlevad ja arendavad agentide kasutajakogemusi.
+AI agentide süsteemide loomisel on palju erinevaid lähenemisi. Kuna ebamäärasus on generatiivse tehisintellekti kujunduse omadus, mitte viga, võib inseneridel olla keeruline aru saada, kust alustada. Oleme loonud inimkeskse kasutajakogemuse disainipõhimõtted, mis võimaldavad arendajatel ehitada kliendikeskseid agentuuri süsteeme, et lahendada nende ärivajadusi. Need disainipõhimõtted ei ole määrav arhitektuur, vaid lähtepunkt meeskondadele, kes määratlevad ja loovad agentide kogemusi.
 
 Üldiselt peaksid agendid:
 
-- Laiendama ja suurendama inimvõimeid (ajurünnak, probleemide lahendamine, automatiseerimine jne)
-- Täitma teadmiste lüngad (aidates kiiresti teadmiste valdkondades orienteeruda, tõlkida jne)
-- Toetama ja hõlbustama koostööd viisil, mida me isiklikult eelistame teistega töötades
-- Tegema meist parema versiooni iseendast (nt elu- või ülesandetreener, aidates meil õppida emotsionaalset reguleerimist ja teadveloleku oskusi, vastupidavust arendada jne)
+- Laiendama ja suurendama inimvõimeid (ajurünnak, probleemilahendus, automatiseerimine jms)
+- Täitma teadmiste lünki (viima mind teadmiste valdkonnas kiirelt toimima, tõlkimine jms)
+- Võimaldama ja toetama koostööd viisil, mis vastab meie isiklikele eelistustele teistega töötamisel
+- Muutma meid paremaks versiooniks iseendast (nt elu- ja tööalane treener, aidates õppida emotsioonide reguleerimist ja teadlikkuse oskusi, vastupidavuse kasvatamine jne)
 
-## Selle õppetunni sisu
+## Selles tunnis käsitletakse
 
-- Mis on agentide kujundamise põhimõtted
-- Millised on mõned juhised nende põhimõtete rakendamiseks
-- Millised on mõned näited põhimõtete kasutamisest
+- Mis on agentuuri disainipõhimõtted
+- Millised juhised tuleks järgida nende põhimõtete rakendamisel
+- Näited, kuidas disainipõhimõtteid kasutada
 
 ## Õpieesmärgid
 
-Pärast selle õppetunni lõpetamist suudate:
+Pärast selle tunni läbimist suudate:
 
-1. Selgitada, mis on agentsete disainipõhimõtete tähendus
-2. Selgitada juhiseid agentsete disainipõhimõtete kasutamiseks
-3. Mõista, kuidas ehitada agenti, kasutades neid põhimõtteid
+1. Selgitada, mis on agentuuri disainipõhimõtted
+2. Selgitada agentuuri disainipõhimõtete kasutamise juhiseid
+3. Mõista, kuidas ehitada agenti, kasutades agentuuri disainipõhimõtteid
 
-## Agentsete disainipõhimõtete kirjeldus
+## Agentuuri disainipõhimõtted
 
-![Agentsete disainipõhimõtete pilt](../../../translated_images/et/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
+![Agentuuri disainipõhimõtted](../../../translated_images/et/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
-### Agent (ruum)
+### Agent (Ruum)
 
-See on keskkond, kus agent tegutseb. Need põhimõtted juhivad, kuidas disainida agente füüsilistes ja digitaalsetes maailmades osalemiseks.
+See on keskkond, kus agent tegutseb. Need põhimõtted juhivad, kuidas kujundada agente, kes tegutsevad füüsilises ja digitaalses maailmas.
 
-- **Ühendamine, mitte kokkuvarisemine** – aidata inimestel ühendada teisi inimesi, sündmusi ja teostatavat teadmist koostöö ja sidumise võimaldamiseks.
+- **Ühendamine, mitte sulandumine** – aidata inimestel üksteise, sündmuste ja rakendatava teadmisega ühenduda, et võimaldada koostööd ja sidet.
 - Agendid aitavad ühendada sündmusi, teadmisi ja inimesi.
-- Agendid toovad inimesed üksteisele lähemale. Need ei ole loodud inimesi asendama ega alandama.
-- **Lihtsalt ligipääsetav, ent mõnikord nähtamatu** – agent tegutseb suuresti taustal ja tõukab meid vaid siis, kui see on asjakohane ja sobiv.
-  - Agent on hõlpsasti leitav ja kättesaadav volitatud kasutajatele igal seadmel või platvormil.
-  - Agent toetab multimodaalseid sisendeid ja väljundeid (heli, hääl, tekst jne).
-  - Agent suudab sujuvalt liikuda esi- ja tagaplaani vahel; olles proaktiivne või reaktiivne vastavalt kasutaja vajaduste tajumisele.
-  - Agent võib töötada nähtamatus vormis, kuid selle taustaprotsess ja koostöö teiste agentidega on kasutajale läbipaistev ja kontrollitav.
+- Agendid toovad inimesed üksteisele lähemale. Nad ei ole loodud inimeste asendamiseks ega alavääristamiseks.
+- **Lihtsalt ligipääsetav, kuid aeg-ajalt nähtamatu** – agent tegutseb peamiselt taustal ja torkab esile vaid siis, kui see on asjakohane ja sobiv.
+  - Agent on lihtsalt leitav ja juurdepääsetav volitatud kasutajatele igas seadmes või platvormil.
+  - Agent toetab mitmemodaalseid sisendeid ja väljundeid (heli, hääl, tekst jne).
+  - Agent võib sujuvalt liikuda esiplaanilt taustale; olla proaktiivne või reaktiivne sõltuvalt kasutaja vajaduste tunnetamisest.
+  - Agent võib tegutseda nähtamatus vormis, kuid tema taustaprotsesside rada ja koostöö teiste agentidega on kasutajale läbipaistev ja juhitav.
 
-### Agent (aeg)
+### Agent (Aeg)
 
-Nii agent tegutseb aja jooksul. Need põhimõtted juhivad agentide kujundamist mineviku, oleviku ja tuleviku suhtlemisel.
+See kirjeldab, kuidas agent tegutseb aja jooksul. Need põhimõtted juhivad, kuidas kujundada agente, kes suhtlevad mineviku, oleviku ja tulevikuga.
 
-- **Minevik**: ajalugu kajastav, kaasates nii olekut kui konteksti.
-  - Agent pakub asjakohasemaid tulemusi, analüüsides rikkalikumalt ajaloolisi andmeid, mitte ainult sündmusi, inimesi või olukordi.
-  - Agent loob seoseid minevikusündmuste vahel ja peegeldab mälu aktiivselt, et suhelda praeguste olukordadega.
-- **Olevik**: rohkem ergutamist kui lihtsalt teavitamist.
-  - Agent kehastab kõikehõlmavat lähenemist inimeste suhtlemisel. Kui mingi sündmus toimub, läheb agent kaugemale staatilisest teavitamisest või muust formaalsusest. Agent võib lihtsustada protsesse või dünaamiliselt genereerida vihjeid kasutaja tähelepanu suunamiseks õigel hetkel.
-  - Agent edastab teavet kontekstuaalse keskkonna, sotsiaalsete ja kultuuriliste muutuste põhjal ning kohandatult kasutaja kavatsusega.
-  - Agentse suhtlus võib olla järkjärguline, keerukamaks arenev, et pikaajaliselt kasutajaid võimestada.
-- **Tulevik**: kohanemine ja arenemine.
+- **Minevik**: Ajaloo peegeldamine, mis hõlmab nii olekut kui konteksti.
+  - Agent pakub asjakohasemaid tulemusi, analüüsides rikkalikumat ajaloolist teavet peale sündmuste, inimeste või olekute.
+  - Agent loob ühendusi minevikusündmuste vahel ja tegeleb aktiivselt mälestustega, et kaasata praeguseid olukordi.
+- **Praegu**: Julgustades rohkem kui teavitades.
+  - Agent kehastab põhjalikku lähenemist inimeste suhtluses. Kui sündmus toimub, läheb agent üle staatilisest teavitamisest või muust staatilisest formaalsusest. Agent võib lihtsustada protsesse või dünaamiliselt genereerida vihjeid, et suunata kasutaja tähelepanu õigele hetkele.
+  - Agent edastab teavet vastavalt kontekstuaalsele keskkonnale, sotsiaalsetele ja kultuurilistele muutustele ning kohandub kasutaja kavatsustega.
+  - Agendi suhtlus võib olla järkjärguline, areneda ja muutuda järjest keerukamaks, et pikaajalises perspektiivis kasutajaid toetada.
+- **Tulevik**: Kohandumine ja areng.
   - Agent kohandub erinevate seadmete, platvormide ja modaliteetidega.
-  - Agent kohandub kasutaja käitumise, ligipääsetavuse vajaduste järgi ning on vabalt kohandatav.
-  - Agent vormitakse ja see areneb pideva kasutajaga suhtlemise kaudu.
+  - Agent kohandub kasutaja käitumise, juurdepääsetavuse vajadustega ja on vabalt kohandatav.
+  - Agent kujuneb ja areneb pideva kasutajate suhtluse kaudu.
 
-### Agent (tuum)
+### Agent (Tuumik)
 
-Need on agentide disaini tuuma olulised elemendid.
+Need on olulised elemendid agendi tuumikus.
 
-- **Aktsepteeri ebakindlust, kuid loo usaldus**.
-  - Agentide puhul on teatav ebakindlustase oodatud. Ebakindlus on agentide disaini oluline osa.
-  - Usaldus ja läbipaistvus on agentdisaini alustalad.
-  - Inimesed kontrollivad, millal agent on sisse- või väljalülitatud, ja agentide olek on alati selgelt nähtav.
+- **Kasuta ebakindlust, kuid loo usaldus**.
+  - Agentilt oodatakse teatavat ebakindlust. Ebakindlus on agendi disaini oluline osa.
+  - Usaldus ja läbipaistvus on agendi disaini aluspõhimõtted.
+  - Inimesed kontrollivad, millal agent on sisse või välja lülitatud, ja agendi olek on alati selgelt nähtav.
 
 ## Juhised nende põhimõtete rakendamiseks
 
-Nende disainipõhimõtete kasutamisel järgi järgmisi juhiseid:
+Järgides eelnevaid disainipõhimõtteid, kasutage järgmisi juhiseid:
 
-1. **Läbipaistvus**: Teavita kasutajat, et tehisintellekt on kaasatud, kuidas see toimib (ka varasemad tegevused), ja kuidas anda tagasisidet ning süsteemi muuta.
-2. **Kontroll**: Võimalda kasutajal süsteemi kohandada, eelistusi määrata ja isikupärastada ning omada süsteemi ja selle omaduste üle kontrolli (ka unustamise võimalus).
-3. **Järjepidevus**: Püüa tagada järjepidevad multimodaalsed kogemused igas seadmes ja lõpp-punktis. Kasuta tuttavaid UI/UX elemente võimalusel (nt mikrofonisümbol hääleinteraktsiooni jaoks) ja vähenda kasutaja kognitiivset koormust võimalikult palju (nt lühikesed vastused, visuaalsed abivahendid ja „Loe lisaks“ materjalid).
+1. **Läbipaistvus**: Teatage kasutajale, et AI on kaasatud, kuidas see toimib (kaasa arvatud varasemad tegevused) ning kuidas tagasisidet anda ja süsteemi muuta.
+2. **Kontroll**: Võimaldage kasutajal süsteemi kohandada, eelistusi määrata ja personaliseerida ning omada kontrolli süsteemi ja selle omaduste üle (sealhulgas suutlikkus unustada).
+3. **Järjepidevus**: Püüdke tagada järjepidev mitmemodaalne kogemus seadmete ja lõpp-punktide vahel. Kasutage võimalusel tuttavaid kasutajaliidese elemente (nt mikrofonikoon häälkäsklusteks) ja vähendage kliendi kognitiivset koormust võimalikult palju (nt lühikesed vastused, visuaalsed abivahendid ja "Loe rohkem" sisu).
 
-## Kuidas kujundada reisibüroo agent, kasutades neid põhimõtteid ja juhiseid
+## Kuidas kujundada reisibüroo agendit, kasutades neid põhimõtteid ja juhiseid
 
-Kujutle, et kujundad reisibüroo agenti, siin on, kuidas võiksid mõelda disainipõhimõtete ja juhiste rakendamise üle:
+Kujutage ette, et kujundate reisibüroo agendit, siin on, kuidas võiksite mõelda disainipõhimõtete ja juhiste kasutamisele:
 
-1. **Läbipaistvus** – Teavita kasutajat, et reisibüroo agent on AI-toega agent. Paku mõned põhijuhised alustamiseks (nt „Tere“ sõnum, näidispäringud). Dokumendeeri see selgelt tootelehel. Näita kasutajale varasemalt esitatud päringute nimekirja. Selgita, kuidas tagasisidet anda (nt pöidla üles/alla, nupp „Saada tagasisidet“ jne). Tõsta esile, kas agendil on kasutus- või teemapiirangud.
-2. **Kontroll** – Tagada, et kasutajale on arusaadav, kuidas agenti pärast loomist muuta, näiteks süsteemipäringu abil. Võimalda kasutajal valida, kui jutuajavalt agent suhtleb, milline on selle kirjutamisstiil ja mis teemadest agent ei peaks rääkima. Luba kasutajal vaadata ja kustutada seotud faile, andmeid, päringuid ja varasemaid vestlusi.
-3. **Järjepidevus** – Veendu, et ikoonid, näiteks sobitada päringut, lisada fail või foto ja märgistada keegi või miski, oleksid standardsed ja äratuntavad. Kasuta kirjaklambri ikooni faili üleslaadimise/agentiga jagamise jaoks ning pildisümbolit graafika üleslaadimiseks.
+1. **Läbipaistvus** – Andke kasutajale teada, et reisibüroo agent on tehisintellektil põhinev agent. Esitage mõned põhilised juhised, kuidas alustada (nt "Tervitus" sõnum, näidiskäsklused). Kirjutage see tootelehele selgelt üles. Näidake kasutaja varasemalt esitatud käskluste loendit. Selgitage, kuidas tagasisidet anda (nt pöidla üles/alla, nupp "Saada tagasisidet"). Täpsustage, kas agendil on kasutus- või teemarikked.
+2. **Kontroll** – Veenduge, et oleks selge, kuidas kasutaja saab pärast agendi loomist süsteemisätete abil seda muuta. Võimaldage kasutajal valida, kui kõneka agent on, tema kirjutamisstiil ja piirangud teemadel, millest agent ei tohiks rääkida. Lubage kasutajal vaadata ja kustutada seotud faile või andmeid, käsklusi ja varasemaid vestlusi.
+3. **Järjepidevus** – Veenduge, et ikoonid "Jaga käsklust", faili või foto lisamiseks ning kellegi või millegi märgistamiseks oleksid standardsed ja äratuntavad. Kasutage agendi failide üleslaadimiseks/jagamises pabeklambriikooni ja graafika üleslaadimiseks pildiikooni.
 
-## Näidis koodid
+## Näidiskoodid
 
 - Python: [Agent Framework](./code_samples/03-python-agent-framework.ipynb)
 - .NET: [Agent Framework](./code_samples/03-dotnet-agent-framework.md)
 
 
-## Kas sul on rohkem küsimusi AI agentsete disainimustrite kohta?
+## Kas teil on AI agentide disainimustrite kohta lisaküsimusi?
 
-Liitu [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) kanaliga, et kohtuda teiste õppijatega, osaleda konsultatsioonides ja saada vastuseid oma AI agentide küsimustele.
+Liituge [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) kanaliga, et kohtuda teiste õppijatega, osaleda kontorituuridel ja saada vastused oma AI agentide küsimustele.
 
-## Täiendavad ressursid
+## Lisamaterjalid
 
-- <a href="https://openai.com" target="_blank">Agentsete AI süsteemide juhtimise tavad | OpenAI</a>
+- <a href="https://openai.com" target="_blank">Agentuuri tehisintellekti süsteemide juhtimise tavad | OpenAI</a>
 - <a href="https://microsoft.com" target="_blank">HAX tööriistakomplekti projekt - Microsoft Research</a>
-- <a href="https://responsibleaitoolbox.ai" target="_blank">Vastutustundliku AI tööriistakomplekt</a>
+- <a href="https://responsibleaitoolbox.ai" target="_blank">Vastutustundliku AI tööriistakast</a>
 
-## Eelmine õppetund
+## Eelmise tunni ülesanne
 
-[Agentsete raamistikute uurimine](../02-explore-agentic-frameworks/README.md)
+[Agentuuri raamistike uurimine](../02-explore-agentic-frameworks/README.md)
 
-## Järgmine õppetund
+## Järgmine tund
 
 [Tööriistade kasutamise disainimuster](../04-tool-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastutusest loobumine**:
-See dokument on tõlgitud kasutades tehisintellektil põhinevat tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüame tagada täpsust, palun arvestage, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument oma emakeeles on autoriteetne allikas. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta käesoleva tõlke kasutamisest tingitud arusaamatuste ega valesti mõistmiste eest.
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

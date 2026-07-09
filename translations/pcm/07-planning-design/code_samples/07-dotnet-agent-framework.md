@@ -1,63 +1,64 @@
-# 🎯 Planning & Design Patterns wit GitHub Models (.NET)
+# 🎯 Planning & Design Patterns wit Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Wetin You Go Learn
 
-Dis notebook dey show enterprise-level planning and design patterns wey you fit use build smart agents wit Microsoft Agent Framework for .NET wit GitHub Models. You go learn how to create agents wey fit break down big problems, plan step-by-step solutions, and run advanced workflows wit .NET enterprise features.
+Dis notebook dey show beta enterprise-level planning and design patterns for build intelligent agents using Microsoft Agent Framework for .NET wit Azure OpenAI (Responses API). You go learn how to create agents wey fit break complex wahala down, plan multi-step solutions, and run sharp workflows wit .NET enterprise features dem.
 
 ## ⚙️ Wetin You Need & Setup
 
 **Development Environment:**
-- .NET 9.0 SDK or higher
+- .NET 9.0 SDK or above
 - Visual Studio 2022 or VS Code wit C# extension
-- GitHub Models API access
+- One Azure subscription get Azure OpenAI resource and model deployment
+- Azure CLI — signin wit `az login`
 
 **Required Dependencies:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **Environment Configuration (.env file):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
 ```
 
-## How to Run Di Code
+## How To Run The Code
 
-Dis lesson get .NET Single File App implementation. To run am:
+Dis lesson get .NET Single File App implementation inside am. To run am:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Mek the file fit run (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Run di application
 ./07-dotnet-agent-framework.cs
 ```
 
-Or use di dotnet run command:
+Or use dotnet run command:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Code Implementation
+## How Code Dey Work
 
-Di full implementation dey inside `07-dotnet-agent-framework.cs`, e dey show:
+Full implementation dey for `07-dotnet-agent-framework.cs`, wey show:
 
 - How to load environment configuration wit DotNetEnv
-- How to configure OpenAI client for GitHub Models
+- How to setup Azure OpenAI client for Responses API
 - How to define structured data models (Plan and TravelPlan) wit JSON serialization
-- How to create AI agent wey dey give structured output wit JSON schema
-- How to run planning requests wit type-safe responses
+- How to create AI agent wit structured output using JSON schema
+- How to run planning requests using type-safe responses
 
-## Key Concepts
+## Main Things Wey You Gotta Sabi
 
-### Structured Planning wit Type-Safe Models
+### Planning Wey Get Structure Wit Type-Safe Models
 
-Di agent dey use C# classes to define di structure of planning outputs:
+Di agent dey use C# classes to define how planning output go be:
 
 ```csharp
 public class Plan
@@ -81,7 +82,7 @@ public class TravelPlan
 
 ### JSON Schema for Structured Outputs
 
-Di agent dey configured to return responses wey match di TravelPlan schema:
+Di agent dey set make e return response wey match TravelPlan schema:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
@@ -96,24 +97,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Planning Agent Instructions
+### Instructions for Planning Agent
 
-Di agent dey act like coordinator, e dey share tasks give specialized sub-agents:
+Di agent dey act like coordinator, e dey delegate tasks go sub-agents wey sabi their work:
 
-- FlightBooking: To book flights and provide flight info
-- HotelBooking: To book hotels and provide hotel info
-- CarRental: To book cars and provide car rental info
-- ActivitiesBooking: To book activities and provide activity info
-- DestinationInfo: To provide info about destinations
+- FlightBooking: To book flights and give flight info
+- HotelBooking: To book hotels and give hotel info
+- CarRental: To book cars and give car rental info
+- ActivitiesBooking: To book activities and give activity info
+- DestinationInfo: To give info about destinations
 - DefaultAgent: To handle general requests
 
-## Wetin You Go See
+## Wetin You Go See As Output
 
-When you run di agent wit travel planning request, e go analyze di request and generate structured plan wit correct task assignments to di specialized agents, e go format am as JSON wey match di TravelPlan schema.
+When you run di agent wit travel planning request, e go check the request well well and create structured plan wit correct task assignment go specialized agents, and e go format am as JSON wey follow TravelPlan schema well.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dis dokyument don use AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator) do di translation. Even as we dey try make am accurate, abeg sabi say automated translations fit get mistake or no dey correct well. Di original dokyument for im native language na di one wey you go take as di correct source. For important information, e good make professional human translation dey use. We no go fit take blame for any misunderstanding or wrong interpretation wey fit happen because you use dis translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

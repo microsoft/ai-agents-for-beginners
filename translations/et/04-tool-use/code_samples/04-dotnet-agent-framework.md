@@ -1,106 +1,109 @@
-# 🛠️ Täiustatud tööriistade kasutamine GitHubi mudelitega (.NET)
+# 🛠️ Täiustatud tööriistade kasutamine Azure OpenAI (Responses API) abil (.NET)
 
 ## 📋 Õpieesmärgid
 
-See märkmik tutvustab ettevõtte tasemel tööriistade integreerimise mustreid, kasutades Microsoft Agent Frameworki .NET-is koos GitHubi mudelitega. Õpid looma keerukaid agente mitme spetsialiseeritud tööriistaga, kasutades C# tugevat tüübikontrolli ja .NET-i ettevõtte funktsioone.
+See märkmik demonstreerib ettevõtte tasemel tööriistade integreerimise mustreid, kasutades Microsoft Agent Framework'i .NET-i keskkonnas koos Azure OpenAI-ga (Responses API). Õpid looma keerukaid agente mitme spetsialiseeritud tööriistaga, kasutades C# tugevat tüübistamist ja .NET-i ettevõtte funktsioone.
 
-### Täiustatud tööriistade võimekused, mida omandad
+### Täiustatud tööriistade võimalused, mida sa valdama õpid
 
-- 🔧 **Mitme tööriista arhitektuur**: Agendid, millel on mitmed spetsialiseeritud võimed
-- 🎯 **Tüübikindel tööriistade täitmine**: C# kompileerimisaja valideerimise kasutamine
-- 📊 **Ettevõtte tööriistade mustrid**: Tootmiskõlblik tööriistade disain ja veahaldus
-- 🔗 **Tööriistade kombineerimine**: Tööriistade ühendamine keerukate äriprotsesside jaoks
+- 🔧 **Mitme tööriista arhitektuur**: Agendite loomine mitme spetsialiseeritud võimekusega
+- 🎯 **Tüübikindel tööriista täitmine**: C# kompileerimisaja valideerimise kasutamine
+- 📊 **Ettevõtte tööriistade mustrid**: Tootmiseks valmis tööriistade disain ja veahaldus
+- 🔗 **Tööriistade kombineerimine**: Tööriistade ühendamine keeruliste ärivoolude jaoks
 
 ## 🎯 .NET tööriistade arhitektuuri eelised
 
-### Ettevõtte tööriistade omadused
+### Ettevõtte tasemel tööriistade funktsioonid
 
-- **Kompileerimisaja valideerimine**: Tugev tüübikontroll tagab tööriista parameetrite õigsuse
-- **Sõltuvuste süstimine**: IoC konteineri integreerimine tööriistade haldamiseks
-- **Async/Await mustrid**: Mitteblokeeriv tööriistade täitmine koos ressursside korrektse haldamisega
-- **Struktureeritud logimine**: Sisseehitatud logimise integreerimine tööriistade täitmise jälgimiseks
+- **Kompileerimisaja valideerimine**: Tugev tüübistamine tagab tööriista parameetrite õigsuse
+- **Sõltuvuse süstimine**: IoC konteineri integreerimine tööriistade haldamiseks
+- **Async/Await mustrid**: Mitteseisvad tööriista täitmised õige ressursside haldusega
+- **Struktureeritud logimine**: Sisseehitatud logimise integreerimine tööriista täitmise jälgimiseks
 
-### Tootmiskõlblikud mustrid
+### Tootmiseks valmis mustrid
 
-- **Erandite käsitlemine**: Põhjalik veahaldus tüübipõhiste eranditega
-- **Ressursside haldamine**: Korrektsed vabastamismustrid ja mäluhaldus
-- **Jõudluse jälgimine**: Sisseehitatud mõõdikud ja jõudlusloendurid
-- **Konfiguratsiooni haldamine**: Tüübikindel konfiguratsioon koos valideerimisega
+- **Erandihaldus**: Kõikehõlmav veahaldus tüübistatud eranditega
+- **Ressursside haldamine**: Õiged utiliseerimismustrid ja mälu haldamine
+- **Tulemuste jälgimine**: Sisseehitatud meetrid ja jõudlusmõõdikud
+- **Konfiguratsiooni haldamine**: Tüübikindel konfiguratsioon valideerimisega
 
 ## 🔧 Tehniline arhitektuur
 
-### Põhilised .NET tööriistade komponendid
+### Põhikomponendid .NET tööriistadest
 
 - **Microsoft.Extensions.AI**: Ühtne tööriistade abstraktsioonikiht
 - **Microsoft.Agents.AI**: Ettevõtte tasemel tööriistade orkestreerimine
-- **GitHubi mudelite integreerimine**: Kõrge jõudlusega API klient koos ühenduste haldamisega
+- **Azure OpenAI (Responses API)**: Kõrge jõudlusega API klient ühenduse haldusega
 
-### Tööriistade täitmise torujuhe
+### Tööriista täitmispipeline
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Kasutaja päring] --> B[Agendi analüüs]
+    B --> C[Tööriista valik]
+    C --> D[Tüübikinnitus]
+    B --> E[Parameetri sidumine]
+    E --> F[Tööriista täitmine]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Tulemuste töötlemine]
     D --> G
-    G --> H[Response]
+    G --> H[Vastus]
 ```
 
-## 🛠️ Tööriistade kategooriad ja mustrid
+## 🛠️ Tööriistakategooriad ja mustrid
 
 ### 1. **Andmetöötluse tööriistad**
 
-- **Sisendi valideerimine**: Tugev tüübikontroll koos andmeannotatsioonidega
-- **Transformatsioonitoimingud**: Tüübikindel andmete teisendamine ja vormindamine
-- **Äriloogika**: Domeenispetsiifilised arvutused ja analüüsitööriistad
+- **Sisendi valideerimine**: Tugev tüübistamine andmetega seotud annotatsioonidega
+- **Transformeerimisoperatsioonid**: Tüübikindel andmete teisendamine ja vormindamine
+- **Ärilogika**: Domeenipõhised arvutus- ja analüüsitööriistad
 - **Väljundi vormindamine**: Struktureeritud vastuste genereerimine
 
-### 2. **Integreerimise tööriistad**
+### 2. **Integreerimistööriistad** 
 
-- **API ühendused**: REST-teenuste integreerimine HttpClientiga
-- **Andmebaasi tööriistad**: Entity Frameworki integreerimine andmetele juurdepääsuks
-- **Failitoimingud**: Turvalised failisüsteemi toimingud koos valideerimisega
-- **Välisteenused**: Kolmandate osapoolte teenuste integreerimise mustrid
+- **API-liidesed**: REST-teenuste integratsioon HttpClientiga
+- **Andmebaasitööriistad**: Entity Frameworki integratsioon andmebaasi ligipääsuks
+- **Failioperatsioonid**: Turvalised failisüsteemi toimingud valideerimisega
+- **Välised teenused**: Kolmanda osapoole teenuste integratsioonimustrid
 
-### 3. **Utiliiditööriistad**
+### 3. **Abitööriistad**
 
-- **Tekstitöötlus**: Stringide manipuleerimise ja vormindamise utiliidid
-- **Kuupäeva/kellaaja toimingud**: Kultuuriteadlikud kuupäeva/kellaaja arvutused
+- **Tekstitöötlus**: Stringi manipuleerimise ja vormindamise utiliidid
+- **Kuupäeva/kellaaja operatsioonid**: Kultuuritundlikud kuupäeva/kellaaja arvutused
 - **Matemaatilised tööriistad**: Täpsed arvutused ja statistilised operatsioonid
-- **Valideerimise tööriistad**: Ärireeglite valideerimine ja andmete kontrollimine
+- **Valideerimistööriistad**: Ärieeskirjade kontroll ja andmete kinnitamine
 
-Valmis looma ettevõtte tasemel agente võimsate, tüübikindlate tööriistadega .NET-is? Kujundame professionaalseid lahendusi! 🏢⚡
+Valmis ehitama ettevõtte tasemel agente võimsate, tüübikindlate tööriistade võimalustega .NET-is? Vaatame, kuidas arhitektuureerime professionaalsed lahendused! 🏢⚡
 
 ## 🚀 Alustamine
 
 ### Eeltingimused
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) või uuem
-- [GitHubi mudelite API juurdepääsuvõti](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Azure tellimus](https://azure.microsoft.com/free/) koos Azure OpenAI ressursi ja mudeli juurutusega
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — sisselogimine `az login` käsuga
 
-### Nõutavad keskkonnamuutujad
+### Vajalikud keskkonnamuutujad
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Seejärel logi sisse, et AzureCliCredential saaks hankida tokeni
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Seejärel logi sisse, et AzureCliCredential saaks saada tokeni
+az login
 ```
 
 ### Näidiskood
 
-Näidiskoodi käivitamiseks,
+Koodi näite käivitamiseks,
 
 ```bash
 # zsh/bash
@@ -108,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Või kasutades dotnet CLI-d:
+Või kasutades dotnet CLI-t:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -121,14 +124,16 @@ Vaata täielikku koodi failist [`04-dotnet-agent-framework.cs`](../../../../04-t
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Lahtiütlus**:  
-See dokument on tõlgitud AI tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palume arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle algses keeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgenduste eest.
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

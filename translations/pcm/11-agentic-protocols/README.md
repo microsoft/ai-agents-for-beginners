@@ -1,182 +1,182 @@
-# How Dem Dey Use Agentic Protocols (MCP, A2A and NLWeb)
+# How to Use Agentic Protocols (MCP, A2A and NLWeb)
 
 [![Agentic Protocols](../../../translated_images/pcm/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
-> _(Click the image wey dey above make you watch the video for this lesson)_
+> _(Click di pikicha we dey up so to watch video for dis lesson)_
 
-As di use of AI agents dey grow, so di need for protocols wey go make everything standard, secure, and support open innovation dey increase too. For dis lesson, we go cover 3 protocols wey dey try meet dis need - Model Context Protocol (MCP), Agent to Agent (A2A) and Natural Language Web (NLWeb).
+As AI agents dey grow more, e still dey important to get protocols wey go ensure say dem standard, secure, plus support open innovation. For dis lesson, we go check 3 protocols wey wan solve dis need - Model Context Protocol (MCP), Agent to Agent (A2A) and Natural Language Web (NLWeb).
 
 ## Introduction
 
-For dis lesson, we go cover:
+For dis lesson, we go talk about:
 
-• How **MCP** dey allow AI Agents to access external tools and data to complete user tasks.
+• How **MCP** dey allow AI Agents take external tools and data do the work we human dem ask.
 
-• How **A2A** dey enable communication and collaboration between different AI agents.
+• How **A2A** dey make communication and teamwork between different AI agents possible.
 
-• How **NLWeb** dey bring natural language interfaces to any website wey go make AI Agents fit discover and interact with the content.
+• How **NLWeb** dey bring natural language systems to any website so AI Agents fit find content and interact wit am.
 
 ## Learning Goals
 
-• **Identify** di main purpose and benefits of MCP, A2A, and NLWeb for AI agents.
+• **Identify** wetin MCP, A2A, and NLWeb mean and di benefit dem get for AI agents.
 
-• **Explain** how each protocol dey help communication and interaction between LLMs, tools, and other agents.
+• **Explain** how each protocol dey help LLMs, tools and other agents talk and work together.
 
-• **Recognize** di different roles wey each protocol dey play for building complex agentic systems.
+• **Recognize** di different roles each protocol get for to build complex agentic systems.
 
 ## Model Context Protocol
 
-Di **Model Context Protocol (MCP)** na open standard wey provide one standardized way for applications to give context and tools to LLMs. Dis one dey enable "universal adaptor" to different data sources and tools wey AI Agents fit connect to in one consistent way.
+Di **Model Context Protocol (MCP)** na open standard wey provide one way to make applications fit give context and tools to LLMs. E make one kind "universal adaptor" to different data and tools we AI Agents fit grammatically connect.
 
-Make we look di components of MCP, di benefits compared to direct API usage, and one example of how AI agents fit use one MCP server.
+Make we look di parts of MCP, di better things e get versus normal API use, and example of how AI agents fit use MCP server.
 
 ### MCP Core Components
 
-MCP dey work with **client-server architecture** and di core components na:
+MCP dey work on **client-server architecture** and di main parts na:
 
-• **Hosts** na LLM applications (for example a code editor like VSCode) wey dey start di connections to an MCP Server.
+• **Hosts** be LLM applications (for example code editor like VSCode) wey start di connection to MCP Server.
 
-• **Clients** na components wey dey inside di host application wey dey maintain one-to-one connections with servers.
+• **Clients** be parts inside host application wey keep one-to-one connection wit servers.
 
-• **Servers** na lightweight programs wey dey expose specific capabilities.
+• **Servers** be small programs wey show their special capacity dem.
 
-Inside di protocol, three core primitives dey wey be di capabilities of an MCP Server:
+Inside di protocol three main things dey wey be di powers of MCP Server:
 
-• **Tools**: Na discrete actions or functions wey AI agent fit call to perform action. For example, weather service fit expose "get weather" tool, or e-commerce server fit expose "purchase product" tool. MCP servers dey show each tool name, description, and input/output schema for their capabilities listing.
+• **Tools**: Dem na separate actions or functions we AI agent fit call to do something. For example, weather service fit get one tool wey be "get weather", or ecommerce server fit get tool wey be "purchase product". MCP servers dey tell every tool name, description and input/output schema for their capabilities list.
 
-• **Resources**: Na read-only data items or documents wey MCP server fit provide, and clients fit retrieve dem on demand. Examples na file contents, database records, or log files. Resources fit be text (like code or JSON) or binary (like images or PDFs).
+• **Resources**: Dem na read-only data or documents we MCP server fit provide and clients fit collect dem anytime dem want. Examples na file content, database records or log files. Resources fit be text (like code or JSON) or binary (like pictures or PDFs).
 
-• **Prompts**: Na predefined templates wey dey give suggested prompts, make e possible to do more complex workflows.
+• **Prompts**: Dem na predefined templates wey provide suggested prompts, so make workflow pass pass.
 
 ### Benefits of MCP
 
-MCP dey give big advantages for AI Agents:
+MCP get many beta things for AI Agents:
 
-• **Dynamic Tool Discovery**: Agents fit dynamically receive list of available tools from server plus descriptions of wetin dem dey do. Dis one different from traditional APIs wey dey require static coding for integrations, wey mean any API change fit need code updates. MCP dey give "integrate once" approach, wey make am flexible well well.
+• **Dynamic Tool Discovery**: Agents fit dynamically get list of available tools from server plus wetin dem fit do. Dis differ from old APIs wey need static code for join, so any small API change need update code. MCP na "integrate once" way wey dey flexible well well.
 
-• **Interoperability Across LLMs**: MCP dey work across different LLMs, e dey give flexibility to switch core models to test for better performance.
+• **Interoperability Across LLMs**: MCP dey work with many LLMs, make e easy to change core models to test beta performance.
 
-• **Standardized Security**: MCP get standard authentication method, e dey make scaling easier when you wan add access to more MCP servers. E simple pass to manage different keys and authentication types across many traditional APIs.
+• **Standardized Security**: MCP get standard way for authentication, e make e easy to add more MCP servers. E simple pass to dey manage different keys and authentication methods for many normal APIs.
 
 ### MCP Example
 
 ![MCP Diagram](../../../translated_images/pcm/mcp-diagram.e4ca1cbd551444a1.webp)
 
-Make we imagine say user wan book flight using AI assistant wey MCP power.
+Imagine say person want book flight using AI assistant wey MCP dey power.
 
-1. **Connection**: Di AI assistant (di MCP client) go connect to an MCP server wey airline provide.
+1. **Connection**: Di AI assistant (MCP client) connect to MCP server wey airline provide.
 
-2. **Tool Discovery**: Di client go ask di airline MCP server, "Wetin tools una get?" Di server go reply with tools like "search flights" and "book flights".
+2. **Tool Discovery**: Di client ask di airline MCP server, "Which tools una get?" Server reply with tools like "search flights" and "book flights".
 
-3. **Tool Invocation**: You go tell di AI assistant, "Make you search for flight from Portland to Honolulu." Di AI assistant, using im LLM, go sabi say e need call the "search flights" tool and e go pass di relevant parameters (origin, destination) to di MCP server.
+3. **Tool Invocation**: Den you tell AI assistant, "Abeg find flight from Portland go Honolulu." AI assistant use LLM take know say e need call "search flights" tool, den pass origin and destination to MCP server.
 
-4. **Execution and Response**: Di MCP server, wey act as wrapper, go make di real call to di airline internal booking API. E go receive di flight information (e.g., JSON data) and send am back to di AI assistant.
+4. **Execution and Response**: MCP server act like wrapper, e go call airline own booking API. E then receive flight info (like JSON data) and send am back to AI assistant.
 
-5. **Further Interaction**: Di AI assistant go show di flight options. When you select flight, di assistant fit invoke di "book flight" tool for di same MCP server, finish di booking.
+5. **Further Interaction**: AI assistant show flight options. When you choose one flight, assistant fit use "book flight" tool for same MCP server finish booking.
 
 ## Agent-to-Agent Protocol (A2A)
 
-While MCP dey focus on connecting LLMs to tools, di **Agent-to-Agent (A2A) protocol** go one step further by enabling communication and collaboration between different AI agents. A2A dey connect AI agents across different organizations, environments and tech stacks to complete one shared task.
+While MCP dey connect LLMs to tools, **Agent-to-Agent (A2A) protocol** take am further by making AI agents fit talk and work together. A2A connect AI agents from different companies, environments and systems to complete shared work.
 
-We go check di components and benefits of A2A, plus one example how e fit apply for our travel application.
+We go check A2A parts and beta things plus example for how to use am for travel app.
 
 ### A2A Core Components
 
-A2A dey focus on enabling communication between agents and make dem work together to finish part of user task. Every component of di protocol dey contribute to this:
+A2A make AI agents talk and work together to finish part of user work. Each protocol part dey help do dat:
 
 #### Agent Card
 
-Like how MCP server dey share list of tools, an Agent Card get:
-- Di Name of di Agent .
-- A **description of di general tasks** wey e dey do.
-- A **list of specific skills** with descriptions to help other agents (or even human users) understand when and why dem go want call that agent.
-- Di **current Endpoint URL** of di agent
-- Di **version** and **capabilities** of di agent like streaming responses and push notifications.
+Just like MCP server dey share list of tools, Agent Card get:
+- Agent Name.
+- **Description of wetin the agent dey do generally**.
+- **List of specific skills** wey agents or humans fit understand why dem go call dat agent.
+- **Current Endpoint URL** for the agent
+- **Version** and **capabilities** like streaming responses and push notifications.
 
 #### Agent Executor
 
-Di Agent Executor na person wey dey responsible for **passing di context of di user chat to di remote agent**, di remote agent need am to understand di task wey dem need complete. For one A2A server, agent go use im own Large Language Model (LLM) to parse incoming requests and run tasks using im own internal tools.
+Agent Executor dey responsible to **pass user chat context to remote agent**, so remote agent go fit understand di work to do. For A2A server, agent go use im own LLM parse request and do work wit im own tools.
 
 #### Artifact
 
-When remote agent don finish di requested task, im work product go come out as an artifact. An artifact **get di result of di agent's work**, **description of wetin dem complete**, and di **text context** wey dem send through di protocol. After di artifact don send, di connection with di remote agent go close till e need am again.
+When remote agent don finish work, e come create artifact. Artifact **get result of work**, **explanation of wetin e do**, and **text context** wey dem send for protocol. After artifact don send, connection with remote agent go close till next time.
 
 #### Event Queue
 
-Dis component dey use for **handling updates and passing messages**. E important for production agentic systems so dat connection between agents no go close before task finish, especially when task fit take long time.
+Dis part dey handle updates and message passing. E very important for agentic systems wey dey production to keep connection no close till work done, especially when e take time to finish task.
 
 ### Benefits of A2A
 
-• **Enhanced Collaboration**: E enable agents from different vendors and platforms to interact, share context, and work together, make automation fit occur across systems wey before no connect.
+• **Better Collaboration**: E allow agents from different vendors and platforms make contact, share context, and work together, for easy automation across systems we no usually connect.
 
-• **Model Selection Flexibility**: Each A2A agent fit choose which LLM e wan use for its requests, make dem fit use optimized or fine-tuned models per agent, not like when one setup dey force single LLM connection like some MCP cases.
+• **Model Selection Flexibility**: Each A2A agent fit choose which LLM e wan use for service request, so dem fit optimize each agent, unlike single LLM connection like some MCP.
 
-• **Built-in Authentication**: Authentication dey inside A2A protocol, e provide strong security framework for agent interactions.
+• **Builtin Authentication**: Authentication dey inside A2A protocol, e provide strong security for agent interaction.
 
 ### A2A Example
 
 ![A2A Diagram](../../../translated_images/pcm/A2A-Diagram.8666928d648acc26.webp)
 
-Make we expand our travel booking scenario, but dis time make we use A2A.
+Make we expand our travel booking story but dis time na with A2A.
 
-1. **User Request to Multi-Agent**: User go interact with "Travel Agent" A2A client/agent, fit tell am, "Please book an entire trip to Honolulu for next week, including flights, a hotel, and a rental car".
+1. **User Request to Multi-Agent**: User talk to "Travel Agent" A2A client/agent, maybe say, "Abeg book whole trip go Honolulu for next week, make e get flights, hotel, and rental car."
 
-2. **Orchestration by Travel Agent**: Travel Agent go receive this complex request. E go use im LLM to reason about di task and decide say e need to talk to other specialized agents.
+2. **Orchestration by Travel Agent**: Travel Agent hear dis complex request. E use im LLM think about the work and know say e need talk with other special agents.
 
-3. **Inter-Agent Communication**: Travel Agent go then use A2A protocol to connect to downstream agents, like "Airline Agent," "Hotel Agent," and "Car Rental Agent" wey different companies create.
+3. **Inter-Agent Communication**: Travel Agent use A2A protocol connect to agents like "Airline Agent," "Hotel Agent," and "Car Rental Agent" wey different companies create.
 
-4. **Delegated Task Execution**: Travel Agent go send specific tasks to these specialized agents (e.g., "Find flights to Honolulu," "Book a hotel," "Rent a car"). Each specialized agent, wey dey run im own LLMs and dey use im own tools (wey fit be MCP servers themselves), go do im part of di booking.
+4. **Delegated Task Execution**: Travel Agent send specific work to those special agents (like "Find flights to Honolulu," "Book hotel," "Rent car"). Each agent use im own LLM and tools (fit be MCP servers) to do their work.
 
-5. **Consolidated Response**: When all downstream agents don finish their tasks, Travel Agent go compile di results (flight details, hotel confirmation, car rental booking) and send one complete, chat-style response back to di user.
+5. **Consolidated Response**: After all agents finish their work, Travel Agent gather results (flight info, hotel confirmation, car rental) and send full chat response to user.
 
 ## Natural Language Web (NLWeb)
 
-Websites don long be di main way wey users dey access information and data across di internet.
+Websites don long time be main way wey users dey get info and data online.
 
-Make we look di different components of NLWeb, di benefits of NLWeb and one example how our NLWeb dey work by checking our travel application.
+Make we check di parts of NLWeb, beta things e get and example of how travel app dey use NLWeb.
 
 ### Components of NLWeb
 
-- **NLWeb Application (Core Service Code)**: Di system wey dey process natural language questions. E connect di different parts of di platform to create responses. You fit reason am as di **engine wey power di natural language features** of a website.
+- **NLWeb Application (Core Service Code)**: Na di system wey dey handle natural language questions. E join different parts of platform to create responses. You fit see am as di **engine wey power natural language feature** for website.
 
-- **NLWeb Protocol**: Na **basic set of rules for natural language interaction** with website. E dey send back responses for JSON format (often using Schema.org). Di purpose na to create simple foundation for di “AI Web,” same way HTML make e possible to share documents online.
+- **NLWeb Protocol**: Dis na **basic rules for natural language talk** with website. E dey send response for JSON format (usually Schema.org). E purpose na to build simple base for “AI Web,” same way HTML let us share documents online.
 
-- **MCP Server (Model Context Protocol Endpoint)**: Each NLWeb setup still dey function as an **MCP server**. Dis one mean say e fit **share tools (like an “ask” method) and data** with other AI systems. For practice, dis one make di website content and abilities usable by AI agents, make di site become part of di wider “agent ecosystem.”
+- **MCP Server (Model Context Protocol Endpoint)**: Every NLWeb setup also dey work as **MCP server**. E fit **share tools (like “ask” method) and data** with other AI systems. Dis one mean say website content and ability fit dey used by AI agents, make website join di bigger “agent ecosystem.”
 
-- **Embedding Models**: Dem models dey use to **convert website content into numerical representations wey dem dey call vectors** (embeddings). These vectors capture meaning in a way computers fit compare and search. Dem dey store dem inside special database, and users fit choose which embedding model dem wan use.
+- **Embedding Models**: Dem models dey convert website content to numerical form wey dem call vectors (embeddings). Dem vectors get meaning we computer fit compare and search. Dem dey store inside special database, and users fit choose which embedding model dem want use.
 
-- **Vector Database (Retrieval Mechanism)**: Dis database **stores di embeddings of di website content**. When person ask question, NLWeb go check di vector database to quickly find di most relevant information. E go give fast list of possible answers, ranked by similarity. NLWeb fit work with different vector storage systems like Qdrant, Snowflake, Milvus, Azure AI Search, and Elasticsearch.
+- **Vector Database (Retrieval Mechanism)**: Dis database dey keep embedding of website content. When person ask question, NLWeb go check vector database quick to find best info. E go show list of possible answers ordered by similarity. NLWeb dey work wit many vector storage systems like Qdrant, Snowflake, Milvus, Azure AI Search, and Elasticsearch.
 
 ### NLWeb by Example
 
 ![NLWeb](../../../translated_images/pcm/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Make we think about our travel booking website again, but dis time e dey powered by NLWeb.
+Consider our travel booking website again, but this time, e dey powered by NLWeb.
 
-1. **Data Ingestion**: Di travel website product catalogs (e.g., flight listings, hotel descriptions, tour packages) dem format using Schema.org or dem load via RSS feeds. NLWeb tools go ingest this structured data, create embeddings, and store dem for local or remote vector database.
+1. **Data Ingestion**: Di travel website get product list (like flight listings, hotel descriptions, tour packages) wey dem format with Schema.org or load via RSS feeds. NLWeb tools collect this organized data, create embeddings, and store for local or remote vector database.
 
-2. **Natural Language Query (Human)**: User go visit di website and instead of dey waka through menus, e go type for chat interface: "Find me a family-friendly hotel in Honolulu with a pool for next week".
+2. **Natural Language Query (Human)**: User enter the website and instead of to dey find through menus, e type for chat interface: "Find family-friendly hotel for me in Honolulu with pool for next week."
 
-3. **NLWeb Processing**: Di NLWeb application go receive dis query. E go send di query to an LLM to understand am and at di same time go search im vector database for relevant hotel listings.
+3. **NLWeb Processing**: NLWeb app collect dis question. E send am to LLM to understand, and at same time e check vector database for relevant hotels.
 
-4. **Accurate Results**: Di LLM go help interpret di search results from di database, find di best matches based on "family-friendly," "pool," and "Honolulu" criteria, then format natural language response. Important thing be say di response go refer to real hotels from di website catalog, so e no go dey make things up.
+4. **Correct Results**: LLM help understand search results and find best matches for "family-friendly," "pool," and "Honolulu." E build natural language answer. Important thing be say answer dey talk about actual hotels from website, no fake info.
 
-5. **AI Agent Interaction**: Because NLWeb dey serve as an MCP server, external AI travel agent fit also connect to dis website NLWeb instance. Di AI agent fit then use di `ask` MCP method to query di website directly: `ask("Are there any vegan-friendly restaurants in the Honolulu area recommended by the hotel?")`. Di NLWeb instance go process am, use im database of restaurant information (if e load am), and return structured JSON response.
+5. **AI Agent Interaction**: Because NLWeb na MCP server, external AI travel agent fit connect to this NLWeb website. AI agent fit use `ask` MCP method ask website direct: `ask("Any vegan-friendly restaurants in Honolulu area wey hotel recommend?")`. NLWeb go process am, use restaurant info (if loaded), and return structured JSON answer.
 
-### Got More Questions about MCP/A2A/NLWeb?
+### You get More Questions about MCP/A2A/NLWeb?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet other learners, attend office hours and get your AI Agents questions answered.
 
 ## Resources
 
 - [MCP for Beginners](https://aka.ms/mcp-for-beginners)  
 - [MCP Documentation](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
 - [NLWeb Repo](https://github.com/nlweb-ai/NLWeb)
-- [Microsoft Agent Framework](https://aka.ms/ai-agents-beginners/agent-framewrok)
+- [Microsoft Agent Framework](https://aka.ms/ai-agents-beginners/agent-framework)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Disclaimer:
-Dis document don translate by AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we dey try make am correct, abeg sabi say automated translations fit get mistakes or no too accurate. The original document for im original language na the correct source wey you suppose follow. If na important matter, make professional human translator do am. We no go responsible for any misunderstanding or wrong interpretation wey fit come from using this translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

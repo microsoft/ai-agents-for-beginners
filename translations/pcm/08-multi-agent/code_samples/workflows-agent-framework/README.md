@@ -1,66 +1,66 @@
-# How to Build Multi-Agent Applications wit Microsoft Agent Framework Workflow
+# How To Build Multi-Agent Applications Wit Microsoft Agent Framework Workflow
 
-Dis tutorial go show you how you fit sabi and build multi-agent applications wit Microsoft Agent Framework. We go look di main idea of multi-agent systems, check di architecture of di framework Workflow part, and do practical examples for Python and .NET for different workflow patterns.
+Dis tutorial go help you sabi and build multi-agent applications using Microsoft Agent Framework. We go check di main tins wey dey multi-agent systems, look inside di framework Workflow component, and go through real examples for both Python and .NET for different workflow patterns.
 
-## 1\. Wetin Be Multi-Agent Systems
+## 1\. Wetin be Multi-Agent Systems
 
-AI Agent na system wey dey do pass wetin normal Large Language Model (LLM) fit do. E fit see wetin dey happen for e environment, make decisions, and do actions to achieve di goals wey dem give am. Multi-agent system na when plenty of dis agents dey work together to solve problem wey one agent no fit handle alone.
+AI Agent na system wey pass wetin normal Large Language Model (LLM) fit do. E fit see im surroundings, make decision, and take action to meet specific goals. Multi-agent system mean say plenty of these agents go work together to solve wahala wey one agent alone no fit handle.
 
-### Common Ways People Dey Use Am
+### Common Application Scenarios
 
-  * **Solve Big Problems**: Break big work (like planning company event) into small-small work wey different agents go handle (like budget agent, logistics agent, marketing agent).
-  * **Virtual Assistants**: One main assistant agent go dey give work like scheduling, research, and booking to other agents wey sabi di work well.
-  * **Automated Content Creation**: Workflow wey one agent go write content, another one go check am for correct grammar and tone, and di last one go publish am.
+  * **Complex Problem Solving**: Break big work (like plan company big event) into smaller small work wey specialized agents fit do (like budget agent, logistics agent, marketing agent).
+  * **Virtual Assistants**: Main assistant agent dey give other specialized agents tasks like scheduling, research, and booking.
+  * **Automated Content Creation**: Workflow wey one agent dey create draft content, another dey check am for correctness and style, then third one dey publish am.
 
 ### Multi-Agent Patterns
 
-Multi-agent systems fit dey arranged in different ways, wey go show how dem go work together:
+Multi-agent systems dey arranged for different patterns wey show how dem go interact:
 
-  * **Sequential**: Agents go dey work one after di other, like assembly line. Wetin one agent do go be di input for di next one.
-  * **Concurrent**: Agents go dey work at di same time for different parts of di work, and dem go join di results together at di end.
-  * **Conditional**: Workflow go follow different road based on wetin one agent do, like if-then-else statement.
+  * **Sequential**: Agents dey work one by one for order, like assembly line. One agent output na the next agent input.
+  * **Concurrent**: Agents dey work at the same time for different parts of task, then dem combine results at the end.
+  * **Conditional**: Workflow follow different road based on agent output, like if-then-else statement.
 
-## 2\. Di Microsoft Agent Framework Workflow Architecture
+## 2\. Microsoft Agent Framework Workflow Architecture
 
-Di Agent Framework workflow system na advanced engine wey dey manage how plenty agents go work together. E dey use graph-based architecture wey dey follow [Pregel-style execution model](https://kowshik.github.io/JPregel/pregel_paper.pdf), where processing dey happen step by step, dem dey call am "supersteps."
+Agent Framework workflow system na advance kind engine wey organize how agents dem go interact. E use graph-based architecture wey get [Pregel-style execution model](https://kowshik.github.io/JPregel/pregel_paper.pdf), wey dey process things step by step called "supersteps."
 
-### Main Parts
+### Core Components
 
-Di architecture get three main parts:
+Architecture get three main parts:
 
-1.  **Executors**: Na di main processing units. For our example, `Agent` na one type of executor. Each executor fit get plenty message handlers wey go dey work automatically based on di type of message wey e receive.
-2.  **Edges**: Na di road wey messages go follow between executors. Edges fit get conditions, wey go allow dynamic routing of information for di workflow graph.
-3.  **Workflow**: Dis one dey control di whole process, e dey manage di executors, edges, and how di execution go flow. E dey make sure say messages dey process in di correct order and e dey stream events for monitoring.
+1.  **Executors**: Na di main processing units. For our examples, `Agent` na executor type. Each executor fit get many message handlers wey automatic run based on message type.
+2.  **Edges**: Dem show di path wey messages follow between executors. Edges get conditions wey fit route message differently inside workflow graph.
+3.  **Workflow**: Dis one dey manage all di process, di executors, edges, and di flow of execution. E make sure messages process in correct order and dey stream events for monitoring.
 
-*Diagram wey dey show di main parts of di workflow system.*
+*Diagram wey show main parts of workflow system.*
 
-Dis structure dey allow people build strong and scalable applications using basic patterns like sequential chains, fan-out/fan-in for parallel processing, and switch-case logic for conditional flows.
+Dis structure make e easy to build strong and scalable applications using common patterns like sequential chains, fan-out/fan-in for parallel processing, and switch-case for conditional flows.
 
 ## 3\. Practical Examples and Code Analysis
 
-Make we check how to use di framework build different workflow patterns. We go look Python and .NET code for each example.
+Make we check how to implement different workflow patterns using di framework. We go see Python and .NET code for each example.
 
 ### Case 1: Basic Sequential Workflow
 
-Dis na di simplest pattern, where one agent go pass e output directly to another one. Di example na hotel `FrontDesk` agent wey dey make travel recommendation, and `Concierge` agent go review am.
+Dis na di simplest pattern, wey one agent output go straight to another agent. Our example na hotel `FrontDesk` agent wey go give travel advice, then `Concierge` agent go check am.
 
-*Diagram of di basic FrontDesk -\> Concierge workflow.*
+*Diagram for basic FrontDesk -\> Concierge workflow.*
 
 #### Scenario Background
 
 Traveler dey ask for recommendation for Paris.
 
-1.  Di `FrontDesk` agent go suggest make dem visit Louvre Museum.
-2.  Di `Concierge` agent go review di suggestion and give feedback, suggest better local place wey no too dey touristy.
+1.  `FrontDesk` agent, e dey short and simple, recommend say make e visit Louvre Museum.
+2.  `Concierge` agent, wey like authentic experience, receive the advice. E go check am, then give feedback say e better make e go local place wey no too touristy.
 
 #### Python Implementation Analysis
 
-For di Python example, we go first define and create di two agents, each one get e own instructions.
+For Python example, we go first define and create the two agents, each get im own instruction.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Define wetin agent dem go do and instructions
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
     You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
@@ -71,41 +71,41 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Make agent instances
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Next, we go use `WorkflowBuilder` build di graph. Di `front_desk_agent` go be di starting point, and we go create edge wey go connect e output to di `reviewer_agent`.
+Next, `WorkflowBuilder` dey use to build the graph. `front_desk_agent` na starting point, then dem create edge to connect im output to `reviewer_agent`.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-Finally, we go run di workflow wit di user prompt.
+Finally, workflow run with initial user prompt.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run dey execute di workflow; get_outputs() go return di output wey di executor produce.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
 #### .NET (C\#) Implementation Analysis
 
-Di .NET implementation dey similar. First, we go define constants for di agents' names and instructions.
+.NET one follow very similar logic. Dem first define constants for agent names and instructions.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
@@ -119,15 +119,15 @@ const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-We go create di agents wit `OpenAIClient`, and then use `WorkflowBuilder` define di sequential flow by adding edge from `frontDeskAgent` to `reviewerAgent`.
+Agents create using `AzureOpenAIClient` (Responses API), then `WorkflowBuilder` define sequential flow, add edge from `frontDeskAgent` to `reviewerAgent`.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Di workflow go run wit di user message, and we go stream di results back.
+Then workflow run na with user message and results stream back.
 
 ### Case 2: Multi-Step Sequential Workflow
 
-Dis pattern dey add more agents to di basic sequence. E dey good for processes wey need plenty stages of refinement or transformation.
+Dis pattern extend basic sequence to include more agents. E good for process wey need more stages to improve or change.
 
 #### Scenario Background
 
-User go provide image of living room and ask for furniture quote.
+User give picture of living room and ask for furniture quote.
 
-1.  **Sales-Agent**: E go identify di furniture items for di image and create list.
-2.  **Price-Agent**: E go take di list of items and give detailed price breakdown, including budget, mid-range, and premium options.
-3.  **Quote-Agent**: E go take di priced list and format am into formal quote document for Markdown.
+1.  **Sales-Agent**: Identify furniture for the picture and make list.
+2.  **Price-Agent**: Take the list and break down price, show budget, mid-range, and premium options.
+3.  **Quote-Agent**: Take priced list then format am to formal quote in Markdown.
 
-*Diagram of di Sales -\> Price -\> Quote workflow.*
+*Diagram of Sales -\> Price -\> Quote workflow.*
 
 #### Python Implementation Analysis
 
-We go define three agents, each one get e own role. Di workflow go dey build wit `add_edge` to create chain: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Three agents define, each get specialized role. Workflow build with `add_edge` to chain: `sales_agent` -\> `price_agent` -\> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Make three specialized agents
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Build di workflow wey dey go one by one
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Di input na `ChatMessage` wey get text and image URI. Di framework go handle how di output of each agent go pass to di next one until di final quote dey ready.
+Input na `ChatMessage` wey get text and image URI. Framework dey pass output from one agent to next until quote done.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Di user message get both text and one piksha
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Make you run di workflow
+events = await workflow.run(message)
 ```
 
 #### .NET (C\#) Implementation Analysis
 
-Di .NET example dey same as di Python version. We go create three agents (`salesagent`, `priceagent`, `quoteagent`). Di `WorkflowBuilder` go link dem sequentially.
+.NET example na similar to Python version. Three agents (`salesagent`, `priceagent`, `quoteagent`) create. `WorkflowBuilder` link dem one by one.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent priceagent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent quoteagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Di user message go get di image data (as bytes) and di text prompt. Di `InProcessExecution.StreamAsync` method go start di workflow, and we go collect di final output from di stream.
+User message get image data (bytes) and text. `InProcessExecution.StreamAsync` dey start workflow, final output come from the stream.
 
 ### Case 3: Concurrent Workflow
 
-Dis pattern dey good when tasks fit dey do at di same time to save time. E dey involve "fan-out" to plenty agents and "fan-in" to join di results.
+Dis pattern for when work fit happen at the same time to save time. E get "fan-out" to many agents and "fan-in" to gather results.
 
 #### Scenario Background
 
-User dey ask to plan trip to Seattle.
+User wan plan trip go Seattle.
 
-1.  **Dispatcher (Fan-Out)**: Di user request go go to two agents at di same time.
-2.  **Researcher-Agent**: E go research attractions, weather, and key things for trip to Seattle for December.
-3.  **Plan-Agent**: E go create detailed day-by-day travel plan.
-4.  **Aggregator (Fan-In)**: Di outputs from di researcher and planner go join together as di final result.
+1.  **Dispatcher (Fan-Out)**: User request go two agents at once.
+2.  **Researcher-Agent**: Research places, weather, and wetin todo for Seattle trip for December.
+3.  **Plan-Agent**: Create detailed day-by-day travel plan.
+4.  **Aggregator (Fan-In)**: Collect output from researcher and planner join am as final result.
 
-*Diagram of di concurrent Researcher and Planner workflow.*
+*Diagram for concurrent Researcher and Planner workflow.*
 
 #### Python Implementation Analysis
 
-Di `ConcurrentBuilder` dey make dis pattern easy. You go just list di agents wey go work, and di builder go automatically create di fan-out and fan-in logic.
+`ConcurrentBuilder` dey make am easy to build dis pattern. You just list the agents and builder create fan-out and fan-in logic automatically.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder dey handle di fan-out/fan-in logic
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Run di workflow
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Di framework go make sure say `research_agent` and `plan_agent` dey work at di same time, and e go join their final outputs into one list.
+Framework make sure say `research_agent` and `plan_agent` dey run parallel, their final results join for list.
 
 #### .NET (C\#) Implementation Analysis
 
-For .NET, dis pattern need more explicit definition. Custom executors (`ConcurrentStartExecutor` and `ConcurrentAggregationExecutor`) go handle di fan-out and fan-in logic.
+For .NET, dis pattern need explicit definition. Custom executors (`ConcurrentStartExecutor` and `ConcurrentAggregationExecutor`) create to handle fan-out and fan-in logic.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-Di `WorkflowBuilder` go use `AddFanOutEdge` and `AddFanInEdge` build di graph wit di custom executors and di agents.
+Then `WorkflowBuilder` use `AddFanOutEdge` and `AddFanInEdge` to build graph with custom executors and agents.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -292,43 +291,43 @@ var workflow = new WorkflowBuilder(startExecutor)
 
 ### Case 4: Conditional Workflow
 
-Conditional workflows dey add branching logic, wey go allow di system follow different road based on wetin e get from di agents.
+Conditional workflows get branching logic, wey allow system to follow different road based on intermediate results.
 
 #### Scenario Background
 
-Dis workflow dey automate how to create and publish technical tutorial.
+Dis workflow na automation for creating and publishing technical tutorial.
 
-1.  **Evangelist-Agent**: E go write draft of di tutorial based on outline and URLs wey dem give am.
-2.  **ContentReviewer-Agent**: E go review di draft. E go check if di word count pass 200 words.
+1.  **Evangelist-Agent**: Write draft of tutorial based on outline and URLs.
+2.  **ContentReviewer-Agent**: Check draft. E check if word count pass 200.
 3.  **Conditional Branch**:
-      * **If Approved (`Yes`)**: Di workflow go continue to `Publisher-Agent`.
-      * **If Rejected (`No`)**: Di workflow go stop and show why dem reject am.
-4.  **Publisher-Agent**: If dem approve di draft, dis agent go save di content as Markdown file.
+      * **If Approved (`Yes`)**: Workflow continue to `Publisher-Agent`.
+      * **If Rejected (`No`)**: Workflow stop and show reason why e reject.
+4.  **Publisher-Agent**: If draft approve, dis agent save content to Markdown file.
 
 #### Python Implementation Analysis
 
-Dis example dey use custom function, `select_targets`, to do di conditional logic. Dis function dey pass to `add_multi_selection_edge_group` and e dey direct di workflow based on di `review_result` field from di reviewer output.
+This example use custom function `select_targets` to run conditional logic. E pass to `add_multi_selection_edge_group` and guide workflow based on `review_result` from reviewer output.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Dis function go decide wetin to do next based on di review result
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # If dem approve am, make you go di 'save_draft' executor
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # If dem no approve am, make you go di 'handle_review' executor to yarn say e fail
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# Di workflow builder dey use di selection function for routing
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Di multi-selection edge dey do di conditional logic
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Custom executors like `to_reviewer_result` dey parse di JSON output from di agents and change am to objects wey di selection function fit check.
+Custom executors like `to_reviewer_result` dey parse JSON output from agents and convert am to strong-typed objects wey selection function fit check.
 
 #### .NET (C\#) Implementation Analysis
 
-Di .NET version dey use similar way wit condition function. `Func<object?, bool>` dey check di `Result` property of di `ReviewResult` object.
+.NET version use similar way with condition function. `Func<object?, bool>` define to check `Result` property of `ReviewResult` object.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,15 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-Di `AddEdge` method `condition` parameter dey allow di `WorkflowBuilder` create branching path. Di workflow go only follow di edge to `publishExecutor` if di condition `GetCondition(expectedResult: "Yes")` return true. If not, e go follow di road to `sendReviewerExecutor`.
+`AddEdge` method `condition` parameter allow `WorkflowBuilder` create branching road. Workflow go follow edge to `publishExecutor` if condition `GetCondition(expectedResult: "Yes")` true. If no, e follow path to `sendReviewerExecutor`.
 
 ## Conclusion
 
-Di Microsoft Agent Framework Workflow na strong and flexible tool wey dey help manage how plenty agents go work together. Wit di graph-based architecture and di main parts, developers fit design and build advanced workflows for Python and .NET. Whether your application need simple sequential processing, parallel execution, or conditional logic, di framework get di tools to build powerful, scalable, and type-safe AI-powered solutions.
+Microsoft Agent Framework Workflow na strong and flexible foundation to organize complex multi-agent systems. Using graph-based architecture and core parts, developers fit design and build advanced workflows for Python and .NET. Whether your app need simple sequential processing, parallel execution, or dynamic conditional logic, dis framework get tools to build powerful, scalable, and safe AI-powered solutions.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dis dokyument don use AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator) do di translation. Even as we dey try make am accurate, abeg make you sabi say automated translations fit get mistake or no dey correct well. Di original dokyument wey dey for im native language na di main source wey you go trust. For important information, e better make professional human translation dey use. We no go fit take blame for any misunderstanding or wrong interpretation wey fit happen because you use dis translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

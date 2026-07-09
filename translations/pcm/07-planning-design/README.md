@@ -1,6 +1,6 @@
 [![Planning Design Pattern](../../../translated_images/pcm/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
-> _(Click di pikshua we dey top to watch video for dis lesson)_
+> _(Click di image we dey above to watch video of dis lesson)_
 
 # Planning Design
 
@@ -8,48 +8,48 @@
 
 Dis lesson go cover
 
-* How to define clear overall goal and break big task into small small work wey person fit handle.
-* How to use structured output for get correct and machine-readable responses.
-* How to use event-driven way to handle tasks wey dey change and sudden inputs.
+* How to define clear overall goal and break big work into small easy-to-handle tasks.
+* How to use structured output for more reliable and machine-readable response.
+* How to use event-driven method to handle dynamic tasks and unexpected input dem.
 
 ## Learning Goals
 
 After you finish dis lesson, you go sabi about:
 
-* How to find and set overall goal for AI agent, make e clear so e sabi wetin e suppose achieve.
-* How to break big big work into small small task dem wey make sense and arrange dem well well.
-* How to give agents correct tools (like search tools or data analytics tools), decide when and how dem go use am, plus how dem go handle sudden wahala.
-* How to check how subtasks perform, measure result, plus do am again to improve final outcome.
+* How to identify and set overall goal for AI agent, make sure e clear wetin e suppose achieve.
+* How to break down complex task into small manageable subtasks and arrange am well.
+* How to give agents correct tools (like search tools or data analytics tools), know when and how to use am, and handle anywhere wey surprise wahala show.
+* How to check subtask results, measure how e perform, and change action to make final output better.
 
 ## Defining the Overall Goal and Breaking Down a Task
 
 ![Defining Goals and Tasks](../../../translated_images/pcm/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Plenty tasks for real life too hard to do for one step. AI agent need clear aim to guide how e go plan and do things. For example, make we look di goal:
+Most real-life task dem too complex to do in one step. AI agent need sharp objective to guide im planning and actions. For example, consider dis goal:
 
     "Generate a 3-day travel itinerary."
 
-Even though e simple to talk, e still need to be clear. The more clear the goal, the better the agent (and any human wey dey work together) fit focus to achieve the correct result, like to make complete travel plan with flight options, hotel choice, and things to do.
+Even though e simple to talk am, e still need fine-tuning. The clearer the goal, the better the agent (and any human collaborators) fit focus on how to achieve correct result, like create full itinerary with flight options, hotel recommendations, and activity ideas.
 
 ### Task Decomposition
 
-Big or hard task dem go easier to handle if you divide dem into small small tasks wey get clear goal.
-For the travel plan example, you fit break the goal into:
+Big or complicated tasks go become easier if you break am down into smaller, goal-centered subtasks.
+For travel itinerary example, you fit break the goal into:
 
 * Flight Booking
 * Hotel Booking
 * Car Rental
 * Personalization
 
-Each small task fit be handle by special agents or processes. One agent fit sabi how to find best flight deals, another one fit handle hotel booking, and so on. One agent go fit put all dis results together into one correct travel plan for the person.
+Each subtask fit be handled by special agents or processes. One agent fit sabi well to find best flight deal, another one focus on hotel bookings, and so on. One coordinating or “downstream” agent fit put all these results together make one solid itinerary for the person wey go use am.
 
-This way we dey do things fit also allow make e improve small small. For example, you fit add special agents for Food Recommendations or Local Activity Suggestions and improve di travel plan with time.
+Dis modular way still allow for small small improvements. For example, you fit add special agents for Food Recommendations or Local Activity Suggestions and improve di itinerary as time dey go.
 
 ### Structured output
 
-Big Language Models (LLMs) fit give structured output (like JSON) wey easier for other agents or services to understand and process. This one good especially when many agents dey work together, because after planning output don come, we fit take action on the tasks.
+Large Language Models (LLMs) fit create structured output (like JSON) wey easier for downstream agents or services to understand and process. Dis one dey important well well for multi-agent system, where we fit run tasks after we don get planning output.
 
-Di Python snippet wey follow show how simple planning agent fit break goal into smaller task and make structured plan:
+Di Python snippet wey dey below show simple planning agent wey dey break goal into subtasks and dey generate structured plan:
 
 ```python
 from pydantic import BaseModel
@@ -59,7 +59,7 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
@@ -81,7 +81,11 @@ class TravelPlan(BaseModel):
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 # Define di user message
 system_prompt = """You are a planner agent.
@@ -109,15 +113,15 @@ pprint(json.loads(response_content))
 
 ### Planning Agent with Multi-Agent Orchestration
 
-For dis example, one Semantic Router Agent go receive user request (e.g., "I need a hotel plan for my trip.").
+For dis example, Semantic Router Agent go receive user request (like "I need a hotel plan for my trip.").
 
-The planner go then:
+Di planner go:
 
-* Receive the Hotel Plan: The planner go take the user message and, based on system prompt (wey include info of available agents), go make one structured travel plan.
-* List Agents and Their Tools: The agent registry get list of agents (like for flight, hotel, car rental, and activities) plus the functions or tools wey dem get.
-* Route the Plan to the Respective Agents: Depending on the number of subtasks, the planner fit send the message directly to one special agent (for one-task case) or arrange am via group chat manager for multi-agent teamwork.
-* Summarize the Outcome: At last, the planner go summarize the plan to make am clear.
-Di Python code wey follow show these steps:
+* Receive di Hotel Plan: Planner go take user message and, based on system prompt (with agent details wey dey), go generate structured travel plan.
+* List Agents and Their Tools: Agent registry dey hold list of agents (for flight, hotel, car rental, activities) with functions or tools wey dem fit use.
+* Route di Plan to di Right Agents: Depending on number of subtasks, planner fit either send message directly to one agent (if na one-task case) or coordinate through group chat manager for multi-agent work.
+* Summarize di Outcome: In the end, planner go summarize di plan so e clear.
+Di Python code below go show these steps:
 
 ```python
 
@@ -139,7 +143,7 @@ class AgentEnum(str, Enum):
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # we want to assign di task to di agent
+    assigned_agent: AgentEnum # we wan assign di task to di agent
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -149,16 +153,20 @@ import json
 import os
 from typing import Optional
 
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 # Make di client
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 from pprint import pprint
 
-# Define di user message
+# Set di user message
 
 system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
@@ -176,12 +184,12 @@ response = client.create_response(input=user_message, instructions=system_prompt
 
 response_content = response.output_text
 
-# Print di response content after we load am as JSON
+# Show di response content afta load am as JSON
 
 pprint(json.loads(response_content))
 ```
 
-Wetyn follow after na the output from the code above, and you fit use dis structured output take send to `assigned_agent` and summarize the travel plan to the person wey dey use am.
+Wetin dey after na output from di code and you fit use structured output to send am go `assigned_agent` and summarize di travel plan for di user.
 
 ```json
 {
@@ -212,20 +220,21 @@ Wetyn follow after na the output from the code above, and you fit use dis struct
 }
 ```
 
-One example notebook with the Python code way I talk about before dey available [here](07-python-agent-framework.ipynb).
+Example notebook with di code fit be found [here](./code_samples/07-python-agent-framework.ipynb).
 
 ### Iterative Planning
 
-Some task need to do back-and-forth or re-planning, where the result of one subtask fit affect the next one. For example, if agent find strange data format while e dey book flight, e fit need change im plan before e begin book hotel.
+Some tasks need back-and-forth or re-planning, especially if outcome from one subtask affect di next. For example, if agent find new kind data format when e dey book flights, e need change im strategy before e move to hotel bookings.
 
-Also, if user talk (like person say e want earlier flight), e fit make agent do small re-plan. This kind dynamic, iterative plan make sure final answer fit the real-life condition and change as user preference change.
+Also, user feedback (like human wey decide say dem want earlier flight) fit cause partial re-plan. Dis dynamic, iterative approach make sure say final solution go fit real-world wahala and changing user preferences.
 
 e.g sample code
 
 ```python
-from agent_framework.azure import AzureAIProjectAgentProvider
+import os
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
-#.. same like di previous code and carry di user history, current plan go
+#.. same as previous code and pass on the user history, current plan
 
 system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
@@ -244,22 +253,22 @@ response = client.create_response(
     instructions=system_prompt,
     context=f"Previous travel plan - {TravelPlan}",
 )
-# .. re-plan and send di tasks go di correct agents dem
+# .. change plan again and send di tasks go di correct agents
 ```
 
-For better planning, check Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> wey dey talk about how to solve complex task.
+For better planning, check out Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> wey dey talk about how to solve complex tasks.
 
 ## Summary
 
-For dis article, we don see example how we fit make planner wey fit choose agents wey dey available. The planner output break task into smaller task and assign agents make dem do am. We assume say agents fit get the functions/tools wey dem need to perform the task. Besides the agents, you fit also add other patterns like reflection, summarizer, and round robin chat to customize more.
+For dis article, we don see example of how we fit create planner wey fit dynamically choose agents wey dey available. Planner output dey break tasks and assign agents so dem fit do am. Na assumption say agents get access to functions/tools wey dem need to perform task. Besides agents, you fit add other patterns like reflection, summarizer, and round robin chat to customize further.
 
 ## Additional Resources
 
-Magentic One - Na generalist multi-agent system to solve big big task and e don do well for many tough agentic benchmarks. Reference: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. For this implementation, the orchestrator dey create task-specific plans and dey assign these task to available agents. Besides planning, the orchestrator also get tracking mechanism to follow how the task dey go and e dey re-plan if e need.
+Magnetic One - Na Generalist multi-agent system for solving complex tasks and e don get good results on plenty hard agentic challenges. Reference: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magnetic One</a>. For dis implementation, orchestrator dey create task-specific plans and dey give dem to agents wey dey available. Besides planning, orchestrator still get tracking system to monitor task progress and re-plan when e necessary.
 
-### Got More Questions about the Planning Design Pattern?
+### You Get More Questions About Planning Design Pattern?
 
-Join [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet other learners, attend office hours and clear your AI Agents questions.
+Join [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet other learners, attend office hours and get your AI Agents questions answered.
 
 ## Previous Lesson
 
@@ -273,5 +282,5 @@ Join [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet other
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-Dis dokument don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we try make am correct, abeg sabi say automated translation fit get errors or mistakes. Di original dokument wey dem write for e own language na di real correct one. If na serious matter, make you use professional human translation. We no go carry last if any misunderstanding or mix-up happen because of dis translation.
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

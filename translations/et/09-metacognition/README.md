@@ -1,95 +1,95 @@
-[![Mitmeagendi kujundus](../../../translated_images/et/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multiagentne disain](../../../translated_images/et/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
 > _(Klõpsake ülaloleval pildil, et vaadata selle õppetunni videot)_
-# Metakognitsioon tehisintellekti agentides
+# Metakognitsioon tehisintellektagentides
 
 ## Sissejuhatus
 
-Tere tulemast õppetundi metakognitsioonist AI agentides! See peatükk on mõeldud algajatele, kes on uudishimulikud, kuidas AI agendid saavad mõelda oma mõtlemisprotsesside üle. Selle õppetunni lõpuks mõistate peamisi mõisteid ja teil on praktilised näited, et rakendada metakognitsiooni AI agendi disainis.
+Tere tulemast õppetundi metakognitsioonist tehisintellektagentides! See peatükk on mõeldud algajatele, kes on uudishimulikud, kuidas AI agentid saavad mõelda omaenda mõtlemisprotsesside üle. Selle õppetunni lõpuks mõistate põhikontseptsioone ja saate praktilisi näiteid, kuidas metakognitsiooni AI agentide disainis rakendada.
 
 ## Õpieesmärgid
 
-Pärast selle õppetunni läbimist suudad:
+Pärast selle õppetunni läbimist oskate:
 
-1. Mõista arutluse tsüklite mõju agendi definitsioonides.
-2. Kasutada planeerimis- ja hindamistehnikaid enesekorrektsiooni võimaldavate agentide toetamiseks.
-3. Luua oma agendid, kes suudavad koodi manipuleerida ülesannete täitmiseks.
+1. Mõista järelduslike tsüklite mõju agentide definitsioonides.
+2. Kasutada planeerimis- ja hindamistehnikaid enesekorrektsiooni võimaldavate agentide abistamiseks.
+3. Luua omaenda agente, kes suudavad ülesannete täitmiseks koodi manipuleerida.
 
-## Metakognitsiooni sissejuhatus
+## Sissejuhatus metakognitsiooni
 
-Metakognitsioon viitab kõrgema taseme kognitiivsetele protsessidele, mis hõlmavad mõtlemist omaenda mõtlemise üle. AI agentide jaoks tähendab see suutlikkust hinnata ja korrigeerida oma tegevusi, tuginedes eneseteadlikkusele ja varasematele kogemustele. Metakognitsioon ehk "mõtlemine mõtlemise kohta" on oluline mõiste agentiliste AI süsteemide arendamisel. See hõlmab AI süsteemide teadlikkust oma sisemistest protsessidest ning suutlikkust neid jälgida, reguleerida ja oma käitumist vastavalt kohandada. Nii nagu meie loeme olukorda või vaatame probleemi. See eneseteadlikkus aitab AI süsteemidel teha paremaid otsuseid, tuvastada vigu ja parandada oma sooritust aja jooksul — taaslüheledes Turingi testi ja arutelu juurde selle üle, kas tehisintellekt vallutab maailma.
+Metakognitsioon viitab kõrgema astme kognitiivsetele protsessidele, mis hõlmavad mõtlemist omaenda mõtlemise kohta. AI agentide puhul tähendab see võimet hinnata ja kohandada oma tegevusi eneseteadlikkuse ja varasemate kogemuste põhjal. Metakognitsioon ehk „mõtlemine mõtlemisest“ on oluline mõiste agentsete AI süsteemide arengus. See hõlmab AI süsteemide teadlikkust oma sisemistest protsessidest ning võimet oma käitumist vastavalt jälgida, reguleerida ja kohandada. Nii nagu meie loeme ruumi või vaatame probleemile. See eneseteadlikkus aitab AI süsteemidel teha paremaid otsuseid, tuvastada vigu ja aja jooksul oma tulemuslikkust parandada — mis seob mind veel kord Turingi testiga ning aruteluga, kas AI võtab võimu üle.
 
-Agentiliste AI süsteemide kontekstis võib metakognitsioon aidata lahendada mitmeid väljakutseid, nagu:
-- Läbipaistvus: Tagada, et AI süsteemid suudavad selgitada oma arutluskäiku ja otsuseid.
-- Arutlus: Suurendada AI süsteemide võimet sünteesida informatsiooni ja teha põhjendatud otsuseid.
-- Kohanemine: Lubada AI süsteemidel kohanduda uute keskkondade ja muutuvate tingimustega.
-- Taju: Parandada AI süsteemide täpsust andmete äratundmisel ja tõlgendamisel nende keskkonnast.
+Agentsete AI süsteemide kontekstis aitab metakognitsioon lahendada mitmeid väljakutseid, näiteks:
+- Läbipaistvust: tagada, et AI süsteemid suudavad oma järeldusi ja otsuseid selgitada.
+- Järeldamist: parandada AI süsteemide võimet sünteesida teavet ja teha häid otsuseid.
+- Kohandumist: lubada AI süsteemidel kohaneda uute keskkondade ja muutuvate tingimustega.
+- Taju: parandada AI süsteemide täpsust keskkonnast pärineva andmete äratundmisel ja interpreteerimisel.
 
 ### Mis on metakognitsioon?
 
-Metakognitsioon ehk "mõtlemine mõtlemise kohta" on kõrgema taseme kognitiivne protsess, mis hõlmab eneseteadlikkust ja oma kognitiivsete protsesside eneseregulatsiooni. AI valdkonnas annab metakognitsioon agentidele võimaluse hinnata ja kohandada oma strateegiaid ja tegevusi, viies parema probleemilahenduse ja otsustamisvõimekuseni. Metakognitsiooni mõistmise abil saate disainida AI agente, kes on mitte ainult intelligentsed, vaid ka kohanemisvõimelisemad ja tõhusamad. Tõelises metakognitsioonis näeksite, et AI põhjendab selgelt oma arutluse kohta.
+Metakognitsioon ehk „mõtlemine mõtlemise üle“ on kõrgema astme kognitiivne protsess, mis hõlmab eneseteadlikkust ja enda kognitiivsete protsesside reguleerimist. Tehisintellekti valdkonnas võimaldab metakognitsioon agentidel hinnata ja kohandada oma strateegiaid ja tegevusi, mis parandab probleemide lahendamise ja otsustamise võimeid. Metakognitsiooni mõistmine võimaldab teil disainida AI agente, kes on mitte ainult targemad, vaid ka kohanemisvõimelisemad ja tõhusamad. Tõelises metakognitsioonis näeksite AI-d selgesõnaliselt omaenda mõtlemise üle arutlemas.
 
-Example: “Ma eelistasin odavamaid lende, sest… Võib-olla jään otselendudest ilma, nii et las ma kontrollin uuesti.”.
-Keeping track of how or why it chose a certain route.
-- Märgata, et see tegi vigu, sest ta tuginemis liigselt kasutaja eelnevatele eelistustele, seega muudab see oma otsustamisstrateegiat, mitte ainult lõplikku soovitust.
-- Diagnoosida mustreid nagu: “Iga kord, kui ma näen, et kasutaja mainib 'liiga rahvarohke', ei peaks ma mitte ainult eemaldama teatud atraktsioone, vaid ka mõtlema, et minu meetod 'parimate atraktsioonide' valimiseks on vigane, kui ma alati järjestan populaarsuse järgi.”
+Näide: „Ma seisin odavamad lennupiletid esikohale, sest... Võibolla jään ilma otselendudest, seega las ma kontrollin uuesti.“
+Jälgides, kuidas või miks valiti teatud marsruut.
+- Märgates, et tehti vigu, sest ta liialdas kasutaja eelistustega eelmisest korrast, mistõttu muudetakse mitte ainult lõpp-soovitust, vaid ka otsustamise strateegiat.
+- Diagnostiseerides mustreid nagu: „Iga kord, kui ma näen, et kasutaja mainib ‘liiga rahvarohket,’ ei tohiks ma mitte ainult teatud vaatamisväärsusi eemaldada, vaid ka mõelda, et minu ‘parimate vaatamisväärsuste’ valimise meetod on vigane, kui ma järjestan alati populaarsuse järgi.“
 
 ### Metakognitsiooni tähtsus AI agentides
 
-Metakognitsioon mängib AI agendi disainis olulist rolli mitmel põhjusel:
+Metakognitsioonil on AI agentide disainis mitu olulist rolli:
 
 ![Metakognitsiooni tähtsus](../../../translated_images/et/importance-of-metacognition.b381afe9aae352f7.webp)
 
-- Enesepeegeldu s: Agendid saavad hinnata oma sooritust ja tuvastada parendusvaldkondi.
-- Kohanemisvõime: Agendid saavad muuta oma strateegiaid varasemate kogemuste ja muutuvate tingimuste põhjal.
-- Vigade parandamine: Agendid suudavad iseseisvalt tuvastada ja parandada vigu, mis viib täpsemate tulemusteni.
-- Ressursside haldamine: Agendid saavad optimeerida ressursikasutust, nagu aeg ja arvutusvõimsus, planeerides ja hinnates oma tegevusi.
+- Enesepeegelduse: agentidel on võimalik hinnata oma sooritust ja tuvastada arenguvõimalusi.
+- Kohanduvuse: agentidel on võimalik muuta oma strateegiaid varasemate kogemuste ja muutuva keskkonna põhjal.
+- Vigade parandamise: agentidel on võimalik iseseisvalt vigu tuvastada ja parandada, saavutades täpsemaid tulemusi.
+- Ressursside haldamise: agentidel on võimalik optimeerida ressursside kasutamist, nagu aeg ja arvutusvõimsus, planeerides ja hinnates oma tegevusi.
 
 ## AI agendi komponendid
 
-Enne metakognitiivsete protsesside süvenemist on oluline mõista AI agendi põhikomponente. AI agent koosneb tavaliselt järgmistest osadest:
+Enne metakognitiivsete protsesside juurde sukeldumist on oluline mõista AI agendi põhikomponeente. AI agent koosneb tavaliselt järgmistest osadest:
 
-- Persona: Agendi isiksus ja omadused, mis määravad, kuidas see kasutajatega suhtleb.
-- Tools: Võimed ja funktsioonid, mida agent suudab täita.
-- Oskused: Teadmised ja pädevus, mida agent omab.
+- Persona: agendi isiksus ja omadused, mis määravad, kuidas see kasutajatega suhtleb.
+- Vahendid: võimed ja funktsioonid, mida agent suudab täita.
+- Oskused: teadmised ja kompetentsid, mis agendil on.
 
-Need komponendid töötavad koos, luues "ekspertüksuse", mis suudab täita konkreetseid ülesandeid.
+Need komponendid töötavad koos, luues "ekspertiisiühiku," mis suudab täita konkreetseid ülesandeid.
 
 **Näide**:
-Mõelge reisibüroole — agenditeenusele, mis mitte ainult ei planeeri teie puhkust, vaid kohandab oma marsruuti reaalajas andmete ja varasemate kliendikogemuste põhjal.
+Kujutage ette reisibürood, agenditeenust, mis mitte ainult ei planeeri teie puhkust, vaid kohandab oma teekonda reaalajas andmete ja varasemate kliendikogemuste põhjal.
 
-### Näide: metakognitsioon reisibürooteenuses
+### Näide: metakognitsioon reisibüroos
 
-Kujutage ette, et disainite tehisintellektil põhinevat reisibürooteenust. See agent, "Travel Agent", aitab kasutajaid nende puhkuste planeerimisel. Metakognitsiooni rakendamiseks peab Travel Agent hindama ja kohandama oma tegevusi, tuginedes eneseteadlikkusele ja varasematele kogemustele. Siin on, kuidas metakognitsioon võiks rolli mängida:
+Kujutage ette, et disainite AI-põhist reisibürooteenust. See agent, "Reisibüroo," aitab kasutajatel oma puhkust planeerida. Metakognitsiooni kaasamiseks peab Reisibüroo hindama ja kohandama oma tegevusi eneseteadlikkuse ja varasemate kogemuste baasil. Siin on, kuidas metakognitsioon võiks mängida rolli:
 
 #### Praegune ülesanne
 
-Praegune ülesanne on aidata kasutajal planeerida reisi Pariisi.
+Praegune ülesanne on aidata kasutajal planeerida reis Pariisi.
 
-#### Sammud ülesande täitmiseks
+#### Ülesande täitmise sammud
 
-1. **Koguge kasutaja eelistused**: Küsige kasutajalt nende reisikuupäevade, eelarve, huvide (nt muuseumid, köök, ostlemine) ja konkreetsete nõuded kohta.
-2. **Hankige teavet**: Otsige lennuvalikuid, majutust, vaatamisväärsusi ja restorane, mis vastavad kasutaja eelistustele.
-3. **Koostage soovitused**: Pakkuge isikupärastatud marsruuti koos lennuandmete, hotelli broneeringute ja soovitatud tegevustega.
-4. **Kohandage tagasiside alusel**: Küsige kasutajalt tagasisidet soovituste kohta ja tehke vajalikud muudatused.
+1. **Koguda kasutaja eelistused**: küsida kasutajalt reisi kuupäevad, eelarve, huvid (nt muuseumid, köök, ostlemine) ja muud erisoovid.
+2. **Teabe hankimine**: otsida lennuvalikuid, majutust, vaatamisväärsusi ja restorane, mis vastavad kasutaja eelistustele.
+3. **Soovituste koostamine**: pakkuda isikupärastatud marsruuti koos lennuandmete, hotelli broneeringute ja soovitatud tegevustega.
+4. **Tagasiside põhjal kohandamine**: küsida kasutajalt soovituste kohta tagasisidet ja teha vajalikud muudatused.
 
-#### Nõutavad ressursid
+#### Vajalikud ressursid
 
-- Ligipääs lennu- ja hotellibroneeringute andmebaasidele.
-- Teave Pariisi vaatamisväärsuste ja restoranide kohta.
-- Kasutaja tagasiside andmed varasematest suhtlustest.
+- Ligipääs lennu- ja hotelli broneerimiste andmebaasidele.
+- Info Pariisi vaatamisväärsuste ja restoranide kohta.
+- Kasutajate varasemate vastuste andmed.
 
 #### Kogemus ja enesepeegeldus
 
-Travel Agent kasutab metakognitsiooni oma soorituse hindamiseks ja varasematest kogemustest õppimiseks. Näiteks:
+Reisibüroo kasutab metakognitsiooni, et hinnata oma tulemuslikkust ja õppida varasematest kogemustest. Näiteks:
 
-1. **Kasutaja tagasiside analüüs**: Travel Agent vaatab läbi kasutaja tagasisidet, et määrata, millised soovitused olid hästi vastu võetud ja millised mitte. Selle põhjal kohandab ta tulevasi soovitusi.
-2. **Kohanemisvõime**: Kui kasutaja on varem maininud, et talle ei meeldi rahvarohked kohad, väldib Travel Agent tulevikus populaarseid turismikohti tipptundidel.
-3. **Vigade parandamine**: Kui Travel Agent tegi varem broneerimisel vea, näiteks soovitas täiesti broneeritud hotelli, õpib ta enne soovituste tegemist saadavust rangemalt kontrollima.
+1. **Kasutajate tagasiside analüüs**: Reisibüroo vaatab üle kasutajate arvamused, et tuvastada, millised soovitused olid hästi vastuvõetud ja millised mitte. See kohandab oma tulevasi soovitusi vastavalt.
+2. **Kohanemisvõime**: Kui kasutaja on varem maininud, et talle ei meeldi rahvarohked kohad, väldib Reisibüroo tulevikus populaarsete turismiatraktsioonide soovitamist tipptundidel.
+3. **Vigade parandamine**: Kui Reisibüroo on teinud vigu varasemates broneeringutes, näiteks soovitanud täisbroneeritud hotelli, õpib see broneeringute saadavust rangemalt kontrollima enne soovituste tegemist.
 
 #### Praktiline arendaja näide
 
-Siin on lihtsustatud näide sellest, kuidas Travel Agenti kood võiks välja näha, kui sinna on lisatud metakognitsioon:
+Siin on lihtsustatud näide sellest, kuidas Reisibüroo kood võiks metakognitsiooni kaasates välja näha:
 
 ```python
 class Travel_Agent:
@@ -117,7 +117,7 @@ class Travel_Agent:
         # Analüüsi tagasisidet ja kohanda tulevasi soovitusi
         self.user_preferences = adjust_preferences(self.user_preferences, feedback)
 
-# Kasutamise näide
+# Näidiskasutus
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -134,70 +134,70 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 #### Miks metakognitsioon on oluline
 
-- **Enesepeegeldus**: Agendid saavad analüüsida oma sooritust ja tuvastada parendusvaldkondi.
-- **Kohanemisvõime**: Agendid saavad muuta strateegiaid vastavalt tagasisidele ja muutuvatele tingimustele.
-- **Vigade parandamine**: Agendid suudavad iseseisvalt vigu tuvastada ja parandada.
-- **Ressursside haldamine**: Agendid saavad optimeerida ressursikasutust, nagu aeg ja arvutusvõimsus.
+- **Enesepeegeldus**: agentidel on võimalik analüüsida oma sooritust ja määrata arendusvaldkondi.
+- **Kohanemisvõime**: agentidel on võimalik muuta strateegiaid vastavalt tagasisidele ja muutuvale olukorrale.
+- **Vigade parandamine**: agentidel on võimalik iseseisvalt vigasid tuvastada ja parandada.
+- **Ressursside haldamine**: agentidel on võimalik optimeerida ressursside kasutamist, nt aega ja arvutusvõimsust.
 
-Metakognitsiooni kaasates suudab Travel Agent pakkuda personaalsemaid ja täpsemaid reisisoovitusi, parandades üldist kasutajakogemust.
+Metakognitsiooni kaasates saab Reisibüroo pakkuda kasutajale personaalsemaid ja täpsemaid reisisoovitusi, parandades seeläbi üldist kasutajakogemust.
 
 ---
 
 ## 2. Planeerimine agentides
 
-Planeerimine on AI agendi käitumise kriitiline komponent. See hõlmab sammude ettepanekut eesmärgi saavutamiseks, võttes arvesse praegust olekut, ressursse ja võimalikke takistusi.
+Planeerimine on AI agendi käitumise kriitiline komponent. See hõlmab eesmärgi saavutamiseks vajalike sammude kavandamist, võttes arvesse praegust olukorda, ressursse ja võimalikke takistusi.
 
 ### Planeerimise elemendid
 
-- **Praegune ülesanne**: Määratle ülesanne selgelt.
-- **Sammud ülesande täitmiseks**: Jaga ülesanne hallatavateks sammudeks.
-- **Nõutavad ressursid**: Tuvasta vajalikud ressursid.
-- **Kogemus**: Kasuta planeerimisel varasemaid kogemusi.
+- **Praegune ülesanne**: määratlege ülesanne selgelt.
+- **Ülesande täitmise sammud**: jagage ülesanne hallatavateks sammudeks.
+- **Vajalikud ressursid**: määrake vajalikud ressursid.
+- **Kogemus**: kasutage varasemaid kogemusi planeerimiseks.
 
 **Näide**:
-Siin on sammud, mida Travel Agent peab tegema, et efektiivselt aidata kasutajal oma reis planeerida:
+Siin on sammud, mida Reisibüroo peab kasutaja abistamiseks tõhusa reisi planeerimisel tegema:
 
-### Sammud Travel Agendi jaoks
+### Reisibüroo sammud
 
-1. **Koguge kasutaja eelistused**
-   - Küsige kasutajalt detaile nende reisikuupäevade, eelarve, huvide ja konkreetsete nõuete kohta.
-   - Näited: "Millal te plaanite reisida?" "Mis on teie eelarve?" "Milliseid tegevusi te puhkusel naudite?"
+1. **Koguda kasutaja eelistused**
+   - Küsi kasutajalt üksikasju reisi kuupäevade, eelarve, huvide ja erisoovide kohta.
+   - Näited: „Millal te plaanite reisida?“ „Mis on teie eelarvepiir?“ „Milliseid tegevusi te eelistate puhkusel?“
 
-2. **Hankige teavet**
-   - Otsige sobivaid reisivõimalusi vastavalt kasutaja eelistustele.
-   - **Lennud**: Otsige saadavalolevaid lende vastavalt kasutaja eelarvele ja eelistatud reisikuupäevadele.
-   - **Majutus**: Leidke hotellid või rendipinnad, mis vastavad kasutaja eelistustele asukoha, hinna ja mugavuste osas.
-   - **Atraktsioonid ja restoranid**: Tuvastage populaarsed vaatamisväärsused, tegevused ja söögikohad, mis vastavad kasutaja huvidele.
+2. **Teabe hankimine**
+   - Otsi kasutaja eelistustele vastavaid reisivõimalusi.
+   - **Lennud**: otsi saadaval olevaid lende kasutaja eelarve ja soovitud reisi kuupäevade sees.
+   - **Majutus**: leia hotellid või rendikohad, mis sobivad kasutaja eelistustele asukoha, hinna ja mugavuste poolest.
+   - **Vaatamisväärsused ja restoranid**: tuvastage populaarsed atraktsioonid, tegevused ja söögikohad, mis vastavad kasutaja huvidele.
 
-3. **Koostage soovitused**
-   - Koondage hangitud info isikupäraseks marsruudiks.
-   - Esitage üksikasju nagu lennuvalikud, hotellibroneeringud ja soovitatud tegevused, kohandades soovitusi vastavalt kasutaja eelistustele.
+3. **Soovituste koostamine**
+   - Koosta kogutud teabe põhjal isikupärastatud marsruut.
+   - Esita detailid nagu lennuvõimalused, hotellibroneeringud ja soovitatud tegevused, kohandades soovitusi kasutaja eelistustele.
 
-4. **Esitle marsruuti kasutajale**
-   - Jagage ettepanekut kasutajale ülevaatamiseks.
-   - Näide: "Siin on soovitatud marsruut teie Pariisi reisiks. See sisaldab lennuandmeid, hotelli broneeringuid ja nimekirja soovitatud tegevustest ja restoranidest. Andke teada oma arvamus!"
+4. **Marsruudi esitamine kasutajale**
+   - Jaga kasutajaga ettepanek marsruudi kohta ülevaatamiseks.
+   - Näide: „Siin on teie Pariisi reisi soovituslik marsruut. See sisaldab lennuandmeid, hotelli broneeringuid ja nimekirja soovitatud tegevustest ning restoranidest. Anna teada, mida arvad!“
 
-5. **Koguge tagasisidet**
-   - Küsige kasutajalt tagasisidet ettepanekule.
-   - Näited: "Kas teile meeldivad lennuvalikud?" "Kas hotell vastab teie vajadustele?" "Kas on mingeid tegevusi, mida soovite lisada või eemaldada?"
+5. **Tagasiside kogumine**
+   - Palu kasutajal esitatud marsruudi kohta tagasisidet.
+   - Näited: „Kas teile meeldivad lennuvalikud?“ „Kas hotell vastab teie vajadustele?“ „Kas soovite lisada või eemaldada mõnda tegevust?“
 
-6. **Kohandage tagasiside alusel**
+6. **Tagasiside põhjal kohandamine**
    - Muutke marsruuti vastavalt kasutaja tagasisidele.
-   - Tehke vajalikud muudatused lennu-, majutuse- ja tegevuso-ssoovitustes, et need vastaksid paremini kasutaja eelistustele.
+   - Tehke vajalikud muudatused lennu-, majutuse ja tegevuste soovitustes, et paremini vastata kasutaja eelistustele.
 
-7. **Lõplik kinnitus**
-   - Esitage uuendatud marsruut kasutajale lõplikuks kinnituseks.
-   - Näide: "Olen teinud teie tagasiside põhjal muudatused. Siin on uuendatud marsruut. Kas kõik tundub korras?"
+7. **Lõplik kinnitamine**
+   - Esitage kasutajale uuendatud marsruut lõplikuks kinnitamiseks.
+   - Näide: „Olen teinud muudatused teie tagasiside põhjal. Siin on uuendatud marsruut. Kas kõik tundub hea?“
 
-8. **Broneerige ja kinnitage reservatsioonid**
-   - Kui kasutaja heaks kiidab marsruudi, jätkake lennu-, majutuse ja ette planeeritud tegevuste broneerimisega.
-   - Saatke kasutajale kinnituste üksikasjad.
+8. **Broneeringute tegemine ja kinnitamine**
+   - Kui kasutaja marsruudi kinnitab, jätka lendude, majutuse ja eelplaneeritud tegevuste broneerimisega.
+   - Saada kasutajale kinnitusteave.
 
-9. **Pakkuge pidevat tuge**
-   - Olge saadaval, et aidata kasutajat muudatuste või täiendavate taotlustega enne reisi ja selle ajal.
-   - Näide: "Kui teil on reisi jooksul veel abi vaja, võtke minuga igal ajal ühendust!"
+9. **Järelteeninduse pakkumine**
+   - Ole kasutajale kättesaadav kõikide muudatuste või täiendavate taotluste korral enne ja reisi ajal.
+   - Näide: „Kui teil on reisi jooksul lisatuge vaja, võtke minuga igal ajal ühendust!“
 
-### Näide suhtlusest
+### Näidisinteraktsioon
 
 ```python
 class Travel_Agent:
@@ -223,7 +223,7 @@ class Travel_Agent:
         self.experience_data.append(feedback)
         self.user_preferences = adjust_preferences(self.user_preferences, feedback)
 
-# Example usage within a booing request
+# Näidis kasutus katkise taotluse korral
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -238,48 +238,48 @@ feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)
 travel_agent.adjust_based_on_feedback(feedback)
 ```
 
-## 3. Paranduslik RAG süsteem
+## 3. Korrektsiooniline RAG süsteem
 
-Esmalt alustame, mõistes erinevust RAG-tööriista ja ennetava konteksti laadimise vahel
+Alustame mõistmisest, mis vahe on RAG tööriistal ja ennetaval konteksti laadimisel.
 
 ![RAG vs konteksti laadimine](../../../translated_images/et/rag-vs-context.9eae588520c00921.webp)
 
-### Otsinguga täiendatud genereerimine (RAG)
+### Retrieval-Augmented Generation (RAG)
 
-RAG kombineerib otsingusüsteemi generatiivse mudeliga. Kui esitatakse päring, otsib retrieval-süsteem asjakohaseid dokumente või andmeid välisest allikast ning see hangitud informatsioon kasutatakse generatiivse mudeli sisendit täiustama. See aitab mudelil genereerida täpsemaid ja kontekstipõhisemaid vastuseid.
+RAG ühendab tagasitoomisüsteemi generatiivse mudeliga. Kui esitatakse päring, otsib tagasitoomisüsteem asjakohaseid dokumente või andmeid välisest allikast ning see tagastatud teave rikastab generatiivse mudeli sisendit. See aitab mudelil genereerida täpsemaid ja kontekstuaalselt asjakohasemaid vastuseid.
 
-RAG süsteemis hangib agent asjakohast teavet teadmistebaasist ja kasutab seda sobivate vastuste või tegevuste genereerimiseks.
+RAG süsteemis hangib agent asjakohast teavet teadmistebaasist ja kasutab seda sobivate vastuste või tegevuste loomiseks.
 
-### Paranduslik RAG lähenemine
+### Korrektsiooniline RAG lähenemine
 
-Paranduslik RAG lähenemine keskendub RAG tehnikate kasutamisele vigade parandamiseks ja AI agentide täpsuse parandamiseks. See hõlmab:
+Korrektsiooniline RAG keskendub RAG tehnikate kasutamisele vigade parandamiseks ja AI agentide täpsuse parandamiseks. See hõlmab:
 
-1. **Põhimõtet promptimise kohta**: Spetsiifiliste promptide kasutamine agendi suunamiseks sobiva informatsiooni hankimisel.
-2. **Tööriist**: Algoritmide ja mehhanismide rakendamine, mis võimaldavad agendil hinnata hangitud informatsiooni asjakohasust ja genereerida täpseid vastuseid.
-3. **Hindamine**: Agendi soorituse pidev hindamine ja kohanduste tegemine selle täpsuse ja efektiivsuse parandamiseks.
+1. **Pärimistehnika**: kasutada spetsiifilisi päringuid, et suunata agent asjakohase teabe otsingul.
+2. **Tööriist**: rakendada algoritme ja mehhanisme, mis võimaldavad agendil hinnata tagastatud teabe asjakohasust ja genereerida täpseid vastuseid.
+3. **Hindamine**: pidevalt hinnata agentide sooritust ning teha parandusi täpsuse ja tõhususe tõstmiseks.
 
-#### Näide: paranduslik RAG otsinguagendis
+#### Näide: korrektsiooniline RAG otsinguagendis
 
-Mõelge otsinguagendile, mis hangib veebi kaudu informatsiooni kasutaja päringute vastamiseks. Paranduslik RAG lähenemine võib hõlmata:
+Mõelge otsinguagendile, kes hangib teavet veebist kasutajate päringute vastamiseks. Korrektsiooniline RAG meetod võib hõlmata:
 
-1. **Promptimise tehnika**: Otsingupäringute sõnastamine kasutaja sisendi põhjal.
-2. **Tööriist**: Loomuliku keele töötluse ja masinõppe algoritmide kasutamine otsingutulemuste järjestamiseks ja filtreerimiseks.
-3. **Hindamine**: Kasutaja tagasiside analüüsimine, et tuvastada ja parandada hangitud informatsiooni ebatäpsusi.
+1. **Pärimistehnika**: koostada otsingupäringud kasutaja sisendi põhjal.
+2. **Tööriist**: kasutada loomuliku keele töötlemise ja masinõppe algoritme otsingutulemuste järjestamiseks ja filtreerimiseks.
+3. **Hindamine**: analüüsida kasutajate tagasisidet, et tuvastada ja parandada tagastatud teabe ebatäpsusi.
 
-### Paranduslik RAG Travel Agentis
+### Korrektsiooniline RAG reisibüroos
 
-Paranduslik RAG (Retrieval-Augmented Generation) parandab AI võimet hankida ja genereerida informatsiooni ning korrigeerida võimalikke ebatäpsusi. Vaatame, kuidas Travel Agent saab paranduslikku RAG lähenemist kasutada täpsemate ja asjakohasemate reisisoovituste pakkumiseks.
+Korrektsiooniline RAG (Retrieval-Augmented Generation) parandab AI võimet teavet hankida ja genereerida, samal ajal vigasid korrigeerides. Vaatame, kuidas Reisibüroo saab Korrektsioonilist RAG-lähenemist kasutada täpsemate ja asjakohasemate reisisoovituste pakkumiseks.
 
 See hõlmab:
 
-- **Promptimise tehnika:** Spetsiifiliste küsimuste kasutamine agendi suunamiseks asjakohase informatsiooni hankimisel.
-- **Tööriist:** Algoritmide ja mehhanismide rakendamine, mis võimaldavad agendil hinnata hangitud informatsiooni asjakohasust ja genereerida täpseid vastuseid.
-- **Hindamine:** Agendi soorituse pidev hindamine ja kohandamine täpsuse ja efektiivsuse parandamiseks.
+- **Pärimistehnika:** kasutada spetsiifilisi päringuid, et suunata agent asjakohase teabe otsingul.
+- **Tööriist:** rakendada algoritme ja mehhanisme, mis võimaldavad agendil hinnata tagastatud teabe asjakohasust ja genereerida täpseid vastuseid.
+- **Hindamine:** pidevalt hinnata agentide sooritust ning teha parandusi täpsuse ja tõhususe kõrgetasemelisse tõstmiseks.
 
-#### Sammud parandusliku RAG rakendamiseks Travel Agentis
+#### Korrektsioonilise RAG rakendamise sammud Reisibüroos
 
-1. **Algne kasutajasuhtlus**
-   - Travel Agent kogub kasutajalt esialgseid eelistusi, nagu sihtkoht, reisikuupäevad, eelarve ja huvid.
+1. **Esialgne kasutajasuhtlus**
+   - Reisibüroo kogub kasutajalt esialgsed eelistused nagu sihtkoht, reisi kuupäevad, eelarve ja huvid.
    - Näide:
 
      ```python
@@ -291,8 +291,8 @@ See hõlmab:
      }
      ```
 
-2. **Informatsiooni hankimine**
-   - Travel Agent hangib teavet lendude, majutuse, vaatamisväärsuste ja restoranide kohta vastavalt kasutaja eelistustele.
+2. **Teabe tagasitoomine**
+   - Reisibüroo hangib andmeid lendude, majutuse, vaatamisväärsuste ja restoranide kohta, tuginedes kasutaja eelistustele.
    - Näide:
 
      ```python
@@ -301,8 +301,8 @@ See hõlmab:
      attractions = search_attractions(preferences)
      ```
 
-3. **Esialgsete soovituste genereerimine**
-   - Travel Agent kasutab hangitud informatsiooni isikupärase marsruudi genereerimiseks.
+3. **Esialgsete soovituste koostamine**
+   - Reisibüroo kasutab kogutud teavet isikupärase marsruudi koostamiseks.
    - Näide:
 
      ```python
@@ -310,8 +310,8 @@ See hõlmab:
      print("Suggested Itinerary:", itinerary)
      ```
 
-4. **Kasutaja tagasiside kogumine**
-   - Travel Agent küsib kasutajalt tagasisidet esialgsete soovituste kohta.
+4. **Kasutajate tagasiside kogumine**
+   - Reisibüroo küsib kasutajalt tagasisidet esialgsete soovituste kohta.
    - Näide:
 
      ```python
@@ -321,8 +321,8 @@ See hõlmab:
      }
      ```
 
-5. **Paranduslik RAG protsess**
-   - **Promptimise tehnika**: Travel Agent formuleerib uued otsingupäringud kasutaja tagasiside põhjal.
+5. **Korrektsiooniline RAG protsess**
+   - **Pärimistehnika**: Reisibüroo koostab uusi otsingupäringuid kasutaja tagasiside põhjal.
      - Näide:
 
        ```python
@@ -330,7 +330,7 @@ See hõlmab:
            preferences["avoid"] = feedback["disliked"]
        ```
 
-   - **Tööriist**: Travel Agent kasutab algoritme, et järjestada ja filtreerida uusi otsingutulemusi, pannes rõhku asjakohasusele vastavalt kasutaja tagasisidele.
+   - **Tööriist**: Reisibüroo kasutab algoritme uute otsingutulemuste järjestamiseks ja filtreerimiseks, rõhutades relevantsust tagasiside põhjal.
      - Näide:
 
        ```python
@@ -339,7 +339,7 @@ See hõlmab:
        print("Updated Itinerary:", new_itinerary)
        ```
 
-   - **Hindamine**: Travel Agent hindab pidevalt oma soovituste asjakohasust ja täpsust, analüüsides kasutaja tagasisidet ja tehes vajalikud kohandused.
+   - **Hindamine**: Reisibüroo hindab pidevalt oma soovituste relevantsust ja täpsust, analüüsides kasutajate tagasisidet ning tehes vajalikud parandused.
      - Näide:
 
        ```python
@@ -355,7 +355,7 @@ See hõlmab:
 
 #### Praktiline näide
 
-Siin on lihtsustatud Python-koodi näide, mis sisaldab paranduslikku RAG lähenemist Travel Agentis:
+Siin on lihtsustatud Python koodi näide, mis sisaldab Korrektsioonilist RAG lähenemist Reisibüroos:
 
 ```python
 class Travel_Agent:
@@ -383,7 +383,7 @@ class Travel_Agent:
         new_itinerary = self.generate_recommendations()
         return new_itinerary
 
-# Näide kasutamisest
+# Näidiskasutus
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -400,14 +400,16 @@ print("Updated Itinerary:", new_itinerary)
 ```
 
 ### Ennetav konteksti laadimine
-Ettelõikav konteksti laadimine hõlmab asjakohase konteksti või taustainfo laadimist mudelisse enne päringu töötlemist. See tähendab, et mudelil on sellest infost algusest peale juurdepääs, mis aitab tal genereerida paremini informeeritud vastuseid ilma protsessi käigus täiendavaid andmeid pärimata.
 
-Here's a simplified example of how a pre-emptive context load might look for a travel agent application in Python:
+
+Ennetav konteksti laadimine hõlmab asjakohase konteksti või taustteabe laadimist mudelisse enne päringu töötlemist. See tähendab, et mudelil on sellest infost algusest peale juurdepääs, mis aitab tal genereerida teadlikumaid vastuseid ilma, et peaks protsessi käigus täiendavat andmeid tooma.
+
+Siin on lihtsustatud näide sellest, kuidas võiks ennetav konteksti laadimine välja näha reisiagentuuri rakenduses Pythoni keeles:
 
 ```python
 class TravelAgent:
     def __init__(self):
-        # Eellaadige populaarsed sihtkohad ja nende teavet
+        # Eellaadige populaarsed sihtkohad ja nende teave
         self.context = {
             "Paris": {"country": "France", "currency": "Euro", "language": "French", "attractions": ["Eiffel Tower", "Louvre Museum"]},
             "Tokyo": {"country": "Japan", "currency": "Yen", "language": "Japanese", "attractions": ["Tokyo Tower", "Shibuya Crossing"]},
@@ -416,14 +418,14 @@ class TravelAgent:
         }
 
     def get_destination_info(self, destination):
-        # Hankige sihtkoha teavet eellaetud kontekstist
+        # Hangi sihtkoha teave eellaaditud kontekstist
         info = self.context.get(destination)
         if info:
             return f"{destination}:\nCountry: {info['country']}\nCurrency: {info['currency']}\nLanguage: {info['language']}\nAttractions: {', '.join(info['attractions'])}"
         else:
             return f"Sorry, we don't have information on {destination}."
 
-# Kasutamise näide
+# Näidiskasutus
 travel_agent = TravelAgent()
 print(travel_agent.get_destination_info("Paris"))
 print(travel_agent.get_destination_info("Tokyo"))
@@ -431,29 +433,29 @@ print(travel_agent.get_destination_info("Tokyo"))
 
 #### Selgitus
 
-1. **Initialization (`__init__` method)**: The `TravelAgent` class pre-loads a dictionary containing information about popular destinations such as Paris, Tokyo, New York, and Sydney. This dictionary includes details like the country, currency, language, and major attractions for each destination.
+1. **Initsialiseerimine (`__init__` meetod)**: `TravelAgent` klass laeb ette sõnastiku, mis sisaldab teavet populaarsete sihtkohtade, näiteks Pariisi, Tokyo, New Yorgi ja Sydney kohta. See sõnastik sisaldab selliseid üksikasju nagu riik, valuuta, keel ja peamised vaatamisväärsused iga sihtkoha kohta.
 
-2. **Retrieving Information (`get_destination_info` method)**: When a user queries about a specific destination, the `get_destination_info` method fetches the relevant information from the pre-loaded context dictionary.
+2. **Info toomine (`get_destination_info` meetod)**: Kui kasutaja pärib konkreetse sihtkoha kohta, toob meetod `get_destination_info` asjakohase teabe eelnevalt laetud konteksti sõnastikust.
 
-By pre-loading the context, the travel agent application can quickly respond to user queries without having to retrieve this information from an external source in real-time. This makes the application more efficient and responsive.
+Konteksti ennetava laadimise abil saab reisiagentuuri rakendus kiiresti kasutajapäringutele vastata, ilma et peaks reaalajas välisest allikast infot tooma. See muudab rakenduse efektiivsemaks ja reageerimisvõimelisemaks.
 
-### Plaani algseadistamine eesmärgiga enne iteratsiooni
+### Plaani käivitamine eesmärgiga enne iteratsiooni
 
-Plaani algseadistamine eesmärgiga hõlmab selge eesmärgi või soovitud tulemuse määratlemist juba alguses. Selle eesmärgi ette määratlemisel saab mudel seda kasutada juhise põhimõttena kogu iteratiivse protsessi vältel. See aitab tagada, et iga iteratsioon viib lähemale soovitud tulemuse saavutamisele, muutes protsessi tõhusamaks ja fokuseeritumaks.
+Plaani käivitamine eesmärgiga tähendab, et alustatakse selge eesmärgi või sihtmärgiga. Selle eesmärgi eelmääratlemine võimaldab mudelil kasutada seda juhisena kogu iteratiivse protsessi vältel. See aitab tagada, et iga iteratsioon viib lähemale soovitud tulemuse saavutamisele, muutes protsessi tõhusamaks ja fokusseeritumaks.
 
-Here's an example of how you might bootstrap a travel plan with a goal before iterating for a travel agent in Python:
+Siin on näide sellest, kuidas käivitada reisi plaan eesmärgiga enne iteratsiooni reisiagentuuri jaoks Pythonis:
 
 ### Stsenaarium
 
-A travel agent wants to plan a customized vacation for a client. The goal is to create a travel itinerary that maximizes the client's satisfaction based on their preferences and budget.
+Reisiagent soovib planeerida kohandatud puhkuse kliendile. Eesmärk on luua reisikava, mis maksimeerib kliendi rahulolu nende eelistuste ja eelarve põhjal.
 
 ### Sammud
 
-1. Define the client's preferences and budget.
-2. Bootstrap the initial plan based on these preferences.
-3. Iterate to refine the plan, optimizing for the client's satisfaction.
+1. Määratleda kliendi eelistused ja eelarve.
+2. Käivitada algne plaan nende eelistuste põhjal.
+3. Itereerida plaani, et seda täiustada, optimeerides kliendi rahulolu.
 
-#### Pythoni kood
+#### Python-kood
 
 ```python
 class TravelAgent:
@@ -488,7 +490,7 @@ class TravelAgent:
     def calculate_cost(self, plan, new_destination):
         return sum(destination['cost'] for destination in plan) + new_destination['cost']
 
-# Kasutamise näide
+# Näidis kasutus
 destinations = [
     {"name": "Paris", "cost": 1000, "activity": "sightseeing"},
     {"name": "Tokyo", "cost": 1200, "activity": "shopping"},
@@ -509,55 +511,55 @@ print("Refined Plan:", refined_plan)
 
 #### Koodi selgitus
 
-1. **Initialization (`__init__` method)**: The `TravelAgent` class is initialized with a list of potential destinations, each having attributes like name, cost, and activity type.
+1. **Initsialiseerimine (`__init__` meetod)**: `TravelAgent` klass initsialiseeritakse potentsiaalsete sihtkohtade nimekirjaga, millest igaühel on omadused nagu nimi, hind ja tegevusetüüp.
 
-2. **Bootstrapping the Plan (`bootstrap_plan` method)**: This method creates an initial travel plan based on the client's preferences and budget. It iterates through the list of destinations and adds them to the plan if they match the client's preferences and fit within the budget.
+2. **Plaani käivitamine (`bootstrap_plan` meetod)**: See meetod loob algse reisiplaani kliendi eelistuste ja eelarve põhjal. See käib läbi sihtkohtade nimekirja ja lisab need plaani, kui need vastavad kliendi eelistustele ja mahuvad eelarvesse.
 
-3. **Matching Preferences (`match_preferences` method)**: This method checks if a destination matches the client's preferences.
+3. **Eelistuste sobitamine (`match_preferences` meetod)**: See meetod kontrollib, kas sihtkoht sobib kliendi eelistustega.
 
-4. **Iterating the Plan (`iterate_plan` method)**: This method refines the initial plan by trying to replace each destination in the plan with a better match, considering the client's preferences and budget constraints.
+4. **Plaani iteratsioon (`iterate_plan` meetod)**: See meetod täiustab algset plaani, püüdes iga sihtkoha plaanis asendada paremini sobiva vastu, võttes arvesse kliendi eelistusi ja eelarvepiiranguid.
 
-5. **Calculating Cost (`calculate_cost` method)**: This method calculates the total cost of the current plan, including a potential new destination.
+5. **Kulu arvutamine (`calculate_cost` meetod)**: See meetod arvutab praeguse plaani kogukulu, kaasa arvatud potentsiaalne uus sihtkoht.
 
-#### Näide kasutamisest
+#### Näide kasutusest
 
-- **Initial Plan**: The travel agent creates an initial plan based on the client's preferences for sightseeing and a budget of $2000.
-- **Refined Plan**: The travel agent iterates the plan, optimizing for the client's preferences and budget.
+- **Algne plaan**: reisiagent koostab algplaani, võttes arvesse kliendi eelistusi vaatamisväärsuste jaoks ja eelarvet 2000 dollarit.
+- **Täiendatud plaan**: reisiagent itererib plaani, optimeerides vastavalt kliendi eelistustele ja eelarvele.
 
-By bootstrapping the plan with a clear goal (e.g., maximizing client satisfaction) and iterating to refine the plan, the travel agent can create a customized and optimized travel itinerary for the client. This approach ensures that the travel plan aligns with the client's preferences and budget from the start and improves with each iteration.
+Käivitades plaani selge eesmärgiga (näiteks maksimeerida kliendirahulolu) ning itereerides selle täiendamiseks, saab reisiagent luua kliendile kohandatud ja optimeeritud reisikava. See lähenemine tagab, et reisiplaan on algusest peale kooskõlas kliendi eelistuste ja eelarvega ning paraneb iga iteratsiooniga.
 
 ### LLM-i kasutamine ümberjärjestamiseks ja hindamiseks
 
-Large Language Models (LLMs) can be used for re-ranking and scoring by evaluating the relevance and quality of retrieved documents or generated responses. Here's how it works:
+Suured keelemudelid (LLMid) võivad olla kasutatavad ümberjärjestamise ja hindamise jaoks, hinnates pärinud dokumentide või genereeritud vastuste relevantsust ja kvaliteeti. Nii see toimib:
 
-**Retrieval:** The initial retrieval step fetches a set of candidate documents or responses based on the query.
+**Otsing:** Algne otsing toob välja komplekti kandidaatdokumente või vastuseid päringu põhjal.
 
-**Re-ranking:** The LLM evaluates these candidates and re-ranks them based on their relevance and quality. This step ensures that the most relevant and high-quality information is presented first.
+**Ümberjärjestamine:** LLM hindab neid kandidaate ja järjestab need ümber vastavalt nende relevantsusele ja kvaliteedile. See samm tagab, et kõige sobivam ja kvaliteetsem info esitatakse esimesena.
 
-**Scoring:** The LLM assigns scores to each candidate, reflecting their relevance and quality. This helps in selecting the best response or document for the user.
+**Hindamine:** LLM annab igale kandidaadile skoori, mis peegeldab selle relevantsust ja kvaliteeti. See aitab valida parima vastuse või dokumendi kasutajale.
 
-By leveraging LLMs for re-ranking and scoring, the system can provide more accurate and contextually relevant information, improving the overall user experience.
+LLM-ide kasutamine ümberjärjestamisel ja hindamisel võimaldab süsteemil pakkuda täpsemat ja kontekstuaalselt asjakohasemat teavet, parandades kasutajakogemust.
 
-Here's an example of how a travel agent might use a Large Language Model (LLM) for re-ranking and scoring travel destinations based on user preferences in Python:
+Siin on näide, kuidas reisiagent võiks kasutada suurt keelemudelit (LLM) reisi sihtkohtade ümberjärjestamiseks ja hindamiseks kasutaja eelistuste põhjal Pythonis:
 
-#### Stsenaarium - reisimine eelistuste alusel
+#### Stsenaarium - Eelistuste põhine reis
 
-A travel agent wants to recommend the best travel destinations to a client based on their preferences. The LLM will help re-rank and score the destinations to ensure the most relevant options are presented.
+Reisiagent soovib soovitada kliendile parimaid reisisihtkohti vastavalt tema eelistustele. LLM aitab sihtkohad ümberjärjestada ja hinnata, tagades kõige asjakohasemate valikute esitamise.
 
 #### Sammud:
 
-1. Collect user preferences.
-2. Retrieve a list of potential travel destinations.
-3. Use the LLM to re-rank and score the destinations based on user preferences.
+1. Koguda kasutaja eelistused.
+2. Otsida potentsiaalsete reisisihtkohtade nimekiri.
+3. Kasutada LLM-i sihtkohtade ümberjärjestamiseks ja hindamiseks kasutaja eelistuste alusel.
 
-Here’s how you can update the previous example to use Azure OpenAI Services:
+Siin on, kuidas saate olemasolevat näidet Azure OpenAI teenuste kasutamiseks uuendada:
 
 #### Nõuded
 
-1. You need to have an Azure subscription.
-2. Create an Azure OpenAI resource and get your API key.
+1. Teil peab olema Azure konto.
+2. Looge Azure OpenAI ressurss ja hankige oma API võti.
 
-#### Näide Python-koodist
+#### Näidiskood Pythonis
 
 ```python
 import requests
@@ -568,10 +570,10 @@ class TravelAgent:
         self.destinations = destinations
 
     def get_recommendations(self, preferences, api_key, endpoint):
-        # Loo Azure OpenAI jaoks päring
+        # Genereeri prompt Azure OpenAI jaoks
         prompt = self.generate_prompt(preferences)
         
-        # Määra päringu päised ja sisu
+        # Määra päised ja päringu sisu
         headers = {
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {api_key}'
@@ -586,7 +588,7 @@ class TravelAgent:
         response = requests.post(endpoint, headers=headers, json=payload)
         response_data = response.json()
         
-        # Võta välja ja tagasta soovitused
+        # Eemalda ja tagasta soovitused
         recommendations = response_data['choices'][0]['text'].strip().split('\n')
         return recommendations
 
@@ -599,7 +601,7 @@ class TravelAgent:
             prompt += f"- {destination['name']}: {destination['description']}\n"
         return prompt
 
-# Kasutamise näide
+# Näide kasutamisest
 destinations = [
     {"name": "Paris", "description": "City of lights, known for its art, fashion, and culture."},
     {"name": "Tokyo", "description": "Vibrant city, famous for its modernity and traditional temples."},
@@ -620,73 +622,73 @@ for rec in recommendations:
 
 #### Koodi selgitus - eelistuste broneerija
 
-1. **Initialization**: The `TravelAgent` class is initialized with a list of potential travel destinations, each having attributes like name and description.
+1. **Initsialiseerimine**: `TravelAgent` klass initsialiseeritakse potentsiaalsete reisisihtkohtade nimekirjaga, millest igaühel on omadused nagu nimi ja kirjeldus.
 
-2. **Getting Recommendations (`get_recommendations` method)**: This method generates a prompt for the Azure OpenAI service based on the user's preferences and makes an HTTP POST request to the Azure OpenAI API to get re-ranked and scored destinations.
+2. **Soovituste saamine (`get_recommendations` meetod)**: See meetod genereerib Azure OpenAI teenusele prompti kasutaja eelistustest ja teeb Azure OpenAI API-le HTTP POST päringu, et saada ümberjärjestatud ja hinnatud sihtkohad.
 
-3. **Generating Prompt (`generate_prompt` method)**: This method constructs a prompt for the Azure OpenAI, including the user's preferences and the list of destinations. The prompt guides the model to re-rank and score the destinations based on the provided preferences.
+3. **Prompti genereerimine (`generate_prompt` meetod)**: See meetod koostab Azure OpenAI jaoks prompti, mis sisaldab kasutaja eelistusi ja sihtkohtade nimekirja. Prompt juhib mudelit sihtkohtade ümberjärjestamiseks ja hindamiseks vastavalt esitatud eelistustele.
 
-4. **API Call**: The `requests` library is used to make an HTTP POST request to the Azure OpenAI API endpoint. The response contains the re-ranked and scored destinations.
+4. **API kõne**: `requests` raamatukogu kasutatakse HTTP POST päringuks Azure OpenAI API lõpp-punkti. Vastus sisaldab ümberjärjestatud ja hinnatud sihtkohti.
 
-5. **Example Usage**: The travel agent collects user preferences (e.g., interest in sightseeing and diverse culture) and uses the Azure OpenAI service to get re-ranked and scored recommendations for travel destinations.
+5. **Kasutamise näide**: reisiagent kogub kasutaja eelistused (nt huvi vaatamisväärsuste ja mitmekesise kultuuri vastu) ja kasutab Azure OpenAI teenust, et saada ümberjärjestatud ja hinnatud soovitusi reisisihtkohtade jaoks.
 
-Make sure to replace `your_azure_openai_api_key` with your actual Azure OpenAI API key and `https://your-endpoint.com/...` with the actual endpoint URL of your Azure OpenAI deployment.
+Veenduge, et asendate `your_azure_openai_api_key` oma tegeliku Azure OpenAI API võtmega ja `https://your-endpoint.com/...` tegeliku lõpp-punkti URL-iga Azure OpenAI juurutamisel.
 
-By leveraging the LLM for re-ranking and scoring, the travel agent can provide more personalized and relevant travel recommendations to clients, enhancing their overall experience.
+LLM-i kasutamine ümberjärjestamisel ja hindamisel võimaldab reisiagentuuril pakkuda klientidele isikupärastatud ja asjakohasemaid reisisoovitusi, parandades nende üldist kogemust.
 
-### RAG: promptimistehnika vs tööriist
+### RAG: pärimumpõhine generatsioon kui tehnika vs tööriist
 
-Retrieval-Augmented Generation (RAG) can be both a prompting technique and a tool in the development of AI agents. Understanding the distinction between the two can help you leverage RAG more effectively in your projects.
+Retrieval-Augmented Generation (RAG) võib olla nii pärimumpõhine genereerimistehnika kui ka tööriist tehisintellekti agentide arendamisel. Mõistmine, mis vahe neil on, aitab teil RAG-i oma projektides efektiivsemalt rakendada.
 
-#### RAG as a Prompting Technique
+#### RAG kui tehnika
 
-**What is it?**
+**Mis see on?**
 
-- As a prompting technique, RAG involves formulating specific queries or prompts to guide the retrieval of relevant information from a large corpus or database. This information is then used to generate responses or actions.
+- Teknikuressursina seisneb RAG spetsiifiliste päringute või promptide koostamises, mille abil juhitakse sobiva teabe otsimist suurest andmebaasist või korpuses. See info kasutatakse seejärel vastuste või toimingute genereerimiseks.
 
-**How it works:**
+**Kuidas see toimib:**
 
-1. **Formulate Prompts**: Create well-structured prompts or queries based on the task at hand or the user's input.
-2. **Retrieve Information**: Use the prompts to search for relevant data from a pre-existing knowledge base or dataset.
-3. **Generate Response**: Combine the retrieved information with generative AI models to produce a comprehensive and coherent response.
+1. **Promptide sõnastamine**: Valmistada hästi vormistatud promptid või päringud vastavalt ülesandele või kasutaja sisendile.
+2. **Teabe toomine**: Kasutada promptide abil olemasolevast teadmistebaasist või andmekogust asjakohaseid andmeid otsimiseks.
+3. **Vastuse genereerimine**: Kombineerida leitud info generatiivse AI mudeliga, et toota terviklik ja sidus vastus.
 
-**Example in Travel Agent**:
+**Näide reisiagentuuri puhul**:
 
-- User Input: "I want to visit museums in Paris."
-- Prompt: "Find top museums in Paris."
-- Retrieved Information: Details about Louvre Museum, Musée d'Orsay, etc.
-- Generated Response: "Here are some top museums in Paris: Louvre Museum, Musée d'Orsay, and Centre Pompidou."
+- Kasutaja sisend: "Ma tahan külastada muuseume Pariisis."
+- Prompt: "Leia Pariisi tippmuuseumid."
+- Toodud teave: andmed Louvre'i muuseumi, Musée d'Orsay jt kohta.
+- Genereeritud vastus: "Siin on mõned Pariisi tippmuuseumid: Louvre'i muuseum, Musée d'Orsay ja Centre Pompidou."
 
-#### RAG as a Tool
+#### RAG kui tööriist
 
-**What is it?**
+**Mis see on?**
 
-- As a tool, RAG is an integrated system that automates the retrieval and generation process, making it easier for developers to implement complex AI functionalities without manually crafting prompts for each query.
+- Tööriistana on RAG integreeritud süsteem, mis automatiseerib päringu ja genereerimise protsessi, võimaldades arendajatel keerukaid AI funktsionaalsusi rakendada ilma iga päringu jaoks eraldi promptide koostamiseta.
 
-**How it works:**
+**Kuidas see toimib:**
 
-1. **Integration**: Embed RAG within the AI agent's architecture, allowing it to automatically handle the retrieval and generation tasks.
-2. **Automation**: The tool manages the entire process, from receiving user input to generating the final response, without requiring explicit prompts for each step.
-3. **Efficiency**: Enhances the agent's performance by streamlining the retrieval and generation process, enabling quicker and more accurate responses.
+1. **Integreerimine**: Sisestada RAG AI agendi arhitektuuri, võimaldades tal automaatselt hallata päringu ja genereerimise ülesandeid.
+2. **Automatiseerimine**: Tööriist juhib kogu protsessi alates kasutaja sisendi vastuvõtmisest kuni lõpliku vastuse genereerimiseni ilma, et oleks vaja igal sammul selgeid prompti.
+3. **Tõhusus**: Parandab agendi jõudlust, lihtsustades päringu ja genereerimise protsessi, võimaldades kiiremaid ja täpsemaid vastuseid.
 
-**Example in Travel Agent**:
+**Näide reisiagentuuri puhul**:
 
-- User Input: "I want to visit museums in Paris."
-- RAG Tool: Automatically retrieves information about museums and generates a response.
-- Generated Response: "Here are some top museums in Paris: Louvre Museum, Musée d'Orsay, and Centre Pompidou."
+- Kasutaja sisend: "Ma tahan külastada muuseume Pariisis."
+- RAG tööriist: tulemusena toob automaatselt muuseumiteavet ja genereerib vastuse.
+- Genereeritud vastus: "Siin on mõned Pariisi tippmuuseumid: Louvre'i muuseum, Musée d'Orsay ja Centre Pompidou."
 
-### Comparison
+### Võrdlus
 
-| Aspekt                 | Promptimistehnika                                        | Tööriist                                                  |
-|------------------------|-------------------------------------------------------------|-------------------------------------------------------|
-| **Manuaalne vs automaatne**| Promptide käsitsi koostamine iga päringu jaoks.               | Automatiseeritud protsess pärimiseks ja genereerimiseks.       |
-| **Kontroll**            | Pakub rohkem kontrolli pärimisprotsessi üle.             | Sujuvamaks teeb pärimise ja genereerimise automatiseerimise.|
-| **Paindlikkus**        | Võimaldab kohandatud prompte konkreetsete vajaduste põhjal.      | Tõhusam suuremahuliste rakenduste puhul.       |
-| **Kompleksus**         | Nõuab promptide koostamist ja häälestamist.                  | Lihtsam integreerida AI-agendi arhitektuuri. |
+| Aspekt                | Promptide koostamise tehnika                              | Tööriist                                              |
+|-----------------------|-----------------------------------------------------------|-------------------------------------------------------|
+| **Käsitsi vs automaatne**| Käsitsi vormistatud promptid iga päringu kohta.          | Automaatne päringu ja genereerimise protsess.         |
+| **Juhtimine**          | Pakub paremat kontrolli päringu protsessi üle.             | Kiirendab ja automatiseerib päringu ja genereerimise protsessi. |
+| **Paindlikkus**        | Võimaldab kohandatud promptid vastavalt vajadusele.        | Tõhusam suuremahuliste rakenduste puhul.              |
+| **Keerukus**           | Vajab promptide koostamist ja häälestamist.                | Lihtsam integreerida AI agendi arhitektuuri.           |
 
 ### Praktilised näited
 
-**Promptimistehnika näide:**
+**Promptide koostamise tehnika näide:**
 
 ```python
 def search_museums_in_paris():
@@ -717,30 +719,30 @@ print("Top Museums in Paris:", museums)
 
 ### Relevantsuse hindamine
 
-Relevantsuse hindamine on AI-agendi jõudluse oluline aspekt. See tagab, et agendi poolt leitud ja genereeritud info on asjakohane, täpne ja kasulik kasutajale. Vaatleme, kuidas relevantsust hinnata AI-agentides, sealhulgas praktilisi näiteid ja tehnikaid.
+Relevantsuse hindamine on AI agendi jõudluse jaoks oluline aspekt. See tagab, et agent toob ja genereerib kasutajale asjakohast, täpset ja kasulikku teavet. Vaatleme, kuidas relevantsust hinnata AI agentides, sealhulgas praktilisi näiteid ja meetodeid.
 
 #### Olulised mõisted relevantsuse hindamisel
 
-1. **Kontekstitundlikkus**:
-   - Agent peab mõistma kasutaja päringu konteksti, et leida ja genereerida asjakohast teavet.
-   - Näide: Kui kasutaja küsib "parimad restoranid Pariisis", peaks agent arvestama kasutaja eelistusi, nagu köögitüüp ja eelarve.
+1. **Konteksti teadlikkus**:
+   - Agent peab mõistma kasutaja päringu konteksti, et tuua ja genereerida asjakohast infot.
+   - Näide: Kui kasutaja küsib „parimad restoranid Pariisis“, peab agent arvestama kasutaja eelistusi, näiteks köögi tüüpi ja eelarvet.
 
 2. **Täpsus**:
-   - Agendi antud info peaks olema faktuaalselt õige ja ajakohane.
-   - Näide: Soovitada praegu avatud ja hea tagasisidega restorane, mitte aegunud või suletud valikuid.
+   - Agent poolt antav teave peab olema faktuaalselt õige ja ajakohane.
+   - Näide: Soovitatakse hetkel avatud ja hea tagasisidega restorane, mitte aegunud või suletud kohti.
 
 3. **Kasutaja kavatsus**:
-   - Agent peaks tuvastama kasutaja kavatsuse päringu taga, et pakkuda kõige asjakohasemat teavet.
-   - Näide: Kui kasutaja küsib "soodsad hotellid", peaks agent prioriseerima taskukohaseid valikuid.
+   - Agent peaks tuvastama kasutaja kavatsuse päringu taga, et pakkuda kõige asjakohasemat infot.
+   - Näide: Kui kasutaja otsib „eelarvesõbralikke hotelle“, peab agent prioritiseerima taskukohaseid variante.
 
-4. **Tagasiside ahel**:
-   - Kasutajate tagasiside kogumine ja analüüsimine aitab agendil oma relevantsuse hindamise protsessi täiustada.
-   - Näide: Varasemate soovituste kohta saadud hinnangute ja tagasiside integreerimine tulemustesse.
+4. **Tagasisideahel**:
+   - Kasutaja tagasiside pidev kogumine ja analüüsimine aitab agendil relevantsuse hindamist täiustada.
+   - Näide: Eelnevate soovituste kasutajate hinnangute ja tagasiside kaasamine tulevaste vastuste parandamiseks.
 
-#### Praktilised tehnikad relevantsuse hindamiseks
+#### Praktilised tehnika relevantsuse hindamiseks
 
 1. **Relevantsuse skoorimine**:
-   - Assign a relevance score to each retrieved item based on how well it matches the user's query and preferences.
+   - Määrata igale päringule vastanud üksusele relevantsuse skoor, hinnates, kui hästi see vastab kasutaja päringule ja eelistustele.
    - Näide:
 
      ```python
@@ -756,28 +758,28 @@ Relevantsuse hindamine on AI-agendi jõudluse oluline aspekt. See tagab, et agen
      ```
 
 2. **Filtreerimine ja järjestamine**:
-   - Filter out irrelevant items and rank the remaining ones based on their relevance scores.
+   - Eemaldada ebaasjakohased üksused ja järjestada ülejäänud relevantsuse skooride põhjal.
    - Näide:
 
      ```python
      def filter_and_rank(items, query):
          ranked_items = sorted(items, key=lambda item: relevance_score(item, query), reverse=True)
-         return ranked_items[:10]  # Tagasta 10 kõige asjakohasemat üksust
+         return ranked_items[:10]  # Tagasta 10 kõige asjakohasemat eset
      ```
 
-3. **Loodusliku keele töötlemine (NLP)**:
-   - Use NLP techniques to understand the user's query and retrieve relevant information.
+3. **Loodusliku keele töötlus (NLP)**:
+   - Kasutada NLP-tehnikat kasutaja päringu mõistmiseks ja asjakohase info toomiseks.
    - Näide:
 
      ```python
      def process_query(query):
-         # Kasuta NLP-d, et eraldada kasutaja päringust võtmetähtsusega teave
+         # Kasutage NLP-d, et ekstraheerida kasutaja päringust võtmetähtsusega teavet
          processed_query = nlp(query)
          return processed_query
      ```
 
 4. **Kasutaja tagasiside integreerimine**:
-   - Collect user feedback on the provided recommendations and use it to adjust future relevance evaluations.
+   - Koguda kasutaja tagasisidet pakutud soovituste kohta ja kasutada seda tulevaste relevantsuse hindamiste kohandamiseks.
    - Näide:
 
      ```python
@@ -790,9 +792,9 @@ Relevantsuse hindamine on AI-agendi jõudluse oluline aspekt. See tagab, et agen
          return items
      ```
 
-#### Näide: relevantsuse hindamine reisiagendis
+#### Näide: relevantsuse hindamine reisiagentuuri puhul
 
-Here's a practical example of how Travel Agent can evaluate the relevancy of travel recommendations:
+Siin on praktiline näide, kuidas reisiagent saab hinnata reisisoovituste relevantsust:
 
 ```python
 class Travel_Agent:
@@ -817,7 +819,7 @@ class Travel_Agent:
 
     def filter_and_rank(self, items, query):
         ranked_items = sorted(items, key=lambda item: self.relevance_score(item, query), reverse=True)
-        return ranked_items[:10]  # Tagasta 10 kõige asjakohasemat üksust
+        return ranked_items[:10]  # Tagasta 10 kõige asjakohasemat eset
 
     def relevance_score(self, item, query):
         score = 0
@@ -837,7 +839,7 @@ class Travel_Agent:
                 item['relevance'] -= 1
         return items
 
-# Kasutuse näide
+# Näidise kasutamine
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -853,30 +855,30 @@ updated_items = travel_agent.adjust_based_on_feedback(feedback, itinerary['hotel
 print("Updated Itinerary with Feedback:", updated_items)
 ```
 
-### Otsing kavatsuse alusel
+### Otsing kavatsusega
 
-Otsimine kavatsuse alusel tähendab kasutaja päringu taga oleva eesmärgi või sihi mõistmist ja tõlgendamist, et leida ja genereerida kõige asjakohasemat ja kasulikumat infot. See lähenemine läheb kaugemale pelgalt märksõnade sobitamisest ja keskendub kasutaja tegelike vajaduste ja konteksti haaramisele.
+Otsing kavatsusega tähendab kasutaja päringu taga oleva eesmärgi või sihtmärgi mõistmist ja tõlgendamist, et tuua ja genereerida kõige asjakohasem ja kasulikum info. See lähenemine läheb kaugemale lihtsalt märksõnade sobitamisest ja keskendub kasutaja tegelike vajaduste ja konteksti haaramisele.
 
-#### Olulised mõisted otsingus kavatsuse alusel
+#### Olulised mõisted otsimisel kavatsusega
 
 1. **Kasutaja kavatsuse mõistmine**:
-   - Kasutaja kavatsusi võib jagada kolmeks peamiseks tüübiks: informatiivne, navigeerimis- ja tehinguline.
-     - **Informatiivne kavatsus**: Kasutaja otsib teavet teema kohta (nt "Millised on Pariisi parimad muuseumid?").
-     - **Navigeerimis-kavatsus**: Kasutaja tahab jõuda konkreetsele veebisaidile või lehele (nt "Louvre'i muuseumi ametlik veebileht").
-     - **Tehinguline kavatsus**: Kasutaja soovib teha tehingut, näiteks broneerida lendu või sooritada ostu (nt "Broneeri lend Pariisi").
+   - Kasutaja kavatsust võib jagada kolmeks peamiseks tüübiks: informatiivne, navigeerimis- ja tehinguline.
+     - **Informatiivne kavatsus**: kasutaja otsib infot teemal (nt „Millised on Pariisi parimad muuseumid?“).
+     - **Navigeeriv kavatsus**: kasutaja tahab jõuda konkreetsele veebisaidile või lehele (nt „Louvre’i muuseumi ametlik koduleht“).
+     - **Tehinguline kavatsus**: kasutaja soovib teostada tehingut, nt lennu broneerimine või ost sooritamine (nt „Broneeri lend Pariisi“).
 
 2. **Konteksti teadlikkus**:
-   - Kasutaja päringu konteksti analüüsimine aitab täpselt tuvastada nende kavatsust. See hõlmab varasemaid interaktsioone, kasutaja eelistusi ja konkreetseid päringu detaile.
+   - Kasutaja päringu konteksti analüüs aitab täpselt tuvastada kasutaja kavatsuse. See hõlmab varasemate interaktsioonide, eelistuste ja konkreetse päringu üksikasjade arvestamist.
 
-3. **Loodusliku keele töötlemine (NLP)**:
-   - NLP-tehnikaid kasutatakse kasutaja naturaalse keele päringute mõistmiseks ja tõlgendamiseks. See hõlmab näiteks entiteetide tuvastamist, sentimentide analüüsi ja päringu parsimist.
+3. **Loodusliku keele töötlus (NLP)**:
+   - NLP-tehnikaid kasutatakse kasutaja loomuliku keele päringute mõistmiseks ja tõlgendamiseks. See hõlmab selliseid ülesandeid nagu üksuste tuvastamine, sentimentide analüüs ja päringu parsimine.
 
-4. **Isikupärastamine**:
-   - Otsingutulemuste isikupärastamine kasutaja ajaloo, eelistuste ja tagasiside alusel suurendab leitud info relevantsust.
+4. **Personaliseerimine**:
+   - Otsingutulemuste isikupärastamine kasutaja ajaloo, eelistuste ja tagasiside põhjal parandab leitava info relevantsust.
 
-#### Praktiline näide: otsing kavatsuse alusel reisiagendis
+#### Praktiline näide: otsing kavatsusega reisiagentuuri puhul
 
-Vaatame Travel Agentit näitena, et näha, kuidas otsing kavatsuse alusel võiks olla rakendatud.
+Vaatame reisiagentuuri näitel, kuidas otsing kavatsusega võiks toimida.
 
 1. **Kasutaja eelistuste kogumine**
 
@@ -902,9 +904,11 @@ Vaatame Travel Agentit näitena, et näha, kuidas otsing kavatsuse alusel võiks
    ```
 
 3. **Konteksti teadlikkus**
+
+
    ```python
    def analyze_context(query, user_history):
-       # Ühenda praegune päring kasutaja ajalooga, et mõista konteksti
+       # Ühenda praegune päring kasutaja ajaloo andmetega, et mõista konteksti
        context = {
            "current_query": query,
            "user_history": user_history
@@ -912,7 +916,7 @@ Vaatame Travel Agentit näitena, et näha, kuidas otsing kavatsuse alusel võiks
        return context
    ```
 
-4. **Otsi ja isikupärasta tulemusi**
+4. **Otsi ja personaalselt kohanda tulemusi**
 
    ```python
    def search_with_intent(query, preferences, user_history):
@@ -928,27 +932,27 @@ Vaatame Travel Agentit näitena, et näha, kuidas otsing kavatsuse alusel võiks
        return personalized_results
 
    def search_information(query, preferences):
-       # Näidisotsingu loogika informatiivse kavatsuse jaoks
+       # Näidiskuulutuse loogika informatiivse kavatsuse jaoks
        results = search_web(f"best {preferences['interests']} in {preferences['destination']}")
        return results
 
    def search_navigation(query):
-       # Näidisotsingu loogika navigatsioonilise kavatsuse jaoks
+       # Näidiskuulutuse loogika navigatsioonikavatsuse jaoks
        results = search_web(query)
        return results
 
    def search_transaction(query, preferences):
-       # Näidisotsingu loogika tehingulise kavatsuse jaoks
+       # Näidiskuulutuse loogika tehingukavatsuse jaoks
        results = search_web(f"book {query} to {preferences['destination']}")
        return results
 
    def personalize_results(results, user_history):
        # Näidis isikupärastamise loogika
        personalized = [result for result in results if result not in user_history]
-       return personalized[:10]  # Tagasta 10 parimat isikupärastatud tulemust
+       return personalized[:10]  # Tagasta top 10 isikupärastatud tulemust
    ```
 
-5. **Kasutamise näide**
+5. **Näidiskasutus**
 
    ```python
    travel_agent = Travel_Agent()
@@ -967,44 +971,44 @@ Vaatame Travel Agentit näitena, et näha, kuidas otsing kavatsuse alusel võiks
 
 ## 4. Koodi genereerimine tööriistana
 
-Koodi genereerivad agendid kasutavad AI-mudeleid koodi kirjutamiseks ja täitmiseks, lahendades keerukaid probleeme ning automatiseerides ülesandeid.
+Koodi genereerivad agendid kasutavad tehisintellekti mudeleid koodi kirjutamiseks ja täitmiseks, lahendades keerukaid probleeme ning automatiseerides ülesandeid.
 
 ### Koodi genereerivad agendid
 
-Koodi genereerivad agendid kasutavad generatiivseid AI-mudeleid koodi kirjutamiseks ja täitmiseks. Need agendid suudavad lahendada keerukaid probleeme, automatiseerida ülesandeid ja pakkuda väärtuslikke teadmisi, genereerides ning käivitades koodi erinevates programmeerimiskeeltes.
+Koodi genereerivad agendid kasutavad generaatiivseid tehisintellekti mudeleid koodi kirjutamiseks ja täitmiseks. Need agendid suudavad lahendada keerukaid probleeme, automatiseerida ülesandeid ja pakkuda väärtuslikke teadmisi, genereerides ja käivitades koodi erinevates programmeerimiskeeltes.
 
 #### Praktilised rakendused
 
-1. **Automatiseeritud koodi genereerimine**: Genereerida koodilõike konkreetsete ülesannete jaoks, nagu andmeanalüüs, veebikraapimine või masinõpe.
-2. **SQL kui RAG**: Kasutada SQL-päringuid andmete pärimiseks ja manipuleerimiseks andmebaasidest.
-3. **Probleemide lahendamine**: Luua ja käivitada koodi konkreetsete probleemide lahendamiseks, nagu algoritmide optimeerimine või andmete analüüs.
+1. **Automatiseeritud koodi genereerimine**: Genereeri koodilõigud spetsiifiliste ülesannete jaoks, nagu andmeanalüüs, veebikraapimine või masinõpe.
+2. **SQL kui RAG**: Kasuta SQL-päringuid andmete hankimiseks ja manipuleerimiseks andmebaasidest.
+3. **Probleemide lahendamine**: Loo ja käivita koodi spetsiifiliste probleemide lahendamiseks, näiteks algoritmide optimeerimiseks või andmete analüüsimiseks.
 
-#### Näide: koodi genereeriv agent andmeanalüüsi jaoks
+#### Näide: koodi genereeriv agent andmeanalüüsiks
 
-Kujuta ette, et kavandad koodi genereerivat agenti. Siin on, kuidas see võiks toimida:
+Kujuta ette, et disainid koodi genereerivat agenti. Nii see võiks toimida:
 
-1. **Ülesanne**: Analüüsida andmestikku, et tuvastada trende ja mustreid.
+1. **Ülesanne**: Analüüsida andmestikku trendide ja mustrite tuvastamiseks.
 2. **Sammud**:
    - Laadi andmestik andmeanalüüsi tööriista.
    - Genereeri SQL-päringud andmete filtreerimiseks ja agregatsiooniks.
-   - Täida päringud ja too tulemused.
-   - Kasuta tulemusi visualiseerimiste ja järelduste genereerimiseks.
-3. **Vajalikud ressursid**: Juurdepääs andmestikule, andmeanalüüsi tööriistadele ja SQL-võimalustele.
-4. **Kogemus**: Kasuta varasemaid analüüside tulemusi tulevaste analüüside täpsuse ja asjakohasuse parandamiseks.
+   - Täida päringud ja saada tulemused.
+   - Kasuta tulemusi visualiseeringute ja teadmiseks.
+3. **Vajalikud ressursid**: Juurdepääs andmestikule, andmeanalüüsi tööriistad ja SQL-võimalused.
+4. **Kogemus**: Kasuta varasemaid analüüsi tulemusi täpsuse ja relevantsuse parandamiseks tulevikus.
 
-### Näide: koodi genereeriv agent reisiabiks
+### Näide: koodi genereeriv agent reisibüroole
 
-Selles näites kavandame koodi genereeriva agendi, Travel Agent, et aidata kasutajaid reisi planeerimisel, genereerides ja käivitades koodi. See agent suudab toime tulla ülesannetega nagu reisioptsioonide toomine, tulemuste filtreerimine ja marsruudi koostamine, kasutades generatiivset AI-d.
+Selles näites loome koodi genereeriva agendi Travel Agent, mis abistab kasutajaid reisi planeerimisel, genereerides ja täites koodi. See agent saab käsitleda ülesandeid nagu reisi võimaluste hankimine, tulemuste filtreerimine ja reisi kavandamine generaatiivse tehisintellekti abil.
 
 #### Koodi genereeriva agendi ülevaade
 
-1. **Kasutaja eelistuste kogumine**: Kogub kasutaja sisendi nagu sihtkoht, reisi kuupäevad, eelarve ja huvid.
-2. **Andmete toomiseks koodi genereerimine**: Genereerib koodilõike, et hankida andmeid lendude, hotellide ja atraktsioonide kohta.
-3. **Genereeritud koodi täitmine**: Käivitab genereeritud koodi, et tuua reaalajas infot.
-4. **Marsruudi genereerimine**: Koondab toodud andmed isikupäraseks reisiplaaniks.
-5. **Tagasiside põhjal kohandamine**: Saab kasutajalt tagasisidet ja genereerib vajadusel koodi uuesti, et tulemusi täiustada.
+1. **Kasutaja eelistuste kogumine**: Kogub kasutaja sisendi näiteks sihtkoha, reisi kuupäevade, eelarve ja huvide kohta.
+2. **Koodi genereerimine andmete hankimiseks**: Genereerib koodilõike lendude, hotellide ja atraktsioonide andmete hankimiseks.
+3. **Genereeritud koodi täitmine**: Käivitab genereeritud koodi, et hankida reaalajas info.
+4. **Reisi kava koostamine**: Koondab saadud andmed isikupäraseks reisiplaaniks.
+5. **Tagasiside põhine kohandamine**: Võtab vastu kasutaja tagasisidet ja vajadusel genereerib koodi uuesti, et tulemusi täpsustada.
 
-#### Samm-sammult rakendamine
+#### Samm-sammuline rakendamine
 
 1. **Kasutaja eelistuste kogumine**
 
@@ -1017,11 +1021,11 @@ Selles näites kavandame koodi genereeriva agendi, Travel Agent, et aidata kasut
            self.user_preferences = preferences
    ```
 
-2. **Andmete toomiseks koodi genereerimine**
+2. **Koodi genereerimine andmete hankimiseks**
 
    ```python
    def generate_code_to_fetch_data(preferences):
-       # Näide: genereeri kood lendude otsimiseks vastavalt kasutaja eelistustele
+       # Näide: Genereeri kood lennupiletite otsimiseks kasutaja eelistuste põhjal
        code = f"""
        def search_flights():
            import requests
@@ -1031,7 +1035,7 @@ Selles näites kavandame koodi genereeriva agendi, Travel Agent, et aidata kasut
        return code
 
    def generate_code_to_fetch_hotels(preferences):
-       # Näide: genereeri kood hotellide otsimiseks
+       # Näide: Genereeri kood hotellide otsimiseks
        code = f"""
        def search_hotels():
            import requests
@@ -1045,7 +1049,7 @@ Selles näites kavandame koodi genereeriva agendi, Travel Agent, et aidata kasut
 
    ```python
    def execute_code(code):
-       # Käivita genereeritud kood, kasutades funktsiooni exec.
+       # Käivitage genereeritud kood, kasutades exec
        exec(code)
        result = locals()
        return result
@@ -1069,7 +1073,7 @@ Selles näites kavandame koodi genereeriva agendi, Travel Agent, et aidata kasut
    print("Hotel Options:", hotels)
    ```
 
-4. **Marsruudi genereerimine**
+4. **Reisi kava koostamine**
 
    ```python
    def generate_itinerary(flights, hotels, attractions):
@@ -1085,7 +1089,7 @@ Selles näites kavandame koodi genereeriva agendi, Travel Agent, et aidata kasut
    print("Suggested Itinerary:", itinerary)
    ```
 
-5. **Tagasiside põhjal kohandamine**
+5. **Tagasiside põhine kohandamine**
 
    ```python
    def adjust_based_on_feedback(feedback, preferences):
@@ -1099,7 +1103,7 @@ Selles näites kavandame koodi genereeriva agendi, Travel Agent, et aidata kasut
    feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
    updated_preferences = adjust_based_on_feedback(feedback, preferences)
    
-   # Genereeri uuesti ja käivita kood uuendatud eelistustega
+   # Genereeri uuesti ja täida kood uuendatud eelistustega
    updated_flight_code = generate_code_to_fetch_data(updated_preferences)
    updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
    
@@ -1110,33 +1114,33 @@ Selles näites kavandame koodi genereeriva agendi, Travel Agent, et aidata kasut
    print("Updated Itinerary:", updated_itinerary)
    ```
 
-### Keskkonnateadlikkuse ja järeldusvõime kasutamine
+### Keskkonnateadlikkuse ja mõtlemise rakendamine
 
-Tabeli skeemi põhjal saab tõepoolest parandada päringute genereerimise protsessi, kasutades keskkonnateadlikkust ja järeldusvõimet.
+Tabeli skeemi tundmine võib tõepoolest täiustada päringute genereerimise protsessi, kasutades keskkonnateadlikkust ja loogikat.
 
-Siin on näide, kuidas seda saab teha:
+Siin on näide, kuidas seda teha:
 
-1. **Skeemi mõistmine**: Süsteem mõistab tabeli skeemi ja kasutab seda teavet päringute genereerimise aluseks.
-2. **Tagasiside põhjal kohandamine**: Süsteem kohandab kasutaja eelistusi vastavalt tagasisidele ja järeldab, milliseid välju skeemis tuleb uuendada.
-3. **Päringute genereerimine ja täitmine**: Süsteem genereerib ja täidab päringuid, et tuua uuendatud lennu- ja hotelliandmeid vastavalt uutele eelistustele.
+1. **Skeemi mõistmine**: Süsteem mõistab tabeli skeemi ja kasutab seda infot päringute genereerimise aluseks.
+2. **Tagasiside põhine kohandamine**: Süsteem kohandab kasutaja eelistusi tagasiside alusel ning kaalub, milliseid välju skeemis tuleb värskendada.
+3. **Päringute genereerimine ja täitmine**: Süsteem genereerib ja täidab päringud, et hankida muudetud lendude ja hotellide andmed vastavalt uutele eelistustele.
 
-Siin on värskendatud Pythoni koodi näide, mis hõlmab neid kontseptsioone:
+Siin on uuendatud Python koodi näide, mis hõlmab neid kontseptsioone:
 
 ```python
 def adjust_based_on_feedback(feedback, preferences, schema):
-    # Kohanda eelistusi vastavalt kasutaja tagasisidele
+    # Kohanda eelistusi kasutajate tagasiside põhjal
     if "liked" in feedback:
         preferences["favorites"] = feedback["liked"]
     if "disliked" in feedback:
         preferences["avoid"] = feedback["disliked"]
-    # Skeemi alusel järeldamine teiste seotud eelistuste kohandamiseks
+    # Skeemi põhine järeldamine teiste seotud eelistuste kohandamiseks
     for field in schema:
         if field in preferences:
             preferences[field] = adjust_based_on_environment(feedback, field, schema)
     return preferences
 
 def adjust_based_on_environment(feedback, field, schema):
-    # Kohandatud loogika eelistuste kohandamiseks skeemi ja tagasiside põhjal
+    # Kohandatud loogika eelistuste muutmiseks skeemi ja tagasiside põhjal
     if field in feedback["liked"]:
         return schema[field]["positive_adjustment"]
     elif field in feedback["disliked"]:
@@ -1144,11 +1148,11 @@ def adjust_based_on_environment(feedback, field, schema):
     return schema[field]["default"]
 
 def generate_code_to_fetch_data(preferences):
-    # Genereeri kood lennuandmete hankimiseks vastavalt uuendatud eelistustele
+    # Genereeri kood lennuandmete toomiseks vastavalt uuendatud eelistustele
     return f"fetch_flights(preferences={preferences})"
 
 def generate_code_to_fetch_hotels(preferences):
-    # Genereeri kood hotelliandmete hankimiseks vastavalt uuendatud eelistustele
+    # Genereeri kood hotelliandmete toomiseks vastavalt uuendatud eelistustele
     return f"fetch_hotels(preferences={preferences})"
 
 def execute_code(code):
@@ -1156,21 +1160,21 @@ def execute_code(code):
     return {"data": f"Executed: {code}"}
 
 def generate_itinerary(flights, hotels, attractions):
-    # Genereeri reisiplaan lennude, hotellide ja vaatamisväärsuste põhjal
+    # Koosta reisiplaan lendude, hotellide ja vaatamisväärsuste põhjal
     return {"flights": flights, "hotels": hotels, "attractions": attractions}
 
-# Näidis-skeem
+# Näidisskeem
 schema = {
     "favorites": {"positive_adjustment": "increase", "negative_adjustment": "decrease", "default": "neutral"},
     "avoid": {"positive_adjustment": "decrease", "negative_adjustment": "increase", "default": "neutral"}
 }
 
-# Kasutamise näide
+# Näide kasutamisest
 preferences = {"favorites": "sightseeing", "avoid": "crowded places"}
 feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
 updated_preferences = adjust_based_on_feedback(feedback, preferences, schema)
 
-# Genereeri uuesti ja käivita kood uuendatud eelistustega
+# Genereeri uuesti ja täida kood uuendatud eelistustega
 updated_flight_code = generate_code_to_fetch_data(updated_preferences)
 updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
 
@@ -1181,53 +1185,53 @@ updated_itinerary = generate_itinerary(updated_flights, updated_hotels, feedback
 print("Updated Itinerary:", updated_itinerary)
 ```
 
-#### Selgitus - broneerimine tagasiside põhjal
+#### Selgitus – broneerimine tagasiside alusel
 
-1. **Skeemi teadlikkus**: `schema` sõnastik määratleb, kuidas eelistusi tuleks tagasiside põhjal kohandada. See sisaldab välju nagu `favorites` ja `avoid` vastavate kohandustega.
+1. **Skeemi teadlikkus**: `schema` sõnastik määrab, kuidas tagasiside alusel eelistusi kohandada. Sisse kuuluvad näiteks väljad `favorites` ja `avoid` koos vastavate kohandustega.
 2. **Eelistuste kohandamine (`adjust_based_on_feedback` meetod)**: See meetod kohandab eelistusi kasutaja tagasiside ja skeemi põhjal.
-3. **Keskkonnapõhised kohandused (`adjust_based_on_environment` meetod)**: See meetod kohandab kohandusi skeemi ja tagasiside põhjal.
-4. **Päringute genereerimine ja täitmine**: Süsteem genereerib koodi, et tuua uuendatud lennu- ja hotelliandmeid kohandatud eelistuste alusel, ning simuleerib nende päringute täitmist.
-5. **Marsruudi genereerimine**: Süsteem loob uuendatud marsruudi uute lennu-, hotelli- ja atraktsioonide andmete põhjal.
+3. **Keskkonna-põhised kohandused (`adjust_based_on_environment` meetod)**: See meetod kohandab muudatusi vastavalt skeemile ja tagasisidele.
+4. **Päringute genereerimine ja täitmine**: Süsteem genereerib koodi lennu ja hotelli andmete värskendamiseks vastavalt kohandatud eelistustele ning simuleerib nende päringute täitmist.
+5. **Reisi kava genereerimine**: Süsteem loob uuendatud reisi kavandi uute lennu-, hotelli- ja atraktsioonide andmete põhjal.
 
-Tehes süsteemi keskkonnateadlikuks ja rakendades järeldusvõimet skeemi alusel, suudab see genereerida täpsemaid ja asjakohasemaid päringuid, mis viib paremate reisisoovitusteni ja isikupärasema kasutajakogemuseni.
+Muutes süsteemi keskkonnateadlikuks ja mõtestades skeemi põhjal, saab ta genereerida täpsemaid ja asjakohasemaid päringuid, mis viib paremate reisisoovitusteni ja isikupärasema kasutajakogemuseni.
 
-### SQL-i kasutamine Retrieval-Augmented Generation (RAG) tehnikana
+### SQL kasutamine retrieval-augmented generation (RAG) tehnoloogiana
 
-SQL (Structured Query Language) on võimas vahend andmebaasidega suhtlemiseks. Kui seda kasutatakse osana Retrieval-Augmented Generation (RAG) lähenemisest, saab SQL pärida asjakohaseid andmeid andmebaasidest, et teavitada ja genereerida vastuseid või toiminguid AI-agentides. Vaatleme, kuidas SQL-i saab RAG-tehnikana kasutada Travel Agent näites.
+SQL (Structured Query Language) on võimas vahend andmebaasidega suhtlemiseks. Kui kasutada seda retrieval-augmented generation (RAG) lähenemisviisis, saab SQL päringute abil hankida asjakohast infot andmebaasidest, misjärel saab AI agendid vastuseid või tegevusi genereerida. Uurime, kuidas SQL saab RAG tehnikana töötada Travel Agent kontekstis.
 
-#### Olulised mõisted
+#### Põhimõisted
 
-1. **Andmebaasiga suhtlemine**:
-   - SQL-i kasutatakse andmebaaside pärimiseks, asjakohase info toomiseks ja andmete manipuleerimiseks.
-   - Näide: lennuandmete, hotelliinfo ja atraktsioonide toomine reisiandmebaasist.
+1. **Andmebaasi suhtlus**:
+   - SQL kasutatakse andmebaaside pärimiseks, asjakohase info saamiseks ja andmete manipuleerimiseks.
+   - Näide: lendude, hotellide ja atraktsioonide info pärimine reiside andmebaasist.
 
-2. **Integreerimine RAG-iga**:
-   - SQL-päringud genereeritakse kasutaja sisendi ja eelistuste põhjal.
-   - Toositud andmeid kasutatakse seejärel isikupärastatud soovituste või toimingute genereerimiseks.
+2. **RAG integratsioon**:
+   - SQL päringud genereeritakse kasutaja sisendi ja eelistuste põhjal.
+   - Saadud andmeid kasutatakse personaliseeritud soovituste või tegevuste genereerimiseks.
 
 3. **Dünaamiline päringute genereerimine**:
-   - AI-agent genereerib dünaamilisi SQL-päringuid konteksti ja kasutaja vajaduste põhjal.
-   - Näide: SQL-päringute kohandamine tulemuste filtreerimiseks eelarve, kuupäevade ja huvide põhjal.
+   - AI agent genereerib dünaamilisi SQL päringuid olenevalt kontekstist ja kasutaja vajadustest.
+   - Näide: SQL päringute kohandamine tulemuste filtreerimiseks eelarve, kuupäevade ja huvide järgi.
 
 #### Rakendused
 
-- **Automatiseeritud koodi genereerimine**: Genereerida koodilõike konkreetsete ülesannete jaoks.
-- **SQL kui RAG**: Kasutada SQL-päringuid andmete manipuleerimiseks.
-- **Probleemide lahendamine**: Luua ja käivitada koodi probleemide lahendamiseks.
+- **Automatiseeritud koodi genereerimine**: Genereeri koodilõigud spetsiifiliste ülesannete jaoks.
+- **SQL kui RAG**: Kasuta SQL päringuid andmete manipuleerimiseks.
+- **Probleemilahendus**: Loo ja täida koodi probleemide lahendamiseks.
 
 **Näide**:
 Andmeanalüüsi agent:
 
-1. **Ülesanne**: Analüüsida andmestikku trendide leidmiseks.
+1. **Ülesanne**: Analüüsida andmestikku trende leidmaks.
 2. **Sammud**:
    - Laadi andmestik.
-   - Genereeri SQL-päringud andmete filtreerimiseks.
-   - Täida päringud ja too tulemused.
-   - Genereeri visualiseeringud ja järeldused.
-3. **Ressursid**: Juurdepääs andmestikule, SQL-võimalused.
-4. **Kogemus**: Kasuta varasemaid tulemusi tulevaste analüüside parandamiseks.
+   - Genereeri SQL päringud andmete filtreerimiseks.
+   - Täida päringud ja saada tulemused.
+   - Genereeri visualiseeringuid ja teadmisi.
+3. **Ressursid**: juurdepääs andmestikule, SQL võimekus.
+4. **Kogemus**: Kasuta eelnevaid tulemusi tulevaste analüüside parandamiseks.
 
-#### Praktiline näide: SQL-i kasutamine Travel Agentis
+#### Praktiline näide: SQL kasutamine Travel Agentis
 
 1. **Kasutaja eelistuste kogumine**
 
@@ -1240,7 +1244,7 @@ Andmeanalüüsi agent:
            self.user_preferences = preferences
    ```
 
-2. **SQL-päringute genereerimine**
+2. **SQL päringute genereerimine**
 
    ```python
    def generate_sql_query(table, preferences):
@@ -1252,7 +1256,7 @@ Andmeanalüüsi agent:
        return query
    ```
 
-3. **SQL-päringute täitmine**
+3. **SQL päringute täitmine**
 
    ```python
    import sqlite3
@@ -1297,7 +1301,7 @@ Andmeanalüüsi agent:
    print("Suggested Itinerary:", itinerary)
    ```
 
-#### Näidispäringud SQL-is
+#### Näidis SQL päringud
 
 1. **Lennu päring**
 
@@ -1317,28 +1321,28 @@ Andmeanalüüsi agent:
    SELECT * FROM attractions WHERE destination='Paris' AND interests='museums, cuisine';
    ```
 
-Kasutades SQL-i osana Retrieval-Augmented Generation (RAG) tehnikast, saavad AI-agendid nagu Travel Agent dünaamiliselt pärida ja kasutada asjakohaseid andmeid, et pakkuda täpseid ja isikupäraseid soovitusi.
+SQL kasutamine retrieval-augmented generation (RAG) tehnikana võimaldab AI agentidel nagu Travel Agent dünaamiliselt hankida ja kasutada asjakohast teavet, pakkudes täpseid ja personaalseid soovitusi.
 
-### Metakognitsiooni näide
+### Näide metakognitsioonist
 
-Selleks, et demonstreerida metakognitsiooni rakendust, loome lihtsa agendi, mis peegeldab oma otsustusprotsessi probleemi lahendamise ajal. Selle näite puhul ehitame süsteemi, kus agent püüab optimeerida hotelli valikut, seejärel hindab oma mõtlemist ja kohandab strateegiat, kui teeb vigu või subopimaalseid valikuid.
+Metakognitsiooni rakendamise demonstreerimiseks loome lihtsa agendi, mis *peegeldab oma otsustusprotsessi* probleemi lahendades. Selles näites ehitame süsteemi, kus agent püüab optimeerida hotelli valikut, kuid seejärel hindab oma mõtlemist ja kohandab strateegiat, kui teeb vigu või alaoptimaalseid valikuid.
 
-Simuleerime seda lihtsa näitega, kus agent valib hotellid hinnakombinatsiooni ja kvaliteedi põhjal, kuid "peegeldab" oma otsuseid ja kohandab vastavalt.
+Simuleerime seda lihtsustatud näitega, kus agent valib hotelle hinna ja kvaliteedi kombinatsiooni alusel, kuid "peegeldab" oma otsuseid ja kohandab neid vastavalt.
 
 #### Kuidas see illustreerib metakognitsiooni:
 
-1. **Esialgne otsus**: Agent valib kõige odavama hotelli, mõistmata kvaliteedi mõju.
-2. **Reflektsioon ja hindamine**: Pärast esialgset valikut kontrollib agent, kas hotell oli "halb" valik, kasutades kasutaja tagasisidet. Kui leitakse, et hotelli kvaliteet oli liiga madal, peegeldab agent oma mõtlemist.
-3. **Strateegia kohandamine**: Agent kohandab oma strateegiat, liikudes "kõige odavamalt" kuni "kõrgeima kvaliteedini", parandades seeläbi oma otsustusprotsessi tulevikus.
+1. **Esialgne otsus**: Agent valib odavaima hotelli, teadmata kvaliteedi mõju.
+2. **Peegeldus ja hindamine**: Pärast esialgset valikut kontrollib agent kasutaja tagasiside põhjal, kas hotell oli "halb" valik. Kui kvaliteet oli liiga madal, peegeldab ta oma põhjendust.
+3. **Strateegia kohandamine**: Agent kohandab strateegiat, pisipöördega odavaimast "kõrgeima kvaliteedi" peale, parandades otsustusprotsessi tulevastel kordadel.
 
 Siin on näide:
 
 ```python
 class HotelRecommendationAgent:
     def __init__(self):
-        self.previous_choices = []  # Salvestab varem valitud hotellid
+        self.previous_choices = []  # Salvestab eelnevalt valitud hotellid
         self.corrected_choices = []  # Salvestab parandatud valikud
-        self.recommendation_strategies = ['cheapest', 'highest_quality']  # Saadaval olevad strateegiad
+        self.recommendation_strategies = ['cheapest', 'highest_quality']  # Saadaval strateegiad
 
     def recommend_hotel(self, hotels, strategy):
         """
@@ -1363,11 +1367,11 @@ class HotelRecommendationAgent:
             return "No choices made yet."
 
         last_choice_strategy, last_choice = self.previous_choices[-1]
-        # Oletame, et meil on kasutajalt tagasisidet, mis ütleb, kas viimane valik oli hea või mitte
+        # Oletame, et meil on kasutajate tagasiside, mis ütleb, kas viimane valik oli hea või mitte
         user_feedback = self.get_user_feedback(last_choice)
 
         if user_feedback == "bad":
-            # Muuda strateegiat, kui eelmine valik oli rahuldamatu
+            # Kohanda strateegiat, kui eelmine valik oli rahuldav
             new_strategy = 'highest_quality' if last_choice_strategy == 'cheapest' else 'cheapest'
             self.corrected_choices.append((new_strategy, last_choice))
             return f"Reflecting on choice. Adjusting strategy to {new_strategy}."
@@ -1394,46 +1398,46 @@ hotels = [
 # Loo agent
 agent = HotelRecommendationAgent()
 
-# Samm 1: Agent soovitab hotelli, kasutades "odavaimat" strateegiat
+# Samm 1: Agent soovitab hotelli, kasutades "kõige odavamat" strateegiat
 recommended_hotel = agent.recommend_hotel(hotels, 'cheapest')
 print(f"Recommended hotel (cheapest): {recommended_hotel['name']}")
 
-# Samm 2: Agent mõtleb valiku üle ja kohandab strateegiat vajadusel
+# Samm 2: Agent mõtiskleb valiku üle ja vajadusel kohandab strateegiat
 reflection_result = agent.reflect_on_choice()
 print(reflection_result)
 
-# Samm 3: Agent soovitab uuesti, seekord kasutades kohandatud strateegiat
+# Samm 3: Agent soovitab uuesti, seekord kohandatud strateegiat kasutades
 adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
 
-#### Agentide metakognitsiooni võimed
+#### Agendi metakognitsiooni võimed
 
 Oluline on agendi võime:
 - Hinnata oma varasemaid valikuid ja otsustusprotsessi.
-- Kohandada oma strateegiat selle peegelduse põhjal, st metakognitsioon töötab.
+- Kohandada strateegiat selle refleksiooni põhjal ehk metakognitsiooni toimimine.
 
-See on lihtne metakognitsiooni vorm, kus süsteem suudab kohandada oma järeldusprotsessi sisemise tagasiside põhjal.
+See on lihtne metakognitsiooni vorm, kus süsteem suudab kohandada oma mõtlemisprotsessi sisemise tagasiside põhjal.
 
 ### Kokkuvõte
 
-Metakognitsioon on võimas tööriist, mis võib oluliselt parandada AI-agentide võimekust. Metakognitiivsete protsesside lisamisega saab luua agente, kes on intelligentsemad, kohanemisvõimelisemad ja tõhusamad. Kasuta täiendavaid ressursse, et edasi uurida metakognitsiooni põnevat maailma AI-agentides.
+Metakognitsioon on võimas tööriist, mis suudab oluliselt parandada AI agentide võimeid. Metakognitiivsete protsesside kaasamisel saab disainida agente, kes on targemad, kohanemisvõimelisemad ja tõhusamad. Kasuta täiendavaid ressursse, et põhjalikumalt uurida metakognitsiooni põnevat maailma AI agentides.
 
-### Kas sul on rohkem küsimusi metakognitsiooni disainimustri kohta?
+### Kas on veel küsimusi metakognitsiooni disainimustri kohta?
 
-Liitu [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), et kohtuda teiste õppijatega, osaleda konsultatsioonitundides ja saada vastused oma AI Agentide küsimustele.
+Liitu [Microsoft Foundry Discordiga](https://discord.com/invite/ATgtXmAS5D), et kohtuda teiste õppuritega, osaleda konsultatsioonitundides ja saada vastused oma AI agentide küsimustele.
 
-## Eelmine õppetund
+## Eelmine peatükk
 
-[Mitmeagendi disainimuster](../08-multi-agent/README.md)
+[Mitme agendi disainimuster](../08-multi-agent/README.md)
 
-## Järgmine õppetund
+## Järgmine peatükk
 
-[AI agentide tootmises](../10-ai-agents-production/README.md)
+[AI agendid tootmises](../10-ai-agents-production/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Lahtiütlus:
-See dokument on tõlgitud tehisintellekti tõlketeenuse Co-op Translator (https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, võivad automaatsed tõlked sisaldada vigu või ebatäpsusi. Originaaldokumenti selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta mis tahes arusaamatuste või valesti tõlgendamise eest, mis tulenevad selle tõlke kasutamisest.
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
