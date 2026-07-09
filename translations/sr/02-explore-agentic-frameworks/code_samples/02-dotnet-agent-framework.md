@@ -2,113 +2,117 @@
 
 ## 📋 Циљеви учења
 
-Овај пример истражује основне концепте Microsoft Agent Framework-а кроз имплементацију основног агента у .NET-у. Научићете основне агенцијске обрасце и разумети како интелигентни агенти функционишу изнутра користећи C# и .NET екосистем.
+Овај пример истражује основне концепте Microsoft Agent Framework-а кроз имплементацију основног агента у .NET-у. Научићете основне агентске обрасце и разумети како интелигентни агенти функционишу „иза сцене“ користећи C# и .NET екосистем.
 
 ### Шта ћете открити
 
-- 🏗️ **Архитектура агента**: Разумевање основне структуре AI агената у .NET-у  
-- 🛠️ **Интеграција алата**: Како агенти користе спољашње функције за проширење могућности  
-- 💬 **Ток конверзације**: Управљање разговорима са више корака и контекстом уз управљање нитима  
-- 🔧 **Шаблони конфигурације**: Најбоље праксе за подешавање и управљање агентима у .NET-у  
+- 🏗️ **Архитектура агента**: Разумевање основне структуре AI агената у .NET-у
+- 🛠️ **Интеграција алата**: Како агенти користе спољне функције за проширење могућности  
+- 💬 **Ток разговора**: Управљање вишеокретним разговорима и контекстом помоћу управљања нитима
+- 🔧 **Обрасци конфигурације**: Најбоље праксе за подешавање и управљање агентом у .NET-у
 
-## 🎯 Кључни концепти
+## 🎯 Кључни појмови покривени
 
-### Принципи агенцијског оквира
+### Принципи агентског оквира
 
-- **Аутономија**: Како агенти доносе независне одлуке користећи .NET AI апстракције  
-- **Реактивност**: Реаговање на промене у окружењу и корисничке уносе  
-- **Проактивност**: Предузимање иницијативе на основу циљева и контекста  
-- **Социјална способност**: Комуникација кроз природни језик уз разговорне нити  
+- **Аутономија**: Како агенти доносе независне одлуке користећи .NET AI апстракције
+- **Реактивност**: Одговарање на промене окружења и корисничке уносе
+- **Проактивност**: Предузимање иницијативе на основу циљева и контекста
+- **Друштвена способност**: Интеракција кроз природни језик са нитима разговора
 
 ### Техничке компоненте
 
-- **AIAgent**: Основна оркестрација агента и управљање конверзацијом (.NET)  
-- **Функције алата**: Проширење могућности агента помоћу C# метода и атрибута  
-- **Интеграција OpenAI**: Коришћење језичких модела кроз стандардизоване .NET API-је  
-- **Сигурна конфигурација**: Управљање API кључевима засновано на окружењу  
+- **AIAgent**: Основна оркестрација агента и управљање разговором (.NET)
+- **Функције алата**: Проширење агенцијских могућности са C# методама и атрибутима
+- **Интеграција Azure OpenAI**: Коришћење језичких модела кроз Azure OpenAI Responses API
+- **Сигурна конфигурација**: Управљање крајњом тачком засновано на окружењу
 
 ## 🔧 Технички стек
 
 ### Основне технологије
 
-- Microsoft Agent Framework (.NET)  
-- Интеграција GitHub Models API  
-- Клијентски обрасци компатибилни са OpenAI  
-- Конфигурација заснована на окружењу уз DotNetEnv  
+- Microsoft Agent Framework (.NET)
+- Интеграција Azure OpenAI (Responses API)
+- Обрасци клијента Azure.AI.OpenAI
+- Конфигурација заснована на окружењу уз помоћ DotNetEnv
 
 ### Могућности агента
 
-- Разумевање и генерисање природног језика  
-- Позивање функција и коришћење алата уз C# атрибуте  
-- Одговори свесни контекста уз разговорне нити  
-- Проширива архитектура уз шаблоне за убризгавање зависности  
+- Разумевање и генерисање природног језика
+- Позив функција и коришћење алата са C# атрибутима
+- Одговори са свешћу о контексту и нитима разговора
+- Проширива архитектура са обрасцима убризгавања зависности
 
 ## 📚 Поређење оквира
 
-Овај пример демонстрира приступ Microsoft Agent Framework-а у поређењу са другим агенцијским оквирима:
+Овај пример показује приступ Microsoft Agent Framework у поређењу са другим агентским оквирима:
 
-| Карактеристика | Microsoft Agent Framework | Други оквири |
-|----------------|---------------------------|--------------|
-| **Интеграција** | Нативни Microsoft екосистем | Различита компатибилност |
+| Карактеристика | Microsoft Agent Framework | Остали оквири |
+|---------|-------------------------|------------------|
+| **Интеграција** | Природан Microsoft екосистем | Различита компатибилност |
 | **Једноставност** | Чист, интуитиван API | Често сложено подешавање |
 | **Проширивост** | Лака интеграција алата | Зависи од оквира |
-| **Спремност за предузећа** | Дизајниран за продукцију | Зависи од оквира |
+| **Спремност за производњу** | Намењен производњи | Разликује се по оквирима |
 
-## 🚀 Почетак рада
+## 🚀 Започињање
 
-### Предуслови
+### Захтеви
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или новији  
-- [GitHub Models API приступни токен](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или новији
+- [Azure претплата](https://azure.microsoft.com/free/) са Azure OpenAI ресурсом и имплементацијом модела
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — пријавите се са `az login`
 
 ### Потребне променљиве окружења
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Онда се пријавите да AzureCliCredential може добити токен
+az login
 ```
-  
+
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Затим се пријавите да би AzureCliCredential могао да добије токен
+az login
 ```
-  
 
 ### Пример кода
 
-Да бисте покренули пример кода,
+За покретање примера кода,
 
 ```bash
 # zsh/bash
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-  
+
 Или користећи dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
-  
-Погледајте [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) за комплетан код.
+
+Погледајте [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) за цео код.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,11 +175,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -224,26 +214,25 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
     Console.Write(update);
 }
 ```
-  
 
-## 🎓 Кључни закључци
+## 🎓 Главне поуке
 
-1. **Архитектура агента**: Microsoft Agent Framework пружа чист, типски сигуран приступ за изградњу AI агената у .NET-у  
-2. **Интеграција алата**: Функције означене атрибутима `[Description]` постају доступни алати за агента  
-3. **Контекст конверзације**: Управљање нитима омогућава разговоре са више корака уз потпуну свест о контексту  
-4. **Управљање конфигурацијом**: Променљиве окружења и сигурно руковање акредитивима прате најбоље праксе .NET-а  
-5. **Компатибилност са OpenAI**: Интеграција GitHub Models ради беспрекорно кроз OpenAI компатибилне API-је  
+1. **Архитектура агента**: Microsoft Agent Framework пружа чист, типски-сигуран приступ изградњи AI агената у .NET-у
+2. **Интеграција алата**: Функције украшене `[Description]` атрибутима постају доступни алати за агента
+3. **Контекст разговора**: Управљање нитима омогућава вишеокретне разговоре са пуном свешћу о контексту
+4. **Управљање конфигурацијом**: Променљиве окружења и безбедно руковање акредитивима прате .NET најбоље праксе
+5. **Azure OpenAI Responses API**: Агент користи Azure OpenAI Responses API путем Azure.AI.OpenAI SDK
 
 ## 🔗 Додатни ресурси
 
-- [Microsoft Agent Framework документација](https://learn.microsoft.com/agent-framework)  
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET апликације у једној датотеци](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Microsoft Agent Framework документација](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI у Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET апликације у једној датотеци](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Одрицање од одговорности**:  
-Овај документ је преведен помоћу услуге за превођење вештачке интелигенције [Co-op Translator](https://github.com/Azure/co-op-translator). Иако настојимо да обезбедимо тачност, молимо вас да имате у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати ауторитативним извором. За критичне информације препоручује се професионални превод од стране људи. Не преузимамо одговорност за било каква погрешна тумачења или неспоразуме који могу настати услед коришћења овог превода.
+**Изјава о одрицању одговорности**:
+Овај документ је преведен коришћењем услуге за аутоматски превод [Co-op Translator](https://github.com/Azure/co-op-translator). Иако тежимо тачности, имајте у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати ауторитативним извором. За критичне информације препоручује се професионални људски превод. Нисмо одговорни за било каква неспоразума или погрешна тумачења која произилазе из коришћења овог превода.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

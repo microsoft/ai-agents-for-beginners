@@ -1,106 +1,109 @@
-# 🛠️ Napredno uporabo orodij z modeli GitHub (.NET)
+# 🛠️ Napredna uporaba orodij z Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Cilji učenja
 
-Ta zvezek prikazuje vzorce integracije orodij na ravni podjetja z uporabo Microsoft Agent Framework v .NET z modeli GitHub. Naučili se boste graditi napredne agente z več specializiranimi orodji, pri čemer boste izkoristili močno tipizacijo jezika C# in funkcije .NET za podjetja.
+Ta zvezek prikazuje vzorce integracije orodij nivoja podjetja z uporabo Microsoft Agent Framework v .NET z Azure OpenAI (Responses API). Naučili se boste graditi sofisticirane agente z več specializiranimi orodji, ki uporabljajo močno tipizacijo v C# in funkcije podjetniške ravni .NET.
 
 ### Napredne zmogljivosti orodij, ki jih boste obvladali
 
-- 🔧 **Arhitektura več orodij**: Gradnja agentov z več specializiranimi zmogljivostmi
-- 🎯 **Tipno varno izvajanje orodij**: Izkoristite preverjanje pravilnosti med prevajanjem v jeziku C#
-- 📊 **Vzorce orodij za podjetja**: Oblikovanje orodij, pripravljeno za produkcijo, in obravnavanje napak
-- 🔗 **Sestavljanje orodij**: Kombiniranje orodij za kompleksne poslovne delovne tokove
+- 🔧 **Arhitektura z več orodji**: Gradnja agentov z več specializiranimi zmogljivostmi
+- 🎯 **Varnost izvedbe orodij glede na tip**: Izraba preverjanja med prevajanjem C#
+- 📊 **Vzorce orodij za podjetja**: Oblikovanje orodij pripravljenih za proizvodnjo in upravljanje napak
+- 🔗 **Sestava orodij**: Združevanje orodij za zahtevne poslovne poteke
 
 ## 🎯 Prednosti arhitekture orodij v .NET
 
-### Funkcije orodij za podjetja
+### Funkcije orodij na ravni podjetja
 
-- **Preverjanje pravilnosti med prevajanjem**: Močna tipizacija zagotavlja pravilnost parametrov orodij
-- **Vbrizgavanje odvisnosti**: Integracija IoC kontejnerja za upravljanje orodij
-- **Vzorec Async/Await**: Neblokirajoče izvajanje orodij z ustreznim upravljanjem virov
-- **Strukturirano beleženje**: Vgrajena integracija beleženja za spremljanje izvajanja orodij
+- **Preverjanje med prevajanjem**: Močna tipizacija zagotavlja pravilnost parametrov orodij
+- **Injekcija odvisnosti**: Integracija IoC kontejnerja za upravljanje orodij
+- **Vzorec Async/Await**: Neblokirajoča izvedba orodij z ustreznim upravljanjem virov
+- **Strukturirano zapisovanje dnevnika**: Vgrajena integracija beleženja za spremljanje izvajanja orodij
 
-### Vzorci, pripravljeni za produkcijo
+### Vzorec pripravljen za proizvodnjo
 
-- **Obravnavanje izjem**: Celovito upravljanje napak s tipiziranimi izjemami
-- **Upravljanje virov**: Ustrezni vzorci odstranjevanja in upravljanje pomnilnika
-- **Spremljanje zmogljivosti**: Vgrajene metrike in števci zmogljivosti
-- **Upravljanje konfiguracije**: Tipno varna konfiguracija z validacijo
+- **Upravljanje izjem**: Celovito upravljanje napak z tipiziranimi izjemami
+- **Upravljanje virov**: Pravilni vzorci odstranjevanja in upravljanje pomnilnika
+- **Spremljanje zmogljivosti**: Vgrajene metrike in števec zmogljivosti
+- **Upravljanje konfiguracije**: Varnost konfiguracije z validacijo glede na tip
 
 ## 🔧 Tehnična arhitektura
 
-### Osnovne komponente orodij v .NET
+### Jedrne komponente orodij .NET
 
 - **Microsoft.Extensions.AI**: Poenotena plast abstrakcije orodij
-- **Microsoft.Agents.AI**: Orkestracija orodij na ravni podjetja
-- **Integracija modelov GitHub**: Visoko zmogljiv API odjemalec z združevanjem povezav
+- **Microsoft.Agents.AI**: Orkestracija orodij nivoja podjetja
+- **Azure OpenAI (Responses API)**: Visoko zmogljiv odjemalec API z vzdrževanjem povezav
 
-### Cevovod za izvajanje orodij
+### Potek izvajanja orodij
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Zahteva uporabnika] --> B[Analiza agenta]
+    B --> C[Izbira orodja]
+    C --> D[Preverjanje vrste]
+    B --> E[Povezava parametrov]
+    E --> F[Izvajanje orodja]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Obdelava rezultatov]
     D --> G
-    G --> H[Response]
+    G --> H[Odgovor]
 ```
 
 ## 🛠️ Kategorije orodij in vzorci
 
 ### 1. **Orodja za obdelavo podatkov**
 
-- **Validacija vhodnih podatkov**: Močna tipizacija z anotacijami podatkov
-- **Operacije transformacije**: Tipno varna pretvorba in formatiranje podatkov
-- **Poslovna logika**: Orodja za izračune in analize, specifične za domeno
-- **Formatiranje izhodnih podatkov**: Generiranje strukturiranih odgovorov
+- **Validacija vhodnih podatkov**: Močna tipizacija z oznakami podatkov
+- **Transformacijske operacije**: Varn konverzija in oblikovanje podatkov
+- **Poslovna logika**: Orodja za račune in analize specifične za domeno
+- **Oblikovanje izhoda**: Generiranje strukturiranih odzivov
 
 ### 2. **Integracijska orodja**
 
-- **API konektorji**: Integracija RESTful storitev z HttpClient
-- **Orodja za baze podatkov**: Integracija Entity Framework za dostop do podatkov
-- **Operacije z datotekami**: Varne operacije datotečnega sistema z validacijo
-- **Zunanje storitve**: Vzorci integracije storitev tretjih oseb
+- **API vmesniki**: Integracija RESTful storitev z HttpClient
+- **Orodja za podatkovne baze**: Integracija Entity Framework za dostop do podatkov
+- **Datotečne operacije**: Varn upravljanje datotečnega sistema z validacijo
+- **Zunanje storitve**: Vzorci integracije tretjih storitev
 
-### 3. **Pripomočki**
+### 3. **Pomožna orodja**
 
-- **Obdelava besedila**: Pripomočki za manipulacijo in formatiranje nizov
-- **Operacije z datumi/časi**: Kulturno občutljivi izračuni datumov/časov
+- **Obdelava besedila**: Orodja za manipulacijo in oblikovanje nizov
+- **Operacije z datumom/časom**: Izračuni datuma/časa z upoštevanjem kulture
 - **Matematična orodja**: Natančni izračuni in statistične operacije
 - **Orodja za validacijo**: Validacija poslovnih pravil in preverjanje podatkov
 
-Pripravljeni na gradnjo agentov na ravni podjetja z zmogljivimi, tipno varnimi zmogljivostmi orodij v .NET? Zasnujmo profesionalne rešitve! 🏢⚡
+Pripravljeni za gradnjo agentov nivoja podjetja z močnimi, varnimi orodji glede na tip v .NET? Zasnovajmo nekaj profesionalnih rešitev! 🏢⚡
 
 ## 🚀 Začetek
 
 ### Predpogoji
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ali novejši
-- [Dostopni žeton za API modelov GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Azure naročnina](https://azure.microsoft.com/free/) z Azure OpenAI virom in nameščeno različico modela
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se z `az login`
 
-### Zahtevane okoljske spremenljivke
+### Potrebne okoljske spremenljivke
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Nato se prijavite, da lahko AzureCliCredential pridobi žeton
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Nato se prijavite, da lahko AzureCliCredential pridobi žeton
+az login
 ```
 
-### Vzorčna koda
+### Primer kode
 
-Za zagon primerne kode,
+Za zagon primer kode,
 
 ```bash
 # zsh/bash
@@ -121,14 +124,16 @@ Oglejte si [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Omejitev odgovornosti**:  
-Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne prevzemamo odgovornosti za morebitne nesporazume ali napačne razlage, ki izhajajo iz uporabe tega prevoda.
+**Omejitev odgovornosti**:
+Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da avtomatizirani prevodi lahko vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za kritične informacije je priporočljiv strokovni človeški prevod. Ne odgovarjamo za morebitna nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,42 +1,42 @@
-# Azure AI Agent Service Development
+# Razvoj servisa Microsoft Foundry Agent
 
-U ovom zadatku koristite alate Azure AI Agent servisa u [Microsoft Foundry portalu](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) kako biste kreirali agenta za rezervaciju letova. Agent će moći komunicirati s korisnicima i pružati informacije o letovima.
+U ovom vježbanju koristite alate Microsoft Foundry Agent Service u [Microsoft Foundry portalu](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) za kreiranje agenta za rezervaciju letova. Agent će moći komunicirati s korisnicima i pružati informacije o letovima.
 
-## Prerequisites
+## Preduvjeti
 
-Za dovršetak ovog zadatka trebate sljedeće:
-1. Azure račun s aktivnom pretplatom. [Otvorite račun besplatno](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. Potrebne su vam dozvole za stvaranje Microsoft Foundry hub-a ili da vam netko stvori hub.
-    - Ako je vaša uloga Contributor ili Owner, možete slijediti korake u ovom vodiču.
+Za dovršetak ovog vježbanja potrebni su vam sljedeći uvjeti:
+1. Azure račun s aktivnom pretplatom. [Izradite račun besplatno](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
+2. Potrebne su vam dozvole za kreiranje Microsoft Foundry huba ili da vam netko kreira jedan.
+    - Ako vam je dodijeljena uloga Suradnika ili Vlasnika, možete slijediti korake u ovom vodiču.
 
-## Create an Microsoft Foundry hub
+## Kreirajte Microsoft Foundry hub
 
 > **Napomena:** Microsoft Foundry je ranije bio poznat kao Azure AI Studio.
 
-1. Slijedite ove smjernice iz [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) članka za stvaranje Microsoft Foundry hub-a.
-2. Kada je vaš projekt stvoren, zatvorite sve prikazane savjete i pregledajte stranicu projekta u Microsoft Foundry portalu, koja bi trebala izgledati slično sljedećoj slici:
+1. Slijedite ove smjernice iz [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog posta za kreiranje Microsoft Foundry huba.
+2. Nakon što je vaš projekt kreiran, zatvorite sve prikazane savjete i pregledajte stranicu projekta u Microsoft Foundry portalu, koja bi trebala izgledati slično kao sljedeća slika:
 
     ![Microsoft Foundry Project](../../../translated_images/hr/azure-ai-foundry.88d0c35298348c2f.webp)
 
-## Deploy a model
+## Implementirajte model
 
-1. U oknu s lijeve strane za svoj projekt, u odjeljku **Moji resursi**, odaberite stranicu **Modeli + krajnje točke**.
-2. Na stranici **Modeli + krajnje točke**, na kartici **Model deployments**, u izborniku **+ Deploy model**, odaberite **Deploy base model**.
-3. Pretražite model `gpt-4o-mini` na popisu, zatim ga odaberite i potvrdite.
+1. U lijevom panelu vašeg projekta, u odjeljku **My assets**, odaberite stranicu **Models + endpoints**.
+2. Na stranici **Models + endpoints**, u kartici **Model deployments**, u izborniku **+ Deploy model**, odaberite **Deploy base model**.
+3. Potražite model `gpt-4o-mini` na popisu, zatim ga odaberite i potvrdite.
 
-    > **Napomena**: Smanjenje TPM pomaže izbjeći prekomjernu potrošnju kvote dostupne na pretplati koju koristite.
+    > **Napomena**: Smanjenje TPM pomaže spriječiti prekomjernu potrošnju kvote dostupne u vašoj pretplati.
 
     ![Model Deployed](../../../translated_images/hr/model-deployment.3749c53fb81e18fd.webp)
 
-## Create an agent
+## Kreirajte agenta
 
-Sada kada ste rasporedili model, možete stvoriti agenta. Agent je konverzacijski AI model koji se može koristiti za interakciju s korisnicima.
+Sada kada ste implementirali model, možete kreirati agenta. Agent je konverzacijski AI model koji se koristi za interakciju s korisnicima.
 
-1. U oknu s lijeve strane za svoj projekt, u odjeljku **Build & Customize**, odaberite stranicu **Agents**.
-2. Kliknite **+ Create agent** za stvaranje novog agenta. U dijaloškom okviru **Agent Setup**:
-    - Unesite ime za agenta, kao npr. `FlightAgent`.
-    - Provjerite je li odabrano raspoređivanje modela `gpt-4o-mini` koje ste prethodno stvorili
-    - Postavite **Instructions** prema uputi koju želite da agent slijedi. Evo primjera:
+1. U lijevom panelu vašeg projekta, u odjeljku **Build & Customize**, odaberite stranicu **Agents**.
+2. Kliknite **+ Create agent** da kreirate novog agenta. U dijaloškom okviru **Agent Setup**:
+    - Unesite ime agenta, na primjer `FlightAgent`.
+    - Osigurajte da je odabran prethodno kreirani model deployment `gpt-4o-mini`.
+    - Postavite **Instructions** prema uputama koje želite da agent slijedi. Evo primjera:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -64,46 +64,46 @@ Sada kada ste rasporedili model, možete stvoriti agenta. Agent je konverzacijsk
     
     ```
 > [!NOTE]
-> Za detaljan prompt možete pogledati [this repository](https://github.com/ShivamGoyal03/RoamMind) za više informacija.
+> Za detaljnu uputu, možete pogledati [ovaj repozitorij](https://github.com/ShivamGoyal03/RoamMind) za više informacija.
     
-> Nadalje, možete dodati **Knowledge Base** i **Actions** kako biste unaprijedili sposobnosti agenta za pružanje više informacija i izvođenje automatiziranih zadataka na temelju zahtjeva korisnika. Za ovaj zadatak možete preskočiti ove korake.
+> Nadalje, možete dodati **Knowledge Base** i **Actions** kako biste proširili sposobnosti agenta da pruža više informacija i izvodi automatizirane zadatke na temelju korisničkih zahtjeva. Za ovo vježbanje, ove korake možete preskočiti.
     
 ![Agent Setup](../../../translated_images/hr/agent-setup.9bbb8755bf5df672.webp)
 
-3. Za stvaranje novog multi-AI agenta jednostavno kliknite **New Agent**. Novo stvoreni agent tada će se prikazati na stranici Agents.
+3. Za kreiranje novog multi-AI agenta, jednostavno kliknite **New Agent**. Novi agent će tada biti prikazan na stranici Agents.
 
 
-## Test the agent
+## Testirajte agenta
 
-Nakon stvaranja agenta, možete ga testirati kako biste vidjeli kako odgovara na upite korisnika u Microsoft Foundry portal playgroundu.
+Nakon kreiranja agenta, možete ga testirati kako biste vidjeli kako reagira na upite korisnika u Microsoft Foundry portalu playground.
 
-1. Na vrhu okna **Setup** za vašeg agenta odaberite **Try in playground**.
-2. U oknu **Playground** možete komunicirati s agentom upisivanjem upita u chat prozor. Na primjer, možete tražiti od agenta da pretraži letove iz Seattlea za New York 28.
+1. Na vrhu panela **Setup** za vašeg agenta, odaberite **Try in playground**.
+2. U panelu **Playground**, možete komunicirati s agentom tako da unosite upite u prozor razgovora. Na primjer, možete pitati agenta da potraži letove iz Seattlea za New York 28.
 
-    > **Napomena**: Agent možda neće davati točne odgovore, jer se u ovom zadatku ne koriste podaci u stvarnom vremenu. Svrha je testirati sposobnost agenta da razumije i odgovori na upite korisnika na temelju zadanih uputa.
+    > **Napomena**: Agent možda neće davati točne odgovore jer u ovoj vježbi nije korištena stvarna vremenska baza podataka. Cilj je testirati sposobnost agenta da razumije i odgovori na korisničke upite prema danim uputama.
 
     ![Agent Playground](../../../translated_images/hr/agent-playground.dc146586de715010.webp)
 
-3. Nakon testiranja agenta, možete ga dodatno prilagoditi dodavanjem više namjera, podataka za obuku i akcija kako biste unaprijedili njegove mogućnosti.
+3. Nakon testiranja agenta, možete ga dodatno prilagoditi dodavanjem više namjera, podataka za treniranje i akcija kako biste poboljšali njegove sposobnosti.
 
-## Clean up resources
+## Očistite resurse
 
 Kada završite s testiranjem agenta, možete ga izbrisati kako biste izbjegli dodatne troškove.
-1. Otvorite [Azure portal](https://portal.azure.com) i pregledajte sadržaj grupe resursa u kojoj ste rasporedili hub resurse korištene u ovom zadatku.
+1. Otvorite [Azure portal](https://portal.azure.com) i pogledajte sadržaj grupe resursa u kojoj ste implementirali resurse huba korištene u ovom vježbanju.
 2. Na alatnoj traci odaberite **Delete resource group**.
-3. Unesite ime grupe resursa i potvrdite da je želite izbrisati.
+3. Unesite naziv grupe resursa i potvrdite da je želite izbrisati.
 
-## Resources
+## Resursi
 
-- [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
+- [Dokumentacija Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
-- [Getting Started with Azure AI Studio](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
-- [Fundamentals of AI agents on Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
+- [Uvod u Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [Osnove AI agenata na Azureu](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Odricanje odgovornosti:
-Ovaj dokument je preveden korištenjem AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo postići točnost, imajte na umu da automatizirani prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za kritične informacije preporučuje se profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakve nesporazume ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
+**Napomena**:
+Ovaj dokument je preveden korištenjem AI prevoditeljskog servisa [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati greške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za važne informacije preporuča se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazumevanja ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

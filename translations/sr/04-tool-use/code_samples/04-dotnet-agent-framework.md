@@ -1,106 +1,109 @@
-# 🛠️ Напредна употреба алата са GitHub моделима (.NET)
+# 🛠️ Напредна употреба алата са Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Циљеви учења
 
-Овај приручник демонстрира интеграционе шаблоне алата на нивоу предузећа користећи Microsoft Agent Framework у .NET-у са GitHub моделима. Научићете како да изградите софистициране агенте са више специјализованих алата, користећи снажну типизацију C# и предузетничке карактеристике .NET-а.
+Овај нотебоок показује обрасце интеграције алата класе предузећа користећи Microsoft Agent Framework у .NET уз Azure OpenAI (Responses API). Научићете како да градите напредне агенте са више специјализованих алата, користећи снажно типизирање у C# и предузећне карактеристике .NET-а.
 
-### Напредне способности алата које ћете савладати
+### Напредне могућности алата које ћете савладати
 
-- 🔧 **Архитектура са више алата**: Изградња агената са више специјализованих могућности
-- 🎯 **Извршавање алата са типском сигурношћу**: Искоришћавање C# провере у време компилације
-- 📊 **Шаблони алата за предузећа**: Дизајн алата спреман за производњу и руковање грешкама
-- 🔗 **Композиција алата**: Комбиновање алата за сложене пословне токове
+- 🔧 **Архитектура са више алата**: Изградња агената са више специјализованих способности
+- 🎯 **Извођење алата са безбедним типовима**: Коришћење валидације у време компајлирања у C#
+- 📊 **Предузетнички обрасци алата**: Дизајн алата спремних за производњу и руковање грешкама
+- 🔗 **Композиција алата**: Комбиновање алата за сложене пословне токове рада
 
 ## 🎯 Предности архитектуре алата у .NET-у
 
 ### Карактеристике алата за предузећа
 
-- **Провера у време компилације**: Снажна типизација осигурава исправност параметара алата
-- **Убризгавање зависности**: Интеграција IoC контејнера за управљање алатима
-- **Асинхрони шаблони**: Неблокирајуће извршавање алата уз правилно управљање ресурсима
-- **Структурисано логовање**: Уграђена интеграција логовања за праћење извршавања алата
+- **Валидација у време компајлирања**: Снажна типизација осигурава исправност параметара алата
+- **Dependency Injection**: Интеграција IoC контејнера за управљање алатима
+- **Обрасци Async/Await**: Неблокирајуће извршавање алата са правилним управљањем ресурсима
+- **Структурирано логовање**: Уграђена интеграција логовања за праћење извршавања алата
 
-### Шаблони спремни за производњу
+### Обрасци спремни за производњу
 
-- **Руковање изузецима**: Свеобухватно управљање грешкама са типизованим изузецима
-- **Управљање ресурсима**: Правилни шаблони за ослобађање ресурса и управљање меморијом
+- **Руковање изузецима**: Свеобухватно управљање грешкама са типизираним изузецима
+- **Управљање ресурсима**: Правилни обрасци за ослобађање ресурса и управљање меморијом
 - **Праћење перформанси**: Уграђене метрике и бројачи перформанси
-- **Управљање конфигурацијом**: Типски сигурна конфигурација са провером исправности
+- **Управљање конфигурацијом**: Безбедна конфигурација са валидацијом
 
 ## 🔧 Техничка архитектура
 
 ### Основне компоненте алата у .NET-у
 
-- **Microsoft.Extensions.AI**: Јединствени слој апстракције алата
-- **Microsoft.Agents.AI**: Оркестрација алата на нивоу предузећа
-- **Интеграција GitHub модела**: Клијент API високих перформанси са управљањем конекцијама
+- **Microsoft.Extensions.AI**: Унифицирани слој апстракције алата
+- **Microsoft.Agents.AI**: Оркестрација алата класе предузећа
+- **Azure OpenAI (Responses API)**: API клијент високе перформансе са пулом веза
 
-### Цевовод за извршавање алата
+### Цевовод извршавања алата
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Кориснички захтев] --> B[Анализа агента]
+    B --> C[Избор алата]
+    C --> D[Валидација типа]
+    B --> E[Повезивање параметара]
+    E --> F[Извођење алата]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Обрада резултата]
     D --> G
-    G --> H[Response]
+    G --> H[Одговор]
 ```
 
-## 🛠️ Категорије и шаблони алата
+## 🛠️ Категорије и образци алата
 
 ### 1. **Алатке за обраду података**
 
-- **Провера улазних података**: Снажна типизација са анотацијама података
-- **Операције трансформације**: Типски сигурна конверзија и форматирање података
-- **Пословна логика**: Алатке за доменско специфичне прорачуне и анализе
-- **Форматирање излазних података**: Генерисање структурисаних одговора
+- **Валидација уноса**: Снажна типизација са напоменама о подацима
+- **Операције трансформације**: Безбедна конверзија и форматирање података
+- **Пословна логика**: Алати за специфичне доменске прорачуне и анализу
+- **Форматирање излаза**: Генерисање структурисаног одговора
 
-### 2. **Интеграционе алатке**
+### 2. **Интеграциони алати**
 
 - **API конектори**: Интеграција RESTful сервиса са HttpClient-ом
-- **Алатке за базу података**: Интеграција Entity Framework-а за приступ подацима
-- **Операције са датотекама**: Сигурне операције са фајл системом уз проверу исправности
-- **Спољне услуге**: Шаблони интеграције услуга трећих страна
+- **Алати за базу података**: Интеграција Entity Framework-а за приступ подацима
+- **Операције са фајловима**: Безбедне операције са фајл системом и валидацијом
+- **Спољашњи сервиси**: Обрасци интеграције са услугама трећих страна
 
-### 3. **Помоћне алатке**
+### 3. **Помоћни алати**
 
-- **Обрада текста**: Манипулација стринговима и форматирање
-- **Операције са датумима/временом**: Културно свесни прорачуни датума и времена
-- **Математичке алатке**: Прецизни прорачуни и статистичке операције
-- **Алатке за проверу исправности**: Провера пословних правила и верификација података
+- **Обрада текста**: Утилитији за манипулацију и форматирање стрингова
+- **Операције са датумом/временом**: Израчунавања датума/времена осетљива на културу
+- **Математички алати**: Прецизни прорачуни и статистичке операције
+- **Алат за валидацију**: Валидација пословних правила и проверa података
 
-Спремни да изградите агенте на нивоу предузећа са моћним, типски сигурним могућностима алата у .NET-у? Хајде да архитектурамо професионална решења! 🏢⚡
+Спремни да изградите агенте класе предузећа са моћним алатима са безбедним типовима у .NET-у? Хајде да архитектурамо професионална решења! 🏢⚡
 
-## 🚀 Почетак
+## 🚀 Како почети
 
 ### Предуслови
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или новији
-- [GitHub Models API приступни токен](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) или новија верзија
+- [Azure претплата](https://azure.microsoft.com/free/) са Azure OpenAI ресурсом и дејплојментом модела
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — пријавите се комадом `az login`
 
 ### Потребне променљиве окружења
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Затим пријавите се да би AzureCliCredential могао добити токен
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Затим се пријавите да би AzureCliCredential могао да добије токен
+az login
 ```
 
 ### Пример кода
 
-Да бисте покренули пример кода,
+Да покренете пример кода,
 
 ```bash
 # zsh/bash
@@ -114,21 +117,23 @@ chmod +x ./04-dotnet-agent-framework.cs
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Погледајте [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) за комплетан код.
+Погледајте [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) за цео код.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Одрицање од одговорности**:  
-Овај документ је преведен коришћењем услуге за аутоматски превод [Co-op Translator](https://github.com/Azure/co-op-translator). Иако се трудимо да обезбедимо тачност, молимо вас да имате у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на изворном језику треба сматрати ауторитативним извором. За критичне информације препоручује се професионални превод од стране људи. Не сносимо одговорност за било каква погрешна тумачења или неспоразуме који могу произаћи из коришћења овог превода.
+**Изјава о одрицању одговорности**:
+Овај документ је преведен коришћењем услуге за аутоматски превод [Co-op Translator](https://github.com/Azure/co-op-translator). Иако тежимо тачности, имајте у виду да аутоматски преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати ауторитативним извором. За критичне информације препоручује се професионални људски превод. Нисмо одговорни за било каква неспоразума или погрешна тумачења која произилазе из коришћења овог превода.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
