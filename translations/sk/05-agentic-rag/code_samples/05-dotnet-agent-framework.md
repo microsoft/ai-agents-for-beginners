@@ -1,72 +1,72 @@
-# 🔍 Enterprise RAG s Azure AI Foundry (.NET)
+# 🔍 Podnikový RAG s Microsoft Foundry (.NET)
 
 ## 📋 Ciele učenia
 
-Tento notebook demonštruje, ako vytvoriť podnikové systémy Retrieval-Augmented Generation (RAG) pomocou Microsoft Agent Framework v .NET s Azure AI Foundry. Naučíte sa vytvárať produkčne pripravených agentov, ktorí dokážu vyhľadávať v dokumentoch a poskytovať presné odpovede s kontextom, pričom zabezpečia podnikové bezpečnostné a škálovateľné riešenia.
+Tento zápisník ukazuje, ako vytvoriť podnikové systémy Retrieval-Augmented Generation (RAG) pomocou Microsoft Agent Framework v .NET s Microsoft Foundry. Naučíte sa vytvárať produkčné agenty, ktorí dokážu prehľadávať dokumenty a poskytovať presné, kontextovo uvedomelé odpovede s podnikových zabezpečením a škálovateľnosťou.
 
-**Podnikové schopnosti RAG, ktoré sa naučíte:**
-- 📚 **Inteligencia dokumentov**: Pokročilé spracovanie dokumentov pomocou služieb Azure AI
-- 🔍 **Semantické vyhľadávanie**: Výkonné vektorové vyhľadávanie s podnikovými funkciami
-- 🛡️ **Integrácia bezpečnosti**: Riadenie prístupu na základe rolí a vzory ochrany údajov
-- 🏢 **Škálovateľná architektúra**: Produkčne pripravené systémy RAG s monitorovaním
+**Podnikové schopnosti RAG, ktoré vybudujete:**
+- 📚 **Dokumentová inteligencia**: Pokročilé spracovanie dokumentov s Azure AI službami
+- 🔍 **Semantické vyhľadávanie**: Vysoko výkonné vektorové vyhľadávanie s podnikateľskými funkciami
+- 🛡️ **Integrácia zabezpečenia**: Prístup na základe rolí a vzory ochrany údajov
+- 🏢 **Škálovateľná architektúra**: Produkčné RAG systémy s monitorovaním
 
-## 🎯 Architektúra Enterprise RAG
+## 🎯 Architektúra podnikového RAG
 
-### Hlavné podnikové komponenty
-- **Azure AI Foundry**: Spravovaná podniková AI platforma s bezpečnosťou a súladom
-- **Persistentní agenti**: Stavoví agenti s históriou konverzácií a správou kontextu
-- **Správa vektorového úložiska**: Podnikové indexovanie a vyhľadávanie dokumentov
-- **Integrácia identity**: Autentifikácia Azure AD a riadenie prístupu na základe rolí
+### Jadrá podnikových komponentov
+- **Microsoft Foundry**: Riadená podniková AI platforma so zabezpečením a súladom
+- **Persistentní agenti**: Stavoví agenti s históriou rozhovorov a správou kontextu
+- **Správa vektorového úložiska**: Podnikové indexovanie a získavanie dokumentov
+- **Integrácia identity**: Autentifikácia Azure AD a kontrola prístupu na základe rolí
 
-### Výhody .NET pre podniky
-- **Typová bezpečnosť**: Validácia operácií RAG a dátových štruktúr počas kompilácie
-- **Asynchrónny výkon**: Nezablokované spracovanie dokumentov a vyhľadávacie operácie
-- **Správa pamäte**: Efektívne využívanie zdrojov pre veľké kolekcie dokumentov
-- **Vzory integrácie**: Natívna integrácia služieb Azure s injekciou závislostí
+### Výhody .NET pre podnik
+- **Typová bezpečnosť**: Overenie počas kompilácie pre RAG operácie a dátové štruktúry
+- **Asynchrónny výkon**: Nezablokujúce spracovanie dokumentov a vyhľadávacích operácií
+- **Správa pamäte**: Efektívne využitie zdrojov pre veľké zbierky dokumentov
+- **Integrančné vzory**: Nativná integrácia Azure služieb s dependency injection
 
 ## 🏗️ Technická architektúra
 
-### Pipeline Enterprise RAG
+### Podniková RAG pipeline
 ```
 Document Upload → Security Validation → Vector Processing → Index Creation
                       ↓                    ↓                  ↓
 User Query → Authentication → Semantic Search → Context Ranking → AI Response
 ```
 
-### Hlavné komponenty .NET
-- **Azure.AI.Agents.Persistent**: Správa podnikových agentov s uchovaním stavu
-- **Azure.Identity**: Integrovaná autentifikácia pre bezpečný prístup k službám Azure
-- **Microsoft.Agents.AI.AzureAI**: Implementácia optimalizovaného agentového rámca pre Azure
-- **System.Linq.Async**: Výkonné asynchrónne operácie LINQ
+### Jadrá .NET komponentov
+- **Azure.AI.Agents.Persistent**: Podniková správa agentov s perzistenciou stavu
+- **Azure.Identity**: Integrovaná autentifikácia pre bezpečný prístup k Azure službám
+- **Microsoft.Agents.AI.AzureAI**: Azure-optimalizovaná implementácia agent frameworku
+- **System.Linq.Async**: Vysoko výkonné asynchrónne LINQ operácie
 
-## 🔧 Podnikové funkcie a výhody
+## 🔧 Podnikové funkcie & výhody
 
-### Bezpečnosť a súlad
-- **Integrácia Azure AD**: Správa podnikovej identity a autentifikácie
-- **Riadenie prístupu na základe rolí**: Jemne zrnité povolenia pre prístup k dokumentom a operáciám
-- **Ochrana údajov**: Šifrovanie v pokoji a počas prenosu pre citlivé dokumenty
-- **Auditné logovanie**: Komplexné sledovanie aktivít pre požiadavky na súlad
+### Zabezpečenie & súlad
+- **Integrácia Azure AD**: Podnikové riadenie identít a autentifikácia
+- **Prístup na základe rolí**: Detailné povolenia pre prístup a operácie s dokumentmi
+- **Ochrana údajov**: Šifrovanie v pokoji aj počas prenosu pre citlivé dokumenty
+- **Auditné záznamy**: Komplexné sledovanie aktivít pre požiadavky súladu
 
-### Výkon a škálovateľnosť
-- **Pooling pripojení**: Efektívna správa pripojení k službám Azure
-- **Asynchrónne spracovanie**: Nezablokované operácie pre scenáre s vysokou priepustnosťou
-- **Stratégie cache**: Inteligentné cache pre často prístupné dokumenty
-- **Vyvažovanie záťaže**: Distribuované spracovanie pre veľké nasadenia
+### Výkon & škálovateľnosť
+- **Pooling pripojení**: Efektívna správa pripojení k Azure službám
+- **Asynchrónne spracovanie**: Nezablokujúce operácie pre vysoko zaťažené scenáre
+- **Caching stratégie**: Inteligentné cachovanie často pristupovaných dokumentov
+- **Load balancing**: Distribuované spracovanie pre rozsiahle nasadenia
 
-### Správa a monitorovanie
-- **Kontroly zdravia**: Vstavané monitorovanie komponentov systému RAG
+### Správa & monitorovanie
+- **Health checks**: Vstavané monitorovanie komponentov RAG systému
 - **Výkonnostné metriky**: Podrobné analýzy kvality vyhľadávania a časov odozvy
-- **Správa chýb**: Komplexné riadenie výnimiek s politikami opakovania
+- **Riešenie chýb**: Komplexné spravovanie výnimiek s retry politikami
 - **Správa konfigurácie**: Nastavenia špecifické pre prostredie s validáciou
 
-## ⚙️ Predpoklady a nastavenie
+## ⚙️ Predpoklady & nastavenie
 
 **Vývojové prostredie:**
 - .NET 9.0 SDK alebo vyšší
-- Visual Studio 2022 alebo VS Code s rozšírením C#
-- Predplatné Azure s prístupom k AI Foundry
+- Visual Studio 2022 alebo VS Code s rozšírením pre C#
+- Azure predplatné s prístupom k Microsoft Foundry
 
-**Požadované balíčky NuGet:**
+**Povinné NuGet balíky:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
 <PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.5" />
@@ -77,38 +77,38 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 **Nastavenie autentifikácie Azure:**
 ```bash
-# Install Azure CLI and authenticate
+# Nainštalujte Azure CLI a autentifikujte sa
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Konfigurácia prostredia:**
-* Konfigurácia Azure AI Foundry (automaticky spracovaná cez Azure CLI)
-* Uistite sa, že ste autentifikovaní k správnemu predplatnému Azure
+* Konfigurácia Microsoft Foundry (automaticky spravovaná cez Azure CLI)
+* Uistite sa, že ste prihlásený do správneho Azure predplatného
 
-## 📊 Vzory Enterprise RAG
+## 📊 Podnikové RAG vzory
 
 ### Vzory správy dokumentov
-- **Hromadné nahrávanie**: Efektívne spracovanie veľkých kolekcií dokumentov
-- **Inkrementálne aktualizácie**: Pridávanie a úprava dokumentov v reálnom čase
-- **Riadenie verzií**: Verziovanie dokumentov a sledovanie zmien
+- **Hromadné nahratie**: Efektívne spracovanie rozsiahlych zbierok dokumentov
+- **Inkrementálne aktualizácie**: Pridávanie a modifikácia dokumentov v reálnom čase
+- **Správa verzií**: Verzionovanie dokumentov a sledovanie zmien
 - **Správa metadát**: Bohaté atribúty dokumentov a taxonómia
 
-### Vzory vyhľadávania a získavania
-- **Hybridné vyhľadávanie**: Kombinácia semantického a kľúčového vyhľadávania pre optimálne výsledky
-- **Fasetové vyhľadávanie**: Viacdimenzionálne filtrovanie a kategorizácia
-- **Ladenie relevantnosti**: Vlastné algoritmy skórovania pre špecifické potreby domény
-- **Hodnotenie výsledkov**: Pokročilé hodnotenie s integráciou obchodnej logiky
+### Vzory vyhľadávania & získavania
+- **Hybridné vyhľadávanie**: Kombinovanie semantického a kľúčového vyhľadávania pre optimálne výsledky
+- **Facetové vyhľadávanie**: Viacdimenziálne filtrovanie a kategorizácia
+- **Ladenie relevantnosti**: Vlastné algoritmy skórovania pre doménové potreby
+- **Radenie výsledkov**: Pokročilé radenie s integráciou biznis logiky
 
-### Vzory bezpečnosti
-- **Bezpečnosť na úrovni dokumentov**: Jemne zrnitá kontrola prístupu na dokument
+### Zabezpečovacie vzory
+- **Zabezpečenie na úrovni dokumentov**: Detailná kontrola prístupu ku každému dokumentu
 - **Klasifikácia údajov**: Automatické označovanie citlivosti a ochrana
-- **Auditné stopy**: Komplexné logovanie všetkých operácií RAG
-- **Ochrana súkromia**: Detekcia a redakcia PII
+- **Auditné stopy**: Komplexné logovanie všetkých RAG operácií
+- **Ochrana súkromia**: Detekcia a zakrývanie osobných identifikovateľných informácií (PII)
 
-## 🔒 Funkcie podnikovej bezpečnosti
+## 🔒 Podnikové bezpečnostné funkcie
 
-### Autentifikácia a autorizácia
+### Autentifikácia & autorizácia
 ```csharp
 // Azure AD integrated authentication
 var credential = new AzureCliCredential();
@@ -123,9 +123,9 @@ if (!await ValidateUserPermissions(user, documentId))
 
 ### Ochrana údajov
 - **Šifrovanie**: End-to-end šifrovanie dokumentov a vyhľadávacích indexov
-- **Kontroly prístupu**: Integrácia s Azure AD pre povolenia používateľov a skupín
-- **Rezidencia údajov**: Geografické kontroly umiestnenia údajov pre súlad
-- **Zálohovanie a obnova**: Automatizované zálohovanie a postupy obnovy po havárii
+- **Kontroly prístupu**: Integrácia s Azure AD pre používateľské a skupinové oprávnenia
+- **Lokalita údajov**: Geografické riadenie umiestnenia údajov pre súlad
+- **Zálohovanie & obnova**: Automatizované zálohovanie a možnosti obnovy po havárii
 
 ## 📈 Optimalizácia výkonu
 
@@ -139,64 +139,64 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Správa pamäte
-- **Streamové spracovanie**: Spracovanie veľkých dokumentov bez problémov s pamäťou
+- **Streamingové spracovanie**: Spracovanie veľkých dokumentov bez problémov s pamäťou
 - **Pooling zdrojov**: Efektívne opätovné použitie nákladných zdrojov
-- **Zber odpadu**: Optimalizované vzory alokácie pamäte
-- **Správa pripojení**: Správny životný cyklus pripojení k službám Azure
+- **Garbage collection**: Optimalizované vzory prideľovania pamäte
+- **Správa pripojení**: Správny životný cyklus pripojení k Azure službám
 
-### Stratégie cache
-- **Cache dotazov**: Cache často vykonávaných vyhľadávaní
-- **Cache dokumentov**: Cache v pamäti pre často používané dokumenty
-- **Cache indexov**: Optimalizovaná cache vektorových indexov
-- **Cache výsledkov**: Inteligentná cache generovaných odpovedí
+### Caching stratégie
+- **Cache dopytov**: Cachovanie často vykonávaných vyhľadávaní
+- **Cache dokumentov**: Cachovanie v pamäti pre často používané dokumenty
+- **Cache indexov**: Optimalizované cachovanie vektorových indexov
+- **Cache výsledkov**: Inteligentné cachovanie generovaných odpovedí
 
-## 📊 Podnikové prípady použitia
+## 📊 Podnikové použitia
 
-### Správa znalostí
-- **Firemná wiki**: Inteligentné vyhľadávanie v znalostných databázach spoločnosti
-- **Politiky a postupy**: Automatizované usmernenia pre súlad a postupy
-- **Školiace materiály**: Inteligentná pomoc pri vzdelávaní a rozvoji
+### Riadenie znalostí
+- **Firemná wiki**: Inteligentné vyhľadávanie v rámci základníc znalostí spoločnosti
+- **Politiky & postupy**: Automatizované usmernenia pre súlad a postupy
+- **Školenia**: Inteligentná podpora učenia a rozvoja
 - **Výskumné databázy**: Systémy analýzy akademických a výskumných prác
 
 ### Zákaznícka podpora
-- **Znalostná databáza podpory**: Automatizované odpovede zákazníckej podpory
-- **Dokumentácia produktov**: Inteligentné získavanie informácií o produktoch
-- **Príručky na riešenie problémov**: Kontextová pomoc pri riešení problémov
-- **Systémy FAQ**: Dynamická generácia FAQ z kolekcií dokumentov
+- **Znalostná báza podpory**: Automatizované odpovede zákazníkom
+- **Produktová dokumentácia**: Inteligentné získavanie informácií o produktoch
+- **Návody na riešenie problémov**: Kontextová pomoc pri riešení problémov
+- **FAQ systémy**: Dynamická generácia FAQ z kolekcií dokumentov
 
-### Regulačný súlad
+### Dodržiavanie predpisov
 - **Analýza právnych dokumentov**: Inteligencia zmlúv a právnych dokumentov
 - **Monitorovanie súladu**: Automatizované kontroly regulačného súladu
-- **Hodnotenie rizík**: Analýza rizík na základe dokumentov a reportovanie
-- **Podpora auditu**: Inteligentné vyhľadávanie dokumentov pre audity
+- **Hodnotenie rizika**: Analýza rizík a reportovanie na základe dokumentov
+- **Podpora auditov**: Inteligentné vyhľadávanie dokumentov pre audity
 
-## 🚀 Produkčné nasadenie
+## 🚀 Nasadenie do produkcie
 
-### Monitorovanie a pozorovateľnosť
-- **Application Insights**: Podrobné telemetrie a monitorovanie výkonu
-- **Vlastné metriky**: Sledovanie a upozorňovanie na obchodné KPI
-- **Distribuované sledovanie**: Sledovanie požiadaviek od začiatku do konca medzi službami
-- **Dashboardy zdravia**: Vizualizácia zdravia systému a výkonu v reálnom čase
+### Monitorovanie & pozorovateľnosť
+- **Application Insights**: Podrobné telemetria a monitorovanie výkonu
+- **Vlastné metriky**: Sledovanie a upozornenia na biznis špecifické KPI
+- **Distribuované trasovanie**: End-to-end sledovanie požiadaviek cez služby
+- **Zdravotné dashboardy**: Vizualizácia stavu systému a výkonu v reálnom čase
 
-### Škálovateľnosť a spoľahlivosť
-- **Automatické škálovanie**: Automatické škálovanie na základe záťaže a výkonnostných metrík
-- **Vysoká dostupnosť**: Nasadenie vo viacerých regiónoch s možnosťou preklopenia
-- **Testovanie záťaže**: Validácia výkonu pod podnikovou záťažou
-- **Obnova po havárii**: Automatizované postupy zálohovania a obnovy
+### Škálovateľnosť & spoľahlivosť
+- **Auto-škálovanie**: Automatické škálovanie podľa zaťaženia a metrík výkonu
+- **Vysoká dostupnosť**: Multi-regionálne nasadenie s failover schopnosťami
+- **Load testing**: Overenie výkonu pri podnikových zaťaženiach
+- **Obnova po havárii**: Automatizované zálohovanie a obnovovacie postupy
 
-Pripravení vytvoriť podnikové systémy RAG, ktoré dokážu spracovať citlivé dokumenty vo veľkom rozsahu? Poďme navrhnúť inteligentné systémy znalostí pre podniky! 🏢📖✨
+Ste pripravení vybudovať podnikové RAG systémy, ktoré zvládnu citlivé dokumenty v škálovateľnom prostredí? Poďme navrhnúť inteligentné znalostné systémy pre podnik! 🏢📖✨
 
 ## Implementácia kódu
 
-Kompletný funkčný vzorový kód pre túto lekciu je dostupný v `05-dotnet-agent-framework.cs`. 
+Kompletný funkčný ukážkový kód pre túto lekciu nájdete v `05-dotnet-agent-framework.cs`. 
 
 Na spustenie príkladu:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Nastavte skript ako spustiteľný (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Spustite aplikáciu .NET Single File App
 ./05-dotnet-agent-framework.cs
 ```
 
@@ -208,14 +208,16 @@ dotnet run 05-dotnet-agent-framework.cs
 
 Kód demonštruje:
 
-1. **Inštalácia balíčkov**: Inštalácia požadovaných balíčkov NuGet pre Azure AI Agents
-2. **Konfigurácia prostredia**: Načítanie koncových bodov Azure AI Foundry a nastavení modelu
-3. **Nahrávanie dokumentov**: Nahrávanie dokumentu na spracovanie RAG
+1. **Inštalácia balíčkov**: Inštalovanie požadovaných NuGet balíčkov pre Azure AI Agentov
+2. **Konfigurácia prostredia**: Načítanie Microsoft Foundry endpointu a nastavení modelu
+3. **Nahranie dokumentu**: Nahratie dokumentu pre RAG spracovanie
 4. **Vytvorenie vektorového úložiska**: Vytvorenie vektorového úložiska pre semantické vyhľadávanie
 5. **Konfigurácia agenta**: Nastavenie AI agenta s možnosťami vyhľadávania súborov
-6. **Vykonanie dotazov**: Spúšťanie dotazov na nahraný dokument
+6. **Vykonanie dotazov**: Spustenie dotazov voči nahratému dokumentu
 
 ---
 
-**Zrieknutie sa zodpovednosti**:  
-Tento dokument bol preložený pomocou služby AI prekladu [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, prosím, uvedomte si, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho rodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nenesieme zodpovednosť za akékoľvek nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Vyhlásenie o zodpovednosti**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho natívnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

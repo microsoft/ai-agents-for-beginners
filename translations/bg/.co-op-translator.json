@@ -1,4 +1,28 @@
 {
+  ".agents/skills/azure-openai-to-responses/SKILL.md": {
+    "original_hash": "ff5db1e3d23bdebae31484abc2cbf6ad",
+    "translation_date": "2026-07-09T15:49:32+00:00",
+    "source_file": ".agents/skills/azure-openai-to-responses/SKILL.md",
+    "language_code": "bg"
+  },
+  ".agents/skills/azure-openai-to-responses/references/cheat-sheet.md": {
+    "original_hash": "011450324641b8bdf34a1664bb28794f",
+    "translation_date": "2026-07-09T15:56:25+00:00",
+    "source_file": ".agents/skills/azure-openai-to-responses/references/cheat-sheet.md",
+    "language_code": "bg"
+  },
+  ".agents/skills/azure-openai-to-responses/references/test-migration.md": {
+    "original_hash": "9bd00dcc56798d81ec9b5131e7ef0942",
+    "translation_date": "2026-07-09T15:51:25+00:00",
+    "source_file": ".agents/skills/azure-openai-to-responses/references/test-migration.md",
+    "language_code": "bg"
+  },
+  ".agents/skills/azure-openai-to-responses/references/troubleshooting.md": {
+    "original_hash": "508a453122093414d9a940a40d0a4c09",
+    "translation_date": "2026-07-09T16:00:26+00:00",
+    "source_file": ".agents/skills/azure-openai-to-responses/references/troubleshooting.md",
+    "language_code": "bg"
+  },
   ".agents/skills/jupyter-notebook/SKILL.md": {
     "original_hash": "0732153c6d2c300671e5feb9d81d3378",
     "translation_date": "2026-02-19T14:03:31+00:00",
@@ -54,38 +78,38 @@
     "language_code": "bg"
   },
   "00-course-setup/README.md": {
-    "original_hash": "a63889ff95be3dab375e4333789a97e4",
-    "translation_date": "2026-04-20T14:38:25+00:00",
+    "original_hash": "d930c93a736681cc38bbfa8691fd2dee",
+    "translation_date": "2026-07-09T15:32:38+00:00",
     "source_file": "00-course-setup/README.md",
     "language_code": "bg"
   },
   "01-intro-to-ai-agents/README.md": {
-    "original_hash": "2bca3003abfa1c0899e6a493203ca60e",
-    "translation_date": "2026-05-13T14:58:56+00:00",
+    "original_hash": "3c3962141baa981beae438f4c09857b9",
+    "translation_date": "2026-07-09T15:27:18+00:00",
     "source_file": "01-intro-to-ai-agents/README.md",
     "language_code": "bg"
   },
   "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md": {
-    "original_hash": "5f351412e934f0833c8c821a0a60efaf",
-    "translation_date": "2025-11-13T14:04:38+00:00",
+    "original_hash": "5d0c86f22991afe6673a0350b443883d",
+    "translation_date": "2026-07-09T15:41:58+00:00",
     "source_file": "01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.md",
     "language_code": "bg"
   },
   "01-intro-to-ai-agents/code_samples/01-python-agent-framework.ipynb": {
-    "original_hash": "c7b8bc3e9d70ffef506c61c2f29a1c7a",
-    "translation_date": "2026-06-23T10:43:58+00:00",
+    "original_hash": "25a1d5ca8594e59ce6d55aae097d401a",
+    "translation_date": "2026-07-09T13:41:56+00:00",
     "source_file": "01-intro-to-ai-agents/code_samples/01-python-agent-framework.ipynb",
     "language_code": "bg"
   },
   "02-explore-agentic-frameworks/README.md": {
-    "original_hash": "d1078864bde51ce5df48faa88d0f1ba8",
-    "translation_date": "2026-03-07T00:03:20+00:00",
+    "original_hash": "8a18a7b760d0d1b481f8bd3c8e00a12e",
+    "translation_date": "2026-07-09T15:29:34+00:00",
     "source_file": "02-explore-agentic-frameworks/README.md",
     "language_code": "bg"
   },
   "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md": {
-    "original_hash": "247d55adbd0d2f68164ad0e7062fd3e1",
-    "translation_date": "2026-02-19T13:40:02+00:00",
+    "original_hash": "36078b6d9d0484a8cfdc7ae249be058b",
+    "translation_date": "2026-07-09T15:30:01+00:00",
     "source_file": "02-explore-agentic-frameworks/azure-ai-foundry-agent-creation.md",
     "language_code": "bg"
   },
@@ -96,14 +120,20 @@
     "language_code": "bg"
   },
   "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md": {
-    "original_hash": "e23058f87779da210fc0257ee2747c53",
-    "translation_date": "2025-11-13T14:09:13+00:00",
+    "original_hash": "180228a5ac22b5646ca5b1380c039f09",
+    "translation_date": "2026-07-09T15:42:20+00:00",
     "source_file": "02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.md",
     "language_code": "bg"
   },
+  "02-explore-agentic-frameworks/code_samples/02-python-agent-framework-azure-openai.ipynb": {
+    "original_hash": "ced456021c35c5a6389203907289b909",
+    "translation_date": "2026-07-09T16:01:21+00:00",
+    "source_file": "02-explore-agentic-frameworks/code_samples/02-python-agent-framework-azure-openai.ipynb",
+    "language_code": "bg"
+  },
   "02-explore-agentic-frameworks/code_samples/02-python-agent-framework.ipynb": {
-    "original_hash": "159555707173be9d15f84ab9fb3e9719",
-    "translation_date": "2026-03-06T23:15:12+00:00",
+    "original_hash": "a04358c4608b800456fa1c4f96fb826e",
+    "translation_date": "2026-07-09T13:42:53+00:00",
     "source_file": "02-explore-agentic-frameworks/code_samples/02-python-agent-framework.ipynb",
     "language_code": "bg"
   },
@@ -114,20 +144,20 @@
     "language_code": "bg"
   },
   "03-agentic-design-patterns/README.md": {
-    "original_hash": "bbcc5b4ea66b3b51645303d7bf7c63b7",
-    "translation_date": "2026-02-19T13:47:09+00:00",
+    "original_hash": "3165226996b055cd44945c26d9ba0286",
+    "translation_date": "2026-07-09T15:26:04+00:00",
     "source_file": "03-agentic-design-patterns/README.md",
     "language_code": "bg"
   },
   "03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.md": {
-    "original_hash": "bcc874e190347bd6a095aed56dc16de8",
-    "translation_date": "2025-11-13T14:11:01+00:00",
+    "original_hash": "44e0ea6c07532b6aaf66d51bc9b8b103",
+    "translation_date": "2026-07-09T15:41:19+00:00",
     "source_file": "03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.md",
     "language_code": "bg"
   },
   "03-agentic-design-patterns/code_samples/03-python-agent-framework.ipynb": {
-    "original_hash": "372953ebca8ec512208baa8887da4560",
-    "translation_date": "2026-06-23T10:43:40+00:00",
+    "original_hash": "567215932263538520bba9ca5fcc8576",
+    "translation_date": "2026-07-09T13:41:14+00:00",
     "source_file": "03-agentic-design-patterns/code_samples/03-python-agent-framework.ipynb",
     "language_code": "bg"
   },
@@ -138,14 +168,14 @@
     "language_code": "bg"
   },
   "04-tool-use/code_samples/04-dotnet-agent-framework.md": {
-    "original_hash": "91d6061e402489603f2ec8b528cae59b",
-    "translation_date": "2025-11-18T18:20:09+00:00",
+    "original_hash": "be971407907c17f21fd58e267aaf2289",
+    "translation_date": "2026-07-09T15:33:11+00:00",
     "source_file": "04-tool-use/code_samples/04-dotnet-agent-framework.md",
     "language_code": "bg"
   },
   "04-tool-use/code_samples/04-python-agent-framework.ipynb": {
-    "original_hash": "bb4294f85f9e2c8949f8692494739cb3",
-    "translation_date": "2026-06-23T10:41:59+00:00",
+    "original_hash": "309625432b5b56f6a0cfafce29508e47",
+    "translation_date": "2026-07-09T13:28:37+00:00",
     "source_file": "04-tool-use/code_samples/04-python-agent-framework.ipynb",
     "language_code": "bg"
   },
@@ -156,8 +186,8 @@
     "language_code": "bg"
   },
   "05-agentic-rag/README.md": {
-    "original_hash": "c0d1797389002a5029160c8a7130bde6",
-    "translation_date": "2026-02-19T13:36:34+00:00",
+    "original_hash": "9e5f57ea43ab2f4ccbef30222afb4dbe",
+    "translation_date": "2026-07-09T15:21:47+00:00",
     "source_file": "05-agentic-rag/README.md",
     "language_code": "bg"
   },
@@ -168,14 +198,14 @@
     "language_code": "bg"
   },
   "05-agentic-rag/code_samples/05-dotnet-agent-framework.md": {
-    "original_hash": "c268705e6fb2b30c7690d5b2a002e072",
-    "translation_date": "2025-11-07T09:09:18+00:00",
+    "original_hash": "f3c651dab8d5323ffae1e482d7ba1077",
+    "translation_date": "2026-07-09T15:37:54+00:00",
     "source_file": "05-agentic-rag/code_samples/05-dotnet-agent-framework.md",
     "language_code": "bg"
   },
   "05-agentic-rag/code_samples/05-python-agent-framework.ipynb": {
-    "original_hash": "54a79c922158e57a5aef41813bba48da",
-    "translation_date": "2026-06-23T10:42:25+00:00",
+    "original_hash": "9a213e95636bc5d27d609b1499b68b2b",
+    "translation_date": "2026-07-09T13:33:57+00:00",
     "source_file": "05-agentic-rag/code_samples/05-python-agent-framework.ipynb",
     "language_code": "bg"
   },
@@ -186,44 +216,44 @@
     "language_code": "bg"
   },
   "06-building-trustworthy-agents/README.md": {
-    "original_hash": "ca935a2e26268061e963f0c447cb2fcd",
-    "translation_date": "2026-06-18T13:15:03+00:00",
+    "original_hash": "08e75b9931a666c4b30f4255010081c9",
+    "translation_date": "2026-07-09T15:28:06+00:00",
     "source_file": "06-building-trustworthy-agents/README.md",
     "language_code": "bg"
   },
   "06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb": {
-    "original_hash": "ac9534d6955b963296bb08d218c09189",
-    "translation_date": "2026-06-18T13:16:35+00:00",
+    "original_hash": "d12d4525e1390ed89bcce6b1d61c89bb",
+    "translation_date": "2026-07-09T13:42:26+00:00",
     "source_file": "06-building-trustworthy-agents/code_samples/06-human-in-the-loop.ipynb",
     "language_code": "bg"
   },
   "06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb": {
-    "original_hash": "702e3e48d692a4990353d4cb118e3e2f",
-    "translation_date": "2026-05-25T16:39:59+00:00",
+    "original_hash": "d5866a1d8df40db445b17ff7c4fceb24",
+    "translation_date": "2026-07-09T13:41:56+00:00",
     "source_file": "06-building-trustworthy-agents/code_samples/06-system-message-framework.ipynb",
     "language_code": "bg"
   },
   "07-planning-design/README.md": {
-    "original_hash": "0d2394ef91445345f865ebbc5210c484",
-    "translation_date": "2026-03-06T23:58:12+00:00",
+    "original_hash": "78c4435c7dbfe5da4be406ccffb21dbe",
+    "translation_date": "2026-07-09T15:26:43+00:00",
     "source_file": "07-planning-design/README.md",
     "language_code": "bg"
   },
   "07-planning-design/code_samples/07-dotnet-agent-framework.md": {
-    "original_hash": "2d13c1e3518a0257a00fea949e2d0350",
-    "translation_date": "2025-11-07T09:59:38+00:00",
+    "original_hash": "e55c06a164973bbca458c7fe58117f89",
+    "translation_date": "2026-07-09T15:41:35+00:00",
     "source_file": "07-planning-design/code_samples/07-dotnet-agent-framework.md",
     "language_code": "bg"
   },
   "07-planning-design/code_samples/07-python-agent-framework.ipynb": {
-    "original_hash": "769d128372dac00927c3d8334775d580",
-    "translation_date": "2026-03-06T23:13:44+00:00",
+    "original_hash": "2bd98b627e6643f4efd5eccb4b4e2ba9",
+    "translation_date": "2026-07-09T13:41:37+00:00",
     "source_file": "07-planning-design/code_samples/07-python-agent-framework.ipynb",
     "language_code": "bg"
   },
   "08-multi-agent/README.md": {
-    "original_hash": "e06fa1db1eb55813194a9843878fb7de",
-    "translation_date": "2026-03-06T23:59:02+00:00",
+    "original_hash": "1ee2894800c5d36844fa3603d02afed8",
+    "translation_date": "2026-07-09T15:18:35+00:00",
     "source_file": "08-multi-agent/README.md",
     "language_code": "bg"
   },
@@ -234,8 +264,8 @@
     "language_code": "bg"
   },
   "08-multi-agent/code_samples/08-python-agent-framework.ipynb": {
-    "original_hash": "a20a14a9d5571f180fcdfd75a61279d0",
-    "translation_date": "2026-03-06T23:14:02+00:00",
+    "original_hash": "5cf9b56b8fa5aae8ed0b57288ad58e84",
+    "translation_date": "2026-07-09T13:28:56+00:00",
     "source_file": "08-multi-agent/code_samples/08-python-agent-framework.ipynb",
     "language_code": "bg"
   },
@@ -246,68 +276,86 @@
     "language_code": "bg"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/README.md": {
-    "original_hash": "b39c052ef109db90ad9251183791e2d6",
-    "translation_date": "2025-10-02T08:11:12+00:00",
+    "original_hash": "799f1c21661e028d36073d6b21a632a7",
+    "translation_date": "2026-07-09T15:34:21+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/README.md",
     "language_code": "bg"
   },
+  "08-multi-agent/code_samples/workflows-agent-framework/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb": {
+    "original_hash": "f726d86304c45e2205500b35a4a6a79c",
+    "translation_date": "2026-07-09T13:30:48+00:00",
+    "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb",
+    "language_code": "bg"
+  },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.md": {
-    "original_hash": "034158688d0a45aae06dcbb21b0da5ae",
-    "translation_date": "2025-11-11T12:58:41+00:00",
+    "original_hash": "14c517422c9779d4833c9762a31ef049",
+    "translation_date": "2026-07-09T15:34:56+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.md",
     "language_code": "bg"
   },
+  "08-multi-agent/code_samples/workflows-agent-framework/dotNET/02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb": {
+    "original_hash": "8500037da6dd962c3747b57604b11e29",
+    "translation_date": "2026-07-09T13:32:22+00:00",
+    "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb",
+    "language_code": "bg"
+  },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/02.dotnet-agent-framework-workflow-ghmodel-sequential.md": {
-    "original_hash": "1be9c8dcbd79a02d33d2c138684c1394",
-    "translation_date": "2025-11-11T14:03:48+00:00",
+    "original_hash": "92d09bc3a1723422f75d36bbb904eb51",
+    "translation_date": "2026-07-09T15:37:08+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/02.dotnet-agent-framework-workflow-ghmodel-sequential.md",
     "language_code": "bg"
   },
+  "08-multi-agent/code_samples/workflows-agent-framework/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb": {
+    "original_hash": "5e74a08e4322a0b4be9155b78a3b945f",
+    "translation_date": "2026-07-09T13:31:21+00:00",
+    "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb",
+    "language_code": "bg"
+  },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.md": {
-    "original_hash": "b9c6e32c9b5f2fed20b6916984440d88",
-    "translation_date": "2025-11-11T13:31:25+00:00",
+    "original_hash": "07d26fc064c029514b5028a472042ff9",
+    "translation_date": "2026-07-09T15:36:32+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.md",
     "language_code": "bg"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb": {
-    "original_hash": "d37c227541585b420c55b6b81007162b",
-    "translation_date": "2026-02-19T12:21:59+00:00",
+    "original_hash": "88de14d90e6c8f4c6d5ec127afda0ac1",
+    "translation_date": "2026-07-09T13:31:55+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb",
     "language_code": "bg"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/dotNET/04.dotnet-agent-framework-workflow-aifoundry-condition.md": {
-    "original_hash": "8abd335151cee553293b637ee3d80d10",
-    "translation_date": "2025-11-11T12:30:17+00:00",
+    "original_hash": "61ca610e904e42673a251dea56455486",
+    "translation_date": "2026-07-09T15:35:49+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/dotNET/04.dotnet-agent-framework-workflow-aifoundry-condition.md",
     "language_code": "bg"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb": {
-    "original_hash": "05ea71c50b4a98dec49c4ca32156f04e",
-    "translation_date": "2026-05-22T10:48:09+00:00",
+    "original_hash": "617104972a7a780df1f93b2d66f08c31",
+    "translation_date": "2026-07-09T13:30:25+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb",
     "language_code": "bg"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/python/02.python-agent-framework-workflow-ghmodel-sequential.ipynb": {
-    "original_hash": "a30eafa6a0c16dd9d9554ce2800af836",
-    "translation_date": "2026-05-22T10:47:50+00:00",
+    "original_hash": "21fe02428fd77da7a4078147a63ab4f4",
+    "translation_date": "2026-07-09T13:29:11+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/python/02.python-agent-framework-workflow-ghmodel-sequential.ipynb",
     "language_code": "bg"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/python/03.python-agent-framework-workflow-ghmodel-concurrent.ipynb": {
-    "original_hash": "6ae61bebd9c407279b6821f720a1d001",
-    "translation_date": "2026-05-22T10:48:33+00:00",
+    "original_hash": "ccba1f8a5be5f7c1d3d2a4cf05682fd9",
+    "translation_date": "2026-07-09T13:30:07+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/python/03.python-agent-framework-workflow-ghmodel-concurrent.ipynb",
     "language_code": "bg"
   },
   "08-multi-agent/code_samples/workflows-agent-framework/python/04.python-agent-framework-workflow-aifoundry-condition.ipynb": {
-    "original_hash": "ab181e3d8a4bf47aff77b877b7204f78",
-    "translation_date": "2026-03-06T23:14:30+00:00",
+    "original_hash": "63a5232feed735cf0cf4ff9fdf8c1970",
+    "translation_date": "2026-07-09T13:29:45+00:00",
     "source_file": "08-multi-agent/code_samples/workflows-agent-framework/python/04.python-agent-framework-workflow-aifoundry-condition.ipynb",
     "language_code": "bg"
   },
   "08-multi-agent/solution/solution-quiz.md": {
-    "original_hash": "0943ad1b2b8f33ed9911842b552c6376",
-    "translation_date": "2025-07-12T11:35:34+00:00",
+    "original_hash": "e30f6a8d5fad78b0c84735abf8ab0a2c",
+    "translation_date": "2026-07-09T15:33:16+00:00",
     "source_file": "08-multi-agent/solution/solution-quiz.md",
     "language_code": "bg"
   },
@@ -318,50 +366,50 @@
     "language_code": "bg"
   },
   "09-metacognition/README.md": {
-    "original_hash": "4c370ab8b4957b589425960bec160bdd",
-    "translation_date": "2026-02-19T13:35:31+00:00",
+    "original_hash": "866776bdb2d333dece439d898a195a12",
+    "translation_date": "2026-07-09T15:14:23+00:00",
     "source_file": "09-metacognition/README.md",
     "language_code": "bg"
   },
   "09-metacognition/code_samples/09-python-agent-framework.ipynb": {
-    "original_hash": "0d37111b778dff82fcf7084343d03436",
-    "translation_date": "2026-03-07T00:20:39+00:00",
+    "original_hash": "a57cfa2e842bfc62281ba6c05fb2346f",
+    "translation_date": "2026-07-09T13:28:12+00:00",
     "source_file": "09-metacognition/code_samples/09-python-agent-framework.ipynb",
     "language_code": "bg"
   },
   "10-ai-agents-production/README.md": {
-    "original_hash": "e7a5d97aea1141834918912c1c778a1f",
-    "translation_date": "2026-03-07T00:11:29+00:00",
+    "original_hash": "2eba7086fb56ec001ad208ecd268d54d",
+    "translation_date": "2026-07-09T15:24:01+00:00",
     "source_file": "10-ai-agents-production/README.md",
     "language_code": "bg"
   },
   "10-ai-agents-production/code_samples/10-expense_claim-demo.ipynb": {
-    "original_hash": "73f95f5fe5989c9b55f88eaedd35b122",
-    "translation_date": "2026-06-23T10:43:19+00:00",
+    "original_hash": "62af7c642889edaacbad9b0c55a54b9d",
+    "translation_date": "2026-07-09T13:36:01+00:00",
     "source_file": "10-ai-agents-production/code_samples/10-expense_claim-demo.ipynb",
     "language_code": "bg"
   },
   "10-ai-agents-production/code_samples/10-python-agent-framework.ipynb": {
-    "original_hash": "f745a080166831a8d360814331608e0f",
-    "translation_date": "2026-06-23T10:42:51+00:00",
+    "original_hash": "b02ca6a015917a982733d3573b90c6e6",
+    "translation_date": "2026-07-09T13:35:29+00:00",
     "source_file": "10-ai-agents-production/code_samples/10-python-agent-framework.ipynb",
     "language_code": "bg"
   },
   "11-agentic-protocols/README.md": {
-    "original_hash": "680cd6ad18ae56efc5f4a122f790cc6a",
-    "translation_date": "2026-03-07T00:05:21+00:00",
+    "original_hash": "b0704cb25bc2ae768450c22f17b9088c",
+    "translation_date": "2026-07-09T15:22:47+00:00",
     "source_file": "11-agentic-protocols/README.md",
     "language_code": "bg"
   },
   "11-agentic-protocols/code_samples/11-a2a-agent-framework.ipynb": {
-    "original_hash": "8b1f846c63a317deb85f0b933377a962",
-    "translation_date": "2026-03-07T00:34:41+00:00",
+    "original_hash": "d6511e573d61ecf589c8862db7aa8be9",
+    "translation_date": "2026-07-09T13:35:03+00:00",
     "source_file": "11-agentic-protocols/code_samples/11-a2a-agent-framework.ipynb",
     "language_code": "bg"
   },
   "11-agentic-protocols/code_samples/11-mcp-agent-framework.ipynb": {
-    "original_hash": "9d5c7f3a094544695ff64572b0f1822b",
-    "translation_date": "2026-03-07T00:27:37+00:00",
+    "original_hash": "3e3fe597b0227ae018f18da37ba6a9c8",
+    "translation_date": "2026-07-09T13:34:32+00:00",
     "source_file": "11-agentic-protocols/code_samples/11-mcp-agent-framework.ipynb",
     "language_code": "bg"
   },
@@ -384,14 +432,14 @@
     "language_code": "bg"
   },
   "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md": {
-    "original_hash": "84e2d2a6d14d0dc1a05537304bcce885",
-    "translation_date": "2026-02-19T13:55:36+00:00",
+    "original_hash": "a843db8c215b03dcbf46ecb63e32c9ca",
+    "translation_date": "2026-07-09T15:38:42+00:00",
     "source_file": "11-agentic-protocols/code_samples/github-mcp/event-descriptions.md",
     "language_code": "bg"
   },
   "11-agentic-protocols/code_samples/mcp-agents/README.md": {
     "original_hash": "5cc6836626047aa055e8960c8484a7d0",
-    "translation_date": "2025-08-29T21:21:50+00:00",
+    "translation_date": "2026-07-09T15:40:46+00:00",
     "source_file": "11-agentic-protocols/code_samples/mcp-agents/README.md",
     "language_code": "bg"
   },
@@ -408,14 +456,14 @@
     "language_code": "bg"
   },
   "12-context-engineering/README.md": {
-    "original_hash": "8853c3fd96b0518090a804dc75ab80bc",
-    "translation_date": "2026-06-23T10:52:05+00:00",
+    "original_hash": "8dba8abc0e1ba51776ec12ee55e00301",
+    "translation_date": "2026-07-09T15:31:11+00:00",
     "source_file": "12-context-engineering/README.md",
     "language_code": "bg"
   },
   "12-context-engineering/code_samples/12-chat_summarization.ipynb": {
-    "original_hash": "b1eadf4214eb20840c0a85a9a6d1f52f",
-    "translation_date": "2026-03-06T23:16:25+00:00",
+    "original_hash": "ad9e67bf6ed0915c1edb53d80b6173c3",
+    "translation_date": "2026-07-09T13:43:29+00:00",
     "source_file": "12-context-engineering/code_samples/12-chat_summarization.ipynb",
     "language_code": "bg"
   },
@@ -426,74 +474,86 @@
     "language_code": "bg"
   },
   "13-agent-memory/13-agent-memory-cognee.ipynb": {
-    "original_hash": "f789b1074272c6e6864c5f2ec4b2afbc",
-    "translation_date": "2026-03-06T23:12:01+00:00",
+    "original_hash": "d9d3ae2ab5c05fa5c3a3e1380c2ca4c5",
+    "translation_date": "2026-07-09T13:26:05+00:00",
     "source_file": "13-agent-memory/13-agent-memory-cognee.ipynb",
     "language_code": "bg"
   },
   "13-agent-memory/13-agent-memory.ipynb": {
-    "original_hash": "0dcf8575b87618885b2d03bc4be2e54b",
-    "translation_date": "2026-03-06T23:12:35+00:00",
+    "original_hash": "660ead66323f8c2aff0f73c8cedc9290",
+    "translation_date": "2026-07-09T13:26:48+00:00",
     "source_file": "13-agent-memory/13-agent-memory.ipynb",
     "language_code": "bg"
   },
   "13-agent-memory/README.md": {
-    "original_hash": "75856d48c47a6b8a5079fa7b5cd27afa",
-    "translation_date": "2026-06-18T13:14:20+00:00",
+    "original_hash": "ff2462fd50e159ff18b3bdcf7c19b43d",
+    "translation_date": "2026-07-09T15:15:17+00:00",
     "source_file": "13-agent-memory/README.md",
     "language_code": "bg"
   },
   "14-microsoft-agent-framework/README.md": {
-    "original_hash": "54c7b0de08243bb0c1804d31c31a7823",
-    "translation_date": "2026-04-20T14:39:46+00:00",
+    "original_hash": "94bfcc45e418820e88b9760e9da8bb2d",
+    "translation_date": "2026-07-09T15:25:29+00:00",
     "source_file": "14-microsoft-agent-framework/README.md",
     "language_code": "bg"
   },
   "14-microsoft-agent-framework/code-samples/14-concurrent.ipynb": {
-    "original_hash": "cb74a88b4c85d904e7964d33f3cf9c03",
-    "translation_date": "2026-05-22T10:49:57+00:00",
+    "original_hash": "4152f334a6826986583a26730b07f95a",
+    "translation_date": "2026-07-09T13:37:23+00:00",
     "source_file": "14-microsoft-agent-framework/code-samples/14-concurrent.ipynb",
     "language_code": "bg"
   },
   "14-microsoft-agent-framework/code-samples/14-conditional-workflow.ipynb": {
-    "original_hash": "98bf6f59fe42b113a8b7434cfc11478f",
-    "translation_date": "2026-05-22T10:50:54+00:00",
+    "original_hash": "c62564eb90ea1ed572b88ed79ff977ec",
+    "translation_date": "2026-07-09T13:40:53+00:00",
     "source_file": "14-microsoft-agent-framework/code-samples/14-conditional-workflow.ipynb",
     "language_code": "bg"
   },
   "14-microsoft-agent-framework/code-samples/14-handoff.ipynb": {
-    "original_hash": "6a369c12f5960e9c2ef0cbd94b61c007",
-    "translation_date": "2026-05-13T14:52:26+00:00",
+    "original_hash": "278391affc25fa83a7e2585fa28ec313",
+    "translation_date": "2026-07-09T13:36:52+00:00",
     "source_file": "14-microsoft-agent-framework/code-samples/14-handoff.ipynb",
     "language_code": "bg"
   },
+  "14-microsoft-agent-framework/code-samples/14-human-loop.ipynb": {
+    "original_hash": "ce2840bc45df4a63b66dda374e5effe2",
+    "translation_date": "2026-07-09T13:40:06+00:00",
+    "source_file": "14-microsoft-agent-framework/code-samples/14-human-loop.ipynb",
+    "language_code": "bg"
+  },
   "14-microsoft-agent-framework/code-samples/14-middleware.ipynb": {
-    "original_hash": "6d2c6a709c12bf914bb32d9fbcdc45e3",
-    "translation_date": "2026-05-22T10:49:32+00:00",
+    "original_hash": "52d06b61f3912e514962f1575196e95f",
+    "translation_date": "2026-07-09T13:38:35+00:00",
     "source_file": "14-microsoft-agent-framework/code-samples/14-middleware.ipynb",
     "language_code": "bg"
   },
   "14-microsoft-agent-framework/code-samples/14-sequential.ipynb": {
-    "original_hash": "96cf8f9aa84ee6c34814f8a26e382204",
-    "translation_date": "2026-05-22T10:50:15+00:00",
+    "original_hash": "7204b24e87f1841c746e0f99069d27a8",
+    "translation_date": "2026-07-09T13:36:22+00:00",
     "source_file": "14-microsoft-agent-framework/code-samples/14-sequential.ipynb",
     "language_code": "bg"
   },
+  "15-browser-use/15-browser-user.ipynb": {
+    "original_hash": "d847eba561c827cf0ee03ceea0379f10",
+    "translation_date": "2026-07-09T13:27:41+00:00",
+    "source_file": "15-browser-use/15-browser-user.ipynb",
+    "language_code": "bg"
+  },
   "15-browser-use/README.md": {
-    "original_hash": "0715ae6c81f606086d0dce085b7ef076",
-    "translation_date": "2026-04-12T07:50:09+00:00",
+    "original_hash": "2258de8448acbf12c9fa5e5c599bfc90",
+    "translation_date": "2026-07-09T15:15:54+00:00",
     "source_file": "15-browser-use/README.md",
     "language_code": "bg"
   },
   "18-securing-ai-agents/README.md": {
-    "original_hash": "5cf863ca9160cbc02a8e06f4cf506b63",
-    "translation_date": "2026-06-23T10:51:01+00:00",
+    "original_hash": "4b87c117fa801300f0810535dc83c542",
+    "translation_date": "2026-07-09T15:20:24+00:00",
     "source_file": "18-securing-ai-agents/README.md",
     "language_code": "bg"
   },
   "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb": {
-    "original_hash": "7f736b9f19dfaa31fe162f3ef65c8ea9",
-    "translation_date": "2026-05-13T15:08:35+00:00",
+    "original_hash": "555ffd8b291bc1ef84b17663de846e6f",
+    "translation_date": "2026-07-09T13:33:27+00:00",
     "source_file": "18-securing-ai-agents/code_samples/18-signed-receipts.ipynb",
     "language_code": "bg"
   },
@@ -504,9 +564,15 @@
     "language_code": "bg"
   },
   "AGENTS.md": {
-    "original_hash": "fe5d316ebb95ae2ce5f7e17c28fdb537",
-    "translation_date": "2026-03-06T23:55:23+00:00",
+    "original_hash": "8c1b09a4b05fc65a0d8463f4fd78305c",
+    "translation_date": "2026-07-09T15:08:41+00:00",
     "source_file": "AGENTS.md",
+    "language_code": "bg"
+  },
+  "CHANGELOG.md": {
+    "original_hash": "b931a33b934bea6aefde9bc1651b01b8",
+    "translation_date": "2026-07-09T15:43:59+00:00",
+    "source_file": "CHANGELOG.md",
     "language_code": "bg"
   },
   "CODE_OF_CONDUCT.md": {
@@ -516,8 +582,8 @@
     "language_code": "bg"
   },
   "README.md": {
-    "original_hash": "81c0392b95e4aea5802489ecb8411c2e",
-    "translation_date": "2026-05-25T16:44:15+00:00",
+    "original_hash": "c7fd23b81624527d6355d959d19116c6",
+    "translation_date": "2026-07-09T15:10:17+00:00",
     "source_file": "README.md",
     "language_code": "bg"
   },
@@ -528,8 +594,8 @@
     "language_code": "bg"
   },
   "STUDY_GUIDE.md": {
-    "original_hash": "6ffadd425cc87f6a2ce4ed2100a6d80b",
-    "translation_date": "2026-03-06T23:54:33+00:00",
+    "original_hash": "81ad67ee30a3bf0a7c83448099291ffa",
+    "translation_date": "2026-07-09T15:07:34+00:00",
     "source_file": "STUDY_GUIDE.md",
     "language_code": "bg"
   },
@@ -538,5 +604,18 @@
     "translation_date": "2025-07-12T07:31:53+00:00",
     "source_file": "SUPPORT.md",
     "language_code": "bg"
+  },
+  "__translation_failures__": {
+    "04-tool-use/README.md": {
+      "original_hash": "a28e1bbe15a932917ea63bc75c69da8c",
+      "source_file": "04-tool-use/README.md",
+      "language_code": "bg",
+      "failure_date": "2026-07-09T15:17:22+00:00",
+      "status": "failed",
+      "error_type": "TranslationIncompleteError",
+      "error_message": "Markdown translation remained incomplete for chunk 2 of 'README.md', and the chunk could not be split further.",
+      "translator_version": "0.20.0",
+      "failure_policy_version": 1
+    }
   }
 }

@@ -1,118 +1,118 @@
-[![Ako navrhovať dobrých AI agentov](../../../translated_images/sk/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
+[![Ako navrhnúť dobrých AI agentov](../../../translated_images/sk/lesson-3-thumbnail.1092dd7a8f1074a5.webp)](https://youtu.be/m9lM8qqoOEA?si=4KimounNKvArQQ0K)
 
-> _(Kliknite na obrázok vyššie, aby ste si pozreli video tejto lekcie)_
+> _(Kliknite na obrázok vyššie pre zobrazenie videa k tejto lekcii)_
 # Zásady agentického dizajnu AI
 
 ## Úvod
 
-Existuje mnoho spôsobov, ako premýšľať o budovaní agentických AI systémov. Keďže nejednoznačnosť je v generatívnom dizajne AI skôr vlastnosťou než chybou, inžinierom môže byť niekedy ťažké prísť na to, kde vôbec začať. Vytvorili sme súbor používateľsky orientovaných UX dizajnových zásad, ktoré umožňujú vývojárom vytvárať zákaznícky orientované agentické systémy na riešenie ich obchodných potrieb. Tieto dizajnové zásady nie sú predpisovou architektúrou, ale skôr východiskovým bodom pre tímy, ktoré definujú a budujú agentické skúsenosti.
+Existuje mnoho spôsobov, ako premýšľať o tvorbe agentických AI systémov. Keďže nejednoznačnosť je vlastnosť, nie chyba v dizajne generatívnej AI, niekedy je pre inžinierov ťažké vôbec zistiť, kde začať. Vytvorili sme súbor dizajnových zásad zameraných na používateľskú skúsenosť, ktoré umožnia vývojárom budovať zákaznícky orientované agentické systémy na riešenie ich obchodných potrieb. Tieto dizajnové zásady nie sú predpísanou architektúrou, ale skôr východiskovým bodom pre tímy, ktoré definujú a budujú agentické zážitky.
 
-Vo všeobecnosti by agenti mali:
+Všeobecne by agenti mali:
 
 - Rozširovať a škálovať ľudské schopnosti (brainstorming, riešenie problémov, automatizácia atď.)
-- Vyplniť medzery v poznatkoch (rýchlo ma oboznámiť s vedomosťami z domén, preklady atď.)
-- Uľahčiť a podporovať spoluprácu spôsobmi, akými ako jednotlivci preferujeme pracovať s ostatnými
-- Spraviť nás lepšími verziami samých seba (napr. životný kouč/strážca úloh, pomáhanie pri učení sa emocionálnej regulácie a mindfulness zručností, budovanie odolnosti atď.)
+- Vyplniť medzery v poznatkoch (dostať ma do obrazu o vedomostných oblastiach, preklad atď.)
+- Uľahčiť a podporovať spoluprácu spôsobmi, aké ako jednotlivci preferujeme pri práci s inými
+- Vytvoriť nás lepšie verzie samých seba (napr. životný kouč/majster úloh, pomáhajúci nám naučiť sa regulovať emócie a všímanie si prítomnosti, budovanie odolnosti atď.)
 
-## Táto lekcia pokryje
+## Čo táto lekcia pokrýva
 
-- Čo sú zásady agentického dizajnu
-- Aké sú niektoré usmernenia pri implementácii týchto zásad
-- Niekoľko príkladov použitia týchto zásad
+- Čo sú agentické dizajnové zásady
+- Aké sú odporúčania pri implementácii týchto dizajnových zásad
+- Príklady použitia dizajnových zásad
 
 ## Ciele učenia
 
 Po dokončení tejto lekcie budete vedieť:
 
-1. Vysvetliť, čo sú zásady agentického dizajnu
-2. Vysvetliť usmernenia pre používanie zásad agentického dizajnu
-3. Pochopiť, ako postaviť agenta pomocou zásad agentického dizajnu
+1. Vysvetliť, čo sú agentické dizajnové zásady
+2. Vysvetliť odporúčania pre používanie agentických dizajnových zásad
+3. Pochopiť, ako vytvoriť agenta pomocou agentických dizajnových zásad
 
-## Zásady agentického dizajnu
+## Agentické dizajnové zásady
 
-![Zásady agentického dizajnu](../../../translated_images/sk/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
+![Agentické dizajnové zásady](../../../translated_images/sk/agentic-design-principles.1cfdf8b6d3cc73c2.webp)
 
 ### Agent (Prostredie)
 
-Toto je prostredie, v ktorom agent funguje. Tieto zásady informujú, ako navrhujeme agentov na interakciu v fyzických a digitálnych svetoch.
+Toto je prostredie, v ktorom agent pôsobí. Tieto zásady určujú, ako navrhujeme agentov na zapojenie sa vo fyzických a digitálnych svetoch.
 
-- **Spájanie, nie nahrádzanie** – pomáha spájať ľudí s inými ľuďmi, udalosťami a akčnými poznatkami, aby umožnil spoluprácu a prepojenie.
-- Agenti pomáhajú prepájať udalosti, poznatky a ľudí.
-- Agenti približujú ľudí k sebe navzájom. Nie sú navrhnutí na nahradenie alebo znehodnocovanie ľudí.
-- **Ľahko prístupný, no občas neviditeľný** – agent väčšinou funguje na pozadí a upozorní nás len vtedy, keď je to relevantné a vhodné.
-  - Agent je ľahko objaviteľný a prístupný oprávneným používateľom na akomkoľvek zariadení alebo platforme.
+- **Prepojenie, nie kolaps** – pomáha spojiť ľudí s inými ľuďmi, udalosťami a akčnými znalosťami na umožnenie spolupráce a prepojenia.
+- Agent pomáha prepájať udalosti, vedomosti a ľudí.
+- Agenti približujú ľudí k sebe. Nie sú navrhnutí na nahradenie alebo znevažovanie ľudí.
+- **Ľahko dostupný, no občas neviditeľný** – agent prevažne funguje na pozadí a upozorní nás len vtedy, keď je to relevantné a vhodné.
+  - Agent je jednoducho nájditeľný a dostupný pre autorizovaných používateľov na akomkoľvek zariadení alebo platforme.
   - Agent podporuje multimodálne vstupy a výstupy (zvuk, hlas, text atď.).
-  - Agent môže plynulo prechádzať medzi popredím a pozadím; medzi proaktívnym a reaktívnym režimom v závislosti od toho, ako vníma potreby používateľa.
-  - Agent môže fungovať v neviditeľnej forme, no jeho procesy na pozadí a spolupráca s inými agentmi sú pre používateľa transparentné a ovládateľné.
+  - Agent dokáže plynule prejsť medzi popredím a pozadím; medzi proaktívnym a reaktívnym režimom v závislosti od vnímania potrieb používateľa.
+  - Agent môže fungovať v neviditeľnej forme, no jeho pozadkové procesy a spolupráca s inými agentmi sú pre používateľa transparentné a ovládateľné.
 
 ### Agent (Čas)
 
-Toto je spôsob, akým agent funguje v priebehu času. Tieto zásady informujú, ako navrhujeme agentov interagujúcich cez minulosť, prítomnosť a budúcnosť.
+Toto určuje, ako agent funguje v priebehu času. Tieto zásady určujú, ako navrhujeme agentov interagujúcich naprieč minulosťou, prítomnosťou a budúcnosťou.
 
 - **Minulosť**: Reflexia histórie, ktorá zahŕňa stav aj kontext.
-  - Agent poskytuje relevantnejšie výsledky na základe analýzy bohatších historických dát nad rámec samotnej udalosti, ľudí alebo stavov.
-  - Agent vytvára spojenia z minulých udalostí a aktívne sa odvoláva na pamäť, aby sa zapojil do aktuálnych situácií.
-- **Teraz**: Skôr navádzanie než oznamovanie.
-  - Agent predstavuje komplexný prístup k interakcii s ľuďmi. Keď sa stane udalosť, agent ide za hranice statickej notifikácie alebo inej statickej formalizácie. Agent môže zjednodušiť pracovné postupy alebo dynamicky generovať náznaky, ktoré nasmerujú pozornosť používateľa v správnom momente.
-  - Agent poskytuje informácie na základe kontextuálneho prostredia, spoločenských a kultúrnych zmien a prispôsobené zámeru používateľa.
-  - Interakcia s agentom môže byť postupná, vyvíjať sa a rásť v zložitosti, aby dlhodobo posilnila používateľov.
-- **Budúcnosť**: Prispôsobovanie sa a vývoj.
+  - Agent poskytuje relevantnejšie výsledky na základe analýzy rozsiahlejších historických dát nad rámec len udalosti, ľudí alebo stavov.
+  - Agent vytvára prepojenia z minulých udalostí a aktívne reflektuje pamäť, aby sa zapojil do aktuálnych situácií.
+- **Teraz**: Podnet viac ako oznámenie.
+  - Agent realizuje komplexný prístup k interakcii s ľuďmi. Keď sa stane udalosť, agent presahuje statické oznámenia či iné statické formality. Agent dokáže zjednodušiť procesy alebo dynamicky generovať signály na namierenie používateľovej pozornosti v správnom momente.
+  - Agent poskytuje informácie podľa kontextu okolia, sociálnych a kultúrnych zmien a prispôsobené zámeru používateľa.
+  - Interakcia s agentom môže byť postupná, vyvíjajúca sa a zložitejšia s cieľom dlhodobo posilniť používateľov.
+- **Budúcnosť**: Prispôsobovanie a vývoj.
   - Agent sa prispôsobuje rôznym zariadeniam, platformám a modalitám.
   - Agent sa prispôsobuje správaniu používateľa, potrebám prístupnosti a je voľne prispôsobiteľný.
-  - Agent je formovaný a vyvíja sa prostredníctvom priebežnej interakcie s používateľom.
+  - Agent je formovaný a vyvíja sa prostredníctvom kontinuálnej interakcie s používateľmi.
 
 ### Agent (Jadro)
 
-Toto sú kľúčové prvky v jadre návrhu agenta.
+Toto sú kľúčové prvky v jadre dizajnu agenta.
 
-- **Prijať neistotu, ale vybudovať dôveru**.
-  - Očakáva sa určitá miera neistoty agenta. Neistota je kľúčovým prvkom návrhu agenta.
-  - Dôvera a transparentnosť sú základné vrstvy návrhu agenta.
-  - Ľudia majú kontrolu nad tým, kedy je agent zapnutý/vypnutý, a stav agenta je vždy jasne viditeľný.
+- **Prijmite neistotu, ale vytvorte dôveru**.
+  - Očakáva sa určitá úroveň neistoty agenta. Neistota je kľúčový prvok dizajnu agentov.
+  - Dôvera a transparentnosť sú základnými vrstvami dizajnu agenta.
+  - Ľudia majú kontrolu nad tým, kedy je agent zapnutý/vypnutý a stav agenta je vždy jasne viditeľný.
 
-## Usmernenia na implementáciu týchto zásad
+## Odporúčania na implementáciu týchto zásad
 
-Keď používate predchádzajúce dizajnové zásady, použite nasledujúce usmernenia:
+Pri používaní predchádzajúcich dizajnových zásad používajte nasledovné odporúčania:
 
-1. **Transparentnosť**: Informujte používateľa, že je zapojené AI, ako funguje (vrátane minulých akcií) a ako poskytnúť spätnú väzbu a upraviť systém.
-2. **Kontrola**: Umožnite používateľovi prispôsobiť, špecifikovať preferencie a personalizovať, a mať kontrolu nad systémom a jeho atribútmi (vrátane možnosti zabudnúť).
-3. **Konzistentnosť**: Usilujte o konzistentné, multimodálne skúsenosti naprieč zariadeniami a koncovými bodmi. Používajte známe UI/UX prvky tam, kde je to možné (napr. ikona mikrofónu pre hlasovú interakciu) a znižujte kognitívne zaťaženie používateľa čo najviac (napr. cieľte na stručné odpovede, vizuálne pomôcky a obsah „Dozvedieť sa viac“).
+1. **Transparentnosť**: Informujte používateľa, že je zapojená AI, ako funguje (vrátane minulých akcií) a ako poskytnúť spätnú väzbu a upraviť systém.
+2. **Kontrola**: Umožnite používateľovi prispôsobiť, špecifikovať preferencie a personalizovať systém a mať kontrolu nad systémom a jeho atribútmi (vrátane možnosti zabudnutia).
+3. **Konzistentnosť**: Usilujte o konzistentné multimodálne zážitky naprieč zariadeniami a koncovými bodmi. Používajte známe UI/UX prvky, kde je to možné (napr. ikona mikrofónu pre hlasovú interakciu) a čo najviac znižujte kognitívnu záťaž zákazníka (napr. cieľte na stručné odpovede, vizuálne pomôcky a obsah „Dozvedieť sa viac“).
 
-## Ako navrhnúť cestovného agenta pomocou týchto zásad a usmernení
+## Ako navrhnúť cestovného agenta pomocou týchto zásad a odporúčaní
 
-Predstavte si, že navrhujete cestovného agenta. Tu je, ako môžete uvažovať o použití zásad a usmernení:
+Predstavte si, že navrhujete cestovného agenta, tu je, ako by ste mohli uvažovať o použití dizajnových zásad a odporúčaní:
 
-1. **Transparentnosť** – Dajte používateľovi vedieť, že cestovný agent je AI-poháňaný agent. Poskytnite niekoľko základných pokynov, ako začať (napr. „Ahoj“ správa, ukážkové prompt-y). Jasne to zdokumentujte na stránke produktu. Zobrazte zoznam prompt-ov, ktoré používateľ zadal v minulosti. Jasne ukážte, ako poskytnúť spätnú väzbu (palec hore a palec dole, tlačidlo Odoslať spätnú väzbu atď.). Jasne uveďte, či má agent obmedzenia v používaní alebo témach.
-2. **Kontrola** – Uistite sa, že je jasné, ako môže používateľ po vytvorení agenta modifikovať veci, ako je napríklad Systémový prompt. Umožnite používateľovi vybrať si, aká výrečná má byť odpoveď agenta, jeho štýl písania a akékoľvek obmedzenia toho, o čom by agent nemal hovoriť. Umožnite používateľovi prezerať a mazať akékoľvek priradené súbory alebo údaje, prompt-y a minulé konverzácie.
-3. **Konzistentnosť** – Uistite sa, že ikony pre Zdieľať prompt, pridať súbor alebo fotografiu a označiť niekoho alebo niečo sú štandardné a rozpoznateľné. Použite ikonu kancelárskej sponky na označenie nahrávania/zdieľania súboru s agentom a ikonu obrázka na označenie nahrávania grafiky.
+1. **Transparentnosť** – Informujte používateľa, že Cestovný agent je agent s podporou AI. Poskytnite základné pokyny, ako začať (napr. správa „Ahoj“, ukážkové požiadavky). Jasne toto zdokumentujte na stránke produktu. Zobrazte zoznam požiadaviek, ktoré používateľ v minulosti zadal. Jasne vysvetlite, ako poskytnúť spätnú väzbu (palce hore/dole, tlačidlo Odoslať spätnú väzbu atď.). Jasne uveďte, ak má agent obmedzenia používania alebo tematické obmedzenia.
+2. **Kontrola** – Uistite sa, že je jasné, ako môže používateľ modifikovať agenta po jeho vytvorení, napríklad pomocou systémovej výzvy. Umožnite mu zvoliť si, ako podrobný agent bude, jeho štýl písania a akékoľvek obmedzenia na témy, o ktorých by nemal hovoriť. Používateľovi umožnite prezerať a mazať akékoľvek súbory alebo dáta, požiadavky a minulé konverzácie spojené s agentom.
+3. **Konzistentnosť** – Uistite sa, že ikony pre Zdieľať požiadavku, pridať súbor alebo fotografiu a označiť niekoho alebo niečo sú štandardné a rozpoznateľné. Použite ikonu kancelárskej spony na označenie nahrávania/zdieľania súboru s agentom a ikonu obrázku na označenie nahrávania grafiky.
 
 ## Ukážkové kódy
 
-- Python: [Rámec agenta](./code_samples/03-python-agent-framework.ipynb)
-- .NET: [Rámec agenta](./code_samples/03-dotnet-agent-framework.md)
+- Python: [Agent Framework](./code_samples/03-python-agent-framework.ipynb)
+- .NET: [Agent Framework](./code_samples/03-dotnet-agent-framework.md)
 
 
-## Máte ďalšie otázky o agentických dizajnových vzoroch AI?
+## Máte ďalšie otázky o agentických dizajnových vzorcoch AI?
 
-Pridajte sa na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), aby ste sa stretli s ďalšími študentmi, zúčastnili sa konzultačných hodín a dostali odpovede na svoje otázky o AI agentoch.
+Pridajte sa do [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), aby ste sa stretli s ostatnými študentmi, zúčastnili sa konzultačných hodín a získali odpovede na vaše otázky o AI Agentoch.
 
 ## Ďalšie zdroje
 
-- <a href="https://openai.com" target="_blank">Postupy na riadenie agentických AI systémov | OpenAI</a>
+- <a href="https://openai.com" target="_blank">Postupy pre správu agentických AI systémov | OpenAI</a>
 - <a href="https://microsoft.com" target="_blank">Projekt HAX Toolkit - Microsoft Research</a>
-- <a href="https://responsibleaitoolbox.ai" target="_blank">Sada nástrojov pre zodpovedné AI</a>
+- <a href="https://responsibleaitoolbox.ai" target="_blank">Zodpovedný AI Toolbox</a>
 
 ## Predchádzajúca lekcia
 
-[Preskúmavanie agentických rámcov](../02-explore-agentic-frameworks/README.md)
+[Preskúmať agentické rámce](../02-explore-agentic-frameworks/README.md)
 
 ## Nasledujúca lekcia
 
-[Dizajnový vzor použitia nástrojov](../04-tool-use/README.md)
+[Vzory dizajnu používania nástrojov](../04-tool-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Vylúčenie zodpovednosti:
-Tento dokument bol preložený pomocou AI prekladateľskej služby Co-op Translator (https://github.com/Azure/co-op-translator). Hoci sa usilujeme o presnosť, berte prosím na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by sa mal považovať za rozhodujúci zdroj. Pre kritické informácie sa odporúča profesionálny preklad vykonaný človekom. Nie sme zodpovední za žiadne nedorozumenia alebo chybné výklady vyplývajúce z použitia tohto prekladu.
+**Vyhlásenie o zodpovednosti**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho natívnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

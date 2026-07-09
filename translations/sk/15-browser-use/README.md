@@ -1,44 +1,44 @@
-# Tvorba agentov na používanie počítača (CUA)
+# Vytváranie agentov na používanie počítača (CUA)
 
-Agenti na používanie počítača môžu interagovať s webovými stránkami rovnakým spôsobom ako človek: otvorením prehliadača, preskúmaním stránky a vykonaním najlepšieho nasledujúceho kroku na základe toho, čo vidia. V tejto lekcii vytvoríte automatizačného agenta prehliadača, ktorý vyhľadáva na Airbnb, extrahuje štruktúrované údaje o ponukách a identifikuje najlacnejšie ubytovanie v Štokholme.
+Agenti na používanie počítača môžu komunikovať s webovými stránkami rovnakým spôsobom ako človek: otvorením prehliadača, preskúmaním stránky a vykonaním najlepšej ďalšej akcie na základe toho, čo vidia. V tejto lekcii si vytvoríte agenta pre automatizáciu prehliadača, ktorý vyhľadáva na Airbnb, extrahuje štruktúrované údaje o ponukách a identifikuje najlacnejšie ubytovanie v Štokholme.
 
-Lekcia kombinuje Browser-Use pre navigáciu riadenú AI, Playwright a Chrome DevTools Protocol (CDP) na ovládanie prehliadača, Azure OpenAI pre zrakovo umožnené uvažovanie a Pydantic pre štruktúrovanú extrakciu.
+Lekcia kombinuje Browser-Use pre navigáciu riadenú AI, Playwright a Chrome DevTools Protocol (CDP) pre ovládanie prehliadača, Azure OpenAI pre rozumovanie podporené vizuálnym vstupom a Pydantic pre štruktúrovanú extrakciu.
 
 ## Úvod
 
-Táto lekcia pokrýva:
+Táto lekcia pokryje:
 
-- Pochopenie, kedy sú agenti na používanie počítača vhodnejší ako automatizácia využívajúca len API
-- Kombinovanie Browser-Use s Playwright a CDP pre spoľahlivú správu životného cyklu prehliadača
-- Použitie Azure OpenAI zrakovej schopnosti a štruktúrovaného výstupu Pydantic na extrahovanie údajov o ponukách z dynamických webových stránok
-- Rozhodovanie, kedy použiť agent-first, actor-first alebo hybridný pracovný tok prehliadačovej automatizácie
+- Pochopenie, kedy sú agenti na používanie počítača vhodnejší ako automatizácia len cez API
+- Kombinovanie Browser-Use s Playwright a CDP pre spoľahlivé riadenie životného cyklu prehliadača
+- Používanie Azure OpenAI videnia a štruktúrovaného výstupu Pydantic na extrakciu údajov o ponukách z dynamických webových stránok
+- Rozhodovanie, kedy použiť workflow agent-prvý, actor-prvý alebo hybridnú automatizáciu prehliadača
 
-## Ciele učenia
+## Ciele učenia sa
 
 Po dokončení tejto lekcie budete vedieť:
 
 - Nakonfigurovať Browser-Use s Azure OpenAI a Playwright
-- Vytvoriť pracovný tok automatizácie prehliadača, ktorý naviguje na skutočnú webovú stránku a spracováva dynamické prvky používateľského rozhrania
-- Extrahovať typované výsledky z viditeľného obsahu stránky a premeniť ich na biznis logiku
-- Vybrať medzi vzormi agenta a herca na základe predvídateľnosti úlohy prehliadača
+- Vytvoriť workflow automatizácie prehliadača, ktorý naviguje na skutočnú webovú stránku a zvláda dynamické UI prvky
+- Extrahovať typizované výsledky z viditeľného obsahu stránky a premeniť ich na následnú obchodnú logiku
+- Vybrať medzi vzormi agent a actor na základe predvídateľnosti úlohy v prehliadači
 
-## Ukážka kódu
+## Príklad kódu
 
-Táto lekcia obsahuje jeden tutoriál v podobe notebooku:
+Táto lekcia obsahuje jeden notebookový tutoriál:
 
-- [15-browser-user.ipynb](./15-browser-user.ipynb): Spúšťa reláciu Chrome cez CDP, vyhľadáva ponuky v Štokholme na Airbnb, extrahuje ceny pomocou Browser-Use vision a vráti najlacnejšiu možnosť ako štruktúrované dáta.
+- [15-browser-user.ipynb](./15-browser-user.ipynb): Spúšťa reláciu Chrome cez CDP, vyhľadáva ponuky Airbnb v Štokholme, extrahuje ceny pomocou Browser-Use vision a vracia najlacnejšiu možnosť ako štruktúrované údaje.
 
 ## Predpoklady
 
 - Python 3.12+
-- nakonfigurované Azure OpenAI prostredie
-- lokálne nainštalovaný Chrome alebo Chromium
-- nainštalované závislosti Playwright
-- základná znalosť asynchrónneho Pythonu
+- Nakonfigurované Azure OpenAI prostredie
+- Lokálne nainštalovaný Chrome alebo Chromium
+- Nainštalované závislosti Playwright
+- Základná znalosť asynchrónneho Pythonu
 
 ## Nastavenie
 
-Nainštalujte balíky používané v notebooku:
+Nainštalujte balíčky použité v notebooku:
 
 ```bash
 pip install browser_use playwright python-dotenv
@@ -51,61 +51,84 @@ Nastavte premenné prostredia Azure OpenAI používané v notebooku:
 AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_API_KEY=...
 AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=...
-# Nepovinné: predvolene používa najnovšiu verziu API, ak sa vynechá
+# Voliteľné: predvolene použije najnovšiu verziu API, ak nie je zadané
 AZURE_OPENAI_API_VERSION=...
 ```
 
 ## Prehľad architektúry
 
-Notebook demonštruje hybridný pracovný tok automatizácie prehliadača:
+Notebook demonštruje hybridný workflow automatizácie prehliadača:
 
-1. Chrome sa spúšťa s povoleným CDP, takže Playwright aj Browser-Use môžu zdieľať tú istú reláciu prehliadača.
-2. Agent Browser-Use rieši otvorené navigačné úlohy, ako je otvorenie Airbnb, zatváranie vyskakovacích okien a vyhľadávanie Štokholmu.
-3. Aktívna stránka sa skúma pomocou štruktúrovanej Pydantic schémy, aby sa extrahovali názvy ponúk, ceny za noc, hodnotenia a URL adresy.
-4. Python logika porovná extrahované ponuky a vyznačí najlacnejší výsledok.
+1. Chrome sa spúšťa s povoleným CDP, takže Playwright aj Browser-Use môžu zdieľať rovnakú reláciu prehliadača.
+2. Agent Browser-Use zvláda otvorené navigačné úlohy, ako je otvorenie Airbnb, odmietnutie vyskakovacích okien a vyhľadávanie Štokholmu.
+3. Aktívna stránka je preskúmaná pomocou štruktúrovanej schémy Pydantic na extrakciu názvov ponúk, cien za noc, hodnotení a URL.
+4. Pythonovská logika porovnáva extrahované ponuky a zvýrazňuje najlacnejší výsledok.
 
-Tento prístup zachováva flexibilné, na videnie založené uvažovanie, ktoré Browser-Use dobre zvláda, pričom zároveň poskytuje deterministickú kontrolu prehliadača, keď ju potrebujete.
+Tento prístup zachováva flexibilné, vizuálne rozumovanie, v ktorom je Browser-Use silný, a zároveň vám poskytuje deterministické riadenie prehliadača keď je to potrebné.
 
-## Kľúčové poznatky a najlepšie praktiky
+## Kľúčové poznatky a osvedčené postupy
 
-### Kedy použiť agenta vs herca
+### Kedy použiť agenta vs aktéra
 
-| Scenár | Použiť agenta | Použiť herca |
-|----------|--------------|--------------|
-| Dynamické rozloženia | Áno, AI sa vie prispôsobiť zmenám na stránke | Nie, krehké selektory môžu zlyhať |
-| Známá štruktúra | Nie, agent je pomalší ako priama kontrola | Áno, rýchle a presné |
-| Nájdenie prvkov | Áno, funguje prirodzený jazyk | Nie, vyžadujú sa presné selektory |
-| Riadenie času | Nie, menej predvídateľné | Áno, plná kontrola nad čakaním a opakovaniami |
-| Zložité pracovné toky | Áno, zvláda neočakávané stavy UI | Nie, vyžaduje explicitné vetvenie |
+| Scenár | Použiť agenta | Použiť aktéra |
+|----------|-----------|-----------|
+| Dynamické rozloženia | Áno, AI sa môže prispôsobiť zmenám na stránke | Nie, krehké selektory môžu zlyhať |
+| Známá štruktúra | Nie, agent je pomalší než priame ovládanie | Áno, rýchle a presné |
+| Nájdenie prvkov | Áno, prirodzený jazyk funguje dobre | Nie, vyžadujú sa presné selektory |
+| Riadenie časovania | Nie, menej predvídateľné | Áno, plná kontrola nad čakaniami a opakovaniami |
+| Zložité workflow | Áno, zvláda neočakávané stavy UI | Nie, vyžaduje explicitné vetvenie |
 
-### Najlepšie praktiky Browser-Use
+### Osvedčené postupy Browser-Use
 
-1. Začnite s agentom pre exploráciu a dynamickú navigáciu.
-2. Prepnite na priamu kontrolu stránky, keď sa interakcia stane predvídateľnou.
+1. Začnite s agentom pre prieskum a dynamickú navigáciu.
+2. Prepnite na priame ovládanie stránky, keď interakcia začne byť predvídateľná.
 3. Používajte štruktúrované výstupné modely, aby boli extrahované údaje validované a typovo bezpečné.
-4. Strategicky pridávajte oneskorenia po akciách, ktoré spúšťajú viditeľné zmeny UI.
-5. Pri iterovaní zaznamenávajte snímky obrazovky, aby bolo jednoduchšie odhaliť chyby.
-6. Očakávajte zmeny webových stránok a navrhujte záložné stratégie pre vyskakovacie okná a posuny rozloženia.
-7. Kombinujte vzory agenta a herca pre dosiahnutie flexibility aj presnosti.
+4. Pridávajte oneskorenia strategicky po akciách, ktoré spúšťajú viditeľné zmeny UI.
+5. Počas iterácií snímajte screenshoty, aby boli chyby ľahšie laditeľné.
+6. Očakávajte zmeny webových stránok a navrhnite záložné stratégie pre vyskakovacie okná a posuny rozloženia.
+7. Kombinujte vzory agent-a aktér, aby ste získali flexibilitu aj presnosť.
 
-### Použitie v reálnom svete
+### Aplikácie v reálnom svete
 
-- Rezervácie ciest a monitorovanie cien
-- Porovnávanie cien a dostupnosti v e-commerce
+- Rezervácie cestovania a sledovanie cien
+- Porovnávanie cien v e-commerce a kontrola dostupnosti
 - Štruktúrovaná extrakcia z dynamických webových stránok
-- Testovanie a overovanie UI s využitím videnia
+- Testovanie a overovanie UI s videním
 - Monitorovanie webových stránok a upozornenia
-- Inteligentné vyplňovanie formulárov v viacstupňových procesoch
+- Inteligentné vyplňovanie formulárov cez viacstupňové procesy
+
+## Príklad z praxe: Microsoft Project Opal
+
+Agent, ktorého vytvoríte v tejto lekcii, je malá, lokálna verzia **agenta na používanie počítača (CUA)** — programu, ktorý ovláda prehliadač rovnakým spôsobom ako človek. Microsoft prináša túto rovnakú myšlienku do podnikového prostredia s **[Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)**, schopnosťou v Microsoft 365 Copilot.
+
+S Project Opal popíšete úlohu a agent pracuje vo vašom mene pomocou **používania počítača na zabezpečenom Windows 365 Cloud PC**, fungujúc naprieč prehliadačovými aplikáciami, stránkami a dátami vašej organizácie. Funguje **asynchrónne na pozadí** a môžete priamo riadiť jeho prácu alebo prevziať kontrolu kedykoľvek. Príkladné úlohy zahŕňajú:
+
+- Správa žiadostí o členstvo v bezpečnostných skupinách
+- Zber a validácia auditných dôkazov pre revízie zhody
+- Riešenie IT incidentov (aktualizácia statusu ticketov, priraďovanie zodpovedných, zatváranie duplicit)
+- Zostavovanie dát Excel do finančnej uzávierky
+
+Opal je užitočným referenčným bodom, ako vyzerá **produkčný, dôveryhodný** agent na používanie počítača — a zároveň posilňuje koncepty z predchádzajúcich lekcií:
+
+| Koncept v tomto kurze | Ako Project Opal aplikuje tento koncept |
+|------------------------|-----------------------------|
+| **Človek v slučke** (Lekcia 06) | Opal sa zastaví pre prihlasovacie údaje, citlivé dáta alebo nejednoznačné inštrukcie a nikdy nezadáva heslá ani neodosiela formuláre bez výslovného potvrdenia. Môžete *prevziať kontrolu* a *vrátiť kontrolu* počas úlohy. |
+| **Dôveryhodní a bezpeční agenti** (Lekcie 06 & 18) | Beží izolovane na Windows 365 Cloud PC, je štandardne iba prehliadačový (prístup k iným počítačovým zdrojom je zablokovaný cez Intune), používa *vašu* identitu, takže pristupuje len k autorizovaným zdrojom a zaznamenáva všetky akcie pre audit. |
+| **Plánovanie a metakognícia** (Lekcie 07 & 09) | Opal najprv generuje plán úlohy, potom dozerá na svoje vlastné rozumovanie pri každom kroku a zastaví sa, ak zistí podozrivú činnosť. |
+| **Znovupoužiteľné schopnosti / nástroje** (Lekcia 04) | **Zručnosti** umožňujú písať inštrukcie pre opakovateľné úlohy (importované z `.md` súboru alebo vytvorené priamo v Opal) a používať ich naprieč konverzáciami. |
+
+> **Dostupnosť:** Project Opal je momentálne dostupný používateľom v [programu skorého prístupu Frontier](https://adoption.microsoft.com/copilot/frontier-program/) s predplatným Microsoft 365 Copilot, a váš administrátor musí dokončiť nastavenie. Keďže ide o experimentálnu funkciu Frontier, schopnosti sa môžu v priebehu času meniť.
 
 ## Ďalšie zdroje
 
-- [Browser-Use integrácia s Playwright šablóna](https://docs.browser-use.com/examples/templates/playwright-integration)
-- [Parameter herca a extrakcia obsahu v Browser-Use](https://docs.browser-use.com/customize/actor/all-parameters)
+- [Začíname s Project Opal (Frontier)](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-project-opal-frontier)
+- [Šablóna integrácie Browser-Use Playwright](https://docs.browser-use.com/examples/templates/playwright-integration)
+- [Parametre aktéra Browser-Use a extrakcia obsahu](https://docs.browser-use.com/customize/actor/all-parameters)
 - [Nastavenie kurzu](../00-course-setup/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Upozornenie**:  
-Tento dokument bol preložený pomocou prekladateľskej AI služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, prosím vezmite na vedomie, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nezodpovedáme za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+**Vyhlásenie o zodpovednosti**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho natívnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

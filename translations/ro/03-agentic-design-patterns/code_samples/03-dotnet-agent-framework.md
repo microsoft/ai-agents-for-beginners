@@ -1,145 +1,148 @@
-# 🎨 Modele de Design Agentic cu GitHub Models (.NET)
+# 🎨 Modele Agentice de Proiectare cu Azure OpenAI (Responses API) (.NET)
 
-## 📋 Obiective de Învățare
+## 📋 Obiective de Învațare
 
-Acest exemplu demonstrează modele de design de nivel enterprise pentru construirea agenților inteligenți utilizând Microsoft Agent Framework în .NET cu integrarea GitHub Models. Vei învăța modele profesionale și abordări arhitecturale care fac agenții pregătiți pentru producție, ușor de întreținut și scalabili.
+Acest exemplu demonstrează modele de proiectare de nivel enterprise pentru construirea agenților inteligenți folosind Microsoft Agent Framework în .NET cu integrarea Azure OpenAI (Responses API). Veți învăța modele profesionale și abordări arhitecturale care fac agenții gata pentru producție, ușor de întreținut și scalabili.
 
-### Modele de Design Enterprise
+### Modele de Proiectare Enterprise
 
-- 🏭 **Factory Pattern**: Crearea standardizată a agenților cu injecție de dependențe
-- 🔧 **Builder Pattern**: Configurare fluentă și configurare a agenților
-- 🧵 **Thread-Safe Patterns**: Gestionarea conversațiilor concurente
-- 📋 **Repository Pattern**: Management organizat al instrumentelor și capabilităților
+- 🏭 **Modelul Factory**: Crearea standardizată a agenților cu injecție de dependență
+- 🔧 **Modelul Builder**: Configurare și setare fluentă a agenților
+- 🧵 **Modele Thread-Safe**: Gestionarea conversațiilor concurente
+- 📋 **Modelul Repository**: Gestionarea organizată a uneltelor și capabilităților
 
 ## 🎯 Beneficii Arhitecturale Specifice .NET
 
 ### Funcționalități Enterprise
 
-- **Tipare Puternice**: Validare la compilare și suport IntelliSense
-- **Injecție de Dependențe**: Integrare cu containerul DI încorporat
-- **Managementul Configurației**: Modele IConfiguration și Options
-- **Async/Await**: Suport de primă clasă pentru programarea asincronă
+- **Tipare stricte**: Validare la compilare și suport IntelliSense
+- **Injecție de Dependență**: Integrare container DI încorporat
+- **Gestionarea Configurațiilor**: Modele IConfiguration și Options
+- **Async/Await**: Suport de programare asincronă de prima clasă
 
-### Modele Pregătite pentru Producție
+### Modele Gata pentru Producție
 
-- **Integrare Logging**: Suport ILogger și logging structurat
-- **Verificări de Sănătate**: Monitorizare și diagnosticare încorporate
-- **Validarea Configurației**: Tipare puternice cu adnotări de date
+- **Integrare Logging**: Suport ILogger și logare structurată
+- **Verificări de Sănătate**: Monitorizare și diagnoză încorporată
+- **Validarea Configurației**: Tipare stricte cu anotații de date
 - **Gestionarea Erorilor**: Management structurat al excepțiilor
 
-## 🔧 Arhitectura Tehnică
+## 🔧 Arhitectură Tehnică
 
-### Componentele de Bază .NET
+### Componente de Bază .NET
 
 - **Microsoft.Extensions.AI**: Abstracții unificate pentru servicii AI
-- **Microsoft.Agents.AI**: Cadru de orchestrare pentru agenți enterprise
-- **Integrarea GitHub Models**: Modele de client API de înaltă performanță
-- **Sistem de Configurație**: Integrare appsettings.json și mediu
+- **Microsoft.Agents.AI**: Framework de orchestrare a agenților enterprise
+- **Azure OpenAI (Responses API)**: Modele de client API performante
+- **Sistem de Configurație**: appsettings.json și integrare de mediu
 
-### Implementarea Modelului de Design
+### Implementarea Modelului de Proiectare
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[Constructor Agent]
+    B --> C[Configurare]
+    C --> D[Registru Unelte]
+    D --> E[Agent AI]
 ```
 
 ## 🏗️ Modele Enterprise Demonstrate
 
 ### 1. **Modele Creationale**
 
-- **Agent Factory**: Crearea centralizată a agenților cu configurare consistentă
-- **Builder Pattern**: API fluent pentru configurarea complexă a agenților
-- **Singleton Pattern**: Managementul resurselor și configurației partajate
-- **Injecție de Dependențe**: Cuplare slabă și testabilitate
+- **Agent Factory**: Crearea centralizată a agenților cu configurație consistentă
+- **Modelul Builder**: API fluent pentru configurarea complexă a agenților
+- **Modelul Singleton**: Resurse partajate și gestionarea configurației
+- **Injecția de Dependență**: Cuplare redusă și testabilitate
 
-### 2. **Modele Comportamentale**
+### 2. **Modele Behavioral**
 
-- **Strategy Pattern**: Strategii interschimbabile de execuție a instrumentelor
-- **Command Pattern**: Operațiuni ale agenților încapsulate cu funcționalități de undo/redo
-- **Observer Pattern**: Managementul ciclului de viață al agenților bazat pe evenimente
-- **Template Method**: Fluxuri de lucru standardizate pentru execuția agenților
+- **Modelul Strategy**: Strategii intercambiabile de execuție a uneltelor
+- **Modelul Command**: Operațiuni ale agentului încapsulate cu undo/redo
+- **Modelul Observer**: Management orientat pe evenimente al ciclului de viață al agentului
+- **Modelul Template Method**: Fluxuri de execuție standardizate ale agenților
 
 ### 3. **Modele Structurale**
 
-- **Adapter Pattern**: Strat de integrare API GitHub Models
-- **Decorator Pattern**: Îmbunătățirea capabilităților agenților
-- **Facade Pattern**: Interfețe simplificate pentru interacțiunea cu agenții
-- **Proxy Pattern**: Încărcare leneșă și caching pentru performanță
+- **Modelul Adapter**: Strat de integrare Azure OpenAI (Responses API)
+- **Modelul Decorator**: Îmbunătățirea capabilităților agentului
+- **Modelul Facade**: Interfețe simplificate pentru interacțiunea agentului
+- **Modelul Proxy**: Încărcare lazy și caching pentru performanță
 
-## 📚 Principii de Design .NET
+## 📚 Principii de Proiectare .NET
 
 ### Principiile SOLID
 
 - **Responsabilitate Unică**: Fiecare componentă are un scop clar
-- **Deschis/Închis**: Extensibil fără modificare
-- **Substituția Liskov**: Implementări de instrumente bazate pe interfețe
-- **Segregarea Interfeței**: Interfețe concentrate și coezive
-- **Inversiunea Dependenței**: Dependență de abstracții, nu de concretizări
+- **Deschis/Închis**: Extensibil fără modificări
+- **Substituția Liskov**: Implementări de unealtă bazate pe interfețe
+- **Segregarea Interfeței**: Interfețe focalizate și coezive
+- **Inversiunea Dependențelor**: Dependență de abstracții, nu de concreții
 
-### Arhitectura Curată
+### Arhitectură Curată
 
-- **Stratul Domeniului**: Abstracții de bază pentru agenți și instrumente
-- **Stratul Aplicației**: Orchestrarea agenților și fluxurile de lucru
-- **Stratul Infrastructurii**: Integrarea GitHub Models și servicii externe
-- **Stratul Prezentării**: Interacțiunea utilizatorului și formatarea răspunsurilor
+- **Strat Domeniu**: Abstracții de bază pentru agenți și unelte
+- **Strat Aplicație**: Orchestrare agenți și fluxuri de lucru
+- **Strat Infrastructură**: Integrare Azure OpenAI (Responses API) și servicii externe
+- **Strat Prezentare**: Interacțiunea utilizatorului și formatarea răspunsului
 
 ## 🔒 Considerații Enterprise
 
 ### Securitate
 
-- **Managementul Credențialelor**: Gestionarea sigură a cheilor API cu IConfiguration
-- **Validarea Inputului**: Tipare puternice și validare cu adnotări de date
-- **Sanitizarea Outputului**: Procesarea și filtrarea sigură a răspunsurilor
-- **Audit Logging**: Urmărirea cuprinzătoare a operațiunilor
+- **Gestionarea Credencialelor**: Manipulare sigură a cheilor API cu IConfiguration
+- **Validarea Inputului**: Tipare stricte și validare cu anotații de date
+- **Sanitizarea Outputului**: Procesare și filtrare securizată a răspunsurilor
+- **Audit Logging**: Urmărire completă a operațiunilor
 
 ### Performanță
 
-- **Modele Asincrone**: Operațiuni I/O non-blocante
-- **Pooling de Conexiuni**: Management eficient al clientului HTTP
-- **Caching**: Caching-ul răspunsurilor pentru performanță îmbunătățită
-- **Managementul Resurselor**: Modele corecte de eliminare și curățare
+- **Modele Async**: Operațiuni I/O non-blocante
+- **Pooling de Conexiuni**: Gestionarea eficientă a clientului HTTP
+- **Caching**: Stocare în cache a răspunsurilor pentru performanță crescută
+- **Gestionarea Resurselor**: Modele corecte de eliberare și curățare
 
 ### Scalabilitate
 
-- **Siguranță la Fir**: Suport pentru execuția concurentă a agenților
-- **Pooling de Resurse**: Utilizarea eficientă a resurselor
-- **Managementul Sarcinii**: Limitarea ratei și gestionarea presiunii
-- **Monitorizare**: Metrici de performanță și verificări de sănătate
+- **Siguranța pe Thread**: Suport pentru execuție concurentă a agenților
+- **Pooling-ul Resurselor**: Utilizare eficientă a resurselor
+- **Gestionarea Sarcinii**: Limitarea ratei și gestionarea presiunii înapoi
+- **Monitorizare**: Măsurarea performanței și verificări de sănătate
 
 ## 🚀 Implementare în Producție
 
-- **Managementul Configurației**: Setări specifice mediului
-- **Strategia de Logging**: Logging structurat cu ID-uri de corelare
-- **Gestionarea Erorilor**: Gestionarea globală a excepțiilor cu recuperare adecvată
-- **Monitorizare**: Application Insights și contoare de performanță
-- **Testare**: Teste unitare, teste de integrare și modele de testare a încărcării
+- **Gestionarea Configurației**: Setări specifice mediului
+- **Strategia de Logging**: Logare structurată cu ID-uri de corelare
+- **Gestionarea Erorilor**: Tratare globală a excepțiilor cu recuperare adecvată
+- **Monitorizare**: Application insights și contoare de performanță
+- **Testare**: Teste unitare, teste de integrare și modele de testare la încărcare
 
-Pregătit să construiești agenți inteligenți de nivel enterprise cu .NET? Hai să arhitectăm ceva robust! 🏢✨
+Pregătit să construiești agenți inteligenți de nivel enterprise cu .NET? Să proiectăm ceva robust! 🏢✨
 
-## 🚀 Începe
+## 🚀 Începutul
 
 ### Cerințe Prealabile
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) sau mai recent
-- [Token de acces API GitHub Models](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) sau versiune superioară
+- Un [abonament Azure](https://azure.microsoft.com/free/) cu o resursă Azure OpenAI și o implementare model
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — autentificare cu `az login`
 
 ### Variabile de Mediu Necesare
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Apoi autentifică-te pentru ca AzureCliCredential să poată obține un token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Apoi autentificați-vă pentru ca AzureCliCredential să poată obține un token
+az login
 ```
 
 ### Cod Exemplu
@@ -152,7 +155,7 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-Sau folosind CLI-ul dotnet:
+Sau folosind CLI dotnet:
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
@@ -165,14 +168,16 @@ Vezi [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/cod
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,11 +240,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Declinare de responsabilitate**:  
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să fiți conștienți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa natală ar trebui considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională realizată de oameni. Nu ne asumăm responsabilitatea pentru neînțelegerile sau interpretările greșite care pot apărea din utilizarea acestei traduceri.
+**Declinare a responsabilității**:
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). În timp ce ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un om. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care decurg din utilizarea acestei traduceri.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

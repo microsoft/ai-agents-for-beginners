@@ -1,39 +1,40 @@
-# 🎯 Plánovanie a návrhové vzory s GitHub Models (.NET)
+# 🎯 Plánovanie a návrhové vzory s Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Ciele učenia
 
-Tento notebook demonštruje plánovanie a návrhové vzory na podnikovej úrovni pre vytváranie inteligentných agentov pomocou Microsoft Agent Framework v .NET s GitHub Models. Naučíte sa vytvárať agentov, ktorí dokážu rozložiť zložité problémy, plánovať viacstupňové riešenia a vykonávať sofistikované pracovné postupy s podnikovými funkciami .NET.
+Tento zošit ukazuje podnikové plánovacie a návrhové vzory pre budovanie inteligentných agentov pomocou Microsoft Agent Framework v .NET s Azure OpenAI (Responses API). Naučíte sa vytvárať agentov, ktorí dokážu rozložiť zložité problémy, plánovať viackrokové riešenia a vykonávať sofistikované pracovné postupy s podnikateľskými funkciami .NET.
 
 ## ⚙️ Predpoklady a nastavenie
 
 **Vývojové prostredie:**
-- .NET 9.0 SDK alebo vyšší
+- .NET 9.0 SDK alebo novšie
 - Visual Studio 2022 alebo VS Code s rozšírením C#
-- Prístup k GitHub Models API
+- Predplatné Azure s Azure OpenAI zdrojom a nasadením modelu
+- Azure CLI — prihláste sa pomocou `az login`
 
-**Požadované závislosti:**
+**Potrebné závislosti:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **Konfigurácia prostredia (súbor .env):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
 ```
 
 ## Spustenie kódu
 
-Táto lekcia obsahuje implementáciu .NET Single File App. Na jej spustenie:
+Táto lekcia obsahuje implementáciu .NET Single File App. Na jeho spustenie:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Urobte súbor spustiteľným (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Spustite aplikáciu
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -45,13 +46,13 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## Implementácia kódu
 
-Kompletná implementácia je dostupná v `07-dotnet-agent-framework.cs`, ktorá demonštruje:
+Kompletná implementácia je k dispozícii v `07-dotnet-agent-framework.cs`, ktorá demonštruje:
 
 - Načítanie konfigurácie prostredia pomocou DotNetEnv
-- Konfiguráciu klienta OpenAI pre GitHub Models
-- Definovanie štruktúrovaných dátových modelov (Plan a TravelPlan) s JSON serializáciou
+- Konfigurácia klienta Azure OpenAI pre Responses API
+- Definovanie štruktúrovaných dátových modelov (Plan a TravelPlan) so serializáciou JSON
 - Vytvorenie AI agenta so štruktúrovaným výstupom pomocou JSON schémy
-- Vykonávanie plánovacích požiadaviek s typovo bezpečnými odpoveďami
+- Vykonanie požiadaviek na plánovanie s typovo bezpečnými odpoveďami
 
 ## Kľúčové koncepty
 
@@ -96,9 +97,9 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Inštrukcie pre plánovacieho agenta
+### Inštrukcie plánovacieho agenta
 
-Agent funguje ako koordinátor, ktorý deleguje úlohy na špecializovaných sub-agentov:
+Agent funguje ako koordinátor, ktorý deleguje úlohy špecializovaným podagentom:
 
 - FlightBooking: Na rezerváciu letov a poskytovanie informácií o letoch
 - HotelBooking: Na rezerváciu hotelov a poskytovanie informácií o hoteloch
@@ -109,9 +110,11 @@ Agent funguje ako koordinátor, ktorý deleguje úlohy na špecializovaných sub
 
 ## Očakávaný výstup
 
-Keď spustíte agenta s požiadavkou na plánovanie cesty, analyzuje požiadavku a vygeneruje štruktúrovaný plán s vhodným priradením úloh špecializovaným agentom, formátovaný ako JSON zodpovedajúci schéme TravelPlan.
+Keď spustíte agenta s požiadavkou na plánovanie cesty, analyzuje požiadavku a vygeneruje štruktúrovaný plán s príslušným priradením úloh špecializovaným agentom, formátovaný ako JSON zodpovedajúci schéme TravelPlan.
 
 ---
 
-**Zrieknutie sa zodpovednosti**:  
-Tento dokument bol preložený pomocou služby AI prekladu [Co-op Translator](https://github.com/Azure/co-op-translator). Aj keď sa snažíme o presnosť, prosím, berte na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho rodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nenesieme zodpovednosť za akékoľvek nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Vyhlásenie o zodpovednosti**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho natívnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

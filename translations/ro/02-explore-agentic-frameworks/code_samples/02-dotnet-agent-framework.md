@@ -2,81 +2,83 @@
 
 ## 📋 Obiective de învățare
 
-Acest exemplu explorează conceptele fundamentale ale Microsoft Agent Framework printr-o implementare de bază a unui agent în .NET. Vei învăța modele agentice de bază și vei înțelege cum funcționează agenții inteligenți în profunzime folosind C# și ecosistemul .NET.
+Acest exemplu explorează conceptele fundamentale ale Microsoft Agent Framework prin implementarea unui agent de bază în .NET. Veți învăța modelele agentice esențiale și veți înțelege cum funcționează agenții inteligenți în fundal folosind C# și ecosistemul .NET.
 
-### Ce vei descoperi
+### Ce veți descoperi
 
-- 🏗️ **Arhitectura agentului**: Înțelegerea structurii de bază a agenților AI în .NET  
-- 🛠️ **Integrarea instrumentelor**: Cum agenții utilizează funcții externe pentru a-și extinde capabilitățile  
-- 💬 **Fluxul conversației**: Gestionarea conversațiilor multi-turn și a contextului cu managementul thread-urilor  
-- 🔧 **Modele de configurare**: Cele mai bune practici pentru configurarea și gestionarea agenților în .NET  
+- 🏗️ **Arhitectura agentului**: Înțelegerea structurii de bază a agenților AI în .NET
+- 🛠️ **Integrarea uneltelor**: Cum utilizează agenții funcții externe pentru a-și extinde capabilitățile  
+- 💬 **Fluxul conversației**: Gestionarea conversațiilor multi-turn și contextului cu managementul firelor
+- 🔧 **Modele de configurare**: Cele mai bune practici pentru configurarea și gestionarea agenților în .NET
 
-## 🎯 Concepte cheie abordate
+## 🎯 Concepte cheie acoperite
 
-### Principiile Framework-ului Agentic
+### Principiile framework-ului agentic
 
-- **Autonomie**: Cum agenții iau decizii independente folosind abstracții AI din .NET  
-- **Reactivitate**: Răspunsul la schimbările de mediu și la intrările utilizatorului  
-- **Proactivitate**: Inițiativa bazată pe obiective și context  
-- **Abilitate socială**: Interacțiunea prin limbaj natural cu thread-uri conversaționale  
+- **Autonomie**: Cum iau agenții decizii independente folosind abstracțiile AI din .NET
+- **Reactivitate**: Răspunsul la schimbările din mediu și la inputurile utilizatorului
+- **Proactivitate**: Luarea inițiativei pe baza obiectivelor și contextului
+- **Abilitate socială**: Interacțiunea prin limbaj natural cu fire de conversație
 
 ### Componente tehnice
 
-- **AIAgent**: Orchestrarea principală a agentului și gestionarea conversațiilor (.NET)  
-- **Funcții de instrumente**: Extinderea capabilităților agentului cu metode și atribute C#  
-- **Integrarea OpenAI**: Utilizarea modelelor de limbaj prin API-uri standardizate .NET  
-- **Configurare sigură**: Gestionarea cheilor API bazată pe mediu  
+- **AIAgent**: Orchestrarea principală a agentului și managementul conversațiilor (.NET)
+- **Funcții unelte**: Extinderea capabilităților agentului cu metode și atribute C#
+- **Integrarea Azure OpenAI**: Folosirea modelelor de limbaj prin Azure OpenAI Responses API
+- **Configurare securizată**: Managementul punctelor finale bazat pe mediu
 
 ## 🔧 Stack tehnic
 
 ### Tehnologii de bază
 
-- Microsoft Agent Framework (.NET)  
-- Integrarea API-ului GitHub Models  
-- Modele de client compatibile cu OpenAI  
-- Configurare bazată pe mediu cu DotNetEnv  
+- Microsoft Agent Framework (.NET)
+- Integrare Azure OpenAI (Responses API)
+- Modele client Azure.AI.OpenAI
+- Configurare bazată pe mediu cu DotNetEnv
 
-### Capabilitățile agentului
+### Capabilități ale agentului
 
-- Înțelegerea și generarea limbajului natural  
-- Apelarea funcțiilor și utilizarea instrumentelor cu atribute C#  
-- Răspunsuri conștiente de context cu thread-uri conversaționale  
-- Arhitectură extensibilă cu modele de injecție de dependențe  
+- Înțelegerea și generarea limbajului natural
+- Apelarea funcțiilor și utilizarea uneltelor cu atribute C#
+- Răspunsuri conștiente de context cu fire de conversație
+- Arhitectură extensibilă cu modele de injecție de dependență
 
-## 📚 Compararea Framework-urilor
+## 📚 Compararea framework-urilor
 
 Acest exemplu demonstrează abordarea Microsoft Agent Framework comparativ cu alte framework-uri agentice:
 
-| Caracteristică | Microsoft Agent Framework | Alte Framework-uri |
-|----------------|---------------------------|--------------------|
-| **Integrare** | Ecosistem nativ Microsoft | Compatibilitate variată |
+| Caracteristică | Microsoft Agent Framework | Alte framework-uri |
+|---------|-------------------------|------------------|
+| **Integrare** | Ecosistem Microsoft nativ | Compatibilitate variată |
 | **Simplitate** | API curat, intuitiv | Configurare adesea complexă |
-| **Extensibilitate** | Integrare ușoară a instrumentelor | Dependent de framework |
-| **Pregătit pentru enterprise** | Construit pentru producție | Variază în funcție de framework |
+| **Extensibilitate** | Integrare ușoară a uneltelor | Depinde de framework |
+| **Pregătit pentru întreprinderi** | Construit pentru producție | Varietate în funcție de framework |
 
-## 🚀 Început rapid
+## 🚀 Începutul proiectului
 
-### Cerințe preliminare
+### Precondiții
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) sau mai recent  
-- [Token de acces API GitHub Models](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [SDK .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0) sau versiune mai nouă
+- Un [abonament Azure](https://azure.microsoft.com/free/) cu o resursă Azure OpenAI și un deployment de model
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — autentificare cu `az login`
 
-### Variabile de mediu necesare
+### Variabilele de mediu necesare
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Apoi autentificați-vă pentru ca AzureCliCredential să poată obține un token
+az login
 ```
-  
+
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Apoi autentificați-vă pentru ca AzureCliCredential să poată obține un token
+az login
 ```
-  
 
 ### Cod exemplu
 
@@ -87,28 +89,30 @@ Pentru a rula exemplul de cod,
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-  
-Sau folosind CLI-ul dotnet:
+
+Sau folosind CLI dotnet:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
-  
-Vezi [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) pentru codul complet.
+
+Consultați [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) pentru codul complet.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,11 +175,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -224,26 +214,25 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
     Console.Write(update);
 }
 ```
-  
 
 ## 🎓 Concluzii cheie
 
-1. **Arhitectura agentului**: Microsoft Agent Framework oferă o abordare curată și sigură pentru construirea agenților AI în .NET  
-2. **Integrarea instrumentelor**: Funcțiile decorate cu atribute `[Description]` devin instrumente disponibile pentru agent  
-3. **Contextul conversației**: Managementul thread-urilor permite conversații multi-turn cu conștientizare completă a contextului  
-4. **Gestionarea configurării**: Variabilele de mediu și gestionarea sigură a acreditivelor urmează cele mai bune practici .NET  
-5. **Compatibilitate OpenAI**: Integrarea GitHub Models funcționează perfect prin API-uri compatibile OpenAI  
+1. **Arhitectura agentului**: Microsoft Agent Framework oferă o abordare curată, tip-safe pentru construirea agenților AI în .NET
+2. **Integrarea uneltelor**: Funcțiile decorate cu atributele `[Description]` devin unelte disponibile pentru agent
+3. **Contextul conversației**: Managementul firelor permite conversații multi-turn cu conștientizare completă a contextului
+4. **Gestionarea configurării**: Variabilele de mediu și gestionarea securizată a acreditărilor urmează cele mai bune practici .NET
+5. **Azure OpenAI Responses API**: Agentul folosește Azure OpenAI Responses API prin SDK-ul Azure.AI.OpenAI
 
 ## 🔗 Resurse suplimentare
 
-- [Documentația Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)  
-- [Marketplace GitHub Models](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Documentația Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI în Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [Aplicații .NET Single File](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Declinare de responsabilitate**:  
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să fiți conștienți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa natală ar trebui considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională realizată de oameni. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care pot apărea din utilizarea acestei traduceri.
+**Declinare a responsabilității**:
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). În timp ce ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un om. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care decurg din utilizarea acestei traduceri.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

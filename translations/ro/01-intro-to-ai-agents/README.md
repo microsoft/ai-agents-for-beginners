@@ -1,14 +1,14 @@
 [![Intro to AI Agents](../../../translated_images/ro/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul pentru această lecție)_
+> _(Click pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
 
-# Introducere în Agenții AI și Cazuri de Utilizare ale Agenților
+# Introducere în agenții AI și cazurile de utilizare ale agenților
 
-Bine ați venit la cursul **Agenți AI pentru Începători**! Acest curs vă oferă cunoștințele fundamentale — și codul funcțional real — pentru a începe să construți Agenți AI de la zero.
+Bine ai venit la cursul **Agenți AI pentru începători**! Acest curs îți oferă cunoștințele de bază — și cod de lucru real — pentru a începe să construiești agenți AI de la zero.
 
-Veniți să spuneți „salut” în <a href="https://discord.gg/kzRShWzttr" target="_blank">Comunitatea Azure AI Discord</a> — este plină de cursanți și creatori AI care sunt bucuroși să răspundă la întrebări.
+Vino să spui salut în <a href="https://discord.gg/kzRShWzttr" target="_blank">Comunitatea Discord Azure AI</a> — este plină de cursanți și constructori AI care sunt bucuroși să răspundă întrebărilor.
 
-Înainte să trecem la construcție, să ne asigurăm că înțelegem cu adevărat ce este un Agent AI și când are sens să folosești unul.
+Înainte să începem să construim, să ne asigurăm că înțelegem cu adevărat ce este un agent AI și când are sens să folosești unul.
 
 ---
 
@@ -16,129 +16,130 @@ Veniți să spuneți „salut” în <a href="https://discord.gg/kzRShWzttr" tar
 
 Această lecție acoperă:
 
-- Ce sunt Agenții AI și diferitele tipuri care există
-- Pentru ce fel de sarcini sunt cei mai potriviți Agenții AI
-- Blocurile de construcție esențiale pe care le veți folosi când proiectați o soluție agentică
+- Ce sunt agenții AI și tipurile diferite care există
+- Pentru ce tipuri de sarcini sunt agenții AI cei mai potriviți
+- Elementele de bază pe care le vei folosi când proiectezi o soluție agentică
 
-## Obiective de Învățare
+## Obiective de învățare
 
-Până la finalul acestei lecții, ar trebui să puteți:
+Până la finalul acestei lecții, ar trebui să poți:
 
-- Explica ce este un Agent AI și cum se diferențiază de o soluție AI obișnuită
-- Ști când să folosiți un Agent AI (și când să nu îl folosiți)
-- Desena un schițat de design de soluție agentică pentru o problemă din viața reală
+- Explica ce este un agent AI și cum diferă de o soluție AI obișnuită
+- Să știi când să folosești un agent AI (și când nu)
+- Să schițezi un design de bază pentru o soluție agentică pentru o problemă din lumea reală
 
 ---
 
-## Definirea Agenților AI și Tipurile de Agenți AI
+## Definirea agenților AI și tipurile de agenți AI
 
-### Ce sunt Agenții AI?
+### Ce sunt agenții AI?
 
-Iată o modalitate simplă de a gândi acest lucru:
+Iată o modalitate simplă de a te gândi la asta:
 
-> **Agenții AI sunt sisteme care permit Modelelor Mari de Limbaj (LLM) să *facă efectiv lucruri* — oferindu-le unelte și cunoștințe pentru a acționa asupra lumii, nu doar să răspundă la solicitări.**
+> **Agenții AI sunt sisteme care permit modelelor mari de limbaj (LLM) să *facă lucruri* — oferindu-le unelte și cunoștințe pentru a acționa în lume, nu doar să răspundă la prompturi.**
 
-Hai să descompunem puțin asta:
+Hai să detaliem puțin:
 
-- **Sistem** — Un Agent AI nu este doar un singur lucru. Este un ansamblu de părți care lucrează împreună. La bază, fiecare agent are trei componente:
-  - **Mediu** — Spațiul în care agentul lucrează. Pentru un agent de rezervări de călătorie, acesta ar fi platforma de rezervare în sine.
-  - **Senzori** — Modul în care agentul citește starea actuală a mediului său. Agentul nostru de călătorie ar putea verifica disponibilitatea hotelurilor sau prețurile zborurilor.
-  - **Actuatori** — Modul în care agentul acționează. Agentul de călătorie ar putea rezerva o cameră, trimite o confirmare sau anula o rezervare.
+- **Sistem** — Un agent AI nu este doar un singur lucru. Este o colecție de părți care lucrează împreună. În esență, fiecare agent are trei componente:
+  - **Mediu** — Spațiul în care agentul lucrează. Pentru un agent de rezervări de călătorii, aceasta ar fi platforma de rezervări în sine.
+  - **Senzori** — Cum citește agentul starea curentă a mediului său. Agentul nostru de călătorii ar putea verifica disponibilitatea hotelurilor sau prețurile zborurilor.
+  - **Actuatori** — Cum ia agentul măsuri. Agentul de călătorii ar putea rezerva o cameră, trimite o confirmare sau anula o rezervare.
 
 ![What Are AI Agents?](../../../translated_images/ro/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-- **Modele Mari de Limbaj** — Agenții existau înainte de LLM-uri, dar LLM-urile sunt ceea ce face agenții moderni atât de puternici. Ei pot înțelege limbajul natural, pot raționa despre context și pot transforma o cerere vagă a utilizatorului într-un plan concret de acțiune.
+- **Modele Mari de Limbaj** — Agenții existau înainte de LLM-uri, dar LLM-urile sunt ceea ce face agenții moderni atât de puternici. Ei pot înțelege limbajul natural, pot raționa în funcție de context și pot transforma o solicitare vagă a utilizatorului într-un plan concret de acțiune.
 
-- **Realizează Acțiuni** — Fără un sistem agent, un LLM doar generează text. În cadrul unui sistem agent, LLM-ul poate efectiv să *execută* pași — să caute într-o bază de date, să apeleze un API, să trimită un mesaj.
+- **Execută Acțiuni** — Fără un sistem agent, un LLM doar generează text. În interiorul unui sistem agent, LLM-ul poate chiar *executa* pași — căutând într-o bază de date, apelând o API, trimițând un mesaj.
 
-- **Acces la Unelte** — Ce unelte poate folosi agentul depinde de (1) mediul în care rulează și (2) ce a ales dezvoltatorul să îi ofere. Un agent de călătorii ar putea putea căuta zboruri, dar nu edita înregistrări de clienți — totul depinde de ce i se conectează.
+- **Acces la Unelte** — Ce unelte poate folosi agentul depinde de (1) mediul în care rulează și (2) ce a ales dezvoltatorul să îi ofere. Un agent de călătorii ar putea putea căuta zboruri, dar să nu modifice datele clienților — totul ține de ce conectezi.
 
-- **Memorie + Cunoștințe** — Agenții pot avea memorie pe termen scurt (conversația curentă) și memorie pe termen lung (baza de date a clienților, interacțiuni anterioare). Agentul de călătorie ar putea „ține minte” că preferați locurile lângă geam.
+- **Memorie + Cunoștințe** — Agenții pot avea memorie pe termen scurt (conversația curentă) și memorie pe termen lung (o bază de date cu clienți, interacțiuni anterioare). Agentul de călătorii ar putea „ține minte” că preferi locurile la geam.
 
 ---
 
-### Diferitele Tipuri de Agenți AI
+### Diferitele tipuri de agenți AI
 
-Nu toți agenții sunt construiți la fel. Iată o prezentare generală a principalelor tipuri, folosind un agent de rezervări de călătorie ca exemplu:
+Nu toți agenții sunt construiți la fel. Iată o defalcare a principalelor tipuri, folosind un agent de rezervări de călătorii ca exemplu:
 
-| **Tip Agent** | **Ce Face** | **Exemplu Agent de Călătorie** |
+| **Tip Agent** | **Ce face** | **Exemplu Agent de Călătorii** |
 |---|---|---|
-| **Agenți Reflex Simpli** | Urmează reguli prestabilite — fără memorie, fără planificare. | Vede un email de reclamație → îl transmite serviciului clienți. Atât. |
-| **Agenți Reflex Bazati pe Modele** | Păstrează un model intern al lumii și îl actualizează pe măsură ce lucrurile se schimbă. | Monitorizează prețurile zborurilor din trecut și marchează rutele care devin brusc scumpe. |
-| **Agenți Bazati pe Obiective** | Are un obiectiv clar și găsește pas cu pas cum să-l atingă. | Rezervă un întreg traseu (zboruri, mașină, hotel) pornind de la locația ta actuală pentru a ajunge la destinație. |
-| **Agenți Bazati pe Utilitate** | Nu găsește doar *o* soluție — găsește *cea mai bună* cântărind compromisurile. | Echilibrează costul versus confortul pentru a găsi călătoria care se potrivește cel mai bine preferințelor tale. |
-| **Agenți care Învăț** | Devine mai bun în timp, învățând din feedback. | Ajustează recomandările viitoare de rezervare pe baza rezultatelor sondajelor după călătorie. |
-| **Agenți Ierarhici** | Un agent de nivel înalt împarte munca în subtask-uri și le delegă către agenți de nivel inferior. | O solicitare de „anularea călătoriei” este împărțită în: anulare zbor, anulare hotel, anulare închirieri auto — fiecare gestionată de un sub-agent. |
-| **Sisteme Multi-Agent (MAS)** | Mai mulți agenți independenți care lucrează împreună (sau concurând). | Cooperare: agenți separați se ocupă de hoteluri, zboruri și divertisment. Competitiv: mai mulți agenți concurează pentru a umple camerele de hotel la cel mai bun preț. |
+| **Agenți Reflex Simpli** | Urmează reguli codificate — fără memorie, fără planificare. | Primește un email de reclamație → îl redirecționează către serviciul pentru clienți. Atât. |
+| **Agenți Reflex pe Bază de Model** | Păstrează un model intern al lumii și îl actualizează pe măsură ce lucrurile se schimbă. | Monitorizează prețurile zborurilor istorice și semnalează rutele care devin brusc scumpe. |
+| **Agenți pe Bază de Scop** | Are un scop în minte și găsește cum să îl atingă pas cu pas. | Rezervă o călătorie completă (zboruri, mașină, hotel) pornind de la locația ta curentă către destinație. |
+| **Agenți pe Bază de Utilitate** | Nu doar găsește *o* soluție — găsește *cea mai bună* cântărind compromisurile. | Echilibrează costul versus confortul pentru a găsi călătoria care se potrivește cel mai bine preferințelor tale. |
+| **Agenți care Învață** | Se îmbunătățesc în timp învățând din feedback. | Ajustează recomandările viitoare de rezervare în funcție de rezultatele chestionarelor post-călătorie. |
+| **Agenți Ierarhici** | Un agent de nivel înalt împarte munca în sub-sarcini și le delegă agenților de nivel inferior. | O cerere de „anulare călătorie” este împărțită în: anulează zbor, anulează hotel, anulează închirierea mașinii — fiecare gestionat de un sub-agent. |
+| **Sisteme Multi-Agent (MAS)** | Mai mulți agenți independenți lucrează împreună (sau concurează). | Cooperativ: agenți separați gestionează hoteluri, zboruri și divertisment. Competitiv: mai mulți agenți concurează să ocupe camerele de hotel la cel mai bun preț. |
 
 ---
 
-## Când să Folosești Agenți AI
+## Când să folosești agenți AI
 
-Doar pentru că poți folosi un Agent AI nu înseamnă că întotdeauna trebuie să o faci. Iată situațiile în care agenții strălucesc cu adevărat:
+Doar pentru că *poți* folosi un agent AI nu înseamnă că întotdeauna *ar trebui*. Iată situațiile în care agenții strălucesc cu adevărat:
 
 ![When to use AI Agents?](../../../translated_images/ro/when-to-use-ai-agents.54becb3bed74a479.webp)
 
-- **Probleme Deschise** — Când pașii de rezolvare a unei probleme nu pot fi pre-programați. Ai nevoie ca LLM-ul să găsească dinamic calea.
-- **Procese cu Mai Mulți Pași** — Sarcini care necesită folosirea uneltelor pe parcursul mai multor etape, nu doar o simplă căutare sau generare.
-- **Îmbunătățire în Timp** — Când vrei ca sistemul să devină mai inteligent pe baza feedback-ului utilizatorului sau semnalelor din mediu.
+- **Probleme Deschise** — Când pașii pentru a rezolva o problemă nu pot fi pre-programați. Ai nevoie ca LLM-ul să descopere drumul dinamic.
+- **Procese cu Mai Mulți Pași** — Sarcini care necesită folosirea uneltelor pe mai multe etape, nu doar o căutare sau generare singulară.
+- **Îmbunătățire în Timp** — Când vrei ca sistemul să devină mai inteligent bazat pe feedback-ul utilizatorului sau semnale din mediu.
 
-Vom aprofunda când (și când *nu*) să folosiți Agenți AI în lecția **Construirea Agenților AI de Încredere** mai târziu în curs.
+Vom aprofunda când (și când *nu*) să folosim agenți AI în lecția **Construirea agenților AI de încredere** care vine mai târziu în curs.
 
 ---
 
-## Noțiuni de Bază ale Soluțiilor Agentice
+## Elemente de bază ale soluțiilor agentice
 
-### Dezvoltarea Agenților
+### Dezvoltarea agentului
 
 Primul lucru pe care îl faci când construiești un agent este să definești *ce poate face* — uneltele, acțiunile și comportamentele sale.
 
-În acest curs folosim **Azure AI Agent Service** ca platforma principală. Acesta suportă:
+În acest curs, folosim **Microsoft Foundry Agent Service** ca platformă principală. Aceasta suportă:
 
 - Modele de la furnizori precum OpenAI, Mistral și Meta (Llama)
 - Date licențiate de la furnizori precum Tripadvisor
 - Definiții standardizate de unelte OpenAPI 3.0
 
-### Modele Agentice
+### Tipare agentice
 
-Comunici cu LLM-uri prin prompturi. Cu agenții, nu poți întotdeauna să creezi manual fiecare prompt — agentul trebuie să acționeze pe mai mulți pași. Aici intervin **Modelele Agentice**. Sunt strategii reutilizabile pentru prompting și orchestracea LLM-urilor într-un mod mai scalabil și fiabil.
+Comunici cu LLM-uri prin prompturi. Cu agenții, nu poți întotdeauna să creezi manual fiecare prompt — agentul trebuie să acționeze pe mai mulți pași. Aici intervin **Tiparele agentice**. Sunt strategii reutilizabile pentru a prompta și orchestra LLM-uri într-un mod mai scalabil și fiabil.
 
-Acest curs este structurat în jurul celor mai comune și utile modele agentice.
+Acest curs este structurat în jurul celor mai comune și utile tipare agentice.
 
-### Cadre Agentice
+### Cadre agentice
 
-Cadrele agentice oferă dezvoltatorilor șabloane gata făcute, unelte și infrastructură pentru construirea agenților. Fac mai ușor să:
+Cadrele agentice oferă dezvoltatorilor șabloane, unelte și infrastructură gata făcute pentru a construi agenți. Fac mai ușor să:
 
 - Conectezi unelte și capabilități
-- Observezi ce face agentul (și să depanezi când ceva nu merge bine)
+- Observi ce face agentul (și să depanezi când ceva nu merge)
 - Colaborezi între mai mulți agenți
 
-În acest curs, ne concentrăm pe **Microsoft Agent Framework (MAF)** pentru construirea agenților pregătiți pentru producție.
+În acest curs, ne concentrăm pe **Microsoft Agent Framework (MAF)** pentru a construi agenți pregătiți pentru producție.
 
 ---
 
-## Exemple de Cod
+## Exemple de cod
 
-Gata să vezi în acțiune? Iată exemplele de cod pentru această lecție:
+Gata să vezi cum funcționează? Iată exemplele de cod pentru această lecție:
 
 - 🐍 Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
 - 🔷 .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
 
 ---
 
-## Ai Întrebări?
+## Ai întrebări?
 
-Alătură-te pe [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) pentru a conecta cu alți cursanți, a participa la ore de birou și a-ți primi răspunsuri la întrebările despre Agenții AI de la comunitate.
+Alătură-te [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) pentru a conecta cu alți cursanți, a participa la ore de consultații și a-ți rezolva întrebările despre agenții AI cu ajutorul comunității.
+
 
 ---
 
-## Lecția Anterioară
+## Lecția anterioară
 
-[Configurarea Cursului](../00-course-setup/README.md)
+[Course Setup](../00-course-setup/README.md)
 
-## Lecția Următoare
+## Lecția următoare
 
-[Explorarea Cadrelor Agentice](../02-explore-agentic-frameworks/README.md)
+[Exploring Agentic Frameworks](../02-explore-agentic-frameworks/README.md)
 
 ---
 

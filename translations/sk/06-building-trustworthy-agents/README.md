@@ -2,41 +2,41 @@
 
 > _(Kliknite na obrázok vyššie pre zobrazenie videa tejto lekcie)_
 
-# Tvorba dôveryhodných AI agentov
+# Budovanie dôveryhodných AI agentov
 
 ## Úvod
 
-V tejto lekcii sa dozviete:
+Táto lekcia bude zahŕňať:
 
-- Ako vytvárať a nasadzovať bezpečných a efektívnych AI agentov
-- Dôležité bezpečnostné úvahy pri vývoji AI agentov
-- Ako zabezpečiť ochranu údajov a súkromie používateľov pri vývoji AI agentov
+- Ako vytvoriť a nasadiť bezpečných a efektívnych AI agentov
+- Dôležité bezpečnostné úvahy pri vývoji AI agentov.
+- Ako udržiavať ochranu údajov a súkromie používateľov pri vývoji AI agentov.
 
 ## Ciele učenia
 
 Po dokončení tejto lekcie budete vedieť:
 
-- Identifikovať a zmierniť riziká pri vytváraní AI agentov
-- Implementovať bezpečnostné opatrenia na správu údajov a prístupu
-- Vytvárať AI agentov, ktorí zachovávajú súkromie údajov a poskytujú kvalitný používateľský zážitok
+- Identifikovať a zmierniť riziká pri vytváraní AI agentov.
+- Implementovať bezpečnostné opatrenia na zabezpečenie riadneho spravovania údajov a prístupu.
+- Vytvárať AI agentov, ktorí udržiavajú ochranu údajov a poskytujú kvalitný používateľský zážitok.
 
 ## Bezpečnosť
 
-Najskôr sa pozrime na budovanie bezpečných agentných aplikácií. Bezpečnosť znamená, že AI agent funguje podľa návrhu. Ako tvorcovia agentných aplikácií máme metódy a nástroje na maximalizáciu bezpečnosti:
+Najprv sa pozrime na budovanie bezpečných agentových aplikácií. Bezpečnosť znamená, že AI agent funguje tak, ako je navrhnutý. Ako tvorcovia agentových aplikácií máme metódy a nástroje na maximalizáciu bezpečnosti:
 
-### Vytvorenie rámca systémovej správy
+### Budovanie rámca systémovej správy
 
-Ak ste už niekedy vytvárali AI aplikáciu pomocou veľkých jazykových modelov (LLM), viete, aké je dôležité navrhnúť robustný systémový prompt alebo systémovú správu. Tieto prompty stanovujú meta pravidlá, inštrukcie a usmernenia, ako bude LLM komunikovať s používateľom a údajmi.
+Ak ste niekedy vytvárali AI aplikáciu používajúcu Veľké jazykové modely (LLM), viete, aký je dôležitý robustný systémový prompt alebo systémová správa. Tieto promptsy stanovujú meta pravidlá, inštrukcie a usmernenia, ako bude LLM komunikovať s používateľom a s údajmi.
 
-Pre AI agentov je systémový prompt ešte dôležitejší, pretože AI agenti budú potrebovať veľmi špecifické inštrukcie na dokončenie úloh, ktoré sme pre nich navrhli.
+Pre AI agentov je systémový prompt ešte dôležitejší, pretože AI agenti budú potrebovať veľmi špecifické pokyny na dokončenie úloh, ktoré sme pre nich navrhli.
 
-Na vytvorenie škálovateľných systémových promptov môžeme použiť rámec systémovej správy na vytváranie jedného alebo viacerých agentov v našej aplikácii:
+Na vytvorenie škálovateľných systémových promptov môžeme použiť rámec systémovej správy na vybudovanie jedného alebo viacerých agentov v našej aplikácii:
 
-![Vytvorenie rámca systémovej správy](../../../translated_images/sk/system-message-framework.3a97368c92d11d68.webp)
+![Budovanie rámca systémovej správy](../../../translated_images/sk/system-message-framework.3a97368c92d11d68.webp)
 
-#### Krok 1: Vytvorte meta systémovú správu
+#### Krok 1: Vytvorenie meta systémovej správy
 
-Meta prompt bude použitý LLM na generovanie systémových promptov pre agentov, ktorých vytvoríme. Navrhujeme ho ako šablónu, aby sme mohli efektívne vytvárať viac agentov podľa potreby.
+Meta prompt bude použitý LLM na vygenerovanie systémových promptov pre agentov, ktorých vytvoríme. Navrhujeme ho ako šablónu, aby sme mohli efektívne vytvárať viac agentov podľa potreby.
 
 Tu je príklad meta systémovej správy, ktorú by sme dali LLM:
 
@@ -47,9 +47,9 @@ information that you will use to provide a system prompt for.
 To create the system prompt, be descriptive as possible and provide a structure that a system using an LLM can better understand the role and responsibilities of the AI assistant. 
 ```
 
-#### Krok 2: Vytvorte základný prompt
+#### Krok 2: Vytvorenie základného promptu
 
-Ďalším krokom je vytvoriť základný prompt na popis AI agenta. Mali by ste zahrnúť úlohu agenta, úlohy, ktoré agent vykoná, a akékoľvek ďalšie zodpovednosti agenta.
+Ďalším krokom je vytvoriť základný prompt na popis AI agenta. Mali by ste zahrnúť rolu agenta, úlohy, ktoré agent splní, a akékoľvek ďalšie zodpovednosti agenta.
 
 Tu je príklad:
 
@@ -57,9 +57,9 @@ Tu je príklad:
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### Krok 3: Poskytnite základnú systémovú správu LLM
+#### Krok 3: Poskytnutie základnej systémovej správy LLM
 
-Teraz môžeme optimalizovať túto systémovú správu tým, že poskytneme meta systémovú správu ako systémovú správu a náš základný systémový prompt.
+Teraz môžeme optimalizovať túto systémovú správu tak, že poskytneme meta systémovú správu ako systémovú správu a našu základnú systémovú správu.
 
 Výsledkom bude systémová správa, ktorá je lepšie navrhnutá na riadenie našich AI agentov:
 
@@ -113,71 +113,73 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### Krok 4: Iterujte a zlepšujte
+#### Krok 4: Iterovať a zlepšovať
 
-Hodnota tohto rámca systémových správ spočíva v možnosti ľahšie škálovať vytváranie systémových správ pre viac agentov a tiež v priebežnom zlepšovaní vašich správ. Zriedkavo máte systémovú správu, ktorá funguje hneď na prvýkrát pre váš kompletný prípad použitia. Možnosť robiť malé úpravy a zlepšenia zmenou základnej systémovej správy a ich spracovaním cez systém vám umožní porovnávať a vyhodnocovať výsledky.
+Hodnota tohto rámca systémovej správy spočíva v možnosti jednoduchšie škálovať vytváranie systémových správ pre viacerých agentov a zároveň zlepšovať vaše systémové správy v priebehu času. Je zriedkavé, že systémová správa funguje na prvý pokus pre celý váš prípad použitia. Schopnosť robiť malé úpravy a zlepšenia zmenou základnej systémovej správy a jej opätovným spracovaním vám umožní porovnávať a vyhodnocovať výsledky.
 
 ## Pochopenie hrozieb
 
-Na vytvorenie dôveryhodných AI agentov je dôležité pochopiť a zmierniť riziká a hrozby pre váš AI agent. Pozrime sa na niektoré rôzne hrozby pre AI agentov a ako sa na ne môžete lepšie pripraviť.
+Aby sme vybudovali dôveryhodných AI agentov, je dôležité pochopiť a zmierniť riziká a hrozby pre vášho AI agenta. Pozrime sa na niektoré z rôznych hrozieb pre AI agentov a ako sa na ne lepšie pripraviť a naplánovať ich.
 
 ![Pochopenie hrozieb](../../../translated_images/sk/understanding-threats.89edeada8a97fc0f.webp)
 
-### Úlohy a inštrukcie
+### Úloha a inštrukcia
 
-**Popis:** Útočníci sa snažia zmeniť inštrukcie alebo ciele AI agenta pomocou promptovania alebo manipulácie vstupov.
+**Popis:** Útočníci sa pokúšajú zmeniť inštrukcie alebo ciele AI agenta cez promptovanie alebo manipuláciu vstupov.
 
-**Zmiernenie:** Vykonávajte overovacie kontroly a filtre vstupov na detekciu potenciálne nebezpečných promptov pred ich spracovaním AI agentom. Keďže tieto útoky zvyčajne vyžadujú častú interakciu s agentom, obmedzenie počtu ťahov v konverzácii je ďalším spôsobom, ako tomuto typu útokov predchádzať.
+**Zmiernenie:** Vykonávajte validačné kontroly a filtre vstupov na detekciu potenciálne nebezpečných promptov ešte pred ich spracovaním AI agentom. Keďže tieto útoky obyčajne vyžadujú častú interakciu s agentom, obmedzenie počtu výmen v konverzácii je ďalším spôsobom, ako zablokovať tento typ útokov.
 
 ### Prístup k kritickým systémom
 
-**Popis:** Ak AI agent má prístup k systémom a službám, ktoré uchovávajú citlivé údaje, útočníci môžu kompromitovať komunikáciu medzi agentom a týmito službami. Môže ísť o priame útoky alebo nepriame pokusy získať informácie o týchto systémoch cez agenta.
+**Popis:** Ak má AI agent prístup k systémom a službám, ktoré ukladajú citlivé údaje, útočníci môžu kompromitovať komunikáciu medzi agentom a týmito službami. Môžu to byť priame útoky alebo nepriame pokusy získať informácie cez agenta o týchto systémoch.
 
-**Zmiernenie:** AI agenti by mali mať prístup k systémom iba na základe potreby, aby sa zabránilo týmto typom útokov. Komunikácia medzi agentom a systémom by mala byť tiež zabezpečená. Implementácia autentifikácie a kontroly prístupu je ďalším spôsobom ochrany týchto údajov.
+**Zmiernenie:** AI agenti by mali mať prístup k systémom len na základe potreby, aby sa predišlo takýmto útokom. Komunikácia medzi agentom a systémom by mala byť tiež zabezpečená. Implementácia autentifikácie a riadenia prístupu je ďalším spôsobom ochrany týchto informácií.
 
 ### Preťaženie zdrojov a služieb
 
-**Popis:** AI agenti môžu pristupovať k rôznym nástrojom a službám na vykonávanie úloh. Útočníci môžu využiť túto schopnosť na útok na tieto služby zasielaním vysokého počtu požiadaviek prostredníctvom AI agenta, čo môže viesť k zlyhaniam systémov alebo vysokým nákladom.
+**Popis:** AI agenti môžu pristupovať k rôznym nástrojom a službám na vykonávanie úloh. Útočníci môžu využiť túto schopnosť na útoky na tieto služby zasielaním veľkého množstva požiadaviek cez AI agenta, čo môže viesť k zlyhaniu systému alebo vysokým nákladom.
 
-**Zmiernenie:** Implementujte pravidlá na obmedzenie počtu požiadaviek, ktoré môže AI agent zaslať službe. Obmedzenie počtu ťahov v konverzácii a požiadaviek na váš AI agent je ďalším spôsobom prevencie týchto útokov.
+**Zmiernenie:** Zaveste pravidlá na obmedzenie počtu požiadaviek, ktoré AI agent môže zaslať službe. Obmedzenie počtu interakcií v konverzácii a požiadaviek na vášho AI agenta je ďalším spôsobom, ako zabrániť takýmto útokom.
 
-### Otrava vedomostnej databázy
+### Otrava znalostnej bázy
 
-**Popis:** Tento typ útoku nemieri priamo na AI agenta, ale na vedomostnú databázu a ďalšie služby, ktoré AI agent používa. Môže ísť o korupciu dát alebo informácií, ktoré AI agent použije na vykonanie úlohy, čo vedie k zaujatým alebo neželaným odpovediam používateľovi.
+**Popis:** Tento typ útoku nesmeruje priamo na AI agenta, ale na znalostnú bázu a iné služby, ktoré AI agent používa. Môže ísť o poškodenie údajov alebo informácií, ktoré AI agent využíva na splnenie úlohy, čo vedie k zaujatým alebo nežiadaným odpovediam používateľovi.
 
-**Zmiernenie:** Pravidelne overujte údaje, ktoré AI agent používa vo svojich pracovných postupoch. Zabezpečte, aby bol prístup k týmto údajom bezpečný a menili ich iba dôveryhodné osoby, aby ste predišli tomuto typu útokov.
+**Zmiernenie:** Pravidelne overujte údaje, ktoré AI agent používa vo svojich pracovných procesoch. Zabezpečte, aby bol prístup k týmto údajom bezpečný a aby k nim mali prístup iba dôveryhodné osoby, aby ste predišli tomuto typu útoku.
 
 ### Kaskádové chyby
 
-**Popis:** AI agenti pristupujú k rôznym nástrojom a službám na vykonávanie úloh. Chyby spôsobené útočníkmi môžu viesť k zlyhaniu iných systémov, ku ktorým je AI agent pripojený, čím sa útok rozšíri a ťažšie diagnostikuje.
+**Popis:** AI agenti pristupujú k rôznym nástrojom a službám na dokončenie úloh. Chyby spôsobené útočníkmi môžu viesť k zlyhaniu iných systémov, ku ktorým je AI agent pripojený, čo spôsobí rozšírenie útoku a sťaží jeho riešenie.
 
-**Zmiernenie:** Jednou z metód je nechať AI agenta pracovať v obmedzenom prostredí, napríklad vykonávať úlohy v Docker kontejnery, aby sa zabránilo priamym útokom na systém. Vytvorenie záložných mechanizmov a logiky opätovného pokusu, keď určité systémy odpovedia chybou, je ďalším spôsobom, ako predísť vážnejším zlyhaniam systému.
+**Zmiernenie:** Jednou z metód, ako sa tomu vyhnúť, je nechať AI agenta pracovať v obmedzenom prostredí, napríklad vykonávať úlohy v Docker kontejnere, aby sa predišlo priamym útokom na systém. Vytvorenie záložných mechanizmov a opakovacích logík pri odpovediach systémov s chybou je ďalší spôsob, ako predísť väčším poruchám systému.
 
-## Človek v procese
+## Human-in-the-Loop (Človek v slučke)
 
-Ďalším účinným spôsobom, ako vytvoriť dôveryhodné AI agentné systémy, je použitie prístupu Človek v procese (Human-in-the-loop). Tento prístup vytvára tok, kde môžu používatelia počas behu poskytovať spätnú väzbu agentom. Používatelia v podstate pôsobia ako agenti v multi-agentnom systéme a poskytujú schválenie alebo ukončenie bežiaceho procesu.
+Ďalším efektívnym spôsobom, ako vybudovať dôveryhodné systémy AI agentov, je použitie konceptu Human-in-the-loop. Vytvára to tok, kde môžu používatelia poskytovať spätnú väzbu agentom počas ich behu. Používatelia vlastne pôsobia ako agenti v multi-agentnom systéme a poskytujú súhlas alebo ukončenie bežiaceho procesu.
 
-![Človek v procese](../../../translated_images/sk/human-in-the-loop.5f0068a678f62f4f.webp)
+![Človek v slučke](../../../translated_images/sk/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Tu je ukážka kódu používajúceho Microsoft Agent Framework, ktorá ukazuje, ako je tento koncept implementovaný:
+Tu je ukážka kódu využívajúca Microsoft Agent Framework, ktorá demonštruje implementáciu tohto konceptu:
 
 ```python
 import os
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-# Vytvorte poskytovateľa so schválením človekom v procese
-provider = AzureAIProjectAgentProvider(
+# Vytvorte poskytovateľa so schválením zahrňujúcim človeka
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
     credential=AzureCliCredential(),
 )
 
-# Vytvorte agenta s krokom schválenia človekom
+# Vytvorte agenta so schvaľovacím krokom človeka
 response = provider.create_response(
     input="Write a 4-line poem about the ocean.",
     instructions="You are a helpful assistant. Ask for user approval before finalizing.",
 )
 
-# Používateľ môže preskúmať a schváliť odpoveď
+# Používateľ môže skontrolovať a schváliť odpoveď
 print(response.output_text)
 user_input = input("Do you approve? (APPROVE/REJECT): ")
 if user_input == "APPROVE":
@@ -188,22 +190,22 @@ else:
 
 ## Záver
 
-Tvorba dôveryhodných AI agentov vyžaduje dôkladný návrh, robustné bezpečnostné opatrenia a neustálu iteráciu. Implementáciou štruktúrovaných meta-prompt systémov, pochopením potenciálnych hrozieb a aplikáciou zmierňujúcich stratégií môžu vývojári vytvárať AI agentov, ktorí sú bezpeční a efektívni. Okrem toho začlenenie prístupu človek v procese zabezpečuje, že AI agenti zostanú v súlade s potrebami používateľov a zároveň minimalizujú riziká. Ako sa AI ďalej vyvíja, udržiavanie proaktívneho prístupu k bezpečnosti, ochrane súkromia a etickým otázkam bude kľúčom k budovaniu dôvery a spoľahlivosti v systémoch riadených AI.
+Budovanie dôveryhodných AI agentov vyžaduje starostlivý dizajn, robustné bezpečnostné opatrenia a neustálu iteráciu. Implementáciou štruktúrovaných meta-promptových systémov, pochopením potenciálnych hrozieb a aplikáciou stratégií zmierňovania môžu vývojári vytvárať AI agentov, ktorí sú bezpeční a efektívni. Okrem toho začlenenie prístupu Human-in-the-loop zabezpečuje, že AI agenti zostanú v súlade s potrebami používateľov a zároveň minimalizujú riziká. Ako AI naďalej napreduje, udržiavanie proaktívneho prístupu k bezpečnosti, súkromiu a etickým otázkam bude kľúčové pre budovanie dôvery a spoľahlivosti v systémoch riadených AI.
 
 ## Ukážky kódu
 
-- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Krok za krokom demonštrácia rámca meta-prompt systémových správ.
-- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Schvaľovacie brány pred akciou, rizikové úrovne a auditné protokolovanie pre dôveryhodných agentov.
+- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Krok za krokom ukážka rámca meta-promptového systému správ.
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Brány schvaľovania pred akciou, rizikové úrovne a auditné logovanie pre dôveryhodných agentov.
 
-### Máte ďalšie otázky o tvorbe dôveryhodných AI agentov?
+### Máte ďalšie otázky o Budovaní dôveryhodných AI agentov?
 
-Pripojte sa k [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kde sa stretnete s ďalšími študentmi, zúčastnite sa konzultácií a získajte odpovede na vaše otázky o AI agentoch.
+Pripojte sa k [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), aby ste sa stretli s ďalšími študentmi, zúčastnili sa konzultačných hodín a získali odpovede na svoje otázky o AI agentoch.
 
-## Dodatočné zdroje
+## Ďalšie zdroje
 
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Prehľad zodpovedného používania AI</a>
 - <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Hodnotenie generatívnych AI modelov a AI aplikácií</a>
-- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Bezpečnostné systémové správy</a>
+- <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Systémové správy bezpečnosti</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Šablóna hodnotenia rizík</a>
 
 ## Predchádzajúca lekcia
@@ -212,7 +214,7 @@ Pripojte sa k [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kde
 
 ## Nasledujúca lekcia
 
-[Plánovací vzor návrhu](../07-planning-design/README.md)
+[Plánovací návrhový vzor](../07-planning-design/README.md)
 
 ---
 

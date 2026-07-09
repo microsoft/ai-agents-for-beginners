@@ -4,141 +4,143 @@
 
 # Agentic RAG
 
-Táto lekcia poskytuje komplexný prehľad o Agentic Retrieval-Augmented Generation (Agentic RAG), novom paradigme AI, kde veľké jazykové modely (LLMs) samostatne plánujú svoje ďalšie kroky, pričom získavajú informácie z externých zdrojov. Na rozdiel od statických vzorov „vyhľadaj a potom čítaj“ zahŕňa Agentic RAG iteratívne volania LLM, prerušované volaniami nástrojov alebo funkcií a štruktúrovanými výstupmi. Systém hodnotí výsledky, vylepšuje dopyty, v prípade potreby vyvoláva ďalšie nástroje a pokračuje v tomto cykle, kým sa nedosiahne uspokojivé riešenie.
+Táto lekcia poskytuje komplexný prehľad o Agentic Retrieval-Augmented Generation (Agentic RAG), novom paradigme AI, kde veľké jazykové modely (LLM) samostatne plánujú svoje ďalšie kroky, zatiaľ čo získavajú informácie z externých zdrojov. Na rozdiel od statických vzorov „retrieve-then-read“ Agentic RAG zahŕňa iteratívne volania na LLM, ktoré sú prerušované volaniami nástrojov alebo funkcií a štruktúrovanými výstupmi. Systém vyhodnocuje výsledky, zdokonaľuje dopyty, v prípade potreby aktivuje ďalšie nástroje a pokračuje v tomto cykle, kým nie je dosiahnuté uspokojivé riešenie.
 
 ## Úvod
 
-Táto lekcia pokryje
+Táto lekcia bude zahŕňať
 
-- **Pochopenie Agentic RAG:** Naučte sa o vznikajúcom paradigme v AI, kde veľké jazykové modely (LLMs) samostatne plánujú svoje ďalšie kroky a získavajú informácie z externých dátových zdrojov.
-- **Pochopenie iteratívneho štýlu maker-checker:** Pochopte slučku iteratívnych volaní LLM prerušovaných volaniami nástrojov alebo funkcií a štruktúrovaných výstupov, určených na zlepšenie správnosti a zvládnutie nesprávne formulovaných dopytov.
-- **Preskúmanie praktických aplikácií:** Identifikujte scenáre, kde Agentic RAG vyniká, ako napríklad prostredia zamerané na správnosť, komplexné interakcie s databázami a rozšírené pracovné postupy.
+- **Pochopenie Agentic RAG:** Naučte sa o vyvíjajúcej sa paradigme v AI, kde veľké jazykové modely (LLM) samostatne plánujú svoje ďalšie kroky, pričom získavajú informácie z externých zdrojov dát.
+- **Pochopenie iteratívneho maker-checker štýlu:** Pochopte cyklus iteratívnych volaní LLM, prerušovaných volaniami nástrojov alebo funkcií a štruktúrovanými výstupmi, navrhnutý na zlepšenie správnosti a zvládanie poškodených dopytov.
+- **Preskúmanie praktických použití:** Identifikujte scenáre, kde Agentic RAG vyniká, ako sú prostredia orientované na správnosť, zložité interakcie s databázami a rozšírené pracovné toky.
 
 ## Ciele učenia
 
 Po dokončení tejto lekcie budete vedieť/pochopíte:
 
-- **Pochopenie Agentic RAG:** Naučíte sa o vznikajúcom paradigme v AI, kde veľké jazykové modely (LLMs) samostatne plánujú svoje ďalšie kroky a získavajú informácie z externých dátových zdrojov.
-- **Iteratívny štýl maker-checker:** Pochopíte koncept slučky iteratívnych volaní LLM prerušovaných volaniami nástrojov alebo funkcií a štruktúrovaných výstupov určených na zlepšenie správnosti a zvládnutie nesprávne formulovaných dopytov.
-- **Vlastnenie procesu uvažovania:** Pochopíte schopnosť systému vlastniť svoj proces uvažovania, prijímať rozhodnutia o prístupe k problémom bez spoliehania sa na vopred definované cesty.
-- **Pracovný postup:** Pochopíte, ako agentický model nezávisle rozhoduje o získavaní správ o trendoch na trhu, identifikácii údajov konkurencie, korelácii interných predajných metrík, syntéze zistení a hodnotení stratégie.
-- **Iteratívne slučky, integrácia nástrojov a pamäť:** Naučíte sa o spoliehaní systému na vzor interakcie so slučkou, udržiavaní stavu a pamäti cez jednotlivé kroky, aby sa zabránilo opakovaným slučkám a robili sa informovanejšie rozhodnutia.
-- **Riešenie režimov zlyhania a sebaopravovanie:** Preskúmate robustné mechanizmy sebaopravovania systému vrátane iterácie a opätovného dopytovania, používania diagnostických nástrojov a spoléhání sa na ľudský dohľad.
-- **Hranice agentnosti:** Pochopíte obmedzenia Agentic RAG, so zameraním na autonómiu špecifickú pre doménu, závislosť na infraštruktúre a rešpektovanie bezpečnostných opatrení.
-- **Praktické použitia a hodnota:** Identifikujete scenáre, kde Agentic RAG vyniká, ako napríklad prostredia zamerané na správnosť, komplexné interakcie s databázami a rozšírené pracovné postupy.
-- **Správa, transparentnosť a dôvera:** Naučíte sa o dôležitosti správy a transparentnosti, vrátane vysvetliteľného uvažovania, kontroly zaujatosti a ľudského dohľadu.
+- **Pochopenie Agentic RAG:** Naučíte sa o vyvíjajúcej sa paradigme v AI, kde veľké jazykové modely (LLM) samostatne plánujú svoje ďalšie kroky, pričom získavajú informácie z externých zdrojov dát.
+- **Iteratívny maker-checker štýl:** Pochopíte koncept cyklu iteratívnych volaní LLM, prerušovaných volaniami nástrojov alebo funkcií a štruktúrovanými výstupmi, navrhnutý na zlepšenie správnosti a zvládanie poškodených dopytov.
+- **Ovládanie procesu uvažovania:** Pochopíte schopnosť systému vlastniť svoj proces uvažovania, robiť rozhodnutia, ako pristupovať k problémom bez spoliehania sa na preddefinované cesty.
+- **Pracovný tok:** Pochopíte, ako agentný model samostatne rozhoduje o získavaní správ o trendoch trhu, identifikácii údajov konkurentov, korelácii interných predajných ukazovateľov, syntetizovaní zistení a vyhodnocovaní stratégie.
+- **Iteratívne cykly, integrácia nástrojov a pamäť:** Naučíte sa o spoliehaní systému na cyklický interakčný vzor, ktorý udržuje stav a pamäť naprieč krokmi, aby sa zabránilo opakujúcim sa slučkám a umožnilo robiť informované rozhodnutia.
+- **Zvládanie chybových režimov a sebaopravovanie:** Preskúmate robustné mechanizmy sebaopravovania systému, vrátane iterácií a opätovného dopytovania, používania diagnostických nástrojov a zálohovania na ľudský dohľad.
+- **Hranice autonómie:** Pochopíte obmedzenia Agentic RAG, sústredené na autonómiu špecifickú pre doménu, závislosť na infraštruktúre a rešpektovanie bezpečnostných obmedzení.
+- **Praktické prípady použitia a hodnota:** Identifikujete scenáre, kde Agentic RAG vyniká, ako sú prostredia orientované na správnosť, zložité interakcie s databázami a rozšírené pracovné toky.
+- **Riadenie, transparentnosť a dôvera:** Naučíte sa o význame riadenia a transparentnosti, vrátane vysvetliteľného uvažovania, kontroly zaujatosti a ľudského dohľadu.
 
 ## Čo je Agentic RAG?
 
-Agentic Retrieval-Augmented Generation (Agentic RAG) je vznikajúca paradigma AI, kde veľké jazykové modely (LLMs) samostatne plánujú svoje ďalšie kroky a zároveň získavajú informácie z externých zdrojov. Na rozdiel od statických vzorov „vyhľadaj a potom čítaj“ zahŕňa Agentic RAG iteratívne volania LLM, prerušované volaniami nástrojov alebo funkcií a štruktúrovanými výstupmi. Systém hodnotí výsledky, vylepšuje dopyty, v prípade potreby vyvoláva ďalšie nástroje a pokračuje v tomto cykle, kým sa nedosiahne uspokojivé riešenie. Tento iteratívny štýl „maker-checker“ zlepšuje správnosť, spracováva nesprávne formulované dopyty a zabezpečuje vysokú kvalitu výsledkov.
+Agentic Retrieval-Augmented Generation (Agentic RAG) je vyvíjajúca sa paradigma AI, kde veľké jazykové modely (LLM) samostatne plánujú svoje ďalšie kroky, pričom ťažia informácie z externých zdrojov. Na rozdiel od statických vzorov „retrieve-then-read“ Agentic RAG zahŕňa opakované volania na LLM, prerušované volaniami nástrojov alebo funkcií a štruktúrovanými výstupmi. Systém vyhodnocuje výsledky, zdokonaľuje dopyty, podľa potreby aktivuje ďalšie nástroje a pokračuje v tomto cykle, kým nedosiahne uspokojivé riešenie. Tento iteratívny „maker-checker“ štýl zlepšuje správnosť, zvládanie poškodených dopytov a zabezpečuje vysokokvalitné výsledky.
 
-Systém aktívne vlastní svoj proces uvažovania, prepíše neúspešné dopyty, vyberie rôzne metódy vyhľadávania a integruje viacero nástrojov – napríklad vyhľadávanie vektorov v Azure AI Search, SQL databázy alebo vlastné API – pred finálnym zodpovedaním otázky. Rozlišovacou kvalitou agentického systému je jeho schopnosť vlastniť svoj proces uvažovania. Tradičné implementácie RAG sa spoliehajú na vopred definované cesty, ale agentický systém samostatne určuje poradie krokov na základe kvality nájdených informácií.
+Systém aktívne vlastní svoj proces uvažovania, prepíše zlyhané dopyty, vyberie rôzne metódy získavania informácií a integruje viac nástrojov — ako vyhľadávanie vektorov v Azure AI Search, SQL databázy alebo vlastné API — pred finalizáciou odpovede. Rozlišujúcou vlastnosťou agentného systému je jeho schopnosť vlastniť proces uvažovania. Tradičné implementácie RAG sa spoliehajú na preddefinované cesty, ale agentný systém autonómne určuje sekvenciu krokov na základe kvality nájdených informácií.
 
 ## Definovanie Agentic Retrieval-Augmented Generation (Agentic RAG)
 
-Agentic Retrieval-Augmented Generation (Agentic RAG) je vznikajúca paradigma vo vývoji AI, kde LLM nielen získavajú informácie z externých dátových zdrojov, ale tiež samostatne plánujú svoje ďalšie kroky. Na rozdiel od statických vzorov „vyhľadaj a potom čítaj“ alebo starostlivo naplánovaných postupov promptov, Agentic RAG zahŕňa slučku iteratívnych volaní LLM prerušovaných volaniami nástrojov alebo funkcií a štruktúrovaných výstupov. Systém na každom kroku vyhodnocuje získané výsledky, rozhoduje, či má upraviť svoje dopyty, vyvoláva ďalšie nástroje podľa potreby a pokračuje v tomto cykle, kým nedosiahne uspokojivé riešenie.
+Agentic Retrieval-Augmented Generation (Agentic RAG) je vyvíjajúca sa paradigma v rozvoji AI, kde LLM nielen získavajú informácie z externých dátových zdrojov, ale aj samostatne plánujú svoje ďalšie kroky. Na rozdiel od statických vzorov „retrieve-then-read“ alebo starostlivo napísaných sekvencií výziev, Agentic RAG zahŕňa slučku iteratívnych volaní na LLM, prerušovaných volaniami nástrojov alebo funkcií a štruktúrovanými výstupmi. Pri každom kroku systém vyhodnocuje dosiahnuté výsledky, rozhoduje, či dopyty vylepšiť, aktivuje ďalšie nástroje podľa potreby a pokračuje v tomto cykle, kým nedosiahne uspokojivý výsledok.
 
-Tento iteratívny štýl „maker-checker“ je navrhnutý na zlepšenie správnosti, spracovanie nesprávnych dopytov do štruktúrovaných databáz (napr. NL2SQL) a zaručenie vyvážených, kvalitných výsledkov. Namiesto spoliehania sa výlučne na starostlivo navrhnuté reťazce promptov systém aktívne vlastní svoj proces uvažovania. Môže prepísať neúspešné dopyty, vybrať inú metódu vyhľadávania a integrovať viacero nástrojov – ako napríklad vyhľadávanie vektorov v Azure AI Search, SQL databázy alebo vlastné API – pred finálnym zodpovedaním. Tým sa eliminuje potreba príliš zložitých rámcov orchestrace. Namiesto toho relatívne jednoduchá slučka „volanie LLM → použitie nástroja → volanie LLM → …“ môže priniesť sofistikované a dobre podložené výstupy.
+Tento iteratívny „maker-checker“ štýl prevádzky je navrhnutý na zlepšenie správnosti, zvládanie poškodených dopytov do štruktúrovaných databáz (napr. NL2SQL) a zabezpečenie vyvážených, kvalitných výsledkov. Namiesto spoliehania sa výhradne na starostlivo navrhnuté reťazce výziev systém aktívne vlastní svoj proces uvažovania. Môže prepísať neúspešné dopyty, zvoliť rôzne metódy získavania informácií a integrovať viacero nástrojov — ako vyhľadávanie vektorov v Azure AI Search, SQL databázy alebo vlastné API — skôr než finalizuje svoju odpoveď. Tým sa odstraňuje potreba príliš komplexných rámcov orchestrácie. Namiesto toho môže relatívne jednoduchý cyklus „volanie LLM → použitie nástroja → volanie LLM → …“ priniesť sofistikované a dobre podložené výstupy.
 
 ![Agentic RAG Core Loop](../../../translated_images/sk/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
-## Vlastnenie procesu uvažovania
+## Ovládanie procesu uvažovania
 
-Rozlišovacou kvalitou, ktorá robí systém „agentickým“, je jeho schopnosť vlastniť svoj proces uvažovania. Tradičné implementácie RAG často závisia od ľudí, ktorí vopred definujú cestu pre model: prístupový reťazec, ktorý určuje, čo a kedy sa má vyhľadať.  
-Keď je však systém naozaj agentický, interne rozhoduje, ako pristúpiť k problému. Nedá sa to považovať len za vykonávanie skriptu; autonómne určuje poradie krokov na základe kvality nájdených informácií.  
-Napríklad, ak je požiadaný o vytvorenie stratégie uvedenia produktu na trh, nespolieha sa výlučne na prompt, ktorý určuje celý výskumný a rozhodovací proces. Namiesto toho agentický model nezávisle rozhoduje o:
+Rozlišujúcou vlastnosťou, ktorá robí systém „agentným“, je jeho schopnosť vlastniť proces uvažovania. Tradičné implementácie RAG často závisia na ľuďoch, ktorí pre model preddefinujú cestu: reťazec myšlienok, ktorý naznačuje, čo a kedy vyhľadávať.
+Ale keď je systém skutočne agentný, rozhoduje interne, ako k problému pristúpiť. Nevykonáva len skript; autonómne určuje sekvenciu krokov na základe kvality nájdených informácií.
+Napríklad, ak je požiadaný vytvoriť stratégiu uvádzania produktu na trh, nespolieha sa výhradne na výzvu, ktorá vypisuje celý výskumný a rozhodovací proces. Namiesto toho agentný model samostatne rozhodne:
 
-1. Získaní aktuálnych správ o trendoch na trhu pomocou Bing Web Grounding  
-2. Identifikácií relevantných údajov konkurencie pomocou Azure AI Search.  
-3. Korelácií historických interných predajných metrík pomocou Azure SQL Database.  
-4. Syntéze zistení do súdržnej stratégie koordinovanej prostredníctvom Azure OpenAI Service.  
-5. Vyhodnotení stratégie z hľadiska medzier alebo nesúladu, prípadne iniciovaní ďalšieho kola vyhľadávania.  
-Všetky tieto kroky – vylepšovanie dopytov, výber zdrojov, iterácie až do dosiahnutia „uspokojivosti“ odpovede – sú rozhodnuté modelom, nie vopred napísané človekom.
+1. Získať aktuálne správy o trendoch trhu pomocou Bing Web Grounding
+2. Identifikovať relevantné údaje konkurentov pomocou Azure AI Search.
+3. Korelovať historické interné predajné metriky pomocou Azure SQL Database.
+4. Syntetizovať zistenia do súdržnej stratégie orchestranej cez Azure OpenAI Service.
+5. Vyhodnotiť stratégiu na medzery alebo nezrovnalosti a v prípade potreby vyvolať ďalšie kolo získavania informácií.
+Všetky tieto kroky – zdokonaľovanie dopytov, výber zdrojov, iterovanie kým nie je odpoveď „uspokojivá“ – rozhoduje model, nie človek, ktorý vopred napísal scenár.
 
 ## Iteratívne slučky, integrácia nástrojov a pamäť
 
 ![Tool Integration Architecture](../../../translated_images/sk/tool-integration.0f569710b5c17c10.webp)
 
-Agentický systém sa spolieha na vzor interakcie so slučkou:
+Agentný systém sa spolieha na cyklický interakčný vzor:
 
-- **Počiatočné volanie:** Cieľ používateľa (t.j. prompt používateľa) sa predkladá LLM.  
-- **Vyvolanie nástroja:** Ak model identifikuje chýbajúce informácie alebo nejasné pokyny, vyberie nástroj alebo metódu vyhľadávania – napríklad dopyt do vektorovej databázy (napr. Azure AI Search Hybrid search nad súkromnými dátami) alebo štruktúrované SQL volanie – aby získal viac kontextu.  
-- **Hodnotenie a vylepšovanie:** Po preskúmaní vrátených dát model rozhodne, či sú informácie dostatočné. Ak nie, vylepší dopyt, vyskúša iný nástroj alebo upraví svoj prístup.  
-- **Opakovanie, kým nie je spokojný:** Tento cyklus pokračuje, kým model nezistí, že má dostatočnú jasnosť a dôkazy na dodanie finálnej, dobre zdôvodnenej odpovede.  
-- **Pamäť a stav:** Pretože systém udržiava stav a pamäť cez jednotlivé kroky, môže si pamätať predchádzajúce pokusy a ich výsledky, čím sa vyhýba opakovaným slučkám a robí informovanejšie rozhodnutia ďalej.  
+- **Počiatočné volanie:** Cieľ používateľa (t.j. používateľská požiadavka) je predložený LLM.
+- **Volanie nástroja:** Ak model identifikuje chýbajúce informácie alebo nejasné inštrukcie, vyberie nástroj alebo metódu získavania – napr. dotaz do vektorovej databázy (napr. hybridné vyhľadávanie Azure AI Search nad súkromnými dátami) alebo štruktúrovaný SQL dotaz – na získanie ďalšieho kontextu.
+- **Hodnotenie a zdokonaľovanie:** Po preskúmaní vrátených údajov model rozhodne, či sú informácie postačujúce. Ak nie, zdokonalí dopyt, vyskúša iný nástroj alebo upraví svoj prístup.
+- **Opakovanie, kým spokojný:** Tento cyklus pokračuje, kým model nerozhodne, že má dostatok jasno- stí a dôkazov na dodanie konečnej dobre prepracovanej odpovede.
+- **Pamäť a stav:** Pretože systém udržiava stav a pamäť naprieč krokmi, môže si pamätať predchádzajúce pokusy a ich výsledky, vyhýbať sa opakujúcim sa slučkám a robiť informovanejšie rozhodnutia počas postupu.
 
-V priebehu času to vytvára dojem vyvíjajúceho sa porozumenia, ktoré umožňuje modelu navigovať komplexné, viacstupňové úlohy bez potreby, aby človek neustále zasahoval alebo preformulovával prompt.
+Postupom času to vytvára pocit vyvíjajúceho sa porozumenia, umožňujúci modelu orientovať sa v zložitých, viackrokových úlohách bez potreby neustáleho ľudského zásahu alebo prepracovania výzvy.
 
-## Riešenie režimov zlyhania a sebaopravovanie
+## Zvládanie chybových režimov a sebaopravovanie
 
-Autonómia Agentic RAG zahŕňa aj robustné mechanizmy sebaopravovania. Keď systém narazí na slepé uličky – napríklad pri vyhľadávaní irelevantných dokumentov alebo obdržaní nesprávne formulovaných dopytov – môže:
+Autonómia Agentic RAG tiež zahŕňa robustné mechanizmy sebaopravovania. Keď systém narazí na slepé uličky – ako získanie nerelevantných dokumentov alebo stretávanie sa s poškodenými dopytmi – môže:
 
-- **Iterovať a opätovne dopytovať:** Namiesto vrátenia málo hodnotných odpovedí model skúša nové vyhľadávacie stratégie, prepíše dopyty do databáz alebo skúma alternatívne datasety.  
-- **Použiť diagnostické nástroje:** Systém môže vyvolať ďalšie funkcie určené na pomoc s ladením jeho krokov uvažovania alebo potvrdením správnosti získaných dát. Nástroje ako Azure AI Tracing budú dôležité na umožnenie robustnej observability a monitorovania.  
-- **Spoliehať sa na ľudský dohľad:** Pri situáciách s vysokým rizikom alebo opakovane zlyhávajúcich scénároch môže model signalizovať neistotu a žiadať ľudské vedenie. Keď človek poskytne korekčnú spätnú väzbu, model ju môže zahrnúť do svojho učenia do budúcnosti.  
+- **Iterovať a opätovne dopytovať:** Namiesto vracania málo hodnotných odpovedí model skúša nové stratégie vyhľadávania, prepíše databázové dopyty alebo prezerá alternatívne dátové sady.
+- **Použiť diagnostické nástroje:** Systém môže vyvolať ďalšie funkcie určené na pomoc pri ladení krokov uvažovania alebo na potvrdenie správnosti získaných údajov. Nástroje ako Azure AI Tracing budú dôležité pre umožnenie robustnej pozorovateľnosti a monitorovania.
+- **Záloha na ľudský dohľad:** Pri vysoko rizikových alebo opakovane zlyhávajúcich scénároch môže model označiť neistotu a požiadať o ľudské vedenie. Akonáhle človek poskytne korektívnu spätnú väzbu, model môže túto lekciu zapracovať do budúcnosti.
 
-Tento iteratívny a dynamický prístup umožňuje modelu neustále sa zlepšovať a zabezpečuje, že nejde len o jednorazový systém, ale o taký, ktorý sa učí zo svojich chýb počas relácie.
+Tento iteratívny a dynamický prístup umožňuje modelu neustále sa zlepšovať, zabezpečujúc, že nejde o jednorazový systém, ale o systém, ktorý sa učí zo svojich omylov počas danej relácie.
 
 ![Self Correction Mechanism](../../../translated_images/sk/self-correction.da87f3783b7f174b.webp)
 
-## Hranice agentnosti
+## Hranice autonómie
 
-Napriek svojej autonómii v rámci úlohy Agentic RAG nie je analogický k všeobecnej umelej inteligencii. Jeho „agentické“ schopnosti sú obmedzené na nástroje, dátové zdroje a pravidlá, ktoré mu poskytnú ľudskí vývojári. Nedokáže si vymyslieť vlastné nástroje ani vystúpiť mimo nastavené doménové hranice. Skôr vyniká v dynamickej koordinácii dostupných zdrojov.  
+Napriek svojej autonómii v rámci úlohy nie je Agentic RAG analogický s umelou všeobecnou inteligenciou. Jeho „agentné“ schopnosti sú obmedzené na nástroje, zdroje dát a pravidlá poskytnuté ľudskými vývojármi. Nemôže si vymýšľať vlastné nástroje ani vystúpiť mimo hraníc domény, ktoré boli stanovené. Skôr vyniká v dynamickej orchestrácii dostupných zdrojov.
 Kľúčové rozdiely oproti pokročilejším formám AI zahŕňajú:
 
-1. **Doménovo špecifická autonómia:** Agentic RAG systémy sa zameriavajú na dosahovanie používateľom definovaných cieľov v rámci známej domény, používajúc stratégie ako prepisovanie dopytov alebo výber nástrojov na zlepšenie výsledkov.  
-2. **Závislosť na infraštruktúre:** Schopnosti systému závisia od nástrojov a dát integrovaných vývojármi. Bez ľudského zásahu nemôže prekročiť tieto hranice.  
-3. **Rešpektovanie bezpečnostných opatrení:** Etické smernice, pravidlá súladu a obchodné politiky zostávajú veľmi dôležité. Sloboda agenta je vždy obmedzená bezpečnostnými opatreniami a dohľadovými mechanizmami (dúfajme?).
+1. **Doménovo špecifická autonómia:** Agentné systémy RAG sa zameriavajú na dosiahnutie používateľom definovaných cieľov v známej doméne, používajúc stratégie ako prepísanie dopytov alebo výber nástrojov na zlepšenie výsledkov.
+2. **Závislosť na infraštruktúre:** Schopnosti systému závisia na nástrojoch a dátach integrovaných vývojármi. Bez ľudského zásahu nemôže tieto hranice prekročiť.
+3. **Rešpektovanie bezpečnostných opatrení:** Etické smernice, pravidlá súladu a obchodné politiky zostávajú veľmi dôležité. Sloboda agenta je vždy obmedzená bezpečnostnými opatreniami a mechanizmami dohľadu (dúfajme?).
 
-## Praktické použitia a hodnota
+## Praktické prípady použitia a hodnota
 
-Agentic RAG vyniká v scenároch vyžadujúcich iteratívne vylepšovanie a presnosť:
+Agentic RAG vyniká v scenároch vyžadujúcich iteratívne zdokonaľovanie a presnosť:
 
-1. **Prostredia zamerané na správnosť:** Pri kontrolách súladu, regulačných analýzach alebo právnom výskume môže agentický model opakovane overovať fakty, konzultovať viaceré zdroje a prepísať dopyty, kým nevygeneruje dôkladne preverené odpovede.  
-2. **Komplexné interakcie s databázami:** Pri práci so štruktúrovanými dátami, kde dopyty často zlyhávajú alebo potrebujú úpravu, systém môže autonómne vylepšovať svoje dopyty pomocou Azure SQL alebo Microsoft Fabric OneLake, čím zaručí, že konečné vyhľadávanie zodpovedá zámeru používateľa.  
-3. **Rozšírené pracovné postupy:** Dlhšie relácie môžu evolvovať v čase, ako sa objavujú nové informácie. Agentic RAG môže neustále začleňovať nové dáta a meniť stratégie podľa toho, ako sa učí viac o probléme.
+1. **Prostredia orientované na správnosť:** V kontrolách súladu, regulačnej analýze alebo právnom výskume môže agentný model opakovane overovať fakty, konzultovať viacero zdrojov a prepísať dopyty, kým nevyprodukuje dôkladne overenú odpoveď.
+2. **Zložité interakcie s databázami:** Pri práci so štruktúrovanými dátami, kde dopyty často zlyhávajú alebo je potrebné ich upraviť, môže systém autonómne zdokonaľovať svoje dopyty pomocou Azure SQL alebo Microsoft Fabric OneLake, zabezpečujúc, že konečné získavanie údajov je v súlade s úmyslom používateľa.
+3. **Rozšírené pracovné toky:** Dlhšie prebiehajúce relácie sa môžu vyvíjať, keď sa objavujú nové informácie. Agentic RAG môže neustále začleňovať nové dáta a meniť stratégie, ako sa dozvedá viac o problematike.
 
-## Správa, transparentnosť a dôvera
+## Riadenie, transparentnosť a dôvera
 
-Ako sa tieto systémy stávajú v uvažovaní autonómnejšími, správa a transparentnosť sú kľúčové:
+Ako sa tieto systémy stávajú autonómnejšími vo svojom uvažovaní, riadenie a transparentnosť sú rozhodujúce:
 
-- **Vysvetliteľné uvažovanie:** Model môže poskytnúť auditnú stopu dopytov, ktoré vykonal, zdrojov, ktoré konzultoval, a krokov uvažovania, ktoré vykonal, aby dosiahol záver. Nástroje ako Azure AI Content Safety a Azure AI Tracing / GenAIOps môžu pomôcť udržiavať transparentnosť a zmierňovať riziká.  
-- **Kontrola zaujatosti a vyvážené vyhľadávanie:** Vývojári môžu ladiť vyhľadávacie stratégie tak, aby boli zvážené vyvážené a reprezentatívne dátové zdroje, a pravidelne kontrolovať výstupy na zistenie zaujatosti alebo skreslenia pomocou vlastných modelov pre pokročilé organizácie dátovej vedy s využitím Azure Machine Learning.  
-- **Ľudský dohľad a súlad:** Pri citlivých úlohách zostáva ľudské hodnotenie nevyhnutné. Agentic RAG nenahrádza ľudský úsudok vo vysoko rizikových rozhodnutiach – dopĺňa ho poskytovaním dôkladnejšie preverovaných možností.
+- **Vysvetliteľné uvažovanie:** Model môže poskytnúť auditný záznam dopytov, ktoré vykonal, zdrojov, ktoré konzultoval, a krokov uvažovania, ktoré podnikol na dosiahnutie záveru. Nástroje ako Azure AI Content Safety a Azure AI Tracing / GenAIOps môžu pomôcť udržiavať transparentnosť a zmierňovať riziká.
+- **Kontrola zaujatosti a vyvážené získavanie:** Vývojári môžu ladíť stratégie získavania, aby zaistili, že sa berú do úvahy vyvážené, reprezentatívne zdroje dát, a pravidelne auditovať výstupy na odhalenie zaujatosti alebo skreslených vzorov pomocou vlastných modelov pre pokročilé dátové vedecké organizácie využívajúce Azure Machine Learning.
+- **Ľudský dohľad a súlad:** Pri citlivých úlohách zostáva ľudský prehliadnutie nevyhnutné. Agentic RAG nenahrádza ľudské rozhodovanie v rozhodnutiach s vysokým rizikom — rozširuje ho tým, že poskytuje dôkladnejšie overené možnosti.
 
-Mať nástroje, ktoré poskytujú jasný záznam o akciách, je nevyhnutné. Bez nich môže byť ladenie viacstupňového procesu veľmi náročné. Pozrite si nasledujúci príklad od Literal AI (spoločnosti za Chainlit) pre beh agenta:
+Mať nástroje, ktoré poskytujú jasný záznam o akciách, je nevyhnutné. Bez nich môže byť ladenie viackrokového procesu veľmi náročné. Pozrite si nasledujúci príklad od Literal AI (spoločnosť za Chainlit) pre spustenie Agenta:
 
 ![AgentRunExample](../../../translated_images/sk/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## Záver
 
-Agentic RAG predstavuje prirodzenú evolúciu v tom, ako AI systémy zvládajú komplexné úlohy náročné na dáta. Prijatím vzoru interakcie so slučkou, autonómnym výberom nástrojov a vylepšovaním dopytov až do dosiahnutia kvalitného výsledku systém presahuje statické sledovanie promptov a mení sa na adaptívnejšieho, kontextovo uvedomelého rozhodovateľa. Hoci je stále viazaný na infraštruktúru a etické smernice definované ľuďmi, tieto agentické schopnosti umožňujú bohatšie, dynamickejšie a nakoniec užitočnejšie AI interakcie pre podniky aj koncových používateľov.
+Agentic RAG predstavuje prirodzenú evolúciu v tom, ako AI systémy zvládajú zložité, dátami náročné úlohy. Adopciou cyklického interakčného vzoru, autonómnym výberom nástrojov a zdokonaľovaním dopytov až k dosiahnutiu výsledku vysokej kvality sa systém posúva za hranice statického sledovania promptov k adaptívnejšiemu, kontextovo vedomému rozhodovateľovi. Aj keď je stále viazaný infraštruktúrami a etickými smernicami definovanými ľuďmi, tieto agentné schopnosti umožňujú bohatšie, dynamickejšie a nakoniec užitočnejšie AI interakcie pre firmy aj koncových používateľov.
 
-### Máte viac otázok o Agentic RAG?
+### Máte ďalšie otázky o Agentic RAG?
 
-Pridajte sa k [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kde sa môžete stretnúť s ďalšími študentmi, zúčastniť sa konzultačných hodín a získať odpovede na svoje otázky o AI agentoch.
+Pridajte sa k [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), aby ste sa stretli s ostatnými študentmi, zúčastnili sa kancelárskych hodín a získali odpovede na svoje otázky o AI Agentoch.
 
-## Dodatočné zdroje
-- <a href="https://learn.microsoft.com/training/modules/use-own-data-azure-openai" target="_blank">Implementácia Retrieval Augmented Generation (RAG) so službou Azure OpenAI: Naučte sa, ako používať vlastné dáta so službou Azure OpenAI. Tento modul Microsoft Learn poskytuje komplexného sprievodcu implementáciou RAG</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Hodnotenie generatívnych AI aplikácií pomocou Microsoft Foundry: Tento článok pokrýva hodnotenie a porovnanie modelov na verejne dostupných dátových súboroch, vrátane Agentic AI aplikácií a architektúr RAG</a>
+## Ďalšie zdroje
+
+- <a href="https://learn.microsoft.com/training/modules/use-own-data-azure-openai" target="_blank">Implementácia Retrieval Augmented Generation (RAG) s Azure OpenAI Service: Naučte sa, ako používať vlastné dáta s Azure OpenAI Service. Tento Microsoft Learn modul poskytuje komplexného sprievodcu implementáciou RAG</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Hodnotenie generatívnych AI aplikácií s Microsoft Foundry: Tento článok sa zaoberá hodnotením a porovnaním modelov na verejne dostupných datasetoch, vrátane Agentic AI aplikácií a RAG architektúr</a>
 - <a href="https://weaviate.io/blog/what-is-agentic-rag" target="_blank">Čo je Agentic RAG | Weaviate</a>
-- <a href="https://ragaboutit.com/agentic-rag-a-complete-guide-to-agent-based-retrieval-augmented-generation/" target="_blank">Agentic RAG: Kompletný sprievodca agentovo založenou retrieval augmented generáciou – Novinky z generácie RAG</a>
-- <a href="https://huggingface.co/learn/cookbook/agent_rag" target="_blank">Agentic RAG: zrýchlite svoj RAG pomocou reformulácie dotazov a sebazisťovania! Hugging Face Open-Source AI Cookbook</a>
-- <a href="https://youtu.be/aQ4yQXeB1Ss?si=2HUqBzHoeB5tR04U" target="_blank">Pridávanie agentových vrstiev do RAG</a>
+- <a href="https://ragaboutit.com/agentic-rag-a-complete-guide-to-agent-based-retrieval-augmented-generation/" target="_blank">Agentic RAG: Kompletný sprievodca agentovo založenou Retrieval Augmented Generation – Novinky z generácie RAG</a>
+
+- <a href="https://huggingface.co/learn/cookbook/agent_rag" target="_blank">Agentic RAG: zrýchlite svoj RAG pomocou reformulácie dopytu a samodopytovania! Hugging Face Open-Source AI Cookbook</a>
+- <a href="https://youtu.be/aQ4yQXeB1Ss?si=2HUqBzHoeB5tR04U" target="_blank">Pridanie agentických vrstiev k RAG</a>
 - <a href="https://www.youtube.com/watch?v=zeAyuLc_f3Q&t=244s" target="_blank">Budúcnosť znalostných asistentov: Jerry Liu</a>
-- <a href="https://www.youtube.com/watch?v=AOSjiXP1jmQ" target="_blank">Ako vybudovať systémy Agentic RAG</a>
-- <a href="https://ignite.microsoft.com/sessions/BRK102?source=sessions" target="_blank">Používanie služby Microsoft Foundry Agent na škálovanie vašich AI agentov</a>
+- <a href="https://www.youtube.com/watch?v=AOSjiXP1jmQ" target="_blank">Ako vybudovať agentické RAG systémy</a>
+- <a href="https://ignite.microsoft.com/sessions/BRK102?source=sessions" target="_blank">Použitie Microsoft Foundry Agent Service na škálovanie vašich AI agentov</a>
 
 ### Akademické články
 
-- <a href="https://arxiv.org/abs/2303.17651" target="_blank">2303.17651 Self-Refine: Iteratívne zlepšovanie so spätnou väzbou od seba samého</a>
-- <a href="https://arxiv.org/abs/2303.11366" target="_blank">2303.11366 Reflexion: Jazykové agenti s verbálnym posilňovaním učenia</a>
-- <a href="https://arxiv.org/abs/2305.11738" target="_blank">2305.11738 CRITIC: Veľké jazykové modely sa môžu samokorigovať pomocou nástrojovo interaktívnej kritiky</a>
-- <a href="https://arxiv.org/abs/2501.09136" target="_blank">2501.09136 Agentic Retrieval-Augmented Generation: Prehľad o Agentic RAG</a>
+- <a href="https://arxiv.org/abs/2303.17651" target="_blank">2303.17651 Self-Refine: Iteratívne zdokonaľovanie s vlastnou spätnou väzbou</a>
+- <a href="https://arxiv.org/abs/2303.11366" target="_blank">2303.11366 Reflexion: Jazykové agenti s verbálnym posilňovacím učením</a>
+- <a href="https://arxiv.org/abs/2305.11738" target="_blank">2305.11738 CRITIC: Veľké jazykové modely sa môžu samy opravovať pomocou nástrojovej interaktívnej kritiky</a>
+- <a href="https://arxiv.org/abs/2501.09136" target="_blank">2501.09136 Agentic Retrieval-Augmented Generation: Prehľad o agentickom RAG</a>
 
 ## Predchádzajúca lekcia
 
-[Tool Use Design Pattern](../04-tool-use/README.md)
+[Návrhový vzor použitia nástroja](../04-tool-use/README.md)
 
 ## Nasledujúca lekcia
 
@@ -147,6 +149,6 @@ Pridajte sa k [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), kde
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Zrieknutie sa zodpovednosti**:  
-Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre dôležité informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za akékoľvek nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+**Vyhlásenie o zodpovednosti**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho natívnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
