@@ -1,105 +1,109 @@
-# 🛠️ ការប្រើឧបករណ៍កម្រិតខ្ពស់ជាមួយម៉ូឌុល GitHub (.NET)
+# 🛠️ ការប្រើប្រាស់ឧបករណ៍កម្រិតខ្ពស់ជាមួយ Azure OpenAI (Responses API) (.NET)
 
-## 📋 គោលបំណងការរៀន
+## 📋 គោលបំណងរៀន
 
-កំណត់ត្រានេះបង្ហាញលំនាំការរួមបញ្ចូលឧបករណ៍សម្រាប់សហគ្រាសដោយប្រើ Microsoft Agent Framework ក្នុង .NET ជាមួយ GitHub Models។ អ្នកនឹងរៀនបង្កើតភ្នាក់ងារស្មុគស្មាញជាមួយឧបករណ៍ជាច្រើនដែលមានឯកទេស โดยអាស្រ័យលើ typing រឹងរូសរបស់ C# និងលក្ខណៈពិសេសសម្រាប់សហគ្រាសរបស់ .NET។
+សៀវភៅកំណត់ត្រានេះបង្ហាញពីគំរូការតភ្ជាប់ឧបករណ៍មុខងាររដ្ឋាភិបាលធ្វើការជា​ក្រុមហ៊ុន​ប្រើ Microsoft Agent Framework ក្នុង .NET ជាមួយ Azure OpenAI (Responses API)។ អ្នកនឹងរៀនបង្កើតភ្នាក់ងារដែលមានជំនាញកម្រិតខ្ពស់ជាមួយឧបករណ៍ជាច្រើនឯកទេស ដោយប្រើប្រព័ន្ធតម្លើងម៉ូដ C# រឹងមាំ និងមុខងាររដ្ឋាភិបាល .NET។
 
-### មុខងារឧបករណ៍កម្រិតខ្ពស់ដែលអ្នកនឹងចេះ
+### សមត្ថភាពឧបករណ៍កម្រិតខ្ពស់ដែលអ្នកនឹងចេះ
 
-- 🔧 **ស្ថាបត្យកម្មឧបករណ៍ច្រើន**: បង្កើតភ្នាក់ងារជាមួយសមត្ថភាពជាច្រើនដែលមានឯកទេស
-- 🎯 **ការប្រតិបត្តិឧបករណ៍មានសុវត្ថិភាពប្រភេទ**: អាស្រ័យលើការផ្ទៀងផ្ទាត់នៅពេលបង្កើតកូដរបស់ C#
-- 📊 **លំនាំឧបករណ៍សម្រាប់សហគ្រាស**: ការរចនាដើម្បីផលិតកម្ម និងការដោះស្រាយកំហុស
-- 🔗 **ការរួមបញ្ចូលឧបករណ៍**: បណ្ដាលឧបករណ៍សម្រាប់លំហប្រតិបត្តិការអាជីវកម្មស្មុគស្មាញ
+- 🔧 **សំណុំឧបករណ៍ច្រើន**: ការបង្កើតភ្នាក់ងារជាមួយមុខងារ​ឯកទេស​ច្រើនៗ
+- 🎯 **ការប្រតិបត្តិឧបករណ៍ប្រភេទសុវត្ថិភាព**: ប្រើប្រាស់ការផ្ទៀងផ្ទាត់ពេលកម្លាំងកូដ C#
+- 📊 **គំរូឧបករណ៍រដ្ឋាភិបាល**: រចនាឧបករណ៍សម្រាប់ផលិតកម្ម និងការគ្រប់គ្រងកំហុស
+- 🔗 **ការរួមបញ្ចូលឧបករណ៍**: បញ្ចូលឧបករណ៍សម្រាប់ដំណើរការអាជីវកម្មស្មុគស្មាញ
 
-## 🎯 អត្ថប្រយោជន៍រចនាសម្ព័ន្ធឧបករណ៍ .NET
+## 🎯 អត្ថប្រយោជន៍សំណុំឧបករណ៍ .NET
 
-### លក្ខណៈឧបករណ៍សម្រាប់សហគ្រាស
+### មុខងារឧបករណ៍រដ្ឋាភិបាល
 
-- **ការផ្ទៀងផ្ទាត់នៅពេលកំពុងបង្កើតកូដ**: ការប្រើ typing រឹងរូសធានាថាព៉ារ៉ាម៉ែត្រឧបករណ៍ត្រឹមត្រូវ
-- **ការបញ្ចូលអាស្រ័យភាព (Dependency Injection)**: ការបញ្ចូលជាមួយខ្យល់ IoC សម្រាប់ការគ្រប់គ្រងឧបករណ៍
-- **លំនាំ Async/Await**: ការប្រតិបត្តិឧបករណ៍មិនរាំងបញ្ចប់ជាមួយការគ្រប់គ្រងធនធានសមរម្យ
-- **ការចុះផ្សាយក្រឹត្យរចនា (Structured Logging)**: ការរួមបញ្ចូលការចុះផ្សាយសម្រាប់តាមដានការប្រតិបត្តិឧបករណ៍
+- **ការផ្ទៀងផ្ទាត់ពេលកម្លាំងកូដ**: ប្រភេទរឹងមាំធានាសុវត្ថិភាពប៉ារ៉ាម៉ែត្រឧបករណ៍
+- **ការបញ្ចូលការពឹងផ្អែក**: ការរួមបញ្ចូល CONTENIER IoC សម្រាប់គ្រប់គ្រងឧបករណ៍
+- **គំរូ Async/Await**: ការប្រតិបត្តិឧបករណ៍មិនឈប់ឈរ នឹងការ​គ្រប់គ្រងធនធានត្រឹមត្រូវ
+- **កំណត់ហេតុដំណើរការ (Logging) រចនាសម្ព័ន្ធ**: ការរួមបញ្ចូលកំណត់ហេតុសម្រាប់តាមដានការប្រតិបត្តិឧបករណ៍
 
-### លំនាំរួចសម្រាប់ផលិតកម្ម
+### គំរូសម្រាប់ផលិតកម្មរួម
 
-- **ការដោះស្រាយករណីច្រឡំ (Exception Handling)**: ការគ្រប់គ្រងកំហុសយ៉ាងទូលំទូលាយជាមួយករណីបញ្ហាតាមប្រភេទ
-- **ការគ្រប់គ្រងធនធាន**: លំនាំចាកចេញបានត្រឹមត្រូវ និងការគ្រប់គ្រងមេម៉ូរី
-- **ការតាមដានប្រសិទ្ធភាព**: រង្វិលម៉ែត្រីក និងកុងទ័រប្រសិទ្ធភាពដែលរួមបញ្ចូល
-- **ការគ្រប់គ្រងការកំណត់ការ (Configuration Management)**: ការកំណត់ប្រភេទសុវត្ថិភាពជាមួយការផ្ទៀងផ្ទាត់
+- **ការគ្រប់គ្រងករណីកំហុស**: ការគ្រប់គ្រងកំហុសទូលំទូលាយជាមួយករណីកំហុសដែលមានប្រភេទ
+- **ការគ្រប់គ្រងធនធាន**: គំរូដើម្បីដោះស្រាយនិងគ្រប់គ្រងអង្គចងចាំត្រឹមត្រូវ
+- **ការត្រួតពិនិត្យប្រសិទ្ធភាព**: មាត្រដ្ឋាន និងរ៉ែគីឡូប៊ីតដែលរួមបញ្ចូលមកជាមួយ
+- **ការគ្រប់គ្រងការរៀបចំរចនា**: ការកំណត់លក្ខខណ្ឌប្រភេទសុវត្ថិភាពជាមួយការបញ្ជាក់ត្រឹមត្រូវ
 
 ## 🔧 ស្ថាបត្យកម្មបច្ចេកទេស
 
-### ឧបករណ៍ក្នុងស្នូល .NET
+### គ្រឿងសម្ភារៈឧបករណ៍ .NET មូលដ្ឋាន
 
-- **Microsoft.Extensions.AI**
-- **Microsoft.Agents.AI**
-- **GitHub Models Integration**: កុងម៉ែ្រត៍ API មានប្រសិទ្ធិភាពខ្ពស់ជាមួយការបង្ហាញកាបូលកំនត់ភ្ជាប់
+- **Microsoft.Extensions.AI**: ស្រទាប់បទនិយមសាមញ្ញសម្រាប់ឧបករណ៍
+- **Microsoft.Agents.AI**: ការគ្រប់គ្រងឧបករណ៍កម្រិត​អាជីវកម្ម
+- **Azure OpenAI (Responses API)**: អតិថិជន API ប្រសិទ្ធភាពខ្ពស់ជាមួយការប្រមូលកញ្ចប់ការតភ្ជាប់
 
-### បំពង់ប្រតិបត្តិការឧបករណ៍
+### ស៊ុមដំណើរការអនុវត្តឧបករណ៍ 
 
 ```mermaid
 graph LR
-    A[សំណើរបស់អ្នកប្រើ] --> B[វិភាគភ្នាក់ងារ]
-    B --> C[ការជ្រើសឧបករណ៍]
+    A[សំណើររបស់អ្នកប្រើប្រាស់] --> B[វិភាគភ្នាក់ងារ]
+    B --> C[ជ្រើសរើសឧបករណ៍]
     C --> D[ការផ្ទៀងផ្ទាត់ប្រភេទ]
-    B --> E[ការភ្ជាប់ប៉ារ៉ាម៉ែត្រ]
-    E --> F[ការប្រតិបត្តិឧបករណ៍]
+    B --> E[ចងប្រព័ន្ធប៉ារ៉ាម៉ែត្រ]
+    E --> F[ដំណើរការ​ឧបករណ៍]
     C --> F
-    F --> G[ដំណើរការលទ្ធផល]
+    F --> G[ការដំណើរការ​លទ្ធផល]
     D --> G
-    G --> H[ការឆ្លើយតប]
+    G --> H[វិចារណៈឆ្លើយតប]
 ```
-## 🛠️ ក្រុមឧបករណ៍ និងលំនាំ
 
-### 1. **ឧបករណ៍ដំណើរការ​ទិន្នន័យ**
+## 🛠️ ប្រភេទឧបករណ៍ និងគំរូ
 
-- **ការផ្ទៀងផ្ទាត់ការបញ្ចូល**: ការប្រើ typing រឹងរូសជាមួយស្លាកតំណាងព័ត៌មាន
-- **ប្រតិបត្តិការផ្លាស់ប្ដូរ**: ការបម្លែងទិន្នន័យ និងទ្រង់ទ្រាយដោយមានសុពលភាពប្រភេទ
-- **ទ្រឹស្តីអាជីព**: ឧបករណ៍គណនានិងវិភាគពាក់ព័ន្ធដែន
+### 1. **ឧបករណ៍ដំណើរការទិន្នន័យ**
+
+- **ការផ្ទៀងផ្ទាត់បញ្ចូល**: ប្រភេទរឹងមាំជាមួយកំណត់ទីតាំងទិន្នន័យ
+- **ប្រតិបត្តិការបម្លែង**: ការបំលែងទិន្នន័យប្រភេទសុវត្ថិភាព និងទ្រង់ទ្រាយ
+- **ច្បាប់អាជីវកម្ម**: ឧបករណ៍គណនា និងវិភាគជាតិដែន
 - **ទ្រង់ទ្រាយលទ្ធផល**: ការបង្កើតចម្លើយមានរចនាសម្ព័ន្ធ
 
-### 2. **ឧបករណ៍រួមបញ្ចូល**
+### 2. **ឧបករណ៍បញ្ចូលផ្នែកផ្សំ**
 
-- **ផ្នែកភ្ជាប់ API**: ការរួមបញ្ចូលសេវា RESTful ជាមួយ HttpClient
-- **ឧបករណ៍មូលដ្ឋានទិន្នន័យ**: ការរួមបញ្ចូល Entity Framework សម្រាប់ចូលដំណើរការទិន្នន័យ
-- **ប្រតិបត្តិការឯកសារ**: ប្រតិបត្តិការប្រព័ន្ធឯកសារដោយមានសុវត្ថិភាព និងការផ្ទៀងផ្ទាត់
-- **សេវាកម្មខាងក្រៅ**: លំនាំការរួមបញ្ចូលសេវាកម្មភាគីទីបី
+- **ឧបករណ៍ភ្ជាប់ API**: ការរួមបញ្ចូលសេវាកម្ម RESTful ជាមួយ HttpClient
+- **ឧបករណ៍មូលដ្ឋានទិន្នន័យ**: ការរួមបញ្ចូល Entity Framework សម្រាប់ចូលប្រើទិន្នន័យ
+- **ប្រតិបត្តិការឯកសារ**: ប្រតិបត្ដិការរដ្ឋបាលទ្រង់ទ្រាយឯកសារជាមួយការផ្ទៀងផ្ទាត់
+- **សេវាកម្មខាងក្រៅ**: គំរូរួមបញ្ចូលសេវាកម្មភាគីទីបី
 
 ### 3. **ឧបករណ៍ជំនួយ**
 
-- **ដំណើរការអក្សរ**: ឧបករណ៍ចាប់អក្សរ និងទ្រង់ទ្រាយខ្សែអក្សរ
-- **ប្រតិបត្តិការ​ថ្ងៃខែ/ម៉ោង**: ការគណនាថ្ងៃខែ/ម៉ោងដែលគិតតាមវប្បធម៌
-- **ឧបករណ៍គណិតវិទ្យា**: គណនា​ពិស្តാരി​និង​ប្រតិបត្តិការ​ស្ថិតិ
+- **ដំណើរការអក្សរ**: ឧបករណ៍កែច្នៃសរសេរ និងទ្រង់ទ្រាយអក្សរ
+- **ប្រតិបត្តិនាឡិកា/ម៉ោង**: គណនាថ្ងៃម៉ោងដែលមានការដឹងពីវប្បធម៌
+- **ឧបករណ៍គណនា**: គណនាត្រឹមត្រូវ និងប្រតិបត្តិការស្ថិតិ
 - **ឧបករណ៍ផ្ទៀងផ្ទាត់**: ការផ្ទៀងផ្ទាត់ច្បាប់អាជីវកម្ម និងការត្រួតពិនិត្យទិន្នន័យ
 
-តើត្រៀមខ្លួនឲ្យបង្កើតភ្នាក់ងារសម្រាប់សហគ្រាសដែលមានសមត្ថភាពខ្លាំង និងប្រភេទសុវត្ថិភាពក្នុង .NET រួចហើយឬនៅ? មករៀបចំដំណោះស្រាយប្រកបដោយវិជ្ជាជីវៈ! 🏢⚡
+តើអ្នករួចរាល់សម្រាប់បង្កើតភ្នាក់ងារកម្រិតអាជីវកម្មមួយដែលមានសមត្ថភាពឧបករណ៍ប្រភេទសុវត្ថិភាពខ្លាំងនៅក្នុង .NET ទេ? មកស្ថាបត្យកម្មដំណោះស្រាយកម្រិតវិជ្ជាជីវៈមួយចំនួន! 🏢⚡
 
-## 🚀 ការចាប់ផ្ដើម
+## 🚀 ការចាប់ផ្តើម
 
-### ដំបូងត្រូវមាន
+### វត្ថុត្រូវការមុនកំណត់
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ឬកម្រិតខ្ពស់ជាងនេះ
-- [កូនសោចូលប្រើ API របស់ GitHub Models](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ឬខ្ពស់ជាងនេះ
+- ការជាវប្រើប្រាស់មួយ [Azure subscription](https://azure.microsoft.com/free/) ដែលមានធនធាន Azure OpenAI និងការចែកចាយម៉ូដែលមួយ
+- កម្មវិធី [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — ចុះឈ្មោះជាមួយ `az login`
 
-### អថេរស្ថានបរិដ្ឋានដែលត្រូវការ
+### បរិស្ថានអថេរដែលត្រូវការជាក់លាក់
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# បន្ទាប់មកចូលប្រើ ដើម្បីឲ្យ AzureCliCredential អាចទទួលបានកាតព្វកិច្ចបាន។
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# បន្ទាប់មកចូល ចុះដើម្បីឲ្យ AzureCliCredential បានទទួល token
+az login
 ```
 
 ### កូដឧទាហរណ៍
 
-ដើម្បីរត់ឧទាហរណ៍កូដនេះ,
+ដើម្បីរត់ឧទាហរណ៍កូដ,
 
 ```bash
 # zsh/bash
@@ -107,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-ឬប្រើ dotnet CLI:
+រឺប្រើ dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -120,14 +124,16 @@ dotnet run ./04-dotnet-agent-framework.cs
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -159,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -204,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -247,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:
-ឯកសារនេះត្រូវបានបកប្រែដោយប្រើសេវាបកប្រែ AI [Co-op Translator](https://github.com/Azure/co-op-translator). ទោះយើងខិតខំក្នុងការរកភាពត្រឹមត្រូវ ក៏ដោយ សូមចំណាំថា ការបកប្រែដោយប្រព័ន្ធស្វ័យប្រវត្តិនោះអាចមានកំហុស ឬមិនត្រឹមត្រូវ។ ឯកសារដើមនៅក្នុងភាសាមាតុភូមិគួរត្រូវបានចាត់ទុកថាជាប្រភពដែលគួរឱ្យទុកចិត្ត។ សម្រាប់ព័ត៌មានសំខាន់ៗ យើងសូមផ្ដល់អនុសាសន៍ឲ្យប្រើការបកប្រែដោយអ្នកវិជ្ជាជីវៈមនុស្ស។ យើងមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកអត្ថន័យខុសណាមួយដែលកើតឡើងពីការប្រើប្រាស់ការបកប្រែនេះ។
+**ការបដិសេធ**:
+ឯកសារនេះត្រូវបានបម្លែងភាសា ដោយប្រើសេវាបម្លែងភាសា AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ទោះយើងខ្ញុំមានក្តីប្រាថ្នាឱ្យបានច្បាស់លាស់ តែសូមយល់ដឹងថាការបម្លែងដោយស្វ័យប្រវត្តិក៏អាចមានកំហុសឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមជាភាសាទីតាំងគួរត្រូវបានគេប្រើជាប្រភពច្បាស់លាស់។ សម្រាប់ព័ត៌មានសំខាន់ៗ សូមណែនាំឱ្យប្រើប្រាស់ការប្រែដោយមនុស្សជំនាញ។ យើងខ្ញុំមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសបន្ទាប់ពីការប្រើប្រាស់ការបម្លែងនេះនោះទេ។
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

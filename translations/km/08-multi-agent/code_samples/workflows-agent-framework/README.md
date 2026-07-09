@@ -1,66 +1,66 @@
-# ការបង្កើតកម្មវិធីច្រើនភ្នាក់ងារ ជាមួយ Microsoft Agent Framework Workflow
+# ការធ្វើកម្មវិធី Multi-Agent ជាមួយ Microsoft Agent Framework Workflow
 
-មេរៀននេះនឹងណែនាំអ្នកពីការយល់ដឹង និងការបង្កើតកម្មវិធីច្រើនភ្នាក់ងារ ដោយប្រើ Microsoft Agent Framework។ យើងនឹងស្វែងយល់ពីមូលដ្ឋានគ្រឹះនៃប្រព័ន្ធច្រើនភ្នាក់ងារ កិច្ចសំណើរផ្នែកសំណុំរចនាសម្ព័ន្ធរបស់ Workflow ហើយតាមដានឧទាហរណ៍ប្រើប្រាស់ជាក់ស្តែងទាំង Python និង .NET សម្រាប់លំនាំការងារផ្សេងៗ។
+មេរៀននេះនឹងដឹកនាំអ្នកឲ្យយល់ដឹង និងសាងសង់កម្មវិធី multi-agent ដោយប្រើ Microsoft Agent Framework។ យើងនឹងស្វែងយល់ពីមូលដ្ឋានរបស់ប្រព័ន្ធ multi-agent, ចុះទៅក្នុងរចនាសម្ព័ន្ធនៃទីផ្សារប្រតិបត្ដិ Workflow របស់Framework ហើយដើរតាមឧទាហរណ៍អនុវត្តក្នុងភាសា Python និង .NET សម្រាប់ប្លង់ workflow ផ្សេងៗ។
 
-## 1\. យល់ដឹងអំពីប្រព័ន្ធច្រើនភ្នាក់ងារ
+## 1\. ការយល់ពីប្រព័ន្ធ Multi-Agent
 
-Agent AI គឺជាប្រព័ន្ធដែលលើសពីសមត្ថភាពរបស់ Large Language Model (LLM) ស្តង់ដារ។ វាអាចយល់ស្គាល់បរិដ្ឋាន សម្រេចចិត្ត ហើយអនុវត្តន៍សកម្មភាពដើម្បីសម្រេចនូវគោលដៅជាក់លាក់មួយ។ ប្រព័ន្ធច្រើនភ្នាក់ងារ មានភ្នាក់ងារច្រើនដែលសហការគ្នា ដើម្បីដោះស្រាយបញ្ហាមួយដែលភ្នាក់ងារតែមួយមិនអាចដោះស្រាយឬពិបាកក្នុងការដោះស្រាយបាន។
+អ្នកប្រើប្រាស់ AI Agent គឺជាប្រព័ន្ធមួយដែលកាត់ផុតពីសមត្ថភាពរបស់គំរូភាសាធំ (LLM) មួយទូទៅ។ វាអាចយល់ពីបរិយាកាសរបស់វា កំណត់នូវការសម្រេចចិត្ត និងអនុវត្តន៍សកម្មភាពដើម្បីសម្រេចបានគោលដៅជាក់លាក់។ ប្រព័ន្ធ multi-agent រួមមានមានអ្នកប្រើប្រាស់ជាច្រើនរួមគ្នាដើម្បីដោះស្រាយបញ្ហាដែលអាចពិបាកឬមិនអាចធ្វើបានដោយភាគីតែមួយ។
 
-### ស្ថានการณ์ពេញចិត្តក្នុងកម្មវិធី
+### ស្ថានភាពប្រើប្រាស់ទូទៅ
 
-  * **ដោះស្រាយបញ្ហាស្មុគស្មាញ**: បំបែកកិច្ចការធំមួយ (ឧ. រៀបចំព្រឹត្តិការណ៍ជាក្រុមហ៊ុនទាំងមូល) ទៅជាកិច្ចការរងតូចៗ ដែលភ្នាក់ងារពិសេសៗជួសជុល (ឧ. ភ្នាក់ងារ​ថវិកា, ភ្នាក់ងារ​ដឹកជញ្ជូន, ភ្នាក់ងារទីផ្សារ)។
-  * **ជំនួយគាំទ្រថតវីឌីអូ**: ភ្នាក់ងារជំនួយមួយដឹកនាំកិច្ចការដូចជាកំណត់កាលវិភាគ ស្រាវជ្រាវ និងកក់ ជូនទៅភ្នាក់ងារ​ពិសេសផ្សេងៗ។
-  * **បង្កើតមាតិកាដោយស្វ័យប្រវត្តិ**: វិធីសាស្រ្តមួយដែលភ្នាក់ងារមួយរៀបចំខ Dra�t មាតិកា ភ្នាក់ងារមួយផ្សេងពិនិត្យអំពីភាពត្រឹមត្រូវនិងសម្លេង ហើយភ្នាក់ងារមួយផ្សេងទៀតបោះពុម្ពផ្សាយ។
+  * **ការដោះស្រាយបញ្ហាស្មុគស្មាញ**: បំបែកកិច្ចការ​ធំព្រមាមួយ (ឧ., ការរៀបចំព្រឹត្តិការណ៍ក្រុមហ៊ុនទាំងមូល) ទៅជាកិច្ចការតូចៗ​ដែលត្រូវបានគ្រប់គ្រងដោយភាគីជំនាញ (ឧ., អ្នកភាគីថវិកា អ្នកភាគីឡូជីស្ទិក អ្នកភាគីទីផ្សារ)។
+  * **ជំនួយការសំរាប់មនុស្ស**: អ្នកជំនួយការសំខាន់ម្នាក់ផ្ដាច់កិច្ចការដូចជាការកំណត់ពេលវេលា ការស្រាវជ្រាវ និងការកក់សំបុត្រដល់ភាគីជំនាញផ្សេងទៀត។
+  * **ការបង្កើតមាតិកាផ្ទាល់ខ្លួន**: Workflow មួយដែលភាគីមួយសរសេរមាតិកា អ្នកផ្សេងមួយពិនិត្យមើលភាពត្រឹមត្រូវនិងសំឡេង ហើយភាគីទីបីផ្សព្វផ្សាយវា។
 
-### លំនាំប្រព័ន្ធច្រើនភ្នាក់ងារ
+### ប្លង់ Multi-Agent
 
-ប្រព័ន្ធច្រើនភ្នាក់ងារ អាចត្រូវបានរៀបចំក្នុងលំនាំជាច្រើន ដែលកំណត់របៀបដែលពួកវាផ្ទាក់ទំនាក់ទំនងគ្នា៖
+ប្រព័ន្ធ multi-agent អាចរៀបចំក្នុងប្លង់ជាច្រើន ដែលកំណត់របៀបទំនាក់ទំនងរបស់ពួកវា៖
 
-  * **រៀងតាមលំដាប់ (Sequential)**: ភ្នាក់ងារធ្វើការតាមលំដាប់ដែលបានកំណត់ ម្យ៉ាងដូចជាស្វុច្ឆនិក។ ផលបញ្ចេញពីភ្នាក់ងារមួយក្លាយជាការបញ្ចូលសម្រាប់ភ្នាក់ងារបន្ទាប់។
-  * **សមកាលិក (Concurrent)**: ភ្នាក់ងារធ្វើការដូចគ្នាប្រកបដោយសមកាលិកលើផ្នែកផ្សេងៗនៃកិច្ចការ ហើយលទ្ធផលរបស់ពួកវាត្រូវបានបញ្ចូលជាអ្នកសរុបនៅចុងក្រោយ។
-  * **លក្ខខណ្ឌ (Conditional)**: Workflow នាំអោយដើរតាមផ្លូវផ្សេងៗ ដោយផ្អែកលើលទ្ធផលពីភ្នាក់ងារ ទុក្ខណៈដូចជា if-then-else។
+  * **រៀងរាល់ជំហាន**: ភាគីធ្វើការជាកម្មវិធីដែលបានកំណត់ជាមុន ដូចជាសំណុំការងារ។ លទ្ធផលរបស់ភាគីមួយធ្វើជាទិន្នផលនៃភាគីបន្ទាប់។
+  * **សម័យស្រប**: ភាគីធ្វើការលើផ្នែកផ្សេងៗនៃកិច្ចការ​ជា​ច្រើនជាយូរអង្វែង ហើយលទ្ធផលរបស់ពួកវាត្រូវបានប្រមូលនៅចុងក្រោយ។
+  * **ថាមពលលក្ខខណ្ឌ**: Workflow នេះដើរតាមផ្លូវផ្សេងៗជាផ្អែកលើលទ្ធផលរបស់ភាគី ស្រដៀងនឹងប្រការឥតទំនាក់ទំនង if-then-else។
 
-## 2\. វិទ្យាស្ថានស្ថាបត្យកម្ម Microsoft Agent Framework Workflow
+## 2\. រចនាសម្ព័ន្ធ Microsoft Agent Framework Workflow
 
-ប្រព័ន្ធ workflow របស់ Agent Framework ជាម៉ាស៊ីនរៀបចំនិងគ្រប់គ្រងចុងក្រោយដែលរចនាឡើងដើម្បីគ្រប់គ្រងការទំនាក់ទំនងស្មុគស្មាញរវាងភ្នាក់ងារច្រើន។ វាត្រូវបានសាងសង់លើស្ថាបត្យកម្មប្លង់ក្រាហ្វដែលប្រើ [Pregel-style execution model](https://kowshik.github.io/JPregel/pregel_paper.pdf) ដែលកំណត់ថាការដំណើរការមាននៅក្នុងជំហានដែលត្រូវបានសមកាលិកហៅថា "supersteps"។
+ប្រព័ន្ធ workflow របស់ Agent Framework គឺជាម៉ាស៊ីនប្រតិបត្តិការគ្រប់គ្រងដ៏អភិវឌ្ឍន៍សម្រាប់គ្រប់គ្រងអន្តរកម្មស្មុគស្មាញរវាងភាគីជាច្រើន។ វាត្រូវបានសាងសង់លើរចនាសម្ព័ន្ធធ្វើជាចំណុចជាអាគីវីត៊ីដែលប្រើ [ម៉ូដែលប្រតិបត្តិការបែប Pregel](https://kowshik.github.io/JPregel/pregel_paper.pdf) ដែលការដំណើរការ​កើតឡើងក្នុងជំហានសាធារណៈ "supersteps"។
 
-### ធាតុស្នូល
+### ធាតុមុខងារសំខាន់ៗ
 
-ស្ថាបត្យកម្មត្រូវបានសមាសធាតុជាបីផ្នែកសំខាន់ៗ៖
+រចនាសម្ព័ន្ធនេះមានផ្នែកមួយចំនួនដូចខាងក្រោម៖
 
-1.  **Executors**: នេះគឺជាឯកតាដំណើរការមូលដ្ឋាន។ នៅក្នុងឧទាហរណ៍របស់យើង `Agent` គឺជា​ប្រភេទនៃ executor។ រាល់ executor អាចមានអ្នកដំណើរការសារ (message handlers) ច្រើន ដែលត្រូវបានហៅដោយស្វ័យប្រវត្តិ ផ្អែកលើប្រភេទសារដែលទទួលបាន។
-2.  **Edges**: វាកំណត់ផ្លូវដែលសារធ្វើដំណើរវាង executors។ Edges អាចមានលក្ខខណ្ឌ ដែលអនុញ្ញាតឱ្យមានការ​រៀបចំ​ផ្លូវព័ត៌មានឱ្យមាន​ភាពបត់បែនតាមលំនាំក្រាហ្វ workflow។
-3.  **Workflow**: ធាតុនេះរៀបចំដំណើរទាំងមូល គ្រប់គ្រង executors, edges និងលំនឹងនៃការអនុវត្ត។ វាធានាថាសារត្រូវបានដំណើរការផ្អែកលើលំដាប់ត្រឹមត្រូវ និងបញ្ចេញព្រឹត្តិការណ៍សម្រាប់ការអង្កេតមើល។
+1.  **អ្នកអនុវត្ត (Executors)**: ជាគ្រឿងបន្លាស់មូលដ្ឋាននៃការប្រតិបត្តិការណ៍។ នៅក្នុងឧទាហរណ៍របស់យើង `Agent` គឺជាប្រភេទអ្នកអនុវត្តមួយ។ អ្នកអនុវត្តនិមួយៗអាចមានអ្នកគ្រប់គ្រងសារច្រើនដែលត្រូវបានហៅដោយស្វ័យប្រវត្តិជាសម្រាប់ប្រភេទសារដែលទទួលបាន។
+2.  **ដែន (Edges)**: កំណត់ផ្លូវដែលសារទៅរវាងអ្នកអនុវត្ត។ ដែនអាចមានលក្ខខណ្ឌដែលអនុញ្ញាតឲ្យមានការបញ្ជូនព័ត៌មានបានបែប δυναμικόក្នុងក្រាហ្វ workflow។
+3.  **Workflow**: ធាតុនេះគ្រប់គ្រងដំណើរការទាំងមូលផងដែរជាមួយអ្នកអនុវត្ត, ដែន, និងលំនាំទូទៅនៃការប្រតិបត្តិ។ វាបញ្ជាក់ថាសារត្រូវបានដំណើរការតាមលំដាប់ត្រឹមត្រូវ និងចាក់បញ្ចាំងព្រឹត្តិការណ៍សម្រាប់ការត្រួតពិនិត្យ។
 
-*រូបភាពបង្ហាញអំពីធាតុស្នូលនៅក្នុងប្រព័ន្ធ workflow។*
+*រូបតំណាងដែលបង្ហាញធាតុសំខាន់ៗនៃប្រព័ន្ធ workflow។*
 
-រចនាសម្ព័ន្ធនេះអនុញ្ញាតឱ្យសាងសង់កម្មវិធីរឹងមាំ និងអាចពង្រីកបាន ដោយប្រើលំនាំមូលដ្ឋានដូចជា ខ្សែតាមលំដាប់ (sequential chains), fan-out/fan-in សម្រាប់ដំណើរការសមកាលិក និងលទ្ធសាស្ត្រ switch-case សម្រាប់លំហូរដែលមានលក្ខខណ្ឌ។
+រចនាសម្ព័ន្ធនេះអនុញ្ញាតឲ្យសាងសង់កម្មវិធីធន់និងអាចបង្កើនសមត្ថភាពដោយប្រើប្លង់មូលដ្ឋានដូចជាឈញឺស្រប, ការចេញចូល fan-out/fan-in សម្រាប់ការដំណើរការដើម និងបម្លែងទ្រង់ទ្រាយក្នុង switch-case logic សម្រាប់ចរន្តលក្ខខណ្ឌ។
 
-## 3\. ឧទាហរណ៍ជាក់ស្តែង និងវិភាគកូដ
+## 3\. ឧទាហរណ៍អនុវត្តជាក់ស្តែង និងវិភាគកូដ
 
-ឥឡូវនេះ យើងមកស្វែងយល់ពីរបៀបអនុវត្តលំនាំ workflow ផ្សេងៗ ដោយប្រើ framework។ យើងនឹងមើលកូដទាំង Python និង .NET សម្រាប់រៀងរាល់ឧទាហរណ៍។
+ឥឡូវនេះ យើងនឹងសិក្សាអំពីរបៀបអនុវត្តប្លង់ workflow ផ្សេងៗ ដោយប្រើ framework។ យើងនឹងមើលទៅកូដ Python និង .NET សម្រាប់ឧទាហរណ៍នីមួយៗ។
 
-### Case 1: Basic Sequential Workflow
+### ករណីទី 1: Workflow រៀងរាល់ជំហានមូលដ្ឋាន
 
-នេះគឺជាលំនាំសាមញ្ញបំផុត ដែលផលបញ្ចេញពីភ្នាក់ងារមួយត្រូវបានផ្ទេរប្រយោគទៅភ្នាក់ងារផ្សេងទៀត។ ស្ថានភាពរបស់យើងជាភ្ញៀវសណ្ឋាគារមួយដែលមានភ្នាក់ងារ `FrontDesk` ផ្តល់អនុសាសន៍ដំណើរកម្សាន្ត ហើយបន្ទាប់មកត្រូវបានពិនិត្យឡើងវិញដោយភ្នាក់ងារ `Concierge`។
+នេះគឺជាប្លង់សាមញ្ញបំផុត ដែលលទ្ធផលរបស់ភាគីមួយត្រូវបានផ្ទេរមកភាគីមួយផ្សេងទៀតដោយផ្ទាល់។ ភាពស្ថានការណ៍របស់យើងពាក់ព័ន្ធនឹងភាគី `FrontDesk` ក្នុងសណ្ឋាគារដែលផ្ដល់អនុសាសន៍ធ្វើដំណើរ ហើយបន្ទាប់មកត្រូវបានពិនិត្យឡើងវិញដោយភាគី `Concierge`។
 
-*រូបភាពនៃ workflow មូលដ្ឋាន FrontDesk -\> Concierge។*
+*រូបតំណាងនៃ workflow ផ្នែកមូលដ្ឋាន FrontDesk -> Concierge។*
 
-#### Scenario Background
+#### ភាពស្ថានការណ៍
 
-អ្នកធ្វើដំណើរម្នាក់ស្នើរសុំអនុសាសន៍នៅទីក្រុង Paris ។
+អ្នកដំណើរយកអនុសាសន៍នៅទីក្រុងប៉ារីស។
 
-1.  ភ្នាក់ងារ `FrontDesk` ដែលរចនាចេញជា​ចំណុចខ្លី ផ្ដល់អនុសាសន៍ទៅលើការទស្សនាសារមន្ទីរ Louvre។
-2.  ភ្នាក់ងារ `Concierge` ដែលផ្តោតលើបទពិសោធន៍ដើមទទួលបានអនុសាសន៍នេះ។ វាសុៀងពិនិត្យវិចារណា និងផ្តល់មតិយោបល់ ដោយស្នើអនុសាសន៍ជាជម្រើសម្យ៉ាងដែលមានបរិយាកាសសៀវភៅកាន់តែទៀងទាត់ជាមួយម៉ូលដ្ឋានតំបន់។
+1.  ភាគី `FrontDesk` ដែលរចនាឡើងសម្រាប់អត្ថបទខ្លី បញ្ចូនអនុសាសន៍ទៅកាន់សារមន្ទីរលូវឌ្រ។
+2.  ភាគី `Concierge` ដែលផ្ដោតលើបទពិសោធន៍ដើមទទួលអនុសាសន៍នេះ។ វាពិនិត្យអនុសាសន៍និងផ្ដល់មតិយោបល់ ដើម្បីយកជំនួសដោយជម្រើសដែលមានលក្ខណៈជាតំបន់ និងមិនមានអ្នកទេសចរច្រើន។
 
-#### Python Implementation Analysis
+#### វិភាគអនុវត្ត Python
 
-នៅក្នុងឧទាហរណ៍ Python យើងកំណត់ និងបង្កើតភ្នាក់ងារទាំងពីរដែលមានសេចក្តីណែនាំជាក់លាក់ជារៀងរាល់។
+នៅក្នុងឧទាហរណ៍ Python, យើងដំណើរការកំណត់និងបង្កើតភាគីទាំងពីរ ជាមួយ​នឹង​ប្រតិបត្តិការពិសេស។
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# កំណត់តួនាទី និងការណែនាំរបស់ភ្នាក់ងារ
+# កំណត់តួនាទីនិងការណែនាំរបស់ភ្នាក់ងារ
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
     You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
@@ -71,41 +71,41 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# បង្កើតវត្ថុ (instances) របស់ភ្នាក់ងារ
-reviewer_agent = chat_client.create_agent(
+# បង្កើតអាសយដ្ឋានភ្នាក់ងារ
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-បន្ទាប់មក `WorkflowBuilder` ត្រូវបានប្រើដើម្បីកសាងក្រាហ្វ។ `front_desk_agent` ត្រូវ​បានកំណត់ជា​ចំណុចចាប់ផ្តើម ហើយមានការបង្កើត edge ដើម្បីភ្ជាប់ផលបញ្ចេញរបស់វាទៅកាន់ `reviewer_agent`។
+បន្ទាប់មក `WorkflowBuilder` ត្រូវបានប្រើសង់ក្រាហ្វនេះ។ `front_desk_agent` ត្រូវបានកំណត់ជា​ចំណុចដំណើរការ ហើយដែនត្រូវបានបង្កើតដើម្បីភ្ជាប់លទ្ធផលរបស់វាទៅកាន់ `reviewer_agent`។
 
 ```python
-# 01.ភាយថុន-ភ្នាក់ងារ-រចនាសម្ព័ន្ធ-លំហូរការងារ-ghmodel-មូលដ្ឋាន.ipynb
+# ០១.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-ចុងក្រោយ workflow ត្រូវបានអនុវត្តជាមួយ prompt ដើមពីអ្នកប្រើ។
+ចុងក្រោយ workflow ត្រូវបានអនុវត្តជាមួយសំណើផ្ដើមរបស់អ្នកប្រើ។
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# វិធីសាស្ត្រ run_stream អនុវត្តលំហូរការងារ ហើយផ្សាយព្រឹត្តិការណ៍ជាបន្ត។
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run ដំណើរការហ្វ្លូវ័រ; get_outputs() ត្រឡប់លទ្ធផលនៃអ្នកបំពេញការងារ។
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C\#) Implementation Analysis
+#### វិភាគអនុវត្ត .NET (C#)
 
-ការអនុវត្ត់ក្នុង .NET មានយុទ្ធសាស្ត្រដូចគ្នាដោយប្រភពសាមញ្ញ។ ជាមុនសិន កំណត់ constants សម្រាប់ឈ្មោះភ្នាក់ងារ និងសេចក្តីណែនាំ។
+ការអនុវត្តនៅ .NET តាមដំណើរការដូចគ្នា។ ជាលេខកំណត់ត្រូវបានកំណត់សម្រាប់ឈ្មោះភាគីនិងការណែនាំ។
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
@@ -119,15 +119,15 @@ const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-ភ្នាក់ងារទាំងនេះត្រូវបានបង្កើតដោយប្រើ `OpenAIClient` ហើយ `WorkflowBuilder` កំណត់លំហូរ sequential ដោយបន្ថែម edge ពី `frontDeskAgent` ទៅ `reviewerAgent`។
+ភាគីត្រូវបានបង្កើតដោយប្រើ `AzureOpenAIClient` (Responses API), ហើយ `WorkflowBuilder` កំណត់លំនាំរៀងរាល់ជំហានដោយបន្ថែមដែនពី `frontDeskAgent` ទៅកាន់ `reviewerAgent`។
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-បន្ទាប់មក workflow ត្រូវបានរត់ជាមួយសារ​របស់អ្នកប្រើ និងលទ្ធផលត្រូវបានចំហាយតាម stream។
+Workflow បន្ទាប់មកត្រូវបានដំណើរការជាមួយសាររបស់អ្នកប្រើ ហើយលទ្ធផលត្រូវបានចាក់បញ្ចាំងតាមរលត់។
 
-### Case 2: Multi-Step Sequential Workflow
+### ករណីទី 2: Workflow រៀងរាល់ជំហានច្រើនជាប់គ្នា
 
-លំនាំនេះពង្រីកលំដាប់មូលដ្ឋាន ដើម្បីរួមបញ្ចូលភ្នាក់ងារច្រើន។ វាសមសម្រាប់ដំណើរការដែលត្រូវការវគ្គច្រើនសម្រាប់ការកែលម្អ ឬបម្លែង។
+ប្លង់នេះបន្តពីលំនាំមូលដ្ឋាន ដើម្បីបញ្ចូលភាគីច្រើនទៀត។ វាល្អសម្រាប់ដំណើរការដែលត្រូវការជំហានវាយតម្លៃ ឬបម្លែងជាច្រើនជាងមុន។
 
-#### Scenario Background
+#### ភាពស្ថានការណ៍
 
-អ្នកប្រើផ្តល់រូបភាពនៃបន្ទប់ទទួលភ្ញៀវ និងស្នើរសុំសម្រង់តម្លៃសង្ឃឹមរស់រឿងបរិក្ខារ។
+អ្នកប្រើផ្តល់រូបភាពបន្ទប់ទទួលភ្ញៀវ ហើយសុំសម្រង់តម្លៃសម្ភារៈ។
 
-1.  **Sales-Agent**: កំណត់ផលិតផលគ្រឿងសង្ហារឹមក្នុងរូប និងបង្កើតបញ្ជី។
-2.  **Price-Agent**: យកបញ្ជីធាតុនោះ ហើយផ្តល់ការបំបែកតម្លៃលម្អិត រួមមានជម្រើសថវិកា មធ្យម និងពេញលេញ។
-3.  **Quote-Agent**: ទទួលបានបញ្ជីដែលមានតម្លៃ ហើយបំលែងវាចូលជា ឯកសារ Quote ជារបៀប Markdown។
+1.  **Sales-Agent**: កំណត់ឈ្មោះសម្ភារៈក្នុងរូបភាព ហើយបង្កើតបញ្ជី។
+2.  **Price-Agent**: ទទួលយកបញ្ជី និងផ្ដល់ការបំបែកតម្លៃលម្អិត រួមមានជម្រើសថវិកា មធ្យម និងពិសេស។
+3.  **Quote-Agent**: ទទួលបានបញ្ជីតម្លៃនេះ ហើយរៀបចំឯកសារ​សម្រង់តម្លៃជាឯកសារ Markdown។
 
-*រូបភាពនៃ Sales -\> Price -\> Quote workflow។*
+*រូបតំណាងនៃ workflow Sales -> Price -> Quote។*
 
-#### Python Implementation Analysis
+#### វិភាគអនុវត្ត Python
 
-ភ្នាក់ងារបីត្រូវបានកំណត់ គ្រប់នាក់មានតួនាទីពិសេស។ Workflow ត្រូវបានកសាងដោយប្រើ `add_edge` ដើម្បីបង្កើតខ្សែ៖ `sales_agent` -\> `price_agent` -\> `quote_agent`។
+មានការ​កំណត់ភាគីបី ហើយលំនាំត្រូវបានបង្កើតដោយប្រើ `add_edge` ដើម្បីបង្កើតខ្សែ: `sales_agent` -> `price_agent` -> `quote_agent`។
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# បង្កើតភ្នាក់ងារពិសេសបីរូប
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# បង្កើតភ្នាក់ងារប្រភេទពិសេសបីនាក់
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# បង្កើតលំហូរងារតាមលំដាប់
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# សង់លំហូរការងារដោយលំដាប់មួយ
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-ការបញ្ចូលគឺជា `ChatMessage` ដែលរួមមានអត្ថបទ និង URI រូបភាព។ Framework នាំយកការផ្ទេរផលបញ្ចេញពីភ្នាក់ងារមួយទៅអ្នកបន្ទាប់រហូតដល់ការផលិតសម្រង់ចុងក្រោយ។
+បញ្ចូល​ជា `ChatMessage` ដែលមានអត្ថបទ និង URI រូបភាព។ Framework គ្រប់គ្រងការផ្ទេរលទ្ធផលរបស់ភាគីមួយ ទៅភាគីបន្ទាប់រហូតដល់បានសម្រង់តម្លៃចុងក្រោយ។
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# សាររបស់អ្នកប្រើមានទាំងអត្ថបទ និងរូបភាព
+# សាររបស់អ្នកប្រើមានទាំងអក្សរនិងរូបភាព
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# រត់លំហូរការងារ
-async for event in workflow.run_stream(message):
-    ...
+# រត់ដំណើរការ
+events = await workflow.run(message)
 ```
 
-#### .NET (C\#) Implementation Analysis
+#### វិភាគអនុវត្ត .NET (C#)
 
-ឧទាហរណ៍ .NET ស្រដៀងទៅនឹង Python។ ភ្នាក់ងារបី (`salesagent`, `priceagent`, `quoteagent`) ត្រូវបានបង្កើត។ `WorkflowBuilder` ភ្ជាប់ពួកគេទៅតាមលំដាប់។
+ឧទាហរណ៍ .NET ស្រដៀងទៅនឹង Python។ ភាគីបី (`salesagent`, `priceagent`, `quoteagent`) ត្រូវបានបង្កើត។ `WorkflowBuilder` ភ្ជាប់ពួកវាទៅជាលំដាប់។
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent priceagent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent quoteagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-សាររបស់អ្នកប្រើត្រូវបានកសាងជាមួយទិន្នន័យរូបភាព (ជាអំបោះ bytes) និង prompt ក្នុងអត្ថបទ។ វិធីសាស្ត្រ `InProcessExecution.StreamAsync` ចាប់ផ្តើម workflow ហើយលទ្ធផលចុងក្រោយត្រូវបានយកពី stream។
+សាររបស់អ្នកប្រើត្រូវបានបង្កើតជាមួយទិន្នន័យរូបភាព (ជា bytes) និងអត្ថបទ។ វិធីសាស្រ្ត `InProcessExecution.StreamAsync` ចាប់ផ្ដើម workflow ហើយស្លឹកចុងក្រោយត្រូវបានចាប់យកពីរលត់។
 
-### Case 3: Concurrent Workflow
+### ករណីទី 3: Workflow សម័យស្រប
 
-លំនាំនេះប្រើបច្ចេកទេសនៅពេលដែលកិច្ចការ​អាចអនុវត្តប្រជុំជា​សមកាលិក ដើម្បីសន្សំពេលវេលា។ វារួមមាន "fan-out" ទៅភ្នាក់ងារច្រើន និង "fan-in" ដើម្បីសរុបលទ្ធផល។
+ប្លង់នេះប្រើនៅពេលកិច្ចការអាចធ្វើមួយពេល ដើម្បីប្រមូលពេលវេលា។ វាតែងតែមានការចែកចេញទៅភាគីជាច្រើន (fan-out) និងការប្រមូលលទ្ធផលមកវិញ (fan-in)។
 
-#### Scenario Background
+#### ភាពស្ថានការណ៍
 
-អ្នកប្រើស្នើឱ្យរៀបចំដំណើរកម្សាន្តទៅ Seattle។
+អ្នកប្រើស្នើសុំរៀបចំកម្មវិធីដំណើរកំសាន្តទៅ Seattle។
 
-1.  **Dispatcher (Fan-Out)**: សំណើររបស់អ្នកប្រើត្រូវបានផ្ញើទៅភ្នាក់ងារពីរដែលដំណើរការណាមួយនៅពេលដាច់ខែ។
-2.  **Researcher-Agent**: ស្រាវជ្រាវអំពីទេសចរណ៍ អាកាសធាតុ និងចំណុចសំខាន់សម្រាប់ដំណើរកម្សាន្តនៅ Seattle នៅខែធ្នូ។
-3.  **Plan-Agent**: បង្កើតកម្មវិធីនៃព្រឹត្តិការណ៍រៀងគ្នាផ្ទាល់លំដាប់ថ្ងៃ។
-4.  **Aggregator (Fan-In)**: រួមបញ្ចូលលទ្ធផលពី researcher និង planner ហើយបង្ហាញជាលទ្ធផលចុងក្រោយ។
+1.  **Dispatcher (Fan-Out)**: សំណើរបស់អ្នកប្រើត្រូវបានផ្ញើទៅភាគីពីរជាមួយគ្នា។
+2.  **Researcher-Agent**: ស្រាវជ្រាវពីកន្លែងទេសចរណ៍ អាកាសធាតុ និងចំណាប់អារម្មណ៍សំខាន់ៗ សម្រាប់ដំណើរកំសាន្តSeattle ក្នុងខែធ្នូ។
+3.  **Plan-Agent**: បង្កើតផែនការដំណើរកំសាន្តរៀងរាល់ថ្ងៃដោយឯករាជ្យ។
+4.  **Aggregator (Fan-In)**: លទ្ធផលពី researcher និង planner ត្រូវបានប្រមូល និងបង្ហាញជារួមជាលទ្ធផលចុងក្រោយ។
 
-*រូបភាពនៃ Researcher និង Planner ដំណើរការដោយសមកាលិក។*
+*រូបតំណាងនៃការចែកចាយ concurrently របស់ Researcher និង Planner workflow។*
 
-#### Python Implementation Analysis
+#### វិភាគអនុវត្ត Python
 
-`ConcurrentBuilder` ធ្វើឱ្យការបង្កើតលំនាំនេះកាន់តែសាមញ្ញ។ អ្នកគ្រាន់តែបញ្ជីភ្នាក់ងារដែលចូលរួម ហើយ builder នឹងបង្កើត fan-out និង fan-in ដោយស្វ័យប្រវត្តិ។
+`ConcurrentBuilder` ធ្វើឲ្យការបង្កើតប្លង់នេះ​ងាយស្រួល។ អ្នកគ្រាន់តែបង្ហាញតារាងភាគីចូលរួម ហើយ builder ស្វ័យប្រវត្តិបង្កើត fan-out និង fan-in logic។
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder គ្រប់គ្រងតុល្យកម្មនៃការចែកចេញ និងការបញ្ចូលវិញ (fan-out/fan-in)
+# ConcurrentBuilder គ្រប់គ្រងតុល្យភាព fan-out/fan-in
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# រត់លំហូរដំណើរការ
+# ប្រតិបត្តិការ workflow
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Framework ធានាថា `research_agent` និង `plan_agent` ប្រតិបត្តិការជាសមកាលិក ហើយលទ្ធផលចុងក្រៅរបស់ពួកវាត្រូវបានប្រមូលជា​តារាង(List)។
+Framework ជាថ្មីធ្វើការដោះស្រាយឲ្យ `research_agent` និង `plan_agent` ប្រតិបត្ដិការលើសម័យស្រប ហើយលទ្ធផលចុងក្រោយត្រូវបានប្រមូលជាតារាង។
 
-#### .NET (C\#) Implementation Analysis
+#### វិភាគអនុវត្ត .NET (C#)
 
-នៅក្នុង .NET លំនាំនេះត្រូវការកំណត់យ៉ាងច្បាស់ជាងមុន។ Executors ផ្ទាល់ខ្លួន (`ConcurrentStartExecutor` និង `ConcurrentAggregationExecutor`) ត្រូវបានបង្កើតដើម្បីដោះស្រាយលក្ខណៈ fan-out និង fan-in។
+នៅក្នុង .NET, ប្លង់នេះត្រូវការការបញ្ជាក់ច្បាស់លាស់ជាងមុន។ អ្នកអនុវត្តបុព្វហេតុ (`ConcurrentStartExecutor` និង `ConcurrentAggregationExecutor`) ត្រូវបានបង្កើតសម្រាប់គ្រប់គ្រង fan-out និង fan-in logic។
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-បន្ទាប់មក `WorkflowBuilder` ប្រើ `AddFanOutEdge` និង `AddFanInEdge` ដើម្បីកសាងក្រាហ្វ ជាមួយ executors ផ្ទាល់ខ្លួន និងភ្នាក់ងារ។
+`WorkflowBuilder` បន្ទាប់មកប្រើ `AddFanOutEdge` និង `AddFanInEdge` ដើម្បីបង្កើតក្រាហ្វជាមួយអ្នកអនុវត្តបុព្វហេតុ និងភាគីទាំងនេះ។
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Case 4: Conditional Workflow
+### ករណីទី 4: Workflow លក្ខខណ្ឌ
 
-Conditional workflows បន្ថែមតុល្យភាព branching ដែលអាចអនុញ្ញាតឱ្យប្រព័ន្ធជ្រើសផ្លូវផ្សេងៗ ដោយផ្អែកលើលទ្ធផលកណ្តាល។
+Workflow លក្ខខណ្ឌបញ្ចូលនូវ​ផ្លូវផ្សេងៗ ការអនុញ្ញាតឲ្យប្រព័ន្ធទៅតាមផ្លូវផ្សេងផ្អែកលើលទ្ធផលពាក់កណ្តាល។
 
-#### Scenario Background
+#### ភាពស្ថានការណ៍
 
-Workflow នេះអូតូម៉ាទិកក្នុងការបង្កើត និងផ្សព្វផ្សាយមេរៀនបច្ចេកទេសមួយ។
+Workflow នេះស្វ័យប្រតិបត្តិការ វិញ្ញាសានិងបោះពុម្ពបទបង្រៀនបច្ចេកទេសមួយ។
 
-1.  **Evangelist-Agent**: រក្សារមតិ និងសរសេរទូទៅពីមេរៀន ដោយផ្អែកលើទ្រាទាំងសេចក្តីសង្ខេប និង URLs។
-2.  **ContentReviewer-Agent**: ពិនិត្យអត្ថបទខ Dra�t។ វាកំណត់ថារូបបានលើស 200 ពាក្យឬអត់។
+1.  **Evangelist-Agent**: សរសេរម៉ូដមួយនៃបទបង្រៀន ផ្អែកលើរចនាសម្ព័ន្ធ និងបណ្ដាបែប URL​។
+2.  **ContentReviewer-Agent**: ពិនិត្យមើលម៉ូដមួយ។ វាស្ទង់មើល האם מספר המילים מעל 200.
 3.  **Conditional Branch**:
-      * **If Approved (`Yes`)**: Workflow នឹងបន្តទៅកាន់ `Publisher-Agent`។
-      * **If Rejected (`No`)**: Workflow នឹងបញ្ឈប់ និងបញ្ចេញមូលហេតុនៃការបដិសេធ។
-4.  **Publisher-Agent**: ប្រសិនបើ draft ត្រូវបានអនុម័ត ភ្នាក់ងារនេះនឹងរក្សាមាតិកាទៅជា ឯកសារ Markdown។
+      * **ប្រសិនបើអនុម័ត (`Yes`)**: Workflow ដំណើរការទៅកាន់ `Publisher-Agent`។
+      * **ប្រសិនបើបដិសេធ (`No`)**: Workflow បញ្ឈប់ និងបង្ហាញមូលហេតុបដិសេធ។
+4.  **Publisher-Agent**: ប្រសិនបើម៉ូដត្រូវបានអនុម័ត ភាគីនេះរក្សាទុកមាតិកាទៅឯកសារ Markdown។
 
-#### Python Implementation Analysis
+#### វិភាគអនុវត្ត Python
 
-ឧទាហរណ៍នេះប្រើ function ផ្ទាល់ខ្លួន `select_targets` ដើម្បីអនុវត្តលក្ខណ្ឌនេះ។ function នេះត្រូវបានផ្ដល់ទៅ `add_multi_selection_edge_group` និងយកចរន្ត workflow ផ្អែកលើវាល `review_result` ពីលទ្ធផលនៃអ្នកពិនិត្យ។
+ឧទាហរណ៍នេះប្រើមុខងារផ្ទាល់ខ្លួន `select_targets` ដើម្បីអនុវត្ត logic លក្ខខណ្ឌ។ មុខងារនេះត្រូវបានផ្ដល់ទៅ `add_multi_selection_edge_group` ហើយនាំយក workflow ដោយផ្អែកលើវាល `review_result` ពីលទ្ធផលអ្នកពិនិត្យ។
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# មុខងារនេះកំណត់ជំហានបន្ទាប់ផ្អែកលើលទ្ធផលនៃការពិនិត្យ
+# មុខងារនេះកំណត់ជំហានបន្ទាប់អាស្រ័យលើលទ្ធផលពិនិត្យ
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # បើបានអនុម័ត បន្តទៅអ្នកអនុវត្ត 'save_draft'
+        # ប្រសិនបើអនុម័ត ចូលទៅកាន់កម្មវិធី 'save_draft'
         return [save_draft_id]
     else:
-        # បើបដិសេធ បន្តទៅអ្នកអនុវត្ត 'handle_review' ដើម្បីរាយការណ៍ការបរាជ័យ
+        # ប្រសិនបើបដិសេធ ចូលទៅកាន់កម្មវិធី 'handle_review' ដើម្បីរាយការណ៍ការបរាជ័យ
         return [handle_review_id]
 
-# កម្មវិធីបង្កើត workflow នេះប្រើមុខងារជម្រើសសម្រាប់ការបញ្ជូន
+# អ្នកបង្កើតក្រុមហ៊ុនប្រើមុខងារជ្រើសរើសសម្រាប់ការបញ្ជូន
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # ខ្សែច្រើនជម្រើស (multi-selection edge) អនុវត្តនូវលក្ខខណ្ឌ
+        # ជម្រើសពហុមុខងារអនុវត្តតម្កើងលក្ខខណ្ឌ
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Executors ផ្ទាល់ខ្លួនដូចជា `to_reviewer_result` ត្រូវបានប្រើដើម្បីបកប្រែលទ្ធផល JSON ពីភ្នាក់ងារ និងបម្លែងវាទៅជា objects ដែលមានប្រភេទច្បាស់ដែល function ជ្រើសរើសអាចពិនិត្យបាន។
+អ្នកអនុវត្តបុព្វហេតុដូចជា `to_reviewer_result` ត្រូវបានប្រើក្នុងការ parse លទ្ធផល JSON ពីភាគី និងបំលែងវាទៅជា objects ដ៏មានប្រភេទមាំម៉ាត់ ដែលមុខងារជ្រើសរើសអាចពិនិត្យបាន។
 
-#### .NET (C\#) Implementation Analysis
+#### វិភាគអនុវត្ត .NET (C#)
 
-កំណែ .NET ប្រើវិធីសាស្ត្រដូចគ្នាជាមួយ​ condition function។ កំណត់ `Func<object?, bool>` ដើម្បីត្រួតពិនិត្យ property `Result` នៃអូបជែក `ReviewResult`។
+កំណែ .NET ប្រើវិធីសាស្រ្តស្រដៀងគ្នាមួយជាមួយមុខងារលក្ខខណ្ឌ។ `Func<object?, bool>` ត្រូវបានកំណត់សម្រាប់ពិនិត្យម្ភៃ `Result` នៃវត្ថុ `ReviewResult` ។
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,15 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-ប៉ារ៉ាម៉ែត្រ `condition` នៃវិធីសាស្ត្រ `AddEdge` អនុញាតឱ្យ `WorkflowBuilder` បង្កើតផ្លូវ branching។ Workflow នឹងតែអនុវត្ត edge ទៅ `publishExecutor` ដោយមានលក្ខខណ្ឌ `GetCondition(expectedResult: "Yes")` ត្រឹមត្រូវ ប្រសិនបើមិនដូច្នោះ វានឹងដើរតាមផ្លូវទៅ `sendReviewerExecutor`។
+ប៉ារ៉ាម៉ែត្រ `condition` នៃវិធីសាស្រ្ត `AddEdge` អនុញ្ញាតឲ្យ `WorkflowBuilder` បង្កើតផ្លូវចែកលំហូរ។ Workflow នឹងតាមដានដែនទៅ `publishExecutor` ប្រសិនបើលក្ខខណ្ឌ `GetCondition(expectedResult: "Yes")` អនុញ្ញាត។ ប្រសិនមិនដូច្នោះ វានឹងបន្តទៅ `sendReviewerExecutor`។
 
-## Conclusion
+## សរុប
 
-Microsoft Agent Framework Workflow ផ្តល់មូលដ្ឋានរឹងមាំ និងបត់បែនសម្រាប់រៀបចំនិងគ្រប់គ្រងប្រព័ន្ធច្រើនភ្នាក់ងារដែលស្មុគស្មាញ។ ដោយអาศัยស្ថាបត្យកម្មផ្អែកក្រាហ្វ និងធាតុស្នូលរបស់វា នរណាក៏អាចរចនានិងអនុវត្ត workflow ស្មុគស្មាញក្នុង Python និង .NET បាន។ មិនថាកម្មវិធីរបស់អ្នកត្រូវការការដំណើរការតាមលំដាប់សាមញ្ញ ការអនុវត្តសមកាលិក ឬតុល្យភាពនៃលក្ខខណ្ឌ dynamic ទេ Framework នេះផ្តល់ឧបករណ៍ដើម្បីសាងសង់ដំណោះស្រាយដែលមានឥទ្ធិពល អាចពង្រីក និងមានសុវត្ថិភាពប្រភេទ។
+Microsoft Agent Framework Workflow ផ្ដល់មូលដ្ឋានដ៏រឹងមាំ និងបត់បែនសម្រាប់រៀបចំប្រព័ន្ធ multi-agent ស្មុគស្មាញ។ ដោយប្រើប្រាស់រចនាសម្ព័ន្ធក្រាហ្វ និងធាតុមុខងារគ្រប់គ្រាន់ អ្នកអភិវឌ្ឍន៍អាចរចនានិងអនុវត្ត workflows ស្មុគស្មាញជាទូទៅនៅ Python និង .NET។ មិនថាកម្មវិធីរបស់អ្នកត្រូវការមុខងាររៀងរាល់ជំហាន សម័យស្រប ឬ logic លក្ខខណ្ឌ δυναμικό ផ្នែក framework ផ្ដល់ឧបករណ៍ដើម្បីសាងសង់ដំណោះស្រាយ AI មានស្ដង់ដារ ប្រសិទ្ធភាព និងអាចពង្រីកបាន។
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:
-ឯកសារនេះត្រូវបានបកប្រែដោយប្រើសេវាកម្មបកប្រែ AI [Co-op Translator](https://github.com/Azure/co-op-translator). ខណៈពេលដែលយើងខិតខំដើម្បីភាពត្រឹមត្រូវ សូមជម្រាបជូនថា ការបកប្រែដោយស្វ័យប្រវត្តិអាចមានកំហុស ឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមនៅក្នុងភាសាដើមគួរត្រូវបានចាត់ទុកជាប្រភពដែលមានសិទ្ធិផ្ដាច់មុខ។ សម្រាប់ព័ត៌មានសំខាន់ៗ យើងសូមណែនាំឱ្យប្រើការបកប្រែដោយមនុស្សជំនាញវិជ្ជាជីវៈ។ យើងមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសណាមួយដែលកើតឡើងពីការប្រើការបកប្រែនេះទេ។
+**ការបដិសេធ**:
+ឯកសារនេះត្រូវបានបម្លែងភាសា ដោយប្រើសេវាបម្លែងភាសា AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ទោះយើងខ្ញុំមានក្តីប្រាថ្នាឱ្យបានច្បាស់លាស់ តែសូមយល់ដឹងថាការបម្លែងដោយស្វ័យប្រវត្តិក៏អាចមានកំហុសឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមជាភាសាទីតាំងគួរត្រូវបានគេប្រើជាប្រភពច្បាស់លាស់។ សម្រាប់ព័ត៌មានសំខាន់ៗ សូមណែនាំឱ្យប្រើប្រាស់ការប្រែដោយមនុស្សជំនាញ។ យើងខ្ញុំមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសបន្ទាប់ពីការប្រើប្រាស់ការបម្លែងនេះនោះទេ។
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

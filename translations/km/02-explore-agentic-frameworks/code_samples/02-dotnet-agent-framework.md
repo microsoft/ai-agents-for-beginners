@@ -1,85 +1,88 @@
-# 🔍 ការស្វែងយល់អំពី Microsoft Agent Framework - Agent មូលដ្ឋាន (.NET)
+# 🔍 ការស្វែងយល់អំពី Microsoft Agent Framework - អ្នកភ្នាក់ងារមូលដ្ឋាន (.NET)
 
-## 📋 គោលដៅការសិក្សា
+## 📋 គោលបំណងរៀន
 
-ឧទាហរណ៍នេះស្វែងយល់ពីយោបល់មូលដ្ឋាននៃ Microsoft Agent Framework តាមរយៈការអនុវត្តភ្នាក់ងារមូលដ្ឋានក្នុង .NET។ អ្នកនឹងរៀនពីលំនាំភ្នាក់ងារមូលដ្ឋាន និងយល់ពីរបៀបដែលភ្នាក់ងារញញឹមធ្វើការផ្ទៃក្នុងដោយប្រើ C# និង ពិភព .NET។
+ឧទាហរណ៍នេះសិក្សាពីគំនិតមូលដ្ឋាននៃ Microsoft Agent Framework តាមរយៈការអនុវត្តអ្នកភ្នាក់ងារមូលដ្ឋាននៅក្នុង .NET។ អ្នកនឹងរៀនទំនាក់ទំនងភ្នាក់ងារមូលដ្ឋាន និងយល់ដឹងពីរបៀបដែលភ្នាក់ងារយល់ដឹងដំណើរការក្រោមគ្រប់គ្រងដោយប្រើ C# និងបរិស្ថាន .NET។
 
 ### អ្វីដែលអ្នកនឹងរកឃើញ
 
-- 🏗️ **រចនាសម្ព័ន្ធភ្នាក់ងារ**: ការយល់ដឹងពីរចនាសម្ព័ន្ធមូលដ្ឋាននៃភ្នាក់ងារ AI ក្នុង .NET  
-- 🛠️ **ការរួមបញ្ចូលឧបករណ៍**: វិធីដែលភ្នាក់ងារ​ប្រើមុខងារ​ខាងក្រៅ ដើម្បីពង្រីកសមត្ថភាព  
-- 💬 **លំហូរការសន្ទនា**: គ្រប់គ្រងការសន្ទនាច្រើនជុំ និងបរិបទដោយការគ្រប់គ្រង thread  
-- 🔧 **លំនាំកំណត់រចនាប័ទ្ម**: អនុវត្តិល្អបំផុតសម្រាប់ការតំឡើង និងគ្រប់គ្រងភ្នាក់ងារ​នៅក្នុង .NET
+- 🏗️ **សំណុំរចនាសម្ព័ន្ធភ្នាក់ងារ**: ការយល់ដឹងពីរចនាសម្ព័ន្ធមូលដ្ឋាននៃភ្នាក់ងារចំណេះដឹងក្នុង .NET
+- 🛠️ **ការតភ្ជាប់ឧបករណ៍**: របៀបដែលភ្នាក់ងារប្រើមុខងារចំពោះក្រៅដើម្បីពង្រីកសមត្ថភាព  
+- 💬 **ដំណើរការជជែក**: ការគ្រប់គ្រងការជជែករយៈពេលពហុជំហាន់ និងបរិបទជាមួយការគ្រប់គ្រងខ្សែ
+- 🔧 **គំរូការកំណត់រចនាសម្ព័ន្ធ**: គន្លងអនុវត្តល្អសម្រាប់ការរៀបចំ និងគ្រប់គ្រងភ្នាក់ងារនៅក្នុង .NET
 
-## 🎯 គំនិតសំខាន់ដែលបានគ្របដណ្តប់
+## 🎯 គំនិតសំខាន់បានគ្របដណ្តប់
 
-### គោលការណ៍នៃមូលដ្ឋានភ្នាក់ងារ
+### គោលការណ៍ Framework Agentic
 
-- **Autonomy**: របៀបដែលភ្នាក់ងារ​ធ្វើសេចក្តីសម្រេចដោយឯករាជ្យ ដោយប្រើ abstraction នៃ AI ក្នុង .NET  
-- **Reactivity**: ឆ្លើយតបទៅនឹងការផ្លាស់ប្តូរបរិស្ថាន និងការបញ្ចូលពីអ្នកប្រើ  
-- **Proactivity**: ធ្វើជាសកម្មភាពដើមដោយផ្អែកលើគោលដៅ និងបរិបទ  
-- **Social Ability**: ធ្វើអន្តរកម្មតាមភាសាធម្មជាតិនិង thread នៃការសន្ទនា
+- **អត្តការដ្ឋានភាព**: របៀបដែលភ្នាក់ងារធ្វើការសម្រេចចិត្តដោយឯករាជ្យដោយប្រើការបែបបទ AI ក្នុង .NET
+- **ការឆ្លើយតប**: ឆ្លើយតបលើការផ្លាស់ប្តូរបរិដ្ឋាន និងការបញ្ចូលអ្នកប្រើ
+- **ការអនុវត្តជាមុន**: ធ្វើការចាប់ផ្តើមដោយផ្អែកលើគោលដៅ និងបរិបទ
+- **សមត្ថភាពសង្គម**: ភ្ជាប់សម្រួលតាមភាសាប្រពៃណីជាមួយខ្សែជជែក
 
-### សមាសភាគបច្ចេកទេស
+### ធាតុខាងបច្ចេកទេស
 
-- **AIAgent**: ការត្រួតត្រាភ្នាក់ងារ និងការគ្រប់គ្រងការសន្ទនា ជាចម្បង (.NET)  
-- **Tool Functions**: ពង្រីកសមត្ថភាពភ្នាក់ងារជាមួយវិធីសាស្ត្រ និង attributes របស់ C#  
-- **OpenAI Integration**: ប្រើម៉ូឌែលភាសាតាមរយៈ API តាមស្តង់ដារ .NET  
-- **Secure Configuration**: ការគ្រប់គ្រងកូនសោ API ដោយផ្អែកលើ​បរិយាកាស
+- **AIAgent**: ការគ្រប់គ្រងភ្នាក់ងារសំខាន់ និងការគ្រប់គ្រងការជជែក (.NET)
+- **មុខងារឧបករណ៍**: ពង្រីកសមត្ថភាពភ្នាក់ងារជាមួយវិធីសាស្ត្រនិងលក្ខណៈ C#
+- **ការតភ្ជាប់ Azure OpenAI**: ប្រើប្រាស់ម៉ូដែលភាសាតាមរយៈ Azure OpenAI Responses API
+- **ការកំណត់រចនាសម្ព័ន្ធយ៉ាងសុវត្ថិភាព**: ការគ្រប់គ្រងចំណុចបញ្ចប់ដោយផ្អែកលើបរិដ្ឋាន
 
-## 🔧 សំណុំបច្ចេកវិទ្យា
+## 🔧 សំណុំបច្ចេកទេស
 
 ### បច្ចេកវិទ្យាមូលដ្ឋាន
 
-- Microsoft Agent Framework (.NET)  
-- ការរួមបញ្ចូល GitHub Models API  
-- គំរូ client ដែលសមស្របជាមួយ OpenAI  
-- ការកំណត់តាមបរិយាកាសជាមួយ DotNetEnv
+- Microsoft Agent Framework (.NET)
+- ការតភ្ជាប់ Azure OpenAI (Responses API)
+- គំរូអតិថិជន Azure.AI.OpenAI
+- ការកំណត់បរិដ្ឋានដោយប្រើ DotNetEnv
 
-### សមត្ថភាពរបស់ភ្នាក់ងារ
+### សមត្ថភាពភ្នាក់ងារ
 
-- ការយល់ និងបង្កើតភាសាធម្មជាតិ  
-- ការហៅមុខងារ និងការប្រើឧបករណ៍ជាមួយ attributes នៃ C#  
-- ការឆ្លើយតបដែលយល់ពីបរិបទជាមួយ thread នៃការសន្ទនា  
-- ស្ថាបត្យកម្មដែលពង្រីកបានជាមួយលំនាំ dependency injection
+- ការយល់ដឹង និងការបង្កើតភាសាប្រពៃណី
+- ការហៅមុខងារ និងការប្រើឧបករណ៍ជាមួយលក្ខណៈ C#
+- ការឆ្លើយតបមានបរិបទជាមួយខ្សែជជែក
+- រចនាសម្ព័ន្ធអាចពង្រីកបានជាមួយគំរូថ្នាក់បញ្ចូលឧបករណ៍
 
 ## 📚 ការប្រៀបធៀប Framework
 
-ឧទាហរណ៍នេះបង្ហាញពីវិធាន Microsoft Agent Framework នៅក្នុងការប្រៀបធៀបជាមួយ frameworks ផ្សេងៗ:
+ឧទាហរណ៍នេះបង្ហាញពីវិធីសាស្ត្រ Microsoft Agent Framework ប្រៀបធៀបនឹង framework agentic ផ្សេងទៀតៈ
 
-| Feature | Microsoft Agent Framework | Other Frameworks |
+| លក្ខណៈ | Microsoft Agent Framework | Framework ផ្សេងទៀត |
 |---------|-------------------------|------------------|
-| **Integration** | Native Microsoft ecosystem | Varied compatibility |
-| **Simplicity** | Clean, intuitive API | Often complex setup |
-| **Extensibility** | Easy tool integration | Framework-dependent |
-| **Enterprise Ready** | Built for production | Varies by framework |
+| **ការតភ្ជាប់** | ប្រព័ន្ធ Microsoft ដើម | ភាពត្រឹមត្រូវបញ្ច្រាស |
+| **ភាពសាមញ្ញ** | API ស្អាត និងងាយយល់ | ជាច្រើនដំណើរការលំបាក |
+| **ភាពអាចពង្រីក** | ការតភ្ជាប់ឧបករណ៍ងាយ | បែបលំនាំ Framework |
+| **រៀបចំសម្រាប់សហគ្រាស** | ត្រូវបានបង្កើតសម្រាប់ផលិតកម្ម | ផ្លាស់ប្តូរតាម Framework |
 
-## 🚀 ការចាប់ផ្ដើម
+## 🚀 ការចាប់ផ្តើម
 
-### តម្រូវការ​ដំបូង
+### លក្ខខណ្ឌមុន
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ឬកាន់តែថ្មីជាងនេះ  
-- [កូនសោចូលប្រើ GitHub Models API](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ឬខ្ពស់ជាងនេះ
+- [ការជាវសេវា Azure](https://azure.microsoft.com/free/) ដែលមានធនធាន Azure OpenAI និងការចេញផ្សាយម៉ូដែល
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — ចូលដោយ `az login`
 
-### អថេរបរិយាកាសដែលត្រូវការ
+### អថេរបរិដ្ឋានត្រូវការ
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# បន្ទាប់មកចូលដើម្បីឲ្យ AzureCliCredential អាចទទួលបាន token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# បន្ទាប់មកចូលសុំនឹង AzureCliCredential អាចទទួលបានតូកិនបាន
+az login
 ```
 
 ### កូដឧទាហរណ៍
 
-ដើម្បីរត់ឧទាហរណ៍កូដ,
+ដើម្បីរត់កូដឧទាហរណ៍នេះ,
 
 ```bash
 # zsh/bash
@@ -87,27 +90,29 @@ chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
 
-រឺប្រើ dotnet CLI:
+ឬប្រើ dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
 
-មើល [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) សម្រាប់កូដពេញលេញ។
+មើល[`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) សម្រាប់កូដពេញលេញ។
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -139,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -184,11 +175,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -224,24 +215,24 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 }
 ```
 
-## 🎓 ចំណុចសំខាន់ដែលយកចិត្តទុកដាក់
+## 🎓 ចំណុចសំខាន់រួមបញ្ចូល
 
-1. **Agent Architecture**: Microsoft Agent Framework ផ្ដល់វិធីសាស្ត្រស្អាត និងមានប្រភេទសុវត្ថិភាពក្នុងការកសាងភ្នាក់ងារ AI ក្នុង .NET  
-2. **Tool Integration**: មុខងារ​ដែលត្រូវបានតុបតែងជាមួយ attributes `[Description]` នឹងក្លាយជា​ឧបករណ៍ដែលភ្នាក់ងារអាចប្រើបាន  
-3. **Conversation Context**: ការគ្រប់គ្រង thread អាចអនុញ្ញាតឱ្យមានការសន្ទនាច្រើនជុំ ដោយមានការយល់ដឹងពេញលេញពីបរិបទ  
-4. **Configuration Management**: អថេរបរិយាកាស និងការគ្រប់គ្រងសម្គាល់សុវត្ថិភាព អនុវត្តតាមអនុវត្តិល្អបំផុតរបស់ .NET  
-5. **OpenAI Compatibility**: ការរួមបញ្ចូល GitHub Models ធ្វើការងារយ៉ាងរលូនតាមរយៈ API ដែលសមស្របជាមួយ OpenAI
+1. **សំណុំរចនាសម្ព័ន្ធភ្នាក់ងារ**: Microsoft Agent Framework ផ្តល់នូវវិធីសាស្ត្រស្អាត និងមានសុវត្ថិភាពប្រភេទសម្រាប់បង្កើតភ្នាក់ងារ AI នៅក្នុង .NET
+2. **ការតភ្ជាប់ឧបករណ៍**: មុខងារដែលត្រូវគេតុ `[Description]` ក្លាយជាឧបករណ៍ដែលអាចប្រើបានសម្រាប់ភ្នាក់ងារ
+3. **បរិបទការជជែក**: ការគ្រប់គ្រងខ្សែឲ្យមានការជជែកពហុជំហាន់ជាមួយការយល់ដឹងឬបរិបទពេញលេញ
+4. **ការគ្រប់គ្រងការកំណត់រចនាសម្ព័ន្ធ**: អថេរបរិដ្ឋាន និងការគ្រប់គ្រងព័ត៌មានសំងាត់យ៉ាងសុវត្ថិភាពអនុវត្តតាមរបៀបល្អ .NET
+5. **Azure OpenAI Responses API**: ភ្នាក់ងារប្រើ Azure OpenAI Responses API តាមរយៈ Azure.AI.OpenAI SDK
 
-## 🔗 ធនធានបន្ថែម
+## 🔗 លទ្ធផលបន្ថែម
 
-- [ឯកសារ Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)  
-- [ទីផ្សារ GitHub Models](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [ឯកសារ Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI នៅ Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [កម្មវិធី .NET Single File](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ការមិនទទួលខុសត្រូវ**:
-ឯកសារនេះត្រូវបានបកប្រែដោយប្រើសេវាកម្មបកប្រែ AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ទោះបីយើងខិតខំប្រឹងប្រែងក្នុងការធានាថាត្រឹមត្រូវក៏ដោយ សូមយល់ថាការបកប្រែដោយស្វ័យប្រវត្តិអាចមានកំហុស ឬភាពមិនត្រឹមត្រូវបាន។ ឯកសារដើមនៅក្នុងភាសាដើមគួរត្រូវបានចាត់ទុកជាឯកសារយោងដែលមានសុពលភាព។ សម្រាប់ព័ត៌មានសំខាន់ណាស់ បានណែនាំឲ្យប្រើការបកប្រែដោយអ្នកបកប្រែវិជ្ជាជីវៈ។ យើងមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកសម្រាយខុសណាមួយដែលកើតឡើងពីការប្រើប្រាស់ការបកប្រែនេះឡើយ។
+**ការបដិសេធ**:
+ឯកសារនេះត្រូវបានបម្លែងភាសា ដោយប្រើសេវាបម្លែងភាសា AI [Co-op Translator](https://github.com/Azure/co-op-translator)។ ទោះយើងខ្ញុំមានក្តីប្រាថ្នាឱ្យបានច្បាស់លាស់ តែសូមយល់ដឹងថាការបម្លែងដោយស្វ័យប្រវត្តិក៏អាចមានកំហុសឬភាពមិនត្រឹមត្រូវ។ ឯកសារដើមជាភាសាទីតាំងគួរត្រូវបានគេប្រើជាប្រភពច្បាស់លាស់។ សម្រាប់ព័ត៌មានសំខាន់ៗ សូមណែនាំឱ្យប្រើប្រាស់ការប្រែដោយមនុស្សជំនាញ។ យើងខ្ញុំមិនទទួលខុសត្រូវចំពោះការយល់ច្រឡំ ឬការបកស្រាយខុសបន្ទាប់ពីការប្រើប្រាស់ការបម្លែងនេះនោះទេ។
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
