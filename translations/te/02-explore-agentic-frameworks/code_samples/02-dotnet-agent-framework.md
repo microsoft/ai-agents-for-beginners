@@ -1,114 +1,118 @@
-# 🔍 మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ - బేసిక్ ఏజెంట్ (.NET) అన్వేషణ
+# 🔍 Microsoft Agent Framework - బేసిక్ ఏజెంట్ (.NET) అన్వేషణ
 
-## 📋 నేర్చుకునే లక్ష్యాలు
+## 📋 నేర్చుకోవాల్సిన లక్ష్యాలు
 
-ఈ ఉదాహరణ .NET లో బేసిక్ ఏజెంట్ అమలుతో మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ యొక్క ప్రాథమిక భావాలను అన్వేషిస్తుంది. మీరు ప్రధాన ఏజెంటిక్ నమూనాలను నేర్చుకుంటారు మరియు C# మరియు .NET ఎకోసిస్టమ్ ఉపయోగించి తెలివైన ఏజెంట్లు ఎలా పనిచేస్తాయో అర్థం చేసుకుంటారు.
+ఈ ఉదాహరణ .NET లో ఒక బేసిక్ ఏజెంట్ అమలు ద్వారా Microsoft Agent Framework యొక్క ప్రాథమిక సూత్రాలను పరిశీలిస్తుంది. మీరు కోర్ ఏజెంట్ నమూనాలను నేర్చుకుంటారు మరియు C# మరియు .NET ఎకోసిస్టమ్ ఉపయోగించి ఇంటెలిజెంట్ ఏజెంట్లు ఎలా పనిచేస్తాయో అర్థం చేసుకుంటారు.
 
-### మీరు ఏమి కనుగొంటారు
+### మీరు ఏమి తెలుసుకొంటారు
 
-- 🏗️ **ఏజెంట్ ఆర్కిటెక్చర్**: .NET లో AI ఏజెంట్ల ప్రాథమిక నిర్మాణాన్ని అర్థం చేసుకోవడం  
-- 🛠️ **టూల్ ఇంటిగ్రేషన్**: ఏజెంట్లు సామర్థ్యాలను విస్తరించడానికి బాహ్య ఫంక్షన్లను ఎలా ఉపయోగిస్తారు  
-- 💬 **కాన్వర్సేషన్ ఫ్లో**: థ్రెడ్ మేనేజ్‌మెంట్‌తో బహుళ-మలుపు సంభాషణలు మరియు సందర్భాన్ని నిర్వహించడం  
-- 🔧 **కాన్ఫిగరేషన్ ప్యాటర్న్స్**: .NET లో ఏజెంట్ సెటప్ మరియు నిర్వహణకు ఉత్తమ పద్ధతులు
+- 🏗️ **ఏజెంట్ నిర్మాణం**: .NET లో AI ఏజెంట్ల ప్రాథమిక నిర్మాణాన్ని అర్థం చేసుకోండి
+- 🛠️ **టూల్ ఇంటగ్రేషన్**: ఏజెంట్లు ఎలా బాహ్య ఫంక్షన్లను ఉపయోగించి సామర్థ్యాలను విస్తరించుకుంటాయో  
+- 💬 **సంభాషణ ప్రవాహం**: మల్టీ-టర్న్ సంభాషణలు మరియు థ్రెడ్ నిర్వహణతో సందర్భాన్ని నిర్వహించడం
+- 🔧 **కాన్ఫిగరేషన్ నమూనాలు**: .NET లో ఏజెంట్ సెటప్ మరియు నిర్వహణకు ఉత్తమ ఆచారాలు
 
-## 🎯 కీ కాన్సెప్ట్‌లు
+## 🎯 ప్రధాన సూత్రాలు
 
-### ఏజెంటిక్ ఫ్రేమ్‌వర్క్ ప్రిన్సిపుల్స్
+### ఏజెంటిక్ ఫ్రేమ్‌వర్క్ సిద్ధాంతాలు
 
-- **ఆటోనమీ**: .NET AI అబ్స్ట్రాక్షన్లను ఉపయోగించి ఏజెంట్లు స్వతంత్ర నిర్ణయాలు ఎలా తీసుకుంటాయి  
-- **రియాక్టివిటీ**: పర్యావరణ మార్పులకు మరియు వినియోగదారు ఇన్‌పుట్‌లకు ప్రతిస్పందించడం  
-- **ప్రోయాక్టివిటీ**: లక్ష్యాలు మరియు సందర్భం ఆధారంగా ముందుకు తీసుకోవడం  
-- **సోషల్ ఎబిలిటీ**: సంభాషణ థ్రెడ్‌లతో సహజ భాష ద్వారా పరస్పర చర్య
+- **స్వయం నిర్ణయాలు**: .NET AI అభ్యాసాల ద్వారా ఏజెంట్లు స్వతంత్ర నిర్ణయాలు తీసుకునే విధానం
+- **ప్రత్యుత్తరాత్మకత**: పర్యావరణ మార్పులు మరియు వినియోగదారుల ఇన్పుట్‌లకి స్పందించడం
+- **ప్రాక్టివిటీ**: లక్ష్యాలు మరియు సందర్భాల ఆధారంగా మొగ్గు చూపించడం
+- **సామాజిక సామర్థ్యం**: సంభాషణ థ్రెడ్‌లతో సహజ భాష ద్వారా పరస్పర చర్య
 
-### టెక్నికల్ భాగాలు
+### సాంకేతిక భాగాలు
 
-- **AIAgent**: కోర్ ఏజెంట్ ఆర్కెస్ట్రేషన్ మరియు సంభాషణ నిర్వహణ (.NET)  
-- **టూల్ ఫంక్షన్లు**: C# పద్ధతులు మరియు అట్రిబ్యూట్లతో ఏజెంట్ సామర్థ్యాలను విస్తరించడం  
-- **OpenAI ఇంటిగ్రేషన్**: ప్రామాణిక .NET APIs ద్వారా భాషా మోడళ్లను ఉపయోగించడం  
-- **సెక్యూర్ కాన్ఫిగరేషన్**: వాతావరణ ఆధారిత API కీ నిర్వహణ
+- **AIAgent**: కోర్ ఏజెంట్ ఆర్కస్ట్రేషన్ మరియు సంభాషణ నిర్వహణ (.NET)
+- **టూల్ ఫంక్షన్లు**: C# పద్ధతులు మరియు లక్షణాలతో ఏజెంట్ సామర్థ్యాలను విస్తరించడం
+- **Azure OpenAI ఇంటిగ్రేషన్**: Azure OpenAI Responses API ద్వారా భాషా మోడల్స్ వినియోగం
+- **సురక్షిత కాన్ఫిగరేషన్**: ఎన్‌విరాన్‌మెంట్ ఆధారిత ఎండ్‌పాయింట్ నిర్వహణ
 
-## 🔧 టెక్నికల్ స్టాక్
+## 🔧 సాంకేతిక స్టాక్
 
-### ప్రధాన టెక్నాలజీలు
+### ప్రధాన సాంకేతికతలు
 
-- మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ (.NET)  
-- GitHub మోడల్స్ API ఇంటిగ్రేషన్  
-- OpenAI-కంపాటిబుల్ క్లయింట్ ప్యాటర్న్స్  
-- DotNetEnv తో వాతావరణ ఆధారిత కాన్ఫిగరేషన్
+- Microsoft Agent Framework (.NET)
+- Azure OpenAI (Responses API) ఇంటిగ్రేషన్
+- Azure.AI.OpenAI క్లయింట్ నమూనాలు
+- DotNetEnv తో పరిసర-ఆధారిత కాన్ఫిగరేషన్
 
 ### ఏజెంట్ సామర్థ్యాలు
 
-- సహజ భాషను అర్థం చేసుకోవడం మరియు ఉత్పత్తి చేయడం  
-- C# అట్రిబ్యూట్లతో ఫంక్షన్ కాలింగ్ మరియు టూల్ వినియోగం  
-- సంభాషణ థ్రెడ్‌లతో సందర్భం-అవగాహన ప్రతిస్పందనలు  
-- డిపెండెన్సీ ఇంజెక్షన్ ప్యాటర్న్స్‌తో విస్తరించగల ఆర్కిటెక్చర్
+- సహజ భాష అర్థం చేసుకోవడం మరియు ఉత్పత్తి చేయడం
+- C# లక్షణాలతో ఫంక్షన్ కాలింగ్ మరియు టూల్ ఉపయోగం
+- సంభాషణ థ్రెడ్‌లతో సందర్భ-జ్ఞానం స్పందనలు
+- డిపెండెన్సీ ఇంజెక్షన్ నమూనాలతో విస్తరించదగిన నిర్మాణం
 
 ## 📚 ఫ్రేమ్‌వర్క్ పోలిక
 
-ఈ ఉదాహరణ ఇతర ఏజెంటిక్ ఫ్రేమ్‌వర్క్‌లతో పోల్చినప్పుడు మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ దృక్పథాన్ని ప్రదర్శిస్తుంది:
+ఈ ఉదాహరణలో Microsoft Agent Framework విధానాన్ని ఇతర ఏజెంటిక్ ఫ్రేమ్‌వర్కుల తో పోల్చి చూపిస్తుంది:
 
-| ఫీచర్ | మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ | ఇతర ఫ్రేమ్‌వర్క్‌లు |
+| ఫీచర్ | Microsoft Agent Framework | ఇతర ఫ్రేమ్‌వర్కులు |
 |---------|-------------------------|------------------|
-| **ఇంటిగ్రేషన్** | మైక్రోసాఫ్ట్ ఎకోసిస్టమ్‌కు స్వదేశీ | వివిధ అనుకూలత |
-| **సింప్లిసిటీ** | క్లీన్గా, ఇంట్యూయిటివ్ API | తరచుగా క్లిష్టమైన సెటప్ |
-| **ఎక్స్‌టెన్సిబిలిటీ** | టూల్ ఇంటిగ్రేషన్ సులభం | ఫ్రేమ్‌వర్క్ ఆధారిత |
-| **ఎంటర్‌ప్రైజ్ రెడీ** | ప్రొడక్షన్ కోసం రూపొందించబడింది | ఫ్రేమ్‌వర్క్ ఆధారంగా మారుతుంది |
+| **ఇంటిగ్రేషన్** | స్వదేశీ Microsoft ఎకోసిస్టమ్ | విభిన్న అనుకూలత |
+| **సరళత** | శుభ్రమైన, సులభమైన API | తరచుగా క్లిష్టమైన సెటప్ |
+| **విస్తరణశీలత** | సులభ టూల్ ఇంటిగ్రేషన్ | ఫ్రేమ్‌వర్క్ ఆధారితం |
+| **ఎంటర్ప్రైజ్ సిద్ధం** | ఉత్పత్తికి రూపొందించినది | ఫ్రేమ్‌వర్క్ మీద ఆధారపడి ఉంటుంది |
 
-## 🚀 ప్రారంభం
+## 🚀 ప్రారంభించండి
 
-### అవసరమైనవి
+### అవసరమైన సన్నాహాలు
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) లేదా అంతకంటే ఎక్కువ  
-- [GitHub మోడల్స్ API యాక్సెస్ టోకెన్](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) లేదా అంతకంటే మించి
+- Azure OpenAI వనరుతో Azure సబ్‌స్క్రిప్షన్ [Azure subscription](https://azure.microsoft.com/free/) మరియు మోడల్ పంపిణీ
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` తో సైన్ ఇన్ అవుతూ
 
-### అవసరమైన వాతావరణ వేరియబుల్స్
+### అవసరమైన పరిసర వేరియబుల్స్
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# తరువాత AzureCliCredential టోకెన్ పొందడానికి సైన్ ఇన్ అవ్వండి
+az login
 ```
-  
+
 ```powershell
 # పవర్‌షెల్
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# ఆపై AzureCliCredential టోకెన్ పొందేందుకు సైన్ ఇన్ చేయండి
+az login
 ```
-  
 
 ### నమూనా కోడ్
 
-కోడ్ ఉదాహరణను అమలు చేయడానికి,
+కోడ్ ఉదాహరణను రన్ చేసేందుకు,
 
 ```bash
 # zsh/bash
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-  
-లేదా dotnet CLI ఉపయోగించి:
+
+లేక డాట్‌నెట్ CLI ఉపయోగించి:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
-  
-మొత్తం కోడ్ కోసం [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) చూడండి.
+
+పూర్తి కోడ్ కోసం [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) చూడండి.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,11 +175,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -224,26 +214,25 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
     Console.Write(update);
 }
 ```
-  
 
-## 🎓 ముఖ్యమైన విషయాలు
+## 🎓 ముఖ్యాంశాలు
 
-1. **ఏజెంట్ ఆర్కిటెక్చర్**: మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ .NET లో AI ఏజెంట్లను నిర్మించడానికి శుభ్రమైన, టైప్-సేఫ్ దృక్పథాన్ని అందిస్తుంది  
-2. **టూల్ ఇంటిగ్రేషన్**: `[Description]` అట్రిబ్యూట్లతో అలంకరించిన ఫంక్షన్లు ఏజెంట్‌కు అందుబాటులో ఉన్న టూల్స్‌గా మారతాయి  
-3. **కాన్వర్సేషన్ కాంటెక్స్ట్**: థ్రెడ్ మేనేజ్‌మెంట్ బహుళ-మలుపు సంభాషణలను పూర్తి సందర్భ అవగాహనతో సాధ్యమవుతుంది  
-4. **కాన్ఫిగరేషన్ మేనేజ్‌మెంట్**: వాతావరణ వేరియబుల్స్ మరియు సురక్షిత క్రెడెన్షియల్ నిర్వహణ .NET ఉత్తమ పద్ధతులను అనుసరిస్తుంది  
-5. **OpenAI కంపాటిబిలిటీ**: GitHub మోడల్స్ ఇంటిగ్రేషన్ OpenAI-కంపాటిబుల్ APIs ద్వారా సజావుగా పనిచేస్తుంది  
+1. **ఏజెంట్ నిర్మాణం**: Microsoft Agent Framework .NET లో AI ఏజెంట్ల నిర్మాణానికి శుభ్రంగా, టైప్-సేఫ్ దృష్టికోణాన్ని అందిస్తుంది
+2. **టూల్ ఇంటిగ్రేషన్**: `[Description]` లక్షణాలతో అలంకరించిన ఫంక్షన్లు ఏజెంట్ కోసం అందుబాటు టూల్స్ అవుతాయి
+3. **సంభాషణ సందర్భం**: థ్రెడ్ నిర్వహణ చాలా టర్న్ సంభాషణలకు పూర్తిస్థాయి సందర్భ గ్రహిస్తుంద
+4. **కాన్ఫిగరేషన్ నిర్వహణ**: పరిసర వేరియబుల్స్ మరియు సురక్షిత ప్రమాణపత్ర నిర్వహణ .NET ఉత్తమ ఆచారాలు అనుసరిస్తుంది
+5. **Azure OpenAI Responses API**: ఏజెంట్ Azure.AI.OpenAI SDK ద్వారా Azure OpenAI Responses API ఉపయోగిస్తుంది
 
 ## 🔗 అదనపు వనరులు
 
-- [మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ డాక్యుమెంటేషన్](https://learn.microsoft.com/agent-framework)  
-- [GitHub మోడల్స్ మార్కెట్‌ప్లేస్](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET సింగిల్ ఫైల్ యాప్స్](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Microsoft Agent Framework డాక్యుమెంటేషన్](https://learn.microsoft.com/agent-framework)
+- [Microsoft Foundryలో Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET సింగిల్ ఫైల్ యాప్స్](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**విమర్శ**:  
-ఈ పత్రాన్ని AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించారు. మేము ఖచ్చితత్వానికి ప్రయత్నిస్తున్నప్పటికీ, ఆటోమేటెడ్ అనువాదాలలో తప్పులు లేదా అసమగ్రతలు ఉండవచ్చు. దయచేసి, దాని స్వదేశీ భాషలోని అసలు పత్రాన్ని అధికారం కలిగిన మూలంగా పరిగణించండి. కీలకమైన సమాచారం కోసం, ప్రొఫెషనల్ మానవ అనువాదాన్ని సిఫారసు చేస్తాము. ఈ అనువాదాన్ని ఉపయోగించడం వల్ల కలిగే ఏవైనా అపార్థాలు లేదా తప్పుదారులు కోసం మేము బాధ్యత వహించము.
+**అస్వీకరణ**:
+ఈ పత్రం AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించబడింది. మేము ఖచ్చితత్వానికి ప్రయత్నిస్తున్నప్పటికీ, ఆటోమేటెడ్ అనువాదాలు తప్పులు లేదా అసమగ్రతలను కలిగి ఉండవచ్చు. దాని స్వదేశ భాషలో ఉన్న అసలు పత్రాన్ని అధికారం కలిగిన మూలంగా పరిగణించాలి. కీలకమైన సమాచారం కోసం, ప్రొఫెషనల్ మానవ అనువాదాన్ని సిఫారసు చేస్తాము. ఈ అనువాదం ఉపయోగం వల్ల కలిగే ఏవైనా అపార్థాలు లేదా తప్పుదారులు కోసం మేము బాధ్యత వహించము.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
