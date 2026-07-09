@@ -1,106 +1,109 @@
-# 🛠️ Pokročilé použití nástrojů s modely GitHub (.NET)
+# 🛠️ Pokročilé použití nástrojů s Azure OpenAI (Responses API) (.NET)
 
-## 📋 Cíle učení
+## 📋 Výukové cíle
 
-Tento notebook ukazuje vzory integrace nástrojů na podnikové úrovni pomocí Microsoft Agent Framework v .NET s modely GitHub. Naučíte se vytvářet sofistikované agenty s více specializovanými nástroji, využívajícími silné typování C# a podnikové funkce .NET.
+Tento notebook ukazuje podnikové vzory integrace nástrojů pomocí Microsoft Agent Framework v .NET s Azure OpenAI (Responses API). Naučíte se vytvářet sofistikované agenty s více specializovanými nástroji, využívající silné typování C# a podnikové funkce .NET.
 
 ### Pokročilé schopnosti nástrojů, které zvládnete
 
-- 🔧 **Architektura více nástrojů**: Vytváření agentů s více specializovanými schopnostmi
-- 🎯 **Bezpečné provádění nástrojů**: Využití ověření během kompilace v C#
-- 📊 **Podnikové vzory nástrojů**: Návrh nástrojů připravených pro produkci a zpracování chyb
-- 🔗 **Kompozice nástrojů**: Kombinace nástrojů pro komplexní obchodní procesy
+- 🔧 **Architektura s více nástroji**: Vytváření agentů s více specializovanými schopnostmi
+- 🎯 **Typově bezpečné spouštění nástrojů**: Využití kompilátorové kontroly v C#
+- 📊 **Podnikové vzory nástrojů**: Návrh nástrojů připravených pro produkci a řešení chyb
+- 🔗 **Složení nástrojů**: Kombinování nástrojů pro složité obchodní pracovní postupy
 
 ## 🎯 Výhody architektury nástrojů v .NET
 
-### Funkce podnikových nástrojů
+### Podnikové funkce nástrojů
 
-- **Ověření během kompilace**: Silné typování zajišťuje správnost parametrů nástrojů
-- **Dependency Injection**: Integrace IoC kontejneru pro správu nástrojů
-- **Async/Await vzory**: Nezablokované provádění nástrojů s řádnou správou zdrojů
-- **Strukturované logování**: Vestavěná integrace logování pro monitorování provádění nástrojů
+- **Kontrola při kompilaci**: Silné typování zajišťuje správnost parametrů nástroje
+- **Injektáž závislostí**: Integrace IoC kontejneru pro správu nástrojů
+- **Vzory Async/Await**: Nezablokované spouštění nástrojů se správou zdrojů
+- **Strukturované logování**: Integrované logování pro monitorování spuštění nástrojů
 
 ### Vzory připravené pro produkci
 
 - **Zpracování výjimek**: Komplexní správa chyb s typovanými výjimkami
-- **Správa zdrojů**: Správné vzory pro uvolňování zdrojů a správu paměti
-- **Monitorování výkonu**: Vestavěné metriky a ukazatele výkonu
-- **Správa konfigurace**: Typově bezpečná konfigurace s ověřením
+- **Správa zdrojů**: Správné vzory likvidace a správy paměti
+- **Monitorování výkonu**: Integrované metriky a počitadla výkonu
+- **Správa konfigurace**: Typově bezpečná konfigurace s validací
 
 ## 🔧 Technická architektura
 
-### Základní komponenty nástrojů v .NET
+### Hlavní komponenty nástrojů v .NET
 
-- **Microsoft.Extensions.AI**: Jednotná abstrakční vrstva nástrojů
-- **Microsoft.Agents.AI**: Orchestrace nástrojů na podnikové úrovni
-- **Integrace modelů GitHub**: Vysoce výkonný API klient s poolingem připojení
+- **Microsoft.Extensions.AI**: Jednotná abstraktní vrstva nástrojů
+- **Microsoft.Agents.AI**: Podniková orchestrace nástrojů
+- **Azure OpenAI (Responses API)**: Vysoce výkonný API klient s poolingem připojení
 
-### Pipeline pro provádění nástrojů
+### Pipeline spuštění nástroje
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Uživatelský požadavek] --> B[Analýza agenta]
+    B --> C[Výběr nástroje]
+    C --> D[Ověření typu]
+    B --> E[Vázání parametrů]
+    E --> F[Spuštění nástroje]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Zpracování výsledku]
     D --> G
-    G --> H[Response]
+    G --> H[Odpověď]
 ```
 
-## 🛠️ Kategorie nástrojů a vzory
+## 🛠️ Kategorie nástrojů & vzory
 
 ### 1. **Nástroje pro zpracování dat**
 
-- **Ověření vstupu**: Silné typování s datovými anotacemi
+- **Validace vstupu**: Silné typování s datovými anotacemi
 - **Transformační operace**: Typově bezpečná konverze a formátování dat
-- **Obchodní logika**: Nástroje pro výpočty a analýzy specifické pro danou doménu
+- **Obchodní logika**: Nástroje pro výpočty a analýzu specifickou pro doménu
 - **Formátování výstupu**: Generování strukturovaných odpovědí
 
-### 2. **Integrační nástroje**
+### 2. **Integrační nástroje** 
 
-- **API konektory**: Integrace RESTful služeb pomocí HttpClient
+- **API konektory**: Integrace RESTful služeb s HttpClientem
 - **Nástroje pro databáze**: Integrace Entity Framework pro přístup k datům
-- **Operace se soubory**: Bezpečné operace se souborovým systémem s ověřením
-- **Externí služby**: Vzory integrace služeb třetích stran
+- **Operace se soubory**: Bezpečné operace se soubory s validací
+- **Externí služby**: Vzory integrace třetích stran
 
-### 3. **Pomocné nástroje**
+### 3. **Užitečné nástroje**
 
 - **Zpracování textu**: Manipulace a formátování řetězců
-- **Operace s daty/časem**: Výpočty dat/času s ohledem na kulturní specifika
-- **Matematické nástroje**: Přesné výpočty a statistické operace
-- **Nástroje pro ověřování**: Ověřování obchodních pravidel a verifikace dat
+- **Operace s datem/časem**: Výpočty data/času citlivé na kulturu
+- **Matematické nástroje**: Precizní výpočty a statistické operace
+- **Validace**: Validace obchodních pravidel a ověřování dat
 
-Připraveni vytvářet agenty na podnikové úrovni s výkonnými, typově bezpečnými schopnostmi nástrojů v .NET? Pojďme navrhnout profesionální řešení! 🏢⚡
+Připraveni vytvářet podnikové agenty s výkonnými, typově bezpečnými nástroji v .NET? Pojďme navrhnout profesionální řešení! 🏢⚡
 
 ## 🚀 Začínáme
 
-### Předpoklady
+### Požadavky
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) nebo vyšší
-- [Přístupový token API modelů GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Předplatné [Azure](https://azure.microsoft.com/free/) s Azure OpenAI zdrojem a nasazením modelu
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — přihlaste se pomocí `az login`
 
 ### Požadované proměnné prostředí
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Poté se přihlaste, aby AzureCliCredential mohl získat token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Pak se přihlaste, aby AzureCliCredential mohl získat token
+az login
 ```
 
 ### Ukázkový kód
 
-Pro spuštění ukázkového kódu,
+Pro spuštění příkladu kódu,
 
 ```bash
 # zsh/bash
@@ -108,27 +111,29 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Nebo pomocí dotnet CLI:
+Nebo použitím dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-Podívejte se na [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) pro kompletní kód.
+Kompletní kód najdete v [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs).
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Prohlášení**:  
-Tento dokument byl přeložen pomocí služby AI pro překlad [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho rodném jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Nejsme zodpovědní za jakékoli nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+**Prohlášení o omezení odpovědnosti**:
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o co největší přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo nesprávné interpretace vzniklé použitím tohoto překladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

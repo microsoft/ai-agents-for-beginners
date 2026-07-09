@@ -1,66 +1,66 @@
-# Vytváření aplikací s více agenty pomocí Microsoft Agent Framework Workflow
+# Tvorba multi-agentních aplikací pomocí Microsoft Agent Framework Workflow
 
-Tento návod vás provede porozuměním a vytvářením aplikací s více agenty pomocí Microsoft Agent Framework. Prozkoumáme základní koncepty systémů s více agenty, ponoříme se do architektury komponenty Workflow tohoto frameworku a projdeme si praktické příklady v Pythonu a .NET pro různé vzory workflow.
+Tento tutoriál vás provede pochopením a vytvářením multi-agentních aplikací pomocí Microsoft Agent Framework. Prozkoumáme základní koncepty multi-agentních systémů, ponoříme se do architektury komponenty Workflow tohoto frameworku a projdeme praktické příklady v Pythonu i .NET pro různé vzory workflow.
 
-## 1\. Porozumění systémům s více agenty
+## 1\. Porozumění multi-agentním systémům
 
-AI agent je systém, který přesahuje schopnosti standardního modelu velkého jazykového modelu (LLM). Dokáže vnímat své prostředí, rozhodovat se a podnikat kroky k dosažení konkrétních cílů. Systém s více agenty zahrnuje několik těchto agentů, kteří spolupracují na řešení problému, který by byl pro jednoho agenta obtížný nebo nemožný.
+AI Agent je systém, který přesahuje schopnosti standardního velkého jazykového modelu (LLM). Dokáže vnímat své prostředí, činit rozhodnutí a podnikat kroky k dosažení konkrétních cílů. Multi-agentní systém zahrnuje několik těchto agentů, kteří spolupracují na řešení úlohy, kterou by bylo těžké nebo nemožné zvládnout jedinému agentovi samostatně.
 
-### Běžné scénáře použití
+### Běžné aplikační scénáře
 
-  * **Řešení složitých problémů**: Rozdělení velkého úkolu (např. plánování celofiremní akce) na menší podúkoly, které řeší specializovaní agenti (např. agent pro rozpočet, agent pro logistiku, agent pro marketing).
-  * **Virtuální asistenti**: Hlavní asistent deleguje úkoly, jako je plánování, výzkum a rezervace, na jiné specializované agenty.
-  * **Automatizovaná tvorba obsahu**: Workflow, kde jeden agent vytváří návrh obsahu, druhý kontroluje jeho přesnost a tón, a třetí ho publikuje.
+  * **Řešení složitých problémů**: Rozdělění velkého úkolu (například plánování celofiremní události) na menší podúkoly, které řeší specializovaní agenti (například agent rozpočtu, agent logistiky, agent marketingu).
+  * **Virtuální asistenti**: Hlavní asistenční agent delegující úkoly, jako je plánování, výzkum a rezervace, na jiné specializované agenty.
+  * **Automatizovaná tvorba obsahu**: Workflow, kde jeden agent vytváří obsah, druhý jej kontroluje z hlediska přesnosti a tónu, a třetí ho publikuje.
 
-### Vzory systémů s více agenty
+### Vzory multi-agentních systémů
 
-Systémy s více agenty mohou být organizovány podle různých vzorů, které určují, jak spolu komunikují:
+Multi-agentní systémy lze organizovat do několika vzorů, které určují, jak spolu interagují:
 
-  * **Sekvenční**: Agenti pracují v předem definovaném pořadí, podobně jako na montážní lince. Výstup jednoho agenta se stává vstupem pro dalšího.
-  * **Paralelní**: Agenti pracují současně na různých částech úkolu a jejich výsledky se na konci agregují.
-  * **Podmíněné**: Workflow následuje různé cesty na základě výstupu agenta, podobně jako podmíněné příkazy typu if-then-else.
+  * **Sekvenční**: Agenti pracují v předem definovaném pořadí, podobně jako výrobní linka. Výstup jednoho agenta se stává vstupem pro dalšího.
+  * **Současné**: Agenti pracují paralelně na různých částech úkolu a jejich výsledky jsou na konci seskupeny.
+  * **Podmíněné**: Workflow následuje různé cesty na základě výstupu agenta, podobně jako konstrukce if-then-else.
 
-## 2\. Architektura Workflow v Microsoft Agent Framework
+## 2\. Architektura Microsoft Agent Framework Workflow
 
-Workflow systém Agent Framework je pokročilý orchestrátor navržený pro správu složitých interakcí mezi více agenty. Je postaven na architektuře založené na grafech, která využívá [Pregel-style model zpracování](https://kowshik.github.io/JPregel/pregel_paper.pdf), kde zpracování probíhá v synchronizovaných krocích nazývaných "superkroky".
+Workflow systém Agent Frameworku je pokročilý orchestrátor navržený pro řízení složitých interakcí mezi více agenty. Je postaven na grafové architektuře, která využívá [Pregel-style execution model](https://kowshik.github.io/JPregel/pregel_paper.pdf), kde zpracování probíhá v synchronizovaných krocích nazývaných "supersteppy."
 
 ### Základní komponenty
 
 Architektura se skládá ze tří hlavních částí:
 
-1.  **Executors**: Základní jednotky zpracování. V našich příkladech je `Agent` typem executor. Každý executor může mít více handlerů zpráv, které se automaticky spouštějí na základě typu přijaté zprávy.
-2.  **Edges**: Definují cestu, kterou zprávy putují mezi executory. Hrany mohou mít podmínky, což umožňuje dynamické směrování informací skrz graf workflow.
-3.  **Workflow**: Tato komponenta orchestruje celý proces, spravuje executory, hrany a celkový tok zpracování. Zajišťuje, že zprávy jsou zpracovány ve správném pořadí, a streamuje události pro sledování.
+1.  **Executory**: To jsou základní zpracovatelské jednotky. V našich příkladech je `Agent` typ executoru. Každý executor může mít několik handlerů zpráv, které jsou automaticky volány na základě typu přijímané zprávy.
+2.  **Hrany (Edges)**: Ty definují cestu, kterou zprávy putují mezi executory. Hrany mohou mít podmínky, což umožňuje dynamické směrování informací přes workflow graf.
+3.  **Workflow**: Tato komponenta orchestruje celý proces, řídí executory, hrany a celkový tok zpracování. Zajistí, že zprávy jsou zpracovány ve správném pořadí a vysílá události pro sledovatelnost.
 
-*Diagram znázorňující základní komponenty systému workflow.*
+*Diagram znázorňující základní komponenty workflow systému.*
 
-Tato struktura umožňuje vytvářet robustní a škálovatelné aplikace pomocí základních vzorů, jako jsou sekvenční řetězce, fan-out/fan-in pro paralelní zpracování a switch-case logika pro podmíněné toky.
+Tato struktura umožňuje vytvářet robustní a škálovatelné aplikace pomocí základních vzorů jako jsou sekvenční řetězce, fan-out/fan-in pro paralelní zpracování a logiku přepínačů pro podmíněné toky.
 
 ## 3\. Praktické příklady a analýza kódu
 
-Nyní se podíváme, jak implementovat různé vzory workflow pomocí frameworku. Pro každý příklad si ukážeme kód v Pythonu i .NET.
+Nyní si ukážeme, jak implementovat různé vzory workflow pomocí frameworku. Podíváme se na kód v Pythonu i .NET u každého příkladu.
 
-### Případ 1: Základní sekvenční workflow
+### Příklad 1: Základní sekvenční workflow
 
-Toto je nejjednodušší vzor, kde výstup jednoho agenta je přímo předán dalšímu. Náš scénář zahrnuje hotelového agenta `FrontDesk`, který poskytuje doporučení na cestování, a agenta `Concierge`, který toto doporučení zhodnotí.
+Toto je nejjednodušší vzor, kde výstup jednoho agenta je přímo předán dalšímu. Náš scénář zahrnuje hotelového agenta `FrontDesk`, který poskytuje cestovní doporučení, a agenta `Concierge`, který je přezkoumá.
 
 *Diagram základního workflow FrontDesk -\> Concierge.*
 
 #### Pozadí scénáře
 
-Cestovatel žádá o doporučení v Paříži.
+Cestovatel požádá o doporučení v Paříži.
 
-1.  Agent `FrontDesk`, navržený pro stručnost, doporučuje návštěvu Louvru.
-2.  Agent `Concierge`, který upřednostňuje autentické zážitky, toto doporučení obdrží. Zhodnotí návrh a poskytne zpětnou vazbu, navrhující více lokální, méně turistickou alternativu.
+1.  Agent `FrontDesk`, navržený pro stručnost, doporučí návštěvu muzea Louvre.
+2.  Agent `Concierge`, který preferuje autentické zážitky, toto doporučení obdrží. Přezkoumá doporučení a dá zpětnou vazbu, navrhuje lokálnější, méně turistickou alternativu.
 
 #### Analýza implementace v Pythonu
 
-V Pythonu nejprve definujeme a vytvoříme dva agenty, každý s konkrétními instrukcemi.
+V Python příkladu nejprve definujeme a vytvoříme oba agenty, každý s konkrétními instrukcemi.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Definujte role a instrukce agenta
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
     You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
@@ -71,41 +71,41 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Vytvořte instance agenta
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Poté použijeme `WorkflowBuilder` k vytvoření grafu. `front_desk_agent` je nastaven jako výchozí bod a je vytvořena hrana, která propojuje jeho výstup s `reviewer_agent`.
+Poté se používá `WorkflowBuilder` k sestavení grafu. Agent `front_desk_agent` je nastaven jako výchozí bod a je vytvořena hrana, která propojuje jeho výstup s agentem `reviewer_agent`.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-Nakonec je workflow spuštěn s počátečním uživatelským dotazem.
+Nakonec je workflow spuštěn s počátečním uživatelským požadavkem.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run spustí workflow; get_outputs() vrátí výsledek vykonavatele výstupu.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### Analýza implementace v .NET (C\#)
+#### Analýza implementace v .NET (C#)
 
-Implementace v .NET sleduje velmi podobnou logiku. Nejprve jsou definovány konstanty pro názvy agentů a jejich instrukce.
+Implementace v .NET sleduje velmi podobnou logiku. Nejprve jsou definovány konstanty pro jména a instrukce agentů.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
@@ -119,15 +119,15 @@ const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Agenti jsou vytvořeni pomocí `OpenAIClient` a poté `WorkflowBuilder` definuje sekvenční tok přidáním hrany z `frontDeskAgent` na `reviewerAgent`.
+Agenti jsou vytvořeni pomocí `AzureOpenAIClient` (Responses API) a poté `WorkflowBuilder` definuje sekvenční tok přidáním hrany z `frontDeskAgent` na `reviewerAgent`.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Workflow je poté spuštěn s uživatelskou zprávou a výsledky jsou streamovány zpět.
+Workflow je pak spuštěno s uživatelskou zprávou a výsledky jsou streamovány zpět.
 
-### Případ 2: Vícekrokový sekvenční workflow
+### Příklad 2: Více-krokové sekvenční workflow
 
-Tento vzor rozšiřuje základní sekvenci o více agentů. Je ideální pro procesy, které vyžadují více fází zdokonalení nebo transformace.
+Tento vzor rozšiřuje základní sekvenci o více agentů. Je ideální pro procesy vyžadující několik fází zpřesnění nebo transformace.
 
 #### Pozadí scénáře
 
-Uživatel poskytne obrázek obývacího pokoje a žádá o cenovou nabídku na nábytek.
+Uživateli je poskytnut obrázek obývacího pokoje a požádá o cenovou nabídku na nábytek.
 
-1.  **Sales-Agent**: Identifikuje položky nábytku na obrázku a vytvoří seznam.
-2.  **Price-Agent**: Vezme seznam položek a poskytne podrobný rozpis cen, včetně možností rozpočtu, střední třídy a prémiových variant.
-3.  **Quote-Agent**: Obdrží oceněný seznam a formátuje ho do formální nabídky v Markdownu.
+1.  **Prodejní agent**: Identifikuje nábytkové položky na obrázku a vytvoří seznam.
+2.  **Cenový agent**: Bere seznam položek a poskytuje detailní rozpis cen, včetně rozpočtových, středních a prémiových možností.
+3.  **Agent nabídek**: Přijímá ceník a formátuje jej do formální nabídky v Markdown.
 
 *Diagram workflow Sales -\> Price -\> Quote.*
 
 #### Analýza implementace v Pythonu
 
-Jsou definováni tři agenti, každý se specializovanou rolí. Workflow je vytvořeno pomocí `add_edge` k vytvoření řetězce: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Jsou definováni tři agenti, každý se specializovanou rolí. Workflow je vytvořen dotazy `add_edge` k vytvoření řetězce: `sales_agent` -\> `price_agent` -\> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Vytvořte tři specializované agenty
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Sestavte sekvenční pracovní postup
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Vstup je `ChatMessage`, který obsahuje text i URI obrázku. Framework zajišťuje předání výstupu každého agenta dalšímu v sekvenci, dokud není vytvořena finální nabídka.
+Vstupem je `ChatMessage`, které obsahuje text i URI obrázku. Framework se stará o předávání výstupu každého agenta dalšímu v sekvenci, až je vytvořena konečná nabídka.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Uživatelská zpráva obsahuje jak text, tak obrázek
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Spusťte pracovní postup
+events = await workflow.run(message)
 ```
 
-#### Analýza implementace v .NET (C\#)
+#### Analýza implementace v .NET (C#)
 
-Příklad v .NET zrcadlí verzi v Pythonu. Jsou vytvořeni tři agenti (`salesagent`, `priceagent`, `quoteagent`). `WorkflowBuilder` je propojuje sekvenčně.
+Příklad v .NET odpovídá verzi pro Python. Vytvořeni jsou tři agenti (`salesagent`, `priceagent`, `quoteagent`). `WorkflowBuilder` je propojí sekvenčně.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent priceagent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent quoteagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Uživatelská zpráva je vytvořena s daty obrázku (jako bajty) a textovým dotazem. Metoda `InProcessExecution.StreamAsync` spustí workflow a finální výstup je zachycen ze streamu.
+Uživatelská zpráva je sestavena s daty obrázku (v bajtech) i textovým promptem. Metoda `InProcessExecution.StreamAsync` spustí workflow a konečný výstup je zachycen ze streamu.
 
-### Případ 3: Paralelní workflow
+### Příklad 3: Současné workflow
 
-Tento vzor se používá, když lze úkoly provádět současně, aby se ušetřil čas. Zahrnuje "fan-out" na více agentů a "fan-in" pro agregaci výsledků.
+Tento vzor se používá, kdy úkoly mohou být prováděny současně, aby se ušetřil čas. Zahrnuje "fan-out" k více agentům a "fan-in" pro agregaci výsledků.
 
 #### Pozadí scénáře
 
-Uživatel žádá o plánování výletu do Seattlu.
+Uživatel požádá o naplánování cesty do Seattlu.
 
-1.  **Dispatcher (Fan-Out)**: Uživatelský požadavek je současně odeslán dvěma agentům.
-2.  **Researcher-Agent**: Zkoumá atrakce, počasí a klíčové aspekty výletu do Seattlu v prosinci.
-3.  **Plan-Agent**: Nezávisle vytváří podrobný denní itinerář.
-4.  **Aggregator (Fan-In)**: Výstupy od výzkumníka a plánovače jsou shromážděny a prezentovány jako finální výsledek.
+1.  **Dispečer (Fan-Out)**: Uživatelský požadavek je odeslán současně dvěma agentům.
+2.  **Výzkumný agent**: Zkoumá atrakce, počasí a klíčová rizika pro cestu do Seattlu v prosinci.
+3.  **Plánovací agent**: Samostatně vytváří detailní denní cestovní itinerář.
+4.  **Agregátor (Fan-In)**: Výstupy výzkumníka i plánovače jsou shromážděny a prezentovány společně jako konečný výsledek.
 
-*Diagram paralelního workflow Researcher a Planner.*
+*Diagram současného workflow Výzkumníka a Plánovače.*
 
 #### Analýza implementace v Pythonu
 
-`ConcurrentBuilder` zjednodušuje vytvoření tohoto vzoru. Stačí uvést zúčastněné agenty a builder automaticky vytvoří potřebnou logiku fan-out a fan-in.
+`ConcurrentBuilder` usnadňuje vytvoření tohoto vzoru. Stačí vyjmenovat účastnící agenty a builder automaticky vytvoří potřebnou logiku fan-out a fan-in.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder řeší logiku rozvětvování a slučování
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Spustit workflow
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Framework zajišťuje, že `research_agent` a `plan_agent` pracují paralelně a jejich finální výstupy jsou shromážděny do seznamu.
+Framework zajišťuje, že `research_agent` a `plan_agent` běží paralelně a jejich konečné výstupy jsou seskupeny do seznamu.
 
-#### Analýza implementace v .NET (C\#)
+#### Analýza implementace v .NET (C#)
 
-V .NET tento vzor vyžaduje explicitnější definici. Vytvářejí se vlastní executory (`ConcurrentStartExecutor` a `ConcurrentAggregationExecutor`) pro zpracování logiky fan-out a fan-in.
+V .NET je potřeba explicitnější definice. Vytváří se vlastní executory (`ConcurrentStartExecutor` a `ConcurrentAggregationExecutor`), které řídí logiku fan-out a fan-in.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` poté používá `AddFanOutEdge` a `AddFanInEdge` k vytvoření grafu s těmito vlastními executory a agenty.
+`WorkflowBuilder` pak pomocí `AddFanOutEdge` a `AddFanInEdge` sestavuje graf s těmito vlastními executory a agenty.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Případ 4: Podmíněné workflow
+### Příklad 4: Podmíněné workflow
 
-Podmíněné workflow zavádí větvení logiky, což umožňuje systému zvolit různé cesty na základě mezivýsledků.
+Podmíněné workflow zavádí větvení logiky, které umožňuje systému zvolit různé cesty na základě mezivýsledků.
 
 #### Pozadí scénáře
 
 Tento workflow automatizuje tvorbu a publikaci technického tutoriálu.
 
-1.  **Evangelist-Agent**: Napíše návrh tutoriálu na základě dané osnovy a URL.
-2.  **ContentReviewer-Agent**: Zkontroluje návrh. Zjišťuje, zda počet slov přesahuje 200.
-3.  **Podmíněná větev**:
-      * **Pokud schváleno (`Ano`)**: Workflow pokračuje k `Publisher-Agent`.
-      * **Pokud zamítnuto (`Ne`)**: Workflow se zastaví a výstupem je důvod zamítnutí.
-4.  **Publisher-Agent**: Pokud je návrh schválen, tento agent uloží obsah do Markdown souboru.
+1.  **Evangelist-Agent**: Napiše návrh tutoriálu na základě dané osnovy a URL.
+2.  **Recenzent obsahu**: Přezkoumá návrh. Kontroluje, zda počet slov přesahuje 200 slov.
+3.  **Podmíněné větvení**:
+      * **Pokud schváleno (`Ano`)**: Workflow pokračuje k agentovi vydavatele.
+      * **Pokud zamítnuto (`Ne`)**: Workflow se zastaví a vypíše důvod zamítnutí.
+4.  **Agent vydavatel**: Pokud je návrh schválen, tento agent uloží obsah do Markdown souboru.
 
 #### Analýza implementace v Pythonu
 
-Tento příklad používá vlastní funkci `select_targets` k implementaci podmíněné logiky. Tato funkce je předána `add_multi_selection_edge_group` a řídí workflow na základě pole `review_result` z výstupu recenzenta.
+Tento příklad používá vlastní funkci `select_targets` k implementaci podmíněné logiky. Tato funkce je předána do `add_multi_selection_edge_group` a řídí workflow na základě pole `review_result` z výstupu recenzenta.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Tato funkce určuje další krok na základě výsledku hodnocení
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Pokud je schváleno, pokračujte k vykonavateli 'save_draft'
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Pokud je zamítnuto, pokračujte k vykonavateli 'handle_review' pro nahlášení neúspěchu
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# Stavitel pracovního postupu používá funkci výběru pro směrování
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Hrana s více výběry implementuje podmíněnou logiku
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Vlastní executory jako `to_reviewer_result` se používají k analýze JSON výstupu od agentů a jeho převodu na silně typované objekty, které může inspekční funkce zkoumat.
+Vlastní executory jako `to_reviewer_result` slouží k parsování JSON výstupu agentů a jeho převodu na silně typované objekty, které může výběrová funkce prozkoumat.
 
-#### Analýza implementace v .NET (C\#)
+#### Analýza implementace v .NET (C#)
 
-Verze v .NET používá podobný přístup s podmínkovou funkcí. Je definována `Func<object?, bool>` pro kontrolu vlastnosti `Result` objektu `ReviewResult`.
+Verze v .NET používá podobný přístup s funkcí podmínky. Definován je `Func<object?, bool>`, která kontroluje vlastnost `Result` objektu `ReviewResult`.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-Parametr `condition` metody `AddEdge` umožňuje `WorkflowBuilder` vytvořit větvenou cestu. Workflow bude následovat hranu k `publishExecutor` pouze pokud podmínka `GetCondition(expectedResult: "Yes")` vrátí true. Jinak následuje cestu k `sendReviewerExecutor`.
+Parametr `condition` metody `AddEdge` umožňuje `WorkflowBuilder` vytvořit větvenou cestu. Workflow následuje hranu k `publishExecutor` pouze pokud podmínka `GetCondition(expectedResult: "Yes")` vrátí true. Jinak následuje cestu k `sendReviewerExecutor`.
 
 ## Závěr
 
-Microsoft Agent Framework Workflow poskytuje robustní a flexibilní základ pro orchestraci složitých systémů s více agenty. Využitím jeho architektury založené na grafech a základních komponent mohou vývojáři navrhovat a implementovat sofistikované workflow v Pythonu i .NET. Ať už vaše aplikace vyžaduje jednoduché sekvenční zpracování, paralelní provádění nebo dynamickou podmíněnou logiku, framework nabízí nástroje pro vytváření výkonných, škálovatelných a typově bezpečných řešení poháněných AI.
+Microsoft Agent Framework Workflow poskytuje robustní a flexibilní základ pro orchestraci složitých multi-agentních systémů. Využitím grafové architektury a základních komponent mohou vývojáři navrhovat a implementovat sofistikované workflow jak v Pythonu, tak v .NET. Ať vaše aplikace vyžaduje jednoduché sekvenční zpracování, paralelní vykonávání nebo dynamickou podmíněnou logiku, framework nabízí nástroje k vytváření výkonných, škálovatelných a typově bezpečných AI řešení.
 
 ---
 
-**Upozornění**:  
-Tento dokument byl přeložen pomocí služby pro automatický překlad [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o co největší přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Za závazný zdroj by měl být považován původní dokument v jeho původním jazyce. Pro důležité informace doporučujeme profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné výklady vyplývající z použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Prohlášení o omezení odpovědnosti**:
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o co největší přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro kritické informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakékoli nedorozumění nebo nesprávné interpretace vzniklé použitím tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,72 +1,72 @@
-# Wakala za AI Katika Uzalishaji: Ufuatiliaji & Tathmini
+# Wakala wa AI katika Uzalishaji: Uwezo wa Kuona & Tathmini
 
-[![Wakala za AI Katika Uzalishaji](../../../translated_images/sw/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
+[![Wakala wa AI katika Uzalishaji](../../../translated_images/sw/lesson-10-thumbnail.2b79a30773db093e.webp)](https://youtu.be/l4TP6IyJxmQ?si=reGOyeqjxFevyDq9)
 
-Wakati wakala za AI zinavyohamia kutoka mifano ya majaribio kuelekea matumizi halisi ya ulimwengu, uwezo wa kuelewa tabia zao, kufuatilia utendakazi wao, na kutathmini kwa mfumo matokeo yao unakuwa muhimu.
+Wakala wa AI wanapohamia kutoka kwenye prototipu za majaribio kwenda kwenye matumizi halisi ya dunia, uwezo wa kuelewa tabia zao, kufuatilia utendaji wao, na kutathmini kwa mpangilio matokeo yao unakuwa muhimu.
 
 ## Malengo ya Kujifunza
 
-Baada ya kukamilisha somo hili, utajua/utaelewa:
-- Misingi ya ufuatiliaji (observability) na tathmini ya wakala
-- Mbinu za kuboresha utendakazi, gharama, na ufanisi wa wakala
-- Nini na jinsi ya kutathmini wakala wako wa AI kwa mfumo
-- Jinsi ya kudhibiti gharama wakati wa kupeleka wakala wa AI uzalishaji
-- Jinsi ya kuweka vyombo vya ufuatiliaji kwa wakala uliotengenezwa kwa Microsoft Agent Framework
+Baada ya kumaliza somo hili, utajua jinsi ya/kuelewa:
+- Dhana za msingi za uwezo wa kuona wakala na tathmini
+- Mbinu za kuboresha utendaji, gharama, na ufanisi wa wakala
+- Nini na jinsi ya kutathmini wakala wako wa AI kwa mpangilio
+- Jinsi ya kudhibiti gharama wakati wa kuanzisha wakala wa AI kwenye uzalishaji
+- Jinsi ya kuingiza vipimo katika wakala uliojengwa na Microsoft Agent Framework
 
-Lengo ni kukupa maarifa ya kubadilisha wakala wako "sanduku jeusi" kuwa mifumo iliyo wazi, inayoweza kusimamiwa, na kuaminika.
+Lengo ni kukupa maarifa ya kubadilisha wakala wako "kifunguo mweusi" kuwa mifumo wazi, inayosimamiwa, na inayotegemewa.
 
-_**Kumbuka:** Ni muhimu kupeleka Wakala wa AI ambao ni salama na wa kuaminika. Angalia pia somo la [Kujenga Wakala wa AI wa Kuaminika](./06-building-trustworthy-agents/README.md)._
+_**Kumbuka:** Ni muhimu kuanzisha Wakala wa AI ambao ni salama na wa kuaminika. Angalia somo la [Kujenga Wakala wa AI Wa Kuaminika](../06-building-trustworthy-agents/README.md) pia._
 
-## Traces and Spans
+## Mfuatano na Mabano
 
-Vifaa vya ufuatiliaji kama [Langfuse](https://langfuse.com/) au [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) kawaida huwakilisha utekelezaji wa wakala kama traces na spans.
+Vifaa vya kuona kama vile [Langfuse](https://langfuse.com/) au [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry) kawaida huwakilisha utekelezaji wa wakala kwa njia ya mfuatano na mabano.
 
-- **Trace** inawakilisha kazi kamili ya wakala kutoka mwanzo hadi mwisho (kama kushughulikia swali la mtumiaji).
-- **Spans** ni hatua binafsi ndani ya trace (kama kuita modeli ya lugha au kupata data).
+- **Mfuatano** huwakilisha kazi kamili ya wakala kutoka mwanzo hadi mwisho (kama kushughulikia swali la mtumiaji).
+- **Mabano** ni hatua binafsi ndani ya mfuatano (kama kuita mfano wa lugha au kupata data).
 
-![Mti wa trace kwenye Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
+![Mti wa mfuatano katika Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/trace-tree.png)
 <!-- Image URL retained for illustration purposes -->
 
-Bila ufuatiliaji, wakala wa AI anaweza kuhisi kama "sanduku jeusi" - hali yake ya ndani na uamuzi wake ni hafifu, ikifanya iwe vigumu kutambua matatizo au kuboresha utendakazi. Kwa ufuatiliaji, wakala zinakuwa "sanduku za kioo," zikitangaza uwazi ambao ni muhimu kwa kujenga uaminifu na kuhakikisha zinafanya kazi kama ilivyokusudiwa. 
+Bila uwezo wa kuona, wakala wa AI anaweza kuhisi kama "kifunguo mweusi" - hali yake ya ndani na hoja ni giza, na kufanya ugumu kubaini matatizo au kuboresha utendaji. Kwa uwezo wa kuona, wakala wanakuwa "vikasha vya kioo," wakitoa uwazi muhimu kwa kujenga imani na kuhakikisha wanafanya kazi kama ilivyokusudiwa.
 
-## Kwa Nini Ufuatiliaji ni Muhimu katika Mazingira ya Uzalishaji
+## Kwa Nini Uwezo wa Kuona Ni Muhimu Katika Mazingira ya Uzalishaji
 
-Kuhamisha wakala za AI kwenye mazingira ya uzalishaji kunaleta changamoto na mahitaji mapya. Ufuatiliaji sio tena "ni vizuri kuwa nao" bali ni uwezo wa lazima:
+Kuanzisha wakala wa AI katika mazingira ya uzalishaji huleta changamoto na mahitaji mapya. Uwezo wa kuona si "ni nzuri kuwa nayo" tena bali ni uwezo wa msingi:
 
-*   **Urekebishaji na Uchambuzi wa Sababu za Msingi**: Wakati wakala anashindwa au kutoa matokeo yasiyotarajiwa, vifaa vya ufuatiliaji hutoa traces zinazohitajika kutambua chanzo cha kosa. Hii ni muhimu hasa kwa wakala tata ambao wanaweza kuhusisha miito kadhaa ya LLM, mwingiliano wa zana, na mantiki za masharti.
-*   **Usimamizi wa Ucheleweshaji na Gharama**: Wakala za AI mara nyingi hutegemea LLM na API zingine za nje zinazolipishwa kwa tokeni au kwa kila mwito. Ufuatiliaji unawezesha kufuatilia kwa usahihi miito hii, kusaidia kutambua operesheni zinazo chelewesha kupita kiasi au ghali. Hii inawaruhusu timu kuboresha prompts, kuchagua modeli zenye ufanisi zaidi, au kubuni tena mtiririko wa kazi ili kudhibiti gharama za uendeshaji na kuhakikisha uzoefu mzuri kwa mtumiaji.
-*   **Uaminifu, Usalama, na Uzingatiaji**: Katika programu nyingi, ni muhimu kuhakikisha wakala wanafanya kazi kwa usalama na kimaadili. Ufuatiliaji hutoa njia ya ukaguzi ya vitendo na maamuzi ya wakala. Hii inaweza kutumika kugundua na kupunguza matatizo kama utekezaji wa prompt, uzalishaji wa maudhui hatari, au kushughulikia vibaya taarifa za mtu binafsi (PII). Kwa mfano, unaweza kupitia traces kuelewa kwa nini wakala alitoa jibu fulani au kutumia zana maalum.
-*   **Mizunguko ya Kuboresha Endelevu**: Data ya ufuatiliaji ni msingi wa mchakato wa maendeleo unaoendelea. Kwa kufuatilia jinsi wakala wanavyoitikia katika ulimwengu halisi, timu zinaweza kutambua maeneo ya kuboresha, kukusanya data kwa ajili ya kuimarisha modeli, na kuthibitisha athari za mabadiliko. Hii inaunda mzunguko wa mrejesho ambapo maarifa ya uzalishaji kutoka tathmini mtandaoni yanaarifu majaribio na uboreshaji wa nje ya mtandao, ikileta utendaji bora wa wakala kadri muda unavyoendelea.
+*   **Kurekebisha Makosa na Uchambuzi wa Chanzo Mkubwa:** Wakati wakala anashindwa au kutoa matokeo yasiyotarajiwa, vifaa vya uwezo wa kuona hutoa mfuatano unaohitajika kugundua chanzo cha tatizo. Hii ni muhimu hasa kwa wakala tata wanaohusisha mara nyingi miito mingi ya LLM, mwingiliano wa zana, na mantiki ya masharti.
+*   **Udhibiti wa Muda wa Kusubiri na Gharama:** Wakala wa AI mara nyingi hutegemea LLM na API za nje zinazolipishwa kwa kila tokeni au kila wito. Uwezo wa kuona huruhusu kufuatilia kwa usahihi miito hii, kusaidia kugundua operesheni ambazo ni polepole au ghali kupita kiasi. Hii inawawezesha timu kuboresha maelekezo, kuchagua mifano bora au kubuni upya kazi ili kudhibiti gharama za uendeshaji na kuhakikisha uzoefu mzuri kwa mtumiaji.
+*   **Imani, Usalama, na Uzingatiaji Sheria:** Katika maombi mengi, ni muhimu kuhakikisha wakala hufanya kazi salama na kimaadili. Uwezo wa kuona hutoa rekodi ya ufuatiliaji ya vitendo na maamuzi ya wakala. Hii inaweza kutumika kugundua na kupunguza matatizo kama kuingizwa kwa maelekezo, uzalishaji wa maudhui hatarishi, au usimamizi mbaya wa taarifa za kibinafsi (PII). Kwa mfano, unaweza kupitia mfuatano kuelewa kwa nini wakala alitoa majibu fulani au alitumia zana iliyobainishwa.
+*   **Mizunguko ya Kuboresha Mfululizo:** Data ya uwezo wa kuona ni msingi wa mchakato wa maendeleo ya kila mara. Kwa kufuatilia utendaji wa wakala katika dunia halisi, timu zinaweza kubaini maeneo ya kuboresha, kukusanya data kwa ajili ya kurekebisha mifano, na kuthibitisha athari za mabadiliko. Hii huunda mzunguko wa mrejesho ambapo maarifa ya uzalishaji kutoka tathmini mtandaoni hutoa mwongozo wa majaribio ya nje ya mtandao na maboresho, na kusababisha utendaji bora zaidi wa wakala.
 
-## Vigezo Muhimu vya Kufuatilia
+## Vipimo Muhimu vya Kufuatilia
 
-Ili kufuatilia na kuelewa tabia ya wakala, aina mbalimbali za vigezo na ishara zinapaswa kufuatiliwa. Ingawa vigezo maalum vinaweza kutofautiana kulingana na kusudi la wakala, baadhi ni muhimu kwa ulimwengu mzima.
+Ili kufuatilia na kuelewa tabia ya wakala, aina mbalimbali za vipimo na ishara zinapaswa kufuatiliwa. Ilhali vipimo maalum vinaweza kutofautiana kulingana na madhumuni ya wakala, baadhi ni muhimu kwa ujumla.
 
-Hapa kuna baadhi ya vigezo vinavyofuatiliwa mara kwa mara na zana za ufuatiliaji:
+Hapa kuna baadhi ya vipimo vinavyofuatiliwa mara nyingi na vifaa vya uwezo wa kuona:
 
-**Ucheleweshaji:** Je, wakala anajibu haraka kiasi gani? Muda mrefu wa kusubiri unaathiri vibaya uzoefu wa mtumiaji. Unapaswa kupima ucheleweshaji kwa kazi na hatua binafsi kwa kufuatilia utekelezaji wa wakala. Kwa mfano, wakala anayechukua sekunde 20 kwa miito yote ya modeli anaweza kuharakishwa kwa kutumia modeli ya kasi zaidi au kwa kufanya miito ya modeli kwa wakati mmoja.
+**Latency:** Kwa haraka wakala hunyesha majibu? Muda mrefu wa kusubiri huathiri uzoefu wa mtumiaji vibaya. Unapaswa kupima muda wa kusubiri kwa kazi na hatua binafsi kwa kufuatilia utekelezaji wa wakala. Kwa mfano, wakala anayechukua sekunde 20 kwa miito yote ya mfano anaweza kuendeshwa kwa kasi zaidi kwa kutumia mfano wa haraka au kwa kuendesha miito kwa sambamba.
 
-**Gharama:** Ni gharama kiasi gani kwa kila utekelezaji wa wakala? Wakala wa AI hutegemea miito ya LLM inayolipishwa kwa tokeni au API za nje. Matumizi ya zana mara kwa mara au prompts nyingi yanaweza kuongeza gharama kwa haraka. Kwa mfano, kama wakala anaita LLM mara tano kwa kuboresha ubora wa kidogo, ni lazima kutathmini kama gharama inafaa au kama unaweza kupunguza idadi ya miito au kutumia modeli ya gharama nafuu. Ufuatiliaji wa wakati halisi pia unaweza kusaidia kugundua mabadiliko yasiyotarajiwa (mfano, hitilafu zinazosababisha mizunguko ya API kupita kiasi).
+**Gharama:** Gharama ni kiasi gani kwa kila utekelezaji wa wakala? Wakala wa AI hutegemea miito ya LLM inayolipishwa kwa tokeni au API za nje. Matumizi ya mara kwa mara ya zana au maelekezo mengi yanaweza kuongeza gharama kwa haraka. Kwa mfano, ikiwa wakala anaita LLM mara tano kwa ajili ya kuboresha ubora kidogo, lazima utathmini kama gharama inafaa au unaweza kupunguza idadi ya miito au kutumia mfano wa bei nafuu. Ufuatiliaji wa wakati halisi pia unaweza kusaidia kugundua mabadiliko zisizotarajiwa (mfano, hitilafu zinazosababisha mizunguko ya API zisizo na kipimo).
 
-**Makosa ya Maombi:** Ni maombi mangapi ambayo wakala alishindwa? Hii inaweza kujumuisha makosa ya API au miito ya zana iliyoshindwa. Ili kufanya wakala wako kuwa imara zaidi dhidi ya haya katika uzalishaji, unaweza kuweka mbinu za kukabiliana au kurudia maombi. Mfano: ikiwa mtoaji wa LLM A yuko nje ya huduma, badilisha hadi mtoaji wa LLM B kama cheo cha akiba.
+**Makosa ya Maombi:** Ni maombi mangapi yaliyoshindwa na wakala? Hii inaweza kujumuisha makosa ya API au miito ya zana isiyofanikisha. Ili kufanya wakala wako kuhimili zaidi dhidi ya haya katika uzalishaji, unaweza kusanidi mbadala au majaribio ya kurudia. Mfano: ikiwa mtoa huduma wa LLM A ameshindwa, unabadilisha kwenda mtoa huduma wa LLM B kama nakala ya dharura.
 
-**Maoni ya Mtumiaji:** Kutekeleza tathmini za moja kwa moja kutoka kwa watumiaji kunatoa ufahamu wa thamani. Hii inaweza kujumuisha alama za wazi (👍thumbs-up/👎down, ⭐1-5 nyota) au maoni ya maandishi. Maoni hasi ya mara kwa mara yanapaswa kukutaarifu kwani ni dalili kwamba wakala haifanyi kazi kama ilivyotarajiwa. 
+**Maoni ya Mtumiaji:** Kutekeleza tathmini za moja kwa moja za watumiaji hutoa maarifa muhimu. Hii inaweza kujumuisha alama wazi (👍kuchukuliza kwa kidole/👎kutupa chini, ⭐nyota 1-5) au maoni ya maandishi. Maoni yenye maudhui hasi kwa mara kwa mara yanapaswa kukufanya utambue kama ishara kwamba wakala haifanyi kazi kama ilivyotarajiwa.
 
-**Maoni yasiyo ya moja kwa moja ya Mtumiaji:** Tabia za mtumiaji hutoa mrejesho wa namna isiyo ya moja kwa moja hata bila alama wazi. Hii inaweza kujumuisha kubadilisha haraka swali, kuuliza tena mara nyingi au kubofya kitufe cha rudisha. Mfano: ikiwa unaona kuwa watumiaji wanauliza swali hilo mara kwa mara, hii ni dalili kwamba wakala haifanyi kazi kama ilivyotarajiwa.
+**Maoni Yasiyo Ya Kueleweka ya Mtumiaji:** Tabia za mtumiaji hupeleka maoni yasiyo ya moja kwa moja hata bila alama wazi. Hii inaweza kujumuisha mara moja kubadilisha swali, kuuliza maswali mara nyingi au kubofya kitufe cha jaribio tena. Mfano: kama unaona watumiaji wanatahiri swali moja mara kwa mara, hii ni ishara kwamba wakala haifanyi kazi kama ilivyotarajiwa.
 
-**Usahihi:** Kwa mara ngapi wakala hutoa matokeo sahihi au yanayotakikana? Maana ya usahihi zinatofautiana (mfano, usahihi wa kutatua matatizo, usahihi wa kupata taarifa, kuridhika kwa mtumiaji). Hatua ya kwanza ni kufafanua jinsi mafanikio yanavyotarajiwa kwa wakala wako. Unaweza kufuatilia usahihi kupitia ukaguzi wa kiotomatiki, alama za tathmini, au lebo za kukamilika kwa kazi. Kwa mfano, kuweka traces kama "imefanikiwa" au "imeshindwa". 
+**Usahihi:** Mara ngapi wakala hutoa matokeo sahihi au yanayotakiwa? Maelezo ya usahihi yanatofautiana (mfano, usahihi wa kutatua tatizo, usahihi wa kupata taarifa, kuridhika kwa mtumiaji). Hatua ya kwanza ni kufafanua mafanikio ya wakala wako. Unaweza kufuatilia usahihi kupitia ukaguzi wa kiotomatiki, alama za tathmini, au lebo za ukamilishaji kazi. Kwa mfano, kuweka alama mfuatano kama "umefanikiwa" au "umeshindwa".
 
-**Vigezo vya Tathmini za Kiotomatiki:** Pia unaweza kuweka tathmini za kiotomatiki. Kwa mfano, unaweza kutumia LLM kutoa alama kwa matokeo ya wakala kama vile ikiwa ni ya msaada, sahihi, au la. Pia kuna maktaba kadhaa za chanzo huria zinazokusaidia kutoa alama kwa nyanja tofauti za wakala. Mfano: [RAGAS](https://docs.ragas.io/) kwa wakala wa RAG au [LLM Guard](https://llm-guard.com/) kugundua lugha hatari au utekezaji wa prompt. 
+**Vipimo vya Tathmini ya Kiotomatiki:** Pia unaweza kusanidi tathmini za kiotomatiki. Kwa mfano, unaweza kutumia LLM kupima matokeo ya wakala kama ni ya msaada, sahihi, au la. Pia kuna maktaba nyingi za chanzo wazi zinazokusaidia kupima vipengele tofauti vya wakala. Mfano: [RAGAS](https://docs.ragas.io/) kwa wakala wa RAG au [LLM Guard](https://llm-guard.com/) kugundua lugha hatarishi au kuingizwa kwa maelekezo.
 
-Katika vitendo, mchanganyiko wa vigezo hivi hutoa ufunuo bora wa afya ya wakala wa AI. Katika [daftari la mfano](./code_samples/10-expense_claim-demo.ipynb) cha sura hii, tutaonyesha jinsi vigezo hivi vinavyoonekana katika mifano halisi lakini kwanza, tutajifunza jinsi mtiririko wa tathmini kawaida unavyoonekana.
+Kwenye mazoezi, mchanganyiko wa vipimo hivi hutoa ufunikaji bora wa hali ya afya ya wakala wa AI. Katika [daftari la mfano](./code_samples/10-expense_claim-demo.ipynb) la sura hii, tutakuonyesha jinsi vipimo hivi vinavyoonekana katika mifano halisi lakini kwanza, tutajifunza mchakato wa kawaida wa tathmini.
 
-## Sanidi Ufuatiliaji kwa Wakala wako
+## Ingiza Vipimo kwa Wakala Wako
 
-Ili kukusanya data za tracing, utahitaji kuweka vyombo vya ufuatiliaji kwenye msimbo wako. Lengo ni kuingiza ufuatiliaji kwenye msimbo wa wakala ili kutoa traces na vigezo vinavyoweza kukamatwa, kuchakatwa, na kuonyeshwa na jukwaa la ufuatiliaji.
+Ili kukusanya data ya mfuatano, utahitaji kuingiza vipimo kwenye msimbo wako. Lengo ni kuingiza msimbo wa wakala kutoa mfuatano na vipimo vinavyoweza kukamatawa, kuchakatwa, na kuonyeshwa na jukwaa la uwezo wa kuona.
 
-**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) imeibuka kama kiwango cha tasnia kwa ufuatiliaji wa LLM. Inatoa seti ya API, SDK, na zana za kuzalisha, kukusanya, na kusafirisha telemetry.
+**OpenTelemetry (OTel):** [OpenTelemetry](https://opentelemetry.io/) imeibuka kama viwango vya sekta kwa uwezo wa kuona LLM. Inatoa seti ya API, SDK, na zana za kuzalisha, kukusanya, na kusafirisha data ya telemetri.
 
-Kuna maktaba nyingi za uingizaji ambazo zinafunika mifumo ya wakala iliyopo na kurahisisha kusafirisha OpenTelemetry spans kwenda zana ya ufuatiliaji. Microsoft Agent Framework inaunganisha kwa asili na OpenTelemetry. Hapa chini kuna mfano wa kuweka ufuatiliaji kwa wakala wa MAF:
+Kuna maktaba nyingi za uingizaji zilizozunguka mifumo ya wakala iliyopo na kuifanya iwe rahisi kusafirisha mabano ya OpenTelemetry kwa chombo cha uwezo wa kuona. Microsoft Agent Framework inaunga mkono OpenTelemetry kwa asili. Hapa chini ni mfano wa kuingiza vipimo katika wakala wa MAF:
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -75,15 +75,15 @@ tracer = get_tracer()
 meter = get_meter()
 
 with tracer.start_as_current_span("agent_run"):
-    # Utekelezaji wa wakala unafuatiliwa kiotomatiki
+    # Utekelezaji wa wakala unafuatiliwa moja kwa moja
     pass
 ```
 
-Daftari la mfano (./code_samples/10-expense_claim-demo.ipynb) katika sura hii litaonyesha jinsi ya kuweka ufuatiliaji kwa wakala wako wa MAF.
+Daftari la [mfano](./code_samples/10-expense_claim-demo.ipynb) katika sura hii litaonyesha jinsi ya kuingiza vipimo kwa wakala wako wa MAF.
 
-**Uundaji wa Spans kwa Mikono:** Wakati maktaba za uingizaji hutoa msingi mzuri, mara kwa mara kuna kesi ambapo taarifa za kina zaidi au maalum zinahitajika. Unaweza kuunda spans kwa mikono ili kuongeza mantiki maalum ya programu. Muhimu zaidi, wanaweza kuimarisha spans zilizoundwa kiotomatiki au kwa mikono kwa vigezo maalum (vinavyojulikana pia kama tags au metadata). Vigezo hivi vinaweza kujumuisha data maalum ya biashara, mahesabu ya kati, au muktadha wowote ambao unaweza kuwa wa msaada kwa urekebishaji au uchambuzi, kama `user_id`, `session_id`, au `model_version`.
+**Uundaji wa Mabano kwa Mkono:** Ingawa maktaba za vipimo hutoa msingi mzuri, mara nyingi kuna hali zinazohitaji taarifa za kina zaidi au za desturi. Unaweza kuunda mabano kwa mkono kuongeza mantiki ya desturi ya programu. Zaidi ya hayo, yanaweza kuimarisha mabano yaliyoandaliwa kiotomatiki au kwa mkono wenye vigezo maalum (ambavyo pia hujulikana kama lebo au metadata). Vigezo hivi vinaweza kujumuisha data maalum za biashara, mahesabu ya kati, au muktadha wowote unaoweza kusaidia katika uchambuzi au ugunduzi makosa, kama `user_id`, `session_id`, au `model_version`.
 
-Mfano wa kuunda traces na spans kwa mikono kwa kutumia [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3): 
+Mfano wa kuunda mfuatano na mabano kwa mkono kutumia [Langfuse Python SDK](https://langfuse.com/docs/sdk/python/sdk-v3): 
 
 ```python
 from langfuse import get_client
@@ -97,82 +97,84 @@ span.end()
 
 ## Tathmini ya Wakala
 
-Ufuatiliaji hutupa vigezo, lakini tathmini ni mchakato wa kuchambua data hiyo (na kufanya majaribio) ili kubaini jinsi wakala wa AI anavyoenda vizuri na jinsi ya kuuboresha. Kwa maneno mengine, mara tu unapokuwa na traces na vigezo hivyo, jinsi unavyovitumia kuhukumu wakala na kufanya maamuzi?
+Uwezo wa kuona hutupa vipimo, lakini tathmini ni mchakato wa kuchambua data hiyo (na kufanya majaribio) ili kubaini jinsi wakala wa AI anavyofanya kazi na jinsi ya kuboresha. Kwa maneno mengine, mara unavyopata mfuatano na vipimo hivyo, unavyovitumia kuhukumu wakala na kufanya maamuzi?
 
-Tathmini ya mara kwa mara ni muhimu kwa sababu wakala za AI mara nyingi si za lazima kutoa matokeo ya kila mara na zinaweza kubadilika (kupitia masasisho au mabadiliko ya tabia ya modeli) – bila tathmini, usingejua kama "wakala mwerevu" wako anaifanya kazi vizuri au ameanguka.
+Tathmini za kawaida ni muhimu kwa sababu wakala wa AI mara nyingi hawategemeiweza na wanaweza kubadilika (kupitia masasisho au mabadiliko ya tabia ya mfano) – bila tathmini, husingejua kama "wakala mwangalifu" kweli anafanya kazi yake vizuri au kama amepungua kiwango.
 
-Kuna aina mbili za tathmini kwa wakaala za AI: **tathmini za mtandaoni (online)** na **tathmini za nje ya mtandao (offline)**. Zote zina thamani, na zina maletana. Kawaida tunaanza na tathmini ya nje ya mtandao, kwani hii ndiyo hatua ya lazima kabla ya kupeleka wakala wowote.
+Kuna makundi mawili ya tathmini kwa wakala wa AI: **tathmini mtandaoni** na **tathmini nje ya mtandao**. Zote ni muhimu, na zinalinganisha kwa usaidizi wa kila mmoja. Kawaida huanza na tathmini nje ya mtandao, kwani hii ni hatua ya chini kabisa inayohitajika kabla ya kuanzisha wakala wowote.
 
-### Tathmini Nje ya Mtandao (Offline)
+### Tathmini Nje ya Mtandao
 
-![Vitu vya seti ya data kwenye Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
+![Vitu vya seti ya data katika Langfuse](https://langfuse.com/images/cookbook/example-autogen-evaluation/example-dataset.png)
 
-Hii inahusisha kutathmini wakala kwenye mazingira yaliyodhibitiwa, kawaida kutumia seti za majaribio, si maswali ya watumiaji hai. Unatumia seti zilizochaguliwa ambapo unajua matokeo yanayotarajiwa au tabia sahihi, kisha unaendesha wakala wako juu yao.
+Hii ni kujumuisha tathmini ya wakala katika mazingira yaliyodhibitiwa, kawaida kwa kutumia seti za data za majaribio, si maswali ya moja kwa moja kutoka kwa watumiaji. Unatumia seti za data zilizochaguliwa ambapo unajua matokeo au tabia sahihi inayotarajiwa, kisha unawapima wakala wako juu yao.
 
-Kwa mfano, ikiwa umeunda wakala wa kutatua matatizo ya maneno ya hesabu, unaweza kuwa na [seti ya majaribio](https://huggingface.co/datasets/gsm8k) ya matatizo 100 yenye majibu yanayojulikana. Tathmini ya nje ya mtandao mara nyingi hufanywa wakati wa maendeleo (na inaweza kuwa sehemu ya mizunguko ya CI/CD) ili kukagua maboresho au kuzuia kuanguka kwa ubora. Faida yake ni kwamba ni **inarudiwa na unaweza kupata vigezo wazi vya usahihi tangu una ukweli wa ardhi (ground truth)**. Pia unaweza kuiga maswali ya watumiaji na kupima majibu ya wakala dhidi ya majibu bora au kutumia vigezo vya kiotomatiki kama ilivyoelezwa hapo juu.
+Kwa mfano, ikiwa umejenga wakala kwa suluhisho la matatizo ya neno la hisabati, unaweza kuwa na [seti ya majaribio](https://huggingface.co/datasets/gsm8k) ya matatizo 100 yenye majibu yanayojulikana. Tathmini ya nje ya mtandao mara nyingi hufanywa wakati wa maendeleo (na inaweza kuwa sehemu ya mchakato wa CI/CD) kukagua maboresho au kulinda dhidi ya kurudi nyuma. Faida ni kwamba ni **inayoweza kurudiwa na unaweza kupata vipimo wazi vya usahihi kwa kuwa una ukweli wa msingi**. Pia unaweza kuiga maswali ya mtumiaji na kupima majibu ya wakala dhidi ya majibu bora au kutumia vipimo vya kiotomatiki kama vilivyoelezwa hapo juu.
 
-Changamoto kuu na tathmini ya nje ya mtandao ni kuhakikisha seti yako ya majaribio ni jumuishi na inabaki muhimu – wakala anaweza kufanya vizuri kwenye seti ya majaribio iliyowekwa lakini kukutana na maswali tofauti kabisa katika uzalishaji. Kwa hivyo, unapaswa kuweka seti za majaribio zikisasishwa na kesi mpya za pembezoni na mifano inayoakisi hali za ulimwengu halisi​. Mchanganyiko wa kesi ndogo za "smoke test" na seti kubwa za tathmini ni wa maana: seti ndogo kwa ukaguzi wa haraka na kubwa kwa vigezo vya utendaji kwa ujumla​.
+Changamoto kuu ya tathmini nje ya mtandao ni kuhakikisha seti yako ya majaribio ni kamili na inabaki sasa – wakala anaweza kufanya vizuri kwenye seti ya majaribio iliyowekwa lakini anakutana na maswali tofauti kabisa katika uzalishaji. Kwa hiyo, unapaswa kusasisha seti za majaribio na kesi mpya za kipekee na mifano inayowakilisha hali za kweli. Mchanganyiko wa kesi ndogo za "jaribio la moshi" na seti kubwa za tathmini ni muhimu: seti ndogo kwa ukaguzi wa haraka na seti kubwa kwa vipimo vya ufanisi vya pana.
 
-### Tathmini Mtandaoni (Online)
+### Tathmini Mtandaoni
 
-![Muhtasari wa vigezo vya ufuatiliaji](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
+![Muhtasari wa vipimo vya uwezo wa kuona](https://langfuse.com/images/cookbook/example-autogen-evaluation/dashboard.png)
 
-Hii inahusu kutathmini wakala katika mazingira ya moja kwa moja, ya ulimwengu halisi, yaani wakati wa matumizi halisi katika uzalishaji. Tathmini ya mtandaoni inajumuisha kufuatilia utendakazi wa wakala kwenye mwingiliano wa watumiaji wa kweli na kuchambua matokeo kwa kuendelea.
+Hii inahusu tathmini ya wakala katika mazingira ya moja kwa moja, ya dunia halisi, yaani wakati wa matumizi halisi katika uzalishaji. Tathmini mtandaoni inahusisha kufuatilia utendaji wa wakala kwenye mwingiliano halisi wa watumiaji na kuchambua matokeo kwa kuendelea.
 
-Kwa mfano, unaweza kufuatilia viwango vya mafanikio, alama za kuridhika kwa watumiaji, au vigezo vingine kwenye trafiki ya moja kwa moja. Faida ya tathmini mtandaoni ni kwamba **inakamata vitu ambavyo huenda hukutegemea kwenye maabara** – unaweza kuona mabadiliko ya modeli kwa muda (ikiwa ufanisi wa wakala unapungua wakati muundo wa pembejeo unabadilika) na kugundua maswali yasiyotarajiwa au hali ambazo hazikuwa kwenye data yako ya mtihani​. Inatoa picha halisi ya jinsi wakala anavyofanya kazi katika mazingira ya kweli.
+Kwa mfano, unaweza kufuatilia viwango vya mafanikio, alama za kuridhika kwa mtumiaji, au vipimo vingine ndani ya trafiki ya moja kwa moja. Faida ya tathmini mtandaoni ni kwamba inakamata mambo ambayo huenda usiyataraji katika mazingira ya maabara – unaweza kuona mabadiliko ya mfano kwa muda (ikiwa ufanisi wa wakala hupungua wakati mifumo ya pembejeo inabadilika) na kugundua maswali au hali zisizotarajiwa ambazo hazikuwepo kwenye data ya majaribio. Hii hutoa picha halisi ya jinsi wakala anavyofanya kazi katika mazingira halisi.
 
-Tathmini mtandaoni mara nyingi inahusisha kukusanya maoni ya wazi na yasiyo ya moja kwa moja kutoka kwa watumiaji, kama ilivyojadiliwa, na huenda kuendesha majaribio ya kivuli au majaribio ya A/B (ambapo toleo jipya la wakala linaendeshwa sambamba ili kulinganisha na toleo la zamani). Changamoto ni kwamba inaweza kuwa ngumu kupata lebo au alama za kuaminika kwa mwingiliano wa moja kwa moja – unaweza kutegemea maoni ya watumiaji au vigezo vinavyofuata (kama mtumiaji alibonyeza matokeo).
+Tathmini mtandaoni mara nyingi inahusisha ukusanyaji wa maoni ya wazi na yasiyo ya wazi ya watumiaji, kama ilivyojadiliwa, na labda kuendesha majaribio ya kivuli au majaribio ya A/B (ambapo toleo jipya la wakala linaendeshwa sambamba kulinganisha na toleo la zamani). Changamoto ni kwamba inaweza kuwa vigumu kupata lebo au alama za kuaminika kwa mwingiliano wa moja kwa moja – unaweza kutegemea maoni ya mtumiaji au vipimo vinavyokuja baadaye (kama mtumiaji alibofya matokeo).
 
-### Kuunganisha zote mbili
+### Kuunganisha Vyote Viwili
 
-Tathmini mtandaoni na nje ya mtandao sio za kutenganishwa; zinaendana vizuri. Maarifa kutoka kwa ufuatiliaji mtandaoni (mfano, aina mpya za maswali ya watumiaji ambapo wakala anafanya vibaya) yanaweza kutumika kuongeza na kuboresha seti za majaribio za nje ya mtandao. Kinyume chake, wakala wanaofanya vizuri katika majaribio ya nje ya mtandao wanaweza kupelekwa kwa uhakika zaidi na kufuatiliwa mtandaoni.
+Tathmini mtandaoni na nje ya mtandao si za kinyume; ni za kuongezana kwa hali kubwa. Maarifa kutoka kwa ufuatiliaji mtandaoni (mfano, aina mpya za maswali ya mtumiaji ambako wakala hafanyi vizuri) yanaweza kutumiwa kuongeza na kuboresha seti za data za mtihani wa nje ya mtandao. Kwa upande mwingine, wakala wanaofanya vizuri katika majaribio ya nje ya mtandao wanaweza kuzinduliwa kwa kujiamini zaidi na kufuatiliwa mtandaoni.
 
-Kwa kweli, timu nyingi zinachukua mzunguko:
+Kwa kweli, timu nyingi hutumia mzunguko:
 
-_tathmini nje ya mtandao -> tuma uzalishaji -> fuatilia mtandaoni -> kusanya kesi mpya za kushindwa -> ongeza kwenye seti ya nje ya mtandao -> boresha wakala -> rudia_.
+_tathmini nje ya mtandao -> anzisha -> fuatilia mtandaoni -> kusanya kesi mpya za kushindwa -> ongeza kwenye seti ya data ya nje ya mtandao -> boresha wakala -> rudia_.
 
 ## Masuala ya Kawaida
 
-Unapopeleka wakala za AI uzalishaji, unaweza kukutana na changamoto mbalimbali. Hapa kuna baadhi ya masuala ya kawaida na suluhisho zao zinazowezekana:
+Unapoanzisha wakala wa AI katika uzalishaji, unaweza kukutana na changamoto mbalimbali. Hapa kuna baadhi ya matatizo ya kawaida na suluhisho zao zinazowezekana:
 
-| **Tatizo**    | **Suluhisho Linawezekana**   |
+| **Tatizo**    | **Suluhisho Linalowezekana**   |
 | ------------- | ------------------ |
-| Wakala wa AI hauendeshi kazi kwa uthabiti | - Fanyia marekebisho maelekezo yaliyotolewa kwa Wakala wa AI; kuwa wazi kuhusu malengo.<br>- Tambua sehemu ambapo kugawa kazi kuwa madogo na kuzishughulikia na wakala wengi kunaweza kusaidia. |
-| Wakala wa AI unaingia katika mizunguko ya kuendelea  | - Hakikisha una vigezo vya kusitisha vya wazi ili Wakala ajue lini kusitisha mchakato.<br>- Kwa kazi ngumu zinazohitaji fikra na upangaji, tumia modeli kubwa ambayo imeabadilishwa kwa kazi za msingi wa fikra. |
-| Miito ya zana za Wakala haifanyi vizuri   | - Jaribu na thibitisha matokeo ya zana nje ya mfumo wa wakala.<br>- Fanyia marekebisho vigezo vilivyofafanuliwa, prompts, na majina ya zana.  |
-| Mfumo wa Wakala Wengi hauendeshi kwa uthabiti | - Fanyia marekebisho prompts zinazotolewa kwa kila wakala kuhakikisha zinaeleweka na kutofautiana kati yao.<br>- Jenga mfumo wa ngazi kwa kutumia wakala wa "routing" au mtawala kuamua ni wakala gani anayefaa. |
+| Wakala wa AI haufanyi kazi kwa uthabiti | - Boresha maelekezo yaliyotolewa kwa Wakala wa AI; uwe wazi kuhusu malengo.<br>- Tambua sehemu ambapo kugawanya kazi ndogo ndogo na kushughulikiwa na wakala wengi kunaweza kusaidia. |
+| Wakala wa AI unasumbuliwa na mizunguko ya kuendelea | - Hakikisha una masharti ya kusitisha wazi ili Wakala ajue lini kuacha mchakato.<br>- Kwa kazi tata zinazohitaji hoja na mipango, tumia mfano mkubwa ulio maalum kwa kazi za hoja. |
+| Miito ya zana za Wakala wa AI haifanyi vizuri | - Jaribu na thibitisha matokeo ya zana nje ya mfumo wa wakala.<br>- Boresha vigezo vilivyobainishwa, maelekezo, na majina ya zana.  |
+| Mfumo wa Wakala Wengi haufanikiwi kwa uthabiti | - Boresha maelekezo yaliyotolewa kwa kila wakala kuhakikisha ni maalum na tofauti miongoni mwao.<br>- Jenga mfumo wa ngazi kwa kutumia wakala wa "routing" au msimamizi kuamua ni wakala gani sahihi. |
 
-Mengi ya masuala haya yanaweza kutambulika kwa ufanisi zaidi ikiwa ufuatiliaji uko mahali. Traces na vigezo tulivyoyajadili hapo juu husaidia kubainisha hasa wapi katika mtiririko wa kazi za wakala matatizo yanatokea, na kufanya urekebishaji na uboreshaji kuwa wa ufanisi zaidi.
+Matatizo haya mengi yanaweza kugunduliwa kwa ufanisi zaidi kwa kuwepo kwa uwezo wa kuona. Mfuatano na vipimo tuliojadili awali husaidia kugundua mahali hasa panapotokea matatizo katika mchakato wa wakala, na kufanya utambuzi na uboreshaji kuwa wa haraka zaidi.
 
-## Kusimamia Gharama
-Hapa kuna baadhi ya mikakati ya kupunguza gharama za kupeleka mawakala wa AI ndani ya uzalishaji:
-
-**Using Smaller Models:** Modeli Ndogo za Lugha (SLMs) zinaweza kufanya vizuri kwa baadhi ya matukio ya matumizi ya wakala na zitapunguza gharama kwa kiasi kikubwa. Kama ilivyoelezwa awali, kujenga mfumo wa tathmini ili kubaini na kulinganisha utendaji dhidi ya modeli kubwa ni njia bora ya kuelewa jinsi SLM itakavyofanya kazi katika kesi yako ya matumizi. Fikiria kutumia SLMs kwa kazi rahisi kama vile upangaji wa nia au uchimbaji wa vigezo, wakati ukihifadhi modeli kubwa kwa mantiki ngumu.
-
-**Using a Router Model:** Mkakati sawa ni kutumia utofauti wa modeli na ukubwa. Unaweza kutumia LLM/SLM au serverless function kupitisha maombi kulingana na ugumu kwa modeli zinazofaa zaidi. Hii pia itasaidia kupunguza gharama sambamba na kuhakikisha utendaji kwa kazi zinazofaa. Kwa mfano, panga maswali rahisi kwa modeli ndogo, za haraka, na tumia modeli kubwa, za gharama kubwa, tu kwa kazi za kufikiri kwa kiwango cha juu.
-
-**Caching Responses:** Kutambua maombi na kazi zinazojirudia na kutoa majibu kabla hayajakupitia mfumo wako wa wakala ni njia nzuri ya kupunguza wingi wa maombi yanayofanana. Unaweza hata kutekeleza mchakato wa kutambua jinsi ombi linavyofanana na maombi yako yaliyohifadhiwa katika cache kwa kutumia modeli za AI za msingi. Mkakati huu unaweza kupunguza gharama kwa kiasi kikubwa kwa maswali yanayoulizwa mara kwa mara au mtiririko wa kazi wa kawaida.
-
-## Hebu tuone jinsi hii inavyofanya kazi kwa vitendo
-
-Katika [daftari la mfano la sehemu hii](./code_samples/10-expense_claim-demo.ipynb), tutaona mifano ya jinsi tunavyoweza kutumia zana za ufuatiliaji (observability tools) kufuatilia na kutathmini wakala wetu.
+## Udhibiti wa Gharama
 
 
-### Una Maswali Zaidi kuhusu Mawakala wa AI katika Uzalishaji?
+Hapa kuna mikakati ya kusimamia gharama za kupeleka mawakala wa AI katika uzalishaji:
 
-Jiunge na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) ili kukutana na wanafunzi wengine, kuhudhuria saa za ofisi na kupata majibu kwa maswali yako kuhusu Mawakala wa AI.
+**Kutumia Mifano Midogo:** Mifano Midogo ya Lugha (SLMs) inaweza kufanya vizuri kwa baadhi ya matumizi ya wakala na itapunguza gharama kwa kiasi kikubwa. Kama ilivyotajwa awali, kujenga mfumo wa tathmini ili kuamua na kulinganisha utendaji dhidi ya mifano mikubwa ni njia bora ya kuelewa jinsi SLM itakavyofanya kazi kwa matumizi yako. Fikiria kutumia SLM kwa kazi rahisi kama uainishaji wa nia au uondoaji wa vigezo, wakati ukihifadhi mifano mikubwa kwa hoja ngumu.
 
-## Somo Lililopita
+**Kutumia Mfano wa Router:** Mkakati sawa ni kutumia utofauti wa mifano na saizi. Unaweza kutumia LLM/SLM au kazi isiyo na seva kupeleka maombi kulingana na ugumu kwa mifano inayofaa zaidi. Hii pia itasaidia kupunguza gharama huku ikihakikisha utendaji kwenye kazi zinazofaa. Kwa mfano, tupilia queries rahisi kwa mifano midogo, ya haraka, na tumia mifano mikubwa ya gharama kubwa kwa kazi za hoja ngumu pekee.
 
-[Mfano wa Ubunifu wa Metacognition](../09-metacognition/README.md)
+**Kuweka Mwitikio Mbele (Caching Responses):** Kubaini maombi na kazi za kawaida na kutoa majibu kabla hayajapitia katika mfumo wako wa wakala ni njia nzuri ya kupunguza wingi wa maombi yanayofanana. Unaweza hata kutekeleza mtiririko wa kubaini jinsi maombi yanavyofanana na maombi yaliyohifadhiwa ukiwa na kutumia mifano ya AI ya msingi zaidi. Mkakati huu unaweza kupunguza kwa kiasi kikubwa gharama za maswali yanayoulizwa mara kwa mara au michakato ya kawaida.
 
-## Somo Linalofuata
+## Tuweze kuona jinsi hii inavyofanya kazi kwa vitendo
+
+Katika [daftari la mfano la sehemu hii](./code_samples/10-expense_claim-demo.ipynb), tutaona mifano ya jinsi tunaweza kutumia zana za ufuatiliaji na tathmini ya wakala wetu.
+
+
+### Una Maswali Zaidi kuhusu Wakala wa AI katika Uzalishaji?
+
+Jiunge na [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) kukutana na wapenzi wengine, kuhudhuria muda wa maswali na kupata majibu ya maswali yako kuhusu Wakala wa AI.
+
+## Somo lililopita
+
+[Mfumo wa Kubuni Metacognition](../09-metacognition/README.md)
+
+## Somo lijalo
 
 [Itifaki za Wakala](../11-agentic-protocols/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Taarifa ya kutolea dhamana:
-Nyaraka hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kufikia usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au ukosefu wa usahihi. Nyaraka ya asili katika lugha yake inapaswa kuchukuliwa kama chanzo cha kuaminika. Kwa taarifa muhimu, inapendekezwa kutumia tafsiri iliyofanywa na mtaalamu wa lugha. Hatuwajibiki kwa kutokuelewana au tafsiri potofu zitokanazo na matumizi ya tafsiri hii.
+**Kionyozo**:
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kupata usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati ya asili katika lugha yake halisi inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayofanywa na binadamu inapendekezwa. Hatutojibu kwa kuelewa vibaya au tafsiri potofu zinazotokea kutokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,93 +1,95 @@
-[![Többügynökös tervezés](../../../translated_images/hu/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/hu/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
-> _(Kattintson a fenti képre a lecke videójának megtekintéséhez)_
-# Metakogníció az MI-ügynökökben
+> _(Kattints a fenti képre a lecke videójának megtekintéséhez)_
+# Metakogníció AI ügynökökben
 
 ## Bevezetés
 
-Üdv a metakognícióról szóló leckében az MI-ügynököknél! Ez a fejezet kezdőknek készült, akik kíváncsiak arra, hogyan gondolkodhatnak az MI-ügynökök a saját gondolkodási folyamataikról. A lecke végére megérted a kulcsfontosságú fogalmakat, és gyakorlati példákkal leszel felszerelve, hogy alkalmazd a metakogníciót az MI-ügynök tervezésében.
+Üdvözlünk a metakognícióról szóló lecke AI ügynökök esetén! Ez a fejezet kezdőknek szól, akik kíváncsiak arra, hogyan képesek az AI ügynökök saját gondolkodási folyamataikról gondolkodni. A lecke végére megérted a kulcsfogalmakat, és gyakorlati példákkal leszel felszerelve, hogy alkalmazd a metakogníciót AI ügynökök tervezésében.
 
 ## Tanulási célok
 
 A lecke elvégzése után képes leszel:
 
-1. Megérteni az érvelési hurkok következményeit az ügynökdefiníciókban.
-2. Tervezési és értékelési technikákat alkalmazni az önkorrekciós ügynökök támogatására.
-3. Saját ügynököket létrehozni, amelyek képesek kódot manipulálni feladatok elvégzéséhez.
+1. Megérteni a következtetési hurkok jelentőségét az ügynökdefiníciókban.
+2. Tervezési és értékelési technikákat alkalmazni az önjavító ügynökök segítésére.
+3. Saját ügynököket létrehozni, amelyek képesek kód manipulálására a feladatok elvégzéséhez.
 
-## Bevezetés a metakognícióhoz
+## Bevezetés a metakognícióba
 
-A metakogníció a magasabb rendű kognitív folyamatokra utal, amelyek magukban foglalják a saját gondolkodásunkról való gondolkodást. MI-ügynökök esetében ez azt jelenti, hogy képesek értékelni és módosítani a cselekvéseiket önismeret és múltbeli tapasztalatok alapján. A metakogníció, vagyis a „gondolkodás a gondolkodásról”, fontos fogalom az ügynöki MI rendszerek fejlesztésében. Magában foglalja, hogy az MI rendszerek tisztában vannak saját belső folyamataikkal, és képesek monitorozni, szabályozni és adaptálni viselkedésüket ennek megfelelően. Hasonlóan ahhoz, ahogy mi felmérjük a helyzetet vagy átgondolunk egy problémát. Ez az önismeret segíthet az MI rendszereknek jobb döntéseket hozni, hibákat felismerni és teljesítményüket idővel javítani — ismét visszakapcsolódva a Turing-teszthez és a vitához arról, hogy az MI át fogja-e venni az irányítást.
+A metakogníció a magasabb szintű kognitív folyamatokat jelenti, amelyek magukban foglalják a saját gondolkodásunkról való gondolkodást. AI ügynökök esetén ez azt jelenti, hogy képesek értékelni és igazítani a cselekedeteiket önreflexió és múltbeli tapasztalatok alapján. A metakogníció, vagy "a gondolkodásról való gondolkodás," fontos fogalom az ügynöki AI rendszerek fejlesztésében. Arra utal, hogy az AI rendszerek tisztában vannak saját belső folyamataikkal, és képesek figyelni, szabályozni és alkalmazkodni viselkedésükhöz. Hasonlóan, ahogy mi megfigyeljük a környezetünket vagy egy problémát. Ez az önismeret segíthet az AI rendszereknek jobb döntéseket hozni, hibákat felismerni, és idővel javítani a teljesítményüket – ami visszakapcsol a Turing-tesztre és a vitára arról, hogy az AI át fogja-e venni az irányítást.
 
-Az ügynöki MI rendszerek kontextusában a metakogníció több kihívás kezelésében is segíthet, például:
-- Átláthatóság: Biztosítani, hogy az MI rendszerek el tudják magyarázni az érvelésüket és döntéseiket.
-- Érvelés: Javítani az MI rendszerek képességét az információk szintetizálására és megalapozott döntések meghozatalára.
-- Alkalmazkodás: Lehetővé tenni az MI rendszerek számára, hogy alkalmazkodjanak új környezetekhez és változó feltételekhez.
-- Észlelés: Növelni az MI rendszerek pontosságát a környezetükből származó adatok felismerésében és értelmezésében.
+Az ügynöki AI rendszerek kontextusában a metakogníció több kihívás kezelésében segíthet, például:
+- Átláthatóság: Biztosítani, hogy az AI rendszerek meg tudják magyarázni következtetéseiket és döntéseiket.
+- Következtetés: Javítani az AI rendszerek képességét az információk szintetizálására és megalapozott döntések meghozatalára.
+- Alkalmazkodás: Lehetővé tenni, hogy az AI rendszerek alkalmazkodjanak új környezetekhez és változó feltételekhez.
+- Észlelés: Javítani az AI rendszerek pontosságát a környezetükből származó adatok felismerésében és értelmezésében.
 
-### Mi a metakogníció?
+### Mi az a metakogníció?
 
-A metakogníció, vagyis a „gondolkodás a gondolkodásról”, egy magasabb rendű kognitív folyamat, amely magában foglalja az önismeretet és a saját kognitív folyamataid önszabályozását. Az MI területén a metakogníció lehetővé teszi az ügynökök számára, hogy értékeljék és adaptálják stratégiáikat és cselekvéseiket, ami jobb problémamegoldó és döntéshozó képességekhez vezet. A metakogníció megértésével olyan MI-ügynököket tervezhetsz, amelyek nemcsak intelligensebbek, hanem alkalmazkodóképesebbek és hatékonyabbak is. Az igazi metakogníció esetén az MI kifejezetten érvel a saját érveléséről.
+A metakogníció, vagy "a gondolkodásról való gondolkodás," egy magasabb rendű kognitív folyamat, amely önismeretet és a kognitív folyamatok önszabályozását jelenti. Az AI területén a metakogníció képessé teszi az ügynököket, hogy értékeljék és alkalmazkodjanak stratégiáikhoz és cselekvéseikhez, ami jobb problémamegoldáshoz és döntéshozatalhoz vezet. A metakogníció megértésével olyan AI ügynököket tervezhetsz, amelyek nemcsak intelligensebbek, hanem alkalmazkodóbbak és hatékonyabbak is. Az igazi metakognícióban az AI explicit módon érvel a saját érveléséről.
 
-Példa: „Az olcsóbb járatokat részesítettem előnyben, mert… Lehet, hogy kimaradok a közvetlen járatokról, szóval újraellenőrzöm.”  
-Nyomon követni, hogyan vagy miért választott egy bizonyos útvonalat.
-- Megjegyezni, hogy hibázott, mert túlzottan támaszkodott az előző alkalom felhasználói preferenciáira, ezért módosítja a döntéshozatali stratégiáját, nem csak a végső ajánlást.
-- Mintázatok diagnosztizálása, például: „Ha a felhasználó megemlíti, hogy 'túl zsúfolt', nemcsak bizonyos látványosságokat kell eltávolítanom, hanem azt is felismernem, hogy a 'legjobb látványosságok' kiválasztási módszerem hibás, ha mindig népszerűség alapján sorrendezek.”
+Példa: „Az olcsóbb repülőjáratokat helyeztem előtérbe, mert... lehet, hogy kimaradnak a közvetlen járatok, ezért újra ellenőrzöm.”
+Nyomon követi, hogyan vagy miért választott egy adott utat.
+- Megjegyzi, hogy hibázott, mert túlzottan támaszkodott a felhasználói preferenciákra az előző alkalommal, így nemcsak a végső ajánlást, hanem a döntéshozatali stratégiáját is módosítja.
+- Olyan mintázatokat diagnosztizál, mint például: „Amikor a felhasználó azt említi, hogy 'túl zsúfolt', nemcsak bizonyos látványosságokat kell eltávolítanom, hanem azt is reflektálni kell, hogy a 'top látványosságok' kiválasztási módszerem hibás, ha mindig népszerűség szerint rangsorolok.”
 
-### A metakogníció jelentősége az MI-ügynökökben
+### A metakogníció fontossága AI ügynökökben
 
-![A metakogníció jelentősége](../../../translated_images/hu/importance-of-metacognition.b381afe9aae352f7.webp)
+A metakogníció kulcsszerepet játszik az AI ügynökök tervezésében több okból:
 
-- Önreflexió: Az ügynökök felmérhetik saját teljesítményüket és azonosíthatják a fejlődési területeket.
-- Alkalmazkodóképesség: Az ügynökök módosíthatják stratégiáikat a múltbeli tapasztalatok és a változó környezet alapján.
-- Hibajavítás: Az ügynökök önállóan felismerhetik és javíthatják a hibákat, ami pontosabb eredményekhez vezet.
-- Erőforrás-kezelés: Az ügynökök optimalizálhatják az erőforrások, például az idő és a számítási kapacitás felhasználását a tervezés és értékelés révén.
+![A metakogníció fontossága](../../../translated_images/hu/importance-of-metacognition.b381afe9aae352f7.webp)
 
-## Az MI-ügynök összetevői
+- Önreflexió: Az ügynökök értékelik saját teljesítményüket és azonosítanak fejlesztendő területeket.
+- Alkalmazkodóképesség: Az ügynökök múltbeli tapasztalatok és változó környezet alapján módosítják stratégiáikat.
+- Hibajavítás: Az ügynökök önállóan felismerik és korrigálják a hibákat, ami pontosabb eredményekhez vezet.
+- Erőforrás-gazdálkodás: Az ügynökök optimalizálják erőforrásaik használatát, mint az idő és számítási kapacitás, tervezéssel és értékeléssel.
 
-Mielőtt belemennénk a metakognitív folyamatokba, fontos megérteni egy MI-ügynök alapvető összetevőit. Egy MI-ügynök tipikusan a következőkből áll:
+## Egy AI ügynök összetevői
 
-- Persona: Az ügynök személyisége és jellemzői, amelyek meghatározzák, hogyan lép kapcsolatba a felhasználókkal.
-- Eszközök: Azok a képességek és funkciók, amelyeket az ügynök végrehajthat.
-- Készségek: Azok a tudás és szaktudás, amelyekkel az ügynök rendelkezik.
+Mielőtt belemennénk a metakognitív folyamatokba, fontos megérteni egy AI ügynök alapvető összetevőit. Egy AI ügynök tipikusan a következőkből áll:
 
-Ezek az összetevők együtt egy „szakértelmi egységet” alkotnak, amely képes speciális feladatok végrehajtására.
+- Személyiség: Az ügynök személyisége és jellemzői, amelyek meghatározzák, hogyan lép kapcsolatba a felhasználókkal.
+- Eszközök: Az ügynök által végrehajtható képességek és funkciók.
+- Készségek: Az ügynök tudása és szakértelme.
 
-**Példa**:  
-Gondolj egy utazási ügynökre, egy olyan ügynök szolgáltatásra, amely nemcsak megtervezi az üdülésedet, hanem valós idejű adatok és korábbi ügyfélút-tapasztalatok alapján is módosítja az útvonalát.
+Ezek az összetevők együtt alkotnak egy „szakértelmi egységet”, amely képes specifikus feladatok elvégzésére.
+
+**Példa**:
+Gondolj egy utazási ügynökre, amely nemcsak megtervezi a nyaralásodat, hanem valós idejű adatok és korábbi ügyfélutak tapasztalatai alapján igazítja útvonalát.
 
 ### Példa: Metakogníció egy utazási ügynök szolgáltatásban
 
-Képzeld el, hogy egy MI-alapú utazási ügynök szolgáltatást tervezel. Ez az ügynök, „Utazási ügynök”, segíti a felhasználókat a nyaralás megtervezésében. A metakogníció beépítéséhez az Utazási ügynöknek értékelnie és módosítania kell a cselekvéseit önismeret és múltbeli tapasztalatok alapján. Íme, hogyan játszhat szerepet a metakogníció:
+Képzeld el, hogy egy AI által működtetett utazási ügynök szolgáltatást tervezel. Ez az ügynök, „Travel Agent,” segíti a felhasználókat nyaralásuk megtervezésében. A metakogníció beépítéséhez a Travel Agent-nek értékelnie kell saját cselekedeteit és alkalmazkodnia kell önreflexió és múltbeli tapasztalatok szerint. Így játszhat szerepet a metakogníció:
 
 #### Jelenlegi feladat
 
-A jelenlegi feladat egy felhasználó párizsi utazásának megtervezése.
+A jelenlegi feladat segíteni a felhasználót egy párizsi út megtervezésében.
 
-#### A feladat elvégzésének lépései
+#### A feladat végrehajtásának lépései
 
-1. **Felhasználói preferenciák összegyűjtése**: Kérdezd meg a felhasználót az utazási dátumokról, a költségvetésről, az érdeklődési körökről (pl. múzeumok, gasztronómia, vásárlás) és bármilyen speciális igényről.
-2. **Információk lekérése**: Keress repülőjáratokat, szállásokat, látványosságokat és éttermeket, amelyek megfelelnek a felhasználó preferenciáinak.
-3. **Ajánlások készítése**: Készíts személyre szabott útitervet a járat részleteivel, szállásfoglalásokkal és javasolt programokkal.
-4. **Módosítás visszajelzés alapján**: Kérj visszajelzést a felhasználótól az ajánlásokkal kapcsolatban, és végezd el a szükséges kiigazításokat.
+1. **Felhasználói preferenciák gyűjtése:** Kérdezd meg a felhasználót az utazás dátumairól, költségvetéséről, érdeklődési köréről (például múzeumok, konyha, vásárlás) és bármilyen specifikus igényről.
+2. **Információgyűjtés:** Keresd meg a járatokat, szállásokat, látnivalókat és éttermeket, amelyek megfelelnek a felhasználói preferenciáknak.
+3. **Ajánlások létrehozása:** Készíts személyre szabott útitervet járatok, szállásfoglalások és javasolt programok részleteivel.
+4. **Visszajelzés alapján igazítás:** Kérj visszajelzést a felhasználótól az ajánlatokról, és végezz szükséges módosításokat.
 
 #### Szükséges erőforrások
 
-- Hozzáférés járat- és szállásfoglalási adatbázisokhoz.
-- Információk párizsi látványosságokról és éttermekről.
-- Korábbi interakciókból származó felhasználói visszajelzési adatok.
+- Hozzáférés repülő- és szállásfoglalási adatbázisokhoz.
+- Információk párizsi látnivalókról és éttermekről.
+- Felhasználói visszajelzési adatok korábbi interakciókból.
 
 #### Tapasztalat és önreflexió
 
-Az Utazási ügynök metakogníciót használ teljesítménye értékelésére és a múltbeli tapasztalatokból való tanulásra. Például:
+A Travel Agent metakogníciót használ teljesítményének értékelésére és a múltból való tanulásra. Például:
 
-1. **Felhasználói visszajelzések elemzése**: Az Utazási ügynök átnézi a felhasználói visszajelzéseket, hogy meghatározza, mely ajánlások voltak sikeresek és melyek nem. Ennek megfelelően módosítja a jövőbeli javaslatait.
-2. **Alkalmazkodóképesség**: Ha egy felhasználó korábban megemlítette, hogy nem szereti a zsúfolt helyeket, az Utazási ügynök a jövőben elkerüli a népszerű turistahelyek ajánlását a csúcsidőben.
-3. **Hibajavítás**: Ha az Utazási ügynök egy korábbi foglalásnál hibát követett el — például egy teljesen foglalt hotelt ajánlott — megtanulja, hogy alaposabban ellenőrizze az elérhetőséget, mielőtt ajánlást tesz.
+1. **Felhasználói visszajelzés elemzése:** A Travel Agent áttekinti a felhasználói visszajelzéseket, hogy meghatározza, mely ajánlások voltak sikeresek és melyek nem. Ennek megfelelően módosítja a jövőbeni javaslatokat.
+2. **Alkalmazkodó képesség:** Ha a felhasználó korábban jelezte, hogy nem szereti a zsúfolt helyeket, a Travel Agent a jövőben el fogja kerülni a népszerű turistalátványosságokat a csúcsidőben.
+3. **Hibajavítás:** Ha a Travel Agent korábban hibát követett el egy foglalásnál, például egy már teltházas hotelt ajánlott, megtanulja az elérhetőséget szigorúbban ellenőrizni ajánlás előtt.
 
 #### Gyakorlati fejlesztői példa
 
-Itt van egy egyszerűsített példa arra, hogyan nézhet ki az Utazási ügynök kódja a metakogníció beépítésével:
+Íme egy leegyszerűsített példa arra, hogyan nézhet ki a Travel Agent kódja a metakogníció beépítésével:
 
 ```python
 class Travel_Agent:
@@ -99,7 +101,7 @@ class Travel_Agent:
         self.user_preferences = preferences
 
     def retrieve_information(self):
-        # Járatok, szállodák és látnivalók keresése a preferenciák alapján
+        # Keresés járatok, szállodák és látnivalók között preferenciák alapján
         flights = search_flights(self.user_preferences)
         hotels = search_hotels(self.user_preferences)
         attractions = search_attractions(self.user_preferences)
@@ -112,7 +114,7 @@ class Travel_Agent:
 
     def adjust_based_on_feedback(self, feedback):
         self.experience_data.append(feedback)
-        # Visszajelzések elemzése és a jövőbeni ajánlások kiigazítása
+        # Vélemények elemzése és jövőbeli ajánlások módosítása
         self.user_preferences = adjust_preferences(self.user_preferences, feedback)
 
 # Használati példa
@@ -132,68 +134,68 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 #### Miért fontos a metakogníció
 
-- **Önreflexió**: Az ügynökök elemezhetik teljesítményüket és azonosíthatják a fejlődési területeket.
-- **Alkalmazkodóképesség**: Az ügynökök módosíthatják stratégiáikat a visszajelzések és a változó körülmények alapján.
-- **Hibajavítás**: Az ügynökök önállóan felismerhetik és korrigálhatják a hibákat.
-- **Erőforrás-kezelés**: Az ügynökök optimalizálhatják az erőforrások, például az idő és a számítási kapacitás használatát.
+- **Önreflexió:** Az ügynökök elemezhetik teljesítményüket és azonosíthatják a fejlesztendő területeket.
+- **Alkalmazkodóképesség:** Az ügynökök visszajelzések és változó körülmények alapján módosíthatják stratégiájukat.
+- **Hibajavítás:** Az ügynökök önállóan felismerik és javítják a hibákat.
+- **Erőforrás-gazdálkodás:** Az ügynökök optimalizálják az erőforrások, mint idő és számítási kapacitás használatát.
 
-A metakogníció beépítésével az Utazási ügynök személyre szabottabb és pontosabb utazási ajánlásokat tud nyújtani, ezáltal javítva az általános felhasználói élményt.
+A metakogníció beépítésével a Travel Agent személyre szabottabb és pontosabb utazási ajánlásokat nyújthat, javítva a felhasználói élményt.
 
 ---
 
 ## 2. Tervezés az ügynökökben
 
-A tervezés kritikus eleme az MI-ügynök viselkedésének. Felöleli a cél eléréséhez szükséges lépések kidolgozását, figyelembe véve a jelenlegi állapotot, az erőforrásokat és a lehetséges akadályokat.
+A tervezés kritikus komponense az AI ügynökök viselkedésének. Magában foglalja a cél eléréséhez szükséges lépések körvonalazását, figyelembe véve a jelenlegi állapotot, erőforrásokat és lehetséges akadályokat.
 
 ### A tervezés elemei
 
-- **Jelenlegi feladat**: Határozd meg világosan a feladatot.
-- **A feladat elvégzésének lépései**: Bontsd le a feladatot kezelhető lépésekre.
-- **Szükséges erőforrások**: Azonosítsd a szükséges erőforrásokat.
-- **Tapasztalat**: Használd a múltbeli tapasztalatokat a tervezés elősegítésére.
+- **Jelenlegi feladat:** Határozd meg világosan a feladatot.
+- **A feladat végrehajtásának lépései:** Bontsd le a feladatot kezelhető lépésekre.
+- **Szükséges erőforrások:** Azonosítsd a szükséges erőforrásokat.
+- **Tapasztalat:** Használd fel a múltbeli tapasztalatokat a tervezéshez.
 
-**Példa**:  
-Itt vannak azok a lépések, amelyeket az Utazási ügynöknek meg kell tennie, hogy hatékonyan segítse a felhasználót az utazás megtervezésében:
+**Példa**:
+Itt vannak a lépések, amelyeket a Travel Agentnek meg kell tennie, hogy hatékonyan segítse a felhasználót az utazás tervezésében:
 
-### Lépések az utazási ügynök számára
+### Lépések a Travel Agent számára
 
-1. **Felhasználói preferenciák összegyűjtése**
-   - Kérdezd meg a felhasználót az utazási dátumokról, a költségvetésről, az érdeklődési körökről és bármilyen speciális igényről.
-   - Példák: "Mikor tervez utazni?" "Mekkora a költségvetési sáv?" "Milyen tevékenységeket élvez nyaraláskor?"
+1. **Felhasználói preferenciák gyűjtése**
+   - Kérdezd meg a felhasználót az utazás dátumairól, költségvetéséről, érdeklődési köréről és speciális igényeiről.
+   - Példák: „Mikor tervezel utazni?” „Mekkora a költségvetésed?” „Milyen tevékenységeket szeretsz nyaraláskor?”
 
-2. **Információk lekérése**
-   - Keress releváns utazási lehetőségeket a felhasználói preferenciák alapján.
-   - **Járatok**: Keresd meg az elérhető járatokat a felhasználó költségvetésén és preferált utazási dátumain belül.
-   - **Szállások**: Találj hoteleket vagy kiadó ingatlanokat, amelyek megfelelnek a felhasználó elvárásainak (helyszín, ár, felszereltség).
-   - **Látványosságok és éttermek**: Azonosíts népszerű látványosságokat, programokat és étkezési lehetőségeket, amelyek illeszkednek a felhasználó érdeklődéséhez.
+2. **Információgyűjtés**
+   - Keresd meg az utazási lehetőségeket a felhasználói preferenciák alapján.
+   - **Járatok:** Keress elérhető járatokat a felhasználó költségvetésén és kívánt utazási dátumain belül.
+   - **Szállás:** Találj hoteleket vagy bérleményeket, amelyek megfelelnek a felhasználó helyszín, ár és szolgáltatások iránti preferenciáinak.
+   - **Látványosságok és éttermek:** Azonosíts népszerű látnivalókat, programokat és étkezési lehetőségeket, amelyek összhangban vannak a felhasználó érdeklődésével.
 
 3. **Ajánlások készítése**
-   - Gyűjtsd össze a lekért információkat egy személyre szabott útitervbe.
-   - Adj meg részleteket, például járatopciókat, szállásfoglalásokat és javasolt programokat, ügyelve arra, hogy az ajánlások igazodjanak a felhasználó preferenciáihoz.
+   - Állítsd össze az összegyűjtött információkból a személyre szabott útitervet.
+   - Add meg a járatok, szállásfoglalások és javasolt programok részleteit, ügyelve arra, hogy a javaslatokat a felhasználó preferenciáihoz igazítsd.
 
 4. **Az útiterv bemutatása a felhasználónak**
-   - Oszd meg a javasolt útitervet a felhasználóval átnézésre.
-   - Példa: "Itt egy javasolt útiterv a párizsi utazásához. Tartalmazza a járat részleteit, a szállásfoglalásokat és egy listát a javasolt programokról és éttermekről. Mondja el a véleményét!"
+   - Oszd meg a tervezetet a felhasználóval véleményezésre.
+   - Példa: „Íme egy javasolt útiterv a párizsi utazásodra. Tartalmazza a járatok részleteit, a szállásfoglalásokat, valamint a program- és étteremajánlatokat. Várom a véleményed!”
 
 5. **Visszajelzés gyűjtése**
-   - Kérdezd meg a felhasználót a javasolt útitervvel kapcsolatban.
-   - Példák: "Tetszenek a járatopciók?" "Megfelel Önnek a szálloda?" "Van-e olyan tevékenység, amelyet hozzáadna vagy eltávolítana?"
+   - Kérj visszajelzést a javasolt útitervről.
+   - Példák: „Tetszenek a járatlehetőségek?” „Megfelel a szálloda az igényeidnek?” „Van bármilyen tevékenység, amit hozzáadnál vagy eltávolítanál?”
 
-6. **Visszajelzés alapján történő módosítás**
+6. **Igazítás a visszajelzés alapján**
    - Módosítsd az útitervet a felhasználó visszajelzése alapján.
-   - Végezze el a szükséges változtatásokat a járat-, szállás- és programajánlásokban, hogy jobban illeszkedjenek a felhasználó preferenciáihoz.
+   - Végez el szükséges változtatásokat a járat-, szállás- és programajánlatokban, hogy jobban megfeleljenek a felhasználó preferenciáinak.
 
-7. **Végső megerősítés**
-   - Mutasd be a frissített útitervet a felhasználónak végső megerősítés céljából.
-   - Példa: "Elvégeztem a módosításokat a visszajelzése alapján. Itt a frissített útiterv. Minden rendben van így?"
+7. **Végleges jóváhagyás**
+   - Mutasd meg a frissített útitervet a felhasználónak végső jóváhagyásra.
+   - Példa: „Elvégeztem a módosításokat a visszajelzésed alapján. Íme a frissített útiterv. Minden megfelel az elképzeléseidnek?”
 
-8. **Foglalások elvégzése és visszaigazolás**
-   - Miután a felhasználó jóváhagyta az útitervet, folytasd a járatok, szállások és az előre tervezett tevékenységek foglalását.
-   - Küldd el a visszaigazolási részleteket a felhasználónak.
+8. **Foglalások lebonyolítása és megerősítések**
+   - Miután a felhasználó jóváhagyta az útitervet, foglald le a járatokat, szállásokat és előre tervezett programokat.
+   - Küldj megerősítő részleteket a felhasználónak.
 
-9. **Folyamatos támogatás biztosítása**
-   - Maradj elérhető, hogy segítséget nyújts a felhasználónak minden változtatás vagy további kérés esetén az utazás előtt és alatt.
-   - Példa: "Ha az utazás során további segítségre van szüksége, bármikor fordulhat hozzám!"
+9. **Folyamatos támogatás nyújtása**
+   - Maradj elérhető, hogy segítséget nyújts bármilyen változtatásnál vagy további kérésnél az utazás előtt és alatt.
+   - Példa: „Ha az utazásod alatt bármilyen további segítségre van szükséged, bátran fordulj hozzám bármikor!”
 
 ### Példa interakció
 
@@ -221,7 +223,7 @@ class Travel_Agent:
         self.experience_data.append(feedback)
         self.user_preferences = adjust_preferences(self.user_preferences, feedback)
 
-# Példa egy fújjolást kérő kérésben való használatra
+# Példa használat egy foglalási kérésen belül
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -236,48 +238,48 @@ feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)
 travel_agent.adjust_based_on_feedback(feedback)
 ```
 
-## 3. Korrigáló RAG rendszer
+## 3. Javító RAG rendszer
 
-Először is kezdjük azzal, hogy megértjük a különbséget a RAG eszköz és az előzetes kontextusbetöltés között
+Először is kezdjük azzal, hogy megértsük a különbséget a RAG eszköz és az előzetes kontextusbetöltés között.
 
-![RAG és kontextusbetöltés összehasonlítása](../../../translated_images/hu/rag-vs-context.9eae588520c00921.webp)
+![RAG vs kontextusbetöltés](../../../translated_images/hu/rag-vs-context.9eae588520c00921.webp)
 
-### Lekéréssel kiegészített generálás (RAG)
+### Visszakeresés-alapú generálás (RAG)
 
-A RAG egy lekérőrendszert kombinál egy generatív modellel. Amikor kérdés érkezik, a lekérőrendszer releváns dokumentumokat vagy adatokat hoz be egy külső forrásból, és ez a lekért információ kiegészíti a bemenetet a generatív modell számára. Ez segít a modellnek pontosabb és kontextusilag relevánsabb válaszok generálásában.
+A RAG egy visszakereső rendszert kombinál egy generatív modellel. Amikor egy lekérdezés érkezik, a visszakereső rendszer releváns dokumentumokat vagy adatokat hoz be külső forrásból, és ez az információ kiegészíti a generatív modell bemenetét. Ez segíti a modellt abban, hogy pontosabb és kontextuálisan releváns válaszokat generáljon.
 
-Egy RAG rendszerben az ügynök releváns információkat keres egy tudásbázisból, és ezeket használja fel megfelelő válaszok vagy cselekvések generálására.
+Egy RAG rendszerben az ügynök releváns információkat keres egy tudásbázisból, és ezeket felhasználva generál megfelelő válaszokat vagy cselekvéseket.
 
-### Korrigáló RAG megközelítés
+### Javító RAG megközelítés
 
-A Korrigáló RAG megközelítés a RAG technikák hibajavításra és az MI-ügynökök pontosságának javítására való alkalmazására összpontosít. Ez magában foglalja:
+A Javító RAG megközelítés a RAG technikák alkalmazására fókuszál hibák korrigálása és a pontosság javítása érdekében AI ügynökök esetén. Ez magában foglalja:
 
-1. **Promptolási technika**: Konkrét promptok használata az ügynök irányítására a releváns információk lekérésében.
-2. **Eszköz**: Olyan algoritmusok és mechanizmusok megvalósítása, amelyek lehetővé teszik az ügynök számára a lekért információ relevanciájának értékelését és pontos válaszok generálását.
-3. **Értékelés**: Az ügynök teljesítményének folyamatos értékelése és a pontosság és hatékonyság javítása érdekében végrehajtott kiigazítások.
+1. **Kérdezési technika:** Specifikus utasításokat használ az ügynök irányítására, hogy releváns információt hozzon be.
+2. **Eszköz:** Algoritmusok és mechanizmusok megvalósítása, amelyek képessé teszik az ügynököt a begyűjtött információ relevanciájának értékelésére és pontos válaszok generálására.
+3. **Értékelés:** Folyamatosan értékeli az ügynök teljesítményét, és módosításokat hajt végre annak pontosságának és hatékonyságának javítása érdekében.
 
-#### Példa: Korrigáló RAG egy keresőügynökben
+#### Példa: Javító RAG keresőügynökben
 
-Vegyünk egy keresőügynököt, amely az interneten keres információt a felhasználói kérdések megválaszolásához. A Korrigáló RAG megközelítés magában foglalhatja:
+Vegyünk egy keresőügynököt, amely webes információkat hoz be felhasználói kérdések megválaszolására. A Javító RAG megközelítés ezeket tartalmazhatja:
 
-1. **Promptolási technika**: Keresési lekérdezések megfogalmazása a felhasználó bemenete alapján.
-2. **Eszköz**: Természetes nyelvfeldolgozás és gépi tanulási algoritmusok használata a keresési eredmények rangsorolására és szűrésére.
-3. **Értékelés**: A felhasználói visszajelzés elemzése a lekért információk pontatlanságainak azonosítása és javítása érdekében.
+1. **Kérdezési technika:** A felhasználó bemenete alapján alakítja ki a keresési lekérdezéseket.
+2. **Eszköz:** Természetes nyelvfeldolgozást és gépi tanulási algoritmusokat használ az eredmények rangsorolására és szűrésére.
+3. **Értékelés:** Elemzi a felhasználói visszajelzéseket, hogy felismerje és javítsa a begyűjtött információk pontatlanságait.
 
-### Korrigáló RAG az Utazási ügynökben
+### Javító RAG a Travel Agentben
 
-A Korrigáló RAG (Retrieval-Augmented Generation) növeli egy MI képességét az információk lekérésére és generálására, miközben javítja az esetleges pontatlanságokat. Nézzük meg, hogyan használhatja az Utazási ügynök a Korrigáló RAG megközelítést, hogy pontosabb és relevánsabb utazási ajánlásokat nyújtson.
+A Javító RAG (Retrieval-Augmented Generation) javítja az AI képességét az információk begyűjtésére és generálására, miközben korrigálja a pontatlanságokat. Nézzük meg, hogyan használhatja a Travel Agent a Javító RAG megközelítést pontosabb és relevánsabb utazási ajánlások nyújtására.
 
-Ez magában foglalja:
+Ez a következőket foglalja magában:
 
-- **Promptolási technika:** Konkrét promptok használata az ügynök irányítására a releváns információk lekérésében.
-- **Eszköz:** Olyan algoritmusok és mechanizmusok megvalósítása, amelyek lehetővé teszik az ügynök számára a lekért információ relevanciájának értékelését és pontos válaszok generálását.
-- **Értékelés:** Az ügynök teljesítményének folyamatos értékelése és a pontosság és hatékonyság javítása érdekében végrehajtott kiigazítások.
+- **Kérdezési technika:** Specifikus utasítások használata az ügynök irányítására releváns információ begyűjtésére.
+- **Eszköz:** Algoritmusok és mechanizmusok megvalósítása, amelyek lehetővé teszik az ügynök számára a begyűjtött információk relevanciájának értékelését és a pontos válaszok generálását.
+- **Értékelés:** Az ügynök teljesítményének folyamatos értékelése és módosítása a pontosság és hatékonyság javítása érdekében.
 
-#### Lépések a Korrigáló RAG megvalósításához az Utazási ügynökben
+#### Lépések a Javító RAG bevezetésére a Travel Agentben
 
 1. **Kezdeti felhasználói interakció**
-   - Az Utazási ügynök összegyűjti a felhasználó kezdeti preferenciáit, mint a célállomás, utazási dátumok, költségvetés és érdeklődési körök.
+   - A Travel Agent begyűjti a felhasználó kezdeti preferenciáit, mint úti cél, utazási dátumok, költségvetés és érdeklődés.
    - Példa:
 
      ```python
@@ -289,8 +291,8 @@ Ez magában foglalja:
      }
      ```
 
-2. **Információ lekérése**
-   - Az Utazási ügynök lekéri az információkat járatokról, szállásokról, látványosságokról és éttermekről a felhasználói preferenciák alapján.
+2. **Információ begyűjtése**
+   - A Travel Agent információkat gyűjt a járatokról, szállásokról, látnivalókról és éttermekről a felhasználói preferenciák alapján.
    - Példa:
 
      ```python
@@ -300,7 +302,7 @@ Ez magában foglalja:
      ```
 
 3. **Kezdeti ajánlások generálása**
-   - Az Utazási ügynök a lekért információk alapján személyre szabott útitervet állít össze.
+   - A Travel Agent a begyűjtött információk alapján személyre szabott útitervet készít.
    - Példa:
 
      ```python
@@ -309,7 +311,7 @@ Ez magában foglalja:
      ```
 
 4. **Felhasználói visszajelzés gyűjtése**
-   - Az Utazási ügynök visszajelzést kér a felhasználótól a kezdeti ajánlásokkal kapcsolatban.
+   - A Travel Agent visszajelzést kér a kezdeti ajánlásokról.
    - Példa:
 
      ```python
@@ -319,8 +321,8 @@ Ez magában foglalja:
      }
      ```
 
-5. **Korrigáló RAG folyamat**
-   - **Promptolási technika**: Az Utazási ügynök új keresési lekérdezéseket fogalmaz meg a felhasználói visszajelzések alapján.
+5. **Javító RAG folyamat**
+   - **Kérdezési technika:** A Travel Agent az új felhasználói visszajelzések alapján alakít ki új keresési lekérdezéseket.
      - Példa:
 
        ```python
@@ -328,7 +330,7 @@ Ez magában foglalja:
            preferences["avoid"] = feedback["disliked"]
        ```
 
-   - **Eszköz**: Az Utazási ügynök algoritmusokat használ az új keresési eredmények rangsorolására és szűrésére, kiemelve a relevanciát a felhasználói visszajelzés alapján.
+   - **Eszköz:** A Travel Agent algoritmusokat alkalmaz az új keresési eredmények rangsorolására és szűrésére, különös tekintettel a felhasználói visszajelzésekre.
      - Példa:
 
        ```python
@@ -337,7 +339,7 @@ Ez magában foglalja:
        print("Updated Itinerary:", new_itinerary)
        ```
 
-   - **Értékelés**: Az Utazási ügynök folyamatosan értékeli az ajánlások relevanciáját és pontosságát a felhasználói visszajelzések elemzésével, és elvégzi a szükséges kiigazításokat.
+   - **Értékelés:** A Travel Agent folyamatosan értékeli ajánlásai relevanciáját és pontosságát a felhasználói visszajelzések elemzésével, és szükség szerint módosít.
      - Példa:
 
        ```python
@@ -353,7 +355,7 @@ Ez magában foglalja:
 
 #### Gyakorlati példa
 
-Itt egy leegyszerűsített Python-kód példa, amely a Korrigáló RAG megközelítést integrálja az Utazási ügynökbe:
+Íme egy leegyszerűsített Python kód példa a Javító RAG megközelítés beépítésére a Travel Agentben:
 
 ```python
 class Travel_Agent:
@@ -381,7 +383,7 @@ class Travel_Agent:
         new_itinerary = self.generate_recommendations()
         return new_itinerary
 
-# Használati példa
+# Példa használat
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -398,14 +400,16 @@ print("Updated Itinerary:", new_itinerary)
 ```
 
 ### Előzetes kontextusbetöltés
-A megelőző kontextusbetöltés azt jelenti, hogy a lekérdezés feldolgozása előtt betöltik a modellbe a releváns kontextust vagy háttérinformációkat. Ez azt jelenti, hogy a modell már a kezdetektől hozzáfér ezekhez az információkhoz, ami segíthet abban, hogy tájékozottabb válaszokat generáljon anélkül, hogy a folyamat során további adatokat kellene lekérnie.
 
-Here's a simplified example of how a pre-emptive context load might look for a travel agent application in Python:
+
+A megelőző kontextusbetöltés azt jelenti, hogy a releváns kontextust vagy háttérinformációt betöltjük a modellbe, mielőtt feldolgoznánk egy lekérdezést. Ez azt jelenti, hogy a modellnek az elejétől fogva hozzáférése van ezekhez az információkhoz, ami segíthet abban, hogy tájékozottabb válaszokat generáljon anélkül, hogy a folyamat során további adatokat kellene lekérnie.
+
+Íme egy egyszerűsített példa arra, hogyan nézhet ki egy megelőző kontextusbetöltés egy utazási ügynök alkalmazásban Pythonban:
 
 ```python
 class TravelAgent:
     def __init__(self):
-        # Népszerű úticélok és azok információinak előzetes betöltése
+        # Népszerű úticélok és információik előzetes betöltése
         self.context = {
             "Paris": {"country": "France", "currency": "Euro", "language": "French", "attractions": ["Eiffel Tower", "Louvre Museum"]},
             "Tokyo": {"country": "Japan", "currency": "Yen", "language": "Japanese", "attractions": ["Tokyo Tower", "Shibuya Crossing"]},
@@ -414,14 +418,14 @@ class TravelAgent:
         }
 
     def get_destination_info(self, destination):
-        # Úticél-információk lekérése az előre betöltött kontextusból
+        # Úticél információk lekérése az előzetesen betöltött kontextusból
         info = self.context.get(destination)
         if info:
             return f"{destination}:\nCountry: {info['country']}\nCurrency: {info['currency']}\nLanguage: {info['language']}\nAttractions: {', '.join(info['attractions'])}"
         else:
             return f"Sorry, we don't have information on {destination}."
 
-# Használati példa
+# Példa használat
 travel_agent = TravelAgent()
 print(travel_agent.get_destination_info("Paris"))
 print(travel_agent.get_destination_info("Tokyo"))
@@ -429,27 +433,27 @@ print(travel_agent.get_destination_info("Tokyo"))
 
 #### Magyarázat
 
-1. **Inicializálás (`__init__` metódus)**: A `TravelAgent` osztály előre betölt egy szótárt, amely népszerű úti célokról tartalmaz információkat, mint például Paris, Tokyo, New York, és Sydney. Ez a szótár olyan részleteket foglal magában, mint az ország, pénznem, nyelv és a főbb látnivalók minden úti célra vonatkozóan.
+1. **Inicializáció (`__init__` metódus)**: A `TravelAgent` osztály előre betölt egy szótárt, amely népszerű úti célokkal kapcsolatos információkat tartalmaz, mint például Párizs, Tokió, New York és Sydney. Ez a szótár olyan részleteket tartalmaz, mint az ország, valuta, nyelv és főbb látnivalók minden úti cél esetében.
 
-2. **Információ lekérése (`get_destination_info` metódus)**: Amikor a felhasználó egy konkrét úti céllal kapcsolatban kérdez, a `get_destination_info` metódus lekéri a releváns információkat az előre betöltött kontextusszótárból.
+2. **Információ lekérése (`get_destination_info` metódus)**: Amikor a felhasználó egy konkrét úti céllal kapcsolatos kérdést tesz fel, a `get_destination_info` metódus lekéri a releváns információkat az előre betöltött kontextus szótárból.
 
-A kontextus előzetes betöltésével az utazási ügynök alkalmazás gyorsan válaszolhat a felhasználói lekérdezésekre anélkül, hogy valós időben külső forrásból kellene lekérnie ezeket az információkat. Ez hatékonyabbá és reszponzívabbá teszi az alkalmazást.
+A kontextus előzetes betöltésével az utazási ügynök alkalmazás gyorsan tud válaszolni a felhasználói lekérdezésekre anélkül, hogy valós időben kellene ezeket az információkat egy külső forrásból lekérnie. Ez hatékonyabbá és reagálóképesebbé teszi az alkalmazást.
 
-### Cél alapú tervindítás iterálás előtt
+### A terv bootstrap-olása egy céllal az iterálás előtt
 
-Egy terv cél szerinti inicializálása azt jelenti, hogy világos céllal vagy kívánt eredménnyel kezdünk. Ha ezt a célt előre meghatározzuk, a modell azt vezérlő elvként használhatja a iteratív folyamat során. Ez segít biztosítani, hogy minden iteráció a kívánt eredmény felé mozduljon, így a folyamat hatékonyabb és fókuszáltabb lesz.
+Egy terv bootstrap-olása egy céllal azt jelenti, hogy egyértelmű célt vagy kitűzött eredményt határozzunk meg előre. Ezzel a céllal vezérelve a modellt az iteratív folyamat során. Ez segít biztosítani, hogy minden iteráció közelebb vigyen a kívánt eredmény eléréséhez, így a folyamat hatékonyabbá és fókuszáltabbá válik.
 
-Íme egy példa arra, hogyan indíthatod be egy utazási tervet egy céllal, mielőtt iterálnál egy utazási ügynök esetében Pythonban:
+Íme egy példa arra, hogyan bootstrap-olhatunk egy utazási tervet egy céllal az iterálás előtt egy utazási ügynök esetén Pythonban:
 
 ### Forgatókönyv
 
-Egy utazási ügynök személyre szabott nyaralást szeretne megtervezni egy kliens számára. A cél egy olyan útiterv létrehozása, amely maximalizálja a kliens elégedettségét az ő preferenciái és költségvetése alapján.
+Egy utazási ügynök egy ügyfél számára személyre szabott nyaralást szeretne tervezni. A cél egy olyan utazási terv elkészítése, amely maximalizálja az ügyfél elégedettségét a preferenciái és költségvetése alapján.
 
 ### Lépések
 
-1. Határozd meg a kliens preferenciáit és költségvetését.
-2. Inicializáld a kezdeti tervet a preferenciák alapján.
-3. Iterálj a terven, hogy finomítsd azt, a kliens elégedettségének optimalizálása érdekében.
+1. Határozzuk meg az ügyfél preferenciáit és költségvetését.
+2. Bootstrap-oljuk az elsődleges tervet ezek alapján a preferenciák alapján.
+3. Iteráljunk, hogy finomítsuk a tervet, optimalizálva az ügyfél elégedettségét.
 
 #### Python kód
 
@@ -486,7 +490,7 @@ class TravelAgent:
     def calculate_cost(self, plan, new_destination):
         return sum(destination['cost'] for destination in plan) + new_destination['cost']
 
-# Használati példa
+# Példa használat
 destinations = [
     {"name": "Paris", "cost": 1000, "activity": "sightseeing"},
     {"name": "Tokyo", "cost": 1200, "activity": "shopping"},
@@ -505,55 +509,55 @@ refined_plan = travel_agent.iterate_plan(initial_plan, preferences, budget)
 print("Refined Plan:", refined_plan)
 ```
 
-#### Kódmagyarázat
+#### Kód magyarázat
 
-1. **Inicializálás (`__init__` metódus)**: A `TravelAgent` osztályt egy lehetséges úti célok listájával inicializáljuk, amelyek mindegyike olyan attribútumokkal rendelkezik, mint név, költség és tevékenységtípus.
+1. **Inicializáció (`__init__` metódus)**: A `TravelAgent` osztály egy potenciális úti célokat tartalmazó listával inicializálódik, ahol minden cél rendelkezik olyan attribútumokkal, mint név, költség és tevékenység típusa.
 
-2. **A terv inicializálása (`bootstrap_plan` metódus)**: Ez a metódus létrehoz egy kezdeti utazási tervet a kliens preferenciái és költségvetése alapján. Végigiterál az úti célok listáján, és hozzáadja őket a tervhez, ha megfelelnek a kliens preferenciáinak és beleférnek a költségvetésbe.
+2. **Terv bootstrap-olása (`bootstrap_plan` metódus)**: Ez a metódus létrehoz egy kezdeti utazási tervet az ügyfél preferenciái és költségvetése alapján. Végigmegy az úti célok listáján, és hozzáadja azokat a tervhez, amelyek megfelelnek az ügyfél preferenciáinak és beleférnek a költségvetésbe.
 
-3. **Preferenciák egyeztetése (`match_preferences` metódus)**: Ez a metódus ellenőrzi, hogy egy úti cél megfelel-e a kliens preferenciáinak.
+3. **Preferenciák egyeztetése (`match_preferences` metódus)**: Ez a metódus ellenőrzi, hogy egy úti cél megfelel-e az ügyfél preferenciáinak.
 
-4. **A terv iterálása (`iterate_plan` metódus)**: Ez a metódus finomítja a kezdeti tervet azáltal, hogy megpróbál minden tervben szereplő úti célt jobb megfelelésre cserélni, figyelembe véve a kliens preferenciáit és a költségvetési korlátokat.
+4. **Terv iterálása (`iterate_plan` metódus)**: Ez a metódus finomítja a kezdeti tervet azzal, hogy megpróbálja helyettesíteni az egyes úti célokat jobb egyezéssel, figyelembe véve az ügyfél preferenciáit és költségvetési korlátait.
 
-5. **Költségszámítás (`calculate_cost` metódus)**: Ez a metódus kiszámítja az aktuális terv teljes költségét, beleértve egy lehetséges új úti célt is.
+5. **Költségszámítás (`calculate_cost` metódus)**: Ez a metódus kiszámolja az aktuális terv összköltségét, beleértve egy potenciális új úti célt is.
 
-#### Példa használat
+#### Példa használatra
 
-- **Kezdeti terv**: Az utazási ügynök létrehoz egy kezdeti tervet a kliens városnézésre vonatkozó preferenciái és 2000$-os költségvetése alapján.
-- **Finomított terv**: Az utazási ügynök iterál a terven, optimalizálva a kliens preferenciái és költségvetése szerint.
+- **Kezdeti terv**: Az utazási ügynök egy kezdeti tervet készít az ügyfél városnézés iránti preferenciája és 2000 dolláros költségvetése alapján.
+- **Finomított terv**: Az utazási ügynök iterálja a tervet, optimalizálva az ügyfél preferenciáit és költségvetését.
 
-Ha egyértelmű céllal (pl. a kliens elégedettségének maximalizálása) indítjuk el a tervet és iterálunk a finomítás érdekében, az utazási ügynök személyre szabott és optimalizált útitervet hozhat létre a kliens számára. Ez a megközelítés biztosítja, hogy az utazási terv a kezdetektől a kliens preferenciáihoz és költségvetéséhez igazodjon, és minden iterációval javuljon.
+A terv egyértelmű céllal való bootstrap-olásával (például az ügyfél elégedettségének maximalizálása) és az iterálással az utazási ügynök egy személyre szabott és optimalizált utazási útitervet hozhat létre az ügyfél számára. Ez a megközelítés biztosítja, hogy az utazási terv már az elejétől összhangban legyen az ügyfél preferenciáival és költségvetésével, és minden iterációval javuljon.
 
-### LLM előnyeinek kihasználása átrendezéshez és pontozáshoz
+### Az LLM kihasználása újrasorrendezésre és pontozásra
 
-A nagy nyelvi modellek (LLM-ek) használhatók az átrendezésre és pontozásra úgy, hogy értékelik a lekért dokumentumok vagy generált válaszok relevanciáját és minőségét. Íme, hogyan működik:
+A nagy nyelvi modellek (LLM-ek) használhatók újrasorrendezésre és pontozásra azáltal, hogy értékelik a lekért dokumentumok vagy generált válaszok relevanciáját és minőségét. Íme, hogyan működik:
 
-**Lekérés:** Az első lekérési lépés a lekérdezés alapján egy jelölt dokumentum- vagy válaszkészletet hoz vissza.
+**Lekérés:** Az első lekérési lépés egy jelöltdokumentumok vagy válaszok halmazát hozza vissza a lekérdezés alapján.
 
-**Átrendezés:** Az LLM értékeli ezeket a jelölteket és átrendezi őket relevanciajuk és minőségük alapján. Ez a lépés biztosítja, hogy a legrelevánsabb és legmagasabb minőségű információk jelenjenek meg először.
+**Újrasorrendezés:** Az LLM értékeli ezeket a jelölteteket, és újrasorrendbe állítja őket a relevancia és minőség alapján. Ez a lépés biztosítja, hogy a legrelevánsabb és legmagasabb minőségű információ jelenjen meg az első helyen.
 
-**Pontozás:** Az LLM pontokat rendel minden jelölthöz, tükrözve azok relevanciáját és minőségét. Ez segít a legjobb válasz vagy dokumentum kiválasztásában a felhasználó számára.
+**Pontozás:** Az LLM pontszámokat rendel minden jelölthöz, amelyek tükrözik azok relevanciáját és minőségét. Ez segít a legjobb válasz vagy dokumentum kiválasztásában a felhasználó számára.
 
-Az LLM-ek átrendezésre és pontozásra történő kihasználásával a rendszer pontosabb és kontextusban relevánsabb információt tud nyújtani, javítva ezzel a felhasználói élményt.
+Az LLM-ek használatával az újrasorrendezésre és pontozásra a rendszer pontosabb és kontextuálisan relevánsabb információkat tud biztosítani, javítva ezzel a felhasználói élményt.
 
-Íme egy példa arra, hogyan használhat egy utazási ügynök egy nagy nyelvi modellt (LLM-et) az úti célok átrendezésére és pontozására a felhasználói preferenciák alapján Pythonban:
+Íme egy példa arra, hogyan használhat egy utazási ügynök egy nagy nyelvi modellt (LLM-et) az úti célok újrasorrendezésére és pontozására a felhasználói preferenciák alapján Pythonban:
 
 #### Forgatókönyv - Utazás preferenciák alapján
 
-Egy utazási ügynök a kliens preferenciái alapján szeretné ajánlani a legjobb úti célokat. Az LLM segít az úti célok átrendezésében és pontozásában, hogy a legrelevánsabb lehetőségek kerüljenek bemutatásra.
+Egy utazási ügynök a legjobb úti célokat szeretné ajánlani egy ügyfélnek a preferenciái alapján. Az LLM segít az úti célok újrasorrendezésében és pontozásában, hogy a legrelevánsabb lehetőségek kerüljenek előtérbe.
 
 #### Lépések:
 
-1. Gyűjtsd össze a felhasználó preferenciáit.
-2. Szerezd be a lehetséges úti célok listáját.
-3. Használd az LLM-et az úti célok átrendezésére és pontozására a felhasználói preferenciák alapján.
+1. Gyűjtsük össze a felhasználó preferenciáit.
+2. Lekérjünk egy potenciális úti célok listáját.
+3. Az LLM használatával újrasorrendeljük és pontozzuk az úti célokat a felhasználói preferenciák alapján.
 
-Here’s how you can update the previous example to use Azure OpenAI Services:
+Íme, hogyan frissítheted a korábbi példát az Azure OpenAI Szolgáltatások használatára:
 
 #### Követelmények
 
-1. Szükséged van egy Azure-előfizetésre.
-2. Hozz létre egy Azure OpenAI erőforrást és szerezz API-kulcsot.
+1. Szükséged van egy Azure előfizetésre.
+2. Hozz létre egy Azure OpenAI erőforrást, és szerezd meg az API kulcsodat.
 
 #### Példa Python kód
 
@@ -566,10 +570,10 @@ class TravelAgent:
         self.destinations = destinations
 
     def get_recommendations(self, preferences, api_key, endpoint):
-        # Generáljon promptot az Azure OpenAI számára
+        # Generáljon egy promptot az Azure OpenAI számára
         prompt = self.generate_prompt(preferences)
         
-        # Határozza meg a fejléceket és a kérés törzsét
+        # Határozza meg a fejléceket és a kéréstörzs tartalmát
         headers = {
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {api_key}'
@@ -580,11 +584,11 @@ class TravelAgent:
             "temperature": 0.7
         }
         
-        # Hívja meg az Azure OpenAI API-t az újrarangsorolt és pontozott célállomások lekéréséhez
+        # Hívja meg az Azure OpenAI API-t, hogy megkapja az újrarangsorolt és pontozott célállomásokat
         response = requests.post(endpoint, headers=headers, json=payload)
         response_data = response.json()
         
-        # Kinyerje és adja vissza az ajánlásokat
+        # Kinyeri és visszaadja az ajánlásokat
         recommendations = response_data['choices'][0]['text'].strip().split('\n')
         return recommendations
 
@@ -597,7 +601,7 @@ class TravelAgent:
             prompt += f"- {destination['name']}: {destination['description']}\n"
         return prompt
 
-# Használati példa
+# Példa használat
 destinations = [
     {"name": "Paris", "description": "City of lights, known for its art, fashion, and culture."},
     {"name": "Tokyo", "description": "Vibrant city, famous for its modernity and traditional temples."},
@@ -616,71 +620,71 @@ for rec in recommendations:
     print(rec)
 ```
 
-#### Kódmagyarázat - Preference Booker
+#### Kód magyarázat - Preferencia foglaló
 
-1. **Inicializálás**: A `TravelAgent` osztályt egy lehetséges úti célok listájával inicializáljuk, amelyek mindegyike olyan attribútumokkal rendelkezik, mint név és leírás.
+1. **Inicializáció**: A `TravelAgent` osztály egy potenciális utazási célok listájával inicializálódik, ahol minden cél rendelkezik olyan attribútumokkal, mint név és leírás.
 
-2. **Ajánlások lekérése (`get_recommendations` metódus)**: Ez a metódus egy promptot generál az Azure OpenAI szolgáltatás számára a felhasználó preferenciái alapján, és HTTP POST kérést küld az Azure OpenAI API-hoz az átrendezett és pontozott úti célok megszerzéséhez.
+2. **Ajánlások lekérése (`get_recommendations` metódus)**: Ez a metódus egy promptot generál az Azure OpenAI szolgáltatás számára a felhasználó preferenciái alapján, és HTTP POST kérést küld az Azure OpenAI API-nak, hogy újrasorrendelt és pontozott úti célokat kapjon.
 
-3. **Prompt generálása (`generate_prompt` metódus)**: Ez a metódus elkészít egy promptot az Azure OpenAI számára, belefoglalva a felhasználó preferenciáit és az úti célok listáját. A prompt irányítja a modellt, hogy az adott preferenciák alapján átrendezze és pontozza az úti célokat.
+3. **Prompt generálása (`generate_prompt` metódus)**: Ez a metódus összeállít egy promptot az Azure OpenAI számára, beleértve a felhasználó preferenciáit és az úti célok listáját. A prompt irányítja a modellt, hogy a megadott preferenciák alapján újrasorrendelje és pontozza az úti célokat.
 
-4. **API hívás**: A `requests` könyvtárat használjuk egy HTTP POST kérés küldésére az Azure OpenAI API végpontjához. A válasz tartalmazza az átrendezett és pontozott úti célokat.
+4. **API hívás**: A `requests` könyvtárat használjuk egy HTTP POST kérés elküldésére az Azure OpenAI API végpontjára. A válasz tartalmazza az újrasorrendelt és pontozott úti célokat.
 
-5. **Példa használat**: Az utazási ügynök összegyűjti a felhasználó preferenciáit (pl. érdeklődés városnézés és változatos kultúra iránt), és az Azure OpenAI szolgáltatást használja az úti célok átrendezett és pontozott ajánlásainak megszerzéséhez.
+5. **Példa használatra**: Az utazási ügynök összegyűjti a felhasználó preferenciáit (például érdeklődés a városnézés és sokszínű kultúra iránt), és az Azure OpenAI szolgáltatás segítségével újrasorrendelt és pontozott ajánlásokat kap az úti célokra.
 
-Győződj meg róla, hogy a `your_azure_openai_api_key` értékét a valós Azure OpenAI API-kulccsal helyettesíted, és a `https://your-endpoint.com/...`-t a tényleges Azure OpenAI telepítés végpontjának URL-jére cseréled.
+Ügyelj arra, hogy a `your_azure_openai_api_key`-t cseréld le a tényleges Azure OpenAI API kulcsodra, és a `https://your-endpoint.com/...`-t az Azure OpenAI telepítésed tényleges végpont URL címére.
 
-Az LLM átrendezésre és pontozásra történő kihasználásával az utazási ügynök személyre szabottabb és relevánsabb utazási ajánlásokat tud nyújtani az ügyfeleknek, javítva ezáltal az általános élményt.
+Az LLM újrasorrendezésre és pontozásra használatával az utazási ügynök személyre szabottabb és relevánsabb utazási ajánlásokat tud biztosítani az ügyfeleknek, javítva ezzel az általános élményt.
 
 ### RAG: Promptolási technika vs eszköz
 
-A Retrieval-Augmented Generation (RAG) egyszerre lehet promptolási technika és eszköz az AI ügynökök fejlesztésében. A kettő közötti különbség megértése segíthet abban, hogy hatékonyabban használd a RAG-et a projektjeidben.
+A lekérdezés-alapú generálás (Retrieval-Augmented Generation, RAG) lehet promptolási technika és eszköz is az AI ügynökök fejlesztésében. A kettő közötti különbség megértése segíthet abban, hogy hatékonyabban használd a RAG-ot a projektjeidben.
 
 #### RAG mint promptolási technika
 
 **Mi ez?**
 
-- Mint promptolási technika, a RAG magában foglalja konkrét lekérdezések vagy promptok megfogalmazását, amelyek irányítják a releváns információk kikeresését egy nagy korpuszból vagy adatbázisból. Ezeket az információkat aztán válaszok vagy akciók generálásához használják fel.
+- Promptolási technikaként a RAG magában foglalja specifikus lekérdezések vagy promptok megfogalmazását, hogy irányítsa a releváns információk lekérését egy nagy adattömegből vagy adatbázisból. Ezeket az információkat használják válaszok vagy műveletek generálására.
 
 **Hogyan működik:**
 
-1. **Promptok megfogalmazása**: Hozz létre jól strukturált promptokat vagy lekérdezéseket a feladat vagy a felhasználó bemenete alapján.
-2. **Információ lekérése**: Használd a promptokat releváns adatok keresésére egy meglévő tudásbázisból vagy adathalmazból.
-3. **Válasz generálása**: Kombináld a lekért információkat generatív AI modellekkel, hogy átfogó és koherens választ hozz létre.
+1. **Promptok megfogalmazása:** Hozz létre jól strukturált promptokat vagy lekérdezéseket az adott feladat vagy a felhasználó bemenete alapján.
+2. **Információ lekérése:** Használd a promptokat releváns adatok keresésére egy előzetesen meglévő tudásbázisból vagy adathalmazból.
+3. **Válasz generálása:** Kombináld a lekért információkat generatív AI modellekkel, hogy átfogó és koherens választ készíts.
 
-**Példa az utazási ügynöknél**:
+**Példa utazási ügynök esetén:**
 
-- Felhasználói bemenet: "Múzeumokat akarok meglátogatni Párizsban."
-- Prompt: "Találd meg Párizs legjobb múzeumait."
-- Lekért információ: Részletek a Louvre Múzeumról, a Musée d'Orsay-ról, stb.
-- Generált válasz: "Íme néhány Párizs legjobb múzeuma: Louvre Múzeum, Musée d'Orsay és Centre Pompidou."
+- Felhasználói bemenet: „Múzeumokat szeretnék meglátogatni Párizsban.”
+- Prompt: „Keress top múzeumokat Párizsban.”
+- Lekért információ: Részletek a Louvre Múzeumról, Musée d'Orsay-ról, stb.
+- Generált válasz: „Íme néhány top múzeum Párizsban: Louvre Múzeum, Musée d'Orsay és Centre Pompidou.”
 
 #### RAG mint eszköz
 
 **Mi ez?**
 
-- Eszközként a RAG egy integrált rendszer, amely automatizálja a lekérés és generálás folyamatát, megkönnyítve a fejlesztők számára összetett AI funkciók megvalósítását anélkül, hogy minden lekérdezéshez manuálisan kellene promptokat készíteni.
+- Eszközként a RAG egy integrált rendszer, amely automatizálja a lekérés és generálás folyamatát, megkönnyítve a fejlesztők számára összetett AI funkciók implementálását anélkül, hogy minden lekérdezést manuálisan kellene prompttal ellátni.
 
 **Hogyan működik:**
 
-1. **Integráció**: Építsd be a RAG-et az AI ügynök architektúrájába, hogy az automatikusan kezelje a lekérési és generálási feladatokat.
-2. **Automatizálás**: Az eszköz kezeli az egész folyamatot, a felhasználói bemenet fogadásától a végső válasz generálásáig, anélkül hogy minden lépéshez explicit promptokra lenne szükség.
-3. **Hatékonyság**: Javítja az ügynök teljesítményét azáltal, hogy egyszerűsíti a lekérés és generálás folyamatát, lehetővé téve gyorsabb és pontosabb válaszokat.
+1. **Integráció:** Beágyazzák a RAG-ot az AI ügynök architektúrájába, lehetővé téve, hogy automatikusan kezelje a lekérés és generálás feladatait.
+2. **Automatizálás:** Az eszköz kezeli az egész folyamatot, a felhasználói input fogadásától a végső válasz generálásáig, anélkül, hogy minden lépéshez külön promptot kellene megadni.
+3. **Hatékonyság:** Javítja az ügynök teljesítményét azáltal, hogy egyszerűsíti a lekérés és generálás folyamatát, gyorsabb és pontosabb válaszokat adva.
 
-**Példa az utazási ügynöknél**:
+**Példa utazási ügynök esetén:**
 
-- Felhasználói bemenet: "Múzeumokat akarok meglátogatni Párizsban."
-- RAG eszköz: Automatikusan lekéri a múzeumokkal kapcsolatos információkat és generál egy választ.
-- Generált válasz: "Íme néhány Párizs legjobb múzeuma: Louvre Múzeum, Musée d'Orsay és Centre Pompidou."
+- Felhasználói bemenet: „Múzeumokat szeretnék meglátogatni Párizsban.”
+- RAG eszköz: Automatikusan lekéri az információkat a múzeumokról, és választ generál.
+- Generált válasz: „Íme néhány top múzeum Párizsban: Louvre Múzeum, Musée d'Orsay és Centre Pompidou.”
 
 ### Összehasonlítás
 
-| Szempont                 | Promptolási technika                                        | Eszköz                                                  |
-|------------------------|-------------------------------------------------------------|-------------------------------------------------------|
-| **Kézi vs Automatikus**| Minden lekérdezéshez manuálisan megfogalmazott promptok.               | Automatizált folyamat a lekéréshez és generáláshoz.       |
-| **Irányítás**            | Több irányítást biztosít a lekérési folyamat felett.             | Egyszerűsíti és automatizálja a lekérést és generálást.|
-| **Rugalmasság**        | Lehetővé teszi a testreszabott promptokat speciális igények alapján.      | Hatékonyabb nagy léptékű megvalósításoknál.       |
-| **Komplexitás**         | Megköveteli a promptok kidolgozását és finomhangolását.                  | Könnyebb integráció az AI ügynök architektúrájába. |
+| Szempont               | Promptolási technika                                      | Eszköz                                                |
+|------------------------|-----------------------------------------------------------|-------------------------------------------------------|
+| **Kézi vs Automatikus** | Kézi prompt megfogalmazás minden lekérdezéshez.            | Automatizált folyamat lekérésre és generálásra.        |
+| **Irányítás**           | Több ellenőrzést biztosít a lekérdezési folyamat felett.    | Egyszerűsíti és automatizálja a lekérés és generálás folyamatát.|
+| **Rugalmasság**         | Lehetővé teszi az egyedi igények szerinti promptok készítését. | Hatékonyabb nagyobb léptékű megvalósításokhoz.          |
+| **Bonyolultság**        | Szükséges a promptok elkészítése és finomítása.             | Könnyebb integrálni egy AI ügynök architektúrájába.     |
 
 ### Gyakorlati példák
 
@@ -713,32 +717,32 @@ museums = travel_agent.get_museums_in_paris()
 print("Top Museums in Paris:", museums)
 ```
 
-### Relevancia értékelése
+### A relevancia értékelése
 
-A relevancia értékelése az AI ügynök teljesítményének kulcsfontosságú szempontja. Biztosítja, hogy az ágens által lekért és generált információ megfelelő, pontos és hasznos legyen a felhasználó számára. Nézzük meg, hogyan lehet értékelni a relevanciát AI ügynökök esetén, beleértve gyakorlati példákat és technikákat.
+A relevancia értékelése kulcsfontosságú az AI ügynök teljesítményében. Ez biztosítja, hogy az ügynök által lekért és generált információk megfelelőek, pontosak és hasznosak legyenek a felhasználó számára. Nézzük meg, hogyan lehet értékelni a relevanciát AI ügynökök esetében, gyakorlati példákkal és technikákkal.
 
 #### A relevancia értékelésének kulcsfogalmai
 
-1. **Kontekstuális tudatosság**:
+1. **Kontextus tudatosság**:
    - Az ügynöknek meg kell értenie a felhasználó lekérdezésének kontextusát, hogy releváns információkat tudjon lekérni és generálni.
-   - Példa: Ha a felhasználó a „Párizs legjobb éttermei” után érdeklődik, az ügynöknek figyelembe kell vennie a felhasználó preferenciáit, például az étkezési típust és a költségvetést.
+   - Példa: Ha a felhasználó a „legjobb éttermek Párizsban” kifejezést keresi, az ügynök figyelembe veszi a felhasználó preferenciáit, például a konyha típusát és a költségvetést.
 
 2. **Pontosság**:
-   - Az ügynök által szolgáltatott információnak tényszerűen helyesnek és naprakésznek kell lennie.
-   - Példa: Jelenleg nyitva tartó, jó értékelésű éttermek ajánlása a régi vagy bezárt lehetőségek helyett.
+   - Az ügynök által szolgáltatott információnak tényalapúnak és naprakésznek kell lennie.
+   - Példa: Jelenleg nyitva lévő és jó értékelésű éttermek ajánlása, nem pedig elavult vagy bezárt helyek.
 
 3. **Felhasználói szándék**:
-   - Az ügynöknek ki kell következtetnie a felhasználó lekérdezése mögötti szándékot, hogy a legrelevánsabb információt tudja nyújtani.
-   - Példa: Ha a felhasználó „költségkímélő hoteleket” kér, az ügynöknek az olcsóbb lehetőségeket kell előnyben részesítenie.
+   - Az ügynöknek ki kell következtetnie a felhasználó lekérdezésének szándékát, hogy a legrelevánsabb információt nyújtsa.
+   - Példa: Ha a felhasználó „költséghatékony szállodákat” keres, az ügynök prioritásként kezeli az megfizethető lehetőségeket.
 
-4. **Visszacsatolási hurok**:
-   - A felhasználói visszajelzések folyamatos gyűjtése és elemzése segíti az ügynököt a relevanciaértékelési folyamat finomításában.
-   - Példa: Korábbi ajánlások felhasználói értékeléseinek és visszajelzéseinek bevonása a jövőbeni válaszok javítása érdekében.
+4. **Visszacsatolási kör**:
+   - Folyamatosan gyűjteni és elemezni a felhasználói visszajelzéseket segít az ügynöknek javítani a relevancia értékelési folyamatát.
+   - Példa: A korábbi ajánlásokra adott felhasználói értékelések és visszacsatolások beépítése a jövőbeni válaszok javítása érdekében.
 
 #### Gyakorlati technikák a relevancia értékeléséhez
 
 1. **Relevancia pontozás**:
-   - Rendelj relevancia pontszámot minden lekért elemhez annak alapján, hogy mennyire felel meg a felhasználó lekérdezésének és preferenciáinak.
+   - Minden lekért elemhez rendelünk relevancia pontszámot, amely azt tükrözi, mennyire illik a felhasználó lekérdezéséhez és preferenciáihoz.
    - Példa:
 
      ```python
@@ -754,28 +758,28 @@ A relevancia értékelése az AI ügynök teljesítményének kulcsfontosságú 
      ```
 
 2. **Szűrés és rangsorolás**:
-   - Szűrd ki a relevancia nélküli elemeket, majd rangsorold a megmaradtakat relevancia pontszámaik alapján.
+   - Kiszűrjük a nem releváns elemeket, és a maradékot relevancia pontszám alapján rangsoroljuk.
    - Példa:
 
      ```python
      def filter_and_rank(items, query):
          ranked_items = sorted(items, key=lambda item: relevance_score(item, query), reverse=True)
-         return ranked_items[:10]  # Adja vissza a 10 legrelevánsabb elemet
+         return ranked_items[:10]  # Visszaadja a 10 legrelevánsabb elemet
      ```
 
-3. **Természetes nyelvfeldolgozás (NLP)**:
-   - Használj NLP technikákat a felhasználó lekérdezésének megértéséhez és releváns információk lekéréséhez.
+3. **Természetes nyelv feldolgozás (NLP)**:
+   - NLP technikákat alkalmazunk a felhasználói lekérdezés megértésére és releváns információk lekérésére.
    - Példa:
 
      ```python
      def process_query(query):
-         # Használj NLP-t a felhasználó lekérdezésének kulcsinformációinak kinyeréséhez.
+         # Használj NLP-t a felhasználó lekérdezéséből származó kulcsfontosságú információk kinyeréséhez
          processed_query = nlp(query)
          return processed_query
      ```
 
-4. **Felhasználói visszajelzés integrálása**:
-   - Gyűjts felhasználói visszajelzést a megadott ajánlásokról, és használd azt a jövőbeni relevanciaértékelések kiigazításához.
+4. **Felhasználói visszajelzések integrálása**:
+   - Gyűjtjük a felhasználói visszajelzéseket a javasolt ajánlásokról, és ez alapján állítjuk be a jövőbeni relevancia értékelést.
    - Példa:
 
      ```python
@@ -788,9 +792,9 @@ A relevancia értékelése az AI ügynök teljesítményének kulcsfontosságú 
          return items
      ```
 
-#### Példa: Relevancia értékelése az utazási ügynöknél
+#### Példa: A relevancia értékelése utazási ügynöknél
 
-Íme egy gyakorlati példa arra, hogyan értékelheti a Travel Agent az utazási ajánlások relevanciáját:
+Íme egy gyakorlati példa arra, hogyan értékelheti a relevanciát egy utazási ügynök az utazási ajánlások esetében:
 
 ```python
 class Travel_Agent:
@@ -835,7 +839,7 @@ class Travel_Agent:
                 item['relevance'] -= 1
         return items
 
-# Használati példa
+# Példa használat
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -851,30 +855,30 @@ updated_items = travel_agent.adjust_based_on_feedback(feedback, itinerary['hotel
 print("Updated Itinerary with Feedback:", updated_items)
 ```
 
-### Szándékvezérelt keresés
+### Keresés szándékkal
 
-A szándékvezérelt keresés magában foglalja a felhasználó lekérdezése mögötti valódi cél vagy szándék megértését és értelmezését, hogy a legrelevánsabb és leghasznosabb információt tudjuk lekérni és generálni. Ez a megközelítés túlmutat a kulcsszavak egyszerű egyezésén, és a felhasználó tényleges igényeinek és kontextusának megragadására összpontosít.
+A keresés szándékkal azt jelenti, hogy megértjük és értelmezzük a felhasználó lekérdezése mögötti célokat vagy indítékokat, hogy a legrelevánsabb és leghasznosabb információkat lekérjük és generáljuk. Ez a megközelítés túlmutat a kulcsszavak szerinti egyezésen, és a felhasználó valódi szükségleteinek és kontextusának megragadására összpontosít.
 
-#### A szándékvezérelt keresés kulcsfogalmai
+#### A keresés szándékának kulcsfogalmai
 
 1. **A felhasználói szándék megértése**:
    - A felhasználói szándék három fő típusba sorolható: információs, navigációs és tranzakciós.
-     - **Információs szándék**: A felhasználó információt keres egy témáról (pl. „Melyek Párizs legjobb múzeumai?”).
-     - **Navigációs szándék**: A felhasználó egy meghatározott webhelyre vagy oldalra szeretne navigálni (pl. „Louvre Múzeum hivatalos weboldala”).
-     - **Tranzakciós szándék**: A felhasználó tranzakciót szeretne végrehajtani, például repülőjegyfoglalást vagy vásárlást (pl. „Foglalj repülőutat Párizsba”).
+     - **Információs szándék**: A felhasználó információt keres egy témában (pl. „Melyek a legjobb múzeumok Párizsban?”).
+     - **Navigációs szándék**: A felhasználó egy konkrét weboldalra vagy oldalra szeretne navigálni (pl. „Louvre Múzeum hivatalos weboldala”).
+     - **Tranzakciós szándék**: A felhasználó tranzakciót szeretne végrehajtani, például repülőjegyfoglalást vagy vásárlást (pl. „Foglalj repülőjegyet Párizsba”).
 
-2. **Kontekstuális tudatosság**:
-   - A felhasználó lekérdezésének kontextusának elemzése segít a szándék pontos azonosításában. Ez magában foglalja a korábbi interakciók, a felhasználói preferenciák és az aktuális lekérdezés konkrét részleteinek figyelembevételét.
+2. **Kontextus tudatosság**:
+   - A lekérdezés kontextusának elemzése segít pontosan azonosítani a szándékot. Ez magában foglalja a korábbi interakciókat, felhasználói preferenciákat és a jelenlegi lekérdezés konkrét részleteit.
 
 3. **Természetes nyelvfeldolgozás (NLP)**:
-   - NLP technikákat alkalmaznak a felhasználók által megadott természetes nyelvű lekérdezések megértésére és értelmezésére. Ez magában foglal olyan feladatokat, mint az entitásfelismerés, érzelemelemzés és lekérdezés-feldolgozás.
+   - NLP technikákat alkalmazunk a természetes nyelvű lekérdezések megértésére és értelmezésére, például entitásfelismerés, érzelemelemzés és lekérdezés解析.
 
 4. **Személyre szabás**:
-   - A keresési eredmények személyre szabása a felhasználó előzményei, preferenciái és visszajelzései alapján növeli a lekért információ relevanciáját.
+   - A keresési eredmények személyre szabása a felhasználó múltja, preferenciái és visszajelzései alapján növeli az információk relevanciáját.
 
-#### Gyakorlati példa: Szándékvezérelt keresés a Travel Agentnél
+#### Gyakorlati példa: Keresés szándékkal utazási ügynök esetén
 
-Vegyük példaként a Travel Agentet, hogy megvizsgáljuk, hogyan lehet megvalósítani a szándékvezérelt keresést.
+Nézzük meg a Travel Agent példáját, hogy lássuk, hogyan valósítható meg a keresés szándékkal.
 
 1. **Felhasználói preferenciák összegyűjtése**
 
@@ -887,7 +891,7 @@ Vegyük példaként a Travel Agentet, hogy megvizsgáljuk, hogyan lehet megvaló
            self.user_preferences = preferences
    ```
 
-2. **A felhasználói szándék megértése**
+2. **Felhasználói szándék megértése**
 
    ```python
    def identify_intent(query):
@@ -899,11 +903,12 @@ Vegyük példaként a Travel Agentet, hogy megvizsgáljuk, hogyan lehet megvaló
            return "informational"
    ```
 
-3. **Kontekstuális tudatosság**
+3. **Kontextus tudatosság**
+
 
    ```python
    def analyze_context(query, user_history):
-       # A jelenlegi lekérdezés és a felhasználó előzményeinek kombinálása a kontextus megértéséhez
+       # Kombinálja az aktuális lekérdezést a felhasználó előzményeivel a kontextus megértéséhez
        context = {
            "current_query": query,
            "user_history": user_history
@@ -911,17 +916,7 @@ Vegyük példaként a Travel Agentet, hogy megvizsgáljuk, hogyan lehet megvaló
        return context
    ```
 
-   ```python
-   def analyze_context(query, user_history):
-       # A jelenlegi lekérdezés és a felhasználó előzményeinek kombinálása a kontextus megértéséhez
-       context = {
-           "current_query": query,
-           "user_history": user_history
-       }
-       return context
-   ```
-
-4. **Keresés és személyre szabott eredmények**
+4. **Keresés és az Eredmények Személyre Szabása**
 
    ```python
    def search_with_intent(query, preferences, user_history):
@@ -954,10 +949,10 @@ Vegyük példaként a Travel Agentet, hogy megvizsgáljuk, hogyan lehet megvaló
    def personalize_results(results, user_history):
        # Példa személyre szabási logika
        personalized = [result for result in results if result not in user_history]
-       return personalized[:10]  # Adja vissza a 10 legjobb személyre szabott találatot
+       return personalized[:10]  # Térjen vissza a legjobb 10 személyre szabott találathoz
    ```
 
-5. **Példa használata**
+5. **Használati Példa**
 
    ```python
    travel_agent = Travel_Agent()
@@ -976,46 +971,46 @@ Vegyük példaként a Travel Agentet, hogy megvizsgáljuk, hogyan lehet megvaló
 
 ## 4. Kód generálása eszközként
 
-A kódot generáló ügynökök AI-modelleket használnak kód írására és végrehajtására, összetett problémák megoldására és feladatok automatizálására.
+A kódot generáló ügynökök AI modelleket használnak kód írására és végrehajtására, bonyolult problémákat oldanak meg és automatizálnak feladatokat.
 
-### Kódot generáló ügynökök
+### Kódot Generáló Ügynökök
 
-A kódot generáló ügynökök generatív AI-modelleket használnak kód írására és végrehajtására. Ezek az ügynökök képesek összetett problémákat megoldani, feladatokat automatizálni, és értékes betekintést nyújtani azáltal, hogy különböző programozási nyelveken kódot generálnak és futtatnak.
+A kódot generáló ügynökök generatív AI modelleket használnak kód írására és végrehajtására. Ezek az ügynökök képesek összetett problémák megoldására, feladatok automatizálására és értékes betekintések nyújtására kód létrehozásával és futtatásával különböző programozási nyelveken.
 
-#### Gyakorlati alkalmazások
+#### Gyakorlati Alkalmazások
 
-1. **Automatizált kódgenerálás**: Kódkivonatok generálása meghatározott feladatokhoz, például adatelemzéshez, weboldalak adatkinyeréséhez (web scraping) vagy gépi tanuláshoz.
-2. **SQL, mint RAG**: SQL lekérdezések használata adatok lekérésére és manipulálására adatbázisokból.
+1. **Automatizált Kódgenerálás**: Kód részletek generálása konkrét feladatokra, mint például adat elemzés, webes adatgyűjtés vagy gépi tanulás.
+2. **SQL mint RAG**: SQL lekérdezések használata adatok lekérésére és manipulálására adatbázisokból.
 3. **Problémamegoldás**: Kód létrehozása és végrehajtása konkrét problémák megoldására, például algoritmusok optimalizálására vagy adatelemzésre.
 
-#### Példa: Kódot generáló ügynök adatelemzéshez
+#### Példa: Kódot Generáló Ügynök Adat Elemzéshez
 
-Képzeld el, hogy kódot generáló ügynököt tervezel. Így működhet:
+Képzeld el, hogy egy kódot generáló ügynököt tervezel. Így működhet:
 
-1. **Feladat**: Egy adathalmaz elemzése trendek és mintázatok azonosításához.
+1. **Feladat**: Egy adathalmaz elemzése, hogy trendeket és mintákat azonosíts.
 2. **Lépések**:
-   - Töltsd be az adathalmazt egy adatelemző eszközbe.
-   - SQL lekérdezések generálása az adatok szűréséhez és aggregálásához.
+   - Az adathalmaz betöltése egy adat elemző eszközbe.
+   - SQL lekérdezések generálása az adatok szűrésére és aggregálására.
    - A lekérdezések végrehajtása és az eredmények lekérése.
-   - Az eredmények felhasználása vizualizációk és betekintések létrehozásához.
-3. **Szükséges erőforrások**: Hozzáférés az adathalmazhoz, adatelemző eszközökhöz és SQL-képességekhez.
-4. **Tapasztalat**: Korábbi elemzési eredmények felhasználása a jövőbeli elemzések pontosságának és relevanciájának javításához.
+   - Az eredmények felhasználása vizualizációk és betekintések készítésére.
+3. **Szükséges Eszközök**: Hozzáférés az adathalmazhoz, adat elemző eszközök és SQL képességek.
+4. **Tapasztalat**: Korábbi elemzési eredmények felhasználása a jövőbeli elemzések pontosságának és relevanciájának javítására.
 
-### Példa: Kódot generáló ügynök utazási asszisztenshez
+### Példa: Kódot Generáló Ügynök Utazási Ügynöknek
 
-Ebben a példában egy kódot generáló ügynököt, az Utazási asszisztenst tervezzük, amely kód generálásával és végrehajtásával segíti a felhasználókat utazásuk megtervezésében. Ez az ügynök képes olyan feladatokra, mint az utazási opciók lekérése, az eredmények szűrése és egy útiterv összeállítása generatív AI segítségével.
+Ebben a példában egy kódot generáló ügynököt, az Utazási Ügynököt tervezzük, amely segíti a felhasználókat utazásaik megtervezésében kód generálásával és végrehajtásával. Ez az ügynök képes kezelni olyan feladatokat, mint utazási lehetőségek lekérése, eredmények szűrése és útiterv összeállítása generatív AI segítségével.
 
 #### A kódot generáló ügynök áttekintése
 
-1. **Felhasználói preferenciák gyűjtése**: Összegyűjti a felhasználói bemenetet, mint például a célállomás, utazási dátumok, költségvetés és érdeklődési körök.
-2. **Adatlekéréshez kód generálása**: Kódkivonatokat generál járatok, szállodák és látnivalók adatainak lekéréséhez.
-3. **A generált kód végrehajtása**: Lefuttatja a generált kódot, hogy valós idejű információkat szerezzen.
-4. **Útiterv generálása**: A lekért adatokat személyre szabott utitervvé állítja össze.
-5. **Visszajelzés alapján történő igazítás**: Megkapja a felhasználói visszajelzést, és szükség esetén újragenerálja a kódot az eredmények finomítása érdekében.
+1. **Felhasználói Preferenciák Gyűjtése**: Begyűjti a felhasználó adatait, mint az úti cél, utazási dátumok, költségvetés és érdeklődési körök.
+2. **Adatlekéréshez Kód Generálása**: Kód részleteket generál repülőjáratok, szállodák és látnivalók adatainak lekérésére.
+3. **A Generált Kód Végrehajtása**: Lefuttatja a generált kódot, hogy valós idejű információkat szerezzen.
+4. **Útiterv Generálása**: Az összegyűjtött adatokból személyre szabott utazási tervet készít.
+5. **Visszajelzés Alapján Történő Módosítások**: Fogadja a felhasználói visszajelzéseket és szükség esetén újrakészíti a kódot az eredmények finomhangolására.
 
-#### Lépésről lépésre megvalósítás
+#### Lépésenkénti megvalósítás
 
-1. **Felhasználói preferenciák gyűjtése**
+1. **Felhasználói Preferenciák Gyűjtése**
 
    ```python
    class Travel_Agent:
@@ -1026,11 +1021,11 @@ Ebben a példában egy kódot generáló ügynököt, az Utazási asszisztenst t
            self.user_preferences = preferences
    ```
 
-2. **Adatlekéréshez kód generálása**
+2. **Adatlekéréshez Kód Generálása**
 
    ```python
    def generate_code_to_fetch_data(preferences):
-       # Példa: Kód generálása járatok kereséséhez a felhasználó preferenciái alapján
+       # Példa: Kód generálása a felhasználói preferenciák alapján történő járatkereséshez
        code = f"""
        def search_flights():
            import requests
@@ -1040,7 +1035,7 @@ Ebben a példában egy kódot generáló ügynököt, az Utazási asszisztenst t
        return code
 
    def generate_code_to_fetch_hotels(preferences):
-       # Példa: Kód generálása szállodák kereséséhez
+       # Példa: Kód generálása szállodakereséshez
        code = f"""
        def search_hotels():
            import requests
@@ -1050,11 +1045,11 @@ Ebben a példában egy kódot generáló ügynököt, az Utazási asszisztenst t
        return code
    ```
 
-3. **A generált kód végrehajtása**
+3. **A Generált Kód Végrehajtása**
 
    ```python
    def execute_code(code):
-       # Futtassa a generált kódot az exec használatával
+       # A generált kód végrehajtása az exec használatával
        exec(code)
        result = locals()
        return result
@@ -1078,7 +1073,7 @@ Ebben a példában egy kódot generáló ügynököt, az Utazási asszisztenst t
    print("Hotel Options:", hotels)
    ```
 
-4. **Útiterv generálása**
+4. **Útiterv Generálása**
 
    ```python
    def generate_itinerary(flights, hotels, attractions):
@@ -1094,11 +1089,11 @@ Ebben a példában egy kódot generáló ügynököt, az Utazási asszisztenst t
    print("Suggested Itinerary:", itinerary)
    ```
 
-5. **Visszajelzés alapján történő igazítás**
+5. **Visszajelzés Alapján Történő Módosítások**
 
    ```python
    def adjust_based_on_feedback(feedback, preferences):
-       # Állítsa a preferenciákat a felhasználói visszajelzés alapján
+       # A beállítások módosítása a felhasználói visszajelzések alapján
        if "liked" in feedback:
            preferences["favorites"] = feedback["liked"]
        if "disliked" in feedback:
@@ -1108,7 +1103,7 @@ Ebben a példában egy kódot generáló ügynököt, az Utazási asszisztenst t
    feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
    updated_preferences = adjust_based_on_feedback(feedback, preferences)
    
-   # Generálja újra és futtassa a kódot a frissített preferenciákkal
+   # Kód újragenerálása és végrehajtása a frissített beállításokkal
    updated_flight_code = generate_code_to_fetch_data(updated_preferences)
    updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
    
@@ -1119,33 +1114,33 @@ Ebben a példában egy kódot generáló ügynököt, az Utazási asszisztenst t
    print("Updated Itinerary:", updated_itinerary)
    ```
 
-### A környezeti tudatosság és az érvelés kihasználása
+### Környezettudatosság és érvelés kihasználása
 
-A tábla sémája valóban javíthatja a lekérdezés-generálási folyamatot a környezeti tudatosság és az érvelés felhasználásával.
+A tábla sémáján alapulva valóban javítható a lekérdezés-generálási folyamat a környezettudatosság és érvelés alkalmazásával.
 
-Íme egy példa, hogyan lehet ezt megvalósítani:
+Íme egy példa ennek hogyan lehetséges:
 
-1. **A séma megértése**: A rendszer megérti a tábla sémáját, és ezt az információt felhasználja a lekérdezés-generálás megalapozásához.
-2. **Visszajelzés alapján történő igazítás**: A rendszer a visszajelzések alapján módosítja a felhasználói preferenciákat, és megfontolja, mely mezőket kell frissíteni a sémában.
-3. **Lekérdezések generálása és végrehajtása**: A rendszer lekérdezéseket generál és hajt végre, hogy a frissített preferenciák alapján lekérje a repülési és szállodai adatokat.
+1. **A Séma Megértése**: A rendszer megérti a tábla sémáját, és ezt az információt használja a lekérdezés generálásának megalapozásához.
+2. **Visszajelzés Alapján Történő Módosítások**: A rendszer a felhasználói visszajelzések alapján módosítja a preferenciákat, és mérlegeli, hogy a séma mely mezőit kell frissíteni.
+3. **Lekérdezések Generálása és Végrehajtása**: A rendszer lekérdezéseket generál és hajt végre az új preferenciák alapján frissített repülőjárat és szálloda adatok lekérésére.
 
-Itt egy frissített Python kódpélda, amely ezeket a koncepciókat beépíti:
+Itt egy frissített Python kód példa, amely ezek a koncepciókat alkalmazza:
 
 ```python
 def adjust_based_on_feedback(feedback, preferences, schema):
-    # A preferenciák módosítása a felhasználói visszajelzések alapján
+    # A felhasználói visszajelzések alapján beállítások módosítása
     if "liked" in feedback:
         preferences["favorites"] = feedback["liked"]
     if "disliked" in feedback:
         preferences["avoid"] = feedback["disliked"]
-    # Séma alapú következtetés a kapcsolódó preferenciák módosításához
+    # Következtetés sémák alapján a kapcsolódó beállítások módosításához
     for field in schema:
         if field in preferences:
             preferences[field] = adjust_based_on_environment(feedback, field, schema)
     return preferences
 
 def adjust_based_on_environment(feedback, field, schema):
-    # Egyedi logika a preferenciák módosításához a séma és a visszajelzések alapján
+    # Egyedi logika a beállítások módosításához séma és visszajelzés alapján
     if field in feedback["liked"]:
         return schema[field]["positive_adjustment"]
     elif field in feedback["disliked"]:
@@ -1153,19 +1148,19 @@ def adjust_based_on_environment(feedback, field, schema):
     return schema[field]["default"]
 
 def generate_code_to_fetch_data(preferences):
-    # Kód generálása a repülőjárat-adatok lekéréséhez a frissített preferenciák alapján
+    # Kód generálása a frissített beállítások szerinti járatinformáció lekéréséhez
     return f"fetch_flights(preferences={preferences})"
 
 def generate_code_to_fetch_hotels(preferences):
-    # Kód generálása a szállodaadatok lekéréséhez a frissített preferenciák alapján
+    # Kód generálása a frissített beállítások szerinti szállásinformáció lekéréséhez
     return f"fetch_hotels(preferences={preferences})"
 
 def execute_code(code):
-    # A kód végrehajtásának szimulálása és tesztadatok visszaadása
+    # A kód végrehajtásának szimulálása és minta adatok visszaadása
     return {"data": f"Executed: {code}"}
 
 def generate_itinerary(flights, hotels, attractions):
-    # Útiterv generálása járatok, szállások és látnivalók alapján
+    # Úti terv generálása járatok, szállások és látványosságok alapján
     return {"flights": flights, "hotels": hotels, "attractions": attractions}
 
 # Példa séma
@@ -1174,12 +1169,12 @@ schema = {
     "avoid": {"positive_adjustment": "decrease", "negative_adjustment": "increase", "default": "neutral"}
 }
 
-# Használati példa
+# Példa használat
 preferences = {"favorites": "sightseeing", "avoid": "crowded places"}
 feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
 updated_preferences = adjust_based_on_feedback(feedback, preferences, schema)
 
-# Kód újragenerálása és végrehajtása a frissített preferenciákkal
+# Kód újragenerálása és végrehajtása a frissített beállításokkal
 updated_flight_code = generate_code_to_fetch_data(updated_preferences)
 updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
 
@@ -1190,55 +1185,55 @@ updated_itinerary = generate_itinerary(updated_flights, updated_hotels, feedback
 print("Updated Itinerary:", updated_itinerary)
 ```
 
-#### Magyarázat - Foglalás visszajelzés alapján
+#### Magyarázat - Foglalás Visszajelzés Alapján
 
-1. **Séma-tudatosság**: A `schema` szótár meghatározza, hogyan kell a preferenciákat a visszajelzés alapján igazítani. Tartalmaz olyan mezőket, mint `favorites` és `avoid`, a megfelelő módosításokkal.
-2. **Preferenciák igazítása (`adjust_based_on_feedback` metódus)**: Ez a metódus a felhasználói visszajelzés és a séma alapján igazítja a preferenciákat.
-3. **Környezeti alapú igazítások (`adjust_based_on_environment` metódus)**: Ez a metódus testreszabja az igazításokat a séma és a visszajelzés alapján.
-4. **Lekérdezések generálása és végrehajtása**: A rendszer kódot generál a frissített repülő- és szállodai adatok lekéréséhez, és szimulálja e lekérdezések végrehajtását.
-5. **Itiner összeállítása**: A rendszer a friss repülési, szállodai és látnivaló-adatok alapján létrehoz egy frissített utitervet.
+1. **Sémaalapú Tudatosság**: A `schema` szótár meghatározza, hogyan kell a visszajelzések alapján módosítani a preferenciákat. Tartalmaz mezőket, mint a `favorites` és `avoid`, a hozzájuk tartozó módosításokkal.
+2. **Preferenciák Módosítása (`adjust_based_on_feedback` metódus)**: Ez a metódus módosítja a preferenciákat a felhasználói visszajelzés és a séma alapján.
+3. **Környezeti Alapú Módosítások (`adjust_based_on_environment` metódus)**: Ez a metódus testre szabja a módosításokat a séma és a visszajelzés alapján.
+4. **Lekérdezések Generálása és Végrehajtása**: A rendszer kódot generál az új preferenciák alapján frissített repülőjárat és szálloda adatok lekérésére, és szimulálja ezen lekérdezések végrehajtását.
+5. **Útiterv Generálása**: A rendszer létrehoz egy frissített útitervet az új repülőjárat, szálloda és látnivaló adatok alapján.
 
-A rendszer környezeti tudatossá tétele és a séma alapján történő következtetés lehetővé teszi a pontosabb és relevánsabb lekérdezések generálását, ami jobb utazási ajánlásokhoz és személyre szabottabb felhasználói élményhez vezet.
+Azáltal, hogy a rendszert környezettudatossá és sémán alapuló érveléssel ruházzuk fel, a lekérdezések pontosabbak és relevánsabbak lehetnek, jobb utazási ajánlásokat eredményezve és személyre szabottabb felhasználói élményt biztosítva.
 
 ### SQL használata Retrieval-Augmented Generation (RAG) technikaként
 
-SQL (Structured Query Language) erőteljes eszköz az adatbázisokkal való interakcióra. Amikor a Retrieval-Augmented Generation (RAG) megközelítés részeként használják, az SQL képes releváns adatokat lekérni adatbázisokból, hogy informálja és generálja a válaszokat vagy műveleteket az AI ügynökök számára. Vizsgáljuk meg, hogyan használható az SQL RAG technikaként az Utazási ügynök kontextusában.
+Az SQL (Structured Query Language) egy hatékony eszköz az adatbázisokkal való interakcióra. Ha a Retrieval-Augmented Generation (RAG) megközelítés részeként használják, az SQL képes releváns adatokat lekérni az adatbázisokból, hogy informálja és generálja a válaszokat vagy műveleteket AI ügynökökben. Nézzük meg, hogyan használható az SQL RAG technikaként az Utazási Ügynök kontextusában.
 
 #### Kulcsfogalmak
 
-1. **Adatbázissal való interakció**:
-   - Az SQL-t adatbázisok lekérdezésére, releváns információk lekérésére és az adatok manipulálására használják.
-   - Példa: Repülési adatok, szálloda-információk és látnivalók lekérése egy utazási adatbázisból.
+1. **Adatbázis Interakció**:
+   - Az SQL adatbázisok lekérdezésére, releváns információk kinyerésére és adatmanipulációra szolgál.
+   - Példa: Repülőjáratok, szállodák és látnivalók adatainak lekérése egy utazási adatbázisból.
 
-2. **Integráció a RAG-gel**:
-   - Az SQL lekérdezések a felhasználói bemenet és preferenciák alapján generálódnak.
-   - A lekért adatokat ezután személyre szabott ajánlások vagy műveletek generálására használják.
+2. **Integráció a RAG-gal**:
+   - Az SQL lekérdezések a felhasználói bemenetre és preferenciákra alapulnak.
+   - A lekért adatokat személyre szabott ajánlások vagy műveletek generálására használják.
 
-3. **Dinamikus lekérdezés-generálás**:
+3. **Dinamikus Lekérdezés Generálás**:
    - Az AI ügynök dinamikus SQL lekérdezéseket generál a kontextus és a felhasználói igények alapján.
-   - Példa: SQL lekérdezések testreszabása az eredmények szűrésére költségvetés, dátumok és érdeklődés alapján.
+   - Példa: SQL lekérdezések testreszabása eredmények szűrésére költségvetés, dátumok és érdeklődési körök szerint.
 
 #### Alkalmazások
 
-- **Automatizált kódgenerálás**: Kódkivonatok generálása meghatározott feladatokhoz.
-- **SQL, mint RAG**: SQL lekérdezések használata adatok manipulálására.
+- **Automatizált Kódgenerálás**: Kód részletek generálása specifikus feladatokra.
+- **SQL mint RAG**: SQL lekérdezések használata adatok manipulálására.
 - **Problémamegoldás**: Kód létrehozása és végrehajtása problémák megoldására.
 
 **Példa**:
-Egy adatelemző ügynök:
+Egy adat elemző ügynök:
 
-1. **Feladat**: Egy adathalmaz elemzése trendek megtalálásához.
+1. **Feladat**: Egy adathalmaz elemzése trendek keresésére.
 2. **Lépések**:
-   - Töltsd be az adathalmazt.
-   - SQL lekérdezések generálása az adatok szűréséhez.
-   - A lekérdezések végrehajtása és az eredmények lekérése.
+   - Adathalmaz betöltése.
+   - SQL lekérdezések generálása az adatok szűrésére.
+   - Lekérdezések végrehajtása és eredmények lekérése.
    - Vizualizációk és betekintések generálása.
 3. **Erőforrások**: Hozzáférés az adathalmazhoz, SQL képességek.
-4. **Tapasztalat**: Korábbi eredmények felhasználása a jövőbeli elemzések javításához.
+4. **Tapasztalat**: Korábbi eredmények használata a jövőbeli elemzések javítására.
 
-#### Gyakorlati példa: SQL használata az utazási ügynökben
+#### Gyakorlati Példa: SQL használata az Utazási Ügynökben
 
-1. **Felhasználói preferenciák gyűjtése**
+1. **Felhasználói Preferenciák Gyűjtése**
 
    ```python
    class Travel_Agent:
@@ -1249,7 +1244,7 @@ Egy adatelemző ügynök:
            self.user_preferences = preferences
    ```
 
-2. **SQL lekérdezések generálása**
+2. **SQL Lekérdezések Generálása**
 
    ```python
    def generate_sql_query(table, preferences):
@@ -1261,7 +1256,7 @@ Egy adatelemző ügynök:
        return query
    ```
 
-3. **SQL lekérdezések végrehajtása**
+3. **SQL Lekérdezések Végrehajtása**
 
    ```python
    import sqlite3
@@ -1275,7 +1270,7 @@ Egy adatelemző ügynök:
        return results
    ```
 
-4. **Ajánlások generálása**
+4. **Ajánlások Generálása**
 
    ```python
    def generate_recommendations(preferences):
@@ -1306,45 +1301,47 @@ Egy adatelemző ügynök:
    print("Suggested Itinerary:", itinerary)
    ```
 
-#### Példa SQL lekérdezések
+#### Példák SQL Lekérdezésekre
 
-1. **Repülőjárat lekérdezés**
+1. **Repülőjárat Lekérdezés**
 
    ```sql
    SELECT * FROM flights WHERE destination='Paris' AND dates='2025-04-01 to 2025-04-10' AND budget='moderate';
    ```
 
-2. **Szálloda lekérdezés**
+2. **Szálloda Lekérdezés**
 
    ```sql
    SELECT * FROM hotels WHERE destination='Paris' AND budget='moderate';
    ```
 
-3. **Látnivaló lekérdezés**
+3. **Látnivaló Lekérdezés**
 
    ```sql
    SELECT * FROM attractions WHERE destination='Paris' AND interests='museums, cuisine';
    ```
 
-Az SQL RAG technikaként való kihasználásával olyan AI ügynökök, mint az Utazási ügynök, dinamikusan lekérhetik és felhasználhatják a releváns adatokat, hogy pontos és személyre szabott ajánlásokat nyújtsanak.
+Az SQL használatával a Retrieval-Augmented Generation (RAG) technika részeként az AI ügynökök, mint az Utazási Ügynök, dinamikusan lekérhetik és felhasználhatják a releváns adatokat, hogy pontos és személyre szabott ajánlásokat nyújtsanak.
 
-### Metakogníció példája
+### Metakogníció Példa
 
-Tehát hogy bemutassunk egy metakogníció-implementációt, hozzunk létre egy egyszerű ügynököt, amely *visszatükrözi a döntéshozatali folyamatát* miközben megold egy problémát. Ebben a példában egy olyan rendszert építünk, ahol az ügynök a szálloda kiválasztását próbálja optimalizálni, majd értékeli saját érvelését és módosítja stratégiáját, ha hibákat vagy nem optimális választ talál.
+Ahhoz, hogy bemutassuk a metakogníció megvalósítását, hozzunk létre egy egyszerű ügynököt, amely *visszatükrözi döntéshozatali folyamatát* miközben problémát old meg. Ehhez a példához építünk egy rendszert, ahol az ügynök megpróbálja optimalizálni a szállodaválasztást, majd értékeli saját érvelését és módosítja stratégiáját, ha hibákat vagy nem optimális döntéseket hoz.
+
+Ezt egy alap példával fogjuk szimulálni, ahol az ügynök ár és minőség kombinációja alapján választ szállodákat, de "reflektál" döntéseire, és ennek megfelelően módosít.
 
 #### Hogyan illusztrálja ez a metakogníciót:
 
-1. **Kezdeti döntés**: Az ügynök a legolcsóbb hotelt választja, anélkül, hogy megértené a minőség hatását.
-2. **Reflektálás és értékelés**: A kezdeti választást követően az ügynök ellenőrzi, hogy a hotel "rossz" választás volt-e a felhasználói visszajelzés alapján. Ha azt tapasztalja, hogy a hotel minősége túl alacsony volt, reflektál az érvelésére.
-3. **Stratégia igazítása**: Az ügynök a reflektálás alapján módosítja stratégiáját, és átvált a "cheapest" módról a "highest_quality" módra, ezáltal javítva döntéshozatali folyamatát a jövőbeli iterációk során.
+1. **Kezdeti Döntés**: Az ügynök kiválasztja a legolcsóbb szállodát, minőségbeli hatások megértése nélkül.
+2. **Reflektálás és Értékelés**: A kezdeti választást követően az ügynök ellenőrzi, hogy a szálloda "rossz" választás-e a felhasználói visszajelzés alapján. Ha azt tapasztalja, hogy a szálloda minősége túl alacsony volt, akkor reflektál az érvelésére.
+3. **Stratégia Módosítása**: Az ügynök stratégiáját módosítja a reflektálás alapján, áttér a "legolcsóbb" helyett a "legjobb minőségre", így javítva döntéshozatali folyamatát a jövőbeni iterációk során.
 
-Itt egy példa:
+Íme egy példa:
 
 ```python
 class HotelRecommendationAgent:
     def __init__(self):
-        self.previous_choices = []  # Tárolja a korábban kiválasztott hoteleket
-        self.corrected_choices = []  # Tárolja a javított választásokat
+        self.previous_choices = []  # Előzőleg kiválasztott szállodák tárolása
+        self.corrected_choices = []  # A javított választások tárolása
         self.recommendation_strategies = ['cheapest', 'highest_quality']  # Elérhető stratégiák
 
     def recommend_hotel(self, hotels, strategy):
@@ -1370,11 +1367,11 @@ class HotelRecommendationAgent:
             return "No choices made yet."
 
         last_choice_strategy, last_choice = self.previous_choices[-1]
-        # Tegyük fel, hogy van némi felhasználói visszajelzésünk, amely megmondja, hogy az utolsó választás jó volt-e vagy sem
+        # Tegyük fel, hogy van némi felhasználói visszajelzésünk arról, hogy az utolsó választás jó volt-e vagy sem
         user_feedback = self.get_user_feedback(last_choice)
 
         if user_feedback == "bad":
-            # Igazítja a stratégiát, ha az előző választás nem volt kielégítő
+            # Stratégián módosítunk, ha az előző választás nem volt kielégítő
             new_strategy = 'highest_quality' if last_choice_strategy == 'cheapest' else 'cheapest'
             self.corrected_choices.append((new_strategy, last_choice))
             return f"Reflecting on choice. Adjusting strategy to {new_strategy}."
@@ -1391,56 +1388,56 @@ class HotelRecommendationAgent:
             return "bad"
         return "good"
 
-# Hotelek listájának szimulálása (ár és minőség)
+# Szimuláljunk egy szállodalistát (ár és minőség)
 hotels = [
     {'name': 'Budget Inn', 'price': 80, 'quality': 6},
     {'name': 'Comfort Suites', 'price': 120, 'quality': 8},
     {'name': 'Luxury Stay', 'price': 200, 'quality': 9}
 ]
 
-# Ügynök létrehozása
+# Hozzunk létre egy ügynököt
 agent = HotelRecommendationAgent()
 
-# 1. lépés: Az ügynök a "legolcsóbb" stratégia szerint javasol egy hotelt
+# 1. lépés: Az ügynök a "legolcsóbb" stratégiát használva ajánl egy szállodát
 recommended_hotel = agent.recommend_hotel(hotels, 'cheapest')
 print(f"Recommended hotel (cheapest): {recommended_hotel['name']}")
 
-# 2. lépés: Az ügynök átgondolja a választást és szükség esetén igazítja a stratégiát
+# 2. lépés: Az ügynök átgondolja a választást és szükség esetén módosítja a stratégiát
 reflection_result = agent.reflect_on_choice()
 print(reflection_result)
 
-# 3. lépés: Az ügynök újra ajánl, ezúttal a módosított stratégiát használva
+# 3. lépés: Az ügynök ismét ajánl, ezúttal a módosított stratégiát használva
 adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
 
-#### Az ügynökök metakognitív képességei
+#### Az ügynök metakognitív képességei
 
-A lényeg az ügynök azon képessége, hogy:
-- Értékelje korábbi választásait és döntéshozatali folyamatát.
-- Igazítsa stratégiáját az ezen történő reflektálás alapján, azaz metakogníció a gyakorlatban.
+A kulcs az ügynök képessége:
+- Korábbi választásainak és döntéshozatali folyamatának értékelése.
+- Stratégiája módosítása ezen reflektálás alapján, azaz metakogníció a gyakorlatban.
 
-Ez a metakogníció egy egyszerű formája, ahol a rendszer képes a belső visszajelzés alapján módosítani érvelési folyamatát.
+Ez egy egyszerű formája a metakogníciónak, ahol a rendszer képes belső visszacsatolás alapján módosítani érvelési folyamatát.
 
-### Következtetés
+### Összegzés
 
-A metakogníció egy erőteljes eszköz, amely jelentősen növelheti az AI ügynökök képességeit. A metakognitív folyamatok beépítésével olyan ügynököket tervezhetsz, amelyek intelligensebbek, alkalmazkodóbbak és hatékonyabbak. Használd a további forrásokat, hogy mélyebben felfedezd a metakogníció lenyűgöző világát az AI ügynökökben.
+A metakogníció egy erőteljes eszköz, amely jelentősen javíthatja az AI ügynökök képességeit. Metakognitív folyamatok beépítésével intelligensebb, alkalmazkodóbb és hatékonyabb ügynököket tervezhetsz. Használd a további forrásokat, hogy mélyebben felfedezd a metakogníció izgalmas világát az AI ügynökökben.
 
-### Több kérdésed van a metakogníció tervezési mintájáról?
+### Több kérdésed van a Metakogníció Tervezési Mintáról?
 
-Csatlakozz a [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) közösséghez, találkozz más tanulókkal, vegyél részt konzultációs órákon és kapj választ az AI ügynökökkel kapcsolatos kérdéseidre.
+Csatlakozz a [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) közösséghez, hogy találkozz más tanulókkal, részt vegyél konzultációkon, és válaszokat kapj AI Ügynök kérdéseidre.
 
-## Előző lecke
+## Előző Lecke
 
-[Többügynökös tervezési minta](../08-multi-agent/README.md)
+[Több Ügynök Tervezési Minta](../08-multi-agent/README.md)
 
-## Következő lecke
+## Következő Lecke
 
-[AI ügynökök éles környezetben](../10-ai-agents-production/README.md)
+[AI Ügynökök Éles Használatban](../10-ai-agents-production/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Felelősségkizárás:
-Ez a dokumentum az AI-fordító szolgáltatás [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár a pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő a hiteles forrásnak. Kritikus fontosságú információk esetén professzionális, emberi fordítást javaslunk. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
+**Jogi nyilatkozat**:
+Ez a dokumentum az AI fordítási szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár az pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Fontos információk esetén professzionális emberi fordítást javasolunk. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely ebből a fordításból ered.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

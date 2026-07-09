@@ -1,39 +1,40 @@
-# 🎯 Tervezés és tervezési minták GitHub Modellek (.NET) használatával
+# 🎯 Tervezés és tervezési minták Azure OpenAI-val (Responses API) (.NET)
 
 ## 📋 Tanulási célok
 
-Ez a jegyzetfüzet bemutatja a vállalati szintű tervezési és tervezési mintákat intelligens ügynökök létrehozásához a Microsoft Agent Framework segítségével .NET-ben, GitHub Modellek használatával. Megtanulhatod, hogyan hozz létre ügynököket, amelyek képesek összetett problémák lebontására, többlépcsős megoldások tervezésére és kifinomult munkafolyamatok végrehajtására a .NET vállalati funkcióival.
+Ez a jegyzetfüzet vállalati szintű tervezési és mintázati megoldásokat mutat be intelligens ügynökök építéséhez a Microsoft Agent Framework használatával .NET-ben, Azure OpenAI-val (Responses API). Megtanulod, hogyan hozhatsz létre olyan ügynököket, amelyek képesek összetett problémákat lebontani, többlépcsős megoldásokat tervezni, és kifinomult munkafolyamatokat végrehajtani a .NET vállalati funkcióival.
 
 ## ⚙️ Előfeltételek és beállítás
 
-**Fejlesztési környezet:**
+**Fejlesztői környezet:**
 - .NET 9.0 SDK vagy újabb
-- Visual Studio 2022 vagy VS Code C# kiterjesztéssel
-- GitHub Models API hozzáférés
+- Visual Studio 2022 vagy VS Code C# bővítménnyel
+- Egy Azure előfizetés Azure OpenAI erőforrással és modell telepítéssel
+- Azure CLI — bejelentkezés `az login` paranccsal
 
 **Szükséges függőségek:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Környezet konfiguráció (.env fájl):**
+**Környezeti beállítások (.env fájl):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
 ```
 
 ## A kód futtatása
 
-Ez a lecke egy .NET Egyszeri Fájl Alkalmazás implementációt tartalmaz. A futtatáshoz:
+Ez a lecke egy .NET egységfájl alkalmazás megvalósítást tartalmaz. A futtatáshoz:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Tedd futtathatóvá a fájlt (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Futtasd az alkalmazást
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -43,21 +44,21 @@ Vagy használd a dotnet run parancsot:
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Kód implementáció
+## Kód megvalósítása
 
-A teljes implementáció elérhető a `07-dotnet-agent-framework.cs` fájlban, amely bemutatja:
+A teljes megvalósítás elérhető a `07-dotnet-agent-framework.cs` fájlban, amely bemutatja:
 
-- Környezet konfiguráció betöltése DotNetEnv segítségével
-- OpenAI kliens konfigurálása GitHub Modellekhez
-- Strukturált adatmodellek (Plan és TravelPlan) definiálása JSON sorosítással
-- AI ügynök létrehozása strukturált kimenettel JSON séma használatával
+- Környezeti beállítások betöltése DotNetEnv segítségével
+- Az Azure OpenAI kliens konfigurálása a Responses API-hoz
+- Strukturált adatmodellek definiálása (Plan és TravelPlan) JSON szerializációval
+- AI ügynök létrehozása strukturált kimenettel JSON sémával
 - Tervezési kérések végrehajtása típusbiztos válaszokkal
 
 ## Kulcsfogalmak
 
 ### Strukturált tervezés típusbiztos modellekkel
 
-Az ügynök C# osztályokat használ a tervezési kimenetek struktúrájának meghatározására:
+Az ügynök C# osztályokat használ a tervezési kimenetek szerkezetének meghatározásához:
 
 ```csharp
 public class Plan
@@ -79,9 +80,9 @@ public class TravelPlan
 }
 ```
 
-### JSON séma strukturált kimenetekhez
+### JSON séma a strukturált kimenetekhez
 
-Az ügynök úgy van konfigurálva, hogy a TravelPlan séma szerinti válaszokat adjon vissza:
+Az ügynök úgy van konfigurálva, hogy a TravelPlan sémának megfelelő válaszokat adjon vissza:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
@@ -100,18 +101,20 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 
 Az ügynök koordinátorként működik, feladatokat delegálva specializált alügynököknek:
 
-- FlightBooking: Repülőjegyek foglalására és repülési információk biztosítására
-- HotelBooking: Szállodák foglalására és szállodai információk biztosítására
-- CarRental: Autók foglalására és autóbérlési információk biztosítására
-- ActivitiesBooking: Programok foglalására és programinformációk biztosítására
-- DestinationInfo: Úti célokkal kapcsolatos információk biztosítására
+- FlightBooking: Repülőjegyek foglalására és repülőjárat-információk biztosítására
+- HotelBooking: Szállodafoglalásra és szállodai információk nyújtására
+- CarRental: Autóbérlés foglalására és autóbérlési információkra
+- ActivitiesBooking: Programok foglalására és tevékenység-információkra
+- DestinationInfo: Úticél információk biztosítására
 - DefaultAgent: Általános kérések kezelésére
 
-## Várható kimenet
+## Várt kimenet
 
-Amikor az ügynököt egy utazási tervezési kéréssel futtatod, elemezni fogja a kérést, és strukturált tervet generál megfelelő feladatkiosztásokkal a specializált ügynökök számára, JSON formátumban, amely megfelel a TravelPlan sémának.
+Amikor a tervezési kéréssel futtatod az ügynököt, elemezni fogja a kérést és strukturált tervet generál, megfelelő feladatkiosztással a specializált ügynököknek, JSON formátumban, amely megfelel a TravelPlan sémának.
 
 ---
 
-**Felelősség kizárása**:  
-Ez a dokumentum az [Co-op Translator](https://github.com/Azure/co-op-translator) AI fordítási szolgáltatás segítségével lett lefordítva. Bár törekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az eredeti nyelvén tekintendő hiteles forrásnak. Fontos információk esetén javasolt professzionális emberi fordítást igénybe venni. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely a fordítás használatából eredhet.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Jogi nyilatkozat**:
+Ez a dokumentum az AI fordítási szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével készült. Bár az pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hiteles forrásnak. Fontos információk esetén professzionális emberi fordítást javasolunk. Nem vállalunk felelősséget semmilyen félreértésért vagy téves értelmezésért, amely ebből a fordításból ered.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

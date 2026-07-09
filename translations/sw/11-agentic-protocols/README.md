@@ -1,182 +1,182 @@
-# Kutumia Itifaki za Mawakala (MCP, A2A na NLWeb)
+# Kutumia Itifaki za Kijumla (MCP, A2A na NLWeb)
 
-[![Itifaki za Mawakala](../../../translated_images/sw/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
+[![Agentic Protocols](../../../translated_images/sw/lesson-11-thumbnail.b6c742949cf1ce2a.webp)](https://youtu.be/X-Dh9R3Opn8)
 
 > _(Bonyeza picha hapo juu kutazama video ya somo hili)_
 
-Wakati matumizi ya mawakala wa AI yanavyoongezeka, ndivyo ilivyo haja ya itifaki zinazohakikisha upangaji wa kawaida, usalama, na kusaidia ubunifu wazi. Katika somo hili, tutashughulikia itifaki 3 zinazolenga kukidhi hitaji hili - Itifaki ya Muktadha wa Mfano (MCP), Mwakala kwa Mwakala (A2A) na Wavuti ya Lugha Asilia (NLWeb).
+Kadiri matumizi ya mawakala wa AI yanavyoongezeka, ndivyo pia inavyoongezeka haja ya itifaki zinazohakikisha viwango, usalama, na kusaidia uvumbuzi wa wazi. Katika somo hili, tutajadili itifaki 3 zinazolenga kukidhi hitaji hili - Itifaki ya Muktadha wa Mfano (MCP), Mwakala kwa Mwakala (A2A) na Mtandao wa Lugha Asilia (NLWeb).
 
 ## Utangulizi
 
 Katika somo hili, tutafunika:
 
-• Jinsi **MCP** inavyomruhusu Mwakala wa AI kufikia zana za nje na data ili kukamilisha kazi za mtumiaji.
+• Jinsi **MCP** inavyomruhusu Mwakala wa AI kupata vifaa na data za nje ili kukamilisha kazi za mtumiaji.
 
-• Jinsi **A2A** inavyowezesha mawasiliano na ushirikiano kati ya mawakala tofauti wa AI.
+•  Jinsi **A2A** inavyowezesha mawasiliano na ushirikiano kati ya mawakala tofauti wa AI.
 
-• Jinsi **NLWeb** inavyoleta miunganisho ya lugha asilia kwa tovuti yoyote, ikiwawezesha Mawakala wa AI kugundua na kuingiliana na yaliyomo.
+• Jinsi **NLWeb** inavyoweka interfaces za lugha asilia kwenye tovuti yoyote, kuwezesha mawakala wa AI kugundua na kuingiliana na maudhui.
 
 ## Malengo ya Kujifunza
 
-• **Tambua** kusudi msingi na faida za MCP, A2A, na NLWeb katika muktadha wa mawakala wa AI.
+• **Tambua** lengo kuu na faida za MCP, A2A, na NLWeb katika muktadha wa mawakala wa AI.
 
-• **Eleza** jinsi kila itifaki inavyorahisisha mawasiliano na mwingiliano kati ya LLMs, zana, na mawakala wengine.
+• **Elezea** jinsi kila itifaki inavyorahisisha mawasiliano na mwingiliano kati ya LLMs, vifaa, na mawakala wengine.
 
-• **Tambua** majukumu maalum ambayo kila itifaki inacheza katika kujenga mifumo tata ya mawakala.
+• **Tambua** majukumu tofauti ambayo kila itifaki inacheza katika kujenga mifumo tata ya kujumuisha mawakala.
 
 ## Itifaki ya Muktadha wa Mfano
 
-Itifaki ya Muktadha wa Mfano (**MCP**) ni kiwango wazi kinachotoa njia iliyopangwa kwa programu kutoa muktadha na zana kwa LLMs. Hii inaruhusu "kiunganishi cha ulimwengu wote" kwa vyanzo tofauti vya data na zana ambazo Mawakala wa AI wanaweza kuunganishwa nazo kwa njia thabiti.
+**Itifaki ya Muktadha wa Mfano (MCP)** ni kiwango wazi kinachotoa njia sanifu kwa programu kutoa muktadha na zana kwa LLMs. Hii inaruhusu "adapter wa ulimwengu" kwa vyanzo mbalimbali vya data na zana ambazo mawakala wa AI wanaweza kuunganishwa nazo kwa njia thabiti.
 
-Tuchunguze vipengele vya MCP, faida ikilinganishwa na matumizi ya API moja kwa moja, na mfano wa jinsi mawakala wa AI wanavyoweza kutumia seva ya MCP.
+Tuchaangalie sehemu za MCP, faida zinazopatikana ikilinganishwa na kutumia API moja kwa moja, na mfano wa jinsi mawakala wa AI wanavyoweza kutumia seva ya MCP.
 
-### Vipengele Vikuu vya MCP
+### Sehemu za Msingi za MCP
 
-MCP inafanya kazi kwa usanifu wa **mteja-seva** na vipengele vikuu ni:
+MCP hufanya kazi kwa **miundo ya mteja-seva** na sehemu zake kuu ni:
 
-• **Hosts** ni programu za LLM (kwa mfano mhariri wa msimbo kama VSCode) ambazo huanza muunganisho na Seva ya MCP.
+• **Hosts** ni programu za LLM (kwa mfano mhariri wa nambari kama VSCode) ambazo huanzisha muunganisho na seva ya MCP.
 
-• **Clients** ni vipengele ndani ya programu mwenyeji vinavyodumisha muunganisho wa mmoja kwa mmoja na seva.
+• **Clients** ni sehemu ndani ya programu ya host zinazodumisha muunganisho wa moja kwa moja na seva.
 
-• **Servers** ni programu nyepesi zinazofunua uwezo maalum.
+• **Servers** ni programu nyepesi zinazotoa uwezo maalum.
 
-Imeingizwa katika itifaki ni mibobezi mitatu ya msingi ambayo ni uwezo wa Seva ya MCP:
+Katika itifaki kuna misingi mitatu kuu inayojumuishwa ambazo ni uwezo wa seva ya MCP:
 
-• **Tools**: Hizi ni vitendo au kazi maalum ambazo Mwakala wa AI anaweza kuita ili kufanya kitendo. Kwa mfano, huduma ya hali ya hewa inaweza funua zana ya "pata hali ya hewa", au seva ya biashara ya mtandaoni inaweza funua zana ya "nunua bidhaa". Seva za MCP hutangaza jina la kila zana, maelezo, na skimu ya pembejeo/pembezaji katika orodha yao ya uwezo.
+• **Tools**: Hizi ni hatua au kazi tofauti ambazo wakala wa AI anaweza kuitisha kufanya tendo fulani. Kwa mfano, huduma ya hali ya hewa inaweza kutoa zana ya "pata hali ya hewa", au seva ya e-commerce inaweza kutoa zana ya "nunua bidhaa". Seva za MCP huorodhesha kila jina la zana, maelezo, na muundo wa pembejeo/matokeo katika orodha ya uwezo.
 
-• **Resources**: Hizi ni vitu vya data au nyaraka zinazosomeka tu ambazo seva ya MCP inaweza kutoa, na wateja wanaweza kuzivuta wanapohitaji. Mifano ni pamoja na yaliyomo ya faili, rekodi za hifadhidata, au faili za kumbukumbu. Rasilimali zinaweza kuwa maandishi (kama msimbo au JSON) au bainari (kama picha au PDF).
+• **Resources**: Hizi ni data au nyaraka za kusoma tu ambazo seva ya MCP inaweza kutoa, na wateja wanaweza kuzipata inapohitajika. Mifano ni kama maudhui ya faili, rekodi za hifadhidata, au faili za kumbukumbu. Rasilimali zinaweza kuwa maandishi (kama nambari au JSON) au binary (kama picha au PDF).
 
-• **Prompts**: Hizi ni templeti zilizotanguliwa ambazo zinatoa mapendekezo ya maelekezo, kuruhusu mtiririko wa kazi wenye ugumu zaidi.
+• **Prompts**: Hizi ni templaiti zilizotayarishwa awali zinazotoa mapendekezo ya vichochezi, zikiruhusu workflows tata zaidi.
 
 ### Faida za MCP
 
-MCP inatoa faida kubwa kwa Mawakala wa AI:
+MCP hutoa faida kubwa kwa mawakala wa AI:
 
-• **Ugunduzi wa Zana unaobadilika**: Mawakala wanaweza kwa nguvu kupokea orodha ya zana zinazopatikana kutoka seva pamoja na maelezo ya kile wanachofanya. Hii ni tofauti na API za jadi, ambazo mara nyingi zinahitaji ufungaji wa msimbo kwa miunganiko, ikimaanisha kubadilika kwa API yoyote kunahitaji masasisho ya msimbo. MCP inatoa mbinu ya "unganisha mara moja", ikileta urekebishaji mkubwa.
+• **Ugunduzi wa Zana kwa Muda Halisi**: Mawakala wanaweza kupata orodha ya zana zilizopo kutoka kwa seva pamoja na maelezo ya kazi zao. Hii tofauti na API za jadi, ambazo mara nyingi zinahitaji usanidi wa kitaalamu kwa kila muunganisho, hivyo mabadiliko yoyote ya API yanahitaji marekebisho ya msimbo. MCP hutoa njia ya "unganisha mara moja", ikileta ufanisi zaidi.
 
-• **Utangamano kati ya LLMs**: MCP inafanya kazi kati ya LLMs tofauti, ikitoa uharibifu wa kubadilisha modeli za msingi ili kutathmini utendaji bora.
+• **Uwezo wa Kufanya Kazi Kati ya LLMs Mbalimbali**: MCP hufanya kazi kati ya LLMs tofauti, ikitoa uhuru wa kubadilisha modeli kuu kwa ajili ya tathmini ya utendaji bora.
 
-• **Usalama Uliopangwa**: MCP inajumuisha njia ya kawaida ya uthibitishaji, ikibonyeza upanuzi wakati wa kuongeza ufikiaji kwa seva za MCP za ziada. Hii ni rahisi kuliko kusimamia funguo na aina tofauti za uthibitishaji kwa API za jadi mbalimbali.
+• **Usalama Sanifu**: MCP inajumuisha njia sanifu ya uthibitishaji, ambayo inarahisisha ongezeko la upatikanaji kwa seva zaidi za MCP. Hii ni rahisi zaidi kuliko kusimamia funguo na aina tofauti za uthibitishaji kwa API za jadi.
 
 ### Mfano wa MCP
 
-![Mchoro wa MCP](../../../translated_images/sw/mcp-diagram.e4ca1cbd551444a1.webp)
+![MCP Diagram](../../../translated_images/sw/mcp-diagram.e4ca1cbd551444a1.webp)
 
 Fikiria mtumiaji anayetaka kuweka tiketi ya ndege kwa kutumia msaidizi wa AI unaotumia MCP.
 
-1. **Connection**: Msaidizi wa AI (mteja wa MCP) anajenga muunganisho na seva ya MCP inayotolewa na shirika la ndege.
+1. **Muunganisho**: Msaidizi wa AI (mteja wa MCP) anajiunga na seva ya MCP inayotolewa na shirika la ndege.
 
-2. **Tool Discovery**: Mteja huuliza seva ya MCP ya shirika la ndege, "Mna zana gani zinazopatikana?" Seva inajibu kwa zana kama "tafuta ndege" na "weka tiketi".
+2. **Uchunguzi wa Zana**: Mteja anauliza seva ya MCP ya shirika la ndege, "Una zana gani zinazopatikana?" Seva hujibu na zana kama "tafuta ndege" na "weka tiketi ya ndege".
 
-3. **Tool Invocation**: Kisha unauliza msaidizi wa AI, "Tafadhali tafuta ndege kutoka Portland hadi Honolulu." Msaidizi wa AI, akitumia LLM yake, hutambua kwamba inahitaji kuita zana ya "tafuta ndege" na hupitisha vigezo vinavyofaa (asili, marudio) kwa seva ya MCP.
+3. **Uitishaji wa Zana**: Kisha unauliza msaidizi wa AI, "Tafadhali tafuta ndege kutoka Portland hadi Honolulu." Msaidizi wa AI, akitumia LLM yake, hutambua kwamba anahitaji kuitisha zana ya "tafuta ndege" na hupitisha vigezo muhimu (asalio, mahali pa kupelekwa) kwa seva ya MCP.
 
-4. **Execution and Response**: Seva ya MCP, ikitenda kama kiambatisho, inafanya wito halisi kwa API ya ndani ya uhifadhi ya shirika la ndege. Kisha inapokea taarifa za ndege (mfano, data ya JSON) na kuzirudisha kwa msaidizi wa AI.
+4. **Utekelezaji na Majibu**: Seva ya MCP, ikifanya kazi kama kiambatisho, hufanya wito halisi kwa API ya kuhifadhi tiketi ya shirika la ndege. Kisha hupokea taarifa za ndege (kwa mfano data ya JSON) na kuirudisha kwa msaidizi wa AI.
 
-5. **Further Interaction**: Msaidizi wa AI huwasilisha chaguzi za ndege. Mara ukichagua ndege, msaidizi anaweza kuitisha zana ya "weka tiketi" kwenye seva moja hiyo ya MCP, kukamilisha uhifadhi.
+5. **Mwingiliano Zaidi**: Msaidizi wa AI huonyesha chaguzi za ndege. Mara tu unapochagua ndege, msaidizi anaweza kuitisha zana ya "weka tiketi" kwenye seva hiyo ya MCP, kukamilisha uhifadhi.
 
 ## Itifaki ya Mwakala kwa Mwakala (A2A)
 
-Wakati MCP inazingatia kuunganisha LLMs na zana, itifaki ya **Mwakala kwa Mwakala (A2A)** inaenda hatua zaidi kwa kuwezesha mawasiliano na ushirikiano kati ya mawakala tofauti wa AI. A2A inaunganisha mawakala wa AI kutoka taasisi, mazingira na mifumo tofauti ya kiteknolojia ili kukamilisha kazi iliyo gawanywa.
+Wakati MCP inalenga kuunganisha LLMs na zana, **itfaki ya Mwakala kwa Mwakala (A2A)** inachukua hatua zaidi kwa kuwezesha mawasiliano na ushirikiano kati ya mawakala tofauti wa AI. A2A huunganisha mawakala wa AI kati ya mashirika tofauti, mazingira na teknolojia ili kukamilisha kazi ya pamoja.
 
-Tutachunguza vipengele na faida za A2A, pamoja na mfano wa jinsi ingeweza kutumika katika programu yetu ya usafiri.
+Tutaangalia sehemu na faida za A2A, pamoja na mfano wa jinsi inaweza kutumika katika programu yetu ya usafiri.
 
-### Vipengele Vikuu vya A2A
+### Sehemu za Msingi za A2A
 
-A2A inalenga kuwaruhusu mawakala kuwasiliana na kufanya kazi pamoja kukamilisha sehemu ya kazi ya mtumiaji. Kila kipengele cha itifaki huchangia hili:
+A2A inalenga kuwezesha mawasiliano kati ya mawakala na kuwafanya wafanye kazi pamoja kukamilisha kazi ndogo ya mtumiaji. Kila sehemu ya itifaki huchangia hili:
 
-#### Agent Card
+#### Kadi ya Mwakala
 
-Sawa na jinsi seva ya MCP inavyoshare orodha ya zana, Kadi ya Mwakala ina:
-- Jina la Mwakala .  
-- Maelezo ya **kazi za jumla** anayofanya.
-- **orodha ya ujuzi maalum** na maelezo ili kusaidia mawakala wengine (au hata watumiaji wa kibinadamu) kuelewa wakati na kwanini wangependa kumuita wakala huyo.
+Kama vile seva ya MCP inavyoshiriki orodha ya zana, Kadi ya Mwakala ina:
+- Jina la Mwakala.
+- **Maelezo ya kazi kuu** anazokamilisha.
+- **Orodha ya ujuzi maalum** pamoja na maelezo kusaidia mawakala wengine (au hata watumiaji wa binadamu) kuelewa lini na kwa nini wangependa kumwita yule wakala.
 - **URL ya Endpoint ya sasa** ya wakala
-- **toleo** na **uwezo** wa wakala kama vile majibu ya kutiririka na arifa za push.
+- **Toleo** na **uwezo** wa wakala kama majibu ya mtiririko na taarifa za kusukuma.
 
-#### Agent Executor
+#### Mtendaji wa Mwakala
 
-Mtekelezaji wa Mwakala anawajibika kwa **kupitisha muktadha wa mazungumzo ya mtumiaji kwa wakala wa mbali**, wakala wa mbali anahitaji hili ili kuelewa kazi inayopaswa kukamilishwa. Katika seva ya A2A, wakala hutumia Mfano Wake Mkubwa wa Lugha (LLM) kutafsiri ombi zinazokuja na kutekeleza kazi kwa kutumia zana zake za ndani.
+Mtendaji wa Mwakala anahusika na **kupitisha muktadha wa mazungumzo ya mtumiaji kwa wakala wa mbali**, wakala wa mbali anahitaji hili kuelewa kazi inayohitajika kufanyika. Katika seva ya A2A, wakala hutumia LLM yake mwenyewe kuchambua maombi yanayoingia na kutekeleza kazi kwa kutumia zana zake za ndani.
 
-#### Artefakti
+#### Kawaida
 
-Mara wakala wa mbali anapokamilisha kazi iliyotakiwa, bidhaa yake ya kazi huundwa kama artefakti. Artefakti **ina matokeo ya kazi ya wakala**, **maelezo ya kile kilichokamilishwa**, na **muktadha wa maandishi** ambao unatumwa kupitia itifaki. Baada artefakti itakapotumwa, muunganisho na wakala wa mbali unafungwa hadi itakapohitajika tena.
+Mara wakala wa mbali anapokamilisha kazi iliyotakiwa, bidhaa ya kazi yake hutengenezwa kama kawaida. Kawaida **ina matokeo ya kazi ya wakala**, **maelezo ya kilichokamilishwa**, na **muktadha wa maandishi** unaotumwa kupitia itifaki. Baada ya kawaida kutumwa, muunganisho na wakala wa mbali unafungwa hadi utakapohitajika tena.
 
 #### Foleni ya Matukio
 
-Kipengele hiki kinatumika kwa **kusimamia masasisho na kupitisha ujumbe**. Ni muhimu hasa katika uzalishaji kwa mifumo ya mawakala ili kuzuia muunganisho kati ya mawakala kufunguliwa kabla ya kazi kukamilika, hasa wakati muda wa kukamilisha kazi unaweza kuchukua muda mrefu.
+Sehemu hii hutumika kwa **kusimamia masasisho na kupitisha ujumbe**. Ni muhimu hasa katika uzalishaji kwa mifumo ya waakilishi kuzuia muunganisho kati ya mawakala kufungwa kabla ya kazi kukamilika, hasa wakati muda wa kukamilisha kazi unaweza kuchukua muda mrefu.
 
 ### Faida za A2A
 
-• **Ushirikiano Ulioimarishwa**: Inawawezesha mawakala kutoka kwa wauzaji na majukwaa tofauti kuingiliana, kushirikiana muktadha, na kufanya kazi pamoja, ikirahisisha automatisering bila mshono kati ya mifumo iliyokuwa imegawanywa.
+• **Ushirikiano Bora**: Inawawezesha mawakala kutoka wauzaji na majukwaa tofauti kuingiliana, kushiriki muktadha, na kufanya kazi pamoja, kurahisisha uendeshaji otomatiki baina ya mifumo ambayo hapo awali haikuwa na muunganisho.
 
-• **Ubunifu wa Uchaguzi wa Mfano**: Kila wakala wa A2A anaweza kuamua ni LLM gani atakayoiweka kwa huduma za ombi lake, ikiruhusu modeli zilizoboreshwa au zilizofanyiwa faini kwa kila wakala, tofauti na muunganisho wa LLM moja katika baadhi ya matukio ya MCP.
+• **Uwezo wa Kuchagua Modeli**: Kila wakala wa A2A anaweza kuamua LLM gani itumike huduma zake, kuruhusu matumizi bora au marekebisho maalum kwa wakala mmoja mmoja, tofauti na muunganisho mmoja wa LLM katika baadhi ya matukio ya MCP.
 
-• **Uthibitishaji Umejumuishwa**: Uthibitishaji umejengwa moja kwa moja ndani ya itifaki ya A2A, ukitoa mfumo thabiti wa usalama kwa mwingiliano wa mawakala.
+• **Uthibitishaji Uliounganishwa**: Uthibitishaji umejumuishwa moja kwa moja katika itifaki ya A2A, ikitoa mfumo dhabiti wa usalama kwa mwingiliano wa mawakala.
 
 ### Mfano wa A2A
 
-![Mchoro wa A2A](../../../translated_images/sw/A2A-Diagram.8666928d648acc26.webp)
+![A2A Diagram](../../../translated_images/sw/A2A-Diagram.8666928d648acc26.webp)
 
-Tuchambue zaidi katika hadithi yetu ya uhifadhi wa safari, lakini mara hii tukitumia A2A.
+Tuendelee na hali yetu ya kuhifadhi usafiri, lakini wakati huu tukitumia A2A.
 
-1. **User Request to Multi-Agent**: Mtumiaji anaingiliana na "Mwakala wa Safari" mteja/mwakala wa A2A, labda kwa kusema, "Tafadhali andaa safari nzima kwenda Honolulu kwa wiki ijayo, ikijumuisha ndege, hoteli, na gari la kukodisha".
+1. **Ombi la Mtumiaji kwa Mawakala Wengi**: Mtumiaji anawasiliana na mteja/mwakala wa A2A anayeitwa "Mwakala wa Usafiri," labda kwa kusema, "Tafadhali weka safari kamili kwenda Honolulu kwa wiki ijayo, ikijumuisha ndege, hoteli, na gari la kukodisha".
 
-2. **Orchestration by Travel Agent**: Mwakala wa Safari anapokea ombi hili tata. Anatumia LLM yake kutafakari juu ya kazi na kuamua kwamba anahitaji kuwasiliana na mawakala maalum wengine.
+2. **Uendeshaji na Mwakala wa Usafiri**: Mwakala wa Usafiri anapokea ombi hili tata. Anatumia LLM yake kufikiria kuhusu kazi na kubaini kwamba anahitaji kuwasiliana na mawakala maalum wa aina tofauti.
 
-3. **Inter-Agent Communication**: Mwakala wa Safari kisha anatumia itifaki ya A2A kuungana na mawakala wa chini, kama "Mwakala wa Shirika la Ndege," "Mwakala wa Hoteli," na "Mwakala wa Kukodisha Gari" ambazo zimeundwa na kampuni tofauti.
+3. **Mawasiliano kati ya Wakala**: Kisha Mwakala wa Usafiri anatumia itifaki ya A2A kuungana na mawakala wa sehemu za chini, kama "Mwakala wa Shirika la Ndege," "Mwakala wa Hoteli," na "Mwakala wa Gari la Kukodisha" waliotengenezwa na kampuni tofauti.
 
-4. **Delegated Task Execution**: Mwakala wa Safari anatuma kazi maalum kwa mawakala maalum hayo (mfano, "Tafuta ndege kwenda Honolulu," "Weka hoteli," "Kodia gari"). Kila mmoja wa mawakala maalum, wakiruninga LLM zao wenyewe na kutumia zana zao za ndani (ambazo zinaweza kuwa seva za MCP wenyewe), hufanya sehemu yake ya uhifadhi.
+4. **Utekelezaji wa Kazi zilizoko Wapili**: Mwakala wa Usafiri hutuma kazi maalum kwa mawakala hawa maalum (mfano, "Tafuta ndege za kuelekea Honolulu," "Weka hoteli," "Kodi gari"). Kila mmoja wa mawakala hawa maalum, akikimbiza LLM zake binafsi na kutumia zana zao wenyewe (zinaweza kuwa seva za MCP pia), hutekeleza sehemu yake maalum ya uhifadhi.
 
-5. **Consolidated Response**: Mara mawakala wote wa chini wanapokamilisha kazi zao, Mwakala wa Safari anakusanya matokeo (maelezo ya ndege, uthibitisho wa hoteli, uhifadhi wa gari la kukodisha) na kutuma jibu kamili, la mtindo wa mazungumzo, kwa mtumiaji.
+5. **Jibu la Kufungwa Pamoja**: Mara mawakala wote wa sehemu za chini wanapokamilisha kazi zao, Mwakala wa Usafiri huunganisha matokeo (maelezo ya ndege, uthibitisho wa hoteli, uhifadhi wa gari) na kutuma jibu kamili, la mtindo wa mazungumzo, kwa mtumiaji.
 
-## Wavuti ya Lugha Asilia (NLWeb)
+## Mtandao wa Lugha Asilia (NLWeb)
 
-Tovuti zimekuwa kwa muda mrefu njia kuu kwa watumiaji kupata habari na data kupitia intaneti.
+Tovuti zimekuwa njia kuu kwa watumiaji kupata taarifa na data mtandaoni kwa muda mrefu.
 
-Tuchunguze vipengele tofauti vya NLWeb, faida za NLWeb na mfano jinsi NLWeb inavyofanya kazi kwa kuangalia programu yetu ya usafiri.
+Tuchunguze sehemu tofauti za NLWeb, faida za NLWeb na mfano wa jinsi NLWeb inavyofanya kazi kwa kuangalia programu yetu ya usafiri.
 
-### Vipengele vya NLWeb
+### Sehemu za NLWeb
 
-- **NLWeb Application (Core Service Code)**: Mfumo unaoshughulikia maswali ya lugha asilia. Unaunganisha sehemu tofauti za jukwaa ili kuunda majibu. Unaweza kuifikiria kama **mashine inayoiendesha vipengele vya lugha asilia** vya tovuti.
+- **Programu ya NLWeb (Msimbo wa Huduma Msingi)**: Mfumo unaosindika maswali ya lugha asilia. Unaunganisha sehemu mbalimbali za jukwaa kuunda majibu. Unaweza kuifikiria kama **motisha inayoiendesha sehemu za lugha asilia** za tovuti.
 
-- **NLWeb Protocol**: Hii ni **seti ya msingi ya sheria za mwingiliano wa lugha asilia** na tovuti. Inarudisha majibu kwa muundo wa JSON (mara nyingi ikitumia Schema.org). Kusudi lake ni kuunda msingi rahisi kwa "Wavuti ya AI," kwa njia ile ile HTML ilivyofanya iwezekane kushiriki nyaraka mtandaoni.
+- **Itifaki ya NLWeb**: Hii ni **seti ya msingi ya sheria za mwingiliano wa lugha asilia** na tovuti. Inarudisha majibu kwa muundo wa JSON (wanaotumia Schema.org). Kusudi lake ni kuunda msingi rahisi wa “Mtandao wa AI,” kwa njia ile ile HTML ilivyofanikisha kushiriki nyaraka mtandaoni.
 
-- **MCP Server (Model Context Protocol Endpoint)**: Kila usanidi wa NLWeb pia hufanya kazi kama **seva ya MCP**. Hii inamaanisha inaweza **kushare zana (kama njia ya “ask”) na data** na mifumo mingine ya AI. Kwa vitendo, hili hufanya yaliyomo na uwezo wa tovuti kutumika na mawakala wa AI, kuruhusu tovuti kuwa sehemu ya "ekosistimu ya mawakala" pana.
+- **Seva ya MCP (Mwisho wa Itifaki ya Muktadha wa Mfano)**: Kila usanidi wa NLWeb pia hufanya kazi kama **seva ya MCP**. Hii inamaanisha inaweza **kushiriki zana (kama njia ya 'ask') na data** na mifumo mingine ya AI. Kwa vitendo, hii inafanya maudhui na uwezo wa tovuti kutumika na mawakala wa AI, kuwezesha tovuti kuwa sehemu ya “ekosistimu ya mawakala” pana.
 
-- **Embedding Models**: Mifano hii hutumiwa **kugeuza yaliyomo ya tovuti kuwa uwakilishi nambari unaoitwa vekta (embeddings)**. Vekta hizi zinakamata maana kwa njia ambayo kompyuta zinaweza kulinganisha na kutafuta. Zinahifadhiwa katika hifadhidata maalum, na watumiaji wanaweza kuchagua ni mfano gani wa embedding wanayotaka kutumia.
+- **Modeli za Kuunganisha (Embedding Models)**: Modeli hizi hutumika **kubadilisha maudhui ya tovuti kuwa maelezo ya nambari yanayoitwa vectors (embeddings)**. Vectors hizi zinakamata maana kwa njia kompyuta zinaweza kuzilinganisha na kuitafuta. Zinahifadhiwa katika hifadhidata maalum, na watumiaji wanaweza kuchagua modeli ya embedding wanayotaka kutumia.
 
-- **Vector Database (Retrieval Mechanism)**: Hifadhidata hii **inahifadhi embeddings za yaliyomo ya tovuti**. Wakati mtu anauliza swali, NLWeb hutafuta katika hifadhidata ya vektor ili haraka kupata taarifa muhimu zaidi. Inatoa orodha ya majibu yanayowezekana, yaliyopangwa kwa kulingana na ufananisho. NLWeb inafanya kazi na mifumo tofauti ya uhifadhi wa vektor kama Qdrant, Snowflake, Milvus, Azure AI Search, na Elasticsearch.
+- **Hifadhidata ya Vectors (Mbinu ya Urejeshaji)**: Hifadhidata hii **inahifadhi embeddings za maudhui ya tovuti**. Wakati mtu anauliza swali, NLWeb huangalia hifadhidata ya vector ili haraka kupata taarifa muhimu zaidi. Hutoa orodha ya haraka ya majibu yanayowezekana, yakiwa yamepangwa kulingana na ufanano. NLWeb hufanya kazi na mifumo tofauti ya kuhifadhi vectors kama Qdrant, Snowflake, Milvus, Azure AI Search, na Elasticsearch.
 
 ### NLWeb kwa Mfano
 
 ![NLWeb](../../../translated_images/sw/nlweb-diagram.c1e2390b310e5fe4.webp)
 
-Fikiria tena tovuti yetu ya uhifadhi wa safari, lakini mara hii, inafanywa na NLWeb.
+Tazama tena tovuti yetu ya uhifadhi wa usafiri, lakini wakati huu, inaendeshwa na NLWeb.
 
-1. **Data Ingestion**: Katalogi za bidhaa za tovuti ya usafiri zilizopo (mfano, orodha za ndege, maelezo ya hoteli, vifurushi vya ziara) zimepangwa kwa kutumia Schema.org au kupakiwa kupitia vyanzo vya RSS. Zana za NLWeb huzalisha data hii iliyopangwa, kuunda embeddings, na kuzihifadhi katika hifadhidata ya vektor ya ndani au ya mbali.
+1. **Kukusanya Data**: Katalogi za bidhaa zilizopo kwenye tovuti ya usafiri (mfano, orodha za ndege, maelezo ya hoteli, vifurushi vya ziara) zimepangwa kwa kutumia Schema.org au kupakiwa kupitia malisho ya RSS. Zana za NLWeb hulisha data hii iliyopangwa, hutengeneza embeddings, na kuzihifadhi katika hifadhidata ya vector ya ndani au ya mbali.
 
-2. **Natural Language Query (Human)**: Mtumiaji anatembelea tovuti na, badala ya kuvinjari menyu, anaandika kwenye kiolesura cha gumzo: "Nitafutie hoteli rafiki kwa familia huko Honolulu yenye bwawa kwa wiki ijayo".
+2. **Swali la Lugha Asilia (Binadamu)**: Mtumiaji anatembelea tovuti na, badala ya kuvinjari menyu, anaandika kwenye mazungumzo: "Nipatie hoteli rafiki kwa familia huko Honolulu yenye bwawa la kuogelea kwa wiki ijayo."
 
-3. **NLWeb Processing**: Programu ya NLWeb inapokea swali hili. Inatuma swali kwa LLM kwa kuelewa na kwa wakati mmoja inatafuta katika hifadhidata yake ya vektor kwa orodha za hoteli zinazofaa.
+3. **Usindikaji wa NLWeb**: Programu ya NLWeb inapokea swali hili. Inalipeleka swali kwa LLM kwa kuelewa na wakati huo huo inatafuta hifadhidata yake ya vector kwa orodha za hoteli zinazohusika.
 
-4. **Accurate Results**: LLM husaidia kutafsiri matokeo ya utafutaji kutoka kwenye hifadhidata, kutambua mechi bora kulingana na vigezo vya "rafiki kwa familia," "bwawa," na "Honolulu", kisha kuunda jibu la lugha asilia. Muhimu, jibu linahusu hoteli halisi kutoka kwa katalogi ya tovuti, likiepuka habari za kubuniwa.
+4. **Matokeo Sahihi**: LLM husaidia kufasiri matokeo ya utafutaji kutoka hifadhidata, kubaini mechi bora kulingana na vigezo vya "rafiki kwa familia," "bwawa," na "Honolulu," kisha kuunda jibu la lugha asilia. Muhimu, jibu linaelekeza kwa hoteli halisi kutoka katalogi ya tovuti, likiepuka taarifa za kubuniwa.
 
-5. **AI Agent Interaction**: Kwa sababu NLWeb inatumikia kama seva ya MCP, wakala wa AI wa usafiri wa nje pia angeweza kuungana na mfano wa NLWeb wa tovuti hii. Wakala wa AI angeweza kisha kutumia njia ya MCP ya `ask` kuhoji tovuti moja kwa moja: `ask("Are there any vegan-friendly restaurants in the Honolulu area recommended by the hotel?")`. Mfano wa NLWeb ungechakata hili, akitumia hifadhidata yake ya taarifa za mikahawa (ikiwa imepakiwa), na kurudisha jibu lililopangwa kwa muundo wa JSON.
+5. **Mwingiliano wa Mwakala wa AI**: Kwa kuwa NLWeb hutumika kama seva ya MCP, wakala wa usafiri wa AI wa nje pia anaweza kuungana kwa mfano wa NLWeb wa tovuti hii. Wakala wa AI basi anaweza kutumia njia ya `ask` ya MCP kuuliza tovuti moja kwa moja: `ask("Je, kuna migahawa rafiki kwa wafuataji wa lishe ya mmea katika eneo la Honolulu inayopendekezwa na hoteli?")`. Mfano wa NLWeb utaendesha hili, ukitumia hifadhidata yake ya taarifa za migahawa (ikiwa imepakuliwa), na kurudisha jibu la JSON lililopangwa.
 
-### Je, Una Maswali Zaidi kuhusu MCP/A2A/NLWeb?
+### Una Maswali Zaidi Kuhusu MCP/A2A/NLWeb?
 
-Jiunge na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) kukutana na wanafunzi wengine, kuhudhuria saa za ofisi na kupata majibu kwa maswali yako kuhusu Mawakala wa AI.
+Jiunge na [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) kukutana na wanaojifunza wengine, kuhudhuria saa za ofisi na kupata majibu kwa maswali yako kuhusu Mawakala wa AI.
 
 ## Rasilimali
 
-- [MCP kwa Waanzilishi](https://aka.ms/mcp-for-beginners)  
-- [MCP Documentation](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
-- [Repo ya NLWeb](https://github.com/nlweb-ai/NLWeb)
-- [Mfumo wa Mawakala wa Microsoft](https://aka.ms/ai-agents-beginners/agent-framewrok)
+- [MCP kwa Wakubwa](https://aka.ms/mcp-for-beginners)  
+- [Nyaraka za MCP](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
+- [Hifadhi ya NLWeb](https://github.com/nlweb-ai/NLWeb)
+- [Mfumo wa Mawakala wa Microsoft](https://aka.ms/ai-agents-beginners/agent-framework)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Kauli ya kutokuwa na dhamana:
-Dokumenti hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kuhakikisha usahihi, tafadhali fahamu kwamba tafsiri za kiautomatiki zinaweza kuwa na makosa au upotofu. Nakala ya awali katika lugha yake ya asili inapaswa kuchukuliwa kama chanzo chenye mamlaka. Kwa taarifa muhimu, inashauriwa kutumia tafsiri ya mtaalamu wa kibinadamu. Hatutawajibika kwa uelewa mbaya au tafsiri isiyo sahihi inayotokana na matumizi ya tafsiri hii.
+**Kionyozo**:
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kupata usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati ya asili katika lugha yake halisi inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayofanywa na binadamu inapendekezwa. Hatutojibu kwa kuelewa vibaya au tafsiri potofu zinazotokea kutokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,66 +1,66 @@
-# Kujenga Programu za Wakala Wengi kwa Kutumia Microsoft Agent Framework Workflow
+# Kujenga Programu za Wakala wengi kwa Kutumia Microsoft Agent Framework Workflow
 
-Mafunzo haya yatakusaidia kuelewa na kujenga programu za wakala wengi kwa kutumia Microsoft Agent Framework. Tutachunguza dhana kuu za mifumo ya wakala wengi, kuingia ndani ya usanifu wa sehemu ya Workflow ya mfumo, na kupitia mifano ya vitendo katika Python na .NET kwa mifumo tofauti ya kazi.
+Mafunzo haya yatakuongoza kuelewa na kujenga programu za wakala wengi kwa kutumia Microsoft Agent Framework. Tutachunguza dhana kuu za mifumo ya wakala wengi, tazame usanifu wa kipengele cha Workflow cha mfumo huo, na kupitia mifano ya vitendo kwa Python na .NET kwa mifumo tofauti ya workflow.
 
 ## 1\. Kuelewa Mifumo ya Wakala Wengi
 
-Wakala wa AI ni mfumo unaozidi uwezo wa Kielezo Kikubwa cha Lugha (LLM) cha kawaida. Unaweza kutambua mazingira yake, kufanya maamuzi, na kuchukua hatua ili kufanikisha malengo maalum. Mfumo wa wakala wengi unahusisha wakala kadhaa wakishirikiana kutatua tatizo ambalo lingekuwa gumu au lisilowezekana kwa wakala mmoja kushughulikia peke yake.
+Wakala wa AI ni mfumo unaozidi uwezo wa Mfano wa Lugha Kubwa (LLM) wa kawaida. Inaweza kuona mazingira yake, kufanya maamuzi, na kuchukua hatua kufikia malengo maalum. Mfumo wa wakala wengi unahusisha wakala kadhaa wanaoshirikiana kutatua tatizo ambalo lingekuwa gumu au lisilowezekana kwa wakala mmoja kughandle pekee.
 
-### Matukio ya Kawaida ya Matumizi
+### Mifano ya Maombi ya Kawaida
 
-  * **Kutatua Matatizo Magumu**: Kugawanya kazi kubwa (mfano, kupanga tukio la kampuni) katika kazi ndogo zinazoshughulikiwa na wakala maalum (mfano, wakala wa bajeti, wakala wa vifaa, wakala wa masoko).
-  * **Msaidizi wa Kijanja**: Wakala mkuu wa msaidizi akigawa kazi kama kupanga ratiba, utafiti, na uhifadhi kwa mawakala wengine maalum.
-  * **Uundaji wa Maudhui Kiotomatiki**: Mchakato ambapo wakala mmoja anaandika maudhui, mwingine anayakagua kwa usahihi na mtindo, na wa tatu anayachapisha.
+  * **Kutatua Tatizo Changamu**: Kuvunjisha jukumu kubwa (mfano, kupanga tukio la kampuni nzima) katika vitendo vidogo vinavyoshughulikiwa na wakala maalum (mfano, wakala wa bajeti, wakala wa usafirishaji, wakala wa masoko).
+  * **Msaidizi wa Mtandao**: Mwakala mkuu anayeagiza kazi kama kupanga ratiba, utafiti, na uhifadhi kwa wakala wengine maalum.
+  * **Uundaji wa Maudhui Kiotomatiki**: Workflow ambapo wakala mmoja anatayarisha maudhui, mwingine anaridhia kwa usahihi na ladha, na wa tatu huchapisha.
 
-### Mifumo ya Wakala Wengi
+### Mifano ya Wakala Wengi
 
-Mifumo ya wakala wengi inaweza kupangwa kwa mifumo kadhaa, ambayo huamua jinsi wanavyoshirikiana:
+Mifumo ya wakala wengi inaweza kupanga katika mifano kadhaa, ambayo huamua jinsi wanavyoshirikiana:
 
-  * **Mfululizo**: Mawakala hufanya kazi kwa mpangilio uliowekwa, kama mstari wa mkusanyiko. Matokeo ya wakala mmoja yanakuwa pembejeo kwa wakala mwingine.
-  * **Sambamba**: Mawakala hufanya kazi kwa wakati mmoja kwenye sehemu tofauti za kazi, na matokeo yao hukusanywa mwishoni.
-  * **Masharti**: Mchakato hufuata njia tofauti kulingana na matokeo ya wakala, sawa na kauli ya if-then-else.
+  * **Mfuatano**: Wakala hufanya kazi kwa mpangilio uliowekwa, kama kwenye mstari wa mkusanyiko. Matokeo ya wakala mmoja yanakuwa pembejeo kwa wakala inayofuata.
+  * **Simultaneous**: Wakala hufanya kazi kwa wakati mmoja juu ya sehemu tofauti za kazi, na matokeo yao hukusanywa mwishoni.
+  * **Masharti**: Workflow hufuata njia tofauti kulingana na matokeo ya wakala, kama taarifa ya if-then-else.
 
 ## 2\. Usanifu wa Microsoft Agent Framework Workflow
 
-Mfumo wa kazi wa Agent Framework ni injini ya hali ya juu ya uratibu iliyoundwa kusimamia mwingiliano mgumu kati ya mawakala wengi. Imejengwa juu ya usanifu wa msingi wa grafu unaotumia [Mfano wa utekelezaji wa Pregel](https://kowshik.github.io/JPregel/pregel_paper.pdf), ambapo usindikaji hufanyika kwa hatua zilizosawazishwa zinazoitwa "supersteps."
+Mfumo wa workflow wa Agent Framework ni injini ya hali ya juu ya upangaji wa michakato iliyoundwa kusimamia mwingiliano tata kati ya wakala wengi. Umejengwa kwenye usanifu wa grafu unaotumia [mfano wa utekelezaji wa mtindo wa Pregel](https://kowshik.github.io/JPregel/pregel_paper.pdf), ambapo usindikaji hufanyika kwa hatua zinazoratibiwa zinazojulikana kama "supersteps."
 
 ### Vipengele Vikuu
 
 Usanifu unajumuisha sehemu kuu tatu:
 
-1.  **Watekelezaji**: Hizi ni vitengo vya msingi vya usindikaji. Katika mifano yetu, `Agent` ni aina ya mtekelezaji. Kila mtekelezaji anaweza kuwa na wahandaji wa ujumbe kadhaa ambao huanzishwa kiotomatiki kulingana na aina ya ujumbe uliopokelewa.
-2.  **Edges**: Hizi hufafanua njia ambayo ujumbe huchukua kati ya watekelezaji. Edges zinaweza kuwa na masharti, kuruhusu uelekezaji wa habari kwa njia ya grafu ya kazi.
-3.  **Workflow**: Sehemu hii inaratibu mchakato mzima, kusimamia watekelezaji, edges, na mtiririko wa jumla wa utekelezaji. Inahakikisha kwamba ujumbe unashughulikiwa kwa mpangilio sahihi na kutiririsha matukio kwa ufuatiliaji.
+1.  **Watekelezaji**: Hizi ni vitengo vya msingi vya usindikaji. Katika mifano yetu, `Agent` ni aina ya mtekelezaji. Kila mtekelezaji anaweza kuwa na wasimamizi wa jumbe kadhaa wanaoitwa moja kwa moja kulingana na aina ya ujumbe unaopokelewa.
+2.  **Mikondo**: Hizi huainisha njia ambayo jumbe husafiri kati ya watekelezaji. Mikondo inaweza kuwa na masharti, ambayo huruhusu uelekeo wa taarifa kwa nguvu kupitia grafu ya workflow.
+3.  **Workflow**: Kipengele hiki husimamia mchakato mzima, kusimamia watekelezaji, mikondo, na mtiririko mzima wa utekelezaji. Inahakikisha jumbe zinashughulikiwa kwa mpangilio sahihi na kusambaza matukio kwa ajili ya uangalizi.
 
-*Diagramu inayoonyesha vipengele vikuu vya mfumo wa kazi.*
+*Mchoro unaoonyesha vipengele kuu vya mfumo wa workflow.*
 
-Muundo huu unaruhusu kujenga programu thabiti na zinazoweza kupanuka kwa kutumia mifumo ya msingi kama minyororo ya mfululizo, fan-out/fan-in kwa usindikaji sambamba, na mantiki ya switch-case kwa mtiririko wa masharti.
+Muundo huu unaruhusu kujenga programu zenye nguvu na zinazoweza kupanuka kwa kutumia mifano ya msingi kama mikondo ya mfuatano, fan-out/fan-in kwa usindikaji sambamba, na mantiki ya switch-case kwa mikondo yenye masharti.
 
-## 3\. Mifano ya Vitendo na Uchambuzi wa Nambari
+## 3\. Mifano ya Vitendo na Uchambuzi wa Msimbo
 
-Sasa, hebu tuchunguze jinsi ya kutekeleza mifumo tofauti ya kazi kwa kutumia mfumo. Tutaangalia nambari za Python na .NET kwa kila mfano.
+Sasa, tuchunguze jinsi ya kutekeleza mifano tofauti ya workflow kwa kutumia mfumo huu. Tutaangalia msimbo wa Python na .NET kwa kila mfano.
 
-### Kesi 1: Mchakato wa Mfululizo wa Msingi
+### Kesi 1: Workflow ya Mfuatano wa Msingi
 
-Hii ni mifumo rahisi zaidi, ambapo matokeo ya wakala mmoja yanapokelewa moja kwa moja na mwingine. Tukio letu linahusisha wakala wa hoteli `FrontDesk` anayetoa mapendekezo ya kusafiri, ambayo yanakaguliwa na wakala wa `Concierge`.
+Huu ni mfano rahisi zaidi, ambapo matokeo ya wakala mmoja hupitishwa moja kwa moja kwa mwingine. Hali yetu ni wakala wa hoteli `FrontDesk` anayetoa ushauri wa safari, halafu wakala wa `Concierge` anauguzia ushauri huo.
 
-*Diagramu ya mchakato wa msingi wa FrontDesk -\> Concierge.*
+*Mchoro wa workflow wa FrontDesk -\> Concierge ya msingi.*
 
-#### Historia ya Tukio
+#### Maelezo ya Hali
 
-Msafiri anauliza mapendekezo ya Paris.
+Mtembeleaji anaomba ushauri mjini Paris.
 
-1.  Wakala wa `FrontDesk`, aliyebuniwa kwa ufupi, anapendekeza kutembelea Louvre Museum.
-2.  Wakala wa `Concierge`, anayependelea uzoefu halisi, anapokea pendekezo hili. Anakagua pendekezo na kutoa maoni, akipendekeza mbadala wa ndani, usio wa kitalii.
+1.  Wakala `FrontDesk`, aliyeundwa kwa ufupi, anapendekeza kutembelea Jumba la sanaa la Louvre.
+2.  Wakala `Concierge`, anayethamini uzoefu halisi, anapokea pendekezo hilo. Anakagua ushauri na kutoa maoni, akipendekeza mbadala wa maeneo ya karibu, yasiyokuwa maarufu kwa watalii.
 
 #### Uchambuzi wa Utekelezaji wa Python
 
-Katika mfano wa Python, tunaanza kwa kufafanua na kuunda mawakala wawili, kila mmoja akiwa na maagizo maalum.
+Katika mfano wa Python, kwanza tunaeleza na kuunda wakala wawili, kila mmoja na maagizo maalum.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# Eleza majukumu ya mawakala na maagizo
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
     You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
@@ -71,41 +71,41 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# Unda mfano wa mawakala
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-Kisha, `WorkflowBuilder` hutumika kujenga grafu. `front_desk_agent` huwekwa kama sehemu ya kuanzia, na edge huundwa kuunganisha matokeo yake na `reviewer_agent`.
+Kisha, `WorkflowBuilder` hutumiwa kujenga grafu. `front_desk_agent` imesanidiwa kuwa sehemu ya mwanzo, na mkondo umeundwa kuunganisha matokeo yake na `reviewer_agent`.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-Hatimaye, mchakato unatekelezwa na maelezo ya awali ya mtumiaji.
+Mwishowe, workflow inaendeshwa kwa agizo la mtumiaji la awali.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run inatekeleza mchakato; get_outputs() inarudisha matokeo ya mtendaji wa pato.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
 #### Uchambuzi wa Utekelezaji wa .NET (C\#)
 
-Utekelezaji wa .NET unafuata mantiki sawa. Kwanza, constants hufafanuliwa kwa majina ya mawakala na maagizo yao.
+Utekelezaji wa .NET unafuata mantiki sawa kabisa. Kwanza, vigezo vinatolewa kwa majina na maagizo ya wakala.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
@@ -119,15 +119,15 @@ const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Mawakala huundwa kwa kutumia `OpenAIClient`, kisha `WorkflowBuilder` hufafanua mtiririko wa mfululizo kwa kuongeza edge kutoka `frontDeskAgent` hadi `reviewerAgent`.
+Wakala wanaundwa kwa kutumia `AzureOpenAIClient` (API ya Majibu), halafu `WorkflowBuilder` huweka mfuatano kwa kuongeza mkondo kutoka `frontDeskAgent` hadi `reviewerAgent`.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Mchakato kisha huendeshwa na ujumbe wa mtumiaji, na matokeo hutiririshwa kurudi.
+Workflow inaendeshwa kwa ujumbe wa mtumiaji, na matokeo hutiririshwa kurudi.
 
-### Kesi 2: Mchakato wa Mfululizo wa Hatua Nyingi
+### Kesi 2: Workflow ya Mfuatano wa Hatua Nyingi
 
-Mfumo huu unapanua mfululizo wa msingi ili kujumuisha mawakala zaidi. Ni bora kwa michakato inayohitaji hatua nyingi za uboreshaji au mabadiliko.
+Mfano huu unaongezea mfuatano wa msingi kwa kuhusisha wakala zaidi. Ni bora kwa michakato inayohitaji hatua kadhaa za marekebisho au mabadiliko.
 
-#### Historia ya Tukio
+#### Maelezo ya Hali
 
-Mtumiaji anatoa picha ya sebule na kuomba nukuu ya samani.
+Mtumiaji anatoa picha ya chumba cha kuishi na anaomba nukuu ya samani.
 
-1.  **Sales-Agent**: Inatambua vitu vya samani kwenye picha na kuunda orodha.
-2.  **Price-Agent**: Inachukua orodha ya vitu na kutoa maelezo ya bei, ikijumuisha chaguo za bajeti, za kati, na za hali ya juu.
-3.  **Quote-Agent**: Inapokea orodha yenye bei na kuibadilisha kuwa hati rasmi ya nukuu katika Markdown.
+1.  **Mwakala wa Mauzo**: Hutatua vitu vya samani kwenye picha na kutengeneza orodha.
+2.  **Mwakala wa Bei**: Anapokea orodha ya vitu na kutoa mgawanyo wa bei kwa undani, pamoja na bajeti, kiwango cha kati, na chaguzi za hali ya juu.
+3.  **Mwakala wa Nukuu**: Anapokea orodha iliyopimwa bei na kuifanya kuwa hati rasmi ya nukuu katika Markdown.
 
-*Diagramu ya mchakato wa Sales -\> Price -\> Quote.*
+*Mchoro wa workflow wa Mauzo -\> Bei -\> Nukuu.*
 
 #### Uchambuzi wa Utekelezaji wa Python
 
-Mawakala watatu hufafanuliwa, kila mmoja akiwa na jukumu maalum. Mchakato huundwa kwa kutumia `add_edge` kuunda mnyororo: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+Wakala watatu wameelezwa, kila mmoja na jukumu maalum. Workflow inajengwa kwa kutumia `add_edge` kuunda mfuatano: `sales_agent` -\> `price_agent` -\> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# Unda maajenti maalum watatu
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# Jenga mtiririko wa kazi wa mfululizo
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Pembejeo ni `ChatMessage` inayojumuisha maandishi na URI ya picha. Mfumo hushughulikia kupitisha matokeo ya kila wakala kwa mwingine katika mfululizo hadi nukuu ya mwisho itakapozalishwa.
+Ingizo ni `ChatMessage` inayojumuisha maandishi na URI ya picha. Mfumo hushughulikia kupitisha matokeo ya kila wakala kwa wakala anayefuata katika mfuatano hadi nukuu ya mwisho itengenezwe.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# Ujumbe wa mtumiaji una maandishi na picha
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# Endesha mtiririko wa kazi
+events = await workflow.run(message)
 ```
 
 #### Uchambuzi wa Utekelezaji wa .NET (C\#)
 
-Mfano wa .NET unafanana na toleo la Python. Mawakala watatu (`salesagent`, `priceagent`, `quoteagent`) huundwa. `WorkflowBuilder` huunganisha kwa mfululizo.
+Mfano wa .NET unaiga toleo la Python. Wakala watatu (`salesagent`, `priceagent`, `quoteagent`) wanaundwa. `WorkflowBuilder` hukunga mfuatano wao.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent priceagent  = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
+AIAgent quoteagent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-Ujumbe wa mtumiaji huundwa na data ya picha (kama bytes) na maelezo ya maandishi. Njia ya `InProcessExecution.StreamAsync` huanzisha mchakato, na matokeo ya mwisho hukamatwa kutoka kwa mtiririko.
+Ujumbe wa mtumiaji unaandaliwa na data ya picha (kama bytes) na agizo la maandishi. Njia `InProcessExecution.StreamAsync` huanzisha workflow, na matokeo ya mwisho yanakamatwa kutoka kwenye mto.
 
-### Kesi 3: Mchakato Sambamba
+### Kesi 3: Workflow Sambamba
 
-Mfumo huu hutumika wakati kazi zinaweza kufanywa kwa wakati mmoja ili kuokoa muda. Inahusisha "fan-out" kwa mawakala wengi na "fan-in" ili kukusanya matokeo.
+Mfano huu hutumiwa wakati kazi zinaweza kufanywa kwa wakati mmoja ili kuokoa muda. Inahusisha "fan-out" kwa wakala wengi na "fan-in" kukusanya matokeo.
 
-#### Historia ya Tukio
+#### Maelezo ya Hali
 
-Mtumiaji anaomba kupanga safari ya Seattle.
+Mtumiaji anaomba kupanga ziara ya kwenda Seattle.
 
-1.  **Dispatcher (Fan-Out)**: Ombi la mtumiaji linatumwa kwa mawakala wawili kwa wakati mmoja.
-2.  **Researcher-Agent**: Inatafiti vivutio, hali ya hewa, na mambo muhimu ya safari ya Seattle mwezi wa Desemba.
-3.  **Plan-Agent**: Inaunda ratiba ya kina ya safari ya kila siku kwa kujitegemea.
-4.  **Aggregator (Fan-In)**: Matokeo kutoka kwa mtafiti na mpangaji hukusanywa na kuwasilishwa pamoja kama matokeo ya mwisho.
+1.  **Mfanyakazi wa Usambazaji (Fan-Out)**: Ombi la mtumiaji linatumwa kwa wakala wawili kwa wakati mmoja.
+2.  **Mwakala wa Utafiti**: Hufanya utafiti wa vivutio, hali ya hewa, na mambo muhimu kwa safari Seattle Desemba.
+3.  **Mwakala wa Mipango**: Huatengeneza ratiba ya safari ya siku kwa siku.
+4.  **Mkusanyaji (Fan-In)**: Matokeo ya mtaalamu wa utafiti na mpangaji hukusanywa na kuwasilishwa pamoja kama matokeo ya mwisho.
 
-*Diagramu ya mchakato sambamba wa Researcher na Planner.*
+*Mchoro wa workflow sambamba wa Mtaalamu wa Utafiti na Mpangaji.*
 
 #### Uchambuzi wa Utekelezaji wa Python
 
-`ConcurrentBuilder` hurahisisha uundaji wa mfumo huu. Unataja tu mawakala wanaoshiriki, na builder huunda kiotomatiki mantiki ya fan-out na fan-in.
+`ConcurrentBuilder` hurahisisha uundaji wa mfano huu. Unataja wakala waliohusika, na builder huunda moja kwa moja mantiki ya fan-out na fan-in inayohitajika.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder hushughulikia mantiki ya usambazaji/ukusanyaji
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# Endesha mtiririko wa kazi
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Mfumo unahakikisha kwamba `research_agent` na `plan_agent` hufanya kazi sambamba, na matokeo yao ya mwisho hukusanywa katika orodha.
+Mfumo huhakiki kwamba `research_agent` na `plan_agent` hufanya kazi sambamba, na matokeo yao ya mwisho hukusanywa kwenye orodha.
 
 #### Uchambuzi wa Utekelezaji wa .NET (C\#)
 
-Katika .NET, mfumo huu unahitaji ufafanuzi wa wazi zaidi. Watekelezaji maalum (`ConcurrentStartExecutor` na `ConcurrentAggregationExecutor`) huundwa kushughulikia mantiki ya fan-out na fan-in.
+Katika .NET, mfano huu unahitaji ufafanuzi zaidi wazi. Watendaji maalum (`ConcurrentStartExecutor` na `ConcurrentAggregationExecutor`) huundwa kushughulikia mantiki ya fan-out na fan-in.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` kisha hutumia `AddFanOutEdge` na `AddFanInEdge` kujenga grafu na watekelezaji hawa maalum na mawakala.
+Kisha `WorkflowBuilder` hutumia `AddFanOutEdge` na `AddFanInEdge` kujenga grafu na watendaji hawa maalum na wakala.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Kesi 4: Mchakato wa Masharti
+### Kesi 4: Workflow ya Masharti
 
-Mchakato wa masharti huanzisha mantiki ya matawi, kuruhusu mfumo kuchukua njia tofauti kulingana na matokeo ya kati.
+Workflow za masharti huleta mantiki ya matawi, kuruhusu mfumo kuchukua njia tofauti kulingana na matokeo ya kati.
 
-#### Historia ya Tukio
+#### Maelezo ya Hali
 
-Mchakato huu unaharakisha uundaji na uchapishaji wa mafunzo ya kiufundi.
+Workflow hii inaotomatisha uundaji na uchapishaji wa mafunzo ya kiufundi.
 
-1.  **Evangelist-Agent**: Anaandika rasimu ya mafunzo kulingana na muhtasari uliotolewa na URL.
-2.  **ContentReviewer-Agent**: Anakagua rasimu. Anakagua ikiwa idadi ya maneno ni zaidi ya 200.
+1.  **Mwakala Mtangazaji**: Anaandika rasimu ya mafunzo kulingana na muhtasari na URL zilizotolewa.
+2.  **Mwakala Mhakiki wa Maudhui**: Anakagua rasimu. Anakagua kama maneno yamezidi 200.
 3.  **Tawi la Masharti**:
-      * **Ikiwa Imeidhinishwa (`Yes`)**: Mchakato unaendelea kwa `Publisher-Agent`.
-      * **Ikiwa Imebatilishwa (`No`)**: Mchakato unakoma na kutoa sababu ya kukataliwa.
-4.  **Publisher-Agent**: Ikiwa rasimu imeidhinishwa, wakala huyu huokoa maudhui kwenye faili ya Markdown.
+      * **Ikiidhinishwa (`Ndiyo`)**: Workflow inaendelea hadi `Mwakala Mchapishaji`.
+      * **Ikiyekataliwa (`Hapana`)**: Workflow inasimama na kutoa sababu ya kukataliwa.
+4.  **Mwakala Mchapishaji**: Ikiwa rasimu imeidhinishwa, wakala huyu anaweka maudhui kwenye faili la Markdown.
 
 #### Uchambuzi wa Utekelezaji wa Python
 
-Mfano huu hutumia kazi maalum, `select_targets`, kutekeleza mantiki ya masharti. Kazi hii hupitishwa kwa `add_multi_selection_edge_group` na kuelekeza mchakato kulingana na uwanja wa `review_result` kutoka kwa matokeo ya mkaguzi.
+Mfano huu hutumia kazi maalum, `select_targets`, kutekeleza mantiki ya masharti. Kazi hii hupitishwa kwa `add_multi_selection_edge_group` na inaelekeza workflow kulingana na uwanja wa `review_result` kutoka matokeo ya mhakiki.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# Kazi hii inabainisha hatua inayofuata kulingana na matokeo ya ukaguzi
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # Ikiidhinishwa, endelea na mtendaji wa 'save_draft'
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # Ikiukubaliwa, endelea na mtendaji wa 'handle_review' ili kuripoti kushindwa
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# Mjenzi wa mtiririko wa kazi hutumia kazi ya uteuzi kwa ajili ya kupanga njia
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # Mfinyazo wa uteuzi wa wengi hutekeleza mantiki ya masharti
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Watekelezaji maalum kama `to_reviewer_result` hutumika kuchambua matokeo ya JSON kutoka kwa mawakala na kuyabadilisha kuwa vitu vilivyo na aina kali ambavyo kazi ya uteuzi inaweza kuchunguza.
+Watendaji maalum kama `to_reviewer_result` hutumiwa kutafsiri matokeo ya JSON kutoka kwa wakala na kuyageuza kuwa vitu vyenye aina thabiti ambavyo kazi ya uteuzi inaweza kuchunguza.
 
 #### Uchambuzi wa Utekelezaji wa .NET (C\#)
 
-Toleo la .NET hutumia mbinu sawa na kazi ya masharti. `Func<object?, bool>` hufafanuliwa ili kukagua mali ya `Result` ya kitu cha `ReviewResult`.
+Toleo la .NET linatumia njia sawa na kazi ya masharti. `Func<object?, bool>` imetengenezwa kuchunguza mali `Result` ya kitu cha `ReviewResult`.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-Kigezo cha `condition` cha njia ya `AddEdge` huruhusu `WorkflowBuilder` kuunda njia ya matawi. Mchakato utafuata edge hadi `publishExecutor` tu ikiwa hali ya `GetCondition(expectedResult: "Yes")` inarudi kweli. Vinginevyo, utafuata njia hadi `sendReviewerExecutor`.
+Kigezo cha `condition` cha njia ya `AddEdge` huruhusu `WorkflowBuilder` kuunda njia ya matawi. Workflow itafuata mkondo hadi `publishExecutor` ikiwa sharti `GetCondition(expectedResult: "Yes")` litarejea kweli. Vinginevyo, itafuata njia hadi `sendReviewerExecutor`.
 
 ## Hitimisho
 
-Microsoft Agent Framework Workflow hutoa msingi thabiti na rahisi kwa uratibu wa mifumo tata ya wakala wengi. Kwa kutumia usanifu wake wa grafu na vipengele vikuu, watengenezaji wanaweza kubuni na kutekeleza michakato ya kazi ya hali ya juu katika Python na .NET. Ikiwa programu yako inahitaji usindikaji rahisi wa mfululizo, utekelezaji sambamba, au mantiki ya masharti ya nguvu, mfumo huu unatoa zana za kujenga suluhisho za AI zenye nguvu, zinazoweza kupanuka, na salama kwa aina.
+Microsoft Agent Framework Workflow hutoa msingi thabiti na rahisi kwa kupanga mifumo tata ya wakala wengi. Kwa kutumia usanifu wake wa grafu na vipengele vikuu, watengenezaji wanaweza kubuni na kutekeleza workflow za hali ya juu katika Python na .NET. Iwe programu yako inahitaji usindikaji rahisi wa mfuatano, utekelezaji sambamba, au mantiki ya masharti yenye nguvu, mfumo huu unatoa zana za kujenga suluhisho zenye nguvu, zinazoweza kupanuka, na salama kwa aina za AI.
 
 ---
 
-**Kanusho**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati ya asili katika lugha yake ya awali inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, inashauriwa kutumia huduma ya tafsiri ya kibinadamu ya kitaalamu. Hatutawajibika kwa maelewano au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Kionyozo**:
+Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kupata usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati ya asili katika lugha yake halisi inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu inayofanywa na binadamu inapendekezwa. Hatutojibu kwa kuelewa vibaya au tafsiri potofu zinazotokea kutokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
