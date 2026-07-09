@@ -1,40 +1,40 @@
-# 🌍 AI Kelionių Agentas su Microsoft Agent Framework (.NET)
+# 🌍 Dirbtinio intelekto kelionių agentas su Microsoft Agent Framework (.NET)
 
-## 📋 Scenarijaus Apžvalga
+## 📋 Scenarijaus apžvalga
 
-Šis pavyzdys parodo, kaip sukurti išmanų kelionių planavimo agentą naudojant Microsoft Agent Framework skirtą .NET. Agentas gali automatiškai generuoti suasmenintus vienos dienos kelionių maršrutus atsitiktinėms pasaulio vietoms.
+Šis pavyzdys demonstruoja, kaip sukurti intelektualų kelionių planavimo agentą, naudojant Microsoft Agent Framework .NET aplinkoje. Agentas gali automatiškai generuoti personalizuotas dienos kelionių maršrutus atsitiktiniams pasaulio taškams.
 
-### Pagrindinės Galimybės:
+### Pagrindinės savybės:
 
-- 🎲 **Atsitiktinis Vietos Pasirinkimas**: Naudoja pritaikytą įrankį atostogų vietoms pasirinkti
-- 🗺️ **Išmanus Kelionių Planavimas**: Kuria detalius dienos po dienos maršrutus
-- 🔄 **Realaus Laiko Transliavimas**: Palaiko tiek momentinius, tiek transliuojamus atsakymus
-- 🛠️ **Pritaikytų Įrankių Integracija**: Parodo, kaip išplėsti agento galimybes
+- 🎲 **Atsitiktinis kelionės tikslas**: Naudoja pasirinktą įrankį atostogų vietoms pasirinkti
+- 🗺️ **Intelektualus kelionės planavimas**: Kuria detalius dienos po dienos maršrutus
+- 🔄 **Realaus laiko srautas**: Palaiko tiek momentinius, tiek srautinio perdavimo atsakymus
+- 🛠️ **Individualių įrankių integracija**: Demonstruoja, kaip išplėsti agento galimybes
 
-## 🔧 Techninė Architektūra
+## 🔧 Techninė architektūra
 
-### Pagrindinės Technologijos
+### Pagrindinės technologijos
 
-- **Microsoft Agent Framework**: Naujausia .NET įgyvendinimo versija AI agentų kūrimui
-- **GitHub Models Integracija**: Naudoja GitHub AI modelių inferencijos paslaugą
-- **OpenAI API Suderinamumas**: Naudoja OpenAI klientų bibliotekas su pritaikytais galiniais taškais
-- **Saugus Konfigūravimas**: API raktų valdymas pagal aplinkos nustatymus
+- **Microsoft Agent Framework**: Naujausia .NET implementacija DI agentų kūrimui
+- **Azure OpenAI (Responses API)**: Naudoja Azure OpenAI Responses API modeliui apdoroti
+- **Azure Identity**: Saugus prisijungimas per `AzureCliCredential` (`az login`)
+- **Saugaus konfigūravimo valdymas**: Aplinkos kintamųjų pagrindu valdoma prieiga prie taškų
 
-### Pagrindiniai Komponentai
+### Pagrindinės sudedamosios dalys
 
-1. **AIAgent**: Pagrindinis agento organizatorius, valdantis pokalbių eigą
-2. **Pritaikyti Įrankiai**: `GetRandomDestination()` funkcija, prieinama agentui
-3. **Pokalbių Klientas**: GitHub Models pagrįsta pokalbių sąsaja
-4. **Transliavimo Palaikymas**: Realaus laiko atsakymų generavimo galimybės
+1. **AIAgent**: Pagrindinis agentas, valdantis pokalbio eigą
+2. **Individualūs įrankiai**: Funkcija `GetRandomDestination()` prieinama agentui
+3. **Responses klientas**: Pokalbio sąsaja, pagrįsta Azure OpenAI Responses API
+4. **Srautinio perdavimo palaikymas**: Realaus laiko atsakymų generavimo galimybės
 
-### Integracijos Modelis
+### Integracijos modelis
 
 ```mermaid
 graph LR
-    A[User Request] --> B[AI Agent]
-    B --> C[GitHub Models API]
-    B --> D[GetRandomDestination Tool]
-    C --> E[Travel Itinerary]
+    A[Vartotojo užklausa] --> B[DI agentas]
+    B --> C[Azure OpenAI (Atsakymų API)]
+    B --> D[Įrankis Atsitiktinei Kelionės Vietai Gauti]
+    C --> E[Kelionės maršrutas]
     D --> E
 ```
 
@@ -42,28 +42,31 @@ graph LR
 
 ### Reikalavimai
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ar naujesnė versija
-- [GitHub Models API prieigos raktas](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) arba naujesnė versija
+- [Azure prenumerata](https://azure.microsoft.com/free/) su Azure OpenAI resursu ir modelio paleidimu
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prisijunkite su `az login`
 
-### Reikalingi Aplinkos Kintamieji
+### Reikalingi aplinkos kintamieji
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Tada prisijunkite, kad AzureCliCredential galėtų gauti žetoną
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Tada prisijunkite, kad AzureCliCredential galėtų gauti žetoną
+az login
 ```
 
-### Pavyzdinis Kodas
+### Pavyzdinis kodas
 
-Norėdami paleisti kodo pavyzdį,
+Norėdami paleisti pavyzdinį kodą,
 
 ```bash
 # zsh/bash
@@ -77,21 +80,23 @@ Arba naudodami dotnet CLI:
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-Žr. [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) visam kodui.
+Peržiūrėkite [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) pilną kodą.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@9.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -123,33 +128,19 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Create AI Agent with Travel Planning Capabilities
-// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Get the Responses client for the specified deployment and create the AI agent
 // Configure agent with travel planning instructions and random destination tool
 // The agent can now plan trips using the GetRandomDestination function
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
@@ -166,23 +157,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 Pagrindinės Išvados
+## 🎓 Pagrindinės įžvalgos
 
-1. **Agentų Architektūra**: Microsoft Agent Framework suteikia aiškų, tipų saugų požiūrį į AI agentų kūrimą .NET aplinkoje
-2. **Įrankių Integracija**: Funkcijos, pažymėtos `[Description]` atributais, tampa prieinamais įrankiais agentui
-3. **Konfigūracijos Valdymas**: Aplinkos kintamieji ir saugus kredencialų valdymas atitinka .NET geriausias praktikas
-4. **OpenAI Suderinamumas**: GitHub Models integracija veikia sklandžiai per OpenAI suderinamus API
+1. **Agentų architektūra**: Microsoft Agent Framework suteikia aiškų ir tipams saugų požiūrį DI agentų kūrimui .NET aplinkoje
+2. **Įrankių integracija**: Funkcijos, pažymėtos `[Description]` atributais, tampa įrankiais agentui
+3. **Konfigūracijos valdymas**: Aplinkos kintamieji ir saugus kredencialų valdymas atitinka .NET gerąsias praktikas
+4. **Azure OpenAI Responses API**: Agentas naudoja Azure OpenAI Responses API per Azure.AI.OpenAI SDK
 
-## 🔗 Papildomi Ištekliai
+## 🔗 Papildomi ištekliai
 
-- [Microsoft Agent Framework Dokumentacija](https://learn.microsoft.com/agent-framework)
-- [GitHub Models Rinka](https://github.com/marketplace?type=models)
+- [Microsoft Agent Framework dokumentacija](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Vieno Failo Programos](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET vieno failo programos](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Dėl svarbios informacijos rekomenduojama profesionali žmogaus vertimo paslauga. Mes neprisiimame atsakomybės už nesusipratimus ar neteisingus aiškinimus, atsiradusius naudojant šį vertimą.
+**Atsakomybės apribojimas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingą interpretaciją, kilusią naudojantis šiuo vertimu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

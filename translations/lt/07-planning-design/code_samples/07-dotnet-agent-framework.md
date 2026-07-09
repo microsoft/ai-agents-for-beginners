@@ -1,43 +1,44 @@
-# 🎯 Planavimas ir dizaino šablonai su GitHub modeliais (.NET)
+# 🎯 Planavimas ir dizaino modeliai su Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Mokymosi tikslai
 
-Šiame užrašų knygelėje pateikiami įmonės lygio planavimo ir dizaino šablonai, skirti kurti intelektualius agentus naudojant Microsoft Agent Framework .NET aplinkoje su GitHub modeliais. Išmoksite kurti agentus, kurie gali suskaidyti sudėtingas problemas, planuoti daugiapakopius sprendimus ir vykdyti sudėtingus darbo procesus, pasinaudodami .NET įmonės funkcijomis.
+Šiame užraše demonstruojami įmonės lygio planavimo ir dizaino modeliai intelektualių agentų kūrimui naudojant Microsoft Agent Framework .NET su Azure OpenAI (Responses API). Išmoksite kurti agentus, kurie gali suskaidyti sudėtingas problemas, planuoti kelių žingsnių sprendimus ir vykdyti sudėtingus darbo procesus su .NET įmonės funkcijomis.
 
-## ⚙️ Reikalavimai ir nustatymai
+## ⚙️ Pradiniai parametrai ir nustatymai
 
-**Kūrimo aplinka:**
-- .NET 9.0 SDK ar naujesnė versija
+**Vystymo aplinka:**
+- .NET 9.0 SDK arba naujesnė versija
 - Visual Studio 2022 arba VS Code su C# plėtiniu
-- Prieiga prie GitHub Models API
+- Azure prenumerata su Azure OpenAI resursu ir modelio diegimu
+- Azure CLI — prisijungimas su `az login`
 
-**Reikalingos priklausomybės:**
+**Reikalingi priklausomybių paketai:**
 ```xml
 <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **Aplinkos konfigūracija (.env failas):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
 ```
 
 ## Kodo paleidimas
 
-Ši pamoka apima .NET vieno failo programos įgyvendinimą. Norėdami ją paleisti:
+Ši pamoka apima .NET vieno failo programos įgyvendinimą. Norėdami paleisti:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Padarykite failą vykdomu (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Paleiskite programą
 ./07-dotnet-agent-framework.cs
 ```
 
-Arba naudokite komandą dotnet run:
+Arba naudokite dotnet run komandą:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
@@ -45,19 +46,19 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## Kodo įgyvendinimas
 
-Pilnas įgyvendinimas pateiktas `07-dotnet-agent-framework.cs` faile, kuriame demonstruojama:
+Visas įgyvendinimas yra faile `07-dotnet-agent-framework.cs`, kuriame demonstruojama:
 
-- Aplinkos konfigūracijos įkėlimas naudojant DotNetEnv
-- OpenAI kliento konfigūravimas GitHub modeliams
-- Struktūruotų duomenų modelių (Plan ir TravelPlan) apibrėžimas su JSON serializacija
-- AI agento kūrimas su struktūruotu išvestimi naudojant JSON schemą
-- Planavimo užklausų vykdymas su tipų saugiais atsakymais
+- Aplinkos konfigūracijos užkėlimas su DotNetEnv
+- Azure OpenAI kliento konfigūravimas Responses API
+- Struktūrizuotų duomenų modelių (Plan ir TravelPlan) apibrėžimas su JSON serializavimu
+- AI agento kūrimas su struktūrizuotu išvestimi naudojant JSON schemą
+- Planavimo užklausų vykdymas su tipais saugiomis atsakymų struktūromis
 
 ## Pagrindinės sąvokos
 
-### Struktūruotas planavimas su tipų saugiais modeliais
+### Struktūrizuotas planavimas su tipais saugiais modeliais
 
-Agentas naudoja C# klases, kad apibrėžtų planavimo išvesties struktūrą:
+Agentas naudoja C# klases apibrėžti planavimo išvesties struktūrą:
 
 ```csharp
 public class Plan
@@ -79,9 +80,9 @@ public class TravelPlan
 }
 ```
 
-### JSON schema struktūruotoms išvestims
+### JSON schema struktūrizuotoms išvestims
 
-Agentas sukonfigūruotas grąžinti atsakymus, atitinkančius TravelPlan schemą:
+Agentas yra konfigūruotas grąžinti atsakymus, atitinkančius TravelPlan schemą:
 
 ```csharp
 ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
@@ -96,22 +97,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Planavimo agento instrukcijos
+### Planavimo agento nurodymai
 
-Agentas veikia kaip koordinatorius, deleguodamas užduotis specializuotiems subagentams:
+Agentas veikia kaip koordinatorius, deleguodamas užduotis specializuotiems sub-agentams:
 
-- FlightBooking: Skrydžių rezervavimui ir informacijos apie skrydžius teikimui
-- HotelBooking: Viešbučių rezervavimui ir informacijos apie viešbučius teikimui
-- CarRental: Automobilių nuomos rezervavimui ir informacijos apie nuomą teikimui
-- ActivitiesBooking: Veiklų rezervavimui ir informacijos apie veiklas teikimui
-- DestinationInfo: Informacijos apie kelionės tikslus teikimui
+- FlightBooking: Skrydžių užsakymui ir informacijos apie skrydžius teikimui
+- HotelBooking: Viešbučių užsakymui ir informacijos apie viešbučius teikimui
+- CarRental: Automobilių užsakymui ir informacijos apie automobilių nuomą teikimui
+- ActivitiesBooking: Veiklų užsakymui ir informacijos apie veiklas teikimui
+- DestinationInfo: Informacijos apie tikslus teikimui
 - DefaultAgent: Bendrų užklausų tvarkymui
 
 ## Tikėtinas rezultatas
 
-Kai paleisite agentą su kelionės planavimo užklausa, jis analizuos užklausą ir sugeneruos struktūruotą planą su tinkamais užduočių paskyrimais specializuotiems agentams, suformatuotą kaip JSON, atitinkantį TravelPlan schemą.
+Paleidus agentą su kelionės planavimo užklausa, jis analizuos užklausą ir sukurs struktūrizuotą planą su tinkamu užduočių paskirstymu specializuotiems agentams, formatuotą kaip JSON, atitinkantį TravelPlan schemą.
 
 ---
 
-**Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama naudoti profesionalų žmogaus vertimą. Mes neprisiimame atsakomybės už nesusipratimus ar neteisingą interpretaciją, atsiradusią dėl šio vertimo naudojimo.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Atsakomybės apribojimas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingą interpretaciją, kilusią naudojantis šiuo vertimu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

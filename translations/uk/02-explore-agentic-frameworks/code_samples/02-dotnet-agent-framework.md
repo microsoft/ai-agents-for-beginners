@@ -1,80 +1,83 @@
-# 🔍 Дослідження Microsoft Agent Framework - Базовий агент (.NET)
+# 🔍 Вивчення Microsoft Agent Framework - базовий агент (.NET)
 
-## 📋 Навчальні цілі
+## 📋 Мета навчання
 
-Цей приклад досліджує основні концепції Microsoft Agent Framework через реалізацію базового агента в .NET. Ви дізнаєтеся про основні агентські шаблони та зрозумієте, як працюють інтелектуальні агенти за допомогою C# та екосистеми .NET.
+Цей приклад досліджує базові поняття Microsoft Agent Framework через просту реалізацію агента в .NET. Ви дізнаєтеся основні патерни агентів та зрозумієте, як інтелектуальні агенти працюють «під капотом» за допомогою C# та екосистеми .NET.
 
-### Що ви дізнаєтеся
+### Що ви відкриєте для себе
 
 - 🏗️ **Архітектура агента**: Розуміння базової структури AI-агентів у .NET
 - 🛠️ **Інтеграція інструментів**: Як агенти використовують зовнішні функції для розширення можливостей  
-- 💬 **Потік розмови**: Управління багатокроковими розмовами та контекстом за допомогою управління потоками
-- 🔧 **Шаблони конфігурації**: Найкращі практики налаштування та управління агентами в .NET
+- 💬 **Потік розмови**: Керування багатокроковими діалогами та контекстом з управлінням нитками
+- 🔧 **Патерни конфігурації**: Кращі практики налаштування та управління агентом у .NET
 
-## 🎯 Основні концепції
+## 🎯 Основні поняття
 
-### Принципи агентського фреймворку
+### Принципи агентної рамки
 
-- **Автономність**: Як агенти приймають незалежні рішення, використовуючи абстракції AI у .NET
-- **Реактивність**: Реагування на зміни в середовищі та введення користувача
-- **Проактивність**: Ініціативні дії на основі цілей та контексту
-- **Соціальна здатність**: Взаємодія через природну мову з потоками розмов
+- **Автономність**: Як агенти приймають незалежні рішення, використовуючи абстракції AI .NET
+- **Реактивність**: Відповіді на зміни у середовищі та введення користувача
+- **Проактивність**: Ініціатива на основі цілей і контексту
+- **Соціальна здатність**: Взаємодія через природну мову з нитками розмови
 
 ### Технічні компоненти
 
-- **AIAgent**: Основна оркестрація агента та управління розмовами (.NET)
-- **Функції інструментів**: Розширення можливостей агента за допомогою методів та атрибутів C#
-- **Інтеграція OpenAI**: Використання мовних моделей через стандартизовані API .NET
-- **Безпечна конфігурація**: Управління API-ключами на основі середовища
+- **AIAgent**: Основна оркестровка агента та управління розмовою (.NET)
+- **Функції інструментів**: Розширення можливостей агента методами та атрибутами C#
+- **Інтеграція Azure OpenAI**: Використання мовних моделей через Azure OpenAI Responses API
+- **Безпечна конфігурація**: Управління кінцевими точками через змінні середовища
 
 ## 🔧 Технічний стек
 
 ### Основні технології
 
 - Microsoft Agent Framework (.NET)
-- Інтеграція GitHub Models API
-- Шаблони клієнтів, сумісні з OpenAI
-- Конфігурація на основі середовища з DotNetEnv
+- Інтеграція Azure OpenAI (Responses API)
+- Патерни клієнта Azure.AI.OpenAI
+- Конфігурація на основі середовища за допомогою DotNetEnv
 
 ### Можливості агента
 
 - Розуміння та генерація природної мови
-- Виклик функцій та використання інструментів за допомогою атрибутів C#
-- Контекстно-залежні відповіді з потоками розмов
-- Розширювана архітектура з шаблонами впровадження залежностей
+- Виклики функцій та використання інструментів з атрибутами C#
+- Контекстно-залежні відповіді з нитками розмови
+- Розширювана архітектура з патернами впровадження залежностей
 
 ## 📚 Порівняння фреймворків
 
-Цей приклад демонструє підхід Microsoft Agent Framework у порівнянні з іншими агентськими фреймворками:
+Цей приклад демонструє підхід Microsoft Agent Framework у порівнянні з іншими агентними фреймворками:
 
-| Функція | Microsoft Agent Framework | Інші фреймворки |
+| Feature | Microsoft Agent Framework | Other Frameworks |
 |---------|-------------------------|------------------|
 | **Інтеграція** | Рідна екосистема Microsoft | Різна сумісність |
 | **Простота** | Чистий, інтуїтивний API | Часто складне налаштування |
-| **Розширюваність** | Легка інтеграція інструментів | Залежність від фреймворку |
-| **Готовність до підприємств** | Створено для продакшну | Залежить від фреймворку |
+| **Розширюваність** | Легка інтеграція інструментів | Залежно від фреймворку |
+| **Готовність для бізнесу** | Побудовано для продакшену | Варіюється залежно від фреймворку |
 
 ## 🚀 Початок роботи
 
-### Попередні вимоги
+### Вимоги
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) або новіший
-- [Токен доступу до GitHub Models API](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) або новіша версія
+- Підписка [Azure](https://azure.microsoft.com/free/) з ресурсом Azure OpenAI та розгортання моделі
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — увійдіть за допомогою `az login`
 
 ### Необхідні змінні середовища
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Потім увійдіть, щоб AzureCliCredential міг отримати токен
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Потім увійдіть у систему, щоб AzureCliCredential зміг отримати токен
+az login
 ```
 
 ### Приклад коду
@@ -100,14 +103,16 @@ dotnet run ./02-dotnet-agent-framework.cs
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -139,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -184,11 +175,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -226,22 +217,22 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 
 ## 🎓 Основні висновки
 
-1. **Архітектура агента**: Microsoft Agent Framework забезпечує чистий, типобезпечний підхід до створення AI-агентів у .NET
-2. **Інтеграція інструментів**: Функції, позначені атрибутами `[Description]`, стають доступними інструментами для агента
-3. **Контекст розмови**: Управління потоками дозволяє багатокрокові розмови з повною обізнаністю контексту
-4. **Управління конфігурацією**: Змінні середовища та безпечна обробка облікових даних відповідають найкращим практикам .NET
-5. **Сумісність з OpenAI**: Інтеграція GitHub Models працює безперешкодно через API, сумісні з OpenAI
+1. **Архітектура агента**: Microsoft Agent Framework пропонує чистий, типобезпечний підхід для створення AI агентів у .NET
+2. **Інтеграція інструментів**: Функції з атрибутами `[Description]` стають доступними інструментами для агента
+3. **Контекст розмови**: Управління нитками забезпечує багатокрокові діалоги з повним усвідомленням контексту
+4. **Управління конфігурацією**: Змінні середовища та безпечне керування обліковими даними відповідно до кращих практик .NET
+5. **Azure OpenAI Responses API**: Агент використовує Azure OpenAI Responses API через Azure.AI.OpenAI SDK
 
 ## 🔗 Додаткові ресурси
 
 - [Документація Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
-- [Маркетплейс GitHub Models](https://github.com/marketplace?type=models)
+- [Azure OpenAI у Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
 - [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Відмова від відповідальності**:  
-Цей документ був перекладений за допомогою сервісу автоматичного перекладу [Co-op Translator](https://github.com/Azure/co-op-translator). Хоча ми прагнемо до точності, будь ласка, майте на увазі, що автоматичні переклади можуть містити помилки або неточності. Оригінальний документ на його рідній мові слід вважати авторитетним джерелом. Для критичної інформації рекомендується професійний людський переклад. Ми не несемо відповідальності за будь-які непорозуміння або неправильні тлумачення, що виникають внаслідок використання цього перекладу.
+**Відмова від відповідальності**:
+Цей документ було перекладено за допомогою сервісу штучного інтелекту для перекладу [Co-op Translator](https://github.com/Azure/co-op-translator). Хоча ми прагнемо до точності, будь ласка, майте на увазі, що автоматичні переклади можуть містити помилки або неточності. Оригінальний документ рідною мовою слід вважати авторитетним джерелом. Для критично важливої інформації рекомендується професійний людський переклад. Ми не несемо відповідальності за будь-які непорозуміння або неправильні тлумачення, що виникли внаслідок використання цього перекладу.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

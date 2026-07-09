@@ -1,42 +1,42 @@
-# Azure AI Agent Service ဖွံ့ဖြိုးတိုးတက်မှု
+# Microsoft Foundry Agent Service ဖွံ့ဖြိုးတိုးတက်ရေး
 
-ဒီလေ့ကျင့်ခန်းမှာတော့ [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) ရှိ Azure AI Agent ဝန်ဆောင်မှုကိရိယာတွေကို အသုံးပြုပြီး ရထားခရီးစာရင်းသွင်းမှုအတွက် agent တစ်ခု ဖန်တီးမှာဖြစ်ပါတယ်။ agent ဟာ အသုံးပြုသူတွေနဲ့ ဆက်သွယ်ပေးနိုင်ပြီး ရထားခရီးစဉ်အကြောင်း အချက်အလက်များ ပံ့ပိုးပေးနိုင်မှာ ဖြစ်ပါတယ်။
+ဒီလေ့ကျင့်မှုမှာ Microsoft Foundry Agent Service ကိရိယာများကို [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) မှာ အသုံးပြုကာ Flight Booking အတွက် agent တစ်ခု ဖန်တီးပါမည်။ အဲဒီ agent သည် အသုံးပြုသူများနှင့် ဆက်သွယ်ဆက်ဆံကာ လေယာဉ်ခရီးစဉ်အကြောင်းအချက်အလက်များ ပေးနိုင်မှာ ဖြစ်သည်။
 
-## မလိုအပ်ချက်များ
+## လိုအပ်ချက်များ
 
-ဒီလေ့ကျင့်ခန်းကိုပြီးမြောက်ဖို့အတွက် အောက်ပါအရာတွေ လိုအပ်ပါသည်။
-1. လှုပ်ရှားနေတဲ့ subscription ပါ အဇူးအကောင့်တစ်ခု။ [အခမဲ့အကောင့်ဖန်တီးရန်](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst)
-2. Microsoft Foundry hub ဖန်တီးခွင့်ရှိရမည် (သို့) သင့်အတွက် ဖန်တီးပေးထားရမည်။
-    - သင့်အခန်းကဏ္ဍမှာ Contributor (ပါဝင်သူ) သို့မဟုတ် Owner (ပိုင်ရှင်) ဖြစ်လျှင် ဒီလမ်းညွှန်ချက်တွေကို လိုက်နာနိုင်သည်။
+ဒီလေ့ကျင့်မှုကို ပြီးမြောက်စေဖို့ အောက်ပါအရာများ လိုအပ်ပါသည်။
+1. subscription တက်ပြီးသား Azure အကောင့်တစ်ခု။ [အခမဲ့အကောင့်ဖန်တီးရန်](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst)။
+2. Microsoft Foundry hub ဖန်တီးခွင့်ရှိရမည့် သို့မဟုတ် hub တစ်ခုရရှိထားရမည်။
+    - သင့်အခန်းကဏ္ဍက Contributor သို့မဟုတ် Owner ဖြစ်ပါက ဒီလေ့ကျင့်မှုအတွက် လမ်းညွှန်ချက်များကို လိုက်နာနိုင်ပါသည်။
 
-## Microsoft Foundry hub ဖန်တီးခြင်း
+## Microsoft Foundry hub တည်ဆောက်ခြင်း
 
-> **မှတ်ချက်**: Microsoft Foundry ကို ယခင်က Azure AI Studio လို့လည်း ခေါ်ကြသည်။
+> **မှတ်ချက်:** Microsoft Foundry သည် ယခင်က Azure AI Studio ဟုခေါ်ဆိုခဲ့သည်။
 
-1. Microsoft Foundry hub ကို ဖန်တီးရန် [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ဘလော့ဂ်ပို့စ်မှ ညွှန်ကြားချက်များကို လိုက်နာပါ။
-2. သင့်အစီအစဉ်ကို ဖန်တီးပြီးပါက ပြသနေသော အကြံပေးစာမျက်နှာများကိုပိတ်ပြီး Microsoft Foundry portal ရှိ အစီအစဉ် စာမျက်နှာကို ပြန်လည်သုံးသပ်ပါ၊ အောက်ပါပုံစံနှင့် ဆင်တူရှိပါလိမ့်မည် -
+1. Microsoft Foundry hub တည်ဆောက်ရန် [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) ဘလော့ဂ် စာတမ်းမှ လမ်းညွှန်ချက်များကို လိုက်နာပါ။
+2. သင့်ပရောဂျက် ဖန်တီးပြီးပါက ပြသနေသော အကြံပေးချက် (tips) များအားပိတ်ပြီး Microsoft Foundry portal တွင်ပရောဂျက်စာမျက်နှာကို ကြည့်ရှုပါ၊ အောက်ပါရုပ်ပုံနှင့် မတူ မတူညီဘဲ ဖြစ်နိုင်သည်။
 
     ![Microsoft Foundry Project](../../../translated_images/my/azure-ai-foundry.88d0c35298348c2f.webp)
 
-## မော်ဒယ်တစ်ခု တပ်ဆင်ပါ
+## မော်ဒယ် တပ်ဆင်ခြင်း
 
-1. သင့်အစီအစဉ်၏ ဘေးဘက်က မီနူးတွင် **My assets** အပိုင်းတွင် **Models + endpoints** စာမျက်နှာကို ရွေးချယ်ပါ။
-2. **Models + endpoints** စာမျက်နှာတွင် **Model deployments** တက်ဘ်၌ **+ Deploy model** မီနူးတွင် **Deploy base model** ကိုရွေးချယ်ပါ။
-3. လိုအပ်သော `gpt-4o-mini` မော်ဒယ်ကို အထဲကနေ ရှာ၍ ရွေးချယ်ပြီး အတည်ပြုပါ။
+1. သင့်ပရောဂျက် အဝိုင်း၏ ဘယ်ဘက်တွင်ရှိသော pane တွင် **My assets** အပိုင်းအတွက် **Models + endpoints** စာမျက်နှာကို ရွေးချယ်ပါ။
+2. **Models + endpoints** စာမျက်နှာတွင် **Model deployments** tab အောက် **+ Deploy model** မီနူးထဲက **Deploy base model** ကို ရွေးချယ်ပါ။
+3. စာရင်းတွင် `gpt-4o-mini` မော်ဒယ်ကို ရှာဖွေရန်ပြီး ရွေးချယ်ပြီး အတည်ပြုပါ။
 
-    > **မှတ်ချက်**: TPM နည်းပါးစေခြင်းက Subscription ဖောက်သည် စွမ်းဆောင်ရည်ကို မကျော်လွန်စေဖို့ ကူညီပေးသည်။
+    > **မှတ်ချက်**: TPM ကို လျော့ချခြင်းသည် သင့် subscription တွင်ရရှိနိုင်သည့် ကုဒ်တာကို မလွန်ကဲအသုံးပြုခြင်းကို ကာကွယ်နိုင်သည်။
 
     ![Model Deployed](../../../translated_images/my/model-deployment.3749c53fb81e18fd.webp)
 
-## Agent တစ်ခု ဖန်တီးပါ
+## Agent တစ်ခု ဖန်တီးခြင်း
 
-မော်ဒယ်တပ်ဆင်ပြီးဖြစ်ရင် agent တစ်ခု ဖန်တီးနိုင်ပြီ။ agent ဆိုတာ သုံးစွဲသူတွေနဲ့ ဆက်သွယ်နိုင်တဲ့ စကားပြော AI မော်ဒယ်တစ်ခုဖြစ်သည်။
+မော်ဒယ်တစ်ခု တပ်ဆင်ပြီးနောက် agent တစ်ခု ဖန်တီးနိုင်ပြီဖြစ်သည်။ agent သည် အသုံးပြုသူများနှင့် ဆက်သွယ်ဆက်ဆံနိုင်သော စကားပြော AI မော်ဒယ်တစ်ခု ဖြစ်သည်။
 
-1. သင့်အစီအစဉ်၏ ဘေးဘက် မီနူးတွင် **Build & Customize** အပိုင်း နေရာမှ **Agents** စာမျက်နှာကို ရွေးချယ်ပါ။
-2. **+ Create agent** ကို နှိပ်ပြီး agent အသစ် ဖန်တီးပါ။ **Agent Setup** စာမျက်နှာတွင် -
-    - agent အတွက် နာမည်တစ်ခုထည့်ပါ၊ ဥပမာ `FlightAgent`
-    - မကြာသေးမီက ဖန်တီးထားသော `gpt-4o-mini` မော်ဒယ်တပ်ဆင်မှု ရွေးချယ်ထားမရှိမဖြစ်
-    - **Instructions** ကို သင့် agent အတွက်လိုအပ်သလို ပရုံ့ ပြုလုပ်ပါ။ ဥပမာအောက်ပါအတိုင်း:
+1. သင့်ပရောဂျက်၏ ဘယ်ဘက် pane တွင် **Build & Customize** အပိုင်းတွင် **Agents** စာမျက်နှာကို ရွေးချယ်ပါ။
+2. **+ Create agent** ကို နှိပ်ကာ agent အသစ်တစ်ခု ဖန်တီးပါ။ **Agent Setup** စကားဝိုင်းအိတ်တွင်-
+    - agent အတွက် အမည်တစ်ခုဟုရေးပါ၊ ဥပမာ `FlightAgent`။
+    - ယခင်တပ်ဆင်ထားသည့် `gpt-4o-mini` မော်ဒယ် deployment ကို ရွေးချယ်ထားခြင်းရှိပါစေရန် သေချာပါစေ။
+    - agent လိုက်နာစေရန် အကြောင်းအရာ **Instructions** ကို သင်လိုချင်သည့် prompt အတိုင်း သတ်မှတ်ပါ။ ဥပမာတစ်ခုမှာ-
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -64,45 +64,46 @@
     
     ```
 > [!NOTE]
-> ပြည့်စုံစွာ ရေးသားထားသော prompt အတွက် [ဒီ repository](https://github.com/ShivamGoyal03/RoamMind) ကိုလေ့လာနိုင်သည်။
+> ဆက်လက်အသေးစိတ် prompt အတွက် [ဤ repository](https://github.com/ShivamGoyal03/RoamMind) ကို ကြည့်ရှုနိုင်သည်။
     
-> ထို့အပြင် **Knowledge Base** နှင့် **Actions** ကို ဖြည့်စွက်နိုင်ပြီး အသုံးပြုသူရဲ့ တောင်းဆိုချက်အပေါ် အချက်အလက် ပိုမိုပေးနိုင်ခြင်း၊ အလိုအလျောက် လုပ်ဆောင်ချက်များ ပြုလုပ်နိုင်ခြင်းများ ဖော်ဆောင်နိုင်သည်။ ဒီလေ့ကျင့်ခန်းအတွက်တော့ ဒီအဆင့်တွေကို ကျော်လွန်နိုင်ပါသည်။
+> ထို့အပြင် agent ၏ စွမ်းရည်များ တိုးတက်စေရန် **Knowledge Base** နှင့် **Actions** များ ထည့်သွင်းနိုင်သည်။ ယခုလေ့ကျင့်မှုအတွက် အဲဒီ အဆင့်များကို ကျော်လွှားနိုင်သည်။
     
 ![Agent Setup](../../../translated_images/my/agent-setup.9bbb8755bf5df672.webp)
 
-3. multi-AI agent အသစ် တစ်ခု ဖန်တီးရန် **New Agent** ကို ရိုက်နှိပ်ပါ။ ဖန်တီးပြီးသော agent သည် Agents စာမျက်နှာ၌ ပြသမည်။
+3. multi-AI agent အသစ် ဖန်တီးရန် **New Agent** ကိုသာ နှိပ်ပါ။ ဖန်တီးပြီးသား agent သည် Agents စာမျက်နှာတွင် ပြထားမည်။
 
-## Agent ကို စမ်းသပ်ရမည်
 
-Agent ဖန်တီးပြီးပါက Microsoft Foundry portal playground တွင် သုံးစွဲသူမေးခွန်းများကို ကျွမ်းကျင်စွာ ဖြေကြားနိုင်မှု စမ်းသပ်နိုင်သည်။
+## agent စမ်းသပ်ခြင်း
 
-1. သင့် agent အတွက် **Setup** အပေါ်ဆုံးတွင် **Try in playground** ကို ရွေးချယ်ပါ။
-2. **Playground** ပိတ်စတိုင်းတွင် စကားပြောပြန်လည် ဆက်သွယ်နိုင်ပြီး ချက်ပြော စာမျက်နှာတွင် မေးခွန်းများ ရိုက်ထည့်နိုင်သည်။ ဥပမာ - Seattle မှ New York သို့ ၂၈ ရက်တွင် ရထားခရီးစဉ် ရှာဖွေပါ။
+agent ဖန်တီးပြီးနောက် Microsoft Foundry portal playground တွင် အောက်ပါအတိုင်း အသုံးပြုသူမေးခွန်းများအား ပေးပို့၍ ပြန်လည်တုံ့ပြန်မှုများကြည့်နိုင်သည်။
 
-    > **မှတ်ချက်**: ဒီလေ့ကျင့်ခန်းတွင် အချိန်နောက်ဆုံး အချက်အလက်များ အသုံးမပြုပါဘူး၊ ထို့ကြောင့် တိကျနောက်ဆုံးဖြေပေးနိုင်မှု မရှိနိုင်၊ ဒီagent မေးခွန်းကို နားလည်ပြီး ဖြေကြားနိုင်မှု စမ်းသပ်မှု ဖြစ်သည်။
+1. သင့် agent အတွက် **Setup** pane အပေါ်တွင် **Try in playground** ကို ရွေးချယ်ပါ။
+2. **Playground** pane မှာ ဇယားပြောဆိုနိုငျသော ပြတေပေါ်တွင် agent နှင့် ဆက်သွယ်နိုင်ပါသည်။ ဥပမာအားဖြင့် 28 ရက်နေ့တွင် Seattle မှ New York သို့ သွားမည့်လေယာဉ် ခရီးစဉ်ရှာဖွေစေချင်ပါက မေးမြန်းနိုင်သည်။
+
+    > **မှတ်ချက်**: ဒီလေ့ကျင့်မှုတွင် တိုက်ရိုက် ဒေတာ မသုံးဘဲ ဖြစ်သောကြောင့် agent မှ တုံ့ပြန်ချက် မှန်ကန်မှု မရှိနိုင်ပါ။ ဤနေရာမှာ ဟောပြောချက်အသုံးပြုပြီး user မေးခွန်းများကို နားလည်တုံ့ပြန်နိုင်မှု စမ်းသပ်ခြင်း ဖြစ်သည်။
 
     ![Agent Playground](../../../translated_images/my/agent-playground.dc146586de715010.webp)
 
-3. Agent ကို စမ်းသပ်ပြီးနောက်၊ မိမိစိတ်နှစ်သက်သလို ထပ်မံစိတ်ကြိုက်ပြင်ဆင်နိုင်သည်။ intents အသစ်ထည့်ခြင်း၊ လေ့ကျင့်ရေး ဒေတာများ ထည့်သွင်းခြင်းနှင့် လုပ်ဆောင်ချက်များ ဖြည့်စွက်ခြင်းတို့ဖြင့် အင်အားပိုမိုမြှင့်တင်နိုင်သည်။
+3. agent စမ်းသပ်ပြီးနောက် intents, training data, action များ ထပ်ထည့်ကာ စွမ်းရည်မြှင့်တင်နိုင်သည်။
 
-## အရင်းအမြစ်များ ဖျက်ပစ်မည်
+## အရင်းအမြစ်များ သန့်ရှင်းခြင်း
 
-Agent စမ်းသပ်ပြီးဆုံးပါက ထပ်ထည့်စရိတ်များ ကျသင့်မှု မရှိစေရန် ဖြုတ်ပစ်နိုင်ပါသည်။
-1. [Azure portal](https://portal.azure.com) ကိုဖွင့်ပြီး hub အရင်းအမြစ်များ တပ်ဆင်ထားသော resource group ၏ အကြောင်းအရာများကို ကြည့်ပါ။
-2. မီနူးဘားတွင် **Delete resource group** ကိုရွေးချယ်ပါ။
-3. Resource group နာမည် ရိုက်ထည့်ပြီး ဖျက်လိုကြောင်း အတည်ပြုပါ။
+agent စမ်းသပ်ပြီးပါက မွန်းကြပ်စေဖို့ ဖျက်ပစ်နိုင်သည်။
+1. [Azure portal](https://portal.azure.com) ဖြင့် hub resource များတပ်ဆင်ထားသော resource group ကို ဖွင့်ကြည့်ပါ။
+2. toolbar ထဲတွင် **Delete resource group** ကို ရွေးပါ။
+3. resource group အမည်ထည့်ပြီး ဖျက်ရန် အတည်ပြုပါ။
 
 ## အရင်းအမြစ်များ
 
-- [Microsoft Foundry စာတမ်းများ](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
+- [Microsoft Foundry မှတ်တမ်းစာမျက်နှာ](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
-- [Azure AI Studio ကို စတင်အသုံးပြုခြင်း](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
-- [Azure ပေါ်ရှိ AI agents အခြေခံများ](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
+- [Microsoft Foundry စတင်အသုံးပြုခြင်း](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [Azure ပေါ်ရှိ AI agent အခြေခံအချက်များ](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**မှတ်ချက်အရေးကြီး**  
-ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အား အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးပမ်းနေသော်လည်း၊ စက်ရုပ်ဘာသာပြန်မှုများတွင် အမှားများ သို့မဟုတ် မှားယွင်းမှုများ ဖြစ်ပေါ်နိုင်ကြောင်း သတိပြုပါ။ မူရင်းစာတမ်းကို မိမိဘာသာစကားဖြင့်ဖြစ်သည်ကို တရားဝင်အရင်းအမြစ်အဖြစ် ယူဆရမည်ဖြစ်သည်။ အရေးကြီးသောအချက်အလက်များအတွက် စျေးကွက်အတည်ပြု ပြန်လည်ဘာသာပြန်သူများ၏ ဘာသာပြန်မှုကို ဦးတည်အသုံးပြုရန် အကြံပြုပါသည်။ ဤဘာသာပြန်မှုအသုံးပြုမှုကြောင့် ဖြစ်ပေါ်လာသည့် နားလည်မှုအမှားများ သို့မဟုတ် မှားယွင်းချက်များအတွက် ကျွန်ုပ်တို့ ဝန်ခံမခံပါ။
+**ပြောကြားချက်**
+ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးပမ်းနေသော်လည်း၊ စက်ကိရိယာဘာသာပြန်ခြင်းများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် လိုအပ်ပါသည်။ မူလစာတမ်းကို မူရင်းဘာသာဖြင့်သာ ယုံကြည်စိတ်ချရသော အချက်အလက်အဖြစ် သတ်မှတ်သင့်သည်။ အရေးကြီးသည့် သတင်းအချက်အလက်များအတွက် ပရော်ဖက်ရှင်နယ် လူသားဘာသာပြန်သူဝန်ဆောင်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော နားလည်မှုကွာခြားမှုများ သို့မဟုတ် မမှန်ကန်သော အသုံးပြုမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မခံပါ။
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

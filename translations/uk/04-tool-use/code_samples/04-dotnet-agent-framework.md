@@ -1,101 +1,104 @@
-# 🛠️ Розширене використання інструментів із моделями GitHub (.NET)
+# 🛠️ Розширене використання інструментів з Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Цілі навчання
 
-Цей блокнот демонструє інтеграцію інструментів корпоративного рівня за допомогою Microsoft Agent Framework у .NET з моделями GitHub. Ви навчитеся створювати складних агентів із кількома спеціалізованими інструментами, використовуючи сильну типізацію C# та корпоративні функції .NET.
+Ця записна книжка демонструє шаблони інтеграції інструментів корпоративного рівня за допомогою Microsoft Agent Framework у .NET з Azure OpenAI (Responses API). Ви навчитеся створювати складні агенти з кількома спеціалізованими інструментами, використовуючи строгі типи C# та можливості корпоративного рівня .NET.
 
-### Розширені можливості інструментів, які ви опануєте
+### Розширені можливості інструментів, якими ви опануєте
 
-- 🔧 **Архітектура з багатьма інструментами**: Створення агентів із кількома спеціалізованими можливостями
-- 🎯 **Безпечне виконання інструментів за типами**: Використання перевірки на етапі компіляції в C#
-- 📊 **Корпоративні шаблони інструментів**: Дизайн інструментів, готових до використання у виробництві, та обробка помилок
-- 🔗 **Композиція інструментів**: Комбінування інструментів для складних бізнес-процесів
+- 🔧 **Архітектура з кількома інструментами**: створення агентів з кількома спеціалізованими можливостями
+- 🎯 **Безпечне виконання інструментів за типом**: використання перевірки під час компіляції C#
+- 📊 **Корпоративні шаблони інструментів**: дизайн інструментів, готових до виробництва, та обробка помилок
+- 🔗 **Композиція інструментів**: поєднання інструментів для складних бізнес-процесів
 
 ## 🎯 Переваги архітектури інструментів .NET
 
-### Особливості корпоративних інструментів
+### Можливості інструментів корпоративного рівня
 
-- **Перевірка на етапі компіляції**: Сильна типізація забезпечує правильність параметрів інструментів
-- **Впровадження залежностей**: Інтеграція IoC-контейнера для управління інструментами
-- **Шаблони Async/Await**: Неблокуюче виконання інструментів із правильним управлінням ресурсами
-- **Структуроване логування**: Вбудована інтеграція логування для моніторингу виконання інструментів
+- **Перевірка під час компіляції**: строгі типи забезпечують правильність параметрів інструментів
+- **Впровадження залежностей**: інтеграція контейнера IoC для керування інструментами
+- **Патерни Async/Await**: неблокуюче виконання інструментів із належним керуванням ресурсами
+- **Структуроване логування**: вбудована інтеграція журналювання для моніторингу виконання інструментів
 
-### Шаблони, готові до використання у виробництві
+### Шаблони, готові до виробництва
 
-- **Обробка виключень**: Комплексне управління помилками із типізованими виключеннями
-- **Управління ресурсами**: Правильні шаблони утилізації та управління пам'яттю
-- **Моніторинг продуктивності**: Вбудовані метрики та лічильники продуктивності
-- **Управління конфігурацією**: Типізована конфігурація з перевіркою
+- **Обробка винятків**: комплексне управління помилками з типовими винятками
+- **Управління ресурсами**: правильні патерни звільнення та керування пам’яттю
+- **Моніторинг продуктивності**: вбудовані метрики та лічильники продуктивності
+- **Управління конфігурацією**: конфігурація з перевіркою типів
 
 ## 🔧 Технічна архітектура
 
 ### Основні компоненти інструментів .NET
 
-- **Microsoft.Extensions.AI**: Уніфікований шар абстракції інструментів
-- **Microsoft.Agents.AI**: Оркестрація інструментів корпоративного рівня
-- **Інтеграція моделей GitHub**: Високопродуктивний клієнт API із пулінгом з'єднань
+- **Microsoft.Extensions.AI**: уніфікований абстракційний шар інструментів
+- **Microsoft.Agents.AI**: оркестрація інструментів корпоративного рівня
+- **Azure OpenAI (Responses API)**: високопродуктивний клієнт API з пулом з’єднань
 
 ### Конвеєр виконання інструментів
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Запит користувача] --> B[Аналіз агента]
+    B --> C[Вибір інструмента]
+    C --> D[Перевірка типу]
+    B --> E[Прив’язка параметрів]
+    E --> F[Виконання інструмента]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Обробка результату]
     D --> G
-    G --> H[Response]
+    G --> H[Відповідь]
 ```
 
-## 🛠️ Категорії та шаблони інструментів
+## 🛠️ Категорії інструментів і шаблони
 
 ### 1. **Інструменти обробки даних**
 
-- **Перевірка введення**: Сильна типізація з анотаціями даних
-- **Операції трансформації**: Типізоване перетворення та форматування даних
-- **Бізнес-логіка**: Інструменти для доменних розрахунків та аналізу
-- **Форматування вихідних даних**: Генерація структурованих відповідей
+- **Перевірка вхідних даних**: строгі типи з анотаціями даних
+- **Операції трансформації**: типобезпечне перетворення та форматування даних
+- **Бізнес-логіка**: інструменти доменно-специфічних розрахунків та аналізу
+- **Форматування виводу**: структуроване генерування відповідей
 
-### 2. **Інтеграційні інструменти**
+### 2. **Інструменти інтеграції**
 
-- **API-конектори**: Інтеграція RESTful сервісів із HttpClient
-- **Інструменти баз даних**: Інтеграція Entity Framework для доступу до даних
-- **Операції з файлами**: Безпечні операції з файловою системою з перевіркою
-- **Зовнішні сервіси**: Шаблони інтеграції сторонніх сервісів
+- **API-коннектори**: інтеграція RESTful сервісів з HttpClient
+- **Бази даних**: інтеграція Entity Framework для доступу до даних
+- **Файлові операції**: безпечні операції з файловою системою з перевіркою
+- **Зовнішні служби**: шаблони інтеграції з сторонніми сервісами
 
-### 3. **Утилітарні інструменти**
+### 3. **Утиліти**
 
-- **Обробка тексту**: Утиліти для маніпуляції та форматування рядків
-- **Операції з датами/часом**: Культурно-орієнтовані розрахунки дат/часу
-- **Математичні інструменти**: Точні розрахунки та статистичні операції
-- **Інструменти перевірки**: Перевірка бізнес-правил та верифікація даних
+- **Обробка тексту**: утиліти для маніпуляції рядками та форматування
+- **Операції з датами/часом**: розрахунки дати/часу з урахуванням культури
+- **Математичні інструменти**: точні розрахунки та статистичні операції
+- **Інструменти перевірки**: валідація бізнес-правил та перевірка даних
 
-Готові створювати агентів корпоративного рівня з потужними, типізованими можливостями інструментів у .NET? Давайте спроектуємо професійні рішення! 🏢⚡
+Готові створювати агентів корпоративного рівня з потужними, типобезпечними можливостями інструментів у .NET? Давайте проархітектуємо професійні рішення! 🏢⚡
 
 ## 🚀 Початок роботи
 
-### Попередні вимоги
+### Необхідні умови
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) або новіший
-- [Токен доступу до API моделей GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) або новіша версія
+- Обліковий запис [Azure subscription](https://azure.microsoft.com/free/) з ресурсом Azure OpenAI та розгортанням моделі
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — ввійдіть за допомогою `az login`
 
 ### Необхідні змінні середовища
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# Потім увійдіть, щоб AzureCliCredential міг отримати токен
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# Потім увійдіть у систему, щоб AzureCliCredential міг отримати токен
+az login
 ```
 
 ### Приклад коду
@@ -108,7 +111,7 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-Або використовуючи CLI dotnet:
+Або використовуючи dotnet CLI:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
@@ -121,14 +124,16 @@ dotnet run ./04-dotnet-agent-framework.cs
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,11 +196,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Відмова від відповідальності**:  
-Цей документ був перекладений за допомогою сервісу автоматичного перекладу [Co-op Translator](https://github.com/Azure/co-op-translator). Хоча ми прагнемо до точності, будь ласка, майте на увазі, що автоматичні переклади можуть містити помилки або неточності. Оригінальний документ на його рідній мові слід вважати авторитетним джерелом. Для критичної інформації рекомендується професійний людський переклад. Ми не несемо відповідальності за будь-які непорозуміння або неправильні тлумачення, що виникають внаслідок використання цього перекладу.
+**Відмова від відповідальності**:
+Цей документ було перекладено за допомогою сервісу штучного інтелекту для перекладу [Co-op Translator](https://github.com/Azure/co-op-translator). Хоча ми прагнемо до точності, будь ласка, майте на увазі, що автоматичні переклади можуть містити помилки або неточності. Оригінальний документ рідною мовою слід вважати авторитетним джерелом. Для критично важливої інформації рекомендується професійний людський переклад. Ми не несемо відповідальності за будь-які непорозуміння або неправильні тлумачення, що виникли внаслідок використання цього перекладу.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

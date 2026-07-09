@@ -1,152 +1,154 @@
-[![Agentinė RAG](../../../translated_images/lt/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
+[![Agentic RAG](../../../translated_images/lt/lesson-5-thumbnail.20ba9d0c0ae64fae.webp)](https://youtu.be/WcjAARvdL7I?si=BCgwjwFb2yCkEhR9)
 
-> _(Spustelėkite aukščiau esantį vaizdą, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
+> _(Spustelėkite paveikslėlį aukščiau, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
-# Agentinė RAG
+# Agentic RAG
 
-Ši pamoka pateikia išsamų Agentinės paieškos papildytos generacijos (Agentinė RAG) apžvalgą – naują dirbtinio intelekto paradigmą, kurioje dideli kalbos modeliai (LLM) savarankiškai planuoja savo kitus žingsnius, tuo pačiu traukdami informaciją iš išorinių šaltinių. Skirtingai nuo statinių paieškos-tada-skaitymo modelių, Agentinė RAG apima iteracinius LLM kvietimus, pertraukiamus įrankių ar funkcijų kvietimais ir struktūruotais atsakymais. Sistema įvertina rezultatus, tobulina užklausas, prireikus iškviečia papildomus įrankius ir tęsia šį ciklą tol, kol pasiekiamas patenkinamas sprendimas.
+Ši pamoka pateikia išsamų Agentic Retrieval-Augmented Generation (Agentic RAG) apžvalgą – naują AI paradigmą, kurioje dideli kalbos modeliai (LLM) savarankiškai planuoja savo tolesnius veiksmus, tuo pačiu gaudami informaciją iš išorinių šaltinių. Skirtingai nuo statinių paieškos-tada-skaitymo modelių, Agentic RAG apima iteracinius kvietimus LLM, pertraukiamus įrankių ar funkcijų kvietimais ir struktūruotais rezultatais. Sistema vertina rezultatus, tobulina užklausas, jei reikia, kviečia papildomus įrankius ir tęsia šį ciklą, kol pasiekia patenkinamą sprendimą.
 
 ## Įvadas
 
-Šioje pamokoje aptarsime
+Šioje pamokoje bus aptarta:
 
-- **Suprasti Agentinę RAG:** Sužinokite apie naują AI paradigmą, kurioje dideli kalbos modeliai (LLM) savarankiškai planuoja savo kitus veiksmus, traukdami informaciją iš išorinių duomenų šaltinių.
-- **Susipažinti su iteraciniu Maker-Checker stiliumi:** Suprasti iteracinio kvietimų LLM kilpą, pertraukiamą įrankių ar funkcijų kvietimais ir struktūruotais atsakymais, skirtą taisyklingumui pagerinti ir netaisyklingoms užklausoms valdyti.
-- **Išnagrinėti praktines taikymo sritis:** Nustatyti situacijas, kuriose Agentinė RAG ypač praverčia, pavyzdžiui, taisyklingumo prioritetą turinčiose aplinkose, sudėtinguose duomenų bazės sąveikos atvejuose ir išplėstose darbo eigos srautuose.
+- **Agentic RAG supratimas:** Sužinokite apie naują AI paradigmos modelį, kuriame dideli kalbos modeliai (LLM) savarankiškai planuoja savo tolesnius veiksmus, naudodamiesi informacija iš išorinių duomenų šaltinių.
+- **Iteracinio Maker-Checker stiliaus suvokimas:** Suprasite iteracinių kvietimų LLM ciklą, pertraukiamą įrankių ar funkcijų kvietimais bei struktūruotais rezultatais, skirtą tikslumui pagerinti ir neteisingai suformuluotoms užklausoms apdoroti.
+- **Praktinių panaudojimo sričių tyrimas:** Nustatykite situacijas, kur Agentic RAG ypač naudingas, pavyzdžiui, tikslumo prioritetą turinčiose aplinkose, sudėtinguose duomenų bazės užklausose ir išplėstiniuose darbo procesuose.
 
 ## Mokymosi tikslai
 
-Baigę šią pamoką, sugebėsite/įsisavinsite:
+Baigę šią pamoką, žinosite kaip / suprasite:
 
-- **Agentinės RAG supratimą:** Sužinokite apie naują AI paradigmą, kurioje dideli kalbos modeliai (LLM) savarankiškai planuoja savo kitus žingsnius, traukdami informaciją iš išorinių duomenų šaltinių.
-- **Iteracinis Maker-Checker stilius:** Suprasti iteracinių kvietimų LLM kilpą, pertraukiamą įrankių ar funkcijų kvietimais ir struktūruotais atsakymais, siekiant pagerinti taisyklingumą ir valdyti netaisyklingas užklausas.
-- **Valdyti samprotavimo procesą:** Suprasti sistemos gebėjimą kontroliuoti savo samprotavimo procesą, priimant sprendimus, kaip spręsti uždavinius, nepasikliaujant iš anksto nustatytomis kryptimis.
-- **Darbo eiga:** Suprasti, kaip agentinis modelis nepriklausomai nusprendžia surinkti rinkos tendencijų ataskaitas, nustatyti konkurentų duomenis, koreliuoti vidinius pardavimų rodiklius, sintetinti išvadas ir įvertinti strategiją.
-- **Iteracinės kilpos, įrankių integracija ir atmintis:** Sužinoti apie sistemos priklausymą nuo kilpinio sąveikos modelio, palaikančio būseną ir atmintį per žingsnius, kad būtų išvengta pasikartojančių kilpų ir priimti pagrįsti sprendimai.
-- **Gedimų valdymas ir savitikra:** Išnagrinėti sistemos tvirtas savitikros priemones, įskaitant iteravimą ir pakartotinį užklausų teikimą, diagnostinių įrankių naudojimą ir atsarginių žmogaus stebėsenos sprendimų taikymą.
-- **Agentūros ribos:** Suprasti Agentinės RAG ribas, orientuojantis į srities specifinę savarankiškumą, infrastruktūros priklausomybę ir taisyklių laikymąsi.
-- **Praktinės panaudojimo sritys ir vertė:** Nustatyti situacijas, kuriose Agentinė RAG yra efektyvi, pavyzdžiui, taisyklingumo prioritetą turinčiose aplinkose, sudėtinguose duomenų bazės sąveikos scenarijuose ir ilgose darbo eigos srautuose.
-- **Valdymas, skaidrumas ir pasitikėjimas:** Sužinoti apie valdymo ir skaidrumo svarbą, įskaitant paaiškinamą samprotavimą, šališkumo kontrolę ir žmogaus priežiūrą.
+- **Agentic RAG supratimas:** Sužinokite apie naują AI paradigmos modelį, kuriame dideli kalbos modeliai (LLM) savarankiškai planuoja savo tolesnius veiksmus, naudodamiesi informacija iš išorinių duomenų šaltinių.
+- **Iteracinio Maker-Checker stiliaus suvokimas:** Perpraskite iteracinių kvietimų LLM ciklą, pertraukiamą įrankių ar funkcijų kvietimais ir struktūruotais rezultatais, skirtą tikslumui pagerinti bei neteisingoms užklausoms spręsti.
+- **Savarankiškas samprotavimo proceso valdymas:** Supraskite sistemos gebėjimą savarankiškai valdyti samprotavimo procesą, priimant sprendimus, kaip spręsti problemas be iš anksto apibrėžtų kelių.
+- **Darbo procesas:** Sužinokite, kaip agentinis modelis savarankiškai nusprendžia gauti rinkos tendencijų ataskaitas, identifikuoti konkurentų duomenis, susieti vidinius pardavimų rodiklius, sintetinti rezultatus ir įvertinti strategiją.
+- **Iteraciniai ciklai, įrankių integracija ir atmintis:** Sužinokite apie sistemos pagrindą – ciklinį sąveikos modelį, palaikantį būseną ir atmintį žingsnių metu, kad būtų išvengta pasikartojančių ciklų ir padarytas pagrįstas sprendimas.
+- **Nepasisekimų valdymas ir savikorekcija:** Tyrinėkite sistemos stiprias savikorekcijos priemones, įskaitant iteravimą ir pakartotines užklausas, diagnostinius įrankius bei žmonių priežiūrą kaip pagalbą.
+- **Agentūros ribos:** Supraskite Agentic RAG ribotumus, ypač sritinė autonomija, infrastruktūros priklausomybė ir saugos atitiktis.
+- **Praktiniai naudojimo atvejai ir vertė:** Nustatykite situacijas, kur Agentic RAG yra ypač efektyvus, pavyzdžiui, tikslumo užtikrinimo aplinkos, sudėtingos duomenų bazės užklausos ir ilgesni darbo procesai.
+- **Valdymas, skaidrumas ir pasitikėjimas:** Sužinokite apie valdymo ir skaidrumo svarbą, įskaitant aiškų samprotavimą, šališkumo kontrolę ir žmogaus priežiūrą.
 
-## Kas yra Agentinė RAG?
+## Kas yra Agentic RAG?
 
-Agentinė paieškos papildyta generacija (Agentinė RAG) yra nauja AI paradigma, kurioje dideli kalbos modeliai (LLM) savarankiškai planuoja savo kitus veiksmus, tuo pat metu traukdami informaciją iš išorinių šaltinių. Skirtingai nuo statinių paieškos-tada-skaitymo modelių, Agentinė RAG apima iteracinius LLM kvietimus, pertraukiamus įrankių ar funkcijų kvietimais ir struktūruotais atsakymais. Sistema vertina gautus rezultatus, tobulina užklausas, prireikus iškviečia papildomus įrankius ir tęsia šį ciklą, kol pasiekiamas patenkinamas sprendimas. Šis iteracinis „maker-checker“ stilius gerina taisyklingumą, tvarko netaisyklingas užklausas ir užtikrina aukštos kokybės rezultatus.
+Agentic Retrieval-Augmented Generation (Agentic RAG) yra naujas AI modelis, kai dideli kalbos modeliai (LLM) savarankiškai planuoja savo tolesnius veiksmus, gautus iš išorinių šaltinių. Skirtingai nei statiniai paieškos-tada-skaitymo modeliai, Agentic RAG naudoja iteracinius kvietimus LLM, pertraukiamus įrankių ar funkcijų kvietimais ir struktūruotais rezultatais. Sistema vertina gautus rezultatus, tobulina užklausas, jei reikia, kviečia papildomus įrankius ir tęsia ciklą, kol pasiekia patenkinamą sprendimą. Šis iteracinis „maker-checker“ stilius gerina tikslumą, tvarko neteisingas užklausas ir užtikrina aukštos kokybės rezultatus.
 
-Sistema aktyviai kontroliuoja savo samprotavimo procesą, perrašydama nepavykusias užklausas, pasirinkdama skirtingus paieškos metodus ir integruodama kelis įrankius – tokius kaip vektorinė paieška Azure AI Search, SQL duomenų bazės ar pritaikytos API – prieš pateikdama galutinį atsakymą. Išskirtinė agentinės sistemos savybė yra gebėjimas kontroliuoti savo samprotavimo procesą. Tradicinės RAG diegimo versijos remiasi iš anksto nustatytais keliais, tačiau agentinė sistema autonomiškai nusprendžia žingsnių seką pagal rastos informacijos kokybę.
+Sistema aktyviai valdo savo samprotavimo procesą, perrašo nepavykusias užklausas, pasirenka skirtingus paieškos metodus ir integruoja kelis įrankius – tokius kaip vektorinė paieška Azure AI Search, SQL duomenų bazės ar specializuotos API – prieš pateikdama galutinį atsakymą. Agentinės sistemos savybė yra sugebėjimas valdyti savo samprotavimus. Tradiciniai RAG sprendimai remiasi iš anksto nustatytais keliais, o agentinės sistemos savarankiškai nustato žingsnių seką, atsižvelgdamos į surastų duomenų kokybę.
 
-## Agentinės paieškos papildytos generacijos (Agentinė RAG) apibrėžimas
+## Agentic Retrieval-Augmented Generation (Agentic RAG) apibrėžimas
 
-Agentinė paieškos papildyta generacija (Agentinė RAG) yra nauja AI kūrimo paradigma, kurioje LLM ne tik traukia informaciją iš išorinių duomenų šaltinių, bet ir savarankiškai planuoja savo kitus veiksmus. Skirtingai nuo statinių paieškos-tada-skaitymo modelių ar kruopščiai įrašytų užklausų sekų, Agentinė RAG apima iteracinį kvietimų LLM ciklą, pertraukiamą įrankių ar funkcijų kvietimais ir struktūruotais atsakymais. Kiekviename žingsnyje sistema įvertina gautus rezultatus, nusprendžia, ar reikia tobulinti užklausas, prireikus iškviečia papildomus įrankius ir tęsia šį ciklą, kol pasiekia patenkinamą sprendimą.
+Agentic Retrieval-Augmented Generation (Agentic RAG) yra naujas AI modelis, kai LLM ne tik traukia informaciją iš išorinių duomenų šaltinių, bet ir savarankiškai planuoja savo veiksmus. Skirtingai nuo statinių paieškos-tada-skaitymo modelių ar kruopščiai suprojektuotų užklausų sekų, Agentic RAG naudoja iteracinių LLM kvietimų ciklą, pertraukiamą įrankių ar funkcijų kvietimais ir struktūruotais rezultatais. Kiekviename žingsnyje sistema vertina rezultatus, sprendžia, ar tobulinti užklausas, prireikus naudoja papildomus įrankius ir tęsia šį ciklą, kol pasiekia patenkinamą sprendimą.
 
-Šis iteracinis „maker-checker“ veikimo stilius skirtas pagerinti taisyklingumą, tvarkyti netaisyklingas užklausas į struktūruotas duomenų bazes (pvz., NL2SQL) ir užtikrinti subalansuotus, aukštos kokybės rezultatus. Vietoj vien tik kruopščiai sukurtų užklausų grandinių, sistema aktyviai kontroliuoja savo samprotavimo procesą. Ji gali perrašyti nepavykusias užklausas, pasirinkti kitus ištraukimo metodus ir integruoti kelis įrankius – kaip vektorinę paiešką Azure AI Search, SQL duomenų bazes ar pritaikytas API – prieš pateikdama galutinį atsakymą. Tai pašalina poreikį pernelyg sudėtingoms organizavimo sistemoms. Vietoj to, gana paprasta kilpa „LLM kvietimas → įrankio naudojimas → LLM kvietimas → …“ gali išvesti sudėtingus ir gerai pagrįstus atsakymus.
+Šis iteracinis „maker-checker“ darbo stilius skirtas tikslumui gerinti, neteisingai suformuluotų užklausų į struktūrizuotas duomenų bazes (pvz., NL2SQL) apdorojimui ir aukštos kokybės, subalansuotiems rezultatams užtikrinti. Vietoje vien kruopščiai parengtų užklausų grandinių, sistema aktyviai valdo savo samprotavimo procesą. Ji sugeba perrašyti nesėkmingas užklausas, rinktis skirtingus paieškos metodus ir integruoti kelis įrankius – tokius kaip vektorinė paieška Azure AI Search, SQL duomenų bazės ar specialios API – prieš pateikdama galutinį atsakymą. Tai pašalina poreikį labai sudėtingoms koordinavimo sistemoms. Vietoje to, paprastas ciklas „LLM kvietimas → įrankio naudojimas → LLM kvietimas → ...“ gali duoti sudėtingus ir gerai pagrįstus rezultatus.
 
-![Agentinės RAG pagrindinė kilpa](../../../translated_images/lt/agentic-rag-core-loop.c8f4b85c26920f71.webp)
+![Agentic RAG Core Loop](../../../translated_images/lt/agentic-rag-core-loop.c8f4b85c26920f71.webp)
 
 ## Samprotavimo proceso valdymas
 
-Išskirtinė savybė, kuri daro sistemą „agentine“, yra jos gebėjimas kontroliuoti savo samprotavimo procesą. Tradiciniai RAG įgyvendinimai dažnai priklauso nuo žmonių, iš anksto nustatančių modelio kelią: grandinę minties, kuri nurodo, ką ir kada gauti.
-Tačiau kai sistema iš tiesų agentinė, ji viduje nusprendžia, kaip spręsti problemą. Ji ne tik vykdo scenarijų; ji autonomiškai nustato žingsnių seką pagal rastos informacijos kokybę.
-Pavyzdžiui, jei sistemai pateikiama užduotis sukurti produkto paleidimo strategiją, ji nesiremia vien tik užklausa, kuri aprašo visą tyrimo ir sprendimų priėmimo eigą. Vietoje to, agentinis modelis nepriklausomai nusprendžia:
+Skiriamasis agentinės sistemos požymis yra jos gebėjimas valdyti savo samprotavimo procesą. Tradiciniai RAG sprendimai dažnai priklauso nuo to, kad žmogus iš anksto nustato modelio darbų eiliškumą: grandinę, kuri nurodo, ką ir kada reikia gauti.
+Tačiau tikrai agentinė sistema viduje nusprendžia, kaip spręsti problemą. Ji nevykdo tiesiog scenarijaus; ji savarankiškai nustato žingsnių seką pagal informaciją, kurią suranda.
+Pavyzdžiui, jei prašoma sukurti produkto paleidimo strategiją, ji neapsiriboja tik vienu užklausa, kurioje aprašomas visas tyrimo ir sprendimų priėmimo procesas. Vietoje to, agentinė sistema savarankiškai nusprendžia:
 
-1. Gauti dabartines rinkos tendencijų ataskaitas, naudojant Bing Web Grounding
-2. Nustatyti svarbius konkurentų duomenis, naudojant Azure AI Search.
-3. Koreliuoti istorinius vidinius pardavimų rodiklius, naudojant Azure SQL Database.
-4. Apjungti išvadas į vientisą strategiją, koordinuojamą per Azure OpenAI Service.
-5. Įvertinti strategiją spragoms ar neatitikimams, jei reikia, inicijuojant dar vieną paieškos etapą.
-Visus šiuos žingsnius – užklausų tobulinimą, šaltinių pasirinkimą, iteravimą tol, kol būna „patenkintas“ atsakymu – nusprendžia modelis, ne žmogus pagal scenarijų.
+1. Gauti dabartines rinkos tendencijų ataskaitas naudodama Bing Web Grounding
+2. Identifikuoti svarbius konkurentų duomenis per Azure AI Search.
+3. Susieti istorinius vidinius pardavimų rodiklius naudodama Azure SQL Database.
+4. Apjungti rezultatus į suderintą strategiją, valdoma per Azure OpenAI Service.
+5. Įvertinti strategiją dėl spragų ar neatitikimų ir, jei reikia, inicijuoti papildomą paieškos etapą.
+Visi šie žingsniai – užklausų tobulinimas, šaltinių pasirinkimas, iteravimas, kol atsakymas „patenkina“ – yra sprendžiami modelio, o ne iš anksto žmogaus parašyto scenarijaus.
 
-## Iteracinės kilpos, įrankių integracija ir atmintis
+## Iteraciniai ciklai, įrankių integracija ir atmintis
 
-![Įrankių integracijos architektūra](../../../translated_images/lt/tool-integration.0f569710b5c17c10.webp)
+![Tool Integration Architecture](../../../translated_images/lt/tool-integration.0f569710b5c17c10.webp)
 
-Agentinė sistema remiasi kilpinio sąveikos modeliu:
+Agentinė sistema remiasi ciklinio sąveikos šablonu:
 
-- **Pradinis kvietimas:** Vartotojo tikslas (taip pat žinomas kaip vartotojo užklausa) pateikiamas LLM.
-- **Įrankio iškvietimas:** Jei modelis nustato trūkstamą informaciją arba neaiškias instrukcijas, jis pasirenka įrankį arba paieškos metodą – pavyzdžiui, vektorinių duomenų bazės užklausą (pvz., Azure AI Search Hybrid paieška privačiuose duomenyse) arba struktūrizuotą SQL kvietimą – kad surinktų daugiau konteksto.
-- **Vertinimas ir tobulinimas:** Peržiūrėjęs grąžintus duomenis, modelis nusprendžia, ar informacija pakankama. Jei ne, jis tobulina užklausą, bando kitą įrankį arba keičia savo požiūrį.
-- **Kartojimas, kol patenkintas:** Šis ciklas tęsiamas, kol modelis nusprendžia, kad turi pakankamai aiškumo ir įrodymų, kad pateiktų galutinį, gerai pagrįstą atsakymą.
-- **Atmintis ir būsena:** Kadangi sistema palaiko būseną ir atmintį per žingsnius, ji gali prisiminti ankstesnius bandymus ir jų rezultatus, vengdama pasikartojančių kilpų ir priimdama labiau pagrįstus sprendimus tęsiant darbą.
+- **Pradinis kvietimas:** Vartotojo tikslas (t.y. vartotojo užklausa) pateikiama LLM.
+- **Įrankio kvietimas:** Jei modelis nustato, kad trūksta informacijos arba instrukcijos yra neaiškios, jis pasirenka įrankį arba paieškos metodą – pvz., vektorinę duomenų bazės užklausą (Azure AI Search Hybrid paieška per privačius duomenis) arba struktūrizuotą SQL užklausą, kad surinktų daugiau konteksto.
+- **Vertinimas ir tobulinimas:** Peržiūrėjęs gautus duomenis, modelis sprendžia, ar informacijos pakanka. Jei ne, tobulina užklausą, bando kitą įrankį ar koreguoja metodą.
+- **Kartojimas iki patenkinimo:** Šis ciklas tęsiamas tol, kol modelis nustato, kad turi pakankamai aiškumo ir įrodymų pateikti galutinį, gerai pagrįstą atsakymą.
+- **Atmintis ir būsena:** Kadangi sistema palaiko būseną ir atmintį žingsnių metu, gali prisiminti ankstesnius bandymus ir jų rezultatus, vengti pasikartojančių ciklų ir priimti pagrįstus sprendimus tęsdama darbą.
 
-Laikui bėgant, tai kuria supratimo pažangą, leidžiančią modeliui naviguoti sudėtingose, daugiapakopėse užduotyse be nuolatinės žmogaus intervencijos ar užklausos keitimo.
+Laikui bėgant tai sukuria nuolat besivystančio supratimo pojūtį, leidžiančią modeliui naršyti sudėtingus, daug žingsnių reikalaujančius uždavinius be nuolatinės žmogaus intervencijos ar užklausos perdarymo.
 
-## Gedimų valdymas ir savitikra
+## Nepasisekimų valdymas ir savikorekcija
 
-Agentinės RAG autonomija taip pat apima tvirtas savitikros priemones. Kai sistema pasiekia aklavietę – pvz., surenka nereikšmingus dokumentus arba susiduria su netaisyklingomis užklausomis – ji gali:
+Agentic RAG autonomija taip pat apima stiprias savikorekcijos priemones. Kai sistema susiduria su akligatviais – pvz., gaudama nereikšmingus dokumentus arba neteisingas užklausas – ji gali:
 
-- **Kartoti ir pakartotinai užduoti klausimus:** Vietoje žemos vertės atsakymų modelis bando naujas paieškos strategijas, perrašo duomenų bazės užklausas arba žiūri į alternatyvius duomenų rinkinius.
-- **Naudoti diagnostinius įrankius:** Sistema gali iškviesti papildomas funkcijas, skirtas padėti jai taisyti samprotavimo žingsnius arba patvirtinti gautų duomenų taisyklingumą. Įrankiai, tokie kaip Azure AI Tracing, bus svarbūs užtikrinant patikimą stebėjimą ir monitoringą.
-- **Remtis žmogaus priežiūra:** Svarbiuose ar pakartotinai nepavykstančiuose scenarijuose modelis gali pažymėti neaiškumus ir prašyti žmogaus pagalbos. Kai žmogus pateikia pataisomą atsiliepimą, modelis gali įtraukti šią pamoką į ateities veiksmus.
+- **Iteruoti ir pakartotinai klausti:** Vietoje žemos vertės atsakymų modelis bando naujas paieškos strategijas, perrašo duomenų bazės užklausas arba ieško alternatyvių duomenų rinkinių.
+- **Naudoti diagnostikos įrankius:** Sistema gali naudoti papildomas funkcijas, skirtas padėti atsekti samprotavimo žingsnius ar patvirtinti surinktų duomenų teisingumą. Tokie įrankiai kaip Azure AI Tracing yra svarbūs patvariam stebėjimui ir priežiūrai.
+- **Kreiptis į žmogaus priežiūrą:** Dėl svarbių arba pasikartojančių nesėkmių scenarijų modelis gali nurodyti neaiškumus ir paprašyti žmogaus pagalbos. Kai žmogus pateikia taisomą grįžtamąjį ryšį, modelis gali jį integruoti ateičiai.
 
-Šis iteracinis ir dinamiškas metodas leidžia modeliui nuolat tobulėti, užtikrinant, kad jis nėra vienkartinė sistema, bet mokosi iš savo klaidų per sesiją.
+Šis iteracinis ir dinamiškas požiūris leidžia modeliui nuolat tobulėti, užtikrinant, kad tai nėra vienkartinė sistema, o tokia, kuri mokosi iš klaidų per vieną sesiją.
 
-![Savitikros mechanizmas](../../../translated_images/lt/self-correction.da87f3783b7f174b.webp)
+![Self Correction Mechanism](../../../translated_images/lt/self-correction.da87f3783b7f174b.webp)
 
 ## Agentūros ribos
 
-Nepaisant savarankiškumo užduotyje, Agentinė RAG nėra lygiavertė dirbtiniam bendrojo intelekto lygmeniui. Jos „agentinės“ galimybės apsiriboja įrankiais, duomenų šaltiniais ir taisyklėmis, kurias nustato žmonių kūrėjai. Ji negali sukurti savo įrankių ar išeiti už nustatytų srities ribų. Vietoje to, ji puikiai tvarko turimus išteklius dinamiškai.
-Pagrindiniai skirtumai nuo pažangesnių DI formų apima:
+Nepaisant autonomijos vykdant užduotis, Agentic RAG nėra ekvivalentas dirbtiniam bendruoju intelektu. Jo „agentinės“ galimybės apsiriboja įrankiais, duomenų šaltiniais ir taisyklėmis, kurias suteikia žmonės programuotojai. Jis negali išrasti savo įrankių ar išeiti už nustatytų srities ribų. Vietoje to, jis puikiai sugeba dinaminiu būdu valdyti turimus išteklius.
+Pagrindiniai skirtumai nuo pažangesnių AI formų yra:
 
-1. **Srities specifinis savarankiškumas:** Agentinės RAG sistemos sutelktos į vartotojo nustatytų tikslų pasiekimą žinomoje srityje, naudodamos tokias strategijas kaip užklausų perrašymas ar įrankių pasirinkimas rezultatams gerinti.
-2. **Priklausomybė nuo infrastruktūros:** Sistemos galimybės priklauso nuo įrankių ir duomenų, integruotų kūrėjų. Ji negali viršyti šių ribų be žmogaus įsikišimo.
-3. **Taisyklių laikymasis:** Etinės gairės, atitikties taisyklės ir verslo politika išlieka labai svarbios. Agento laisvė visada yra ribojama saugumo priemonių ir priežiūros mechanizmų (tikėtina?).
+1. **Sritinė autonomija:** Agentic RAG sistemos orientuojasi į vartotojo apibrėžtų tikslų pasiekimą pažįstamoje srityje, naudodamos strategijas, tokias kaip užklausų perrašymas ar įrankių pasirinkimas, kad pagerintų rezultatus.
+2. **Infrastruktūros priklausomybė:** Sistemos galimybės priklauso nuo programuotojų integruotų įrankių ir duomenų. Be žmogaus įsikišimo ji negali peržengti šių ribų.
+3. **Saugos taisyklių laikymasis:** Etikos gairės, atitikties taisyklės ir verslo politika yra itin svarbios. Agentės laisvė visada yra ribojama saugumo priemonių ir priežiūros mechanizmų (tikėtina?).
 
-## Praktiniai panaudojimo atvejai ir vertė
+## Praktiniai naudojimo atvejai ir vertė
 
-Agentinė RAG ypač naudinga situacijose, kur reikalingas iteracinis tobulinimas ir tikslumas:
+Agentic RAG ypač naudingas situacijose, kur reikalingas iteratyvus tikslinimas ir precizika:
 
-1. **Taisyklingumo prioritetą turinčios aplinkos:** Atitikties patikrinimuose, reguliavimo analizėje ar teisinėse tyrimuose agentinis modelis gali pakartotinai tikrinti faktus, konsultuotis su keliomis šaltinių grandinėmis ir perrašyti užklausas, kol pateikiamas kruopščiai patikrintas atsakymas.
-2. **Sudėtinga duomenų bazės sąveika:** Dirbdama su struktūruotais duomenimis, kuriuose užklausos dažnai gali nepavykti arba jas reikia reguliuoti, sistema savarankiškai tobulina užklausas, naudodama Azure SQL arba Microsoft Fabric OneLake, užtikrindama galutinio paieškos rezultato atitikimą vartotojo ketinimui.
-3. **Išplėsti darbo srautai:** Ilgesni seansai gali vystytis, kaip atsiranda naujos informacijos. Agentinė RAG gali nuolat integruoti naujus duomenis, keisdama strategijas, kai geriau supranta problemos sritį.
+1. **Tikslumo prioritetą turinčios aplinkos:** Atitikties patikrinimuose, reguliavimo analizėse ar teisinėse paieškose agentinė sistema gali daugkartiai tikrinti faktus, konsultuotis su keliais šaltiniais ir perrašyti užklausas, kol sukuriamas visiškai patikrintas atsakymas.
+2. **Sudėtingi duomenų bazės užklausų scenarijai:** Dirbant su struktūrizuotais duomenimis, kur užklausos dažnai nepavyksta ar jas reikia koreguoti, sistema savarankiškai tikslina užklausas naudodama Azure SQL arba Microsoft Fabric OneLake, užtikrindama galutinės paieškos pagal naudotojo ketinimą atitikimą.
+3. **Išplėsti darbo procesai:** Ilgai trunkančios sesijos gali evoliucionuoti, kai atsiranda naujos informacijos. Agentic RAG gali nuolat įtraukti naujus duomenis ir keisti strategijas, mokydamasis daugiau apie problemos sritį.
 
 ## Valdymas, skaidrumas ir pasitikėjimas
 
-Kadangi šios sistemos tampa autonomiškesnės savo samprotavimuose, valdymas ir skaidrumas yra labai svarbūs:
+Kai šios sistemos tampa labiau autonomiškos samprotavime, valdymas ir skaidrumas yra labai svarbūs:
 
-- **Paaiškinamas samprotavimas:** Modelis gali pateikti audito seką apie užklausas, kurias jis pateikė, šaltinius, kuriuos konsultavo, ir samprotavimo žingsnius, kuriuos atliko, siekdamas išvados. Įrankiai, tokie kaip Azure AI Content Safety ir Azure AI Tracing / GenAIOps, padeda palaikyti skaidrumą ir sumažinti riziką.
-- **Šališkumo kontrolė ir subalansuota paieška:** Kūrėjai gali sureguliuoti paieškos strategijas, užtikrindami, kad būtų vertinami subalansuoti, reprezentatyvūs duomenų šaltiniai, ir reguliariai tikrinti išvedimus dėl šališkumo ar iškreiptų modelių, naudojant pritaikytus modelius pažangiems duomenų mokslo organizacijoms, naudojančioms Azure Machine Learning.
-- **Žmogaus priežiūra ir atitiktis:** Svarbiose užduotyse žmogaus peržiūra lieka būtina. Agentinė RAG nepakeičia žmogaus sprendimo svarbiuose klausimuose – ji jį papildo pristatydama kruopščiai patikrintas alternatyvas.
+- **Aiškus samprotavimas:** Modelis gali pateikti audito pėdsaką užklausams, kurias jis atliko, šaltiniams, kuriuos konsultavosi, bei samprotavimo žingsniams, kurie vedė prie galutinės išvados. Įrankiai, tokie kaip Azure AI Content Safety bei Azure AI Tracing / GenAIOps, padeda palaikyti skaidrumą ir mažinti riziką.
+- **Šališkumo kontrolė ir subalansuota informacijos paieška:** Programuotojai gali reguliuoti paieškos strategijas, kad būtų įtraukti subalansuoti, reprezentatyvūs duomenų šaltiniai, ir reguliariai atlikti išvesties auditą, siekiant aptikti šališkumą ar iškraipytus modelius naudojant specialius modelius pažengusioms duomenų mokslui skirtoms organizacijoms per Azure Machine Learning.
+- **Žmogaus priežiūra ir atitiktis:** Jautriems uždaviniams žmogaus peržiūra išlieka būtina. Agentic RAG nepakeičia žmogaus sprendimų svarbiose situacijose – jis juos papildo, pateikdamas kruopščiai patikrintas galimybes.
 
-Turėti įrankius, kurie suteikia aiškią veiksmų seką, yra būtina. Be jų, daugiapakopių procesų derinimas gali būti labai sudėtingas. Žr. toliau pateiktą literal AI (įmonės už Chainlit) agentų vykdymo pavyzdį:
+Turėti įrankius, kurie teikia aiškų veiksmų įrašą, yra būtina. Be jų išmanyti daugiamazgius procesus gali būti itin sudėtinga. Žr. šį Literal AI (bendrovės, stovinčios už Chainlit) pateiktą agento vykdymo pavyzdį:
 
-![Agentų vykdymo pavyzdys](../../../translated_images/lt/AgentRunExample.471a94bc40cbdc0c.webp)
+![AgentRunExample](../../../translated_images/lt/AgentRunExample.471a94bc40cbdc0c.webp)
 
 ## Išvada
 
-Agentinė RAG atspindi natūralų dirbtinio intelekto sistemų vystymąsi, kaip jos tvarko sudėtingas, duomenų intensyvias užduotis. Priimdama kilpinio sąveikos modelį, autonomiškai pasirinkdama įrankius ir tobulindama užklausas iki aukštos kokybės rezultato, sistema žengia toliau nei statinis užklausų vykdymas ir tampa lankstesniu, kontekstą suprantančiu sprendimų priėmėju. Nors vis dar ribojama žmogaus nustatytos infrastruktūros ir etikos gairių, šios agentinės galimybės leidžia kurti turtingesnes, dinamiškesnes ir galutiniams vartotojams bei įmonėms naudingesnes AI sąveikas.
+Agentic RAG reiškia natūralią evoliuciją AI sistemų, sprendžiančių sudėtingus, daug duomenų reikalaujančius uždavinius, srityje. Priimdama ciklinę sąveikos struktūrą, savarankiškai pasirenkanti įrankius ir tobulinanti užklausas iki aukštos kokybės rezultato, sistema išeina už statinio užklausų vykdymo ribų ir tampa adaptuojančiu, kontekstą suvokiančiu sprendimų priėmėju. Nors ji vis dar ribojama žmogaus nustatytomis infrastruktūromis ir etikos gairėmis, šios agentinės galimybės leidžia kurti turtingesnę, lankstesnę ir naudingo pobūdžio AI sąveiką tiek verslui, tiek galutiniams vartotojams.
 
-### Turite daugiau klausimų apie Agentinę RAG?
+### Turite daugiau klausimų apie Agentic RAG?
 
-Prisijunkite prie [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), susitikite su kitais besimokančiais, lankykite konsultacinius užsiėmimus ir gaukite atsakymus į klausimus apie AI Agentus.
+Prisijunkite prie [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), kad susitiktumėte su kitais besimokančiais, dalyvautumėte priėmimo valandose ir gautumėte atsakymus į savo AI Agentų klausimus.
 
-## Papildomi šaltiniai
-- <a href="https://learn.microsoft.com/training/modules/use-own-data-azure-openai" target="_blank">Įgyvendinkite Retrieval Augmented Generation (RAG) su Azure OpenAI paslauga: sužinokite, kaip naudoti savo duomenis su Azure OpenAI paslauga. Šis Microsoft Learn modulis suteikia išsamų vadovą, kaip įgyvendinti RAG</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Generatyviųjų AI programų vertinimas naudojant Microsoft Foundry: šiame straipsnyje aptariamas modelių vertinimas ir palyginimas pagal viešai prieinamus duomenų rinkinius, įskaitant Agentic AI programas ir RAG architektūras</a>
+## Papildomi ištekliai
+
+- <a href="https://learn.microsoft.com/training/modules/use-own-data-azure-openai" target="_blank">Įgyvendinkite Retrieval Augmented Generation (RAG) su Azure OpenAI Service: Sužinokite, kaip naudoti savo duomenis Azure OpenAI Service. Šis Microsoft Learn modulis suteikia išsamų RAG įgyvendinimo vadovą</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Generatyvios AI programų įvertinimas su Microsoft Foundry: Šiame straipsnyje aptariamas modelių vertinimas ir palyginimas viešai prieinamuose duomenų rinkiniuose, įskaitant Agentic AI programas ir RAG architektūras</a>
 - <a href="https://weaviate.io/blog/what-is-agentic-rag" target="_blank">Kas yra Agentic RAG | Weaviate</a>
-- <a href="https://ragaboutit.com/agentic-rag-a-complete-guide-to-agent-based-retrieval-augmented-generation/" target="_blank">Agentic RAG: Pilnas agentų pagrindu veikiančio retrieval augmented generation vadovas – Naujausia informacija iš generacijos RAG</a>
-- <a href="https://huggingface.co/learn/cookbook/agent_rag" target="_blank">Agentic RAG: pagreitinkite savo RAG naudodami užklausų pertvarkymą ir savarankišką užklausų kūrimą! Hugging Face Open-Source AI Cookbook</a>
+- <a href="https://ragaboutit.com/agentic-rag-a-complete-guide-to-agent-based-retrieval-augmented-generation/" target="_blank">Agentic RAG: Viso vadovo apie agentais pagrįstą Retrieval Augmented Generation – naujienos iš generation RAG</a>
+
+- <a href="https://huggingface.co/learn/cookbook/agent_rag" target="_blank">Agentic RAG: pagreitinkite savo RAG naudodami užklausų pertvarkymą ir savarankišką užklausą! Hugging Face atvirojo kodo DI receptų knyga</a>
 - <a href="https://youtu.be/aQ4yQXeB1Ss?si=2HUqBzHoeB5tR04U" target="_blank">Agentinių sluoksnių pridėjimas prie RAG</a>
 - <a href="https://www.youtube.com/watch?v=zeAyuLc_f3Q&t=244s" target="_blank">Žinių asistentų ateitis: Jerry Liu</a>
-- <a href="https://www.youtube.com/watch?v=AOSjiXP1jmQ" target="_blank">Kaip sukurti Agentic RAG sistemas</a>
-- <a href="https://ignite.microsoft.com/sessions/BRK102?source=sessions" target="_blank">Naudojant Microsoft Foundry agentų paslaugą savo AI agentų masteliui didinti</a>
+- <a href="https://www.youtube.com/watch?v=AOSjiXP1jmQ" target="_blank">Kaip sukurti agentinius RAG sistemas</a>
+- <a href="https://ignite.microsoft.com/sessions/BRK102?source=sessions" target="_blank">Kaip naudoti Microsoft Foundry Agent Service savo DI agentų masteliui</a>
 
 ### Akademiniai straipsniai
 
-- <a href="https://arxiv.org/abs/2303.17651" target="_blank">2303.17651 Self-Refine: Iteratyvus tobulinimas su savianalize</a>
-- <a href="https://arxiv.org/abs/2303.11366" target="_blank">2303.11366 Reflexion: Kalbos agentai su žodiniu sustiprinamuoju mokymusi</a>
-- <a href="https://arxiv.org/abs/2305.11738" target="_blank">2305.11738 CRITIC: Dideli kalbos modeliai gali savarankiškai taisytis su įrankiais interaktyviai kritikuodami</a>
-- <a href="https://arxiv.org/abs/2501.09136" target="_blank">2501.09136 Agentic Retrieval-Augmented Generation: Apžvalga apie Agentic RAG</a>
+- <a href="https://arxiv.org/abs/2303.17651" target="_blank">2303.17651 Self-Refine: iteratyvus tobulinimas su savirefleksija</a>
+- <a href="https://arxiv.org/abs/2303.11366" target="_blank">2303.11366 Reflexion: kalbos agentai su žodiniu stiprinamuoju mokymu</a>
+- <a href="https://arxiv.org/abs/2305.11738" target="_blank">2305.11738 CRITIC: dideli kalbos modeliai gali savarankiškai taisytis naudodami įrankiais pagrįstą kritiką</a>
+- <a href="https://arxiv.org/abs/2501.09136" target="_blank">2501.09136 Agentic Retrieval-Augmented Generation: apžvalga apie agentinius RAG metodus</a>
 
 ## Ankstesnė pamoka
 
 [Įrankių naudojimo dizaino šablonas](../04-tool-use/README.md)
 
-## Kitas pamoka
+## Kitoji pamoka
 
-[Patikimų AI agentų kūrimas](../06-building-trustworthy-agents/README.md)
+[Patikimų DI agentų kūrimas](../06-building-trustworthy-agents/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Atsakomybės apribojimas**:
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojamas profesionalus žmogaus atliktas vertimas. Mes neatsakome už bet kokius nesusipratimus ar neteisingus aiškinimus, kilusius naudojant šį vertimą.
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokius nesusipratimus ar neteisingą interpretaciją, kilusią naudojantis šiuo vertimu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

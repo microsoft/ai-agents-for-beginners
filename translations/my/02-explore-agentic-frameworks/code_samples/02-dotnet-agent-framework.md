@@ -1,114 +1,118 @@
-# 🔍 Microsoft Agent Framework ကိုလေ့လာခြင်း - အခြေခံ Agent (.NET)
+# 🔍 Microsoft Agent Framework ကိုရှာဖွေခြင်း - Basic Agent (.NET)
 
-## 📋 သင်ယူရမည့်အရာများ
+## 📋 သင်ယူရမည့်ရည်ရွယ်ချက်များ
 
-ဒီဥပမာမှာ Microsoft Agent Framework ရဲ့ အခြေခံအယူအဆတွေကို .NET မှာ အခြေခံ Agent တစ်ခုအဖြစ် အကောင်အထည်ဖော်ထားတဲ့နည်းလမ်းကို လေ့လာမှာဖြစ်ပါတယ်။ C# နဲ့ .NET ecosystem ကို အသုံးပြုပြီး အတတ်နိုင်ဆုံး Agentic patterns တွေကို သင်ယူပြီး အတတ်နိုင်ဆုံး Intelligent Agents တွေ ဘယ်လိုအလုပ်လုပ်သလဲဆိုတာကို နားလည်နိုင်ပါမယ်။
+ဤဥပမာသည် .NET တွင် basic agent တစ်ခုအား အသုံးပြုသည့်အခါ Microsoft Agent Framework ၏ အခြေခံအယူအဆများကို ရှာဖွေပြသပါသည်။ သင်သည် အဓိက agentic ပုံစံများကို သင်ယူပြီး C# နှင့် .NET ပတ်ဝန်းကျင်ကို အသုံးပြု၍ ဘယ်လိုကောင်းမွန်သော agent များ လည်ပတ်ကြောင်း နားလည်နိုင်ပါလိမ့်မည်။
 
-### သင်ရှာဖွေတွေ့ရှိမယ့်အရာများ
+### သင်ရှာဖွေမည့်အကြောင်းအရာများ
 
-- 🏗️ **Agent Architecture**: .NET မှာ AI Agent တွေရဲ့ အခြေခံဖွဲ့စည်းပုံကို နားလည်ခြင်း  
-- 🛠️ **Tool Integration**: Agent တွေက အပြင် function တွေကို အသုံးပြုပြီး စွမ်းရည်တွေ တိုးမြှင့်ပုံ  
-- 💬 **Conversation Flow**: Thread management နဲ့ အတူ Multi-turn conversations နဲ့ context ကို စီမံပုံ  
-- 🔧 **Configuration Patterns**: .NET မှာ Agent setup နဲ့ စီမံခန့်ခွဲမှုအတွက် အကောင်းဆုံးနည်းလမ်းများ  
+- 🏗️ **Agent ပုံသဏ္ဍာန်**: .NET တွင် AI agent များ၏အခြေခံဖွဲ့စည်းပုံနားလည်ခြင်း
+- 🛠️ **ကိရိယာ ပေါင်းစည်းခြင်း**: agent များသည် အပြင် functions များကို ဘယ်လိုအသုံးပြု၍ စွမ်းဆောင်ရည်များ တိုးချဲ့သလဲ  
+- 💬 **စကားပြောသွားလာမှု စီမံခန့်ခွဲမှု**: multi-turn စကားပြောမှုများနှင့် context ကို thread စီမံခန့်ခွဲမှုဖြင့်စီစစ်ခြင်း
+- 🔧 **ဖွဲ့စည်းမှု ပုံစံများ**: .NET တွင် agent များ၏ တပ်ဆင်မှုနှင့် စီမံခန့်ခွဲမှုအတွက် အကောင်းဆုံးနည်းလမ်းများ
 
 ## 🎯 အဓိကအကြောင်းအရာများ
 
-### Agentic Framework Principles
+### Agentic Framework နိယာမများ
 
-- **Autonomy**: .NET AI abstractions ကို အသုံးပြုပြီး Agent တွေ ဘယ်လို ကိုယ်တိုင်ဆုံးဖြတ်ချက်များ ချမှတ်နိုင်သလဲ  
-- **Reactivity**: ပတ်ဝန်းကျင်အပြောင်းအလဲများနဲ့ အသုံးပြုသူ input များကို တုံ့ပြန်ပုံ  
-- **Proactivity**: ရည်မှန်းချက်များနဲ့ context အပေါ် အခြေခံပြီး အတက်အမြောက် လုပ်ဆောင်ပုံ  
-- **Social Ability**: Conversation threads တွေကို အသုံးပြုပြီး သဘာဝဘာသာစကားနဲ့ ဆက်သွယ်ပုံ  
+- ** ကိုယ်ပိုင် လွတ်လပ်ခွင့်**: agent များသည် .NET AI abstraction များကို အသုံးပြုကာ ကိုယ်တိုင် ဆုံးဖြတ်ချက်ချမှုများပြုလုပ်ခြင်း
+- **တုံ့ပြန်မှု**: ပတ်ဝန်းကျင်ပြောင်းလဲမှုများနှင့် အသုံးပြုသူထံမှ inputs များကို တုံ့ပြန်ခြင်း
+- **ရှေ့ဆောင်လုပ်ဆောင်မှု**: ရည်မှန်းချက်များနှင့် context အပေါ်မှ အစီအစဉ် ရယူခြင်း
+- ** လူမှုအသွင်အပြင်**: စကားပြောခြင်း threads များမှတဆင့် သဘာဝဘာသာစကားဖြင့် ဆက်သွယ်ခြင်း
 
-### Technical Components
+### နည်းပညာ ကဏ္ဍများ
 
-- **AIAgent**: Core agent orchestration နဲ့ conversation management (.NET)  
-- **Tool Functions**: C# methods နဲ့ attributes တွေကို အသုံးပြုပြီး Agent ရဲ့ စွမ်းရည်တွေ တိုးမြှင့်ပုံ  
-- **OpenAI Integration**: .NET APIs တွေကို အသုံးပြုပြီး Language models တွေကို အကျိုးရှိစွာ အသုံးချခြင်း  
-- **Secure Configuration**: API key management ကို Environment-based နည်းလမ်းနဲ့ လုံခြုံစွာ စီမံခြင်း  
+- **AIAgent**: အဓိက agent စီမံခြင်းနှင့် စကားပြောမှု စီမံခန့်ခွဲမှု (.NET)
+- **ကိရိယာ functions များ**: C# method များနှင့် attributes များဖြင့် agent စွမ်းဆောင်ရည်များ တိုးချဲ့ခြင်း
+- **Azure OpenAI ပေါင်းစည်းခြင်း**: Azure OpenAI Responses API ဖြင့် ဘာသာစကားမော်ဒယ်များ အသုံးပြုခြင်း
+- **လုံခြုံသော ဖွဲ့စည်းမှု**: ပတ်ဝန်းကျင်အခြေခံ endpoint စီမံခန့်ခွဲမှု
 
-## 🔧 Technical Stack
+## 🔧 နည်းပညာအဖွဲ့အစည်း
 
-### Core Technologies
+### အဓိက နည်းပညာများ
 
-- Microsoft Agent Framework (.NET)  
-- GitHub Models API integration  
-- OpenAI-compatible client patterns  
-- DotNetEnv နဲ့ Environment-based configuration  
+- Microsoft Agent Framework (.NET)
+- Azure OpenAI (Responses API) ပေါင်းစည်းမှု
+- Azure.AI.OpenAI client ပုံစံများ
+- DotNetEnv ဖြင့် ပတ်ဝန်းကျင်အခြေခံ ဖွဲ့စည်းမှု
 
-### Agent Capabilities
+### Agent များ၏ စွမ်းဆောင်ရည်များ
 
-- သဘာဝဘာသာစကား နားလည်ခြင်းနဲ့ ဖန်တီးခြင်း  
-- Function calling နဲ့ C# attributes တွေကို အသုံးပြုပြီး tool usage  
-- Conversation threads တွေကို အသုံးပြုပြီး context-aware responses  
-- Dependency injection patterns တွေကို အသုံးပြုပြီး Extensible architecture  
+- သဘာဝဘာသာစကား နားလည်မှုနှင့် ဖန်တီးမှု
+- C# attribute များဖြင့် function ခေါ်ယူခြင်းနှင့် ကိရိယာအသုံးပြုခြင်း
+- စကားပြော_threads များဖြင့် context-သိကောင်းမှုဖြင့် တုံ့ပြန်မှုများ
+- dependency injection ပုံစံများဖြင့် တိုးချဲ့နိုင်သော ဖွဲ့စည်းမှု
 
-## 📚 Framework Comparison
+## 📚 Framework နှိုင်းယှဉ်ခြင်း
 
-ဒီဥပမာမှာ Microsoft Agent Framework ရဲ့ နည်းလမ်းကို အခြား Agentic frameworks တွေနဲ့ နှိုင်းယှဉ်ပြသထားပါတယ်:
+ဤဥပမာသည် Microsoft Agent Framework ကို အခြား agentic framework များနှင့် နှိုင်းယှဉ်ပြသပါသည်။
 
-| Feature | Microsoft Agent Framework | အခြား Frameworks |
+| အင်္ဂါရပ် | Microsoft Agent Framework | အခြား Framework များ |
 |---------|-------------------------|------------------|
-| **Integration** | Microsoft ecosystem နဲ့ သဘာဝကျစွာ တွဲဖက်နိုင်မှု | Compatibility မတူညီမှုများ |
-| **Simplicity** | API ရိုးရှင်းပြီး နားလည်ရလွယ်ကူမှု | Setup အဆင့်ဆင့်များ ရှုပ်ထွေးမှု |
-| **Extensibility** | Tool integration လွယ်ကူမှု | Framework အပေါ် မူတည်မှု |
-| **Enterprise Ready** | Production အတွက် အဆင်ပြေမှု | Framework အပေါ် မူတည်မှု |
+| **ပေါင်းစည်းမှု** | Microsoft စနစ်စုစည်းမှု | ကွဲပြားသောလိုက်ဖက်မှု |
+| **ရိုးရှင်းမှု** | သန့်ရှင်းပြီး ထိုက်သင့်သော API | မကြာခဏ ရှုပ်ထွေးသော စတင်ခြင်း |
+| **တိုးချဲ့နိုင်မှု** | ကိရိယာ ပေါင်းစည်းမှု လွယ်ကူမှု | Framework အပေါ် မူတည်သည် |
+| **လုပ်ငန်းအသုံးပြုရန် သင့်တော်မှု** | ထုတ်လုပ်မှုအတွက်တည်ဆောက်ထားသည် | Framework အလိုက် ကွဲပြားသည် |
 
-## 🚀 စတင်အသုံးပြုခြင်း
+## 🚀 စတင် အသုံးပြုခြင်း
 
-### Prerequisites
+### လိုအပ်ချက်များ
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် အထက်  
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် အထက်ပါဗားရှင်း
+- Azure OpenAI resource နှင့် မော်ဒယ် တပ်ဆင်မှုပါသော [Azure subscription](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ဖြင့် ဝင်ရောက်မှု
 
-### လိုအပ်သော Environment Variables
+### လိုအပ်သော ပတ်ဝန်းကျင် များ
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+# ပြီးရင် AzureCliCredential က token ရဖို့အတွက် စာရင်းဝင်ပါ
+az login
 ```
-  
+
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4o-mini"
+# ထို့နောက် AzureCliCredential သည် token ရယူနိုင်ရန်အတွက် လက်မှတ်ထိုးဝင်ပါ
+az login
 ```
-  
 
-### Sample Code
+### နမူနာ ကုဒ်
 
-Code ကို run ဖို့,
+ ဤကုဒ် နမူနာကို အောက်ပါအတိုင်း လုပ်ဆောင်နိုင်ပါသည်။
 
 ```bash
 # zsh/bash
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-  
-dotnet CLI ကို အသုံးပြုခြင်းဖြင့်:
+
+ဒါမှမဟုတ် dotnet CLI အသုံးပြု၍-
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
-  
-[`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) မှာ အပြည့်အစုံ code ကို ကြည့်ရှုနိုင်ပါတယ်။
+
+ပြည့်စုံကုဒ်အတွက် [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) ကိုကြည့်ပါ။
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4o-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,11 +175,11 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
+AIAgent agent = azureClient
+    .GetOpenAIResponseClient(deployment)
     .CreateAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
@@ -224,26 +214,25 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
     Console.Write(update);
 }
 ```
-  
 
-## 🎓 အဓိက Takeaways
+## 🎓 အဓိက အတွေ့အကြုံများ
 
-1. **Agent Architecture**: Microsoft Agent Framework က .NET မှာ AI Agent တွေကို type-safe နည်းလမ်းနဲ့ ဖွဲ့စည်းပေးပါတယ်  
-2. **Tool Integration**: `[Description]` attributes တွေကို အသုံးပြုထားတဲ့ functions တွေဟာ Agent ရဲ့ tools အဖြစ် အသုံးပြုနိုင်ပါတယ်  
-3. **Conversation Context**: Thread management က Multi-turn conversations တွေကို context-aware ဖြစ်စေပါတယ်  
-4. **Configuration Management**: Environment variables နဲ့ လုံခြုံ credential handling က .NET best practices တွေကို လိုက်နာပါတယ်  
-5. **OpenAI Compatibility**: GitHub Models integration က OpenAI-compatible APIs တွေကို အဆင်ပြေစွာ အသုံးချနိုင်ပါတယ်  
+1. **Agent ပုံသဏ္ဍာန်**: Microsoft Agent Framework သည် .NET တွင် AI agent များ တည်ဆောက်ရာတွင် သန့်ရှင်းပြီး အမျိုးအစားလုံခြုံသော နည်းလမ်းတစ်ခုကို ပေးဆောင်သည်
+2. **ကိရိယာ ပေါင်းစည်းမှု**: `[Description]` attribute ဖြင့် အလှဆင်ထားသော function များသည် agent အတွက် အသုံးပြုနိုင်သည့် ကိရိယာများဖြစ်လာသည်
+3. **စကားပြော အကြောင်းအရာ**: thread စီမံခန့်ခွဲမှုဖြင့် context အပြည့်အစုံနားလည်မှုရှိသော multi-turn စကားပြောမှုများကို ခွင့်ပြုသည်
+4. **ဖွဲ့စည်းမှု စီမံခန့်ခွဲမှု**: ပတ်ဝန်းကျင် များနှင့် လုံခြုံသော လက်မှတ် စီမံခန့်ခွဲမှုသည် .NET ၏ အကောင်းဆုံး လမ်းညွှန်ချက်များနှင့် ကိုက်ညီသည်
+5. **Azure OpenAI Responses API**: Agent သည် Azure.AI.OpenAI SDK မှတဆင့် Azure OpenAI Responses API ကို အသုံးပြုသည်
 
-## 🔗 အပိုဆောင်းရင်းမြစ်များ
+## 🔗 နောက်ထပ် အရင်းအမြစ်များ
 
-- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)  
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Microsoft Agent Framework စာတမ်းများ](https://learn.microsoft.com/agent-framework)
+- [Microsoft Foundry တွင် Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**အကြောင်းကြားချက်**:  
-ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးစားနေသော်လည်း အလိုအလျောက် ဘာသာပြန်မှုများတွင် အမှားများ သို့မဟုတ် မမှန်ကန်မှုများ ပါဝင်နိုင်သည်ကို သတိပြုပါ။ မူရင်းဘာသာစကားဖြင့် ရေးသားထားသော စာရွက်စာတမ်းကို အာဏာတရ အရင်းအမြစ်အဖြစ် သတ်မှတ်သင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူက ဘာသာပြန်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော အလွဲအမှားများ သို့မဟုတ် အနားလွဲမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+**ပြောကြားချက်**
+ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးပမ်းနေသော်လည်း၊ စက်ကိရိယာဘာသာပြန်ခြင်းများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် လိုအပ်ပါသည်။ မူလစာတမ်းကို မူရင်းဘာသာဖြင့်သာ ယုံကြည်စိတ်ချရသော အချက်အလက်အဖြစ် သတ်မှတ်သင့်သည်။ အရေးကြီးသည့် သတင်းအချက်အလက်များအတွက် ပရော်ဖက်ရှင်နယ် လူသားဘာသာပြန်သူဝန်ဆောင်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော နားလည်မှုကွာခြားမှုများ သို့မဟုတ် မမှန်ကန်သော အသုံးပြုမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မခံပါ။
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
