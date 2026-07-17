@@ -1,154 +1,158 @@
 [![Multi-Agent Design](../../../translated_images/pcm/lesson-8-thumbnail.278a3e4a59137d62.webp)](https://youtu.be/V6HpE9hZEx0?si=A7K44uMCqgvLQVCa)
 
-> _(Klik di pikcha wey dey up so to watch video of dis lesson)_
+> _(Click the image above to view video of this lesson)_
 
 # Multi-agent design patterns
 
-As you start work for project wey get plenti agents, you go need to think about di multi-agent design pattern. But e fit no be clear sharp sharp when you go switch to multi-agents and wetin be di better tins.
+As soon as you start to wok on project wey get multiple agents, you go need to reason about multi-agent design pattern. But e no too clear immediately when to switch to multi-agents and wetin advantages dem be.
 
 ## Introduction
 
-For dis lesson, we dey try answer di beta questions dem:
+For dis lesson, we wan answer di questions dem:
 
-- Wetin be di kain better case wey multi-agents fit work for?
-- Wetin be di better tins wey multi-agents get pass just one agent wey dey do plenti tins?
-- Wetin be di building blocks for make di multi-agent design pattern work?
-- How we go fit see how di multiple agents dey take dey yarn with one another?
+- Wetin be di scenarios wey multi-agents fit make sense?
+- Wetin be di advantages of use multi-agents rather than one single agent wey dey do plenty task?
+- Wetin be di building blocks to implement multi-agent design pattern?
+- How we fit see how di multiple agents dey interact with each oda?
 
 ## Learning Goals
 
-After dis lesson, you go fit:
+After dis lesson, you suppose fit:
 
-- Identify di situations wey multi-agents fit work
-- Know di better tins wey multi-agents get pass single agent.
-- Understand di building blocks wey dey for di multi-agent design pattern.
+- Identify scenarios wey multi-agents fit work well.
+- Recognize advantages of use multi-agents over single agent.
+- Understand building blocks to implement multi-agent design pattern.
 
-Wetin be di big picture?
+Wetin be di bigger picture?
 
-*Multi agents na design pattern wey make plenti agents fit work together to reach one common goal*.
+*Multi agents na design pattern wey allow different agents to work together to achieve one target.*
 
-Dis pattern di popular for different tins like robotics, autonomous systems, and distributed computing.
+Di pattern dey widely used for many areas like robotics, autonomous systems, and distributed computing.
 
-## Scenarios Where Multi-Agents Are Applicable
+## Scenarios Weh Multi-Agents Fit Work
 
-So, wetin be di kain situations wey good to use multi-agents? Di answer be say plenti tins fit benefit from many agents especially for dis kain situations:
+Wetin be good scenarios to use multi-agents? Di answer be say many situations get advantage when you use plenty agents, especially for these cases:
 
-- **Big workload**: Big workload fit chop into small small tasks and assign to haf agents, so dem fit work for di same time and finish quick. One example na for big data processing wahala.
-- **Complex tasks**: Complex tasks, like big workload, fit be divided into small small subtasks and each agent fit specialize for one part of di task. One good example na autonomous cars where different agents dey handle navigation, obstacle detection, and making chat with other cars.
-- **Different skills**: Different agents fit get different skills, wey go make dem handle different parts of task better pass one agent alone. One example na healthcare where agents dey diagnose, plan treatment, and dey monitor patient.
+- **Big workload**: You fit divide big workload into smaller task dem, then assign different agents to do am, so e fit run faster. Example na for big data processing task.
+- **Complex tasks**: Complex tasks fit break down into small small subtasks, each agent go sabi one part of di task well well. Example na autonomous vehicles wey get different agents to manage navigation, obstacle detection, and communication with other vehicles.
+- **Different expertise**: Different agents fit get different skills to handle parts of di task better than just one agent. Like for healthcare where agents fit handle diagnostics, treatment plans, and patient monitoring.
 
-## Advantages of Using Multi-Agents Over a Singular Agent
+## Advantages of Using Multi-Agents Over Single Agent
 
-One agent fit do simple tasks well, but for tori wey complex, multiple agents fit give tins wey better:
+Single agent fit run simple tasks well, but for complex task, multiple agents get many advantages:
 
-- **Specialization**: Each agent fit specialize for one task. When one agent no get specialization, e fit do everything but fit confuse when task complex. E fit end up doing task wey e no sabi well.
-- **Scalability**: E easy to add agents more than overload one agent.
-- **Fault Tolerance**: If one agent spoil, other agents fit still work well make everything steady.
+- **Specialization**: Each agent fit specialize for one task. If one agent no specialize, e fit confuse when e face complex task, e fit do wrong task.
+- **Scalability**: E easier to add more agents than overload one agent.
+- **Fault Tolerance**: If one agent fail, others fit still dey work, so system no go crash.
 
-Make we take example, make we book trip for person. One agent go need handle every part of booking trip, from finding flight to booking hotel and car rental. Make one agent do all dis, e go get tools to handle all dis tin. E go make system complex and hard to maintain or add more things. Multi-agent system fit get agents wey dey specialize for flight finding, hotel booking, and car rental. E go make system modular, easy to maintain, and scalable.
+Make we use example: we wan book trip for one user. Single agent system go handle everything like finding flights, booking hotel and rental cars. To fit do all these, agent go need many tools, e fit make system complex and hard to maintain. But multi-agent system fit get one agent for flights, one for hotels, one for rental cars. That one go make system modular, easy to maintain, and fit scale.
 
-Compare am to travel agency wey be mom-and-pop store versus franchise. Mom-and-pop store go get one agent wey dey handle all trip booking, but franchise go get different agents wey dey handle different parts of di trip.
+Compare am to travel bureau wey be mom-and-pop shop vs travel bureau wey be franchise. Mom-and-pop get one agent wey dey handle everything. Franchise get different agents to handle different parts of trip booking.
 
-## Building Blocks of Implementing the Multi-Agent Design Pattern
+## Building Blocks to Implement Multi-Agent Design Pattern
 
-Before you fit run multi-agent design pattern, you need sabi the building blocks wey dey make di pattern.
+Before you fit implement multi-agent design pattern, you need sabi di building blocks wey dey inside.
 
-Make we use example of booking trip for person. Di building blocks fit include:
+Make we use example again: booking trip for user. Di building blocks include:
 
-- **Agent Communication**: Agents wey dey find flights, book hotels, and rent cars go need dey talk and share info about person preferences and limits. You need decide di way and protocol wey dem go take talk. For example, agent wey dey find flight go talk to agent wey dey book hotel make sure hotel book for same dates with flight. That one mean say agents go share info about travel dates, so you need decide *which agents go share info and how dem go take share am*.
-- **Coordination Mechanisms**: Agents go need arrange their work make sure person preferences and limits balance. Person fit want hotel close to airport, but limit fit be say rental cars dey only for airport. So, hotel booking agent need to arrange wit rental car agent to make sure person preferences and limits balance. You go decide *how agents go arrange their actions*.
-- **Agent Architecture**: Agents need structure inside to make decisions and learn from wetin person do. So flight agent go need structure to decide which flight to recommend. You go decide *how agents go take make decisions and learn from interaction with person*. Example na say flight agent fit use machine learning to recommend flight based on past preferences.
-- **Visibility into Multi-Agent Interactions**: You need fit see how agents dey interact with each other. You go need tools and methods to follow agent activities and interaction. E fit be logging, monitoring tools, visualization, and performance metrics.
-- **Multi-Agent Patterns**: Different patterns dey for multi-agent system like centralized, decentralized, and hybrid architectures. You go select pattern wey best for your use case.
-- **Human in the loop**: Most time, human go dey inside di loop and you need tell agents when dem go ask human for help. E fit be like user dey ask for particular hotel or flight wey agents never recommend or ask for confirmation before booking.
+- **Agent Communication**: Agents wey dey find flights, book hotel and rental cars need talk and share info about user preferences and constraints. You go decide how dem go communicate. Like flight agent go communicate with hotel agent to make sure say hotel booking match flight date. So agents need share info about travel dates and you must decide *which agents dey share info and how dem dey do am*.
+- **Coordination Mechanisms**: Agents need coordinate their work to satisfy user preferences and constraints. For example, user fit want hotel near airport but rental cars fit only dey airport. So hotel booking agent need coordinate with rental car agent to meet user expectation. You must decide *how agents dey coordinate their actions*.
+- **Agent Architecture**: Agents need one internal structure to fit make decisions and learn from user interaction. Flight agent go need structure to decide which flights to recommend. So you must decide *how agents dey make decisions and learn*. Example, flight agent fit use machine learning model to recommend flights based on user past preferences.
+- **Visibility into Multi-Agent Interactions**: You need see how multiple agents dey interact. That one mean you need tools to track agent activities and interaction. This fit be logging tools, monitoring, visualization, and performance metrics.
+- **Multi-Agent Patterns**: Different patterns dey to implement multi-agent systems like centralized, decentralized, and hybrid architectures. You must pick pattern wey best suit your use case.
+- **Human in the loop**: Most times human go dey involved, you need tell agents when to ask human for help. Example, user fit ask for specific hotel or flight wey agents no recommend or confirm something before booking.
 
 ## Visibility into Multi-Agent Interactions
 
-E important to get way to see how agents dey interact. Dis visibility na key to debug, optimize, and make sure system dey work well. You need tools to follow agent activities and interactions. E fit be logging, monitoring, visualization, or performance metrics.
+E important make you fit see how different agents dey interact. This visibility dey help to debug, optimize and make system effective. To do dis, you need tools and technique to track agent activities. This fit be logging, monitoring, visualization tools, and performance metrics.
 
-For example, to book trip for person, you fit get dashboard wey show status of every agent, user preferences and limits, and how agents dey talk to each other. Dashboard fit show travel dates, flights wey flight agent recommend, hotels wey hotel agent recommend, and rental cars wey car agent recommend. E go give you clear view how agents dey interact and if preferences and limits dey met.
+Example, for booking trip for user, you fit get dashboard wey show status of each agent, user preferences, constraints, and how agents dey interact. Dashboard fit show travel dates, flights flight agent recommend, hotels hotel agent recommend, rental cars rental car agent recommend. This one go clear how agents dey work together and if dem meet user needs.
 
-Make we check these tins more.
+Make we look each aspect in detail.
 
-- **Logging and Monitoring Tools**: You want make logging dey for every action wey agent do. Log fit store info about agent wey do action, action wey happen, time wey action happen, and result. Dis info fit help debugging and optimization.
-- **Visualization Tools**: Visualization fit help you see interaction between agents well well. For example, graph fit show how info dey flow between agents. E fit help find bottlenecks, waste, and other wahala.
-- **Performance Metrics**: Metrics fit help track how well multi-agent system dey work. For example, fit track time to finish task, how many tasks dem finish for one time, and accuracy of agents recommendations. Info fit help find where to improve and optimize system.
+- **Logging and Monitoring Tools**: You want keep log for each action agent take. Log go show which agent do am, action, time and outcome. Dis info fit use for debugging, optimization and more.
+
+- **Visualization Tools**: Visualization tools fit help you see how agents dey interact in better way. Like graph wey show info flow between agents. E fit help you find bottlenecks, inefficiencies and other system wahala.
+
+- **Performance Metrics**: Performance metrics fit help you track how effective multi-agent system be. Like time to complete task, number of tasks per time, accuracy of agents recommendation. Dis fit help improve and optimize system.
 
 ## Multi-Agent Patterns
 
-Make we check some specific patterns for multi-agent apps. Here dey some wey dey interesting:
+Make we enter some clear patterns wey fit use to create multi-agent apps. Here be some wey good to consider:
 
 ### Group chat
 
-Dis pattern good if you want create group chat app make many agents fit yarn with each other. Di common use na team work, customer support, and social network.
+Dis pattern useful if you wan build group chat app where many agents fit talk to each other. Common use cases include team work, customer support, and social networking.
 
-For dis pattern, every agent dey represent one user for group chat, and messages dey pass between agents using messaging protocol. Agents fit send messages to group, receive messages, and reply other agents messages.
+For dis pattern, every agent represent one user for group chat and dem dey send messages to each other using messaging protocol. Agents fit send messages to group, receive messages from group, and reply to messages from other agents.
 
-Dis pattern fit use centralized system where all messages pass one server, or decentralized system where messages pass direct.
+Dis pattern fit implement by centralized architecture where all messages go through central server, or decentralized wen messages dey exchange directly.
 
 ![Group chat](../../../translated_images/pcm/multi-agent-group-chat.ec10f4cde556babd.webp)
 
 ### Hand-off
 
-Dis pattern good if you want app wey many agents fit hand off task to one another.
+Dis pattern dey useful if you want build app where many agents fit hand over tasks to each other.
 
-Common uses na customer support, task management, and workflow automation.
+Common use cases na customer support, task management, and workflow automation.
 
-For dis pattern, every agent represent one task or workflow step, and agents fit hand over tasks based on rules wey dem set before.
+For dis pattern, each agent represent one task or step for workflow, and agents fit hand off tasks to oda agents based on rules wey dem don set before.
 
 ![Hand off](../../../translated_images/pcm/multi-agent-hand-off.4c5fb00ba6f8750a.webp)
 
 ### Collaborative filtering
 
-Dis pattern good if you want app wey many agents fit work together to make recommendation to users.
+Dis pattern dey useful if you wan create app where multiple agents fit work together to give recommendations to users.
 
-Why you want many agents collaborate na because every agent get different skill and fit help for recommendation the way different.
+Reason why you go want multiple agents collaborate na because each agent fit get different expertise and fit contribute for recommendation process different ways.
 
-Make we look example where user want recommendation for best stock to buy for stock market.
+Example be say user want recommendation on best stock to buy for stock market.
 
-- **Industry expert**: One agent fit be expert for one particular industry.
+- **Industry expert**: One agent fit be expert for one specific industry.
 - **Technical analysis**: Another agent fit be expert for technical analysis.
-- **Fundamental analysis**: Another agent fit be expert for fundamental analysis. If dem join hand, dem fit give better recommendation to user.
+- **Fundamental analysis**: Another agent fit be expert for fundamental analysis. When dem collaborate, dem fit give user more complete recommendation.
 
 ![Recommendation](../../../translated_images/pcm/multi-agent-filtering.d959cb129dc9f608.webp)
 
 ## Scenario: Refund process
 
-Imagine one situation where customer dey try get refund for product, e get plenti agents wey fit dey involved but make we split am to agents wey true true dey for refund process and general agents wey fit work for other business parts too.
+Imagine say customer dey try get refund for product, many agents fit dey involved but make we split am between agents wey specific for refund process and agents wey general for other business parts.
 
-**Agents wey true true dey for refund process**:
+**Agents wey specific for refund process**:
 
-Here be some agents wey fit dey for refund:
+These agents fit dey involved for refund:
 
-- **Customer agent**: Dis one represent customer and e dey start refund process.
-- **Seller agent**: Dis one represent seller and e dey handle refund process.
-- **Payment agent**: Dis one dey handle payment and e dey refund money to customer.
-- **Resolution agent**: Dis one dey fix any issue wey fit happen for refund process.
-- **Compliance agent**: Dis one dey make sure refund dey follow rules and policies.
+- **Customer agent**: Agent wey represent customer, e dey start refund process.
+- **Seller agent**: Agent wey represent seller, e dey process refund.
+- **Payment agent**: Agent wey represent payment, e dey give refund back to customer.
+- **Resolution agent**: Agent wey represent resolution process, e dey solve any problems wey come up during refund.
+- **Compliance agent**: Agent wey make sure say refund process dey follow laws and policies.
 
 **General agents**:
 
-These agents fit use for other business parts too.
+These agents fit work for other business parts too.
 
-- **Shipping agent**: Dis one dey handle shipping and e dey send product back to seller. E fit use for refund and general product shipping.
-- **Feedback agent**: Dis one dey collect feedback from customer anytime.
-- **Escalation agent**: Dis one dey carry issues go better support if need be. You fit use dis agent for any process wey need escalation.
-- **Notification agent**: Dis one dey send message to customer for different stages of refund.
-- **Analytics agent**: Dis one dey analyze data about refund process.
-- **Audit agent**: Dis one dey check refund process to make sure e correct.
-- **Reporting agent**: Dis one dey make report about refund process.
-- **Knowledge agent**: Dis one dey keep info about refund and other business knowledge.
-- **Security agent**: Dis one dey make sure refund process dey safe.
-- **Quality agent**: Dis one dey make sure refund process quality good.
+- **Shipping agent**: Agent wey handle shipping, e dey send product back to seller. Agent fit work for refund and general shipping for product purchase.
+- **Feedback agent**: Agent wey collect customer feedback. E fit happen anytime no be only for refund.
+- **Escalation agent**: Agent wey dey escalate issues to higher support level. Fit use this agent anytime you need escalate problem.
+- **Notification agent**: Agent wey dey send notifications to customer during refund stages.
+- **Analytics agent**: Agent wey analyze refund data.
+- **Audit agent**: Agent wey audit refund process to ensure say dem dey do am well.
+- **Reporting agent**: Agent wey generate reports on refund process.
+- **Knowledge agent**: Agent wey maintain knowledge base for refund and other business info.
+- **Security agent**: Agent wey ensure security of refund process.
+- **Quality agent**: Agent wey ensure quality of refund process.
 
-You see say e get plenti agents for refund and general agents for other business parts. Hope dis fit help you decide how to choose agents for your multi-agent system.
+Many agents dem list for refund process and some general agents for other business parts. Hope dis one help you know how to decide which agents to use for your multi-agent system.
 
 ## Assignment
 
-Design multi-agent system for customer support process. Identify agents wey dey involved, diir roles and responsibilites, and how dem dey work with one another. Think about agents wey dey specific for customer support and general agents wey fit work for other business parts.
-> Make you reason well before you read di solution wey dey below, you fit need more agents pass wetin you dey think.
+Design multi-agent system for customer support process. Identify agents wey involved, their roles and responsibilities, and how dem dey interact. Consider both agents specific for customer support and general agents wey fit work for other business parts.
 
-> TIP: Reason di different stages for customer support process and also think about agents wey system go need.
+
+> Make you reason small before you read dis solution, you fit need more agents pass wetin you dey think.
+
+> TIP: Reason about di different stages for customer support process and also think about agents wey you go need for any system.
 
 ## Solution
 
@@ -156,21 +160,31 @@ Design multi-agent system for customer support process. Identify agents wey dey 
 
 ## Knowledge checks
 
-Question: When you suppose think about to use multi-agents?
+### Question 1
 
-- [ ] A1: When work no too much and task simple.
-- [ ] A2: When work plenty
-- [ ] A3: When task simple.
+Which kain scenario be di best fit for multi-agent system?
+
+- [ ] A1: One support bot dey answer common questions with one knowledge base and small set of tools.
+- [ ] A2: Refund workflow need separate fraud, payment, and compliance roles, each get him own tools, and dem results must dey coordinated.
+- [ ] A3: Same simple classification request dey come thousands times per hour.
+
+### Question 2
+
+When one single agent usually better choice?
+
+- [ ] A1: Di work fit be handled with one set of instructions and tools, without need specialist handoffs.
+- [ ] A2: Di agent get access to more than one tool.
+- [ ] A3: Di workflow need separate roles with different permissions and independent audit trails.
 
 [Solution quiz](./solution/solution-quiz.md)
 
 ## Summary
 
-For dis lesson, we don check multi-agent design pattern, including di cases wey multi-agents fit work, di advantages wey multi-agents get pass single agent, di building blocks to fit implement di multi-agent design pattern, and how to fit see how di different agents dey interact with each other.
+For dis lesson, we don look di multi-agent design pattern, including di scenarios wey multi-agents dey apply, di advantages of to use multi-agents over one single agent, di building blocks to implement di multi-agent design pattern, plus how to fit see how di multiple agents dey interact with each other.
 
-### You Dey Get More Questions About Di Multi-Agent Design Pattern?
+### Get More Questions about di Multi-Agent Design Pattern?
 
-Join di [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet other learners, attend office hours and get your AI Agents questions answer.
+Join di [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet other learners, attend office hours and get your AI Agents questions answered.
 
 ## Additional resources
 
@@ -190,5 +204,5 @@ Join di [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet ot
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-Dis document na wetin AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator) translate. Even though we try make e correct, abeg sabi say automatic translation fit get some mistakes or errors. Di original document for dia own language remain di main correct source. If na for important mata, make you use professional human translation. We no go take responsibility for any confusion or wrong meaning wey fit come from dis translation.
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

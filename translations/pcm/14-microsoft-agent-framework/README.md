@@ -1,56 +1,56 @@
-# Exploring Microsoft Agent Framework
+# Explorin Microsoft Agent Framework
 
 ![Agent Framework](../../../translated_images/pcm/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
-### Introduction
+### Intro
 
 Dis lesson go cover:
 
-- Understanding Microsoft Agent Framework: Key Features and Value  
-- Exploring the Key Concepts of Microsoft Agent Framework
+- Understand Microsoft Agent Framework: Main Features and Wahala E Go Solve  
+- Check Di Main Ideas of Microsoft Agent Framework
 - Advanced MAF Patterns: Workflows, Middleware, and Memory
 
 ## Learning Goals
 
-After you don finish dis lesson, you go sabi how to:
+After you finish dis lesson, you go sabi how to:
 
 - Build Production Ready AI Agents using Microsoft Agent Framework
-- Apply the core features of Microsoft Agent Framework to your Agentic Use Cases
-- Use advanced patterns including workflows, middleware, and observability
+- Use di main features of Microsoft Agent Framework for your Agentic Use Cases
+- Use advanced patterns like workflows, middleware, and observability
 
 ## Code Samples 
 
-Code samples for [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) fit be found for dis repository under `xx-python-agent-framework` and `xx-dotnet-agent-framework` files.
+Code samples for [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) dey for dis repository under `xx-python-agent-framework` and `xx-dotnet-agent-framework` files.
 
-## Understanding Microsoft Agent Framework
+## Understand Microsoft Agent Framework
 
 ![Framework Intro](../../../translated_images/pcm/framework-intro.077af16617cf130c.webp)
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) na Microsoft unified framework wey dem dey use build AI agents. E dey give you flexibility to solve different kinds agentic use cases wey you go fit see for both production and research environments including:
+[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) na Microsoft unified framework wey dem use build AI agents. E get flexibility to handle plenty different agentic use cases wey dem dey see for production and research like:
 
-- **Sequential Agent orchestration** for places wey you need step-by-step workflows.
-- **Concurrent orchestration** for places wey agents need run tasks for the same time.
-- **Group chat orchestration** for places wey agents fit collaborate for one task.
-- **Handoff Orchestration** for places wey agents go hand over task to another as dem finish subtasks.
-- **Magnetic Orchestration** for places wey manager agent dey create and modify task list and manage coordination of subagents to finish the task.
+- **Sequential Agent orchestration** for situations wey step-by-step workflows dey needed.
+- **Concurrent orchestration** for situations wey agents need finish task for the same time.
+- **Group chat orchestration** for situations wey agents fit work together on one task.
+- **Handoff Orchestration** for situations wey agents dey pass task from one to another as subtasks dey finish.
+- **Magnetic Orchestration** for situations wey one manager agent dey create and change task list and dey arrange subagents to finish the task.
 
-To deliver AI Agents for Production, MAF sef get features for:
+To deliver AI Agents for Production, MAF also get features for:
 
-- **Observability** through OpenTelemetry wey dey trace every action of the AI Agent including tool use, orchestration steps, reasoning flows and performance monitoring through Microsoft Foundry dashboards.
-- **Security** as dem dey host agents natively on Microsoft Foundry wey get security controls like role-based access, private data handling and built-in content safety.
-- **Durability** as Agent threads and workflows fit pause, resume and recover from wahala so process fit run longer.
-- **Control** as human for the loop workflows dey supported where tasks dey marked as needing human approval.
+- **Observability** with OpenTelemetry wey dey track every action of the AI Agent including tool usage, orchestration steps, reasoning flows and performance for Microsoft Foundry dashboards.
+- **Security** by hosting agents for Microsoft Foundry wey get security controls like role-based access, private data handling and built-in content safety.
+- **Durability** as Agent threads and workflows fit pause, resume and recover from errors wey fit make process run for long time.
+- **Control** as human in the loop workflows dey wey require human to approve task before e go continue.
 
-Microsoft Agent Framework dey also focused on being interoperable by:
+Microsoft Agent Framework dey try make e fit work well wit others by:
 
-- **Being Cloud-agnostic** - Agents fit run for containers, on-premise and across different clouds.
-- **Being Provider-agnostic** - Agents fit be created through your preferred SDK like Azure OpenAI and OpenAI
+- **Being Cloud-agnostic** - Agents fit run for containers, on-prem and for plenty different clouds.
+- **Being Provider-agnostic** - Agents fit dey created with your preferred SDK including Azure OpenAI and OpenAI
 - **Integrating Open Standards** - Agents fit use protocols like Agent-to-Agent(A2A) and Model Context Protocol (MCP) to find and use other agents and tools.
-- **Plugins and Connectors** - Connections fit join data and memory services like Microsoft Fabric, SharePoint, Pinecone and Qdrant.
+- **Plugins and Connectors** - Connections fit connect to data and memory services like Microsoft Fabric, SharePoint, Pinecone and Qdrant.
 
-Make we see how dem dey apply these features to some core concepts of Microsoft Agent Framework.
+Make we look how these features dey apply for some main concepts of Microsoft Agent Framework.
 
-## Key Concepts of Microsoft Agent Framework
+## Main Concepts of Microsoft Agent Framework
 
 ### Agents
 
@@ -58,13 +58,14 @@ Make we see how dem dey apply these features to some core concepts of Microsoft 
 
 **Creating Agents**
 
-To create Agent, you go define the inference service (LLM Provider), put set instructions for the AI Agent to follow, plus assign `name`:
+You go create agent by defining the inference service (LLM Provider), a
+set of instructions wey the AI Agent suppose follow, and assign am `name`:
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
 
-The one we dey see above na `Azure OpenAI` but you fit create agents using different services like `Microsoft Foundry Agent Service`:
+Di example dey use `Azure OpenAI` but you fit create agents with different services like `Microsoft Foundry Agent Service`:
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
@@ -80,13 +81,13 @@ agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="Y
 agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-or [MiniMax](https://platform.minimaxi.com/), wey get OpenAI-compatible API wey get large context windows (up to 204K tokens):
+or [MiniMax](https://platform.minimaxi.com/), wey get OpenAI-compatible API with big context windows (up to 204K tokens):
 
 ```python
-agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M2.7").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
+agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-or remote agents using the A2A protocol:
+or remote agents wey use the A2A protocol:
 
 ```python
 agent = A2AAgent( name=agent_card.name, description=agent_card.description, agent_card=agent_card, url="https://your-a2a-agent-host" )
@@ -94,7 +95,7 @@ agent = A2AAgent( name=agent_card.name, description=agent_card.description, agen
 
 **Running Agents**
 
-You fit run Agents with `.run` or `.run_stream` method for non-streaming or streaming responses.
+You fit run agents with `.run` or `.run_stream` methods for non-streaming or streaming responses.
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
@@ -108,13 +109,13 @@ async for update in agent.run_stream("What are the good places to visit in Amste
 
 ```
 
-Each agent run fit get options to change parameters like `max_tokens` wey agent go use, `tools` wey agent fit call, and even the `model` wey agent go use.
+Every agent run get options to customize parameters like `max_tokens` wey the agent go use, `tools` wey the agent fit call, and even `model` wey the agent go use.
 
-Dis dey important if specific models or tools dey needed to complete user task.
+Dis one good if you need specific models or tools to finish user’s task.
 
 **Tools**
 
-Tools fit be defined both when you dey define the agent:
+Tools fit dey defined when you dey define the agent:
 
 ```python
 def get_attractions( location: Annotated[str, Field(description="The location to get the top tourist attractions for")], ) -> str: """Get the top tourist attractions for a given location.""" return f"The top attractions for {location} are." 
@@ -130,53 +131,53 @@ and also when you dey run the agent:
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Di tool na just for dis run only )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Tool we dem provide just for dis run only )
 ```
 
 **Agent Threads**
 
-Agent Threads dey used to manage multi-turn conversations. You fit create thread by:
+Agent Threads dey handle multi-turn conversations. Threads fit dey created by:
 
-- Using `get_new_thread()` wey go make the thread save over time
-- Create thread automatically during agent run wey last only for the current run.
+- Using `get_new_thread()` wey go allow the thread to dey saved over time
+- Creating thread automatic when you run agent and the thread go last only for that run.
 
-To create one thread, the code look like this:
+To create thread, your code go be like dis:
 
 ```python
-# Make new thread.
-thread = agent.get_new_thread() # Run the agent wit di thread.
+# Mek new thread.
+thread = agent.get_new_thread() # Run di agent wit di thread.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
 
-You fit serialize the thread to keep am for later use:
+You fit serialize the thread to store am for later use:
 
 ```python
 # Make new thread.
 thread = agent.get_new_thread() 
 
-# Run the agent wit di thread.
+# Run di agent wit di thread.
 
 response = await agent.run("Hello, how are you?", thread=thread) 
 
-# Arrange di thread for keep.
+# Change di thread to one format wey fit store.
 
 serialized_thread = await thread.serialize() 
 
-# Arrange di thread state again afta load from storage.
+# Change di thread state back afta we load am from storage.
 
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
 
 **Agent Middleware**
 
-Agents dey yok with tools and LLMs to complete user task. Sometimes we want execute or track things inside these interactions. Agent middleware dey help do that by:
+Agents dey interact wit tools and LLMs to finish user tasks. Sometimes, we want make something happen or track wetin happen for inside these interactions. Agent middleware help us do dis by:
 
 *Function Middleware*
 
-Dis middleware dey allow us run action inside between the agent and function/tool wey e go call. For example, you fit want do some logging on the function call.
+Dis middleware allow us run action between agent and function/tool wey e dey call. Example na when you want do some logging for function call.
 
-For the code below, `next` na wetin tell whether to call the next middleware or the actual function.
+For code below `next` talk whether next middleware or the real function go run.
 
 ```python
 async def logging_function_middleware(
@@ -184,21 +185,21 @@ async def logging_function_middleware(
     next: Callable[[FunctionInvocationContext], Awaitable[None]],
 ) -> None:
     """Function middleware that logs function execution."""
-    # Pre-processing: Log before function execution
+    # Pre-processing: Log before the function run
     print(f"[Function] Calling {context.function.name}")
 
-    # Continue to next middleware or function execution
+    # Continue to next middleware or function run
     await next(context)
 
-    # Post-processing: Log after function execution
+    # Post-processing: Log after the function don run
     print(f"[Function] {context.function.name} completed")
 ```
 
 *Chat Middleware*
 
-Dis middleware allow us run or log action between agent and the requests between the LLM.
+Dis middleware allow us run or log action between agent and requests between the LLM.
 
-E get important info like the `messages` wey dem dey send to the AI service.
+E get important info like `messages` wey dem dey send to AI service.
 
 ```python
 async def logging_chat_middleware(
@@ -206,39 +207,39 @@ async def logging_chat_middleware(
     next: Callable[[ChatContext], Awaitable[None]],
 ) -> None:
     """Chat middleware that logs AI interactions."""
-    # Pre-processing: Make log before you call AI
+    # Pre-processing: Make log before AI call
     print(f"[Chat] Sending {len(context.messages)} messages to AI")
 
     # Continue go next middleware or AI service
     await next(context)
 
-    # Post-processing: Make log after AI don respond
+    # Post-processing: Make log after AI response
     print("[Chat] AI response received")
 
 ```
 
 **Agent Memory**
 
-As we talk for `Agentic Memory` lesson, memory na important part to make agent fit work with different contexts. MAF get different kinds memories:
+Like we explain for `Agentic Memory` lesson, memory serious so that agent fit work over different contexts. MAF get different types of memory:
 
 *In-Memory Storage*
 
-Na memory wey dey store for threads during app running time.
+Dis memory dey stored in threads while app dey run.
 
 ```python
-# Make beta thread.
-thread = agent.get_new_thread() # Run the agent wit the thread.
+# Make new thread.
+thread = agent.get_new_thread() # Run di agent wit di thread.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 ```
 
 *Persistent Messages*
 
-Dis memory dey use to store conversation history across different sessions. E dey defined wit `chat_message_store_factory`:
+Dis memory dey keep conversation history over different sessions. E dey defined with `chat_message_store_factory` :
 
 ```python
 from agent_framework import ChatMessageStore
 
-# Make custom message store
+# Make one custom message store
 def create_message_store():
     return ChatMessageStore()
 
@@ -252,12 +253,12 @@ agent = ChatAgent(
 
 *Dynamic Memory*
 
-Dis memory dey add to context before agents run. Dem fit store this memory for external services like mem0:
+Dis memory dey add to the context before agents go run. These memories fit dey store inside external services like mem0:
 
 ```python
 from agent_framework.mem0 import Mem0Provider
 
-# Di use of Mem0 na for advanced memory wahala
+# Di use of Mem0 na for advanced memory tori dem
 memory_provider = Mem0Provider(
     api_key="your-mem0-api-key",
     user_id="user_123",
@@ -274,7 +275,8 @@ agent = ChatAgent(
 
 **Agent Observability**
 
-Observability important to build reliable and maintainable agentic systems. MAF join with OpenTelemetry to provide tracing and meters for better observability.
+
+Observability na important tin for building reliable and maintainable agentic systems. MAF dey integrate wit OpenTelemetry to provide tracing and meters for beta observability.
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -282,7 +284,7 @@ from agent_framework.observability import get_tracer, get_meter
 tracer = get_tracer()
 meter = get_meter()
 with tracer.start_as_current_span("my_custom_span"):
-    # make sometin
+    # make somtin
     pass
 counter = meter.create_counter("my_custom_counter")
 counter.add(1, {"key": "value"})
@@ -290,21 +292,21 @@ counter.add(1, {"key": "value"})
 
 ### Workflows
 
-MAF get workflows wey na pre-defined steps to finish task and dem include AI agents as components for those steps.
+MAF get workflows wey be pre-defined steps to complete task and dem include AI agents as components for those steps.
 
-Workflows get different components wey dey give better control flow. Workflows also dey support **multi-agent orchestration** and **checkpointing** to save workflow states.
+Workflows dey made up of different components wey allow beta control flow. Workflows too dey enable **multi-agent orchestration** and **checkpointing** to save workflow states.
 
-The core components of workflow be:
+The core components of workflow na:
 
 **Executors**
 
-Executors dey receive input messages, do their assigned tasks, then produce output message. Dis one dey push workflow go front to finish the bigger task. Executors fit be AI agent or custom logic.
+Executors go receive input messages, perform their assigned tasks, den produce output message. Dis one dey move workflow go forward to complete the bigger task. Executors fit be AI agent or custom logic.
 
 **Edges**
 
-Edges dey used to define how messages flow inside workflow. These ones fit be:
+Edges dey used to define flow of messages inside workflow. Dem fit be:
 
-*Direct Edges* - Simple one-to-one connection between executors:
+*Direct Edges* - Simple one-to-one connections between executors:
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -315,45 +317,134 @@ builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
 
-*Conditional Edges* - E dey activate after one particular condition happen. For example, if hotel rooms no dey available, executor fit suggest other options.
+*Conditional Edges* - Dey activate after some condition don met. For example, if hotel room no dey, executor fit suggest other options.
 
-*Switch-case Edges* - E dey route messages go different executors based on defined conditions. For example, if travel customer get priority access their tasks fit run through another workflow.
+*Switch-case Edges* - Route messages go different executors based on defined conditions. As example, if travel customer get priority access and their tasks go handled through another workflow.
 
-*Fan-out Edges* - Dem send one message to many targets.
+*Fan-out Edges* - Send one message go multiple targets.
 
-*Fan-in Edges* - Dem gather many messages from different executors and send to one target.
+*Fan-in Edges* - Collect multiple messages from different executors den send am go one target.
 
 **Events**
 
-To make observability better for workflows, MAF get in-built events for execution including:
+To provide beta observability inside workflows, MAF dey offer built-in events for execution wey include:
 
-- `WorkflowStartedEvent`  - Workflow run start
-- `WorkflowOutputEvent` - Workflow give output
-- `WorkflowErrorEvent` - Workflow get wahala
-- `ExecutorInvokeEvent`  - Executor start work
-- `ExecutorCompleteEvent`  -  Executor finish work
+- `WorkflowStartedEvent`  - Workflow execution don start
+- `WorkflowOutputEvent` - Workflow don produce output
+- `WorkflowErrorEvent` - Workflow meet error
+- `ExecutorInvokeEvent`  - Executor don start processing
+- `ExecutorCompleteEvent`  -  Executor don finish processing
 - `RequestInfoEvent` - Request don issue
 
 ## Advanced MAF Patterns
 
-The parts wey pass don explain the key concepts of Microsoft Agent Framework. As you dey build more complex agents, here na some advanced patterns wey you fit consider:
+The sections wey dey above don cover di key concepts of Microsoft Agent Framework. As you dey build more complex agents, here some advanced patterns to consider:
 
-- **Middleware Composition**: Chain many middleware handlers (logging, auth, rate-limiting) using function and chat middleware to get fine-grained control over how agent dey behave.
-- **Workflow Checkpointing**: Use workflow events and serialization to save and continue long-running agent processes.
-- **Dynamic Tool Selection**: Combine RAG on top tool descriptions with MAF's tool registration to show only relevant tools per query.
-- **Multi-Agent Handoff**: Use workflow edges and conditional routing to organize handoffs between specialized agents.
+- **Middleware Composition**: Chain multiple middleware handlers (logging, auth, rate-limiting) using function and chat middleware for fine-grained control over agent behavior.
+- **Workflow Checkpointing**: Use workflow events and serialization to save and resume long-running agent processes.
+- **Dynamic Tool Selection**: Combine RAG over tool descriptions with MAF's tool registration to present only relevant tools per query.
+- **Multi-Agent Handoff**: Use workflow edges and conditional routing to orchestrate handoffs between specialized agents.
+
+## Hosting LangChain / LangGraph Agents on Microsoft Foundry
+
+Microsoft Agent Framework na **framework-interoperable** — you no limited to agents wey dem write wit MAF. If you get agent wey don build wit **LangChain** or **LangGraph**, you fit run am as **Microsoft Foundry hosted agent** so Foundry fit manage runtime, sessions, scaling, identity, and protocol endpoints for you, while your agent logic dey remain for LangGraph.
+
+Dis one na to do wit `langchain_azure_ai.agents.hosting` package, wey dey expose compiled LangGraph graph over di same protocols wey Foundry hosted agents dey use.
+
+**1. Install di hosting extra:**
+
+```bash
+pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
+```
+
+Di `hosting` extra dey install Foundry protocol libraries: `azure-ai-agentserver-responses` (di OpenAI-compatible `/responses` endpoint) and `azure-ai-agentserver-invocations` (di generic `/invocations` endpoint).
+
+**2. Choose your hosting protocol:**
+
+| Protocol | Host class | Endpoint | Use when |
+|----------|-----------|----------|----------|
+| **Responses** | `ResponsesHostServer` | `/responses` | You want OpenAI-compatible chat, streaming, response history, and conversation threading — di recommended default for conversational agents. |
+| **Invocations** | `InvocationsHostServer` | `/invocations` | You need custom JSON shape, webhook-style endpoint, or non-conversational processing. |
+
+Because **Responses API na di primary API for agent-style development for Foundry**, start wit `ResponsesHostServer` for most agents.
+
+**3. Configure environment variables** (`az login` first so `DefaultAzureCredential` fit authenticate):
+
+```bash
+export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
+export FOUNDRY_MODEL_NAME="gpt-4.1"
+```
+
+When agent later run as hosted agent for Foundry, platform go inject `FOUNDRY_PROJECT_ENDPOINT` automatically.
+
+**4. Expose LangGraph agent over Responses protocol:**
+
+```python
+import os
+
+from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from langchain.agents import create_agent
+from langchain_openai import ChatOpenAI
+from langchain_azure_ai.agents.hosting import ResponsesHostServer
+
+_AZURE_AI_SCOPE = "https://ai.azure.com/.default"
+
+
+def build_chat_model() -> ChatOpenAI:
+    project_endpoint = os.environ["FOUNDRY_PROJECT_ENDPOINT"].rstrip("/")
+    deployment = os.environ.get("FOUNDRY_MODEL_NAME", "gpt-4.1")
+    credential = DefaultAzureCredential()
+    project = AIProjectClient(endpoint=project_endpoint, credential=credential)
+    openai_client = project.get_openai_client()
+    token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
+
+    # ChatOpenAI ya target di Foundry project OpenAI-compatible (Responses) endpoint.
+    return ChatOpenAI(
+        model=deployment,
+        base_url=str(openai_client.base_url),
+        api_key=token_provider,
+    )
+
+
+def main() -> None:
+    graph = create_agent(build_chat_model(), tools=[])
+    port = int(os.environ.get("PORT", "8088"))
+    ResponsesHostServer(graph).run(port=port)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Run am locally wit `python main.py`, then send Responses request to `http://localhost:8088/responses`.
+
+**Key behaviors:**
+
+- **Conversations**: Clients go continue conversation by passing `previous_response_id` or `conversation` ID. If your graph compile wit LangGraph checkpointer, Foundry go key conversation state to checkpoint (use durable checkpointer for production; `MemorySaver` good for local test).
+- **Human-in-the-loop**: If your graph dey use LangGraph `interrupt()`, `ResponsesHostServer` go surface pending interrupt as Responses `function_call` / `mcp_approval_request` item, and clients go resume wit matching `function_call_output` / `mcp_approval_response`.
+- **Deploy to Foundry**: Use Azure Developer CLI — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (local, need Docker), then `azd provision` and `azd deploy`. Hosted-agent deployment dey require **Foundry Project Manager** role.
+
+Runnable version of dis example dey for [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py). For full walkthrough (Invocations protocol, custom request schemas, and troubleshooting), see [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).
 
 ## Code Samples 
 
-Code samples for Microsoft Agent Framework fit be found for dis repository under `xx-python-agent-framework` and `xx-dotnet-agent-framework` files.
+Code samples for Microsoft Agent Framework fit find inside dis repository under `xx-python-agent-framework` and `xx-dotnet-agent-framework` files.
 
-## Got More Questions About Microsoft Agent Framework?
+## Get More Questions About Microsoft Agent Framework?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to link up with other learners, attend office hours and ask your AI Agents questions.
+Join [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet other learners, attend office hours and get your AI Agents questions answered.
+## Previous Lesson
+
+[Memory for AI Agents](../13-agent-memory/README.md)
+
+## Next Lesson
+
+[Building Computer Use Agents (CUA)](../15-browser-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even though we dey try make am correct, abeg sabi say automated translations fit get some errors or wrong waka. Di original document for dia original language na di correct one. For important mata, na professional human translation dem suppose use. We no gree take any blame if person no understand or misinterpret tins because of dis translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

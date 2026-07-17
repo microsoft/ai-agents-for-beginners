@@ -1,55 +1,55 @@
-[![Planungs-Entwurfsmuster](../../../translated_images/de/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
+[![Planungs-Designmuster](../../../translated_images/de/lesson-7-thumbnail.f7163ac557bea123.webp)](https://youtu.be/kPfJ2BrBCMY?si=9pYpPXp0sSbK91Dr)
 
 > _(Klicken Sie auf das obige Bild, um das Video zu dieser Lektion anzusehen)_
 
-# Planungs-Entwurf
+# Planungs-Design
 
 ## Einführung
 
 Diese Lektion behandelt
 
-* Die Definition eines klaren Gesamtziels und die Aufteilung einer komplexen Aufgabe in überschaubare Aufgaben.
-* Die Nutzung strukturierter Ausgaben für zuverlässigere und maschinenlesbare Antworten.
-* Die Anwendung eines ereignisgesteuerten Ansatzes zur Handhabung dynamischer Aufgaben und unerwarteter Eingaben.
+* Das Definieren eines klaren Gesamtziels und das Zerlegen einer komplexen Aufgabe in handhabbare Teilaufgaben.
+* Die Nutzung strukturierter Ausgaben für zuverlässigeren und maschinenlesbaren Antworten.
+* Die Anwendung eines ereignisgesteuerten Ansatzes zur Behandlung dynamischer Aufgaben und unerwarteter Eingaben.
 
 ## Lernziele
 
-Nach Abschluss dieser Lektion werden Sie ein Verständnis darüber haben:
+Nach Abschluss dieser Lektion werden Sie folgendes verstehen:
 
-* Ein Gesamtziel für einen KI-Agenten zu identifizieren und festzulegen, damit dieser genau weiß, was erreicht werden soll.
-* Eine komplexe Aufgabe in überschaubare Teilaufgaben zu zerlegen und diese in eine logische Reihenfolge zu bringen.
-* Agenten mit den richtigen Werkzeugen (z. B. Suchwerkzeuge oder Datenanalysetools) auszustatten, zu entscheiden wann und wie diese eingesetzt werden, und unerwartete Situationen zu bewältigen.
-* Teilergebnisse auszuwerten, die Leistung zu messen und Maßnahmen zu iterieren, um das Endergebnis zu verbessern.
+* Ein Gesamtziel für einen KI-Agenten identifizieren und festlegen, sodass dieser klar weiß, was erreicht werden muss.
+* Eine komplexe Aufgabe in handhabbare Teilaufgaben zerlegen und diese in eine logische Reihenfolge bringen.
+* Agenten mit den richtigen Werkzeugen ausstatten (z. B. Suchwerkzeuge oder Datenanalysetools), entscheiden, wann und wie sie eingesetzt werden, und unerwartete Situationen bewältigen.
+* Ergebnisse der Teilaufgaben bewerten, die Leistung messen und Aktionen iterativ verbessern, um das Endergebnis zu optimieren.
 
-## Definition des Gesamtziels und Aufteilung einer Aufgabe
+## Das Gesamtziel definieren und eine Aufgabe aufgliedern
 
 ![Ziele und Aufgaben definieren](../../../translated_images/de/defining-goals-tasks.d70439e19e37c47a.webp)
 
-Die meisten Aufgaben im wirklichen Leben sind zu komplex, um sie in einem Schritt zu bewältigen. Ein KI-Agent braucht ein prägnantes Ziel, um seine Planung und Aktionen zu steuern. Betrachten wir zum Beispiel das Ziel:
+Die meisten Aufgaben in der realen Welt sind zu komplex, um sie in einem einzigen Schritt zu bewältigen. Ein KI-Agent benötigt ein prägnantes Ziel, das seine Planung und Aktionen steuert. Zum Beispiel betrachten wir das Ziel:
 
-    "Erstellen Sie eine 3-tägige Reiseroute."
+    "Erstelle eine 3-tägige Reiseroute."
 
-Obwohl es einfach formuliert ist, bedarf es noch einer Verfeinerung. Je klarer das Ziel ist, desto besser können der Agent (und alle menschlichen Mitwirkenden) sich darauf konzentrieren, das gewünschte Ergebnis zu erreichen, wie z. B. eine umfassende Reiseroute mit Flugoptionen, Hotelempfehlungen und Aktivitätstipps zu erstellen.
+Obwohl es einfach formuliert ist, bedarf es dennoch einer Verfeinerung. Je klarer das Ziel, desto besser können der Agent (und menschliche Mitarbeiter) sich darauf konzentrieren, das richtige Ergebnis zu erzielen, etwa eine umfassende Reiseroute mit Flugoptionen, Hotelempfehlungen und Aktivitätsvorschlägen zu erstellen.
 
 ### Aufgabenzerlegung
 
-Große oder komplexe Aufgaben werden überschaubarer, wenn man sie in kleinere, zielorientierte Teilaufgaben aufteilt.
-Für das Beispiel der Reiseroute könnten Sie das Ziel wie folgt zerlegen:
+Große oder komplexe Aufgaben werden handhabbarer, wenn sie in kleinere, zielorientierte Teilaufgaben unterteilt werden.
+Für das Beispiel der Reiseroute könnten Sie das Ziel folgendermaßen aufgliedern:
 
 * Flugbuchung
 * Hotelbuchung
 * Mietwagen
 * Personalisierung
 
-Jede Teilaufgabe kann dann von spezialisierten Agenten oder Prozessen bearbeitet werden. Ein Agent könnte sich auf die Suche nach den besten Flugangeboten spezialisieren, ein anderer auf Hotelbuchungen usw. Ein koordinierender oder "nachgelagerter" Agent kann dann diese Ergebnisse zu einer zusammenhängenden Reiseroute für den Endnutzer zusammenführen.
+Jede Teilaufgabe kann dann von spezialisierten Agenten oder Prozessen bearbeitet werden. Ein Agent könnte sich auf die Suche nach den besten Flugangeboten spezialisieren, ein anderer auf Hotelbuchungen usw. Ein koordinierender oder „nachgelagerter“ Agent kann diese Ergebnisse dann zu einer zusammenhängenden Reiseroute für den Endnutzer zusammenfassen.
 
-Dieser modulare Ansatz ermöglicht auch inkrementelle Verbesserungen. Zum Beispiel könnten Sie spezialisierte Agenten für Essensempfehlungen oder lokale Aktivitätsvorschläge hinzufügen und die Reiseroute im Laufe der Zeit verfeinern.
+Dieser modulare Ansatz erlaubt auch schrittweise Verbesserungen. Beispielsweise könnten Sie spezialisierte Agenten für Restaurantempfehlungen oder lokale Aktivitätsvorschläge hinzufügen und die Reiseroute im Laufe der Zeit verfeinern.
 
 ### Strukturierte Ausgabe
 
-Große Sprachmodelle (LLMs) können strukturierte Ausgaben (z. B. JSON) erzeugen, die für nachgelagerte Agenten oder Dienste leichter zu parsen und zu verarbeiten sind. Dies ist besonders nützlich in einem Multi-Agenten-Kontext, in dem wir Aufgaben nach Erhalt der Planungs-Ausgabe ausführen können.
+Große Sprachmodelle (LLMs) können strukturierte Ausgaben (z. B. JSON) erzeugen, die für nachgelagerte Agenten oder Dienste leichter zu parsen und zu verarbeiten sind. Dies ist besonders nützlich in einem Multi-Agenten-Kontext, in dem wir Aufgaben nach dem Empfang des Planungsoutputs ausführen können.
 
-Der folgende Python-Schnipsel zeigt einen einfachen Planungsagenten, der ein Ziel in Teilaufgaben zerlegt und einen strukturierten Plan erstellt:
+Der folgende Python-Ausschnitt zeigt einen einfachen Planungsagenten, der ein Ziel in Teilaufgaben zerlegt und einen strukturierten Plan erzeugt:
 
 ```python
 from pydantic import BaseModel
@@ -59,7 +59,7 @@ import json
 import os
 from typing import Optional
 from pprint import pprint
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
 class AgentEnum(str, Enum):
@@ -74,14 +74,18 @@ class AgentEnum(str, Enum):
 # Reise-Unteraufgabenmodell
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum  # wir möchten die Aufgabe dem Agenten zuweisen
+    assigned_agent: AgentEnum  # Wir wollen die Aufgabe dem Agenten zuweisen
 
 class TravelPlan(BaseModel):
     main_task: str
     subtasks: List[TravelSubTask]
     is_greeting: bool
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 # Definiere die Benutzernachricht
 system_prompt = """You are a planner agent.
@@ -107,17 +111,17 @@ response_content = response.output_text
 pprint(json.loads(response_content))
 ```
 
-### Planungsagent mit Multi-Agenten-Orchestrierung
+### Planungsagent mit Multi-Agent-Orchestrierung
 
-In diesem Beispiel erhält ein Semantic Router Agent eine Benutzeranfrage (z. B. „Ich brauche einen Hotelplan für meine Reise.“).
+In diesem Beispiel erhält ein Semantic Router Agent eine Nutzeranfrage (z. B. „Ich brauche einen Hotelplan für meine Reise.“).
 
-Der Planer führt dann aus:
+Der Planer macht dann Folgendes:
 
-* Empfang des Hotelplans: Der Planer nimmt die Nachricht des Benutzers und erstellt basierend auf einem System-Prompt (einschließlich verfügbarer Agenten-Details) einen strukturierten Reiseplan.
-* Auflisten der Agenten und deren Werkzeuge: Das Agenten-Register hält eine Liste von Agenten (z. B. für Flug, Hotel, Mietwagen und Aktivitäten) sowie deren Funktionen oder Werkzeuge bereit.
-* Weiterleitung des Plans an die jeweiligen Agenten: Abhängig von der Anzahl der Teilaufgaben sendet der Planer entweder die Nachricht direkt an einen spezialisierten Agenten (bei einzelnen Aufgaben) oder koordiniert über einen Gruppenchat-Manager für die Zusammenarbeit mehrerer Agenten.
-* Zusammenfassung des Ergebnisses: Abschließend fasst der Planer den erstellten Plan zur besseren Verständlichkeit zusammen.
-Der folgende Python-Code demonstriert diese Schritte:
+* Erhält den Hotelplan: Der Planer nimmt die Nachricht des Nutzers und generiert basierend auf einem Systemprompt (einschließlich verfügbarer Agenteninformationen) einen strukturierten Reiseplan.
+* Listet Agenten und ihre Werkzeuge auf: Das Agentenregister enthält eine Liste von Agenten (z. B. für Flug, Hotel, Mietwagen und Aktivitäten) sowie die Funktionen oder Werkzeuge, die sie anbieten.
+* Leitet den Plan an die jeweiligen Agenten weiter: Abhängig von der Anzahl der Teilaufgaben sendet der Planer die Nachricht entweder direkt an einen dedizierten Agenten (bei Ein-Aufgaben-Szenarien) oder koordiniert über einen Gruppenchat-Manager für die Zusammenarbeit mehrerer Agenten.
+* Fasst das Ergebnis zusammen: Schließlich fasst der Planer den generierten Plan zur besseren Übersicht zusammen.
+Der folgende Python-Code illustriert diese Schritte:
 
 ```python
 
@@ -139,7 +143,7 @@ class AgentEnum(str, Enum):
 
 class TravelSubTask(BaseModel):
     task_details: str
-    assigned_agent: AgentEnum # Wir möchten die Aufgabe dem Agenten zuweisen
+    assigned_agent: AgentEnum # Wir wollen die Aufgabe dem Agenten zuweisen
 
 class TravelPlan(BaseModel):
     main_task: str
@@ -149,16 +153,20 @@ import json
 import os
 from typing import Optional
 
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-# Erstelle den Client
+# Erstellen Sie den Client
 
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 from pprint import pprint
 
-# Definiere die Benutzer-Nachricht
+# Definieren Sie die Benutzernachricht
 
 system_prompt = """You are a planner agent.
     Your job is to decide which agents to run based on the user's request.
@@ -176,12 +184,12 @@ response = client.create_response(input=user_message, instructions=system_prompt
 
 response_content = response.output_text
 
-# Gib den Antwortinhalt aus, nachdem er als JSON geladen wurde
+# Drucken Sie den Antwortinhalt nach dem Laden als JSON aus
 
 pprint(json.loads(response_content))
 ```
 
-Im Folgenden sehen Sie die Ausgabe des vorherigen Codes, und Sie können diese strukturierte Ausgabe dann verwenden, um an `assigned_agent` weiterzuleiten und die Reiseroute für den Endnutzer zusammenzufassen.
+Im Folgenden sehen Sie die Ausgabe des vorherigen Codes und können diese strukturierte Ausgabe nutzen, um sie an `assigned_agent` weiterzuleiten und den Reiseplan dem Endnutzer zusammenzufassen.
 
 ```json
 {
@@ -212,20 +220,21 @@ Im Folgenden sehen Sie die Ausgabe des vorherigen Codes, und Sie können diese s
 }
 ```
 
-Ein Beispiel-Notebook mit dem vorherigen Code-Beispiel ist [hier](07-python-agent-framework.ipynb) verfügbar.
+Ein Beispiel-Notebook mit dem vorherigen Codebeispiel ist [hier](./code_samples/07-python-agent-framework.ipynb) verfügbar.
 
 ### Iterative Planung
 
-Manche Aufgaben erfordern ein Hin- und Her oder Umplanen, bei dem das Ergebnis einer Teilaufgabe die nächste beeinflusst. Zum Beispiel, wenn der Agent während der Flugbuchung ein unerwartetes Datenformat entdeckt, muss er möglicherweise seine Strategie anpassen, bevor er mit der Hotelbuchung fortfährt.
+Manche Aufgaben erfordern ein Hin- und Her oder eine Neuplanung, bei der das Ergebnis einer Teilaufgabe die nächste beeinflusst. Zum Beispiel, wenn der Agent beim Buchen von Flügen ein unerwartetes Datenformat entdeckt, muss er möglicherweise die Strategie anpassen, bevor er mit Hotelbuchungen fortfährt.
 
-Zusätzlich kann Benutzerfeedback (z. B. wenn ein Mensch entscheidet, dass er einen früheren Flug bevorzugt) eine Teil-Neuplanung auslösen. Dieser dynamische, iterative Ansatz stellt sicher, dass die endgültige Lösung mit realen Einschränkungen und sich entwickelnden Nutzerpräferenzen übereinstimmt.
+Zusätzlich kann Nutzerfeedback (z. B. ein Mensch entscheidet sich für einen früheren Flug) eine Teil-Neuplanung auslösen. Dieser dynamische, iterative Ansatz stellt sicher, dass die endgültige Lösung mit realen Einschränkungen und sich entwickelnden Nutzerpräferenzen übereinstimmt.
 
-z.B. Beispielcode
+z. B. Beispielcode
 
 ```python
-from agent_framework.azure import AzureAIProjectAgentProvider
+import os
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
-#.. dasselbe wie beim vorherigen Code und Übergabe der Benutzerhistorie, des aktuellen Plans
+#.. gleich wie im vorherigen Code und Übergabe der Benutzerhistorie, aktueller Plan
 
 system_prompt = """You are a planner agent to optimize the
     Your job is to decide which agents to run based on the user's request.
@@ -244,34 +253,34 @@ response = client.create_response(
     instructions=system_prompt,
     context=f"Previous travel plan - {TravelPlan}",
 )
-# .. Neuplanung und Senden der Aufgaben an die jeweiligen Agenten
+# .. neu planen und die Aufgaben an die jeweiligen Agenten senden
 ```
 
-Für umfassendere Planungen schauen Sie sich Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> zum Lösen komplexer Aufgaben an.
+Für umfassendere Planung schauen Sie sich den Magnetic One <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Blogpost</a> für die Lösung komplexer Aufgaben an.
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir ein Beispiel betrachtet, wie wir einen Planer erstellen können, der dynamisch verfügbare Agenten auswählt. Die Ausgabe des Planers zerlegt die Aufgaben und weist die Agenten zu, sodass sie ausgeführt werden können. Es wird davon ausgegangen, dass die Agenten Zugang zu den Funktionen/Werkzeugen haben, die zur Ausführung der Aufgabe erforderlich sind. Zusätzlich zu den Agenten können Sie weitere Muster wie Reflexion, Zusammenfassung und Rundlauf-Chat einbinden, um die Lösung weiter anzupassen.
+In diesem Artikel haben wir uns ein Beispiel angesehen, wie wir einen Planer erstellen können, der die definierten verfügbaren Agenten dynamisch auswählt. Der Output des Planers zerlegt die Aufgaben und weist die Agenten zu, damit diese ausgeführt werden können. Es wird vorausgesetzt, dass die Agenten Zugriff auf die Funktionen/Werkzeuge haben, die zur Durchführung der Aufgaben erforderlich sind. Zusätzlich zu den Agenten können Sie weitere Muster wie Reflexion, Zusammenfassung und Round-Robin-Chat einbauen, um die Anpassung weiter zu verbessern.
 
-## Weitere Ressourcen
+## Zusätzliche Ressourcen
 
-Magentic One – Ein Generalist-Multi-Agenten-System zur Lösung komplexer Aufgaben, das beeindruckende Ergebnisse bei mehreren herausfordernden agentischen Benchmarks erzielt hat. Referenz: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. In dieser Implementierung erstellt der Orchestrator aufgabenspezifische Pläne und delegiert diese an verfügbare Agenten. Zusätzlich zur Planung nutzt der Orchestrator auch einen Tracking-Mechanismus, um den Fortschritt der Aufgabe zu überwachen und bei Bedarf neu zu planen.
+Magentic One - Ein Generalist-Multi-Agent-System zur Lösung komplexer Aufgaben, das beeindruckende Ergebnisse bei mehreren anspruchsvollen agentischen Benchmarks erzielt hat. Referenz: <a href="https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks" target="_blank">Magentic One</a>. In dieser Implementierung erstellt der Orchestrator aufgabenspezifische Pläne und delegiert diese Aufgaben an die verfügbaren Agenten. Neben der Planung verwendet der Orchestrator auch einen Tracking-Mechanismus, um den Fortschritt der Aufgabe zu überwachen und bei Bedarf neu zu planen.
 
-### Haben Sie weitere Fragen zum Planungs-Entwurfsmuster?
+### Haben Sie weitere Fragen zum Planungs-Designmuster?
 
-Treten Sie dem [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) bei, um andere Lernende zu treffen, an Sprechstunden teilzunehmen und Ihre Fragen zu KI-Agenten beantwortet zu bekommen.
+Treten Sie dem [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) bei, um andere Lernende zu treffen, an Sprechstunden teilzunehmen und Ihre Fragen zu KI-Agenten beantwortet zu bekommen.
 
 ## Vorherige Lektion
 
-[Vertrauenswürdige KI-Agenten erstellen](../06-building-trustworthy-agents/README.md)
+[Vertrauenswürdige KI-Agenten bauen](../06-building-trustworthy-agents/README.md)
 
 ## Nächste Lektion
 
-[Multi-Agenten-Entwurfsmuster](../08-multi-agent/README.md)
+[Multi-Agent-Designmuster](../08-multi-agent/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Haftungsausschluss**:
-Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner ursprünglichen Sprache ist als maßgebliche Quelle zu betrachten. Für wichtige Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die aus der Nutzung dieser Übersetzung entstehen.
+Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ursprungssprache gilt als maßgebliche Quelle. Bei kritischen Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die aus der Verwendung dieser Übersetzung entstehen.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

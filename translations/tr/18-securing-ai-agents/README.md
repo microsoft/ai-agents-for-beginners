@@ -1,64 +1,64 @@
-[Ders videosunu izleyin: Kriptografik Makbuzlarla AI Ajanlarının Güvenliği](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Ders videosunu izle: Kriptografik Makbuzlarla AI Ajanlarını Güvenceye Alma](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Ders videosu ve küçük resmi Microsoft içerik ekibi tarafından birleştirme sonrası eklenecektir, ders 14 / 15 örüntüsüne uygun olarak.)_
+> _(Ders videosu ve küçük resim, Microsoft içerik ekibi tarafından birleştirme sonrası, ders 14 / 15 düzenine uygun şekilde eklenecektir.)_
 
-# Kriptografik Makbuzlarla AI Ajanlarının Güvenliği
+# Kriptografik Makbuzlarla AI Ajanlarını Güvenceye Alma
 
 ## Giriş
 
-Bu ders aşağıdakileri kapsayacaktır:
+Bu derste şunları inceleyeceğiz:
 
-- AI ajanlar için denetim izlerinin uyumluluk, hata ayıklama ve güven açısından neden önemli olduğu.
-- Bir kriptografik makbuzun ne olduğu ve imzasız bir günlük satırından nasıl farklı olduğu.
-- Bir ajanın araç çağrısı için imzalı bir makbuzun sade Python ile nasıl üretileceği.
-- Makbuzun çevrimdışı nasıl doğrulanacağı ve tahrifatın nasıl tespit edileceği.
-- Makbuzların zincirlenmesi; birini kaldırmanın veya sırasını değiştirmenin nasıl zinciri bozduğu.
-- Makbuzların neyi kanıtladığı ve açıkça neyi kanıtlamadığı.
+- AI ajanları için denetim izlerinin uyumluluk, hata ayıklama ve güven için neden önemli olduğu.
+- Kriptografik makbuzun ne olduğu ve imzasız bir günlük satırından nasıl farklılaştığı.
+- Bir ajanın araç çağrısı için düz Python’da imzalı makbuz nasıl üretilir.
+- Makbuzun çevrimdışı nasıl doğrulanacağı ve tahribatın nasıl tespit edileceği.
+- Makbuzların nasıl zincirlenebileceği ve birini kaldırmanın veya yeniden sıralamanın zinciri nasıl bozduğu.
+- Makbuzların neyi kanıtladığı ve özellikle neyi kanıtlamadığı.
 
 ## Öğrenme Hedefleri
 
 Bu dersi tamamladıktan sonra şunları bileceksiniz:
 
-- Ajan eylemleri için kriptografik kökenin motivasyonunu sağlayan başarısızlık modlarını belirlemek.
-- Kanonik JSON yükü üzerinde Ed25519 imzalı makbuz üretmek.
-- Yalnızca imzalayanın genel anahtarını kullanarak makbuzu bağımsız şekilde doğrulamak.
-- Değiştirilmiş bir makbuzda doğrulamayı yeniden çalıştırarak tahrifatı tespit etmek.
-- Makbuzlardan oluşan bir karma zincir dizisi oluşturmak ve zincirin neden önemli olduğunu açıklamak.
-- Makbuzların kanıtladığı (atama, bütünlük, sıralama) ile kanıtlamadığı (eylemin doğruluğu, politikanın sağlamlığı) arasındaki sınırı fark etmek.
+- Ajan eylemleri için kriptografik köken motivasyonu yaratan hata modlarını tanımlamak.
+- Kanonik JSON yükü üzerinde Ed25519 imzalı bir makbuz üretmek.
+- Yalnızca imzalayanın açık anahtarını kullanarak makbuzu bağımsız şekilde doğrulamak.
+- Değişiklik olup olmadığını doğrulamayı değiştirilmiş bir makbuz üzerinde yeniden çalıştırarak tespit etmek.
+- Makbuzların hash zincirli bir dizisini oluşturmak ve zincirin neden önemli olduğunu açıklamak.
+- Makbuzların neyi kanıtladığı (atanabilirlik, bütünlük, sıralama) ve neyi kanıtlamadığı (eylemin doğruluğu, politikanın sağlamlığı) arasındaki sınırı tanımak.
 
 ## Sorun: Ajanınızın Denetim İzleri
 
-Diyelim ki Contoso Travel için bir AI ajanı dağıttınız. Ajan müşteri taleplerini okuyor, uçuş API’sini çağırıyor ve müşterinin adına koltuk rezervasyonu yapıyor. Geçen çeyrekte ajanın işlettiği rezervasyon sayısı 50.000.
+Contoso Travel için bir AI ajanı dağıttığınızı hayal edin. Ajan müşteri isteklerini okur, uçuşlar API’sini çağırarak seçeneklere bakar ve müşterinin adına koltukları ayırır. Geçen çeyrekte ajan 50.000 rezervasyon işledi.
 
-Bugün bir denetçi geliyor. Basit bir soru soruyor: "Ajanınızın yaptığı işleri gösterin."
+Bugün bir denetçi gelir. Basit bir soru sorar: "Ajanınızın ne yaptığını gösterin."
 
-Siz de günlük dosyalarınızı veriyorsunuz. Denetçi dosyaları inceliyor ve zor bir soru soruyor: "Bu günlüklerin değiştirilmediğini nasıl bilebilirim?"
+Günlük dosyalarınızı veririrsiniz. Denetçi bunlara bakar ve daha zor bir soru sorar: "Bu günlüklerin düzenlenmediğini nasıl bilebilirim?"
 
-Bu denetim izi (audit trail) sorunudur. Bugün birçok ajan dağıtımı şuna dayanır:
+İşte denetim izi problemi budur. Bugün çoğu ajan dağıtımı şunlara dayanır:
 
-- **Uygulama günlükleri**: Ajan tarafından yazılır, dosya sistemi erişimi olan herkes tarafından değiştirilebilir.
-- **Bulut günlükleme servisleri**: Platform düzeyinde tahrifata karşı koruma sağlar ama sadece denetçi platform operatörüne güveniyorsa.
-- **Veritabanı işlem günlükleri**: Veritabanı değişiklikleri için uygundur ama rastgele araç çağrıları için uygun değildir.
+- **Uygulama günlükleri**: ajan tarafından yazılır, dosya sistemine erişimi olan herkes tarafından düzenlenebilir.
+- **Bulut günlükleme servisleri**: platform düzeyinde tahrifat belirtili ancak denetçi platform operatörüne güveniyorsa geçerlidir.
+- **Veritabanı işlem günlükleri**: veritabanı değişiklikleri için uygundur ancak rastgele araç çağrıları için değildir.
 
-Hiçbiri denetçinin sorusunu, denetçinin birine (size, bulut sağlayıcınıza, veritabanı satıcınıza) güvenmesini gerektirmeden yanıtlayamaz. İç kullanım için bu güven genellikle kabul edilebilir. Düzenlemeye tabi iş yükleri (finans, sağlık, EU AI Yasasına tabi her şey) için kabul edilmez.
+Bunların hiçbiri, denetçinin birine (sizin, bulut sağlayıcınızın veya veritabanı satıcınızın) güvenmesini gerektirmeden soruyu yanıtlayamaz. İç kullanımda bu güven kabul edilebilir. Düzenlenen iş yükleri (finans, sağlık, AB AI Yasasına tabi işler) için kabul edilmez.
 
-Kriptografik makbuzlar bunu her ajan eylemini bağımsızca doğrulanabilir kılarak çözer. Denetçinin size güvenmesi gerekmez. Yalnızca genel anahtarınıza ve makbuza ihtiyacı vardır.
+Kriptografik makbuzlar, her ajan eylemini bağımsız olarak doğrulanabilir hale getirerek bunu çözer. Denetçinin size güvenmesine gerek yoktur. Sadece sizin açık anahtarınıza ve makbuza ihtiyacı vardır.
 
 ## Kriptografik Makbuz Nedir?
 
-Bir makbuz, ajanın ne yaptığını kayıt eden, dijital imza ile imzalanmış bir JSON nesnesidir.
+Bir makbuz, bir ajanın ne yaptığını kaydeden, dijital imzayla imzalanmış bir JSON nesnesidir.
 
 ```mermaid
 flowchart LR
-    A[Agent bir araç çağırır] --> B[Fatura yükü oluştur]
-    B --> C[JSON RFC 8785'i kanonik hale getir]
-    C --> D[SHA-256 karma]
+    A[Ajan bir araç çağırır] --> B[Fiş yükünü oluştur]
+    B --> C[JSON RFC 8785'i kanonikleştir]
+    C --> D[SHA-256 hash]
     D --> E[Ed25519 imzala]
-    E --> F[İmzalı fatura]
+    E --> F[İmzalı fiş]
     F --> G[Denetçi çevrimdışı doğrular]
     G --> H{İmza geçerli mi?}
-    H -- evet --> I[Değiştirilemez kanıt]
-    H -- hayır --> J[Fatura reddedildi]
+    H -- evet --> I[Tamper-kanıtı delil]
+    H -- hayır --> J[Fiş reddedildi]
 ```
 
 Minimal bir makbuz şöyle görünür:
@@ -82,25 +82,25 @@ Minimal bir makbuz şöyle görünür:
 }
 ```
 
-Üç özellik işi yapar:
+İş yapan üç özellik vardır:
 
-1. **İmza**. Makbuz, ajanın geçidi tarafından Ed25519 özel anahtarıyla imzalanır. Karşılık gelen genel anahtara sahip herkes imzayı çevrimdışı doğrulayabilir. Herhangi bir alanı değiştirmek imzayı geçersiz kılar.
+1. **İmza**. Makbuz, ajanın ağ geçidi tarafından Ed25519 özel anahtarı ile imzalanır. Karşılık gelen açık anahtara sahip herkes imzayı çevrimdışı doğrulayabilir. Herhangi bir alanın değiştirilmesi imzayı geçersiz kılar.
 
-2. **Kanonik kodlama**. İmzalamadan önce makbuz JSON Kanonizasyon Şeması (JCS, RFC 8785) ile serileştirilir. Bu, aynı mantıksal makbuzu üreten iki farklı uygulamanın bayt bazında aynı çıktıyı üretmesini sağlar. Kanonizasyon olmazsa, farklı JSON serileştiricileri aynı içerik için farklı imzalar üretirdi.
+2. **Kanonik kodlama**. İmzalamadan önce makbuz JSON Kanonizasyon Şeması (JCS, RFC 8785) kullanılarak serileştirilir. Bu, aynı mantıksal makbuzu üreten iki uygulamanın bayt olarak özdeş çıktılar üretmesini sağlar. Kanonizasyon olmadan farklı JSON serileştiriciler aynı içerik için farklı imzalar üretirdi.
 
-3. **Karma zincirleme**. `previous_receipt_hash` alanı her makbuzu öncekine bağlar. Bir makbuzun silinmesi veya sırasının değiştirilmesi ardından gelen tüm makbuzları bozar. Bireysel imzalar atlatılsa bile tahrifat zincir seviyesinde görünür olur.
+3. **Hash zincirleme**. `previous_receipt_hash` alanı her makbuzu ondan önceki makbuza bağlar. Bir makbuzu kaldırmak veya yeniden sıralamak, ardından gelen her makbuzu bozar. Bireysel imzalar atlatılsa bile tahrifat zincir seviyesinde görünür olur.
 
-Bu özellikler birlikte üç garanti sağlar:
+Bu özellikler birlikte üç garanti verir:
 
-- **Atama**: Bu anahtar bu içeriği imzaladı.
-- **Bütünlük**: İçerik imzalandığı zamandan beri değişmedi.
-- **Sıralama**: Bu makbuz zincirde o makbuzdan sonra geldi.
+- **Atanabilirlik**: bu anahtar bu içeriği imzalamıştır.
+- **Bütünlük**: içerik imzalandığından beri değişmemiştir.
+- **Sıralama**: bu makbuz zincirde o makbuzdan sonra gelmiştir.
 
-## Python ile Makbuz Üretme
+## Python’da Makbuz Üretmek
 
-Makbuz üretmek için özel bir kütüphane gerekmez. Kriptografik primitifler yaygın olarak mevcuttur; mantık birkaç düzine satır Python kodudur.
+Makbuz üretmek için özel bir kütüphane gerekmez. Kriptografik primitifler yaygın olarak bulunmaktadır ve mantık birkaç düzine Python satırıdır.
 
-`code_samples/18-signed-receipts.ipynb` dosyasındaki uygulamalı egzersizler tüm akışı adım adım anlatır. Özet hali:
+`code_samples/18-signed-receipts.ipynb` içindeki uygulamalı egzersizler tüm akışı adım adım gösterir. Özet:
 
 ```python
 import json
@@ -116,11 +116,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Bir imzalama anahtarı oluşturun veya yükleyin (üretimde, bir anahtar kasasında saklayın)
+# Bir imzalama anahtarı oluşturun veya yükleyin (prodüksiyonda, bir anahtar kasasında saklayın)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Makbuz yükünü oluştur (henüz imza yok)
+# Makbuz yükünü oluşturun (henüz imza yok)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -152,11 +152,11 @@ receipt = {
 }
 ```
 
-İmzalama hattı tamamen bu kadar. Defterdeki egzersizler her adımı kapsamlıca gösterir.
+Bu tüm imzalama hattıdır. Defterdeki egzersizler her adımı açıklar.
 
-## Makbuzu Doğrulama ve Tahrifat Tespiti
+## Makbuz Doğrulama ve Tahribat Tespiti
 
-Doğrulama işlemi tersidir:
+Doğrulama tam tersidir:
 
 ```python
 import base64
@@ -170,7 +170,7 @@ def b64url_decode(s: str) -> bytes:
     return base64.urlsafe_b64decode(s + padding)
 
 def verify_receipt(receipt: dict) -> bool:
-    # İmza yapılandırılmış bir nesnedir: {"alg", "sig", "public_key"}.
+    # İmza, yapılandırılmış bir nesnedir: {"alg", "sig", "public_key"}.
     sig_obj = receipt.get("signature")
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
@@ -189,195 +189,196 @@ def verify_receipt(receipt: dict) -> bool:
         return False
 ```
 
-Bu fonksiyon bir makbuz alır ve imza geçerliyse `True`, değilse `False` döner. Ağ çağrısı, servis bağımlılığı veya üçüncü bir tarafa güven gerekmez.
+Bu fonksiyon bir makbuz alır ve imza geçerliyse `True`, değilse `False` döner. Ağ çağrısı yok, servis bağımlılığı yok, üçüncü tarafa güvenmek gerekmez.
 
-Tahrifat tespitini görmek için defter şunları uygular:
+Tahrifat tespitini görmek için defterde:
 
-1. Geçerli bir makbuz üretir ve doğrulamanın başarılı olduğunu teyit eder.
-2. `tool_args_hash` alanındaki bir baytı değiştirir.
-3. Doğrulamayı yeniden çalıştırır ve başarısız olduğunu görür.
+1. Geçerli bir makbuz üretilir ve doğrulandığı onaylanır.
+2. `tool_args_hash` alanında bir bayt değiştirilir.
+3. Doğrulama yeniden çalıştırılır ve başarısızlık görülür.
 
-Bu, makbuzların tahrifata karşı korumalı olduğunun pratik kanıtıdır: En ufak değişiklik bile imzayı bozar.
+Bu, makbuzların tahrifat belirtili olduğunun pratik göstergesidir: en küçük değişiklik bile imzayı bozar.
 
 ## Çok Adımlı Ajanlar için Makbuz Zincirleme
 
-Tek bir imzalı makbuz bir eylemi korur. Makbuz zinciri ise bir diziyi korur.
+Tek bir imzalı makbuz bir eylemi korur. Makbuz zinciri bir diziyi korur.
 
 ```mermaid
 flowchart LR
-    R0[Makbuz 0<br/>genesis] --> R1[Makbuz 1]
-    R1 --> R2[Makbuz 2]
-    R2 --> R3[Makbuz 3]
-    R1 -. önceki_makbuz_hashi .-> R0
-    R2 -. önceki_makbuz_hashi .-> R1
-    R3 -. önceki_makbuz_hashi .-> R2
+    R0[Fiş 0<br/>genesis] --> R1[Fiş 1]
+    R1 --> R2[Fiş 2]
+    R2 --> R3[Fiş 3]
+    R1 -. previous_receipt_hash .-> R0
+    R2 -. previous_receipt_hash .-> R1
+    R3 -. previous_receipt_hash .-> R2
 ```
 
-Her makbuz kendisinden önceki makbuzun karma değerini kaydeder. Bir saldırgan, zincirin ortasındaki 2 numaralı makbuzu sessizce kaldırmak isterse:
+Her makbuz, ondan önceki makbuzun hash’ini kaydeder. Zincirin ortasından 2 numaralı makbuzu sessizce kaldırmak için:
 
-- Makbuz 3'ün `previous_receipt_hash` alanını değiştirmesi gerekir (bu makbuz 3'ün imzasını bozar), VEYA
-- Değiştirilmiş bir makbuz 3 için yeni bir imza sahtecilik yapması gerekir (ajanın özel anahtarını gerektirir).
+- Makbuz 3’ün `previous_receipt_hash` alanını değiştirmek gerekir (bu makbuz 3’ün imzasını bozar), YA DA
+- Değiştirilmiş makbuz 3’te yeni bir imza sahtelemek gerekir (ajanın özel anahtarı gerekir).
 
-Özel anahtar donanımsal anahtar kasasında ise ve siz her makbuzla genel anahtarı yayımlıyorsanız, bu saldırıların hiçbiri fark edilmeden yapılamaz.
+Özel anahtar bir donanım anahtar kasasında ve her makbuzla açık anahtar yayımlanıyorsa, bu saldırılardan hiçbiri tespitsiz mümkün değildir.
 
-Defterde şunlar gösterilir:
+Defterde:
 
-1. Üç makbuzdan oluşan bir zincir oluşturmak.
-2. Her makbuzun `previous_receipt_hash` değerinin önceki makbuzun gerçek karmasıyla eşleştiğini doğrulamak.
-3. Zincirin tam da o noktada bozulduğunu görmek için ortadaki bir makbuzu tahrif etmek.
+1. Üç makbuzluk bir zincir oluşturulur.
+2. Her makbuzun `previous_receipt_hash` alanının bir önceki makbuzun gerçek hash’i ile uyumlu olduğu doğrulanır.
+3. Ortadaki bir makbuzda tahrifat yapılır ve zincirin tam o noktada nasıl kırıldığı görülür.
 
-Bu, dış denetçinin size güvenmeden doğrulayabileceği bir denetim izi üretme yöntemidir.
+Bu, dış denetçinin size güvenmeden doğrulayabileceği bir denetim izi üretmenin yoludur.
 
-## Makbuzların Kanıtladıkları (ve Kanıtlamadıkları)
+## Makbuzlar Ne Kanıtlar (Ne Kanıtlamaz)
 
-Bu, dersin en önemli bölümüdür. Makbuzlar güçlüdür ama güçleri sınırlıdır.
+Dersin en önemli bölümü budur. Makbuzlar güçlüdür ancak güçleri sınırlıdır.
 
 **Makbuzlar üç şeyi kanıtlar:**
 
-1. **Atama**: Belirli bir anahtar belirli yükü imzaladı.
-2. **Bütünlük**: Yük, imzalandığı zamandan beri değişmedi.
-3. **Sıralama**: Bu makbuz o makbuzdan sonra geldi karma zincirinde.
+1. **Atanabilirlik**: belirli bir anahtar belirli bir yükü imzalamıştır.
+2. **Bütünlük**: yük imzalandığından beri değişmemiştir.
+3. **Sıralama**: bu makbuz zincirde o makbuzdan sonra gelmiştir.
 
 **Makbuzlar KANITLAMAZ:**
 
-1. **Doğruluk**: Ajanın eyleminin doğru eylem olduğunu. Makbuz yanlış bir yanıt için de tıpkı doğru olan gibi temiz imzalanabilir.
-2. **Politika uyumu**: `policy_id` ile belirtilen politikanın gerçekten değerlendirildiğini veya kontrol edilseydi bu eyleme izin verileceğini. Makbuz kaydeder ne iddia edildiğini, ne uygulandığını değil.
-3. **Anahtardan öte kimlik**: Makbuz "bu anahtar bu içeriği imzaladı" der. "Bu insan yetkilendirdi" demez. Bir anahtarı kişiye veya kuruluşa bağlamak ayrı kimlik altyapısı gerektirir (dizin, genel anahtar kaydı vb.).
-4. **Girdilerin doğruluğu**: Ajan manipüle edilmiş bir istem alır ve buna göre hareket ederse, makbuz eylemi doğru şekilde kaydeder. Makbuzlar girdiyi doğrulamanın alternatifi değil, sonrasındadır.
+1. **Doğruluk**: ajanın eyleminin doğru eylem olduğu. Yanlış cevap için de temiz bir şekilde imzalanabilir.
+2. **Politika uyumu**: `policy_id` ile belirtilen politikanın gerçekten değerlendirildiği ya da kontrol edilseydi bu eyleme izin vereceği. Makbuz kaydeder ne iddia edildiğini, ne uygulandı.
+3. **Anahtarın ötesinde kimlik**: makbuz “bu anahtar bu içeriği imzaladı” der. “Bu insan yetkilendirdi” demek değildir. Anahtarı kişi veya kuruluşa bağlamak ayrı kimlik altyapısı gerektirir (dizin, açık anahtar kaydı vb.).
+4. **Girdi doğruluğu**: ajan manipüle edilmiş bir istem alıp buna göre hareket ederse makbuz eylemi doğru şekilde kaydeder. Makbuzlar giriş doğrulamanın sonrası, yerine geçmez.
 
-Bu sınır iki nedenle önemlidir:
+Bu sınır önemlidir çünkü:
 
-- Makbuzların ne işe yaradığını söyler: ajan davranışını denetlenebilir ve tahrifata karşı korumalı yapmak, hatta organizasyon sınırları ötesinde.
-- Hangi ek katmanlara hala ihtiyacınız olduğunu belirtir: giriş doğrulama (Ders 6), politika uygulama (aşağıda kısaca değinildi), kimlik altyapısı (bu ders dışında).
+- Makbuzların ne için kullanışlı olduğunu gösterir: ajan davranışını denetlenebilir ve tahrifat belirtili kılmak, organizasyonlar arasında bile.
+- Hala hangi ek katmanlara ihtiyacınız olduğunu gösterir: giriş doğrulama (Ders 6), politika uygulama (aşağıda kısaca), kimlik altyapısı (bu ders kapsamı dışı).
 
-Yaygın hata, "makbuzlarımız var" demenin "yönetiliyoruz/kontrol altındayız" anlamına geldiğini varsaymaktır. Böyle değildir. Makbuzlar temel oluşturur. Yönetim ise üzerine inşa ettiğiniz sistemdir.
+Yaygın hata “makbuzlarımız var”ın “yönetiliyoruz” anlamına geldiğini varsaymaktır. Değil. Makbuzlar bir temeldir. Yönetim onun üstünde kurulan sistemdir.
 
 ## Üretim Referansları
 
-Bu derste Python kodu bilinçli olarak minimaldir böylece her satırı okuyup tam olarak ne olduğunu anlayabilirsiniz. Üretimde iki seçeneğiniz vardır:
+Bu dersteki Python kodu kasıtlı olarak minimaldir ki her satırı okuyup tam olarak ne olduğunu anlayabilesiniz. Üretimde iki seçeneğiniz var:
 
-1. **Kriptografik primitifler üzerine doğrudan inşa edin.** Yukarıda gördüğünüz yaklaşık 50 satır birçok kullanım durumu için yeterlidir. PyNaCl (Ed25519) ve `jcs` paketi (kanonik JSON) iyi bakımı yapılan ve denetlenen kütüphanelerdir.
+1. **Kriptografik primitifler üzerinde doğrudan inşa edin.** Yukarıdaki 50 satır birçok kullanım için yeterlidir. PyNaCl (Ed25519) ve `jcs` paketi (kanonik JSON) iyi bakımlı ve denetlenmiş kütüphanelerdir.
 
-2. **Üretim makbuz kütüphanesi kullanın.** Birkaç açık kaynak proje aynı deseni ek özelliklerle uygular (anahtar dönüşümü, toplu doğrulama, JWK Set dağıtımı, politika motorları ile entegrasyon):
-   - Bu derste kullanılan makbuz formatı IETF İnternet Taslağıdır (`draft-farley-acta-signed-receipts`), şu anda standart sürecindedir.
-   - Microsoft Agent Governance Toolkit, makbuzları Cedar tabanlı politika kararlarıyla birleştirir; bu depo içindeki Eğitim 33’te uçtan uca örnek bulunur.
-   - `protect-mcp` (npm) ve `@veritasacta/verify` (npm) paketleri, her MCP sunucusunu tahrifat geçirmez denetim iziyle sarmak için Node tabanlı makbuz imzalama ve çevrimdışı doğrulama sağlar.
+2. **Üretim seviyesi bir makbuz kütüphanesi kullanın.** Birkaç açık kaynak proje aynı deseni ek özelliklerle (anahtar döndürme, toplu doğrulama, JWK Set dağıtımı, politika motorları entegrasyonu) uygular:
+   - Bu derste kullanılan makbuz formatı şu anda standartlaşma sürecinde olan IETF Internet-Draft (`draft-farley-acta-signed-receipts`) izlemektedir.
+   - Microsoft Agent Governance Toolkit, makbuzları Cedar tabanlı politika kararları ile birleştirir; uçtan uca örnek için o depodaki Ders 33’e bakınız.
+   - `protect-mcp` (npm) ve `@veritasacta/verify` (npm) paketleri, herhangi bir MCP sunucusunu tahrifat belirtile denetim izi ile sarmak için Node tabanlı imzalama ve çevrimdışı doğrulama sağlar.
+   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`), Python’da LangChain ve CrewAI entegrasyonlarıyla aynı Ed25519 + JCS imzalama modelini sağlar; yayımlanmış çapraz doğrulama test vektörleri ve [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210) ile katkı sağlanmış uyumluluk haritası dahil.
 
-Kendi JWT kütüphanenizi yazmakla test edilmiş birini kullanmak arasındaki seçim gibi, kendi makbuz kütüphanenizi yapmak veya hazır kullanmak arasında da tercihtir: Her ikisi de makuldür; kütüphane zaman kazandırır ve denetim yüzeyini küçültür; baştan yazmak her primitifin anlaşılmasını zorunlu kılar. Bu ders baştan yazma yolunu öğretir böylece her iki seçeneğin temeline sahip olabilirsiniz.
+Kendi imzalama kütüphanenizi yazmak ile denenmiş bir JWT kütüphanesi kullanmak kararı gibidir: her ikisi de makuldür; kütüphane zaman kazandırır ve denetim yüzeyini azaltır; en baştan yazmak her primitifin anlaşılmasını zorunlu kılar. Bu ders en baştan yazma yolunu öğreterek her iki seçim için de temel sağlar.
 
 ## Bilgi Kontrolü
 
 Uygulama egzersizine geçmeden önce anlayışınızı test edin.
 
-**1. Bir makbuz ajanın özel Ed25519 anahtarıyla imzalanır. Denetçinin yalnızca genel anahtarı vardır. Denetçi makbuzu çevrimdışı doğrulayabilir mi?**
+**1. Bir makbuz ajanının özel Ed25519 anahtarı ile imzalanır. Denetçinin yalnızca açık anahtarı vardır. Denetçi makbuzu çevrimdışı doğrulayabilir mi?**
 
 <details>
 <summary>Cevap</summary>
 
-Evet. Ed25519 doğrulaması yalnızca genel anahtarı ve imzalanan baytları gerektirir. Ağ çağrısı, servis bağımlılığı yoktur. Bu, makbuzları izole ortamlar, çoklu organizasyonlar veya düşük güvene dayalı denetim ayarlarında faydalı yapan özelliktir.
+Evet. Ed25519 doğrulaması sadece açık anahtar ve imzalı baytlara ihtiyaç duyar. Ağ çağrısı yok, servis bağımlılığı yok. Makbuzları hava boşluklu, çok kuruluşlu veya düşük güven ortamlarında faydalı kılan özelliktir.
 </details>
 
-**2. Bir saldırgan makbuzun `policy_id` alanını daha izin verici bir politika olduğunu iddia edecek şekilde değiştirir. İmza ise orijinal yük üzerinden hesaplanmıştır. Doğrulamada ne olur?**
+**2. Bir saldırgan makbuzun `policy_id` alanını daha izin verici bir politika iddiasıyla değiştirir. İmza orijinal yük üzerinde yapılmıştır. Doğrulama sırasında ne olur?**
 
 <details>
 <summary>Cevap</summary>
 
-Doğrulama başarısız olur. İmza orijinal yükün kanonik baytları üzerinde hesaplanmıştı; herhangi bir alan değişikliği kanonik baytları, dolayısıyla SHA-256 karmasını değiştirir ve imzayı geçersiz kılar. Saldırgan geçerli yeni bir imzayı özel anahtar olmadan üretemez.
+Doğrulama başarısız olur. İmza orijinal yükün kanonik baytları üzerinde hesaplanmıştır; herhangi bir alanın değiştirilmesi kanonik baytları değiştirir, bu da SHA-256 hash’i değiştirir, imzayı geçersiz kılar. Saldırganın yeni geçerli imza üretmek için özel anahtarı yoktur.
 </details>
 
-**3. Makbuzda neden ham argümanlar ve sonuçlar yerine `tool_args_hash` ve `result_hash` bulunur?**
+**3. Makbuz neden ham argümanlar ve sonuç yerine `tool_args_hash` ve `result_hash` içerir?**
 
 <details>
 <summary>Cevap</summary>
 
-İki neden vardır. Birincisi, makbuz arşivlenebilir veya iletilebilir ve ham içeriğin (KİB, iş verisi) sızması sorun olabilir. Hashleme makbuzu küçük tutar ve içeriği gizli kılar; denetçi hashin ayrı bir yerde saklanan gerçek içerikle eşleştiğini doğrular. İkincisi, hashler sabit boyuttadır; hashli makbuz büyük giriş ve çıkışlara rağmen boyut sınırı getirir.
+İki sebepten. Birincisi, makbuz arşivlenebilir veya ham içerik sızıntısının problem yaratacağı ortamlarda iletilebilir (KİB, iş verisi). Hash, makbuzu küçük ve içeriği gizli tutar; denetçi hash’in ayrı saklanan gerçek içerikle eşleştiğini doğrular. İkincisi, hash’ler sabit boyuttadır; hash tabanlı makbuz, girdiler ve çıktılar ne kadar büyük olursa olsun boyut olarak sınırlandırılmıştır.
 </details>
 
-**4. `previous_receipt_hash` alanı her makbuzu öncekine bağlar. Bir saldırgan zincirin ortasından tek bir makbuzu sessizce silerse ne geçersiz olur?**
+**4. `previous_receipt_hash` alanı her makbuzu öncekiyle bağlar. Zincirin ortasından bir makbuz sessizce silinirse ne geçersiz olur?**
 
 <details>
 <summary>Cevap</summary>
 
-Silinen makbuzdan sonra gelen her makbuz. Bunların `previous_receipt_hash` alanları artık gerçek zincirle eşleşmez (çünkü referans verilen makbuz artık yok veya zincir farklı bir öncekini işaret eder). Silinmeyi gizlemek için saldırgan sonraki her makbuzu yeniden imzalamak zorundadır, bu da özel anahtar gerektirir.
+Silinen makbuzdan sonra gelen her makbuz. Onların `previous_receipt_hash` alanları artık gerçek zincirle eşleşmez (referans verdikleri makbuz artık yok veya zincir farklı bir öncekine işaret eder). Silinmeyi gizlemek için saldırgan her sonraki makbuzu yeniden imzalamak zorundadır, bu da özel anahtar gerektirir.
 </details>
 
-**5. Bir makbuz temiz bir şekilde doğrulanıyor. Bu, ajanın eyleminin doğru, mantıklı veya politika uyumlu olduğunu kanıtlar mı?**
+**5. Bir makbuz temiz doğrulanırsa bu ajanın eyleminin doğru, sağlam veya politika ile uyumlu olduğunu kanıtlar mı?**
 
 <details>
 <summary>Cevap</summary>
 
-Hayır. Geçerli bir makbuz üç şeyi kanıtlar: atama (bu anahtar bu içeriği imzaladı), bütünlük (içerik değişmedi) ve sıralama (bu makbuz o makbuzdan sonra geldi). Doğruluğu, `policy_id`’de belirtilen politikanın değerlendirildiğini veya ajanın kurallara uyduğunu kanıtlamaz. Makbuzlar ajan davranışını denetlenebilir kılar, mutlaka doğru kılmaz. Bu dersin en önemli sınırıdır.
+Hayır. Geçerli makbuz üç şeyi kanıtlar: atanabilirlik (bu anahtar bu içeriği imzaladı), bütünlük (içerik değişmedi), sıralama (bu makbuz zincirde diğerinden sonra geldi). Doğruluk, `policy_id` politikasının gerçekten değerlendirildiği veya ajanın tüm kurallara uyduğu varsayılmaz. Makbuzlar ajan davranışını denetlenebilir yapar, zorunlu olarak doğru değil. Bu, dersin en önemli sınırıdır.
 </details>
 
-## Uygulama Egzersizi
+## Uygulama Alıştırması
 
 `code_samples/18-signed-receipts.ipynb` dosyasını açın ve dört bölümü tamamlayın:
 
 1. **Bölüm 1**: İlk makbuzunuzu imzalayın ve doğrulayın.
-2. **Bölüm 2**: Makbuzu tahrif edin ve doğrulama başarısızlığını gözlemleyin.
-3. **Bölüm 3**: Üç makbuzdan oluşan bir zincir oluşturun ve zincirin bütünlüğünü doğrulayın.
-4. **Bölüm 4**: Deseni Microsoft Agent Framework ile oluşturulmuş bir ajan üzerinde uygulayın: bir araç çağrısını makbuz imzalama ile sarın, sonra makbuzu bağımsız olarak doğrulayın.
+2. **Bölüm 2**: Makbuzu tahrif edin ve doğrulamanın başarısız olduğunu gözlemleyin.
+3. **Bölüm 3**: Üç makbuzluk bir zincir oluşturun ve zincir bütünlüğünü doğrulayın.
+4. **Bölüm 4**: Microsoft Agent Framework ile inşa edilen ajana deseni uygulayın: bir araç çağrısını makbuz imzalama ile sarın, ardından makbuzu bağımsız doğrulayın.
+**Esneme meydan okuması 1:** makbuz şemasını kendi seçiminizden ek bir alanla genişletin (örneğin, izleme için bir istek kimliği), kanonik imzalama mantığını bunu dahil edecek şekilde güncelleyin ve makbuzun hala doğrulama üzerinden iki yönlü olarak geçip geçmediğini onaylayın. Ardından imzalamadan sonra alanı değiştirin ve doğrulamanın başarısız olduğunu onaylayın. Bu, kanonik kodlamanın her baytının imzaya nasıl katkıda bulunduğunu anlamanızı zorunlu kılar.
 
-**Ek zorluk 1:** Makbuz şemasına kendi seçtiğiniz ek bir alan (örneğin, izleme için bir istek kimliği) ekleyin, kanonik imzalama mantığını buna göre güncelleyin ve makbuzun doğrulamadan hala geçtiğini teyit edin. Ardından imzadan sonra alanı değiştirip doğrulamanın başarısız olduğunu doğrulayın. Bu, kanonik kodlamanın her baytının imzaya nasıl katkıda bulunduğunu anlamanızı sağlar.
-**Zorlayıcı görev 2:** İki makbuzunuzu birlikte SHA-256 ile hashleyin (kanonik baytlarını belirli bir sıralamada birleştirin) ve ortaya çıkan özet bilgisini üçüncü bir makbuzda yeni bir alan olarak gömün, ardından imzalayın. Üç makbuzun da hala dönüp geri doğrulanabildiğini teyit edin. Böylece tek adımlı bir dahil etme kanıtı oluşturmuş oldunuz: üçüncü makbuzu elinde bulunduran kişi, birinci iki makbuzun imzalanma anında var olduğunu içeriğini açığa çıkarmadan kanıtlayabilir. Bu, seçmeli açıklama makbuzlarının ölçekli olarak kullandığı modeldir (Merkle taahhütleri, RFC 6962).
+**Esneme meydan okuması 2:** iki makbuzunuzu SHA-256 ile birlikte hashleyin (kanonik baytlarını deterministik bir sırayla birleştirin) ve oluşan özeti üçüncü bir makbuza yeni bir alan olarak yerleştirin, ardından imzalayın. Üç makbuzun da hala iki yönlü olarak geçtiğini doğrulayın. Böylece tek adımlı bir dahil etme kanıtı oluşturmuş olursunuz: üçüncü makbuza sahip herkes, birinci ikisinin imzalandığı anda var olduğunu, içeriklerini açığa çıkarmadan kanıtlayabilir. Bu, seçmeli açıklama makbuzlarının büyük ölçekte kullandığı desendir (Merkle taahhütleri, RFC 6962).
 
 ## Sonuç
 
-Kriptografik makbuzlar, Yapay Zeka ajanlarına şu özelliklere sahip bir denetim izi sunar:
+Kriptografik makbuzlar, AI ajanlarına şu özelliklere sahip bir denetim izi sağlar:
 
-- **Bağımsız doğrulanabilir:** herkeste bulunan açık anahtar ile doğrulanabilir, servis bağımlılığı yoktur.
-- **Tahrifata karşı korumalı:** herhangi bir değişiklik imzayı geçersiz kılar.
+- **Bağımsız olarak doğrulanabilir:** genel anahtara sahip herhangi bir taraf doğrulayabilir, hizmet bağımlılığı yoktur.
+- **Değişikliğe karşı belli eder:** herhangi bir değişiklik imzayı geçersiz kılar.
 - **Taşınabilir:** bir makbuz küçük bir JSON dosyasıdır; arşivlenebilir, iletilebilir ve her yerde doğrulanabilir.
-- **Standartlara uyumlu:** Ed25519 (RFC 8032), JCS (RFC 8785) ve SHA-256 üzerine kurulmuş, yaygın kullanılan ilkelere sahiptir.
+- **Standartlara uygun:** Ed25519 (RFC 8032), JCS (RFC 8785) ve SHA-256 üzerine kurulmuştur; tümü yaygın kullanılan temel algoritmalardır.
 
-Girdi doğrulama, politika uygulama veya kimlik altyapısının yerine geçmezler. Bunlar bu katmanların temelidir. Ajanları düzenlenen işler, çoklu kuruluş iş akışları veya gelecekteki denetçilerin size güvenmeyeceği ortamlara dağıtırken, makbuzlar denetim izini dürüst kılmanın yoludur.
+Bunlar, girdi doğrulama, politika uygulama veya kimlik altyapısının yerine geçmez. O katmanların temeli olarak hizmet ederler. Düzenlemeye tabi iş yüklerine, çoklu kuruluş iş akışlarına veya gelecekteki bir denetçinin size güvenmediği herhangi bir ortama ajanlar dağıtırken, makbuzlar denetim izini dürüst yapmanın yoludur.
 
-En önemli çıkarım: makbuzlar kimin ne dediğini ve ne zaman söylediğini kanıtlar. Söylenenin doğru veya yerinde olduğunu kanıtlamazlar. Bu farkı dikkatle tutun. Bu, dürüst bir köken sistemi ile yanıltıcı bir sistem arasındaki farktır.
+En önemli çıkarım: makbuzlar kim ne dedi, ne zaman dediğini kanıtlar. Söylenenin doğru veya gerçek olduğunu kanıtlamazlar. Bu ayrımı sıkı tutun. Bu, dürüst bir kaynak sistemi ile yanıltıcı bir sistem arasındaki farktır.
 
 ## Üretim Kontrol Listesi
 
-Bu dersten gerçek bir ortamda makbuz-imzalı ajanlar dağıtmaya geçmeye hazır olduğunuzda:
+Bu dersten gerçek bir ortamda makbuzla imzalanan ajanlar dağıtmaya geçmeye hazır olduğunuzda:
 
-- [ ] **İmza anahtarını geliştirici dizüstü bilgisayarından çıkarın.** Azure Key Vault, AWS KMS veya donanım güvenlik modülü kullanın. Makbuzlarınızı imzalayan özel anahtar kaynak kontrolünde veya uygulama makinelerinde düz metin olarak asla bulunmamalıdır.
-- [ ] **Doğrulama açık anahtarını yayınlayın.** Denetçiler çevrimdışı doğrulama için buna ihtiyaç duyar. Standart model, iyi bilinen bir URL'de bir JWK Setidir (RFC 7517), örn. `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Zinciri dışarıdan demirleyin.** Belirli aralıklarla en son zincir başı hash bilgisini bir şeffaflık günlüğüne (Sigstore Rekor, RFC 3161 zaman damgası otoritesi veya ikinci bir dahili sistem) yazın ki dış bir taraf "bu zincir bu zamanda vardı." diyebilsin.
-- [ ] **Makbuzları değişmez olarak saklayın.** Sadece ekleme yapılabilen blob depolama (Azure Storage değişmezlik politikalarıyla, AWS S3 Nesne Kilidi) içerideki birinin depolama katmanında geçmişi yeniden yazmasını engeller.
-- [ ] **Saklama süresine karar verin.** Birçok uyumluluk yönetmeliği çok yıllı saklama gerektirir. Makbuz büyümesini planlayın (her makbuz ~500 bayt; bir ajan günde 10 bin çağrı yaparsa yılda ~1.8 GB üretir).
-- [ ] **Makbuzların neleri kapsamadığını belgeleyin.** Makbuzlar atıfı, bütünlüğü ve sıralamayı kanıtlar. Çalışma kitabınız, ilave olarak hangi kontrollerin (girdi doğrulama, politika uygulama, hız sınırlama, kimlik altyapısı) yönetim duruşunuzda makbuzlarla birlikte yer aldığını açıkça listelemelidir.
+- [ ] **İmzalama anahtarını geliştirici dizüstü bilgisayarından çıkarın.** Azure Key Vault, AWS KMS veya donanım güvenlik modülü kullanın. Makbuzlarınızı imzalayan özel anahtar asla kaynak kontrolünde veya uygulama makinelerinde açık olarak yaşamamalıdır.
+- [ ] **Doğrulama genel anahtarını yayınlayın.** Denetçiler çevrimdışı doğrulama için buna ihtiyaç duyar. Standart desen, iyi bilinen bir URL'de JWK Set (RFC 7517), örneğin `https://your-org.example.com/.well-known/agent-keys.json` 'dir.
+- [ ] **Zinciri dışarıdan sabitleyin.** Periyodik olarak en son zincir başlığı hash'ini bir şeffaflık kaydına (Sigstore Rekor, RFC 3161 zaman damgası yetkilisi veya ikinci bir dahili sistem) yazın, böylece dış bir taraf "bu zincir bu zamanda vardı" diyebilir.
+- [ ] **Makbuzları değiştirilemez şekilde saklayın.** Sadece eklenen blob depolama (Azure Storage - değiştirilemezlik politikalarıyla, AWS S3 Nesne Kilidi) içerideki birinin depo katmanında geçmişi yeniden yazmasını engeller.
+- [ ] **Saklama süresini belirleyin.** Pek çok uyumluluk rejimi çok yıllı saklama gerektirir. Makbuz büyümesini planlayın (her makbuz ~500 bayttır; günde 10K çağrı yapan bir ajan yılda ~1.8 GB üretir).
+- [ ] **Makbuzların kapsamını belgeleyin.** Makbuzlar atfedilebilirliği, bütünlüğü ve sıralamayı kanıtlar. Çalıştırma kılavuzunuzda, ek denetimler (girdi doğrulama, politika uygulama, hız sınırlaması, kimlik altyapısı) ile birlikte makbuzların yönetişim pozisyonunuzda neyi kapsamadığını açıkça listeleyin.
 
-### Yapay Zeka Ajanlarının Güvenliği Hakkında Daha Fazla Sorunuz mu Var?
+### AI Ajanlarının Güvenliği Hakkında Daha Fazla Sorunuz mu Var?
 
-Diğer öğrencilerle tanışmak, danışma saatlerine katılmak ve Yapay Zeka Ajanları sorularınızı yanıtlamak için [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)'a katılın.
+[Microsoft Foundry Discord](https://aka.ms/ai-agents/discord)'a katılın; diğer öğrenenlerle tanışın, ofis saatlerine katılın ve AI Ajanlarındaki sorularınızı cevaplatın.
 
-## Bu Dersin Ötesinde
+## Bu Dersten Sonra
 
-Bu ders, tek makbuz imzalama ve hash zincirli dizileri kapsar. Aynı ilkelerm, yönetişim duruşunuz geliştikçe karşılaşabileceğiniz birkaç daha gelişmiş deseni oluşturur:
+Bu ders tek makbuzlu imzalamayı ve hash zinciri dizilerini kapsar. Aynı temel yapıtaşları, yönetişim pozisyonunuz olgunlaştıkça karşılaşabileceğiniz daha gelişmiş birkaç desene dönüşür:
 
-- **Seçmeli açıklama.** Bir makbuzun alanları bağımsız olarak taahhüt edildiğinde (RFC 6962 tarzı Merkle ağacı), belirli alanları belirli denetçilere açabilir ve geri kalanların değişmediğini açığa çıkarmadan kanıtlayabilirsiniz. Aynı makbuzun hem kapsamlı bir denetimi (tamlık isteyen) hem de GDPR gibi veri-minimizasyon düzenlemelerini (denetçinin mümkün olduğunca az görmesini isteyen) karşılaması gerektiğinde faydalıdır.
-- **Makbuz iptali.** Bir imza anahtarı ele geçirilirse, o anahtarla imzalanan tüm makbuzları bir noktadan itibaren güvensiz olarak işaretlemeniz gerekir. Standart modeller: kısa ömürlü imza anahtarları artı yayınlanmış iptal listesi veya iptal girdili bir şeffaflık günlüğü.
-- **İkili / bölünmüş imzalı makbuzlar.** Bazı uygulamalarda imzalanan yük (payload), ayrı imzalarla ön-uygulama (`authorization_*`) ve son-uygulama (`result_*`) yarılara bölünür, yetkilendirme kararı ile elde edilen sonuç farklı aktörler veya zamanlarda üretildiğinde faydalıdır. Bu, bu derste öğretilen makbuz formatının üzerine eklenerek oluşturulur.
-- **Yük kompozisyonu.** Bir makbuz `result_hash` alanına koyduğunuz baytları mühürler. Gerçek dünya yükleri genellikle tek bir araç çağrısı sonucundan daha zengindir: ön karar akıl yürütmesi (model tahmini, dikkate alınan seçenekler, kanıt ve bütünlüğü, risk durumu, sorumluluk zinciri, kapı sonucu) yük içerisinde tek bir makbuzla mühürlenmiş halde bulunabilir. Bu, makbuz formatını minimal tutarken alan şemalarının alan-alan evrimleşmesini sağlar.
-- **Çapraz uygulama uyumluluğu.** Aynı makbuz formatının bağımsız uygulamaları (Python, TypeScript, Rust, Go) ortak test vektörlerine karşı karşılıklı doğrulama yapar. Kendi uygulamanızı oluşturursanız, yayımlanan vektörlere karşı doğrulamak hatasız uyumluluğu onaylar.
-- **Kuantum sonrası geçiş.** Ed25519 bugün yaygın olarak kullanılsa da kuantuma dirençli değildir. Makbuz formatı algoritma esnekliktedir: `signature.alg` alanı ihtiyacınız olduğunda `ML-DSA-65` (NIST kuantum sonrası imza standardı) taşıyabilir. Çift imzalı makbuzların olduğu bir geçiş dönemi planlayın.
+- **Seçmeli açıklama.** Bir makbuzun alanları bağımsız olarak taahhüt edildiğinde (RFC 6962 tarzı Merkle ağacı), belirli alanları spesifik denetçilere açabilir ve geri kalanların değişmediğini ispatlayabilirsiniz. Aynı makbuz hem kapsamlı bir denetim (tamlık isteyen) hem de GDPR gibi veri-minimizasyon düzenlemelerini (denetçinin mümkün olduğunca az görmesini isteyen) karşılaması gerektiğinde faydalıdır.
+- **Makbuz iptali.** Bir imzalama anahtarı ele geçirilirse, bu anahtarla imzalanan tüm makbuzları belli bir zamandan itibaren güvenilmez olarak işaretlemeniz gerekir. Standart desenler: kısa ömürlü imzalama anahtarları artı yayınlanan iptal listesi veya iptal girdilerine sahip bir şeffaflık kaydı.
+- **İkili / bölünmüş imzalı makbuzlar.** Bazı uygulamalarda, imzalanan yükü yürütme öncesi (`authorization_*`) ve sonrası (`result_*`) olarak bağımsız imzalara sahip iki yarıya bölerler; yetkilendirme kararı ve gözlemlenen sonuç farklı aktörler tarafından veya farklı zamanlarda üretildiğinde faydalıdır. Bu, bu derste öğretilen makbuz formatının üzerine artımsal olarak eklenir.
+- **Yük bileşimi.** Bir makbuz `result_hash` içine yerleştirdiğiniz baytları mühürler. Gerçek dünya verileri genellikle tek bir araç çağrısı sonucundan daha zengindir: karar öncesi muhakeme (model tahmini, düşünülen seçenekler, kanıt ve bütünlüğü, risk durumu, hesap verebilirlik zinciri, kapı sonucu) yük içinde yaşayabilir, tek bir makbuzla mühürlenir. Bu, makbuz formatını minimal tutarken yük şemalarının alan bazında gelişmesine olanak tanır.
+- **Çapraz uygulama uyumu.** Aynı makbuz formatının birçok bağımsız uygulaması (Python, TypeScript, Rust, Go) ortak test vektörlerine karşı çapraz doğrulama yapar. Kendi implementasyonunuzu yaparsanız, yayınlanan vektörlere karşı doğrulama kablo uyumluluğunu teyit eder.
+- **Kuantum sonrası göç.** Ed25519 bugün yaygın olarak kullanılıyor olsa da kuantum direnci yoktur. Makbuz formatı algoritma esnekliği sunar: `signature.alg` alanı, göç gerektiğinde `ML-DSA-65` (NIST kuantum sonrası imza standardı) taşıyabilir. Makbuzların çift imzalı olduğu bir geçiş dönemi planlayın.
 
 ## Ek Kaynaklar
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF İnternet Taslağı: Makineden Makineye Erişim Kontrolü için İmzalı Karar Makbuzları</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Sorumlu Yapay Zeka genel bakışı (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards Eğrili Dijital İmza Algoritması (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet Taslağı: Makine-Makine Erişim Kontrolü için İmzalı Karar Makbuzları</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Sorumlu AI genel bakışı (Azure AI)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-kıvrım Dijital İmza Algoritması (EdDSA)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON Kanonikleşme Şeması (JCS)</a>
 - <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Sertifika Şeffaflığı</a> (Seçmeli açıklama makbuzlarında kullanılan Merkle ağacı yapısı)
 - <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Eğitim 33: Çevrimdışı Doğrulanabilir Karar Makbuzları</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Bu derste kullanılan makbuz formatı için çapraz uygulama uyumluluk test vektörleri</a> (Apache-2.0)
-- <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl dokümantasyonu</a> (Python’da Ed25519)
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Bu derste kullanılan makbuz formatı için çapraz-uygulama uyum test vektörleri</a> (Apache-2.0)
+- <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl dokümantasyonu</a> (Python'da Ed25519)
 
 ## Önceki Ders
 
-[Bilgisayar Kullanım Ajanları Oluşturmak (CUA)](../15-browser-use/README.md)
+[Bilgisayar Kullanım Ajanları Oluşturma (CUA)](../15-browser-use/README.md)
 
 ## Sonraki Ders
 
-_(Müfredat koruyucuları tarafından belirlenecek)_
+_(Müfredat sorumluları tarafından belirlenecek)_
 
 ---
 

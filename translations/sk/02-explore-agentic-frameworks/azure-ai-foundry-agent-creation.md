@@ -1,20 +1,20 @@
-# Vývoj služby Azure AI Agent
+# Vývoj služby Microsoft Foundry Agent
 
-V tomto cvičení používate nástroje služby Azure AI Agent v [portáli Microsoft Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) na vytvorenie agenta pre Rezerváciu letu. Agent bude schopný komunikovať s používateľmi a poskytovať informácie o letoch.
+V tomto cvičení použijete nástroje služby Microsoft Foundry Agent Service v [Microsoft Foundry portáli](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) na vytvorenie agenta pre Rezerváciu letov. Agent bude schopný komunikovať s používateľmi a poskytovať informácie o letoch.
 
 ## Požiadavky
 
-Na dokončenie tohto cvičenia potrebujete nasledovné:
+Na dokončenie tohto cvičenia potrebujete:
 1. Azure účet s aktívnym predplatným. [Vytvorte si účet zadarmo](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-2. Potrebujete oprávnenia na vytvorenie Microsoft Foundry hubu alebo mať jeden vytvorený pre vás.
-    - Ak ste priradení ako Kontributor alebo Vlastník, môžete nasledovať kroky v tomto návode.
+2. Potrebujete oprávnenia na vytvorenie Microsoft Foundry centra alebo mať jedno vytvorené pre vás.
+    - Ak je vaša rola Prispievateľ (Contributor) alebo Vlastník (Owner), môžete postupovať podľa krokov v tomto tutoriáli.
 
-## Vytvorenie Microsoft Foundry hubu
+## Vytvorenie Microsoft Foundry centra
 
 > **Poznámka:** Microsoft Foundry bol predtým známy ako Azure AI Studio.
 
-1. Dodržte tieto pokyny z [blogového príspevku Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) na vytvorenie Microsoft Foundry hubu.
-2. Keď je váš projekt vytvorený, zatvorte všetky zobrazené tipy a prehliadnite si stránku projektu v portáli Microsoft Foundry, ktorá by mala vyzerať podobne ako na nasledujúcom obrázku:
+1. Postupujte podľa týchto pokynov z blogového príspevku [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) pre vytvorenie Microsoft Foundry centra.
+2. Keď je váš projekt vytvorený, zatvorte všetky zobrazené tipy a prezrite si stránku projektu v Microsoft Foundry portáli, ktorá by mala vyzerať podobne ako na nasledujúcom obrázku:
 
     ![Microsoft Foundry Project](../../../translated_images/sk/azure-ai-foundry.88d0c35298348c2f.webp)
 
@@ -22,21 +22,21 @@ Na dokončenie tohto cvičenia potrebujete nasledovné:
 
 1. V ľavom paneli vášho projektu v sekcii **Moje aktíva** vyberte stránku **Modely + koncové body**.
 2. Na stránke **Modely + koncové body**, na karte **Nasadenia modelov**, v ponuke **+ Nasadiť model** vyberte **Nasadiť základný model**.
-3. Vyhľadajte v zozname model `gpt-4o-mini`, potom ho vyberte a potvrďte.
+3. Vyhľadajte model `gpt-4.1-mini` v zozname, potom ho vyberte a potvrďte.
 
-    > **Poznámka**: Zníženie TPM pomáha vyhnúť sa nadmernému využívaniu kvóty dostupnej vo vašom predplatnom.
+    > **Poznámka**: Zníženie TPM pomáha predchádzať nadmernému využitiu kvóty dostupnej v predplatnom, ktoré používate.
 
     ![Model Deployed](../../../translated_images/sk/model-deployment.3749c53fb81e18fd.webp)
 
 ## Vytvorenie agenta
 
-Keď ste nasadili model, môžete vytvoriť agenta. Agent je konverzačný AI model, ktorý umožňuje interakciu s používateľmi.
+Keď už máte nasadený model, môžete vytvoriť agenta. Agent je konverzačný AI model, ktorý sa dá použiť na interakciu s používateľmi.
 
-1. V ľavom paneli vášho projektu, v sekcii **Vytvárať a prispôsobiť**, vyberte stránku **Agenti**.
-2. Kliknite na **+ Vytvoriť agenta** na vytvorenie nového agenta. V dialógovom okne **Nastavenie agenta**:
-    - Zadajte meno pre agenta, napríklad `FlightAgent`.
-    - Uistite sa, že je vybraný nasadený model `gpt-4o-mini`, ktorý ste predtým vytvorili.
-    - Nastavte **Inštrukcie** podľa výzvy, ktorú chcete, aby agent nasledoval. Tu je príklad:
+1. V ľavom paneli vášho projektu v sekcii **Vytvoriť a prispôsobiť** vyberte stránku **Agenti**.
+2. Kliknite na **+ Vytvoriť agenta** pre vytvorenie nového agenta. V dialógovom okne **Nastavenie agenta**:
+    - Zadajte meno agenta, napríklad `FlightAgent`.
+    - Uistite sa, že je vybrané nasadenie modelu `gpt-4.1-mini`, ktoré ste vytvorili predtým.
+    - Nastavte **Pokyny** podľa promptu, ktorý chcete, aby agent nasledoval. Tu je príklad:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
 
@@ -64,46 +64,46 @@ Keď ste nasadili model, môžete vytvoriť agenta. Agent je konverzačný AI mo
     
     ```
 > [!NOTE]
-> Pre podrobnú výzvu si môžete pozrieť [tento repozitár](https://github.com/ShivamGoyal03/RoamMind) pre viac informácií.
+> Pre podrobný prompt môžete navštíviť [tento repozitár](https://github.com/ShivamGoyal03/RoamMind) pre viac informácií.
     
-> Okrem toho môžete pridať **Znalostnú bázu** a **Akcie** na rozšírenie schopností agenta poskytovať viac informácií a vykonávať automatizované úlohy na základe požiadaviek používateľa. Pre toto cvičenie môžete tieto kroky vynechať.
+> Okrem toho môžete pridať **Znalostnú databázu** a **Akcie** na rozšírenie schopností agenta poskytovať viac informácií a vykonávať automatizované úlohy na základe požiadaviek používateľov. Pre toto cvičenie môžete tieto kroky vynechať.
     
 ![Agent Setup](../../../translated_images/sk/agent-setup.9bbb8755bf5df672.webp)
 
-3. Ak chcete vytvoriť nového multi-AI agenta, jednoducho kliknite na **Nový agent**. Novovytvorený agent sa potom zobrazí na stránke Agentov.
+3. Pre vytvorenie nového multi-AI agenta jednoducho kliknite na **Nový agent**. Novovytvorený agent sa potom zobrazí na stránke Agentov.
 
 
 ## Testovanie agenta
 
-Po vytvorení agenta ho môžete otestovať, ako reaguje na otázky používateľov v sandbaxe portálu Microsoft Foundry.
+Po vytvorení agenta ho môžete otestovať, aby ste videli, ako reaguje na otázky používateľov v Microsoft Foundry portáli v hrádzu (playground).
 
-1. V hornej časti panela **Nastavenie** pre vášho agenta vyberte **Vyskúšať v sandboxe**.
-2. V paneli **Playground** môžete komunikovať s agentom pri písaní otázok do chatovacieho okna. Napríklad môžete požiadať agenta, aby vyhľadal lety zo Seattle do New Yorku 28-teho.
+1. V hornej časti panelu **Nastavenie** vášho agenta vyberte **Vyskúšať v hrádzi**.
+2. V paneli **Hrádza** môžete komunikovať s agentom písaním dotazov v chatovom okne. Napríklad môžete požiadať agenta, aby vyhľadal lety z Seattle do New Yorku 28. dňa.
 
-    > **Poznámka**: Agent nemusí poskytovať presné odpovede, pretože v tomto cvičení sa nepoužívajú žiadne dáta v reálnom čase. Cieľom je otestovať schopnosť agenta porozumieť a reagovať na požiadavky používateľov na základe zadaných inštrukcií.
+    > **Poznámka**: Agent nemusí poskytovať presné odpovede, pretože v tomto cvičení sa nepoužívajú žiadne údaje v reálnom čase. Cieľom je otestovať schopnosť agenta porozumieť a reagovať na otázky používateľov na základe poskytnutých pokynov.
 
     ![Agent Playground](../../../translated_images/sk/agent-playground.dc146586de715010.webp)
 
-3. Po otestovaní agenta ho môžete ďalej prispôsobiť pridaním ďalších zámerov, tréningových dát a akcií na rozšírenie jeho schopností.
+3. Po testovaní agenta ho môžete ďalej prispôsobiť pridaním ďalších zámerov, tréningových dát a akcií na rozšírenie jeho schopností.
 
 ## Vyčistenie zdrojov
 
-Keď dokončíte testovanie agenta, môžete ho odstrániť, aby ste predišli ďalším nákladom.
-1. Otvorte [Azure portál](https://portal.azure.com) a zobrazte obsah skupiny prostriedkov, kde ste nasadili hubové prostriedky použité v tomto cvičení.
-2. Na paneli nástrojov vyberte **Odstrániť skupinu prostriedkov**.
-3. Zadajte meno skupiny prostriedkov a potvrďte, že ju chcete odstrániť.
+Keď skončíte s testovaním agenta, môžete ho odstrániť, aby ste sa vyhli ďalším nákladom.
+1. Otvorte [Azure portál](https://portal.azure.com) a pozrite si obsah skupiny zdrojov, kde ste nasadili zdroje centra použité v tomto cvičení.
+2. Na paneli nástrojov vyberte **Odstrániť skupinu zdrojov**.
+3. Zadajte názov skupiny zdrojov a potvrďte, že ju chcete odstrániť.
 
 ## Zdroje
 
 - [Dokumentácia Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
-- [Portál Microsoft Foundry](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
-- [Začíname s Azure AI Studio](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [Microsoft Foundry portál](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
+- [Začíname s Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
 - [Základy AI agentov na Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Zrieknutie sa zodpovednosti**:
-Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Aj keď sa snažíme o presnosť, prosím, vezmite na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za akékoľvek nedorozumenia alebo nesprávne výklady vyplývajúce z používania tohto prekladu.
+**Vyhlásenie o zodpovednosti**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho natívnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

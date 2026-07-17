@@ -252,6 +252,20 @@ This boundary matters for two reasons:
 
 A common mistake is to assume that "we have receipts" means "we are governed." It does not. Receipts are a foundation. Governance is the system you build on top.
 
+## Proving a Human Approved the Exact Action
+
+Item 3 above is worth its own section: an action receipt says "this key signed this content," never "a human authorized this." For high-risk actions (refunds, deletions, wire transfers), governance frameworks increasingly require exactly that missing statement, and it is producible with the same primitives you already built in this lesson.
+
+The follow-on notebook `code_samples/human-authorization-receipts.ipynb` adds a second receipt kind, `human.approval.v1`, in the same envelope shape as the lesson's receipts (a typed payload signed by Ed25519 over its canonical SHA-256, with the `signature` object outside the signed bytes). A named approver signs the **full canonical action and its digest** before execution; the agent's action receipt carries the **same action digest** and a `parent_approval_ref`, the `receipt_hash` of the approval, the same convention as `previous_receipt_hash` in the chain you built above. One `verify_chain` walks both artifacts under **separate pinned key registries** (approver keys vs agent keys), so the code path is shared but the authorities never are.
+
+The property this buys, stated carefully: *the human approved this exact action, and the agent executed exactly that approved action.* The notebook's refusal fixtures are what make the property real rather than asserted:
+
+- the classic set: tampering, confused deputy, replay, forged keys on either side, malformed input;
+- **stale authority**: a signature that still verifies, refused anyway because the policy version moved, the approver key was rotated out of the pinned registry, or the approval expired before execution;
+- **digest substitution**: a validly signed action receipt pointing at a *real* approval that binds a *different* canonical action.
+
+Each failure refuses with a distinct reason, so an auditor reading a refusal can tell whether authority went stale or the executed action changed. The rule the notebook teaches: a signed approval is not authority by itself. Authority exists only if both receipts still bind to the same canonical action at execution time. The co-signature path in the same Internet-Draft this lesson follows (`draft-farley-acta-signed-receipts`) is the standards-track shape of this pattern.
+
 ## Production References
 
 The Python code in this lesson is intentionally minimal so you can read every line and understand exactly what is happening. In production, you have two options:
@@ -259,9 +273,10 @@ The Python code in this lesson is intentionally minimal so you can read every li
 1. **Build directly on the cryptographic primitives.** The 50 lines you saw above are sufficient for many use cases. PyNaCl (Ed25519) and the `jcs` package (canonical JSON) are well-maintained and audited libraries.
 
 2. **Use a production receipt library.** Several open-source projects implement the same pattern with additional features (key rotation, batch verification, JWK Set distribution, integration with policy engines):
-   - The receipt format used in this lesson follows an IETF Internet-Draft (`draft-farley-acta-signed-receipts`) currently in the standards process.
+   - The receipt format used in this lesson follows an IETF Internet-Draft ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revision 02) currently in the standards process, with a shared conformance suite ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) that independent implementations cross-verify against for byte-identical canonical output.
    - The Microsoft Agent Governance Toolkit composes receipts with Cedar-based policy decisions; see Tutorial 33 in that repository for an end-to-end example.
-   - The `protect-mcp` (npm) and `@veritasacta/verify` (npm) packages provide a Node-based implementation of receipt signing and offline verification, intended for wrapping any MCP server with a tamper-evident audit trail.
+   - The `protect-mcp` (npm) and `@veritasacta/verify` (npm) packages provide a Node-based implementation of receipt signing and offline verification, intended for wrapping any MCP server with a tamper-evident audit trail, including a held-for-co-sign flow in which a paused action emits an approval receipt bound to the action digest (WebAuthn-backed in the desktop flow), the same approval-receipt pattern as the human-authorization notebook above.
+   - The **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) provides the same Ed25519 + JCS signing pattern in Python with LangChain and CrewAI integrations, including published cross-validation test vectors and a compliance mapping contributed via [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
 The decision between rolling your own and using a library mirrors the decision between writing your own JWT library and using a tested one: both are reasonable; the library saves time and reduces audit surface; the from-scratch approach forces you to understand every primitive. This lesson teaches the from-scratch path so you have the foundation for either choice.
 
@@ -281,6 +296,7 @@ Yes. Ed25519 verification requires only the public key and the signed bytes. No 
 
 <details>
 <summary>Answer</summary>
+
 
 Verification fails. The signature was computed over the canonical bytes of the original payload; modifying any field changes the canonical bytes, which changes the SHA-256 hash, which makes the signature invalid. The attacker would need the private key to produce a fresh valid signature, which they do not have.
 </details>
@@ -319,6 +335,7 @@ Open `code_samples/18-signed-receipts.ipynb` and complete all four sections:
 4. **Section 4**: Apply the pattern to an agent built with the Microsoft Agent Framework: wrap a tool call in receipt-signing, then verify the receipt independently.
 
 **Stretch challenge 1:** extend the receipt schema with an additional field of your own choosing (for example, a request ID for tracing), update the canonical signing logic to include it, and confirm that the receipt still round-trips through verification. Then modify the field after signing and confirm verification fails. This forces you to understand how every byte of the canonical encoding contributes to the signature.
+
 **Stretch challenge 2:** SHA-256-hash two of your receipts together (concatenate their canonical bytes in a deterministic order) and embed the resulting digest as a new field on a third receipt before signing it. Verify that all three receipts still round-trip. You have just built a one-step inclusion proof: anyone holding the third receipt can prove the first two existed at the time it was signed, without needing to reveal their contents. This is the pattern that selective-disclosure receipts use at scale (Merkle commitments, RFC 6962).
 
 ## Conclusion
@@ -373,11 +390,7 @@ This lesson covers single-receipt signing and hash-chained sequences. The same p
 
 ## Previous Lesson
 
-[Building Computer Use Agents (CUA)](../15-browser-use/README.md)
-
-## Next Lesson
-
-_(To be determined by curriculum maintainers)_
+[Creating Local AI Agents](../17-creating-local-ai-agents/README.md)
 
 ---
 

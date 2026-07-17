@@ -1,152 +1,156 @@
-# 🎨 GitHub మోడల్స్ (.NET) తో Agentic డిజైన్ ప్యాటర్న్స్
+# 🎨 Azure OpenAI (Responses API) తో Agentic డిజైన్ ప్యాటర్న్లు (.NET)
 
-## 📋 నేర్చుకునే లక్ష్యాలు
+## 📋 అభ్యాస లక్ష్యాలు
 
-ఈ ఉదాహరణ Microsoft Agent Frameworkను .NETలో GitHub మోడల్స్ ఇంటిగ్రేషన్‌తో ఉపయోగించి ఇంటెలిజెంట్ ఏజెంట్లను నిర్మించడానికి ఎంటర్‌ప్రైజ్-గ్రేడ్ డిజైన్ ప్యాటర్న్స్‌ను చూపిస్తుంది. ఏజెంట్లను ప్రొడక్షన్-రెడీ, నిర్వహించదగిన మరియు స్కేలబుల్‌గా మార్చే ప్రొఫెషనల్ ప్యాటర్న్స్ మరియు ఆర్కిటెక్చరల్ విధానాలను మీరు నేర్చుకుంటారు.
+ఈ ఉదాహరణ Microsoft Agent Framework ను .NET లో Azure OpenAI (Responses API) సమగ్రతతో ఉపయోగించి ఇంటెలిజెంట్ ఏజెంట్లను నిర్మించడానికి ఎంటర్ప్రైజ్-గ్రేడ్ డిజైన్ ప్యాటర్న్లను చూపిస్తుంది. మీరు ఏజెంట్లను ప్రొడక్షన్‌కు సిద్ధంగా, నిర్వహణానికి తగినది, మరియు స్కేలబుల్‌గా చేసే ప్రొఫెషనల్ ప్యాటర్న్లు మరియు معماري దశలను నేర్చుకుంటారు.
 
-### ఎంటర్‌ప్రైజ్ డిజైన్ ప్యాటర్న్స్
+### ఎంటర్ ప్రైజ్ డిజైన్ ప్యాటర్న్లు
 
-- 🏭 **ఫ్యాక్టరీ ప్యాటర్న్**: డిపెండెన్సీ ఇంజెక్షన్‌తో ఏజెంట్ క్రియేషన్‌ను ప్రామాణీకరించడం
-- 🔧 **బిల్డర్ ప్యాటర్న్**: ఫ్లూయెంట్ ఏజెంట్ కాన్ఫిగరేషన్ మరియు సెటప్
-- 🧵 **థ్రెడ్-సేఫ్ ప్యాటర్న్స్**: కరెంట్ సంభాషణ నిర్వహణ
-- 📋 **రిపోజిటరీ ప్యాటర్న్**: టూల్ మరియు సామర్థ్య నిర్వహణను సజావుగా చేయడం
+- 🏭 **Factory Pattern**: డిపెండెన్సీ ఇంజెక్షన్ తో ప్రామాణిక ఏజెంట్ సృష్టి
+- 🔧 **Builder Pattern**: సులభమైన ఏజెంట్ కాన్ఫిగరేషన్ మరియు సెటప్
+- 🧵 **Thread-Safe Patterns**: ఏకకాల సంభాషణ నిర్వహణ
+- 📋 **Repository Pattern**: పరికరం మరియు సామర్థ్య నిర్వహణ సరళీకరణ
 
-## 🎯 .NET-స్పెసిఫిక్ ఆర్కిటెక్చరల్ ప్రయోజనాలు
+## 🎯 .NET-స్పెసిఫిక్ معماري ప్రయోజనాలు
 
-### ఎంటర్‌ప్రైజ్ ఫీచర్లు
+### ఎంటర్ ప్రైజ్ ఫీచర్స్
 
-- **స్ట్రాంగ్ టైపింగ్**: కంపైల్-టైమ్ వాలిడేషన్ మరియు IntelliSense సపోర్ట్
-- **డిపెండెన్సీ ఇంజెక్షన్**: బిల్ట్-ఇన్ DI కంటైనర్ ఇంటిగ్రేషన్
-- **కాన్ఫిగరేషన్ మేనేజ్‌మెంట్**: IConfiguration మరియు Options ప్యాటర్న్స్
-- **Async/Await**: ఫస్ట్-క్లాస్ అసింక్రోనస్ ప్రోగ్రామింగ్ సపోర్ట్
+- **బలమైన టైపింగ్**: కంపైల్-టైమ్ ధృవీకరణ మరియు IntelliSense మద్దతు
+- **డిపెండెన్సీ ఇంజెక్షన్**: నిర్మాణాత్మక DI కంటెయినర్ సమగ్రత
+- **కాన్ఫిగరేషన్ నిర్వహణ**: IConfiguration మరియు Options ప్యాటర్న్లు
+- **Async/Await**: మొదటి తరం అసిన్‌క్రోనస్ ప్రోగ్రామింగ్ మద్దతు
 
-### ప్రొడక్షన్-రెడీ ప్యాటర్న్స్
+### ప్రొడక్షన్-రెడి ప్యాటర్న్లు
 
-- **లాగింగ్ ఇంటిగ్రేషన్**: ILogger మరియు స్ట్రక్చర్డ్ లాగింగ్ సపోర్ట్
-- **హెల్త్ చెక్స్**: బిల్ట్-ఇన్ మానిటరింగ్ మరియు డయాగ్నోస్టిక్స్
-- **కాన్ఫిగరేషన్ వాలిడేషన్**: డేటా అనోటేషన్లతో స్ట్రాంగ్ టైపింగ్
-- **ఎర్రర్ హ్యాండ్లింగ్**: స్ట్రక్చర్డ్ ఎక్సెప్షన్ మేనేజ్‌మెంట్
+- **లాగింగ్ సమగ్రత**: ILogger మరియు నిర్మాణాత్మక లాగింగ్ మద్దతు
+- **ఆరోగ్య తనిఖీలు**: బిల్ట్-ఇన్ మానిటరింగ్ మరియు డయాగ్నోస్టిక్స్
+- **కాన్ఫిగరేషన్ ధృవీకరణ**: డేటా అనోటేషన్లతో బలమైన టైపింగ్
+- **లోప నిర్వహణ**: నిర్మాణాత్మక Exception నిర్వహణ
 
-## 🔧 టెక్నికల్ ఆర్కిటెక్చర్
+## 🔧 సాంకేతిక معماري
 
-### కోర్ .NET భాగాలు
+### ములక .NET భాగాలు
 
-- **Microsoft.Extensions.AI**: ఏకీకృత AI సేవల అబ్స్ట్రాక్షన్స్
-- **Microsoft.Agents.AI**: ఎంటర్‌ప్రైజ్ ఏజెంట్ ఆర్కెస్ట్రేషన్ ఫ్రేమ్‌వర్క్
-- **GitHub మోడల్స్ ఇంటిగ్రేషన్**: హై-పర్ఫార్మెన్స్ API క్లయింట్ ప్యాటర్న్స్
-- **కాన్ఫిగరేషన్ సిస్టమ్**: appsettings.json మరియు ఎన్విరాన్‌మెంట్ ఇంటిగ్రేషన్
+- **Microsoft.Extensions.AI**: ఐక్య AI సేవా సారాంశాలు
+- **Microsoft.Agents.AI**: ఎంటర్ ప్రైజ్ ఏజెంట్ నిర్వహణ ఫ్రేమ్‌వర్క్
+- **Azure OpenAI (Responses API)**: అధిక-దక్షత API క్లయింట్ ప్యాటర్న్లు
+- **కాన్ఫిగరేషన్ సిస్టమ్**: appsettings.json మరియు వాతావరణ సమగ్రత
 
-### డిజైన్ ప్యాటర్న్ అమలు
+### డిజైన్ ప్యాటర్న్ అమలుయొక్క ఉదాహరణ
 
 ```mermaid
 graph LR
-    A[ఐసర్వీస్‌కలెక్షన్] --> B[ఏజెంట్ బిల్డర్]
+    A[IServiceCollection] --> B[ఏజెంట్ బిల్డర్]
     B --> C[కాన్ఫిగరేషన్]
     C --> D[టూల్ రిజిస్ట్రీ]
-    D --> E[ఏఐ ఏజెంట్]
+    D --> E[AI ఏజెంట్]
 ```
-## 🏗️ ఎంటర్‌ప్రైజ్ ప్యాటర్న్స్ ప్రదర్శన
 
-### 1. **క్రియేషనల్ ప్యాటర్న్స్**
+## 🏗️ ఎంటర్ ప్రైజ్ ప్యాటర్న్లు ప్రదర్శించబడినవి
 
-- **ఏజెంట్ ఫ్యాక్టరీ**: కేంద్రీకృత ఏజెంట్ క్రియేషన్ మరియు స్థిరమైన కాన్ఫిగరేషన్
-- **బిల్డర్ ప్యాటర్న్**: క్లిష్టమైన ఏజెంట్ కాన్ఫిగరేషన్ కోసం ఫ్లూయెంట్ API
-- **సింగిల్టన్ ప్యాటర్న్**: షేర్డ్ రిసోర్సెస్ మరియు కాన్ఫిగరేషన్ మేనేజ్‌మెంట్
-- **డిపెండెన్సీ ఇంజెక్షన్**: లూజ్ కప్లింగ్ మరియు టెస్టబిలిటీ
+### 1. **సృష్టి ప్యాటర్న్లు**
 
-### 2. **బిహేవియరల్ ప్యాటర్న్స్**
+- **ఏజెంట్ ఫ్యాక్టరీ**: సెంట్రలైజ్డ్ ఏజెంట్ సృష్టి సుసంపన్నమైన కాన్ఫిగరేషన్ తో
+- **బిల్డర్ ప్యాటర్న్**: సంక్లిష్ట ఏజెంట్ కాన్ఫిగరేషన్ కోసం సున్నితమైన API
+- **సింగిల్టన్ ప్యాటర్న్**: పంచుకునే వనరులు మరియు కాన్ఫిగరేషన్ నిర్వహణ
+- **డిపెండెన్సీ ఇంజెక్షన్**: దీర్ఘ కాల అనువర్తనం మరియు పరీక్ష సాధ్యమయ్యే విధానం
 
-- **స్ట్రాటజీ ప్యాటర్న్**: మార్పిడి చేయగల టూల్ ఎగ్జిక్యూషన్ స్ట్రాటజీస్
-- **కమాండ్ ప్యాటర్న్**: ఏజెంట్ ఆపరేషన్స్‌ను undo/redoతో ఎన్‌కాప్సులేట్ చేయడం
-- **ఆబ్జర్వర్ ప్యాటర్న్**: ఈవెంట్-డ్రివెన్ ఏజెంట్ లైఫ్‌సైకిల్ మేనేజ్‌మెంట్
-- **టెంప్లేట్ మెథడ్**: ఏజెంట్ ఎగ్జిక్యూషన్ వర్క్‌ఫ్లోలను ప్రామాణీకరించడం
+### 2. **పాలన ప్యాటర్న్లు**
 
-### 3. **స్ట్రక్చరల్ ప్యాటర్న్స్**
+- **స్ట్రాటజీ ప్యాటర్న్**: మార్పిడి సాధ్యమైన పరికరం అమలు విధానాలు
+- **కమాండ్ ప్యాటర్న్**: ఏజెంట్ ఆపరేషన్స్ సంకోచించి ఉంచబడి ఉంది, రద్దు/పునరావృతి తో
+- **ఆబ్జర్వర్ ప్యాటర్న్**: ఈవెంట్ ఆధారిత ఏజెంట్ జీవకాల నిర్వహణ
+- **టెంప్లేట్ మెథడ్**: ప్రామాణిక ఏజెంట్ అమలుయొక్క పనితీరు ప్రక్రియలు
 
-- **అడాప్టర్ ప్యాటర్న్**: GitHub మోడల్స్ API ఇంటిగ్రేషన్ లేయర్
-- **డెకరేటర్ ప్యాటర్న్**: ఏజెంట్ సామర్థ్యాన్ని పెంచడం
-- **ఫసాడ్ ప్యాటర్న్**: సులభమైన ఏజెంట్ ఇంటరాక్షన్ ఇంటర్‌ఫేస్‌లు
-- **ప్రాక్సీ ప్యాటర్న్**: పనితీరు కోసం లేజీ లోడింగ్ మరియు క్యాషింగ్
+### 3. **రూపకల్పనా ప్యాటర్న్లు**
 
-## 📚 .NET డిజైన్ ప్రిన్సిపల్స్
+- **అడాప్టర్ ప్యాటర్న్**: Azure OpenAI (Responses API) సమగ్రత تہ
+- **డెకొరేటర్ ప్యాటర్న్**: ఏజెంట్ సామర్థ్య విస్తరణ
+- **ఫసేడ్ ప్యాటర్న్**: సులభమైన ఏజెంట్ ఇంటరాక్షన్ ఇంటర్‌ఫేస్లు
+- **ప్రాక్సీ ప్యాటర్న్**: పనితీరు కోసం ఆలస్యం లోడ్ మరియు క్యాచింగ్
 
-### SOLID ప్రిన్సిపల్స్
+## 📚 .NET డిజైన్ సూత్రాలు
 
-- **సింగిల్ రెస్పాన్సిబిలిటీ**: ప్రతి భాగానికి ఒక స్పష్టమైన ఉద్దేశం ఉంటుంది
-- **ఓపెన్/క్లోజ్డ్**: మార్పు లేకుండా విస్తరించగలిగే విధంగా
-- **లిస్కోవ్ సబ్‌స్టిట్యూషన్**: ఇంటర్‌ఫేస్-ఆధారిత టూల్ అమలు
-- **ఇంటర్‌ఫేస్ సెగ్రిగేషన్**: ఫోకస్ చేసిన, సమగ్రమైన ఇంటర్‌ఫేస్‌లు
-- **డిపెండెన్సీ ఇన్వర్షన్**: కాంక్రీషన్స్‌పై కాకుండా అబ్స్ట్రాక్షన్స్‌పై ఆధారపడండి
+### SOLID సూత్రాలు
 
-### క్లీన్ ఆర్కిటెక్చర్
+- **సింగిల్ రిస్పాన్సిబిలిటీ**: ప్రతి భాగానికి ఒక స్పష్టమైన ప్రయోజనం
+- **ఓపెన్/క్లోజ్డ్**: మార్పు లేకుండా విస్తరించగలిగే విధానం
+- **లిస్కోవ్ సబ్‌స్టిట్యూషన్**: ఇంటర్‌ఫేస్ ఆధారిత పరికరం అమలు
+- **ఇంటర్‌ఫేస్ విభాగం**: కేంద్రీకృత, ఏకత్వమైన ఇంటర్‌ఫేస్‌లు
+- **డిపెండెన్సీ ఇన్వర్షన్**: అమలే కాకుండా సారాంశాలపై ఆధారపడటం
 
-- **డొమైన్ లేయర్**: కోర్ ఏజెంట్ మరియు టూల్ అబ్స్ట్రాక్షన్స్
-- **అప్లికేషన్ లేయర్**: ఏజెంట్ ఆర్కెస్ట్రేషన్ మరియు వర్క్‌ఫ్లోలు
-- **ఇన్‌ఫ్రాస్ట్రక్చర్ లేయర్**: GitHub మోడల్స్ ఇంటిగ్రేషన్ మరియు బాహ్య సేవలు
-- **ప్రెజెంటేషన్ లేయర్**: యూజర్ ఇంటరాక్షన్ మరియు రెస్పాన్స్ ఫార్మాటింగ్
+### శుభ్రమైన معماري
 
-## 🔒 ఎంటర్‌ప్రైజ్ అంశాలు
+- **డొమైన్ లేయర్**: ప్రాథమిక ఏజెంట్ మరియు పరికరం సారాంశాలు
+- **అప్లికేషన్ లేయర్**: ఏజెంట్ నిర్వహణ మరియు పనితీరు ప్రక్రియలు
+- **ఇన్‌ఫ్రాస్ట్రక్చర్ లేయర్**: Azure OpenAI (Responses API) సమగ్రత మరియు బాహ్య సేవలు
+- **ప్రెజంటేషన్ లేయర్**: వినియోగదారు ఇంటరాక్షన్ మరియు స్పందన ఫార్మాటింగ్
 
-### సెక్యూరిటీ
+## 🔒 ఎంటర్ ప్రైజ్ పరిశీలనలు
 
-- **క్రెడెన్షియల్ మేనేజ్‌మెంట్**: IConfigurationతో సురక్షిత API కీ నిర్వహణ
-- **ఇన్‌పుట్ వాలిడేషన్**: స్ట్రాంగ్ టైపింగ్ మరియు డేటా అనోటేషన్ వాలిడేషన్
-- **అవుట్‌పుట్ శానిటైజేషన్**: సురక్షిత రెస్పాన్స్ ప్రాసెసింగ్ మరియు ఫిల్టరింగ్
+### భద్రత
+
+- **ప్రామాణీకరణ నిర్వహణ**: IConfiguration తో సురక్షిత API కీ నిర్వహణ
+- **ఇన్‌పుట్ ధృవీకరణ**: బలమైన టైపింగ్ మరియు డేటా అనోటేషన్ ధృవీకరణ
+- **అవుట్‌పుట్ శుభ్రపరిచే పద్ధతి**: సురక్షిత ప్రతిస్పందన ప్రక్షాళన మరియు ఫిల్టరింగ్
 - **ఆడిట్ లాగింగ్**: సమగ్ర ఆపరేషన్ ట్రాకింగ్
 
 ### పనితీరు
 
-- **అసింక్ ప్యాటర్న్స్**: నాన్-బ్లాకింగ్ I/O ఆపరేషన్స్
-- **కనెక్షన్ పూలింగ్**: సమర్థవంతమైన HTTP క్లయింట్ మేనేజ్‌మెంట్
-- **క్యాషింగ్**: పనితీరు మెరుగుపరచడానికి రెస్పాన్స్ క్యాషింగ్
-- **రిసోర్స్ మేనేజ్‌మెంట్**: సరైన డిస్పోజల్ మరియు క్లీనప్ ప్యాటర్న్స్
+- **Async ప్యాటర్న్లు**: అడ్డంకులేని I/O కార్యకలాపాలు
+- **కనెక్షన్ పూలింగ్**: సమర్థవంతమైన HTTP క్లయింట్ నిర్వహణ
+- **క్యాచింగ్**: పనితీరు మెరుగుపరచడానికి ప్రతిస్పందన క్యాచింగ్
+- **వనరు నిర్వహణ**: సరైన వదిలివేత మరియు శుభ్రపరిచే పద్ధతులు
 
 ### స్కేలబిలిటీ
 
-- **థ్రెడ్ సేఫ్టీ**: కరెంట్ ఏజెంట్ ఎగ్జిక్యూషన్ సపోర్ట్
-- **రిసోర్స్ పూలింగ్**: సమర్థవంతమైన రిసోర్స్ వినియోగం
-- **లోడ్ మేనేజ్‌మెంట్**: రేట్ లిమిటింగ్ మరియు బ్యాక్‌ప్రెషర్ హ్యాండ్లింగ్
-- **మానిటరింగ్**: పనితీరు మెట్రిక్స్ మరియు హెల్త్ చెక్స్
+- **థ్రెడ్ భద ums###**: ఏకకాల ఏజెంట్ అమలు మద్దతు
+- **వనరు పూలింగ్**: సమర్థవంతమైన వనరు వినియోగం
+- **లొడ్డు నిర్వహణ**: రేట్ పరిమితి మరియు బ్యాక్‌ప్రెజర్ నిర్వహణ
+- **మానిటరింగ్**: పనితీరు గణాంకాలు మరియు ఆరోగ్య తనిఖీలు
 
 ## 🚀 ప్రొడక్షన్ డిప్లాయ్‌మెంట్
 
-- **కాన్ఫిగరేషన్ మేనేజ్‌మెంట్**: ఎన్విరాన్‌మెంట్-స్పెసిఫిక్ సెట్టింగ్స్
-- **లాగింగ్ స్ట్రాటజీ**: కరెలేషన్ IDsతో స్ట్రక్చర్డ్ లాగింగ్
-- **ఎర్రర్ హ్యాండ్లింగ్**: గ్లోబల్ ఎక్సెప్షన్ హ్యాండ్లింగ్ మరియు సరైన రికవరీ
-- **మానిటరింగ్**: అప్లికేషన్ ఇన్‌సైట్స్ మరియు పనితీరు కౌంటర్లు
-- **టెస్టింగ్**: యూనిట్ టెస్టులు, ఇంటిగ్రేషన్ టెస్టులు మరియు లోడ్ టెస్టింగ్ ప్యాటర్న్స్
+- **కాన్ఫిగరేషన్ నిర్వహణ**: వాతావరణ-స్పెసిఫిక్ సెట్టింగులు
+- **లాగింగ్ వ్యూహం**: సంబంధిత IDs తో నిర్మాణాత్మక లాగింగ్
+- **లోప నిర్వహణ**: సరైన పునరుద్ధరణతో గ్లోబల్ Exception నిర్వహణ
+- **మానిటరింగ్**: అప్లికేషన్ ఇన్సైట్స్ మరియు పనితీరు కౌంటర్లు
+- **పరీక్ష**: యూనిట్ టెస్టులు, సమగ్రత టెస్టులు, మరియు లోడ్ టెస్టింగ్ ప్యాటర్న్లు
 
-ఎంటర్‌ప్రైజ్-గ్రేడ్ ఇంటెలిజెంట్ ఏజెంట్లను .NETతో నిర్మించడానికి సిద్ధంగా ఉన్నారా? రాబస్టుగా ఆర్కిటెక్ట్ చేద్దాం! 🏢✨
+.NET తో ఎంటర్ ప్రైజ్-గ్రేడ్ ఇంటెలిజెంట్ ఏజెంట్లను తయారుచేయడానికి సిద్ధంగా ఉన్నారా? మనం బలమైన నిర్మాణాన్ని రూపకల్పన చేద్దాం! 🏢✨
 
 ## 🚀 ప్రారంభం
 
-### అవసరమైనవి
+### అవసరాలు
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) లేదా అంతకంటే ఎక్కువ
-- [GitHub మోడల్స్ API యాక్సెస్ టోకెన్](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- ఒక [Azure సబ్స్క్రిప్షన్](https://azure.microsoft.com/free/) Azure OpenAI వనరు మరియు మోడల్ డిప్లాయ్‌మెంట్ తో
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` తో సైన్ ఇన్ చేయండి
 
-### అవసరమైన ఎన్విరాన్‌మెంట్ వేరియబుల్స్
+### అవసరమైన వాతావరణ వేరియబుల్స్
 
 ```bash
-# జెడ్‌ష్/బాష్
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+# zsh/bash
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# తరువాత AzureCliCredential టోకెన్ పొందేందుకు సైన్ ఇన్ అవ్వండి
+az login
 ```
 
 ```powershell
 # పవర్‌షెల్
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# ఆజ్యూర్‌క్లీఐ క్రెడెన్షియల్ టోకెన్ పొందడానికి సైన్ ఇన్ అవ్వండి
+az login
 ```
 
-### ఉదాహరణ కోడ్
+### నమూనా కోడ్
 
-కోడ్ ఉదాహరణను రన్ చేయడానికి,
+కోడ్ ఉదాహరణను నడపడానికి,
 
 ```bash
-# జెడ్‌ష్/బాష్
+# zsh/bash
 chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
@@ -164,14 +168,16 @@ dotnet run ./03-dotnet-agent-framework.cs
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -203,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -248,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -280,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -291,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**విమర్శ**:  
-ఈ పత్రాన్ని AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించారు. మేము ఖచ్చితత్వానికి ప్రయత్నిస్తున్నప్పటికీ, ఆటోమేటెడ్ అనువాదాలలో తప్పులు లేదా అసమానతలు ఉండవచ్చు. దాని స్వదేశీ భాషలోని అసలు పత్రాన్ని అధికారం కలిగిన మూలంగా పరిగణించాలి. కీలకమైన సమాచారం కోసం, ప్రొఫెషనల్ మానవ అనువాదాన్ని సిఫారసు చేస్తాము. ఈ అనువాదాన్ని ఉపయోగించడం వల్ల కలిగే ఏవైనా అపార్థాలు లేదా తప్పుదారులు కోసం మేము బాధ్యత వహించము.
+**అస్వీకరణ**:
+ఈ పత్రం AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించబడింది. మేము ఖచ్చితత్వానికి ప్రయత్నిస్తున్నప్పటికీ, ఆటోమేటెడ్ అనువాదాలు తప్పులు లేదా అసమగ్రతలను కలిగి ఉండవచ్చు. దాని స్వదేశ భాషలో ఉన్న అసలు పత్రాన్ని అధికారం కలిగిన మూలంగా పరిగణించాలి. కీలకమైన సమాచారం కోసం, ప్రొఫెషనల్ మానవ అనువాదాన్ని సిఫారసు చేస్తాము. ఈ అనువాదం ఉపయోగం వల్ల కలిగే ఏవైనా అపార్థాలు లేదా తప్పుదారులు కోసం మేము బాధ్యత వహించము.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,103 +1,107 @@
-# 🛠️ GitHub മോഡലുകൾ (.NET) ഉപയോഗിച്ച് ഉയർന്ന നിലവാരത്തിലുള്ള ഉപകരണങ്ങൾ ഉപയോഗിക്കുക
+# 🛠️ Azure OpenAI (Responses API) ഉപയോഗിച്ച് ആധുനിക ടൂൾ ഉപയോഗം (.NET)
 
-## 📋 പഠന ലക്ഷ്യങ്ങൾ
+## 📋 പഠനലക്ഷ്യങ്ങൾ
 
-ഈ നോട്ട്ബുക്ക് Microsoft Agent Framework .NET-ൽ GitHub മോഡലുകൾ ഉപയോഗിച്ച് എന്റർപ്രൈസ്-ഗ്രേഡ് ഉപകരണ സംയോജന മാതൃകകൾ പ്രദർശിപ്പിക്കുന്നു. C#-ന്റെ ശക്തമായ ടൈപ്പിംഗ്, .NET-ന്റെ എന്റർപ്രൈസ് സവിശേഷതകൾ എന്നിവ ഉപയോഗിച്ച് നിരവധി പ്രത്യേക ഉപകരണങ്ങളുള്ള സങ്കീർണ്ണമായ ഏജന്റുമാരെ നിർമ്മിക്കാൻ നിങ്ങൾ പഠിക്കും.
+ഈ നോട്ട്ബുക്ക് Azure OpenAI (Responses API) ഉപയോഗിച്ച് .NET-ൽ Microsoft Agent Framework ഉപയോഗിച്ച് എന്റർപ്രൈസ്-ഗ്രേഡ് ടൂൾ ഏകീകരണ മാതൃകകൾ പ്രദർശിപ്പിക്കുന്നു. നിങ്ങൾ C# ന്റെ ശക്തമായ ടൈപ്പിംഗും .NET ന്റെ എന്റർപ്രൈസ് ഫീച്ചറുകളും ഉപയോഗിച്ചു, მრავალ വിദഗ്‌ദ്ധ ടൂളുകളുള്ള പരിവിഷ്ട ഏജന്റുകളെ നിർമ്മിക്കാൻ പഠിക്കും.
 
-### നിങ്ങൾ കൈവരിക്കേണ്ട ഉയർന്ന നിലവാരത്തിലുള്ള ഉപകരണ കഴിവുകൾ
+### നിങ്ങൾ നടത്ത പഠിക്കുന്ന ആധുനിക ടൂൾ കഴിവുകൾ
 
-- 🔧 **മൾട്ടി-ടൂൾ ആർക്കിടെക്ചർ**: നിരവധി പ്രത്യേക കഴിവുകളുള്ള ഏജന്റുമാരെ നിർമ്മിക്കുക  
-- 🎯 **ടൈപ്പ്-സേഫ് ടൂൾ എക്സിക്യൂഷൻ**: C#-ന്റെ കമ്പൈൽ-ടൈം വാലിഡേഷൻ ഉപയോഗിക്കുക  
-- 📊 **എന്റർപ്രൈസ് ടൂൾ മാതൃകകൾ**: ഉത്പാദന-തലത്തിലുള്ള ഉപകരണ രൂപകൽപ്പനയും പിശക് കൈകാര്യം ചെയ്യലും  
-- 🔗 **ടൂൾ കോംപോസിഷൻ**: സങ്കീർണ്ണമായ ബിസിനസ് പ്രവൃത്തി പ്രവാഹങ്ങൾക്കായി ഉപകരണങ്ങൾ സംയോജിപ്പിക്കുക  
+- 🔧 **ബഹുരൂപ ടൂൾ അറകിടെക്ചർ**: വിവിധ വിദഗ്ധ കഴിവുകളുള്ള ഏജന്റുകൾ നിർമ്മിക്കൽ
+- 🎯 **തരം-സുരക്ഷിത ടൂൾ നിർവഹണം**: C# ന്‍റെ കമ്പൈൽ സമയ പരിശോധന ഉപയോഗിക്കുക
+- 📊 **എന്റർപ്രൈസ് ടൂൾ മാതൃകകൾ**: ഉൽപ്പാദനാനുകൂല ടൂൾ രൂപകൽപ്പനയും പിശക് കൈകാര്യം നിർവ്വഹണവും
+- 🔗 **ടൂൾ സംയോജനം**: സങ്കീർണ്ണ ബിസിനസ് പ്രവാഹങ്ങൾക്കായി ടൂളുകൾ സംയോജിപ്പിക്കുക
 
-## 🎯 .NET ടൂൾ ആർക്കിടെക്ചർ ഗുണങ്ങൾ
+## 🎯 .NET ടൂൾ അറകിടെക്ചർ ലാബ്ദ്യങ്ങൾ
 
-### എന്റർപ്രൈസ് ടൂൾ സവിശേഷതകൾ
+### എന്റർപ്രൈസ് ടൂൾ ഫീച്ചറുകൾ
 
-- **കമ്പൈൽ-ടൈം വാലിഡേഷൻ**: ശക്തമായ ടൈപ്പിംഗ് ഉപകരണ പാരാമീറ്റർ ശരിവരുത്തൽ ഉറപ്പാക്കുന്നു  
-- **ഡിപെൻഡൻസി ഇഞ്ചക്ഷൻ**: IoC കണ്ടെയ്‌നർ സംയോജനം ഉപകരണ മാനേജ്മെന്റിനായി  
-- **Async/Await മാതൃകകൾ**: ശരിയായ റിസോഴ്സ് മാനേജ്മെന്റോടെ ബ്ലോക്കിംഗ് ഇല്ലാത്ത ഉപകരണ പ്രവർത്തനം  
-- **സ്ട്രക്ചർഡ് ലോഗിംഗ്**: ഉപകരണ പ്രവർത്തന നിരീക്ഷണത്തിനായി ബിൽറ്റ്-ഇൻ ലോഗിംഗ് സംയോജനം  
+- **കമ്പൈൽ-സമയം പരിശോധന**: ശക്തമായ ടൈപ്പിംഗ് ടൂൾ പാരാമീറ്ററുകളുടെ ശരത്വം ഉറപ്പുവരുത്തുന്നു
+- **ഡിപെൻഡൻസി ഇൻജക്ഷൻ**: ടൂൾ മാനേജ്മെന്റിനായി IoC കണ്ടയിനർ സമന്വയം
+- **Async/Await മാതൃകകൾ**: പ്രാധാന്യമില്ലാതെ ടൂൾ പ്രവർത്തനങ്ങൾ നന്നായി నిర్వహിക്കൽ
+- **സംരചിത ലോഗിംഗ്**: ടൂൾ നിർവഹണ നിരീക്ഷണത്തിനായി ഇൻബിൽറ്റ് ലോഗിംഗ് സംയോജനം
 
-### ഉത്പാദന-തലത്തിലുള്ള മാതൃകകൾ
+### ഉൽപ്പാദനാനുകൂല മാതൃകകൾ
 
-- **എക്സെപ്ഷൻ ഹാൻഡ്ലിംഗ്**: ടൈപ്പുചെയ്ത എക്സെപ്ഷനുകളുള്ള സമഗ്രമായ പിശക് മാനേജ്മെന്റ്  
-- **റിസോഴ്സ് മാനേജ്മെന്റ്**: ശരിയായ ഡിസ്പോസൽ മാതൃകകളും മെമ്മറി മാനേജ്മെന്റും  
-- **പ്രകടന നിരീക്ഷണം**: ബിൽറ്റ്-ഇൻ മെട്രിക്സ്, പ്രകടന കൗണ്ടറുകൾ  
-- **കോണ്ഫിഗറേഷൻ മാനേജ്മെന്റ്**: വാലിഡേഷനോടുകൂടിയ ടൈപ്പ്-സേഫ് കോൺഫിഗറേഷൻ  
+- **എക്സ്പഷൻ കൈകാര്യം**: ടൈപ്പുള്ള പിശക് മാനേജ്‌മെന്റ് സമഗ്രമായി
+- **റിസോഴ്‌സ് മാനേജ്മെന്റ്**: ശരിയായി ഒഴിവാക്കൽ മാതൃകകളും മെമ്മറി നിയന്ത്രണവും
+- **പ്രവർത്തന നിരീക്ഷണം**: ഇൻബിൽറ്റ് മെട്രിക്കുകളും പ്രകടന കണക്കെടുപ്പുകളും
+- **കോൺഫിഗറേഷൻ മാനേജ്മെന്റ്**: പരിശോധനയുള്ള തര-സുരക്ഷിത കോൺഫിഗറേഷൻ
 
-## 🔧 സാങ്കേതിക ആർക്കിടെക്ചർ
+## 🔧 സാങ്കേതിക അറകിടെക്ചർ
 
 ### കോർ .NET ടൂൾ ഘടകങ്ങൾ
 
-- **Microsoft.Extensions.AI**: ഏകീകൃത ഉപകരണ അബ്സ്ട്രാക്ഷൻ ലെയർ  
-- **Microsoft.Agents.AI**: എന്റർപ്രൈസ്-ഗ്രേഡ് ടൂൾ ഓർക്കസ്ട്രേഷൻ  
-- **GitHub മോഡലുകൾ സംയോജനം**: ഹൈ-പെർഫോമൻസ് API ക്ലയന്റ് കണക്ഷൻ പൂളിംഗ് ഉപയോഗിച്ച്  
+- **Microsoft.Extensions.AI**: ഏകീകൃത ടൂൾ ആബ്രാക്ഷൻ ലെയർ
+- **Microsoft.Agents.AI**: എന്റർപ്രൈസ്-ഗ്രേഡ് ടൂൾ ഓർക്കസ്ട്രേഷൻ
+- **Azure OpenAI (Responses API)**: ഉയർന്ന പ്രകടന API ക്ലയന്റ് കണക്ഷൻ പൂലിംഗ് കൂടാതെ
 
-### ടൂൾ എക്സിക്യൂഷൻ പൈപ്പ്‌ലൈൻ
+### ടൂൾ നിർവഹണ പൈപ്പൈൻ
 
 ```mermaid
 graph LR
-    A[ഉപയോക്തൃ അഭ്യർത്ഥന] --> B[ഏജന്റ് വിശകലനം]
-    B --> C[ഉപകരണം തിരഞ്ഞെടുക്കൽ]
-    C --> D[തരം സാധൂകരണം]
-    B --> E[പാരാമീറ്റർ ബൈൻഡിംഗ്]
-    E --> F[ഉപകരണം പ്രവർത്തനം]
+    A[ഉപയോക്തൃ അഭ്യര്‍ത്ഥന] --> B[ഏജന്റ് വിശകലനം]
+    B --> C[ടൂൾ തിരഞ്ഞെടുപ്പ്]
+    C --> D[ടൈപ്പ് സ്ഥിരീകരണം]
+    B --> E[പരിചാരകം ബൈൻഡിംഗ്]
+    E --> F[ടൂൾ നടപ്പാക്കൽ]
     C --> F
-    F --> G[ഫല പ്രോസസ്സിംഗ്]
+    F --> G[ഫലം പ്രോസസ്സിംഗ്]
     D --> G
-    G --> H[മറുപടി]
-```  
-## 🛠️ ടൂൾ വിഭാഗങ്ങളും മാതൃകകളും
+    G --> H[പ്രതികരണം]
+```
+
+## 🛠️ ടൂൾ വർഗ്ഗങ്ങളും മാതൃകകളും
 
 ### 1. **ഡാറ്റ പ്രോസസ്സിംഗ് ടൂളുകൾ**
 
-- **ഇൻപുട്ട് വാലിഡേഷൻ**: ഡാറ്റ അനോട്ടേഷനുകളുള്ള ശക്തമായ ടൈപ്പിംഗ്  
-- **ട്രാൻസ്ഫോം ഓപ്പറേഷനുകൾ**: ടൈപ്പ്-സേഫ് ഡാറ്റ പരിവർത്തനവും ഫോർമാറ്റിംഗും  
-- **ബിസിനസ് ലജിക്**: ഡൊമെയ്ൻ-സ്പെസിഫിക് കണക്കുകൂട്ടലും വിശകലന ഉപകരണങ്ങളും  
-- **ഔട്ട്പുട്ട് ഫോർമാറ്റിംഗ്**: സ്ട്രക്ചർഡ് റെസ്പോൺസ് ജനറേഷൻ  
+- **ഇൻപുട്ട് പരിശോധന**: ഡാറ്റ അനോട്ടേഷനുകളെയുള്ള ശക്തമായ ടൈപ്പിംഗ്
+- **പരിവർത്തന പ്രവർത്തനങ്ങൾ**: തര-സുരക്ഷിത ഡാറ്റ പരിവർത്തനവും ഫോർമാറ്റിംഗും
+- **ബിസിനസ് ലോജിക്ക്**: ഡൊമെയ്ൻ-സവിശേഷ കണക്കുകൂട്ടൽ, വിശകലന ടൂളുകൾ
+- **ഔട്ട്പുട്ട് ഫോർമാറ്റിംഗ്**: സംരചിത പ്രതികരണം സൃഷ്ടിക്കൽ
 
-### 2. **ഇന്റഗ്രേഷൻ ടൂളുകൾ** 
+### 2. **എക്സ്റ്റ്രാക്ഷൻ ടൂളുകൾ**
 
-- **API കണക്ടറുകൾ**: HttpClient ഉപയോഗിച്ച് RESTful സർവീസ് സംയോജനം  
-- **ഡാറ്റാബേസ് ടൂളുകൾ**: ഡാറ്റ ആക്സസിനായി Entity Framework സംയോജനം  
-- **ഫയൽ ഓപ്പറേഷനുകൾ**: വാലിഡേഷനോടുകൂടിയ സുരക്ഷിതമായ ഫയൽ സിസ്റ്റം പ്രവർത്തനങ്ങൾ  
-- **ബാഹ്യ സേവനങ്ങൾ**: മൂന്നാം കക്ഷി സേവന സംയോജന മാതൃകകൾ  
+- **API കണക്ടറുകൾ**: HttpClient ഉപയോഗിച്ച് RESTful സേവന സംയോജനം
+- **ഡാറ്റാബേസ് ടൂളുകൾ**: ഡാറ്റ ആക്സസ് വേണ്ട Entity Framework സംയോജനം
+- **ഫയൽ പ്രവർത്തനങ്ങൾ**: പരിശോധനയോടെ സുരക്ഷിത ഫയൽ സിസ്റ്റം പ്രവർത്തനങ്ങൾ
+- **ബാഹ്യ സേവനങ്ങൾ**: മൂന്നാം-കക്ഷി സേവന സംയോജനം മാതൃകകൾ
 
-### 3. **ഉപയോഗ ഉപകരണങ്ങൾ**
+### 3. **ഉപകാരി ടൂളുകൾ**
 
-- **ടെക്സ്റ്റ് പ്രോസസ്സിംഗ്**: സ്ട്രിംഗ് മാനിപ്പുലേഷൻ, ഫോർമാറ്റിംഗ് ഉപകരണങ്ങൾ  
-- **ഡേറ്റ്/ടൈം ഓപ്പറേഷനുകൾ**: സംസ്കാര-അറിയുന്ന ഡേറ്റ്/ടൈം കണക്കുകൂട്ടലുകൾ  
-- **ഗണിത ഉപകരണങ്ങൾ**: കൃത്യതയുള്ള കണക്കുകൂട്ടലുകളും സ്ഥിതിവിവര കണക്കുകളും  
-- **വാലിഡേഷൻ ടൂളുകൾ**: ബിസിനസ് റൂൾ വാലിഡേഷനും ഡാറ്റ ശരിവരുത്തലും  
+- **ടെക്സ്റ്റ് പ്രോസസ്സിംഗ്**: സ്‌ട്രിംഗ്omanipുൾനെയും ഫോർമാറ്റിംഗും
+- **തിയതി/സമയം പ്രവർത്തനങ്ങൾ**: സംസ്കാര നേർക്കാഴ്ചയുള്ള തീയതി/സമയം കണക്കുകൾ
+- **ഗണിത ടൂളുകൾ**: കൃത്യത കണക്കുകൾ, സ്ഥിതിവിശേഷ പ്രവർത്തനങ്ങൾ
+- **പരിശോധന ടൂളുകൾ**: ബിസിനസ് നിയമ പരിശോധനയും ഡാറ്റ സ്ഥിരീകരണവും
 
-എന്റർപ്രൈസ്-ഗ്രേഡ് ഏജന്റുമാരെ ശക്തമായ, ടൈപ്പ്-സേഫ് ടൂൾ കഴിവുകളോടെ .NET-ൽ നിർമ്മിക്കാൻ തയ്യാറാണോ? പ്രൊഫഷണൽ-ഗ്രേഡ് പരിഹാരങ്ങൾ ആർക്കിടെക്റ്റ് ചെയ്യാം! 🏢⚡  
+ശക്തമായ, തര-സുരക്ഷിത ടൂൾ കഴിവുകളുള്ള എന്റർപ്രൈസ്-ഗ്രേഡ് ഏജന്റുകൾ .NET ൽ നിർമ്മിക്കാൻ ഒരുക്കമാണോ? പ്രൊഫഷണൽ-ഗ്രേഡ് പരിഹാരങ്ങൾ രൂപകല്പന ചെയ്യാം! 🏢⚡
 
-## 🚀 ആരംഭിക്കുക
+## 🚀 തുടക്കമിടാം
 
-### ആവശ്യമായവ
+### മുൻ‌വശ്യങ്ങൾ
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) അല്ലെങ്കിൽ അതിനുമുകളിൽ  
-- [GitHub മോഡലുകൾ API ആക്സസ് ടോക്കൺ](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) അല്ലെങ്കിൽ അതിൽ മുകളിൽ
+- Azure OpenAI വിഭവവും മോഡൽ വിനിയോഗവും ഉള്ള [Azure സബ്സ്ക്രിപ്ഷൻ](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്യുക
 
-### ആവശ്യമായ പരിസ്ഥിതി വേരിയബിളുകൾ
+### ആവശ്യമായ പരിസ്ഥിതി ചാരങ്ങൾ
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# AzureCliCredential ഒരു ടോക്കൺ നേടാൻ സൈനിന് ചെയ്യുക
+az login
 ```
-  
+
 ```powershell
 # പവർഷെൽ
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# പിന്നീട് സൈൻ ഇൻ ചെയ്യുക, അപ്പോഴേ AzureCliCredential ടോക്കൺ നേടാൻ കഴിയൂ
+az login
 ```
-  
-### സാമ്പിൾ കോഡ്
+
+### ഉദാഹരണ കോഡ്
 
 കോഡ് ഉദാഹരണം പ്രവർത്തിപ്പിക്കാൻ,
 
@@ -106,28 +110,30 @@ $env:GH_MODEL_ID = "openai/gpt-5-mini"
 chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
-  
+
 അല്ലെങ്കിൽ dotnet CLI ഉപയോഗിച്ച്:
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
-  
-സമ്പൂർണ്ണ കോഡിനായി [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) കാണുക.
+
+സമ്പൂർണ്ണ കോഡ് കാണാൻ [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) നോക്കുക.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -159,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -204,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -236,17 +228,17 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
 }
-```  
+```
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**അറിയിപ്പ്**:  
-ഈ പ്രമാണം AI വിവർത്തന സേവനം [Co-op Translator](https://github.com/Azure/co-op-translator) ഉപയോഗിച്ച് വിവർത്തനം ചെയ്തതാണ്. ഞങ്ങൾ കൃത്യതയ്ക്കായി ശ്രമിക്കുന്നുവെങ്കിലും, ഓട്ടോമേറ്റഡ് വിവർത്തനങ്ങളിൽ പിഴവുകൾ അല്ലെങ്കിൽ തെറ്റായ വിവരങ്ങൾ ഉണ്ടാകാൻ സാധ്യതയുണ്ട്. പ്രമാണത്തിന്റെ മാതൃഭാഷയിലുള്ള യഥാർത്ഥ പതിപ്പ് പ്രാമാണികമായ ഉറവിടമായി പരിഗണിക്കണം. നിർണായകമായ വിവരങ്ങൾക്ക്, പ്രൊഫഷണൽ മനുഷ്യ വിവർത്തനം ശുപാർശ ചെയ്യുന്നു. ഈ വിവർത്തനം ഉപയോഗിച്ച് ഉണ്ടാകുന്ന തെറ്റിദ്ധാരണകൾക്കോ തെറ്റായ വ്യാഖ്യാനങ്ങൾക്കോ ഞങ്ങൾ ഉത്തരവാദികളല്ല.
+**അറിയിപ്പ്**:
+ഈ രേഖ AI പരിഭാഷാ സേവനം [Co-op Translator](https://github.com/Azure/co-op-translator) ഉപയോഗിച്ച് പരിഭാഷപ്പെടുത്തിയതാണ്. ഞങ്ങൾ കൃത്യതയ്ക്കായി ശ്രമിക്കുന്നുവെങ്കിലും, ഓട്ടോമേറ്റഡ് പരിഭാഷകളിൽ പിഴവുകൾ അല്ലെങ്കിൽ തെറ്റായ വിവരങ്ങൾ ഉണ്ടാകാൻ സാധ്യതയുണ്ട്. അതിന്റെ സ്വാഭാവിക ഭാഷയിലുള്ള അസൽ രേഖയാണ് പ്രാമാണികമായ ഉറവിടമായി പരിഗണിക്കേണ്ടത്. നിർണായകമായ വിവരങ്ങൾക്ക്, പ്രൊഫഷണൽ മനുഷ്യ പരിഭാഷ ശുപാർശ ചെയ്യുന്നു. ഈ പരിഭാഷ ഉപയോഗിച്ച് ഉണ്ടാകുന്ന തെറ്റിദ്ധാരണകൾ അല്ലെങ്കിൽ തെറ്റായ വ്യാഖ്യാനങ്ങൾക്കായി ഞങ്ങൾ ഉത്തരവാദികളല്ല.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

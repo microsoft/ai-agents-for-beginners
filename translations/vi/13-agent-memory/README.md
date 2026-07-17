@@ -1,170 +1,173 @@
-# Memory for AI Agents 
-[![Bộ nhớ cho các tác nhân AI](../../../translated_images/vi/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
+# Bộ nhớ cho các tác nhân AI  
+[![Agent Memory](../../../translated_images/vi/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-When discussing the unique benefits of creating AI Agents, two things are mainly discussed: the ability to call tools to complete tasks and the ability to improve over time. Memory is at the foundation of creating self-improving agent that can create better experiences for our users.
+Khi thảo luận về những lợi ích độc đáo của việc tạo các tác nhân AI, hai điều chính được đề cập là: khả năng gọi các công cụ để hoàn thành nhiệm vụ và khả năng cải thiện theo thời gian. Bộ nhớ là nền tảng của việc tạo ra tác nhân tự cải tiến có thể tạo ra trải nghiệm tốt hơn cho người dùng của chúng ta.
 
-In this lesson, we will look at what memory is for AI Agents and how we can manage it and use it for the benefit of our applications.
+Trong bài học này, chúng ta sẽ xem xét bộ nhớ là gì đối với các tác nhân AI và cách quản lý cũng như sử dụng nó để mang lại lợi ích cho các ứng dụng của chúng ta.
 
-## Introduction
+## Giới thiệu
 
-This lesson will cover:
+Bài học này sẽ bao gồm:
 
-• **Understanding AI Agent Memory**: What memory is and why it's essential for agents.
+• **Hiểu về Bộ nhớ của Tác nhân AI**: Bộ nhớ là gì và tại sao nó quan trọng đối với các tác nhân.
 
-• **Implementing and Storing Memory**: Practical methods for adding memory capabilities to your AI agents, focusing on short-term and long-term memory.
+• **Triển khai và Lưu trữ Bộ nhớ**: Các phương pháp thực tế để thêm khả năng bộ nhớ cho tác nhân AI của bạn, tập trung vào bộ nhớ ngắn hạn và dài hạn.
 
-• **Making AI Agents Self-Improving**: How memory enables agents to learn from past interactions and improve over time.
+• **Làm thế nào để các Tác nhân AI tự cải tiến**: Bộ nhớ giúp các tác nhân học từ các tương tác trước đó và cải thiện theo thời gian như thế nào.
 
-## Available Implementations
+## Các Triển khai Có sẵn
 
-This lesson includes two comprehensive notebook tutorials:
+Bài học này bao gồm hai hướng dẫn notebook toàn diện:
 
-• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implements memory using Mem0 and Azure AI Search with Microsoft Agent Framework
+• **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Triển khai bộ nhớ sử dụng Mem0 và Azure AI Search với Microsoft Agent Framework
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implements structured memory using Cognee, automatically building knowledge graph backed by embeddings, visualizing graph, and intelligent retrieval
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Triển khai bộ nhớ có cấu trúc sử dụng Cognee, tự động xây dựng biểu đồ tri thức hỗ trợ bởi embeddings, trực quan hóa biểu đồ, và truy xuất thông minh
 
-## Learning Goals
+## Mục tiêu học tập
 
-After completing this lesson, you will know how to:
+Sau khi hoàn thành bài học này, bạn sẽ biết cách:
 
-• **Differentiate between various types of AI agent memory**, including working, short-term, and long-term memory, as well as specialized forms like persona and episodic memory.
+• **Phân biệt các loại bộ nhớ khác nhau của tác nhân AI**, bao gồm bộ nhớ làm việc, bộ nhớ ngắn hạn và bộ nhớ dài hạn, cũng như các dạng đặc biệt như bộ nhớ cá nhân và bộ nhớ theo tập.
 
-• **Implement and manage short-term and long-term memory for AI agents** using Microsoft Agent Framework, leveraging tools like Mem0, Cognee, Whiteboard memory, and integrating with Azure AI Search.
+• **Triển khai và quản lý bộ nhớ ngắn hạn và dài hạn cho các tác nhân AI** sử dụng Microsoft Agent Framework, tận dụng các công cụ như Mem0, Cognee, bộ nhớ Whiteboard, và tích hợp với Azure AI Search.
 
-• **Understand the principles behind self-improving AI agents** and how robust memory management systems contribute to continuous learning and adaptation.
+• **Hiểu các nguyên tắc đằng sau các tác nhân AI tự cải tiến** và cách các hệ thống quản lý bộ nhớ thích hợp đóng góp vào việc học liên tục và thích nghi.
 
-## Understanding AI Agent Memory
+## Hiểu về Bộ nhớ của Tác nhân AI
 
-At its core, **memory for AI agents refers to the mechanisms that allow them to retain and recall information**. This information can be specific details about a conversation, user preferences, past actions, or even learned patterns.
+Về cốt lõi, **bộ nhớ cho các tác nhân AI đề cập đến các cơ chế cho phép chúng giữ và nhớ lại thông tin**. Thông tin này có thể là chi tiết cụ thể về một cuộc trò chuyện, sở thích của người dùng, các hành động trước đây, hoặc thậm chí các mẫu đã học.
 
-Without memory, AI applications are often stateless, meaning each interaction starts from scratch. This leads to a repetitive and frustrating user experience where the agent "forgets" previous context or preferences.
+Không có bộ nhớ, các ứng dụng AI thường không trạng thái (stateless), nghĩa là mỗi lần tương tác bắt đầu lại từ đầu. Điều này dẫn đến trải nghiệm người dùng lặp đi lặp lại và gây khó chịu khi tác nhân "quên" bối cảnh hoặc sở thích trước đó.
 
-### Why is Memory Important?
+### Tại sao Bộ nhớ quan trọng?
 
-an agent's intelligence is deeply tied to its ability to recall and utilize past information. Memory allows agents to be:
+Trí thông minh của một tác nhân gắn chặt với khả năng nhớ lại và sử dụng thông tin trong quá khứ. Bộ nhớ cho phép các tác nhân:
 
-• **Reflective**: Learning from past actions and outcomes.
+• **Phản ánh**: Học từ các hành động và kết quả trước đó.
 
-• **Interactive**: Maintaining context over an ongoing conversation.
+• **Tương tác**: Duy trì ngữ cảnh trong suốt một cuộc trò chuyện đang diễn ra.
 
-• **Proactive and Reactive**: Anticipating needs or responding appropriately based on historical data.
+• **Chủ động và Phản ứng**: Dự đoán nhu cầu hoặc phản hồi phù hợp dựa trên dữ liệu lịch sử.
 
-• **Autonomous**: Operating more independently by drawing on stored knowledge.
+• **Tự chủ**: Hoạt động độc lập hơn bằng cách dựa vào kiến thức đã lưu trữ.
 
-The goal of implementing memory is to make agents more **reliable and capable**.
+Mục tiêu của việc triển khai bộ nhớ là làm cho các tác nhân trở nên **đáng tin cậy và có khả năng hơn**.
 
-### Types of Memory
+### Các loại Bộ nhớ
 
-#### Working Memory
+#### Bộ nhớ làm việc
 
-Think of this as a piece of scratch paper an agent uses during a single, ongoing task or thought process. It holds immediate information needed to compute the next step.
+Hãy tưởng tượng đây như một mảnh giấy nháp mà tác nhân sử dụng trong một nhiệm vụ hoặc quá trình suy nghĩ đang diễn ra. Nó giữ thông tin ngay lập tức cần thiết để tính toán bước tiếp theo.
 
-For AI agents, working memory often captures the most relevant information from a conversation, even if the full chat history is long or truncated. It focuses on extracting key elements like requirements, proposals, decisions, and actions.
+Đối với các tác nhân AI, bộ nhớ làm việc thường ghi lại những thông tin liên quan nhất từ một cuộc trò chuyện, ngay cả khi lịch sử trò chuyện đầy đủ dài hoặc bị cắt bớt. Nó tập trung vào việc trích xuất các yếu tố chính như yêu cầu, đề xuất, quyết định, và hành động.
 
-**Working Memory Example**
+**Ví dụ về Bộ nhớ làm việc**
 
-In a travel booking agent, working memory might capture the user's current request, such as "I want to book a trip to Paris". This specific requirement is held in the agent's immediate context to guide the current interaction.
+Trong một tác nhân đặt chuyến đi, bộ nhớ làm việc có thể ghi lại yêu cầu hiện tại của người dùng, ví dụ "Tôi muốn đặt chuyến đi đến Paris". Yêu cầu cụ thể này được giữ trong ngữ cảnh hiện tại của tác nhân để hướng dẫn tương tác hiện tại.
 
-#### Short Term Memory
+#### Bộ nhớ ngắn hạn
 
-This type of memory retains information for the duration of a single conversation or session. It's the context of the current chat, allowing the agent to refer back to previous turns in the dialogue.
+Loại bộ nhớ này giữ thông tin trong suốt thời gian của một cuộc trò chuyện hoặc phiên làm việc duy nhất. Đây là ngữ cảnh của cuộc trò chuyện hiện tại, cho phép tác nhân tham khảo lại các lượt trao đổi trước đó.
 
-**Short Term Memory Example**
+Trong các mẫu SDK Python của [Microsoft Agent Framework](https://github.com/microsoft/agent-framework), điều này tương ứng với `AgentSession`, được tạo bằng `agent.create_session()`. Phiên làm việc là bộ nhớ ngắn hạn tích hợp trong framework: nó giữ bối cảnh cuộc trò chuyện trong khi phiên đó được dùng lại, nhưng bối cảnh này không được lưu giữ sau khi phiên kết thúc hoặc ứng dụng khởi động lại. Hãy sử dụng bộ nhớ dài hạn cho các dữ liệu và sở thích cần tồn tại qua các phiên làm việc, thường thông qua cơ sở dữ liệu, chỉ mục vector, hoặc kho lưu trữ bền vững khác.
 
-If a user asks, "How much would a flight to Paris cost?" and then follows up with "What about accommodation there?", short-term memory ensures the agent knows "there" refers to "Paris" within the same conversation.
+**Ví dụ về Bộ nhớ ngắn hạn**
 
-#### Long Term Memory
+Nếu người dùng hỏi, "Một chuyến bay đến Paris giá bao nhiêu?" rồi sau đó hỏi tiếp "Còn chỗ ở thì sao?", bộ nhớ ngắn hạn đảm bảo tác nhân biết rằng "ở đó" là chỉ "Paris" trong cùng cuộc trò chuyện.
 
-This is information that persists across multiple conversations or sessions. It allows agents to remember user preferences, historical interactions, or general knowledge over extended periods. This is important for personalization.
+#### Bộ nhớ dài hạn
 
-**Long Term Memory Example**
+Đây là thông tin tồn tại qua nhiều cuộc trò chuyện hoặc phiên làm việc khác nhau. Nó cho phép các tác nhân nhớ sở thích người dùng, tương tác lịch sử, hoặc kiến thức chung trong thời gian dài. Việc này rất quan trọng cho cá nhân hóa.
 
-A long-term memory might store that "Ben enjoys skiing and outdoor activities, likes coffee with a mountain view, and wants to avoid advanced ski slopes due to a past injury". This information, learned from previous interactions, influences recommendations in future travel planning sessions, making them highly personalized.
+**Ví dụ về Bộ nhớ dài hạn**
 
-#### Persona Memory
+Một bộ nhớ dài hạn có thể lưu trữ rằng "Ben thích trượt tuyết và các hoạt động ngoài trời, thích cà phê có view núi, và muốn tránh các đường trượt khó do chấn thương trong quá khứ". Thông tin này, được học từ các tương tác trước đây, ảnh hưởng đến các đề xuất trong các phiên lập kế hoạch du lịch tương lai, làm cho chúng rất cá nhân hoá.
 
-This specialized memory type helps an agent develop a consistent "personality" or "persona". It allows the agent to remember details about itself or its intended role, making interactions more fluid and focused.
+#### Bộ nhớ cá nhân (Persona Memory)
 
-**Persona Memory Example**
-If the travel agent is designed to be an "expert ski planner," persona memory might reinforce this role, influencing its responses to align with an expert's tone and knowledge.
+Loại bộ nhớ đặc biệt này giúp tác nhân phát triển một "tính cách" hoặc "nhân vật" nhất quán. Nó cho phép tác nhân nhớ các chi tiết về chính mình hoặc vai trò dự kiến, làm cho các tương tác trở nên mượt mà và tập trung hơn.
 
-#### Workflow/Episodic Memory
+**Ví dụ về Bộ nhớ cá nhân**
 
-This memory stores the sequence of steps an agent takes during a complex task, including successes and failures. It's like remembering specific "episodes" or past experiences to learn from them.
+Nếu tác nhân du lịch được thiết kế như một "chuyên gia lập kế hoạch trượt tuyết," bộ nhớ cá nhân có thể củng cố vai trò này, ảnh hưởng đến câu trả lời sao cho phù hợp với giọng điệu và kiến thức của một chuyên gia.
 
-**Episodic Memory Example**
+#### Bộ nhớ Quy trình / Theo tập (Workflow/Episodic Memory)
 
-If the agent attempted to book a specific flight but it failed due to unavailability, episodic memory could record this failure, allowing the agent to try alternative flights or inform the user about the issue in a more informed way during a subsequent attempt.
+Bộ nhớ này lưu trữ chuỗi các bước tác nhân thực hiện trong một nhiệm vụ phức tạp, bao gồm cả thành công và thất bại. Nó giống như việc ghi nhớ các "tập phim" hoặc kinh nghiệm trong quá khứ để rút ra bài học.
 
-#### Entity Memory
+**Ví dụ về Bộ nhớ theo tập**
 
-This involves extracting and remembering specific entities (like people, places, or things) and events from conversations. It allows the agent to build a structured understanding of key elements discussed.
+Nếu tác nhân cố gắng đặt một chuyến bay cụ thể nhưng thất bại do vé không có, bộ nhớ theo tập có thể ghi lại thất bại này, cho phép tác nhân thử các chuyến bay thay thế hoặc thông báo cho người dùng về vấn đề một cách hiểu biết hơn trong lần thử sau.
 
-**Entity Memory Example**
+#### Bộ nhớ Thực thể (Entity Memory)
 
-From a conversation about a past trip, the agent might extract "Paris," "Eiffel Tower," and "dinner at Le Chat Noir restaurant" as entities. In a future interaction, the agent could recall "Le Chat Noir" and offer to make a new reservation there.
+Bộ nhớ này liên quan đến việc trích xuất và ghi nhớ các thực thể cụ thể (như con người, địa điểm, hoặc vật thể) và sự kiện từ các cuộc trò chuyện. Nó cho phép tác nhân xây dựng một hiểu biết có cấu trúc về các yếu tố chính được thảo luận.
 
-#### Structured RAG (Retrieval Augmented Generation)
+**Ví dụ về Bộ nhớ Thực thể**
 
-While RAG is a broader technique, "Structured RAG" is highlighted as a powerful memory technology. It extracts dense, structured information from various sources (conversations, emails, images) and uses it to enhance precision, recall, and speed in responses. Unlike classic RAG that relies solely on semantic similarity, Structured RAG works with the inherent structure of information.
+Từ một cuộc trò chuyện về chuyến đi trước đây, tác nhân có thể trích xuất "Paris," "Tháp Eiffel," và "bữa tối tại nhà hàng Le Chat Noir" như các thực thể. Trong tương tác tương lai, tác nhân có thể nhớ "Le Chat Noir" và đề nghị đặt chỗ lại tại đó.
 
-**Structured RAG Example**
+#### RAG có cấu trúc (Structured RAG - Retrieval Augmented Generation)
 
-Instead of just matching keywords, Structured RAG could parse flight details (destination, date, time, airline) from an email and store them in a structured way. This allows precise queries like "What flight did I book to Paris on Tuesday?"
+Trong khi RAG là một kỹ thuật rộng hơn, "Structured RAG" được nhấn mạnh như một công nghệ bộ nhớ mạnh mẽ. Nó trích xuất thông tin đặc, có cấu trúc từ nhiều nguồn khác nhau (cuộc trò chuyện, email, hình ảnh) và sử dụng nó để nâng cao độ chính xác, khả năng nhớ lại và tốc độ phản hồi. Khác với RAG cổ điển chỉ dựa trên sự tương đồng ngữ nghĩa, Structured RAG làm việc với cấu trúc vốn có của thông tin.
 
-## Implementing and Storing Memory
+**Ví dụ về Structured RAG**
 
-Implementing memory for AI agents involves a systematic process of **memory management**, which includes generating, storing, retrieving, integrating, updating, and even "forgetting" (or deleting) information. Retrieval is a particularly crucial aspect.
+Thay vì chỉ đối chiếu từ khóa, Structured RAG có thể phân tích chi tiết chuyến bay (đích đến, ngày giờ, hãng bay) từ một email và lưu trữ chúng theo cách có cấu trúc. Điều này cho phép truy vấn chính xác như "Tôi đã đặt chuyến bay đến Paris vào thứ Ba nào?"
 
-### Specialized Memory Tools
+## Triển khai và Lưu trữ Bộ nhớ
+
+Triển khai bộ nhớ cho các tác nhân AI liên quan đến một quy trình hệ thống về **quản lý bộ nhớ**, bao gồm tạo, lưu trữ, truy xuất, tích hợp, cập nhật, và thậm chí "quên" (hay xóa) thông tin. Việc truy xuất là một khía cạnh đặc biệt quan trọng.
+
+### Công cụ Bộ nhớ chuyên biệt
 
 #### Mem0
 
-One way to store and manage agent memory is using specialized tools like Mem0. Mem0 works as a persistent memory layer, allowing agents to recall relevant interactions, store user preferences and factual context, and learn from successes and failures over time. The idea here is that stateless agents turn into stateful ones.
+Một cách để lưu trữ và quản lý bộ nhớ tác nhân là sử dụng các công cụ chuyên biệt như Mem0. Mem0 hoạt động như một lớp bộ nhớ bền vững, cho phép tác nhân nhớ lại các tương tác liên quan, lưu trữ sở thích người dùng và bối cảnh thực tế, và học từ thành công cũng như thất bại theo thời gian. Ý tưởng ở đây là biến các tác nhân không trạng thái thành có trạng thái.
 
-It works through a **two-phase memory pipeline: extraction and update**. First, messages added to an agent's thread are sent to the Mem0 service, which uses a Large Language Model (LLM) to summarize conversation history and extract new memories. Subsequently, an LLM-driven update phase determines whether to add, modify, or delete these memories, storing them in a hybrid data store that can include vector, graph, and key-value databases. This system also supports various memory types and can incorporate graph memory for managing relationships between entities.
+Nó hoạt động qua **quy trình bộ nhớ hai giai đoạn: trích xuất và cập nhật**. Đầu tiên, các tin nhắn được thêm vào luồng của tác nhân được gửi đến dịch vụ Mem0, sử dụng Mô hình Ngôn ngữ Lớn (LLM) để tóm tắt lịch sử cuộc trò chuyện và trích xuất các ký ức mới. Sau đó, giai đoạn cập nhật do LLM điều khiển xác định có nên thêm, sửa đổi, hay xóa những ký ức này, lưu chúng vào hệ thống dữ liệu lai có thể bao gồm cơ sở dữ liệu vector, biểu đồ, và key-value. Hệ thống này cũng hỗ trợ nhiều loại bộ nhớ và có thể kết hợp bộ nhớ biểu đồ để quản lý các mối quan hệ giữa các thực thể.
 
 #### Cognee
 
-Another powerful approach is using **Cognee**, an open-source semantic memory for AI agents that transforms structured and unstructured data into queryable knowledge graphs backed by embeddings. Cognee provides a **dual-store architecture** combining vector similarity search with graph relationships, enabling agents to understand not just what information is similar, but how concepts relate to each other.
+Một cách tiếp cận mạnh mẽ khác là sử dụng **Cognee**, một bộ nhớ ngữ nghĩa mã nguồn mở cho các tác nhân AI biến dữ liệu cấu trúc và phi cấu trúc thành biểu đồ tri thức có thể truy vấn hỗ trợ bởi embeddings. Cognee cung cấp **kiến trúc lưu trữ kép** kết hợp tìm kiếm tương đồng vector với các mối quan hệ biểu đồ, cho phép các tác nhân hiểu không chỉ thông tin nào giống nhau mà còn cách các khái niệm liên quan với nhau.
 
-It excels at **hybrid retrieval** that blends vector similarity, graph structure, and LLM reasoning - from raw chunk lookup to graph-aware question answering. The system maintains **living memory** that evolves and grows while remaining queryable as one connected graph, supporting both short-term session context and long-term persistent memory.
+Nó nổi trội trong **truy xuất lai** pha trộn tìm kiếm tương đồng vector, cấu trúc biểu đồ, và lý luận LLM - từ truy vấn khối dữ liệu thô đến trả lời câu hỏi có nhận thức biểu đồ. Hệ thống duy trì **bộ nhớ sống** phát triển và mở rộng đồng thời vẫn có thể truy vấn dưới dạng một biểu đồ kết nối, hỗ trợ cả ngữ cảnh phiên ngắn hạn và bộ nhớ bền vững dài hạn.
 
-The Cognee notebook tutorial ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) demonstrates building this unified memory layer, with practical examples of ingesting diverse data sources, visualizing the knowledge graph, and querying with different search strategies tailored to specific agent needs.
+Hướng dẫn notebook Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) minh họa việc xây dựng lớp bộ nhớ thống nhất này, với các ví dụ thực tế về nhập liệu từ nhiều nguồn dữ liệu khác nhau, trực quan hóa biểu đồ tri thức, và truy vấn với các chiến lược tìm kiếm khác nhau phù hợp với nhu cầu cụ thể của tác nhân.
 
-### Storing Memory with RAG
+### Lưu trữ Bộ nhớ với RAG
 
-Beyond specialized memory tools like mem0 , you can leverage robust search services like **Azure AI Search as a backend for storing and retrieving memories**, especially for structured RAG.
+Ngoài các công cụ bộ nhớ chuyên biệt như mem0, bạn có thể tận dụng các dịch vụ tìm kiếm mạnh mẽ như **Azure AI Search làm backend để lưu trữ và truy xuất ký ức**, đặc biệt cho Structured RAG.
 
-This allows you to ground your agent's responses with your own data, ensuring more relevant and accurate answers. Azure AI Search can be used to store user-specific travel memories, product catalogs, or any other domain-specific knowledge.
+Điều này cho phép bạn làm nền tảng câu trả lời của tác nhân dựa trên dữ liệu của riêng bạn, đảm bảo câu trả lời phù hợp và chính xác hơn. Azure AI Search có thể được dùng lưu trữ ký ức du lịch cá nhân, danh mục sản phẩm, hoặc bất kỳ kiến thức chuyên môn nào khác.
 
-Azure AI Search supports capabilities like **Structured RAG**, which excels at extracting and retrieving dense, structured information from large datasets like conversation histories, emails, or even images. This provides "superhuman precision and recall" compared to traditional text chunking and embedding approaches.
+Azure AI Search hỗ trợ các tính năng như **Structured RAG**, vượt trội trong việc trích xuất và truy xuất thông tin đặc, có cấu trúc từ các bộ dữ liệu lớn như lịch sử cuộc trò chuyện, email, hoặc thậm chí hình ảnh. Điều này cung cấp "độ chính xác và khả năng nhớ lại siêu phàm" so với cách tiếp cận chia nhỏ văn bản và nhúng truyền thống.
 
-## Making AI Agents Self-Improve
+## Làm cho các Tác nhân AI tự Cải tiến
 
-A common pattern for self-improving agents involves introducing a **"knowledge agent"**. This separate agent observes the main conversation between the user and the primary agent. Its role is to:
+Mẫu phổ biến cho các tác nhân tự cải tiến liên quan đến việc giới thiệu một **"tác nhân tri thức"** riêng biệt. Tác nhân này quan sát cuộc trò chuyện chính giữa người dùng và tác nhân chính. Vai trò của nó là:
 
-1. **Identify valuable information**: Determine if any part of the conversation is worth saving as general knowledge or a specific user preference.
+1. **Xác định thông tin có giá trị**: Xem phần nào của cuộc trò chuyện đáng được lưu lại như tri thức chung hoặc sở thích người dùng cụ thể.
 
-2. **Extract and summarize**: Distill the essential learning or preference from the conversation.
+2. **Trích xuất và tóm tắt**: Đúc kết những bài học hoặc sở thích quan trọng từ cuộc trò chuyện.
 
-3. **Store in a knowledge base**: Persist this extracted information, often in a vector database, so it can be retrieved later.
+3. **Lưu trữ trong cơ sở tri thức**: Ghi nhận thông tin đã trích xuất, thường trong cơ sở dữ liệu vector, để có thể truy xuất sau này.
 
-4. **Augment future queries**: When the user initiates a new query, the knowledge agent retrieves relevant stored information and appends it to the user's prompt, providing crucial context to the primary agent (similar to RAG).
+4. **Tăng cường truy vấn tương lai**: Khi người dùng bắt đầu truy vấn mới, tác nhân tri thức truy xuất thông tin liên quan đã lưu và thêm vào lời nhắc của người dùng, cung cấp ngữ cảnh quan trọng cho tác nhân chính (tương tự như RAG).
 
-### Optimizations for Memory
+### Tối ưu hóa cho Bộ nhớ
 
-• **Latency Management**: To avoid slowing down user interactions, a cheaper, faster model can be used initially to quickly check if information is valuable to store or retrieve, only invoking the more complex extraction/retrieval process when necessary.
+• **Quản lý Độ trễ**: Để tránh làm chậm tương tác với người dùng, một mô hình nhanh, rẻ hơn có thể được sử dụng ban đầu để nhanh chóng kiểm tra xem thông tin có đáng lưu hoặc truy xuất không, chỉ kích hoạt quy trình trích xuất/truy xuất phức tạp hơn khi cần thiết.
 
-• **Knowledge Base Maintenance**: For a growing knowledge base, less frequently used information can be moved to "cold storage" to manage costs.
+• **Bảo trì Cơ sở tri thức**: Với cơ sở tri thức đang phát triển, thông tin ít được sử dụng có thể được chuyển vào "lưu trữ lạnh" để quản lý chi phí.
 
-## Got More Questions About Agent Memory?
+## Còn câu hỏi nào về Bộ nhớ Tác nhân?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Tham gia cộng đồng [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) để gặp gỡ những người học khác, tham dự giờ học và nhận câu trả lời cho các câu hỏi về Tác nhân AI.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Miễn trừ trách nhiệm:
-Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI Co-op Translator (https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc thiếu sót. Tài liệu gốc bằng ngôn ngữ ban đầu nên được coi là nguồn có thẩm quyền. Đối với thông tin quan trọng, khuyến nghị sử dụng dịch thuật chuyên nghiệp do con người thực hiện. Chúng tôi không chịu trách nhiệm về bất kỳ hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.
+**Tuyên bố miễn trừ trách nhiệm**:
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI [Co-op Translator](https://github.com/Azure/co-op-translator). Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng bản dịch tự động có thể chứa lỗi hoặc sai sót. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm về bất kỳ hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

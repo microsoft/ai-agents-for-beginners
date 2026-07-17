@@ -4,9 +4,9 @@
 
 > _(Kliknij powyższy obraz, aby obejrzeć wideo z tej lekcji)_
 
-Zrozumienie złożoności aplikacji, dla której tworzysz agenta AI, jest ważne dla stworzenia niezawodnego rozwiązania. Musimy budować agentów AI, którzy efektywnie zarządzają informacjami, aby sprostać złożonym potrzebom wykraczającym poza inżynierię promptów.
+Zrozumienie złożoności aplikacji, dla której tworzysz agenta AI, jest ważne, aby stworzyć niezawodnego agenta. Musimy budować agentów AI, którzy skutecznie zarządzają informacjami, aby sprostać złożonym wymaganiom wykraczającym poza inżynierię promptów.
 
-W tej lekcji przyjrzymy się, czym jest inżynieria kontekstu i jaka jest jej rola w tworzeniu agentów AI.
+W tej lekcji przyjrzymy się, czym jest inżynieria kontekstu oraz jaki ma ona wpływ na tworzenie agentów AI.
 
 ## Wprowadzenie
 
@@ -16,45 +16,45 @@ Ta lekcja obejmie:
 
 • **Strategie efektywnej inżynierii kontekstu**, w tym jak pisać, wybierać, kompresować i izolować informacje.
 
-• **Typowe błędy w kontekście**, które mogą zakłócić działanie agenta AI oraz jak je naprawić.
+• **Typowe awarie kontekstu**, które mogą zakłócić działanie twojego agenta AI oraz jak je naprawić.
 
 ## Cele nauki
 
-Po ukończeniu tej lekcji będziesz rozumieć, jak:
+Po ukończeniu tej lekcji będziesz potrafił:
 
 • **Zdefiniować inżynierię kontekstu** i odróżnić ją od inżynierii promptów.
 
-• **Zidentyfikować kluczowe składniki kontekstu** w aplikacjach wykorzystujących modele językowe (LLM).
+• **Zidentyfikować kluczowe komponenty kontekstu** w aplikacjach opartych na dużych modelach językowych (LLM).
 
-• **Stosować strategie pisania, wybierania, kompresji i izolowania kontekstu**, aby poprawić wydajność agenta.
+• **Stosować strategie pisania, wybierania, kompresji i izolowania kontekstu** w celu poprawy wydajności agenta.
 
-• **Rozpoznawać powszechne błędy kontekstowe** takie jak zatrucie, rozproszenie, zamieszanie i konflikt oraz wdrażać techniki ich łagodzenia.
+• **Rozpoznawać typowe awarie kontekstu**, takie jak zatrucie, rozproszenie, zamieszanie i konflikt, oraz wdrażać techniki ich łagodzenia.
 
 ## Czym jest inżynieria kontekstu?
 
-Dla agentów AI kontekst to to, co napędza planowanie agenta AI do podjęcia określonych działań. Inżynieria kontekstu to praktyka zapewniania, że agent AI ma odpowiednie informacje, aby wykonać kolejny krok zadania. Okno kontekstowe ma ograniczony rozmiar, dlatego jako twórcy agentów musimy tworzyć systemy i procesy do zarządzania dodawaniem, usuwaniem i kondensowaniem informacji w oknie kontekstu.
+Dla agentów AI kontekst jest tym, co napędza planowanie agenta AI do podjęcia określonych działań. Inżynieria kontekstu to praktyka zapewniania, że agent AI ma odpowiednie informacje do wykonania następnego kroku zadania. Okno kontekstowe ma ograniczony rozmiar, więc jako twórcy agentów musimy budować systemy i procesy do zarządzania dodawaniem, usuwaniem i kondensacją informacji w oknie kontekstowym.
 
 ### Inżynieria promptów a inżynieria kontekstu
 
-Inżynieria promptów koncentruje się na pojedynczym zestawie statycznych instrukcji, które skutecznie kierują agentem AI zbioru reguł. Inżynieria kontekstu zajmuje się zarządzaniem dynamicznym zestawem informacji, w tym początkowym promptem, aby zapewnić agentowi AI to, czego potrzebuje z czasem. Główną ideą inżynierii kontekstu jest uczynienie tego procesu powtarzalnym i niezawodnym.
+Inżynieria promptów koncentruje się na pojedynczym, statycznym zestawie instrukcji, które skutecznie kierują agentami AI za pomocą określonych reguł. Inżynieria kontekstu to zarządzanie dynamicznym zestawem informacji, w tym początkowym promptem, aby zapewnić agentowi AI to, czego potrzebuje na przestrzeni czasu. Główna idea inżynierii kontekstu to uczynienie tego procesu powtarzalnym i niezawodnym.
 
 ### Rodzaje kontekstu
 
 [![Rodzaje kontekstu](../../../translated_images/pl/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
-Ważne jest, aby pamiętać, że kontekst to nie tylko jedna rzecz. Informacje, których potrzebuje agent AI, mogą pochodzić z różnych źródeł i to do nas należy zapewnienie agenta dostępu do tych źródeł:
+Ważne jest, aby pamiętać, że kontekst to nie tylko jedna rzecz. Informacje, których potrzebuje agent AI, mogą pochodzić z różnych źródeł i to od nas zależy, aby zapewnić agentowi dostęp do tych źródeł:
 
-Rodzaje kontekstu, którymi agent AI może potrzebować zarządzać, obejmują:
+Rodzaje kontekstu, które agent AI może potrzebować zarządzać, to:
 
-• **Instrukcje:** Są jak „zasady” agenta – promptów, komunikaty systemowe, przykłady few-shot (pokazujące AI, jak coś zrobić) oraz opisy narzędzi, z których może korzystać. Tutaj inżynieria promptów łączy się z inżynierią kontekstu.
+• **Instrukcje:** Są jak „zasady” agenta — prompt, wiadomości systemowe, przykłady few-shot (pokazujące AI, jak coś zrobić) oraz opisy narzędzi, które może używać. To tutaj łączy się fokus inżynierii promptów z inżynierią kontekstu.
 
-• **Wiedza:** Obejmuje fakty, informacje pobierane z baz danych lub długoterminowe pamięci zgromadzone przez agenta. Obejmuje to integrację systemu Retrieval Augmented Generation (RAG), jeśli agent potrzebuje dostępu do różnych źródeł wiedzy i baz danych.
+• **Wiedza:** Obejmuje fakty, informacje pobierane z baz danych lub długoterminowe wspomnienia nagromadzone przez agenta. Obejmuje to integrację systemu Retrieval Augmented Generation (RAG), jeśli agent potrzebuje dostępu do różnych źródeł wiedzy i baz danych.
 
-• **Narzędzia:** To definicje zewnętrznych funkcji, API i serwerów MCP, które agent może wywołać, wraz z informacją zwrotną (wynikami) z ich wykorzystania.
+• **Narzędzia:** Definicje zewnętrznych funkcji, API i serwerów MCP, które agent może wywoływać, wraz z odpowiedziami (wynikami) uzyskanymi dzięki ich użyciu.
 
-• **Historia rozmowy:** Trwający dialog z użytkownikiem. Z upływem czasu te rozmowy stają się dłuższe i bardziej złożone, co zajmuje miejsce w oknie kontekstu.
+• **Historia rozmowy:** Trwający dialog z użytkownikiem. Z biegiem czasu rozmowy te stają się dłuższe i bardziej skomplikowane, co zajmuje dużo miejsca w oknie kontekstowym.
 
-• **Preferencje użytkownika:** Informacje poznane o upodobaniach lub niechęciach użytkownika w czasie. Mogą być przechowywane i wykorzystywane przy podejmowaniu kluczowych decyzji pomagających użytkownikowi.
+• **Preferencje użytkownika:** Informacje o upodobaniach lub niechęciach użytkownika, które są poznawane z czasem. Mogą być przechowywane i wykorzystywane przy podejmowaniu kluczowych decyzji, aby pomóc użytkownikowi.
 
 ## Strategie efektywnej inżynierii kontekstu
 
@@ -62,105 +62,118 @@ Rodzaje kontekstu, którymi agent AI może potrzebować zarządzać, obejmują:
 
 [![Najlepsze praktyki inżynierii kontekstu](../../../translated_images/pl/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
-Dobra inżynieria kontekstu zaczyna się od dobrego planowania. Oto podejście, które pomoże Ci zacząć myśleć o zastosowaniu koncepcji inżynierii kontekstu:
+Dobra inżynieria kontekstu zaczyna się od dobrego planowania. Oto podejście, które pomoże Ci zacząć myśleć o stosowaniu koncepcji inżynierii kontekstu:
 
-1. **Zdefiniuj jasne wyniki** – wyniki zadań, które będą przypisane agentom AI powinny być jasno określone. Odpowiedz na pytanie – „Jak będzie wyglądał świat, gdy agent AI zakończy swoje zadanie?” Innymi słowy, jaką zmianę, informacje lub odpowiedź użytkownik powinien otrzymać po interakcji z agentem AI.
-
-2. **Zmapuj kontekst** – gdy zdefiniujesz wyniki agenta AI, musisz odpowiedzieć na pytanie „Jakie informacje agent AI potrzebuje, aby ukończyć to zadanie?”. W ten sposób możesz zacząć mapować kontekst i lokalizacje tych informacji.
-
-3. **Stwórz potoki kontekstowe** – gdy już wiesz, gdzie znajdują się informacje, musisz odpowiedzieć na pytanie „Jak agent zdobędzie te informacje?”. Można to zrobić na różne sposoby, w tym poprzez RAG, korzystanie z serwerów MCP i innych narzędzi.
+1. **Zdefiniuj jasne rezultaty** – rezultaty zadań przypisanych agentom AI powinny być jasno określone. Odpowiedz na pytanie: „Jak będzie wyglądał świat, gdy agent AI zakończy swoje zadanie?” Innymi słowy, jaką zmianę, informację lub odpowiedź powinien mieć użytkownik po interakcji z agentem AI.
+2. **Zmapuj kontekst** – gdy zdefiniujesz rezultaty agenta AI, musisz odpowiedzieć na pytanie „Jakich informacji agent AI potrzebuje do wykonania tego zadania?”. Dzięki temu możesz zacząć mapować kontekst, wskazując, gdzie można znaleźć potrzebne informacje.
+3. **Stwórz potoki kontekstowe** – ponieważ wiesz, gdzie są informacje, kolejne pytanie brzmi: „Jak agent zdobędzie te informacje?”. Można to zrobić na różne sposoby, w tym za pomocą RAG, użycia serwerów MCP oraz innych narzędzi.
 
 ### Strategie praktyczne
 
-Planowanie jest ważne, ale kiedy informacje zaczynają napływać do okna kontekstu naszego agenta, potrzebujemy praktycznych strategii do ich zarządzania:
+Planowanie jest ważne, ale gdy informacje zaczynają napływać do okna kontekstowego naszego agenta, potrzebujemy praktycznych strategii do ich zarządzania:
 
 #### Zarządzanie kontekstem
 
-Choć niektóre informacje są automatycznie dodawane do okna kontekstu, inżynieria kontekstu polega na bardziej aktywnym podejściu do tych informacji, które można realizować za pomocą kilku strategii:
+Podczas gdy niektóre informacje będą dodawane do okna kontekstowego automatycznie, inżynieria kontekstu polega na bardziej aktywnym zarządzaniu tą informacją, co można osiągnąć kilkoma strategiami:
 
- 1. **Notatnik agenta**  
- Pozwala agentowi AI robić notatki dotyczące istotnych informacji o bieżących zadaniach i interakcjach z użytkownikiem podczas jednej sesji. Powinien istnieć poza oknem kontekstu, w pliku lub obiekcie uruchomieniowym, który agent może później odczytać podczas tej sesji w razie potrzeby.
+ 1. **Notatnik agenta (Agent Scratchpad)**  
+ Pozwala agentowi AI na robienie notatek dotyczących istotnych informacji o bieżących zadaniach i interakcjach z użytkownikiem podczas pojedynczej sesji. Powinien istnieć poza oknem kontekstowym jako plik lub obiekt runtime, który agent może później odczytać w trakcie tej sesji, jeśli zajdzie taka potrzeba.
 
- 2. **Pamięci**  
- Notatniki dobrze służą do zarządzania informacjami poza oknem kontekstu jednej sesji. Pamięci umożliwiają agentom przechowywanie i odzyskiwanie istotnych informacji w wielu sesjach. Mogą to być podsumowania, preferencje użytkownika oraz feedback na potrzeby przyszłych ulepszeń.
+ 2. **Wspomnienia**  
+ Notatniki są dobre do zarządzania informacjami poza oknem kontekstowym pojedynczej sesji. Wspomnienia umożliwiają agentom przechowywanie i pobieranie istotnych informacji między wieloma sesjami. Mogą to być podsumowania, preferencje użytkownika czy opinie na temat ulepszeń na przyszłość.
 
  3. **Kompresja kontekstu**  
-  Gdy okno kontekstu rośnie i zbliża się do limitu, można stosować techniki takie jak streszczenie i przycinanie. Obejmuje to zachowanie tylko najbardziej istotnych informacji lub usuwanie starszych wiadomości.
+ Gdy okno kontekstowe rośnie i zbliża się do limitu, można stosować techniki takie jak podsumowania i przycinanie. Polega to na zachowaniu jedynie najistotniejszych informacji lub usuwaniu starszych wiadomości.
   
  4. **Systemy wieloagentowe**  
-  Tworzenie systemów wieloagentowych jest formą inżynierii kontekstu, ponieważ każdy agent ma własne okno kontekstu. Jak ten kontekst jest udostępniany i przekazywany między agentami to kolejna kwestia do zaplanowania podczas budowy takich systemów.
+ Tworzenie systemów wieloagentowych jest formą inżynierii kontekstu, ponieważ każdy agent ma swoje własne okno kontekstowe. To, jak ten kontekst jest udostępniany i przekazywany innym agentom, jest kolejnym elementem do zaplanowania w trakcie budowy takich systemów.
   
- 5. **Środowiska piaskownicy**  
-  Jeśli agent musi uruchomić jakiś kod lub przetworzyć dużą ilość informacji w dokumencie, może to wymagać dużej liczby tokenów na przetworzenie wyników. Zamiast przechowywać to wszystko w oknie kontekstu, agent może użyć środowiska piaskownicy, które potrafi uruchomić ten kod i odczytać tylko wyniki oraz inne istotne informacje.
+ 5. **Środowiska piaskownicy (Sandbox Environments)**  
+ Jeśli agent musi uruchomić jakiś kod lub przetworzyć dużą ilość informacji w dokumencie, może to pochłonąć dużo tokenów potrzebnych do przetworzenia wyników. Zamiast przechowywać to wszystko w oknie kontekstowym, agent może użyć środowiska piaskownicy, które wykonuje ten kod i jedynie odczytuje wyniki i inne istotne informacje.
   
  6. **Obiekty stanu runtime**  
-   Realizowane poprzez tworzenie kontenerów informacji do zarządzania sytuacjami, gdy agent musi mieć dostęp do określonych informacji. Dla złożonych zadań pozwala to agentowi przechowywać wyniki każdego podzadania krok po kroku, dzięki czemu kontekst pozostaje powiązany tylko z tym konkretnym podzadaniem.
-  
+ Polega to na tworzeniu kontenerów informacji do zarządzania sytuacjami, gdy agent potrzebuje dostępu do określonych informacji. Przy złożonym zadaniu pozwala to agentowi na przechowywanie wyników każdego podzadania krok po kroku, pozwalając, aby kontekst pozostawał połączony tylko z tym konkretnym podzadaniem.
+
+#### Inspekcja kontekstu
+
+Po zastosowaniu którejkolwiek z tych strategii warto sprawdzić, co faktycznie otrzymało kolejne wywołanie modelu. Przydatne pytanie podczas debugowania to:
+
+> Czy agent załadował zbyt dużo kontekstu, niewłaściwy kontekst, czy może zabrakło mu potrzebnego kontekstu?
+
+Nie musisz logować surowych promptów, wyników narzędzi czy zawartości pamięci, aby udzielić odpowiedzi. W produkcji preferuj krótkie zapisy inspekcji kontekstu, które zawierają liczniki, identyfikatory, hasze i etykiety polityk:
+
+- **Selekcja:** Śledź, ile kandydatów (fragmentów tekstu, narzędzi, pamięci) było rozważanych, ile wybrano i która reguła lub punktacja spowodowała odrzucenie pozostałych.
+- **Kompresja:** Zapisz zakres źródłowy lub identyfikator śledzenia, identyfikator podsumowania, szacowaną liczbę tokenów przed i po kompresji, oraz czy surowa zawartość została wykluczona z kolejnego wywołania.
+- **Izolacja:** Zanotuj, które podzadanie zostało wykonane w oddzielnym agencie, sesji lub piaskownicy, jakie podsumowanie ograniczone zostało zwrócone oraz czy duże wyniki narzędzi pozostały poza kontekstem agenta nadrzędnego.
+- **Pamięć i RAG:** Zapisuj identyfikatory dokumentów pobranych, identyfikatory pamięci, punkty, wybrane identyfikatory i status redakcji zamiast pełnego pobranego tekstu.
+- **Bezpieczeństwo i prywatność:** Preferuj hasze, identyfikatory, token buckety i etykiety polityk zamiast wrażliwych treści promptów, argumentów narzędzi, wyników narzędzi czy treści pamięci użytkownika.
+
+Celem nie jest przechowywanie większej ilości kontekstu. Celem jest pozostawienie wystarczających dowodów, aby programista mógł stwierdzić, która strategia kontekstu była użyta i czy zmieniła kolejne wywołanie modelu w zamierzony sposób.
+
 ### Przykład inżynierii kontekstu
 
-Powiedzmy, że chcemy, aby agent AI **„Zarezerwował mi podróż do Paryża.”**
+Załóżmy, że chcemy, aby agent AI **"Zarezerwował mi wycieczkę do Paryża."**
 
-• Prosty agent korzystający wyłącznie z inżynierii promptów może po prostu odpowiedzieć: **„Dobrze, na kiedy chcesz lecieć do Paryża?”**. Przetworzył tylko twoje bezpośrednie pytanie w momencie, gdy zostało zadane.
+• Prostego agenta używającego tylko inżynierii promptów mogłoby odpowiedzieć: **"Dobrze, na kiedy chcesz pojechać do Paryża?"**. Przetworzył tylko twoje bezpośrednie pytanie w chwili, gdy je zadałeś.
 
-• Agent korzystający ze strategii inżynierii kontekstu opisywanych tutaj zrobi o wiele więcej. Zanim odpowie, jego system może:
+• Agent stosujący strategie inżynierii kontekstu, o których mówiliśmy, zrobiłby znacznie więcej. Zanim odpowie, jego system może:
 
-  ◦ **Sprawdzić twój kalendarz** pod kątem dostępnych terminów (pozyskując dane w czasie rzeczywistym).
+  ◦ **Sprawdzić twój kalendarz** pod kątem dostępnych terminów (pobierając dane w czasie rzeczywistym).
 
- ◦ **Przypomnieć sobie wcześniejsze preferencje podróżnicze** (z pamięci długoterminowej), takie jak ulubiona linia lotnicza, budżet czy preferencje dotyczące lotów bezpośrednich.
+ ◦ **Przypomnieć preferencje podróżnicze z przeszłości** (z długoterminowej pamięci), takie jak preferowane linie lotnicze, budżet czy czy wolisz loty bezpośrednie.
 
  ◦ **Zidentyfikować dostępne narzędzia** do rezerwacji lotów i hoteli.
 
-- Następnie przykładowa odpowiedź mogłaby brzmieć: „Cześć [Twoje Imię]! Widzę, że jesteś dostępny w pierwszym tygodniu października. Czy mam szukać lotów bezpośrednich do Paryża na [preferowana linia lotnicza] mieszczących się w twoim zwykłym budżecie [budżet]?”. Ta bogatsza, świadoma kontekstu odpowiedź pokazuje siłę inżynierii kontekstu.
+- Następnie przykładowa odpowiedź mogłaby brzmieć: „Cześć [Twoje Imię]! Widzę, że jesteś wolny w pierwszym tygodniu października. Mam szukać bezpośrednich lotów do Paryża na [Preferowane Linie Lotnicze] w ramach twojego zwykłego budżetu [Budżet]?”. Ta bogatsza, świadoma kontekstu odpowiedź demonstruje moc inżynierii kontekstu.
 
-## Typowe błędy związane z kontekstem
+## Typowe awarie kontekstu
 
 ### Zatrucie kontekstu
 
-**Co to jest:** Gdy halucynacja (fałszywa informacja wygenerowana przez LLM) lub błąd wchodzi do kontekstu i jest wielokrotnie powtarzany, powodując, że agent dąży do niemożliwych celów lub tworzy nonsensowne strategie.
+**Co to jest:** Kiedy halucynacja (fałszywa informacja wygenerowana przez LLM) lub błąd trafia do kontekstu i jest powtarzalnie cytowany, powodując, że agent realizuje niemożliwe cele lub tworzy nonsensowne strategie.
 
-**Co robić:** Wdróż **walidację kontekstu** i **izolację**. Sprawdzaj informacje przed dodaniem ich do pamięci długoterminowej. Jeśli wykryjesz potencjalne zatrucie, zacznij nowe wątki kontekstowe, aby zapobiec rozprzestrzenianiu się złych informacji.
+**Co zrobić:** Wdróż **walidację kontekstu** i **kwarantannę**. Sprawdzaj informacje przed dodaniem ich do pamięci długoterminowej. Jeśli wykryjesz potencjalne zatrucie, zacznij nowe wątki kontekstu, aby zapobiec rozprzestrzenianiu się złych informacji.
 
-**Przykład rezerwacji podróży:** Twój agent „halucynuje” **bezpośredni lot z małego lokalnego lotniska do odległego miasta międzynarodowego**, które faktycznie nie obsługuje lotów międzynarodowych. Ten nieistniejący lot zostaje zapisany w kontekście. Później, gdy prosisz agenta o rezerwację, próbuje znaleźć bilety na tę niemożliwą trasę, co skutkuje powtarzającymi się błędami.
+**Przykład rezerwacji podróży:** Twój agent halucynuje istnienie **bezpośredniego lotu z małego lokalnego lotniska do odległego miasta międzynarodowego**, które w rzeczywistości nie oferuje lotów międzynarodowych. Ten nieistniejący szczegół lotu zostaje zapisany w kontekście. Gdy później prosisz agenta o rezerwację, nieustannie próbuje znaleźć bilety na tę niemożliwą trasę, co prowadzi do powtarzających się błędów.
 
-**Rozwiązanie:** Wdróż etap, który **sprawdza istnienie lotu i trasy za pomocą API w czasie rzeczywistym** _przed_ dodaniem szczegółów lotu do kontekstu roboczego agenta. Jeśli walidacja się nie powiedzie, błędna informacja jest „izolowana” i nie jest dalej używana.
+**Rozwiązanie:** Wdróż krok, który **weryfikuje istnienie lotu i trasy za pomocą API w czasie rzeczywistym** _przed_ dodaniem szczegółów lotu do kontekstu pracy agenta. Jeśli walidacja się nie powiedzie, błędne informacje są „objęte kwarantanną” i nie są dalej używane.
 
 ### Rozproszenie kontekstu
 
-**Co to jest:** Kiedy kontekst staje się tak duży, że model zbytnio skupia się na zgromadzonej historii zamiast wykorzystywać to, czego nauczył się podczas treningu, prowadząc do powtarzalnych lub niepomocnych działań. Modele mogą zacząć popełniać błędy nawet zanim okno kontekstowe się zapełni.
+**Co to jest:** Kiedy kontekst staje się tak obszerny, że model koncentruje się zbytnio na nagromadzonej historii zamiast korzystać z wiedzy zdobytej podczas treningu, prowadząc do powtarzalnych lub nieprzydatnych działań. Modele mogą zacząć popełniać błędy nawet zanim okno kontekstowe zostanie wypełnione.
 
-**Co robić:** Stosuj **streszczenie kontekstu**. Okresowo kompresuj zgromadzone informacje do krótszych podsumowań, zachowując ważne szczegóły, a usuwając nadmiarową historię. Pomaga to „zresetować” skupienie.
+**Co zrobić:** Użyj **podsumowywania kontekstu**. Okresowo kompresuj zgromadzone informacje do krótszych streszczeń, zachowując ważne szczegóły i usuwając redundantną historię. To pomaga zresetować fokus.
 
-**Przykład rezerwacji podróży:** Dyskutujesz od dłuższego czasu o różnych wymarzonych miejscach podróży, w tym szczegółowo opisujesz swoją wyprawę z plecakiem sprzed dwóch lat. Gdy w końcu prosisz, aby **„znalazł mi tani lot na następny miesiąc”**, agent zostaje przytłoczony starymi, nieistotnymi szczegółami i ciągle pyta o twój sprzęt podróżniczy lub wcześniejsze plany, ignorując aktualne żądanie.
+**Przykład rezerwacji podróży:** Od dłuższego czasu omawiacie różne wymarzone kierunki podróży, w tym szczegółową relację z twojej wyprawy turystycznej sprzed dwóch lat. Kiedy w końcu prosisz, aby **„znaleźć tani lot na następny miesiąc”**, agent zostaje obciążony starymi, nieistotnymi szczegółami i ciągle pyta o twoje wyposażenie na backpacking lub dawne plany, pomijając bieżące zapytanie.
 
-**Rozwiązanie:** Po określonej liczbie wymian lub gdy kontekst staje się zbyt duży, agent powinien **podsumować najnowsze i najbardziej istotne fragmenty rozmowy** – skupiając się na obecnych datach podróży i celu – i użyć tego skondensowanego podsumowania do następnego wywołania LLM, odrzucając mniej istotną historię.
+**Rozwiązanie:** Po określonej liczbie tur lub gdy kontekst stanie się zbyt duży, agent powinien **podsumować najnowsze i najbardziej istotne części rozmowy** – skupiając się na aktualnych datach podróży i celu – i użyć tego skondensowanego podsumowania w kolejnym wywołaniu LLM, odrzucając mniej istotne fragmenty historii.
 
-### Zamieszanie w kontekście
+### Zamieszanie kontekstu
 
-**Co to jest:** Gdy niepotrzebny kontekst, często w formie zbyt dużej liczby dostępnych narzędzi, powoduje, że model generuje złe odpowiedzi lub wywołuje nieistotne narzędzia. Mniejsze modele są szczególnie podatne na to.
+**Co to jest:** Gdy nadmiar niepotrzebnego kontekstu, często w postaci zbyt wielu dostępnych narzędzi, powoduje, że model generuje złe odpowiedzi lub wywołuje nieistotne narzędzia. Szczególnie dotyczy to mniejszych modeli.
 
-**Co robić:** Wdróż **zarządzanie zestawem narzędzi** przy użyciu technik RAG. Przechowuj opisy narzędzi w bazie wektorowej i wybieraj _tylko_ najbardziej odpowiednie narzędzia do konkretnego zadania. Badania pokazują, że ograniczenie wyboru narzędzi do poniżej 30 jest optymalne.
+**Co zrobić:** Wdróż **zarządzanie zestawem narzędzi** za pomocą technik RAG. Przechowuj opisy narzędzi w bazie wektorowej i wybieraj _tylko_ najbardziej odpowiednie narzędzia do każdego konkretnego zadania. Badania pokazują, że warto ograniczać wybór narzędzi do mniej niż 30.
 
-**Przykład rezerwacji podróży:** Twój agent ma dostęp do dziesiątek narzędzi: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations` itd. Pytasz: **„Jaki jest najlepszy sposób poruszania się po Paryżu?”** Z powodu ogromu narzędzi, agent się gubi i próbuje wywołać `book_flight` _w obrębie_ Paryża, albo `rent_car`, mimo że preferujesz transport publiczny, ponieważ opisy narzędzi mogą się pokrywać lub po prostu nie potrafi wybrać najlepszego.
+**Przykład rezerwacji podróży:** Twój agent ma dostęp do dziesiątek narzędzi: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations` itd. Pytasz: **„Jaki jest najlepszy sposób poruszania się po Paryżu?”** Z powodu dużej liczby narzędzi agent się gubi i próbuje wywołać `book_flight` _w obrębie_ Paryża lub `rent_car`, choć preferujesz transport publiczny, ponieważ opisy narzędzi mogą się pokrywać lub nie jest w stanie wybrać najlepsze narzędzie.
 
-**Rozwiązanie:** Używaj **RAG na opisach narzędzi**. Gdy pytasz o poruszanie się po Paryżu, system dynamicznie pobiera _tylko_ najbardziej odpowiednie narzędzia takie jak `rent_car` lub `public_transport_info` na podstawie twojego zapytania, przedstawiając LLM skoncentrowany „zestaw” narzędzi.
+**Rozwiązanie:** Użyj **RAG nad opisami narzędzi**. Gdy pytasz o poruszanie się po Paryżu, system dynamicznie wybiera _tylko_ najbardziej odpowiednie narzędzia, takie jak `rent_car` lub `public_transport_info` na podstawie twojego zapytania, prezentując LLM skoncentrowany „zestaw” narzędzi.
 
 ### Konflikt kontekstu
 
-**Co to jest:** Gdy w kontekście istnieją sprzeczne informacje, prowadzące do niespójnego rozumowania lub złych końcowych odpowiedzi. Często zdarza się to, gdy informacje pojawiają się etapami, a wczesne, błędne założenia pozostają w kontekście.
+**Co to jest:** Gdy w kontekście istnieją sprzeczne informacje, prowadzi to do niespójnego rozumowania lub złych końcowych odpowiedzi. Często ma to miejsce, gdy informacje przychodzą etapami, a wczesne, błędne założenia pozostają w kontekście.
 
-**Co robić:** Stosuj **przycinanie kontekstu** i **odciążanie**. Przycinanie polega na usuwaniu przestarzałych lub sprzecznych informacji wraz z pojawieniem się nowych danych. Odciążanie daje modelowi oddzielne „pole robocze” (scratchpad) do przetwarzania informacji bez zaśmiecania głównego kontekstu.
+**Co zrobić:** Użyj **przycinania kontekstu** i **przenoszenia poza kontekst**. Przycinanie oznacza usuwanie przestarzałych lub sprzecznych informacji, gdy pojawiają się nowe dane. Przenoszenie pozwala modelowi na oddzielne środowisko „scratchpad” do przetwarzania informacji bez zaśmiecania głównego kontekstu.
+**Przykład rezerwacji podróży:** Początkowo mówisz swojemu agentowi, **„Chcę lecieć klasą ekonomiczną.”** Później w trakcie rozmowy zmieniasz zdanie i mówisz, **„Właściwie to na tę podróż wybierzmy klasę biznesową.”** Jeśli oba polecenia pozostaną w kontekście, agent może otrzymać sprzeczne wyniki wyszukiwania lub zdezorientować się, którą preferencję uwzględnić.
 
-**Przykład rezerwacji podróży:** Początkowo mówisz agentowi: **„Chcę lecieć klasą ekonomiczną.”** Później zmieniasz zdanie i mówisz: **„Właściwie to na tę podróż weźmy klasę biznes.”** Jeśli oba polecenia pozostaną w kontekście, agent może otrzymać sprzeczne wyniki wyszukiwania lub nie wiedzieć, którą preferencję priorytetyzować.
+**Rozwiązanie:** Wdrożenie **przycinania kontekstu**. Gdy nowe polecenie sprzeciwia się staremu, starsze polecenie jest usuwane lub wyraźnie nadpisywane w kontekście. Alternatywnie agent może użyć **scratchpada**, aby pogodzić sprzeczne preferencje przed podjęciem decyzji, zapewniając, że jedynie ostateczne, spójne polecenie kieruje jego działaniami.
 
-**Rozwiązanie:** Wdróż **przycinanie kontekstu**. Gdy nowe polecenie sprzeciwia się poprzedniemu, starsza instrukcja jest usuwana lub wyraźnie zastępowana w kontekście. Alternatywnie agent może użyć **notatnika (scratchpad)** do pogodzenia sprzecznych preferencji przed podjęciem decyzji, co zapewnia, że tylko ostateczna, spójna instrukcja kieruje jego działaniami.
+## Masz więcej pytań dotyczących inżynierii kontekstu?
 
-## Masz więcej pytań o inżynierię kontekstu?
-
-Dołącz do [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), aby spotkać innych uczących się, uczestniczyć w godzinach konsultacji i uzyskać odpowiedzi na pytania dotyczące agentów AI.
+Dołącz do [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), aby spotkać innych uczących się, uczestniczyć w godzinach pracy i uzyskać odpowiedzi na swoje pytania dotyczące AI Agents.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Zastrzeżenie**:  
-Dokument ten został przetłumaczony przy użyciu automatycznej usługi tłumaczeniowej AI [Co-op Translator](https://github.com/Azure/co-op-translator). Choć dokładamy starań, aby tłumaczenie było jak najbardziej precyzyjne, prosimy pamiętać, że tłumaczenia automatyczne mogą zawierać błędy lub nieścisłości. Oryginalny dokument w jego języku źródłowym powinien być uznawany za źródło wiążące. W przypadku informacji krytycznych zaleca się skorzystanie z profesjonalnego, ludzkiego tłumaczenia. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z korzystania z tego tłumaczenia.
+**Zastrzeżenie**:
+Niniejszy dokument został przetłumaczony za pomocą usługi tłumaczenia AI [Co-op Translator](https://github.com/Azure/co-op-translator). Choć dążymy do dokładności, prosimy pamiętać, że automatyczne tłumaczenia mogą zawierać błędy lub niedokładności. Oryginalny dokument w jego języku źródłowym należy uznawać za autorytatywne źródło. W przypadku informacji krytycznych zalecane jest skorzystanie z profesjonalnego tłumaczenia wykonanego przez człowieka. Nie ponosimy odpowiedzialności za jakiekolwiek nieporozumienia lub błędne interpretacje wynikające z użycia tego tłumaczenia.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

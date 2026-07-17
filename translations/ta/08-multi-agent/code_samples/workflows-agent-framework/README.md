@@ -1,69 +1,69 @@
-# Microsoft Agent Framework Workflow மூலம் பல முகவர் பயன்பாடுகளை உருவாக்குதல்
+# Microsoft Agent Framework Workflow உடன் பன்முக முகவர் செயலிகளை உருவாக்குதல்
 
-இந்த பயிற்சியில், Microsoft Agent Framework-ஐப் பயன்படுத்தி பல முகவர் பயன்பாடுகளை உருவாக்குவதற்கான வழிகாட்டுதலைப் பெறுவீர்கள். பல முகவர் அமைப்புகளின் முக்கிய கருத்துகளைப் புரிந்துகொள்வதுடன், Framework-இன் Workflow கூறின் கட்டமைப்பை ஆராய்ந்து, Python மற்றும் .NET-இல் பல Workflow முறைமைகளுக்கான நடைமுறை உதாரணங்களைப் பார்ப்போம்.
+இந்த பயிற்சிக் குறிப்பானது Microsoft Agent Framework பயன்படுத்தி பன்முக முகவர் செயலிகளை புரிந்து கொண்டு உருவாக்குவதற்கான வழிகாட்டுதலை வழங்கும். நாம் பன்முக முகவர் அமைப்புகளின் முக்கியக் கருத்துக்களை ஆராய்வோம், கட்டமைப்பின் Workflow கூறின் வடிவமைப்பை கவனித்து பார்ப்போம், மற்றும் Python மற்றும் .NET பயன்படுத்தி வெவ்வேறு workflow மாதிரிகளுக்கு நடைமுறை எடுத்துக்காட்டுகளை நடத்தியுக்கொள்வோம்.
 
-## 1\. பல முகவர் அமைப்புகளைப் புரிந்துகொள்வது
+## 1\. பன்முக முகவர் அமைப்புகளை புரிந்து கொள்வது
 
-AI Agent என்பது ஒரு Large Language Model (LLM) இன் வழக்கமான திறன்களைத் தாண்டி செயல்படும் ஒரு அமைப்பு. இது தனது சூழலை உணர்ந்து, முடிவுகளை எடுத்து, குறிப்பிட்ட இலக்குகளை அடைய நடவடிக்கைகளை எடுக்க முடியும். பல முகவர் அமைப்பு என்பது பல முகவர்கள் இணைந்து ஒரு பிரச்சினையைத் தீர்க்கும் ஒரு அமைப்பாகும், இது ஒரு முகவரால் தனியாக கையாள முடியாத அல்லது கடினமானதாக இருக்கும்.
+ஒரு AI முகவர் என்பது ஒரு பொதுவான பெரிய மொழி மாதிரி (LLM) திறமைகளை மீறி செயல்படும் ஒரு அமைப்பு. இது தன் சூழலை உணர்ந்து, முடிவுகள் எடுத்து, குறிப்பிட்ட நோக்கங்களை அடைய நடவடிக்கைகளை மேற்கொள்கிறது. ஒரு பன்முக முகவர் அமைப்பு என்பது பல முகவர்கள் ஒருங்கிணைந்து ஒரு பிரச்சினையை தீர்க்க முயலும். இது ஒரு முகவரால் தனாக செய்ய முடியாத அல்லது கடினமான வேலைகளைச் செய்ய உதவுகிறது.
 
-### பொதுவான பயன்பாட்டு சூழல்கள்
+### பொதுவான பயன்பாட்டு காட்சிகள்
 
-  * **சிக்கலான பிரச்சினை தீர்வு**: ஒரு பெரிய பணியை (எ.கா., ஒரு நிறுவன அளவிலான நிகழ்வை திட்டமிடுதல்) சிறிய துணை பணிகளாக பிரித்து, சிறப்பு முகவர்களால் (எ.கா., ஒரு பட்ஜெட் முகவர், ஒரு லாஜிஸ்டிக்ஸ் முகவர், ஒரு மார்க்கெட்டிங் முகவர்) கையாளுதல்.
-  * **மெய்நிகர் உதவியாளர்கள்**: ஒரு முதன்மை உதவியாளர் முகவர், திட்டமிடல், ஆராய்ச்சி மற்றும் முன்பதிவு போன்ற பணிகளை மற்ற சிறப்பு முகவர்களுக்கு ஒப்படைக்கிறது.
-  * **தானியங்கிய உள்ளடக்க உருவாக்கம்**: ஒரு முகவர் உள்ளடக்கத்தை உருவாக்குகிறது, மற்றொரு முகவர் துல்லியம் மற்றும் தொனிக்கான மதிப்பீடு செய்கிறது, மேலும் மூன்றாவது முகவர் அதை வெளியிடுகிறது.
+  * **சிக்கலான பிரச்சினை தீர்வு**: பெரிய ஒரு பணியை (எ.கா., முழு நிறுவன நிகழ்வை திட்டமிடல்) சிறிய துணை பணிகளாகப் பிரித்து, தனித்தொழில் கொண்ட முகவர்கள் (எ.கா., பட்ஜெட் முகவர், விநியோகம் முகவர், சந்தைப்படுத்தல் முகவர்) கையாளல்.
+  * **மெய்நிகர் உதவியாளர்கள்**: முதன்மை உதவியாளர் முகவர் திட்டமிடல், ஆய்வு மற்றும் முன்பதிவு போன்ற பணிகளை பிற தனித்தொழில் கொண்ட முகவர்களுக்கு ஒப்படைக்கும்.
+  * **தானாக உள்ளடக்கம் உருவாக்குதல்**: ஒரு முகவர் உள்ளடக்கத்தை வரைவு படுத்தி, மற்றொன்று சராசரி மற்றும் சுருதி பரிசீலனை செய்து, மூன்றாவது முகவர் அதை வெளியிடும் வேலைபாதை.
 
-### பல முகவர் முறைமைகள்
+### பன்முக முகவர் வடிவமைப்புகள்
 
-பல முகவர் அமைப்புகள் பல முறைமைகளில் ஒழுங்கமைக்கப்படலாம், இது அவற்றின் தொடர்பு முறையை நிர்ணயிக்கிறது:
+பன்முக முகவர் அமைப்புகளை பல வடிவங்களில் ஒழுங்குசெய்யலாம், அவை ஒருவரிடம் பரிமாறுவதற்கு விதிகளை வரையறுக்கின்றன:
 
-  * **தொடர்ச்சியானது**: முகவர்கள் முன்கூட்டியே வரையறுக்கப்பட்ட வரிசையில் வேலை செய்கின்றனர், ஒரு முகவரின் வெளியீடு அடுத்ததற்கான உள்ளீடாக மாறுகிறது.
-  * **ஒரே நேரத்தில்**: முகவர்கள் ஒரு பணியின் வெவ்வேறு பகுதிகளில் ஒரே நேரத்தில் வேலை செய்கின்றனர், மேலும் அவர்களின் முடிவுகள் இறுதியில் ஒருங்கிணைக்கப்படுகின்றன.
-  * **நிபந்தனையுடன்**: Workflow, ஒரு முகவரின் வெளியீட்டின் அடிப்படையில் வெவ்வேறு பாதைகளைப் பின்பற்றுகிறது, இது ஒரு if-then-else அறிக்கையைப் போன்றது.
+  * **வரிசைப்படுத்தப்பட்ட**: முகவர்கள் முன்கூட்டியே நிர்ணயிக்கப்பட்ட வரிசையில் வேலை செய்கின்றனர், ஒரு அசம்பிளி வரிசை போல. ஒரு முகவரின் வெளியீடு அடுத்ததுகான உள்ளீடாகிறது.
+  * **ஒரே நேரத்தில்**: முகவர்கள் ஒரே நேரத்தில் வேறுபட்ட பணிகளில் செயல்படுகின்றனர், மற்றும் அவற்றின் முடிவுகள் கடையில் சேர்க்கப்படுகின்றன.
+  * **நிபந்தனை அடிப்படையிலான**: ஒரு முகவரின் வெளியீட்டை அடிப்படையாகக் கொண்டு workflow வேறுபட்ட பாதைகளில் செல்கிறது. இதை if-then-else கூற்றுப் போலாக்கலாம்.
 
 ## 2\. Microsoft Agent Framework Workflow கட்டமைப்பு
 
-Agent Framework-இன் Workflow அமைப்பு என்பது பல முகவர்களுக்கிடையிலான சிக்கலான தொடர்புகளை நிர்வகிக்க வடிவமைக்கப்பட்ட ஒரு மேம்பட்ட ஒருங்கிணைப்பு இயந்திரமாகும். இது [Pregel-பாணி செயல்பாட்டு முறை](https://kowshik.github.io/JPregel/pregel_paper.pdf) அடிப்படையில் கட்டமைக்கப்பட்டுள்ளது, இதில் "supersteps" எனப்படும் ஒத்திசைந்த படிகளில் செயலாக்கம் நடைபெறுகிறது.
+Agent Framework-இன் workflow அமைப்பு என்பது பல முகவர்களிடையே சிக்கலான உறவுகளை நிர்வகிப்பதற்கான முன்னேற்றப்பட்ட ஒருங்கிணைப்பு இயந்திரமாகும். இது [Pregel-போன்ற செயலாக்க மாதிரி](https://kowshik.github.io/JPregel/pregel_paper.pdf) அடிப்படையில் உருவாக்கப்பட்டுள்ளது, இதில் செயலாக்கம் ஒருங்கிணைந்த "supersteps" என்ற படிகளாக நடக்கிறது.
 
 ### முக்கிய கூறுகள்
 
-இந்த கட்டமைப்பு மூன்று முக்கிய பகுதிகளால் உருவாக்கப்பட்டுள்ளது:
+கட்டமைப்பு மூன்று முக்கிய பகுதிகளால் துவந்திருகிறது:
 
-1.  **Executors**: இவை அடிப்படை செயலாக்க அலகுகள். எங்கள் உதாரணங்களில், `Agent` என்பது ஒரு வகை Executor ஆகும். ஒவ்வொரு Executor-க்கும் பல Message Handler-கள் இருக்கலாம், இது பெறப்படும் Message வகையின் அடிப்படையில் தானாகவே அழைக்கப்படும்.
-2.  **Edges**: இவை Executor-களுக்கிடையிலான Message-கள் செல்லும் பாதையை வரையறுக்கின்றன. Edges-களுக்கு நிபந்தனைகள் இருக்கலாம், இது Workflow Graph வழியாக தகவலின் மாறுபட்ட வழிமுறையை அனுமதிக்கிறது.
-3.  **Workflow**: இந்த கூறு முழு செயல்முறையை ஒருங்கிணைக்கிறது, Executors, Edges மற்றும் செயல்முறையின் ஒட்டுமொத்த ஓட்டத்தை நிர்வகிக்கிறது. இது Message-கள் சரியான வரிசையில் செயலாக்கப்படுவதை உறுதிசெய்கிறது மற்றும் கண்காணிப்புக்கான நிகழ்வுகளை ஸ்ட்ரீம் செய்கிறது.
+1.  **நடத்திகள் (Executors)**: இவை அடிப்படை செயலாக்க அலகுகள். எங்கள் எடுத்துக்காட்டுகளில், ஒரு `Agent` என்பது ஒரு executor வகையினை சேர்ந்தது. ஒவ்வொரு executor-க்கும் பல செய்தி கையாளிகள் இருப்பதற்கு வாய்ப்பு உள்ளது, அவை பெறும் செய்தியின் வகையின் அடிப்படையில் தானாக அழைக்கப்படுகின்றன.
+2.  **எட்ஜுகள் (Edges)**: இவை executor-களுக்கு இடையே தகவல் பரிமாற்ற பாதையை குறிப்பிடுகின்றன. இவை நிபந்தனைகளுடன் இருக்கலாம், workflow காட்சி மூலம் தகவலை இயக்கும் வழிமுறைகளை அனுமதிக்கிறது.
+3.  **Workflow**: இந்த கூறு முழு செயல்முறையினையும் ஒருங்கிணைக்கும், executor-களை, edge-களை மற்றும் மிகுதி இயக்கத்தை நிர்வகிக்கும். இது செய்திகளின் ஒழுங்கான செயலாக்கம் மற்றும் நிகழ்வுகளுக்கு ஒளிப்படத்தலுக்கான உபகரணங்களையும் உறுதிப்படுத்துகிறது.
 
-*Workflow அமைப்பின் முக்கிய கூறுகளை விளக்கும் ஒரு வரைபடம்.*
+*workflow அமைப்பின் முக்கிய கூறுகளை விளக்கும் வரைபடம்.*
 
-இந்த அமைப்பு தொடர்ச்சியான சங்கிலிகள், ஒரே நேரத்தில் செயலாக்கத்திற்கான fan-out/fan-in மற்றும் நிபந்தனையுடன் செயல்படும் switch-case logic போன்ற அடிப்படை முறைமைகளைப் பயன்படுத்தி வலுவான மற்றும் அளவிடக்கூடிய பயன்பாடுகளை உருவாக்க அனுமதிக்கிறது.
+இந்த கட்டமைப்பு அடிப்படையாக வரிசைச் சங்கிலிகள், பக்கவாட்டு fan-out/fan-in செயலாக்கம் மற்றும் நிபந்தனை அடிப்படையிலான மாற்றுக் வழிமுறைகள் போன்ற தோற்றங்களைப் பயன்படுத்தி வலுவான மற்றும் அளவிடக்கூடிய செயலிகளை உருவாக்க அனுமதிக்கின்றது.
 
-## 3\. நடைமுறை உதாரணங்கள் மற்றும் குறியீட்டு பகுப்பாய்வு
+## 3\. நடைமுறை எடுத்துக்காட்டுகள் மற்றும் குறியீடு பகுப்பு
 
-இப்போது, Framework-ஐப் பயன்படுத்தி வெவ்வேறு Workflow முறைமைகளை எவ்வாறு செயல்படுத்துவது என்பதை ஆராய்வோம். ஒவ்வொரு உதாரணத்திற்கும் Python மற்றும் .NET குறியீட்டைப் பார்ப்போம்.
+இப்போது, நாமே framework பயன்படுத்தி வேறுபட்ட workflow மாதிரிகளை எப்படி செயல்படுத்துவது என்று பார்ப்போம். ஒவ்வொரு எடுத்துக்காட்டுக்கும் Python மற்றும் .NET குறியீடையும் பார்ப்போம்.
 
-### வழக்கு 1: அடிப்படை தொடர்ச்சியான Workflow
+### எடுத்துக்காட்டு 1: அடிப்படை வரிசைப்படுத்தப்பட்ட Workflow
 
-இது மிக எளிய முறைமையாகும், இதில் ஒரு முகவரின் வெளியீடு நேரடியாக மற்றொரு முகவருக்கு அனுப்பப்படுகிறது. எங்கள் சூழல் ஒரு ஹோட்டல் `FrontDesk` முகவர் ஒரு பயண பரிந்துரையை வழங்குகிறது, அதை `Concierge` முகவர் மதிப்பீடு செய்கிறது.
+இது எளிதான மாதிரி, ஒரு முகவரின் வெளியீடு நேரடியாக மற்றொன்றிற்கு அனுப்பப்படும். எங்கள் காட்சியில் ஒரு ஹோட்டல் `FrontDesk` முகவர் ஒரு பயண பரிந்துரையை உருவாக்குகிறார், அது பின்னர் `Concierge` முகவரால் பரிசீலிக்கப்படும்.
 
-*FrontDesk -\> Concierge Workflow-இன் அடிப்படை வரைபடம்.*
+*அடிப்படை FrontDesk -> Concierge workflow வரைபடம்.*
 
-#### சூழல் பின்னணி
+#### காட்சியின் பின்னணி
 
-ஒரு பயணி பாரிஸில் ஒரு பரிந்துரையை கேட்கிறார்.
+ஒரு பயணி பாரிசில் பரிந்துரை கேட்கிறார்.
 
-1.  `FrontDesk` முகவர், சுருக்கமாக செயல்படுவதற்காக வடிவமைக்கப்பட்டுள்ளது, Louvre அருங்காட்சியகத்தை பார்வையிட பரிந்துரைக்கிறது.
-2.  `Concierge` முகவர், உண்மையான அனுபவங்களை முன்னுரிமை அளிக்கிறான், இந்த பரிந்துரையைப் பெறுகிறது. இது பரிந்துரையை மதிப்பீடு செய்து, ஒரு உள்ளூர், குறைவாக சுற்றுலாப் பயணிகளின் மாற்றத்தை பரிந்துரைக்கிறது.
+1.  சுருக்கமாக உட்படுத்தப்பட்ட `FrontDesk` முகவர் Louvre அருங்காட்சியகத்தைப் பார்வையிட பரிந்துரைக்கிறார்.
+2.  உண்மையான அனுபவங்களை முன்னிடும் `Concierge` முகவர் அந்த பரிந்துரையைப் பெறும், பரிந்துரையை பரிசீலித்து, குறைந்த சுற்றுலா இடமான உள்ளூர் மாற்று பரிந்துரையையும் வழங்குகிறார்.
 
-#### Python செயல்பாட்டு பகுப்பாய்வு
+#### Python செயலாக்க பகுப்பு
 
-Python உதாரணத்தில், முதலில் இரண்டு முகவர்களை வரையறுத்து உருவாக்குகிறோம், ஒவ்வொன்றும் குறிப்பிட்ட வழிகாட்டுதல்களுடன்.
+Python எடுத்துக்காட்டில், முதலில் இரண்டு முகவர்களை வரையறுத்து உருவாக்குகிறோம், ஒவ்வொருவரும் குறிப்பிட்ட அறிவுறுத்தல்களுடன்.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# முகவர் பாத்திரங்களையும் அறிவுறுத்தல்களையும் வரையறு
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# முகவர் நிழல்கள் உருவாக்கவும்
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-அடுத்ததாக, `WorkflowBuilder` பயன்படுத்தி Graph-ஐ உருவாக்குகிறோம். `front_desk_agent` தொடக்க புள்ளியாக அமைக்கப்படுகிறது, மேலும் அதன் வெளியீட்டை `reviewer_agent`-க்கு இணைக்கும் ஒரு Edge உருவாக்கப்படுகிறது.
+அடுத்து, `WorkflowBuilder` பயன்படுத்தி கிராப் கட்டப்படுகிறது. `front_desk_agent` துவக்க புள்ளியாகவும், அதன் வெளியீடை `reviewer_agent`க்கு இணைக்கும் edge உருவாக்கப்படுகிறது.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-இறுதியாக, Workflow பயனர் கேள்வியுடன் செயல்படுத்தப்படுகிறது.
+இறுதியாக, ஆரம்ப பயனர் கிளியை கொண்டு workflow இயக்கு.
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run வேலைप्रவாகத்தை இயக்குகிறது; get_outputs() வெளியீடு இயக்கியின் முடிவை 반환 செய்கிறது.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C\#) செயல்பாட்டு பகுப்பாய்வு
+#### .NET (C\#) செயலாக்க பகுப்பு
 
-.NET செயல்பாடு மிகவும் ஒத்த தத்துவத்தை பின்பற்றுகிறது. முதலில், முகவர்களின் பெயர்கள் மற்றும் வழிகாட்டுதல்களுக்கான Constants வரையறுக்கப்படுகின்றன.
+.NET செயலாக்கம் மிகவும் ஒத்ததுதான். முதலில் முகவர்களின் பெயர்க்குறிப்புகள் மற்றும் அறிவுறுத்தல்கள் நிர்ணயிக்கப்படுகின்றன.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-முகவர்கள் `OpenAIClient`-ஐப் பயன்படுத்தி உருவாக்கப்படுகின்றன, பின்னர் `WorkflowBuilder` தொடர்ச்சியான ஓட்டத்தை வரையறுக்கிறது, `frontDeskAgent`-இல் இருந்து `reviewerAgent`-க்கு Edge சேர்க்கிறது.
+முகவர்கள் `AzureOpenAIClient` (Responses API) பயன்படுத்தி உருவாக்கப்படுகின்றனர், பின்னர் `WorkflowBuilder` `frontDeskAgent` முதல் `reviewerAgent` க்கு வரிசைப்படுத்தப்பட்ட edge ஐ உருவாக்குகிறது.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Workflow பயனர் Message-யுடன் இயக்கப்படுகிறது, மேலும் முடிவுகள் ஸ்ட்ரீம் மூலம் திரும்ப பெறப்படுகின்றன.
+பயனரின் செய்தியுடன் workflow இயக்கப்படுகின்றது, முடிவுகள் தொடர்ச்சியாக வழங்கப்படுகின்றன.
 
-### வழக்கு 2: பல படி தொடர்ச்சியான Workflow
+### எடுத்துக்காட்டு 2: பல படி வரிசையான Workflow
 
-இந்த முறைமையானது அடிப்படை தொடர்ச்சியை மேலும் விரிவாக்குகிறது, மேலும் முகவர்களைச் சேர்க்கிறது. இது பல கட்டங்களின் சீரமைப்பு அல்லது மாற்றம் தேவைப்படும் செயல்முறைகளுக்கு சிறந்தது.
+இந்த மாதிரி அடிப்படை வரிசையை அதிக முகவர்களுக்கு நீட்டிக்கிறது. இது பல சார்ந்த மாற்றங்கள் அல்லது சரிசெய்தல் படிகளை தேவைப்படுத்தும் செயலிகளுக்கு சிறந்தது.
 
-#### சூழல் பின்னணி
+#### காட்சியின் பின்னணி
 
-ஒரு பயனர் ஒரு வாழும் அறையின் படத்தை வழங்கி, ஒரு பொருட்களின் விலை மதிப்பீட்டை கேட்கிறார்.
+ஒரு பயனர் ஒரு உறைவுமுனை படத்தை வழங்கி அது தொடர்பான கேள்வி கேட்கிறார்.
 
-1.  **Sales-Agent**: படத்தில் உள்ள பொருட்களை அடையாளம் கண்டு ஒரு பட்டியலை உருவாக்குகிறது.
-2.  **Price-Agent**: பொருட்களின் பட்டியலை எடுத்துக்கொண்டு, பட்ஜெட், நடுத்தர மற்றும் பிரீமியம் விருப்பங்களை உள்ளடக்கிய விரிவான விலை விவர breakdown-ஐ வழங்குகிறது.
-3.  **Quote-Agent**: விலைப்பட்டியலைப் பெறுகிறது மற்றும் அதை Markdown-இல் ஒரு அதிகாரப்பூர்வ Quote ஆவணமாக வடிவமைக்கிறது.
+1.  **விற்பனை முகவர்**: படத்திலுள்ள கைப்பொருட்களை அடையாளம் கண்டு பட்டியலிடுகிறார்.
+2.  **விலை முகவர்**: ஆபரண பட்டியலை சமர்ப்பித்து, பட்ஜெட், நடுத்தர மற்றும் பிரீமியம் விருப்பங்களுடன் விரிவான விலை விபரங்களை வழங்குகிறார்.
+3.  **கோட்டை முகவர்**: விலைப்படுத்தப்பட்ட பட்டியலை Markdown வடிவில் ஒரு அதிகாரமான மேற்கோள் ஆவணமாக மாற்றி வழங்குகிறார்.
 
-*Sales -\> Price -\> Quote Workflow-இன் வரைபடம்.*
+*விற்பனை -> விலை -> கோட்டை workflow வரைபடம்.*
 
-#### Python செயல்பாட்டு பகுப்பாய்வு
+#### Python செயலாக்க பகுப்பு
 
-மூன்று முகவர்கள் வரையறுக்கப்படுகின்றன, ஒவ்வொன்றும் ஒரு சிறப்பு பங்கு கொண்டது. Workflow `add_edge` பயன்படுத்தி ஒரு சங்கிலியை உருவாக்குகிறது: `sales_agent` -\> `price_agent` -\> `quote_agent`.
+மூன்று முகவர்கள் ஒவ்வொருவருக்கும் தனித்தொழில் கொடுக்கப்படுகிறார்கள். workflow `add_edge` வழியாக சங்கிலியாக உருவாகிறது: `sales_agent` -> `price_agent` -> `quote_agent`.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# மூன்று சிறப்பு முகவர்கள் உருவாக்கவும்
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# வரிசை வேலைப்பாடை கட்டமைக்கவும்
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-உள்ளீடு ஒரு `ChatMessage`, இது உரை மற்றும் படத்தின் URI ஆகியவற்றை உள்ளடக்கியது. Framework ஒவ்வொரு முகவரின் வெளியீட்டை அடுத்தவருக்கு அனுப்புவதையும் இறுதியாக Quote உருவாக்கப்படுவதையும் நிர்வகிக்கிறது.
+உள்ளீடு ஒரு `ChatMessage`, அதில் உரையும் பட URI-உம் உள்ளது. framework ஒவ்வொரு முகவரின் வெளியீட்டை அடுத்ததுக்கு அனுப்பி நடைமுறை செய்கிறது, இறுதியில் மேற்கோள் உருவாக்கப்படுகிறது.
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# பயனர் செய்தியில் உரையும் ஒரு படம் இரண்டும் உள்ளன
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# வேலை தொடரைக் இயக்கவும்
+events = await workflow.run(message)
 ```
 
-#### .NET (C\#) செயல்பாட்டு பகுப்பாய்வு
+#### .NET (C\#) செயலாக்க பகுப்பு
 
-.NET உதாரணம் Python பதிப்பை பிரதிபலிக்கிறது. மூன்று முகவர்கள் (`salesagent`, `priceagent`, `quoteagent`) உருவாக்கப்படுகின்றன. `WorkflowBuilder` அவற்றை தொடர்ச்சியாக இணைக்கிறது.
+.NET எடுத்துக்காட்டு Python பதிப்புடன் ஒத்திருக்கின்றது. மூன்று முகவர்கள் (`salesagent`, `priceagent`, `quoteagent`) உருவாக்கப்படுகின்றன. `WorkflowBuilder` அவர்கள் வரிசைப்படுத்தப்பட்ட இணைப்பை உருவாக்குகிறது.
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-பயனர் Message, படத்தின் தரவுடன் (bytes ஆக) மற்றும் உரை prompt உடன் உருவாக்கப்படுகிறது. `InProcessExecution.StreamAsync` முறை Workflow-ஐ தொடங்குகிறது, மேலும் இறுதி வெளியீடு ஸ்ட்ரீமில் இருந்து பிடிக்கப்படுகிறது.
+பயனரின் செய்தி பட தரவு (பைட்களாக) மற்றும் உரை கிளி உடன் உருவாக்கப்படுகிறது. `InProcessExecution.RunStreamingAsync` μέத்தடோடு workflow துவங்கி, இறுதி வெளியீடு தொடரில் பிடிக்கப்படுகிறது.
 
-### வழக்கு 3: ஒரே நேரத்தில் Workflow
+### எடுத்துக்காட்டு 3: ஒரே நேர Concurrent Workflow
 
-இந்த முறைமையானது பணிகளை ஒரே நேரத்தில் செய்யும்போது நேரத்தைச் சேமிக்க பயன்படுத்தப்படுகிறது. இது பல முகவர்களுக்கு "fan-out" மற்றும் முடிவுகளை ஒருங்கிணைக்க "fan-in" ஆகும்.
+இது பணிகளை ஒரே நேரத்தில் செய்வதற்குரிய மாதிரி. இதில் பல முகவர்களுக்கு "fan-out" செய்து, முடிவுகளை "fan-in" மூலம் ஒன்றிணைக்கும் செயலைச் செய்யும்.
 
-#### சூழல் பின்னணி
+#### காட்சியின் பின்னணி
 
-ஒரு பயனர் சியாட்டிலுக்கு ஒரு பயணத்தை திட்டமிட கேட்கிறார்.
+ஒரு பயனர் சீயாட்டிளுக்கு பயணம் திட்டமிட கேட்கிறார்.
 
-1.  **Dispatcher (Fan-Out)**: பயனர் கோரிக்கை ஒரே நேரத்தில் இரண்டு முகவர்களுக்கு அனுப்பப்படுகிறது.
-2.  **Researcher-Agent**: சியாட்டிலில் டிசம்பரில் ஒரு பயணத்திற்கான ஈர்ப்புகள், வானிலை மற்றும் முக்கிய கருத்துகளை ஆராய்கிறது.
-3.  **Plan-Agent**: தனித்துவமாக ஒரு விரிவான நாள்-தின பயண திட்டத்தை உருவாக்குகிறது.
-4.  **Aggregator (Fan-In)**: ஆராய்ச்சியாளர் மற்றும் திட்டமிடுபவரின் வெளியீடுகள் ஒருங்கிணைக்கப்பட்டு இறுதி முடிவாக வழங்கப்படுகின்றன.
+1.  **ஒப்படைப்பாளர் (Fan-Out)**: பயனரின் கோரிக்கையை இரண்டு முகவர்களுக்கு ஒரே நேரத்தில் அனுப்புகிறார்.
+2.  **ஆய்வாளர் முகவர்**: சீயாட்டிளின் வசதிகள், வானிலை, முக்கிய கவனங்கள் பற்றி ஆராய்கிறார்.
+3.  **திட்டமிடும் முகவர்**: தனிப்பட்ட முறையில் தினசரி பயண திட்டத்தை உருவாக்குகின்றார்.
+4.  **இணைப்பாளர் (Fan-In)**: ஆராய்ச்சியாளரும் திட்டமிடுநரும் வழங்கும் முடிவுகளை சேகரித்து, இறுதிப் படையாக வழங்குகிறார்.
 
-*Concurrent Researcher மற்றும் Planner Workflow-இன் வரைபடம்.*
+*ஒரே நேர ஆராய்ச்சியாளர் மற்றும் திட்டமிடுநர் workflow வரைபடம்.*
 
-#### Python செயல்பாட்டு பகுப்பாய்வு
+#### Python செயலாக்க பகுப்பு
 
-`ConcurrentBuilder` இந்த முறைமையை உருவாக்க எளிமைப்படுத்துகிறது. நீங்கள் பங்கேற்கும் முகவர்களின் பட்டியலை வழங்கினால், Builder தானாகவே தேவையான fan-out மற்றும் fan-in logic-ஐ உருவாக்குகிறது.
+`ConcurrentBuilder` இந்த மாதிரியை எளிமையாக்குகிறது. நீங்கள் பங்கேற்கும் முகவர்களை பட்டியலிடுகிறீர்கள், மற்றும் builder தானாகவே fan-out மற்றும் fan-in வரையறுக்கிறது.
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder ஈர்க்கல்/பிரிக்கல் தர்க்கத்தை கையாள்கிறது
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# வழிமுறையை இயக்குக
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Framework `research_agent` மற்றும் `plan_agent` ஒரே நேரத்தில் செயல்படுவதை உறுதிசெய்கிறது, மேலும் அவர்களின் இறுதி வெளியீடுகள் ஒரு பட்டியலாக ஒருங்கிணைக்கப்படுகின்றன.
+framework `research_agent` மற்றும் `plan_agent` ஒரே நேரத்தில் இயங்கவும், முடிவுகளை பட்டியலில் சேகரிக்கும் பணியும் செய்கிறது.
 
-#### .NET (C\#) செயல்பாட்டு பகுப்பாய்வு
+#### .NET (C\#) செயலாக்க பகுப்பு
 
-.NET-இல், இந்த முறைமையானது மேலும் தெளிவான வரையறையை தேவைப்படுகிறது. Custom Executors (`ConcurrentStartExecutor` மற்றும் `ConcurrentAggregationExecutor`) fan-out மற்றும் fan-in logic-ஐ நிர்வகிக்க உருவாக்கப்படுகின்றன.
+.NET இல் இந்த மாதிரி சிறிது தெளிவான வரையறையை தேவைப்படுத்துகிறது. தனிப்பட்ட இயக்கிகள் (`ConcurrentStartExecutor` மற்றும் `ConcurrentAggregationExecutor`) fan-out மற்றும் fan-in பணிகளை கையாளக்கூடியவையாக உருவாக்கப்படுகின்றன.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` பின்னர் `AddFanOutEdge` மற்றும் `AddFanInEdge` பயன்படுத்தி இந்த Custom Executors மற்றும் முகவர்களுடன் Graph-ஐ உருவாக்குகிறது.
+பின்னர் `WorkflowBuilder` `AddFanOutEdge` மற்றும் `AddFanInEdge` பயன்படுத்தி இந்த தனிப்பட்ட இயக்கிகள் மற்றும் முகவர்களுடன் கிராப் கட்டுகிறது.
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### வழக்கு 4: நிபந்தனையுடன் Workflow
+### எடுத்துக்காட்டு 4: நிபந்தனை அடிப்படையிலான Workflow
 
-நிபந்தனையுடன் Workflow-கள் branching logic-ஐ அறிமுகப்படுத்துகின்றன, இது இடைநிலை முடிவுகளின் அடிப்படையில் வெவ்வேறு பாதைகளை எடுக்க அனுமதிக்கிறது.
+நிபந்தனை அடிப்படையிலான workflow கள் கிளையின் வழிமுறைகளை அறிமுகப்படுத்துகின்றன, அமைப்பு இடைக்கால முடிவுகளின் அடிப்படையில் வேறுபட்ட பாதைகளை எடுத்துச் செல்ல முடியும்.
 
-#### சூழல் பின்னணி
+#### காட்சியின் பின்னணி
 
-இந்த Workflow ஒரு தொழில்நுட்ப பயிற்சியை உருவாக்கி வெளியிடுவதைக் தானியங்கமாக்குகிறது.
+இந்த workflow தொழில்துறை பயிற்சிக் குறிப்பை தானாக உருவாக்கி வெளியிடுகிறது.
 
-1.  **Evangelist-Agent**: கொடுக்கப்பட்ட சுருக்கம் மற்றும் URLs அடிப்படையில் பயிற்சியின் ஒரு வரைவை எழுதுகிறது.
-2.  **ContentReviewer-Agent**: வரைவை மதிப்பீடு செய்கிறது. இது வார்த்தை எண்ணிக்கை 200 வார்த்தைகளைத் தாண்டுகிறதா என்பதைச் சரிபார்க்கிறது.
-3.  **நிபந்தனையுடன் கிளை**:
-      * **Approved (`Yes`) என்றால்**: Workflow `Publisher-Agent`-க்கு தொடர்கிறது.
-      * **Rejected (`No`) என்றால்**: Workflow நிறுத்தி மறுப்புக்கான காரணத்தை வெளியிடுகிறது.
-4.  **Publisher-Agent**: வரைவு அங்கீகரிக்கப்பட்டால், இந்த முகவர் உள்ளடக்கத்தை Markdown கோப்பாக சேமிக்கிறது.
+1.  **Evangelist-Agent**: கொடுக்கப்பட்ட சுருக்கம் மற்றும் URL அடிப்படையில் பயிற்சிக் குறிப்பின் வரைவை எழுதுகிறார்.
+2.  **ContentReviewer-Agent**: வரைவை சரிபார்க்கிறார். வார்த்தை எண்ணிக்கை 200ஐத் தாண்டியுள்ளதா என்பதைப் பார்க்கிறார்.
+3.  **நிபந்தனை கிளை**:
+      * **சென்றால் (`ஆம்`)**: workflow `Publisher-Agent`க்கு செல்கிறது.
+      * **இல்லையெனில் (`இல்லை`)**: workflow நிறுத்தப்படுகிறது மற்றும் நிராகரிப்பு காரணத்தை வெளிப்படுத்துகிறது.
+4.  **Publisher-Agent**: வரைவு அனுமதிக்கப்பட்டால், இந்த முகவர் உள்ளடக்கத்தை Markdown கோப்பாக சேமிக்கிறார்.
 
-#### Python செயல்பாட்டு பகுப்பாய்வு
+#### Python செயலாக்க பகுப்பு
 
-இந்த உதாரணம் `select_targets` என்ற Custom Function-ஐ பயன்படுத்தி நிபந்தனையுடன் logic-ஐ செயல்படுத்துகிறது. இந்த Function `add_multi_selection_edge_group`-க்கு அனுப்பப்படுகிறது மற்றும் `review_result` புலத்தின் அடிப்படையில் Workflow-ஐ வழிநடத்துகிறது.
+இந்த எடுத்துக்காட்டு ஒரு தனிப்பட்ட செயல்பாடு `select_targets` ஐ பயன்படுத்தி நிபந்தனை அச்சொற்களை செயல்படுத்துகிறது. இந்த செயல்பாடு `add_multi_selection_edge_group` க்கு வழங்கப்படுகின்றது மற்றும் பார்வையாளர் வெளியீட்டின் `review_result` புலத்தைப் பயன்படுத்தி workflow ஐ வழிநடத்துகிறது.
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# இந்த செயல்பாடு மதிப்பாய்வு முடிவின் அடிப்படையில் அடுத்த படியை தீர்மானிக்கிறது
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # ஒப்புதலானால், 'save_draft' அமல்படுத்துபவருக்கு முன்னேறு
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # மறுக்கப்பட்டால், தோல்வியை அறிக்கையிட 'handle_review' அமல்படுத்துபவருக்கு முன்னேறு
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# பணிச்சுழற்சி கட்டியாளர் வழிநடத்தும் செயலுக்காக தேர்வு செயல்பாட்டைப் பயன்படுத்துகிறது
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # பல தேர்வு விளிம்பு நிபந்தனை தர்க்கத்தை அமல்படுத்துகிறது
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-`to_reviewer_result` போன்ற Custom Executors, முகவர்களின் JSON வெளியீட்டை Strongly-Typed Objects-ஆக மாற்றி, Selection Function ஆய்வு செய்ய அனுமதிக்கிறது.
+`to_reviewer_result` போன்ற தனிப்பட்ட இயக்கிகள் முகவர்களின் JSON வெளியீட்டை பாக்ஸிங் செய்து தேர்வு செயல்பாடு பரிசீலிக்க கூடிய வலுவான வகையாக்கப்பட்ட பொருட்களாக மாற்றுகின்றன.
 
-#### .NET (C\#) செயல்பாட்டு பகுப்பாய்வு
+#### .NET (C\#) செயலாக்க பகுப்பு
 
-.NET பதிப்பு ஒரு நிபந்தனை Function-ஐ பயன்படுத்தி இதே அணுகுமுறையை பின்பற்றுகிறது. `Func<object?, bool>` வரையறுக்கப்படுகிறது, இது `ReviewResult` பொருளின் `Result` பண்பைச் சரிபார்க்கிறது.
+.NET பதிப்பு நிபந்தனை செயல்பாட்டோடு ஒத்த முறையைப் பயன்படுத்துகிறது. ஒரு `Func<object?, bool>` உருவாக்கப்படுகிறது, இது `ReviewResult` பொருளின் `Result` பண்பை சரிபார்க்கிறது.
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-`AddEdge` முறைமையின் `condition` அளவுரு `WorkflowBuilder`-ஐ ஒரு branching பாதையை உருவாக்க அனுமதிக்கிறது. Workflow `publishExecutor`-க்கு Edge-ஐ பின்பற்றும், `GetCondition(expectedResult: "Yes")` உண்மையைத் திருப்பினால். இல்லையெனில், இது `sendReviewerExecutor` பாதையைப் பின்பற்றும்.
+`AddEdge` செயற்கூறு `condition` அளவுருவின் மூலம் `WorkflowBuilder` கிளை பாதையை உருவாக்குகிறது. workflow `publishExecutor`க்கு செல்லும் வழியை மட்டும் `GetCondition(expectedResult: "Yes")` சப்திக்குச் சராசரி எழுப்பும்போது பின்பற்றும். இல்லையெனில் `sendReviewerExecutor`க்கு செல்லும் பாதையை பின்பற்றும்.
 
 ## முடிவு
 
-Microsoft Agent Framework Workflow பல முகவர் அமைப்புகளை ஒருங்கிணைக்க வலுவான மற்றும் நெகிழ்வான அடித்தளத்தை வழங்குகிறது. அதன் Graph-அடிப்படையிலான கட்டமைப்பு மற்றும் முக்கிய கூறுகளைப் பயன்படுத்தி, Python மற்றும் .NET-இல் சிக்கலான Workflow-களை வடிவமைத்து செயல்படுத்த முடியும். உங்கள் பயன்பாடு எளிய தொடர்ச்சியான செயலாக்கம், ஒரே நேரத்தில் செயல்பாடு அல்லது dinamic நிபந்தனையுடன் logic தேவைப்படுகிறதா என்பதை பொருத்து, Framework வலுவான, அளவிடக்கூடிய மற்றும் Type-Safe AI-ஆதாரமான தீர்வுகளை உருவாக்க தேவையான கருவிகளை வழங்குகிறது.
+Microsoft Agent Framework Workflow பல முகவர் அமைப்புகளுக்கு சிக்கலான ஒருங்கிணைப்பில் வலுவான மற்றும் நெகிழ்வான அடித்தளத்தையும் வழங்குகிறது. அதன் கிராப் அடிப்படையிலான கட்டமைப்பும் முக்கிய கூறுகளும், Python மற்றும் .NET இரண்டிலும் மேம்பட்ட workflows வடிவமைக்க மற்றும் செயல்படுத்த உதவுகின்றன. உங்கள் செயலி எளிய வரிசை செயலாக்கத்தையும், ஒரே நேர செயல்பாடுகளையும் அல்லது மாற்று நிபந்தனை நிகழ்வுகளையும் தேவைப்படுத்தினாலும்கூட, இந்த framework சக்திவாய்ந்த, அளவுத் தெளிவிலான மற்றும் வகை பாதுகாப்பான AI மேலாளர் தீர்வுகளை உருவாக்கும் கருவிகளை வழங்குகிறது.
 
 ---
 
-**குறிப்பு**:  
-இந்த ஆவணம் [Co-op Translator](https://github.com/Azure/co-op-translator) என்ற AI மொழிபெயர்ப்பு சேவையைப் பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சிக்கின்றோம், ஆனால் தானியங்கி மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறான தகவல்கள் இருக்கக்கூடும் என்பதை கவனத்தில் கொள்ளவும். அதன் தாய்மொழியில் உள்ள மூல ஆவணம் அதிகாரப்பூர்வ ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்முறை மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்த தவறான புரிதல்கள் அல்லது தவறான விளக்கங்களுக்கு நாங்கள் பொறுப்பல்ல.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**மறுப்பு**:
+இந்த ஆவணம் AI மொழிபெயர்ப்பு சேவை [Co-op Translator](https://github.com/Azure/co-op-translator) பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சி செய்துள்ளோம், ஆனால் தானாக செய்யப்படும் மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறுகள் இருக்கலாம் என்பதை கவனத்தில் கொள்ளவும். அசல் ஆவணம் அதன் தாய்மொழியில் அதிகாரப்பூர்வ ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்நுட்பமான மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்த தவறான புரிதல்கள் அல்லது தவறான விளக்கத்திற்கும் நாங்கள் பொறுப்பில்வில்லை.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

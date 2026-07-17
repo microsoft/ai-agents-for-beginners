@@ -1,44 +1,44 @@
 [![Usaldusväärsed tehisintellekti agendid](../../../translated_images/et/lesson-6-thumbnail.a58ab36c099038d4.webp)](https://youtu.be/iZKkMEGBCUQ?si=Q-kEbcyHUMPoHp8L)
 
-> _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_
+> _(Klõpsake ülaloleval pildil, et vaadata selle õppetunni videot)_
 
 # Usaldusväärsete tehisintellekti agentide loomine
 
-## Introduction
+## Sissejuhatus
 
-This lesson will cover:
+See õppetund käsitleb:
 
-- Kuidas ehitada ja juurutada turvalisi ning tõhusaid tehisintellekti agente
-- Olulisi turvalisuse aspekte tehisintellekti agentide arendamisel.
-- Kuidas tagada andmete ja kasutajate privaatsus tehisintellekti agentide arendamisel.
+- Kuidas luua ja juurutada ohutuid ning tõhusaid tehisintellekti agente
+- Olulisi turvakaalutlusi tehisintellekti agentide arendamisel.
+- Kuidas säilitada andmete ja kasutajate privaatsust tehisintellekti agentide arendamisel.
 
-## Learning Goals
+## Õpieesmärgid
 
-After completing this lesson, you will know how to:
+Pärast selle õppetunni lõpetamist oskad:
 
-- Tuua välja ja leevendada riske tehisintellekti agentide loomisel.
-- Rakendada turvameetmeid, et andmed ja ligipääs oleksid korrektselt hallatud.
-- Luua tehisintellekti agente, mis säilitavad andmete privaatsuse ja pakuvad kvaliteetset kasutajakogemust.
+- Tuvastada ja leevendada riske tehisintellekti agentide loomisel.
+- Rakendada turvameetmeid, et tagada andmete ja juurdepääsu nõuetekohane haldamine.
+- Luua tehisintellekti agente, kes säilitavad andmete privaatsuse ja pakuvad kvaliteetset kasutajakogemust.
 
-## Safety
+## Ohutus
 
-Vaatleme esmalt turvaliste agentpõhiste rakenduste ehitamist. Turvalisus tähendab, et tehisintellekti agent toimib vastavalt kavandatule. Agentpõhiste rakenduste loojatena on meil meetodid ja tööriistad turvalisuse maksimeerimiseks:
+Vaatame esmalt, kuidas ehitada turvalisi agentseid rakendusi. Ohutus tähendab, et tehisintellekti agent toimib ettenähtud viisil. Agentsete rakenduste loojatena on meil meetodid ja tööriistad ohutuse maksimeerimiseks:
 
-### Süsteemisõnumite raamistikku loomine
+### Süsteemisõnumi raamistikku loomine
 
-Kui oled kunagi ehitanud tehisintellekti rakendust, kasutades suuri keelemudeleid (LLM-e), siis tead, kui oluline on tugeva süsteemprompti või süsteemisõnumi kujundamine. Need promptid kehtestavad metareeglid, juhised ja suunised selle kohta, kuidas LLM suhtleb kasutaja ja andmetega.
+Kui olete kunagi loonud tehisintellekti rakenduse, kasutades suuri keelemudeleid (LLM), siis teate, kui oluline on kujundada robustne süsteemiprompt või süsteemisõnum. Need promptid sätestavad meta reeglid, juhised ja juhendid selle kohta, kuidas LLM suhtleb kasutaja ja andmetega.
 
-AI agentide puhul on süsteemprompt veelgi olulisem, sest agentidel on vaja väga täpseid juhiseid nende jaoks mõeldud ülesannete täitmiseks.
+Tehisintellekti agentide puhul on süsteemiprompt veelgi olulisem, kuna agentidel on vaja väga spetsiifilisi juhiseid, et täita meile määratud ülesandeid.
 
-Skaalautuvate süsteempromptide loomiseks võime kasutada süsteemisõnumite raamistikku ühe või mitme agendi ehitamiseks meie rakenduses:
+Skaalautuvate süsteemipromptide loomiseks saame kasutada süsteemisõnumite raamistikku ühe või mitme agendi ülesehitamiseks meie rakenduses:
 
-![Süsteemisõnumite raamistikku ehitamine](../../../translated_images/et/system-message-framework.3a97368c92d11d68.webp)
+![Süsteemisõnumi raamistiku loomine](../../../translated_images/et/system-message-framework.3a97368c92d11d68.webp)
 
-#### Samm 1: Loo meta-süsteemisõnum 
+#### Samm 1: Meta süsteemisõnumi loomine
 
-Meta-prompti kasutab LLM süsteempromptide genereerimiseks agentidele, keda me loome. Kavandame selle mallina, et vajaduse korral saaksime tõhusalt luua mitu agenti.
+Meta prompti kasutab LLM süsteemipromptide genereerimiseks agentidele, keda me loome. Kujundame selle mallina, et vajadusel saaksime tõhusalt luua mitu agenti.
 
-Here is an example of a meta system message we would give to the LLM:
+Siin on näide meta süsteemisõnumist, mida annaksime LLM-ile:
 
 ```plaintext
 You are an expert at creating AI agent assistants. 
@@ -47,21 +47,21 @@ information that you will use to provide a system prompt for.
 To create the system prompt, be descriptive as possible and provide a structure that a system using an LLM can better understand the role and responsibilities of the AI assistant. 
 ```
 
-#### Samm 2: Loo põhiprompt
+#### Samm 2: Loo alusprompt
 
-Järgmine samm on koostada põhiprompt, mis kirjeldab tehisintellekti agenti. Sellel peaks olema kirjas agendi roll, ülesanded, mida agent täidab, ja teised agendi vastutusalad.
+Järgmiseks sammuks on luua baasprompt, mis kirjeldab tehisintellekti agenti. See peaks sisaldama agendi rolli, ülesandeid, mida agent täidab, ja muid vastutusi.
 
-Here is an example:
+Näiteks:
 
 ```plaintext
 You are a travel agent for Contoso Travel that is great at booking flights for customers. To help customers you can perform the following tasks: lookup available flights, book flights, ask for preferences in seating and times for flights, cancel any previously booked flights and alert customers on any delays or cancellations of flights.  
 ```
 
-#### Samm 3: Esita põhisüsteemisõnum LLM-ile
+#### Samm 3: Esita baassüsteemisõnum LLM-ile
 
-Nüüd saame seda süsteemisõnumit optimeerida, esitades meta-süsteemisõnumi süsteemisõnumina koos meie põhisüsteemisõnumiga.
+Nüüd saame seda süsteemisõnumit optimeerida, esitades meta süsteemisõnumi süsteemisõnumina koos meie baassüsteemisõnumiga.
 
-See toodab süsteemisõnumi, mis on paremini kujundatud meie tehisintellekti agentide juhendamiseks:
+See genereerib paremini kavandatud süsteemisõnumi, mis juhatab meie AI agente:
 
 ```markdown
 **Company Name:** Contoso Travel  
@@ -113,71 +113,73 @@ This AI assistant is designed to streamline the flight booking process for custo
 
 ```
 
-#### Samm 4: Itereeri ja paranda
+#### Samm 4: Iteratsioon ja parendamine
 
-Selle süsteemisõnumite raamistiku väärtus on võimaldada hõlpsamini luua süsteemisõnumeid mitmele agendile ning parandada oma süsteemisõnumeid aja jooksul. Harva juhtub, et süsteemisõnum töötab esimesel katsel kogu sinu kasutusjuhtumi jaoks. Võimalus teha väikseid muudatusi ja täiendusi, muutes põhisüsteemisõnumit ja lastes selle läbi meta-süsteemi, võimaldab tulemusi võrrelda ja hinnata.
+Selle süsteemisõnumi raamistikku väärtus seisneb selles, et süsteemisõnumite loomine mitme agendi jaoks muutub lihtsamaks ning saame oma süsteemisõnumeid aja jooksul täiustada. On harva ette tulnud, et süsteemisõnum toimiks esimesel korral ideaalselt kogu kasutusjuhtumi jaoks. Väikeste muudatuste tegemine ja baassüsteemisõnumi muutmine ning süsteemi läbi jooksutamine võimaldab teil võrrelda ja hinnata tulemusi.
 
-## Ohtude mõistmine
+## Ohte mõista
 
-Usaldusväärsete tehisintellekti agentide loomiseks on oluline mõista ja leevendada agentidele suunatud riske ja ohte. Vaatleme mõned erinevad ohud agentidele ning kuidas nende jaoks paremini planeerida ja ette valmistuda.
+Usaldusväärsete tehisintellekti agentide ehitamiseks on oluline mõista ja leevendada AI agentidele avaldatavaid riske ja ohte. Vaatame mõningaid erinevaid ohte ja kuidas neid paremini planeerida ja ennetada.
 
-![Ohtude mõistmine](../../../translated_images/et/understanding-threats.89edeada8a97fc0f.webp)
+![Ohte mõistmine](../../../translated_images/et/understanding-threats.89edeada8a97fc0f.webp)
 
 ### Ülesanne ja juhised
 
-**Kirjeldus:** Ründajad püüavad muuta tehisintellekti agendi juhiseid või eesmärke promptimise või sisendi manipuleerimise teel.
+**Kirjeldus:** Ründajad püüavad muuta AI agendi juhiseid või eesmärke, kasutades promptimist või sisendi manipuleerimist.
 
-**Leevendus**: Rakenda valideerimiskontrolle ja sisendifiltreid, et tuvastada potentsiaalselt ohtlikke prompte enne, kui need agent töödeldakse. Kuna sellised rünnakud nõuavad tavaliselt sagedast suhtlust agendiga, aitab ka vestluse voorude arvu piiramine neid rünnakuid ennetada.
+**Leevendus:** Tehke valideerimiskontrolle ja sisendifiltreid ohtlike promptide tuvastamiseks enne, kui AI agent neid töötleb. Kuna need rünnakud nõuavad tavaliselt sagedast suhtlust agendiga, aitab vestluse voorude arvu piiramise strateegia selliseid rünnakuid ennetada.
 
 ### Juurdepääs kriitilistele süsteemidele
 
-**Kirjeldus**: Kui tehisintellekti agentil on juurdepääs süsteemidele ja teenustele, mis hoiavad tundlikke andmeid, võivad ründajad kahjustada suhtlust agendi ja nende teenuste vahel. Need võivad olla otsesed rünnakud või kaudsed katsed saada agenti kaudu teavet nende süsteemide kohta.
+**Kirjeldus:** Kui AI agendil on juurdepääs süsteemidele ja teenustele, kus hoitakse tundlikke andmeid, võivad ründajad kahjustada agenti ja nende teenuste vahelist suhtlust. Need võivad olla nii otsesed rünnakud kui ka kaudsed katsed saada infot nende süsteemide kohta läbi agendi.
 
-**Leevendus**: Agentidel peaks olema juurdepääs süsteemidele vaid vajaduspõhiselt, et vältida selliseid rünnakuid. Agendi ja süsteemi vaheline suhtlus peab samuti olema turvaline. Autentimise ja juurdepääsukontrolli rakendamine on veel üks viis selle teabe kaitsmiseks.
+**Leevendus:** AI agentidele tuleks anda juurdepääs süsteemidele ainult siis, kui vajalik, et vältida selliseid rünnakuid. Suhtlus agendi ja süsteemi vahel peaks samuti olema turvaline. Autentimise ja juurdepääsu kontrolli rakendamine on veel üks viis info kaitsmiseks.
 
-### Ressursside ja teenuste ülekoormus
+### Ressursside ja teenuste üleküllus
 
-**Kirjeldus:** Agentidel on juurdepääs erinevatele tööriistadele ja teenustele ülesannete täitmiseks. Ründajad võivad seda võimet ära kasutada teenuste ründamiseks, saates läbi agendi suures mahus päringuid, mis võib põhjustada süsteemirikkeid või suuri kulutusi.
+**Kirjeldus:** AI agentidel on ligipääs erinevatele tööriistadele ja teenustele ülesannete täitmiseks. Ründajad võivad kasutada seda võimekust, et rünnata neid teenuseid, saates AI agendi kaudu suures mahus päringuid, mille tulemusena võib süsteem kokku jooksta või tekkida kõrged kulud.
 
-**Leevendus:** Rakenda poliitikad, mis piiravad agendi teenusele saatavate päringute arvu. Ka vestluse voorude ja agendile esitatavate päringute arvu piiramine aitab selliseid rünnakuid ära hoida.
+**Leevendus:** Rakendage poliitikad, mis piiravad, mitu päringut AI agent teenusele teha saab. Vestluse voorude arvu ja päringute piiramise strateegiad AI agendile on veel üks viis selliste rünnakute ennetamiseks.
 
-### Teadmusbaasi mürgitamine
+### Teadmiste baasi mürgitamine
 
-**Kirjeldus:** See rünnatüüp ei sihi otseselt agenti, vaid sihib teadmistebaasi ja muid teenuseid, mida agent kasutab. See võib hõlmata agendi poolt kasutatava andmebaasi või teabe korrumpeerimist, mis viib kallutatud või ettenägematute vastusteni kasutajale.
+**Kirjeldus:** Selline rünnak ei sihi AI agenti otseselt, vaid sihib teadmiste baasi ja muid teenuseid, mida AI agent kasutab. See võib hõlmata andmete või informatsiooni kahjustamist, mida AI agent kasutab ülesannete täitmisel, põhjustades kallutatud või soovimatuid vastuseid kasutajale.
 
-**Leevendus:** Käivita regulaarselt andmete kontrollimist, mida agent oma töövoogudes kasutab. Tagage, et juurdepääs nendele andmetele oleks turvaline ja neid muudaksid vaid usaldusväärsed isikud, et vältida selliseid rünnakuid.
+**Leevendus:** Kontrollige regulaarselt andmeid, mida AI agent oma töövoogudes kasutab. Veenduge, et ligipääs nendele andmetele oleks turvaline ja neid muudaksid ainult usaldusväärsed isikud, et vältida sellist rünnakut.
 
-### Ahelvead
+### Kaskaadervead
 
-**Kirjeldus:** Agentid kasutavad erinevaid tööriistu ja teenuseid ülesannete täitmiseks. Ründajate põhjustatud vead võivad viia teiste süsteemide riketeni, millega agent on ühendatud, muutes rünnaku laiemaks ja raskemini tõrjatavaks.
+**Kirjeldus:** AI agentidel on ligipääs erinevatele tööriistadele ja teenustele ülesannete täitmiseks. Ründajate poolt põhjustatud vead võivad viia teiste süsteemide rikete tekkeni, millega AI agent on ühendatud, põhjustades rünnaku laiemat levikut ja raskendades veaotsingut.
 
-**Leevendus**: Üks viis selle vältimiseks on lasta agendil töötada piiratud keskkonnas, näiteks täites ülesandeid Docker-konteineris, et vältida otseseid süsteemirünnakuid. Varuplaanide ja taaskatsete loogika loomine olukordades, kus teatud süsteemid vastavad veaga, on veel üks viis suuremate süsteemirikete vältimiseks.
+**Leevendus:** Üks meetod selle vältimiseks on lasta AI agendil töötada piiratud keskkonnas, näiteks Docker konteineris, et takistada otseseid süsteemirünnakuid. Tagamehhanismide ja korduslogika loomine tõrgete korral, kui teatud süsteemid annavad veateate, aitab samuti vältida suuremaid süsteemirikkeid.
 
-## Inimene silmuses
+## Inimene tsüklis
 
-Veel üks tõhus viis usaldusväärsete AI agentide süsteemide loomiseks on inimese kaasamine (human-in-the-loop). See loob töövoo, kus kasutajad saavad jooksvalt agentidele tagasisidet anda. Kasutajad toimivad sisuliselt agentidena multi-agent süsteemis, andes heakskiidu või lõpetades käimasoleva protsessi.
+Teine tõhus viis usaldusväärsete AI agentide süsteemide loomiseks on kasutada inimest tsüklis. See loob voolu, kus kasutajad saavad protsessi käigus agentidele tagasisidet anda. Kasutajad toimivad põhimõtteliselt agendina mitmeagentse süsteemi osana, andes heakskiite või lõpetades jooksva protsessi.
 
-![Inimene silmuses](../../../translated_images/et/human-in-the-loop.5f0068a678f62f4f.webp)
+![Inimene tsüklis](../../../translated_images/et/human-in-the-loop.5f0068a678f62f4f.webp)
 
-Siin on koodilõik, mis kasutab Microsoft Agent Frameworki, et näidata, kuidas seda kontseptsiooni rakendatakse:
+Siin on koodinäide Microsoft Agent Frameworki kasutamisest, mis näitab, kuidas seda kontseptsiooni rakendatakse:
 
 ```python
 import os
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-# Loo teenusepakkuja, kus kinnitust teeb inimene.
-provider = AzureAIProjectAgentProvider(
+# Loo pakkuja, kus on inimeste kinnitamine
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
     credential=AzureCliCredential(),
 )
 
-# Loo agent inimese kinnitusetapiga.
+# Loo esindaja koos inimeste heakskiidu sammuga
 response = provider.create_response(
     input="Write a 4-line poem about the ocean.",
     instructions="You are a helpful assistant. Ask for user approval before finalizing.",
 )
 
-# Kasutaja saab vastust üle vaadata ja kinnitada.
+# Kasutaja saab vastust üle vaadata ja kinnitada
 print(response.output_text)
 user_input = input("Do you approve? (APPROVE/REJECT): ")
 if user_input == "APPROVE":
@@ -186,32 +188,37 @@ else:
     print("Response rejected. Revising...")
 ```
 
-## Conclusion
+## Kokkuvõte
 
-Usaldusväärsete tehisintellekti agentide loomine nõuab hoolikat kavandamist, tugevaid turvameetmeid ja pidevat täiustamist. Struktureeritud meta-promptimise süsteemide rakendamise, võimalike ohtude mõistmise ja leevendusstrateegiate kasutuselevõtu kaudu saavad arendajad luua agente, mis on nii turvalised kui ka tõhusad. Lisaks tagab inimese-silmuses lähenemine, et agentid jäävad kasutajate vajadustega kooskõlaliseks, vähendades samal ajal riske. Kuna tehisintellekt areneb edasi, on turvalisuse, privaatsuse ja eetiliste kaalutluste proaktiivne käsitlemine võtmetähtsusega usalduse ja töökindluse edendamiseks tehisintellekti jõulistes süsteemides.
+Usaldusväärsete AI agentide loomine nõuab hoolikat kujundust, tugevdatud turvameetmeid ja pidevat iteratsiooni. Struktureeritud meta promptide süsteemide rakendamise, potentsiaalsete ohtude mõistmise ja leevendusstrateegiate kasutuselevõtu kaudu saavad arendajad luua AI agente, kes on nii ohutud kui ka tõhusad. Lisaks kindlustab inimese tsüklis meetod, et AI agent jääb kooskõlla kasutaja vajadustega, minimeerides samal ajal riske. Kuna tehisintellekt areneb edasi, on proaktiivne hoiak turvalisuse, privaatsuse ja eetiliste kaalutluste osas võtmetähtsusega usalduse ja usaldusväärsuse edendamiseks AI-põhistes süsteemides.
 
-### Kas sul on veel küsimusi usaldusväärsete tehisintellekti agentide loomise kohta?
+## Koodinäited
 
-Liitu [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord), et kohtuda teiste õppuritega, osaleda konsultatsioonitundides ja saada vastused oma tehisintellekti agentide küsimustele.
+- [`code_samples/06-system-message-framework.ipynb`](code_samples/06-system-message-framework.ipynb): Üks samm-sammult demonstratsioon meta prompti süsteemisõnumi raamistikust.
+- [`code_samples/06-human-in-the-loop.ipynb`](code_samples/06-human-in-the-loop.ipynb): Enne tegevust heakskiidu väravad, riskitasemete määramine ja usaldusväärsete agentide auditeerimise logimine.
+
+### Kas teil on veel küsimusi usaldusväärsete AI agentide loomise kohta?
+
+Liituge [Microsoft Foundry Discordiga](https://discord.com/invite/ATgtXmAS5D), et kohtuda teiste õppijatega, osaleda vastuvõtutundides ja saada oma AI agentidega seotud küsimustele vastuseid.
 
 ## Täiendavad ressursid
 
 - <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Vastutustundliku tehisintellekti ülevaade</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Generatiivsete tehisintellekti mudelite ja tehisintellekti rakenduste hindamine</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-approach-gen-ai" target="_blank">Generatiivsete tehisintellekti mudelite ja rakenduste hindamine</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/system-message?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext&tabs=top-techniques" target="_blank">Ohutuse süsteemisõnumid</a>
 - <a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf?culture=en-us&country=us" target="_blank">Riskihindamise mall</a>
 
-## Previous Lesson
+## Eelmine õppetund
 
-[Agentic RAG](../05-agentic-rag/README.md)
+[Agentne RAG](../05-agentic-rag/README.md)
 
-## Next Lesson
+## Järgmine õppetund
 
-[Planning Design Pattern](../07-planning-design/README.md)
+[Planeerimise disainimuster](../07-planning-design/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Lahtiütlus:
-See dokument on tõlgitud tehisintellekti tõlketeenuse Co-op Translator (https://github.com/Azure/co-op-translator) abil. Kuigi me püüame tagada täpsuse, tuleb arvestada, et automatiseeritud tõlked võivad sisaldada vigu või ebatäpsusi. Algkeeles olevat originaaldokumenti tuleks pidada autoriteetseks allikaks. Olulise teabe korral soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste ega valede tõlgenduste eest.
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

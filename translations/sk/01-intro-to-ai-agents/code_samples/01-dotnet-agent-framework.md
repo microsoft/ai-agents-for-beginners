@@ -1,40 +1,40 @@
-# 🌍 AI Cestovný Agent s Microsoft Agent Framework (.NET)
+# 🌍 AI cestovný agent s Microsoft Agent Framework (.NET)
 
-## 📋 Prehľad Scenára
+## 📋 Prehľad scenára
 
-Tento príklad ukazuje, ako vytvoriť inteligentného agenta na plánovanie ciest pomocou Microsoft Agent Framework pre .NET. Agent dokáže automaticky generovať personalizované itineráre na jednodňové výlety do náhodných destinácií po celom svete.
+Tento príklad demonštruje, ako vytvoriť inteligentného agenta na plánovanie ciest pomocou Microsoft Agent Framework pre .NET. Agent dokáže automaticky generovať personalizované jednodňové itineráre pre náhodné destinácie po celom svete.
 
-### Hlavné Schopnosti:
+### Kľúčové schopnosti:
 
-- 🎲 **Náhodný Výber Destinácie**: Používa vlastný nástroj na výber dovolenkových miest
-- 🗺️ **Inteligentné Plánovanie Ciest**: Vytvára podrobné itineráre deň po dni
-- 🔄 **Streamovanie v Reálnom Čase**: Podporuje okamžité aj streamované odpovede
-- 🛠️ **Integrácia Vlastných Nástrojov**: Ukazuje, ako rozšíriť schopnosti agenta
+- 🎲 **Výber náhodnej destinácie**: Používa vlastný nástroj na výber dovolenkových miest
+- 🗺️ **Inteligentné plánovanie výletu**: Vytvára podrobné itineráre deň po dni
+- 🔄 **Streamovanie v reálnom čase**: Podpora okamžitých a streamovaných odpovedí
+- 🛠️ **Integrácia vlastných nástrojov**: Ukazuje, ako rozšíriť schopnosti agenta
 
-## 🔧 Technická Architektúra
+## 🔧 Technická architektúra
 
-### Základné Technológie
+### Jadro technológií
 
-- **Microsoft Agent Framework**: Najnovšia implementácia pre vývoj AI agentov v .NET
-- **Integrácia GitHub Models**: Používa inferenčnú službu AI modelov od GitHubu
-- **Kompatibilita s OpenAI API**: Využíva knižnice klientov OpenAI s vlastnými endpointmi
-- **Bezpečná Konfigurácia**: Správa API kľúčov na základe prostredia
+- **Microsoft Agent Framework**: Najnovšia implementácia pre .NET na vývoj AI agentov
+- **Azure OpenAI (Responses API)**: Používa Azure OpenAI Responses API na modelové inferencie
+- **Azure Identity**: Bezpečné prihlásenie cez `AzureCliCredential` (`az login`)
+- **Bezpečná konfigurácia**: Správa koncových bodov na základe prostredia
 
-### Kľúčové Komponenty
+### Kľúčové komponenty
 
-1. **AIAgent**: Hlavný orchestrátor agenta, ktorý spracováva tok konverzácie
-2. **Vlastné Nástroje**: Funkcia `GetRandomDestination()` dostupná pre agenta
-3. **Chat Klient**: Rozhranie pre konverzáciu podporované GitHub Models
-4. **Podpora Streamovania**: Schopnosť generovať odpovede v reálnom čase
+1. **AIAgent**: Hlavný koordinátor agenta riadiaci tok konverzácie
+2. **Vlastné nástroje**: Funkcia `GetRandomDestination()` dostupná agentovi
+3. **Responses Client**: Rozhranie konverzácie založené na Azure OpenAI Responses
+4. **Podpora streamovania**: Schopnosti generovať odpovede v reálnom čase
 
-### Vzor Integrácie
+### Vzorec integrácie
 
 ```mermaid
 graph LR
-    A[User Request] --> B[AI Agent]
-    B --> C[GitHub Models API]
-    B --> D[GetRandomDestination Tool]
-    C --> E[Travel Itinerary]
+    A[Užívateľská požiadavka] --> B[AI agent]
+    B --> C[Azure OpenAI (API odpovedí)]
+    B --> D[Nástroj GetRandomDestination]
+    C --> E[Cestovný itinerár]
     D --> E
 ```
 
@@ -42,28 +42,31 @@ graph LR
 
 ### Predpoklady
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) alebo novší
-- [Prístupový token pre GitHub Models API](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) alebo vyšší
+- Predplatné [Azure](https://azure.microsoft.com/free/) s Azure OpenAI zdrojom a nasadením modelu
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prihlásenie cez `az login`
 
-### Požadované Premenné Prostredia
+### Povinné premenné prostredia
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# Potom sa prihláste, aby AzureCliCredential mohol získať token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# Potom sa prihláste, aby AzureCliCredential mohol získať token
+az login
 ```
 
-### Ukážkový Kód
+### Ukážkový kód
 
-Na spustenie ukážkového kódu,
+Na spustenie príkladu kódu,
 
 ```bash
 # zsh/bash
@@ -71,27 +74,29 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Alebo pomocou dotnet CLI:
+Alebo použite dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-Pozrite si [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) pre kompletný kód.
+Kompletný kód nájdete v súbore [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs).
 
 ```csharp
 #!/usr/bin/dotnet run
 
-#:package Microsoft.Extensions.AI@9.*
-#:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Microsoft.Extensions.AI@10.4.1
+#:package Microsoft.Agents.AI.OpenAI@1.1.0
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -123,34 +128,20 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Create AI Agent with Travel Planning Capabilities
-// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Get the Responses client for the specified deployment and create the AI agent
 // Configure agent with travel planning instructions and random destination tool
 // The agent can now plan trips using the GetRandomDestination function
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
@@ -166,23 +157,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 Kľúčové Zistenia
+## 🎓 Kľúčové poznatky
 
-1. **Architektúra Agenta**: Microsoft Agent Framework poskytuje čistý, typovo bezpečný prístup k vývoju AI agentov v .NET
-2. **Integrácia Nástrojov**: Funkcie označené atribútmi `[Description]` sa stávajú dostupnými nástrojmi pre agenta
-3. **Správa Konfigurácie**: Premenné prostredia a bezpečné spracovanie poverení nasledujú najlepšie praktiky .NET
-4. **Kompatibilita s OpenAI**: Integrácia GitHub Models funguje bezproblémovo cez OpenAI-kompatibilné API
+1. **Architektúra agenta**: Microsoft Agent Framework poskytuje čistý, typovo bezpečný prístup k tvorbe AI agentov v .NET
+2. **Integrácia nástrojov**: Funkcie s atribútmi `[Description]` sa stávajú dostupnými nástrojmi pre agenta
+3. **Správa konfigurácie**: Premenné prostredia a bezpečné spracovanie poverení podľa najlepších praktík .NET
+4. **Azure OpenAI Responses API**: Agent používa Azure OpenAI Responses API cez Azure.AI.OpenAI SDK
 
-## 🔗 Ďalšie Zdroje
+## 🔗 Ďalšie zdroje
 
 - [Dokumentácia Microsoft Agent Framework](https://learn.microsoft.com/agent-framework)
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Azure OpenAI v Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET aplikácie v jednom súbore](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Zrieknutie sa zodpovednosti**:  
-Tento dokument bol preložený pomocou služby AI prekladu [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, prosím, berte na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho rodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nenesieme zodpovednosť za akékoľvek nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+**Vyhlásenie o zodpovednosti**:
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatické preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho natívnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za žiadne nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

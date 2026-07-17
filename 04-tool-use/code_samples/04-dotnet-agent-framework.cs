@@ -1,17 +1,19 @@
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
-#:package Microsoft.Extensions.AI.OpenAI@10.*-*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 using System.Text.Json;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
+using OpenAI.Chat;
 
 // ============================================================================
 // TOOL USE DESIGN PATTERN DEMONSTRATION
@@ -175,18 +177,12 @@ static string EstimateTripCost(
         """;
 }
 
-// Extract configuration from environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI Client Options
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Agent Identity
 var AGENT_NAME = "TravelAgent";
@@ -221,10 +217,9 @@ Always mention which tools you used so users understand the agent's capabilities
 
 // Create AI Agent with Multiple Tools
 // This demonstrates the Tool Use Design Pattern with a variety of tool types
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .AsIChatClient()
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [
@@ -235,8 +230,9 @@ AIAgent agent = openAIClient
         ]
     );
 
-// Create Conversation Thread
-AgentThread thread = agent.GetNewThread();
+// Create Conversation Session
+AgentSession session = await agent.CreateSessionAsync();
+
 
 // ============================================================================
 // DEMONSTRATION 1: Tool Selection - Agent picks the right tool
@@ -246,7 +242,7 @@ Console.WriteLine("--- Demo 1: Tool Selection ---");
 Console.WriteLine("User: What's the weather like in Tokyo?\n");
 Console.WriteLine("Agent Response:");
 
-await foreach (var update in agent.RunStreamingAsync("What's the weather like in Tokyo?", thread))
+await foreach (var update in agent.RunStreamingAsync("What's the weather like in Tokyo?", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -261,7 +257,7 @@ Console.WriteLine("--- Demo 2: Parameterized Tool with Multiple Parameters ---")
 Console.WriteLine("User: How much would a 5-day luxury trip to Rome cost?\n");
 Console.WriteLine("Agent Response:");
 
-await foreach (var update in agent.RunStreamingAsync("How much would a 5-day luxury trip to Rome cost?", thread))
+await foreach (var update in agent.RunStreamingAsync("How much would a 5-day luxury trip to Rome cost?", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -278,7 +274,7 @@ Console.WriteLine("Agent Response:");
 
 await foreach (var update in agent.RunStreamingAsync(
     "Plan me a complete trip - suggest a destination and give me all the details including weather and costs for a 3-day moderate budget trip.", 
-    thread))
+    session))
 {
     await Task.Delay(10);
     Console.Write(update);

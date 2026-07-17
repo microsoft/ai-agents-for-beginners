@@ -1,39 +1,42 @@
-# 🎯 Planeerimine ja disainimustrid GitHubi mudelitega (.NET)
+# 🎯 Plaanimine ja disainimustrid Azure OpenAI-ga (Responses API) (.NET)
 
 ## 📋 Õpieesmärgid
 
-See märkmik tutvustab ettevõtte tasemel planeerimise ja disainimustreid intelligentsete agentide loomiseks, kasutades Microsoft Agent Frameworki .NET-is koos GitHubi mudelitega. Õpid looma agente, kes suudavad keerulisi probleeme lahendada, mitmeastmelisi lahendusi planeerida ja keerukaid töövooge täita, kasutades .NET-i ettevõtte funktsioone.
+See märkmik demonstreerib ettevõtte tasemel planeerimis- ja disainimustreid intelligentsete agentide loomiseks, kasutades Microsoft Agent Frameworki .NET-is Azure OpenAI-ga (Responses API). Õpid looma agente, kes suudavad keerukaid probleeme lagundada, kavandada mitmeastmelisi lahendusi ja täita keerukaid töövooge, kasutades .NET-i ettevõtte funktsionaalsust.
 
 ## ⚙️ Eeltingimused ja seadistamine
 
 **Arenduskeskkond:**
 - .NET 9.0 SDK või uuem
 - Visual Studio 2022 või VS Code koos C# laiendusega
-- Juurdepääs GitHubi mudelite API-le
+- Azure tellimus koos Azure OpenAI ressursi ja mudeli juurutusega
+- Azure CLI — logi sisse käsuga `az login`
 
 **Nõutavad sõltuvused:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **Keskkonna konfiguratsioon (.env fail):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
 ```
 
 ## Koodi käivitamine
 
-See õppetund sisaldab .NET-i ühe faili rakenduse implementatsiooni. Selle käivitamiseks:
+See õppetund sisaldab .NET ühe faili rakenduse implementatsiooni. Käivitamiseks:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Muuda fail täidetavaks (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Käivita rakendus
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -48,16 +51,16 @@ dotnet run 07-dotnet-agent-framework.cs
 Täielik implementatsioon on saadaval failis `07-dotnet-agent-framework.cs`, mis demonstreerib:
 
 - Keskkonna konfiguratsiooni laadimist DotNetEnv abil
-- OpenAI kliendi seadistamist GitHubi mudelite jaoks
-- Struktureeritud andmemudelite (Plan ja TravelPlan) määratlemist koos JSON-serialiseerimisega
-- AI agendi loomist struktureeritud väljundiga, kasutades JSON-skeemi
-- Planeerimispäringute täitmist tüübikindlate vastustega
+- Azure OpenAI kliendi seadistamist ja AI agendi loomist kasutades `GetChatClient().AsAIAgent()`
+- Struktureeritud andmemudelite (Plan ja TravelPlan) defineerimist JSON serialiseerimisega
+- AI agendi loomist struktureeritud väljundiga, kasutades JSON skeemi
+- Planeerimisnõudmiste täitmist tüübikindlate vastustega
 
-## Põhimõisted
+## Põhikontseptsioonid
 
 ### Struktureeritud planeerimine tüübikindlate mudelitega
 
-Agent kasutab C# klasse, et määratleda planeerimise väljundite struktuur:
+Agent kasutab C# klasse planeerimisväljundite struktuuri määratlemiseks:
 
 ```csharp
 public class Plan
@@ -79,13 +82,15 @@ public class TravelPlan
 }
 ```
 
-### JSON-skeem struktureeritud väljundite jaoks
+### JSON skeem struktureeritud väljunditele
 
-Agent on konfigureeritud tagastama vastuseid, mis vastavad TravelPlan skeemile:
+Agent on seadistatud tagastama vastuseid, mis vastavad TravelPlan skeemile:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -98,20 +103,22 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 
 ### Planeerimisagendi juhised
 
-Agent tegutseb koordinaatorina, delegeerides ülesandeid spetsialiseeritud alamagentidele:
+Agent tegutseb koordinaatorina, delegeerides ülesanded spetsialiseeritud alamagenditele:
 
-- FlightBooking: Lennupiletite broneerimiseks ja lennuinfo pakkumiseks
-- HotelBooking: Hotellide broneerimiseks ja hotellide info pakkumiseks
-- CarRental: Autode broneerimiseks ja autorendi info pakkumiseks
-- ActivitiesBooking: Tegevuste broneerimiseks ja tegevuste info pakkumiseks
-- DestinationInfo: Sihtkohtade info pakkumiseks
-- DefaultAgent: Üldiste päringute käsitlemiseks
+- FlightBooking: lendude broneerimiseks ja lennuinformatsiooni andmiseks
+- HotelBooking: hotellide broneerimiseks ja hotelli info andmiseks
+- CarRental: autorendi broneerimiseks ja autorendi info andmiseks
+- ActivitiesBooking: tegevuste broneerimiseks ja tegevuste info andmiseks
+- DestinationInfo: sihtkohtade info andmiseks
+- DefaultAgent: üldiste päringute käsitlemiseks
 
 ## Oodatav väljund
 
-Kui käivitate agendi reisiplaneerimise päringuga, analüüsib see päringut ja genereerib struktureeritud plaani, määrates sobivad ülesanded spetsialiseeritud agentidele. Väljund vormistatakse JSON-is, mis vastab TravelPlan skeemile.
+Kui käivitad agendi reisi planeerimise päringuga, analüüsib ta päringu ja genereerib struktureeritud plaani, kus on sobivad ülesannete jaotused spetsialiseeritud agentidele, vormindatuna JSON-ina, mis vastab TravelPlan skeemile.
 
 ---
 
-**Lahtiütlus**:  
-See dokument on tõlgitud AI tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palume arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle algses keeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgenduste eest.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

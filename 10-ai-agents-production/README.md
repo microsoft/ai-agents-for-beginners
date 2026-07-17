@@ -15,7 +15,7 @@ After completing this lesson, you will know how to/understand:
 
 The goal is to equip you with the knowledge to transform your "black box" agents into transparent, manageable, and dependable systems.
 
-_**Note:** It is important to deploy AI Agents that are safe and trustworthy. Check out the [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md) lesson as well._
+_**Note:** It is important to deploy AI Agents that are safe and trustworthy. Check out the [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md) lesson as well._
 
 ## Traces and Spans
 
@@ -161,7 +161,7 @@ In the [example notebook of this section](./code_samples/10-expense_claim-demo.i
 
 ### Got More Questions about AI Agents in Production?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Previous Lesson
 

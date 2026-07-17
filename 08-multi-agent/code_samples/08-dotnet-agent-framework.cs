@@ -1,44 +1,41 @@
 #!/usr/bin/dotnet run
-#:package Microsoft.Extensions.AI.Abstractions@9.9.1
-#:package Azure.AI.Agents.Persistent@1.2.0-beta.4
+#:package Microsoft.Extensions.AI.Abstractions@10.*
+#:package Azure.AI.Agents.Persistent@1.2.0-beta.10
+#:package Azure.AI.OpenAI@2.1.0
 #:package Azure.Identity@1.15.0
 #:package System.Linq.Async@6.0.3
-#:package Microsoft.Extensions.AI@9.9.1
+#:package Microsoft.Extensions.AI@10.*
 #:package DotNetEnv@3.1.1
-#:package OpenTelemetry.Api@1.12.0
-#:package Microsoft.Agents.AI.Workflows@1.0.0-preview.251001.3
-#:package Microsoft.Agents.AI.OpenAI@1.0.0-preview.251001.2
+#:package OpenTelemetry.Api@1.*
+#:package Microsoft.Agents.AI.Workflows@1.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
 
 using System;
-using System.ClientModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Workflows;
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
+using ChatMessage = Microsoft.Extensions.AI.ChatMessage;
+using OpenAI.Chat;
 using DotNetEnv;
 
 // Load environment variables
-Env.Load("../../../.env");
+Env.Load("../../.env");
 
-// Get configuration from environment
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI client for GitHub Models
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define agent roles and instructions
 const string REVIEWER_NAME = "Concierge";
 const string REVIEWER_INSTRUCTIONS = @"""
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers.
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers.
     The goal is to determine if the front desk travel agent has recommended the best non-touristy experience for a traveler.
     If so, state that it is approved.
     If not, provide insight on how to refine the recommendation without using a specific example. 
@@ -55,14 +52,24 @@ const string FRONTDESK_INSTRUCTIONS = @"""
     """;
 
 // Create agent options
-ChatClientAgentOptions frontdeskAgentOptions = new(name: FRONTDESK_NAME, instructions: FRONTDESK_INSTRUCTIONS);
-ChatClientAgentOptions reviewerAgentOptions = new(name: REVIEWER_NAME, instructions: REVIEWER_INSTRUCTIONS);
+ChatClientAgentOptions frontdeskAgentOptions = new()
+{
+    Name = FRONTDESK_NAME,
+    Description = FRONTDESK_INSTRUCTIONS,
+};
+ChatClientAgentOptions reviewerAgentOptions = new()
+{
+    Name = REVIEWER_NAME, 
+    Description = REVIEWER_INSTRUCTIONS
+};
 
 // Create agents
-AIAgent reviewerAgent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions).GetChatClient(github_model_id).CreateAIAgent(
-    reviewerAgentOptions);
-AIAgent frontdeskAgent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions).GetChatClient(github_model_id).CreateAIAgent(
-    frontdeskAgentOptions);
+AIAgent reviewerAgent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(reviewerAgentOptions);
+AIAgent frontdeskAgent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(frontdeskAgentOptions);
 
 // Build workflow with agent coordination
 var workflow = new WorkflowBuilder(frontdeskAgent)
@@ -70,7 +77,7 @@ var workflow = new WorkflowBuilder(frontdeskAgent)
             .Build();
 
 // Execute workflow with streaming
-StreamingRun run = await InProcessExecution.StreamAsync(workflow, new ChatMessage(ChatRole.User, "I would like to go to Paris."));
+StreamingRun run = await InProcessExecution.RunStreamingAsync(workflow, new ChatMessage(ChatRole.User, "I would like to go to Paris."));
 
 await run.TrySendMessageAsync(new TurnToken(emitEvents: true));
 
@@ -79,7 +86,7 @@ string strResult = "";
 // Process streaming events
 await foreach (WorkflowEvent evt in run.WatchStreamAsync().ConfigureAwait(false))
 {
-    if (evt is AgentRunUpdateEvent executorComplete)
+    if (evt is AgentResponseUpdateEvent executorComplete)
     {
         strResult += executorComplete.Data;
         Console.WriteLine($"{executorComplete.ExecutorId}: {executorComplete.Data}");

@@ -70,15 +70,15 @@ Let's use the example of getting the current time in a city to illustrate:
 
 1. **Initialize an LLM that supports function calling:**
 
-    Not all models support function calling, so it's important to check that the LLM you are using does.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> supports function calling. We can start by initiating the Azure OpenAI client. 
+    Not all models support function calling, so it's important to check that the LLM you are using does.     <a href="https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling" target="_blank">Azure OpenAI</a> supports function calling. We can start by initiating the OpenAI client against the Azure OpenAI **Responses API** (the stable `/openai/v1/` endpoint — no `api_version` needed). 
 
     ```python
-    # Initialize the Azure OpenAI client
-    client = AzureOpenAI(
-        azure_endpoint = os.getenv("AZURE_AI_PROJECT_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-        api_version="2024-05-01-preview"
+    # Initialize the OpenAI client for Azure OpenAI (Responses API, v1 endpoint)
+    client = OpenAI(
+        base_url=f"{os.environ['AZURE_OPENAI_ENDPOINT'].rstrip('/')}/openai/v1/",
+        api_key=os.environ["AZURE_OPENAI_API_KEY"],
     )
+    deployment_name = os.environ["AZURE_OPENAI_DEPLOYMENT"]
     ```
 
 1. **Create a Function Schema**:
@@ -87,24 +87,22 @@ Let's use the example of getting the current time in a city to illustrate:
     We will then take this schema and pass it to the client created previously, along with the users request to find the time in San Francisco. What's important to note is that a **tool call** is what is returned, **not** the final answer to the question. As mentioned earlier, the LLM returns the name of the function it selected for the task, and the arguments that will be passed to it.
 
     ```python
-    # Function description for the model to read
+    # Function description for the model to read (Responses API flat tool format)
     tools = [
         {
             "type": "function",
-            "function": {
-                "name": "get_current_time",
-                "description": "Get the current time in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city name, e.g. San Francisco",
-                        },
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city name, e.g. San Francisco",
                     },
-                    "required": ["location"],
                 },
-            }
+                "required": ["location"],
+            },
         }
     ]
     ```
@@ -112,29 +110,29 @@ Let's use the example of getting the current time in a city to illustrate:
     ```python
   
     # Initial user message
-    messages = [{"role": "user", "content": "What's the current time in San Francisco"}] 
-  
-    # First API call: Ask the model to use the function
-      response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-          tools=tools,
-          tool_choice="auto",
-      )
-  
-      # Process the model's response
-      response_message = response.choices[0].message
-      messages.append(response_message)
-  
-      print("Model's response:")  
+    messages = [{"role": "user", "content": "What's the current time in San Francisco"}]
 
-      print(response_message)
+    # First API call: Ask the model to use the function
+    response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        tool_choice="auto",
+        store=False,
+    )
+
+    # The Responses API returns tool calls as function_call items in response.output.
+    # Append them to the conversation so the model has full context on the next turn.
+    messages += response.output
+
+    print("Model's response:")
+    print(response.output)
   
     ```
 
     ```bash
     Model's response:
-    ChatCompletionMessage(content=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_pOsKdUlqvdyttYB67MOj434b', function=Function(arguments='{"location":"San Francisco"}', name='get_current_time'), type='function')])
+    [ResponseFunctionToolCall(arguments='{"location":"San Francisco"}', call_id='call_pOsKdUlqvdyttYB67MOj434b', name='get_current_time', type='function_call')]
     ```
   
 1. **The function code required to carry out the task:**
@@ -162,33 +160,36 @@ Let's use the example of getting the current time in a city to illustrate:
     ```
 
      ```python
-     # Handle function calls
-      if response_message.tool_calls:
-          for tool_call in response_message.tool_calls:
-              if tool_call.function.name == "get_current_time":
-     
-                  function_args = json.loads(tool_call.function.arguments)
-     
-                  time_response = get_current_time(
-                      location=function_args.get("location")
-                  )
-     
-                  messages.append({
-                      "tool_call_id": tool_call.id,
-                      "role": "tool",
-                      "name": "get_current_time",
-                      "content": time_response,
-                  })
-      else:
-          print("No tool calls were made by the model.")  
-  
-      # Second API call: Get the final response from the model
-      final_response = client.chat.completions.create(
-          model=deployment_name,
-          messages=messages,
-      )
-  
-      return final_response.choices[0].message.content
+    # Handle function calls
+    tool_calls = [item for item in response.output if item.type == "function_call"]
+    if tool_calls:
+        for tool_call in tool_calls:
+            if tool_call.name == "get_current_time":
+
+                function_args = json.loads(tool_call.arguments)
+
+                time_response = get_current_time(
+                    location=function_args.get("location")
+                )
+
+                # Return the tool result as a function_call_output item
+                messages.append({
+                    "type": "function_call_output",
+                    "call_id": tool_call.call_id,
+                    "output": time_response,
+                })
+    else:
+        print("No tool calls were made by the model.")
+
+    # Second API call: Get the final response from the model
+    final_response = client.responses.create(
+        model=deployment_name,
+        input=messages,
+        tools=tools,
+        store=False,
+    )
+
+    return final_response.output_text
      ```
 
      ```bash
@@ -206,7 +207,7 @@ Here are some examples of how you can implement the Tool Use Design Pattern usin
 
 ### Microsoft Agent Framework
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> is an open-source AI framework for building AI agents. It simplifies the process of using function calling by allowing you to define tools as Python functions with the `@tool` decorator. The framework handles the back-and-forth communication between the model and your code. It also provides access to pre-built tools like File Search and Code Interpreter through the `AzureAIProjectAgentProvider`.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework</a> is an open-source AI framework for building AI agents. It simplifies the process of using function calling by allowing you to define tools as Python functions with the `@tool` decorator. The framework handles the back-and-forth communication between the model and your code. It also provides access to pre-built tools like File Search and Code Interpreter through `FoundryChatClient`.
 
 The following diagram illustrates the process of function calling with the Microsoft Agent Framework:
 
@@ -215,34 +216,39 @@ The following diagram illustrates the process of function calling with the Micro
 In the Microsoft Agent Framework, tools are defined as decorated functions. We can convert the `get_current_time` function we saw earlier into a tool by using the `@tool` decorator. The framework will automatically serialize the function and its parameters, creating the schema to send to the LLM.
 
 ```python
+import os
 from agent_framework import tool
-from agent_framework.azure import AzureAIProjectAgentProvider
+from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
-@tool
+@tool(approval_mode="never_require")
 def get_current_time(location: str) -> str:
     """Get the current time for a given location"""
     ...
 
 # Create the client
-provider = AzureAIProjectAgentProvider(credential=AzureCliCredential())
+provider = FoundryChatClient(
+    project_endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
+    model=os.environ["AZURE_AI_MODEL_DEPLOYMENT_NAME"],
+    credential=AzureCliCredential(),
+)
 
 # Create an agent and run with the tool
-agent = await provider.create_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
+agent = provider.as_agent(name="TimeAgent", instructions="Use available tools to answer questions.", tools=get_current_time)
 response = await agent.run("What time is it?")
 ```
   
-### Azure AI Agent Service
+### Microsoft Foundry Agent Service
 
-<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Azure AI Agent Service</a> is a newer agentic framework that is designed to empower developers to securely build, deploy, and scale high-quality, and extensible AI agents without needing to manage the underlying compute and storage resources. It is particularly useful for enterprise applications since it is a fully managed service with enterprise grade security.
+<a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Foundry Agent Service</a> is a newer agentic framework that is designed to empower developers to securely build, deploy, and scale high-quality, and extensible AI agents without needing to manage the underlying compute and storage resources. It is particularly useful for enterprise applications since it is a fully managed service with enterprise grade security.
 
-When compared to developing with the LLM API directly, Azure AI Agent Service provides some advantages, including:
+When compared to developing with the LLM API directly, Microsoft Foundry Agent Service provides some advantages, including:
 
 - Automatic tool calling – no need to parse a tool call, invoke the tool, and handle the response; all of this is now done server-side
 - Securely managed data – instead of managing your own conversation state, you can rely on threads to store all the information you need
 - Out-of-the-box tools – Tools that you can use to interact with your data sources, such as Bing, Azure AI Search, and Azure Functions.
 
-The tools available in Azure AI Agent Service can be divided into two categories:
+The tools available in Microsoft Foundry Agent Service can be divided into two categories:
 
 1. Knowledge Tools:
     - <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview" target="_blank">Grounding with Bing Search</a>
@@ -259,7 +265,7 @@ The Agent Service allows us to be able to use these tools together as a `toolset
 
 Imagine you are a sales agent at a company called Contoso. You want to develop a conversational agent that can answer questions about your sales data.
 
-The following image illustrates how you could use Azure AI Agent Service to analyze your sales data:
+The following image illustrates how you could use Microsoft Foundry Agent Service to analyze your sales data:
 
 ![Agentic Service In Action](../../../translated_images/en/agent-service-in-action.34fb465c9a84659e.webp)
 
@@ -280,15 +286,15 @@ project_client = AIProjectClient.from_connection_string(
 # Initialize toolset
 toolset = ToolSet()
 
-# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and add it to the toolset
+# Initialize function calling agent with the fetch_sales_data_using_sqlite_query function and adding it to the toolset
 fetch_data_function = FunctionTool(fetch_sales_data_using_sqlite_query)
 toolset.add(fetch_data_function)
 
-# Initialize Code Interpreter tool and add it to the toolset.
+# Initialize Code Interpreter tool and adding it to the toolset.
 code_interpreter = CodeInterpreterTool()toolset.add(code_interpreter)
 
 agent = project_client.agents.create_agent(
-    model="gpt-4o-mini", name="my-agent", instructions="You are helpful agent", 
+    model="gpt-4.1-mini", name="my-agent", instructions="You are helpful agent", 
     toolset=toolset
 )
 ```
@@ -306,7 +312,7 @@ Running the app in a secure environment further enhances protection. In enterpri
 
 ## Got More Questions about the Tool Use Design Patterns?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Additional Resources
 
@@ -314,11 +320,17 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet w
 - <a href="https://github.com/Azure-Samples/contoso-creative-writer/tree/main/docs/workshop" target="_blank">Contoso Creative Writer Multi-Agent Workshop</a>
 - <a href="https://learn.microsoft.com/azure/ai-services/agents/overview" target="_blank">Microsoft Agent Framework Overview</a>
 
+
+## Smoke-Testing This Agent (Optional)
+
+After you learn to deploy agents in [Lesson 16](../16-deploying-scalable-agents/README.md), you can smoke-test this lesson's `TravelToolAgent` (does it still call its tools and answer?) with [`tests/lesson-04-smoke-tests.json`](../../../tests/lesson-04-smoke-tests.json). See [`tests/README.md`](../tests/README.md) for how to run it.
+
 ## Previous Lesson
 
 [Understanding Agentic Design Patterns](../03-agentic-design-patterns/README.md)
 
 ## Next Lesson
+
 [Agentic RAG](../05-agentic-rag/README.md)
 
 ---

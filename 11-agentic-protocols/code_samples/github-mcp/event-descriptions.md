@@ -1,8 +1,8 @@
-## Event Name: Build your code-first app with Azure AI Agent Service (EMEA/US offering)
+## Event Name: Build your code-first app with Microsoft Foundry Agent Service (EMEA/US offering)
 
 ## Description
 
-The Azure AI Agent Service is a seamless blend of service and SDK that simplifies the development of robust AI-driven solutions. In this session, you'll learn how to build your own code-first AI agent with Azure that can answer questions, perform data analysis, and integrate external data sources. You'll also explore more complex architectures, including multiple agents working together.
+The Microsoft Foundry Agent Service is a seamless blend of service and SDK that simplifies the development of robust AI-driven solutions. In this session, you'll learn how to build your own code-first AI agent with Azure that can answer questions, perform data analysis, and integrate external data sources. You'll also explore more complex architectures, including multiple agents working together.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25325/>
@@ -35,9 +35,11 @@ Getting started to build agents and multi-agent teams using AutoGen v0.4. We wil
 
 ## Description
 
-Thanks to GitHub Models, all you need to build your first AI Agent is a GitHub account! GitHub Models includes powerful models like OpenAI gpt-4o, DeepSeek-R1, Llama-3.1, and many more, ready to try out in the playground or in your code.
+Thanks to GitHub Models, all you need to build your first AI Agent is a GitHub account! GitHub Models includes powerful models like OpenAI gpt-4.1, DeepSeek-R1, Llama-3.1, and many more, ready to try out in the playground or in your code.
 In this session, we'll demonstrate how to connect to GitHub Models from Python, and then build agents using popular Python packages like PydanticAI, AutoGen, and Semantic Kernel.
 You can follow along live in GitHub Codespaces, or try the examples yourself anytime after the session.
+
+> **Note:** GitHub Models is deprecated (retiring July 2026). Do not use GitHub Models for new projects — use **Microsoft Foundry** models instead.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25481/>
@@ -74,11 +76,11 @@ By the end of this session, you’ll have a clear blueprint for building and dep
 
 ---
 
-## Event Name: Your First AI Agent in JS with Azure AI Agent Service
+## Event Name: Your First AI Agent in JS with Microsoft Foundry Agent Service
 
 ## Description
 
-Learn how to build your first AI agent using the JavaScript SDK for Azure AI Agent Service, a fully managed platform that makes development easy. You’ll see how to set it up, connect tools like Azure AI Search, and deploy a simple question-answering agent. With a live demo, you’ll discover how automatic tool calling and managed state simplify the process. Perfect for beginners, this session gives you practical steps and tips to start your AI agent journey with confidence.
+Learn how to build your first AI agent using the JavaScript SDK for Microsoft Foundry Agent Service, a fully managed platform that makes development easy. You’ll see how to set it up, connect tools like Azure AI Search, and deploy a simple question-answering agent. With a live demo, you’ll discover how automatic tool calling and managed state simplify the process. Perfect for beginners, this session gives you practical steps and tips to start your AI agent journey with confidence.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25381/>
@@ -149,11 +151,11 @@ Get ready for a session packed with hype, high-stakes AI drama, and must-know st
 
 ---
 
-## Event Name: Build your code-first app with Azure AI Agent Service (.NET)
+## Event Name: Build your code-first app with Microsoft Foundry Agent Service (.NET)
 
 ## Description
 
-The Azure AI Agent Service is a seamless blend of service and SDK that simplifies the development of robust AI-driven solutions. In this session, you'll learn how to build your own code-first AI agent with Azure and C# that can answer questions, perform data analysis, and integrate external data sources. You'll also explore more complex architectures, including multiple agents working together.
+The Microsoft Foundry Agent Service is a seamless blend of service and SDK that simplifies the development of robust AI-driven solutions. In this session, you'll learn how to build your own code-first AI agent with Azure and C# that can answer questions, perform data analysis, and integrate external data sources. You'll also explore more complex architectures, including multiple agents working together.
 
 ## URL
 <https://developer.microsoft.com/en-us/reactor/events/25370/>

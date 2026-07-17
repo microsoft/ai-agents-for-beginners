@@ -1,44 +1,47 @@
-# 🤝 Sistemi za večagentne delovne tokove za podjetja (.NET)
+# 🤝 Podjetniški sistemi za večagentna delovna toka (.NET)
 
 ## 📋 Cilji učenja
 
-Ta zvezek prikazuje, kako zgraditi napredne večagentne sisteme na ravni podjetja z uporabo Microsoft Agent Framework v .NET in GitHub modelov. Naučili se boste orkestrirati več specializiranih agentov, ki sodelujejo prek strukturiranih delovnih tokov, pri čemer boste izkoristili funkcije .NET za rešitve, pripravljene za produkcijo.
+Ta zvezek prikazuje, kako zgraditi sofisticirane večagentne sisteme podjetniške ravni z uporabo Microsoft Agent Framework v .NET z Azure OpenAI (Responses API). Naučili se boste usklajevati več specializiranih agentov, ki delujejo skupaj prek strukturiranih delovnih tokov, pri čemer boste izkoristili podjetniške zmogljivosti .NET za produkcijsko pripravljene rešitve.
 
-**Zmožnosti večagentnih sistemov za podjetja, ki jih boste razvili:**
-- 👥 **Sodelovanje agentov**: Tipno varna koordinacija agentov z validacijo ob času prevajanja
-- 🔄 **Orkestracija delovnih tokov**: Deklarativna definicija delovnih tokov z asinhronimi vzorci .NET
+**Podjetniške zmogljivosti večagentnih sistemov, ki jih boste razvili:**
+- 👥 **Sodelovanje agentov**: Varnost tipov pri koordinaciji agentov z validacijo ob prevajanju
+- 🔄 **Orkestracija delovnih tokov**: Deklarativna definicija delovnega toka z uporabo asinhronih vzorcev .NET
 - 🎭 **Specializacija vlog**: Močno tipizirane osebnosti agentov in področja strokovnosti
-- 🏢 **Integracija v podjetje**: Vzorci, pripravljeni za produkcijo, z nadzorom in obravnavo napak
+- 🏢 **Podjetniška integracija**: Produkcijsko pripravljeni vzorci z nadzorom in obravnavo napak
 
-## ⚙️ Predpogoji in nastavitev
+## ⚙️ Zahteve in nastavitev
 
 **Razvojno okolje:**
-- .NET 9.0 SDK ali novejši
+- .NET 9.0 SDK ali višja različica
 - Visual Studio 2022 ali VS Code z razširitvijo za C#
 - Azure naročnina (za trajne agente)
 
-**Potrebni NuGet paketi:**
+**Zahtevani NuGet paketi:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.9.0" />
-<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.4" />
+<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.*" />
+<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.10" />
 <PackageReference Include="Azure.Identity" Version="1.15.0" />
 <PackageReference Include="System.Linq.Async" Version="6.0.3" />
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.8.0" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.*" />
+<PackageReference Include="OpenTelemetry.Api" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
 ```
 
 ## Vzorec kode
 
-Celotna delujoča koda za to lekcijo je na voljo v priloženi datoteki C#: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
+Celotna delujoča koda za to lekcijo je na voljo v pripadajoči C# datoteki: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
 
 Za zagon vzorca:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Naredite datoteko izvršljivo (Linux/macOS)
 chmod +x 08-dotnet-agent-framework.cs
 
-# Run the sample
+# Zaženite primer
 ./08-dotnet-agent-framework.cs
 ```
 
@@ -50,35 +53,37 @@ dotnet run 08-dotnet-agent-framework.cs
 
 ## Kaj prikazuje ta vzorec
 
-Ta sistem za večagentne delovne tokove ustvarja storitev priporočil za hotelska potovanja z dvema specializiranima agentoma:
+Ta večagentni sistem delovnega toka ustvari storitev za priporočila v hotelskem potovanju z dvema specializiranima agentoma:
 
-1. **Agent FrontDesk**: Potovalni agent, ki ponuja priporočila za aktivnosti in lokacije
-2. **Agent Concierge**: Pregleduje priporočila, da zagotovi pristne, ne-turistične izkušnje
+1. **FrontDesk agent**: Potovalni agent, ki nudi priporočila za dejavnosti in lokacije
+2. **Concierge agent**: Pregleduje priporočila za zagotavljanje pristnih, neturističnih doživetij
 
-Agenti sodelujejo v delovnem toku, kjer:
-- Agent FrontDesk prejme začetno zahtevo za potovanje
-- Agent Concierge pregleda in izpopolni priporočilo
-- Delovni tok v realnem času pretaka odgovore
+Agenti delujejo skupaj v delovnem toku, kjer:
+- FrontDesk agent prejme začetno potovalno zahtevo
+- Concierge agent pregleda in izpopolni priporočilo
+- Delovni tok pretaka odgovore v realnem času
 
-## Ključni koncepti
+## Ključni pojmi
 
 ### Koordinacija agentov
-Vzorec prikazuje tipno varno koordinacijo agentov z uporabo Microsoft Agent Framework z validacijo ob času prevajanja.
+Vzorec prikazuje varno tipizirano koordinacijo agentov z uporabo Microsoft Agent Framework z validacijo ob prevajanju.
 
 ### Orkestracija delovnih tokov
-Uporablja deklarativno definicijo delovnih tokov z asinhronimi vzorci .NET za povezovanje več agentov v cevovod.
+Uporablja deklarativno definicijo delovnega toka z asinhronimi vzorci .NET za povezovanje več agentov v cevovod.
 
 ### Pretakanje odgovorov
-Izvaja pretakanje odgovorov agentov v realnem času z uporabo asinhronih enumerabilnih in dogodkovno usmerjene arhitekture.
+Izvaja pretakanje odgovorov agentov v realnem času z uporabo asinhronih enumerable in dogodkovno arhitekturo.
 
-### Integracija v podjetje
-Prikazuje vzorce, pripravljene za produkcijo, vključno z:
-- Konfiguracijo okolijskih spremenljivk
-- Varnim upravljanjem poverilnic
-- Obravnava napak
-- Asinhrona obdelava dogodkov
+### Podjetniška integracija
+Prikazuje produkcijsko pripravljene vzorce, vključno z:
+- Nastavitvijo okolijskih spremenljivk
+- Varno upravljanje poverilnic
+- Obravo napak
+- Asinhrono procesiranje dogodkov
 
 ---
 
-**Omejitev odgovornosti**:  
-Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem maternem jeziku naj se šteje za avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne odgovarjamo za morebitne nesporazume ali napačne razlage, ki bi nastale zaradi uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Omejitev odgovornosti**:
+Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da avtomatizirani prevodi lahko vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za kritične informacije je priporočljiv strokovni človeški prevod. Ne odgovarjamo za morebitna nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,64 +1,64 @@
-[Watch the lesson video: Osiguravanje AI agenata pomoću kriptografskih potvrda](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Pogledajte video lekcije: Osiguravanje AI agenata kriptografskim potvrdom](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Video lekcije i sličica bit će dodani od strane Microsoftova sadržajnog tima nakon spajanja, u skladu sa šablonom lekcija 14 / 15.)_
+> _(Video lekcije i sličica bit će dodani od strane Microsoft sadržajnog tima nakon spajanja, u skladu s obrascem lekcija 14 / 15.)_
 
-# Osiguravanje AI agenata pomoću kriptografskih potvrda
+# Osiguravanje AI agenata kriptografskim potvrdom
 
 ## Uvod
 
-Ova lekcija će obuhvatiti:
+Ova lekcija će pokriti:
 
-- Zašto su audit-trail zapisi za AI agente važni za usklađenost, otklanjanje grešaka i povjerenje.
-- Što je kriptografska potvrda i kako se razlikuje od nepotpisane linije zapisa.
-- Kako u običnom Pythonu proizvesti potpisanu potvrdu za poziv alata agenta.
-- Kako offline provjeriti potvrdu i otkriti manipulaciju.
-- Kako povezati potvrde tako da uklanjanje ili promjena redoslijeda jedne potvrde narušava lanac.
+- Zašto su tragovi revizije za AI agente važni za usklađenost, ispravljanje pogrešaka i povjerenje.
+- Što je kriptografska potvrda i kako se razlikuje od neovjerenog zapisa dnevnika.
+- Kako proizvesti potpisanu potvrdu za poziv alata agenta u čistom Pythonu.
+- Kako offline verificirati potvrdu i otkriti izmjene.
+- Kako povezati potvrde tako da uklanjanje ili preuređivanje jedne prekine lanac.
 - Što potvrde dokazuju, a što eksplicitno ne dokazuju.
 
 ## Ciljevi učenja
 
-Nakon završetka ove lekcije znat ćete kako:
+Nakon završetka ove lekcije, znat ćete kako:
 
-- Prepoznati načine neuspjeha koji motiviraju kriptografski dokaz podrijetla za akcije agenta.
-- Proizvesti Ed25519-potpisanu potvrdu nad kanoničkim JSON-om.
-- Neovisno provjeriti potvrdu koristeći samo javni ključ potpisnika.
-- Otkrivati manipulaciju ponovnim pokretanjem provjere na modificiranoj potvrdi.
-- Izgraditi hash-povezan niz potvrda i objasniti zašto je lanac važan.
-- Razlikovati što potvrde dokazuju (atribuciju, integritet, redoslijed), a što ne dokazuju (ispravnost akcije, valjanost politike).
+- Identificirati načine neuspjeha koji motiviraju kriptografsku provenijenciju radnji agenata.
+- Proizvesti Ed25519-potpisanu potvrdu nad kanonski JSON-om.
+- Neovisno verificirati potvrdu koristeći samo javni ključ potpisnika.
+- Otkrivati izmjene ponovnim pokretanjem verifikacije na modificiranoj potvrdi.
+- Izgraditi lanac potpisanih potvrda i objasniti zašto je lanac važan.
+- Prepoznati granicu između onoga što potvrde dokazuju (pripadnost, integritet, redoslijed) i što ne dokazuju (ispravnost radnje, valjanost politike).
 
-## Problem: Audit-trail vašeg agenta
+## Problem: Trag revizije vašeg agenta
 
-Zamislite da ste implementirali AI agenta za Contoso Travel. Agent čita korisničke zahtjeve, poziva API za letove da pronađe opcije i rezervira sjedala u ime korisnika. Prošlog kvartala agent je obradio 50.000 rezervacija.
+Zamislite da ste postavili AI agenta za Contoso Travel. Agent čita zahtjeve korisnika, poziva API za letove kako bi pronašao opcije i rezervira sjedala u ime korisnika. Prošli kvartal, agent je obradio 50.000 rezervacija.
 
-Danas dolazi revizor. Postavlja jednostavno pitanje: „Pokažite mi što je vaš agent napravio.“
+Danas dolazi revizor. Postavlja jednostavno pitanje: "Pokažite mi što je vaš agent radio."
 
-Vi predajete zapisnike. Revizor ih pregleda i postavlja teže pitanje: „Kako znam da zapisnici nisu uređivani?“
+Predajete mu svoje datoteke zapisa. Revizor ih gleda i postavlja teže pitanje: "Kako znam da ti zapisi nisu uređivani?"
 
-To je problem audit-traila. Većina današnjih implementacija agenata oslanja se na:
+Ovo je problem traga revizije. Većina današnjih postavki agenata oslanja se na:
 
-- **Aplikacijske zapisnike**: koje agent sam piše, a može ih mijenjati svatko s pristupom datotečnom sustavu.
-- **Cloud usluge zapisivanja**: otporne na manipulaciju na razini platforme, ali samo ako revizor vjeruje operatoru platforme.
-- **Zapisnike baza podataka**: prikladne za promjene u bazama, ali ne i za proizvoljne pozive alata.
+- **Dnevnike aplikacije**: pišu ih sami agenti, moguće ih je mijenjati svakome tko ima pristup datotečnom sustavu.
+- **Usluge zapisivanja u oblaku**: otporne na manipulaciju na razini platforme, ali samo ako revizor vjeruje operatoru platforme.
+- **Dnevnike transakcija baze podataka**: prikladni za promjene u bazi, ali ne i za proizvoljne pozive alata.
 
-Nijedan od ovih ne može odgovoriti revizoru bez da on mora nekome vjerovati (vama, vašem cloud pružatelju usluge, dobavljaču baze podataka). Za internu uporabu često je povjerenje prihvatljivo. Za regulirane radne opterećenja (financije, zdravstvo, sve pod EU AI Aktom), nije.
+Nitko od njih ne može odgovoriti na revizorsko pitanje bez zahtjeva da revizor nekome vjeruje (vama, vašem cloud provideru, dobavljaču baze podataka). Za internu upotrebu, ta povjerenja su često prihvatljiva. Za regulirane poslove (financije, zdravstvo, bilo što pod EU AI zakonom), nisu.
 
-Kriptografske potvrde rješavaju ovaj problem tako što svaku akciju agenta čine neovisno provjerljivom. Revizor vam ne mora vjerovati. Treba mu samo vaš javni ključ i sama potvrda.
+Kriptografske potvrde to rješavaju tako da svaku radnju agenta čine neovisno provjerljivom. Revizor ne mora vjerovati vama. Treba mu samo vaš javni ključ i sama potvrda.
 
 ## Što je kriptografska potvrda?
 
-Potvrda je JSON objekt koji bilježi što je agent napravio, potpisan digitalnim potpisom.
+Potvrda je JSON objekt koji bilježi što je agent učinio, potpisan digitalnim potpisom.
 
 ```mermaid
 flowchart LR
-    A[Agent poziva alat] --> B[Izgradi teret računa]
-    B --> C[Kanoniciraj JSON RFC 8785]
+    A[Agent pokreće alat] --> B[Izradi korisnički teret potvrde]
+    B --> C[Kanonizira JSON RFC 8785]
     C --> D[SHA-256 hash]
     D --> E[Ed25519 potpis]
-    E --> F[Racun s potpisom]
-    F --> G[Revizor provjerava izvan mreže]
-    G --> H{Potpis važi?}
-    H -- da --> I[Dokaz zaštićen od manipulacije]
-    H -- ne --> J[Racun odbijen]
+    E --> F[Potvrda s potpisom]
+    F --> G[Revizor potvrđuje offline]
+    G --> H{Potpis valjan?}
+    H -- yes --> I[Dokaz otporan na manipulacije]
+    H -- no --> J[Potvrda odbijena]
 ```
 
 Minimalna potvrda izgleda ovako:
@@ -82,32 +82,32 @@ Minimalna potvrda izgleda ovako:
 }
 ```
 
-Tri svojstva obavljaju ključni posao:
+Tri svojstva rade posao:
 
-1. **Potpis**. Potvrdu potpisuje gateway agenta koristeći Ed25519 privatni ključ. Svako tko ima odgovarajući javni ključ može offline provjeriti potpis. Svaka promjena polja poništava potpis.
+1. **Potpis**. Potvrdu potpisuje agentov gateway koristeći Ed25519 privatni ključ. Svako tko ima odgovarajući javni ključ može offline verifikovati potpis. Izmjena bilo kojeg polja poništava potpis.
 
-2. **Kanoničko kodiranje**. Prije potpisivanja potvrda se serijalizira koristeći JSON Canonicalization Scheme (JCS, RFC 8785). To osigurava da dvije implementacije koje proizvode istu logičku potvrdu daju identičan bajt-izlaz. Bez kanonizacije različiti JSON serijalizatori proizveli bi različite potpise za isti sadržaj.
+2. **Kanonsko kodiranje**. Prije potpisivanja potvrda je serijalizirana korištenjem JSON Kanonskog Šema (JCS, RFC 8785). To osigurava da dvije implementacije koje proizvode isti logički zapis daju bitno identičan izlaz. Bez kanonskog kodiranja, različiti JSON serijalizatori dali bi različite potpise za isti sadržaj.
 
-3. **Hash povezivanje**. Polje `previous_receipt_hash` povezuje svaku potvrdu sa prethodnom. Uklanjanje ili promjena redoslijeda jedne potvrde razbija svaku kasniju potvrdu. Manipulacija postaje vidljiva na razini lanca čak i ako se pojedinačni potpisi zaobiđu.
+3. **Hashed lančanje**. Polje `previous_receipt_hash` povezuje svaku potvrdu s prethodnom. Uklanjanje ili preuređivanje potvrde prekida sve potvrde koje slijede. Manipulacija postaje vidljiva na razini lanca čak i ako se pojedinačni potpisi zaobiđu.
 
 Zajedno ova svojstva daju tri jamstva:
 
-- **Atribucija**: ovaj ključ potpisao je ovaj sadržaj.
-- **Integritet**: sadržaj nije promijenjen od potpisivanja.
-- **Redoslijed**: ova potvrda dolazi nakon one u lancu.
+- **Pripadnost**: ovaj ključ je potpisao ovaj sadržaj.
+- **Integritet**: sadržaj se nije promijenio od potpisivanja.
+- **Redoslijed**: ova potvrda je došla nakon one u lancu.
 
 ## Proizvodnja potvrde u Pythonu
 
-Ne trebate posebnu biblioteku za proizvodnju potvrde. Kriptografski primitivci su široko dostupni, a logika je nekoliko desetaka linija Pythona.
+Nije vam potrebna posebna biblioteka za proizvodnju potvrde. Kriptografski primitivci su široko dostupni, a logika je samo nekoliko desetaka linija Python koda.
 
-Praktične vježbe u `code_samples/18-signed-receipts.ipynb` vode vas kroz cijeli proces. Rezimirano:
+Praktične vježbe u `code_samples/18-signed-receipts.ipynb` prolaze kroz cijeli tok. Sažetak verzije:
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # RFC 8785 kanonički JSON
+from jcs import canonicalize  # RFC 8785 kanonski JSON
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -116,11 +116,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Generirajte ili učitajte ključ za potpisivanje (u produkciji, spremite u ključni trezor)
+# Generiraj ili učitaj ključ za potpisivanje (u proizvodnji pohrani u sef za ključeve)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Izgradite teret računa (još bez potpisa)
+# Izradi korisnički zapis (još bez potpisa)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -136,12 +136,12 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Kanonizirajte, hashirajte, potpišite.
+# Kanoniziraj, heširaj, potpiši.
 canonical_bytes = canonicalize(payload)
 message_hash = hashlib.sha256(canonical_bytes).digest()
 signature_bytes = signing_key.sign(message_hash).signature
 
-# Priložite strukturirani objekt potpisa.
+# Priloži strukturirani objekt potpisa.
 receipt = {
     **payload,
     "signature": {
@@ -152,11 +152,11 @@ receipt = {
 }
 ```
 
-To je cijeli tok potpisivanja. Vježbe u bilježnici vode kroz svaki korak.
+To je cijeli proces potpisivanja. Vježbe u bilježnici vode kroz svaki korak.
 
-## Provjera potvrde i otkrivanje manipulacije
+## Verifikacija potvrde i otkrivanje manipulacije
 
-Provjera je obrnuta operacija:
+Verifikacija je obrnuta operacija:
 
 ```python
 import base64
@@ -175,7 +175,7 @@ def verify_receipt(receipt: dict) -> bool:
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
 
-    # Rekonstruirajte teret koji je zapravo potpisan (sve osim potpisa).
+    # Rekonstruirajte korisni podatak koji je zapravo potpisan (sve osim potpisa).
     payload = {k: v for k, v in receipt.items() if k != "signature"}
 
     canonical_bytes = canonicalize(payload)
@@ -189,195 +189,208 @@ def verify_receipt(receipt: dict) -> bool:
         return False
 ```
 
-Ova funkcija prima potvrdu i vraća `True` ako je potpis valjan, inače `False`. Nema mrežnih poziva, nema ovisnosti o uslugama, ni potrebe za pouzdanjem u treću stranu.
+Ova funkcija prima potvrdu i vraća `True` ako je potpis valjan, `False` inače. Nema mrežnog poziva, nema ovisnosti o usluzi, ne treba se vjerovati nikome trećem.
 
-Da vidite otkrivanje manipulacije u praksi, bilježnica vodi kroz:
+Da biste vidjeli detekciju manipulacije u akciji, bilježnica prolazi kroz:
 
-1. Proizvodnju valjane potvrde i potvrdu da se može verificirati.
-2. Izmjenu jednog bajta u polju `tool_args_hash`.
-3. Ponovno pokretanje verifikacije i vidjeti neuspjeh.
+1. Proizvodnju valjane potvrde i potvrdu da se verificira.
+2. Promjenu jednog bajta u polju `tool_args_hash`.
+3. Ponovno pokretanje verifikacije i njeno neuspješno prošlo.
 
-Ovo je praktičan dokaz da su potvrde otporne na manipulaciju: bilo koja promjena, koliko god mala, razbija potpis.
+Ovo je praktični dokaz da su potvrde otporne na manipulaciju: svaka izmjena, koliko god mala bila, prekida potpis.
 
-## Povezivanje potvrda za višekorak agente
+## Lančano povezivanje potvrda za agente s više koraka
 
-Jedna potpisana potvrda štiti jednu akciju. Lanac potvrda štiti niz.
+Jedna potpisana potvrda štiti jednu radnju. Lanac potvrda štiti niz radnji.
 
 ```mermaid
 flowchart LR
-    R0[Potvrda 0<br/>geneza] --> R1[Potvrda 1]
+    R0[Potvrda 0<br/>postanak] --> R1[Potvrda 1]
     R1 --> R2[Potvrda 2]
     R2 --> R3[Potvrda 3]
-    R1 -. prethodni_hash_potvrde .-> R0
-    R2 -. prethodni_hash_potvrde .-> R1
-    R3 -. prethodni_hash_potvrde .-> R2
+    R1 -. previous_receipt_hash .-> R0
+    R2 -. previous_receipt_hash .-> R1
+    R3 -. previous_receipt_hash .-> R2
 ```
 
-Svaka potvrda bilježi hash prethodne potvrde. Da napadač tiho ukloni potvrdu 2, morao bi:
+Svaka potvrda zapisuje hash prethodne potvrde. Da bi se tiho uklonila potvrda 2, napadač bi morao ili:
 
-- Promijeniti polje `previous_receipt_hash` u potvrdi 3 (to narušava potpis potvrde 3), ILI
-- Krivotvoriti novi potpis na izmijenjenoj potvrdi 3 (što zahtijeva privatni ključ agenta).
+- Izmijeniti polje `previous_receipt_hash` u potvrdi 3 (time bi potpis potvrde 3 bio nevažeći), ILI
+- Krivotvoriti novi potpis na modificiranoj potvrdi 3 (što zahtijeva privatni ključ agenta).
 
-Ako je privatni ključ u hardverskom sigurnosnom spremištu i ako objavljujete javni ključ uz svaku potvrdu, nijedan od tih napada nije izvediv bez otkrivanja.
+Ako je privatni ključ u hardverskom sejfu i javni ključ objavljujete sa svakom potvrdom, niti jedan od tih napada nije izvediv bez detekcije.
 
-Bilježnica vodi kroz:
+Bilježnica prolazi kroz:
 
-1. Izradu lanca od tri potvrde.
-2. Provjeru da polje `previous_receipt_hash` svake potvrde odgovara stvarnom hashu prethodne potvrde.
-3. Manipulaciju s jednom potvrdom u sredini i vidjeti da lanac pukne točno na toj točki.
+1. Izgradnju lanca od tri potvrde.
+2. Verifikaciju da polje `previous_receipt_hash` svake potvrde odgovara stvarnom hešu prethodne potvrde.
+3. Manipulaciju jednom potvrdom u sredini i promatranje prekida lanca točno na tom mjestu.
 
-Tako proizvodite audit-trail koji vanjski revizor može provjeriti bez potrebe za povjerenjem u vas.
+Ovo je način na koji stvarate trag revizije koji vanjski revizor može provjeriti bez da vam mora vjerovati.
 
 ## Što potvrde dokazuju (a što ne)
 
-Ovo je najvažniji dio ove lekcije. Potvrde su moćne, ali moć im je ograničena.
+Ovo je najvažniji dio ove lekcije. Potvrde su moćne, ali njihova snaga ima granice.
 
 **Potvrde dokazuju tri stvari:**
 
-1. **Atribuciju**: određen ključ potpisao je određeni sadržaj.
-2. **Integritet**: sadržaj nije promijenjen od potpisivanja.
-3. **Redoslijed**: ova potvrda dolazi nakon one u hash lancu.
+1. **Pripadnost**: određeni ključ je potpisao određenu podatkovnu cjelinu.
+2. **Integritet**: podatkovna cjelina nije promijenjena od potpisivanja.
+3. **Redoslijed**: ova potvrda je došla nakon one u lančanom hešu.
 
-**Potvrde NE dokazuju:**
+**Potvrde ne dokazuju:**
 
-1. **Ispravnost**: da je akcija agenta bila ispravna. Potvrda se može potpisati i za pogrešan odgovor jednako uredno kao i za točan.
-2. **Usklađenost s politikom**: da je politika navedena u `policy_id` stvarno evaluirana ili da bi dopustila ovu akciju ako bi se provjeravala. Potvrda bilježi što je tvrdnjeno, a ne što je provođeno.
-3. **Identitet izvan ključa**: potvrda kaže „ovaj ključ potpisao je ovaj sadržaj“. Ne kaže „ovaj čovjek je odobrio ovo“. Povezivanje ključa s osobom ili organizacijom zahtijeva zasebnu infrastrukturu identiteta (direktorij, registar javnih ključeva itd.).
-4. **Istinitost ulaza**: ako agent dobije manipulirani prompt i reagira na njega, potvrda vjerodostojno bilježi tu akciju. Potvrde slijede validaciju ulaza, nisu zamjena za nju.
+1. **Ispravnost**: da je radnja agenta bila ispravna. Potvrda može biti potpisana za pogrešan odgovor jednako lako kao i za ispravan.
+2. **Usklađenost s politikom**: da je politika referencirana u `policy_id` stvarno evaluirana, ili da bi dozvolila radnju ako bi se provjeravala. Potvrda bilježi što je tvrdnja, ne što je provedeno.
+3. **Identitet izvan ključa**: potvrda govori "ovaj ključ je potpisao ovaj sadržaj." Ne kaže "ovaj čovjek je ovlastio ovo." Povezivanje ključa s osobom ili organizacijom zahtijeva zasebnu infrastrukturu identiteta (adresar, registar javnih ključeva itd.).
+4. **Istinitost unosa**: ako agent primi manipulirani upit i djeluje na njemu, potvrda vjerno bilježi akciju. Potvrde su nizvodno od provjere unosa, ne zamjena za nju.
 
 Ova granica je važna iz dva razloga:
 
-- Govori vam za što su potvrde korisne: da učine ponašanje agenta audibilnim i otporan na manipulaciju, čak i preko organizacijskih granica.
-- Govori vam koje dodatne slojeve još trebate: validaciju ulaza (Lekcija 6), provođenje politika (kratko obrađeno niže) i infrastrukturu identiteta (nije obuhvaćeno ovom lekcijom).
+- Kaže vam za što su potvrde korisne: za auditabilnost i očitost manipulacije ponašanja agenata, čak i preko organizacijskih granica.
+- Kaže vam koje dodatne slojeve još trebate: provjeru unosa (Lekcija 6), provođenje politike (kratko objašnjeno dalje), i infrastrukturu identiteta (van opsega ove lekcije).
 
-Česta je pogreška pretpostaviti da „imamo potvrde“ znači „podliježemo upravljanju“. Ne znači. Potvrde su temelj. Upravljanje je sustav koji gradite na njemu.
+Česta je pogreška pretpostaviti da "imamo potvrde" znači "upravljamo." Ne znači. Potvrde su temelj. Upravljanje je sustav koji gradite na njemu.
 
-## Reference za produkciju
+## Dokazivanje da je čovjek odobrio točnu radnju
 
-Python kod u ovoj lekciji je namjerno minimalan kako biste mogli pročitati svaku liniju i razumjeti točno što se događa. U produkciji imate dvije opcije:
+Točka 3 gore zaslužuje poseban odjeljak: potvrda radnje kaže "ovaj ključ je potpisao ovaj sadržaj," nikada "čovjek je odobrio ovo." Za radnje visokog rizika (refundacije, brisanja, transferi novca), okviri upravljanja sve više zahtijevaju upravo tu nedostajuću izjavu, a može se proizvesti istim primitivcima koje ste već napravili u ovoj lekciji.
 
-1. **Graditi direktno na kriptografskim primitivima.** Spomenutih 50 redaka je često dovoljno za mnoge slučajeve. PyNaCl (Ed25519) i paket `jcs` (kanonički JSON) su dobro održavane i revidirane biblioteke.
+Sljedeća bilježnica `code_samples/human-authorization-receipts.ipynb` dodaje drugu vrstu potvrde, `human.approval.v1`, u istom obliku omotnice kao potvrde u lekciji (tipizirani teret potpisan Ed25519 nad kanonskim SHA-256, s objektom `signature` izvan potpisanih bajtova). Imenovani odobravatelj potpisuje **potpunu kanonsku radnju i njen sažetak** prije izvršenja; potvrda radnje agenta nosi **isti sažetak radnje** i referencu `parent_approval_ref`, `receipt_hash` odobrenja, istu konvenciju kao `previous_receipt_hash` u lancu koji ste izgradili gore. Jedan `verify_chain` izvršava provjeru oba artefakta pod **odvojenim registrima piniranih ključeva** (ključevi odobravatelja vs ključevi agenata), tako da je put koda zajednički ali ovlasti nikada nisu.
 
-2. **Koristiti produkcijsku biblioteku za potvrde.** Nekoliko open-source projekata implementira isti obrazac s dodatnim značajkama (rotacija ključeva, serijska provjera, distribucija JWK seta, integracija s policijskim motorima):
-   - Format potvrde korišten u ovoj lekciji prati IETF Internet-Draft (`draft-farley-acta-signed-receipts`) koji je u procesu standardizacije.
-   - Microsoft Agent Governance Toolkit sastavlja potvrde s odlukama na bazi Cedar politike; pogledajte Tutorial 33 u tom repozitoriju za primjer end-to-end.
-   - Paketi `protect-mcp` (npm) i `@veritasacta/verify` (npm) pružaju Node implementaciju potpisivanja potvrda i offline provjere, namijenjene za omatanje bilo kojeg MCP servera tamper-evident audit trailom.
+Svojstvo koje ovo donosi, pažljivo izraženo: *čovjek je odobrio upravo ovu radnju, a agent ju je točno i izvršio.* Odbijanja u bilježnici su ono što ovo svojstvo čini stvarnim, a ne samo tvrdnjom:
 
-Odluka između vlastite implementacije i biblioteke slična je odluci između pisanja vlastite JWT biblioteke i korištenja testirane: oba su prikladna; biblioteka štedi vrijeme i smanjuje površinu revizije; vlastita implementacija tjera vas da razumijete svaki primitiv. Ova lekcija podučava vlastiti pristup da imate temelj za bilo koji izbor.
+- klasični skup: manipulacija, zbunjujući posrednik, ponavljanje, krivotvoreni ključevi sa svih strana, neispravan unos;
+- **zastarjela ovlast**: potpis koji se i dalje verificira, ali je odbijen jer se verzija politike promijenila, ključ odobravatelja je uklonjen iz registra ili je odobrenje isteklo prije izvršenja;
+- **zamjena sažetka**: valjano potpisana potvrda radnje koja pokazuje na *stvarno* odobrenje koje veže *drugu* kanonsku radnju.
+
+Svaki neuspjeh odbija s različitim razlogom, tako da revizor koji čita odbijanje može razlikovati je li ovlast zastarjela ili je radnja promijenjena. Pravilo koje uči bilježnica: potpisano odobrenje samo po sebi nije ovlast. Ovlast postoji samo ako obje potvrde još uvijek vežu na istu kanonsku radnju u vrijeme izvršenja. Put su-potpisivanja u istom Internet-Nacrtu na kojem se zasniva ova lekcija (`draft-farley-acta-signed-receipts`) je standardni oblik ovog obrasca.
+
+## Reference za proizvodnju
+
+Python kod u ovoj lekciji je namjerno minimalan kako biste mogli pročitati svaki redak i točno razumjeti što se događa. U produkciji imate dvije opcije:
+
+1. **Gradite direktno na kriptografskim primitivima.** 50 redaka koje ste vidjeli gore su dovoljni za mnoge slučajeve upotrebe. PyNaCl (Ed25519) i paket `jcs` (kanonski JSON) su dobro održavane i revidirane biblioteke.
+
+2. **Koristite produkcijsku biblioteku za potvrde.** Nekoliko open-source projekata implementira isti obrazac s dodatnim značajkama (rotacija ključeva, grupna verifikacija, distribucija JWK seta, integracija s policy engine-ima):
+   - Format potvrde korišten u ovoj lekciji slijedi IETF Internet-Nacrt ([`draft-farley-acta-signed-receipts`](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/), revizija 02) koji je trenutno u procesu standardizacije, s dijeljenim konformacijskim paketom ([agent-governance-testvectors](https://github.com/ScopeBlind/agent-governance-testvectors)) kojim se neovisne implementacije međusobno provjeravaju radi identične kanonske izlaznosti.
+   - Microsoft Agent Governance Toolkit kombinira potvrde s politikama baziranim na Cedar-u; vidi Tutorial 33 u tom repozitoriju za primjer od početka do kraja.
+   - Paketi `protect-mcp` (npm) i `@veritasacta/verify` (npm) pružaju implementaciju potpisivanja i offline verifikacije potvrda u Node.js, namijenjenu omatanju svakog MCP servera s tragom revizije otpornim na manipulaciju, uključujući tok za ko-potpisivanje u kojem zaustavljena radnja emitira potvrdu odobrenja povezanu s sažetkom radnje (WebAuthn podržano u desktop toku), isti obrazac potvrde odobrenja kao i bilježnica za autorizaciju čovjeka gore.
+   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) pruža isti obrazac potpisivanja Ed25519 + JCS u Pythonu s LangChain i CrewAI integracijama, uključujući objavljene testne vektore za unakrsnu validaciju i mapiranje usklađenosti pridonijeto putem [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
+
+Odluka između izgradnje vlastitog rješenja i korištenja biblioteke je slična odluci između pisanja vlastite JWT biblioteke i korištenja testirane: oba su razumna; biblioteka štedi vrijeme i smanjuje površinu revizije; pristup od početka prisiljava vas da razumijete svaki primitiv. Ova lekcija uči taj put od početka tako da imate temelj za oba izbora.
 
 ## Provjera znanja
 
-Testirajte razumijevanje prije prelaska na vježbu.
+Testirajte svoje razumijevanje prije prelaska na praktičnu vježbu.
 
-**1. Potvrda je potpisana privatnim Ed25519 ključem agenta. Revizor ima samo javni ključ. Može li revizor verificirati potvrdu offline?**
-
-<details>
-<summary>Odgovor</summary>
-
-Da. Ed25519 verifikacija zahtijeva samo javni ključ i potpisane bajtove. Nema mrežnih poziva, nema ovisnosti o uslugama. Ovo svojstvo čini potvrde korisnim u zračnim, višestrukim organizacijama ili niskopouzdanim revizorskim scenarijima.
-</details>
-
-**2. Napadač izmijeni polje `policy_id` potvrde kako bi tvrdio da je nadzirana permisivnijom politikom. Potpis je bio nad originalnim sadržajem. Što se dogodi pri provjeri?**
+**1. Potvrda se potpisuje privatnim Ed25519 ključem agenta. Revizor ima samo javni ključ. Može li revizor verificirati potvrdu offline?**
 
 <details>
 <summary>Odgovor</summary>
 
-Provjera ne uspijeva. Potpis je izračunat nad kanoničkim bajtovima originalnog sadržaja; izmjena bilo kojeg polja mijenja kanoničke bajtove, što mijenja SHA-256 hash, što potpis čini nevažećim. Napadaču bi trebao privatni ključ da generira novi valjani potpis, kojeg nema.
+Da. Ed25519 verifikacija zahtijeva samo javni ključ i potpisane bajtove. Nema mrežnog poziva, nema ovisnosti o usluzi. Ovo je svojstvo koje čini potvrde korisnima u izoliranim, multi-organizacijskim ili niskopouzdanim audit okruženjima.
 </details>
 
-**3. Zašto potvrda uključuje `tool_args_hash` i `result_hash` umjesto sirovih argumenata i rezultata?**
+**2. Napadač mijenja polje `policy_id` u potvrdi kako bi tvrdio da je bila podložna permisivnijoj politici. Potpis je bio nad izvornim teretom. Što se događa tijekom verifikacije?**
 
 <details>
 <summary>Odgovor</summary>
 
-Dva razloga. Prvo, potvrda može trebati biti arhivirana ili prenošena u okruženjima gdje curenje sirovog sadržaja (osobni podaci, poslovni podaci) predstavlja problem. Hashiranje drži potvrdu malom i sadržaj privatnim; revizor provjerava da hash odgovara zasebno pohranjenoj kopiji sadržaja. Drugo, hashovi su fiksne veličine; potvrda s hashovima je ograničena po veličini bez obzira koliko su ulazi i izlazi velikih dimenzija.
+
+Verifikacija ne uspijeva. Potpis je izračunat preko kanonskih bajtova izvornog sadržaja; bilo kakva izmjena bilo kojeg polja mijenja kanonske bajtove, što mijenja SHA-256 hash, što čini potpis nevažećim. Napadač bi morao imati privatni ključ da proizvede nov valjani potpis, kojeg nema.
 </details>
 
-**4. Polje `previous_receipt_hash` povezuje svaku potvrdu s prethodnom. Ako napadač tiho izbriše jednu potvrdu iz sredine lanca, što postaje nevažeće?**
+**3. Zašto račun sadrži `tool_args_hash` i `result_hash` umjesto sirovih argumenata i rezultata?**
 
 <details>
 <summary>Odgovor</summary>
 
-Svaka potvrda nakon obrisane. Njihova polja `previous_receipt_hash` više ne odgovaraju stvarnom lancu (jer potvrda na koju su se pozivali više ne postoji ili lanac sad pokazuje na drugog prethodnika). Da bi prikrio brisanje, napadač bi morao ponovno potpisati svaku kasniju potvrdu, što zahtijeva privatni ključ.
+Dva su razloga. Prvo, račun možda treba biti arhiviran ili prenesen u okruženjima gdje curenje sirovog sadržaja (PII, poslovni podaci) predstavlja problem. Hashiranje drži račun malim i sadržaj privatnim; revizor provjerava podudara li se hash s odvojeno pohranjenom kopijom stvarnog sadržaja. Drugo, hashovi imaju fiksnu veličinu; račun s hashovima ima ograničenu veličinu bez obzira na to koliko su veliki ulazi i izlazi.
 </details>
 
-**5. Potvrda se uspješno verificira. Dokazuje li to da je akcija agenta bila točna, valjana ili u skladu s politikom?**
+**4. Polje `previous_receipt_hash` povezuje svaki račun sa svojim prethodnikom. Ako napadač tiho obriše jedan račun iz sredine lanca, što postaje nevažeće?**
 
 <details>
 <summary>Odgovor</summary>
 
-Ne. Valjana potvrda dokazuje tri stvari: atribuciju (ovaj ključ potpisao je sadržaj), integritet (sadržaj nije promijenjen) i redoslijed (ova potvrda dolazi nakon one druge). Ne dokazuje da je akcija ispravna, da je politika u `policy_id` stvarno evaluirana ili da je agent slijedio svako pravilo. Potvrde čine ponašanje agenta audibilnim, ne nužno ispravnim. Ovo je najvažnija granica u lekciji.
+Svaki račun koji je došao nakon izbrisanog. Njihova polja `previous_receipt_hash` više se ne podudaraju sa stvarnim lancem (jer račun na koji su se pozivali više ne postoji, ili lanac sada pokazuje na drugog prethodnika). Da bi prikrio brisanje, napadač bi morao ponovno potpisati svaki kasniji račun, što zahtijeva privatni ključ.
 </details>
 
-## Praktična vježba
+**5. Račun se uspješno verificira. Dokazuje li to da je postupak agenta bio ispravan, valjan ili u skladu s politikom?**
 
-Otvorite `code_samples/18-signed-receipts.ipynb` i dovršite sva četiri dijela:
+<details>
+<summary>Odgovor</summary>
 
-1. **Dio 1**: Potpišite prvu potvrdu i verificirajte je.
-2. **Dio 2**: Manipulirajte potvrdom i promatrajte neuspjeh provjere.
-3. **Dio 3**: Izgradite lanac od tri potvrde i provjerite integritet lanca.
-4. **Dio 4**: Primijenite obrazac na agenta izgrađenog s Microsoft Agent Frameworkom: omotajte poziv alata potpisivanjem potvrde, zatim neovisno verificirajte potvrdu.
+Ne. Valjani račun dokazuje tri stvari: atribuciju (ovaj ključ je potpisao ovaj sadržaj), integritet (sadržaj nije promijenjen) i redoslijed (ovaj račun je došao nakon onog računa). NE dokazuje da je postupak bio ispravan, da je politika navedena u `policy_id` zaista evaluirana, ili da se agent pridržavao svih pravila. Računi omogućuju reviziju ponašanja agenta, ali ne jamče njegovu ispravnost. Ovo je najvažnija granica u lekciji.
+</details>
 
-**Izazov za dodatni rad 1:** proširite shemu potvrde s dodatnim poljem po vlastitom izboru (npr. ID zahtjeva za praćenje), ažurirajte kanoničku logiku potpisivanja da ga uključi i potvrdite da potvrda i dalje prolazi provjeru bez problema. Zatim izmijenite polje nakon potpisivanja i potvrdite da provjera ne uspijeva. Ovo vas prisiljava da razumijete kako svaki bajt kanoničkog kodiranja doprinosi potpisu.
-**Izazov za rastezanje 2:** SHA-256-hash-ajte zajedno dva svoja računa (spojite njihove kanonske bajtove u determinističkom redoslijedu) i ugurajte dobiveni sažetak kao novo polje na treći račun prije potpisivanja. Provjerite da sva tri računa i dalje prolaze provjeru. Upravo ste izgradili dokaz uključivanja u jednom koraku: bilo tko tko posjeduje treći račun može dokazati da su prva dva postojala u vrijeme njezinog potpisivanja, bez potrebe da otkriva njihov sadržaj. Ovo je obrazac koji računi s selektivnim otkrivanjem koriste u velikom opsegu (Merkle obveze, RFC 6962).
+## Vježba
+
+Otvorite `code_samples/18-signed-receipts.ipynb` i završite sva četiri dijela:
+
+1. **Dio 1**: Potpišite svoj prvi račun i verificirajte ga.
+2. **Dio 2**: Manipulirajte računom i promatrajte neuspjeh verifikacije.
+3. **Dio 3**: Izgradite lanac od tri računa i verificirajte integritet lanca.
+4. **Dio 4**: Primijenite obrazac na agenta izrađenog s Microsoft Agent Framework-om: uokvirite poziv alata potpisivanjem računa, a zatim neovisno verificirajte račun.
+
+**Izazov 1:** proširite shemu računa dodatnim poljem po vlastitom izboru (na primjer, ID zahtjeva za praćenje), ažurirajte logiku kanonskog potpisivanja da ga uključi, te potvrdite da račun i dalje uspješno prolazi provjeru. Zatim izmijenite polje nakon potpisivanja i potvrdite da verifikacija ne uspijeva. Ovo vas prisiljava da razumijete kako svaki bajt kanonskog kodiranja doprinosi potpisu.
+
+**Izazov 2:** Spojite SHA-256 hashom dva svoja računa zajedno (spojite njihove kanonske bajtove u determinističkom redoslijedu) i ugradite dobiveni digest kao novo polje na treći račun prije potpisivanja. Provjerite da sva tri računa i dalje prolaze. Upravo ste napravili dokaz uključivanja u jednom koraku: bilo tko tko ima treći račun može dokazati da su prvi dva postojala u vrijeme potpisivanja, bez potrebe da otkriva njihov sadržaj. Ovaj obrazac koriste računi s selektivnim otkrivanjem u velikim sustavima (Merklejeva stabla, RFC 6962).
 
 ## Zaključak
 
-Kriptografski računi daju AI agentima zapisnik revizije koji je:
+Kriptografski računi daju AI agentima revizijski trag koji je:
 
-- **Neovisno provjerljiv**: bilo koja strana s javnim ključem može provjeriti, bez ovisnosti o usluzi.
-- **Očigledno nepromijenjen**: svaka izmjena poništava potpis.
-- **Prijenosiv**: račun je mala JSON datoteka; može se arhivirati, prenijeti i provjeriti bilo gdje.
-- **U skladu sa standardima**: baziran na Ed25519 (RFC 8032), JCS (RFC 8785) i SHA-256, svi široko korišteni primitivni elementi.
+- **Neovisno provjerljiv**: bilo koja strana s javnim ključem može verificirati, bez ovisnosti o servisu.
+- **Otporan na manipulacije**: svaka izmjena poništava potpis.
+- **Prijenosan**: račun je mala JSON datoteka; može se arhivirati, prenositi i verificirati bilo gdje.
+- **U skladu sa standardima**: temeljen na Ed25519 (RFC 8032), JCS (RFC 8785) i SHA-256, svim široko korištenim primitivima.
 
-Nisu zamjena za validaciju ulaza, provođenje politike ili infrastrukturu identiteta. Oni su temelj za te slojeve. Kada uvodite agente u regulirane radne zadatke, višestruke organizacijske tokove rada ili bilo koje okruženje gdje se ne može pretpostaviti povjerenje budućeg revizora, računi su način na koji činite zapisnik revizije poštenim.
+Oni nisu zamjena za validaciju unosa, provođenje politika ili infrastrukturu identiteta. Oni su temelj za te slojeve. Kada implementirate agente u reguliranim okruženjima, višestrukim organizacijama ili u bilo kojem okruženju gdje se ne može pretpostaviti da vam budući revizor vjeruje, računi su način da se revizijski trag učini iskrenim.
 
-Najvažnija poruka: računi dokazuju tko je što rekao i kada. Ne dokazuju da je ono što je rečeno istinito ili ispravno. Držite tu razliku čvrsto. To je razlika između poštenog sustava podrijetla i zavaravajućeg.
+Najvažnija poruka: računi dokazuju tko je što rekao i kada. Ne dokazuju da je ono što je rečeno istina ili ispravno. Čuvajte tu razliku čvrsto. To je razlika između iskrenog sustava podrijetla i obmanjujućeg.
 
-## Kontrolni popis za proizvodnju
+## Proizvodni kontrolni popis
 
-Kada ste spremni prijeći iz ovog poglavlja u implementaciju agenata potpisanih računima u stvarnom okruženju:
+Kad budete spremni prijeći s ove lekcije na implementaciju agenata s potpisanim računima u stvarnom okruženju:
 
-- [ ] **Premjestite ključ za potpisivanje sa razvojnog prijenosnog računala.** Koristite Azure Key Vault, AWS KMS ili hardverski sigurnosni modul. Privatni ključ kojim potpisujete račune nikada ne smije živjeti u kontroli izvornog koda ili u običnom tekstu na strojevima primjene.
-- [ ] **Objavite javni ključ za potvrdu.** Revizori ga trebaju za offline provjeru. Standardni obrazac je JWK Set na dobro poznatoj URL adresi (RFC 7517), npr. `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Usidrite lanac izvana.** Povremeno zapišite najnoviji hash vrha lanca u transparentni zapis (Sigstore Rekor, RFC 3161 vremenska pečatna uprava ili neki drugi interni sustav) tako da vanjska strana može potvrditi "ovaj lanac je postojao u ovo vrijeme."
-- [ ] **Pohranite račune nepromjenjivo.** Pohrana vrste append-only blob (Azure Storage s pravilima nepromjenjivosti, AWS S3 Object Lock) sprječava insajdera da prepisuje povijest u sloju pohrane.
-- [ ] **Odlučite o zadržavanju podataka.** Mnogi propisi zahtijevaju višegodišnje zadržavanje. Planirajte rast računa (svaki račun je oko 500 bajtova; agent koji obavi 10 000 poziva dnevno stvara oko 1,8 GB godišnje).
-- [ ] **Dokumentirajte što računi ne pokrivaju.** Računi dokazuju atribuciju, integritet i redoslijed. Vaš radni protokol treba izričito navesti koje dodatne kontrole (validacija ulaza, provođenje politike, ograničenje stope, infrastruktura identiteta) stoje uz račune u vašem upravljačkom okviru.
+- [ ] **Premjestite ključ za potpisivanje s developerskog prijenosnog računala.** Koristite Azure Key Vault, AWS KMS ili hardverski sigurnosni modul. Privatni ključ za potpisivanje računa nikada ne smije biti pohranjen u kontrolu izvornog koda ili u čistom tekstu na aplikacijskim strojevima.
+- [ ] **Objavite javni ključ za verifikaciju.** Revizori ga trebaju za offline verifikaciju. Standardni obrazac je JWK skup na dobro poznatoj URL adresi (RFC 7517), npr. `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Vanjski sidrite lanac.** Povremeno zapišite hash posljednjeg čvora lanca u transparentni zapis (Sigstore Rekor, RFC 3161 tijelo s vremenskim žigom ili drugi interni sustav) tako da vanjska strana može potvrditi "ovaj lanac je postojao u ovo vrijeme".
+- [ ] **Pohranite račune nepromjenjivo.** Blob spremišta koja podržavaju samo dodavanje (Azure Storage s politikama nepromjenjivosti, AWS S3 Object Lock) sprječavaju insajderke manipulacije poviješću na razini spremišta.
+- [ ] **Odredite period čuvanja.** Mnogi režimi usklađenosti zahtijevaju višegodišnje čuvanje. Planirajte rast broja računa (svaki račun je oko 500 bajtova; agent koji izvrši 10K poziva dnevno generira oko 1,8 GB godišnje).
+- [ ] **Dokumentirajte što računi ne pokrivaju.** Računi dokazuju atribuciju, integritet i redoslijed. Vaš vodič treba jasno navesti koje dodatne kontrole (validacija unosa, provođenje politika, ograničenje stope, infrastruktura identiteta) su obuhvaćene u vašem uredskom okviru uz račune.
 
-### Imate li još pitanja oko osiguranja AI agenata?
+### Imate li dodatnih pitanja o sigurnosti AI agenata?
 
-Pridružite se [Microsoft Foundry Discordu](https://aka.ms/ai-agents/discord) za susret s drugim polaznicima, sudjelovanje na radnim satima i dobivanje odgovora na pitanja o AI agentima.
+Pridružite se [Microsoft Foundry Discordu](https://aka.ms/ai-agents/discord) da se povežete s drugim učenicima, sudjelujete u uredu za pitanja i dobijete odgovore na pitanja o AI agentima.
 
-## Izvan ovog poglavlja
+## Iza ove lekcije
 
-Ovo poglavlje pokriva potpisivanje pojedinačnih računa i nizove hashiranih lanaca. Isti primitivni elementi čine nekoliko naprednijih obrazaca na koje možete naići kako vaš upravljački okvir sazrijeva:
+Ova lekcija pokriva potpisivanje pojedinačnih računa i nizove s hash-lancom. Isti primitivci se slažu u nekoliko naprednijih obrazaca koje možete susresti kako vaš upravljački sustav sazrijeva:
 
-- **Selektivno otkrivanje.** Kada su polja računa neovisno obvezana (Merkle stablo u stilu RFC 6962), možete otkriti određena polja određenim revizorima i dokazati da su ostala nepromijenjena bez izlaganja. Korisno kada isti račun mora zadovoljiti i sveobuhvatnu reviziju (koja želi potpunost) i pravila o minimizaciji podataka poput GDPR-a (koji žele da revizor vidi što je manje moguće).
-- **Poništenje računa.** Ako je ključ za potpisivanje kompromitiran, trebate način da označite sve račune potpisane tim ključem kao nepouzdane od određenog trenutka. Standardni obrasci: kratkotrajni ključevi za potpisanje plus objavljeni popis poništenja, ili transparentni zapis s unosima poništenja.
-- **Dvosmjerni / računi s podijeljenim potpisom.** Neke implementacije dijele potpisani sadržaj na polovice prije izvršenja (`authorization_*`) i poslije izvršenja (`result_*`) s neovisnim potpisima, korisno kada odluku o ovlaštenju i promatrani rezultat donose različiti akteri ili u različito vrijeme. Ovo se može aditivno složiti na format računa naučen u ovom poglavlju.
-- **Složeni sadržaji.** Račun zatvara bilo koje bajtove koje stavite u `result_hash`. Pravi sadržaji često su bogatiji od rezultata jednog poziva alata: razlozi pred donošenjem odluke (predviđanje modela, razmotrene opcije, dokazi i njihova potpunost, položaj rizika, lanac odgovornosti, rezultat vrata) mogu svi živjeti unutar sadržaja, zatvoreni jednim računom. Ovo drži format računa minimalnim dok dopušta da se sheme sadržaja razvijaju ovisno o domenu.
-- **Sukladnost između implementacija.** Više neovisnih implementacija istog formata računa (Python, TypeScript, Rust, Go) međusobno se verificiraju prema zajedničkim testnim vektorima. Ako izgradite vlastitu implementaciju, validacija prema objavljenim vektorima potvrđuje kompatibilnost preko žičane veze.
-- **Migracija nakon kvantnog doba.** Ed25519 je danas široko primijenjen, ali nije kvantno otporan. Format računa je algoritamski agilan: polje `signature.alg` može sadržavati `ML-DSA-65` (NIST standard za potpise nakon kvantnog doba) kada trebate migrirati. Planirajte prijelazno razdoblje u kojem se računi potpisuju dvostruko.
+- **Selektivno otkrivanje.** Kada su polja računa neovisno obavezana (Merklejevo stablo u RFC 6962 stilu), možete otkriti određena polja određenim revizorima i dokazati da ostala nisu promijenjena bez da ih otkrivate. Korisno kada isti račun mora zadovoljiti i sveobuhvatnu reviziju (koja traži potpunost) i propise o minimizaciji podataka poput GDPR-a (koji žele da revizor vidi što je moguće manje).
+- **Poništenje računa.** Ako je ključ za potpisivanje kompromitiran, morate moći označiti sve račune potpisane tim ključem kao nepouzdane od određenog trenutka nadalje. Standardni obrasci: ključ za potpisivanje s kratkim vijekom trajanja plus objavljeni popis poništenja, ili transparentni zapis s unosima poništenja.
+- **Dvosmjerni / podijeljeni potpisni računi.** Neki sustavi dijele potpisanu korisnu informaciju na predizvršni (`authorization_*`) i postizvršni (`result_*`) dio s neovisnim potpisima, korisno kada su odluka o autorizaciji i promatrani rezultat generirani od različitih aktera ili u različito vrijeme. Ovo nadograđuje obrazac računa prikazan u ovoj lekciji.
+- **Sastav korisne informacije.** Račun zatvara sve bajtove koje stavite u `result_hash`. Pravi korisni podaci su često bogatiji nego rezultat jednog poziva alatu: predodluka (predviđanje modela, razmotrene opcije, dokazi i njihova potpunost, rizik, lanac odgovornosti, ishod prolaza) mogu svi biti unutar korisne informacije, zatvoreni jednim računom. Ovo održava format računa minimalnim dok dopušta evoluciju shema po domeni.
+- **Kompatibilnost među implementacijama.** Više neovisnih implementacija istog formata računa (Python, TypeScript, Rust, Go) mogu se unakrsno provjeravati prema zajedničkim testnim vektorima. Ako napravite vlastitu implementaciju, provjera prema objavljenim vektorima potvrđuje kompatibilnost formata.
+- **Migracija u post-kvantno doba.** Ed25519 je danas široko korišten ali nije kvantno-otporan. Format računa je algoritamski prilagodljiv: polje `signature.alg` može nositi `ML-DSA-65` (NIST post-kvantni standard potpisa) kad vam treba migracija. Planirajte prijelazno razdoblje kad su računi dvostruko potpisani.
 
 ## Dodatni resursi
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Potpisani računi odluka za kontrolu pristupa stroj-stroj</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Pregled odgovorne AI (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-krivuljski digitalni potpisni algoritam (EdDSA)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: Shema kanonizacije JSON-a (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Transparentnost certifikata</a> (Merkle stabla korišteno u računima sa selektivnim otkrivanjem)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorijal 33: Offline-provjerljivi računi odluka</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Testni vektori za sukladnost među implementacijama</a> za format računa korišten u ovom poglavlju (Apache-2.0)
-- <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl dokumentacija</a> (Ed25519 u Pythonu)
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Signed Decision Receipts for Machine-to-Machine Access Control</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Pregled odgovorne uporabe umjetne inteligencije (Azure AI)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Edwards-Curve Digital Signature Algorithm (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: JSON Canonicalization Scheme (JCS)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Certificate Transparency</a> (Merklejeva stabla korištena za račune sa selektivnim otkrivanjem)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Microsoft Agent Governance Toolkit, Tutorial 33: Offline-Verifiable Decision Receipts</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Testni vektori za sukladnost među implementacijama</a> formata računa korištenog u ovoj lekciji (Apache-2.0)
+- <a href="https://pynacl.readthedocs.io/" target="_blank">PyNaCl dokumentacija</a> (Ed25519 na Pythonu)
 
-## Prethodno poglavlje
+## Prethodna lekcija
 
-[Izgradnja agenata za korištenje računala (CUA)](../15-browser-use/README.md)
-
-## Sljedeće poglavlje
-
-_(Bit će određeno od strane održavatelja kurikuluma)_
+[Kreiranje lokalnih AI agenata](../17-creating-local-ai-agents/README.md)
 
 ---
 

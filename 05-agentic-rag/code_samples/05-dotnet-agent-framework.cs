@@ -19,9 +19,9 @@ using DotNetEnv;
 // Load environment variables
 Env.Load("../../../.env");
 
-// Get Azure AI Foundry configuration
+// Get Microsoft Foundry configuration
 var azure_foundry_endpoint = Environment.GetEnvironmentVariable("AZURE_AI_PROJECT_ENDPOINT") ?? throw new InvalidOperationException("AZURE_AI_PROJECT_ENDPOINT is not set.");
-var azure_foundry_model_id = Environment.GetEnvironmentVariable("AZURE_AI_MODEL_DEPLOYMENT_NAME") ?? "gpt-4.1-mini";
+var azure_foundry_model_id = Environment.GetEnvironmentVariable("AZURE_AI_MODEL_DEPLOYMENT_NAME") ?? "gpt-5-mini";
 
 // Define document path
 string pdfPath = "./document.md";

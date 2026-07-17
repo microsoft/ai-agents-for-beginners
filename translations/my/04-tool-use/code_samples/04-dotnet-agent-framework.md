@@ -1,106 +1,109 @@
-# 🛠️ GitHub Models (.NET) ကို အသုံးပြု၍ အဆင့်မြင့် Tool အသုံးပြုခြင်း
+# 🛠️ Azure OpenAI (Responses API) ဖြင့် အဆင့်မြင့်ကိရိယာအသုံးပြုမှု (.NET)
 
-## 📋 သင်ယူရမည့် ရည်ရွယ်ချက်များ
+## 📋 သင်ယူရမည့် ရည်မှန်းချက်များ
 
-ဒီ notebook က Microsoft Agent Framework ကို .NET နဲ့ GitHub Models တွေကို အသုံးပြုပြီး အဆင့်မြင့် tool တွေကို ပေါင်းစပ်အသုံးပြုနိုင်တဲ့ enterprise-grade ပုံစံတွေကို ပြသပေးမှာပါ။ C# ရဲ့ strong typing နဲ့ .NET ရဲ့ enterprise features တွေကို အသုံးပြုပြီး အထူးပြု tool တွေစွမ်းဆောင်နိုင်တဲ့ agent တွေကို တည်ဆောက်ပုံကို သင်ယူနိုင်ပါမယ်။
+ဤ notebook သည် .NET တွင် Microsoft Agent Framework ကို အသုံးပြု၍ Azure OpenAI (Responses API) နှင့် Enterprise-grade ကိရိယာ ပေါင်းစပ်သည့် ပုံစံများကို ပြသသည်။ သင့်သည် C# ၏ များပြားသည့် အမျိုးအစားစစ်ဆေးမှုနှင့် .NET ၏ Enterprise အင်္ဂါရပ်များကို အသုံးပြုကာ အထူးပြုကိရိယာများစွာဖြင့် ရှုပ်ထွေးသော agent များ ဖန်တီးခြင်းကို သင်ယူပါမည်။
 
-### သင်ကျွမ်းကျင်ရမည့် အဆင့်မြင့် Tool စွမ်းဆောင်ရည်များ
+### သင်Masterလုပ်မည့် အဆင့်မြင့် ကိရိယာ အင်အားများ
 
-- 🔧 **Multi-Tool Architecture**: အထူးပြုစွမ်းဆောင်ရည်များစွာပါဝင်တဲ့ agent တစ်ခုကို တည်ဆောက်ခြင်း
-- 🎯 **Type-Safe Tool Execution**: C# ရဲ့ compile-time validation ကို အသုံးပြုခြင်း
-- 📊 **Enterprise Tool Patterns**: ထုတ်လုပ်မှုအဆင့် tool ဒီဇိုင်းနဲ့ error ကို ကိုင်တွယ်ပုံ
-- 🔗 **Tool Composition**: အဆင့်မြင့် business workflows များအတွက် tool တွေကို ပေါင်းစပ်အသုံးပြုခြင်း
+- 🔧 **စုံလင်သော ကိရိယာစနစ်**: အထူးပြု အင်္ဂါရပ်များစွာပါရှိသည့် Agent များ ဆောက်လုပ်ခြင်း
+- 🎯 **Type-Safe ကိရိယာ အကောင်အထည်ဖော်မှု**: C# ၏ compile-time စစ်ဆေးမှုကို အသုံးချခြင်း
+- 📊 **Enterprise ကိရိယာ ပုံစံများ**: ထုတ်လုပ်မှုစနစ်များအတွက် ကိရိယာ ဒီဇိုင်းနှင့် အမှားစစ်ဆေးမှု
+- 🔗 **ကိရိယာပေါင်းစပ်မှု**: ရိုက်ကားတည်ဆောက်မှုအတွက် ကိရိယာများ ပေါင်းစပ်ခြင်း
 
-## 🎯 .NET Tool Architecture ရဲ့ အကျိုးကျေးဇူးများ
+## 🎯 .NET ကိရိယာစနစ်၏ အကျိုးကျေးဇူးများ
 
-### Enterprise Tool Features
+### Enterprise ကိရိယာ အင်္ဂါရပ်များ
 
-- **Compile-Time Validation**: Strong typing က tool parameter မှန်ကန်မှုကို အာမခံပေးခြင်း
-- **Dependency Injection**: IoC container ကို tool management အတွက် ပေါင်းစပ်အသုံးပြုခြင်း
-- **Async/Await Patterns**: Non-blocking tool execution နဲ့ resource ကို သင့်တင့်စွာ စီမံခြင်း
-- **Structured Logging**: Tool execution ကို စောင့်ကြည့်နိုင်တဲ့ logging integration
+- **Compile-Time စစ်ဆေးမှု**: အမြဲတမ်း တိကျသော parameters စစ်ဆေးခြင်း
+- **Dependency Injection**: Tool များ စီမံခန့်ခွဲမှုအတွက် IoC container ထည့်သွင်းခြင်း
+- **Async/Await ပုံစံများ**: အနားယူမှုမရှိဘဲ Tool အတည်ပြုခြင်းနှင့် အရင်းအမြစ်များ စီမံခန့်ခွဲမှု
+- **Structured Logging**: Tool အလုပ်ဆောင်မှု လိုဂ်များ ထည့်သွင်းခြင်း
 
-### Production-Ready Patterns
+### ထုတ်လုပ်မှုအဆင်သင့် ပုံစံများ
 
-- **Exception Handling**: Typed exceptions နဲ့ error ကို စုံလင်စွာ ကိုင်တွယ်ခြင်း
-- **Resource Management**: Disposal patterns နဲ့ memory ကို သင့်တင့်စွာ စီမံခြင်း
-- **Performance Monitoring**: Built-in metrics နဲ့ performance counters
-- **Configuration Management**: Validation ပါဝင်တဲ့ type-safe configuration
+- **Exception Handling**: ဖမ်းဆီးနိုင်ပြီး အမျိုးအစားသတ်မှတ်ထားသော error များ စီမံခန့်ခွဲမှု
+- **Resource Management**: သင့်တော်သော ဖျက်ပစ်မှုနှင့် ပေါ့ဖော်မှုစနစ်များ
+- **Performance Monitoring**: မီတာထွက်နှင့် တိုးတက်မှု စနစ်များ ထည့်သွင်းခြင်း
+- **Configuration Management**: အမျိုးအစားစစ်ဆေးမှုပါဝင်သော အပြင်အဆင် စီမံကိန်းများ
 
-## 🔧 Technical Architecture
+## 🔧 နည်းပညာဆိုင်ရာ ပုံစံ
 
-### Core .NET Tool Components
+### Core .NET ကိရိယာ အစိတ်အပိုင်းများ
 
-- **Microsoft.Extensions.AI**: Tool abstraction layer တစ်ခု
-- **Microsoft.Agents.AI**: Enterprise-grade tool orchestration
-- **GitHub Models Integration**: Connection pooling ပါဝင်တဲ့ high-performance API client
+- **Microsoft.Extensions.AI**: ကိရိယာ အထွေထွေ abstraction အဆင့်
+- **Microsoft.Agents.AI**: Enterprise-grade ကိရိယာ စီမံခန့်ခွဲမှု
+- **Azure OpenAI (Responses API)**: အမြန်ဆုံး API client နှင့် အချိတ်အဆက် pooling
 
-### Tool Execution Pipeline
+### ကိရိယာ အကောင်အထည် ဖော်ခြင်း လုပ်ငန်းစဉ်
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[အသုံးပြုသူ တောင်းဆိုမှု] --> B[ဖြစ်စဉ်အေထာက္အထား စစ်ဆေးခြင်း]
+    B --> C[ကိရိယာ ရွေးချယ်ခြင်း]
+    C --> D[အမျိုးအစား အတည်ပြုခြင်း]
+    B --> E[ပါရာမီတာ ချိတ်ဆက်ခြင်း]
+    E --> F[ကိရိယာ ပြုလုပ်ခြင်း]
     C --> F
-    F --> G[Result Processing]
+    F --> G[ရလဒ် ကိုင်တွယ်ခြင်း]
     D --> G
-    G --> H[Response]
+    G --> H[တုံ့ပြန်ချက်]
 ```
 
-## 🛠️ Tool Categories & Patterns
+## 🛠️ ကိရိယာ အမျိုးအစားများနှင့် ပုံစံများ
 
-### 1. **Data Processing Tools**
+### 1. **ဒေတာ ပြုပြင်ထိန်းသိမ်းမှု ကိရိယာများ**
 
-- **Input Validation**: Data annotations နဲ့ strong typing
-- **Transform Operations**: Type-safe data conversion နဲ့ formatting
-- **Business Logic**: Domain-specific calculation နဲ့ analysis tools
-- **Output Formatting**: Structured response generation
+- **ရိုက်ထည့်မှု စစ်ဆေးခြင်း**: ဒေတာ အမှန်တကယ်မှန်ကန်မှု အမျိုးအစားစစ်ဆေးခြင်း
+- **ပြောင်းလဲမှု လုပ်ငန်းများ**: အမျိုးအစားကို သေချာစွာ ပြောင်းသည့် ဒေတာ ပုံစံပြင်ဆင်မှု
+- **စီးပွားရေး အချက်အလက်**: ဒေသဆိုင်ရာ တွက်ချက်မှုနှင့် စိစစ်ရန် ကိရိယာများ
+- **ထွက်ရှိမှု ဖော်ပြမှု**: စနစ်တကျ ပြန်စာထုတ်လုပ်မှု
 
-### 2. **Integration Tools** 
+### 2. **ပေါင်းစည်းခြင်း ကိရိယာများ**
 
-- **API Connectors**: RESTful service integration ကို HttpClient နဲ့
-- **Database Tools**: Entity Framework integration ကို data access အတွက်
-- **File Operations**: Validation ပါဝင်တဲ့ secure file system operations
-- **External Services**: Third-party service integration patterns
+- **API ဆက်သွယ်မှုများ**: HttpClient အသုံးပြု RESTful ဝန်ဆောင်မှု ပေါင်းစည်းမှု
+- **ဒေတာဘေ့စ် ကိရိယာများ**: ဒေတာ ဝင်ရောက်မှုအတွက် Entity Framework ပေါင်းစည်းမှု
+- **ဖိုင် လုပ်ငန်းများ**: စစ်ဆေးချက်နှင့်အတူ လုံခြုံသော ဖိုင်စနစ် လုပ်ငန်းများ
+- **ပြင်ပ ဝန်ဆောင်မှုများ**: တတိယပါတီ ဝန်ဆောင်မှု ပေါင်းစည်းမှု ပုံစံများ
 
-### 3. **Utility Tools**
+### 3. **အသုံးဝင် ကိရိယာများ**
 
-- **Text Processing**: String manipulation နဲ့ formatting utilities
-- **Date/Time Operations**: Culture-aware date/time calculations
-- **Mathematical Tools**: Precision calculations နဲ့ statistical operations
-- **Validation Tools**: Business rule validation နဲ့ data verification
+- **စာသား ပြုပြင်ခြင်း**: စာကြောင်းစီမံခြင်းနှင့် ဖော်ပြမှု ကိရိယာများ
+- **ရက်စွဲ/အချိန် လုပ်ငန်းများ**: ယဉ်ကျေးမှုသိထားမှုပါသော ရက်စွဲ/အချိန် တွက်ချက်မှုများ
+- **သင်္ချာ ကိရိယာများ**: တိကျသော တွက်ချက်မှုများနှင့် စာရင်းအင်း လုပ်ငန်းများ
+- **စစ်ဆေးမှု ကိရိယာများ**: စီးပွားရေးစည်းကမ်း စစ်ဆေးမှုနှင့် ဒေတာအတည်ပြုခြင်း
 
-Enterprise-grade agents တွေကို .NET နဲ့ type-safe tool စွမ်းဆောင်ရည်များနဲ့ တည်ဆောက်ဖို့ အဆင်သင့်ဖြစ်ပါပြီလား? အရည်အသွေးမြင့် solution တွေကို architect လုပ်ကြစို့! 🏢⚡
+.NET တွင် အင်အားကိုးကူပြီး အမျိုးအစားစစ်ဆေးမှုတို့ ပါသော Enterprise-grade agent များဖန်တီးရန် အသင့်ဖြစ်ပါပြီလား? အသက်ဝင်သော ပရော်ဖက်ရှင်နယ်နည်းလမ်းများ ဆောက်လုပ်ကြစို့! 🏢⚡
 
-## 🚀 စတင်အသုံးပြုခြင်း
+## 🚀 စတင်ရန်
 
-### လိုအပ်ချက်များ
+### မတိုင်မီလိုအပ်ချက်များ
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် အထက်
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် အထက်ပိုင်း
+- [Azure subscription](https://azure.microsoft.com/free/), Azure OpenAI resource နှင့် မော်ဒယ် တပ်ဆင်မှု ပါရှိရမည်
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ဖြင့် လက်မှတ်ထိုးဝင်ရောက်ပါ
 
-### လိုအပ်သော Environment Variables
+### လိုအပ်သော ပတ်ဝန်းကျင် များ
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# ထို့နောက် AzureCliCredential သည် token ကို ရယူနိုင်အောင် အကောင့်ဝင်ပါ
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# ထို့နောက် AzureCliCredential သည် တိုကင်ကို ရယူနိုင်ရန်အတွက် လော့ဂ်အင် ဝင်ပါ။
+az login
 ```
 
-### နမူနာ Code
+### နမူနာ ကုဒ်
 
-Code နမူနာကို run ဖို့,
+ကုဒ်နမူနာကို ဆောင်ရွက်ရန်,
 
 ```bash
 # zsh/bash
@@ -108,27 +111,29 @@ chmod +x ./04-dotnet-agent-framework.cs
 ./04-dotnet-agent-framework.cs
 ```
 
-သို့မဟုတ် dotnet CLI ကို အသုံးပြု၍:
+ဒါမှမဟုတ် dotnet CLI ဖြင့်
 
 ```bash
 dotnet run ./04-dotnet-agent-framework.cs
 ```
 
-[`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) မှာ အပြည့်အစုံ code ကို ကြည့်ရှုနိုင်ပါသည်။
+ပြည့်စုံသော ကုဒ်အတွက် [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples/04-dotnet-agent-framework.cs) ကို ကြည့်ပါ။
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**အကြောင်းကြားချက်**:  
-ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးစားနေသော်လည်း အလိုအလျောက် ဘာသာပြန်မှုများတွင် အမှားများ သို့မဟုတ် မမှန်ကန်မှုများ ပါဝင်နိုင်သည်ကို သတိပြုပါ။ မူရင်းဘာသာစကားဖြင့် ရေးသားထားသော စာရွက်စာတမ်းကို အာဏာတရားရှိသော အရင်းအမြစ်အဖြစ် သတ်မှတ်သင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူက ဘာသာပြန်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော အလွဲအမှားများ သို့မဟုတ် အနားလွဲမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+**ပြောကြားချက်**
+ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးပမ်းနေသော်လည်း၊ စက်ကိရိယာဘာသာပြန်ခြင်းများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် လိုအပ်ပါသည်။ မူလစာတမ်းကို မူရင်းဘာသာဖြင့်သာ ယုံကြည်စိတ်ချရသော အချက်အလက်အဖြစ် သတ်မှတ်သင့်သည်။ အရေးကြီးသည့် သတင်းအချက်အလက်များအတွက် ပရော်ဖက်ရှင်နယ် လူသားဘာသာပြန်သူဝန်ဆောင်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော နားလည်မှုကွာခြားမှုများ သို့မဟုတ် မမှန်ကန်သော အသုံးပြုမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မခံပါ။
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

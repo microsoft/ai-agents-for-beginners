@@ -116,7 +116,7 @@ Agentic RAG represents a natural evolution in how AI systems handle complex, dat
 
 ### Got More Questions about Agentic RAG?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Additional Resources
 
@@ -136,6 +136,10 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet w
 - <a href="https://arxiv.org/abs/2303.11366" target="_blank">2303.11366 Reflexion: Language Agents with Verbal Reinforcement Learning</a>
 - <a href="https://arxiv.org/abs/2305.11738" target="_blank">2305.11738 CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing</a>
 - <a href="https://arxiv.org/abs/2501.09136" target="_blank">2501.09136 Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG</a>
+
+## Smoke-Testing This Agent (Optional)
+
+After you learn to deploy agents in [Lesson 16](../16-deploying-scalable-agents/README.md), you can smoke-test this lesson's `TravelRAGAgent` — checking that its answers stay grounded in the knowledge base — with [`tests/lesson-05-smoke-tests.json`](../tests/lesson-05-smoke-tests.json). See [`tests/README.md`](../tests/README.md) for how to run it.
 
 ## Previous Lesson
 

@@ -1,95 +1,95 @@
-[![Proiectare Multi-agent](../../../translated_images/ro/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
+[![Multi-Agent Design](../../../translated_images/ro/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
-> _(Faceți clic pe imaginea de mai sus pentru a vizualiza videoclipul acestei lecții)_
-# Metacogniție în agenții AI
+> _(Faceți clic pe imaginea de mai sus pentru a viziona videoclipul acestei lecții)_
+# Metacogniția în Agenții AI
 
 ## Introducere
 
-Bine ați venit la lecția despre metacogniție în agenții AI! Acest capitol este conceput pentru începători care sunt curioși despre cum agenții AI își pot reflecta propriile procese de gândire. La sfârșitul acestei lecții, veți înțelege conceptele cheie și veți fi echipați cu exemple practice pentru a aplica metacogniția în proiectarea agenților AI.
+Bine ați venit la lecția despre metacogniția în agenții AI! Acest capitol este conceput pentru începători curioși despre cum agenții AI pot gândi despre propriile lor procese de gândire. La sfârșitul acestei lecții, veți înțelege concepte cheie și veți fi echipat cu exemple practice pentru a aplica metacogniția în proiectarea agenților AI.
 
-## Obiective de învățare
+## Obiective de Învățare
 
-După finalizarea acestei lecții, veți putea:
+După ce parcurgeți această lecție, veți putea:
 
 1. Înțelege implicațiile buclelor de raționament în definițiile agenților.
 2. Folosi tehnici de planificare și evaluare pentru a ajuta agenții să se autocorecteze.
-3. Crea proprii agenți capabili să manipuleze cod pentru a îndeplini sarcini.
+3. Creați proprii agenți capabili să manipuleze coduri pentru a îndeplini sarcini.
 
-## Introducere în metacogniție
+## Introducere în Metacogniție
 
-Metacogniția se referă la procesele cognitive de ordin superior care implică gândirea despre propria gândire. Pentru agenții AI, asta înseamnă a putea evalua și ajusta acțiunile pe baza autocunoașterii și a experiențelor trecute. Metacogniția, sau „gândirea despre gândire”, este un concept important în dezvoltarea sistemelor agentice AI. Implică ca sistemele AI să fie conștiente de propriile procese interne și să poată monitoriza, regla și adapta comportamentul în consecință. La fel cum facem și noi atunci când citim atmosfera sau privim o problemă. Această autocunoaștere poate ajuta sistemele AI să ia decizii mai bune, să identifice erori și să își îmbunătățească performanța în timp — reîntorcându-ne din nou la testul Turing și la dezbaterea dacă AI va prelua controlul.
+Metacogniția se referă la procesele cognitive de ordin superior care implică gândirea despre propria gândire. Pentru agenții AI, aceasta înseamnă abilitatea de a evalua și ajusta acțiunile lor bazându-se pe conștientizarea de sine și experiențele trecute. Metacogniția, sau „gândirea despre gândire,” este un concept important în dezvoltarea sistemelor AI agentice. Aceasta implică ca sistemele AI să fie conștiente de propriile procese interne și să poată monitoriza, regla și adapta comportamentul în consecință. Asemenea modului în care facem noi când citim atmosfera sau analizăm o problemă. Această conștientizare de sine poate ajuta sistemele AI să ia decizii mai bune, să identifice erori și să își îmbunătățească performanța în timp - făcând legătura din nou cu testul Turing și dezbaterea dacă AI va prelua controlul.
 
-În contextul sistemelor agentice AI, metacogniția poate ajuta la abordarea mai multor provocări, cum ar fi:
-- Transparență: Asigurarea faptului că sistemele AI își pot explica raționamentul și deciziile.
-- Raționament: Îmbunătățirea capacității sistemelor AI de a sintetiza informații și de a lua decizii solide.
-- Adaptare: Permiterea sistemelor AI să se ajusteze la medii noi și la condiții în schimbare.
-- Percepție: Îmbunătățirea acurateței sistemelor AI în recunoașterea și interpretarea datelor din mediul lor.
+În contextul sistemelor AI agentice, metacogniția poate ajuta la rezolvarea mai multor provocări, cum ar fi:
+- Transparență: Asigurarea că sistemele AI pot explica raționamentul și deciziile lor.
+- Raționament: Îmbunătățirea capacității sistemelor AI de a sintetiza informații și a lua decizii corecte.
+- Adaptare: Permițând sistemelor AI să se adapteze la medii noi și condiții în schimbare.
+- Percepție: Îmbunătățirea acurateței sistemelor AI în recunoașterea și interpretarea datelor din mediul înconjurător.
 
-### Ce este metacogniția?
+### Ce este Metacogniția?
 
-Metacogniția, sau „gândirea despre gândire”, este un proces cognitiv de ordin superior care implică conștientizarea de sine și autoreglarea proceselor cognitive proprii. În domeniul AI, metacogniția îi permite agenților să își evalueze și să își adapteze strategiile și acțiunile, conducând la îmbunătățirea capacităților de rezolvare a problemelor și de luare a deciziilor. Prin înțelegerea metacogniției, puteți proiecta agenți AI care nu sunt doar mai inteligenți, dar și mai adaptabili și eficienți. În metacogniția autentică, ați vedea AI-ul raționând în mod explicit despre propriul său raționament.
+Metacogniția, sau „gândirea despre gândire,” este un proces cognitiv de ordin superior care implică conștientizarea de sine și autoreglarea propriilor procese cognitive. În domeniul AI, metacogniția oferă agenților puterea de a evalua și adapta strategiile și acțiunile lor, conducând la îmbunătățirea capacităților de rezolvare a problemelor și luare a deciziilor. Prin înțelegerea metacogniției, puteți proiecta agenți AI care nu sunt doar mai inteligenți, ci și mai adaptabili și eficienți. În adevărata metacogniție, ați vedea AI raționând explicit despre propriul său raționament.
 
-Exemplu: „Am prioritizat zboruri mai ieftine pentru că… s-ar putea să ratez zboruri directe, așa că voi verifica din nou.”  
-Urmărirea modului sau motivului pentru care a ales o anumită rută.
-- Observarea faptului că a făcut greșeli pentru că s-a bazat excesiv pe preferințele utilizatorului din ultima dată, așa că își modifică strategia de luare a deciziilor, nu doar recomandarea finală.
-- Diagnosticarea unor tipare precum: „Ori de câte ori văd că utilizatorul menționează «prea aglomerat», nu ar trebui doar să elimin anumite atracții, ci să reflectez asupra faptului că metoda mea de a alege «atracțiile de top» este defectuoasă dacă le ordonez întotdeauna după popularitate.”
+Exemplu: „Am prioritizat zborurile mai ieftine pentru că... S-ar putea să pierd zboruri directe, așa că voi verifica din nou.”.
+Urmărind cum sau de ce a ales un anumit traseu.
+- Observând că a făcut greșeli deoarece s-a bazat prea mult pe preferințele utilizatorului de data trecută, deci își modifică strategia de luare a deciziei și nu doar recomandarea finală.
+- Diagnosticând tipare, cum ar fi „Ori de câte ori văd că utilizatorul menționează 'prea aglomerat', nu ar trebui doar să elimin anumite atracții, ci și să reflectez că metoda mea de selectare a 'atracțiilor principale' este defectuoasă dacă le ordonez întotdeauna după popularitate.”
 
-### Importanța metacogniției în agenții AI
+### Importanța Metacogniției în Agenții AI
 
-Metacogniția joacă un rol crucial în proiectarea agenților AI din mai multe motive:
+Metacogniția joacă un rol esențial în proiectarea agenților AI din mai multe motive:
 
-![Importanța metacogniției](../../../translated_images/ro/importance-of-metacognition.b381afe9aae352f7.webp)
+![Importanța Metacogniției](../../../translated_images/ro/importance-of-metacognition.b381afe9aae352f7.webp)
 
-- Auto-reflecție: Agenții își pot evalua propria performanță și pot identifica zone pentru îmbunătățire.
-- Adaptabilitate: Agenții își pot modifica strategiile pe baza experiențelor trecute și a mediilor în schimbare.
-- Corectarea erorilor: Agenții pot detecta și corecta erorile în mod autonom, conducând la rezultate mai precise.
-- Managementul resurselor: Agenții pot optimiza utilizarea resurselor, cum ar fi timpul și puterea de calcul, prin planificarea și evaluarea acțiunilor lor.
+- Auto-reflecție: Agenții pot evalua propria performanță și pot identifica zone de îmbunătățit.
+- Adaptabilitate: Agenții își pot modifica strategiile bazându-se pe experiențe trecute și medii în schimbare.
+- Corectare a erorilor: Agenții pot detecta și corecta erori în mod autonom, conducând la rezultate mai precise.
+- Gestionarea resurselor: Agenții pot optimiza utilizarea resurselor, cum ar fi timpul și puterea de calcul, prin planificarea și evaluarea acțiunilor lor.
 
-## Componentele unui agent AI
+## Componentele unui Agent AI
 
-Înainte de a aprofunda procesele metacognitive, este esențial să înțelegem componentele de bază ale unui agent AI. Un agent AI constă de obicei din:
+Înainte de a intra în procese metacognitive, este esențial să înțelegem componentele de bază ale unui agent AI. Un agent AI constă de obicei din:
 
-- Personalitate: Personalitatea și caracteristicile agentului, care definesc modul în care interacționează cu utilizatorii.
-- Instrumente: Capabilitățile și funcțiile pe care agentul le poate îndeplini.
-- Competențe: Cunoștințele și expertiza pe care agentul le posedă.
+- Persona: Personalitatea și caracteristicile agentului, care definesc modul în care interacționează cu utilizatorii.
+- Unelte: Capacitățile și funcțiile pe care le poate realiza agentul.
+- Abilități: Cunoștințele și expertiza de care dispune agentul.
 
-Aceste componente lucrează împreună pentru a crea o „unitate de expertiză” care poate îndeplini sarcini specifice.
+Aceste componente lucrează împreună pentru a crea o „unitate de expertiză” capabilă să execute sarcini specifice.
 
 **Exemplu**:
-Luați în considerare un agent de călătorii, servicii de agenție care nu doar îți planifică vacanța, dar își ajustează și traseul pe baza datelor în timp real și a experiențelor anterioare ale clienților.
+Luați în considerare un agent de turism, un serviciu agent care nu numai că vă planifică vacanța, dar își ajustează traseul pe baza datelor în timp real și a experiențelor trecute ale clienților.
 
-### Exemplu: Metacogniție într-un serviciu de agenție de călătorii
+### Exemplu: Metacogniția într-un Serviciu Agent de Turism
 
-Imaginați-vă că proiectați un serviciu de agenție de călătorii bazat pe AI. Acest agent, „Agent de călătorii”, îi asistă pe utilizatori în planificarea vacanțelor. Pentru a încorpora metacogniția, Agentul de călătorii trebuie să evalueze și să își ajusteze acțiunile pe baza autocunoașterii și a experiențelor trecute. Iată cum ar putea juca un rol metacogniția:
+Imaginați-vă că proiectați un serviciu agent de turism alimentat de AI. Acest agent, „Travel Agent,” asistă utilizatorii în planificarea vacanțelor lor. Pentru a integra metacogniția, Travel Agent trebuie să evalueze și să își ajusteze acțiunile bazându-se pe conștientizarea de sine și experiențele trecute. Iată cum ar putea juca metacogniția un rol:
 
-#### Sarcina curentă
+#### Sarcina Curentă
 
-Sarcina curentă este să ajute un utilizator să planifice o călătorie la Paris.
+Sarcina curentă este să ajute un utilizator să planifice o excursie la Paris.
 
-#### Pași pentru finalizarea sarcinii
+#### Pași pentru Finalizarea Sarcinii
 
-1. **Colectarea preferințelor utilizatorului**: Întrebați utilizatorul despre datele călătoriei, buget, interese (de ex., muzee, gastronomie, cumpărături) și orice cerințe specifice.
-2. **Recuperarea informațiilor**: Căutați opțiuni de zbor, cazări, atracții și restaurante care corespund preferințelor utilizatorului.
-3. **Generarea de recomandări**: Oferiți un itinerar personalizat cu detalii despre zboruri, rezervări la hotel și activități sugerate.
-4. **Ajustarea pe baza feedback-ului**: Cereți utilizatorului feedback privind recomandările și faceți ajustările necesare.
+1. **Colectarea Preferințelor Utilizatorului**: Întrebați utilizatorul despre datele de călătorie, buget, interese (de ex., muzee, gastronomie, cumpărături) și orice cerințe specifice.
+2. **Recuperarea Informațiilor**: Căutați opțiuni de zbor, cazare, atracții și restaurante care se potrivesc preferințelor utilizatorului.
+3. **Generarea Recomandărilor**: Oferiți un itinerar personalizat cu detalii despre zbor, rezervări la hotel și activități sugerate.
+4. **Ajustarea pe baza Feedback-ului**: Solicitați feedback utilizatorului asupra recomandărilor și faceți ajustările necesare.
 
-#### Resurse necesare
+#### Resurse Necesare
 
-- Acces la baze de date pentru rezervări zboruri și hoteluri.
+- Acces la baze de date pentru rezervări de zboruri și hoteluri.
 - Informații despre atracțiile și restaurantele pariziene.
-- Date de feedback ale utilizatorilor din interacțiunile anterioare.
+- Date de feedback ale utilizatorilor din interacțiuni anterioare.
 
-#### Experiență și auto-reflecție
+#### Experiență și Auto-reflecție
 
-Agentul de călătorii folosește metacogniția pentru a-și evalua performanța și a învăța din experiențele trecute. De exemplu:
+Travel Agent folosește metacogniția pentru a evalua performanța și a învăța din experiențele trecute. De exemplu:
 
-1. **Analiza feedback-ului utilizatorilor**: Agentul de călătorii revizuiește feedback-ul utilizatorilor pentru a determina ce recomandări au fost bine primite și care nu. Își ajustează sugestiile viitoare în consecință.
-2. **Adaptabilitate**: Dacă un utilizator a menționat anterior că nu-i plac locurile aglomerate, Agentul de călătorii va evita recomandarea locurilor turistice populare în orele de vârf în viitor.
-3. **Corectarea erorilor**: Dacă Agentul de călătorii a făcut o greșeală într-o rezervare anterioară, cum ar fi sugerarea unui hotel complet rezervat, învață să verifice disponibilitatea mai riguros înainte de a face recomandări.
+1. **Analiza Feedback-ului Utilizatorului**: Travel Agent examinează feedback-ul utilizatorului pentru a determina care recomandări au fost bine primite și care nu. Își ajustează sugestiile viitoare în consecință.
+2. **Adaptabilitate**: Dacă un utilizator a menționat anterior că nu îi plac locurile aglomerate, Travel Agent va evita să recomande puncte turistice populare în orele de vârf pe viitor.
+3. **Corectarea Erorilor**: Dacă Travel Agent a făcut o eroare într-o rezervare anterioară, precum sugerarea unui hotel complet ocupat, învață să verifice disponibilitatea mai riguros înainte de a face recomandări.
 
-#### Exemplu practic pentru dezvoltatori
+#### Exemplu Practic pentru Dezvoltatori
 
-Iată un exemplu simplificat despre cum ar putea arăta codul Agentului de călătorii atunci când încorporează metacogniția:
+Iată un exemplu simplificat de cod pentru Travel Agent care încorporează metacogniția:
 
 ```python
 class Travel_Agent:
@@ -132,72 +132,72 @@ feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)
 travel_agent.adjust_based_on_feedback(feedback)
 ```
 
-#### De ce contează metacogniția
+#### De ce este importantă Metacogniția
 
-- **Auto-reflecție**: Agenții își pot analiza performanța și pot identifica zone pentru îmbunătățire.
-- **Adaptabilitate**: Agenții își pot modifica strategiile pe baza feedback-ului și a condițiilor în schimbare.
-- **Corectarea erorilor**: Agenții pot detecta și corecta greșelile în mod autonom.
-- **Managementul resurselor**: Agenții pot optimiza utilizarea resurselor, cum ar fi timpul și puterea de calcul.
+- **Auto-reflecție**: Agenții pot analiza performanța și identifica zone de îmbunătățit.
+- **Adaptabilitate**: Agenții pot modifica strategiile bazându-se pe feedback și condiții schimbătoare.
+- **Corectarea Erorilor**: Agenții pot detecta și corecta greșelile în mod autonom.
+- **Gestionarea Resurselor**: Agenții pot optimiza utilizarea resurselor, cum ar fi timpul și puterea de calcul.
 
-Prin încorporarea metacogniției, Agentul de călătorii poate oferi recomandări de călătorie mai personalizate și mai precise, îmbunătățind experiența generală a utilizatorului.
+Prin încorporarea metacogniției, Travel Agent poate oferi recomandări de călătorie mai personalizate și mai precise, îmbunătățind experiența generală a utilizatorului.
 
 ---
 
-## 2. Planificarea agenților
+## 2. Planificarea în Agenți
 
-Planificarea este o componentă critică a comportamentului unui agent AI. Aceasta implică conturarea pașilor necesari pentru a atinge un scop, luând în considerare starea curentă, resursele și posibilele obstacole.
+Planificarea este o componentă critică a comportamentului agenților AI. Aceasta implică conturarea pașilor necesari pentru atingerea unui scop, luând în considerare starea actuală, resursele și posibilele obstacole.
 
-### Elemente ale planificării
+### Elemente ale Planificării
 
-- **Sarcina curentă**: Definiți clar sarcina.
-- **Pași pentru finalizarea sarcinii**: Împărțiți sarcina în pași gestionabili.
-- **Resurse necesare**: Identificați resursele necesare.
-- **Experiență**: Utilizați experiențele anterioare pentru a informa planificarea.
+- **Sarcina Curentă**: Definiți clar sarcina.
+- **Pași pentru Finalizarea Sarcinii**: Descompuneți sarcina în pași gestionabili.
+- **Resurse Necesare**: Identificați resursele necesare.
+- **Experiență**: Utilizați experiențele trecute pentru a informa planificarea.
 
 **Exemplu**:
-Iată pașii pe care Agentul de călătorii trebuie să îi urmeze pentru a ajuta un utilizator să își planifice călătoria în mod eficient:
+Iată pașii pe care Travel Agent trebuie să îi urmeze pentru a ajuta un utilizator să-și planifice eficient călătoria:
 
-### Pași pentru Agentul de călătorii
+### Pași pentru Travel Agent
 
-1. **Colectarea preferințelor utilizatorului**
+1. **Colectarea Preferințelor Utilizatorului**
    - Întrebați utilizatorul detalii despre datele de călătorie, buget, interese și orice cerințe specifice.
-   - Exemple: "Când plănuiți să călătoriți?" "Care este intervalul dumneavoastră de buget?" "Ce activități vă plac în vacanță?"
+   - Exemple: „Când intenționați să călătoriți?” „Care este intervalul dvs. de buget?” „Ce activități vă plac în vacanță?”
 
-2. **Recuperarea informațiilor**
-   - Căutați opțiuni de călătorie relevante pe baza preferințelor utilizatorului.
-   - **Zboruri**: Căutați zboruri disponibile în limita bugetului utilizatorului și în datele preferate.
-   - **Cazări**: Găsiți hoteluri sau proprietăți de închiriat care corespund preferințelor utilizatorului privind locația, prețul și facilitățile.
-   - **Atracții și restaurante**: Identificați atracții, activități și opțiuni culinare populare care se aliniază intereselor utilizatorului.
+2. **Recuperarea Informațiilor**
+   - Căutați opțiuni relevante de călătorie pe baza preferințelor utilizatorului.
+   - **Zboruri**: Căutați zboruri disponibile în bugetul și datele de călătorie preferate ale utilizatorului.
+   - **Cazare**: Găsiți hoteluri sau proprietăți de închiriat care corespund preferințelor utilizatorului privind locația, prețul și facilitățile.
+   - **Atracții și Restaurante**: Identificați atracții populare, activități și opțiuni de luat masa care se aliniază intereselor utilizatorului.
 
-3. **Generarea recomandărilor**
+3. **Generarea Recomandărilor**
    - Compilați informațiile recuperate într-un itinerar personalizat.
-   - Furnizați detalii precum opțiuni de zbor, rezervări la hotel și activități sugerate, asigurându-vă că adaptați recomandările la preferințele utilizatorului.
+   - Oferiți detalii precum opțiuni de zbor, rezervări la hotel și activități sugerate, asigurându-vă că recomandările sunt adaptate preferințelor utilizatorului.
 
-4. **Prezentarea itinerarului utilizatorului**
-   - Distribuiți itinerarul propus utilizatorului pentru revizuire.
-   - Exemplu: "Iată un itinerar sugerat pentru călătoria dvs. la Paris. Include detalii despre zboruri, rezervări la hotel și o listă de activități și restaurante recomandate. Spuneți-mi ce părere aveți!"
+4. **Prezentarea Itinerarului Utilizatorului**
+   - Partajați itinerariul propus cu utilizatorul pentru revizuire.
+   - Exemplu: „Iată un itinerar sugerat pentru călătoria dvs. la Paris. Include detalii despre zbor, rezervări la hotel și o listă de activități și restaurante recomandate. Spuneți-mi părerile dvs.!”
 
-5. **Colectarea feedback-ului**
-   - Cereți utilizatorului feedback privind itinerarul propus.
-   - Exemple: "Vă plac opțiunile de zbor?" "Hotelul este potrivit pentru nevoile dvs.?" "Există activități pe care doriți să le adăugați sau să le eliminați?"
+5. **Colectarea Feedback-ului**
+   - Cereți utilizatorului feedback despre itinerariul propus.
+   - Exemple: „Vă plac opțiunile de zbor?” „Hotelul este potrivit pentru nevoile dvs.?” „Există activități pe care doriți să le adăugați sau eliminați?”
 
-6. **Ajustarea pe baza feedback-ului**
-   - Modificați itinerarul pe baza feedback-ului utilizatorului.
-   - Faceți schimbările necesare la recomandările de zbor, cazare și activități pentru a se potrivi mai bine preferințelor utilizatorului.
+6. **Ajustarea pe baza Feedback-ului**
+   - Modificați itinerarul bazându-vă pe feedback-ul utilizatorului.
+   - Faceți schimbările necesare privind zborul, cazarea și recomandările de activități pentru a se potrivi mai bine preferințelor utilizatorului.
 
-7. **Confirmarea finală**
-   - Prezentați itinerarul actualizat utilizatorului pentru confirmare finală.
-   - Exemplu: "Am făcut ajustările pe baza feedback-ului dvs. Iată itinerarul actualizat. Arată totul bine pentru dvs.?"
+7. **Confirmarea Finală**
+   - Prezentați itinerarul actualizat utilizatorului pentru confirmarea finală.
+   - Exemplu: „Am făcut ajustările bazate pe feedback-ul dvs. Iată itinerarul actualizat. Totul arată bine pentru dvs.?”
 
-8. **Rezervarea și confirmarea rezervărilor**
-   - Odată ce utilizatorul aprobă itinerarul, procedați la rezervarea zborurilor, cazărilor și a oricăror activități pre-planificate.
-   - Trimiteți detalii de confirmare utilizatorului.
+8. **Rezervarea și Confirmarea Rezervărilor**
+   - După aprobare, continuați cu rezervarea zborurilor, cazarelor și activităților preplanificate.
+   - Trimiteți detaliile de confirmare utilizatorului.
 
-9. **Furnizarea suportului continuu**
-   - Rămâneți disponibil pentru a asista utilizatorul cu orice modificări sau solicitări adiționale înainte și în timpul călătoriei.
-   - Exemplu: "Dacă aveți nevoie de asistență suplimentară în timpul călătoriei, nu ezitați să mă contactați oricând!"
+9. **Oferirea Suportului Continu**
+   - Rămâneți disponibil pentru a asista utilizatorul cu orice modificări sau cereri suplimentare înainte și în timpul călătoriei.
+   - Exemplu: „Dacă aveți nevoie de orice ajutor suplimentar în timpul călătoriei, nu ezitați să mă contactați oricând!”
 
-### Exemplu de interacțiune
+### Exemplu de Interacțiune
 
 ```python
 class Travel_Agent:
@@ -223,7 +223,7 @@ class Travel_Agent:
         self.experience_data.append(feedback)
         self.user_preferences = adjust_preferences(self.user_preferences, feedback)
 
-# Exemplu de utilizare într-o cerere de huiduire
+# Exemplu de utilizare într-o cerere de booing
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -238,48 +238,48 @@ feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)
 travel_agent.adjust_based_on_feedback(feedback)
 ```
 
-## 3. Sistem RAG corectiv
+## 3. Sistem RAG Corectiv
 
-În primul rând, să începem prin a înțelege diferența dintre RAG Tool și Încărcarea preemptivă a contextului
+În primul rând, să înțelegem diferența dintre Instrumentul RAG și Încărcarea Contextuală Preemptivă
 
-![RAG vs Încărcarea contextului](../../../translated_images/ro/rag-vs-context.9eae588520c00921.webp)
+![RAG vs Context Loading](../../../translated_images/ro/rag-vs-context.9eae588520c00921.webp)
 
-### Retrieval-Augmented Generation (RAG)
+### Generare Augmentată prin Recuperare (RAG)
 
-RAG combină un sistem de recuperare cu un model generativ. Când se face o interogare, sistemul de recuperare aduce documente sau date relevante dintr-o sursă externă, iar aceste informații recuperate sunt folosite pentru a augmenta inputul către modelul generativ. Acest lucru ajută modelul să genereze răspunsuri mai precise și relevante din punct de vedere al contextului.
+RAG combină un sistem de recuperare cu un model generativ. Când se face o interogare, sistemul de recuperare extrage documente sau date relevante dintr-o sursă externă, iar aceste informații recuperate sunt folosite pentru a completa datele de intrare ale modelului generativ. Acest lucru ajută modelul să genereze răspunsuri mai exacte și contextuale.
 
-Într-un sistem RAG, agentul recuperează informații relevante dintr-o bază de cunoștințe și le folosește pentru a genera răspunsuri sau acțiuni adecvate.
+Într-un sistem RAG, agentul recuperează informații relevante dintr-o bază de cunoștințe și le folosește pentru a genera răspunsuri sau acțiuni potrivite.
 
-### Abordarea RAG corectivă
+### Abordarea RAG Corectiv
 
-Abordarea RAG corectivă se concentrează pe utilizarea tehnicilor RAG pentru a corecta erorile și a îmbunătăți acuratețea agenților AI. Aceasta implică:
+Abordarea RAG Corectiv se concentrează pe utilizarea tehnicilor RAG pentru a corecta erori și a îmbunătăți acuratețea agenților AI. Aceasta implică:
 
-1. **Tehnică de prompting**: Folosirea de prompturi specifice pentru a ghida agentul în recuperarea informațiilor relevante.
-2. **Instrument**: Implementarea de algoritmi și mecanisme care permit agentului să evalueze relevanța informațiilor recuperate și să genereze răspunsuri exacte.
-3. **Evaluare**: Evaluarea continuă a performanței agentului și ajustarea pentru a-i îmbunătăți acuratețea și eficiența.
+1. **Tehnica de Promptare**: Folosirea prompturilor specifice pentru a ghida agentul în recuperarea informațiilor relevante.
+2. **Instrument**: Implementarea de algoritmi și mecanisme care permit agentului să evalueze relevanța informațiilor recuperate și să genereze răspunsuri precise.
+3. **Evaluare**: Evaluarea continuă a performanței agentului și ajustarea pentru a îi îmbunătăți acuratețea și eficiența.
 
-#### Exemplu: RAG corectiv într-un agent de căutare
+#### Exemplu: RAG Corectiv într-un Agent de Căutare
 
-Luați în considerare un agent de căutare care recuperează informații de pe web pentru a răspunde la interogările utilizatorilor. Abordarea RAG corectivă ar putea implica:
+Luați în considerare un agent de căutare care preia informații de pe web pentru a răspunde la întrebările utilizatorilor. Abordarea RAG Corectiv ar putea implica:
 
-1. **Tehnică de prompting**: Formularea interogărilor de căutare pe baza inputului utilizatorului.
-2. **Instrument**: Folosirea procesării limbajului natural și a algoritmilor de învățare automată pentru a ordona și filtra rezultatele căutării.
-3. **Evaluare**: Analizarea feedback-ului utilizatorilor pentru a identifica și corecta inexactitățile din informațiile recuperate.
+1. **Tehnica de Promptare**: Formularea de interogări de căutare bazate pe inputul utilizatorului.
+2. **Instrument**: Utilizarea procesării limbajului natural și algoritmi de învățare automată pentru a clasifica și filtra rezultatele căutării.
+3. **Evaluare**: Analiza feedback-ului utilizatorului pentru a identifica și corecta inexactitățile din informațiile recuperate.
 
-### RAG corectiv în Agentul de călătorii
+### RAG Corectiv în Travel Agent
 
-RAG corectiv (Retrieval-Augmented Generation) îmbunătățește capacitatea unui AI de a recupera și genera informații corecte, corectând orice inexactități. Haideți să vedem cum poate Agentul de călătorii să folosească abordarea RAG corectivă pentru a oferi recomandări de călătorie mai precise și mai relevante.
+RAG Corectiv (Generare Augmentată prin Recuperare) îmbunătățește abilitatea AI de a recupera și genera informații în timp ce corectează orice inexactități. Să vedem cum poate Travel Agent să folosească abordarea RAG Corectiv pentru a oferi recomandări de călătorie mai precise și relevante.
 
 Aceasta implică:
 
-- **Tehnică de prompting:** Utilizarea de prompturi specifice pentru a ghida agentul în recuperarea informațiilor relevante.
-- **Instrument:** Implementarea de algoritmi și mecanisme care permit agentului să evalueze relevanța informațiilor recuperate și să genereze răspunsuri precise.
-- **Evaluare:** Evaluarea continuă a performanței agentului și realizarea ajustărilor pentru a-i îmbunătăți acuratețea și eficiența.
+- **Tehnica de Promptare:** Folosirea prompturilor specifice pentru a ghida agentul în recuperarea informațiilor relevante.
+- **Instrument:** Implementarea algoritmilor și mecanismelor care permit agentului să evalueze relevanța informațiilor recuperate și să genereze răspunsuri precise.
+- **Evaluare:** Evaluarea continuă a performanței agentului și ajustări pentru a îmbunătăți acuratețea și eficiența.
 
-#### Pași pentru implementarea RAG corectiv în Agentul de călătorii
+#### Pași pentru implementarea RAG Corectiv în Travel Agent
 
-1. **Interacțiunea inițială cu utilizatorul**
-   - Agentul de călătorii colectează preferințele inițiale ale utilizatorului, cum ar fi destinația, datele de călătorie, bugetul și interesele.
+1. **Interacțiunea Inițială cu Utilizatorul**
+   - Travel Agent colectează preferințele inițiale ale utilizatorului, cum ar fi destinația, datele de călătorie, bugetul și interesele.
    - Exemplu:
 
      ```python
@@ -291,8 +291,8 @@ Aceasta implică:
      }
      ```
 
-2. **Recuperarea informațiilor**
-   - Agentul de călătorii recuperează informații despre zboruri, cazări, atracții și restaurante pe baza preferințelor utilizatorului.
+2. **Recuperarea Informațiilor**
+   - Travel Agent preia informații despre zboruri, cazări, atracții și restaurante pe baza preferințelor utilizatorului.
    - Exemplu:
 
      ```python
@@ -301,8 +301,8 @@ Aceasta implică:
      attractions = search_attractions(preferences)
      ```
 
-3. **Generarea recomandărilor inițiale**
-   - Agentul de călătorii folosește informațiile recuperate pentru a genera un itinerar personalizat.
+3. **Generarea Recomandărilor Inițiale**
+   - Travel Agent folosește informațiile recuperate pentru a genera un itinerar personalizat.
    - Exemplu:
 
      ```python
@@ -310,8 +310,8 @@ Aceasta implică:
      print("Suggested Itinerary:", itinerary)
      ```
 
-4. **Colectarea feedback-ului utilizatorului**
-   - Agentul de călătorii cere utilizatorului feedback asupra recomandărilor inițiale.
+4. **Colectarea Feedback-ului Utilizatorului**
+   - Travel Agent solicită utilizatorului păreri despre recomandările inițiale.
    - Exemplu:
 
      ```python
@@ -321,8 +321,8 @@ Aceasta implică:
      }
      ```
 
-5. **Procesul RAG corectiv**
-   - **Tehnică de prompting**: Agentul de călătorii formulează noi interogări de căutare pe baza feedback-ului utilizatorului.
+5. **Procesul RAG Corectiv**
+   - **Tehnica de Promptare**: Travel Agent formulează noi interogări bazate pe feedback-ul utilizatorului.
      - Exemplu:
 
        ```python
@@ -330,7 +330,7 @@ Aceasta implică:
            preferences["avoid"] = feedback["disliked"]
        ```
 
-   - **Instrument**: Agentul de călătorii folosește algoritmi pentru a ordona și filtra noile rezultate de căutare, punând accent pe relevanța bazată pe feedback-ul utilizatorului.
+   - **Instrument**: Travel Agent folosește algoritmi pentru a clasifica și filtra noile rezultate de căutare, accentuând relevanța pe baza feedback-ului utilizatorului.
      - Exemplu:
 
        ```python
@@ -339,7 +339,7 @@ Aceasta implică:
        print("Updated Itinerary:", new_itinerary)
        ```
 
-   - **Evaluare**: Agentul de călătorii evaluează continuu relevanța și acuratețea recomandărilor sale prin analizarea feedback-ului utilizatorilor și efectuarea ajustărilor necesare.
+   - **Evaluare**: Travel Agent evaluează continuu relevanța și precizia recomandărilor prin analiza feedback-ului utilizatorului și face ajustările necesare.
      - Exemplu:
 
        ```python
@@ -353,9 +353,9 @@ Aceasta implică:
        preferences = adjust_preferences(preferences, feedback)
        ```
 
-#### Exemplu practic
+#### Exemplu Practic
 
-Iată un exemplu simplificat de cod Python care încorporează abordarea RAG corectivă în Agentul de călătorii:
+Iată un exemplu simplificat de cod Python care încorporează abordarea RAG Corectiv în Travel Agent:
 
 ```python
 class Travel_Agent:
@@ -399,15 +399,17 @@ new_itinerary = travel_agent.adjust_based_on_feedback(feedback)
 print("Updated Itinerary:", new_itinerary)
 ```
 
-### Încărcare preemptivă a contextului
-Pre-emptive Context Load presupune încărcarea contextului relevant sau a informațiilor de fundal în model înainte de procesarea unei interogări. Aceasta înseamnă că modelul are acces la aceste informații încă de la început, ceea ce îl poate ajuta să genereze răspunsuri mai bine informate fără a fi nevoie să recupereze date suplimentare în timpul procesului.
+### Încărcarea Contextuală Preemptivă
 
-Here's a simplified example of how a pre-emptive context load might look for a travel agent application in Python:
+
+Încărcarea Contextului Pre-emptiv implică încărcarea contextului relevant sau a informațiilor de fundal în model înainte de a procesa o interogare. Aceasta înseamnă că modelul are acces la aceste informații încă de la început, ceea ce îl poate ajuta să genereze răspunsuri mai informate fără a fi nevoie să recupereze date suplimentare pe parcurs.
+
+Iată un exemplu simplificat de cum ar putea arăta o încărcare a contextului pre-emptiv pentru o aplicație de agent de turism în Python:
 
 ```python
 class TravelAgent:
     def __init__(self):
-        # Preîncărcați destinațiile populare și informațiile lor
+        # Preîncărcați destinațiile populare și informațiile acestora
         self.context = {
             "Paris": {"country": "France", "currency": "Euro", "language": "French", "attractions": ["Eiffel Tower", "Louvre Museum"]},
             "Tokyo": {"country": "Japan", "currency": "Yen", "language": "Japanese", "attractions": ["Tokyo Tower", "Shibuya Crossing"]},
@@ -416,7 +418,7 @@ class TravelAgent:
         }
 
     def get_destination_info(self, destination):
-        # Obține informațiile despre destinație din contextul preîncărcat
+        # Preluați informații despre destinație din contextul preîncărcat
         info = self.context.get(destination)
         if info:
             return f"{destination}:\nCountry: {info['country']}\nCurrency: {info['currency']}\nLanguage: {info['language']}\nAttractions: {', '.join(info['attractions'])}"
@@ -431,29 +433,29 @@ print(travel_agent.get_destination_info("Tokyo"))
 
 #### Explicație
 
-1. **Initialization (`__init__` method)**: Clasa `TravelAgent` preîncarcă un dicționar care conține informații despre destinații populare precum Paris, Tokyo, New York și Sydney. Acest dicționar include detalii precum țara, moneda, limba și atracțiile principale pentru fiecare destinație.
+1. **Inițializare (metoda `__init__`)**: Clasa `TravelAgent` încarcă preventiv un dicționar care conține informații despre destinații populare precum Paris, Tokyo, New York și Sydney. Acest dicționar include detalii precum țara, moneda, limba și principalele atracții pentru fiecare destinație.
 
-2. **Retrieving Information (`get_destination_info` method)**: Când un utilizator întreabă despre o anumită destinație, metoda `get_destination_info` preia informațiile relevante din dicționarul de context preîncărcat.
+2. **Recuperarea Informațiilor (metoda `get_destination_info`)**: Când un utilizator interoghează despre o anumită destinație, metoda `get_destination_info` preia informațiile relevante din dicționarul de context încărcat preventiv.
 
-Prin preîncărcarea contextului, aplicația pentru agenți de turism poate răspunde rapid la întrebările utilizatorilor fără a trebui să recupereze aceste informații dintr-o sursă externă în timp real. Acest lucru face aplicația mai eficientă și mai receptivă.
+Prin încărcarea contextului în prealabil, aplicația agentului de turism poate răspunde rapid la interogările utilizatorului fără a fi nevoie să recupereze aceste informații dintr-o sursă externă în timp real. Acest lucru face aplicația mai eficientă și mai receptivă.
 
-### Inițializarea planului cu un obiectiv înainte de iterare
+### Inițializarea Planului cu un Scop Înainte de Iterare
 
-Bootstrapping-ul unui plan cu un obiectiv presupune să începi cu un obiectiv clar sau un rezultat dorit în minte. Prin definirea acestui obiectiv de la început, modelul îl poate folosi ca principiu călăuzitor pe parcursul procesului iterativ. Acest lucru ajută la asigurarea că fiecare iterație se apropie de atingerea rezultatului dorit, făcând procesul mai eficient și mai concentrat.
+Inițializarea unui plan cu un scop implică pornirea cu un obiectiv clar sau un rezultat țintă în minte. Definind acest scop de la început, modelul îl poate folosi ca principiu călăuzitor pe parcursul procesului iterativ. Acest lucru ajută să se asigure că fiecare iterare se apropie mai mult de atingerea rezultatului dorit, făcând procesul mai eficient și concentrat.
 
-Here's an example of how you might bootstrap a travel plan with a goal before iterating for a travel agent in Python:
+Iată un exemplu de cum ai putea inițializa un plan de călătorie cu un scop înainte de a itera pentru un agent de turism în Python:
 
 ### Scenariu
 
-Un agent de turism dorește să planifice o vacanță personalizată pentru un client. Obiectivul este să creeze un itinerar de călătorie care maximizează satisfacția clientului pe baza preferințelor și bugetului acestuia.
+Un agent de turism dorește să planifice o vacanță personalizată pentru un client. Scopul este de a crea un itinerar de călătorie care să maximizeze satisfacția clientului bazat pe preferințele și bugetul său.
 
 ### Pași
 
-1. Definește preferințele și bugetul clientului.
-2. Inițializează planul inițial pe baza acestor preferințe.
-3. Iterează pentru a rafina planul, optimizând pentru satisfacția clientului.
+1. Definirea preferințelor clientului și a bugetului.
+2. Inițializarea planului inițial bazat pe aceste preferințe.
+3. Iterarea pentru a rafina planul, optimizând satisfacția clientului.
 
-#### Python Code
+#### Cod Python
 
 ```python
 class TravelAgent:
@@ -507,57 +509,57 @@ refined_plan = travel_agent.iterate_plan(initial_plan, preferences, budget)
 print("Refined Plan:", refined_plan)
 ```
 
-#### Explicație a codului
+#### Explicație Cod
 
-1. **Initialization (`__init__` method)**: Clasa `TravelAgent` este inițializată cu o listă de destinații potențiale, fiecare având atribute precum nume, cost și tip de activitate.
+1. **Inițializare (metoda `__init__`)**: Clasa `TravelAgent` este inițializată cu o listă de destinații potențiale, fiecare având atribute precum nume, cost și tip de activitate.
 
-2. **Bootstrapping the Plan (`bootstrap_plan` method)**: Această metodă creează un plan inițial de călătorie pe baza preferințelor și bugetului clientului. Iterează prin lista de destinații și le adaugă în plan dacă se potrivesc cu preferințele clientului și se încadrează în buget.
+2. **Inițializarea Planului (metoda `bootstrap_plan`)**: Această metodă creează un plan inițial de călătorie bazat pe preferințele și bugetul clientului. Iterează prin lista de destinații și le adaugă în plan dacă se potrivesc preferințelor clientului și se încadrează în buget.
 
-3. **Matching Preferences (`match_preferences` method)**: Această metodă verifică dacă o destinație se potrivește cu preferințele clientului.
+3. **Potrivirea Preferințelor (metoda `match_preferences`)**: Această metodă verifică dacă o destinație se potrivește preferințelor clientului.
 
-4. **Iterating the Plan (`iterate_plan` method)**: Această metodă rafinează planul inițial încercând să înlocuiască fiecare destinație din plan cu o opțiune mai bună, ținând cont de preferințele clientului și de constrângerile bugetare.
+4. **Iterarea Planului (metoda `iterate_plan`)**: Această metodă rafinează planul inițial încercând să înlocuiască fiecare destinație din plan cu o potrivire mai bună, ținând cont de preferințele clientului și constrângerile de buget.
 
-5. **Calculating Cost (`calculate_cost` method)**: Această metodă calculează costul total al planului curent, inclusiv o posibilă destinație nouă.
+5. **Calcularea Costului (metoda `calculate_cost`)**: Această metodă calculează costul total al planului curent, inclusiv o posibilă destinație nouă.
 
-#### Exemplu de utilizare
+#### Exemplu de Utilizare
 
-- **Initial Plan**: Agentul de turism creează un plan inițial bazat pe preferințele clientului pentru vizitarea obiectivelor turistice și un buget de $2000.
-- **Refined Plan**: Agentul de turism iterează planul, optimizând pentru preferințele clientului și pentru buget.
+- **Plan Inițial**: Agentul de turism creează un plan inițial bazat pe preferințele clientului pentru vizitarea obiectivelor turistice și un buget de 2000$.
+- **Plan Rafințat**: Agentul de turism iterază planul, optimizând pentru preferințele și bugetul clientului.
 
-Prin inițializarea planului cu un obiectiv clar (de ex., maximizarea satisfacției clientului) și iterând pentru a rafina planul, agentul de turism poate crea un itinerar personalizat și optimizat pentru client. Această abordare asigură că planul de călătorie se aliniază cu preferințele și bugetul clientului încă de la început și se îmbunătățește la fiecare iterație.
+Prin inițializarea planului cu un scop clar (de exemplu, maximizarea satisfacției clientului) și iterarea pentru a rafina planul, agentul de turism poate crea un itinerar personalizat și optimizat pentru client. Această abordare asigură că planul de călătorie se aliniază cu preferințele și bugetul clientului de la început și se îmbunătățește cu fiecare iterație.
 
-### Folosirea LLM-urilor pentru reordonare și scorare
+### Folosirea Modelului LLM pentru Re-rangare și Scorare
 
-Modelele Mari de Limbaj (LLMs) pot fi folosite pentru reordonare și scorare prin evaluarea relevanței și calității documentelor recuperate sau a răspunsurilor generate. Iată cum funcționează:
+Modelele Mari de Limbaj (LLM) pot fi folosite pentru re-rangare și scorare prin evaluarea relevanței și calității documentelor recuperate sau a răspunsurilor generate. Iată cum funcționează:
 
-**Retrieval:** Pasul inițial de recuperare extrage un set de documente candidate sau răspunsuri pe baza interogării.
+**Recuperare:** Pasul inițial de recuperare obține un set de documente sau răspunsuri candidate bazate pe interogare.
 
-**Re-ranking:** LLM-ul evaluează aceste candidați și le reordonează pe baza relevanței și calității lor. Acest pas asigură că cele mai relevante și de calitate informații sunt prezentate primele.
+**Re-rangare:** LLM evaluează acești candidați și îi re-rângează în funcție de relevanța și calitatea lor. Acest pas asigură că cele mai relevante și de calitate informații sunt prezentate primele.
 
-**Scoring:** LLM-ul atribuie scoruri fiecărui candidat, reflectând relevanța și calitatea acestuia. Acest lucru ajută la selectarea celui mai bun răspuns sau document pentru utilizator.
+**Scorare:** LLM atribuie scoruri fiecărui candidat, reflectând relevanța și calitatea lor. Acest lucru ajută la selectarea celui mai bun răspuns sau document pentru utilizator.
 
-Prin valorificarea LLM-urilor pentru reordonare și scorare, sistemul poate oferi informații mai precise și contextual relevante, îmbunătățind experiența generală a utilizatorului.
+Prin utilizarea LLM pentru re-rangare și scorare, sistemul poate oferi informații mai precise și contextual relevante, îmbunătățind experiența generală a utilizatorului.
 
-Here's an example of how a travel agent might use a Large Language Model (LLM) for re-ranking and scoring travel destinations based on user preferences in Python:
+Iată un exemplu de cum un agent de turism ar putea folosi un Model Mare de Limbaj (LLM) pentru re-rangarea și scorarea destinațiilor de călătorie bazate pe preferințele utilizatorului în Python:
 
-#### Scenariu - Călătorii în funcție de preferințe
+#### Scenariu - Călătorie bazată pe Preferințe
 
-Un agent de turism dorește să recomande cele mai bune destinații de călătorie unui client pe baza preferințelor acestuia. LLM-ul va ajuta la reordonarea și scorarea destinațiilor pentru a se asigura că cele mai relevante opțiuni sunt prezentate.
+Un agent de turism dorește să recomande cele mai bune destinații de călătorie unui client, bazat pe preferințele sale. LLM îl va ajuta să re-rânneze și să evalueze destinațiile pentru a asigura că cele mai relevante opțiuni sunt prezentate.
 
 #### Pași:
 
-1. Colectează preferințele utilizatorului.
-2. Recuperează o listă de destinații potențiale.
-3. Folosește LLM-ul pentru a reordona și a acorda scoruri destinațiilor pe baza preferințelor utilizatorului.
+1. Colectarea preferințelor utilizatorului.
+2. Recuperarea unei liste de destinații potențiale de călătorie.
+3. Folosirea LLM pentru re-rangarea și scorarea destinațiilor bazate pe preferințele utilizatorului.
 
-Here’s how you can update the previous example to use Azure OpenAI Services:
+Iată cum poți actualiza exemplul anterior pentru a folosi serviciile Azure OpenAI:
 
 #### Cerințe
 
 1. Trebuie să ai un abonament Azure.
-2. Creează o resursă Azure OpenAI și obține cheia API.
+2. Creează o resursă Azure OpenAI și obține cheia ta API.
 
-#### Exemplu de cod Python
+#### Exemplu Cod Python
 
 ```python
 import requests
@@ -571,7 +573,7 @@ class TravelAgent:
         # Generează un prompt pentru Azure OpenAI
         prompt = self.generate_prompt(preferences)
         
-        # Definește anteturile și corpul cererii
+        # Definește anteturile și conținutul pentru cerere
         headers = {
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {api_key}'
@@ -618,75 +620,75 @@ for rec in recommendations:
     print(rec)
 ```
 
-#### Explicație a codului - Preference Booker
+#### Explicație Cod - Booker de Preferințe
 
-1. **Initialization**: Clasa `TravelAgent` este inițializată cu o listă de destinații potențiale de călătorie, fiecare având atribute precum nume și descriere.
+1. **Inițializare**: Clasa `TravelAgent` este inițializată cu o listă de destinații potențiale de călătorie, fiecare având atribute precum nume și descriere.
 
-2. **Getting Recommendations (`get_recommendations` method)**: Această metodă generează un prompt pentru serviciul Azure OpenAI pe baza preferințelor utilizatorului și face o cerere HTTP POST către API-ul Azure OpenAI pentru a obține destinațiile reordonate și evaluate cu scoruri.
+2. **Obținerea Recomandărilor (metoda `get_recommendations`)**: Această metodă generează un prompt pentru serviciul Azure OpenAI bazat pe preferințele utilizatorului și face o cerere HTTP POST la API-ul Azure OpenAI pentru a obține destinațiile re-rânzate și evaluate.
 
-3. **Generating Prompt (`generate_prompt` method)**: Această metodă construiește un prompt pentru Azure OpenAI, incluzând preferințele utilizatorului și lista de destinații. Promptul ghidează modelul să reordoneze și să acorde scoruri destinațiilor pe baza preferințelor furnizate.
+3. **Generarea Promptului (metoda `generate_prompt`)**: Această metodă construiește un prompt pentru Azure OpenAI, incluzând preferințele utilizatorului și lista de destinații. Promptul ghidează modelul să re-rânzească și să evalueze destinațiile bazându-se pe preferințele furnizate.
 
-4. **API Call**: Biblioteca `requests` este folosită pentru a face o cerere HTTP POST către endpoint-ul API Azure OpenAI. Răspunsul conține destinațiile reordonate și cu scoruri.
+4. **Apel API**: Biblioteca `requests` este folosită pentru a face o cerere HTTP POST la endpoint-ul API-ului Azure OpenAI. Răspunsul conține destinațiile re-rânzate și evaluate.
 
-5. **Example Usage**: Agentul de turism colectează preferințele utilizatorului (de ex., interes pentru vizitare obiective turistice și cultură diversă) și folosește serviciul Azure OpenAI pentru a obține recomandări reordonate și cu scoruri pentru destinațiile de călătorie.
+5. **Exemplu de Utilizare**: Agentul de turism colectează preferințele utilizatorului (de exemplu, interes pentru vizite turistice și cultură diversă) și folosește serviciul Azure OpenAI pentru a obține recomandări re-rânzate și evaluate pentru destinațiile de călătorie.
 
-Asigură-te să înlocuiești `your_azure_openai_api_key` cu cheia ta reală Azure OpenAI API și `https://your-endpoint.com/...` cu URL-ul real al endpoint-ului implementării tale Azure OpenAI.
+Asigură-te că înlocuiești `your_azure_openai_api_key` cu cheia ta API Azure OpenAI reală și `https://your-endpoint.com/...` cu URL-ul real al endpoint-ului implementării tale Azure OpenAI.
 
-Prin valorificarea LLM-ului pentru reordonare și scorare, agentul de turism poate oferi recomandări de călătorie mai personalizate și relevante pentru clienți, îmbunătățindu-le experiența generală.
+Folosind LLM pentru re-rangare și scorare, agentul de turism poate oferi recomandări de călătorie mai personalizate și relevante clienților, îmbunătățindu-le experiența generală.
 
-### RAG: Tehnică de prompting vs Instrument
+### RAG: Tehnică de Promptare vs Unealtă
 
-Retrieval-Augmented Generation (RAG) poate fi atât o tehnică de prompting, cât și un instrument în dezvoltarea agenților AI. Înțelegerea distincției dintre cele două te poate ajuta să valorifici RAG mai eficient în proiectele tale.
+Generarea cu Recuperare (RAG) poate fi atât o tehnică de promptare, cât și o unealtă în dezvoltarea agenților AI. Înțelegerea diferenței dintre cele două te poate ajuta să folosești RAG mai eficient în proiectele tale.
 
-#### RAG ca tehnică de prompting
+#### RAG ca Tehnică de Promptare
 
 **Ce este?**
 
-- Ca tehnică de prompting, RAG implică formularea unor interogări sau prompturi specifice pentru a ghida recuperarea informațiilor relevante dintr-un corpus sau o bază de date mare. Aceste informații sunt apoi folosite pentru a genera răspunsuri sau acțiuni.
+- Ca tehnică de promptare, RAG implică formularea unor interogări sau prompturi specifice pentru a ghida recuperarea informațiilor relevante dintr-un corp mare sau o bază de date. Aceste informații sunt apoi folosite pentru a genera răspunsuri sau acțiuni.
 
 **Cum funcționează:**
 
-1. **Formulează prompturi**: Creează prompturi sau interogări bine structurate pe baza sarcinii în cauză sau a inputului utilizatorului.
-2. **Recuperează informații**: Folosește prompturile pentru a căuta date relevante dintr-o bază de cunoștințe sau un set de date preexistent.
-3. **Generează răspuns**: Combină informațiile recuperate cu modele generative de AI pentru a produce un răspuns cuprinzător și coerent.
+1. **Formularea Prompturilor**: Creează prompturi sau interogări bine structurate bazate pe sarcina curentă sau pe input-ul utilizatorului.
+2. **Recuperarea Informațiilor**: Folosește prompturile pentru a căuta date relevante dintr-o bază de cunoștințe sau set de date existent.
+3. **Generarea Răspunsului**: Combină informațiile recuperate cu modele generative AI pentru a produce un răspuns cuprinzător și coerent.
 
-**Exemplu în Agentul de turism**:
+**Exemplu în agent de turism**:
 
-- Input utilizator: "I want to visit museums in Paris."
-- Prompt: "Find top museums in Paris."
-- Informații recuperate: Detalii despre Louvre Museum, Musée d'Orsay, etc.
-- Răspuns generat: "Here are some top museums in Paris: Louvre Museum, Musée d'Orsay, and Centre Pompidou."
+- Input utilizator: "Vreau să vizitez muzee în Paris."
+- Prompt: "Găsește cele mai bune muzee din Paris."
+- Informații recuperate: Detalii despre Muzeul Luvru, Musée d'Orsay, etc.
+- Răspuns generat: "Iată câteva muzee de top din Paris: Muzeul Luvru, Musée d'Orsay și Centre Pompidou."
 
-#### RAG ca instrument
+#### RAG ca Unealtă
 
 **Ce este?**
 
-- Ca instrument, RAG este un sistem integrat care automatizează procesul de recuperare și generare, facilitând dezvoltatorilor implementarea funcționalităților AI complexe fără a formula manual prompturi pentru fiecare interogare.
+- Ca unealtă, RAG este un sistem integrat care automatizează procesul de recuperare și generare, facilitând dezvoltatorilor implementarea funcționalităților AI complexe fără a crea manual prompturi pentru fiecare interogare.
 
 **Cum funcționează:**
 
 1. **Integrare**: Încorporează RAG în arhitectura agentului AI, permițându-i să gestioneze automat sarcinile de recuperare și generare.
-2. **Automatizare**: Instrumentul gestionează întregul proces, de la primirea inputului utilizatorului până la generarea răspunsului final, fără a necesita prompturi explicite pentru fiecare pas.
+2. **Automatizare**: Unealta gestionează întregul proces, de la primirea input-ului utilizatorului până la generarea răspunsului final, fără a necesita prompturi explicite pentru fiecare pas.
 3. **Eficiență**: Îmbunătățește performanța agentului prin simplificarea procesului de recuperare și generare, oferind răspunsuri mai rapide și mai precise.
 
-**Exemplu în Agentul de turism**:
+**Exemplu în agent de turism**:
 
-- Input utilizator: "I want to visit museums in Paris."
-- Instrument RAG: Recuperează automat informații despre muzee și generează un răspuns.
-- Răspuns generat: "Here are some top museums in Paris: Louvre Museum, Musée d'Orsay, and Centre Pompidou."
+- Input utilizator: "Vreau să vizitez muzee în Paris."
+- Unealta RAG: Recuperează automat informații despre muzee și generează un răspuns.
+- Răspuns generat: "Iată câteva muzee de top din Paris: Muzeul Luvru, Musée d'Orsay și Centre Pompidou."
 
 ### Comparație
 
-| Aspect                 | Prompting Technique                                        | Tool                                                  |
-|------------------------|-------------------------------------------------------------|-------------------------------------------------------|
-| **Manual vs Automatic**| Formulare manuală a prompturilor pentru fiecare interogare. | Proces automatizat pentru recuperare și generare.     |
-| **Control**            | Oferă mai mult control asupra procesului de recuperare.     | Simplifică și automatizează recuperarea și generarea. |
-| **Flexibility**        | Permite prompturi personalizate în funcție de nevoi specifice.| Mai eficient pentru implementări la scară largă.      |
-| **Complexity**         | Necesită crearea și ajustarea prompturilor.                 | Mai ușor de integrat în arhitectura unui agent AI.    |
+| Aspect                 | Tehnică de Promptare                                         | Unealtă                                              |
+|------------------------|--------------------------------------------------------------|-----------------------------------------------------|
+| **Manual vs Automat**  | Formulare manuală a prompturilor pentru fiecare interogare.   | Proces automat pentru recuperare și generare.       |
+| **Control**            | Oferă mai mult control asupra procesului de recuperare.      | Simplifică și automatizează recuperarea și generarea.|
+| **Flexibilitate**      | Permite prompturi personalizate bazate pe nevoi specifice.    | Mai eficient pentru implementări la scară largă.    |
+| **Complexitate**       | Necesită crearea și ajustarea prompturilor.                   | Mai ușor de integrat în arhitectura unui agent AI.  |
 
-### Exemple practice
+### Exemple Practice
 
-**Exemplu de tehnică de prompting:**
+**Exemplu Tehnică de Promptare:**
 
 ```python
 def search_museums_in_paris():
@@ -698,7 +700,7 @@ museums = search_museums_in_paris()
 print("Top Museums in Paris:", museums)
 ```
 
-**Exemplu de instrument:**
+**Exemplu Unealtă:**
 
 ```python
 class Travel_Agent:
@@ -715,32 +717,32 @@ museums = travel_agent.get_museums_in_paris()
 print("Top Museums in Paris:", museums)
 ```
 
-### Evaluarea relevanței
+### Evaluarea Relevanței
 
-Evaluarea relevanței este un aspect crucial al performanței unui agent AI. Aceasta asigură că informațiile recuperate și generate de agent sunt adecvate, exacte și utile pentru utilizator. Să vedem cum se poate evalua relevanța în agenții AI, inclusiv exemple practice și tehnici.
+Evaluarea relevanței este un aspect crucial al performanței agenților AI. Ea asigură că informațiile recuperate și generate de agent sunt adecvate, corecte și utile pentru utilizator. Să explorăm cum să evaluăm relevanța în agenții AI, inclusiv exemple practice și tehnici.
 
-#### Concepute cheie în evaluarea relevanței
+#### Concepte Cheie în Evaluarea Relevanței
 
-1. **Conștientizarea contextului**:
+1. **Conștientizarea Contextului**:
    - Agentul trebuie să înțeleagă contextul interogării utilizatorului pentru a recupera și genera informații relevante.
-   - Exemplu: Dacă un utilizator întreabă pentru "cele mai bune restaurante din Paris", agentul ar trebui să ia în considerare preferințele utilizatorului, precum tipul de bucătărie și bugetul.
+   - Exemplu: Dacă un utilizator întreabă pentru "cele mai bune restaurante din Paris," agentul ar trebui să ia în considerare preferințele utilizatorului, precum tipul de bucătărie și bugetul.
 
 2. **Acuratețe**:
-   - Informațiile furnizate de agent trebuie să fie corecte din punct de vedere factual și actualizate.
-   - Exemplu: Recomandarea restaurantelor care sunt în prezent deschise și au recenzii bune, în loc de opțiuni învechite sau închise.
+   - Informațiile oferite de agent trebuie să fie corecte din punct de vedere factual și actualizate.
+   - Exemplu: Recomandarea restaurantelor deschise în prezent cu recenzii bune, în locul opțiunilor învechite sau închise.
 
-3. **Intenția utilizatorului**:
-   - Agentul ar trebui să deducă intenția utilizatorului din spatele interogării pentru a oferi cele mai relevante informații.
-   - Exemplu: Dacă un utilizator cere "hoteluri prietenoase cu buget redus", agentul ar trebui să prioritizeze opțiunile accesibile.
+3. **Intenția Utilizatorului**:
+   - Agentul trebuie să deducă intenția utilizatorului din spatele interogării pentru a oferi cele mai relevante informații.
+   - Exemplu: Dacă un utilizator cere "hoteluri cu prețuri accesibile," agentul ar trebui să prioritizeze opțiunile accesibile.
 
-4. **Bucle de feedback**:
-   - Colectarea și analiza continuă a feedback-ului utilizatorilor ajută agentul să-și rafineze procesul de evaluare a relevanței.
-   - Exemplu: Încorporarea evaluărilor și comentariilor utilizatorilor asupra recomandărilor anterioare pentru a îmbunătăți răspunsurile viitoare.
+4. **Buclă de Feedback**:
+   - Colectarea și analizarea continuă a feedback-ului utilizatorului ajută agentul să-și rafineze procesul de evaluare a relevanței.
+   - Exemplu: Includerea evaluărilor și feedback-ului utilizatorilor asupra recomandărilor anterioare pentru a îmbunătăți răspunsurile viitoare.
 
-#### Tehnici practice pentru evaluarea relevanței
+#### Tehnici Practice pentru Evaluarea Relevanței
 
-1. **Scorarea relevanței**:
-   - Atribuie un scor de relevanță fiecărui element recuperat pe baza cât de bine se potrivește cu interogarea și preferințele utilizatorului.
+1. **Scorarea Relevanței**:
+   - Atribuie un scor de relevanță fiecărui element recuperat bazat pe cât de bine se potrivește cu interogarea și preferințele utilizatorului.
    - Exemplu:
 
      ```python
@@ -755,8 +757,8 @@ Evaluarea relevanței este un aspect crucial al performanței unui agent AI. Ace
          return score
      ```
 
-2. **Filtrare și clasificare**:
-   - Filtrează elementele irelevante și clasifică pe cele rămase pe baza scorurilor lor de relevanță.
+2. **Filtrarea și Clasarea**:
+   - Filtrează elementele irelevante și clasifică pe cele rămase în funcție de scorurile lor de relevanță.
    - Exemplu:
 
      ```python
@@ -765,19 +767,19 @@ Evaluarea relevanței este un aspect crucial al performanței unui agent AI. Ace
          return ranked_items[:10]  # Returnează primele 10 elemente relevante
      ```
 
-3. **Procesarea limbajului natural (NLP)**:
-   - Folosește tehnici NLP pentru a înțelege interogarea utilizatorului și a recupera informații relevante.
+3. **Procesarea Limbajului Natural (NLP)**:
+   - Folosește tehnici NLP pentru a înțelege interogarea utilizatorului și pentru a recupera informații relevante.
    - Exemplu:
 
      ```python
      def process_query(query):
-         # Folosește NLP pentru a extrage informații cheie din interogarea utilizatorului
+         # Folosiți procesarea limbajului natural (NLP) pentru a extrage informații cheie din interogarea utilizatorului
          processed_query = nlp(query)
          return processed_query
      ```
 
-4. **Integrarea feedback-ului utilizatorilor**:
-   - Colectează feedback de la utilizatori asupra recomandărilor oferite și folosește-l pentru a ajusta evaluările viitoare ale relevanței.
+4. **Integrarea Feedback-ului Utilizatorului**:
+   - Colectează feedback-ul utilizatorilor asupra recomandărilor oferite și îl folosește pentru a ajusta evaluările viitoare de relevanță.
    - Exemplu:
 
      ```python
@@ -790,9 +792,9 @@ Evaluarea relevanței este un aspect crucial al performanței unui agent AI. Ace
          return items
      ```
 
-#### Exemplu: Evaluarea relevanței în Agentul de turism
+#### Exemplu: Evaluarea Relevanței în Agent de Turism
 
-Iată un exemplu practic despre cum Travel Agent poate evalua relevanța recomandărilor de călătorie:
+Iată un exemplu practic de cum Travel Agent poate evalua relevanța recomandărilor de călătorie:
 
 ```python
 class Travel_Agent:
@@ -817,7 +819,7 @@ class Travel_Agent:
 
     def filter_and_rank(self, items, query):
         ranked_items = sorted(items, key=lambda item: self.relevance_score(item, query), reverse=True)
-        return ranked_items[:10]  # Returnează primele 10 elemente relevante
+        return ranked_items[:10]  # Returnează primele 10 articole relevante
 
     def relevance_score(self, item, query):
         score = 0
@@ -853,32 +855,32 @@ updated_items = travel_agent.adjust_based_on_feedback(feedback, itinerary['hotel
 print("Updated Itinerary with Feedback:", updated_items)
 ```
 
-### Căutare cu intenție
+### Căutare cu Intenție
 
-Căutarea cu intenție implică înțelegerea și interpretarea scopului sau obiectivului din spatele interogării unui utilizator pentru a recupera și genera cele mai relevante și utile informații. Această abordare depășește simplele potriviri de cuvinte cheie și se concentrează pe înțelegerea nevoilor reale și a contextului utilizatorului.
+Căutarea cu intenție implică înțelegerea și interpretarea scopului sau obiectivului din spatele unei interogări a utilizatorului pentru a recupera și genera cele mai relevante și utile informații. Această abordare depășește simpla potrivire a cuvintelor cheie și se concentrează pe înțelegerea nevoilor reale și a contextului utilizatorului.
 
-#### Concepute cheie în căutarea cu intenție
+#### Concepte Cheie în Căutarea cu Intenție
 
-1. **Înțelegerea intenției utilizatorului**:
-   - Intenția utilizatorului poate fi clasificată în trei tipuri principale: informațională, de navigare și tranzacțională.
-     - **Intenție informațională**: utilizatorul caută informații despre un subiect (de ex., "Care sunt cele mai bune muzee din Paris?").
-     - **Intenție de navigare**: utilizatorul dorește să navigheze către un site sau o pagină specifică (de ex., "site-ul oficial al Muzeului Luvru").
-     - **Intenție tranzacțională**: utilizatorul urmărește să efectueze o tranzacție, cum ar fi rezervarea unui zbor sau efectuarea unei achiziții (de ex., "Rezervă un zbor spre Paris").
+1. **Înțelegerea Intenției Utilizatorului**:
+   - Intenția utilizatorului poate fi clasificată în trei tipuri principale: informațională, navigațională și tranzacțională.
+     - **Intenție Informațională**: Utilizatorul caută informații despre un subiect (ex: "Care sunt cele mai bune muzee din Paris?").
+     - **Intenție Navigațională**: Utilizatorul dorește să navigheze către un site sau o pagină specifică (ex: "Site oficial Muzeul Luvru").
+     - **Intenție Tranzacțională**: Utilizatorul dorește să efectueze o tranzacție, cum ar fi rezervarea unui zbor sau efectuarea unei achiziții (ex: "Rezervă un zbor către Paris").
 
-2. **Conștientizarea contextului**:
-   - Analiza contextului interogării utilizatorului ajută la identificarea corectă a intenției acestuia. Aceasta include luarea în considerare a interacțiunilor anterioare, a preferințelor utilizatorului și a detaliilor specifice ale interogării curente.
+2. **Conștientizarea Contextului**:
+   - Analiza contextului interogării utilizatorului ajută la identificarea precisă a intenției acestuia. Aceasta include luarea în considerare a interacțiunilor anterioare, a preferințelor utilizatorului și a detaliilor specifice ale interogării curente.
 
-3. **Procesarea limbajului natural (NLP)**:
-   - Tehnicile NLP sunt folosite pentru a înțelege și interpreta interogările în limbaj natural furnizate de utilizatori. Acestea includ sarcini precum recunoașterea entităților, analiza sentimentelor și parsarea interogărilor.
+3. **Procesarea Limbajului Natural (NLP)**:
+   - Tehnicile NLP sunt folosite pentru a înțelege și interpreta interogările în limbaj natural oferite de utilizatori. Acestea includ sarcini precum recunoașterea entităților, analiza sentimentelor și parsarea interogărilor.
 
 4. **Personalizare**:
-   - Personalizarea rezultatelor căutării pe baza istoricului, preferințelor și feedback-ului utilizatorului îmbunătățește relevanța informațiilor recuperate.
+   - Personalizarea rezultatelor căutării bazat pe istoricul, preferințele și feedback-ul utilizatorului îmbunătățește relevanța informațiilor recuperate.
 
-#### Exemplu practic: Căutarea cu intenție în Agentul de turism
+#### Exemplu Practic: Căutarea cu Intenție în Agent de Turism
 
-Să luăm Agent de turism ca exemplu pentru a vedea cum poate fi implementată căutarea cu intenție.
+Să luăm Travel Agent ca exemplu pentru a vedea cum poate fi implementată căutarea cu intenție.
 
-1. **Colectarea preferințelor utilizatorului**
+1. **Colectarea Preferințelor Utilizatorului**
 
    ```python
    class Travel_Agent:
@@ -889,7 +891,7 @@ Să luăm Agent de turism ca exemplu pentru a vedea cum poate fi implementată c
            self.user_preferences = preferences
    ```
 
-2. **Înțelegerea intenției utilizatorului**
+2. **Înțelegerea Intenției Utilizatorului**
 
    ```python
    def identify_intent(query):
@@ -901,7 +903,9 @@ Să luăm Agent de turism ca exemplu pentru a vedea cum poate fi implementată c
            return "informational"
    ```
 
-3. **Conștientizarea contextului**
+3. **Conștientizarea Contextului**
+
+
    ```python
    def analyze_context(query, user_history):
        # Combină interogarea curentă cu istoricul utilizatorului pentru a înțelege contextul
@@ -912,7 +916,7 @@ Să luăm Agent de turism ca exemplu pentru a vedea cum poate fi implementată c
        return context
    ```
 
-4. **Căutare și personalizare a rezultatelor**
+4. **Căutare și Personalizare a Rezultatelor**
 
    ```python
    def search_with_intent(query, preferences, user_history):
@@ -933,12 +937,12 @@ Să luăm Agent de turism ca exemplu pentru a vedea cum poate fi implementată c
        return results
 
    def search_navigation(query):
-       # Exemplu de logică de căutare pentru intenția de navigare
+       # Exemplu de logică de căutare pentru intenție navigațională
        results = search_web(query)
        return results
 
    def search_transaction(query, preferences):
-       # Exemplu de logică de căutare pentru intenția tranzacțională
+       # Exemplu de logică de căutare pentru intenție tranzacțională
        results = search_web(f"book {query} to {preferences['destination']}")
        return results
 
@@ -948,7 +952,7 @@ Să luăm Agent de turism ca exemplu pentru a vedea cum poate fi implementată c
        return personalized[:10]  # Returnează primele 10 rezultate personalizate
    ```
 
-5. **Exemplu de utilizare**
+5. **Exemplu de Utilizare**
 
    ```python
    travel_agent = Travel_Agent()
@@ -965,48 +969,48 @@ Să luăm Agent de turism ca exemplu pentru a vedea cum poate fi implementată c
 
 ---
 
-## 4. Generarea codului ca instrument
+## 4. Generarea Codului ca Instrument
 
-Agenții care generează cod folosesc modele AI pentru a scrie și executa cod, rezolvând probleme complexe și automatizând sarcini.
+Agenții generativi de cod utilizează modele AI pentru a scrie și executa cod, rezolvând probleme complexe și automatizând sarcini.
 
-### Agenți care generează cod
+### Agenți Generativi de Cod
 
-Agenții care generează cod folosesc modele generative AI pentru a scrie și executa cod. Acești agenți pot rezolva probleme complexe, automatiza sarcini și oferi perspective valoroase prin generarea și rularea de cod în diverse limbaje de programare.
+Agenții generativi de cod folosesc modele generative AI pentru a scrie și executa cod. Acești agenți pot rezolva probleme complexe, automatiza sarcini și oferi perspective valoroase generând și rulând cod în diverse limbaje de programare.
 
-#### Aplicații practice
+#### Aplicații Practice
 
-1. **Generare automată de cod**: Generați fragmente de cod pentru sarcini specifice, cum ar fi analiza datelor, extragerea de pe web sau machine learning.
-2. **SQL ca RAG**: Folosiți interogări SQL pentru a prelua și manipula date din baze de date.
-3. **Rezolvare de probleme**: Creați și executați cod pentru a rezolva probleme specifice, cum ar fi optimizarea algoritmilor sau analiza datelor.
+1. **Generare Automată de Cod**: Generează fragmente de cod pentru sarcini specifice, precum analiza datelor, web scraping sau învățare automată.
+2. **SQL ca RAG**: Utilizează interogări SQL pentru a prelua și manipula date din baze de date.
+3. **Rezolvare de Probleme**: Creează și execută cod pentru a rezolva probleme specifice, cum ar fi optimizarea algoritmilor sau analiza datelor.
 
-#### Exemplu: Agent care generează cod pentru analiza datelor
+#### Exemplu: Agent Generativ de Cod pentru Analiza Datelor
 
-Imaginați-vă că proiectați un agent care generează cod. Iată cum ar putea funcționa:
+Imaginează-ți că proiectezi un agent generativ de cod. Iată cum ar putea funcționa:
 
-1. **Sarcină**: Analizați un set de date pentru a identifica tendințe și modele.
+1. **Sarcina**: Analizează un set de date pentru a identifica tendințe și modele.
 2. **Pași**:
-   - Încarcați setul de date într-un instrument de analiză a datelor.
-   - Generați interogări SQL pentru a filtra și agrega datele.
-   - Executați interogările și preluați rezultatele.
-   - Folosiți rezultatele pentru a genera vizualizări și informații.
-3. **Resurse necesare**: Acces la setul de date, instrumente de analiză a datelor și capabilități SQL.
-4. **Experiență**: Folosiți rezultatele analizelor anterioare pentru a îmbunătăți acuratețea și relevanța analizelor viitoare.
+   - Încarcă setul de date într-un instrument de analiză a datelor.
+   - Generează interogări SQL pentru a filtra și agrega datele.
+   - Execută interogările și preia rezultatele.
+   - Folosește rezultatele pentru a genera vizualizări și perspective.
+3. **Resurse Necesare**: Acces la setul de date, unelte de analiză a datelor și capabilități SQL.
+4. **Experiență**: Folosește rezultatele analizelor anterioare pentru a îmbunătăți acuratețea și relevanța analizelor viitoare.
 
-### Exemplu: Agent care generează cod pentru un agent de turism
+### Exemplu: Agent Generativ de Cod pentru Agent de Turism
 
-În acest exemplu, vom proiecta un agent care generează cod, Travel Agent, pentru a ajuta utilizatorii în planificarea călătoriilor, generând și executând cod. Acest agent poate gestiona sarcini precum preluarea opțiunilor de călătorie, filtrarea rezultatelor și compilarea unui itinerariu folosind AI generativ.
+În acest exemplu, vom proiecta un agent generativ de cod, Agent de Turism, pentru a asista utilizatorii în planificarea călătoriilor lor prin generarea și executarea de cod. Acest agent poate gestiona sarcini precum preluarea opțiunilor de călătorie, filtrarea rezultatelor și compilarea unui itinerar folosind AI generativ.
 
-#### Prezentare generală a agentului care generează cod
+#### Prezentare Generală a Agentului Generativ de Cod
 
-1. **Colectarea preferințelor utilizatorului**: Colectează inputul utilizatorului, cum ar fi destinația, datele de călătorie, bugetul și interesele.
-2. **Generarea codului pentru preluarea datelor**: Generează fragmente de cod pentru a obține date despre zboruri, hoteluri și atracții.
-3. **Executarea codului generat**: Rulează codul generat pentru a prelua informații în timp real.
-4. **Generarea itinerariului**: Compilează datele preluate într-un plan de călătorie personalizat.
-5. **Ajustarea pe baza feedback-ului**: Primește feedback de la utilizator și regenerează codul dacă este necesar pentru a rafina rezultatele.
+1. **Colectarea Preferințelor Utilizatorului**: Colectează inputul utilizatorului, cum ar fi destinația, datele de călătorie, bugetul și interesele.
+2. **Generarea Codului pentru Preluarea Datelor**: Generează fragmente de cod pentru a prelua date despre zboruri, hoteluri și atracții.
+3. **Executarea Codului Generat**: Rulează codul generat pentru a prelua informații în timp real.
+4. **Generarea Itinerarului**: Compilează datele preluate într-un plan de călătorie personalizat.
+5. **Ajustarea pe Baza Feedback-ului**: Primește feedback de la utilizator și regenerează codul dacă este necesar pentru a rafina rezultatele.
 
-#### Implementare pas cu pas
+#### Implementare Pas cu Pas
 
-1. **Colectarea preferințelor utilizatorului**
+1. **Colectarea Preferințelor Utilizatorului**
 
    ```python
    class Travel_Agent:
@@ -1017,7 +1021,7 @@ Imaginați-vă că proiectați un agent care generează cod. Iată cum ar putea 
            self.user_preferences = preferences
    ```
 
-2. **Generarea codului pentru preluarea datelor**
+2. **Generarea Codului pentru Preluarea Datelor**
 
    ```python
    def generate_code_to_fetch_data(preferences):
@@ -1041,11 +1045,11 @@ Imaginați-vă că proiectați un agent care generează cod. Iată cum ar putea 
        return code
    ```
 
-3. **Executarea codului generat**
+3. **Executarea Codului Generat**
 
    ```python
    def execute_code(code):
-       # Execută codul generat folosind exec
+       # Executați codul generat folosind exec
        exec(code)
        result = locals()
        return result
@@ -1069,7 +1073,7 @@ Imaginați-vă că proiectați un agent care generează cod. Iată cum ar putea 
    print("Hotel Options:", hotels)
    ```
 
-4. **Generarea itinerariului**
+4. **Generarea Itinerarului**
 
    ```python
    def generate_itinerary(flights, hotels, attractions):
@@ -1085,11 +1089,11 @@ Imaginați-vă că proiectați un agent care generează cod. Iată cum ar putea 
    print("Suggested Itinerary:", itinerary)
    ```
 
-5. **Ajustarea pe baza feedback-ului**
+5. **Ajustarea pe Baza Feedback-ului**
 
    ```python
    def adjust_based_on_feedback(feedback, preferences):
-       # Ajustează preferințele în funcție de feedback-ul utilizatorului
+       # Ajustați preferințele pe baza feedback-ului utilizatorului
        if "liked" in feedback:
            preferences["favorites"] = feedback["liked"]
        if "disliked" in feedback:
@@ -1099,7 +1103,7 @@ Imaginați-vă că proiectați un agent care generează cod. Iată cum ar putea 
    feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
    updated_preferences = adjust_based_on_feedback(feedback, preferences)
    
-   # Regenerază și execută codul cu preferințele actualizate
+   # Regenerați și executați codul cu preferințe actualizate
    updated_flight_code = generate_code_to_fetch_data(updated_preferences)
    updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
    
@@ -1110,33 +1114,33 @@ Imaginați-vă că proiectați un agent care generează cod. Iată cum ar putea 
    print("Updated Itinerary:", updated_itinerary)
    ```
 
-### Folosirea conștientizării mediului și a raționamentului
+### Valorificarea conștientizării mediului și a raționamentului
 
-Bazarea pe schema tabelului poate într-adevăr îmbunătăți procesul de generare a interogărilor prin valorificarea conștientizării mediului și a raționamentului.
+Bazarea pe schema tabelei poate îmbunătăți într-adevăr procesul de generare a interogărilor prin valorificarea conștientizării mediului și a raționamentului.
 
-Iată un exemplu despre cum se poate realiza acest lucru:
+Iată un exemplu despre cum poate fi realizat acest lucru:
 
-1. **Înțelegerea schemei**: Sistemul va înțelege schema tabelului și va folosi aceste informații pentru a fundamenta generarea interogărilor.
-2. **Ajustarea pe baza feedback-ului**: Sistemul va ajusta preferințele utilizatorului pe baza feedback-ului și va raționa asupra câmpurilor din schemă care trebuie actualizate.
-3. **Generarea și executarea interogărilor**: Sistemul va genera și executa interogări pentru a prelua date actualizate despre zboruri și hoteluri pe baza noilor preferințe.
+1. **Înțelegerea Schemei**: Sistemul va înțelege schema tabelei și va folosi această informație pentru a fundamenta generarea interogărilor.
+2. **Ajustarea pe Baza Feedback-ului**: Sistemul va ajusta preferințele utilizatorului pe baza feedback-ului și va raționa asupra câmpurilor din schemă care trebuie actualizate.
+3. **Generarea și Executarea Interogărilor**: Sistemul va genera și executa interogări pentru a prelua date actualizate despre zboruri și hoteluri, în funcție de noile preferințe.
 
 Iată un exemplu actualizat de cod Python care încorporează aceste concepte:
 
 ```python
 def adjust_based_on_feedback(feedback, preferences, schema):
-    # Ajustează preferințele pe baza feedback-ului utilizatorului
+    # Ajustați preferințele pe baza feedback-ului utilizatorului
     if "liked" in feedback:
         preferences["favorites"] = feedback["liked"]
     if "disliked" in feedback:
         preferences["avoid"] = feedback["disliked"]
-    # Raționament bazat pe schemă pentru a ajusta alte preferințe asociate
+    # Raționament bazat pe schemă pentru ajustarea altor preferințe conexe
     for field in schema:
         if field in preferences:
             preferences[field] = adjust_based_on_environment(feedback, field, schema)
     return preferences
 
 def adjust_based_on_environment(feedback, field, schema):
-    # Logică personalizată pentru a ajusta preferințele pe baza schemei și a feedback-ului
+    # Logică personalizată pentru ajustarea preferințelor bazate pe schemă și feedback
     if field in feedback["liked"]:
         return schema[field]["positive_adjustment"]
     elif field in feedback["disliked"]:
@@ -1144,19 +1148,19 @@ def adjust_based_on_environment(feedback, field, schema):
     return schema[field]["default"]
 
 def generate_code_to_fetch_data(preferences):
-    # Generează cod pentru a prelua date despre zboruri în funcție de preferințele actualizate
+    # Generați cod pentru a prelua datele despre zboruri bazat pe preferințele actualizate
     return f"fetch_flights(preferences={preferences})"
 
 def generate_code_to_fetch_hotels(preferences):
-    # Generează cod pentru a prelua date despre hoteluri în funcție de preferințele actualizate
+    # Generați cod pentru a prelua datele despre hoteluri bazat pe preferințele actualizate
     return f"fetch_hotels(preferences={preferences})"
 
 def execute_code(code):
-    # Simulează execuția codului și returnează date simulate
+    # Simulați execuția codului și returnați date false
     return {"data": f"Executed: {code}"}
 
 def generate_itinerary(flights, hotels, attractions):
-    # Generează itinerariul pe baza zborurilor, hotelurilor și atracțiilor
+    # Generați itinerariul bazat pe zboruri, hoteluri și atracții
     return {"flights": flights, "hotels": hotels, "attractions": attractions}
 
 # Exemplu de schemă
@@ -1170,7 +1174,7 @@ preferences = {"favorites": "sightseeing", "avoid": "crowded places"}
 feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
 updated_preferences = adjust_based_on_feedback(feedback, preferences, schema)
 
-# Regenerază și execută codul cu preferințele actualizate
+# Regenerați și executați codul cu preferințele actualizate
 updated_flight_code = generate_code_to_fetch_data(updated_preferences)
 updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
 
@@ -1181,55 +1185,55 @@ updated_itinerary = generate_itinerary(updated_flights, updated_hotels, feedback
 print("Updated Itinerary:", updated_itinerary)
 ```
 
-#### Explicație - Rezervare pe baza feedback-ului
+#### Explicație - Rezervare pe Baza Feedback-ului
 
-1. **Conștientizarea schemei**: Dicționarul `schema` definește cum ar trebui ajustate preferințele pe baza feedback-ului. Include câmpuri precum `favorites` și `avoid`, cu ajustările corespunzătoare.
-2. **Ajustarea preferințelor (metoda `adjust_based_on_feedback`)**: Această metodă ajustează preferințele pe baza feedback-ului utilizatorului și a schemei.
-3. **Ajustări bazate pe mediu (metoda `adjust_based_on_environment`)**: Această metodă personalizează ajustările pe baza schemei și a feedback-ului.
-4. **Generarea și executarea interogărilor**: Sistemul generează cod pentru a prelua date actualizate despre zboruri și hoteluri pe baza preferințelor ajustate și simulează executarea acestor interogări.
-5. **Generarea itinerariului**: Sistemul creează un itinerariu actualizat pe baza noilor date despre zboruri, hoteluri și atracții.
+1. **Conștientizarea Schemei**: Dicționarul `schema` definește cum trebuie ajustate preferințele pe baza feedback-ului. Include câmpuri precum `favorites` și `avoid` cu ajustările corespunzătoare.
+2. **Ajustarea Preferințelor (metoda `adjust_based_on_feedback`)**: Această metodă ajustează preferințele pe baza feedback-ului utilizatorului și a schemei.
+3. **Ajustări Bazate pe Mediul Înconjurător (metoda `adjust_based_on_environment`)**: Această metodă personalizează ajustările pe baza schemei și feedback-ului.
+4. **Generarea și Executarea Interogărilor**: Sistemul generează cod pentru a prelua date actualizate despre zboruri și hoteluri pe baza preferințelor ajustate și simulează execuția acestor interogări.
+5. **Generarea Itinerarului**: Sistemul creează un itinerar actualizat pe baza noilor date despre zboruri, hoteluri și atracții.
 
-Făcând sistemul conștient de mediul său și raționând pe baza schemei, acesta poate genera interogări mai exacte și relevante, conducând la recomandări de călătorie mai bune și o experiență de utilizator mai personalizată.
+Prin faptul că sistemul este conștient de mediul înconjurător și raționează pe baza schemei, poate genera interogări mai precise și relevante, conducând la recomandări de călătorie mai bune și o experiență mai personalizată pentru utilizator.
 
-### Utilizarea SQL ca tehnică Retrieval-Augmented Generation (RAG)
+### Utilizarea SQL ca Tehnică de Generare Augmentată prin Recuperare (RAG)
 
-SQL (Structured Query Language) este un instrument puternic pentru interacțiunea cu bazele de date. Atunci când este folosit ca parte a unei abordări Retrieval-Augmented Generation (RAG), SQL poate prelua date relevante din baze de date pentru a informa și genera răspunsuri sau acțiuni în agenții AI. Să explorăm cum poate fi folosit SQL ca tehnică RAG în contextul unui agent de turism.
+SQL (Structured Query Language) este un instrument puternic pentru interacțiunea cu bazele de date. Atunci când este folosit ca parte a unei abordări Retrieval-Augmented Generation (RAG), SQL poate prelua date relevante din baze de date pentru a informa și genera răspunsuri sau acțiuni în agenții AI. Să explorăm cum poate fi folosit SQL ca tehnică RAG în contextul Agentului de Turism.
 
-#### Concepte cheie
+#### Concepte Cheie
 
-1. **Interacțiunea cu baza de date**:
+1. **Interacțiunea cu Baza de Date**:
    - SQL este folosit pentru a interoga baze de date, a prelua informații relevante și a manipula date.
-   - Exemplu: preluarea detaliilor despre zboruri, informațiilor despre hoteluri și atracții dintr-o bază de date de călătorii.
+   - Exemplu: Preluarea detaliilor zborurilor, informațiilor despre hoteluri și atracții dintr-o bază de date de turism.
 
 2. **Integrarea cu RAG**:
-   - Interogările SQL sunt generate pe baza inputului și a preferințelor utilizatorului.
-   - Datele preluate sunt apoi folosite pentru a genera recomandări sau acțiuni personalizate.
+   - Interogările SQL sunt generate pe baza inputului și preferințelor utilizatorului.
+   - Datele recuperate sunt apoi folosite pentru a genera recomandări sau acțiuni personalizate.
 
-3. **Generarea dinamică a interogărilor**:
-   - Agentul AI generează interogări SQL dinamice pe baza contextului și a nevoilor utilizatorului.
-   - Exemplu: personalizarea interogărilor SQL pentru a filtra rezultatele în funcție de buget, date și interese.
+3. **Generare Dinamică a Interogărilor**:
+   - Agentul AI generează interogări SQL dinamice în funcție de context și nevoile utilizatorului.
+   - Exemplu: Personalizarea interogărilor SQL pentru a filtra rezultatele în funcție de buget, date și interese.
 
 #### Aplicații
 
-- **Generare automată de cod**: Generați fragmente de cod pentru sarcini specifice.
-- **SQL ca RAG**: Folosiți interogări SQL pentru a manipula date.
-- **Rezolvare de probleme**: Creați și executați cod pentru a rezolva probleme.
+- **Generare Automată de Cod**: Generează fragmente de cod pentru sarcini specifice.
+- **SQL ca RAG**: Utilizează interogări SQL pentru a manipula date.
+- **Rezolvare de Probleme**: Creează și execută cod pentru a rezolva probleme.
 
 **Exemplu**:
 Un agent de analiză a datelor:
 
-1. **Sarcină**: Analizați un set de date pentru a găsi tendințe.
+1. **Sarcina**: Analizează un set de date pentru a găsi tendințe.
 2. **Pași**:
-   - Încărcați setul de date.
-   - Generați interogări SQL pentru a filtra datele.
-   - Executați interogările și preluați rezultatele.
-   - Generați vizualizări și informații.
+   - Încarcă setul de date.
+   - Generează interogări SQL pentru a filtra datele.
+   - Execută interogările și preia rezultatele.
+   - Generează vizualizări și perspective.
 3. **Resurse**: Acces la setul de date, capabilități SQL.
-4. **Experiență**: Folosiți rezultatele anterioare pentru a îmbunătăți analizele viitoare.
+4. **Experiență**: Folosește rezultatele anterioare pentru a îmbunătăți analizele viitoare.
 
-#### Exemplu practic: Utilizarea SQL în agentul de turism
+#### Exemplu Practic: Utilizarea SQL în Agentul de Turism
 
-1. **Colectarea preferințelor utilizatorului**
+1. **Colectarea Preferințelor Utilizatorului**
 
    ```python
    class Travel_Agent:
@@ -1240,7 +1244,7 @@ Un agent de analiză a datelor:
            self.user_preferences = preferences
    ```
 
-2. **Generarea interogărilor SQL**
+2. **Generarea Interogărilor SQL**
 
    ```python
    def generate_sql_query(table, preferences):
@@ -1252,7 +1256,7 @@ Un agent de analiză a datelor:
        return query
    ```
 
-3. **Executarea interogărilor SQL**
+3. **Executarea Interogărilor SQL**
 
    ```python
    import sqlite3
@@ -1266,7 +1270,7 @@ Un agent de analiză a datelor:
        return results
    ```
 
-4. **Generarea recomandărilor**
+4. **Generarea Recomandărilor**
 
    ```python
    def generate_recommendations(preferences):
@@ -1297,33 +1301,39 @@ Un agent de analiză a datelor:
    print("Suggested Itinerary:", itinerary)
    ```
 
-#### Exemple de interogări SQL
+#### Exemplu de Interogări SQL
 
-1. **Interogare zboruri**
+1. **Interogare Zboruri**
 
    ```sql
    SELECT * FROM flights WHERE destination='Paris' AND dates='2025-04-01 to 2025-04-10' AND budget='moderate';
    ```
 
-2. **Interogare hoteluri**
+2. **Interogare Hoteluri**
 
    ```sql
    SELECT * FROM hotels WHERE destination='Paris' AND budget='moderate';
    ```
 
-3. **Interogare atracții**
+3. **Interogare Atracții**
 
    ```sql
    SELECT * FROM attractions WHERE destination='Paris' AND interests='museums, cuisine';
    ```
 
-Prin valorificarea SQL ca parte a tehnicii Retrieval-Augmented Generation (RAG), agenți AI precum agentul de turism pot prelua și utiliza dinamic date relevante pentru a oferi recomandări exacte și personalizate.
+Prin valorificarea SQL ca parte a tehnicii Retrieval-Augmented Generation (RAG), agenți AI precum Agentul de Turism pot prelua și utiliza dinamic date relevante pentru a oferi recomandări precise și personalizate.
 
-### Exemplu de metacogniție
+### Exemplu de Metacogniție
 
-Pentru a demonstra o implementare a metacogniției, să creăm un agent simplu care *reflectă asupra procesului său de luare a deciziilor* în timp ce rezolvă o problemă. Pentru acest exemplu, vom construi un sistem în care un agent încearcă să optimizeze alegerea unui hotel, dar apoi își evaluează propriul raționament și își ajustează strategia când face erori sau alegeri suboptimale.
+Pentru a demonstra o implementare a metacogniției, să creăm un agent simplu care *reflectă asupra procesului său decizional* în timp ce rezolvă o problemă. Pentru acest exemplu, vom construi un sistem în care un agent încearcă să optimizeze alegerea unui hotel, dar apoi își evaluează propriul raționament și își ajustează strategia când face greșeli sau alegeri suboptime.
 
-Vom simula acest lucru folosind un exemplu de bază în care agentul selectează hoteluri pe baza unei combinații între preț și calitate, dar va "reflecta" asupra deciziilor sale și se va ajusta în consecință.
+Vom simula acest lucru folosind un exemplu simplu unde agentul selectează hoteluri pe baza unei combinații de preț și calitate, dar va „reflecta” asupra deciziilor sale și se va ajusta în consecință.
+
+#### Cum ilustrează aceasta metacogniția:
+
+1. **Decizia Inițială**: Agentul va alege cel mai ieftin hotel, fără a înțelege impactul calității.
+2. **Reflecție și Evaluare**: După alegerea inițială, agentul va verifica dacă hotelul este o alegere „proastă” folosind feedback-ul utilizatorului. Dacă constată că calitatea hotelului a fost prea scăzută, reflectă asupra raționamentului său.
+3. **Ajustarea Strategiei**: Agentul își ajustează strategia pe baza reflecției, trecând de la „cel mai ieftin” la „cea mai bună calitate”, îmbunătățindu-și astfel procesul decizional în iterațiile viitoare.
 
 Iată un exemplu:
 
@@ -1357,11 +1367,11 @@ class HotelRecommendationAgent:
             return "No choices made yet."
 
         last_choice_strategy, last_choice = self.previous_choices[-1]
-        # Să presupunem că avem feedback de la utilizator care ne spune dacă ultima alegere a fost bună sau nu
+        # Să presupunem că avem un feedback de la utilizator care ne spune dacă ultima alegere a fost bună sau nu
         user_feedback = self.get_user_feedback(last_choice)
 
         if user_feedback == "bad":
-            # Ajustează strategia dacă alegerea precedentă a fost nesatisfăcătoare
+            # Ajustează strategia dacă alegerea anterioară a fost nesatisfăcătoare
             new_strategy = 'highest_quality' if last_choice_strategy == 'cheapest' else 'cheapest'
             self.corrected_choices.append((new_strategy, last_choice))
             return f"Reflecting on choice. Adjusting strategy to {new_strategy}."
@@ -1388,11 +1398,11 @@ hotels = [
 # Creează un agent
 agent = HotelRecommendationAgent()
 
-# Pasul 1: Agentul recomandă un hotel folosind strategia "cel mai ieftin"
+# Pasul 1: Agentul recomandă un hotel folosind strategia „cel mai ieftin”
 recommended_hotel = agent.recommend_hotel(hotels, 'cheapest')
 print(f"Recommended hotel (cheapest): {recommended_hotel['name']}")
 
-# Pasul 2: Agentul analizează alegerea și ajustează strategia dacă este necesar
+# Pasul 2: Agentul reflectă asupra alegerii și ajustează strategia dacă este necesar
 reflection_result = agent.reflect_on_choice()
 print(reflection_result)
 
@@ -1401,33 +1411,33 @@ adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
 
-#### Abilitățile de metacogniție ale agenților
+#### Abilitățile de Metacogniție ale Agenților
 
-Elementul cheie aici este capacitatea agentului de a:
-- Evalua alegerile anterioare și procesul său de luare a deciziilor.
-- Ajusta strategia pe baza acelei reflecții, adică metacogniție în acțiune.
+Esențial aici este abilitatea agentului de a:
+- Evalua alegerile și procesul decizional anterior.
+- Ajusta strategia pe baza acestei reflecții, adică metacogniția în acțiune.
 
 Aceasta este o formă simplă de metacogniție în care sistemul este capabil să își ajusteze procesul de raționament pe baza feedback-ului intern.
 
 ### Concluzie
 
-Metacogniția este un instrument puternic care poate îmbunătăți semnificativ capabilitățile agenților AI. Prin încorporarea proceselor metacognitive, puteți proiecta agenți mai inteligenți, adaptabili și eficienți. Folosiți resursele suplimentare pentru a explora mai departe fascinanta lume a metacogniției în agenții AI.
+Metacogniția este un instrument puternic care poate îmbunătăți semnificativ capabilitățile agenților AI. Prin încorporarea proceselor metacognitive, poți proiecta agenți mai inteligenți, adaptabili și eficienți. Folosește resursele suplimentare pentru a explora mai profund fascinanta lume a metacogniției în agenții AI.
 
-### Aveți mai multe întrebări despre modelul de proiectare pentru metacogniție?
+### Ai Mai Multe Întrebări despre Modelul de Design Metacogniție?
 
-Alăturați-vă [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) pentru a întâlni alți cursanți, a participa la ore de consultanță și a primi răspunsuri la întrebările dvs. despre agenții AI.
+Alătură-te [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) pentru a întâlni alți cursanți, a participa la sesiuni de office hours și a primi răspunsuri la întrebările tale despre Agenți AI.
 
-## Lecția anterioară
+## Lecția Anterioară
 
-[Modelul de proiectare multi-agent](../08-multi-agent/README.md)
+[Modelul de Design Multi-Agent](../08-multi-agent/README.md)
 
-## Următoarea lecție
+## Lecția Următoare
 
-[Agenți AI în producție](../10-ai-agents-production/README.md)
+[Agenți AI în Producție](../10-ai-agents-production/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Declinare de responsabilitate:
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși depunem eforturi pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă o traducere profesională realizată de un traducător uman. Nu ne asumăm răspunderea pentru eventuale neînțelegeri sau interpretări eronate care rezultă din utilizarea acestei traduceri.
+**Declinare a responsabilității**:
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). În timp ce ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un om. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite care decurg din utilizarea acestei traduceri.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -63,7 +63,7 @@ In the Python example, we first define and create the two agents, each with spec
 # Define agent roles and instructions
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -72,12 +72,12 @@ FRONTDESK_INSTRUCTIONS = """
     """
 
 # Create agent instances
-reviewer_agent = chat_client.create_agent(
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
@@ -88,7 +88,7 @@ Next, the `WorkflowBuilder` is used to construct the graph. The `front_desk_agen
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
 Finally, the workflow is executed with the initial user prompt.
@@ -97,10 +97,10 @@ Finally, the workflow is executed with the initial user prompt.
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run executes the workflow; get_outputs() returns the output executor's result.
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
 #### .NET (C\#) Implementation Analysis
@@ -112,22 +112,22 @@ The .NET implementation follows a very similar logic. First, constants are defin
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-The agents are created using an `OpenAIClient`, and then the `WorkflowBuilder` defines the sequential flow by adding an edge from the `frontDeskAgent` to the `reviewerAgent`.
+The agents are created using an `AzureOpenAIClient` (Responses API), and then the `WorkflowBuilder` defines the sequential flow by adding an edge from the `frontDeskAgent` to the `reviewerAgent`.
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -160,12 +160,12 @@ Three agents are defined, each with a specialized role. The workflow is construc
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
 # Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
 # Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
 The input is a `ChatMessage` that includes both text and the image URI. The framework handles passing the output of each agent to the next in the sequence until the final quote is generated.
@@ -183,8 +183,7 @@ message = ChatMessage(
 )
 
 # Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+events = await workflow.run(message)
 ```
 
 #### .NET (C\#) Implementation Analysis
@@ -195,9 +194,9 @@ The .NET example mirrors the Python version. Three agents (`salesagent`, `pricea
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,7 +205,7 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-The user's message is constructed with both the image data (as bytes) and the text prompt. The `InProcessExecution.StreamAsync` method initiates the workflow, and the final output is captured from the stream.
+The user's message is constructed with both the image data (as bytes) and the text prompt. The `InProcessExecution.RunStreamingAsync` method initiates the workflow, and the final output is captured from the stream.
 
 ### Case 3: Concurrent Workflow
 
@@ -230,8 +229,8 @@ The `ConcurrentBuilder` simplifies the creation of this pattern. You simply list
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
 # ConcurrentBuilder handles the fan-out/fan-in logic
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()

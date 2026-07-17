@@ -1,27 +1,27 @@
-# 🔍 Enterprise RAG wit Azure AI Foundry (.NET)
+# 🔍 Enterprise RAG wit Microsoft Foundry (.NET)
 
-## 📋 Wetin You Go Learn
+## 📋 Wetin you go learn
 
-Dis notebook go show how to build enterprise-level Retrieval-Augmented Generation (RAG) systems using Microsoft Agent Framework for .NET wit Azure AI Foundry. You go sabi how to create agents wey fit search documents and give correct, context-aware answers wit enterprise security and scalability.
+Dis notebook dey show how to build enterprise-level Retrieval-Augmented Generation (RAG) systems using Microsoft Agent Framework for .NET wit Microsoft Foundry. You go learn how to create production-ready agents wey fit search documents and give correct, context-aware answers plus enterprise security and scalability.
 
-**Enterprise RAG Features We Go Build:**
+**Enterprise RAG Things wey You Go Build:**
 - 📚 **Document Intelligence**: Advanced document processing wit Azure AI services
 - 🔍 **Semantic Search**: High-performance vector search wit enterprise features
-- 🛡️ **Security Integration**: Role-based access and data protection patterns
+- 🛡️ **Security Integration**: Role-based access and data protection style
 - 🏢 **Scalable Architecture**: Production-ready RAG systems wit monitoring
 
 ## 🎯 Enterprise RAG Architecture
 
-### Main Enterprise Components
-- **Azure AI Foundry**: Managed enterprise AI platform wey get security and compliance
-- **Persistent Agents**: Agents wey dey keep conversation history and context
-- **Vector Store Management**: Enterprise-level document indexing and retrieval
+### Core Enterprise Components
+- **Microsoft Foundry**: Managed enterprise AI platform wit security and compliance
+- **Persistent Agents**: Stateful agents wit conversation history and context management
+- **Vector Store Management**: Enterprise-grade document indexing and retrieval
 - **Identity Integration**: Azure AD authentication and role-based access control
 
 ### .NET Enterprise Benefits
 - **Type Safety**: Compile-time validation for RAG operations and data structures
 - **Async Performance**: Non-blocking document processing and search operations
-- **Memory Management**: Efficient resource use for big document collections
+- **Memory Management**: Efficient resource utilization for large document collections
 - **Integration Patterns**: Native Azure service integration wit dependency injection
 
 ## 🏗️ Technical Architecture
@@ -33,7 +33,7 @@ Document Upload → Security Validation → Vector Processing → Index Creation
 User Query → Authentication → Semantic Search → Context Ranking → AI Response
 ```
 
-### Main .NET Components
+### Core .NET Components
 - **Azure.AI.Agents.Persistent**: Enterprise agent management wit state persistence
 - **Azure.Identity**: Integrated authentication for secure Azure service access
 - **Microsoft.Agents.AI.AzureAI**: Azure-optimized agent framework implementation
@@ -44,27 +44,27 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 ### Security & Compliance
 - **Azure AD Integration**: Enterprise identity management and authentication
 - **Role-Based Access**: Fine-grained permissions for document access and operations
-- **Data Protection**: Encryption for documents wey dey rest and wey dey move
-- **Audit Logging**: Full activity tracking for compliance needs
+- **Data Protection**: Encryption at rest and in transit for sensitive documents
+- **Audit Logging**: Comprehensive activity tracking for compliance requirements
 
 ### Performance & Scalability
 - **Connection Pooling**: Efficient Azure service connection management
 - **Async Processing**: Non-blocking operations for high-throughput scenarios
-- **Caching Strategies**: Smart caching for documents wey people dey access often
+- **Caching Strategies**: Intelligent caching for frequently accessed documents
 - **Load Balancing**: Distributed processing for large-scale deployments
 
 ### Management & Monitoring
 - **Health Checks**: Built-in monitoring for RAG system components
 - **Performance Metrics**: Detailed analytics on search quality and response times
-- **Error Handling**: Full exception management wit retry policies
+- **Error Handling**: Comprehensive exception management wit retry policies
 - **Configuration Management**: Environment-specific settings wit validation
 
-## ⚙️ Wetin You Need & Setup
+## ⚙️ Prerequisites & Setup
 
 **Development Environment:**
 - .NET 9.0 SDK or higher
 - Visual Studio 2022 or VS Code wit C# extension
-- Azure subscription wey get AI Foundry access
+- Azure subscription wit Microsoft Foundry access
 
 **Required NuGet Packages:**
 ```xml
@@ -77,33 +77,33 @@ User Query → Authentication → Semantic Search → Context Ranking → AI Res
 
 **Azure Authentication Setup:**
 ```bash
-# Install Azure CLI and authenticate
+# Install Azure CLI and sign in
 az login
 az account set --subscription "your-subscription-id"
 ```
 
 **Environment Configuration:**
-* Azure AI Foundry configuration (automatically handled via Azure CLI)
-* Make sure say you don authenticate to the correct Azure subscription
+* Microsoft Foundry configuration (automatically handled via Azure CLI)
+* Make sure say you authenticate to correct Azure subscription
 
 ## 📊 Enterprise RAG Patterns
 
 ### Document Management Patterns
-- **Bulk Upload**: Process plenty documents at once
-- **Incremental Updates**: Add and modify documents in real-time
-- **Version Control**: Keep track of document versions and changes
+- **Bulk Upload**: Efficient processing of big document collections
+- **Incremental Updates**: Real-time document addition and modification
+- **Version Control**: Document versioning and change tracking
 - **Metadata Management**: Rich document attributes and taxonomy
 
 ### Search & Retrieval Patterns
-- **Hybrid Search**: Combine semantic and keyword search for better results
-- **Faceted Search**: Filter and categorize documents in different ways
-- **Relevance Tuning**: Custom scoring algorithms for specific needs
-- **Result Ranking**: Advanced ranking wit business logic
+- **Hybrid Search**: Combining semantic and keyword search for best results
+- **Faceted Search**: Multi-dimensional filtering and categorization
+- **Relevance Tuning**: Custom scoring algorithms for domain-specific needs
+- **Result Ranking**: Advanced ranking wit business logic integration
 
 ### Security Patterns
-- **Document-Level Security**: Fine-grained access control for each document
+- **Document-Level Security**: Fine-grained access control per document
 - **Data Classification**: Automatic sensitivity labeling and protection
-- **Audit Trails**: Full logging of all RAG operations
+- **Audit Trails**: Comprehensive logging of all RAG operations
 - **Privacy Protection**: PII detection and redaction capabilities
 
 ## 🔒 Enterprise Security Features
@@ -124,7 +124,7 @@ if (!await ValidateUserPermissions(user, documentId))
 ### Data Protection
 - **Encryption**: End-to-end encryption for documents and search indices
 - **Access Controls**: Integration wit Azure AD for user and group permissions
-- **Data Residency**: Control where data dey for compliance
+- **Data Residency**: Geographic data location controls for compliance
 - **Backup & Recovery**: Automated backup and disaster recovery capabilities
 
 ## 📈 Performance Optimization
@@ -139,16 +139,16 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 ```
 
 ### Memory Management
-- **Streaming Processing**: Process big documents without memory wahala
-- **Resource Pooling**: Reuse expensive resources well
+- **Streaming Processing**: Handle big documents without memory wahala
+- **Resource Pooling**: Efficient reuse of expensive resources
 - **Garbage Collection**: Optimized memory allocation patterns
-- **Connection Management**: Manage Azure service connections properly
+- **Connection Management**: Proper Azure service connection lifecycle
 
 ### Caching Strategies
-- **Query Caching**: Cache searches wey people dey do often
-- **Document Caching**: Keep hot documents in memory
-- **Index Caching**: Optimize vector index caching
-- **Result Caching**: Smart caching for generated responses
+- **Query Caching**: Cache frequently executed searches
+- **Document Caching**: In-memory caching for hot documents
+- **Index Caching**: Optimized vector index caching
+- **Result Caching**: Intelligent caching of generated responses
 
 ## 📊 Enterprise Use Cases
 
@@ -180,44 +180,44 @@ await foreach (var document in documentStream.AsAsyncEnumerable())
 
 ### Scalability & Reliability
 - **Auto-Scaling**: Automatic scaling based on load and performance metrics
-- **High Availability**: Multi-region deployment wit failover capabilities
+- **High Availability**: Multi-region deployment with failover capabilities
 - **Load Testing**: Performance validation under enterprise load conditions
 - **Disaster Recovery**: Automated backup and recovery procedures
 
-Ready to build enterprise-level RAG systems wey fit handle sensitive documents at scale? Make we architect intelligent knowledge systems for enterprise! 🏢📖✨
+Ready to build enterprise-grade RAG systems wey fit handle sensitive documents at scale? Make we architect intelligent knowledge systems for the enterprise! 🏢📖✨
 
 ## Code Implementation
 
-The complete working code sample for dis lesson dey inside `05-dotnet-agent-framework.cs`. 
+The correct working code sample for dis lesson dey for `05-dotnet-agent-framework.cs`.
 
 To run the example:
 
 ```bash
-# Make the script executable (Linux/macOS)
+# Make di script fit run (Linux/macOS)
 chmod +x 05-dotnet-agent-framework.cs
 
-# Run the .NET Single File App
+# Run di .NET Single File App
 ./05-dotnet-agent-framework.cs
 ```
 
-Or use `dotnet run` directly:
+Or use `dotnet run` straight:
 
 ```bash
 dotnet run 05-dotnet-agent-framework.cs
 ```
 
-The code go show:
+The code dey show:
 
-1. **Package Installation**: Install required NuGet packages for Azure AI Agents
-2. **Environment Configuration**: Load Azure AI Foundry endpoint and model settings
-3. **Document Upload**: Upload document for RAG processing
-4. **Vector Store Creation**: Create vector store for semantic search
-5. **Agent Configuration**: Set up AI agent wit file search capabilities
-6. **Query Execution**: Run queries against the uploaded document
+1. **Package Installation**: Installing required NuGet packages for Azure AI Agents
+2. **Environment Configuration**: Loading Microsoft Foundry endpoint and model settings
+3. **Document Upload**: Uploading document for RAG processing
+4. **Vector Store Creation**: Creating vector store for semantic search
+5. **Agent Configuration**: Setting up AI agent wit file search tori
+6. **Query Execution**: Running query against uploaded document
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dis dokyument don use AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator) do di translation. Even as we dey try make am accurate, abeg sabi say automated translations fit get mistake or no dey correct well. Di original dokyument for im native language na di main source wey you go trust. For important information, e better make professional human translation dey use. We no go fit take blame for any misunderstanding or wrong interpretation wey fit happen because you use dis translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

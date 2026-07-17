@@ -1,64 +1,64 @@
-[Angalia video ya somo: Kuweka Usalama wa Wakala za AI kwa Risiti za Kidigitali](https://youtu.be/PLACEHOLDER_VIDEO_ID)
+[Watch the lesson video: Securing AI Agents with Cryptographic Receipts](https://youtu.be/PLACEHOLDER_VIDEO_ID)
 
-> _(Video ya somo na picha ya kichwa itaongezwa na timu ya maudhui ya Microsoft baada ya muunganiko, ikilingana na muundo wa somo la 14 / 15.)_
+> _(Video ya somo na picha ndogo zitapewa na timu ya maudhui ya Microsoft baada ya muunganiko, zikifuatana na muundo wa somo la 14 / 15.)_
 
-# Kuweka Usalama wa Wakala za AI kwa Risiti za Kidigitali
+# Kuweka Salama Wakala wa AI kwa Kupokea kwa Usimbaji Funguo
 
 ## Utangulizi
 
-Somo hili litalifunua:
+Somo hili litajumuisha:
 
-- Kwa nini njia za ukaguzi kwa makala za AI ni muhimu kwa mzingiro, utatuzi wa matatizo, na uaminifu.
-- Risiti ya kidigitali ni nini na inatofautianaje na mstari wa kumbukumbu usiosainiwa.
-- Jinsi ya kuunda risiti iliyosainiwa kwa simu ya zana ya wakala kwa Python rahisi.
-- Jinsi ya kuthibitisha risiti bila mtandao na kugundua uharifu.
-- Jinsi ya kuunganisha risiti ili kuondoa au kubadilisha mpangilio dhidi huvunja mnyororo.
-- Risiti huonyesha nini na hasa hazionyeshi nini.
+- Kwa nini rekodi za ufuatiliaji kwa mawakala wa AI ni muhimu kwa ufuataji sheria, utatuzi wa hitilafu, na kuaminika.
+- Nini maana ya risiti ya usimbaji funguo na jinsi inavyotofautiana na mstari wa kumbukumbu usiyosainiwa.
+- Jinsi ya kutoa risiti iliyosainiwa kwa simu ya chombo cha wakala kwa Python rahisi.
+- Jinsi ya kuthibitisha risiti zikiwa nje ya mtandao na kugundua uharibifu.
+- Jinsi ya kuunganisha risiti ili kuondoa au kubadilisha mpangilio wa moja kuvunja mnyororo.
+- Nini risiti zinaonyesha na nini hazionyeshi moja kwa moja.
 
 ## Malengo ya Kujifunza
 
 Baada ya kumaliza somo hili, utajua jinsi ya:
 
-- Kutambua njia za kushindwa zinazohamasisha uthibitisho wa kidigitali wa matendo ya wakala.
-- Kuunda risiti iliyosainiwa kwa Ed25519 juu ya kifurushi cha JSON cha kawaida.
-- Kuthibitisha risiti kwa uhuru kwa kutumia tu ufunguo wa umma wa msaini.
-- Kugundua uharifu kwa kuendesha tena uthibitisho kwenye risiti iliyobadilishwa.
-- Kujenga mnyororo wa risiti uliojengwa kwa heshari na kueleza kwa nini mnyororo ni muhimu.
-- Kutambua mipaka kati ya kile risiti huonyesha (mwenye saini, usahihi, mpangilio) na kile hazionyeshi (usahihi wa tendo, ugumu wa sera).
+- Kutambua aina za kushindwa zinazochochea utambulisho wa kidijitali wa matendo ya wakala.
+- Kutengeneza risiti iliyosainiwa kwa Ed25519 juu ya mzigo wa data wa JSON wa kawaida.
+- Kujiridhisha na risiti kwa kutumia ufunguo wa umma wa msaini pekee.
+- Kugundua uharibifu kwa kurudia uthibitisho wa risiti iliyobadilishwa.
+- Kujenga mlolongo wa risiti zilizo na nambari za hash na kueleza kwa nini mlolongo huo ni muhimu.
+- Kutambua kikomo kati ya kile risiti zinavyoonyesha (withamini, uadilifu, mpangilio) na kile hazionyeshi (usahihi wa kitendo, usahihi wa sera).
 
-## Tatizo: Njia ya Ukaguzi ya Wakala Wako
+## Tatizo: Rekodi ya Ufuatiliaji ya Wakala Wako
 
-Fikiria umeanzisha wakala wa AI kwa Contoso Travel. Wakala anasoma maombi ya mteja, anaita API ya ndege kupata chaguzi, na anahifadhi viti kwa niaba ya mteja. Robo ya mwisho, wakala alishughulikia uhifadhi wa tiketi 50,000.
+Fikiria umeweka wakala wa AI kwa Contoso Travel. Wakala anasoma maombi ya wateja, anapiga simu kwenye API ya ndege kutafuta chaguzi, na anakata tiketi kwa niaba ya mteja. Robo ya mwisho, wakala alish処 50,000 za tiketi.
 
-Leo mkaguzi anakuja. Anauliza swali rahisi: "Nionyeshe kile wakala wako alifanya."
+Leo mkaguzi anakuja. Anauliza swali rahisi: "Nioneshe kile wakala wako alifanya."
 
-Unamkabidhi faili zako za kumbukumbu. Mkaguzi anazitazama na kuuliza swali gumu zaidi: "Ninawezaje kujua kumbukumbu hizi hazijarekebishwa?"
+Unawasilisha faili zako za kumbukumbu. Mkaguzi anazitazama na kuuliza swali ngumu zaidi: "Nijulishe jinsi ninaweza kujua kumbukumbu hizi hazijarekebishwa?"
 
-Huu ndio tatizo la njia ya ukaguzi. Maenezi mengi ya wakala leo hutegemea:
+Hili ndilo tatizo la rekodi ya ufuatiliaji. Mamlaka nyingi za mawakala leo hutegemea:
 
-- **Kumbukumbu za maombi**: zilizoandikwa na wakala mwenyewe, zinabadiliwa na yeyote mwenye ufikiaji wa mfumo wa faili.
-- **Huduma za kumbukumbu za wingu**: zinathibitisha uharifu kwenye ngazi ya jukwaa lakini ikiwa mkaguzi anamtambua mmiliki wa jukwaa.
-- **Kumbukumbu za muamala wa hifadhidata**: zinafaa kwa mabadiliko ya hifadhidata lakini si kwa simu za zana yoyote.
+- **Kumbukumbu za programu**: zilizoandikwa na wakala mwenyewe, na mtu yeyote mwenye ufikiaji wa mfumo wa faili anaweza kuhariri.
+- **Huduma za kumbukumbu za wingu**: zinapunguza uwezekano wa uharibifu kwa ngazi ya jukwaa lakini kama mkaguzi anaamini mwendeshaji wa jukwaa.
+- **Kumbukumbu za miamala ya hifadhidata**: zinafaa kwa mabadiliko ya hifadhidata lakini siyo kwa simu za zana za kawaida.
 
-Hakuna kati ya hizi zinazoweza kujibu swali la mkaguzi bila kumtaka mkaguzi kuamini mtu (wewe, muuzaji wa huduma ya wingu, muuzaji wa hifadhidata). Kwa matumizi ya ndani, uaminifu huo mara nyingi unakubalika. Kwa mizigo iliyo chini ya kanuni (fedha, huduma za afya, chochote chini ya Sheria ya AI ya EU), haikubaliki.
+Hakuna kati ya hizi zinazoweza kujibu swali la mkaguzi bila kuhitaji kuamini mtu fulani (wewe, mtoa wingu wako, muuzaji wa hifadhidata). Kwa matumizi ya ndani, imani hiyo mara nyingi inakubalika. Kwa mizigo inayodhibitiwa (fedha, afya, chochote kinacholingana na Sheria ya AI ya EU), haitakuwa hivyo.
 
-Risiti za kidigitali hutatua hili kwa kufanya kila tendo la wakala kuthibitishwa kwa uhuru. Mkaguzi hahitaji kuamini wewe. Wanahitaji tu ufunguo wako wa umma na risiti yenyewe.
+Risiti za usimbaji funguo hutatua hili kwa kufanya kila kitendo cha wakala kiweze kuthibitishwa kwa uhuru. Mkaguzi hahitaji kuamini wewe. Wanahitaji tu ufunguo wako wa umma na risiti yenyewe.
 
-## Risiti ya Kidigitali ni Nini?
+## Nini Risiti ya Usimbaji Funguo?
 
-Risiti ni kitu cha JSON kinachoandika kile wakala alifanya, kimesainiwa kwa saini ya kidigitali.
+Risiti ni kitu cha JSON kinachorekodi kile wakala alichofanya, kikiwa kimesainiwa kwa saini ya kidijitali.
 
 ```mermaid
 flowchart LR
-    A[Ajenti anaitisha chombo] --> B[Jenga payload ya risiti]
-    B --> C[Sanifu JSON RFC 8785]
-    C --> D[SHA-256 hash]
-    D --> E[Sainia kwa Ed25519]
+    A[Wakala anaitisha chombo] --> B[Jenga mzigo wa risiti]
+    B --> C[Tengeneza JSON RFC 8785 rasmi]
+    C --> D[Hash ya SHA-256]
+    D --> E[Saini ya Ed25519]
     E --> F[Risiti yenye saini]
     F --> G[Mhasibu anathibitisha bila mtandao]
-    G --> H{Je, Saini ni halali?}
-    H -- ndiyo --> I[Uthibitisho wa kuonyesha udanganyifu]
-    H -- hapana --> J[Risiti imekataliwa]
+    G --> H{Saini ni halali?}
+    H -- ndiyo --> I[Uthibitisho unaoonyesha mabadiliko]
+    H -- hapana --> J[Risiti imetengwa]
 ```
 
 Risiti ndogo inaonekana hivi:
@@ -82,32 +82,32 @@ Risiti ndogo inaonekana hivi:
 }
 ```
 
-Sifa tatu zinafanya kazi:
+Sifa tatu ndizo kazi zinafanyika:
 
-1. **Saini**. Risiti inasainiwa na lango la wakala kwa kutumia ufunguo wa binafsi wa Ed25519. Yeyote mwenye ufunguo wa umma unaolingana anaweza kuthibitisha saini haina dosari bila mtandao. Kubadilisha sehemu yoyote kuharibu saini.
+1. **Saini**. Risiti imesainiwa na lango la wakala kwa kutumia ufunguo wa binafsi wa Ed25519. Mtu yeyote aliye na ufunguo wa umma unaolingana anaweza kuthibitisha saini hiyo nje ya mtandao. Kuchezea sehemu yoyote kunathibitisha saini kuwa batili.
 
-2. **Uundo wa kawaida**. Kabla ya kusaini, risiti huandikwa kwa kutumia Mpangilio wa Kiufundi wa JSON (JCS, RFC 8785). Hii inahakikisha kuwa utekelezaji mbili zinazozalisha risiti ya maana ile ile huunda matokeo sawa ya biti. Bila uundaji wa kawaida, watangazaji tofauti wa JSON wangeweza kutoa saini tofauti kwa maudhui hayo hayo.
+2. **Usimbaji wa kawaida**. Kabla ya kusaini, risiti hutambulishwa kwa kutumia JSON Canonicalization Scheme (JCS, RFC 8785). Hii inahakikisha kuwa mifumo miwili inayotoa risiti sawa ya mantiki itatoa matokeo yanayolingana kabisa kwa biti. Bila usimbaji huu, vianzisheji tofauti vya JSON vitatoa saini tofauti kwa maudhui sawa.
 
-3. **Uunganishaji wa heshari**. Sehemu ya `previous_receipt_hash` inaunganisha risiti kila moja na ile ya kabla yake. Kuondoa au kubadilisha mchakato wa risiti hubomoa kila risiti iliyofuata. Uharibifu unaonekana katika ngazi ya mnyororo hata kama saini binafsi zinapita.
+3. **Kuunganisha kwa hash**. Sehemu ya `previous_receipt_hash` inaunganisha kila risiti na ile ya kabla yake. Kuondoa au kubadilisha mpangilio wa risiti huvunja kila risiti iliyofuata. Kuchezea kunaonekane kwenye ngazi ya mlolongo hata kama saini za mtu binafsi zinapita.
 
-Hizi sifa pamoja hutoa dhamana tatu:
+Sifa hizi pamoja hutoa dhamana tatu:
 
-- **Mwenye saini**: ufunguo huu ulisaini maudhui haya.
-- **Uaminifu**: maudhui hayjakubadilika tangu kusainiwa.
-- **Mpangilio**: risiti hii ilifuata ile risiti katika mnyororo.
+- **Uthibitisho wa msaini**: ufunguo huu ulisaini maudhui haya.
+- **Uadilifu**: maudhui hayajabadilika tangu kusaini.
+- **Mpangilio**: risiti hii ilifuata risiti ile katika mlolongo.
 
 ## Kutengeneza Risiti kwa Python
 
-Huhitaji maktaba maalum kutengeneza risiti. Misingi ya kidigitali ipo wazi na mantiki ni mistari michache tu ya Python.
+Huna haja ya maktaba maalum kutengeneza risiti. Vifaa vya usimbaji funguo vinapatikana sana na mantiki ni mistari chache ya Python.
 
-Mazoezi ya vitendo katika `code_samples/18-signed-receipts.ipynb` yanapitia mchakato wote. Toleo la muhtasari:
+Mafunzo ya vitendo katika `code_samples/18-signed-receipts.ipynb` yanapitia mchakato mzima. Toleo la muhtasari:
 
 ```python
 import json
 import hashlib
 import base64
 from nacl import signing
-from jcs import canonicalize  # JSON halali ya RFC 8785
+from jcs import canonicalize  # JSON ya RFC 8785 ya kikanoni
 
 def b64url_nopad(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode("ascii").rstrip("=")
@@ -116,11 +116,11 @@ def sha256_canonical(obj) -> str:
     """SHA-256 of a Python object's JCS-canonical JSON form."""
     return f"sha256:{hashlib.sha256(canonicalize(obj)).hexdigest()}"
 
-# Tengeneza au pakua funguo la kusaini (katika uzalishaji, hifadhi kwenye hazina ya funguo)
+# Tengeneza au pakia ufunguo wa kusaini (katika uzalishaji, hifadhi kwenye hazina ya funguo)
 signing_key = signing.SigningKey.generate()
 verify_key = signing_key.verify_key
 
-# Jenga mzigo wa risiti (bado hakuna saini)
+# Jenga mzigo wa risiti (bado hauna sahihi)
 tool_args = {"origin": "SYD", "destination": "LAX"}
 tool_result = [{"flight": "QF11", "price": 1850, "stops": 0}]
 
@@ -136,12 +136,12 @@ payload = {
     "previous_receipt_hash": None,
 }
 
-# Fanya kuwa halali, pata hash, saini.
+# Fanya kuwa kikanoni, fanya hash, saini.
 canonical_bytes = canonicalize(payload)
 message_hash = hashlib.sha256(canonical_bytes).digest()
 signature_bytes = signing_key.sign(message_hash).signature
 
-# Ambatisha kitu cha saini kilichoandaliwa.
+# Ambatisha kitu cha saini kilicho pagazwa.
 receipt = {
     **payload,
     "signature": {
@@ -152,11 +152,11 @@ receipt = {
 }
 ```
 
-Hii ndiyo njia yote ya usaini. Mazoezi kwenye daftari hutembea kila hatua.
+Hilo ndilo mchakato mzima wa kusaini. Mafunzo katika kitabu cha kumbukumbu yanapitia kila hatua.
 
 ## Kuthibitisha Risiti na Kugundua Uharibifu
 
-Uthibitisho ni kinyume:
+Kuthibitisha ni tendo la kinyume:
 
 ```python
 import base64
@@ -170,7 +170,7 @@ def b64url_decode(s: str) -> bytes:
     return base64.urlsafe_b64decode(s + padding)
 
 def verify_receipt(receipt: dict) -> bool:
-    # Saini ni kitu kilichoandaliwa: {"alg", "sig", "public_key"}.
+    # Saini ni kitu kilichopangwa: {"alg", "sig", "public_key"}.
     sig_obj = receipt.get("signature")
     if not sig_obj or sig_obj.get("alg") != "EdDSA":
         return False
@@ -189,100 +189,101 @@ def verify_receipt(receipt: dict) -> bool:
         return False
 ```
 
-Kazi hii huchukua risiti na kurudisha `True` ikiwa saini ni halali, `False` vinginevyo. Hakuna simu za mtandao, hakuna utegemezi wa huduma, hakuna hitaji la kuamini mtu wa tatu.
+Kazi hii inachukua risiti na kurudisha `True` ikiwa saini ni halali, `False` vinginevyo. Hakuna simu ya mtandao, hakuna utegemezi wa huduma, hakuna imani inayohitajika kwa mtu wa tatu.
 
-Ili kuona kugundua uharibifu kwa vitendo, daftari linapitia:
+Ili kuona jinsi kugundua uharibifu kunavyofanya kazi, kitabu cha kumbukumbu kinapitia:
 
-1. Kutengeneza risiti halali na kuthibitisha.
-2. Kubadilisha biti moja ya sehemu `tool_args_hash`.
-3. Kuendesha uthibitisho tena na kuona kutofaulu.
+1. Kutengeneza risiti halali na kuthibitisha mara moja.
+2. Kubadilisha biti moja la `tool_args_hash`.
+3. Kurudia uthibitisho na kuona inashindwa.
 
-Hii ni onyesho la vitendo kwamba risiti hubainisha uharibifu: mabadiliko yoyote, hata mdogo, huvunja saini.
+Hii ni onyesho la vitendo kuwa risiti zinathibitisha kuwa zimechezwa: marekebisho yoyote, hata ya kidogo, huvunja saini.
 
-## Kuunganisha Risiti kwa Wakala wa Hatua Nyingi
+## Kuunganisha Risiti kwa Mawakala wa Hatua Nyingi
 
-Risiti moja iliyosainiwa inalinda tendo moja. Mnyororo wa risiti hulinda mfululizo.
+Risiti moja iliyosainiwa inalinda kitendo kimoja. Mlolongo wa risiti unalinda mfuatano.
 
 ```mermaid
 flowchart LR
-    R0[Risasi 0<br/>asili] --> R1[Risasi 1]
-    R1 --> R2[Risasi 2]
-    R2 --> R3[Risasi 3]
+    R0[Risiti 0<br/>mwanzo] --> R1[Risiti 1]
+    R1 --> R2[Risiti 2]
+    R2 --> R3[Risiti 3]
     R1 -. previous_receipt_hash .-> R0
     R2 -. previous_receipt_hash .-> R1
     R3 -. previous_receipt_hash .-> R2
 ```
 
-Kila risiti hurekodi thamani ya heshari ya risiti ya kabla yake. Kuondoa risiti ya 2 kimya kimya, mshambuliaji atahitaji:
+Kila risiti inarekodi hash ya risiti iliyotangulia. Ili kuondoa risiti ya namba 2 kimya kimya, mshambulizi angehitaji:
 
-- Kubadilisha sehemu ya `previous_receipt_hash` ya risiti ya 3 (hubomoa saini ya risiti ya 3), AU
-- Kutengeneza saini mpya ya risiti 3 iliyobadilishwa (inahitaji ufunguo binafsi wa wakala).
+- Kubadilisha sehemu ya `previous_receipt_hash` ya risiti 3 (huchangia saini ya risiti 3 kuvunjika), AU
+- Kutengeneza saini mpya kwa risiti 3 iliyobadilishwa (inahitaji ufunguo binafsi wa wakala).
 
-Ikiwa ufunguo binafsi uko kwenye hazina ya nyumbani wa kifaa na unaweka ufunguo wa umma na risiti, hakuna shambulio linalowezekana bila kugunduliwa.
+Ikiwa ufunguo binafsi uko kwenye hazina ya ufunguo wa vifaa na unachapisha ufunguo wa umma na kila risiti, shambulio lolote halitafanikisha bila kugunduliwa.
 
-Daftari linapitia:
+Kitabu cha kumbukumbu kinapitia:
 
-1. Kujenga mnyororo wa risiti tatu.
-2. Kuthibitisha kuwa `previous_receipt_hash` ya kila risiti inalingana na heshari halisi ya risiti ya awali.
-3. Kufanya uharibifu kwa risiti moja katikati na kuona mnyororo unavunjika sehemu hiyo kabisa.
+1. Kujenga mlolongo wa risiti tatu.
+2. Kuthibitisha kwamba sehemu ya `previous_receipt_hash` ya kila risiti inalingana na hash halisi ya risiti ya awali.
+3. Kuchezea risiti moja katikati na kuona mlolongo huvunjika mahali hapo.
 
-Hii ndiyo unavyotengeneza njia ya ukaguzi ambayo mkaguzi wa nje anaweza kuthibitisha bila kuamini wewe.
+Hivyo ndivyo unavyotengeneza rekodi ya ufuatiliaji ambayo mkaguzi wa nje anaweza kuthibitisha bila kuamini wewe.
 
-## Risiti Huonyesha Nini (na Hazionyeshi Nini)
+## Nini Risiti Zinaonyesha (na Nini Hazionyeshi)
 
-Huu ni sehemu muhimu zaidi ya somo hili. Risiti ni za nguvu lakini nguvu zao zina mipaka.
+Hii ni sehemu muhimu zaidi ya somo hili. Risiti ni zenye nguvu lakini nguvu zao zina mipaka.
 
-**Risiti huonyesha vitu vitatu:**
+**Risiti zinaonyesha mambo matatu:**
 
-1. **Mwenye saini**: ufunguo maalum ulisaini kifurushi maalum.
-2. **Uaminifu**: kifurushi hakijabadilika tangu kusainiwa.
-3. **Mpangilio**: risiti hii ilifuata risiti hiyo katika mnyororo wa heshari.
+1. **Uthibitisho wa msaini**: ufunguo maalum ulisaini mzigo maalum.
+2. **Uadilifu**: mzigo haujabadilika tangu kusaini.
+3. **Mpangilio**: risiti hii ilifuata risiti ile katika mlolongo wa hash.
 
-**Risiti hazionyesha:**
+**Risiti HAZIONYESHI:**
 
-1. **Usahihi**: kuwa tendo la wakala lilikuwa sahihi. Risiti inaweza kusainiwa kwa jibu lisilo sahihi kama vile kwa jibu sahihi.
-2. **Uzingatiaji wa sera**: kuwa sera iliyotajwa katika `policy_id` ilikaguliwa kweli, au ingeruhusu tendo hili ikiwa ingekaguliwa. Risiti inaandika kilichodaiwa, si kilichotekelezwa.
-3. **Utambulisho zaidi ya ufunguo**: risiti inasema "ufunguo huu ulisaini maudhui haya." Haisemi "mtu huyu aliruhusu hili." Kuunganisha ufunguo na mtu au shirika kunahitaji miundombinu tofauti (katalogi, rejista ya funguo za umma, nk).
-4. **Ukweli wa ingizo**: ikiwa wakala anapokea ombi lililodanganywa na kutenda kulingana nalo, risiti inaandika tendo kwa uaminifu. Risiti ni chini ya tathmini ya ingizo, si mbadala wake.
+1. **Usahihi**: kuwa kitendo cha wakala kilikuwa sahihi. Risiti inaweza kusainiwa kwa jibu lisilo sahihi kwa usafi sawa na jibu sahihi.
+2. **Ufuataji wa sera**: kuwa sera iliyotajwa kwa `policy_id` ilikaguliwa kweli, au iliruhusu kitendo hiki ikiwa ingekaguliwa. Risiti inarekodi kile kilichodaiwa, si kile kilichotekelezwa.
+3. **Utambulisho zaidi ya ufunguo**: risiti inasema "ufunguo huu ulisaini maudhui haya." Haitoi kusema "mtu huyu alithibitisha." Kuunganisha ufunguo na mtu au shirika kunahitaji miundombinu tofauti ya utambulisho (katalogi, rejista ya funguo za umma, nk).
+4. **Ukweli wa maingizo**: ikiwa wakala anapokea maagizo yaliyobadilishwa na kuyatekeleza, risiti inarekodi kitendo kwa uaminifu. Risiti ni baada ya uthibitishaji wa ingizo, si mbadala wa uthibitishaji.
 
-Mipaka hii ni muhimu kwa sababu mbili:
+Kikomo hiki ni muhimu kwa sababu mbili:
 
-- Inaeleza ni kwa nini risiti zinatumika: kufanya mienendo ya wakala iongezwe ukaguzi na kugundua uharibifu, hata kati ya mashirika tofauti.
-- Inaeleza tabaka za ziada unazohitaji: tathmini ya ingizo (Somo 6), utekelezaji wa sera (ulioelezwa kidogo hapa chini), na miundombinu ya utambulisho (si kwa somo hili).
+- Kinakuambia risiti ni muhimu kwa ajili gani: kufanya tabia ya wakala ionekane na kudhibitiwa, hata kati ya mashirika tofauti.
+- Kinakuambia unahitaji tabaka gani zaidi: uthibitishaji wa ingizo (Somo 6), utekelezaji wa sera (imeelezwa kwa ufupi hapa chini), na miundombinu ya utambulisho (haijazungumziwa katika somo hili).
 
-Kosa la kawaida ni kudhani kuwa "tuna risiti" maana yake "tuna utawala." Hilo si kweli. Risiti ni msingi. Utawala ni mfumo unaojengwa juu yake.
+Hitilafu ya kawaida ni kudhani "tuna risiti" inamaanisha "tumeanzisha udhibiti." Siyo hivyo. Risiti ni msingi. Udhibiti ni mfumo unaojiunda juu yake.
 
 ## Marejeleo ya Uzalishaji
 
-Msimbo wa Python katika somo hili ni mdogo kwa makusudi ili uweze kusoma kila mstari na kuelewa kinachotokea. Katika uzalishaji, una chaguzi mbili:
+Msimbo wa Python katika somo hili ni mdogo makusudi ili usome kila mstari na kuelewa siasa kamili. Kwenye uzalishaji, una chaguzi mbili:
 
-1. **Jenga moja kwa moja juu ya misingi ya kidigitali.** Mistari 50 uliyoyaona hapo juu inatosha kwa matumizi mengi. PyNaCl (Ed25519) na kifurushi `jcs` (JSON ya kawaida) ni maktaba zilizo imara na zilizoangaliwa.
- 
-2. **Tumia maktaba ya risiti ya uzalishaji.** Miradi kadhaa ya chanzo huria hufanya mfumo huo huo na vipengele vya ziada (mzunguko wa ufunguo, uthibitisho wa kundi, usambazaji wa JWK Set, ujumuishaji na injini za sera):
-   - Muundo wa risiti unaotumiwa katika somo hili unafuata Rasimu ya IETF Internet-Draft (`draft-farley-acta-signed-receipts`) ambayo iko katika hatua ya viwango.
-   - Microsoft Agent Governance Toolkit hutunga risiti na maamuzi ya sera za Cedar; angalia Funzo 33 katika hifadhidata hiyo kwa mfano wa mwanzo hadi mwisho.
-   - Kifurushi cha `protect-mcp` (npm) na `@veritasacta/verify` (npm) hutoa utekelezaji wa Node wa usaini wa risiti na uthibitisho wa bila mtandao, zimetengenezwa kwa kufunika seva yoyote ya MCP na njia ya ukaguzi isiyoweza kuharibiwa.
+1. **Jenga moja kwa moja juu ya msingi wa usimbaji funguo.** Mistari 50 uliyoiona hapo juu inatosha kwa matumizi mengi. PyNaCl (Ed25519) na kifurushi cha `jcs` (JSON ya kawaida) ni maktaba zenye matunzo mazuri na zimehakikiwa.
 
-Uamuzi kati ya kuandika yako mwenyewe na kutumia maktaba unafanana na uamuzi wa kuandika maktaba yako ya JWT au kutumia ile iliyojaribiwa: zote ni busara; maktaba huokoa muda na hupunguza maeneo ya ukaguzi; njia ya kuanzia mtandaoni hukufanya uelewe kila msingi. Somo hili linakufundisha njia ya kuanzia ili uwe na msingi kwa chaguo lolote.
+2. **Tumia maktaba ya risiti uzalishaji.** Miradi kadhaa ya chanzo huria hutekeleza muundo sawa na vipengele zaidi (mzunguko wa funguo, uthibitisho kwa kundi, usambazaji wa JWK Set, muingiliano na mashine za sera):
+   - Muundo wa risiti unaotumiwa katika somo hili unafuata IETF Internet-Draft (`draft-farley-acta-signed-receipts`) ambayo iko kwenye mchakato wa viwango.
+   - Microsoft Agent Governance Toolkit huunganisha risiti na maamuzi ya sera ya Cedar; angalia Mafunzo 33 katika hazina hiyo kwa mfano kamili.
+   - Kifurushi cha `protect-mcp` (npm) na `@veritasacta/verify` (npm) hutoa utekelezaji wa Node wa kusaini risiti na uthibitisho nje ya mtandao, kinacholenga jumuisha seva yoyote ya MCP na njia ya kudhibiti uharibifu.
+   - **[nobulex](https://github.com/arian-gogani/nobulex)** Python SDK (`pip install nobulex`) hutoa mtindo ule ule wa Ed25519 + JCS katika Python kwa muunganisho wa LangChain na CrewAI, ikijumuisha vyungu vya upimaji mchanganyiko ilivyochapishwa na ramani ya ufuataji wa kufuata kupitia [OWASP PR #2210](https://github.com/OWASP/CheatSheetSeries/pull/2210).
 
-## Kagua Maarifa
+Uamuzi kati ya kujijengea mwenyewe au kutumia maktaba unafanana na uamuzi kati ya kuandika maktaba yako ya JWT au kutumia ile ambayo imethibitishwa: zote ni za busara; maktaba huokoa muda na kupunguza eneo la ukaguzi; njia ya kuanzia mwanzo hukufanya ufahamu kila msingi. Somo hili linakufundisha njia ya kuanzia mwanzo ili uwe nayo msingi kwa chaguo lolote.
 
-Jaribu ufahamu wako kabla ya kuhamia zoezi la vitendo.
+## Jaribio la Uelewa
 
-**1. Risiti imesainiwa kwa ufunguo wa Ed25519 wa wakala binafsi. Mkaguzi ana ufunguo wa umma tu. Je, mkaguzi anaweza kuthibitisha risiti bila mtandao?**
+Jaribu uelewa wako kabla ya kuendelea na mazoezi ya vitendo.
+
+**1. Risiti inasainiwa kwa ufunguo binafsi wa Ed25519 wa wakala. Mkaguzi ana ufunguo wa umma tu. Je, mkaguzi anaweza kuthibitisha risiti akiwa nje ya mtandao?**
 
 <details>
 <summary>Jibu</summary>
 
-Ndiyo. Uthibitisho wa Ed25519 unahitaji tu ufunguo wa umma na biti zilizosainiwa. Hakuna simu za mtandao, hakuna utegemezi wa huduma. Hii ni sifa inayofanya risiti zifae katika mazingira ya mtandao wa kiwamba, mashirika mengi, au mazingira ya ukaguzi wa uaminifu mdogo.
+Ndiyo. Uthibitisho wa Ed25519 unahitaji ufunguo wa umma na biti zilizotiwa saini tu. Hakuna simu ya mtandao, hakuna utegemezi wa huduma. Hii ndio sifa inayofanya risiti ziwe muhimu katika mazingira yasiyounganishwa na mtandao, mashirika mengi, au hali ya kuaminiana kidogo.
 </details>
 
-**2. Mshambuliaji anabadilisha sehemu ya `policy_id` ya risiti kudai ilidhibitiwa na sera ya kuruhusu zaidi. Saini ilikuwa juu ya kifurushi cha awali. Nini hutokea wakati wa uthibitisho?**
+**2. Mshambulizi anabadilisha sehemu ya `policy_id` ya risiti kudai ilisimamiwa na sera huruhusu zaidi. Saini ilikuwa juu ya mzigo wa awali. Nini hutokea wakati wa uthibitisho?**
 
 <details>
 <summary>Jibu</summary>
 
-Uthibitisho unashindwa. Saini ilihesabiwa juu ya biti ya kawaida ya kifurushi cha awali; kubadilisha sehemu yoyote hubadilisha biti za kawaida, ambazo hubadilisha heshari ya SHA-256, na kuifanya saini kuwa batili. Mshambuliaji angenahitaji ufunguo binafsi kutengeneza saini mpya halali, ambayo hawana.
+Uthibitisho hushindwa. Saini ilihesabiwa juu ya biti za kawaida (canonical) za mzigo wa awali; kubadilisha sehemu yoyote hubadilisha biti za kawaida, na kuathiri hash ya SHA-256, na kuifanya saini kuwa batili. Mshambulizi angehitaji ufunguo binafsi kutengeneza saini mpya halali, ambayo hana.
 </details>
 
 **3. Kwa nini risiti inajumuisha `tool_args_hash` na `result_hash` badala ya hoja halisi na matokeo?**
@@ -290,94 +291,94 @@ Uthibitisho unashindwa. Saini ilihesabiwa juu ya biti ya kawaida ya kifurushi ch
 <details>
 <summary>Jibu</summary>
 
-Sababu mbili. Kwanza, risiti inaweza kuhifadhiwa au kusambazwa katika mazingira ambapo kufichua maudhui halisi (Taarifa za kibinafsi, data ya biashara) ni tatizo. Kuhifadhi heshari hufanya risiti kuwa ndogo na maudhui yako binafsi; mkaguzi anathibitisha kuwa heshari inalingana na nakala iliyohifadhiwa tofauti ya maudhui halisi. Pili, heshari zina ukubwa thabiti; risiti yenye heshari ina ukubwa wa kawaida bila kujali ukubwa wa pembejeo na matokeo.
+Sababu mbili. Kwanza, risiti inaweza kuhifadhiwa au kusambazwa katika mazingira ambapo kutoa maudhui halisi (data binafsi, data ya biashara) ni tatizo. Hash hufanya risiti kuwa ndogo na maudhui kuwa ya faragha; mkaguzi anathibitisha hash inalingana na nakala tofauti ya maudhui halisi. Pili, hashi zina ukubwa uliowekwa; risiti yenye hash haiongezeki ukubwa bila kuangalia ukubwa wa maingizo na matokeo.
 </details>
 
-**4. Sehemu ya `previous_receipt_hash` inaunganisha kila risiti na ile ya awali. Ikiwa mshambuliaji afuta moja risiti katikati ya mnyororo kwa utulivu, nini hubatilika?**
+**4. Sehemu ya `previous_receipt_hash` inaunganisha kila risiti na yenyewe. Ikiwa mshambulizi afuta risiti moja katikati ya mlolongo kimya kimya, nini kinakuwa batili?**
 
 <details>
 <summary>Jibu</summary>
 
-Kila risiti iliyofuata ile iliyofutwa. Sehemu zao za `previous_receipt_hash` haziungani tena na mnyororo halisi (kwani risiti walizorejelea haipo tena, au mnyororo sasa unarejelea ziada nyingine). Kuficha ufutaji, mshambuliaji angenahitaji kusaini tena kila risiti iliyofuata, ambayo inahitaji ufunguo binafsi.
+Kila risiti iliyo nyuma ya ile iliyofutwa. Sehemu zao za `previous_receipt_hash` hazibadiliani tena na mlolongo halisi (kwa sababu risiti iliorejelea haipo tena, au mlolongo sasa unaelekeza kwa risiti tofauti ya awali). Ili kuficha kufutwa, mshambulizi angenehitaji kusaini upya kila risiti iliyofuata, ambayo inahitaji ufunguo binafsi.
 </details>
 
-**5. Risiti inathibitishwa kwa usahihi. Je, hiyo inaonyesha tendo la wakala lilikuwa sahihi, thabiti, au linafuata sera?**
+**5. Risiti inathibitishwa vizuri. Je, inaonyesha kitendo cha wakala kilikuwa sahihi, sawa, au kinakubaliana na sera?**
 
 <details>
 <summary>Jibu</summary>
 
-Hapana. Risiti halali huonyesha vitu vitatu: mwenye saini (ufunguo huu ulisaini maudhui haya), uaminifu (maudhui hayajakubadilika), na mpangilio (risiti hii ilifuata ile risiti). HAIONYESHI kuwa tendo lilikuwa sahihi, kuwa sera iliyotajwa katika `policy_id` ilikaguliwa kweli, au kuwa wakala alifuata sheria zote. Risiti zinafanya mienendo ya wakala ukuba ya kukaguliwa, si lazima sahihi. Hii ni mipaka muhimu zaidi katika somo.
+Hapana. Risiti halali zinaonyesha mambo matatu: uthibitisho (ufunguo huu ulisaini maudhui haya), uadilifu (maudhui hayajabadilika), na mpangilio (risiti hii ilifuatia ile kwenye mlolongo wa hash). HAIIONYESHI kwamba kitendo kilikuwa sahihi, kwamba sera iliyoitwa `policy_id` ilikaguliwa, au kwamba wakala alifuata sheria zote. Risiti hufanya tabia ya wakala ionekane na kudhibitiwa, si lazima iwe sahihi. Huu ndio ukomo muhimu zaidi katika somo.
 </details>
 
-## Zoezi la Vitendo
+## Mazoezi ya Vitendo
 
-Fungua `code_samples/18-signed-receipts.ipynb` na ukamilishe sehemu zote nne:
+Fungua `code_samples/18-signed-receipts.ipynb` na maliza sehemu zote nne:
 
-1. **Sehemu 1**: Saini risiti yako ya kwanza na uthibitishe.
-2. **Sehemu 2**: Haribu risiti na uone uthibitisho bustani.
-3. **Sehemu 3**: Tengeneza mnyororo wa risiti tatu na uthibitishe usahihi wa mnyororo.
-4. **Sehemu 4**: Tumia muundo huo kwa wakala aliyejengwa na Microsoft Agent Framework: funika simu ya zana katika usaini wa risiti, kisha uthibitishe risiti huru.
+1. **Sehemu 1**: Saidia risiti yako ya kwanza na uthibitisha.
+2. **Sehemu 2**: Chezea risiti na angalia uthibitisho kushindwa.
+3. **Sehemu 3**: Jenga mlolongo wa risiti tatu na uthibitishe uadilifu wa mlolongo.
+4. **Sehemu 4**: Tumia muundo huo kwa wakala aliyojengwa kwa Microsoft Agent Framework: fungulia simu ya chombo katika kusaini risiti, kisha uthibitishe risiti kwa uhuru.
+**Changamoto ya kujipakia 1:** ongeza sehemu ya ziada kwenye muundo wa risiti kwa chaguo lako mwenyewe (kwa mfano, nambari ya ombi kwa ufuatiliaji), sasisha mantiki ya saini halisi ili ijumuishe, na thibitisha kuwa risiti bado inarudi kupitia uthibitisho. Kisha badilisha sehemu hiyo baada ya kusaini na thibitisha uthibitisho unashindwa. Hii inakufanya kuelewa jinsi kila bait ya usanisi halisi inavyochangia saini.
 
-**Changamoto ya ziada 1:** Panua muundo wa risiti kwa uwanja mwingine utakaochagua (mfano, kitambulisho cha ombi kwa kufuatilia), sasisha mantiki ya kusaini ya kawaida kuijumuisha, na thibitisha risiti bado inazunguka kupitia uthibitisho. Kisha badilisha uwanja baada ya kusaini na thibitisha uthibitisho unashindwa. Hii inakufanya uelewe jinsi kila biti ya uundaji wa kawaida inavyochangia saini.
-**Changamoto ya Kunyoosha 2:** SHA-256-fanya hash ya risiti zako mbili pamoja (unganisha baiti zao za kawaida kwa mpangilio wa uhakika) na weka kidonge kinachotokana kama sehemu mpya kwenye risiti ya tatu kabla ya kuisaini. Hakikisha kwamba risiti zote tatu bado zinaweza kuhakikishwa. Umejenga uthibitisho wa ujumuishaji wa hatua moja: mtu yeyote aliye na risiti ya tatu anaweza kuthibitisha risiti za kwanza mbili zilikuwepo wakati ziliposainiwa, bila haja ya kufichua yaliyomo. Huu ni mtindo ambao risiti za ufichaji uchaguzi hutumia kwa wingi (ahadi za Merkle, RFC 6962).
+**Changamoto ya kujipakia 2:** SHA-256-peleka risiti mbili zako pamoja (unganisha bait zao halisi kwa mpangilio wa hakika) na weka muhtasari uliopatikana kama sehemu mpya kwenye risiti ya tatu kabla ya kusaini. Thibitisha kuwa risiti zote tatu bado zinarudi kikamilifu. Umejenga uthibitisho wa hatua moja wa ujumuishaji: mtu yeyote mwenye risiti ya tatu anaweza kuthibitisha kuwa mbili za kwanza zilikuwepo wakati iliposisainiwa, bila kuhitaji kufichua yaliyomo. Huu ndio muundo ambao risiti za ufichuzi wa hiari hutumia kwa wingi (ahadi za Merkle, RFC 6962).
 
 ## Hitimisho
 
 Risiti za usimbaji hutoa mawakala wa AI njia ya ukaguzi ambayo ni:
 
-- **Inayothibitishwa kwa kujitegemea**: upande wowote wenye ufunguo wa umma anaweza kuthibitisha, hakuna utegemezi wa huduma.
-- **Inaonyesha uharibifu**: mabadiliko yoyote huibatilisha saini.
-- **Inayosafirishika**: risiti ni faili ndogo ya JSON; inaweza kuhifadhiwa, kusambazwa, na kuthibitishwa mahali popote.
-- **Inayolingana na viwango**: imejengwa juu ya Ed25519 (RFC 8032), JCS (RFC 8785), na SHA-256, vyote ni mbinu zinazotumika sana.
+- **Inaweza kuthibitishwa kwa kujitegemea**: upande wowote wenye ufunguo wa umma anaweza kuthibitisha, bila kutegemea huduma yoyote.
+- **Inayoonyesha uvunjifu wowote**: mabadiliko yoyote hubatilisha saini.
+- **Inaweza kubebeka**: risiti ni faili ndogo ya JSON; inaweza kuhifadhiwa, kusambazwa, na kuthibitishwa mahali popote.
+- **Inazingatia viwango**: imetengenezwa kwa Ed25519 (RFC 8032), JCS (RFC 8785), na SHA-256, zote ni mbinu maarufu zinazotumika sana.
 
-Hazibadilishi uthibitishaji wa maingizo, utekelezaji wa sera, au miundombinu ya utambulisho. Ni msingi wa safu hizo. Unapowatangaza mawakala kwa kazi zilizo na kanuni, njia za kazi za mashirika mengi, au mazingira ambapo mkaguzi wa baadaye hawezi kudhaniwa kukuamini, risiti ndizo zinazofanya njia ya ukaguzi iwe ya kuaminika.
+Sio mbadala wa uthibitishaji wa maingizo, utekelezaji wa sera, au miundombinu ya utambulisho. Ni msingi wa tabaka hizo. Unapotuma mawakala kwenye kazi zilizo chini ya kanuni, mtiririko wa kazi wa mashirika mingi, au mazingira yoyote ambapo msimamizi wa baadaye hawezi kudhani kuamini, risiti ndizo zitakazofanya njia ya ukaguzi kuwa ya kuaminika.
 
-Jambo muhimu zaidi: risiti zinathibitisha nani alisema nini, na lini. Hazithibitishi kwamba kilichosemwa ni kweli au sahihi. Shikilia tofauti hiyo kwa umakini. Ni tofauti kati ya mfumo wa asili wa uaminifu na ule unaochanganya.
+Jambo muhimu zaidi: risiti zinathibitisha ni nani alisema nini, lini. Hazithibitishi kuwa kilichosemwa ni kweli au sahihi. Shikilia tofauti hiyo kwa ukali. Ni tofauti kati ya mfumo wa asili wa uaminifu na ule unaosema uwongo.
 
-## Orodha ya Uzalishaji
+## Orodha ya Kuangalia uzalishaji
 
-Unapokuwa tayari kutoka somo hili kuingia kwenye kutumia mawakala waliotiwa saini za risiti katika mazingira halisi:
+Unapokuwa tayari kutoka somo hili kwenda kutuma mawakala wenye risiti zilizotumwa:
 
-- [ ] **Hamisha ufunguo wa kusaini mbali na kompyuta ya msanidi.** Tumia Azure Key Vault, AWS KMS, au kifaa cha usalama cha vifaa. Ufunguaji wa kibinafsi unaosaini risiti zako haupaswi kuishi katika udhibiti wa chanzo au kwenye maandishi wazi kwenye mashine za programu.
-- [ ] **Chapisha ufunguo wa umma wa uthibitishaji.** Makaguzi wanahitaji ili kuthibitisha kwa mtandao usio na muunganisho. Mtindo wa kawaida ni JWK Set kwenye URL inayojulikana vizuri (RFC 7517), mfano `https://your-org.example.com/.well-known/agent-keys.json`.
-- [ ] **Funga mlolongo nje.** Mara kwa mara andika alama ya kichwa cha mlolongo wa hivi karibuni kwenye rekodi ya uwazi (Sigstore Rekor, mamlaka ya kuwakilisha saiti ya RFC 3161, au mfumo wa ndani wa pili) ili upande wa nje uthibitishe "mlolongo huu ulikuwa upo wakati huu."
-- [ ] **Hifadhi risiti kwa njia isiyobadilika.** Hifadhi ya blob ya ongezeko pekee (Azure Storage yenye sera za kutohamisha, AWS S3 Object Lock) inazuia mtu wa ndani kuandika tena historia kwenye kiwango cha kuhifadhi.
-- [ ] **Amua kuhusu uhifadhi.** Nchini nyingi zinasema kuhifadhi kwa miaka mingi. Panga ukuaji wa risiti (kila risiti ni takriban baiti 500; wakala anayefanya simu 10,000 kwa siku atazalisha GB 1.8 kwa mwaka).
-- [ ] **Andika kile risiti hazijagusa.** Risiti zinathibitisha utoaji, uadilifu, na utaratibu. Kitabu chako cha taratibu kinapaswa kuorodhesha wazi udhibiti wa ziada (uthibitishaji wa maingizo, utekelezaji wa sera, ukomo wa kiwango, miundombinu ya utambulisho) unaoendana na risiti katika sera yako ya usimamizi.
+- [ ] **Hamisha ufunguo wa kusaini mbali na kompyuta ya msanidi.** Tumii Azure Key Vault, AWS KMS, au moduli ya usalama wa vifaa. Funguo binafsi inayosaini risiti zako haipaswi kuwepo kwenye udhibiti wa chanzo au kwa wazi kwenye mashine za programu.
+- [ ] **Chapisha ufunguo wa umma wa uthibitisho.** Wakaguzi wanahitaji ili kuthibitisha bila mtandao. Muundo wa kawaida ni Seti ya JWK kwenye URL maarufu (RFC 7517), mfano, `https://your-org.example.com/.well-known/agent-keys.json`.
+- [ ] **Tambaza mnyororo nje.** Mara kwa mara andika msururu wa hali ya hivi karibuni kwenye kumbukumbu ya uwazi (Sigstore Rekor, mamlaka ya wakati wa RFC 3161, au mfumo wa ndani wa pili) ili pande za nje zipate kuthibitisha "mnyororo huu ulipo wakati huu."
+- [ ] **Hifadhi risiti kwa kudumu.** Uhifadhi wa blob unaoongeza pekee (Azure Storage na sera za kudumu, AWS S3 Object Lock) unazuia mtu wa ndani kuandika historia upya kwenye tabaka la uhifadhi.
+- [ ] **Amua juu ya uhifadhi wa muda mrefu.** Mpangilio wengi wa kisheria unahitaji uhifadhi wa miaka mingi. Panga ukuaji wa risiti (kila risiti ni takriban bait 500; wakala anayefanya simu 10K kwa siku huzalisha takriban GB 1.8 kwa mwaka).
+- [ ] **Andika kile risiti hazijajumuisha.** Risiti zinathibitisha uthibitisho, uadilifu, na mpangilio. Mwongozo wako wa maendeshaji unapaswa kusimama wazi juu ya udhibiti wa ziada (uthibitishaji wa maingizo, utekelezaji wa sera, kupunguzwa kwa viwango, miundombinu ya utambulisho) inayolingana na risiti katika hali yako ya usimamizi.
 
-### Je, Una Maswali Zaidi Kuhusu Kuweka Salama Mawakala wa AI?
+### Una Maswali Zaidi kuhusu Kuweka Usalama wa Mawakala wa AI?
 
-Jiunge na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) ili kukutana na wengine wanaojifunza, kuhudhuria saa za ofisi, na kupata majibu ya maswali yako kuhusu Mawakala wa AI.
+Jiunge na [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) kukutana na wasomi wengine, kuhudhuria saa za ofisi, na kupata majibu kwa maswali yako kuhusu Mawakala wa AI.
 
-## Zaidi Ya Somo Hili
+## Zaidi ya Somo Hili
 
-Somo hili linashughulikia kusaini risiti moja na mfululizo wa hash-chain. Mbinu zile zile zinaunganisha kwa mifumo mingi ya hali ya juu unaweza kukutana nayo kadri sera yako inavyoimarika:
+Somo hili linashughulikia kusaini risiti moja na msururu wa viungo vya hash. Mifumo ile ile hutengeneza mifano mingi ya hali ya juu ambayo unaweza kukutana nayo unapoendeleza usimamizi wako:
 
-- **Ufichaji wa uchaguzi.** Wakati sehemu za risiti zimejizatiti kwa kujitegemea (mti wa Merkle wa RFC 6962), unaweza kufichua sehemu maalum kwa wakaguzi maalum na kuthibitisha sehemu nyingine hazijabadilika bila kuzijulisha. Inafaa wakati risiti ile ile inapaswa kuridhisha ukaguzi kamili (unaotaka ukamilifu) na kanuni za kupunguza data kama GDPR (zinazotaka mkaguzi aone kidogo kinachohitajika tu).
-- **Ufutaji wa risiti.** Ikiwa ufunguo wa kusaini umevurugika, unahitaji njia ya kuonyesha risiti zote zilizosainiwa na ufunguo huo hazina kuaminika kuanzia wakati fulani. Mifumo ya kawaida: funguo za kusaini za muda mfupi pamoja na orodha ya ufutaji iliyochapishwa, au rekodi ya uwazi yenye kumbukumbu za ufutaji.
-- **Risiti za saini za pande mbili / zenye kugawanyika.** Baadhi ya utekelezaji hugawanya mzigo uliosainiwa katika nusu kabla ya utekelezaji (`authorization_*`) na nusu baada ya utekelezaji (`result_*`) zenye saini za kujitegemea, zenye faida pale uamuzi wa idhini na matokeo yaliyoshuhudiwa yanapotolewa na watu tofauti au kwa nyakati tofauti. Hii inaongeza huduma zaidi juu ya muundo wa risiti uliofunzwa katika somo hili.
-- **Muundo wa mzigo wa data.** Risiti inafunga baiti yoyote kuwekwa katika `result_hash`. Mzigo halisi mara nyingi ni zaidi kuliko matokeo ya wito mmoja wa zana: hoja kabla ya uamuzi (utabiri wa mfano, chaguzi zilizozingatiwa, ushahidi na ukamilifu wake, mtazamo wa hatari, mlolongo wa uwajibikaji, matokeo ya lango) yote yanaweza kuwepo ndani ya mzigo, yamefungwa na risiti moja. Hii huweka muundo wa risiti kuwa mdogo huku kuruhusu mipangilio ya mzigo kuendelea kukuwa kwa maeneo tofauti.
-- **Ulinganifu kati ya utekelezaji.** Utekelezaji mengi huru wa muundo huo huo wa risiti (Python, TypeScript, Rust, Go) hujaribu uthibitisho dhidi ya mabeba ya majaribio yaliyo sambazwa. Ukiunda utekelezaji wako, kuthibitisha dhidi ya vector zilizochapishwa kunathibitisha usahihi wa waya.
-- **Uhamisho baada ya wingi wa quantum.** Ed25519 hutumika sana leo lakini si imara dhidi ya quantum. Muundo wa risiti ni wa kuelea kwa algoriti: sehemu ya `signature.alg` inaweza kubeba `ML-DSA-65` (alama ya baada ya quantum ya NIST) unapohitaji kuhamia. Panga kipindi cha mpito ambapo risiti zitasaidiwa saini mara mbili.
+- **Ufunuo wa hiari.** Wakati sehemu za risiti zimehifadhiwa kwa kujitegemea (mti wa Merkle wa mtindo wa RFC 6962), unaweza kufichua sehemu maalum kwa wakaguzi maalum na kuthibitisha zinabaki bila mabadiliko bila kuonyesha yaliyomo. Inafaa wakati risiti ile ile inapaswa kuridhisha ukaguzi kamili (unaotaka ukamilifu) pamoja na kanuni za kupunguza data kama GDPR (zinapotaka mkaguzi aone kidogo sana kinachohitajika).
+- **Kuondolewa kwa risiti.** Ikiwa ufunguo wa kusaini umedukuliwa, unahitaji njia ya kuonyesha risiti zote zilizosainiwa na ufunguo huo kuwa hazinaaminiki kuanzia wakati fulani. Mifano ya kawaida: funguo za kusaini zenye muda mfupi pamoja na orodha ya kuondolewa iliyochapishwa, au kumbukumbu ya uwazi yenye pembejeo za kuondolewa.
+- **Risiti za saini za pande mbili / saini zilizogawanyika.** Baadhi ya utekelezaji hugawanya mizigo iliyosainiwa kwa sehemu za awali (`authorization_*`) na baada ya utekelezaji (`result_*`) zenye saini za kujitegemea, zinalingana wakati uamuzi wa ruhusa na matokeo yanayohusika hutolewa na wahusika tofauti au nyakati tofauti. Hii hujumuishwa juu ya muundo wa risiti uliotolewa katika somo hili.
+- **Muundo wa mizigo.** Risiti huweka ataibitisha baiti yoyote ulioweka kwenye `result_hash`. Mizigo halisi mara nyingi huwa tajiri kuliko matokeo moja ya simu ya zana: mafikiri kabla ya uamuzi (utabiri wa mfano, chaguzi zilizozingatiwa, ushahidi na ukamilifu wake, mtazamo wa hatari, mnyororo wa uwajibikaji, matokeo ya lango) yote yanaweza kuwepo ndani ya mzigo, yamefungwa na risiti moja. Hii hufanya muundo wa risiti kudumisha unyenyekevu huku ikiruhusu miundo ya mzigo kuendelea kukua kwa nyanja tofauti.
+- **Ulinganifu wa utekelezaji mbalimbali.** Utekelezaji huru wa muundo sawa wa risiti (Python, TypeScript, Rust, Go) hupima uthibitishaji dhidi ya majalada ya mtihani ya pamoja. Ukijenga utekelezaji wako, kuthibitisha dhidi ya majalada haya yaliyotangazwa kunathibitisha uvumilivu wa waya.
+- **Uhamisho baada ya quantum.** Ed25519 hutumika sana leo lakini si kinga dhidi ya quantum. Muundo wa risiti una wepesi wa mabadiliko ya algoriti: sehemu `signature.alg` inaweza kubeba `ML-DSA-65` (kielelezo cha saini baada ya quantum cha NIST) wakati unahitaji kuhamia. Panga kipindi cha mpito ambapo risiti husainiwa mara mbili.
 
 ## Rasilimali Zaidi
 
-- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Risiti za Maamuzi Zilizotiwa Saini kwa Kuzuia Upatikanaji wa Mashine kwa Mashine</a>
-- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Muhtasari wa AI yenye Uwajibikaji (Azure AI)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Algoriti ya Saini Dijitali ya Curve ya Edwards (EdDSA)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: Mpangilio wa Kanoni wa JSON (JCS)</a>
-- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Uwiano wa Cheti</a> (ujenzi wa mti wa Merkle unaotumiwa na risiti za ufichaji uchaguzi)
-- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Kitengo cha Zana za Usimamizi wa Mawala wa Microsoft, Mafunzo 33: Risiti za Maamuzi Zinazothibitishwa Offline</a>
-- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Vector za majaribio ya ulinganifu wa utekelezaji kwa muundo wa risiti ulio tumika katika somo hili (Apache-2.0)</a>
-- <a href="https://pynacl.readthedocs.io/" target="_blank">Nyaraka za PyNaCl</a> (Ed25519 katika Python)
+- <a href="https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/" target="_blank">IETF Internet-Draft: Risiti za Maamuzi Zilizotiwa Saini kwa Udhibiti wa Upatikanaji wa Mashine kwa Mashine</a>
+- <a href="https://learn.microsoft.com/azure/ai-studio/responsible-use-of-ai-overview" target="_blank">Muhtasari wa AI ya Kuwajibika (Azure AI)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8032" target="_blank">RFC 8032: Algoriti ya Saini ya Kidigitali ya Mviringo wa Edwards (EdDSA)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc8785" target="_blank">RFC 8785: Mpango wa Kuifanya JSON Iwe Halisi (JCS)</a>
+- <a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank">RFC 6962: Uwajibikaji wa Cheti</a> (Ujenzi wa mti wa Merkle unaotumika na risiti za ufichuzi wa hiari)
+- <a href="https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/tutorials/33-offline-verifiable-receipts.md" target="_blank">Mfuko wa Zana za Usimamizi wa Mwakala wa Microsoft, Mafunzo 33: Risiti za Maamuzi Zinazothibitishwa Bila Mtandao</a>
+- <a href="https://github.com/ScopeBlind/agent-governance-testvectors" target="_blank">Jamii ya Majalada ya Mtihani ya Ulinganifu kwa muundo wa risiti unaotumiwa katika somo hili (Apache-2.0)</a>
+- <a href="https://pynacl.readthedocs.io/" target="_blank">Hati za PyNaCl</a> (Ed25519 kwa Python)
 
-## Somo Lililopita
+## Somo lililopita
 
 [Kuunda Mawakala wa Matumizi ya Kompyuta (CUA)](../15-browser-use/README.md)
 
-## Somo Linalofuata
+## Somo lijalo
 
-_(Litaamuliwa na wasimamizi wa mtaala)_
+_(Litaamuliwa na wasimamiaji wa mtaala)_
 
 ---
 

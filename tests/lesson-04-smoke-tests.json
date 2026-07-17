@@ -1,0 +1,33 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JFolberth/ai-smoketest/main/examples/smoke-tests.schema.json",
+  "description": "Smoke tests for the tool-using Travel Agent built in Lesson 04 (Tool Use). Deploy the agent to Microsoft Foundry as 'TravelToolAgent', then run the 'Smoke-test hosted agents' workflow with tests_file=tests/lesson-04-smoke-tests.json.",
+  "tests": [
+    {
+      "id": "lists-destinations",
+      "description": "The agent should call its destinations tool and list options.",
+      "prompt": "What destinations do you have?",
+      "assertions": {
+        "status": 200,
+        "contains_any": ["Barcelona", "Tokyo", "Paris", "Bali", "Sydney"]
+      }
+    },
+    {
+      "id": "checks-availability",
+      "description": "The agent should use the availability tool when asked what is bookable.",
+      "prompt": "Which destinations are still available to book?",
+      "assertions": {
+        "status": 200,
+        "contains_any": ["available", "availability", "Barcelona", "Tokyo"]
+      }
+    },
+    {
+      "id": "flight-info",
+      "description": "The agent should call the flight tool when asked about flights.",
+      "prompt": "Can you get me flight information for a trip to Barcelona?",
+      "assertions": {
+        "status": 200,
+        "contains_any": ["flight", "Barcelona"]
+      }
+    }
+  ]
+}

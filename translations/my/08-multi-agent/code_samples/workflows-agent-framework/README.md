@@ -1,69 +1,69 @@
-# Microsoft Agent Framework Workflow ကို အသုံးပြု၍ Multi-Agent Applications တည်ဆောက်ခြင်း
+# Microsoft Agent Framework Workflow ဖြင့် Multi-Agent အက်ပ်လီကေးရှင်းများ တူးဆောက်ခြင်း
 
-ဒီလမ်းညွှန်စာတမ်းက Microsoft Agent Framework ကို အသုံးပြုပြီး Multi-Agent Applications ကို နားလည်ရန်နှင့် တည်ဆောက်ရန်အတွက် လမ်းညွှန်ပေးပါမည်။ Multi-Agent Systems ရဲ့ အဓိကအကြောင်းအရာများကို လေ့လာပြီး Framework ရဲ့ Workflow component ရဲ့ Architecture ကို ဆန်းစစ်ကြည့်မည်။ Python နှင့် .NET တို့တွင် Workflow Patterns များအတွက် လက်တွေ့နမူနာများကိုလည်း လေ့လာမည်။
+ဒီသင်ခန်းစာက Microsoft Agent Framework ကို အသုံးပြု၍ multi-agent အက်ပ်လီကေးရှင်းများကို နားလည်ဆွေးနွေးခြင်းနှင့် တည်ဆောက်ခြင်းကို တည်ထောင်နည်းကြောင်း လမ်းညွှန်ပေးမည်။ Multi-agent system ရဲ့ အခြေခံသဘောတရားများကို စတင်လေ့လာပြီး၊ framework ရဲ့ Workflow ကွန်ပွန်နန်း၏ စွမ်းဆောင်ပုံ ရုပ်ပုံအကြောင်း၊ Python နှင့် .NET တွင် workflow ပုံစံအမျိုးမျိုးအတွက် လက်တွေ့ ဥပမာများကို လိုက်လံရှင်းလင်းမည်ဖြစ်သည်။
 
 ## 1\. Multi-Agent Systems ကို နားလည်ခြင်း
 
-AI Agent ဆိုတာ သာမန် Large Language Model (LLM) ရဲ့ စွမ်းရည်ထက် ကျော်လွန်သော စနစ်တစ်ခုဖြစ်သည်။ ၎င်းသည် ပတ်ဝန်းကျင်ကို သိမြင်နိုင်ပြီး ဆုံးဖြတ်ချက်များကို ချမှတ်နိုင်သည်။ ထို့နောက် သတ်မှတ်ထားသော ရည်မှန်းချက်များကို ရောက်ရှိရန် လုပ်ဆောင်နိုင်သည်။ Multi-Agent System ဆိုတာ အများအပြား Agent များ ပေါင်းစည်းပြီး တစ်ဦးတည်းဖြင့် ဖြေရှင်းရန် ခက်ခဲသော ပြဿနာကို ဖြေရှင်းရန် ပူးပေါင်းလုပ်ဆောင်ခြင်းဖြစ်သည်။
+AI Agent ဆိုတာ standard Large Language Model (LLM) ရဲ့ စွမ်းဆောင်ရည်ကို ကျော်လွန်သည့် စနစ်ဖြစ်သည်။ ၎င်းသည် ပတ်ဝန်းကျင်ကို မြင်တွေ့နိုင်၊ ဆုံးဖြတ်ချက်ချနိုင်ပြီး သတ်မှတ်ထားသော ရည်မှန်းချက်များကို အောင်မြင်ရန် လုပ်ဆောင်ချက်များယူနိုင်သည်။ Multi-agent system ဆိုသည်မှာ ဤ agent များစွာပေါင်းစည်းပြီး တစ်ဦးတည်း agent ၏ လုပ်နိုင်ချက်ထက် မဖြေရှင်းနိုင်သော ပြဿနာကို ပူးပေါင်းဖြေရှင်းသည်။
 
-### အသုံးချနိုင်သော လျှောက်လွှာအခြေအနေများ
+### ပုံမှန် အသုံးပြုမှု အကြောင်းအရာများ
 
-  * **ပြဿနာများကို အဆင့်ဆင့် ဖြေရှင်းခြင်း**: အကြီးမားသော တာဝန်တစ်ခု (ဥပမာ- ကုမ္ပဏီအတွင်း အခမ်းအနားတစ်ခု စီစဉ်ခြင်း) ကို အထူးပြု Agent များ (ဥပမာ- Budget Agent, Logistics Agent, Marketing Agent) မှ အပိုင်းပိုင်းအလိုက် လုပ်ဆောင်ခြင်း။
-  * **Virtual Assistants**: အဓိက Assistant Agent တစ်ဦးက Scheduling, Research, Booking စသည်တို့ကို အထူးပြု Agent များထံ ပေးအပ်ခြင်း။
-  * **အလိုအလျောက် အကြောင်းအရာ ဖန်တီးခြင်း**: Agent တစ်ဦးက အကြောင်းအရာကို ရေးသားပြီး၊ တစ်ဦးက ၎င်းကို တိကျမှုနှင့် စတိုင်အတွက် ပြန်လည်သုံးသပ်ပြီး၊ တစ်ဦးက ထုတ်ဝေခြင်း။
+  * **ရှုပ်ထွေးသော ပြဿနာ ဖြေရှင်းခြင်း**: ကြီးမားသော အလုပ်တစ်ခု (ဥပမာ၊ ကုမ္ပဏီတစ်ခုလုံး အခမ်းအနား စီစဉ်ခြင်း) ကို သီးသန့် အဖွဲအစည်း agent များက တာဝန် အပိုင်းအစ သို့ ခွဲဝေ အောင်လုပ်ခြင်း (ဥပမာ၊ ဘတ်ဂျက် agent, သယ်ယူပို့ဆောင်ရေး agent, မားကက်တင်း agent)။
+  * **ဗာချွယ်အကူအညီပေးသူများ**: မူလ ကူညီစွမ်းအား agent သည် အချိန်ဇယားချိန်ညှိခြင်း၊ သုတေသနလုပ်ခြင်း၊ နှင့် ရက်စွဲစာရင်း တင်ခြင်းကဲ့သို့သော တာဝန်များကို အခြားအထူးပြု agent များသို့ ချိတ်ဆက်ပေးခြင်း။
+  * **အလိုအလျောက် ရေးသားထုတ်လုပ်မှု**: agent တစ်ဦးသည် မူကြမ်းရေးသားခြင်းလုပ်ဆောင်ပြီး၊ အခြား agent မှ မှန်ကန်မှုနှင့် အသံထွက်ကို ကြည့်ရှုနှင့် ပြန်လည်စစ်ဆေးပြီး၊ တတိယ agent မှ ထုတ်ဝေခြင်းလုပ်ငန်းစဉ်။
 
-### Multi-Agent Patterns
+### Multi-Agent ပုံစံများ
 
-Multi-Agent Systems များကို အချို့သော Patterns များအတိုင်း စီမံနိုင်ပြီး ၎င်းတို့၏ အပြန်အလှန် ဆက်သွယ်မှုကို သတ်မှတ်ပေးသည်။
+Multi-agent system များသည် စနစ်ကျပြီး သွင်ပြင်ပုံစံအလိုက် စီစဉ်ဖွဲ့စည်းနိုင်ပြီး၊ ၎င်းတို့၏ ပူးပေါင်းဆောင်ရွက်ပုံကို သတ်မှတ်ပေးနိုင်သည်။
 
-  * **Sequential**: Agents များသည် သတ်မှတ်ထားသော အစီအစဉ်အတိုင်း အဆင့်ဆင့် လုပ်ဆောင်သည်။ Agent တစ်ဦး၏ output သည် နောက်တစ်ဦး၏ input ဖြစ်သည်။
-  * **Concurrent**: Agents များသည် တစ်ချိန်တည်းတွင် တာဝန်အပိုင်းအခြားများကို လုပ်ဆောင်ပြီး၊ ၎င်းတို့၏ ရလဒ်များကို နောက်ဆုံးတွင် စုပေါင်းသည်။
-  * **Conditional**: Workflow သည် Agent တစ်ဦး၏ output အပေါ် မူတည်၍ အခြားလမ်းကြောင်းများကို လိုက်နာသည်။ ဥပမာ- if-then-else statement ကဲ့သို့။
+  * **အဆက်လိုက် (Sequential)**: Agent များသည် ကြိုတင်သတ်မှတ်ထားသည့် စဉ်လိုက် အဆင့်ရိုးအတိုင်း လုပ်ဆောင်သည်။ တစ်ဦး၏ ထွက်ရှိမှုသည် ဆက်လက်လုပ်ဆောင်သူ agent ၏ ဝင်ပေးမှုဖြစ်လာသည်။
+  * **အချိန်တူ (Concurrent)**: Agent များသည် တာဝန်အပိုင်းအစ တစ်ခုချင်းစီတွင် 병렬 (parallel) ဆောင်ရွက်ပြီး၊ ၎င်းတို့၏ ရလဒ်များကို အဆုံးပေါ်တွင် စုပေါင်းသည်။
+  * **အခြေအနေ အကျင့် (Conditional)**: Workflow သည် agent ၏ ထွက်ရှိမှုအရ အကွဲအလဲအတိုင်း လမ်းကြောင်း များကို လိုက်နာသည်၊ if-then-else စကား၍ တူသည်။
 
-## 2\. Microsoft Agent Framework Workflow Architecture
+## 2\. Microsoft Agent Framework Workflow ၏ ဆောက်လုပ်ပုံ
 
-Agent Framework ရဲ့ Workflow System သည် Multi-Agent များအကြား အဆင့်မြင့် ဆက်သွယ်မှုများကို စီမံရန် ရည်ရွယ်ထားသော Orchestration Engine တစ်ခုဖြစ်သည်။ ၎င်းသည် [Pregel-style execution model](https://kowshik.github.io/JPregel/pregel_paper.pdf) ကို အခြေခံထားသော graph-based architecture တစ်ခုဖြစ်ပြီး၊ "supersteps" ဟုခေါ်သော Synchronization အဆင့်များတွင် လုပ်ဆောင်မှုများကို ပြုလုပ်သည်။
+Agent Framework ၏ workflow စနစ်သည် အဆင့်မြင့် စီမံခန့်ခွဲမှုအင်ဂျင်တစ်ခုဖြစ်ပြီး၊ ဂရပ်ဖ်ပေါ်တွင် ဆောက်လုပ်ထားသော [Pregel-style execution model](https://kowshik.github.io/JPregel/pregel_paper.pdf) ကို အသုံးပြုသည်။ လုပ်ထုံးလုပ်နည်းများကို "supersteps" ဟု ခေါ်သော အဆင့်လိုက် အချိန်ညှိများဖြင့် ဆောင်ရွက်သည်။
 
-### အဓိက Components
+### အခြေခံ ကွန်ပွန်နန်များ
 
-Architecture သည် အဓိကအစိတ်အပိုင်း သုံးခုဖြင့် ဖွဲ့စည်းထားသည်-
+ဆောက်လုပ်ပုံတွင် အဓိက အပိုင်း သုံးခု ပါဝင်သည်-
 
-1.  **Executors**: ၎င်းတို့သည် အခြေခံ လုပ်ဆောင်မှုယူနစ်များဖြစ်သည်။ ဥပမာ- `Agent` သည် Executor အမျိုးအစားတစ်ခုဖြစ်သည်။ Executor တစ်ခုစီတွင် Message Type အပေါ်မူတည်၍ အလိုအလျောက် ခေါ်ဆောင်သော Message Handlers များ ရှိနိုင်သည်။
-2.  **Edges**: Message များသည် Executors အကြား သွားလာသော လမ်းကြောင်းကို သတ်မှတ်ပေးသည်။ Edges တွင် အခြေအနေများပါဝင်နိုင်ပြီး၊ Workflow Graph အတွင်း သတင်းအချက်အလက်များကို Dynamic Routing ပြုလုပ်နိုင်သည်။
-3.  **Workflow**: ၎င်းသည် တစ်ခုလုံးကို စီမံခန့်ခွဲပြီး Executors, Edges, Execution Flow တို့ကို စီမံသည်။ Messages များကို သတ်မှတ်ထားသော အစီအစဉ်အတိုင်း လုပ်ဆောင်ရန်နှင့် Observability အတွက် Events များကို Streaming ပြုလုပ်သည်။
+1.  **Executors** - ဤသည်မှာ အခြေခံ ပြုလုပ်ရေးယူနစ်များဖြစ်သည်။ ဥပမာများတွင်၊ `Agent` သည် executor တစ်မျိုးဖြစ်သည်။ executor တစ်ခုစီတွင် မက်ဆေ့ချ်ရင်းအမျိုးအစားများအတိုင်း အလိုအလျောက် ခေါ်ဆိုခံရရှိသည့် မက်ဆေ့ချ် handlers များစွာ ပါဝင်နိုင်သည်။
+2.  **Edges** - Executors များအကြား မက်ဆေ့ချ်များ စွာလမ်းသွားရာ လမ်းကြောင်းများ သတ်မှတ်သည်။ မည်သည့် သဘောထားများနှင့်အညီ မေးတာများ၏ လမ်းကြောင်းများကို ဂရပ်ဖ်တွင် သွားလာအောင် လုပ်နိုင်ကြောင်း အခြေအနေများပါရှိနိုင်သည်။
+3.  **Workflow** - ၎င်းသည် လုပ်ငန်းစဉ်အပြည့်အစုံကို စီမံခန့်ခွဲသော ကွန်ပွန်နန်ဖြစ်ပြီး၊ executor များ၊ edges များနှင့် လုပ်ဆောင်မှုလှုပ်ရှားမှုကို ညွှန်ကြားသည်။ မက်ဆေ့ချ်များသည် တိကျသော အစီအစဉ်ဖြင့် လုပ်ဆောင်ခြင်းကို သေချာစေပြီး ပြသနိုင်မှုအတွက် ဖြစ်စဉ်များကို စီမံ၍ ပြသသည်။
 
-*Workflow System ရဲ့ အဓိက Components များကို ဖော်ပြသော အကြမ်းဖျင်းပုံစံ*
+*Workflow စနစ်၏ အခြေခံ အစိတ်အပိုင်းများ၏ ကွက်ပုံ။*
 
-ဒီဖွဲ့စည်းပုံက Sequential Chains, Parallel Processing အတွက် Fan-Out/Fan-In, Conditional Flows အတွက် Switch-Case Logic ကဲ့သို့သော အခြေခံ Patterns များကို အသုံးပြု၍ ခိုင်ခံ့ပြီး အတိုင်းအတာကြီးမားသော Applications များကို တည်ဆောက်ရန် ခွင့်ပြုသည်။
+ဤဖွဲ့စည်းတည်ဆောက်ပုံသည် စနစ်အဆင့်မြင့် ဖြစ်ပြီး အသံလိုက်လိုက် ပြုလုပ်ခြင်းများ (sequential chains), 병렬 ပြုလုပ်ခြင်းများအတွက် fan-out/fan-in, နှင့် အခြေအနေအပေါ် အခြေခံသဘောဆောင် switch-case logic အသုံးပြုမှုများ ဖြင့် သင့်တော်သော application များ ဆောက်နိုင်သည်။
 
-## 3\. လက်တွေ့နမူနာများနှင့် Code Analysis
+## 3\. လက်တွေ့ ဥပမာများနှင့် ကုဒ်များ ဝေဖန်ခြင်း
 
-အခု Framework ကို အသုံးပြု၍ Workflow Patterns များကို အကောင်အထည်ဖော်ပုံကို လေ့လာကြမည်။ Python နှင့် .NET တို့တွင် နမူနာများကို ကြည့်ရှုမည်။
+ယခု ကျွန်တော်တို့ framework ကို အသုံးပြု၍ workflow ပုံစံအမျိုးမျိုးကို မည်သို့ သက်ဆိုင်စွာ တည်ဆောက်မည်ကို သိရှိကြည့်ရှုမည်။ Python နှင့် .NET နှစ်မျိုးစလုံးအတွက် ဥပမာများကို တစ်ခုပြီး တစ်ခုပြပါမည်။
 
-### Case 1: အခြေခံ Sequential Workflow
+### အမှု ၁: အခြေခံ အဆက်လိုက် Workflow
 
-ဒီ Pattern သည် Agent တစ်ဦး၏ output ကို တိုက်ရိုက် နောက်တစ်ဦးထံ ပေးပို့သော အလွယ်ဆုံး Pattern ဖြစ်သည်။ ကျွန်ုပ်တို့၏ Scenario တွင် `FrontDesk` Agent က ခရီးသွားအကြံပေးချက်ကို ပြုလုပ်ပြီး၊ `Concierge` Agent က ၎င်းကို ပြန်လည်သုံးသပ်သည်။
+၎င်းသည် အရေးပေါ် အဆွဲဖြစ်သော ပုံစံဖြစ်၍ agent တစ်ဦးမှ ထွက်ရှိသော အချက်အလက်ကို တိုက်ရိုက်ခြင်းဖြင့် နောက်တစ်ဦးဆီပို့ပေးသည်။ ဥပမာတွင် ဟိုတယ်ရဲ့ `FrontDesk` agent သည် ခရီးသွားအကြံပြုချက် တစ်ခုပေးထားပြီး၊ `Concierge` agent မှ ထိုအကြံပြုချက်ကို ပြန်လည် စစ်ဆေးသည်။
 
-*FrontDesk -\> Concierge Workflow ကို ဖော်ပြသော Diagram*
+*အခြေခံ FrontDesk -> Concierge workflow ၏ ကွက်ပုံ။*
 
-#### Scenario Background
+#### အမှုနောက်ခံ
 
-ခရီးသွားတစ်ဦးက ပဲရစ်တွင် အကြံပေးချက်တစ်ခုကို မေးမြန်းသည်။
+ခရီးသည်တစ်ဦးသည် ပါရီတွင် အကြံပြုချက်တောင်းခံသည်။
 
-1.  `FrontDesk` Agent သည် အတိုချုံးအကြံပေးချက်များကို ရေးဆွဲရန် ရည်ရွယ်ထားပြီး Louvre ပြတိုက်သို့ သွားရန် အကြံပေးသည်။
-2.  `Concierge` Agent သည် Authentic Experiences ကို ဦးစားပေးပြီး၊ အကြံပေးချက်ကို ပြန်လည်သုံးသပ်သည်။ ၎င်းသည် ပိုမိုဒေသဆိုင်ရာနှင့် ခရီးသွားများနည်းသော အစားထိုးအကြံပေးချက်ကို ပေးသည်။
+1.  မိမိတိုင်းပြည်ကို သိမ်းထားသော `FrontDesk` agent မှ Louvre ပြတိုက်သွားရန် အကြံပေးသည်။
+2.  `Concierge` agent က ထိုအကြံပြုချက်ကို လက်ခံပြီး၊ ပိုပြီး ပြည်သတ် အတွေ့အကြုံရရှိနိုင်သော နေရာတစ်ခုကို အစားထိုး အကြံပြုသည်။
 
-#### Python Implementation Analysis
+#### Python အကောင်အထည်ဖော်ချက် ပိုင်းစိတ်
 
-Python နမူနာတွင် အရင်ဆုံး Agent နှစ်ဦးကို သတ်မှတ်ပြီး ဖန်တီးသည်။
+Python ဥပမာတွင် ကျွန်တော်တို့ agent နှစ်ဦး၊ တစ်ဦးစီအတွက် အသေးစိတ်ညွှန်ကြားချက်များ ဖြင့် သတ်မှတ် ဖန်တီးပါမည်။
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-# Define agent roles and instructions
+# ကိုယ်စားလှယ် အခန်းကဏ္ဍများနှင့်ညွှန်ကြားချက်များ သတ်မှတ်ပါ
 REVIEWER_NAME = "Concierge"
 REVIEWER_INSTRUCTIONS = """
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...
     """
 
 FRONTDESK_NAME = "FrontDesk"
@@ -71,63 +71,63 @@ FRONTDESK_INSTRUCTIONS = """
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...
     """
 
-# Create agent instances
-reviewer_agent = chat_client.create_agent(
+# ကိုယ်စားလှယ်အကြောင်းအရာများ ဖန်တီးပါ
+reviewer_agent = chat_client.as_agent(
     instructions=(REVIEWER_INSTRUCTIONS),
     name=REVIEWER_NAME,
 )
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
     instructions=(FRONTDESK_INSTRUCTIONS),
     name=FRONTDESK_NAME,
 )
 ```
 
-ထို့နောက် `WorkflowBuilder` ကို အသုံးပြု၍ Graph ကို တည်ဆောက်သည်။ `front_desk_agent` ကို Starting Point အဖြစ် သတ်မှတ်ပြီး၊ ၎င်း၏ output ကို `reviewer_agent` ထံ ချိတ်ဆက်ရန် Edge တစ်ခုကို ဖန်တီးသည်။
+နောက်တစ်ဆင့်တွင် `WorkflowBuilder` ကို အသုံးပြု၍ ဂရပ်ဖ်ကို တည်ဆောက်မည်။ `front_desk_agent` ကို စတင်နေရာအဖြစ် သတ်မှတ်ပြီး၊ ၎င်း၏ ထွက်ရှိမှုကို `reviewer_agent` သို့ ချိတ်ဆက်သည်။
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
-workflow = WorkflowBuilder().set_start_executor(front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
+workflow = WorkflowBuilder(start_executor=front_desk_agent).add_edge(front_desk_agent, reviewer_agent).build()
 ```
 
-နောက်ဆုံးတွင် Workflow ကို Initial User Prompt ဖြင့် အကောင်အထည်ဖော်သည်။
+နောက်ဆုံးတွင် workflow ကို သုံးစွဲသူ ရဲ့ စတင်သော မက်ဆေ့ချ်ဖြင့် အကောင်အထည်ဖော်သည်။
 
 ```python
 # 01.python-agent-framework-workflow-ghmodel-basic.ipynb
 
 result =''
-# The run_stream method executes the workflow and streams events.
-async for event in workflow.run_stream('I would like to go to Paris.'):
-    if isinstance(event, WorkflowEvent):
-        result += str(event.data)
+# run သည် workflow ကို အကောင်အထည်ဖော်သည်; get_outputs() သည် output executor ၏ရလဒ်ကို 반환သည်။
+events = await workflow.run('I would like to go to Paris.')
+outputs = events.get_outputs()
+result = outputs[0].text if outputs else ''
 ```
 
-#### .NET (C\#) Implementation Analysis
+#### .NET (C\#) အကောင်အထည်ဖော်ချက် ပိုင်းစိတ်
 
-.NET Implementation သည် အလားတူ Logic ကို လိုက်နာသည်။ အရင်ဆုံး Agent များ၏ နာမည်နှင့် Instruction များအတွက် Constants များကို သတ်မှတ်သည်။
+.NET ၌လည်း ထို logic နှင့် ဆင်တူသည်။ ပထမဦးဆုံး agent များ၏ နာမည်နှင့် ညွှန်ကြားချက်များ သတ်မှတ်ထားသည်။
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 const string ReviewerAgentName = "Concierge";
 const string ReviewerAgentInstructions = @"
-    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
+    You are a hotel concierge who has opinions about providing the most local and authentic experiences for travelers...";
 
 const string FrontDeskAgentName = "FrontDesk";
 const string FrontDeskAgentInstructions = @"""
     You are a Front Desk Travel Agent with ten years of experience and are known for brevity...";
 ```
 
-Agents များကို `OpenAIClient` ကို အသုံးပြု၍ ဖန်တီးပြီး၊ `WorkflowBuilder` သည် Sequential Flow ကို သတ်မှတ်ရန် `frontDeskAgent` နှင့် `reviewerAgent` အကြား Edge ကို ထည့်သွင်းသည်။
+`AzureOpenAIClient` (Responses API) အသုံးပြု၍ agent များ ဖန်တီးပြီး၊ `WorkflowBuilder` သည် `frontDeskAgent` မှ `reviewerAgent` သို့ အဆက်လိုက် အစဉ် သတ်မှတ်ခြင်း ပြုလုပ်သည်။
 
 ```csharp
 // 01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb
 
 // Create AIAgent instances
-AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent reviewerAgent = azureClient.GetChatClient(deployment).AsAIAgent(
     name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-AIAgent frontDeskAgent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent frontDeskAgent  = azureClient.GetChatClient(deployment).AsAIAgent(
     name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
 // Build the workflow
@@ -136,44 +136,44 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 ```
 
-Workflow ကို User Message ဖြင့် စတင်ပြီး၊ ရလဒ်များကို Streaming ပြုလုပ်သည်။
+သုံးစွဲသူ၏ မက်ဆေ့ချ်ဖြင့် workflow ကို ပြေးဆောင်ရွက်ကာ ရလဒ်များကို ပြန်လည်လွှတ်ပေးသည်။
 
-### Case 2: Multi-Step Sequential Workflow
+### အမှု ၂: အဆင့်စဉ်လိုက် Workflow အများကြီး
 
-ဒီ Pattern သည် အခြေခံ Sequence ကို တိုးချဲ့ပြီး Agent များပိုမိုပါဝင်သည်။ ၎င်းသည် အဆင့်ဆင့် ပြုပြင်ခြင်း သို့မဟုတ် Transformation လိုအပ်သော လုပ်ငန်းစဉ်များအတွက် အထူးသင့်လျော်သည်။
+ဤပုံစံသည် အခြေခံ အဆက်လိုက် အစီအစဉ်ကို တိုးချဲ့သည့် ပုံစံဖြစ်ပြီး အခြား agent များ ပိုမိုပါဝင်သော အဆင့်များဆက်တိုက် လုပ်ဆောင်ရန် သင့်တော်သည်။
 
-#### Scenario Background
+#### အမှုနောက်ခံ
 
-User တစ်ဦးက Living Room ရဲ့ ပုံတစ်ပုံကို ပေးပြီး Furniture Quote တစ်ခုကို မေးမြန်းသည်။
+သုံးစွဲသူသည် အခန်းတစ်ခန်းရဲ့ ဓာတ်ပုံ တင်ပို့ပြီး ပရိဘောဂ သတ်မှတ်ရန် တောင်းဆိုသည်။
 
-1.  **Sales-Agent**: ပုံထဲမှ Furniture Items များကို ရှာဖွေပြီး စာရင်းတစ်ခုကို ဖန်တီးသည်။
-2.  **Price-Agent**: Items စာရင်းကို ယူပြီး Budget, Mid-Range, Premium Options များပါဝင်သော Price Breakdown ကို ပေးသည်။
-3.  **Quote-Agent**: Price List ကို Formal Quote Document (Markdown) အဖြစ် Format ပြုလုပ်သည်။
+1.  **Sales-Agent**: ဓာတ်ပုံတွင်ပါဝင်သည့် ပရိဘောဂ ပစ္စည်းများကို ဖော်ထုတ်ပြီး စာရင်းပြုစုသည်။
+2.  **Price-Agent**: ပစ္စည်းစာရင်းကို သုံးစွဲ၍ ဘတ်ဂျက်၊ အလယ်အလတ်နှင့် အမြင့်ဆုံး ဈေးနှုန်းများဖြင့် အသေးစိတ် ကောက်ချက်များ ပေးသည်။
+3.  **Quote-Agent**: ဈေးနှုန်း ပြုစုထားသော စာရင်းကို Markdown စာရွက်စာတမ်း အဖြစ် ပုံစံပြောင်းပြီး ကောက်ချက် ထုတ်ပေးသည်။
 
-*Sales -\> Price -\> Quote Workflow ကို ဖော်ပြသော Diagram*
+*Sales -> Price -> Quote workflow ၏ ကွက်ပုံ။*
 
-#### Python Implementation Analysis
+#### Python အကောင်အထည်ဖော်ချက် ပိုင်းစိတ်
 
-Agents သုံးဦးကို သတ်မှတ်ပြီး၊ ၎င်းတို့၏ အထူးပြုလုပ်ငန်းများကို ဖော်ပြသည်။ Workflow ကို `add_edge` ကို အသုံးပြု၍ Chain တစ်ခုကို ဖန်တီးသည်- `sales_agent` -\> `price_agent` -\> `quote_agent`။
+agent သုံးဦးကို အထူးပြု အခန်းကဏ္ဍများနှင့် သတ်မှတ်ပြီး workflow ကို `add_edge` ဖြင့် `sales_agent` -> `price_agent` -> `quote_agent` အဆက်လိုက် အဖြစ် တည်ဆောက်သည်။
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# Create three specialized agents
-sales_agent = chat_client.create_agent(...)
-price_agent = chat_client.create_agent(...)
-quote_agent = chat_client.create_agent(...)
+# အထူးပြုထားသောဆယ့်သုံးဦးသောအေးဂျင့်များကိုဖန်တီးပါ
+sales_agent = chat_client.as_agent(...)
+price_agent = chat_client.as_agent(...)
+quote_agent = chat_client.as_agent(...)
 
-# Build the sequential workflow
-workflow = WorkflowBuilder().set_start_executor(sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
+# အဆက်မပြတ်သောအလုပ်စဉ်ကိုတည်ဆောက်ပါ
+workflow = WorkflowBuilder(start_executor=sales_agent).add_edge(sales_agent, price_agent).add_edge(price_agent, quote_agent).build()
 ```
 
-Input သည် Text နှင့် Image URI ပါဝင်သော `ChatMessage` ဖြစ်သည်။ Framework သည် Agent တစ်ဦး၏ output ကို နောက်တစ်ဦးထံ ပေးပို့ပြီး နောက်ဆုံး Quote ကို ဖန်တီးသည်။
+input ၌ စာသားနှင့် ဓာတ်ပုံ URI ပါဝင်သည်။ framework မှ agent တစ်ဦး၏ ထွက်ရှိမှုကို နောက်တစ်ဦးသို့ လိုက်လျောညီထွေမှုရှိအောင် ဖြတ်သန်းပေးသည်။
 
 ```python
 # 02.python-agent-framework-workflow-ghmodel-sequential.ipynb
 
-# The user message contains both text and an image
+# အသုံးပြုသူမှစာကို စာသားနဲ့ပုံနှစ်မျိုးပါဝင်ပါတယ်
 message = ChatMessage(
         role=Role.USER,
         contents=[
@@ -182,22 +182,21 @@ message = ChatMessage(
         ]
 )
 
-# Run the workflow
-async for event in workflow.run_stream(message):
-    ...
+# workflow ကို chạy ပါ
+events = await workflow.run(message)
 ```
 
-#### .NET (C\#) Implementation Analysis
+#### .NET (C\#) အကောင်အထည်ဖော်ချက် ပိုင်းစိတ်
 
-.NET နမူနာသည် Python Version ကို အလားတူလိုက်နာသည်။ Agents သုံးဦး (`salesagent`, `priceagent`, `quoteagent`) ကို ဖန်တီးသည်။ `WorkflowBuilder` သည် Sequential Flow ကို ချိတ်ဆက်သည်။
+.NET ဥပမာသည် Python နှင့် တူညီသည်။ agent သုံးဦး (salesagent, priceagent, quoteagent) ဖန်တီးပြီး `WorkflowBuilder` မှ အဆက်လိုက် ချိတ်ဆက်ထားသည်။
 
 ```csharp
 // 02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb
 
 // Create agent instances
-AIAgent salesagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent priceagent  = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
-AIAgent quoteagent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(...);
+AIAgent salesagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent priceagent  = azureClient.GetChatClient(deployment).AsAIAgent(...);
+AIAgent quoteagent = azureClient.GetChatClient(deployment).AsAIAgent(...);
 
 // Build the workflow by adding edges sequentially
 var workflow = new WorkflowBuilder(salesagent)
@@ -206,45 +205,45 @@ var workflow = new WorkflowBuilder(salesagent)
             .Build();
 ```
 
-User Message ကို Image Data (bytes) နှင့် Text Prompt ပါဝင်သော Message အဖြစ် ဖန်တီးသည်။ `InProcessExecution.StreamAsync` Method သည် Workflow ကို စတင်ပြီး၊ နောက်ဆုံး output ကို Stream မှာ ရယူသည်။
+သုံးစွဲသူ မက်ဆေ့ချ်သည် ဓာတ်ပုံ ဒေတာ (bytes) နှင့် စာသား prompt ပါသော ပုံစံဖြစ်ပြီး `InProcessExecution.RunStreamingAsync` ဖြင့် workflow ကို စတင်ကာ နောက်ဆုံးထွက်ရှိမှုကို stream မှ သိမ်းဆည်းသည်။
 
-### Case 3: Concurrent Workflow
+### အမှု ၃: အချိန်တူ Workflow
 
-ဒီ Pattern သည် တာဝန်များကို တစ်ချိန်တည်းတွင် လုပ်ဆောင်နိုင်သောအခါ အချိန်ကို ချွေတာရန် အသုံးပြုသည်။ ၎င်းသည် "Fan-Out" ကို Multiple Agents များထံ ပေးပို့ပြီး၊ "Fan-In" ကို Aggregation ပြုလုပ်ရန် အသုံးပြုသည်။
+ဒီပုံစံကို အလုပ်များကို တပြိုင်နက်တည်း ဆောင်ရွက်နိုင်ရန် အသုံးပြုသည်။ fan-out ၏ agent များ စုပေါင်း fan-in အစီအစဉ်ဖြင့် ရလဒ်များ စုဆောင်းသည်။
 
-#### Scenario Background
+#### အမှုနောက်ခံ
 
-User တစ်ဦးက Seattle ခရီးစဉ်ကို စီစဉ်ရန် မေးမြန်းသည်။
+သုံးစွဲသူသည် Seattle ခရီးစဉ် ကို စီစဉ်ရန် တောင်းဆိုသည်။
 
-1.  **Dispatcher (Fan-Out)**: User ရဲ့ Request ကို Agents နှစ်ဦးထံ တစ်ချိန်တည်း ပေးပို့သည်။
-2.  **Researcher-Agent**: Seattle ရဲ့ Attractions, Weather, December ခရီးစဉ်အတွက် Key Considerations များကို သုတေသနပြုသည်။
-3.  **Plan-Agent**: ခရီးစဉ်ရဲ့ Day-by-Day Itinerary ကို တစ်ဦးတည်း လွတ်လပ်စွာ ဖန်တီးသည်။
-4.  **Aggregator (Fan-In)**: Researcher နှင့် Planner ရဲ့ output များကို စုပေါင်းပြီး နောက်ဆုံးရလဒ်အဖြစ် တင်ပြသည်။
+1.  **Dispatcher (Fan-Out)**: သုံးစွဲသူ တောင်းဆိုချက်ကို Agent နှစ်ဦးထံ တပြိုင်နက်ပေးပို့သည်။
+2.  **Researcher-Agent**: Seattle ၏ ခရီးသွားဖွင့်ဆိုချက်များ၊ ရာသီဥတုနှင့် အရေးပါတ်အချက်များကို သုတေသနလုပ်သည်။
+3.  **Plan-Agent**: အသီးသီးနေ့စဉ်ခရီးစဉ်ကို မူတည်၍ အသေးစိတ်အစီအစဉ် ပြုစုသည်။
+4.  **Aggregator (Fan-In)**: researcher နှင့် planner ၏ အချက်အလက်များကို စုပေါင်းကာ နောက်ဆုံးအဖြေတစ်ခုအဖြစ် တင်ဆက်သည်။
 
-*Concurrent Researcher နှင့် Planner Workflow ကို ဖော်ပြသော Diagram*
+*Concurrent Researcher နှင့် Planner workflow ၏ ကွက်ပုံ။*
 
-#### Python Implementation Analysis
+#### Python အကောင်အထည်ဖော်ချက် ပိုင်းစိတ်
 
-`ConcurrentBuilder` သည် ဒီ Pattern ကို ဖန်တီးရန် လွယ်ကူစေသည်။ Participating Agents များကို ရေးသားပြီး၊ Builder သည် Fan-Out နှင့် Fan-In Logic ကို အလိုအလျောက် ဖန်တီးသည်။
+`ConcurrentBuilder` သည် ဒီပုံစံဖန်တီးရန် အဆင်ပြေစေနိုင်သည်။ သင့်ရဲ့ agent များကို စာရင်းပေးရုံဖြင့် builder သည် ဖန်တီးပေးသည်။
 
 ```python
 # 03.python-agent-framework-workflow-ghmodel-concurrent.ipynb
 
-research_agent = chat_client.create_agent(name="Researcher-Agent", ...)
-plan_agent = chat_client.create_agent(name="Plan-Agent", ...)
+research_agent = chat_client.as_agent(name="Researcher-Agent", ...)
+plan_agent = chat_client.as_agent(name="Plan-Agent", ...)
 
-# ConcurrentBuilder handles the fan-out/fan-in logic
+# ConcurrentBuilder သည် fan-out/fan-in အလုပ်လုပ်နည်းကို ကူညီဖြေရှင်းသည်
 workflow = ConcurrentBuilder().participants([research_agent, plan_agent]).build()
 
-# Run the workflow
+# workflow ကို အကောင်အထည်ဖော်ပါ
 events = await workflow.run("Plan a trip to Seattle in December")
 ```
 
-Framework သည် `research_agent` နှင့် `plan_agent` ကို တစ်ချိန်တည်းတွင် လုပ်ဆောင်စေပြီး၊ ၎င်းတို့၏ Final Outputs ကို List အဖြစ် စုပေါင်းသည်။
+framework မှ `research_agent` နှင့် `plan_agent` တို့ကို 병렬 ဆောင်ရွက်စေပြီး နောက်ဆုံး ထွက်ရှိမှုများကို စုစည်းသည်။
 
-#### .NET (C\#) Implementation Analysis
+#### .NET (C\#) အကောင်အထည်ဖော်ချက် ပိုင်းစိတ်
 
-.NET တွင် ဒီ Pattern ကို ပိုမိုရှင်းလင်းစွာ သတ်မှတ်ရန် လိုအပ်သည်။ Custom Executors (`ConcurrentStartExecutor` နှင့် `ConcurrentAggregationExecutor`) များကို Fan-Out နှင့် Fan-In Logic ကို စီမံရန် ဖန်တီးသည်။
+.NET တွင် ထိုပုံစံသည် ပိုပြီး ကြည်ညိုရှင်းလင်းသော ကြေညာချက်များ လိုအပ်သည်။ Custom executors (`ConcurrentStartExecutor` နှင့် `ConcurrentAggregationExecutor`) ကို fan-out, fan-in logic ကို ကိုင်တွယ်ရန် ဖန်တီးသည်။
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -278,7 +277,7 @@ public class ConcurrentAggregationExecutor() : ...
 }
 ```
 
-`WorkflowBuilder` သည် `AddFanOutEdge` နှင့် `AddFanInEdge` ကို အသုံးပြု၍ Custom Executors နှင့် Agents များကို Graph အဖြစ် တည်ဆောက်သည်။
+`WorkflowBuilder` မှ `AddFanOutEdge` နှင့် `AddFanInEdge` ကို အသုံးပြုပြီး ဂရပ်ဖ်ကို ဒီ custom executors နှင့် agent များဖြင့် တည်ဆောက်သည်။
 
 ```csharp
 // 03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb
@@ -290,45 +289,45 @@ var workflow = new WorkflowBuilder(startExecutor)
             .Build();
 ```
 
-### Case 4: Conditional Workflow
+### အမှု ၄: အခြေအနေအပေါ် အခြေခံ Workflow
 
-Conditional Workflows သည် Branching Logic ကို ထည့်သွင်းပြီး၊ Intermediate Results အပေါ်မူတည်၍ အခြားလမ်းကြောင်းများကို လိုက်နာစေသည်။
+အခြေအနေအပေါ် အခြေခံ workflow များသည် ရလဒ်အလယ်ပိုင်း အရ အခြေခံကာ လမ်းကြောင်း ဝေခြားမှုများ ထည့်သွင်းအသုံးပြုသည်။
 
-#### Scenario Background
+#### အမှုနောက်ခံ
 
-ဒီ Workflow သည် Technical Tutorial တစ်ခုကို ဖန်တီးပြီး ထုတ်ဝေခြင်းကို အလိုအလျောက် ပြုလုပ်သည်။
+ဒီ workflow သည် နည်းပညာဆိုင်ရာ သင်ခန်းစာတစ်ခုကို အလိုအလျောက် ဖန်တီး၊ ထုတ်ဝေရန် အသုံးပြုသည်။
 
-1.  **Evangelist-Agent**: Outline နှင့် URLs ကို အခြေခံ၍ Tutorial Draft ကို ရေးသားသည်။
-2.  **ContentReviewer-Agent**: Draft ကို ပြန်လည်သုံးသပ်သည်။ Word Count သည် 200 စကားလုံးထက် ကျော်လွန်ကြောင်း စစ်ဆေးသည်။
-3.  **Conditional Branch**:
-      * **If Approved (`Yes`)**: Workflow သည် `Publisher-Agent` ထံ ဆက်လက်လုပ်ဆောင်သည်။
-      * **If Rejected (`No`)**: Workflow သည် ရုပ်သိမ်းပြီး Reject Reason ကို Output အဖြစ် ပေးသည်။
-4.  **Publisher-Agent**: Draft ကို အတည်ပြုလျှင် Content ကို Markdown File အဖြစ် သိမ်းဆည်းသည်။
+1.  **Evangelist-Agent**: ပုံစံနှင့် URL များအရ သင်ခန်းစာ မူကြမ်းရေးသားသည်။
+2.  **ContentReviewer-Agent**: မူကြမ်းကို စစ်ဆေးသည်၊ စာလုံးရေ ၂၀၀ ကျော်ရှိမရှိ စစ်ဆေးသည်။
+3.  **အခြေအနေ ညွှန်ကြားချက်**:
+      * **ခွင့်ပြုထားပါက (`Yes`)**: workflow သည် `Publisher-Agent` သို့ ဆက်လုပ်ဆောင်သည်။
+      * **ငြင်းဆိုပါက (`No`)**: workflow သည် ရပ်စဲပြီး ငြင်းဆိုမှုအကြောင်းအရာထုတ်ပြန်သည်။
+4.  **Publisher-Agent**: မူကြမ်း ခွင့်ပြုပါက content ကို Markdown ဖိုင်အဖြစ် သိမ်းဆည်းသည်။
 
-#### Python Implementation Analysis
+#### Python အကောင်အထည်ဖော်ချက် ပိုင်းစိတ်
 
-ဒီနမူနာတွင် Conditional Logic ကို အကောင်အထည်ဖော်ရန် `select_targets` ဟုခေါ်သော Custom Function ကို အသုံးပြုသည်။ ဒီ Function ကို `add_multi_selection_edge_group` ထဲသို့ ပေးပြီး၊ `review_result` Field အပေါ်မူတည်၍ Workflow ကို ဦးတည်စေသည်။
+ဤဥပမာတွင် `select_targets` ဟူသော အထူးသီးသန့် function ကို သုံးပြီး conditional logic ကို အကောင်အထည်ဖော်သည်။ ၎င်းကို `add_multi_selection_edge_group` သို့ ပေးပို့ကာ `review_result` ၏ အခြေအနေနှင့် ကိုက်ညီစေရန် အသုံးပြုသည်။
 
 ```python
 # 04.python-agent-framework-workflow-aifoundry-condition.ipynb
 
-# This function determines the next step based on the review result
+# ဒီ function က ပြန်လည်သုံးသပ်မှုရလဒ်ပေါ်မူတည်ပြီး နောက်တစ်ဆင့်ကိုဆုံးဖြတ်ပါတယ်
 def select_targets(review: ReviewResult, target_ids: list[str]) -> list[str]:
     handle_review_id, save_draft_id = target_ids
     if review.review_result == "Yes":
-        # If approved, proceed to the 'save_draft' executor
+        # အတည်ပြုရင် 'save_draft' executor ကို ဆက်လက်လုပ်ဆောင်ပါ
         return [save_draft_id]
     else:
-        # If rejected, proceed to the 'handle_review' executor to report failure
+        # ပယ်ဖျက်ထားရင် 'handle_review' executor ကို သွားပြီး အလုပ်မတက်မှုကို အစီရင်ခံပါ
         return [handle_review_id]
 
-# The workflow builder uses the selection function for routing
+# workflow builder သည် ရွေးချယ်မှု function ကို လမ်းကြောင်းသတ်မှတ်ရန်အသုံးပြုသည်
 workflow = (
     WorkflowBuilder()
         .set_start_executor(evangelist_agent)
         .add_edge(evangelist_agent, reviewer_agent)
         .add_edge(reviewer_agent, to_reviewer_result)
-        # The multi-selection edge implements the conditional logic
+        # multi-selection edge သည် ဆိုင်းငံ့ ကိုယ်စား အခြေအနေသတ်မှတ်ချက်ကို အကောင်အထည်ဖော်သည်
         .add_multi_selection_edge_group(
             to_reviewer_result,
             [handle_review, save_draft],
@@ -339,11 +338,11 @@ workflow = (
 )
 ```
 
-Custom Executors များဖြစ်သော `to_reviewer_result` ကို အသုံးပြု၍ Agents output JSON ကို Strongly-Typed Objects အဖြစ် ပြောင်းလဲသည်။
+Custom executors များဖြစ်သည့် `to_reviewer_result` မှ agent များမှ ရရှိသော JSON output ကို ကြောင်းတစ်ခုပြီးတစ်ခု တိကျသော object များအဖြစ် ပြောင်းစေသည့် function ဖြစ်သည်။
 
-#### .NET (C\#) Implementation Analysis
+#### .NET (C\#) အကောင်အထည်ဖော်ချက် ပိုင်းစိတ်
 
-.NET Version သည် အလားတူ Approach ကို အသုံးပြုသည်။ Condition Function ကို `Func<object?, bool>` အဖြစ် သတ်မှတ်ပြီး၊ `ReviewResult` Object ရဲ့ `Result` Property ကို စစ်ဆေးသည်။
+.NET ဗားရှင်းတွင်လည်း အခြား function တစ်ခုအား သတ်မှတ်ပြီး `ReviewResult` object ၏ `Result` property ကို စစ်ဆေးသည်။
 
 ```csharp
 // 04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb
@@ -362,13 +361,15 @@ var workflow = new WorkflowBuilder(draftExecutor)
             .Build();
 ```
 
-`AddEdge` Method ရဲ့ `condition` Parameter သည် `WorkflowBuilder` ကို Branching Path တစ်ခု ဖန်တီးရန် ခွင့်ပြုသည်။ Workflow သည် `GetCondition(expectedResult: "Yes")` က True ပြုလုပ်လျှင်သာ `publishExecutor` ထံ Edge ကို လိုက်နာသည်။ မဟုတ်လျှင် `sendReviewerExecutor` Path ကို လိုက်နာသည်။
+`AddEdge` method ၏ `condition` ပါရာမီတာဖြင့် `WorkflowBuilder` သည် လမ်းကြောင်း နှစ်ခုခွဲခြားဖန်တီးနိုင်သည်။  `publishExecutor` သို့ သွားရန် အခြေအနေ  `GetCondition(expectedResult: "Yes")` မှန်ရပါကသာ လမ်းကြောင်း ချိတ်ဆက်သည်၊ မဟုတ်ပါက `sendReviewerExecutor` သို့ ဆက်သွားပါသည်။
 
-## နိဂုံး
+## နိဂုံးချုပ်
 
-Microsoft Agent Framework Workflow သည် Multi-Agent Systems များကို စီမံရန် ခိုင်ခံ့ပြီး Flexible ဖြစ်သော အခြေခံကို ပေးသည်။ ၎င်း၏ Graph-Based Architecture နှင့် Core Components များကို အသုံးပြု၍ Developer များသည် Python နှင့် .NET တို့တွင် အဆင့်မြင့် Workflow များကို Design နှင့် Implement ပြုလုပ်နိုင်သည်။ သင့် Application သည် Simple Sequential Processing, Parallel Execution, Dynamic Conditional Logic တို့လိုအပ်ပါက Framework သည် အစွမ်းထက်၊ Scalable, Type-Safe AI-Powered Solutions များကို တည်ဆောက်ရန် လိုအပ်သော Tools များကို ပေးသည်။
+Microsoft Agent Framework Workflow သည် စပ်လျဉ်းသော multi-agent system များကို စိတ်ကြိုက် ဖန်တီးနိင်မည့် တည်မြဲခိုင်ခံ့၍ တိုးချဲ့နိုင်သော အခြေခံ ပလက်ဖောင်းဖြစ်သည်။ ၎င်း၏ graph-based architecture နှင့် အခြေခံ ကွန်ပွန်နန်များကို အသုံးပြုကာ Python နှင့် .NET နှစ်မျိုးလုံးတွင် အဆင်ပြေစွာ workflow များအသုံးပြုနိုင်သည်။ သင့် application တွင် အဆက်လိုက်လုပ်ငန်းစဉ်များ၊ 병렬 ဆောင်ရွက်မှုများသို့မဟုတ် မတူညီသော dynamic conditional လုပ်ဆောင်မှုများရှိပါက ၎င်းတို့အား အကောင်းဆုံးထောက်ပံ့ပေးမည့် အခွင့်အလမ်းများ ပေးထားပါသည်။
 
 ---
 
-**အကြောင်းကြားချက်**:  
-ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးစားနေသော်လည်း အလိုအလျောက် ဘာသာပြန်ခြင်းတွင် အမှားများ သို့မဟုတ် မတိကျမှုများ ပါဝင်နိုင်သည်ကို သတိပြုပါ။ မူရင်းဘာသာစကားဖြင့် ရေးသားထားသော စာရွက်စာတမ်းကို အာဏာရှိသော ရင်းမြစ်အဖြစ် သတ်မှတ်သင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူ့ဘာသာပြန်ပညာရှင်များမှ ပရော်ဖက်ရှင်နယ် ဘာသာပြန်ခြင်းကို အကြံပြုပါသည်။ ဤဘာသာပြန်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော အလွဲအမှားများ သို့မဟုတ် အနားယူမှုမှားများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**ပြောကြားချက်**
+ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးပမ်းနေသော်လည်း၊ စက်ကိရိယာဘာသာပြန်ခြင်းများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် လိုအပ်ပါသည်။ မူလစာတမ်းကို မူရင်းဘာသာဖြင့်သာ ယုံကြည်စိတ်ချရသော အချက်အလက်အဖြစ် သတ်မှတ်သင့်သည်။ အရေးကြီးသည့် သတင်းအချက်အလက်များအတွက် ပရော်ဖက်ရှင်နယ် လူသားဘာသာပြန်သူဝန်ဆောင်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော နားလည်မှုကွာခြားမှုများ သို့မဟုတ် မမှန်ကန်သော အသုံးပြုမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မခံပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

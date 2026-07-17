@@ -1,145 +1,148 @@
-# 🎨 Patrones de Diseño Agentes con Modelos de GitHub (.NET)
+# 🎨 Patrones de Diseño Agéncico con Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Objetivos de Aprendizaje
 
-Este ejemplo demuestra patrones de diseño de nivel empresarial para construir agentes inteligentes utilizando el Microsoft Agent Framework en .NET con integración de Modelos de GitHub. Aprenderás patrones profesionales y enfoques arquitectónicos que hacen que los agentes sean listos para producción, mantenibles y escalables.
+Este ejemplo demuestra patrones de diseño de nivel empresarial para construir agentes inteligentes usando el Microsoft Agent Framework en .NET con integración de Azure OpenAI (Responses API). Aprenderás patrones profesionales y enfoques arquitectónicos que hacen que los agentes estén listos para producción, sean mantenibles y escalables.
 
-### Patrones de Diseño Empresariales
+### Patrones de Diseño Empresarial
 
 - 🏭 **Patrón Factory**: Creación estandarizada de agentes con inyección de dependencias
-- 🔧 **Patrón Builder**: Configuración y configuración fluida de agentes
-- 🧵 **Patrones Seguros para Hilos**: Gestión concurrente de conversaciones
+- 🔧 **Patrón Builder**: Configuración y setup fluido del agente
+- 🧵 **Patrones Thread-Safe**: Gestión concurrente de conversaciones
 - 📋 **Patrón Repository**: Gestión organizada de herramientas y capacidades
 
 ## 🎯 Beneficios Arquitectónicos Específicos de .NET
 
-### Características Empresariales
+### Funcionalidades Empresariales
 
 - **Tipado Fuerte**: Validación en tiempo de compilación y soporte IntelliSense
-- **Inyección de Dependencias**: Integración con contenedor DI incorporado
-- **Gestión de Configuración**: Patrones de IConfiguration y Options
-- **Async/Await**: Soporte de programación asincrónica de primera clase
+- **Inyección de Dependencias**: Integración de contenedor DI incorporado
+- **Gestión de Configuración**: Patrones IConfiguration y Options
+- **Async/Await**: Soporte de primera clase a programación asíncrona
 
 ### Patrones Listos para Producción
 
-- **Integración de Registro**: Soporte para ILogger y registro estructurado
-- **Verificaciones de Salud**: Monitoreo y diagnóstico incorporados
+- **Integración de Logging**: ILogger y soporte de logging estructurado
+- **Health Checks**: Monitorización y diagnóstico incorporados
 - **Validación de Configuración**: Tipado fuerte con anotaciones de datos
-- **Gestión de Errores**: Manejo estructurado de excepciones
+- **Manejo de Errores**: Gestión estructurada de excepciones
 
 ## 🔧 Arquitectura Técnica
 
-### Componentes Centrales de .NET
+### Componentes Core de .NET
 
-- **Microsoft.Extensions.AI**: Abstracciones unificadas de servicios de IA
-- **Microsoft.Agents.AI**: Marco de orquestación de agentes empresariales
-- **Integración de Modelos de GitHub**: Patrones de cliente API de alto rendimiento
-- **Sistema de Configuración**: Integración de appsettings.json y entorno
+- **Microsoft.Extensions.AI**: Abstracciones unificadas de servicio AI
+- **Microsoft.Agents.AI**: Framework empresarial de orquestación de agentes
+- **Azure OpenAI (Responses API)**: Patrones para clientes API de alto rendimiento
+- **Sistema de Configuración**: appsettings.json e integración con el entorno
 
-### Implementación de Patrones de Diseño
+### Implementación del Patrón de Diseño
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[Constructor de Agente]
+    B --> C[Configuración]
+    C --> D[Registro de Herramientas]
+    D --> E[Agente de IA]
 ```
 
 ## 🏗️ Patrones Empresariales Demostrados
 
 ### 1. **Patrones Creacionales**
 
-- **Factory de Agentes**: Creación centralizada de agentes con configuración consistente
+- **Agent Factory**: Creación centralizada de agentes con configuración consistente
 - **Patrón Builder**: API fluida para configuración compleja de agentes
-- **Patrón Singleton**: Gestión de recursos compartidos y configuración
-- **Inyección de Dependencias**: Acoplamiento flexible y capacidad de prueba
+- **Patrón Singleton**: Recursos compartidos y gestión de configuración
+- **Inyección de Dependencias**: Acoplamiento débil y facilidad para pruebas
 
 ### 2. **Patrones de Comportamiento**
 
 - **Patrón Strategy**: Estrategias intercambiables de ejecución de herramientas
-- **Patrón Command**: Operaciones encapsuladas de agentes con deshacer/rehacer
-- **Patrón Observer**: Gestión del ciclo de vida de agentes impulsada por eventos
-- **Método Template**: Flujos de trabajo de ejecución de agentes estandarizados
+- **Patrón Command**: Operaciones de agente encapsuladas con deshacer/rehacer
+- **Patrón Observer**: Gestión del ciclo de vida del agente basada en eventos
+- **Patrón Template Method**: Flujos de ejecución estandarizados para agentes
 
 ### 3. **Patrones Estructurales**
 
-- **Patrón Adapter**: Capa de integración de API de Modelos de GitHub
-- **Patrón Decorator**: Mejora de capacidades de agentes
-- **Patrón Facade**: Interfaces simplificadas de interacción con agentes
-- **Patrón Proxy**: Carga diferida y almacenamiento en caché para rendimiento
+- **Patrón Adapter**: Capa de integración con Azure OpenAI (Responses API)
+- **Patrón Decorator**: Mejora de capacidades del agente
+- **Patrón Facade**: Interfaces simplificadas para interacción con agentes
+- **Patrón Proxy**: Carga diferida y caché para mejorar rendimiento
 
 ## 📚 Principios de Diseño en .NET
 
 ### Principios SOLID
 
 - **Responsabilidad Única**: Cada componente tiene un propósito claro
-- **Abierto/Cerrado**: Extensible sin modificación
+- **Abierto/Cerrado**: Extensible sin modificar
 - **Sustitución de Liskov**: Implementaciones de herramientas basadas en interfaces
 - **Segregación de Interfaces**: Interfaces enfocadas y cohesivas
-- **Inversión de Dependencias**: Dependencia de abstracciones, no concreciones
+- **Inversión de Dependencias**: Depende de abstracciones, no concreciones
 
 ### Arquitectura Limpia
 
-- **Capa de Dominio**: Abstracciones principales de agentes y herramientas
-- **Capa de Aplicación**: Orquestación de agentes y flujos de trabajo
-- **Capa de Infraestructura**: Integración de Modelos de GitHub y servicios externos
-- **Capa de Presentación**: Interacción con el usuario y formato de respuestas
+- **Capa de Dominio**: Abstracciones centrales de agentes y herramientas
+- **Capa de Aplicación**: Orquestación y flujos de agentes
+- **Capa de Infraestructura**: Integración con Azure OpenAI (Responses API) y servicios externos
+- **Capa de Presentación**: Interacción usuario y formato de respuesta
 
 ## 🔒 Consideraciones Empresariales
 
 ### Seguridad
 
 - **Gestión de Credenciales**: Manejo seguro de claves API con IConfiguration
-- **Validación de Entrada**: Tipado fuerte y validación con anotaciones de datos
-- **Sanitización de Salida**: Procesamiento y filtrado seguro de respuestas
+- **Validación de Inputs**: Tipado fuerte y validación con anotaciones de datos
+- **Saneamiento de Salidas**: Procesamiento y filtrado seguro de respuestas
 - **Registro de Auditoría**: Seguimiento completo de operaciones
 
 ### Rendimiento
 
-- **Patrones Asíncronos**: Operaciones de E/S no bloqueantes
-- **Agrupación de Conexiones**: Gestión eficiente de clientes HTTP
-- **Caché**: Almacenamiento en caché de respuestas para mejorar el rendimiento
-- **Gestión de Recursos**: Patrones adecuados de eliminación y limpieza
+- **Patrones Asíncronos**: Operaciones I/O sin bloqueo
+- **Pooling de Conexiones**: Gestión eficiente de clientes HTTP
+- **Caching**: Caché de respuestas para mejorar el rendimiento
+- **Gestión de Recursos**: Patrones adecuados de liberación y limpieza
 
 ### Escalabilidad
 
 - **Seguridad en Hilos**: Soporte para ejecución concurrente de agentes
-- **Agrupación de Recursos**: Utilización eficiente de recursos
-- **Gestión de Carga**: Limitación de tasa y manejo de presión
-- **Monitoreo**: Métricas de rendimiento y verificaciones de salud
+- **Pooling de Recursos**: Utilización eficiente de recursos
+- **Gestión de Carga**: Limitación de tasa y manejo de retropresión
+- **Monitorización**: Métricas de rendimiento y health checks
 
 ## 🚀 Despliegue en Producción
 
-- **Gestión de Configuración**: Configuraciones específicas del entorno
-- **Estrategia de Registro**: Registro estructurado con IDs de correlación
-- **Gestión de Errores**: Manejo global de excepciones con recuperación adecuada
-- **Monitoreo**: Insights de aplicaciones y contadores de rendimiento
-- **Pruebas**: Patrones de pruebas unitarias, de integración y de carga
+- **Gestión de Configuración**: Ajustes específicos por entorno
+- **Estrategia de Logging**: Registro estructurado con IDs de correlación
+- **Manejo de Errores**: Captura global de excepciones con recuperación adecuada
+- **Monitorización**: Application insights y contadores de rendimiento
+- **Pruebas**: Tests unitarios, integración y patrones de pruebas de carga
 
 ¿Listo para construir agentes inteligentes de nivel empresarial con .NET? ¡Vamos a diseñar algo robusto! 🏢✨
 
-## 🚀 Comenzando
+## 🚀 Empezando
 
 ### Requisitos Previos
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o superior
-- [Token de acceso API de Modelos de GitHub](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Una [suscripción de Azure](https://azure.microsoft.com/free/) con un recurso Azure OpenAI y un despliegue de modelo
+- La [CLI de Azure](https://learn.microsoft.com/cli/azure/install-azure-cli) — inicia sesión con `az login`
 
 ### Variables de Entorno Requeridas
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# Luego inicie sesión para que AzureCliCredential pueda obtener un token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# Luego inicie sesión para que AzureCliCredential pueda obtener un token
+az login
 ```
 
 ### Código de Ejemplo
@@ -165,14 +168,16 @@ Consulta [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que surjan del uso de esta traducción.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por la precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de cualquier malentendido o interpretación errónea que surja del uso de esta traducción.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

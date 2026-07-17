@@ -1,99 +1,101 @@
-# 🔍 Erkundung des Microsoft Agent Frameworks - Basisagent (.NET)
+# 🔍 Erforschung des Microsoft Agent Framework - Grundlegender Agent (.NET)
 
 ## 📋 Lernziele
 
-Dieses Beispiel untersucht die grundlegenden Konzepte des Microsoft Agent Frameworks anhand einer Basisagenten-Implementierung in .NET. Sie lernen die zentralen agentischen Muster kennen und verstehen, wie intelligente Agenten mit C# und dem .NET-Ökosystem im Hintergrund arbeiten.
+Dieses Beispiel erkundet die grundlegenden Konzepte des Microsoft Agent Frameworks durch eine einfache Agentenimplementierung in .NET. Sie lernen grundlegende agentenbasierte Muster und verstehen, wie intelligente Agenten unter der Haube mit C# und dem .NET-Ökosystem arbeiten.
 
 ### Was Sie entdecken werden
 
-- 🏗️ **Agentenarchitektur**: Verständnis der grundlegenden Struktur von KI-Agenten in .NET  
-- 🛠️ **Tool-Integration**: Wie Agenten externe Funktionen nutzen, um ihre Fähigkeiten zu erweitern  
-- 💬 **Konversationsfluss**: Verwaltung von mehrstufigen Gesprächen und Kontext mit Thread-Management  
-- 🔧 **Konfigurationsmuster**: Best Practices für die Einrichtung und Verwaltung von Agenten in .NET  
+- 🏗️ **Agentenarchitektur**: Verständnis der grundlegenden Struktur von KI-Agenten in .NET
+- 🛠️ **Werkzeugintegration**: Wie Agenten externe Funktionen zur Erweiterung der Fähigkeiten nutzen  
+- 💬 **Gesprächsablauf**: Verwaltung mehrerer Gesprächsrunden und Kontext mit Thread-Management
+- 🔧 **Konfigurationsmuster**: Best Practices für Agenten-Setup und Verwaltung in .NET
 
 ## 🎯 Wichtige behandelte Konzepte
 
-### Prinzipien des Agentenframeworks
+### Agentenframework-Prinzipien
 
-- **Autonomie**: Wie Agenten unabhängige Entscheidungen mithilfe von .NET-KI-Abstraktionen treffen  
-- **Reaktivität**: Reaktion auf Umweltveränderungen und Benutzereingaben  
-- **Proaktivität**: Eigeninitiative basierend auf Zielen und Kontext  
-- **Soziale Fähigkeit**: Interaktion durch natürliche Sprache mit Konversationsthreads  
+- **Autonomie**: Wie Agenten eigenständige Entscheidungen mit .NET KI-Abstraktionen treffen
+- **Reaktivität**: Reaktion auf Umweltänderungen und Benutzereingaben
+- **Proaktivität**: Initiative ergreifen basierend auf Zielen und Kontext
+- **Soziale Fähigkeiten**: Interaktion durch natürliche Sprache mit Gesprächsfäden
 
 ### Technische Komponenten
 
-- **AIAgent**: Kernorchestrierung des Agenten und Konversationsmanagement (.NET)  
-- **Tool-Funktionen**: Erweiterung der Agentenfähigkeiten mit C#-Methoden und Attributen  
-- **OpenAI-Integration**: Nutzung von Sprachmodellen über standardisierte .NET-APIs  
-- **Sichere Konfiguration**: API-Schlüsselverwaltung basierend auf Umgebungsvariablen  
+- **AIAgent**: Kerndienst zur Agentenorchestrierung und Gesprächsverwaltung (.NET)
+- **Werkzeugfunktionen**: Erweiterung der Agentenfähigkeiten mit C#-Methoden und Attributen
+- **Azure OpenAI Integration**: Nutzung von Sprachmodellen über die Azure OpenAI Responses API
+- **Sichere Konfiguration**: Endpoint-Management basierend auf Umgebungsvariablen
 
-## 🔧 Technologiestack
+## 🔧 Technischer Stack
 
 ### Kerntechnologien
 
-- Microsoft Agent Framework (.NET)  
-- GitHub Models API-Integration  
-- OpenAI-kompatible Clientmuster  
-- Umgebungsbasierte Konfiguration mit DotNetEnv  
+- Microsoft Agent Framework (.NET)
+- Azure OpenAI (Responses API) Integration
+- Azure.AI.OpenAI Client-Muster
+- Umgebungsbasierte Konfiguration mit DotNetEnv
 
-### Fähigkeiten des Agenten
+### Agentenfähigkeiten
 
-- Verstehen und Generieren natürlicher Sprache  
-- Funktionsaufrufe und Tool-Nutzung mit C#-Attributen  
-- Kontextbewusste Antworten mit Konversationsthreads  
-- Erweiterbare Architektur mit Dependency Injection-Mustern  
+- Verständnis und Erzeugung natürlicher Sprache
+- Funktionsaufrufe und Werkzeugnutzung mit C#-Attributen
+- Kontextbewusste Antworten mit Gesprächssitzungen
+- Erweiterbare Architektur mit Dependency Injection-Mustern
 
-## 📚 Vergleich der Frameworks
+## 📚 Framework-Vergleich
 
-Dieses Beispiel zeigt den Ansatz des Microsoft Agent Frameworks im Vergleich zu anderen agentischen Frameworks:
+Dieses Beispiel zeigt den Ansatz des Microsoft Agent Framework im Vergleich zu anderen agentenbasierten Frameworks:
 
-| Funktion         | Microsoft Agent Framework | Andere Frameworks       |
-|------------------|---------------------------|-------------------------|
-| **Integration**  | Native Microsoft-Umgebung | Unterschiedliche Kompatibilität |
-| **Einfachheit**  | Saubere, intuitive API    | Oft komplexe Einrichtung |
-| **Erweiterbarkeit** | Einfache Tool-Integration | Framework-abhängig       |
-| **Unternehmensreife** | Für den produktiven Einsatz entwickelt | Variiert je nach Framework |
+| Funktion | Microsoft Agent Framework | Andere Frameworks |
+|---------|-------------------------|------------------|
+| **Integration** | Native Microsoft-Umgebung | Unterschiedliche Kompatibilität |
+| **Einfachheit** | Saubere, intuitive API | Oft komplexe Einrichtung |
+| **Erweiterbarkeit** | Einfache Werkzeugintegration | Framework-abhängig |
+| **Enterprise-Ready** | Für Produktion ausgelegt | Varriert je nach Framework |
 
 ## 🚀 Erste Schritte
 
 ### Voraussetzungen
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) oder höher  
-- [GitHub Models API-Zugriffstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) oder höher
+- Ein [Azure-Abonnement](https://azure.microsoft.com/free/) mit einer Azure OpenAI-Ressource und einer Modellbereitstellung
+- Die [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — Anmeldung mit `az login`
 
 ### Erforderliche Umgebungsvariablen
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# Melden Sie sich dann an, damit AzureCliCredential ein Token abrufen kann
+az login
 ```
-  
+
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# Dann melden Sie sich an, damit AzureCliCredential ein Token erhalten kann
+az login
 ```
-  
 
 ### Beispielcode
 
-Um das Codebeispiel auszuführen:
+Um das Codebeispiel auszuführen,
 
 ```bash
 # zsh/bash
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-  
-Oder mit dem dotnet CLI:
+
+Oder mit der dotnet CLI:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
-  
+
 Siehe [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) für den vollständigen Code.
 
 ```csharp
@@ -101,14 +103,16 @@ Siehe [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,28 +175,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Session for Context Management.
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+AgentSession session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -217,33 +207,32 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
 }
 ```
-  
 
 ## 🎓 Wichtige Erkenntnisse
 
-1. **Agentenarchitektur**: Das Microsoft Agent Framework bietet einen sauberen, typsicheren Ansatz zum Erstellen von KI-Agenten in .NET  
-2. **Tool-Integration**: Funktionen, die mit `[Description]`-Attributen versehen sind, werden zu verfügbaren Tools für den Agenten  
-3. **Konversationskontext**: Thread-Management ermöglicht mehrstufige Gespräche mit vollständigem Kontextbewusstsein  
-4. **Konfigurationsmanagement**: Umgebungsvariablen und sichere Anmeldeinformationen folgen den Best Practices von .NET  
-5. **OpenAI-Kompatibilität**: Die GitHub Models-Integration funktioniert nahtlos über OpenAI-kompatible APIs  
+1. **Agentenarchitektur**: Das Microsoft Agent Framework bietet einen sauberen, typensicheren Ansatz zum Erstellen von KI-Agenten in .NET
+2. **Werkzeugintegration**: Funktionen mit `[Description]`-Attributen werden für den Agenten verfügbare Werkzeuge
+3. **Gesprächskontext**: Sitzungsverwaltung ermöglicht mehrstufige Gespräche mit vollem Kontextbewusstsein
+4. **Konfigurationsmanagement**: Umgebungsvariablen und sichere Anmeldeinformationen folgen den .NET-Best-Practices
+5. **Azure OpenAI Responses API**: Der Agent nutzt die Azure OpenAI Responses API über das Azure.AI.OpenAI SDK
 
-## 🔗 Zusätzliche Ressourcen
+## 🔗 Weitere Ressourcen
 
-- [Microsoft Agent Framework Dokumentation](https://learn.microsoft.com/agent-framework)  
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Microsoft Agent Framework Dokumentation](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI in Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Haftungsausschluss**:  
-Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner ursprünglichen Sprache sollte als maßgebliche Quelle betrachtet werden. Für kritische Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die sich aus der Nutzung dieser Übersetzung ergeben.
+**Haftungsausschluss**:
+Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ursprungssprache gilt als maßgebliche Quelle. Bei kritischen Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die aus der Verwendung dieser Übersetzung entstehen.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

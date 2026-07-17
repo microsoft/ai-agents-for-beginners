@@ -1,39 +1,42 @@
-# 🎯 Planiranje i dizajnerski obrasci s GitHub modelima (.NET)
+# 🎯 Obrasci planiranja i dizajna s Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Ciljevi učenja
 
-Ovaj priručnik prikazuje planiranje i dizajnerske obrasce na razini poduzeća za izradu inteligentnih agenata koristeći Microsoft Agent Framework u .NET-u s GitHub modelima. Naučit ćete kako kreirati agente koji mogu razložiti složene probleme, planirati višekorake rješenja i izvršavati sofisticirane radne procese koristeći značajke .NET-a na razini poduzeća.
+Ovaj bilježnik prikazuje obrasce planiranja i dizajna razine poduzeća za izgradnju inteligentnih agenata pomoću Microsoft Agent Frameworka u .NET-u s Azure OpenAI (Responses API). Naučit ćete kako stvoriti agente koji mogu dekonstruirati složene probleme, planirati višestepena rješenja i izvršavati složene tijekove rada koristeći enterprise značajke .NET-a.
 
 ## ⚙️ Preduvjeti i postavljanje
 
 **Razvojno okruženje:**
 - .NET 9.0 SDK ili noviji
-- Visual Studio 2022 ili VS Code s C# ekstenzijom
-- Pristup GitHub Models API-ju
+- Visual Studio 2022 ili VS Code sa C# ekstenzijom
+- Pretplata na Azure s Azure OpenAI resursom i rasporedom modela
+- Azure CLI — prijavite se s `az login`
 
-**Potrebne ovisnosti:**
+**Potrebe za ovisnostima:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Konfiguracija okruženja (.env datoteka):**
+**Konfiguracija okruženja (datoteka .env):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
 ```
 
 ## Pokretanje koda
 
-Ova lekcija uključuje implementaciju .NET aplikacije u jednoj datoteci. Za pokretanje:
+Ova lekcija uključuje implementaciju .NET Single File App. Za pokretanje:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Postavite datoteku kao izvršnu (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Pokrenite aplikaciju
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -45,15 +48,15 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## Implementacija koda
 
-Kompletna implementacija dostupna je u `07-dotnet-agent-framework.cs`, koja prikazuje:
+Potpuna implementacija dostupna je u `07-dotnet-agent-framework.cs`, koja prikazuje:
 
 - Učitavanje konfiguracije okruženja s DotNetEnv
-- Konfiguriranje OpenAI klijenta za GitHub modele
-- Definiranje strukturiranih podatkovnih modela (Plan i TravelPlan) s JSON serializacijom
-- Kreiranje AI agenta sa strukturiranim izlazom koristeći JSON shemu
+- Konfiguriranje Azure OpenAI klijenta i stvaranje AI agenta pomoću `GetChatClient().AsAIAgent()`
+- Definiranje strukturiranih modela podataka (Plan i TravelPlan) s JSON serijalizacijom
+- Stvaranje AI agenta sa strukturiranim izlazom koristeći JSON shemu
 - Izvršavanje zahtjeva za planiranje s tipiziranim odgovorima
 
-## Ključni koncepti
+## Ključni pojmovi
 
 ### Strukturirano planiranje s tipiziranim modelima
 
@@ -81,11 +84,13 @@ public class TravelPlan
 
 ### JSON shema za strukturirane izlaze
 
-Agent je konfiguriran da vraća odgovore koji odgovaraju shemi TravelPlan:
+Agent je konfiguriran da vraća odgovore koji odgovaraju TravelPlan shemi:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Upute za agenta za planiranje
+### Upute za planirajućeg agenta
 
 Agent djeluje kao koordinator, delegirajući zadatke specijaliziranim pod-agentima:
 
 - FlightBooking: Za rezervaciju letova i pružanje informacija o letovima
 - HotelBooking: Za rezervaciju hotela i pružanje informacija o hotelima
-- CarRental: Za rezervaciju automobila i pružanje informacija o najmu automobila
+- CarRental: Za najam automobila i pružanje informacija o najmu automobila
 - ActivitiesBooking: Za rezervaciju aktivnosti i pružanje informacija o aktivnostima
 - DestinationInfo: Za pružanje informacija o destinacijama
 - DefaultAgent: Za rukovanje općim zahtjevima
 
 ## Očekivani izlaz
 
-Kada pokrenete agenta s zahtjevom za planiranje putovanja, analizirat će zahtjev i generirati strukturirani plan s odgovarajućim dodjelama zadataka specijaliziranim agentima, formatiran kao JSON koji odgovara shemi TravelPlan.
+Kada pokrenete agenta s zahtjevom za planiranje putovanja, on će analizirati zahtjev i generirati strukturirani plan s odgovarajućim dodjelama zadataka specijaliziranim agentima, formatiran kao JSON koji slijedi TravelPlan shemu.
 
 ---
 
-**Odricanje od odgovornosti**:  
-Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za ključne informacije preporučuje se profesionalni prijevod od strane čovjeka. Ne preuzimamo odgovornost za nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Napomena**:
+Ovaj dokument je preveden korištenjem AI prevoditeljskog servisa [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati greške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za važne informacije preporuča se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazumevanja ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

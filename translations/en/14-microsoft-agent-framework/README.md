@@ -20,13 +20,13 @@ After completing this lesson, you will know how to:
 
 ## Code Samples 
 
-Code samples for [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) can be found in this repository under `xx-python-agent-framework` and `xx-dotnet-agent-framework` files.
+Code samples for [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) can be found in this repository under `xx-python-agent-framework` and `xx-dotnet-agent-framework` files.
 
 ## Understanding Microsoft Agent Framework
 
 ![Framework Intro](../../../translated_images/en/framework-intro.077af16617cf130c.webp)
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) is Microsoft's unified framework for building AI agents. It offers the flexibility to address the wide variety of agentic use cases seen in both production and research environments including:
+[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) is Microsoft's unified framework for building AI agents. It offers the flexibility to address the wide variety of agentic use cases seen in both production and research environments including:
 
 - **Sequential Agent orchestration** in scenarios where step-by-step workflows are needed.
 - **Concurrent orchestration** in scenarios where agents need to complete tasks at the same time.
@@ -84,7 +84,7 @@ agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="
 or [MiniMax](https://platform.minimaxi.com/), which provides an OpenAI-compatible API with large context windows (up to 204K tokens):
 
 ```python
-agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M2.7").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
+agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
 or remote agents using the A2A protocol:
@@ -144,8 +144,8 @@ Agent Threads are used to handle multi-turn conversations. Threads can be create
 To create a thread, the code looks like this:
 
 ```python
-# Créer un nouveau thread.
-thread = agent.get_new_thread() # Exécuter l'agent avec le thread.
+# Create a new thread.
+thread = agent.get_new_thread() # Run the agent with the thread.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
@@ -171,7 +171,7 @@ resumed_thread = await agent.deserialize_thread(serialized_thread)
 
 **Agent Middleware**
 
-Agents interact with tools and LLMs to complete user's tasks. In certain scenarios, we want to execute or track in between these interactions. Agent middleware enables us to do this through:
+Agents interact with tools and LLMs to complete user's tasks. In certain scenarios, we want to execute or track in between these it interactions. Agent middleware enables us to do this through:
 
 *Function Middleware*
 
@@ -344,17 +344,106 @@ The sections above cover the key concepts of Microsoft Agent Framework. As you b
 - **Dynamic Tool Selection**: Combine RAG over tool descriptions with MAF's tool registration to present only relevant tools per query.
 - **Multi-Agent Handoff**: Use workflow edges and conditional routing to orchestrate handoffs between specialized agents.
 
+## Hosting LangChain / LangGraph Agents on Microsoft Foundry
+
+Microsoft Agent Framework is **framework-interoperable** — you're not limited to agents written with MAF. If you already have an agent built with **LangChain** or **LangGraph**, you can run it as a **Microsoft Foundry hosted agent** so that Foundry manages the runtime, sessions, scaling, identity, and protocol endpoints for you, while your agent logic stays in LangGraph.
+
+This is done with the `langchain_azure_ai.agents.hosting` package, which exposes a compiled LangGraph graph over the same protocols Foundry hosted agents use.
+
+**1. Install the hosting extra:**
+
+```bash
+pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
+```
+
+The `hosting` extra installs the Foundry protocol libraries: `azure-ai-agentserver-responses` (the OpenAI-compatible `/responses` endpoint) and `azure-ai-agentserver-invocations` (the generic `/invocations` endpoint).
+
+**2. Choose a hosting protocol:**
+
+| Protocol | Host class | Endpoint | Use when |
+|----------|-----------|----------|----------|
+| **Responses** | `ResponsesHostServer` | `/responses` | You want OpenAI-compatible chat, streaming, response history, and conversation threading — the recommended default for conversational agents. |
+| **Invocations** | `InvocationsHostServer` | `/invocations` | You need a custom JSON shape, a webhook-style endpoint, or non-conversational processing. |
+
+Because the **Responses API is the primary API for agent-style development in Foundry**, start with `ResponsesHostServer` for most agents.
+
+**3. Configure environment variables** (`az login` first so `DefaultAzureCredential` can authenticate):
+
+```bash
+export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
+export FOUNDRY_MODEL_NAME="gpt-4.1"
+```
+
+When the agent later runs as a hosted agent in Foundry, the platform injects `FOUNDRY_PROJECT_ENDPOINT` automatically.
+
+**4. Expose a LangGraph agent over the Responses protocol:**
+
+```python
+import os
+
+from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from langchain.agents import create_agent
+from langchain_openai import ChatOpenAI
+from langchain_azure_ai.agents.hosting import ResponsesHostServer
+
+_AZURE_AI_SCOPE = "https://ai.azure.com/.default"
+
+
+def build_chat_model() -> ChatOpenAI:
+    project_endpoint = os.environ["FOUNDRY_PROJECT_ENDPOINT"].rstrip("/")
+    deployment = os.environ.get("FOUNDRY_MODEL_NAME", "gpt-4.1")
+    credential = DefaultAzureCredential()
+    project = AIProjectClient(endpoint=project_endpoint, credential=credential)
+    openai_client = project.get_openai_client()
+    token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
+
+    # ChatOpenAI here targets the Foundry project's OpenAI-compatible (Responses) endpoint.
+    return ChatOpenAI(
+        model=deployment,
+        base_url=str(openai_client.base_url),
+        api_key=token_provider,
+    )
+
+
+def main() -> None:
+    graph = create_agent(build_chat_model(), tools=[])
+    port = int(os.environ.get("PORT", "8088"))
+    ResponsesHostServer(graph).run(port=port)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Run it locally with `python main.py`, then send a Responses request to `http://localhost:8088/responses`.
+
+**Key behaviors:**
+
+- **Conversations**: Clients continue a conversation by passing `previous_response_id` or a `conversation` ID. If your graph is compiled with a LangGraph checkpointer, Foundry keys conversation state to the checkpoint (use a durable checkpointer in production; `MemorySaver` is fine for local testing).
+- **Human-in-the-loop**: If your graph uses LangGraph `interrupt()`, `ResponsesHostServer` surfaces the pending interrupt as a Responses `function_call` / `mcp_approval_request` item, and clients resume with a matching `function_call_output` / `mcp_approval_response`.
+- **Deploy to Foundry**: Use the Azure Developer CLI — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (local, requires Docker), then `azd provision` and `azd deploy`. Hosted-agent deployment requires the **Foundry Project Manager** role.
+
+A runnable version of this example lives in [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py). For the full walkthrough (Invocations protocol, custom request schemas, and troubleshooting), see [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).
+
 ## Code Samples 
 
 Code samples for Microsoft Agent Framework can be found in this repository under `xx-python-agent-framework` and `xx-dotnet-agent-framework` files.
 
 ## Got More Questions About Microsoft Agent Framework?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
+## Previous Lesson
+
+[Memory for AI Agents](../13-agent-memory/README.md)
+
+## Next Lesson
+
+[Building Computer Use Agents (CUA)](../15-browser-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
+**Disclaimer**:
 This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

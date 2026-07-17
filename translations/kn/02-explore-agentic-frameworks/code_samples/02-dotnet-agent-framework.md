@@ -1,114 +1,118 @@
-# 🔍 Microsoft Agent Framework - ಮೂಲ ಏಜೆಂಟ್ (.NET) ಅನ್ವೇಷಣೆ
+# 🔍 ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್ವರ್ಕ್ ಅನ್ವೇಷಣೆ - ಮೂಲ ಏಜೆಂಟ್ (.NET)
 
-## 📋 ಕಲಿಕೆಯ ಉದ್ದೇಶಗಳು
+## 📋 ಕಲಿಕೆ ಗುರಿಗಳು
 
-ಈ ಉದಾಹರಣೆ Microsoft Agent Framework ನ ಮೂಲ ತತ್ವಗಳನ್ನು .NET ನಲ್ಲಿ ಮೂಲ ಏಜೆಂಟ್ ಅನುಷ್ಠಾನದ ಮೂಲಕ ಅನ್ವೇಷಿಸುತ್ತದೆ. ನೀವು ಮುಖ್ಯ ಏಜೆಂಟಿಕ್ ಮಾದರಿಗಳನ್ನು ಕಲಿಯುತ್ತೀರಿ ಮತ್ತು C# ಮತ್ತು .NET ಪರಿಸರವನ್ನು ಬಳಸಿಕೊಂಡು ಬುದ್ಧಿವಂತ ಏಜೆಂಟ್‌ಗಳು ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತವೆ ಎಂಬುದನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುತ್ತೀರಿ.
+ಈ ಉದಾಹರಣೆ .NET ನಲ್ಲಿ ಸರಳ ಏಜೆಂಟ್ ಅನುಷ್ಠಾನದ ಮೂಲಕ ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್ವರ್ಕ್‌ನ ಮೂಲತತ್ತ್ವಗಳನ್ನು ಅನ್ವೇಷಿಸುತ್ತದೆ. ನೀವು ಕೋರ್ ಏಜೆಂಟಿಕ್ ಮಾದರಿಗಳನ್ನು ಕಲಿಯುತ್ತೀರಿ ಮತ್ತು C# ಮತ್ತು .NET ಪರಿಸರವನ್ನು ಬಳಸಿಕೊಂಡು ಬುದ್ಧಿವಂತ ಏಜೆಂಟುಗಳು ಹಿಂಬದಿ ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತವೆ ಎಂಬುದನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುತ್ತೀರಿ.
 
-### ನೀವು ಏನು ಕಂಡುಹಿಡಿಯುತ್ತೀರಿ
+### ನೀವು ಕಂಡುಹಿಡಿಯುವವು ಏನು
 
-- 🏗️ **ಏಜೆಂಟ್ ಆರ್ಕಿಟೆಕ್ಚರ್**: .NET ನಲ್ಲಿ AI ಏಜೆಂಟ್‌ಗಳ ಮೂಲ ರಚನೆ ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು  
-- 🛠️ **ಟೂಲ್ ಇಂಟಿಗ್ರೇಶನ್**: ಏಜೆಂಟ್‌ಗಳು ಸಾಮರ್ಥ್ಯಗಳನ್ನು ವಿಸ್ತರಿಸಲು ಬಾಹ್ಯ ಕಾರ್ಯಗಳನ್ನು ಹೇಗೆ ಬಳಸುತ್ತವೆ  
-- 💬 **ಸಂವಾದದ ಪ್ರವಾಹ**: ಥ್ರೆಡ್ ನಿರ್ವಹಣೆಯೊಂದಿಗೆ ಬಹು-ಮೋಡ ಸಂಭಾಷಣೆ ಮತ್ತು ಸಂದರ್ಭವನ್ನು ನಿರ್ವಹಿಸುವುದು  
-- 🔧 **ಕಾನ್ಫಿಗರೇಶನ್ ಮಾದರಿಗಳು**: .NET ನಲ್ಲಿ ಏಜೆಂಟ್ ಸೆಟಪ್ ಮತ್ತು ನಿರ್ವಹಣೆಗೆ ಉತ್ತಮ ಅಭ್ಯಾಸಗಳು  
+- 🏗️ **ಏಜೆಂಟ್ ವಾಸ್ತುಶಿಲ್ಪ**: .NET ನಲ್ಲಿ ಏಐ ಏಜೆಂಟುಗಳ ಮೂಲ ರಚನೆಯನ್ನು ಅರಿತುಕೊಳ್ಳುವುದು
+- 🛠️ **ಟೂಲ್ ಏಕೀಕರಣ**: ಏಜೆಂಟುಗಳು ಸಾಮರ್ಥ್ಯಗಳನ್ನು ವಿಸ್ತರಿಸಲು ಹೊರಗಿನ ಕಾರ್ಯಗಳನ್ನು ಹೇಗೆ ಉಪಯೋಗಿಸುತ್ತವೆ  
+- 💬 **ಸಂವದನ ಹರಿವು**: ಬಹು-ತಿರುವು ಸಂಭಾಷಣೆಗಳನ್ನು ಮತ್ತು ಸಾಂದರ್ಭಿಕ ವಿಷಯಗಳನ್ನು ಥ್ರೆಡ್ ನಿರ್ವಹಣೆಯಿಂದ ನಿಯಂತ್ರಿಸುವುದು
+- 🔧 **ವಿನ್ಯಾಸ ಮಾದರಿಗಳು**: .NET ನಲ್ಲಿ ಏಜೆಂಟ್ ಸೆಟ್ ಅಪ್ ಮತ್ತು ನಿರ್ವಹಣೆಗೆ ಉತ್ತಮ ಅಭ್ಯಾಸಗಳು
 
-## 🎯 ಮುಖ್ಯ ತತ್ವಗಳು
+## 🎯 ಪ್ರಮುಖ ತತ್ತ್ವಗಳು
 
-### ಏಜೆಂಟಿಕ್ ಫ್ರೇಮ್‌ವರ್ಕ್ ತತ್ವಗಳು
+### ಏಜೆಂಟಿಕ್ ಫ್ರೇಮ್ವರ್ಕ್ ತತ್ತ್ವಗಳು
 
-- **ಸ್ವಾಯತ್ತತೆ**: .NET AI ಅಬ್ಸ್ಟ್ರಾಕ್ಷನ್‌ಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಏಜೆಂಟ್‌ಗಳು ಸ್ವತಂತ್ರ ನಿರ್ಧಾರಗಳನ್ನು ಹೇಗೆ ಮಾಡುತ್ತವೆ  
-- **ಪ್ರತಿಕ್ರಿಯಾಶೀಲತೆ**: ಪರಿಸರ ಬದಲಾವಣೆಗಳು ಮತ್ತು ಬಳಕೆದಾರರ ಇನ್‌ಪುಟ್‌ಗಳಿಗೆ ಪ್ರತಿಕ್ರಿಯಿಸುವುದು  
-- **ಪ್ರೋಆಕ್ಟಿವಿಟಿ**: ಗುರಿಗಳು ಮತ್ತು ಸಂದರ್ಭವನ್ನು ಆಧರಿಸಿ ಮುಂದಾಳತ್ವವನ್ನು ತೆಗೆದುಕೊಳ್ಳುವುದು  
-- **ಸಾಮಾಜಿಕ ಸಾಮರ್ಥ್ಯ**: ಸಂಭಾಷಣಾ ಥ್ರೆಡ್‌ಗಳ ಮೂಲಕ ನೈಸರ್ಗಿಕ ಭಾಷೆಯಲ್ಲಿ ಸಂವಹನ ಮಾಡುವುದು  
+- **ಸ್ವಾಯತ್ಯತೆ**: .NET AI ಆಬ್ಸ್ಟ್ರಾಕ್ಶನ್‌ಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಏಜೆಂಟುಗಳು ಸ್ವತಂತ್ರ ನಿರ್ಧಾರಗಳನ್ನು ಹೇಗೆ ತೆಗೆದುಕೊಳ್ಳುತ್ತವೆ
+- ** ಪ್ರತಿಕ್ರಿಯಾಶೀಲತೆ**: ಪರಿಸರ ಬದಲಾವಣೆಗಳಿಗೆ ಮತ್ತು ಬಳಕೆದಾರ ಇನ್ಪುಟ್‌ಗಳಿಗೆ ಪ್ರತಿಕ್ರಿಯಿಸುವುದು
+- **ಪ್ರೊಆಕ್ಟಿವಿಟಿ**: ಗುರಿಗಳು ಮತ್ತು ಸಾಂದರ್ಭಿಕತೆಗೆ ಆಧಾರಿತವಾಗಿ ಕೈಗೊಂಡು ಉದ್ದೇಶ
+- **ಸಾಮಾಜಿಕ ಸಾಮರ್ಥ್ಯ**: ಸಂಭಾಷಣಾ ಥ್ರೆಡ್‌ಗಳ ಮೂಲಕ ನೈಸರ್ಗಿಕ ಭಾಷೆಯಲ್ಲಿ ಸಂವಹನ
 
-### ತಾಂತ್ರಿಕ ಘಟಕಗಳು
+### ತಾಂತ್ರಿಕ ഘಟಕಗಳು
 
-- **AIAgent**: ಮೂಲ ಏಜೆಂಟ್ ಸಂಯೋಜನೆ ಮತ್ತು ಸಂಭಾಷಣೆ ನಿರ್ವಹಣೆ (.NET)  
-- **ಟೂಲ್ ಫಂಕ್ಷನ್‌ಗಳು**: C# ವಿಧಾನಗಳು ಮತ್ತು ಗುಣಲಕ್ಷಣಗಳೊಂದಿಗೆ ಏಜೆಂಟ್ ಸಾಮರ್ಥ್ಯಗಳನ್ನು ವಿಸ್ತರಿಸುವುದು  
-- **OpenAI ಇಂಟಿಗ್ರೇಶನ್**: ಮಾನದಂಡಿತ .NET API ಗಳ ಮೂಲಕ ಭಾಷಾ ಮಾದರಿಗಳನ್ನು ಬಳಸುವುದು  
-- **ಸುರಕ್ಷಿತ ಕಾನ್ಫಿಗರೇಶನ್**: ಪರಿಸರ ಆಧಾರಿತ API ಕೀ ನಿರ್ವಹಣೆ  
+- **AIAgent**: ಕೋರ್ ಏಜೆಂಟ್ ಆರ್ಕೆಸ್ಟ್ರೇಷನ್ ಮತ್ತು ಸಂಭಾಷಣೆ ನಿರ್ವಹಣೆ (.NET)
+- **ಟೂಲ್ ಕಾರ್ಯಗಳು**: C# ವಿಧಾನಗಳು ಮತ್ತು ಲಕ್ಷಣಗಳೊಂದಿಗೆ ಏಜೆಂಟ್ ಸಾಮರ್ಥ್ಯಗಳನ್ನು ವಿಸ್ತರಿಸುವುದು
+- **ಆಜೂರ್ ಓಪನ್‌ಏಐ ಏಕೀಕರಣ**: ಆಜೂರ್ ಓಪನ್‌ಏಐ ರೆસ્પಾನ್ಸಸ್ API ಮೂಲಕ ಭಾಷಾ ಮಾದರಿಗಳನ್ನು ಉಪಯೋಗಿಸುವುದು
+- **ಸುರಕ್ಷಿತ ವಿನ್ಯಾಸ**: ಪರಿಸರ ಆಧಾರಿತ ಎಂಡ್‌ಪಾಯಿಂಟ್ ನಿರ್ವಹಣೆ
 
-## 🔧 ತಾಂತ್ರಿಕ ಸ್ಟಾಕ್
+## 🔧 ತಾಂತ್ರಿಕ ಸಾಫ್ಟ್‌ವೇರ್
 
-### ಮೂಲ ತಂತ್ರಜ್ಞಾನಗಳು
+### ಮುಖ್ಯ ತಂತ್ರಜ್ಞಾನಗಳು
 
-- Microsoft Agent Framework (.NET)  
-- GitHub Models API ಇಂಟಿಗ್ರೇಶನ್  
-- OpenAI-ಅನುಕೂಲಕರ ಕ್ಲೈಂಟ್ ಮಾದರಿಗಳು  
-- DotNetEnv ಬಳಸಿ ಪರಿಸರ ಆಧಾರಿತ ಕಾನ್ಫಿಗರೇಶನ್  
+- ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್ವರ್ಕ್ (.NET)
+- ಆಜೂರ್ ಓಪನ್‌ಏಐ (ರೆಸ್ಪಾನ್ಸ್ API) ಏಕೀಕರಣ
+- Azure.AI.OpenAI ಕ್ಲೈಂಟ್ ಮಾದರಿಗಳು
+- DotNetEnv ಮೂಲಕ ಪರಿಸರ ಆಧಾರಿತ ಸಂರಚನೆ
 
 ### ಏಜೆಂಟ್ ಸಾಮರ್ಥ್ಯಗಳು
 
-- ನೈಸರ್ಗಿಕ ಭಾಷೆ ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು ಮತ್ತು ತಯಾರಿಸುವುದು  
-- C# ಗುಣಲಕ್ಷಣಗಳೊಂದಿಗೆ ಕಾರ್ಯವನ್ನು ಕರೆದು ಟೂಲ್ ಬಳಕೆ  
-- ಸಂಭಾಷಣಾ ಥ್ರೆಡ್‌ಗಳೊಂದಿಗೆ ಸಂದರ್ಭ-ಜಾಗೃತ ಪ್ರತಿಕ್ರಿಯೆಗಳು  
-- ಡಿಪೆಂಡೆನ್ಸಿ ಇಂಜೆಕ್ಷನ್ ಮಾದರಿಗಳೊಂದಿಗೆ ವಿಸ್ತರಿಸಬಹುದಾದ ಆರ್ಕಿಟೆಕ್ಚರ್  
+- ನೈಸರ್ಗಿಕ ಭಾಷೆ ಅರ್ಥಮಾಡಿಕೆ ಮತ್ತು ತಯಾರಿ
+- C# ಲಕ್ಷಣಗಳ ಮೂಲಕ ಕಾರ್ಯವಿಧಾನ ಕರೆ ಮತ್ತು ಸಾಧನ ಬಳಕೆ
+- ಸಂಭಾಷಣೆ ಸೆಷನ್‌ಗಳೊಂದಿಗೆ ಸಾಂದರ್ಭಿಕ ಜಾಗೃತ ಪ್ರತಿಕ್ರಿಯೆಗಳು
+- ಡಿಪೆಂಡೆನ್ಸಿ ಇಂಜೆಕ್ಷನ್ ಮಾದರಿಗಳೊಂದಿಗೆ ವಿಸ್ತರಿಸಬಹುದಾದ ವಾಸ್ತುಶಿಲ್ಪ
 
-## 📚 ಫ್ರೇಮ್‌ವರ್ಕ್ ಹೋಲಿಕೆ
+## 📚 ಫ್ರೇಮ್ವರ್ಕ್ ಹೋಲಿಕೆ
 
-ಈ ಉದಾಹರಣೆ Microsoft Agent Framework ನ ವಿಧಾನವನ್ನು ಇತರ ಏಜೆಂಟಿಕ್ ಫ್ರೇಮ್‌ವರ್ಕ್‌ಗಳೊಂದಿಗೆ ಹೋಲಿಸುತ್ತದೆ:
+ಈ ಉದಾಹರಣೆ ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್ವರ್ಕ್ ದೃಷ್ಟಿಕೋನವನ್ನು ಇತರೆ ಏಜೆಂಟಿಕ್ ಫ್ರೇಮ್ವರ್ಕ್‌ಗಳಿಗೆ ಹೋಲಿಕೆ ಮಾಡುತ್ತದೆ:
 
-| ವೈಶಿಷ್ಟ್ಯ | Microsoft Agent Framework | ಇತರ ಫ್ರೇಮ್‌ವರ್ಕ್‌ಗಳು |
-|-----------|---------------------------|-----------------------|
-| **ಇಂಟಿಗ್ರೇಶನ್** | ಸ್ಥಳೀಯ Microsoft ಪರಿಸರ | ವೈವಿಧ್ಯಮಯ ಹೊಂದಾಣಿಕೆ |
-| **ಸರಳತೆ** | ಸ್ವಚ್ಛ, ಬುದ್ಧಿವಂತ API | ಸಾಮಾನ್ಯವಾಗಿ ಸಂಕೀರ್ಣ ಸೆಟಪ್ |
-| **ವಿಸ್ತರಣೀಯತೆ** | ಸುಲಭ ಟೂಲ್ ಇಂಟಿಗ್ರೇಶನ್ | ಫ್ರೇಮ್‌ವರ್ಕ್-ಆಧಾರಿತ |
-| **ಎಂಟರ್‌ಪ್ರೈಸ್ ರೆಡಿ** | ಉತ್ಪಾದನೆಗೆ ನಿರ್ಮಿಸಲಾಗಿದೆ | ಫ್ರೇಮ್‌ವರ್ಕ್ ಪ್ರಕಾರ ಬದಲಾಗುತ್ತದೆ |
+| ವೈಶಿಷ್ಟ್ಯ | ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್ವರ್ಕ್ | ಇತರ ಫ್ರೇಮ್ವರ್ಕ್‌ಗಳು |
+|---------|-------------------------|------------------|
+| **ಏಕೀಕರಣ** | ಸ್ಥಳೀಯ ಮೈಕ್ರೋಸಾಫ್ಟ್ ಪರಿಸರ | ಬದಲಾಗುವ ಹೊಂದಾಣಿಕೆ |
+| **ಸರಳತೆ** | ಸ್ವಚ್ಛ, ಸೂಕ್ಷ್ಮ API | ಹಲವಾರು ಬಾರಿ ಸಂಕೀರ್ಣ ಸೆಟ್ ಅಪ್ |
+| **ವಿಸ್ತಾರಯೋಗ್ಯತೆ** | ಸುಲಭವಾದ ಸಾಧನ ಏಕೀಕರಣ | ಫ್ರೇಮ್ವರ್ಕ್-ಆಧಾರಿತ |
+| **ಎಂಟರ್ಪ್ರೈಸ್ ತಯಾರಿ** | ಉತ್ಪಾದನಾ ನಿರ್ಮಾಣಕ್ಕೆ | ಫ್ರೇಮ್ವರ್ಕ್ ಪ್ರಕಾರ ಬದಲಾಗುತ್ತದೆ |
 
-## 🚀 ಪ್ರಾರಂಭಿಸುವುದು
+## 🚀 ಪ್ರಾರಂಭಿಸುತ್ತಾ
 
-### ಪೂರ್ವಾಪೇಕ್ಷಿತಗಳು
+### ಅಗತ್ಯ ಪೂರ್ವಾಪೇಕ್ಷೆಗಳು
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ಅಥವಾ ಹೆಚ್ಚಿನದು  
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ಅಥವಾ ಹೆಚ್ಚಿನದು
+- ಆಜೂರ್ ಒப்பಂದದೊಂದಿಗೆ [ಆಜೂರ್ سب್ಸ್ಕ್ರಿಪ್ಷನ್](https://azure.microsoft.com/free/) ಮತ್ತು ಮಾದರಿ ನಿಯೋಜನೆ
+- [ಆಜೂರ್ CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ಮೂಲಕ ಸೈನ್ ಇನ್ ಮಾಡಿ
 
-### ಅಗತ್ಯವಿರುವ ಪರಿಸರ ವ್ಯತ್ಯಯಗಳು
+### ಅಗತ್ಯ ಪರಿಸರ ವ್ಯತ್ಯಯಗಳು
 
 ```bash
-# zsh/ಬ್ಯಾಶ್
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+# zsh/bash
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# ಆಮೇಲೆ AzureCliCredential ಟೋಕನ್ ಪಡೆಯಲು ಸೈನ್ ಇನ್ ಮಾಡಿ
+az login
 ```
-  
+
 ```powershell
 # ಪವರ್‌ಶೆಲ್
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# ನಂತರ AzureCliCredential ಟೋಕನ್ ಪಡೆಯಲು ಲಾಗಿನ್ ಮಾಡಿ
+az login
 ```
-  
 
-### ಮಾದರಿ ಕೋಡ್
+### ಉದಾಹರಣಾ ಕೋಡ್
 
-ಕೋಡ್ ಉದಾಹರಣೆಯನ್ನು ಚಲಾಯಿಸಲು,  
+ಕೋಡ್ ಉದಾಹರಣೆಯನ್ನು ಚಾಲನೆ ಮಾಡಲು,
 
 ```bash
-# zsh/ಬ್ಯಾಶ್
+# zsh/bash
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-  
-ಅಥವಾ dotnet CLI ಬಳಸಿ:  
+
+ಅಥವಾ dotnet CLI ಬಳಸಿ:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
-  
-ಪೂರ್ಣ ಕೋಡ್‌ಗಾಗಿ [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) ನೋಡಿ.  
+
+ಸಂಪೂರ್ಣ ಕೋಡ್ ಗೆ [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) ನೋಡಿ.
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,28 +175,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Session for Context Management.
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+AgentSession session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -217,33 +207,32 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
 }
 ```
-  
 
-## 🎓 ಮುಖ್ಯ ಪಾಠಗಳು
+## 🎓 ಪ್ರಮುಖ ಅಂಶಗಳು
 
-1. **ಏಜೆಂಟ್ ಆರ್ಕಿಟೆಕ್ಚರ್**: Microsoft Agent Framework .NET ನಲ್ಲಿ AI ಏಜೆಂಟ್‌ಗಳನ್ನು ನಿರ್ಮಿಸಲು ಸ್ವಚ್ಛ, ಪ್ರಕಾರ-ಸುರಕ್ಷಿತ ವಿಧಾನವನ್ನು ಒದಗಿಸುತ್ತದೆ  
-2. **ಟೂಲ್ ಇಂಟಿಗ್ರೇಶನ್**: `[Description]` ಗುಣಲಕ್ಷಣಗಳೊಂದಿಗೆ ಅಲಂಕರಿಸಲಾದ ಕಾರ್ಯಗಳು ಏಜೆಂಟ್‌ಗಳಿಗೆ ಲಭ್ಯವಿರುವ ಟೂಲ್‌ಗಳಾಗುತ್ತವೆ  
-3. **ಸಂಭಾಷಣಾ ಸಂದರ್ಭ**: ಥ್ರೆಡ್ ನಿರ್ವಹಣೆ ಬಹು-ಮೋಡ ಸಂಭಾಷಣೆಯನ್ನು ಸಂಪೂರ್ಣ ಸಂದರ್ಭ ಜಾಗೃತತೆಯೊಂದಿಗೆ ಸಕ್ರಿಯಗೊಳಿಸುತ್ತದೆ  
-4. **ಕಾನ್ಫಿಗರೇಶನ್ ನಿರ್ವಹಣೆ**: ಪರಿಸರ ವ್ಯತ್ಯಯಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ಕ್ರೆಡೆನ್ಷಿಯಲ್ ಹ್ಯಾಂಡ್ಲಿಂಗ್ .NET ಉತ್ತಮ ಅಭ್ಯಾಸಗಳನ್ನು ಅನುಸರಿಸುತ್ತದೆ  
-5. **OpenAI ಹೊಂದಾಣಿಕೆ**: GitHub Models ಇಂಟಿಗ್ರೇಶನ್ OpenAI-ಅನುಕೂಲಕರ API ಗಳ ಮೂಲಕ ಸುಲಭವಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ  
+1. **ಏಜೆಂಟ್ ವಾಸ್ತುಶಿಲ್ಪ**: ಮೈಕ್ರೋಸಾಫ್ಟ್ ಏಜೆಂಟ್ ಫ್ರೇಮ್ವರ್ಕ್ .NET ನಲ್ಲಿ AI ಏಜೆಂಟುಗಳನ್ನು ನಿರ್ಮಿಸಲು ಸ್ವಚ್ಛ, ಪ್ರಕಾರ-ರಕ್ಷಿತ ಬಳಕೆಯನ್ನು ಒದಗಿಸುತ್ತದೆ
+2. **ಟೂಲ್ ಏಕೀಕರಣ**: `[Description]` ಲಕ್ಷಣಗಳೊಂದಿಗೆ ಅಲಂಕರಿಸಲಾದ ಕಾರ್ಯಗಳು ಏಜೆಂಟ್‌ಗೆ ಉಪಯುಕ್ತ ಸಾಧನಗಳಾಗಿ ಪರಿವರ್ತಿತವಾಗುತ್ತವೆ
+3. **ಸಂಭಾಷಣಾ ಸಾಂದರ್ಭಿಕತೆ**: ಸೆಷನ್ ನಿರ್ವಹಣೆಯೊಂದಿಗೆ ಬಹು-ತಿರುವು ಸಂಭಾಷಣೆಗಳು ಸಂಪೂರ್ಣ ಸಾಂದರ್ಭಿಕ ಜಾಗೃತಿ ಹೊಂದಿವೆ
+4. **ವಿನ್ಯಾಸ ನಿರ್ವಹಣೆ**: ಪರಿಸರ ವ್ಯತ್ಯಯಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ಪ್ರಮಾಣಪತ್ರ ನಿರ್ವಹಣೆ .NET ಉತ್ತಮ ಅಭ್ಯಾಸಗಳನ್ನು ಅನುಸರಿಸುತ್ತದೆ
+5. **ಆಜೂರ್ ಓಪನ್‌ಏಐ ರೆಸ್ಪಾನ್ಸ್ API**: ಏಜೆಂಟ್ ಆಜೂರ್.AI.OpenAI SDK ಮೂಲಕ ಆಜೂರ್ ಓಪನ್‌ಏಐ ರೆಸ್ಪಾನ್ಸ್ API ಅನ್ನು ಬಳಸುತ್ತದೆ
 
-## 🔗 ಹೆಚ್ಚುವರಿ ಸಂಪತ್ತುಗಳು
+## 🔗 ಹೆಚ್ಚುವರಿ ಸಂಪನ್ಮೂಲಗಳು
 
-- [Microsoft Agent Framework Documentation](https://learn.microsoft.com/agent-framework)  
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Microsoft Agent Framework ಡಾಕ್ಯುಮೆಂಟೇಶನ್](https://learn.microsoft.com/agent-framework)
+- [Microsoft Foundry ನಲ್ಲಿ ಆಜೂರ್ ಓಪನ್‌ಏಐ](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET ಸಿಂಗಲ್ ಫೈಲ್ ಅಪ್ಲಿಕೇಶನ್ಸ್](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ಅಸ್ವೀಕಾರ**:  
-ಈ ದಾಖಲೆ AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ಶುದ್ಧತೆಯಿಗಾಗಿ ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸತ್ಯತೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಾಖಲೆ ಪ್ರಾಮಾಣಿಕ ಮೂಲವಾಗಿ ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದದ ಬಳಕೆಯಿಂದ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪುಅರ್ಥಗಳು ಅಥವಾ ತಪ್ಪುಅರ್ಥೈಸುವಿಕೆಗೆ ನಾವು ಹೊಣೆಗಾರರಾಗುವುದಿಲ್ಲ.
+**ಅಸ್ವೀಕಾರ**:
+ಈ ದಸ್ತಾವೇಜು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯನ್ನು ಸಾಧಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸಡ್ಡೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಸ್ತಾವೇಜು ಪ್ರಾಮಾಣಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದವನ್ನು ಬಳಸುವ ಮೂಲಕ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪು ಅರ್ಥಗಳ ಅಥವಾ ತಪ್ಪು ವ್ಯಾಖ್ಯಾನಗಳ ಬಗ್ಗೆ ನಾವು ಹೊಣೆಗಾರರಲ್ಲ.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

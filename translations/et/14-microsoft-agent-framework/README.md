@@ -1,54 +1,54 @@
-# Microsoft Agent Frameworki uurimine
+# Microsoft Agent Frameworki avastamine
 
 ![Agent Framework](../../../translated_images/et/lesson-14-thumbnail.90df0065b9d234ee.webp)
 
 ### Sissejuhatus
 
-Selles õppetükis käsitletakse:
+See õppetund käsitleb:
 
-- Microsoft Agent Frameworki mõistmine: peamised omadused ja väärtus  
-- Microsoft Agent Frameworki peamiste kontseptsioonide uurimine
-- Täiustatud MAF musterid: töövood, vahevara ja mälu
+- Microsoft Agent Frameworki mõistmine: Põhifunktsioonid ja väärtus  
+- Microsoft Agent Frameworki põhikontseptsioonide avastamine
+- Täiustatud MAF mustrid: töövood, vahevara ja mälu
 
 ## Õpieesmärgid
 
-Pärast selle õppetüki läbimist oskad:
+Pärast selle õppetunni läbimist oskad:
 
-- Luua tootmisvalmis tehisintellekti agente, kasutades Microsoft Agent Frameworki
-- Rakendada Microsoft Agent Frameworki põhiomadusi oma agentuursetes kasutusjuhtudes
-- Kasutada täiustatud mustreid, sealhulgas töövooge, vahevara ja jälgitavust
+- Ehita tootmiskõlblikke tehisintellekti agente Microsoft Agent Frameworki abil
+- Rakenda Microsoft Agent Frameworki põhifunktsioone oma agentuursete kasutusjuhtumite jaoks
+- Kasuta täiustatud mustreid, sealhulgas töövooge, vahevara ja jälgitavust
 
-## Koodinäited
+## Koodinäited 
 
-Microsoft Agent Frameworki (MAF) koodinäited on selle hoidla failides `xx-python-agent-framework` ja `xx-dotnet-agent-framework`.
+Koodinäited [Microsoft Agent Frameworki (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) kohta leiad sellest hoidlast failide `xx-python-agent-framework` ja `xx-dotnet-agent-framework` alt.
 
 ## Microsoft Agent Frameworki mõistmine
 
 ![Framework Intro](../../../translated_images/et/framework-intro.077af16617cf130c.webp)
 
-[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framewrok) on Microsofti ühtne raamistik tehisintellekti agentide loomiseks. See pakub paindlikkust erinevate agentuursete kasutusjuhtude lahendamiseks nii tootmiskeskkonnas kui uurimises, sealhulgas:
+[Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework) on Microsofti ühtne raamistik tehisintellekti agentide ehitamiseks. See pakub paindlikkust erinevate agentuursete kasutusjuhtumite lahendamiseks nii tootmiskeskkonnas kui ka uurimistöös, sealhulgas:
 
-- **Järjestikune agente orkestreerimine** olukordades, kus on vaja samm-sammult töövoogusid.
-- **Samal ajal toimuv orkestreerimine** olukordades, kus agentidel tuleb ülesandeid korraga täita.
-- **Rühma vestluse orkestreerimine** olukordades, kus agentidel on võimalik ühel ülesandel koos töötada.
-- **Üleandmise orkestreerimine** olukordades, kus agentide vahel antakse ülesande erinevad alamtööülesanded pärast nende lõpetamist üle.
-- **Magnetiline orkestreerimine** olukordades, kus juhendav agent loob ja muudab ülesannete nimekirja ning koordineerib alamagente ülesande täitmiseks.
+- **Järjestikune agentide orkestreerimine** olukordades, kus on vajalikud samm-sammult töövood.
+- **Samasajaline orkestreerimine** olukordades, kus agendid peavad ülesandeid samaaegselt täitma.
+- **Grupi vestluse orkestreerimine** olukordades, kus agendid saavad koos ühe ülesande kallal koostööd teha.
+- **Ülesande üleandmise orkestreerimine** olukordades, kus agendid annavad ülesande alamülesannetena üksteisele üle.
+- **Magnetiline orkestreerimine** olukordades, kus juht-agent loob ja muudab ülesannete nimekirja ning koordineerib alamagentide tegevust ülesande täitmiseks.
 
-Tehisintellekti agentide tootmisse toomiseks on MAF sisaldanud ka funktsioone:
+Tootmiskeskkonna AI agentide tarnimiseks sisaldab MAF lisaks järgmisi funktsioone:
 
-- **Jälgitavus** OpenTelemetry kasutamise kaudu, kus iga AI agendi tegevus, kaasa arvatud tööriistade kutsumine, orkestreerimise sammud, mõttekäigud ja jõudluse jälgimine Microsoft Foundry armatuurlaual, on jälgitav.
-- **Turvalisus** natiivse Microsoft Foundrys agentide majutamise kaudu, mis sisaldab rollipõhise juurdepääsu, privaatsete andmete käsitluse ja sisukaitse sisseehitatud turvakontrolle.
-- **Vastupidavus** – agentide lõimed ja töövood võivad peatuda, jätkuda ja vigadest taastuda, võimaldades pikemaajalisi protsesse.
-- **Juhitavus** – inimeste kaasamise töövood on toetatud, kus ülesanded märgitakse inimese kinnitust vajavateks.
+- **Jälgitavust** kasutades OpenTelemetryt, kus igasugune AI agendi tegevus, sealhulgas tööriistakutsete, orkestreerimise sammude, mõttekäikude ja jõudluse jälgimine Microsoft Foundry armatuurlaudade kaudu on nähtav.
+- **Turvalisust** majutades agente natiivsete Microsoft Foundry keskkonnas, mis sisaldab turvakontrolli nagu rollipõhine ligipääs, privaatandmete käitlemine ja sisuturbe ehitamine.
+- **Vastupidavust**, kuna agendi lõimed ja töövood võivad peatuda, jätkata ja taastuda vigadest, võimaldades pikemaid protsesse.
+- **Juhtimist**, kuna inimesega kaasatud töövood toetavad ülesandeid, mis vajavad inimese kinnitust.
 
-Microsoft Agent Framework keskendub ka koostalitlusvõimele, olles:
+Microsoft Agent Framework keskendub ka ühilduvusele, võimaldades:
 
-- **Pilve sõltumatu** – agente saab käivitada konteinerites, kohapeal ja mitmel pilveplatvormil.
-- **Teenusepakkuja sõltumatu** – agente saab luua eelistatud SDKga, sh Azure OpenAI ja OpenAI abil.
-- **Avatud standardite integreeriv** – agentidel on võimalik kasutada protokolle nagu Agent-to-Agent (A2A) ja Model Context Protocol (MCP, mudeli konteksti protokoll), et avastada ja kasutada teisi agente ja tööriistu.
-- **Pluginate ja ühenduste tugi** – võimalik luua ühendusi andmete ja mäluteenustega nagu Microsoft Fabric, SharePoint, Pinecone ja Qdrant.
+- **Pilvest sõltumatust** - Agendid saavad töötada konteinerites, kohapeal ja mitmes erinevas pilves.
+- **Tarnija sõltumatust** - Agente saab luua eelistatud SDK-ga, sh Azure OpenAI ja OpenAI abil.
+- **Avatud standardite integreerimist** - Agendid saavad kasutada protokolle nagu Agent-to-Agent (A2A) ja Model Context Protocol (MCP), et avastada ja kasutada teisi agente ning tööriistu.
+- **Pluginad ja ühendused** - Ühendused võimaldavad andme- ja mäluteenuseid nagu Microsoft Fabric, SharePoint, Pinecone ja Qdrant.
 
-Vaatame, kuidas neid omadusi rakendatakse Microsoft Agent Frameworki põhikontseptsioonides.
+Vaatame, kuidas neid funktsioone rakendatakse Microsoft Agent Frameworki mõningates põhikontseptsioonides.
 
 ## Microsoft Agent Frameworki põhikontseptsioonid
 
@@ -58,13 +58,14 @@ Vaatame, kuidas neid omadusi rakendatakse Microsoft Agent Frameworki põhikontse
 
 **Agentide loomine**
 
-Agentide loomine toimub tuletamisteenuse (LLM pakkumise teenus) määratlemise, AI agendile järgimiseks mõeldud juhiste ja määratud `nime` kaudu:
+Agendi loomine toimub defineerides järeldamisteenus (LLM pakkuja), komplekt juhiseid AI agendile järgimiseks ja määrates `name`:
+
 
 ```python
 agent = AzureOpenAIChatClient(credential=AzureCliCredential()).create_agent( instructions="You are good at recommending trips to customers based on their preferences.", name="TripRecommender" )
 ```
 
-Ülaltoodud on kasutatud `Azure OpenAI`, kuid agente saab luua ka mitme teenuse abil, sh `Microsoft Foundry Agent Service`:
+Ülaltoodud näide kasutab `Azure OpenAI`, kuid agente saab luua mitmete teenuste abil, sh `Microsoft Foundry Agent Service`:
 
 ```python
 AzureAIAgentClient(async_credential=credential).create_agent( name="HelperAgent", instructions="You are a helpful assistant." ) as agent
@@ -80,13 +81,13 @@ agent = OpenAIResponsesClient().create_agent( name="WeatherBot", instructions="Y
 agent = OpenAIChatClient().create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-või [MiniMax](https://platform.minimaxi.com/), mis pakub OpenAI-ga ühilduvat API-d suurte kontekstiakendustega (kuni 204K tokenit):
+või [MiniMax](https://platform.minimaxi.com/), mis pakub OpenAI-ga ühilduvat API-t suurte kontekstivõimalustega (kuni 204K tokenit):
 
 ```python
-agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M2.7").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
+agent = OpenAIChatClient(base_url="https://api.minimax.io/v1", api_key=os.environ["MINIMAX_API_KEY"], model_id="MiniMax-M3").create_agent( name="HelpfulAssistant", instructions="You are a helpful assistant.", )
 ```
 
-või kaugarentide puhul A2A protokolli abil:
+või kaugagendid kasutades A2A protokolli:
 
 ```python
 agent = A2AAgent( name=agent_card.name, description=agent_card.description, agent_card=agent_card, url="https://your-a2a-agent-host" )
@@ -94,7 +95,7 @@ agent = A2AAgent( name=agent_card.name, description=agent_card.description, agen
 
 **Agentide käivitamine**
 
-Agente käivitatakse `.run` või `.run_stream` meetoditega, vastavalt voogedastuse või mitte-voogedastuse vastuste saamiseks.
+Agente käitatakse `.run` või `.run_stream` meetoditega, vastavalt mittestriimiliste või voopõhiste vastuste puhul.
 
 ```python
 result = await agent.run("What are good places to visit in Amsterdam?")
@@ -108,75 +109,75 @@ async for update in agent.run_stream("What are the good places to visit in Amste
 
 ```
 
-Igal agendi jooksul on lisaks valikud, millega saab kohandada parameetreid nagu agendi kasutatavad `max_tokens`, tööriistad (`tools`), mida agent saab kutsuda, ja isegi agendi kasutatav `mudel`.
+Iga agendi käivitamisel võib olla ka võimalusi kohandada parameetreid nagu agendi poolt kasutatavad `max_tokens`, agendi poolt kutsutavad `tools` ja isegi agendi jaoks kasutatav `model`.
 
-See on kasulik olukordades, kus konkreetseid mudeleid või tööriistu on kasutaja ülesande täitmiseks vaja.
+See on kasulik juhtudel, kus konkreetseid mudeleid või tööriistu on vaja kasutaja ülesande täitmiseks.
 
 **Tööriistad**
 
-Tööriistad saab määratleda nii agendi loomisel:
+Tööriistu saab määratleda nii agendi loomisel:
 
 ```python
 def get_attractions( location: Annotated[str, Field(description="The location to get the top tourist attractions for")], ) -> str: """Get the top tourist attractions for a given location.""" return f"The top attractions for {location} are." 
 
 
-# ChatAgendi otse loomisel
+# ChatAgendi otsese loomise korral
 
 agent = ChatAgent( chat_client=OpenAIChatClient(), instructions="You are a helpful assistant", tools=[get_attractions]
 
 ```
 
-kui ka agenti käivitades:
+kui ka agendi käivitamisel:
 
 ```python
 
-result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Tööriist on mõeldud ainult selleks käivitamiseks )
+result1 = await agent.run( "What's the best place to visit in Seattle?", tools=[get_attractions] # Tööriist, mis on mõeldud ainult selle käivituse jaoks )
 ```
 
-**Agendi lõimed**
+**Agentide lõimed**
 
-Agendi lõimesid kasutatakse mitmekäiguliste vestluste haldamiseks. Lõimesid saab luua:
+Agentide lõimedega hallatakse mitme vooruga vestlusi. Lõime saab luua kas:
 
-- Kasutades `get_new_thread()`, mis võimaldab lõime aja jooksul salvestada
-- Automaatse lõime loomine agendi käivitamisel, kus lõim kestab vaid jooksu ajal.
+- `get_new_thread()` abil, mis võimaldab lõime salvestada aja jooksul
+- automaatse lõime loomisega agendi käivitamisel, kus lõime kestab ainult jooksva seansi jooksul.
 
-Lõime loomiseks näeb kood välja nii:
+Lõime loomiseks näeb kood välja selline:
 
 ```python
-# Loo uus lõim.
-thread = agent.get_new_thread() # Käivita agent lõimiga.
+# Loo uus niit.
+thread = agent.get_new_thread() # Käivita agent niidiga.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 
 ```
 
-Seejärel saab lõime serialiseerida hilisemaks kasutamiseks:
+Lõime võib seejärel serialiseerida hilisemaks salvestamiseks:
 
 ```python
-# Loo uus lõim.
+# Loo uus niit.
 thread = agent.get_new_thread() 
 
-# Käivita agent lõimuga.
+# Käivita agent koos niidiga.
 
 response = await agent.run("Hello, how are you?", thread=thread) 
 
-# Seerialiseeri lõim salvestamiseks.
+# Sereali keera niit salvestamiseks.
 
 serialized_thread = await thread.serialize() 
 
-# Deserialiseeri lõime olek pärast laadimist salvestusest.
+# Desereali keera niidi olek pärast laadimist salvestusest.
 
 resumed_thread = await agent.deserialize_thread(serialized_thread)
 ```
 
 **Agendi vahevara**
 
-Agendid suhtlevad tööriistade ja LLMidega kasutaja ülesannete täitmiseks. Mõnel juhul soovime tegevusi või jälgimist nendevaheliste suhtluste ajal. Agentide vahevara võimaldab seda läbi:
+Agendid suhtlevad tööriistade ja LLM-idega kasutaja ülesannete täitmiseks. Teatud olukordades soovime nende suhtluste vahepeal käivitada või jälgida tegevusi. Agendi vahevara võimaldab seda teha läbi:
 
-*Funktsiooni vahevara*
+*Funktsioonide vahevara*
 
-See vahevara võimaldab tegevuse täitmist agendi ja funktsiooni/tööriista vahel, mida agent kutsub. Näiteks võib seda kasutada funktsioonikõnede logimiseks.
+See vahevara võimaldab käivitada tegevuse agendi ja funktsiooni/tööriista vahel, mida see kutsub. Näiteks võib see olla kasulik funktsiooni kõnede logimiseks.
 
-Allolevas koodis määrab `next`, kas kutsutakse järgmine vahevara või tegelik funktsioon.
+Järgnev koodis määrab `next`, kas kutsutakse järgmine vahevara või tegelik funktsioon.
 
 ```python
 async def logging_function_middleware(
@@ -184,21 +185,21 @@ async def logging_function_middleware(
     next: Callable[[FunctionInvocationContext], Awaitable[None]],
 ) -> None:
     """Function middleware that logs function execution."""
-    # Eeltöötlemine: Logi enne funktsiooni täitmist
+    # Eeltöötlus: Logi enne funktsiooni täitmist
     print(f"[Function] Calling {context.function.name}")
 
-    # Jätka järgmise vahemooduli või funktsiooni täitmisega
+    # Jätka järgmise vahenduse või funktsiooni täitmisega
     await next(context)
 
-    # Järelkäsitlus: Logi pärast funktsiooni täitmist
+    # Järelprotsess: Logi pärast funktsiooni täitmist
     print(f"[Function] {context.function.name} completed")
 ```
 
 *Vestluse vahevara*
 
-See vahevara võimaldab tegevuse täitmist või logimist agendi ja LLM vaheliste päringute vahel.
+See vahevara võimaldab käivitada või logida tegevust agendi ja LLM vahelistes taotlustes.
 
-See sisaldab olulist teavet, nagu agendile saadetavad `messages`.
+See sisaldab olulist infot, nagu AI teenusele saadetavad `sõnumid`.
 
 ```python
 async def logging_chat_middleware(
@@ -206,39 +207,39 @@ async def logging_chat_middleware(
     next: Callable[[ChatContext], Awaitable[None]],
 ) -> None:
     """Chat middleware that logs AI interactions."""
-    # Eeltöötlus: Logi enne tehisintellekti kõnet
+    # Eeltöötlus: Logi enne tehisintellekti kutset
     print(f"[Chat] Sending {len(context.messages)} messages to AI")
 
-    # Jätka järgmise vahevara või tehisintellekti teenuse juurde
+    # Jätka järgmise vahendustarkvara või tehisintellekti teenusega
     await next(context)
 
-    # Järelhooldus: Logi pärast tehisintellekti vastust
+    # Järeltoiming: Logi pärast tehisintellekti vastust
     print("[Chat] AI response received")
 
 ```
 
 **Agendi mälu**
 
-Nagu on käsitletud `Agentic Memory` õppetükis, on mälu oluline, et agent saaks toimida erinevates kontekstides. MAF pakub mitut erinevat mälu tüüpi:
+Nagu on käsitletud õppetunnis `Agentic Memory`, on mälu oluline komponent, mis võimaldab agendil töötada erinevates kontekstides. MAF pakub mitut erinevat mälutüüpi:
 
-*Mälus ringi salvestus*
+*Mälu rakenduse sees*
 
-See on mälu, mis salvestatakse lõimedes rakenduse käivitamise ajal.
+See on mälu, mis salvestatakse lõimedes rakenduse tööajal.
 
 ```python
 # Loo uus lõim.
-thread = agent.get_new_thread() # Käivita agent lõimega.
+thread = agent.get_new_thread() # Käivita agent koos lõimega.
 response = await agent.run("Hello, I am here to help you book travel. Where would you like to go?", thread=thread)
 ```
 
-*Pidevad sõnumid*
+*Püsivad sõnumid*
 
 Seda mälu kasutatakse vestluste ajaloo salvestamiseks erinevate sessioonide vahel. See on määratletud kasutades `chat_message_store_factory`:
 
 ```python
 from agent_framework import ChatMessageStore
 
-# Loo kohandatud sõnumite hoidla
+# Loo kohandatud sõnumite salvestus
 def create_message_store():
     return ChatMessageStore()
 
@@ -252,12 +253,12 @@ agent = ChatAgent(
 
 *Dünaamiline mälu*
 
-See mälu lisatakse konteksti enne agentide käivitamist. Seda mälu saab salvestada ka välismälu teenustesse nagu mem0:
+Seda mälu lisatakse konteksti enne agendi käivitamist. Seda võib hoida väliste teenuste nagu mem0 abil:
 
 ```python
 from agent_framework.mem0 import Mem0Provider
 
-# Mem0 kasutamine täiustatud mäluvõimaluste jaoks
+# Kasutades Mem0 täiustatud mäluvõimaluste jaoks
 memory_provider = Mem0Provider(
     api_key="your-mem0-api-key",
     user_id="user_123",
@@ -274,7 +275,7 @@ agent = ChatAgent(
 
 **Agendi jälgitavus**
 
-Jälgitavus on oluline usaldusväärsete ja hooldatavate agentuuri süsteemide ülesehitamiseks. MAF integreerub OpenTelemetryga, pakkudes jälgimist ja mõõtureid parema jälgitavuse saavutamiseks.
+Jälgitavus on oluline usaldusväärsete ja hooldatavate agentuuri süsteemide loomiseks. MAF integreerub OpenTelemetryga, pakkudes jälgimist ja mõõdikuid parema jälgitavuse jaoks.
 
 ```python
 from agent_framework.observability import get_tracer, get_meter
@@ -290,21 +291,21 @@ counter.add(1, {"key": "value"})
 
 ### Töövood
 
-MAF pakub töövooge, mis on eelmääratletud sammud ülesande täitmiseks, ja sisaldavad AI agente nendes sammudes.
+MAF pakub töövooge, mis on eelmääratletud sammud ülesande täitmiseks, kaasates AI agente nende sammude komponentidena.
 
-Töövood koosnevad erinevatest komponentidest, mis võimaldavad paremat kontrolli. Töövood toetavad ka **mitme agendi orkestreerimist** ja **töövoo seisundite salvestamist (checkpointing)**.
+Töövood koosnevad erinevatest komponentidest, mis võimaldavad paremat voolu juhtimist. Töövood võimaldavad ka **mitme agendi orkestreerimist** ja **läbipääsupunktide loomist** töövoogude olekute salvestamiseks.
 
 Töövoo põhikomponendid on:
 
-**Täitjad**
+**Täideviijad**
 
-Täitjad saavad sisendsõnumeid, täidavad neile määratud ülesandeid ja annavad seejärel välja väljundisõnumi. See liigutab töövoogu suurema ülesande täitmise suunas. Täitjad võivad olla kas AI agent või kohandatud loogika.
+Täideviijad saavad sisendsõnumeid, täidavad neile määratud ülesandeid ja toodavad väljundisõnumeid. See viib töövoo edasi suurema ülesande täitmise suunas. Täideviijad võivad olla kas AI agent või kohandatud loogika.
 
-**Suunad**
+**Servad**
 
-Suunad määratlevad töövoos sõnumite voolu. Need võivad olla:
+Servasid kasutatakse sõnumite voo määratlemiseks töövoos. Need võivad olla:
 
-*Otseühendused* - lihtsad ühe-ühele ühendused täitjate vahel:
+*Otseühendused* - Lihtsad ühelt täideviijalt teisele ühendused:
 
 ```python
 from agent_framework import WorkflowBuilder
@@ -315,45 +316,134 @@ builder.set_start_executor(source_executor)
 workflow = builder.build()
 ```
 
-*Tingimuslikud ühendused* - aktiveeruvad teatud tingimuse täitmisel. Näiteks kui hotellitube pole saadaval, saab täitja pakkuda muid valikuid.
+*Tingimuslikud ühendused* - Aktiveeritakse, kui teatud tingimus on täidetud. Näiteks kui hotellitoad ei ole saadaval, saab täideviija soovitada muid võimalusi.
 
-*Vahetus-tingimus ühendused* - suunavad sõnumeid erinevatele täitjatele vastavalt määratletud tingimustele. Näiteks kui reisikülastajal on prioriteetne ligipääs, käsitletakse tema ülesandeid läbi teise töövoo.
+*Lüliti-juhtumi ühendused* - Suunavad sõnumeid erinevatele täideviijatele vastavalt määratletud tingimustele. Näiteks kui reisiklient on prioriteediga, käsitletakse tema ülesanded teise töövoo kaudu.
 
-*Laiendusühendused* - saadavad ühe sõnumi mitmele sihtmärgile.
+*Hulgisaadetised* - Saadab ühe sõnumi mitmele sihtmärgile.
 
-*Kogumisühendused* - koguvad sõnumeid eri täitjatelt ja saadavad ühe sihtmärgi poole.
+*Hulgakogumised* - Kogub mitme täideviija sõnumeid ja saadab ühe sihtmärgi juurde.
 
 **Sündmused**
 
-Paremaks jälgitavuseks pakub MAF töövoo käitusündmusi, sealhulgas:
+Paremaks jälgitavuseks töövoogudel pakub MAF sisseehitatud sündmusi täitmise jaoks, sealhulgas:
 
-- `WorkflowStartedEvent` – töövoo käivitamine algab
-- `WorkflowOutputEvent` – töövoog toodab väljundi
-- `WorkflowErrorEvent` – töövoos esineb viga
-- `ExecutorInvokeEvent` – täitja alustab töötlemist
-- `ExecutorCompleteEvent` – täitja lõpetab töötlemise
-- `RequestInfoEvent` – päring esitatakse
+- `WorkflowStartedEvent`  - töövoo täitmine algab
+- `WorkflowOutputEvent` - töövoog genereerib väljundi
+- `WorkflowErrorEvent` - töövoos tekib tõrge
+- `ExecutorInvokeEvent`  - täideviija alustab töötlemist
+- `ExecutorCompleteEvent`  - täideviija lõpetab töötlemise
+- `RequestInfoEvent` - taotlus esitatakse
 
 ## Täiustatud MAF mustrid
 
-Ülaltoodud jaotised käsitlesid Microsoft Agent Frameworki põhikontseptsioone. Kui ehitad keerukamaid agente, siis tasub kaaluda järgmisi täiustatud mustreid:
+Ülaltoodud osad käsitlevad Microsoft Agent Frameworki põhikontseptsioone. Kui ehitad keerukamaid agente, siis siin on mõned täiustatud mustrid, mida kaaluda:
 
-- **Vahevara kompositsioon**: Kettideks kombineeri mitu vahevara töötlejat (logimine, autentimine, kiirusepiirangud) funktsiooni- ja vestlusvahevara abil, et saavutada detailne kontroll agendi käitumise üle.
-- **Töövoo seisundite salvestamine**: Kasuta töövoo sündmusi ja serialiseerimist pikkade agentide protsesside salvestamiseks ja jätkamiseks.
-- **Dünaamiline tööriista valik**: Võta kasutusele RAG tööriistade kirjelduste peal, kombineerituna MAF tööriistade registreerimisega, et esitada päringu kohta ainult asjakohaseid tööriistu.
-- **Mitme agendi üleandmine**: Kasuta töövoo ühendusi ja tingimuslikke marsruute spetsialiseerunud agentide vaheliseks ülesannete üleandmiseks.
+- **Vahevara kokkupanek**: Kettita mitut vahevara käsitlejat (logimine, autentimine, kiirusepiirang) funktsiooni- ja vestlusvahevara abil täpsema kontrolli saamiseks agendi käitumise üle.
+- **Töövoo läbipääsupunktid**: Kasuta töövoo sündmusi ja serialiseerimist pikkade agentide protsesside salvestamiseks ja jätkamiseks.
+- **Dünaamiline tööriista valik**: Ühenda RAG tööriistakirjelduste üle MAF-i tööriistaregistreerimisega, et päringu kohta esitada vaid sobivad tööriistad.
+- **Mitme agendi ülesande üleminek**: Kasuta töövoo servi ja tingimuslikku marsruutimist spetsialiseeritud agentide vahelisteks ülesannete üleandmisteks.
 
-## Koodinäited
+## LangChain / LangGraph agentide majutamine Microsoft Foundryl
 
-Microsoft Agent Frameworki koodinäited on selle hoidla failides `xx-python-agent-framework` ja `xx-dotnet-agent-framework`.
+Microsoft Agent Framework on **raamistikuülene** — sa ei ole piiratud ainult MAFis kirjutatud agentidega. Kui sul on juba agent ehitatud **LangChaini** või **LangGraphiga**, saad seda käitada kui **Microsoft Foundry majutatud agenti**, kus Foundry haldab jooksutamist, sessioone, skaleerimist, identiteeti ja protokolli lõpp-punkte, samal ajal kui sinu agendi loogika jääb LangGraphi.
 
-## Kas sul on Microsoft Agent Frameworki kohta rohkem küsimusi?
+Seda tehakse paketiga `langchain_azure_ai.agents.hosting`, mis eksponeerib koos kompileeritud LangGraph graafiku samadel protokollidel, mida Foundry majutatud agendid kasutavad.
 
-Liitu [Microsoft Foundry Discordiga](https://aka.ms/ai-agents/discord), et kohtuda teiste õppijatega, osaleda konsultaatioaegadel ja saada vastused oma tehisintellekti agentide küsimustele.
+**1. Paigalda hosting lisa:**
+
+```bash
+pip install -U "langchain-azure-ai[hosting]>=1.2.4" azure-identity
+```
+
+`hosting` lisa paigaldab Foundry protokolliteegid: `azure-ai-agentserver-responses` (OpenAI-yhildub `/responses` lõpp-punkt) ja `azure-ai-agentserver-invocations` (üldine `/invocations` lõpp-punkt).
+
+**2. Vali majutamisprotokoll:**
+
+| Protokoll | Host klass | Lõpp-punkt | Kasuta kui |
+|----------|-----------|----------|----------|
+| **Responses** | `ResponsesHostServer` | `/responses` | Soovid OpenAI-yhildavat vestlust, striimimist, vastuste ajalugu ja vestluse lõimimist — see on soovitatud vaikimisi mitmepoolses vestluses. |
+| **Invocations** | `InvocationsHostServer` | `/invocations` | Vajad kohandatud JSON-kuju, webhook-tüüpi lõpp-punkti või mittevestlusvoogudega töötlemist. |
+
+Kuna **Responses API on Foundry peamine agentuuri-arenduse API**, alusta enamike agentide puhul `ResponsesHostServer`-iga.
+
+**3. Konfigureeri keskkonnamuutujad** (`az login` esmalt, et `DefaultAzureCredential` saaks autentida):
+
+```bash
+export FOUNDRY_PROJECT_ENDPOINT="https://<resource>.services.ai.azure.com/api/projects/<project>"
+export FOUNDRY_MODEL_NAME="gpt-4.1"
+```
+
+Kui agent hiljem käib Foundry majutatud agendina, süstib platvorm automaatselt `FOUNDRY_PROJECT_ENDPOINT`.
+
+**4. Eksponeeri LangGraph agent Responses protokolli kaudu:**
+
+```python
+import os
+
+from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from langchain.agents import create_agent
+from langchain_openai import ChatOpenAI
+from langchain_azure_ai.agents.hosting import ResponsesHostServer
+
+_AZURE_AI_SCOPE = "https://ai.azure.com/.default"
+
+
+def build_chat_model() -> ChatOpenAI:
+    project_endpoint = os.environ["FOUNDRY_PROJECT_ENDPOINT"].rstrip("/")
+    deployment = os.environ.get("FOUNDRY_MODEL_NAME", "gpt-4.1")
+    credential = DefaultAzureCredential()
+    project = AIProjectClient(endpoint=project_endpoint, credential=credential)
+    openai_client = project.get_openai_client()
+    token_provider = get_bearer_token_provider(credential, _AZURE_AI_SCOPE)
+
+    # ChatOpenAI sihib siin Foundry projekti OpenAI-ga ühilduvale (Responses) lõpp-punktile.
+    return ChatOpenAI(
+        model=deployment,
+        base_url=str(openai_client.base_url),
+        api_key=token_provider,
+    )
+
+
+def main() -> None:
+    graph = create_agent(build_chat_model(), tools=[])
+    port = int(os.environ.get("PORT", "8088"))
+    ResponsesHostServer(graph).run(port=port)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Käivita lokaalselt käsuga `python main.py`, seejärel saada Responses taotlus aadressile `http://localhost:8088/responses`.
+
+**Peamised omadused:**
+
+- **Vestlused**: Kliendid jätkavad vestlust, edastades `previous_response_id` või `conversation` ID. Kui su graafik on kompileeritud LangGraphi läbipääsupunktiga, võtab Foundry vestluse oleku salvestamiseks läbipääsupunkti võtme (kasuta tootmises vastupidavat läbipääsupunkti; `MemorySaver` sobib lokaalseks testimiseks).
+- **Inimesega kaasatus**: Kui graafikus kasutatakse LangGraphi `interrupt()`, kuvab `ResponsesHostServer` ootel katkestuse Responsei `function_call` / `mcp_approval_request` kirjena ja kliendid jätkavad sobiva `function_call_output` / `mcp_approval_response` vastusega.
+- **Deploy Foundry-sse**: Kasuta Azure Developer CLI-d — `azd ext install azure.ai.agents`, `azd ai agent init -m <manifest>`, `azd ai agent run` (lokaalne, nõuab Dockerit), siis `azd provision` ja `azd deploy`. Majutatud agendi kasutuselevõtt nõuab **Foundry projektihalduri** rolli.
+
+Jooksev näidis sellest asub failis [code-samples/14-langchain-hosted-agent.py](../../../14-microsoft-agent-framework/code-samples/14-langchain-hosted-agent.py). Täieliku läbivaatuse jaoks (Invocations protokoll, kohandatud päringu skeemid ja veaotsing) vaata [Host LangGraph agents as Foundry hosted agents](https://learn.microsoft.com/azure/foundry/how-to/develop/langchain-hosted-agents).
+
+## Koodinäited 
+
+Microsoft Agent Frameworki koodinäited leiad sellest hoidlast failide `xx-python-agent-framework` ja `xx-dotnet-agent-framework` alt.
+
+## Veel küsimusi Microsoft Agent Frameworki kohta?
+
+Liitu [Microsoft Foundry Discordiga](https://discord.com/invite/ATgtXmAS5D), et kohtuda teiste õppijatega, osaleda vastuvõtutundides ja saada oma AI agentide küsimustele vastused.
+## Eelmine õppetund
+
+[AI agentide mälu](../13-agent-memory/README.md)
+
+## Järgmine õppetund
+
+[Arvuti kasutamise agentide loomine (CUA)](../15-browser-use/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastutusest vabastamine**:  
-See dokument on tõlgitud kasutades tehisintellektil põhinevat tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüame täpsust, tuleb arvestada, et automatiseeritud tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle algkeeles tuleks pidada autoriteetseks allikaks. Kriitilise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta tõrgete ega arusaamatuste eest, mis võivad sellest tõlkest tuleneda.
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

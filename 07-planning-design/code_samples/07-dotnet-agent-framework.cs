@@ -1,34 +1,31 @@
 #!/usr/bin/dotnet run
-#:package Microsoft.Extensions.AI@9.9.1
-#:package Microsoft.Agents.AI.OpenAI@1.0.0-preview.251001.3
-#:package Microsoft.Agents.AI@1.0.0-preview.251001.3
+#:package Microsoft.Extensions.AI@10.*
+#:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 #:package DotNetEnv@3.1.1
 
+#:property JsonSerializerIsReflectionEnabledByDefault=true
+
 using System;
-using System.ClientModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 using DotNetEnv;
+using OpenAI.Chat;
 
 // Load environment variables from .env file
-Env.Load("../../../.env");
+Env.Load("../../.env");
 
-// Get environment configuration
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI client options
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Create OpenAI client
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define agent configuration
 const string AGENT_NAME = "TravelPlanAgent";
@@ -44,8 +41,10 @@ const string AGENT_INSTRUCTIONS = @"You are an planner agent.
     - DefaultAgent: For handling general request";
 
 // Configure agent with structured output
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -56,9 +55,9 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 
 // Create AI agent
-AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions)
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(agentOptions);
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(agentOptions);
 
 // Execute planning request
 Console.WriteLine(await agent.RunAsync("Create a travel plan for a family of 4, with 2 kids, from Singapore to Melbourne"));

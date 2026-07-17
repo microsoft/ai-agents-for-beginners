@@ -28,9 +28,9 @@ using DotNetEnv;
 // Load environment variables from .env file
 Env.Load("../../../.env");
 
-// Configure Azure AI Foundry endpoint and credentials
+// Configure Microsoft Foundry endpoint and credentials
 var azure_foundry_endpoint = Environment.GetEnvironmentVariable("AZURE_AI_PROJECT_ENDPOINT") ?? throw new InvalidOperationException("AZURE_AI_PROJECT_ENDPOINT is not set.");
-var azure_foundry_model_id = "gpt-4o-mini";
+var azure_foundry_model_id = "gpt-5-mini";
 var bing_conn_id = Environment.GetEnvironmentVariable("BING_CONNECTION_ID");
 
 // Agent Instructions for Content Production Workflow
@@ -63,7 +63,7 @@ https://github.com/microsoft/ai-agents-for-beginners/tree/main/01-intro-to-ai-ag
 
 ***Note*** Don't create any sample code 
 
-## Introduce Azure AI Foundry Agent Service 
+## Introduce Microsoft Foundry Agent Service 
 https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview
 
 ***Note*** Don't create any sample code 
@@ -83,7 +83,7 @@ BingGroundingToolDefinition bingGroundingTool = new(
 // Create persistent agents client with Azure CLI authentication
 var persistentAgentsClient = new PersistentAgentsClient(azure_foundry_endpoint, new AzureCliCredential());
 
-// Create the three specialized agents in Azure AI Foundry
+// Create the three specialized agents in Microsoft Foundry
 var evangelistMetadata = await persistentAgentsClient.Administration.CreateAgentAsync(
     model: azure_foundry_model_id,
     name: "Evangelist",
@@ -217,13 +217,20 @@ public class DraftExecutor : ReflectingExecutor<DraftExecutor>, IMessageHandler<
         
         var response = await this._evangelistAgent.RunAsync(message);
         
-        Console.WriteLine($"DraftExecutor response: {response.Text}");
+        // The agent may wrap its JSON result in a Markdown code block (```json ... ```),
+        // so extract the JSON object before deserializing it into a ContentResult.
+        var contentResult = JsonSerializer.Deserialize<ContentResult>(ExtractJson(response.Text)) ?? new ContentResult { DraftContent = response.Text ?? string.Empty };
         
-        ContentResult contentResult = new ContentResult { DraftContent = Convert.ToString(response) ?? "" };
-        
-        Console.WriteLine($"DraftExecutor generated content: {contentResult.DraftContent}");
+        Console.WriteLine($"DraftExecutor generated draft length: {contentResult.DraftContent?.Length ?? 0}");
         
         return contentResult;
+    }
+    
+    private static string ExtractJson(string text)
+    {
+        var start = text.IndexOf('{');
+        var end = text.LastIndexOf('}');
+        return start >= 0 && end > start ? text.Substring(start, end - start + 1) : text;
     }
 }
 

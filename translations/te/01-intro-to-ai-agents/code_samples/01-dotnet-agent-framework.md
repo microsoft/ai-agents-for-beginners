@@ -1,96 +1,102 @@
-# 🌍 మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ (.NET) తో AI ట్రావెల్ ఏజెంట్
+# 🌍 Microsoft Agent Framework (.NET)తో AI ప్రయాణ ఏజెంట్
 
-## 📋 సన్నివేశం అవలోకనం
+## 📋 దృశ్యం అవలోకనం
 
-ఈ ఉదాహరణ మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ కోసం .NET ఉపయోగించి తెలివైన ప్రయాణ ప్రణాళిక ఏజెంట్‌ను ఎలా నిర్మించాలో చూపిస్తుంది. ఈ ఏజెంట్ ప్రపంచంలోని యాదృచ్ఛిక గమ్యస్థానాల కోసం వ్యక్తిగత డే-ట్రిప్ ప్రణాళికలను స్వయంచాలకంగా రూపొందించగలదు.
+ఈ ఉదాహరణ Microsoft Agent Framework ఉపయోగించి .NET కోసం బుద్ధిమంతమైన ప్రయాణ ప్రణాళిక ఏజెంట్‌ను ఎలా నిర్మించాలో చూపిస్తుంది. ఏజెంట్ ప్రపంథం అంతటా యాదృచ్ఛిక గమ్యస్థానాల కోసం వ్యక్తిగతీకరించిన దిన-యాత్ర మార్గనిర్దేశకాలను ఆటోమేటిక్‌గా తయారుచేయగలదు.
 
-### ముఖ్యమైన సామర్థ్యాలు:
+### ప్రధాన సామర్థ్యాలు:
 
-- 🎲 **యాదృచ్ఛిక గమ్యస్థానం ఎంపిక**: సెలవు ప్రదేశాలను ఎంచుకోవడానికి కస్టమ్ టూల్‌ను ఉపయోగిస్తుంది  
-- 🗺️ **తెలివైన ట్రిప్ ప్లానింగ్**: ప్రతి రోజు కోసం వివరమైన ప్రణాళికలను సృష్టిస్తుంది  
-- 🔄 **రియల్-టైమ్ స్ట్రీమింగ్**: తక్షణ మరియు స్ట్రీమింగ్ ప్రతిస్పందనలను మద్దతు ఇస్తుంది  
-- 🛠️ **కస్టమ్ టూల్ ఇంటిగ్రేషన్**: ఏజెంట్ సామర్థ్యాలను విస్తరించడాన్ని ప్రదర్శిస్తుంది  
+- 🎲 **యాదృచ్ఛిక గమ్యస్థానం ఎంపిక**: సెలవు ప్రదేశాలు ఎంచుకునేందుకు అనుకూల సాధనాన్ని ఉపయోగిస్తుంది
+- 🗺️ **బుద్ధిమంతమైన ట్రిప్ ప్లానింగ్**: ప్రతిరోజూ వివరించిన మార్గనిర్దేశకాలను సృష్టిస్తుంది
+- 🔄 **రియల్-టైం స్ట్రీమింగ్**: తక్షణ మరియు స్ట్రీమింగ్ ప్రత్యుత్తరాలను రెండింటి కోసం మద్దతు కలిగి ఉంది
+- 🛠️ **అనుకూల సాధన ఇంటిగ్రేషన్**: ఏజెంట్ సామర్థ్యాలను ఎలా విస్తరించాలో చూపిస్తుంది
 
 ## 🔧 సాంకేతిక నిర్మాణం
 
-### ప్రధాన సాంకేతికతలు
+### ప్రాథమిక సాంకేతికతలు
 
-- **మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్**: AI ఏజెంట్ అభివృద్ధి కోసం తాజా .NET అమలు  
-- **GitHub మోడల్స్ ఇంటిగ్రేషన్**: GitHub యొక్క AI మోడల్ ఇన్‌ఫరెన్స్ సేవను ఉపయోగిస్తుంది  
-- **OpenAI API అనుకూలత**: కస్టమ్ ఎండ్‌పాయింట్‌లతో OpenAI క్లయింట్ లైబ్రరీలను ఉపయోగిస్తుంది  
-- **సురక్షిత కాన్ఫిగరేషన్**: పర్యావరణ ఆధారిత API కీ నిర్వహణ  
+- **Microsoft Agent Framework**: AI ఏజెంట్ అభివృద్ధికి తాజా .NET అమలు
+- **Azure OpenAI (Responses API)**: Azure OpenAI Responses APIను మోడల్ అభిప్రాయ కోసం ఉపయోగిస్తుంది
+- **Azure Identity**: `AzureCliCredential` (`az login`) ద్వారా సురక్షిత పెట్టుబడి
+- **సురక్షిత కాన్ఫిగరేషన్**: పరిసర ఆధారిత ఎండ్‌పాయింట్ నిర్వహణ
 
-### ముఖ్యమైన భాగాలు
+### కీలక భాగాలు
 
-1. **AIAgent**: సంభాషణ ప్రవాహాన్ని నిర్వహించే ప్రధాన ఏజెంట్ ఆర్కెస్ట్రేటర్  
-2. **కస్టమ్ టూల్స్**: ఏజెంట్‌కు అందుబాటులో ఉన్న `GetRandomDestination()` ఫంక్షన్  
-3. **చాట్ క్లయింట్**: GitHub మోడల్స్ ఆధారిత సంభాషణ ఇంటర్‌ఫేస్  
-4. **స్ట్రీమింగ్ మద్దతు**: రియల్-టైమ్ ప్రతిస్పందన ఉత్పత్తి సామర్థ్యాలు  
+1. **AIAgent**: సంభాషణ ప్రవాహాన్ని నిర్వహించే ప్రధాన ఏజెంట్ ఆర్కెస్ట్రేటర్
+2. **అనుకూల సాధనాలు**: ఏజెంట్‌కు అందుబాటులో ఉన్న `GetRandomDestination()` ఫంక్షన్
+3. **ప్రత్యుత్తర క్లయింట్**: Azure OpenAI Responses ఆధారిత సంభాషణ ఇంటర్‌ఫేస్
+4. **స్ట్రీమింగ్ మద్దతు**: రియల్-టైం ప్రత్యుత్తరాల సృష్టి సామర్థ్యాలు
 
 ### ఇంటిగ్రేషన్ ప్యాటర్న్
 
 ```mermaid
 graph LR
-    A[వినియోగదారు అభ్యర్థన] --> B[ఏఐ ఏజెంట్]
-    B --> C[గిట్‌హబ్ మోడల్స్ ఏపీఐ]
-    B --> D[గెట్ రాండమ్ డెస్టినేషన్ టూల్]
-    C --> E[ప్రయాణ ప్రణాళిక]
+    A[వాడుకరి అభ్యర్థన] --> B[AI ఏజెంట్]
+    B --> C[Azure OpenAI (ప్రత్యుత్తరాలు API)]
+    B --> D[GetRandomDestination టూల్]
+    C --> E[ప్రయాణ క్రమవివరణ]
     D --> E
 ```
-## 🚀 ప్రారంభం
 
-### అవసరమైనవి
+## 🚀 ప్రారంభించండి
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) లేదా అంతకంటే ఎక్కువ  
-- [GitHub మోడల్స్ API యాక్సెస్ టోకెన్](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+### ముందస్తు అవసరాలు
 
-### అవసరమైన పర్యావరణ వేరియబుల్స్
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) లేదా అతిస్థాయి
+- Azure OpenAI వనరు మరియు మోడల్ డిప్లాయ్‌మెంట్ కలిగిన [Azure.subscription](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login`తో సైన్ ఇన్ అవ్వండి
+
+### అవసరమైన పరిసర వేరియబుల్స్
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# అప్పుడు సైన్ ఇన్ అవ్వండి כדי AzureCliCredential టోకెన్ పొందడానికి
+az login
 ```
 
 ```powershell
 # పవర్‌షెల్
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# AzureCliCredential టోకన్ పొందడానికి కాబట్టి తర్వాత సైన్ ఇన్ అవ్వండి
+az login
 ```
 
 ### నమూనా కోడ్
 
-కోడ్ ఉదాహరణను నడపడానికి,
+కోడ్ ఉదాహరణను అమలు చేయడానికి,
 
 ```bash
-# జెడ్‌ష్/బాష్
+# zsh/bash
 chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-లేదా dotnet CLI ఉపయోగించి:
+లేకపోతే dotnet CLI ఉపయోగించండి:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
 ```
 
-పూర్తి కోడ్ కోసం [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) చూడండి.
+పూర్తి కోడుకు [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_samples/01-dotnet-agent-framework.cs) చూడండి.
 
 ```csharp
 #!/usr/bin/dotnet run
 
-#:package Microsoft.Extensions.AI@9.*
-#:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Microsoft.Extensions.AI@10.4.1
+#:package Microsoft.Agents.AI.OpenAI@1.1.0
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -122,34 +128,20 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Create AI Agent with Travel Planning Capabilities
-// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Get the Responses client for the specified deployment and create the AI agent
 // Configure agent with travel planning instructions and random destination tool
 // The agent can now plan trips using the GetRandomDestination function
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
@@ -165,23 +157,23 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 }
 ```
 
-## 🎓 ముఖ్యమైన విషయాలు
+## 🎓 ముఖ్య పాఠాలు
 
-1. **ఏజెంట్ ఆర్కిటెక్చర్**: మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ .NET లో AI ఏజెంట్లను నిర్మించడానికి శుభ్రమైన, టైప్-సేఫ్ విధానాన్ని అందిస్తుంది  
-2. **టూల్ ఇంటిగ్రేషన్**: `[Description]` అట్రిబ్యూట్‌లతో అలంకరించిన ఫంక్షన్లు ఏజెంట్‌కు అందుబాటులో ఉన్న టూల్స్‌గా మారతాయి  
-3. **కాన్ఫిగరేషన్ నిర్వహణ**: పర్యావరణ వేరియబుల్స్ మరియు సురక్షిత క్రెడెన్షియల్ నిర్వహణ .NET ఉత్తమ పద్ధతులను అనుసరిస్తుంది  
-4. **OpenAI అనుకూలత**: GitHub మోడల్స్ ఇంటిగ్రేషన్ OpenAI-అనుకూల APIల ద్వారా సజావుగా పనిచేస్తుంది  
+1. **ఏజెంట్ ఆర్కిటెక్షర్**: Microsoft Agent Framework .NETలో AI ఏజెంట్లను నిర్మించడానికి క్లియర్, టైప్-సేఫ్ దృష్టికోణాన్ని అందిస్తుంది
+2. **సాధన ఇంటిగ్రేషన్**: `[Description]` లక్షణాలతో అలంకరించబడిన ఫంక్షన్లు ఏజెంట్‌కు అందుబాటులో ఉన్న సాధనాలు అవుతాయి
+3. **కాన్ఫిగరేషన్ మేనేజ్మెంట్**: పరిసర వేరియబుల్స్ మరియు సురక్షిత క్రెడెన్షియల్ నిర్వహణ .NET ఉత్తమ అనుసరణలను అనుసరిస్తుంది
+4. **Azure OpenAI Responses API**: ఏజెంట్ Azure.AI.OpenAI SDK ద్వారా Azure OpenAI Responses APIని ఉపయోగిస్తుంది
 
 ## 🔗 అదనపు వనరులు
 
-- [మైక్రోసాఫ్ట్ ఏజెంట్ ఫ్రేమ్‌వర్క్ డాక్యుమెంటేషన్](https://learn.microsoft.com/agent-framework)  
-- [GitHub మోడల్స్ మార్కెట్‌ప్లేస్](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET సింగిల్ ఫైల్ యాప్స్](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Microsoft Agent Framework డాక్యుమెంటేషన్](https://learn.microsoft.com/agent-framework)
+- [Microsoft Foundryలో Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET సింగిల్ ఫైల్ ఆప్స్](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**విమర్శ**:  
-ఈ పత్రాన్ని AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించారు. మేము ఖచ్చితత్వానికి ప్రయత్నిస్తున్నప్పటికీ, ఆటోమేటెడ్ అనువాదాలలో తప్పులు లేదా అసమానతలు ఉండవచ్చు. దయచేసి, మూల భాషలో ఉన్న అసలు పత్రాన్ని అధికారం కలిగిన మూలంగా పరిగణించండి. ముఖ్యమైన సమాచారం కోసం, ప్రొఫెషనల్ మానవ అనువాదాన్ని సిఫారసు చేస్తాము. ఈ అనువాదాన్ని ఉపయోగించడం వల్ల కలిగే ఏవైనా అపార్థాలు లేదా తప్పుదారులు కోసం మేము బాధ్యత వహించము.
+**అస్వీకరణ**:
+ఈ పత్రం AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించబడింది. మేము ఖచ్చితత్వానికి ప్రయత్నిస్తున్నప్పటికీ, ఆటోమేటెడ్ అనువాదాలు తప్పులు లేదా అసమగ్రతలను కలిగి ఉండవచ్చు. దాని స్వదేశ భాషలో ఉన్న అసలు పత్రాన్ని అధికారం కలిగిన మూలంగా పరిగణించాలి. కీలకమైన సమాచారం కోసం, ప్రొఫెషనల్ మానవ అనువాదాన్ని సిఫారసు చేస్తాము. ఈ అనువాదం ఉపయోగం వల్ల కలిగే ఏవైనా అపార్థాలు లేదా తప్పుదారులు కోసం మేము బాధ్యత వహించము.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

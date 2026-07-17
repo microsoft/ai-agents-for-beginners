@@ -1,14 +1,14 @@
 [![Úvod do AI agentov](../../../translated_images/sk/lesson-1-thumbnail.d21b2c34b32d35bb.webp)](https://youtu.be/3zgm60bXmQk?si=QA4CW2-cmul5kk3D)
 
-> _(Kliknite na obrázok vyššie pre sledovanie videa k tejto lekcii)_
+> _(Kliknite na obrázok vyššie a pozrite si video k tejto lekcii)_
 
 # Úvod do AI agentov a prípadov použitia agentov
 
-Vitajte v kurze **AI agenti pre začiatočníkov**! Tento kurz vám poskytne základné vedomosti — a skutočný funkčný kód — aby ste mohli začať vytvárať AI agentov od základu.
+Vitajte v kurze **AI agenti pre začiatočníkov**! Tento kurz vám poskytne základné znalosti — a skutočný fungujúci kód — na začatie tvorby AI agentov od základu.
 
 Príďte sa pozdraviť do <a href="https://discord.gg/kzRShWzttr" target="_blank">Azure AI Discord komunity</a> — je plná študentov a tvorcov AI, ktorí radi odpovedia na vaše otázky.
 
-Skôr než sa pustíme do tvorby, uistime sa, že naozaj rozumieme, čo AI agent *je* a kedy má zmysel ho použiť.
+Predtým, ako sa pustíme do tvorby, poďme si najprv ujasniť, čo vlastne AI agent *je* a kedy má zmysel ho použiť.
 
 ---
 
@@ -17,8 +17,8 @@ Skôr než sa pustíme do tvorby, uistime sa, že naozaj rozumieme, čo AI agent
 Táto lekcia pokrýva:
 
 - Čo sú AI agenti a rôzne typy, ktoré existujú
-- Aké úlohy sú pre AI agentov najvhodnejšie
-- Základné stavebné bloky, ktoré použijete pri navrhovaní agentického riešenia
+- Aký druh úloh AI agenti najlepšie zvládajú
+- Základné stavebné prvky, ktoré použijete pri navrhovaní agentického riešenia
 
 ## Ciele učenia
 
@@ -26,7 +26,7 @@ Na konci tejto lekcie by ste mali byť schopní:
 
 - Vysvetliť, čo je AI agent a ako sa líši od bežného AI riešenia
 - Vedieť, kedy použiť AI agenta (a kedy nie)
-- Náčrt základného dizajnu agentického riešenia pre reálny problém
+- Nakresliť základný návrh agentického riešenia pre reálny problém
 
 ---
 
@@ -34,56 +34,56 @@ Na konci tejto lekcie by ste mali byť schopní:
 
 ### Čo sú AI agenti?
 
-Tu je jednoduchý spôsob, ako o nich uvažovať:
+Tu je jednoduchý spôsob, ako to pochopiť:
 
-> **AI agenti sú systémy, ktoré umožňujú veľkým jazykovým modelom (LLM) skutočne *vykonávať činnosti* — tým, že im dávajú nástroje a vedomosti, aby mohli pôsobiť vo svete, nie len odpovedať na podnety.**
+> **AI agenti sú systémy, ktoré umožňujú veľkým jazykovým modelom (LLMs) skutočne *robíť veci* — tým, že im dávajú nástroje a znalosti na ovplyvňovanie sveta, nielen reagovanie na požiadavky.**
 
-Rozoberme si to trochu podrobnejšie:
+Poďme si to trochu rozobrať:
 
-- **Systém** — AI agent nie je len jedna vec. Je to súbor častí pracujúcich spoločne. Základom každého agenta sú tri diely:
+- **Systém** — AI agent nie je len jedna vec. Je to súbor častí pracujúcich spolu. Každý agent má základne tri súčasti:
   - **Prostredie** — Priestor, v ktorom agent pracuje. Pre cestovného agenta by to bola samotná rezervačná platforma.
-  - **Senzory** — Spôsob, akým agent číta aktuálny stav prostredia. Náš cestovný agent by mohol kontrolovať dostupnosť hotelov alebo ceny leteniek.
-  - **Aktuátory** — Spôsob, akým agent vykonáva akciu. Cestovný agent môže rezervovať izbu, poslať potvrdenie alebo zrušiť rezerváciu.
+  - **Senzory** — Ako agent číta aktuálny stav svojho prostredia. Náš cestovný agent môže kontrolovať dostupnosť hotelov alebo ceny leteniek.
+  - **Akčné prvky (aktuátory)** — Ako agent vykonáva akciu. Cestovný agent môže rezervovať izbu, poslať potvrdenie alebo zrušiť rezerváciu.
 
 ![Čo sú AI agenti?](../../../translated_images/sk/what-are-ai-agents.1ec8c4d548af601a.webp)
 
-- **Veľké jazykové modely** — Agent existovali aj pred LLM, ale to práve LLM robia moderných agentov takých silných. Dokážu rozumieť prirodzenému jazyku, uvažovať o kontexte a premeniť nejasnú požiadavku používateľa na konkrétny akčný plán.
+- **Veľké jazykové modely** — Agenti existovali aj pred LLM, no práve LLM robia moderných agentov takými silnými. Dokážu rozumieť prirodzenému jazyku, uvažovať o kontexte a premeniť nejasnú požiadavku používateľa na konkrétny plán.
 
-- **Vykonávanie akcií** — Bez agentného systému LLM len generuje text. V agentnom systéme môže LLM skutočne *vykonať* kroky — prehľadávať databázu, volať API, posielať správu.
+- **Vykonávanie akcií** — Bez systému agenta LLM iba generuje text. V agentickom systéme však môže LLM *vykonávať* kroky — vyhľadávanie v databáze, volanie API, zasielanie správ.
 
-- **Prístup k nástrojom** — Aké nástroje môže agent používať závisí od (1) prostredia, v ktorom beží, a (2) čo mu vývojár poskytol. Cestovný agent môže vyhľadávať lety, ale nemôže meniť údaje o zákazníkovi — všetko závisí od prepojení.
+- **Prístup k nástrojom** — Aké nástroje agent môže použiť závisí od (1) prostredia, v ktorom beží, a (2) čo mu vývojár poskytol. Cestovný agent môže vyhľadávať lety, ale nemusí upravovať zákaznícke záznamy — je to o tom, čo prepojíte.
 
-- **Pamäť + vedomosti** — Agent môže mať krátkodobú pamäť (aktuálny rozhovor) a dlhodobú pamäť (databázu zákazníkov, minulé interakcie). Cestovný agent si môže "pamätať", že uprednostňujete sedadlá pri okne.
+- **Pamäť + Znalosti** — Agenti môžu mať krátkodobú pamäť (aktuálny rozhovor) a dlhodobú pamäť (zákaznícka databáza, minulé interakcie). Cestovný agent si môže "pamätať", že preferujete sedadlá pri okne.
 
 ---
 
 ### Rôzne typy AI agentov
 
-Nie všetci agenti sú postavení rovnako. Tu je rozdelenie hlavných typov na príklade cestovného agenta:
+Nie všetci agenti sú postavení rovnako. Tu je prehľad hlavných typov na príklade cestovného agenta:
 
 | **Typ agenta** | **Čo robí** | **Príklad cestovného agenta** |
 |---|---|---|
-| **Jednoduchí reflexní agenti** | Dodržiavajú pevne naprogramované pravidlá — bez pamäte, bez plánovania. | Vidí sťažnosť v emaile → posiela ju zákazníckemu servisu. To je všetko. |
-| **Modelovo založení reflexní agenti** | Udržiavajú interný model sveta a aktualizujú ho podľa zmien. | Sleduje historické ceny leteniek a označuje trasy, ktoré sú náhle drahé. |
-| **Cieľovo založení agenti** | Majú cieľ a krok za krokom zisťujú, ako ho dosiahnuť. | Rezervuje celý výlet (lety, auto, hotel) od vašej aktuálnej polohy k cieľu. |
-| **Agentí založení na užitočnosti** | Nájdu nielen *nejaké* riešenie, ale *najlepšie* riešenie vyvažovaním kompromisov. | Vyvažuje cenu a pohodlie, aby našiel výlet, ktorý najviac vyhovuje vašim preferenciám. |
-| **Učiaci sa agenti** | Zlepšujú sa postupne učením sa z reakcií. | Upravuje budúce odporúčania rezervácií podľa výsledkov dotazníkov po výlete. |
-| **Hierarchickí agenti** | Vysokopostavený agent rozdelí prácu na podúlohy a deleguje nižším agentom. | Žiadosť "zrušiť výlet" sa rozdelí na: zrušiť let, zrušiť hotel, zrušiť prenájom auta — každý rieši pod-agent. |
-| **Systémy viacerých agentov (MAS)** | Viac nezávislých agentov pracujúcich spoločne (alebo súťažiacich). | Kooperatívne: rôzni agenti spravujú hotely, lety a zábavu. Súťaživé: viacerí agenti súťažia o najlepšie ceny hotelových izieb. |
+| **Jednoduchí reflexní agenti** | Nasleduje pevné pravidlá — bez pamäti, bez plánovania. | Vidí sťažnosť v emaili → preposiela ju zákazníckej podpore. To je všetko. |
+| **Modelovo založení reflexní agenti** | Uchováva vnútorný model sveta a aktualizuje ho, keď sa veci menia. | Sleduje historické ceny leteniek a upozorňuje na trasy, ktoré sa náhle zdraželi. |
+| **Agentí založení na cieľoch** | Má určený cieľ a krok po kroku hľadá cestu k nemu. | Rezervuje celú cestu (letenky, auto, hotel) od vašej aktuálnej polohy, aby ste sa dostali do cieľa. |
+| **Agentí založení na užitočnosti** | Namiesto *nejakého* riešenia hľadá *najlepšie* riešenie vážením kompromisov. | Vyvažuje cenu a pohodlie, aby našiel cestu, ktorá najviac vyhovuje vašim preferenciám. |
+| **Učiace sa agentí** | Zlepšuje sa v priebehu času učením sa na základe spätnej väzby. | Prispôsobuje budúce odporúčania na rezervácie podľa výsledkov poanketového prieskumu. |
+| **Hierarchickí agentí** | Vyššia úroveň agenta rozdelí prácu na podúlohy a deleguje ich na podriadených agentov. | Požiadavka "zrušiť cestu" sa rozdelí na: zrušiť let, zrušiť hotel, zrušiť prenájom auta — každý rieši podagent. |
+| **Systémy viacerých agentov (MAS)** | Viacerí nezávislí agenti spolupracujú (alebo súperia). | Kooperatívne: samostatní agenti riešia hotely, lety a zábavu. Konkurenčné: viacerí agenti súperia o obsadenie hotelových izieb za najlepšiu cenu. |
 
 ---
 
-## Kedy používať AI agentov
+## Kedy použiť AI agentov
 
-Len preto, že *môžete* použiť AI agenta, neznamená, že by ste mali vždy. Tu sú situácie, kde agenti naozaj vynikajú:
+Len preto, že *môžete* použiť AI agenta, neznamená to, že by ste ho mali vždy použiť. Tu sú situácie, keď agenti naozaj vynikajú:
 
 ![Kedy používať AI agentov?](../../../translated_images/sk/when-to-use-ai-agents.54becb3bed74a479.webp)
 
-- **Otvorené problémy** — Keď sa kroky na vyriešenie problému nedajú pevne naprogramovať. Potrebujete, aby LLM dynamicky zistil cestu.
-- **Viackrokové procesy** — Úlohy vyžadujúce používanie nástrojov počas viacerých krokov, nie len jedno vyhľadanie alebo generovanie.
-- **Zlepšenie v priebehu času** — Keď chcete, aby systém bol múdrejší na základe spätnej väzby od používateľa alebo signálov z prostredia.
+- **Otvárané problémy** — Keď kroky na vyriešenie problému nemožno dopredu naprogramovať. LLM musí dynamicky nájsť cestu.
+- **Viackrokové procesy** — Úlohy, ktoré vyžadujú používanie nástrojov cez viacero krokov, nie len jednorazové vyhľadávanie alebo generovanie.
+- **Zlepšovanie v čase** — Keď chcete, aby sa systém zdokonaľoval na základe spätnej väzby používateľov alebo signálov z prostredia.
 
-Podrobnejšie preskúmame, kedy (a kedy *nie*) použiť AI agentov v lekcii **Budovanie dôveryhodných AI agentov** neskôr v kurze.
+Podrobnejšie sa budeme zaoberať kedy (a kedy *nie*) použiť AI agentov v lekcii **Budovanie dôveryhodných AI agentov** neskôr v kurze.
 
 ---
 
@@ -91,35 +91,35 @@ Podrobnejšie preskúmame, kedy (a kedy *nie*) použiť AI agentov v lekcii **Bu
 
 ### Vývoj agenta
 
-Prvou vecou pri budovaní agenta je definovať, *čo dokáže* — jeho nástroje, akcie a správanie.
+Prvou vecou pri tvorbe agenta je definovať *čo môže robiť* — jeho nástroje, akcie a správanie.
 
-V tomto kurze používame ako hlavnú platformu **Azure AI Agent Service**. Podporuje:
+V tomto kurze používame ako hlavnú platformu **Microsoft Foundry Agent Service**. Podporuje:
 
-- Modely od poskytovateľov ako OpenAI, Mistral, a Meta (Llama)
-- Licencované údaje od poskytovateľov ako Tripadvisor
+- Modely od poskytovateľov ako OpenAI, Mistral a Meta (Llama)
+- Licencované dáta od poskytovateľov ako Tripadvisor
 - Štandardizované definície nástrojov OpenAPI 3.0
 
 ### Agentické vzory
 
-S LLM komunikujete pomocou výziev (promptov). Pri agentoch nemôžete vždy ručne skladať každý prompt — agent musí konať cez viacero krokov. Tu prichádzajú na scénu **agentické vzory**. Sú to opakovane použiteľné stratégie na promptovanie a koordináciu LLM spôsobom, ktorý je škálovateľnejší a spoľahlivejší.
+Komunikujete s LLM cez promptové požiadavky. Pri agentoch však nie je vždy možné ručne vytvoriť každý prompt — agent musí vykonať akciu cez viacero krokov. Tu prichádzajú na scénu **agentické vzory**. Sú to znovupoužiteľné stratégie pre promptovanie a orchestráciu LLM spôsobom, ktorý je škálovateľnejší a spoľahlivejší.
 
-Tento kurz je postavený na najbežnejších a najpoužívanejších agentických vzoroch.
+Tento kurz je postavený na najčastejších a najužitočnejších agentických vzoroch.
 
 ### Agentické rámce
 
-Agentické rámce dávajú vývojárom hotové šablóny, nástroje a infraštruktúru na tvorbu agentov. Uľahčujú:
+Agentické rámce poskytujú vývojárom pripravené šablóny, nástroje a infraštruktúru na stavbu agentov. Uľahčujú:
 
-- Prepojenie nástrojov a schopností
-- Monitorovanie činností agenta (a ladenie problémov)
-- Spoluprácu viacerých agentov
+- Prepojenie nástrojov a funkcií
+- Sledovanie, čo agent robí (a ladenie chýb)
+- Spoluprácu medzi viacerými agentmi
 
-V tomto kurze sa zameriavame na **Microsoft Agent Framework (MAF)** pre tvorbu produkčne pripravených agentov.
+V tomto kurze sa zameriavame na **Microsoft Agent Framework (MAF)** pre tvorbu agentov pripravených na produkciu.
 
 ---
 
 ## Ukážky kódu
 
-Pripravení vidieť to v praxi? Tu sú ukážky kódu pre túto lekciu:
+Pripravení vidieť to v akcii? Tu sú ukážky kódu k tejto lekcii:
 
 - 🐍 Python: [Agent Framework](./code_samples/01-python-agent-framework.ipynb)
 - 🔷 .NET: [Agent Framework](./code_samples/01-dotnet-agent-framework.md)
@@ -128,7 +128,14 @@ Pripravení vidieť to v praxi? Tu sú ukážky kódu pre túto lekciu:
 
 ## Máte otázky?
 
-Pridajte sa do [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) a spojte sa s ostatnými študentmi, zúčastnite sa konzultačných hodín a získajte odpovede na otázky o AI agentoch od komunity.
+Pripojte sa k [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D), aby ste sa spojili s inými študentmi, zúčastnili sa konzultačných hodín a odpovedali na otázky o AI agentoch od komunity.
+
+
+---
+
+## Rýchle testovanie tohto agenta (voliteľné)
+
+Keď sa naučíte nasadzovať agentov v [Lekcii 16](../16-deploying-scalable-agents/README.md), môžete pridať rýchlu zdravotnú kontrolu po nasadení pre `TravelAgent` tejto lekcie pomocou hotového katalógu [`tests/lesson-01-smoke-tests.json`](../../../tests/lesson-01-smoke-tests.json). Pozrite si [`tests/README.md`](../tests/README.md) pre informácie, ako ho spustiť.
 
 ---
 

@@ -1,114 +1,118 @@
-# 🔍 Microsoft Agent Frameworki uurimine - Põhiagent (.NET)
+# 🔍 Microsoft Agent Frameworki uurimine – Basic Agent (.NET)
 
 ## 📋 Õpieesmärgid
 
-See näide uurib Microsoft Agent Frameworki põhikontseptsioone, rakendades lihtsat agenti .NET-is. Õpid tundma agentide põhistruktuure ja saad aru, kuidas intelligentsed agendid töötavad C# ja .NET ökosüsteemi abil.
+See näide uurib Microsoft Agent Frameworki põhilisi mõisteid läbi baastasemel agendi rakenduse .NET-is. Õpid agentide põhimustreid ning saad aru, kuidas intelligentsed agendid töötavad C# ja .NET ökosüsteemi kaudu.
 
 ### Mida sa avastad
 
-- 🏗️ **Agendi arhitektuur**: AI agentide põhistruktuuri mõistmine .NET-is  
-- 🛠️ **Tööriistade integreerimine**: Kuidas agendid kasutavad väliseid funktsioone oma võimekuse laiendamiseks  
-- 💬 **Vestlusvoog**: Mitme pöördega vestluste ja konteksti haldamine lõimehalduse abil  
-- 🔧 **Konfiguratsioonimustrid**: Parimad tavad agendi seadistamiseks ja haldamiseks .NET-is  
+- 🏗️ **Agendi arhitektuur**: Mõistmine AI agentide põhistruktuurist .NET-is
+- 🛠️ **Tööriistade integreerimine**: Kuidas agendid laiendavad võimeid välist funktsioonide abil
+- 💬 **Vestluse voo haldamine**: Mitme vooru vestluste ja konteksti haldamine lõimate haldamise kaudu
+- 🔧 **Konfiguratsioonimustrid**: Parimad tavad agendi seadistamiseks ja haldamiseks .NET-is
 
-## 🎯 Põhikontseptsioonid
+## 🎯 Kaetud põhikontseptsioonid
 
-### Agendiraamistiku põhimõtted
+### Agentframi põhimõtted
 
-- **Autonoomia**: Kuidas agendid teevad iseseisvaid otsuseid, kasutades .NET AI abstraktsioone  
-- **Reaktiivsus**: Reageerimine keskkonnamuutustele ja kasutaja sisenditele  
-- **Proaktiivsus**: Algatuse võtmine eesmärkide ja konteksti põhjal  
-- **Sotsiaalne võimekus**: Suhtlemine loomuliku keele kaudu vestluslõimede abil  
+- **Autonoomia**: Kuidas agendid iseseisvalt otsuseid teevad .NET AI abstraktsioonide abil
+- **Reaktiivsus**: Keskkonnamuutustele ja kasutajasisestustele reageerimine
+- **Proaktiivsus**: Algatuste võtmine eesmärkide ja konteksti põhjal
+- **Sotsiaalne võimekus**: Loomulikus keeles suhtlemine vestluslõimede kaudu
 
 ### Tehnilised komponendid
 
-- **AIAgent**: Agendi põhiorganisatsioon ja vestluste haldamine (.NET)  
-- **Tööriistafunktsioonid**: Agendi võimekuse laiendamine C# meetodite ja atribuutidega  
-- **OpenAI integratsioon**: Keelemudelite kasutamine standardiseeritud .NET API-de kaudu  
-- **Turvaline konfiguratsioon**: API võtmete haldamine keskkonnapõhiselt  
+- **AIAgent**: Põhiagendi orkestreerimine ja vestluse haldamine (.NET)
+- **Tööriistafunktsioonid**: Agentide võimete laiendamine C# meetodite ja atribuutidega
+- **Azure OpenAI integratsioon**: Keelemudelite kasutamine Azure OpenAI Responses API kaudu
+- **Turvaline konfiguratsioon**: Keskkonnapõhine lõpp-punktide haldamine
 
-## 🔧 Tehniline virn
+## 🔧 Tehnoloogiline virn
 
 ### Põhitehnoloogiad
 
-- Microsoft Agent Framework (.NET)  
-- GitHub Models API integratsioon  
-- OpenAI-ühilduvad kliendimustrid  
-- Keskkonnapõhine konfiguratsioon DotNetEnv-iga  
+- Microsoft Agent Framework (.NET)
+- Azure OpenAI (Responses API) integratsioon
+- Azure.AI.OpenAI kliendimustrid
+- Keskkonnapõhine konfiguratsioon DotNetEnv abil
 
 ### Agendi võimekused
 
-- Loomuliku keele mõistmine ja genereerimine  
-- Funktsioonide kutsumine ja tööriistade kasutamine C# atribuutidega  
-- Kontekstitundlikud vastused vestluslõimede abil  
-- Laiendatav arhitektuur sõltuvuste süstimise mustritega  
+- Loomuliku keele mõistmine ja genereerimine
+- Funktsioonide kutsumine ja tööriistade kasutamine C# atribuutidega
+- Kontextiteadlikud vastused vestlussessioonide abil
+- Laiendatav arhitektuur sõltuvussüsti mustritega
 
 ## 📚 Raamistike võrdlus
 
-See näide demonstreerib Microsoft Agent Frameworki lähenemist võrreldes teiste agentide raamistikudega:
+See näide demonstreerib Microsoft Agent Frameworki lähenemist võrreldes teiste agendiraamistikega:
 
-| Funktsioon | Microsoft Agent Framework | Teised raamistikud |
-|------------|---------------------------|--------------------|
-| **Integratsioon** | Microsofti ökosüsteemi natiivne | Erinev ühilduvus |
+| Omadus | Microsoft Agent Framework | Muud raamistikud |
+|---------|-------------------------|------------------|
+| **Integreerimine** | Loomupärane Microsofti ökosüsteem | Erinev ühilduvus |
 | **Lihtsus** | Puhas, intuitiivne API | Sageli keeruline seadistus |
-| **Laiendatavus** | Lihtne tööriistade integreerimine | Raamistikust sõltuv |
-| **Ettevõttevalmidus** | Loodud tootmiseks | Sõltub raamistikust |
+| **Laiendatavus** | Lihtne tööriistade integratsioon | Raamistiku sõltuv |
+| **Ettevõtte valmisolek** | Tootmiskõlbulikud lahendused | Raamistiku lõikes varieeruv |
 
 ## 🚀 Alustamine
 
-### Eeltingimused
+### Eeldused
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) või uuem  
-- [GitHub Models API juurdepääsuvõti](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)  
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) või uuem
+- [Azure tellimus](https://azure.microsoft.com/free/) Azure OpenAI ressursi ja mudeli deploy’ga
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) – logi sisse `az login` käsuga
 
 ### Nõutavad keskkonnamuutujad
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# Seejärel logi sisse, et AzureCliCredential saaks tokeni saada
+az login
 ```
-  
+
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# Logi seejärel sisse, et AzureCliCredential saaks tokeni
+az login
 ```
-  
 
 ### Näidiskood
 
-Koodi näite käivitamiseks,  
+Koodinäite käivitamiseks,
 
 ```bash
 # zsh/bash
 chmod +x ./02-dotnet-agent-framework.cs
 ./02-dotnet-agent-framework.cs
 ```
-  
-Või kasutades dotnet CLI-d:  
+
+Või kasutades dotnet CLI-d:
 
 ```bash
 dotnet run ./02-dotnet-agent-framework.cs
 ```
-  
-Vaata [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs) täieliku koodi jaoks.  
+
+Vaata täielikku koodi failist [`02-dotnet-agent-framework.cs`](../../../../02-explore-agentic-frameworks/code_samples/02-dotnet-agent-framework.cs).
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -140,26 +144,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -185,28 +175,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Session for Context Management.
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+AgentSession session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -217,33 +207,32 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
 }
 ```
-  
 
-## 🎓 Olulised õppetunnid
+## 🎓 Olulised kokkuvõtted
 
-1. **Agendi arhitektuur**: Microsoft Agent Framework pakub puhast ja tüübikindlat lähenemist AI agentide loomiseks .NET-is  
-2. **Tööriistade integreerimine**: Funktsioonid, millele on lisatud `[Description]` atribuudid, muutuvad agendi jaoks kättesaadavateks tööriistadeks  
-3. **Vestluskontekst**: Lõimehaldus võimaldab mitme pöördega vestlusi täieliku kontekstitundlikkusega  
-4. **Konfiguratsiooni haldamine**: Keskkonnamuutujad ja turvaline mandaadihaldus järgivad .NET parimaid tavasid  
-5. **OpenAI ühilduvus**: GitHub Models integratsioon töötab sujuvalt OpenAI-ühilduvate API-de kaudu  
+1. **Agendi arhitektuur**: Microsoft Agent Framework pakub puhtat, tüübiturvalist lähenemist AI agentide loomisel .NET-is
+2. **Tööriistade integratsioon**: Funktsioonid, mis on kaunistatud `[Description]` atribuutidega, muutuvad agendi jaoks saadavateks tööriistadeks
+3. **Vestluse kontekst**: Sessioonihaldus võimaldab mitme vooru vestlusi täieliku kontekstiteadlikkusega
+4. **Konfiguratsiooni haldus**: Keskkonnamuutujad ja turvaline volituste käsitlemine vastavad .NET parimatele tavadele
+5. **Azure OpenAI Responses API**: Agent kasutab Azure OpenAI Responses API-t läbi Azure.AI.OpenAI SDK
 
-## 🔗 Lisamaterjalid
+## 🔗 Täiendavad ressursid
 
-- [Microsoft Agent Framework dokumentatsioon](https://learn.microsoft.com/agent-framework)  
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)  
-- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)  
-- [.NET ühe faili rakendused](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)  
+- [Microsoft Agent Frameworki dokumentatsioon](https://learn.microsoft.com/agent-framework)
+- [Azure OpenAI Microsoft Foundrys](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
+- [.NET ühes failis rakendused](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Lahtiütlus**:  
-See dokument on tõlgitud AI tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palume arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle algses keeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta arusaamatuste või valesti tõlgenduste eest, mis võivad tekkida selle tõlke kasutamise tõttu.
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

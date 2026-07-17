@@ -1,150 +1,153 @@
-# 🎨 GitHub Models (.NET) နှင့် Agentic Design Patterns
+# 🎨 Azure OpenAI (Responses API) (.NET) နှင့်အတူ Agentic Design Patterns
 
-## 📋 သင်ယူရမည့်အရာများ
+## 📋 သင်ယူရန်ရည်ရွယ်ချက်များ
 
-ဤနမူနာသည် Microsoft Agent Framework ကို .NET တွင် GitHub Models နှင့်ပေါင်းစပ်ပြီး အဆင့်မြင့် design patterns များကို အသုံးပြု၍ စွမ်းဆောင်ရည်မြင့်မားသော agent များကို တည်ဆောက်ခြင်းအတွက် enterprise-grade design patterns များကို ပြသသည်။ သင်သည် agent များကို ထုတ်လုပ်ရန် အသင့်ဖြစ်စေသော၊ ထိန်းသိမ်းရန်လွယ်ကူသော၊ နှင့် အရွယ်အစားကြီးမားသော professional patterns များနှင့် architectural approaches များကို သင်ယူနိုင်ပါမည်။
+ဤနမူနာသည် .NET တွင် Microsoft Agent Framework ကိုအသုံးပြုပြီး Azure OpenAI (Responses API) နဲ့ ပေါင်းစပ်ပြီး ဉာဏ်ရည်ရှိသော agent များ ဖန်တီးရာတွင် စက်မှုလုပ်ငန်းအဆင့်ဒီဇိုင်းပုံစံများကို ပြသသည်။ သင်သည် agents များကို ထုတ်လုပ်မှုဆိုင်ရာ အသင့်ပြင်ဆင်ထားသော၊ ထိန်းသိမ်းရလွယ်ကူသောနှင့် ပမာဏတိုးမြှင့်နိုင်သော ပုံစံများနှင့် နည်းဗျူဟာဆိုင်ရာနည်းလမ်းများကို သင်ယူရပါမည်။
 
-### Enterprise Design Patterns
+### စက်မှုလုပ်ငန်းဒီဇိုင်းပုံစံများ
 
-- 🏭 **Factory Pattern**: Dependency injection ဖြင့် agent များကို စနစ်တကျ ဖန်တီးခြင်း
-- 🔧 **Builder Pattern**: Agent များကို fluent configuration နှင့် setup
-- 🧵 **Thread-Safe Patterns**: Concurrent conversation ကို စနစ်တကျ စီမံခန့်ခွဲခြင်း
-- 📋 **Repository Pattern**: Tool နှင့် capability များကို စနစ်တကျ စီမံခြင်း
+- 🏭 **Factory Pattern**: အားထားနိုင်ပြီး dependency injection နဲ့ agent ဖန်တီးခြင်း
+- 🔧 **Builder Pattern**: agent ကို အဆင်ပြေစွာ ဆက်တင်ဖွင့်ခြင်းနှင့် ပြင်ဆင်ခြင်း
+- 🧵 **Thread-Safe Patterns**: တပြိုင်နက်စကားပြောဆက်ဆံမှု စီမံခန့်ခွဲခြင်း
+- 📋 **Repository Pattern**: ကိရိယာနှင့် ပိတ်သတ်နိုင်စွမ်း စီမံခန့်ခွဲခြင်း
 
-## 🎯 .NET-Specific Architectural Benefits
+## 🎯 .NET သီးသန့် နည်းဗျူဟာတိုးတက်မှုများ
 
-### Enterprise Features
+### စက်မှုလုပ်ငန်းအင်္ဂါရပ်များ
 
-- **Strong Typing**: Compile-time validation နှင့် IntelliSense အထောက်အပံ့
-- **Dependency Injection**: Built-in DI container integration
-- **Configuration Management**: IConfiguration နှင့် Options patterns
-- **Async/Await**: Asynchronous programming အတွက် အထူးထောက်ပံ့မှု
+- **ကြံ့ခိုင်သော typing**: Compile-time စစ်ဆေးမှုနှင့် IntelliSense မှားခွင့်
+- **Dependency Injection**: ထည့်သွင်းထားသော DI container ပေါင်းစပ်ခြင်း
+- **Configuration Management**: IConfiguration နှင့် Options ပုံစံများ
+- **Async/Await**: Asynchronous programming အားကောင်းမှု
 
-### Production-Ready Patterns
+### ထုတ်လုပ်မှုအဆင်သင့် ပုံစံများ
 
-- **Logging Integration**: ILogger နှင့် structured logging အထောက်အပံ့
-- **Health Checks**: Built-in monitoring နှင့် diagnostics
-- **Configuration Validation**: Data annotations ဖြင့် strong typing
-- **Error Handling**: Structured exception management
+- **Logging Integration**: ILogger နှင့် သုံးစွဲသူစနစ် logging ထောက်ပံ့မှု
+- **Health Checks**: ထည့်သွင်းထားသော မောနီတာနှင့် تشخيص
+- **Configuration Validation**: data annotation ဖြင့် ကြံ့ခိုင် typing
+- **Error Handling**: စနစ်တကျ exception စီမံခန့်ခွဲမှု
 
-## 🔧 Technical Architecture
+## 🔧 နည်းပညာဆိုင်ရာ နည်းဗျူဟာ
 
-### Core .NET Components
+### အခြေခံ .NET ကွန်ပွန်နန့်များ
 
-- **Microsoft.Extensions.AI**: Unified AI service abstractions
-- **Microsoft.Agents.AI**: Enterprise agent orchestration framework
-- **GitHub Models Integration**: High-performance API client patterns
-- **Configuration System**: appsettings.json နှင့် environment integration
+- **Microsoft.Extensions.AI**: AI ဝန်ဆောင်မှုများ ပေါင်းစပ်စနစ်
+- **Microsoft.Agents.AI**: စက်မှုလုပ်ငန်း agent စီမံ framework
+- **Azure OpenAI (Responses API)**: အမြန်နှိုးဆွဲ API client ပုံစံများ
+- **Configuration System**: appsettings.json နှင့် ပတ်ဝန်းကျင်ပေါင်းစပ်မှု
 
-### Design Pattern Implementation
+### ဒီဇိုင်းပုံစံအကောင်အထည်ဖော်ခြင်း
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
+    A[IServiceCollection] --> B[Agent အဆောက်အအုံ]
+    B --> C[ဆက်တင်များ]
+    C --> D[ကိရိယာ အရင်းအမြစ်စာရင်း]
     D --> E[AI Agent]
 ```
 
-## 🏗️ Enterprise Patterns Demonstrated
+## 🏗️ ပြသထားသည့် စက်မှုလုပ်ငန်း ပုံစံများ
 
-### 1. **Creational Patterns**
+### 1. **ဖန်တီးမှု ပုံစံများ**
 
-- **Agent Factory**: Configuration တူညီမှုရှိသော agent များကို စုစည်းဖန်တီးခြင်း
-- **Builder Pattern**: Complex agent configuration အတွက် Fluent API
-- **Singleton Pattern**: Shared resources နှင့် configuration management
-- **Dependency Injection**: Loose coupling နှင့် testability
+- **Agent Factory**: ချိန်ညှိမှုတူညီမှုဖြင့် agent ဖန်တီးမှုစင်တာပိုင်
+- **Builder Pattern**: agent ချိန်ညှိမှု ကြီးကြပ်ရန် Fluent API
+- **Singleton Pattern**: ဝေမျှအသုံးပြုမှုအရင်းအမြစ်နှင့် ချိန်ညှိမှုစီမံမှု
+- **Dependency Injection**: ချိတ်ဆက်မှု ဖြုတ်ထားခြင်းနှင့် စမ်းသပ်နိုင်မှု
 
-### 2. **Behavioral Patterns**
+### 2. **အပြုအမူ ပုံစံများ**
 
-- **Strategy Pattern**: Tool execution strategy များကို အလွယ်တကူ ပြောင်းလဲနိုင်ခြင်း
-- **Command Pattern**: Agent operations များကို undo/redo အထောက်အပံ့ဖြင့် encapsulate
-- **Observer Pattern**: Event-driven agent lifecycle management
-- **Template Method**: Agent execution workflow များကို စနစ်တကျ ပြုလုပ်ခြင်း
+- **Strategy Pattern**: အခြား tool စနစ်များ အစားထိုးကျွမ်းကျင်မှု
+- **Command Pattern**: undo/redo နဲ့အတူ agent လုပ်ဆောင်ချက်များ ထုပ်ပိုးခြင်း
+- **Observer Pattern**: အဖြစ်အပျက် အခြေပြု agent အသက်ရှင်မှု စီမံခန့်ခွဲမှု
+- **Template Method**: စံချိန် agent လုပ်ဆောင်မှု လမ်းစဉ်များ
 
-### 3. **Structural Patterns**
+### 3. **ဖွဲ့စည်းပုံ ပုံစံများ**
 
-- **Adapter Pattern**: GitHub Models API integration layer
-- **Decorator Pattern**: Agent capability အားတိုးမြှင့်ခြင်း
-- **Facade Pattern**: Agent interaction interface များကို ရိုးရှင်းစေခြင်း
-- **Proxy Pattern**: Lazy loading နှင့် caching ဖြင့် စွမ်းဆောင်ရည်မြှင့်ခြင်း
+- **Adapter Pattern**: Azure OpenAI (Responses API) ပေါင်းစပ်မှု အလွှာ
+- **Decorator Pattern**: agent ပါဝင်စွမ်းရည် တိုးတက်မှု
+- **Facade Pattern**: agent များနှင့် ဆက်သွယ်မှု ရိုးရှင်းသော မျက်နှာပြင်များ
+- **Proxy Pattern**: အကောင်းဆုံးဖြစ်နိုင်ရန် lazy loading နှင့် caching
 
-## 📚 .NET Design Principles
+## 📚 .NET ဒီဇိုင်းမူကြမ်းများ
 
-### SOLID Principles
+### SOLID မူကြမ်းများ
 
-- **Single Responsibility**: Component တစ်ခုစီ၏ ရည်ရွယ်ချက်ကို ရှင်းလင်းစေခြင်း
-- **Open/Closed**: Modification မရှိဘဲ Extensible ဖြစ်စေခြင်း
-- **Liskov Substitution**: Interface-based tool implementation
-- **Interface Segregation**: Focused, cohesive interfaces
-- **Dependency Inversion**: Abstractions များကို အခြေခံ၍ အလုပ်လုပ်ခြင်း
+- **Single Responsibility**: မည်သည့်ကွန်ပွန်နန့်မှ တစ်ခုတည်းသော ရည်ရွယ်ချက်ရှိခြင်း
+- **Open/Closed**: ပြင်ဆင်မှုမမဲ့ ဆက်လက်ဖြန့်ချိနိုင်ခြင်း
+- **Liskov Substitution**: အင်တာဖေ့စ်အခြေပြု tool အကောင်အထည်ဖော်မှုများ
+- **Interface Segregation**: ဦးတည်ချက်ပြည့်စုံသော၊ ဆိုင်ရာ အင်တာဖေ့စ်များ
+- **Dependency Inversion**: တိကျခြင်းမရှိတဲ့ အရာများပေါ် အားထားခြင်း
 
-### Clean Architecture
+### ရှင်းလင်း Architecture
 
-- **Domain Layer**: Core agent နှင့် tool abstractions
-- **Application Layer**: Agent orchestration နှင့် workflows
-- **Infrastructure Layer**: GitHub Models integration နှင့် အပြင်ပန်းဝန်ဆောင်မှုများ
-- **Presentation Layer**: User interaction နှင့် response formatting
+- **Domain Layer**: အဓိက agent နှင့် tool အကြောင်းအရာများ
+- **Application Layer**: agent စီမံခန့်ခွဲမှုနှင့် လုပ်ငန်းစဉ်များ
+- **Infrastructure Layer**: Azure OpenAI (Responses API) ပေါင်းစည်းမှုနှင့် ပြင်ပ ဝန်ဆောင်မှုများ
+- **Presentation Layer**: အသုံးပြုသူနှင့် ဆက်သွယ်မှု၊ တုံ့ပြန်မှု ပုံဖော်ခြင်း
 
-## 🔒 Enterprise Considerations
+## 🔒 စက်မှုလုပ်ငန်း စဉ်းစားချက်များ
 
-### Security
+### လုံခြုံရေး
 
-- **Credential Management**: IConfiguration ဖြင့် API key များကို လုံခြုံစွာ စီမံခြင်း
-- **Input Validation**: Strong typing နှင့် data annotation validation
-- **Output Sanitization**: Response များကို လုံခြုံစွာ စီမံခြင်းနှင့် filtering
-- **Audit Logging**: Operation tracking အပြည့်အစုံ
+- **လက်မှတ်စီမံခန့်ခွဲမှု**: IConfiguration ဖြင့် API key လုံခြုံစွာ ကိုင်တွယ်ခြင်း
+- **ထည့်သွင်းမှု စစ်ဆေးမှု**: ကြံ့ခိုင်သော typing နှင့် data annotation စစ်ဆေးခြင်း
+- **ထွက်ရှိမှု သန့်ရှင်းမှု**: လုံခြုံသော တုံ့ပြန်မှု ဆက်ဆံမှု နှင့် စစ်ထုတ်မှု
+- **စာရင်းသွင်း မှတ်တမ်း**: လုပ်ငန်းဆောင်ရွက်ချက်များ ကြာရှည် စောင့်ကြည့်ခြင်း
 
-### Performance
+### ဆောင်ရွက်မှု
 
-- **Async Patterns**: Non-blocking I/O operations
-- **Connection Pooling**: HTTP client management ကို ထိရောက်စွာ ပြုလုပ်ခြင်း
-- **Caching**: Response caching ဖြင့် စွမ်းဆောင်ရည် မြှင့်တင်ခြင်း
-- **Resource Management**: Disposal နှင့် cleanup patterns ကို သေချာစွာ ပြုလုပ်ခြင်း
+- **Async Patterns**: ပြတ်တောက်မရှိသော I/O လုပ်ငန်းစဉ်များ
+- **Connection Pooling**: ထိရောက်သော HTTP client စီမံခန့်ခွဲမှု
+- **Caching**: တုံ့ပြန်မှု caching ဖြင့် ဆောင်ရွက်မှု တိုးတက်မှု
+- **Resource Management**: သင့်တော်သည့် ဖျက်ပစ်မှု နှင့် သန့်ရှင်းမှု ပုံစံများ
 
-### Scalability
+### ပမာဏတိုးတက်မှု
 
-- **Thread Safety**: Concurrent agent execution အထောက်အပံ့
-- **Resource Pooling**: Resource များကို ထိရောက်စွာ အသုံးပြုခြင်း
-- **Load Management**: Rate limiting နှင့် backpressure handling
-- **Monitoring**: Performance metrics နှင့် health checks
+- **Thread Safety**: တပြိုင်နက် agent ဆောင်ရွက်မှု ထောက်ပံ့မှု
+- **Resource Pooling**: ထိရောက်သော ရင်းမြစ်အသုံးပြုမှု
+- **Load Management**: အမြန်နှုန်းကန့်သတ်ခြင်းနှင့် နောက်တုံ့ပြန်မှု ကိုင်တွယ်ခြင်း
+- **Monitoring**: ဆောင်ရွက်မှု ကိန်းဂဏန်းများနှင့် ကျန်းမာရေးစစ်ဆေးခြင်း
 
-## 🚀 Production Deployment
+## 🚀 ထုတ်လုပ်မှု အဆင့်သို့ ပြောင်းရွှေ့ခြင်း
 
-- **Configuration Management**: Environment-specific settings
-- **Logging Strategy**: Correlation IDs ဖြင့် structured logging
-- **Error Handling**: Global exception handling နှင့် proper recovery
-- **Monitoring**: Application insights နှင့် performance counters
-- **Testing**: Unit tests, integration tests, နှင့် load testing patterns
+- **Configuration Management**: ပတ်ဝန်းကျင် အထူးချုပ်ချက်များ
+- **Logging Strategy**: အဆက်အသွယ် ID များနှင့် အစီအစဉ် logging
+- **Error Handling**: ပြည့်စုံသော exception ကိုင်တွယ်မှုနှင့် သင့်တော်သော ပြန်လည်ထူထောင်မှု
+- **Monitoring**: Application insights နှင့် ဆောင်ရွက်မှု အတိုးအကျယ် မီတာများ
+- **Testing**: ယူနစ်စမ်းသပ်မှုများ၊ ပေါင်းစပ်စမ်းသပ်မှုများနှင့် အလေးချိန် စမ်းသပ်မှု ပုံစံများ
 
-Enterprise-grade intelligent agents များကို .NET ဖြင့် တည်ဆောက်ရန် အသင့်ဖြစ်ပါပြီ။ Robust ဖြစ်သော architecture တစ်ခုကို တည်ဆောက်ကြစို့! 🏢✨
+.NET နှင့်အတူ စက်မှုလုပ်ငန်းအဆင့် ဉာဏ်စွမ်း agents များ ဖန်တီးဖို့ အသင့်ဖြစ်ပါပြီလား? ဘာသာရပ်ကြီးတစ်ခု အားကောင်းစွာ ဆောက်ကြပါစို့! 🏢✨
 
-## 🚀 စတင်အသုံးပြုခြင်း
+## 🚀 စတင်ခြင်း
 
 ### လိုအပ်ချက်များ
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် အထက်
-- [GitHub Models API access token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) သို့မဟုတ် ထက်မြင့်သော ဗားရှင်း
+- Azure OpenAI resource နှင့် မော်ဒယ် တပ်ဆင်ထားသော [Azure subscription](https://azure.microsoft.com/free/)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — `az login` ဖြင့် ဝင်ရောက်မှု
 
-### လိုအပ်သော Environment Variables
+### လိုအပ်သော ပတ်ဝန်းကျင် မူလတန်းများ
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# ဒါနဲ့ AzureCliCredential က token ကို ရနိုင်အောင် အကောင့်ဝင်ပါ။
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# ထို့နောက် AzureCliCredential သည် token ကို ရယူနိုင်ရန် သင့်အကောင့်သို့ လက်မှတ်ထိုးဝင်ပါ။
+az login
 ```
 
-### နမူနာကုဒ်
+### နမူနာ ကုဒ်
 
-ကုဒ်နမူနာကို run လုပ်ရန်,
+ကုဒ်နမူနာကို chạy တဲ့အခါ，
 
 ```bash
 # zsh/bash
@@ -152,27 +155,29 @@ chmod +x ./03-dotnet-agent-framework.cs
 ./03-dotnet-agent-framework.cs
 ```
 
-သို့မဟုတ် dotnet CLI ကို အသုံးပြု၍:
+ဒါမှမဟုတ် dotnet CLI ဖြင့်။
 
 ```bash
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-[`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) တွင် အပြည့်အစုံကုဒ်ကို ကြည့်ပါ။
+ပြည့်စုံသော ကုဒ်ကို [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) တွင် ကြည့်ရှုနိုင်ပါသည်။
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**အကြောင်းကြားချက်**:  
-ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးစားနေသော်လည်း အလိုအလျောက် ဘာသာပြန်ခြင်းတွင် အမှားများ သို့မဟုတ် မမှန်ကန်မှုများ ပါဝင်နိုင်သည်ကို သတိပြုပါ။ မူရင်းဘာသာစကားဖြင့် ရေးသားထားသော စာရွက်စာတမ်းကို အာဏာတရားရှိသော အရင်းအမြစ်အဖြစ် သတ်မှတ်သင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူက ဘာသာပြန်ခြင်းကို အကြံပြုပါသည်။ ဤဘာသာပြန်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော အလွဲအမှားများ သို့မဟုတ် အနားလွဲမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+**ပြောကြားချက်**
+ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးပမ်းနေသော်လည်း၊ စက်ကိရိယာဘာသာပြန်ခြင်းများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် လိုအပ်ပါသည်။ မူလစာတမ်းကို မူရင်းဘာသာဖြင့်သာ ယုံကြည်စိတ်ချရသော အချက်အလက်အဖြစ် သတ်မှတ်သင့်သည်။ အရေးကြီးသည့် သတင်းအချက်အလက်များအတွက် ပရော်ဖက်ရှင်နယ် လူသားဘာသာပြန်သူဝန်ဆောင်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော နားလည်မှုကွာခြားမှုများ သို့မဟုတ် မမှန်ကန်သော အသုံးပြုမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မခံပါ။
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

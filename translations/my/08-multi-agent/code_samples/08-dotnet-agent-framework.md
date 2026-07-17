@@ -1,84 +1,89 @@
-# 🤝 အလုပ်အကိုင် Multi-Agent Workflow Systems (.NET)
+# 🤝 စီးပွားဖြစ် Multi-Agent Workflow စနစ်များ (.NET)
 
-## 📋 သင်ယူရန် ရည်ရွယ်ချက်များ
+## 📋 သင်ယူရန်ရည်မှန်းချက်များ
 
-ဒီ notebook က Microsoft Agent Framework ကို .NET နဲ့ GitHub Models တွေကို အသုံးပြုပြီး အလုပ်အကိုင်အဆင့်မြင့် multi-agent systems တည်ဆောက်ပုံကို ပြသပေးမှာဖြစ်ပါတယ်။ .NET ရဲ့ အလုပ်အကိုင်အဆင့်မြင့် features တွေကို အသုံးပြုပြီး ထုတ်လုပ်မှုအဆင့်ရောက်တဲ့ ဖြေရှင်းချက်တွေကို ဖန်တီးဖို့အတွက် အထူး agent တွေ အတူတကွ လုပ်ဆောင်တဲ့ structured workflows တွေကို စီမံခန့်ခွဲပုံကို သင်ယူနိုင်ပါမယ်။
+ဤမှတ်စုစာအုပ်တွင် .NET ရဲ့ Microsoft Agent Framework ကို အသုံးပြုပြီး Azure OpenAI (Responses API) နှင့်အတူ ခြေလှမ်းမြှင့်နှင့်စက်ရုပ်များစနစ်များတည်ဆောက်နည်းကို ပြသသည်။ သင်သည် အထူးပြုလုပ်ထားသော agent များ စုစည်းပြီး ပေါင်းစပ်လုပ်ဆောင်မှုများကို စနစ်တကျ စီမံခန့်ခွဲခြင်း၊ .NET ၏ စီးပွားဖြစ် လုပ်ငန်းလိုအပ်ချက်များနှင့် ပြန်လည်အသုံးချနိုင်သော ဖြေရှင်းချက်များအတွက် အသုံးပြုနည်းကို သင်ယူမည်ဖြစ်သည်။
 
-**သင်တည်ဆောက်မယ့် အလုပ်အကိုင် Multi-Agent အစွမ်းသတ္တိများ:**
-- 👥 **Agent ပေါင်းစည်းမှု**: Type-safe agent တွေကို compile-time validation နဲ့ ပေါင်းစည်းခြင်း
-- 🔄 **Workflow စီမံခန့်ခွဲမှု**: .NET ရဲ့ async patterns တွေကို အသုံးပြုပြီး declarative workflow ကို သတ်မှတ်ခြင်း
-- 🎭 **အခန်းကဏ္ဍအထူးပြုမှု**: Strongly-typed agent ရဲ့ ပုဂ္ဂိုလ်ရေးနှင့် အထူးပြုမှုဧရိယာများ
-- 🏢 **အလုပ်အကိုင် ပေါင်းစည်းမှု**: ထုတ်လုပ်မှုအဆင့်ရောက်တဲ့ patterns တွေကို monitoring နဲ့ error handling နဲ့အတူ ဖော်ပြခြင်း
+**သင်တည်ဆောက်မည့် စီးပွားဖြစ် Multi-Agent စွမ်းရည်များ**
+- 👥 **Agent ပူးပေါင်းဆောင်ရွက်မှု**: compile-time အတည်ပြုချက်နှင့်အတူ Type-safe agent ပူးပေါင်းလုပ်ဆောင်မှု
+- 🔄 **Workflow စီမံခန့်ခွဲမှု**: .NET ၏ async နမူနာများဖြင့် ဆိုဒ်ဖတ်လုံးဝ Workflow အဓိပ္ပာယ်ဖော်ပြချက်
+- 🎭 **Role နှင့် ကျွမ်းကျင်မှု အထူးပြုခြင်း**: များပြားသော agent ပုဂ္ဂိုလ်လုပ်ဆောင်ချက်များနှင့် ကျွမ်းကျင်မှုနယ်ပယ်များကို ခိုင်မာစွာ ဘာသာပြန်ထားခြင်း
+- 🏢 **စီးပွားဖြစ် ညှိနှိုင်းမှု**: မျက်စိပိတ်ထားနိုင်သော တာဝန်ယူစနစ်နှင့် error ကိုင်တွယ်မှု ဖြင့် ထုတ်လုပ်နိုင်မှုအဆင့်မီနမူနာများ
 
-## ⚙️ လိုအပ်ချက်များနှင့် Setup
+## ⚙️ မတိုင်မီလိုအပ်ချက်များနှင့် ပြင်ဆင်မှု
 
-**ဖွံ့ဖြိုးရေး ပတ်ဝန်းကျင်:**
-- .NET 9.0 SDK သို့မဟုတ် အထက်
-- Visual Studio 2022 သို့မဟုတ် VS Code (C# extension ပါဝင်)
-- Azure subscription (persistent agents အတွက်)
+**ဖွံ့ဖြိုးရေးပတ်ဝန်းကျင် များ**
+- .NET 9.0 SDK သို့မဟုတ် အထက်တွင်
+- Visual Studio 2022 သို့မဟုတ် VS Code with C# extension
+- Azure subscription (တည်ရှိသော agents များအတွက်)
 
-**လိုအပ်တဲ့ NuGet Packages:**
+**လိုအပ်သော NuGet ပက်ကေ့ချ်များ**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.9.0" />
-<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.4" />
+<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.*" />
+<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.10" />
 <PackageReference Include="Azure.Identity" Version="1.15.0" />
 <PackageReference Include="System.Linq.Async" Version="6.0.3" />
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.8.0" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.*" />
+<PackageReference Include="OpenTelemetry.Api" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
 ```
 
-## Code Sample
+## ကိုဒ်နမူနာ
 
-ဒီ သင်ခန်းစာအတွက် အပြည့်အစုံအလုပ်လုပ်တဲ့ code ကို အတူပါဝင်တဲ့ C# ဖိုင်မှာ ရနိုင်ပါတယ်: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
+ဤသင်ခန်းစာအတွက် အပြည့်အစုံသီးသန့် ကိုဒ်သည် ပါဝင် C# ဖိုင်တွင် ရရှိနိုင်သည်: [`08-dotnet-agent-framework.cs`](../../../../08-multi-agent/code_samples/08-dotnet-agent-framework.cs)
 
-ဒီ sample ကို run ဖို့:
+ကိုဒ်ဖိုင်ကို မယ့်နည်း:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# ဖိုင်ကို အပြည့်အ၀ဆောင်ရွက်နိုင်အောင် ပြုလုပ်ပါ (Linux/macOS)
 chmod +x 08-dotnet-agent-framework.cs
 
-# Run the sample
+# နမူနာကို လုပ်ဆောင်ပါ
 ./08-dotnet-agent-framework.cs
 ```
 
-သို့မဟုတ် .NET CLI ကို အသုံးပြုခြင်း:
+သို့မဟုတ် .NET CLI ကိုသုံးပါက
 
 ```bash
 dotnet run 08-dotnet-agent-framework.cs
 ```
 
-## ဒီ Sample က ပြသတဲ့အရာများ
+## ဤနမူနာက ပြသသည့်အရာများ
 
-ဒီ multi-agent workflow system က hotel travel recommendation service တစ်ခုကို ဖန်တီးပေးပြီး အထူးပြု agent နှစ်ယောက်ပါဝင်ပါတယ်:
+ဤ multi-agent workflow စနစ်သည်ူးအထူးပြုလုပ်ထားသော agent နှစ်ဦးဖြင့် ဟိုတယ်ခရီးစဉ်အကြံပြုမှုဝန်ဆောင်မှုတစ်ခုကို ဖန်တီးသည်
 
-1. **FrontDesk Agent**: Activity နဲ့ location recommendation ပေးတဲ့ travel agent
-2. **Concierge Agent**: Recommendation တွေကို authentic, non-touristy အတွေ့အကြုံတွေဖြစ်ဖို့ ပြန်လည်သုံးသပ်ပေးခြင်း
+1. **FrontDesk Agent**: လှုပ်ရှားမှုများနှင့် နေရာများအကြံပြုသောခရီးသွား agent
+2. **Concierge Agent**: အကြံပြုချက်များကို စစ်ဆေးပြီး အမှန်တကယ်ခရီးသွားသူမဟုတ်သော သက်ဆိုင်ရာအတွေ့အကြုံများ ရှိကြောင်း စစ်ဆေးသည်
 
-Agent တွေ workflow မှာ အတူတကွ လုပ်ဆောင်ပုံ:
-- FrontDesk agent က travel request ကို စတင်လက်ခံခြင်း
-- Concierge agent က recommendation ကို ပြန်လည်သုံးသပ်ပြီး အဆင့်မြှင့်တင်ပေးခြင်း
-- Workflow က real-time response တွေကို stream လုပ်ပေးခြင်း
+အောက်ပါအတိုင်း agent များ ပေါင်းသင်းလုပ်ဆောင်သည်-
+- FrontDesk agent သည် ခရီးသွား အလိုရှိချက်ကို ပထမမြောက်လက်ခံရရှိသည်
+- Concierge agent သည် အကြံပြုချက်ကို စစ်ဆေး၍ တိုးတက်အောင် ပြင်ဆင်သည်
+- Workflow သည် တုံ႔ပြန်ချက်များကို တိုက်ရိုက်စီးဆင်းအောင် လုပ်ဆောင်သည်
 
-## အဓိက Concepts
+## အဓိကအယူအဆများ
 
-### Agent ပေါင်းစည်းမှု
-ဒီ sample က Microsoft Agent Framework ကို အသုံးပြုပြီး type-safe agent ပေါင်းစည်းမှုကို compile-time validation နဲ့ ပြသပေးပါတယ်။
+### Agent ပူးပေါင်းမှု
+ဤနမူနာသည် Microsoft Agent Framework အသုံးပြုပြီး compile-time အတည်ပြုချက်ပါရှိသော type-safe agent ပူးပေါင်းမှုကို ပြသသည်။
 
 ### Workflow စီမံခန့်ခွဲမှု
-.NET ရဲ့ async patterns တွေကို အသုံးပြုပြီး agent အများအပြားကို pipeline မှာ ချိတ်ဆက်တဲ့ declarative workflow ကို အသုံးပြုထားပါတယ်။
+.NET ၏ async နမူနာများဖြင့် ဆိုဒ်ဖတ် workflow အဓိပ္ပာယ်ဖော်ပြချက်ကို သုံးပြီး agents များပေါင်းစပ်သည်။
 
-### Streaming Responses
-Async enumerables နဲ့ event-driven architecture ကို အသုံးပြုပြီး agent response တွေကို real-time stream လုပ်ပုံကို ဖော်ပြထားပါတယ်။
+### တုံ့ပြန်ချက်များ စီးဆင်းမှု
+async enumerables နှင့် အဖြစ်အပျက် အခြေခံ အသုတ်ပစ်ခြင်းများဖြင့် real-time streaming ကို ပုံဖော်သည်။
 
-### အလုပ်အကိုင် ပေါင်းစည်းမှု
-ထုတ်လုပ်မှုအဆင့်ရောက်တဲ့ patterns တွေကို ဖော်ပြထားပြီး:
-- Environment variable configuration
-- Secure credential management
-- Error handling
-- Asynchronous event processing
+### စီးပွားဖြစ် ညှိနှိုင်းမှု
+ထုတ်လုပ်မှုအဆင့်မီနမူနာများကို ပြသသည်၊ စသည်တို့မှာ
+- ပတ်ဝန်းကျင်အပြောင်းအလဲပြုခြင်း ဆက်တင်များ
+- လုံခြုံသော အသိအမှတ်ပြုချက် စီမံခန့်ခွဲမှု
+- အမှားကိုင်တွယ်မှု
+- အမှတ်အသား များနှင့်တပြိုင်နက်ဖြစ်သော ဖြစ်ရပ်များ ဆက်လက်ဆောင်ရွက်မှု
 
 ---
 
-**အကြောင်းကြားချက်**:  
-ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှုအတွက် ကြိုးစားနေသော်လည်း အလိုအလျောက် ဘာသာပြန်မှုများတွင် အမှားများ သို့မဟုတ် မမှန်ကန်မှုများ ပါဝင်နိုင်သည်ကို သတိပြုပါ။ မူရင်းဘာသာစကားဖြင့် ရေးသားထားသော စာရွက်စာတမ်းကို အာဏာတရားရှိသော အရင်းအမြစ်အဖြစ် သတ်မှတ်သင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူက ဘာသာပြန်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော အလွဲအမှားများ သို့မဟုတ် အနားလွဲမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**ပြောကြားချက်**
+ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးပမ်းနေသော်လည်း၊ စက်ကိရိယာဘာသာပြန်ခြင်းများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် လိုအပ်ပါသည်။ မူလစာတမ်းကို မူရင်းဘာသာဖြင့်သာ ယုံကြည်စိတ်ချရသော အချက်အလက်အဖြစ် သတ်မှတ်သင့်သည်။ အရေးကြီးသည့် သတင်းအချက်အလက်များအတွက် ပရော်ဖက်ရှင်နယ် လူသားဘာသာပြန်သူဝန်ဆောင်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်လာသော နားလည်မှုကွာခြားမှုများ သို့မဟုတ် မမှန်ကန်သော အသုံးပြုမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မခံပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

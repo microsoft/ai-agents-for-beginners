@@ -1,101 +1,104 @@
-# 🛠️ Napredno korištenje alata s GitHub modelima (.NET)
+# 🛠️ Napredno korištenje alata s Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Ciljevi učenja
 
-Ovaj priručnik prikazuje obrasce integracije alata na razini poduzeća koristeći Microsoft Agent Framework u .NET-u s GitHub modelima. Naučit ćete kako izgraditi sofisticirane agente s više specijaliziranih alata, koristeći snažno tipiziranje C# jezika i značajke .NET-a za poduzeća.
+Ovaj bilježnik prikazuje obrasce integracije alata na razini poduzeća koristeći Microsoft Agent Framework u .NET-u s Azure OpenAI (Responses API). Naučit ćete graditi sofisticirane agente s više specijaliziranih alata, koristeći snažno tipiziranje C# i značajke poduzeća .NET-a.
 
-### Napredne sposobnosti alata koje ćete savladati
+### Napredne sposobnosti alata koje ćete svladati
 
-- 🔧 **Arhitektura s više alata**: Izgradnja agenata s više specijaliziranih mogućnosti
-- 🎯 **Izvršavanje alata uz sigurnost tipova**: Iskorištavanje C#-ove provjere u vrijeme kompilacije
-- 📊 **Obrasci alata za poduzeća**: Dizajn alata spreman za produkciju i rukovanje greškama
-- 🔗 **Kompozicija alata**: Kombiniranje alata za složene poslovne procese
+- 🔧 **Arhitektura s više alata**: Izrada agenata s više specijaliziranih sposobnosti
+- 🎯 **Izvršavanje alata s provjerom tipa**: Korištenje potvrde pri kompajliranju u C#
+- 📊 **Obrasci alata za poduzeća**: Dizajn alata spremnih za proizvodnju i rukovanje pogreškama
+- 🔗 **Sastavljanje alata**: Kombiniranje alata za složene poslovne tijekove rada
 
 ## 🎯 Prednosti arhitekture alata u .NET-u
 
 ### Značajke alata za poduzeća
 
-- **Provjera u vrijeme kompilacije**: Snažno tipiziranje osigurava ispravnost parametara alata
-- **Ubrizgavanje ovisnosti**: Integracija IoC spremnika za upravljanje alatima
-- **Async/Await obrasci**: Neblokirajuće izvršavanje alata uz pravilno upravljanje resursima
-- **Strukturirano logiranje**: Ugrađena integracija za praćenje izvršavanja alata
+- **Provjera pri kompajliranju**: Snažno tipiziranje osigurava ispravnost parametara alata
+- **Upravljanje ovisnostima**: Integracija IoC spremnika za upravljanje alatima
+- **Async/Await obrasci**: Neblokirajuće izvršavanje alata s pravilnim upravljanjem resursima
+- **Strukturirano prijavljivanje**: Ugrađena integracija zapisivanja za praćenje izvršavanja alata
 
-### Obrasci spremni za produkciju
+### Obrasci spremni za proizvodnju
 
-- **Rukovanje iznimkama**: Sveobuhvatno upravljanje greškama uz tipizirane iznimke
-- **Upravljanje resursima**: Pravilni obrasci za odlaganje i upravljanje memorijom
+- **Rukovanje iznimkama**: Sveobuhvatno upravljanje pogreškama s tipiziranim iznimkama
+- **Upravljanje resursima**: Ispravni obrasci otpada i upravljanje memorijom
 - **Praćenje performansi**: Ugrađene metrike i brojači performansi
-- **Upravljanje konfiguracijom**: Tipizirana konfiguracija s provjerom valjanosti
+- **Upravljanje konfiguracijom**: Sigurna konfiguracija s potvrdom
 
 ## 🔧 Tehnička arhitektura
 
-### Osnovne komponente alata u .NET-u
+### Osnovne .NET komponente alata
 
-- **Microsoft.Extensions.AI**: Jedinstveni sloj apstrakcije alata
-- **Microsoft.Agents.AI**: Orkestracija alata na razini poduzeća
-- **Integracija GitHub modela**: Klijent visokih performansi za API s grupiranjem veza
+- **Microsoft.Extensions.AI**: Jedinstvena sloj apstrakcije alata
+- **Microsoft.Agents.AI**: Orkestracija alata za poduzeća
+- **Azure OpenAI (Responses API)**: Klijent visoke izvedbe s punjenjem veza
 
-### Cjevovod za izvršavanje alata
+### Cjevovod izvršavanja alata
 
 ```mermaid
 graph LR
-    A[User Request] --> B[Agent Analysis]
-    B --> C[Tool Selection]
-    C --> D[Type Validation]
-    B --> E[Parameter Binding]
-    E --> F[Tool Execution]
+    A[Korisnički zahtjev] --> B[Analiza agenta]
+    B --> C[Izbor alata]
+    C --> D[Provjera tipa]
+    B --> E[Vezanje parametara]
+    E --> F[Izvršenje alata]
     C --> F
-    F --> G[Result Processing]
+    F --> G[Obrada rezultata]
     D --> G
-    G --> H[Response]
+    G --> H[Odgovor]
 ```
 
-## 🛠️ Kategorije alata i obrasci
+## 🛠️ Kategorije i obrasci alata
 
 ### 1. **Alati za obradu podataka**
 
-- **Provjera unosa**: Snažno tipiziranje s anotacijama podataka
-- **Operacije transformacije**: Tipizirana konverzija i formatiranje podataka
-- **Poslovna logika**: Alati za izračune i analizu specifične za domenu
-- **Formatiranje izlaza**: Generiranje strukturiranih odgovora
+- **Provjera ulaza**: Snažno tipiziranje s oznakama podataka
+- **Operacije transformacije**: Sigurna konverzija i oblikovanje podataka prema tipu
+- **Poslovna logika**: Alati za izračune i analize specifične za domenu
+- **Oblikovanje izlaza**: Strukturirano generiranje odgovora
 
 ### 2. **Integracijski alati**
 
-- **API konektori**: Integracija RESTful servisa s HttpClient-om
-- **Alati za baze podataka**: Integracija Entity Framework-a za pristup podacima
-- **Operacije datoteka**: Sigurne operacije datotečnog sustava s provjerom valjanosti
-- **Vanjske usluge**: Obrasci integracije usluga trećih strana
+- **API konektori**: Integracija RESTful servisa s HttpClientom
+- **Alati za baze podataka**: Integracija Entity Frameworka za pristup podacima
+- **Operacije nad datotekama**: Sigurne operacije nad datotečnim sustavom s provjerom
+- **Vanjske usluge**: Obrasci integracije servisa trećih strana
 
-### 3. **Alati za pomoćne funkcije**
+### 3. **Pomoćni alati**
 
-- **Obrada teksta**: Manipulacija i formatiranje stringova
-- **Operacije s datumima/vremenom**: Izračuni datuma/vremena uzimajući u obzir kulturu
-- **Matematički alati**: Precizni izračuni i statističke operacije
-- **Alati za provjeru**: Provjera poslovnih pravila i valjanosti podataka
+- **Obrada teksta**: Alati za manipulaciju i oblikovanje nizova znakova
+- **Operacije datuma/vremena**: Kalkulacije datuma/vremena prilagođene kulturi
+- **Matematički alati**: Precizni proračuni i statističke operacije
+- **Alati za provjeru valjanosti**: Validacija poslovnih pravila i provjera podataka
 
-Spremni za izgradnju agenata na razini poduzeća s moćnim, tipiziranim mogućnostima alata u .NET-u? Idemo arhitektirati profesionalna rješenja! 🏢⚡
+Spremni za izgradnju agenata razine poduzeća s moćnim alatima sigurnim u tipove u .NET-u? Hajdemo dizajnirati profesionalna rješenja! 🏢⚡
 
 ## 🚀 Početak rada
 
 ### Preduvjeti
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ili noviji
-- [GitHub Models API pristupni token](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Pretplata na [Azure](https://azure.microsoft.com/free/) s Azure OpenAI resursom i postavkom modela
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se pomoću `az login`
 
-### Potrebne varijable okruženja
+### Potrebne varijable okoline
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# Zatim se prijavite kako bi AzureCliCredential mogao dobiti token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# Zatim se prijavite kako bi AzureCliCredential mogao dobiti token
+az login
 ```
 
 ### Primjer koda
@@ -121,14 +124,16 @@ Pogledajte [`04-dotnet-agent-framework.cs`](../../../../04-tool-use/code_samples
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -160,26 +165,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -205,28 +196,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+await using var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -237,8 +228,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -248,6 +239,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Odricanje od odgovornosti**:  
-Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati mjerodavnim izvorom. Za ključne informacije preporučuje se profesionalni prijevod od strane čovjeka. Ne preuzimamo odgovornost za bilo kakve nesporazume ili pogrešne interpretacije proizašle iz korištenja ovog prijevoda.
+**Napomena**:
+Ovaj dokument je preveden korištenjem AI prevoditeljskog servisa [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati greške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za važne informacije preporuča se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazumevanja ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

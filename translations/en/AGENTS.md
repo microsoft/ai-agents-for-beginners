@@ -2,13 +2,13 @@
 
 ## Project Overview
 
-This repository contains "AI Agents for Beginners" - a comprehensive educational course teaching everything needed to build AI Agents. The course consists of 15+ lessons covering fundamentals, design patterns, frameworks, and production deployment of AI agents.
+This repository contains "AI Agents for Beginners" - a comprehensive educational course teaching everything needed to build AI Agents. The course consists of 18 lessons (numbered 00-18) covering fundamentals, design patterns, frameworks, production deployment, local/on-device agents, and security of AI agents.
 
 **Key Technologies:**
 - Python 3.12+
 - Jupyter Notebooks for interactive learning
 - AI Frameworks: Microsoft Agent Framework (MAF)
-- Azure AI Services: Microsoft Foundry, Azure AI Foundry Agent Service V2
+- Azure AI Services: Microsoft Foundry, Microsoft Foundry Agent Service V2
 
 **Architecture:**
 - Lesson-based structure (00-15+ directories)
@@ -20,7 +20,7 @@ This repository contains "AI Agents for Beginners" - a comprehensive educational
 
 ### Prerequisites
 - Python 3.12 or higher
-- Azure subscription (for Azure AI Foundry)
+- Azure subscription (for Microsoft Foundry)
 - Azure CLI installed and authenticated (`az login`)
 
 ### Initial Setup
@@ -52,9 +52,9 @@ This repository contains "AI Agents for Beginners" - a comprehensive educational
 
 ### Required Environment Variables
 
-For **Azure AI Foundry** (Required):
-- `AZURE_AI_PROJECT_ENDPOINT` - Azure AI Foundry project endpoint
-- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Model deployment name (e.g., gpt-4o)
+For **Microsoft Foundry** (Required):
+- `AZURE_AI_PROJECT_ENDPOINT` - Microsoft Foundry project endpoint
+- `AZURE_AI_MODEL_DEPLOYMENT_NAME` - Model deployment name (e.g., gpt-4.1-mini)
 
 For **Azure AI Search** (Lesson 05 - RAG):
 - `AZURE_SEARCH_SERVICE_ENDPOINT` - Azure AI Search endpoint
@@ -81,9 +81,9 @@ Each lesson contains multiple Jupyter notebooks for different frameworks:
 
 ### Working with Microsoft Agent Framework
 
-**Microsoft Agent Framework + Azure AI Foundry:**
+**Microsoft Agent Framework + Microsoft Foundry:**
 - Requires Azure subscription
-- Uses `AzureAIProjectAgentProvider` for Agent Service V2 (agents visible in Foundry portal)
+- Uses `FoundryChatClient` for Agent Service V2 (agents visible in Foundry portal)
 - Production-ready with built-in observability
 - File pattern: `*-python-agent-framework.ipynb`
 
@@ -107,7 +107,7 @@ This is an educational repository with example code rather than production code 
 
 3. **Verify environment variables:**
    ```bash
-   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ GITHUB_TOKEN' if os.getenv('GITHUB_TOKEN') else '✗ GITHUB_TOKEN missing')"
+   python -c "import os; from dotenv import load_dotenv; load_dotenv(); print('✓ AZURE_AI_PROJECT_ENDPOINT' if os.getenv('AZURE_AI_PROJECT_ENDPOINT') else '✗ AZURE_AI_PROJECT_ENDPOINT missing')"
    ```
 
 ### Running Individual Notebooks
@@ -117,6 +117,10 @@ Open notebooks in Jupyter and execute cells sequentially. Each notebook is self-
 - Configuration loading
 - Example agent implementations
 - Expected outputs in markdown cells
+
+### Smoke-Testing Deployed Agents
+
+For lessons where an agent is deployed as a Microsoft Foundry hosted agent (01, 04, 05, 16), the repo ships smoke-test catalogs under `tests/` that are run by the `.github/workflows/smoke-test.yml` workflow via the [AI Smoke Test](https://github.com/marketplace/actions/ai-smoke-test) action. These are a lightweight post-deploy gate (is the agent reachable and following basic prompt expectations?), complementing the evaluation pipeline in Lessons 10 and 16. See [tests/README.md](./tests/README.md) for the catalog-to-lesson-to-agent mapping. Lesson 17 runs locally with Foundry Local and has no hosted endpoint, so it is validated by running its notebook directly.
 
 ## Code Style
 
@@ -217,7 +221,7 @@ Use descriptive titles:
 2. **Environment variables:**
    - Always create `.env` from `.env.example`
    - Don't commit `.env` file (it's in `.gitignore`)
-   - GitHub token needs appropriate permissions
+   - Sign in with `az login` for keyless Entra ID authentication
 
 3. **Package conflicts:**
    - Use a fresh virtual environment
@@ -227,7 +231,7 @@ Use descriptive titles:
 4. **Azure services:**
    - Azure AI services require active subscription
    - Some features are region-specific
-   - Free tier limitations apply to GitHub Models
+   - Ensure your Azure OpenAI model deployment supports the Responses API
 
 ### Learning Path
 
@@ -241,8 +245,8 @@ Recommended progression through lessons:
 ### Framework Selection
 
 Choose framework based on your goals:
-- **All lessons**: Microsoft Agent Framework (MAF) with `AzureAIProjectAgentProvider`
-- **Agents register server-side** in Azure AI Foundry Agent Service V2 and are visible in the Foundry portal
+- **All lessons**: Microsoft Agent Framework (MAF) with `FoundryChatClient`
+- **Agents register server-side** in Microsoft Foundry Agent Service V2 and are visible in the Foundry portal
 
 ### Getting Help
 
@@ -286,6 +290,8 @@ Each lesson follows a consistent pattern:
 Format: `<lesson-number>-python-agent-framework.ipynb`
 - `01-python-agent-framework.ipynb` - Lesson 1, MAF Python
 - `14-sequential.ipynb` - Lesson 14, MAF advanced patterns
+- `16-python-agent-framework.ipynb` - Lesson 16, production customer-support agent
+- `17-local-agent-foundry-local.ipynb` - Lesson 17, local agent with Foundry Local + Qwen
 
 ### Special Directories
 
@@ -307,6 +313,6 @@ Key packages from `requirements.txt`:
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-This document was translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive to ensure accuracy, please note that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.
+**Disclaimer**:
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

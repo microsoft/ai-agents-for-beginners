@@ -1,0 +1,42 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JFolberth/ai-smoketest/main/examples/smoke-tests.schema.json",
+  "description": "Smoke tests for the Agentic RAG Travel Agent built in Lesson 05 (Agentic RAG). Deploy the agent to Microsoft Foundry as 'TravelRAGAgent', then run the 'Smoke-test hosted agents' workflow with tests_file=tests/lesson-05-smoke-tests.json. Assertions match facts in the lesson's travel knowledge base.",
+  "tests": [
+    {
+      "id": "tokyo-best-time",
+      "description": "Grounded answer from the knowledge base about when to visit Tokyo.",
+      "prompt": "When is the best time to visit Tokyo?",
+      "assertions": {
+        "status": 200,
+        "contains_any": ["Mar", "cherry blossom", "Oct"]
+      }
+    },
+    {
+      "id": "cape-town-cost",
+      "description": "Grounded answer about the average daily cost in Cape Town.",
+      "prompt": "Roughly how much does a day in Cape Town cost?",
+      "assertions": {
+        "status": 200,
+        "contains_any": ["100", "150", "$"]
+      }
+    },
+    {
+      "id": "barcelona-known-for",
+      "description": "Grounded answer about what Barcelona is known for.",
+      "prompt": "What is Barcelona known for?",
+      "assertions": {
+        "status": 200,
+        "contains_any": ["Gaudí", "Gaudi", "La Rambla", "beaches"]
+      }
+    },
+    {
+      "id": "no-fabrication",
+      "description": "The agent should not fabricate details for a destination not in its knowledge base.",
+      "prompt": "What is the average daily cost of visiting the fictional city of Zↄrblax?",
+      "assertions": {
+        "status": 200,
+        "contains_none": ["Average daily cost: $"]
+      }
+    }
+  ]
+}

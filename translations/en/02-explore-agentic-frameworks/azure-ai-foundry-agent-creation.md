@@ -1,6 +1,6 @@
-# Azure AI Agent Service Development
+# Microsoft Foundry Agent Service Development
 
-In this exercise, you use the Azure AI Agent service tools in the [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) to create an agent for Flight Booking. The agent will be able to interact with users and provide information about flights.
+In this exercise, you use the Microsoft Foundry Agent Service tools in the [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst) to create an agent for Flight Booking. The agent will be able to interact with users and provide information about flights.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ To complete this exercise, you need the following:
 > **Note:** Microsoft Foundry was formerly known as Azure AI Studio.
 
 1. Follow these guidelines from the [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst) blog post for creating a Microsoft Foundry hub.
-2.  When your project is created, close any tips that are displayed and review the project page in the Microsoft Foundry portal, which should look similar to the following image:
+2. When your project is created, close any tips that are displayed and review the project page in the Microsoft Foundry portal, which should look similar to the following image:
 
     ![Microsoft Foundry Project](../../../translated_images/en/azure-ai-foundry.88d0c35298348c2f.webp)
 
@@ -22,7 +22,7 @@ To complete this exercise, you need the following:
 
 1. In the pane on the left for your project, in the **My assets** section, select the **Models + endpoints** page.
 2. In the **Models + endpoints** page, in the **Model deployments** tab, in the **+ Deploy model** menu, select **Deploy base model**.
-3. Search for the `gpt-4o-mini` model in the list, and then select and confirm it.
+3. Search for the `gpt-4.1-mini` model in the list, and then select and confirm it.
 
     > **Note**: Reducing the TPM helps avoid over-using the quota available in the subscription you are using.
 
@@ -35,7 +35,7 @@ Now that you have deployed a model, you can create an agent. An agent is a conve
 1. In the pane on the left for your project, in the **Build & Customize** section, select the **Agents** page.
 2. Click **+ Create agent** to create a new agent. Under the **Agent Setup** dialog box:
     - Enter a name for the agent, such as `FlightAgent`.
-    - Ensure that the `gpt-4o-mini` model deployment you created previously is selected
+    - Ensure that the `gpt-4.1-mini` model deployment you created previously is selected
     - Set the **Instructions** as per the prompt you want the agent to follow. Here is an example:
     ```
     You are FlightAgent, a virtual assistant specialized in handling flight-related queries. Your role includes assisting users with searching for flights, retrieving flight details, checking seat availability, and providing real-time flight status. Follow the instructions below to ensure clarity and effectiveness in your responses:
@@ -75,7 +75,7 @@ Now that you have deployed a model, you can create an agent. An agent is a conve
 
 ## Test the agent
 
-After creating the agent, you can test it to see how it responds to user queries in the Microsoft Foundry portal playground.
+After creating the agent, you can test it to see how it responds to user queries in Microsoft Foundry portal playground.
 
 1. At the top of the **Setup** pane for your agent, select **Try in playground**.
 2. In the **Playground** pane, you can interact with the agent by typing queries in the chat window. For example, you can ask the agent to search for flights from Seattle to New York on 28th.
@@ -97,7 +97,7 @@ When you have finished testing the agent, you can delete it to avoid incurring a
 
 - [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-studio/?WT.mc_id=academic-105485-koreyst)
 - [Microsoft Foundry portal](https://ai.azure.com/?WT.mc_id=academic-105485-koreyst)
-- [Getting Started with Azure AI Studio](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
+- [Getting Started with Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/getting-started-with-azure-ai-studio/4095602?WT.mc_id=academic-105485-koreyst)
 - [Fundamentals of AI agents on Azure](https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/?WT.mc_id=academic-105485-koreyst)
 - [Azure AI Discord](https://aka.ms/AzureAI/Discord)
 
@@ -105,5 +105,5 @@ When you have finished testing the agent, you can delete it to avoid incurring a
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

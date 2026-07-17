@@ -1,145 +1,148 @@
-# 🎨 Agentni dizajnerski obrasci s GitHub modelima (.NET)
+# 🎨 Agentic obrasci dizajna s Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Ciljevi učenja
 
-Ovaj primjer prikazuje dizajnerske obrasce na razini poduzeća za izradu inteligentnih agenata koristeći Microsoft Agent Framework u .NET-u s integracijom GitHub modela. Naučit ćete profesionalne obrasce i arhitektonske pristupe koji čine agente spremnima za produkciju, održivima i skalabilnima.
+Ovaj primjer pokazuje poslovne obrasce dizajna za izgradnju inteligentnih agenata koristeći Microsoft Agent Framework u .NET-u s integracijom Azure OpenAI (Responses API). Naučit ćete profesionalne obrasce i arhitektonske pristupe koji čine agente spremnima za proizvodnju, održivima i skalabilnima.
 
-### Dizajnerski obrasci za poduzeća
+### Poslovni obrasci dizajna
 
-- 🏭 **Obrazac tvornice**: Standardizirano stvaranje agenata s ubrizgavanjem ovisnosti
-- 🔧 **Obrazac graditelja**: Fluentna konfiguracija i postavljanje agenata
-- 🧵 **Obrasci sigurni za niti**: Upravljanje razgovorima u više niti
-- 📋 **Obrazac repozitorija**: Organizirano upravljanje alatima i sposobnostima
+- 🏭 **Factory Pattern (obrazac tvornice)**: Standardizirano kreiranje agenata uz uvoz ovisnosti
+- 🔧 **Builder Pattern (obrazac graditelja)**: Fluent konfiguracija i postavljanje agenata
+- 🧵 **Thread-Safe Patterns (sigurni obrasci za više niti)**: Upravljanje istovremenim razgovorima
+- 📋 **Repository Pattern (obrazac spremišta)**: Organizirano upravljanje alatima i mogućnostima
 
 ## 🎯 Arhitektonske prednosti specifične za .NET
 
-### Značajke za poduzeća
+### Poslovne značajke
 
-- **Jako tipiziranje**: Provjera valjanosti u vrijeme prevođenja i podrška za IntelliSense
-- **Ubrizgavanje ovisnosti**: Integracija ugrađenog DI spremnika
-- **Upravljanje konfiguracijom**: Obrasci IConfiguration i Options
-- **Async/Await**: Prvoklasna podrška za asinkrono programiranje
+- **Strong Typing (jaka tipizacija)**: Validacija u vremenu kompajliranja i podrška IntelliSenseu
+- **Dependency Injection (uvoz ovisnosti)**: Integracija ugrađenog DI kontejnera
+- **Configuration Management (upravljenje konfiguracijom)**: IConfiguration i obrasci Options
+- **Async/Await**: Podrška prvoklasnog asinkronog programiranja
 
-### Obrasci spremni za produkciju
+### Obrasci spremni za proizvodnju
 
-- **Integracija zapisivanja**: Podrška za ILogger i strukturirano zapisivanje
-- **Provjere zdravlja**: Ugrađeno praćenje i dijagnostika
-- **Provjera valjanosti konfiguracije**: Jako tipiziranje s podatkovnim bilješkama
-- **Rukovanje pogreškama**: Strukturirano upravljanje iznimkama
+- **Logging Integration (integracija zapisivanja)**: ILogger i podrška strukturiranom zapisivanju
+- **Health Checks (provjere zdravlja)**: Ugrađeni nadzor i dijagnostika
+- **Configuration Validation (validacija konfiguracije)**: Jaka tipizacija s podacima za anotaciju
+- **Error Handling (rukovanje pogreškama)**: Strukturirano upravljanje iznimkama
 
 ## 🔧 Tehnička arhitektura
 
-### Osnovne .NET komponente
+### Temeljne .NET komponente
 
-- **Microsoft.Extensions.AI**: Ujednačene apstrakcije AI usluga
-- **Microsoft.Agents.AI**: Okvir za orkestraciju agenata na razini poduzeća
-- **Integracija GitHub modela**: Obrasci klijenata API-ja visokih performansi
-- **Sustav konfiguracije**: Integracija appsettings.json i okruženja
+- **Microsoft.Extensions.AI**: Jedinstvene apstrakcije AI usluga
+- **Microsoft.Agents.AI**: Okvir za orkestraciju poslovnih agenata
+- **Azure OpenAI (Responses API)**: Visokoučinkoviti obrasci API klijenta
+- **Configuration System (sustav konfiguracije)**: appsettings.json i integracija s okruženjem
 
-### Implementacija dizajnerskih obrazaca
+### Implementacija obrasca dizajna
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
+    A[IServiceCollection] --> B[Graditelj Agenta]
+    B --> C[Konfiguracija]
+    C --> D[Registar Alata]
     D --> E[AI Agent]
 ```
 
-## 🏗️ Prikazani obrasci za poduzeća
+## 🏗️ Demonstrirani poslovni obrasci
 
 ### 1. **Kreacijski obrasci**
 
-- **Tvornica agenata**: Centralizirano stvaranje agenata s dosljednom konfiguracijom
-- **Obrazac graditelja**: Fluentni API za složenu konfiguraciju agenata
-- **Obrazac singletona**: Upravljanje zajedničkim resursima i konfiguracijom
-- **Ubrizgavanje ovisnosti**: Slabo povezivanje i testabilnost
+- **Agent Factory (tvornica agenata)**: Centralizirano kreiranje agenata s ujednačenom konfiguracijom
+- **Builder Pattern (obrazac graditelja)**: Fluent API za složenu konfiguraciju agenata
+- **Singleton Pattern (obrazac singltona)**: Dijeljeni resursi i upravljanje konfiguracijom
+- **Dependency Injection (uvoz ovisnosti)**: Slaba povezanost i testabilnost
 
 ### 2. **Ponašajni obrasci**
 
-- **Obrazac strategije**: Zamjenjive strategije izvršavanja alata
-- **Obrazac naredbe**: Enkapsulirane operacije agenata s poništavanjem/ponovnim izvršavanjem
-- **Obrazac promatrača**: Upravljanje životnim ciklusom agenata vođeno događajima
-- **Obrazac metode predloška**: Standardizirani tijekovi izvršavanja agenata
+- **Strategy Pattern (obrazac strategije)**: Mjenjive strategije izvršavanja alata
+- **Command Pattern (obrazac naredbe)**: Inkapsulirane operacije agenata s poništavanjem/ponavljanjem
+- **Observer Pattern (obrazac promatrača)**: Upravljanje životnim ciklusom agenata vođeno događajima
+- **Template Method (obrazac predloška metode)**: Standardizirani tijekovi rada izvršenja agenata
 
 ### 3. **Strukturni obrasci**
 
-- **Obrazac adaptera**: Sloj integracije API-ja GitHub modela
-- **Obrazac dekoratora**: Poboljšanje sposobnosti agenata
-- **Obrazac fasade**: Pojednostavljena sučelja za interakciju s agentima
-- **Obrazac proxyja**: Lijeno učitavanje i predmemoriranje za performanse
+- **Adapter Pattern (obrazac adaptera)**: Sloj integracije Azure OpenAI (Responses API)
+- **Decorator Pattern (obrazac dekoratora)**: Proširenje mogućnosti agenata
+- **Facade Pattern (obrazac fasade)**: Pojednostavljeni sučelja za interakciju agenata
+- **Proxy Pattern (obrazac proksija)**: Lijeno učitavanje i keširanje za performanse
 
-## 📚 Dizajnerska načela za .NET
+## 📚 Principi dizajna .NET-a
 
-### SOLID načela
+### SOLID principi
 
-- **Jedna odgovornost**: Svaka komponenta ima jednu jasnu svrhu
-- **Otvoreno/Zatvoreno**: Proširivo bez izmjena
-- **Liskovljeva zamjena**: Implementacije alata temeljene na sučelju
-- **Razdvajanje sučelja**: Fokusirana, kohezivna sučelja
-- **Inverzija ovisnosti**: Oslanjanje na apstrakcije, a ne na konkretne implementacije
+- **Single Responsibility (princip jedne odgovornosti)**: Svaka komponenta ima jednu jasnu svrhu
+- **Open/Closed (princip otvorenosti/zatvorenosti)**: Proširiv bez izmjena
+- **Liskov Substitution (Liskovljeva supstitucija)**: Implementacije alata temeljene na sučeljima
+- **Interface Segregation (segregacija sučelja)**: Fokusirana, kohezivna sučelja
+- **Dependency Inversion (inverzija ovisnosti)**: Ovisnost o apstrakcijama, ne o konkretnim tipovima
 
 ### Čista arhitektura
 
-- **Sloj domene**: Osnovne apstrakcije agenata i alata
-- **Sloj aplikacije**: Orkestracija agenata i tijekovi rada
-- **Sloj infrastrukture**: Integracija GitHub modela i vanjskih usluga
-- **Sloj prezentacije**: Interakcija s korisnicima i formatiranje odgovora
+- **Domain Layer (domen sloj)**: Jezgra apstrakcija agenata i alata
+- **Application Layer (aplikacijski sloj)**: Orkestracija agenata i tijekovi rada
+- **Infrastructure Layer (infrastrukturni sloj)**: Integracija Azure OpenAI (Responses API) i vanjskih usluga
+- **Presentation Layer (prezentacijski sloj)**: Interakcija s korisnikom i formatiranje odgovora
 
-## 🔒 Razmatranja za poduzeća
+## 🔒 Poslovni aspekti
 
 ### Sigurnost
 
-- **Upravljanje vjerodajnicama**: Sigurno rukovanje API ključevima s IConfiguration
-- **Provjera unosa**: Jako tipiziranje i provjera valjanosti s podatkovnim bilješkama
-- **Sanitizacija izlaza**: Sigurna obrada i filtriranje odgovora
-- **Zapisivanje revizije**: Sveobuhvatno praćenje operacija
+- **Credential Management (upravljanje vjerodajnicama)**: Sigurno rukovanje API ključevima uz IConfiguration
+- **Input Validation (validacija ulaza)**: Jaka tipizacija i validacija putem anotacija podataka
+- **Output Sanitization (sanitacija izlaza)**: Sigurno procesiranje i filtriranje odgovora
+- **Audit Logging (zapisivanje revizije)**: Sveobuhvatno praćenje operacija
 
 ### Performanse
 
-- **Asinkroni obrasci**: Operacije bez blokiranja I/O-a
-- **Grupiranje veza**: Učinkovito upravljanje HTTP klijentima
-- **Predmemoriranje**: Predmemoriranje odgovora za poboljšane performanse
-- **Upravljanje resursima**: Ispravno odlaganje i obrasci čišćenja
+- **Async Patterns (asinkroni obrasci)**: Neblokirajuće I/O operacije
+- **Connection Pooling (povezivanje veza)**: Efikasno upravljanje HTTP klijentom
+- **Caching (keširanje)**: Keširanje odgovora za poboljšane performanse
+- **Resource Management (upravljanje resursima)**: Ispravno odlaganje i obrasci čišćenja
 
 ### Skalabilnost
 
-- **Sigurnost za niti**: Podrška za istovremeno izvršavanje agenata
-- **Grupiranje resursa**: Učinkovito korištenje resursa
-- **Upravljanje opterećenjem**: Ograničavanje brzine i rukovanje povratnim pritiskom
-- **Praćenje**: Metrike performansi i provjere zdravlja
+- **Thread Safety (sigurnost niti)**: Podrška istovremenom izvođenju agenata
+- **Resource Pooling (povezivanje resursa)**: Efikasno korištenje resursa
+- **Load Management (upravljanje opterećenjem)**: Ograničavanje brzine i upravljanje pritiskom
+- **Monitoring (nadgledanje)**: Mjerne vrijednosti performansi i provjere zdravlja
 
-## 🚀 Produkcijsko postavljanje
+## 🚀 Proizvodno postavljanje
 
-- **Upravljanje konfiguracijom**: Postavke specifične za okruženje
-- **Strategija zapisivanja**: Strukturirano zapisivanje s ID-ovima za korelaciju
-- **Rukovanje pogreškama**: Globalno rukovanje iznimkama s odgovarajućim oporavkom
-- **Praćenje**: Application Insights i brojači performansi
-- **Testiranje**: Obrasci za jedinično testiranje, integracijsko testiranje i testiranje opterećenja
+- **Configuration Management (upravljanje konfiguracijom)**: Postavke specifične za okruženje
+- **Logging Strategy (strategija zapisivanja)**: Strukturirano zapisivanje s ID-ovima korelacije
+- **Error Handling (rukovanje pogreškama)**: Globalno rukovanje iznimkama s ispravnim oporavkom
+- **Monitoring (nadgledanje)**: Application Insights i mjerači performansi
+- **Testing (testiranje)**: Jedinični testovi, integracijski testovi i obrasci testiranja opterećenja
 
-Spremni za izradu inteligentnih agenata na razini poduzeća s .NET-om? Arhitektirajmo nešto robusno! 🏢✨
+Spremni za izgradnju inteligentnih agenata razine poduzeća s .NET-om? Dizajnirajmo nešto čvrsto! 🏢✨
 
 ## 🚀 Početak rada
 
 ### Preduvjeti
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) ili noviji
-- [Pristupni token za GitHub Models API](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Pretplata na [Azure](https://azure.microsoft.com/free/) s Azure OpenAI resursom i distribucijom modela
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — prijavite se s `az login`
 
 ### Potrebne varijable okruženja
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# Zatim se prijavite kako bi AzureCliCredential mogao dobiti token
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# Zatim se prijavite kako bi AzureCliCredential mogao dobiti token
+az login
 ```
 
 ### Primjer koda
@@ -165,14 +168,16 @@ Pogledajte [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patter
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Odricanje od odgovornosti**:  
-Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za ključne informacije preporučuje se profesionalni prijevod od strane čovjeka. Ne preuzimamo odgovornost za nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+**Napomena**:
+Ovaj dokument je preveden korištenjem AI prevoditeljskog servisa [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati greške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za važne informacije preporuča se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazumevanja ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

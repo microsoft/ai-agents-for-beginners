@@ -1,39 +1,42 @@
-# 🎯 التخطيط وأنماط التصميم باستخدام نماذج GitHub (.NET)
+# 🎯 التخطيط وأنماط التصميم مع Azure OpenAI (API الاستجابات) (.NET)
 
 ## 📋 أهداف التعلم
 
-يستعرض هذا الدفتر أنماط التخطيط والتصميم على مستوى المؤسسات لبناء وكلاء ذكيين باستخدام إطار عمل Microsoft Agent في .NET مع نماذج GitHub. ستتعلم كيفية إنشاء وكلاء يمكنهم تفكيك المشكلات المعقدة، تخطيط حلول متعددة الخطوات، وتنفيذ سير عمل متقدم باستخدام ميزات .NET على مستوى المؤسسات.
+يُظهر هذا الدفتر أنماط تخطيط وتصميم على مستوى المؤسسات لبناء وكلاء أذكياء باستخدام إطار عمل Microsoft Agent في .NET مع Azure OpenAI (API الاستجابات). ستتعلم كيفية إنشاء وكلاء يمكنهم تحليل المشكلات المعقدة، وتخطيط حلول متعددة الخطوات، وتنفيذ سير عمل متقدم باستخدام ميزات المؤسسات في .NET.
 
-## ⚙️ المتطلبات والإعداد
+## ⚙️ المتطلبات المسبقة والإعداد
 
 **بيئة التطوير:**
 - .NET 9.0 SDK أو أعلى
-- Visual Studio 2022 أو VS Code مع إضافة C#
-- الوصول إلى واجهة برمجة تطبيقات نماذج GitHub
+- Visual Studio 2022 أو VS Code مع ملحق C#
+- اشتراك Azure يحتوي على مورد Azure OpenAI ونشر نموذج
+- Azure CLI — قم بتسجيل الدخول باستخدام `az login`
 
 **التبعيات المطلوبة:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **تكوين البيئة (ملف .env):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
 ```
 
 ## تشغيل الكود
 
-يتضمن هذا الدرس تنفيذ تطبيق ملف واحد في .NET. لتشغيله:
+تتضمن هذه الدرس تطبيق تطبيق ملف واحد .NET. لتشغيله:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# اجعل الملف قابلاً للتنفيذ (لينكس/ماك أو إس)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# شغّل التطبيق
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -45,13 +48,13 @@ dotnet run 07-dotnet-agent-framework.cs
 
 ## تنفيذ الكود
 
-التنفيذ الكامل متوفر في `07-dotnet-agent-framework.cs`، والذي يوضح:
+يتوفر التنفيذ الكامل في `07-dotnet-agent-framework.cs`، الذي يوضح:
 
 - تحميل تكوين البيئة باستخدام DotNetEnv
-- إعداد عميل OpenAI لنماذج GitHub
-- تعريف نماذج بيانات منظمة (Plan وTravelPlan) مع تسلسل JSON
-- إنشاء وكيل ذكاء اصطناعي مع مخرجات منظمة باستخدام مخطط JSON
-- تنفيذ طلبات التخطيط مع استجابات آمنة من النوع
+- تكوين عميل Azure OpenAI وإنشاء وكيل ذكاء اصطناعي باستخدام `GetChatClient().AsAIAgent()`
+- تعريف نماذج بيانات منظمة (Plan و TravelPlan) مع تسلسل JSON
+- إنشاء وكيل ذكاء اصطناعي بمخرجات منظمة باستخدام مخطط JSON
+- تنفيذ طلبات التخطيط مع ردود آمنة النوع
 
 ## المفاهيم الرئيسية
 
@@ -81,11 +84,13 @@ public class TravelPlan
 
 ### مخطط JSON للمخرجات المنظمة
 
-تم إعداد الوكيل لإرجاع استجابات تتطابق مع مخطط TravelPlan:
+تم تكوين الوكيل لإرجاع استجابات تطابق مخطط TravelPlan:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -98,20 +103,22 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 
 ### تعليمات وكيل التخطيط
 
-يعمل الوكيل كمنسق، حيث يوزع المهام على وكلاء فرعيين متخصصين:
+يعمل الوكيل كمنسق، مفوضًا المهام إلى وكلاء متخصصين:
 
-- FlightBooking: لحجز الرحلات الجوية وتقديم معلومات الرحلات
-- HotelBooking: لحجز الفنادق وتقديم معلومات الفنادق
-- CarRental: لحجز السيارات وتقديم معلومات تأجير السيارات
-- ActivitiesBooking: لحجز الأنشطة وتقديم معلومات الأنشطة
-- DestinationInfo: لتقديم معلومات عن الوجهات
-- DefaultAgent: لمعالجة الطلبات العامة
+- حجز الرحلات الجوية: لحجز الرحلات وتوفير معلومات الرحلات
+- حجز الفنادق: لحجز الفنادق وتوفير معلومات الفنادق
+- تأجير السيارات: لحجز السيارات وتوفير معلومات تأجير السيارات
+- حجز الأنشطة: لحجز الأنشطة وتوفير معلومات الأنشطة
+- معلومات الوجهة: لتوفير معلومات عن الوجهات
+- الوكيل الافتراضي: للتعامل مع الطلبات العامة
 
 ## المخرجات المتوقعة
 
-عند تشغيل الوكيل مع طلب تخطيط للسفر، سيقوم بتحليل الطلب وإنشاء خطة منظمة مع تعيين المهام المناسبة للوكلاء المتخصصين، بتنسيق JSON يتوافق مع مخطط TravelPlan.
+عند تشغيل الوكيل مع طلب تخطيط السفر، سيقوم بتحليل الطلب وتوليد خطة منظمة مع تعيينات المهام المناسبة للوكلاء المتخصصين، منسقة بصيغة JSON تتوافق مع مخطط TravelPlan.
 
 ---
 
-**إخلاء المسؤولية**:  
-تم ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الرسمي. للحصول على معلومات حاسمة، يُوصى بالترجمة البشرية الاحترافية. نحن غير مسؤولين عن أي سوء فهم أو تفسيرات خاطئة تنشأ عن استخدام هذه الترجمة.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**تنويه**:
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى للدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الرسمي والمعتمد. للمعلومات الهامة، يُنصح بالاستعانة بترجمة بشرية محترفة. نحن غير مسؤولين عن أي سوء فهم أو تفسير ناتج عن استخدام هذه الترجمة.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,43 +1,46 @@
-# 🎯 Planificación y Patrones de Diseño con Modelos de GitHub (.NET)
+# 🎯 Planificación y Patrones de Diseño con Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Objetivos de Aprendizaje
 
-Este cuaderno demuestra patrones de planificación y diseño de nivel empresarial para construir agentes inteligentes utilizando el Microsoft Agent Framework en .NET con Modelos de GitHub. Aprenderás a crear agentes que puedan descomponer problemas complejos, planificar soluciones de múltiples pasos y ejecutar flujos de trabajo sofisticados con las características empresariales de .NET.
+Este cuaderno demuestra patrones de planificación y diseño de grado empresarial para construir agentes inteligentes usando el Microsoft Agent Framework en .NET con Azure OpenAI (Responses API). Aprenderás a crear agentes que pueden descomponer problemas complejos, planificar soluciones en múltiples pasos y ejecutar flujos de trabajo sofisticados con las características empresariales de .NET.
 
-## ⚙️ Prerrequisitos y Configuración
+## ⚙️ Requisitos Previos y Configuración
 
 **Entorno de Desarrollo:**
-- SDK de .NET 9.0 o superior
+- SDK .NET 9.0 o superior
 - Visual Studio 2022 o VS Code con la extensión de C#
-- Acceso a la API de Modelos de GitHub
+- Una suscripción de Azure con un recurso de Azure OpenAI y un despliegue de modelo
+- La CLI de Azure — inicia sesión con `az login`
 
 **Dependencias Requeridas:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
 **Configuración del Entorno (archivo .env):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
 ```
 
-## Ejecución del Código
+## Ejecutando el Código
 
-Esta lección incluye una implementación de aplicación de archivo único en .NET. Para ejecutarla:
+Esta lección incluye una implementación de una aplicación de archivo único de .NET. Para ejecutarla:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Hacer el archivo ejecutable (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Ejecutar la aplicación
 ./07-dotnet-agent-framework.cs
 ```
 
-O utiliza el comando dotnet run:
+O usa el comando dotnet run:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
@@ -47,17 +50,17 @@ dotnet run 07-dotnet-agent-framework.cs
 
 La implementación completa está disponible en `07-dotnet-agent-framework.cs`, que demuestra:
 
-- Carga de configuración del entorno con DotNetEnv
-- Configuración del cliente OpenAI para Modelos de GitHub
-- Definición de modelos de datos estructurados (Plan y TravelPlan) con serialización JSON
-- Creación de un agente de IA con salida estructurada utilizando un esquema JSON
-- Ejecución de solicitudes de planificación con respuestas de tipo seguro
+- Cargar la configuración del entorno con DotNetEnv
+- Configurar el cliente Azure OpenAI y crear un agente de IA usando `GetChatClient().AsAIAgent()`
+- Definir modelos de datos estructurados (Plan y TravelPlan) con serialización JSON
+- Crear un agente de IA con salida estructurada usando esquema JSON
+- Ejecutar solicitudes de planificación con respuestas tipo seguro
 
 ## Conceptos Clave
 
-### Planificación Estructurada con Modelos de Tipo Seguro
+### Planificación Estructurada con Modelos Tipo Seguro
 
-El agente utiliza clases de C# para definir la estructura de las salidas de planificación:
+El agente usa clases de C# para definir la estructura de las salidas de planificación:
 
 ```csharp
 public class Plan
@@ -81,11 +84,13 @@ public class TravelPlan
 
 ### Esquema JSON para Salidas Estructuradas
 
-El agente está configurado para devolver respuestas que coincidan con el esquema TravelPlan:
+El agente está configurado para devolver respuestas que coinciden con el esquema TravelPlan:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Instrucciones del Agente de Planificación
+### Instrucciones para el Agente de Planificación
 
-El agente actúa como coordinador, delegando tareas a sub-agentes especializados:
+El agente actúa como coordinador, delegando tareas a subagentes especializados:
 
-- FlightBooking: Para reservar vuelos y proporcionar información sobre vuelos
-- HotelBooking: Para reservar hoteles y proporcionar información sobre hoteles
-- CarRental: Para reservar autos y proporcionar información sobre alquiler de autos
-- ActivitiesBooking: Para reservar actividades y proporcionar información sobre actividades
+- FlightBooking: Para reservar vuelos y proporcionar información de vuelos
+- HotelBooking: Para reservar hoteles y proporcionar información de hoteles
+- CarRental: Para alquilar coches y proporcionar información de alquiler de coches
+- ActivitiesBooking: Para reservar actividades y proporcionar información de actividades
 - DestinationInfo: Para proporcionar información sobre destinos
 - DefaultAgent: Para manejar solicitudes generales
 
 ## Salida Esperada
 
-Cuando ejecutes el agente con una solicitud de planificación de viaje, analizará la solicitud y generará un plan estructurado con asignaciones de tareas apropiadas a agentes especializados, formateado como JSON conforme al esquema TravelPlan.
+Cuando ejecutes el agente con una solicitud de planificación de viaje, analizará la petición y generará un plan estructurado con asignaciones de tareas apropiadas a los agentes especializados, formateado como JSON conforme al esquema TravelPlan.
 
 ---
 
-**Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas que surjan del uso de esta traducción.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por la precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de cualquier malentendido o interpretación errónea que surja del uso de esta traducción.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

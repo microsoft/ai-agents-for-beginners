@@ -1,6 +1,6 @@
 # AI Agents for Beginners - A Course
 
-![AI Agents for Beginners](./images/repo-thumbnailv2.png)
+![AI Agents for Beginners](./images/repo-thumbnailv3.png)
 
 ## A course teaching everything you need to know to start building AI Agents
 
@@ -44,7 +44,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/microsoft/ai-agents-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/ai-agents-for-beginners/network/?WT.mc_id=academic-105485-koreyst)
 [![GitHub stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/ai-agents-for-beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
 
-[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
+[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/ATgtXmAS5D)](https://discord.com/invite/ATgtXmAS5D)
 
 
 ## 🌱 Getting Started
@@ -65,14 +65,14 @@ If you get stuck or have any questions about building AI Agents, join our dedica
 
 Each lesson in this course includes code examples, which can be found in the code_samples folder. You can [fork this repo](https://github.com/microsoft/ai-agents-for-beginners/fork) to create your own copy.  
 
-The code examples in these exercises utilize Microsoft Agent Framework with Azure AI Foundry Agent Service V2:
+The code examples in these exercises utilize Microsoft Agent Framework with Microsoft Foundry Agent Service V2:
 
 - [Microsoft Foundry](https://aka.ms/ai-agents-beginners/ai-foundry) - Azure Account Required
 
 This course uses the following AI Agent frameworks and services from Microsoft:
 
 - [Microsoft Agent Framework (MAF)](https://aka.ms/ai-agents-beginners/agent-framework)
-- [Azure AI Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
+- [Microsoft Foundry Agent Service V2](https://aka.ms/ai-agents-beginners/ai-agent-service)
 
 Some code samples also support alternative OpenAI-compatible providers such as [MiniMax](https://platform.minimaxi.com/), which offers large-context models (up to 204K tokens). See the [Course Setup](./00-course-setup/README.md) for configuration details.
 
@@ -87,7 +87,7 @@ Do you have suggestions or found spelling or code errors? [Raise an issue](https
 ## 📂 Each lesson includes
 
 - A written lesson located in the README and a short video
-- Python code samples using Microsoft Agent Framework with Azure AI Foundry
+- Python code samples using Microsoft Agent Framework with Microsoft Foundry
 - Links to extra resources to continue your learning
 
 
@@ -110,8 +110,8 @@ Do you have suggestions or found spelling or code errors? [Raise an issue](https
 | Managing Agentic Memory                      | [Link](./13-agent-memory/README.md)     |      [Video](https://youtu.be/QrYbHesIxpw?si=vZkVwKrQ4ieCcIPx)                                                      |                                                                                        |
 | Exploring Microsoft Agent Framework                         | [Link](./14-microsoft-agent-framework/README.md)                            |                                                            |                                                                                        |
 | Building Computer Use Agents (CUA)           | [Link](./15-browser-use/README.md)     |                                                            | [Link](https://docs.browser-use.com/examples/templates/playwright-integration)         |
-| Deploying Scalable Agents                    | Coming Soon                            |                                                            |                                                                                        |
-| Creating Local AI Agents                     | Coming Soon                               |                                                            |                                                                                        |
+| Deploying Scalable Agents                    | [Link](./16-deploying-scalable-agents/README.md) |                                                    | [Link](https://learn.microsoft.com/azure/ai-foundry/agents/overview)                   |
+| Creating Local AI Agents                     | [Link](./17-creating-local-ai-agents/README.md)  |                                                    | [Link](https://learn.microsoft.com/azure/ai-foundry/foundry-local/)                    |
 | Securing AI Agents                           | [Link](./18-securing-ai-agents/README.md)  |                                                            | [Link](https://aka.ms/ai-agents-beginners/collection?WT.mc_id=academic-105485-koreyst) |
 
 ## 🎒 Other Courses

@@ -2,7 +2,7 @@
 
 ## 📋 Learning Objectives
 
-This notebook demonstrates how to build sophisticated enterprise-grade multi-agent systems using the Microsoft Agent Framework in .NET with GitHub Models. You'll learn to orchestrate multiple specialized agents working together through structured workflows, leveraging .NET's enterprise features for production-ready solutions.
+This notebook demonstrates how to build sophisticated enterprise-grade multi-agent systems using the Microsoft Agent Framework in .NET with Azure OpenAI (Responses API). You'll learn to orchestrate multiple specialized agents working together through structured workflows, leveraging .NET's enterprise features for production-ready solutions.
 
 **Enterprise Multi-Agent Capabilities You'll Build:**
 - 👥 **Agent Collaboration**: Type-safe agent coordination with compile-time validation
@@ -19,13 +19,16 @@ This notebook demonstrates how to build sophisticated enterprise-grade multi-age
 
 **Required NuGet Packages:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.9.0" />
-<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.4" />
+<PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.*" />
+<PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.10" />
 <PackageReference Include="Azure.Identity" Version="1.15.0" />
 <PackageReference Include="System.Linq.Async" Version="6.0.3" />
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.8.0" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.*" />
+<PackageReference Include="OpenTelemetry.Api" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
 ```
 
 ## Code Sample

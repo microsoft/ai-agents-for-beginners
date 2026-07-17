@@ -1,95 +1,95 @@
 [![Multi-Agent Design](../../../translated_images/pcm/lesson-9-thumbnail.38059e8af1a5b71d.webp)](https://youtu.be/His9R6gw6Ec?si=3_RMb8VprNvdLRhX)
 
-> _(Klik di pikja insait wey to see video for dis lesson)_
+> _(Click the image above to view video of this lesson)_
 # Metacognition for AI Agents
 
 ## Introduction
 
-Welcome to di lesson wey dey talk about metacognition for AI agents! Dis chapter na for beginners wey dey curious how AI agents fit think about dia own thinking process dem. By di time you finish dis lesson, you go sabi di important tins dem and go fit use beta example wey go help you do metacognition for AI agent design.
+Welcome to dis lesson about metacognition for AI agents! Dis chapter na for beginners wey curious how AI agents fit think about wetin dem think. By di time we finish dis lesson, you go sabi important tings and fit use simple examples to apply metacognition for AI agent design.
 
-## Learning Goals
+## Wetin You Go Learn
 
-After you don complete dis lesson, you go fit:
+After you finish dis lesson, you go fit:
 
-1. Understand wetin reason loops mean for agent definition dem.
-2. Use planning and evaluation ways to help self-correcting agents.
-3. Create your own agents wey fit change code make dem fit do beta work.
+1. Understand wetin reasoning loops mean for agent definitions.
+2. Use planning and evaluation techniques to help agents correct demself.
+3. Create your own agents wey fit handle code to do task dem.
 
-## Introduction to Metacognition
+## Wetin Metacognition Mean
 
-Metacognition na di big-level thinking wey involve to think about how person dey think. For AI agents, dis mean say dem go fit check and change dia actions based on how dem sabi diaself and wetin dem don experience before. Metacognition, wey be "thinking about thinking," na beta idea for how to develop agentic AI systems. E mean say AI systems dey aware of dia own inside process dem and fit watch, control, and change dia behavior the correct way. E be like how we dey read di room or check sometin wey get problem. Dis kind self-awareness fit help AI systems make beta decisions, find mistakes, and better dia work over time- e still join di Turing test and di kain talk about whether AI go ready take over.
+Metacognition mean wetin you dey think about how you dey think. For AI agents, e mean say dem fit check and change wetin dem dey do based on how dem sabi their own mind and past tori. Metacognition, or "thinking about thinking," na important idea for how dem dey build agentic AI systems. E mean AI systems sabi wetin dey happen inside dem mind and fit watch, control, and change their behavior well well. Just like how we check environment or sabi problem well. Dis self-awareness fit help AI systems make better decisions, see errors, and perform better as time dey go - e even connect back to Turing test and debate if AI go control everything.
 
-For agentic AI systems, metacognition fit help solve many wahala like:
-- Transparency: Make sure say AI systems fit explain their reason and decisions.
-- Reasoning: Make AI systems fit join info well and make solid decisions.
-- Adaptation: Make AI systems fit change as environment or condition change.
-- Perception: Make AI systems dey accurate to recognize and understand data from their environment.
+For agentic AI systems, metacognition fit help solve some kain wahala like:
+- Transparency: Make sure say AI systems fit explain how dem reason and make decision.
+- Reasoning: Make AI systems better to connect tori and make correct decision.
+- Adaptation: Make AI systems fit change according to new environment and condition dem.
+- Perception: Make AI systems sabi correct info from their environment.
 
 ### Wetin be Metacognition?
 
-Metacognition, or "thinking about thinking," na big-level thinking process of self-awareness and self-control about your own brain work. For AI matter, metacognition dey enable agents to check and change dia plans and actions, so dem fit solve problems and make better decisions. If you sabi metacognition, you fit create AI agents wey no just smart but also flexible and quick. For true metacognition, you go see AI reason clear about how e reason itself.
+Metacognition, or "thinking about thinking," na higher level thinking wey get self-awareness and self-control over how person or system dey reason. For AI, metacognition make agents fit check and change how dem dey plan and do tings, better solve problem and make better decisions. If you understand metacognition, you go fit design AI agents wey sabi plenty, fit change anytime, and dey very efficient. For real metacognition, you go fit see AI dey reason about how e dey reason itself.
 
-Example: “I choose cheaper flights because… I fit dey miss direct flights, so make I check again.”  
-Keep track of how or why e choose some route.  
-- Noting say e make mistake because e rely too much on user likes from before, so e change dia decision style and no just update final suggestion.  
-- Find patterns like, “Anytime I hear user talk ‘too crowded,’ I no go just remove some attractions but also think say my way to pick ‘top attractions’ na wahala if I always use popularity.”
+Example: “I choose cheaper flight because… but maybe I dey miss direct flight, so make I check again.”
+E dey track how and why e pick one route.
+- E dey notice say e make mistake because e rely too much on user taste wey e see last time, so e change how e reason, no be only the final advice.
+- E dey see pattern like “Anytime I see user talk ‘too crowded,’ I no go just remove some attractions, but I go sef check if my way to pick ‘top attractions’ dey correct if I always rank by popularity.”
 
 ### Why Metacognition Important for AI Agents
 
-Metacognition get big role for AI agent design because:
+Metacognition dey very important for AI agent design because:
 
 ![Importance of Metacognition](../../../translated_images/pcm/importance-of-metacognition.b381afe9aae352f7.webp)
 
-- Self-Reflection: Agents fit check dia own work and find how dem go improve.
-- Adaptability: Agents fit change strategy based on past experience and environment.
-- Error Correction: Agents fit find and correct mistakes by diaselves, so result go better.
-- Resource Management: Agents fit manage resources like time and computer power well by planning and checking actions.
+- Self-Reflection: Agents fit check how dem perform and find where dem need improve.
+- Adaptability: Agents fit change their plans based on past experience and new environment.
+- Error Correction: Agents fit find and fix error by themselves to get better result.
+- Resource Management: Agents fit use resources well, like time and computing power, by planning and checking their actions.
 
-## Components of an AI Agent
+## Parts For Inside AI Agent
 
-Before we start to talk about metacognitive process, na important to sabi di basic parts of AI agent. AI agent usually get:
+Before you start metacognitive things, you need sabi basic parts wey make AI agent. AI agent get:
 
-- Persona: Di personality and characteristics of agent, wey show how e dey interact with users.
-- Tools: Di skills and tins wey di agent fit do.
-- Skills: Di knowledge and experience wey agent get.
+- Persona: Na how agent own character be, how e go take relate with users.
+- Tools: Wetin agent fit do.
+- Skills: Wetin agent sabi and how e sabi am well.
 
-Di parts work together make "expertise unit" wey fit perform special work.
+All dis parts join hand to make one "expertise unit" wey fit do specific task.
 
-**Example**:  
-Think about travel agent, di kind agent wey no just dey plan your holiday but e sabi change dia path based on real-time data and past customer journey experience.
+**Example**:
+Think about travel agent, agent service wey no just plan your holiday but fit still change plan based on data wey e dey see live and past customer journey.
 
-### Example: Metacognition for Travel Agent Service
+### Example: Metacognition inside Travel Agent Service
 
-Imagine say you dey build travel agent wey AI power dey inside. Dis agent "Travel Agent," dey help people plan dia vacation. To use metacognition, Travel Agent go need check and change dia moves based on how e sabi diaself and past experience. Na so metacognition fits work:
+Imagine say you dey design travel agent service wey powered by AI. Dis agent, "Travel Agent," dey help users plan vacation. To put metacognition for am, Travel Agent need dey check and adjust based on how e sabi itself and past tori. Dis na how metacognition fit work:
 
-#### Current Task
+#### The Task We E Dey Do Now
 
-Di current work na to help user plan trip go Paris.
+The work now na to help user plan trip go Paris.
 
-#### Steps to Finish Di Task
+#### Steps To Complete Di Work
 
-1. **Gather User Preferences**: Ask user about travel dates, budget, wetin dem like (e.g., museum, food, shopping), and any special request.
-2. **Retrieve Information**: Find flight options, hotels, attractions, and restaurants wey fit user likes.
-3. **Generate Recommendations**: Give personalize itinerary with flight details, hotel booking, and activity suggestions.
-4. **Adjust Based on Feedback**: Ask user feedback on top di suggestions and change if e need am.
+1. **Gather User Preferences**: Ask user about travel date, budget, wetin e like (museums, food, shopping), and any special need.
+2. **Retrieve Information**: Find flights, hotels, attractions, restaurants wey match user taste.
+3. **Generate Recommendations**: Give personalized plan with flight, hotel booking plus activity.
+4. **Adjust Based on Feedback**: Ask user say "how you see am?" then change plan if need.
 
-#### Wetin You Go Need
+#### Things We E Need
 
-- Access to flight and hotel booking databases.
+- Access flight and hotel booking database dem.
 - Information about Paris attractions and restaurants.
-- User feedback from past interactions.
+- User feedback data from before.
 
 #### Experience and Self-Reflection
 
-Travel Agent dey use metacognition to check how e perform and learn from past experience. For example:
+Travel Agent dey use metacognition to check e own work and learn from past experience. Example:
 
-1. **Analyzing User Feedback**: Travel Agent go check user comment to know which suggestion be correct and which no be. E go change future suggestion based on dat.
-2. **Adaptability**: If user talk before say e no like crowded place, Travel Agent no go suggest popular tourist spot during busy hours next time.
-3. **Error Correction**: If Travel Agent make mistake for booking before, e.g., suggest hotel wey full, e go learn to check better before next suggestion.
+1. **Analyze User Feedback**: Travel Agent go check user comments to know which recommendation good and which no good. E go use am improve future advice.
+2. **Adaptability**: If user talk say e no like crowded places, Travel Agent no go recommend popular spot for peak time after.
+3. **Error Correction**: If Travel Agent ever make mistake before, like suggest hotel wey full, e go learn check hotel availability well before advice.
 
-#### Practical Developer Example
+#### Real Developer Example
 
-Here na small example of how Travel Agent code fit look to use metacognition:
+Here na simple example code for Travel Agent wey dey use metacognition:
 
 ```python
 class Travel_Agent:
@@ -101,7 +101,7 @@ class Travel_Agent:
         self.user_preferences = preferences
 
     def retrieve_information(self):
-        # Find flights, hotels, and attractions wey match your choice dem
+        # Find flights, hotels, and attractions based on wetin you like
         flights = search_flights(self.user_preferences)
         hotels = search_hotels(self.user_preferences)
         attractions = search_attractions(self.user_preferences)
@@ -114,10 +114,10 @@ class Travel_Agent:
 
     def adjust_based_on_feedback(self, feedback):
         self.experience_data.append(feedback)
-        # Look feedback well well and change how we go recommend tins for future
+        # Check feedback and change future suggestions
         self.user_preferences = adjust_preferences(self.user_preferences, feedback)
 
-# How e take dey use am example
+# How to use am example
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -134,70 +134,70 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 #### Why Metacognition Matter
 
-- **Self-Reflection**: Agents fit check dia work and find areas to improve.
-- **Adaptability**: Agents fit change strategy based on feedback and condition.
-- **Error Correction**: Agents fit find and fix mistakes by diaselves.
-- **Resource Management**: Agents fit make better use of time and computer power.
+- **Self-Reflection**: Agents fit check how dem perform and find where better improve.
+- **Adaptability**: Agents fit change plan based on feedback and new condition.
+- **Error Correction**: Agents fit find and fix mistake by themselves.
+- **Resource Management**: Agents fit use resources like time and computer power well.
 
-With metacognition, Travel Agent fit offer more personalize and correct travel suggestions, make user experience better.
+With metacognition, Travel Agent fit give personalized and correct travel advice, make overall user experience better.
 
 ---
 
 ## 2. Planning for Agents
 
-Planning na serious part of AI agent behavior. E mean say you go list steps wey you need do to reach your goal, thinking about current situation, resources, and wahala wey fit show.
+Planning na important part of AI agent behavior. Na to design steps wey go help reach goal, looking the current state, resources, and possible wahala dem.
 
 ### Elements of Planning
 
-- **Current Task**: Clearly say wetin di task be.
-- **Steps to Complete the Task**: Break am down into smaller steps.
-- **Required Resources**: Know materials or tools wey you need.
-- **Experience**: Use past experience for planning.
+- **Current Task**: Clear define the work wey e get.
+- **Steps to Complete the Task**: Break down the work to small steps wey easy handle.
+- **Required Resources**: Find all the resource wey e need.
+- **Experience**: Use past experience to help plan well.
 
-**Example**:  
-Dis na steps wey Travel Agent go do to help user plan trip well:
+**Example**:
+This na the step Travel Agent need to take to help user plan trip well:
 
 ### Steps for Travel Agent
 
-1. **Gather User Preferences**  
-   - Ask user about travel dates, budget, likes, and special requests.  
-   - Example: "When you wan travel?" "How much you fit spend?" "Which activity you like for vacation?"
+1. **Gather User Preferences**
+   - Ask user for travel date, budget, wetin e like and special needs.
+   - Example: "When you want travel?" "How much you fit spend?" "Which kind activities you enjoy for holiday?"
 
-2. **Retrieve Information**  
-   - Search travel options wey match user preferences.  
-   - **Flights**: Find available flights within user budget and travel dates.  
-   - **Accommodations**: Look for hotels or rental wey fit location, price, and comfort like user want.  
-   - **Attractions and Restaurants**: Pick popular attractions, things to do, and places wey serve food wey user like.
+2. **Retrieve Information**
+   - Find travel options wey match user taste.
+   - **Flights**: Search for flights wey fit user budget and travel date.
+   - **Accommodations**: Find hotels or place wey fit user location, price, and amenities taste.
+   - **Attractions and Restaurants**: Find popular attractions, activity and food spot wey fit user interests.
 
-3. **Generate Recommendations**  
-   - Join the information to make one personalized travel plan.  
-   - Give flight options, hotel booking, and activity suggestions wey fit user preference.
+3. **Generate Recommendations**
+   - Put tori dem together to make personalized plan.
+   - Talk flight details, hotel bookings, and suggest activities wey match user.
 
-4. **Present Itinerary to User**  
-   - Show the travel plan to user so dem fit check am.  
-   - Example: "Dis na travel plan for your trip to Paris. E get flight details, hotel booking, plus attractions and restaurant suggestions. Tell me wetin you think!"
+4. **Present Itinerary to User**
+   - Show the plan to user make e see.
+   - Example: "Dis na how your Paris trip fit be. Flight, hotel, and activities dey inside. Tell me wetin you think!"
 
-5. **Collect Feedback**  
-   - Ask user wetin dem think about the travel plan.  
-   - Example: "You like the flight options?" "Di hotel good for you?" "You want add or remove any activity?"
+5. **Collect Feedback**
+   - Ask user to talk wetin e think about the plan.
+   - Example: "You like flight choice?" "Hotel fit your need?" "You want add or remove any activity?"
 
-6. **Adjust Based on Feedback**  
-   - Change the plan based on user feedback.  
-   - Make corrections for flight, hotel, and activity to better match user wants.
+6. **Adjust Based on Feedback**
+   - Change plan based on wetin user talk.
+   - Fix flight, hotel, and activity advice to match user want.
 
-7. **Final Confirmation**  
-   - Show the updated plan to user for final approval.  
-   - Example: "I don update the plan based on your feedback. How e be now?"
+7. **Final Confirmation**
+   - Show updated plan to user to confirm.
+   - Example: "I change am based on your talk. Dis na the final plan. Everything good?"
 
-8. **Book and Confirm Reservations**  
-   - After user agree, go ahead book flights, hotels, and planned activities.  
-   - Send booking details to user.
+8. **Book and Confirm Reservations**
+   - Once user agree, book flight, hotel and activities.
+   - Send confirmation to user.
 
-9. **Provide Ongoing Support**  
-   - Stay ready to help user if dem want change anything before or during the trip.  
-   - Example: "If you want any help during your trip, just reach me anytime!"
+9. **Provide Ongoing Support**
+   - Always dey available if user want change or add anything before or during trip.
+   - Example: "If you need help anytime for your trip, just holla me!"
 
-### Example Interaction
+### Example of Interaction
 
 ```python
 class Travel_Agent:
@@ -223,7 +223,7 @@ class Travel_Agent:
         self.experience_data.append(feedback)
         self.user_preferences = adjust_preferences(self.user_preferences, feedback)
 
-# Example wey you fit use for booing request
+# Example wey you fit use for one booing request
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -240,46 +240,46 @@ travel_agent.adjust_based_on_feedback(feedback)
 
 ## 3. Corrective RAG System
 
-First make we sabi di difference between RAG Tool and Pre-emptive Context Load
+Make we start by understanding difference between RAG Tool and Pre-emptive Context Load
 
 ![RAG vs Context Loading](../../../translated_images/pcm/rag-vs-context.9eae588520c00921.webp)
 
 ### Retrieval-Augmented Generation (RAG)
 
-RAG na mix of retrieval system plus one generative model. When you ask question, di retrieval system go find important documents or data from somewhere outside, then di info wey e find go help di generative model make better and accurate answers. Dis dey help model generate correct and context-based responses.
+RAG combine retrieval system with generative model. When you ask question, retrieval system go find relevant documents or data from outside source, then dem use am add to input for generative model. Dis dey help model give correct and relevant answer.
 
-For RAG system, di agent go fetch info from knowledge base and use am to give correct answer or actions.
+For RAG system, agent go fetch correct info from knowledge base then use am to generate better answer or action.
 
 ### Corrective RAG Approach
 
-Corrective RAG approach na to use RAG technique to fix mistakes and make AI agents more accurate. Dis approach get:
+Corrective RAG approach focus on using RAG to fix errors and make AI agents more correct. Dis involve:
 
-1. **Prompting Technique**: Use specific prompt to guide agent to find correct info.
-2. **Tool**: Use algorithm and method wey fit help agent check if di info e get correct and make accurate response.
-3. **Evaluation**: Di agent dey always check dia work and dey adjust to improve how e dey perform.
+1. **Prompting Technique**: Use special prompts to guide agent fetch correct info.
+2. **Tool**: Use algorithms to help agent check if info relevant and make correct answer.
+3. **Evaluation**: Always check agent work and adjust to improve accuracy and performance.
 
 #### Example: Corrective RAG for Search Agent
 
-Think about search agent wey dey find info from web to answer questions. Corrective RAG fit be like:
+Think about search agent wey fetch info from web to answer user question. Corrective RAG approach fit be:
 
-1. **Prompting Technique**: Make search query based on user question.
-2. **Tool**: Use natural language processing and machine learning to rank and sort search result.
-3. **Evaluation**: Check user feedback, find errors for the retrieved info and fix them.
+1. **Prompting Technique**: Make search query based on user input.
+2. **Tool**: Use natural language processing and machine learning to rank and filter search result.
+3. **Evaluation**: Check user feedback to find mistake and fix info wey dem fetch.
 
 ### Corrective RAG for Travel Agent
 
-Corrective RAG (Retrieval-Augmented Generation) dey improve AI power to find and create info, and also fix mistakes. Make we see how Travel Agent fit use Corrective RAG to provide more accurate and correct travel recommendations.
+Corrective RAG (Retrieval-Augmented Generation) make AI fit find and generate info well and correct any mistake. Make we see how Travel Agent fit use Corrective RAG approach to give more correct and relevant travel advice.
 
-Dis one get:
+Dis include:
 
-- **Prompting Technique:** Use prompt to guide agent to find correct info.
-- **Tool:** Use algorithm to check if info dey relevant and create correct answer.
-- **Evaluation:** Continually check agent work and adjust to make am better.
+- **Prompting Technique:** Use special prompts to guide agent fetch right info.
+- **Tool:** Use algorithms wey help agent check relevance of info dem get and make correct answers.
+- **Evaluation:** Always check agent work and adjust for better accuracy and efficiency.
 
 #### Steps to Use Corrective RAG for Travel Agent
 
-1. **Initial User Interaction**  
-   - Travel Agent go collect initial preferences from user, like where user wan go, travel dates, budget, and wetin user like.  
+1. **Initial User Interaction**
+   - Travel Agent gather first user preferences like destination, travel date, budget and interests.
    - Example:
 
      ```python
@@ -291,8 +291,8 @@ Dis one get:
      }
      ```
 
-2. **Retrieval of Information**  
-   - Travel Agent go fetch info for flights, hotels, attractions, and restaurants based on user preference.  
+2. **Retrieve Information**
+   - Travel Agent fetch info about flights, hotels, attractions and restaurants wey match user taste.
    - Example:
 
      ```python
@@ -301,8 +301,8 @@ Dis one get:
      attractions = search_attractions(preferences)
      ```
 
-3. **Generating Initial Recommendations**  
-   - Travel Agent go use info wey e collect make personalized itinerary.  
+3. **Generate Initial Recommendations**
+   - Travel Agent use info to generate personal plan.
    - Example:
 
      ```python
@@ -310,8 +310,8 @@ Dis one get:
      print("Suggested Itinerary:", itinerary)
      ```
 
-4. **Collecting User Feedback**  
-   - Travel Agent go ask user wetin dem think of di recommendations.  
+4. **Collect User Feedback**
+   - Travel Agent ask user for feedback on first recommendations.
    - Example:
 
      ```python
@@ -321,8 +321,8 @@ Dis one get:
      }
      ```
 
-5. **Corrective RAG Process**  
-   - **Prompting Technique**: Travel Agent go make new search queries based on user feedback.  
+5. **Corrective RAG Process**
+   - **Prompting Technique**: Travel Agent make new search query based on user feedback.
      - Example:
 
        ```python
@@ -330,7 +330,7 @@ Dis one get:
            preferences["avoid"] = feedback["disliked"]
        ```
 
-   - **Tool**: Travel Agent go use algorithm to rank and filter new results based on user feedback.  
+   - **Tool**: Travel Agent use algorithms to rank and filter new search results, focusing on relevance based on feedback.
      - Example:
 
        ```python
@@ -339,7 +339,7 @@ Dis one get:
        print("Updated Itinerary:", new_itinerary)
        ```
 
-   - **Evaluation**: Travel Agent go keep checking di relevance and accuracy of dia suggestion by analyzing user feedback and make changes.  
+   - **Evaluation**: Travel Agent always dey check how good recommendations dey by analyzing user feedback and adjust if needed.
      - Example:
 
        ```python
@@ -353,9 +353,9 @@ Dis one get:
        preferences = adjust_preferences(preferences, feedback)
        ```
 
-#### Practical Example
+#### Real Example
 
-Here na small Python code example to add Corrective RAG in Travel Agent:
+Here na simple Python code example for how Travel Agent fit use Corrective RAG:
 
 ```python
 class Travel_Agent:
@@ -383,7 +383,7 @@ class Travel_Agent:
         new_itinerary = self.generate_recommendations()
         return new_itinerary
 
-# Example wey you fit use am
+# Na example wey you fit use am
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -400,14 +400,16 @@ print("Updated Itinerary:", new_itinerary)
 ```
 
 ### Pre-emptive Context Load
-Pre-emptive Context Load mean say you dey load relevant context or background information inside di model before e start process query. Dis one mean say di model don get access to dis information from di start, and dis fit help am generate better response wey get more sense without e need come find extra data during di process.
 
-Dis na simplified example of how pre-emptive context load fit be for travel agent application wey dem write for Python:
+
+Pre-emptive Context Load mean say you go load correct background information or context into di model before e begin process di query. Dis one mean say di model get access to di info from di start, we fit help am make better informed response without need to find more data during di process.
+
+Dis na simple example wey show how pre-emptive context load fit look like for travel agent application for Python:
 
 ```python
 class TravelAgent:
     def __init__(self):
-        # Pre-load popular destinations and their information
+        # Pre-load popular destinations dem and dia information
         self.context = {
             "Paris": {"country": "France", "currency": "Euro", "language": "French", "attractions": ["Eiffel Tower", "Louvre Museum"]},
             "Tokyo": {"country": "Japan", "currency": "Yen", "language": "Japanese", "attractions": ["Tokyo Tower", "Shibuya Crossing"]},
@@ -423,7 +425,7 @@ class TravelAgent:
         else:
             return f"Sorry, we don't have information on {destination}."
 
-# Example usage
+# Example use
 travel_agent = TravelAgent()
 print(travel_agent.get_destination_info("Paris"))
 print(travel_agent.get_destination_info("Tokyo"))
@@ -431,27 +433,27 @@ print(travel_agent.get_destination_info("Tokyo"))
 
 #### Explanation
 
-1. **Initialization (`__init__` method)**: Di `TravelAgent` class dey pre-load dictionary wey get information about popular destinations like Paris, Tokyo, New York, and Sydney. Dis dictionary get details like di country, currency, language, and main attractions for each destination.
+1. **Initialization (`__init__` method)**: Di `TravelAgent` class dey pre-load dictionary wey get info about popular destinations like Paris, Tokyo, New York, and Sydney. Dis dictionary get details like country, currency, language, and main attractions for each destination.
 
-2. **Retrieving Information (`get_destination_info` method)**: When person ask about one destination, di `get_destination_info` method go fetch di relevant information from di pre-loaded context dictionary.
+2. **Retrieving Information (`get_destination_info` method)**: When user ask about one destination, di `get_destination_info` method go find di correct info from di pre-loaded context dictionary.
 
-By pre-loading di context, di travel agent application fit respond fast to user queries without e need find dis information from outside source during di time. Dis one make di application work well and dey quick.
+By pre-loading di context, di travel agent application fit quickly respond to user questions without need to find dis info from outside source for real-time. Dis one make di application efficient and responsive.
 
-### Bootstrapping the Plan with a Goal Before Iterating
+### Bootstrapping di Plan with Goal Before You Start Iterate
 
-Bootstrapping plan with goal mean say you start with clear objective or target wey you want achieve. If you define dis goal upfront, di model fit use am as guideline during di iterative process. Dis go help make sure say each time e go dey move closer to di goal wey you want achieve, and di process go dey more efficient and focused.
+Bootstrapping plan with goal mean say you start wit clear target or objective inside your mind. If you define dis goal upfront, di model go use am as guide for di whole iterative process. Dis one help make sure say each iteration dey waka closer to di goal, make di process efficient and focused.
 
-Dis example show how you fit bootstrap travel plan with goal before you start iterate for travel agent for Python:
+Dis na example how you fit bootstrap travel plan with goal before you start iterate for travel agent for Python:
 
 ### Scenario
 
-One travel agent want plan custom vacation for client. Di goal na to create travel itinerary wey go maximize di client's satisfaction based on dia preferences and budget.
+One travel agent wan plan custom vacation for client. Di goal na to create travel itinerary wey go maximize di client satisfaction based on their preferences and budget.
 
 ### Steps
 
-1. Define di client's preferences and budget.
-2. Bootstrap di initial plan based on dem preferences.
-3. Iterate to refine di plan, make am better for di client's satisfaction.
+1. Define client preferences and budget.
+2. Bootstrap di initial plan based on di preferences.
+3. Iterate to refine di plan, make di plan better for client satisfaction.
 
 #### Python Code
 
@@ -488,7 +490,7 @@ class TravelAgent:
     def calculate_cost(self, plan, new_destination):
         return sum(destination['cost'] for destination in plan) + new_destination['cost']
 
-# Example wawid for use
+# Na example how you go take use am
 destinations = [
     {"name": "Paris", "cost": 1000, "activity": "sightseeing"},
     {"name": "Tokyo", "cost": 1200, "activity": "shopping"},
@@ -509,53 +511,53 @@ print("Refined Plan:", refined_plan)
 
 #### Code Explanation
 
-1. **Initialization (`__init__` method)**: Di `TravelAgent` class dey initialized with list of potential destinations, wey each get attributes like name, cost, and type of activity.
+1. **Initialization (`__init__` method)**: Di `TravelAgent` class dey initialized with list of potential destinations, each get attributes like name, cost, and activity type.
 
-2. **Bootstrapping the Plan (`bootstrap_plan` method)**: Dis method dey create initial travel plan based on di client's preferences and budget. E go check each destination for di list and add dem to di plan if dem match di client's preferences and di plan fit for di budget.
+2. **Bootstrapping di Plan (`bootstrap_plan` method)**: Dis method go create initial travel plan based on client preferences and budget. E go check through di list of destinations and add dem to di plan if dem match client preferences and fit inside di budget.
 
-3. **Matching Preferences (`match_preferences` method)**: Dis method go check if destination go match di client's preferences.
+3. **Matching Preferences (`match_preferences` method)**: Dis method go check if destination match client preferences.
 
-4. **Iterating the Plan (`iterate_plan` method)**: Dis method dey refine di initial plan by trying swap each destination for better one, based on client's preferences and budget limit.
+4. **Iterating di Plan (`iterate_plan` method)**: Dis method go refine di initial plan by trying to change each destination inside di plan with better match, based on client preferences and budget limits.
 
-5. **Calculating Cost (`calculate_cost` method)**: Dis method dey calculate total cost of di current plan, including any new destination wey dem add.
+5. **Calculating Cost (`calculate_cost` method)**: Dis method go calculate total cost of current plan including any potential new destination.
 
 #### Example Usage
 
-- **Initial Plan**: Di travel agent create initial plan based on client's preferences for sightseeing and budget wey be $2000.
-- **Refined Plan**: Di travel agent go iterate di plan, optimize am for di client's preferences and budget.
+- **Initial Plan**: Di travel agent create initial plan based on client preferences for sightseeing and budget of $2000.
+- **Refined Plan**: Di travel agent iterate di plan, optimize for client preferences and budget.
 
-By bootstrap di plan with clear goal (for example, maximize client satisfaction) and iterate to refine di plan, di travel agent fit create travel itinerary wey sure and customize for di client. Dis approach make di travel plan dey align well with di client's preferences and budget from di start and e go improve each time una iterate.
+By bootstrapping di plan with clear goal (like maximizing client satisfaction) and iterating to make di plan better, di travel agent fit create customized and optimized travel itinerary for client. Dis method make sure say di plan align with client preferences and budget since di start and improve with each iteration.
 
-### Taking Advantage of LLM for Re-ranking and Scoring
+### Using LLM for Re-ranking and Scoring
 
-Large Language Models (LLMs) fit dey used for re-ranking and scoring by evaluating how relevant and good di retrieved documents or generated responses be. Dis na how e dey work:
+Large Language Models (LLMs) fit use for re-ranking and scoring by checking how relevant and good di retrieved documents or generated responses be. How e dey work na dis:
 
-**Retrieval:** First step na to fetch candidate documents or responses wey base on di query.
+**Retrieval:** Di first step na to find candidate documents or responses based on di query.
 
-**Re-ranking:** Di LLM go evaluate all di candidates and rank dem again based on how relevant and good dem be. Dis one make sure say di best and correct information dey come first.
+**Re-ranking:** Di LLM go check dis candidates and re-rank dem based on relevance and quality. Dis step go make sure say di most relevant and better info go come first.
 
-**Scoring:** Di LLM go give score to each candidate to show how relevant and good each one be. Dis one help select di best response or document for di user.
+**Scoring:** Di LLM go give scores to each candidate, based on how relevant and good dem be. Dis dey help to choose di best response or document for di user.
 
-By using LLM for re-ranking and scoring, di system fit give more accurate and correct information wey match di context well, and dis way di user experience go better.
+By using LLMs for re-ranking and scoring, di system fit give more correct and context relevant info, wey dey improve di overall user experience.
 
-Example how travel agent fit use Large Language Model (LLM) for re-ranking and scoring travel destinations based on user preferences for Python:
+Dis na example how travel agent fit take Large Language Model (LLM) do re-ranking and scoring travel destinations based on user preferences for Python:
 
 #### Scenario - Travel based on Preferences
 
-One travel agent want recommend di best travel destinations to client based on dia preferences. Di LLM go help do re-ranking and scoring to make sure only di best options show.
+Travel agent wan recommend best travel destinations to client based on their preferences. Di LLM go help re-rank and score di destinations to make sure di best options show.
 
 #### Steps:
 
-1. Collect user preferences.
+1. Gather user preferences.
 2. Retrieve list of possible travel destinations.
-3. Use di LLM to re-rank and score dem based on user preferences.
+3. Use LLM to re-rank and score di destinations based on user preferences.
 
-Here how you fit update di previous example to use Azure OpenAI Services:
+Na so you fit update di previous example to use Azure OpenAI Services:
 
 #### Requirements
 
-1. You need get Azure subscription.
-2. Create Azure OpenAI resource and get your API key.
+1. You go need Azure subscription.
+2. Create Azure OpenAI resource and collect your API key.
 
 #### Example Python Code
 
@@ -568,10 +570,10 @@ class TravelAgent:
         self.destinations = destinations
 
     def get_recommendations(self, preferences, api_key, endpoint):
-        # Make one prompt for the Azure OpenAI
+        # Make one prompt for Azure OpenAI
         prompt = self.generate_prompt(preferences)
         
-        # Set headers and payload for di request
+        # Set headers an payload for di request
         headers = {
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {api_key}'
@@ -582,11 +584,11 @@ class TravelAgent:
             "temperature": 0.7
         }
         
-        # Call di Azure OpenAI API to get di place dem wey dem rank and score
+        # Call di Azure OpenAI API to collect di re-ranked an scored destinations
         response = requests.post(endpoint, headers=headers, json=payload)
         response_data = response.json()
         
-        # Take out and return di recommendations
+        # Comot an return di recommendations
         recommendations = response_data['choices'][0]['text'].strip().split('\n')
         return recommendations
 
@@ -599,7 +601,7 @@ class TravelAgent:
             prompt += f"- {destination['name']}: {destination['description']}\n"
         return prompt
 
-# Example of how to use am
+# Example how to use am
 destinations = [
     {"name": "Paris", "description": "City of lights, known for its art, fashion, and culture."},
     {"name": "Tokyo", "description": "Vibrant city, famous for its modernity and traditional temples."},
@@ -620,35 +622,35 @@ for rec in recommendations:
 
 #### Code Explanation - Preference Booker
 
-1. **Initialization**: Di `TravelAgent` class dey initialized with list of potential travel destinations, wey each get attributes like name and description.
+1. **Initialization**: Di `TravelAgent` class dey initialized with list of potential travel destinations, each get attributes like name and description.
 
-2. **Getting Recommendations (`get_recommendations` method)**: Dis method go generate prompt for Azure OpenAI service based on user preferences and go make HTTP POST request to Azure OpenAI API to get re-ranked and scored destinations.
+2. **Getting Recommendations (`get_recommendations` method)**: Dis method go generate prompt for Azure OpenAI service based on user preferences and do HTTP POST request to Azure OpenAI API to get re-ranked and scored destinations.
 
-3. **Generating Prompt (`generate_prompt` method)**: Dis method dey build prompt for Azure OpenAI, including user preferences and list of destinations. Di prompt dey guide di model to re-rank and score destinations based on di preferences wey you give.
+3. **Generating Prompt (`generate_prompt` method)**: Dis method build prompt for Azure OpenAI, e include user preferences and list of destinations. Di prompt go guide di model to re-rank and score di destinations based on di preferences given.
 
-4. **API Call**: Dem dey use `requests` library to make HTTP POST request to Azure OpenAI API. Di response get di re-ranked and scored destinations.
+4. **API Call**: Di `requests` library dey used to do HTTP POST request to Azure OpenAI API endpoint. Di response get di re-ranked and scored destinations.
 
-5. **Example Usage**: Di travel agent collect user preferences (like interest for sightseeing and diverse culture) and use Azure OpenAI service to get better ranked and scored recommendations for travel destinations.
+5. **Example Usage**: Di travel agent gather user preferences (like interest in sightseeing and diverse culture) and use Azure OpenAI service to get re-ranked and scored recommendations for travel destinations.
 
-Make sure say you replace `your_azure_openai_api_key` with your real Azure OpenAI API key and `https://your-endpoint.com/...` with di actual endpoint URL for your Azure OpenAI deployment.
+Make sure say you change `your_azure_openai_api_key` to your real Azure OpenAI API key and `https://your-endpoint.com/...` to di real endpoint URL of your Azure OpenAI deployment.
 
-By taking advantage of LLM for re-ranking and scoring, di travel agent fit give more personalized and relevant travel recommendations to clients, to boost their overall experience.
+By using LLM for re-ranking and scoring, di travel agent fit give more personalized and relevant travel recommendations to clients, wey go improve their overall experience.
 
 ### RAG: Prompting Technique vs Tool
 
-Retrieval-Augmented Generation (RAG) fit be both prompting technique and tool for development of AI agents. To sabi di difference between di two go help you use RAG better for your projects.
+Retrieval-Augmented Generation (RAG) fit be both prompting technique and tool for AI agents development. To understand difference between dem fit help you use RAG better for your projects.
 
 #### RAG as a Prompting Technique
 
-**Wetin e mean?**
+**Wetin be e?**
 
-- As prompting technique, RAG dey involve form form di queries or prompts wey go guide retrieval of relevant information from large corpus or database. Di information go then dey used to generate answers or actions.
+- As prompting technique, RAG involve saying specific queries or prompts to guide how to find relevant info from large corpus or database. Di info dey then used to generate responses or actions.
 
 **How e dey work:**
 
-1. **Formulate Prompts**: Create well-structured prompts or queries based on di task or di user's input.
-2. **Retrieve Information**: Use di prompts find relevant data from knowledge base or dataset wey already dey.
-3. **Generate Response**: Combine di information wey dem retrieve with generative AI model to produce correct and complete response.
+1. **Formulate Prompts**: Create well-structured prompts or queries based on di task or user input.
+2. **Retrieve Information**: Use di prompts to search for relevant data from pre-existing knowledge base or dataset.
+3. **Generate Response**: Combine di retrieved info with generative AI models to make comprehensive and correct response.
 
 **Example for Travel Agent**:
 
@@ -659,30 +661,30 @@ Retrieval-Augmented Generation (RAG) fit be both prompting technique and tool fo
 
 #### RAG as a Tool
 
-**Wetin e mean?**
+**Wetin be e?**
 
-- As tool, RAG na system wey dey automate retrieval and generation process, e make am easy for developers to implement complex AI functionality without them need to manually craft prompts for each query.
+- As tool, RAG na integrated system wey dey automate di retrieval and generation process, e make am easy for developers to put complex AI functionalities without to manual create prompts for each query.
 
 **How e dey work:**
 
-1. **Integration**: Embed RAG inside AI agent's architecture, so that e fit handle retrieval and generation tasks automatically.
-2. **Automation**: Di tool go manage everything, from receiving user input to generate final answers, without need prompts for each time.
-3. **Efficiency**: E improve agent's performance by making retrieval and generation process faster and more accurate.
+1. **Integration**: Embed RAG inside AI agent architecture, e go handle retrieval and generation tasks automatically.
+2. **Automation**: Di tool dey manage whole process, from receiving user input reach generating final response, without need to prompt each step.
+3. **Efficiency**: E improve agent performance by making retrieval and generation process faster and more accurate.
 
 **Example for Travel Agent**:
 
 - User Input: "I want to visit museums in Paris."
-- RAG Tool: Automatically go find information about museums and generate answer.
+- RAG Tool: E automatically dey find info about museums and generate response.
 - Generated Response: "Here are some top museums in Paris: Louvre Museum, Musée d'Orsay, and Centre Pompidou."
 
 ### Comparison
 
 | Aspect                 | Prompting Technique                                        | Tool                                                  |
 |------------------------|-------------------------------------------------------------|-------------------------------------------------------|
-| **Manual vs Automatic**| Manual formulation of prompts for each query.               | Automated process for retrieval and generation.       |
-| **Control**            | Offers more control over the retrieval process.             | Streamlines and automates the retrieval and generation.|
-| **Flexibility**        | Allows for customized prompts based on specific needs.      | More efficient for large-scale implementations.       |
-| **Complexity**         | Requires crafting and tweaking of prompts.                  | Easier to integrate within an AI agent's architecture. |
+| **Manual vs Automatic**| Manual to create prompts for each query.                    | Automated process for retrieval and generation.       |
+| **Control**            | Give more control over retrieval process.                   | Streamline and automate retrieval and generation.     |
+| **Flexibility**        | Allow customized prompts based on specific needs.           | More efficient for big scale use.                      |
+| **Complexity**         | Need crafting and adjusting prompts.                         | Easier to put inside AI agent structure.               |
 
 ### Practical Examples
 
@@ -717,30 +719,30 @@ print("Top Museums in Paris:", museums)
 
 ### Evaluating Relevancy
 
-Evaluating relevancy na very important part for AI agent performance. E dey make sure say information wey di agent retrieve and generate dey appropriate, correct, and useful to di user. Make we check how to evaluate relevancy for AI agents, including examples and techniques.
+Evaluating relevancy na important part of AI agent performance. E dey make sure say di info wey di agent find and generate dey correct, appropriate, and useful to di user. Make we look how to evaluate relevancy in AI agents, with practical examples and techniques.
 
 #### Key Concepts in Evaluating Relevancy
 
 1. **Context Awareness**:
-   - Di agent must sabi di context of di user's query to retrieve and generate relevant information.
-   - Example: If user ask "best restaurants in Paris," di agent suppose consider user's preferences like kind of food and budget.
+   - Di agent must understand di context of user query to find and generate relevant info.
+   - Example: If user ask for "best restaurants in Paris," di agent suppose consider user preferences, like type of food and budget.
 
 2. **Accuracy**:
-   - Di info wey di agent give must dey factually correct and updated.
-   - Example: Recommend restaurants wey dey open currently with good reviews, no outdated or closed one.
+   - Di info wey di agent give must be correct correct and up-to-date.
+   - Example: Recommend restaurants wey still dey open and get good reviews instead of ones wey don close or outdated.
 
 3. **User Intent**:
-   - Di agent must understand di actual meaning or intention behind di query to give best info.
-   - Example: If user ask "budget-friendly hotels," di agent suppose put affordable options first.
+   - Di agent suppose understand wetin di user really want to provide di most relevant info.
+   - Example: If user ask for "budget-friendly hotels," di agent suppose give more importance to affordable options.
 
 4. **Feedback Loop**:
-   - Continuous collection and analysis of user feedback help agent refine how e evaluate relevancy.
-   - Example: Use user ratings and feedback on previous recommendations to improve future answers.
+   - Always dey collect and analyze user feedback to help agent refine how e dey evaluate relevancy.
+   - Example: Use user ratings and feedback on previous recommendations to make future responses better.
 
 #### Practical Techniques for Evaluating Relevancy
 
 1. **Relevance Scoring**:
-   - Assign relevance score to each retrieved item based on how well e match di user's query and preferences.
+   - Give relevance score to each retrieved item based on how well e match user query and preferences.
    - Example:
 
      ```python
@@ -756,28 +758,28 @@ Evaluating relevancy na very important part for AI agent performance. E dey make
      ```
 
 2. **Filtering and Ranking**:
-   - Remove irrelevant items and rank di remaining ones based on their relevance scores.
+   - Filter out irrelevant items and rank di remaining ones based on their relevance scores.
    - Example:
 
      ```python
      def filter_and_rank(items, query):
          ranked_items = sorted(items, key=lambda item: relevance_score(item, query), reverse=True)
-         return ranked_items[:10]  # Return di top 10 items wey make sense
+         return ranked_items[:10]  # Return di top 10 tins wey make sense
      ```
 
 3. **Natural Language Processing (NLP)**:
-   - Use NLP methods to understand user's query and find relevant info.
+   - Use NLP techniques to understand user query and find relevant info.
    - Example:
 
      ```python
      def process_query(query):
-         # Use NLP to comot main tins from di user question
+         # Use NLP to comot main tori from wetin di user tok
          processed_query = nlp(query)
          return processed_query
      ```
 
 4. **User Feedback Integration**:
-   - Collect user feedback on recommendations given and use am to adjust future relevance evaluation.
+   - Collect user feedback for di recommended items and use am to adjust future relevance evaluations.
    - Example:
 
      ```python
@@ -792,7 +794,7 @@ Evaluating relevancy na very important part for AI agent performance. E dey make
 
 #### Example: Evaluating Relevancy in Travel Agent
 
-Dis na practical example of how Travel Agent fit evaluate relevancy of travel recommendations:
+Dis na practical example how Travel Agent fit evaluate relevancy of travel recommendations:
 
 ```python
 class Travel_Agent:
@@ -817,7 +819,7 @@ class Travel_Agent:
 
     def filter_and_rank(self, items, query):
         ranked_items = sorted(items, key=lambda item: self.relevance_score(item, query), reverse=True)
-        return ranked_items[:10]  # Return di top 10 tings wey relate
+        return ranked_items[:10]  # Return top 10 betta tins wey relate
 
     def relevance_score(self, item, query):
         score = 0
@@ -837,7 +839,7 @@ class Travel_Agent:
                 item['relevance'] -= 1
         return items
 
-# Example how to use am
+# Example tins we fit take use am
 travel_agent = Travel_Agent()
 preferences = {
     "destination": "Paris",
@@ -855,28 +857,28 @@ print("Updated Itinerary with Feedback:", updated_items)
 
 ### Search with Intent
 
-Searching with intent mean say you understand and interpret di underlying purpose or goal behind di user's query to find and generate the most relevant and useful info. Dis approach pass just matching keywords, e dey try grasp di user's true needs and context.
+Searching with intent mean say you go understand and interpret wetin user really want or di goal behind di query to find and generate di most relevant and useful info. Dis approach no dey only match keywords but dey try to understand wetin user really need and di context.
 
 #### Key Concepts in Searching with Intent
 
 1. **Understanding User Intent**:
-   - User intent fit fall into three main types: informational, navigational, and transactional.
-     - **Informational Intent**: User want information about topic (ex: "What are the best museums in Paris?").
-     - **Navigational Intent**: User want find specific website or page (ex: "Louvre Museum official website").
-     - **Transactional Intent**: User want do transaction like booking flight or buy something (ex: "Book a flight to Paris").
+   - User intent fit be three main types: informational, navigational, and transactional.
+     - **Informational Intent**: User dey find info about one topic (e.g., "Wetin be best museums for Paris?").
+     - **Navigational Intent**: User want go specific website or page (e.g., "Louvre Museum official website").
+     - **Transactional Intent**: User want perform transaction, like book flight or buy something (e.g., "Book flight go Paris").
 
 2. **Context Awareness**:
-   - Analyze context of user's query to correctly identify dem intent. Dis fit include previous interactions, user preferences, and details of current query.
+   - To analyze context of user query dey help make sure say you identify their intent well. Dis include considering previous interactions, user preferences, and details of current query.
 
 3. **Natural Language Processing (NLP)**:
-   - Use NLP techniques to understand and interpret natural language queries. This fit include entity recognition, sentiment analysis, parsing query.
+   - NLP techniques dey used to understand and interpret natural language queries wey users give. Dis involve tasks like entity recognition, sentiment analysis, and query parsing.
 
 4. **Personalization**:
-   - Personalize search results based on user's history, preferences, and feedback to improve relevancy of info found.
+   - Make search results personalized based on user history, preferences, and feedback to improve relevancy of info found.
 
 #### Practical Example: Searching with Intent in Travel Agent
 
-Make we use Travel Agent as example to see how searching with intent fit work.
+Make we take Travel Agent example check how searching with intent fit work.
 
 1. **Gathering User Preferences**
 
@@ -902,9 +904,11 @@ Make we use Travel Agent as example to see how searching with intent fit work.
    ```
 
 3. **Context Awareness**
+
+
    ```python
    def analyze_context(query, user_history):
-       # Join wetin user don yan before with dis query to sabi wetin e mean for inside
+       # Join di current query wit user history to sabi wetin dey go on
        context = {
            "current_query": query,
            "user_history": user_history
@@ -912,7 +916,7 @@ Make we use Travel Agent as example to see how searching with intent fit work.
        return context
    ```
 
-4. **Search and Personalize Results**
+4. **Find and Personalisé Results**
 
    ```python
    def search_with_intent(query, preferences, user_history):
@@ -928,24 +932,24 @@ Make we use Travel Agent as example to see how searching with intent fit work.
        return personalized_results
 
    def search_information(query, preferences):
-       # Example search logic for informational intent
+       # Example search logic for information wey person want find
        results = search_web(f"best {preferences['interests']} in {preferences['destination']}")
        return results
 
    def search_navigation(query):
-       # Example search logic for navigational intent
+       # Example search logic for if person dey find how to reach place
        results = search_web(query)
        return results
 
    def search_transaction(query, preferences):
-       # Example search logic for transactional intent
+       # Example search logic for if person wan buy or do transaction
        results = search_web(f"book {query} to {preferences['destination']}")
        return results
 
    def personalize_results(results, user_history):
-       # Example personalization logic
+       # Example how to personalize tins
        personalized = [result for result in results if result not in user_history]
-       return personalized[:10]  # Return top 10 personalized results
+       return personalized[:10]  # Bring back top 10 personalized results
    ```
 
 5. **Example Usage**
@@ -965,44 +969,44 @@ Make we use Travel Agent as example to see how searching with intent fit work.
 
 ---
 
-## 4. Generating Code as a Tool
+## 4. Generating Code as Tool
 
-Code generating agents dey use AI models to write and run code, wen dem dey solve complex problems and dey automate tasks.
+Code wey dey generate agents use AI models to write and run code, solve complex problem dem and dey automate task dem.
 
 ### Code Generating Agents
 
-Code generating agents dey use generative AI models to write and run code. Dem fit solve complex problems, automate tasks, and provide beta insights by generating and running code for different programming languages.
+Code generating agents dey use generative AI models to write and run code. Dem agents fit solve complex problem, automate task dem, and provide beta insights by generating and running code for different programming language dem.
 
 #### Practical Applications
 
-1. **Automated Code Generation**: Generate code snippets for specific tasks, like data analysis, web scraping, or machine learning.
-2. **SQL as a RAG**: Use SQL queries to collect and manipulate data from databases.
-3. **Problem Solving**: Create and run code to solve particular problems, like making algorithms beta or analyzing data.
+1. **Automated Code Generation**: Generate code snippets for specific work dem, like data analysis, web scraping, or machine learning.
+2. **SQL as a RAG**: Use SQL queries to find and change data from databases.
+3. **Problem Solving**: Create and run code to solve specific problem dem, like making algorithms beta or analyzing data.
 
 #### Example: Code Generating Agent for Data Analysis
 
-Imagine sey you dey design code generating agent. Dis na how e fit work:
+Imagine say you dey design code generating agent. Na how e fit waka e go be:
 
-1. **Task**: Analyze dataset to see trends and patterns.
+1. **Task**: Analyze dataset to find trends and pattern dem.
 2. **Steps**:
-   - Load the dataset into data analysis tool.
-   - Generate SQL queries to filter and arrange the data.
-   - Run the queries and collect the results.
-   - Use the results take generate visuals and insights.
-3. **Required Resources**: Access to dataset, data analysis tools, and SQL powers.
-4. **Experience**: Use past analysis results to improve how accurate and relevant future analysis go be.
+   - Load dataset into data analysis tool.
+   - Generate SQL queries to filter and combine di data.
+   - Run those queries and collect di results.
+   - Use di results to generate visualizations and insights.
+3. **Required Resources**: Access to dataset, data analysis tools, and SQL capabilities.
+4. **Experience**: Use past analysis results to make future analyses better and correct.
 
 ### Example: Code Generating Agent for Travel Agent
 
-For this example, we go design a code generating agent, Travel Agent, wey go help users plan their travel by generating and running code. Dis agent fit do things like fetch travel options, filter results, and compile itinerary using generative AI.
+For this example, we go design code generating agent, Travel Agent, wey go help users plan their travel by generating and running code. This agent fit handle tasks like find travel options, filter results, and build itinerary using generative AI.
 
 #### Overview of the Code Generating Agent
 
-1. **Gathering User Preferences**: Collect user input like destination, travel date dem, budget, and interests.
-2. **Generating Code to Fetch Data**: Generate code snippets wey go collect data about flights, hotels, and attractions.
-3. **Executing Generated Code**: Run the generated code to fetch real-time info.
-4. **Generating Itinerary**: Arrange the fetched data into personal travel plan.
-5. **Adjusting Based on Feedback**: Take user feedback and generate code again if e need to improve the results.
+1. **Gathering User Preferences**: Collect user input like destination, travel dates, budget, and interests.
+2. **Generating Code to Fetch Data**: Generate code snippets to get data about flights, hotels, and attractions.
+3. **Executing Generated Code**: Run di generated code to find real-time information.
+4. **Generating Itinerary**: Put di collected data together to make personalized travel plan.
+5. **Adjusting Based on Feedback**: Get user feedback and regenerate code if e necessary to improve di results.
 
 #### Step-by-Step Implementation
 
@@ -1021,7 +1025,7 @@ For this example, we go design a code generating agent, Travel Agent, wey go hel
 
    ```python
    def generate_code_to_fetch_data(preferences):
-       # Example: Make code wey go find flights based on wetin person like
+       # Example: Make code wey go find flight based on wetin di user like
        code = f"""
        def search_flights():
            import requests
@@ -1031,7 +1035,7 @@ For this example, we go design a code generating agent, Travel Agent, wey go hel
        return code
 
    def generate_code_to_fetch_hotels(preferences):
-       # Example: Make code wey go find hotels
+       # Example: Make code wey go find hotel dem
        code = f"""
        def search_hotels():
            import requests
@@ -1045,7 +1049,7 @@ For this example, we go design a code generating agent, Travel Agent, wey go hel
 
    ```python
    def execute_code(code):
-       # Run the code wey dem generate wit exec
+       # Run di code wey dem generate wit exec
        exec(code)
        result = locals()
        return result
@@ -1089,7 +1093,7 @@ For this example, we go design a code generating agent, Travel Agent, wey go hel
 
    ```python
    def adjust_based_on_feedback(feedback, preferences):
-       # Change di settings based on wetin di user talk
+       # Change settings based on how user yan
        if "liked" in feedback:
            preferences["favorites"] = feedback["liked"]
        if "disliked" in feedback:
@@ -1099,7 +1103,7 @@ For this example, we go design a code generating agent, Travel Agent, wey go hel
    feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
    updated_preferences = adjust_based_on_feedback(feedback, preferences)
    
-   # Make code again and run am with di new settings
+   # Dey create and run code again with new settings
    updated_flight_code = generate_code_to_fetch_data(updated_preferences)
    updated_hotel_code = generate_code_to_fetch_hotels(updated_preferences)
    
@@ -1110,33 +1114,33 @@ For this example, we go design a code generating agent, Travel Agent, wey go hel
    print("Updated Itinerary:", updated_itinerary)
    ```
 
-### Leveraging environmental awareness and reasoning
+### Using environmental awareness and reasoning
 
-Based on how the table schema be fit make query generation better by using environmental awareness and reasoning.
+Based on di table schema fit really improve di query generation process by using environmental awareness and reasoning.
 
-Here na example how you fit do am:
+This na example how you fit do am:
 
-1. **Understanding the Schema**: The system go sabi how the table schema be and use am take guide the query generation.
-2. **Adjusting Based on Feedback**: The system go adjust user preferences base on feedback and reason which field for the schema need update.
-3. **Generating and Executing Queries**: The system go generate and run queries to get updated flight and hotel data based on new preferences.
+1. **Understanding the Schema**: System go understand di table schema and use dis info to guide di query generation.
+2. **Adjusting Based on Feedback**: System go adjust user preferences based on feedback and reason which fields for di schema need update.
+3. **Generating and Executing Queries**: System go generate and run queries to fetch updated flight and hotel data based on di new preferences.
 
-Here be updated Python code example wey join these things:
+Here na updated Python code example wey include these ideas:
 
 ```python
 def adjust_based_on_feedback(feedback, preferences, schema):
-    # Change how e go be based on wetin user talk
+    # Change di preferences based on how di user talk
     if "liked" in feedback:
         preferences["favorites"] = feedback["liked"]
     if "disliked" in feedback:
         preferences["avoid"] = feedback["disliked"]
-    # Reasoning based on schema to change other related preferences
+    # Reasoning wey get for schema to change oda related preferences
     for field in schema:
         if field in preferences:
             preferences[field] = adjust_based_on_environment(feedback, field, schema)
     return preferences
 
 def adjust_based_on_environment(feedback, field, schema):
-    # Custom logic to change preferences based on schema and feedback
+    # Custom way wey we take change preferences based on schema and feedback
     if field in feedback["liked"]:
         return schema[field]["positive_adjustment"]
     elif field in feedback["disliked"]:
@@ -1144,19 +1148,19 @@ def adjust_based_on_environment(feedback, field, schema):
     return schema[field]["default"]
 
 def generate_code_to_fetch_data(preferences):
-    # Make code to collect flight data based on updated preferences
+    # Create code wey go fetch flight data based on updated preferences
     return f"fetch_flights(preferences={preferences})"
 
 def generate_code_to_fetch_hotels(preferences):
-    # Make code to collect hotel data based on updated preferences
+    # Create code wey go fetch hotel data based on updated preferences
     return f"fetch_hotels(preferences={preferences})"
 
 def execute_code(code):
-    # Try run code for play and return fake data
+    # Pretend to run code and return mock data
     return {"data": f"Executed: {code}"}
 
 def generate_itinerary(flights, hotels, attractions):
-    # Make itinerary based on flights, hotels, and places wey people like
+    # Create itinerary based on flights, hotels, and attractions
     return {"flights": flights, "hotels": hotels, "attractions": attractions}
 
 # Example schema
@@ -1165,7 +1169,7 @@ schema = {
     "avoid": {"positive_adjustment": "decrease", "negative_adjustment": "increase", "default": "neutral"}
 }
 
-# Example usage
+# Example how to take use am
 preferences = {"favorites": "sightseeing", "avoid": "crowded places"}
 feedback = {"liked": ["Louvre Museum"], "disliked": ["Eiffel Tower (too crowded)"]}
 updated_preferences = adjust_based_on_feedback(feedback, preferences, schema)
@@ -1183,36 +1187,36 @@ print("Updated Itinerary:", updated_itinerary)
 
 #### Explanation - Booking Based on Feedback
 
-1. **Schema Awareness**: The `schema` dictionary dey define how to adjust preferences based on feedback. E get fields like `favorites` and `avoid` with their adjustment dem.
-2. **Adjusting Preferences (`adjust_based_on_feedback` method)**: This method dey change preferences based on user feedback and the schema.
-3. **Environment-Based Adjustments (`adjust_based_on_environment` method)**: This method dey customize adjustments based on schema and feedback.
-4. **Generating and Executing Queries**: The system dey generate code to fetch updated flight and hotel data based on adjusted preferences and e dey pretend run the queries.
-5. **Generating Itinerary**: The system go create updated itinerary based on new flight, hotel, and attraction data.
+1. **Schema Awareness**: Di `schema` dictionary dey define how preferences go dey adjust based on feedback. E get fields like `favorites` and `avoid`, with corresponding adjustments.
+2. **Adjusting Preferences (`adjust_based_on_feedback` method)**: Dis method dey adjust preferences based on user feedback and di schema.
+3. **Environment-Based Adjustments (`adjust_based_on_environment` method)**: Dis method dey customize di adjustments based on di schema and feedback.
+4. **Generating and Executing Queries**: System go generate code to fetch updated flight and hotel data based on di adjusted preferences and simulate how e go run those queries.
+5. **Generating Itinerary**: System go create updated itinerary based on di new flight, hotel, and attraction data.
 
-If system sabi environment well and reason based on schema, e go fit generate more correct and relevant queries, wey go make travel recommendations beta and user experience more personalized.
+By making di system environment-aware and reasoning based on di schema, e fit generate more correct and relevant queries, wey fit give beta travel recommendations and more personalized user experience.
 
-### Using SQL as a Retrieval-Augmented Generation (RAG) Technique
+### Using SQL as Retrieval-Augmented Generation (RAG) Technique
 
-SQL (Structured Query Language) na strong tool for interacting with databases. When you use am as part of Retrieval-Augmented Generation (RAG) approach, SQL fit collect relevant data from databases to help generate responses or actions for AI agents. Make we check how SQL fit take act as RAG technique inside Travel Agent.
+SQL (Structured Query Language) na powerful tool for interacting with databases. When you use am as part of Retrieval-Augmented Generation (RAG) approach, SQL fit fetch important data from databases to help generate responses or actions for AI agents. Make we look how SQL fit take work as RAG technique inside Travel Agent.
 
 #### Key Concepts
 
 1. **Database Interaction**:
-   - SQL dey used to query databases, carry relevant info come and manipulate data.
-   - Example: Fetch flight detail dem, hotel info, and attractions from travel database.
+   - SQL dey use to query databases, find important information, and change data.
+   - Example: Fetch flight details, hotel info, and attractions from travel database.
 
 2. **Integration with RAG**:
-   - SQL queries dey generated based on user input and preferences.
-   - The data wey dem collect go then dey used to generate personalized recommendations or actions.
+   - SQL queries dey generate based on user input and preferences.
+   - Data wey dem find dey use to generate personalized recommendations or actions.
 
 3. **Dynamic Query Generation**:
-   - The AI agent dey generate dynamic SQL queries based on context and user needs.
-   - Example: Customize SQL queries to filter results based on budget, dates, and interests.
+   - AI agent dey generate dynamic SQL queries based on context and user needs.
+   - Example: Customize SQL queries to filter results by budget, dates, and interests.
 
 #### Applications
 
-- **Automated Code Generation**: Generate code snippets for special tasks.
-- **SQL as a RAG**: Use SQL queries to manipulate data.
+- **Automated Code Generation**: Generate code snippets for specific works.
+- **SQL as a RAG**: Use SQL queries to change data.
 - **Problem Solving**: Create and run code to solve problems.
 
 **Example**:
@@ -1220,12 +1224,12 @@ Data analysis agent:
 
 1. **Task**: Analyze dataset to find trends.
 2. **Steps**:
-   - Load the dataset.
+   - Load dataset.
    - Generate SQL queries to filter data.
    - Run queries and collect results.
-   - Generate visuals and insights.
-3. **Resources**: Dataset access, SQL skills.
-4. **Experience**: Use past results to improve future analyses.
+   - Generate visualizations and insights.
+3. **Resources**: Dataset access, SQL capabilities.
+4. **Experience**: Use past results to make future analyses better.
 
 #### Practical Example: Using SQL in Travel Agent
 
@@ -1317,27 +1321,27 @@ Data analysis agent:
    SELECT * FROM attractions WHERE destination='Paris' AND interests='museums, cuisine';
    ```
 
-By using SQL as part of Retrieval-Augmented Generation (RAG) technique, AI agents like Travel Agent fit dynamically fetch and use relevant data to provide accurate and personalized recommendations.
+By using SQL as part of Retrieval-Augmented Generation (RAG) technique, AI agents like Travel Agent fit dynamically fetch and use important data to give correct and personalized recommendations.
 
-### Example of Metacongition
+### Example of Metacognition
 
-Make we show implementation of metacognition by creating simple agent wey *reflect on how e dey make decisions* while e dey solve problem. For this example, we go build system wey agent dey try optimize how e take choose hotel, but e go first evaluate im own reasoning and change strategy when e make mistake or bad choices.
+To show how metacognition fit work, make we create simple agent wey *reflect on how e dey make decisions* while e dey solve problem. For this example, we go build system where agent dey try optimize hotel choice, but then e go check back on e own reasoning and adjust strategy if e make mistake or choose bad option.
 
-We go simulate dis using simple example where agent dey select hotels based on combination of price and quality, but e go "reflect" on decisions and change am well.
+We go simulate dis with simple example where agent dey select hotels based on price and quality, but e go "reflect" on decisions and adjust as e suppose.
 
-#### How dis show metacognition:
+#### How dis dey show metacognition:
 
-1. **Initial Decision**: Agent go pick cheapest hotel, without understanding quality.
-2. **Reflection and Evaluation**: After first choice, agent go check if hotel na "bad" choice based on user feedback. If e find say hotel quality no good, e go reflect on its reasoning.
-3. **Adjusting Strategy**: Agent go change strategy based on reflection from "cheapest" to "highest_quality", so e fit make beta decision for future.
+1. **Initial Decision**: Agent go pick cheapest hotel first without understanding how quality fit affect am.
+2. **Reflection and Evaluation**: After first choice, agent go check if hotel na "bad" choice based on user feedback. If e find say hotel quality low too much, e go reflect on e own reasoning.
+3. **Adjusting Strategy**: Agent go change e strategy based on reflection, from "cheapest" to "highest_quality", to make e decision better for next time.
 
-Here na example:
+Na example:
 
 ```python
 class HotelRecommendationAgent:
     def __init__(self):
-        self.previous_choices = []  # De store di hotels wey dem bin choose before
-        self.corrected_choices = []  # De store di correct choices
+        self.previous_choices = []  # Dey keep di hotels wey we don choose before
+        self.corrected_choices = []  # Dey keep di correct choices
         self.recommendation_strategies = ['cheapest', 'highest_quality']  # Strategies wey dey available
 
     def recommend_hotel(self, hotels, strategy):
@@ -1363,11 +1367,11 @@ class HotelRecommendationAgent:
             return "No choices made yet."
 
         last_choice_strategy, last_choice = self.previous_choices[-1]
-        # Make we assume say we get some user feedback wey tell us if di last choice good or no
+        # Make we assume say we get some user feedback wey talk whether di last choice beta or no be so
         user_feedback = self.get_user_feedback(last_choice)
 
         if user_feedback == "bad":
-            # Change strategy if di last choice no satisfy
+            # Change strategy if di previous choice no satisfy
             new_strategy = 'highest_quality' if last_choice_strategy == 'cheapest' else 'cheapest'
             self.corrected_choices.append((new_strategy, last_choice))
             return f"Reflecting on choice. Adjusting strategy to {new_strategy}."
@@ -1384,44 +1388,44 @@ class HotelRecommendationAgent:
             return "bad"
         return "good"
 
-# Make list of hotels (price and quality) like for example
+# Make list of hotels (price and quality) like simulation
 hotels = [
     {'name': 'Budget Inn', 'price': 80, 'quality': 6},
     {'name': 'Comfort Suites', 'price': 120, 'quality': 8},
     {'name': 'Luxury Stay', 'price': 200, 'quality': 9}
 ]
 
-# Make one agent
+# Create one agent
 agent = HotelRecommendationAgent()
 
-# Step 1: Di agent dey recommend hotel wit di "cheapest" strategy
+# Step 1: Di agent go recommend one hotel wit di "cheapest" strategy
 recommended_hotel = agent.recommend_hotel(hotels, 'cheapest')
 print(f"Recommended hotel (cheapest): {recommended_hotel['name']}")
 
-# Step 2: Di agent dey think for di choice and e change strategy if e need
+# Step 2: Di agent go think about di choice and change strategy if e need
 reflection_result = agent.reflect_on_choice()
 print(reflection_result)
 
-# Step 3: Di agent go recommend again, dis time e go use di adjusted strategy
+# Step 3: Di agent go recommend again, dis time wit di new strategy wey e fix
 adjusted_recommendation = agent.recommend_hotel(hotels, 'highest_quality')
 print(f"Adjusted hotel recommendation (highest_quality): {adjusted_recommendation['name']}")
 ```
 
 #### Agents Metacognition Abilities
 
-Wetin important here na the agent ability to:
-- Check how e take choose before plus decision making process.
-- Change strategy based on the reflection, dat na metacognition for action.
+Key thing here na the agent fit:
+- Check how e make choices before and how e take reason.
+- Change e strategy based on reflection, dat na metacognition for action.
 
-Dis na simple form of metacognition where system fit adjust reasoning based on internal feedback.
+This na simple type metacognition where system fit adjust e reasoning based on internal feedback.
 
 ### Conclusion
 
-Metacognition na powerful tool wey fit improve how AI agents dey operate. If you add metacognitive processes, you fit design agents wey smarter, adaptable, and efficient. Use the extra materials to sabi more about the beta world of metacognition for AI agents.
+Metacognition na strong tool wey fit improve AI agents well-well. If you put metacognitive processes inside, you fit build agents wey dey more intelligent, adaptable, and efficient. Use the additional materials to learn more about di interesting world of metacognition for AI agents.
 
-### Got More Questions about the Metacognition Design Pattern?
+### Get More Questions about Metacognition Design Pattern?
 
-Join [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet other learners, attend office hours and make you fit ask all your AI Agents questions.
+Join [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet other learners, attend office hours and get your AI Agents questions answer.
 
 ## Previous Lesson
 
@@ -1434,6 +1438,6 @@ Join [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet other
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg sabi say automated translation fit get errors or wahala. Di original document wey e dey for im correct language na di main pipo suppose trust. For important mata, e better make person wey sabi translate am well do am. We no go responsible for any misunderstanding or wrong meaning wey fit happen based on dis translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

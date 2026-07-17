@@ -1,40 +1,40 @@
-# 🌍 KI-Reiseberater mit Microsoft Agent Framework (.NET)
+# 🌍 KI-Reiseagent mit Microsoft Agent Framework (.NET)
 
 ## 📋 Szenarioübersicht
 
-Dieses Beispiel zeigt, wie man einen intelligenten Reiseplanungs-Agenten mit dem Microsoft Agent Framework für .NET erstellt. Der Agent kann automatisch personalisierte Tagesausflugspläne für zufällige Reiseziele weltweit erstellen.
+Dieses Beispiel zeigt, wie man einen intelligenten Reiseplanungsagenten mithilfe des Microsoft Agent Frameworks für .NET erstellt. Der Agent kann automatisch personalisierte Tagesausflug-Routen für zufällige Reiseziele weltweit generieren.
 
 ### Hauptfunktionen:
 
 - 🎲 **Zufällige Zielauswahl**: Verwendet ein benutzerdefiniertes Tool, um Urlaubsorte auszuwählen
-- 🗺️ **Intelligente Reiseplanung**: Erstellt detaillierte Tagespläne
-- 🔄 **Echtzeit-Streaming**: Unterstützt sowohl sofortige als auch gestreamte Antworten
-- 🛠️ **Integration benutzerdefinierter Tools**: Zeigt, wie die Fähigkeiten des Agenten erweitert werden können
+- 🗺️ **Intelligente Reiseplanung**: Erstellt detaillierte Tagesabläufe
+- 🔄 **Echtzeit-Streaming**: Unterstützt sowohl sofortige als auch Streaming-Antworten
+- 🛠️ **Integration benutzerdefinierter Tools**: Zeigt, wie Agent-Fähigkeiten erweitert werden können
 
 ## 🔧 Technische Architektur
 
 ### Kerntechnologien
 
-- **Microsoft Agent Framework**: Neueste .NET-Implementierung für die Entwicklung von KI-Agenten
-- **GitHub Models Integration**: Nutzt den Inferenzdienst von GitHub für KI-Modelle
-- **OpenAI API-Kompatibilität**: Verwendet OpenAI-Clientbibliotheken mit benutzerdefinierten Endpunkten
-- **Sichere Konfiguration**: API-Schlüsselverwaltung basierend auf Umgebungsvariablen
+- **Microsoft Agent Framework**: Neueste .NET-Implementierung für KI-Agentenentwicklung
+- **Azure OpenAI (Responses API)**: Verwendet die Azure OpenAI Responses API für Modellausführung
+- **Azure Identity**: Sicheres Anmelden über `AzureCliCredential` (`az login`)
+- **Sichere Konfiguration**: Endpunktverwaltung auf Basis von Umgebungsvariablen
 
 ### Hauptkomponenten
 
-1. **AIAgent**: Der Hauptorchestrator des Agenten, der den Gesprächsfluss steuert
-2. **Benutzerdefinierte Tools**: Die Funktion `GetRandomDestination()` steht dem Agenten zur Verfügung
-3. **Chat-Client**: Gesprächsschnittstelle, die von GitHub Models unterstützt wird
+1. **AIAgent**: Der Hauptagent-Orchestrator, der den Gesprächsablauf steuert
+2. **Benutzerdefinierte Tools**: `GetRandomDestination()`-Funktion, die dem Agenten zur Verfügung steht
+3. **Responses-Client**: Gesprächsschnittstelle basierend auf Azure OpenAI Responses
 4. **Streaming-Unterstützung**: Echtzeit-Antwortgenerierung
 
 ### Integrationsmuster
 
 ```mermaid
 graph LR
-    A[User Request] --> B[AI Agent]
-    B --> C[GitHub Models API]
-    B --> D[GetRandomDestination Tool]
-    C --> E[Travel Itinerary]
+    A[Benutzeranfrage] --> B[KI-Agent]
+    B --> C[Azure OpenAI (Antworten API)]
+    B --> D[GetRandomDestination Werkzeug]
+    C --> E[Reiseplan]
     D --> E
 ```
 
@@ -43,27 +43,30 @@ graph LR
 ### Voraussetzungen
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) oder höher
-- [GitHub Models API-Zugriffstoken](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- Ein [Azure-Abonnement](https://azure.microsoft.com/free/) mit einer Azure OpenAI-Ressource und einer Modellausführung
+- Die [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — Anmeldung mit `az login`
 
 ### Erforderliche Umgebungsvariablen
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# Melden Sie sich dann an, damit AzureCliCredential ein Token erhalten kann
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# Melden Sie sich dann an, damit AzureCliCredential ein Token erhalten kann
+az login
 ```
 
 ### Beispielcode
 
-Um das Codebeispiel auszuführen,
+Um das Beispiel auszuführen,
 
 ```bash
 # zsh/bash
@@ -71,7 +74,7 @@ chmod +x ./01-dotnet-agent-framework.cs
 ./01-dotnet-agent-framework.cs
 ```
 
-Oder mit dem dotnet CLI:
+Oder mit der dotnet CLI:
 
 ```bash
 dotnet run ./01-dotnet-agent-framework.cs
@@ -82,16 +85,18 @@ Siehe [`01-dotnet-agent-framework.cs`](../../../../01-intro-to-ai-agents/code_sa
 ```csharp
 #!/usr/bin/dotnet run
 
-#:package Microsoft.Extensions.AI@9.*
-#:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Microsoft.Extensions.AI@10.4.1
+#:package Microsoft.Agents.AI.OpenAI@1.1.0
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -123,34 +128,20 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Create AI Agent with Travel Planning Capabilities
-// Initialize OpenAI client, get chat client for specified model, and create AI agent
+// Get the Responses client for the specified deployment and create the AI agent
 // Configure agent with travel planning instructions and random destination tool
 // The agent can now plan trips using the GetRandomDestination function
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         instructions: "You are a helpful AI Agent that can help plan vacations for customers at random destinations",
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
@@ -168,21 +159,21 @@ await foreach (var update in agent.RunStreamingAsync("Plan me a day trip"))
 
 ## 🎓 Wichtige Erkenntnisse
 
-1. **Agentenarchitektur**: Das Microsoft Agent Framework bietet einen sauberen, typsicheren Ansatz zur Erstellung von KI-Agenten in .NET
-2. **Tool-Integration**: Funktionen, die mit `[Description]`-Attributen versehen sind, werden als verfügbare Tools für den Agenten bereitgestellt
-3. **Konfigurationsmanagement**: Umgebungsvariablen und sichere Anmeldeinformationen folgen den Best Practices von .NET
-4. **OpenAI-Kompatibilität**: Die Integration von GitHub Models funktioniert nahtlos über OpenAI-kompatible APIs
+1. **Agent-Architektur**: Das Microsoft Agent Framework bietet einen sauberen, typsicheren Ansatz zur Entwicklung von KI-Agenten in .NET
+2. **Tool-Integration**: Funktionen mit `[Description]`-Attributen werden als verfügbare Tools für den Agenten aktiviert
+3. **Konfigurationsverwaltung**: Umgebungsvariablen und sichere Anmeldeinformationen folgen den besten .NET-Praktiken
+4. **Azure OpenAI Responses API**: Der Agent verwendet die Azure OpenAI Responses API über das Azure.AI.OpenAI SDK
 
 ## 🔗 Zusätzliche Ressourcen
 
 - [Microsoft Agent Framework Dokumentation](https://learn.microsoft.com/agent-framework)
-- [GitHub Models Marketplace](https://github.com/marketplace?type=models)
+- [Azure OpenAI in Microsoft Foundry](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Microsoft.Extensions.AI](https://learn.microsoft.com/dotnet/ai/microsoft-extensions-ai)
-- [.NET Single File Apps](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
+- [.NET Einzeldokument-Anwendungen](https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Haftungsausschluss**:  
-Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner ursprünglichen Sprache sollte als maßgebliche Quelle betrachtet werden. Für kritische Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die sich aus der Nutzung dieser Übersetzung ergeben.
+**Haftungsausschluss**:
+Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ursprungssprache gilt als maßgebliche Quelle. Bei kritischen Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die aus der Verwendung dieser Übersetzung entstehen.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

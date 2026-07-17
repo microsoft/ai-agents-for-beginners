@@ -1,170 +1,179 @@
-# Memorija za AI agente  
+# Memorija za AI agente 
 [![Agent Memory](../../../translated_images/hr/lesson-13-thumbnail.959e3bc52d210c64.webp)](https://youtu.be/QrYbHesIxpw?si=qNYW6PL3fb3lTPMk)
 
-Kada se raspravlja o jedinstvenim prednostima stvaranja AI agenata, najčešće se raspravlja o dvije stvari: sposobnosti pozivanja alata za dovršavanje zadataka i sposobnosti poboljšavanja tijekom vremena. Memorija je temelj za stvaranje samopoboljšavajućeg agenta koji može stvarati bolje iskustvo za naše korisnike.
+Kada govorimo o jedinstvenim prednostima stvaranja AI agenata, uglavnom su dvije stvari u fokusu: sposobnost pozivanja alata za izvršavanje zadataka i sposobnost poboljšavanja tijekom vremena. Memorija je temelj za stvaranje samopoboljšavajućeg agenta koji može stvarati bolje korisničke doživljaje.
 
-U ovoj lekciji proučit ćemo što je memorija za AI agente i kako je možemo upravljati i koristiti u korist naših aplikacija.
+U ovoj lekciji istražit ćemo što je memorija za AI agente i kako je možemo upravljati i koristiti za dobrobit naših aplikacija.
 
 ## Uvod
 
-Ova lekcija pokriva:
+Ova lekcija će obuhvatiti:
 
-• **Razumijevanje memorije AI agenata**: Što je memorija i zašto je ključna za agente.
+• **Razumijevanje memorije AI agenata**: Što je memorija i zašto je važna za agente.
 
-• **Implementacija i pohrana memorije**: Praktične metode za dodavanje memorijskih sposobnosti vašim AI agentima, fokusirajući se na kratkoročnu i dugoročnu memoriju.
+• **Implementacija i spremanje memorije**: Praktične metode dodavanja memorijskih sposobnosti vašim AI agentima, fokusirajući se na kratkotrajnu i dugotrajnu memoriju.
 
-• **Samopoboljšavanje AI agenata**: Kako memorija omogućava agentima da uče iz prošlih interakcija i poboljšavaju se tijekom vremena.
+• **Kako AI agenti postaju samopoboljšavajući**: Kako memorija omogućuje agentima učenje iz prošlih interakcija i napredovanje tijekom vremena.
 
 ## Dostupne implementacije
 
-Ova lekcija uključuje dva sveobuhvatna bilježničarska vodiča:
+Ova lekcija uključuje dva sveobuhvatna tutoriala u bilježnici:
 
 • **[13-agent-memory.ipynb](./13-agent-memory.ipynb)**: Implementira memoriju koristeći Mem0 i Azure AI Search s Microsoft Agent Frameworkom
 
-• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implementira strukturiranu memoriju koristeći Cognee, automatski gradi graf znanja podržan embeddingsima, vizualizira graf i omogućava inteligentno dohvaćanje
+• **[13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)**: Implementira strukturiranu memoriju koristeći Cognee, automatski gradeći graf znanja podržan embeddingima, vizualizirajući graf i inteligentno dohvaćanje
 
 ## Ciljevi učenja
 
-Nakon završetka ove lekcije, znat ćete kako:
+Nakon završetka ove lekcije znat ćete kako:
 
-• **Razlikovati različite vrste memorije AI agenata**, uključujući radnu, kratkoročnu i dugoročnu memoriju, kao i specijalizirane oblike poput persona i epizodne memorije.
+• **Razlikovati različite vrste memorije AI agenata**, uključujući radnu, kratkotrajnu i dugotrajnu memoriju, kao i specijalizirane oblike poput memorije ličnosti i epizodne memorije.
 
-• **Implementirati i upravljati kratkoročnom i dugoročnom memorijom za AI agente** koristeći Microsoft Agent Framework, iskorištavajući alate poput Mem0, Cognee, Whiteboard memoriju i integraciju s Azure AI Search.
+• **Implementirati i upravljati kratkoročnom i dugoročnom memorijom za AI agente** koristeći Microsoft Agent Framework, koristeći alate poput Mem0, Cognee, memoriju bijele ploče i integraciju s Azure AI Searchom.
 
-• **Razumjeti principe samopoboljšavajućih AI agenata** i kako robusni sustavi upravljanja memorijom doprinose kontinuiranom učenju i prilagodbi.
+• **Razumjeti principe iza samopoboljšavajućih AI agenata** i kako robusni sustavi upravljanja memorijom doprinose kontinuiranom učenju i prilagodbi.
 
 ## Razumijevanje memorije AI agenata
 
 U svojoj biti, **memorija za AI agente odnosi se na mehanizme koji im omogućuju zadržavanje i prisjećanje informacija**. Te informacije mogu biti specifični detalji o razgovoru, korisničke preferencije, prošle radnje ili čak naučeni obrasci.
 
-Bez memorije, AI aplikacije često su bezstanja, što znači da svaka interakcija započinje ispočetka. To dovodi do ponavljajućeg i frustrirajućeg korisničkog iskustva gdje agent "zaboravlja" prethodni kontekst ili preferencije.
+Bez memorije, AI aplikacije često su bezstanja, što znači da svaka interakcija započinje od nule. To dovodi do ponavljajućeg i frustrirajućeg korisničkog iskustva gdje agent "zaboravlja" prethodni kontekst ili preferencije.
 
 ### Zašto je memorija važna?
 
-Inteligencija agenta duboko je povezana sa sposobnošću prisjećanja i korištenja prošlih informacija. Memorija omogućava agentima da budu:
+Inteligencija agenta duboko je povezana s njegovom sposobnošću prisjećanja i korištenja prošlih informacija. Memorija omogućuje agentima da budu:
 
-• **Reflektivni**: Učenje iz prošlih radnji i rezultata.
+• **Refleksivni**: Učenje iz prošlih radnji i ishoda.
 
-• **Interaktivni**: Održavanje konteksta tijekom trajanja razgovora.
+• **Interaktivni**: Održavanje konteksta tijekom tekućeg razgovora.
 
-• **Proaktivni i reaktivni**: Predviđanje potreba ili odgovaranje na odgovarajući način na temelju povijesnih podataka.
+• **Proaktivni i reaktivni**: Predviđanje potreba ili odgovaranje prikladno temeljem povijesnih podataka.
 
-• **Autonomni**: Samostalnije djelovanje oslanjajući se na pohranjeno znanje.
+• **Autonomni**: Samostalnije djelovanje crpeći iz pohranjena znanja.
 
-Cilj implementacije memorije je učiniti agente **pouzdanijima i sposobnijima**.
+Cilj implementacije memorije je učiniti agente pouzdanijima i sposobnijima.
 
 ### Vrste memorije
 
 #### Radna memorija
 
-Zamislite ovo kao komad bilježnice koji agent koristi tijekom jednog tekućeg zadatka ili misaonog procesa. Drži neposredne informacije potrebne za izračun sljedećeg koraka.
+Zamislite je kao komad papira za bilješke kojeg agent koristi tijekom jedne, tekuće zadaće ili misaonog procesa. Drži neposredne informacije potrebne za izračun sljedećeg koraka.
 
-Za AI agente, radna memorija često hvata najrelevantnije informacije iz razgovora, čak i ako je cijela povijest chata duga ili skraćena. Fokusira se na izvlačenje ključnih elemenata poput zahtjeva, prijedloga, odluka i radnji.
+Za AI agente, radna memorija često bilježi najrelevantnije informacije iz razgovora, čak i ako je cijela povijest chata dugačka ili skraćena. Fokusira se na izdvajanje ključnih elemenata poput zahtjeva, prijedloga, odluka i radnji.
 
 **Primjer radne memorije**
 
-U agentu za rezervaciju putovanja, radna memorija može zabilježiti trenutni zahtjev korisnika, poput "Želim rezervirati putovanje u Pariz". Taj specifični zahtjev držan je u neposrednom kontekstu agenta za vođenje trenutačne interakcije.
+U agentu za rezervaciju putovanja, radna memorija može bilježiti trenutni zahtjev korisnika, poput "Želim rezervirati putovanje u Pariz". Taj specifični zahtjev se drži u neposrednom kontekstu agenta kako bi vodio trenutnu interakciju.
 
 #### Kratkoročna memorija
 
-Ova vrsta memorije zadržava informacije tijekom trajanja jednoga razgovora ili sesije. To je kontekst trenutačnog chata koji agentu omogućuje da se referira natrag na prethodne korake u dijalogu.
+Ova vrsta memorije zadržava informacije tijekom trajanja pojedinačnog razgovora ili sesije. To je kontekst trenutnog chata, što omogućuje agentu da se pozove na prethodne dijelove dijaloga.
+
+U primjerima [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) Python SDK-a, to se mapira na `AgentSession`, koji se kreira s `agent.create_session()`. Sesija je ugrađena kratkoročna memorija frameworka: čuva kontekst razgovora dostupan dok se ista sesija ponovno koristi, ali taj kontekst se ne pohranjuje kada sesija završi ili se aplikacija ponovno pokrene. Za činjenice i preferencije koje trebaju preživjeti više sesija, koristite dugoročnu memoriju, obično putem baze podataka, vektorskog indeksa ili drugog trajnog spremišta.
 
 **Primjer kratkoročne memorije**
 
-Ako korisnik pita, "Koliko bi koštao let do Pariza?" a zatim nastavlja sa "A što je s smještajem tamo?", kratkoročna memorija osigurava da agent zna da "tamo" odnosi se na "Pariz" unutar istog razgovora.
+Ako korisnik pita, "Koliko bi koštao let za Pariz?" i potom nastavi s "A što je s smještajem tamo?", kratkoročna memorija osigurava da agent zna da se "tamo" odnosi na "Pariz" unutar istog razgovora.
 
 #### Dugoročna memorija
 
-Ovo su informacije koje traju kroz više razgovora ili sesija. Omogućuje agentima da se sjećaju korisničkih preferencija, povijesnih interakcija ili općeg znanja kroz duže vremensko razdoblje. To je važno za personalizaciju.
+Ovo su informacije koje traju kroz više razgovora ili sesija. Omogućuje agentima da pamte korisničke preferencije, povijesne interakcije ili općenito znanje tijekom dužeg vremena. Važno je za personalizaciju.
 
 **Primjer dugoročne memorije**
 
-Dugoročna memorija može pohraniti da "Ben uživa u skijanju i aktivnostima na otvorenom, voli kavu s pogledom na planine i želi izbjeći zahtjevne skijaške staze zbog prošle ozljede". Te informacije, naučene iz prethodnih interakcija, utječu na preporuke u budućim sesijama planiranja putovanja, čineći ih vrlo personaliziranim.
+Dugoročna memorija može pohraniti da "Ben uživa u skijanju i aktivnostima na otvorenom, voli kavu s pogledom na planinu i želi izbjegavati napredne skijaške staze zbog prošle ozljede". Te informacije, naučene iz prethodnih interakcija, utječu na preporuke u budućim sesijama planiranja putovanja čineći ih izrazito personaliziranima.
 
-#### Persona memorija
+#### Memorija ličnosti (Persona)
 
-Ova specijalizirana vrsta memorije pomaže agentu razviti dosljednu "osobnost" ili "personu". Omogućava agentu da pamti detalje o sebi ili svojoj predviđenoj ulozi, čineći interakcije fluidnijima i fokusiranijima.
+Ova specijalizirana vrsta memorije pomaže agentu razviti dosljednu "osobnost" ili "personu". Omogućuje agentu da pamti detalje o sebi ili svojoj namijenjenoj ulozi, čineći interakcije fluidnijima i usmjerenijima.
 
-**Primjer persona memorije**  
-Ako je agent za putovanja dizajniran kao "stručni planera skijanja", persona memorija može pojačati tu ulogu, utječući na njegove odgovore da budu u skladu s tonom i znanjem stručnjaka.
+**Primjer memorije ličnosti**
+Ako je agent za putovanja dizajniran kao "stručni planer za skijanje", memorija ličnosti može pojačati ovu ulogu, utječući na njegove odgovore da budu u skladu s tonom i znanjem stručnjaka.
 
-#### Radni tijek/Epizodna memorija
+#### Radni tok/Epizodna memorija
 
-Ova memorija pohranjuje redoslijed koraka koje agent poduzima tijekom složenog zadatka, uključujući uspjehe i neuspjehe. Kao da pamtite konkretne "epizode" ili prošla iskustva kako biste iz njih učili.
+Ova memorija pohranjuje niz koraka koje agent poduzima tijekom složenog zadatka, uključujući uspjehe i neuspjehe. To je kao sjećanje na određene "epizode" ili prošla iskustva kako bi se iz njih učilo.
 
 **Primjer epizodne memorije**
 
-Ako je agent pokušao rezervirati određeni let, ali je to propalo zbog nedostupnosti, epizodna memorija može zabilježiti ovaj neuspjeh, dopuštajući agentu da pokuša alternativne letove ili na informiraniji način obavijesti korisnika o problemu tijekom narednog pokušaja.
+Ako je agent pokušao rezervirati određeni let, ali je to propalo zbog nedostupnosti, epizodna memorija može zabilježiti ovaj neuspjeh, dopuštajući agentu da pokuša alternativne letove ili obavijesti korisnika o problemu na informiraniji način pri sljedećem pokušaju.
 
 #### Memorija entiteta
 
-Ovo uključuje izdvajanje i pamćenje specifičnih entiteta (poput osoba, mjesta ili stvari) i događaja iz razgovora. Omogućuje agentu da gradi strukturirano razumijevanje ključnih elemenata o kojima se raspravljalo.
+Ovo uključuje izdvajanje i pamćenje specifičnih entiteta (poput ljudi, mjesta ili stvari) i događaja iz razgovora. Omogućuje agentu da izgradi strukturirano razumijevanje ključnih elemenata o kojima se raspravljalo.
 
 **Primjer memorije entiteta**
 
-Iz razgovora o prošlom putovanju, agent može izvući "Pariz", "Eiffelov toranj" i "večera u restoranu Le Chat Noir" kao entitete. U budućoj interakciji agent može prisjetiti "Le Chat Noir" i ponuditi da tamo napravi novu rezervaciju.
+Iz razgovora o prošlom putovanju, agent može izdvojiti "Pariz," "Eiffelov toranj" i "večera u restoranu Le Chat Noir" kao entitete. U budućoj interakciji, agent može zapamtiti "Le Chat Noir" i ponuditi da napravi novu rezervaciju tamo.
 
-#### Strukturirani RAG (retrieval augmented generation)
+#### Strukturirani RAG (Retrieval Augmented Generation)
 
-Iako je RAG šira tehnika, "strukturirani RAG" istaknut je kao moćna memorijska tehnologija. Izvlači guste, strukturirane informacije iz različitih izvora (razgovora, emailova, slika) i koristi ih za poboljšanje preciznosti, dohvata i brzine odgovora. Za razliku od klasičnog RAG-a koji se oslanja samo na semantičku sličnost, Strukturirani RAG radi s inherentnom strukturom informacija.
+Iako je RAG šira tehnika, "Strukturirani RAG" je istaknut kao moćna memorijska tehnologija. Izvlači gusto, strukturirano znanje iz raznih izvora (razgovora, e-pošte, slika) i koristi ga za poboljšanje preciznosti, prisjećanja i brzine u odgovorima. Za razliku od klasičnog RAG-a koji se oslanja isključivo na semantičku sličnost, Strukturirani RAG radi s unutarnjom strukturom informacija.
 
 **Primjer strukturiranog RAG-a**
 
-Umjesto da samo podudara ključne riječi, Strukturirani RAG može rastaviti detalje leta (odredište, datum, vrijeme, aviokompaniju) iz emaila i pohraniti ih na strukturiran način. To omogućuje precizna pitanja poput "Koji sam let rezervirao za Pariz u utorak?"
+Umjesto samo podudaranja ključnih riječi, Strukturirani RAG može rastaviti detalje leta (odredište, datum, vrijeme, aviokompanija) iz e-pošte i pohraniti ih na strukturiran način. To omogućava precizna upite poput "Koji let sam rezervirao za Pariz u utorak?"
 
 ## Implementacija i pohrana memorije
 
-Implementacija memorije za AI agente uključuje sustavan proces **upravljanja memorijom**, što uključuje generiranje, pohranu, dohvaćanje, integraciju, ažuriranje i čak "zaboravljanje" (odnosno brisanje) informacija. Dohvaćanje informacije je osobito ključan aspekt.
+Implementacija memorije za AI agente uključuje sustavni proces **upravljanja memorijom**, koji uključuje generiranje, pohranu, dohvaćanje, integraciju, ažuriranje i čak "zaboravljanje" (ili brisanje) informacija. Dohvaćanje je osobito važan aspekt.
 
-### Specijalizirani alati za memoriju
+### Specijalizirani memorijski alati
 
 #### Mem0
 
-Jedan od načina za pohranu i upravljanje memorijom agenta je korištenje specijaliziranih alata poput Mem0. Mem0 funkcionira kao sloj trajne memorije koji omogućava agentima prisjećanje relevantnih interakcija, pohranu korisničkih preferencija i činjeničnog konteksta te učenje iz uspjeha i neuspjeha tijekom vremena. Ideja je da agenti bez stanja postanu agenti sa stanjem.
+Jedan od načina za pohranu i upravljanje memorijom agenta je korištenje specijaliziranih alata poput Mem0. Mem0 funkcionira kao sloj trajne memorije, omogućujući agentima da se prisjete relevantnih interakcija, pohranjuju korisničke preferencije i činjenice, te uče iz uspjeha i neuspjeha tijekom vremena. Ideja je pretvoriti agente bez stanja u one sa stanjem.
 
-Radi kroz **dvofazni memorijski proces: ekstrakcija i ažuriranje**. Prvo se poruke dodane u agentovu temu šalju Mem0 servisu, koji koristi Veliki jezični model (LLM) za sažimanje povijesti razgovora i izdvajanje novih sjećanja. Zatim, faza ažuriranja pokretana LLM-om određuje hoće li se ta sjećanja dodati, izmijeniti ili izbrisati te ih pohranjuje u hibridnu bazu podataka koja može uključivati vektorske, grafičke i key-value baze. Taj sustav podržava različite tipove memorije i može uključiti graf memoriju za upravljanje odnosima između entiteta.
+Radi kroz **dvofazni memorijski proces: ekstrakciju i ažuriranje**. Prvo, poruke dodane u nit agenta šalju se Mem0 servisu, koji koristi Veliki jezični model (LLM) za sažimanje povijesti razgovora i izdvajanje novih memorija. Nakon toga, faza ažuriranja vođena LLM-om odlučuje hoće li se te memorije dodati, izmijeniti ili izbrisati, pohranjujući ih u hibridni podatkovni spremnik koji može uključivati vektorske, grafičke i baze s ključem-vrijednošću. Ovaj sustav također podržava različite vrste memorije i može uključiti graf memoriju za upravljanje odnosima između entiteta.
 
 #### Cognee
 
-Drugi moćan pristup je korištenje **Cognee**, open-source semantičke memorije za AI agente koja pretvara strukturirane i nestrukturirane podatke u upitne grafikone znanja podržane embeddingsima. Cognee pruža **dvoskladišnu arhitekturu** koja kombinira pretraživanje po sličnosti vektora s grafičkim odnosima, omogućujući agentima da razumiju ne samo što je slično, nego i kako su koncepti međusobno povezani.
+Drugi moćan pristup je korištenje **Cognee**, otvorenog izvora semantičke memorije za AI agente koji pretvara strukturirane i nestrukturirane podatke u upitne grafove znanja podržane embeddingima. Cognee pruža **dvoslojnu arhitekturu** koja kombinira pretraživanje vektorske sličnosti s grafičkim odnosima, omogućujući agentima da razumiju ne samo koje su informacije slične, već i kako su koncepti povezani.
 
-Izvrsno je u **hibridnom dohvaćanju** koje spaja vektorsku sličnost, strukturu grafa i LLM rezoniranje - od osnovnog pronalaženja podataka do odgovaranja na pitanja svjesna grafa. Sustav održava **živu memoriju** koja se razvija i raste, a pritom ostaje upitna kao jedan povezani graf, podržavajući i kratkoročni kontekst sesije i dugoročnu trajnu memoriju.
+Izvrsno je u **hibridnom dohvaćanju** koje kombinira vektorsku sličnost, grafičku strukturu i LLM rezoniranje – od sirovog pretraživanja fragmenta do odgovaranja na pitanja svjesnog grafa. Sustav održava **živu memoriju** koja se razvija i raste dok ostaje upitna kao jedan povezani graf, podupirući kako kratkoročni kontekst sesije, tako i dugoročnu trajnu memoriju.
 
-Cognee bilježničarski vodič ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) demonstrira izgradnju ovog jedinstvenog memorijskog sloja, s praktičnim primjerima unošenja raznovrsnih izvora podataka, vizualizacije grafa znanja i upita s različitim strategijama pretraživanja prilagođenim posebnim potrebama agenata.
+Tutorijal u bilježnici Cognee ([13-agent-memory-cognee.ipynb](./13-agent-memory-cognee.ipynb)) demonstrira izgradnju ovog jedinstvenog sloja memorije, s praktičnim primjerima unos različitih izvora podataka, vizualizacije grafa znanja i upita s različitim strategijama pretraživanja prilagođenima potrebama agenta.
 
-### Pohrana memorije s RAG
+### Pohrana memorije s RAG-om
 
-Osim specijaliziranih memorijskih alata poput mem0, možete iskoristiti robusne servise pretraživanja poput **Azure AI Search kao backend za pohranu i dohvaćanje memorije**, osobito za strukturirani RAG.
+Osim specijaliziranih memorijskih alata poput Mem0, možete iskoristiti robusne usluge pretraživanja poput **Azure AI Search kao pozadinu za pohranu i dohvat memorija**, osobito za strukturirani RAG.
 
-Ovo vam omogućuje da utemeljite odgovore vašeg agenta na vlastitim podacima, osiguravajući relevantnije i točnije odgovore. Azure AI Search može se koristiti za pohranu korisničkih memorija o putovanjima, proizvoda ili bilo kojeg drugog domen-specifičnog znanja.
+To vam omogućuje da ukorijenite odgovore svog agenta u vlastite podatke, osiguravajući relevantnije i točnije odgovore. Azure AI Search može se koristiti za pohranu korisničkih memorija o putovanjima, kataloge proizvoda ili bilo koje drugo domensko znanje.
 
-Azure AI Search podržava mogućnosti poput **strukturiranog RAG-a**, koji izvrsno izvlači i dohvaća guste, strukturirane informacije iz velikih skupova podataka kao što su povijesti razgovora, emailovi ili čak slike. To pruža "nadljudsku preciznost i dohvata" u usporedbi s tradicionalnim pristupima razbijanju teksta i embeddinga.
+Azure AI Search podržava mogućnosti poput **Strukturiranog RAG-a**, koji izvrsno izvlači i dohvaća gusto, strukturirano znanje iz velikih skupova podataka kao što su povijesti razgovora, e-pošte ili čak slike. To pruža "superljudsku preciznost i prisjećanje" u usporedbi s tradicionalnim pristupima razlaganju teksta i embeddingom.
 
-## Samopoboljšavanje AI agenata
+## Kako AI agenti postaju samopoboljšavajući
 
-Uobičajeni obrazac za samopoboljavajuće agente uključuje uvođenje **"agenta znanja"**. Taj poseban agent promatra glavni razgovor između korisnika i primarnog agenta. Njegova uloga je:
+Uobičajeni obrazac za samopoboljšavajuće agente uključuje uvođenje **"agenta znanja"**. Ovaj zasebni agent promatra glavni razgovor između korisnika i primarnog agenta. Njegova uloga je:
 
-1. **Identificirati vrijedne informacije**: Odrediti je li bilo koji dio razgovora vrijedan pohrane kao opće znanje ili specifična korisnička preferencija.
+1. **Identificirati vrijedne informacije**: Odlučiti je li dio razgovora vrijedan spremanja kao opće znanje ili specifična korisnička preferencija.
 
-2. **Izvući i sažeti**: Destilirati ključnu lekciju ili preferenciju iz razgovora.
+2. **Izvlačenje i sažimanje**: Destilirati bitno učenje ili preferenciju iz razgovora.
 
-3. **Pohraniti u bazu znanja**: Sačuvati ove izdvojene informacije, često u vektorsku bazu podataka, kako bi se kasnije mogle dohvatiti.
+3. **Spremanje u bazu znanja**: Trajno pohraniti izdvojene informacije, često u vektorsku bazu podataka, kako bi se mogle kasnije dohvatiti.
 
-4. **Obogatiti buduće upite**: Kada korisnik pokrene novi upit, agent znanja dohvaća relevantne pohranjene informacije i dodaje ih korisničkom upitu, pružajući ključni kontekst primarnom agentu (slično RAG-u).
+4. **Nadopuna budućih upita**: Kada korisnik pokrene novi upit, agent znanja dohvaća relevantne pohranjene informacije i dodaje ih u korisnički upit, pružajući ključni kontekst primarnom agentu (slično RAG-u).
 
 ### Optimizacije za memoriju
 
-• **Upravljanje latencijom**: Kako se ne bi usporile korisničke interakcije, može se koristiti jeftiniji, brži model za početnu provjeru je li informacija vrijedna pohrane ili dohvaćanja, a složeniji proces ekstrakcije/dohvaćanja poziva se samo kad je potrebno.
+• **Upravljanje latencijom**: Kako ne bi usporavali korisničke interakcije, može se koristiti jeftiniji, brži model za početnu brzu provjeru je li informacija vrijedna za spremanje ili dohvat, pri čemu se složeniji proces ekstrakcije/dohvata aktivira samo po potrebi.
 
 • **Održavanje baze znanja**: Za rastuću bazu znanja, rjeđe korištene informacije mogu se premjestiti u "hladnu pohranu" radi upravljanja troškovima.
 
 ## Imate li dodatnih pitanja o memoriji agenata?
 
-Pridružite se [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) kako biste se susreli s drugim učenicima, sudjelovali na uredskim satima i dobili odgovore na svoja pitanja o AI agentima.
+Pridružite se [Microsoft Foundry Discordu](https://discord.com/invite/ATgtXmAS5D) da se povežete s drugim učenicima, sudjelujete na radnim satima i dobijete odgovore na svoja pitanja o AI agentima.
+## Prethodna lekcija
+
+[Inženjering konteksta za AI agente](../12-context-engineering/README.md)
+
+## Sljedeća lekcija
+
+[Istraživanje Microsoft Agent Frameworka](../14-microsoft-agent-framework/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Odricanje od odgovornosti**:
-Ovaj je dokument preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo postići točnost, imajte na umu da automatizirani prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na njegovom izvornom jeziku treba smatrati autoritativnim izvorom. Za važne informacije preporučuje se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazume ili kriva tumačenja koja proizlaze iz uporabe ovog prijevoda.
+**Napomena**:
+Ovaj dokument je preveden korištenjem AI prevoditeljskog servisa [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati greške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za važne informacije preporuča se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazumevanja ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

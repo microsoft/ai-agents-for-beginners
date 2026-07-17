@@ -15,7 +15,7 @@ After completing this lesson, you will know how to/understand:
 
 The goal is to equip you with the knowledge to transform your "black box" agents into transparent, manageable, and dependable systems.
 
-_**Note:** It is important to deploy AI Agents that are safe and trustworthy. Check out the [Building Trustworthy AI Agents](./06-building-trustworthy-agents/README.md) lesson as well._
+_**Note:** It is important to deploy AI Agents that are safe and trustworthy. Check out the [Building Trustworthy AI Agents](../06-building-trustworthy-agents/README.md) lesson as well._
 
 ## Traces and Spans
 
@@ -145,6 +145,8 @@ As you deploy AI agents to production, you may encounter various challenges. Her
 Many of these issues can be identified more effectively with observability in place. The traces and metrics we discussed earlier help pinpoint exactly where in the agent workflow problems occur, making debugging and optimization much more efficient.
 
 ## Managing Costs
+
+
 Here are some strategies to manage the costs of deploying AI agents to production:
 
 **Using Smaller Models:** Small Language Models (SLMs) can perform well on certain agentic use-cases and will reduce costs significantly. As mentioned earlier, building an evaluation system to determine and compare performance vs larger models is the best way to understand how well an SLM will perform on your use case. Consider using SLMs for simpler tasks like intent classification or parameter extraction, while reserving larger models for complex reasoning.
@@ -160,7 +162,7 @@ In the [example notebook of this section](./code_samples/10-expense_claim-demo.i
 
 ### Got More Questions about AI Agents in Production?
 
-Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+Join the [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) to meet with other learners, attend office hours and get your AI Agents questions answered.
 
 ## Previous Lesson
 
@@ -173,6 +175,6 @@ Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet w
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-Disclaimer:
-This document was translated using the AI translation service Co-op Translator (https://github.com/Azure/co-op-translator). While we strive for accuracy, automated translations may contain errors or inaccuracies. The original document in its native language is the authoritative source. For critical information, a professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations resulting from the use of this translation.
+**Disclaimer**:
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

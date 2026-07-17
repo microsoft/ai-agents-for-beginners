@@ -1,166 +1,188 @@
 # Inženjering konteksta za AI agente
 
-[![Context Engineering](../../../translated_images/hr/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
+[![Inženjering konteksta](../../../translated_images/hr/lesson-12-thumbnail.ed19c94463e774d4.webp)](https://youtu.be/F5zqRV7gEag)
 
-> _(Kliknite na gornju sliku za pregled video lekcije)_
+> _(Kliknite sliku iznad za prikaz videa ovog lekcija)_
 
-Razumijevanje složenosti aplikacije za koju gradite AI agenta važno je za izradu pouzdanog agenta. Moramo graditi AI agente koji učinkovito upravljaju informacijama kako bi zadovoljili složene potrebe koje nadilaze inženjering promptova.
+Razumijevanje složenosti aplikacije za koju gradite AI agenta važno je za izradu pouzdanog. Moramo graditi AI agente koji učinkovito upravljaju informacijama kako bi odgovorili na složene potrebe, što nadilazi samo inženjering podataka.
 
-U ovoj lekciji ćemo pogledati što je inženjering konteksta i njegovu ulogu u izgradnji AI agenata.
+U ovoj lekciji pogledat ćemo što je inženjering konteksta i njegovu ulogu u izgradnji AI agenata.
 
 ## Uvod
 
 Ova lekcija će obuhvatiti:
 
-• **Što je inženjering konteksta** i zašto se razlikuje od inženjeringa promptova.
+• **Što je inženjering konteksta** i zašto se razlikuje od inženjeringa podataka.
 
-• **Strategije za učinkovit inženjering konteksta**, uključujući kako pisati, birati, komprimirati i izolirati informacije.
+• **Strategije za učinkovit inženjering konteksta**, uključujući kako pisati, odabrati, sažeti i izolirati informacije.
 
-• **Uobičajene pogreške u kontekstu** koje mogu srušiti vašeg AI agenta i kako ih ispraviti.
+• **Uobičajene pogreške u kontekstu** koje mogu osujetiti vaš AI agent i kako ih popraviti.
 
 ## Ciljevi učenja
 
-Nakon što završite ovu lekciju, znat ćete razumjeti kako:
+Nakon završetka ove lekcije znat ćete kako:
 
-• **Definirati inženjering konteksta** i razlikovati ga od inženjeringa promptova.
+• **Definirati inženjering konteksta** i razlikovati ga od inženjeringa podataka.
 
-• **Identificirati ključne komponente konteksta** u aplikacijama velikih jezičnih modela (LLM).
+• **Prepoznati ključne komponente konteksta** u primjenama velikih jezičnih modela (LLM).
 
-• **Primijeniti strategije za pisanje, odabir, komprimiranje i izolaciju konteksta** za poboljšanje performansi agenta.
+• **Primijeniti strategije pisanja, odabira, sažimanja i izolacije konteksta** za poboljšanje performansi agenta.
 
-• **Prepoznati uobičajene pogreške konteksta** kao što su trovanje, ometanje, zabuna i sukob, te primijeniti tehnike ublažavanja.
+• **Prepoznati uobičajene pogreške u kontekstu** poput trovanja, ometanja, zbunjenosti i sukoba, te primijeniti tehnike ublažavanja.
 
 ## Što je inženjering konteksta?
 
-Za AI agente, kontekst je ono što pokreće planiranje AI agenta da poduzme određene akcije. Inženjering konteksta je praksa osiguravanja da AI agent ima prave informacije za dovršetak sljedećeg koraka zadatka. Prozor konteksta je ograničenog kapaciteta, pa kao kreatori agenata trebamo izgraditi sustave i procese za upravljanje dodavanjem, uklanjanjem i sažimanjem informacija u prozoru konteksta.
+Za AI agente, kontekst je ono što pokreće planiranje AI agenta da poduzme određene akcije. Inženjering konteksta je praksa osiguravanja da AI agent ima prave informacije za dovršetak sljedećeg koraka zadatka. Kontekstni prozor je ograničen veličinom, stoga kao konstruktori agenata, trebamo graditi sustave i procese za upravljanje dodavanjem, uklanjanjem i sažimanjem informacija u kontekstnom prozoru.
 
-### Inženjering promptova vs inženjering konteksta
+### Inženjering podataka naspram inženjeringa konteksta
 
-Inženjering promptova usredotočen je na jedan skup statičkih uputa koje učinkovito vode AI agente s nizom pravila. Inženjering konteksta odnosi se na upravljanje dinamičkim skupom informacija, uključujući početni prompt, kako bi se osiguralo da AI agent ima što mu treba tijekom vremena. Glavna ideja oko inženjeringa konteksta je učiniti taj proces ponovljivim i pouzdanim.
+Inženjering podataka fokusira se na jedini set statičnih uputa za učinkovito vođenje AI agenata skupom pravila. Inženjering konteksta odnosi se na upravljanje dinamičnim setom informacija, uključujući početni prompt, kako bi se osiguralo da AI agent ima ono što mu treba tijekom vremena. Glavna ideja inženjeringa konteksta je da ovaj proces bude ponovljiv i pouzdan.
 
-### Tipovi konteksta
+### Vrste konteksta
 
-[![Types of Context](../../../translated_images/hr/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
+[![Vrste konteksta](../../../translated_images/hr/context-types.fc10b8927ee43f06.webp)](https://youtu.be/F5zqRV7gEag)
 
-Važno je zapamtiti da kontekst nije samo jedna stvar. Informacije koje AI agent treba mogu doći iz raznih različitih izvora i na nama je da osiguramo da agent ima pristup tim izvorima:
+Važno je zapamtiti da kontekst nije samo jedna stvar. Informacije koje AI agent treba mogu doći iz različitih izvora i na nama je da osiguramo da agent ima pristup tim izvorima:
 
-Tipovi konteksta koje AI agent može trebati upravljati uključuju:
+Vrste konteksta koje AI agent može trebati upravljati uključuju:
 
-• **Upute:** To su kao "pravila" agenta – promptovi, sistemske poruke, primjeri few-shot (pokazivanje AI-ju kako nešto napraviti), i opisi alata koje može koristiti. Ovo je mjesto gdje se fokus inženjeringa promptova spaja s inženjeringom konteksta.
+• **Upute:** To su poput "pravila" agenta – prompti, sistemske poruke, primjeri s nekoliko pokušaja (pokazuju AI-u kako nešto napraviti) i opisi alata koje može koristiti. Ovo je točka gdje se fokus inženjeringa podataka kombinira s inženjeringom konteksta.
 
-• **Znanje:** Obuhvaća činjenice, informacije dohvaćene iz baza podataka ili dugoročna memorija koju je agent prikupio. To uključuje integraciju sustava Retrieval Augmented Generation (RAG) ako agent treba pristup različitim skladištima znanja i bazama podataka.
+• **Znanje:** Obuhvaća činjenice, informacije iz baza podataka ili dugoročna sjećanja koja je agent prikupio. Uključuje integraciju sustava za dohvat pojačanog generiranja (RAG) ako agent treba pristup različitim spremištima znanja i bazama podataka.
 
-• **Alati:** To su definicije vanjskih funkcija, API-ja i MCP servera koje agent može pozvati, zajedno s povratnom informacijom (rezultatima) koje dobiva korištenjem tih alata.
+• **Alati:** To su definicije vanjskih funkcija, API-ja i MCP servera koje agent može pozvati, zajedno sa povratnim informacijama (rezultatima) koje dobije korištenjem tih alata.
 
-• **Povijest razgovora:** Trenutni dijalog s korisnikom. Kako vrijeme prolazi, ti razgovori postaju duži i složeniji što zauzima prostor u prozoru konteksta.
+• **Povijest razgovora:** Tijekom trajanja dijaloga s korisnikom. Kako vrijeme prolazi, ti razgovori postaju duži i složeniji, što zauzima prostor u kontekstnom prozoru.
 
-• **Korisničke preferencije:** Informacije naučene o korisničkim željama ili odbojnostima tijekom vremena. One se mogu pohraniti i pozvati pri donošenju ključnih odluka kako bi se pomoglo korisniku.
+• **Preferencije korisnika:** Informacije naučene o korisnikovim željama ili nevoljama tijekom vremena. Te se informacije mogu pohraniti i pozvati prilikom donošenja važnih odluka za pomoć korisniku.
 
 ## Strategije za učinkovit inženjering konteksta
 
 ### Strategije planiranja
 
-[![Context Engineering Best Practices](../../../translated_images/hr/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
+[![Najbolje prakse inženjeringa konteksta](../../../translated_images/hr/best-practices.f4170873dc554f58.webp)](https://youtu.be/F5zqRV7gEag)
 
-Dobar inženjering konteksta počinje dobrim planiranjem. Evo pristupa koji će vam pomoći da počnete razmišljati o primjeni koncepta inženjeringa konteksta:
+Dobro inženjering konteksta počinje dobrim planiranjem. Evo pristupa koji će vam pomoći da počnete razmišljati o tome kako primijeniti koncept inženjeringa konteksta:
 
-1. **Definirajte jasne rezultate** – rezultati zadataka koje će AI agenti izvršavati trebaju biti jasno definirani. Odgovorite na pitanje - „Kako će svijet izgledati kada AI agent završi svoj zadatak?“ Drugim riječima, koja promjena, informacija ili odgovor treba korisniku biti dostupna nakon interakcije s AI agentom.
-
-2. **Mapirajte kontekst** – nakon što definirate rezultate AI agenta, trebate odgovoriti na pitanje „Koje informacije AI agent treba da bi ispunio ovaj zadatak?“. Tako možete početi mapirati kontekst i gdje se te informacije mogu nalaziti.
-
-3. **Izradite kontekstne pipelines** – sada kada znate gdje su informacije, trebate odgovoriti na pitanje „Kako agent dobiva te informacije?“. To se može obaviti na različite načine, uključujući RAG, korištenje MCP servera i drugih alata.
+1. **Definirajte jasne rezultate** - Rezultati zadataka koje će AI agenti imati trebaju biti jasno definirani. Odgovorite na pitanje – "Kako će svijet izgledati kada AI agent dovrši svoj zadatak?" Drugim riječima, kakvu promjenu, informaciju ili odgovor korisnik treba imati nakon interakcije s AI agentom.
+2. **Mapirajte kontekst** - Kad ste definirali rezultate AI agenta, morate odgovoriti na pitanje "Koje informacije AI agent treba da dovrši ovaj zadatak?". Ovako možete započeti mapiranje konteksta gdje te informacije mogu biti locirane.
+3. **Stvorite tokove konteksta** - Sada kada znate gdje su informacije, morate odgovoriti na pitanje "Kako će agent doći do tih informacija?". To se može učiniti na različite načine uključujući RAG, korištenje MCP servera i drugih alata.
 
 ### Praktične strategije
 
-Planiranje je važno, ali kada informacije počnu pristizati u kontekst prozora našeg agenta, trebamo imati praktične strategije za njihovo upravljanje:
+Planiranje je važno, ali kada informacije počnu ulaziti u kontekstni prozor naših agenata, trebamo imati praktične strategije za upravljanje:
 
 #### Upravljanje kontekstom
 
-Iako se neke informacije automatski dodaju u kontekst prozora, inženjering konteksta odnosi se na aktivniju ulogu u upravljanju tim informacijama, što se može učiniti nekoliko strategija:
+Dok će se neke informacije automatski dodavati u kontekstni prozor, inženjering konteksta je o aktivnijem upravljanju tim informacijama što se može učiniti nekoliko strategija:
 
-1. **Agentova bilježnica (Agent Scratchpad)**  
-Ovo omogućuje AI agentu da bilježi važne informacije o trenutačnim zadacima i interakcijama s korisnikom tijekom jedne sesije. Ovo bi trebalo postojati izvan kontekstnog prozora u datoteci ili objektu tijekom izvođenja koji agent može kasnije dohvatiti tijekom te sesije ako je to potrebno.
+ 1. **Radni blok agenta**
+ Omogućava AI agentu da bilježi relevantne informacije o trenutnim zadacima i interakcijama s korisnikom tijekom jedne sesije. Ovo bi trebalo postojati izvan kontekstnog prozora, u datoteci ili objektu u runtimeu kojeg agent može kasnije dohvatiti tijekom ove sesije ako je potrebno.
 
-2. **Memorije**  
-Bilježnice su dobre za upravljanje informacijama izvan kontekst prozora jedne sesije. Memorije omogućuju agentima pohranu i dohvaćanje relevantnih informacija kroz više sesija. To može uključivati sažetke, korisničke preferencije i povratne informacije za buduća poboljšanja.
+ 2. **Sjećanja**
+ Radni blokovi su dobri za upravljanje informacijama izvan kontekstnog prozora jedne sesije. Sjećanja omogućuju agentima pohranu i dohvat relevantnih informacija kroz više sesija. To može uključivati sažetke, preferencije korisnika i povratne informacije za buduća poboljšanja.
 
-3. **Komprimiranje konteksta**  
-Kada kontekst prozor raste i približava se svom kapacitetu, mogu se koristiti tehnike poput sažimanja i obrezivanja. To uključuje zadržavanje samo najvažnijih informacija ili uklanjanje starijih poruka.
+ 3. **Sažimanje konteksta**
+  Kada kontekstni prozor naraste i približava se svom ograničenju, mogu se koristiti tehnike poput sažimanja i rezanja. To uključuje zadržavanje samo najrelevantnijih informacija ili uklanjanje starijih poruka.
+  
+ 4. **Sustavi s više agenata**
+  Razvijanje sustava s više agenata je oblik inženjeringa konteksta jer svaki agent ima svoj kontekstni prozor. Kako se taj kontekst dijeli i prenosi na različite agente druga je stvar koju treba isplanirati pri izgradnji takvih sustava.
+  
+ 5. **Sandbox okruženja**
+  Ako agent treba pokrenuti neki kod ili obraditi velike količine informacija u dokumentu, to može zahtijevati veliki broj tokena za obradu rezultata. Umjesto da se sve to pohranjuje u kontekstni prozor, agent može koristiti sandbox okruženje koje može pokrenuti taj kod i samo pročitati rezultate i druge relevantne informacije.
+  
+ 6. **Objekti stanja pri izvođenju**
+   To se ostvaruje stvaranjem spremnika informacija za upravljanje situacijama kada agent treba imati pristup određenim informacijama. Za složen zadatak, to bi omogućilo agentu da pohranjuje rezultate svakog podzadatka korak po korak, dopuštajući da kontekst ostane povezan samo s tim specifičnim podzadatkom.
 
-4. **Sustavi s više agenata**  
-Razvijanje sustava s više agenata je oblik inženjeringa konteksta jer svaki agent ima svoj vlastiti kontekst prozor. Kako se taj kontekst dijeli i prosljeđuje različitim agentima je još jedna stvar koju treba isplanirati prilikom izrade takvih sustava.
+#### Inspekcija konteksta
 
-5. **Sandbox okruženja**  
-Ako agentu treba pokrenuti neki kod ili obraditi velike količine informacija u dokumentu, to može zahtijevati veliki broj tokena za obradu rezultata. Umjesto da se sve to pohranjuje u kontekst prozoru, agent može koristiti sandbox okruženje koje može izvršavati taj kod i samo čitati rezultate te druge relevantne informacije.
+Nakon što primijenite neku od ovih strategija, vrijedi provjeriti što je idući poziv modelu zapravo primio. Korisno pitanje za otklanjanje pogrešaka je:
 
-6. **Objekti stanja tijekom izvođenja (Runtime State Objects)**  
-To se ostvaruje stvaranjem spremnika informacija za upravljanje situacijama kad agent treba imati pristup određenim podacima. Za složen zadatak, to omogućava agentu da pohranjuje rezultate svakog podzadatka korak po korak, dopuštajući kontekstu da ostane povezan samo s tim specifičnim podzadatkom.
+> Je li agent učitao previše konteksta, pogrešan kontekst ili mu je nedostajao potreban kontekst?
+
+Za odgovor na to pitanje ne morate zapisivati sirove promptove, izlaze alata ili sadržaj memorije. U produkciji preferirajte male zapise inspekcije konteksta koji hvataju brojeve, ID-jeve, hash-ove i oznake politika:
+
+- **Odabir:** Pratite koliko je kandidata za dijelove, alate ili sjećanja razmatrano, koliko je odabrano i koje je pravilo ili rezultat filtriralo ostale.
+- **Sažimanje:** Zabilježite opseg izvora ili ID traga, ID sažetka, procijenjeni broj tokena prije i poslije sažimanja i je li sirovi sadržaj isključen iz sljedećeg poziva.
+- **Izolacija:** Zabilježite koji je podzadatak pokrenut u zasebnom agentu, sesiji ili sandboxu, koji je sažetak ograničen i je li veliki izlaz alata ostao izvan konteksta glavnog agenta.
+- **Memorija i RAG:** Pohranite ID-jeve dokumenata za dohvat, ID-jeve memorije, rezultate, odabrane ID-jeve te status redakcije umjesto cjelokupnog dohvaćenog teksta.
+- **Sigurnost i privatnost:** Preferirajte hash-ove, ID-jeve, token bucket-e i oznake politika nad osjetljivim tekstom prompta, argumentima alata, rezultatima alata ili tijelima korisničke memorije.
+
+Cilj nije zadržati više konteksta. Cilj je ostaviti dovoljno dokaza da programer može utvrditi koja je strategija konteksta korištena i je li promijenila sljedeći poziv modelu na željeni način.
 
 ### Primjer inženjeringa konteksta
 
-Recimo da želimo da AI agent **„Rezervira putovanje za Pariz.“**
+Recimo da želimo AI agentu reći **"Rezerviraj mi putovanje u Pariz."**
 
-• Jednostavan agent koji koristi samo inženjering promptova mogao bi samo odgovoriti: **„U redu, kada biste željeli ići u Pariz?“** On samo obrađuje vaše izravno pitanje u trenutku kad ste ga postavili.
+• Jednostavan agent koji koristi samo inženjering podataka mogao bi samo odgovoriti: **"U redu, kada biste željeli ići u Pariz?"**. Obradio je samo vaše izravno pitanje u trenutku kada ste ga postavili.
 
-• Agent koji koristi strategije inženjeringa konteksta napravit će mnogo više. Prije nego što odgovori, njegov sustav može:
+• Agent koji koristi strategije inženjeringa konteksta koje smo pokrili učinio bi mnogo više. Prije nego što odgovori, njegov sustav bi mogao:
 
-  ◦ **Provjeriti vaš kalendar** za slobodne datume (dohvaćajući podatke u stvarnom vremenu).
+  ◦ **Provjeriti vaš kalendar** za dostupne datume (dohvaćanje podataka u stvarnom vremenu).
 
- ◦ **Prisjetiti se prošlih putnih preferencija** (iz dugoročne memorije) poput vaše omiljene zrakoplovne kompanije, budžeta ili preferencije izravnih letova.
+ ◦ **Prisjetiti se prethodnih putnih preferencija** (iz dugotrajne memorije) poput vaše preferirane zrakoplovne kompanije, budžeta ili preferencije za direktne letove.
 
- ◦ **Identificirati dostupne alate** za rezervaciju leta i hotela.
+ ◦ **Prepoznati dostupne alate** za rezervaciju leta i hotela.
 
-- Zatim bi primjer odgovora mogao biti: „Bok [Vaše ime]! Vidim da ste slobodni prvi tjedan u listopadu. Želite li da tražim izravne letove za Pariz na [omiljena zrakoplovna tvrtka] unutar vašeg uobičajenog budžeta od [budžet]?“. Ovaj bogatiji, kontekstu prilagođeni odgovor pokazuje snagu inženjeringa konteksta.
+- Potom bi primjer odgovora mogao biti:  "Hej [Vaše ime]! Vidim da ste slobodni prvi tjedan listopada. Da li da tražim direktne letove za Pariz na [preferirana zrakoplovna kompanija] unutar vašeg uobičajenog budžeta od [budžet]?" Ovaj bogatiji, kontekstom vođen odgovor pokazuje snagu inženjeringa konteksta.
 
-## Uobičajene pogreške konteksta
+## Uobičajene pogreške u kontekstu
 
 ### Trovanje konteksta
 
-**Što je to:** Kada halucinacija (lažna informacija generirana od strane LLM-a) ili greška uđe u kontekst i ponavljano se referencira, uzrokujući da agent prati nemoguće ciljeve ili razvija besmislene strategije.
+**Što je to:** Kada halucinacija (lažna informacija koju generira LLM) ili pogreška uđe u kontekst i više puta se referencira, što uzrokuje da agent slijedi nemoguće ciljeve ili razvija besmislene strategije.
 
-**Što učiniti:** Provodite **validaciju konteksta** i **karantenu**. Provjerite informacije prije nego što ih dodate u dugoročnu memoriju. Ako se otkrije potencijalno trovanje, započnite nove kontekstualne niti kako biste spriječili širenje loših informacija.
+**Što učiniti:** Implementirati **provjeru valjanosti konteksta** i **karantin**. Validirati informacije prije nego što se dodaju u dugotrajnu memoriju. Ako se otkrije potencijalno trovanje, započnite nove kontekstne niti kako biste spriječili širenje loših informacija.
 
-**Primjer rezervacije putovanja:** Vaš agent halucinira **izravan let s malog lokalnog aerodroma do udaljenog međunarodnog grada** koji zapravo ne nudi međunarodne letove. Taj nepostojeći podatak o letu se pohranjuje u kontekst. Kasnije, kada zatražite rezervaciju, agent stalno pokušava pronaći karte za tu nemoguću rutu, što dovodi do ponovljenih pogrešaka.
+**Primjer rezervacije putovanja:** Vaš agent halucinira **direktan let s malog lokalnog aerodroma do udaljenog međunarodnog grada** koji zapravo ne nudi međunarodne letove. Taj nepostojeći detalj leta se sprema u kontekst. Kasnije, kad tražite od agenta da rezervira, on nastavlja pokušavati pronaći karte za ovu nemoguću rutu, što dovodi do ponavljajućih pogrešaka.
 
-**Rješenje:** Provjerite postojanje leta i rute s API-jem u stvarnom vremenu _prije nego što_ detalj leta dodate u radni kontekst agenta. Ako validacija ne uspije, pogrešna informacija se "stavlja u karantenu" i ne koristi se dalje.
+**Rješenje:** Implementirati korak koji **provjerava postojanje leta i rutu s API-em u stvarnom vremenu** _prije_ nego se detalj leta doda u radni kontekst agenta. Ako provjera nije uspješna, pogrešna informacija se "karantinira" i ne koristi se dalje.
 
 ### Ometanje konteksta
 
-**Što je to:** Kada kontekst postane toliko velik da model previše obraća pažnju na akumuliranu povijest umjesto da koristi ono što je naučio tijekom treniranja, što dovodi do ponavljajućih ili nekorisnih akcija. Modeli mogu početi grešiti čak i prije nego što kontekst prozor postane pun.
+**Što je to:** Kada kontekst postane toliko velik da se model previše fokusira na akumuliranu povijest umjesto na ono što je naučio tijekom treninga, što dovodi do ponavljajućih ili neproduktivnih radnji. Modeli mogu početi pogrešivati čak i prije nego što je kontekstni prozor pun.
 
-**Što učiniti:** Koristite **sažimanje konteksta**. Povremeno komprimirajte akumulirane informacije u kraće sažetke, zadržavajući važne detalje i uklanjajući redundantnu povijest. To pomaže da se fokus "resetira".
+**Što učiniti:** Koristiti **sažimanje konteksta**. Povremeno sažimajte akumulirane informacije u kraće sažetke, zadržavajući važne detalje dok uklanjate redundantnu povijest. To pomaže "resetirati" fokus.
 
-**Primjer rezervacije putovanja:** Dugo ste razgovarali o raznim željenim destinacijama za putovanja, uključujući detaljan opis vašeg backpackerskog putovanja od prije dvije godine. Kad konačno zatražite **„nađi mi jeftin let za sljedeći mjesec“**, agent se zapetlja u stare, irelevantne detalje i stalno pita o vašoj opremi za backpacking ili prošlim itinerarima, zanemarujući vaš trenutni zahtjev.
+**Primjer rezervacije putovanja:** Dugo ste razgovarali o različitim destinacijama za sanjarenje o putovanju, uključujući detaljan opis vašeg putovanja s ruksakom od prije dvije godine. Kada konačno zatražite **"pronađi mi jeftin let za sljedeći mjesec,"** agent se gubi u starim, irelevantnim detaljima i stalno vas pita o opremi za ruksak ili prošlim itinerarima, zanemarujući vaš trenutačni zahtjev.
 
-**Rješenje:** Nakon određenog broja zamjena ili kad kontekst postane prevelik, agent treba **sažeti najnovije i najvažnije dijelove razgovora** – fokusirajući se na vaše trenutačne datume putovanja i destinaciju – i koristiti taj skraćeni sažetak za sljedeći poziv LLM-u, odbacujući manje relevantnu povijesnu komunikaciju.
+**Rješenje:** Nakon određenog broja okretaja ili kada kontekst postane prevelik, agent bi trebao **sažeti najnovije i najrelevantnije dijelove razgovora** – fokusirajući se na vaše trenutne putne datume i odredište – i koristiti taj sažeti pregled za sljedeći poziv LLM-u, odbacujući manje relevantan povijesni razgovor.
 
-### Zabuna u kontekstu
+### Zbunjenost u kontekstu
 
 **Što je to:** Kada nepotreban kontekst, često u obliku previše dostupnih alata, uzrokuje da model generira loše odgovore ili poziva irelevantne alate. Manji modeli su posebno skloni tome.
 
-**Što učiniti:** Provedite **upravljanje alatima koristeći RAG tehnike**. Pohranite opise alata u vektor bazi podataka i odaberite _samo_ najrelevantnije alate za svaki specifični zadatak. Istraživanja pokazuju da je preporučeno ograničenje na manje od 30 alata.
+**Što učiniti:** Implementirati **upravljanje odabirom alata** koristeći RAG tehnike. Pohranite opise alata u vektorsku bazu podataka i odaberite _samo_ najrelevantnije alate za svaki konkretan zadatak. Istraživanja pokazuju da je idealno ograničiti odabir alata na manje od 30.
 
-**Primjer rezervacije putovanja:** Vaš agent ima pristup desecima alata: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations` itd. Pitate: **„Koji je najbolji način za kretanje po Parizu?“** Zbog velikog broja alata, agent se zbuni i pokuša pozvati `book_flight` _unutar_ Pariza ili `rent_car` iako preferirate javni prijevoz, jer se opisi alata mogu preklapati ili jednostavno ne zna koji je najbolji.
+**Primjer rezervacije putovanja:** Vaš agent ima pristup desecima alata: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations` itd. Pitate, **"Koji je najbolji način za kretanje po Parizu?"** Zbog velike količine alata, agent se zbuni i pokuša pozvati `book_flight` _unutar_ Pariza ili `rent_car` iako preferirate javni prijevoz, jer se opisi alata mogu preklapati ili jednostavno ne može razaznati najbolji.
 
-**Rješenje:** Koristite **RAG za pretraživanje opisa alata**. Kad pitate o kretanju po Parizu, sustav dinamički dohvaća _samo_ najrelevantnije alate kao što su `rent_car` ili `public_transport_info` na temelju vašeg upita, nudeći fokusirani "izbor" alata LLM-u.
+**Rješenje:** Koristiti **RAG nad opisima alata**. Kada pitate o kretanju po Parizu, sustav dinamički dohvaća _samo_ najrelevantnije alate poput `rent_car` ili `public_transport_info` na temelju vašeg upita, prikazujući fokusirani "set" alata LLM-u.
 
 ### Sukob u kontekstu
 
-**Što je to:** Kada u kontekstu postoje proturječne informacije, što dovodi do nedosljednog zaključivanja ili loših konačnih odgovora. To se često događa kada informacije dolaze fazno, a rani, netočni pretpostavke ostaju u kontekstu.
+**Što je to:** Kada unutar konteksta postoje proturječne informacije, što vodi do nekonzistentnog rezoniranja ili loših konačnih odgovora. Često se događa kada informacije pristižu u fazama, a rane, netočne pretpostavke ostaju u kontekstu.
 
-**Što učiniti:** Koristite **obrezivanje konteksta** i **prebacivanje van konteksta**. Obrezivanje znači uklanjanje zastarjelih ili sukobljenih informacija te dolaska novih detalja. Prebacivanje daje modelu zaseban "radni prostor" (scratchpad) za obradu informacija bez zatrpavanja glavnog konteksta.
+**Što učiniti:** Koristiti **rezanje konteksta** i **prekid**. Rezanje znači uklanjanje zastarjelih ili kontradiktornih informacija kako nove detalje dolaze. Prekid daje modelu zaseban radni prostor "radnog bloka" za obradu informacija bez neredanja glavnog konteksta.
 
-**Primjer rezervacije putovanja:** U početku agentu kažete: **„Želim letjeti u ekonomskoj klasi.“** Kasnije u razgovoru promijenite mišljenje i kažete: **„Zapravo, za ovo putovanje želim poslovnu klasu.“** Ako obje upute ostanu u kontekstu, agent može dobiti proturječne rezultate pretraživanja ili se zbuniti koju preferenciju treba dati prednost.
 
-**Rješenje:** Provedite **obrezivanje konteksta**. Kad nova uputa proturječi staroj, starija se uklanja ili eksplicitno nadjača u kontekstu. Alternativno, agent može koristiti **bilježnicu (scratchpad)** za usklađivanje sukobljenih preferencija prije donošenja odluke, osiguravajući da samo konačna, dosljedna uputa vodi njegove akcije.
+**Primjer rezervacije putovanja:** Isprva kažete svom agentu, **"Želim letjeti ekonomskom klasom."** Kasnije u razgovoru promijenite mišljenje i kažete, **"Zapravo, za ovo putovanje idemo poslovnom klasom."** Ako obje upute ostanu u kontekstu, agent bi mogao dobiti kontradiktorne rezultate pretrage ili se zbuniti koju preferenciju treba dati prioritet.
 
-## Imate još pitanja o inženjeringu konteksta?
+**Rješenje:** Implementirati **pruning konteksta**. Kada nova uputa proturječi starijoj, starija uputa se uklanja ili eksplicitno prepisuje u kontekstu. Alternativno, agent može koristiti **papir za bilješke** kako bi uskladio kontradiktorne preferencije prije donošenja odluke, osiguravajući da samo konačna, dosljedna uputa vodi njegove radnje.
 
-Pridružite se [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) da se povežete s drugim učenicima, sudjelujete na radnim satima i dobijete odgovore na pitanja o AI agentima.
+## Imate li još pitanja o inženjeringu konteksta?
+
+Pridružite se [Microsoft Foundry Discord](https://discord.com/invite/ATgtXmAS5D) da biste se upoznali s drugim učenicima, sudjelovali na radnim satima i dobili odgovore na pitanja o AI agentima.
+## Prethodna lekcija
+
+[Agentic Protocols](../11-agentic-protocols/README.md)
+
+## Sljedeća lekcija
+
+[Memory for AI Agents](../13-agent-memory/README.md)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Odricanje od odgovornosti**:
-Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo postići točnost, imajte na umu da automatizirani prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za ključne informacije preporučuje se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazumevanja ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+**Napomena**:
+Ovaj dokument je preveden korištenjem AI prevoditeljskog servisa [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati greške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za važne informacije preporuča se profesionalni ljudski prijevod. Nismo odgovorni za bilo kakva nesporazumevanja ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

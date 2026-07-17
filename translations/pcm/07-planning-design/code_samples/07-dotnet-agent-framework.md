@@ -1,63 +1,66 @@
-# 🎯 Planning & Design Patterns wit GitHub Models (.NET)
+# 🎯 Planning & Design Patterns wit Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Wetin You Go Learn
 
-Dis notebook dey show enterprise-level planning and design patterns wey you fit use build smart agents wit Microsoft Agent Framework for .NET wit GitHub Models. You go learn how to create agents wey fit break down big problems, plan step-by-step solutions, and run advanced workflows wit .NET enterprise features.
+Dis notebook dey show how to plan and design tin dem wey big company fit use to build smart agents with Microsoft Agent Framework for .NET wit Azure OpenAI (Responses API). You go learn how to create agents wey fit break complex wahala down, plan how to solve am for many steps, and run better fine workflows wit ÐOTNET enterprise features.
 
-## ⚙️ Wetin You Need & Setup
+## ⚙️ Wetin You Need & How To Setup
 
 **Development Environment:**
-- .NET 9.0 SDK or higher
-- Visual Studio 2022 or VS Code wit C# extension
-- GitHub Models API access
+- .NET 9.0 SDK or more
+- Visual Studio 2022 or VS Code with C# extension
+- Azure subscription wit Azure OpenAI resource and model deployment
+- Azure CLI — login wit `az login`
 
-**Required Dependencies:**
+**Dependencies We Need:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Environment Configuration (.env file):**
+**Environment Config (.env file):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
 ```
 
-## How to Run Di Code
+## How To Run The Code
 
 Dis lesson get .NET Single File App implementation. To run am:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Make di file fit run (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Run di app
 ./07-dotnet-agent-framework.cs
 ```
 
-Or use di dotnet run command:
+Or use dotnet run command:
 
 ```bash
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Code Implementation
+## How Di Code Dem Work
 
-Di full implementation dey inside `07-dotnet-agent-framework.cs`, e dey show:
+Full implement dey for `07-dotnet-agent-framework.cs`, wey show:
 
-- How to load environment configuration wit DotNetEnv
-- How to configure OpenAI client for GitHub Models
+- How to load environment config wit DotNetEnv
+- How to set Azure OpenAI client and create AI agent using `GetChatClient().AsAIAgent()`
 - How to define structured data models (Plan and TravelPlan) wit JSON serialization
-- How to create AI agent wey dey give structured output wit JSON schema
-- How to run planning requests wit type-safe responses
+- How to create AI agent wit structured output using JSON schema
+- How to run planning requests with type-safe responses
 
-## Key Concepts
+## Important Ideas
 
-### Structured Planning wit Type-Safe Models
+### Structured Planning Wit Type-Safe Models
 
-Di agent dey use C# classes to define di structure of planning outputs:
+Di agent dey use C# classes to define how planning outputs go look like:
 
 ```csharp
 public class Plan
@@ -79,13 +82,15 @@ public class TravelPlan
 }
 ```
 
-### JSON Schema for Structured Outputs
+### JSON Schema For Structured Outputs
 
-Di agent dey configured to return responses wey match di TravelPlan schema:
+Di agent dey configured to return answers wey match di TravelPlan schema:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,24 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Planning Agent Instructions
+### Instructions for Planning Agent
 
-Di agent dey act like coordinator, e dey share tasks give specialized sub-agents:
+Di agent dey work as coordinator, e dey send work go to special sub-agents:
 
-- FlightBooking: To book flights and provide flight info
-- HotelBooking: To book hotels and provide hotel info
-- CarRental: To book cars and provide car rental info
-- ActivitiesBooking: To book activities and provide activity info
-- DestinationInfo: To provide info about destinations
-- DefaultAgent: To handle general requests
+- FlightBooking: For book flight and give flight info
+- HotelBooking: For book hotel and give hotel info
+- CarRental: For book car and give car rental info
+- ActivitiesBooking: For book activities and give activity info
+- DestinationInfo: For give info about destinations
+- DefaultAgent: For handle general requests
 
-## Wetin You Go See
+## Wetin You Go See As Output
 
-When you run di agent wit travel planning request, e go analyze di request and generate structured plan wit correct task assignments to di specialized agents, e go format am as JSON wey match di TravelPlan schema.
+When you run agent wit travel planning request, e go check di request and create one structured plan wit beta task assignations to di special agents, e go format am as JSON wey follow di TravelPlan schema.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Dis dokyument don use AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator) do di translation. Even as we dey try make am accurate, abeg sabi say automated translations fit get mistake or no dey correct well. Di original dokyument for im native language na di one wey you go take as di correct source. For important information, e good make professional human translation dey use. We no go fit take blame for any misunderstanding or wrong interpretation wey fit happen because you use dis translation.
+**Disclaimer**:
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you know say automated translation fit get errors or mistakes. Di original document for dia own language na im be di correct source. For important info, make person wey sabi human translation do am. We no go responsible for any misunderstanding or wrong understanding wey fit happen because of dis translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

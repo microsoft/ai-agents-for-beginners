@@ -1,39 +1,42 @@
-# 🎯 Načrtovanje in vzorci oblikovanja z modeli GitHub (.NET)
+# 🎯 Načrtovanje in vzorci oblikovanja z Azure OpenAI (Responses API) (.NET)
 
 ## 📋 Cilji učenja
 
-Ta zvezek prikazuje načrtovanje in vzorce oblikovanja na ravni podjetja za gradnjo inteligentnih agentov z uporabo Microsoft Agent Framework v .NET z modeli GitHub. Naučili se boste ustvariti agente, ki lahko razčlenijo kompleksne probleme, načrtujejo rešitve v več korakih in izvajajo sofisticirane delovne tokove z uporabo funkcij na ravni podjetja v .NET.
+Ta zvezek prikazuje načrte in vzorce oblikovanja na ravni podjetja za izdelavo pametnih agentov z uporabo Microsoft Agent Framework v .NET z Azure OpenAI (Responses API). Naučili se boste ustvarjati agente, ki lahko razbijejo kompleksne probleme, načrtujejo večstopenjske rešitve in izvajajo zapletene poteke dela z uporabo podjetniških funkcij .NET.
 
-## ⚙️ Predpogoji in nastavitev
+## ⚙️ Zahteve in nastavitev
 
 **Razvojno okolje:**
 - .NET 9.0 SDK ali novejši
-- Visual Studio 2022 ali VS Code z razširitvijo za C#
-- Dostop do API-ja modelov GitHub
+- Visual Studio 2022 ali VS Code s C# razširitvijo
+- Azure naročnina z Azure OpenAI virom in namestitvijo modela
+- Azure CLI — prijava z `az login`
 
-**Potrebne odvisnosti:**
+**Zahtevane odvisnosti:**
 ```xml
-<PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
-<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+<PackageReference Include="Microsoft.Extensions.AI" Version="10.*" />
+<PackageReference Include="Microsoft.Agents.AI" Version="1.*-*" />
+<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.*-*" />
+<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+<PackageReference Include="Azure.Identity" Version="1.13.1" />
 <PackageReference Include="DotNetEnv" Version="3.1.1" />
 ```
 
-**Konfiguracija okolja (.env datoteka):**
+**Konfiguracija okolja (datoteka .env):**
 ```env
-GITHUB_TOKEN=your_github_personal_access_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
 ```
 
 ## Zagon kode
 
-Ta lekcija vključuje implementacijo aplikacije .NET Single File. Za zagon:
+Ta lekcija vsebuje izvedbo aplikacije .NET Single File App. Za zagon:
 
 ```bash
-# Make the file executable (Linux/macOS)
+# Naredite datoteko izvedljivo (Linux/macOS)
 chmod +x 07-dotnet-agent-framework.cs
 
-# Run the application
+# Zaženite aplikacijo
 ./07-dotnet-agent-framework.cs
 ```
 
@@ -43,21 +46,21 @@ Ali uporabite ukaz dotnet run:
 dotnet run 07-dotnet-agent-framework.cs
 ```
 
-## Implementacija kode
+## Izvedba kode
 
-Celotna implementacija je na voljo v `07-dotnet-agent-framework.cs`, ki prikazuje:
+Celotna izvedba je na voljo v `07-dotnet-agent-framework.cs`, kjer je prikazano:
 
 - Nalaganje konfiguracije okolja z DotNetEnv
-- Konfiguriranje OpenAI odjemalca za modele GitHub
+- Konfiguracija Azure OpenAI odjemalca in ustvarjanje AI agenta z `GetChatClient().AsAIAgent()`
 - Definiranje strukturiranih podatkovnih modelov (Plan in TravelPlan) z JSON serializacijo
 - Ustvarjanje AI agenta s strukturiranim izhodom z uporabo JSON sheme
-- Izvajanje načrtovalnih zahtev z odgovori, ki so varni glede na tip
+- Izvajanje načrtovalskih zahtev z varnimi odgovori glede na tip
 
-## Ključni koncepti
+## Ključni pojmi
 
-### Strukturirano načrtovanje z modeli, varnimi glede na tip
+### Strukturirano načrtovanje z varnimi modeli
 
-Agent uporablja C# razrede za definiranje strukture izhodov načrtovanja:
+Agent uporablja C# razrede za definiranje strukture načrtovalnih izhodov:
 
 ```csharp
 public class Plan
@@ -81,11 +84,13 @@ public class TravelPlan
 
 ### JSON shema za strukturirane izhode
 
-Agent je konfiguriran za vračanje odgovorov, ki ustrezajo shemi TravelPlan:
+Agent je nastavljen tako, da vrača odgovore, ki ustrezajo shemi TravelPlan:
 
 ```csharp
-ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_INSTRUCTIONS)
+ChatClientAgentOptions agentOptions = new()
 {
+    Name = AGENT_NAME,
+    Description = AGENT_INSTRUCTIONS,
     ChatOptions = new()
     {
         ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
@@ -96,22 +101,24 @@ ChatClientAgentOptions agentOptions = new(name: AGENT_NAME, instructions: AGENT_
 };
 ```
 
-### Navodila za načrtovalnega agenta
+### Navodila načrtovalnemu agentu
 
-Agent deluje kot koordinator, ki naloge delegira specializiranim pod-agentom:
+Agent deluje kot koordinator in delegira naloge specializiranim podagentom:
 
 - FlightBooking: Za rezervacijo letov in zagotavljanje informacij o letih
 - HotelBooking: Za rezervacijo hotelov in zagotavljanje informacij o hotelih
 - CarRental: Za rezervacijo avtomobilov in zagotavljanje informacij o najemu avtomobilov
 - ActivitiesBooking: Za rezervacijo aktivnosti in zagotavljanje informacij o aktivnostih
 - DestinationInfo: Za zagotavljanje informacij o destinacijah
-- DefaultAgent: Za obravnavo splošnih zahtev
+- DefaultAgent: Za obdelavo splošnih zahtev
 
 ## Pričakovani izhod
 
-Ko zaženete agenta z zahtevo za načrtovanje potovanja, bo analiziral zahtevo in ustvaril strukturiran načrt z ustreznimi dodelitvami nalog specializiranim agentom, formatiran kot JSON, ki ustreza shemi TravelPlan.
+Ko zaženete agenta z zahtevo za načrtovanje potovanja, bo ta analiziral zahtevo in ustvaril strukturiran načrt z ustrezno dodelitvijo nalog specializiranim agentom, formatirano kot JSON, ki ustreza shemi TravelPlan.
 
 ---
 
-**Omejitev odgovornosti**:  
-Ta dokument je bil preveden z uporabo storitve za prevajanje AI [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem maternem jeziku naj se šteje za avtoritativni vir. Za ključne informacije priporočamo profesionalni človeški prevod. Ne odgovarjamo za morebitna nesporazumevanja ali napačne razlage, ki izhajajo iz uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Omejitev odgovornosti**:
+Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas prosimo, da upoštevate, da avtomatizirani prevodi lahko vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku je treba obravnavati kot avtoritativni vir. Za kritične informacije je priporočljiv strokovni človeški prevod. Ne odgovarjamo za morebitna nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

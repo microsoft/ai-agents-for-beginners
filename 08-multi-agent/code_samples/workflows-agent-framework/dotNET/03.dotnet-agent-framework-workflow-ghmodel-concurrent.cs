@@ -1,6 +1,6 @@
 #!/usr/bin/dotnet run
 #:package Microsoft.Extensions.AI@9.9.1
-#:package System.ClientModel@1.6.1.0
+#:package Azure.AI.OpenAI@2.1.0
 #:package Azure.Identity@1.15.0
 #:package System.Linq.Async@6.0.3
 #:package OpenTelemetry.Api@1.0.0
@@ -10,8 +10,7 @@
 
 using System;
 using System.ComponentModel;
-using System.ClientModel;
-using OpenAI;
+using Azure.AI.OpenAI;
 using Azure.Identity;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
@@ -22,19 +21,12 @@ using DotNetEnv;
 // Load environment variables from .env file
 Env.Load("../../../.env");
 
-// Configure GitHub Models endpoint and credentials
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = "gpt-4o";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-5-mini";
 
-// Configure OpenAI client options with GitHub Models endpoint
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Create OpenAI client with API key credential
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Researcher Agent for concurrent execution
 const string ResearcherAgentName = "Researcher-Agent";
@@ -45,9 +37,9 @@ const string PlanAgentName = "Plan-Agent";
 const string PlanAgentInstructions = "You are my travel planner, working with me to create a detailed travel plan based on the researcher's findings.";
 
 // Create AI agents for concurrent workflow
-AIAgent researcherAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent researcherAgent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name: ResearcherAgentName, instructions: ResearcherAgentInstructions);
-AIAgent plannerAgent = openAIClient.GetChatClient(github_model_id).CreateAIAgent(
+AIAgent plannerAgent = azureClient.GetOpenAIResponseClient(deployment).CreateAIAgent(
     name: PlanAgentName, instructions: PlanAgentInstructions);
 
 // Create custom executor instances

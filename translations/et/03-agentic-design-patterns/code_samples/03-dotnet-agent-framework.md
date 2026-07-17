@@ -1,145 +1,148 @@
-# 🎨 Agentlikud disainimustrid GitHubi mudelitega (.NET)
+# 🎨 Agentide kujundusmustritest Azure OpenAI (Responses API) abil (.NET)
 
 ## 📋 Õpieesmärgid
 
-See näide tutvustab ettevõtte tasemel disainimustreid intelligentsete agentide loomiseks, kasutades Microsoft Agent Frameworki .NET-is koos GitHubi mudelite integreerimisega. Õpid professionaalseid mustreid ja arhitektuurilisi lähenemisi, mis muudavad agendid tootmisvalmis, hooldatavaks ja skaleeritavaks.
+See näide demonstreerib ettevõtte tasemel disainimustreid intelligentsete agentide loomiseks Microsoft Agent Frameworki abil .NET-is, kasutades Azure OpenAI (Responses API) integratsiooni. Õpid professionaalseid mustreid ja arhitektuurilisi lähenemisviise, mis muudavad agendid tootmiseks valmis, hooldatavateks ja skaleeritavateks.
 
-### Ettevõtte disainimustrid
+### Ettevõtte tasemel disainimustrid
 
-- 🏭 **Tehase muster**: Standardiseeritud agentide loomine sõltuvuste süstimisega
-- 🔧 **Ehitusmuster**: Sujuv agentide konfigureerimine ja seadistamine
-- 🧵 **Lõimeohutud mustrid**: Samaaegne vestluste haldamine
-- 📋 **Repository muster**: Tööriistade ja võimekuste organiseeritud haldamine
+- 🏭 **Factory Pattern**: Standardiseeritud agentide loomine sõltuvussüstimisega
+- 🔧 **Builder Pattern**: Fluent agentide konfigureerimine ja seadistamine
+- 🧵 **Thread-Safe Patterns**: Kõrgsagedusliku vestluse haldamine
+- 📋 **Repository Pattern**: Kõigi tööriistade ja võimete organiseeritud haldamine
 
-## 🎯 .NET-i spetsiifilised arhitektuurilised eelised
+## 🎯 .NET-spetsiifilised arhitektuursed eelised
 
 ### Ettevõtte funktsioonid
 
-- **Tugev tüüpimine**: Kompileerimise ajal valideerimine ja IntelliSense tugi
-- **Sõltuvuste süstimine**: Sisseehitatud DI konteineri integreerimine
+- **Tugev tüübistus**: Kompileerimisaegne valideerimine ja IntelliSense tugi
+- **Sõltuvuste süstimine**: Sisseehitatud DI konteineri integratsioon
 - **Konfiguratsiooni haldamine**: IConfiguration ja Options mustrid
-- **Async/Await**: Esmaklassiline asünkroonne programmeerimise tugi
+- **Async/Await**: Esmaklassiline asünkroonne programmeerimine
 
-### Tootmisvalmis mustrid
+### Tootmiseks valmis mustrid
 
-- **Logimise integreerimine**: ILogger ja struktureeritud logimise tugi
+- **Logimise integratsioon**: ILogger ja struktureeritud logimine
 - **Tervisekontrollid**: Sisseehitatud jälgimine ja diagnostika
-- **Konfiguratsiooni valideerimine**: Tugev tüüpimine andmeannotatsioonidega
-- **Vigade käsitlemine**: Struktureeritud erandite haldamine
+- **Konfiguratsiooni valideerimine**: Tugev tüübistus koos andmeannotatsioonidega
+- **Vigade käsitlemine**: Struktureeritud erindite haldus
 
 ## 🔧 Tehniline arhitektuur
 
-### Põhilised .NET komponendid
+### Core .NET komponendid
 
-- **Microsoft.Extensions.AI**: Ühtlustatud AI teenuste abstraktsioonid
-- **Microsoft.Agents.AI**: Ettevõtte agentide orkestreerimise raamistik
-- **GitHubi mudelite integreerimine**: Kõrge jõudlusega API kliendi mustrid
-- **Konfiguratsioonisüsteem**: appsettings.json ja keskkonna integreerimine
+- **Microsoft.Extensions.AI**: Ühtsed tehisintellekti teenuste abstraktsioonid
+- **Microsoft.Agents.AI**: Ettevõtte tasemel agentide orkestreerimise raamistik
+- **Azure OpenAI (Responses API)**: Kõrgtulemuslikkusega API kliendimustrid
+- **Konfiguratsioonisüsteem**: appsettings.json ja keskkonnaintegratsioon
 
 ### Disainimustri rakendamine
 
 ```mermaid
 graph LR
-    A[IServiceCollection] --> B[Agent Builder]
-    B --> C[Configuration]
-    C --> D[Tool Registry]
-    D --> E[AI Agent]
+    A[IServiceCollection] --> B[Agendi koostaja]
+    B --> C[Konfiguratsioon]
+    C --> D[Tööriistade registri]
+    D --> E[TE agent]
 ```
 
-## 🏗️ Näidatud ettevõtte mustrid
+## 🏗️ Näidatud ettevõtte tasemel mustrid
 
 ### 1. **Loomismustrid**
 
-- **Agent Factory**: Keskne agentide loomine järjepideva konfiguratsiooniga
-- **Ehitusmuster**: Sujuv API keerukate agentide konfigureerimiseks
-- **Singleton muster**: Jagatud ressursside ja konfiguratsiooni haldamine
-- **Sõltuvuste süstimine**: Lõdvalt seotud ja testitav
+- **Agentide tehas**: Keskne agentide loomine järjepideva konfiguratsiooniga
+- **Builder Pattern**: Fluent API keerukate agentide konfigureerimiseks
+- **Singleton Pattern**: Jagatud ressursid ja konfiguratsiooni haldus
+- **Sõltuvuste süstimine**: Lahtine sidumine ja testitavus
 
-### 2. **Käitumismustrid**
+### 2. **Käitumuslikud mustrid**
 
-- **Strateegia muster**: Vahetatavad tööriistade täitmise strateegiad
-- **Käsu muster**: Kapseldatud agentide operatsioonid koos undo/redo funktsiooniga
-- **Vaatleja muster**: Sündmustepõhine agentide elutsükli haldamine
-- **Mallimeetod**: Standardiseeritud agentide täitmise töövood
+- **Strategy Pattern**: Vahetatavad tööriistade täitmisstrateegiad
+- **Command Pattern**: Agentide toimingute kapseldamine koos tagasivõtu/väljaheiduga
+- **Observer Pattern**: Sündmustepõhine agentide elutsükli haldus
+- **Template Method**: Standardiseeritud agentide tööprotsessid
 
-### 3. **Struktuurimustrid**
+### 3. **Struktuurilised mustrid**
 
-- **Adapteri muster**: GitHubi mudelite API integreerimise kiht
-- **Dekoraatori muster**: Agentide võimekuse täiustamine
-- **Fassaadi muster**: Lihtsustatud agentide interaktsiooni liidesed
-- **Proksi muster**: Laisk laadimine ja vahemälu jõudluse parandamiseks
+- **Adapter Pattern**: Azure OpenAI (Responses API) integratsioonikiht
+- **Decorator Pattern**: Agentide võimete täiustamine
+- **Facade Pattern**: Lihtsustatud agentide interaktsiooniliidesed
+- **Proxy Pattern**: Laisk laadimine ja vahemällu salvestamine jõudluse parandamiseks
 
-## 📚 .NET-i disainiprintsiibid
+## 📚 .NET disainipõhimõtted
 
-### SOLID printsiibid
+### SOLID põhimõtted
 
-- **Üksiku vastutuse**: Igal komponendil on üks selge eesmärk
-- **Avatud/Suletud**: Laiendatav ilma muutmiseta
-- **Liskovi asendatavus**: Liidese põhised tööriistade rakendused
-- **Liidese eraldamine**: Keskendunud ja sidusad liidesed
-- **Sõltuvuste inversioon**: Tugineda abstraktsioonidele, mitte konkreetsetele rakendustele
+- **Üks vastutusala**: Iga komponentil on üks selge eesmärk
+- **Avatud/suletud**: Laiendatav ilma muutmiseta
+- **Liskov asendatavus**: Liidese-põhised tööriistade rakendused
+- **Liideste ühepäritus**: Fokusseeritud, ühtsed liidesed
+- **Sõltuvuste inversioon**: Sõltumine abstraktsioonidest, mitte konkreetsetest
 
 ### Puhas arhitektuur
 
-- **Domeeni kiht**: Põhilised agentide ja tööriistade abstraktsioonid
-- **Rakenduse kiht**: Agentide orkestreerimine ja töövood
-- **Infrastruktuuri kiht**: GitHubi mudelite integreerimine ja välised teenused
-- **Esitluse kiht**: Kasutaja interaktsioon ja vastuste vormindamine
+- **Domeenikiht**: Agentide ja tööriistade põhialused
+- **Rakendusekiht**: Agentide orkestreerimine ja töövood
+- **Taristu kiht**: Azure OpenAI (Responses API) integratsioon ja välisteenused
+- **Esitluskiht**: Kasutajaliides ja vastuste vormindamine
 
 ## 🔒 Ettevõtte kaalutlused
 
 ### Turvalisus
 
-- **Mandaatide haldamine**: Turvaline API võtmete käsitlemine IConfiguration abil
-- **Sisendi valideerimine**: Tugev tüüpimine ja andmeannotatsioonide valideerimine
-- **Väljundi puhastamine**: Turvaline vastuste töötlemine ja filtreerimine
-- **Auditilogimine**: Põhjalik operatsioonide jälgimine
+- **Mandaatide haldamine**: Turvaline API võtme haldus koos IConfiguration-iga
+- **Sissendite valideerimine**: Tugev tüübistus ja andmeannotatsioonide valideerimine
+- **Väljundi puhastus**: Turvaline vastuste töötlemine ja filtreerimine
+- **Auditilogimine**: Ülevaatlik tegevuste jälgimine
 
 ### Jõudlus
 
-- **Asünkroonsed mustrid**: Mitteblokeerivad I/O operatsioonid
-- **Ühenduste bassein**: Tõhus HTTP kliendi haldamine
-- **Vahemälu**: Vastuste vahemälu jõudluse parandamiseks
-- **Ressursside haldamine**: Õige ressursside vabastamine ja puhastamine
+- **Asünkroonsete mustrite kasutamine**: Mitteblokeerivad I/O operatsioonid
+- **Ühenduse haldamine**: Tõhus HTTP kliendi haldus
+- **Vahemällu salvestamine**: Vastuste vahemällu salvestamine jõudluse parandamiseks
+- **Resursside haldamine**: Õige eraldamine ja puhastamise mustrid
 
-### Skaleeritavus
+### Skaalautuvus
 
-- **Lõimeohutus**: Samaaegne agentide täitmise tugi
-- **Ressursside bassein**: Tõhus ressursside kasutamine
-- **Koormuse haldamine**: Kiiruse piiramine ja tagasisurve käsitlemine
+- **Traadvabadus**: Konkureerivate agentide täitmise tugi
+- **Resursside jagamine**: Tõhus ressursside kasutamine
+- **Koormuse juhtimine**: Kiiruspiirangud ja tagurõhu haldus
 - **Jälgimine**: Jõudlusmõõdikud ja tervisekontrollid
 
-## 🚀 Tootmisele juurutamine
+## 🚀 Tootmisesse juurutamine
 
-- **Konfiguratsiooni haldamine**: Keskkonnaspetsiifilised seaded
-- **Logimise strateegia**: Struktureeritud logimine koos korrelatsiooni ID-dega
-- **Vigade käsitlemine**: Üldine erandite käsitlemine koos õige taastamisega
-- **Jälgimine**: Rakenduse ülevaated ja jõudlusloendurid
-- **Testimine**: Üksustestid, integratsioonitestid ja koormustestimise mustrid
+- **Konfiguratsiooni haldamine**: Keskkonnapõhised seaded
+- **Logimise strateegia**: Struktureeritud logimine seose-ID-dega
+- **Vigade käsitlemine**: Globaalne erandite haldus ja korrektne taastumine
+- **Jälgimine**: Rakenduse ülevaated ja jõudluslõpmikud
+- **Testimine**: Ühiktestid, integratsioonitestid ja koormustestimise mustrid
 
-Valmis looma ettevõtte tasemel intelligentseid agente .NET-is? Kujundame midagi vastupidavat! 🏢✨
+Kas oled valmis looma ettevõtte tasemel intelligentseid agente .NET-is? Kujundame midagi tugevat! 🏢✨
 
 ## 🚀 Alustamine
 
 ### Eeltingimused
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) või uuem
-- [GitHub Models API juurdepääsuvõti](https://docs.github.com/github-models/github-models-at-scale/using-your-own-api-keys-in-github-models)
+- [Azure tellimus](https://azure.microsoft.com/free/) koos Azure OpenAI ressursi ja mudelite juurutusega
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) — logi sisse käsuga `az login`
 
 ### Nõutavad keskkonnamuutujad
 
 ```bash
 # zsh/bash
-export GH_TOKEN=<your_github_token>
-export GH_ENDPOINT=https://models.github.ai/inference
-export GH_MODEL_ID=openai/gpt-5-mini
+export AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com
+export AZURE_OPENAI_DEPLOYMENT=gpt-4.1-mini
+# Seejärel logi sisse, et AzureCliCredential saaks tokeni kätte
+az login
 ```
 
 ```powershell
 # PowerShell
-$env:GH_TOKEN = "<your_github_token>"
-$env:GH_ENDPOINT = "https://models.github.ai/inference"
-$env:GH_MODEL_ID = "openai/gpt-5-mini"
+$env:AZURE_OPENAI_ENDPOINT = "https://<your-resource>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "gpt-4.1-mini"
+# Seejärel logi sisse, et AzureCliCredential saaks tokeni saada
+az login
 ```
 
 ### Näidiskood
@@ -158,21 +161,23 @@ Või kasutades dotnet CLI-d:
 dotnet run ./03-dotnet-agent-framework.cs
 ```
 
-Vaata [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs) täieliku koodi jaoks.
+Vaata täielikku koodi failist [`03-dotnet-agent-framework.cs`](../../../../03-agentic-design-patterns/code_samples/03-dotnet-agent-framework.cs).
 
 ```csharp
 #!/usr/bin/dotnet run
 
 #:package Microsoft.Extensions.AI@10.*
 #:package Microsoft.Agents.AI.OpenAI@1.*-*
+#:package Azure.AI.OpenAI@2.1.0
+#:package Azure.Identity@1.13.1
 
-using System.ClientModel;
 using System.ComponentModel;
 
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
-using OpenAI;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 
 // Tool Function: Random Destination Generator
 // This static method will be available to the agent as a callable tool
@@ -204,26 +209,12 @@ static string GetRandomDestination()
     return destinations[index];
 }
 
-// Extract configuration from environment variables
-// Retrieve the GitHub Models API endpoint, defaults to https://models.github.ai/inference if not specified
-// Retrieve the model ID, defaults to openai/gpt-5-mini if not specified
-// Retrieve the GitHub token for authentication, throws exception if not specified
-var github_endpoint = Environment.GetEnvironmentVariable("GH_ENDPOINT") ?? "https://models.github.ai/inference";
-var github_model_id = Environment.GetEnvironmentVariable("GH_MODEL_ID") ?? "openai/gpt-5-mini";
-var github_token = Environment.GetEnvironmentVariable("GH_TOKEN") ?? throw new InvalidOperationException("GH_TOKEN is not set.");
+// Azure OpenAI with the Responses API (stable v1 endpoint). Sign in with `az login`.
+var azureEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+    ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT") ?? "gpt-4.1-mini";
 
-// Configure OpenAI Client Options
-// Create configuration options to point to GitHub Models endpoint
-// This redirects OpenAI client calls to GitHub's model inference service
-var openAIOptions = new OpenAIClientOptions()
-{
-    Endpoint = new Uri(github_endpoint)
-};
-
-// Initialize OpenAI Client with GitHub Models Configuration
-// Create OpenAI client using GitHub token for authentication
-// Configure it to use GitHub Models endpoint instead of OpenAI directly
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+var azureClient = new AzureOpenAIClient(new Uri(azureEndpoint), new AzureCliCredential());
 
 // Define Agent Identity and Comprehensive Instructions
 // Agent name for identification and logging purposes
@@ -249,28 +240,28 @@ Always prioritize user preferences. If they mention a specific destination like 
 """;
 
 // Create AI Agent with Advanced Travel Planning Capabilities
-// Initialize complete agent pipeline: OpenAI client → Chat client → AI agent
+// Get the Responses client for the deployment and create the AI agent
 // Configure agent with name, detailed instructions, and available tools
 // This demonstrates the .NET agent creation pattern with full configuration
-AIAgent agent = openAIClient
-    .GetChatClient(github_model_id)
-    .CreateAIAgent(
+AIAgent agent = azureClient
+    .GetChatClient(deployment)
+    .AsAIAgent(
         name: AGENT_NAME,
         instructions: AGENT_INSTRUCTIONS,
         tools: [AIFunctionFactory.Create(GetRandomDestination)]
     );
 
-// Create New Conversation Thread for Context Management
-// Initialize a new conversation thread to maintain context across multiple interactions
-// Threads enable the agent to remember previous exchanges and maintain conversational state
+// Create New Conversation Session for Context Management
+// Initialize a new conversation session to maintain context across multiple interactions
+// Sessions enable the agent to remember previous exchanges and maintain conversational state
 // This is essential for multi-turn conversations and contextual understanding
-AgentThread thread = agent.GetNewThread();
+var session = await agent.CreateSessionAsync();
 
 // Execute Agent: First Travel Planning Request
 // Run the agent with an initial request that will likely trigger the random destination tool
 // The agent will analyze the request, use the GetRandomDestination tool, and create an itinerary
-// Using the thread parameter maintains conversation context for subsequent interactions
-await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", thread))
+// Using the session parameter maintains conversation context for subsequent interactions
+await foreach (var update in agent.RunStreamingAsync("Plan me a day trip", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -281,8 +272,8 @@ Console.WriteLine();
 // Execute Agent: Follow-up Request with Context Awareness
 // Demonstrate contextual conversation by referencing the previous response
 // The agent remembers the previous destination suggestion and will provide an alternative
-// This showcases the power of conversation threads and contextual understanding in .NET agents
-await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", thread))
+// This showcases the power of conversation sessions and contextual understanding in .NET agents
+await foreach (var update in agent.RunStreamingAsync("I don't like that destination. Plan me another vacation.", session))
 {
     await Task.Delay(10);
     Console.Write(update);
@@ -292,6 +283,6 @@ await foreach (var update in agent.RunStreamingAsync("I don't like that destinat
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Lahtiütlus**:  
-See dokument on tõlgitud AI tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palume arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle algses keeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgenduste eest.
+**Lahtiütlus**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüdleme täpsuse poole, palun pange tähele, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlkega seotud eksimustest või valesti mõistmistest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
